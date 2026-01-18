@@ -1,0 +1,27 @@
+.ph-portrait-container:hover, .ph-portrait-container:focus, .ph-portrait-container.pressed {
+  transform: scale(1.1);
+}
+
+.ph-title-container {
+  width: 14.4444444444rem;
+}
+
+.ph-highlight {
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0));
+  opacity: 0;
+}
+
+.ph-micro-background {
+  background: linear-gradient(#333640, #4c5366);
+  border-style: solid;
+  border-width: 0.1111111111rem;
+  border-image: linear-gradient(to bottom, #8c7e62, #4c473d) 1;
+}
+.ph-micro-background:hover, .ph-micro-background:focus, .ph-micro-background.pressed {
+  transform: scale(1.1);
+  border-image: linear-gradient(to bottom, #e5d2ac, #8c7e62) 1;
+}
+
+.ph-use-highlight:hover .ph-highlight, .ph-use-highlight:focus .ph-highlight, .ph-use-highlight.pressed .ph-highlight {
+  opacity: 0.4;
+}

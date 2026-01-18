@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Types>
+		<!--Civ Unique Mastery Trees-->
+		<Row Type="TREE_CIVICS_EX_ICELAND" Kind="KIND_TREE"/>
+		<!--Civ Unique Mastery Tree Nodes-->
+		<Row Type="NODE_CIVIC_EX_ICELAND_LANDNAMABOK" Kind="KIND_TREE_NODE"/>
+		<Row Type="NODE_CIVIC_EX_ICELAND_VAERINGJAR" Kind="KIND_TREE_NODE"/>
+		<Row Type="NODE_CIVIC_EX_ICELAND_HUGINS_DREKKA" Kind="KIND_TREE_NODE"/>
+		<Row Type="NODE_CIVIC_EX_ICELAND_THJODVELDID" Kind="KIND_TREE_NODE"/>
+	</Types>
+	<TypeQuotes>
+		<Row Type="NODE_CIVIC_EX_ICELAND_LANDNAMABOK" Quote="LOC_CIVIC_LANDNAMABOK_QUOTE" QuoteAuthor="LOC_CIVIC_LANDNAMABOK_AUTHOR" QuoteAudio="VO_Quote_Landnamabok"/>
+		<Row Type="NODE_CIVIC_EX_ICELAND_VAERINGJAR" Quote="LOC_CIVIC_VAERINGJAR_QUOTE" QuoteAuthor="LOC_CIVIC_VAERINGJAR_AUTHOR" QuoteAudio="VO_Quote_Vaeringjar"/>
+		<Row Type="NODE_CIVIC_EX_ICELAND_HUGINS_DREKKA" Quote="LOC_CIVIC_HUGINS_DREKKA_QUOTE" QuoteAuthor="LOC_CIVIC_HUGINS_DREKKA_AUTHOR" QuoteAudio="VO_Quote_HuginsDrekka"/>
+		<Row Type="NODE_CIVIC_EX_ICELAND_THJODVELDID" Quote="LOC_CIVIC_THJODVELDID_QUOTE" QuoteAuthor="LOC_CIVIC_THJODVELDID_AUTHOR" QuoteAudio="VO_Quote_Thjodveldid"/>
+	</TypeQuotes>
+	<ProgressionTrees>
+		<!--Civ Unique Mastery Trees-->
+		<Row ProgressionTreeType="TREE_CIVICS_EX_ICELAND" AgeType="AGE_EXPLORATION" SystemType="SYSTEM_CULTURE" Name="LOC_TREE_CIVICS_EX_ICELAND_NAME"/>
+	</ProgressionTrees>
+	<ProgressionTreeNodes>
+		<!--Civ Unique Mastery Tree Nodes-->
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_ICELAND_LANDNAMABOK" ProgressionTree="TREE_CIVICS_EX_ICELAND" Cost="800" Name="LOC_CIVIC_LANDNAMABOK_NAME" IconString="cult_iceland"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_ICELAND_HUGINS_DREKKA" ProgressionTree="TREE_CIVICS_EX_ICELAND" Cost="1200" Name="LOC_CIVIC_HUGINS_DREKKA_NAME" IconString="cult_iceland" />
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_ICELAND_VAERINGJAR" ProgressionTree="TREE_CIVICS_EX_ICELAND" Cost="1200" Name="LOC_CIVIC_VAERINGJAR_NAME" IconString="cult_iceland" />
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_ICELAND_THJODVELDID" ProgressionTree="TREE_CIVICS_EX_ICELAND" Cost="2000" Name="LOC_CIVIC_THJODVELDID_NAME" IconString="cult_iceland" />
+	</ProgressionTreeNodes>
+	<ProgressionTreeNodeUnlocks>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_MAIN_SOCIETY" TargetKind="KIND_CONSTRUCTIBLE" TargetType="WONDER_REYKHOLT" UnlockDepth="2"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_ICELAND_LANDNAMABOK" TargetKind="KIND_MODIFIER" TargetType="MOD_LANDNAMBOK_RELIC_CIVIC_MASTERY" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_ICELAND_LANDNAMABOK" TargetKind="KIND_CONSTRUCTIBLE" TargetType="IMPROVEMENT_THING" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_ICELAND_LANDNAMABOK" TargetKind="KIND_TRADITION" TargetType="TRADITION_DREKAHOFUD" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_ICELAND_LANDNAMABOK" TargetKind="KIND_MODIFIER" TargetType="MOD_LANDNAMBOK_KILN_WAREHOUSE_THING" UnlockDepth="2"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_ICELAND_LANDNAMABOK" TargetKind="KIND_TRADITION" TargetType="TRADITION_REIDI_GUDANNA" UnlockDepth="2"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_ICELAND_HUGINS_DREKKA" TargetKind="KIND_MODIFIER" TargetType="MOD_HUGINS_DREKKA_RANGE_PILLAGE" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_ICELAND_HUGINS_DREKKA" TargetKind="KIND_TRADITION" TargetType="TRADITION_DROTTKVAETT" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_ICELAND_HUGINS_DREKKA" TargetKind="KIND_MODIFIER" TargetType="MOD_HUGINS_DREKKA_PILLAGE_ONE_MOVE" UnlockDepth="2"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_ICELAND_VAERINGJAR" TargetKind="KIND_MODIFIER" TargetType="MOD_VAERINGJAR_EMBARKED_MOVEMENT" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_ICELAND_VAERINGJAR" TargetKind="KIND_MODIFIER" TargetType="MOD_VAERINGJAR_NAVAL_MOVEMENT" Hidden="true" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_ICELAND_VAERINGJAR" TargetKind="KIND_MODIFIER" TargetType="MOD_VAERINGJAR_NAVAL_COMBAT" Hidden="true" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_ICELAND_VAERINGJAR" TargetKind="KIND_MODIFIER" TargetType="MOD_VAERINGJAR_EMBARKED_COMBAT" Hidden="true" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_ICELAND_VAERINGJAR" TargetKind="KIND_TRADITION" TargetType="TRADITION_LYFSTEINN" UnlockDepth="2"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_ICELAND_VAERINGJAR" TargetKind="KIND_MODIFIER" TargetType="MOD_EX_SETTLEMENT_CAP_INCREASE" UnlockDepth="2"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_ICELAND_THJODVELDID" TargetKind="KIND_MODIFIER" TargetType="MOD_THJODVELDID_RELIC" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_ICELAND_THJODVELDID" TargetKind="KIND_CONSTRUCTIBLE" TargetType="WONDER_REYKHOLT" UnlockDepth="1" AIIgnoreUnlockValue="true"/>
+	</ProgressionTreeNodeUnlocks>
+	<ProgressionTreePrereqs>
+		<!--ICELAND-->
+		<Row Node="NODE_CIVIC_EX_ICELAND_HUGINS_DREKKA" PrereqNode="NODE_CIVIC_EX_ICELAND_LANDNAMABOK"/>
+		<Row Node="NODE_CIVIC_EX_ICELAND_VAERINGJAR" PrereqNode="NODE_CIVIC_EX_ICELAND_LANDNAMABOK"/>
+		<Row Node="NODE_CIVIC_EX_ICELAND_THJODVELDID" PrereqNode="NODE_CIVIC_EX_ICELAND_HUGINS_DREKKA"/>
+		<Row Node="NODE_CIVIC_EX_ICELAND_THJODVELDID" PrereqNode="NODE_CIVIC_EX_ICELAND_VAERINGJAR"/>
+	</ProgressionTreePrereqs>
+</Database>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Types>
+		<InsertOrIgnore Type="UNLOCK_CIVILIZATION_ICELAND" Kind="KIND_UNLOCK"/>
+	</Types>
+	<Unlocks>
+		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_ICELAND"/>
+	</Unlocks>
+	<UnlockRewards>
+		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_ICELAND" Name="LOC_CIVILIZATION_ICELAND_NAME" Description="LOC_UNLOCK_EXPLORATION_CIV_DESCRIPTION" Icon="CIVILIZATION_ICELAND" UnlockRewardType="CIVILIZATION_ICELAND" UnlockRewardKind="KIND_CIVILIZATION"/>
+	</UnlockRewards>
+	<UnlockConfigurationValues>
+		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_ICELAND" ConfigurationValue="CIVILIZATION_ICELAND"/>
+	</UnlockConfigurationValues>
+	<UnlockRequirements>
+		<Row UnlockType="UNLOCK_CIVILIZATION_ICELAND" RequirementSetId="REQSET_CIV_IS_ROME" Description="LOC_UNLOCK_PLAY_AS_ROME_DESCRIPTION" Tooltip="LOC_UNLOCK_PLAY_AS_ROME_ICELAND_TOOLTIP"/>
+	</UnlockRequirements>
+</Database>

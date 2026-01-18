@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Types>
+		<InsertOrIgnore Type="UNLOCK_CIVILIZATION_OTTOMANS" Kind="KIND_UNLOCK"/>
+	</Types>
+	<Unlocks>
+		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_OTTOMANS"/>
+	</Unlocks>
+	<UnlockRewards>
+		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_OTTOMANS" Name="LOC_CIVILIZATION_OTTOMANS_NAME" Description="LOC_UNLOCK_MODERN_CIV_DESCRIPTION" Icon="CIVILIZATION_OTTOMANS" UnlockRewardType="CIVILIZATION_OTTOMANS" UnlockRewardKind="KIND_CIVILIZATION"/>
+	</UnlockRewards>
+	<RequirementSetRequirements>
+		<InsertOrIgnore RequirementSetId="REQSET_PLAYER_HAS_1_CONQUERED_CAPITAL" RequirementId="REQ_PLAYER_HAS_1_CONQUERED_CAPITAL"/>
+		<InsertOrIgnore RequirementSetId="REQSET_PLAYER_HAS_1_CONQUERED_CAPITAL" RequirementId="REQ_AGE_IS_EXPLORATION"/>
+	</RequirementSetRequirements>
+	<UnlockRequirements>
+		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_OTTOMANS" RequirementSetId="REQSET_PLAYER_HAS_1_CONQUERED_CAPITAL" Description="LOC_UNLOCK_CONQUERED_CAPITAL_DESCRIPTION" Tooltip="LOC_UNLOCK_CONQUERED_CAPITAL_OTTOMANS_TOOLTIP" NarrativeText="LOC_UNLOCK_CONQUERED_CAPITAL_OTTOMANS_NARRATIVE"/>
+		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_OTTOMANS" RequirementSetId="REQSET_LEADER_IS_IBN_BATTUTA" Description="LOC_UNLOCK_PLAY_AS_IBN_BATTUTA_DESCRIPTION" Tooltip="LOC_UNLOCK_PLAY_AS_IBN_BATTUTA_OTTOMANS_TOOLTIP"/>
+	</UnlockRequirements>
+	<UnlockConfigurationValues>
+		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_OTTOMANS" ConfigurationValue="CIVILIZATION_OTTOMANS"/>
+	</UnlockConfigurationValues>
+</Database>

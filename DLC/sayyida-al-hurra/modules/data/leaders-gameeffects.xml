@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+	<Modifier id="SAYYIDA_MOD_FREE_NAVAL_UNIT" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_NAVAL_UNIT_WITH_OCEAN_ACCESS"  permanent="true">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_COMPLETED_ESPIONAGE_ACTION">
+				<Argument name="Repeatable">true</Argument>
+			</Requirement>
+		</SubjectRequirements>
+	</Modifier>
+	<Modifier id="SAYYIDA_MOD_STATIONED_ON_DISTRICT_YIELDS" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ATTACH_MODIFIERS" permanent="true">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_CLASS_MATCHES">
+				<Argument name="UnitClass">UNIT_CLASS_NAVAL</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="ModifierId">SAYYIDA_MOD_STATIONED_ON_DISTRICT_CULTURE, SAYYIDA_MOD_STATIONED_ON_DISTRICT_INFLUENCE</Argument>
+	</Modifier>
+	<Modifier id="SAYYIDA_MOD_STATIONED_ON_DISTRICT_CULTURE" collection="COLLECTION_UNIT_OCCUPIED_CITY" effect="EFFECT_CITY_ADJUST_YIELD">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_UNIT_IS_STATIONED_ON_DISTRICT"/>
+		</OwnerRequirements>
+		<Argument name="Amount" type="ScaleByGameAge" extra="100">2</Argument>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_LEADER_SAYYIDA_AL_HURRA_ABILITY_NAME</Argument>
+	</Modifier>
+	<Modifier id="SAYYIDA_MOD_STATIONED_ON_DISTRICT_INFLUENCE" collection="COLLECTION_UNIT_OCCUPIED_CITY" effect="EFFECT_CITY_ADJUST_YIELD">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_UNIT_IS_STATIONED_ON_DISTRICT"/>
+		</OwnerRequirements>
+		<Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+		<Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_LEADER_SAYYIDA_AL_HURRA_ABILITY_NAME</Argument>
+	</Modifier>
+	<Modifier id="SAYYIDA_MOD_NO_COUNTERSPY_AGAINST" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_NO_OPPOSING_COUNTER_ESPIONAGE"/>
+	<Modifier id="SAYYIDA_MOD_NO_INFLUENCE_PENALTY_REVEALED_SPIES" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_NO_INFLUENCE_PENALTY_REVEALED_SPIES"/>
+	<Modifier id="SAYYIDA_MOD_AGENDA" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_AGENDA_TIMED_UPDATE">
+		<String context="Name">LOC_DIPLOMACY_AGENDA_SAYYIDA_NAME</String>
+		<Argument name="ModName">LOC_DIPLOMACY_AGENDA_SAYYIDA_NAME</Argument>
+		<Argument name="Tooltip">LOC_DIPLOMACY_AGENDA_SAYYIDA_DESC</Argument>
+		<Argument name="WeightType">DIPLOMACY_AGENDA_COMPARE_NUM_UNIT_TAGS</Argument>
+		<Argument name="FirstMeetDelay">20</Argument>
+		<Argument name="UpdateFreq">10</Argument>
+		<Argument name="AwardTo1">DIPLOMACY_AGENDA_AWARD_LOWEST</Argument>
+		<Argument name="AwardAmtType1">DIPLOMACY_AGENDA_AMT_MEDIUM</Argument>
+		<Argument name="Arg1">UNIT_CLASS_NAVAL</Argument>
+		<Argument name="AwardTo2">DIPLOMACY_AGENDA_AWARD_HIGHEST</Argument>
+		<Argument name="AwardAmtType2">DIPLOMACY_AGENDA_NEG_AMT_SMALL</Argument>
+		<Argument name="NotifyMessage">LOC_NOTIFICATION_DIPLOMATIC_AGENDA_DEFAULT_MESSAGE</Argument>
+		<Argument name="NotifySummary">LOC_NOTIFICATION_DIPLOMATIC_AGENDA_DEFAULT_SUMMARY</Argument>
+	</Modifier>
+</GameEffects>

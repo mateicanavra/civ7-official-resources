@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+    <Modifier id="11145B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_NARRATIVE" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_HAPPINESS</Argument>
+        <Argument name="MultiplierType">REWARD_TYPE_MAJOR_LATE</Argument>
+    </Modifier>
+    <Modifier id="11145C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_NARRATIVE" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_CULTURE</Argument>
+        <Argument name="MultiplierType">REWARD_TYPE_MAJOR_LATE</Argument>
+    </Modifier>
+    <Modifier id="11146B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_NARRATIVE" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_SCIENCE</Argument>
+        <Argument name="MultiplierType">REWARD_TYPE_MAJOR_LATE</Argument>
+    </Modifier>
+    <Modifier id="11146C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_NARRATIVE" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_CULTURE</Argument>
+        <Argument name="MultiplierType">REWARD_TYPE_MAJOR_LATE</Argument>
+    </Modifier>
+    <RequirementSet id="REQSET_11145D_NARRATIVE_REQUISITE">
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_NARRATIVE_TAGS">
+            <Argument name="NarrativeTagType">NARRATIVE_TAG_EDDA</Argument>
+            <Argument name="Amount">1</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11146D_NARRATIVE_REQUISITE">
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_NARRATIVE_TAGS">
+            <Argument name="NarrativeTagType">NARRATIVE_TAG_HEIM</Argument>
+            <Argument name="Amount">1</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11145D_NARRATIVE">
+        <Requirement type="REQUIREMENT_PLAYER_HAS_COMPLETED_PROGRESSION_TREE_NODE">
+            <Argument name="ProgressionTreeNodeType">NODE_CIVIC_MO_MAIN_NATIONALISM</Argument>
+            <Argument name="MinDepth">1</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11145A_NARRATIVE" type="REQUIREMENTSET_TEST_ANY">
+        <Requirement type="REQUIREMENT_PLAYER_OVERBUILDS">
+            <Argument name="OldConstructibleType">BUILDING_UNIVERSITY</Argument>
+        </Requirement>
+        <Requirement type="REQUIREMENT_PLAYER_OVERBUILDS">
+            <Argument name="OldConstructibleType">BUILDING_LIBRARY</Argument>
+        </Requirement>
+        <Requirement type="REQUIREMENT_PLAYER_OVERBUILDS">
+            <Argument name="OldConstructibleType">IMPROVEMENT_MONASTERY</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11146D_NARRATIVE">
+        <Requirement type="REQUIREMENT_PLAYER_HAS_COMPLETED_PROGRESSION_TREE_NODE">
+            <Argument name="ProgressionTreeNodeType">NODE_CIVIC_MO_MAIN_NATIONALISM</Argument>
+            <Argument name="MinDepth">1</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11146A_NARRATIVE" type="REQUIREMENTSET_TEST_ANY">
+        <Requirement type="REQUIREMENT_PLAYER_OVERBUILDS">
+            <Argument name="OldConstructibleType">BUILDING_UNIVERSITY</Argument>
+        </Requirement>
+        <Requirement type="REQUIREMENT_PLAYER_OVERBUILDS">
+            <Argument name="OldConstructibleType">BUILDING_LIBRARY</Argument>
+        </Requirement>
+        <Requirement type="REQUIREMENT_PLAYER_OVERBUILDS">
+            <Argument name="OldConstructibleType">IMPROVEMENT_MONASTERY</Argument>
+        </Requirement>
+    </RequirementSet>
+</GameEffects>

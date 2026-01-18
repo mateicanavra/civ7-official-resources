@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Solid UI Next Sandbox</title>
+		<link
+			href="fs://game/core/ui/themes/default/default.css"
+			rel="stylesheet"
+		/>
+		<script src="fs://game/core/ui/cohtml.js"></script>
+		<script src="fs://game/core/ui/themes/default/global-scaling.js"></script>
+		<script src="fs://game/core/ui/component-support.js"></script>
+		<script
+			src="fs://game/core/ui/components/fxs-header.js"
+			type="module"
+		></script>
+		<script type="module" crossorigin src="fs://game/core/ui-next/sandbox/sandbox.js"></script>
+	</head>
+
+	<body class="font-body text-base text-accent-2">
+		<div id="root"></div>
+		<div
+			id="tooltips"
+			class="absolute pointer-events-none"
+		></div>
+		<div id="tooltip-root">
+			<div id="tooltip-root-content"></div>
+		</div>
+	</body>
+</html>

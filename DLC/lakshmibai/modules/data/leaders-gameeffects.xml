@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+	<Modifier id="LAKSHMIBAI_INFLUENCE" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ATTACH_MODIFIERS">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_DOMAIN_MATCHES">
+				<Argument name="UnitDomain">DOMAIN_LAND</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+				<Argument name="Tag">UNIT_CLASS_COMBAT</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="ModifierId">LAKSHMIBAI_INFLUENCE_MODIFIER</Argument>
+	</Modifier>
+	<Modifier id="LAKSHMIBAI_INFLUENCE_MODIFIER" collection="COLLECTION_UNIT_COMBAT" effect="EFFECT_ADJUST_UNIT_POST_COMBAT_YIELD">
+		<Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+		<Argument name="PercentDefeatedStrength">100</Argument>
+	</Modifier>
+	<Modifier id="LAKSHMIBAI_MOD_CS_INCORPORATE" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_ADJUST_DIPLOMATIC_ACTION_TYPE_EFFICIENCY">
+		<Argument name="ActionType">DIPLOMACY_ACTION_CS_INCORPORATE</Argument>
+		<Argument name="Percent">50</Argument>
+	</Modifier>
+	<Modifier id="LAKSHMIBAI_MOD_CS_INCORPORATE_UNITS" collection="COLLECTION_OWNER" effect="EFFECT_ADJUST_PLAYER_RETAIN_CS_INCORPORATE_UNITS"/>
+	<Modifier id="LAKSHMIBAI_MOD_AGENDA_ETERNAL_GLORY" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_AGENDA_TIMED_UPDATE">
+		<String context="Name">LOC_DIPLOMACY_AGENDA_ETERNAL_GLORY_NAME</String>
+		<Argument name="ModName">LOC_DIPLOMACY_AGENDA_ETERNAL_GLORY_NAME</Argument>
+		<Argument name="Tooltip">LOC_DIPLOMACY_AGENDA_ETERNAL_GLORY_DESC</Argument>
+		<Argument name="WeightType">DIPLOMACY_AGENDA_COMPARE_YIELD_TYPE</Argument>
+		<Argument name="FirstMeetDelay">20</Argument>
+		<Argument name="UpdateFreq">10</Argument>
+		<Argument name="AwardTo1">DIPLOMACY_AGENDA_AWARD_HIGHEST</Argument>
+		<Argument name="AwardAmtType1">DIPLOMACY_AGENDA_AMT_MEDIUM</Argument>
+		<Argument name="Arg1">YIELD_DIPLOMACY</Argument>
+		<Argument name="AwardTo2">DIPLOMACY_AGENDA_AWARD_LOWEST</Argument>
+		<Argument name="AwardAmtType2">DIPLOMACY_AGENDA_NEG_AMT_MEDIUM</Argument>
+		<Argument name="NotifyMessage">LOC_NOTIFICATION_DIPLOMATIC_AGENDA_DEFAULT_MESSAGE</Argument>
+		<Argument name="NotifySummary">LOC_NOTIFICATION_DIPLOMATIC_AGENDA_DEFAULT_SUMMARY</Argument>
+	</Modifier>
+</GameEffects>

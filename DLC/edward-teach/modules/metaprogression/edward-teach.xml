@@ -1,0 +1,721 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metaprogression xmlns="Metaprogression">
+	<legendPath id="LEGEND_PATH_EDWARD_TEACH" type="CHALLENGE_CLASS_LEADER">
+		<sortIndex>725</sortIndex>
+		<level level="2">
+			<reward reward="MEMENTO_EDWARD_TEACH_BRACE_OF_PISTOLS" />
+		</level>
+		<level level="3">
+			<reward reward="NODE_ATTRIBUTE_MILITARISTIC_LEGEND_EDWARD_TEACH_L1" />
+		</level>
+		<level level="4">
+			<reward reward="STRATEGYCARD_EDWARD_TEACH_EXPLORATION_1" />
+			<reward reward="STRATEGYCARD_EDWARD_TEACH_EXPLORATION_2" />
+		</level>
+		<level level="5">
+			<reward reward="MEMENTO_EDWARD_TEACH_MEDICINE_CHEST" />
+		</level>
+		<level level="6">
+			<reward reward="BANNER_EDWARD_TEACH" />
+			<reward reward="BADGE_EDWARD_TEACH" />
+		</level>
+		<level level="7">
+			<reward reward="NODE_ATTRIBUTE_ECONOMIC_LEGEND_EDWARD_TEACH_L2" />
+		</level>
+		<level level="8">
+			<reward reward="STRATEGYCARD_EDWARD_TEACH_MODERN_1" />
+			<reward reward="STRATEGYCARD_EDWARD_TEACH_MODERN_2" />
+		</level>
+		<level level="9">
+			<reward reward="MEMENTO_EDWARD_TEACH_FIGUREHEAD_OF_QUEEN_ANNES_REVENGE" />
+		</level>
+		<level level="10">
+			<reward reward="TITLE_EDWARD_TEACH" />
+			<reward reward="BADGE_EDWARD_TEACH_P" />
+		</level>
+	</legendPath>
+	<challengeEvents>
+		<event id="CHALLENGE_EVENT_LEADER_EDWARD_TEACH_AGE_ENDED" />
+		<event id="CHALLENGE_EVENT_LEADER_EDWARD_TEACH_VICTORY_ACHIEVED" />
+		<event id="CHALLENGE_EVENT_LEADER_EDWARD_TEACH_FLAWLESS_VICTORY_ACHIEVED" />
+		<event id="CHALLENGE_EVENT_LEADER_EDWARD_TEACH_LEGACY_PATH_MILESTONE_COMPLETED" />
+	</challengeEvents>
+	<statistics>
+		<statistic id="CHALLENGE_STATISTIC_LEADER_EDWARD_TEACH_LEGACY_PATH_MILESTONE_COMPLETED" event="CHALLENGE_EVENT_LEADER_EDWARD_TEACH_LEGACY_PATH_MILESTONE_COMPLETED" />
+		<statistic id="CHALLENGE_STATISTIC_LEADER_EDWARD_TEACH_MILITARY_VICTORY_ANTIQUITY" event="CHALLENGE_EVENT_LEADER_EDWARD_TEACH_VICTORY_ACHIEVED">
+			<rules>
+				<rule type="and">
+					<rule type="equals" var="victoryType">VICTORY_CLASS_MILITARY</rule>
+					<rule type="equals" var="age">AGE_ANTIQUITY</rule>
+				</rule>
+			</rules>
+		</statistic>
+		<statistic id="CHALLENGE_STATISTIC_LEADER_EDWARD_TEACH_MILITARY_VICTORY_EXPLORATION" event="CHALLENGE_EVENT_LEADER_EDWARD_TEACH_VICTORY_ACHIEVED">
+			<rules>
+				<rule type="and">
+					<rule type="equals" var="victoryType">VICTORY_CLASS_MILITARY</rule>
+					<rule type="equals" var="age">AGE_EXPLORATION</rule>
+				</rule>
+			</rules>
+		</statistic>
+		<statistic id="CHALLENGE_STATISTIC_LEADER_EDWARD_TEACH_MILITARY_VICTORY_MODERN" event="CHALLENGE_EVENT_LEADER_EDWARD_TEACH_VICTORY_ACHIEVED">
+			<rules>
+				<rule type="and">
+					<rule type="equals" var="victoryType">VICTORY_CLASS_MILITARY</rule>
+					<rule type="equals" var="age">AGE_MODERN</rule>
+				</rule>
+			</rules>
+		</statistic>
+		<statistic id="CHALLENGE_STATISTIC_LEADER_EDWARD_TEACH_ECONOMIC_VICTORY_ANTIQUITY" event="CHALLENGE_EVENT_LEADER_EDWARD_TEACH_VICTORY_ACHIEVED">
+			<rules>
+				<rule type="and">
+					<rule type="equals" var="victoryType">VICTORY_CLASS_ECONOMIC</rule>
+					<rule type="equals" var="age">AGE_ANTIQUITY</rule>
+				</rule>
+			</rules>
+		</statistic>
+		<statistic id="CHALLENGE_STATISTIC_LEADER_EDWARD_TEACH_ECONOMIC_VICTORY_EXPLORATION" event="CHALLENGE_EVENT_LEADER_EDWARD_TEACH_VICTORY_ACHIEVED">
+			<rules>
+				<rule type="and">
+					<rule type="equals" var="victoryType">VICTORY_CLASS_ECONOMIC</rule>
+					<rule type="equals" var="age">AGE_EXPLORATION</rule>
+				</rule>
+			</rules>
+		</statistic>
+		<statistic id="CHALLENGE_STATISTIC_LEADER_EDWARD_TEACH_ECONOMIC_VICTORY_MODERN" event="CHALLENGE_EVENT_LEADER_EDWARD_TEACH_VICTORY_ACHIEVED">
+			<rules>
+				<rule type="and">
+					<rule type="equals" var="victoryType">VICTORY_CLASS_ECONOMIC</rule>
+					<rule type="equals" var="age">AGE_MODERN</rule>
+				</rule>
+			</rules>
+		</statistic>
+		<statistic id="CHALLENGE_STATISTIC_LEADER_EDWARD_TEACH_SCIENCE_VICTORY_ANTIQUITY" event="CHALLENGE_EVENT_LEADER_EDWARD_TEACH_VICTORY_ACHIEVED">
+			<rules>
+				<rule type="and">
+					<rule type="equals" var="victoryType">VICTORY_CLASS_SCIENCE</rule>
+					<rule type="equals" var="age">AGE_ANTIQUITY</rule>
+				</rule>
+			</rules>
+		</statistic>
+		<statistic id="CHALLENGE_STATISTIC_LEADER_EDWARD_TEACH_SCIENCE_VICTORY_EXPLORATION" event="CHALLENGE_EVENT_LEADER_EDWARD_TEACH_VICTORY_ACHIEVED">
+			<rules>
+				<rule type="and">
+					<rule type="equals" var="victoryType">VICTORY_CLASS_SCIENCE</rule>
+					<rule type="equals" var="age">AGE_EXPLORATION</rule>
+				</rule>
+			</rules>
+		</statistic>
+		<statistic id="CHALLENGE_STATISTIC_LEADER_EDWARD_TEACH_SCIENCE_VICTORY_MODERN" event="CHALLENGE_EVENT_LEADER_EDWARD_TEACH_VICTORY_ACHIEVED">
+			<rules>
+				<rule type="and">
+					<rule type="equals" var="victoryType">VICTORY_CLASS_SCIENCE</rule>
+					<rule type="equals" var="age">AGE_MODERN</rule>
+				</rule>
+			</rules>
+		</statistic>
+		<statistic id="CHALLENGE_STATISTIC_LEADER_EDWARD_TEACH_CULTURE_VICTORY_ANTIQUITY" event="CHALLENGE_EVENT_LEADER_EDWARD_TEACH_VICTORY_ACHIEVED">
+			<rules>
+				<rule type="and">
+					<rule type="equals" var="victoryType">VICTORY_CLASS_CULTURE</rule>
+					<rule type="equals" var="age">AGE_ANTIQUITY</rule>
+				</rule>
+			</rules>
+		</statistic>
+		<statistic id="CHALLENGE_STATISTIC_LEADER_EDWARD_TEACH_CULTURE_VICTORY_EXPLORATION" event="CHALLENGE_EVENT_LEADER_EDWARD_TEACH_VICTORY_ACHIEVED">
+			<rules>
+				<rule type="and">
+					<rule type="equals" var="victoryType">VICTORY_CLASS_CULTURE</rule>
+					<rule type="equals" var="age">AGE_EXPLORATION</rule>
+				</rule>
+			</rules>
+		</statistic>
+		<statistic id="CHALLENGE_STATISTIC_LEADER_EDWARD_TEACH_CULTURE_VICTORY_MODERN" event="CHALLENGE_EVENT_LEADER_EDWARD_TEACH_VICTORY_ACHIEVED">
+			<rules>
+				<rule type="and">
+					<rule type="equals" var="victoryType">VICTORY_CLASS_CULTURE</rule>
+					<rule type="equals" var="age">AGE_MODERN</rule>
+				</rule>
+			</rules>
+		</statistic>
+		<statistic id="CHALLENGE_STATISTIC_LEADER_EDWARD_TEACH_ANTIQUITY_AGES_COMPLETED" event="CHALLENGE_EVENT_LEADER_EDWARD_TEACH_AGE_ENDED" />
+		<statistic id="CHALLENGE_STATISTIC_LEADER_EDWARD_TEACH_EXPLORATION_AGES_COMPLETED" event="CHALLENGE_EVENT_LEADER_EDWARD_TEACH_AGE_ENDED" />
+		<statistic id="CHALLENGE_STATISTIC_LEADER_EDWARD_TEACH_MODERN_AGES_COMPLETED" event="CHALLENGE_EVENT_LEADER_EDWARD_TEACH_AGE_ENDED" />
+	</statistics>
+	<challengeCategoryData>
+		<challengeCategory id="CHALLENGE_CATEGORY_LEADER_EDWARD_TEACH" locName="LOC_LEADER_EDWARD_TEACH_NAME" sortIndex="725" />
+	</challengeCategoryData>
+	<challenges class="CHALLENGE_CLASS_LEADER" category="CHALLENGE_CATEGORY_LEADER_EDWARD_TEACH" legendPath="LEGEND_PATH_EDWARD_TEACH">
+		<challenge id="CHALLENGE_EDWARD_TEACH_MILITARY_VICTORY_ANTIQUITY" scope="Career" difficulty="3">
+			<l10n>
+				<name>Pax Imperatoria</name>
+				<description>As Edward Teach, complete the Pax Imperatoria Legacy Path.</description>
+			</l10n>
+			<sortIndex>92600</sortIndex>
+			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_EDWARD_TEACH_MILITARY_VICTORY_ANTIQUITY" threshold="1" />
+			<reward type="XP" reward="50" />
+		</challenge>
+		<challenge id="CHALLENGE_EDWARD_TEACH_MILITARY_VICTORY_ANTIQUITY_2" scope="Career" difficulty="3">
+			<l10n>
+				<name>Pax Imperatoria 2</name>
+				<description>As Edward Teach, complete the Pax Imperatoria Legacy Path twice.</description>
+			</l10n>
+			<sortIndex>92610</sortIndex>
+			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_EDWARD_TEACH_MILITARY_VICTORY_ANTIQUITY" threshold="2" />
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_EDWARD_TEACH_MILITARY_VICTORY_ANTIQUITY_3" scope="Career" difficulty="3">
+			<l10n>
+				<name>Pax Imperatoria 3</name>
+				<description>As Edward Teach, complete the Pax Imperatoria Legacy Path thrice.</description>
+			</l10n>
+			<sortIndex>92620</sortIndex>
+			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_EDWARD_TEACH_MILITARY_VICTORY_ANTIQUITY" threshold="3" />
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_EDWARD_TEACH_ECONOMIC_VICTORY_ANTIQUITY" scope="Career" difficulty="3">
+			<l10n>
+				<name>Silk Roads</name>
+				<description>As Edward Teach, complete the Silk Roads Legacy Path.</description>
+			</l10n>
+			<sortIndex>92800</sortIndex>
+			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_EDWARD_TEACH_ECONOMIC_VICTORY_ANTIQUITY" threshold="1" />
+			<reward type="XP" reward="50" />
+		</challenge>
+		<challenge id="CHALLENGE_EDWARD_TEACH_ECONOMIC_VICTORY_ANTIQUITY_2" scope="Career" difficulty="3">
+			<l10n>
+				<name>Silk Roads 2</name>
+				<description>As Edward Teach, complete the Silk Roads Legacy Path twice.</description>
+			</l10n>
+			<sortIndex>92810</sortIndex>
+			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_EDWARD_TEACH_ECONOMIC_VICTORY_ANTIQUITY" threshold="2" />
+
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_EDWARD_TEACH_ECONOMIC_VICTORY_ANTIQUITY_3" scope="Career" difficulty="3">
+			<l10n>
+				<name>Silk Roads 3</name>
+				<description>As Edward Teach, complete the Silk Roads Legacy Path thrice.</description>
+			</l10n>
+			<sortIndex>92820</sortIndex>
+			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_EDWARD_TEACH_ECONOMIC_VICTORY_ANTIQUITY" threshold="3" />
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_EDWARD_TEACH_MILITARY_VICTORY_EXPLORATION" scope="Career" difficulty="3">
+			<l10n>
+				<name>Non Sufficit Orbis</name>
+				<description>As Edward Teach, complete the Non Sufficit Orbis Legacy Path.</description>
+			</l10n>
+			<sortIndex>93200</sortIndex>
+			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_EDWARD_TEACH_MILITARY_VICTORY_EXPLORATION" threshold="1" />
+			<reward type="XP" reward="50" />
+		</challenge>
+		<challenge id="CHALLENGE_EDWARD_TEACH_MILITARY_VICTORY_EXPLORATION_2" scope="Career" difficulty="3">
+			<l10n>
+				<name>Non Sufficit Orbis 2</name>
+				<description>As Edward Teach, complete the Non Sufficit Orbis Legacy Path twice.</description>
+			</l10n>
+			<sortIndex>93210</sortIndex>
+			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_EDWARD_TEACH_MILITARY_VICTORY_EXPLORATION" threshold="2" />
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_EDWARD_TEACH_MILITARY_VICTORY_EXPLORATION_3" scope="Career" difficulty="3">
+			<l10n>
+				<name>Non Sufficit Orbis 3</name>
+				<description>As Edward Teach, complete the Non Sufficit Orbis Legacy Path thrice.</description>
+			</l10n>
+			<sortIndex>93220</sortIndex>
+			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_EDWARD_TEACH_MILITARY_VICTORY_EXPLORATION" threshold="3" />
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_EDWARD_TEACH_ECONOMIC_VICTORY_EXPLORATION" scope="Career" difficulty="3">
+			<l10n>
+				<name>Treasure Fleet</name>
+				<description>As Edward Teach, complete the Treasure Fleet Legacy Path.</description>
+			</l10n>
+			<sortIndex>93400</sortIndex>
+			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_EDWARD_TEACH_ECONOMIC_VICTORY_EXPLORATION" threshold="1" />
+			<reward type="XP" reward="50" />
+		</challenge>
+		<challenge id="CHALLENGE_EDWARD_TEACH_ECONOMIC_VICTORY_EXPLORATION_2" scope="Career" difficulty="3">
+			<l10n>
+				<name>Treasure Fleet 2</name>
+				<description>As Edward Teach, complete the Treasure Fleet Legacy Path twice.</description>
+			</l10n>
+			<sortIndex>93410</sortIndex>
+			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_EDWARD_TEACH_ECONOMIC_VICTORY_EXPLORATION" threshold="2" />
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_EDWARD_TEACH_ECONOMIC_VICTORY_EXPLORATION_3" scope="Career" difficulty="3">
+			<l10n>
+				<name>Treasure Fleet 3</name>
+				<description>As Edward Teach, complete the Treasure Fleet Legacy Path thrice.</description>
+			</l10n>
+			<sortIndex>93420</sortIndex>
+			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_EDWARD_TEACH_ECONOMIC_VICTORY_EXPLORATION" threshold="3" />
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_EDWARD_TEACH_MILITARY_VICTORY_MODERN" scope="Career" difficulty="3">
+			<l10n>
+				<name>Ideology</name>
+				<description>As Edward Teach, complete the Ideology Legacy Path.</description>
+			</l10n>
+			<sortIndex>93800</sortIndex>
+			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_EDWARD_TEACH_MILITARY_VICTORY_MODERN" threshold="1" />
+			<reward type="XP" reward="50" />
+		</challenge>
+		<challenge id="CHALLENGE_EDWARD_TEACH_MILITARY_VICTORY_MODERN_2" scope="Career" difficulty="3">
+			<l10n>
+				<name>Ideology 2</name>
+				<description>As Edward Teach, complete the Ideology Legacy Path twice.</description>
+			</l10n>
+			<sortIndex>93810</sortIndex>
+			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_EDWARD_TEACH_MILITARY_VICTORY_MODERN" threshold="2" />
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_EDWARD_TEACH_MILITARY_VICTORY_MODERN_3" scope="Career" difficulty="3">
+			<l10n>
+				<name>Ideology 3</name>
+				<description>As Edward Teach, complete the Ideology Legacy Path thrice.</description>
+			</l10n>
+			<sortIndex>93820</sortIndex>
+			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_EDWARD_TEACH_MILITARY_VICTORY_MODERN" threshold="3" />
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_EDWARD_TEACH_ECONOMIC_VICTORY_MODERN" scope="Career" difficulty="3">
+			<l10n>
+				<name>Railroad Tycoon</name>
+				<description>As Edward Teach, complete the Railroad Tycoon Legacy Path.</description>
+			</l10n>
+			<sortIndex>93700</sortIndex>
+			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_EDWARD_TEACH_ECONOMIC_VICTORY_MODERN" threshold="1" />
+			<reward type="XP" reward="50" />
+		</challenge>
+		<challenge id="CHALLENGE_EDWARD_TEACH_ECONOMIC_VICTORY_MODERN_2" scope="Career" difficulty="3">
+			<l10n>
+				<name>Railroad Tycoon 2</name>
+				<description>As Edward Teach, complete the Railroad Tycoon Legacy Path twice.</description>
+			</l10n>
+			<sortIndex>93710</sortIndex>
+			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_EDWARD_TEACH_ECONOMIC_VICTORY_MODERN" threshold="2" />
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_EDWARD_TEACH_ECONOMIC_VICTORY_MODERN_3" scope="Career" difficulty="3">
+			<l10n>
+				<name>Railroad Tycoon 3</name>
+				<description>As Edward Teach, complete the Railroad Tycoon Legacy Path thrice.</description>
+			</l10n>
+			<sortIndex>93720</sortIndex>
+			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_EDWARD_TEACH_ECONOMIC_VICTORY_MODERN" threshold="3" />
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_EDWARD_TEACH_AGE_COMPLETED_ANTIQUITY" scope="Career" difficulty="2">
+			<l10n>
+				<name>Antiquity Complete</name>
+				<description>As Edward Teach, finish the Antiquity Age.</description>
+			</l10n>
+			<sortIndex>92400</sortIndex>
+			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_EDWARD_TEACH_ANTIQUITY_AGES_COMPLETED" threshold="1" />
+			<rules>
+				<rule type="equals" var="age">AGE_ANTIQUITY</rule>
+			</rules>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_EDWARD_TEACH_AGE_COMPLETED_ANTIQUITY_2" scope="Career" difficulty="2">
+			<l10n>
+				<name>Antiquity Complete 2</name>
+				<description>As Edward Teach, finish the Antiquity Age twice.</description>
+			</l10n>
+			<sortIndex>92410</sortIndex>
+			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_EDWARD_TEACH_ANTIQUITY_AGES_COMPLETED" threshold="2" />
+			<rules>
+				<rule type="equals" var="age">AGE_ANTIQUITY</rule>
+			</rules>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_EDWARD_TEACH_AGE_COMPLETED_ANTIQUITY_3" scope="Career" difficulty="2">
+			<l10n>
+				<name>Antiquity Complete 3</name>
+				<description>As Edward Teach, finish the Antiquity Age thrice.</description>
+			</l10n>
+			<sortIndex>92420</sortIndex>
+			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_EDWARD_TEACH_ANTIQUITY_AGES_COMPLETED" threshold="3" />
+			<rules>
+				<rule type="equals" var="age">AGE_ANTIQUITY</rule>
+			</rules>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_EDWARD_TEACH_AGE_COMPLETED_EXPLORATION" scope="Career" difficulty="3">
+			<l10n>
+				<name>Exploration Complete</name>
+				<description>As Edward Teach, finish the Exploration Age.</description>
+			</l10n>
+			<sortIndex>93000</sortIndex>
+			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_EDWARD_TEACH_EXPLORATION_AGES_COMPLETED" threshold="1" />
+			<rules>
+				<rule type="equals" var="age">AGE_EXPLORATION</rule>
+			</rules>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_EDWARD_TEACH_AGE_COMPLETED_EXPLORATION_2" scope="Career" difficulty="3">
+			<l10n>
+				<name>Exploration Complete 2</name>
+				<description>As Edward Teach, finish the Exploration Age twice.</description>
+			</l10n>
+			<sortIndex>93010</sortIndex>
+			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_EDWARD_TEACH_EXPLORATION_AGES_COMPLETED" threshold="2" />
+			<rules>
+				<rule type="equals" var="age">AGE_EXPLORATION</rule>
+			</rules>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_EDWARD_TEACH_AGE_COMPLETED_EXPLORATION_3" scope="Career" difficulty="3">
+			<l10n>
+				<name>Exploration Complete 3</name>
+				<description>As Edward Teach, finish the Exploration Age thrice.</description>
+			</l10n>
+			<sortIndex>93020</sortIndex>
+			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_EDWARD_TEACH_EXPLORATION_AGES_COMPLETED" threshold="3" />
+			<rules>
+				<rule type="equals" var="age">AGE_EXPLORATION</rule>
+			</rules>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_EDWARD_TEACH_AGE_COMPLETED_MODERN" scope="Career" difficulty="3">
+			<l10n>
+				<name>Modern Complete</name>
+				<description>As Edward Teach, finish the Modern Age.</description>
+			</l10n>
+			<sortIndex>93600</sortIndex>
+			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_EDWARD_TEACH_MODERN_AGES_COMPLETED" threshold="1" />
+			<rules>
+				<rule type="equals" var="age">AGE_MODERN</rule>
+			</rules>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_EDWARD_TEACH_AGE_COMPLETED_MODERN_2" scope="Career" difficulty="3">
+			<l10n>
+				<name>Modern Complete 2</name>
+				<description>As Edward Teach, finish the Modern Age twice.</description>
+			</l10n>
+			<sortIndex>93610</sortIndex>
+			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_EDWARD_TEACH_MODERN_AGES_COMPLETED" threshold="2" />
+			<rules>
+				<rule type="equals" var="age">AGE_MODERN</rule>
+			</rules>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_EDWARD_TEACH_AGE_COMPLETED_MODERN_3" scope="Career" difficulty="3">
+			<l10n>
+				<name>Modern Complete 3</name>
+				<description>As Edward Teach, finish the Modern Age thrice.</description>
+			</l10n>
+			<sortIndex>93620</sortIndex>
+			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_EDWARD_TEACH_MODERN_AGES_COMPLETED" threshold="3" />
+			<rules>
+				<rule type="equals" var="age">AGE_MODERN</rule>
+			</rules>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_EDWARD_TEACH_PLAY_GAMES_1" scope="Career" difficulty="2">
+			<l10n>
+				<name>Play Game 1</name>
+				<description>As Edward Teach, reach at least 1 Legacy Path Milestone.</description>
+			</l10n>
+			<sortIndex>94200</sortIndex>
+			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_EDWARD_TEACH_LEGACY_PATH_MILESTONE_COMPLETED" threshold="1" />
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_EDWARD_TEACH_PLAY_GAMES_2" scope="Career" difficulty="2">
+			<l10n>
+				<name>Play Game 2</name>
+				<description>As Edward Teach, reach at least 2 Legacy Path Milestones.</description>
+			</l10n>
+			<sortIndex>94300</sortIndex>
+			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_EDWARD_TEACH_LEGACY_PATH_MILESTONE_COMPLETED" threshold="2" />
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_EDWARD_TEACH_PLAY_GAMES_3" scope="Career" difficulty="2">
+			<l10n>
+				<name>Play Game 3</name>
+				<description>As Edward Teach, reach at least 3 Legacy Path Milestones.</description>
+			</l10n>
+			<sortIndex>94400</sortIndex>
+			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_EDWARD_TEACH_LEGACY_PATH_MILESTONE_COMPLETED" threshold="3" />
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_EDWARD_TEACH_SCIENCE_VICTORY_ANTIQUITY" scope="Career" difficulty="3">
+			<l10n>
+				<name>Great Library</name>
+				<description>As Edward Teach, complete the Great Library Legacy Path.</description>
+			</l10n>
+			<sortIndex>92700</sortIndex>
+			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_EDWARD_TEACH_SCIENCE_VICTORY_ANTIQUITY" threshold="1" />
+			<reward type="XP" reward="50" />
+		</challenge>
+		<challenge id="CHALLENGE_EDWARD_TEACH_SCIENCE_VICTORY_ANTIQUITY_2" scope="Career" difficulty="3">
+			<l10n>
+				<name>Great Library 2</name>
+				<description>As Edward Teach, complete the Great Library Legacy Path twice.</description>
+			</l10n>
+			<sortIndex>92710</sortIndex>
+			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_EDWARD_TEACH_SCIENCE_VICTORY_ANTIQUITY" threshold="2" />
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_EDWARD_TEACH_SCIENCE_VICTORY_ANTIQUITY_3" scope="Career" difficulty="3">
+			<l10n>
+				<name>Great Library 3</name>
+				<description>As Edward Teach, complete the Great Library Legacy Path thrice.</description>
+			</l10n>
+			<sortIndex>92720</sortIndex>
+			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_EDWARD_TEACH_SCIENCE_VICTORY_ANTIQUITY" threshold="3" />
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_EDWARD_TEACH_SCIENCE_VICTORY_EXPLORATION" scope="Career" difficulty="3">
+			<l10n>
+				<name>Enlightenment</name>
+				<description>As Edward Teach, complete the Enlightenment Legacy Path.</description>
+			</l10n>
+			<sortIndex>93300</sortIndex>
+			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_EDWARD_TEACH_SCIENCE_VICTORY_EXPLORATION" threshold="1" />
+			<reward type="XP" reward="50" />
+		</challenge>
+		<challenge id="CHALLENGE_EDWARD_TEACH_SCIENCE_VICTORY_EXPLORATION_2" scope="Career" difficulty="3">
+			<l10n>
+				<name>Enlightenment 2</name>
+				<description>As Edward Teach, complete the Enlightenment Legacy Path twice.</description>
+			</l10n>
+			<sortIndex>93310</sortIndex>
+			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_EDWARD_TEACH_SCIENCE_VICTORY_EXPLORATION" threshold="2" />
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_EDWARD_TEACH_SCIENCE_VICTORY_EXPLORATION_3" scope="Career" difficulty="3">
+			<l10n>
+				<name>Enlightenment 3</name>
+				<description>As Edward Teach, complete the Enlightenment Legacy Path thrice.</description>
+			</l10n>
+			<sortIndex>93320</sortIndex>
+			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_EDWARD_TEACH_SCIENCE_VICTORY_EXPLORATION" threshold="3" />
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_EDWARD_TEACH_SCIENCE_VICTORY_MODERN" scope="Career" difficulty="3">
+			<l10n>
+				<name>Space Race</name>
+				<description>As Edward Teach, complete the Space Race Legacy Path.</description>
+			</l10n>
+			<sortIndex>93900</sortIndex>
+			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_EDWARD_TEACH_SCIENCE_VICTORY_MODERN" threshold="1" />
+			<reward type="XP" reward="50" />
+		</challenge>
+		<challenge id="CHALLENGE_EDWARD_TEACH_SCIENCE_VICTORY_MODERN_2" scope="Career" difficulty="3">
+			<l10n>
+				<name>Space Race 2</name>
+				<description>As Edward Teach, complete the Space Race Legacy Path twice.</description>
+			</l10n>
+			<sortIndex>93910</sortIndex>
+			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_EDWARD_TEACH_SCIENCE_VICTORY_MODERN" threshold="2" />
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_EDWARD_TEACH_SCIENCE_VICTORY_MODERN_3" scope="Career" difficulty="3">
+			<l10n>
+				<name>Space Race 3</name>
+				<description>As Edward Teach, complete the Space Race Legacy Path thrice.</description>
+			</l10n>
+			<sortIndex>93920</sortIndex>
+			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_EDWARD_TEACH_SCIENCE_VICTORY_MODERN" threshold="3" />
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_EDWARD_TEACH_CULTURE_VICTORY_ANTIQUITY" scope="Career" difficulty="3">
+			<l10n>
+				<name>Wonders of the Ancient World</name>
+				<description>As Edward Teach, complete the Wonders of the Ancient World Legacy Path.</description>
+			</l10n>
+			<sortIndex>92500</sortIndex>
+			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_EDWARD_TEACH_CULTURE_VICTORY_ANTIQUITY" threshold="1" />
+			<reward type="XP" reward="50" />
+		</challenge>
+		<challenge id="CHALLENGE_EDWARD_TEACH_CULTURE_VICTORY_ANTIQUITY_2" scope="Career" difficulty="3">
+			<l10n>
+				<name>Wonders of the Ancient World 2</name>
+				<description>As Edward Teach, complete the Wonders of the Ancient World Legacy Path twice.</description>
+			</l10n>
+			<sortIndex>92510</sortIndex>
+			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_EDWARD_TEACH_CULTURE_VICTORY_ANTIQUITY" threshold="2" />
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_EDWARD_TEACH_CULTURE_VICTORY_ANTIQUITY_3" scope="Career" difficulty="3">
+			<l10n>
+				<name>Wonders of the Ancient World 3</name>
+				<description>As Edward Teach, complete the Wonders of the Ancient World Legacy Path thrice.</description>
+			</l10n>
+			<sortIndex>92520</sortIndex>
+			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_EDWARD_TEACH_CULTURE_VICTORY_ANTIQUITY" threshold="3" />
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_EDWARD_TEACH_CULTURE_VICTORY_EXPLORATION" scope="Career" difficulty="3">
+			<l10n>
+				<name>Toshakhana</name>
+				<description>As Edward Teach, complete the Toshakhana Legacy Path.</description>
+			</l10n>
+			<sortIndex>93100</sortIndex>
+			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_EDWARD_TEACH_CULTURE_VICTORY_EXPLORATION" threshold="1" />
+			<reward type="XP" reward="50" />
+		</challenge>
+		<challenge id="CHALLENGE_EDWARD_TEACH_CULTURE_VICTORY_EXPLORATION_2" scope="Career" difficulty="3">
+			<l10n>
+				<name>Toshakhana 2</name>
+				<description>As Edward Teach, complete the Toshakhana Legacy Path twice.</description>
+			</l10n>
+			<sortIndex>93110</sortIndex>
+			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_EDWARD_TEACH_CULTURE_VICTORY_EXPLORATION" threshold="2" />
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_EDWARD_TEACH_CULTURE_VICTORY_EXPLORATION_3" scope="Career" difficulty="3">
+			<l10n>
+				<name>Toshakhana 3</name>
+				<description>As Edward Teach, complete the Toshakhana Legacy Path thrice.</description>
+			</l10n>
+			<sortIndex>93120</sortIndex>
+			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_EDWARD_TEACH_CULTURE_VICTORY_EXPLORATION" threshold="3" />
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_EDWARD_TEACH_CULTURE_VICTORY_MODERN" scope="Career" difficulty="3">
+			<l10n>
+				<name>Geographic Society</name>
+				<description>As Edward Teach, complete the Geographic Society Legacy Path.</description>
+			</l10n>
+			<sortIndex>94000</sortIndex>
+			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_EDWARD_TEACH_CULTURE_VICTORY_MODERN" threshold="1" />
+			<reward type="XP" reward="50" />
+		</challenge>
+		<challenge id="CHALLENGE_EDWARD_TEACH_CULTURE_VICTORY_MODERN_2" scope="Career" difficulty="3">
+			<l10n>
+				<name>Geographic Society 2</name>
+				<description>As Edward Teach, complete the Geographic Society Legacy Path twice.</description>
+			</l10n>
+			<sortIndex>94010</sortIndex>
+			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_EDWARD_TEACH_CULTURE_VICTORY_MODERN" threshold="2" />
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_EDWARD_TEACH_CULTURE_VICTORY_MODERN_3" scope="Career" difficulty="3">
+			<l10n>
+				<name>Geographic Society 3</name>
+				<description>As Edward Teach, complete the Geographic Society Legacy Path thrice.</description>
+			</l10n>
+			<sortIndex>94020</sortIndex>
+			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_EDWARD_TEACH_CULTURE_VICTORY_MODERN" threshold="3" />
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_EDWARD_TEACH_FLAWLESS_VICTORY_ANTIQUITY" scope="Campaign" difficulty="4">
+			<l10n>
+				<name>Dual Legacies, Antiquity</name>
+				<description>As Edward Teach, complete 2 Legacy Paths in a single Antiquity Age.</description>
+			</l10n>
+			<sortIndex>92900</sortIndex>
+			<campaignConfig event="CHALLENGE_EVENT_LEADER_EDWARD_TEACH_FLAWLESS_VICTORY_ACHIEVED" />
+			<rules>
+				<rule type="and">
+					<rule type="equals" var="legacyPathCount">2</rule>
+					<rule type="equals" var="age">AGE_ANTIQUITY</rule>
+				</rule>
+			</rules>
+			<reward type="XP" reward="50" />
+		</challenge>
+		<challenge id="CHALLENGE_EDWARD_TEACH_FLAWLESS_VICTORY_EXPLORATION" scope="Campaign" difficulty="4">
+			<l10n>
+				<name>Dual Legacies, Exploration</name>
+				<description>As Edward Teach, complete 2 Legacy Paths in a single Exploration Age.</description>
+			</l10n>
+			<sortIndex>93500</sortIndex>
+			<campaignConfig event="CHALLENGE_EVENT_LEADER_EDWARD_TEACH_FLAWLESS_VICTORY_ACHIEVED" />
+			<rules>
+				<rule type="and">
+					<rule type="equals" var="legacyPathCount">2</rule>
+					<rule type="equals" var="age">AGE_EXPLORATION</rule>
+				</rule>
+			</rules>
+			<reward type="XP" reward="50" />
+		</challenge>
+		<challenge id="CHALLENGE_EDWARD_TEACH_FLAWLESS_VICTORY_MODERN" scope="Campaign" difficulty="4">
+			<l10n>
+				<name>Dual Legacies, Modern</name>
+				<description>As Edward Teach, complete 2 Legacy Paths in a single Modern Age.</description>
+			</l10n>
+			<sortIndex>94100</sortIndex>
+			<campaignConfig event="CHALLENGE_EVENT_LEADER_EDWARD_TEACH_FLAWLESS_VICTORY_ACHIEVED" />
+			<rules>
+				<rule type="and">
+					<rule type="equals" var="legacyPathCount">2</rule>
+					<rule type="equals" var="age">AGE_MODERN</rule>
+				</rule>
+			</rules>
+			<reward type="XP" reward="50" />
+		</challenge>
+		<challenge id="CHALLENGE_EDWARD_TEACH_QUEST_A_ANTIQUITY" scope="Campaign" difficulty="2">
+			<l10n>
+				<name>The Door in the Sea</name>
+				<description>As Edward Teach in Antiquity, complete a quest to unlock the sea.</description>
+			</l10n>
+			<sortIndex>94500</sortIndex>
+			<reward type="XP" reward="50" />
+		</challenge>
+		<challenge id="CHALLENGE_EDWARD_TEACH_QUEST_B_ANTIQUITY" scope="Campaign" difficulty="2">
+			<l10n>
+				<name>The Outlines of a Plan</name>
+				<description>As Edward Teach in Antiquity, complete a quest to settle a disagreement.</description>
+			</l10n>
+			<sortIndex>94505</sortIndex>
+			<reward type="XP" reward="50" />
+		</challenge>
+		<challenge id="CHALLENGE_EDWARD_TEACH_QUEST_A_EXPLORATION" scope="Campaign" difficulty="2">
+			<l10n>
+				<name>The Blackest of Beards</name>
+				<description>As Edward Teach in Exploration, complete a quest to set alight fuses.</description>
+			</l10n>
+			<sortIndex>94510</sortIndex>
+			<reward type="XP" reward="50" />
+		</challenge>
+		<challenge id="CHALLENGE_EDWARD_TEACH_QUEST_B_EXPLORATION" scope="Campaign" difficulty="2">
+			<l10n>
+				<name>The Sea-Pirate Code</name>
+				<description>As Edward Teach in Exploration, complete a quest to enforce the Pirate Code.</description>
+			</l10n>
+			<sortIndex>94515</sortIndex>
+			<reward type="XP" reward="50" />
+		</challenge>
+		<challenge id="CHALLENGE_EDWARD_TEACH_QUEST_A_MODERN" scope="Campaign" difficulty="2">
+			<l10n>
+				<name>Admiral of the Black</name>
+				<description>As Edward Teach in Modern, complete a quest to establish an underwater threat.</description>
+			</l10n>
+			<sortIndex>94520</sortIndex>
+			<reward type="XP" reward="50" />
+		</challenge>
+		<challenge id="CHALLENGE_EDWARD_TEACH_QUEST_B_MODERN" scope="Campaign" difficulty="2">
+			<l10n>
+				<name>Admiral of the Blue</name>
+				<description>As Edward Teach in Modern, complete a quest to impose the law of the sea.</description>
+			</l10n>
+			<sortIndex>94525</sortIndex>
+			<reward type="XP" reward="50" />
+		</challenge>
+		<challenge id="CHALLENGE_EDWARD_TEACH_UNLOCKED_STRATEGYCARDS_EXPLORATION" scope="Campaign" difficulty="1" hidden="true" allowRewardWhenHidden="true">
+			<l10n>
+				<name>Age Transition Card Exploration</name>
+				<description>As Edward Teach unlock age transition legend strategycards for Exploration.</description>
+			</l10n>
+			<sortIndex>94101</sortIndex>
+			<reward type="UnlockableReward" reward="STRATEGYCARD_AS_EDWARD_TEACH_EXPLORATION_1" />
+			<reward type="UnlockableReward" reward="STRATEGYCARD_AS_EDWARD_TEACH_EXPLORATION_2" />
+		</challenge>
+		<challenge id="CHALLENGE_EDWARD_TEACH_UNLOCKED_STRATEGYCARDS_MODERN" scope="Campaign" difficulty="1" hidden="true" allowRewardWhenHidden="true">
+			<l10n>
+				<name>Age Transition Card Modern</name>
+				<description>As Edward Teach unlock age transition legend strategycards for Modern.</description>
+			</l10n>
+			<sortIndex>94102</sortIndex>
+			<reward type="UnlockableReward" reward="STRATEGYCARD_AS_EDWARD_TEACH_MODERN_1" />
+			<reward type="UnlockableReward" reward="STRATEGYCARD_AS_EDWARD_TEACH_MODERN_2" />
+		</challenge>
+	</challenges>
+</metaprogression>

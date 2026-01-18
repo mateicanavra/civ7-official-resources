@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+	<!--Qajar-->
+	<Modifier id="MOD_NEZAM_E_JADID_UNDER_CAP_COMBAT" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ADJUST_UNIT_UNDER_SETTLEMENT_CAP_COMBAT_MODIFIER">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+				<Argument name="Tag">UNIT_CLASS_COMBAT</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_UNIT_DOMAIN_MATCHES">
+				<Argument name="UnitDomain">DOMAIN_LAND</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">0.5</Argument>
+		<String context="Description">LOC_MOD_NEZAM_E_JADID_UNDER_CAP_COMBAT_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="MOD_TWELVE_GATES_YIELD_UNDER_CAP" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_ADJUST_YIELD_PER_UNDER_SETTLEMENT_CAP" permanent="true">
+		<Argument name="Amount">10</Argument>
+		<Argument name="YieldType">YIELD_FOOD, YIELD_PRODUCTION</Argument>
+		<String context="Description">LOC_MOD_TWELVE_GATES_YIELD_UNDER_CAP_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="MOD_SUN_THRONE_DIPLO_SENDER_YIELD" collection="COLLECTION_OWNER" effect="EFFECT_GRANT_SUPPORT_RESPONSE_BONUS">
+		<Argument name="Amount" type="ScaleByGameSpeed" extra="100">200</Argument>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="YieldToTarget">true</Argument>
+		<String context="Description">LOC_MOD_SUN_THRONE_DIPLO_SENDER_YIELD_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="MOD_SUN_THRONE_DIPLO_RECEIVER_YIELD" collection="COLLECTION_OWNER" effect="EFFECT_GRANT_SUPPORT_RESPONSE_BONUS">
+		<Argument name="Amount" type="ScaleByGameSpeed" extra="100">100</Argument>
+		<Argument name="YieldType">YIELD_GOLD</Argument>
+		<Argument name="YieldToTarget">false</Argument>
+	</Modifier>
+</GameEffects>

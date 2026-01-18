@@ -1,0 +1,46 @@
+.settler-legend-container {
+  min-width: 21.4444444444rem;
+}
+@media (experience: mobile) {
+  .settler-legend-container {
+    min-width: 0;
+    position: relative;
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 0.8888888889rem;
+  }
+}
+
+@media (experience: mobile) {
+  .settler-legend-description {
+    width: 12.7777777778rem;
+  }
+}
+
+.settler-legend-hex {
+  background-image: url("fs://game/bg_hex-icon");
+}
+
+.settler-legend-flood {
+  background-image: url("fs://game/settle_flood");
+}
+
+.settler-legend-volcano {
+  background-image: url("fs://game/settle_volcano");
+}
+
+.settler-legend-city-recommend {
+  background-image: url("fs://game/city_recommend");
+}
+
+@media (experience: mobile) {
+  panel-settler-legend {
+    position: absolute;
+    top: 0rem;
+    left: 0rem;
+    width: 21.1111111111rem;
+    pointer-events: auto;
+    height: 100vh;
+    padding-bottom: calc(13.8888888889rem + var(--safezone-bottom));
+  }
+}

@@ -1,0 +1,134 @@
+<Database>
+	<Types>
+		<!-- Major Civs -->
+		<Row Type="TRAIT_QAJAR_ABILITY" Kind="KIND_TRAIT" />
+	</Types>
+	<Civilizations>
+		<!-- Full Civs -->
+		<Row CivilizationType="CIVILIZATION_QAJAR" Name="LOC_CIVILIZATION_QAJAR_NAME" FullName="LOC_CIVILIZATION_QAJAR_FULLNAME" Description="LOC_CIVILIZATION_QAJAR_DESCRIPTION" Adjective="LOC_CIVILIZATION_QAJAR_ADJECTIVE" StartingCivilizationLevelType="CIVILIZATION_LEVEL_FULL_CIV" UniqueCultureProgressionTree="TREE_CIVICS_MO_QAJAR" CapitalName="LOC_CITY_NAME_QAJAR1" AITargetCityPercentage="75" RandomCityNameDepth="10" />
+	</Civilizations>
+	<CivilizationFavoredWonders>
+		<Row CivilizationType="CIVILIZATION_QAJAR" FavoredWonderType="WONDER_ERAM_GARDEN" FavoredWonderName="LOC_WONDER_ERAM_GARDEN_NAME" />
+	</CivilizationFavoredWonders>
+	<Traits>
+		<!--Civ Traits-->
+		<Row TraitType="TRAIT_QAJAR_ABILITY" Name="LOC_TRAIT_QAJAR_ABILITY_NAME" Description="LOC_TRAIT_QAJAR_ABILITY_DESCRIPTION" InternalOnly="true" />
+	</Traits>
+	<TraitModifiers>
+		<Row TraitType="TRAIT_QAJAR_ABILITY" ModifierId="MOD_REVEAL_CIV_CULTURE_TREE_QAJAR" />
+		<Row TraitType="TRAIT_QAJAR_ABILITY" ModifierId="MOD_CIV_WONDER_PRODUCTION_QAJAR" />
+		<Row TraitType="TRAIT_QAJAR_ABILITY" ModifierId="MOD_CIV_QAJAR_DIPLOMACY" />
+	</TraitModifiers>
+	<CivilizationTraits>
+		<Row CivilizationType="CIVILIZATION_QAJAR" TraitType="TRAIT_MODERN_CIV" />
+		<Row CivilizationType="CIVILIZATION_QAJAR" TraitType="TRAIT_QAJAR" />
+		<Row CivilizationType="CIVILIZATION_QAJAR" TraitType="TRAIT_QAJAR_ABILITY" />
+		<Row CivilizationType="CIVILIZATION_QAJAR" TraitType="TRAIT_ATTRIBUTE_EXPANSIONIST" />
+		<Row CivilizationType="CIVILIZATION_QAJAR" TraitType="TRAIT_ATTRIBUTE_POLITICAL" />
+	</CivilizationTraits>
+	<RequirementSets>
+		<Row RequirementSetId="REQSET_PLAYER_IS_QAJAR" RequirementSetType="REQUIREMENTSET_TEST_ALL" />
+	</RequirementSets>
+	<RequirementSetRequirements>
+		<Row RequirementSetId="REQSET_PLAYER_IS_QAJAR" RequirementId="REQ_PLAYER_HAS_TRAIT_QAJAR" />
+	</RequirementSetRequirements>
+	<Requirements>
+		<Row RequirementId="REQ_PLAYER_HAS_TRAIT_QAJAR" RequirementType="REQUIREMENT_PLAYER_HAS_CIVILIZATION_OR_LEADER_TRAIT" />
+	</Requirements>
+	<RequirementArguments>
+		<Row RequirementId="REQ_PLAYER_HAS_TRAIT_QAJAR" Name="TraitType" Value="TRAIT_QAJAR" />
+	</RequirementArguments>
+	<LeaderCivPriorities>
+		<!--This is the table used for AI, the UI uses LeaderCivilizationBias in config.xml-->
+		<Row Leader="LEADER_XERXES" Civilization="CIVILIZATION_QAJAR" Priority="3" />
+		<Row Leader="LEADER_IBN_BATTUTA" Civilization="CIVILIZATION_QAJAR" Priority="1" />
+	</LeaderCivPriorities>
+	<CityNames>
+		<!--Shawnee-->
+		<Row CivilizationType="CIVILIZATION_QAJAR" CityName="LOC_CITY_NAME_QAJAR1" />
+		<Row CivilizationType="CIVILIZATION_QAJAR" CityName="LOC_CITY_NAME_QAJAR2" />
+		<Row CivilizationType="CIVILIZATION_QAJAR" CityName="LOC_CITY_NAME_QAJAR3" />
+		<Row CivilizationType="CIVILIZATION_QAJAR" CityName="LOC_CITY_NAME_QAJAR4" />
+		<Row CivilizationType="CIVILIZATION_QAJAR" CityName="LOC_CITY_NAME_QAJAR5" />
+		<Row CivilizationType="CIVILIZATION_QAJAR" CityName="LOC_CITY_NAME_QAJAR6" />
+		<Row CivilizationType="CIVILIZATION_QAJAR" CityName="LOC_CITY_NAME_QAJAR7" />
+		<Row CivilizationType="CIVILIZATION_QAJAR" CityName="LOC_CITY_NAME_QAJAR8" />
+		<Row CivilizationType="CIVILIZATION_QAJAR" CityName="LOC_CITY_NAME_QAJAR9" />
+		<Row CivilizationType="CIVILIZATION_QAJAR" CityName="LOC_CITY_NAME_QAJAR10" />
+		<Row CivilizationType="CIVILIZATION_QAJAR" CityName="LOC_CITY_NAME_QAJAR11" />
+		<Row CivilizationType="CIVILIZATION_QAJAR" CityName="LOC_CITY_NAME_QAJAR12" />
+		<Row CivilizationType="CIVILIZATION_QAJAR" CityName="LOC_CITY_NAME_QAJAR13" />
+		<Row CivilizationType="CIVILIZATION_QAJAR" CityName="LOC_CITY_NAME_QAJAR14" />
+		<Row CivilizationType="CIVILIZATION_QAJAR" CityName="LOC_CITY_NAME_QAJAR15" />
+		<Row CivilizationType="CIVILIZATION_QAJAR" CityName="LOC_CITY_NAME_QAJAR16" />
+		<Row CivilizationType="CIVILIZATION_QAJAR" CityName="LOC_CITY_NAME_QAJAR17" />
+		<Row CivilizationType="CIVILIZATION_QAJAR" CityName="LOC_CITY_NAME_QAJAR18" />
+		<Row CivilizationType="CIVILIZATION_QAJAR" CityName="LOC_CITY_NAME_QAJAR19" />
+		<Row CivilizationType="CIVILIZATION_QAJAR" CityName="LOC_CITY_NAME_QAJAR20" />
+		<Row CivilizationType="CIVILIZATION_QAJAR" CityName="LOC_CITY_NAME_QAJAR21" />
+		<Row CivilizationType="CIVILIZATION_QAJAR" CityName="LOC_CITY_NAME_QAJAR22" />
+		<Row CivilizationType="CIVILIZATION_QAJAR" CityName="LOC_CITY_NAME_QAJAR23" />
+		<Row CivilizationType="CIVILIZATION_QAJAR" CityName="LOC_CITY_NAME_QAJAR24" />
+		<Row CivilizationType="CIVILIZATION_QAJAR" CityName="LOC_CITY_NAME_QAJAR25" />
+		<Row CivilizationType="CIVILIZATION_QAJAR" CityName="LOC_CITY_NAME_QAJAR26" />
+		<Row CivilizationType="CIVILIZATION_QAJAR" CityName="LOC_CITY_NAME_QAJAR27" />
+		<Row CivilizationType="CIVILIZATION_QAJAR" CityName="LOC_CITY_NAME_QAJAR28" />
+		<Row CivilizationType="CIVILIZATION_QAJAR" CityName="LOC_CITY_NAME_QAJAR29" />
+		<Row CivilizationType="CIVILIZATION_QAJAR" CityName="LOC_CITY_NAME_QAJAR30" />
+	</CityNames>
+	<StartBiasBiomes>
+		<Row CivilizationType="CIVILIZATION_QAJAR" BiomeType="BIOME_PLAINS" Score="5" />
+		<Row CivilizationType="CIVILIZATION_QAJAR" BiomeType="BIOME_DESERT" Score="5" />
+	</StartBiasBiomes>
+	<VisArt_CivilizationBuildingCultures>
+		<Row CivilizationType="CIVILIZATION_QAJAR" BuildingCulture="BUILDING_CULTURE_MID" />
+		<Row CivilizationType="CIVILIZATION_QAJAR" BuildingCulture="ANT_MUD" />
+		<Row CivilizationType="CIVILIZATION_QAJAR" BuildingCulture="EXP_MUD" />
+		<Row CivilizationType="CIVILIZATION_QAJAR" BuildingCulture="MOD_MUD" />
+	</VisArt_CivilizationBuildingCultures>
+	<VisArt_CivilizationUnitCultures>
+		<Row CivilizationType="CIVILIZATION_QAJAR" UnitCulture="MidE" />
+	</VisArt_CivilizationUnitCultures>
+	<AiListTypes>
+		<Row ListType="Qajar Unit Biases" />
+		<Row ListType="Qajar Government Bias" />
+		<Row ListType="Qajar Constructibles Biases" />
+		<Row ListType="Qajar PseudoYield Biases" />
+	</AiListTypes>
+	<AiLists>
+		<Row ListType="Qajar Unit Biases" LeaderType="TRAIT_QAJAR" System="UnitBiases" />
+		<Row ListType="Qajar Government Bias" LeaderType="TRAIT_QAJAR" System="GovernmentBiases" />
+		<Row ListType="Qajar Constructibles Biases" LeaderType="TRAIT_QAJAR" System="ConstructibleBiases" />
+		<Row ListType="Qajar PseudoYield Biases" LeaderType="TRAIT_QAJAR" System="PseudoYieldBiases" />
+	</AiLists>
+	<AiFavoredItems>
+		<Row ListType="Qajar Unit Biases" Item="UNIT_GHILMAN" Value="50" />
+		<Row ListType="Qajar Unit Biases" Item="UNIT_GHILMAN_2" Value="50" />
+		<Row ListType="Qajar Unit Biases" Item="UNIT_GHILMAN_3" Value="50" />
+		<Row ListType="Qajar Unit Biases" Item="UNIT_SOLTAN" Value="50" />
+		<Row ListType="Qajar Unit Biases" Item="UNIT_SETTLER" Value="-1000" />
+		<Row ListType="Qajar Government Bias" Item="GOVERNMENT_BUREAUCRATIC_MONARCHY" Value="50" />
+		<Row ListType="Qajar Constructibles Biases" Item="BUILDING_TAKYEH" Value="200" />
+		<Row ListType="Qajar Constructibles Biases" Item="BUILDING_GHAHVE_KHANE" Value="200" />
+		<Row ListType="Qajar Constructibles Biases" Item="WONDER_ERAM_GARDEN" Value="50" />
+		<Row ListType="Qajar PseudoYield Biases" Item="PSEUDOYIELD_NEW_CITY" Value="-1000" />
+		<Row ListType="Qajar PseudoYield Biases" Item="PSEUDOYIELD_SETTLEMENT_CAP_INCREASE" Value="200" />
+	</AiFavoredItems>
+	<Independents>
+		<Update>
+			<Where IndependentType="INDEPENDENT_MODERN_25" />
+			<Set Name="LOC_INDEPENDENT_MODERN_25_MINOR_QAJAR_NAME" CityStateName="LOC_INDEPENDENT_MODERN_25_MAJOR_QAJAR_NAME" />
+		</Update>
+	</Independents>
+	<EndGameMovies>
+		<!-- Defeats (Civ Specific) -->
+		<Row DefeatType="DEFEAT_DEFAULT" CivilizationType="CIVILIZATION_QAJAR" Priority="450" MovieType="MOVIE_DEFEAT_QAJAR" />
+		<Row DefeatType="DEFEAT_RETIRE" CivilizationType="CIVILIZATION_QAJAR" Priority="440" MovieType="MOVIE_DEFEAT_QAJAR" />
+
+		<!-- Age Transition/Legacy Points Victory -->
+		<Row CivilizationType="CIVILIZATION_QAJAR" LastCompletedLegacyPath="LEGACY_PATH_MODERN_ECONOMIC" Priority="200" MovieType="MOVIE_CIVILIZATION_QAJAR_LEGACY_ECONOMIC" />
+		<Row CivilizationType="CIVILIZATION_QAJAR" LastCompletedLegacyPath="LEGACY_PATH_MODERN_MILITARY" Priority="200" MovieType="MOVIE_CIVILIZATION_QAJAR_LEGACY_MILITARY" />
+		<Row CivilizationType="CIVILIZATION_QAJAR" LastCompletedLegacyPath="LEGACY_PATH_MODERN_SCIENCE" Priority="200" MovieType="MOVIE_CIVILIZATION_QAJAR_LEGACY_SCIENCE" />
+		<Row CivilizationType="CIVILIZATION_QAJAR" LastCompletedLegacyPath="LEGACY_PATH_MODERN_CULTURE" Priority="200" MovieType="MOVIE_CIVILIZATION_QAJAR_LEGACY_CULTURE" />
+	</EndGameMovies>
+</Database>

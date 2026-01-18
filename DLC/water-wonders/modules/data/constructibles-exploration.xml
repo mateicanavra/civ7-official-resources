@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Kinds>
+		<InsertOrIgnore Kind="KIND_CONSTRUCTIBLE"/>
+	</Kinds>
+	<Types>
+		<Row Type="WONDER_NAN_MADOL" Kind="KIND_CONSTRUCTIBLE"/>
+	</Types>
+	<TypeQuotes>
+		<Row Type="WONDER_NAN_MADOL" Quote="LOC_QUOTE_WONDER_NAN_MADOL" QuoteAuthor="LOC_QUOTE_AUTHOR_WONDER_NAN_MADOL" QuoteAudio="VO_Quote_NanMadol"/>
+	</TypeQuotes>
+	<Constructibles>
+		<Row ConstructibleType="WONDER_NAN_MADOL" Name="LOC_WONDER_NAN_MADOL_NAME" Description="LOC_WONDER_NAN_MADOL_DESCRIPTION" Tooltip="LOC_WONDER_NAN_MADOL_TOOLTIP" ConstructibleClass="WONDER" Cost="400" Population="0" IslandSettlement="15" ImmuneDamage="true" RequiresUnlock="true" Age="AGE_EXPLORATION"/>
+	</Constructibles>
+	<Wonders>
+		<Row ConstructibleType="WONDER_NAN_MADOL" MaxWorldInstances="1"/>
+	</Wonders>
+	<TypeTags>
+		<Row Type="WONDER_NAN_MADOL" Tag="AGELESS"/>
+	</TypeTags>
+	<Constructible_ValidDistricts>
+		<Row ConstructibleType="WONDER_NAN_MADOL" DistrictType="DISTRICT_WONDER"/>
+	</Constructible_ValidDistricts>
+	<Constructible_ValidTerrains>
+		<Row ConstructibleType="WONDER_NAN_MADOL" TerrainType="TERRAIN_COAST"/>
+	</Constructible_ValidTerrains>
+	<ConstructibleModifiers>
+		<Row ConstructibleType="WONDER_NAN_MADOL" ModifierId="MOD_NAN_MADOL_ISLAND_YIELDS"/>
+	</ConstructibleModifiers>
+	<Constructible_Advisories>
+		<Row ConstructibleType="WONDER_NAN_MADOL" AdvisoryClassType="ADVISORY_CLASS_CULTURE"/>
+		<Row ConstructibleType="WONDER_NAN_MADOL" AdvisoryClassType="ADVISORY_CLASS_SEA"/>
+	</Constructible_Advisories>
+</Database>

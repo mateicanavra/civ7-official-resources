@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+    <Modifier id="11054B_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_HAPPINESS</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+        <Argument name="ConstructibleType">BUILDING_GRANARY</Argument>
+    </Modifier>
+    <Modifier id="11054C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_GOLD</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+        <Argument name="ConstructibleType">BUILDING_GRANARY</Argument>
+    </Modifier>
+    <Modifier id="11055B_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_PRODUCTION</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+        <Argument name="Tag">FOOD</Argument>
+    </Modifier>
+    <Modifier id="11055C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_GOLD</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+        <Argument name="Tag">FOOD</Argument>
+    </Modifier>
+    <Modifier id="11056B_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_GRANT_UNIT" run-once="true" permanent="true">
+        <Argument name="UnitTag">UNIT_CLASS_HWARANG</Argument>
+        <Argument name="DefaultUnitType">UNIT_HWARANG</Argument>
+        <Argument name="Amount">1</Argument>
+    </Modifier>
+    <Modifier id="11056C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_GRANT_UNIT" run-once="true" permanent="true">
+        <Argument name="UnitTag">UNIT_CLASS_COMMAND</Argument>
+        <Argument name="DefaultUnitType">UNIT_ARMY_COMMANDER</Argument>
+        <Argument name="Amount">1</Argument>
+    </Modifier>
+    <Modifier id="11057B_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_HAPPINESS</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+        <Argument name="Tag">CULTURE</Argument>
+    </Modifier>
+    <Modifier id="11057C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_PRODUCTION</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+        <Argument name="Tag">GOLD</Argument>
+    </Modifier>
+    <Modifier id="11058B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_NARRATIVE" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+        <Argument name="MultiplierType">REWARD_TYPE_MINOR_EARLY</Argument>
+    </Modifier>
+    <Modifier id="11058C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_NARRATIVE" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_GOLD</Argument>
+        <Argument name="MultiplierType">REWARD_TYPE_MINOR_EARLY</Argument>
+    </Modifier>
+    <Modifier id="11059B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_GRANT_GREAT_WORK" run-once="false" permanent="true">
+        <Argument name="Amount">1</Argument>
+        <Argument name="ObjectType">GREATWORKOBJECT_WRITING</Argument>
+    </Modifier>
+    <Modifier id="11059C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_GRANT_UNIT" run-once="true" permanent="true">
+        <Argument name="UnitType">UNIT_SANGDAEDEUNG</Argument>
+        <Argument name="Amount">2</Argument>
+    </Modifier>
+    <Modifier id="11060B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ATTRIBUTE" run-once="false" permanent="true">
+        <Argument name="AttributeType">ATTRIBUTE_ECONOMIC</Argument>
+        <Argument name="Amount">1</Argument>
+    </Modifier>
+    <Modifier id="11060C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ATTRIBUTE" run-once="false" permanent="true">
+        <Argument name="AttributeType">ATTRIBUTE_POLITICAL</Argument>
+        <Argument name="Amount">1</Argument>
+    </Modifier>
+    <Modifier id="11062B_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_PRODUCTION</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+        <Argument name="Tag">GOLD</Argument>
+    </Modifier>
+    <Modifier id="11062B_NARRATIVE_MODIFIER2" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADD_YIELD_DEBT_NARRATIVE" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_HAPPINESS</Argument>
+        <Argument name="MultiplierType">REWARD_TYPE_MINOR_LATE</Argument>
+    </Modifier>
+    <Modifier id="11062C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_PRODUCTION</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+        <Argument name="Tag">HAPPINESS</Argument>
+    </Modifier>
+    <Modifier id="11062C_NARRATIVE_MODIFIER2" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_DEDUCT_TREASURY_NARRATIVE" run-once="false" permanent="true">
+        <Argument name="MultiplierType">REWARD_TYPE_MINOR_LATE</Argument>
+    </Modifier>
+    <Modifier id="11063B_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_GRANT_UNIT" run-once="true" permanent="true">
+        <Argument name="UnitTag">UNIT_CLASS_INFANTRY</Argument>
+        <Argument name="Amount">1</Argument>
+    </Modifier>
+    <Modifier id="11063C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_GOLD</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">2</Argument>
+    </Modifier>
+    <Modifier id="12009B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_NARRATIVE" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_GOLD</Argument>
+        <Argument name="MultiplierType">REWARD_TYPE_MINOR_EARLY</Argument>
+    </Modifier>
+    <Modifier id="12009C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_NARRATIVE" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+        <Argument name="MultiplierType">REWARD_TYPE_MINOR_EARLY</Argument>
+    </Modifier>
+    <Requirement id="REQ_STORY_CIVILIZATION_SILLA" type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
+        <Argument name="CivilizationType">CIVILIZATION_SILLA</Argument>
+    </Requirement>
+    <RequirementSet id="REQSET_11054A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_SILLA"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11055A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_SILLA"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11056A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_SILLA"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11057A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_SILLA"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11058A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_SILLA"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11059D_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_SILLA"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11060A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_SILLA"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11062A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_SILLA"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11054A_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_SILLA"/>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_NARRATIVE_TAGS">
+            <Argument name="NarrativeTagType">NARRATIVE_TAG_GOVERNMENT_OLIGARCHY</Argument>
+            <Argument name="Amount">1</Argument>
+        </Requirement>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_BUILDINGS">
+            <Argument name="BuildingType">BUILDING_MONUMENT</Argument>
+            <Argument name="Amount">1</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11055A_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_SILLA"/>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_BUILDINGS">
+            <Argument name="BuildingType">IMPROVEMENT_FARM</Argument>
+            <Argument name="Amount">5</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11056A_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_SILLA"/>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
+            <Argument name="GossipTypes">GOSSIP_DIPLOMACY_ACTION_STARTED01</Argument>
+            <Argument name="GOSSIP_DIPLOMACY_ACTION_STARTED01">Hash,OtherPlayer,Other,Hash,DiplomacyActionType,DIPLOMACY_ACTION_SABOTAGE_MILITARY_PRODUCTION</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11057A_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_SILLA"/>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_ACTIVE_TRADITION">
+            <Argument name="TraditionType">TRADITION_LITERATURE</Argument>
+            <Argument name="ActiveAtGoldenAge">True</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11058A_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_SILLA"/>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
+            <Argument name="GossipTypes">GOSSIP_GATHER_RESOURCE01,GOSSIP_DIPLOMACY_ACTION_STARTED02</Argument>
+            <Argument name="GOSSIP_GATHER_RESOURCE01">Hash,ResourceType,RESOURCE_GOLD</Argument>
+            <Argument name="GOSSIP_DIPLOMACY_ACTION_STARTED02">Hash,OtherPlayer,Other,Hash,DiplomacyActionType,DIPLOMACY_ACTION_MINOR_TRADE</Argument>
+            <Argument name="OrderedTurnWindow">1000</Argument>
+            <Argument name="Amount">2</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11059A_NARRATIVE">
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
+            <Argument name="GossipTypes">GOSSIP_GATHER_RESOURCE01</Argument>
+            <Argument name="GOSSIP_GATHER_RESOURCE01">Hash,ResourceType,RESOURCE_HORSES</Argument>
+            <Argument name="AfterInit">True</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11059D_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_SILLA"/>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
+            <Argument name="GossipTypes">GOSSIP_COMPLETED_PROGRESSION_TREE_NODE01,GOSSIP_COMPLETED_PROGRESSION_TREE_NODE02,GOSSIP_COMPLETED_PROGRESSION_TREE_NODE03</Argument>
+            <Argument name="GOSSIP_COMPLETED_PROGRESSION_TREE_NODE01">Hash,ProgressionTreeNodeType,NODE_CIVIC_AQ_SILLA_SAMGUK_SAGI</Argument>
+            <Argument name="GOSSIP_COMPLETED_PROGRESSION_TREE_NODE02">Hash,ProgressionTreeNodeType,NODE_CIVIC_AQ_SILLA_SEONGGOL</Argument>
+            <Argument name="GOSSIP_COMPLETED_PROGRESSION_TREE_NODE03">Hash,ProgressionTreeNodeType,NODE_CIVIC_AQ_SILLA_JINGOL</Argument>
+            <Argument name="Amount">3</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11060A_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_SILLA"/>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
+            <Argument name="GossipTypes">GOSSIP_COMPLETED_PROGRESSION_TREE_NODE01,GOSSIP_COMPLETED_PROGRESSION_TREE_NODE02,GOSSIP_COMPLETED_PROGRESSION_TREE_NODE03</Argument>
+            <Argument name="GOSSIP_COMPLETED_PROGRESSION_TREE_NODE01">Hash,ProgressionTreeNodeType,NODE_CIVIC_AQ_SILLA_SAMGUK_SAGI</Argument>
+            <Argument name="GOSSIP_COMPLETED_PROGRESSION_TREE_NODE02">Hash,ProgressionTreeNodeType,NODE_CIVIC_AQ_SILLA_SEONGGOL</Argument>
+            <Argument name="GOSSIP_COMPLETED_PROGRESSION_TREE_NODE03">Hash,ProgressionTreeNodeType,NODE_CIVIC_AQ_SILLA_JINGOL</Argument>
+            <Argument name="Amount">2</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11062A_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_SILLA"/>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_UNHAPPY_CITIES">
+            <Argument name="Count">1</Argument>
+        </Requirement>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_ACTIVE_TRADITION">
+            <Argument name="TraditionType">TRADITION_CASTES</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11063A_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_SILLA"/>
+        <Requirement type="REQUIREMENT_GAME_TURN_IS_X_NARRATIVE">
+            <Argument name="AfterTurn">1</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_12009A_NARRATIVE">
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
+            <Argument name="GossipTypes">GOSSIP_PLAYERS_MEET01</Argument>
+            <Argument name="GOSSIP_PLAYERS_MEET01">Hash,OtherPlayer,Other,Hash,Civilization,CIVILIZATION_SILLA</Argument>
+        </Requirement>
+    </RequirementSet>
+</GameEffects>

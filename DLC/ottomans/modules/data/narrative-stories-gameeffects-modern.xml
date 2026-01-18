@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+    <Modifier id="11101B_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_HAPPINESS</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">2</Argument>
+    </Modifier>
+    <Modifier id="11101B_NARRATIVE_MODIFIER2" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_GOLD</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">-1</Argument>
+    </Modifier>
+    <Modifier id="11101C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_HAPPINESS</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">2</Argument>
+    </Modifier>
+    <Modifier id="11101C_NARRATIVE_MODIFIER2" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_PRODUCTION</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">-1</Argument>
+    </Modifier>
+    <Modifier id="11102B_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_GOLD</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+        <Argument name="Tag">GOLD</Argument>
+    </Modifier>
+    <Modifier id="11102C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_HAPPINESS</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+        <Argument name="Tag">HAPPINESS</Argument>
+    </Modifier>
+    <Modifier id="11103B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_NARRATIVE" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_GOLD</Argument>
+        <Argument name="MultiplierType">REWARD_TYPE_MINOR_LATE</Argument>
+    </Modifier>
+    <Modifier id="11103C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_NARRATIVE" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+        <Argument name="MultiplierType">REWARD_TYPE_MINOR_LATE</Argument>
+    </Modifier>
+    <Modifier id="11103D_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_NAVAL_UNIT_WITH_OCEAN_ACCESS" run-once="false" permanent="true">
+        <Argument name="UnitTag">UNIT_CLASS_BARBARY_CORSAIR</Argument>
+        <Argument name="Amount">1</Argument>
+    </Modifier>
+    <Modifier id="11104B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ATTRIBUTE" run-once="false" permanent="true">
+        <Argument name="AttributeType">ATTRIBUTE_CULTURAL</Argument>
+        <Argument name="Amount">1</Argument>
+    </Modifier>
+    <Modifier id="11104C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ATTRIBUTE" run-once="false" permanent="true">
+        <Argument name="AttributeType">ATTRIBUTE_MILITARISTIC</Argument>
+        <Argument name="Amount">1</Argument>
+    </Modifier>
+    <Modifier id="11105B_NARRATIVE_MODIFIER" collection="COLLECTION_NARRATIVE_STORY" effect="EFFECT_PLAYER_GRANT_UNIT_AT_PLOT" run-once="false" permanent="true">
+        <Argument name="Amount">1</Argument>
+        <Argument name="UnitType">UNIT_ARMY_COMMANDER</Argument>
+        <Argument name="Levels">5</Argument>
+    </Modifier>
+    <Modifier id="11105B_NARRATIVE_MODIFIER2" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_UNIT_MAINTENANCE_EFFICIENCY" run-once="false" permanent="true">
+        <Argument name="Amount">-2</Argument>
+        <Argument name="UnitTag">UNIT_CLASS_JANISSARY</Argument>
+    </Modifier>
+    <Modifier id="11105C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_ABILITY" run-once="false" permanent="true">
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+                <Argument name="Tag">UNIT_CLASS_JANISSARY</Argument>
+            </Requirement>
+        </SubjectRequirements>
+        <Argument name="AbilityType">ABILITY_NARRATIVE_AGGRESSION</Argument>
+    </Modifier>
+    <Modifier id="11105D_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_NARRATIVE" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_SCIENCE</Argument>
+        <Argument name="MultiplierType">REWARD_TYPE_MINOR_LATE</Argument>
+    </Modifier>
+    <Modifier id="11106B_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_PRODUCTION</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+        <Argument name="ConstructibleType">BUILDING_DEPARTMENT_STORE</Argument>
+    </Modifier>
+    <Modifier id="11106C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_PRODUCTION</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+        <Argument name="ConstructibleType">BUILDING_OPERA_HOUSE</Argument>
+    </Modifier>
+    <Modifier id="11106D_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_NARRATIVE" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_SCIENCE</Argument>
+        <Argument name="MultiplierType">REWARD_TYPE_MINOR_EARLY</Argument>
+    </Modifier>
+    <Modifier id="11107B_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_PRODUCTION" run-once="false" permanent="true">
+        <Argument name="Percent">25</Argument>
+        <Argument name="ConstructibleType">BUILDING_CAMII</Argument>
+    </Modifier>
+    <Modifier id="11107C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_CULTURE</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">2</Argument>
+        <Argument name="ConstructibleType">BUILDING_SCHOOLHOUSE</Argument>
+    </Modifier>
+    <Modifier id="11107D_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD" run-once="false" permanent="true">
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_PLOT_UNIQUE_QUARTER">
+                <Argument name="UniqueQuarterType">QUARTER_ULEMA</Argument>
+            </Requirement>
+        </SubjectRequirements>
+        <Argument name="Amount">9</Argument>
+        <Argument name="YieldType">YIELD_CULTURE</Argument>
+    </Modifier>
+    <Modifier id="11108B_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_GRANT_UNIT_EXPERIENCE" run-once="true" permanent="true">
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+                <Argument name="Tag">UNIT_CLASS_COMMAND</Argument>
+            </Requirement>
+        </SubjectRequirements>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">10</Argument>
+    </Modifier>
+    <Modifier id="11108C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD" run-once="false" permanent="true">
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_PLOT_UNIQUE_QUARTER">
+                <Argument name="UniqueQuarterType">QUARTER_KULLIYE</Argument>
+            </Requirement>
+        </SubjectRequirements>
+        <Argument name="Amount">3</Argument>
+        <Argument name="YieldType">YIELD_CULTURE</Argument>
+    </Modifier>
+    <Modifier id="11110B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_GRANT_GREAT_WORK" run-once="false" permanent="true">
+        <Argument name="Amount">1</Argument>
+        <Argument name="GreatWork">GREATWORK_ARTIFACT_EGYPTIAN_OBELISK</Argument>
+    </Modifier>
+    <Modifier id="11110C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_NARRATIVE" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_CULTURE</Argument>
+        <Argument name="MultiplierType">REWARD_TYPE_MEDIUM_LATE</Argument>
+    </Modifier>
+    <Modifier id="12013B_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_ABILITY" run-once="false" permanent="true">
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_UNIT_TYPE_MATCHES">
+                <Argument name="UnitType">UNIT_COURSER</Argument>
+            </Requirement>
+        </SubjectRequirements>
+        <Argument name="AbilityType">ABILITY_NARRATIVE_STRENGTH</Argument>
+    </Modifier>
+    <Modifier id="12013C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_NARRATIVE" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_CULTURE</Argument>
+        <Argument name="MultiplierType">REWARD_TYPE_MINOR_EARLY</Argument>
+    </Modifier>
+    <Requirement id="REQ_STORY_CIVILIZATION_OTTOMANS" type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
+        <Argument name="CivilizationType">CIVILIZATION_OTTOMANS</Argument>
+    </Requirement>
+    <RequirementSet id="REQSET_11103D_NARRATIVE_REQUISITE">
+        <Requirement type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
+            <Argument name="LeaderType">LEADER_SAYYIDA_AL_HURRA</Argument>
+            <Argument name="AcceptVariation">True</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11107D_NARRATIVE_REQUISITE">
+        <Requirement type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
+            <Argument name="CivilizationType">CIVILIZATION_ABBASID</Argument>
+            <Argument name="IsPastCivilization">True</Argument>
+        </Requirement>
+        <Requirement type="REQUIREMENT_COLLECTION_ANY_MET">
+            <Argument name="CollectionType">COLLECTION_PLAYER_CITIES</Argument>
+            <Argument name="RequirementSetId">SUBREQSET_11107D_NARRATIVE_REQUISITE</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="SUBREQSET_11107D_NARRATIVE_REQUISITE">
+        <Requirement type="REQUIREMENT_BUILDING_IS_ADJACENT_TO_X">
+            <Argument name="BuildingType">BUILDING_SCHOOLHOUSE</Argument>
+            <Argument name="AdjacentQuarterTypes">QUARTER_ULEMA</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11101A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_OTTOMANS"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11102A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_OTTOMANS"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11103A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_OTTOMANS"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11104A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_OTTOMANS"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11105A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_OTTOMANS"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11106A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_OTTOMANS"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11107A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_OTTOMANS"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11108A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_OTTOMANS"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11110A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_OTTOMANS"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11101A_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_OTTOMANS"/>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_COMPLETED_PROGRESSION_TREE_NODE">
+            <Argument name="ProgressionTreeNodeType">NODE_CIVIC_MO_OTTOMANS_LALE_DEVRI</Argument>
+            <Argument name="MinDepth">1</Argument>
+        </Requirement>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_COMPLETED_PROGRESSION_TREE_NODE">
+            <Argument name="ProgressionTreeNodeType">NODE_CIVIC_MO_MAIN_MODERNIZATION</Argument>
+            <Argument name="MinDepth">1</Argument>
+        </Requirement>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_X_TRADE_ROUTES_WITH_PLAYER">
+            <Argument name="Amount">5</Argument>
+            <Argument name="AllPlayers">True</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11102A_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_OTTOMANS"/>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_BUILDINGS">
+            <Argument name="BuildingType">WONDER_GRAND_BAZAAR</Argument>
+            <Argument name="Amount">1</Argument>
+        </Requirement>
+        <Requirement type="REQUIREMENT_COLLECTION_ANY_MET">
+            <Argument name="CollectionType">COLLECTION_PLAYER_CITIES</Argument>
+            <Argument name="RequirementSetId">SUBREQSET_11102A_NARRATIVE</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="SUBREQSET_11102A_NARRATIVE">
+        <Requirement type="REQUIREMENT_BUILDING_IS_ADJACENT_TO_X">
+            <Argument name="BuildingType">WONDER_SULTANAHMET_CAMII</Argument>
+            <Argument name="AdjacentBuildingTypes">WONDER_GRAND_BAZAAR</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11103A_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_OTTOMANS"/>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
+            <Argument name="GossipTypes">GOSSIP_PILLAGE01,GOSSIP_PILLAGE02,GOSSIP_PILLAGE03</Argument>
+            <Argument name="GOSSIP_PILLAGE01">Hash,UnitType,UNIT_BARBARY_CORSAIR,Hash,OtherPlayer,Other</Argument>
+            <Argument name="GOSSIP_PILLAGE02">Hash,UnitType,UNIT_BARBARY_CORSAIR_2,Hash,OtherPlayer,Other</Argument>
+            <Argument name="GOSSIP_PILLAGE03">Hash,UnitType,UNIT_BARBARY_CORSAIR_3,Hash,OtherPlayer,Other</Argument>
+            <Argument name="Amount">1</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11104A_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_OTTOMANS"/>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_COMPLETED_PROGRESSION_TREE_NODE">
+            <Argument name="ProgressionTreeNodeType">NODE_CIVIC_MO_OTTOMANS_TANZIMAT</Argument>
+            <Argument name="MinDepth">1</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11105A_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_OTTOMANS"/>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
+            <Argument name="GossipTypes">GOSSIP_UNIT_COMBAT_DEATH01,GOSSIP_UNIT_COMBAT_DEATH02</Argument>
+            <Argument name="GOSSIP_UNIT_COMBAT_DEATH01">Hash,OtherPlayer,Other,Hash,DyingUnitType,UNIT_JANISSARY_2,Hash,KillingUnitType,UNIT_INFANTRY_COMPANY</Argument>
+            <Argument name="GOSSIP_UNIT_COMBAT_DEATH02">Hash,OtherPlayer,Other,Hash,DyingUnitType,UNIT_JANISSARY_2,Hash,KillingUnitType,UNIT_TANK</Argument>
+            <Argument name="Amount">1</Argument>
+        </Requirement>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_COMPLETED_PROGRESSION_TREE_NODE">
+            <Argument name="ProgressionTreeNodeType">NODE_CIVIC_MO_OTTOMANS_HARBIYE_NEZARETI</Argument>
+            <Argument name="MinDepth">1</Argument>
+        </Requirement>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_BUILDINGS" inverse="true">
+            <Argument name="BuildingType">BUILDING_MILITARY_ACADEMY</Argument>
+            <Argument name="Amount">1</Argument>
+        </Requirement>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_MILITARY_UNITS" inverse="true">
+            <Argument name="Amount">1</Argument>
+            <Argument name="UnitTag">UNIT_CLASS_ELITE_INFANTRY</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11105B_NARRATIVE">
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_BUILDINGS">
+            <Argument name="BuildingType">BUILDING_MILITARY_ACADEMY</Argument>
+            <Argument name="Amount">1</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11105C_NARRATIVE">
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_MILITARY_UNITS">
+            <Argument name="Amount">3</Argument>
+            <Argument name="UnitTag">UNIT_CLASS_ELITE_INFANTRY</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11106A_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_OTTOMANS"/>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
+            <Argument name="GossipTypes">GOSSIP_DIPLOMACY_RESPONSE01</Argument>
+            <Argument name="GOSSIP_DIPLOMACY_RESPONSE01">Hash,DiplomacyResponseType,DIPLOMACY_RESPONSE_ACCEPT,Hash,DiplomacyActionType,DIPLOMACY_ACTION_CULTURAL_EXCHANGE</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11106B_NARRATIVE">
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
+            <Argument name="GossipTypes">GOSSIP_PLACED_WORKER01,GOSSIP_PLACED_WORKER02</Argument>
+            <Argument name="GOSSIP_PLACED_WORKER01">Hash,ConstructibleType,BUILDING_DEPARTMENT_STORE</Argument>
+            <Argument name="GOSSIP_PLACED_WORKER02">Hash,ConstructibleType2,BUILDING_DEPARTMENT_STORE</Argument>
+            <Argument name="AfterInit">True</Argument>
+            <Argument name="Amount">1</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11106C_NARRATIVE">
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
+            <Argument name="GossipTypes">GOSSIP_PLACED_WORKER01,GOSSIP_PLACED_WORKER02</Argument>
+            <Argument name="GOSSIP_PLACED_WORKER01">Hash,ConstructibleType,BUILDING_OPERA_HOUSE</Argument>
+            <Argument name="GOSSIP_PLACED_WORKER02">Hash,ConstructibleType2,BUILDING_OPERA_HOUSE</Argument>
+            <Argument name="AfterInit">True</Argument>
+            <Argument name="Amount">1</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11107A_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_OTTOMANS"/>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_NARRATIVE_TAGS">
+            <Argument name="NarrativeTagType">NARRATIVE_TAG_GOVERNMENT_THEOCRACY</Argument>
+            <Argument name="Amount">1</Argument>
+        </Requirement>
+        <Requirement type="REQUIREMENT_COLLECTION_ANY_MET">
+            <Argument name="CollectionType">COLLECTION_PLAYER_CITIES</Argument>
+            <Argument name="RequirementSetId">SUBREQSET_11107A_NARRATIVE</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="SUBREQSET_11107A_NARRATIVE">
+        <Requirement type="REQUIREMENT_BUILDING_IS_ADJACENT_TO_X">
+            <Argument name="BuildingType">BUILDING_SCHOOLHOUSE</Argument>
+            <Argument name="AdjacentBuildingTypes">BUILDING_TEMPLE,BUILDING_MOSQUE</Argument>
+            <Argument name="ListCount">1</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11108A_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_OTTOMANS"/>
+        <Requirement type="REQUIREMENT_COLLECTION_ANY_MET">
+            <Argument name="CollectionType">COLLECTION_PLAYER_CITIES</Argument>
+            <Argument name="RequirementSetId">SUBREQSET_11108A_NARRATIVE</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="SUBREQSET_11108A_NARRATIVE">
+        <Requirement type="REQUIREMENT_CITY_HAS_UNIQUE_QUARTER">
+            <Argument name="UniqueQuarterType">QUARTER_KULLIYE</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11108B_NARRATIVE">
+        <Requirement type="REQUIREMENT_COLLECTION_ANY_MET">
+            <Argument name="CollectionType">COLLECTION_PLAYER_CITIES</Argument>
+            <Argument name="RequirementSetId">SUBREQSET_11108B_NARRATIVE</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="SUBREQSET_11108B_NARRATIVE">
+        <Requirement type="REQUIREMENT_CITY_HAS_UNIQUE_QUARTER">
+            <Argument name="UniqueQuarterType">QUARTER_KULLIYE</Argument>
+        </Requirement>
+        <Requirement type="REQUIREMENT_CITY_IS_ORIGINAL_OWNER" inverse="true">
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11110A_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_OTTOMANS"/>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_NARRATIVE_TAGS">
+            <Argument name="NarrativeTagType">NARRATIVE_TAG_EGYPTIAN_OBELISK</Argument>
+            <Argument name="Amount">1</Argument>
+        </Requirement>
+        <Requirement type="REQUIREMENT_PLAYER_OVERBUILDS">
+            <Argument name="OldConstructibleType">BUILDING_ARENA</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_12013A_NARRATIVE">
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
+            <Argument name="GossipTypes">GOSSIP_TRADE_ROUTE_STARTED01</Argument>
+            <Argument name="GOSSIP_TRADE_ROUTE_STARTED01">Hash,OtherPlayer,Other,Hash,Civilization,CIVILIZATION_OTTOMANS</Argument>
+        </Requirement>
+    </RequirementSet>
+</GameEffects>

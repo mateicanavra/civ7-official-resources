@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Types>
+		<!-- ==================================================	-->
+		<!--	EXPLORATION							-->
+		<!-- ==================================================	-->
+		<Row Type="TRADITION_DREKAHOFUD" Kind="KIND_TRADITION"/>
+		<Row Type="TRADITION_DROTTKVAETT" Kind="KIND_TRADITION"/>
+		<Row Type="TRADITION_REIDI_GUDANNA" Kind="KIND_TRADITION"/>
+		<Row Type="TRADITION_LYFSTEINN" Kind="KIND_TRADITION"/>
+	</Types>
+	<Traditions>
+		<!-- ==================================================	-->
+		<!--	EXPLORATION							-->
+		<!-- ==================================================	-->
+		<Row TraditionType="TRADITION_DREKAHOFUD" Name="LOC_TRADITION_DREKAHOFUD_NAME" Description="LOC_TRADITION_DREKAHOFUD_DESCRIPTION" TraitType="TRAIT_ICELAND" AgeType="AGE_EXPLORATION"/>
+		<Row TraditionType="TRADITION_REIDI_GUDANNA" Name="LOC_TRADITION_REIDI_GUDANNA_NAME" Description="LOC_TRADITION_REIDI_GUDANNA_DESCRIPTION" TraitType="TRAIT_ICELAND" AgeType="AGE_EXPLORATION"/>
+		<Row TraditionType="TRADITION_DROTTKVAETT" Name="LOC_TRADITION_DROTTKVAETT_NAME" Description="LOC_TRADITION_DROTTKVAETT_DESCRIPTION" TraitType="TRAIT_ICELAND" AgeType="AGE_EXPLORATION"/>
+		<Row TraditionType="TRADITION_LYFSTEINN" Name="LOC_TRADITION_LYFSTEINN_NAME" Description="LOC_TRADITION_LYFSTEINN_DESCRIPTION" TraitType="TRAIT_ICELAND" AgeType="AGE_EXPLORATION"/>
+	</Traditions>
+	<TraditionModifiers>
+		<Row TraditionType="TRADITION_DREKAHOFUD" ModifierId="DREKAHOFUD_NAVAL_UNIT_CULTURE"/>
+		<Row TraditionType="TRADITION_REIDI_GUDANNA" ModifierId="REIDI_GUDANNA_MOD_VOLCANO_ADJACENCY"/>
+		<Row TraditionType="TRADITION_REIDI_GUDANNA" ModifierId="REIDI_GUDANNA_MOD_REPAIR_DISCOUNT"/>
+		<Row TraditionType="TRADITION_LYFSTEINN" ModifierId="MOD_LYFSTEINN_HEAL_NAVAL"/>
+		<Row TraditionType="TRADITION_DROTTKVAETT" ModifierId="MOD_DROTTKVAETT_COASTAL_RAID_CULTURE"/>
+	</TraditionModifiers>
+</Database>

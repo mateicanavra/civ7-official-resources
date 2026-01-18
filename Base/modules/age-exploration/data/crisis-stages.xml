@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<AgeCrises>
+		<Row AgeCrisisType="EXPLORATION_AGE_TIMER_CRISIS" AgeProgressionType="AGE_PROGRESSION_EXPLORATION_AGE_TIMER"/>
+	</AgeCrises>
+	<AgeCrisisEvents>
+		<Row NarrativeStoryType="ECINTROA" AgeCrisisEventType="EXPLORATION_CRISIS_REVOLUTION" AgeCrisisType="EXPLORATION_AGE_TIMER_CRISIS" Age="AGE_EXPLORATION"/>
+		<Row NarrativeStoryType="ERCINTROA" AgeCrisisEventType="EXPLORATION_CRISIS_RELIGION" AgeCrisisType="EXPLORATION_AGE_TIMER_CRISIS" Age="AGE_EXPLORATION"/>
+		<Row NarrativeStoryType="EPCINTROA" AgeCrisisEventType="EXPLORATION_CRISIS_PLAGUE" AgeCrisisType="EXPLORATION_AGE_TIMER_CRISIS" Age="AGE_EXPLORATION"/>
+	</AgeCrisisEvents>
+	<AgeCrisisStages>
+		<Row Stage="1" AgeCrisisEventType="EXPLORATION_CRISIS_REVOLUTION" MinDuration="5" AgeProgressTriggerPercent="70" AgeProgressEndPercent="80"/>
+		<Row Stage="2" AgeCrisisEventType="EXPLORATION_CRISIS_REVOLUTION" MinDuration="5" AgeProgressTriggerPercent="80" AgeProgressEndPercent="90"/>
+		<Row Stage="3" AgeCrisisEventType="EXPLORATION_CRISIS_REVOLUTION" MinDuration="5" AgeProgressTriggerPercent="90" AgeProgressEndPercent="100"/>
+		<Row Stage="4" AgeCrisisEventType="EXPLORATION_CRISIS_REVOLUTION" MinDuration="5" AgeProgressTriggerPercent="100" AgeProgressEndPercent="100" FinalStage="true"/>
+		<Row Stage="1" AgeCrisisEventType="EXPLORATION_CRISIS_RELIGION" MinDuration="5" AgeProgressTriggerPercent="70" AgeProgressEndPercent="80"/>
+		<Row Stage="2" AgeCrisisEventType="EXPLORATION_CRISIS_RELIGION" MinDuration="5" AgeProgressTriggerPercent="80" AgeProgressEndPercent="90"/>
+		<Row Stage="3" AgeCrisisEventType="EXPLORATION_CRISIS_RELIGION" MinDuration="5" AgeProgressTriggerPercent="90" AgeProgressEndPercent="100"/>
+		<Row Stage="4" AgeCrisisEventType="EXPLORATION_CRISIS_RELIGION" MinDuration="5" AgeProgressTriggerPercent="100" AgeProgressEndPercent="100" FinalStage="true"/>
+		<Row Stage="1" AgeCrisisEventType="EXPLORATION_CRISIS_PLAGUE" MinDuration="5" AgeProgressTriggerPercent="70" AgeProgressEndPercent="80"/>
+		<Row Stage="2" AgeCrisisEventType="EXPLORATION_CRISIS_PLAGUE" MinDuration="5" AgeProgressTriggerPercent="80" AgeProgressEndPercent="90"/>
+		<Row Stage="3" AgeCrisisEventType="EXPLORATION_CRISIS_PLAGUE" MinDuration="5" AgeProgressTriggerPercent="90" AgeProgressEndPercent="100"/>
+		<Row Stage="4" AgeCrisisEventType="EXPLORATION_CRISIS_PLAGUE" MinDuration="5" AgeProgressTriggerPercent="100" AgeProgressEndPercent="100" FinalStage="true"/>
+	</AgeCrisisStages>
+</Database>

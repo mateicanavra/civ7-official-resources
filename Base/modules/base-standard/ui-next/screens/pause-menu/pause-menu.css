@@ -1,0 +1,235 @@
+.pause-menu {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.pause-menu-leader-image {
+  width: 44.4444444444rem;
+  height: 50rem;
+  margin-top: -6.8888888889rem;
+  margin-right: -3.8888888889rem;
+}
+@media (max-height: 52.7777777778rem), (max-width: 72.2222222222rem), (max-aspect-ratio: 3/2) {
+  .pause-menu-leader-image {
+    height: 41.6666666667rem;
+    width: 35.6666666667rem;
+    margin-bottom: -4.4444444444rem;
+    margin-right: -4.4444444444rem;
+    mask-image: linear-gradient(to bottom, rgb(255, 255, 255) 70%, rgba(255, 255, 255, 0.2) 80%, rgba(255, 255, 255, 0) 100%);
+  }
+}
+
+.pause-menu-borders {
+  background: linear-gradient(90deg, rgb(108, 98, 73) 0%, rgb(125, 113, 94) 100%);
+}
+
+@media (max-height: 52.7777777778rem), (max-width: 72.2222222222rem), (max-aspect-ratio: 3/2) {
+  .pause-menu-progression-button {
+    margin-bottom: 1.6666666667rem;
+  }
+}
+
+.pause-menu-progression-border {
+  border-image-outset: 0.8333333333rem 0.7222222222rem 0.8333333333rem 0.7222222222rem;
+  border-image-slice: 30 20 fill;
+  border-image-source: url("blp:hud_unit-panel_box-bg");
+  border-image-width: 1.6666666667rem 1.1111111111rem;
+  margin-left: 0rem;
+}
+
+.pause-menu-button {
+  margin-bottom: 0.7777777778rem;
+  height: 2.4444444444rem;
+  width: 20rem;
+  min-height: 2.4444444444rem;
+}
+.pause-menu-button.bottom-padding {
+  margin-bottom: 3.5555555556rem;
+}
+@media (max-height: 52.7777777778rem), (max-width: 72.2222222222rem), (max-aspect-ratio: 3/2) {
+  .pause-menu-button.bottom-padding {
+    margin-bottom: 0.7777777778rem;
+  }
+}
+
+.pause-menu-main-container {
+  height: 43.1111111111rem;
+  max-width: 106.6666666667rem;
+  align-self: center;
+}
+@media (max-height: 52.7777777778rem), (max-width: 72.2222222222rem), (max-aspect-ratio: 3/2) {
+  .pause-menu-main-container {
+    height: 33.3333333333rem;
+  }
+}
+
+.pause-menu-info-container {
+  margin-top: 4.6666666667rem;
+}
+@media (max-height: 52.7777777778rem), (max-width: 72.2222222222rem), (max-aspect-ratio: 3/2) {
+  .pause-menu-info-container {
+    margin-top: 2.2222222222rem;
+  }
+}
+
+.pause-menu-button-container {
+  margin-top: 4.4444444444rem;
+}
+@media (max-height: 52.7777777778rem), (max-width: 72.2222222222rem), (max-aspect-ratio: 3/2) {
+  .pause-menu-button-container {
+    margin-top: 2rem;
+  }
+}
+
+@media (max-height: 52.7777777778rem), (max-width: 72.2222222222rem), (max-aspect-ratio: 3/2) {
+  .pause-menu-corner-filligree {
+    visibility: hidden;
+  }
+}
+
+.pause-menu-game-info {
+  margin-top: 0.6666666667rem;
+  font-size: 1rem;
+}
+@media (max-height: 52.7777777778rem), (max-width: 72.2222222222rem), (max-aspect-ratio: 3/2) {
+  .pause-menu-game-info {
+    margin-top: 0.2222222222rem;
+    font-size: calc(1rem + -0.1111111111rem);
+  }
+}
+
+.pause-menu-map-seed {
+  font-size: 1rem;
+}
+@media (max-height: 52.7777777778rem), (max-width: 72.2222222222rem), (max-aspect-ratio: 3/2) {
+  .pause-menu-map-seed {
+    font-size: calc(1rem + -0.1111111111rem);
+  }
+}
+
+.pause-menu-build-info-bottom-bar {
+  display: flex;
+}
+@media (max-height: 52.7777777778rem), (max-width: 72.2222222222rem), (max-aspect-ratio: 3/2) {
+  .pause-menu-build-info-bottom-bar {
+    display: none;
+  }
+}
+
+.pause-menu-build-info-leader {
+  display: none;
+}
+@media (max-height: 52.7777777778rem), (max-width: 72.2222222222rem), (max-aspect-ratio: 3/2) {
+  .pause-menu-build-info-leader {
+    display: flex;
+  }
+}
+
+@media (max-height: 52.7777777778rem), (max-width: 72.2222222222rem), (max-aspect-ratio: 3/2) {
+  .pause-menu-social-button {
+    top: -3rem;
+    width: 2.4444444444rem;
+    height: 2.4444444444rem;
+    right: 1.1111111111rem;
+  }
+}
+
+@media (max-height: 52.7777777778rem), (max-width: 72.2222222222rem), (max-aspect-ratio: 3/2) {
+  .pause-menu-social-button-img {
+    width: 2rem;
+    height: 2rem;
+  }
+}
+
+.pause-menu-addons-container {
+  border-image-source: url("blp:dip_modal_bg");
+  border-image-slice: 26 40 62 40 fill;
+  border-image-width: 1.44444rem 2.22222rem 3.44444rem 2.22222rem;
+  border-image-outset: 0.388889rem 1.11111rem 2.22222rem 1.11111rem;
+  width: 21.1111111111rem;
+  height: 22.2222222222rem;
+}
+@media (max-height: 52.7777777778rem), (max-width: 72.2222222222rem), (max-aspect-ratio: 3/2) {
+  .pause-menu-addons-container {
+    height: 16.6666666667rem;
+  }
+}
+
+.pause-menu-leader-level {
+  background-image: url("blp:shell_number-circle");
+  background-size: cover;
+  background-repeat: no-repeat no-repeat;
+  min-width: 1.77778rem;
+  min-height: 1.77778rem;
+  line-height: 1.77778rem;
+}
+
+.pause-menu-addon-divider {
+  background: linear-gradient(90deg, rgb(108, 98, 73) 0%, rgb(125, 113, 94) 100%);
+}
+
+.pause-menu-addon-arrow-expanded {
+  width: 1.6666666667rem;
+  height: 1.6666666667rem;
+  background-image: url("blp:base_component-arrow");
+  transform: rotate(90deg);
+}
+
+.pause-menu-addon-arrow-collapsed {
+  width: 1.6666666667rem;
+  height: 1.6666666667rem;
+  background-image: url("blp:base_component-arrow");
+}
+
+.game-creator-nav-button {
+  min-width: 16.6666666667rem;
+  min-height: 2.2222222222rem;
+  padding: 0rem 0.4444444444rem;
+  margin: 0.3333333333rem;
+  background: linear-gradient(270deg, #4c473d 0%, #35373d 50%, #4c473d 100%);
+  border-image-outset: 0.3333333333rem 0.4444444444rem 0.8888888889rem 0.4444444444rem;
+  border-image-slice: 16 96 36 96 fill;
+  border-image-source: url("fs://game/shell_create-tab-bg.png");
+  border-image-width: 0.8888888889rem 5.3333333333rem 2rem 5.3333333333rem;
+}
+.game-creator-nav-button:focus, .game-creator-nav-button:hover, .game-creator-nav-button.pressed {
+  background: linear-gradient(270deg, #8c7e62 0%, #b4975e 0.01%, #584c32 35%, #584c32 65%, #b4975e 100%);
+}
+
+.game-creator-nav-button-selected {
+  border-image-source: url("fs://game/shell_create-tab-bg-focus.png");
+}
+
+.pause-menu-map-seed-button {
+  color: rgb(0, 131, 244);
+}
+.pause-menu-map-seed-button:hover {
+  color: rgb(0, 234, 255);
+}
+.pause-menu-map-seed-button.pressed {
+  color: rgb(0, 54, 121);
+}
+
+.pause-menu-clipboard-indicator {
+  background-color: rgba(39, 37, 38, 0.8);
+}
+
+@keyframes clipboardIndicator {
+  0% {
+    bottom: -3.5555555556rem;
+    opacity: 1;
+  }
+  10% {
+    bottom: 0.4444444444rem;
+  }
+  50% {
+    opacity: 1;
+  }
+  90% {
+    bottom: 0.4444444444rem;
+    opacity: 0;
+  }
+  100% {
+    bottom: -3.5555555556rem;
+    opacity: 0;
+  }
+}

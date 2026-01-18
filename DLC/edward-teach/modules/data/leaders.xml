@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Kinds>
+		<InsertOrIgnore Kind="KIND_TRAIT"/>
+	</Kinds>
+	<Types>
+		<Row Type="LEADER_EDWARD_TEACH" Kind="KIND_LEADER"/>
+		<Row Type="TRAIT_LEADER_EDWARD_TEACH_ABILITY" Kind="KIND_TRAIT"/>
+	</Types>
+	<Leaders>
+		<Row LeaderType="LEADER_EDWARD_TEACH" Name="LOC_LEADER_EDWARD_TEACH_NAME" IsMajorLeader="true" InheritFrom="LEADER_DEFAULT" />
+	</Leaders>
+	<TypeQuotes>
+		<Row Type="LEADER_EDWARD_TEACH" Quote="LOC_MAIN_CHAR_SELECT_LEADER_EDWARD_TEACH_ANY"/>
+	</TypeQuotes>
+	<AiFavoredItems>
+	</AiFavoredItems>
+	<Traits>
+		<Row TraitType="TRAIT_LEADER_EDWARD_TEACH_ABILITY" InternalOnly="true" Name="LOC_TRAIT_LEADER_EDWARD_TEACH_ABILITY_NAME" Description="LOC_TRAIT_LEADER_EDWARD_TEACH_ABILITY_DESCRIPTION"/>
+	</Traits>
+	<LeaderTraits>
+		<Row LeaderType="LEADER_EDWARD_TEACH" TraitType="TRAIT_LEADER_EDWARD_TEACH_ABILITY"/>
+		<Row LeaderType="LEADER_EDWARD_TEACH" TraitType="TRAIT_LEADER_ATTRIBUTE_ECONOMIC"/>
+		<Row LeaderType="LEADER_EDWARD_TEACH" TraitType="TRAIT_LEADER_ATTRIBUTE_MILITARISTIC"/>
+		<Row LeaderType="LEADER_EDWARD_TEACH" TraitType="TRAIT_AQ_ECONOMIC_VICTORY"/>
+		<Row LeaderType="LEADER_EDWARD_TEACH" TraitType="TRAIT_EX_ECONOMIC_VICTORY"/>
+		<Row LeaderType="LEADER_EDWARD_TEACH" TraitType="TRAIT_MO_ECONOMIC_VICTORY"/>
+	</LeaderTraits>
+	<TraitModifiers>
+		<Row TraitType="TRAIT_LEADER_EDWARD_TEACH_ABILITY" ModifierId="EDWARD_TEACH_MOD_ALL_NAVAL_UNITS_PIRATES"/>
+		<Row TraitType="TRAIT_LEADER_EDWARD_TEACH_ABILITY" ModifierId="EDWARD_TEACH_MOD_ENTER_FOREIGN_MOD_ADJUST_UNIT_ENTER_FOREIGN_LANDS"/>
+		<Row TraitType="TRAIT_LEADER_EDWARD_TEACH_ABILITY" ModifierId="EDWARD_TEACH_MOD_PLUNDER_TRADE_ROUTES_BETWEEN_OTHER_CIVS"/>
+		<Row TraitType="TRAIT_LEADER_EDWARD_TEACH_ABILITY" ModifierId="EDWARD_TEACH_MOD_GOLD_KILLS"/>
+		<Row TraitType="TRAIT_LEADER_EDWARD_TEACH_ABILITY" ModifierId="EDWARD_TEACH_MOD_CAPTURE"/>
+		<Row TraitType="TRAIT_LEADER_EDWARD_TEACH_ABILITY" ModifierId="EDWARD_TEACH_MOD_NAVAL_MAINTENANCE"/>
+		<Row TraitType="TRAIT_LEADER_EDWARD_TEACH_ABILITY" ModifierId="EDWARD_TEACH_MOD_AGENDA"/>
+	</TraitModifiers>
+	<StartBiasAdjacentToCoasts>
+		<Row LeaderType="LEADER_EDWARD_TEACH" Score="200"/>
+	</StartBiasAdjacentToCoasts>
+	<!--  AI Biases for Edward Teach -->
+	<AiListTypes>
+		<Row ListType="Edward Teach Pseudoyield Biases"/>
+	</AiListTypes>
+	<AiLists>
+		<Row ListType="Edward Teach Pseudoyield Biases" LeaderType="TRAIT_LEADER_EDWARD_TEACH_ABILITY" System="PseudoYieldBiases"/>
+	</AiLists>
+	<AiFavoredItems>
+		<Row ListType="Edward Teach Pseudoyield Biases" Item="PSEUDOYIELD_STANDING_NAVY_COMBAT_VALUE" Value="50"/>
+		<Row ListType="Edward Teach Pseudoyield Biases" Item="PSEUDOYIELD_STANDING_NAVY_UNIT" Value="50"/>
+	</AiFavoredItems>
+</Database>

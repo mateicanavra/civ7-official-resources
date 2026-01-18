@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+	<Modifier id="MOD_NAN_MADOL_ISLAND_YIELDS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_ISLAND">
+				<Argument name="Tiles">15</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="ConstructibleType">BUILDING_PALACE, BUILDING_CITY_HALL</Argument>
+		<Argument name="YieldType">YIELD_CULTURE, YIELD_PRODUCTION, YIELD_HAPPINESS</Argument>
+		<Argument name="Amount">3, 3, 3</Argument>
+		<Argument name="Tooltip">LOC_WONDER_NAN_MADOL_NAME</Argument>
+	</Modifier>
+</GameEffects>

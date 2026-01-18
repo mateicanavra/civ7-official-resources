@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+	<Modifier id="EDWARD_TEACH_MOD_ALL_NAVAL_UNITS_PIRATES" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_SET_PRIVATEER">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_DOMAIN_MATCHES">
+				<Argument name="UnitDomain">DOMAIN_SEA</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+				<Argument name="Tag">UNIT_CLASS_COMBAT, UNIT_CLASS_FLEET_COMMANDER</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES" inverse="true">
+				<Argument name="Tag">UNIT_CLASS_PRIVATEER</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Privateer">true</Argument>
+	</Modifier>
+	<Modifier id="EDWARD_TEACH_MOD_ENTER_FOREIGN_MOD_ADJUST_UNIT_ENTER_FOREIGN_LANDS" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ADJUST_UNIT_ENTER_FOREIGN_LANDS">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_DOMAIN_MATCHES">
+				<Argument name="UnitDomain">DOMAIN_SEA</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+				<Argument name="Tag">UNIT_CLASS_COMBAT, UNIT_CLASS_FLEET_COMMANDER</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES" inverse="true">
+				<Argument name="Tag">UNIT_CLASS_PRIVATEER</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Enter">true</Argument>
+	</Modifier>
+	<Modifier id="EDWARD_TEACH_MOD_PLUNDER_TRADE_ROUTES_BETWEEN_OTHER_CIVS" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_SET_CAN_PLUNDER_TRADE_ROUTES_BETWEEN_OTHER_CIVS">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_DOMAIN_MATCHES">
+				<Argument name="UnitDomain">DOMAIN_SEA</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+				<Argument name="Tag">UNIT_CLASS_COMBAT, UNIT_CLASS_FLEET_COMMANDER</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES" inverse="true">
+				<Argument name="Tag">UNIT_CLASS_PRIVATEER</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="CanPlunder">true</Argument>
+	</Modifier>
+	<Modifier id="EDWARD_TEACH_MOD_GOLD_KILLS" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ATTACH_MODIFIERS">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_DOMAIN_MATCHES">
+				<Argument name="UnitDomain">DOMAIN_SEA</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="ModifierId">EDWARD_TEACH_MOD_GOLD_KILLS_MODIFIER</Argument>
+	</Modifier>
+	<Modifier id="EDWARD_TEACH_MOD_GOLD_KILLS_MODIFIER" collection="COLLECTION_UNIT_COMBAT" effect="EFFECT_ADJUST_UNIT_POST_COMBAT_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_OPPONENT_UNIT_DOMAIN_MATCHES">
+				<Argument name="UnitDomain">DOMAIN_SEA</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_GOLD</Argument>
+		<Argument name="PercentDefeatedStrength">50</Argument>
+	</Modifier>
+	<Modifier id="EDWARD_TEACH_MOD_CAPTURE" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ADJUST_UNIT_COMBAT_CAPTURE">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_DOMAIN_MATCHES">
+				<Argument name="UnitDomain">DOMAIN_SEA</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="CanCapture">true</Argument>
+	</Modifier>
+	<Modifier id="EDWARD_TEACH_MOD_NAVAL_MAINTENANCE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_UNIT_MAINTENANCE_EFFICIENCY">
+		<Argument name="Amount">-1</Argument>
+		<Argument name="UnitTag">UNIT_CLASS_NAVAL</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_LEADER_EDWARD_TEACH_ABILITY_NAME</Argument>
+	</Modifier>
+	<Modifier id="EDWARD_TEACH_MOD_AGENDA" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_AGENDA_TIMED_UPDATE">
+		<String context="Name">LOC_DIPLOMACY_AGENDA_EDWARD_TEACH_NAME</String>
+		<Argument name="ModName">LOC_DIPLOMACY_AGENDA_EDWARD_TEACH_NAME</Argument>
+		<Argument name="Tooltip">LOC_DIPLOMACY_AGENDA_EDWARD_TEACH_DESC</Argument>
+		<Argument name="WeightType">DIPLOMACY_AGENDA_COMPARE_NUM_UNIT_TAGS</Argument>
+		<Argument name="FirstMeetDelay">20</Argument>
+		<Argument name="UpdateFreq">10</Argument>
+		<Argument name="AwardTo1">DIPLOMACY_AGENDA_AWARD_HIGHEST</Argument>
+		<Argument name="AwardAmtType1">DIPLOMACY_AGENDA_AMT_SMALL</Argument>
+		<Argument name="Arg1">UNIT_CLASS_NAVAL</Argument>
+		<Argument name="AwardTo2">DIPLOMACY_AGENDA_AWARD_LOWEST</Argument>
+		<Argument name="AwardAmtType2">DIPLOMACY_AGENDA_NEG_AMT_SMALL</Argument>
+		<Argument name="NotifyMessage">LOC_NOTIFICATION_DIPLOMATIC_AGENDA_DEFAULT_MESSAGE</Argument>
+		<Argument name="NotifySummary">LOC_NOTIFICATION_DIPLOMATIC_AGENDA_DEFAULT_SUMMARY</Argument>
+	</Modifier>
+</GameEffects>

@@ -1,0 +1,413 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<title>Icon Reference</title>
+		<link
+			rel="stylesheet"
+			href="fs://game/core/ui/themes/default/fonts.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="fs://game/core/ui/themes/default/default.css"
+		/>
+		<script src="fs://game/game/cohtml.js"></script>
+		<script src="fs://game/core/ui/themes/default/global-scaling.js"></script>
+		<script src="fs://game/game/component-support.js"></script>
+
+		<style>
+			/* Bright gray / light white text everywhere */
+			body {
+				color: #ddd;
+			}
+
+			/* Top test lines */
+			.test-line-12 {
+				font-size: 12px;
+				color: #ddd;
+			}
+			.test-line-14 {
+				font-size: 14px;
+				color: #ddd;
+			}
+			.test-line-16 {
+				font-size: 16px;
+				color: #ddd;
+			}
+
+			/* Each tile is a fixed 128x128 box with vertical layout */
+			.icon-tile {
+				display: flex;
+				flex-direction: column; /* icon on top, text under it */
+				align-items: center;
+				justify-content: flex-start;
+				width: 128px;
+				height: 128px;
+				box-sizing: border-box;
+
+				margin: 6px 10px;
+				padding: 6px;
+				border-radius: 6px;
+				background: rgba(255, 255, 255, 0.04);
+				color: #ddd;
+				overflow: hidden; /* just in case */
+			}
+
+			/* fxs-icon is NOT forced to 128; it gets set to native via JS */
+			fxs-icon.icon {
+				display: block;
+				margin: 4px 0;
+				pointer-events: auto;
+
+				/* fxs-icon paints via background-image; do not scale it arbitrarily */
+				background-repeat: no-repeat;
+				background-position: center center;
+				background-size: contain;
+
+				/* IMPORTANT: no min/max/width/height here */
+			}
+
+			.icon-meta {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				gap: 2px;
+				margin-top: 4px;
+				line-height: 1.1;
+				color: #ddd;
+				text-align: center;
+			}
+			.icon-name {
+				font-size: 12px;
+				color: #ddd;
+			}
+			.icon-size {
+				font-size: 11px;
+				opacity: 0.85;
+				color: #ddd;
+			}
+
+			#tooltip-root-content > div {
+				display: flex;
+				flex-direction: column;
+			}
+		</style>
+		<script async type="module" crossorigin src="fs://game/core/ui/reference/icon-fonticons.js"></script>
+		<link rel="stylesheet" crossorigin href="fs://game/core/ui/reference/reference.css">
+	</head>
+
+	<body class="text-accent-2">
+		<div
+			class="panel"
+			style="width: 80%; height: 80%"
+		>
+			<fxs-scrollable class="panel-content">
+				<!-- Put the test lines INSIDE the scrollable so they actually render above icons -->
+				<div class="test-line-12">test</div>
+				<div class="test-line-14">test</div>
+				<div class="test-line-16">test</div>
+
+				<div
+					id="icon-parent"
+					class="flow-row"
+					style="display: flex; flex-wrap: wrap; margin: 5px; padding: 5px"
+				></div>
+			</fxs-scrollable>
+		</div>
+
+		<div
+			id="tooltip-root"
+			class="new-tooltip--root absolute max-w-96 p-3 img-tooltip-border img-tooltip-bg pointer-events-none"
+			style="visibility: hidden; z-index: 99"
+		>
+			<div
+				id="tooltip-root-content"
+				class="relative font-body"
+			></div>
+		</div>
+
+		<script type="text/javascript">
+			/* Full list provided */
+			const ICON_NAMES = [
+				"ACTION_IMPROVE",
+				"ADVISOR_HOUR_GLASS",
+				"ATTRIBUTE",
+				"ATTRIBUTE_ARROW",
+				"ATTRIBUTE_CULTURAL",
+				"ATTRIBUTE_ECONOMIC",
+				"ATTRIBUTE_EXPANSIONIST",
+				"ATTRIBUTE_MILITARISTIC",
+				"ATTRIBUTE_POLITICAL",
+				"ATTRIBUTE_SCIENTIFIC",
+				"ATTRIBUTE_WILDCARD",
+				"Action_Fortify",
+				"Action_Heal",
+				"Action_Move",
+				"Action_Pillage",
+				"Action_Ranged",
+				"Action_Showall",
+				"BUILDING_ACADEMY",
+				"BUILDING_AIRFIELD",
+				"BUILDING_ALTAR",
+				"BUILDING_FACTORY",
+				"BUILDING_FISHING_QUAY",
+				"BUILDING_GRANARY",
+				"BUILDING_LAUNCH_PAD",
+				"BUILDING_LIBRARY",
+				"BUILDING_MUSEUM",
+				"BUILDING_PORT",
+				"BUILDING_RAIL_STATION",
+				"BUILDING_ROYAL_LIBRARY",
+				"BUILDING_TEMPLE",
+				"BUILDING_UNIVERSITY",
+				"CELEBRATION",
+				"CITYSTATE",
+				"CITY_BUILDING_LIST",
+				"CITY_FORTIFIED",
+				"CITY_RURAL",
+				"CITY_UNIMPROVED",
+				"CITY_UNIQUE_QUARTER",
+				"CITY_URBAN",
+				"CLASS_FLOOD",
+				"COMMANDER_RADIUS",
+				"DAMAGED",
+				"DEFAULT_PROJECT",
+				"DIPLOMACY",
+				"DIPLOMATIC_ACTION",
+				"ENDEAVOR",
+				"ESPIONAGE",
+				"GOVERNMENT",
+				"GREATWORK",
+				"GROWTH_RATE",
+				"HOMELAND",
+				"INDEPENDENT_POWER",
+				"MILITARY",
+				"MOD_EX_SPECIALIST_CAP_INCREASE",
+				"NAR_QUEST",
+				"NAR_REW_COMBAT",
+				"NAR_REW_DEFAULT",
+				"NAR_REW_GREATWORK",
+				"NAR_REW_IDEOLOGY",
+				"NAR_REW_PROMOTION",
+				"NAR_REW_RELIGION",
+				"NAR_REW_TRADITION_SLOT",
+				"NEXT_TURN",
+				"NOTIFICATION_CHOOSE_BELIEF",
+				"NOTIFICATION_CHOOSE_CITY_PRODUCTION",
+				"NOTIFICATION_CHOOSE_TECH",
+				"NOTIFICATION_CULTURE_TREE_REVEALED",
+				"NOTIFICATION_DECLARE_WAR",
+				"NOTIFICATION_DISCOVER_NATURAL_WONDER",
+				"NOTIFICATION_DISCOVER_RESOURCE",
+				"NOTIFICATION_FREE_CIVIC_AWARDED",
+				"NOTIFICATION_IDEOLOGY_CHOSEN",
+				"NOTIFICATION_NEW_POPULATION",
+				"NOTIFICATION_SELECT_CAPITAL",
+				"NOTIFICATION_TEAM_VICTORIOUS",
+				"NOTIFICATION_TECH_DISCOVERED",
+				"NOTIFICATION_TRADE_ROUTE_TO_YOU",
+				"PLAYER_RELATIONSHIP_ALLIANCE",
+				"PLAYER_RELATIONSHIP_FRIENDLY",
+				"PLAYER_RELATIONSHIP_HELPFUL",
+				"PLAYER_RELATIONSHIP_HOSTILE",
+				"PLAYER_RELATIONSHIP_UNFRIENDLY",
+				"PLOT_BURNING",
+				"PROJECT",
+				"PROJECT_BREAK_SOUND_BARRIER",
+				"PROJECT_GROWTH",
+				"PROJECT_LAUNCH_ROCKET",
+				"PROJECT_LAUNCH_SATELLITE",
+				"PROJECT_OPERATION_IVY",
+				"PROJECT_TRANS_OCEANIC_FLIGHT",
+				"RADIAL_CIVICS",
+				"RADIAL_RESOURCES",
+				"RADIAL_TECH",
+				"RELATIONSHIP",
+				"RESOURCE_TYPE_DISTANT_TREASURE",
+				"SANCTIONS",
+				"SETTLEMENT_LIMIT",
+				"SOCIAL_POLICY",
+				"SPECIALIST",
+				"TOWN_FOCUS",
+				"TRADE_INCOME",
+				"TRADE_ROUTE",
+				"TRADITION",
+				"TREASURE_FLEET",
+				"UNIT_AERODROME_COMMANDER",
+				"UNIT_ALIM",
+				"UNIT_ANTIQUARIAN",
+				"UNIT_ARMY_COMMANDER",
+				"UNIT_BUCCANEER",
+				"UNIT_BURNING_ARROW",
+				"UNIT_CARRIER_COMMANDER",
+				"UNIT_CAUTION",
+				"UNIT_CHEVALER",
+				"UNIT_COLONIST",
+				"UNIT_CONQUISTADOR",
+				"UNIT_CORSAIR",
+				"UNIT_DANTINAS_TATHA",
+				"UNIT_DHOW",
+				"UNIT_EXPLORER",
+				"UNIT_FLEET_COMMANDER",
+				"UNIT_FOEDERATI",
+				"UNIT_FOUNDER",
+				"UNIT_FOUND_CITY_ICON",
+				"UNIT_GOLD_BANGLES",
+				"UNIT_GUSA",
+				"UNIT_HOPLITE",
+				"UNIT_HULCHE",
+				"UNIT_HWARANG",
+				"UNIT_JACOBIN",
+				"UNIT_JAGUAR_SLAYER",
+				"UNIT_KAHUNA",
+				"UNIT_KALAM",
+				"UNIT_KISPOKO_NENA_TO",
+				"UNIT_LEGATUS",
+				"UNIT_LEGION",
+				"UNIT_LEIOMANO",
+				"UNIT_LOGIOS",
+				"UNIT_MAGARRU",
+				"UNIT_MAMLUK",
+				"UNIT_MANDARIN",
+				"UNIT_MEDJAY",
+				"UNIT_MERCHANT",
+				"UNIT_MIGRANT",
+				"UNIT_MISSIONARY",
+				"UNIT_MOVEMENT_ICON",
+				"UNIT_NOYAN",
+				"UNIT_NU",
+				"UNIT_NUMIDIAN_CAVALRY",
+				"UNIT_OTTRU",
+				"UNIT_PARTISAN",
+				"UNIT_PEDANDA",
+				"UNIT_PHYSICIAN",
+				"UNIT_PURABHETTARAH",
+				"UNIT_REVOLUCIONARIO",
+				"UNIT_SAGA_HERO",
+				"UNIT_SCOUT",
+				"UNIT_SETTLER",
+				"UNIT_SHERPA",
+				"UNIT_SOLTAN",
+				"UNIT_SQUADRON_COMMANDER",
+				"UNIT_TAJIRO",
+				"UNIT_TJATY",
+				"UNIT_TRADE_SHIP",
+				"UNIT_TREASURE_FLEET",
+				"UNIT_WARAKAQ",
+				"UNIT_XUNLEICHONG",
+				"WAR",
+				"WAR_SUPPORT",
+				"WONDER",
+				"WONDER_WORLDS_FAIR",
+				"YIELD:DIPLOMACY",
+				"YIELD_ANGRY",
+				"YIELD_CITIES",
+				"YIELD_CULTURE",
+				"YIELD_DIPLOMACY",
+				"YIELD_FOOD",
+				"YIELD_GOLD",
+				"YIELD_HAPPINESS",
+				"YIELD_PLAGUE",
+				"YIELD_POPULATION",
+				"YIELD_PRODUCTION",
+				"YIELD_Production",
+				"YIELD_SCIENCE",
+				"YIELD_Science",
+				"YIELD_TOWNS",
+				"YIELD_WAREHOUSE",
+				"steam-workshop",
+			];
+
+			const DEFAULT_CONTEXT = "";
+
+			function makeElement(tag, className, text) {
+				const el = document.createElement(tag);
+				if (className) el.className = className;
+				if (text != null) el.textContent = text;
+				return el;
+			}
+
+			function buildIconContextMap() {
+				const map = new Map();
+				try {
+					const all = UI.getIcons(); // [{ id, context }]
+					for (const { id, context } of all) {
+						if (!map.has(id)) map.set(id, context);
+					}
+				} catch {}
+				return map;
+			}
+
+			/**
+			 * Choose a native size from UI.getIconData():
+			 *  - Use the largest non-zero iconSize (most "native" variant we have)
+			 *  - If none available, fall back to 32 (typical theme default)
+			 */
+			function getNativeSquareSize(id, context) {
+				try {
+					const variants = UI.getIconData(id, context || undefined) || [];
+					let best = 0;
+					for (const v of variants) {
+						const s = Number(v.iconSize) || 0;
+						if (s > best) best = s;
+					}
+					return best > 0 ? best : 32; // fallback if iconSize not provided (e.g., fonticons)
+				} catch {
+					return 32;
+				}
+			}
+
+			function createIconTile(iconId, context) {
+				const tile = makeElement("div", "icon-tile");
+
+				const iconEl = document.createElement("fxs-icon");
+				iconEl.classList.add("icon");
+				iconEl.setAttribute("data-icon-id", iconId);
+				if (context) iconEl.setAttribute("data-icon-context", context);
+
+				// Size the <fxs-icon> box to the native (square) size
+				const nativeSize = getNativeSquareSize(iconId, context);
+				iconEl.style.width = nativeSize + "px";
+				iconEl.style.height = nativeSize + "px";
+
+				const meta = makeElement("div", "icon-meta");
+				const nameLine = makeElement("div", "icon-name", iconId);
+				const sizeLine = makeElement("div", "icon-size", `${nativeSize} x ${nativeSize}`);
+
+				meta.appendChild(nameLine);
+				meta.appendChild(sizeLine);
+
+				tile.appendChild(iconEl);
+				tile.appendChild(meta);
+
+				// Tooltip for quick inspection
+				iconEl.setAttribute("data-tooltip-content", context ? `${iconId} (${context})` : iconId);
+
+				return tile;
+			}
+
+			function populateIcons(iconNames, forcedContext = DEFAULT_CONTEXT) {
+				const idToContext = buildIconContextMap();
+
+				const frag = document.createDocumentFragment();
+				for (const iconId of iconNames) {
+					const ctx = forcedContext || idToContext.get(iconId) || "";
+					frag.appendChild(createIconTile(iconId, ctx));
+				}
+				return frag;
+			}
+
+			Loading.runWhenLoaded(() => {
+				const parent = document.getElementById("icon-parent");
+				if (parent) {
+					parent.appendChild(populateIcons(ICON_NAMES, DEFAULT_CONTEXT));
+				}
+				UI.notifyUIReady();
+			});
+		</script>
+	</body>
+</html>

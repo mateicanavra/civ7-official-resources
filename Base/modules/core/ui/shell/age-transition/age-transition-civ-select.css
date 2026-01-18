@@ -1,0 +1,72 @@
+.age-transition-civ-select {
+  background-image: url("fs://game/BG_CYC_4K_graded.png");
+  background-size: cover;
+}
+@media (max-height: 55.5555555556rem) {
+  .age-transition-civ-select .age-transition-civ-select-cards {
+    left: 0rem;
+  }
+  .age-transition-civ-select .age-transition-civ-details-section {
+    width: 25.2777777778rem;
+  }
+  .age-transition-civ-select .age-transition-stepper-pip {
+    width: 0.8888888889rem;
+    height: 0.8888888889rem;
+    margin: 0.1666666667rem;
+  }
+}
+@media (max-height: 55.5555555556rem) and (experience: mobile) {
+  .age-transition-civ-select .age-transition-stepper-pip {
+    pointer-events: none;
+  }
+}
+@media (max-height: 55.5555555556rem) {
+  .age-transition-civ-select .age-transition-details-spacer {
+    display: block;
+  }
+  .age-transition-civ-select .age-transition-layout-panel {
+    flex-direction: column-reverse;
+    align-items: flex-end;
+  }
+  .age-transition-civ-select .age-transition-filigree {
+    width: 27.7777777778rem;
+    height: 27.7777777778rem;
+  }
+}
+.age-transition-civ-select .age-transition-civ-select-cards {
+  height: auto;
+  width: auto;
+}
+.age-transition-civ-select .age-transition-civ-select-scrollable {
+  left: 0;
+  height: auto;
+}
+@media (experience: mobile) {
+  .age-transition-civ-select .img-arrow {
+    width: 2.5555555556rem;
+    height: 3.4444444444rem;
+  }
+}
+@media (experience: mobile) {
+  .age-transition-civ-select .img-arrow-hover {
+    width: 2.5555555556rem;
+    height: 3.4444444444rem;
+  }
+}
+
+.age-transition-civ-details-section {
+  width: 33.2222222222rem;
+}
+
+.age-transition-civ-details-name {
+  font-size: calc(1rem + 0.7777777778rem);
+}
+
+.age-transition-unlock-panel {
+  background-color: rgba(0, 0, 0, 0.5019607843);
+}
+.age-transition-unlock-panel .fxs-scrollbar__track--vertical {
+  right: 0.4444444444rem;
+  top: 0.4444444444rem;
+  bottom: 0.4444444444rem;
+}

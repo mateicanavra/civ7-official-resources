@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+	<Modifier id="METAPROGRESSION_CHALLENGE_TONGA_LEGACY_PATH_CULTURAL_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_LEGACY_PATH_COMPLETED">
+				<Argument name="LegacyPathType">LEGACY_PATH_ANTIQUITY_CULTURE</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
+				<Argument name="CivilizationType">CIVILIZATION_TONGA</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_TONGA_LEGACY_PATH_CULTURAL</Argument>
+	</Modifier>
+	<Modifier id="METAPROGRESSION_CHALLENGE_TONGA_LEGACY_PATH_MILESTONE_COMPLETED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
+				<Argument name="CivilizationType">CIVILIZATION_TONGA</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_LEGACY_PATH_MILESTONE_COMPLETED" />
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_TONGA_LEGACY_PATH_MILESTONE_COMPLETED</Argument>
+	</Modifier>
+	<Modifier id="METAPROGRESSION_CHALLENGE_TONGA_COMPLETE_WONDER_HA_AMONGA_A_MAUI_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
+				<Argument name="CivilizationType">CIVILIZATION_TONGA</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_PLAYER_SPECIFIC_WONDER_BUILT">
+				<Argument name="ConstructibleType">WONDER_HA_AMONGA_A_MAUI</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_TONGA_COMPLETE_WONDER_HA_AMONGA_A_MAUI</Argument>
+	</Modifier>
+</GameEffects>

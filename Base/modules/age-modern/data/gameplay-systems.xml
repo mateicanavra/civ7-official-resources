@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Types>
+		<Row Type="GAME_SYSTEM_PREREQ_TREASURE_FLEET" Kind="KIND_GAME_SYSTEM_PREREQ" />
+	</Types>
+	<GameSystemPrereqs>
+		<Row GameSystemType="GAME_SYSTEM_PREREQ_TREASURE_FLEET" ConstructibleTypePrereq="BUILDING_FACTORY" ResourceClassPrereq="RESOURCECLASS_FACTORY" />
+	</GameSystemPrereqs>
+	<GlobalParameters>
+		<!--Happiness Threshold curve is represented by the polynomial (ax^3 + bx^2 + cx + d)-->
+		<!--where x is the Golden Age count whose threshold we are looking for.-->
+		<!--I.E. x would be 4 if we were looking for the threshold for the fourth Golden Age.-->
+		<Replace name="GOLDEN_AGE_HAPPINESS_CURVE_A" value="-16.87" />
+		<Replace name="GOLDEN_AGE_HAPPINESS_CURVE_B" value="833.33" />
+		<Replace name="GOLDEN_AGE_HAPPINESS_CURVE_C" value="-54.6" />
+		<Replace name="GOLDEN_AGE_HAPPINESS_CURVE_D" value="569.33" />
+
+		<Replace name="TOWN_UPGRADE_MAXIMUM_COST" value="3000" />
+		<Replace name="TOWN_UPGRADE_PER_CITY_COST" value="500" />
+		<Replace name="TOWN_UPGRADE_BASE_COST" value="600" />
+
+		<Replace name="CITY_WORKER_STARTING_CAP" value="3" />
+
+		<Replace name="UNIT_HEAL_NAVAL_SHALLOW_NEUTRAL" value="15" />
+	</GlobalParameters>
+</Database>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+	<Modifier id="MEMENTO_SAYYIDA_AL_HURRA_NIMCHA_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_UNIT_MAINTENANCE_EFFICIENCY">
+		<Argument name="Amount">1</Argument>
+		<Argument name="UnitDomain">DOMAIN_SEA</Argument>
+		<String context="Description">LOC_MEMENTO_SAYYIDA_AL_HURRA_NIMCHA_FUNCTIONAL_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="MEMENTO_SAYYIDA_AL_HURRA_MITHQAL_MODIFIER" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ATTACH_MODIFIERS" permanent="true">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_CLASS_MATCHES">
+				<Argument name="UnitClass">UNIT_CLASS_NAVAL</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="ModifierId">MEMENTO_SAYYIDA_AL_HURRA_MITHQAL_MODIFIER_ATTACH</Argument>
+		<String context="Description">LOC_MEMENTO_SAYYIDA_AL_HURRA_MITHQAL_FUNCTIONAL_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="MEMENTO_SAYYIDA_AL_HURRA_MITHQAL_MODIFIER_ATTACH" collection="COLLECTION_UNIT_OCCUPIED_CITY" effect="EFFECT_CITY_ADJUST_YIELD">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_UNIT_IS_STATIONED_ON_DISTRICT"/>
+		</OwnerRequirements>
+		<Argument name="Amount" type="ScaleByGameAge" extra="100">2</Argument>
+		<Argument name="YieldType">YIELD_GOLD</Argument>
+		<Argument name="Tooltip">LOC_MEMENTO_SAYYIDA_AL_HURRA_MITHQAL_NAME</Argument>
+	</Modifier>
+	<Modifier id="MEMENTO_SAYYIDA_AL_HURRA_GAZELLE_VASE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD" permanent="true">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_INITIATED_DIPLOMACY_ACTION_RESPONSE_TYPE_MATCHES">
+				<Argument name="ResponseType">DIPLOMACY_RESPONSE_ACCEPT</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount" type="ScaleByGameAge" extra="100">25</Argument>
+		<String context="Description">LOC_MEMENTO_SAYYIDA_AL_HURRA_GAZELLE_VASE_FUNCTIONAL_DESCRIPTION</String>
+	</Modifier>
+</GameEffects>

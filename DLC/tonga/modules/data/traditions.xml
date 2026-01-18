@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Types>
+		<!-- ==================================================	-->
+		<!--	ANTIQUITY							-->
+		<!-- ==================================================	-->
+		<Row Type="TRADITION_NGATU" Kind="KIND_TRADITION"/>
+		<Row Type="TRADITION_TONGIAKI" Kind="KIND_TRADITION"/>
+		<Row Type="TRADITION_TAKUAKA" Kind="KIND_TRADITION"/>
+	</Types>
+	<Traditions>
+		<!-- ==================================================	-->
+		<!--	ANTIQUITY							-->
+		<!-- ==================================================	-->
+		<Row TraditionType="TRADITION_NGATU" Name="LOC_TRADITION_NGATU_NAME" Description="LOC_TRADITION_NGATU_DESCRIPTION" TraitType="TRAIT_TONGA" AgeType="AGE_ANTIQUITY"/>
+		<Row TraditionType="TRADITION_TONGIAKI" Name="LOC_TRADITION_TONGIAKI_NAME" Description="LOC_TRADITION_TONGIAKI_DESCRIPTION" TraitType="TRAIT_TONGA" AgeType="AGE_ANTIQUITY"/>
+		<Row TraditionType="TRADITION_TAKUAKA" Name="LOC_TRADITION_TAKUAKA_NAME" Description="LOC_TRADITION_TAKUAKA_DESCRIPTION" TraitType="TRAIT_TONGA" AgeType="AGE_ANTIQUITY"/>
+	</Traditions>
+	<TraditionModifiers>
+		<Row TraditionType="TRADITION_NGATU" ModifierId="NGATU_MOD_CULTURE_WAREHOUSE_BUILDINGS"/>
+		<Row TraditionType="TRADITION_TONGIAKI" ModifierId="TONGIAKI_MOD_TRADE_ROUTE_RANGE"/>
+		<Row TraditionType="TRADITION_TAKUAKA" ModifierId="TAKUAKA_MOD_CITY_WAREHOUSE_BONUS"/>
+		<Row TraditionType="TRADITION_TAKUAKA" ModifierId="TAKUAKA_MOD_REEF_WAREHOUSE_BONUS"/>
+	</TraditionModifiers>
+</Database>

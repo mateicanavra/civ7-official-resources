@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Types>
+		<Row Type="BUILDING_NAVAL_ARSENAL" Kind="KIND_CONSTRUCTIBLE"/>
+		<Row Type="BUILDING_NAVAL_STATION" Kind="KIND_CONSTRUCTIBLE"/>
+		<Row Type="WONDER_HAVANA_HARBOR" Kind="KIND_CONSTRUCTIBLE"/>
+	</Types>
+	<TypeQuotes>
+		<Row Type="WONDER_HAVANA_HARBOR" Quote="LOC_QUOTE_WONDER_HAVANA_HARBOR" QuoteAuthor="LOC_QUOTE_AUTHOR_WONDER_HAVANA_HARBOR" QuoteAudio="VO_Quote_HavanaHarbor"/>
+	</TypeQuotes>
+	<Constructibles>
+		<!--Civ Unique Improvements-->
+		<Row ConstructibleType="BUILDING_NAVAL_ARSENAL" Name="LOC_BUILDING_NAVAL_ARSENAL_NAME" Description="LOC_BUILDING_NAVAL_ARSENAL_DESCRIPTION" Tooltip="LOC_BUILDING_NAVAL_ARSENAL_TOOLTIP" ConstructibleClass="BUILDING" Cost="240" Population="1" RequiresUnlock="true" Age="AGE_EXPLORATION" CostProgressionModel="COST_PROGRESSION_PREVIOUS_BUILDINGS_CITY"/>
+		<Row ConstructibleType="BUILDING_NAVAL_STATION" Name="LOC_BUILDING_NAVAL_STATION_NAME" Description="LOC_BUILDING_NAVAL_STATION_DESCRIPTION" Tooltip="LOC_BUILDING_NAVAL_STATION_TOOLTIP" ConstructibleClass="BUILDING" Cost="280" Population="1" RequiresUnlock="true" Age="AGE_EXPLORATION" CostProgressionModel="COST_PROGRESSION_PREVIOUS_BUILDINGS_CITY"/>
+		<Row ConstructibleType="WONDER_HAVANA_HARBOR" Name="LOC_WONDER_HAVANA_HARBOR_NAME" Description="LOC_WONDER_HAVANA_HARBOR_DESCRIPTION" Tooltip="LOC_WONDER_HAVANA_HARBOR_TOOLTIP" RequiresDistantLands="true" ConstructibleClass="WONDER" Cost="400" Population="0" ImmuneDamage="true" RequiresUnlock="true" Age="AGE_EXPLORATION"/>
+	</Constructibles>
+	<Buildings>
+		<!--Civ Unique Improvements-->
+		<Row ConstructibleType="BUILDING_NAVAL_ARSENAL" Movable="false" TraitType="TRAIT_PIRATE_REPUBLIC"/>
+		<Row ConstructibleType="BUILDING_NAVAL_STATION" Movable="false" TraitType="TRAIT_PIRATE_REPUBLIC"/>
+	</Buildings>
+	<Wonders>
+		<Row ConstructibleType="WONDER_HAVANA_HARBOR" MaxWorldInstances="1" AdjacentToLand="true" MustNotBeLake="true"/>
+	</Wonders>
+	<TypeTags>
+		<Row Type="BUILDING_NAVAL_ARSENAL" Tag="GOLD"/>
+		<Row Type="BUILDING_NAVAL_ARSENAL" Tag="UNIQUE"/>
+		<Row Type="BUILDING_NAVAL_ARSENAL" Tag="AGELESS"/>
+		<Row Type="BUILDING_NAVAL_ARSENAL" Tag="WATER"/>
+		<Row Type="BUILDING_NAVAL_STATION" Tag="PRODUCTION"/>
+		<Row Type="BUILDING_NAVAL_STATION" Tag="UNIQUE"/>
+		<Row Type="BUILDING_NAVAL_STATION" Tag="AGELESS"/>
+		<Row Type="BUILDING_NAVAL_STATION" Tag="WATER"/>
+		<Row Type="WONDER_HAVANA_HARBOR" Tag="AGELESS"/>
+	</TypeTags>
+	<Constructible_ValidTerrains>
+		<Row ConstructibleType="BUILDING_NAVAL_ARSENAL" TerrainType="TERRAIN_COAST"/>
+		<Row ConstructibleType="BUILDING_NAVAL_STATION" TerrainType="TERRAIN_COAST"/>
+		<Row ConstructibleType="WONDER_HAVANA_HARBOR" TerrainType="TERRAIN_COAST"/>
+	</Constructible_ValidTerrains>
+	<Constructible_ValidDistricts>
+		<!--Civ Unique Improvements-->
+		<Row ConstructibleType="BUILDING_NAVAL_ARSENAL" DistrictType="DISTRICT_CITY_CENTER"/>
+		<Row ConstructibleType="BUILDING_NAVAL_ARSENAL" DistrictType="DISTRICT_URBAN"/>
+		<Row ConstructibleType="BUILDING_NAVAL_STATION" DistrictType="DISTRICT_CITY_CENTER"/>
+		<Row ConstructibleType="BUILDING_NAVAL_STATION" DistrictType="DISTRICT_URBAN"/>
+		<!--Wonders-->
+		<Row ConstructibleType="WONDER_HAVANA_HARBOR" DistrictType="DISTRICT_WONDER"/>
+	</Constructible_ValidDistricts>
+	<Constructible_YieldChanges>
+		<Row ConstructibleType="BUILDING_NAVAL_ARSENAL" YieldType="YIELD_GOLD" YieldChange="4"/>
+		<Row ConstructibleType="BUILDING_NAVAL_STATION" YieldType="YIELD_PRODUCTION" YieldChange="5"/>
+		<Row ConstructibleType="WONDER_HAVANA_HARBOR" YieldType="YIELD_GOLD" YieldChange="3"/>
+	</Constructible_YieldChanges>
+	<Constructible_Maintenances>
+		<Row ConstructibleType="BUILDING_NAVAL_ARSENAL" YieldType="YIELD_HAPPINESS" Amount="3"/>
+		<Row ConstructibleType="BUILDING_NAVAL_STATION" YieldType="YIELD_HAPPINESS" Amount="3"/>
+	</Constructible_Maintenances>
+	<Constructible_Adjacencies>
+		<Row ConstructibleType="BUILDING_NAVAL_ARSENAL" YieldChangeId="NavalArsenalResourceGold"/>
+		<Row ConstructibleType="BUILDING_NAVAL_ARSENAL" YieldChangeId="WonderGold"/>
+		<Row ConstructibleType="BUILDING_NAVAL_STATION" YieldChangeId="NavalStationMilitaryProduction"/>
+		<Row ConstructibleType="BUILDING_NAVAL_STATION" YieldChangeId="NavalStationGoldProduction"/>
+		<Row ConstructibleType="BUILDING_NAVAL_STATION" YieldChangeId="WonderProduction"/>
+	</Constructible_Adjacencies>
+	<Adjacency_YieldChanges>
+		<Row ID="NavalArsenalResourceGold" YieldType="YIELD_GOLD" YieldChange="1" TilesRequired="1" ProjectMaxYield="true" AdjacentResource="true"/>
+		<Row ID="NavalStationMilitaryProduction" YieldType="YIELD_PRODUCTION" YieldChange="1" TilesRequired="1" ProjectMaxYield="true" AdjacentConstructibleTag="MILITARY"/>
+		<Row ID="NavalStationGoldProduction" YieldType="YIELD_PRODUCTION" YieldChange="1" TilesRequired="1" ProjectMaxYield="true" AdjacentConstructibleTag="GOLD"/>
+	</Adjacency_YieldChanges>
+	<Constructible_Plunders>
+		<!--Civ Unique Improvements-->
+		<Row ConstructibleType="BUILDING_NAVAL_ARSENAL" PlunderType="PLUNDER_GOLD" Amount="80"/>
+		<Row ConstructibleType="BUILDING_NAVAL_STATION" PlunderType="PLUNDER_SCIENCE" Amount="120"/>
+	</Constructible_Plunders>
+	<Constructible_BuildingCostProgressions>
+		<Row ConstructibleType="BUILDING_NAVAL_ARSENAL" Percent="5" />
+		<Row ConstructibleType="BUILDING_NAVAL_STATION" Percent="5" />
+	</Constructible_BuildingCostProgressions>
+	<UniqueQuarters>
+		<Row UniqueQuarterType="QUARTER_HAVEN" BuildingType1="BUILDING_NAVAL_ARSENAL" BuildingType2="BUILDING_NAVAL_STATION" Name="LOC_QUARTER_HAVEN_NAME" Description="LOC_QUARTER_HAVEN_DESCRIPTION" Tooltip="LOC_QUARTER_HAVEN_TOOLTIP" TraitType="TRAIT_PIRATE_REPUBLIC"/>
+	</UniqueQuarters>
+	<GameModifiers>
+		<!-- Unique Quarter modifiers are game-wide -->
+		<Row ModifierId="MOD_TREASURE_CITY_FLAT_GOLD"/>
+		<Row ModifierId="MOD_HAVEN_HEAL_NAVAL_UNITS"/>
+	</GameModifiers>
+	<!-- These are listed here so the AI can evalutate Unique Quarters. They do not have any effects on the game for human players. -->
+	<UniqueQuarterModifiers>
+		<Row UniqueQuarterType="QUARTER_HAVEN" ModifierId="MOD_TREASURE_CITY_FLAT_GOLD"/>
+		<Row UniqueQuarterType="QUARTER_HAVEN" ModifierId="MOD_HAVEN_HEAL_NAVAL_UNITS"/>
+	</UniqueQuarterModifiers>
+	<ConstructibleModifiers>
+		<!--Wonders-->
+		<Row ConstructibleType="WONDER_HAVANA_HARBOR" ModifierId="MOD_HAVANA_HARBOR_ECONOMIC_ATTRIBUTE"/>
+	</ConstructibleModifiers>
+	<Constructible_Advisories>
+		<Row ConstructibleType="BUILDING_NAVAL_ARSENAL" AdvisoryClassType="ADVISORY_CLASS_ECONOMIC"/>
+		<Row ConstructibleType="BUILDING_NAVAL_STATION" AdvisoryClassType="ADVISORY_CLASS_MILITARY"/>
+		<Row ConstructibleType="WONDER_HAVANA_HARBOR" AdvisoryClassType="ADVISORY_CLASS_ECONOMIC"/>
+	</Constructible_Advisories>
+</Database>

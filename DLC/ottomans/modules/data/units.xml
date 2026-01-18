@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Types>
+		<!--Civ Unique Military-->
+		<Row Type="UNIT_JANISSARY" Kind="KIND_UNIT"/>
+		<Row Type="UNIT_JANISSARY_2" Kind="KIND_UNIT"/>
+		<Row Type="UNIT_JANISSARY_3" Kind="KIND_UNIT"/>
+		<!--Civ Unique Civilian-->
+		<Row Type="UNIT_BARBARY_CORSAIR" Kind="KIND_UNIT"/>
+		<Row Type="UNIT_BARBARY_CORSAIR_2" Kind="KIND_UNIT"/>
+		<Row Type="UNIT_BARBARY_CORSAIR_3" Kind="KIND_UNIT"/>
+		<!--Civ Unique Abilities-->
+		<Row Type="ABILITY_JANISSARY" Kind="KIND_ABILITY"/>
+		<Row Type="ABILITY_BARBARY_CORSAIR" Kind="KIND_ABILITY"/>
+	</Types>
+	<Units>
+		<!--Civ Unique Military-->
+		<Row UnitType="UNIT_JANISSARY" Name="LOC_UNIT_JANISSARY_NAME" Description="LOC_UNIT_JANISSARY_DESCRIPTION" Tier="1" Maintenance="3" BaseMoves="2" BaseSightRange="2" ZoneOfControl="true" Domain="DOMAIN_LAND" UnitMovementClass="UNIT_MOVEMENT_CLASS_FOOT" CoreClass="CORE_CLASS_MILITARY" FormationClass="FORMATION_CLASS_LAND_COMBAT" TraitType="TRAIT_OTTOMANS"/>
+		<Row UnitType="UNIT_JANISSARY_2" Name="LOC_UNIT_JANISSARY_NAME" Description="LOC_UNIT_JANISSARY_2_DESCRIPTION" Tier="2" Maintenance="6" BaseMoves="2" BaseSightRange="2" ZoneOfControl="true" Domain="DOMAIN_LAND" UnitMovementClass="UNIT_MOVEMENT_CLASS_FOOT" CoreClass="CORE_CLASS_MILITARY" FormationClass="FORMATION_CLASS_LAND_COMBAT" TraitType="TRAIT_OTTOMANS"/>
+		<Row UnitType="UNIT_JANISSARY_3" Name="LOC_UNIT_JANISSARY_NAME" Description="LOC_UNIT_JANISSARY_3_DESCRIPTION" Tier="3" Maintenance="9" BaseMoves="2" BaseSightRange="2" ZoneOfControl="true" Domain="DOMAIN_LAND" UnitMovementClass="UNIT_MOVEMENT_CLASS_FOOT" CoreClass="CORE_CLASS_MILITARY" FormationClass="FORMATION_CLASS_LAND_COMBAT" TraitType="TRAIT_OTTOMANS"/>
+		<!--Civ Unique Civilian-->
+		<Row UnitType="UNIT_BARBARY_CORSAIR" Name="LOC_UNIT_BARBARY_CORSAIR_NAME" Description="LOC_UNIT_BARBARY_CORSAIR_DESCRIPTION" Tier="1" Maintenance="6" BaseMoves="4" BaseSightRange="2" ZoneOfControl="true" Domain="DOMAIN_SEA" UnitMovementClass="UNIT_MOVEMENT_CLASS_NAVAL" CoreClass="CORE_CLASS_MILITARY" FormationClass="FORMATION_CLASS_NAVAL" TraitType="TRAIT_OTTOMANS"/>
+		<Row UnitType="UNIT_BARBARY_CORSAIR_2" Name="LOC_UNIT_BARBARY_CORSAIR_NAME" Description="LOC_UNIT_BARBARY_CORSAIR_2_DESCRIPTION" Tier="2" Maintenance="9" BaseMoves="4" BaseSightRange="2" ZoneOfControl="true" Domain="DOMAIN_SEA" UnitMovementClass="UNIT_MOVEMENT_CLASS_NAVAL" CoreClass="CORE_CLASS_MILITARY" FormationClass="FORMATION_CLASS_NAVAL" TraitType="TRAIT_OTTOMANS"/>
+		<Row UnitType="UNIT_BARBARY_CORSAIR_3" Name="LOC_UNIT_BARBARY_CORSAIR_NAME" Description="LOC_UNIT_BARBARY_CORSAIR_3_DESCRIPTION" Tier="3" Maintenance="12" BaseMoves="4" BaseSightRange="2" ZoneOfControl="true" Domain="DOMAIN_SEA" UnitMovementClass="UNIT_MOVEMENT_CLASS_NAVAL" CoreClass="CORE_CLASS_MILITARY" FormationClass="FORMATION_CLASS_NAVAL" TraitType="TRAIT_OTTOMANS"/>
+	</Units>
+	<Unit_Stats>
+		<!--Civ Unique Military-->
+		<Row UnitType="UNIT_JANISSARY" Combat="50"/>
+		<Row UnitType="UNIT_JANISSARY_2" Combat="55"/>
+		<Row UnitType="UNIT_JANISSARY_3" Combat="60"/>
+		<Row UnitType="UNIT_BARBARY_CORSAIR" Combat="50" RangedCombat="25" Bombard="25" Range="1"/>
+		<Row UnitType="UNIT_BARBARY_CORSAIR_2" Combat="55" RangedCombat="30" Bombard="30" Range="1"/>
+		<Row UnitType="UNIT_BARBARY_CORSAIR_3" Combat="60" RangedCombat="35" Bombard="35" Range="1"/>
+	</Unit_Stats>
+	<Unit_Costs>
+		<!--Civ Unique Military-->
+		<Row UnitType="UNIT_JANISSARY" YieldType="YIELD_PRODUCTION" Cost="290"/>
+		<Row UnitType="UNIT_JANISSARY_2" YieldType="YIELD_PRODUCTION" Cost="340"/>
+		<Row UnitType="UNIT_JANISSARY_3" YieldType="YIELD_PRODUCTION" Cost="400"/>
+		<Row UnitType="UNIT_BARBARY_CORSAIR" YieldType="YIELD_PRODUCTION" Cost="280"/>
+		<Row UnitType="UNIT_BARBARY_CORSAIR_2" YieldType="YIELD_PRODUCTION" Cost="340"/>
+		<Row UnitType="UNIT_BARBARY_CORSAIR_3" YieldType="YIELD_PRODUCTION" Cost="400"/>
+	</Unit_Costs>
+	<UnitUpgrades>
+		<!--Civ Unique Military-->
+		<Row Unit="UNIT_JANISSARY" UpgradeUnit="UNIT_JANISSARY_2"/>
+		<Row Unit="UNIT_JANISSARY_2" UpgradeUnit="UNIT_JANISSARY_3"/>
+		<Row Unit="UNIT_BARBARY_CORSAIR" UpgradeUnit="UNIT_BARBARY_CORSAIR_2"/>
+		<Row Unit="UNIT_BARBARY_CORSAIR_2" UpgradeUnit="UNIT_BARBARY_CORSAIR_3"/>
+	</UnitUpgrades>
+	<UnitReplaces>
+		<!--Civ Unique Military-->
+		<Row CivUniqueUnitType="UNIT_JANISSARY" ReplacesUnitType="UNIT_LINE_INFANTRY"/>
+		<Row CivUniqueUnitType="UNIT_JANISSARY_2" ReplacesUnitType="UNIT_RIFLEMAN"/>
+		<Row CivUniqueUnitType="UNIT_JANISSARY_3" ReplacesUnitType="UNIT_INFANTRY_COMPANY"/>
+		<Row CivUniqueUnitType="UNIT_BARBARY_CORSAIR" ReplacesUnitType="UNIT_IRONCLAD"/>
+		<Row CivUniqueUnitType="UNIT_BARBARY_CORSAIR_2" ReplacesUnitType="UNIT_CRUISER"/>
+		<Row CivUniqueUnitType="UNIT_BARBARY_CORSAIR_3" ReplacesUnitType="UNIT_DESTROYER"/>
+	</UnitReplaces>
+	<Tags>
+		<!--Civ Unique Military-->
+		<Row Tag="UNIT_CLASS_JANISSARY" Category="UNIT_CLASS"/>
+		<Row Tag="UNIT_CLASS_BARBARY_CORSAIR" Category="UNIT_CLASS"/>
+	</Tags>
+	<TypeTags>
+		<!--Civ Unique Military-->
+		<Row Type="UNIT_JANISSARY" Tag="UNIT_CLASS_COMBAT"/>
+		<Row Type="UNIT_JANISSARY" Tag="UNIT_CLASS_INFANTRY"/>
+		<Row Type="UNIT_JANISSARY" Tag="UNIT_CLASS_MELEE"/>
+		<Row Type="UNIT_JANISSARY" Tag="UNIT_CLASS_JANISSARY"/>
+		<Row Type="UNIT_JANISSARY_2" Tag="UNIT_CLASS_COMBAT"/>
+		<Row Type="UNIT_JANISSARY_2" Tag="UNIT_CLASS_INFANTRY"/>
+		<Row Type="UNIT_JANISSARY_2" Tag="UNIT_CLASS_MELEE"/>
+		<Row Type="UNIT_JANISSARY_2" Tag="UNIT_CLASS_JANISSARY"/>
+		<Row Type="UNIT_JANISSARY_3" Tag="UNIT_CLASS_COMBAT"/>
+		<Row Type="UNIT_JANISSARY_3" Tag="UNIT_CLASS_INFANTRY"/>
+		<Row Type="UNIT_JANISSARY_3" Tag="UNIT_CLASS_MELEE"/>
+		<Row Type="UNIT_JANISSARY_3" Tag="UNIT_CLASS_JANISSARY"/>
+		<Row Type="UNIT_JANISSARY_3" Tag="UNIT_CLASS_ELITE_INFANTRY"/>
+		<Row Type="UNIT_BARBARY_CORSAIR" Tag="UNIT_CLASS_COMBAT"/>
+		<Row Type="UNIT_BARBARY_CORSAIR" Tag="UNIT_CLASS_SKIRMISH"/>
+		<Row Type="UNIT_BARBARY_CORSAIR" Tag="UNIT_CLASS_NAVAL"/>
+		<Row Type="UNIT_BARBARY_CORSAIR" Tag="UNIT_CLASS_LIGHT"/>
+		<Row Type="UNIT_BARBARY_CORSAIR" Tag="UNIT_CLASS_AUTOEXPLORE"/>
+		<Row Type="UNIT_BARBARY_CORSAIR" Tag="UNIT_CLASS_BARBARY_CORSAIR"/>
+		<Row Type="UNIT_BARBARY_CORSAIR_2" Tag="UNIT_CLASS_COMBAT"/>
+		<Row Type="UNIT_BARBARY_CORSAIR_2" Tag="UNIT_CLASS_SKIRMISH"/>
+		<Row Type="UNIT_BARBARY_CORSAIR_2" Tag="UNIT_CLASS_NAVAL"/>
+		<Row Type="UNIT_BARBARY_CORSAIR_2" Tag="UNIT_CLASS_LIGHT"/>
+		<Row Type="UNIT_BARBARY_CORSAIR_2" Tag="UNIT_CLASS_AUTOEXPLORE"/>
+		<Row Type="UNIT_BARBARY_CORSAIR_2" Tag="UNIT_CLASS_BARBARY_CORSAIR"/>
+		<Row Type="UNIT_BARBARY_CORSAIR_3" Tag="UNIT_CLASS_COMBAT"/>
+		<Row Type="UNIT_BARBARY_CORSAIR_3" Tag="UNIT_CLASS_SKIRMISH"/>
+		<Row Type="UNIT_BARBARY_CORSAIR_3" Tag="UNIT_CLASS_NAVAL"/>
+		<Row Type="UNIT_BARBARY_CORSAIR_3" Tag="UNIT_CLASS_LIGHT"/>
+		<Row Type="UNIT_BARBARY_CORSAIR_3" Tag="UNIT_CLASS_SEE_HIDDEN"/>
+		<Row Type="UNIT_BARBARY_CORSAIR_3" Tag="UNIT_CLASS_BARBARY_CORSAIR"/>
+		<Row Type="UNIT_BARBARY_CORSAIR_3" Tag="UNIT_CLASS_ELITE_NAVAL_LIGHT"/>
+		<Row Type="UNIT_BARBARY_CORSAIR_3" Tag="UNIT_CLASS_AUTOEXPLORE"/>
+	</TypeTags>
+	<UnitClass_Abilities>
+		<Row UnitAbilityType="ABILITY_JANISSARY" UnitClassType="UNIT_CLASS_JANISSARY"/>
+		<Row UnitAbilityType="ABILITY_BARBARY_CORSAIR" UnitClassType="UNIT_CLASS_BARBARY_CORSAIR"/>
+	</UnitClass_Abilities>
+	<UnitAbilities>
+		<!--Unique-->
+		<Row UnitAbilityType="ABILITY_JANISSARY" Name="LOC_ABILITY_JANISSARY" Description="LOC_ABILITY_JANISSARY_DESCRIPTION"/>
+		<Row UnitAbilityType="ABILITY_BARBARY_CORSAIR" Name="LOC_UNIT_BARBARY_CORSAIR_NAME" Description="LOC_ABILITY_BARBARY_CORSAIR_DESCRIPTION"/>
+	</UnitAbilities>
+	<UnitAbilityModifiers>
+		<Row UnitAbilityType="ABILITY_JANISSARY" ModifierId="JANISSARY_SAD_CITY"/>
+		<Row UnitAbilityType="ABILITY_JANISSARY" ModifierId="JANISSARY_MOD_COMBAT_STRENGTH_VS_LAND"/>
+		<Row UnitAbilityType="ABILITY_BARBARY_CORSAIR" ModifierId="BARBARY_CORSAIR_MOD_ADVANCED_PILLAGE"/>
+	</UnitAbilityModifiers>
+	<Unit_Advisories>
+		<Row UnitType="UNIT_JANISSARY" AdvisoryClassType="ADVISORY_CLASS_MILITARY"/>
+		<Row UnitType="UNIT_JANISSARY_2" AdvisoryClassType="ADVISORY_CLASS_MILITARY"/>
+		<Row UnitType="UNIT_JANISSARY_3" AdvisoryClassType="ADVISORY_CLASS_MILITARY"/>
+		<Row UnitType="UNIT_BARBARY_CORSAIR" AdvisoryClassType="ADVISORY_CLASS_MILITARY"/>
+		<Row UnitType="UNIT_BARBARY_CORSAIR_2" AdvisoryClassType="ADVISORY_CLASS_MILITARY"/>
+		<Row UnitType="UNIT_BARBARY_CORSAIR_3" AdvisoryClassType="ADVISORY_CLASS_MILITARY"/>
+	</Unit_Advisories>
+</Database>

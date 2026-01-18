@@ -1,0 +1,38 @@
+/**
+Based on Robert Penner's easing equations
+@url http://robertpenner.com/easing/
+**/
+.chooser-item_locked-shadow {
+  flex: 1 0 auto;
+  background-color: rgba(18, 21, 31, 0.5);
+}
+
+.chooser-item__icon {
+  background-image: url("blp:hud_civics-icon_frame");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.chooser-item__icon-image {
+  height: 3.1111111111rem;
+  width: 3.1111111111rem;
+  background-image: url("blp:tech_animalhusbandry");
+  background-size: 100% 100%;
+  background-position-x: 50%;
+  background-position-y: 50%;
+  border-radius: 100%;
+  background-repeat: no-repeat;
+}
+
+.chooser-item__lock-image {
+  height: 1.7777777778rem;
+  width: 1.7777777778rem;
+  background-image: url("blp:hud_lock-icon");
+  bottom: -0.5555555556rem;
+  background-size: cover;
+}
+
+.chooser-item__icon_gradient {
+  background-image: radial-gradient(50% 50% at 50% 50%, rgba(0, 0, 0, 0) 81%, rgba(0, 0, 0, 0.5) 100%);
+  border-radius: 100%;
+}

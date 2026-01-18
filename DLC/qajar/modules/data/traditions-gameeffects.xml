@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+	<!-- ==================================================	-->
+	<!--	MODERN							-->
+	<!-- ==================================================	-->
+	<Modifier id="WAQAYE_E_ETTEFAQIYA_YIELD_UNDER_CAP" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_ADJUST_YIELD_PER_UNDER_SETTLEMENT_CAP">
+		<Argument name="Amount">10</Argument>
+		<Argument name="YieldType">YIELD_SCIENCE, YIELD_CULTURE</Argument>
+		<String context="Description">LOC_TRADITION_WAQAYE_E_ETTEFAQIYA_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="SOLEYMANIYEH_PALACE_YIELD_CAPITAL_POP" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_ADJUST_YIELD_PER_POPULATION">
+		<Argument name="Amount">1</Argument>
+		<Argument name="Divisor">2</Argument>
+		<Argument name="All">true</Argument>
+		<Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_SOLEYMANIYEH_PALACE_NAME</Argument>
+		<String context="Description">LOC_TRADITION_SOLEYMANIYEH_PALACE_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="QULLARAQASI_COMMANDER_HAPPINESS" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ATTACH_MODIFIERS">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+				<Argument name="Tag">UNIT_CLASS_COMMAND</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="ModifierId">QULLARAQASI_COMMANDER_HAPPINESS_MOD</Argument>
+		<String context="Description">LOC_TRADITION_QULLARAQASI_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="QULLARAQASI_COMMANDER_HAPPINESS_MOD" collection="COLLECTION_UNIT_OCCUPIED_CITY" effect="EFFECT_CITY_ADJUST_YIELD">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_UNIT_IS_STATIONED_ON_DISTRICT"/>
+		</OwnerRequirements>
+		<Argument name="YieldType">YIELD_HAPPINESS</Argument>
+		<Argument name="Amount">15</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_QULLARAQASI_NAME</Argument>
+	</Modifier>
+</GameEffects>

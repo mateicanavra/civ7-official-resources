@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<RequirementSets>
+		<InsertOrIgnore RequirementSetId="REQSET_CIV_IS_TONGA" RequirementSetType="REQUIREMENTSET_TEST_ALL"/>
+	</RequirementSets>
+	<Requirements>
+		<InsertOrIgnore RequirementId="REQ_CIV_IS_TONGA" RequirementType="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES"/>
+	</Requirements>
+	<RequirementArguments>
+		<InsertOrIgnore RequirementId="REQ_CIV_IS_TONGA" Name="CivilizationType" Value="CIVILIZATION_TONGA"/>
+	</RequirementArguments>
+	<RequirementSetRequirements>
+		<InsertOrIgnore RequirementSetId="REQSET_CIV_IS_TONGA" RequirementId="REQ_CIV_IS_TONGA"/>
+	</RequirementSetRequirements>
+	<UnlockRequirements>
+		<Row UnlockType="UNLOCK_CIVILIZATION_HAWAII" RequirementSetId="REQSET_CIV_IS_TONGA" Description="LOC_UNLOCK_PLAY_AS_TONGA_DESCRIPTION" Tooltip="LOC_UNLOCK_PLAY_AS_TONGA_HAWAII_TOOLTIP"/>
+	</UnlockRequirements>
+</Database>

@@ -1,0 +1,32 @@
+@media (max-height: 50rem) {
+  .memento-editor-frame {
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+}
+@media (max-height: 50rem) and (experience: mobile) {
+  .memento-editor-frame {
+    margin-top: 1.1111111111rem;
+    margin-bottom: 1.1111111111rem;
+  }
+}
+@media (experience: mobile) {
+  .memento-editor-scrollable {
+    margin-top: 1.1111111111rem;
+    margin-bottom: 1.1111111111rem;
+  }
+}
+
+.memento-circle-focus {
+  border-image-source: url("blp:memento_circle-focus");
+  border-image-slice: 32 fill;
+  border-image-width: 3.5555555556rem 3.5555555556rem;
+}
+
+.memento-shell-line-divider {
+  border-image: url("blp:shell_line-divider");
+  border-image-slice: 1 0 1 1 fill;
+  border-image-width: 1 1 1 1;
+  width: 36.1111111111rem;
+  height: 0.1666666667rem;
+}

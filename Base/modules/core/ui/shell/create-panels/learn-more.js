@@ -1,0 +1,117 @@
+const styles = "fs://game/core/ui/shell/create-panels/learn-more.css";
+
+class LearnMore extends Component {
+  reasonElement = document.createElement("div");
+  actionElement = document.createElement("fxs-text-button");
+  _contentName = "";
+  _tooltip = "";
+  _contentPack = "";
+  _reason;
+  _action;
+  get contentName() {
+    return this._contentName;
+  }
+  set contentName(value) {
+    this._contentName = value;
+    this.updateReasonText();
+  }
+  get contentPack() {
+    return this._contentPack;
+  }
+  set contentPack(value) {
+    this._contentPack = value;
+    this.updateReasonText();
+  }
+  get reason() {
+    return this._reason;
+  }
+  set reason(value) {
+    this._reason = value;
+    this.updateReasonText();
+  }
+  get tooltip() {
+    return this._tooltip;
+  }
+  set tooltip(value) {
+    this._tooltip = value;
+    this.updateTooltip();
+  }
+  get action() {
+    return this._action;
+  }
+  set action(value) {
+    this._action = value;
+    this.updateActionButton();
+  }
+  get hasAction() {
+    return this._action != void 0;
+  }
+  constructor(root) {
+    super(root);
+    this.Root.classList.add(
+      "relative",
+      "flex",
+      "flex-col",
+      "pointer-events-auto",
+      "items-center",
+      "img-unit-panelbox"
+    );
+    const header = document.createElement("div");
+    header.classList.add("self-stretch", "learn-more-filigree");
+    header.innerHTML = `
+			<div class="relative flex items-center justify-center">
+				<div class="absolute inset-x-0 flex flex-row">
+					<div class="filigree-panel-top-circle flex-auto"></div>
+					<div class="filigree-panel-top-circle flex-auto -scale-x-100"></div>
+				</div>
+				<div class="relative learn-more-icon">
+					<div class="absolute inset-0 img-circle learn-more-icon-bg"></div>
+					<div class="absolute inset-0 img-civics-icon-frame learn-more-icon-frame"></div>
+					<div class="absolute inset-3 bg-center bg-no-repeat bg-contain img-lock2"></div>
+				</div>
+			</div>
+		`;
+    this.Root.appendChild(header);
+    this.reasonElement.classList.add("font-body-base", "text-accent-2", "text-center", "m-2");
+    this.reasonElement.setAttribute("role", "paragraph");
+    this.Root.appendChild(this.reasonElement);
+    const filigree = document.createElement("div");
+    filigree.classList.add("filigree-shell-small");
+    this.Root.appendChild(filigree);
+    this.actionElement.classList.add("mb-4");
+    this.actionElement.setAttribute("type", "big");
+    this.actionElement.setAttribute("highlight-style", "decorative");
+    this.actionElement.setAttribute("caption", Locale.stylize("LOC_CREATE_GAME_LEARN_MORE").toUpperCase());
+    this.actionElement.setAttribute("disabled", "true");
+    this.actionElement.addEventListener("action-activate", this.handleAction.bind(this));
+    this.Root.appendChild(this.actionElement);
+  }
+  updateReasonText() {
+    this.reasonElement.innerHTML = Locale.compose(
+      this._reason ?? "LOC_LOCKED_GENERIC",
+      this.contentName,
+      this.contentPack
+    );
+  }
+  updateActionButton() {
+    this.actionElement.classList.toggle("hidden", !this.hasAction);
+    this.actionElement.component.disabled = !this.hasAction;
+  }
+  updateTooltip() {
+    this.actionElement.setAttribute("data-tooltip-content", this._tooltip);
+  }
+  handleAction() {
+    if (this._action != void 0) {
+      this._action();
+    }
+  }
+}
+Controls.define("learn-more", {
+  createInstance: LearnMore,
+  description: "Learn more panel, for locked leaders and civs",
+  styles: [styles],
+  tabIndex: -1
+});
+
+export { LearnMore };
+//# sourceMappingURL=learn-more.js.map

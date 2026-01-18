@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+	<!-- ==================================================	-->
+	<!--	ANTIQUITY							-->
+	<!-- ==================================================	-->
+	<Modifier id="NGATU_MOD_CULTURE_WAREHOUSE_BUILDINGS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD">
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Tag">WAREHOUSE</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_NGATU_NAME</Argument>
+		<String context="Description">LOC_TRADITION_NGATU_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="TONGIAKI_MOD_TRADE_ROUTE_RANGE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_TRADE_ROUTE_RANGE">
+		<Argument name="DomainType">DOMAIN_SEA</Argument>
+		<Argument name="Amount">10</Argument>
+		<String context="Description">LOC_TRADITION_TONGIAKI_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="TAKUAKA_MOD_CITY_WAREHOUSE_BONUS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_GRANT_WAREHOUSE_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_CITY"/>
+		</SubjectRequirements>
+		<Argument name="WarehouseYieldChange">TakuakaFishingBoatProduction, TakuakaAtollProduction, TakuakaLotusProduction, TakuakaReefProduction, TakuakaColdReefProduction,TakuakaCoastProduction,TakuakaNavigableRiverProduction</Argument>
+		<String context="Description">LOC_TRADITION_TAKUAKA_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="TAKUAKA_MOD_REEF_WAREHOUSE_BONUS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_GRANT_WAREHOUSE_YIELD">
+		<Argument name="WarehouseYieldChange">TakuakaReefScience, TakuakaColdReefScience</Argument>
+	</Modifier>
+</GameEffects>

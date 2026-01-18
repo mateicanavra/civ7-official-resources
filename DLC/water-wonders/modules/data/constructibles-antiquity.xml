@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Kinds>
+		<InsertOrIgnore Kind="KIND_CONSTRUCTIBLE"/>
+	</Kinds>
+	<Types>
+		<Row Type="WONDER_GREAT_LIGHTHOUSE" Kind="KIND_CONSTRUCTIBLE"/>
+	</Types>
+	<TypeQuotes>
+		<Row Type="WONDER_GREAT_LIGHTHOUSE" Quote="LOC_QUOTE_WONDER_GREAT_LIGHTHOUSE" QuoteAuthor="LOC_QUOTE_AUTHOR_WONDER_GREAT_LIGHTHOUSE" QuoteAudio="VO_Quote_GreatLighthouse"/>
+	</TypeQuotes>
+	<Constructibles>
+		<Row ConstructibleType="WONDER_GREAT_LIGHTHOUSE" Name="LOC_WONDER_GREAT_LIGHTHOUSE_NAME" Description="LOC_WONDER_GREAT_LIGHTHOUSE_DESCRIPTION" Tooltip="LOC_WONDER_GREAT_LIGHTHOUSE_TOOLTIP" ConstructibleClass="WONDER" Cost="275" Population="0" ImmuneDamage="true" Age="AGE_ANTIQUITY" RequiresUnlock="true"/>
+	</Constructibles>
+	<Wonders>
+		<Row ConstructibleType="WONDER_GREAT_LIGHTHOUSE" MaxWorldInstances="1"/>
+	</Wonders>
+	<TypeTags>
+		<Row Type="WONDER_GREAT_LIGHTHOUSE" Tag="AGELESS"/>
+	</TypeTags>
+	<Constructible_ValidTerrains>
+		<Row ConstructibleType="WONDER_GREAT_LIGHTHOUSE" TerrainType="TERRAIN_COAST"/>
+	</Constructible_ValidTerrains>
+	<Constructible_ValidDistricts>
+		<Row ConstructibleType="WONDER_GREAT_LIGHTHOUSE" DistrictType="DISTRICT_WONDER"/>
+	</Constructible_ValidDistricts>
+	<Constructible_YieldChanges>
+		<Row ConstructibleType="WONDER_GREAT_LIGHTHOUSE" YieldType="YIELD_GOLD" YieldChange="3"/>
+	</Constructible_YieldChanges>
+	<ConstructibleModifiers>
+		<Row ConstructibleType="WONDER_GREAT_LIGHTHOUSE" ModifierId="MOD_GREAT_LIGHTHOUSE_SIGHT"/>
+		<Row ConstructibleType="WONDER_GREAT_LIGHTHOUSE" ModifierId="MOD_GREAT_LIGHTHOUSE_TRADE_ROUTE_RANGE"/>
+	</ConstructibleModifiers>
+	<Constructible_Advisories>
+		<Row ConstructibleType="WONDER_GREAT_LIGHTHOUSE" AdvisoryClassType="ADVISORY_CLASS_FOOD"/>
+		<Row ConstructibleType="WONDER_GREAT_LIGHTHOUSE" AdvisoryClassType="ADVISORY_CLASS_ECONOMIC"/>
+	</Constructible_Advisories>
+</Database>

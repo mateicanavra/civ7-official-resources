@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Civilizations>
+		<Row Domain="ExplorationAgeCivilizations" CivilizationType="CIVILIZATION_PIRATE_REPUBLIC" CivilizationName="LOC_CIVILIZATION_PIRATE_REPUBLIC_NAME" CivilizationFullName="LOC_CIVILIZATION_PIRATE_REPUBLIC_FULLNAME" CivilizationDescription="LOC_CIVILIZATION_PIRATE_REPUBLIC_DESCRIPTION" CivilizationIcon="shawnee_icon.png"/>
+	</Civilizations>
+	<CivilizationItems>
+		<Row CivilizationDomain="ExplorationAgeCivilizations" CivilizationType="CIVILIZATION_PIRATE_REPUBLIC" Type="TRAIT_PIRATE_REPUBLIC_ABILITY" Kind="KIND_TRAIT" Name="LOC_TRAIT_PIRATE_REPUBLIC_ABILITY_NAME" Description="LOC_TRAIT_PIRATE_REPUBLIC_ABILITY_DESCRIPTION"/>
+		<Row CivilizationDomain="ExplorationAgeCivilizations" CivilizationType="CIVILIZATION_PIRATE_REPUBLIC" Type="UNIT_SLOOP" Kind="KIND_UNIT" Name="LOC_UNIT_SLOOP_NAME" Description="LOC_UNIT_SLOOP_BASE_DESCRIPTION" Icon="unitflag_sloop.png"/>
+		<Row CivilizationDomain="ExplorationAgeCivilizations" CivilizationType="CIVILIZATION_PIRATE_REPUBLIC" Type="UNIT_BUCCANEER" Kind="KIND_UNIT" Name="LOC_UNIT_BUCCANEER_NAME" Description="LOC_UNIT_BUCCANEER_DESCRIPTION" Icon="unitflag_BUCCANEER.png"/>
+		<Row CivilizationDomain="ExplorationAgeCivilizations" CivilizationType="CIVILIZATION_PIRATE_REPUBLIC" Type="QUARTER_HAVEN" Kind="KIND_QUARTER" Name="LOC_QUARTER_HAVEN_NAME" Description="LOC_QUARTER_HAVEN_DESCRIPTION" Icon="city_uniquequarter"/>
+		<Row CivilizationDomain="ExplorationAgeCivilizations" CivilizationType="CIVILIZATION_PIRATE_REPUBLIC" Type="BUILDING_NAVAL_ARSENAL" Kind="KIND_BUILDING" Name="LOC_BUILDING_NAVAL_ARSENAL_NAME" Description="LOC_BUILDING_NAVAL_ARSENAL_DESCRIPTION" Icon="impicon_loikalo.png"/>
+		<Row CivilizationDomain="ExplorationAgeCivilizations" CivilizationType="CIVILIZATION_PIRATE_REPUBLIC" Type="BUILDING_NAVAL_STATION" Kind="KIND_BUILDING" Name="LOC_BUILDING_NAVAL_STATION_NAME" Description="LOC_BUILDING_NAVAL_STATION_DESCRIPTION" Icon="impicon_loikalo.png"/>
+	</CivilizationItems>
+	<CivilizationTags>
+		<Row CivilizationDomain="ExplorationAgeCivilizations" CivilizationType="CIVILIZATION_PIRATE_REPUBLIC" TagType="TAG_TRAIT_ECONOMIC"/>
+		<Row CivilizationDomain="ExplorationAgeCivilizations" CivilizationType="CIVILIZATION_PIRATE_REPUBLIC" TagType="TAG_TRAIT_MILITARISTIC"/>
+	</CivilizationTags>
+	<CivilizationUnlocks>
+		<Row CivilizationDomain="AntiquityAgeCivilizations" CivilizationType="CIVILIZATION_AKSUM" AgeDomain="StandardAges" AgeType="AGE_EXPLORATION" Type="CIVILIZATION_PIRATE_REPUBLIC" Kind="KIND_CIVILIZATION" Name="LOC_CIVILIZATION_PIRATE_REPUBLIC_NAME" Description="LOC_CIVILIZATION_PIRATE_REPUBLIC_DESCRIPTION" Icon="CIVILIZATION_PIRATE_REPUBLIC"/>
+		<Row CivilizationDomain="ExplorationAgeCivilizations" CivilizationType="CIVILIZATION_PIRATE_REPUBLIC" AgeDomain="StandardAges" AgeType="AGE_MODERN" Type="CIVILIZATION_FRENCH_EMPIRE" Kind="KIND_CIVILIZATION" Name="LOC_CIVILIZATION_FRENCH_EMPIRE_NAME" Description="LOC_CIVILIZATION_FRENCH_EMPIRE_DESCRIPTION" Icon="CIVILIZATION_FRENCH_EMPIRE"/>
+	</CivilizationUnlocks>
+	<LeaderUnlocks>
+		<Row LeaderDomain="StandardLeaders" LeaderType="LEADER_AMINA" AgeDomain="StandardAges" AgeType="AGE_EXPLORATION" Type="CIVILIZATION_PIRATE_REPUBLIC" Kind="KIND_CIVILIZATION" Name="LOC_CIVILIZATION_PIRATE_REPUBLIC_NAME" Description="LOC_CIVILIZATION_PIRATE_REPUBLIC_DESCRIPTION" Icon="CIVILIZATION_PIRATE_REPUBLIC" />
+	</LeaderUnlocks>
+	<LeaderCivilizationBias>
+		<Row CivilizationDomain="ExplorationAgeCivilizations" CivilizationType="CIVILIZATION_PIRATE_REPUBLIC" LeaderDomain="StandardLeaders" LeaderType="LEADER_AMINA" Bias="1" ReasonType="LOC_UNLOCK_PLAY_AS_AMINA_PIRATE_REPUBLIC_TOOLTIP" ChoiceType="LOC_CREATE_GAME_STRATEGIC_CHOICE" />
+	</LeaderCivilizationBias>
+	<OwnershipConditions>
+		<Row ItemType="CIVILIZATION_PIRATE_REPUBLIC" Action="LOC_LOCKED_INCLUDED_WITH_CONTENT" />
+	</OwnershipConditions>
+</Database>

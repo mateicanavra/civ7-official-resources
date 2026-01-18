@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<RequirementSets>
+		<InsertOrIgnore RequirementSetId="REQSET_CIV_IS_SILLA" RequirementSetType="REQUIREMENTSET_TEST_ALL"/>
+	</RequirementSets>
+	<Requirements>
+		<InsertOrIgnore RequirementId="REQ_CIV_IS_SILLA" RequirementType="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES"/>
+	</Requirements>
+	<RequirementArguments>
+		<InsertOrIgnore RequirementId="REQ_CIV_IS_SILLA" Name="CivilizationType" Value="CIVILIZATION_SILLA"/>
+	</RequirementArguments>
+	<RequirementSetRequirements>
+		<InsertOrIgnore RequirementSetId="REQSET_CIV_IS_SILLA" RequirementId="REQ_CIV_IS_SILLA"/>
+	</RequirementSetRequirements>
+	<UnlockRequirements>
+		<Row UnlockType="UNLOCK_CIVILIZATION_MONGOLIA" RequirementSetId="REQSET_CIV_IS_SILLA" Description="LOC_UNLOCK_PLAY_AS_SILLA_DESCRIPTION" Tooltip="LOC_UNLOCK_PLAY_AS_SILLA_MONGOLIA_TOOLTIP"/>
+	</UnlockRequirements>
+</Database>

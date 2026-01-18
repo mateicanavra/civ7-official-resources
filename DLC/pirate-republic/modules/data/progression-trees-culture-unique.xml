@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Types>
+		<!--Civ Unique Mastery Trees-->
+		<Row Type="TREE_CIVICS_EX_PIRATE_REPUBLIC" Kind="KIND_TREE"/>
+		<!--Civ Unique Mastery Tree Nodes-->
+		<!--PIRATE_REPUBLIC-->
+		<Row Type="NODE_CIVIC_EX_PIRATE_REPUBLIC_ARTICLES_OF_AGREEMENT" Kind="KIND_TREE_NODE"/>
+		<Row Type="NODE_CIVIC_EX_PIRATE_REPUBLIC_PORTS_OF_CALL" Kind="KIND_TREE_NODE"/>
+		<Row Type="NODE_CIVIC_EX_PIRATE_REPUBLIC_ENEMY_OF_ALL_NATIONS" Kind="KIND_TREE_NODE"/>
+	</Types>
+	<TypeQuotes>
+		<Row Type="NODE_CIVIC_EX_PIRATE_REPUBLIC_ARTICLES_OF_AGREEMENT" Quote="LOC_CIVIC_ARTICLES_OF_AGREEMENT_QUOTE" QuoteAuthor="LOC_CIVIC_ARTICLES_OF_AGREEMENT_AUTHOR" QuoteAudio="VO_Quote_ArticlesOfAgreement"/>
+		<Row Type="NODE_CIVIC_EX_PIRATE_REPUBLIC_PORTS_OF_CALL" Quote="LOC_CIVIC_PORTS_OF_CALL_QUOTE" QuoteAuthor="LOC_CIVIC_PORTS_OF_CALL_AUTHOR" QuoteAudio="VO_Quote_PortsOfCall"/>
+		<Row Type="NODE_CIVIC_EX_PIRATE_REPUBLIC_ENEMY_OF_ALL_NATIONS" Quote="LOC_CIVIC_ENEMY_OF_ALL_NATIONS_QUOTE" QuoteAuthor="LOC_CIVIC_ENEMY_OF_ALL_NATIONS_AUTHOR" QuoteAudio="VO_Quote_EnemyOfAllNations"/>
+	</TypeQuotes>
+	<ProgressionTrees>
+		<!--Civ Unique Mastery Trees-->
+		<Row ProgressionTreeType="TREE_CIVICS_EX_PIRATE_REPUBLIC" AgeType="AGE_EXPLORATION" SystemType="SYSTEM_CULTURE" Name="LOC_TREE_CIVICS_EX_PIRATE_REPUBLIC_NAME"/>
+	</ProgressionTrees>
+	<ProgressionTreeNodes>
+		<!--Civ Unique Mastery Tree Nodes-->
+		<!--PIRATE_REPUBLIC-->
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_PIRATE_REPUBLIC_ARTICLES_OF_AGREEMENT" ProgressionTree="TREE_CIVICS_EX_PIRATE_REPUBLIC" Cost="800" Name="LOC_CIVIC_ARTICLES_OF_AGREEMENT_NAME" IconString="cult_pirate_republic"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_PIRATE_REPUBLIC_PORTS_OF_CALL" ProgressionTree="TREE_CIVICS_EX_PIRATE_REPUBLIC" Cost="1200" Name="LOC_CIVIC_PORTS_OF_CALL_NAME" IconString="cult_pirate_republic"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_PIRATE_REPUBLIC_ENEMY_OF_ALL_NATIONS" ProgressionTree="TREE_CIVICS_EX_PIRATE_REPUBLIC" Cost="2000" Name="LOC_CIVIC_ENEMY_OF_ALL_NATIONS_NAME" IconString="cult_pirate_republic"/>
+	</ProgressionTreeNodes>
+	<ProgressionTreeNodeUnlocks>
+		<!--PIRATE_REPUBLIC-->
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_PIRATE_REPUBLIC_ARTICLES_OF_AGREEMENT" TargetKind="KIND_CONSTRUCTIBLE" TargetType="BUILDING_NAVAL_STATION" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_PIRATE_REPUBLIC_ARTICLES_OF_AGREEMENT" TargetKind="KIND_TRADITION" TargetType="TRADITION_PRESS_GANGS" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_PIRATE_REPUBLIC_ARTICLES_OF_AGREEMENT" TargetKind="KIND_MODIFIER" TargetType="ARTICLES_OF_AGREEMENTS_MOD_BUCCANEER_LOOTING" UnlockDepth="2"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_PIRATE_REPUBLIC_PORTS_OF_CALL" TargetKind="KIND_CONSTRUCTIBLE" TargetType="BUILDING_NAVAL_ARSENAL" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_PIRATE_REPUBLIC_PORTS_OF_CALL" TargetKind="KIND_TRADITION" TargetType="TRADITION_MERRY_LIFE_AND_A_SHORT_ONE" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_PIRATE_REPUBLIC_PORTS_OF_CALL" TargetKind="KIND_CONSTRUCTIBLE" TargetType="WONDER_HAVANA_HARBOR" UnlockDepth="2" AIIgnoreUnlockValue="true"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_PIRATE_REPUBLIC_PORTS_OF_CALL" TargetKind="KIND_MODIFIER" TargetType="MOD_EX_SETTLEMENT_CAP_INCREASE" UnlockDepth="2"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_PIRATE_REPUBLIC_PORTS_OF_CALL" TargetKind="KIND_MODIFIER" TargetType="BUCCANEER_MOD_GRANT_LAND_CLAIM_CHARGE" UnlockDepth="2"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_PIRATE_REPUBLIC_ENEMY_OF_ALL_NATIONS" TargetKind="KIND_TRADITION" TargetType="TRADITION_BLACK_FLAG" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_PIRATE_REPUBLIC_ENEMY_OF_ALL_NATIONS" TargetKind="KIND_MODIFIER" TargetType="ENEMY_OF_ALL_NATIONS_MOD_TREASURE_FLEET_CS" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_PIRATE_REPUBLIC_ENEMY_OF_ALL_NATIONS" TargetKind="KIND_MODIFIER" TargetType="ENEMY_OF_ALL_NATIONS_MOD_TREASURE_FLEET_EXTRA_VP" UnlockDepth="2"/>
+	</ProgressionTreeNodeUnlocks>
+	<ProgressionTreePrereqs>
+		<!--PIRATE_REPUBLIC-->
+		<Row Node="NODE_CIVIC_EX_PIRATE_REPUBLIC_PORTS_OF_CALL" PrereqNode="NODE_CIVIC_EX_PIRATE_REPUBLIC_ARTICLES_OF_AGREEMENT"/>
+		<Row Node="NODE_CIVIC_EX_PIRATE_REPUBLIC_ENEMY_OF_ALL_NATIONS" PrereqNode="NODE_CIVIC_EX_PIRATE_REPUBLIC_PORTS_OF_CALL"/>
+	</ProgressionTreePrereqs>
+	<ProgressionTree_Advisories>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_PIRATE_REPUBLIC_ARTICLES_OF_AGREEMENT" AdvisoryClassType="ADVISORY_CLASS_MILITARY"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_PIRATE_REPUBLIC_PORTS_OF_CALL" AdvisoryClassType="ADVISORY_CLASS_ECONOMIC"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_PIRATE_REPUBLIC_PORTS_OF_CALL" AdvisoryClassType="ADVISORY_CLASS_EMPIRE_EXPANSION"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_PIRATE_REPUBLIC_ENEMY_OF_ALL_NATIONS" AdvisoryClassType="ADVISORY_CLASS_ECONOMIC"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_PIRATE_REPUBLIC_ENEMY_OF_ALL_NATIONS" AdvisoryClassType="ADVISORY_CLASS_MILITARY"/>
+	</ProgressionTree_Advisories>
+</Database>

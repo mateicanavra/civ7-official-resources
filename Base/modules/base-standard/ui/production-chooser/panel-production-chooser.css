@@ -1,0 +1,122 @@
+/**
+Based on Robert Penner's easing equations
+@url http://robertpenner.com/easing/
+**/
+.panel-production__frame {
+  min-width: 37.3333333333rem;
+  max-width: 37.3333333333rem;
+}
+
+.panel-city-details {
+  min-width: 28.4444444444rem;
+  max-width: 28.4444444444rem;
+}
+@media (experience: mobile) {
+  .panel-city-details {
+    min-width: 39.1111111111rem;
+    max-width: 39.1111111111rem;
+  }
+}
+
+panel-production-chooser .subsystem-frame__content {
+  padding: 0.6666666667rem;
+}
+panel-production-chooser .subsystem-frame__content .fxs-scrollbar__track--vertical {
+  right: -0.3333333333rem;
+}
+
+town-focus-chooser-item {
+  width: 24.6111111111rem;
+}
+
+town-focus-chooser-item,
+production-chooser-item {
+  margin-bottom: 0.4444444444rem;
+}
+town-focus-chooser-item:last-child,
+production-chooser-item:last-child {
+  margin-bottom: 0rem;
+}
+
+.production-chooser__font-icon-positioning {
+  line-height: 140%;
+}
+
+.production-chooser__unique-quarter {
+  padding-bottom: 1.5555555556rem;
+}
+
+.production-chooser__unique-quarter-divider {
+  position: absolute;
+  bottom: 0.7222222222rem;
+  width: 100%;
+  height: 0.1111111111rem;
+  background: linear-gradient(to right, rgba(76, 83, 102, 0), rgba(76, 83, 102, 0.7), rgba(76, 83, 102, 0));
+}
+
+.town-unrest-fill {
+  background-color: #e00505;
+}
+
+.town-unrest-bg {
+  background-color: #252525;
+}
+
+.production-chooser__city-details-button {
+  width: 3.3333333333rem;
+  height: 3.7777777778rem;
+  background: linear-gradient(to bottom, #4c5366, #333640);
+  border-image-slice: 16 fill;
+  border-image-source: url("fs://game/shell_simple-square");
+  border-image-width: 0.8888888889rem;
+}
+.production-chooser__city-details-button:focus .city-details-highlight, .production-chooser__city-details-button:hover .city-details-highlight, .production-chooser__city-details-button.pressed .city-details-highlight {
+  animation: city-details-highlight-glow;
+  animation-direction: alternate;
+  animation-duration: 1.3333s;
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+  background: linear-gradient(90deg, #595243 0%, rgba(41, 43, 51, 0.5) 100%);
+}
+
+@keyframes city-details-highlight-glow {
+  0% {
+    opacity: 0.3333;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.production-chooser-tooltip__subtext-bg {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+town-unrest-section,
+.production-chooser__town-focus-gradient {
+  background-image: linear-gradient(to bottom, rgba(5, 7, 13, 0.4), rgba(5, 7, 13, 0.2), rgba(5, 7, 13, 0.35));
+  background-repeat: no-repeat;
+}
+
+@media (max-height: 42.6666666667rem) {
+  .production-chooser__town-focus__default-label {
+    display: none;
+  }
+}
+
+panel-production-chooser {
+  position: relative;
+  flex-direction: column;
+}
+@media (max-height: 40rem) {
+  panel-production-chooser {
+    max-height: 40rem;
+  }
+}
+
+panel-town-focus {
+  width: 34.4444444444rem;
+}
+
+last-production-section:focus .last-production-frame, last-production-section:hover .last-production-frame, last-production-section.pressed .last-production-frame {
+  background: linear-gradient(to bottom, #23252b, #12151f);
+}

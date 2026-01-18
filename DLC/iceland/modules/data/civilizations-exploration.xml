@@ -1,0 +1,135 @@
+<Database>
+	<Types>
+		<!-- Major Civs -->
+		<Row Type="TRAIT_ICELAND_ABILITY" Kind="KIND_TRAIT" />
+	</Types>
+	<Kinds>
+		<InsertOrIgnore KIND="KIND_TRAIT" />
+	</Kinds>
+	<Civilizations>
+		<!-- Full Civs -->
+		<Row CivilizationType="CIVILIZATION_ICELAND" Name="LOC_CIVILIZATION_ICELAND_NAME" FullName="LOC_CIVILIZATION_ICELAND_FULLNAME" Description="LOC_CIVILIZATION_ICELAND_DESCRIPTION" Adjective="LOC_CIVILIZATION_ICELAND_ADJECTIVE" StartingCivilizationLevelType="CIVILIZATION_LEVEL_FULL_CIV" UniqueCultureProgressionTree="TREE_CIVICS_EX_ICELAND" CapitalName="LOC_CITY_NAME_ICELAND1" RandomCityNameDepth="10" />
+	</Civilizations>
+	<CivilizationFavoredWonders>
+		<Row CivilizationType="CIVILIZATION_ICELAND" FavoredWonderType="WONDER_REYKHOLT" FavoredWonderName="LOC_WONDER_REYKHOLT_NAME" />
+	</CivilizationFavoredWonders>
+	<Traits>
+		<!--Civ Traits-->
+		<Row TraitType="TRAIT_ICELAND_ABILITY" Name="LOC_TRAIT_ICELAND_ABILITY_NAME" Description="LOC_TRAIT_ICELAND_ABILITY_DESCRIPTION" InternalOnly="true" />
+	</Traits>
+	<TraitModifiers>
+		<Row TraitType="TRAIT_ICELAND_ABILITY" ModifierId="ICELAND_MOD_NATURAL_WONDER_DISCOVERY" />
+		<Row TraitType="TRAIT_ICELAND_ABILITY" ModifierId="ICELAND_MOD_MISSIONARY_PRODUCTION" />
+		<Row TraitType="TRAIT_ICELAND_ABILITY" ModifierId="ICELAND_MOD_MISSIONARY_PURCHASE" />
+		<Row TraitType="TRAIT_ICELAND_ABILITY" ModifierId="MOD_REVEAL_CIV_CULTURE_TREE_ICELAND" />
+		<Row TraitType="TRAIT_ICELAND_ABILITY" ModifierId="MOD_CIV_WONDER_PRODUCTION_ICELAND" />
+	</TraitModifiers>
+	<CivilizationTraits>
+		<Row CivilizationType="CIVILIZATION_ICELAND" TraitType="TRAIT_EXPLORATION_CIV" />
+		<Row CivilizationType="CIVILIZATION_ICELAND" TraitType="TRAIT_ICELAND" />
+		<Row CivilizationType="CIVILIZATION_ICELAND" TraitType="TRAIT_ICELAND_ABILITY" />
+		<Row CivilizationType="CIVILIZATION_ICELAND" TraitType="TRAIT_ATTRIBUTE_MILITARISTIC" />
+		<Row CivilizationType="CIVILIZATION_ICELAND" TraitType="TRAIT_ATTRIBUTE_CULTURAL" />
+	</CivilizationTraits>
+	<RequirementSets>
+		<Row RequirementSetId="REQSET_PLAYER_IS_ICELAND" RequirementSetType="REQUIREMENTSET_TEST_ALL" />
+	</RequirementSets>
+	<RequirementSetRequirements>
+		<Row RequirementSetId="REQSET_PLAYER_IS_ICELAND" RequirementId="REQ_PLAYER_HAS_TRAIT_ICELAND" />
+	</RequirementSetRequirements>
+	<Requirements>
+		<Row RequirementId="REQ_PLAYER_HAS_TRAIT_ICELAND" RequirementType="REQUIREMENT_PLAYER_HAS_CIVILIZATION_OR_LEADER_TRAIT" />
+	</Requirements>
+	<RequirementArguments>
+		<Row RequirementId="REQ_PLAYER_HAS_TRAIT_ICELAND" Name="TraitType" Value="TRAIT_ICELAND" />
+	</RequirementArguments>
+	<LeaderCivPriorities>
+		<!--This is the table used for AI, the UI uses LeaderCivilizationBias in config.xml-->
+		<Row Leader="LEADER_ISABELLA" Civilization="CIVILIZATION_ICELAND" Priority="2" />
+		<Row Leader="LEADER_JOSE_RIZAL" Civilization="CIVILIZATION_ICELAND" Priority="1" />
+	</LeaderCivPriorities>
+	<CityNames>
+		<!--Shawnee-->
+		<Row CivilizationType="CIVILIZATION_ICELAND" CityName="LOC_CITY_NAME_ICELAND1" />
+		<Row CivilizationType="CIVILIZATION_ICELAND" CityName="LOC_CITY_NAME_ICELAND2" />
+		<Row CivilizationType="CIVILIZATION_ICELAND" CityName="LOC_CITY_NAME_ICELAND3" />
+		<Row CivilizationType="CIVILIZATION_ICELAND" CityName="LOC_CITY_NAME_ICELAND4" />
+		<Row CivilizationType="CIVILIZATION_ICELAND" CityName="LOC_CITY_NAME_ICELAND5" />
+		<Row CivilizationType="CIVILIZATION_ICELAND" CityName="LOC_CITY_NAME_ICELAND6" />
+		<Row CivilizationType="CIVILIZATION_ICELAND" CityName="LOC_CITY_NAME_ICELAND7" />
+		<Row CivilizationType="CIVILIZATION_ICELAND" CityName="LOC_CITY_NAME_ICELAND8" />
+		<Row CivilizationType="CIVILIZATION_ICELAND" CityName="LOC_CITY_NAME_ICELAND9" />
+		<Row CivilizationType="CIVILIZATION_ICELAND" CityName="LOC_CITY_NAME_ICELAND10" />
+		<Row CivilizationType="CIVILIZATION_ICELAND" CityName="LOC_CITY_NAME_ICELAND11" />
+		<Row CivilizationType="CIVILIZATION_ICELAND" CityName="LOC_CITY_NAME_ICELAND12" />
+		<Row CivilizationType="CIVILIZATION_ICELAND" CityName="LOC_CITY_NAME_ICELAND13" />
+		<Row CivilizationType="CIVILIZATION_ICELAND" CityName="LOC_CITY_NAME_ICELAND14" />
+		<Row CivilizationType="CIVILIZATION_ICELAND" CityName="LOC_CITY_NAME_ICELAND15" />
+		<Row CivilizationType="CIVILIZATION_ICELAND" CityName="LOC_CITY_NAME_ICELAND16" />
+		<Row CivilizationType="CIVILIZATION_ICELAND" CityName="LOC_CITY_NAME_ICELAND17" />
+		<Row CivilizationType="CIVILIZATION_ICELAND" CityName="LOC_CITY_NAME_ICELAND18" />
+		<Row CivilizationType="CIVILIZATION_ICELAND" CityName="LOC_CITY_NAME_ICELAND19" />
+		<Row CivilizationType="CIVILIZATION_ICELAND" CityName="LOC_CITY_NAME_ICELAND20" />
+		<Row CivilizationType="CIVILIZATION_ICELAND" CityName="LOC_CITY_NAME_ICELAND21" />
+		<Row CivilizationType="CIVILIZATION_ICELAND" CityName="LOC_CITY_NAME_ICELAND22" />
+		<Row CivilizationType="CIVILIZATION_ICELAND" CityName="LOC_CITY_NAME_ICELAND23" />
+		<Row CivilizationType="CIVILIZATION_ICELAND" CityName="LOC_CITY_NAME_ICELAND24" />
+		<Row CivilizationType="CIVILIZATION_ICELAND" CityName="LOC_CITY_NAME_ICELAND25" />
+		<Row CivilizationType="CIVILIZATION_ICELAND" CityName="LOC_CITY_NAME_ICELAND26" />
+		<Row CivilizationType="CIVILIZATION_ICELAND" CityName="LOC_CITY_NAME_ICELAND27" />
+		<Row CivilizationType="CIVILIZATION_ICELAND" CityName="LOC_CITY_NAME_ICELAND28" />
+		<Row CivilizationType="CIVILIZATION_ICELAND" CityName="LOC_CITY_NAME_ICELAND29" />
+		<Row CivilizationType="CIVILIZATION_ICELAND" CityName="LOC_CITY_NAME_ICELAND30" />
+	</CityNames>
+	<StartBiasBiomes>
+		<Row CivilizationType="CIVILIZATION_ICELAND" BiomeType="BIOME_GRASSLAND" Score="5" />
+		<Row CivilizationType="CIVILIZATION_ICELAND" BiomeType="BIOME_TUNDRA" Score="5" />
+	</StartBiasBiomes>
+	<StartBiasAdjacentToCoasts>
+		<Row CivilizationType="CIVILIZATION_ICELAND" Score="150" />
+	</StartBiasAdjacentToCoasts>
+	<VisArt_CivilizationBuildingCultures>
+		<Row CivilizationType="CIVILIZATION_ICELAND" BuildingCulture="BUILDING_CULTURE_NEU" />
+		<Row CivilizationType="CIVILIZATION_ICELAND" BuildingCulture="ANT_STONE" />
+		<Row CivilizationType="CIVILIZATION_ICELAND" BuildingCulture="EXP_STONE" />
+		<Row CivilizationType="CIVILIZATION_ICELAND" BuildingCulture="MOD_STONE" />
+	</VisArt_CivilizationBuildingCultures>
+	<VisArt_CivilizationUnitCultures>
+		<Row CivilizationType="CIVILIZATION_ICELAND" UnitCulture="Euro" />
+	</VisArt_CivilizationUnitCultures>
+	<AiListTypes>
+		<Row ListType="Iceland Unit Biases" />
+		<Row ListType="Iceland Government Bias" />
+		<Row ListType="Iceland Budget Biases" />
+		<Row ListType="Iceland Constructibles Biases" />
+	</AiListTypes>
+	<AiLists>
+		<Row ListType="Iceland Unit Biases" LeaderType="TRAIT_ICELAND" System="UnitBiases" />
+		<Row ListType="Iceland Government Bias" LeaderType="TRAIT_ICELAND" System="GovernmentBiases" />
+		<Row ListType="Iceland Budget Biases" LeaderType="TRAIT_ICELAND" System="BudgetBiases" />
+		<Row ListType="Iceland Constructibles Biases" LeaderType="TRAIT_ICELAND" System="ConstructibleBiases" />
+	</AiLists>
+	<AiFavoredItems>
+		<Row ListType="Iceland Unit Biases" Item="UNIT_VIKINGR" Value="50" />
+		<Row ListType="Iceland Unit Biases" Item="UNIT_VIKINGR" Value="50" />
+		<Row ListType="Iceland Unit Biases" Item="UNIT_VIKINGR_3" Value="50" />
+		<Row ListType="Iceland Unit Biases" Item="UNIT_SAGA_HERO" Value="50" />
+		<Row ListType="Iceland Government Bias" Item="GOVERNMENT_FEUDAL_MONARCHY" Value="50" />
+		<Row ListType="Iceland Budget Biases" Item="AI_BUDGET_EXPLORATION" Value="25" />
+		<Row ListType="Iceland Constructibles Biases" Item="WONDER_REYKHOLT" Value="50" />
+		<Row ListType="Iceland Constructibles Biases" Item="IMPROVEMENT_THING" Value="200" />
+	</AiFavoredItems>
+	<EndGameMovies>
+		<!-- Defeats (Civ Specific) -->
+		<Row DefeatType="DEFEAT_DEFAULT" CivilizationType="CIVILIZATION_ICELAND" Priority="450" MovieType="MOVIE_DEFEAT_ICELAND" />
+		<Row DefeatType="DEFEAT_RETIRE" CivilizationType="CIVILIZATION_ICELAND" Priority="440" MovieType="MOVIE_DEFEAT_ICELAND" />
+
+
+		<!-- Age Transition/Legacy Points Victory -->
+		<Row CivilizationType="CIVILIZATION_ICELAND" LastCompletedLegacyPath="LEGACY_PATH_EXPLORATION_ECONOMIC" Priority="200" MovieType="MOVIE_CIVILIZATION_ICELAND_LEGACY_ECONOMIC" />
+		<Row CivilizationType="CIVILIZATION_ICELAND" LastCompletedLegacyPath="LEGACY_PATH_EXPLORATION_MILITARY" Priority="200" MovieType="MOVIE_CIVILIZATION_ICELAND_LEGACY_MILITARY" />
+		<Row CivilizationType="CIVILIZATION_ICELAND" LastCompletedLegacyPath="LEGACY_PATH_EXPLORATION_SCIENCE" Priority="200" MovieType="MOVIE_CIVILIZATION_ICELAND_LEGACY_SCIENCE" />
+		<Row CivilizationType="CIVILIZATION_ICELAND" LastCompletedLegacyPath="LEGACY_PATH_EXPLORATION_CULTURE" Priority="200" MovieType="MOVIE_CIVILIZATION_ICELAND_LEGACY_CULTURE" />
+
+	</EndGameMovies>
+</Database>

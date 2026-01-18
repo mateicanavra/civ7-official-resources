@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Types>
+		<!-- ==================================================	-->
+		<!--	ANTIQUITY							-->
+		<!-- ==================================================	-->
+		<!-- Silla -->
+		<Row Type="TRADITION_BEOPSEONG" Kind="KIND_TRADITION"/>
+		<Row Type="TRADITION_STRATEGIC_ALLIES" Kind="KIND_TRADITION"/>
+		<Row Type="TRADITION_THE_GOLDEN_ROAD" Kind="KIND_TRADITION"/>
+		<Row Type="TRADITION_SEORABEOL" Kind="KIND_TRADITION"/>
+	</Types>
+	<Traditions>
+		<!-- ==================================================	-->
+		<!--	ANTIQUITY							-->
+		<!-- ==================================================	-->
+		<!-- Silla -->
+		<Row TraditionType="TRADITION_BEOPSEONG" Name="LOC_TRADITION_BEOPSEONG_NAME" Description="LOC_TRADITION_BEOPSEONG_DESCRIPTION" TraitType="TRAIT_SILLA" AgeType="AGE_ANTIQUITY"/>
+		<Row TraditionType="TRADITION_STRATEGIC_ALLIES" Name="LOC_TRADITION_STRATEGIC_ALLIES_NAME" Description="LOC_TRADITION_STRATEGIC_ALLIES_DESCRIPTION" TraitType="TRAIT_SILLA" AgeType="AGE_ANTIQUITY"/>
+		<Row TraditionType="TRADITION_THE_GOLDEN_ROAD" Name="LOC_TRADITION_THE_GOLDEN_ROAD_NAME" Description="LOC_TRADITION_THE_GOLDEN_ROAD_DESCRIPTION" TraitType="TRAIT_SILLA" AgeType="AGE_ANTIQUITY"/>
+		<Row TraditionType="TRADITION_SEORABEOL" Name="LOC_TRADITION_SEORABEOL_NAME" Description="LOC_TRADITION_SEORABEOL_DESCRIPTION" TraitType="TRAIT_SILLA" AgeType="AGE_ANTIQUITY"/>
+	</Traditions>
+	<TraditionModifiers>
+		<Row TraditionType="TRADITION_BEOPSEONG" ModifierId="BEOPSEONG_MOD_RESOURCE_HAPPINESS"/>
+    <Row TraditionType="TRADITION_STRATEGIC_ALLIES" ModifierId="STRATEGIC_ALLIES_MOD_ALLIANCE_ROUTE_YIELDS"/>
+    <Row TraditionType="TRADITION_THE_GOLDEN_ROAD" ModifierId="GOLDEN_ROAD_MOD_IMPORTED_RESOURCE_SCIENCE"/>
+		<Row TraditionType="TRADITION_SEORABEOL" ModifierId="SEORABEOL_MOD_TRADING_POST_GOLD"/>
+		<Row TraditionType="TRADITION_SEORABEOL" ModifierId="SEORABEOL_MOD_TRADING_POST_INFLUENCE"/>
+	</TraditionModifiers>
+</Database>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<!-- Delete existing strings/translations for the given keys.-->
+	<LocalizedText>
+		<Delete Tag="LOC_CENTER_PLOT_CURSOR" />
+		<Delete Tag="LOC_CENTER_PLOT_CURSOR_HELP" />
+	</LocalizedText>
+
+	<!-- Define platform-specific overrides. -->
+	<EnglishText>
+		<Row Tag="LOC_CENTER_PLOT_CURSOR_AA">
+			<Text>Center Cursor</Text>
+		</Row>
+		<Row Tag="LOC_CENTER_PLOT_CURSOR_HELP_AA">
+			<Text>Moves cursor to center of the camera view.</Text>
+		</Row>
+
+		<Replace Tag="LOC_CENTER_PLOT_CURSOR">
+			<Text>{LOC_CENTER_PLOT_CURSOR_AA}</Text>
+		</Replace>
+		<Replace Tag="LOC_CENTER_PLOT_CURSOR_HELP">
+			<Text>{LOC_CENTER_PLOT_CURSOR_HELP_AA}</Text>
+		</Replace>
+	</EnglishText>
+</Database>

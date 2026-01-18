@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+
+	<!-- ==================================================	-->
+	<!--					Improvements					-->
+	<!-- ==================================================	-->
+	<Modifier id="MOD_TREASURE_CITY_FLAT_GOLD" collection="COLLECTION_ALL_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_RESOURCE_CLASS">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_HAS_UNIQUE_QUARTER">
+				<Argument name="UniqueQuarterType">QUARTER_HAVEN</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">1</Argument>
+		<Argument name="YieldType">YIELD_GOLD</Argument>
+		<Argument name="ResourceClassType">RESOURCECLASS_TREASURE</Argument>
+		<Argument name="Unassigned">true</Argument>
+		<Argument name="Tooltip">LOC_QUARTER_HAVEN_NAME</Argument>
+	</Modifier>
+	<Modifier id="MOD_HAVEN_HEAL_NAVAL_UNITS" collection="COLLECTION_ALL_UNITS" effect="EFFECT_UNIT_ADJUST_HEAL_PER_TURN">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_UNIQUE_QUARTER">
+				<Argument name="UniqueQuarterType">QUARTER_HAVEN</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+				<Argument name="Tag">UNIT_CLASS_NAVAL</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">50</Argument>
+		<Argument name="TerritoryTypes">FRIENDLY_TERRITORY</Argument>
+	</Modifier>
+	
+	<!-- ==================================================	-->
+	<!--					Wonders							-->
+	<!-- ==================================================	-->
+	<Modifier id="MOD_HAVANA_HARBOR_ECONOMIC_ATTRIBUTE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ATTRIBUTE" permanent="true">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_WONDER_IS_ACTIVE">
+				<Argument name="ConstructibleType">WONDER_HAVANA_HARBOR</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="AttributeType">ATTRIBUTE_ECONOMIC</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="PropertyName">MOD_HAVANA_HARBOR_ECONOMIC_ATTRIBUTE</Argument>
+	</Modifier>
+</GameEffects>

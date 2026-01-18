@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+	<Modifier id="EGILL_SKALLAGRIMSSON_ABILITY" collection="COLLECTION_OWNER" effect="EFFECT_UNIT_ADJUST_ABILITY">
+		<Argument name="AbilityType">ABILITY_EGILL_SKALLAGRIMSSON</Argument>
+	</Modifier>
+	<Modifier id="EGILL_SKALLAGRIMSSON_CULTURE_KILLS" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_ABILITY">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_IN_COMMAND_RADIUS"/>
+			<Requirement type="REQUIREMENT_UNIT_DOMAIN_MATCHES">
+				<Argument name="UnitDomain">DOMAIN_SEA</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="AbilityType">ABILITY_EGILL_SKALLAGRIMSSON_COMMANDER</Argument>
+	</Modifier>
+	<Modifier id="EGILL_SKALLAGRIMSSON_CULTURE_KILLS_MOD" collection="COLLECTION_UNIT_COMBAT" effect="EFFECT_ADJUST_UNIT_POST_COMBAT_YIELD">
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="PercentDefeatedStrength">25</Argument>
+	</Modifier>
+	<Modifier id="GISLI_SURSSON_ABILITY" collection="COLLECTION_OWNER" effect="EFFECT_ADJUST_UNIT_HIDDEN_VISIBILITY" permanent="true">
+		<Argument name="Hidden">true</Argument>
+	</Modifier>
+	<Modifier id="GRETTIR_ASMUNDARSON_ABILITY" collection="COLLECTION_OWNER" effect="EFFECT_UNIT_ADJUST_ABILITY">
+		<Argument name="AbilityType">ABILITY_GRETTIR_ASMUNDARSON</Argument>
+	</Modifier>
+	<Modifier id="GRETTIR_ASMUNDARSON_SPLASH" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_ABILITY">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_IN_COMMAND_RADIUS"/>
+			<Requirement type="REQUIREMENT_UNIT_DOMAIN_MATCHES">
+				<Argument name="UnitDomain">DOMAIN_LAND</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="AbilityType">ABILITY_GRETTIR_ASMUNDARSON_COMMANDER</Argument>
+	</Modifier>
+	<Modifier id="GRETTIR_ASMUNDARSON_SPLASH_MOD" collection="COLLECTION_OWNER" effect="EFFECT_ADJUST_UNIT_SPLASH_DAMAGE">
+		<Argument name="Percent">25</Argument>
+	</Modifier>
+	<Modifier id="KJARTAN_OLAFSSON_RELIC" collection="COLLECTION_UNIT_NEAREST_OWNER_CITY" effect="EFFECT_CITY_GRANT_GREAT_WORK" permanent="true">
+		<Argument name="Amount">1</Argument>
+		<Argument name="ObjectType">GREATWORKOBJECT_RELIC</Argument>
+	</Modifier>
+	<Modifier id="GUDRUN_OSVIFRSDOTTI_LAND_HEALING" collection="COLLECTION_OWNER" effect="EFFECT_ATTACH_MODIFIERS" run-once="true" >
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_DOMAIN_MATCHES">
+				<Argument name="UnitDomain">DOMAIN_LAND</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="ModifierId">GUDRUN_OSVIFRSDOTTI_LAND_HEALING_MODIFIER</Argument>
+	</Modifier>
+	<Modifier id="GUDRUN_OSVIFRSDOTTI_LAND_HEALING_MODIFIER" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_DAMAGE" permanent="true" run-once="true" >
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_IN_COMMAND_RADIUS"/>
+			<Requirement type="REQUIREMENT_UNIT_DOMAIN_MATCHES">
+				<Argument name="UnitDomain">DOMAIN_LAND</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">-99</Argument>
+	</Modifier>
+	<Modifier id="GUDRUN_OSVIFRSDOTTI_SEA_HEALING" collection="COLLECTION_OWNER" effect="EFFECT_ATTACH_MODIFIERS" run-once="true">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_DOMAIN_MATCHES">
+				<Argument name="UnitDomain">DOMAIN_SEA</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="ModifierId">GUDRUN_OSVIFRSDOTTI_SEA_HEALING_MODIFIER</Argument>
+	</Modifier>
+	<Modifier id="GUDRUN_OSVIFRSDOTTI_SEA_HEALING_MODIFIER" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_DAMAGE" permanent="true" run-once="true" >
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_IN_COMMAND_RADIUS"/>
+			<Requirement type="REQUIREMENT_UNIT_DOMAIN_MATCHES">
+				<Argument name="UnitDomain">DOMAIN_SEA</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">-99</Argument>
+	</Modifier>
+	<Modifier id="HRAFNKELL_HALLFREDSSON_COASTAL_RAID_SPREAD_RELIGION" collection="COLLECTION_OWNER" effect="EFFECT_ADJUST_PLAYER_AUTO_SPREAD_COASTAL_RAID"  permanent="true"/>
+	<Modifier id="NJALL_THORGEIRSSON_THING_CULTURE" collection="COLLECTION_OWNER" effect="EFFECT_CITY_ADJUST_GOLDEN_AGE_OF_CONSTRUCTIBLE_YIELD" run-once="true" permanent="true">
+		<Argument name="ConstructibleType">IMPROVEMENT_THING</Argument>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount">2</Argument>
+	</Modifier>
+	<Modifier id="GUNNAR_HAMUNDARSON_LAND_ORDER" collection="COLLECTION_OWNER" effect="EFFECT_GRANT_UNIT_PROMOTION" permanent="true">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_DOMAIN_MATCHES">
+				<Argument name="UnitDomain">DOMAIN_LAND</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="UnitPromotionType">PROMOTION_COMMENDATION_ARMY_ORDER</Argument>
+		<Argument name="UnitPromotionDisciplineType">DISCIPLINE_ARMY_COMMENDATION_ORDER</Argument>
+	</Modifier>
+	<Modifier id="GUNNAR_HAMUNDARSON_SEA_ORDER" collection="COLLECTION_OWNER" effect="EFFECT_GRANT_UNIT_PROMOTION" permanent="true">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_DOMAIN_MATCHES">
+				<Argument name="UnitDomain">DOMAIN_SEA</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="UnitPromotionType">PROMOTION_COMMENDATION_FLEET_ORDER</Argument>
+		<Argument name="UnitPromotionDisciplineType">DISCIPLINE_FLEET_COMMENDATION_ORDER</Argument>
+	</Modifier>
+	<Modifier id="GUDRIDR_THORBJARNARDOTTIR_SIGHT" collection="COLLECTION_OWNER" effect="EFFECT_ADJUST_UNIT_SIGHT" permanent="true">
+		<Argument name="Amount">1</Argument>
+	</Modifier>
+	<Modifier id="GUDRIDR_THORBJARNARDOTTIR_SIGHT_ABILITY" collection="COLLECTION_OWNER" effect="EFFECT_UNIT_ADJUST_ABILITY" permanent="true">
+		<Argument name="AbilityType">ABILITY_GUDRIDR_SIGHT</Argument>
+	</Modifier>
+	<Modifier id="GUDRIDR_THORBJARNARDOTTIR_MOVEMENT_ABILITY" collection="COLLECTION_OWNER" effect="EFFECT_UNIT_ADJUST_ABILITY" permanent="true">
+		<Argument name="AbilityType">ABILITY_GUDRIDR_MOVEMENT</Argument>
+	</Modifier>
+	<Modifier id="GUDRIDR_THORBJARNARDOTTIR_MOVEMENT" collection="COLLECTION_OWNER" effect="EFFECT_UNIT_ADJUST_MOVEMENT" permanent="true">
+		<Argument name="Amount">1</Argument>
+	</Modifier>
+	<Modifier id="FREYDIS_EIRIKSDOTTIR_FREE_PILLAGE" collection="COLLECTION_OWNER" effect="EFFECT_ADD_FREE_COASTAL_RAID_TURNS" permanent="true">
+		<Argument name="Amount">1</Argument>
+	</Modifier>
+</GameEffects>

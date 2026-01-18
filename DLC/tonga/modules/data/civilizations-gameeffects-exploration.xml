@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+	<!-- ==================================================	-->
+	<!--				Civ-Specific Traits					-->
+	<!-- ==================================================	-->
+	<!-- TONGA -->
+	<Modifier id="TRAIT_MOD_QUARTER_TOFI_A_AND_UNIT_IS_SCOUT_EMBARK" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_EMBARKATION_TYPE" permanent="true">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+				<Argument name="RequirementSetId">REQSET_PLAYER_HAS_QUARTER_TOFI_A_AND_UNIT_IS_SCOUT</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="EmbarkationType">UNIT_EMBARKATION_DEEP_WATER</Argument>
+	</Modifier>
+	<Modifier id="MOD_QUARTER_TOFI_A_NO_OCEAN_DAMAGE" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ADJUST_UNIT_WATER_DAMAGE_PROTECTION" permanent="true">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+				<Argument name="RequirementSetId">REQSET_PLAYER_HAS_QUARTER_TOFI_A_AND_UNIT_IS_SCOUT</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="WaterDamage">100</Argument>
+	</Modifier>
+</GameEffects>

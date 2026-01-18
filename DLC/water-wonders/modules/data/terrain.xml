@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Kinds>
+		<InsertOrIgnore Kind="KIND_FEATURE"/>
+	</Kinds>
+	<Tags>
+		<InsertOrIgnore Tag="ADJACENTCLIFF" Category="FEATURE_ATTRIBUTE"/>
+		<InsertOrIgnore Tag="ADJACENTTOSAMETERRAIN" Category="FEATURE_ATTRIBUTE"/>
+		<InsertOrIgnore Tag="NOLANDOPPOSITECLIFF" Category="FEATURE_ATTRIBUTE"/>
+	</Tags>
+	<Types>
+		<!--Natural Wonders -->
+		<Row Type="FEATURE_GREAT_BLUE_HOLE" Kind="KIND_FEATURE"/>
+		<Row Type="FEATURE_MAPU_A_VAEA_BLOWHOLES" Kind="KIND_FEATURE"/>
+	</Types>
+	<TypeTags>
+		<Row Type="FEATURE_GREAT_BLUE_HOLE" Tag="SHALLOWWATER"/>
+		<Row Type="FEATURE_GREAT_BLUE_HOLE" Tag="NOTADJACENTTOICE"/>
+		<Row Type="FEATURE_GREAT_BLUE_HOLE" Tag="ADJACENTTOSAMETERRAIN"/>
+		<Row Type="FEATURE_MAPU_A_VAEA_BLOWHOLES" Tag="ADJACENTCLIFF"/>
+		<Row Type="FEATURE_MAPU_A_VAEA_BLOWHOLES" Tag="ADJACENTTOLAND"/>
+		<Row Type="FEATURE_MAPU_A_VAEA_BLOWHOLES" Tag="SHALLOWWATER"/>
+		<Row Type="FEATURE_MAPU_A_VAEA_BLOWHOLES" Tag="NOTADJACENTTOICE"/>
+		<Row Type="FEATURE_MAPU_A_VAEA_BLOWHOLES" Tag="NOLANDOPPOSITECLIFF"/>
+	</TypeTags>
+	<TypeQuotes>
+		<Row Type="FEATURE_GREAT_BLUE_HOLE" Quote="LOC_QUOTE_FEATURE_GREAT_BLUE_HOLE" QuoteAuthor="LOC_QUOTE_AUTHOR_FEATURE_GREAT_BLUE_HOLE" QuoteAudio="VO_Quote_GreatBlueHole"/>
+		<Row Type="FEATURE_MAPU_A_VAEA_BLOWHOLES" Quote="LOC_QUOTE_FEATURE_MAPU_A_VAEA_BLOWHOLES" QuoteAuthor="LOC_QUOTE_AUTHOR_FEATURE_MAPU_A_VAEA_BLOWHOLES" QuoteAudio="VO_Quote_MapuAVaeaBlowholes"/>
+	</TypeQuotes>
+	<Features>
+		<!--Natural Wonders -->
+		<Row FeatureType="FEATURE_GREAT_BLUE_HOLE" Name="LOC_FEATURE_GREAT_BLUE_HOLE_NAME" Description="LOC_FEATURE_GREAT_BLUE_HOLE_DESCRIPTION" Tooltip="LOC_FEATURE_GREAT_BLUE_HOLE_TOOLTIP" PlacementClass="ONE" Impassable="false" Appeal="1" Removable="false" SightThroughModifier="1"/>
+		<Row FeatureType="FEATURE_MAPU_A_VAEA_BLOWHOLES" Name="LOC_FEATURE_MAPU_A_VAEA_BLOWHOLES_NAME" Description="LOC_FEATURE_MAPU_A_VAEA_BLOWHOLES_DESCRIPTION" Tooltip="LOC_FEATURE_MAPU_A_VAEA_BLOWHOLES_TOOLTIP" PlacementClass="TWO" Appeal="1" Impassable="false" NoLake="true" Removable="false" SightThroughModifier="1"/>
+	</Features>
+	<Feature_NaturalWonders>
+		<Row FeatureType="FEATURE_GREAT_BLUE_HOLE" Tiles="1" PlacementPercentage="100"/>
+		<Row FeatureType="FEATURE_MAPU_A_VAEA_BLOWHOLES" Tiles="2" PlacementPercentage="100"/>
+	</Feature_NaturalWonders>
+	<Feature_ValidTerrains>
+		<!--Natural Wonders -->
+		<Row FeatureType="FEATURE_GREAT_BLUE_HOLE" TerrainType="TERRAIN_COAST"/>
+		<Row FeatureType="FEATURE_MAPU_A_VAEA_BLOWHOLES" TerrainType="TERRAIN_COAST"/>
+	</Feature_ValidTerrains>
+	<Feature_ValidBiomes>
+		<!--Natural Wonders -->
+		<Row FeatureType="FEATURE_GREAT_BLUE_HOLE" BiomeType="BIOME_MARINE"/>
+		<Row FeatureType="FEATURE_MAPU_A_VAEA_BLOWHOLES" BiomeType="BIOME_MARINE"/>
+	</Feature_ValidBiomes>
+	<TerrainBiomeFeature_YieldChanges>
+		<!--Natural Wonders -->
+		<Row TerrainType="TERRAIN_COAST" BiomeType="BIOME_MARINE" FeatureType="FEATURE_GREAT_BLUE_HOLE" YieldType="YIELD_SCIENCE" YieldChange="2" ScaleByGameAge="50"/>
+		<Row TerrainType="TERRAIN_COAST" BiomeType="BIOME_MARINE" FeatureType="FEATURE_GREAT_BLUE_HOLE" YieldType="YIELD_HAPPINESS" YieldChange="4" ScaleByGameAge="50"/>
+		<Row TerrainType="TERRAIN_COAST" BiomeType="BIOME_MARINE" FeatureType="FEATURE_MAPU_A_VAEA_BLOWHOLES" YieldType="YIELD_PRODUCTION" YieldChange="2" ScaleByGameAge="50"/>
+		<Row TerrainType="TERRAIN_COAST" BiomeType="BIOME_MARINE" FeatureType="FEATURE_MAPU_A_VAEA_BLOWHOLES" YieldType="YIELD_HAPPINESS" YieldChange="4" ScaleByGameAge="50"/>
+	</TerrainBiomeFeature_YieldChanges>
+	<GameModifiers>
+		<Row ModifierId="BLUE_HOLE_ADJACENT_RURAL_SEA_YIELDS"/>
+		<Row ModifierId="MAPU_A_VAEA_BLOWHOLES_COASTAL_LAND_YIELDS"/>
+	</GameModifiers>
+	<AiFavoredItems>
+		<Row ListType="Isabella Settle Plot Conditions" Item="Specific Feature" Favored="false" Value="15" StringVal="FEATURE_GREAT_BLUE_HOLE" TooltipString="LOC_SETTLEMENT_RECOMMENDATION_FEATURES"/>
+		<Row ListType="Isabella Settle Plot Conditions" Item="Specific Feature" Favored="false" Value="15" StringVal="FEATURE_MAPU_A_VAEA_BLOWHOLES" TooltipString="LOC_SETTLEMENT_RECOMMENDATION_FEATURES"/>
+	</AiFavoredItems>
+	<District_FreeConstructibles>
+		<Row DistrictType="DISTRICT_RURAL" ConstructibleType="IMPROVEMENT_EXPEDITION_BASE" FeatureType="FEATURE_GREAT_BLUE_HOLE" Priority="3"/>
+		<Row DistrictType="DISTRICT_RURAL" ConstructibleType="IMPROVEMENT_EXPEDITION_BASE" FeatureType="FEATURE_MAPU_A_VAEA_BLOWHOLES" Priority="3"/>
+	</District_FreeConstructibles>
+</Database>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+	<Modifier id="MOD_REVEAL_CIV_CULTURE_TREE_QAJAR" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_REVEAL_CULTURE_TREE">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_HAS_CIVILIZATION_OR_LEADER_TRAIT">
+				<Argument name="TraitType">TRAIT_QAJAR</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="ProgressionTreeType">TREE_CIVICS_MO_QAJAR</Argument>
+	</Modifier>
+	<Modifier id="MOD_CIV_WONDER_PRODUCTION_QAJAR" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_FAVORED_WONDER_PRODUCTION">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_HAS_CIVILIZATION_OR_LEADER_TRAIT">
+				<Argument name="TraitType">TRAIT_QAJAR</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Percent">30</Argument>
+		<String context="Preview">LOC_MOD_CIV_WONDER_PRODUCTION_QAJAR_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="MOD_CIV_QAJAR_DIPLOMACY" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_ADJUST_DIPLOMATIC_RESPONSE_EFFICIENCY">
+		<Argument name="ResponseType">DIPLOMACY_RESPONSE_SUPPORT</Argument>
+		<Argument name="Percent">50</Argument>
+		<Argument name="ApplyToTarget">false</Argument>
+		<String context="Description">LOC_MOD_ATTRIBUTE_POLITICAL_05_DESCRIPTION</String>
+	</Modifier>
+</GameEffects>

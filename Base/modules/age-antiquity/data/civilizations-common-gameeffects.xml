@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+	<!-- ==================================================	-->
+	<!--	Generic Modifiers							-->
+	<!-- ==================================================	-->
+	<Modifier id="MOD_DEFAULT_CIV_RIVER_EMBARKATION" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_EMBARKATION_TYPE" permanent="true">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_DOMAIN_MATCHES">
+				<Argument name="UnitDomain">DOMAIN_LAND</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="EmbarkationType">UNIT_EMBARKATION_INLAND_WATER</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_CAPITAL_FREE_FOOD" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_ADJUST_POPULATION" permanent="true">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_HAS_X_SETTLEMENTS">
+				<Argument name="Amount">1</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_GAME_TURN_ATLEAST">
+				<Argument name="MinGameTurn">3</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">1</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_CAPITAL_RESOURCE_CAP" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_ADJUST_RESOURCE_CAP">
+		<Argument name="Amount">2</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_CITY_RESOURCE_CAP" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_RESOURCE_CAP">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_CITY"/>
+		</SubjectRequirements>
+		<Argument name="Amount">1</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_MARKET_RESOURCE_CAP" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_RESOURCE_CAP">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_HAS_BUILDING">
+				<Argument name="BuildingType">BUILDING_MARKET</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">1</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_LIGHTHOUSE_RESOURCE_CAP" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_RESOURCE_CAP">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_HAS_BUILDING">
+				<Argument name="BuildingType">BUILDING_LIGHTHOUSE</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">2</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_INITIAL_SETTLEMENT_CAP" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_SETTLEMENT_CAP">
+		<Argument name="Amount">3</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_CHIEFDOM_UNLOCKS_GOVERNMENT" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_BLOCK_GOVERNMENT_SELECTION">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_HAS_COMPLETED_PROGRESSION_TREE_NODE" inverse="true">
+				<Argument name="ProgressionTreeNodeType">NODE_CIVIC_AQ_MAIN_CHIEFDOM</Argument>
+			</Requirement>
+		</SubjectRequirements>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_DEFAULT_YIELD_5" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_HAS_X_SETTLEMENTS">
+				<Argument name="RequiredCount">1</Argument>
+				<Argument name="CountPerOwnSettlement">1</Argument>
+				<Argument name="CountPerConqueredSettlement">1</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="YieldType">YIELD_GOLD</Argument>
+		<Argument name="Amount">5</Argument>
+		<Argument name="Tooltip">LOC_DEFAULT_YIELD</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_DEFAULT_YIELD_10" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_HAS_X_SETTLEMENTS">
+				<Argument name="RequiredCount">1</Argument>
+				<Argument name="CountPerOwnSettlement">1</Argument>
+				<Argument name="CountPerConqueredSettlement">1</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="YieldType">YIELD_SCIENCE,YIELD_CULTURE,YIELD_DIPLOMACY</Argument>
+		<Argument name="Amount">10</Argument>
+		<Argument name="Tooltip">LOC_DEFAULT_YIELD</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_GOLD_UNASSIGNED_RESOURCE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD_PER_RESOURCE">
+		<Argument name="YieldType">YIELD_GOLD</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Unassigned">true</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_HAPPINESS_UNASSIGNED_RESOURCE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD_PER_RESOURCE">
+		<Argument name="YieldType">YIELD_HAPPINESS</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Unassigned">true</Argument>
+	</Modifier>
+</GameEffects>

@@ -1,0 +1,88 @@
+class CivIcon extends Component {
+  iconUrl = "blp:civ_sym_unknown.png";
+  bgColor = "#000000";
+  fgColor = "#000000";
+  background = null;
+  icon = null;
+  onInitialize() {
+    super.onInitialize();
+    this.render();
+  }
+  onAttributeChanged(name, _oldValue, newValue) {
+    switch (name) {
+      case "icon-url":
+        this.iconUrl = newValue;
+        if (this.icon) {
+          this.icon.style.backgroundImage = `url('${this.iconUrl}')`;
+        }
+        break;
+      case "bg-color":
+        this.bgColor = newValue;
+        if (this.background) {
+          this.background.style.fxsBackgroundImageTint = this.bgColor;
+        }
+        break;
+      case "fg-color":
+        this.fgColor = newValue;
+        if (this.icon) {
+          this.icon.style.fxsBackgroundImageTint = this.fgColor;
+        }
+        break;
+    }
+  }
+  render() {
+    const shadow = document.createElement("div");
+    shadow.classList.add("absolute", "w-16", "h-20", "bg-center", "bg-cover", "bg-no-repeat", "img-hex-shadow");
+    shadow.style.fxsBackgroundImageTint = "#000000";
+    this.Root.appendChild(shadow);
+    this.background = document.createElement("div");
+    this.background.classList.add(
+      "absolute",
+      "w-14",
+      "h-14",
+      "bg-center",
+      "bg-cover",
+      "bg-no-repeat",
+      "img-hex-64"
+    );
+    this.background.style.fxsBackgroundImageTint = this.bgColor;
+    this.Root.appendChild(this.background);
+    const overlay = document.createElement("div");
+    overlay.classList.add("absolute", "w-20", "h-20", "bg-center", "bg-cover", "bg-no-repeat", "img-hex-overlay");
+    this.Root.appendChild(overlay);
+    const frame = document.createElement("div");
+    frame.classList.add(
+      "absolute",
+      "w-16",
+      "h-20",
+      "bg-center",
+      "bg-cover",
+      "bg-no-repeat",
+      "tint-bg-secondary",
+      "img-hex-frame"
+    );
+    this.Root.appendChild(frame);
+    this.icon = document.createElement("div");
+    this.icon.classList.add("absolute", "w-12", "h-12", "bg-center", "bg-contain", "bg-no-repeat", "bottom-2");
+    this.icon.style.backgroundImage = `url('${this.iconUrl}')`;
+    this.icon.style.fxsBackgroundImageTint = this.fgColor;
+    this.Root.appendChild(this.icon);
+  }
+}
+Controls.define("civ-icon", {
+  createInstance: CivIcon,
+  classNames: ["relative", "flow-column", "items-center", "justify-center", "w-16", "h-16"],
+  images: ["blp:hud_diplo_hex-shadow.png", "blp:Hex_64px.png", "blp:overlay_hex-icon.png", "blp:hud_diplo_hex-frame"],
+  attributes: [
+    {
+      name: "icon-url"
+    },
+    {
+      name: "bg-color"
+    },
+    {
+      name: "fg-color"
+    }
+  ]
+});
+//# sourceMappingURL=civ-icon.js.map

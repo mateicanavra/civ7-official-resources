@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Types>
+		<!--Civ Unique Military-->
+		<Row Type="UNIT_GHILMAN" Kind="KIND_UNIT"/>
+		<Row Type="UNIT_GHILMAN_2" Kind="KIND_UNIT"/>
+		<Row Type="UNIT_GHILMAN_3" Kind="KIND_UNIT"/>
+		<!--Civ Unique Civilian-->
+		<Row Type="UNIT_SOLTAN" Kind="KIND_UNIT"/>
+		<!--Civ Unique Abilities-->
+		<Row Type="ABILITY_GHILMAN" Kind="KIND_ABILITY"/>
+		<Row Type="ABILITY_SOLTAN" Kind="KIND_ABILITY"/>
+	</Types>
+	<Units>
+		<!--Civ Unique Military-->
+		<Row UnitType="UNIT_GHILMAN" Name="LOC_UNIT_GHILMAN_NAME" Description="LOC_UNIT_GHILMAN_DESCRIPTION" Tier="1" Maintenance="9" BaseMoves="3" BaseSightRange="2" ZoneOfControl="true" Domain="DOMAIN_LAND" UnitMovementClass="UNIT_MOVEMENT_CLASS_MOUNTED" CoreClass="CORE_CLASS_MILITARY" FormationClass="FORMATION_CLASS_LAND_COMBAT" TraitType="TRAIT_QAJAR"/>
+		<Row UnitType="UNIT_GHILMAN_2" Name="LOC_UNIT_GHILMAN_NAME" Description="LOC_UNIT_GHILMAN_2_DESCRIPTION" Tier="2" Maintenance="12" BaseMoves="3" BaseSightRange="2" ZoneOfControl="true" Domain="DOMAIN_LAND" UnitMovementClass="UNIT_MOVEMENT_CLASS_MOUNTED" CoreClass="CORE_CLASS_MILITARY" FormationClass="FORMATION_CLASS_LAND_COMBAT" TraitType="TRAIT_QAJAR"/>
+		<Row UnitType="UNIT_GHILMAN_3" Name="LOC_UNIT_GHILMAN_NAME" Description="LOC_UNIT_GHILMAN_3_DESCRIPTION" Tier="3" Maintenance="15" BaseMoves="4" BaseSightRange="2" ZoneOfControl="true" Domain="DOMAIN_LAND" UnitMovementClass="UNIT_MOVEMENT_CLASS_MOUNTED" CoreClass="CORE_CLASS_MILITARY" FormationClass="FORMATION_CLASS_LAND_COMBAT" TraitType="TRAIT_QAJAR"/>
+		<!--Civ Unique Civilian-->
+		<Row UnitType="UNIT_SOLTAN" Name="LOC_UNIT_SOLTAN_NAME" Description="LOC_UNIT_SOLTAN_DESCRIPTION" BaseSightRange="2" BaseMoves="3" UnitMovementClass="UNIT_MOVEMENT_CLASS_FOOT" Domain="DOMAIN_LAND" CoreClass="CORE_CLASS_SUPPORT" FormationClass="FORMATION_CLASS_COMMAND" ZoneOfControl="true" CostProgressionModel="COST_PROGRESSION_PREVIOUS_COPIES" CostProgressionParam1="200" CanEarnExperience="true" PromotionClass="PROMOTION_CLASS_LAND_COMMANDER" TraitType="TRAIT_QAJAR"/>
+	</Units>
+	<Unit_Stats>
+		<!--Civ Unique Military-->
+		<Row UnitType="UNIT_GHILMAN" Combat="55"/>
+		<Row UnitType="UNIT_GHILMAN_2" Combat="60"/>
+		<Row UnitType="UNIT_GHILMAN_3" Combat="65"/>
+		<!--Civ Unique Civilian-->
+		<Row UnitType="UNIT_SOLTAN"/>
+	</Unit_Stats>
+	<Unit_Costs>
+		<!--Civ Unique Military-->
+		<Row UnitType="UNIT_GHILMAN" YieldType="YIELD_PRODUCTION" Cost="350"/>
+		<Row UnitType="UNIT_GHILMAN_2" YieldType="YIELD_PRODUCTION" Cost="400"/>
+		<Row UnitType="UNIT_GHILMAN_3" YieldType="YIELD_PRODUCTION" Cost="460"/>
+		<!--Civ Unique Civilian-->
+		<Row UnitType="UNIT_SOLTAN" YieldType="YIELD_PRODUCTION" Cost="100"/>
+	</Unit_Costs>
+	<UnitUpgrades>
+		<!--Civ Unique Military-->
+		<Row Unit="UNIT_GHILMAN" UpgradeUnit="UNIT_GHILMAN_2"/>
+		<Row Unit="UNIT_GHILMAN_2" UpgradeUnit="UNIT_GHILMAN_3"/>
+	</UnitUpgrades>
+	<UnitReplaces>
+		<!--Civ Unique Military-->
+		<Row CivUniqueUnitType="UNIT_GHILMAN" ReplacesUnitType="UNIT_CUIRASSIER"/>
+		<Row CivUniqueUnitType="UNIT_GHILMAN_2" ReplacesUnitType="UNIT_LANDSHIP"/>
+		<Row CivUniqueUnitType="UNIT_GHILMAN_3" ReplacesUnitType="UNIT_TANK"/>
+		<!--Civ Unique Civilian-->
+		<Row CivUniqueUnitType="UNIT_SOLTAN" ReplacesUnitType="UNIT_ARMY_COMMANDER"/>
+	</UnitReplaces>
+	<Unit_TransitionRetains>
+		<Row UnitType="UNIT_SOLTAN"/>
+	</Unit_TransitionRetains>
+	<Tags>
+		<!--Civ Unique Military-->
+		<Row Tag="UNIT_CLASS_GHILMAN" Category="UNIT_CLASS"/>
+		<!--Civ Unique Civilian-->
+		<Row Tag="UNIT_CLASS_SOLTAN" Category="UNIT_CLASS"/>
+	</Tags>
+	<TypeTags>
+		<!--Civ Unique Military-->
+		<Row Type="UNIT_GHILMAN" Tag="UNIT_CLASS_COMBAT"/>
+		<Row Type="UNIT_GHILMAN" Tag="UNIT_CLASS_MOUNTED"/>
+		<Row Type="UNIT_GHILMAN" Tag="UNIT_CLASS_CAVALRY"/>
+		<Row Type="UNIT_GHILMAN" Tag="UNIT_CLASS_GHILMAN"/>
+		<Row Type="UNIT_GHILMAN_2" Tag="UNIT_CLASS_COMBAT"/>
+		<Row Type="UNIT_GHILMAN_2" Tag="UNIT_CLASS_MOUNTED"/>
+		<Row Type="UNIT_GHILMAN_2" Tag="UNIT_CLASS_CAVALRY"/>
+		<Row Type="UNIT_GHILMAN_2" Tag="UNIT_CLASS_GHILMAN"/>
+		<Row Type="UNIT_GHILMAN_3" Tag="UNIT_CLASS_COMBAT"/>
+		<Row Type="UNIT_GHILMAN_3" Tag="UNIT_CLASS_MOUNTED"/>
+		<Row Type="UNIT_GHILMAN_3" Tag="UNIT_CLASS_CAVALRY"/>
+		<Row Type="UNIT_GHILMAN_3" Tag="UNIT_CLASS_GHILMAN"/>
+		<Row Type="UNIT_GHILMAN_3" Tag="UNIT_CLASS_ELITE_CAVALRY"/>
+		<!--Civ Unique Civilian-->
+		<Row Type="UNIT_SOLTAN" Tag="UNIT_CLASS_COMMAND"/>
+		<Row Type="UNIT_SOLTAN" Tag="UNIT_CLASS_ARMY_COMMANDER"/>
+		<Row Type="UNIT_SOLTAN" Tag="UNIT_CLASS_SOLTAN"/>
+	</TypeTags>
+	<UnitClass_Abilities>
+		<Row UnitAbilityType="ABILITY_GHILMAN" UnitClassType="UNIT_CLASS_GHILMAN"/>
+		<Row UnitAbilityType="ABILITY_SOLTAN" UnitClassType="UNIT_CLASS_SOLTAN"/>
+	</UnitClass_Abilities>
+	<UnitAbilities>
+		<!--Unique-->
+		<Row UnitAbilityType="ABILITY_GHILMAN" Name="LOC_ABILITY_GHILMAN" Description="LOC_ABILITY_GHILMAN_DESCRIPTION" Inactive="true"/>
+		<Row UnitAbilityType="ABILITY_SOLTAN" Name="LOC_UNIT_SOLTAN_NAME" Description="LOC_ABILITY_SOLTAN_DESCRIPTION"/>
+	</UnitAbilities>
+	<UnitAbilityModifiers>
+		<Row UnitAbilityType="ABILITY_SOLTAN" ModifierId="SOLTAN_MOD_RAIZING"/>
+		<Row UnitAbilityType="ABILITY_SOLTAN" ModifierId="SOLTAN_GHILMAN_ABILITY"/>
+		<Row UnitAbilityType="ABILITY_GHILMAN" ModifierId="GHILMAN_MOD_HEALING"/>
+		<Row UnitAbilityType="ABILITY_GHILMAN" ModifierId="GHILMAN_MOD_COMBAT"/>
+	</UnitAbilityModifiers>
+	<Unit_Advisories>
+		<Row UnitType="UNIT_GHILMAN_3" AdvisoryClassType="ADVISORY_CLASS_MILITARY"/>
+		<Row UnitType="UNIT_SOLTAN" AdvisoryClassType="ADVISORY_CLASS_MILITARY"/>
+	</Unit_Advisories>
+</Database>

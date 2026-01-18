@@ -1,0 +1,17 @@
+<Database>
+	<RequirementSets>
+		<Row RequirementSetId="REQSET_PLAYER_HAS_QUARTER_TOFI_A_AND_UNIT_IS_SCOUT" RequirementSetType="REQUIREMENTSET_TEST_ALL"/>
+	</RequirementSets>
+	<RequirementSetRequirements>
+		<Row RequirementSetId="REQSET_PLAYER_HAS_QUARTER_TOFI_A_AND_UNIT_IS_SCOUT" RequirementId="PLAYER_HAS_QUARTER_TOFI_A"/>
+		<Row RequirementSetId="REQSET_PLAYER_HAS_QUARTER_TOFI_A_AND_UNIT_IS_SCOUT" RequirementId="UNIT_IS_SCOUT"/>
+	</RequirementSetRequirements>
+	<Requirements>
+		<Row RequirementId="PLAYER_HAS_QUARTER_TOFI_A" RequirementType="REQUIREMENT_PLAYER_HAS_UNIQUE_QUARTER"/>
+		<Row RequirementId="UNIT_IS_SCOUT" RequirementType="REQUIREMENT_UNIT_TAG_MATCHES"/>
+	</Requirements>
+	<RequirementArguments>
+		<Row RequirementId="PLAYER_HAS_QUARTER_TOFI_A" Name="UniqueQuarterType" Value="QUARTER_TOFI_A"/>
+		<Row RequirementId="UNIT_IS_SCOUT" Name="Tag" Value="UNIT_CLASS_RECON_ABILITIES"/>
+	</RequirementArguments>
+</Database>

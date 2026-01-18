@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Types>
+		<InsertOrIgnore Type="UNLOCK_CIVILIZATION_OTTOMANS" Kind="KIND_UNLOCK"/>
+	</Types>
+	<Unlocks>
+		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_OTTOMANS"/>
+	</Unlocks>
+	<UnlockRewards>
+		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_OTTOMANS" Name="LOC_CIVILIZATION_OTTOMANS_NAME" Description="LOC_UNLOCK_MODERN_CIV_DESCRIPTION" Icon="CIVILIZATION_OTTOMANS" UnlockRewardType="CIVILIZATION_OTTOMANS" UnlockRewardKind="KIND_CIVILIZATION"/>
+	</UnlockRewards>
+	<UnlockRequirements>
+		<Row UnlockType="UNLOCK_CIVILIZATION_OTTOMANS" RequirementSetId="REQSET_CIV_IS_EGYPT" Description="LOC_UNLOCK_PLAY_AS_EGYPT_DESCRIPTION" Tooltip="LOC_UNLOCK_PLAY_AS_EGYPT_OTTOMANS_TOOLTIP"/>
+		<Row UnlockType="UNLOCK_CIVILIZATION_OTTOMANS" RequirementSetId="REQSET_CIV_IS_ROME" Description="LOC_UNLOCK_PLAY_AS_ROME_DESCRIPTION" Tooltip="LOC_UNLOCK_PLAY_AS_ROME_OTTOMANS_TOOLTIP"/>
+	</UnlockRequirements>
+	<UnlockConfigurationValues>
+		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_OTTOMANS" ConfigurationValue="CIVILIZATION_OTTOMANS"/>
+	</UnlockConfigurationValues>
+</Database>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Kinds>
+		<InsertOrIgnore Kind="KIND_TRAIT"/>
+	</Kinds>
+	<Types>
+		<Row Type="LEADER_LAKSHMIBAI" Kind="KIND_LEADER"/>
+		<Row Type="TRAIT_LEADER_LAKSHMIBAI_ABILITY" Kind="KIND_TRAIT"/>
+	</Types>
+	<Leaders>
+		<Row LeaderType="LEADER_LAKSHMIBAI" Name="LOC_LEADER_LAKSHMIBAI_NAME" IsMajorLeader="true" InheritFrom="LEADER_DEFAULT" />
+	</Leaders>
+	<TypeQuotes>
+		<Row Type="LEADER_LAKSHMIBAI" Quote="LOC_MAIN_CHAR_SELECT_LEADER_LAKSHMIBAI_ANY"/>
+	</TypeQuotes>
+	<AiListTypes>
+		<Row ListType="Lakshmibai Yield Biases"/>
+		<Row ListType="Lakshmibai Diplomatic Biases"/>
+	</AiListTypes>
+	<AiLists>
+		<Row ListType="Lakshmibai Yield Biases" LeaderType="TRAIT_LEADER_LAKSHMIBAI_ABILITY" System="YieldBiases"/>
+		<Row ListType="Lakshmibai Diplomatic Biases" LeaderType="TRAIT_LEADER_LAKSHMIBAI_ABILITY" System="DiplomaticActions"/>
+	</AiLists>
+	<AiFavoredItems>
+		<Row ListType="Lakshmibai Yield Biases" Item="YIELD_DIPLOMACY" Value="50"/>
+		<Row ListType="Lakshmibai Yield Biases" Item="YIELD_CULTURE" Value="25"/>
+		<Row ListType="Lakshmibai Diplomatic Biases" Item="DIPLOMACY_ACTION_GIVE_INFLUENCE_TOKEN" Value="50"/>
+		<Row ListType="Lakshmibai Diplomatic Biases" Item="DIPLOMACY_ACTION_CS_INCORPORATE" Value="100"/>
+	</AiFavoredItems>
+	<Traits>
+		<Row TraitType="TRAIT_LEADER_LAKSHMIBAI_ABILITY" InternalOnly="true" Name="LOC_TRAIT_LEADER_LAKSHMIBAI_ABILITY_NAME" Description="LOC_TRAIT_LEADER_LAKSHMIBAI_ABILITY_DESCRIPTION"/>
+	</Traits>
+	<LeaderTraits>
+		<Row LeaderType="LEADER_LAKSHMIBAI" TraitType="TRAIT_LEADER_LAKSHMIBAI_ABILITY"/>
+		<Row LeaderType="LEADER_LAKSHMIBAI" TraitType="TRAIT_LEADER_ATTRIBUTE_POLITICAL"/>
+		<Row LeaderType="LEADER_LAKSHMIBAI" TraitType="TRAIT_LEADER_ATTRIBUTE_MILITARISTIC"/>
+		<Row LeaderType="LEADER_LAKSHMIBAI" TraitType="TRAIT_AQ_MILITARY_VICTORY"/>
+		<Row LeaderType="LEADER_LAKSHMIBAI" TraitType="TRAIT_EX_MILITARY_VICTORY"/>
+		<Row LeaderType="LEADER_LAKSHMIBAI" TraitType="TRAIT_MO_CULTURE_VICTORY"/>
+	</LeaderTraits>
+	<TraitModifiers>
+		<Row TraitType="TRAIT_LEADER_LAKSHMIBAI_ABILITY" ModifierId="LAKSHMIBAI_MOD_CS_INCORPORATE"/>
+		<Row TraitType="TRAIT_LEADER_LAKSHMIBAI_ABILITY" ModifierId="LAKSHMIBAI_MOD_CS_INCORPORATE_UNITS"/>
+		<Row TraitType="TRAIT_LEADER_LAKSHMIBAI_ABILITY" ModifierId="LAKSHMIBAI_INFLUENCE"/>
+		<Row TraitType="TRAIT_LEADER_LAKSHMIBAI_ABILITY" ModifierId="LAKSHMIBAI_MOD_AGENDA_ETERNAL_GLORY"/>
+	</TraitModifiers>
+</Database>

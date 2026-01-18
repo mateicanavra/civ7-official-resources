@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+	<!-- ==================================================	-->
+	<!--				Civ-Specific Traits					-->
+	<!-- ==================================================	-->
+	<!-- TONGA -->
+	<Modifier id="MOD_TONGA_MEET_DISTANT_LAND_CIVS" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_CAN_MEET_DISTANT_LAND_CIVS"/>
+	<Modifier id="MOD_TONGA_FORBID_INCOPERATE" collection="COLLECTION_OWNER" effect="EFFECT_ADJUST_PLAYER_FORBID_CS_INCORPORATE"/>
+	<Modifier id="MOD_TONGA_PALACE_CITY_HALL_INFLUENCE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD">
+		<SubjectRequirements type="REQUIREMENTSET_TEST_ANY">
+			<Requirement type="REQUIREMENT_BUILDING_IS_ADJACENT_TO_X">
+				 <Argument name="BuildingType">BUILDING_PALACE</Argument>
+				<Argument name="AdjacentTerrainTypes">TERRAIN_COAST</Argument>
+				<Argument name="BuildingCount">1</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_BUILDING_IS_ADJACENT_TO_X">
+				 <Argument name="BuildingType">BUILDING_CITY_HALL</Argument>
+				<Argument name="AdjacentTerrainTypes">TERRAIN_COAST</Argument>
+				<Argument name="BuildingCount">1</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="ConstructibleType">BUILDING_CITY_HALL, BUILDING_PALACE</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_TONGA_ABILITY_NAME</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_QUARTER_TOFI_A_AND_UNIT_IS_SCOUT_EMBARK" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_EMBARKATION_TYPE" permanent="true">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+				<Argument name="RequirementSetId">REQSET_PLAYER_HAS_QUARTER_TOFI_A_AND_UNIT_IS_SCOUT</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="EmbarkationType">UNIT_EMBARKATION_DEEP_WATER</Argument>
+	</Modifier>
+	<!-- ==================================================	-->
+	<!--				Civ-Specific Trees					-->
+	<!-- ==================================================	-->
+	<Modifier id="MOD_CODE_OF_LAWS_REVEAL_CIV_CULTURE_TREE_TONGA" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_REVEAL_CULTURE_TREE">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_HAS_CIVILIZATION_OR_LEADER_TRAIT">
+				<Argument name="TraitType">TRAIT_TONGA</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="ProgressionTreeType">TREE_CIVICS_AQ_TONGA</Argument>
+	</Modifier>
+	<!-- ==================================================	-->
+	<!--				Wonder Bonuses						-->
+	<!-- ==================================================	-->
+	<Modifier id="MOD_CIV_WONDER_PRODUCTION_TONGA" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_FAVORED_WONDER_PRODUCTION">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_HAS_CIVILIZATION_OR_LEADER_TRAIT">
+				<Argument name="TraitType">TRAIT_TONGA</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Percent">30</Argument>
+		<String context="Preview">LOC_MOD_CIV_WONDER_PRODUCTION_TONGA_DESCRIPTION</String>
+	</Modifier>
+</GameEffects>

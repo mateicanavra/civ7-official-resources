@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Types>
+		<!--Civ Unique Mastery Trees-->
+		<Row Type="TREE_CIVICS_MO_OTTOMANS" Kind="KIND_TREE"/>
+		<!--Civ Unique Mastery Tree Nodes-->
+		<!--Ottomans-->
+		<Row Type="NODE_CIVIC_MO_OTTOMANS_SAHI_TOPU" Kind="KIND_TREE_NODE"/>
+		<Row Type="NODE_CIVIC_MO_OTTOMANS_HARBIYE_NEZARETI" Kind="KIND_TREE_NODE"/>
+		<Row Type="NODE_CIVIC_MO_OTTOMANS_LALE_DEVRI" Kind="KIND_TREE_NODE"/>
+		<Row Type="NODE_CIVIC_MO_OTTOMANS_TANZIMAT" Kind="KIND_TREE_NODE"/>
+	</Types>
+	<TypeQuotes>
+		<Row Type="NODE_CIVIC_MO_OTTOMANS_SAHI_TOPU" Quote="LOC_CIVIC_SAHI_TOPU_QUOTE" QuoteAuthor="LOC_CIVIC_SAHI_TOPU_AUTHOR" QuoteAudio="VO_Quote_SahiTopu"/>
+		<Row Type="NODE_CIVIC_MO_OTTOMANS_HARBIYE_NEZARETI" Quote="LOC_CIVIC_HARBIYE_NEZARETI_QUOTE" QuoteAuthor="LOC_CIVIC_HARBIYE_NEZARETI_AUTHOR" QuoteAudio="VO_Quote_HarbiyeNezareti"/>
+		<Row Type="NODE_CIVIC_MO_OTTOMANS_LALE_DEVRI" Quote="LOC_CIVIC_LALE_DEVRI_QUOTE" QuoteAuthor="LOC_CIVIC_LALE_DEVRI_AUTHOR" QuoteAudio="VO_Quote_LaleDevri"/>
+		<Row Type="NODE_CIVIC_MO_OTTOMANS_TANZIMAT" Quote="LOC_CIVIC_TANZIMAT_QUOTE" QuoteAuthor="LOC_CIVIC_TANZIMAT_AUTHOR" QuoteAudio="VO_Quote_Tanzimat"/>
+	</TypeQuotes>
+	<ProgressionTrees>
+		<!--Civ Unique Mastery Trees-->
+		<Row ProgressionTreeType="TREE_CIVICS_MO_OTTOMANS" AgeType="AGE_MODERN" SystemType="SYSTEM_CULTURE" Name="LOC_TREE_CIVICS_MO_OTTOMANS_NAME"/>
+	</ProgressionTrees>
+	<ProgressionTreeNodes>
+		<!--Civ Unique Mastery Tree Nodes-->
+		<!--OTTOMANS-->
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_OTTOMANS_SAHI_TOPU" ProgressionTree="TREE_CIVICS_MO_OTTOMANS" Cost="2000" Name="LOC_CIVIC_SAHI_TOPU_NAME" IconString="cult_ottomans"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_OTTOMANS_HARBIYE_NEZARETI" ProgressionTree="TREE_CIVICS_MO_OTTOMANS" Cost="3000" Name="LOC_CIVIC_HARBIYE_NEZARETI_NAME" IconString="cult_ottomans"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_OTTOMANS_LALE_DEVRI" ProgressionTree="TREE_CIVICS_MO_OTTOMANS" Cost="2000" Name="LOC_CIVIC_LALE_DEVRI_NAME" IconString="cult_ottomans"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_OTTOMANS_TANZIMAT" ProgressionTree="TREE_CIVICS_MO_OTTOMANS" Cost="3000" Name="LOC_CIVIC_TANZIMAT_NAME" IconString="cult_ottomans"/>
+	</ProgressionTreeNodes>
+	<ProgressionTreeNodeUnlocks>
+		<!--Ottomans-->
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_OTTOMANS_SAHI_TOPU" TargetKind="KIND_TRADITION" TargetType="TRADITION_SIEGE_TRAIN" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_OTTOMANS_SAHI_TOPU" TargetKind="KIND_MODIFIER" TargetType="SAHI_TOPU_MOD_ARMY_COMMANDER_BARRAGE" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_OTTOMANS_SAHI_TOPU" TargetKind="KIND_MODIFIER" TargetType="MOD_MO_SETTLEMENT_CAP_INCREASE" UnlockDepth="2"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_OTTOMANS_SAHI_TOPU" TargetKind="KIND_MODIFIER" TargetType="SAHI_TOPU_MOD_COMBAT_VS_FORTIFICATION" UnlockDepth="2"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_OTTOMANS_HARBIYE_NEZARETI" TargetKind="KIND_MODIFIER" TargetType="HARBIYE_NEZARETI_INFANTRY_PRODUCTION" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_OTTOMANS_HARBIYE_NEZARETI" TargetKind="KIND_MODIFIER" TargetType="HARBIYE_NEZARETI_SIEGE_PRODUCTION" Hidden="true" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_OTTOMANS_HARBIYE_NEZARETI" TargetKind="KIND_MODIFIER" TargetType="HARBIYE_NEZARETI_LAND_MAINTENANCE_COST" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_OTTOMANS_HARBIYE_NEZARETI" TargetKind="KIND_TRADITION" TargetType="TRADITION_ERKAN_I_HARBIYE_MEKTEBI" UnlockDepth="2"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_OTTOMANS_HARBIYE_NEZARETI" TargetKind="KIND_MODIFIER" TargetType="MOD_MO_SETTLEMENT_CAP_INCREASE" UnlockDepth="2"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_OTTOMANS_LALE_DEVRI" TargetKind="KIND_TRADITION" TargetType="TRADITION_SEDEF_KAKMA" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_OTTOMANS_LALE_DEVRI" TargetKind="KIND_CONSTRUCTIBLE" TargetType="BUILDING_HAMMAM" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_OTTOMANS_LALE_DEVRI" TargetKind="KIND_CONSTRUCTIBLE" TargetType="WONDER_SULTANAHMET_CAMII" UnlockDepth="1" AIIgnoreUnlockValue="true"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_OTTOMANS_LALE_DEVRI" TargetKind="KIND_CONSTRUCTIBLE" TargetType="BUILDING_CAMII" UnlockDepth="2"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_OTTOMANS_LALE_DEVRI" TargetKind="KIND_MODIFIER" TargetType="MOD_MO_TRADITION_SLOT" UnlockDepth="2"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_OTTOMANS_TANZIMAT" TargetKind="KIND_TRADITION" TargetType="TRADITION_OSMANLI_BAROK" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_OTTOMANS_TANZIMAT" TargetKind="KIND_MODIFIER" TargetType="TANZIMAT_MOD_MUSEUM_PRODUCTION" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_OTTOMANS_TANZIMAT" TargetKind="KIND_MODIFIER" TargetType="MOD_MO_ARTIFACT" UnlockDepth="2"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_OTTOMANS_TANZIMAT" TargetKind="KIND_MODIFIER" TargetType="TANZIMAT_MOD_ARCHAELOGIST_VEGETATED_MOVEMENT" UnlockDepth="2"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_OTTOMANS_TANZIMAT" TargetKind="KIND_MODIFIER" TargetType="TANZIMAT_MOD_ARCHAELOGIST_MINOR_RIVER_MOVEMENT" Hidden="true" UnlockDepth="2"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_OTTOMANS_TANZIMAT" TargetKind="KIND_MODIFIER" TargetType="TANZIMAT_MOD_ARCHAELOGIST_NAVIGABLE_RIVER_MOVEMENT" Hidden="true" UnlockDepth="2"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_OTTOMANS_TANZIMAT" TargetKind="KIND_MODIFIER" TargetType="TANZIMAT_MOD_ARCHAELOGIST_FREE_EMBARK" Hidden="true" UnlockDepth="2" />
+	</ProgressionTreeNodeUnlocks>
+	<ProgressionTreePrereqs>
+		<!--Ottomans-->
+		<Row Node="NODE_CIVIC_MO_OTTOMANS_HARBIYE_NEZARETI" PrereqNode="NODE_CIVIC_MO_OTTOMANS_SAHI_TOPU"/>
+		<Row Node="NODE_CIVIC_MO_OTTOMANS_TANZIMAT" PrereqNode="NODE_CIVIC_MO_OTTOMANS_LALE_DEVRI"/>
+	</ProgressionTreePrereqs>
+	<ProgressionTree_Advisories>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_OTTOMANS_SAHI_TOPU" AdvisoryClassType="ADVISORY_CLASS_MILITARY"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_OTTOMANS_HARBIYE_NEZARETI" AdvisoryClassType="ADVISORY_CLASS_MILITARY"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_OTTOMANS_LALE_DEVRI" AdvisoryClassType="ADVISORY_CLASS_HAPPINESS"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_OTTOMANS_LALE_DEVRI" AdvisoryClassType="ADVISORY_CLASS_CULTURE"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_OTTOMANS_TANZIMAT" AdvisoryClassType="ADVISORY_CLASS_CULTURE"/>
+	</ProgressionTree_Advisories>
+	<Constructible_GreatWorks>
+		<Row ConstructibleType="BUILDING_CAMII" GreatWorkSlotType="GREATWORKSLOT_ARTIFACT" NumSlots="2"/>
+	</Constructible_GreatWorks>
+</Database>

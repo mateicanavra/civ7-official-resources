@@ -1,0 +1,29 @@
+.continents__distant-icon {
+  background-image: url("fs://game/restype_distant");
+}
+
+.continent-frame {
+  position: absolute;
+  min-width: 21.4444444444rem;
+}
+@media (experience: mobile) {
+  .continent-frame {
+    min-width: 0;
+    position: relative;
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 0.8888888889rem;
+  }
+}
+
+@media (experience: mobile) {
+  .panel-continents {
+    position: absolute;
+    top: 0rem;
+    left: 0rem;
+    min-width: 22rem;
+    pointer-events: auto;
+    height: 100vh;
+    padding-bottom: calc(13.8888888889rem + var(--safezone-bottom));
+  }
+}

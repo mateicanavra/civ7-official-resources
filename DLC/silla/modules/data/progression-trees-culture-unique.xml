@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Kinds>
+		<InsertOrIgnore Kind="KIND_TREE"/>
+		<InsertOrIgnore Kind="KIND_TREE_NODE"/>
+	</Kinds>
+	<Types>
+		<!--Civ Unique Mastery Trees-->
+		<Row Type="TREE_CIVICS_AQ_SILLA" Kind="KIND_TREE"/>
+		<!--Civ Unique Mastery Tree Nodes-->
+		<!--Silla-->
+		<Row Type="NODE_CIVIC_AQ_SILLA_KOLP_UM" Kind="KIND_TREE_NODE"/>
+		<Row Type="NODE_CIVIC_AQ_SILLA_SAMGUK_SAGI" Kind="KIND_TREE_NODE"/>
+		<Row Type="NODE_CIVIC_AQ_SILLA_SEONGGOL" Kind="KIND_TREE_NODE"/>
+		<Row Type="NODE_CIVIC_AQ_SILLA_JINGOL" Kind="KIND_TREE_NODE"/>
+	</Types>
+	<TypeQuotes>
+		<Row Type="NODE_CIVIC_AQ_SILLA_KOLP_UM" Quote="LOC_CIVIC_KOLP_UM_QUOTE" QuoteAuthor="LOC_CIVIC_KOLP_UM_AUTHOR" QuoteAudio="VO_Quote_KolpUm"/>
+		<Row Type="NODE_CIVIC_AQ_SILLA_SAMGUK_SAGI" Quote="LOC_CIVIC_SAMGUK_SAGI_QUOTE" QuoteAuthor="LOC_CIVIC_SAMGUK_SAGI_AUTHOR" QuoteAudio="VO_Quote_SamgukSagi"/>
+		<Row Type="NODE_CIVIC_AQ_SILLA_SEONGGOL" Quote="LOC_CIVIC_SEONGGOL_QUOTE" QuoteAuthor="LOC_CIVIC_SEONGGOL_AUTHOR" QuoteAudio="VO_Quote_Seonggol"/>
+		<Row Type="NODE_CIVIC_AQ_SILLA_JINGOL" Quote="LOC_CIVIC_JINGOL_QUOTE" QuoteAuthor="LOC_CIVIC_JINGOL_AUTHOR" QuoteAudio="VO_Quote_Jingol"/>
+	</TypeQuotes>
+	<ProgressionTrees>
+		<!--Civ Unique Mastery Trees-->
+		<Row ProgressionTreeType="TREE_CIVICS_AQ_SILLA" AgeType="AGE_ANTIQUITY" SystemType="SYSTEM_CULTURE" Name="LOC_TREE_CIVICS_AQ_SILLA_NAME"/>
+	</ProgressionTrees>
+	<ProgressionTreeNodes>
+		<!--Civ Unique Mastery Tree Nodes-->
+		<!--SILLA-->
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_SILLA_KOLP_UM" ProgressionTree="TREE_CIVICS_AQ_SILLA" Cost="108" Name="LOC_CIVIC_KOLP_UM_NAME" IconString="cult_silla"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_SILLA_SAMGUK_SAGI" ProgressionTree="TREE_CIVICS_AQ_SILLA" Cost="120" Name="LOC_CIVIC_SAMGUK_SAGI_NAME" IconString="cult_silla"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_SILLA_SEONGGOL" ProgressionTree="TREE_CIVICS_AQ_SILLA" Cost="120" Name="LOC_CIVIC_SEONGGOL_NAME" IconString="cult_silla"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_SILLA_JINGOL" ProgressionTree="TREE_CIVICS_AQ_SILLA" Cost="120" Name="LOC_CIVIC_JINGOL_NAME" IconString="cult_silla"/>
+	</ProgressionTreeNodes>
+	<ProgressionTreeNodeUnlocks>
+		<!--Silla-->
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_MAIN_CHIEFDOM" TargetKind="KIND_MODIFIER" TargetType="MOD_REVEAL_CIV_CULTURE_TREE_SILLA" UnlockDepth="1" Hidden="true"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_SILLA_KOLP_UM" TargetKind="KIND_MODIFIER" TargetType="MOD_KOLP_U_ALLIANCE_ROUTE_GOLD" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_SILLA_KOLP_UM" TargetKind="KIND_TRADITION" TargetType="TRADITION_BEOPSEONG" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_SILLA_KOLP_UM" TargetKind="KIND_CONSTRUCTIBLE" TargetType="BUILDING_PAGODA" UnlockDepth="2"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_SILLA_KOLP_UM" TargetKind="KIND_CONSTRUCTIBLE" TargetType="BUILDING_LECTURE_HALL" UnlockDepth="2"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_SILLA_KOLP_UM" TargetKind="KIND_MODIFIER" TargetType="MOD_KOLP_U_CULTURE_KILLS_HWARANG" UnlockDepth="2"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_SILLA_SAMGUK_SAGI" TargetKind="KIND_TRADITION" TargetType="TRADITION_STRATEGIC_ALLIES" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_SILLA_SAMGUK_SAGI" TargetKind="KIND_CONSTRUCTIBLE" TargetType="WONDER_EMILE_BELL" UnlockDepth="1" AIIgnoreUnlockValue="true"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_SILLA_SAMGUK_SAGI" TargetKind="KIND_MODIFIER" TargetType="MOD_AQ_TRADITION_SLOT" UnlockDepth="2"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_SILLA_SEONGGOL" TargetKind="KIND_TRADITION" TargetType="TRADITION_THE_GOLDEN_ROAD" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_SILLA_SEONGGOL" TargetKind="KIND_UNIT" TargetType="UNIT_SANGDAEDEUNG" UnlockDepth="1" AIIgnoreUnlockValue="true"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_SILLA_JINGOL" TargetKind="KIND_MODIFIER" TargetType="MOD_JINGOL_RESOURCE_CAP" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_SILLA_JINGOL" TargetKind="KIND_TRADITION" TargetType="TRADITION_SEORABEOL" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_SILLA_JINGOL" TargetKind="KIND_MODIFIER" TargetType="MOD_JINGOL_TRADE_ROUTE_RANGE" UnlockDepth="2"/>
+	</ProgressionTreeNodeUnlocks>
+	<ProgressionTreePrereqs>
+		<!--Silla-->
+		<Row Node="NODE_CIVIC_AQ_SILLA_SAMGUK_SAGI" PrereqNode="NODE_CIVIC_AQ_SILLA_KOLP_UM"/>
+		<Row Node="NODE_CIVIC_AQ_SILLA_SEONGGOL" PrereqNode="NODE_CIVIC_AQ_SILLA_KOLP_UM"/>
+		<Row Node="NODE_CIVIC_AQ_SILLA_JINGOL" PrereqNode="NODE_CIVIC_AQ_SILLA_KOLP_UM"/>
+	</ProgressionTreePrereqs>
+	<ProgressionTree_Advisories>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_SILLA_KOLP_UM" AdvisoryClassType="ADVISORY_CLASS_ECONOMIC"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_SILLA_KOLP_UM" AdvisoryClassType="ADVISORY_CLASS_CULTURE"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_SILLA_SAMGUK_SAGI" AdvisoryClassType="ADVISORY_CLASS_FOOD"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_SILLA_SAMGUK_SAGI" AdvisoryClassType="ADVISORY_CLASS_ECONOMIC"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_SILLA_SEONGGOL" AdvisoryClassType="ADVISORY_CLASS_ECONOMIC"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_SILLA_SEONGGOL" AdvisoryClassType="ADVISORY_CLASS_SCIENCE"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_SILLA_JINGOL" AdvisoryClassType="ADVISORY_CLASS_ECONOMIC"/>
+	</ProgressionTree_Advisories>
+</Database>

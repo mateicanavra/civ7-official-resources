@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Types>
+		<!--Civ Unique Mastery Trees-->
+		<Row Type="TREE_CIVICS_MO_QAJAR" Kind="KIND_TREE"/>
+		<!--Civ Unique Mastery Tree Nodes-->
+		<!--Qajar-->
+		<Row Type="NODE_CIVIC_MO_QAJAR_THE_SUN_THRONE" Kind="KIND_TREE_NODE"/>
+		<Row Type="NODE_CIVIC_MO_QAJAR_TWELVE_GATES" Kind="KIND_TREE_NODE"/>
+		<Row Type="NODE_CIVIC_MO_QAJAR_NEZAM_E_JADID" Kind="KIND_TREE_NODE"/>
+	</Types>
+	<TypeQuotes>
+		<Row Type="NODE_CIVIC_MO_QAJAR_THE_SUN_THRONE" Quote="LOC_CIVIC_THE_SUN_THRONE_QUOTE" QuoteAuthor="LOC_CIVIC_THE_SUN_THRONE_AUTHOR" QuoteAudio="VO_Quote_TheSunThrone"/>
+		<Row Type="NODE_CIVIC_MO_QAJAR_TWELVE_GATES" Quote="LOC_CIVIC_TWELVE_GATES_QUOTE" QuoteAuthor="LOC_CIVIC_TWELVE_GATES_AUTHOR" QuoteAudio="VO_Quote_TwelveGates"/>
+		<Row Type="NODE_CIVIC_MO_QAJAR_NEZAM_E_JADID" Quote="LOC_CIVIC_NEZAM_E_JADID_QUOTE" QuoteAuthor="LOC_CIVIC_NEZAM_E_JADID_AUTHOR" QuoteAudio="VO_Quote_NezamEJadid"/>
+	</TypeQuotes>
+	<ProgressionTrees>
+		<!--Civ Unique Mastery Trees-->
+		<Row ProgressionTreeType="TREE_CIVICS_MO_QAJAR" AgeType="AGE_MODERN" SystemType="SYSTEM_CULTURE" Name="LOC_TREE_CIVICS_MO_QAJAR_NAME"/>
+	</ProgressionTrees>
+	<ProgressionTreeNodes>
+		<!--Civ Unique Mastery Tree Nodes-->
+		<!--QAJAR-->
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_QAJAR_THE_SUN_THRONE" ProgressionTree="TREE_CIVICS_MO_QAJAR" Cost="2000" Name="LOC_CIVIC_THE_SUN_THRONE_NAME" IconString="cult_qajar"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_QAJAR_TWELVE_GATES" ProgressionTree="TREE_CIVICS_MO_QAJAR" Cost="2000" Name="LOC_CIVIC_TWELVE_GATES_NAME" IconString="cult_qajar"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_QAJAR_NEZAM_E_JADID" ProgressionTree="TREE_CIVICS_MO_QAJAR" Cost="3000" Name="LOC_CIVIC_NEZAM_E_JADID_NAME" IconString="cult_qajar"/>
+	</ProgressionTreeNodes>
+	<ProgressionTreeNodeUnlocks>
+		<!--Qajar-->
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_QAJAR_THE_SUN_THRONE" TargetKind="KIND_CONSTRUCTIBLE" TargetType="BUILDING_TAKYEH" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_QAJAR_THE_SUN_THRONE" TargetKind="KIND_TRADITION" TargetType="TRADITION_SOLEYMANIYEH_PALACE" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_QAJAR_THE_SUN_THRONE" TargetKind="KIND_CONSTRUCTIBLE" TargetType="WONDER_ERAM_GARDEN" UnlockDepth="1" AIIgnoreUnlockValue="true"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_QAJAR_THE_SUN_THRONE" TargetKind="KIND_MODIFIER" TargetType="MOD_SUN_THRONE_DIPLO_SENDER_YIELD" UnlockDepth="2"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_QAJAR_THE_SUN_THRONE" TargetKind="KIND_MODIFIER" TargetType="MOD_SUN_THRONE_DIPLO_RECEIVER_YIELD" UnlockDepth="2" Hidden="true"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_QAJAR_TWELVE_GATES" TargetKind="KIND_CONSTRUCTIBLE" TargetType="BUILDING_GHAHVE_KHANE" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_QAJAR_TWELVE_GATES" TargetKind="KIND_TRADITION" TargetType="TRADITION_WAQAYE_E_ETTEFAQIYA" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_QAJAR_TWELVE_GATES" TargetKind="KIND_MODIFIER" TargetType="MOD_TWELVE_GATES_YIELD_UNDER_CAP" UnlockDepth="2"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_QAJAR_NEZAM_E_JADID" TargetKind="KIND_MODIFIER" TargetType="MOD_NEZAM_E_JADID_UNDER_CAP_COMBAT" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_QAJAR_NEZAM_E_JADID" TargetKind="KIND_TRADITION" TargetType="TRADITION_QULLARAQASI" UnlockDepth="1"/>
+	</ProgressionTreeNodeUnlocks>
+	<ProgressionTreePrereqs>
+		<!--Qajar-->
+		<Row Node="NODE_CIVIC_MO_QAJAR_NEZAM_E_JADID" PrereqNode="NODE_CIVIC_MO_QAJAR_THE_SUN_THRONE"/>
+		<Row Node="NODE_CIVIC_MO_QAJAR_NEZAM_E_JADID" PrereqNode="NODE_CIVIC_MO_QAJAR_TWELVE_GATES"/>
+	</ProgressionTreePrereqs>
+	<ProgressionTree_Advisories>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_QAJAR_THE_SUN_THRONE" AdvisoryClassType="ADVISORY_CLASS_DIPLOMACY"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_QAJAR_THE_SUN_THRONE" AdvisoryClassType="ADVISORY_CLASS_CULTURE"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_QAJAR_TWELVE_GATES" AdvisoryClassType="ADVISORY_CLASS_CULTURE"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_QAJAR_TWELVE_GATES" AdvisoryClassType="ADVISORY_CLASS_SCIENCE"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_QAJAR_NEZAM_E_JADID" AdvisoryClassType="ADVISORY_CLASS_MILITARY"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_QAJAR_NEZAM_E_JADID" AdvisoryClassType="ADVISORY_CLASS_HAPPINESS"/>
+	</ProgressionTree_Advisories>
+</Database>

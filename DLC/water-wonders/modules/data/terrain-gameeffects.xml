@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+	<!--Great Blue Hole-->
+	<Modifier id="BLUE_HOLE_ADJACENT_RURAL_SEA_YIELDS" collection="COLLECTION_ALL_PLOT_YIELDS" effect="EFFECT_ATTACH_MODIFIERS" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_MAP_HAS_FEATURE">
+				<Argument name="FeatureType">FEATURE_GREAT_BLUE_HOLE</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_ADJACENT_FEATURE_TYPE_MATCHES">
+				<Argument name="FeatureType">FEATURE_GREAT_BLUE_HOLE</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_PLOT_BIOME_TYPE_MATCHES">
+				<Argument name="BiomeType">BIOME_MARINE</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_PLOT_IS_NATURAL_WONDER" inverse="true"/>
+		</SubjectRequirements>
+		<Argument name="ModifierId">ATTACH_BLUE_HOLE_RURAL_SEA_YIELDS</Argument>
+		<String context="Description">LOC_FEATURE_GREAT_BLUE_HOLE_NAME</String>
+	</Modifier>
+	<!--Natural Wonder Adjacencies are implemented with nested Modifiers to avoid oversubscription to District Class change signals-->
+	<Modifier id="ATTACH_BLUE_HOLE_RURAL_SEA_YIELDS" collection="COLLECTION_SINGLE_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_DISTRICT_CLASS">
+				<Argument name="DistrictClass">RURAL, WILDERNESS</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="Tooltip">LOC_FEATURE_GREAT_BLUE_HOLE_NAME</Argument>
+	</Modifier>
+	<!--Mapu'a Vaea Blowholes -->
+	<Modifier id="MAPU_A_VAEA_BLOWHOLES_COASTAL_LAND_YIELDS" collection="COLLECTION_ALL_CITIES" effect="EFFECT_ATTACH_MODIFIERS" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_MAP_HAS_FEATURE">
+				<Argument name="FeatureType">FEATURE_MAPU_A_VAEA_BLOWHOLES</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_HAS_FEATURE">
+				<Argument name="FeatureType">FEATURE_MAPU_A_VAEA_BLOWHOLES</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="ModifierId">ATTACH_MAPU_A_VAEA_BLOWHOLES_COASTAL_LAND_YIELDS</Argument>
+		<String context="Description">LOC_FEATURE__MAPU_A_VAEA_BLOWHOLES_NAME</String>
+	</Modifier>
+	<!--Natural Wonder Adjacencies are implemented with nested Modifiers to avoid oversubscription to District Class change signals-->
+	<Modifier id="ATTACH_MAPU_A_VAEA_BLOWHOLES_COASTAL_LAND_YIELDS" collection="COLLECTION_CITY_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_DISTRICT_CLASS">
+				<Argument name="DistrictClass">RURAL, WILDERNESS</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_PLOT_IS_COASTAL_LAND"/>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="Tooltip">LOC_FEATURE__MAPU_A_VAEA_BLOWHOLES_NAME</Argument>
+	</Modifier>
+</GameEffects>

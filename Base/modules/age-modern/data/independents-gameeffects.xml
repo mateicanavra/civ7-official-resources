@@ -1,0 +1,694 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+	<!-- Military Suzerain Bonuses -->
+	<Modifier id="MOD_CS_SHORE_BATTERY" collection="COLLECTION_MAJOR_PLAYERS" effect="EFFECT_ATTACH_MODIFIERS">
+		<Argument name="ModifierId">ATTACH_SHORE_BATTERY</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_SHORE_BATTERY" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_CONSTRUCTIBLE_UNLOCK">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_ELIGIBLE_CS_BONUS">
+				<Argument name="CityStateBonus">CITY_STATE_BONUS_MODERN_1</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="ConstructibleType">IMPROVEMENT_SHORE_BATTERY</Argument>
+	</Modifier>
+	<Modifier id="MOD_CS_COMMANDER_XP" collection="COLLECTION_MAJOR_PLAYERS" effect="EFFECT_ATTACH_MODIFIERS">
+		<Argument name="ModifierId">ATTACH_COMMANDER_XP</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_COMMANDER_XP" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ARMY_ADJUST_EXPERIENCE_RATE">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_ELIGIBLE_CS_BONUS">
+				<Argument name="CityStateBonus">CITY_STATE_BONUS_MODERN_2</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+				<Argument name="Tag">UNIT_CLASS_COMMAND</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Percent">50</Argument>
+	</Modifier>
+	<Modifier id="MOD_CS_NON_AIR_UNITS_RANGE" collection="COLLECTION_MAJOR_PLAYERS" effect="EFFECT_ATTACH_MODIFIERS">
+		<Argument name="ModifierId">ATTACH_NON_AIR_UNITS_RANGE</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_NON_AIR_UNITS_RANGE" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ADJUST_UNIT_SUZERAIN_OF_COMBAT_MODIFIER">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_ELIGIBLE_CS_BONUS">
+				<Argument name="CityStateBonus">CITY_STATE_BONUS_MODERN_3</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+				<Argument name="Tag">UNIT_CLASS_RANGED, UNIT_CLASS_SIEGE</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_UNIT_DOMAIN_MATCHES">
+				<Argument name="UnitDomain">DOMAIN_LAND</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="CityStateType">MILITARISTIC</Argument>
+		<Argument name="Amount">1</Argument>
+	</Modifier>
+	<Modifier id="MOD_CS_PARTISAN" collection="COLLECTION_MAJOR_PLAYERS" effect="EFFECT_ATTACH_MODIFIERS">
+		<Argument name="ModifierId">ATTACH_PARTISAN</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_PARTISAN" collection="COLLECTION_OWNER" effect="EFFECT_ADJUST_PLAYER_VALID_UNIT_BUILD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_ELIGIBLE_CS_BONUS">
+				<Argument name="CityStateBonus">CITY_STATE_BONUS_MODERN_4</Argument>
+			</Requirement>
+			<Requirement inverse="true" type="REQUIREMENT_PLAYER_HAS_COMPLETED_PROGRESSION_TREE_NODE">
+				<Argument name="ProgressionTreeNodeType">NODE_TECH_MO_INDUSTRIALIZATION</Argument>
+				<Argument name="MinDepth">1</Argument>
+			</Requirement>
+			<Requirement inverse="true" type="REQUIREMENT_PLAYER_HAS_COMPLETED_PROGRESSION_TREE_NODE">
+				<Argument name="ProgressionTreeNodeType">NODE_TECH_MO_ARMOR</Argument>
+				<Argument name="MinDepth">1</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="UnitType">UNIT_PARTISAN</Argument>
+	</Modifier>
+	<Modifier id="MOD_CS_PARTISAN2" collection="COLLECTION_MAJOR_PLAYERS" effect="EFFECT_ATTACH_MODIFIERS">
+		<Argument name="ModifierId">ATTACH_PARTISAN2</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_PARTISAN2" collection="COLLECTION_OWNER" effect="EFFECT_ADJUST_PLAYER_VALID_UNIT_BUILD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_ELIGIBLE_CS_BONUS">
+				<Argument name="CityStateBonus">CITY_STATE_BONUS_MODERN_4</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_PLAYER_HAS_COMPLETED_PROGRESSION_TREE_NODE">
+				<Argument name="ProgressionTreeNodeType">NODE_TECH_MO_INDUSTRIALIZATION</Argument>
+				<Argument name="MinDepth">1</Argument>
+			</Requirement>
+			<Requirement inverse="true" type="REQUIREMENT_PLAYER_HAS_COMPLETED_PROGRESSION_TREE_NODE">
+				<Argument name="ProgressionTreeNodeType">NODE_TECH_MO_ARMOR</Argument>
+				<Argument name="MinDepth">1</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="UnitType">UNIT_PARTISAN_2</Argument>
+	</Modifier>
+	<Modifier id="MOD_CS_PARTISAN3" collection="COLLECTION_MAJOR_PLAYERS" effect="EFFECT_ATTACH_MODIFIERS">
+		<Argument name="ModifierId">ATTACH_PARTISAN3</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_PARTISAN3" collection="COLLECTION_OWNER" effect="EFFECT_ADJUST_PLAYER_VALID_UNIT_BUILD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_ELIGIBLE_CS_BONUS">
+				<Argument name="CityStateBonus">CITY_STATE_BONUS_MODERN_4</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_PLAYER_HAS_COMPLETED_PROGRESSION_TREE_NODE">
+				<Argument name="ProgressionTreeNodeType">NODE_TECH_MO_ARMOR</Argument>
+				<Argument name="MinDepth">1</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="UnitType">UNIT_PARTISAN_3</Argument>
+	</Modifier>
+	<Modifier id="MOD_CS_CITY_STATE_COMBAT" collection="COLLECTION_MAJOR_PLAYERS" effect="EFFECT_ATTACH_MODIFIERS">
+		<Argument name="ModifierId">ATTACH_CITY_STATE_COMBAT</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_CITY_STATE_COMBAT" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ADJUST_UNIT_SUZERAIN_OF_COMBAT_MODIFIER">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_ELIGIBLE_CS_BONUS">
+				<Argument name="CityStateBonus">CITY_STATE_BONUS_MODERN_5</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+				<Argument name="RequirementSetId">REQSET_UNIT_CLASS_INFANTRY_NAVAL</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="CityStateType">MILITARISTIC</Argument>
+		<Argument name="Amount">1</Argument>
+	</Modifier>
+
+	<!-- 1.2.2+ Military Suzerain Bonuses -->
+	<Modifier id="MOD_CS_MILITARISTIC_SETTLEMENT_LIMIT" collection="COLLECTION_MAJOR_PLAYERS" effect="EFFECT_ATTACH_MODIFIERS">
+		<Argument name="ModifierId">ATTACH_CS_MILITARISTIC_SETTLEMENT_LIMIT</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_CS_MILITARISTIC_SETTLEMENT_LIMIT" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_SETTLEMENT_CAP">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_ELIGIBLE_CS_BONUS">
+				<Argument name="CityStateBonus">CITY_STATE_MILITARISTIC_BONUS_MODERN_6</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">1</Argument>
+		<String context="Preview">CITY_STATE_MILITARISTIC_BONUS_MODERN_6_DESCRIPTION</String>
+	</Modifier>
+
+	<Modifier id="MOD_CS_MILITARISTIC_WAR_SUPPORT_SHAREABLE" collection="COLLECTION_MAJOR_PLAYERS" effect="EFFECT_ATTACH_MODIFIERS" owner-stack-limit="1">
+		<Argument name="ModifierId">ATTACH_CS_MILITARISTIC_WAR_SUPPORT_SHAREABLE</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_CS_MILITARISTIC_WAR_SUPPORT_SHAREABLE" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_ADJUST_DIPLOMATIC_ACTION_TOKEN_BONUS">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_ELIGIBLE_CS_BONUS">
+				<Argument name="CityStateBonus">CITY_STATE_MILITARISTIC_BONUS_MODERN_7</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="ActionType">DIPLOMACY_ACTION_DECLARE_WAR</Argument>
+		<Argument name="Amount">1</Argument>
+		<String context="Preview">CITY_STATE_MILITARISTIC_BONUS_MODERN_7_DESCRIPTION</String>
+	</Modifier>
+
+	<!-- Cultural Suzerain Bonuses -->
+	<Modifier id="MOD_CS_OPEN_AIR_MUSEUM" collection="COLLECTION_MAJOR_PLAYERS" effect="EFFECT_ATTACH_MODIFIERS">
+		<Argument name="ModifierId">ATTACH_OPEN_AIR_MUSEUM</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_OPEN_AIR_MUSEUM" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_CONSTRUCTIBLE_UNLOCK">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_ELIGIBLE_CS_BONUS">
+				<Argument name="CityStateBonus">CITY_STATE_BONUS_MODERN_6</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="ConstructibleType">IMPROVEMENT_OPEN_AIR_MUSEUM</Argument>
+	</Modifier>
+	<Modifier id="MOD_CS_TEMPLE_CULTURE_PER_TYPE" collection="COLLECTION_MAJOR_PLAYERS" effect="EFFECT_ATTACH_MODIFIERS">
+		<Argument name="ModifierId">ATTACH_CS_TEMPLE_CULTURE_PER_TYPE</Argument>
+	</Modifier>
+	<Modifier id="MOD_CS_CULTURE_BUILDINGS_CULTURE" collection="COLLECTION_MAJOR_PLAYERS" effect="EFFECT_ATTACH_MODIFIERS">
+		<Argument name="ModifierId">ATTACH_CULTURE_BUILDINGS_CULTURE</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_CULTURE_BUILDINGS_CULTURE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_ELIGIBLE_CS_BONUS">
+				<Argument name="CityStateBonus">CITY_STATE_BONUS_MODERN_7</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Tag">CULTURE</Argument>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount">2</Argument>
+	</Modifier>
+	<Modifier id="MOD_CS_ARTIFACT" collection="COLLECTION_MAJOR_PLAYERS" effect="EFFECT_ATTACH_MODIFIERS">
+		<Argument name="ModifierId">ATTACH_ARTIFACT</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_ARTIFACT" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_GRANT_GREAT_WORK" permanent="true">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_ELIGIBLE_CS_BONUS">
+				<Argument name="CityStateBonus">CITY_STATE_BONUS_MODERN_8</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">1</Argument>
+	</Modifier>
+	<Modifier id="MOD_CS_MUSEUM_CULTURE_PER_TYPE" collection="COLLECTION_MAJOR_PLAYERS" effect="EFFECT_ATTACH_MODIFIERS">
+		<Argument name="ModifierId">ATTACH_CS_MUSEUM_CULTURE_PER_TYPE</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_CS_MUSEUM_CULTURE_PER_TYPE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD_PER_SUZERAINED_CITY_STATE_TYPE">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_ELIGIBLE_CS_BONUS">
+				<Argument name="CityStateBonus">CITY_STATE_BONUS_MODERN_8</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_CITY_IS_CITY" />
+		</SubjectRequirements>
+		<Argument name="CityStateType">CULTURAL</Argument>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="ConstructibleType">BUILDING_MUSEUM</Argument>
+		<Argument name="Amount">2</Argument>
+	</Modifier>
+	<Modifier id="MOD_CS_TRADITION_SLOT" collection="COLLECTION_MAJOR_PLAYERS" effect="EFFECT_ATTACH_MODIFIERS">
+		<Argument name="ModifierId">ATTACH_TRADITION_SLOT</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_TRADITION_SLOT" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_TRADITION_SLOTS" permanent="true">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_ELIGIBLE_CS_BONUS">
+				<Argument name="CityStateBonus">CITY_STATE_BONUS_MODERN_9</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">1</Argument>
+	</Modifier>
+	<Modifier id="MOD_CS_CIVIC" collection="COLLECTION_MAJOR_PLAYERS" effect="EFFECT_ATTACH_MODIFIERS">
+		<Argument name="ModifierId">ATTACH_CIVIC</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_CIVIC" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_PROGRESSION" permanent="true">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_ELIGIBLE_CS_BONUS">
+				<Argument name="CityStateBonus">CITY_STATE_BONUS_MODERN_10</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">1</Argument>
+		<Argument name="SystemType">SYSTEM_CULTURE</Argument>
+		<Argument name="FreeProgressionType">FREE_PROGRESSION_NODE_ANY_UNLOCKED</Argument>
+	</Modifier>
+
+	<!-- 1.2.2+ Cultural Suzerain Bonuses -->
+	<Modifier id="MOD_CS_CULTURAL_CULTURE_ON_GREAT_WORKS" collection="COLLECTION_MAJOR_PLAYERS" effect="EFFECT_ATTACH_MODIFIERS">
+		<Argument name="ModifierId">ATTACH_CS_CULTURAL_CULTURE_ON_GREAT_WORKS</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_CS_CULTURAL_CULTURE_ON_GREAT_WORKS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_GREAT_WORK">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_ELIGIBLE_CS_BONUS">
+				<Argument name="CityStateBonus">CITY_STATE_CULTURAL_BONUS_MODERN_6</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount">4</Argument>
+		<String context="Preview">CITY_STATE_CULTURAL_BONUS_MODERN_6_DESCRIPTION</String>
+	</Modifier>
+
+	<Modifier id="MOD_CS_CULTURAL_CULTURE_ON_WAREHOUSE" collection="COLLECTION_MAJOR_PLAYERS" effect="EFFECT_ATTACH_MODIFIERS" owner-stack-limit="1">
+		<Argument name="ModifierId">ATTACH_CS_CULTURAL_CULTURE_ON_WAREHOUSE</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_CS_CULTURAL_CULTURE_ON_WAREHOUSE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_ELIGIBLE_CS_BONUS">
+				<Argument name="CityStateBonus">CITY_STATE_CULTURAL_BONUS_MODERN_7</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Tag">WAREHOUSE</Argument>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount">1</Argument>
+		<String context="Preview">CITY_STATE_CULTURAL_BONUS_MODERN_7_DESCRIPTION</String>
+	</Modifier>
+
+	<!-- Economic Suzerain Bonuses -->
+	<Modifier id="MOD_CS_ENTREPOT" collection="COLLECTION_MAJOR_PLAYERS" effect="EFFECT_ATTACH_MODIFIERS">
+		<Argument name="ModifierId">ATTACH_ENTREPOT</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_ENTREPOT" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_CONSTRUCTIBLE_UNLOCK">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_ELIGIBLE_CS_BONUS">
+				<Argument name="CityStateBonus">CITY_STATE_BONUS_MODERN_11</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="ConstructibleType">IMPROVEMENT_ENTREPOT</Argument>
+	</Modifier>
+	<Modifier id="MOD_CS_GOLD_BUILDINGS_GOLD" collection="COLLECTION_MAJOR_PLAYERS" effect="EFFECT_ATTACH_MODIFIERS">
+		<Argument name="ModifierId">ATTACH_GOLD_BUILDINGS_GOLD</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_GOLD_BUILDINGS_GOLD" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_ELIGIBLE_CS_BONUS">
+				<Argument name="CityStateBonus">CITY_STATE_BONUS_MODERN_12</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Tag">GOLD</Argument>
+		<Argument name="YieldType">YIELD_GOLD</Argument>
+		<Argument name="Amount">4</Argument>
+	</Modifier>
+	<Modifier id="MOD_CS_NICKEL" collection="COLLECTION_MAJOR_PLAYERS" effect="EFFECT_ATTACH_MODIFIERS">
+		<Argument name="ModifierId">ATTACH_NICKEL</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_NICKEL" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_ADD_RESOURCE_TO_PLOT" permanent="true">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_ELIGIBLE_CS_BONUS">
+				<Argument name="CityStateBonus">CITY_STATE_BONUS_MODERN_13</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="ResourceType">RESOURCE_NICKEL</Argument>
+	</Modifier>
+	<Modifier id="MOD_CS_GOLD_PER_TRADE_AND_SUZERAIN" collection="COLLECTION_MAJOR_PLAYERS" effect="EFFECT_ATTACH_MODIFIERS">
+		<Argument name="ModifierId">ATTACH_CS_GOLD_PER_TRADE_AND_SUZERAIN</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_CS_GOLD_PER_TRADE_AND_SUZERAIN" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD_PER_NUM_TRADE_ROUTES_AND_SUZERAINED_TYPE">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_ELIGIBLE_CS_BONUS">
+				<Argument name="CityStateBonus">CITY_STATE_BONUS_MODERN_14</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_GOLD</Argument>
+		<Argument name="Amount">3</Argument>
+		<Argument name="CityStateType">ECONOMIC</Argument>
+		<Argument name="Tooltip">LOC_CITY_STATE_BONUS_MODERN_14_NAME</Argument>
+		<String context="Description">LOC_CITY_STATE_BONUS_MODERN_14_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="MOD_CS_LAND_TRADE_ROUTE_RANGE_SUZERAIN" collection="COLLECTION_MAJOR_PLAYERS" effect="EFFECT_ATTACH_MODIFIERS">
+		<Argument name="ModifierId">ATTACH_LAND_TRADE_ROUTE_RANGE_SUZERAIN</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_LAND_TRADE_ROUTE_RANGE_SUZERAIN" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_TRADE_ROUTE_RANGE">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_ELIGIBLE_CS_BONUS">
+				<Argument name="CityStateBonus">CITY_STATE_BONUS_MODERN_15</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="DomainType">DOMAIN_LAND</Argument>
+		<Argument name="Amount">999999</Argument>
+		<String context="Description">LOC_CITY_STATE_BONUS_MODERN_15_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="MOD_CS_SEA_TRADE_ROUTE_RANGE_SUZERAIN" collection="COLLECTION_MAJOR_PLAYERS" effect="EFFECT_ATTACH_MODIFIERS">
+		<Argument name="ModifierId">ATTACH_SEA_TRADE_ROUTE_RANGE_SUZERAIN</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_SEA_TRADE_ROUTE_RANGE_SUZERAIN" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_TRADE_ROUTE_RANGE">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_ELIGIBLE_CS_BONUS">
+				<Argument name="CityStateBonus">CITY_STATE_BONUS_MODERN_15</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="DomainType">DOMAIN_SEA</Argument>
+		<Argument name="Amount">999999</Argument>
+	</Modifier>
+
+	<!-- 1.2.2+ Economic Suzerain Bonuses -->
+	<Modifier id="MOD_CS_ECONOMIC_FACTORY_RESOURCE_CAPACITY" collection="COLLECTION_MAJOR_PLAYERS" effect="EFFECT_ATTACH_MODIFIERS">
+		<Argument name="ModifierId">ATTACH_CS_ECONOMIC_FACTORY_RESOURCE_CAPACITY</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_CS_ECONOMIC_FACTORY_RESOURCE_CAPACITY" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_RESOURCE_CAP">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_ELIGIBLE_CS_BONUS">
+				<Argument name="CityStateBonus">CITY_STATE_ECONOMIC_BONUS_MODERN_6</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_CITY_HAS_BUILDING">
+				<Argument name="BuildingType">BUILDING_FACTORY</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">1</Argument>
+		<String context="Preview">CITY_STATE_ECONOMIC_BONUS_MODERN_6_DESCRIPTION</String>
+	</Modifier>
+
+	<Modifier id="MOD_CS_ECONOMIC_GOLD_ON_WAREHOUSE" collection="COLLECTION_MAJOR_PLAYERS" effect="EFFECT_ATTACH_MODIFIERS" owner-stack-limit="1">
+		<Argument name="ModifierId">ATTACH_CS_ECONOMIC_GOLD_ON_WAREHOUSE</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_CS_ECONOMIC_GOLD_ON_WAREHOUSE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_ELIGIBLE_CS_BONUS">
+				<Argument name="CityStateBonus">CITY_STATE_ECONOMIC_BONUS_MODERN_7</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Tag">WAREHOUSE</Argument>
+		<Argument name="YieldType">YIELD_GOLD</Argument>
+		<Argument name="Amount">1</Argument>
+		<String context="Preview">CITY_STATE_ECONOMIC_BONUS_MODERN_7_DESCRIPTION</String>
+	</Modifier>
+
+	<!-- Scientific Suzerain Bonuses -->
+	<Modifier id="MOD_CS_INSTITUTE" collection="COLLECTION_MAJOR_PLAYERS" effect="EFFECT_ATTACH_MODIFIERS">
+		<Argument name="ModifierId">ATTACH_INSTITUTE</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_INSTITUTE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_CONSTRUCTIBLE_UNLOCK">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_ELIGIBLE_CS_BONUS">
+				<Argument name="CityStateBonus">CITY_STATE_BONUS_MODERN_16</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="ConstructibleType">IMPROVEMENT_INSTITUTE</Argument>
+	</Modifier>
+	<Modifier id="MOD_CS_SCIENCE_BUILDINGS_SCIENCE" collection="COLLECTION_MAJOR_PLAYERS" effect="EFFECT_ATTACH_MODIFIERS">
+		<Argument name="ModifierId">ATTACH_SCIENCE_BUILDINGS_SCIENCE</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_SCIENCE_BUILDINGS_SCIENCE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_ELIGIBLE_CS_BONUS">
+				<Argument name="CityStateBonus">CITY_STATE_BONUS_MODERN_17</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Tag">SCIENCE</Argument>
+		<Argument name="YieldType">YIELD_SCIENCE</Argument>
+		<Argument name="Amount">2</Argument>
+	</Modifier>
+	<Modifier id="MOD_CS_SCIENCE_SUZERAIN" collection="COLLECTION_MAJOR_PLAYERS" effect="EFFECT_ATTACH_MODIFIERS">
+		<Argument name="ModifierId">ATTACH_SCIENCE_BUILDINGS_PRODUCTION_SUZERAIN</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_SCIENCE_BUILDINGS_PRODUCTION_SUZERAIN" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_PRODUCTION_PER_SUZERAIN_OF">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_ELIGIBLE_CS_BONUS">
+				<Argument name="CityStateBonus">CITY_STATE_BONUS_MODERN_18</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="CityStateType">SCIENTIFIC</Argument>
+		<Argument name="ConstructibleClass">BUILDING</Argument>
+		<Argument name="Percent">5</Argument>
+		<String context="Description">LOC_CITY_STATE_BONUS_MODERN_18_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="MOD_CS_TECH" collection="COLLECTION_MAJOR_PLAYERS" effect="EFFECT_ATTACH_MODIFIERS">
+		<Argument name="ModifierId">ATTACH_TECH</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_TECH" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_PROGRESSION" permanent="true">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_ELIGIBLE_CS_BONUS">
+				<Argument name="CityStateBonus">CITY_STATE_BONUS_MODERN_19</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">1</Argument>
+		<Argument name="SystemType">SYSTEM_TECH</Argument>
+		<Argument name="FreeProgressionType">FREE_PROGRESSION_NODE_CHEAPEST_UNLOCKED</Argument>
+	</Modifier>
+	<Modifier id="MOD_CS_PROJECT_PRODUCTION" collection="COLLECTION_MAJOR_PLAYERS" effect="EFFECT_ATTACH_MODIFIERS">
+		<Argument name="ModifierId">ATTACH_PROJECT_PRODUCTION</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_PROJECT_PRODUCTION" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_PROJECT_PRODUCTION">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_ELIGIBLE_CS_BONUS">
+				<Argument name="CityStateBonus">CITY_STATE_BONUS_MODERN_20</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_CITY_HAS_BUILDING">
+				<Argument name="Tag">SCIENCE</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Percent">25</Argument>
+	</Modifier>
+
+	<!-- 1.2.2+ Scientific Suzerain Bonuses -->
+	<Modifier id="MOD_CS_SCIENTIFIC_SCIENCE_ON_FACTORY_RESOURCES" collection="COLLECTION_MAJOR_PLAYERS" effect="EFFECT_ATTACH_MODIFIERS">
+		<Argument name="ModifierId">ATTACH_CS_SCIENTIFIC_SCIENCE_ON_FACTORY_RESOURCES</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_CS_SCIENTIFIC_SCIENCE_ON_FACTORY_RESOURCES" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_RESOURCE_CLASS">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_ELIGIBLE_CS_BONUS">
+				<Argument name="CityStateBonus">CITY_STATE_SCIENTIFIC_BONUS_MODERN_6</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="ResourceClassType">RESOURCECLASS_FACTORY</Argument>
+		<Argument name="YieldType">YIELD_SCIENCE</Argument>
+		<Argument name="Amount">1</Argument>
+		<String context="Preview">CITY_STATE_SCIENTIFIC_BONUS_MODERN_6_DESCRIPTION</String>
+	</Modifier>
+
+	<Modifier id="MOD_CS_SCIENTIFIC_SCIENCE_ON_WAREHOUSE" collection="COLLECTION_MAJOR_PLAYERS" effect="EFFECT_ATTACH_MODIFIERS" owner-stack-limit="1">
+		<Argument name="ModifierId">ATTACH_CS_SCIENTIFIC_SCIENCE_ON_WAREHOUSE</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_CS_SCIENTIFIC_SCIENCE_ON_WAREHOUSE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_ELIGIBLE_CS_BONUS">
+				<Argument name="CityStateBonus">CITY_STATE_SCIENTIFIC_BONUS_MODERN_7</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Tag">WAREHOUSE</Argument>
+		<Argument name="YieldType">YIELD_SCIENCE</Argument>
+		<Argument name="Amount">1</Argument>
+		<String context="Preview">CITY_STATE_SCIENTIFIC_BONUS_MODERN_7_DESCRIPTION</String>
+	</Modifier>
+
+	<!-- Expansionist -->
+	<Modifier id="MOD_CS_EXPANSIONIST_ABATTOIR" collection="COLLECTION_MAJOR_PLAYERS" effect="EFFECT_ATTACH_MODIFIERS">
+		<Argument name="ModifierId">ATTACH_MOD_CS_EXPANSIONIST_ABATTOIR</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_MOD_CS_EXPANSIONIST_ABATTOIR" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_CONSTRUCTIBLE_UNLOCK">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_ELIGIBLE_CS_BONUS">
+				<Argument name="CityStateBonus">CITY_STATE_EXPANSIONIST_BONUS_MODERN_1</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="ConstructibleType">IMPROVEMENT_ABATTOIR</Argument>
+	</Modifier>
+	<Modifier id="MOD_CS_EXPANSIONIST_FOOD_ON_RESOURCES" collection="COLLECTION_MAJOR_PLAYERS" effect="EFFECT_ATTACH_MODIFIERS">
+		<Argument name="ModifierId">ATTACH_CS_EXPANSIONIST_FOOD_ON_RESOURCES</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_CS_EXPANSIONIST_FOOD_ON_RESOURCES" collection="COLLECTION_PLAYER_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_ELIGIBLE_CS_BONUS">
+				<Argument name="CityStateBonus">CITY_STATE_EXPANSIONIST_BONUS_MODERN_2</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_PLOT_RESOURCE_VISIBLE"></Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_FOOD</Argument>
+		<Argument name="Amount">1</Argument>
+		<String context="Preview">CITY_STATE_EXPANSIONIST_BONUS_MODERN_2_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="MOD_CS_EXPANSIONIST_FOOD_ON_FOOD_BUILDINGS" collection="COLLECTION_MAJOR_PLAYERS" effect="EFFECT_ATTACH_MODIFIERS" owner-stack-limit="1">
+		<Argument name="ModifierId">ATTACH_MOD_CS_EXPANSIONIST_FOOD_ON_FOOD_BUILDINGS</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_MOD_CS_EXPANSIONIST_FOOD_ON_FOOD_BUILDINGS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_ELIGIBLE_CS_BONUS">
+				<Argument name="CityStateBonus">CITY_STATE_EXPANSIONIST_BONUS_MODERN_3</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Tag">FOOD</Argument>
+		<Argument name="YieldType">YIELD_FOOD</Argument>
+		<Argument name="Amount">4</Argument>
+		<String context="Preview">CITY_STATE_EXPANSIONIST_BONUS_MODERN_3_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="MOD_CS_EXPANSIONIST_SETTLEMENT_FOOD_PER_EXPANSIONIST_CITY" collection="COLLECTION_MAJOR_PLAYERS" effect="EFFECT_ATTACH_MODIFIERS" owner-stack-limit="1">
+		<Argument name="ModifierId">ATTACH_MOD_CS_EXPANSIONIST_SETTLEMENT_FOOD_PER_EXPANSIONIST_CITY</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_MOD_CS_EXPANSIONIST_SETTLEMENT_FOOD_PER_EXPANSIONIST_CITY" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_SUZERAINED_CITY_STATE_TYPE">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_ELIGIBLE_CS_BONUS">
+				<Argument name="CityStateBonus">CITY_STATE_EXPANSIONIST_BONUS_MODERN_4</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_CITY_IS_CITY"/>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_FOOD</Argument>
+		<Argument name="Amount">3</Argument>
+		<Argument name="CityStateType">EXPANSIONIST</Argument>
+		<String context="Preview">CITY_STATE_EXPANSIONIST_BONUS_MODERN_4_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="MOD_CS_EXPANSIONIST_SETTLEMENT_FOOD_PER_EXPANSIONIST_TOWN" collection="COLLECTION_MAJOR_PLAYERS" effect="EFFECT_ATTACH_MODIFIERS" owner-stack-limit="1">
+		<Argument name="ModifierId">ATTACH_MOD_CS_EXPANSIONIST_SETTLEMENT_FOOD_PER_EXPANSIONIST_TOWN</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_MOD_CS_EXPANSIONIST_SETTLEMENT_FOOD_PER_EXPANSIONIST_TOWN" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_SUZERAINED_CITY_STATE_TYPE">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_ELIGIBLE_CS_BONUS">
+				<Argument name="CityStateBonus">CITY_STATE_EXPANSIONIST_BONUS_MODERN_4</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_CITY_IS_TOWN"/>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_FOOD</Argument>
+		<Argument name="Amount">6</Argument>
+		<Argument name="CityStateType">EXPANSIONIST</Argument>
+		<String context="Preview">CITY_STATE_EXPANSIONIST_BONUS_MODERN_4_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="MOD_CS_EXPANSIONIST_POPULATION_PER_EXPANSIONIST" collection="COLLECTION_MAJOR_PLAYERS" effect="EFFECT_ATTACH_MODIFIERS" owner-stack-limit="1">
+		<Argument name="ModifierId">ATTACH_MOD_CS_EXPANSIONIST_POPULATION_PER_EXPANSIONIST</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_MOD_CS_EXPANSIONIST_POPULATION_PER_EXPANSIONIST" collection="COLLECTION_OWNER" effect="EFFECT_ADJUST_PLAYER_FREE_POLPULATION_CAPITAL_ON_CITY_STATE">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_ELIGIBLE_CS_BONUS">
+				<Argument name="CityStateBonus">CITY_STATE_EXPANSIONIST_BONUS_MODERN_5</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">1</Argument>
+		<Argument name="CityStateType">EXPANSIONIST</Argument>
+		<String context="Preview">CITY_STATE_EXPANSIONIST_BONUS_MODERN_5_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="MOD_POPULATION_CAPITAL_PER_EXPANSIONIST_IMMEDIATE" collection="COLLECTION_MAJOR_PLAYERS" effect="EFFECT_ATTACH_MODIFIERS">
+		<Argument name="ModifierId">ATTACH_POPULATION_CAPITAL_PER_EXPANSIONIST_IMMEDIATE</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_POPULATION_CAPITAL_PER_EXPANSIONIST_IMMEDIATE" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_ADJUST_POPULATION" permanent="true">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_ELIGIBLE_CS_BONUS">
+				<Argument name="CityStateBonus">CITY_STATE_EXPANSIONIST_BONUS_MODERN_5</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">1</Argument>
+	</Modifier>
+	<Modifier id="MOD_CS_EXPANSIONIST_SETTLEMENT_CAP" collection="COLLECTION_MAJOR_PLAYERS" effect="EFFECT_ATTACH_MODIFIERS" owner-stack-limit="1">
+		<Argument name="ModifierId">ATTACH_MOD_CS_EXPANSIONIST_SETTLEMENT_CAP</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_MOD_CS_EXPANSIONIST_SETTLEMENT_CAP" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_SETTLEMENT_CAP">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_ELIGIBLE_CS_BONUS">
+				<Argument name="CityStateBonus">CITY_STATE_EXPANSIONIST_BONUS_MODERN_6</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">1</Argument>
+	</Modifier>
+	<Modifier id="MOD_CS_EXPANSIONIST_FOOD_ON_WAREHOUSE" collection="COLLECTION_MAJOR_PLAYERS" effect="EFFECT_ATTACH_MODIFIERS" owner-stack-limit="1">
+		<Argument name="ModifierId">ATTACH_MOD_CS_EXPANSIONIST_FOOD_ON_WAREHOUSE</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_MOD_CS_EXPANSIONIST_FOOD_ON_WAREHOUSE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_ELIGIBLE_CS_BONUS">
+				<Argument name="CityStateBonus">CITY_STATE_EXPANSIONIST_BONUS_MODERN_7</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Tag">WAREHOUSE</Argument>
+		<Argument name="YieldType">YIELD_FOOD</Argument>
+		<Argument name="Amount">1</Argument>
+		<String context="Preview">CITY_STATE_EXPANSIONIST_BONUS_MODERN_7_DESCRIPTION</String>
+	</Modifier>
+	<!-- Diplomatic -->
+	<Modifier id="MOD_CS_DIPLOMATIC_CIRCUS_FAIR" collection="COLLECTION_MAJOR_PLAYERS" effect="EFFECT_ATTACH_MODIFIERS">
+		<Argument name="ModifierId">ATTACH_CIRCUS_FAIR</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_CIRCUS_FAIR" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_CONSTRUCTIBLE_UNLOCK">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_ELIGIBLE_CS_BONUS">
+				<Argument name="CityStateBonus">CITY_STATE_DIPLOMATIC_BONUS_MODERN_1</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="ConstructibleType">IMPROVEMENT_CIRCUS_FAIR</Argument>
+	</Modifier>
+	<Modifier id="MOD_CS_DIPLOMATIC_CIRCUS_FAIR_INFLUENCE" collection="COLLECTION_MAJOR_PLAYERS" effect="EFFECT_ATTACH_MODIFIERS">
+		<Argument name="ModifierId">ATTACH_CIRCUS_FAIR_INFLUENCE</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_CIRCUS_FAIR_INFLUENCE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_CITY">
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="ConstructibleType">IMPROVEMENT_CIRCUS_FAIR</Argument>
+		<Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+		<Argument name="Amount">1</Argument>
+	</Modifier>
+	<Modifier id="MOD_CS_DIPLOMATIC_IDEOLOGICAL_REVOLT_ACTION" collection="COLLECTION_MAJOR_PLAYERS" effect="EFFECT_ATTACH_MODIFIERS" owner-stack-limit="1">
+		<Argument name="ModifierId">ATTACH_MOD_CS_DIPLOMATIC_IDEOLOGICAL_REVOLT_ACTION</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_MOD_CS_DIPLOMATIC_IDEOLOGICAL_REVOLT_ACTION" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_GRANT_DIPLOMATIC_ACTION">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_ELIGIBLE_CS_BONUS">
+				<Argument name="CityStateBonus">CITY_STATE_DIPLOMATIC_BONUS_MODERN_2</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="ActionType">DIPLOMACY_ACTION_ESPIONAGE_IDEOLOGICAL_REVOLT</Argument>
+	</Modifier>
+	<Modifier id="MOD_CS_DIPLOMATIC_HAPPINESS_ON_HAPPINESS_BUILDINGS" collection="COLLECTION_MAJOR_PLAYERS" effect="EFFECT_ATTACH_MODIFIERS" owner-stack-limit="1">
+		<Argument name="ModifierId">ATTACH_MOD_CS_DIPLOMATIC_HAPPINESS_ON_HAPPINESS_BUILDINGS</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_MOD_CS_DIPLOMATIC_HAPPINESS_ON_HAPPINESS_BUILDINGS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_ELIGIBLE_CS_BONUS">
+				<Argument name="CityStateBonus">CITY_STATE_DIPLOMATIC_BONUS_MODERN_3</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Tag">HAPPINESS</Argument>
+		<Argument name="YieldType">YIELD_HAPPINESS</Argument>
+		<Argument name="Amount">2</Argument>
+		<String context="Preview">CITY_STATE_DIPLOMATIC_BONUS_MODERN_3_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="MOD_CS_DIPLOMATIC_ADJUST_SANCTION_ENDEAVOR_EFFICIENCY_PER_DIPLOMATIC_SUZERAINED" collection="COLLECTION_MAJOR_PLAYERS" effect="EFFECT_ATTACH_MODIFIERS" owner-stack-limit="1">
+		<Argument name="ModifierId">ATTACH_MOD_CS_DIPLOMATIC_ADJUST_SANCTION_ENDEAVOR_EFFICIENCY_PER_DIPLOMATIC_SUZERAINED</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_MOD_CS_DIPLOMATIC_ADJUST_SANCTION_ENDEAVOR_EFFICIENCY_PER_DIPLOMATIC_SUZERAINED" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_ADJUST_DIPLOMATIC_ACTION_TYPE_EFFICIENCY_PER_SUZERAINED_CITY_STATE_TYPE">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_ELIGIBLE_CS_BONUS">
+				<Argument name="CityStateBonus">CITY_STATE_DIPLOMATIC_BONUS_MODERN_4</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="ActionGroupType">DIPLOMACY_ACTION_GROUP_SANCTION, DIPLOMACY_ACTION_GROUP_ENDEAVOR</Argument>
+		<Argument name="Percent">20</Argument>
+		<Argument name="CityStateType">DIPLOMATIC</Argument>
+		<String context="Preview">CITY_STATE_DIPLOMATIC_BONUS_MODERN_4_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="MOD_CS_DIPLOMATIC_ADJUST_ESPIONAGE_EFFICIENCY_PER_DIPLOMATIC_SUZERAINED" collection="COLLECTION_MAJOR_PLAYERS" effect="EFFECT_ATTACH_MODIFIERS" owner-stack-limit="1">
+		<Argument name="ModifierId">ATTACH_MOD_CS_DIPLOMATIC_ADJUST_ESPIONAGE_EFFICIENCY_PER_DIPLOMATIC_SUZERAINED</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_MOD_CS_DIPLOMATIC_ADJUST_ESPIONAGE_EFFICIENCY_PER_DIPLOMATIC_SUZERAINED" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_ADJUST_DIPLOMATIC_ACTION_TYPE_EFFICIENCY_PER_SUZERAINED_CITY_STATE_TYPE">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_ELIGIBLE_CS_BONUS">
+				<Argument name="CityStateBonus">CITY_STATE_DIPLOMATIC_BONUS_MODERN_5</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="ActionGroupType">DIPLOMACY_ACTION_GROUP_ESPIONAGE</Argument>
+		<Argument name="Percent">20</Argument>
+		<Argument name="CityStateType">DIPLOMATIC</Argument>
+		<String context="Preview">CITY_STATE_DIPLOMATIC_BONUS_MODERN_5_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="MOD_CS_DIPLOMATIC_ADJUST_ESPIONAGE_EFFICIENCY_COMPLETE_SPEED" collection="COLLECTION_MAJOR_PLAYERS" effect="EFFECT_ATTACH_MODIFIERS" owner-stack-limit="1">
+		<Argument name="ModifierId">ATTACH_MOD_CS_DIPLOMATIC_ADJUST_ESPIONAGE_EFFICIENCY_COMPLETE_SPEED</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_MOD_CS_DIPLOMATIC_ADJUST_ESPIONAGE_EFFICIENCY_COMPLETE_SPEED" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_DIPLOMACY_ACTION_GROUP_MOD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_ELIGIBLE_CS_BONUS">
+				<Argument name="CityStateBonus">CITY_STATE_DIPLOMATIC_BONUS_MODERN_5</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="ActionGroup">DIPLOMACY_ACTION_GROUP_ESPIONAGE</Argument>
+		<Argument name="Percent">25</Argument>
+		<String context="Preview">CITY_STATE_DIPLOMATIC_BONUS_MODERN_5_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="MOD_CS_DIPLOMATIC_POLICY_SLOT" collection="COLLECTION_MAJOR_PLAYERS" effect="EFFECT_ATTACH_MODIFIERS" owner-stack-limit="1">
+		<Argument name="ModifierId">ATTACH_MOD_CS_DIPLOMATIC_POLICY_SLOT</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_MOD_CS_DIPLOMATIC_POLICY_SLOT" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_TRADITION_SLOTS">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_ELIGIBLE_CS_BONUS">
+				<Argument name="CityStateBonus">CITY_STATE_DIPLOMATIC_BONUS_MODERN_6</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">1</Argument>
+	</Modifier>
+	<Modifier id="MOD_CS_DIPLOMATIC_HAPPINESS_ON_WAREHOUSE" collection="COLLECTION_MAJOR_PLAYERS" effect="EFFECT_ATTACH_MODIFIERS" owner-stack-limit="1">
+		<Argument name="ModifierId">ATTACH_MOD_CS_DIPLOMATIC_HAPPINESS_ON_WAREHOUSE</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_MOD_CS_DIPLOMATIC_HAPPINESS_ON_WAREHOUSE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_ELIGIBLE_CS_BONUS">
+				<Argument name="CityStateBonus">CITY_STATE_DIPLOMATIC_BONUS_MODERN_7</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Tag">WAREHOUSE</Argument>
+		<Argument name="YieldType">YIELD_HAPPINESS</Argument>
+		<Argument name="Amount">1</Argument>
+		<String context="Preview">CITY_STATE_DIPLOMATIC_BONUS_MODERN_7_DESCRIPTION</String>
+	</Modifier>
+</GameEffects>

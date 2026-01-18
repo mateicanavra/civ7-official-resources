@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Resources>
+		<Update>
+			<Where ResourceType="RESOURCE_TIN"/>
+			<Set ResourceClassType="RESOURCECLASS_FACTORY"/>
+		</Update>
+		<Update>
+			<Where ResourceType="RESOURCE_FISH"/>
+			<Set IsPendingGenerationUpdate="true"/>
+		</Update>
+		<Update>
+			<Where ResourceType="RESOURCE_WHALES"/>
+			<Set IsPendingGenerationUpdate="true"/>
+		</Update>
+	</Resources>
+	<GameModifiers>
+		<Row ModifierId="MOD_RICE_CITY_PERCENT_FOOD"/>
+		<Row ModifierId="MOD_LIMESTONE_BUILDING_PRODUCTION"/>
+		<Row ModifierId="MOD_TIN_GROWTH_PERCENT"/>
+		<Row ModifierId="MOD_LLAMAS_CITY_FLAT_PRODUCTION"/>
+		<Row ModifierId="MOD_LLAMAS_CITY_FLAT_HAPPINESS"/>
+		<Row ModifierId="MOD_HARDWOOD_CIVILIAN_PRODUCTION"/>
+		<Row ModifierId="MOD_CRABS_WAREHOUSE_FOOD"/>
+		<Row ModifierId="MOD_COWRIE_CITY_FLAT_GOLD"/>
+		<Row ModifierId="MOD_COWRIE_TOWN_FLAT_SCIENCE"/>
+		<Row ModifierId="MOD_PITCH_FACTORY_PRODUCTION"/>
+		<Row ModifierId="MOD_PITCH_FACTORY_PRODUCTION_EFFICIENCY"/>
+	</GameModifiers>
+	<ModifierMetadatas>
+		<Row ModifierId="MOD_RICE_CITY_PERCENT_FOOD" FieldName="ResourceType" String="RESOURCE_RICE"/>
+		<Row ModifierId="MOD_LIMESTONE_BUILDING_PRODUCTION" FieldName="ResourceType" String="RESOURCE_LIMESTONE"/>
+		<Row ModifierId="MOD_TIN_GROWTH_PERCENT" FieldName="ResourceType" String="RESOURCE_TIN"/>
+		<Row ModifierId="MOD_LLAMAS_CITY_FLAT_PRODUCTION" FieldName="ResourceType" String="RESOURCE_LLAMAS"/>
+		<Row ModifierId="MOD_LLAMAS_CITY_FLAT_HAPPINESS" FieldName="ResourceType" String="RESOURCE_LLAMAS"/>
+		<Row ModifierId="MOD_HARDWOOD_CIVILIAN_PRODUCTION" FieldName="ResourceType" String="RESOURCE_HARDWOOD"/>
+		<Row ModifierId="MOD_CRABS_WAREHOUSE_FOOD" FieldName="ResourceType" String="RESOURCE_CRABS"/>
+		<Row ModifierId="MOD_COWRIE_CITY_FLAT_GOLD" FieldName="ResourceType" String="RESOURCE_COWRIE"/>
+		<Row ModifierId="MOD_COWRIE_TOWN_FLAT_SCIENCE" FieldName="ResourceType" String="RESOURCE_COWRIE"/>
+		<Row ModifierId="MOD_PITCH_FACTORY_PRODUCTION" FieldName="ResourceType" String="RESOURCE_PITCH"/>
+		<Row ModifierId="MOD_PITCH_FACTORY_PRODUCTION_EFFICIENCY" FieldName="ResourceType" String="RESOURCE_PITCH"/>
+	</ModifierMetadatas>
+	<Tags>
+		<Row Tag="OCEAN_TILES_ELIGIBLE" Category="RESOURCE_TAG"/>
+	</Tags>
+	<TypeTags>
+		<Row Type="RESOURCE_FISH" Tag="OCEAN_TILES_ELIGIBLE"/>
+		<Row Type="RESOURCE_WHALES" Tag="OCEAN_TILES_ELIGIBLE"/>
+		<Row Type="RESOURCE_RICE" Tag="FOOD"/>
+		<Row Type="RESOURCE_LIMESTONE" Tag="PRODUCTION"/>
+		<Row Type="RESOURCE_TIN" Tag="FOOD"/>
+		<Row Type="RESOURCE_LLAMAS" Tag="PRODUCTION"/>
+		<Row Type="RESOURCE_LLAMAS" Tag="HAPPINESS"/>
+		<Row Type="RESOURCE_HARDWOOD" Tag="PRODUCTION"/>
+		<Row Type="RESOURCE_CRABS" Tag="FOOD"/>
+		<Row Type="RESOURCE_COWRIE" Tag="GOLD"/>
+		<Row Type="RESOURCE_COWRIE" Tag="SCIENCE"/>
+		<Row Type="RESOURCE_PITCH" Tag="PRODUCTION"/>
+	</TypeTags>
+	<Resource_ValidBiomes>
+		<Row ResourceType="RESOURCE_FISH" BiomeType="BIOME_MARINE" TerrainType="TERRAIN_OCEAN"/>
+		<Row ResourceType="RESOURCE_WHALES" BiomeType="BIOME_MARINE" TerrainType="TERRAIN_OCEAN"/>
+	</Resource_ValidBiomes>
+</Database>

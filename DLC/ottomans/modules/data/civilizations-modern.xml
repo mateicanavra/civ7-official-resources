@@ -1,0 +1,128 @@
+<Database>
+	<Types>
+		<!-- Major Civs -->
+		<Row Type="TRAIT_OTTOMANS_ABILITY" Kind="KIND_TRAIT" />
+	</Types>
+	<Kinds>
+		<InsertOrIgnore KIND="KIND_TRAIT" />
+	</Kinds>
+	<Civilizations>
+		<!-- Full Civs -->
+		<Row CivilizationType="CIVILIZATION_OTTOMANS" Name="LOC_CIVILIZATION_OTTOMANS_NAME" FullName="LOC_CIVILIZATION_OTTOMANS_FULLNAME" Description="LOC_CIVILIZATION_OTTOMANS_DESCRIPTION" Adjective="LOC_CIVILIZATION_OTTOMANS_ADJECTIVE" StartingCivilizationLevelType="CIVILIZATION_LEVEL_FULL_CIV" UniqueCultureProgressionTree="TREE_CIVICS_MO_OTTOMANS" CapitalName="LOC_CITY_NAME_OTTOMANS1" RandomCityNameDepth="10" />
+	</Civilizations>
+	<CivilizationFavoredWonders>
+		<Row CivilizationType="CIVILIZATION_OTTOMANS" FavoredWonderType="WONDER_SULTANAHMET_CAMII" FavoredWonderName="LOC_WONDER_SULTANAHMET_CAMII_NAME" />
+	</CivilizationFavoredWonders>
+	<Traits>
+		<!--Civ Traits-->
+		<Row TraitType="TRAIT_OTTOMANS_ABILITY" Name="LOC_TRAIT_OTTOMANS_ABILITY_NAME" Description="LOC_TRAIT_OTTOMANS_ABILITY_DESCRIPTION" InternalOnly="true" />
+	</Traits>
+	<TraitModifiers>
+		<Row TraitType="TRAIT_OTTOMANS_ABILITY" ModifierId="MOD_CIV_OTTOMAN_ARTIFACTS" />
+		<Row TraitType="TRAIT_OTTOMANS_ABILITY" ModifierId="MOD_CIV_OTTOMAN_COMBAT" />
+		<Row TraitType="TRAIT_OTTOMANS_ABILITY" ModifierId="MOD_REVEAL_CIV_CULTURE_TREE_OTTOMANS" />
+		<Row TraitType="TRAIT_OTTOMANS_ABILITY" ModifierId="MOD_CIV_WONDER_PRODUCTION_OTTOMANS" />
+	</TraitModifiers>
+	<CivilizationTraits>
+		<Row CivilizationType="CIVILIZATION_OTTOMANS" TraitType="TRAIT_MODERN_CIV" />
+		<Row CivilizationType="CIVILIZATION_OTTOMANS" TraitType="TRAIT_OTTOMANS" />
+		<Row CivilizationType="CIVILIZATION_OTTOMANS" TraitType="TRAIT_OTTOMANS_ABILITY" />
+		<Row CivilizationType="CIVILIZATION_OTTOMANS" TraitType="TRAIT_ATTRIBUTE_CULTURAL" />
+		<Row CivilizationType="CIVILIZATION_OTTOMANS" TraitType="TRAIT_ATTRIBUTE_MILITARISTIC" />
+	</CivilizationTraits>
+	<RequirementSets>
+		<Row RequirementSetId="REQSET_PLAYER_IS_OTTOMANS" RequirementSetType="REQUIREMENTSET_TEST_ALL" />
+	</RequirementSets>
+	<RequirementSetRequirements>
+		<Row RequirementSetId="REQSET_PLAYER_IS_OTTOMANS" RequirementId="REQ_PLAYER_HAS_TRAIT_OTTOMANS" />
+	</RequirementSetRequirements>
+	<Requirements>
+		<Row RequirementId="REQ_PLAYER_HAS_TRAIT_OTTOMANS" RequirementType="REQUIREMENT_PLAYER_HAS_CIVILIZATION_OR_LEADER_TRAIT" />
+	</Requirements>
+	<RequirementArguments>
+		<Row RequirementId="REQ_PLAYER_HAS_TRAIT_OTTOMANS" Name="TraitType" Value="TRAIT_OTTOMANS" />
+	</RequirementArguments>
+	<LeaderCivPriorities>
+		<!--This is the table used for AI, the UI uses LeaderCivilizationBias in config.xml-->
+		<Row Leader="LEADER_IBN_BATTUTA" Civilization="CIVILIZATION_OTTOMANS" Priority="2" />
+	</LeaderCivPriorities>
+	<CityNames>
+		<!--Shawnee-->
+		<Row CivilizationType="CIVILIZATION_OTTOMANS" CityName="LOC_CITY_NAME_OTTOMANS1" />
+		<Row CivilizationType="CIVILIZATION_OTTOMANS" CityName="LOC_CITY_NAME_OTTOMANS2" />
+		<Row CivilizationType="CIVILIZATION_OTTOMANS" CityName="LOC_CITY_NAME_OTTOMANS3" />
+		<Row CivilizationType="CIVILIZATION_OTTOMANS" CityName="LOC_CITY_NAME_OTTOMANS4" />
+		<Row CivilizationType="CIVILIZATION_OTTOMANS" CityName="LOC_CITY_NAME_OTTOMANS5" />
+		<Row CivilizationType="CIVILIZATION_OTTOMANS" CityName="LOC_CITY_NAME_OTTOMANS6" />
+		<Row CivilizationType="CIVILIZATION_OTTOMANS" CityName="LOC_CITY_NAME_OTTOMANS7" />
+		<Row CivilizationType="CIVILIZATION_OTTOMANS" CityName="LOC_CITY_NAME_OTTOMANS8" />
+		<Row CivilizationType="CIVILIZATION_OTTOMANS" CityName="LOC_CITY_NAME_OTTOMANS9" />
+		<Row CivilizationType="CIVILIZATION_OTTOMANS" CityName="LOC_CITY_NAME_OTTOMANS10" />
+		<Row CivilizationType="CIVILIZATION_OTTOMANS" CityName="LOC_CITY_NAME_OTTOMANS11" />
+		<Row CivilizationType="CIVILIZATION_OTTOMANS" CityName="LOC_CITY_NAME_OTTOMANS12" />
+		<Row CivilizationType="CIVILIZATION_OTTOMANS" CityName="LOC_CITY_NAME_OTTOMANS13" />
+		<Row CivilizationType="CIVILIZATION_OTTOMANS" CityName="LOC_CITY_NAME_OTTOMANS14" />
+		<Row CivilizationType="CIVILIZATION_OTTOMANS" CityName="LOC_CITY_NAME_OTTOMANS15" />
+		<Row CivilizationType="CIVILIZATION_OTTOMANS" CityName="LOC_CITY_NAME_OTTOMANS16" />
+		<Row CivilizationType="CIVILIZATION_OTTOMANS" CityName="LOC_CITY_NAME_OTTOMANS17" />
+		<Row CivilizationType="CIVILIZATION_OTTOMANS" CityName="LOC_CITY_NAME_OTTOMANS18" />
+		<Row CivilizationType="CIVILIZATION_OTTOMANS" CityName="LOC_CITY_NAME_OTTOMANS19" />
+		<Row CivilizationType="CIVILIZATION_OTTOMANS" CityName="LOC_CITY_NAME_OTTOMANS20" />
+		<Row CivilizationType="CIVILIZATION_OTTOMANS" CityName="LOC_CITY_NAME_OTTOMANS21" />
+		<Row CivilizationType="CIVILIZATION_OTTOMANS" CityName="LOC_CITY_NAME_OTTOMANS22" />
+		<Row CivilizationType="CIVILIZATION_OTTOMANS" CityName="LOC_CITY_NAME_OTTOMANS23" />
+		<Row CivilizationType="CIVILIZATION_OTTOMANS" CityName="LOC_CITY_NAME_OTTOMANS24" />
+		<Row CivilizationType="CIVILIZATION_OTTOMANS" CityName="LOC_CITY_NAME_OTTOMANS25" />
+		<Row CivilizationType="CIVILIZATION_OTTOMANS" CityName="LOC_CITY_NAME_OTTOMANS26" />
+		<Row CivilizationType="CIVILIZATION_OTTOMANS" CityName="LOC_CITY_NAME_OTTOMANS27" />
+		<Row CivilizationType="CIVILIZATION_OTTOMANS" CityName="LOC_CITY_NAME_OTTOMANS28" />
+		<Row CivilizationType="CIVILIZATION_OTTOMANS" CityName="LOC_CITY_NAME_OTTOMANS29" />
+		<Row CivilizationType="CIVILIZATION_OTTOMANS" CityName="LOC_CITY_NAME_OTTOMANS30" />
+	</CityNames>
+	<VisArt_CivilizationBuildingCultures>
+		<Row CivilizationType="CIVILIZATION_OTTOMANS" BuildingCulture="BUILDING_CULTURE_MID" />
+		<Row CivilizationType="CIVILIZATION_OTTOMANS" BuildingCulture="ANT_MUD" />
+		<Row CivilizationType="CIVILIZATION_OTTOMANS" BuildingCulture="EXP_MUD" />
+		<Row CivilizationType="CIVILIZATION_OTTOMANS" BuildingCulture="MOD_MUD" />
+	</VisArt_CivilizationBuildingCultures>
+	<VisArt_CivilizationUnitCultures>
+		<Row CivilizationType="CIVILIZATION_OTTOMANS" UnitCulture="MidE" />
+	</VisArt_CivilizationUnitCultures>
+	<AiListTypes>
+		<Row ListType="Ottomans Unit Biases" />
+		<Row ListType="Ottomans Constructibles Biases" />
+		<Row ListType="Ottomans PseudoYield Biases" />
+	</AiListTypes>
+	<AiLists>
+		<Row ListType="Ottomans Unit Biases" LeaderType="TRAIT_OTTOMANS" System="UnitBiases" />
+		<Row ListType="Ottomans Constructibles Biases" LeaderType="TRAIT_OTTOMANS" System="ConstructibleBiases" />
+		<Row ListType="Ottomans PseudoYield Biases" LeaderType="TRAIT_OTTOMANS" System="PseudoYieldBiases" />
+	</AiLists>
+	<AiFavoredItems>
+		<Row ListType="Ottomans Unit Biases" Item="UNIT_JANISSARY" Value="50" />
+		<Row ListType="Ottomans Unit Biases" Item="UNIT_JANISSARY_2" Value="50" />
+		<Row ListType="Ottomans Unit Biases" Item="UNIT_JANISSARY_3" Value="50" />
+		<Row ListType="Ottomans Unit Biases" Item="UNIT_BARBARY_CORSAIR" Value="50" />
+		<Row ListType="Ottomans Unit Biases" Item="UNIT_BARBARY_CORSAIR_2" Value="50" />
+		<Row ListType="Ottomans Unit Biases" Item="UNIT_BARBARY_CORSAIR_3" Value="50" />
+		<Row ListType="Ottomans Unit Biases" Item="UNIT_MORTAR" Value="25" />
+		<Row ListType="Ottomans Unit Biases" Item="UNIT_HEAVY_ARTILLERY" Value="25" />
+		<Row ListType="Ottomans Unit Biases" Item="UNIT_ASSAULT_GUN" Value="25" />
+		<Row ListType="Ottomans Constructibles Biases" Item="BUILDING_CAMII" Value="200" />
+		<Row ListType="Ottomans Constructibles Biases" Item="BUILDING_HAMMAM" Value="200" />
+		<Row ListType="Ottomans Constructibles Biases" Item="WONDER_SULTANAHMET_CAMII" Value="50" />
+		<Row ListType="Ottomans PseudoYield Biases" Item="PSEUDOYIELD_GREAT_WORK" Value="200" />
+	</AiFavoredItems>
+	<EndGameMovies>
+		<!-- Defeats (Civ Specific) -->
+		<Row DefeatType="DEFEAT_DEFAULT" CivilizationType="CIVILIZATION_OTTOMANS" Priority="450" MovieType="MOVIE_DEFEAT_OTTOMANS" />
+		<Row DefeatType="DEFEAT_RETIRE" CivilizationType="CIVILIZATION_OTTOMANS" Priority="440" MovieType="MOVIE_DEFEAT_OTTOMANS" />
+
+
+		<!-- Age Transition/Legacy Points Victory -->
+		<Row CivilizationType="CIVILIZATION_OTTOMANS" LastCompletedLegacyPath="LEGACY_PATH_MODERN_ECONOMIC" Priority="200" MovieType="MOVIE_CIVILIZATION_OTTOMANS_LEGACY_ECONOMIC" />
+		<Row CivilizationType="CIVILIZATION_OTTOMANS" LastCompletedLegacyPath="LEGACY_PATH_MODERN_MILITARY" Priority="200" MovieType="MOVIE_CIVILIZATION_OTTOMANS_LEGACY_MILITARY" />
+		<Row CivilizationType="CIVILIZATION_OTTOMANS" LastCompletedLegacyPath="LEGACY_PATH_MODERN_SCIENCE" Priority="200" MovieType="MOVIE_CIVILIZATION_OTTOMANS_LEGACY_SCIENCE" />
+		<Row CivilizationType="CIVILIZATION_OTTOMANS" LastCompletedLegacyPath="LEGACY_PATH_MODERN_CULTURE" Priority="200" MovieType="MOVIE_CIVILIZATION_OTTOMANS_LEGACY_CULTURE" />
+	</EndGameMovies>
+</Database>

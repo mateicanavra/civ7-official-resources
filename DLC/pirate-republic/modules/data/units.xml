@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Types>
+		<!--Civ Unique Military-->
+		<Row Type="UNIT_SLOOP" Kind="KIND_UNIT"/>
+		<Row Type="UNIT_SLOOP_2" Kind="KIND_UNIT"/>
+		<Row Type="UNIT_SLOOP_3" Kind="KIND_UNIT"/>
+		<!--Civ Unique Civilian-->
+		<Row Type="UNIT_BUCCANEER" Kind="KIND_UNIT"/>
+		<!--Civ Unique Abilities-->
+		<Row Type="ABILITY_BUCCANEER" Kind="KIND_ABILITY"/>
+	</Types>
+	<Units>
+		<!--Civ Unique Military-->
+		<Row UnitType="UNIT_SLOOP" Name="LOC_UNIT_SLOOP_NAME" Description="LOC_UNIT_SLOOP_DESCRIPTION" Tier="1" Maintenance="4" BaseSightRange="2" BaseMoves="5" UnitMovementClass="UNIT_MOVEMENT_CLASS_NAVAL" Domain="DOMAIN_SEA" CoreClass="CORE_CLASS_MILITARY" FormationClass="FORMATION_CLASS_NAVAL" ZoneOfControl="true" TraitType="TRAIT_PIRATE_REPUBLIC"/>
+		<Row UnitType="UNIT_SLOOP_2" Name="LOC_UNIT_SLOOP_NAME" Description="LOC_UNIT_SLOOP_2_DESCRIPTION" Tier="2" Maintenance="6" BaseSightRange="2" BaseMoves="5" UnitMovementClass="UNIT_MOVEMENT_CLASS_NAVAL" Domain="DOMAIN_SEA" CoreClass="CORE_CLASS_MILITARY" FormationClass="FORMATION_CLASS_NAVAL" ZoneOfControl="true" TraitType="TRAIT_PIRATE_REPUBLIC"/>
+		<Row UnitType="UNIT_SLOOP_3" Name="LOC_UNIT_SLOOP_NAME" Description="LOC_UNIT_SLOOP_3_DESCRIPTION" Tier="3" Maintenance="8" BaseSightRange="2" BaseMoves="5" UnitMovementClass="UNIT_MOVEMENT_CLASS_NAVAL" Domain="DOMAIN_SEA" CoreClass="CORE_CLASS_MILITARY" FormationClass="FORMATION_CLASS_NAVAL" ZoneOfControl="true" TraitType="TRAIT_PIRATE_REPUBLIC"/>
+		<!--Civ Unique Civilian-->
+		<Row UnitType="UNIT_BUCCANEER" Name="LOC_UNIT_BUCCANEER_NAME" Description="LOC_UNIT_BUCCANEER_DESCRIPTION" BaseSightRange="2" BaseMoves="3" UnitMovementClass="UNIT_MOVEMENT_CLASS_NAVAL" Domain="DOMAIN_SEA" CoreClass="CORE_CLASS_SUPPORT" FormationClass="FORMATION_CLASS_COMMAND" ZoneOfControl="true" CostProgressionModel="COST_PROGRESSION_PREVIOUS_COPIES" CanEarnExperience="true" CostProgressionParam1="240" TraitType="TRAIT_PIRATE_REPUBLIC" PromotionClass="PROMOTION_CLASS_NAVAL_COMMANDER"/>
+	</Units>
+	<Unit_Stats>
+		<!--Civ Unique Military-->
+		<Row UnitType="UNIT_SLOOP" Combat="30" RangedCombat="5" Bombard="5" Range="1"/>
+		<Row UnitType="UNIT_SLOOP_2" Combat="35" RangedCombat="10" Bombard="10" Range="1"/>
+		<Row UnitType="UNIT_SLOOP_3" Combat="40" RangedCombat="15" Bombard="15" Range="1"/>
+		<!--Civ Unique Civilian-->
+		<Row UnitType="UNIT_BUCCANEER"/>
+	</Unit_Stats>
+	<Unit_Costs>
+		<!--Civ Unique Military-->
+		<Row UnitType="UNIT_SLOOP" YieldType="YIELD_PRODUCTION" Cost="130"/>
+		<Row UnitType="UNIT_SLOOP_2" YieldType="YIELD_PRODUCTION" Cost="150"/>
+		<Row UnitType="UNIT_SLOOP_3" YieldType="YIELD_PRODUCTION" Cost="200"/>
+		<!--Civ Unique Civilian-->
+		<Row UnitType="UNIT_BUCCANEER" YieldType="YIELD_PRODUCTION" Cost="120"/>
+	</Unit_Costs>
+	<UnitReplaces>
+		<!--Civ Unique Military-->
+		<Row CivUniqueUnitType="UNIT_SLOOP_2" ReplacesUnitType="UNIT_PRIVATEER"/>
+		<Row CivUniqueUnitType="UNIT_SLOOP_3" ReplacesUnitType="UNIT_PRIVATEER_2"/>
+		<!--Civ Unique Civilian-->
+		<Row CivUniqueUnitType="UNIT_BUCCANEER" ReplacesUnitType="UNIT_FLEET_COMMANDER"/>
+	</UnitReplaces>
+	<UnitUpgrades>
+		<Row Unit="UNIT_SLOOP" UpgradeUnit="UNIT_SLOOP_2"/>
+		<Row Unit="UNIT_SLOOP_2" UpgradeUnit="UNIT_SLOOP_3"/>
+	</UnitUpgrades>
+	<Unit_TransitionRetains>
+		<Row UnitType="UNIT_BUCCANEER"/>
+	</Unit_TransitionRetains>
+	<Tags>
+		<!--Civ Unique Military-->
+		<Row Tag="UNIT_CLASS_SLOOP" Category="UNIT_CLASS"/>
+		<!--Civ Unique Civilian-->
+		<Row Tag="UNIT_CLASS_BUCCANEER" Category="UNIT_CLASS"/>
+	</Tags>
+	<TypeTags>
+		<!--Civ Unique Military-->
+		<Row Type="UNIT_SLOOP" Tag="UNIT_CLASS_COMBAT"/>
+		<Row Type="UNIT_SLOOP" Tag="UNIT_CLASS_MELEE"/>
+		<Row Type="UNIT_SLOOP" Tag="UNIT_CLASS_NAVAL"/>
+		<Row Type="UNIT_SLOOP" Tag="UNIT_CLASS_LIGHT"/>
+		<Row Type="UNIT_SLOOP" Tag="UNIT_CLASS_PRIVATEER"/>
+		<Row Type="UNIT_SLOOP" Tag="UNIT_CLASS_SKIRMISH"/>
+		<Row Type="UNIT_SLOOP" Tag="UNIT_CLASS_IGNORES_BORDERS"/>
+		<Row Type="UNIT_SLOOP" Tag="UNIT_CLASS_PLUNDER_TRADE_ROUTES_BETWEEN_OTHER_CIVS"/>
+		<Row Type="UNIT_SLOOP" Tag="UNIT_CLASS_SLOOP"/>
+		<Row Type="UNIT_SLOOP_2" Tag="UNIT_CLASS_COMBAT"/>
+		<Row Type="UNIT_SLOOP_2" Tag="UNIT_CLASS_MELEE"/>
+		<Row Type="UNIT_SLOOP_2" Tag="UNIT_CLASS_NAVAL"/>
+		<Row Type="UNIT_SLOOP_2" Tag="UNIT_CLASS_LIGHT"/>
+		<Row Type="UNIT_SLOOP_2" Tag="UNIT_CLASS_AUTOEXPLORE"/>
+		<Row Type="UNIT_SLOOP_2" Tag="UNIT_CLASS_SKIRMISH"/>
+		<Row Type="UNIT_SLOOP_2" Tag="UNIT_CLASS_PRIVATEER"/>
+		<Row Type="UNIT_SLOOP_2" Tag="UNIT_CLASS_IGNORES_BORDERS"/>
+		<Row Type="UNIT_SLOOP_2" Tag="UNIT_CLASS_PLUNDER_TRADE_ROUTES_BETWEEN_OTHER_CIVS"/>
+		<Row Type="UNIT_SLOOP_2" Tag="UNIT_CLASS_SLOOP"/>
+		<Row Type="UNIT_SLOOP_3" Tag="UNIT_CLASS_COMBAT"/>
+		<Row Type="UNIT_SLOOP_3" Tag="UNIT_CLASS_MELEE"/>
+		<Row Type="UNIT_SLOOP_3" Tag="UNIT_CLASS_NAVAL"/>
+		<Row Type="UNIT_SLOOP_3" Tag="UNIT_CLASS_LIGHT"/>
+		<Row Type="UNIT_SLOOP_3" Tag="UNIT_CLASS_AUTOEXPLORE"/>
+		<Row Type="UNIT_SLOOP_3" Tag="UNIT_CLASS_SKIRMISH"/>
+		<Row Type="UNIT_SLOOP_3" Tag="UNIT_CLASS_PRIVATEER"/>
+		<Row Type="UNIT_SLOOP_3" Tag="UNIT_CLASS_IGNORES_BORDERS"/>
+		<Row Type="UNIT_SLOOP_3" Tag="UNIT_CLASS_PLUNDER_TRADE_ROUTES_BETWEEN_OTHER_CIVS"/>
+		<Row Type="UNIT_SLOOP_3" Tag="UNIT_CLASS_SLOOP"/>
+		<!--Civ Unique Civilian-->
+		<Row Type="UNIT_BUCCANEER" Tag="UNIT_CLASS_COMMAND"/>
+		<Row Type="UNIT_BUCCANEER" Tag="UNIT_CLASS_FLEET_COMMANDER"/>
+		<Row Type="UNIT_BUCCANEER" Tag="UNIT_CLASS_BUCCANEER"/>
+		<Row Type="UNIT_BUCCANEER" Tag="UNIT_CLASS_NAVAL"/>
+	</TypeTags>
+	<UnitClass_Abilities>
+		<Row UnitAbilityType="ABILITY_SLOOP" UnitClassType="UNIT_CLASS_SLOOP"/>
+		<Row UnitAbilityType="ABILITY_BUCCANEER" UnitClassType="UNIT_CLASS_BUCCANEER"/>
+	</UnitClass_Abilities>
+	<UnitAbilities>
+		<Row UnitAbilityType="ABILITY_SLOOP" Name="LOC_UNIT_SLOOP_NAME" Description="LOC_ABILITY_SLOOP_DESCRIPTION"/>
+		<Row UnitAbilityType="ABILITY_BUCCANEER" Name="LOC_UNIT_BUCCANEER_NAME" Description="LOC_ABILITY_BUCCANEER_DESCRIPTION"/>
+	</UnitAbilities>
+	<UnitAbilityModifiers>
+		<Row UnitAbilityType="ABILITY_SLOOP" ModifierId="SLOOP_MOD_MOVE_AFTER_ATTACK"/>
+		<Row UnitAbilityType="ABILITY_BUCCANEER" ModifierId="BUCCANEER_MOD_GRANT_RAIDING_PARTY_CHARGE"/>
+	</UnitAbilityModifiers>
+	<Unit_Advisories>
+		<Row UnitType="UNIT_SLOOP" AdvisoryClassType="ADVISORY_CLASS_MILITARY"/>
+		<Row UnitType="UNIT_SLOOP_2" AdvisoryClassType="ADVISORY_CLASS_MILITARY"/>
+		<Row UnitType="UNIT_BUCCANEER" AdvisoryClassType="ADVISORY_CLASS_MILITARY"/>
+		<Row UnitType="UNIT_BUCCANEER" AdvisoryClassType="ADVISORY_CLASS_ECONOMIC"/>
+	</Unit_Advisories>
+</Database>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+	<!-- ==================================================	-->
+	<!--	ANTIQUITY							-->
+	<!-- ==================================================	-->
+	<!-- Silla -->
+	<Modifier id="BEOPSEONG_MOD_RESOURCE_HAPPINESS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_ATTACH_MODIFIERS">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_TOWN"/>
+			<Requirement type="REQUIREMENT_CITY_HAS_BUILDING">
+				<Argument name="Tag">HAPPINESS</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="ModifierId">BEOPSEONG_MOD_RESOURCE_HAPPINESS_EFFECT</Argument>
+		<String context="Description">LOC_TRADITION_BEOPSEONG_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="BEOPSEONG_MOD_RESOURCE_HAPPINESS_EFFECT" collection="COLLECTION_CITY_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_RESOURCE_VISIBLE"></Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_HAPPINESS</Argument>
+		<Argument name="Amount">2</Argument>
+	</Modifier>
+  <Modifier id="STRATEGIC_ALLIES_MOD_ALLIANCE_ROUTE_YIELDS" collection="COLLECTION_OWNER" effect="EFFECT_ADJUST_PLAYER_ALLIANCE_TRADE">
+    <Argument name="YieldTypeSelf">YIELD_FOOD,YIELD_PRODUCTION</Argument>
+    <Argument name="SelfPercent">100</Argument>
+    <Argument name="YieldTypeOther">YIELD_FOOD,YIELD_PRODUCTION</Argument>
+    <Argument name="OtherPercent">100</Argument>
+    <Argument name="Tooltip">LOC_TRADITION_STRATEGIC_ALLIES_NAME</Argument>
+    <String context="Description">LOC_TRADITION_STRATEGIC_ALLIES_DESCRIPTION</String>
+  </Modifier>
+  <Modifier id="GOLDEN_ROAD_MOD_IMPORTED_RESOURCE_SCIENCE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD_PER_RESOURCE">
+		<Argument name="YieldType">YIELD_SCIENCE</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Imported">true</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_THE_GOLDEN_ROAD_NAME</Argument>
+		<String context="Description">LOC_TRADITION_THE_GOLDEN_ROAD_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="SEORABEOL_MOD_TRADING_POST_GOLD" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_RESOURCE">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_HAS_PROJECT">
+				<Argument name="ProjectType">PROJECT_TOWN_TRADE</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_GOLD</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="PercentMultiplier">false</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_SEORABEOL_NAME</Argument>
+		<String context="Description">LOC_TRADITION_SEORABEOL_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="SEORABEOL_MOD_TRADING_POST_INFLUENCE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_RESOURCE">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_HAS_PROJECT">
+				<Argument name="ProjectType">PROJECT_TOWN_TRADE</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+		<Argument name="PercentMultiplier">false</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_SEORABEOL_NAME</Argument>
+	</Modifier>
+</GameEffects>

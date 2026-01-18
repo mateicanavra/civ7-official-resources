@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Types>
+		<!-- Major Civs -->
+		<Row Type="TRAIT_OTTOMANS" Kind="KIND_TRAIT"/>
+		<Row Type="CIVILIZATION_OTTOMANS" Kind="KIND_CIVILIZATION"/>
+	</Types>
+	<LegacyCivilizations>
+		<!-- Full Civs -->
+		<Row CivilizationType="CIVILIZATION_OTTOMANS" Name="LOC_CIVILIZATION_OTTOMANS_NAME" FullName="LOC_CIVILIZATION_OTTOMANS_FULLNAME" Adjective="LOC_CIVILIZATION_OTTOMANS_ADJECTIVE" Age="AGE_MODERN"/>
+	</LegacyCivilizations>
+	<LegacyCivilizationTraits>
+		<Row CivilizationType="CIVILIZATION_OTTOMANS" TraitType="TRAIT_OTTOMANS"/>
+	</LegacyCivilizationTraits>
+	<Traits>
+		<Row TraitType="TRAIT_OTTOMANS" InternalOnly="true"/>
+	</Traits>
+	<LegacyLeaderCivPriorities>
+	</LegacyLeaderCivPriorities>
+	<LegacyIndependents>
+		<Update>
+			<Where IndependentType="INDEPENDENT_EXPLORATION_34"/>
+			<Set Name="LOC_INDEPENDENT_EXPLORATION_34_MAJOR_OTTOMANS_NAME"/>
+		</Update>
+	</LegacyIndependents>
+</Database>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Types>
+		<!--Civ Unique Buildings-->
+		<Row Type="BUILDING_CAMII" Kind="KIND_CONSTRUCTIBLE"/>
+		<Row Type="BUILDING_HAMMAM" Kind="KIND_CONSTRUCTIBLE"/>
+		<Row Type="QUARTER_KULLIYE" Kind="KIND_QUARTER"/>
+		<!--Wonders-->
+		<Row Type="WONDER_SULTANAHMET_CAMII" Kind="KIND_CONSTRUCTIBLE"/>
+	</Types>
+	<TypeQuotes>
+		<Row Type="WONDER_SULTANAHMET_CAMII" Quote="LOC_QUOTE_WONDER_SULTANAHMET_CAMII" QuoteAuthor="LOC_QUOTE_AUTHOR_WONDER_SULTANAHMET_CAMII" QuoteAudio="VO_Quote_SultanahmetCamii"/>
+	</TypeQuotes>
+	<Constructibles>
+		<!--Civ Unique Buildings-->
+		<Row ConstructibleType="BUILDING_CAMII" Name="LOC_BUILDING_CAMII_NAME" Description="LOC_BUILDING_CAMII_DESCRIPTION" Tooltip="LOC_BUILDING_CAMII_TOOLTIP" ConstructibleClass="BUILDING" Cost="650" Population="1" Age="AGE_MODERN" CostProgressionModel="COST_PROGRESSION_PREVIOUS_BUILDINGS_CITY"/>
+		<Row ConstructibleType="BUILDING_HAMMAM" Name="LOC_BUILDING_HAMMAM_NAME" Description="LOC_BUILDING_HAMMAM_DESCRIPTION" Tooltip="LOC_BUILDING_HAMMAM_TOOLTIP" ConstructibleClass="BUILDING" Cost="650" Population="1" Age="AGE_MODERN" CostProgressionModel="COST_PROGRESSION_PREVIOUS_BUILDINGS_CITY"/>
+		<!--Wonders-->
+		<Row ConstructibleType="WONDER_SULTANAHMET_CAMII" Name="LOC_WONDER_SULTANAHMET_CAMII_NAME" Description="LOC_WONDER_SULTANAHMET_CAMII_DESCRIPTION" Tooltip="LOC_WONDER_SULTANAHMET_CAMII_TOOLTIP" ConstructibleClass="WONDER" AdjacentDistrict="DISTRICT_WONDER" Cost="1000" Population="0" ImmuneDamage="true" Age="AGE_MODERN" RequiresUnlock="true"/>
+	</Constructibles>
+	<Buildings>
+		<!-- Civ Unique Buildings -->
+		<Row ConstructibleType="BUILDING_CAMII" Movable="false" TraitType="TRAIT_OTTOMANS"/>
+		<Row ConstructibleType="BUILDING_HAMMAM" Movable="false" TraitType="TRAIT_OTTOMANS"/>
+	</Buildings>
+	<Wonders>
+		<Row ConstructibleType="WONDER_SULTANAHMET_CAMII" MaxWorldInstances="1"/>
+	</Wonders>
+	<TypeTags>
+		<Row Type="BUILDING_CAMII" Tag="CULTURE"/>
+		<Row Type="BUILDING_CAMII" Tag="UNIQUE"/>
+		<Row Type="BUILDING_CAMII" Tag="AGELESS"/>
+		<Row Type="BUILDING_HAMMAM" Tag="HAPPINESS"/>
+		<Row Type="BUILDING_HAMMAM" Tag="UNIQUE"/>
+		<Row Type="BUILDING_HAMMAM" Tag="AGELESS"/>
+		<Row Type="WONDER_SULTANAHMET_CAMII" Tag="AGELESS"/>
+	</TypeTags>
+	<Constructible_ValidDistricts>
+		<Row ConstructibleType="BUILDING_CAMII" DistrictType="DISTRICT_CITY_CENTER"/>
+		<Row ConstructibleType="BUILDING_CAMII" DistrictType="DISTRICT_URBAN"/>
+		<Row ConstructibleType="BUILDING_HAMMAM" DistrictType="DISTRICT_CITY_CENTER"/>
+		<Row ConstructibleType="BUILDING_HAMMAM" DistrictType="DISTRICT_URBAN"/>
+		<!--Wonders-->
+		<Row ConstructibleType="WONDER_SULTANAHMET_CAMII" DistrictType="DISTRICT_WONDER"/>
+	</Constructible_ValidDistricts>
+	<Constructible_YieldChanges>
+		<Row ConstructibleType="BUILDING_CAMII" YieldType="YIELD_CULTURE" YieldChange="9"/>
+		<Row ConstructibleType="BUILDING_HAMMAM" YieldType="YIELD_HAPPINESS" YieldChange="9"/>
+		<!--Wonders-->
+		<Row ConstructibleType="WONDER_SULTANAHMET_CAMII" YieldType="YIELD_HAPPINESS" YieldChange="4"/>
+	</Constructible_YieldChanges>
+	<Constructible_Maintenances>
+		<Row ConstructibleType="BUILDING_CAMII" YieldType="YIELD_GOLD" Amount="4"/>
+	</Constructible_Maintenances>
+	<Constructible_Adjacencies>
+		<Row ConstructibleType="BUILDING_CAMII" YieldChangeId="CamiiScienceBuildingHappiness"/>
+		<Row ConstructibleType="BUILDING_CAMII" YieldChangeId="WonderCulture"/>
+		<Row ConstructibleType="BUILDING_HAMMAM" YieldChangeId="HammamCultureBuildingGold"/>
+		<Row ConstructibleType="BUILDING_HAMMAM" YieldChangeId="WonderHappiness"/>
+	</Constructible_Adjacencies>
+	<Adjacency_YieldChanges>
+		<Row ID="CamiiScienceBuildingHappiness" YieldType="YIELD_HAPPINESS" YieldChange="1" TilesRequired="1" ProjectMaxYield="true" AdjacentConstructibleTag="SCIENCE"/>
+		<Row ID="HammamCultureBuildingGold" YieldType="YIELD_GOLD" YieldChange="1" TilesRequired="1" ProjectMaxYield="true" AdjacentConstructibleTag="CULTURE"/>
+	</Adjacency_YieldChanges>
+	<Constructible_Plunders>
+		<Row ConstructibleType="BUILDING_CAMII" PlunderType="PLUNDER_CULTURE" Amount="120"/>
+		<Row ConstructibleType="BUILDING_HAMMAM" PlunderType="PLUNDER_CULTURE" Amount="120"/>
+	</Constructible_Plunders>
+	<Constructible_BuildingCostProgressions>
+		<Row ConstructibleType="BUILDING_CAMII" Percent="5" />
+		<Row ConstructibleType="BUILDING_HAMMAM" Percent="5" />
+	</Constructible_BuildingCostProgressions>
+	<ConstructibleModifiers>
+		<!--Wonders-->
+		<Row ConstructibleType="WONDER_SULTANAHMET_CAMII" ModifierId="MOD_ALL_WONDERS_YIELDS"/>
+		<Row ConstructibleType="WONDER_SULTANAHMET_CAMII" ModifierId="MOD_ANTIQUITY_WONDER_YIELDS"/>
+		<Row ConstructibleType="WONDER_SULTANAHMET_CAMII" ModifierId="MOD_EXPLORATION_WONDER_YIELDS"/>
+	</ConstructibleModifiers>
+	<GameModifiers>
+		<!-- Unique Quarter modifiers are game-wide -->
+		<Row ModifierId="MOD_OTTOMANS_KULLIYE_CULTURE_SPECIALISTS"/>
+		<Row ModifierId="MOD_OTTOMANS_KULLIYE_GOLD_SPECIALISTS"/>
+	</GameModifiers>
+	<UniqueQuarters>
+		<Row UniqueQuarterType="QUARTER_KULLIYE" BuildingType1="BUILDING_CAMII" BuildingType2="BUILDING_HAMMAM" Name="LOC_QUARTER_KULLIYE_NAME" Description="LOC_QUARTER_KULLIYE_DESCRIPTION" Tooltip="LOC_QUARTER_KULLIYE_TOOLTIP" TraitType="TRAIT_OTTOMANS"/>
+	</UniqueQuarters>
+	<!-- These are listed here so the AI can evalutate Unique Quarters. They do not have any effects on the game for human players. -->
+	<UniqueQuarterModifiers>
+		<Row UniqueQuarterType="QUARTER_KULLIYE" ModifierId="MOD_OTTOMANS_KULLIYE_CULTURE_SPECIALISTS"/>
+		<Row UniqueQuarterType="QUARTER_KULLIYE" ModifierId="MOD_OTTOMANS_KULLIYE_GOLD_SPECIALISTS"/>
+	</UniqueQuarterModifiers>
+	<Constructible_Advisories>
+		<Row ConstructibleType="BUILDING_CAMII" AdvisoryClassType="ADVISORY_CLASS_CULTURE"/>
+		<Row ConstructibleType="BUILDING_CAMII" AdvisoryClassType="ADVISORY_CLASS_HAPPINESS"/>
+		<Row ConstructibleType="BUILDING_HAMMAM" AdvisoryClassType="ADVISORY_CLASS_ECONOMIC"/>
+		<Row ConstructibleType="BUILDING_HAMMAM" AdvisoryClassType="ADVISORY_CLASS_HAPPINESS"/>
+		<Row ConstructibleType="WONDER_SULTANAHMET_CAMII" AdvisoryClassType="ADVISORY_CLASS_ECONOMIC"/>
+		<Row ConstructibleType="WONDER_SULTANAHMET_CAMII" AdvisoryClassType="ADVISORY_CLASS_CULTURE"/>
+	</Constructible_Advisories>
+</Database>

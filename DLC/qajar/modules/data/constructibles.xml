@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Types>
+		<!--Civ Unique Buildings-->
+		<Row Type="BUILDING_GHAHVE_KHANE" Kind="KIND_CONSTRUCTIBLE"/>
+		<Row Type="BUILDING_TAKYEH" Kind="KIND_CONSTRUCTIBLE"/>
+		<Row Type="QUARTER_BAQ" Kind="KIND_QUARTER"/>
+		<!--Wonders-->
+		<Row Type="WONDER_ERAM_GARDEN" Kind="KIND_CONSTRUCTIBLE"/>
+	</Types>
+	<TypeQuotes>
+		<Row Type="WONDER_ERAM_GARDEN" Quote="LOC_QUOTE_WONDER_ERAM_GARDEN" QuoteAuthor="LOC_QUOTE_AUTHOR_WONDER_ERAM_GARDEN" QuoteAudio="VO_Quote_EramGarden"/>
+	</TypeQuotes>
+	<Constructibles>
+		<!--Civ Unique Buildings-->
+		<Row ConstructibleType="BUILDING_GHAHVE_KHANE" Name="LOC_BUILDING_GHAHVE_KHANE_NAME" Description="LOC_BUILDING_GHAHVE_KHANE_DESCRIPTION" Tooltip="LOC_BUILDING_GHAHVE_KHANE_TOOLTIP" ConstructibleClass="BUILDING" Cost="600" Population="1" Age="AGE_MODERN" CostProgressionModel="COST_PROGRESSION_PREVIOUS_BUILDINGS_CITY"/>
+		<Row ConstructibleType="BUILDING_TAKYEH" Name="LOC_BUILDING_TAKYEH_NAME" Description="LOC_BUILDING_TAKYEH_DESCRIPTION" Tooltip="LOC_BUILDING_TAKYEH_TOOLTIP" ConstructibleClass="BUILDING" Cost="600" Population="1" Age="AGE_MODERN" CostProgressionModel="COST_PROGRESSION_PREVIOUS_BUILDINGS_CITY"/>
+		<!--Wonders-->
+		<Row ConstructibleType="WONDER_ERAM_GARDEN" Name="LOC_WONDER_ERAM_GARDEN_NAME" Description="LOC_WONDER_ERAM_GARDEN_DESCRIPTION" Tooltip="LOC_WONDER_ERAM_GARDEN_TOOLTIP" ConstructibleClass="WONDER" Cost="1000" Population="0" ImmuneDamage="true" Age="AGE_MODERN" RequiresUnlock="true" />
+	</Constructibles>
+	<Buildings>
+		<!-- Civ Unique Buildings -->
+		<Row ConstructibleType="BUILDING_GHAHVE_KHANE" Movable="false" TraitType="TRAIT_QAJAR"/>
+		<Row ConstructibleType="BUILDING_TAKYEH" Movable="false" TraitType="TRAIT_QAJAR"/>
+	</Buildings>
+	<Wonders>
+		<Row ConstructibleType="WONDER_ERAM_GARDEN" MaxWorldInstances="1"/>
+	</Wonders>
+	<Constructible_ValidBiomes>
+		<Row ConstructibleType="WONDER_ERAM_GARDEN" BiomeType="BIOME_DESERT"/>
+	</Constructible_ValidBiomes>
+	<TypeTags>
+		<Row Type="BUILDING_GHAHVE_KHANE" Tag="FOOD"/>
+		<Row Type="BUILDING_GHAHVE_KHANE" Tag="AGELESS"/>
+		<Row Type="BUILDING_GHAHVE_KHANE" Tag="UNIQUE"/>
+		<Row Type="BUILDING_TAKYEH" Tag="AGELESS"/>
+		<Row Type="BUILDING_TAKYEH" Tag="HAPPINESS"/>
+		<Row Type="BUILDING_TAKYEH" Tag="UNIQUE"/>
+		<Row Type="WONDER_ERAM_GARDEN" Tag="AGELESS"/>
+	</TypeTags>
+	<Constructible_ValidDistricts>
+		<Row ConstructibleType="BUILDING_GHAHVE_KHANE" DistrictType="DISTRICT_CITY_CENTER"/>
+		<Row ConstructibleType="BUILDING_GHAHVE_KHANE" DistrictType="DISTRICT_URBAN"/>
+		<Row ConstructibleType="BUILDING_TAKYEH" DistrictType="DISTRICT_CITY_CENTER"/>
+		<Row ConstructibleType="BUILDING_TAKYEH" DistrictType="DISTRICT_URBAN"/>
+		<!--Wonders-->
+		<Row ConstructibleType="WONDER_ERAM_GARDEN" DistrictType="DISTRICT_WONDER"/>
+	</Constructible_ValidDistricts>
+	<Constructible_YieldChanges>
+		<Row ConstructibleType="BUILDING_GHAHVE_KHANE" YieldType="YIELD_FOOD" YieldChange="9"/>
+		<Row ConstructibleType="BUILDING_TAKYEH" YieldType="YIELD_HAPPINESS" YieldChange="9"/>
+		<!--Wonders-->
+		<Row ConstructibleType="WONDER_ERAM_GARDEN" YieldType="YIELD_FOOD" YieldChange="4"/>
+	</Constructible_YieldChanges>
+	<Constructible_Maintenances>
+		<Row ConstructibleType="BUILDING_GHAHVE_KHANE" YieldType="YIELD_GOLD" Amount="4"/>
+		<Row ConstructibleType="BUILDING_TAKYEH" YieldType="YIELD_GOLD" Amount="4"/>
+	</Constructible_Maintenances>
+	<Constructible_Adjacencies>
+		<Row ConstructibleType="BUILDING_GHAHVE_KHANE" YieldChangeId="GhahveKhanehHappinessGold"/>
+		<Row ConstructibleType="BUILDING_GHAHVE_KHANE" YieldChangeId="WonderHappiness"/>
+		<Row ConstructibleType="BUILDING_TAKYEH" YieldChangeId="TakyehDiplomacyCulture"/>
+		<Row ConstructibleType="BUILDING_TAKYEH" YieldChangeId="WonderDiplomacy"/>
+	</Constructible_Adjacencies>
+	<Adjacency_YieldChanges>
+		<Row ID="GhahveKhanehHappinessGold" YieldType="YIELD_HAPPINESS" YieldChange="1" TilesRequired="1" ProjectMaxYield="true" AdjacentConstructibleTag="GOLD"/>
+		<Row ID="TakyehDiplomacyCulture" YieldType="YIELD_DIPLOMACY" YieldChange="1" TilesRequired="1" ProjectMaxYield="true" AdjacentConstructibleTag="CULTURE"/>
+	</Adjacency_YieldChanges>
+	<Constructible_Plunders>
+		<Row ConstructibleType="BUILDING_GHAHVE_KHANE" PlunderType="PLUNDER_CULTURE" Amount="120"/>
+		<Row ConstructibleType="BUILDING_TAKYEH" PlunderType="PLUNDER_GOLD" Amount="120"/>
+	</Constructible_Plunders>
+	<Constructible_BuildingCostProgressions>
+		<Row ConstructibleType="BUILDING_GHAHVE_KHANE" Percent="5" />
+		<Row ConstructibleType="BUILDING_TAKYEH" Percent="5" />
+	</Constructible_BuildingCostProgressions>
+	<ConstructibleModifiers>
+		<!--Wonders-->
+		<Row ConstructibleType="WONDER_ERAM_GARDEN" ModifierId="MOD_ERAM_GARDEN_WORKER_CAP"/>
+	</ConstructibleModifiers>
+	<GameModifiers>
+		<!-- Unique Quarter modifiers are game-wide -->
+		<Row ModifierId="MOD_QAJAR_BAQ_CELEBRATION_YIELDS"/>
+	</GameModifiers>
+	<UniqueQuarters>
+		<Row UniqueQuarterType="QUARTER_BAQ" BuildingType1="BUILDING_GHAHVE_KHANE" BuildingType2="BUILDING_TAKYEH" Name="LOC_QUARTER_BAQ_NAME" Description="LOC_QUARTER_BAQ_DESCRIPTION" Tooltip="LOC_QUARTER_BAQ_TOOLTIP" TraitType="TRAIT_QAJAR"/>
+	</UniqueQuarters>
+	<!-- These are listed here so the AI can evalutate Unique Quarters. They do not have any effects on the game for human players. -->
+	<UniqueQuarterModifiers>
+		<Row UniqueQuarterType="QUARTER_BAQ" ModifierId="MOD_QAJAR_BAQ_CELEBRATION_YIELDS"/>
+	</UniqueQuarterModifiers>
+	<Constructible_Advisories>
+		<Row ConstructibleType="BUILDING_GHAHVE_KHANE" AdvisoryClassType="ADVISORY_CLASS_CULTURE"/>
+		<Row ConstructibleType="BUILDING_GHAHVE_KHANE" AdvisoryClassType="ADVISORY_CLASS_FOOD"/>
+		<Row ConstructibleType="BUILDING_GHAHVE_KHANE" AdvisoryClassType="ADVISORY_CLASS_HAPPINESS"/>
+		<Row ConstructibleType="BUILDING_TAKYEH" AdvisoryClassType="ADVISORY_CLASS_CULTURE"/>
+		<Row ConstructibleType="BUILDING_TAKYEH" AdvisoryClassType="ADVISORY_CLASS_HAPPINESS"/>
+		<Row ConstructibleType="BUILDING_TAKYEH" AdvisoryClassType="ADVISORY_CLASS_DIPLOMACY"/>
+		<Row ConstructibleType="WONDER_ERAM_GARDEN" AdvisoryClassType="ADVISORY_CLASS_FOOD"/>
+	</Constructible_Advisories>
+</Database>

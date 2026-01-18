@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Types>
+		<InsertOrIgnore Type="UNLOCK_CIVILIZATION_QAJAR" Kind="KIND_UNLOCK"/>
+	</Types>
+	<Unlocks>
+		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_QAJAR"/>
+	</Unlocks>
+	<UnlockRewards>
+		<Row UnlockType="UNLOCK_CIVILIZATION_QAJAR" Name="LOC_CIVILIZATION_QAJAR_NAME" Description="LOC_UNLOCK_MODERN_CIV_DESCRIPTION" Icon="CIVILIZATION_QAJAR" UnlockRewardType="CIVILIZATION_QAJAR" UnlockRewardKind="KIND_CIVILIZATION"/>
+	</UnlockRewards>
+	<RequirementSets>
+		<Row RequirementSetId="REQSET_LEADER_IS_XERXES_QAJAR" RequirementSetType="REQUIREMENTSET_TEST_ALL"/>
+		<Row RequirementSetId="REQSET_PLAYER_HAS_5_CITY_WORKERS" RequirementSetType="REQUIREMENTSET_TEST_ALL"/>
+	</RequirementSets>
+	<Requirements>
+		<Row RequirementId="REQ_PLAYER_HAS_5_CITY_WORKERS" RequirementType="REQUIREMENT_PLAYER_HAS_CITY_WITH_X_WORKERS"/>
+		<Row RequirementId="REQ_LEADER_IS_XERXES_QAJAR" RequirementType="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES"/>
+	</Requirements>
+	<RequirementArguments>
+		<Row RequirementId="REQ_PLAYER_HAS_5_CITY_WORKERS" Name="WorkerAmount" Value="5"/>
+		<Row RequirementId="REQ_PLAYER_HAS_5_CITY_WORKERS" Name="CityAmount" Value="1"/>
+		<Row RequirementId="REQ_LEADER_IS_XERXES_QAJAR" Name="LeaderType" Value="LEADER_XERXES"/>
+	</RequirementArguments>
+	<RequirementSetRequirements>
+		<Row RequirementSetId="REQSET_PLAYER_HAS_5_CITY_WORKERS" RequirementId="REQ_PLAYER_HAS_5_CITY_WORKERS"/>
+		<Row RequirementSetId="REQSET_PLAYER_HAS_5_CITY_WORKERS" RequirementId="REQ_AGE_IS_EXPLORATION"/>
+		<Row RequirementSetId="REQSET_LEADER_IS_XERXES_QAJAR" RequirementId="REQ_LEADER_IS_XERXES_QAJAR"/>
+	</RequirementSetRequirements>
+	<UnlockRequirements>
+		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_QAJAR" RequirementSetId="REQSET_LEADER_IS_XERXES_QAJAR" Description="LOC_UNLOCK_PLAY_AS_XERXES_DESCRIPTION" Tooltip="LOC_UNLOCK_PLAY_AS_XERXES_QAJAR_TOOLTIP"/>
+		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_QAJAR" RequirementSetId="REQSET_PLAYER_HAS_5_CITY_WORKERS" Description="LOC_UNLOCK_5_CITY_WORKERS_DESCRIPTION" Tooltip="LOC_UNLOCK_CITY_WORKERS_QAJAR_TOOLTIP" NarrativeText="LOC_UNLOCK_CITY_WORKERS_QAJAR_NARRATIVE"/>
+	</UnlockRequirements>
+	<UnlockConfigurationValues>
+		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_QAJAR" ConfigurationValue="CIVILIZATION_QAJAR"/>
+	</UnlockConfigurationValues>
+</Database>

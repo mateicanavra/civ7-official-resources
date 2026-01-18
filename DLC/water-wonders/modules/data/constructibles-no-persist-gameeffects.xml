@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+	<!-- Great Lighthouse -->
+	<Modifier id="MOD_GREAT_LIGHTHOUSE_MERCHANT" collection="COLLECTION_OWNER" effect="EFFECT_CITY_GRANT_UNIT" run-once="true" permanent="true">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_WONDER_IS_ACTIVE">
+				<Argument name="ConstructibleType">WONDER_GREAT_LIGHTHOUSE</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="UnitType">UNIT_MERCHANT</Argument>
+		<Argument name="Amount">1</Argument>
+	</Modifier>
+</GameEffects>

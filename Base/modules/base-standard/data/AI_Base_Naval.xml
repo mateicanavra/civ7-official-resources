@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Some AI naval operations for all ages, placed in a separate file to ease merging efforts - AWG-->
+<Database>
+	<AllowedOperations>
+		<Row ListType="Major Civ Operations" OperationDef="Coastal Defense" />
+		<Row ListType="Major Civ Operations" OperationDef="Naval City Assault"/>
+	</AllowedOperations>
+	<AiOperationDefs>
+		<Row OperationName="Coastal Defense" TargetType="TARGET_MY_COAST" BehaviorTree="Simple Coastal Defense" SelfStart="Fasle" Priority="3" MaxTargetDistInRegion="-1" MaxTargetDistInArea="30" MaxTargetDistInWorld="45" MinOddsOfSuccess="0.25" MustHaveUnits="2" />
+		<Row OperationName="Naval City Assault" TargetType="TARGET_ENEMY_CITY" MustBeCoastal="true" EnemyType="WAR" OperationType="NAVAL_ASSAULT" BehaviorTree="Simple City Assault" SelfStart="True" Priority="3" MaxTargetDistInRegion="-1" MaxTargetDistInArea="30" MaxTargetDistInWorld="-1" MinOddsOfSuccess="0.25" MustHaveUnits="5" />
+	</AiOperationDefs>
+	<AiTeams>
+		<Row TeamName="Naval Defense"/>
+		<Row TeamName="Naval Assault"/>
+	</AiTeams>
+	<AiOperationTeams>
+		<Row TeamName="Naval Defense" OperationName="Coastal Defense" InitialStrengthAdvantage="0" OngoingStrengthAdvantage="3" />
+		<Row TeamName="Naval Assault" OperationName="Naval City Assault" InitialStrengthAdvantage="1" OngoingStrengthAdvantage="3" />
+	</AiOperationTeams>
+	<OpTeamRequirements>
+		<Row TeamName="Naval Defense" ClassTag="UNIT_CLASS_FLEET_COMMANDER" MaxNumber="1"/>
+		<Row TeamName="Naval Defense" ClassTag="UNIT_CLASS_NAVAL" MinPercentage="1"/>
+		<Row TeamName="Naval Assault" ClassTag="UNIT_CLASS_FLEET_COMMANDER" MaxNumber="2" />
+		<Row TeamName="Naval Assault" ClassTag="UNIT_CLASS_NAVAL" MinPercentage="1" />
+		<Row TeamName="Naval Assault" ClassTag="UNIT_CLASS_COMBAT" MinNumber="2" />
+	</OpTeamRequirements>
+  <BehaviorTrees>
+		<Row TreeName="Simple Coastal Defense" />
+  </BehaviorTrees>
+  <BehaviorTreeNodes>
+    <Row NodeType="Concurrent" NodeId="0" TreeName="Simple Coastal Defense" JumpTo="6" />
+    <Row NodeType="Operation Recruit Units" NodeId="1" TreeName="Simple Coastal Defense" />
+    <Row NodeType="Operation Choose Coastal Target" NodeId="2" TreeName="Simple Coastal Defense" />
+    <Row NodeType="Operation Defend Units" NodeId="3" TreeName="Simple Coastal Defense" />
+    <Row NodeType="Operation Attack Units" NodeId="4" TreeName="Simple Coastal Defense" />
+    <Row NodeType="Operation Move Army" NodeId="5" TreeName="Simple Coastal Defense" />
+  </BehaviorTreeNodes>
+  <TreeData>
+    <Row DefnId="0" NodeId="1" TreeName="Simple Coastal Defense" DefaultData="true" />
+    <Row DefnId="3" NodeId="1" TreeName="Simple Coastal Defense" DefaultData="-1" />
+    <Row DefnId="4" NodeId="1" TreeName="Simple Coastal Defense" DefaultData="true" />
+    <Row DefnId="0" NodeId="3" TreeName="Simple Coastal Defense" DefaultData="true" />
+    <Row DefnId="1" NodeId="4" TreeName="Simple Coastal Defense" DefaultData="true" />
+    <Row DefnId="2" NodeId="4" TreeName="Simple Coastal Defense" DefaultData="true" />
+    <Row DefnId="0" NodeId="5" TreeName="Simple Coastal Defense" DefaultData="4" />
+  </TreeData>
+</Database>

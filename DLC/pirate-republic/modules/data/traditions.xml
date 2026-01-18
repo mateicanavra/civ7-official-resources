@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Types>
+		<!-- ==================================================	-->
+		<!--	EXPLORATION							-->
+		<!-- ==================================================	-->
+		<Row Type="TRADITION_PRESS_GANGS" Kind="KIND_TRADITION"/>
+		<Row Type="TRADITION_MERRY_LIFE_AND_A_SHORT_ONE" Kind="KIND_TRADITION"/>
+		<Row Type="TRADITION_BLACK_FLAG" Kind="KIND_TRADITION"/>
+	</Types>
+	<Traditions>
+		<!-- ==================================================	-->
+		<!--	EXPLORATION							-->
+		<!-- ==================================================	-->
+		<Row TraditionType="TRADITION_PRESS_GANGS" Name="LOC_TRADITION_PRESS_GANGS_NAME" Description="LOC_TRADITION_PRESS_GANGS_DESCRIPTION" TraitType="TRAIT_PIRATE_REPUBLIC" AgeType="AGE_EXPLORATION"/>
+		<Row TraditionType="TRADITION_MERRY_LIFE_AND_A_SHORT_ONE" Name="LOC_TRADITION_MERRY_LIFE_AND_A_SHORT_ONE_NAME" Description="LOC_TRADITION_MERRY_LIFE_AND_A_SHORT_ONE_DESCRIPTION" TraitType="TRAIT_PIRATE_REPUBLIC" AgeType="AGE_EXPLORATION"/>
+		<Row TraditionType="TRADITION_BLACK_FLAG" Name="LOC_TRADITION_BLACK_FLAG_NAME" Description="LOC_TRADITION_BLACK_FLAG_DESCRIPTION" TraitType="TRAIT_PIRATE_REPUBLIC" AgeType="AGE_EXPLORATION"/>
+	</Traditions>
+	<TraditionModifiers>
+		<Row TraditionType="TRADITION_PRESS_GANGS" ModifierId="PRESS_GANGS_PRODUCTION_NAVAL_UNITS_FOR_EACH_FLEET_COMMANDER"/>
+		<Row TraditionType="TRADITION_MERRY_LIFE_AND_A_SHORT_ONE" ModifierId="MERRY_LIFE_AND_A_SHORT_ONE_SUPPORT_UNIT_GOLD"/>
+		<Row TraditionType="TRADITION_MERRY_LIFE_AND_A_SHORT_ONE" ModifierId="MERRY_LIFE_AND_A_SHORT_ONE_NAVAL_UNIT_GOLD"/>
+		<Row TraditionType="TRADITION_BLACK_FLAG" ModifierId="BLACK_FLAG_PLUNDER"/>
+	</TraditionModifiers>
+</Database>

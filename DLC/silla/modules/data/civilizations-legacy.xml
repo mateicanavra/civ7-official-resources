@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Types>
+		<!-- Major Civs -->
+		<Row Type="TRAIT_SILLA" Kind="KIND_TRAIT"/>
+		<Row Type="CIVILIZATION_SILLA" Kind="KIND_CIVILIZATION"/>
+	</Types>
+	<LegacyCivilizations>
+		<!-- Full Civs -->
+		<Row CivilizationType="CIVILIZATION_SILLA" Name="LOC_CIVILIZATION_SILLA_NAME" FullName="LOC_CIVILIZATION_SILLA_FULLNAME" Adjective="LOC_CIVILIZATION_SILLA_ADJECTIVE" Age="AGE_ANTIQUITY"/>
+	</LegacyCivilizations>
+	<LegacyCivilizationTraits>
+		<Row CivilizationType="CIVILIZATION_SILLA" TraitType="TRAIT_SILLA"/>
+	</LegacyCivilizationTraits>
+	<Traits>
+		<Row TraitType="TRAIT_SILLA" InternalOnly="true"/>
+	</Traits>
+	<LegacyLeaderCivPriorities>
+	</LegacyLeaderCivPriorities>
+	<LegacyIndependents>
+		<Update>
+			<Where IndependentType="INDEPENDENT_ANTIQUITY_16"/>
+			<Set Name="LOC_INDEPENDENT_ANTIQUITY_16_MAJOR_SILLA_NAME"/>
+		</Update>
+	</LegacyIndependents>
+</Database>

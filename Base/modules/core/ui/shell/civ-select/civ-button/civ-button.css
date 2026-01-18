@@ -1,0 +1,42 @@
+/**
+Based on Robert Penner's easing equations
+@url http://robertpenner.com/easing/
+**/
+.civ-button-bg {
+  width: 5rem;
+  height: 5rem;
+  margin: 0.5555555556rem;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-image-slice: 16 fill;
+  border-image-source: url("fs://game/shell_thick-square.png");
+  border-image-width: 0.8888888889rem;
+}
+@media (max-height: 55.5555555556rem), (max-aspect-ratio: 3/2) {
+  .civ-button-bg {
+    margin: 0.2777777778rem;
+  }
+}
+
+.civ-button-icon {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: fxs-color-mask(white);
+}
+
+.civ-button-bg-focus {
+  border-image-source: url("fs://game/shell_thick-square-focus.png");
+}
+.civ-button-bg-focus .civ-button-icon {
+  filter: fxs-color-mask(black);
+}
+
+.civ-button-lock-icon {
+  display: none;
+}
+
+.civ-button-locked .civ-button-lock-icon {
+  display: inherit;
+}

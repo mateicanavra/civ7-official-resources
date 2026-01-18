@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Types>
+		<!--Civ Unique Buildings-->
+		<Row Type="BUILDING_LANGI" Kind="KIND_CONSTRUCTIBLE"/>
+		<Row Type="BUILDING_VAI_KAUKAU" Kind="KIND_CONSTRUCTIBLE"/>
+		<Row Type="QUARTER_TOFI_A" Kind="KIND_QUARTER"/>
+	</Types>
+	<Constructibles>
+		<!--Civ Unique Buildings-->
+		<Row ConstructibleType="BUILDING_LANGI" Name="LOC_BUILDING_LANGI_NAME" Description="LOC_BUILDING_LANGI_DESCRIPTION" Tooltip="LOC_BUILDING_LANGI_TOOLTIP" ConstructibleClass="BUILDING" Cost="90" Population="1" Age="AGE_ANTIQUITY" CostProgressionModel="COST_PROGRESSION_PREVIOUS_BUILDINGS_CITY"/>
+		<Row ConstructibleType="BUILDING_VAI_KAUKAU" Name="LOC_BUILDING_VAI_KAUKAU_NAME" Description="LOC_BUILDING_VAI_KAUKAU_DESCRIPTION" Tooltip="LOC_BUILDING_VAI_KAUKAU_TOOLTIP" ConstructibleClass="BUILDING" Cost="120" Population="1" Age="AGE_ANTIQUITY" CostProgressionModel="COST_PROGRESSION_PREVIOUS_BUILDINGS_CITY"/>
+	</Constructibles>
+	<Buildings>
+		<!--Civ Unique Buildings-->
+		<Row ConstructibleType="BUILDING_LANGI" Movable="false" TraitType="TRAIT_TONGA"/>
+		<Row ConstructibleType="BUILDING_VAI_KAUKAU" Movable="false" TraitType="TRAIT_TONGA"/>
+	</Buildings>
+
+	<TypeTags>
+		<Row Type="BUILDING_LANGI" Tag="CULTURE"/>
+		<Row Type="BUILDING_LANGI" Tag="UNIQUE"/>
+		<Row Type="BUILDING_LANGI" Tag="AGELESS"/>
+		<Row Type="BUILDING_VAI_KAUKAU" Tag="HAPPINESS"/>
+		<Row Type="BUILDING_VAI_KAUKAU" Tag="UNIQUE"/>
+		<Row Type="BUILDING_VAI_KAUKAU" Tag="AGELESS"/>
+	</TypeTags>
+	<Constructible_ValidDistricts>
+		<!--Civ Unique Buildings-->
+		<Row ConstructibleType="BUILDING_LANGI" DistrictType="DISTRICT_CITY_CENTER"/>
+		<Row ConstructibleType="BUILDING_LANGI" DistrictType="DISTRICT_URBAN"/>
+		<Row ConstructibleType="BUILDING_VAI_KAUKAU" DistrictType="DISTRICT_CITY_CENTER"/>
+		<Row ConstructibleType="BUILDING_VAI_KAUKAU" DistrictType="DISTRICT_URBAN"/>
+		<!--Wonders-->
+	</Constructible_ValidDistricts>
+	<Constructible_YieldChanges>
+		<!--Civ Unique Buildings-->
+		<Row ConstructibleType="BUILDING_LANGI" YieldType="YIELD_CULTURE" YieldChange="3"/>
+		<Row ConstructibleType="BUILDING_VAI_KAUKAU" YieldType="YIELD_HAPPINESS" YieldChange="3"/>
+	</Constructible_YieldChanges>
+	<Constructible_Maintenances>
+		<Row ConstructibleType="BUILDING_LANGI" YieldType="YIELD_HAPPINESS" Amount="2"/>
+		<Row ConstructibleType="BUILDING_LANGI" YieldType="YIELD_GOLD" Amount="2"/>
+		<Row ConstructibleType="BUILDING_VAI_KAUKAU" YieldType="YIELD_GOLD" Amount="2"/>
+	</Constructible_Maintenances>
+	<Constructible_Adjacencies>
+		<Row ConstructibleType="BUILDING_LANGI" YieldChangeId="LangiResourceFood"/>
+		<Row ConstructibleType="BUILDING_LANGI" YieldChangeId="WonderFood"/>
+		<Row ConstructibleType="BUILDING_VAI_KAUKAU" YieldChangeId="VaiKaukauCulture"/>
+		<Row ConstructibleType="BUILDING_VAI_KAUKAU" YieldChangeId="WonderCulture"/>
+	</Constructible_Adjacencies>
+	<Warehouse_YieldChanges>
+		<Row ID="TakuakaFishingBoatProduction" Age="AGE_ANTIQUITY" YieldType="YIELD_PRODUCTION" YieldChange="1" ConstructibleInCity="IMPROVEMENT_FISHING_BOAT_RESOURCE"/>
+		<Row ID="TakuakaAtollProduction" Age="AGE_ANTIQUITY" YieldType="YIELD_PRODUCTION" YieldChange="1" FeatureInCity="FEATURE_ATOLL"/>
+		<Row ID="TakuakaLotusProduction" Age="AGE_ANTIQUITY" YieldType="YIELD_PRODUCTION" YieldChange="1" FeatureInCity="FEATURE_LOTUS"/>
+		<Row ID="TakuakaReefProduction" Age="AGE_ANTIQUITY" YieldType="YIELD_PRODUCTION" YieldChange="1" FeatureInCity="FEATURE_REEF"/>
+		<Row ID="TakuakaColdReefProduction" Age="AGE_ANTIQUITY" YieldType="YIELD_PRODUCTION" YieldChange="1" FeatureInCity="FEATURE_COLD_REEF"/>
+		<Row ID="TakuakaCoastProduction" Age="AGE_ANTIQUITY" YieldType="YIELD_PRODUCTION" YieldChange="1" TerrainInCity="TERRAIN_COAST"/>
+		<Row ID="TakuakaNavigableRiverProduction" Age="AGE_ANTIQUITY" YieldType="YIELD_PRODUCTION" YieldChange="1" NavigableRiverInCity="true"/>
+		<Row ID="TakuakaReefScience" Age="AGE_ANTIQUITY" YieldType="YIELD_SCIENCE" YieldChange="2" FeatureInCity="FEATURE_REEF"/>
+		<Row ID="TakuakaColdReefScience" Age="AGE_ANTIQUITY" YieldType="YIELD_SCIENCE" YieldChange="2" FeatureInCity="FEATURE_COLD_REEF"/>
+	</Warehouse_YieldChanges>
+	<Adjacency_YieldChanges>
+		<Row ID="LangiResourceFood" YieldType="YIELD_FOOD" YieldChange="1" TilesRequired="1" AdjacentResource="true"/>
+		<Row ID="VaiKaukauCulture" YieldType="YIELD_CULTURE" YieldChange="1" TilesRequired="1" ProjectMaxYield="true" AdjacentTerrain="TERRAIN_COAST"/>
+	</Adjacency_YieldChanges>
+	<Constructible_Plunders>
+		<!--Civ Unique Buildings-->
+		<Row ConstructibleType="BUILDING_LANGI" PlunderType="PLUNDER_HEAL" Amount="30"/>
+		<Row ConstructibleType="BUILDING_VAI_KAUKAU" PlunderType="PLUNDER_HEAL" Amount="30"/>
+	</Constructible_Plunders>
+	<Constructible_BuildingCostProgressions>
+		<Row ConstructibleType="BUILDING_LANGI" Percent="5" />
+		<Row ConstructibleType="BUILDING_VAI_KAUKAU" Percent="5" />
+	</Constructible_BuildingCostProgressions>
+	<UniqueQuarters>
+		<Row UniqueQuarterType="QUARTER_TOFI_A" BuildingType1="BUILDING_LANGI" BuildingType2="BUILDING_VAI_KAUKAU" Name="LOC_QUARTER_TOFI_A_NAME" Description="LOC_QUARTER_TOFI_A_DESCRIPTION" Tooltip="LOC_QUARTER_TOFI_A_TOOLTIP" TraitType="TRAIT_TONGA"/>
+	</UniqueQuarters>
+	<GameModifiers>
+		<Row ModifierId="MOD_TONGA_TOFI_A_CULTURE"/>
+	</GameModifiers>
+	<UniqueQuarterModifiers>
+		<!--Civ Unique Buildings-->
+		<Row UniqueQuarterType="QUARTER_TOFI_A" ModifierId="MOD_TONGA_TOFI_A_CULTURE"/>
+	</UniqueQuarterModifiers>
+	<Constructible_Advisories>
+		<Row ConstructibleType="BUILDING_LANGI" AdvisoryClassType="ADVISORY_CLASS_CULTURE"/>
+		<Row ConstructibleType="BUILDING_LANGI" AdvisoryClassType="ADVISORY_CLASS_FOOD"/>
+		<Row ConstructibleType="BUILDING_VAI_KAUKAU" AdvisoryClassType="ADVISORY_CLASS_HAPPINESS"/>
+		<Row ConstructibleType="BUILDING_VAI_KAUKAU" AdvisoryClassType="ADVISORY_CLASS_CULTURE"/>
+	</Constructible_Advisories>
+</Database>

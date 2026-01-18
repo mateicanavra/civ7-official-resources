@@ -1,0 +1,164 @@
+.tutorial-inspector {
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  right: 0;
+  top: 1.7777777778rem;
+  z-index: 998;
+  min-width: 20vw;
+  min-height: 20vh;
+  width: auto;
+  height: 80vh;
+  width: 30vw;
+  overflow-y: auto;
+  font-size: calc(1rem + -0.3333333333rem);
+}
+.tutorial-inspector .minusplus-button {
+  width: 1.7777777778rem;
+  height: 1.7777777778rem;
+  position: absolute;
+  right: 1.7777777778rem;
+  pointer-events: auto;
+  background-size: 3rem;
+}
+.tutorial-inspector .minusplus-button__shadow {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: 3rem;
+}
+.tutorial-inspector .minusplus-button__bg,
+.tutorial-inspector .minusplus-button__highlight,
+.tutorial-inspector .minusplus-button__icon,
+.tutorial-inspector .minusplus-button__overlay {
+  background-size: 3rem;
+}
+
+.ti__item-id {
+  color: #f0f0f0;
+  font-weight: 500;
+  width: 10rem;
+}
+
+.ti__item-status {
+  width: 3.4444444444rem;
+  text-align: center;
+}
+
+.ti__item-hidden {
+  flex: auto;
+  text-align: center;
+}
+
+.ti__item-toggle {
+  width: 3.3333333333rem;
+}
+
+.tutorial-inspector-item {
+  z-index: 1;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  pointer-events: auto;
+  padding: 0.1111111111rem 0rem;
+}
+.tutorial-inspector-item > .caption {
+  pointer-events: none;
+  z-index: 1;
+  color: rgb(209, 181, 133);
+  margin: 0rem 0.1111111111rem 0rem 0.1111111111rem;
+  font-size: calc(1rem + -0.3333333333rem);
+  overflow-wrap: break-word;
+}
+.tutorial-inspector-item > .fxs-switch {
+  z-index: 1;
+  margin: 0 1em 0 1em;
+}
+.tutorial-inspector-item:hover.disabled > .caption {
+  color: rgb(155, 151, 153);
+}
+.tutorial-inspector-item:hover.disabled .bg-container {
+  background-color: #4f4e4d;
+}
+.tutorial-inspector-item:hover > .caption {
+  color: rgb(39, 37, 38);
+}
+.tutorial-inspector-item:hover > .button {
+  color: rgb(39, 37, 38);
+}
+.tutorial-inspector-item:hover > .bg-container {
+  background-color: #ffe4b8;
+}
+.tutorial-inspector-item:active .bg-container, .tutorial-inspector-item.pressed .bg-container {
+  filter: coh-color-matrix(1, 0, 0, 0, 0, 0, 0.8941176471, 0, 0, 0, 0, 0, 0.7215686275, 0, 0, 0, 0, 0, 1, 0);
+}
+.tutorial-inspector-item.disabled > .caption {
+  color: rgb(155, 151, 153);
+}
+.tutorial-inspector-item.disabled > .bg-container {
+  background-color: rgb(39, 37, 38);
+}
+.tutorial-inspector-item.disabled > .icon-container > .icon {
+  filter: fxs-color-mask(rgb(79, 78, 77));
+}
+.tutorial-inspector-item.disabled > .icon-container > .bg {
+  filter: fxs-color-mask(rgb(39, 37, 38));
+}
+.tutorial-inspector-item.disabled > .icon-container > .outline {
+  filter: fxs-color-mask(rgb(79, 78, 77));
+}
+.tutorial-inspector-item > .bg-container {
+  pointer-events: none;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  position: absolute;
+  display: flex;
+}
+
+.ti__button {
+  pointer-events: auto;
+  position: relative;
+  width: 5rem;
+  font-size: calc(1rem + -0.2222222222rem);
+  padding: 0.0555555556rem 0.0555555556rem;
+  margin: 0.0555555556rem 0.1111111111rem;
+  border: 0.0555555556rem solid rgb(130, 112, 85);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+.ti__button:hover {
+  color: rgb(44, 42, 43);
+  background-color: rgb(120, 98, 74);
+}
+.ti__button:active, .ti__button.pressed {
+  color: rgb(44, 42, 43);
+  background-color: rgb(204, 188, 163);
+}
+
+.ti__item-state_button {
+  pointer-events: auto;
+  position: relative;
+  width: 1.1111111111rem;
+  font-size: calc(1rem + -0.2222222222rem);
+  padding: 0.0555555556rem 0.1111111111rem;
+  margin: 0.0555555556rem 0.6666666667rem 0.0555555556rem 0.0555555556rem;
+  border: 0.0555555556rem solid rgb(130, 112, 85);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+.ti__item-state_button:hover {
+  color: rgb(44, 42, 43);
+  background-color: rgb(120, 98, 74);
+}
+.ti__item-state_button:active, .ti__item-state_button.pressed {
+  color: rgb(44, 42, 43);
+  background-color: rgb(204, 188, 163);
+}

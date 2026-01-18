@@ -1,0 +1,11 @@
+{
+	"AppOptions": [
+		{ "Section": "Debug", "Name": "CopyDatabasesToDisk", "Value": 1 },
+		{ "Section": "Debug", "Name": "EnableAsserts", "Value": 0 }
+	],
+	"Scripts": [
+		"fs://game/base-standard/ui/automation/automation-test-support.js",
+		"fs://game/base-standard/ui/automation/automation-test-save-runtime-database.js"
+	],
+	"Tests": ["Tests=( { Test=SaveRuntimeDatabase, Turns=1, MapScript=continents.js }, { Test=QuitApp } )"]
+}

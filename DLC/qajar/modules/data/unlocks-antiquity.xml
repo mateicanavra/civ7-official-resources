@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Types>
+		<InsertOrIgnore Type="UNLOCK_CIVILIZATION_QAJAR" Kind="KIND_UNLOCK"/>
+	</Types>
+	<Unlocks>
+		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_QAJAR"/>
+	</Unlocks>
+	<UnlockRewards>
+		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_QAJAR" Name="LOC_CIVILIZATION_QAJAR_NAME" Description="LOC_UNLOCK_EXPLORATION_CIV_DESCRIPTION" Icon="CIVILIZATION_QAJAR" UnlockRewardType="CIVILIZATION_QAJAR" UnlockRewardKind="KIND_CIVILIZATION"/>
+	</UnlockRewards>
+	<UnlockRequirements>
+		<Row UnlockType="UNLOCK_CIVILIZATION_QAJAR" RequirementSetId="REQSET_CIV_IS_PERSIA" Description="LOC_UNLOCK_PLAY_AS_PERSIA_DESCRIPTION" Tooltip="LOC_UNLOCK_PLAY_AS_PERSIA_QAJAR_TOOLTIP"/>
+	</UnlockRequirements>
+	<UnlockConfigurationValues>
+		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_QAJAR" ConfigurationValue="CIVILIZATION_QAJAR"/>
+	</UnlockConfigurationValues>
+</Database>

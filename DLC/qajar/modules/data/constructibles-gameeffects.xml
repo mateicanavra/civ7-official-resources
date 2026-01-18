@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+	<Modifier id="MOD_QAJAR_BAQ_CELEBRATION_YIELDS" collection="COLLECTION_ALL_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_HAS_UNIQUE_QUARTER">
+				<Argument name="UniqueQuarterType">QUARTER_BAQ</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_PLAYER_IS_IN_GOLDEN_AGE"/>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_CULTURE, YIELD_DIPLOMACY</Argument>
+		<Argument name="Percent">10</Argument>
+		<Argument name="Tooltip">LOC_QUARTER_BAQ_NAME</Argument>
+	</Modifier>
+	<!-- Eram Garden-->
+	<Modifier id="MOD_ERAM_GARDEN_WORKER_CAP" collection="COLLECTION_OWNER" effect="EFFECT_CITY_ADJUST_WORKER_CAP">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_WONDER_IS_ACTIVE">
+				<Argument name="ConstructibleType">WONDER_ERAM_GARDEN</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">1</Argument>
+	</Modifier>
+</GameEffects>

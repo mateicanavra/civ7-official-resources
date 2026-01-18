@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+	<!-- ==================================================	-->
+	<!--				Advanced Starts						-->
+	<!-- ==================================================	-->
+	<Modifier id="TRAIT_MOD_ADVANCED_START_FREE_ARMY" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_ADVANCED_START_ADD_ARMY" permanent="true" run-once="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_IS_AGE_COUNT">
+				<Argument name="AgeCount">1</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_PLAYER_CARD_EFFECTS_COMPLETE"/>
+		</OwnerRequirements>
+		<Argument name="ArmyID">1</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_ADVANCED_START_MEET_PLAYERS" collection="COLLECTION_OWNER" effect="EFFECT_ADVANCED_START_MEET_PLAYERS" permanent="true" run-once="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_IS_AGE_COUNT">
+				<Argument name="AgeCount">1</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_PLAYER_CARD_EFFECTS_COMPLETE"/>
+		</OwnerRequirements>
+		<Argument name="HomelandsOnly">false</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_ADVANCED_START_GOLD" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD" permanent="true" run-once="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_IS_AGE_COUNT">
+				<Argument name="AgeCount">1</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Amount">2000</Argument>
+		<Argument name="YieldType">YIELD_GOLD</Argument>
+		<Argument name="Scale">true</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_ADVANCED_START_INFLUENCE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD" permanent="true" run-once="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_IS_AGE_COUNT">
+				<Argument name="AgeCount">1</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Amount">120</Argument>
+		<Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+		<Argument name="Scale">true</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_ADVANCED_START_ATTRIBUTES" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ATTRIBUTE" permanent="true" run-once="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_IS_AGE_COUNT">
+				<Argument name="AgeCount">1</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="AttributeType">ATTRIBUTE_WILDCARD</Argument>
+		<Argument name="Amount">6</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_DEFAULT_YIELD_15" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD" permanent="true">
+		<Argument name="YieldType">YIELD_GOLD</Argument>
+		<Argument name="Amount">15</Argument>
+		<Argument name="Tooltip">LOC_DEFAULT_YIELD</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_DEFAULT_YIELD_30" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD" permanent="true">
+		<Argument name="YieldType">YIELD_SCIENCE,YIELD_CULTURE,YIELD_DIPLOMACY</Argument>
+		<Argument name="Amount">30</Argument>
+		<Argument name="Tooltip">LOC_DEFAULT_YIELD</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_ADVANCED_START_DEFAULT_YIELD" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_IS_AGE_COUNT">
+				<Argument name="AgeCount">1</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="YieldType">YIELD_SCIENCE,YIELD_CULTURE</Argument>
+		<Argument name="Amount">100</Argument>
+		<Argument name="Tooltip">LOC_ADVANCED_START_DEFAULT_YIELD</Argument>
+	</Modifier>
+	<Modifier id="DIPLOMACY_MOD_UNLOCK_COUNTER_SPY" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_GRANT_DIPLOMATIC_ACTION">
+		<Argument name="ActionType">DIPLOMACY_ACTION_COUNTER_SPY</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_IDEOLOGIES_AGENDA" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_AGENDA_TIMED_UPDATE">
+		<String context="Name">LOC_DIPLOMACY_AGENDA_IDEOLOGIES_NAME</String>
+		<Argument name="ModName">LOC_DIPLOMACY_AGENDA_IDEOLOGIES_NAME</Argument>
+		<Argument name="Tooltip">LOC_DIPLOMACY_AGENDA_IDEOLOGIES_DESC</Argument>
+		<Argument name="WeightType">DIPLOMACY_AGENDA_COMPARE_IDEOLOGIES</Argument>
+		<Argument name="FirstMeetDelay">1</Argument>
+		<Argument name="UpdateFreq">3</Argument>
+		<Argument name="AwardTo1">DIPLOMACY_AGENDA_AWARD_ALL</Argument>
+		<Argument name="AwardTo2">DIPLOMACY_AGENDA_AWARD_ALL</Argument>
+		<Argument name="AwardAmtType1">DIPLOMACY_AGENDA_AMT_CUSTOM</Argument>
+		<Argument name="AwardAmt1">9</Argument>
+		<Argument name="AwardAmtType2">DIPLOMACY_AGENDA_AMT_CUSTOM</Argument>
+		<Argument name="AwardAmt2">-9</Argument>
+		<Argument name="ShowNotification">false</Argument>
+		<Argument name="ApplyToPlayers">true</Argument>
+	</Modifier>
+	<!-- ==================================================	-->
+	<!--				Generic Modifiers					-->
+	<!-- ==================================================	-->
+	<Modifier id="TRAIT_MOD_MODERN_CIV_DIPLOMACY_TOKENS" collection="COLLECTION_OWNER" effect="EFFECT_GRANT_DIPLOMATIC_ENVOYS">
+		<Argument name="Amount">3</Argument>
+		<Argument name="Tooltip">LOC_TERM_AGE</Argument>
+	</Modifier>
+	<Modifier id="MOD_MODERN_OCEAN_TRAVEL" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ADJUST_UNIT_VALID_TERRAIN">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+				<Argument name="Tag">UNIT_CLASS_NAVAL</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="TerrainType">TERRAIN_OCEAN</Argument>
+		<Argument name="Valid">true</Argument>
+	</Modifier>
+	<Modifier id="MOD_MODERN_EMBARKATION" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_EMBARKATION_TYPE" permanent="true">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_DOMAIN_MATCHES">
+				<Argument name="UnitDomain">DOMAIN_LAND</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="EmbarkationType">UNIT_EMBARKATION_DEEP_WATER</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_DEPARTMENT_STORE_RESOURCE_CAP" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_RESOURCE_CAP">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_HAS_BUILDING">
+				<Argument name="BuildingType">BUILDING_DEPARTMENT_STORE</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">1</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_PORT_RESOURCE_CAP" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_RESOURCE_CAP">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_HAS_BUILDING">
+				<Argument name="BuildingType">BUILDING_PORT</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">2</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_FACTORY_RESOURCE_CAP" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_RESOURCE_CAP">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_HAS_BUILDING">
+				<Argument name="BuildingType">BUILDING_FACTORY</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">1</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_CAPITAL_RESOURCE_CAP" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_ADJUST_RESOURCE_CAP">
+		<Argument name="Amount">2</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_CITY_RESOURCE_CAP" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_RESOURCE_CAP">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_CITY"/>
+		</SubjectRequirements>
+		<Argument name="Amount">1</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_INITIAL_SETTLEMENT_CAP" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_SETTLEMENT_CAP" run-once="true" permanent="true">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_GAME_IS_STARTED"/>
+		</SubjectRequirements>
+		<Argument name="Amount">16</Argument>
+		<Argument name="Minimum">true</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_GOLD_UNASSIGNED_RESOURCE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD_PER_RESOURCE">
+		<Argument name="YieldType">YIELD_GOLD</Argument>
+		<Argument name="Amount">3</Argument>
+		<Argument name="Unassigned">true</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_HAPPINESS_UNASSIGNED_RESOURCE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD_PER_RESOURCE">
+		<Argument name="YieldType">YIELD_HAPPINESS</Argument>
+		<Argument name="Amount">3</Argument>
+		<Argument name="Unassigned">true</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_TOWN_FACTORY_PROJECT" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_UNLOCK_PROJECT">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_TOWN"/>
+			<Requirement type="REQUIREMENT_CITY_HAS_RESOURCE">
+				<Argument name="ResourceClassType">RESOURCECLASS_FACTORY</Argument>
+				<Argument name="All">false</Argument>
+				<Argument name="Produced">true</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="ProjectType">PROJECT_TOWN_FACTORY</Argument>
+	</Modifier>
+</GameEffects>

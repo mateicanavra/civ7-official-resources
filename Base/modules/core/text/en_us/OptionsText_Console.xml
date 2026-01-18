@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+    <!-- Delete existing strings/translations for the given keys.-->
+    <LocalizedText>
+        <Delete Tag="LOC_OPTIONS_CATEGORY_SYSTEM" />
+        <Delete Tag="LOC_LANGUAGE_DEFAULT_NAME" />
+    </LocalizedText>
+
+    <!-- Define platform-specific overrides. -->
+    <EnglishText>
+        <Row Tag="LOC_OPTIONS_CATEGORY_SYSTEM_CONSOLE">
+            <Text>Console</Text>
+        </Row>
+        <Row Tag="LOC_LANGUAGE_DEFAULT_NAME_CONSOLE">
+            <Text>Console Default</Text>
+        </Row>
+
+        <Replace Tag="LOC_OPTIONS_CATEGORY_SYSTEM">
+            <Text>{LOC_OPTIONS_CATEGORY_SYSTEM_CONSOLE}</Text>
+        </Replace>
+        <Replace Tag="LOC_LANGUAGE_DEFAULT_NAME">
+            <Text>{LOC_LANGUAGE_DEFAULT_NAME_CONSOLE}</Text>
+        </Replace>
+
+		<Replace Tag="LOC_OPTIONS_ACCESSIBILITY_LONG_PRESS">
+			<Text>Long Press Movement Delay</Text>
+		</Replace>
+		<Replace Tag="LOC_OPTIONS_ACCESSIBILITY_LONG_PRESS_DESCRIPTION">
+			<Text>Changes how long a mouse button press can be held down before movement is taken into account. If presses aren't reliably handled by the game, higher values can help.</Text>
+		</Replace>
+
+		<Replace Tag="LOC_OPTIONS_CONFIG_CHANGE">
+			<Text>Play Mode Changed</Text>
+		</Replace>
+		<Replace Tag="LOC_OPTIONS_CONFIG_CHANGE_BODY">
+			<Text>Your console's play mode has changed.  Options will refresh and you will lose any changes made.</Text>
+		</Replace>
+	</EnglishText>
+</Database>

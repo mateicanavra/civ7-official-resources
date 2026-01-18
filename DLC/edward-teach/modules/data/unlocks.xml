@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Kinds>
+		<InsertOrIgnore Kind="KIND_UNLOCK" />
+	</Kinds>
+	<Types>
+		<InsertOrIgnore Type="UNLOCK_LEGEND_LEVEL_4_EDWARD_TEACH" Kind="KIND_UNLOCK" />
+		<InsertOrIgnore Type="UNLOCK_LEGEND_LEVEL_8_EDWARD_TEACH" Kind="KIND_UNLOCK" />
+	</Types>
+	<Unlocks>
+		<InsertOrIgnore UnlockType="UNLOCK_LEGEND_LEVEL_4_EDWARD_TEACH" />
+		<InsertOrIgnore UnlockType="UNLOCK_LEGEND_LEVEL_8_EDWARD_TEACH" />
+	</Unlocks>
+	<UnlockRewards>
+		<InsertOrIgnore UnlockType="UNLOCK_LEGEND_LEVEL_4_EDWARD_TEACH" Name="LOC_CARD_AT_EXP_LEGEND_EDWARD_TEACH_1_NAME" Description="LOC_CARD_AT_EXP_LEGEND_EDWARD_TEACH_1_DESCRIPTION" Icon="LEADER_EDWARD_TEACH" />
+		<InsertOrIgnore UnlockType="UNLOCK_LEGEND_LEVEL_4_EDWARD_TEACH" Name="LOC_CARD_AT_EXP_LEGEND_EDWARD_TEACH_2_NAME" Description="LOC_CARD_AT_EXP_LEGEND_EDWARD_TEACH_2_DESCRIPTION" Icon="LEADER_EDWARD_TEACH" />
+
+		<InsertOrIgnore UnlockType="UNLOCK_LEGEND_LEVEL_8_EDWARD_TEACH" Name="LOC_CARD_AT_MOD_LEGEND_EDWARD_TEACH_1_NAME" Description="LOC_CARD_AT_MOD_LEGEND_EDWARD_TEACH_1_DESCRIPTION" Icon="LEADER_EDWARD_TEACH" />
+		<InsertOrIgnore UnlockType="UNLOCK_LEGEND_LEVEL_8_EDWARD_TEACH" Name="LOC_CARD_AT_MOD_LEGEND_EDWARD_TEACH_2_NAME" Description="LOC_CARD_AT_MOD_LEGEND_EDWARD_TEACH_2_DESCRIPTION" Icon="LEADER_EDWARD_TEACH" />
+	</UnlockRewards>
+	<RequirementSets>
+		<Row RequirementSetId="REQSET_LEADER_IS_EDWARD_TEACH" RequirementSetType="REQUIREMENTSET_TEST_ALL"/>
+		<Row RequirementSetId="REQSET_LEGEND_LEVEL_4_EDWARD_TEACH" RequirementSetType="REQUIREMENTSET_TEST_ALL" />
+		<Row RequirementSetId="REQSET_LEGEND_LEVEL_8_EDWARD_TEACH" RequirementSetType="REQUIREMENTSET_TEST_ALL" />
+	</RequirementSets>
+	<Requirements>
+		<Row RequirementId="REQ_LEADER_IS_EDWARD_TEACH" RequirementType="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES"/>
+		<Row RequirementId="REQ_LEGEND_LEVEL_4_EDWARD_TEACH" RequirementType="REQUIREMENT_METAPROGRESSION_LEGEND_PATH_LEVEL" />
+		<Row RequirementId="REQ_LEGEND_LEVEL_8_EDWARD_TEACH" RequirementType="REQUIREMENT_METAPROGRESSION_LEGEND_PATH_LEVEL" />
+	</Requirements>
+	<RequirementArguments>
+		<Row RequirementId="REQ_LEADER_IS_EDWARD_TEACH" Name="LeaderType" Value="LEADER_EDWARD_TEACH"/>
+		<Row RequirementId="REQ_LEGEND_LEVEL_4_EDWARD_TEACH" Name="LegendPaths" Value="LEGEND_PATH_EDWARD_TEACH" />
+		<Row RequirementId="REQ_LEGEND_LEVEL_4_EDWARD_TEACH" Name="LevelThreshold" Value="4" />
+		<Row RequirementId="REQ_LEGEND_LEVEL_4_EDWARD_TEACH" Name="Amount" Value="1" />
+		<Row RequirementId="REQ_LEGEND_LEVEL_8_EDWARD_TEACH" Name="LegendPaths" Value="LEGEND_PATH_EDWARD_TEACH" />
+		<Row RequirementId="REQ_LEGEND_LEVEL_8_EDWARD_TEACH" Name="LevelThreshold" Value="8" />
+		<Row RequirementId="REQ_LEGEND_LEVEL_8_EDWARD_TEACH" Name="Amount" Value="1" />
+	</RequirementArguments>
+	<RequirementSetRequirements>
+		<Row RequirementSetId="REQSET_LEADER_IS_EDWARD_TEACH" RequirementId="REQ_LEADER_IS_EDWARD_TEACH"/>
+		<Row RequirementSetId="REQSET_LEGEND_LEVEL_4_EDWARD_TEACH" RequirementId="REQ_LEADER_IS_EDWARD_TEACH" />
+		<Row RequirementSetId="REQSET_LEGEND_LEVEL_4_EDWARD_TEACH" RequirementId="REQ_LEGEND_LEVEL_4_EDWARD_TEACH" />
+		<Row RequirementSetId="REQSET_LEGEND_LEVEL_8_EDWARD_TEACH" RequirementId="REQ_LEADER_IS_EDWARD_TEACH" />
+		<Row RequirementSetId="REQSET_LEGEND_LEVEL_8_EDWARD_TEACH" RequirementId="REQ_LEGEND_LEVEL_8_EDWARD_TEACH" />
+	</RequirementSetRequirements>
+	<UnlockRequirements>
+		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_FRENCH_EMPIRE" RequirementSetId="REQSET_LEADER_IS_EDWARD_TEACH" Description="LOC_UNLOCK_PLAY_AS_EDWARD_TEACH_DESCRIPTION" Tooltip="LOC_UNLOCK_PLAY_AS_EDWARD_TEACH_FRENCH_EMPIRE_TOOLTIP"/>
+
+		<InsertOrIgnore UnlockType="UNLOCK_LEGEND_LEVEL_4_EDWARD_TEACH" RequirementSetId="REQSET_LEGEND_LEVEL_4_EDWARD_TEACH" Description="LOC_UNLOCK_LEGEND_LEVEL_4_EDWARD_TEACH_DESCRIPTION" />
+		<InsertOrIgnore UnlockType="UNLOCK_LEGEND_LEVEL_8_EDWARD_TEACH" RequirementSetId="REQSET_LEGEND_LEVEL_8_EDWARD_TEACH" Description="LOC_UNLOCK_LEGEND_LEVEL_8_EDWARD_TEACH_DESCRIPTION" />
+	</UnlockRequirements>
+</Database>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+	<!-- ==================================================	-->
+	<!--	Unique Abilities							-->
+	<!-- ==================================================	-->
+	<!--Qajar-->
+	<Modifier id="SOLTAN_MOD_RAIZING" collection="COLLECTION_UNIT_OCCUPIED_CITY" effect="EFFECT_CITY_ADJUST_RAZE_RATE" owner-stack-limit="1">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_UNIT_IS_STATIONED_ON_DISTRICT"/>
+		</OwnerRequirements>
+		<Argument name="Amount">1</Argument>
+	</Modifier>
+	<Modifier id="SOLTAN_GHILMAN_ABILITY" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_ABILITY">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_IN_COMMAND_RADIUS"/>
+		</SubjectRequirements>
+		<Argument name="AbilityType">ABILITY_GHILMAN</Argument>
+	</Modifier>
+	<Modifier id="GHILMAN_MOD_COMBAT" collection="COLLECTION_UNIT_COMBAT" effect="EFFECT_ADJUST_UNIT_STRENGTH_MODIFIER">
+		<Argument name="Amount">5</Argument>
+		<String context="Preview">LOC_GHILMAN_COMBAT_PREVIEW</String>
+	</Modifier>
+	<Modifier id="GHILMAN_MOD_HEALING" collection="COLLECTION_OWNER" effect="EFFECT_UNIT_ADJUST_HEAL_PER_TURN">
+		<Argument name="Amount">10</Argument>
+	</Modifier>
+</GameEffects>

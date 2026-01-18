@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Civilizations>
+		<Row Domain="ModernAgeCivilizations" CivilizationType="CIVILIZATION_QAJAR" CivilizationName="LOC_CIVILIZATION_QAJAR_NAME" CivilizationFullName="LOC_CIVILIZATION_QAJAR_FULLNAME" CivilizationDescription="LOC_CIVILIZATION_QAJAR_DESCRIPTION" CivilizationIcon="shawnee_icon.png"/>
+	</Civilizations>
+	<CivilizationItems>
+		<Row CivilizationDomain="ModernAgeCivilizations" CivilizationType="CIVILIZATION_QAJAR" Type="TRAIT_QAJAR_ABILITY" Kind="KIND_TRAIT" Name="LOC_TRAIT_QAJAR_ABILITY_NAME" Description="LOC_TRAIT_QAJAR_ABILITY_DESCRIPTION"/>
+		<Row CivilizationDomain="ModernAgeCivilizations" CivilizationType="CIVILIZATION_QAJAR" Type="UNIT_GHILMAN" Kind="KIND_UNIT" Name="LOC_UNIT_GHILMAN_NAME" Description="LOC_UNIT_GHILMAN_BASE_DESCRIPTION" Icon="unitflag_leiomano.png"/>
+		<Row CivilizationDomain="ModernAgeCivilizations" CivilizationType="CIVILIZATION_QAJAR" Type="UNIT_SOLTAN" Kind="KIND_UNIT" Name="LOC_UNIT_SOLTAN_NAME" Description="LOC_UNIT_SOLTAN_DESCRIPTION" Icon="unitflag_SHERPA.png"/>
+		<Row CivilizationDomain="ModernAgeCivilizations" CivilizationType="CIVILIZATION_QAJAR" Type="QUARTER_BAQ" Kind="KIND_QUARTER" Name="LOC_QUARTER_BAQ_NAME" Description="LOC_QUARTER_BAQ_DESCRIPTION" Icon="city_uniquequarter"/>
+		<Row CivilizationDomain="ModernAgeCivilizations" CivilizationType="CIVILIZATION_QAJAR" Type="BUILDING_GHAHVE_KHANE" Kind="KIND_BUILDING" Name="LOC_BUILDING_GHAHVE_KHANE_NAME" Description="LOC_BUILDING_GHAHVE_KHANE_DESCRIPTION" Icon="buildicon_formalgarden.png"/>
+		<Row CivilizationDomain="ModernAgeCivilizations" CivilizationType="CIVILIZATION_QAJAR" Type="BUILDING_TAKYEH" Kind="KIND_BUILDING" Name="LOC_BUILDING_TAKYEH_NAME" Description="LOC_BUILDING_TAKYEH_DESCRIPTION" Icon="buildicon_salon.png"/>
+	</CivilizationItems>
+	<CivilizationTags>
+		<Row CivilizationDomain="ModernAgeCivilizations" CivilizationType="CIVILIZATION_QAJAR" TagType="TAG_TRAIT_POLITICAL"/>
+		<Row CivilizationDomain="ModernAgeCivilizations" CivilizationType="CIVILIZATION_QAJAR" TagType="TAG_TRAIT_EXPANSIONIST"/>
+	</CivilizationTags>
+	<LeaderUnlocks>
+		<Row LeaderDomain="StandardLeaders" LeaderType="LEADER_XERXES" AgeDomain="StandardAges" AgeType="AGE_MODERN" Type="CIVILIZATION_QAJAR" Kind="KIND_CIVILIZATION" Name="LOC_CIVILIZATION_QAJAR_NAME" Description="LOC_CIVILIZATION_QAJAR_DESCRIPTION" Icon="CIVILIZATION_QAJAR"/>
+		<Row LeaderDomain="StandardLeaders" LeaderType="LEADER_XERXES_ALT" AgeDomain="StandardAges" AgeType="AGE_MODERN" Type="CIVILIZATION_QAJAR" Kind="KIND_CIVILIZATION" Name="LOC_CIVILIZATION_QAJAR_NAME" Description="LOC_CIVILIZATION_QAJAR_DESCRIPTION" Icon="CIVILIZATION_QAJAR"/>
+	</LeaderUnlocks>
+	<CivilizationUnlocks>
+		<Row CivilizationDomain="AntiquityAgeCivilizations" CivilizationType="CIVILIZATION_PERSIA" AgeDomain="StandardAges" AgeType="AGE_MODERN" Type="CIVILIZATION_QAJAR" Kind="KIND_CIVILIZATION" Name="LOC_CIVILIZATION_QAJAR_NAME" Description="LOC_CIVILIZATION_QAJAR_NAME" Icon="CIVILIZATION_QAJAR"/>
+		<Row CivilizationDomain="ExplorationAgeCivilizations" CivilizationType="CIVILIZATION_ABBASID" AgeDomain="StandardAges" AgeType="AGE_MODERN" Type="CIVILIZATION_QAJAR" Kind="KIND_CIVILIZATION" Name="LOC_CIVILIZATION_QAJAR_NAME" Description="LOC_CIVILIZATION_QAJAR_NAME" Icon="CIVILIZATION_QAJAR"/>
+	</CivilizationUnlocks>
+	<LeaderCivilizationBias>
+		<!--This is the table used for UI, the AI uses LeaderCivPriorities in civilizations.xml-->
+		<Row CivilizationDomain="ModernAgeCivilizations" CivilizationType="CIVILIZATION_QAJAR" LeaderDomain="StandardLeaders" LeaderType="LEADER_XERXES" Bias="3" ReasonType="LOC_UNLOCK_PLAY_AS_XERXES_QAJAR_TOOLTIP" ChoiceType="LOC_CREATE_GAME_GEOGRAPHIC_CHOICE" />
+	</LeaderCivilizationBias>
+	<OwnershipConditions>
+		<Row ItemType="CIVILIZATION_QAJAR" Action="LOC_LOCKED_INCLUDED_WITH_CONTENT" />
+	</OwnershipConditions>
+</Database>

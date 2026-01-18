@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Types>
+		<!--Civ Unique Improvements-->
+		<Row Type="IMPROVEMENT_THING" Kind="KIND_CONSTRUCTIBLE"/>
+		<!--Wonders-->
+		<Row Type="WONDER_REYKHOLT" Kind="KIND_CONSTRUCTIBLE"/>
+	</Types>
+	<TypeQuotes>
+		<Row Type="WONDER_REYKHOLT" Quote="LOC_QUOTE_WONDER_REYKHOLT" QuoteAuthor="LOC_QUOTE_AUTHOR_WONDER_REYKHOLT" QuoteAudio="VO_Quote_Reykholt"/>
+	</TypeQuotes>
+	<Constructibles>
+		<!--Civ Unique Improvements-->
+		<Row ConstructibleType="IMPROVEMENT_THING" Name="LOC_IMPROVEMENT_THING_NAME" Description="LOC_IMPROVEMENT_THING_DESCRIPTION" Tooltip="LOC_IMPROVEMENT_THING_TOOLTIP" ConstructibleClass="IMPROVEMENT" Cost="90" Population="1" Age="AGE_EXPLORATION" RequiresUnlock="true"/>
+		<!--Wonders-->
+		<Row ConstructibleType="WONDER_REYKHOLT" Name="LOC_WONDER_REYKHOLT_NAME" Description="LOC_WONDER_REYKHOLT_DESCRIPTION" Tooltip="LOC_WONDER_REYKHOLT_TOOLTIP" ConstructibleClass="WONDER" Cost="550" Population="0" ImmuneDamage="true" Age="AGE_EXPLORATION" RequiresUnlock="true"/>
+	</Constructibles>
+	<Improvements>
+		<!--Civ Unique Improvements-->
+		<Row ConstructibleType="IMPROVEMENT_THING" ResourceTier="0" CityBuildable="true" SameAdjacentValid="false" TraitType="TRAIT_ICELAND"/>
+	</Improvements>
+	<Wonders>
+		<Row ConstructibleType="WONDER_REYKHOLT" MaxWorldInstances="1"/>
+	</Wonders>
+	<Constructible_ValidBiomes>
+		<Row ConstructibleType="IMPROVEMENT_THING" BiomeType="BIOME_GRASSLAND"/>
+		<Row ConstructibleType="IMPROVEMENT_THING" BiomeType="BIOME_TUNDRA"/>
+		<Row ConstructibleType="WONDER_REYKHOLT" BiomeType="BIOME_TUNDRA"/>
+	</Constructible_ValidBiomes>
+	<TypeTags>
+		<Row Type="IMPROVEMENT_THING" Tag="UNIQUE_IMPROVEMENT"/>
+		<Row Type="IMPROVEMENT_THING" Tag="AGELESS"/>
+		<Row Type="WONDER_REYKHOLT" Tag="AGELESS"/>
+	</TypeTags>
+	<Constructible_ValidDistricts>
+		<!--Civ Unique Improvements-->
+		<Row ConstructibleType="IMPROVEMENT_THING" DistrictType="DISTRICT_RURAL"/>
+		<!--Wonders-->
+		<Row ConstructibleType="WONDER_REYKHOLT" DistrictType="DISTRICT_WONDER"/>
+	</Constructible_ValidDistricts>
+	<Constructible_YieldChanges>
+		<!--Civ Unique Improvements-->
+		<Row ConstructibleType="IMPROVEMENT_THING" YieldType="YIELD_HAPPINESS" YieldChange="4"/>
+		<!--Wonders-->
+		<Row ConstructibleType="WONDER_REYKHOLT" YieldType="YIELD_CULTURE" YieldChange="3"/>
+	</Constructible_YieldChanges>
+	<Constructible_Adjacencies>
+		<Row ConstructibleType="IMPROVEMENT_THING" YieldChangeId="ThingWetCulture"/>
+		<Row ConstructibleType="IMPROVEMENT_THING" YieldChangeId="ThingVolcanoCulture"/>
+		<Row ConstructibleType="IMPROVEMENT_THING" YieldChangeId="ThingFloodPlainCulture"/>
+		<Row ConstructibleType="IMPROVEMENT_THING" YieldChangeId="ThingFloodVegetatedCulture"/>
+	</Constructible_Adjacencies>
+	<Constructible_WildcardAdjacencies>
+		<Row YieldChangeId="ReidiGudannaVolcanoCulture" RequiresActivation="true" ConstructibleClass="BUILDING"/>		
+		<Row YieldChangeId="ReidiGudannaVolcanoProduction" RequiresActivation="true" ConstructibleClass="BUILDING"/>
+		<Row YieldChangeId="ReidiGudannaNWCulture" RequiresActivation="true" ConstructibleClass="BUILDING"/>		
+		<Row YieldChangeId="ReidiGudannaNWProduction" RequiresActivation="true" ConstructibleClass="BUILDING"/>
+	</Constructible_WildcardAdjacencies>
+	<Adjacency_YieldChanges>
+		<Row ID="ThingWetCulture" YieldType="YIELD_CULTURE" YieldChange="1" TilesRequired="1" ProjectMaxYield="true" AdjacentFeatureClass="FEATURE_CLASS_WET"/>
+		<Row ID="ThingVolcanoCulture" YieldType="YIELD_CULTURE" YieldChange="1" TilesRequired="1" ProjectMaxYield="true" AdjacentFeature="FEATURE_VOLCANO"/>
+		<Row ID="ThingFloodPlainCulture" YieldType="YIELD_CULTURE" YieldChange="1" TilesRequired="1" ProjectMaxYield="true" AdjacentFeatureClass="FEATURE_CLASS_FLOODPLAIN"/>
+		<Row ID="ThingFloodVegetatedCulture" YieldType="YIELD_CULTURE" YieldChange="1" TilesRequired="1" ProjectMaxYield="true" AdjacentFeatureClass="FEATURE_CLASS_VEGETATED"/>
+		<Row ID="ReidiGudannaVolcanoCulture" YieldType="YIELD_CULTURE" YieldChange="1" TilesRequired="1" ProjectMaxYield="true" AdjacentFeature="FEATURE_VOLCANO"/>
+		<Row ID="ReidiGudannaVolcanoProduction" YieldType="YIELD_PRODUCTION" YieldChange="1" TilesRequired="1" ProjectMaxYield="true" AdjacentFeature="FEATURE_VOLCANO"/>
+		<Row ID="ReidiGudannaNWCulture" YieldType="YIELD_CULTURE" YieldChange="1" TilesRequired="1" ProjectMaxYield="true" AdjacentNaturalWonder="true"/>
+		<Row ID="ReidiGudannaNWProduction" YieldType="YIELD_PRODUCTION" YieldChange="1" TilesRequired="1" ProjectMaxYield="true" AdjacentNaturalWonder="true"/>
+	</Adjacency_YieldChanges>
+	<Constructible_WarehouseYields>
+		<Row ConstructibleType="BUILDING_KILN" YieldChangeId="LandnambokKilnThingGold" RequiresActivation="true"/>
+	</Constructible_WarehouseYields>
+	<Warehouse_YieldChanges>
+		<Row ID="LandnambokKilnThingGold" Age="AGE_EXPLORATION" YieldType="YIELD_GOLD" YieldChange="2" ConstructibleInCity="IMPROVEMENT_THING"/>
+	</Warehouse_YieldChanges>
+	<Constructible_Plunders>
+		<!--Civ Unique Improvements-->
+		<Row ConstructibleType="IMPROVEMENT_THING" PlunderType="PLUNDER_HEAL" Amount="30"/>
+	</Constructible_Plunders>
+	<ConstructibleModifiers>
+		<!--Wonders-->
+		<Row ConstructibleType="WONDER_REYKHOLT" ModifierId="MOD_REYKHOLT_GREAT_WORK_UNIT_PRODUCTION"/>
+	</ConstructibleModifiers>
+</Database>

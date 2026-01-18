@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+	<Modifier id="MOD_AGE_REWARD_MILITARY_VICTORY_UNLOCK_MANHATTAN_PROJECT" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_CONSTRUCTIBLE_UNLOCK">
+		<Argument name="ConstructibleType">WONDER_MANHATTAN_PROJECT</Argument>
+	</Modifier>
+	<Modifier id="MOD_AGE_REWARD_CULTURE_UNLOCK_WORLDS_FAIR" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_CONSTRUCTIBLE_UNLOCK">
+		<Argument name="ConstructibleType">WONDER_WORLDS_FAIR</Argument>
+	</Modifier>
+	<Modifier id="MOD_AGE_REWARD_ECONOMIC_VICTORY_UNLOCK_JOHN_MAYNARD_KEYNES" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_GRANT_UNIT" permanent="true">
+		<Argument name="Amount">1</Argument>
+		<Argument name="UnitType">UNIT_JOHN_MAYNARD_KEYNES</Argument>
+		<Argument name="AllowUniqueOverride">FALSE</Argument>
+	</Modifier>
+</GameEffects>

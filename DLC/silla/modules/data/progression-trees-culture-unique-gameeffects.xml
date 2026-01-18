@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+	<Modifier id="MOD_KOLP_U_ALLIANCE_ROUTE_GOLD" collection="COLLECTION_OWNER" effect="EFFECT_ADJUST_PLAYER_ALLIANCE_CAPITAL_ROUTES">
+		<Argument name="AllianceCapitalRoutes">true</Argument>
+		<Argument name="CapitalRoutesAwardGold">true</Argument>
+		<String context="Description">LOC_MOD_KOLP_U_ALLIANCE_ROUTE_GOLD_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="MOD_KOLP_U_CULTURE_KILLS_HWARANG" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_ABILITY">
+		<Argument name="AbilityType">ABILITY_HWARANG_CULTURE</Argument>
+		<String context="Description">LOC_MOD_KOLP_U_CULTURE_KILLS_HWARANG_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="MOD_JINGOL_RESOURCE_CAP" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_RESOURCE_CAP">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_TOWN"/>
+		</SubjectRequirements>
+		<Argument name="Amount">1</Argument>
+		<String context="Description">LOC_MOD_JINGOL_RESOURCE_CAP_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="MOD_JINGOL_TRADE_ROUTE_RANGE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_TRADE_ROUTE_RANGE">
+		<Argument name="Amount">5</Argument>
+		<Argument name="DomainType">DOMAIN_LAND</Argument>
+		<String context="Description">LOC_MOD_JINGOL_TRADE_ROUTE_RANGE_DESCRIPTION</String>
+	</Modifier>
+</GameEffects>

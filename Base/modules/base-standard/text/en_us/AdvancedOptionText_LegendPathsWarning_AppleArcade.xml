@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<!-- Delete existing strings/translations for the given keys.-->
+	<LocalizedText>
+		<!-- Cultural Attribute -->
+		<Delete Tag="LOC_ADVANCED_OPTIONS_LEGACY_PATHS_DISABLED_WARNING" />
+	</LocalizedText>
+
+	<!-- Define platform-specific overrides. -->
+	<EnglishText>
+		<Row Tag="LOC_ADVANCED_OPTIONS_LEGACY_PATHS_DISABLED_WARNING_AA">
+			<Text>Disabling a Legacy Path will cause it to not track progress, display advisors, and will also disable any victory condition associated with it.</Text>
+		</Row>
+		<!-- Cultural Attribute -->
+		<Replace Tag="LOC_ADVANCED_OPTIONS_LEGACY_PATHS_DISABLED_WARNING">
+			<Text>{LOC_ADVANCED_OPTIONS_LEGACY_PATHS_DISABLED_WARNING_AA}</Text>
+		</Replace>
+	</EnglishText>
+</Database>

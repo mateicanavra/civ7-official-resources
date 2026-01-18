@@ -1,0 +1,230 @@
+tutorial-quest-panel {
+  --title-display: none;
+  height: 37.7777777778rem;
+}
+tutorial-quest-panel.middle-center .tutorial-quest-panel-content {
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+}
+tutorial-quest-panel.middle-center {
+  animation-name: tutorial-quest-panel-anim-bottom;
+}
+tutorial-quest-panel.middle-center .tutorial-quest-panel-content {
+  max-width: 67.7777777778rem;
+}
+@media (experience: mobile) {
+  tutorial-quest-panel.middle-center .tutorial-quest-panel-content {
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
+  }
+}
+tutorial-quest-panel.show-title {
+  --title-display: flex;
+}
+
+.tutorial-quest-panel-content {
+  padding-bottom: 0.8888888889rem;
+  transform: translate(0rem, 2.6666666667rem);
+  margin: 0rem -1.3333333333rem;
+}
+@media (experience: mobile) {
+  .tutorial-quest-panel-content {
+    padding-top: 4.4444444444rem;
+  }
+}
+@media (experience: mobile) and (max-height: 55.5555555556rem) {
+  .tutorial-quest-panel-content {
+    padding-top: 0.8888888889rem;
+  }
+}
+
+.tutorial-quest-panel-title-container {
+  display: var(--title-display);
+}
+@media (experience: mobile) and (min-height: 55.5555555556rem) {
+  .tutorial-quest-panel-title-container {
+    margin-top: 1rem;
+  }
+}
+
+.tutorial-quest-panel-title {
+  margin-top: 0.3333333333rem;
+  padding-bottom: 0.4444444444rem;
+  letter-spacing: 0.1666666667rem;
+  margin-right: -0.1666666667rem;
+  line-height: 1.5em;
+}
+@media (experience: mobile) {
+  .tutorial-quest-panel-title {
+    margin-top: 0;
+  }
+}
+.tutorial-quest-panel-title p {
+  margin: 0;
+}
+
+@media (experience: mobile) {
+  .tutorial-quest-panel-scrollable {
+    width: 88%;
+    height: 11.6666666667rem;
+  }
+}
+@media (experience: mobile) and (max-height: 55.5555555556rem) {
+  .tutorial-quest-panel-scrollable {
+    width: 94%;
+    height: 9.5555555556rem;
+    margin-top: 0.4444444444rem;
+    margin-bottom: 0;
+  }
+}
+@media (experience: mobile) {
+  .tutorial-quest-panel-scrollable .fxs-scrollbar__track--vertical {
+    margin-top: 1.6666666667rem;
+  }
+}
+
+.tutorial-quest-panel-content > .tutorial-quest-panel-body fxs-font-icon {
+  margin-right: 0.3333333333rem;
+}
+.tutorial-quest-panel-content > .tutorial-quest-panel-body p {
+  margin-bottom: 0.6666666667rem;
+}
+
+.tutorial-quest-panel-body-text {
+  line-height: 1.25em;
+  margin-top: 0.6666666667rem;
+  margin-bottom: 0.6666666667rem;
+  margin-left: 1.3333333333rem;
+  margin-right: 0.8888888889rem;
+}
+.tutorial-quest-panel-body-text.empty {
+  display: none;
+}
+
+.tutorial-quest-panel-content > .tutorial-quest-panel-frame {
+  border-image: url("fs://game/Frame_large_symmetrical_inverted.png");
+  border-image-width: 1.3333333333rem;
+  border-style: solid;
+  border-image-slice: 24 fill;
+  border-image-repeat: stretch;
+  filter: fxs-color-mask(rgb(151, 120, 81));
+}
+
+.tutorial-quest-panel-divider {
+  bottom: -0.5rem;
+  width: 14.3333333333rem;
+}
+
+.quest-advisor-element {
+  background-image: none;
+  width: 19.4444444444rem;
+  min-height: 14.4444444444rem;
+  margin-left: 0.4444444444rem;
+  margin-right: 0.4444444444rem;
+}
+@media (experience: mobile) {
+  .quest-advisor-element {
+    margin-bottom: 5.5555555556rem;
+  }
+}
+@media (experience: mobile) and (max-height: 55.5555555556rem) {
+  .quest-advisor-element {
+    margin-top: 0.4444444444rem;
+    margin-bottom: 0;
+  }
+}
+.quest-advisor-element .filigree-inner-frame-top {
+  border-image-source: url("fs://game/hud_section-line_gold.png");
+}
+.quest-advisor-element .filigree-inner-frame-bottom {
+  border-image-source: url("fs://game/hud_section-line_gold.png");
+}
+
+@media (experience: mobile) and (min-height: 55.5555555556rem) {
+  .quest-advisor-quote-container {
+    margin-top: 0.8888888889rem;
+    margin-bottom: 0.8888888889rem;
+  }
+}
+
+.quest-advisor-card-backdrop {
+  border-style: solid;
+  border-width: 0.1111111111rem;
+  border-image: linear-gradient(to bottom, #8c7e62, #4c473d) 1;
+  top: 6.0555555556rem;
+}
+
+.quest-advisor-card-filigree {
+  border-image-source: url("fs://game/base_advisor-filigree.png");
+  border-image-slice: 8 22 12 22 fill;
+  border-image-width: 0.4444444444rem 0 0.6666666667rem 0;
+}
+
+.quest-advisor-bg {
+  height: 11.6666666667rem;
+  width: 11.6666666667rem;
+  background-image: url("fs://game/adv_port_bk.png");
+  background-size: cover;
+}
+@media (experience: mobile) and (max-height: 55.5555555556rem) {
+  .quest-advisor-bg {
+    height: 10rem;
+    width: 10rem;
+  }
+}
+
+.quest-advisor-portrait {
+  height: 8.4444444444rem;
+  width: 8.4444444444rem;
+  left: 1.5555555556rem;
+  top: 1.6666666667rem;
+}
+@media (experience: mobile) and (max-height: 55.5555555556rem) {
+  .quest-advisor-portrait {
+    height: 7.2222222222rem;
+    width: 7.2222222222rem;
+    left: 1.3333333333rem;
+    top: 1.4444444444rem;
+  }
+}
+
+.quest-advisor-type-icon-bg {
+  height: 5.5555555556rem;
+  width: 5.5555555556rem;
+  left: 2.8333333333rem;
+  top: 7.3888888889rem;
+  background-image: url("fs://game/adv_icon_bk.png");
+  background-size: cover;
+}
+@media (experience: mobile) and (max-height: 55.5555555556rem) {
+  .quest-advisor-type-icon-bg {
+    height: 4.7777777778rem;
+    width: 4.7777777778rem;
+    left: 2.4444444444rem;
+    top: 6.3333333333rem;
+  }
+}
+
+.quest-advisor-type-icon {
+  height: 3.3333333333rem;
+  width: 3.3333333333rem;
+  left: 3.9444444444rem;
+  top: 8.5rem;
+}
+@media (experience: mobile) and (max-height: 55.5555555556rem) {
+  .quest-advisor-type-icon {
+    height: 2.8333333333rem;
+    width: 2.8333333333rem;
+    left: 3.3888888889rem;
+    top: 7.2777777778rem;
+  }
+}
+
+@keyframes tutorial-quest-panel-anim-bottom {
+  from {
+    opacity: 0;
+    transform: translate(0rem, 0.6666666667rem);
+  }
+}

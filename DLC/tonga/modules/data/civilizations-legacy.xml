@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Types>
+		<!-- Major Civs -->
+		<Row Type="TRAIT_TONGA" Kind="KIND_TRAIT"/>
+		<Row Type="CIVILIZATION_TONGA" Kind="KIND_CIVILIZATION"/>
+	</Types>
+	<LegacyCivilizations>
+		<!-- Full Civs -->
+		<Row CivilizationType="CIVILIZATION_TONGA" Name="LOC_CIVILIZATION_TONGA_NAME" FullName="LOC_CIVILIZATION_TONGA_FULLNAME" Adjective="LOC_CIVILIZATION_TONGA_ADJECTIVE" Age="AGE_ANTIQUITY"/>
+	</LegacyCivilizations>
+	<LegacyCivilizationTraits>
+		<Row CivilizationType="CIVILIZATION_TONGA" TraitType="TRAIT_TONGA"/>
+	</LegacyCivilizationTraits>
+	<Traits>
+		<Row TraitType="TRAIT_TONGA" InternalOnly="true"/>
+	</Traits>
+	<LegacyLeaderCivPriorities>
+	</LegacyLeaderCivPriorities>
+	<LegacyIndependents>
+		<Update>
+			<Where IndependentType="INDEPENDENT_ANTIQUITY_63"/>
+			<Set Name="LOC_INDEPENDENT_ANTIQUITY_63_MAJOR_TONGA_NAME"/>
+		</Update>
+	</LegacyIndependents>
+</Database>

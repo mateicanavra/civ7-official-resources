@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+	<!-- ==================================================	-->
+	<!--	Unique Abilities							-->
+	<!-- ==================================================	-->
+	<Modifier id="SLOOP_MOD_MOVE_AFTER_ATTACK" collection="COLLECTION_OWNER" effect="EFFECT_UNIT_ADJUST_MOVE_AFTER_ATTACK">
+		<Argument name="Amount">1</Argument>
+	</Modifier>
+	<Modifier id="BUCCANEER_MOD_GRANT_RAIDING_PARTY_CHARGE" collection="COLLECTION_OWNER" effect="EFFECT_GRANT_UNIT_ABILITY_CHARGE">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_COMMANDER_HAS_X_PROMOTIONS">
+				<Argument name="PromotionsOnly">true</Argument>
+				<Argument name="Amount">2</Argument>
+				<Argument name="OnPromotionInterval">true</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="ChargedAbilityType">CHARGED_ABILITY_RAIDING_PARTY</Argument>
+		<Argument name="Amount">1</Argument>
+	</Modifier>
+</GameEffects>

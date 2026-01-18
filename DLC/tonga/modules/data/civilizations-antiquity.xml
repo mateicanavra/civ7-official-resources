@@ -1,0 +1,141 @@
+<Database>
+	<Types>
+		<!-- Major Civs -->
+		<Row Type="TRAIT_TONGA_ABILITY" Kind="KIND_TRAIT" />
+	</Types>
+	<Civilizations>
+		<!-- Full Civs -->
+		<Row CivilizationType="CIVILIZATION_TONGA" Name="LOC_CIVILIZATION_TONGA_NAME" FullName="LOC_CIVILIZATION_TONGA_FULLNAME" Description="LOC_CIVILIZATION_TONGA_DESCRIPTION" Adjective="LOC_CIVILIZATION_TONGA_ADJECTIVE" AITargetCityPercentage="25" StartingCivilizationLevelType="CIVILIZATION_LEVEL_FULL_CIV" UniqueCultureProgressionTree="TREE_CIVICS_AQ_TONGA" CapitalName="LOC_CITY_NAME_TONGA1" RandomCityNameDepth="10" />
+	</Civilizations>
+	<CivilizationFavoredWonders>
+		<Row CivilizationType="CIVILIZATION_TONGA" FavoredWonderType="WONDER_HA_AMONGA_A_MAUI" FavoredWonderName="LOC_WONDER_HA_AMONGA_A_MAUI_NAME" />
+	</CivilizationFavoredWonders>
+	<Traits>
+		<!--Civ Traits-->
+		<Row TraitType="TRAIT_TONGA_ABILITY" Name="LOC_TRAIT_TONGA_ABILITY_NAME" Description="LOC_TRAIT_TONGA_ABILITY_DESCRIPTION" InternalOnly="true" />
+	</Traits>
+	<TraitModifiers>
+		<Row TraitType="TRAIT_TONGA_ABILITY" ModifierId="MOD_TONGA_PALACE_CITY_HALL_INFLUENCE" />
+		<Row TraitType="TRAIT_TONGA_ABILITY" ModifierId="MOD_TONGA_MEET_DISTANT_LAND_CIVS" />
+		<Row TraitType="TRAIT_TONGA_ABILITY" ModifierId="MOD_TONGA_FORBID_INCOPERATE" />
+		<Row TraitType="TRAIT_TONGA_ABILITY" ModifierId="MOD_CIV_WONDER_PRODUCTION_TONGA" />
+		<Row TraitType="TRAIT_ANTIQUITY_CIV" ModifierId="TRAIT_MOD_QUARTER_TOFI_A_AND_UNIT_IS_SCOUT_EMBARK" />
+	</TraitModifiers>
+	<CivilizationTraits>
+		<Row CivilizationType="CIVILIZATION_TONGA" TraitType="TRAIT_ANTIQUITY_CIV" />
+		<Row CivilizationType="CIVILIZATION_TONGA" TraitType="TRAIT_TONGA" />
+		<Row CivilizationType="CIVILIZATION_TONGA" TraitType="TRAIT_TONGA_ABILITY" />
+		<Row CivilizationType="CIVILIZATION_TONGA" TraitType="TRAIT_ATTRIBUTE_POLITICAL" />
+		<Row CivilizationType="CIVILIZATION_TONGA" TraitType="TRAIT_ATTRIBUTE_EXPANSIONIST" />
+	</CivilizationTraits>
+	<RequirementSets>
+		<Row RequirementSetId="REQSET_PLAYER_IS_TONGA" RequirementSetType="REQUIREMENTSET_TEST_ALL" />
+	</RequirementSets>
+	<RequirementSetRequirements>
+		<Row RequirementSetId="REQSET_PLAYER_IS_TONGA" RequirementId="REQ_PLAYER_HAS_TRAIT_TONGA" />
+	</RequirementSetRequirements>
+	<Requirements>
+		<Row RequirementId="REQ_PLAYER_HAS_TRAIT_TONGA" RequirementType="REQUIREMENT_PLAYER_HAS_CIVILIZATION_OR_LEADER_TRAIT" />
+		<Row RequirementId="REQ_PLAYER_IS_NOT_TONGA" RequirementType="REQUIREMENT_PLAYER_HAS_CIVILIZATION_OR_LEADER_TRAIT" Inverse="true" />
+	</Requirements>
+	<RequirementArguments>
+		<Row RequirementId="REQ_PLAYER_HAS_TRAIT_TONGA" Name="TraitType" Value="TRAIT_TONGA" />
+		<Row RequirementId="REQ_PLAYER_IS_NOT_TONGA" Name="TraitType" Value="TRAIT_TONGA" />
+	</RequirementArguments>
+	<LeaderCivPriorities>
+		<Row Leader="LEADER_JOSE_RIZAL" Civilization="CIVILIZATION_TONGA" Priority="2" />
+		<Row Leader="LEADER_HIMIKO" Civilization="CIVILIZATION_TONGA" Priority="2" />
+	</LeaderCivPriorities>
+	<CityNames>
+		<!--Shawnee-->
+		<Row CivilizationType="CIVILIZATION_TONGA" CityName="LOC_CITY_NAME_TONGA1" />
+		<Row CivilizationType="CIVILIZATION_TONGA" CityName="LOC_CITY_NAME_TONGA2" />
+		<Row CivilizationType="CIVILIZATION_TONGA" CityName="LOC_CITY_NAME_TONGA3" />
+		<Row CivilizationType="CIVILIZATION_TONGA" CityName="LOC_CITY_NAME_TONGA4" />
+		<Row CivilizationType="CIVILIZATION_TONGA" CityName="LOC_CITY_NAME_TONGA5" />
+		<Row CivilizationType="CIVILIZATION_TONGA" CityName="LOC_CITY_NAME_TONGA6" />
+		<Row CivilizationType="CIVILIZATION_TONGA" CityName="LOC_CITY_NAME_TONGA7" />
+		<Row CivilizationType="CIVILIZATION_TONGA" CityName="LOC_CITY_NAME_TONGA8" />
+		<Row CivilizationType="CIVILIZATION_TONGA" CityName="LOC_CITY_NAME_TONGA9" />
+		<Row CivilizationType="CIVILIZATION_TONGA" CityName="LOC_CITY_NAME_TONGA10" />
+		<Row CivilizationType="CIVILIZATION_TONGA" CityName="LOC_CITY_NAME_TONGA11" />
+		<Row CivilizationType="CIVILIZATION_TONGA" CityName="LOC_CITY_NAME_TONGA12" />
+		<Row CivilizationType="CIVILIZATION_TONGA" CityName="LOC_CITY_NAME_TONGA13" />
+		<Row CivilizationType="CIVILIZATION_TONGA" CityName="LOC_CITY_NAME_TONGA14" />
+		<Row CivilizationType="CIVILIZATION_TONGA" CityName="LOC_CITY_NAME_TONGA15" />
+		<Row CivilizationType="CIVILIZATION_TONGA" CityName="LOC_CITY_NAME_TONGA16" />
+		<Row CivilizationType="CIVILIZATION_TONGA" CityName="LOC_CITY_NAME_TONGA17" />
+		<Row CivilizationType="CIVILIZATION_TONGA" CityName="LOC_CITY_NAME_TONGA18" />
+		<Row CivilizationType="CIVILIZATION_TONGA" CityName="LOC_CITY_NAME_TONGA19" />
+		<Row CivilizationType="CIVILIZATION_TONGA" CityName="LOC_CITY_NAME_TONGA20" />
+		<Row CivilizationType="CIVILIZATION_TONGA" CityName="LOC_CITY_NAME_TONGA21" />
+		<Row CivilizationType="CIVILIZATION_TONGA" CityName="LOC_CITY_NAME_TONGA22" />
+		<Row CivilizationType="CIVILIZATION_TONGA" CityName="LOC_CITY_NAME_TONGA23" />
+		<Row CivilizationType="CIVILIZATION_TONGA" CityName="LOC_CITY_NAME_TONGA24" />
+		<Row CivilizationType="CIVILIZATION_TONGA" CityName="LOC_CITY_NAME_TONGA25" />
+		<Row CivilizationType="CIVILIZATION_TONGA" CityName="LOC_CITY_NAME_TONGA26" />
+		<Row CivilizationType="CIVILIZATION_TONGA" CityName="LOC_CITY_NAME_TONGA27" />
+		<Row CivilizationType="CIVILIZATION_TONGA" CityName="LOC_CITY_NAME_TONGA28" />
+		<Row CivilizationType="CIVILIZATION_TONGA" CityName="LOC_CITY_NAME_TONGA29" />
+		<Row CivilizationType="CIVILIZATION_TONGA" CityName="LOC_CITY_NAME_TONGA30" />
+	</CityNames>
+	<StartBiasBiomes>
+		<Row CivilizationType="CIVILIZATION_TONGA" BiomeType="BIOME_TROPICAL" Score="5" />
+	</StartBiasBiomes>
+	<StartBiasTerrains>
+		<Row CivilizationType="CIVILIZATION_TONGA" TerrainType="TERRAIN_COAST" Score="15" />
+	</StartBiasTerrains>
+	<VisArt_CivilizationBuildingCultures>
+		<Row CivilizationType="CIVILIZATION_TONGA" BuildingCulture="BUILDING_CULTURE_NAM" />
+		<Row CivilizationType="CIVILIZATION_TONGA" BuildingCulture="ANT_STONE" />
+		<Row CivilizationType="CIVILIZATION_TONGA" BuildingCulture="EXP_STONE" />
+		<Row CivilizationType="CIVILIZATION_TONGA" BuildingCulture="MOD_STONE" />
+	</VisArt_CivilizationBuildingCultures>
+	<VisArt_CivilizationUnitCultures>
+		<Row CivilizationType="CIVILIZATION_TONGA" UnitCulture="PAC" />
+	</VisArt_CivilizationUnitCultures>
+	<AiListTypes>
+		<Row ListType="Tonga Unit Biases" />
+		<Row ListType="Tonga Government Bias" />
+		<Row ListType="Tonga Settle Plot Conditions" />
+		<Row ListType="Tonga Constructibles Biases" />
+		<Row ListType="Tonga Diplomatic Biases" />
+	</AiListTypes>
+	<AiLists>
+		<Row ListType="Tonga Unit Biases" LeaderType="TRAIT_TONGA" System="UnitBiases" />
+		<Row ListType="Tonga Government Bias" LeaderType="TRAIT_TONGA" System="GovernmentBiases" />
+		<Row ListType="Tonga Settle Plot Conditions" LeaderType="TRAIT_TONGA" System="SettlementPlotEvaluations" />
+		<Row ListType="Tonga Constructibles Biases" LeaderType="TRAIT_TONGA" System="ConstructibleBiases" />
+		<Row ListType="Tonga Diplomatic Biases" LeaderType="TRAIT_TONGA" System="DiplomaticActions" />
+	</AiLists>
+	<AiFavoredItems>
+		<Row ListType="Tonga Unit Biases" Item="UNIT_KALIA" Value="50" />
+		<Row ListType="Tonga Unit Biases" Item="UNIT_KALIA_2" Value="50" />
+		<Row ListType="Tonga Unit Biases" Item="UNIT_TEHINA" Value="50" />
+		<Row ListType="Tonga Government Bias" Item="GOVERNMENT_OLIGARCHY" Value="25" />
+		<Row ListType="Tonga Settle Plot Conditions" Item="Coastal" Favored="false" Value="15" TooltipString="LOC_SETTLEMENT_RECOMMENDATION_COAST" />
+		<Row ListType="Tonga Constructibles Biases" Item="BUILDING_LANGI" Value="200" />
+		<Row ListType="Tonga Constructibles Biases" Item="BUILDING_VAI_KAUKAU" Value="200" />
+		<Row ListType="Tonga Constructibles Biases" Item="WONDER_HA_AMONGA_A_MAUI" Value="50" />
+		<Row ListType="Tonga Diplomatic Biases" Item="DIPLOMACY_ACTION_GIVE_INFLUENCE_TOKEN" Value="50" />
+	</AiFavoredItems>
+	<Independents>
+		<Update>
+			<Where IndependentType="INDEPENDENT_ANTIQUITY_63" />
+			<Set Name="LOC_INDEPENDENT_ANTIQUITY_63_MINOR_TONGA_NAME" CityStateName="LOC_INDEPENDENT_ANTIQUITY_63_MAJOR_TONGA_NAME" />
+		</Update>
+	</Independents>
+	<EndGameMovies>
+		<!-- Defeats (Civ Specific) -->
+		<Row DefeatType="DEFEAT_DEFAULT" CivilizationType="CIVILIZATION_TONGA" Priority="450" MovieType="MOVIE_DEFEAT_TONGA" />
+		<Row DefeatType="DEFEAT_RETIRE" CivilizationType="CIVILIZATION_TONGA" Priority="440" MovieType="MOVIE_DEFEAT_TONGA" />
+
+
+		<!-- Age Transition/Legacy Points Victory -->
+		<Row CivilizationType="CIVILIZATION_TONGA" LastCompletedLegacyPath="LEGACY_PATH_ANTIQUITY_ECONOMIC" Priority="200" MovieType="MOVIE_CIVILIZATION_TONGA_LEGACY_ECONOMIC" />
+		<Row CivilizationType="CIVILIZATION_TONGA" LastCompletedLegacyPath="LEGACY_PATH_ANTIQUITY_MILITARY" Priority="200" MovieType="MOVIE_CIVILIZATION_TONGA_LEGACY_MILITARY" />
+		<Row CivilizationType="CIVILIZATION_TONGA" LastCompletedLegacyPath="LEGACY_PATH_ANTIQUITY_SCIENCE" Priority="200" MovieType="MOVIE_CIVILIZATION_TONGA_LEGACY_SCIENCE" />
+		<Row CivilizationType="CIVILIZATION_TONGA" LastCompletedLegacyPath="LEGACY_PATH_ANTIQUITY_CULTURE" Priority="200" MovieType="MOVIE_CIVILIZATION_TONGA_LEGACY_CULTURE" />
+
+	</EndGameMovies>
+</Database>

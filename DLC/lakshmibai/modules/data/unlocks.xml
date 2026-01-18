@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Kinds>
+		<InsertOrIgnore Kind="KIND_UNLOCK"/>
+	</Kinds>
+	<Types>
+		<InsertOrIgnore Type="UNLOCK_LEGEND_LEVEL_4_LAKSHMIBAI" Kind="KIND_UNLOCK"/>
+		<InsertOrIgnore Type="UNLOCK_LEGEND_LEVEL_8_LAKSHMIBAI" Kind="KIND_UNLOCK"/>
+	</Types>
+	<Unlocks>
+		<InsertOrIgnore UnlockType="UNLOCK_LEGEND_LEVEL_4_LAKSHMIBAI"/>
+		<InsertOrIgnore UnlockType="UNLOCK_LEGEND_LEVEL_8_LAKSHMIBAI"/>
+	</Unlocks>
+	<UnlockRewards>
+		<InsertOrIgnore UnlockType="UNLOCK_LEGEND_LEVEL_4_LAKSHMIBAI" Name="LOC_CARD_AT_EXP_LEGEND_LAKSHMIBAI_1_NAME" Description="LOC_CARD_AT_EXP_LEGEND_LAKSHMIBAI_1_DESCRIPTION" Icon="LEADER_LAKSHMIBAI"/>
+		<InsertOrIgnore UnlockType="UNLOCK_LEGEND_LEVEL_4_LAKSHMIBAI" Name="LOC_CARD_AT_EXP_LEGEND_LAKSHMIBAI_2_NAME" Description="LOC_CARD_AT_EXP_LEGEND_LAKSHMIBAI_2_DESCRIPTION" Icon="LEADER_LAKSHMIBAI"/>
+		<InsertOrIgnore UnlockType="UNLOCK_LEGEND_LEVEL_8_LAKSHMIBAI" Name="LOC_CARD_AT_MOD_LEGEND_LAKSHMIBAI_1_NAME" Description="LOC_CARD_AT_MOD_LEGEND_LAKSHMIBAI_1_DESCRIPTION" Icon="LEADER_LAKSHMIBAI"/>
+		<InsertOrIgnore UnlockType="UNLOCK_LEGEND_LEVEL_8_LAKSHMIBAI" Name="LOC_CARD_AT_MOD_LEGEND_LAKSHMIBAI_2_NAME" Description="LOC_CARD_AT_MOD_LEGEND_LAKSHMIBAI_2_DESCRIPTION" Icon="LEADER_LAKSHMIBAI"/>
+	</UnlockRewards>
+	<RequirementSets>
+		<Row RequirementSetId="REQSET_LEADER_IS_LAKSHMIBAI" RequirementSetType="REQUIREMENTSET_TEST_ALL"/>
+
+		<Row RequirementSetId="REQSET_LEGEND_LEVEL_4_LAKSHMIBAI" RequirementSetType="REQUIREMENTSET_TEST_ALL"/>
+		<Row RequirementSetId="REQSET_LEGEND_LEVEL_8_LAKSHMIBAI" RequirementSetType="REQUIREMENTSET_TEST_ALL"/>
+	</RequirementSets>
+	<Requirements>
+		<Row RequirementId="REQ_LEADER_IS_LAKSHMIBAI" RequirementType="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES"/>
+
+		<Row RequirementId="REQ_LEGEND_LEVEL_4_LAKSHMIBAI" RequirementType="REQUIREMENT_METAPROGRESSION_LEGEND_PATH_LEVEL"/>
+		<Row RequirementId="REQ_LEGEND_LEVEL_8_LAKSHMIBAI" RequirementType="REQUIREMENT_METAPROGRESSION_LEGEND_PATH_LEVEL"/>
+	</Requirements>
+	<RequirementArguments>
+		<Row RequirementId="REQ_LEADER_IS_LAKSHMIBAI" Name="LeaderType" Value="LEADER_LAKSHMIBAI"/>
+
+		<Row RequirementId="REQ_LEGEND_LEVEL_4_LAKSHMIBAI" Name="LegendPaths" Value="LEGEND_PATH_LAKSHMIBAI"/>
+		<Row RequirementId="REQ_LEGEND_LEVEL_4_LAKSHMIBAI" Name="LevelThreshold" Value="4"/>
+		<Row RequirementId="REQ_LEGEND_LEVEL_4_LAKSHMIBAI" Name="Amount" Value="1"/>
+		<Row RequirementId="REQ_LEGEND_LEVEL_8_LAKSHMIBAI" Name="LegendPaths" Value="LEGEND_PATH_LAKSHMIBAI"/>
+		<Row RequirementId="REQ_LEGEND_LEVEL_8_LAKSHMIBAI" Name="LevelThreshold" Value="8"/>
+		<Row RequirementId="REQ_LEGEND_LEVEL_8_LAKSHMIBAI" Name="Amount" Value="1"/>
+	</RequirementArguments>
+	<RequirementSetRequirements>
+		<Row RequirementSetId="REQSET_LEADER_IS_LAKSHMIBAI" RequirementId="REQ_LEADER_IS_LAKSHMIBAI"/>
+
+		<Row RequirementSetId="REQSET_LEGEND_LEVEL_4_LAKSHMIBAI" RequirementId="REQ_LEADER_IS_LAKSHMIBAI"/>
+		<Row RequirementSetId="REQSET_LEGEND_LEVEL_4_LAKSHMIBAI" RequirementId="REQ_LEGEND_LEVEL_4_LAKSHMIBAI"/>
+		<Row RequirementSetId="REQSET_LEGEND_LEVEL_8_LAKSHMIBAI" RequirementId="REQ_LEADER_IS_LAKSHMIBAI"/>
+		<Row RequirementSetId="REQSET_LEGEND_LEVEL_8_LAKSHMIBAI" RequirementId="REQ_LEGEND_LEVEL_8_LAKSHMIBAI"/>
+	</RequirementSetRequirements>
+	<UnlockRequirements>
+		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_CHOLA" RequirementSetId="REQSET_LEADER_IS_LAKSHMIBAI" Description="LOC_UNLOCK_PLAY_AS_LAKSHMIBAI_DESCRIPTION" Tooltip="LOC_UNLOCK_PLAY_AS_LAKSHMIBAI_CHOLA_TOOLTIP"/>
+		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_MUGHAL" RequirementSetId="REQSET_LEADER_IS_LAKSHMIBAI" Description="LOC_UNLOCK_PLAY_AS_LAKSHMIBAI_DESCRIPTION" Tooltip="LOC_UNLOCK_PLAY_AS_LAKSHMIBAI_MUGHAL_TOOLTIP"/>
+
+		<InsertOrIgnore UnlockType="UNLOCK_LEGEND_LEVEL_4_LAKSHMIBAI" RequirementSetId="REQSET_LEGEND_LEVEL_4_LAKSHMIBAI" Description=""/>
+		<InsertOrIgnore UnlockType="UNLOCK_LEGEND_LEVEL_8_LAKSHMIBAI" RequirementSetId="REQSET_LEGEND_LEVEL_8_LAKSHMIBAI" Description=""/>
+	</UnlockRequirements>
+</Database>

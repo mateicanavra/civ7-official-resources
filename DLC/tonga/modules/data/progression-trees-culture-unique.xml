@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Types>
+		<!--Civ Unique Mastery Trees-->
+		<Row Type="TREE_CIVICS_AQ_TONGA" Kind="KIND_TREE"/>
+		<!--Civ Unique Mastery Tree Nodes-->
+		<Row Type="NODE_CIVIC_AQ_TONGA_LAPITA_ORIGINS" Kind="KIND_TREE_NODE"/>
+		<Row Type="NODE_CIVIC_AQ_TONGA_ESI_MAKA_FAAKINANGA" Kind="KIND_TREE_NODE"/>
+		<Row Type="NODE_CIVIC_AQ_TONGA_KAVA_CEREMONY" Kind="KIND_TREE_NODE"/>
+	</Types>
+	<TypeQuotes>
+		<Row Type="NODE_CIVIC_AQ_TONGA_LAPITA_ORIGINS" Quote="LOC_CIVIC_LAPITA_ORIGINS_QUOTE" QuoteAuthor="LOC_CIVIC_LAPITA_ORIGINS_AUTHOR" QuoteAudio="VO_Quote_LapitaOrigins" />
+		<Row Type="NODE_CIVIC_AQ_TONGA_ESI_MAKA_FAAKINANGA" Quote="LOC_CIVIC_ESI_MAKA_FAAKINANGA_QUOTE" QuoteAuthor="LOC_CIVIC_ESI_MAKA_FAAKINANGA_AUTHOR" QuoteAudio="VO_Quote_EsiMakaFaakinanga" />
+		<Row Type="NODE_CIVIC_AQ_TONGA_KAVA_CEREMONY" Quote="LOC_CIVIC_KAVA_CEREMONY_QUOTE" QuoteAuthor="LOC_CIVIC_KAVA_CEREMONY_AUTHOR" QuoteAudio="VO_Quote_KavaCeremony" />
+	</TypeQuotes>
+	<ProgressionTrees>
+		<!--Civ Unique Mastery Trees-->
+		<Row ProgressionTreeType="TREE_CIVICS_AQ_TONGA" AgeType="AGE_ANTIQUITY" SystemType="SYSTEM_CULTURE" Name="LOC_TREE_CIVICS_AQ_TONGA_NAME"/>
+	</ProgressionTrees>
+	<ProgressionTreeNodes>
+		<!--Civ Unique Mastery Tree Nodes-->
+		<!--TONGA-->
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_TONGA_LAPITA_ORIGINS" ProgressionTree="TREE_CIVICS_AQ_TONGA" Cost="150" Name="LOC_CIVIC_LAPITA_ORIGINS_NAME" IconString="cult_tonga"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_TONGA_ESI_MAKA_FAAKINANGA" ProgressionTree="TREE_CIVICS_AQ_TONGA" Cost="150" Name="LOC_CIVIC_ESI_MAKA_FAAKINANGA_NAME" IconString="cult_tonga"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_TONGA_KAVA_CEREMONY" ProgressionTree="TREE_CIVICS_AQ_TONGA" Cost="250" Name="LOC_CIVIC_KAVA_CEREMONY_NAME" IconString="cult_tonga"/>
+	</ProgressionTreeNodes>
+	<ProgressionTreeNodeUnlocks>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_MAIN_CHIEFDOM" TargetKind="KIND_MODIFIER" TargetType="MOD_CODE_OF_LAWS_REVEAL_CIV_CULTURE_TREE_TONGA" UnlockDepth="1" Hidden="true"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_TONGA_LAPITA_ORIGINS" TargetKind="KIND_CONSTRUCTIBLE" TargetType="BUILDING_VAI_KAUKAU" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_TONGA_LAPITA_ORIGINS" TargetKind="KIND_MODIFIER" TargetType="MOD_LAPITA_ORIGINS_OCEAN_TRADE" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_TONGA_LAPITA_ORIGINS" TargetKind="KIND_MODIFIER" TargetType="MOD_LAPITA_ORIGINS_CS_TRADE" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_TONGA_LAPITA_ORIGINS" TargetKind="KIND_MODIFIER" TargetType="MOD_LAPITA_ORIGINS_MONUMENT_INFLUENCE" UnlockDepth="2"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_TONGA_LAPITA_ORIGINS" TargetKind="KIND_TRADITION" TargetType="TRADITION_NGATU" UnlockDepth="2"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_TONGA_ESI_MAKA_FAAKINANGA" TargetKind="KIND_CONSTRUCTIBLE" TargetType="BUILDING_LANGI" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_TONGA_ESI_MAKA_FAAKINANGA" TargetKind="KIND_MODIFIER" TargetType="MOD_ESI_MAKA_FAAKINANGA_COMBAT_STRENGTH" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_TONGA_ESI_MAKA_FAAKINANGA" TargetKind="KIND_MODIFIER" TargetType="MOD_AQ_SETTLEMENT_CAP_INCREASE" UnlockDepth="2"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_TONGA_ESI_MAKA_FAAKINANGA" TargetKind="KIND_TRADITION" TargetType="TRADITION_TONGIAKI" UnlockDepth="2"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_TONGA_KAVA_CEREMONY" TargetKind="KIND_MODIFIER" TargetType="MOD_KAVA_CEREMONY_BEFRIEND_INDEPENDENT" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_TONGA_KAVA_CEREMONY" TargetKind="KIND_TRADITION" TargetType="TRADITION_TAKUAKA" UnlockDepth="2"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_TONGA_KAVA_CEREMONY" TargetKind="KIND_CONSTRUCTIBLE" TargetType="WONDER_HA_AMONGA_A_MAUI" UnlockDepth="2" AIIgnoreUnlockValue="true"/>
+	</ProgressionTreeNodeUnlocks>
+	<ProgressionTreePrereqs>
+		<!--Carthage-->
+		<Row Node="NODE_CIVIC_AQ_TONGA_KAVA_CEREMONY" PrereqNode="NODE_CIVIC_AQ_TONGA_ESI_MAKA_FAAKINANGA"/>
+		<Row Node="NODE_CIVIC_AQ_TONGA_KAVA_CEREMONY" PrereqNode="NODE_CIVIC_AQ_TONGA_LAPITA_ORIGINS"/>
+	</ProgressionTreePrereqs>
+	<ProgressionTree_Advisories>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_TONGA_LAPITA_ORIGINS" AdvisoryClassType="ADVISORY_CLASS_DIPLOMACY"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_TONGA_LAPITA_ORIGINS" AdvisoryClassType="ADVISORY_CLASS_ECONOMIC"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_TONGA_ESI_MAKA_FAAKINANGA" AdvisoryClassType="ADVISORY_CLASS_MILITARY"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_TONGA_ESI_MAKA_FAAKINANGA" AdvisoryClassType="ADVISORY_CLASS_CULTURE"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_TONGA_KAVA_CEREMONY" AdvisoryClassType="ADVISORY_CLASS_DIPLOMACY"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_TONGA_KAVA_CEREMONY" AdvisoryClassType="ADVISORY_CLASS_SCIENCE"/>
+	</ProgressionTree_Advisories>
+</Database>

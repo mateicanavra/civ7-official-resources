@@ -1,0 +1,137 @@
+<Database>
+	<Types>
+		<!-- Major Civs -->
+		<Row Type="TRAIT_PIRATE_REPUBLIC_ABILITY" Kind="KIND_TRAIT" />
+	</Types>
+	<Civilizations>
+		<!-- Full Civs -->
+		<Row CivilizationType="CIVILIZATION_PIRATE_REPUBLIC" Name="LOC_CIVILIZATION_PIRATE_REPUBLIC_NAME" FullName="LOC_CIVILIZATION_PIRATE_REPUBLIC_FULLNAME" Description="LOC_CIVILIZATION_PIRATE_REPUBLIC_DESCRIPTION" Adjective="LOC_CIVILIZATION_PIRATE_REPUBLIC_ADJECTIVE" StartingCivilizationLevelType="CIVILIZATION_LEVEL_FULL_CIV" UniqueCultureProgressionTree="TREE_CIVICS_EX_PIRATE_REPUBLIC" CapitalName="LOC_CITY_NAME_PIRATE_REPUBLIC1" RandomCityNameDepth="10" />
+	</Civilizations>
+	<CivilizationFavoredWonders>
+		<Row CivilizationType="CIVILIZATION_PIRATE_REPUBLIC" FavoredWonderType="WONDER_HAVANA_HARBOR" FavoredWonderName="LOC_WONDER_HAVANA_HARBOR_NAME" />
+	</CivilizationFavoredWonders>
+	<Traits>
+		<!--Civ Traits-->
+		<Row TraitType="TRAIT_PIRATE_REPUBLIC_ABILITY" Name="LOC_TRAIT_PIRATE_REPUBLIC_ABILITY_NAME" Description="LOC_TRAIT_PIRATE_REPUBLIC_ABILITY_DESCRIPTION" InternalOnly="true" />
+	</Traits>
+	<TraitModifiers>
+		<Row TraitType="TRAIT_PIRATE_REPUBLIC_ABILITY" ModifierId="MOD_CIV_NAVAL_UNITS_FOREIGN_TERRITORY" />
+		<Row TraitType="TRAIT_PIRATE_REPUBLIC_ABILITY" ModifierId="MOD_CIV_PIRATE_REPUBLIC_PILLAGE_YIELDS_IMPROVEMENTS" />
+		<Row TraitType="TRAIT_PIRATE_REPUBLIC_ABILITY" ModifierId="MOD_CIV_PIRATE_REPUBLIC_PILLAGE_YIELDS_BUILDINGS" />
+		<Row TraitType="TRAIT_PIRATE_REPUBLIC_ABILITY" ModifierId="MOD_CIV_WONDER_PRODUCTION_PIRATE_REPUBLIC" />
+		<Row TraitType="TRAIT_PIRATE_REPUBLIC_ABILITY" ModifierId="MOD_REVEAL_CIV_CULTURE_TREE_PIRATE_REPUBLIC" />
+		<Row TraitType="TRAIT_PIRATE_REPUBLIC_ABILITY" ModifierId="MOD_CIV_PIRATE_REPUBLIC_DISABLE_SETTLERS" />
+		<Row TraitType="TRAIT_PIRATE_REPUBLIC_ABILITY" ModifierId="MOD_CIV_PIRATE_REPUBLIC_CAPTURE_SETTLERS" />
+	</TraitModifiers>
+	<CivilizationTraits>
+		<Row CivilizationType="CIVILIZATION_PIRATE_REPUBLIC" TraitType="TRAIT_EXPLORATION_CIV" />
+		<Row CivilizationType="CIVILIZATION_PIRATE_REPUBLIC" TraitType="TRAIT_PIRATE_REPUBLIC" />
+		<Row CivilizationType="CIVILIZATION_PIRATE_REPUBLIC" TraitType="TRAIT_PIRATE_REPUBLIC_ABILITY" />
+		<Row CivilizationType="CIVILIZATION_PIRATE_REPUBLIC" TraitType="TRAIT_ATTRIBUTE_MILITARISTIC" />
+		<Row CivilizationType="CIVILIZATION_PIRATE_REPUBLIC" TraitType="TRAIT_ATTRIBUTE_POLITICAL" />
+	</CivilizationTraits>
+	<RequirementSets>
+		<Row RequirementSetId="REQSET_PLAYER_IS_PIRATE_REPUBLIC" RequirementSetType="REQUIREMENTSET_TEST_ALL" />
+	</RequirementSets>
+	<RequirementSetRequirements>
+		<Row RequirementSetId="REQSET_PLAYER_IS_PIRATE_REPUBLIC" RequirementId="REQ_PLAYER_HAS_TRAIT_PIRATE_REPUBLIC" />
+	</RequirementSetRequirements>
+	<Requirements>
+		<Row RequirementId="REQ_PLAYER_HAS_TRAIT_PIRATE_REPUBLIC" RequirementType="REQUIREMENT_PLAYER_HAS_CIVILIZATION_OR_LEADER_TRAIT" />
+	</Requirements>
+	<RequirementArguments>
+		<Row RequirementId="REQ_PLAYER_HAS_TRAIT_PIRATE_REPUBLIC" Name="TraitType" Value="TRAIT_PIRATE_REPUBLIC" />
+	</RequirementArguments>
+	<LeaderCivPriorities>
+		<!--This is the table used for AI, the UI uses LeaderCivilizationBias in config.xml-->
+		<Row Leader="LEADER_AMINA" Civilization="CIVILIZATION_PIRATE_REPUBLIC" Priority="1" />
+	</LeaderCivPriorities>
+	<CityNames>
+		<!--Shawnee-->
+		<Row CivilizationType="CIVILIZATION_PIRATE_REPUBLIC" CityName="LOC_CITY_NAME_PIRATE_REPUBLIC1" />
+		<Row CivilizationType="CIVILIZATION_PIRATE_REPUBLIC" CityName="LOC_CITY_NAME_PIRATE_REPUBLIC2" />
+		<Row CivilizationType="CIVILIZATION_PIRATE_REPUBLIC" CityName="LOC_CITY_NAME_PIRATE_REPUBLIC3" />
+		<Row CivilizationType="CIVILIZATION_PIRATE_REPUBLIC" CityName="LOC_CITY_NAME_PIRATE_REPUBLIC4" />
+		<Row CivilizationType="CIVILIZATION_PIRATE_REPUBLIC" CityName="LOC_CITY_NAME_PIRATE_REPUBLIC5" />
+		<Row CivilizationType="CIVILIZATION_PIRATE_REPUBLIC" CityName="LOC_CITY_NAME_PIRATE_REPUBLIC6" />
+		<Row CivilizationType="CIVILIZATION_PIRATE_REPUBLIC" CityName="LOC_CITY_NAME_PIRATE_REPUBLIC7" />
+		<Row CivilizationType="CIVILIZATION_PIRATE_REPUBLIC" CityName="LOC_CITY_NAME_PIRATE_REPUBLIC8" />
+		<Row CivilizationType="CIVILIZATION_PIRATE_REPUBLIC" CityName="LOC_CITY_NAME_PIRATE_REPUBLIC9" />
+		<Row CivilizationType="CIVILIZATION_PIRATE_REPUBLIC" CityName="LOC_CITY_NAME_PIRATE_REPUBLIC10" />
+		<Row CivilizationType="CIVILIZATION_PIRATE_REPUBLIC" CityName="LOC_CITY_NAME_PIRATE_REPUBLIC11" />
+		<Row CivilizationType="CIVILIZATION_PIRATE_REPUBLIC" CityName="LOC_CITY_NAME_PIRATE_REPUBLIC12" />
+		<Row CivilizationType="CIVILIZATION_PIRATE_REPUBLIC" CityName="LOC_CITY_NAME_PIRATE_REPUBLIC13" />
+		<Row CivilizationType="CIVILIZATION_PIRATE_REPUBLIC" CityName="LOC_CITY_NAME_PIRATE_REPUBLIC14" />
+		<Row CivilizationType="CIVILIZATION_PIRATE_REPUBLIC" CityName="LOC_CITY_NAME_PIRATE_REPUBLIC15" />
+		<Row CivilizationType="CIVILIZATION_PIRATE_REPUBLIC" CityName="LOC_CITY_NAME_PIRATE_REPUBLIC16" />
+		<Row CivilizationType="CIVILIZATION_PIRATE_REPUBLIC" CityName="LOC_CITY_NAME_PIRATE_REPUBLIC17" />
+		<Row CivilizationType="CIVILIZATION_PIRATE_REPUBLIC" CityName="LOC_CITY_NAME_PIRATE_REPUBLIC18" />
+		<Row CivilizationType="CIVILIZATION_PIRATE_REPUBLIC" CityName="LOC_CITY_NAME_PIRATE_REPUBLIC19" />
+		<Row CivilizationType="CIVILIZATION_PIRATE_REPUBLIC" CityName="LOC_CITY_NAME_PIRATE_REPUBLIC20" />
+		<Row CivilizationType="CIVILIZATION_PIRATE_REPUBLIC" CityName="LOC_CITY_NAME_PIRATE_REPUBLIC21" />
+		<Row CivilizationType="CIVILIZATION_PIRATE_REPUBLIC" CityName="LOC_CITY_NAME_PIRATE_REPUBLIC22" />
+		<Row CivilizationType="CIVILIZATION_PIRATE_REPUBLIC" CityName="LOC_CITY_NAME_PIRATE_REPUBLIC23" />
+		<Row CivilizationType="CIVILIZATION_PIRATE_REPUBLIC" CityName="LOC_CITY_NAME_PIRATE_REPUBLIC24" />
+		<Row CivilizationType="CIVILIZATION_PIRATE_REPUBLIC" CityName="LOC_CITY_NAME_PIRATE_REPUBLIC25" />
+		<Row CivilizationType="CIVILIZATION_PIRATE_REPUBLIC" CityName="LOC_CITY_NAME_PIRATE_REPUBLIC26" />
+		<Row CivilizationType="CIVILIZATION_PIRATE_REPUBLIC" CityName="LOC_CITY_NAME_PIRATE_REPUBLIC27" />
+		<Row CivilizationType="CIVILIZATION_PIRATE_REPUBLIC" CityName="LOC_CITY_NAME_PIRATE_REPUBLIC28" />
+		<Row CivilizationType="CIVILIZATION_PIRATE_REPUBLIC" CityName="LOC_CITY_NAME_PIRATE_REPUBLIC29" />
+		<Row CivilizationType="CIVILIZATION_PIRATE_REPUBLIC" CityName="LOC_CITY_NAME_PIRATE_REPUBLIC30" />
+	</CityNames>
+	<StartBiasAdjacentToCoasts>
+		<Row CivilizationType="CIVILIZATION_PIRATE_REPUBLIC" Score="150" />
+	</StartBiasAdjacentToCoasts>
+	<AiListTypes>
+		<Row ListType="Pirates Unit Biases" />
+		<Row ListType="Pirates Government Bias" />
+		<Row ListType="Pirates ProgressionTreeNodes Biases" />
+		<Row ListType="Pirates Constructibles Biases" />
+	</AiListTypes>
+	<AiLists>
+		<Row ListType="Pirates Unit Biases" LeaderType="TRAIT_PIRATE_REPUBLIC" System="UnitBiases" />
+		<Row ListType="Pirates Government Bias" LeaderType="TRAIT_PIRATE_REPUBLIC" System="GovernmentBiases" />
+		<Row ListType="Pirates ProgressionTreeNodes Biases" LeaderType="TRAIT_PIRATE_REPUBLIC" System="ProgressionTreeNodeBiases" />
+		<Row ListType="Pirates Constructibles Biases" LeaderType="TRAIT_PIRATE_REPUBLIC" System="ConstructibleBiases" />
+	</AiLists>
+	<AiFavoredItems>
+		<Row ListType="Pirates Unit Biases" Item="UNIT_SLOOP" Value="50" />
+		<Row ListType="Pirates Unit Biases" Item="UNIT_BUCCANEER" Value="50" />
+		<Row ListType="Pirates Unit Biases" Item="UNIT_COG" Value="25" />
+		<Row ListType="Pirates Unit Biases" Item="UNIT_CARRACK" Value="25" />
+		<Row ListType="Pirates Unit Biases" Item="UNIT_GALLEON" Value="25" />
+		<Row ListType="Pirates Government Bias" Item="GOVERNMENT_FEUDAL_MONARCHY" Value="50" />
+		<Row ListType="Pirates ProgressionTreeNodes Biases" Item="NODE_TECH_EX_SHIPBUILDING" Value="500" />
+		<Row ListType="Pirates Constructibles Biases" Item="WONDER_HAVANA_HARBOR" Value="50" />
+		<Row ListType="Pirates Constructibles Biases" Item="BUILDING_NAVAL_ARSENAL" Value="200" />
+		<Row ListType="Pirates Constructibles Biases" Item="BUILDING_NAVAL_STATION" Value="200" />
+	</AiFavoredItems>
+	<VisArt_CivilizationBuildingCultures>
+		<Row CivilizationType="CIVILIZATION_PIRATE_REPUBLIC" BuildingCulture="BUILDING_CULTURE_MED" />
+		<Row CivilizationType="CIVILIZATION_PIRATE_REPUBLIC" BuildingCulture="ANT_STONE" />
+		<Row CivilizationType="CIVILIZATION_PIRATE_REPUBLIC" BuildingCulture="EXP_STONE" />
+		<Row CivilizationType="CIVILIZATION_PIRATE_REPUBLIC" BuildingCulture="MOD_STONE" />
+	</VisArt_CivilizationBuildingCultures>
+	<VisArt_CivilizationUnitCultures>
+		<Row CivilizationType="CIVILIZATION_PIRATE_REPUBLIC" UnitCulture="Euro" />
+	</VisArt_CivilizationUnitCultures>
+	<Independents>
+		<Update>
+			<Where IndependentType="INDEPENDENT_EXPLORATION_47" />
+			<Set Name="LOC_INDEPENDENT_EXPLORATION_47_MINOR_PIRATES_NAME" CityStateName="LOC_INDEPENDENT_EXPLORATION_47_MAJOR_PIRATES_NAME" />
+		</Update>
+	</Independents>
+	<EndGameMovies>
+		<!-- Defeats (Civ Specific) -->
+		<Row DefeatType="DEFEAT_DEFAULT" CivilizationType="CIVILIZATION_PIRATE_REPUBLIC" Priority="450" MovieType="MOVIE_DEFEAT_PIRATE_REPUBLIC" />
+		<Row DefeatType="DEFEAT_RETIRE" CivilizationType="CIVILIZATION_PIRATE_REPUBLIC" Priority="440" MovieType="MOVIE_DEFEAT_PIRATE_REPUBLIC" />
+
+
+		<!-- Age Transition/Legacy Points Victory -->
+		<Row CivilizationType="CIVILIZATION_PIRATE_REPUBLIC" LastCompletedLegacyPath="LEGACY_PATH_EXPLORATION_ECONOMIC" Priority="200" MovieType="MOVIE_CIVILIZATION_PIRATE_REPUBLIC_LEGACY_ECONOMIC" />
+		<Row CivilizationType="CIVILIZATION_PIRATE_REPUBLIC" LastCompletedLegacyPath="LEGACY_PATH_EXPLORATION_MILITARY" Priority="200" MovieType="MOVIE_CIVILIZATION_PIRATE_REPUBLIC_LEGACY_MILITARY" />
+		<Row CivilizationType="CIVILIZATION_PIRATE_REPUBLIC" LastCompletedLegacyPath="LEGACY_PATH_EXPLORATION_SCIENCE" Priority="200" MovieType="MOVIE_CIVILIZATION_PIRATE_REPUBLIC_LEGACY_SCIENCE" />
+		<Row CivilizationType="CIVILIZATION_PIRATE_REPUBLIC" LastCompletedLegacyPath="LEGACY_PATH_EXPLORATION_CULTURE" Priority="200" MovieType="MOVIE_CIVILIZATION_PIRATE_REPUBLIC_LEGACY_CULTURE" />
+
+	</EndGameMovies>
+</Database>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+	<!-- ==================================================	-->
+	<!--	Unique Abilities							-->
+	<!-- ==================================================	-->
+	<Modifier id="MOD_DEFAULT_CIV_RIVER_EMBARKATION_NOT_TEHINA" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_EMBARKATION_TYPE" permanent="true">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_DOMAIN_MATCHES">
+				<Argument name="UnitDomain">DOMAIN_LAND</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES" inverse="true">
+				<Argument name="Tag">UNIT_CLASS_TEHINA</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET" inverse="true">
+				<Argument name="RequirementSetId">REQSET_PLAYER_HAS_QUARTER_TOFI_A_AND_UNIT_IS_SCOUT</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="EmbarkationType">UNIT_EMBARKATION_INLAND_WATER</Argument>
+	</Modifier>
+	<Modifier id="MOD_SAILING_EMBARKATION_NOT_TEHINA" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_EMBARKATION_TYPE" permanent="true">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_DOMAIN_MATCHES">
+				<Argument name="UnitDomain">DOMAIN_LAND</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES" inverse="true">
+				<Argument name="Tag">UNIT_CLASS_TEHINA</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET" inverse="true">
+				<Argument name="RequirementSetId">REQSET_PLAYER_HAS_QUARTER_TOFI_A_AND_UNIT_IS_SCOUT</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="EmbarkationType">UNIT_EMBARKATION_SHALLOW_WATER</Argument>
+		<String context="Name">LOC_MOD_SAILING_EMBARKATION_NAME</String>
+		<String context="Description">LOC_MOD_SAILING_EMBARKATION_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="AGE_ANTIQUITY_MOD_OCEAN_TERRAIN_INVALID_NOT_TEHINA" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ADJUST_UNIT_VALID_TERRAIN">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES" inverse="true">
+				<Argument name="Tag">UNIT_CLASS_TEHINA</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET" inverse="true">
+				<Argument name="RequirementSetId">REQSET_PLAYER_HAS_QUARTER_TOFI_A_AND_UNIT_IS_SCOUT</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="TerrainType">TERRAIN_OCEAN</Argument>
+		<Argument name="Valid">false</Argument>
+	</Modifier>
+	<Modifier id="MOD_OCEAN_TEHINA" collection="COLLECTION_OWNER" effect="EFFECT_UNIT_ADJUST_EMBARKATION_TYPE" permanent="true">
+		<Argument name="EmbarkationType">UNIT_EMBARKATION_DEEP_WATER</Argument>
+	</Modifier>
+	<Modifier id="MOD_COASTAL_RAID_DISCOVERIES" collection="COLLECTION_OWNER" effect="EFFECT_ADJUST_UNIT_COASTAL_RAID_ONLY_DISCOVERIES"/>
+	<Modifier id="KALIA_MOD_COMBAT_VS_FORTIFICATION" collection="COLLECTION_UNIT_COMBAT" effect="EFFECT_ADJUST_UNIT_STRENGTH_MODIFIER">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_OPPONENT_IS_DISTRICT"/>
+		</SubjectRequirements>
+		<Argument name="Amount">5</Argument>
+		<String context="Preview">LOC_ABILITY_KALIA_PREVIEW</String>
+	</Modifier>
+</GameEffects>

@@ -1,0 +1,9 @@
+{
+	"Scripts": [
+		"fs://game/base-standard/ui/automation/automation-test-support.js",
+		"fs://game/base-standard/ui/automation/automation-test-multiplayer-host.js"
+	],
+	"Tests": [
+		"Tests=( { Test=Multiplayer-Host, Turns=10, JoinCode=9, Players=2, MapScript=continents.js }, { Test=QuitApp } )"
+	]
+}

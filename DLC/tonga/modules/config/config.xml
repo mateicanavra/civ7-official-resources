@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<LeaderCivilizationBias>
+	</LeaderCivilizationBias>
+	<Civilizations>
+		<Row Domain="AntiquityAgeCivilizations" CivilizationType="CIVILIZATION_TONGA" CivilizationName="LOC_CIVILIZATION_TONGA_NAME" CivilizationFullName="LOC_CIVILIZATION_TONGA_FULLNAME" CivilizationDescription="LOC_CIVILIZATION_TONGA_DESCRIPTION" CivilizationIcon="carthage_icon.png"/>
+	</Civilizations>
+	<CivilizationItems>
+		<Row CivilizationDomain="AntiquityAgeCivilizations" CivilizationType="CIVILIZATION_TONGA" Type="TRAIT_TONGA_ABILITY" Kind="KIND_TRAIT" Name="LOC_TRAIT_TONGA_ABILITY_NAME" Description="LOC_TRAIT_TONGA_ABILITY_DESCRIPTION"/>
+		<Row CivilizationDomain="AntiquityAgeCivilizations" CivilizationType="CIVILIZATION_TONGA" Type="UNIT_TEHINA" Kind="KIND_UNIT" Name="LOC_UNIT_TEHINA_NAME" Description="LOC_UNIT_TEHINA_DESCRIPTION" Icon="unitflag_leiomano.png"/>
+		<Row CivilizationDomain="AntiquityAgeCivilizations" CivilizationType="CIVILIZATION_TONGA" Type="UNIT_KALIA" Kind="KIND_UNIT" Name="LOC_UNIT_KALIA_NAME" Description="LOC_UNIT_KALIA_BASE_DESCRIPTION" Icon="unitflag_KALIA.png"/>
+		<Row CivilizationDomain="AntiquityAgeCivilizations" CivilizationType="CIVILIZATION_TONGA" Type="QUARTER_TOFI_A" Kind="KIND_QUARTER" Name="LOC_QUARTER_TOFI_A_NAME" Description="LOC_QUARTER_TOFI_A_DESCRIPTION" Icon="city_uniquequarter"/>
+		<Row CivilizationDomain="AntiquityAgeCivilizations" CivilizationType="CIVILIZATION_TONGA" Type="BUILDING_LANGI" Kind="KIND_BUILDING" Name="LOC_BUILDING_LANGI_NAME" Description="LOC_BUILDING_LANGI_DESCRIPTION" Icon="impicon_loikalo.png"/>
+		<Row CivilizationDomain="AntiquityAgeCivilizations" CivilizationType="CIVILIZATION_TONGA" Type="BUILDING_VAI_KAUKAU" Kind="KIND_BUILDING" Name="LOC_BUILDING_VAI_KAUKAU_NAME" Description="LOC_BUILDING_VAI_KAUKAU_DESCRIPTION" Icon="impicon_loikalo.png"/>
+	</CivilizationItems>
+	<CivilizationTags>
+		<Row CivilizationDomain="AntiquityAgeCivilizations" CivilizationType="CIVILIZATION_TONGA" TagType="TAG_TRAIT_POLITICAL"/>
+		<Row CivilizationDomain="AntiquityAgeCivilizations" CivilizationType="CIVILIZATION_TONGA" TagType="TAG_TRAIT_EXPANSIONIST"/>
+	</CivilizationTags>
+	<CivilizationUnlocks>
+		<Row CivilizationDomain="AntiquityAgeCivilizations" CivilizationType="CIVILIZATION_TONGA" AgeDomain="StandardAges" AgeType="AGE_EXPLORATION" Type="CIVILIZATION_HAWAII" Kind="KIND_CIVILIZATION" Name="LOC_CIVILIZATION_HAWAII_NAME" Description="LOC_CIVILIZATION_HAWAII_DESCRIPTION" Icon="CIVILIZATION_HAWAII"/>
+	</CivilizationUnlocks>
+	<OwnershipConditions>
+		<Row ItemType="CIVILIZATION_TONGA" Action="LOC_LOCKED_INCLUDED_WITH_CONTENT" />
+	</OwnershipConditions>
+	<LeaderCivilizationBias>
+		<!--This is the table used for UI, the AI uses LeaderCivPriorities in civilizations.xml-->
+		<Row CivilizationDomain="AntiquityAgeCivilizations" CivilizationType="CIVILIZATION_TONGA" LeaderDomain="StandardLeaders" LeaderType="LEADER_JOSE_RIZAL" Bias="2" ReasonType="LOC_UNLOCK_PLAY_AS_JOSE_RIZAL_TONGA_TOOLTIP" ChoiceType="LOC_CREATE_GAME_STRATEGIC_CHOICE" />
+		<Row CivilizationDomain="AntiquityAgeCivilizations" CivilizationType="CIVILIZATION_TONGA" LeaderDomain="StandardLeaders" LeaderType="LEADER_HIMIKO" Bias="2" ReasonType="LOC_UNLOCK_PLAY_AS_HIMIKO_TONGA_TOOLTIP" ChoiceType="LOC_CREATE_GAME_STRATEGIC_CHOICE" />
+		<Row CivilizationDomain="AntiquityAgeCivilizations" CivilizationType="CIVILIZATION_TONGA" LeaderDomain="StandardLeaders" LeaderType="LEADER_HIMIKO_ALT" Bias="2" ReasonType="LOC_UNLOCK_PLAY_AS_HIMIKO_ALT_TONGA_TOOLTIP" ChoiceType="LOC_CREATE_GAME_STRATEGIC_CHOICE" />
+	</LeaderCivilizationBias>
+</Database>

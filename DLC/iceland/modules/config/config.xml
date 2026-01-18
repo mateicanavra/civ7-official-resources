@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Civilizations>
+		<Row Domain="ExplorationAgeCivilizations" CivilizationType="CIVILIZATION_ICELAND" CivilizationName="LOC_CIVILIZATION_ICELAND_NAME" CivilizationFullName="LOC_CIVILIZATION_ICELAND_FULLNAME" CivilizationDescription="LOC_CIVILIZATION_ICELAND_DESCRIPTION" CivilizationIcon="shawnee_icon.png"/>
+	</Civilizations>
+	<CivilizationItems>
+		<Row CivilizationDomain="ExplorationAgeCivilizations" CivilizationType="CIVILIZATION_ICELAND" Type="TRAIT_ICELAND_ABILITY" Kind="KIND_TRAIT" Name="LOC_TRAIT_ICELAND_ABILITY_NAME" Description="LOC_TRAIT_ICELAND_ABILITY_DESCRIPTION"/>
+		<Row CivilizationDomain="ExplorationAgeCivilizations" CivilizationType="CIVILIZATION_ICELAND" Type="UNIT_VIKINGR" Kind="KIND_UNIT" Name="LOC_UNIT_VIKINGR_NAME" Description="LOC_UNIT_VIKINGR_BASE_DESCRIPTION" Icon="unitflag_leiomano.png"/>
+		<Row CivilizationDomain="ExplorationAgeCivilizations" CivilizationType="CIVILIZATION_ICELAND" Type="UNIT_SAGA_HERO" Kind="KIND_UNIT" Name="LOC_UNIT_SAGA_HERO_NAME" Description="LOC_UNIT_SAGA_HERO_DESCRIPTION" Icon="unitflag_SAGA_HERO.png"/>
+		<Row CivilizationDomain="ExplorationAgeCivilizations" CivilizationType="CIVILIZATION_ICELAND" Type="IMPROVEMENT_THING" Kind="KIND_IMPROVEMENT" Name="LOC_IMPROVEMENT_THING_NAME" Description="LOC_IMPROVEMENT_THING_DESCRIPTION" Icon="impicon_loikalo.png"/>
+	</CivilizationItems>
+	<CivilizationTags>
+		<Row CivilizationDomain="ExplorationAgeCivilizations" CivilizationType="CIVILIZATION_ICELAND" TagType="TAG_TRAIT_CULTURAL"/>
+		<Row CivilizationDomain="ExplorationAgeCivilizations" CivilizationType="CIVILIZATION_ICELAND" TagType="TAG_TRAIT_MILITARISTIC"/>
+	</CivilizationTags>
+	<CivilizationUnlocks>
+		<Row CivilizationDomain="AntiquityAgeCivilizations" CivilizationType="CIVILIZATION_ROME" AgeDomain="StandardAges" AgeType="AGE_EXPLORATION" Type="CIVILIZATION_ICELAND" Kind="KIND_CIVILIZATION" Name="LOC_CIVILIZATION_ICELAND_NAME" Description="LOC_CIVILIZATION_ICELAND_DESCRIPTION" Icon="CIVILIZATION_ICELAND"/>
+		<Row CivilizationDomain="ExplorationAgeCivilizations" CivilizationType="CIVILIZATION_ICELAND" AgeDomain="StandardAges" AgeType="AGE_MODERN" Type="CIVILIZATION_AMERICA" Kind="KIND_CIVILIZATION" Name="LOC_CIVILIZATION_AMERICA_NAME" Description="LOC_CIVILIZATION_AMERICA_DESCRIPTION" Icon="CIVILIZATION_AMERICA"/>
+	</CivilizationUnlocks>
+	<LeaderCivilizationBias>
+		<Row CivilizationDomain="ExplorationAgeCivilizations" CivilizationType="CIVILIZATION_ICELAND" LeaderDomain="StandardLeaders" LeaderType="LEADER_ISABELLA" Bias="2" ReasonType="LOC_UNLOCK_PLAY_AS_ISABELLA_ICELAND_TOOLTIP" ChoiceType="LOC_CREATE_GAME_GEOGRAPHIC_CHOICE" />
+		<Row CivilizationDomain="ExplorationAgeCivilizations" CivilizationType="CIVILIZATION_ICELAND" LeaderDomain="StandardLeaders" LeaderType="LEADER_JOSE_RIZAL" Bias="1" ReasonType="LOC_UNLOCK_PLAY_AS_JOSE_RIZAL_ICELAND_TOOLTIP" ChoiceType="LOC_CREATE_GAME_STRATEGIC_CHOICE" />
+	</LeaderCivilizationBias>
+	<LeaderUnlocks>
+		<Row LeaderDomain="StandardLeaders" LeaderType="LEADER_ISABELLA" AgeDomain="StandardAges" AgeType="AGE_EXPLORATION" Type="CIVILIZATION_ICELAND" Kind="KIND_CIVILIZATION" Name="LOC_CIVILIZATION_ICELAND_NAME" Description="LOC_CIVILIZATION_ICELAND_DESCRIPTION" Icon="CIVILIZATION_ICELAND"/>
+		<Row LeaderDomain="StandardLeaders" LeaderType="LEADER_JOSE_RIZAL" AgeDomain="StandardAges" AgeType="AGE_EXPLORATION" Type="CIVILIZATION_ICELAND" Kind="KIND_CIVILIZATION" Name="LOC_CIVILIZATION_ICELAND_NAME" Description="LOC_CIVILIZATION_ICELAND_DESCRIPTION" Icon="CIVILIZATION_ICELAND"/>
+	</LeaderUnlocks>
+	<OwnershipConditions>
+		<Row ItemType="CIVILIZATION_ICELAND" Action="LOC_LOCKED_INCLUDED_WITH_CONTENT" />
+	</OwnershipConditions>
+</Database>

@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database>
+  <!-- Delete existing strings/translations for the given keys.-->
+  <LocalizedText>
+    <Delete Tag="LOC_MP_JOIN_PARENT_PERMISSIONS_DISABLED" />
+    <Delete Tag="LOC_JOIN_GAME_CHILD_ACCOUNT" />
+  </LocalizedText>
+
+  <!-- Define platform-specific overrides. -->
+  <EnglishText>
+    <Row Tag="LOC_MP_CHILD_ACCOUNT_NOT_ALLOWED_AA">
+      <Text>Child accounts are not allowed to play online.</Text>
+    </Row>
+    <Replace Tag="LOC_MP_JOIN_PARENT_PERMISSIONS_DISABLED">
+      <Text>{LOC_MP_CHILD_ACCOUNT_NOT_ALLOWED_AA}</Text>
+    </Replace>
+    <Replace Tag="LOC_JOIN_GAME_CHILD_ACCOUNT">
+      <Text>{LOC_MP_CHILD_ACCOUNT_NOT_ALLOWED_AA}</Text>
+    </Replace>
+  </EnglishText>
+</Database>

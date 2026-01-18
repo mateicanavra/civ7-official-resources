@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Types>
+		<!--Civ Unique Military-->
+		<Row Type="UNIT_HWARANG" Kind="KIND_UNIT"/>
+		<Row Type="UNIT_HWARANG_2" Kind="KIND_UNIT"/>
+		<!--Civ Unique Civilian-->
+		<Row Type="UNIT_SANGDAEDEUNG" Kind="KIND_UNIT"/>
+		<!--Civ Unique Abilities-->
+		<Row Type="ABILITY_HWARANG" Kind="KIND_ABILITY"/>
+		<Row Type="ABILITY_HWARANG_CULTURE" Kind="KIND_ABILITY"/>
+		<Row Type="ABILITY_SANGDAEDEUNG" Kind="KIND_ABILITY"/>
+	</Types>
+	<Units>
+		<!--Civ Unique Military-->
+		<Row UnitType="UNIT_HWARANG" Name="LOC_UNIT_HWARANG_NAME" Description="LOC_UNIT_HWARANG_DESCRIPTION" Tier="1" BaseSightRange="2" BaseMoves="3" UnitMovementClass="UNIT_MOVEMENT_CLASS_MOUNTED" Domain="DOMAIN_LAND" CoreClass="CORE_CLASS_MILITARY" FormationClass="FORMATION_CLASS_LAND_COMBAT" ZoneOfControl="false" TraitType="TRAIT_SILLA"/>
+		<Row UnitType="UNIT_HWARANG_2" Name="LOC_UNIT_HWARANG_NAME" Description="LOC_UNIT_HWARANG_2_DESCRIPTION" Tier="2" Maintenance="1" BaseSightRange="2" BaseMoves="3" UnitMovementClass="UNIT_MOVEMENT_CLASS_MOUNTED" Domain="DOMAIN_LAND" CoreClass="CORE_CLASS_MILITARY" FormationClass="FORMATION_CLASS_LAND_COMBAT" ZoneOfControl="false" TraitType="TRAIT_SILLA"/>
+		<!--Civ Unique Civilian-->
+		<Row UnitType="UNIT_SANGDAEDEUNG" Name="LOC_UNIT_SANGDAEDEUNG_NAME" Description="LOC_UNIT_SANGDAEDEUNG_DESCRIPTION" BaseSightRange="2" BaseMoves="4" UnitMovementClass="UNIT_MOVEMENT_CLASS_FOOT" Domain="DOMAIN_LAND" CoreClass="CORE_CLASS_CIVILIAN" FormationClass="FORMATION_CLASS_CIVILIAN" ZoneOfControl="false" MakeTradeRoute="true" CostProgressionModel="COST_PROGRESSION_PREVIOUS_COPIES" CostProgressionParam1="20" TraitType="TRAIT_SILLA"/>
+	</Units>
+	<Unit_Stats>
+		<!--Civ Unique Military-->
+		<Row UnitType="UNIT_HWARANG" Combat="5" RangedCombat="15" Bombard="8" Range="2"/>
+		<Row UnitType="UNIT_HWARANG_2" Combat="10" RangedCombat="20" Bombard="13" Range="2"/>
+		<Row UnitType="UNIT_SANGDAEDEUNG"/>
+	</Unit_Stats>
+	<Unit_Costs>
+		<!--Civ Unique Military-->
+		<Row UnitType="UNIT_HWARANG" YieldType="YIELD_PRODUCTION" Cost="50"/>
+		<Row UnitType="UNIT_HWARANG_2" YieldType="YIELD_PRODUCTION" Cost="70"/>
+		<!--Civ Unique Civilian-->
+		<Row UnitType="UNIT_SANGDAEDEUNG" YieldType="YIELD_PRODUCTION" Cost="40"/>
+	</Unit_Costs>
+	<UnitUpgrades>
+		<!--Civ Unique Military-->
+		<Row Unit="UNIT_HWARANG" UpgradeUnit="UNIT_HWARANG_2"/>
+	</UnitUpgrades>
+	<UnitReplaces>
+		<!--Civ Unique Military-->
+		<Row CivUniqueUnitType="UNIT_HWARANG" ReplacesUnitType="UNIT_SLINGER"/>
+		<Row CivUniqueUnitType="UNIT_HWARANG_2" ReplacesUnitType="UNIT_ARCHER"/>
+		<!--Civ Unique Civilian-->
+		<Row CivUniqueUnitType="UNIT_SANGDAEDEUNG" ReplacesUnitType="UNIT_MERCHANT"/>
+	</UnitReplaces>
+	<Tags>
+		<!--Civ Unique Military-->
+		<Row Tag="UNIT_CLASS_HWARANG" Category="UNIT_CLASS"/>
+		<!--Civ Unique Civilian-->
+		<Row Tag="UNIT_CLASS_SANGDAEDEUNG" Category="UNIT_CLASS"/>
+	</Tags>
+	<TypeTags>
+		<!--Civ Unique Military-->
+		<Row Type="UNIT_HWARANG" Tag="UNIT_CLASS_COMBAT"/>
+		<Row Type="UNIT_HWARANG" Tag="UNIT_CLASS_RANGED"/>
+		<Row Type="UNIT_HWARANG" Tag="UNIT_CLASS_HWARANG"/>
+		<Row Type="UNIT_HWARANG" Tag="UNIT_CLASS_MOUNTED"/>
+		<Row Type="UNIT_HWARANG" Tag="UNIT_CLASS_CAVALRY"/>
+		<Row Type="UNIT_HWARANG_2" Tag="UNIT_CLASS_COMBAT"/>
+		<Row Type="UNIT_HWARANG_2" Tag="UNIT_CLASS_RANGED"/>
+		<Row Type="UNIT_HWARANG_2" Tag="UNIT_CLASS_HWARANG"/>
+		<Row Type="UNIT_HWARANG_2" Tag="UNIT_CLASS_MOUNTED"/>
+		<Row Type="UNIT_HWARANG_2" Tag="UNIT_CLASS_CAVALRY"/>
+		<!--Civ Unique Civilian-->
+		<Row Type="UNIT_SANGDAEDEUNG" Tag="UNIT_CLASS_MAKE_TRADE_ROUTE"/>
+		<Row Type="UNIT_SANGDAEDEUNG" Tag="UNIT_CLASS_SANGDAEDEUNG"/>
+	</TypeTags>
+	<UnitClass_Abilities>
+		<Row UnitAbilityType="ABILITY_HWARANG" UnitClassType="UNIT_CLASS_HWARANG"/>
+		<Row UnitAbilityType="ABILITY_HWARANG_CULTURE" UnitClassType="UNIT_CLASS_HWARANG"/>
+		<Row UnitAbilityType="ABILITY_SANGDAEDEUNG" UnitClassType="UNIT_CLASS_SANGDAEDEUNG"/>
+	</UnitClass_Abilities>
+	<UnitAbilities>
+		<!--Unique-->
+		<Row UnitAbilityType="ABILITY_HWARANG" Name="LOC_ABILITY_HWARANG_NAME" Description="LOC_ABILITY_HWARANG_DESCRIPTION"/>
+		<Row UnitAbilityType="ABILITY_HWARANG_CULTURE" Name="NODE_CIVIC_AQ_SILLA_KOLP_UM" Description="LOC_ABILITY_HWARANG_CULTURE_DESCRIPTION" Inactive="true"/>
+		<Row UnitAbilityType="ABILITY_SANGDAEDEUNG" Name="LOC_UNIT_SANGDAEDEUNG_NAME" Description="LOC_ABILITY_SANGDAEDEUNG_DESCRIPTION"/>
+	</UnitAbilities>
+	<UnitAbilityModifiers>
+		<Row UnitAbilityType="ABILITY_HWARANG_CULTURE" ModifierId="CULTURE_KILLS_HWARANG"/>
+		<Row UnitAbilityType="ABILITY_SANGDAEDEUNG" ModifierId="SANGDAEDEUNG_MOD_TRADE_CREATION_YIELD"/>
+	</UnitAbilityModifiers>
+	<Unit_Advisories>
+		<Row UnitType="UNIT_HWARANG" AdvisoryClassType="ADVISORY_CLASS_MILITARY"/>
+		<Row UnitType="UNIT_HWARANG_2" AdvisoryClassType="ADVISORY_CLASS_MILITARY"/>
+		<Row UnitType="UNIT_SANGDAEDEUNG" AdvisoryClassType="ADVISORY_CLASS_ECONOMIC"/>
+		<Row UnitType="UNIT_SANGDAEDEUNG" AdvisoryClassType="ADVISORY_CLASS_TRADE"/>
+	</Unit_Advisories>
+</Database>

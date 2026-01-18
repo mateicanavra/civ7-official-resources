@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+	<Modifier id="MOD_LANDNAMBOK_RELIC_CIVIC_MASTERY" collection="COLLECTION_OWNER" effect="EFFECT_ADJUST_PLAYER_RELIC_FOR_CIVIC_TREE_MASTERY">
+		<Argument name="Amount">1</Argument>
+		<String context="Description">LOC_MOD_LANDNAMBOK_RELIC_CIVIC_MASTERY_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="MOD_LANDNAMBOK_KILN_WAREHOUSE_THING" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ACTIVATE_CONSTRUCTIBLE_WAREHOUSE_YIELD">
+		<Argument name="ConstructibleWarehouseYield">LandnambokKilnThingGold</Argument>
+		<String context="Description">LOC_MOD_LANDNAMBOK_KILN_WAREHOUSE_THING_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="MOD_HUGINS_DREKKA_RANGE_PILLAGE" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ADJUST_UNIT_ADVANCED_PILLAGING">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+				<Argument name="Tag">UNIT_CLASS_NAVAL</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Range">2</Argument>
+		<String context="Description">LOC_MOD_HUGINS_DREKKA_RANGE_PILLAGE_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="MOD_HUGINS_DREKKA_PILLAGE_ONE_MOVE" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ADJUST_UNIT_ADVANCED_PILLAGING">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+				<Argument name="Tag">UNIT_CLASS_VIKINGR</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_UNIT_IS_IN_HOMELANDS" inverse="true"/>
+		</SubjectRequirements>
+		<Argument name="UseAdvancedPillaging">true</Argument>
+		<String context="Description">LOC_MOD_HUGINS_DREKKA_PILLAGE_ONE_MOVE_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="MOD_VAERINGJAR_EMBARKED_MOVEMENT" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ADJUST_UNIT_EMBARKED_MOVEMENT">
+		<Argument name="Amount">1</Argument>
+		<String context="Description">LOC_MOD_VAERINGJAR_EMBARKED_MOVEMENT_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="MOD_VAERINGJAR_NAVAL_MOVEMENT" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_MOVEMENT">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+				<Argument name="Tag">UNIT_CLASS_NAVAL</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">1</Argument>
+	</Modifier>
+	<Modifier id="MOD_VAERINGJAR_NAVAL_COMBAT" collection="COLLECTION_PLAYER_COMBAT" effect="EFFECT_ADJUST_UNIT_STRENGTH_MODIFIER">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+				<Argument name="Tag">UNIT_CLASS_NAVAL</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">3</Argument>
+		<String context="Preview">LOC_MOD_VAERINGJAR_EMBARKED_NAVAL_COMBAT_PREVIEW</String>
+	</Modifier>
+	<Modifier id="MOD_VAERINGJAR_EMBARKED_COMBAT" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ATTACH_MODIFIERS">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_EMBARKED"/>
+			<Requirement type="REQUIREMENT_UNIT_DOMAIN_MATCHES">
+				<Argument name="UnitDomain">DOMAIN_LAND</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="ModifierId">MOD_VAERINGJAR_EMBARKED_COMBAT_EFFECT</Argument>
+	</Modifier>
+	<Modifier id="MOD_VAERINGJAR_EMBARKED_COMBAT_EFFECT" collection="COLLECTION_UNIT_COMBAT" effect="EFFECT_ADJUST_UNIT_EMBARKED_STRENGTH_MODIFIER">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_IS_ATTACKING" inverse="true"/>
+		</SubjectRequirements>
+		<Argument name="Amount">3</Argument>
+		<String context="Preview">LOC_MOD_VAERINGJAR_EMBARKED_NAVAL_COMBAT_PREVIEW</String>
+	</Modifier>
+	<Modifier id="MOD_THJODVELDID_RELIC" collection="COLLECTION_OWNER" effect="EFFECT_GRANT_GREAT_WORK" run-once="true" permanent="true">
+		<Argument name="Amount">2</Argument>
+		<Argument name="ObjectType">GREATWORKOBJECT_RELIC</Argument>
+		<String context="Description">LOC_MOD_THJODVELDID_RELIC_DESCRIPTION</String>
+	</Modifier>
+</GameEffects>

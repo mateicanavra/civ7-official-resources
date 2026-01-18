@@ -1,0 +1,9 @@
+{
+	"Scripts": [
+		"fs://game/base-standard/ui/automation/automation-test-support.js",
+		"fs://game/base-standard/ui/automation/automation-test-menu-benchmark.js"
+	],
+	"Tests": [
+		"Tests=( { Test=MenuBenchmark, Category=STORMS, Arrangement=INDIVIDUAL, Time=10 }, { Test=MenuBenchmark, Category=UNITS, Arrangement=ALTERNATE_ROW }, { Test=MenuBenchmark, Category=WONDERS, Arrangement=ALTERNATE_ROW }, { Test=MenuBenchmark, Category=IMPROVEMENTS, Arrangement=EVERY_HEX }, { Test=MenuBenchmark, Category=RESOURCES, Arrangement=EVERY_HEX }, {Test=MenuBenchmark, Category=FEATURES, Arrangement=EVERY_HEX}, { Test=MenuBenchmark, Category=LAYOUTS, Arrangement=EVERY_HEX }, { Test=MenuBenchmark, Category=HERO_LAYOUTS, Arrangement=EVERY_HEX }, { Test=MenuBenchmark, Category=BUILDINGS, Arrangement=EVERY_HEX }, { Test=QuitApp })"
+	]
+}

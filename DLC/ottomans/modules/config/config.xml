@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Civilizations>
+		<Row Domain="ModernAgeCivilizations" CivilizationType="CIVILIZATION_OTTOMANS" CivilizationName="LOC_CIVILIZATION_OTTOMANS_NAME" CivilizationFullName="LOC_CIVILIZATION_OTTOMANS_FULLNAME" CivilizationDescription="LOC_CIVILIZATION_OTTOMANS_DESCRIPTION" CivilizationIcon="shawnee_icon.png"/>
+	</Civilizations>
+	<CivilizationItems>
+		<Row CivilizationDomain="ModernAgeCivilizations" CivilizationType="CIVILIZATION_OTTOMANS" Type="TRAIT_OTTOMANS_ABILITY" Kind="KIND_TRAIT" Name="LOC_TRAIT_OTTOMANS_ABILITY_NAME" Description="LOC_TRAIT_OTTOMANS_ABILITY_DESCRIPTION"/>
+		<Row CivilizationDomain="ModernAgeCivilizations" CivilizationType="CIVILIZATION_OTTOMANS" Type="UNIT_JANISSARY" Kind="KIND_UNIT" Name="LOC_UNIT_JANISSARY_NAME" Description="LOC_UNIT_JANISSARY_BASE_DESCRIPTION" Icon="unitflag_leiomano.png"/>
+		<Row CivilizationDomain="ModernAgeCivilizations" CivilizationType="CIVILIZATION_OTTOMANS" Type="UNIT_BARBARY_CORSAIR" Kind="KIND_UNIT" Name="LOC_UNIT_BARBARY_CORSAIR_NAME" Description="LOC_UNIT_BARBARY_CORSAIR_BASE_DESCRIPTION" Icon="unitflag_SHERPA.png"/>
+		<Row CivilizationDomain="ModernAgeCivilizations" CivilizationType="CIVILIZATION_OTTOMANS" Type="QUARTER_KULLIYE" Kind="KIND_QUARTER" Name="LOC_QUARTER_KULLIYE_NAME" Description="LOC_QUARTER_KULLIYE_DESCRIPTION" Icon="city_uniquequarter"/>
+		<Row CivilizationDomain="ModernAgeCivilizations" CivilizationType="CIVILIZATION_OTTOMANS" Type="BUILDING_CAMII" Kind="KIND_BUILDING" Name="LOC_BUILDING_CAMII_NAME" Description="LOC_BUILDING_CAMII_DESCRIPTION" Icon="buildicon_formalgarden.png"/>
+		<Row CivilizationDomain="ModernAgeCivilizations" CivilizationType="CIVILIZATION_OTTOMANS" Type="BUILDING_HAMMAM" Kind="KIND_BUILDING" Name="LOC_BUILDING_HAMMAM_NAME" Description="LOC_BUILDING_HAMMAM_DESCRIPTION" Icon="buildicon_salon.png"/>
+	</CivilizationItems>
+	<CivilizationTags>
+		<Row CivilizationDomain="ModernAgeCivilizations" CivilizationType="CIVILIZATION_OTTOMANS" TagType="TAG_TRAIT_CULTURAL"/>
+		<Row CivilizationDomain="ModernAgeCivilizations" CivilizationType="CIVILIZATION_OTTOMANS" TagType="TAG_TRAIT_MILITARISTIC"/>
+	</CivilizationTags>
+	<LeaderCivilizationBias>
+		<!--This is the table used for UI, the AI uses LeaderCivPriorities in civilizations.xml-->
+		<Row CivilizationDomain="ModernAgeCivilizations" CivilizationType="CIVILIZATION_OTTOMANS" LeaderDomain="StandardLeaders" LeaderType="LEADER_IBN_BATTUTA" Bias="2" ReasonType="LOC_UNLOCK_PLAY_AS_IBN_BATTUTA_OTTOMANS_TOOLTIP" ChoiceType="LOC_CREATE_GAME_STRATEGIC_CHOICE"/>
+	</LeaderCivilizationBias>
+	<LeaderUnlocks>
+		<Row LeaderDomain="StandardLeaders" LeaderType="LEADER_IBN_BATTUTA" AgeDomain="StandardAges" AgeType="AGE_MODERN" Type="CIVILIZATION_OTTOMANS" Kind="KIND_CIVILIZATION" Name="LOC_CIVILIZATION_OTTOMANS_NAME" Description="LOC_CIVILIZATION_OTTOMANS_DESCRIPTION" Icon="CIVILIZATION_OTTOMANS"/>
+	</LeaderUnlocks>
+	<CivilizationUnlocks>
+		<Row CivilizationDomain="AntiquityAgeCivilizations" CivilizationType="CIVILIZATION_ROME" AgeDomain="StandardAges" AgeType="AGE_MODERN" Type="CIVILIZATION_OTTOMANS" Kind="KIND_CIVILIZATION" Name="LOC_CIVILIZATION_OTTOMANS_NAME" Description="LOC_CIVILIZATION_OTTOMANS_DESCRIPTION" Icon="CIVILIZATION_OTTOMANS"/>
+		<Row CivilizationDomain="AntiquityAgeCivilizations" CivilizationType="CIVILIZATION_EGYPT" AgeDomain="StandardAges" AgeType="AGE_MODERN" Type="CIVILIZATION_OTTOMANS" Kind="KIND_CIVILIZATION" Name="LOC_CIVILIZATION_OTTOMANS_NAME" Description="LOC_CIVILIZATION_OTTOMANS_DESCRIPTION" Icon="CIVILIZATION_OTTOMANS"/>
+		<Row CivilizationDomain="ExplorationAgeCivilizations" CivilizationType="CIVILIZATION_ABBASID" AgeDomain="StandardAges" AgeType="AGE_MODERN" Type="CIVILIZATION_OTTOMANS" Kind="KIND_CIVILIZATION" Name="LOC_CIVILIZATION_OTTOMANS_NAME" Description="LOC_CIVILIZATION_OTTOMANS_DESCRIPTION" Icon="CIVILIZATION_OTTOMANS"/>
+	</CivilizationUnlocks>
+	<OwnershipConditions>
+		<Row ItemType="CIVILIZATION_OTTOMANS" Action="LOC_LOCKED_INCLUDED_WITH_CONTENT" />
+	</OwnershipConditions>
+</Database>

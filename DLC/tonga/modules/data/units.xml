@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<TraitModifiers>
+		<Delete TraitType="TRAIT_ANTIQUITY_CIV" ModifierId="MOD_DEFAULT_CIV_RIVER_EMBARKATION"/>
+		<Row TraitType="TRAIT_ANTIQUITY_CIV" ModifierId="MOD_DEFAULT_CIV_RIVER_EMBARKATION_NOT_TEHINA"/>
+	</TraitModifiers>
+	<ProgressionTreeNodeUnlocks>
+		<Delete ProgressionTreeNodeType="NODE_TECH_AQ_SAILING" TargetKind="KIND_MODIFIER" TargetType="MOD_SAILING_EMBARKATION" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_TECH_AQ_SAILING" TargetKind="KIND_MODIFIER" TargetType="MOD_SAILING_EMBARKATION_NOT_TEHINA" UnlockDepth="1"/>
+	</ProgressionTreeNodeUnlocks>
+	<PlayerModifiers>
+		<Delete ModifierId="AGE_ANTIQUITY_MOD_OCEAN_TERRAIN_INVALID"/>
+		<Row ModifierId="AGE_ANTIQUITY_MOD_OCEAN_TERRAIN_INVALID_NOT_TEHINA"/>
+	</PlayerModifiers>
+	<Types>
+		<!--Civ Unique Military-->
+		<Row Type="UNIT_KALIA" Kind="KIND_UNIT"/>
+		<Row Type="UNIT_KALIA_2" Kind="KIND_UNIT"/>
+		<!--Civ Unique Civilian-->
+		<Row Type="UNIT_TEHINA" Kind="KIND_UNIT"/>
+		<!--Civ Unique Abilities-->
+		<Row Type="ABILITY_KALIA" Kind="KIND_ABILITY"/>
+		<Row Type="ABILITY_TEHINA" Kind="KIND_ABILITY"/>
+	</Types>
+	<Units>
+		<!--Civ Unique Military-->
+		<Row UnitType="UNIT_KALIA" Name="LOC_UNIT_KALIA_NAME" Tier="2" Description="LOC_UNIT_KALIA_DESCRIPTION" Maintenance="2" BaseSightRange="2" BaseMoves="3" UnitMovementClass="UNIT_MOVEMENT_CLASS_NAVAL" Domain="DOMAIN_SEA" CoreClass="CORE_CLASS_MILITARY" FormationClass="FORMATION_CLASS_NAVAL" ZoneOfControl="true" TraitType="TRAIT_TONGA"/>
+		<Row UnitType="UNIT_KALIA_2" Name="LOC_UNIT_KALIA_NAME" Tier="3" Description="LOC_UNIT_KALIA_2_DESCRIPTION" Maintenance="3" BaseSightRange="2" BaseMoves="3" UnitMovementClass="UNIT_MOVEMENT_CLASS_NAVAL" Domain="DOMAIN_SEA" CoreClass="CORE_CLASS_MILITARY" FormationClass="FORMATION_CLASS_NAVAL" ZoneOfControl="true" TraitType="TRAIT_TONGA"/>
+		<!--Civ Unique Civilian-->
+		<Row UnitType="UNIT_TEHINA" Name="LOC_UNIT_TEHINA_NAME" Description="LOC_UNIT_TEHINA_DESCRIPTION" BaseSightRange="2" BaseMoves="2" UnitMovementClass="UNIT_MOVEMENT_CLASS_RECON" Domain="DOMAIN_LAND" CoreClass="CORE_CLASS_RECON" FormationClass="FORMATION_CLASS_CIVILIAN" ZoneOfControl="false" TraitType="TRAIT_TONGA"/>
+	</Units>
+	<Unit_Stats>
+		<!--Civ Unique Military-->
+		<Row UnitType="UNIT_KALIA" Combat="25" RangedCombat="20" Bombard="15" Range="1"/>
+		<Row UnitType="UNIT_KALIA_2" Combat="30" RangedCombat="25" Bombard="20" Range="1"/>
+		<Row UnitType="UNIT_TEHINA"/>
+	</Unit_Stats>
+	<Unit_Costs>
+		<!--Civ Unique Military-->
+		<Row UnitType="UNIT_KALIA" YieldType="YIELD_PRODUCTION" Cost="50"/>
+		<Row UnitType="UNIT_KALIA_2" YieldType="YIELD_PRODUCTION" Cost="90"/>
+		<!--Civ Unique Civilian-->
+		<Row UnitType="UNIT_TEHINA" YieldType="YIELD_PRODUCTION" Cost="30"/>
+	</Unit_Costs>
+	<UnitUpgrades>
+		<!--Civ Unique Military-->
+		<Row Unit="UNIT_KALIA" UpgradeUnit="UNIT_KALIA_2"/>
+	</UnitUpgrades>
+	<UnitReplaces>
+		<!--Civ Unique Military-->
+		<Row CivUniqueUnitType="UNIT_KALIA" ReplacesUnitType="UNIT_GALLEY"/>
+		<Row CivUniqueUnitType="UNIT_KALIA_2" ReplacesUnitType="UNIT_QUADRIREME"/>
+		<!--Civ Unique Civilian-->
+		<Row CivUniqueUnitType="UNIT_TEHINA" ReplacesUnitType="UNIT_SCOUT"/>
+	</UnitReplaces>
+	<Tags>
+		<!--Civ Unique Military-->
+		<Row Tag="UNIT_CLASS_KALIA" Category="UNIT_CLASS"/>
+		<!--Civ Unique Civilian-->
+		<Row Tag="UNIT_CLASS_TEHINA" Category="UNIT_CLASS"/>
+	</Tags>
+	<TypeTags>
+		<!--Civ Unique Military-->
+		<Row Type="UNIT_KALIA" Tag="UNIT_CLASS_COMBAT"/>
+		<Row Type="UNIT_KALIA" Tag="UNIT_CLASS_MELEE"/>
+		<Row Type="UNIT_KALIA" Tag="UNIT_CLASS_NAVAL"/>
+		<Row Type="UNIT_KALIA" Tag="UNIT_CLASS_KALIA"/>
+		<Row Type="UNIT_KALIA_2" Tag="UNIT_CLASS_COMBAT"/>
+		<Row Type="UNIT_KALIA_2" Tag="UNIT_CLASS_MELEE"/>
+		<Row Type="UNIT_KALIA_2" Tag="UNIT_CLASS_NAVAL"/>
+		<Row Type="UNIT_KALIA_2" Tag="UNIT_CLASS_KALIA"/>
+		<!--Civ Unique Civilian-->
+		<Row Type="UNIT_TEHINA" Tag="UNIT_CLASS_NON_COMBAT"/>
+		<Row Type="UNIT_TEHINA" Tag="UNIT_CLASS_RECON"/>
+		<Row Type="UNIT_TEHINA" Tag="UNIT_CLASS_RECON_ABILITIES"/>
+		<Row Type="UNIT_TEHINA" Tag="UNIT_CLASS_AUTOEXPLORE"/>
+		<Row Type="UNIT_TEHINA" Tag="UNIT_CLASS_INFLUENCE_INDEPENDENT"/>
+		<Row Type="UNIT_TEHINA" Tag="UNIT_CLASS_TEHINA"/>
+		<Row Type="UNIT_TEHINA" Tag="UNIT_CLASS_PET_THE_DOG"/>
+	</TypeTags>
+	<UnitClass_Abilities>
+		<Row UnitAbilityType="ABILITY_KALIA" UnitClassType="UNIT_CLASS_KALIA"/>
+		<Row UnitAbilityType="ABILITY_TEHINA" UnitClassType="UNIT_CLASS_TEHINA"/>
+	</UnitClass_Abilities>
+	<UnitAbilities>
+		<!--Unique-->
+		<Row UnitAbilityType="ABILITY_KALIA" Name="LOC_UNIT_KALIA_NAME" Description="LOC_ABILITY_KALIA_DESCRIPTION"/>
+		<Row UnitAbilityType="ABILITY_TEHINA" Name="LOC_UNIT_TEHINA_NAME" Description="LOC_ABILITY_TEHINA_DESCRIPTION"/>
+	</UnitAbilities>
+	<UnitAbilityModifiers>
+		<Row UnitAbilityType="ABILITY_KALIA" ModifierId="KALIA_MOD_COMBAT_VS_FORTIFICATION"/>
+		<Row UnitAbilityType="ABILITY_TEHINA" ModifierId="MOD_OCEAN_TEHINA"/>
+		<Row UnitAbilityType="ABILITY_TEHINA" ModifierId="MOD_COASTAL_RAID_DISCOVERIES"/>
+	</UnitAbilityModifiers>
+	<Unit_Advisories>
+		<Row UnitType="UNIT_TEHINA" AdvisoryClassType="ADVISORY_CLASS_EMPIRE_EXPANSION"/>
+		<Row UnitType="UNIT_KALIA" AdvisoryClassType="ADVISORY_CLASS_MILITARY"/>
+		<Row UnitType="UNIT_KALIA_2" AdvisoryClassType="ADVISORY_CLASS_MILITARY"/>
+	</Unit_Advisories>
+</Database>

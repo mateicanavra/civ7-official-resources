@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+	<!-- ==================================================	-->
+	<!--				Civ-Specific Traits					-->
+	<!-- ==================================================	-->
+	<!-- PIRATE_REPUBLIC -->
+	<Modifier id="MOD_CIV_NAVAL_UNITS_FOREIGN_TERRITORY" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ADJUST_UNIT_ENTER_FOREIGN_LANDS">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+				<Argument name="Tag">UNIT_CLASS_NAVAL, UNIT_CLASS_FLEET_COMMANDER, UNIT_CLASS_NAVAL_TREASURE</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Enter">true</Argument>
+	</Modifier>
+	<Modifier id="MOD_CIV_PIRATE_REPUBLIC_PILLAGE_YIELDS_IMPROVEMENTS" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ADJUST_UNIT_PERCENT_PILLAGE_IMPROVEMENT_MODIFIER">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_DOMAIN_MATCHES">
+				<Argument name="UnitDomain">DOMAIN_SEA</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Percent">100</Argument>
+	</Modifier>
+	<Modifier id="MOD_CIV_PIRATE_REPUBLIC_PILLAGE_YIELDS_BUILDINGS" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ADJUST_UNIT_PERCENT_PILLAGE_BUILDING_MODIFIER">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_DOMAIN_MATCHES">
+				<Argument name="UnitDomain">DOMAIN_SEA</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Percent">100</Argument>
+	</Modifier>
+	<Modifier id="MOD_CIV_PIRATE_REPUBLIC_CAPTURE_SETTLERS" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ADJUST_UNIT_COMBAT_CAPTURE"> 
+		<Argument name="CapturesUnitWithTag">UNIT_CLASS_CREATE_TOWN</Argument>
+	</Modifier>
+	<Modifier id="MOD_CIV_PIRATE_REPUBLIC_DISABLE_SETTLERS" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_DISABLE_BUILD_UNIT" run-once="true" permanent="true"> 
+		<Argument name="UnitType">UNIT_SETTLER</Argument>
+		<Argument name="PermanentlyDisabled">true</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_FREE_SHIP_REDUX" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_NAVAL_UNIT_WITH_OCEAN_ACCESS" run-once="true" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_CARD_EFFECTS_COMPLETE"/>
+			<Requirement type="REQUIREMENT_PLAYER_IS_MAJOR"/>
+			<Requirement type="REQUIREMENT_PLAYER_HAS_CIVILIZATION_OR_LEADER_TRAIT" inverse="true">
+				<Argument name="TraitType">TRAIT_PIRATE_REPUBLIC</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Amount">1</Argument>
+		<Argument name="UnitType">UNIT_COG</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_FREE_SLOOP" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_NAVAL_UNIT_WITH_OCEAN_ACCESS" run-once="true" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_CARD_EFFECTS_COMPLETE"/>
+			<Requirement type="REQUIREMENT_PLAYER_IS_MAJOR"/>
+			<Requirement type="REQUIREMENT_PLAYER_HAS_CIVILIZATION_OR_LEADER_TRAIT">
+				<Argument name="TraitType">TRAIT_PIRATE_REPUBLIC</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Amount">1</Argument>
+		<Argument name="UnitType">UNIT_SLOOP</Argument>
+	</Modifier>
+	<!-- ==================================================	-->
+	<!--				Civ-Specific Trees					-->
+	<!-- ==================================================	-->
+	<Modifier id="MOD_REVEAL_CIV_CULTURE_TREE_PIRATE_REPUBLIC" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_REVEAL_CULTURE_TREE">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_HAS_CIVILIZATION_OR_LEADER_TRAIT">
+				<Argument name="TraitType">TRAIT_PIRATE_REPUBLIC</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="ProgressionTreeType">TREE_CIVICS_EX_PIRATE_REPUBLIC</Argument>
+	</Modifier>
+	<!-- ==================================================	-->
+	<!--				Wonder Bonuses						-->
+	<!-- ==================================================	-->
+	<Modifier id="MOD_CIV_WONDER_PRODUCTION_PIRATE_REPUBLIC" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_FAVORED_WONDER_PRODUCTION">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_HAS_CIVILIZATION_OR_LEADER_TRAIT">
+				<Argument name="TraitType">TRAIT_PIRATE_REPUBLIC</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Percent">30</Argument>
+		<String context="Preview">LOC_MOD_CIV_WONDER_PRODUCTION_PIRATE_REPUBLIC_DESCRIPTION</String>
+	</Modifier>
+</GameEffects>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+	<!-- ==================================================	-->
+	<!--	Unique Abilities							-->
+	<!-- ==================================================	-->
+	<Modifier id="JANISSARY_SAD_CITY" collection="COLLECTION_UNIT_OCCUPIED_CITY" effect="EFFECT_CITY_ADJUST_YIELD">
+		<OwnerRequirements type="REQUIREMENTSET_TEST_ANY">
+			<Requirement type="REQUIREMENT_UNIT_IS_STATIONED_ON_DISTRICT">
+				<Argument name="Owned">false</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_UNIT_IS_STATIONED_ON_DISTRICT"/>
+		</OwnerRequirements>
+		<Argument name="Amount">-2</Argument>
+		<Argument name="YieldType">YIELD_HAPPINESS</Argument>
+		<Argument name="Tooltip">LOC_UNIT_JANISSARY_NAME</Argument>
+	</Modifier>
+	<Modifier id="JANISSARY_MOD_COMBAT_STRENGTH_VS_LAND" collection="COLLECTION_UNIT_COMBAT" effect="EFFECT_ADJUST_UNIT_STRENGTH_MODIFIER">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_OPPONENT_UNIT_DOMAIN_MATCHES">
+				<Argument name="UnitDomain">DOMAIN_LAND</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">5</Argument>
+		<String context="Preview">LOC_ABILITY_JANISSARY_PREVIEW</String>
+	</Modifier>
+	<Modifier id="BARBARY_CORSAIR_MOD_ADVANCED_PILLAGE" collection="COLLECTION_OWNER" effect="EFFECT_ADJUST_UNIT_ADVANCED_PILLAGING">
+		<Argument name="UseFreePillaging">true</Argument>
+	</Modifier>
+</GameEffects>

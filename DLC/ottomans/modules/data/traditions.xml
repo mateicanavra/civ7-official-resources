@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Types>
+		<!-- ==================================================	-->
+		<!--	MODERN							-->
+		<!-- ==================================================	-->
+		<Row Type="TRADITION_ERKAN_I_HARBIYE_MEKTEBI" Kind="KIND_TRADITION"/>
+		<Row Type="TRADITION_OSMANLI_BAROK" Kind="KIND_TRADITION"/>
+		<Row Type="TRADITION_SEDEF_KAKMA" Kind="KIND_TRADITION"/>
+		<Row Type="TRADITION_SIEGE_TRAIN" Kind="KIND_TRADITION"/>
+	</Types>
+	<Traditions>
+		<!-- ==================================================	-->
+		<!--	MODERN							-->
+		<!-- ==================================================	-->
+		<Row TraditionType="TRADITION_ERKAN_I_HARBIYE_MEKTEBI" Name="LOC_TRADITION_ERKAN_I_HARBIYE_MEKTEBI_NAME" Description="LOC_TRADITION_ERKAN_I_HARBIYE_MEKTEBI_DESCRIPTION" TraitType="TRAIT_OTTOMANS" AgeType="AGE_MODERN"/>
+		<Row TraditionType="TRADITION_OSMANLI_BAROK" Name="LOC_TRADITION_OSMANLI_BAROK_NAME" Description="LOC_TRADITION_OSMANLI_BAROK_DESCRIPTION" TraitType="TRAIT_OTTOMANS" AgeType="AGE_MODERN"/>
+		<Row TraditionType="TRADITION_SEDEF_KAKMA" Name="LOC_TRADITION_SEDEF_KAKMA_NAME" Description="LOC_TRADITION_SEDEF_KAKMA_DESCRIPTION" TraitType="TRAIT_OTTOMANS" AgeType="AGE_MODERN"/>
+		<Row TraditionType="TRADITION_SIEGE_TRAIN" Name="LOC_TRADITION_SIEGE_TRAIN_NAME" Description="LOC_TRADITION_SIEGE_TRAIN_DESCRIPTION" TraitType="TRAIT_OTTOMANS" AgeType="AGE_MODERN"/>
+	</Traditions>
+	<TraditionModifiers>
+		<Row TraditionType="TRADITION_ERKAN_I_HARBIYE_MEKTEBI" ModifierId="ERKAN_I_HARBIYE_MEKTEBI_MOD_UNIT_NO_REDUCTION_DAMAGE"/>
+		<Row TraditionType="TRADITION_OSMANLI_BAROK" ModifierId="OSMANLI_BAROK_GREAT_WORKS_HAPPINESS"/>
+		<Row TraditionType="TRADITION_SEDEF_KAKMA" ModifierId="SEDEF_KAKMA_MOD_CULTURE_HAPPINESS_QUARTERS"/>
+		<Row TraditionType="TRADITION_SIEGE_TRAIN" ModifierId="SIEGE_TRAIN_RESTORE_MOVEMENT"/>
+	</TraditionModifiers>
+</Database>

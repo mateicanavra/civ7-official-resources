@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+    <Modifier id="11093B_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD" run-once="false" permanent="true">
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_PLOT_UNIQUE_QUARTER">
+                <Argument name="UniqueQuarterType">QUARTER_TOFI_A</Argument>
+            </Requirement>
+        </SubjectRequirements>
+        <Argument name="Amount">6</Argument>
+        <Argument name="YieldType">YIELD_CULTURE</Argument>
+    </Modifier>
+    <Modifier id="11093C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_CULTURE</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+        <Argument name="ConstructibleType">BUILDING_MUSEUM</Argument>
+    </Modifier>
+    <RequirementSet id="REQSET_11093A_NARRATIVE_REQUISITE">
+        <Requirement type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
+            <Argument name="CivilizationType">CIVILIZATION_TONGA</Argument>
+            <Argument name="IsPastCivilization">True</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11093A_NARRATIVE">
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_NARRATIVE_TAGS">
+            <Argument name="NarrativeTagType">NARRATIVE_TAG_KAVA_CEREMONY</Argument>
+            <Argument name="Amount">1</Argument>
+        </Requirement>
+        <Requirement type="REQUIREMENT_COLLECTION_ANY_MET">
+            <Argument name="CollectionType">COLLECTION_PLAYER_CITIES</Argument>
+            <Argument name="RequirementSetId">SUBREQSET_11093A_NARRATIVE</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="SUBREQSET_11093A_NARRATIVE">
+        <Requirement type="REQUIREMENT_CITY_HAS_RESOURCE_ASSIGNED">
+            <Argument name="ResourceTypes">RESOURCE_TEA</Argument>
+        </Requirement>
+    </RequirementSet>
+</GameEffects>

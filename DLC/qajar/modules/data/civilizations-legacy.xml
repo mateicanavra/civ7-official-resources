@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Types>
+		<!-- Major Civs -->
+		<Row Type="TRAIT_QAJAR" Kind="KIND_TRAIT"/>
+		<Row Type="CIVILIZATION_QAJAR" Kind="KIND_CIVILIZATION"/>
+	</Types>
+	<LegacyCivilizations>
+		<!-- Full Civs -->
+		<Row CivilizationType="CIVILIZATION_QAJAR" Name="LOC_CIVILIZATION_QAJAR_NAME" FullName="LOC_CIVILIZATION_QAJAR_FULLNAME" Adjective="LOC_CIVILIZATION_QAJAR_ADJECTIVE" Age="AGE_MODERN"/>
+	</LegacyCivilizations>
+	<LegacyCivilizationTraits>
+		<Row CivilizationType="CIVILIZATION_QAJAR" TraitType="TRAIT_QAJAR"/>
+	</LegacyCivilizationTraits>
+	<Traits>
+		<Row TraitType="TRAIT_QAJAR" InternalOnly="true"/>
+	</Traits>
+	<LegacyLeaderCivPriorities>
+	</LegacyLeaderCivPriorities>
+	<LegacyIndependents>
+		<Update>
+			<Where IndependentType="INDEPENDENT_MODERN_25"/>
+			<Set Name="LOC_INDEPENDENT_MODERN_25_MAJOR_QAJAR_NAME"/>
+		</Update>
+	</LegacyIndependents>
+</Database>

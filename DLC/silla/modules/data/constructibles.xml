@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Types>
+		<!--Civ Unique Buildings The Dragon temple is refered to Sachal in game-->
+		<Row Type="BUILDING_LECTURE_HALL" Kind="KIND_CONSTRUCTIBLE"/>
+		<Row Type="BUILDING_PAGODA" Kind="KIND_CONSTRUCTIBLE"/>
+		<Row Type="QUARTER_DRAGON_TEMPLE" Kind="KIND_QUARTER"/>
+	</Types>
+	<Constructibles>
+		<!--Civ Unique Buildings-->
+		<Row ConstructibleType="BUILDING_LECTURE_HALL" Name="LOC_BUILDING_LECTURE_HALL_NAME" Description="LOC_BUILDING_LECTURE_HALL_DESCRIPTION" Tooltip="LOC_BUILDING_LECTURE_HALL_TOOLTIP"  ConstructibleClass="BUILDING" Cost="135" Population="1" Age="AGE_ANTIQUITY" CostProgressionModel="COST_PROGRESSION_PREVIOUS_BUILDINGS_CITY"/>
+		<Row ConstructibleType="BUILDING_PAGODA" Name="LOC_BUILDING_PAGODA_NAME" Description="LOC_BUILDING_PAGODA_DESCRIPTION" Tooltip="LOC_BUILDING_PAGODA_TOOLTIP" ConstructibleClass="BUILDING" Cost="135" Population="1" Age="AGE_ANTIQUITY" CostProgressionModel="COST_PROGRESSION_PREVIOUS_BUILDINGS_CITY"/>
+	</Constructibles>
+	<Buildings>
+		<!--Civ Unique Buildings-->
+		<Row ConstructibleType="BUILDING_LECTURE_HALL" Movable="false" TraitType="TRAIT_SILLA"/>
+		<Row ConstructibleType="BUILDING_PAGODA" Movable="false" TraitType="TRAIT_SILLA"/>
+	</Buildings>
+	<TypeTags>
+		<Row Type="BUILDING_LECTURE_HALL" Tag="CULTURE"/>
+		<Row Type="BUILDING_LECTURE_HALL" Tag="UNIQUE"/>
+		<Row Type="BUILDING_LECTURE_HALL" Tag="AGELESS"/>
+		<Row Type="BUILDING_PAGODA" Tag="HAPPINESS"/>
+		<Row Type="BUILDING_PAGODA" Tag="UNIQUE"/>
+		<Row Type="BUILDING_PAGODA" Tag="AGELESS"/>
+	</TypeTags>
+	<Constructible_ValidDistricts>
+		<!--Civ Unique Buildings-->
+		<Row ConstructibleType="BUILDING_LECTURE_HALL" DistrictType="DISTRICT_CITY_CENTER"/>
+		<Row ConstructibleType="BUILDING_LECTURE_HALL" DistrictType="DISTRICT_URBAN"/>
+		<Row ConstructibleType="BUILDING_PAGODA" DistrictType="DISTRICT_CITY_CENTER"/>
+		<Row ConstructibleType="BUILDING_PAGODA" DistrictType="DISTRICT_URBAN"/>
+	</Constructible_ValidDistricts>
+	<Constructible_YieldChanges>
+		<!--Civ Unique Buildings-->
+		<Row ConstructibleType="BUILDING_LECTURE_HALL" YieldType="YIELD_CULTURE" YieldChange="3"/>
+		<Row ConstructibleType="BUILDING_PAGODA" YieldType="YIELD_HAPPINESS" YieldChange="3"/>
+	</Constructible_YieldChanges>
+	<Constructible_Adjacencies>
+		<Row ConstructibleType="BUILDING_PAGODA" YieldChangeId="PagodaMountainDiplomacy"/>
+		<Row ConstructibleType="BUILDING_PAGODA" YieldChangeId="PagodaNaturalWonderDiplomacy"/>
+		<Row ConstructibleType="BUILDING_PAGODA" YieldChangeId="WonderDiplomacy"/>
+		<Row ConstructibleType="BUILDING_LECTURE_HALL" YieldChangeId="WonderCulture"/>
+	</Constructible_Adjacencies>
+	<Constructible_Maintenances>
+		<Row ConstructibleType="BUILDING_PAGODA" YieldType="YIELD_GOLD" Amount="2"/>
+		<Row ConstructibleType="BUILDING_LECTURE_HALL" YieldType="YIELD_HAPPINESS" Amount="2"/>
+		<Row ConstructibleType="BUILDING_LECTURE_HALL" YieldType="YIELD_GOLD" Amount="2"/>
+	</Constructible_Maintenances>
+	<Adjacency_YieldChanges>
+		<Row ID="PagodaMountainDiplomacy" YieldType="YIELD_DIPLOMACY" YieldChange="1" TilesRequired="1" ProjectMaxYield="true" AdjacentTerrain="TERRAIN_MOUNTAIN"/>
+		<Row ID="PagodaNaturalWonderDiplomacy" YieldType="YIELD_DIPLOMACY" YieldChange="1" TilesRequired="1" AdjacentNaturalWonder="true"/>
+	</Adjacency_YieldChanges>
+	<Constructible_Plunders>
+		<!--Civ Unique Buildings-->
+		<Row ConstructibleType="BUILDING_LECTURE_HALL" PlunderType="PLUNDER_HEAL" Amount="30"/>
+		<Row ConstructibleType="BUILDING_PAGODA" PlunderType="PLUNDER_HEAL" Amount="30"/>
+	</Constructible_Plunders>
+	<Constructible_BuildingCostProgressions>
+		 <Row ConstructibleType="BUILDING_LECTURE_HALL" Percent="5" />
+		 <Row ConstructibleType="BUILDING_PAGODA" Percent="5" />
+	</Constructible_BuildingCostProgressions>
+	<UniqueQuarters>
+		<Row UniqueQuarterType="QUARTER_DRAGON_TEMPLE" BuildingType1="BUILDING_LECTURE_HALL" BuildingType2="BUILDING_PAGODA" Name="LOC_QUARTER_DRAGON_TEMPLE_NAME" Description="LOC_QUARTER_DRAGON_TEMPLE_DESCRIPTION" Tooltip="LOC_QUARTER_DRAGON_TEMPLE_TOOLTIP" TraitType="TRAIT_SILLA"/>
+	</UniqueQuarters>
+	<GameModifiers>
+		<Row ModifierId="MOD_SILLA_GOLD_RESOURCES"/>
+	</GameModifiers>
+	<UniqueQuarterModifiers>
+		<Row UniqueQuarterType="QUARTER_DRAGON_TEMPLE" ModifierId="MOD_SILLA_GOLD_RESOURCES"/>
+	</UniqueQuarterModifiers>
+  <ConstructibleModifiers>
+    <Row ConstructibleType="BUILDING_LECTURE_HALL" ModifierId="MOD_LECTURE_HALL_RESOURCE_CAP"/>
+  </ConstructibleModifiers>
+	<Constructible_Advisories>
+		<Row ConstructibleType="BUILDING_LECTURE_HALL" AdvisoryClassType="ADVISORY_CLASS_ECONOMIC"/>
+		<Row ConstructibleType="BUILDING_LECTURE_HALL" AdvisoryClassType="ADVISORY_CLASS_CULTURE"/>
+		<Row ConstructibleType="BUILDING_PAGODA" AdvisoryClassType="ADVISORY_CLASS_DIPLOMACY"/>
+		<Row ConstructibleType="BUILDING_PAGODA" AdvisoryClassType="ADVISORY_CLASS_HAPPINESS"/>
+	</Constructible_Advisories>
+</Database>

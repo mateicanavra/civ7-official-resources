@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+	
+	<!-- ==================================================	-->
+	<!--					Wonders							-->
+	<!-- ==================================================	-->
+	<Modifier id="MOD_HAVANA_HARBOR_AUTO_TREASURE_FLEET" collection="COLLECTION_OWNER" effect="EFFECT_ADJUST_CITY_AUTO_TREASURE_FLEET">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_WONDER_IS_ACTIVE">
+				<Argument name="ConstructibleType">WONDER_HAVANA_HARBOR</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="VP">3</Argument>
+	</Modifier>
+</GameEffects>

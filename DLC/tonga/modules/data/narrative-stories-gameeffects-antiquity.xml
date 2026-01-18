@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+    <Modifier id="12015B_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_ADJUST_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_FOOD</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+    </Modifier>
+    <Modifier id="12015C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_NARRATIVE" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+        <Argument name="MultiplierType">REWARD_TYPE_MINOR_EARLY</Argument>
+    </Modifier>
+    <Modifier id="11091B_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_CULTURE</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+        <Argument name="ConstructibleType">BUILDING_LANGI</Argument>
+    </Modifier>
+    <Modifier id="11091C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+        <Argument name="ConstructibleType">BUILDING_VAI_KAUKAU</Argument>
+    </Modifier>
+    <Modifier id="11092B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ATTRIBUTE" run-once="false" permanent="true">
+        <Argument name="AttributeType">ATTRIBUTE_EXPANSIONIST</Argument>
+        <Argument name="Amount">1</Argument>
+    </Modifier>
+    <Modifier id="11092C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ATTRIBUTE" run-once="false" permanent="true">
+        <Argument name="AttributeType">ATTRIBUTE_POLITICAL</Argument>
+        <Argument name="Amount">1</Argument>
+    </Modifier>
+    <Modifier id="11094B_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_POPULATION" run-once="true" permanent="true">
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_CITY_HAS_BUILDING">
+                <Argument name="Amount">1</Argument>
+                <Argument name="BuildingType">WONDER_HA_AMONGA_A_MAUI</Argument>
+                <Argument name="ConstructibleType">BUILDING_FISHING_QUAY</Argument>
+            </Requirement>
+        </SubjectRequirements>
+        <Argument name="Amount">2</Argument>
+    </Modifier>
+    <Modifier id="11094C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_GOLDEN_AGE" run-once="false" permanent="true">
+    </Modifier>
+    <Modifier id="11095C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_NARRATIVE" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_CULTURE</Argument>
+        <Argument name="MultiplierType">REWARD_TYPE_MINOR_EARLY</Argument>
+    </Modifier>
+    <Modifier id="11095D_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_ABILITY" run-once="false" permanent="true">
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_UNIT_TYPE_MATCHES">
+                <Argument name="UnitType">UNIT_TEHINA</Argument>
+            </Requirement>
+        </SubjectRequirements>
+        <Argument name="AbilityType">ABILITY_NARRATIVE_MOVEMENT</Argument>
+    </Modifier>
+    <Modifier id="11095E_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+        <Argument name="Amount">1</Argument>
+        <Argument name="ConstructibleType">BUILDING_FISHING_QUAY</Argument>
+    </Modifier>
+    <Modifier id="11096B_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_TRADE_ROUTE_RANGE" run-once="false" permanent="true">
+        <Argument name="Amount">5</Argument>
+        <Argument name="DomainType">DOMAIN_SEA</Argument>
+    </Modifier>
+    <Modifier id="11096C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_HAPPINESS</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+        <Argument name="ConstructibleType">BUILDING_LIGHTHOUSE</Argument>
+    </Modifier>
+    <Modifier id="11097B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_FREE_PURCHASE_CHARGE" run-once="false" permanent="true">
+        <Argument name="BuildingType">BUILDING_MONUMENT</Argument>
+        <Argument name="Amount">1</Argument>
+    </Modifier>
+    <Modifier id="11097C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_FREE_PURCHASE_CHARGE" run-once="false" permanent="true">
+        <Argument name="BuildingType">BUILDING_MARKET</Argument>
+        <Argument name="Amount">1</Argument>
+    </Modifier>
+    <Modifier id="11098B_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD" run-once="false" permanent="true">
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_PLOT_HAS_NUM_CONSTRUCTIBLES">
+                <Argument name="Amount">1</Argument>
+                <Argument name="ConstructibleClass">BUILDING</Argument>
+            </Requirement>
+            <Requirement type="REQUIREMENT_PLOT_ADJACENT_FEATURE_TYPE_MATCHES">
+                <Argument name="FeatureType">FEATURE_VOLCANO</Argument>
+            </Requirement>
+        </SubjectRequirements>
+        <Argument name="Amount">1</Argument>
+        <Argument name="YieldType">YIELD_CULTURE</Argument>
+    </Modifier>
+    <Modifier id="11098C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD" run-once="false" permanent="true">
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_PLOT_HAS_NUM_CONSTRUCTIBLES">
+                <Argument name="Amount">1</Argument>
+                <Argument name="ConstructibleClass">BUILDING</Argument>
+            </Requirement>
+            <Requirement type="REQUIREMENT_PLOT_ADJACENT_FEATURE_TYPE_MATCHES">
+                <Argument name="FeatureType">FEATURE_VOLCANO</Argument>
+            </Requirement>
+        </SubjectRequirements>
+        <Argument name="Amount">1</Argument>
+        <Argument name="YieldType">YIELD_HAPPINESS</Argument>
+    </Modifier>
+    <Modifier id="11099B_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_GRANT_UNIT" run-once="true" permanent="true">
+        <Argument name="UnitTag">UNIT_CLASS_KALIA</Argument>
+        <Argument name="Amount">1</Argument>
+        <Argument name="DefaultUnitType">UNIT_KALIA</Argument>
+    </Modifier>
+    <Modifier id="11099C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_FREE_PURCHASE_CHARGE" run-once="false" permanent="true">
+        <Argument name="BuildingType">BUILDING_ALTAR</Argument>
+        <Argument name="Amount">1</Argument>
+    </Modifier>
+    <Modifier id="11100B_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_ABILITY" run-once="false" permanent="true">
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+                <Argument name="Tag">UNIT_CLASS_INFANTRY</Argument>
+            </Requirement>
+        </SubjectRequirements>
+        <Argument name="AbilityType">ABILITY_NARRATIVE_AGGRESSION</Argument>
+    </Modifier>
+    <Modifier id="11100C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_GRANT_UNIT" run-once="true" permanent="true">
+        <Argument name="UnitType">UNIT_MIGRANT</Argument>
+        <Argument name="Amount">1</Argument>
+    </Modifier>
+    <Modifier id="11100C_NARRATIVE_MODIFIER2" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD" run-once="false" permanent="false">
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_CITY_IS_CITY" inverse="true">
+            </Requirement>
+        </SubjectRequirements>
+        <Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+        <Argument name="Amount">-1</Argument>
+    </Modifier>
+    <Modifier id="11092B_NARRATIVE_MODIFIER2" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_NARRATIVE_TAG" run-once="false" permanent="true">
+        <Argument name="Amount">1</Argument>
+        <Argument name="NarrativeTagType">NARRATIVE_TAG_KAVA_CEREMONY</Argument>
+    </Modifier>
+    <Modifier id="11092C_NARRATIVE_MODIFIER2" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_NARRATIVE_TAG" run-once="false" permanent="true">
+        <Argument name="Amount">1</Argument>
+        <Argument name="NarrativeTagType">NARRATIVE_TAG_KAVA_CEREMONY</Argument>
+    </Modifier>
+    <Requirement id="REQ_STORY_CIVILIZATION_TONGA" type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
+        <Argument name="CivilizationType">CIVILIZATION_TONGA</Argument>
+    </Requirement>
+    <RequirementSet id="REQSET_11091A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_TONGA"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11092A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_TONGA"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11094A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_TONGA"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11095A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_TONGA"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11096A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_TONGA"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11097A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_TONGA"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11098A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_TONGA"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11099A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_TONGA"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11100A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_TONGA"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_12015A_NARRATIVE">
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
+            <Argument name="GossipTypes">GOSSIP_PLAYERS_MEET01</Argument>
+            <Argument name="GOSSIP_PLAYERS_MEET01">Hash,OtherPlayer,Other,Hash,Civilization,CIVILIZATION_TONGA</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11091A_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_TONGA"/>
+        <Requirement type="REQUIREMENT_COLLECTION_ANY_MET">
+            <Argument name="CollectionType">COLLECTION_PLAYER_CITIES</Argument>
+            <Argument name="RequirementSetId">SUBREQSET_11091A_NARRATIVE</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="SUBREQSET_11091A_NARRATIVE">
+        <Requirement type="REQUIREMENT_CITY_HAS_UNIQUE_QUARTER">
+            <Argument name="UniqueQuarterType">QUARTER_TOFI_A</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11092A_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_TONGA"/>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_COMPLETED_PROGRESSION_TREE_NODE">
+            <Argument name="ProgressionTreeNodeType">NODE_CIVIC_AQ_TONGA_KAVA_CEREMONY</Argument>
+            <Argument name="MinDepth">1</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11094A_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_TONGA"/>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
+            <Argument name="GossipTypes">GOSSIP_CONSTRUCT_BUILDING01,GOSSIP_CONSTRUCT_BUILDING02</Argument>
+            <Argument name="GOSSIP_CONSTRUCT_BUILDING01">Hash,ConstructibleType,BUILDING_FISHING_QUAY</Argument>
+            <Argument name="GOSSIP_CONSTRUCT_BUILDING02">Hash,ConstructibleType,WONDER_HA_AMONGA_A_MAUI</Argument>
+            <Argument name="Distance">1</Argument>
+            <Argument name="OrderedTurnWindow">1000</Argument>
+            <Argument name="Amount">2</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11095A_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_TONGA"/>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_UNIT_TYPE">
+            <Argument name="Amount">2</Argument>
+            <Argument name="UnitType">UNIT_TEHINA</Argument>
+        </Requirement>
+        <Requirement type="REQUIREMENT_PLAYER_MET_NUM_CIVS" inverse="true">
+            <Argument name="Amount">1</Argument>
+            <Argument name="ForeignHemisphere">True</Argument>
+        </Requirement>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS" inverse="true">
+            <Argument name="GossipTypes">GOSSIP_MEET_INDEPENDENT01</Argument>
+            <Argument name="GOSSIP_MEET_INDEPENDENT01">Hash,IsForeignHemisphere,True</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11095B_NARRATIVE">
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
+            <Argument name="GossipTypes">GOSSIP_MEET_INDEPENDENT01,GOSSIP_PLAYERS_MEET02</Argument>
+            <Argument name="GOSSIP_MEET_INDEPENDENT01">Hash,IsForeignHemisphere,True</Argument>
+            <Argument name="GOSSIP_PLAYERS_MEET02">Hash,IsForeignHemisphere,True</Argument>
+            <Argument name="Amount">1</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11096A_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_TONGA"/>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_CIRCUMNAVIGATED">
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11097A_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_TONGA"/>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
+            <Argument name="GossipTypes">GOSSIP_BECOME_SUZERAIN01</Argument>
+            <Argument name="GOSSIP_BECOME_SUZERAIN01">Hash,IsForeignHemisphere,True</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11098A_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_TONGA"/>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
+            <Argument name="GossipTypes">GOSSIP_RANDOM_EVENT_DAMAGE01</Argument>
+            <Argument name="GOSSIP_RANDOM_EVENT_DAMAGE01">Hash,EffectOperatorType,VOLCANO,Numeric,Fertility,2,Hash,IsCoastal,True</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11099A_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_TONGA"/>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
+            <Argument name="GossipTypes">GOSSIP_CREATE_PANTHEON01</Argument>
+            <Argument name="GOSSIP_CREATE_PANTHEON01">Hash,BeliefType,PANTHEON_BONUS_9</Argument>
+        </Requirement>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_X_CITIES_WITH_BUILDING_SET">
+            <Argument name="Count">2</Argument>
+            <Argument name="ConstructibleType">BUILDING_ALTAR,BUILDING_FISHING_QUAY</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11100A_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_TONGA"/>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
+            <Argument name="GossipTypes">GOSSIP_INDEPENDENT_DISPERSE01</Argument>
+        </Requirement>
+    </RequirementSet>
+</GameEffects>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+	<Modifier id="SAHI_TOPU_MOD_ARMY_COMMANDER_BARRAGE" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_GRANT_UNIT_PROMOTION" permanent="true">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+				<Argument name="Tag">UNIT_CLASS_ARMY_COMMANDER</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="UnitPromotionType">PROMOTION_ARMY_BARRAGE</Argument>
+		<Argument name="UnitPromotionDisciplineType">DISCIPLINE_ARMY_LEADERSHIP</Argument>
+		<String context="Description">LOC_SAHI_TOPU_MOD_ARMY_COMMANDER_BARRAGE_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="SAHI_TOPU_MOD_COMBAT_VS_FORTIFICATION" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ATTACH_MODIFIERS">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES" >
+				<Argument name="Tag">UNIT_CLASS_INFANTRY</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="ModifierId">SAHI_TOPU_MOD_COMBAT_VS_FORTIFICATION_MODIFIER</Argument>
+		<String context="Description">LOC_SAHI_TOPU_MOD_COMBAT_VS_FORTIFICATION_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="SAHI_TOPU_MOD_COMBAT_VS_FORTIFICATION_MODIFIER" collection="COLLECTION_UNIT_COMBAT" effect="EFFECT_ADJUST_UNIT_STRENGTH_MODIFIER">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_OPPONENT_IS_DISTRICT"/>
+		</SubjectRequirements>
+		<Argument name="Amount">5</Argument>
+		<String context="Preview">LOC_SAHI_TOPU_PREVIEW</String>
+	</Modifier>
+	<Modifier id="HARBIYE_NEZARETI_INFANTRY_PRODUCTION" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_UNIT_PRODUCTION">
+		<Argument name="UnitClass">UNIT_CLASS_INFANTRY</Argument>
+		<Argument name="Apply">Rate</Argument>
+		<Argument name="Percent">25</Argument>
+		<String context="Description">LOC_HARBIYE_NEZARETI_INFANTRY_SIEGE_PRODUCTION_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="HARBIYE_NEZARETI_SIEGE_PRODUCTION" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_UNIT_PRODUCTION">
+		<Argument name="UnitClass">UNIT_CLASS_SIEGE</Argument>
+		<Argument name="Apply">Rate</Argument>
+		<Argument name="Percent">25</Argument>
+	</Modifier>
+	 <Modifier id="HARBIYE_NEZARETI_LAND_MAINTENANCE_COST" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_UNIT_MAINTENANCE_EFFICIENCY">
+		<Argument name="UnitDomain">DOMAIN_LAND</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="Tooltip">LOC_CIVIC_HARBIYE_NEZARETI_NAME</Argument>
+		<String context="Description">LOC_HARBIYE_NEZARETI_LAND_MAINTENANCE_COST_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="TANZIMAT_MOD_MUSEUM_PRODUCTION" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_PRODUCTION">
+		<Argument name="Percent">15</Argument>
+		<Argument name="ConstructibleType">BUILDING_MUSEUM</Argument>
+		<String context="Description">LOC_TANZIMAT_MOD_MUSEUM_PRODUCTION_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="TANZIMAT_MOD_ARCHAELOGIST_MOVEMENT" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_PRODUCTION">
+		<Argument name="Percent">15</Argument>
+		<Argument name="ConstructibleType">BUILDING_MUSEUM</Argument>
+		<String context="Description">LOC_TANZIMAT_MOD_MUSEUM_PRODUCTION_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="TANZIMAT_MOD_ARCHAELOGIST_VEGETATED_MOVEMENT" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_IGNORE_MOVEMENT_OBSTACLE">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES" >
+				<Argument name="Tag">UNIT_CLASS_EXPLORER</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="FeatureClassTypes">FEATURE_CLASS_VEGETATED</Argument>
+		<String context="Description">LOC_TANZIMAT_MOD_ARCHAELOGIST_VEGETATED_MOVEMENT_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="TANZIMAT_MOD_ARCHAELOGIST_MINOR_RIVER_MOVEMENT" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_IGNORE_MOVEMENT_OBSTACLE">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES" >
+				<Argument name="Tag">UNIT_CLASS_EXPLORER</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Obstacle">RIVER_MINOR</Argument>
+	</Modifier>
+	<Modifier id="TANZIMAT_MOD_ARCHAELOGIST_NAVIGABLE_RIVER_MOVEMENT" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_IGNORE_MOVEMENT_OBSTACLE">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES" >
+				<Argument name="Tag">UNIT_CLASS_EXPLORER</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Obstacle">RIVER_NAVIGABLE</Argument>
+	</Modifier>
+	<Modifier id="TANZIMAT_MOD_ARCHAELOGIST_FREE_EMBARK" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_IGNORE_MOVEMENT_OBSTACLE">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+				<Argument name="Tag">UNIT_CLASS_EXPLORER</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Obstacle">OBSTACLE_EMBARKATION</Argument>
+	</Modifier>
+</GameEffects>

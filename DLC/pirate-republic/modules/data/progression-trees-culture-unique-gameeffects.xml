@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+	<Modifier id="ARTICLES_OF_AGREEMENTS_MOD_BUCCANEER_LOOTING" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_GRANT_UNIT_PROMOTION" permanent="true">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+				<Argument name="Tag">UNIT_CLASS_BUCCANEER</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="UnitPromotionType">PROMOTION_FLEET_LOOTING</Argument>
+		<Argument name="UnitPromotionDisciplineType">DISCIPLINE_FLEET_LOGISTICS</Argument>
+		<String context="Description">LOC_ARTICLES_OF_AGREEMENTS_MOD_BUCCANEER_LOOTING_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="BUCCANEER_MOD_GRANT_LAND_CLAIM_CHARGE" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_GRANT_UNIT_ABILITY_CHARGE">
+	<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+				<Argument name="Tag">UNIT_CLASS_BUCCANEER</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="ChargedAbilityType">CHARGED_ABILITY_LAND_CLAIM</Argument>
+		<Argument name="Amount">1</Argument>
+		<String context="Description">LOC_PORTS_OF_CALL_BUCCANEER_SETTLER_CHARGE_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="ENEMY_OF_ALL_NATIONS_MOD_TREASURE_FLEET_EXTRA_VP" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_UNIT_CAPTURE_ADDITIONAL_BOOTY">
+		<Argument name="Amount">1</Argument>
+		<String context="Description">LOC_ENEMY_OF_ALL_NATIONS_MOD_TREASURE_FLEET_EXTRA_VP_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="ENEMY_OF_ALL_NATIONS_MOD_TREASURE_FLEET_CS" collection="COLLECTION_PLAYER_COMBAT" effect="EFFECT_ADJUST_UNIT_STRENGTH_MODIFIER">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_OPPONENT_UNIT_TAG_MATCHES">
+				<Argument name="Tag">UNIT_CLASS_NAVAL_TREASURE</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">15</Argument>
+		<String context="Preview">LOC_ENEMY_OF_ALL_NATIONS_MOD_TREASURE_FLEET_CS_PREVIEW</String>
+		<String context="Description">LOC_ENEMY_OF_ALL_NATIONS_MOD_TREASURE_FLEET_CS_DESCRIPTION</String>
+	</Modifier>
+</GameEffects>

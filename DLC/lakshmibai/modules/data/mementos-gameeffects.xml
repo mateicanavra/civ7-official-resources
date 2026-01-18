@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+	<Modifier id="MEMENTO_LAKSHMIBAI_DHAL_MODIFIER_1" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ATTACH_MODIFIERS">
+		<Argument name="ModifierId">MEMENTO_LAKSHMIBAI_DHAL_MODIFIER_2</Argument>
+	</Modifier>
+	<Modifier id="MEMENTO_LAKSHMIBAI_DHAL_MODIFIER_2" collection="COLLECTION_UNIT_COMBAT" effect="EFFECT_ADJUST_UNIT_STRENGTH_MODIFIER">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_IS_ATTACKING">
+				<Argument name="Inverse">true</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<SubjectRequirements type="REQUIREMENTSET_TEST_ANY">
+			<Requirement type="REQUIREMENT_PLOT_IS_OWNER"/>
+			<Requirement type="REQUIREMENT_PLOT_IS_SUZERAIN"/>
+		</SubjectRequirements>
+		<Argument name="Amount">2</Argument>
+		<String context="Preview">LOC_MEMENTO_LAKSHMIBAI_DHAL_COMBAT_PREVIEW</String>
+	</Modifier>
+	<Modifier id="MEMENTO_LAKSHMIBAI_BAADALS_REINS_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_CONSTRUCTIBLE_YIELD">
+		<Argument name="ConstructibleType">IMPROVEMENT_PASTURE</Argument>
+		<Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+		<Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+		<String context="Description">LOC_MEMENTO_LAKSHMIBAI_BAADALS_REINS_FUNCTIONAL_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="MEMENTO_LAKSHMIBAI_FLAG_OF_JHANSI_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD_PER_COMMANDER_LEVEL">
+		<Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+		<Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+		<String context="Preview">LOC_MEMENTO_LAKSHMIBAI_FLAG_OF_JHANSI_FUNCTIONAL_DESCRIPTION</String>
+	</Modifier>
+</GameEffects>
