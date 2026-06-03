@@ -1,0 +1,23 @@
+<Database>
+	<!-- Exploration -->
+	<Types>
+		<Row Type="NODE_CIVIC_EX_SILLA_RENAISSANCE" Kind="KIND_TREE_NODE" />
+	</Types>
+	<TypeQuotes>
+		<Row Type="NODE_CIVIC_EX_SILLA_RENAISSANCE" Quote="LOC_CIVIC_EX_RENAISSANCE_QUOTE" QuoteAuthor="LOC_CIVIC_EX_RENAISSANCE_AUTHOR" QuoteAudio="VO_Quote_ToT_EXP_Renaissance" />
+	</TypeQuotes>
+	<ProgressionTreeNodes>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_SILLA_RENAISSANCE" ProgressionTree="TREE_CIVICS_EX_TEST_OF_TIME" Cost="800" Name="LOC_NODE_CIVIC_EX_SILLA_RENAISSANCE_NAME" IconString="cult_silla" CanSteal="false" />
+	</ProgressionTreeNodes>
+	<ProgressionTreeNodeUnlocks>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_SILLA_RENAISSANCE" TargetKind="KIND_TRADITION" TargetType="TRADITION_SEORABEOL_II" />
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_SILLA_RENAISSANCE" TargetKind="KIND_MODIFIER" TargetType="MOD_TOT_TRADITION_SLOT" />
+	</ProgressionTreeNodeUnlocks>
+	<ProgressionTreeNodeTraits>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_SILLA_RENAISSANCE" RequiredTraitType="TRAIT_SILLA" />
+	</ProgressionTreeNodeTraits>
+	<ProgressionTreePrereqs>
+		<Row Node="NODE_CIVIC_EX_HIERARCHY" PrereqNode="NODE_CIVIC_EX_SILLA_RENAISSANCE" />
+		<Row Node="NODE_CIVIC_EX_SYNCRETISM_CHOICE" PrereqNode="NODE_CIVIC_EX_SILLA_RENAISSANCE" />
+	</ProgressionTreePrereqs>
+</Database>

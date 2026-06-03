@@ -1,0 +1,139 @@
+.memento-select-corner-filigree {
+  width: 1.1111111111rem;
+  height: 1.1111111111rem;
+  background-image: url("blp:mp_player_detail");
+  background-size: cover;
+}
+.memento-select-corner-filigree.top-left {
+  position: absolute;
+  top: 0.3888888889rem;
+  left: 0.2777777778rem;
+  transform: scaleX(-1) scaleY(-1);
+}
+.memento-select-corner-filigree.top-right {
+  position: absolute;
+  top: 0.3888888889rem;
+  right: 0.2777777778rem;
+  transform: scaleY(-1);
+}
+.memento-select-corner-filigree.bottom-left {
+  position: absolute;
+  bottom: 0.3888888889rem;
+  left: 0.2777777778rem;
+  transform: scaleX(-1);
+}
+.memento-select-corner-filigree.bottom-right {
+  position: absolute;
+  right: 0.2777777778rem;
+  bottom: 0.3888888889rem;
+}
+.memento-select-corner-filigree.inner-top-left {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.3333333333rem;
+  transform: scaleX(-1) scaleY(-1);
+}
+.memento-select-corner-filigree.inner-top-right {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.3333333333rem;
+  transform: scaleY(-1);
+}
+
+.memento-select {
+  width: 32.2222222222rem;
+  height: 12.5em;
+  min-height: 10.5555555556rem;
+}
+
+.memento-select-locked {
+  filter: grayscale(1);
+  filter: brightness(0.4);
+  pointer-events: none;
+}
+
+.memento-select-filter-bar {
+  margin-right: 2.5555555556rem;
+  margin-left: 2.5555555556rem;
+}
+@media (max-height: 55.5555555556rem) {
+  .memento-select-filter-bar {
+    margin-right: 2.1666666667rem;
+    margin-left: 2.1666666667rem;
+  }
+}
+
+.memento-select-dropdown {
+  margin-left: 2.4444444444rem;
+}
+@media (max-height: 55.5555555556rem) {
+  .memento-select-dropdown {
+    margin-left: 0.6111111111rem;
+  }
+}
+
+.memento-select-slot {
+  width: 8.4444444444rem;
+  height: 8.7777777778rem;
+  background-size: 3.6111111111rem 3.6111111111rem;
+}
+@media (max-height: 55.5555555556rem) {
+  .memento-select-slot {
+    width: 7.1111111111rem;
+    height: 7.1111111111rem;
+    background-size: 2.8888888889rem 2.8888888889rem;
+  }
+}
+
+.memento-select-slot-base {
+  width: 10rem;
+  height: 10rem;
+}
+@media (max-height: 55.5555555556rem) {
+  .memento-select-slot-base {
+    width: 8.1111111111rem;
+    height: 8.1111111111rem;
+  }
+}
+
+.memento-select-slot-icon {
+  width: 6.2222222222rem;
+  height: 6.2222222222rem;
+}
+@media (max-height: 55.5555555556rem) {
+  .memento-select-slot-icon {
+    width: 5.7777777778rem;
+    height: 5.7777777778rem;
+  }
+}
+
+.memento-select-divider-line {
+  width: 100%;
+  height: 0.0555555556rem;
+  background-color: #776a54;
+  opacity: 0.9;
+}
+
+.memento-select-divider-gradient {
+  width: 100%;
+  height: 7.2222222222rem;
+  background: linear-gradient(to bottom, black, transparent);
+}
+
+.memento-select-text-info {
+  width: 28.8888888889rem;
+  height: 11.1111111111rem;
+}
+@media (max-height: 55.5555555556rem) {
+  .memento-select-text-info {
+    width: auto;
+    flex: 1 1 0%;
+    margin-top: 0.8888888889rem;
+  }
+  .memento-select-text-info.left {
+    margin-left: 0.8888888889rem;
+  }
+  .memento-select-text-info.right {
+    margin-right: 0.8888888889rem;
+  }
+}

@@ -1,45 +1,9 @@
 import ContextManager from '../../../core/ui/context-manager/context-manager.js';
 import { InterfaceMode } from '../../../core/ui/interface-modes/interface-modes.js';
-import DiplomacyManager, { L as LeaderModelManager } from '../diplomacy/diplomacy-manager.js';
+import DiplomacyManager from '../diplomacy/diplomacy-manager.js';
+import LeaderModelManager from '../diplomacy/leader-model-manager.js';
 import { DiplomacyActionPanel } from './panel-diplomacy-actions.js';
-import { s as styles } from './panel-diplomacy-actions.chunk.js';
-import '../../../core/ui/context-manager/display-queue-manager.js';
-import '../../../core/ui/dialog-box/manager-dialog-box.chunk.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/input/cursor.js';
-import '../../../core/ui/input/focus-manager.js';
-import '../../../core/ui/audio-base/audio-support.chunk.js';
-import '../../../core/ui/views/view-manager.chunk.js';
-import '../../../core/ui/panel-support.chunk.js';
-import '../../../core/ui/utilities/utilities-image.chunk.js';
-import '../../../core/ui/utilities/utilities-component-id.chunk.js';
-import '../diplomacy/diplomacy-events.js';
-import '../../../core/ui/utilities/utilities-layout.chunk.js';
-import '../world-input/world-input.js';
-import '../../../core/ui/input/action-handler.js';
-import '../../../core/ui/input/input-support.chunk.js';
-import '../../../core/ui/utilities/utilities-update-gate.chunk.js';
-import '../../../core/ui/input/plot-cursor.js';
-import '../../../core/ui/utilities/utilities-network.js';
-import '../../../core/ui/shell/mp-legal/mp-legal.js';
-import '../../../core/ui/events/shell-events.chunk.js';
-import '../../../core/ui/navigation-tray/model-navigation-tray.chunk.js';
-import '../../../core/ui/utilities/utilities-dom.chunk.js';
-import '../../../core/ui/utilities/utilities-liveops.js';
-import '../../../core/ui/utilities/utilities-network-constants.chunk.js';
-import '../interface-modes/support-unit-map-decoration.chunk.js';
-import '../utilities/utilities-overlay.chunk.js';
-import '../diplo-ribbon/model-diplo-ribbon.chunk.js';
-import '../../../core/ui/utilities/utilities-color.chunk.js';
-import '../../../core/ui/graph-layout/utils.chunk.js';
-import '../victory-progress/model-victory-progress.chunk.js';
-import '../cinematic/cinematic-manager.chunk.js';
-import '../endgame/screen-endgame.js';
-import '../../../core/ui/tooltips/tooltip-manager.js';
-import '../end-results/end-results.js';
-import '../endgame/model-endgame.js';
-import '../victory-manager/victory-manager.chunk.js';
-import '../relationship-breakdown/relationship-breakdown.chunk.js';
+import styles from './panel-diplomacy-actions.scss.js';
 
 class OtherPlayerDiplomacyActionPanel extends DiplomacyActionPanel {
   diplomacyWarPeaceListener = (data) => {

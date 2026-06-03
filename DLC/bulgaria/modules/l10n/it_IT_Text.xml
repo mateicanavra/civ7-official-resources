@@ -504,6 +504,24 @@
     <Replace Tag="LOC_12006C_NAME" Language="it_IT">
       <Text>Quelle carovane di coraggiosi mercanti.</Text>
     </Replace>
+    <Replace Tag="LOC_TOT_30027A_COMPLETION" Language="it_IT">
+      <Text>Alla corte bulgara è giunta la notizia della lotta di un vecchio pastore contro i vicini che desiderano la sua terra. Hanno mandato il loro bestiame a pascolarvi; lui l'ha scacciato. Allora hanno cercato di acquistarla; lui si è rifiutato di vendere. Hanno sostenuto in tribunale i loro diritti; lui non ha voluto andarsene. Gli hanno avvelenato il pozzo; lui ha bevuto acqua piovana. Hanno bruciato il suo fienile; lui l'ha ricostruito. La storia sta diventando piuttosto popolare.</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30027A_STORYTITLE" Language="it_IT">
+      <Text>Un uomo coriaceo</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30027B_DESCRIPTION" Language="it_IT">
+      <Text>{1_reward}.</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30027B_NAME" Language="it_IT">
+      <Text>La Bulgaria dovrebbe avere più uomini così. Crea un ruolo e una posizione per loro.</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30027C_DESCRIPTION" Language="it_IT">
+      <Text>{1_reward}.</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30027C_NAME" Language="it_IT">
+      <Text>Quell'uomo è chiaramente un idiota. Perché non se n'è andato?</Text>
+    </Replace>
     <Replace Tag="LOC_CIVIC_SEVEN_TRIBES_AUTHOR" Language="it_IT">
       <Text>Le leggi di Khan Krum</Text>
     </Replace>
@@ -523,13 +541,13 @@
       <Text>"Come la stella del mattino, ci sei apparsa e hai dissipato l'ombra del nemico."</Text>
     </Replace>
     <Replace Tag="LOC_CIVILIZATION_BULGARIA_DESCRIPTION" Language="it_IT">
-      <Text>[icon:Action_Pillage] Saccheggiare edifici fornisce [icon:YIELD_PRODUCTION] Produzione a tutte le [icon:YIELD_CITIES] città pari al 50% delle rese o dei PF ottenuti. -3 alla [icon:NAR_REW_COMBAT] Forza di combattimento di tutte le unità militari contro i distretti protetti da Mura medievali.</Text>
+      <Text>Quando [icon:Action_Pillage] saccheggi [TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]miglioramenti[/TIP], ricevi [icon:YIELD_PRODUCTION] Produzione in tutte le [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]città[/TIP] pari al 50% dei PF o delle rese ottenuti. Tutte le unità militari ricevono -3 alla [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Forza di combattimento[/TIP] contro i [icon:CITY_FORTIFIED] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]distretti fortificati[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_IMPROVEMENT_HIDDEN_FORTRESS_DESCRIPTION" Language="it_IT">
-      <Text>Miglioramento esclusivo bulgaro. +4 [icon:YIELD_PRODUCTION] Produzione. Le unità nella casella ottengono Invisibilità. Conta come [icon:Action_Fortify] fortificazione, +6 alla [icon:NAR_REW_COMBAT] Forza di combattimento quando si difende. Senza epoca. Non rimuove i bonus per i [icon:YIELD_WAREHOUSE] Depositi in una casella. Dev'essere posizionata su un [icon:CITY_RURAL] miglioramento già esistente in una casella di terreno accidentato non adiacente a un'altra Fortezza nascosta.</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_IMPROVEMENT_TOOLTIP]Miglioramento esclusivo[/TIP] bulgaro. +4 [icon:YIELD_PRODUCTION] Produzione. +2 [icon:YIELD_CULTURE] Cultura da ogni [TIP:LOC_PEDIA_CONCEPTS_MOUNTAIN_TOOLTIP]montagna[/TIP] adiacente. Le unità nella casella ottengono [TIP:LOC_PEDIA_CONCEPTS_STEALTH_TOOLTIP]Invisibilità[/TIP]. Conta come [icon:Action_Fortify] Fortificazione: +6 alla [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Forza di combattimento[/TIP] in difesa. Dev'essere posizionata in [TIP:LOC_PEDIA_CONCEPTS_ROUGH_TERRAIN_TOOLTIP]terreno accidentato[/TIP] e non adiacente a un'altra Fortezza nascosta.</Text>
     </Replace>
     <Replace Tag="LOC_IMPROVEMENT_HIDDEN_FORTRESS_TOOLTIP" Language="it_IT">
-      <Text>Le unità nella casella ottengono Invisibilità. +6 alla [icon:NAR_REW_COMBAT] Forza di combattimento quando si difende.[n]Non rimuove i bonus per i [icon:YIELD_WAREHOUSE] Depositi in una casella. Dev'essere posizionata su un [icon:CITY_RURAL] miglioramento già esistente in terreno accidentato non adiacente a un'altra Fortezza nascosta.[n]Miglioramento esclusivo bulgaro.</Text>
+      <Text>Le unità nella casella ottengono [TIP:LOC_PEDIA_CONCEPTS_STEALTH_TOOLTIP]Invisibilità[/TIP].[n]Conta come [icon:Action_Fortify] fortificazione: +6 alla [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Forza di combattimento[/TIP] quando si difende. Dev'essere posizionata in [TIP:LOC_PEDIA_CONCEPTS_ROUGH_TERRAIN_TOOLTIP]terreno accidentato[/TIP] e non adiacente a un'altra Fortezza nascosta.[n][TIP:LOC_PEDIA_CONCEPTS_UNIQUE_IMPROVEMENT_TOOLTIP]Miglioramento esclusivo[/TIP] bulgaro.</Text>
     </Replace>
     <Replace Tag="LOC_LOADING_CIV_INTRO_TEXT_BULGARIA" Language="it_IT">
       <Text>Sulle alte cime i monaci inviano le loro preghiere verso il cielo, mentre nelle pianure sottostanti squilla la tromba. La Bulgaria cavalca, le spade guidate dalla fede e la fede più forte dell'acciaio. Impugna il corno di guerra e la sciabola, l'arkani e la lancia lunga, e scatena i bulgari sul mondo.</Text>
@@ -546,26 +564,20 @@
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BULGARIA_COMPLETE_RILA_MONASTERY_NAME" Language="it_IT">
       <Text>Monastero di Rila</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BULGARIA_LEGACY_PATH_MILITARISTIC_DESC" Language="it_IT">
-      <Text>Giocando con la Bulgaria, completa un Percorso Retaggio militarista.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BULGARIA_FOUR_MAJOR_TRIUMPHS_DESC" Language="it_IT">
+      <Text>Giocando con la Bulgaria, completa 4 Trionfi maggiori espansionisti o militari in un singola epoca dell'Apice.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BULGARIA_LEGACY_PATH_MILITARISTIC_NAME" Language="it_IT">
-      <Text>Percorso Retaggio Bulgaria</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BULGARIA_FOUR_MAJOR_TRIUMPHS_NAME" Language="it_IT">
+      <Text>Bulgaria - 4 Trionfi maggiori</Text>
     </Replace>
     <Replace Tag="LOC_MOD_CIV_WONDER_PRODUCTION_BULGARIA_DESCRIPTION" Language="it_IT">
       <Text>+30% [icon:YIELD_PRODUCTION] Produzione perché è la [icon:WONDER] Meraviglia associata alla Bulgaria.</Text>
     </Replace>
-    <Replace Tag="LOC_MOD_SEVEN_TRIBES_GREATWORKS_COMBAT_DESCRIPTION" Language="it_IT">
-      <Text>+5 alla [icon:NAR_REW_COMBAT] Forza di combattimento di tutte le unità militare quando hai esposto almeno 5 [icon:NAR_REW_GREATWORK] Reliquie.</Text>
+    <Replace Tag="LOC_NODE_CIVIC_AQ_BULGARIA_ORIGINS_NAME" Language="it_IT">
+      <Text>Origini bulgare</Text>
     </Replace>
-    <Replace Tag="LOC_MOD_TARNOVO_SCHOOLS_TEMPLE_HAPPINESS_HIDDEN_FORTRESS_DESCRIPTION" Language="it_IT">
-      <Text>+2 [icon:YIELD_HAPPINESS] Felicità dalle Fortezze nascoste negli insediamenti che hanno un Tempio.</Text>
-    </Replace>
-    <Replace Tag="LOC_MOD_TSARSTVIE_CULTURE_MOUNTAIN_HIDDEN_FORTRESS_DESCRIPTION" Language="it_IT">
-      <Text>+2 [icon:YIELD_CULTURE] Cultura dalle Fortezze nascoste per ogni casella di montagna adiacente.</Text>
-    </Replace>
-    <Replace Tag="LOC_MOD_TSARSTVIE_TWO_MIGRANTS_DESCRIPTION" Language="it_IT">
-      <Text>Ricevi 2 [icon:UNIT_MIGRANT] Migranti nella [icon:NOTIFICATION_SELECT_CAPITAL] capitale.</Text>
+    <Replace Tag="LOC_NODE_CIVIC_MO_BULGARIA_MODERNIZATION_NAME" Language="it_IT">
+      <Text>Modernizzazione bulgara</Text>
     </Replace>
     <Replace Tag="LOC_QUOTE_AUTHOR_WONDER_RILA_MONASTERY" Language="it_IT">
       <Text>Giovanni di Rila</Text>
@@ -573,17 +585,56 @@
     <Replace Tag="LOC_QUOTE_WONDER_RILA_MONASTERY" Language="it_IT">
       <Text>La ricchezza dell'eremita non sta nell'argento o nell'oro, ma nella perfetta povertà, la negazione della volontà e l'umiltà senza limiti.</Text>
     </Replace>
+    <Replace Tag="LOC_TRADITION_BULGARIA_SYNCRETISM_ANTIQUITY_DESCRIPTION" Language="it_IT">
+      <Text>+2 [icon:YIELD_PRODUCTION] Produzione dai [icon:NAR_REW_GREATWORK] Capolavori esposti.</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_BULGARIA_SYNCRETISM_MODERN_DESCRIPTION" Language="it_IT">
+      <Text>+3 [icon:YIELD_PRODUCTION] Produzione dai [icon:NAR_REW_GREATWORK] Capolavori esposti. Le [TIP:LOC_PEDIA_CONCEPTS_LAND_UNITS_TOOLTIP]unità terrestri[/TIP] possono [icon:Action_Pillage] saccheggiare al costo di 1 punto [icon:Action_Move] movimento.</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_BULGARIA_SYNCRETISM_TOOLTIP" Language="it_IT">
+      <Text>Uporitost</Text>
+    </Replace>
     <Replace Tag="LOC_TRADITION_FALSE_RETREAT_DESCRIPTION" Language="it_IT">
-      <Text>[icon:Action_Pillage] Saccheggiare miglioramenti fornisce [icon:YIELD_FOOD] Cibo in tutti i [icon:YIELD_TOWNS] Paesi pari al 50% delle rese o dei [icon:Action_Heal] PF ottenuti. -3 alla [icon:NAR_REW_COMBAT] Forza di combattimento delle unità militari contro i [icon:CITY_FORTIFIED] distretti fortificati.</Text>
+      <Text>[icon:Action_Pillage] Saccheggiare miglioramenti fornisce [icon:YIELD_FOOD] Cibo in tutti i [icon:YIELD_TOWNS] Paesi pari al 50% delle rese o dei PF ottenuti. -3 alla [icon:NAR_REW_COMBAT] Forza di combattimento delle unità militari contro i [icon:CITY_FORTIFIED] distretti fortificati.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_ICONOLATRY_DESCRIPTION" Language="it_IT">
       <Text>+1 [icon:YIELD_HAPPINESS] Felicità e [icon:YIELD_GOLD] Oro dai [icon:NAR_REW_GREATWORK] Capolavori.</Text>
     </Replace>
+    <Replace Tag="LOC_TRADITION_ICONOLATRY_II_DESCRIPTION" Language="it_IT">
+      <Text>+1 [icon:YIELD_HAPPINESS] Felicità e [icon:YIELD_GOLD] Oro dai [icon:NAR_REW_GREATWORK] Capolavori. +3 [icon:YIELD_HAPPINESS] Felicità dalle Fortezze nascoste negli [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]insediamenti[/TIP] che hanno un [icon:NAR_REW_GREATWORK] Capolavoro inserito in uno slot.</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_ICONOLATRY_II_GREAT_WORKS_DESCRIPTION" Language="it_IT">
+      <Text>+1 [icon:YIELD_HAPPINESS] Felicità e [icon:YIELD_GOLD] Oro dai [icon:NAR_REW_GREATWORK] Capolavori.</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_ICONOLATRY_II_HIDDEN_FORTRESS_DESCRIPTION" Language="it_IT">
+      <Text>+3 [icon:YIELD_HAPPINESS] Felicità dalle Fortezze nascoste negli [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]insediamenti[/TIP] che hanno uno [icon:NAR_REW_GREATWORK] slot Capolavoro.</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_STRATAGEMS_COMBAT_DESCRIPTION" Language="it_IT">
+      <Text>+5 alla [icon:NAR_REW_COMBAT] Forza di combattimento delle unità di fanteria e cavalleria contro altre unità terrestri quando hai almeno 8 [icon:NAR_REW_GREATWORK] Capolavori esposti.</Text>
+    </Replace>
     <Replace Tag="LOC_TRADITION_STRATAGEMS_DESCRIPTION" Language="it_IT">
-      <Text>+50% alle rese e ai [icon:Action_Heal] PF dal [icon:Action_Pillage] saccheggio.</Text>
+      <Text>+50% alle rese e ai PF curati dai [icon:Action_Pillage] saccheggi. +5 alla [icon:NAR_REW_COMBAT] Forza di combattimento delle unità di [icon:UNIT_CLASS_INFANTRY] fanteria e [icon:UNIT_CLASS_CAVALRY] cavalleria contro altre unità terrestri quando hai almeno 8 [icon:NAR_REW_GREATWORK] Capolavori esposti.</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_STRATAGEMS_I_COMBAT_DESCRIPTION" Language="it_IT">
+      <Text>+3 alla [icon:NAR_REW_COMBAT] Forza di combattimento delle unità di fanteria e cavalleria contro altre unità terrestri quando hai almeno 4 [icon:NAR_REW_GREATWORK] Capolavori esposti.</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_STRATAGEMS_I_DESCRIPTION" Language="it_IT">
+      <Text>+25% alle rese e ai PF curati dai [icon:Action_Pillage] saccheggi. +3 alla [icon:NAR_REW_COMBAT] Forza di combattimento delle unità di [icon:UNIT_CLASS_INFANTRY] fanteria e [icon:UNIT_CLASS_CAVALRY] cavalleria contro altre unità terrestri quando hai almeno 4 [icon:NAR_REW_GREATWORK] Capolavori esposti.</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_STRATAGEMS_I_PILLAGE_DESCRIPTION" Language="it_IT">
+      <Text>+25% alle rese e ai PF curati dai [icon:Action_Pillage] saccheggi.</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_STRATAGEMS_PILLAGE_DESCRIPTION" Language="it_IT">
+      <Text>+50% alle rese e ai PF curati dai [icon:Action_Pillage] saccheggi.</Text>
+    </Replace>
+    <Replace Tag="LOC_TRAIT_BULGARIA_ABILITY_AQ_DESCRIPTION" Language="it_IT">
+      <Text>[BLIST][LI]Quando [icon:Action_Pillage] saccheggi [TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]miglioramenti[/TIP], ricevi [icon:YIELD_PRODUCTION] Produzione in tutte le [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]città[/TIP] pari al 50% delle rese o dei PF ottenuti.[LI]-3 alla [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Forza di combattimento[/TIP] di tutte le unità militari contro i [icon:CITY_FORTIFIED] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]distretti fortificati[/TIP].[/BLIST]</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_BULGARIA_ABILITY_DESCRIPTION" Language="it_IT">
-      <Text>[BLIST][LI]Quando [icon:Action_Pillage] [B]saccheggi edifici[/B] ricevi [B][icon:YIELD_PRODUCTION] Produzione[/B] in tutte le [icon:YIELD_CITIES] [B]città[/B] pari al [B]50% delle rese o dei PF ottenuti[/B].[LI][B]-3 alla [icon:NAR_REW_COMBAT] Forza di combattimento[/B] di tutte le unità militari contro i distretti protetti da Mura medievali.[LI][B]+30%[icon:YIELD_PRODUCTION] Produzione[/B] per la costruzione del [B]Monastero di Rila[/B].[/LIST]</Text>
+      <Text>[BLIST][LI]Quando [icon:Action_Pillage] saccheggi [TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]miglioramenti[/TIP], ricevi [icon:YIELD_PRODUCTION] Produzione in tutte le [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]città[/TIP] pari al 50% delle rese o dei PF ottenuti.[LI]-3 alla [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Forza di combattimento[/TIP] di tutte le unità militari contro i [icon:CITY_FORTIFIED] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]distretti fortificati[/TIP].[LI]+30%[icon:YIELD_PRODUCTION] Produzione per la costruzione del Monastero di Rila.[/BLIST]</Text>
+    </Replace>
+    <Replace Tag="LOC_TRAIT_BULGARIA_ABILITY_MO_DESCRIPTION" Language="it_IT">
+      <Text>[BLIST][LI]Quando [icon:Action_Pillage] saccheggi [TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]miglioramenti[/TIP], ricevi [icon:YIELD_PRODUCTION] Produzione in tutte le [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]città[/TIP] pari al 50% delle rese o dei PF ottenuti.[LI]-3 alla [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Forza di combattimento[/TIP] di tutte le unità militari contro i [icon:CITY_FORTIFIED] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]distretti fortificati[/TIP].[/BLIST]</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_BULGARIA_ABILITY_NAME" Language="it_IT">
       <Text>Dinastia di Krum</Text>
@@ -592,19 +643,19 @@
       <Text>Progressi civici della Bulgaria</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_BALIK_DESCRIPTION" Language="it_IT">
-      <Text>Comandante d'Armata esclusivo bulgaro. Ha 3 punti [icon:Action_Move] movimento. Le unità all'interno del suo [icon:COMMANDER_RADIUS] raggio di comando possono [icon:Action_Pillage] saccheggiare spendendo 1 punto [icon:Action_Move] movimento.</Text>
+      <Text>Comandante d'Armata esclusivo bulgaro. Ha 3 punti [icon:Action_Move] movimento. Le unità all'interno del suo [icon:COMMANDER_RADIUS] [TIP:LOC_PEDIA_CONCEPTS_COMMAND_RADIUS_TOOLTIP]raggio di comando[/TIP] possono [icon:Action_Pillage] saccheggiare spendendo 1 punto [icon:Action_Move] movimento.</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_BOYAR_2_DESCRIPTION" Language="it_IT">
-      <Text>Unità di Cavalleria esclusiva bulgara di livello 2. Il terreno accidentato non ha effetto sul suo [icon:Action_Move] movimento e sulla sua [icon:NAR_REW_COMBAT] Forza di combattimento. +3 alla [icon:NAR_REW_COMBAT] Forza di combattimento nelle caselle di terreno accidentato. Ignora le zone di controllo.</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_CAVALRY_UNITS_TOOLTIP]Unità di cavalleria[/TIP] esclusiva bulgara di livello 2. Il [TIP:LOC_PEDIA_CONCEPTS_ROUGH_TERRAIN_TOOLTIP]terreno accidentato[/TIP] non ha effetto sul suo [icon:Action_Move] movimento e sulla [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Forza di combattimento[/TIP] delle unità nemiche che affronta. +3 alla [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Forza di combattimento[/TIP] nelle caselle di [TIP:LOC_PEDIA_CONCEPTS_ROUGH_TERRAIN_TOOLTIP]terreno accidentato[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_BOYAR_3_DESCRIPTION" Language="it_IT">
-      <Text>Unità di Cavalleria esclusiva bulgara di livello 3. Il terreno accidentato non ha effetto sul suo [icon:Action_Move] movimento e sulla sua [icon:NAR_REW_COMBAT] Forza di combattimento. +3 alla [icon:NAR_REW_COMBAT] Forza di combattimento nelle caselle di terreno accidentato. Ignora le zone di controllo.</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_CAVALRY_UNITS_TOOLTIP]Unità di cavalleria[/TIP] esclusiva bulgara di livello 3. Il [TIP:LOC_PEDIA_CONCEPTS_ROUGH_TERRAIN_TOOLTIP]terreno accidentato[/TIP] non ha effetto sul suo [icon:Action_Move] movimento e sulla [icon:NAR_REW_COMBAT][TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Forza di combattimento[/TIP] delle unità nemiche che affronta. +3 alla [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Forza di combattimento[/TIP] nelle caselle di [TIP:LOC_PEDIA_CONCEPTS_ROUGH_TERRAIN_TOOLTIP]terreno accidentato[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_BOYAR_BASE_DESCRIPTION" Language="it_IT">
-      <Text>Unità di Cavalleria esclusiva bulgara. Il terreno accidentato non ha effetto sul suo [icon:Action_Move] movimento e sulla sua [icon:NAR_REW_COMBAT] Forza di combattimento. +3 alla [icon:NAR_REW_COMBAT] Forza di combattimento nelle caselle di terreno accidentato. Ignora le zone di controllo.</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_CAVALRY_UNITS_TOOLTIP]Unità di cavalleria[/TIP] esclusiva bulgara. Il [TIP:LOC_PEDIA_CONCEPTS_ROUGH_TERRAIN_TOOLTIP]terreno accidentato[/TIP] non ha effetto sul suo [icon:Action_Move] movimento e sulla [icon:NAR_REW_COMBAT][TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Forza di combattimento[/TIP] delle unità nemiche che affronta. +3 alla [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Forza di combattimento[/TIP] nelle caselle di [TIP:LOC_PEDIA_CONCEPTS_ROUGH_TERRAIN_TOOLTIP]terreno accidentato[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_BOYAR_DESCRIPTION" Language="it_IT">
-      <Text>Unità di Cavalleria esclusiva bulgara di livello 1. Il terreno accidentato non ha effetto sul suo [icon:Action_Move] movimento e sulla sua [icon:NAR_REW_COMBAT] Forza di combattimento. +3 alla [icon:NAR_REW_COMBAT] Forza di combattimento nelle caselle di terreno accidentato. Ignora le zone di controllo.</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_CAVALRY_UNITS_TOOLTIP]Unità di cavalleria[/TIP] esclusiva bulgara di livello 1. Il [TIP:LOC_PEDIA_CONCEPTS_ROUGH_TERRAIN_TOOLTIP]terreno accidentato[/TIP] non ha effetto sul suo [icon:Action_Move] movimento e sulla [icon:NAR_REW_COMBAT][TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Forza di combattimento[/TIP] delle unità nemiche che affronta. +3 alla [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Forza di combattimento[/TIP] nelle caselle di [TIP:LOC_PEDIA_CONCEPTS_ROUGH_TERRAIN_TOOLTIP]terreno accidentato[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_ALTARS_BULGARIA_TOOLTIP" Language="it_IT">
       <Text>Gli [B]Altari[/B] erano una parte importante dell'identità [B]bulgara[/B].</Text>
@@ -614,6 +665,9 @@
     </Replace>
     <Replace Tag="LOC_UNLOCK_PLAY_AS_AUGUSTUS_BULGARIA_TOOLTIP" Language="it_IT">
       <Text>[B]Augusto[/B] governò la regione che sarebbe diventata la [B]Bulgaria[/B].</Text>
+    </Replace>
+    <Replace Tag="LOC_UNLOCK_PLAY_AS_BULGARIA_BULGARIA_TOOLTIP" Language="it_IT">
+      <Text>La [B]Bulgaria[/B] può sopravvivere al passaggio d'epoca.</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_PLAY_AS_BULGARIA_DESCRIPTION" Language="it_IT">
       <Text>Gioca con la [B]Bulgaria[/B].</Text>
@@ -625,19 +679,19 @@
       <Text>La [B]Bulgaria[/B] si adatta bene alle strategie di [B]Carlo Magno[/B].</Text>
     </Replace>
     <Replace Tag="LOC_WONDER_RILA_MONASTERY_DESCRIPTION" Language="it_IT">
-      <Text>+4 [icon:YIELD_CULTURE] Cultura. Ha 3 slot per [icon:NAR_REW_GREATWORK] Reliquie. Ogni volta che costruisci una [icon:WONDER] Meraviglia, inclusa questa, ricevi una [icon:NAR_REW_GREATWORK] Reliquia. Senza epoca. Non può essere adiacente a un distretto.</Text>
+      <Text>+4 [icon:YIELD_CULTURE] Cultura. Ha 3 slot [icon:NAR_REW_GREATWORK] [TIP:LOC_PEDIA_CONCEPTS_GREAT_WORKS_TOOLTIP]Capolavoro[/TIP]. Ogni volta che costruisci una [icon:WONDER] [TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]Meraviglia[/TIP], inclusa questa, ricevi una [icon:NAR_REW_GREATWORK] [TIP:LOC_PEDIA_CONCEPTS_RELIC_TOOLTIP]Reliquia[/TIP]. [TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]Senza epoca[/TIP]. Non può essere adiacente a un [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]distretto[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_WONDER_RILA_MONASTERY_TOOLTIP" Language="it_IT">
-      <Text>Ha 3 slot per [icon:NAR_REW_GREATWORK] Reliquie. Ogni volta che costruisci una [icon:WONDER] Meraviglia, inclusa questa, ricevi una [icon:NAR_REW_GREATWORK] Reliquia. Senza epoca.[N]Non può essere adiacente a un distretto.</Text>
+      <Text>Ha 3 slot [icon:NAR_REW_GREATWORK] [TIP:LOC_PEDIA_CONCEPTS_GREAT_WORKS_TOOLTIP]Capolavoro[/TIP]. Ogni volta che costruisci una [icon:WONDER] [TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]Meraviglia[/TIP], inclusa questa, ricevi una [icon:NAR_REW_GREATWORK] [TIP:LOC_PEDIA_CONCEPTS_RELIC_TOOLTIP]Reliquia[/TIP].[N]Non può essere adiacente a un [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]distretto[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_ABILITY_BOYAR_PREVIEW" Language="it_IT">
-      <Text>+{1_Amount} in terreno accidentato</Text>
+      <Text>+{1_Amount} in [TIP:LOC_PEDIA_CONCEPTS_ROUGH_TERRAIN_TOOLTIP]terreno accidentato[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_COMBAT_PREVIEW_NUMBER_GREATWORKS_BONUS_DESC" Language="it_IT">
       <Text>+{1_Value} Forza di combattimento dai Capolavori inseriti negli slot.</Text>
     </Replace>
-    <Replace Tag="LOC_SEVEN_TRIBES_GREATWORKS_COMBAT_PREVIEW" Language="it_IT">
-      <Text>+{1_Amount} Sette tribù</Text>
+    <Replace Tag="LOC_STRATAGEMS_COMBAT_PREVIEW" Language="it_IT">
+      <Text>+{1_Amount} Stratagemmi</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_FALSE_RETREAT_PREVIEW" Language="it_IT">
       <Text>{1_CombatAmount} Falsa ritirata</Text>
@@ -648,14 +702,26 @@
     <Replace Tag="LOC_UNLOCK_ALTARS_BULGARIA_NARRATIVE" Language="it_IT">
       <Text>Per il popolo {1_Civilization_Adj[1]} la religione è sempre stata una questione personale, ma la gente si riunisce in gran numero intorno agli altari della città per condividere storie sui santi del passato. Questi racconti comunitari danno origine a una nuova rete di fedeli che ora desiderano portare la loro visione fin nelle sale del potere.</Text>
     </Replace>
+    <Replace Tag="LOC_TRADITION_BULGARIA_SYNCRETISM_ANTIQUITY_NAME" Language="it_IT">
+      <Text>Uporitost I</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_BULGARIA_SYNCRETISM_MODERN_NAME" Language="it_IT">
+      <Text>Uporitost II</Text>
+    </Replace>
     <Replace Tag="LOC_TRADITION_FALSE_RETREAT_NAME" Language="it_IT">
       <Text>Falsa ritirata</Text>
     </Replace>
+    <Replace Tag="LOC_TRADITION_ICONOLATRY_II_NAME" Language="it_IT">
+      <Text>Iconolatria II</Text>
+    </Replace>
     <Replace Tag="LOC_TRADITION_ICONOLATRY_NAME" Language="it_IT">
-      <Text>Iconolatria</Text>
+      <Text>Iconolatria I</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_STRATAGEMS_I_NAME" Language="it_IT">
+      <Text>Stratagemmi I</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_STRATAGEMS_NAME" Language="it_IT">
-      <Text>Stratagemmi</Text>
+      <Text>Stratagemmi II</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_BALIK_NAME" Language="it_IT">
       <Text>Tarkhan|un Tarkhan|dal tuo Tarkhan|al tuo Tarkhan|il tuo Tarkhan|da un Tarkhan</Text>

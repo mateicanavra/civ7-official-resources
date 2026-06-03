@@ -167,7 +167,7 @@
       <Plurality>1</Plurality>
     </Replace>
     <Replace Tag="LOC_INDEPENDENT_ANTIQUITY_63_MAJOR_TONGA_NAME" Language="it_IT">
-      <Text>di Teouma|di Teouma|di Teouma|di Teouma</Text>
+      <Text>Teouma|di Teouma|a Teouma|Teouma|da Teouma</Text>
       <Gender>masculine|feminine|masculine|feminine</Gender>
       <Plurality>1|1|2|2</Plurality>
     </Replace>
@@ -336,7 +336,7 @@
       <Text>{1_reward}.</Text>
     </Replace>
     <Replace Tag="LOC_11092B_NAME" Language="it_IT">
-      <Text>Per prima cosa metti il cibo all'interno del cerchio.</Text>
+      <Text>Per prima cosa metti le offerte all'interno del cerchio.</Text>
     </Replace>
     <Replace Tag="LOC_11092C_DESCRIPTION" Language="it_IT">
       <Text>{1_reward}.</Text>
@@ -516,16 +516,34 @@
       <Text>Il dottor Rizal a Tonga</Text>
     </Replace>
     <Replace Tag="LOC_12015B_DESCRIPTION" Language="it_IT">
-      <Text>{1_reward} a {2_capital}.</Text>
+      <Text>{1_reward}.</Text>
     </Replace>
     <Replace Tag="LOC_12015B_NAME" Language="it_IT">
-      <Text>Continua a esplorare il territorio.</Text>
+      <Text>Una minima parte di un'economia più grande all'opera.</Text>
     </Replace>
     <Replace Tag="LOC_12015C_DESCRIPTION" Language="it_IT">
       <Text>{1_reward}.</Text>
     </Replace>
     <Replace Tag="LOC_12015C_NAME" Language="it_IT">
       <Text>Il dottor Rizal deve incontrare il capo.</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30016A_COMPLETION" Language="it_IT">
+      <Text>Mana è il potere che risiede nei capi e che fa sì che il vento soffi, che la tempesta infuri o si plachi, che i raccolti spuntino dalla terra... e che la gente li ami. Ma una nuova epoca porta una nuova stirpe di re, e il T'ui Ha'atakalaua lotta per affermare il loro potere su un popolo scettico.</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30016A_STORYTITLE" Language="it_IT">
+      <Text>La rete del mana</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30016B_DESCRIPTION" Language="it_IT">
+      <Text>{1_reward}.</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30016B_NAME" Language="it_IT">
+      <Text>Il potere è prosperità. Tutto sarà fatto in conformità col tapu.</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30016C_DESCRIPTION" Language="it_IT">
+      <Text>{1_reward}.</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30016C_NAME" Language="it_IT">
+      <Text>La prosperità è potere. Nuovi costumi aprono la via per una nuova epoca.</Text>
     </Replace>
     <Replace Tag="LOC_ATTR_ADJUST_CITY_YIELD_PER_CITY_STATE_TRADE_ROUTES" Language="it_IT">
       <Text>Resa delle Rotte commerciali con le città-stato</Text>
@@ -534,16 +552,16 @@
       <Text>Numero di Rotte commerciali con città-stato</Text>
     </Replace>
     <Replace Tag="LOC_BUILDING_LANGI_DESCRIPTION" Language="it_IT">
-      <Text>Edificio esclusivo di Tonga che produce Cultura. +3 [icon:YIELD_CULTURE] Cultura. Bonus +1 [icon:YIELD_FOOD] Cibo per la vicinanza a risorse e Meraviglie. Senza epoca.</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_BUILDING_TOOLTIP]Edificio esclusivo[/TIP] di Tonga che produce Cultura. +3 [icon:YIELD_CULTURE] Cultura. Bonus +1 [icon:YIELD_FOOD] Cibo per la vicinanza a [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]risorse[/TIP] e [TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]Meraviglie[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_BUILDING_LANGI_TOOLTIP" Language="it_IT">
-      <Text>Edificio esclusivo di Tonga.</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_BUILDING_TOOLTIP]Edificio esclusivo[/TIP] di Tonga.</Text>
     </Replace>
     <Replace Tag="LOC_BUILDING_VAI_KAUKAU_DESCRIPTION" Language="it_IT">
-      <Text>Edificio esclusivo di Tonga che produce Felicità. +3 [icon:YIELD_HAPPINESS] Felicità. +1 [icon:YIELD_CULTURE] Cultura per la vicinanza alla costa e alle Meraviglie. Senza epoca.</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_BUILDING_TOOLTIP]Edificio esclusivo[/TIP] di Tonga che produce Felicità. +3 [icon:YIELD_HAPPINESS] Felicità. Bonus +1 [icon:YIELD_CULTURE] Cultura per la vicinanza alla costa e alle [TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]Meraviglie[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_BUILDING_VAI_KAUKAU_TOOLTIP" Language="it_IT">
-      <Text>Edificio esclusivo di Tonga.</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_BUILDING_TOOLTIP]Edificio esclusivo[/TIP] di Tonga.</Text>
     </Replace>
     <Replace Tag="LOC_CIVIC_ESI_MAKA_FAAKINANGA_AUTHOR" Language="it_IT">
       <Text>George Vason</Text>
@@ -566,6 +584,12 @@
     <Replace Tag="LOC_CIVILIZATION_TONGA_DESCRIPTION" Language="it_IT">
       <Text>+1 [icon:YIELD_DIPLOMACY] Influenza dal Palazzo e dai Municipi negli insediamenti adiacenti alla costa. Non può usare l'azione [icon:PROJECT] Città-stato - Assorbi o l'azione Recluta unità.</Text>
     </Replace>
+    <Replace Tag="LOC_CIVILIZATION_TONGA_EX_DESCRIPTION" Language="it_IT">
+      <Text>+2 [icon:YIELD_DIPLOMACY] Influenza da Palazzi e Municipi negli insediamenti adiacenti alla costa. Quando diventi [TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]Sovrano[/TIP] di una nuova [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]città-stato[/TIP], ottieni una [icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]Rotta commerciale[/TIP] gratuita da quella città.</Text>
+    </Replace>
+    <Replace Tag="LOC_CIVILIZATION_TONGA_MO_DESCRIPTION" Language="it_IT">
+      <Text>+3 [icon:YIELD_DIPLOMACY] Influenza da Palazzi e Municipi negli insediamenti adiacenti alla costa. Quando diventi [TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]Sovrano[/TIP] di una nuova [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]città-stato[/TIP], ottieni una [icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]Rotta commerciale[/TIP] gratuita da quella città.</Text>
+    </Replace>
     <Replace Tag="LOC_LOADING_CIV_INTRO_TEXT_TONGA" Language="it_IT">
       <Text>Attraverso mari senza rotte, le navi a doppio scafo di Tonga si lasciano guidare dalle sole stelle. La voce del cantante le spinge avanti, in cerca di nuovi porti naturali, nuovi atolli e nuove zone di pesca. Ascolta il tam-tam e senti le onde scorrere lungo lo scafo... un nuovo approdo attende.</Text>
     </Replace>
@@ -578,47 +602,59 @@
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TONGA_COMPLETE_WONDER_HA_AMONGA_A_MAUI_NAME" Language="it_IT">
       <Text>Ha'amonga 'a Maui</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TONGA_LEGACY_PATH_CULTURAL_DESC" Language="it_IT">
-      <Text>Giocando con Tonga, completa un Percorso Retaggio culturale.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TONGA_FOUR_MAJOR_TRIUMPHS_DESC" Language="it_IT">
+      <Text>Giocando con Tonga, completa 4 Trionfi maggiori diplomatici o economici in una singola epoca dell'Apice.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TONGA_LEGACY_PATH_CULTURAL_NAME" Language="it_IT">
-      <Text>Percorso Retaggio Tonga</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TONGA_FOUR_MAJOR_TRIUMPHS_NAME" Language="it_IT">
+      <Text>Tonga - 4 Trionfi maggiori</Text>
     </Replace>
     <Replace Tag="LOC_MOD_CIV_WONDER_PRODUCTION_TONGA_DESCRIPTION" Language="it_IT">
       <Text>+30% [icon:YIELD_PRODUCTION] Produzione perché è la [icon:WONDER] Meraviglia associata a Tonga.</Text>
     </Replace>
-    <Replace Tag="LOC_MOD_ESI_MAKA_FAAKINANGA_COMBAT_STRENGTH_DESCRIPTION" Language="it_IT">
-      <Text>+3 alla [icon:NAR_REW_COMBAT] Forza di combattimento delle unità di Fanteria e navali adiacenti alla costa.</Text>
+    <Replace Tag="LOC_NODE_CIVIC_EX_TONGA_RENAISSANCE_NAME" Language="it_IT">
+      <Text>Rinascimento di Tonga</Text>
     </Replace>
-    <Replace Tag="LOC_MOD_KAVA_CEREMONY_BEFRIEND_INDEPENDENT_DESCRIPTION" Language="it_IT">
-      <Text>+100% [icon:YIELD_DIPLOMACY] Influenza per l'avviamento e il supporto del [icon:PROJECT] progetto Fai amicizia con una potenza indipendente, se tale [icon:INDEPENDENT_POWER] potenza è in Terre lontane.</Text>
-    </Replace>
-    <Replace Tag="LOC_MOD_LAPITA_ORIGINS_CS_TRADE_DESCRIPTION" Language="it_IT">
-      <Text>Quando diventi Sovrano di una nuova [icon:CITYSTATE] città-stato, ottieni una [icon:TRADE_ROUTE] Rotta commerciale gratuita da quella città.</Text>
-    </Replace>
-    <Replace Tag="LOC_MOD_LAPITA_ORIGINS_MONUMENT_INFLUENCE_DESCRIPTION" Language="it_IT">
-      <Text>+1 [icon:YIELD_DIPLOMACY] Influenza dai Monumenti adiacenti alla costa.</Text>
-    </Replace>
-    <Replace Tag="LOC_MOD_LAPITA_ORIGINS_OCEAN_TRADE_DESCRIPTION" Language="it_IT">
-      <Text>Le [icon:TRADE_ROUTE] Rotte commerciali possono attraversare l'oceano.</Text>
+    <Replace Tag="LOC_NODE_CIVIC_MO_TONGA_MODERNIZATION_NAME" Language="it_IT">
+      <Text>Modernizzazione di Tonga</Text>
     </Replace>
     <Replace Tag="LOC_QUARTER_TOFI_A_DESCRIPTION" Language="it_IT">
-      <Text>Quartiere esclusivo di Tonga. Si può creare costruendo Langi e Vai Kaukau nello stesso distretto. +2 [icon:YIELD_CULTURE] Cultura per ogni [icon:TRADE_ROUTE] Rotta commerciale collegata a una [icon:CITYSTATE] città-stato. In tutte le epoche, gli [icon:UNIT_SCOUT] Scout provenienti da imperi con un Tofi'a possono entrare nell'oceano senza subire danni (ma non possono sbarcare in Terre lontane nell'epoca antica).</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_QUARTER_TOOLTIP]Quartiere esclusivo[/TIP] di Tonga. Si può creare costruendo Langi e Vaikaukau nello stesso [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]distretto[/TIP]. +2 [icon:YIELD_CULTURE] Cultura per ogni tua [icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]Rotta commerciale[/TIP] collegata a una [icon:CITYSTATE] città-stato.</Text>
     </Replace>
     <Replace Tag="LOC_QUARTER_TOFI_A_TOOLTIP" Language="it_IT">
-      <Text>+2 [icon:YIELD_CULTURE] Cultura per ogni [icon:TRADE_ROUTE] Rotta commerciale collegata a una [icon:CITYSTATE] città-stato. In tutte le epoche, gli [icon:UNIT_SCOUT] Scout provenienti da imperi con un Tofi'a possono entrare nell'oceano senza subire danni (ma non possono sbarcare in Terre lontane nell'epoca antica).</Text>
+      <Text>+2 [icon:YIELD_CULTURE] Cultura per ogni tua [icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]Rotta commerciale[/TIP] collegata a una [icon:CITYSTATE] città-stato.</Text>
     </Replace>
-    <Replace Tag="LOC_TRADITION_NGATU_DESCRIPTION" Language="it_IT">
-      <Text>+1 [icon:YIELD_CULTURE] Cultura dai [icon:YIELD_WAREHOUSE] Depositi.</Text>
+    <Replace Tag="LOC_TRADITION_NGATU_I_DESCRIPTION" Language="it_IT">
+      <Text>+100% [icon:YIELD_DIPLOMACY] Influenza per l'avviamento e il supporto del [icon:PROJECT] progetto Fai amicizia con una potenza indipendente, se tale [icon:INDEPENDENT_POWER] potenza è in [TIP:LOC_PEDIA_CONCEPTS_DISTANT_LANDS_TOOLTIP]Terre lontane[/TIP].</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_NGATU_II_DESCRIPTION" Language="it_IT">
+      <Text>+100% [icon:YIELD_DIPLOMACY] Influenza per l'avviamento e il supporto del [icon:PROJECT] progetto Fai amicizia con una potenza indipendente, se tale [icon:INDEPENDENT_POWER] potenza è in [TIP:LOC_PEDIA_CONCEPTS_DISTANT_LANDS_TOOLTIP]Terre lontane[/TIP]. +100% [icon:YIELD_DIPLOMACY] Influenza per l'avviamento di tutte le azioni relative alle [icon:CITYSTATE] città-stato, se tali città-stato sono in [TIP:LOC_PEDIA_CONCEPTS_DISTANT_LANDS_TOOLTIP]Terre lontane[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_TAKUAKA_DESCRIPTION" Language="it_IT">
-      <Text>+1 [icon:YIELD_PRODUCTION] Produzione dai Pescherecci nelle [icon:YIELD_CITIES] città. +2 [icon:YIELD_SCIENCE] Scienza dai Pescherecci sulle Barriere coralline in tutti gli insediamenti.</Text>
+      <Text>+1 [icon:YIELD_PRODUCTION] Produzione dai Pescherecci nelle [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]città[/TIP]. +2 [icon:YIELD_SCIENCE] Scienza dai Pescherecci sulle Barriere coralline in tutti gli [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]insediamenti[/TIP].</Text>
     </Replace>
-    <Replace Tag="LOC_TRADITION_TONGIAKI_DESCRIPTION" Language="it_IT">
-      <Text>+10 al raggio delle [icon:TRADE_ROUTE] Rotte commerciali navali.</Text>
+    <Replace Tag="LOC_TRADITION_TONGA_SYNCRETISM_EXPLORATION_DESCRIPTION" Language="it_IT">
+      <Text>+3 [icon:YIELD_CULTURE] Cultura e [icon:YIELD_GOLD] Oro nella [icon:NOTIFICATION_SELECT_CAPITAL] capitale per ogni [icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]Rotta commerciale[/TIP] collegata a una [icon:CITYSTATE] città-stato.</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_TONGA_SYNCRETISM_MODERN_DESCRIPTION" Language="it_IT">
+      <Text>+4 [icon:YIELD_CULTURE] Cultura e [icon:YIELD_GOLD] Oro nella [icon:NOTIFICATION_SELECT_CAPITAL] capitale per ogni [icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]Rotta commerciale[/TIP] collegata a una [icon:CITYSTATE] città-stato.</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_TONGA_SYNCRETISM_TOOLTIP" Language="it_IT">
+      <Text>T'ui Ha'atakalaua</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_TONGIAKI_I_DESCRIPTION" Language="it_IT">
+      <Text>+10 al [icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_RANGE_TOOLTIP]raggio delle Rotte commerciali[/TIP] navali.</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_TONGIAKI_II_DESCRIPTION" Language="it_IT">
+      <Text>+10 al [icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_RANGE_TOOLTIP]raggio delle Rotte commerciali[/TIP] navali. 3+ [icon:YIELD_GOLD] Oro e [icon:YIELD_SCIENCE] Scienza dalle Rotte commerciali navali.</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_TONGA_ABILITY_DESCRIPTION" Language="it_IT">
-      <Text>[BLIST][LI][B]+1 [icon:YIELD_DIPLOMACY] Influenza[/B] dal [B]Palazzo[/B] e dai [B]Municipi[/B] negli insediamenti adiacenti alla [B]costa[/B].[LI]Non può usare l'azione [icon:PROJECT] [B]Città-stato - Assorbi[/B] o l'azione [B]Recluta unità[/B].[LI][B]+30% [icon:YIELD_PRODUCTION] Produzione[/B] per la costruzione di [B]Ha'amonga 'a Maui[/B].[/LIST]</Text>
+      <Text>[BLIST][LI][B]+1 [icon:YIELD_DIPLOMACY] Influenza[/B] dal [B]Palazzo[/B] e dai [B]Municipi[/B] negli [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]insediamenti[/TIP] adiacenti alla [B]costa[/B].[LI]Quando diventi [B][TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]Sovrano[/TIP][/B] di una nuova [B][icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]città-stato[/TIP][/B], ottieni una [B][TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]Rotta commerciale[/TIP][/B] gratuita verso quella città.[LI]Non puoi usare l'azione [icon:PROJECT] [B]Città-stato - Assorbi[/B] o l'azione [B]Recluta unità[/B].[LI][B]+30% [icon:YIELD_PRODUCTION] Produzione[/B] per la costruzione di [B]Ha'amonga 'a Maui[/B].[/BLIST]</Text>
+    </Replace>
+    <Replace Tag="LOC_TRAIT_TONGA_ABILITY_EX_DESCRIPTION" Language="it_IT">
+      <Text>[BLIST][LI][B]+2 [icon:YIELD_DIPLOMACY] Influenza[/B] dal [B]Palazzo[/B] e dai [B]Municipi[/B] negli [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]insediamenti[/TIP] adiacenti alla [B]costa[/B].[LI]Quando diventi [B][TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]Sovrano[/TIP][/B] di una nuova [B][icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]città-stato[/TIP][/B], ottieni una [B][icon:TRADE_ROUTE][TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]Rotta commerciale[/TIP][/B][LI] gratuita verso quella città.Le [LI][B][icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]Rotte commerciali[/TIP][/B] possono attraversare l'oceano senza subire danni.[/BLIST]</Text>
+    </Replace>
+    <Replace Tag="LOC_TRAIT_TONGA_ABILITY_MO_DESCRIPTION" Language="it_IT">
+      <Text>[BLIST][LI][B]+3 [icon:YIELD_DIPLOMACY] Influenza[/B] dal [B]Palazzo[/B] e dai [B]Municipi[/B] negli insediamenti adiacenti alla [B]costa[/B].[LI]Quando diventi [B][TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP] Sovrano[/TIP][/B] di una nuova [B][icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]città-stato[/TIP][/B], ottieni una [B][TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]Rotta commerciale[/TIP][/B] gratuita verso quella città.[/BLIST]</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_TONGA_ABILITY_NAME" Language="it_IT">
       <Text>Signori del sud</Text>
@@ -627,16 +663,16 @@
       <Text>Progressi civici di Tonga</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_KALIA_2_DESCRIPTION" Language="it_IT">
-      <Text>Unità navale esclusiva di Tonga di livello 3. +5 alla [icon:NAR_REW_COMBAT] Forza di combattimento contro i [icon:CITY_FORTIFIED] distretti fortificati.</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]Unità navale[/TIP] esclusiva di Tonga di livello 3. +5 alla [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Forza di combattimento[/TIP] contro i [icon:CITY_FORTIFIED] [TIP:LOC_PEDIA_CONCEPTS_FORTIFIED_DISTRICTS_TOOLTIP]distretti fortificati[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_KALIA_BASE_DESCRIPTION" Language="it_IT">
-      <Text>Unità navale esclusiva di Tonga. +5 alla [icon:NAR_REW_COMBAT] Forza di combattimento contro i [icon:CITY_FORTIFIED] distretti fortificati.</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]Unità navale[/TIP] esclusiva di Tonga. +5 alla [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Forza di combattimento[/TIP] contro i [icon:CITY_FORTIFIED] [TIP:LOC_PEDIA_CONCEPTS_FORTIFIED_DISTRICTS_TOOLTIP]distretti fortificati[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_KALIA_DESCRIPTION" Language="it_IT">
-      <Text>Unità navale esclusiva di Tonga di livello 2. +5 alla [icon:NAR_REW_COMBAT] Forza di combattimento contro i [icon:CITY_FORTIFIED] distretti fortificati.</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]Unità navale[/TIP] esclusiva di Tonga di livello 2. +5 alla [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Forza di combattimento[/TIP] contro i [icon:CITY_FORTIFIED] [TIP:LOC_PEDIA_CONCEPTS_FORTIFIED_DISTRICTS_TOOLTIP]distretti fortificati[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_TEHINA_DESCRIPTION" Language="it_IT">
-      <Text>Scout esclusivo di Tonga. Può entrare nell'oceano senza subire danni. Non può sbarcare in Terre lontane. Può effettuare una [icon:Action_Pillage] Incursione costiera su una Scoperta adiacente e imbarcarsi già all'inizio dell'epoca.</Text>
+      <Text>Scout esclusivo di Tonga. Può entrare nell'oceano senza subire danni. Non può [TIP:LOC_PEDIA_CONCEPTS_EMBARK_TOOLTIP]sbarcare[/TIP] in [TIP:LOC_PEDIA_CONCEPTS_DISTANT_LANDS_TOOLTIP]Terre lontane[/TIP]. Può effettuare una [icon:Action_Pillage] Incursione costiera su una Scoperta adiacente e [TIP:LOC_PEDIA_CONCEPTS_EMBARK_TOOLTIP]imbarcarsi[/TIP] già all'inizio dell'[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]epoca[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_PLAY_AS_HIMIKO_ALT_TONGA_TOOLTIP" Language="it_IT">
       <Text>[B]Tonga[/B] si adatta bene alle strategie di [B]Himiko[/B].</Text>
@@ -653,23 +689,35 @@
     <Replace Tag="LOC_UNLOCK_PLAY_AS_TONGA_HAWAII_TOOLTIP" Language="it_IT">
       <Text>[B]Tonga[/B] e le [B]Hawaii[/B] sono potenze del Pacifico.</Text>
     </Replace>
+    <Replace Tag="LOC_UNLOCK_PLAY_AS_TONGA_TONGA_TOOLTIP" Language="it_IT">
+      <Text>[B]Tonga[/B] può sopravvivere al passaggio d'epoca.</Text>
+    </Replace>
     <Replace Tag="LOC_ABILITY_KALIA_DESCRIPTION" Language="it_IT">
-      <Text>+{1_amount} alla [icon:NAR_REW_COMBAT] Forza di combattimento contro i [icon:CITY_FORTIFIED] distretti fortificati.</Text>
+      <Text>+{1_amount} alla [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Forza di combattimento[/TIP] contro i [icon:CITY_FORTIFIED] [TIP:LOC_PEDIA_CONCEPTS_FORTIFIED_DISTRICTS_TOOLTIP]distretti fortificati[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_ABILITY_KALIA_PREVIEW" Language="it_IT">
-      <Text>+{1_Amount} contro i distretti fortificati</Text>
+      <Text>+{1_Amount} contro i [TIP:LOC_PEDIA_CONCEPTS_FORTIFIED_DISTRICTS_TOOLTIP]distretti fortificati[/TIP]</Text>
     </Replace>
-    <Replace Tag="LOC_MOD_ESI_MAKA_FAAKINANGA_ADJACENT_TO_COAST_COMBAT_DESCRIPTION" Language="it_IT">
-      <Text>+{1_Amount} 'Esi Maka Faakinanga</Text>
+    <Replace Tag="LOC_TRADITION_NGATU_I_NAME" Language="it_IT">
+      <Text>Ngatu I</Text>
     </Replace>
-    <Replace Tag="LOC_TRADITION_NGATU_NAME" Language="it_IT">
-      <Text>Ngatu</Text>
+    <Replace Tag="LOC_TRADITION_NGATU_II_NAME" Language="it_IT">
+      <Text>Ngatu II</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_TAKUAKA_NAME" Language="it_IT">
       <Text>Takuaka</Text>
     </Replace>
-    <Replace Tag="LOC_TRADITION_TONGIAKI_NAME" Language="it_IT">
-      <Text>Tongiaki</Text>
+    <Replace Tag="LOC_TRADITION_TONGA_SYNCRETISM_EXPLORATION_NAME" Language="it_IT">
+      <Text>T'ui Ha'atakalaua I</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_TONGA_SYNCRETISM_MODERN_NAME" Language="it_IT">
+      <Text>T'ui Ha'atakalaua II</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_TONGIAKI_I_NAME" Language="it_IT">
+      <Text>Tongiaki I</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_TONGIAKI_II_NAME" Language="it_IT">
+      <Text>Tongiaki II</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_KALIA_NAME" Language="it_IT">
       <Text>Kalia|una Kalia|dalla tua Kalia|alla tua Kalia|la tua Kalia|da una Kalia</Text>

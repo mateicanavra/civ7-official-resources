@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <GameEffects xmlns="GameEffects">
-	<!-- ==================================================	-->
-	<!--				Civ-Specific Traits					-->
-	<!-- ==================================================	-->
-	<!-- DAI_VIET -->
+
 	<!-- ==================================================	-->
 	<!--				Civ-Specific Trees					-->
 	<!-- ==================================================	-->
@@ -18,17 +15,13 @@
 	<!-- ==================================================	-->
 	<!--				Wonder Bonuses						-->
 	<!-- ==================================================	-->
-	<Modifier id="MOD_CIV_WALL_YIELD" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_GRANT_YIELD_PER_POP_DEFENSE_CONSTRUCTED">
-		<Argument name="Amount">5</Argument>
-		<Argument name="YieldType">YIELD_CULTURE</Argument>
-	</Modifier>
 	<Modifier id="TRAIT_MOD_VIET_KIEU_BIOME_YIELD" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_GRANT_CITY_YIELD_BIOME" permanent="true">
 		<SubjectRequirements>
 			<Requirement type="REQUIREMENT_CITY_FOUNDED_BY_UNIT_TYPE">
 				<Argument name="UnitType">UNIT_VIET_KIEU</Argument>
 			</Requirement>
 		</SubjectRequirements>
-		<Argument name="Amount">5</Argument>
+		<Argument name="Amount">25</Argument>
 		<Argument name="BiomeType">BIOME_TROPICAL</Argument>
 		<Argument name="YieldType">YIELD_CULTURE</Argument>
 	</Modifier>

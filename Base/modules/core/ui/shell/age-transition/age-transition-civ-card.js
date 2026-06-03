@@ -1,9 +1,5 @@
-import { F as FxsActivatable } from '../../components/fxs-activatable.chunk.js';
-import '../../audio-base/audio-support.chunk.js';
-import '../../input/focus-manager.js';
-import '../../framework.chunk.js';
-
-const styles = "fs://game/core/ui/shell/age-transition/age-transition-civ-card.css";
+import { FxsActivatable } from '../../components/fxs-activatable.js';
+import styles from './age-transition-civ-card.scss.js';
 
 const AgeTransitionCivSelectEventName = "age-transition-civ-select";
 class AgeTransitionCivSelectEvent extends CustomEvent {

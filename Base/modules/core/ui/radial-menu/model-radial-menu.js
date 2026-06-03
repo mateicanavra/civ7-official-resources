@@ -1,15 +1,8 @@
 import ContextManager from '../context-manager/context-manager.js';
-import { b as InputEngineEventName } from '../input/input-support.chunk.js';
-import { U as UpdateGate } from '../utilities/utilities-update-gate.chunk.js';
-import { V as ViewManager } from '../views/view-manager.chunk.js';
+import { InputEngineEventName } from '../input/input-support.js';
+import UpdateGate from '../utilities/utilities-update-gate.js';
+import ViewManager from '../views/view-manager.js';
 import { TutorialLevel } from '../../../base-standard/ui/tutorial/tutorial-item.js';
-import '../context-manager/display-queue-manager.js';
-import '../dialog-box/manager-dialog-box.chunk.js';
-import '../framework.chunk.js';
-import '../input/cursor.js';
-import '../input/focus-manager.js';
-import '../audio-base/audio-support.chunk.js';
-import '../panel-support.chunk.js';
 
 class RadialMenuModel {
   canUseRadialMenu = false;

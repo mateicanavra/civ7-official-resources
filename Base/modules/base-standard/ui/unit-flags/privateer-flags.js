@@ -1,15 +1,7 @@
-import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.chunk.js';
-import { s as styles, UnitFlagFactory } from './unit-flag-manager.js';
+import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
+import { UnitFlagFactory } from './unit-flag-manager.js';
 import { GenericUnitFlag } from './unit-flags.js';
-import '../../../core/ui/utilities/utilities-component-id.chunk.js';
-import '../../../core/ui/utilities/utilities-update-gate.chunk.js';
-import '../../../core/ui/components/fxs-activatable.chunk.js';
-import '../../../core/ui/audio-base/audio-support.chunk.js';
-import '../../../core/ui/input/focus-manager.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/graph-layout/utils.chunk.js';
-import '../../../core/ui/utilities/utilities-image.chunk.js';
-import '../../../core/ui/utilities/utilities-layout.chunk.js';
+import styles from './unit-flags.scss.js';
 
 class PrivateerFlagMaker {
   initialize() {

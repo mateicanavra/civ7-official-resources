@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+	<!-- ==================================================	-->
+	<!--	Bulgaria UA Modifiers (all ages)				-->
+	<!-- ==================================================	-->
+	<!-- NOTE: MOD_CIV_WONDER_PRODUCTION_BULGARIA moved to constructibles-gameeffects.xml
+		 (exploration-age-persist scope) because it references the associated wonder. -->
+	<Modifier id="MOD_CIV_PRODUCTION_PILLAGE_IMPROVEMENT" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ADJUST_UNIT_IMPROVEMENT_PILLAGE_YIELD_MODIFIER">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_DOMAIN_MATCHES">
+				<Argument name="UnitDomain">DOMAIN_LAND</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">50</Argument>
+		<Argument name="PlunderTypes">PLUNDER_PRODUCTION_CITY</Argument>
+	</Modifier>
+	<Modifier id="MOD_CIV_COMBAT_VS_FORTIFIED_DISTRICTS" collection="COLLECTION_PLAYER_COMBAT" effect="EFFECT_ADJUST_UNIT_STRENGTH_MODIFIER">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_OPPONENT_IS_DISTRICT"/>
+		</SubjectRequirements>
+		<Argument name="Amount">-3</Argument>
+		<String context="Preview">LOC_TRAIT_BULGARIA_ABILITY_PREVIEW</String>
+	</Modifier>
+</GameEffects>

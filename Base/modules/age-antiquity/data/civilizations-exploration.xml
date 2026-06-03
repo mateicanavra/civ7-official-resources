@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Civilizations>
+		<!-- Replace civics tree. -->
+		<Update>
+			<Where CivilizationType="CIVILIZATION_AKSUM" />
+			<Set UniqueCultureProgressionTree="TREE_CIVICS_EX_TEST_OF_TIME" />
+		</Update>
+		<Update>
+			<Where CivilizationType="CIVILIZATION_EGYPT" />
+			<Set UniqueCultureProgressionTree="TREE_CIVICS_EX_TEST_OF_TIME" />
+		</Update>
+		<Update>
+			<Where CivilizationType="CIVILIZATION_GREECE" />
+			<Set UniqueCultureProgressionTree="TREE_CIVICS_EX_TEST_OF_TIME" />
+		</Update>
+		<Update>
+			<Where CivilizationType="CIVILIZATION_HAN" />
+			<Set UniqueCultureProgressionTree="TREE_CIVICS_EX_TEST_OF_TIME" />
+		</Update>
+		<Update>
+			<Where CivilizationType="CIVILIZATION_KHMER" />
+			<Set UniqueCultureProgressionTree="TREE_CIVICS_EX_TEST_OF_TIME" />
+		</Update>
+		<Update>
+			<Where CivilizationType="CIVILIZATION_MAURYA" />
+			<Set UniqueCultureProgressionTree="TREE_CIVICS_EX_TEST_OF_TIME" />
+		</Update>
+		<Update>
+			<Where CivilizationType="CIVILIZATION_MAYA" />
+			<Set UniqueCultureProgressionTree="TREE_CIVICS_EX_TEST_OF_TIME" />
+		</Update>
+		<Update>
+			<Where CivilizationType="CIVILIZATION_MISSISSIPPIAN" />
+			<Set UniqueCultureProgressionTree="TREE_CIVICS_EX_TEST_OF_TIME" />
+		</Update>
+		<Update>
+			<Where CivilizationType="CIVILIZATION_PERSIA" />
+			<Set UniqueCultureProgressionTree="TREE_CIVICS_EX_TEST_OF_TIME" />
+		</Update>
+		<Update>
+			<Where CivilizationType="CIVILIZATION_ROME" />
+			<Set Description="LOC_CIVILIZATION_ROME_EX_DESCRIPTION" UniqueCultureProgressionTree="TREE_CIVICS_EX_TEST_OF_TIME" />
+		</Update>
+	</Civilizations>
+	<Traits>
+		<Update>
+			<Where TraitType="TRAIT_ROME_ABILITY" />
+			<Set Description="LOC_TRAIT_ROME_ABILITY_EX_DESCRIPTION" />
+		</Update>		
+	</Traits>
+	<TraitModifiers>
+		<Row TraitType="TRAIT_AKSUM_ABILITY" ModifierId="TRAIT_MOD_KINGDOM_OF_NATURAL_WEALTH_RESOURCE"/>
+		<Row TraitType="TRAIT_AKSUM_ABILITY" ModifierId="TRAIT_MOD_KINGDOM_OF_NATURAL_WEALTH_TRADE_ROUTE_CAP_SELF"/>
+		<Row TraitType="TRAIT_AKSUM_ABILITY" ModifierId="TRAIT_MOD_KINGDOM_OF_NATURAL_WEALTH_TRADE_ROUTE_CAP_OTHERS"/>
+		<Row TraitType="TRAIT_AKSUM_ABILITY" ModifierId="TRAIT_MOD_KINGDOM_OF_NATURAL_WEALTH_TRADE_ROUTE_UNLIMITED_RANGE"/>
+		<Row TraitType="TRAIT_EGYPT_ABILITY" ModifierId="TRAIT_MOD_GIFTS_OF_OSIRIS_NAVIGABLE_RIVER"/>
+		<Row TraitType="TRAIT_EGYPT_ABILITY" ModifierId="TRAIT_MOD_GIFTS_OF_OSIRIS_UNITS_IGNORE_MINOR_RIVER"/>
+		<Row TraitType="TRAIT_GREECE_ABILITY" ModifierId="TRAIT_MOD_DEMOKRATIA_INFLUENCE_TOT_EX"/>
+		<Row TraitType="TRAIT_GREECE_ABILITY" ModifierId="TRAIT_MOD_DEMOKRATIA_CULTURE_ENDEAVOR"/>
+		<Row TraitType="TRAIT_GREECE_ABILITY" ModifierId="TRAIT_MOD_DEMOKRATIA_CULTURE_SANCTION"/>
+		<Row TraitType="TRAIT_GREECE_ABILITY" ModifierId="TRAIT_MOD_DEMOKRATIA_CULTURE_PROJECT"/>
+		<Row TraitType="TRAIT_GREECE_ABILITY" ModifierId="TRAIT_MOD_DEMOKRATIA_CULTURE_ESPIONAGE"/>
+		<Row TraitType="TRAIT_GREECE_ABILITY" ModifierId="TRAIT_MOD_DEMOKRATIA_CITY_STATE_TOURISM"/>
+		<Row TraitType="TRAIT_HAN_ABILITY" ModifierId="TRAIT_MOD_NINE_PROVINCES_TOT_TOWN"/>
+		<Row TraitType="TRAIT_HAN_ABILITY" ModifierId="TRAIT_MOD_NINE_PROVINCES_POP_IN_CITIES_ON_SCIENCE_BUILDING"/>
+		<Row TraitType="TRAIT_KHMER_ABILITY" ModifierId="TRAIT_MOD_KSEKAM_CHAMNON_MINOR_RIVER"/>
+		<Row TraitType="TRAIT_KHMER_ABILITY" ModifierId="TRAIT_MOD_KSEKAM_CHAMNON_NAVIGABLE_RIVER"/>
+		<Row TraitType="TRAIT_KHMER_ABILITY" ModifierId="TRAIT_MOD_KSEKAM_CHAMNON_CAPITAL_GROWTH"/>
+		<Row TraitType="TRAIT_KHMER_ABILITY" ModifierId="TRAIT_MOD_KSEKAM_CHAMNON_CITY_HAPPINESS_PENALTY"/>
+		<Row TraitType="TRAIT_MAURYA_ABILITY" ModifierId="TRAIT_MOD_DHAMMA_THAMBHA_AQ_HAPPINESS_BUILDING_HAPPINESS"/>
+		<Row TraitType="TRAIT_MAURYA_ABILITY" ModifierId="TRAIT_MOD_DHAMMA_THAMBHA_AQ_MILITARY_BUILDING_HAPPINESS"/>
+		<Row TraitType="TRAIT_MAURYA_ABILITY" ModifierId="TRAIT_MOD_DHAMMA_THAMBHA_AQ_SCIENCE_BUILDING_HAPPINESS"/>
+		<Row TraitType="TRAIT_MAURYA_ABILITY" ModifierId="TRAIT_MOD_DHAMMA_THAMBHA_CELEBRATION_HEAL"/>
+		<Row TraitType="TRAIT_MAYA_ABILITY" ModifierId="TRAIT_MOD_SKIES_OF_ITZAMNA_CULTURE_FOR_TECH"/>
+		<Row TraitType="TRAIT_MAYA_ABILITY" ModifierId="TRAIT_MOD_SKIES_OF_ITZAMNA_SCIENCE_FOR_CIVIC"/>
+		<Row TraitType="TRAIT_MISSISSIPPIAN_ABILITY" ModifierId="TRAIT_MOD_GOOSE_SOCIETIES"/>
+		<Row TraitType="TRAIT_MISSISSIPPIAN_ABILITY" ModifierId="TRAIT_MOD_GOOSE_SOCIETIES_BUILDING_PRODUCTION"/>
+		<Row TraitType="TRAIT_PERSIA_ABILITY" ModifierId="TRAIT_MOD_HAMARANA_COUNCIL"/>
+		<Row TraitType="TRAIT_PERSIA_ABILITY" ModifierId="TRAIT_MOD_HAMARANA_COMMANDER_PROMOTION"/>
+		<Row TraitType="TRAIT_ROME_ABILITY" ModifierId="TRAIT_MOD_TWELVE_TABLES_CAPITAL"/>
+		<Row TraitType="TRAIT_ROME_ABILITY" ModifierId="TRAIT_MOD_TWELVE_TABLES_TOWNS"/>
+		<Row TraitType="TRAIT_ROME_ABILITY" ModifierId="TRAIT_MOD_TWELVE_TABLES_TOWN_INFANTRY"/>
+	</TraitModifiers>
+	<CivilizationTraits>
+		<Row CivilizationType="CIVILIZATION_AKSUM" TraitType="TRAIT_ANACHRONISTIC_CIV" />
+		<Row CivilizationType="CIVILIZATION_EGYPT" TraitType="TRAIT_ANACHRONISTIC_CIV" />
+		<Row CivilizationType="CIVILIZATION_GREECE" TraitType="TRAIT_ANACHRONISTIC_CIV" />
+		<Row CivilizationType="CIVILIZATION_HAN" TraitType="TRAIT_ANACHRONISTIC_CIV" />
+		<Row CivilizationType="CIVILIZATION_KHMER" TraitType="TRAIT_ANACHRONISTIC_CIV" />
+		<Row CivilizationType="CIVILIZATION_MAURYA" TraitType="TRAIT_ANACHRONISTIC_CIV" />
+		<Row CivilizationType="CIVILIZATION_MAYA" TraitType="TRAIT_ANACHRONISTIC_CIV" />
+		<Row CivilizationType="CIVILIZATION_MISSISSIPPIAN" TraitType="TRAIT_ANACHRONISTIC_CIV" />
+		<Row CivilizationType="CIVILIZATION_PERSIA" TraitType="TRAIT_ANACHRONISTIC_CIV" />
+		<Row CivilizationType="CIVILIZATION_ROME" TraitType="TRAIT_ANACHRONISTIC_CIV" />
+	</CivilizationTraits>
+</Database>

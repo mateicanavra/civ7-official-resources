@@ -19,4 +19,35 @@
 		<Argument name="Amount">3, 2</Argument>
 		<Argument name="Tooltip">LOC_WONDER_SERPENT_MOUND_NAME</Argument>
 	</Modifier>
+	<!-- These traditions target the Mawaskawe Skote, so placing the modifiers here -->
+	<Modifier id="NIWIITIKEEMEKONAAKI_MOD_MAWASKAWE_SKOTE_CULTURE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_SUZERAIN_OF_CONSTRUCTIBLE_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_CITY"/>
+		</SubjectRequirements>
+		<Argument name="ConstructibleType">IMPROVEMENT_MAWASKAWE_SKOTE</Argument>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_NIWIITIKEEMEKONAAKI_NAME</Argument>
+	</Modifier>
+	<Modifier id="NIWIITIKEEMEKONAAKI_II_MOD_MAWASKAWE_SKOTE_CULTURE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_SUZERAIN_OF_CONSTRUCTIBLE_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_CITY"/>
+		</SubjectRequirements>	
+		<Argument name="ConstructibleType">IMPROVEMENT_MAWASKAWE_SKOTE</Argument>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_NIWIITIKEEMEKONAAKI_II_NAME</Argument>
+	</Modifier>
+	<!-- This challenge target the Serpent's Mound, so placing the modifiers here -->
+	<Modifier id="METAPROGRESSION_CHALLENGE_SHAWNEE_COMPLETE_SERPENT_MOUND_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
+				<Argument name="CivilizationType">CIVILIZATION_SHAWNEE</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_PLAYER_SPECIFIC_WONDER_BUILT">
+				<Argument name="ConstructibleType">WONDER_SERPENT_MOUND</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_SHAWNEE_COMPLETE_SERPENT_MOUND</Argument>
+	</Modifier>
 </GameEffects>

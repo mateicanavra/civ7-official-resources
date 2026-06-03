@@ -1,18 +1,12 @@
-import { F as FxsActivatable } from '../../../core/ui/components/fxs-activatable.chunk.js';
+import { FxsActivatable } from '../../../core/ui/components/fxs-activatable.js';
 import ContextManager from '../../../core/ui/context-manager/context-manager.js';
-import ActionHandler, { ActiveDeviceTypeChangedEventName } from '../../../core/ui/input/action-handler.js';
-import FocusManager from '../../../core/ui/input/focus-manager.js';
-import { b as InputEngineEventName } from '../../../core/ui/input/input-support.chunk.js';
+import ActionHandler from '../../../core/ui/input/action-handler.js';
+import { InputEngineEventName } from '../../../core/ui/input/input-support.js';
 import { InterfaceMode } from '../../../core/ui/interface-modes/interface-modes.js';
-import { P as Panel, A as AnchorType } from '../../../core/ui/panel-support.chunk.js';
-import { n as number } from '../../../core/ui/utilities/utilities-validation.chunk.js';
-import { V as ViewManager } from '../../../core/ui/views/view-manager.chunk.js';
-import '../../../core/ui/audio-base/audio-support.chunk.js';
-import '../../../core/ui/context-manager/display-queue-manager.js';
-import '../../../core/ui/dialog-box/manager-dialog-box.chunk.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/input/cursor.js';
-import '../../../core/ui/utilities/utilities-update-gate.chunk.js';
+import Panel, { AnchorType } from '../../../core/ui/panel-support.js';
+import { number } from '../../../core/ui/utilities/utilities-validation.js';
+import ViewManager from '../../../core/ui/views/view-manager.js';
+import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
 
 const yieldBarEntryClassMap = {
   YIELD_GOLD: "text-yield-gold",
@@ -107,7 +101,7 @@ class PanelYieldBanner extends Panel {
   engineInputListener = this.onEngineInput.bind(this);
   advancedStartEffectUsedListener = this.onAdvancedStartEffectUsed.bind(this);
   inputContextChangedListener = this.onInputContextChanged.bind(this);
-  activeDeviceTypeListener = this.onActiveDeviceTypeChanged.bind(this);
+  interfaceModeChangedListener = this.onInterfaceModeChanged.bind(this);
   yieldElementMap = {
     [YieldTypes.YIELD_GOLD]: document.createElement("yield-bar-entry"),
     [YieldTypes.YIELD_SCIENCE]: document.createElement("yield-bar-entry"),
@@ -153,13 +147,13 @@ class PanelYieldBanner extends Panel {
     this.Root.listenForEngineEvent("TradeRouteAddedToMap", this.updateAll, this);
     this.Root.listenForEngineEvent("TradeRouteRemovedFromMap", this.updateAll, this);
     this.Root.addEventListener(InputEngineEventName, this.engineInputListener);
-    window.addEventListener(ActiveDeviceTypeChangedEventName, this.activeDeviceTypeListener);
+    window.addEventListener("interface-mode-changed", this.interfaceModeChangedListener);
     engine.on("InputContextChanged", this.inputContextChangedListener);
   }
   onDetach() {
     this.Root.removeEventListener(InputEngineEventName, this.engineInputListener);
-    window.removeEventListener(ActiveDeviceTypeChangedEventName, this.activeDeviceTypeListener);
     engine.off("InputContextChanged", this.inputContextChangedListener);
+    window.removeEventListener("interface-mode-changed", this.interfaceModeChangedListener);
     super.onDetach();
   }
   onConstructableAddedToMap(_data) {
@@ -279,7 +273,7 @@ class PanelYieldBanner extends Panel {
       case "cancel":
         ContextManager.pop("panel-diplo-ribbon-fake");
         Input.setActiveContext(InputContext.World);
-        FocusManager.SetWorldFocused();
+        FocusManager.get().clearFocus();
         ViewManager.getHarness()?.classList.add("trigger-nav-help");
         live = false;
         break;
@@ -367,18 +361,16 @@ class PanelYieldBanner extends Panel {
     this.settlementCapElement.dataset.icon = "YIELD_CITIES";
     hSlot.appendChild(this.settlementCapElement);
   }
-  onActiveDeviceTypeChanged(event) {
-    if (event.detail?.gamepadActive) {
-      this.navHelpContainer.classList.toggle("hidden", false);
-    } else {
-      this.navHelpContainer.classList.toggle("hidden", true);
-    }
-  }
   onInputContextChanged(contextData) {
     if (contextData.newContext == InputContext.World && ActionHandler.isGamepadActive) {
       this.navHelpContainer.classList.toggle("hidden", false);
     } else {
       this.navHelpContainer.classList.toggle("hidden", true);
+    }
+  }
+  onInterfaceModeChanged() {
+    if (InterfaceMode.isInInterfaceMode("INTERFACEMODE_DEFAULT") && Input.getActiveContext() == InputContext.World && ActionHandler.isGamepadActive) {
+      this.navHelpContainer.classList.toggle("hidden", false);
     }
   }
   onAdvancedStartEffectUsed() {

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<AiComponents>
+		<Row Component="Targets_Antiquity" DefaultPriority="AI_PRIORITY_STRATEGIC"/>
+	</AiComponents>
+	<AiDefinitions>
+		<Row LeaderTrait="TRAIT_LEADER_MAJOR_CIV" AiComponent="Targets_Antiquity"/>
+		<Row LeaderTrait="TRAIT_LEADER_MINOR_CIV" AiComponent="Targets_Antiquity"/>
+		<Row LeaderTrait="TRAIT_LEADER_INDEPENDENT" AiComponent="Targets_Antiquity"/>
+	</AiDefinitions>
+	<OpTeamRequirements>
+		<Update>
+			<Where TeamName="Independent Civ Force" ClassTag="UNIT_CLASS_COMBAT"/>
+			<Set MinNumber="1" MaxNumber="2"/>
+		</Update>
+		<Update>
+			<Where TeamName="Independent Civ Force" ClassTag="UNIT_CLASS_MELEE"/>
+			<Set MinNumber="1"/>
+		</Update>
+		<Update>
+			<Where TeamName="Independent Large Civ Force" ClassTag="UNIT_CLASS_COMBAT"/>
+			<Set MinNumber="2" MaxNumber="4"/>
+		</Update>
+		<Update>
+			<Where TeamName="Independent Large Civ Force" ClassTag="UNIT_CLASS_MELEE"/>
+			<Set MinNumber="1"/>
+		</Update>
+	</OpTeamRequirements>
+	<PseudoYields>
+		<Update>
+			<Where PseudoYieldType="PSEUDOYIELD_NEW_CITY"/>
+			<Set DefaultValue="400"/>
+		</Update>
+	</PseudoYields>
+	<AiListTypes>
+		<!-- Antiquity Majors -->
+		<Row ListType="Antiquity Tag Biases"/>
+		<Row ListType="Antiquity Constructible Biases"/>
+		<Row ListType="Antiquity Unit Biases"/>
+	</AiListTypes>
+	<AiLists>
+		<!-- Antiquity Majors  -->
+		<Row ListType="Antiquity Tag Biases" LeaderType="TRAIT_ANTIQUITY_CIV" System="TagBiases"/>
+		<Row ListType="Antiquity Constructible Biases" LeaderType="TRAIT_ANTIQUITY_CIV" System="ConstructibleBiases"/>
+		<Row ListType="Antiquity Unit Biases" LeaderType="TRAIT_ANTIQUITY_CIV" System="UnitBiases"/>
+
+		<Row ListType="Antiquity Tag Biases" LeaderType="TRAIT_ANACHRONISTIC_CIV" System="TagBiases"/>
+		<Row ListType="Antiquity Constructible Biases" LeaderType="TRAIT_ANACHRONISTIC_CIV" System="ConstructibleBiases"/>
+		<Row ListType="Antiquity Unit Biases" LeaderType="TRAIT_ANACHRONISTIC_CIV" System="UnitBiases"/>
+	</AiLists>
+	<AiFavoredItems>
+		<!-- Antiquity Majors  -->
+		<Row ListType="Antiquity Tag Biases" Item="PRODUCTION" Value="100"/>
+		<Row ListType="Antiquity Constructible Biases" Item="BUILDING_GARDEN" Value="-50"/>
+	</AiFavoredItems>
+	<!-- City Strategies -->
+	<Strategies>
+		<Row StrategyType="CITY_STRATEGY_WONDERS" CityStrategy="true" MinNumConditionsNeeded="1" MaxNumConditionsNeeded="1"/>
+	</Strategies>
+	<StrategyConditions>
+		<Row StrategyType="CITY_STRATEGY_WONDERS" ConditionFunction="HasProductionGreaterThan" ThresholdValue="20"/>
+	</StrategyConditions>
+	<Strategy_Priorities>
+		<Row StrategyType="CITY_STRATEGY_WONDERS" ListType="CityWonderBias"/>
+	</Strategy_Priorities>
+	<AiListTypes>
+		<Row ListType="CityWonderBias"/>
+	</AiListTypes>
+	<AiLists>
+		<Row ListType="CityWonderBias" System="ConstructibleClassBiases"/>
+	</AiLists>
+	<AiFavoredItems>
+		<Row ListType="CityWonderBias" Item="WONDER" Value="200"/>
+	</AiFavoredItems>
+</Database>

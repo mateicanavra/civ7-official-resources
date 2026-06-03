@@ -1,33 +1,11 @@
-import { A as Audio } from '../../../core/ui/audio-base/audio-support.chunk.js';
-import { U as UpdateFromOperationResult } from '../../../core/ui/components/fxs-activatable.chunk.js';
-import FocusManager from '../../../core/ui/input/focus-manager.js';
-import { b as InputEngineEventName } from '../../../core/ui/input/input-support.chunk.js';
-import { N as Navigation } from '../../../core/ui/views/view-manager.chunk.js';
-import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.chunk.js';
-import { Icon } from '../../../core/ui/utilities/utilities-image.chunk.js';
+import { Audio } from '../../../core/ui/audio-base/audio-support.js';
+import { UpdateFromOperationResult } from '../../../core/ui/components/fxs-activatable.js';
+import { InputEngineEventName } from '../../../core/ui/input/input-support.js';
+import { Navigation } from '../../../core/ui/input/navigation-support.js';
+import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
+import { Icon } from '../../../core/ui/utilities/utilities-image.js';
+import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
 import DiplomacyManager, { DiplomacyInputPanel } from '../diplomacy/diplomacy-manager.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/panel-support.chunk.js';
-import '../../../core/ui/utilities/utilities-component-id.chunk.js';
-import '../../../core/ui/context-manager/context-manager.js';
-import '../../../core/ui/context-manager/display-queue-manager.js';
-import '../../../core/ui/dialog-box/manager-dialog-box.chunk.js';
-import '../../../core/ui/input/cursor.js';
-import '../../../core/ui/interface-modes/interface-modes.js';
-import '../diplomacy/diplomacy-events.js';
-import '../../../core/ui/utilities/utilities-layout.chunk.js';
-import '../world-input/world-input.js';
-import '../../../core/ui/input/action-handler.js';
-import '../../../core/ui/utilities/utilities-update-gate.chunk.js';
-import '../../../core/ui/input/plot-cursor.js';
-import '../../../core/ui/utilities/utilities-network.js';
-import '../../../core/ui/shell/mp-legal/mp-legal.js';
-import '../../../core/ui/events/shell-events.chunk.js';
-import '../../../core/ui/navigation-tray/model-navigation-tray.chunk.js';
-import '../../../core/ui/utilities/utilities-liveops.js';
-import '../../../core/ui/utilities/utilities-network-constants.chunk.js';
-import '../interface-modes/support-unit-map-decoration.chunk.js';
-import '../utilities/utilities-overlay.chunk.js';
 
 class DiplomacyTargetSelectScreen extends DiplomacyInputPanel {
   selectedTarget;
@@ -169,6 +147,7 @@ class DiplomacyTargetSelectScreen extends DiplomacyInputPanel {
           targetItem.setAttribute("selected", "true");
           const heroButton = MustGetElement("fxs-hero-button", this.Root);
           heroButton.setAttribute("disabled", "false");
+          FocusManager.get().setFocus(container);
         });
         targetItem.setAttribute("data-audio-group-ref", "leader-target-button");
       } else if (target.parameterName == "Amount2") {
@@ -188,6 +167,7 @@ class DiplomacyTargetSelectScreen extends DiplomacyInputPanel {
           targetItem.setAttribute("selected", "true");
           const heroButton = MustGetElement("fxs-hero-button", this.Root);
           heroButton.setAttribute("disabled", "false");
+          FocusManager.get().setFocus(container);
         });
         targetItem.setAttribute("data-audio-group-ref", "gold-target-button");
       } else {
@@ -219,6 +199,7 @@ class DiplomacyTargetSelectScreen extends DiplomacyInputPanel {
             targetItem.setAttribute("selected", "true");
             const heroButton = MustGetElement("fxs-hero-button", this.Root);
             heroButton.setAttribute("disabled", "false");
+            FocusManager.get().setFocus(container);
           });
           targetItem.setAttribute("data-audio-group-ref", "unit-target-button");
         } else if (target.parameterName == "City") {
@@ -248,6 +229,7 @@ class DiplomacyTargetSelectScreen extends DiplomacyInputPanel {
             targetItem.setAttribute("selected", "true");
             const heroButton = MustGetElement("fxs-hero-button", this.Root);
             heroButton.setAttribute("disabled", "false");
+            FocusManager.get().setFocus(container);
           });
           targetItem.setAttribute("data-audio-group-ref", "city-target-button");
         } else {
@@ -270,6 +252,7 @@ class DiplomacyTargetSelectScreen extends DiplomacyInputPanel {
             targetItem.setAttribute("selected", "true");
             const heroButton = MustGetElement("fxs-hero-button", this.Root);
             heroButton.setAttribute("disabled", "false");
+            FocusManager.get().setFocus(container);
           });
         }
       }
@@ -352,7 +335,7 @@ class DiplomacyTargetSelectScreen extends DiplomacyInputPanel {
       direction: InputNavigationAction.NONE
     });
     if (element) {
-      FocusManager.setFocus(element);
+      FocusManager.get().setFocus(element);
     }
   }
 }

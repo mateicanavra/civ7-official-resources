@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Civilizations>
+		<Update>
+			<Where CivilizationType="CIVILIZATION_OTTOMANS" />
+			<Set UniqueCultureProgressionTree="TREE_CIVICS_AQ_TEST_OF_TIME" />
+		</Update>
+	</Civilizations>
+	<Traits>
+	</Traits>
+	<TraitModifiers>
+		<Row TraitType="TRAIT_OTTOMANS_ABILITY" ModifierId="MOD_CIV_OTTOMAN_GOLDEN_AGE_CODEX" />
+		<Row TraitType="TRAIT_OTTOMANS_ABILITY" ModifierId="MOD_CIV_OTTOMAN_CONQUEST_GREATWORK" />
+		<Row TraitType="TRAIT_OTTOMANS_ABILITY" ModifierId="MOD_CIV_OTTOMAN_COMBAT" />
+	</TraitModifiers>
+	<CivilizationTraits>
+		<Row CivilizationType="CIVILIZATION_OTTOMANS" TraitType="TRAIT_ANACHRONISTIC_CIV" />
+	</CivilizationTraits>
+</Database>

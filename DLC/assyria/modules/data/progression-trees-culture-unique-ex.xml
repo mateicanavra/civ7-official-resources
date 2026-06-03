@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Types>
+		<Row Type="NODE_CIVIC_EX_ASSYRIA_RENAISSANCE" Kind="KIND_TREE_NODE"/>
+	</Types>
+	<TypeQuotes>
+		<Row Type="NODE_CIVIC_EX_ASSYRIA_RENAISSANCE" Quote="LOC_CIVIC_EX_RENAISSANCE_QUOTE" QuoteAuthor="LOC_CIVIC_EX_RENAISSANCE_AUTHOR" QuoteAudio="VO_Quote_ToT_EXP_Renaissance"/>
+	</TypeQuotes>
+	<ProgressionTreeNodes>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_ASSYRIA_RENAISSANCE" ProgressionTree="TREE_CIVICS_EX_TEST_OF_TIME" Cost="800" Name="LOC_NODE_CIVIC_EX_ASSYRIA_RENAISSANCE_NAME" IconString="cult_assyria" />
+	</ProgressionTreeNodes>
+	<ProgressionTreeNodeUnlocks>		
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_ASSYRIA_RENAISSANCE" TargetKind="KIND_MODIFIER" TargetType="MOD_EX_SETTLEMENT_CAP_INCREASE" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_ASSYRIA_RENAISSANCE" TargetKind="KIND_TRADITION" TargetType="TRADITION_MIHISTU_II" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_ASSYRIA_RENAISSANCE" TargetKind="KIND_MODIFIER" TargetType="MOD_TOT_TRADITION_SLOT" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_ASSYRIA_RENAISSANCE" TargetKind="KIND_TRADITION" TargetType="TRADITION_GIRRU_II" UnlockDepth="2"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_ASSYRIA_RENAISSANCE" TargetKind="KIND_MODIFIER" TargetType="MOD_EX_RELIC" UnlockDepth="2"/>
+		<!-- Common Trees -->
+		<Delete ProgressionTreeNodeType="NODE_CIVIC_EX_BRANCH_THEOLOGY" TargetKind="KIND_MODIFIER" TargetType="MOD_EX_RELIC" UnlockDepth="1"/>
+		<Delete ProgressionTreeNodeType="NODE_CIVIC_EX_MAIN_SOCIETY" TargetKind="KIND_MODIFIER" TargetType="MOD_EX_RELIC" UnlockDepth="2"/>
+		<Delete ProgressionTreeNodeType="NODE_CIVIC_EX_MAIN_SOVEREIGNTY" TargetKind="KIND_MODIFIER" TargetType="MOD_EX_RELIC" UnlockDepth="2"/>
+		<Delete ProgressionTreeNodeType="NODE_CIVIC_EX_MAIN_COLONIALISM" TargetKind="KIND_MODIFIER" TargetType="MOD_EX_RELIC" UnlockDepth="2"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_BRANCH_THEOLOGY" TargetKind="KIND_MODIFIER" TargetType="MOD_EX_RELIC_REDUX" UnlockDepth="1" NotTraitType="TRAIT_ASSYRIA"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_MAIN_SOCIETY" TargetKind="KIND_MODIFIER" TargetType="MOD_EX_RELIC_REDUX" UnlockDepth="2" NotTraitType="TRAIT_ASSYRIA"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_MAIN_SOVEREIGNTY" TargetKind="KIND_MODIFIER" TargetType="MOD_EX_RELIC_REDUX" UnlockDepth="2" NotTraitType="TRAIT_ASSYRIA"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_MAIN_COLONIALISM" TargetKind="KIND_MODIFIER" TargetType="MOD_EX_RELIC_REDUX" UnlockDepth="2" NotTraitType="TRAIT_ASSYRIA"/>
+		<!-- These are technically technology unlocks, but let's put them here for simplicity -->
+		<Delete ProgressionTreeNodeType="NODE_TECH_EX_HERALDRY" TargetKind="KIND_MODIFIER" TargetType="MOD_EX_RELIC" UnlockDepth="2"/>
+		<Delete ProgressionTreeNodeType="NODE_TECH_EX_GUILDS" TargetKind="KIND_MODIFIER" TargetType="MOD_EX_RELIC" UnlockDepth="2"/>
+		<Delete ProgressionTreeNodeType="NODE_TECH_EX_EDUCATION" TargetKind="KIND_MODIFIER" TargetType="MOD_EX_RELIC" UnlockDepth="2"/>
+		<Row ProgressionTreeNodeType="NODE_TECH_EX_HERALDRY" TargetKind="KIND_MODIFIER" TargetType="MOD_EX_RELIC_REDUX" UnlockDepth="2" NotTraitType="TRAIT_ASSYRIA"/>
+		<Row ProgressionTreeNodeType="NODE_TECH_EX_GUILDS" TargetKind="KIND_MODIFIER" TargetType="MOD_EX_RELIC_REDUX" UnlockDepth="2" NotTraitType="TRAIT_ASSYRIA"/>
+		<Row ProgressionTreeNodeType="NODE_TECH_EX_EDUCATION" TargetKind="KIND_MODIFIER" TargetType="MOD_EX_RELIC_REDUX" UnlockDepth="2" NotTraitType="TRAIT_ASSYRIA"/>
+	</ProgressionTreeNodeUnlocks>
+	<ProgressionTreeNodeTraits>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_ASSYRIA_RENAISSANCE" RequiredTraitType="TRAIT_ASSYRIA" />
+	</ProgressionTreeNodeTraits>
+	<ProgressionTreePrereqs>
+		<Row Node="NODE_CIVIC_EX_HIERARCHY" PrereqNode="NODE_CIVIC_EX_ASSYRIA_RENAISSANCE"/>
+		<Row Node="NODE_CIVIC_EX_SYNCRETISM_CHOICE" PrereqNode="NODE_CIVIC_EX_ASSYRIA_RENAISSANCE"/>
+	</ProgressionTreePrereqs>
+	<ProgressionTree_Advisories>
+	</ProgressionTree_Advisories>
+</Database>

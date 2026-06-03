@@ -22,23 +22,50 @@
 		<Row Tag="LOC_YIELD_HAPPINESS">
 			<Text>[icon:YIELD_HAPPINESS] Happiness</Text>
 		</Row>
-		<Row Tag="LOC_YIELD_UNHAPPINESS">
-			<Text>Unhappiness</Text>
-		</Row>
 		<Row Tag="LOC_YIELD_DIPLOMACY">
 			<Text>[icon:YIELD_DIPLOMACY] Influence</Text>
 		</Row>
 		<Row Tag="LOC_YIELD_DIPLOMACY_TREASURY">
 			<Text>[icon:YIELD_DIPLOMACY] Accumulated Influence</Text>
 		</Row>
+		<Row Tag="LOC_YIELD_FOOD_NAME">
+			<Text>Food</Text>
+		</Row>
+		<Row Tag="LOC_YIELD_PRODUCTION_NAME">
+			<Text>Production</Text>
+		</Row>
+		<Row Tag="LOC_YIELD_GOLD_NAME">
+			<Text>Gold</Text>
+		</Row>
+		<Row Tag="LOC_YIELD_SCIENCE_NAME">
+			<Text>Science</Text>
+		</Row>
+		<Row Tag="LOC_YIELD_CULTURE_NAME">
+			<Text>Culture</Text>
+		</Row>
+		<Row Tag="LOC_YIELD_HAPPINESS_NAME">
+			<Text>Happiness</Text>
+		</Row>
+		<Row Tag="LOC_YIELD_DIPLOMACY_NAME">
+			<Text>Influence</Text>
+		</Row>
+		<Row Tag="LOC_YIELD_UNHAPPINESS">
+			<Text>Unhappiness</Text>
+		</Row>
 		<Row Tag="LOC_YIELD_ENVOYS">
 			<Text>Envoys</Text>
 		</Row>
 		<Row Tag="LOC_YIELD_MAX_CITIES">
-			<Text>Settlement Limit. -5 [icon:YIELD_HAPPINESS] Happiness in all Settlements per Settlement over the limit (to a maximum of -35 [icon:YIELD_HAPPINESS] Happiness).</Text>
+			<Text>Settlement Limit. -5 [icon:YIELD_HAPPINESS] Happiness in all Settlements per Settlement over the limit.</Text>
 		</Row>
 		<Row Tag="LOC_YIELD_MAX_TRADE">
 			<Text>Trade Route Limit: Use the Improve Trade Relations diplomacy action to increase the number of trade routes you can have with this Leader.</Text>
+		</Row>
+		<Row Tag="LOC_YIELD_BONUS_NAME">
+			<Text>Bonus</Text>
+		</Row>
+		<Row Tag="LOC_YIELD_PENALTY_NAME">
+			<Text>Penalty</Text>
 		</Row>
 		<Row Tag="LOC_PLUNDER_HEAL_NAME">
 			<Text>Healing</Text>
@@ -107,7 +134,10 @@
 			<Text>[STYLE:yield-science]-{1_Value} Science[/STYLE]</Text>
 		</Row>
 		<Row Tag="LOC_VP_FLOATER">
-			<Text>+{1_Value} Treasure Fleet {1_Value: plural 1?Point;other?Points;}</Text>
+			<Text>+{1_Value} GDP</Text>
+		</Row>		
+		<Row Tag="LOC_WORLD_ARTIFACT_FLOATER">
+			<Text>+{1_Artifacts} {1_Artifacts: plural 1?Artifact;other?Artifacts;}</Text>
 		</Row>
 		<Row Tag="LOC_GLOBAL_YIELDS_TITLE">
 			<Text>Global Yields Breakdown</Text>
@@ -152,7 +182,7 @@
 			<Text>Urban Districts</Text>
 		</Row>
 		<Row Tag="LOC_GLOBAL_YIELDS_RURAL_DISTRICTS">
-			<Text>Rural Districts</Text>
+			<Text>Rural</Text>
 		</Row>
 		<Row Tag="LOC_GLOBAL_YIELDS_UNIT_NAME">
 			<Text>Unit Name</Text>

@@ -2,20 +2,8 @@
 <GameEffects xmlns="GameEffects">
 
 	<!-- ==================================================	-->
-	<!--					Improvements					-->
+	<!--					Buildings						-->
 	<!-- ==================================================	-->
-	<Modifier id="MOD_TREASURE_CITY_FLAT_GOLD" collection="COLLECTION_ALL_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_RESOURCE_CLASS">
-		<SubjectRequirements>
-			<Requirement type="REQUIREMENT_CITY_HAS_UNIQUE_QUARTER">
-				<Argument name="UniqueQuarterType">QUARTER_HAVEN</Argument>
-			</Requirement>
-		</SubjectRequirements>
-		<Argument name="Amount">1</Argument>
-		<Argument name="YieldType">YIELD_GOLD</Argument>
-		<Argument name="ResourceClassType">RESOURCECLASS_TREASURE</Argument>
-		<Argument name="Unassigned">true</Argument>
-		<Argument name="Tooltip">LOC_QUARTER_HAVEN_NAME</Argument>
-	</Modifier>
 	<Modifier id="MOD_HAVEN_HEAL_NAVAL_UNITS" collection="COLLECTION_ALL_UNITS" effect="EFFECT_UNIT_ADJUST_HEAL_PER_TURN">
 		<SubjectRequirements>
 			<Requirement type="REQUIREMENT_PLOT_UNIQUE_QUARTER">
@@ -41,5 +29,16 @@
 		<Argument name="AttributeType">ATTRIBUTE_ECONOMIC</Argument>
 		<Argument name="Amount">1</Argument>
 		<Argument name="PropertyName">MOD_HAVANA_HARBOR_ECONOMIC_ATTRIBUTE</Argument>
+	</Modifier>
+	<Modifier id="METAPROGRESSION_CHALLENGE_PIRATE_REPUBLIC_COMPLETE_HAVANA_HARBOR_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
+				<Argument name="CivilizationType">CIVILIZATION_PIRATE_REPUBLIC</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_PLAYER_SPECIFIC_WONDER_BUILT">
+				<Argument name="ConstructibleType">WONDER_HAVANA_HARBOR</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_PIRATE_REPUBLIC_COMPLETE_HAVANA_HARBOR</Argument>
 	</Modifier>
 </GameEffects>

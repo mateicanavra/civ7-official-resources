@@ -1,20 +1,6 @@
 import ActionHandler from '../../../core/ui/input/action-handler.js';
-import { L as LensManager } from '../../../core/ui/lenses/lens-manager.chunk.js';
-import TooltipManager, { PlotTooltipPriority } from '../../../core/ui/tooltips/tooltip-manager.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/input/cursor.js';
-import '../../../core/ui/input/focus-manager.js';
-import '../../../core/ui/audio-base/audio-support.chunk.js';
-import '../../../core/ui/views/view-manager.chunk.js';
-import '../../../core/ui/panel-support.chunk.js';
-import '../../../core/ui/input/input-support.chunk.js';
-import '../../../core/ui/utilities/utilities-update-gate.chunk.js';
-import '../../../core/ui/input/plot-cursor.js';
-import '../../../core/ui/context-manager/context-manager.js';
-import '../../../core/ui/context-manager/display-queue-manager.js';
-import '../../../core/ui/dialog-box/manager-dialog-box.chunk.js';
-import '../../../core/ui/utilities/utilities-dom.chunk.js';
-import '../../../core/ui/utilities/utilities-layout.chunk.js';
+import LensManager from '../../../core/ui/lenses/lens-manager.js';
+import TooltipManager from '../../../core/ui/tooltips/tooltip-manager.js';
 
 class ArcheologyTooltipType {
   hoveredX = -1;
@@ -90,7 +76,7 @@ class ArcheologyTooltipType {
     return false;
   }
   update() {
-    if (!this.constructibleInfo) {
+    if (!this.constructibleInfo && !this.isNaturalWonder) {
       return;
     }
     this.setTipText();
@@ -133,5 +119,4 @@ class ArcheologyTooltipType {
 }
 const instance = new ArcheologyTooltipType();
 TooltipManager.registerType("archeology", instance);
-TooltipManager.registerPlotType("archeology", PlotTooltipPriority.HIGH, instance);
 //# sourceMappingURL=archeology-tooltip.js.map

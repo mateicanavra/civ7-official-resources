@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Kinds>
+		<InsertOrIgnore Kind="KIND_TRAIT"/>
+		<InsertOrIgnore Kind="KIND_VICTORY"/>
+	</Kinds>
+	<Types>
+		<Row Type="LEADER_GILGAMESH" Kind="KIND_LEADER"/>
+		<Row Type="TRAIT_LEADER_GILGAMESH_ABILITY" Kind="KIND_TRAIT"/>
+		<Row Type="VICTORY_LEADER_GILGAMESH" Kind="KIND_VICTORY"/>
+	</Types>
+	<Leaders>
+		<Row LeaderType="LEADER_GILGAMESH" Name="LOC_LEADER_GILGAMESH_NAME" IsMajorLeader="true" InheritFrom="LEADER_DEFAULT" />
+	</Leaders>
+	<TypeQuotes>
+		<Row Type="LEADER_GILGAMESH" Quote="LOC_MAIN_CHAR_SELECT_LEADER_GILGAMESH_ANY"/>
+		<Row Type="VICTORY_LEADER_GILGAMESH" Quote="LOC_VICTORY_LEADER_GILGAMESH" QuoteAudio="play_victory_gilgamesh"/>
+	</TypeQuotes>
+	<Traits>
+		<Row TraitType="TRAIT_LEADER_GILGAMESH_ABILITY" InternalOnly="true" Name="LOC_TRAIT_LEADER_GILGAMESH_ABILITY_NAME" Description="LOC_TRAIT_LEADER_GILGAMESH_ABILITY_DESCRIPTION"/>
+	</Traits>
+	<LeaderTraits>
+		<Row LeaderType="LEADER_GILGAMESH" TraitType="TRAIT_LEADER_GILGAMESH_ABILITY"/>
+		<Row LeaderType="LEADER_GILGAMESH" TraitType="TRAIT_LEADER_ATTRIBUTE_POLITICAL"/>
+		<Row LeaderType="LEADER_GILGAMESH" TraitType="TRAIT_LEADER_ATTRIBUTE_MILITARISTIC"/>
+		<Row LeaderType="LEADER_GILGAMESH" TraitType="TRAIT_LEADER_AGGRESSIVE"/>
+		<Row LeaderType="LEADER_GILGAMESH" TraitType="TRAIT_AQ_MILITARY_VICTORY"/>
+		<Row LeaderType="LEADER_GILGAMESH" TraitType="TRAIT_EX_MILITARY_VICTORY"/>
+		<Row LeaderType="LEADER_GILGAMESH" TraitType="TRAIT_MO_MILITARY_VICTORY"/>
+	</LeaderTraits>
+	<TraitModifiers>
+		<Row TraitType="TRAIT_LEADER_GILGAMESH_ABILITY" ModifierId="GILGAMESH_SINGLE_ALLY_WAR_SUPPORT"/>
+		<Row TraitType="TRAIT_LEADER_GILGAMESH_ABILITY" ModifierId="GILGAMESH_INFLUENCE"/>
+		<Row TraitType="TRAIT_LEADER_GILGAMESH_ABILITY" ModifierId="GILGAMESH_ALLIES_CAN_SUPPORT_ENDEAVORS_FOR_FREE"/>
+		<Row TraitType="TRAIT_LEADER_GILGAMESH_ABILITY" ModifierId="GILGAMESH_ENDEAVORS_WITH_ALLIES_HAVE_NO_LIMIT_PER_TYPE"/>
+		<Row TraitType="TRAIT_LEADER_GILGAMESH_ABILITY" ModifierId="GILGAMESH_MOD_ULOCK_ALL_ENDEAVORS"/>
+		<Row TraitType="TRAIT_LEADER_GILGAMESH_ABILITY" ModifierId="GILGAMESH_MOD_AGENDA_ALLY_OF_ENKIDU"/>
+	</TraitModifiers>
+	<AiListTypes>
+		<Row ListType="Gilgamesh Yield Biases"/>
+		<Row ListType="Gilgamesh Diplomacy Biases"/>
+		<Row ListType="Gilgamesh Pseudoyield Biases"/>
+		<Row ListType="Gilgamesh Budget Biases"/>
+	</AiListTypes>
+	<AiLists>
+		<Row ListType="Gilgamesh Yield Biases" LeaderType="TRAIT_LEADER_GILGAMESH_ABILITY" System="YieldBiases"/>
+		<Row ListType="Gilgamesh Diplomacy Biases" LeaderType="TRAIT_LEADER_GILGAMESH_ABILITY" System="DiplomaticGroupBiases"/>
+		<Row ListType="Gilgamesh Pseudoyield Biases" LeaderType="TRAIT_LEADER_GILGAMESH_ABILITY" System="PseudoYieldBiases"/>
+		<Row ListType="Gilgamesh Budget Biases" LeaderType="TRAIT_LEADER_GILGAMESH_ABILITY" System="AiBudgetBiases"/>
+	</AiLists>
+	<AiFavoredItems>
+		<Row ListType="Gilgamesh Yield Biases" Item="YIELD_DIPLOMACY" Value="50"/>
+		<Row ListType="Gilgamesh Yield Biases" Item="YIELD_HAPPINESS" Value="25"/>
+		<Row ListType="Gilgamesh Pseudoyield Biases" Item="PSEUDOYIELD_DIPLOMATIC_ALLIANCE" Value="50"/>
+		<Row ListType="Gilgamesh Diplomacy Biases" Item="DIPLOMACY_ACTION_GROUP_ENDEAVOR" Value="25"/>
+		<Row ListType="Gilgamesh Diplomacy Biases" Item="DIPLOMACY_ACTION_FORM_ALLIANCE" Value="50"/>
+		<Row ListType="Gilgamesh Budget Biases" Item="AI_BUDGET_STANDING_ARMY" Value="25"/>
+	</AiFavoredItems>
+</Database>

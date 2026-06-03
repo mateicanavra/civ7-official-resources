@@ -6,14 +6,21 @@
 			<Text>Domination Victory</Text>
 		</Row>
 		<Row Tag="LOC_VICTORY_DOMINATION_DESCRIPTION">
-			<Text>Capture all settlements not owned by Independent Powers or City-States.</Text>
+			<Text>Capture all settlements not owned by Independent Powers or [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]City-States[/TIP].</Text>
 		</Row>
 
 		<Row Tag="LOC_VICTORY_LEGACY_NAME">
 			<Text>Domination Victory</Text>
 		</Row>
 		<Row Tag="LOC_VICTORY_LEGACY_DESCRIPTION">
-			<Text>Have the most legacy points by the end of the game.</Text>
+			<Text>Have the most Tourism, Innovation, Dominion, or GDP by the end of the game.</Text>
+		</Row>
+
+		<Row Tag="LOC_VICTORY_SCORE_NAME">
+			<Text>Score</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_SCORE_DESCRIPTION">
+			<Text>Have the highest score by the end of the game.</Text>
 		</Row>
 
 		<Row Tag="LOC_LEGACY_OPTION">
@@ -103,7 +110,7 @@
 			<Text>{LOC_LEGACY_OPTION} - {LOC_LEGACY_PATH_ANTIQUITY_SCIENCE_MILESTONE_2_NAME}</Text>
 		</Row>
 		<Row Tag="LOC_LEGACY_PATH_ANTIQUITY_SCIENCE_MILESTONE_2_DESCRIPTION_DYNAMIC">
-			<Text>+{1_total_science}[icon:YIELD_SCIENCE] Science for every Codex in Antiquity. (+{2_total_from_codicies}).</Text>
+			<Text>+{1_total_science}[icon:YIELD_SCIENCE] Science for every Codex in Antiquity. (+{2_total_from_codices}).</Text>
 		</Row>
 		<Row Tag="LOC_LEGACY_PATH_ANTIQUITY_SCIENCE_MILESTONE_2_DESCRIPTION">
 			<Text>+1[icon:YIELD_SCIENCE] Science for every Codex in Antiquity.</Text>
@@ -124,7 +131,7 @@
 			<Text>{LOC_LEGACY_OPTION} - {LOC_LEGACY_PATH_ANTIQUITY_ECONOMIC_DARK_AGE_NAME}</Text>
 		</Row>
 		<Row Tag="LOC_LEGACY_PATH_ANTIQUITY_ECONOMIC_DARK_AGE_DESCRIPTION">
-			<Text>Naval Commanders gain a charge to create a new Settlement for every 2 Levels earned, BUT Settlers cost 100% more.</Text>
+			<Text>Naval Commanders gain a charge to create a new Settlement for every 2 Promotions earned, BUT Settlers cost 100% more.</Text>
 		</Row>
 		<Row Tag="LOC_LEGACY_PATH_ANTIQUITY_ECONOMIC_MILESTONE_2_NAME">
 			<Text>Master Caravaneer</Text>
@@ -239,7 +246,7 @@
 			<Text>{LOC_LEGACY_OPTION} - {LOC_LEGACY_PATH_EXPLORATION_MILITARY_DARK_AGE_NAME}</Text>
 		</Row>
 		<Row Tag="LOC_LEGACY_PATH_EXPLORATION_MILITARY_DARK_AGE_DESCRIPTION">
-			<Text>Gain 2 free Levels on all Commanders and new Commanders start with 2 additional Levels, BUT all military units cost 25% more.</Text>
+			<Text>Gain 2 free Promotions on all Commanders and new Commanders start with 2 additional Promotions, BUT all military units cost 25% more.</Text>
 		</Row>
 		<Row Tag="LOC_LEGACY_PATH_EXPLORATION_MILITARY_MILESTONE_2_NAME">
 			<Text>Land of Opportunity</Text>
@@ -508,7 +515,7 @@
 			<Text>Non Sufficit Orbis</Text>
 		</Row>
 		<Row Tag="LOC_LEGACY_PATH_EXPLORATION_MILITARY_DESCRIPTION">
-			<Text>Gain 12 Points from Settlements in the Distant Lands. 1 Point for each Settlement (doubled if it is a conquered Settlement or follows your religion — quadrupled if both apply).</Text>
+			<Text>Gain 12 Points from Settlements in the Distant Lands. 1 Point for each Settlement (doubled if it is a conquered Settlement or follows your religion - quadrupled if both apply).</Text>
 		</Row>
 		<Row Tag="LOC_LEGACY_PATH_EXPLORATION_SCIENCE_NAME">
 			<Text>Enlightenment</Text>
@@ -522,7 +529,7 @@
 			<Text>Railroad Tycoon</Text>
 		</Row>
 		<Row Tag="LOC_LEGACY_PATH_MODERN_ECONOMIC_DESCRIPTION">
-			<Text>Gain 500 Railroad Tycoon Points from manufacturing goods in your Factories. These Points are earned each turn for each Factory Resource that is slotted into a Settlement with a Factory and connected to your Rail or Port network.</Text>
+			<Text>Gain 500 Railroad Tycoon Points from manufacturing goods in your Factories. These Points are earned each turn for each Factory Resource that is assigned to a Settlement with a Factory and connected to your Rail or Port network.</Text>
 		</Row>
 		<Row Tag="LOC_LEGACY_PATH_MODERN_MILITARY_NAME">
 			<Text>Ideology</Text>
@@ -547,6 +554,540 @@
 		</Row>
 		<Row Tag="LOC_LEGACY_PATH_MODERN_CULTURE_DESCRIPTION">
 			<Text>House 15 Artifacts in your empire.</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_PROGRESS_COUNTDOWN">
+			<Text>Victory Countdown</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_PROGRESS_TURNS_REMAINING">
+			<Text>{1_Number} {1_Number: plural 1?Turn; other?Turns;} Remaining</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_POPUP_COUNTDOWN">
+			<Text>{1_VictoryType} Victory in {2_Number} Turns!</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_POPUP_DETAIL">
+			<Text>{1_Leader} will win the {2_VictoryType} Victory in {3_Number} Turns.</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_POPUP_DETAIL_SUB">
+			<Text>and the {2_VictoryType} Victory in {1_Number} Turns.</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_PROGRESS_POINT_GOAL">
+			<Text>Point Goal</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_MILITARY_MODERN_NAME">
+			<Text>Military</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_SCIENCE_MODERN_NAME">
+			<Text>Scientific</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_CULTURE_MODERN_NAME">
+			<Text>Cultural</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_ECONOMIC_MODERN_NAME">
+			<Text>Economic</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_MILITARY_MODERN_DESCRIPTION">
+			<Text>Dominate the world by controlling the most Settlements.</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_CULTURE_MODERN_DESCRIPTION">
+			<Text>Drive the world's culture through Tourism.</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_ECONOMIC_MODERN_DESCRIPTION">
+			<Text>Build the world's biggest economy by controlling and utilizing Resources.</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_SCIENCE_MODERN_DESCRIPTION">
+			<Text>Win the Space Race by developing mathematics and space technology.</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_NODOM_GOAL_TOOLTIP">
+			<Text>The Victory points target is {1_PointGoal}.</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_POINT_GOAL_TOOLTIP">
+			<Text>The Victory points target is {1_PointGoal}, which is {2_GoalPercentage}% of second place.</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_POINTS_NEEDED_TO_WIN">
+			<Text>Points needed to win</Text>
+		</Row>
+		<Row Tag="LOC_INNOVATION_POINTS_NEEDED_TO_WIN">
+			<Text>Innovation needed to win</Text>
+		</Row>
+		<Row Tag="LOC_DOMINION_POINTS_NEEDED_TO_WIN">
+			<Text>Dominion needed to win</Text>
+		</Row>
+		<Row Tag="LOC_TOURISM_POINTS_NEEDED_TO_WIN">
+			<Text>Tourism needed to win</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_GDP_NEEDED_TO_WIN">
+			<Text>GDP needed to win</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_SETTLEMENT_EXPLANATION">
+			<Text>[STYLE:victories-ideology-mismatch]Conquered[/STYLE] settlements from ideological opponents are worth [STYLE:victories-ideology-mismatch]{1_Number}[/STYLE] Points</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_NOVICTORIES_TOOLTIP">
+			<Text>This victory is currently locked.</Text>
+		</Row>
+
+		<Replace Tag="LOC_UI_VICTORY_PROGRESS">
+			<Text>Victories</Text>
+		</Replace>
+
+		<!-- 1.4.0 Additions -->
+		<Row Tag="LOC_VICTORY_NAME_1">
+			<Text>Transcendent Victory</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_NAME_2">
+			<Text>Crushing Victory</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_NAME_3">
+			<Text>Decisive Victory</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_NAME_4">
+			<Text>Momentous Victory</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_NAME_5">
+			<Text>Substantive Victory</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_NAME_6">
+			<Text>Narrow Victory</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_TRACKER_TRADE_ROUTE_STARTED_NAME">
+			<Text>Trade Route Started</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_TREASURE_FLEET_SCORED_NAME">
+			<Text>Treasure Fleet Returned</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_URBAN_POPULATION_NAME">
+			<Text>Urban Population</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_TRACKER_SLOTTED_BONUS_NAME">
+			<Text>Assigned Bonus Resources</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_TRACKER_SLOTTED_CITY_NAME">
+			<Text>Assigned City Resources</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_TRACKER_SLOTTED_FACTORY_NAME">
+			<Text>Assigned Factory Resources</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_TRACKER_IMPROVED_OIL_AND_COAL_NAME">
+			<Text>Improved Oil and Coal</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_TRACKER_CAPTURED_SETTLEMENTS_GDP">
+			<Text>Conquered Settlements</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_TRACKER_GOLD_BUILDINGS_NAME">
+			<Text>Gold Buildings</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_TRACKER_IMPORTED_RESOURCES_NAME">
+			<Text>Imported Resources Assigned to Cities</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_TRACKER_GOLD_PER_TURN_NAME">
+			<Text>GPT Leader</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_TRACKER_CELEBRATIONS_ANTIQUITY_NAME">
+			<Text>Antiquity Celebrations</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_TRACKER_CELEBRATIONS_EXPLORATION_NAME">
+			<Text>Exploration Celebrations</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_TRACKER_CELEBRATIONS_MODERN_NAME">
+			<Text>Modern Celebrations</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_TRACKER_SUZERAIN_NAME">
+			<Text>Suzerain of City-States</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_TRACKER_CODICES_NAME">
+			<Text>Codices</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_TRACKER_RELICS_NAME">
+			<Text>Relics</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_TRACKER_ARTIFACTS_NAME">
+			<Text>Artifacts</Text>
+		</Row>
+		<Row Tag="LOC_HAS_IDEOLOGY">
+			<Text>Has Ideology</Text>
+		</Row>
+		<Row Tag="LOC_HAS_UNDAMAGED_LAUNCH_PAD">
+			<Text>Has undamaged launch pad</Text>
+		</Row>
+		<Row Tag="LOC_AQ_FUTURE_CIVIC_NAME">
+			<Text>Antiquity Age Future Civic</Text>
+		</Row>
+		<Row Tag="LOC_EX_FUTURE_CIVIC_NAME">
+			<Text>Exploration Age Future Civic</Text>
+		</Row>
+		<Row Tag="LOC_EX_ADVANCED_START_INNOVATION_NAME">
+			<Text>Exploration Age Advanced Start</Text>
+		</Row>
+		<Row Tag="LOC_MO_FUTURE_CIVIC_NAME">
+			<Text>Modern Age Future Civic</Text>
+		</Row>
+		<Row Tag="LOC_MO_ADVANCED_START_INNOVATION_NAME">
+			<Text>Modern Age Advanced Start</Text>
+		</Row>
+		<Row Tag="LOC_FUTURE_TECH_AQ_VP">
+			<Text>Grants 2 [icon:SCIENCE_VP] Innovation</Text>
+		</Row>
+		<Row Tag="LOC_FUTURE_TECH_EX_VP">
+			<Text>Grants 3 [icon:SCIENCE_VP] Innovation</Text>
+		</Row>
+		<Row Tag="LOC_FUTURE_TECH_MO_VP">
+			<Text>Grants 3 [icon:SCIENCE_VP] Innovation</Text>
+		</Row>
+		<Row Tag="LOC_FUTURE_CIVIC_AQ_VP">
+			<Text>Grants 5 [icon:CULTURE_VP] Tourism</Text>
+		</Row>
+		<Row Tag="LOC_FUTURE_CIVIC_EX_VP">
+			<Text>Grants 7 [icon:CULTURE_VP] Tourism</Text>
+		</Row>
+		<Row Tag="LOC_FUTURE_CIVIC_MO_VP">
+			<Text>Grants 10 [icon:CULTURE_VP] Tourism</Text>
+		</Row>
+		<Row Tag="LOC_TECH_FUTURE_TECH_ANTIQUITY_NAME">
+			<Text>Antiquity Age Future Tech</Text>
+		</Row>
+		<Row Tag="LOC_TECH_FUTURE_TECH_EXPLORATION_NAME">
+			<Text>Exploration Age Future Tech</Text>
+		</Row>
+		<Row Tag="LOC_TECH_FUTURE_TECH_MODERN_NAME">
+			<Text>Modern Age Future Tech</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_TREASURE_RESOURCES_NAME">
+			<Text>Returned Treasure</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_SUMMARY_HEADER">
+			<Text>The first Leader to achieve any of the four Victories below wins the game.</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_OMT_SUMMARY_HEADER">
+			<Text>Just One More Turn mode: Keep playing as long as you like!</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_MILITARY_HEADER">
+			<Text>Dominate the globe by controlling the most Settlements.</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_CULTURAL_HEADER">
+			<Text>Create an empire that inspires the world through Wonders, Great Works, Celebrations, and more.</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_ECONOMIC_HEADER">
+			<Text>Control the world's economy with Trade Routes, Resources, and more.</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_SCIENTIFIC_HEADER">
+			<Text>Demonstrate your people's scientific accomplishments by winning the Space Race.</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_SCORE_HEADER">
+			<Text>Your score is a series of tiebreakers that determine who wins the game if there is no winner prior to the end of the final age.</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_MILITARY_LONGFORM">
+			<Text>To win a Military Victory, you must have enough Dominion to dominate the other players. These points are earned by controlling Settlements, with extra points for those Settlements if they are Original Capitals, Conquered, or in Distant Lands.</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_CULTURAL_LONGFORM">
+			<Text>To win a Cultural Victory, you must have significantly more Tourism than all other players. Tourism is earned by constructing Wonders and Unique Buildings or Unique Improvements, having Natural Wonders within your borders, displaying Great Works, and having Celebrations.</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_ECONOMIC_LONGFORM">
+			<Text>To win an Economic Victory, you must have significantly more GDP than all other players. Several things contribute to your GDP each turn, including assigned Resources in Cities, active Gold buildings, Factories with assigned Factory Resources, and unloading Treasure Convoys.</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_SCIENTIFIC_LONGFORM">
+			<Text>To win a Scientific Victory, you must win the Space Race by being the first to earn 100 points and having an active Launch Pad in your empire. Earn points by completing special Scientific Projects each age, researching Tech Masteries, displaying Codices, and reaching Future Tech. The Launch Pad becomes available in the Modern Age and is unlocked by the Rocketry Tech.</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_TOOLTIP_NEXT">
+			<Text>Next: {1_VictoryType}</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_TOOLTIP_TITLE">
+			<Text>Victory Tier Information</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_TOOLTIP_REQUIRED_POINTS">
+			<Text>Required Points</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_TOOLTIP_REQUIREMENTS">
+			<Text>Required: {1_Multiplier}x the Second Place Player's score before {2_AgePercentage}% Age Progress</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_LOCKED_TITLE">
+			<Text>Victory Locked</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_LOCKED_BODY">
+			<Text>You must stand the test of time longer before you can claim victory. Victories are unlocked as you progress your campaign.</Text>
+		</Row>
+		<Row Tag="LOC_TECH_SHIPBUILDING_NAME_TEMP">
+			<Text>Shipbuilding</Text>
+		</Row>
+		<Row Tag="LOC_TECH_METAL_CASTING_NAME_TEMP">
+			<Text>Metal Casting</Text>
+		</Row>
+		<Row Tag="LOC_TECH_GUNPOWDER_NAME_TEMP">
+			<Text>Gunpowder</Text>
+		</Row>
+		<Row Tag="LOC_TECH_ASTRONOMY_NAME_TEMP">
+			<Text>Astronomy</Text>
+		</Row>
+		<Row Tag="LOC_TECH_METALLURGY_NAME_TEMP">
+			<Text>Metallurgy</Text>
+		</Row>
+		<Row Tag="LOC_TECH_ARCHITECTURE_NAME_TEMP">
+			<Text>Architecture</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_AGE_NAME">
+			<Text>{1_Age} Age</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_ECON_AGE_DISABLED">
+			<Text>WIP: Data from past Ages is not yet available.</Text>
+		</Row>
+		<Row Tag="LOC_VICTORIES_UNMET_SETTLEMENT">
+			<Text>Unmet player's settlement</Text>
+		</Row>
+		<Row Tag="LOC_VICTORIES_RULES_CULTURE">
+			<Text>The [B]Cultural Victory[/B] is awarded to a leader when they achieve cultural dominance against all other leaders. This dominance is measured by [B]Tourism[/B] and comes from the following sources:[NN][BLIST]
+				[LI][B]Natural Wonders[/B]: 10 points when at least one tile is improved
+				[LI][B]Wonders[/B]: 4 points in Antiquity, 8 points in Exploration, and 12 points in Modern
+				[LI][B]Displayed Relics[/B]: 3 points
+				[LI][B]Displayed Artifacts[/B]: 5 points
+				[LI][B]Celebrations[/B]: 2 points per Age after Researching Entertainment
+				[LI][B]Unique Improvements[/B]: 1 point for every type of Unique Improvement in a Settlement (4 points in Settlements connected by Rail after Researching Industrialization's Mastery in Modern Age)
+				[LI][B]Unique Buildings[/B]: 1 point in Antiquity, 2 points in Exploration, and 4 points in Modern (7 points in Settlements with an Aerodrome after Researching Flight's Mastery)
+				[LI][B]Resort Towns[/B]: 4 points per Breathtaking tile when at least 7 tiles are Breathtaking in Modern after Researching Globalism's Mastery
+				[LI][B]Certain Triumphs and Civics[/B]: Varies
+				[/LIST][NN]Note that Wonders captured from other leaders are worth greatly reduced points.</Text>
+		</Row>
+		<Row Tag="LOC_VICTORIES_RULES_MILITARY">
+			<Text>The [B]Military Victory[/B] is awarded to a leader when they achieve military dominance against all other leaders. This dominance is measured by [B]Dominion[/B], which is primarily a measure of [B]Settlements[/B].[NN]Each Settlement you control is worth [B]4 Dominion[/B]. Settlements can be worth additional Dominion as follows:[NN][BLIST]
+				[LI][B]Original Capital[/B]: +4 points
+				[LI][B]Distant Lands[/B]: +1 point
+				[LI][B]Captured[/B]: +1 point
+				[LI][B]Captured from Ideological Opponent[/B]: +2 points[/LIST]</Text>
+		</Row>
+		<Row Tag="LOC_VICTORIES_RULES_SCIENTIFIC">
+			<Text>The [B]Scientific Victory[/B] is awarded to a leader when they win the [B]Space Race[/B]. This requires earning 100 [B]Innovation[/B] and having an active Launch Pad.
+				[NN]Innovation is earned through many different ways. The two primary ways to earn them are by researching [B]Tech Masteries[/B] and completing [B]Projects[/B]. You can unlock these Projects by researching advanced Techs in each Age, then you can produce them in any City that meets the requirements. The Masteries and Projects vary in point values.
+				[NN]Certain Science-based Wonders provide 3 points, and you can earn an additional +1 point for each [B]Codex[/B] displayed in a [B]Great Work Slot[/B] during the Antiquity Age.  Some Triumphs in the Modern Age also provide Innovation.</Text>
+		</Row>
+		<Row Tag="LOC_VICTORIES_RULES_ECONOMIC">
+			<Text>
+				The [B]Economic Victory[/B] is awarded to a leader when they achieve economic dominance against all other leaders. This dominance is measured by [B]GDP[/B]. The following contribute to your GDP each turn:[NN][BLIST]
+				[LI][B]Gold Buildings[/B]: +2 GDP per turn for each Gold Building from the current Age after Researching Currency.
+				[LI][B]City Resources and Bonus Resources[/B]: +1 GDP per turn for each City and Bonus Resource assigned to a City (not a Town) after Researching The Wheel.
+				[LI][B]Imported Resources[/B]: +1 additional GDP per turn for each Resource imported via a [B]Trade Route[/B] and assigned to a City (not a Town) after Researching Skilled Trades.
+				[LI][B]Treasure Convoys[/B]: 20 GDP per Cargo for each returned Treasure Convoy. This amount scales by Game Speed.
+				[LI][B]Factory Resources[/B]: +3 GDP per turn for each Factory Resource assigned to a City or Town.[/LIST][NN]Certain Triumphs in the Modern Age also provide GDP.</Text>
+		</Row>
+		<Row Tag="LOC_VICTORIES_RULES_SCORE_HEADER_1">
+			<Text>How Score is determined</Text>
+		</Row>
+		<Row Tag="LOC_VICTORIES_RULES_SCORE_BODY_1">
+			<Text>[B]The following major elements are factored in this order:[B][NN][NLIST][LI]How many turns you have been in a Victory Countdown over all Victories.[LI]Your placement among all active Victory types.[LI]How many major Triumphs you have completed over the course of a game.[/LIST]</Text>
+		</Row>
+		<Row Tag="LOC_VICTORIES_RULES_SCORE_HEADER_2">
+			<Text>Details</Text>
+		</Row>
+		<Row Tag="LOC_VICTORIES_RULES_SCORE_BODY_2">
+			<Text>[B]The individual elements are added together to give your score.[B][NN][NLIST][LI]Victory Countdown turns times 1000.[LI]1000 minus 10 times your current placement in all Victory types.[LI]The sum total of all major Triumphs you have completed.[/LIST]</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_GDP">
+			<Text>GDP = {1_GDP}</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_ECONOMIC_GRAPH_TITLE">
+			<Text>% Share of World GDP</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_RULES_TOOLTIP_TITLE">
+			<Text>Victory Point Sources</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_RULES_TOOLTIP_POINTS">
+			<Text>Points Are Cumulative</Text>
+		</Row>
+		<Row Tag="LOC_VICTORIES_SCIENTIFIC_LAUNCHPAD_STATUS_PRE_MODERN_HEADER">
+			<Text>Too Early for Space Flight</Text>
+		</Row>
+		<Row Tag="LOC_VICTORIES_SCIENTIFIC_LAUNCHPAD_STATUS_PRE_MODERN">
+			<Text>Launch Pads cannot be built until the Modern Age.</Text>
+		</Row>
+		<Row Tag="LOC_VICTORIES_SCIENTIFIC_LAUNCHPAD_STATUS_NEED_ROCKETRY_HEADER">
+			<Text>Rocketry Tech Needed</Text>
+		</Row>
+		<Row Tag="LOC_VICTORIES_SCIENTIFIC_LAUNCHPAD_STATUS_NEED_ROCKETRY">
+			<Text>Rocketry Tech has not been researched.</Text>
+		</Row>
+		<Row Tag="LOC_VICTORIES_SCIENTIFIC_LAUNCHPAD_STATUS_NO_LAUNCHPAD_HEADER">
+			<Text>Launch Pad Needed</Text>
+		</Row>
+		<Row Tag="LOC_VICTORIES_SCIENTIFIC_LAUNCHPAD_STATUS_NO_LAUNCHPAD">
+			<Text>Launch Pad has not been built.</Text>
+		</Row>
+		<Row Tag="LOC_VICTORIES_SCIENTIFIC_LAUNCHPAD_STATUS_LAUNCHPAD_DAMAGED_HEADER">
+			<Text>Launch Pad Damaged</Text>
+		</Row>
+		<Row Tag="LOC_VICTORIES_SCIENTIFIC_LAUNCHPAD_STATUS_LAUNCHPAD_DAMAGED_PRE_COUNTDOWN">
+			<Text>The Launch Pad has been damaged! Countdown will not begin until it is repaired.</Text>
+		</Row>
+		<Row Tag="LOC_VICTORIES_SCIENTIFIC_LAUNCHPAD_STATUS_LAUNCHPAD_DAMAGED">
+			<Text>The Launch Pad has been damaged! Countdown will not resume until it is repaired.</Text>
+		</Row>
+		<Row Tag="LOC_VICTORIES_SCIENTIFIC_LAUNCHPAD_STATUS_BUILT_HEADER">
+			<Text>Not Enough Innovation</Text>
+		</Row>
+		<Row Tag="LOC_VICTORIES_SCIENTIFIC_LAUNCHPAD_STATUS_BUILT">
+			<Text>{1_Target} Innovation required before the countdown begins.</Text>
+		</Row>
+		<Row Tag="LOC_VICTORIES_SCIENTIFIC_LAUNCHPAD_STATUS_IN_USE_HEADER">
+			<Text>Countdown Commenced!</Text>
+		</Row>
+		<Row Tag="LOC_VICTORIES_SCIENTIFIC_LAUNCHPAD_STATUS_IN_USE">
+			<Text>Keep your Launch Pad safe until it completes to win a Science Victory.</Text>
+		</Row>
+		<Row Tag="LOC_VICTORIES_SCIENTIFIC_STAR_TOOLTIP">
+			<Text>{1_description}: {2_Amount} {2_Amount: plural 1?Victory Point; other?Victory Points;}</Text>
+		</Row>
+		<Row Tag="LOC_VICTORIES_COUNTDOWN_LABEL">
+			<Text>[STYLE:text-secondary]VICTORY COUNTDOWN:[/S] {1_remainingTurns} {1_remainingTurns: plural 1?turn; other?turns;} remaining</Text>
+		</Row>
+		<Row Tag="LOC_VICTORIES_ITEM_TOOLTIP_AGE">
+			<Text>{1_ageName} age</Text>
+		</Row>
+		<Row Tag="LOC_VICTORIES_ITEM_TOOLTIP_TURN">
+			<Text>Turn {1_turnNumber}</Text>
+		</Row>
+		<Row Tag="LOC_VICTORIES_SCIENTIFIC_LEADER_DAMAGED_LAUNCHPAD">
+			<Text>{1_leaderName} - Launch Pad damaged</Text>
+		</Row>
+		<Row Tag="LOC_VICTORIES_CULTURE_SOURCES">
+			<Text>Culture Sources</Text>
+		</Row>
+		<Row Tag="LOC_VICTORIES_UNIQUE_IMPROVEMENT">
+			<Text>Unique Improvement</Text>
+		</Row>
+		<Row Tag="LOC_VICTORIES_SCORE_BREAKDOWN">
+			<Text>Score Breakdown</Text>
+		</Row>
+		<Row Tag="LOC_VICTORIES_TOOLTIP_TOTAL">
+			<Text>Score Total</Text>
+		</Row>
+		<Row Tag="LOC_VICTORIES_SETTLEMENT_BASE">
+			<Text>Base</Text>
+		</Row>
+		<Row Tag="LOC_VICTORIES_SETTLEMENT_ORIGINAL_CAPITAL">
+			<Text>Original Capital</Text>
+		</Row>
+		<Row Tag="LOC_VICTORIES_SETTLEMENT_CONQUERED">
+			<Text>Conquered</Text>
+		</Row>
+		<Row Tag="LOC_VICTORIES_SETTLEMENT_IDEOLOGY">
+			<Text>Ideological Opponent</Text>
+		</Row>
+		<Row Tag="LOC_VICTORIES_SETTLEMENT_DISTANT_LANDS">
+			<Text>Distant Lands</Text>
+		</Row>
+		<Row Tag="LOC_VICTORIES_SETTLEMENT_WONDER">
+			<Text>Has Wonder</Text>
+		</Row>
+		<Row Tag="LOC_VICTORIES_SOURCE_UNKNOWN">
+			<Text>Source Unknown</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_SCORE_PLACE_NAME">
+			<Text>Scoring Place</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_TRIUMPHS_COMPLETED_NAME">
+			<Text>Major Triumphs Completed</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_TURNS_IN_COUNTDOWN_NAME">
+			<Text>Turns in Countdown</Text>
+		</Row>
+		<Row Tag="LOC_VICTORIES_TOOLTIP_LAST_TURN">
+			<Text>Last Turn</Text>
+		</Row>
+		<Row Tag="LOC_VICTORIES_POPUP_UNLOCK_TITLE">
+			<Text>New Victory Tier</Text>
+		</Row>
+		<Row Tag="LOC_VICTORIES_POPUP_POINTGOAL_TITLE">
+			<Text>Victory Point Goal Lowered</Text>
+		</Row>
+		<Row Tag="LOC_VICTORIES_POPUP_UNKNOWN">
+			<Text>Unknown Victory Tier</Text>
+		</Row>
+		<Row Tag="LOC_VICTORIES_POPUP_UNLOCK_BODY">
+			<Text>{1_VictoryTier} ({2_Multiplier}x)</Text>
+		</Row>
+		<Row Tag="LOC_VICTORIES_POPUP_UNLOCK_FOOTER">
+			<Text>Victory requirements have changed.  See the Victories screen for details.</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_SCIENCE_NAME">
+			<Text>Science Victory!</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_MILITARY_NAME">
+			<Text>Military Victory!</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_CULTURE_NAME">
+			<Text>Cultural Victory!</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_ECONMIC_NAME">
+			<Text>Economic Victory!</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_DEFEAT_NAME">
+			<Text>Defeat</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_VICTORY_NAME">
+			<Text>Victory</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_SCORE_VICTORY_NAME">
+			<Text>Score Victory</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_LEADER_NAME">
+			<Text>{1_LeaderName}</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_LEADER_NAME_YOU">
+			<Text>{1_LeaderName} (YOU)</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_NAV_HELP_INSPECT">
+			<Text>Inspect</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_NAV_HELP_RULES">
+			<Text>Victory Rules</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_NAV_HELP_SUMMARY_ACCEPT">
+			<Text>Examine Victory</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_NAV_HELP_AGE_TOOLTIP">
+			<Text>Jump to Age Selector</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_SCORE_CONTRIBUTORS">
+			<Text>Score Contributors</Text>
+		</Row>
+		<!-- Civ Unique -->
+		<Row Tag="LOC_VICTORY_TRACKER_MEXICO_CELEBRATIONS_ANTIQUITY_NAME">
+			<Text>Revolución</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_TRACKER_MEXICO_CELEBRATIONS_EXPLORATION_NAME">
+			<Text>Revolución</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_TRACKER_MEXICO_CELEBRATIONS_MODERN_NAME">
+			<Text>Revolución</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_TRACKER_INDUSTRIAL_PARK_NAME">
+			<Text>Industrial Park Factory Resources</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_TRACKER_STAATSEISENBAHN_NAME">
+			<Text>Settlements with a Staatseisenbahn</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_TRACKER_QING_IMPORTED_RESOURCES_NAME">
+			<Text>Kang Qian Sheng Shi</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_TRACKER_CHOLA_IMPORTED_RESOURCES_NAME">
+			<Text>Samayam</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_TRACKER_NEPAL_MOUNTAIN_NAME">
+			<Text>Roof of the World</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_TRACKER_BUGANDA_LAKE_NAME">
+			<Text>Omugongo</Text>
+		</Row>
+		<!-- Victory Descriptions -->
+		<Row Tag="LOC_VICTORY_MODERN_MILITARY_DESCRIPTION">
+			<Text>Maximize the greatest Dominion of all other players.</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_MODERN_CULTURE_DESCRIPTION">
+			<Text>Maximize the greatest Tourism output of all other players.</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_MODERN_ECONOMIC_DESCRIPTION">
+			<Text>Maximize the greatest GDP output of all other players.</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_MODERN_SCIENCE_DESCRIPTION">
+			<Text>Maximize the greatest Innovation output of all other players</Text>
+		</Row>
+		<Row Tag="LOC_VICTORY_TOURISM_NAME">
+			<Text>Tourism</Text>
 		</Row>
 	</EnglishText>
 </Database>

@@ -10,16 +10,16 @@
 		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_FRENCH_EMPIRE" Name="LOC_CIVILIZATION_FRENCH_EMPIRE_NAME" Description="LOC_UNLOCK_MODERN_CIV_DESCRIPTION" Icon="CIVILIZATION_FRENCH_EMPIRE" UnlockRewardType="CIVILIZATION_FRENCH_EMPIRE" UnlockRewardKind="KIND_CIVILIZATION"/>
 	</UnlockRewards>
 	<RequirementSets>
-		<Row RequirementSetId="REQSET_CIV_IS_PIRATE_REPUBLIC" RequirementSetType="REQUIREMENTSET_TEST_ALL"/>
+		<InsertOrIgnore RequirementSetId="REQSET_CIV_IS_PIRATE_REPUBLIC" RequirementSetType="REQUIREMENTSET_TEST_ALL"/>
 	</RequirementSets>
 	<Requirements>
-		<Row RequirementId="REQ_CIV_IS_PIRATE_REPUBLIC" RequirementType="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES"/>
+		<InsertOrIgnore RequirementId="REQ_CIV_IS_PIRATE_REPUBLIC" RequirementType="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES"/>
 	</Requirements>
 	<RequirementArguments>
-		<Row RequirementId="REQ_CIV_IS_PIRATE_REPUBLIC" Name="CivilizationType" Value="CIVILIZATION_PIRATE_REPUBLIC"/>
+		<InsertOrIgnore RequirementId="REQ_CIV_IS_PIRATE_REPUBLIC" Name="CivilizationType" Value="CIVILIZATION_PIRATE_REPUBLIC"/>
 	</RequirementArguments>
 	<RequirementSetRequirements>
-		<Row RequirementSetId="REQSET_CIV_IS_PIRATE_REPUBLIC" RequirementId="REQ_CIV_IS_PIRATE_REPUBLIC"/>
+		<InsertOrIgnore RequirementSetId="REQSET_CIV_IS_PIRATE_REPUBLIC" RequirementId="REQ_CIV_IS_PIRATE_REPUBLIC"/>
 	</RequirementSetRequirements>
 	<UnlockRequirements>
 		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_FRENCH_EMPIRE" RequirementSetId="REQSET_CIV_IS_PIRATE_REPUBLIC" Description="LOC_UNLOCK_PLAY_AS_PIRATE_REPUBLIC_DESCRIPTION" Tooltip="LOC_UNLOCK_PLAY_AS_PIRATE_REPUBLIC_FRENCH_EMPIRE_TOOLTIP"/>

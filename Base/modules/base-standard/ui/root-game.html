@@ -10,6 +10,14 @@
 
 		<!-- Ideally, these scripts will be nested inside of the body tag.-->
 		<script src="fs://game/core/ui/cohtml.js"></script>
+		<script>
+			// Synchronous: runs before the first paint. For age transitions the engine has
+			// already captured a blurred snapshot, so the loading curtain should be
+			// transparent from frame 0. Module scripts are deferred and would be too late.
+			if (typeof Modding !== "undefined" && Modding.getTransitionInProgress?.()) {
+				document.documentElement.classList.add("age-transition");
+			}
+		</script>
 		<script src="fs://game/core/ui/accessibility/cohtml-speech-api.js"></script>
 		<script src="fs://game/core/ui/component-support.js"></script>
 		<script src="fs://game/core/ui/utilities/utilities-tuner.js"></script>
@@ -21,9 +29,98 @@
 		Font icons are used very early on, before many systems have been intialized.  
 		Load this file early on before many other load requests have gone out.
 	-->
+		<script type="module" crossorigin src="fs://game/core/vendor/vite/preload-helper.js"></script>
 		<script type="module" crossorigin src="fs://game/base-standard/ui/root-game.js"></script>
+		<script type="module" crossorigin src="fs://game/core/vendor/solid-js/dist/solid.js"></script>
+		<script type="module" crossorigin src="fs://game/core/ui/audio-base/audio-support.js"></script>
+		<script type="module" crossorigin src="fs://game/core/ui-next/utilities/game-core-utilities.js"></script>
+		<script type="module" crossorigin src="fs://game/core/ui-next/services/input.js"></script>
+		<script type="module" crossorigin src="fs://game/core/ui-next/utilities/solid-utilities.js"></script>
+		<script type="module" crossorigin src="fs://game/core/ui-next/services/focus.js"></script>
+		<script type="module" crossorigin src="fs://game/core/ui-next/services/model-registry.js"></script>
+		<script type="module" crossorigin src="fs://game/core/ui-next/services/focus-manager.js"></script>
+		<script type="module" crossorigin src="fs://game/core/ui/external/js-spatial-navigation/spatial_navigation.js"></script>
+		<script type="module" crossorigin src="fs://game/core/ui/external/js-spatial-navigation/spatial-wrapper.js"></script>
+		<script type="module" crossorigin src="fs://game/core/ui/spatial/spatial-manager.js"></script>
+		<script type="module" crossorigin src="fs://game/core/ui/framework.js"></script>
+		<script type="module" crossorigin src="fs://game/core/ui/utilities/animations.js"></script>
+		<script type="module" crossorigin src="fs://game/core/ui/input/navigation-support.js"></script>
+		<script type="module" crossorigin src="fs://game/core/ui/panel-support.js"></script>
+		<script type="module" crossorigin src="fs://game/core/ui/views/view-manager.js"></script>
+		<script type="module" crossorigin src="fs://game/core/ui/input/cursor.scss2.js"></script>
+		<script type="module" crossorigin src="fs://game/core/ui/input/cursor.scss.js"></script>
+		<script type="module" crossorigin src="fs://game/core/ui/input/cursor.js"></script>
+		<script type="module" crossorigin src="fs://game/core/ui/input/debug-input-handler.js"></script>
+		<script type="module" crossorigin src="fs://game/core/ui/input/input-events.js"></script>
+		<script type="module" crossorigin src="fs://game/core/ui/input/input-support.js"></script>
+		<script type="module" crossorigin src="fs://game/core/ui/utilities/utilities-update-gate.js"></script>
+		<script type="module" crossorigin src="fs://game/core/ui/input/action-handler.js"></script>
+		<script type="module" crossorigin src="fs://game/core/ui/utilities/utilities-component-id.js"></script>
+		<script type="module" crossorigin src="fs://game/core/ui/utilities/utilities-image.js"></script>
+		<script type="module" crossorigin src="fs://game/core/ui/components/fxs-font-icon.js"></script>
+		<script type="module" crossorigin src="fs://game/core/vendor/solid-js/web/dist/web.js"></script>
+		<script type="module" crossorigin src="fs://game/core/ui-next/utilities/image-cache.js"></script>
+		<script type="module" crossorigin src="fs://game/core/ui-next/utilities/style-cache.js"></script>
+		<script type="module" crossorigin src="fs://game/core/ui-next/utilities/component-utilities.js"></script>
+		<script type="module" crossorigin src="fs://game/core/ui-next/services/component-registry.js"></script>
+		<script type="module" crossorigin src="fs://game/core/ui-next/components/flipbook.js"></script>
+		<script type="module" crossorigin src="fs://game/core/ui-next/components/header.js"></script>
+		<script type="module" crossorigin src="fs://game/core/ui-next/components/trigger.js"></script>
+		<script type="module" crossorigin src="fs://game/core/ui-next/utilities/async-load.js"></script>
+		<script type="module" crossorigin src="fs://game/core/ui-next/services/audio-support.js"></script>
+		<script type="module" crossorigin src="fs://game/core/ui/audio-base/audio-base.json.js"></script>
+		<script type="module" crossorigin src="fs://game/core/ui-next/services/audio.js"></script>
+		<script type="module" crossorigin src="fs://game/core/ui/navigation-tray/model-navigation-tray.js"></script>
+		<script type="module" crossorigin src="fs://game/core/ui-next/services/hotkey.js"></script>
+		<script type="module" crossorigin src="fs://game/core/ui/vfx/vfx-manager.js"></script>
+		<script type="module" crossorigin src="fs://game/core/ui-next/vfx-rules.json.js"></script>
+		<script type="module" crossorigin src="fs://game/core/ui-next/services/ui-vfx-support.js"></script>
+		<script type="module" crossorigin src="fs://game/core/ui-next/components/activatable.js"></script>
+		<script type="module" crossorigin src="fs://game/core/ui-next/components/hero-button.js"></script>
+		<script type="module" crossorigin src="fs://game/core/ui-next/utilities/debug-widgets.js"></script>
+		<script type="module" crossorigin src="fs://game/core/ui-next/components/image-cache.js"></script>
+		<script type="module" crossorigin src="fs://game/core/ui-next/components/icon.js"></script>
+		<script type="module" crossorigin src="fs://game/core/ui-next/components/l10n.js"></script>
+		<script type="module" crossorigin src="fs://game/core/ui-next/services/actionButtons.js"></script>
+		<script type="module" crossorigin src="fs://game/core/ui-next/components/nav-help.js"></script>
+		<script type="module" crossorigin src="fs://game/core/ui/utilities/ordered-min-heap.js"></script>
+		<script type="module" crossorigin src="fs://game/core/ui/context-manager/display-queue-manager.js"></script>
+		<script type="module" crossorigin src="fs://game/core/ui/context-manager/display-handler.js"></script>
+		<script type="module" crossorigin src="fs://game/core/ui/dialog-box/model-dialog-box.js"></script>
+		<script type="module" crossorigin src="fs://game/core/ui/dialog-box/manager-dialog-box.js"></script>
+		<script type="module" crossorigin src="fs://game/core/ui/context-manager/context-manager.js"></script>
+		<script type="module" crossorigin src="fs://game/core/vendor/solid-js/store/dist/store.js"></script>
+		<script type="module" crossorigin src="fs://game/core/ui/input/navigation-handlers.js"></script>
+		<script type="module" crossorigin src="fs://game/core/ui/components/fxs-slot.js"></script>
+		<script type="module" crossorigin src="fs://game/core/ui/input/focus-support.js"></script>
+		<script type="module" crossorigin src="fs://game/core/ui-next/components/fxs-solid-component.js"></script>
+		<script type="module" crossorigin src="fs://game/core/ui/interface-modes/interface-modes.js"></script>
+		<script type="module" crossorigin src="fs://game/core/ui-next/components/tooltip-model.js"></script>
+		<script type="module" crossorigin src="fs://game/core/ui-next/components/panel.js"></script>
+		<script type="module" crossorigin src="fs://game/core/ui-next/components/arrow-button.js"></script>
+		<script type="module" crossorigin src="fs://game/core/ui-next/services/view-experience.js"></script>
+		<script type="module" crossorigin src="fs://game/core/ui-next/components/radio-button.js"></script>
+		<script type="module" crossorigin src="fs://game/core/ui-next/components/tab.js"></script>
+		<script type="module" crossorigin src="fs://game/core/ui-next/components/tooltip-keyword.js"></script>
+		<script type="module" crossorigin src="fs://game/core/ui-next/components/slot.js"></script>
+		<script type="module" crossorigin src="fs://game/core/ui-next/components/tooltip.js"></script>
+		<script type="module" crossorigin src="fs://game/core/ui-next/components/tooltip-compat.js"></script>
+		<script type="module" crossorigin src="fs://game/core/ui-next/components/filigree.js"></script>
+		<script type="module" crossorigin src="fs://game/base-standard/ui-next/screens/load-screen/load-screen-model.js"></script>
+		<script type="module" crossorigin src="fs://game/core/ui/utilities/utilities-layout.js"></script>
+		<script type="module" crossorigin src="fs://game/core/ui-next/components/audio-context-provider.js"></script>
+		<script type="module" crossorigin src="fs://game/core/ui-next/components/scroll-area.js"></script>
+		<script type="module" crossorigin src="fs://game/base-standard/ui-next/screens/load-screen/load-screen.scss2.js"></script>
+		<script type="module" crossorigin src="fs://game/base-standard/ui-next/screens/load-screen/load-screen.scss.js"></script>
+		<script type="module" crossorigin src="fs://game/base-standard/ui-next/screens/load-screen/load-screen.js"></script>
+		<script type="module" crossorigin src="fs://game/base-standard/ui-next/screens/age-transition/age-transition-load-screen.scss2.js"></script>
+		<script type="module" crossorigin src="fs://game/base-standard/ui-next/screens/age-transition/age-transition-load-screen.scss.js"></script>
+		<script type="module" crossorigin src="fs://game/base-standard/ui-next/screens/age-transition/age-transition-load-screen.js"></script>
+		<script type="module" crossorigin src="fs://game/base-standard/ui-next/screens/load-screen/load-screen-bootstrap.js"></script>
 		<link rel="stylesheet" crossorigin href="fs://game/base-standard/ui/root-game.css">
+		<link rel="stylesheet" crossorigin href="fs://game/base-standard/ui/loading/root-game-loading.css">
 		<link rel="stylesheet" crossorigin href="fs://game/core/ui/themes/default/panel-animations.css">
+		<link rel="stylesheet" crossorigin href="fs://game/base-standard/ui/tutorial/tutorial-styles.css">
 		<link rel="stylesheet" crossorigin href="fs://game/core/ui/themes/default/default.css">
 	</head>
 
@@ -108,6 +205,7 @@
 						<panel-sub-system-dock></panel-sub-system-dock>
 						<panel-continents></panel-continents>
 						<panel-settler-legend></panel-settler-legend>
+						<panel-general-appeal-legend></panel-general-appeal-legend>
 					</fxs-hslot>
 					<fxs-hslot>
 						<quest-list></quest-list>
@@ -181,7 +279,7 @@
 				<fxs-vslot>
 					<fxs-hslot class="justify-end">
 						<panel-unit-combat-preview></panel-unit-combat-preview>
-						<panel-notification-train></panel-notification-train>
+						<panel-notification-train data-tooltip-anchor="left"></panel-notification-train>
 					</fxs-hslot>
 					<fxs-hslot class="justify-end items-end">
 						<unit-actions></unit-actions>
@@ -262,6 +360,7 @@
 						<panel-sub-system-dock></panel-sub-system-dock>
 						<panel-continents></panel-continents>
 						<panel-settler-legend></panel-settler-legend>
+						<panel-general-appeal-legend></panel-general-appeal-legend>
 					</fxs-hslot>
 					<fxs-hslot>
 						<quest-list></quest-list>
@@ -423,6 +522,7 @@
 						<panel-sub-system-dock></panel-sub-system-dock>
 						<panel-continents></panel-continents>
 						<panel-settler-legend></panel-settler-legend>
+						<panel-general-appeal-legend></panel-general-appeal-legend>
 					</fxs-hslot>
 					<fxs-hslot>
 						<quest-list></quest-list>
@@ -577,6 +677,7 @@
 						<panel-sub-system-dock></panel-sub-system-dock>
 						<panel-continents></panel-continents>
 						<panel-settler-legend></panel-settler-legend>
+						<panel-general-appeal-legend></panel-general-appeal-legend>
 					</fxs-hslot>
 					<fxs-hslot>
 						<quest-list></quest-list>
@@ -1141,6 +1242,10 @@
 			<mouse-guard></mouse-guard>
 			<screen-pause-menu-bootstrap></screen-pause-menu-bootstrap>
 		</template>
+		<template class="age-transition">
+			<mouse-guard></mouse-guard>
+			<age-transition-bootstrap></age-transition-bootstrap>
+		</template>
 		<div
 			id="loading-curtain"
 			class="loading-curtain flow-row justify-center items-center"
@@ -1181,7 +1286,11 @@
 			</div>
 		</div>
 
-		<div class="fullscreen fxs-trees"></div>
+		<div id="solidjs-root">
+			<!-- solidjs app component is mounted here -->
+		</div>
+
+		<div class="fullscreen fxs-trees flex"></div>
 		<div
 			id="target-slot-screen-resource-allocation"
 			class="fullscreen"
@@ -1212,8 +1321,14 @@
 			></div>
 		</div>
 		<div
+			id="uinext-dropdowns"
+			class="absolute pointer-events-none"
+			style="z-index: 10000"
+		></div>
+		<div
 			id="uinext-tooltips"
 			class="absolute pointer-events-none"
+			style="z-index: 10000"
 		></div>
 		<div
 			id="in-game-video-root"

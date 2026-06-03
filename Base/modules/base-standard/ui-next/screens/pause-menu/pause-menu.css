@@ -10,10 +10,10 @@
 }
 @media (max-height: 52.7777777778rem), (max-width: 72.2222222222rem), (max-aspect-ratio: 3/2) {
   .pause-menu-leader-image {
-    height: 41.6666666667rem;
     width: 35.6666666667rem;
-    margin-bottom: -4.4444444444rem;
+    height: 41.6666666667rem;
     margin-right: -4.4444444444rem;
+    margin-bottom: -4.4444444444rem;
     mask-image: linear-gradient(to bottom, rgb(255, 255, 255) 70%, rgba(255, 255, 255, 0.2) 80%, rgba(255, 255, 255, 0) 100%);
   }
 }
@@ -27,20 +27,26 @@
     margin-bottom: 1.6666666667rem;
   }
 }
-
 .pause-menu-progression-border {
+  margin-left: 0rem;
   border-image-outset: 0.8333333333rem 0.7222222222rem 0.8333333333rem 0.7222222222rem;
   border-image-slice: 30 20 fill;
   border-image-source: url("blp:hud_unit-panel_box-bg");
   border-image-width: 1.6666666667rem 1.1111111111rem;
-  margin-left: 0rem;
 }
 
 .pause-menu-button {
-  margin-bottom: 0.7777777778rem;
-  height: 2.4444444444rem;
   width: 20rem;
+  height: 2.4444444444rem;
   min-height: 2.4444444444rem;
+  margin-bottom: 0.7777777778rem;
+}
+@media (experience: mobile) {
+  .pause-menu-button {
+    width: 20.4444444444rem;
+    height: 2.7777777778rem;
+    min-height: 2.7777777778rem;
+  }
 }
 .pause-menu-button.bottom-padding {
   margin-bottom: 3.5555555556rem;
@@ -52,8 +58,8 @@
 }
 
 .pause-menu-main-container {
-  height: 43.1111111111rem;
   max-width: 106.6666666667rem;
+  height: 43.1111111111rem;
   align-self: center;
 }
 @media (max-height: 52.7777777778rem), (max-width: 72.2222222222rem), (max-aspect-ratio: 3/2) {
@@ -85,7 +91,6 @@
     visibility: hidden;
   }
 }
-
 .pause-menu-game-info {
   margin-top: 0.6666666667rem;
   font-size: 1rem;
@@ -127,26 +132,24 @@
 @media (max-height: 52.7777777778rem), (max-width: 72.2222222222rem), (max-aspect-ratio: 3/2) {
   .pause-menu-social-button {
     top: -3rem;
+    right: 1.1111111111rem;
     width: 2.4444444444rem;
     height: 2.4444444444rem;
-    right: 1.1111111111rem;
   }
 }
-
 @media (max-height: 52.7777777778rem), (max-width: 72.2222222222rem), (max-aspect-ratio: 3/2) {
   .pause-menu-social-button-img {
     width: 2rem;
     height: 2rem;
   }
 }
-
 .pause-menu-addons-container {
-  border-image-source: url("blp:dip_modal_bg");
-  border-image-slice: 26 40 62 40 fill;
-  border-image-width: 1.44444rem 2.22222rem 3.44444rem 2.22222rem;
-  border-image-outset: 0.388889rem 1.11111rem 2.22222rem 1.11111rem;
   width: 21.1111111111rem;
   height: 22.2222222222rem;
+  border-image-outset: 0.3889rem 1.1111rem 2.2222rem 1.1111rem;
+  border-image-slice: 26 40 62 40 fill;
+  border-image-source: url("blp:dip_modal_bg");
+  border-image-width: 1.4444rem 2.2222rem 3.4444rem 2.2222rem;
 }
 @media (max-height: 52.7777777778rem), (max-width: 72.2222222222rem), (max-aspect-ratio: 3/2) {
   .pause-menu-addons-container {
@@ -155,12 +158,12 @@
 }
 
 .pause-menu-leader-level {
+  min-width: 1.7778rem;
+  min-height: 1.7778rem;
   background-image: url("blp:shell_number-circle");
-  background-size: cover;
   background-repeat: no-repeat no-repeat;
-  min-width: 1.77778rem;
-  min-height: 1.77778rem;
-  line-height: 1.77778rem;
+  background-size: cover;
+  line-height: 1.7778rem;
 }
 
 .pause-menu-addon-divider {
@@ -213,7 +216,7 @@
   background-color: rgba(39, 37, 38, 0.8);
 }
 
-@keyframes clipboardIndicator {
+@keyframes clipboard-indicator {
   0% {
     bottom: -3.5555555556rem;
     opacity: 1;

@@ -51,14 +51,14 @@ var GameCoreRandom;
   const RANDOM_A = 1103515245n;
   const RANDOM_C = 12345n;
   const RANDOM_SHIFT = 16n;
-  const LOG_OUTPUT = false;
+  const LOG_LEVEL = 1;
   class RandomState {
     state = 0x08f5dc87e5c07d8an;
   }
   GameCoreRandom2.RandomState = RandomState;
   function seed(value) {
     GameCoreRandom2.randomState.state = BigInt(value);
-    if (LOG_OUTPUT) {
+    if (LOG_LEVEL >= 1) {
       console.log("GameCoreRandom: setting seed to " + value);
     }
   }
@@ -73,27 +73,28 @@ var GameCoreRandom;
   }
   GameCoreRandom2.fRand = fRand;
   function getRandomNumber(iRange, strLog) {
+    iRange = Math.floor(iRange);
     let num = 0;
     if (typeof TerrainBuilder == "object" && typeof TerrainBuilder.getRandomNumber == "function") {
       num = TerrainBuilder.getRandomNumber(iRange, strLog);
     } else {
       num = Math.floor(Number(rand()) * (iRange / 65536));
     }
-    if (LOG_OUTPUT) {
+    if (LOG_LEVEL >= 2) {
       console.log("GameCoreRandom: getRandomNumber(" + iRange + ', "' + strLog + '") = ' + num);
     }
     return num;
   }
   GameCoreRandom2.getRandomNumber = getRandomNumber;
   function getState() {
-    if (LOG_OUTPUT) {
+    if (LOG_LEVEL >= 1) {
       console.log("GameCoreRandom: getState() called with current state " + GameCoreRandom2.randomState.state);
     }
     return { state: GameCoreRandom2.randomState.state };
   }
   GameCoreRandom2.getState = getState;
   function setState(state) {
-    if (LOG_OUTPUT) {
+    if (LOG_LEVEL >= 1) {
       console.log("GameCoreRandom: setState(" + state.state + ")");
     }
     GameCoreRandom2.randomState.state = state.state;

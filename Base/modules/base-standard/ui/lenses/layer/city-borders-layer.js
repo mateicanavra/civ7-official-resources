@@ -1,6 +1,6 @@
-import { L as LensManager } from '../../../../core/ui/lenses/lens-manager.chunk.js';
-import { C as ComponentID } from '../../../../core/ui/utilities/utilities-component-id.chunk.js';
-import { O as OVERLAY_PRIORITY } from '../../utilities/utilities-overlay.chunk.js';
+import LensManager from '../../../../core/ui/lenses/lens-manager.js';
+import { ComponentID } from '../../../../core/ui/utilities/utilities-component-id.js';
+import { OVERLAY_PRIORITY } from '../../utilities/utilities-overlay.js';
 
 var BorderStyleTypes = /* @__PURE__ */ ((BorderStyleTypes2) => {
   BorderStyleTypes2["Closed"] = "CultureBorder_Closed";

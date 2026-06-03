@@ -1,9 +1,5 @@
-import { F as FxsActivatable } from '../../../components/fxs-activatable.chunk.js';
-import '../../../audio-base/audio-support.chunk.js';
-import '../../../input/focus-manager.js';
-import '../../../framework.chunk.js';
-
-const styles = "fs://game/core/ui/shell/leader-select/leader-button/leader-button.css";
+import { FxsActivatable } from '../../../components/fxs-activatable.js';
+import styles from './leader-button.scss.js';
 
 class LeaderButton extends FxsActivatable {
   _leaderData;

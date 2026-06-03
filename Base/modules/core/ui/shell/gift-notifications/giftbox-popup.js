@@ -1,21 +1,11 @@
-import FocusManager from '../../input/focus-manager.js';
-import { I as InputEngineEvent } from '../../input/input-support.chunk.js';
-import { N as NavTray } from '../../navigation-tray/model-navigation-tray.chunk.js';
-import { P as Panel } from '../../panel-support.chunk.js';
-import { R as RewardsNotificationsManager } from '../../rewards-notifications/rewards-notification-manager.chunk.js';
-import { MustGetElement } from '../../utilities/utilities-dom.chunk.js';
-import '../../audio-base/audio-support.chunk.js';
-import '../../framework.chunk.js';
-import '../../input/action-handler.js';
-import '../../input/cursor.js';
-import '../../views/view-manager.chunk.js';
-import '../../utilities/utilities-update-gate.chunk.js';
-import '../../utilities/utilities-image.chunk.js';
-import '../../utilities/utilities-component-id.chunk.js';
-
-const content = "<fxs-vslot class=\"giftbox-notification-frame-container shrink grow w-full\">\r\n\t<fxs-frame\r\n\t\tframe-style=\"simple\"\r\n\t\tclass=\"giftbox-notification fxs-frame flex flex-auto min-w-128\"\r\n\t>\r\n\t\t<fxs-vslot class=\"rules-container flex flex-auto\">\r\n\t\t\t<div class=\"flex relative flex-col items-center\">\r\n\t\t\t\t<div\r\n\t\t\t\t\tclass=\"font-title -mt-8 text-l text-secondary text-gradient-secondary uppercase\"\r\n\t\t\t\t\tdata-l10n-id=\"LOC_REWARD_RECEIVED\"\r\n\t\t\t\t></div>\r\n\t\t\t\t<div class=\"img-radial-glow self-center -mt-10 w-64 h-16\"></div>\r\n\t\t\t</div>\r\n\t\t\t<div class=\"rewards-scrollable-container relative mt-4 flex flex-auto h-1\\/2 justify-center\">\r\n\t\t\t\t<fxs-vslot\r\n\t\t\t\t\tclass=\"main-menu-slot opacity-100\"\r\n\t\t\t\t\tid=\"GiftBoxSlot\"\r\n\t\t\t\t>\r\n\t\t\t\t\t<fxs-scrollable\r\n\t\t\t\t\t\tclass=\"rewards-scrollable mb-4 pt-2\"\r\n\t\t\t\t\t\tattached-scrollbar=\"true\"\r\n\t\t\t\t\t>\r\n\t\t\t\t\t</fxs-scrollable>\r\n\t\t\t\t</fxs-vslot>\r\n\t\t\t</div>\r\n\t\t\t<div class=\"relative button-container justify-center mt-4\">\r\n\t\t\t\t<fxs-button\r\n\t\t\t\t\tclass=\"continue\"\r\n\t\t\t\t\tcaption=\"LOC_GENERIC_CONTINUE\"\r\n\t\t\t\t\taction-key=\"inline-accept\"\r\n\t\t\t\t></fxs-button>\r\n\t\t\t</div>\r\n\t\t</fxs-vslot>\r\n\t</fxs-frame>\r\n\t<fxs-hslot class=\"decoration w-full justify-center absolute -top-9\">\r\n\t\t<div class=\"img-top-filigree-left grow\"></div>\r\n\t\t<div class=\"img-top-filigree-center\"></div>\r\n\t\t<div class=\"img-top-filigree-right grow\"></div>\r\n\t</fxs-hslot>\r\n</fxs-vslot>\r\n";
-
-const styles = "fs://game/core/ui/shell/gift-notifications/giftbox-popup.css";
+import { InputEngineEvent } from '../../input/input-support.js';
+import NavTray from '../../navigation-tray/model-navigation-tray.js';
+import Panel from '../../panel-support.js';
+import RewardsNotificationsManager from '../../rewards-notifications/rewards-notification-manager.js';
+import { MustGetElement } from '../../utilities/utilities-dom.js';
+import { FocusManager } from '../../../ui-next/services/focus-manager.js';
+import content from './giftbox-popup.html.js';
+import styles from './giftbox-popup.scss.js';
 
 class GiftboxPopup extends Panel {
   continueButtonListener = () => {
@@ -54,7 +44,7 @@ class GiftboxPopup extends Panel {
   }
   onReceiveFocus() {
     super.onReceiveFocus();
-    FocusManager.setFocus(this.rewardsScrollable);
+    FocusManager.get().setFocus(this.rewardsScrollable);
     this.generalNavTrayUpdate();
   }
   onLoseFocus() {
@@ -180,6 +170,8 @@ class GiftboxPopup extends Panel {
         }
       });
       this.rewardsScrollable?.appendChild(rewardsScrollableBox);
+    } else {
+      this.close();
     }
   }
   onEngineInput(inputEvent) {

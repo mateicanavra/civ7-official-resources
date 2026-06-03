@@ -1,4 +1,4 @@
-import { C as ComponentID } from '../../../core/ui/utilities/utilities-component-id.chunk.js';
+import { ComponentID } from '../../../core/ui/utilities/utilities-component-id.js';
 
 var NotificationModel;
 ((NotificationModel2) => {
@@ -268,6 +268,9 @@ var NotificationModel;
         engine.on("NotificationActivated", (data) => {
           this.onNotificationActivated(data);
         });
+        engine.on("NotificationUpdated", (data) => {
+          this.onNotificationUpdated(data);
+        });
         engine.on("GameCoreEventPlaybackComplete", () => {
           this.onEventPlaybackComplete();
         });
@@ -286,14 +289,19 @@ var NotificationModel;
       this.defaultHandler = handler;
     }
     findHandler(type) {
-      if (type != null) {
-        const handler = this.handlers[type];
-        if (handler != null) {
-          return handler;
-        }
-        return this.defaultHandler;
+      if (type == null) {
+        return null;
       }
-      return null;
+      if (Object.keys(this.handlers).length == 0) {
+        console.error(
+          `Notification model attempted to find handler type '${type}', but no handlers loaded!  Potentially issue reading another file at startup.`
+        );
+      }
+      const handler = this.handlers[type];
+      if (handler != null) {
+        return handler;
+      }
+      return this.defaultHandler;
     }
     removePlayer(player) {
       this.players[player] = null;
@@ -392,7 +400,7 @@ var NotificationModel;
       if (handler) {
         handler.lookAt(notificationId);
       } else {
-        console.warn(`Notification: Unable to find handler for '${notificationId}'`);
+        console.warn(`Notification: Could not look at, unable to find handler for '${notificationId}'`);
       }
     }
     activate(notificationId) {
@@ -410,7 +418,7 @@ var NotificationModel;
           console.warn(`Notification: Failure when activating '${notificationId}'`);
         }
       } else {
-        console.warn(`Notification: Unable to find handler for '${notificationId}'`);
+        console.warn(`Notification: Could not activate, unable to find handler for '${notificationId}'`);
       }
     }
     rebuild() {
@@ -433,10 +441,18 @@ var NotificationModel;
     playAudio(notificationID, context) {
       const notificationType = Game.Notifications.getType(notificationID);
       if (notificationType) {
-        const notificationName = Game.Notifications.getTypeName(notificationType);
+        let notificationName = Game.Notifications.getTypeName(notificationType);
         if (notificationName) {
           if (Game.Notifications.getPlayedAudioOnTurn(notificationID, Game.turn)) {
             return;
+          }
+          if (notificationName == "NOTIFICATION_DIPLOMACY_SESSION") {
+            const diploSessionStatement = Game.DiplomacySessions.getPendingSessionNotificationStatement(notificationID);
+            if (diploSessionStatement) {
+              if (diploSessionStatement.group == DiplomacyStatementGroupTypes.WAR) {
+                notificationName += "_WAR";
+              }
+            }
           }
           for (const def of GameInfo.NotificationSounds) {
             if (def.Audio && def.NotificationType == notificationName && def.Context == context) {
@@ -485,6 +501,13 @@ var NotificationModel;
       if (data.id?.owner == GameContext.localPlayerID) {
         this.activate(data.id);
         this.playAudio(data.id, "Activate");
+      }
+    }
+    onNotificationUpdated(data) {
+      if (data.id?.owner == GameContext.localPlayerID) {
+        if (!this.needRebuild) {
+          this.needRebuild = true;
+        }
       }
     }
     onEventPlaybackComplete() {

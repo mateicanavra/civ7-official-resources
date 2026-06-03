@@ -1,4 +1,4 @@
-import { U as UpdateGate } from '../../../core/ui/utilities/utilities-update-gate.chunk.js';
+import UpdateGate from '../../../core/ui/utilities/utilities-update-gate.js';
 
 class AgeSummaryModel {
   ageName = "";

@@ -1,4 +1,5 @@
 .quest-item-container {
+  max-height: 33.3333333333rem;
   transition: opacity ease-in-out 0.25s, transform ease-in-out 0.25s;
 }
 @media (experience: mobile) and (max-height: 55.5555555556rem) {
@@ -7,6 +8,11 @@
   }
 }
 
+@media (max-height: 55.5555555556rem) {
+  .quest-item-container {
+    max-height: 13.8888888889rem;
+  }
+}
 .quest-list-item-selectable {
   padding: 0.4444444444rem;
 }

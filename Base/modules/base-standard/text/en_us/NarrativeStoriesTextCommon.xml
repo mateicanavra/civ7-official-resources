@@ -27,19 +27,25 @@
 			<Text>Unit spends {1_value} full turn off the map.</Text>
 		</Row>
 		<Row Tag="LOC_REWARD_NAMED_GREATWORK">
-			<Text>{1_objectType} ({2_greatworktype})</Text>
+			<Text>+1 {1_objectType} ({2_greatworktype})</Text>
+		</Row>
+		<Row Tag="LOC_REWARD_AMOUNT_GREATWORK">
+			<Text>{1_value: number +#;-#} {2_type} on Greatworks</Text>
 		</Row>
 		<Row Tag="LOC_REWARD_AMOUNT">
 			<Text>{1_value: number +#;-#} {2_type}</Text>
 		</Row>
 		<Row Tag="LOC_REWARD_AMOUNT_TRADITION_SLOTS">
-			<Text>+{1_value} Policy Slots</Text>
+			<Text>+{1_value} [icon:NAR_REW_TRADITION_SLOT] Tradition {1_Value: plural 1?Slot; other?Slots;}</Text>
+		</Row>
+		<Row Tag="LOC_REWARD_AMOUNT_POLICY_SLOTS">
+			<Text>+{1_value} [icon:NAR_REW_TRADITION_SLOT] Policy {1_Value: plural 1?Slot; other?Slots;}</Text>
 		</Row>
 		<Row Tag="LOC_REWARD_AMOUNT_RELIGION_ALL_SETTLEMENTS">
-			<Text>+{1_value} {2_type} for all Settlements following your Religion</Text>
+			<Text>+{1_value} {2_type} for each Settlements following your Religion</Text>
 		</Row>
 		<Row Tag="LOC_REWARD_AMOUNT_RELIGION_DOMESTIC_SETTLEMENTS">
-			<Text>+{1_value} {2_type} for all Settlements that you own following your Religion</Text>
+			<Text>+{1_value} {2_type} for each Settlements that you own following your Religion</Text>
 		</Row>
 		<Row Tag="LOC_REWARD_AMOUNT_RELIGION_FOREIGN_SETTLEMENTS">
 			<Text>+{1_value} {2_type} for other Civilizations’ Settlements following your Religion</Text>
@@ -63,7 +69,7 @@
 			<Text>{1_value: number +#;-#} {2_type} for {3_turns} turns</Text>
 		</Row>
 		<Row Tag="LOC_REWARD_AMOUNT_TURNS_HAPPINESS">
-			<Text>{1_value: number +#;-#} [icon:YIELD_HAPPINESS] Happiness towards the next Celebration for {2_turns} turns</Text>
+			<Text>{1_value: number +#;-#} [icon:YIELD_HAPPINESS] Happiness toward the next Celebration for {2_turns} turns</Text>
 		</Row>
 		<Row Tag="LOC_REWARD_AMOUNT_PERCENT_TURNS">
 			<Text>{1_value: number +#;-#}% {2_type} for {3_turns} turns (this may cause yields to go negative due to other penalties, maintenance, etc)</Text>
@@ -84,49 +90,49 @@
 			<Text>+{1_Value} {2_type} Attribute {1_Value: plural 1?Point; other?Points;}</Text>
 		</Row>
 		<Row Tag="LOC_DIPLOMACY_ACTION_PERCENT_REWARD">
-			<Text>{1_value: number +#;-#}% [icon:YIELD_DIPLOMACY] Influence towards {2_type}</Text>
+			<Text>{1_value: number +#;-#}% [icon:YIELD_DIPLOMACY] Influence toward {2_type}</Text>
 		</Row>
 		<Row Tag="LOC_DIPLOMACY_ACTION_PERCENT_REWARD_DEFAULT">
-			<Text>{1_value: number +#;-#}% [icon:YIELD_DIPLOMACY] Influence towards</Text>
+			<Text>{1_value: number +#;-#}% [icon:YIELD_DIPLOMACY] Influence toward</Text>
 		</Row>
 		<Row Tag="LOC_PRODUCTION_PERCENT_CONSTRUCTING">
-			<Text>{1_value: number +#;-#}% [icon:YIELD_PRODUCTION] Production towards constructing {2_type}</Text>
+			<Text>{1_value: number +#;-#}% [icon:YIELD_PRODUCTION] Production toward constructing {2_type}</Text>
 		</Row>
 		<Row Tag="LOC_PRODUCTION_PERCENT_CONSTRUCTING_UNKNOWN">
-			<Text>{1_value: number +#;-#}% [icon:YIELD_PRODUCTION] Production towards constructing</Text>
+			<Text>{1_value: number +#;-#}% [icon:YIELD_PRODUCTION] Production toward constructing</Text>
 		</Row>
 		<Row Tag="LOC_TYPE_UNIT_PRODUCTION_PERCENT">
-			<Text>{1_value: number +#;-#}% [icon:YIELD_PRODUCTION] Production towards training {2_type}</Text>
+			<Text>{1_value: number +#;-#}% [icon:YIELD_PRODUCTION] Production toward training {2_type}</Text>
 		</Row>
 		<Row Tag="LOC_TYPE_PRODUCTION_PERCENT_BUILDINGS">
-			<Text>{1_value: number +#;-#}% [icon:YIELD_PRODUCTION] Production towards constructing Buildings</Text>
+			<Text>{1_value: number +#;-#}% [icon:YIELD_PRODUCTION] Production toward constructing Buildings</Text>
 		</Row>
 		<Row Tag="LOC_TYPE_PRODUCTION_PERCENT_WONDERS">
-			<Text>{1_value: number +#;-#}%[icon:YIELD_PRODUCTION] Production towards constructing Wonders</Text>
+			<Text>{1_value: number +#;-#}%[icon:YIELD_PRODUCTION] Production toward constructing Wonders</Text>
 		</Row>
 		<Row Tag="LOC_TYPE_PRODUCTION_PERCENT_UNITS">
-			<Text>{1_value: number +#;-#}% [icon:YIELD_PRODUCTION] Production towards training all units</Text>
+			<Text>{1_value: number +#;-#}% [icon:YIELD_PRODUCTION] Production toward training all units</Text>
 		</Row>
 		<Row Tag="LOC_TYPE_PRODUCTION_PERCENT_MILITARY_UNITS">
-			<Text>{1_value: number +#;-#}% [icon:YIELD_PRODUCTION] Production towards training Military units</Text>
+			<Text>{1_value: number +#;-#}% [icon:YIELD_PRODUCTION] Production toward training Military units</Text>
 		</Row>
 		<Row Tag="LOC_TYPE_PRODUCTION_PERCENT_SUPPORT_UNITS">
-			<Text>{1_value: number +#;-#}% [icon:YIELD_PRODUCTION] Production towards training Support units</Text>
+			<Text>{1_value: number +#;-#}% [icon:YIELD_PRODUCTION] Production toward training Support units</Text>
 		</Row>
 		<Row Tag="LOC_TYPE_PRODUCTION_PERCENT_CIVILIAN_UNITS">
-			<Text>{1_value: number +#;-#}% [icon:YIELD_PRODUCTION] Production towards training Civilian units</Text>
+			<Text>{1_value: number +#;-#}% [icon:YIELD_PRODUCTION] Production toward training Civilian units</Text>
 		</Row>
 		<Row Tag="LOC_TYPE_PRODUCTION_PERCENT_RECON_UNITS">
-			<Text>{1_value: number +#;-#}% [icon:YIELD_PRODUCTION] Production towards training Recon units</Text>
+			<Text>{1_value: number +#;-#}% [icon:YIELD_PRODUCTION] Production toward training Recon units</Text>
 		</Row>
 		<Row Tag="LOC_TYPE_PRODUCTION_PERCENT_UNKNOWN_UNITS">
-			<Text>{1_value: number +#;-#}% [icon:YIELD_PRODUCTION] Production towards training</Text>
+			<Text>{1_value: number +#;-#}% [icon:YIELD_PRODUCTION] Production toward training</Text>
 		</Row>
 		<Row Tag="LOC_REWARD_YIELD_CONSTRUCTIBLES">
 			<Text>{1_value: number +#;-#}{2_type} on {3_where}</Text>
 		</Row>
 		<Row Tag="LOC_REWARD_HAPPINESS">
-			<Text>{1_value: number +#;-#} [icon:YIELD_HAPPINESS] Happiness towards the next Celebration</Text>
+			<Text>{1_value: number +#;-#} [icon:YIELD_HAPPINESS] Happiness toward the next Celebration</Text>
 		</Row>
 		<Row Tag="LOC_REWARD_SERIES">
 			<Text>{1_type}, {2_type} </Text>
@@ -183,25 +189,25 @@
 			<Text>Lose this unit</Text>
 		</Row>
 		<Row Tag="LOC_REWARD_AMOUNT_VP">
-			<Text>{1_value: number +#;-#} {1_Value: plural 1?Point; other?Points;} towards the {2_type} Legacy Path</Text>
+			<Text>{1_value: number +#;-#} {1_Value: plural 1?Point; other?Points;} toward the {2_type} Legacy Path</Text>
 		</Row>
 		<Row Tag="LOC_REWARD_VP_DEFAULT">
-			<Text>{1_value: number +#;-#} {1_Value: plural 1?Point; other?Points;} towards a Legacy Path</Text>
+			<Text>{1_value: number +#;-#} {1_Value: plural 1?Point; other?Points;} toward a Legacy Path</Text>
 		</Row>
 		<Row Tag="LOC_REWARD_PURCHASING_PERCENT">
-			<Text>{1_value: number +#;-#}% [icon:YIELD_GOLD] Gold towards purchasing</Text>
+			<Text>{1_value: number +#;-#}% [icon:YIELD_GOLD] Gold toward purchasing</Text>
 		</Row>
 		<Row Tag="LOC_TYPE_PURCHASE_PERCENT_BUILDINGS">
-			<Text>{1_value: number +#;-#}% [icon:YIELD_GOLD] Gold towards purchasing Buildings</Text>
+			<Text>{1_value: number +#;-#}% [icon:YIELD_GOLD] Gold toward purchasing Buildings</Text>
 		</Row>
 		<Row Tag="LOC_TYPE_PURCHASE_PERCENT_WONDERS">
-			<Text>{1_value: number +#;-#}%[icon:YIELD_GOLD] Gold towards purchasing Wonders</Text>
+			<Text>{1_value: number +#;-#}%[icon:YIELD_GOLD] Gold toward purchasing Wonders</Text>
 		</Row>
 		<Row Tag="LOC_TYPE_PURCHASE_PERCENT_IMPROVEMENTS">
-			<Text>{1_value: number +#;-#}%[icon:YIELD_GOLD] Gold towards purchasing Improvements</Text>
+			<Text>{1_value: number +#;-#}%[icon:YIELD_GOLD] Gold toward purchasing Improvements</Text>
 		</Row>
 		<Row Tag="LOC_TYPE_PURCHASE_PERCENT_TYPE">
-			<Text>{1_value: number +#;-#}% [icon:YIELD_GOLD] Gold towards purchasing {2_type}</Text>
+			<Text>{1_value: number +#;-#}% [icon:YIELD_GOLD] Gold toward purchasing {2_type}</Text>
 		</Row>
 		<Row Tag="LOC_NARRATIVE_TURN_TIMER">
 			<Text>{1_value} Turns</Text>
@@ -232,6 +238,9 @@
 		</Row>
 		<Row Tag="LOC_REWARD_CELEBRATION">
 			<Text>Enter a Celebration</Text>
+		</Row>
+		<Row Tag="LOC_REWARD_TRADITION">
+			<Text>{1_name}: {2_effect}</Text>
 		</Row>
 	</EnglishText>
 </Database>

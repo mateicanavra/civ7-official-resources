@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <GameEffects xmlns="GameEffects">
+	<Modifier id="MOD_UNLOCK_SHAWNEE_SYNCRETISM_ANTIQUITY" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
+		<Argument name="Tradition">TRADITION_SHAWNEE_SYNCRETISM_ANTIQUITY</Argument>
+	</Modifier>
+	<Modifier id="MOD_UNLOCK_SHAWNEE_SYNCRETISM_MODERN" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
+		<Argument name="Tradition">TRADITION_SHAWNEE_SYNCRETISM_MODERN</Argument>
+	</Modifier>
 	<!-- ==================================================	-->
 	<!--	EXPLORATION							-->
 	<!-- ==================================================	-->
@@ -12,8 +18,8 @@
 		</SubjectRequirements>
 		<Argument name="YieldType">YIELD_CULTURE</Argument>
 		<Argument name="Amount">4</Argument>
-		<Argument name="Tooltip">LOC_TRADITION_BREAD_DANCE_NAME</Argument>
-		<String context="Description">LOC_TRADITION_BREAD_DANCE_DESCRIPTION</String>
+		<Argument name="Tooltip">LOC_TRADITION_BREAD_DANCE_I_NAME</Argument>
+		<String context="Description">LOC_TRADITION_BREAD_DANCE_I_DESCRIPTION</String>
 	</Modifier>
 	<Modifier id="BREAD_DANCE_FISHING_TOWNS_FOOD" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
 		<SubjectRequirements>
@@ -23,19 +29,83 @@
 		</SubjectRequirements>
 		<Argument name="YieldType">YIELD_FOOD</Argument>
 		<Argument name="Amount">4</Argument>
-		<Argument name="Tooltip">LOC_TRADITION_BREAD_DANCE_NAME</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_BREAD_DANCE_I_NAME</Argument>
+	</Modifier>
+	<Modifier id="BREAD_DANCE_II_FARM_TOWNS_CULTURE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_HAS_PROJECT">
+				<Argument name="ProjectType">PROJECT_TOWN_GRANARY</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount">8</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_BREAD_DANCE_II_NAME</Argument>
+		<String context="Description">LOC_TRADITION_BREAD_DANCE_II_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="BREAD_DANCE_II_FISHING_TOWNS_FOOD" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_HAS_PROJECT">
+				<Argument name="ProjectType">PROJECT_TOWN_FISHING</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_FOOD</Argument>
+		<Argument name="Amount">8</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_BREAD_DANCE_II_NAME</Argument>
+	</Modifier>
+	<Modifier id="HELIKHILENAWEWIPE_I_MOD_ADJUST_ENDEAVOR" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_ADJUST_DIPLOMATIC_ACTION_TYPE_EFFICIENCY">
+		<Argument name="Percent">33</Argument>
+		<Argument name="ActionType">DIPLOMACY_ACTION_GIVE_INFLUENCE_TOKEN</Argument>
+		<String context="Description">LOC_TRADITION_HELIKHILENAWEWIPE_I_DESCRIPTION</String>
 	</Modifier>
 	<Modifier id="HELIKHILENAWEWIPE_MOD_ADJUST_ENDEAVOR" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_ADJUST_DIPLOMATIC_ACTION_TYPE_EFFICIENCY">
 		<Argument name="Percent">50</Argument>
 		<Argument name="ActionType">DIPLOMACY_ACTION_GIVE_INFLUENCE_TOKEN</Argument>
-		<String context="Description">LOC_TRADITION_HELIKHILENAWEWIPE_DESCRIPTION</String>
+		<String context="Description">LOC_TRADITION_HELIKHILENAWEWIPE_II_DESCRIPTION</String>
 	</Modifier>
-	<Modifier id="TAKESIYAKE_YEPEPOKI_MOD_WAREHOUSES" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ACTIVATE_CONSTRUCTIBLE_WAREHOUSE_YIELD">
+    <RequirementSet id="REQSET_TAKESIYAKE_YEPEPOKI_BIOME" type="REQUIREMENTSET_TEST_ANY">
+		<Requirement type="REQUIREMENT_PLOT_BIOME_TYPE_MATCHES">
+			<Argument name="BiomeType">BIOME_DESERT</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_PLOT_BIOME_TYPE_MATCHES">
+			<Argument name="BiomeType">BIOME_TUNDRA</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_PLOT_BIOME_TYPE_MATCHES">
+			<Argument name="BiomeType">BIOME_PLAINS</Argument>
+		</Requirement>
+    </RequirementSet>
+	<Modifier id="TAKESIYAKE_YEPEPOKI_BIOME_PRODUCTION" collection="COLLECTION_PLAYER_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
 		<SubjectRequirements>
 			<Requirement type="REQUIREMENT_CITY_IS_CITY"/>
+			<Requirement type="REQUIREMENT_PLOT_DISTRICT_CLASS" inverse="true">
+				<Argument name="DistrictClass">CITYCENTER, URBAN, WONDER</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+				<Argument name="RequirementSetId">REQSET_TAKESIYAKE_YEPEPOKI_BIOME</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_PLOT_IS_RIVER" inverse="true">
+				<Argument name="Navigable">true</Argument>
+			</Requirement>
 		</SubjectRequirements>
-		<Argument name="ConstructibleWarehouseYield">TakesiyakeYepepokiCityHallTundraProduction, TakesiyakeYepepokiCityHallDesertProduction, TakesiyakeYepepokiCityHallPlainsProduction, TakesiyakeYepepokiPalaceTundraProduction, TakesiyakeYepepokiPalaceDesertProduction, TakesiyakeYepepokiPalacePlainsProduction</Argument>
-		<String context="Description">LOC_TRADITION_TAKESIYAKE_YEPEPOKI_DESCRIPTION</String>
+		<Argument name="YieldType">YIELD_PRODUCTION</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_TAKESIYAKE_YEPEPOKI_NAME</Argument>
+	</Modifier>
+	<Modifier id="TAKESIYAKE_YEPEPOKI_RIVER_BIOME_PRODUCTION" collection="COLLECTION_PLAYER_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_CITY"/>
+			<Requirement type="REQUIREMENT_PLOT_DISTRICT_CLASS" inverse="true">
+				<Argument name="DistrictClass">CITYCENTER, URBAN, WONDER</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+				<Argument name="RequirementSetId">REQSET_TAKESIYAKE_YEPEPOKI_BIOME</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_PLOT_IS_RIVER">
+				<Argument name="Navigable">true</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_PRODUCTION</Argument>
+		<Argument name="Amount">4</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_TAKESIYAKE_YEPEPOKI_NAME</Argument>
 	</Modifier>
 	<Modifier id="KAKAWFE_PAFKOTAWETA_CULTURE_DISASTERS" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD_FROM_DISTATERS">
 		<Argument name="YieldType">YIELD_CULTURE</Argument>
@@ -48,5 +118,37 @@
 	</Modifier>
 	<Modifier id="KAKAWFE_PAFKOTAWETA_AVOID_STORMS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_AVOID_RANDOM_EVENT">
 		<Argument name="RandomEventClass">CLASS_BLIZZARD, CLASS_DUSTSTORM, CLASS_TORNADO, CLASS_THUNDERSTORM, CLASS_HURRICANE</Argument>
+	</Modifier>
+	<Modifier id="SHAWNEE_SYNCRETISM_ANTIQUITY_CITY_INFLUENCE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_ADJACENT_TO_RIVER">
+				<Argument name="Navigable">true</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_CITY_IS_CITY"/>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_SHAWNEE_SYNCRETISM_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="SHAWNEE_SYNCRETISM_ANTIQUITY_SUZERAIN_GOLD" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD_PER_SUZERAIN">
+		<Argument name="YieldType">YIELD_GOLD</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_SHAWNEE_SYNCRETISM_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="SHAWNEE_SYNCRETISM_MODERN_CITY_INFLUENCE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_ADJACENT_TO_RIVER">
+				<Argument name="Navigable">true</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_CITY_IS_CITY"/>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_SHAWNEE_SYNCRETISM_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="SHAWNEE_SYNCRETISM_MODERN_SUZERAIN_GOLD" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD_PER_SUZERAIN">
+		<Argument name="YieldType">YIELD_GOLD</Argument>
+		<Argument name="Amount">4</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_SHAWNEE_SYNCRETISM_TOOLTIP</Argument>
 	</Modifier>
 </GameEffects>

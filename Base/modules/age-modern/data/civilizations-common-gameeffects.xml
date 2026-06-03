@@ -41,6 +41,39 @@
 		<Argument name="YieldType">YIELD_DIPLOMACY</Argument>
 		<Argument name="Scale">true</Argument>
 	</Modifier>
+	<Modifier id="TRAIT_MOD_ADVANCED_START_INNOVATION" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_VICTORY_TRACKER_POINTS" permanent="true" run-once="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_IS_AGE_COUNT">
+				<Argument name="AgeCount">1</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="VictoryType">VICTORY_SCIENCE_MODERN</Argument>
+		<Argument name="Points">45</Argument>
+		<Argument name="ItemName">LOC_MO_ADVANCED_START_INNOVATION_NAME</Argument>
+		<Argument name="TypeData">ADVANCED_START</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_ADVANCED_START_GDP" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_VICTORY_TRACKER_POINTS" permanent="true" run-once="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_IS_AGE_COUNT">
+				<Argument name="AgeCount">1</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="VictoryType">VICTORY_ECONOMIC_MODERN</Argument>
+		<Argument name="Points">2500</Argument>
+		<Argument name="ItemName">LOC_MO_ADVANCED_START_INNOVATION_NAME</Argument>
+		<Argument name="TypeData">ADVANCED_START</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_ADVANCED_START_TOURISM" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_VICTORY_TRACKER_POINTS" permanent="true" run-once="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_IS_AGE_COUNT">
+				<Argument name="AgeCount">1</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="VictoryType">VICTORY_CULTURE_MODERN</Argument>
+		<Argument name="Points">100</Argument>
+		<Argument name="ItemName">LOC_MO_ADVANCED_START_INNOVATION_NAME</Argument>
+		<Argument name="TypeData">ADVANCED_START</Argument>
+	</Modifier>
 	<Modifier id="TRAIT_MOD_ADVANCED_START_ATTRIBUTES" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ATTRIBUTE" permanent="true" run-once="true">
 		<OwnerRequirements>
 			<Requirement type="REQUIREMENT_IS_AGE_COUNT">
@@ -173,5 +206,17 @@
 			</Requirement>
 		</SubjectRequirements>
 		<Argument name="ProjectType">PROJECT_TOWN_FACTORY</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_BONUS_RESOURCE_GDP" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ACTIVATE_VICTORY_POINT_TRACKER">
+		<Argument name="TrackerName">VICTORY_TRACKER_SLOTTED_BONUS</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_CITY_RESOURCE_GDP" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ACTIVATE_VICTORY_POINT_TRACKER">
+		<Argument name="TrackerName">VICTORY_TRACKER_SLOTTED_CITY</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_GOLD_BUILDING_GDP" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ACTIVATE_VICTORY_POINT_TRACKER">
+		<Argument name="TrackerName">VICTORY_TRACKER_GOLD_BUILDINGS_ANTIQUITY</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_IMPORTED_RESOURCE_GDP" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ACTIVATE_VICTORY_POINT_TRACKER">
+		<Argument name="TrackerName">VICTORY_TRACKER_IMPORTED_RESOURCES</Argument>
 	</Modifier>
 </GameEffects>

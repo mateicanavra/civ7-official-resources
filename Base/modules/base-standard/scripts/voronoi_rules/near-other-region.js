@@ -1,47 +1,39 @@
 import { Site } from '../../../core/scripts/external/TypeScript-Voronoi-master/src/site.js';
-import { VoronoiUtils, WrapType } from '../kd-tree.js';
+import { VoronoiUtils, WrapType } from '../voronoi-utils.js';
 import { Rule } from './rules-base.js';
-import '../../../core/scripts/external/TypeScript-Voronoi-master/src/voronoi.js';
-import '../../../core/scripts/external/TypeScript-Voronoi-master/src/rbtree.js';
-import '../../../core/scripts/external/TypeScript-Voronoi-master/src/vertex.js';
-import '../../../core/scripts/external/TypeScript-Voronoi-master/src/edge.js';
-import '../../../core/scripts/external/TypeScript-Voronoi-master/src/cell.js';
-import '../../../core/scripts/external/TypeScript-Voronoi-master/src/diagram.js';
-import '../../../core/scripts/external/TypeScript-Voronoi-master/src/halfedge.js';
-import '../../../core/scripts/MathHelpers.js';
-import '../random-pcg-32.js';
 
-class RuleNearOtherRegion extends Rule {
-  static getName() {
-    return "Near Other Region";
+const ruleSchema = {
+  disableDistance: {
+    label: "Disable Distance",
+    description: "The distance from another continent at which to avoid growing towards it.",
+    default: 1,
+    min: 0,
+    max: 5,
+    step: 0.1
+  },
+  scoreDistance: {
+    label: "Score Distance",
+    description: "The distance from another continent at which to start scoring it. Distances greater than this will score 0. Higher values are more expensive.",
+    default: 10,
+    min: 0,
+    max: 30,
+    step: 0.1
   }
+};
+class RuleNearOtherRegion extends Rule {
+  parameterSpecs = ruleSchema;
+  configValues = Rule.createDefaultsFromSpecs(ruleSchema);
   name = RuleNearOtherRegion.getName();
   description = "Scores cells near other regions higher than ones further away.";
-  configDefs = {
-    disableDistance: {
-      label: "Disable Distance",
-      description: "The distance from another continent at which to avoid growing towards it.",
-      defaultValue: 1,
-      min: 0,
-      max: 5,
-      step: 0.1
-    },
-    scoreDistance: {
-      label: "Score Distance",
-      description: "The distance from another continent at which to start scoring it. Distances greater than this will score 0. Higher values are more expensive.",
-      defaultValue: 10,
-      min: 0,
-      max: 30,
-      step: 0.1
-    }
-  };
-  configValues = {
-    disableDistance: this.configDefs.disableDistance.defaultValue,
-    scoreDistance: this.configDefs.scoreDistance.defaultValue
-  };
   regionConnection = /* @__PURE__ */ new Map();
   regionConnectionLive = /* @__PURE__ */ new Map();
   quadtree;
+  static getName() {
+    return "Near Other Region";
+  }
+  static getSchema() {
+    return ruleSchema;
+  }
   prepare() {
     this.regionConnectionLive.clear();
     for (const [key, value] of this.regionConnection) {

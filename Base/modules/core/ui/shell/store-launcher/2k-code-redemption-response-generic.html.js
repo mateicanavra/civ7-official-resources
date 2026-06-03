@@ -1,0 +1,4 @@
+const $2kCodeRedemptionResponseGenericContent = "<fxs-frame>\r\n\t<div class=\"rules-container flex flex-col flex-auto mt-4 mb-10\">\r\n\t\t<div class=\"flex flex-col items-center -mt-10\">\r\n\t\t\t<div class=\"title font-title text-2xl text-secondary\"></div>\r\n\t\t\t<div class=\"filigree-divider-h2 w-64\"></div>\r\n\t\t</div>\r\n\t\t<div class=\"flex flow-row justify-center\">\r\n\t\t\t<div class=\"info-box\"></div>\r\n\t\t</div>\r\n\t</div>\r\n\r\n\t<fxs-hslot class=\"button-container justify-around\">\r\n\t\t<fxs-button class=\"left-button\"></fxs-button>\r\n\t\t<fxs-button class=\"right-button\"></fxs-button>\r\n\t</fxs-hslot>\r\n</fxs-frame>\r\n";
+
+export { $2kCodeRedemptionResponseGenericContent as default };
+//# sourceMappingURL=2k-code-redemption-response-generic.html.js.map

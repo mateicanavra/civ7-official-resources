@@ -1,4 +1,4 @@
-import { F as FxsRingMeter } from '../../../core/ui/components/fxs-ring-meter.chunk.js';
+import { FxsRingMeter } from '../../../core/ui/components/fxs-ring-meter.js';
 
 class CrisisMeter extends FxsRingMeter {
   static stages = [

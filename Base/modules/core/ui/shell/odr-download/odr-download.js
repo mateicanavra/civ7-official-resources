@@ -1,11 +1,8 @@
-import { a as DialogBoxManager } from '../../dialog-box/manager-dialog-box.chunk.js';
-import { M as MainMenuReturnEvent } from '../../events/shell-events.chunk.js';
-import { P as Panel, A as AnchorType } from '../../panel-support.chunk.js';
-import { MustGetElement } from '../../utilities/utilities-dom.chunk.js';
-import '../../context-manager/display-queue-manager.js';
-import '../../framework.chunk.js';
-
-const styles = "fs://game/core/ui/shell/odr-download/odr-download.css";
+import { DialogBoxManager } from '../../dialog-box/manager-dialog-box.js';
+import { MainMenuReturnEvent } from '../../events/shell-events.js';
+import Panel, { AnchorType } from '../../panel-support.js';
+import { MustGetElement } from '../../utilities/utilities-dom.js';
+import styles from './odr-download.scss.js';
 
 class PanelDownloadAssets extends Panel {
   progressText;

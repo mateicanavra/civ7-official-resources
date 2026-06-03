@@ -1,31 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Database>
 	<AiListTypes>
-
 		<!-- Leader Yield biases -->
 		<Row ListType="Napoleon Emperor Yield Biases"/>
+		<Row ListType="Napoleon Emperor Diplomacy Biases"/>
 
 		<!-- Leader AI Budget Biases -->
 		<Row ListType="Napoleon Emperor Budget Biases"/>
-
 	</AiListTypes>
 	<AiLists>
-
 		<!-- Leader Yield Biases -->
 		<Row ListType="Napoleon Emperor Yield Biases" LeaderType="TRAIT_LEADER_NAPOLEON_ABILITY" System="YieldBiases"/>
+		<Row ListType="Napoleon Emperor Diplomacy Biases" LeaderType="TRAIT_LEADER_NAPOLEON_ABILITY" System="DiplomaticGroupBiases"/>
 
 		<!-- Leader AI Budget Biases -->
 		<Row ListType="Napoleon Emperor Budget Biases" LeaderType="TRAIT_LEADER_NAPOLEON_ABILITY" System="AiBudgetBiases"/>
-
 	</AiLists>
 	<AiFavoredItems>
-
 		<!-- Leader Yield Biases -->
 		<Row ListType="Napoleon Emperor Yield Biases" Item="YIELD_DIPLOMACY" Value="50"/>
 		<Row ListType="Napoleon Emperor Yield Biases" Item="YIELD_GOLD" Value="25"/>
+		<Row ListType="Napoleon Emperor Diplomacy Biases" Item="DIPLOMACY_ACTION_BECOME_SUZERAIN" Value="50"/>
+		<Row ListType="Napoleon Emperor Diplomacy Biases" Item="DIPLOMACY_ACTION_GROUP_SANCTION" Value="50"/>
 
 		<!-- Leader AI Budget Biases -->
 		<Row ListType="Napoleon Emperor Budget Biases" Item="AI_BUDGET_STANDING_ARMY" Value="50"/>
-
 	</AiFavoredItems>
 </Database>

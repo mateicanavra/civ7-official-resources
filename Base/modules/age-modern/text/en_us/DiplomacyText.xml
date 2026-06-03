@@ -5,7 +5,7 @@
 			<Text>Open your borders to them.[n][icon:YIELD_GOLD] +6 per turn.</Text>
 		</Row>
 		<Row Tag="LOC_DIPLOMACY_PROJECT_RESEARCH_COLLABORATION_INITIAL">
-			<Text>Do a Research Collaboration with another Leader.[n]Accepted: You receive +12[icon:YIELD_SCIENCE] Science per turn. Other Leader receives +6[icon:YIELD_SCIENCE] Science per turn.[n]Supported: Both Leaders receive +18[icon:YIELD_SCIENCE] Science per turn.</Text>
+			<Text>Do a Research Collaboration with another Leader.[n]Accepted: You receive +12[icon:YIELD_SCIENCE] Science per turn. Other Leader receives +6[icon:YIELD_SCIENCE] Science per turn.[n]Supported: Both Leaders receive +18[icon:YIELD_SCIENCE] Science per turn.[n]Rejected: Relationships worsen.</Text>
 		</Row>
 		<Row Tag="LOC_DIPLOMACY_PROJECT_RESEARCH_COLLABORATION_SUPPORT">
 			<Text>[icon:YIELD_SCIENCE] +18 per turn for both Leaders.</Text>
@@ -14,7 +14,7 @@
 			<Text>[icon:YIELD_SCIENCE] +6 per turn.[n]{1_initialName} receives [icon:YIELD_SCIENCE] +12 per turn.</Text>
 		</Row>
 		<Row Tag="LOC_DIPLOMACY_PROJECT_CULTURAL_EXCHANGE_INITIAL">
-			<Text>Have a Cultural Exchange with another Leader.[n]Accepted: You receive +12[icon:YIELD_CULTURE] Culture per turn. Other Leader receives +6[icon:YIELD_CULTURE] Culture per turn.[n]Supported: Both Leaders receive +18[icon:YIELD_CULTURE] Culture per turn.</Text>
+			<Text>Have a Cultural Exchange with another Leader.[n]Accepted: You receive +12[icon:YIELD_CULTURE] Culture per turn. Other Leader receives +6[icon:YIELD_CULTURE] Culture per turn.[n]Supported: Both Leaders receive +18[icon:YIELD_CULTURE] Culture per turn.[n]Rejected: Relationships worsen.</Text>
 		</Row>
 		<Row Tag="LOC_DIPLOMACY_PROJECT_CULTURAL_EXCHANGE_SUPPORT">
 			<Text>[icon:YIELD_CULTURE] +18 per turn for both Leaders.</Text>
@@ -23,7 +23,7 @@
 			<Text>[icon:YIELD_CULTURE] +6 per turn.[n]{1_initialName} receives [icon:YIELD_CULTURE] +12 per turn.</Text>
 		</Row>
 		<Row Tag="LOC_DIPLOMACY_PROJECT_MINOR_TRADE_INITIAL">
-			<Text>Have Open Markets with another Leader.[n]Accepted: You receive +12[icon:YIELD_GOLD] Gold per turn. Other Leader receives +6[icon:YIELD_GOLD] Gold per turn.[n]Supported: Both Leaders receive +18[icon:YIELD_GOLD] Gold per turn.</Text>
+			<Text>Have Open Markets with another Leader.[n]Accepted: You receive +12[icon:YIELD_GOLD] Gold per turn. Other Leader receives +6[icon:YIELD_GOLD] Gold per turn.[n]Supported: Both Leaders receive +18[icon:YIELD_GOLD] Gold per turn.[n]Rejected: Relationships worsen.</Text>
 		</Row>
 		<Row Tag="LOC_DIPLOMACY_PROJECT_MINOR_TRADE_SUPPORT">
 			<Text>[icon:YIELD_GOLD] +18 per turn received by both Leaders.</Text>
@@ -32,7 +32,7 @@
 			<Text>[icon:YIELD_GOLD] +6 per turn.[n]{1_initialName} receives [icon:YIELD_GOLD] +12 per turn.</Text>
 		</Row>
 		<Row Tag="LOC_DIPLOMACY_PROJECT_LOCAL_FESTIVALS_INITIAL">
-			<Text>Have Local Festivals with another Leader.[n]Accepted: You receive +6[icon:YIELD_HAPPINESS] Happiness per turn in all Cities. Other Leader receives +6[icon:YIELD_DIPLOMACY] Influence per turn.[n]Supported: Both Leaders receive +9[icon:YIELD_HAPPINESS] Happiness per turn in Cities.</Text>
+			<Text>Have Local Festivals with another Leader.[n]Accepted: You receive +6[icon:YIELD_HAPPINESS] Happiness per turn in all Cities. Other Leader receives +6[icon:YIELD_DIPLOMACY] Influence per turn.[n]Supported: Both Leaders receive +9[icon:YIELD_HAPPINESS] Happiness per turn in Cities.[n]Rejected: Relationships worsen.</Text>
 		</Row>
 		<Row Tag="LOC_DIPLOMACY_PROJECT_LOCAL_FESTIVALS_SUPPORT">
 			<Text>[icon:YIELD_HAPPINESS] +9 per turn in Cities for both Leaders.</Text>
@@ -41,7 +41,7 @@
 			<Text>[icon:YIELD_DIPLOMACY] +6 per turn.[n]{1_initialName} receives [icon:YIELD_HAPPINESS] +6 per turn in Cities.</Text>
 		</Row>
 		<Row Tag="LOC_DIPLOMACY_PROJECT_FARMERS_MARKET_INITIAL">
-			<Text>Share agricultural goods with another Leader.[n]Accepted: You receive +6[icon:YIELD_FOOD] Food per turn in Towns. Other Leader receives +6[icon:YIELD_GOLD] Gold per turn.[n]Supported: Both Leaders receive +9[icon:YIELD_FOOD] Food per turn in Towns.</Text>
+			<Text>Share agricultural goods with another Leader.[n]Accepted: You receive +6[icon:YIELD_FOOD] Food per turn in Towns. Other Leader receives +6[icon:YIELD_GOLD] Gold per turn.[n]Supported: Both Leaders receive +9[icon:YIELD_FOOD] Food per turn in Towns.[n]Rejected: Relationships worsen.</Text>
 		</Row>
 		<Row Tag="LOC_DIPLOMACY_PROJECT_FARMERS_MARKET_SUPPORT">
 			<Text>[icon:YIELD_FOOD] +9 per turn in Towns for both Leaders.</Text>
@@ -59,7 +59,7 @@
 			<Text>[icon:YIELD_GOLD] +90.[n]{1_initialName} can start an additional Trade Route with you.</Text>
 		</Row>
 		<Row Tag="LOC_DIPLOMACY_PROJECT_GINSING_AGREEMENT_INITIAL">
-			<Text>Have Ginseng Agreements with another Leader.[n]Accepted: You receive +9[icon:YIELD_FOOD] Food per turn in your Cities. Other Leader receives +6[icon:YIELD_FOOD] Food per turn in their Cities.[n]Supported: Both Leaders receive +15[icon:YIELD_FOOD] Food per turn in their Cities.</Text>
+			<Text>Have Ginseng Agreements with another Leader.[n]Accepted: You receive +9[icon:YIELD_FOOD] Food per turn in your Cities. Other Leader receives +6[icon:YIELD_FOOD] Food per turn in their Cities.[n]Supported: Both Leaders receive +15[icon:YIELD_FOOD] Food per turn in their Cities.[n]Rejected: Relationships worsen.</Text>
 		</Row>
 		<Row Tag="LOC_DIPLOMACY_PROJECT_GINSING_AGREEMENT_SUPPORT">
 			<Text>[icon:YIELD_FOOD] +15 per turn in both Leaders in their Cities.</Text>
@@ -80,7 +80,25 @@
 			<Text>Ideologies</Text>
 		</Row>
 		<Row Tag="LOC_DIPLOMACY_AGENDA_IDEOLOGIES_DESC">
-			<Text>Increase Relationship with Leaders in the same ideology. Decrease Relationship with players in different Ideologies.</Text>
+			<Text>Increase Relationship with Leaders in the same ideology. Decrease Relationship with Leaders in different Ideologies.</Text>
+		</Row>
+		<Row Tag="LOC_DIPLOMACY_PROJECT_WORKER_DISRUPTION_NAME">
+			<Text>Worker Disruption</Text>
+		</Row>
+		<Row Tag="LOC_DIPLOMACY_PROJECT_WORKER_DISRUPTION_REQUEST">
+			<Text>{1_leaderName} is attempting to reduce your [icon:YIELD_PRODUCTION]Production towards Wonders and Projects.</Text>
+		</Row>
+		<Row Tag="LOC_DIPLOMACY_PROJECT_WORKER_DISRUPTION_NO_DATA">
+			<Text>While active, reduces the [icon:YIELD_PRODUCTION]Production towards Wonders and Projects for the target player by 50%.</Text>
+		</Row>
+		<Row Tag="LOC_DIPLOMACY_PROJECT_WORKER_DISRUPTION_INITIAL">
+			<Text>Hinder producing Wonders and Projects of another leader. While active, reduces the [icon:YIELD_PRODUCTION]Production towards Wonders and Projects of the target player by 50%.</Text>
+		</Row>
+		<Row Tag="LOC_DIPLOMACY_PROJECT_WORKER_DISRUPTION_ACCEPT">
+			<Text>50% less [icon:YIELD_PRODUCTION]Production towards Wonders and Projects.</Text>
+		</Row>
+		<Row Tag="LOC_DIPLOMACY_PROJECT_WORKER_DISRUPTION_REJECT">
+			<Text>Cancels the Diplomatic Action.</Text>
 		</Row>
 	</EnglishText>
 </Database>

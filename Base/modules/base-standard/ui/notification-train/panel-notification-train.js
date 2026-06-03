@@ -1,18 +1,16 @@
-import { A as Audio } from '../../../core/ui/audio-base/audio-support.chunk.js';
-import ActionHandler, { ActiveDeviceTypeChangedEventName } from '../../../core/ui/input/action-handler.js';
-import FocusManager from '../../../core/ui/input/focus-manager.js';
-import { b as InputEngineEventName } from '../../../core/ui/input/input-support.chunk.js';
-import { V as ViewManager, N as Navigation } from '../../../core/ui/views/view-manager.chunk.js';
-import { P as Panel, A as AnchorType } from '../../../core/ui/panel-support.chunk.js';
-import { C as ComponentID } from '../../../core/ui/utilities/utilities-component-id.chunk.js';
-import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.chunk.js';
-import { Icon } from '../../../core/ui/utilities/utilities-image.chunk.js';
+import { Audio } from '../../../core/ui/audio-base/audio-support.js';
+import ActionHandler from '../../../core/ui/input/action-handler.js';
+import { ActiveDeviceTypeChangedEventName } from '../../../core/ui/input/input-events.js';
+import { InputEngineEventName } from '../../../core/ui/input/input-support.js';
+import { Navigation } from '../../../core/ui/input/navigation-support.js';
+import Panel, { AnchorType } from '../../../core/ui/panel-support.js';
+import { ComponentID } from '../../../core/ui/utilities/utilities-component-id.js';
+import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
+import { Icon } from '../../../core/ui/utilities/utilities-image.js';
+import ViewManager from '../../../core/ui/views/view-manager.js';
+import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
 import { NotificationModel } from './model-notification-train.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/input/cursor.js';
-import '../../../core/ui/utilities/utilities-update-gate.chunk.js';
-
-const styles = "fs://game/base-standard/ui/notification-train/panel-notification-train.css";
+import styles from './panel-notification-train.scss.js';
 
 const DEBUG_dummy_notifications = 0;
 var NotificationView;
@@ -219,7 +217,7 @@ class PanelNotificationTrain extends Panel {
   focusWorld() {
     ViewManager.getHarness()?.classList.add("trigger-nav-help");
     Input.setActiveContext(InputContext.World);
-    FocusManager.SetWorldFocused();
+    FocusManager.get().clearFocus();
   }
   onNotificationEngineInput(inputEvent) {
     if (inputEvent.detail.status != InputActionStatuses.FINISH) {
@@ -478,7 +476,7 @@ class PanelNotificationTrain extends Panel {
     }
   }
   reset() {
-    if (this.Root.contains(FocusManager.getFocus())) {
+    if (this.Root.contains(FocusManager.get().currentFocus())) {
       this.focusWorld();
     }
     while (this.notificationList.hasChildNodes()) {
@@ -511,7 +509,7 @@ class PanelNotificationTrain extends Panel {
     }
   }
   update() {
-    if (this.Root.contains(FocusManager.getFocus())) {
+    if (this.Root.contains(FocusManager.get().currentFocus())) {
       this.focusWorld();
     }
     if (this.toRemoveIds.length) {
@@ -642,7 +640,7 @@ class PanelNotificationTrain extends Panel {
   onFocusNotifications() {
     if (Navigation.isFocusable(this.notificationList)) {
       Input.setActiveContext(InputContext.Dual);
-      FocusManager.setFocus(this.notificationList);
+      FocusManager.get().setFocus(this.notificationList);
       ViewManager.getHarness()?.classList.remove("trigger-nav-help");
     }
   }

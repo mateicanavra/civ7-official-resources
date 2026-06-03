@@ -1,13 +1,11 @@
-import { L as LensManager } from '../../../../core/ui/lenses/lens-manager.chunk.js';
+import LensManager from '../../../../core/ui/lenses/lens-manager.js';
 
-const UPSCALE_START = 1080;
 const SPRITE_PLOT_POSITION = { x: 0, y: 25, z: 5 };
 const RESOURCE_SIZE = 42;
 const TYPE_SIZE = 20;
-const TYPE_OFFSET = { x: -12, y: -12 };
-const TREASURE_FLEET_TYPE_SIZE = 42;
-const TREASURE_FLEET_TYPE_OFFSET = { x: -5, y: -12 };
+const TYPE_OFFSET = { x: 0, y: -16 };
 class ResourceLensLayer {
+  static instance = new ResourceLensLayer();
   resourceSpriteGrid = WorldUI.createSpriteGrid(
     "AllResources_SpriteGroup",
     SpriteMode.FixedBillboard
@@ -16,6 +14,7 @@ class ResourceLensLayer {
     "AllResourcesClassType_SpriteGroup",
     SpriteMode.FixedBillboard
   );
+  suppressedPlots = /* @__PURE__ */ new Set();
   resourceAddedToMapListener = (data) => {
     this.onResourceAddedToMap(data);
   };
@@ -46,21 +45,12 @@ class ResourceLensLayer {
         }
         const resourceDefinition = GameInfo.Resources.lookup(resource);
         if (resourceDefinition) {
-          if (resourceDefinition.ResourceClassType == "RESOURCECLASS_TREASURE" && player.isDistantLands({ x, y })) {
-            this.addResourceSprites({
-              location: { x, y },
-              resource: resourceDefinition.ResourceType,
-              class: resourceDefinition.ResourceClassType,
-              canCreatetreasureFleet: true
-            });
-          } else {
-            this.addResourceSprites({
-              location: { x, y },
-              resource: resourceDefinition.ResourceType,
-              class: resourceDefinition.ResourceClassType,
-              canCreatetreasureFleet: false
-            });
-          }
+          this.addResourceSprites({
+            location: { x, y },
+            resource: resourceDefinition.ResourceType,
+            class: resourceDefinition.ResourceClassType,
+            isDistantLands: player.isDistantLands({ x, y })
+          });
         } else {
           console.error(`Could not find resource with type ${resource}.`);
         }
@@ -85,24 +75,51 @@ class ResourceLensLayer {
     this.resourceSpriteGrid.addSpriteFOW(entry.location, asset, assetFow, SPRITE_PLOT_POSITION, {
       scale: RESOURCE_SIZE
     });
-    if (entry.canCreatetreasureFleet) {
-      const typeasset = UI.getIconBLP("RESOURCECLASS_TREASURE_FLEET");
-      const typeassetFow = UI.getIconBLP("RESOURCECLASS_TREASURE_FLEET", "FOW");
-      this.resourceTypeSpriteGrid.addSpriteFOW(entry.location, typeasset, typeassetFow, SPRITE_PLOT_POSITION, {
-        scale: TREASURE_FLEET_TYPE_SIZE,
-        offset: TREASURE_FLEET_TYPE_OFFSET
-      });
-    } else {
-      const typeasset = UI.getIconBLP(entry.class);
-      const typeassetFow = UI.getIconBLP(entry.class, "FOW");
-      this.resourceTypeSpriteGrid.addSpriteFOW(entry.location, typeasset, typeassetFow, SPRITE_PLOT_POSITION, {
-        scale: TYPE_SIZE,
-        offset: TYPE_OFFSET
-      });
+    const isTreasureFleet = entry.class == "RESOURCECLASS_TREASURE" && entry.isDistantLands;
+    const typeAsset = UI.getIconBLP(isTreasureFleet ? "RESOURCECLASS_TREASURE_FLEET" : entry.class);
+    const typeAssetFow = UI.getIconBLP(isTreasureFleet ? "RESOURCECLASS_TREASURE_FLEET" : entry.class, "FOW");
+    this.resourceTypeSpriteGrid.addSpriteFOW(entry.location, typeAsset, typeAssetFow, SPRITE_PLOT_POSITION, {
+      scale: TYPE_SIZE,
+      offset: TYPE_OFFSET
+    });
+  }
+  suppressPlots(plots) {
+    if (this.suppressedPlots.size > 0) {
+      console.log("resource-layer: suppressPlots() called multiple times without clearing\n");
+      this.clearSuppressedPlots();
+    }
+    for (const plot of plots) {
+      this.clearResourceSpritesFromPlot(plot);
+      this.suppressedPlots.add(plot);
     }
   }
+  clearSuppressedPlots() {
+    const player = Players.get(GameContext.localPlayerID);
+    if (!player) {
+      console.log(`resource-layer: initLayer() Failed to find player for ${GameContext.localPlayerID}`);
+      return;
+    } else {
+      for (const plot of this.suppressedPlots) {
+        const location = GameplayMap.getLocationFromIndex(plot);
+        const resource = GameplayMap.getResourceType(location.x, location.y);
+        if (resource == ResourceTypes.NO_RESOURCE) {
+          continue;
+        }
+        const resourceDefinition = GameInfo.Resources.lookup(resource);
+        if (resourceDefinition) {
+          this.addResourceSprites({
+            location,
+            resource: resourceDefinition.ResourceType,
+            class: resourceDefinition.ResourceClassType,
+            isDistantLands: player.isDistantLands(location)
+          });
+        }
+      }
+    }
+    this.suppressedPlots.clear();
+  }
   updateIconScaling() {
-    const scale = Math.max(window.innerHeight / UPSCALE_START, 1);
+    const scale = Math.max(GlobalScaling.getCurrentScale() / 100, 1);
     this.resourceSpriteGrid.setScale(scale);
     this.resourceTypeSpriteGrid.setScale(scale);
   }
@@ -125,12 +142,11 @@ class ResourceLensLayer {
     const resourceDefinition = GameInfo.Resources.lookup(data.resourceType);
     if (resourceDefinition) {
       this.clearResourceSpritesFromPlot(data.location);
-      const isTreasureFleetCreatable = resourceDefinition.ResourceClassType == "RESOURCECLASS_TREASURE" && player.isDistantLands({ x: data.location.x, y: data.location.y });
       this.addResourceSprites({
         location: data.location,
         resource: resourceDefinition.ResourceType,
         class: resourceDefinition.ResourceClassType,
-        canCreatetreasureFleet: isTreasureFleetCreatable
+        isDistantLands: player.isDistantLands(data.location)
       });
     } else {
       console.error(`Could not find resource with type ${data.resourceType}.`);
@@ -141,9 +157,11 @@ class ResourceLensLayer {
   }
   onLayerHotkey(hotkey) {
     if (hotkey.detail.name == "toggle-resources-layer") {
-      LensManager.toggleLayer("fxs-resource-layer");
+      LensManager.toggleLayer("fxs-resource-layer", { serialize: true });
     }
   }
 }
-LensManager.registerLensLayer("fxs-resource-layer", new ResourceLensLayer());
+LensManager.registerLensLayer("fxs-resource-layer", ResourceLensLayer.instance);
+
+export { ResourceLensLayer };
 //# sourceMappingURL=resource-layer.js.map

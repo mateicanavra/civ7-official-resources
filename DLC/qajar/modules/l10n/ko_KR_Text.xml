@@ -346,13 +346,13 @@
       <Text>새로운 왕실 암각화를 기존 암각화에 추가해야 합니다.</Text>
     </Replace>
     <Replace Tag="LOC_11083C_DESCRIPTION" Language="ko_KR">
-      <Text>모든 걸작에 [icon:YIELD_CULTURE] 문화 +4.</Text>
+      <Text>모든 걸작의 [icon:YIELD_CULTURE] 문화가 +6 증가합니다.</Text>
     </Replace>
     <Replace Tag="LOC_11083C_NAME" Language="ko_KR">
       <Text>원본의 복제품을 왕실에 설치할 것입니다.</Text>
     </Replace>
     <Replace Tag="LOC_11083D_DESCRIPTION" Language="ko_KR">
-      <Text>모든 걸작에 [icon:YIELD_DIPLOMACY] 영향력 +2.</Text>
+      <Text>모든 걸작의 [icon:YIELD_DIPLOMACY] 영향력이 +2 증가합니다.</Text>
     </Replace>
     <Replace Tag="LOC_11083D_NAME" Language="ko_KR">
       <Text>권력자를 찬미하는 예술 작품은 많을수록 좋습니다!</Text>
@@ -513,11 +513,29 @@
     <Replace Tag="LOC_12011C_NAME" Language="ko_KR">
       <Text>그가 얼마나 큰 연회를 벌였는지 묻습니다.</Text>
     </Replace>
+    <Replace Tag="LOC_TOT_30042A_COMPLETION" Language="ko_KR">
+      <Text>카자르 사령관은 아버지의 유골이 담긴 관 앞에 무릎 꿇고 말 없이 나아갈 길을 묻습니다. 고국에서는 잔드 부족과 이란 왕좌를 노리는 다른 세력들이 반란을 꾀하고 있고, 세계 강대국들은 끊임없이 이란의 부를 노리며 음모를 꾸밉니다. 위대한 페르시아 샤의 혈통이 아니라 문명의 변방에 살던 부족민 출신인 그가 어떻게 하면 카자르 왕조의 이란 지배를 공고히 할 수 있을까요?</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30042A_STORYTITLE" Language="ko_KR">
+      <Text>성유물의 응답</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30042B_DESCRIPTION" Language="ko_KR">
+      <Text>{1_reward}.</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30042B_NAME" Language="ko_KR">
+      <Text>유골은 입을 열지 않지만, 그 눈구멍은 물러서면 죽음 뿐이라는 메시지를 전합니다.</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30042C_DESCRIPTION" Language="ko_KR">
+      <Text>{1_reward}.</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30042C_NAME" Language="ko_KR">
+      <Text>유골은 답을 주지 않은 채 기다립니다. 카자르 왕조도 인내할 것입니다.</Text>
+    </Replace>
     <Replace Tag="LOC_ABILITY_GHILMAN_DESCRIPTION" Language="ko_KR">
-      <Text>[icon:UNIT_SOLTAN] 사르다르의 지휘 반경 안에 있으면 [icon:NAR_REW_COMBAT] 전투력이 +5 증가하고 턴마다 [icon:Action_Heal] 체력을 +10 회복합니다.</Text>
+      <Text>[icon:UNIT_SOLTAN] 사르다르의 [TIP:LOC_PEDIA_CONCEPTS_COMMAND_RADIUS_TOOLTIP]지휘 반경[/TIP] 안에 있으면 [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]전투력[/TIP]이 +5 증가하고 턴마다 [icon:Action_Heal] 체력을 +10 회복합니다.</Text>
     </Replace>
     <Replace Tag="LOC_ABILITY_SOLTAN_DESCRIPTION" Language="ko_KR">
-      <Text>[icon:Action_Move] 이동력이 +1 증가합니다. 정착지 파괴 시, 이 사령관이 [icon:CITY_URBAN] 특수지구 위에 있으면 해당 정착지의 [icon:CITY_URBAN] 특수지구가 추가로 한 개 더 파괴됩니다.</Text>
+      <Text>[icon:Action_Move] 이동력이 +1 증가합니다. 정착지 파괴 시, 이 사령관이 [icon:CITY_URBAN] 특수지구 위에 있으면 해당 정착지 내 [icon:CITY_URBAN] 특수지구의 턴당 파괴 속도가 두 배가 됩니다.</Text>
     </Replace>
     <Replace Tag="LOC_ATTR_ADJUST_CITY_YIELD_PER_UNDER_THE_SETTLEMENT_CAP" Language="ko_KR">
       <Text>한도 내의 정착지당 생산량</Text>
@@ -526,16 +544,16 @@
       <Text>한도 내의 정착지</Text>
     </Replace>
     <Replace Tag="LOC_BUILDING_GHAHVE_KHANE_DESCRIPTION" Language="ko_KR">
-      <Text>카자르 특유 식량 건물입니다. [icon:YIELD_FOOD] 식량이 +9 증가합니다. 금 건물 및 불가사의 인접 시 [icon:YIELD_HAPPINESS] 행복도가 +1 증가합니다. 시대를 초월합니다.</Text>
+      <Text>카자르 [TIP:LOC_PEDIA_CONCEPTS_UNIQUE_BUILDING_TOOLTIP]특유 식량 건물[/TIP]입니다. [icon:YIELD_FOOD] 식량이 +9 증가합니다. 금 [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]건물[/TIP] 및 [TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]불가사의[/TIP] 인접 시 [icon:YIELD_HAPPINESS] 행복도가 +1 증가합니다.</Text>
     </Replace>
     <Replace Tag="LOC_BUILDING_GHAHVE_KHANE_TOOLTIP" Language="ko_KR">
-      <Text>카자르 특유 건물입니다.</Text>
+      <Text>카자르 [TIP:LOC_PEDIA_CONCEPTS_UNIQUE_BUILDING_TOOLTIP]특유 건물[/TIP]입니다.</Text>
     </Replace>
     <Replace Tag="LOC_BUILDING_TAKYEH_DESCRIPTION" Language="ko_KR">
-      <Text>카자르 특유 행복도 건물입니다. [icon:YIELD_HAPPINESS] 행복도가 +9 증가합니다. 문화 건물 및 불가사의 인접 시 [icon:YIELD_DIPLOMACY] 영향력이 +1 증가합니다. 시대를 초월합니다.</Text>
+      <Text>카자르 [TIP:LOC_PEDIA_CONCEPTS_UNIQUE_BUILDING_TOOLTIP]특유 행복도 건물[/TIP]입니다. [icon:YIELD_HAPPINESS] 행복도가 +9 증가합니다. 문화 [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]건물[/TIP] 및 [TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]불가사의[/TIP] 인접 시 [icon:YIELD_DIPLOMACY] 영향력이 +1 증가합니다.</Text>
     </Replace>
     <Replace Tag="LOC_BUILDING_TAKYEH_TOOLTIP" Language="ko_KR">
-      <Text>카자르 특유 건물입니다.</Text>
+      <Text>카자르 [TIP:LOC_PEDIA_CONCEPTS_UNIQUE_BUILDING_TOOLTIP]특유 건물[/TIP]입니다.</Text>
     </Replace>
     <Replace Tag="LOC_CIVIC_NEZAM_E_JADID_AUTHOR" Language="ko_KR">
       <Text>나디르 샤</Text>
@@ -573,29 +591,26 @@
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_QAJAR_COMPLETE_ERAM_GARDEN_NAME" Language="ko_KR">
       <Text>에람 정원</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_QAJAR_LEGACY_PATH_MILITARY_DESC" Language="ko_KR">
-      <Text>카자르로 군사 유산의 길을 완료하세요.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_QAJAR_FOUR_MAJOR_TRIUMPHS_DESC" Language="ko_KR">
+      <Text>카자르로 하나의 정점기 시대 내에 외교 또는 팽창주의 하급 대성공을 4번 완료하세요.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_QAJAR_LEGACY_PATH_MILITARY_NAME" Language="ko_KR">
-      <Text>카자르 유산의 길</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_QAJAR_FOUR_MAJOR_TRIUMPHS_NAME" Language="ko_KR">
+      <Text>카자르 하급 대성공 4번</Text>
     </Replace>
     <Replace Tag="LOC_MOD_CIV_WONDER_PRODUCTION_QAJAR_DESCRIPTION" Language="ko_KR">
       <Text>카자르와 연관된 [icon:WONDER] 불가사의이므로 [icon:YIELD_PRODUCTION] 생산력이 +30% 증가합니다.</Text>
     </Replace>
-    <Replace Tag="LOC_MOD_NEZAM_E_JADID_UNDER_CAP_COMBAT_DESCRIPTION" Language="ko_KR">
-      <Text>[icon:SETTLEMENT_LIMIT] 정착지 한도 내의 정착지 2곳마다 지상 군사 유닛의 [icon:NAR_REW_COMBAT] 전투력이 +1 증가합니다.</Text>
+    <Replace Tag="LOC_NODE_CIVIC_AQ_QAJAR_ORIGINS_NAME" Language="ko_KR">
+      <Text>카자르 기원</Text>
     </Replace>
-    <Replace Tag="LOC_MOD_SUN_THRONE_DIPLO_SENDER_YIELD_DESCRIPTION" Language="ko_KR">
-      <Text>[icon:ENDEAVOR] 외교 노력 지지 시 [icon:YIELD_CULTURE] 문화를 200 얻고, 상대 지도자는 [icon:YIELD_GOLD] 금을 100 얻습니다(일반 속도 기준).</Text>
-    </Replace>
-    <Replace Tag="LOC_MOD_TWELVE_GATES_YIELD_UNDER_CAP_DESCRIPTION" Language="ko_KR">
-      <Text>[icon:SETTLEMENT_LIMIT] 정착지 한도 내의 정착지 하나마다 [icon:NOTIFICATION_SELECT_CAPITAL] 수도의 [icon:YIELD_FOOD] 식량 및 [icon:YIELD_PRODUCTION] 생산력이 +10 증가합니다. </Text>
+    <Replace Tag="LOC_NODE_CIVIC_EX_QAJAR_RENAISSANCE_NAME" Language="ko_KR">
+      <Text>카자르 르네상스</Text>
     </Replace>
     <Replace Tag="LOC_QUARTER_BAQ_DESCRIPTION" Language="ko_KR">
-      <Text>카자르 특유 구역입니다. 하나의 특수지구에 가흐베 하네와 타키예를 지으면 생성됩니다. [icon:CELEBRATION] 기념 행사 기간에 이 정착지의 [icon:YIELD_CULTURE] 문화 및 [icon:YIELD_DIPLOMACY] 영향력이 +10% 증가합니다.</Text>
+      <Text>카자르 [TIP:LOC_PEDIA_CONCEPTS_UNIQUE_QUARTER_TOOLTIP]특유 구역[/TIP]입니다. 하나의 [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]특수지구[/TIP]에 가흐베 하네와 타키예를 지으면 생성됩니다. [icon:CELEBRATION] [TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]기념 행사[/TIP] 기간에 이 [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]정착지[/TIP]의 [icon:YIELD_CULTURE] 문화 및 [icon:YIELD_DIPLOMACY] 영향력이 +10% 증가합니다.</Text>
     </Replace>
     <Replace Tag="LOC_QUARTER_BAQ_TOOLTIP" Language="ko_KR">
-      <Text> [icon:CELEBRATION] 기념 행사 기간에 이 정착지의 [icon:YIELD_CULTURE] 문화 및 [icon:YIELD_DIPLOMACY] 영향력이 +10% 증가합니다.</Text>
+      <Text>[icon:CELEBRATION] [TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]기념 행사[/TIP] 기간에 이 [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]정착지[/TIP]의 [icon:YIELD_CULTURE] 문화 및 [icon:YIELD_DIPLOMACY] 영향력이 +10% 증가합니다.</Text>
     </Replace>
     <Replace Tag="LOC_QUOTE_AUTHOR_WONDER_ERAM_GARDEN" Language="ko_KR">
       <Text>피르다우시</Text>
@@ -603,17 +618,41 @@
     <Replace Tag="LOC_QUOTE_WONDER_ERAM_GARDEN" Language="ko_KR">
       <Text>정원은 봄옷으로 단장했고 공기는 음악과 노래의 감미로운 소리로 가득했다.</Text>
     </Replace>
-    <Replace Tag="LOC_TRADITION_QULLARAQASI_DESCRIPTION" Language="ko_KR">
-      <Text>정착지의 [icon:CITY_URBAN] 특수지구에 주둔한 [icon:UNIT_ARMY_COMMANDER] 사령관 하나마다 [icon:YIELD_HAPPINESS] 행복도가 +15 증가합니다.</Text>
+    <Replace Tag="LOC_TRADITION_DAR_AL_FONUN_I_DESCRIPTION" Language="ko_KR">
+      <Text>[icon:SETTLEMENT_LIMIT] [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_LIMIT_TOOLTIP]정착지 한도[/TIP] 미만의 [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]정착지[/TIP] 하나마다 [icon:NOTIFICATION_SELECT_CAPITAL] 수도의 [icon:YIELD_CULTURE] 문화 및 [icon:YIELD_SCIENCE] 과학이 +3 증가합니다.</Text>
     </Replace>
-    <Replace Tag="LOC_TRADITION_SOLEYMANIYEH_PALACE_DESCRIPTION" Language="ko_KR">
+    <Replace Tag="LOC_TRADITION_DAR_AL_FONUN_II_DESCRIPTION" Language="ko_KR">
+      <Text>[icon:SETTLEMENT_LIMIT] [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_LIMIT_TOOLTIP]정착지 한도[/TIP] 미만의 [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]정착지[/TIP] 하나마다 [icon:NOTIFICATION_SELECT_CAPITAL] 수도의 [icon:YIELD_SCIENCE] 과학 및 [icon:YIELD_CULTURE] 문화가 +10 증가합니다.</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_DAR_AL_FONUN_TOOLTIP" Language="ko_KR">
+      <Text>다르 알 포눈</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_QAJAR_SYNCRETISM_ANTIQUITY_DESCRIPTION" Language="ko_KR">
+      <Text>[icon:SETTLEMENT_LIMIT] [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_LIMIT_TOOLTIP]정착지 한도[/TIP] 미만의 [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]정착지[/TIP] 하나마다 [icon:NOTIFICATION_SELECT_CAPITAL] 수도의 [icon:YIELD_DIPLOMACY] 영향력이 +1 증가합니다.</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_QAJAR_SYNCRETISM_EXPLORATION_DESCRIPTION" Language="ko_KR">
+      <Text>[icon:SETTLEMENT_LIMIT] [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_LIMIT_TOOLTIP]정착지 한도[/TIP] 미만의 [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]정착지[/TIP] 하나마다 [icon:NOTIFICATION_SELECT_CAPITAL] 수도의 [icon:YIELD_HAPPINESS] 행복도 및 [icon:YIELD_DIPLOMACY] 영향력이 +1 증가합니다.</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_QAJAR_SYNCRETISM_TOOLTIP" Language="ko_KR">
+      <Text>와가예-에 에테파기야</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_QULLARAQASI_DESCRIPTION" Language="ko_KR">
+      <Text>[icon:SETTLEMENT_LIMIT] [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_LIMIT_TOOLTIP]정착지 한도[/TIP] 내의 [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]정착지[/TIP] 2곳마다 [TIP:LOC_PEDIA_CONCEPTS_LAND_UNITS_TOOLTIP]지상[/TIP] [TIP:LOC_PEDIA_CONCEPTS_MILITARY_UNIT_TOOLTIP]군사 유닛[/TIP]의 [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]전투력[/TIP]이 +1 증가합니다.</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_SOLEYMANIYEH_PALACE_I_DESCRIPTION" Language="ko_KR">
+      <Text>[icon:NOTIFICATION_SELECT_CAPITAL] 수도의 [icon:YIELD_POPULATION] 인구마다 [icon:YIELD_DIPLOMACY] 영향력이 +0.25 증가합니다.</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_SOLEYMANIYEH_PALACE_II_DESCRIPTION" Language="ko_KR">
       <Text>[icon:NOTIFICATION_SELECT_CAPITAL] 수도의 [icon:YIELD_POPULATION] 인구 하나마다 [icon:YIELD_DIPLOMACY] 영향력이 +0.5 증가합니다.</Text>
     </Replace>
-    <Replace Tag="LOC_TRADITION_WAQAYE_E_ETTEFAQIYA_DESCRIPTION" Language="ko_KR">
-      <Text>[icon:SETTLEMENT_LIMIT] 정착지 한도 내의 정착지마다 [icon:NOTIFICATION_SELECT_CAPITAL] 수도의 [icon:YIELD_SCIENCE] 과학 및 [icon:YIELD_CULTURE] 문화가 +10 증가합니다.</Text>
+    <Replace Tag="LOC_TRAIT_QAJAR_ABILITY_AQ_DESCRIPTION" Language="ko_KR">
+      <Text>[BLIST][LI][icon:DIPLOMATIC_ACTION] [B]외교 활동[/B] 지지에 드는 [B][icon:YIELD_DIPLOMACY] 영향력 효율을 +50%[/B] 제공합니다.[LI][B][icon:SETTLEMENT_LIMIT] [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_LIMIT_TOOLTIP]정착지 한도[/TIP][/B] 내의 [B][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]정착지[/TIP][/B] 하나마다 [B][icon:NOTIFICATION_SELECT_CAPITAL] 수도[/B]의 [B][icon:YIELD_FOOD] 식량[/B] 및 [B][icon:YIELD_PRODUCTION] 생산력이 +2[/B] 증가합니다.[/LIST]</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_QAJAR_ABILITY_DESCRIPTION" Language="ko_KR">
-      <Text>[BLIST][LI][icon:DIPLOMATIC_ACTION] [B]외교 활동[/B] 지지 시 [B][icon:YIELD_DIPLOMACY] 영향력 효율을 +50%[/B] 제공합니다.[LI][B]에람 정원[/B] 건설 시 [B][icon:YIELD_PRODUCTION] 생산력 효율을 +30%[/B] 제공합니다.[/LIST]</Text>
+      <Text>[BLIST][LI][icon:DIPLOMATIC_ACTION] [B]외교 활동[/B] 지지에 드는 [B][icon:YIELD_DIPLOMACY] 영향력 효율을 +50%[/B] 제공합니다.[LI][B][icon:SETTLEMENT_LIMIT] [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_LIMIT_TOOLTIP]정착지 한도[/TIP][/B] 내의 [B][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]정착지[/TIP][/B] 하나마다 [B][icon:NOTIFICATION_SELECT_CAPITAL] 수도[/B]의 [B][icon:YIELD_FOOD] 식량[/B] 및 [B][icon:YIELD_PRODUCTION] 생산력이 +10[/B] 증가합니다.[LI][B]에람 정원[/B] 건설 시 [B][icon:YIELD_PRODUCTION] 생산력 효율을 +30%[/B] 제공합니다.[/LIST]</Text>
+    </Replace>
+    <Replace Tag="LOC_TRAIT_QAJAR_ABILITY_EX_DESCRIPTION" Language="ko_KR">
+      <Text>[BLIST][LI][icon:DIPLOMATIC_ACTION] [B]외교 활동[/B] 지지에 드는 [B][icon:YIELD_DIPLOMACY] 영향력 효율을 +50%[/B] 제공합니다.[LI][B][icon:SETTLEMENT_LIMIT] [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_LIMIT_TOOLTIP]정착지 한도[/TIP][/B] 내의 [B][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]정착지[/TIP][/B] 하나마다 [B][icon:NOTIFICATION_SELECT_CAPITAL] 수도[/B]의 [B][icon:YIELD_FOOD] 식량[/B] 및 [B][icon:YIELD_PRODUCTION] 생산력이 +6[/B] 증가합니다.[/LIST]</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_QAJAR_ABILITY_NAME" Language="ko_KR">
       <Text>카야니 왕관</Text>
@@ -622,19 +661,19 @@
       <Text>카자르 사회 제도</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_GHILMAN_2_DESCRIPTION" Language="ko_KR">
-      <Text>카자르 특유 2티어 기병 유닛입니다. [icon:UNIT_SOLTAN] 사르다르의 [icon:COMMANDER_RADIUS] 지휘 반경 안에 있으면 [icon:NAR_REW_COMBAT] 전투력이 +5 증가하고 턴마다 [icon:Action_Heal] 체력을 +10 회복합니다. 통제 지역을 무시합니다.</Text>
+      <Text>카자르 특유 2티어 [TIP:LOC_PEDIA_CONCEPTS_CAVALRY_UNITS_TOOLTIP]기병 유닛[/TIP]입니다. [icon:UNIT_ARMY_COMMANDER] [TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]군단장[/TIP]의 [icon:COMMANDER_RADIUS] [TIP:LOC_PEDIA_CONCEPTS_COMMAND_RADIUS_TOOLTIP]지휘 반경[/TIP] 안에 있으면 [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]전투력[/TIP]이 +5 증가하고 턴마다 [icon:Action_Heal] 체력을 +10 회복합니다.</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_GHILMAN_3_DESCRIPTION" Language="ko_KR">
-      <Text>카자르 특유 3티어 기병 유닛입니다. [icon:UNIT_SOLTAN] 사르다르의 [icon:COMMANDER_RADIUS] 지휘 반경 안에 있으면 [icon:NAR_REW_COMBAT] 전투력이 +5 증가하고 턴마다 [icon:Action_Heal] 체력을 +10 회복합니다. 통제 지역을 무시합니다.</Text>
+      <Text>카자르 특유 3티어 [TIP:LOC_PEDIA_CONCEPTS_CAVALRY_UNITS_TOOLTIP]기병 유닛[/TIP]입니다. [icon:UNIT_ARMY_COMMANDER] [TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]군단장[/TIP]의 [icon:COMMANDER_RADIUS] [TIP:LOC_PEDIA_CONCEPTS_COMMAND_RADIUS_TOOLTIP]지휘 반경[/TIP] 안에 있으면 [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]전투력[/TIP]이 +5 증가하고 턴마다 [icon:Action_Heal] 체력을 +10 회복합니다.</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_GHILMAN_BASE_DESCRIPTION" Language="ko_KR">
-      <Text>카자르 특유 기병 유닛입니다. [icon:UNIT_SOLTAN] 사르다르의 [icon:COMMANDER_RADIUS] 지휘 반경 안에 있으면 [icon:NAR_REW_COMBAT] 전투력이 +5 증가하고 턴마다 [icon:Action_Heal] 체력을 +10 회복합니다. 통제 지역을 무시합니다.</Text>
+      <Text>카자르 특유 [TIP:LOC_PEDIA_CONCEPTS_CAVALRY_UNITS_TOOLTIP]기병 유닛[/TIP]입니다. [icon:UNIT_ARMY_COMMANDER] [TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]군단장[/TIP]의 [icon:COMMANDER_RADIUS] [TIP:LOC_PEDIA_CONCEPTS_COMMAND_RADIUS_TOOLTIP]지휘 반경[/TIP] 안에 있으면 [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]전투력[/TIP]이 +5 증가하고 턴마다 [icon:Action_Heal] 체력을 +10 회복합니다.</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_GHILMAN_DESCRIPTION" Language="ko_KR">
-      <Text>카자르 특유 1티어 기병 유닛입니다. [icon:UNIT_SOLTAN] 사르다르의 [icon:COMMANDER_RADIUS] 지휘 반경 안에 있으면 [icon:NAR_REW_COMBAT] 전투력이 +5 증가하고 턴마다 [icon:Action_Heal] 체력을 +10 회복합니다. 통제 지역을 무시합니다.</Text>
+      <Text>카자르 특유 1티어 [TIP:LOC_PEDIA_CONCEPTS_CAVALRY_UNITS_TOOLTIP]기병 유닛[/TIP]입니다. [icon:UNIT_ARMY_COMMANDER] [TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]군단장[/TIP]의 [icon:COMMANDER_RADIUS] [TIP:LOC_PEDIA_CONCEPTS_COMMAND_RADIUS_TOOLTIP]지휘 반경[/TIP] 안에 있으면 [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]전투력[/TIP]이 +5 증가하고 턴마다 [icon:Action_Heal] 체력을 +10 회복합니다.</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_SOLTAN_DESCRIPTION" Language="ko_KR">
-      <Text>카자르 특유 군단장입니다. [icon:Action_Move] 이동력이 +1 증가합니다. 정착지 파괴 시, 이 사령관이 [icon:CITY_URBAN] 특수지구 위에 있으면 해당 정착지의 [icon:CITY_URBAN] 특수지구가 추가로 한 개 더 파괴됩니다.</Text>
+      <Text>카자르 특유 군단장입니다. [icon:Action_Move] 이동력이 +1 증가합니다. [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]정착지[/TIP] 파괴 시, 이 [TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]사령관[/TIP]이 [icon:CITY_URBAN] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]특수지구[/TIP] 위에 있으면 해당 [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]정착지[/TIP] 내 [icon:CITY_URBAN] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]특수지구[/TIP]의 턴당 파괴 속도가 두 배가 됩니다.</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_5_CITY_WORKERS_DESCRIPTION" Language="ko_KR">
       <Text>5명 이상의 [B]전문가[/B]가 있는 정착지를 1곳 보유하세요.</Text>
@@ -642,32 +681,50 @@
     <Replace Tag="LOC_UNLOCK_CITY_WORKERS_QAJAR_TOOLTIP" Language="ko_KR">
       <Text>[B]전문가[/B]는 [B]카자르[/B]의 정체성에서 중요한 역할을 차지했습니다.</Text>
     </Replace>
+    <Replace Tag="LOC_UNLOCK_PLAY_AS_QAJAR_DESCRIPTION" Language="ko_KR">
+      <Text>[B]카자르[/B]로 플레이하세요.</Text>
+    </Replace>
+    <Replace Tag="LOC_UNLOCK_PLAY_AS_QAJAR_QAJAR_TOOLTIP" Language="ko_KR">
+      <Text>[B]카자르[/B]는 시대 내내 인내할 수 있습니다.</Text>
+    </Replace>
     <Replace Tag="LOC_UNLOCK_PLAY_AS_XERXES_QAJAR_TOOLTIP" Language="ko_KR">
       <Text>[B]크세르크세스[/B]는 [B]카자르 이란[/B]이 될 지역을 통치했습니다.</Text>
     </Replace>
     <Replace Tag="LOC_WONDER_ERAM_GARDEN_DESCRIPTION" Language="ko_KR">
-      <Text>[icon:YIELD_FOOD] 식량이 +4 증가합니다. 이 정착지의 [icon:SPECIALIST] 전문가 한도가 +1 증가합니다. 시대를 초월합니다. 사막 지형에 건설해야 합니다.</Text>
+      <Text>[icon:YIELD_FOOD] 식량이 +4 증가합니다. 이 [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]정착지[/TIP]의 [icon:SPECIALIST] [TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_LIMIT_TOOLTIP]전문가 한도[/TIP]가 +1 증가합니다. [TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]시대를 초월합니다[/TIP]. 사막 타일에 건설해야 합니다.</Text>
     </Replace>
     <Replace Tag="LOC_WONDER_ERAM_GARDEN_TOOLTIP" Language="ko_KR">
-      <Text>이 정착지의 [icon:SPECIALIST] 전문가 한도가 +1 증가합니다.[N]사막 지형에 건설해야 합니다.</Text>
+      <Text>이 [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]정착지[/TIP]의 [icon:SPECIALIST] [TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_LIMIT_TOOLTIP]전문가 한도[/TIP]가 +1 증가합니다.[N]사막 타일에 건설해야 합니다.</Text>
     </Replace>
     <Replace Tag="LOC_COMBAT_PREVIEW_NUMBER_UNDER_SETTLEMENT_CAP_BONUS_DESC" Language="ko_KR">
       <Text>한도보다 정착지가 {2_NumberUnderSettlementCap}개 적음 +{1_CombatStrength}</Text>
     </Replace>
     <Replace Tag="LOC_GHILMAN_COMBAT_PREVIEW" Language="ko_KR">
-      <Text>사르다르의 지휘 반경 +{1_Amount}.</Text>
+      <Text>사르다르의 [TIP:LOC_PEDIA_CONCEPTS_COMMAND_RADIUS_TOOLTIP]지휘 반경[/TIP]에서 +{1_Amount}</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_CITY_WORKERS_QAJAR_NARRATIVE" Language="ko_KR">
       <Text>수 세기에 걸친 {1_Civilization_Adj} 통치 기간에, 가까운 땅에서 온 유목민들은 {1_Civilization_Adj} 군대에서 봉사하고 결국 부를 얻었습니다. 그들은 이제 평원의 천막이 아닌 살롱과 대학에서 자신들만의 폐쇄적인 부족을 형성합니다.</Text>
     </Replace>
+    <Replace Tag="LOC_TRADITION_DAR_AL_FONUN_I_NAME" Language="ko_KR">
+      <Text>다르 알 포눈 I</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_DAR_AL_FONUN_II_NAME" Language="ko_KR">
+      <Text>다르 알 포눈 II</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_QAJAR_SYNCRETISM_ANTIQUITY_NAME" Language="ko_KR">
+      <Text>와가예-에 에테파기야 I</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_QAJAR_SYNCRETISM_EXPLORATION_NAME" Language="ko_KR">
+      <Text>와가예-에 에테파기야 II</Text>
+    </Replace>
     <Replace Tag="LOC_TRADITION_QULLARAQASI_NAME" Language="ko_KR">
       <Text>쿨라라카시</Text>
     </Replace>
-    <Replace Tag="LOC_TRADITION_SOLEYMANIYEH_PALACE_NAME" Language="ko_KR">
-      <Text>솔레이마니예 궁전</Text>
+    <Replace Tag="LOC_TRADITION_SOLEYMANIYEH_PALACE_I_NAME" Language="ko_KR">
+      <Text>술레이마니야 궁전 I</Text>
     </Replace>
-    <Replace Tag="LOC_TRADITION_WAQAYE_E_ETTEFAQIYA_NAME" Language="ko_KR">
-      <Text>와가예 에 에테파기야</Text>
+    <Replace Tag="LOC_TRADITION_SOLEYMANIYEH_PALACE_II_NAME" Language="ko_KR">
+      <Text>솔레이마니예 궁전 II</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_GHILMAN_NAME" Language="ko_KR">
       <Text>굴람</Text>

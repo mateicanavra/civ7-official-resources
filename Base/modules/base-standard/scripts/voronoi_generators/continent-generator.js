@@ -1,607 +1,649 @@
-import { sub2, rotate2, add2, dot2, dot2_90, mul2s, mul2 } from '../../../core/scripts/MathHelpers.js';
+import { sub2, rotate2, add2, dot2, dot2_90 } from '../../../core/scripts/MathHelpers.js';
 import { QuadTree, WrappedQuadTree } from '../quadtree.js';
-import { RuleNearOtherRegion } from '../voronoi_rules/near-other-region.js';
-import { WrappedKdTree, PlateBoundaryPosGetter, RegionType, MapSize, VoronoiUtils, MapDims, RegionCell, WrapType, kdTree, RegionCellPosGetter, Aabb2, TerrainType } from '../kd-tree.js';
-import { RandomImpl } from '../random-pcg-32.js';
-import { PlateRegion, LandmassRegion } from '../voronoi-region.js';
-import { MapGenerator, GeneratorType } from './map-generator.js';
+import { WindContextDesc, WindContext } from '../utils/wind-context.js';
+import { RegionType, TerrainType } from '../voronoi-types.js';
 import { RuleAvoidEdge } from '../voronoi_rules/avoid-edge.js';
-import { RuleAvoidOtherRegions } from '../voronoi_rules/avoid-other-regions.js';
 import { RuleCellArea } from '../voronoi_rules/cell-area.js';
+import { RuleCoastalExposure } from '../voronoi_rules/coastal-exposure.js';
 import { RuleNearMapCenter } from '../voronoi_rules/near-map-center.js';
 import { RuleNearNeighbor } from '../voronoi_rules/near-neighbor.js';
+import { RuleNearOtherRegion } from '../voronoi_rules/near-other-region.js';
 import { RuleNearPlateBoundary } from '../voronoi_rules/near-plate-boundary.js';
 import { RuleNearRegionSeed } from '../voronoi_rules/near-region-seed.js';
-import { RuleNeighborsInRegion } from '../voronoi_rules/neighbors-in-region.js';
 import { RulePreferLatitude } from '../voronoi_rules/prefer-latitude.js';
-import '../../../core/scripts/external/TypeScript-Voronoi-master/src/site.js';
-import '../voronoi_rules/rules-base.js';
-import '../../../core/scripts/external/TypeScript-Voronoi-master/src/voronoi.js';
-import '../../../core/scripts/external/TypeScript-Voronoi-master/src/rbtree.js';
-import '../../../core/scripts/external/TypeScript-Voronoi-master/src/vertex.js';
-import '../../../core/scripts/external/TypeScript-Voronoi-master/src/edge.js';
-import '../../../core/scripts/external/TypeScript-Voronoi-master/src/cell.js';
-import '../../../core/scripts/external/TypeScript-Voronoi-master/src/diagram.js';
-import '../../../core/scripts/external/TypeScript-Voronoi-master/src/halfedge.js';
+import { GetRuleSpec, ConstructRule } from '../voronoi_rules/registry.js';
+import { WrappedKdTree, kdTree } from '../kd-tree.js';
+import { RandomImpl } from '../random-pcg-32.js';
+import { PlateRegion, LandmassRegion } from '../voronoi-region.js';
+import { PlateBoundaryPosGetter, VoronoiUtils, RegionCell, WrapType, RegionCellPosGetter, Aabb2 } from '../voronoi-utils.js';
+import { MapGenerator, GeneratorType } from './map-generator.js';
+import { RuleAvoidOtherRegions } from '../voronoi_rules/avoid-other-regions.js';
+import { RuleNeighborsInRegion } from '../voronoi_rules/neighbors-in-region.js';
+import { Rule } from '../voronoi_rules/rules-base.js';
 
+const plateDistributionDescription = "The distribution of sizes of plates is controlled by 'Plate Curve Power' and 'Plate Linear Strength'. This helps the world have a mix of plate sizes. The calculation is a lerp between y=x^(Plate Curve Power) and y=x (linear) based on 'Linear Strength'. A 'Linear Strength' of 1 will mean all the plates are about the same size, less than that and the distribution becomes more curved. 'Plate Curve Power' affects the steepness of the curve";
+const continentGeneratorSchema = {
+  plate: {
+    groupLabel: "Plates",
+    children: {
+      type: "configs",
+      data: {
+        factor: {
+          label: "Plate Factor",
+          description: "Number of tectonic plates to spawn per 100 tiles.",
+          min: 0,
+          max: 2,
+          default: 0.38,
+          step: 0.01
+        },
+        curvePower: {
+          label: "Plate Curve Power",
+          description: plateDistributionDescription,
+          min: 1,
+          max: 50,
+          default: 4,
+          step: 1
+        },
+        linearStrength: {
+          label: "Plate Linear Strength",
+          description: plateDistributionDescription,
+          min: 0,
+          max: 1,
+          default: 0.6,
+          step: 0.01
+        },
+        useUniqueVoronoi: {
+          label: "Use Unique Voronoi",
+          description: "Causes the plate generation to create it's own unique voronoi diagram instead of using the same one as the rest of the map. This allows using fewer cells for plates, leading to more blobby shapes and higher performance.",
+          min: 0,
+          max: 1,
+          default: 1,
+          step: 1
+        },
+        voronoiCellRatio: {
+          label: "Cell Count Multiple²",
+          description: "When 'Use Unique Voronoi' is on, this affects the ratio of plate voronoi cells relative to the rest of the map, squared.",
+          min: 1e-3,
+          max: 1,
+          default: 0.25,
+          step: 1e-3
+        },
+        plateRotationMultiple: {
+          label: "Plate Rotation Multiple",
+          description: "A scalar for plate rotation. This is useful since larger plates on big maps will move more around the edges of the plate than smaller ones for the same rotation value.",
+          min: 0,
+          max: 10,
+          default: 1,
+          step: 0.1
+        }
+      }
+    }
+  },
+  landmass: {
+    groupLabel: "Landmass",
+    childCount: 2,
+    children: {
+      type: "configs",
+      data: {
+        enabled: {
+          label: "Enabled",
+          description: "Controls if this landmass is created. Useful for quickly turning on and off a landmass without removing its settings entirely.",
+          min: 0,
+          max: 1,
+          default: 1,
+          step: 1
+        },
+        groupId: {
+          label: "Group Id",
+          description: "Controls which group of landmasses this landmass belongs to.",
+          min: 0,
+          max: 10,
+          default: 0,
+          step: 1,
+          visible: false,
+          locked: true
+        },
+        size: {
+          label: "Size %",
+          description: "The size of the landmass as a percentage of total map area.",
+          min: 5,
+          max: 40,
+          default: 17,
+          step: 0.1
+        },
+        variance: {
+          label: "Variance +/- %",
+          description: "The random variance (plus or minus) percentage of the total size.",
+          min: 0,
+          max: 10,
+          default: 1,
+          step: 0.01
+        },
+        xPos: {
+          label: "X Position",
+          description: "The X position of the landmass as a percentage of total map width.",
+          min: 0,
+          max: 1,
+          step: 0.01,
+          default: 0.5,
+          visible: false,
+          locked: true
+        },
+        yPos: {
+          label: "Y Position",
+          description: "The Y position of the landmass as a percentage of total map height.",
+          min: 0,
+          max: 1,
+          default: 0.5,
+          step: 0.01,
+          visible: false,
+          locked: true
+        },
+        erosionPercent: {
+          label: "Erosion Percent",
+          description: "The percent of cells in this region to erode.",
+          min: 0,
+          max: 25,
+          step: 0.1,
+          default: 8
+        },
+        erosionTime: {
+          label: "Erosion Time",
+          description: "This affects how many iterations it takes to erode a tile. High values will cause erosion to be more spread out, low values will cause it to be more concentrated.",
+          min: 0,
+          max: 1,
+          step: 0.01,
+          default: 0.5
+        },
+        erosionRandomness: {
+          label: "Erosion Randomness",
+          description: "How random erosion selection is. 0 means it always erodes the highest scoring tile, 1 means it's completely random.",
+          min: 0,
+          max: 1,
+          step: 0.01,
+          default: 0.25
+        },
+        playerAreas: {
+          label: "Player Areas",
+          description: "The number of player areas to spawn on this landmass.",
+          min: 0,
+          max: 20,
+          default: 4
+        },
+        coastalIslands: {
+          label: "Coastal Islands",
+          description: "The number of spawn locations for coastal islands. These are cells just off the coast of landmasses, not too close to other landmasses or islands, which are used to add land to the landmass they spawn near. They follow their own grow rules.",
+          min: 0,
+          max: 20,
+          default: 8
+        },
+        coastalIslandsMinDistance: {
+          label: "Coastal Islands Min Distance",
+          description: "The minimum distance from the landmass for coastal islands to spawn",
+          min: 1,
+          max: 4,
+          default: 2,
+          step: 0.1
+        },
+        coastalIslandsMaxDistance: {
+          label: "Coastal Islands max Distance",
+          description: "The maximum distance from the landmass for coastal islands to spawn",
+          min: 1,
+          max: 4,
+          default: 3,
+          step: 0.1
+        },
+        coastalIslandsSize: {
+          label: "Coastal Islands Size %",
+          description: "The total amount of land area to create as coastal islands around this landmass as a percent of map size.",
+          min: 0,
+          max: 5,
+          default: 1,
+          step: 0.01
+        },
+        coastalIslandsSizeVariance: {
+          label: "Coastal Islands Size Variance %",
+          description: "The random variance (plus or minus) percentage of the total coastal island size.",
+          min: 0,
+          max: 5,
+          default: 0.5,
+          step: 0.01
+        }
+      }
+    }
+  },
+  island: {
+    groupLabel: "Islands",
+    children: {
+      type: "configs",
+      data: {
+        factor: {
+          label: "Factor",
+          description: "The number of distant land islands to spawn per 100 tiles.",
+          min: 0,
+          max: 2,
+          default: 0.3,
+          step: 0.01
+        },
+        minSize: {
+          label: "Minimum Size %",
+          description: "The minimum size of -each- island as a percentage of total map size.",
+          min: 0,
+          max: 4,
+          default: 0.33,
+          step: 0.01
+        },
+        maxSize: {
+          label: "Maximum Size %",
+          description: "The maximum size of -each- island as a percentage of total map size.",
+          min: 0,
+          max: 4,
+          default: 2,
+          step: 0.01
+        },
+        totalSize: {
+          label: "Size %",
+          description: "The total size of all islands combined as a percentage of total map size.",
+          min: 0,
+          max: 10,
+          default: 4,
+          step: 0.01
+        },
+        variance: {
+          label: "Variance +/- %",
+          description: "The random plus or minus variance in the total size of all islands as a percentage of total map size.",
+          min: 0,
+          max: 2,
+          default: 0.2,
+          step: 0.01
+        },
+        poleDistance: {
+          label: "Pole Distance Hexes",
+          description: "The minimum distance from the poles that distant land islands can spawn.",
+          min: 0,
+          max: 10,
+          default: 5
+        },
+        meridianDistance: {
+          label: "Meridian Distance Hexes",
+          description: "The minimum distance from the meridian that distant land islands can spawn.",
+          min: 0,
+          max: 10,
+          default: 5
+        },
+        landmassDistance: {
+          label: "Min Landmass Distance Hexes",
+          description: "The minimum distance from the major landmasses that distant land islands can spawn.",
+          min: 0,
+          max: 15,
+          default: 4
+        },
+        islandDistance: {
+          label: "Min Island Distance Hexes",
+          description: "The minimum distance from other islands that distant land islands can spawn.",
+          min: 0,
+          max: 15,
+          default: 3
+        },
+        erosionPercent: {
+          label: "Erosion Percent",
+          description: "The percent of cells on any given distant land island to erode.",
+          min: 0,
+          max: 50,
+          default: 20
+        },
+        erosionTime: {
+          label: "Erosion Time",
+          description: "This affects how many iterations it takes to erode a tile. High values will cause erosion to be more spread out, low values will cause it to be more concentrated.",
+          min: 0,
+          max: 1,
+          step: 0.01,
+          default: 0.5
+        },
+        erosionRandomness: {
+          label: "Erosion Randomness",
+          description: "How random erosion selection is. 0 means it always erodes the highest scoring tile, 1 means it's completely random.",
+          min: 0,
+          max: 1,
+          step: 0.01,
+          default: 0.25
+        }
+      }
+    }
+  },
+  mountain: {
+    groupLabel: "Mountains",
+    children: {
+      type: "configs",
+      data: {
+        percent: {
+          label: "Percent of Land",
+          description: "The percentage of all land that should be mountainous",
+          min: 0,
+          max: 50,
+          default: 8,
+          step: 0.1
+        },
+        variance: {
+          label: "Variance Percent",
+          description: "The random +/- percent to the total area covered by mountains",
+          min: 0,
+          max: 10,
+          default: 2,
+          step: 0.1
+        },
+        randomize: {
+          label: "Randomize",
+          description: "The randomization applied to mountain scores",
+          min: 0,
+          max: 100,
+          default: 2,
+          step: 1
+        }
+      }
+    }
+  },
+  volcano: {
+    groupLabel: "Volcanos",
+    children: {
+      type: "configs",
+      data: {
+        percent: {
+          label: "Percent of Mountains",
+          description: "The percentage of all mountains that should be volcanos",
+          min: 0,
+          max: 50,
+          default: 15,
+          step: 0.1
+        },
+        variance: {
+          label: "Variance Percent",
+          description: "The random +/- percent to the total number of mountains that are volcanos",
+          min: 0,
+          max: 10,
+          default: 5,
+          step: 0.1
+        },
+        randomize: {
+          label: "Randomize",
+          description: "The randomization applied to volcano scores",
+          min: 0,
+          max: 100,
+          default: 10,
+          step: 1
+        }
+      }
+    }
+  },
+  elevation: {
+    groupLabel: "Elevation",
+    children: {
+      type: "configs",
+      data: {}
+    }
+  }
+};
+const continentGeneratorRulesSettings = {
+  Plates: {
+    "Cell Area": { className: RuleCellArea.getName(), weight: 0.15 },
+    "Near Neighbor": { className: RuleNearNeighbor.getName(), weight: 0.8, config: { scaleFactor: 0.5 } },
+    "Near Region Seed": { className: RuleNearRegionSeed.getName(), weight: 0.02 },
+    "Neighbors In Region": {
+      className: RuleNeighborsInRegion.getName(),
+      weight: 0.6,
+      config: { preferredNeighborCount: 6, deviation: 3 }
+    }
+  },
+  Landmasses: {
+    "Avoid Edge": {
+      className: RuleAvoidEdge.getName(),
+      config: {
+        poleDistance: 2,
+        poleDistanceFalloff: 6,
+        poleFalloffCurve: 0.2,
+        meridianDistance: 2,
+        meridianDistanceFalloff: 6,
+        meridianFalloffCurve: 0.3,
+        avoidCorners: 12
+      }
+    },
+    "Cell Area": { className: RuleCellArea.getName(), weight: 0.1 },
+    "Near Neighbor": { className: RuleNearNeighbor.getName(), weight: 0.5 },
+    "Near Region Seed": { className: RuleNearRegionSeed.getName(), weight: 0.05, config: { scaleFactor: 8 } },
+    "Neighbors In Region": {
+      className: RuleNeighborsInRegion.getName(),
+      weight: 0.25,
+      config: { preferredNeighborCount: 4, deviation: 1.5 }
+    },
+    "Near Map Center": { className: RuleNearMapCenter.getName(), weight: 0.05 },
+    "Avoid Other Regions": {
+      className: RuleAvoidOtherRegions.getName(),
+      config: { minDistance: 4, distanceFalloff: 8, falloffCurve: 0.2 }
+    },
+    "Avoid Other Region Groups": {
+      className: RuleAvoidOtherRegions.getName(),
+      config: { minDistance: 4, distanceFalloff: 8, falloffCurve: 0.2 }
+    },
+    "Near Plate Boundary": {
+      className: RuleNearPlateBoundary.getName(),
+      weight: 0.75,
+      config: { scaleFactor: 3, directionInfluence: 0.5 }
+    },
+    "Prefer Latitude": { className: RulePreferLatitude.getName(), weight: 0.5 },
+    "Near Other Region": { className: RuleNearOtherRegion.getName(), weight: 0.5, isActive: false }
+  },
+  "Coastal Islands": {
+    "Avoid Edge": {
+      className: RuleAvoidEdge.getName(),
+      config: {
+        poleDistance: 2,
+        poleDistanceFalloff: 4,
+        poleFalloffCurve: 0.2,
+        meridianDistance: 2,
+        meridianDistanceFalloff: 10,
+        meridianFalloffCurve: 0.3,
+        avoidCorners: 12
+      }
+    },
+    "Near Neighbor": { className: RuleNearNeighbor.getName(), weight: 0.5 },
+    "Avoid Other Regions": {
+      className: RuleAvoidOtherRegions.getName(),
+      config: { minDistance: 4, distanceFalloff: 2, falloffCurve: 0.25 }
+    },
+    "Avoid Other Region Groups": {
+      className: RuleAvoidOtherRegions.getName(),
+      config: { minDistance: 4, distanceFalloff: 8, falloffCurve: 0.2 }
+    },
+    "Avoid Own Region": {
+      className: RuleAvoidOtherRegions.getName(),
+      config: { minDistance: 0.25, distanceFalloff: 2, falloffCurve: 0.25 }
+    },
+    "Avoid Islands": {
+      className: RuleAvoidOtherRegions.getName(),
+      config: { minDistance: 4, distanceFalloff: 2, falloffCurve: 0.25 }
+    },
+    "Near Plate Boundary": {
+      className: RuleNearPlateBoundary.getName(),
+      weight: 0.75,
+      config: { scaleFactor: 3, directionInfluence: 0.5 }
+    },
+    "Near Region Seed": {
+      className: RuleNearRegionSeed.getName(),
+      weight: 0.3,
+      config: { scaleFactor: 15, invert: 1 }
+    }
+  },
+  Islands: {
+    "Avoid Edge": {
+      className: RuleAvoidEdge.getName(),
+      config: {
+        poleDistance: 2,
+        poleDistanceFalloff: 8,
+        poleFalloffCurve: 0.5,
+        meridianDistance: 2,
+        meridianDistanceFalloff: 10,
+        meridianFalloffCurve: 0.3,
+        avoidCorners: 12
+      }
+    },
+    "Cell Area": { className: RuleCellArea.getName(), weight: 0.15 },
+    "Near Neighbor": { className: RuleNearNeighbor.getName(), weight: 0.9, config: { scaleFactor: 0.5 } },
+    "Near Region Seed": { className: RuleNearRegionSeed.getName(), weight: 0.03 },
+    "Neighbors In Region": {
+      className: RuleNeighborsInRegion.getName(),
+      weight: 0.6,
+      config: { preferredNeighborCount: 1.5, deviation: 0.5 }
+    },
+    "Near Map Center": { className: RuleNearMapCenter.getName(), weight: 0.04 },
+    "Avoid Other Regions": {
+      className: RuleAvoidOtherRegions.getName(),
+      config: { minDistance: 4, distanceFalloff: 4, falloffCurve: 0.15 }
+    },
+    "Near Plate Boundary": {
+      className: RuleNearPlateBoundary.getName(),
+      weight: 0.75,
+      config: { scaleFactor: 2, directionInfluence: 0.8 }
+    }
+  },
+  Erosion: {
+    "Neighbors In Region": {
+      className: RuleNeighborsInRegion.getName(),
+      weight: 0.6,
+      config: { preferredNeighborCount: 1, deviation: 3 }
+    },
+    "Near Plate Boundary": {
+      className: RuleNearPlateBoundary.getName(),
+      weight: 0.75,
+      config: { scaleFactor: 1, directionInfluence: 0.4, invert: true }
+    },
+    "Wave Exposure": {
+      className: RuleCoastalExposure.getName(),
+      weight: 0.5,
+      config: { exposureFactor: 0.5, alignment: -1, tolerance: 1 }
+    }
+  },
+  Mountains: {
+    "Cell Area": { className: RuleCellArea.getName(), weight: 0.3, config: { invert: true } },
+    "Near Neighbor": { className: RuleNearNeighbor.getName(), weight: 0.25 },
+    "Neighbors In Region": {
+      className: RuleNeighborsInRegion.getName(),
+      weight: 0.6,
+      config: { preferredNeighborCount: 6, deviation: 4 }
+    },
+    "Near Plate Boundary": {
+      className: RuleNearPlateBoundary.getName(),
+      weight: 0.75,
+      config: { scaleFactor: 1, directionInfluence: 0.4 }
+    }
+  },
+  Volcanoes: {
+    "Cell Area": { className: RuleCellArea.getName(), weight: 0.3, config: { invert: true } },
+    "Neighbors In Region": {
+      className: RuleNeighborsInRegion.getName(),
+      weight: 0.9,
+      config: { preferredNeighborCount: 0, deviation: 1 }
+    }
+  },
+  Elevation: {
+    "Near Plate Boundary": {
+      className: RuleNearPlateBoundary.getName(),
+      weight: 0.75,
+      config: { scaleFactor: 1, directionInfluence: 0.4 }
+    },
+    "Cell Area": { className: RuleCellArea.getName(), weight: 0.3, config: { invert: true } },
+    "Near Neighbor": { className: RuleNearNeighbor.getName(), weight: 0.25 },
+    "Avoid Other Regions": {
+      className: RuleAvoidOtherRegions.getName(),
+      config: { minDistance: 0, distanceFalloff: 10, falloffCurve: 0.15 }
+    }
+  }
+};
+const getAvoidOwnRegionFilter = (regionId) => (ctx, item) => ctx.region.getRegionIdForCell(item) === regionId;
+const getAvoidOtherRegionsFilter = (thisRegionId) => (ctx, item) => {
+  const cellRegionId = ctx.region.getRegionIdForCell(item);
+  return cellRegionId != thisRegionId && cellRegionId != 0 && cellRegionId != ctx.region.id;
+};
+const getAvoidOtherRegionGroupsFilter = () => (ctx, item) => {
+  const cellRegion = ctx.regions[ctx.region.getRegionIdForCell(item)];
+  return cellRegion.type != RegionType.Ocean && cellRegion.groupId != ctx.region.groupId;
+};
+const getAvoidIslandsFilter = () => (ctx, item) => ctx.regions[ctx.region.getRegionIdForCell(item)].type === RegionType.Island;
 class ContinentGenerator extends MapGenerator {
+  m_generatorSettingsSchema;
+  m_ruleSettings;
   m_plateRegions = [];
   m_landmassRegions = [];
   m_plateBoundaries = new WrappedKdTree(PlateBoundaryPosGetter);
   m_platesDiagram;
   m_plateCells = [];
-  m_plateRuleConfigs = [
-    [RuleCellArea, { isActive: true, weight: 0.15, record: {} }],
-    [RuleNearNeighbor, { isActive: true, weight: 0.8, record: { scaleFactor: 0.5 } }],
-    [RuleNearRegionSeed, { isActive: true, weight: 0.02, record: {} }],
-    [RuleNeighborsInRegion, { isActive: true, weight: 0.6, record: { preferredNeighborCount: 6, deviation: 3 } }]
-  ];
-  m_landmassRuleConfigs = [
-    [
-      RuleAvoidEdge,
-      {
-        isActive: true,
-        weight: 1,
-        record: {
-          poleDistance: 2,
-          poleDistanceFalloff: 6,
-          poleFalloffCurve: 0.2,
-          meridianDistance: 2,
-          meridianDistanceFalloff: 6,
-          meridianFalloffCurve: 0.3,
-          avoidCorners: 12
-        }
-      }
-    ],
-    [RuleCellArea, { isActive: true, weight: 0.1, record: {} }],
-    [RuleNearNeighbor, { isActive: true, weight: 0.5, record: {} }],
-    [RuleNearRegionSeed, { isActive: true, weight: 0.05, record: { scaleFactor: 8 } }],
-    [
-      RuleNeighborsInRegion,
-      { isActive: true, weight: 0.25, record: { preferredNeighborCount: 4, deviation: 1.5 } }
-    ],
-    [RuleNearMapCenter, { isActive: false, weight: 0.05, record: {} }],
-    [
-      RuleAvoidOtherRegions,
-      {
-        isActive: true,
-        weight: 1,
-        record: { minDistance: 4, distanceFalloff: 8, falloffCurve: 0.2, regionType: RegionType.Landmass }
-      }
-    ],
-    [
-      RuleNearPlateBoundary,
-      {
-        isActive: true,
-        weight: 0.75,
-        record: { scaleFactor: 3, directionInfluence: 0.5 },
-        internalConfig: { m_plateBoundaries: this.m_plateBoundaries }
-      }
-    ],
-    [RulePreferLatitude, { isActive: true, weight: 0.5, record: {} }],
-    [RuleNearOtherRegion, { isActive: false, weight: 0.5, record: {} }]
-  ];
-  m_coastalIslandRuleConfigs = [
-    [
-      RuleAvoidEdge,
-      {
-        isActive: true,
-        weight: 1,
-        record: {
-          poleDistance: 2,
-          poleDistanceFalloff: 4,
-          poleFalloffCurve: 0.2,
-          meridianDistance: 2,
-          meridianDistanceFalloff: 10,
-          meridianFalloffCurve: 0.3,
-          avoidCorners: 12
-        }
-      }
-    ],
-    [RuleNearNeighbor, { isActive: true, weight: 0.5, record: {} }],
-    [
-      RuleAvoidOtherRegions,
-      {
-        nameOverride: "Avoid Other Landmass",
-        key: "avoidOther",
-        isActive: true,
-        weight: 1,
-        record: { minDistance: 4, distanceFalloff: 2, falloffCurve: 0.25, regionType: RegionType.Landmass }
-      }
-    ],
-    [
-      RuleAvoidOtherRegions,
-      {
-        nameOverride: "Avoid Own Landmass",
-        key: "avoidSelf",
-        isActive: true,
-        weight: 1,
-        record: { minDistance: 0.25, distanceFalloff: 2, falloffCurve: 0.25, regionType: RegionType.Landmass }
-      }
-    ],
-    [
-      RuleAvoidOtherRegions,
-      {
-        nameOverride: "Avoid Islands",
-        isActive: true,
-        weight: 1,
-        record: { minDistance: 4, distanceFalloff: 2, falloffCurve: 0.25, regionType: RegionType.Island }
-      }
-    ],
-    [
-      RuleNearPlateBoundary,
-      {
-        isActive: true,
-        weight: 0.75,
-        record: { scaleFactor: 3, directionInfluence: 0.5 },
-        internalConfig: { m_plateBoundaries: this.m_plateBoundaries }
-      }
-    ],
-    [RuleNearRegionSeed, { isActive: true, weight: 0.3, record: { scaleFactor: 15, invert: 1 } }]
-  ];
-  m_islandRuleConfigs = [
-    [
-      RuleAvoidEdge,
-      {
-        isActive: true,
-        weight: 1,
-        record: {
-          poleDistance: 2,
-          poleDistanceFalloff: 8,
-          poleFalloffCurve: 0.5,
-          meridianDistance: 2,
-          meridianDistanceFalloff: 10,
-          meridianFalloffCurve: 0.3,
-          avoidCorners: 12
-        }
-      }
-    ],
-    [RuleCellArea, { isActive: true, weight: 0.15, record: {} }],
-    [RuleNearNeighbor, { isActive: true, weight: 0.9, record: { scaleFactor: 0.5 } }],
-    [RuleNearRegionSeed, { isActive: true, weight: 0.03, record: {} }],
-    [
-      RuleNeighborsInRegion,
-      { isActive: true, weight: 0.6, record: { preferredNeighborCount: 1.5, deviation: 0.5 } }
-    ],
-    [RuleNearMapCenter, { isActive: true, weight: 0.04, record: {} }],
-    [
-      RuleAvoidOtherRegions,
-      {
-        isActive: true,
-        weight: 1,
-        record: { minDistance: 4, distanceFalloff: 4, falloffCurve: 0.15, regionType: RegionType.Landmass }
-      }
-    ],
-    [
-      RuleNearPlateBoundary,
-      {
-        isActive: true,
-        weight: 0.75,
-        record: { scaleFactor: 2, directionInfluence: 0.8 },
-        internalConfig: { m_plateBoundaries: this.m_plateBoundaries }
-      }
-    ]
-  ];
-  m_mountainRuleConfigs = [
-    [RuleCellArea, { isActive: true, weight: 0.3, record: { invert: true } }],
-    [RuleNearNeighbor, { isActive: false, weight: 0.25, record: {} }],
-    [RuleNeighborsInRegion, { isActive: true, weight: 0.6, record: { preferredNeighborCount: 6, deviation: 4 } }],
-    [
-      RuleNearPlateBoundary,
-      {
-        isActive: true,
-        weight: 0.75,
-        record: { scaleFactor: 1, directionInfluence: 0.4 },
-        internalConfig: { m_plateBoundaries: this.m_plateBoundaries }
-      }
-    ]
-  ];
-  m_volcanoRuleConfigs = [
-    [RuleCellArea, { isActive: true, weight: 0.3, record: { invert: true } }],
-    [RuleNeighborsInRegion, { isActive: true, weight: 0.9, record: { preferredNeighborCount: 0, deviation: 1 } }]
-  ];
-  m_plateRules = [];
-  m_landmassRules = [];
-  m_coastalIslandRules = [];
-  m_islandRules = [];
-  m_mountainRules = [];
-  m_volcanoRules = [];
-  static plateDistributionDescription = "The distribution of sizes of plates is controlled by 'Plate Curve Power' and 'Plate Linear Strength'. This helps the world have a mix of plate sizes. The calculation is a lerp between y=x^(Plate Curve Power) and y=x (linear) based on 'Linear Strength'. A 'Linear Strength' of 1 will mean all the plates are about the same size, less than that and the distribution becomes more curved. 'Plate Curve Power' affects the steepness of the curve";
-  m_generatorSettingsSchema = [
-    {
-      groupLabel: "Plates",
-      key: "plate",
-      children: {
-        type: "configs",
-        data: [
-          {
-            key: "factor",
-            label: "Plate Factor",
-            description: "Number of tectonic plates to spawn per 100 tiles.",
-            min: 0,
-            max: 2,
-            default: 0.38,
-            step: 0.01
-          },
-          {
-            key: "curvePower",
-            label: "Plate Curve Power",
-            description: ContinentGenerator.plateDistributionDescription,
-            min: 1,
-            max: 50,
-            default: 4,
-            step: 1
-          },
-          {
-            key: "linearStrength",
-            label: "Plate Linear Strength",
-            description: ContinentGenerator.plateDistributionDescription,
-            min: 0,
-            max: 1,
-            default: 0.6,
-            step: 0.01
-          },
-          {
-            key: "useUniqueVoronoi",
-            label: "Use Unique Voronoi",
-            description: "Causes the plate generation to create it's own unique voronoi diagram instead of using the same one as the rest of the map. This allows using fewer cells for plates, leading to more blobby shapes and higher performance.",
-            min: 0,
-            max: 1,
-            default: 1,
-            step: 1
-          },
-          {
-            key: "voronoiCellRatio",
-            label: "Cell Count Multiple²",
-            description: "When 'Use Unique Voronoi' is on, this affects the ratio of plate voronoi cells relative to the rest of the map, squared.",
-            min: 1e-3,
-            max: 1,
-            default: 0.25,
-            step: 1e-3
-          },
-          {
-            key: "plateRotationMultiple",
-            label: "Plate Rotation Multiple",
-            description: "A scalar for plate rotation. This is useful since larger plates on big maps will move more around the edges of the plate than smaller ones for the same rotation value.",
-            min: 0,
-            max: 10,
-            default: 1,
-            step: 0.1
-          }
-        ]
-      }
-    },
-    {
-      groupLabel: "Landmass",
-      key: "landmass",
-      childCount: 2,
-      children: {
-        type: "configs",
-        data: [
-          {
-            key: "enabled",
-            label: "Enabled",
-            description: "Controls if this landmass is created. Useful for quickly turning on and off a landmass without removing its settings entirely.",
-            min: 0,
-            max: 1,
-            default: 1,
-            step: 1
-          },
-          {
-            key: "size",
-            label: "Size %",
-            description: "The size of the landmass as a percentage of total map area.",
-            min: 5,
-            max: 40,
-            default: 17,
-            step: 0.1
-          },
-          {
-            key: "variance",
-            label: "Variance +/- %",
-            description: "The random variance (plus or minus) percentage of the total size.",
-            min: 0,
-            max: 10,
-            default: 1,
-            step: 0.01
-          },
-          {
-            key: "spawnCenterDistance",
-            label: "Spawn Distance From Center",
-            description: "The distance from center with 0 being center and 1 being the edge of a circle squished into the map dimensions",
-            min: 0.25,
-            max: 0.75,
-            default: 0.5,
-            step: 0.01
-          },
-          {
-            key: "erosionPercent",
-            label: "Erosion Percent",
-            description: "The percent of cells in this region to erode.",
-            min: 0,
-            max: 25,
-            step: 0.1,
-            default: 8
-          },
-          {
-            key: "playerAreas",
-            label: "Player Areas",
-            description: "The number of player areas to spawn on this landmass.",
-            min: 0,
-            max: 20,
-            default: 4
-          },
-          {
-            key: "coastalIslands",
-            label: "Coastal Islands",
-            description: "The number of spawn locations for coastal islands. These are cells just off the coast of landmasses, not too close to other landmasses or islands, which are used to add land to the landmass they spawn near. They follow their own grow rules.",
-            min: 0,
-            max: 20,
-            default: 8
-          },
-          {
-            key: "coastalIslandsMinDistance",
-            label: "Coastal Islands Min Distance",
-            description: "The minimum distance from the landmass for coastal islands to spawn",
-            min: 1,
-            max: 4,
-            default: 2,
-            step: 0.1
-          },
-          {
-            key: "coastalIslandsMaxDistance",
-            label: "Coastal Islands max Distance",
-            description: "The maximum distance from the landmass for coastal islands to spawn",
-            min: 1,
-            max: 4,
-            default: 3,
-            step: 0.1
-          },
-          {
-            key: "coastalIslandsSize",
-            label: "Coastal Islands Size %",
-            description: "The total amount of land area to create as coastal islands around this landmass as a percent of map size.",
-            min: 0,
-            max: 5,
-            default: 1,
-            step: 0.01
-          },
-          {
-            key: "coastalIslandsSizeVariance",
-            label: "Coastal Islands Size Variance %",
-            description: "The random variance (plus or minus) percentage of the total coastal island size.",
-            min: 0,
-            max: 5,
-            default: 0.5,
-            step: 0.01
-          }
-        ]
-      }
-    },
-    {
-      groupLabel: "Islands",
-      key: "island",
-      children: {
-        type: "configs",
-        data: [
-          {
-            key: "factor",
-            label: "Factor",
-            description: "The number of distant land islands to spawn per 100 tiles.",
-            min: 0,
-            max: 2,
-            default: 0.3,
-            step: 0.01
-          },
-          {
-            key: "minSize",
-            label: "Minimum Size %",
-            description: "The minimum size of -each- island as a percentage of total map size.",
-            min: 0,
-            max: 4,
-            default: 0.33,
-            step: 0.01
-          },
-          {
-            key: "maxSize",
-            label: "Maximum Size %",
-            description: "The maximum size of -each- island as a percentage of total map size.",
-            min: 0,
-            max: 4,
-            default: 2,
-            step: 0.01
-          },
-          {
-            key: "totalSize",
-            label: "Size %",
-            description: "The total size of all islands combined as a percentage of total map size.",
-            min: 0,
-            max: 10,
-            default: 4,
-            step: 0.01
-          },
-          {
-            key: "variance",
-            label: "Variance +/- %",
-            description: "The random plus or minus variance in the total size of all islands as a percentage of total map size.",
-            min: 0,
-            max: 2,
-            default: 0.2,
-            step: 0.01
-          },
-          {
-            key: "poleDistance",
-            label: "Pole Distance Hexes",
-            description: "The minimum distance from the poles that distant land islands can spawn.",
-            min: 0,
-            max: 10,
-            default: 5
-          },
-          {
-            key: "meridianDistance",
-            label: "Meridian Distance Hexes",
-            description: "The minimum distance from the meridian that distant land islands can spawn.",
-            min: 0,
-            max: 10,
-            default: 5
-          },
-          {
-            key: "landmassDistance",
-            label: "Min Landmass Distance Hexes",
-            description: "The minimum distance from the major landmasses that distant land islands can spawn.",
-            min: 0,
-            max: 15,
-            default: 4
-          },
-          {
-            key: "islandDistance",
-            label: "Min Island Distance Hexes",
-            description: "The minimum distance from other islands that distant land islands can spawn.",
-            min: 0,
-            max: 15,
-            default: 3
-          },
-          {
-            key: "erosionPercent",
-            label: "Erosion Percent",
-            description: "The percent of cells on any given distant land island to erode.",
-            min: 0,
-            max: 50,
-            default: 20
-          }
-        ]
-      }
-    },
-    {
-      groupLabel: "Mountains",
-      key: "mountain",
-      children: {
-        type: "configs",
-        data: [
-          {
-            key: "percent",
-            label: "Percent of Land",
-            description: "The percentage of all land that should be mountainous",
-            min: 0,
-            max: 50,
-            default: 8,
-            step: 0.1
-          },
-          {
-            key: "variance",
-            label: "Variance Percent",
-            description: "The random +/- percent to the total area covered by mountains",
-            min: 0,
-            max: 10,
-            default: 2,
-            step: 0.1
-          },
-          {
-            key: "randomize",
-            label: "Randomize",
-            description: "The randomization applied to mountain scores",
-            min: 0,
-            max: 100,
-            default: 2,
-            step: 1
-          }
-        ]
-      }
-    },
-    {
-      groupLabel: "Volcanos",
-      key: "volcano",
-      children: {
-        type: "configs",
-        data: [
-          {
-            key: "percent",
-            label: "Percent of Mountains",
-            description: "The percentage of all mountains that should be volcanos",
-            min: 0,
-            max: 50,
-            default: 15,
-            step: 0.1
-          },
-          {
-            key: "variance",
-            label: "Variance Percent",
-            description: "The random +/- percent to the total number of mountains that are volcanos",
-            min: 0,
-            max: 10,
-            default: 5,
-            step: 0.1
-          },
-          {
-            key: "randomize",
-            label: "Randomize",
-            description: "The randomization applied to volcano scores",
-            min: 0,
-            max: 100,
-            default: 10,
-            step: 1
-          }
-        ]
+  m_rules;
+  constructor(generatorSchema, rulesSettings) {
+    super();
+    this.m_generatorSettingsSchema = generatorSchema;
+    this.m_ruleSettings = rulesSettings;
+    this.constructRules();
+  }
+  getDefaultGeneratorSettings() {
+    return MapGenerator.buildDefaultSettings(this.m_generatorSettingsSchema);
+  }
+  getDefaultRuleSettings() {
+    const defaults = {};
+    for (const [ruleCategory, rulesForCategory] of Object.entries(this.m_ruleSettings)) {
+      const cat = defaults[ruleCategory] = {};
+      for (const [ruleName, ruleSettings] of Object.entries(rulesForCategory)) {
+        const ruleSpec = GetRuleSpec(ruleSettings.className);
+        cat[ruleName] = {
+          isActive: Boolean(ruleSettings.isActive) || true,
+          weight: Number(ruleSettings.weight) || 1,
+          ...Rule.createDefaultsFromSpecs(ruleSpec)
+        };
       }
     }
-  ];
-  // Overrides for specific map sizes
-  m_mapSizeSettings = {
-    [MapSize.Tiny]: {},
-    [MapSize.Small]: {},
-    [MapSize.Standard]: {},
-    [MapSize.Large]: {},
-    [MapSize.Huge]: {}
-  };
-  constructor() {
-    super();
-    this.initializeRules();
-    this.buildDefaultSettings(this.m_generatorSettingsSchema, this.m_mapSizeSettings);
+    return defaults;
   }
-  initializeRules() {
-    const initializeRuleGroup = (rules, config) => {
-      rules.length = 0;
-      for (const [ruleClass, ruleSetting] of config) {
-        const rule = new ruleClass();
-        rule.initialize(ruleSetting);
-        rules.push(rule);
+  getSchema() {
+    return this.m_generatorSettingsSchema;
+  }
+  constructRules() {
+    const rules = {};
+    for (const [ruleCategory, rulesForCategory] of Object.entries(this.m_ruleSettings)) {
+      const cat = rules[ruleCategory] = {};
+      for (const [ruleName, ruleSettings] of Object.entries(rulesForCategory)) {
+        const rule = ConstructRule(ruleSettings.className);
+        cat[ruleName] = rule;
       }
+    }
+    this.m_rules = rules;
+    this.m_rules.Landmasses["Near Plate Boundary"].init(this.m_plateBoundaries);
+    this.m_rules["Coastal Islands"]["Near Plate Boundary"].init(this.m_plateBoundaries);
+    this.m_rules.Islands["Near Plate Boundary"].init(this.m_plateBoundaries);
+    this.m_rules.Mountains["Near Plate Boundary"].init(this.m_plateBoundaries);
+    this.m_rules.Elevation["Near Plate Boundary"].init(this.m_plateBoundaries);
+    this.m_rules.Erosion["Near Plate Boundary"].init(this.m_plateBoundaries);
+    this.m_rules.Erosion["Neighbors In Region"].inRegionCheck = (ctx, _thisCell, neighborCell) => {
+      return ctx.region.getRegionIdForCell(neighborCell) === ctx.region.id && neighborCell.terrainType === TerrainType.Flat;
     };
-    initializeRuleGroup(this.m_plateRules, this.m_plateRuleConfigs);
-    initializeRuleGroup(this.m_landmassRules, this.m_landmassRuleConfigs);
-    initializeRuleGroup(this.m_coastalIslandRules, this.m_coastalIslandRuleConfigs);
-    initializeRuleGroup(this.m_islandRules, this.m_islandRuleConfigs);
-    initializeRuleGroup(this.m_mountainRules, this.m_mountainRuleConfigs);
-    initializeRuleGroup(this.m_volcanoRules, this.m_volcanoRuleConfigs);
-    const volcanoNeighborRule = this.m_volcanoRules.find(
-      (rule) => rule.name === RuleNeighborsInRegion.getName()
+    const windDesc = new WindContextDesc();
+    this.m_rules.Erosion["Wave Exposure"].init(
+      [TerrainType.Flat],
+      new WindContext(windDesc)
     );
+    const volcanoNeighborRule = this.m_rules.Volcanoes["Neighbors In Region"];
     volcanoNeighborRule.inRegionCheck = (_ctx, thisCell, neighborCell) => {
       return thisCell.terrainType === neighborCell.terrainType;
     };
   }
-  resetToDefault() {
-    super.resetToDefault();
-    this.initializeRules();
-  }
   getType() {
     return GeneratorType.Continent;
-  }
-  getGeneratorSettingsConfig() {
-    return this.m_generatorSettingsSchema;
   }
   getTypedSettings() {
     return this.getSettings();
   }
   getRules() {
-    return {
-      Plates: this.m_plateRules,
-      Landmasses: this.m_landmassRules,
-      "Coastal Islands": this.m_coastalIslandRules,
-      Islands: this.m_islandRules,
-      Mountains: this.m_mountainRules,
-      Volcanoes: this.m_volcanoRules
-    };
+    return this.m_rules;
+  }
+  getLandmassRegions() {
+    return this.m_landmassRegions;
   }
   simulate() {
     for (const regionCell of this.m_regionCells) {
@@ -626,6 +668,13 @@ class ContinentGenerator extends MapGenerator {
     VoronoiUtils.performanceMarker("Add Mountains & Volcanos");
     this.addMountains();
   }
+  clearTempCellData() {
+    for (const regionCell of this.m_regionCells) {
+      regionCell.currentScore = 0;
+      regionCell.regionConsiderationBits = 0n;
+      regionCell.ruleConsideration = false;
+    }
+  }
   choosePlateToGrow(power, linearStrength, plateCount) {
     const x = RandomImpl.fRand("Plate Growth");
     const curve = plateCount * Math.pow(x, power);
@@ -647,9 +696,7 @@ class ContinentGenerator extends MapGenerator {
     this.m_plateCells = this.m_regionCells;
     let cellKdTree = this.m_kdTree;
     if (useUniqueDiagram) {
-      const cellCount = Math.floor(
-        MapDims[this.m_mapSize].x * MapDims[this.m_mapSize].y * voronoiCellRatio
-      );
+      const cellCount = Math.floor(this.m_hexDims.x * this.m_hexDims.y * voronoiCellRatio);
       const sites2 = VoronoiUtils.createRandomSites(cellCount, bbox.xr, bbox.yb);
       this.m_platesDiagram = VoronoiUtils.computeVoronoi(sites2, bbox, 2, this.m_wrap);
       this.m_plateCells = this.m_platesDiagram.cells.map((cell, index) => {
@@ -671,13 +718,7 @@ class ContinentGenerator extends MapGenerator {
       this.m_platesDiagram = void 0;
     }
     this.m_plateRegions = diagram.cells.map((cell, index) => {
-      const region = new PlateRegion(
-        "Plate" + index,
-        index,
-        0,
-        bbox.xr * bbox.yb,
-        VoronoiUtils.getRandColor(index)
-      );
+      const region = new PlateRegion("Plate" + index, index, 0, bbox.xr * bbox.yb);
       region.seedLocation = { x: cell.site.x, y: cell.site.y };
       const regionCell = cellKdTree.search(region.seedLocation).data;
       region.considerationList.push({ id: regionCell.id, score: 1 });
@@ -687,7 +728,7 @@ class ContinentGenerator extends MapGenerator {
       region.prepareGrowth(
         this.m_plateCells,
         this.m_plateRegions,
-        this.m_plateRules,
+        this.m_rules.Plates,
         this.m_worldDims,
         this.m_plateRegions,
         this.m_wrapDistOpts
@@ -761,7 +802,7 @@ class ContinentGenerator extends MapGenerator {
     this.m_plateBoundaries.build(plateBoundaries);
   }
   growLandmasses() {
-    this.m_landmassRegions = this.getLandmassRegions();
+    this.m_landmassRegions = this.buildLandmassRegions();
     for (const region of this.m_landmassRegions) {
       region.considerationList = [];
     }
@@ -773,10 +814,15 @@ class ContinentGenerator extends MapGenerator {
     const quadRegion = new Aabb2({ x: 0, y: 0 }, this.m_worldDims);
     const quadGetPos = (item) => item.cell.site;
     const quadTree = this.m_wrap == WrapType.None ? new QuadTree(quadRegion, quadGetPos) : new WrappedQuadTree(quadRegion, quadGetPos, void 0, void 0, this.m_wrap);
-    for (const rule of this.m_landmassRules) {
+    const landmassRules = this.getRules().Landmasses;
+    for (const [ruleName, rule] of Object.entries(landmassRules)) {
       if (!rule.isActive) continue;
       if (rule.name == RuleAvoidOtherRegions.getName()) {
-        rule.setQuadTree(quadTree);
+        const avoidOtherRegionsRule = rule;
+        avoidOtherRegionsRule.setQuadTree(quadTree);
+        if (ruleName == "Avoid Other Region Groups") {
+          avoidOtherRegionsRule.setFilter(getAvoidOtherRegionGroupsFilter());
+        }
       } else if (rule.name == RuleNearOtherRegion.getName()) {
         const regionPositions = this.m_landmassRegions.reduce((acc, value) => {
           if (value.id > 0) {
@@ -796,7 +842,7 @@ class ContinentGenerator extends MapGenerator {
       region.prepareGrowth(
         this.m_regionCells,
         this.m_landmassRegions,
-        this.m_landmassRules,
+        landmassRules,
         this.m_worldDims,
         this.m_plateRegions,
         this.m_wrapDistOpts
@@ -811,9 +857,6 @@ class ContinentGenerator extends MapGenerator {
         regionIndex++;
       }
       regionIndex %= growingRegions.length;
-    }
-    for (const region of this.m_landmassRegions.slice(1)) {
-      region.logStats();
     }
   }
   growIslands() {
@@ -853,10 +896,10 @@ class ContinentGenerator extends MapGenerator {
     const commonIslandsRegion = new LandmassRegion(
       "Islands",
       this.m_landmassRegions.length,
+      0,
       RegionType.Island,
       0,
-      0,
-      VoronoiUtils.hexStringToRgb("#B3B333")
+      0
     );
     commonIslandsRegion.minOrder = maxLandmassCellCount;
     this.m_landmassRegions.push(commonIslandsRegion);
@@ -881,6 +924,7 @@ class ContinentGenerator extends MapGenerator {
           (value) => this.m_landmassRegions[value.landmassId].type === RegionType.Island
         )
       );
+      Object.values(this.m_rules.Islands).forEach((rule) => rule.prepare());
       const scoreCtx = {
         cells: this.m_regionCells,
         region: commonIslandsRegion,
@@ -889,7 +933,7 @@ class ContinentGenerator extends MapGenerator {
         m_worldDims: this.m_worldDims,
         totalArea: 0,
         cellCount: 0,
-        rules: this.m_islandRules,
+        rules: this.m_rules.Islands,
         wrap: this.m_wrapDistOpts
       };
       const islandSeedCandidates = [];
@@ -903,12 +947,12 @@ class ContinentGenerator extends MapGenerator {
         const distanceToIsland = nearestIsland ? Math.sqrt(nearestIsland.distSq) : Infinity;
         if (distanceToLandmass > islandSettings.landmassDistance && distanceToIsland > islandSettings.islandDistance) {
           let score = 0;
-          for (const rule of this.m_islandRules) {
+          for (const rule of Object.values(this.m_rules.Islands)) {
             if (rule.isActive) {
-              score += rule.score(regionCell, scoreCtx);
+              score += rule.score(regionCell, scoreCtx) * rule.weight;
             }
           }
-          score *= distanceToIsland;
+          score *= distanceToIsland === Infinity ? 1 : distanceToIsland;
           islandSeedCandidates.push([score, regionCell]);
         }
       }
@@ -924,17 +968,17 @@ class ContinentGenerator extends MapGenerator {
       const islandRegion = new LandmassRegion(
         "Island" + String(i),
         this.m_landmassRegions.length,
+        0,
         RegionType.Island,
         finalIslandSize,
-        0,
-        VoronoiUtils.hexStringToRgb("#B3B333")
+        0
       );
       islandRegion.seedLocation = islandSeedCandidates[randomIndex][1].cell.site;
       this.m_landmassRegions.push(islandRegion);
       islandRegion.prepareGrowth(
         this.m_regionCells,
         this.m_landmassRegions,
-        this.m_islandRules,
+        this.m_rules.Islands,
         this.m_worldDims,
         this.m_plateRegions,
         this.m_wrapDistOpts
@@ -997,7 +1041,40 @@ class ContinentGenerator extends MapGenerator {
       console.log(
         "Checking " + nearCoastCells.length + " cells near landmass " + landmassRegion.id + " for coastal island spots"
       );
-      const minOtherLandmassRange = 4;
+      const coastalIslandRegionId = this.m_landmassRegions.length;
+      let minOtherLandmassRange = 4;
+      for (const [ruleName, rule] of Object.entries(this.m_rules["Coastal Islands"])) {
+        if (rule instanceof RuleAvoidOtherRegions) {
+          const avoidOtherRegionsRule = rule;
+          if (ruleName === "Avoid Own Region") {
+            avoidOtherRegionsRule.setFilter(getAvoidOwnRegionFilter(landmassRegion.id));
+            console.log(`setting islands for landmass ${landmassRegion.id} to slightly avoid self.`);
+          } else if (ruleName === "Avoid Other Regions") {
+            avoidOtherRegionsRule.setFilter(getAvoidOtherRegionsFilter(landmassRegion.id));
+            minOtherLandmassRange = Math.min(
+              avoidOtherRegionsRule.configValues.minDistance,
+              minOtherLandmassRange
+            );
+            console.log(
+              `setting islands for landmass ${landmassRegion.id} to strongly avoid other regions.`
+            );
+          } else if (ruleName === "Avoid Other Region Groups") {
+            avoidOtherRegionsRule.setFilter(getAvoidOtherRegionGroupsFilter());
+            minOtherLandmassRange = Math.min(
+              avoidOtherRegionsRule.configValues.minDistance,
+              minOtherLandmassRange
+            );
+            console.log(
+              `setting islands for landmass ${landmassRegion.id} to strongly avoid other region groups.`
+            );
+          } else if (ruleName === "Avoid Islands") {
+            avoidOtherRegionsRule.setFilter(getAvoidIslandsFilter());
+            console.log(
+              `setting islands for landmass ${landmassRegion.id} to strongly avoid distant islands.`
+            );
+          }
+        }
+      }
       const islandSpawnList = nearCoastCells.filter((cell) => {
         const filterCallback = (considerCell) => {
           if (considerCell.landmassId != 0 && considerCell.landmassId != landmassRegion.id) {
@@ -1014,21 +1091,6 @@ class ContinentGenerator extends MapGenerator {
         );
         return filterResult === VoronoiUtils.RegionCellFilterResult.Continue;
       });
-      for (const rule of this.m_coastalIslandRules) {
-        if (rule instanceof RuleAvoidOtherRegions) {
-          const avoidOtherRegionsRule = rule;
-          if (avoidOtherRegionsRule.key === "avoidSelf") {
-            avoidOtherRegionsRule.configValues.regionId = landmassRegion.id;
-            console.log("setting islands for landmass " + landmassRegion.id + " to slightly avoid self");
-          } else if (avoidOtherRegionsRule.key === "avoidOther") {
-            avoidOtherRegionsRule.configValues.regionId = landmassRegion.id;
-            avoidOtherRegionsRule.configValues.regionIdIsWhitelist = true;
-            console.log(
-              "setting islands for landmass " + landmassRegion.id + " to strongly avoid regions with id different from " + avoidOtherRegionsRule.configValues.regionId
-            );
-          }
-        }
-      }
       const area = this.getUsableArea();
       const coastalIslandSize = landmassSettings.coastalIslandsSize;
       let coastalIslandSizeVariance = landmassSettings.coastalIslandsSizeVariance;
@@ -1036,43 +1098,46 @@ class ContinentGenerator extends MapGenerator {
       const finalIslandSize = (coastalIslandSize + coastalIslandSizeVariance) * 0.01 * area;
       const coastalIslandRegion = new LandmassRegion(
         "CoastalIsland",
-        this.m_landmassRegions.length,
+        coastalIslandRegionId,
+        landmassRegion.groupId,
         RegionType.CoastalIsland,
         finalIslandSize,
-        0,
-        VoronoiUtils.hexStringToRgb("#66B333")
+        0
       );
+      this.m_landmassRegions.push(coastalIslandRegion);
       coastalIslandRegion.seedLocation = landmassRegion.seedLocation;
       coastalIslandRegion.prepareGrowth(
         this.m_regionCells,
         this.m_landmassRegions,
-        this.m_coastalIslandRules,
+        this.m_rules["Coastal Islands"],
         this.m_worldDims,
         this.m_plateRegions,
         this.m_wrapDistOpts
       );
       console.log("Found " + islandSpawnList.length + " cells for coastal island spots");
       if (islandSpawnList.length == 0) continue;
-      let scoredIslandSpawnList = [];
-      for (const cell of islandSpawnList) {
-        scoredIslandSpawnList.push({ cell, score: coastalIslandRegion.scoreSingleCell(cell) });
-      }
+      let scoredIslandSpawnList = islandSpawnList.map(
+        (value) => {
+          return { cell: value, score: coastalIslandRegion.scoreSingleCell(value) };
+        }
+      );
       scoredIslandSpawnList = scoredIslandSpawnList.filter((value) => value.score > 0);
       coastalIslandSpawnCount = Math.min(coastalIslandSpawnCount, scoredIslandSpawnList.length);
       scoredIslandSpawnList.sort((a, b) => b.score - a.score);
       scoredIslandSpawnList = scoredIslandSpawnList.slice(
         0,
-        Math.max(coastalIslandSpawnCount, scoredIslandSpawnList.length * 0.25)
+        Math.max(coastalIslandSpawnCount, scoredIslandSpawnList.length * 0.5)
       );
       VoronoiUtils.shuffle(scoredIslandSpawnList, coastalIslandSpawnCount);
       scoredIslandSpawnList = scoredIslandSpawnList.slice(0, coastalIslandSpawnCount);
       scoredIslandSpawnList.forEach((tuple) => {
-        coastalIslandRegion.considerationList.push({ id: tuple.cell.id, score: 100 });
+        coastalIslandRegion.considerationList.push({ id: tuple.cell.id, score: tuple.score });
       });
       let coastalCellCount = 0;
       while (coastalIslandRegion.growStep()) {
         ++coastalCellCount;
       }
+      this.m_landmassRegions.pop();
       this.m_regionCells.forEach((cell) => {
         if (cell.landmassId == coastalIslandRegion.id) {
           cell.landmassId = landmassRegion.id;
@@ -1096,8 +1161,9 @@ class ContinentGenerator extends MapGenerator {
     }
   }
   removeLakes() {
+    this.clearTempCellData();
     for (let cell of this.m_regionCells) {
-      if (cell.terrainType == TerrainType.Unknown) {
+      if (cell.terrainType == TerrainType.Ocean && cell.regionConsiderationBits == 0n) {
         let isInlandSea = false;
         let neighboringLandmassId = 0;
         const considerationList = [cell];
@@ -1105,12 +1171,13 @@ class ContinentGenerator extends MapGenerator {
         cell.ruleConsideration = true;
         while (considerationList.length > 0) {
           cell = considerationList.pop();
+          cell.regionConsiderationBits = 1n;
           lakeList.push(cell);
           let neighborsLand = false;
           for (const neighborId of cell.cell.getNeighborIds()) {
             const neighbor = this.m_regionCells[neighborId];
             if (!neighbor.ruleConsideration) {
-              if (neighbor.terrainType == TerrainType.Unknown) {
+              if (neighbor.terrainType == TerrainType.Ocean) {
                 neighbor.ruleConsideration = true;
                 considerationList.push(neighbor);
               } else {
@@ -1126,7 +1193,6 @@ class ContinentGenerator extends MapGenerator {
         if (isInlandSea) {
           lakeList.forEach((cell2) => {
             cell2.ruleConsideration = false;
-            cell2.terrainType = TerrainType.Ocean;
           });
         } else {
           lakeList.forEach((cell2) => {
@@ -1142,44 +1208,96 @@ class ContinentGenerator extends MapGenerator {
     for (const region of this.m_landmassRegions) {
       if (region.id === 0) continue;
       const coastalCells = [];
+      let erosionTime = region.type === RegionType.Landmass ? this.getTypedSettings().landmass[region.id - 1].erosionTime : this.getTypedSettings().island.erosionTime;
+      erosionTime *= erosionTime;
+      const addToCoastalCells = (cell, time) => {
+        coastalCells.push(cell);
+        cell.regionConsiderationBits = time;
+      };
+      const removeFromCoastalCells = (idx) => {
+        const cell = VoronoiUtils.swapAndPop(coastalCells, idx);
+        cell.regionConsiderationBits = 0n;
+        cell.currentScore = 0;
+        return cell;
+      };
       const regionCells = this.m_regionCells.filter((cell) => cell.landmassId === region.id);
       for (const regionCell of regionCells) {
+        regionCell.regionConsiderationBits = 0n;
+        let isByCoast = false;
         for (const neighborId of regionCell.cell.getNeighborIds()) {
-          let onCoast = false;
-          if (this.m_regionCells[neighborId].terrainType == TerrainType.Ocean) {
-            onCoast = true;
-            this.m_regionCells[neighborId].terrainType = TerrainType.Coast;
-            this.m_regionCells[neighborId].landmassId = regionCell.landmassId;
-            this.m_regionCells[neighborId].landmassOrder = region.minOrder + region.cellCount;
+          const neighbor = this.m_regionCells[neighborId];
+          if (neighbor.terrainType == TerrainType.Ocean) {
+            isByCoast = true;
+            neighbor.terrainType = TerrainType.Coast;
+            neighbor.landmassId = region.id;
+            neighbor.landmassOrder = region.minOrder + region.cellCount;
             region.cellCount++;
           }
-          if (onCoast) {
-            coastalCells.push(regionCell);
-          }
+        }
+        if (isByCoast) {
+          addToCoastalCells(regionCell, 1n);
         }
       }
-      const erosionPercent = 0.01 * (region.type === RegionType.Landmass ? this.getTypedSettings().landmass[region.id - 1].erosionPercent : this.getTypedSettings().island.erosionPercent);
-      let erosionCount = 0;
-      const cellsInRegion = regionCells.length;
-      const cellsToErode = erosionPercent * cellsInRegion;
-      VoronoiUtils.shuffle(coastalCells);
-      for (let i = 0; i < coastalCells.length; ++i) {
-        const cell = coastalCells[i];
-        if (i < cellsToErode) {
-          const neighbors = cell.cell.getNeighborIds();
-          for (const neighborId of neighbors) {
-            const neighbor = this.m_regionCells[neighborId];
-            if (neighbor.landmassId == region.id) {
-              neighbor.terrainType = TerrainType.Coast;
-              neighbor.landmassId = cell.landmassId;
-              ++erosionCount;
-              break;
+      const erosionPercent = region.type === RegionType.Landmass ? this.getTypedSettings().landmass[region.id - 1].erosionPercent : this.getTypedSettings().island.erosionPercent;
+      const erosionFactor = VoronoiUtils.clamp(0.01 * erosionPercent, 0, 1);
+      const cellsToErode = erosionFactor * regionCells.length;
+      const scoreCtx = {
+        cells: this.m_regionCells,
+        region,
+        regions: this.m_landmassRegions,
+        plateRegions: this.m_plateRegions,
+        m_worldDims: this.m_worldDims,
+        totalArea: 0,
+        cellCount: 0,
+        rules: this.m_rules.Erosion,
+        wrap: this.m_wrapDistOpts
+      };
+      const calculateErosionScore = (cells) => {
+        cells.forEach((value) => {
+          value.currentScore = 0;
+        });
+        for (const rule of Object.values(this.m_rules.Erosion)) {
+          if (rule.isActive) {
+            rule.scoreCells(cells, scoreCtx, (cell) => this.m_landmassRegions[cell.landmassId]);
+          }
+        }
+      };
+      calculateErosionScore(coastalCells);
+      coastalCells.sort((a, b) => a.currentScore - b.currentScore);
+      const randomness = region.type === RegionType.Landmass ? this.getTypedSettings().landmass[region.id - 1].erosionRandomness : this.getTypedSettings().island.erosionRandomness;
+      const randFactor = randomness * randomness;
+      for (let i = 0; i < cellsToErode && coastalCells.length > 0; ++i) {
+        const rand = RandomImpl.fRand("Random Coast");
+        const idxToRemove = Math.min(
+          Math.floor(Math.pow(rand, randFactor) * coastalCells.length),
+          coastalCells.length - 1
+        );
+        const cell = removeFromCoastalCells(idxToRemove);
+        cell.terrainType = TerrainType.Coast;
+        const neighbors = cell.cell.getNeighborIds();
+        for (const neighborId of neighbors) {
+          const neighbor = this.m_regionCells[neighborId];
+          if (neighbor.landmassId == region.id && neighbor.terrainType == TerrainType.Flat) {
+            calculateErosionScore([neighbor]);
+            if (neighbor.regionConsiderationBits == 0n) {
+              addToCoastalCells(neighbor, BigInt(i));
             }
           }
         }
+        coastalCells.sort((a, b) => {
+          const aStepAge = i + 2 - Number(a.regionConsiderationBits);
+          const aAgeFactor = 1 + aStepAge * erosionTime;
+          const bStepAge = i + 2 - Number(b.regionConsiderationBits);
+          const bAgeFactor = 1 + bStepAge * erosionTime;
+          return a.currentScore * aAgeFactor - b.currentScore * bAgeFactor;
+        });
+      }
+      for (const cell of coastalCells) {
+        cell.regionConsiderationBits = 0n;
+        cell.currentScore = 0;
       }
       console.log(
-        "Eroded " + erosionCount + " cells on landmass " + region.id + " from a total of " + region.considerationList.length + " coasts on a landmass with " + cellsInRegion + " cells."
+        `Eroded ${cellsToErode} cells on landmass ${region.id} from a total of ${regionCells.length} cells.`
       );
     }
   }
@@ -1192,16 +1310,15 @@ class ContinentGenerator extends MapGenerator {
       m_worldDims: this.m_worldDims,
       totalArea: 0,
       cellCount: 0,
-      rules: this.m_mountainRules,
+      rules: this.m_rules.Mountains,
       wrap: this.m_wrapDistOpts
     };
-    for (const rule of this.m_mountainRules) {
+    for (const rule of Object.values(this.m_rules.Mountains)) {
       if (rule.isActive) {
         rule.scoreAllCells(
           (cell) => cell.terrainType == TerrainType.Flat,
           scoreCtx,
-          (cell) => this.m_landmassRegions[cell.landmassId],
-          rule.weight
+          (cell) => this.m_landmassRegions[cell.landmassId]
         );
       }
     }
@@ -1219,15 +1336,10 @@ class ContinentGenerator extends MapGenerator {
       cell.terrainType = TerrainType.Mountainous;
       cell.currentScore = 0;
     });
-    scoreCtx.rules = this.m_volcanoRules;
-    for (const rule of this.m_volcanoRules) {
+    scoreCtx.rules = this.m_rules.Volcanoes;
+    for (const rule of Object.values(this.m_rules.Volcanoes)) {
       if (rule.isActive) {
-        rule.scoreCells(
-          mountainCells,
-          scoreCtx,
-          (cell) => this.m_landmassRegions[cell.landmassId],
-          rule.weight
-        );
+        rule.scoreCells(mountainCells, scoreCtx, (cell) => this.m_landmassRegions[cell.landmassId]);
       }
     }
     const volcanoSettings = this.getTypedSettings().volcano;
@@ -1247,14 +1359,52 @@ class ContinentGenerator extends MapGenerator {
       cell.currentScore = 0;
     });
   }
-  getLandmassRegions() {
-    const regions = [
-      new LandmassRegion("ocean", 0, RegionType.Ocean, 0, 0, VoronoiUtils.hexStringToRgb("#3333CC"))
-    ];
+  calculateElevation() {
+    const scoreCtx = {
+      cells: this.m_regionCells,
+      region: this.m_landmassRegions[1],
+      regions: this.m_landmassRegions,
+      plateRegions: this.m_plateRegions,
+      m_worldDims: this.m_worldDims,
+      totalArea: 0,
+      cellCount: 0,
+      rules: this.m_rules.Elevation,
+      wrap: this.m_wrapDistOpts
+    };
+    const quadRegion = new Aabb2({ x: 0, y: 0 }, this.m_worldDims);
+    const quadGetPos = (item) => item.cell.site;
+    const oceanQuadTree = new QuadTree(quadRegion, quadGetPos);
+    for (const cell of this.m_regionCells) {
+      if (cell.landmassId == 0) {
+        oceanQuadTree.insert(cell);
+      }
+    }
+    const elevationRules = Object.values(this.m_rules.Elevation);
+    for (const rule of elevationRules) {
+      if (rule.isActive) {
+        if (rule.name == RuleAvoidOtherRegions.getName()) {
+          const avoidOtherRegionsRule = rule;
+          avoidOtherRegionsRule.setQuadTree(oceanQuadTree);
+          avoidOtherRegionsRule.setFilter(
+            (ctx, item) => ctx.region.getRegionIdForCell(item) == 0
+          );
+        }
+        rule.scoreAllCells(
+          (cell) => cell.terrainType != TerrainType.Ocean && cell.terrainType != TerrainType.Coast,
+          scoreCtx,
+          (cell) => this.m_landmassRegions[cell.landmassId]
+        );
+      }
+    }
+    this.m_regionCells.forEach((cell) => {
+      cell.elevation = cell.currentScore / elevationRules.length;
+      cell.currentScore = 0;
+    });
+  }
+  buildLandmassRegions() {
+    const regions = [new LandmassRegion("ocean", 0, 0, RegionType.Ocean, 0, 0)];
     const area = this.getUsableArea();
     const numLandmasses = this.getTypedSettings().landmass.length;
-    const arcOffset = Math.PI * 2 / numLandmasses;
-    const randSpawnOffset = arcOffset * RandomImpl.fRand("Landmass spawn offset");
     for (let i = 0; i < numLandmasses; ++i) {
       const landmassSettings = this.getTypedSettings().landmass[i];
       if (!landmassSettings.enabled) {
@@ -1262,19 +1412,16 @@ class ContinentGenerator extends MapGenerator {
       }
       const landmassSize = landmassSettings.size * 0.01 * area + landmassSettings.variance * 0.01 * area * RandomImpl.fRand("Landmass " + i + " size variance") - landmassSettings.variance * 0.5;
       const landmassPlayerAreas = landmassSettings.playerAreas;
-      const spawnOffset = randSpawnOffset + arcOffset * i;
-      let circleOffset = { x: Math.cos(spawnOffset), y: Math.sin(spawnOffset) };
-      circleOffset = mul2s(circleOffset, landmassSettings.spawnCenterDistance);
       const landmass = new LandmassRegion(
         "landmass" + i,
         1 + i,
+        landmassSettings.groupId,
         RegionType.Landmass,
         landmassSize,
-        landmassPlayerAreas,
-        VoronoiUtils.hexStringToRgb("#00CC00")
+        landmassPlayerAreas
       );
-      const halfMapDims = mul2s(this.m_worldDims, 0.5);
-      landmass.seedLocation = add2(mul2(circleOffset, halfMapDims), halfMapDims);
+      landmass.seedLocation.x = landmassSettings.xPos * this.m_worldDims.x;
+      landmass.seedLocation.y = landmassSettings.yPos * this.m_worldDims.y;
       regions.push(landmass);
     }
     return regions;
@@ -1300,5 +1447,5 @@ class ContinentGenerator extends MapGenerator {
   }
 }
 
-export { ContinentGenerator };
+export { ContinentGenerator, continentGeneratorRulesSettings, continentGeneratorSchema };
 //# sourceMappingURL=continent-generator.js.map

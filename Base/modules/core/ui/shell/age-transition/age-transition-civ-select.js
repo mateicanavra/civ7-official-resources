@@ -1,39 +1,16 @@
-import { A as Audio } from '../../audio-base/audio-support.chunk.js';
+import { Audio } from '../../audio-base/audio-support.js';
 import ContextManager from '../../context-manager/context-manager.js';
-import ActionHandler, { ActiveDeviceTypeChangedEventName } from '../../input/action-handler.js';
-import FocusManager from '../../input/focus-manager.js';
-import { N as NavTray } from '../../navigation-tray/model-navigation-tray.chunk.js';
-import { P as Panel } from '../../panel-support.chunk.js';
+import ActionHandler from '../../input/action-handler.js';
+import { ActiveDeviceTypeChangedEventName } from '../../input/input-events.js';
+import NavTray from '../../navigation-tray/model-navigation-tray.js';
+import Panel from '../../panel-support.js';
 import { ScreenProfilePageExternalStatus } from '../../profile-page/screen-profile-page.js';
 import { AgeTransitionCivSelectEventName } from './age-transition-civ-card.js';
 import { CivilizationInfoTooltipModel } from './civilization-info-tooltip.js';
-import { a as GetAgeMap, G as GetCivilizationData } from '../create-panels/age-civ-select-model.chunk.js';
+import { GetAgeMap, GetCivilizationData } from '../create-panels/age-civ-select-model.js';
 import { getPlayerCardInfo } from '../../utilities/utilities-liveops.js';
-import '../../context-manager/display-queue-manager.js';
-import '../../dialog-box/manager-dialog-box.chunk.js';
-import '../../framework.chunk.js';
-import '../../input/cursor.js';
-import '../../views/view-manager.chunk.js';
-import '../../input/input-support.chunk.js';
-import '../../utilities/utilities-update-gate.chunk.js';
-import '../../utilities/utilities-image.chunk.js';
-import '../../utilities/utilities-component-id.chunk.js';
-import '../../components/fxs-dropdown.chunk.js';
-import '../../components/fxs-activatable.chunk.js';
-import '../../input/focus-support.chunk.js';
-import '../../components/fxs-slot.chunk.js';
-import '../../spatial/spatial-manager.js';
-import '../../utilities/utilities-dom.chunk.js';
-import '../../save-load/model-save-load.chunk.js';
-import '../leader-select/leader-button/leader-button.js';
-import '../../utilities/utilities-layout.chunk.js';
-import '../../utilities/utilities-metaprogression.chunk.js';
-import '../../tooltips/tooltip-manager.js';
-import '../../input/plot-cursor.js';
-import '../live-event-logic/live-event-logic.chunk.js';
-import '../../utilities/utilities-data.chunk.js';
-
-const styles = "fs://game/core/ui/shell/age-transition/age-transition-civ-select.css";
+import { FocusManager } from '../../../ui-next/services/focus-manager.js';
+import styles from './age-transition-civ-select.scss.js';
 
 class AgeTransitionCivSelect extends Panel {
   isMobileViewExperience = UI.getViewExperience() == UIViewExperience.Mobile;
@@ -87,11 +64,7 @@ class AgeTransitionCivSelect extends Panel {
   }
   onReceiveFocus() {
     super.onReceiveFocus();
-    if (this.isInDetails) {
-      FocusManager.setFocus(this.Root);
-    } else {
-      FocusManager.setFocus(this.civCardsEle);
-    }
+    FocusManager.get().setFocus(this.isInDetails ? this.Root : this.civCardsEle);
     NavTray.clear();
   }
   onAttach() {
@@ -622,7 +595,7 @@ class AgeTransitionCivSelect extends Panel {
     this.isInDetails = true;
     this.cardsPanel.classList.add("hidden");
     this.detailsPanel.classList.remove("hidden");
-    FocusManager.setFocus(this.Root);
+    FocusManager.get().setFocus(this.Root);
   }
   closeAdditionalInfoPanel() {
     NavTray.clear();
@@ -630,7 +603,7 @@ class AgeTransitionCivSelect extends Panel {
     this.cardsPanel.classList.remove("hidden");
     this.detailsPanel.classList.add("hidden");
     if (this.selectedCard) {
-      FocusManager.setFocus(this.selectedCard);
+      FocusManager.get().setFocus(this.selectedCard);
     }
   }
   //new civ selected. Start the next age

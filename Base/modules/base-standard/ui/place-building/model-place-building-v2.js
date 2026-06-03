@@ -1,9 +1,8 @@
-import { c as composeConstructibleDescription } from '../../../core/ui/utilities/utilities-core-textprovider.chunk.js';
-import { U as UpdateGate } from '../../../core/ui/utilities/utilities-update-gate.chunk.js';
+import { composeConstructibleDescription } from '../../../core/ui/utilities/utilities-core-textprovider.js';
+import UpdateGate from '../../../core/ui/utilities/utilities-update-gate.js';
 import { BuildingPlacementSelectedPlotChangedEventName, BuildingPlacementConstructibleChangedEventName, BuildingPlacementManager } from '../building-placement/building-placement-manager.js';
-import { C as ConstructibleHasTagType } from '../utilities/utilities-tags.chunk.js';
+import { ConstructibleHasTagType } from '../utilities/utilities-tags.js';
 import { YieldBarEntryStyle } from '../yield-bar-base/yield-bar-base.js';
-import '../../../core/ui/utilities/utilities-component-id.chunk.js';
 
 var ConstructibleIcons = /* @__PURE__ */ ((ConstructibleIcons2) => {
   ConstructibleIcons2["EMPTY"] = "BUILDING_OPEN";
@@ -126,6 +125,9 @@ class PlaceBuildingModelV2 {
     this._OnUpdate = callback;
   }
   updateGate = new UpdateGate(() => {
+    if (BuildingPlacementManager.currentConstructible == null) {
+      return;
+    }
     const constructibleDef = BuildingPlacementManager.currentConstructible;
     if (!constructibleDef) {
       console.warn(
@@ -186,8 +188,8 @@ class PlaceBuildingModelV2 {
         uniqueQuarterPlotIndex = BuildingPlacementManager.findExistingUniqueBuilding(uniqueDistrictDef);
       }
     }
-    const isUniqueImprovement = ConstructibleHasTagType(constructibleDef.ConstructibleType, "UNIQUE_IMPROVEMENT");
-    const isFulltileConstructible = isUniqueImprovement || constructibleDef.ConstructibleClass == "WONDER" || ConstructibleHasTagType(constructibleDef.ConstructibleType, "FULL_TILE");
+    const isImprovement = constructibleDef.ConstructibleClass == "IMPROVEMENT";
+    const isFulltileConstructible = isImprovement || constructibleDef.ConstructibleClass == "WONDER" || ConstructibleHasTagType(constructibleDef.ConstructibleType, "FULL_TILE");
     const showUrbanWarning = !isFulltileConstructible;
     this.cityName = city.name;
     this.isRepairing = BuildingPlacementManager.isRepairing;
@@ -199,7 +201,7 @@ class PlaceBuildingModelV2 {
     this.overbuildConstructibleSlot.showRepairIcon = false;
     this.selectedConstructibleInfo.name = constructibleDef.Name;
     this.selectedConstructibleInfo.type = constructibleDef.ConstructibleType;
-    this.headerText = constructibleDef.Name;
+    this.headerText = this.isRepairing ? Locale.compose("LOC_UI_PRODUCTION_REPAIR_NAME", constructibleDef.Name) : constructibleDef.Name;
     const selectedMaintenances = cityConstructibles.getMaintenance(constructibleDef.ConstructibleType);
     this.afterMaintenance = [];
     this.showAfterMaintenance = false;
@@ -222,9 +224,9 @@ class PlaceBuildingModelV2 {
     if (this.selectedPlotIndex != null) {
       this.hasSelectedPlot = true;
       let conversionType = 6 /* NONE */;
-      this.headerText = Locale.compose("LOC_BUILDING_PLACEMENT_PLACEING_CONSTRUCTIBLE", constructibleDef.Name);
+      this.headerText = this.isRepairing ? Locale.compose("LOC_BUILDING_PLACEMENT_REPAIRING_CONSTRUCTIBLE", constructibleDef.Name) : Locale.compose("LOC_BUILDING_PLACEMENT_PLACEING_CONSTRUCTIBLE", constructibleDef.Name);
       this.selectedConstructibleInfo.details = [];
-      const totalYieldChanges = BuildingPlacementManager.getTotalYieldChanges(this.selectedPlotIndex);
+      const totalYieldChanges = BuildingPlacementManager.getCityYieldChanges(this.selectedPlotIndex);
       for (const change of totalYieldChanges) {
         this.selectedConstructibleInfo.details.push(
           Locale.stylize("LOC_BUILDING_PLACEMENT_YIELD", change.yieldChange, change.text)
@@ -362,23 +364,37 @@ class PlaceBuildingModelV2 {
           }
         } else {
           if (selectedDistrict.isUrbanCore) {
-            conversionType = this.willBecomeQuarter(this.firstConstructibleSlot.type) ? 3 /* DISTRICT_TO_QUARTER */ : 6 /* NONE */;
-            this.secondConstructibleSlot.type = "BUILDING_OPEN" /* EMPTY */;
-            this.firstConstructibleSlot.showPlacementIcon = false;
-            this.secondConstructibleSlot.showPlacementIcon = false;
-            this.placementHeaderText = Locale.compose("LOC_UI_CITY_VIEW_PLACE_HERE");
-            if (isFulltileConstructible) {
-              this.afterFirstConstructibleSlot.type = this.selectedConstructibleInfo.type;
+            if (this.isRepairing) {
+              conversionType = 6 /* NONE */;
+              this.placementHeaderText = Locale.compose(
+                "LOC_UI_CITY_VIEW_REPAIR",
+                this.firstConstructibleSlot.name
+              );
+              this.firstConstructibleSlot.showRepairIcon = true;
+              this.firstConstructibleSlot.showPlacementIcon = false;
+              this.secondConstructibleSlot.type = "BUILDING_OPEN" /* EMPTY */;
+              this.secondConstructibleSlot.showPlacementIcon = false;
               this.afterSecondConstructibleSlot.type = "BUILDING_OPEN" /* EMPTY */;
+              this.shouldShowOverbuild = false;
             } else {
-              this.afterFirstConstructibleSlot.type = this.firstConstructibleSlot.type;
-              this.afterSecondConstructibleSlot.type = this.selectedConstructibleInfo.type;
+              conversionType = this.willBecomeQuarter(this.firstConstructibleSlot.type) ? 3 /* DISTRICT_TO_QUARTER */ : 6 /* NONE */;
+              this.secondConstructibleSlot.type = "BUILDING_OPEN" /* EMPTY */;
+              this.firstConstructibleSlot.showPlacementIcon = false;
+              this.secondConstructibleSlot.showPlacementIcon = false;
+              this.placementHeaderText = Locale.compose("LOC_UI_CITY_VIEW_PLACE_HERE");
+              if (isFulltileConstructible) {
+                this.afterFirstConstructibleSlot.type = this.selectedConstructibleInfo.type;
+                this.afterSecondConstructibleSlot.type = "BUILDING_OPEN" /* EMPTY */;
+              } else {
+                this.afterFirstConstructibleSlot.type = this.firstConstructibleSlot.type;
+                this.afterSecondConstructibleSlot.type = this.selectedConstructibleInfo.type;
+              }
             }
           } else {
             this.secondConstructibleSlot.type = "BUILDING_ADD" /* ADD */;
             this.firstConstructibleSlot.showPlacementIcon = false;
             this.secondConstructibleSlot.showPlacementIcon = false;
-            if (isUniqueImprovement) {
+            if (isImprovement) {
               conversionType = 5 /* IMPROVEMENT_TO_IMPROVEMENT */;
             } else {
               conversionType = 2 /* IMPROVEMENT_TO_DISTRICT */;
@@ -451,7 +467,7 @@ class PlaceBuildingModelV2 {
         conversionType = 1 /* UNIMPROVED_TO_DISTRICT */;
       }
       this.afterSecondConstructibleSlot.shouldShow = isFulltileConstructible ? false : true;
-      if (uniqueQuarterDefinition != null && this.selectedPlotIndex == uniqueQuarterPlotIndex) {
+      if (!this.isRepairing && uniqueQuarterDefinition != null && this.selectedPlotIndex == uniqueQuarterPlotIndex) {
         this.placementHeaderText = Locale.compose(uniqueQuarterDefinition.Name);
         this.shouldShowUniqueQuarterText = true;
         this.uniqueQuarterText = Locale.compose(
@@ -461,7 +477,7 @@ class PlaceBuildingModelV2 {
         );
         this.uniqueQuarterWarning = "";
         conversionType = 4 /* DISTRICT_TO_UNIQUE_QUARTER */;
-      } else if (uniqueQuarterDefinition != null && uniqueQuarterPlotIndex != -1) {
+      } else if (!this.isRepairing && uniqueQuarterDefinition != null && uniqueQuarterPlotIndex != -1) {
         this.shouldShowUniqueQuarterText = true;
         this.uniqueQuarterText = "";
         this.uniqueQuarterWarning = Locale.compose(
@@ -524,7 +540,7 @@ class PlaceBuildingModelV2 {
           this.afterTileIcon = "CITY_URBAN";
           break;
         case 5 /* IMPROVEMENT_TO_IMPROVEMENT */:
-          this.tileConversionText = Locale.compose("LOC_BUILDING_PLACEMENT_IMPROVEMENT_TO_DISTRICT");
+          this.tileConversionText = "";
           this.beforeTileType = "LOC_BUILDING_PLACEMENT_IMPROVEMENT";
           this.beforeTileIcon = "CITY_RURAL";
           this.afterTileType = "LOC_BUILDING_PLACEMENT_IMPROVEMENT";
@@ -561,7 +577,7 @@ class PlaceBuildingModelV2 {
       this.shouldShowOverbuild = false;
       this.shouldShowUniqueQuarterText = false;
       this.selectPlotMessage = Locale.compose(
-        "LOC_UI_CITY_VIEW_SELECT_A_PLOT",
+        this.isRepairing ? "LOC_UI_CITY_VIEW_SELECT_A_PLOT_REPAIR" : "LOC_UI_CITY_VIEW_SELECT_A_PLOT",
         this.selectedConstructibleInfo.name
       );
     }

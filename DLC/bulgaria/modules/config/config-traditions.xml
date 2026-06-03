@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- NOTE: These are copies - the real implementation should use a shared database -->
+<Database>
+	<!-- ========================== -->
+	<!-- Bulgaria -->
+	<!-- ========================== -->
+	<Traditions>
+		<Row TraditionType="TRADITION_FALSE_RETREAT" Name="LOC_TRADITION_FALSE_RETREAT_NAME" Description="LOC_TRADITION_FALSE_RETREAT_DESCRIPTION" TraitType="TRAIT_BULGARIA" AgeType="AGE_EXPLORATION" CultureSlotType="TRADITION_CULTURE_SLOT"/>
+		<Row TraditionType="TRADITION_ICONOLATRY" Name="LOC_TRADITION_ICONOLATRY_NAME" Description="LOC_TRADITION_ICONOLATRY_DESCRIPTION" TraitType="TRAIT_BULGARIA" AgeType="AGE_EXPLORATION" CultureSlotType="TRADITION_CULTURE_SLOT"/>
+		<Row TraditionType="TRADITION_ICONOLATRY_II" Name="LOC_TRADITION_ICONOLATRY_II_NAME" Description="LOC_TRADITION_ICONOLATRY_II_DESCRIPTION" TraitType="TRAIT_BULGARIA" AgeType="AGE_MODERN" CultureSlotType="TRADITION_CULTURE_SLOT" ObsoletesTraditionType="TRADITION_ICONOLATRY"/>
+		<Row TraditionType="TRADITION_STRATAGEMS" Name="LOC_TRADITION_STRATAGEMS_NAME" Description="LOC_TRADITION_STRATAGEMS_DESCRIPTION" TraitType="TRAIT_BULGARIA" AgeType="AGE_EXPLORATION" CultureSlotType="TRADITION_CULTURE_SLOT" ObsoletesTraditionType="TRADITION_STRATAGEMS_I"/>
+		<Row TraditionType="TRADITION_STRATAGEMS_I" Name="LOC_TRADITION_STRATAGEMS_I_NAME" Description="LOC_TRADITION_STRATAGEMS_I_DESCRIPTION" TraitType="TRAIT_BULGARIA" AgeType="AGE_ANTIQUITY" CultureSlotType="TRADITION_CULTURE_SLOT"/>
+		<Row TraditionType="TRADITION_BULGARIA_SYNCRETISM_ANTIQUITY" Name="LOC_TRADITION_BULGARIA_SYNCRETISM_ANTIQUITY_NAME" Description="LOC_TRADITION_BULGARIA_SYNCRETISM_ANTIQUITY_DESCRIPTION" AgeType="AGE_ANTIQUITY" CultureSlotType="TRADITION_CULTURE_SLOT" TraitType="TRAIT_BULGARIA" IgnoreInitializeUnlock="true" AllowInitializeAdvancedStart="true"/>
+		<Row TraditionType="TRADITION_BULGARIA_SYNCRETISM_MODERN" Name="LOC_TRADITION_BULGARIA_SYNCRETISM_MODERN_NAME" Description="LOC_TRADITION_BULGARIA_SYNCRETISM_MODERN_DESCRIPTION" AgeType="AGE_MODERN" CultureSlotType="TRADITION_CULTURE_SLOT" TraitType="TRAIT_BULGARIA" IgnoreInitializeUnlock="true" ObsoletesTraditionType="TRADITION_BULGARIA_SYNCRETISM_ANTIQUITY" AllowInitializeAdvancedStart="true"/>
+	</Traditions>
+	<ProgressionTreeNodes>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_BULGARIA_SEVEN_TRIBES" ProgressionTree="TREE_CIVICS_EX_BULGARIA" Cost="800" Name="LOC_CIVIC_SEVEN_TRIBES_NAME" IconString="cult_bulgaria"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_BULGARIA_TARNOVO_SCHOOLS" ProgressionTree="TREE_CIVICS_EX_BULGARIA" Cost="1200" Name="LOC_CIVIC_TARNOVO_SCHOOLS_NAME" IconString="cult_bulgaria"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_BULGARIA_TSARSTVIE" ProgressionTree="TREE_CIVICS_EX_BULGARIA" Cost="2000" Name="LOC_CIVIC_TSARSTVIE_NAME" IconString="cult_bulgaria"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_BULGARIA_ORIGINS" ProgressionTree="TREE_CIVICS_AQ_TEST_OF_TIME" Cost="150" Name="LOC_NODE_CIVIC_AQ_BULGARIA_ORIGINS_NAME" IconString="cult_bulgaria" CanSteal="false"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_BULGARIA_MODERNIZATION" ProgressionTree="TREE_CIVICS_MO_TEST_OF_TIME" Cost="2000" Name="LOC_NODE_CIVIC_MO_BULGARIA_MODERNIZATION_NAME" IconString="cult_bulgaria" CanSteal="false"/>
+	</ProgressionTreeNodes>
+	<ProgressionTreeNodeUnlocks>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_BULGARIA_SEVEN_TRIBES" TargetKind="KIND_TRADITION" TargetType="TRADITION_FALSE_RETREAT" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_BULGARIA_TARNOVO_SCHOOLS" TargetKind="KIND_TRADITION" TargetType="TRADITION_ICONOLATRY" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_BULGARIA_TSARSTVIE" TargetKind="KIND_TRADITION" TargetType="TRADITION_STRATAGEMS" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_BULGARIA_ORIGINS" TargetKind="KIND_TRADITION" TargetType="TRADITION_STRATAGEMS_I"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_BULGARIA_MODERNIZATION" TargetKind="KIND_TRADITION" TargetType="TRADITION_ICONOLATRY_II"/>
+	</ProgressionTreeNodeUnlocks>
+</Database>

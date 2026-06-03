@@ -1,18 +1,6 @@
-import './model-navigation-tray.chunk.js';
-import { D as Databind } from '../utilities/utilities-core-databinding.chunk.js';
-import '../input/action-handler.js';
-import '../framework.chunk.js';
-import '../input/cursor.js';
-import '../input/focus-manager.js';
-import '../audio-base/audio-support.chunk.js';
-import '../views/view-manager.chunk.js';
-import '../panel-support.chunk.js';
-import '../input/input-support.chunk.js';
-import '../utilities/utilities-update-gate.chunk.js';
-import '../utilities/utilities-image.chunk.js';
-import '../utilities/utilities-component-id.chunk.js';
-
-const styles = "fs://game/core/ui/navigation-tray/navigation-tray.css";
+import './model-navigation-tray.js';
+import Databind from '../utilities/utilities-core-databinding.js';
+import styles from './navigation-tray.scss.js';
 
 class NavigationTray extends Component {
   onAttach() {

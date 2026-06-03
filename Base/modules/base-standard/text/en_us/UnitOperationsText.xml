@@ -25,6 +25,12 @@
 		<Row Tag="LOC_UNITOPERATION_CARGO_DROP_DESCRIPTION">
 			<Text>Heal a friendly Unit, along with all adjacent friendly Units.</Text>
 		</Row>
+		<Row Tag="LOC_UNITOPERATION_CONVERT_ADJACENT_INDEPENDENT_TO_CITYSTATE_NAME">
+			<Text>Convert Independent Power to City-State</Text>
+		</Row>
+		<Row Tag="LOC_UNITOPERATION_CONVERT_ADJACENT_INDEPENDENT_TO_CITYSTATE_DESCRIPTION">
+			<Text>Convert the nearest Independent Power to a [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]City-State[/TIP] with you as its [TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]Suzerain[/TIP].</Text>
+		</Row>
 		<Row Tag="LOC_UNITOPERATION_UNIT_AIR_DROP_NAME">
 			<Text>Airdrop</Text>
 		</Row>
@@ -47,7 +53,7 @@
 			<Text>Excavate Artifact</Text>
 		</Row>
 		<Row Tag="LOC_UNITOPERATION_EXCAVATE_DESCRIPTION">
-			<Text>Dig up a Great Work that can be displayed in a Museum to make progress on the Geographic Society Legacy Path.</Text>
+			<Text>Excavate a Great Work that can be displayed in a Museum.</Text>
 		</Row>
 		<Row Tag="LOC_UNITOPERATION_FOUND_CITY_NAME">
 			<Text>Found Settlement</Text>
@@ -212,7 +218,7 @@
 			<Text>Coastal Raid</Text>
 		</Row>
 		<Row Tag="LOC_UNITOPERATION_COASTAL_RAID_DESCRIPTION">
-			<Text>Pillage and Capture an adjacent tile if able. Gain Gold and repair damage. May also trigger adjacent discoveries.</Text>
+			<Text>Pillage and Capture an adjacent tile if able. Gain Pillage Yields from the Constructible. May also trigger adjacent Discoveries.</Text>
 		</Row>
 		<Row Tag="LOC_UNITOPERATION_LOOKOUT_NAME">
 			<Text>Lookout</Text>
@@ -359,11 +365,20 @@
 			<Text>No packed units are currently capable of deploying a WMD.</Text>
 		</Row>
 		<Row Tag="LOC_UNITOPERATION_REINFORCE_ARMY_NO_ELIGIBLE_COMMANDER">
-			<Text>There are no eligible Commanders to reinforce. Commander must be at least {1_MinimumDistance} tiles away.</Text>
+			<Text>There are no eligible Commanders to reinforce. Commander must be at least {1_MinimumDistance} tiles away and have no more than {2_ReinforceCap} reinforcing units.</Text>
 		</Row>
 		<Row Tag="LOC_UNITOPERATION_REINFORCE_ARMY_NOT_WHEN_EMBARKED">
 			<Text>Embarked Armies cannot be reinforced.</Text>
 		</Row>
+    <Row Tag="LOC_UNITOPERATION_REINFORCE_ARMY_NOT_WHEN_DAMAGED">
+      <Text>Units need full health to reinforce.</Text>
+    </Row>
+    <Row Tag="LOC_UNITOPERATION_REINFORCE_ARMY_NEED_FULL_MOVEMENT">
+      <Text>Units need full movement to reinforce.</Text>
+    </Row>
+    <Row Tag="LOC_UNITOPERATION_REINFORCE_ARMY_NEED_FRIENDLY_TERRITORY">
+      <Text>Units need to be in friendly territory to reinforce.</Text>
+    </Row>
 		<Row Tag="LOC_UNITOPERATION_NO_VALID_CLAIM_LOCATIONS">
 			<Text>There are no valid locations to Settle.</Text>
 		</Row>
@@ -394,6 +409,21 @@
 		</Row>
 		<Row Tag="LOC_UNITOPERATION_MOVE_RAIL_NOT_ADJACENT_RAILYARD">
 			<Text>Must be in or adjacent to a Rail Station.</Text>
+		</Row>
+		<Row Tag="LOC_UNITOPERATION_SABOTAGE_NAME">
+			<Text>Sabotage</Text>
+		</Row>
+		<Row Tag="LOC_UNITOPERATION_SABOTAGE_DESCRIPTION">
+			<Text>Activate to force a Commander to Respawn. Must be in the opposing Commander's territory</Text>
+		</Row>
+		<Row Tag="LOC_UNITOPERATION_SABOTAGE_REQUIRES_FOREIGN">
+			<Text>Requires an opposing Civilization's tile.</Text>
+		</Row>
+		<Row Tag="LOC_UNITOPERATION_SABOTAGE_REQUIRES_ARMY_COMMANDER">
+			<Text>Requires an Army Commander.</Text>
+		</Row>
+		<Row Tag="LOC_WORLD_SABOTAGE_ARMY_COMMANDER_FLOATER">
+			<Text>Sabotage: Army Commander</Text>
 		</Row>
 	</EnglishText>
 </Database>

@@ -1,26 +1,15 @@
-import { A as Audio } from '../../audio-base/audio-support.chunk.js';
+import { Audio } from '../../audio-base/audio-support.js';
 import ContextManager from '../../context-manager/context-manager.js';
-import { a as DialogBoxManager } from '../../dialog-box/manager-dialog-box.chunk.js';
-import { M as MainMenuReturnEvent } from '../../events/shell-events.chunk.js';
-import FocusManager from '../../input/focus-manager.js';
-import { N as NavTray } from '../../navigation-tray/model-navigation-tray.chunk.js';
-import { P as Panel } from '../../panel-support.chunk.js';
-import { MustGetElement } from '../../utilities/utilities-dom.chunk.js';
+import { DialogBoxManager } from '../../dialog-box/manager-dialog-box.js';
+import { MainMenuReturnEvent } from '../../events/shell-events.js';
+import NavTray from '../../navigation-tray/model-navigation-tray.js';
+import Panel from '../../panel-support.js';
+import { MustGetElement } from '../../utilities/utilities-dom.js';
 import { parseLegalDocument } from '../../utilities/utilities-liveops.js';
-import { L as LoginResults } from '../../utilities/utilities-network-constants.chunk.js';
-import '../../context-manager/display-queue-manager.js';
-import '../../framework.chunk.js';
-import '../../input/cursor.js';
-import '../../views/view-manager.chunk.js';
-import '../../input/action-handler.js';
-import '../../input/input-support.chunk.js';
-import '../../utilities/utilities-update-gate.chunk.js';
-import '../../utilities/utilities-image.chunk.js';
-import '../../utilities/utilities-component-id.chunk.js';
-
-const content = "<fxs-frame\r\n\tid=\"screen-legal\"\r\n\tclass=\"m-20\"\r\n>\r\n\t<fxs-vslot\r\n\t\tclass=\"main-content\"\r\n\t\tid=\"focus-root\"\r\n\t>\r\n\t\t<fxs-scrollable\r\n\t\t\tclass=\"mp-legal__scrollable pr-3\"\r\n\t\t\thandle-gamepad-pan=\"true\"\r\n\t\t>\r\n\t\t\t<div class=\"mp-legal__title font-title text-secondary text-xl self-center mb-4\"></div>\r\n\t\t\t<div class=\"mp-legal__content font-body text-white text-lg\"></div>\r\n\t\t</fxs-scrollable>\r\n\t</fxs-vslot>\r\n\r\n\t<fxs-vslot class=\"mp-legal-button-container relative flex flex-col\">\r\n\t\t<div\r\n\t\t\tclass=\"mp-legal-privacy-notice-instructions hidden mb-3 font-body text-base text-secondary self-center\"\r\n\t\t\tdata-l10n-id=\"LOC_UI_LEGAL_PRIVACY_NOTICE\"\r\n\t\t></div>\r\n\t\t<fxs-hslot class=\"mp-legal-button-container-inner self-center\">\r\n\t\t\t<fxs-button\r\n\t\t\t\tclass=\"button-cancel mr-6\"\r\n\t\t\t\tcaption=\"LOC_GENERIC_BACK\"\r\n\t\t\t\tdata-bind-class-toggle=\"mp-legal__hidden:{{g_NavTray.isTrayRequired}}\"\r\n\t\t\t></fxs-button>\r\n\t\t\t<fxs-button\r\n\t\t\t\tclass=\"button-accept mr-6\"\r\n\t\t\t\tcaption=\"LOC_TUTORIAL_NEXT_PAGE\"\r\n\t\t\t\tdata-bind-class-toggle=\"mp-legal__hidden:{{g_NavTray.isTrayRequired}}\"\r\n\t\t\t></fxs-button>\r\n\t\t\t<fxs-button\r\n\t\t\t\tclass=\"button-previous mr-6\"\r\n\t\t\t\tcaption=\"LOC_NAV_PREVIOUS\"\r\n\t\t\t\tdata-bind-class-toggle=\"mp-legal__hidden:{{g_NavTray.isTrayRequired}}\"\r\n\t\t\t></fxs-button>\r\n\t\t\t<fxs-button\r\n\t\t\t\tclass=\"button-next mr-6\"\r\n\t\t\t\tcaption=\"LOC_NAV_NEXT\"\r\n\t\t\t\tdata-bind-class-toggle=\"mp-legal__hidden:{{g_NavTray.isTrayRequired}}\"\r\n\t\t\t></fxs-button>\r\n\t\t</fxs-hslot>\r\n\t</fxs-vslot>\r\n</fxs-frame>\r\n";
-
-const styles = "fs://game/core/ui/shell/mp-legal/mp-legal.css";
+import { LoginResults } from '../../utilities/utilities-network-constants.js';
+import { FocusManager } from '../../../ui-next/services/focus-manager.js';
+import content from './mp-legal.html.js';
+import styles from './mp-legal.scss.js';
 
 const LegalDocsPlacementAcceptName = "AcceptLegalDocuments";
 const LegalDocsPlacementReviewName = "ReviewLegalDocuments";
@@ -48,6 +37,8 @@ class MpLegal extends Panel {
   cancelButton;
   nextButton;
   previousButton;
+  forwardControllerSound = "data-audio-primary-button-press";
+  backwardControllerSound = "data-audio-error-press";
   viewOnly = false;
   isGameCenter = Network.getLocalHostingPlatform() == HostingType.HOSTING_TYPE_GAMECENTER;
   onInitialize() {
@@ -116,7 +107,7 @@ class MpLegal extends Panel {
   }
   onReceiveFocus() {
     super.onReceiveFocus();
-    FocusManager.setFocus(this.Root);
+    FocusManager.get().setFocus(this.Root);
     this.updateNavTray();
   }
   onLoseFocus() {
@@ -132,6 +123,7 @@ class MpLegal extends Panel {
     }
     if (inputEvent.isCancelInput() && this.viewOnly) {
       this.close();
+      Audio.playSound("data-audio-primary-button-press");
       inputEvent.stopPropagation();
       inputEvent.preventDefault();
     } else if (inputEvent.detail.name == "accept" && !this.viewOnly) {
@@ -151,7 +143,7 @@ class MpLegal extends Panel {
           navigationEvent.preventDefault();
           navigationEvent.stopImmediatePropagation();
           if (navigationEvent.detail.status == InputActionStatuses.START) {
-            Audio.playSound("data-audio-primary-button-press");
+            Audio.playSound(this.backwardControllerSound);
           }
           break;
         case InputNavigationAction.NEXT:
@@ -161,7 +153,7 @@ class MpLegal extends Panel {
           navigationEvent.preventDefault();
           navigationEvent.stopImmediatePropagation();
           if (navigationEvent.detail.status == InputActionStatuses.START) {
-            Audio.playSound("data-audio-primary-button-press");
+            Audio.playSound(this.forwardControllerSound);
           }
           break;
       }
@@ -213,8 +205,14 @@ class MpLegal extends Panel {
       if (this.documents) {
         if (this.documents.length > 1) {
           this.currentDocument++;
+          this.backwardControllerSound = "data-audio-primary-button-press";
           if (this.currentDocument == this.documents.length) {
             this.currentDocument = this.documents.length - 1;
+          }
+          if (this.currentDocument >= this.documents.length - 1) {
+            this.forwardControllerSound = "data-audio-error-press";
+          } else {
+            this.forwardControllerSound = "data-audio-primary-button-press";
           }
           this.refreshCurrentDocument();
           this.updateButtonState();
@@ -227,8 +225,14 @@ class MpLegal extends Panel {
       if (this.documents) {
         if (this.documents.length > 1) {
           this.currentDocument--;
+          this.forwardControllerSound = "data-audio-primary-button-press";
           if (this.currentDocument < 0) {
             this.currentDocument = 0;
+          }
+          if (this.currentDocument <= 0) {
+            this.backwardControllerSound = "data-audio-error-press";
+          } else {
+            this.backwardControllerSound = "data-audio-primary-button-press";
           }
           this.refreshCurrentDocument();
           this.updateButtonState();

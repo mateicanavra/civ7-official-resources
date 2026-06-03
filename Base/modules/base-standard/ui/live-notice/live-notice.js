@@ -1,6 +1,5 @@
-import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.chunk.js';
-
-const styles = "fs://game/base-standard/ui/live-notice/live-notice.css";
+import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
+import styles from './live-notice.scss.js';
 
 var LiveNoticeType = /* @__PURE__ */ ((LiveNoticeType2) => {
   LiveNoticeType2[LiveNoticeType2["ChallengeCompleted"] = 0] = "ChallengeCompleted";
@@ -11,8 +10,8 @@ var LiveNoticeType = /* @__PURE__ */ ((LiveNoticeType2) => {
 const STARTING_INNER_HTML = `
 <div class="live-notice-container-background">
 	<div class="live-notice-main-container -mt-2">
-		<fxs-hslot class="live-notice-main-hslot font-body text-base text-accent-2">
-			<fxs-vslot class="live-notice-title-bar">
+		<fxs-hslot class="live-notice-main-hslot h-full justify-end font-body text-base text-accent-2 bg-no-repeat bg-cover">
+			<fxs-vslot class="live-notice-title-bar items-end">
 				<div class="live-notice-title font-title uppercase text-base text-secondary-1 text-right" data-l10n-id="LOC_CHALLENGE_COMPLETE"></div>
 				<div class="live-notice-challenge-name font-body text-base text-primary-1 text-right"></div>
 			</fxs-vslot>

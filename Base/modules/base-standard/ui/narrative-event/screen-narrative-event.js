@@ -1,24 +1,12 @@
 import ContextManager from '../../../core/ui/context-manager/context-manager.js';
-import FocusManager from '../../../core/ui/input/focus-manager.js';
-import { b as InputEngineEventName } from '../../../core/ui/input/input-support.chunk.js';
-import { N as NavTray } from '../../../core/ui/navigation-tray/model-navigation-tray.chunk.js';
-import { P as Panel } from '../../../core/ui/panel-support.chunk.js';
-import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.chunk.js';
-import { N as NarrativePopupManager } from './narrative-popup-manager.chunk.js';
-import '../../../core/ui/context-manager/display-queue-manager.js';
-import '../../../core/ui/dialog-box/manager-dialog-box.chunk.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/input/cursor.js';
-import '../../../core/ui/views/view-manager.chunk.js';
-import '../../../core/ui/audio-base/audio-support.chunk.js';
-import '../../../core/ui/input/action-handler.js';
-import '../../../core/ui/utilities/utilities-update-gate.chunk.js';
-import '../../../core/ui/utilities/utilities-image.chunk.js';
-import '../../../core/ui/utilities/utilities-component-id.chunk.js';
-
-const content = "<fxs-modal-frame\r\n\tdata-modal-style=\"narrative\"\r\n\tclass=\"narrative-modal flex-col\"\r\n>\r\n\t<div class=\"narrative-reg__content flex-col justify-start items-center w-full relative\">\r\n\t\t<div class=\"w-full absolute -bottom-6\">\r\n\t\t\t<div class=\"filigree-divider-h2 w-24 h-8 self-center\"></div>\r\n\t\t</div>\r\n\t\t<fxs-scrollable class=\"mt-4\">\r\n\t\t\t<div class=\"narrative-reg__title-container\">\r\n\t\t\t\t<fxs-header\r\n\t\t\t\t\tclass=\"narrative-reg__title-text text-center font-title-xl font-bold tracking-150 mt-12 mb-2\"\r\n\t\t\t\t\tfiligree-style=\"none\"\r\n\t\t\t\t></fxs-header>\r\n\t\t\t</div>\r\n\t\t\t<div\r\n\t\t\t\tclass=\"fxs-inner-frame nar-inner-frame mx-21 my-6 fxs-inner-frame inner-frame relative flex flex-col items-center\"\r\n\t\t\t>\r\n\t\t\t\t<div class=\"absolute inset-0 pointer-events-none\">\r\n\t\t\t\t\t<div class=\"absolute top-0 inset-x-0 filigree-inner-frame-top\"></div>\r\n\t\t\t\t\t<div class=\"absolute bottom-0 inset-x-0 filigree-inner-frame-bottom\"></div>\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"narrative-reg__text-container w-187 my-5 mx-12 p-2 text-center font-body-sm\"></div>\r\n\t\t\t\t<fxs-vslot\r\n\t\t\t\t\tclass=\"narrative-reg__button-container flex flex-col w-full justify-start mt-4 px-12\"\r\n\t\t\t\t></fxs-vslot>\r\n\t\t\t</div>\r\n\t\t</fxs-scrollable>\r\n\t</div>\r\n</fxs-modal-frame>\r\n";
-
-const styles = "fs://game/base-standard/ui/narrative-event/screen-narrative-event.css";
+import { InputEngineEventName } from '../../../core/ui/input/input-support.js';
+import NavTray from '../../../core/ui/navigation-tray/model-navigation-tray.js';
+import Panel from '../../../core/ui/panel-support.js';
+import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
+import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
+import { NarrativePopupManager } from './narrative-popup-manager.js';
+import content from './screen-narrative-event.html.js';
+import styles from './screen-narrative-event.scss.js';
 
 class ScreenNarrativeEvent extends Panel {
   closeButtonListener = () => {
@@ -92,7 +80,7 @@ class ScreenNarrativeEvent extends Panel {
       ".narrative-reg__button-container"
     );
     if (entryContainer) {
-      FocusManager.setFocus(entryContainer);
+      FocusManager.get().setFocus(entryContainer);
     }
   }
   onLoseFocus() {
@@ -120,7 +108,7 @@ class ScreenNarrativeEvent extends Panel {
     if (playerStories == void 0) {
       return;
     }
-    const targetStoryId = playerStories.getFirstPendingMetId();
+    const targetStoryId = playerStories.getFirstPendingDiscoveryLastMetID();
     if (!targetStoryId) {
       this.close(UIViewChangeMethod.Automatic);
       return;
@@ -149,7 +137,11 @@ class ScreenNarrativeEvent extends Panel {
       const titleContainer = this.Root.querySelector(".narrative-reg__title-text");
       if (storyDef.StoryTitle) {
         if (titleContainer) {
-          titleContainer.innerHTML = Locale.toUpper(storyDef.StoryTitle);
+          titleContainer.innerHTML = Locale.toUpper(
+            Locale.stylize(
+              playerStories.determineNarrativeInjectionComponentId(targetStoryId, StoryTextTypes.TITLE)
+            )
+          );
           const dividerContainer = document.createElement("div");
           dividerContainer.classList.value = "flex justify-center";
           const divider = document.createElement("div");
@@ -196,7 +188,7 @@ class ScreenNarrativeEvent extends Panel {
               link.ToNarrativeStoryType
             );
             if (linkDef) {
-              if (linkDef?.Activation.toUpperCase() === "LINKED" || linkDef?.Activation.toUpperCase() === "LINKED_REQUISITE" && playerStories.determineRequisiteLink(linkDef.NarrativeStoryType)) {
+              if (linkDef?.Activation.toUpperCase() === "LINKED" || (linkDef?.Activation.toUpperCase() === "LINKED_REQUISITE" || linkDef?.Activation.toUpperCase() === "LINKED_SUBJECT_REQUISITE") && playerStories.determineRequisiteLink(linkDef.NarrativeStoryType, targetStoryId)) {
                 links = links + 1;
                 const icons = GameInfo.NarrativeRewardIcons.filter(
                   (item) => {
@@ -272,6 +264,8 @@ class ScreenNarrativeEvent extends Panel {
     buttonFXS.setAttribute("data-audio-group-ref", "narrative-event");
     if (!canAfford) {
       buttonFXS.classList.add("opacity-50");
+      buttonFXS.setAttribute("data-audio-press-ref", "data-audio-error");
+      buttonFXS.setAttribute("data-audio-activate-ref", "none");
     }
     container.appendChild(buttonFXS);
   }

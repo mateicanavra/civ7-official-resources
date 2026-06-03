@@ -1,26 +1,15 @@
-import ActionHandler, { ActiveDeviceTypeChangedEventName } from '../../../core/ui/input/action-handler.js';
-import FocusManager from '../../../core/ui/input/focus-manager.js';
-import { b as InputEngineEventName } from '../../../core/ui/input/input-support.chunk.js';
-import { N as NavTray } from '../../../core/ui/navigation-tray/model-navigation-tray.chunk.js';
-import { P as Panel } from '../../../core/ui/panel-support.chunk.js';
-import { a as realizePlayerColors } from '../../../core/ui/utilities/utilities-color.chunk.js';
-import { C as ComponentID } from '../../../core/ui/utilities/utilities-component-id.chunk.js';
-import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.chunk.js';
+import ActionHandler from '../../../core/ui/input/action-handler.js';
+import { ActiveDeviceTypeChangedEventName } from '../../../core/ui/input/input-events.js';
+import { InputEngineEventName } from '../../../core/ui/input/input-support.js';
+import NavTray from '../../../core/ui/navigation-tray/model-navigation-tray.js';
+import Panel from '../../../core/ui/panel-support.js';
+import { applyPlayerColorsToElement } from '../../../core/ui/utilities/utilities-color.js';
+import { ComponentID } from '../../../core/ui/utilities/utilities-component-id.js';
+import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
+import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
 import GreatWorks from './model-great-works.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/input/cursor.js';
-import '../../../core/ui/views/view-manager.chunk.js';
-import '../../../core/ui/audio-base/audio-support.chunk.js';
-import '../../../core/ui/utilities/utilities-update-gate.chunk.js';
-import '../../../core/ui/utilities/utilities-image.chunk.js';
-import '../../../core/ui/graph-layout/utils.chunk.js';
-import '../../../core/ui/context-manager/context-manager.js';
-import '../../../core/ui/context-manager/display-queue-manager.js';
-import '../../../core/ui/dialog-box/manager-dialog-box.chunk.js';
-
-const content = "<div class=\"great-works-root h-full w-full flex\">\r\n\t<fxs-vslot class=\"great-works-parent-slot items-center w-full mt-28 mb-16\">\r\n\t\t<fxs-header\r\n\t\t\tclass=\"great-works-header relative font-title text-xl uppercase text-secondary mb-7 text-shadow\"\r\n\t\t\tfiligree-style=\"none\"\r\n\t\t\ttitle=\"LOC_UI_GREAT_WORKS_TITLE\"\r\n\t\t></fxs-header>\r\n\t\t<div class=\"border-frame-container shrink grow w-full relative flex flex-col flex-nowrap\">\r\n\t\t\t<fxs-frame\r\n\t\t\t\tframe-style=\"f2\"\r\n\t\t\t\tclass=\"resource-allocation-inner-frame h-full\"\r\n\t\t\t\toverride-styling=\"items-center pt-5 relative flex max-w-full max-h-full px-10 pb-10 mb-16\"\r\n\t\t\t\tfiligree-class=\"hidden\"\r\n\t\t\t\ttop-border-style=\"none\"\r\n\t\t\t>\r\n\t\t\t\t<fxs-hslot class=\"great-works-columns grow shrink w-full\">\r\n\t\t\t\t\t<div\r\n\t\t\t\t\t\tclass=\"showcase-column grow shrink mx-4 items-center flex flex-col relative pointer-events-none\"\r\n\t\t\t\t\t>\r\n\t\t\t\t\t\t<div class=\"absolute top-0 left-0 h-full w-64 img-frame-filigree pointer-events-none\"></div>\r\n\t\t\t\t\t\t<div\r\n\t\t\t\t\t\t\tclass=\"absolute top-0 right-0 h-full w-64 rotate-y-180 img-frame-filigree pointer-events-none\"\r\n\t\t\t\t\t\t></div>\r\n\t\t\t\t\t\t<div class=\"showcase-header-container mt-9\">\r\n\t\t\t\t\t\t\t<fxs-header\r\n\t\t\t\t\t\t\t\tfiligree-style=\"none\"\r\n\t\t\t\t\t\t\t\tclass=\"showcase-column-header relative flex justify-center font-title text-base uppercase text-secondary mb-2\"\r\n\t\t\t\t\t\t\t\ttitle=\"LOC_UI_GREAT_WORKS_SHOWCASE\"\r\n\t\t\t\t\t\t\t></fxs-header>\r\n\t\t\t\t\t\t\t<img\r\n\t\t\t\t\t\t\t\tsrc=\"shell_small-filigree\"\r\n\t\t\t\t\t\t\t\tclass=\"relative w-full\"\r\n\t\t\t\t\t\t\t/>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t<fxs-scrollable class=\"showcase-scrollable px-5\">\r\n\t\t\t\t\t\t\t<fxs-spatial-slot\r\n\t\t\t\t\t\t\t\tclass=\"showcase-list flex items-center flex-wrap max-w-full\"\r\n\t\t\t\t\t\t\t></fxs-spatial-slot>\r\n\t\t\t\t\t\t</fxs-scrollable>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div\r\n\t\t\t\t\t\tclass=\"archive-column w-1\\/4 mx-4 max-h-full pointer-events-none relative flex flex-col flex-nowrap\"\r\n\t\t\t\t\t>\r\n\t\t\t\t\t\t<fxs-inner-frame class=\"archive-box relative items-center grow max-h-full\">\r\n\t\t\t\t\t\t\t<div class=\"img-popup-middle-decor absolute -top-2\"></div>\r\n\t\t\t\t\t\t\t<div class=\"py-3 max-h-full w-full\">\r\n\t\t\t\t\t\t\t\t<div>\r\n\t\t\t\t\t\t\t\t\t<fxs-header\r\n\t\t\t\t\t\t\t\t\t\tfiligree-style=\"none\"\r\n\t\t\t\t\t\t\t\t\t\tclass=\"archive-column-header mb-2 flex justify-center font-title text-base uppercase text-secondary\"\r\n\t\t\t\t\t\t\t\t\t\ttitle=\"LOC_UI_GREAT_WORKS_ARCHIVE\"\r\n\t\t\t\t\t\t\t\t\t>\r\n\t\t\t\t\t\t\t\t\t</fxs-header>\r\n\t\t\t\t\t\t\t\t\t<img\r\n\t\t\t\t\t\t\t\t\t\tsrc=\"shell_small-filigree\"\r\n\t\t\t\t\t\t\t\t\t\tclass=\"relative w-full\"\r\n\t\t\t\t\t\t\t\t\t/>\r\n\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t<fxs-header\r\n\t\t\t\t\t\t\t\t\tfiligree-style=\"none\"\r\n\t\t\t\t\t\t\t\t\tclass=\"archive-description my-1 flex justify-center font-body text-2xs text-center\"\r\n\t\t\t\t\t\t\t\t\ttitle=\"LOC_UI_GREAT_WORKS_ARCHIVE_INSTRUCTIONS\"\r\n\t\t\t\t\t\t\t\t>\r\n\t\t\t\t\t\t\t\t</fxs-header>\r\n\t\t\t\t\t\t\t\t<div class=\"archive-container relative shrink w-full\">\r\n\t\t\t\t\t\t\t\t\t<fxs-scrollable class=\"archive-container-scrollable grow px-4 w-full\">\r\n\t\t\t\t\t\t\t\t\t\t<fxs-vslot\r\n\t\t\t\t\t\t\t\t\t\t\tclass=\"archived-great-works-list flex w-full mb-8\"\r\n\t\t\t\t\t\t\t\t\t\t\tignore-prior-focus=\"true\"\r\n\t\t\t\t\t\t\t\t\t\t></fxs-vslot>\r\n\t\t\t\t\t\t\t\t\t</fxs-scrollable>\r\n\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t</fxs-inner-frame>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class=\"city-column w-1\\/2 mx-8 relative flex flex-col flex-nowrap\">\r\n\t\t\t\t\t\t<div class=\"city-box relative items-center grow shrink mb-9\">\r\n\t\t\t\t\t\t\t<div class=\"settlement-tab-bar-container mb-3 px-6\"></div>\r\n\t\t\t\t\t\t\t<fxs-scrollable class=\"city-scrollable px-4 mb-12\">\r\n\t\t\t\t\t\t\t\t<fxs-spatial-slot\r\n\t\t\t\t\t\t\t\t\tclass=\"city-slots-displayed-list flex flex-wrap items-stretch justify-between\"\r\n\t\t\t\t\t\t\t\t\tdata-navrule-up=\"stop\"\r\n\t\t\t\t\t\t\t\t\tdata-navrule-down=\"stop\"\r\n\t\t\t\t\t\t\t\t\tignore-prior-focus=\"true\"\r\n\t\t\t\t\t\t\t\t></fxs-spatial-slot>\r\n\t\t\t\t\t\t\t</fxs-scrollable>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</fxs-hslot>\r\n\t\t\t\t<fxs-close-button></fxs-close-button>\r\n\t\t\t</fxs-frame>\r\n\t\t\t<fxs-hslot class=\"great-works-top-border decoration w-full justify-center items-center absolute -top-9\">\r\n\t\t\t\t<div class=\"img-top-filigree-left grow\"></div>\r\n\t\t\t\t<div class=\"img-top-filigree-center\"></div>\r\n\t\t\t\t<div class=\"img-top-filigree-right grow\"></div>\r\n\t\t\t</fxs-hslot>\r\n\t\t</div>\r\n\t</fxs-vslot>\r\n</div>\r\n";
-
-const styles = "fs://game/base-standard/ui/great-works/screen-great-works.css";
+import content from './screen-great-works.html.js';
+import styles from './screen-great-works.scss.js';
 
 class ScreenGreatWorks extends Panel {
   activeDeviceTypeListener = (event) => {
@@ -90,7 +79,7 @@ class ScreenGreatWorks extends Panel {
     this.updateAll();
     const player = GameContext.localPlayerID;
     if (Players.isValid(player)) {
-      realizePlayerColors(this.Root, player);
+      applyPlayerColorsToElement(this.Root, player);
     }
     this.setGamepadControlsVisible(ActionHandler.isGamepadActive);
     this.buildSettlementTabBar();
@@ -128,7 +117,7 @@ class ScreenGreatWorks extends Panel {
     if (lastSelectedElement) {
       window.requestAnimationFrame(() => {
         window.requestAnimationFrame(() => {
-          FocusManager.setFocus(lastSelectedElement);
+          FocusManager.get().setFocus(lastSelectedElement);
         });
       });
     }
@@ -142,10 +131,10 @@ class ScreenGreatWorks extends Panel {
       return;
     }
     if (navigationEvent.getDirection() == InputNavigationAction.RIGHT) {
-      if (FocusManager.getFocus().classList.contains("great-work-container")) {
+      if (FocusManager.get().currentFocus().classList.contains("great-work-container")) {
         const citySlotsGreatWorksList = this.Root.querySelector(".city-slots-displayed-list");
         if (citySlotsGreatWorksList) {
-          FocusManager.setFocus(citySlotsGreatWorksList);
+          FocusManager.get().setFocus(citySlotsGreatWorksList);
         }
       }
     }
@@ -159,28 +148,27 @@ class ScreenGreatWorks extends Panel {
     }
   }
   updateAll() {
-    engine.updateWholeModel(GreatWorks);
     GreatWorks.update();
   }
   determineInitialFocus() {
     const archiveList = MustGetElement(".archived-great-works-list", this.Root);
     if (archiveList.hasChildNodes()) {
-      FocusManager.setFocus(archiveList);
+      FocusManager.get().setFocus(archiveList);
       return;
     }
     const showcaseList = MustGetElement(".showcase-list", this.Root);
     if (showcaseList.hasChildNodes()) {
-      FocusManager.setFocus(showcaseList);
+      FocusManager.get().setFocus(showcaseList);
       return;
     }
     const cityList = MustGetElement(".city-slots-displayed-list", this.Root);
     if (cityList.hasChildNodes()) {
-      FocusManager.setFocus(cityList);
+      FocusManager.get().setFocus(cityList);
       return;
     } else {
       const focusElement = MustGetElement(".great-works-columns", this.Root);
       if (focusElement) {
-        FocusManager.setFocus(focusElement);
+        FocusManager.get().setFocus(focusElement);
       }
     }
   }
@@ -414,7 +402,7 @@ class ScreenGreatWorks extends Panel {
       cityEntryContainer.appendChild(cityEntryFrame);
       this.createSlotsBoxCityHeader(cityEntryFrame, city, settlementIcon);
       const buildingContainer = document.createElement("div");
-      buildingContainer.classList.add("flex-wrap", "flex");
+      buildingContainer.classList.add("flex-wrap", "flex", "items-start", "gap-2");
       cityEntryFrame.appendChild(buildingContainer);
       gwBuildings.forEach((greatWorkBuilding) => {
         const buildingInstance = Constructibles.getByComponentID(
@@ -430,7 +418,7 @@ class ScreenGreatWorks extends Panel {
           }
           const buildingPillaged = buildingInstance.damaged;
           const buildingEntry = document.createElement("div");
-          buildingEntry.classList.add("building-entry", "mr-3", "h-26", "flex", "flex-col");
+          buildingEntry.classList.add("building-entry", "mr-3", "flex", "flex-col");
           buildingContainer.appendChild(buildingEntry);
           this.createSlotsBoxBuildingSubHeader(buildingEntry, buildingPillaged, info.Name);
           const buildingSlotsContainer = document.createElement("div");
@@ -471,7 +459,7 @@ class ScreenGreatWorks extends Panel {
     slotsBoxCityHeader.appendChild(cityHeaderFocusButton);
     slotsBoxCityHeader.appendChild(icon);
     cityHeaderFocusButton.addEventListener("action-activate", () => {
-      UI.Player.lookAtID(city.id);
+      UI.Player.lookAtID(city.id, 0);
     });
     const slotsBoxCityHeaderText = document.createElement("div");
     slotsBoxCityHeaderText.classList.add(

@@ -1,37 +1,8 @@
-import { A as Audio } from '../../audio-base/audio-support.chunk.js';
+import { Audio } from '../../audio-base/audio-support.js';
 import ContextManager from '../../context-manager/context-manager.js';
-import { c as GameCreatorClosedEvent, d as StartCampaignEvent } from '../../events/shell-events.chunk.js';
+import { GameCreatorClosedEvent, StartCampaignEvent } from '../../events/shell-events.js';
 import { ScreenProfilePageExternalStatus } from '../../profile-page/screen-profile-page.js';
-import '../../context-manager/display-queue-manager.js';
-import '../../dialog-box/manager-dialog-box.chunk.js';
-import '../../framework.chunk.js';
-import '../../input/cursor.js';
-import '../../input/focus-manager.js';
-import '../../views/view-manager.chunk.js';
-import '../../panel-support.chunk.js';
-import '../../components/fxs-dropdown.chunk.js';
-import '../../components/fxs-activatable.chunk.js';
-import '../../input/action-handler.js';
-import '../../input/input-support.chunk.js';
-import '../../utilities/utilities-update-gate.chunk.js';
-import '../../input/focus-support.chunk.js';
-import '../../components/fxs-slot.chunk.js';
-import '../../spatial/spatial-manager.js';
-import '../../utilities/utilities-dom.chunk.js';
-import '../../navigation-tray/model-navigation-tray.chunk.js';
-import '../../utilities/utilities-image.chunk.js';
-import '../../utilities/utilities-component-id.chunk.js';
-import '../../save-load/model-save-load.chunk.js';
-import '../leader-select/leader-button/leader-button.js';
-import '../../utilities/utilities-layout.chunk.js';
-import '../../utilities/utilities-liveops.js';
-import '../../utilities/utilities-metaprogression.chunk.js';
-
-var NextCreationAction = /* @__PURE__ */ ((NextCreationAction2) => {
-  NextCreationAction2[NextCreationAction2["Continue"] = 0] = "Continue";
-  NextCreationAction2[NextCreationAction2["StartGame"] = 1] = "StartGame";
-  return NextCreationAction2;
-})(NextCreationAction || {});
+import { NextCreationAction } from './game-creator-types.js';
 
 class CreateGameModelImpl {
   _categories = [];
@@ -199,5 +170,5 @@ class CreateGameModelImpl {
 }
 const CreateGameModel = new CreateGameModelImpl();
 
-export { CreateGameModel, NextCreationAction as N };
+export { CreateGameModel };
 //# sourceMappingURL=create-game-model.js.map

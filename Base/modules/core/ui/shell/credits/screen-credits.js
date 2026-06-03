@@ -1,22 +1,14 @@
-import ActionHandler, { ActiveDeviceTypeChangedEventName } from '../../input/action-handler.js';
-import FocusManager from '../../input/focus-manager.js';
-import { b as InputEngineEventName } from '../../input/input-support.chunk.js';
-import { N as NavTray } from '../../navigation-tray/model-navigation-tray.chunk.js';
-import { P as Panel } from '../../panel-support.chunk.js';
-import { MustGetElement } from '../../utilities/utilities-dom.chunk.js';
-import '../../framework.chunk.js';
-import '../../input/cursor.js';
-import '../../views/view-manager.chunk.js';
-import '../../audio-base/audio-support.chunk.js';
-import '../../utilities/utilities-update-gate.chunk.js';
-import '../../utilities/utilities-image.chunk.js';
-import '../../utilities/utilities-component-id.chunk.js';
-
-const content = "<div\r\n\tid=\"scroller\"\r\n\tclass=\"credits-scroller\"\r\n>\r\n\t<div\r\n\t\tid=\"adiv\"\r\n\t\tclass=\"scroll-div\"\r\n\t></div>\r\n\t<div\r\n\t\tid=\"bdiv\"\r\n\t\tclass=\"scroll-div\"\r\n\t></div>\r\n\t<div\r\n\t\tid=\"cdiv\"\r\n\t\tclass=\"scroll-div\"\r\n\t></div>\r\n</div>\r\n<div class=\"credits-buttons\"></div>\r\n";
-
-const styles = "fs://game/core/ui/shell/credits/screen-credits.css";
-
-const creditsUrl = "fs://game/core/ui/shell/credits/credits-base.xml";
+import { Audio } from '../../audio-base/audio-support.js';
+import ActionHandler from '../../input/action-handler.js';
+import { ActiveDeviceTypeChangedEventName } from '../../input/input-events.js';
+import { InputEngineEventName } from '../../input/input-support.js';
+import NavTray from '../../navigation-tray/model-navigation-tray.js';
+import Panel from '../../panel-support.js';
+import { MustGetElement } from '../../utilities/utilities-dom.js';
+import { FocusManager } from '../../../ui-next/services/focus-manager.js';
+import content from './screen-credits.html.js';
+import styles from './screen-credits.scss.js';
+import creditsUrl from './credits-base.xml.js';
 
 const ScreenCreditsOpenedEventName = "screen-credits-opened";
 class ScreenCreditsOpenedEvent extends CustomEvent {
@@ -139,6 +131,7 @@ class ScreenCredits extends Panel {
   }
   onInitialize() {
     super.onInitialize();
+    this.enableCloseSound = true;
     this.scroller = MustGetElement(".credits-scroller", this.Root);
     this.Root.classList.add("size-full", "relative");
     const closeButton = document.createElement("fxs-close-button");
@@ -199,7 +192,7 @@ class ScreenCredits extends Panel {
     NavTray.addOrUpdateGenericBack();
     NavTray.addOrUpdateShellAction1("LOC_CREDITS_PAUSE");
     NavTray.addOrUpdateShellAction2("LOC_CREDITS_FAST_FORWARD");
-    FocusManager.setFocus(this.Root);
+    FocusManager.get().setFocus(this.Root);
   }
   /**
    * Loses focus from the context manager.
@@ -301,9 +294,11 @@ class ScreenCredits extends Panel {
       this.state = 4 /* CLOSING */;
     }
     if (inputEvent.detail.name == "shell-action-1") {
+      Audio.playSound("data-audio-primary-button-press");
       this.onPause();
     }
     if (inputEvent.detail.name == "shell-action-2") {
+      Audio.playSound("data-audio-primary-button-press");
       this.onFastForward();
     }
     inputEvent.stopPropagation();
@@ -462,7 +457,7 @@ class ScreenCredits extends Panel {
     }
     this.UIElements.push(MustGetElement("main-menu", document));
     if (Network.supportsSSO()) {
-      this.UIElements.push(MustGetElement(".carousel", document));
+      this.UIElements.push(MustGetElement("promo-carousel-small", document));
       this.UIElements.push(MustGetElement("profile-header", document));
       this.UIElements.push(MustGetElement(".connection-icon-img", document));
       this.UIElements.push(MustGetElement(".connection-status", document));

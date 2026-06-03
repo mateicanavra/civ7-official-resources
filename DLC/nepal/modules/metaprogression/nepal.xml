@@ -1,20 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <metaprogression xmlns="Metaprogression">
 	<challenges class="CHALLENGE_CLASS_FOUNDATION" category="CHALLENGE_CATEGORY_FOUNDATION_CIV_VICTORIES" legendPath="LEGEND_PATH_FOUNDATION">
-		<challenge id="CHALLENGE_NEPAL_LEGACY_PATH_CULTURAL" scope="Campaign" difficulty="2">
+		<!--Keep the IDs as MAJOR triumphs, since we will move them back to being Major triumph challenges in the future and this way we don't have to sync them again-->
+		<challenge id="CHALLENGE_NEPAL_FOUR_MAJOR_TRIUMPHS" scope="Campaign" difficulty="2">
 			<l10n>
-				<name>Nepal Legacy Path</name>
-				<description>As Nepal, complete a Cultural Legacy Path.</description>
+				<name>Nepal 4 Minor Triumphs</name>
+				<description>As Nepal, complete 4 Cultural or Diplomatic Minor Triumphs in a single Apex Age.</description>
 			</l10n>
 			<sortIndex>106000</sortIndex>
 			<reward type="XP" reward="50" />
 		</challenge>
-		<challenge id="CHALLENGE_NEPAL_LEGACY_PATH_MILESTONE_COMPLETED" scope="Campaign" difficulty="2" hidden="true">
+		<challenge id="CHALLENGE_NEPAL_MAJOR_TRIUMPH_COMPLETED" scope="Campaign" difficulty="2" hidden="true">
 			<l10n>
-				<name>Nepal Legacy Path Milestone</name>
-				<description>As Nepal, reach at least 1 Legacy Path Milestone.</description>
+				<name>Nepal Minor Triumph</name>
+				<description>As Nepal, complete at least 1 Minor Triumph.</description>
 			</l10n>
 			<sortIndex>106210</sortIndex>
+			<tags>
+				<tag>CIVS_PLAYED_PROGRESS</tag>
+			</tags>
 		</challenge>
 	</challenges>
 	<challenges class="CHALLENGE_CLASS_FOUNDATION" category="CHALLENGE_CATEGORY_FOUNDATION_WONDERS" legendPath="LEGEND_PATH_FOUNDATION">

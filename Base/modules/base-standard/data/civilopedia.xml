@@ -43,7 +43,7 @@
 		<Row PageLayoutID="Biome" UseSidebar="false" />
 		<Row PageLayoutID="NaturalWonder" UseSidebar="false" />
 		<Row PageLayoutID="Resource" UseSidebar="true" />
-		
+
 		<!-- Apple Arcade specific memento page-->
 		<Row PageLayoutID="AppleArcadeMementos" UseSidebar="false"/>
 	</CivilopediaPageLayouts>
@@ -145,15 +145,17 @@
 	</CivilopediaPageGroups>
 
 	<CivilopediaPageGroupQueries>
+		<Row SectionID="CIVILIZATIONS">
+			<SQL>SELECT AgeType AS PageGroupID, Name, ChronologyIndex AS SortIndex FROM Ages</SQL>
+		</Row>
 		<Row SectionID="CULTURE">
 			<SQL>SELECT ProgressionTreeType as PageGroupID, Name, 20 as SortIndex FROM ProgressionTrees WHERE ProgressionTreeType in (SELECT UniqueCultureProgressionTree from Civilizations) </SQL>
 		</Row>
 	</CivilopediaPageGroupQueries>
 
 	<CivilopediaPageQueries>
-
 		<Row SectionID="CIVILIZATIONS">
-			<SQL>SELECT CivilizationType as PageID, null as PageGroupID, "Gameplay" as PageLayoutID, Name, 10 as SortIndex FROM Civilizations where StartingCivilizationLevelType = "CIVILIZATION_LEVEL_FULL_CIV"</SQL>
+			<SQL>SELECT CivilizationType as PageID, ApexAge as PageGroupID, "Gameplay" as PageLayoutID, Name, 10 as SortIndex FROM Civilizations where StartingCivilizationLevelType = "CIVILIZATION_LEVEL_FULL_CIV"</SQL>
 		</Row>
 
 		<Row SectionID="CULTURE">
@@ -239,7 +241,25 @@
 		</Row>
 	</CivilopediaPageQueries>
 
-	<CivilopediaPageSearchTerms></CivilopediaPageSearchTerms>
+	<CivilopediaPageSearchTerms>
+		<Row SectionID="CONCEPTS" PageID="COMBAT_10" Term="LOC_PEDIA_TERM_AGILE"/>
+		<Row SectionID="CONCEPTS" PageID="COMBAT_10" Term="LOC_PEDIA_TERM_AMPHIBIOUS"/>
+		<Row SectionID="CONCEPTS" PageID="COMBAT_10" Term="LOC_PEDIA_TERM_CAUTIOUS"/>
+		<Row SectionID="CONCEPTS" PageID="COMBAT_10" Term="LOC_PEDIA_TERM_COVER"/>
+		<Row SectionID="CONCEPTS" PageID="COMBAT_10" Term="LOC_PEDIA_TERM_DETERMINED"/>
+		<Row SectionID="CONCEPTS" PageID="COMBAT_10" Term="LOC_PEDIA_TERM_DISPIRITED"/>
+		<Row SectionID="CONCEPTS" PageID="COMBAT_10" Term="LOC_PEDIA_TERM_POISON"/>
+		<Row SectionID="CONCEPTS" PageID="COMBAT_10" Term="LOC_PEDIA_TERM_RECKLESS"/>
+		<Row SectionID="CONCEPTS" PageID="COMBAT_10" Term="LOC_PEDIA_TERM_SKIRMISH"/>
+		<Row SectionID="CONCEPTS" PageID="COMBAT_10" Term="LOC_PEDIA_TERM_SLUGGISH"/>
+		<Row SectionID="CONCEPTS" PageID="COMBAT_10" Term="LOC_PEDIA_TERM_SPLASH"/>
+		<Row SectionID="CONCEPTS" PageID="COMBAT_10" Term="LOC_PEDIA_TERM_STEALTH"/>
+		<Row SectionID="CONCEPTS" PageID="COMBAT_10" Term="LOC_PEDIA_TERM_SWIFT"/>
+		<Row SectionID="CONCEPTS" PageID="LEGENDS_3" Term="LOC_PEDIA_TERM_FOUNDATION_CHALLENGES"/>
+		<Row SectionID="CONCEPTS" PageID="LEGENDS_3" Term="LOC_PEDIA_TERM_LEADER_CHALLENGES"/>
+		<Row SectionID="CONCEPTS" PageID="LEGENDS_3" Term="LOC_PEDIA_TERM_CHALLENGES"/>
+		<Row SectionID="CONCEPTS" PageID="STATEHOOD_2" Term="LOC_PEDIA_TERM_VILLAGES"/>
+	</CivilopediaPageSearchTerms>
 
 	<CivilopediaPageSidebarPanels>
 		<Row Component="pedia-page-sidebar-portrait" SortIndex="0" />
@@ -272,8 +292,8 @@
 		<Row SectionID="MAP" PageID="RESOURCE_CLOVES" />
 		<Row SectionID="MAP" PageID="RESOURCE_NICKEL" />
 	</CivilopediaPageExcludes>
-	
+
 	<CivilopediaPageExcludes>
-      	<Row SectionID="IMPROVEMENTS" PageID="IMPROVEMENT_REPAIR_ALL" />
+		<Row SectionID="IMPROVEMENTS" PageID="IMPROVEMENT_REPAIR_ALL" />
 	</CivilopediaPageExcludes>
 </Database>

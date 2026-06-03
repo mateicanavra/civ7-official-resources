@@ -27,9 +27,27 @@
 	<UnlockRequirements>
 		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_NEPAL" RequirementSetId="REQSET_LEADER_IS_ASHOKA" Description="LOC_UNLOCK_PLAY_AS_ASHOKA_DESCRIPTION" Tooltip="LOC_UNLOCK_PLAY_AS_ASHOKA_NEPAL_TOOLTIP"/>
 		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_NEPAL" RequirementSetId="REQSET_LEADER_IS_PACHACUTI" Description="LOC_UNLOCK_PLAY_AS_PACHACUTI_DESCRIPTION" Tooltip="LOC_UNLOCK_PLAY_AS_PACHACUTI_NEPAL_TOOLTIP"/>
-		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_NEPAL" RequirementSetId="REQSET_PLAYER_HAS_5_MOUNTAINS_SETTLEMENTS" Description="LOC_UNLOCK_MOUNTAIN_5_SETTLEMENTS_DESCRIPTION" Tooltip="LOC_UNLOCK_MOUNTAIN_SETTLEMENTS_NEPAL_TOOLTIP" NarrativeText="LOC_UNLOCK_MOUNTAIN_SETTLEMENTS_NEPAL_NARRATIVE"/>
+		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_NEPAL" RequirementSetId="REQSET_PLAYER_HAS_5_MOUNTAINS_SETTLEMENTS" Description="LOC_UNLOCK_MOUNTAIN_5_SETTLEMENTS_DESCRIPTION" Tooltip="LOC_UNLOCK_MOUNTAIN_SETTLEMENTS_NEPAL_TOOLTIP" GameplayUnlock="True" NarrativeText="LOC_UNLOCK_MOUNTAIN_SETTLEMENTS_NEPAL_NARRATIVE"/>
 	</UnlockRequirements>
 	<UnlockConfigurationValues>
 		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_NEPAL" ConfigurationValue="CIVILIZATION_NEPAL"/>
 	</UnlockConfigurationValues>
+	<!-- ====================================== -->
+	<!-- Test of Time Unlocks -->
+	<!-- ====================================== -->
+	<RequirementSets>
+		<InsertOrIgnore RequirementSetId="REQSET_CIV_IS_NEPAL" RequirementSetType="REQUIREMENTSET_TEST_ALL"/>
+	</RequirementSets>
+	<Requirements>
+		<InsertOrIgnore RequirementId="REQ_CIV_IS_NEPAL" RequirementType="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES"/>
+	</Requirements>
+	<RequirementArguments>
+		<InsertOrIgnore RequirementId="REQ_CIV_IS_NEPAL" Name="CivilizationType" Value="CIVILIZATION_NEPAL"/>
+	</RequirementArguments>
+	<RequirementSetRequirements>
+		<InsertOrIgnore RequirementSetId="REQSET_CIV_IS_NEPAL" RequirementId="REQ_CIV_IS_NEPAL"/>
+	</RequirementSetRequirements>
+	<UnlockRequirements>
+		<Row UnlockType="UNLOCK_CIVILIZATION_NEPAL" RequirementSetId="REQSET_CIV_IS_NEPAL" Description="LOC_UNLOCK_PLAY_AS_NEPAL_DESCRIPTION" Tooltip="LOC_UNLOCK_PLAY_AS_NEPAL_NEPAL_TOOLTIP"/>
+	</UnlockRequirements>
 </Database>

@@ -784,29 +784,41 @@
     <Replace Tag="LOC_LEADER_CHAIN_1180_CARTHAGEE_IMPERATIVE" Language="es_ES">
       <Text>Ten 1 Monumento e introduce una Celebración.</Text>
     </Replace>
+    <Replace Tag="LOC_TOT_30015A_COMPLETION" Language="es_ES">
+      <Text>En casi todos los mercados del mundo que conocemos hay comerciantes cartagineses. Los gremios cartagineses negocian salvoconductos, y las aduanas cartaginesas reportan beneficios a Cartago. Esto da pie al resquemor. Las quejas de los vecinos de Cartago se hacen cada vez más eco.</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30015A_STORYTITLE" Language="es_ES">
+      <Text>Poderoso caballero es</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30015B_DESCRIPTION" Language="es_ES">
+      <Text>{1_reward}.</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30015B_NAME" Language="es_ES">
+      <Text>El poder mercantil equivale a poder político. Apretemos esas tuercas.</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30015C_DESCRIPTION" Language="es_ES">
+      <Text>{1_reward}.</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30015C_NAME" Language="es_ES">
+      <Text>El ejército tiene sus modos de negociar.</Text>
+    </Replace>
     <Replace Tag="LOC_ABILITY_COLONIST_DESCRIPTION" Language="es_ES">
-      <Text>+1 al [icon:Action_Move] Movimiento cuando están embarcadas y +1 a [icon:YIELD_POPULATION] Población al fundar un asentamiento junto a un [icon:RADIAL_RESOURCES] recurso.</Text>
+      <Text>+1 al [icon:Action_Move] Movimiento cuando están [TIP:LOC_PEDIA_CONCEPTS_EMBARK_TOOLTIP]embarcadas[/TIP] y +1 a [icon:YIELD_POPULATION] Población al fundar un asentamiento junto a un [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]recurso[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_ABILITY_NUMIDIAN_CAVALRY_DESCRIPTION" Language="es_ES">
-      <Text>+1 a la [icon:NAR_REW_COMBAT] Fuerza de combate por cada [icon:RADIAL_RESOURCES] recurso de ciudad exclusivo asignado a tu [icon:NOTIFICATION_SELECT_CAPITAL] capital.</Text>
-    </Replace>
-    <Replace Tag="LOC_ATTR_TOTAL_TRADE_ROUTES" Language="es_ES">
-      <Text>Total de rutas comerciales</Text>
-    </Replace>
-    <Replace Tag="LOC_ATTR_YIELDS_FROM_NUM_TRADE_ROUTES" Language="es_ES">
-      <Text>Número de rutas comerciales</Text>
+      <Text>+1 a la [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Fuerza de combate[/TIP] por cada [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_CITY_RESOURCES_TOOLTIP]recurso de ciudad[/TIP] exclusivo asignado a tu [icon:NOTIFICATION_SELECT_CAPITAL] capital.</Text>
     </Replace>
     <Replace Tag="LOC_BUILDING_COTHON_DESCRIPTION" Language="es_ES">
-      <Text>Edificio de Producción exclusivo cartaginés. +2 a la [icon:YIELD_PRODUCTION] Producción. +1 a la [icon:YIELD_PRODUCTION] Producción por adyacencia a Costa, Río navegable y Maravillas. No envejece. Se puede comprar en [icon:YIELD_TOWNS] pueblos y se debe construir en Costa.</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_BUILDING_TOOLTIP]Edificio de Producción exclusivo[/TIP] cartaginés. +2 a la [icon:YIELD_PRODUCTION] Producción. +1 a la [icon:YIELD_PRODUCTION] Producción por adyacencia a Costa, [TIP:LOC_PEDIA_CONCEPTS_NAVIGABLE_RIVER_TOOLTIP]Ríos navegables[/TIP] y [TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]Maravillas[/TIP]. Se debe construir en Costa.</Text>
     </Replace>
     <Replace Tag="LOC_BUILDING_COTHON_TOOLTIP" Language="es_ES">
-      <Text>Se puede comprar en [icon:YIELD_TOWNS] pueblos. Se debe construir en Costa.[n]Edificio exclusivo cartaginés.</Text>
+      <Text>Se debe construir en Costa.[n][TIP:LOC_PEDIA_CONCEPTS_UNIQUE_BUILDING_TOOLTIP]Edificio exclusivo[/TIP] cartaginés.</Text>
     </Replace>
     <Replace Tag="LOC_BUILDING_DOCKYARD_DESCRIPTION" Language="es_ES">
-      <Text>Edificio de Oro exclusivo cartaginés. +2 de [icon:YIELD_GOLD] Oro. +1 a [icon:YIELD_FOOD] Alimentos por adyacencia a recursos, distritos y Maravillas. No envejece. Se puede comprar en [icon:YIELD_TOWNS] pueblos. Se debe construir en Costa.</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_BUILDING_TOOLTIP]Edificio de Oro exclusivo[/TIP] cartaginés. +2 de [icon:YIELD_GOLD] Oro. +1 a [icon:YIELD_FOOD] Alimentos por adyacencia a [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]recursos[/TIP], [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]distritos[/TIP] y [TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]Maravillas[/TIP]. Se debe construir en Costa.</Text>
     </Replace>
     <Replace Tag="LOC_BUILDING_DOCKYARD_TOOLTIP" Language="es_ES">
-      <Text>Se puede comprar en [icon:YIELD_TOWNS] pueblos. Se debe construir en Costa.[n]Edificio exclusivo cartaginés.</Text>
+      <Text>Se debe construir en Costa.[n][TIP:LOC_PEDIA_CONCEPTS_UNIQUE_BUILDING_TOOLTIP]Edificio exclusivo[/TIP] cartaginés.</Text>
     </Replace>
     <Replace Tag="LOC_CIVIC_RED_SLIP_AUTHOR" Language="es_ES">
       <Text>Mago</Text>
@@ -827,13 +839,13 @@
       <Text>"Los cartagineses adornaron la flota que habían capturado, de tal manera que su pueblo pudiese no solo oír, sino ver la magnitud de su triunfo".</Text>
     </Replace>
     <Replace Tag="LOC_CIVILIZATION_CARTHAGE_DESCRIPTION" Language="es_ES">
-      <Text>Tan solo puedes tener una [icon:YIELD_CITIES] ciudad, y los [icon:YIELD_TOWNS] pueblos no se pueden convertir en ciudades. Por cada [icon:UNIT_MERCHANT] Mercader o [icon:UNIT_COLONIST] Colonizador que entrenas o compras, recibes otro.</Text>
+      <Text>Tan solo puedes tener una [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]ciudad[/TIP] y los [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]pueblos[/TIP] pueden adquirir [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]edificios[/TIP] de agua con cualquier [TIP:LOC_PEDIA_CONCEPTS_TOWN_FOCUS_TOOLTIP]enfoque de pueblo[/TIP], pero no se pueden convertir en ciudades. Por cada [icon:UNIT_MERCHANT] Mercader o [icon:UNIT_COLONIST] Colonizador que entrenas o compras, recibes otro.</Text>
     </Replace>
     <Replace Tag="LOC_LOADING_CIV_INTRO_TEXT_CARTHAGE" Language="es_ES">
       <Text>A resguardo en el cothon, las naves se preparan para zarpar. Algunas transportan cerámica de gran calidad, grano y demás productos que intercambiar por oro y marfil. Otras llevan soldados listos para sacar beneficio por otros medios. Cada cual regresará a casa, al centro del mundo: Cartago. Abre las puertas del cothon y deja que la ciudad se colme de riquezas.</Text>
     </Replace>
     <Replace Tag="LOC_LOADING_CIV_TIPS_TEXT_CARTHAGE" Language="es_ES">
-      <Text>El Barrio exclusivo Puerto púnico se puede comprar en pueblos para aumentar su capacidad de recursos. Se mantendrá en las eras posteriores para proporcionarte poderosos beneficios.</Text>
+      <Text>Cartago puede comprar edificios de agua en todos sus pueblos. De esta manera se procuran cuanto antes los dos edificios necesarios para el Barrio exclusivo Puerto púnico, que aumenta su capacidad de recursos a lo largo de toda la partida.</Text>
     </Replace>
     <Replace Tag="LOC_LOADING_INTRO_CARTHAGE" Language="es_ES">
       <Text>Los hijos de Tiro vienen desde lejos para reclamar su destino. Desde el centro del mundo, comandarán un imperio sin igual.</Text>
@@ -844,44 +856,29 @@
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_CARTHAGE_COMPLETE_BYRSA_NAME" Language="es_ES">
       <Text>Birsa</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_CARTHAGE_LEGACY_PATH_MILITARISTIC_DESC" Language="es_ES">
-      <Text>Como Cartago, completa una Ruta de legado militarista.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_CARTHAGE_FOUR_MAJOR_TRIUMPHS_DESC" Language="es_ES">
+      <Text>Como Cartago, logra 4 Triunfos mayores económicos o militaristas durante un mismo apogeo.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_CARTHAGE_LEGACY_PATH_MILITARISTIC_NAME" Language="es_ES">
-      <Text>Ruta de legado de Cartago</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_CARTHAGE_FOUR_MAJOR_TRIUMPHS_NAME" Language="es_ES">
+      <Text>4 Triunfos mayores de Cartago</Text>
     </Replace>
     <Replace Tag="LOC_MOD_CIV_WONDER_PRODUCTION_CARTHAGE_DESCRIPTION" Language="es_ES">
       <Text>+30 % a la[icon:YIELD_PRODUCTION] Producción para la [icon:WONDER] Maravilla asociada de Cartago.</Text>
     </Replace>
-    <Replace Tag="LOC_MOD_RED_SLIP_RESOURCE_CAP_DESCRIPTION" Language="es_ES">
-      <Text>+3 a la [icon:RADIAL_RESOURCES] capacidad de recursos en la [icon:NOTIFICATION_SELECT_CAPITAL] capital.</Text>
-    </Replace>
-    <Replace Tag="LOC_MOD_RED_SLIP_TRADE_GOLD_DESCRIPTION" Language="es_ES">
-      <Text>+15 al alcance de las [icon:TRADE_ROUTE] rutas comerciales marítimas. +3 de [icon:YIELD_GOLD] Oro en la [icon:NOTIFICATION_SELECT_CAPITAL] capital por cada [icon:TRADE_ROUTE] ruta comercial de la capital. </Text>
-    </Replace>
-    <Replace Tag="LOC_MOD_SHIPSHEDS_NAVAL_FIRST_STRIKE_DESCRIPTION" Language="es_ES">
-      <Text>+5 a la [icon:NAR_REW_COMBAT] Fuerza de combate de las unidades navales al máximo de salud.</Text>
-    </Replace>
-    <Replace Tag="LOC_MOD_SHIPSHEDS_NAVAL_FIRST_STRIKE_PREVIEW" Language="es_ES">
-      <Text>+5 al dominio de Cobertizos navales.</Text>
-    </Replace>
-    <Replace Tag="LOC_MOD_SHIPSHEDS_NAVAL_MOVEMENT_DESCRIPTION" Language="es_ES">
-      <Text>+1 al [icon:Action_Move] Movimiento de las unidades navales.</Text>
-    </Replace>
-    <Replace Tag="LOC_MOD_SICILIAN_WARS_MOVEMENT_NUMIDIAN_CAVALRY_DESCRIPTION" Language="es_ES">
-      <Text>+1 al [icon:Action_Move] Movimiento y al [icon:Action_Showall] alcance visual de la [icon:UNIT_NUMIDIAN_CAVALRY] caballería númida.</Text>
-    </Replace>
     <Replace Tag="LOC_MOD_SICILIAN_WARS_SETTLEMENT_CAP_DESCRIPTION" Language="es_ES">
-      <Text>+2 al [icon:SETTLEMENT_LIMIT] límite de asentamientos.</Text>
+      <Text>+2 al [icon:SETTLEMENT_LIMIT] [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_LIMIT_TOOLTIP]límite de asentamientos[/TIP].</Text>
     </Replace>
-    <Replace Tag="LOC_MOD_SICILIAN_WARS_TOWN_PROJECT_DESCRIPTION" Language="es_ES">
-      <Text>+1 [icon:NAR_REW_GREATWORK] espacio de códice en los [icon:YIELD_TOWNS] Ayuntamientos de los pueblos con el enfoque [icon:TOWN_FOCUS] Puesto comercial.</Text>
+    <Replace Tag="LOC_NODE_CIVIC_EX_CARTHAGE_RENAISSANCE_NAME" Language="es_ES">
+      <Text>Renacimiento cartaginés</Text>
+    </Replace>
+    <Replace Tag="LOC_NODE_CIVIC_MO_CARTHAGE_MODERNIZATION_NAME" Language="es_ES">
+      <Text>Modernización cartaginesa</Text>
     </Replace>
     <Replace Tag="LOC_QUARTER_PUNIC_PORT_DESCRIPTION" Language="es_ES">
-      <Text>Barrio exclusivo cartaginés. Se crea al construir el Cothon y el Varadero en el mismo distrito. +2 a la capacidad de [icon:RADIAL_RESOURCES] recursos de este asentamiento.</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_QUARTER_TOOLTIP]Barrio exclusivo[/TIP] cartaginés. Se crea al construir el Cothon y el Varadero en el mismo [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]distrito[/TIP]. +2 a la [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCE_CAPACITY_TOOLTIP]capacidad de recursos[/TIP] de este [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]asentamiento[/TIP]. Recibes +3 a la [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCE_CAPACITY_TOOLTIP]capacidad de recursos[/TIP] si se construye en la [icon:NOTIFICATION_SELECT_CAPITAL] capital.</Text>
     </Replace>
     <Replace Tag="LOC_QUARTER_PUNIC_PORT_TOOLTIP" Language="es_ES">
-      <Text>+2 a la [icon:RADIAL_RESOURCES] capacidad de recursos de este asentamiento.</Text>
+      <Text>+2 a la [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCE_CAPACITY_TOOLTIP]capacidad de recursos[/TIP] de este [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]asentamiento[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_QUOTE_AUTHOR_WONDER_BYRSA" Language="es_ES">
       <Text>León el Africano</Text>
@@ -889,17 +886,38 @@
     <Replace Tag="LOC_QUOTE_WONDER_BYRSA" Language="es_ES">
       <Text>A día de hoy se pueden apreciar aún algunas ruinas de la muralla de la ciudad.</Text>
     </Replace>
-    <Replace Tag="LOC_TRADITION_GAULOS_DESCRIPTION" Language="es_ES">
-      <Text>+25 % de [icon:YIELD_GOLD] Oro destinado a comprar [icon:CITY_BUILDING_LIST] edificios en Costa o Ríos navegables.</Text>
+    <Replace Tag="LOC_TRADITION_CARTHAGE_SYNCRETISM_EXPLORATION_DESCRIPTION" Language="es_ES">
+      <Text>+1 de [icon:YIELD_GOLD] Oro y a la [icon:YIELD_PRODUCTION] Producción en la [icon:NOTIFICATION_SELECT_CAPITAL] [TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]capital[/TIP] por cada [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]recurso[/TIP] que tenga asignado.</Text>
     </Replace>
-    <Replace Tag="LOC_TRADITION_QUINQUEREME_DESCRIPTION" Language="es_ES">
-      <Text>+25 % de [icon:YIELD_GOLD] Oro destinado a adquirir unidades navales. -1 de [icon:YIELD_GOLD] Oro por mantenimiento de unidades navales.</Text>
+    <Replace Tag="LOC_TRADITION_CARTHAGE_SYNCRETISM_MODERN_DESCRIPTION" Language="es_ES">
+      <Text>+2 de [icon:YIELD_GOLD] Oro y a la [icon:YIELD_PRODUCTION] Producción en la [icon:NOTIFICATION_SELECT_CAPITAL] [TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]capital[/TIP] por cada [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]recurso[/TIP] que tenga asignado.</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_CARTHAGE_SYNCRETISM_TOOLTIP" Language="es_ES">
+      <Text>Soberanía de Hannón</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_GAULOS_I_DESCRIPTION" Language="es_ES">
+      <Text>+25 % de [icon:YIELD_GOLD] Oro destinado a adquirir [TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]unidades navales[/TIP] y [icon:CITY_BUILDING_LIST] [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]edificios[/TIP] de agua. +1 de [icon:YIELD_GOLD] Oro en la [icon:NOTIFICATION_SELECT_CAPITAL] [TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]capital[/TIP] por cada [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]pueblo[/TIP].</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_GAULOS_II_DESCRIPTION" Language="es_ES">
+      <Text>+25 % de [icon:YIELD_GOLD] Oro destinado a adquirir [TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]unidades navales[/TIP] y [icon:CITY_BUILDING_LIST] [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]edificios[/TIP] de agua. +3 de [icon:YIELD_GOLD] Oro en la [icon:NOTIFICATION_SELECT_CAPITAL] [TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]capital[/TIP] por cada [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]pueblo[/TIP].</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_QUINQUEREME_I_DESCRIPTION" Language="es_ES">
+      <Text>+1 al alcance de las [TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]unidades navales pesadas[/TIP]. -1 de [icon:YIELD_GOLD] Oro por [TIP:LOC_PEDIA_CONCEPTS_MAINTENANCE_TOOLTIP]mantenimiento[/TIP] de las unidades navales.</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_QUINQUEREME_II_DESCRIPTION" Language="es_ES">
+      <Text>+1 al alcance de las [TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]unidades navales pesadas[/TIP]. -2 de [icon:YIELD_GOLD] Oro por [TIP:LOC_PEDIA_CONCEPTS_MAINTENANCE_TOOLTIP]mantenimiento[/TIP] de unidades navales. +1 a la [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Fuerza de combate[/TIP] de las unidades navales por cada [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]recurso[/TIP] de ciudad exclusivo asignado a tu [icon:NOTIFICATION_SELECT_CAPITAL] [TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]capital[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_SUFFETES_DESCRIPTION" Language="es_ES">
-      <Text>+20 % de [icon:YIELD_GOLD] Oro en [icon:YIELD_TOWNS] pueblos mineros. +20 % a [icon:YIELD_FOOD] Alimentos en [icon:YIELD_TOWNS] pueblos pesqueros o agrícolas.</Text>
+      <Text>+20 % de [icon:YIELD_GOLD] Oro en [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]pueblos[/TIP] mineros. +20 % a [icon:YIELD_FOOD] Alimentos en [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]pueblos[/TIP] pesqueros o agrícolas. +1 al alcance de las [icon:TRADE_ROUTE] rutas comerciales navales por cada [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]pueblo[/TIP] con el [icon:TOWN_FOCUS] enfoque Puesto comercial.</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_CARTHAGE_ABILITY_DESCRIPTION" Language="es_ES">
-      <Text>[BLIST][LI]Tan solo puedes tener [B]una [icon:YIELD_CITIES] ciudad[/B], y los [icon:YIELD_TOWNS] pueblos no se pueden [B]convertir en ciudades[/B].[LI]Por cada [icon:UNIT_MERCHANT] [B]Mercader[/B] o [icon:UNIT_COLONIST] [B]Colonizador[/B] que entrenas o compras, recibes otro.[LI][B]+30 % a la[icon:YIELD_PRODUCTION] Producción [/B]destinada a construir [B]Birsas[/B].[/LIST]</Text>
+      <Text>[BLIST][LI]Tan solo puedes tener una [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]ciudad[/TIP] y los [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]pueblos[/TIP] pueden adquirir [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]edificios[/TIP] de agua con cualquier [TIP:LOC_PEDIA_CONCEPTS_TOWN_FOCUS_TOOLTIP]enfoque de pueblo[/TIP], pero no se pueden [B]convertir en ciudades[/B].[LI]Por cada [icon:UNIT_MERCHANT] [B]Mercader[/B] o [icon:UNIT_COLONIST] [B]Colonizador[/B] que entrenas o compras, recibes otro.[LI][B]+30 % a la[icon:YIELD_PRODUCTION] Producción [/B]destinada a construir [B]Birsas[/B].[/LIST]</Text>
+    </Replace>
+    <Replace Tag="LOC_TRAIT_CARTHAGE_ABILITY_EX_DESCRIPTION" Language="es_ES">
+      <Text>[BLIST][LI]Tan solo puedes tener una [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]ciudad[/TIP] y los [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]pueblos[/TIP] pueden adquirir [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]edificios[/TIP] de agua con cualquier [TIP:LOC_PEDIA_CONCEPTS_TOWN_FOCUS_TOOLTIP]enfoque de pueblo[/TIP], pero no se pueden [B]convertir en ciudades[/B].[LI]Por cada [icon:UNIT_MERCHANT] [B]Mercader[/B] o [icon:UNIT_SETTLER] [B]Colono[/B] que entrenas o compras, recibes otro.[/BLIST]</Text>
+    </Replace>
+    <Replace Tag="LOC_TRAIT_CARTHAGE_ABILITY_MO_DESCRIPTION" Language="es_ES">
+      <Text>[BLIST][LI]Tan solo puedes tener una [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]ciudad[/TIP] y los [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]pueblos[/TIP] pueden adquirir [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]edificios[/TIP] de agua con cualquier [TIP:LOC_PEDIA_CONCEPTS_TOWN_FOCUS_TOOLTIP]enfoque de pueblo[/TIP], pero no se pueden [B]convertir en ciudades[/B].[LI]Por cada [icon:UNIT_MERCHANT] [B]Mercader[/B] o [icon:UNIT_SETTLER] [B]Colono[/B] que entrenas o compras, recibes otro.[/BLIST]</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_CARTHAGE_ABILITY_NAME" Language="es_ES">
       <Text>Herencia fenicia</Text>
@@ -908,19 +926,22 @@
       <Text>Principios de Cartago</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_COLONIST_DESCRIPTION" Language="es_ES">
-      <Text>Colono exclusivo cartaginés. +1 al [icon:Action_Move] Movimiento cuando está embarcado y +1 a [icon:YIELD_POPULATION] Población al fundar un asentamiento junto a un [icon:RADIAL_RESOURCES] recurso.</Text>
+      <Text>Colono exclusivo cartaginés. +1 al [icon:Action_Move] Movimiento cuando está [TIP:LOC_PEDIA_CONCEPTS_EMBARK_TOOLTIP]embarcado[/TIP] y +1 a [icon:YIELD_POPULATION] Población al fundar un asentamiento junto a un [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]recurso[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_NUMIDIAN_CAVALRY_2_DESCRIPTION" Language="es_ES">
-      <Text>Unidad de caballería exclusiva cartaginesa de categoría 3. Es más cara y solamente se puede obtener mediante compra. +1 a la [icon:NAR_REW_COMBAT] Fuerza de combate por cada [icon:RADIAL_RESOURCES] recurso de ciudad exclusivo asignado a tu [icon:NOTIFICATION_SELECT_CAPITAL] capital. Ignora las Zonas de control.</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_CAVALRY_UNITS_TOOLTIP]Unidad de caballería[/TIP] exclusiva cartaginesa de categoría 3. Es más cara y solamente se puede obtener mediante compra. +1 a la [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Fuerza de combate[/TIP] por cada [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_CITY_RESOURCES_TOOLTIP]recurso de ciudad[/TIP] exclusivo asignado a tu [icon:NOTIFICATION_SELECT_CAPITAL] capital.</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_NUMIDIAN_CAVALRY_BASE_DESCRIPTION" Language="es_ES">
-      <Text>Unidad de caballería exclusiva cartaginesa. Es más cara y solamente se puede obtener mediante compra. +1 a la [icon:NAR_REW_COMBAT] Fuerza de combate por cada [icon:RADIAL_RESOURCES] recurso de ciudad exclusivo asignado a tu [icon:NOTIFICATION_SELECT_CAPITAL] capital. Ignora las Zonas de control.</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_CAVALRY_UNITS_TOOLTIP]Unidad de caballería[/TIP] exclusiva cartaginesa. Es más cara y solamente se puede obtener mediante compra. +1 a la [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Fuerza de combate[/TIP] por cada [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_CITY_RESOURCES_TOOLTIP]recurso de ciudad[/TIP] exclusivo asignado a tu [icon:NOTIFICATION_SELECT_CAPITAL] capital.</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_NUMIDIAN_CAVALRY_DESCRIPTION" Language="es_ES">
-      <Text>Unidad de caballería exclusiva cartaginesa de categoría 2. Es más cara y solamente se puede obtener mediante compra. +1 a la [icon:NAR_REW_COMBAT] Fuerza de combate por cada [icon:RADIAL_RESOURCES] recurso de ciudad exclusivo asignado a tu [icon:NOTIFICATION_SELECT_CAPITAL] capital. Ignora las Zonas de control.</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_CAVALRY_UNITS_TOOLTIP]Unidad de caballería[/TIP] exclusiva cartaginesa de categoría 2. Es más cara y solamente se puede obtener mediante compra. +1 a la [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Fuerza de combate[/TIP] por cada [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_CITY_RESOURCES_TOOLTIP]recurso de ciudad[/TIP] exclusivo asignado a tu [icon:NOTIFICATION_SELECT_CAPITAL] capital.</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_PLAY_AS_AUGUSTUS_CARTHAGE_TOOLTIP" Language="es_ES">
       <Text>[B]Cartago[/B] complementa estratégicamente a [B]Augusto[/B].</Text>
+    </Replace>
+    <Replace Tag="LOC_UNLOCK_PLAY_AS_CARTHAGE_CARTHAGE_TOOLTIP" Language="es_ES">
+      <Text>[B]Cartago[/B] consigue imponerse al paso de las eras.</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_PLAY_AS_CARTHAGE_DESCRIPTION" Language="es_ES">
       <Text>Juega como [B]Cartago[/B].</Text>
@@ -938,21 +959,41 @@
       <Text>[B]Isabel[/B] y [B]Cartago[/B] comparten el Mediterráneo.</Text>
     </Replace>
     <Replace Tag="LOC_WONDER_BYRSA_DESCRIPTION" Language="es_ES">
-      <Text>+2 de [icon:YIELD_GOLD] Oro. Las [icon:TRADE_ROUTE] rutas comerciales no se pueden [icon:Action_Pillage] saquear. Todos los [icon:CITY_URBAN] distritos adyacentes a Costa de esta [icon:YIELD_CITIES] ciudad que puedan albergar Murallas reciben una Muralla. No envejece. Se debe construir adyacente a una casilla de Costa.</Text>
+      <Text>+2 de [icon:YIELD_GOLD] Oro. Las [icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]rutas comerciales[/TIP] no se pueden [icon:Action_Pillage] saquear. Todos los [icon:CITY_URBAN] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]distritos[/TIP] adyacentes a Costa de esta [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]ciudad[/TIP] que puedan albergar Murallas reciben una [TIP:LOC_PEDIA_CONCEPTS_WALL_TOOLTIP]Muralla[/TIP]. [TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]No envejece[/TIP]. Se debe construir adyacente a una casilla de Costa.</Text>
     </Replace>
     <Replace Tag="LOC_WONDER_BYRSA_TOOLTIP" Language="es_ES">
-      <Text>Las [icon:TRADE_ROUTE] rutas comerciales no se pueden [icon:Action_Pillage] saquear. Todos los [icon:CITY_URBAN] distritos adyacentes a Costa de esta [icon:YIELD_CITIES] ciudad que puedan albergar Murallas reciben una Muralla.[N]Se debe construir adyacente a una casilla de Costa.</Text>
+      <Text>Las [icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]rutas comerciales[/TIP] no se pueden [icon:Action_Pillage] saquear. Todos los [icon:CITY_URBAN] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]distritos[/TIP] adyacentes a Costa de esta [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]ciudad[/TIP] que puedan albergar [TIP:LOC_PEDIA_CONCEPTS_WALL_TOOLTIP]Murallas[/TIP] reciben una [TIP:LOC_PEDIA_CONCEPTS_WALL_TOOLTIP]Muralla[/TIP].[N]Se debe construir adyacente a una casilla de Costa.</Text>
     </Replace>
-    <Replace Tag="LOC_COMBAT_PREVIEW_NUMBER_RESOURCES_CAPITAL_BONUS_DESC" Language="es_ES">
-      <Text>+{1_Value} a la Fuerza de combate por recursos asignados a la capital.</Text>
+    <Replace Tag="LOC_TRADITION_QUINQUEREME_COMBAT_PREVIEW" Language="es_ES">
+      <Text>+{1_Amount} Quinquerreme</Text>
     </Replace>
-    <Replace Tag="LOC_TRADITION_GAULOS_NAME" Language="es_ES">
-      <Text>Gaulo|Gaulos</Text>
+    <Replace Tag="LOC_TRADITION_CARTHAGE_SYNCRETISM_EXPLORATION_NAME" Language="es_ES">
+      <Text>Soberanía de Hannón I</Text>
+      <Gender>feminine</Gender>
+      <Plurality>1</Plurality>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_CARTHAGE_SYNCRETISM_MODERN_NAME" Language="es_ES">
+      <Text>Soberanía de Hannón II</Text>
+      <Gender>feminine</Gender>
+      <Plurality>1</Plurality>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_GAULOS_I_NAME" Language="es_ES">
+      <Text>Gaulos I</Text>
       <Gender>masculine</Gender>
-      <Plurality>1|2</Plurality>
+      <Plurality>1</Plurality>
     </Replace>
-    <Replace Tag="LOC_TRADITION_QUINQUEREME_NAME" Language="es_ES">
-      <Text>Quinquerreme</Text>
+    <Replace Tag="LOC_TRADITION_GAULOS_II_NAME" Language="es_ES">
+      <Text>Gaulos II</Text>
+      <Gender>masculine</Gender>
+      <Plurality>1</Plurality>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_QUINQUEREME_I_NAME" Language="es_ES">
+      <Text>Quinquerreme I</Text>
+      <Gender>masculine</Gender>
+      <Plurality>1</Plurality>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_QUINQUEREME_II_NAME" Language="es_ES">
+      <Text>Quinquerreme II</Text>
       <Gender>masculine</Gender>
       <Plurality>1</Plurality>
     </Replace>

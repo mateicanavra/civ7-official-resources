@@ -1,4 +1,4 @@
-import { S as Shared_OnAutomationEvent, P as PassTest, A as ApplyCommonNewGameParametersToConfiguration, R as ReadUserConfigOptions, F as FailTest } from './automation-test-support.chunk.js';
+import { Shared_OnAutomationEvent, PassTest, ApplyCommonNewGameParametersToConfiguration, ReadUserConfigOptions, FailTest } from './automation-test-support.js';
 
 console.log("automation-test-xr-screenshot-all-seurats.ts");
 var XRScreenshotAllSeuratsScene = /* @__PURE__ */ ((XRScreenshotAllSeuratsScene2) => {

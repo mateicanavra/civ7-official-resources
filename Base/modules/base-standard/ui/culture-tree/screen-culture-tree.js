@@ -1,36 +1,18 @@
-import { A as Audio } from '../../../core/ui/audio-base/audio-support.chunk.js';
-import ActionHandler, { ActiveDeviceTypeChangedEventName } from '../../../core/ui/input/action-handler.js';
-import FocusManager from '../../../core/ui/input/focus-manager.js';
-import { F as Focus } from '../../../core/ui/input/focus-support.chunk.js';
-import { N as NavTray } from '../../../core/ui/navigation-tray/model-navigation-tray.chunk.js';
-import { P as Panel, A as AnchorType } from '../../../core/ui/panel-support.chunk.js';
-import { D as Databind } from '../../../core/ui/utilities/utilities-core-databinding.chunk.js';
-import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.chunk.js';
-import { C as CultureTree } from './model-culture-tree.chunk.js';
+import { Audio } from '../../../core/ui/audio-base/audio-support.js';
+import ActionHandler from '../../../core/ui/input/action-handler.js';
+import { Focus } from '../../../core/ui/input/focus-support.js';
+import { ActiveDeviceTypeChangedEventName } from '../../../core/ui/input/input-events.js';
+import NavTray from '../../../core/ui/navigation-tray/model-navigation-tray.js';
+import Panel, { AnchorType } from '../../../core/ui/panel-support.js';
+import Databind from '../../../core/ui/utilities/utilities-core-databinding.js';
+import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
+import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
+import CultureTree from './model-culture-tree.js';
+import PopupSequencer from '../popup-sequencer/popup-sequencer.js';
 import { TreeCardHoveredEventName, TreeCardDehoveredEventName, TreeCardActivatedEventName } from '../tree-grid/tree-card.js';
-import { T as TreeSupport, a as TreeGridDirection } from '../tree-grid/tree-support.chunk.js';
-import { s as styles } from '../tree-grid/tree-components.chunk.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/input/cursor.js';
-import '../../../core/ui/views/view-manager.chunk.js';
-import '../../../core/ui/input/input-support.chunk.js';
-import '../../../core/ui/utilities/utilities-update-gate.chunk.js';
-import '../../../core/ui/components/fxs-slot.chunk.js';
-import '../../../core/ui/spatial/spatial-manager.js';
-import '../../../core/ui/context-manager/context-manager.js';
-import '../../../core/ui/context-manager/display-queue-manager.js';
-import '../../../core/ui/dialog-box/manager-dialog-box.chunk.js';
-import '../../../core/ui/utilities/utilities-image.chunk.js';
-import '../../../core/ui/utilities/utilities-component-id.chunk.js';
-import '../tree-grid/tree-grid.chunk.js';
-import '../../../core/ui/graph-layout/utils.chunk.js';
-import '../../../core/ui/graph-layout/layout.chunk.js';
-import '../../../core/ui/utilities/utilities-core-textprovider.chunk.js';
-import '../utilities/utilities-textprovider.chunk.js';
-import '../utilities/utilities-tags.chunk.js';
-import '../../../core/ui/utilities/utilities-layout.chunk.js';
-
-const content = "<fxs-subsystem-frame\r\n\tno-scroll=\"true\"\r\n\tclass=\"items-center justify-center flex-auto\"\r\n\tdata-audio-showing=\"culture-tree-chooser-panel-showing\"\r\n\tdata-audio-shown=\"culture-tree-chooser-panel-shown\"\r\n\tdata-audio-hiding=\"culture-tree-chooser-panel-hiding\"\r\n\tdata-audio-hidden=\"culture-tree-chooser-panel-hidden\"\r\n>\r\n\t<div class=\"flex flex-auto flex-col relative\">\r\n\t\t<fxs-header\r\n\t\t\tdata-slot=\"header\"\r\n\t\t\tclass=\"uppercase text-center tracking-100 mb-2 font-title-xl text-secondary\"\r\n\t\t\ttitle=\"LOC_UI_CULTURE_TREE_TITLE\"\r\n\t\t\tfiligree-style=\"h3\"\r\n\t\t>\r\n\t\t</fxs-header>\r\n\t\t<div\r\n\t\t\tid=\"culture-tree-tab-container\"\r\n\t\t\tclass=\"flex flex-col flex-auto\"\r\n\t\t></div>\r\n\t</div>\r\n</fxs-subsystem-frame>\r\n";
+import { TreeSupport, TreeGridDirection } from '../tree-grid/tree-support.js';
+import content from './screen-culture-tree.html.js';
+import styles from '../tree-grid/tree-components.scss.js';
 
 class ScreenCultureTree extends Panel {
   isMobileViewExperience = UI.getViewExperience() == UIViewExperience.Mobile;
@@ -42,6 +24,7 @@ class ScreenCultureTree extends Panel {
   onCardHoverListener = this.onCardHover.bind(this);
   onCardDehoverListener = this.onCardDehover.bind(this);
   startResearchButtonActivateListener = this.onStartResearchButtonActivate.bind(this);
+  syncretismPreviewActivateListener = this.onSyncretismPreviewActivate.bind(this);
   selectedNode = null;
   selectedLevel = 0;
   frame;
@@ -49,6 +32,7 @@ class ScreenCultureTree extends Panel {
   slotGroup;
   treeDetail;
   startResearchButton;
+  syncretismButton;
   currentPanelIndex = 0;
   currentPanelID = "";
   hoverLockout = false;
@@ -82,6 +66,20 @@ class ScreenCultureTree extends Panel {
     if (closebutton) {
       closebutton.addEventListener("action-activate", this.closeListener);
     }
+    this.syncretismButton = document.createElement("div");
+    this.syncretismButton.classList.add("w-full", "flex", "justify-center", "hidden");
+    const syncButton = document.createElement("fxs-button");
+    syncButton.classList.add("max-w-64", TreeSupport.isSmallScreen() ? "bottom-4" : "bottom-12", "relative");
+    syncButton.setAttribute("caption", "LOC_UI_SYNCRETISM_PREVIEW_TITLE");
+    syncButton.setAttribute("data-tooltip-content", "LOC_UI_SYNCRETISM_TOOLTIP");
+    syncButton.setAttribute("data-audio-group-ref", "syncretism-preview-button");
+    syncButton.setAttribute("data-audio-activate-ref", "data-audio-activate");
+    syncButton.setAttribute("data-audio-focus-ref", "data-audio-focus");
+    syncButton.setAttribute("data-audio-press-ref", "data-audio-press");
+    syncButton.setAttribute("action-key", "inline-shell-action-1");
+    syncButton.addEventListener("action-activate", this.syncretismPreviewActivateListener);
+    this.syncretismButton.appendChild(syncButton);
+    this.frame.appendChild(this.syncretismButton);
     this.Root.addEventListener("engine-input", this.engineInputListener);
     this.frame.addEventListener("subsystem-frame-close", this.closeListener);
     CultureTree.updateGate.call("onAttach");
@@ -94,7 +92,7 @@ class ScreenCultureTree extends Panel {
   }
   realizeFocus() {
     const selectedElement = this.Root.querySelector(
-      `tree-card[type="${this.selectedNode}"]`
+      `tree-card-v2[type="${this.selectedNode}"]`
     );
     if (selectedElement) {
       Focus.setContextAwareFocus(selectedElement, this.Root);
@@ -103,13 +101,13 @@ class ScreenCultureTree extends Panel {
     }
   }
   onCultureUpdated(data) {
-    if (data.player && data.player != GameContext.localPlayerID) {
+    if (data.player != GameContext.localPlayerID) {
       return;
     }
     CultureTree.updateGate.call("onCultureUpdated");
   }
   onCultureTargetUpdated(data) {
-    if (data.player && data.player != GameContext.localPlayerID) {
+    if (data.player != GameContext.localPlayerID) {
       return;
     }
     CultureTree.updateGate.call("onCultureUpdated");
@@ -129,6 +127,11 @@ class ScreenCultureTree extends Panel {
   onEngineInput(inputEvent) {
     if (inputEvent.detail.status != InputActionStatuses.FINISH) {
       return;
+    }
+    if (inputEvent.detail.name == "shell-action-1" && this.currentPanelID.includes("TEST_OF_TIME")) {
+      this.onSyncretismPreviewActivate();
+      inputEvent.stopPropagation();
+      inputEvent.preventDefault();
     }
     if (inputEvent.isCancelInput() || inputEvent.detail.name == "sys-menu") {
       this.close();
@@ -156,6 +159,7 @@ class ScreenCultureTree extends Panel {
     if (targetNode) {
       this.refreshDetailsPanel(targetNode);
     }
+    this.toggleSyncretismButton();
     waitForLayout(() => this.realizeFocus());
   }
   /**
@@ -235,20 +239,23 @@ class ScreenCultureTree extends Panel {
     return refs;
   }
   createCard(container) {
-    const cardElement = document.createElement("tree-card");
+    const cardElement = document.createElement("tree-card-v2");
     Databind.if(cardElement, "card.hasData");
     Databind.attribute(cardElement, "dummy", "card.isDummy");
     Databind.attribute(cardElement, "type", "card.nodeType");
     Databind.attribute(cardElement, "name", "card.name");
     Databind.attribute(cardElement, "progress", "card.progressPercentage");
     Databind.attribute(cardElement, "turns", "card.turns");
-    Databind.attribute(cardElement, "unlocks-by-depth", "card.unlocksByDepthString");
     Databind.attribute(cardElement, "queue-order", "card.queueOrder");
+    Databind.attribute(cardElement, "cost", "card.cost");
+    Databind.attribute(cardElement, "unlocks-by-depth", "card.unlocksByDepthString");
     cardElement.setAttribute("tree-type", "culture");
     cardElement.setAttribute("tooltip-type", "culture-tree");
+    if (TreeSupport.isSmallScreen()) {
+      cardElement.setAttribute("disable-tooltip", "true");
+    }
     cardElement.setAttribute("data-audio-group-ref", "audio-screen-culture-tree-progression");
     cardElement.setAttribute("data-audio-activate-ref", "none");
-    cardElement.setAttribute("data-audio-focus-ref", "data-audio-focus");
     Databind.classToggle(cardElement, "locked", "card.isLocked");
     Databind.classToggle(cardElement, "queued", "card.isQueued");
     cardElement.addEventListener(TreeCardHoveredEventName, this.onCardHoverListener);
@@ -263,7 +270,12 @@ class ScreenCultureTree extends Panel {
     const configuration = [];
     for (const tree of CultureTree.trees) {
       const definition = GameInfo.ProgressionTrees.lookup(tree.type);
-      const name = definition?.Name ? `${Locale.compose(definition.Name)}` : `[WIP] Civic Tree`;
+      let name = definition?.Name ? `${Locale.compose(definition.Name)}` : `[WIP] Civic Tree`;
+      if (definition?.CivInjectedName) {
+        const player = Players.get(CultureTree.playerId);
+        const args = player ? [player.civilizationAdjective] : [];
+        name = Locale.compose(definition.CivInjectedName, ...args);
+      }
       configuration.push({
         id: tree.type.toString() || "no_type",
         label: name
@@ -284,7 +296,7 @@ class ScreenCultureTree extends Panel {
       );
       return;
     }
-    waitForLayout(() => FocusManager.setFocus(this.slotGroup));
+    waitForLayout(() => FocusManager.get().setFocus(this.slotGroup));
     const panelRefs = this.panelContentElements.get(this.currentPanelIndex);
     const panelScroll = panelRefs?.scrollable;
     if (panelRefs?.cardScaling) {
@@ -293,6 +305,7 @@ class ScreenCultureTree extends Panel {
     if (panelScroll) {
       panelScroll.component.stopPanning();
     }
+    this.toggleSyncretismButton();
     this.startResearchButton?.remove();
   };
   refreshDetailsPanel(nodeId, level = "0") {
@@ -323,7 +336,7 @@ class ScreenCultureTree extends Panel {
       waitForLayout(() => {
         const treeDetailScrollable = this.treeDetail?.maybeComponent?.scrollable?.maybeComponent;
         treeDetailScrollable?.setEngineInputProxy(root);
-        if (!this.treeDetail?.isConnected && cardDetailContainer) {
+        if (this.treeDetail && !this.treeDetail.isConnected && cardDetailContainer) {
           cardDetailContainer.appendChild(this.treeDetail);
         }
       });
@@ -355,6 +368,10 @@ class ScreenCultureTree extends Panel {
     this.treeDetail.setAttribute("progress", `${node.progressPercentage}`);
     this.treeDetail.setAttribute("turns", `${node.turns}`);
     this.treeDetail.setAttribute("unlocks-by-depth", node.unlocksByDepthString);
+    if (node.cost && node.cost != 0) {
+      this.treeDetail.setAttribute("cost", node.cost.toString());
+      this.treeDetail.setAttribute("cost-icon", "YIELD_CULTURE");
+    }
   }
   close() {
     super.close();
@@ -502,7 +519,7 @@ class ScreenCultureTree extends Panel {
         Audio.playSound("data-audio-queue-hover", "audio-screen-culture-tree-progression");
         for (let index = 0; index < highlightList.length; index++) {
           const setElement = this.Root.querySelector(
-            `tree-card[type="${highlightList[index]}"]`
+            `tree-card-v2[type="${highlightList[index]}"]`
           );
           setElement?.classList.add("hoverqueued");
         }
@@ -519,7 +536,7 @@ class ScreenCultureTree extends Panel {
     if (clearList) {
       for (let index = 0; index < clearList.length; index++) {
         const clearElement = this.Root.querySelector(
-          `tree-card[type="${clearList[index]}"]`
+          `tree-card-v2[type="${clearList[index]}"]`
         );
         clearElement?.classList.remove("hoverqueued");
       }
@@ -530,6 +547,30 @@ class ScreenCultureTree extends Panel {
     const level = target.getAttribute("level") ?? "0";
     this.handleCardActivate(nodeId, level);
     target.classList.add("hidden");
+  }
+  onSyncretismPreviewActivate() {
+    const syncretismData = {
+      category: PopupSequencer.getCategory(),
+      screenId: "syncretism-info-card",
+      popupId: "syncretism-info-card",
+      properties: {
+        singleton: true,
+        createMouseGuard: true
+      }
+    };
+    PopupSequencer.addDisplayRequest(syncretismData);
+    NavTray.clear();
+  }
+  toggleSyncretismButton() {
+    if (this.currentPanelID.includes("TEST_OF_TIME")) {
+      if (this.syncretismButton) {
+        this.syncretismButton.classList.remove("hidden");
+      }
+    } else {
+      if (this.syncretismButton) {
+        this.syncretismButton.classList.add("hidden");
+      }
+    }
   }
 }
 Controls.define("screen-culture-tree", {

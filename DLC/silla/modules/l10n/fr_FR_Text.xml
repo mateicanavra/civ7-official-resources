@@ -598,23 +598,41 @@
     <Replace Tag="LOC_12009C_NAME" Language="fr_FR">
       <Text>Un grand pouvoir émane de cette couronne.</Text>
     </Replace>
+    <Replace Tag="LOC_TOT_30017A_COMPLETION" Language="fr_FR">
+      <Text>Le système des os régit toute la société de Silla. Le pouvoir est transmis de façon ancestrale : l'époux ou l'épouse d'un individu, son métier, ses vêtements, sa fortune, son statut et sa valeur en tant que personne, tout émane de l'intérieur. Mais à mesure que le royaume de Silla étend ses frontières, il incorpore des gens étrangers au système, aux filiations inconnues et aux coutumes étranges.</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30017A_STORYTITLE" Language="fr_FR">
+      <Text>L'abolition du système des os</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30017B_DESCRIPTION" Language="fr_FR">
+      <Text>{1_reward}.</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30017B_NAME" Language="fr_FR">
+      <Text>Ces nouveaux venus doivent être gouvernés par des nobles de Silla de bonne famille et de seonggol certifié. Ne changeons rien au système.</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30017C_DESCRIPTION" Language="fr_FR">
+      <Text>{1_reward}.</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30017C_NAME" Language="fr_FR">
+      <Text>Le système des os a besoin de plus de flexibilité. Renommons-le "système du cartilage".</Text>
+    </Replace>
     <Replace Tag="LOC_ABILITY_HWARANG_CULTURE_DESCRIPTION" Language="fr_FR">
-      <Text>Octroie un montant de [icon:YIELD_CULTURE] Culture égal à 25 % de la [icon:NAR_REW_COMBAT] puissance de combat de l'unité vaincue.</Text>
+      <Text>Octroie un montant de [icon:YIELD_CULTURE] Culture égal à 25 % de la [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]puissance de combat[/TIP] de l'unité vaincue.</Text>
     </Replace>
     <Replace Tag="LOC_ABILITY_HWARANG_CULTURE_PREVIEW" Language="fr_FR">
-      <Text>Octroie un montant de Culture égal à 25 % de la puissance des unités vaincues.</Text>
+      <Text>Octroie un montant de Culture égal à 25 % de la [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]puissance de combat[/TIP] de l'unité vaincue.</Text>
     </Replace>
     <Replace Tag="LOC_BUILDING_LECTURE_HALL_DESCRIPTION" Language="fr_FR">
-      <Text>Bâtiment culturel exclusif à Silla. [icon:YIELD_CULTURE] Culture +3. [icon:YIELD_CULTURE] Culture +1 par merveille adjacente. Capacité en [icon:RADIAL_RESOURCES] ressources +1 dans cette colonie en cas de placement sur une case [icon:CITY_UNIMPROVED] accidentée. Intemporelle.</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_BUILDING_TOOLTIP]Bâtiment culturel exclusif[/TIP] à Silla. [icon:YIELD_CULTURE] Culture +3. [icon:YIELD_CULTURE] Culture +1 par [TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]merveille[/TIP] adjacente. [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCE_CAPACITY_TOOLTIP]Capacité en ressources[/TIP] +1 dans cette [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]colonie[/TIP] en cas de placement sur une case [icon:CITY_UNIMPROVED] [TIP:LOC_PEDIA_CONCEPTS_ROUGH_TERRAIN_TOOLTIP]accidentée[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_BUILDING_LECTURE_HALL_TOOLTIP" Language="fr_FR">
-      <Text>[B]Effet :[/B] Capacité en [icon:RADIAL_RESOURCES] ressources +1 dans cette colonie en cas de placement sur une case [icon:CITY_UNIMPROVED] accidentée.[N]Bâtiment exclusif à Silla.</Text>
+      <Text>[B]Effet[/B] : [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCE_CAPACITY_TOOLTIP]Capacité en ressources[/TIP] +1 dans cette [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]colonie[/TIP] en cas de placement sur une case [icon:CITY_UNIMPROVED] [TIP:LOC_PEDIA_CONCEPTS_ROUGH_TERRAIN_TOOLTIP]accidentée[/TIP].[N][TIP:LOC_PEDIA_CONCEPTS_UNIQUE_BUILDING_TOOLTIP]Bâtiment exclusif[/TIP] à Silla.</Text>
     </Replace>
     <Replace Tag="LOC_BUILDING_PAGODA_DESCRIPTION" Language="fr_FR">
-      <Text>Bâtiment générant du Bonheur exclusif à Silla. [icon:YIELD_HAPPINESS] Bonheur +3. [icon:YIELD_DIPLOMACY] Influence +1 par montagne, merveille naturelle et merveille adjacentes. Intemporelle.</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_BUILDING_TOOLTIP]Bâtiment générant du Bonheur exclusif[/TIP] à Silla. [icon:YIELD_HAPPINESS] Bonheur +3. [icon:YIELD_DIPLOMACY] Influence +1 par montagne, merveille naturelle et [TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]merveille[/TIP] adjacentes.</Text>
     </Replace>
     <Replace Tag="LOC_BUILDING_PAGODA_TOOLTIP" Language="fr_FR">
-      <Text>Bâtiment exclusif à Silla.</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_BUILDING_TOOLTIP]Bâtiment exclusif[/TIP] à Silla.</Text>
     </Replace>
     <Replace Tag="LOC_CIVIC_JINGOL_AUTHOR" Language="fr_FR">
       <Text>Ode au chevalier Kip'a</Text>
@@ -658,50 +676,71 @@
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SILLA_COMPLETE_EMILE_BELL_NAME" Language="fr_FR">
       <Text>Cloche du roi Seongdeok</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SILLA_LEGACY_PATH_ECONOMIC_DESC" Language="fr_FR">
-      <Text>Terminer une orientation d'héritage économique avec Silla</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SILLA_FOUR_MAJOR_TRIUMPHS_DESC" Language="fr_FR">
+      <Text>Terminer 4 triomphes majeurs diplomatiques ou économiques en un seul apogée avec Silla</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SILLA_LEGACY_PATH_ECONOMIC_NAME" Language="fr_FR">
-      <Text>Orientation d'héritage de Silla</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SILLA_FOUR_MAJOR_TRIUMPHS_NAME" Language="fr_FR">
+      <Text>Silla - 4 triomphes majeurs</Text>
     </Replace>
     <Replace Tag="LOC_MOD_CIV_WONDER_PRODUCTION_SILLA_DESCRIPTION" Language="fr_FR">
       <Text>[icon:WONDER] Merveille associée à Silla : [icon:YIELD_PRODUCTION] Production +30 %.</Text>
     </Replace>
-    <Replace Tag="LOC_MOD_JINGOL_RESOURCE_CAP_DESCRIPTION" Language="fr_FR">
-      <Text>Capacité en [icon:RADIAL_RESOURCES] ressources +1 dans les [icon:YIELD_TOWNS] communes. </Text>
+    <Replace Tag="LOC_NODE_CIVIC_EX_SILLA_RENAISSANCE_NAME" Language="fr_FR">
+      <Text>Renaissance de Silla</Text>
     </Replace>
-    <Replace Tag="LOC_MOD_JINGOL_TRADE_ROUTE_RANGE_DESCRIPTION" Language="fr_FR">
-      <Text>Portée +5 pour les [icon:TRADE_ROUTE] routes commerciales terrestres de toutes les colonies.</Text>
-    </Replace>
-    <Replace Tag="LOC_MOD_KOLP_U_ALLIANCE_ROUTE_GOLD_DESCRIPTION" Language="fr_FR">
-      <Text>Lorsque vous formez une [icon:PLAYER_RELATIONSHIP_ALLIANCE] alliance avec un autre dirigeant, chacun reçoit une [icon:TRADE_ROUTE] route commerciale gratuite reliée à la [icon:NOTIFICATION_SELECT_CAPITAL] capitale de l'autre (peu importe la distance). Ces [icon:TRADE_ROUTE] routes ne disparaissent pas lorsque [icon:PLAYER_RELATIONSHIP_ALLIANCE] l'alliance expire et ne comptent pas dans la limite de [icon:TRADE_ROUTE] routes commerciales avec cette civilisation.</Text>
-    </Replace>
-    <Replace Tag="LOC_MOD_KOLP_U_CULTURE_KILLS_HWARANG_DESCRIPTION" Language="fr_FR">
-      <Text>Lorsque vous éliminez une unité ennemie avec un [icon:UNIT_HWARANG] hwarang, vous gagnez un montant de [icon:YIELD_CULTURE] Culture égal à 25 % de la [icon:NAR_REW_COMBAT] Puissance de combat de l'unité vaincue.</Text>
+    <Replace Tag="LOC_NODE_CIVIC_MO_SILLA_MODERNIZATION_NAME" Language="fr_FR">
+      <Text>Modernisation de Silla</Text>
     </Replace>
     <Replace Tag="LOC_NOTIFICATION_TRADE_ROUTE_TERMINATED_MESSAGE" Language="fr_FR">
       <Text>Route commerciale fermée</Text>
     </Replace>
     <Replace Tag="LOC_QUARTER_DRAGON_TEMPLE_DESCRIPTION" Language="fr_FR">
-      <Text>Quartier exclusif à Silla. Créé en construisant une salle d'étude et une pagode dans le même district. [icon:YIELD_GOLD] Or +1 dans cette [icon:YIELD_CITIES] ville par [icon:RADIAL_RESOURCES] ressource assignée.</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_QUARTER_TOOLTIP]Quartier exclusif[/TIP] à Silla. Créé en construisant une salle d'étude et une pagode dans le même [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]district[/TIP]. [icon:YIELD_GOLD] Or +1 dans cette [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]ville[/TIP] par [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]ressource[/TIP] assignée.</Text>
     </Replace>
     <Replace Tag="LOC_QUARTER_DRAGON_TEMPLE_TOOLTIP" Language="fr_FR">
-      <Text>[icon:YIELD_GOLD] Or +1 dans cette [icon:YIELD_CITIES] ville par [icon:RADIAL_RESOURCES] ressource assignée.</Text>
+      <Text>[icon:YIELD_GOLD] Or +1 dans cette [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]ville[/TIP] par [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]ressource[/TIP] assignée.</Text>
     </Replace>
-    <Replace Tag="LOC_TRADITION_BEOPSEONG_DESCRIPTION" Language="fr_FR">
-      <Text>[icon:YIELD_HAPPINESS] Bonheur +2 pour les [icon:RADIAL_RESOURCES] ressources dans les [icon:YIELD_TOWNS] communes dotées d'un bâtiment générant du [icon:YIELD_HAPPINESS] Bonheur.</Text>
+    <Replace Tag="LOC_TRADITION_BEOPSEONG_I_DESCRIPTION" Language="fr_FR">
+      <Text>[icon:YIELD_HAPPINESS] Bonheur +2 pour les [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]ressources[/TIP] dans les [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]communes[/TIP] dotées d'un [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]bâtiment[/TIP] générant du [icon:YIELD_HAPPINESS] Bonheur.</Text>
     </Replace>
-    <Replace Tag="LOC_TRADITION_SEORABEOL_DESCRIPTION" Language="fr_FR">
-      <Text>[icon:YIELD_GOLD] Or +1 et [icon:YIELD_DIPLOMACY] Influence +1 pour les [icon:RADIAL_RESOURCES] ressources assignées à des communes possédant la spécialisation Comptoir commercial ou Commune d'usine.</Text>
+    <Replace Tag="LOC_TRADITION_BEOPSEONG_II_DESCRIPTION" Language="fr_FR">
+      <Text>[icon:YIELD_HAPPINESS] Bonheur +2 dans les [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]communes[/TIP] par [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]ressource[/TIP].</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_SEORABEOL_I_DESCRIPTION" Language="fr_FR">
+      <Text>[icon:YIELD_GOLD] Or +1 et [icon:YIELD_DIPLOMACY] Influence +1 pour les [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]ressources[/TIP] assignées à des [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]communes[/TIP] possédant la spécialisation Comptoir commercial.</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_SEORABEOL_II_DESCRIPTION" Language="fr_FR">
+      <Text>[icon:YIELD_GOLD] Or +2 et [icon:YIELD_DIPLOMACY] Influence +2 pour les [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]ressources[/TIP] assignées à des [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]communes[/TIP] dotée de la spécialisation Comptoir commercial.</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_SILLA_SYNCRETISM_EXPLORATION_DESCRIPTION" Language="fr_FR">
+      <Text>[icon:YIELD_CULTURE] Culture +1 et [icon:YIELD_SCIENCE] Science +1 par [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]ressource[/TIP] importée.</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_SILLA_SYNCRETISM_MODERN_DESCRIPTION" Language="fr_FR">
+      <Text>[icon:YIELD_CULTURE] Culture +2 et [icon:YIELD_SCIENCE] Science +2 par [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]ressource[/TIP] importée.</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_SILLA_SYNCRETISM_TOOLTIP" Language="fr_FR">
+      <Text>Révision du système des os</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_STRATEGIC_ALLIES_DESCRIPTION" Language="fr_FR">
-      <Text>Les [icon:TRADE_ROUTE] routes commerciales que vous partagez avec vos [icon:PLAYER_RELATIONSHIP_ALLIANCE] alliés octroient de la [icon:YIELD_FOOD] Nourriture et de la [icon:YIELD_PRODUCTION] Production égales au [icon:TRADE_INCOME] revenu commercial qu'elles rapportent.</Text>
+      <Text>Les [icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]routes commerciales[/TIP] que vous partagez avec vos [icon:PLAYER_RELATIONSHIP_ALLIANCE] [TIP:LOC_PEDIA_CONCEPTS_ALLIANCE_TOOLTIP]alliés[/TIP] octroient aux deux dirigeants de la [icon:YIELD_FOOD] Nourriture et de la [icon:YIELD_PRODUCTION] Production égales au [icon:TRADE_INCOME] [TIP:LOC_PEDIA_CONCEPTS_TRADE_INCOME_TOOLTIP]revenu commercial[/TIP] qu'elles rapportent.</Text>
     </Replace>
-    <Replace Tag="LOC_TRADITION_THE_GOLDEN_ROAD_DESCRIPTION" Language="fr_FR">
-      <Text>[icon:YIELD_SCIENCE] Science +1 par [icon:RADIAL_RESOURCES] ressource importée.</Text>
+    <Replace Tag="LOC_TRADITION_THE_GOLDEN_ROAD_I_DESCRIPTION" Language="fr_FR">
+      <Text>Les [icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]routes commerciales[/TIP] que vous partagez avec vos [icon:PLAYER_RELATIONSHIP_ALLIANCE] [TIP:LOC_PEDIA_CONCEPTS_ALLIANCE_TOOLTIP]alliés[/TIP] octroient aux deux dirigeants une quantité de [icon:YIELD_SCIENCE] Science et de [icon:YIELD_CULTURE] Culture égale à 50 % du [icon:TRADE_INCOME] [TIP:LOC_PEDIA_CONCEPTS_TRADE_INCOME_TOOLTIP]revenu commercial[/TIP] qu'elles rapportent.</Text>
     </Replace>
-    <Replace Tag="LOC_TRAIT_SILLA_ABILITY_DESCRIPTION" Language="fr_FR">
-      <Text>[BLIST][LI][B][icon:YIELD_CULTURE] Culture +1[/B] sur les [icon:RADIAL_RESOURCES] [B]ressources[/B].[LI][B][icon:YIELD_PRODUCTION] Production +30 %[/B] pour la construction de la [B]cloche du roi Seongdeok[/B].[/LIST]</Text>
+    <Replace Tag="LOC_TRADITION_THE_GOLDEN_ROAD_I_TOOLTIP" Language="fr_FR">
+      <Text>La route dorée</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_THE_GOLDEN_ROAD_II_DESCRIPTION" Language="fr_FR">
+      <Text>Les [icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]routes commerciales[/TIP] que vous partagez avec vos [icon:PLAYER_RELATIONSHIP_ALLIANCE] [TIP:LOC_PEDIA_CONCEPTS_ALLIANCE_TOOLTIP]alliés[/TIP] octroient aux deux dirigeants une quantité de [icon:YIELD_SCIENCE] Science et de [icon:YIELD_CULTURE] Culture égale au [icon:TRADE_INCOME] [TIP:LOC_PEDIA_CONCEPTS_TRADE_INCOME_TOOLTIP]revenu commercial[/TIP] qu'elles rapportent.</Text>
+    </Replace>
+    <Replace Tag="LOC_TRAIT_SILLA_ABILITY_AQ_DESCRIPTION" Language="fr_FR">
+      <Text>[BLIST][LI]Lorsque vous formez une [icon:PLAYER_RELATIONSHIP_ALLIANCE] [TIP:LOC_PEDIA_CONCEPTS_ALLIANCE_TOOLTIP]alliance[/TIP] avec un autre dirigeant, chacun reçoit une [icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]route commerciale[/TIP] gratuite reliée à la [icon:NOTIFICATION_SELECT_CAPITAL] capitale de l'autre. Ces [icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]routes[/TIP] ne disparaissent pas lorsque [icon:PLAYER_RELATIONSHIP_ALLIANCE] [TIP:LOC_PEDIA_CONCEPTS_ALLIANCE_TOOLTIP]l'alliance[/TIP] est dissoute.[LI][B][icon:YIELD_DIPLOMACY] Influence +1[/B] pour [B]chaque civilisation[/B] avec laquelle vous avez au moins [B]1 [icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]route commerciale[/TIP][/B].[LI][B][icon:YIELD_PRODUCTION] Production +30 %[/B] pour la construction de la [B]cloche du roi Seongdeok[/B].[/BLIST]</Text>
+    </Replace>
+    <Replace Tag="LOC_TRAIT_SILLA_ABILITY_EX_DESCRIPTION" Language="fr_FR">
+      <Text>[BLIST][LI]Lorsque vous formez une [icon:PLAYER_RELATIONSHIP_ALLIANCE] [TIP:LOC_PEDIA_CONCEPTS_ALLIANCE_TOOLTIP]alliance[/TIP] avec un autre dirigeant, chacun reçoit une [icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]route commerciale[/TIP] gratuite reliée à la [icon:NOTIFICATION_SELECT_CAPITAL] capitale de l'autre. Ces [icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]routes[/TIP] ne disparaissent pas lorsque [icon:PLAYER_RELATIONSHIP_ALLIANCE] [TIP:LOC_PEDIA_CONCEPTS_ALLIANCE_TOOLTIP]l'alliance[/TIP] est dissoute.[LI][B][icon:YIELD_DIPLOMACY] Influence +2[/B] pour [B]chaque civilisation[/B] avec laquelle vous avez au moins [B]1 [icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]route commerciale[/TIP][/B].[/BLIST]</Text>
+    </Replace>
+    <Replace Tag="LOC_TRAIT_SILLA_ABILITY_MO_DESCRIPTION" Language="fr_FR">
+      <Text>[BLIST][LI]Lorsque vous formez une [icon:PLAYER_RELATIONSHIP_ALLIANCE] [TIP:LOC_PEDIA_CONCEPTS_ALLIANCE_TOOLTIP]alliance[/TIP] avec un autre dirigeant, chacun reçoit une [icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]route commerciale[/TIP] gratuite reliée à la [icon:NOTIFICATION_SELECT_CAPITAL] capitale de l'autre. Ces [icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]routes[/TIP] ne disparaissent pas lorsque [icon:PLAYER_RELATIONSHIP_ALLIANCE] [TIP:LOC_PEDIA_CONCEPTS_ALLIANCE_TOOLTIP]l'alliance[/TIP] est dissoute.[LI][B][icon:YIELD_DIPLOMACY] Influence +3[/B] pour [B]chaque civilisation[/B] avec laquelle vous avez au moins [B]1 [icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]route commerciale[/TIP][/B].[/BLIST]</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_SILLA_ABILITY_NAME" Language="fr_FR">
       <Text>Maripgan</Text>
@@ -710,16 +749,16 @@
       <Text>Dogmes de Silla</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_HWARANG_2_DESCRIPTION" Language="fr_FR">
-      <Text>Unité d'attaque à distance de niveau 2 exclusive à Silla. [icon:Action_Move] PM +1 et [icon:Action_Ranged] Puissance de bombardement +3. Compte comme une unité de cavalerie et ignore les zones de contrôle.</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_RANGED_UNITS_TOOLTIP]Unité d'attaque à distance[/TIP] de niveau 2 exclusive à Silla. [icon:Action_Move] PM +1 et [icon:Action_Ranged] Puissance de bombardement +3. Compte comme une [TIP:LOC_PEDIA_CONCEPTS_CAVALRY_UNITS_TOOLTIP]unité de cavalerie[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_HWARANG_BASE_DESCRIPTION" Language="fr_FR">
-      <Text>Unité d'attaque à distance exclusive à Silla. [icon:Action_Move] PM +1 et [icon:Action_Ranged] Puissance de bombardement +3. Compte comme une unité de cavalerie et ignore les zones de contrôle.</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_RANGED_UNITS_TOOLTIP]Unité d'attaque à distance[/TIP] exclusive à Silla. [icon:Action_Move] PM +1 et [icon:Action_Ranged] Puissance de bombardement +3. Compte comme une [TIP:LOC_PEDIA_CONCEPTS_CAVALRY_UNITS_TOOLTIP]unité de cavalerie[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_HWARANG_DESCRIPTION" Language="fr_FR">
-      <Text>Unité d'attaque à distance de niveau 1 exclusive à Silla. [icon:Action_Move] PM +1 et [icon:Action_Ranged] Puissance de bombardement +3. Compte comme une unité de cavalerie et ignore les zones de contrôle.</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_RANGED_UNITS_TOOLTIP]Unité d'attaque à distance[/TIP] de niveau 1 exclusive à Silla. [icon:Action_Move] PM +1 et [icon:Action_Ranged] Puissance de bombardement +3. Compte comme une [TIP:LOC_PEDIA_CONCEPTS_CAVALRY_UNITS_TOOLTIP]unité de cavalerie[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_SANGDAEDEUNG_DESCRIPTION" Language="fr_FR">
-      <Text>Marchand exclusif à Silla. Lorsque vous établissez une [icon:TRADE_ROUTE] route commerciale, octroie [icon:YIELD_GOLD] Or +5 (en vitesse normale, non applicable aux cités-États) tant que le niveau de relation actuel est maintenu. [icon:YIELD_GOLD] Or +5 minimum.</Text>
+      <Text>Marchand exclusif à Silla. Lorsque vous établissez une [icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]route commerciale[/TIP], octroie [icon:YIELD_GOLD] Or +5 (en vitesse normale) tant que le niveau de relation actuel est maintenu, non applicable aux [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]cités-États[/TIP]. [icon:YIELD_GOLD] Or +5 minimum.</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_PLAY_AS_MACHIAVELLI_SILLA_TOOLTIP" Language="fr_FR">
       <Text>[B]Silla[/B] présente des synergies stratégiques avec [B]Machiavel[/B].</Text>
@@ -727,31 +766,43 @@
     <Replace Tag="LOC_UNLOCK_PLAY_AS_SILLA_DESCRIPTION" Language="fr_FR">
       <Text>Jouer avec [B]Silla[/B]</Text>
     </Replace>
+    <Replace Tag="LOC_UNLOCK_PLAY_AS_SILLA_SILLA_TOOLTIP" Language="fr_FR">
+      <Text>[B]Silla[/B] est capable de traverser les âges.</Text>
+    </Replace>
     <Replace Tag="LOC_NOTIFICATION_TRADE_ROUTE_TERMINATED_DUE_TO_ALLIANCE_SUMMARY" Language="fr_FR">
       <Text>L'alliance avec {1_LeaderName} vous octroie des routes commerciales gratuites entre vos capitales. Votre ancienne route commerciale a été fermée. Le marchand qui en était à l'origine est retourné à la capitale.</Text>
     </Replace>
     <Replace Tag="LOC_NOTIFICATION_TRADE_ROUTE_TERMINATED_SUMMARY" Language="fr_FR">
       <Text>L'alliance avec {1_LeaderName} touche à son terme. Les routes commerciales gratuites entre vos capitales ont été fermées.</Text>
     </Replace>
-    <Replace Tag="LOC_TRADITION_BEOPSEONG_NAME" Language="fr_FR">
-      <Text>Beopseong</Text>
-      <Gender>masculine</Gender>
-      <Plurality>1</Plurality>
+    <Replace Tag="LOC_TRADITION_BEOPSEONG_I_NAME" Language="fr_FR">
+      <Text>Beopseong I</Text>
     </Replace>
-    <Replace Tag="LOC_TRADITION_SEORABEOL_NAME" Language="fr_FR">
-      <Text>Seorabeol</Text>
-      <Gender>feminine</Gender>
-      <Plurality>1</Plurality>
+    <Replace Tag="LOC_TRADITION_BEOPSEONG_II_NAME" Language="fr_FR">
+      <Text>Beopseong II</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_SEORABEOL_I_NAME" Language="fr_FR">
+      <Text>Seorabeol I</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_SEORABEOL_II_NAME" Language="fr_FR">
+      <Text>Seorabeol II</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_SILLA_SYNCRETISM_EXPLORATION_NAME" Language="fr_FR">
+      <Text>Révision du système des os I</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_SILLA_SYNCRETISM_MODERN_NAME" Language="fr_FR">
+      <Text>Révision du système des os II</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_STRATEGIC_ALLIES_NAME" Language="fr_FR">
       <Text>Alliances stratégiques</Text>
       <Gender>feminine</Gender>
       <Plurality>2</Plurality>
     </Replace>
-    <Replace Tag="LOC_TRADITION_THE_GOLDEN_ROAD_NAME" Language="fr_FR">
-      <Text>La route dorée </Text>
-      <Gender>feminine</Gender>
-      <Plurality>1</Plurality>
+    <Replace Tag="LOC_TRADITION_THE_GOLDEN_ROAD_I_NAME" Language="fr_FR">
+      <Text>La route dorée I</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_THE_GOLDEN_ROAD_II_NAME" Language="fr_FR">
+      <Text>La route dorée II</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_HWARANG_NAME" Language="fr_FR">
       <Text>Hwarang|Hwarang</Text>

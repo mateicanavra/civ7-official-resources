@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+    <Modifier id="TOT_30041B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ATTRIBUTE" run-once="false" permanent="true">
+        <Argument name="Amount">1</Argument>
+        <Argument name="AttributeType">ATTRIBUTE_CULTURAL</Argument>
+    </Modifier>
+    <Modifier id="TOT_30041C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ATTRIBUTE" run-once="false" permanent="true">
+        <Argument name="Amount">1</Argument>
+        <Argument name="AttributeType">ATTRIBUTE_MILITARISTIC</Argument>
+    </Modifier>
+    <RequirementSet id="REQSET_TOT_30041A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_OTTOMANS"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_TOT_30041A_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_OTTOMANS"/>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_COMPLETED_PROGRESSION_TREE_NODE">
+            <Argument name="ProgressionTreeNodeType">NODE_CIVIC_AQ_FOUNDATION</Argument>
+            <Argument name="MinDepth">1</Argument>
+        </Requirement>
+    </RequirementSet>
+</GameEffects>

@@ -19,6 +19,10 @@
             <Argument name="CivilizationType">CIVILIZATION_TONGA</Argument>
             <Argument name="IsPastCivilization">True</Argument>
         </Requirement>
+        <Requirement type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES" inverse="true">
+            <Argument name="CivilizationType">CIVILIZATION_TONGA</Argument>
+            <Argument name="Age">AGE_EXPLORATION</Argument>
+        </Requirement>
     </RequirementSet>
     <RequirementSet id="REQSET_11093A_NARRATIVE">
         <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_NARRATIVE_TAGS">

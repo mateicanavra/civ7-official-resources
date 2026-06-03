@@ -1,44 +1,11 @@
-import FocusManager from '../../input/focus-manager.js';
-import { N as NavTray } from '../../navigation-tray/model-navigation-tray.chunk.js';
-import { P as Panel } from '../../panel-support.chunk.js';
-import { i as instance } from './model-mp-staging-new.chunk.js';
-import { MustGetElement } from '../../utilities/utilities-dom.chunk.js';
+import NavTray from '../../navigation-tray/model-navigation-tray.js';
+import Panel from '../../panel-support.js';
+import instance from './model-mp-staging-new.js';
+import { MustGetElement } from '../../utilities/utilities-dom.js';
 import { NetworkUtilities } from '../../utilities/utilities-network.js';
-import '../../audio-base/audio-support.chunk.js';
-import '../../framework.chunk.js';
-import '../../input/action-handler.js';
-import '../../input/cursor.js';
-import '../../views/view-manager.chunk.js';
-import '../../input/input-support.chunk.js';
-import '../../utilities/utilities-update-gate.chunk.js';
-import '../../utilities/utilities-image.chunk.js';
-import '../../utilities/utilities-component-id.chunk.js';
-import '../../dialog-box/manager-dialog-box.chunk.js';
-import '../../context-manager/display-queue-manager.js';
-import '../create-panels/age-civ-select-model.chunk.js';
-import '../live-event-logic/live-event-logic.chunk.js';
-import '../../utilities/utilities-data.chunk.js';
-import '../create-panels/leader-select-model.chunk.js';
-import '../mp-shell-logic/mp-shell-logic.chunk.js';
-import '../../context-manager/context-manager.js';
-import '../../events/shell-events.chunk.js';
-import '../../profile-page/screen-profile-page.js';
-import '../../components/fxs-dropdown.chunk.js';
-import '../../components/fxs-activatable.chunk.js';
-import '../../input/focus-support.chunk.js';
-import '../../components/fxs-slot.chunk.js';
-import '../../spatial/spatial-manager.js';
-import '../../save-load/model-save-load.chunk.js';
-import '../leader-select/leader-button/leader-button.js';
-import '../../utilities/utilities-layout.chunk.js';
-import '../../utilities/utilities-liveops.js';
-import '../../utilities/utilities-metaprogression.chunk.js';
-import '../../utilities/utilities-network-constants.chunk.js';
-import '../mp-legal/mp-legal.js';
-
-const content = "<div class=\"mp-game-rules-frame-container h-full max-h-174 max-w-256 py-8 flow-column items-center justify-center\">\r\n\t<fxs-modal-frame\r\n\t\tclass=\"mp-game-rules-frame shrink flow-column w-full px-20\"\r\n\t\tdata-modal-style=\"generic\"\r\n\t>\r\n\t\t<div class=\"flex items-center justify-center h-16 absolute left-4 -right-36 -top-8 pb-1\">\r\n\t\t\t<div class=\"grow img-top-filigree-left\"></div>\r\n\t\t\t<div class=\"img-top-filigree-center\"></div>\r\n\t\t\t<div class=\"grow img-top-filigree-right\"></div>\r\n\t\t</div>\r\n\t\t<div class=\"flow-column items-center flex-auto\">\r\n\t\t\t<div class=\"rules-container mb-8 flow-column justify-center items-center\">\r\n\t\t\t\t<fxs-header\r\n\t\t\t\t\ttitle=\"LOC_UI_MP_GAME_RULES_TITLE\"\r\n\t\t\t\t\tclass=\"mb-6 uppercase mp-game-rules-header\"\r\n\t\t\t\t></fxs-header>\r\n\t\t\t\t<div class=\"mp-game-rules__host\"></div>\r\n\t\t\t\t<div class=\"mp-game-rules__rules max-w-192 flow-row-wrap\"></div>\r\n\t\t\t</div>\r\n\t\t\t<div class=\"mods-container flex-auto flow-column\">\r\n\t\t\t\t<div class=\"mb-2\">\r\n\t\t\t\t\t<div\r\n\t\t\t\t\t\tclass=\"font-title-base text-center text-gradient-secondary -mb-3 uppercase\"\r\n\t\t\t\t\t\tdata-l10n-id=\"LOC_UI_MP_EXTRA_CONTENT\"\r\n\t\t\t\t\t></div>\r\n\t\t\t\t\t<div class=\"flow-row justify-center\">\r\n\t\t\t\t\t\t<div class=\"img-unit-panel-divider -scale-y-100\"></div>\r\n\t\t\t\t\t\t<div class=\"img-unit-panel-divider -scale-100\"></div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t\t<fxs-scrollable\r\n\t\t\t\t\tclass=\"flex-auto mp-game-rules__mods-scrollable\"\r\n\t\t\t\t\thandle-gamepad-pan=\"true\"\r\n\t\t\t\t\ttabindex=\"-1\"\r\n\t\t\t\t>\r\n\t\t\t\t\t<div class=\"mp-game-rules__mods flow-column items-center px-4\"></div>\r\n\t\t\t\t</fxs-scrollable>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t\t<fxs-close-button class=\"-right-38 top-2\"></fxs-close-button>\r\n\t</fxs-modal-frame>\r\n</div>\r\n";
-
-const styles = "fs://game/core/ui/shell/mp-staging/mp-game-rules.css";
+import { FocusManager } from '../../../ui-next/services/focus-manager.js';
+import content from './mp-game-rules.html.js';
+import styles from './mp-game-rules.scss.js';
 
 class PanelMPPlayerOptions extends Panel {
   rules = [];
@@ -65,9 +32,19 @@ class PanelMPPlayerOptions extends Panel {
     this.Root.addEventListener("engine-input", this.engineInputListener);
     closeButton.addEventListener("action-activate", this.closeButtonListener);
     const gameConfig = Configuration.getGame();
+    const isHotseat = gameConfig.isHotseat;
     if (!UI.supportsDLC()) {
       const header = MustGetElement(".mp-game-rules-header", this.Root);
-      header.setAttribute("title", Locale.compose("LOC_UI_MP_GAME_RULES_NO_MODS_TITLE"));
+      if (isHotseat) {
+        header.setAttribute("title", Locale.compose("LOC_UI_HOTSEAT_GAME_RULES_NO_MODS_TITLE"));
+      } else {
+        header.setAttribute("title", Locale.compose("LOC_UI_MP_GAME_RULES_NO_MODS_TITLE"));
+      }
+    } else {
+      if (isHotseat) {
+        const header = MustGetElement(".mp-game-rules-header", this.Root);
+        header.setAttribute("title", Locale.compose("LOC_UI_HOTSEAT_GAME_RULES_TITLE"));
+      }
     }
     const hostPlayerID = Network.getHostPlayerId();
     const hostPlayerConfig = Configuration.getPlayer(hostPlayerID);
@@ -106,14 +83,16 @@ class PanelMPPlayerOptions extends Panel {
     if (aiPlayerCountRule) {
       this.rules.push(aiPlayerCountRule);
     }
-    const isPrivate = gameConfig.isPrivateGame;
-    const isPrivateRule = this.addRule(
-      this.rulesContainer,
-      "LOC_UI_MP_GAME_RULE_PRIVATE_GAME",
-      isPrivate ? "LOC_GENERIC_YES" : "LOC_GENERIC_NO"
-    );
-    if (isPrivateRule) {
-      this.rules.push(isPrivateRule);
+    if (!Configuration.getGame().isHotseat) {
+      const isPrivate = gameConfig.isPrivateGame;
+      const isPrivateRule = this.addRule(
+        this.rulesContainer,
+        "LOC_UI_MP_GAME_RULE_PRIVATE_GAME",
+        isPrivate ? "LOC_GENERIC_YES" : "LOC_GENERIC_NO"
+      );
+      if (isPrivateRule) {
+        this.rules.push(isPrivateRule);
+      }
     }
     const difficultyNameRule = this.addRule(
       this.rulesContainer,
@@ -228,14 +207,16 @@ class PanelMPPlayerOptions extends Panel {
     if (startAgeNameRule) {
       this.rules.push(startAgeNameRule);
     }
-    const isKickVoting = gameConfig.isKickVoting;
-    const isKickVotingRule = this.addRule(
-      this.rulesContainer,
-      "LOC_UI_MP_GAME_RULE_KICK_VOTING",
-      isKickVoting ? "LOC_GENERIC_YES" : "LOC_GENERIC_NO"
-    );
-    if (isKickVotingRule) {
-      this.rules.push(isKickVotingRule);
+    if (!Configuration.getGame().isHotseat) {
+      const isKickVoting = gameConfig.isKickVoting;
+      const isKickVotingRule = this.addRule(
+        this.rulesContainer,
+        "LOC_UI_MP_GAME_RULE_KICK_VOTING",
+        isKickVoting ? "LOC_GENERIC_YES" : "LOC_GENERIC_NO"
+      );
+      if (isKickVotingRule) {
+        this.rules.push(isKickVotingRule);
+      }
     }
     const modsFragment = document.createDocumentFragment();
     const modsToExclude = new Set(Modding.getModulesToExclude());
@@ -308,7 +289,7 @@ class PanelMPPlayerOptions extends Panel {
     super.onReceiveFocus();
     NavTray.clear();
     NavTray.addOrUpdateGenericBack();
-    FocusManager.setFocus(this.scrollableMods);
+    FocusManager.get().setFocus(this.scrollableMods);
   }
   onLoseFocus() {
     NavTray.clear();

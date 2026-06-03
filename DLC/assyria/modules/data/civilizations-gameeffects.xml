@@ -4,14 +4,6 @@
 	<!--				Civ-Specific Traits					-->
 	<!-- ==================================================	-->
 	<!-- ASSYRIA -->
-	<Modifier id="MOD_CIV_FIRST_TIME_CONQUER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_PLAYER_GRANT_PROGRESSION" permanent="true">
-		<SubjectRequirements>
-			<Requirement type="REQUIREMENT_PLAYER_FIRST_TIME_SETTLEMENT_OCCUPATION"/>
-		</SubjectRequirements>
-		<Argument name="Amount">1</Argument>
-		<Argument name="SystemType">SYSTEM_TECH</Argument>
-		<Argument name="FreeProgressionType">FREE_PROGRESSION_NODE_ANY_UNLOCKED</Argument>
-	</Modifier>
 	<Modifier id="MOD_AQ_CODEX_REDUX" collection="COLLECTION_OWNER" effect="EFFECT_GRANT_GREAT_WORK" run-once="true" permanent="true">
 		<SubjectRequirements>
 			<Requirement type="REQUIREMENT_PLAYER_IS_MAJOR"/>

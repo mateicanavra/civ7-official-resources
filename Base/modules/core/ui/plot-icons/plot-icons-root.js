@@ -1,5 +1,6 @@
 import PlotIconsManager from './plot-icons-manager.js';
-import PlotIcons, { s as styles } from './plot-icons.js';
+import PlotIcons from './plot-icons.js';
+import styles from './plot-icons.scss.js';
 
 class PlotIconsRootComponent extends Component {
   addIconListener = this.onAddIcon.bind(this);

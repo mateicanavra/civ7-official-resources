@@ -30,12 +30,10 @@
 	</Requirements>
 	<RequirementArguments>
 		<Row RequirementId="REQ_LEADER_IS_EDWARD_TEACH" Name="LeaderType" Value="LEADER_EDWARD_TEACH"/>
-		<Row RequirementId="REQ_LEGEND_LEVEL_4_EDWARD_TEACH" Name="LegendPaths" Value="LEGEND_PATH_EDWARD_TEACH" />
+		<Row RequirementId="REQ_LEGEND_LEVEL_4_EDWARD_TEACH" Name="SpecificPath" Value="LEGEND_PATH_EDWARD_TEACH" />
 		<Row RequirementId="REQ_LEGEND_LEVEL_4_EDWARD_TEACH" Name="LevelThreshold" Value="4" />
-		<Row RequirementId="REQ_LEGEND_LEVEL_4_EDWARD_TEACH" Name="Amount" Value="1" />
-		<Row RequirementId="REQ_LEGEND_LEVEL_8_EDWARD_TEACH" Name="LegendPaths" Value="LEGEND_PATH_EDWARD_TEACH" />
+		<Row RequirementId="REQ_LEGEND_LEVEL_8_EDWARD_TEACH" Name="SpecificPath" Value="LEGEND_PATH_EDWARD_TEACH" />
 		<Row RequirementId="REQ_LEGEND_LEVEL_8_EDWARD_TEACH" Name="LevelThreshold" Value="8" />
-		<Row RequirementId="REQ_LEGEND_LEVEL_8_EDWARD_TEACH" Name="Amount" Value="1" />
 	</RequirementArguments>
 	<RequirementSetRequirements>
 		<Row RequirementSetId="REQSET_LEADER_IS_EDWARD_TEACH" RequirementId="REQ_LEADER_IS_EDWARD_TEACH"/>
@@ -45,6 +43,7 @@
 		<Row RequirementSetId="REQSET_LEGEND_LEVEL_8_EDWARD_TEACH" RequirementId="REQ_LEGEND_LEVEL_8_EDWARD_TEACH" />
 	</RequirementSetRequirements>
 	<UnlockRequirements>
+		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_SPAIN" RequirementSetId="REQSET_LEADER_IS_EDWARD_TEACH" Description="LOC_UNLOCK_PLAY_AS_EDWARD_TEACH_DESCRIPTION" Tooltip="LOC_UNLOCK_PLAY_AS_EDWARD_TEACH_SPAIN_TOOLTIP"/>
 		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_FRENCH_EMPIRE" RequirementSetId="REQSET_LEADER_IS_EDWARD_TEACH" Description="LOC_UNLOCK_PLAY_AS_EDWARD_TEACH_DESCRIPTION" Tooltip="LOC_UNLOCK_PLAY_AS_EDWARD_TEACH_FRENCH_EMPIRE_TOOLTIP"/>
 
 		<InsertOrIgnore UnlockType="UNLOCK_LEGEND_LEVEL_4_EDWARD_TEACH" RequirementSetId="REQSET_LEGEND_LEVEL_4_EDWARD_TEACH" Description="LOC_UNLOCK_LEGEND_LEVEL_4_EDWARD_TEACH_DESCRIPTION" />

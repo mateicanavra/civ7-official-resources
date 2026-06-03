@@ -74,6 +74,15 @@ CREATE TABLE 'GameSpeeds' (
 	PRIMARY KEY('Domain', 'GameSpeedType')
 );
 
+CREATE TABLE 'LegacySets' (
+	'Domain' TEXT NOT NULL DEFAULT 'StandardLegacySets',
+	'LegacySetType' TEXT NOT NULL,
+	'Description' TEXT,
+	'Name' TEXT NOT NULL,
+	'SortIndex' INTEGER NOT NULL,
+	PRIMARY KEY("LegacySetType")
+);
+
 CREATE TABLE 'Maps' (
 	'Domain' TEXT NOT NULL DEFAULT 'StandardMaps',
 	'File' TEXT NOT NULL,
@@ -106,6 +115,15 @@ CREATE TABLE 'MapSizes' (
 	PRIMARY KEY('Domain','MapSizeType')
 );
 
+CREATE TABLE 'SeaLevels' (
+	'Domain' TEXT NOT NULL DEFAULT 'SeaLevels',
+	'SeaLevelType' TEXT NOT NULL,
+	'Name' TEXT NOT NULL,
+	'Description' TEXT,
+	'SortIndex' INTEGER NOT NULL,
+	PRIMARY KEY('Domain','SeaLevelType')
+);
+
 CREATE TABLE 'Rulesets' (
 	'RulesetType' TEXT NOT NULL,
  	'Name' TEXT NOT NULL,
@@ -128,6 +146,7 @@ CREATE TABLE 'Civilizations' (
 	'CivilizationFullName' TEXT NOT NULL,
 	'CivilizationDescription' TEXT NOT NULL,
 	'CivilizationIcon' TEXT,
+	'CivilizationIntroText' TEXT,
 	'SortIndex' INTEGER NOT NULL DEFAULT 0,
 	PRIMARY KEY('Domain', 'CivilizationType')
 );
@@ -198,6 +217,7 @@ CREATE TABLE 'Leaders' (
 	'LeaderName' TEXT NOT NULL,
 	'LeaderDescription' TEXT NOT NULL,
 	'LeaderIcon' TEXT NOT NULL,
+	'LeaderIntroText' TEXT NOT NULL,
 	'SortIndex' INTEGER,
 	PRIMARY KEY('Domain', 'LeaderType')
 );

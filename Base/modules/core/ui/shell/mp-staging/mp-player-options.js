@@ -1,24 +1,12 @@
 import ContextManager from '../../context-manager/context-manager.js';
-import { a as DialogBoxManager } from '../../dialog-box/manager-dialog-box.chunk.js';
-import FocusManager from '../../input/focus-manager.js';
-import { N as NavTray } from '../../navigation-tray/model-navigation-tray.chunk.js';
-import { P as Panel, A as AnchorType } from '../../panel-support.chunk.js';
-import { MustGetElement } from '../../utilities/utilities-dom.chunk.js';
+import { DialogBoxManager } from '../../dialog-box/manager-dialog-box.js';
+import NavTray from '../../navigation-tray/model-navigation-tray.js';
+import Panel, { AnchorType } from '../../panel-support.js';
+import { MustGetElement } from '../../utilities/utilities-dom.js';
 import { abuseReasonToName } from '../../utilities/utilities-online.js';
-import '../../context-manager/display-queue-manager.js';
-import '../../framework.chunk.js';
-import '../../input/cursor.js';
-import '../../views/view-manager.chunk.js';
-import '../../audio-base/audio-support.chunk.js';
-import '../../input/action-handler.js';
-import '../../input/input-support.chunk.js';
-import '../../utilities/utilities-update-gate.chunk.js';
-import '../../utilities/utilities-image.chunk.js';
-import '../../utilities/utilities-component-id.chunk.js';
-
-const content = "<fxs-frame class=\"mp-player-options-frame\">\r\n\t<fxs-vslot class=\"main-container\">\r\n\t\t<div class=\"leader-portrait\"></div>\r\n\t\t<fxs-button\r\n\t\t\tclass=\"add-Plat-Friend\"\r\n\t\t\tcaption=\"LOC_UI_MP_PLAYER_OPTIONS_ADD_PLAT_FRIEND\"\r\n\t\t></fxs-button>\r\n\t\t<fxs-button\r\n\t\t\tclass=\"add-2K-Friend\"\r\n\t\t\tcaption=\"LOC_UI_MP_PLAYER_OPTIONS_ADD_T2GP_FRIEND\"\r\n\t\t></fxs-button>\r\n\t\t<fxs-button\r\n\t\t\tclass=\"report\"\r\n\t\t\tcaption=\"LOC_UI_MP_PLAYER_OPTIONS_REPORT\"\r\n\t\t></fxs-button>\r\n\t\t<fxs-button\r\n\t\t\tclass=\"block\"\r\n\t\t\tcaption=\"LOC_UI_MP_PLAYER_OPTIONS_BLOCK\"\r\n\t\t></fxs-button>\r\n\t</fxs-vslot>\r\n\t<fxs-close-button></fxs-close-button>\r\n</fxs-frame>\r\n";
-
-const styles = "fs://game/core/ui/shell/mp-staging/mp-player-options.css";
+import { FocusManager } from '../../../ui-next/services/focus-manager.js';
+import content from './mp-player-options.html.js';
+import styles from './mp-player-options.scss.js';
 
 class PanelMPPlayerOptions extends Panel {
   engineInputListener = (inputEvent) => {
@@ -105,7 +93,7 @@ class PanelMPPlayerOptions extends Panel {
     super.onReceiveFocus();
     NavTray.clear();
     NavTray.addOrUpdateGenericBack();
-    FocusManager.setFocus(this.reportButton);
+    FocusManager.get().setFocus(this.reportButton);
   }
   onLoseFocus() {
     NavTray.clear();

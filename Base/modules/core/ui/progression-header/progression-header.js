@@ -1,27 +1,7 @@
-import { F as FxsActivatable } from '../components/fxs-activatable.chunk.js';
+import { FxsActivatable } from '../components/fxs-activatable.js';
 import { getDefaultPlayerInfo } from '../utilities/utilities-liveops.js';
 import { NetworkUtilities } from '../utilities/utilities-network.js';
-import '../audio-base/audio-support.chunk.js';
-import '../input/focus-manager.js';
-import '../framework.chunk.js';
-import '../dialog-box/manager-dialog-box.chunk.js';
-import '../context-manager/display-queue-manager.js';
-import '../shell/mp-legal/mp-legal.js';
-import '../context-manager/context-manager.js';
-import '../input/cursor.js';
-import '../views/view-manager.chunk.js';
-import '../panel-support.chunk.js';
-import '../events/shell-events.chunk.js';
-import '../navigation-tray/model-navigation-tray.chunk.js';
-import '../input/action-handler.js';
-import '../input/input-support.chunk.js';
-import '../utilities/utilities-update-gate.chunk.js';
-import '../utilities/utilities-image.chunk.js';
-import '../utilities/utilities-component-id.chunk.js';
-import '../utilities/utilities-dom.chunk.js';
-import '../utilities/utilities-network-constants.chunk.js';
-
-const styles = "fs://game/core/ui/progression-header/progression-header.css";
+import styles from './progression-header.scss.js';
 
 class ProgressionHeader extends FxsActivatable {
   cardStyle = "";
@@ -235,7 +215,6 @@ Controls.define("progression-header", {
   description: "Header showing the players meta-progression",
   classNames: ["ph-player-card", "group"],
   styles: [styles],
-  tabIndex: -1,
   attributes: [
     {
       name: "player-card-style"

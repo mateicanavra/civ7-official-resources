@@ -2,30 +2,33 @@
 <Database>
 	<Kinds>
 		<InsertOrIgnore Kind="KIND_TRAIT"/>
+		<InsertOrIgnore Kind="KIND_VICTORY"/>
 	</Kinds>
 	<Types>
 		<Row Type="LEADER_LAKSHMIBAI" Kind="KIND_LEADER"/>
 		<Row Type="TRAIT_LEADER_LAKSHMIBAI_ABILITY" Kind="KIND_TRAIT"/>
+		<Row Type="VICTORY_LEADER_LAKSHMIBAI" Kind="KIND_VICTORY"/>
 	</Types>
 	<Leaders>
 		<Row LeaderType="LEADER_LAKSHMIBAI" Name="LOC_LEADER_LAKSHMIBAI_NAME" IsMajorLeader="true" InheritFrom="LEADER_DEFAULT" />
 	</Leaders>
 	<TypeQuotes>
 		<Row Type="LEADER_LAKSHMIBAI" Quote="LOC_MAIN_CHAR_SELECT_LEADER_LAKSHMIBAI_ANY"/>
+		<Row Type="VICTORY_LEADER_LAKSHMIBAI" Quote="LOC_VICTORY_LEADER_LAKSHMIBAI" QuoteAudio="play_victory_lakshmibai"/>
 	</TypeQuotes>
 	<AiListTypes>
 		<Row ListType="Lakshmibai Yield Biases"/>
-		<Row ListType="Lakshmibai Diplomatic Biases"/>
+		<Row ListType="Lakshmibai Diplomacy Biases"/>
 	</AiListTypes>
 	<AiLists>
 		<Row ListType="Lakshmibai Yield Biases" LeaderType="TRAIT_LEADER_LAKSHMIBAI_ABILITY" System="YieldBiases"/>
-		<Row ListType="Lakshmibai Diplomatic Biases" LeaderType="TRAIT_LEADER_LAKSHMIBAI_ABILITY" System="DiplomaticActions"/>
+		<Row ListType="Lakshmibai Diplomacy Biases" LeaderType="TRAIT_LEADER_LAKSHMIBAI_ABILITY" System="DiplomaticActions"/>
 	</AiLists>
 	<AiFavoredItems>
 		<Row ListType="Lakshmibai Yield Biases" Item="YIELD_DIPLOMACY" Value="50"/>
 		<Row ListType="Lakshmibai Yield Biases" Item="YIELD_CULTURE" Value="25"/>
-		<Row ListType="Lakshmibai Diplomatic Biases" Item="DIPLOMACY_ACTION_GIVE_INFLUENCE_TOKEN" Value="50"/>
-		<Row ListType="Lakshmibai Diplomatic Biases" Item="DIPLOMACY_ACTION_CS_INCORPORATE" Value="100"/>
+		<Row ListType="Lakshmibai Diplomacy Biases" Item="DIPLOMACY_ACTION_BECOME_SUZERAIN" Value="100"/>
+		<Row ListType="Lakshmibai Diplomacy Biases" Item="DIPLOMACY_ACTION_CS_INCORPORATE" Value="25"/>
 	</AiFavoredItems>
 	<Traits>
 		<Row TraitType="TRAIT_LEADER_LAKSHMIBAI_ABILITY" InternalOnly="true" Name="LOC_TRAIT_LEADER_LAKSHMIBAI_ABILITY_NAME" Description="LOC_TRAIT_LEADER_LAKSHMIBAI_ABILITY_DESCRIPTION"/>

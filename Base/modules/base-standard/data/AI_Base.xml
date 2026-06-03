@@ -30,11 +30,13 @@
 		<Row ConditionType="Specific Terrain" Value="9" PoorValue="-5" GoodValue="5" PoorTooltipString="LOC_SETTLEMENT_RECOMMENDATION_POOR_TERRAIN" GoodTooltipString="LOC_SETTLEMENT_RECOMMENDATION_GOOD_TERRAIN"/>
 		<Row ConditionType="Resource Class" Value="10" PoorValue="2" GoodValue="6" PoorTooltipString="LOC_SETTLEMENT_RECOMMENDATION_POOR_STRATEGIC_RESOURCES" GoodTooltipString="LOC_SETTLEMENT_RECOMMENDATION_GOOD_STRATEGIC_RESOURCES"/>
 		<Row ConditionType="Foreign Continent" Value="11" PoorValue="-2" GoodValue="50" PoorTooltipString="LOC_SETTLEMENT_RECOMMENDATION_POOR_FOREIGN_CONTINENT" GoodTooltipString="LOC_SETTLEMENT_RECOMMENDATION_GOOD_FOREIGN_CONTINENT"/>
-		<Row ConditionType="Foreign Hemisphere" Value="12" PoorValue="0" GoodValue="1" PoorTooltipString="LOC_SETTLEMENT_RECOMMENDATION_POOR_FOREIGN_HEMISPHERE" GoodTooltipString="LOC_SETTLEMENT_RECOMMENDATION_GOOD_FOREIGN_HEMISPHERE"/>
+		<Row ConditionType="Foreign Hemisphere" Value="12" PoorValue="0" GoodValue="1" PoorTooltipString="" GoodTooltipString=""/>
 		<Row ConditionType="City Center Biome" Value="13" PoorValue="0" GoodValue="1" PoorTooltipString="LOC_SETTLEMENT_RECOMMENDATION_POOR_CITY_CENTER_BIOME" GoodTooltipString="LOC_SETTLEMENT_RECOMMENDATION_GOOD_CITY_CENTER_BIOME"/>
 		<Row ConditionType="Specific Biome" Value="14" PoorValue="0" GoodValue="1" PoorTooltipString="LOC_SETTLEMENT_RECOMMENDATION_POOR_SPECIFIC_BIOME" GoodTooltipString="LOC_SETTLEMENT_RECOMMENDATION_GOOD_SPECIFIC_BIOME"/>
 		<Row ConditionType="Lake" Value="15" PoorValue="0" GoodValue="1" PoorTooltipString="LOC_SETTLEMENT_RECOMMENDATION_POOR_LAKE_COUNT" GoodTooltipString="LOC_SETTLEMENT_RECOMMENDATION_GOOD_LAKE_COUNT"/>
 		<Row ConditionType="Natural Wonder In Inner Ring" Value="16" PoorValue="0" GoodValue="1" PoorTooltipString="" GoodTooltipString=""/>
+    <Row ConditionType="Breathtaking Tiles" Value="17" PoorValue="0" GoodValue="1" PoorTooltipString="" GoodTooltipString=""/>
+    <Row ConditionType="River In Inner Ring" Value="18" PoorValue="0" GoodValue="1" PoorTooltipString="" GoodTooltipString=""/>
 	</PlotEvalConditions>
 	<AiComponents>
 		<!-- TEMP. Components should go in their respective ages, but making sure the system works for now -->
@@ -49,7 +51,7 @@
 		<Row Component="Economic" DefaultPriority="AI_PRIORITY_MEDIUM"/>
 		<Row Component="FreeUnitPool" DefaultPriority="AI_PRIORITY_LOW" Producer="True"/>
 		<Row Component="GrandStrategic" DefaultPriority="AI_PRIORITY_STRATEGIC"/>
-    <Row Component="GreatPeople" DefaultPriority="AI_PRIORITY_MEDIUM" Consumer="True"/>
+		<Row Component="GreatPeople" DefaultPriority="AI_PRIORITY_MEDIUM" Consumer="True"/>
 		<Row Component="GreatWorks" DefaultPriority="AI_PRIORITY_MEDIUM" Consumer="True"/>
 		<Row Component="Government" DefaultPriority="AI_PRIORITY_MEDIUM" Consumer="True"/>
 		<Row Component="Happiness" DefaultPriority="AI_PRIORITY_MEDIUM"/>
@@ -83,7 +85,7 @@
 		<Row LeaderTrait="TRAIT_LEADER_MAJOR_CIV" AiComponent="Government"/>
 		<Row LeaderTrait="TRAIT_LEADER_MAJOR_CIV" AiComponent="FreeUnitPool"/>
 		<Row LeaderTrait="TRAIT_LEADER_MAJOR_CIV" AiComponent="GrandStrategic"/>
-    	<Row LeaderTrait="TRAIT_LEADER_MAJOR_CIV" AiComponent="GreatPeople"/>
+		<Row LeaderTrait="TRAIT_LEADER_MAJOR_CIV" AiComponent="GreatPeople"/>
 		<Row LeaderTrait="TRAIT_LEADER_MAJOR_CIV" AiComponent="GreatWorks"/>
 		<Row LeaderTrait="TRAIT_LEADER_MAJOR_CIV" AiComponent="Homeland"/>
 		<Row LeaderTrait="TRAIT_LEADER_MAJOR_CIV" AiComponent="Happiness"/>
@@ -143,7 +145,7 @@
 		<Row TargetType="TARGET_SUZERAIN_SUPPORT"/>
 		<Row TargetType="TARGET_FRIENDLY_EMBARKED"/>
 		<!-- Special target types intended for use by operations -->
-		<Row TargetType="TARGET_MY_COAST"/> 
+		<Row TargetType="TARGET_MY_COAST"/>
 	</TargetTypes>
 	<AiTactics>
 		<Row TacticType="Form Army"/>
@@ -329,6 +331,7 @@
 		<Row TeamName="City Founders" ClassTag="UNIT_CLASS_ARMY_COMMANDER" MaxNumber="1"/>
 		<Row TeamName="City Founders" ClassTag="UNIT_CLASS_NAVAL" MaxNumber="0"/>
 		<Row TeamName="City Founders" ClassTag="UNIT_CLASS_RECON" MaxNumber="0"/>
+		<Row TeamName="City Founders" ClassTag="UNIT_CLASS_SIEGE" MaxNumber="0"/>
 		<Row TeamName="Independent Civ Force" ClassTag="UNIT_CLASS_COMBAT" MinNumber="2" MaxNumber="2"/>
 		<Row TeamName="Independent Civ Force" ClassTag="UNIT_CLASS_MELEE" MinNumber="0"/>
 		<Row TeamName="Independent Civ Force" ClassTag="UNIT_CLASS_RANGED" MaxNumber="1"/>
@@ -343,27 +346,53 @@
 	</OpTeamRequirements>
 	<AiListTypes>
 		<Row ListType="Major Yield Biases"/>
-
+		<Row ListType="Military Leader Diplomacy Biases"/>
+		<Row ListType="Diplomatic Leader Diplomacy Biases"/>
+		<!--  Attribute Tree Biases by leader attribute -->
+		<Row ListType="Cultural Attribute Biases"/>
+		<Row ListType="Diplomatic Attribute Biases"/>
+		<Row ListType="Economic Attribute Biases"/>
+		<Row ListType="Expansionist Attribute Biases"/>
+		<Row ListType="Militaristic Attribute Biases"/>
+		<Row ListType="Scientific Attribute Biases"/>
 		<!-- Leader Yield biases -->
 		<Row ListType="Amina Yield Biases"/>
+		<Row ListType="Amina Diplomacy Biases"/>
 		<Row ListType="Ashoka Renouncer Yield Biases"/>
+		<Row ListType="Ashoka Renouncer Diplomacy Biases"/>
 		<Row ListType="Augustus Yield Biases"/>
+		<Row ListType="Augustus Diplomacy Biases"/>
 		<Row ListType="Ben Franklin Yield Biases"/>
 		<Row ListType="Ben Franklin Diplomacy Biases"/>
 		<Row ListType="Catherine Yield Biases"/>
+		<Row ListType="Catherine Diplomacy Biases"/>
 		<Row ListType="Charlemagne Yield Biases"/>
+		<Row ListType="Charlemagne Diplomacy Biases"/>
 		<Row ListType="Confucius Yield Biases"/>
+		<Row ListType="Confucius Diplomacy Biases"/>
 		<Row ListType="Friedrich Oblique Yield Biases"/>
+		<Row ListType="Friedrich Oblique Diplomacy Biases"/>
 		<Row ListType="Harriet Yield Biases"/>
+		<Row ListType="Harriet Diplomacy Biases"/>
 		<Row ListType="Hatshepsut Yield Biases"/>
+		<Row ListType="Hatshepsut Diplomacy Biases"/>
 		<Row ListType="Himiko Wa Yield Biases"/>
+		<Row ListType="Himiko Wa Diplomacy Biases"/>
+		<Row ListType="Ibn Diplomacy Biases"/>
 		<Row ListType="Isabella Yield Biases"/>
+		<Row ListType="Isabella Diplomacy Biases"/>
 		<Row ListType="Jose Rizal Yield Biases"/>
+		<Row ListType="Jose Rizal Diplomacy Biases"/>
 		<Row ListType="Lafayette Yield Biases"/>
+		<Row ListType="Lafayette Diplomacy Biases"/>
 		<Row ListType="Machiavelli Yield Biases"/>
+		<Row ListType="Machiavelli Diplomacy Biases"/>
 		<Row ListType="Pachacuti Yield Biases"/>
+		<Row ListType="Pachacuti Diplomacy Biases"/>
 		<Row ListType="Trung Trac Yield Biases"/>
+		<Row ListType="Trung Trac Diplomacy Biases"/>
 		<Row ListType="Xerxes King Yield Biases"/>
+		<Row ListType="Xerxes King Diplomacy Biases"/>
 
 		<!-- Leader PseudoYield Biases -->
 		<Row ListType="Amina PseudoYield Biases"/>
@@ -394,30 +423,63 @@
 		<Row ListType="Pachacuti Settle Plot Conditions"/>
 		<Row ListType="Trung Trac Settle Plot Conditions"/>
 
+		<!-- Civ Diplomacy Biases -->
+		<Row ListType="Greece Diplomacy Biases"/>
+		<Row ListType="Spain Diplomacy Biases"/>
+		<Row ListType="America Diplomacy Biases"/>
+		<Row ListType="Prussia Diplomacy Biases"/>
+		<Row ListType="Siam Diplomacy Biases"/>
 	</AiListTypes>
 	<AiLists>
 		<Row ListType="Major Yield Biases" LeaderType="TRAIT_LEADER_MAJOR_CIV" System="YieldBiases"/>
-
+		<!-- Leader Attribute Diplomacy Biases -->
+		<!--  Attribute Tree Biases by leader attribute -->
+		<Row ListType="Cultural Attribute Biases" LeaderType="TRAIT_LEADER_ATTRIBUTE_CULTURAL" System="ProgressionTreeBiases"/>
+		<Row ListType="Diplomatic Attribute Biases" LeaderType="TRAIT_LEADER_ATTRIBUTE_POLITICAL" System="ProgressionTreeBiases"/>
+		<Row ListType="Economic Attribute Biases" LeaderType="TRAIT_LEADER_ATTRIBUTE_ECONOMIC" System="ProgressionTreeBiases"/>
+		<Row ListType="Expansionist Attribute Biases" LeaderType="TRAIT_LEADER_ATTRIBUTE_EXPANSIONIST" System="ProgressionTreeBiases"/>
+		<Row ListType="Militaristic Attribute Biases" LeaderType="TRAIT_LEADER_ATTRIBUTE_MILITARISTIC" System="ProgressionTreeBiases"/>
+		<Row ListType="Scientific Attribute Biases" LeaderType="TRAIT_LEADER_ATTRIBUTE_SCIENTIFIC" System="ProgressionTreeBiases"/>
+		<Row ListType="Military Leader Diplomacy Biases" LeaderType="TRAIT_LEADER_ATTRIBUTE_MILITARISTIC" System="DiplomaticGroupBiases"/>
+		<Row ListType="Diplomatic Leader Diplomacy Biases" LeaderType="TRAIT_LEADER_ATTRIBUTE_POLITICAL" System="DiplomaticGroupBiases"/>
 		<!-- Leader Yield Biases -->
 		<Row ListType="Amina Yield Biases" LeaderType="TRAIT_LEADER_AMINA_ABILITY" System="YieldBiases"/>
+		<Row ListType="Amina Diplomacy Biases" LeaderType="TRAIT_LEADER_AMINA_ABILITY" System="DiplomaticGroupBiases"/>
 		<Row ListType="Ashoka Renouncer Yield Biases" LeaderType="TRAIT_LEADER_ASHOKA_ABILITY" System="YieldBiases"/>
+		<Row ListType="Ashoka Renouncer Diplomacy Biases" LeaderType="TRAIT_LEADER_ASHOKA_ABILITY" System="DiplomaticGroupBiases"/>
 		<Row ListType="Augustus Yield Biases" LeaderType="TRAIT_LEADER_AUGUSTUS_ABILITY" System="YieldBiases"/>
+		<Row ListType="Augustus Diplomacy Biases" LeaderType="TRAIT_LEADER_AUGUSTUS_ABILITY" System="DiplomaticGroupBiases"/>
 		<Row ListType="Ben Franklin Yield Biases" LeaderType="TRAIT_LEADER_BENJAMIN_FRANKLIN_ABILITY" System="YieldBiases"/>
 		<Row ListType="Ben Franklin Diplomacy Biases" LeaderType="TRAIT_LEADER_BENJAMIN_FRANKLIN_ABILITY" System="DiplomaticGroupBiases"/>
 		<Row ListType="Catherine Yield Biases" LeaderType="TRAIT_LEADER_CATHERINE_ABILITY" System="YieldBiases"/>
+		<Row ListType="Catherine Diplomacy Biases" LeaderType="TRAIT_LEADER_CATHERINE_ABILITY" System="DiplomaticGroupBiases"/>
 		<Row ListType="Charlemagne Yield Biases" LeaderType="TRAIT_LEADER_CHARLEMAGNE_ABILITY" System="YieldBiases"/>
+		<Row ListType="Charlemagne Diplomacy Biases" LeaderType="TRAIT_LEADER_CHARLEMAGNE_ABILITY" System="DiplomaticGroupBiases"/>
 		<Row ListType="Confucius Yield Biases" LeaderType="TRAIT_LEADER_CONFUCIUS_ABILITY" System="YieldBiases"/>
+		<Row ListType="Confucius Diplomacy Biases" LeaderType="TRAIT_LEADER_CONFUCIUS_ABILITY" System="DiplomaticGroupBiases"/>
 		<Row ListType="Friedrich Oblique Yield Biases" LeaderType="TRAIT_LEADER_FREDERICH_ABILITY" System="YieldBiases"/>
+		<Row ListType="Friedrich Oblique Diplomacy Biases" LeaderType="TRAIT_LEADER_FREDERICH_ABILITY" System="DiplomaticGroupBiases"/>
 		<Row ListType="Harriet Yield Biases" LeaderType="TRAIT_LEADER_HARRIET_TUBMAN_ABILITY" System="YieldBiases"/>
+		<Row ListType="Harriet Diplomacy Biases" LeaderType="TRAIT_LEADER_HARRIET_TUBMAN_ABILITY" System="DiplomaticGroupBiases"/>
 		<Row ListType="Hatshepsut Yield Biases" LeaderType="TRAIT_LEADER_HATSHEPSUT_ABILITY" System="YieldBiases"/>
+		<Row ListType="Hatshepsut Diplomacy Biases" LeaderType="TRAIT_LEADER_HATSHEPSUT_ABILITY" System="DiplomaticGroupBiases"/>
 		<Row ListType="Himiko Wa Yield Biases" LeaderType="TRAIT_LEADER_HIMIKO_ABILITY" System="YieldBiases"/>
+		<Row ListType="Himiko Wa Diplomacy Biases" LeaderType="TRAIT_LEADER_HIMIKO_ABILITY" System="DiplomaticGroupBiases"/>
+		<Row ListType="Ibn Diplomacy Biases" LeaderType="TRAIT_LEADER_IBN_BATTUTA_ABILITY" System="DiplomaticGroupBiases"/>
 		<Row ListType="Isabella Yield Biases" LeaderType="TRAIT_LEADER_ISABELLA_ABILITY" System="YieldBiases"/>
+		<Row ListType="Isabella Diplomacy Biases" LeaderType="TRAIT_LEADER_ISABELLA_ABILITY" System="DiplomaticGroupBiases"/>
 		<Row ListType="Jose Rizal Yield Biases" LeaderType="TRAIT_LEADER_JOSE_RIZAL_ABILITY" System="YieldBiases"/>
+		<Row ListType="Jose Rizal Diplomacy Biases" LeaderType="TRAIT_LEADER_JOSE_RIZAL_ABILITY" System="DiplomaticGroupBiases"/>
 		<Row ListType="Lafayette Yield Biases" LeaderType="TRAIT_LEADER_LAFAYETTE_ABILITY" System="YieldBiases"/>
+		<Row ListType="Lafayette Diplomacy Biases" LeaderType="TRAIT_LEADER_LAFAYETTE_ABILITY" System="DiplomaticGroupBiases"/>
 		<Row ListType="Machiavelli Yield Biases" LeaderType="TRAIT_LEADER_MACHIAVELLI_ABILITY" System="YieldBiases"/>
+		<Row ListType="Machiavelli Diplomacy Biases" LeaderType="TRAIT_LEADER_MACHIAVELLI_ABILITY" System="DiplomaticGroupBiases"/>
 		<Row ListType="Pachacuti Yield Biases" LeaderType="TRAIT_LEADER_PARCHACUTI_ABILITY" System="YieldBiases"/>
+		<Row ListType="Pachacuti Diplomacy Biases" LeaderType="TRAIT_LEADER_PARCHACUTI_ABILITY" System="DiplomaticGroupBiases"/>
 		<Row ListType="Trung Trac Yield Biases" LeaderType="TRAIT_LEADER_TRUNG_TRAC_ABILITY" System="YieldBiases"/>
+		<Row ListType="Trung Trac Diplomacy Biases" LeaderType="TRAIT_LEADER_TRUNG_TRAC_ABILITY" System="DiplomaticGroupBiases"/>
 		<Row ListType="Xerxes King Yield Biases" LeaderType="TRAIT_LEADER_XERXES_ABILITY" System="YieldBiases"/>
+		<Row ListType="Xerxes King Diplomacy Biases" LeaderType="TRAIT_LEADER_XERXES_ABILITY" System="DiplomaticGroupBiases"/>
 
 		<!-- Leader PseudoYield Biases -->
 		<Row ListType="Amina PseudoYield Biases" LeaderType="TRAIT_LEADER_AMINA_ABILITY" System="PseudoYieldBiases"/>
@@ -448,49 +510,96 @@
 		<Row ListType="Pachacuti Settle Plot Conditions" LeaderType="TRAIT_LEADER_PARCHACUTI_ABILITY" System="SettlementPlotEvaluations"/>
 		<Row ListType="Trung Trac Settle Plot Conditions" LeaderType="TRAIT_LEADER_TRUNG_TRAC_ABILITY" System="SettlementPlotEvaluations"/>
 
+		<!-- Civ Diplomacy Biases -->
+		<Row ListType="Greece Diplomacy Biases" LeaderType="TRAIT_GREECE" System="DiplomaticGroupBiases"/>
+		<Row ListType="Spain Diplomacy Biases" LeaderType="TRAIT_SPAIN" System="DiplomaticGroupBiases"/>
+		<Row ListType="America Diplomacy Biases" LeaderType="TRAIT_AMERICA" System="DiplomaticGroupBiases"/>
+		<Row ListType="Prussia Diplomacy Biases" LeaderType="TRAIT_PRUSSIA" System="DiplomaticGroupBiases"/>
+		<Row ListType="Siam Diplomacy Biases" LeaderType="TRAIT_SIAM" System="DiplomaticGroupBiases"/>
 	</AiLists>
 	<AiFavoredItems>
 		<Row ListType="Major Yield Biases" Item="YIELD_SCIENCE" Value="100"/>
 		<Row ListType="Major Yield Biases" Item="YIELD_CULTURE" Value="100"/>
-
+		<Row ListType="Military Leader Diplomacy Biases" Item="DIPLOMACY_ACTION_GIVE_INFLUENCE_TOKEN" Value="50"/>
+		<Row ListType="Military Leader Diplomacy Biases" Item="DIPLOMACY_ACTION_ESPIONAGE_OPEN_THE_GATES" Value="25"/>
+		<Row ListType="Diplomatic Leader Diplomacy Biases" Item="DIPLOMACY_ACTION_SABOTAGE_MILITARY_PRODUCTION" Value="25"/>
+		<Row ListType="Cultural Attribute Biases" Item="TREE_ATTRIBUTE_CULTURAL" Value="50"/>
+		<Row ListType="Diplomatic Attribute Biases" Item="TREE_ATTRIBUTE_POLITICAL" Value="50"/>
+		<Row ListType="Economic Attribute Biases" Item="TREE_ATTRIBUTE_ECONOMIC" Value="50"/>
+		<Row ListType="Expansionist Attribute Biases" Item="TREE_ATTRIBUTE_EXPANSIONIST" Value="50"/>
+		<Row ListType="Militaristic Attribute Biases" Item="TREE_ATTRIBUTE_MILITARISTIC" Value="50"/>
+		<Row ListType="Scientific Attribute Biases" Item="TREE_ATTRIBUTE_SCIENTIFIC" Value="50"/>
 		<!-- Leader Yield Biases -->
 		<Row ListType="Amina Yield Biases" Item="YIELD_GOLD" Value="50"/>
 		<Row ListType="Amina Yield Biases" Item="YIELD_PRODUCTION" Value="25"/>
+		<Row ListType="Amina Diplomacy Biases" Item="DIPLOMACY_ACTION_BECOME_SUZERAIN" Value="50"/>
 		<Row ListType="Ashoka Renouncer Yield Biases" Item="YIELD_HAPPINESS" Value="50"/>
 		<Row ListType="Ashoka Renouncer Yield Biases" Item="YIELD_FOOD" Value="25"/>
+		<Row ListType="Ashoka Renouncer Diplomacy Biases" Item="DIPLOMACY_ACTION_BECOME_SUZERAIN" Value="50"/>
+		<Row ListType="Ashoka Renouncer Diplomacy Biases" Item="DIPLOMACY_ACTION_GROUP_ENDEAVOR" Value="25"/>
 		<Row ListType="Augustus Yield Biases" Item="YIELD_CULTURE" Value="50"/>
 		<Row ListType="Augustus Yield Biases" Item="YIELD_PRODUCTION" Value="25"/>
+		<Row ListType="Augustus Diplomacy Biases" Item="DIPLOMACY_ACTION_BECOME_SUZERAIN" Value="50"/>
 		<Row ListType="Ben Franklin Yield Biases" Item="YIELD_SCIENCE" Value="50"/>
 		<Row ListType="Ben Franklin Yield Biases" Item="YIELD_DIPLOMACY" Value="25"/>
-		<Row ListType="Ben Franklin Diplomacy Biases" Item="DIPLOMACY_ACTION_GROUP_ENDEAVOR" Value="25"/>
+		<Row ListType="Ben Franklin Diplomacy Biases" Item="DIPLOMACY_ACTION_GROUP_ENDEAVOR" Value="50"/>
+		<Row ListType="Ben Franklin Diplomacy Biases" Item="DIPLOMACY_ACTION_GROUP_SANCTION" Value="-50"/>
+		<Row ListType="Ben Franklin Diplomacy Biases" Item="DIPLOMACY_ACTION_BECOME_SUZERAIN" Value="50"/>
 		<Row ListType="Catherine Yield Biases" Item="YIELD_SCIENCE" Value="50"/>
 		<Row ListType="Catherine Yield Biases" Item="YIELD_CULTURE" Value="25"/>
+		<Row ListType="Catherine Diplomacy Biases" Item="DIPLOMACY_ACTION_BECOME_SUZERAIN" Value="50"/>
 		<Row ListType="Charlemagne Yield Biases" Item="YIELD_HAPPINESS" Value="50"/>
 		<Row ListType="Charlemagne Yield Biases" Item="YIELD_SCIENCE" Value="25"/>
+		<Row ListType="Charlemagne Diplomacy Biases" Item="DIPLOMACY_ACTION_BECOME_SUZERAIN" Value="50"/>
 		<Row ListType="Confucius Yield Biases" Item="YIELD_FOOD" Value="50"/>
 		<Row ListType="Confucius Yield Biases" Item="YIELD_SCIENCE" Value="25"/>
+		<Row ListType="Confucius Diplomacy Biases" Item="DIPLOMACY_ACTION_BECOME_SUZERAIN" Value="50"/>
 		<Row ListType="Friedrich Oblique Yield Biases" Item="YIELD_PRODUCTION" Value="50"/>
 		<Row ListType="Friedrich Oblique Yield Biases" Item="YIELD_SCIENCE" Value="25"/>
+		<Row ListType="Friedrich Oblique Diplomacy Biases" Item="DIPLOMACY_ACTION_BECOME_SUZERAIN" Value="50"/>
+		<Row ListType="Friedrich Oblique Diplomacy Biases" Item="DIPLOMACY_ACTION_GROUP_SANCTION" Value="25"/>
 		<Row ListType="Harriet Yield Biases" Item="YIELD_DIPLOMACY" Value="50"/>
 		<Row ListType="Harriet Yield Biases" Item="YIELD_PRODUCTION" Value="25"/>
+		<Row ListType="Harriet Diplomacy Biases" Item="DIPLOMACY_ACTION_BECOME_SUZERAIN" Value="50"/>
+		<Row ListType="Harriet Diplomacy Biases" Item="DIPLOMACY_ACTION_GROUP_ESPIONAGE" Value="50"/>
 		<Row ListType="Hatshepsut Yield Biases" Item="YIELD_CULTURE" Value="50"/>
 		<Row ListType="Hatshepsut Yield Biases" Item="YIELD_GOLD" Value="25"/>
+		<Row ListType="Hatshepsut Diplomacy Biases" Item="DIPLOMACY_ACTION_BECOME_SUZERAIN" Value="50"/>
 		<Row ListType="Himiko Wa Yield Biases" Item="YIELD_DIPLOMACY" Value="50"/>
 		<Row ListType="Himiko Wa Yield Biases" Item="YIELD_SCIENCE" Value="25"/>
+		<Row ListType="Himiko Wa Diplomacy Biases" Item="DIPLOMACY_ACTION_BECOME_SUZERAIN" Value="50"/>
+		<Row ListType="Himiko Wa Diplomacy Biases" Item="DIPLOMACY_ACTION_GROUP_ENDEAVOR" Value="25"/>
+		<Row ListType="Himiko Wa Diplomacy Biases" Item="DIPLOMACY_ACTION_FORM_ALLIANCE" Value="50"/>
+		<Row ListType="Himiko Wa Diplomacy Biases" Item="DIPLOMACY_ACTION_FRIEND_OF_WA" Value="50"/>
+		<Row ListType="Ibn Diplomacy Biases" Item="DIPLOMACY_ACTION_BECOME_SUZERAIN" Value="50"/>
+		<Row ListType="Ibn Diplomacy Biases" Item="DIPLOMACY_ACTION_GROUP_ENDEAVOR" Value="25"/>
 		<Row ListType="Isabella Yield Biases" Item="YIELD_GOLD" Value="50"/>
 		<Row ListType="Isabella Yield Biases" Item="YIELD_HAPPINESS" Value="25"/>
+		<Row ListType="Isabella Diplomacy Biases" Item="DIPLOMACY_ACTION_BECOME_SUZERAIN" Value="50"/>
 		<Row ListType="Jose Rizal Yield Biases" Item="YIELD_HAPPINESS" Value="50"/>
 		<Row ListType="Jose Rizal Yield Biases" Item="YIELD_CULTURE" Value="25"/>
+		<Row ListType="Jose Rizal Diplomacy Biases" Item="DIPLOMACY_ACTION_BECOME_SUZERAIN" Value="50"/>
+		<Row ListType="Jose Rizal Diplomacy Biases" Item="DIPLOMACY_ACTION_GROUP_ENDEAVOR" Value="25"/>
 		<Row ListType="Lafayette Yield Biases" Item="YIELD_CULTURE" Value="50"/>
 		<Row ListType="Lafayette Yield Biases" Item="YIELD_HAPPINESS" Value="25"/>
+		<Row ListType="Lafayette Diplomacy Biases" Item="DIPLOMACY_ACTION_BECOME_SUZERAIN" Value="50"/>
+		<Row ListType="Lafayette Diplomacy Biases" Item="DIPLOMACY_ACTION_GROUP_ENDEAVOR" Value="25"/>
 		<Row ListType="Machiavelli Yield Biases" Item="YIELD_DIPLOMACY" Value="50"/>
 		<Row ListType="Machiavelli Yield Biases" Item="YIELD_GOLD" Value="25"/>
+		<Row ListType="Machiavelli Diplomacy Biases" Item="DIPLOMACY_ACTION_GROUP_ENDEAVOR" Value="25"/>
+		<Row ListType="Machiavelli Diplomacy Biases" Item="DIPLOMACY_ACTION_GROUP_SANCTION" Value="25"/>
+		<Row ListType="Machiavelli Diplomacy Biases" Item="DIPLOMACY_ACTION_GROUP_ESPIONAGE" Value="-25"/>
 		<Row ListType="Pachacuti Yield Biases" Item="YIELD_FOOD" Value="50"/>
 		<Row ListType="Pachacuti Yield Biases" Item="YIELD_GOLD" Value="25"/>
+		<Row ListType="Pachacuti Diplomacy Biases" Item="DIPLOMACY_ACTION_BECOME_SUZERAIN" Value="50"/>
 		<Row ListType="Trung Trac Yield Biases" Item="YIELD_SCIENCE" Value="50"/>
 		<Row ListType="Trung Trac Yield Biases" Item="YIELD_PRODUCTION" Value="25"/>
+		<Row ListType="Trung Trac Diplomacy Biases" Item="DIPLOMACY_ACTION_BECOME_SUZERAIN" Value="50"/>
+		<Row ListType="Trung Trac Diplomacy Biases" Item="DIPLOMACY_ACTION_DECLARE_FORMAL_WAR" Value="25"/>
 		<Row ListType="Xerxes King Yield Biases" Item="YIELD_PRODUCTION" Value="50"/>
 		<Row ListType="Xerxes King Yield Biases" Item="YIELD_GOLD" Value="25"/>
+		<Row ListType="Xerxes King Diplomacy Biases" Item="DIPLOMACY_ACTION_BECOME_SUZERAIN" Value="50"/>
+		<Row ListType="Xerxes King Diplomacy Biases" Item="DIPLOMACY_ACTION_GROUP_SANCTION" Value="25"/>
 
 		<!-- Leader PseudoYield Biases -->
 		<Row ListType="Amina PseudoYield Biases" Item="PSEUDOYIELD_CITY_DEFENSES" Value="200"/>
@@ -535,6 +644,13 @@
 		<Row ListType="Pachacuti Settle Plot Conditions" Item="Specific Terrain" Favored="false" Value="10" StringVal="TERRAIN_MOUNTAIN" TooltipString="LOC_SETTLEMENT_RECOMMENDATION_TERRAIN"/>
 		<Row ListType="Trung Trac Settle Plot Conditions" Item="City Center Biome" Favored="false" Value="15" StringVal="BIOME_TROPICAL" TooltipString="LOC_SETTLEMENT_RECOMMENDATION_CITY_CENTER_BIOME"/>
 
+		<!-- Civ Diplomacy Biases -->
+		<Row ListType="Greece Diplomacy Biases" Item="DIPLOMACY_ACTION_BECOME_SUZERAIN" Value="25"/>
+		<Row ListType="Spain Diplomacy Biases" Item="DIPLOMACY_ACTION_ESPIONAGE_CONVERT_POPULATION" Value="25"/>
+		<Row ListType="America Diplomacy Biases" Item="DIPLOMACY_ACTION_FORM_ALLIANCE" Value="25"/>
+		<Row ListType="America Diplomacy Biases" Item="DIPLOMACY_ACTION_GIVE_INFLUENCE_TOKEN" Value="25"/>
+		<Row ListType="Prussia Diplomacy Biases" Item="DIPLOMACY_ACTION_GROUP_SANCTION" Value="25"/>
+		<Row ListType="Siam Diplomacy Biases" Item="DIPLOMACY_ACTION_BECOME_SUZERAIN" Value="25"/>
 	</AiFavoredItems>
 	<!-- City Strategies -->
 	<Strategies>

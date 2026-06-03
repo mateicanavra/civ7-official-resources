@@ -76,7 +76,7 @@ function dumpRainfall(iWidth, iHeight) {
     for (let iX = 0; iX < iWidth; iX++) {
       if (GameplayMap.isWater(iX, iY) == false) {
         const rainfall = GameplayMap.getRainfall(iX, iY);
-        let rainfallToDisplay = rainfall.toString();
+        const rainfallToDisplay = rainfall.toString();
         str += rainfallToDisplay + " ";
       } else {
         str += "  ";

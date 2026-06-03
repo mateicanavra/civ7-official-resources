@@ -1,23 +1,11 @@
-import { A as Audio } from '../../audio-base/audio-support.chunk.js';
-import FocusManager from '../../input/focus-manager.js';
-import { N as NavTray } from '../../navigation-tray/model-navigation-tray.chunk.js';
-import { P as Panel, A as AnchorType } from '../../panel-support.chunk.js';
-import { a as MPFriendsModel } from './model-mp-friends.chunk.js';
-import { MustGetElement } from '../../utilities/utilities-dom.chunk.js';
-import '../../framework.chunk.js';
-import '../../input/action-handler.js';
-import '../../input/cursor.js';
-import '../../views/view-manager.chunk.js';
-import '../../input/input-support.chunk.js';
-import '../../utilities/utilities-update-gate.chunk.js';
-import '../../utilities/utilities-image.chunk.js';
-import '../../utilities/utilities-component-id.chunk.js';
-import '../../social-notifications/social-notifications-manager.js';
-import '../../utilities/utilities-layout.chunk.js';
-
-const content = "<fxs-frame>\r\n\t<fxs-vslot class=\"rules-container flex flex-auto mt-4 mb-10\">\r\n\t\t<div class=\"flex flex-col items-center -mt-10\">\r\n\t\t\t<div\r\n\t\t\t\tclass=\"font-title text-2xl text-secondary\"\r\n\t\t\t\tdata-l10n-id=\"LOC_UI_FRIENDS_OPEN_SEARCH_TITLE\"\r\n\t\t\t></div>\r\n\t\t\t<div class=\"filigree-divider-h3 w-64\"></div>\r\n\t\t</div>\r\n\t\t<div class=\"flex flex-row justify-between\">\r\n\t\t\t<fxs-textbox\r\n\t\t\t\tclass=\"enter-search-textbox\"\r\n\t\t\t\tmax-length=\"24\"\r\n\t\t\t></fxs-textbox>\r\n\t\t</div>\r\n\t</fxs-vslot>\r\n\r\n\t<div class=\"button-container flex flex-row justify-around\">\r\n\t\t<fxs-button\r\n\t\t\tclass=\"search\"\r\n\t\t\tdisabled=\"true\"\r\n\t\t\tcaption=\"LOC_UI_FRIENDS_SEARCH\"\r\n\t\t\taction-key=\"inline-shell-action-1\"\r\n\t\t></fxs-button>\r\n\t\t<fxs-button\r\n\t\t\tclass=\"cancel\"\r\n\t\t\tcaption=\"LOC_GENERIC_CANCEL\"\r\n\t\t\taction-key=\"inline-cancel\"\r\n\t\t></fxs-button>\r\n\t</div>\r\n</fxs-frame>\r\n";
-
-const styles = "fs://game/core/ui/shell/mp-staging/mp-search.css";
+import { Audio } from '../../audio-base/audio-support.js';
+import NavTray from '../../navigation-tray/model-navigation-tray.js';
+import Panel, { AnchorType } from '../../panel-support.js';
+import MPFriendsModel from './model-mp-friends.js';
+import { MustGetElement } from '../../utilities/utilities-dom.js';
+import { FocusManager } from '../../../ui-next/services/focus-manager.js';
+import content from './mp-search.html.js';
+import styles from './mp-search.scss.js';
 
 class PanelMPSearch extends Panel {
   cancelButtonListener = () => {
@@ -46,7 +34,7 @@ class PanelMPSearch extends Panel {
     super.onAttach();
     this.Root.addEventListener("engine-input", this.engineInputListener);
     this.searchButton = MustGetElement(".search", this.Root);
-    const bgFrameSetOpacity = MustGetElement("fxs-frame", this.Root);
+    const bgFrameSetOpacity = MustGetElement("fxs-modal-frame", this.Root);
     bgFrameSetOpacity.classList.add("bg-black");
     this.searchButton?.addEventListener("action-activate", () => {
       MPFriendsModel.searching(true);
@@ -77,7 +65,7 @@ class PanelMPSearch extends Panel {
     NavTray.clear();
     const rulesContainer = this.Root.querySelector(".rules-container");
     if (rulesContainer) {
-      FocusManager.setFocus(rulesContainer);
+      FocusManager.get().setFocus(rulesContainer);
     }
   }
   onLoseFocus() {

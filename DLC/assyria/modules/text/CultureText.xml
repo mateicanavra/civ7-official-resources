@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Database>
 	<EnglishText>
-
 		<!-- ==================================================	-->
-		<!--	ASSYRIA							-->
+		<!--	ANTIQUITY									-->
 		<!-- ==================================================	-->
+		<!-- Civics -->
 		<Row Tag="LOC_TREE_CIVICS_AQ_ASSYRIA_NAME">
 			<Text>Assyrian Civics</Text>
 		</Row>
@@ -35,49 +35,88 @@
 		<Row Tag="LOC_CIVIC_KIBRAT_ARBA_I_AUTHOR">
 			<Text>Sennacherib</Text>
 		</Row>
-		<!-- Civic Description-->
-		<Row Tag="LOC_MOD_BIRTUTU_TECH_MASTERY_CULTURE_DESCRIPTION">
-			<Text>The [icon:NOTIFICATION_SELECT_CAPITAL] Capital receives 2 [icon:YIELD_CULTURE] Culture for each [icon:RADIAL_TECH] Technology Mastery.</Text>
+		<!-- Traditions -->
+		<Row Tag="LOC_TRADITION_DURANI_I_NAME">
+			<Text>Dūrāni I</Text>
 		</Row>
-		<Row Tag="LOC_MOD_BIRTUTU_COMBAT_DEFENDING_PREVIEW">
-			<Text>+{1_Amount} Birtūtu</Text>
+		<Row Tag="LOC_TRADITION_DURANI_I_DESCRIPTION">
+			<Text>+2 [icon:YIELD_CULTURE] Culture in the [icon:NOTIFICATION_SELECT_CAPITAL] Capital for every [icon:RADIAL_TECH] [TIP:LOC_PEDIA_CONCEPTS_TECH_TOOLTIP]Technology Mastery[/TIP] completed this Age.</Text>
 		</Row>
-		<Row Tag="LOC_MOD_BIRTUTU_COMBAT_DEFENDING_DESCRIPTION">
-			<Text>+5 [icon:NAR_REW_COMBAT] Combat Strength for all Military Units when defending against Ranged Units.</Text>
-		</Row>
-		<Row Tag="LOC_MOD_TUPSARRUTU_GREATWORK_DESCRIPTION">
-			<Text>Gain a [icon:NAR_REW_GREATWORK] Codex whenever you capture a Settlement for the first time.</Text>
-		</Row>
-		<Row Tag="LOC_MOD_KIBRAT_ARBA_I_COMBAT_MAGARRU_DESCRIPTION">
-			<Text>+5 [icon:NAR_REW_COMBAT] Combat Strength to [icon:UNIT_MAGARRU] Magarru if they are in a [icon:COMMANDER_RADIUS] Command Radius.</Text>
-		</Row>
-		<Row Tag="LOC_MOD_KIBRAT_ARBA_I_COMBAT_MAGARRU_PREVIEW">
-			<Text>+{1_Amount} Kibrāt Arba’i</Text>
-		</Row>
-		<Row Tag="LOC_MOD_KIBRAT_ARBA_I_CAPTURE_SCIENCE_DESCRIPTION">
-			<Text>+20% [icon:YIELD_SCIENCE] Science in [icon:YIELD_CITIES] Cities not founded by you.</Text>
-		</Row>
-		<Row Tag="LOC_MOD_TUPSARRUTU_HAPPINNESS_SCIENCE_BUILDING_DESCRIPTION">
-			<Text>+2 [icon:YIELD_HAPPINESS] Happiness on [icon:YIELD_SCIENCE] Science Buildings.</Text>
-		</Row>
-		<!-- Unique Traditions-->
-		<Row Tag="LOC_TRADITION_DURANI_NAME">
+		<Row Tag="LOC_TRADITION_DURANI_TOOLTIP">
 			<Text>Dūrāni</Text>
 		</Row>
-		<Row Tag="LOC_TRADITION_DURANI_DESCRIPTION">
-			<Text>+1 [icon:YIELD_SCIENCE] Science on [icon:Action_Fortify] Fortification Buildings.</Text>
+		<Row Tag="LOC_TRADITION_MIHISTU_I_NAME">
+			<Text>Miḫiṣtu I</Text>
 		</Row>
-		<Row Tag="LOC_TRADITION_MIHISTU_NAME">
+		<Row Tag="LOC_TRADITION_MIHISTU_I_DESCRIPTION">
+			<Text>+25% [icon:YIELD_PRODUCTION] Production towards constructing [icon:CITY_BUILDING_LIST] [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]Buildings[/TIP] and [icon:WONDER] [TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]Wonders[/TIP] with a [icon:NAR_REW_GREATWORK] [TIP:LOC_PEDIA_CONCEPTS_GREAT_WORKS_TOOLTIP]Great Work[/TIP] slot.</Text>
+		</Row>
+		<Row Tag="LOC_TRADITION_MIHISTU_TOOLTIP">
 			<Text>Miḫiṣtu</Text>
 		</Row>
-		<Row Tag="LOC_TRADITION_MIHISTU_DESCRIPTION">
-			<Text>+25% [icon:YIELD_PRODUCTION] Production towards constructing [icon:CITY_BUILDING_LIST] Buildings and [icon:WONDER] Wonders with a [icon:NAR_REW_GREATWORK] Great Work slot.</Text>
+		<Row Tag="LOC_TRADITION_GIRRU_I_NAME">
+			<Text>Girru I</Text>
 		</Row>
-		<Row Tag="LOC_TRADITION_GIRRU_NAME">
+		<Row Tag="LOC_TRADITION_GIRRU_I_DESCRIPTION">
+			<Text>+5 [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Combat Strength[/TIP] for Cavalry Units within an [icon:UNIT_ARMY_COMMANDER] [TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]Army Commander's[/TIP] Radius. +3 [icon:YIELD_PRODUCTION] Production, [icon:YIELD_SCIENCE] Science, and [icon:YIELD_FOOD] Food in [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]Captured Settlements[/TIP] from any Age.</Text>
+		</Row>
+		<Row Tag="LOC_TRADITION_GIRRU_COMBAT_PREVIEW">
+			<Text>+{1_Amount} Girru</Text>
+		</Row>
+		<Row Tag="LOC_TRADITION_GIRRU_TOOLTIP">
 			<Text>Girru</Text>
 		</Row>
-		<Row Tag="LOC_TRADITION_GIRRU_DESCRIPTION">
-			<Text>+3 [icon:YIELD_PRODUCTION] Production and [icon:YIELD_FOOD] Food in Settlements not founded by you.</Text>
+		<!-- ==================================================	-->
+		<!--	EXPLORATION						-->
+		<!-- ==================================================	-->
+		<!-- Civics -->
+		<Row Tag="LOC_NODE_CIVIC_EX_ASSYRIA_RENAISSANCE_NAME">
+			<Text>Assyrian Renaissance</Text>
+		</Row>
+		<!-- Traditions -->
+		<Row Tag="LOC_TRADITION_MIHISTU_II_NAME">
+			<Text>Miḫiṣtu II</Text>
+		</Row>
+		<Row Tag="LOC_TRADITION_MIHISTU_II_DESCRIPTION">
+			<Text>+25% [icon:YIELD_PRODUCTION] Production towards constructing [icon:CITY_BUILDING_LIST] Buildings and [icon:WONDER] Wonders with a [icon:GREATWORK] Great Work slot. +2 [icon:YIELD_SCIENCE] Science on displayed [icon:GREATWORK] Great Works.</Text>
+		</Row>
+		<Row Tag="LOC_TRADITION_GIRRU_II_NAME">
+			<Text>Girru II</Text>
+		</Row>
+		<Row Tag="LOC_TRADITION_GIRRU_II_DESCRIPTION">
+			<Text>+5 [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Combat Strength[/TIP] for Cavalry Units within an [icon:UNIT_ARMY_COMMANDER] [TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]Army Commander's[/TIP] Radius. +5 [icon:YIELD_PRODUCTION] Production, [icon:YIELD_SCIENCE] Science, and [icon:YIELD_FOOD] Food in [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]Captured Settlements[/TIP] from any Age.</Text>
+		</Row>
+		<Row Tag="LOC_TRADITION_ASSYRIA_SYNCRETISM_EXPLORATION_NAME">
+			<Text>Ashur I</Text>
+		</Row>
+		<Row Tag="LOC_TRADITION_ASSYRIA_SYNCRETISM_EXPLORATION_DESCRIPTION">
+			<Text>+5 [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Combat Strength[/TIP] for Infantry and Cavalry Units when attacking [icon:CITY_FORTIFIED] [TIP:LOC_PEDIA_CONCEPTS_FORTIFIED_DISTRICTS_TOOLTIP]Fortified Districts[/TIP].</Text>
+		</Row>
+		<Row Tag="LOC_TRADITION_ASSYRIA_SYNCRETISM_EXPLORATION_COMBAT_PREVIEW">
+			<Text>+{1_Amount} Ashur</Text>
+		</Row>
+		<!-- ==================================================	-->
+		<!--	MODERN						-->
+		<!-- ==================================================	-->
+		<!-- Civics -->
+		<Row Tag="LOC_NODE_CIVIC_MO_ASSYRIA_MODERNIZATION_NAME">
+			<Text>Assyrian Modernization</Text>
+		</Row>
+		<!-- Traditions -->
+		<Row Tag="LOC_TRADITION_DURANI_II_NAME">
+			<Text>Dūrāni II</Text>
+		</Row>
+		<Row Tag="LOC_TRADITION_DURANI_II_DESCRIPTION">
+			<Text>+2 [icon:YIELD_CULTURE] Culture in the [icon:NOTIFICATION_SELECT_CAPITAL] Capital and in Settlements not founded by you that were conquered in this Age for every [icon:RADIAL_TECH] Technology Mastery completed this Age.</Text>
+		</Row>
+		<Row Tag="LOC_TRADITION_ASSYRIA_SYNCRETISM_MODERN_NAME">
+			<Text>Ashur II</Text>
+		</Row>
+		<Row Tag="LOC_TRADITION_ASSYRIA_SYNCRETISM_MODERN_DESCRIPTION">
+			<Text>+1 [icon:YIELD_SCIENCE] Science on [icon:CITY_FORTIFIED] Fortification Buildings. +5 [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Combat Strength[/TIP] for Infantry and Cavalry Units when attacking [icon:CITY_FORTIFIED] [TIP:LOC_PEDIA_CONCEPTS_FORTIFIED_DISTRICTS_TOOLTIP]Fortified Districts[/TIP].</Text>
+		</Row>
+		<Row Tag="LOC_TRADITION_ASSYRIA_SYNCRETISM_TOOLTIP">
+			<Text>Ashur</Text>
 		</Row>
 	</EnglishText>
 </Database>

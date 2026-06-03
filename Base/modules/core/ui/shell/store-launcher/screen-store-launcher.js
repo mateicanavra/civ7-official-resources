@@ -1,21 +1,9 @@
 import ContextManager from '../../context-manager/context-manager.js';
-import FocusManager from '../../input/focus-manager.js';
-import { N as NavTray } from '../../navigation-tray/model-navigation-tray.chunk.js';
-import { P as Panel } from '../../panel-support.chunk.js';
-import { MustGetElement } from '../../utilities/utilities-dom.chunk.js';
-import '../../context-manager/display-queue-manager.js';
-import '../../dialog-box/manager-dialog-box.chunk.js';
-import '../../framework.chunk.js';
-import '../../input/cursor.js';
-import '../../views/view-manager.chunk.js';
-import '../../audio-base/audio-support.chunk.js';
-import '../../input/action-handler.js';
-import '../../input/input-support.chunk.js';
-import '../../utilities/utilities-update-gate.chunk.js';
-import '../../utilities/utilities-image.chunk.js';
-import '../../utilities/utilities-component-id.chunk.js';
-
-const content = "<fxs-frame class=\"flex-1 flow-column w-full h-full\">\r\n\t<fxs-header\r\n\t\tfiligree-style=\"h3\"\r\n\t\tclass=\"additional-content-header relative flex justify-center font-title text-2xl uppercase text-secondary mb-3\"\r\n\t\ttitle=\"LOC_UI_TOOLTIP_STORE\"\r\n\t></fxs-header>\r\n\t<collection-content class=\"collection-content flex-auto relative flow-column\"></collection-content>\r\n\t<div class=\"flow-row min-h-12\">\r\n\t\t<fxs-button\r\n\t\t\tclass=\"collection-cancel-button mr-3\"\r\n\t\t\tdata-bind-class-toggle=\"hidden:{{g_NavTray.isTrayRequired}}\"\r\n\t\t\tcaption=\"LOC_GENERIC_CANCEL\"\r\n\t\t></fxs-button>\r\n\t\t<fxs-button\r\n\t\t\tclass=\"collection-redeem-button\"\r\n\t\t\tdata-bind-class-toggle=\"hidden:{{g_NavTray.isTrayRequired}}\"\r\n\t\t\tcaption=\"LOC_GENERIC_REDEEMCODE\"\r\n\t\t></fxs-button>\r\n\t</div>\r\n</fxs-frame>\r\n";
+import NavTray from '../../navigation-tray/model-navigation-tray.js';
+import Panel from '../../panel-support.js';
+import { MustGetElement } from '../../utilities/utilities-dom.js';
+import { FocusManager } from '../../../ui-next/services/focus-manager.js';
+import content from './screen-store-launcher.html.js';
 
 class ScreenStoreLauncher extends Panel {
   backButton;
@@ -51,7 +39,7 @@ class ScreenStoreLauncher extends Panel {
   }
   onReceiveFocus() {
     super.onReceiveFocus();
-    FocusManager.setFocus(this.collectionContent);
+    FocusManager.get().setFocus(this.collectionContent);
     NavTray.clear();
     NavTray.addOrUpdateGenericBack();
     NavTray.addOrUpdateShellAction2("LOC_GENERIC_REDEEMCODE");

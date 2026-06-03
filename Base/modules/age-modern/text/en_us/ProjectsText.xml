@@ -8,27 +8,30 @@
 		<Row Tag="LOC_PROJECT_TRANS_OCEANIC_FLIGHT_SHORT_NAME">
 			<Text>Trans-Oceanic Flight</Text>
 		</Row>
-		<Row Tag="LOC_PROJECT_TRANS_OCEANIC_FLIGHT_DESCRIPTION">
+		<!-- Deprecated 1.4.0 -->
+		<!--Row Tag="LOC_PROJECT_TRANS_OCEANIC_FLIGHT_DESCRIPTION">
 			<Text>Space Race Project. When completed:[BLIST][LI] Gain a [icon:UNIT_SQUADRON_COMMANDER]Squadron Commander.[LI] +1 Legacy Point towards the Science Legacy Path.[/BLIST][n]Each Civilization can only complete this Project once.</Text>
-		</Row>
+		</Row-->
 		<Row Tag="LOC_PROJECT_BREAK_SOUND_BARRIER_NAME">
 			<Text>Break The Sound Barrier</Text>
 		</Row>
 		<Row Tag="LOC_PROJECT_BREAK_SOUND_BARRIER_SHORT_NAME">
 			<Text>Break The Sound Barrier</Text>
 		</Row>
-		<Row Tag="LOC_PROJECT_BREAK_SOUND_BARRIER_DESCRIPTION">
+		<!-- Deprecated 1.4.0 -->
+		<!--Row Tag="LOC_PROJECT_BREAK_SOUND_BARRIER_DESCRIPTION">
 			<Text>Space Race Project. When completed:[BLIST][LI] +1 [icon:NAR_REW_COMBAT]Combat Strength to Air Units.[LI] +1 Legacy Point towards the Science Legacy Path.[/BLIST][n]Each Civilization can only complete this Project once.</Text>
-		</Row>
+		</Row-->
 		<Row Tag="LOC_PROJECT_LAUNCH_SATELLITE_NAME">
 			<Text>Launch Satellite</Text>
 		</Row>
 		<Row Tag="LOC_PROJECT_LAUNCH_SATELLITE_SHORT_NAME">
 			<Text>Launch Satellite</Text>
 		</Row>
-		<Row Tag="LOC_PROJECT_LAUNCH_SATELLITE_DESCRIPTION">
+		<!-- Deprecated 1.4.0 -->
+		<!--Row Tag="LOC_PROJECT_LAUNCH_SATELLITE_DESCRIPTION">
 			<Text>Space Race Project. When completed:[BLIST][LI] Reveals the entire map.[LI] +1 Legacy Point towards the Science Legacy Path.[/BLIST][n]Each Civilization can only complete this Project once.</Text>
-		</Row>
+		</Row-->
 		<Row Tag="LOC_PROJECT_LAUNCH_ROCKET_NAME">
 			<Text>Crewed Space Flight</Text>
 		</Row>
@@ -46,7 +49,7 @@
 			<Text>Produce Nuclear Weapon</Text>
 		</Row>
 		<Row Tag="LOC_PROJECT_PRODUCE_WMD_DESCRIPTION">
-			<Text>When completed:[n]Adds a Nuclear Weapon to your arsenal, allowing you to use the WMD Strike action with a Bomber based in an [icon:UNIT_AERODROME_COMMANDER]Aerodrome, [icon:UNIT_SQUADRON_COMMANDER]Squadron or [icon:UNIT_CARRIER_COMMANDER]Carrier Commander.</Text>
+			<Text>When completed:[n]Adds a Nuclear Weapon to your arsenal, allowing you to use the WMD Strike action with a Bomber based in an [icon:UNIT_AERODROME_COMMANDER]Aerodrome, [icon:UNIT_SQUADRON_COMMANDER] Squadron or [icon:UNIT_CARRIER_COMMANDER] Aircraft Carrier Commander.</Text>
 		</Row>
 		<Row Tag="LOC_PROJECT_OPERATION_IVY_NAME">
 			<Text>Operation Ivy</Text>
@@ -55,7 +58,7 @@
 			<Text>Operation Ivy</Text>
 		</Row>
 		<Row Tag="LOC_PROJECT_OPERATION_IVY_DESCRIPTION">
-			<Text>Complete this Project to demonstrate the world's first thermonuclear weapon and win a Militaristic Victory.</Text>
+			<Text>Increase the blast radius of WMD Strikes by 1.</Text>
 		</Row>
 		<!-- Town Warehouse Projects -->
 		<Row Tag="LOC_PROJECT_TOWN_GRANARY_SHORT_NAME">
@@ -77,13 +80,16 @@
 			<Text>Mining Town</Text>
 		</Row>
 		<Row Tag="LOC_PROJECT_TOWN_GRANARY_DESCRIPTION">
-			<Text>+3[icon:YIELD_FOOD] Food on Farms, Pastures, Plantations and Fishing Boats.</Text>
+			<Text>+1 [icon:YIELD_FOOD] Food on Farms, Pastures, Plantations, and Fishing Boats. Can Purchase additional [icon:YIELD_FOOD] Food and Water Buildings in this Town.</Text>
 		</Row>
 		<Row Tag="LOC_PROJECT_TOWN_FISHING_DESCRIPTION">
-			<Text>+3[icon:YIELD_FOOD] Food on Farms, Pastures, Plantations and Fishing Boats.</Text>
+			<Text>+1 [icon:YIELD_FOOD] Food on Farms, Pastures, Plantations, and Fishing Boats. Can Purchase additional [icon:YIELD_FOOD] Food and Water Buildings in this Town.</Text>
 		</Row>
 		<Row Tag="LOC_PROJECT_TOWN_PRODUCTION_DESCRIPTION">
-			<Text>+4[icon:YIELD_PRODUCTION] Production on Camps, Woodcutters, Clay Pits, Mines, Oil Rig and Quarries.</Text>
+			<Text>+2 [icon:YIELD_PRODUCTION] Production on Camps, Woodcutters, Clay Pits, Mines, Oil Rig and Quarries.</Text>
+		</Row>
+		<Row Tag="LOC_PROJECT_TOWN_RESORT_DESCRIPTION">
+			<Text>+1 [icon:YIELD_HAPPINESS] Happiness and [icon:YIELD_GOLD] Gold on Appealing tiles. +50% tile yields from Natural Wonders. Can Purchase additional [icon:YIELD_HAPPINESS] Happiness Buildings in this Town.</Text>
 		</Row>
 		<!-- Town Common Projects -->
 		<Row Tag="LOC_PROJECT_TOWN_FACTORY_SHORT_NAME">
@@ -93,13 +99,47 @@
 			<Text>Factory Town</Text>
 		</Row>
 		<Row Tag="LOC_PROJECT_TOWN_FACTORY_DESCRIPTION">
-			<Text>+100%[icon:YIELD_GOLD] Gold towards purchasing a Factory in this town. +1 Resource Slot. +5 Trade Range. Must have an improved factory resource in this settlement.</Text>
+			<Text>+100% [icon:YIELD_GOLD] Gold towards purchasing a Factory, Port, or Rail Station in this town. +1 Resource Slot. +5 Trade Range. Can Purchase additional [icon:YIELD_GOLD] Gold Buildings in this Town. Must have an improved Factory Resource in this settlement.</Text>
 		</Row>
 		<Row Tag="LOC_PROJECT_TOWN_INN_NAME">
 			<Text>Hub Town</Text>
 		</Row>
 		<Row Tag="LOC_PROJECT_TOWN_INN_DESCRIPTION">
-			<Text>+1[icon:YIELD_DIPLOMACY] Influence per Settlement Connected to this Town.</Text>
+			<Text>+1 [icon:YIELD_DIPLOMACY] Influence per Settlement Connected to this Town. Can Purchase additional [icon:YIELD_DIPLOMACY] Diplomacy Buildings in this Town. Limited to 1 Hub Town per Continent.</Text>
+		</Row>
+		<Row Tag="LOC_PROJECT_TOWN_TRADE_SHORT_NAME">
+			<Text>Warehouse Project</Text>
+		</Row>
+		<Row Tag="LOC_PROJECT_TOWN_TRADE_NAME">
+			<Text>Trade Outpost</Text>
+		</Row>
+		<Row Tag="LOC_PROJECT_TOWN_TRADE_DESCRIPTION">
+			<Text>+1 [icon:YIELD_HAPPINESS] Happiness to each Resource tile in the Town and +5 Trade Route range. Can Purchase additional [icon:YIELD_GOLD] Gold Buildings in this Town.</Text>
+		</Row>
+		<!-- 1.4.0 Projects -->
+		<Row Tag="LOC_PROJECT_CREWED_SPACE_FLIGHT_RESEARCH_NAME">
+			<Text>Radio Telescope</Text>
+		</Row>
+		<Row Tag="LOC_PROJECT_CREWED_SPACE_FLIGHT_RESEARCH_DESCRIPTION">
+			<Text>Grants 5 [icon:SCIENCE_VP] Innovation upon completion. Requires a Radio Station in the City. Each Civilization can only complete this Project once.</Text>
+		</Row>
+
+		<Row Tag="LOC_PROJECT_CREWED_SPACE_FLIGHT_PREP_NAME">
+			<Text>Crewed Space Flight Preparation</Text>
+		</Row>
+		<Row Tag="LOC_PROJECT_CREWED_SPACE_FLIGHT_PREP_DESCRIPTION">
+			<Text>Grants 15 [icon:SCIENCE_VP] Innovation upon completion. Requires a Launch Pad in the City. Repeatable.</Text>
+		</Row>
+
+
+		<Row Tag="LOC_PROJECT_TRANS_OCEANIC_FLIGHT_DESCRIPTION">
+			<Text>When completed:[BLIST][LI] Gain a [icon:UNIT_SQUADRON_COMMANDER] [TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]Squadron Commander[/TIP].[LI] +5 [icon:SCIENCE_VP] [TIP:LOC_PEDIA_CONCEPTS_INNOVATION_TOOLTIP]Innovation[/TIP].[/BLIST][n]Each Civilization can only complete this [TIP:LOC_PEDIA_CONCEPTS_PROJECTS_TOOLTIP]Project[/TIP] once.</Text>
+		</Row>
+		<Row Tag="LOC_PROJECT_BREAK_SOUND_BARRIER_DESCRIPTION">
+			<Text>When completed:[BLIST][LI] +1 [icon:NAR_REW_COMBAT]Combat Strength to Air Units.[LI] +5 [icon:SCIENCE_VP] [TIP:LOC_PEDIA_CONCEPTS_INNOVATION_TOOLTIP]Innovation[/TIP].[/BLIST][n]Each Civilization can only complete this [TIP:LOC_PEDIA_CONCEPTS_PROJECTS_TOOLTIP]Project[/TIP] once.</Text>
+		</Row>
+		<Row Tag="LOC_PROJECT_LAUNCH_SATELLITE_DESCRIPTION">
+			<Text>When completed:[BLIST][LI] Reveals the entire map.[LI] +5 [icon:SCIENCE_VP] [TIP:LOC_PEDIA_CONCEPTS_INNOVATION_TOOLTIP]Innovation[/TIP].[/BLIST][n]Each Civilization can only complete this [TIP:LOC_PEDIA_CONCEPTS_PROJECTS_TOOLTIP]Project[/TIP] once.</Text>
 		</Row>
 	</EnglishText>
 </Database>

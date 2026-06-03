@@ -1,9 +1,6 @@
-import FocusManager from '../../../core/ui/input/focus-manager.js';
-import { P as Panel } from '../../../core/ui/panel-support.chunk.js';
+import Panel from '../../../core/ui/panel-support.js';
+import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
 import PlayerUnlocks from './model-unlocks.js';
-import '../../../core/ui/audio-base/audio-support.chunk.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/utilities/utilities-update-gate.chunk.js';
 
 class PanelPlayerRewards extends Panel {
   isMobileViewExperience = UI.getViewExperience() == UIViewExperience.Mobile;
@@ -21,7 +18,7 @@ class PanelPlayerRewards extends Panel {
   onFocus = () => {
     const firstFocusable = this.Root.querySelector(".screen-unlocks__item");
     if (firstFocusable) {
-      FocusManager.setFocus(firstFocusable);
+      FocusManager.get().setFocus(firstFocusable);
     }
   };
   clearList(root) {

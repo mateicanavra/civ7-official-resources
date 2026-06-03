@@ -19,6 +19,9 @@
 		<Row Type="DIPLOMACY_ESTABLISH_TREASURE_FLEET_COMPLETE" Kind="KIND_DIPLOMACY_ACTION_STAGE" />
 		<Row Type="DIPLOMACY_DEMAND_TRIBUTE_STARTED" Kind="KIND_DIPLOMACY_ACTION_STAGE" />
 		<Row Type="DIPLOMACY_DEMAND_TRIBUTE_COMPLETE" Kind="KIND_DIPLOMACY_ACTION_STAGE" />
+		<!-- <Row Type="DIPLOMACY_ACTION_ESPIONAGE_BUY_LOYALTY" Kind="KIND_DIPLOMACY_ACTION" />
+		<Row Type="DIPLOMACY_ESPIONAGE_BUY_LOYALTY_COMPLETE" Kind="KIND_DIPLOMACY_ACTION_STAGE" />
+		<Row Type="DIPLOMACY_ESPIONAGE_BUY_LOYALTY_IN_PROGRESS" Kind="KIND_DIPLOMACY_ACTION_STAGE" />-->
 	</Types>
 	<DiplomacyActions>
 		<Row DiplomacyActionType="DIPLOMACY_ACTION_ESPIONAGE_OPEN_THE_GATES" Name="LOC_DIPLOMACY_ESPIONAGE_OPEN_THE_GATES_NAME" Description="LOC_DIPLOMACY_ESPIONAGE_OPEN_THE_GATES_DESCRIPTION" BaseTokenCost="1" BaseDuration="15" RandomInitialProgress="6" Symmetrical="true" RevealChance="50" SuccessChance="100" UIIconPath="fs://game/esp_opengate_negative"/>
@@ -27,6 +30,7 @@
 		<Row DiplomacyActionType="DIPLOMACY_ACTION_ESPIONAGE_STEAL_RICHES" Name="LOC_DIPLOMACY_ESPIONAGE_STEAL_RICHES_NAME" Description="LOC_DIPLOMACY_ESPIONAGE_STEAL_RICHES_DESCRIPTION" BaseTokenCost="1" BaseDuration="15" RandomInitialProgress="6" Symmetrical="true" RevealChance="100" SuccessChance="100" WarOnly="true" UIIconPath="fs://game/esp_stealriches_negative"/>
 		<Row DiplomacyActionType="DIPLOMACY_ACTION_ESTABLISH_TREASURE_FLEET" Name="LOC_DIPLOMACY_ESTABLISH_TREASURE_FLEET_NAME" Description="LOC_DIPLOMACY_ESTABLISH_TREASURE_FLEET_DESCRIPTION" BaseTokenCost="1" BaseDuration="10" Symmetrical="true" IsMutualSupport="true" AllyOnly="true" RequestString="LOC_DIPLOMACY_PROJECT_ESTABLISH_TREASURE_FLEET_REQUEST" UIIconPath="fs://game/dipaction_culture" RejectionRefundsInfluence="true"/>
 		<Row DiplomacyActionType="DIPLOMACY_ACTION_DEMAND_TRIBUTE" Name="LOC_DIPLOMACY_PROJECT_DEMAND_TRIBUTE_NAME" Description="LOC_DIPLOMACY_PROJECT_DEMAND_TRIBUTE_DESCRIPTION" BaseTokenCost="1" BaseDuration="10" Symmetrical="true" Opposed="true" IsMutualSupport="false" TargetFavors="-10000" TargetFavorsFreq="3" CancelPenalty="10" RequestString="LOC_DIPLOMACY_PROJECT_DEMAND_TRIBUTE_REQUEST" UIIconPath="blp:dipaction_demandtribute" RequiresUnlock="true" />
+		<!-- <Row DiplomacyActionType="DIPLOMACY_ACTION_ESPIONAGE_BUY_LOYALTY" Name="LOC_DIPLOMACY_ACTION_ESPIONAGE_BUY_LOYALTY_NAME" Description="LOC_DIPLOMACY_ACTION_ESPIONAGE_BUY_LOYALTY_DESCRIPTION" BaseTokenCost="1" BaseDuration="10" RandomInitialProgress="6" Symmetrical="true" RevealChance="50" SuccessChance="100" UIIconPath="blp:dipaction_buy_loyalty"/> -->
 	</DiplomacyActions>
 	<DiplomaticActionValidTokens>
 		<Row TokenType="DIPLOMACY_TOKEN_GLOBAL" DiplomacyActionType="DIPLOMACY_ACTION_ESPIONAGE_OPEN_THE_GATES"/>
@@ -35,6 +39,7 @@
 		<Row TokenType="DIPLOMACY_TOKEN_GLOBAL" DiplomacyActionType="DIPLOMACY_ACTION_ESPIONAGE_STEAL_RICHES"/>
 		<Row TokenType="DIPLOMACY_TOKEN_GLOBAL" DiplomacyActionType="DIPLOMACY_ACTION_ESTABLISH_TREASURE_FLEET"/>
 		<Row TokenType="DIPLOMACY_TOKEN_GLOBAL" DiplomacyActionType="DIPLOMACY_ACTION_DEMAND_TRIBUTE" />
+		<!-- <Row TokenType="DIPLOMACY_TOKEN_GLOBAL" DiplomacyActionType="DIPLOMACY_ACTION_ESPIONAGE_BUY_LOYALTY" /> -->
 	</DiplomaticActionValidTokens>
 	<DiplomaticActionStages>
 		<!-- Espionage Open The Gates -->
@@ -55,6 +60,9 @@
 		<!-- Demand Tribute -->
 		<Row DiplomacyActionType="DIPLOMACY_ACTION_DEMAND_TRIBUTE" StageType="DIPLOMACY_DEMAND_TRIBUTE_STARTED" ProgressRequirement="0" />
 		<Row DiplomacyActionType="DIPLOMACY_ACTION_DEMAND_TRIBUTE" StageType="DIPLOMACY_DEMAND_TRIBUTE_COMPLETE" ProgressRequirement="10" />
+		<!-- Buy Loyalty -->
+		<!-- <Row DiplomacyActionType="DIPLOMACY_ACTION_ESPIONAGE_BUY_LOYALTY" StageType="DIPLOMACY_ESPIONAGE_BUY_LOYALTY_IN_PROGRESS" ProgressRequirement="0" CheckForCounterSpy="true" CheckForTurnedBasedInfluenceCost="true"/>
+		<Row DiplomacyActionType="DIPLOMACY_ACTION_ESPIONAGE_BUY_LOYALTY" StageType="DIPLOMACY_ESPIONAGE_BUY_LOYALTY_COMPLETE" ProgressRequirement="10" CheckForReveal="true" CheckForFailure="true"/> -->
 	</DiplomaticActionStages>
 	<EnterStageModifiers>
 		<!-- Espionage: Open The Gates -->
@@ -76,6 +84,9 @@
 		<!-- Demand Tribute -->
 		<Row StageType="DIPLOMACY_DEMAND_TRIBUTE_STARTED" ModifierId="PLAYER_DIPLOMACY_DEMAND_TRIBUTE_STARTED" />
 		<Row StageType="DIPLOMACY_DEMAND_TRIBUTE_COMPLETE" ModifierId="PLAYER_DIPLOMACY_DEMAND_TRIBUTE_COMPLETE" />
+		<!-- Buy Loyalty-->
+		<!--<Row StageType="DIPLOMACY_ESPIONAGE_BUY_LOYALTY_COMPLETE" ModifierId="DIPLOMACY_MOD_ESPIONAGE_ACTION_COMPLETE" />
+		<Row StageType="DIPLOMACY_ESPIONAGE_BUY_LOYALTY_IN_PROGRESS" ModifierId="DIPLOMACY_MOD_ESPIONAGE_BUY_LOYALTY_IN_PROGRESS" />-->
 	</EnterStageModifiers>
 	<DiplomaticProjects_UI_Data>
 		<Row DiplomacyActionType="DIPLOMACY_ACTION_ESPIONAGE_OPEN_THE_GATES" DiplomacyActionGroup="DIPLOMACY_ACTION_GROUP_ESPIONAGE" PlayerOperationType="OPEN_THE_GATES_DIPLOMATIC_ACTION" Target1Type="DIPLOMACY_TARGET_PLAYER" Target2Type="DIPLOMACY_TARGET_SETTLEMENT" MaxNumEnvoys="1" MinNumVirtEnvoys="1" MaxNumVirtEnvoys="1" MaxNumSupportEnvoys="0" MaxNumOpposeEnvoys="0" Description="LOC_DIPLOMACY_ESPIONAGE_OPEN_THE_GATES_DESCRIPTION" ActiveDescription="LOC_DIPLOMACY_ESPIONAGE_OPEN_THE_GATES_DESCRIPTION" DescriptionDetailsInitialPlayer="LOC_NOTIFICATION_DIPLOMATIC_ESPIONAGE_OPEN_THE_GATES_EFFECT_TARGET" DescriptionDetailsTargetPlayer="LOC_NOTIFICATION_DIPLOMATIC_ESPIONAGE_OPEN_THE_GATES_EFFECT"/>
@@ -85,6 +96,7 @@
 		<Row DiplomacyActionType="DIPLOMACY_ACTION_ESPIONAGE_STEAL_RICHES" DiplomacyActionGroup="DIPLOMACY_ACTION_GROUP_ESPIONAGE" PlayerOperationType="CREATE_TREASURE_FLEET_DIPLOMATIC_ACTION" Target1Type="DIPLOMACY_TARGET_PLAYER" Target2Type="DIPLOMACY_TARGET_SETTLEMENT" UIStartProject="false" MaxNumEnvoys="1" MinNumVirtEnvoys="1" MaxNumVirtEnvoys="1" MaxNumSupportEnvoys="0" MaxNumOpposeEnvoys="0" Description="LOC_DIPLOMACY_ESPIONAGE_STEAL_RICHES_DESCRIPTION" ActiveDescription="LOC_DIPLOMACY_ESPIONAGE_STEAL_RICHES_DESCRIPTION" DescriptionDetailsInitialPlayer="LOC_NOTIFICATION_DIPLOMATIC_ESPIONAGE_STEAL_RICHES_EFFECT" DescriptionDetailsTargetPlayer="LOC_NOTIFICATION_DIPLOMATIC_ESPIONAGE_STEAL_RICHES_EFFECT_TARGET"/>
 		<Row DiplomacyActionType="DIPLOMACY_ACTION_ESTABLISH_TREASURE_FLEET" DiplomacyActionGroup="DIPLOMACY_ACTION_GROUP_ENDEAVOR" PlayerOperationType="CREATE_TREASURE_FLEET_DIPLOMATIC_ACTION" Target1Type="DIPLOMACY_TARGET_PLAYER" Target2Type="DIPLOMACY_TARGET_SETTLEMENT" UIStartProject="false" MaxNumEnvoys="1" MinNumVirtEnvoys="1" MaxNumVirtEnvoys="1" MaxNumSupportEnvoys="0" MaxNumOpposeEnvoys="0" Description="LOC_DIPLOMACY_ESTABLISH_TREASURE_FLEET_DESCRIPTION" ActiveDescription="LOC_DIPLOMACY_ESTABLISH_TREASURE_FLEET_DESCRIPTION"/>
 		<Row DiplomacyActionType="DIPLOMACY_ACTION_DEMAND_TRIBUTE" DiplomacyActionGroup="DIPLOMACY_ACTION_GROUP_SANCTION" PlayerOperationType="DEMAND_TRIBUTE_DIPLOMATIC_ACTION" Target1Type="DIPLOMACY_TARGET_PLAYER" Target2Type="DIPLOMACY_TARGET_SETTLEMENT" MaxNumEnvoys="2" MinNumVirtEnvoys="1" MaxNumVirtEnvoys="2" MaxNumSupportEnvoys="0" MaxNumOpposeEnvoys="0" Description="LOC_DIPLOMACY_PROJECT_DEMAND_TRIBUTE_INITIAL" ActiveDescription="LOC_DIPLOMACY_PROJECT_DEMAND_TRIBUTE_DESCRIPTION" UIOnly_GivesYieldType="YIELD_GOLD" UIOnly_BaseAmount="-2" />
+		<!-- <Row DiplomacyActionType="DIPLOMACY_ACTION_ESPIONAGE_BUY_LOYALTY" DiplomacyActionGroup="DIPLOMACY_ACTION_GROUP_ESPIONAGE" PlayerOperationType="BUY_LOYALTY_DIPLOMATIC_ACTION" Target1Type="DIPLOMACY_TARGET_PLAYER" Target2Type="DIPLOMACY_TARGET_UNIT" MaxNumEnvoys="1" MinNumVirtEnvoys="1" MaxNumVirtEnvoys="1" MaxNumSupportEnvoys="0" MaxNumOpposeEnvoys="0" Description="LOC_DIPLOMACY_ACTION_ESPIONAGE_BUY_LOYALTY_DESCRIPTION" ActiveDescription="LOC_DIPLOMACY_ACTION_ESPIONAGE_BUY_LOYALTY_DESCRIPTION" DescriptionDetailsInitialPlayer="LOC_NOTIFICATION_DIPLOMATIC_ESPIONAGE_BUY_LOYALTY_EFFECT" DescriptionDetailsTargetPlayer="LOC_NOTIFICATION_DIPLOMATIC_ESPIONAGE_BUY_LOYALTY_EFFECT_TARGET" /> -->
 	</DiplomaticProjects_UI_Data>
 	<DiplomaticActionInfluenceCosts>
 		<Row DiplomacyActionType="DIPLOMACY_ACTION_GIVE_INFLUENCE_TOKEN" InfCostNoRelationship="160" InfCostSupportIncreaseFlat="20"/>
@@ -129,6 +141,8 @@
 		<Row DiplomacyActionType="DIPLOMACY_ACTION_GRANT_POLICY_SLOT" InfCostUnfriendly="400" InfCostNeutral="360" InfCostFriendly="320" InfCostHelpful="280"/>
 		<Row DiplomacyActionType="DIPLOMACY_ACTION_ESTABLISH_TREASURE_FLEET" InfCostHostile="-1" InfCostUnfriendly="-1" InfCostNeutral="-1" InfCostFriendly="-1" InfCostHelpful="-1"/>
 		<Row DiplomacyActionType="DIPLOMACY_ACTION_DENOUNCE_MILITARY_PRESENCE" InfCostHostile="40" InfCostUnfriendly="40" InfCostNeutral="40" InfCostFriendly="40" InfCostHelpful="40"/>
+		<!-- <Row DiplomacyActionType="DIPLOMACY_ACTION_ESPIONAGE_BUY_LOYALTY" InfCostHostile="0" InfCostUnfriendly="0" InfCostNeutral="0" InfCostFriendly="0" InfCostHelpful="0" InfCostPerTurn="4" PenaltyInfCostPerTurn="4" PenaltyInfCostDuration="10" /> -->
+		<Row DiplomacyActionType="DIPLOMACY_ACTION_BECOME_SUZERAIN" InfCostNoRelationship="510"/>
 	</DiplomaticActionInfluenceCosts>
 	<DiplomaticActionResponses>
 		<Row DiplomacyActionType="DIPLOMACY_ACTION_OPEN_BORDERS" DiplomaticResponseType="DIPLOMACY_RESPONSE_ACCEPT" InfCost="0" Name="LOC_DIPLOMACY_RESPONSE_ACCEPT" Description="LOC_DIPLOMACY_PROJECT_OPEN_BORDERS_ACCEPT"/>

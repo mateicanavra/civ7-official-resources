@@ -16,7 +16,7 @@
 		<Row ConstructibleType="BUILDING_ROYAL_EXCHANGE" Name="LOC_BUILDING_ROYAL_EXCHANGE_NAME" Description="LOC_BUILDING_ROYAL_EXCHANGE_DESCRIPTION" Tooltip="LOC_BUILDING_ROYAL_EXCHANGE_TOOLTIP" ConstructibleClass="BUILDING" Cost="600" Population="1" Age="AGE_MODERN" CostProgressionModel="COST_PROGRESSION_PREVIOUS_BUILDINGS_CITY"/>
 		<Row ConstructibleType="BUILDING_MANUFACTORY" Name="LOC_BUILDING_MANUFACTORY_NAME" Description="LOC_BUILDING_MANUFACTORY_DESCRIPTION" Tooltip="LOC_BUILDING_MANUFACTORY_TOOLTIP" ConstructibleClass="BUILDING" Cost="600" Population="1" Age="AGE_MODERN" CostProgressionModel="COST_PROGRESSION_PREVIOUS_BUILDINGS_CITY"/>
 		<!--Wonders-->
-		<Row ConstructibleType="WONDER_BATTERSEA_POWER_STATION" Name="LOC_WONDER_BATTERSEA_POWER_STATION_NAME" Description="LOC_WONDER_BATTERSEA_POWER_STATION_DESCRIPTION" Tooltip="LOC_WONDER_BATTERSEA_POWER_STATION_TOOLTIP" ConstructibleClass="WONDER" Cost="1000" AdjacentTerrain="TERRAIN_COAST" Population="0" ImmuneDamage="true" Age="AGE_MODERN" RequiresUnlock="true"/>
+		<Row ConstructibleType="WONDER_BATTERSEA_POWER_STATION" Name="LOC_WONDER_BATTERSEA_POWER_STATION_NAME" Description="LOC_WONDER_BATTERSEA_POWER_STATION_DESCRIPTION" Tooltip="LOC_WONDER_BATTERSEA_POWER_STATION_TOOLTIP" ConstructibleClass="WONDER" Cost="1500" AdjacentTerrain="TERRAIN_COAST" Population="0" ImmuneDamage="true" Age="AGE_MODERN" RequiresUnlock="true"/>
 	</Constructibles>
 	<Buildings>
 		<!-- Civ Unique Buildings -->
@@ -72,7 +72,7 @@
 	</Constructible_Plunders>
 	<Constructible_BuildingCostProgressions>
 		<Row ConstructibleType="BUILDING_ROYAL_EXCHANGE" Percent="5" />
-		<Row ConstructibleType="BUILDING_MANUFACTORY" Percent="5" />
+		<Row ConstructibleType="BUILDING_MANUFACTORY" Percent="0" />
 	</Constructible_BuildingCostProgressions>
 	<ConstructibleModifiers>
 		<!--Wonders-->
@@ -97,4 +97,7 @@
 		<Row ConstructibleType="BUILDING_MANUFACTORY" AdvisoryClassType="ADVISORY_CLASS_ECONOMIC"/>
 		<Row ConstructibleType="BUILDING_MANUFACTORY" AdvisoryClassType="ADVISORY_CLASS_TRADE"/>
 	</Constructible_Advisories>
+	<MetaprogressionModifiers>
+		<Row ModifierId="METAPROGRESSION_CHALLENGE_GREAT_BRITAIN_COMPLETE_BATTERSEA_POWER_STATION_ACHIEVED" RequiredCivilizationType="CIVILIZATION_GREAT_BRITAIN" />
+	</MetaprogressionModifiers>
 </Database>

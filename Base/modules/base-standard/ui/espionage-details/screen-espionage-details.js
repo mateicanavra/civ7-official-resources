@@ -1,35 +1,13 @@
-import { A as Audio } from '../../../core/ui/audio-base/audio-support.chunk.js';
-import FocusManager from '../../../core/ui/input/focus-manager.js';
-import { b as InputEngineEventName } from '../../../core/ui/input/input-support.chunk.js';
-import { N as Navigation } from '../../../core/ui/views/view-manager.chunk.js';
-import { P as Panel } from '../../../core/ui/panel-support.chunk.js';
-import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.chunk.js';
+import { Audio } from '../../../core/ui/audio-base/audio-support.js';
+import { InputEngineEventName } from '../../../core/ui/input/input-support.js';
+import { Navigation } from '../../../core/ui/input/navigation-support.js';
+import Panel from '../../../core/ui/panel-support.js';
+import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
+import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
 import { RaiseDiplomacyEvent } from '../diplomacy/diplomacy-events.js';
 import DiplomacyManager from '../diplomacy/diplomacy-manager.js';
 import PopupSequencer from '../popup-sequencer/popup-sequencer.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/context-manager/context-manager.js';
-import '../../../core/ui/context-manager/display-queue-manager.js';
-import '../../../core/ui/dialog-box/manager-dialog-box.chunk.js';
-import '../../../core/ui/input/cursor.js';
-import '../../../core/ui/interface-modes/interface-modes.js';
-import '../../../core/ui/utilities/utilities-image.chunk.js';
-import '../../../core/ui/utilities/utilities-component-id.chunk.js';
-import '../../../core/ui/utilities/utilities-layout.chunk.js';
-import '../world-input/world-input.js';
-import '../../../core/ui/input/action-handler.js';
-import '../../../core/ui/utilities/utilities-update-gate.chunk.js';
-import '../../../core/ui/input/plot-cursor.js';
-import '../../../core/ui/utilities/utilities-network.js';
-import '../../../core/ui/shell/mp-legal/mp-legal.js';
-import '../../../core/ui/events/shell-events.chunk.js';
-import '../../../core/ui/navigation-tray/model-navigation-tray.chunk.js';
-import '../../../core/ui/utilities/utilities-liveops.js';
-import '../../../core/ui/utilities/utilities-network-constants.chunk.js';
-import '../interface-modes/support-unit-map-decoration.chunk.js';
-import '../utilities/utilities-overlay.chunk.js';
-
-const styles = "fs://game/base-standard/ui/espionage-details/screen-espionage-details.css";
+import styles from './screen-espionage-details.scss.js';
 
 class EspionageDetailsScreen extends Panel {
   engineInputListener = (inputEvent) => {
@@ -145,9 +123,9 @@ class EspionageDetailsScreen extends Panel {
       direction: InputNavigationAction.NONE
     });
     if (focusableElement) {
-      FocusManager.setFocus(focusableElement);
+      FocusManager.get().setFocus(focusableElement);
     } else {
-      FocusManager.setFocus(this.Root);
+      FocusManager.get().setFocus(this.Root);
     }
   }
   onEngineInput(inputEvent) {

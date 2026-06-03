@@ -46,6 +46,9 @@
     <Replace Tag="LOC_MAIN_CHAR_SELECT_LEADER_BOLIVAR_ANY" Language="de_DE">
       <Text>Es ist schwieriger, das Gleichgewicht der Freiheit aufrechtzuerhalten, als die Last der Tyrannei zu ertragen.</Text>
     </Replace>
+    <Replace Tag="LOC_VICTORY_LEADER_BOLIVAR" Language="de_DE">
+      <Text>Diejenigen, die für die Freiheit kämpfen, stehen immer auf der richtigen Seite der Geschichte.</Text>
+    </Replace>
     <Replace Tag="LOC_LEADER_BOLIVAR_NAME" Language="de_DE">
       <Text>Simón Bolívar|Simón Bolívar|Simón Bolívar|Simón Bolívars|Simón Bolívar</Text>
       <Gender>masculine:no_article</Gender>
@@ -223,7 +226,7 @@
       <Text>Mit den Anführern handeln.</Text>
     </Replace>
     <Replace Tag="LOC_10036A_COMPLETION" Language="de_DE">
-      <Text>Nach einer harten und blutigen Schlacht erobern Bolívars Truppen {1_STORY_CITY} zurück, und die {2_civilization_adj[2]} Bürger jubeln, als die spanischen Eroberer gefangen genommen werden. Es ist ein guter Tag.</Text>
+      <Text>Nach einer harten und blutigen Schlacht erobern Bolívars Truppen {1_STORY_CITY} zurück, und die {2_Civilization_adj[2]}{2: gender *:no_space?; other? ;}Bürger jubeln, als die spanischen Eroberer gefangen genommen werden. Es ist ein guter Tag.</Text>
     </Replace>
     <Replace Tag="LOC_10036A_STORYTITLE" Language="de_DE">
       <Text>Eingeschworene Feinde</Text>
@@ -259,7 +262,7 @@
       <Text>Mutige Ideen sammeln</Text>
     </Replace>
     <Replace Tag="LOC_10038A_COMPLETION" Language="de_DE">
-      <Text>Als Bolívar triumphierend nach {1_capital} zurückkehrt, nickt er der Menge zu. Sie sind wieder - nein, sie waren schon immer - {2_civilization_adj[3]} Bürger.</Text>
+      <Text>Als Bolívar triumphierend nach {1_capital} zurückkehrt, nickt er der Menge zu. Sie sind wieder - nein, sie waren schon immer - {2_Civilization_adj[3]}{2: gender *:no_space?; other? ;}Bürger.</Text>
     </Replace>
     <Replace Tag="LOC_10038A_STORYTITLE" Language="de_DE">
       <Text>Rückkehr zur Form</Text>
@@ -592,7 +595,7 @@
       <Text>Eine offene Tür</Text>
     </Replace>
     <Replace Tag="LOC_LEADER_CHAIN_1228B_COMPLETION" Language="de_DE">
-      <Text>Eine große Energie, unverkennbar {1_CIVILIZATION_ADJ}, zieht über die Gleise, die Bolívars Reich durchziehen. Sein Volk war noch nie so geeint wie heute.</Text>
+      <Text>Eine große unverkennbar {1_CIVILIZATION_ADJ[3]}{1: gender *:no_space?; other? ;}Energie, zieht über die Gleise, die Bolívars Reich durchziehen. Sein Volk war noch nie so geeint wie heute.</Text>
     </Replace>
     <Replace Tag="LOC_LEADER_CHAIN_1228B_DESCRIPTION" Language="de_DE">
       <Text>{1_child_reward}</Text>
@@ -637,13 +640,13 @@
       <Text>+50 % [icon:YIELD_GOLD] Gold für die Umwandlung einer Gemeinde in eine Stadt.</Text>
     </Replace>
     <Replace Tag="LOC_ATTRIBUTENODE_BOLIVAR_L1_NAME" Language="de_DE">
-      <Text>Expansionsattribut-Knotenpunkt</Text>
+      <Text>Knotenpunkt: Expansionsattribut</Text>
     </Replace>
     <Replace Tag="LOC_ATTRIBUTENODE_BOLIVAR_L2_DESCRIPTION" Language="de_DE">
       <Text>+5 Kampfstärke für alle Einheiten gegen Bezirke.</Text>
     </Replace>
     <Replace Tag="LOC_ATTRIBUTENODE_BOLIVAR_L2_NAME" Language="de_DE">
-      <Text>Militärattribut-Knotenpunkt</Text>
+      <Text>Knotenpunkt: Militärattribut</Text>
     </Replace>
     <Replace Tag="LOC_BADGE_BOLIVAR_NAME" Language="de_DE">
       <Text>Bolívar-Abzeichen 1</Text>
@@ -658,25 +661,25 @@
       <Text>Erhaltet für dieses Zeitalter +15 % [icon:YIELD_FOOD] Nahrung auf Kosten von -10 % [icon:YIELD_GOLD] Gold</Text>
     </Replace>
     <Replace Tag="LOC_CARD_AT_EXP_LEGEND_BOLIVAR_1_NAME" Language="de_DE">
-      <Text>Ada Lovelace, Legende der Erkundung (expansionistisch)</Text>
+      <Text>Bolívar, Widmung der Erkundung (expansionistisch)</Text>
     </Replace>
     <Replace Tag="LOC_CARD_AT_EXP_LEGEND_BOLIVAR_2_DESCRIPTION" Language="de_DE">
       <Text>Erhaltet für dieses Zeitalter +3 Kampfstärke für Eure Marineeinheiten auf Kosten von -10 % [icon:YIELD_DIPLOMACY] Einfluss</Text>
     </Replace>
     <Replace Tag="LOC_CARD_AT_EXP_LEGEND_BOLIVAR_2_NAME" Language="de_DE">
-      <Text>Ada Lovelace, Legende der Erkundung (diplomatisch)</Text>
+      <Text>Bolívar, Widmung der Erkundung (diplomatisch)</Text>
     </Replace>
     <Replace Tag="LOC_CARD_AT_MOD_LEGEND_BOLIVAR_1_DESCRIPTION" Language="de_DE">
       <Text>Erhaltet für dieses Zeitalter +15 % [icon:YIELD_FOOD] Nahrung auf Kosten von -10 % [icon:YIELD_GOLD] Gold</Text>
     </Replace>
     <Replace Tag="LOC_CARD_AT_MOD_LEGEND_BOLIVAR_1_NAME" Language="de_DE">
-      <Text>Bolívar, Legende der Moderne (expansionistisch)</Text>
+      <Text>Bolívar, Widmung der Moderne (expansionistisch)</Text>
     </Replace>
     <Replace Tag="LOC_CARD_AT_MOD_LEGEND_BOLIVAR_2_DESCRIPTION" Language="de_DE">
       <Text>Erhaltet für dieses Zeitalter +3 Kampfstärke für Eure Lufteinheiten auf Kosten von -10 % [icon:YIELD_DIPLOMACY] Einfluss</Text>
     </Replace>
     <Replace Tag="LOC_CARD_AT_MOD_LEGEND_BOLIVAR_2_NAME" Language="de_DE">
-      <Text>Bolívar, Legende der Moderne (militärisch)</Text>
+      <Text>Bolívar, Widmung der Moderne (militärisch)</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_CORNERSTONE_FREEDOM_DESC" Language="de_DE">
       <Text>Mag den Anführer mit den wenigsten unzufriedenen Siedlungen. Mag den Anführer mit den meisten unzufriedenen Siedlungen nicht.</Text>
@@ -685,7 +688,7 @@
       <Text>Pfeiler der Freiheit</Text>
     </Replace>
     <Replace Tag="LOC_LEADER_BOLIVAR_DESCRIPTION" Language="de_DE">
-      <Text>Erhaltet 1 [icon:WAR_SUPPORT] Kriegsunterstützung für all Eure Kriege. Erobert Ihr eine Siedlung zum ersten Mal, kann diese 1 Bauobjekt gratis erwerben. [icon:YIELD_ANGRY] Unruhe verhindert den Erwerb nicht.</Text>
+      <Text>Erhaltet 2 [icon:WAR_SUPPORT] Kriegsunterstützung für alle [icon:WAR] Kriege, die Ihr erklärt. Erobert Ihr eine Siedlung zum ersten Mal, kann diese 1 [icon:CITY_BUILDING_LIST] Gebäude oder [icon:CITY_RURAL] Modernisierung gratis erwerben. [icon:YIELD_ANGRY] Unruhe verhindert den Erwerb nicht.</Text>
     </Replace>
     <Replace Tag="LOC_LOADING_LEADER_INTRO_TEXT_BOLIVAR" Language="de_DE">
       <Text>Die alte Welt ist untergegangen, und eine neue Welt entsteht. Simón Bolívar, großer Befreier, Ihr wagt es, gegen diejenigen zu kämpfen, die Eurem Traum Grenzen setzen wollen. Euer Charisma zieht Euer Volk an, Eure Kühnheit treibt es voran. Kämpft weiter, auch wenn der Kampf wie das Pflügen des Meeres scheint.</Text>
@@ -694,7 +697,7 @@
       <Text>Vermächtnis von Ayacucho.</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_BOLIVAR_DAVALOS_MEDAL_FUNCTIONAL_DESCRIPTION" Language="de_DE">
-      <Text>+1 [icon:YIELD_HAPPINESS] Zufriedenheit pro Zeitalter für Militärgebäude.</Text>
+      <Text>[B]+1 [icon:YIELD_HAPPINESS][/B] pro [TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]Zeitalter[/TIP] für [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]Militärgebäude[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_BOLIVAR_DAVALOS_MEDAL_NAME" Language="de_DE">
       <Text>Davalos-Medaille</Text>
@@ -706,7 +709,7 @@
       <Text>Königliches Geschenk.</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_BOLIVAR_GOLD_SNUFF_BOX_FUNCTIONAL_DESCRIPTION" Language="de_DE">
-      <Text>+20 % [icon:YIELD_FOOD] Nahrung, wenn in nur einer Allianz.</Text>
+      <Text>[B]+20 [icon:YIELD_FOOD][/B] pro [TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]Zeitalter[/TIP] in Städten, wenn in nur einer [icon:PLAYER_RELATIONSHIP_ALLIANCE] [TIP:LOC_PEDIA_CONCEPTS_ALLIANCE_TOOLTIP]Allianz[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_BOLIVAR_GOLD_SNUFF_BOX_NAME" Language="de_DE">
       <Text>Goldene Schnupftabakdose</Text>
@@ -718,7 +721,7 @@
       <Text>Zukunftsvision.</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_BOLIVAR_LETTER_TO_JAMAICA_FUNCTIONAL_DESCRIPTION" Language="de_DE">
-      <Text>+50 % [icon:YIELD_GOLD] Gold für den Erwerb von Einheiten während einer Feier.</Text>
+      <Text>[B]+50 % [icon:YIELD_GOLD][/B] für den Erwerb von Einheiten während einer [icon:CELEBRATION] [TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]Feier[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_BOLIVAR_LETTER_TO_JAMAICA_NAME" Language="de_DE">
       <Text>Brief nach Jamaika</Text>
@@ -780,293 +783,317 @@
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_AGE_COMPLETED_MODERN_NAME" Language="de_DE">
       <Text>Moderne abschließen</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_CULTURE_VICTORY_ANTIQUITY_2_DESC" Language="de_DE">
-      <Text>Schließt als Bolívar den Vermächtnis-Weg "Weltwunder der Antike" 2-mal ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_CULTURE_TRIUMPH_2_ANTIQUITY_DESC" Language="de_DE">
+      <Text>Schließt als Bolívar den Triumph "Orphische Mysterien" ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_CULTURE_VICTORY_ANTIQUITY_2_NAME" Language="de_DE">
-      <Text>Weltwunder der Antike 2</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_CULTURE_TRIUMPH_2_ANTIQUITY_NAME" Language="de_DE">
+      <Text>Orphische Mysterien</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_CULTURE_VICTORY_ANTIQUITY_3_DESC" Language="de_DE">
-      <Text>Schließt als Bolívar den Vermächtnis-Weg "Weltwunder der Antike" 3-mal ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_CULTURE_TRIUMPH_2_EXPLORATION_DESC" Language="de_DE">
+      <Text>Schließt als Bolívar den Triumph "Himmlisches Königreich" ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_CULTURE_VICTORY_ANTIQUITY_3_NAME" Language="de_DE">
-      <Text>Weltwunder der Antike 3</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_CULTURE_TRIUMPH_2_EXPLORATION_NAME" Language="de_DE">
+      <Text>Himmlisches Königreich</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_CULTURE_VICTORY_ANTIQUITY_DESC" Language="de_DE">
-      <Text>Schließt als Bolívar den Vermächtnis-Weg "Weltwunder der Antike" ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_CULTURE_TRIUMPH_2_MODERN_DESC" Language="de_DE">
+      <Text>Schließt als Bolívar den Triumph "Wunderland" ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_CULTURE_VICTORY_ANTIQUITY_NAME" Language="de_DE">
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_CULTURE_TRIUMPH_2_MODERN_NAME" Language="de_DE">
+      <Text>Wunderland</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_CULTURE_TRIUMPH_ANTIQUITY_DESC" Language="de_DE">
+      <Text>Schließt als Bolívar den Triumph "Weltwunder der Antike" ab.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_CULTURE_TRIUMPH_ANTIQUITY_NAME" Language="de_DE">
       <Text>Weltwunder der Antike</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_CULTURE_VICTORY_EXPLORATION_2_DESC" Language="de_DE">
-      <Text>Schließt als Bolívar den Vermächtnis-Weg "Toshakhana" 2-mal ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_CULTURE_TRIUMPH_EXPLORATION_DESC" Language="de_DE">
+      <Text>Schließt als Bolívar den Triumph "Toshakhana" ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_CULTURE_VICTORY_EXPLORATION_2_NAME" Language="de_DE">
-      <Text>Toshakhana 2</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_CULTURE_VICTORY_EXPLORATION_3_DESC" Language="de_DE">
-      <Text>Schließt als Bolívar den Vermächtnis-Weg "Toshakhana" 3-mal ab.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_CULTURE_VICTORY_EXPLORATION_3_NAME" Language="de_DE">
-      <Text>Toshakhana 3</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_CULTURE_VICTORY_EXPLORATION_DESC" Language="de_DE">
-      <Text>Schließt als Bolívar den Vermächtnis-Weg "Toshakhana" ab.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_CULTURE_VICTORY_EXPLORATION_NAME" Language="de_DE">
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_CULTURE_TRIUMPH_EXPLORATION_NAME" Language="de_DE">
       <Text>Toshakhana</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_CULTURE_VICTORY_MODERN_2_DESC" Language="de_DE">
-      <Text>Schließt als Bolívar den Vermächtnis-Weg "Geografische Gesellschaft" 2-mal ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_CULTURE_TRIUMPH_MODERN_DESC" Language="de_DE">
+      <Text>Schließt als Bolívar den Triumph "Geografische Gesellschaft" ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_CULTURE_VICTORY_MODERN_2_NAME" Language="de_DE">
-      <Text>Geografische Gesellschaft 2</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_CULTURE_VICTORY_MODERN_3_DESC" Language="de_DE">
-      <Text>Schließt als Bolívar den Vermächtnis-Weg "Geografische Gesellschaft" 3-mal ab.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_CULTURE_VICTORY_MODERN_3_NAME" Language="de_DE">
-      <Text>Geografische Gesellschaft 3</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_CULTURE_VICTORY_MODERN_DESC" Language="de_DE">
-      <Text>Schließt als Bolívar den Vermächtnis-Weg "Geografische Gesellschaft" ab.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_CULTURE_VICTORY_MODERN_NAME" Language="de_DE">
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_CULTURE_TRIUMPH_MODERN_NAME" Language="de_DE">
       <Text>Geografische Gesellschaft</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_ECONOMIC_VICTORY_ANTIQUITY_2_DESC" Language="de_DE">
-      <Text>Schließt als Bolívar den Vermächtnis-Weg "Seidenstraßen" 2-mal ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_CULTURE_VICTORY_DESC" Language="de_DE">
+      <Text>Erlangt als Bolívar einen Kultursieg.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_ECONOMIC_VICTORY_ANTIQUITY_2_NAME" Language="de_DE">
-      <Text>Seidenstraßen 2</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_CULTURE_VICTORY_NAME" Language="de_DE">
+      <Text>Kultursieg</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_ECONOMIC_VICTORY_ANTIQUITY_3_DESC" Language="de_DE">
-      <Text>Schließt als Bolívar den Vermächtnis-Weg "Seidenstraßen" 3-mal ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_DEITY_VICTORY_DESC" Language="de_DE">
+      <Text>Erlangt als Bolívar einen Sieg mit dem Schwierigkeitsgrad "Gottheit".</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_ECONOMIC_VICTORY_ANTIQUITY_3_NAME" Language="de_DE">
-      <Text>Seidenstraßen 3</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_DEITY_VICTORY_NAME" Language="de_DE">
+      <Text>Gottheitssieg</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_ECONOMIC_VICTORY_ANTIQUITY_DESC" Language="de_DE">
-      <Text>Schließt als Bolívar den Vermächtnis-Weg "Seidenstraßen" ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_DIPLOMATIC_TRIUMPH_2_ANTIQUITY_DESC" Language="de_DE">
+      <Text>Schließt als Bolívar den Triumph "Brot und Spiele" ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_ECONOMIC_VICTORY_ANTIQUITY_NAME" Language="de_DE">
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_DIPLOMATIC_TRIUMPH_2_ANTIQUITY_NAME" Language="de_DE">
+      <Text>Brot und Spiele</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_DIPLOMATIC_TRIUMPH_2_EXPLORATION_DESC" Language="de_DE">
+      <Text>Schließt als Bolívar den Triumph "Vierfache Allianz" ab.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_DIPLOMATIC_TRIUMPH_2_EXPLORATION_NAME" Language="de_DE">
+      <Text>Vierfache Allianz</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_DIPLOMATIC_TRIUMPH_2_MODERN_DESC" Language="de_DE">
+      <Text>Schließt als Bolívar den Triumph "Enigma-Code" ab.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_DIPLOMATIC_TRIUMPH_2_MODERN_NAME" Language="de_DE">
+      <Text>Enigma-Code</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_DIPLOMATIC_TRIUMPH_ANTIQUITY_DESC" Language="de_DE">
+      <Text>Schließt als Bolívar den Triumph "Strippenziehen" ab.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_DIPLOMATIC_TRIUMPH_ANTIQUITY_NAME" Language="de_DE">
+      <Text>Strippenziehen</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_DIPLOMATIC_TRIUMPH_EXPLORATION_DESC" Language="de_DE">
+      <Text>Schließt als Bolívar den Triumph "Orden der Assassinen" ab.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_DIPLOMATIC_TRIUMPH_EXPLORATION_NAME" Language="de_DE">
+      <Text>Orden der Assassinen</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_DIPLOMATIC_TRIUMPH_MODERN_DESC" Language="de_DE">
+      <Text>Schließt als Bolívar den Triumph "Völkerbund" ab.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_DIPLOMATIC_TRIUMPH_MODERN_NAME" Language="de_DE">
+      <Text>Völkerbund</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_ECONOMIC_TRIUMPH_2_ANTIQUITY_DESC" Language="de_DE">
+      <Text>Schließt als Bolívar den Triumph "Gier ist Gold" ab.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_ECONOMIC_TRIUMPH_2_ANTIQUITY_NAME" Language="de_DE">
+      <Text>Gier ist Gold</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_ECONOMIC_TRIUMPH_2_EXPLORATION_DESC" Language="de_DE">
+      <Text>Schließt als Bolívar den Triumph "Kalikutieren wir ein Geschäft" ab.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_ECONOMIC_TRIUMPH_2_EXPLORATION_NAME" Language="de_DE">
+      <Text>Kalikutieren wir ein Geschäft</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_ECONOMIC_TRIUMPH_2_MODERN_DESC" Language="de_DE">
+      <Text>Schließt als Bolívar den Triumph "Werkstatt der Welt" ab.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_ECONOMIC_TRIUMPH_2_MODERN_NAME" Language="de_DE">
+      <Text>Werkstatt der Welt</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_ECONOMIC_TRIUMPH_ANTIQUITY_DESC" Language="de_DE">
+      <Text>Schließt als Bolívar den Triumph "Seidenstraßen" ab.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_ECONOMIC_TRIUMPH_ANTIQUITY_NAME" Language="de_DE">
       <Text>Seidenstraßen</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_ECONOMIC_VICTORY_EXPLORATION_2_DESC" Language="de_DE">
-      <Text>Schließt als Bolívar den Vermächtnis-Weg "Schatzflotte" 2-mal ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_ECONOMIC_TRIUMPH_EXPLORATION_DESC" Language="de_DE">
+      <Text>Schließt als Bolívar den Triumph "Schatzflotte" ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_ECONOMIC_VICTORY_EXPLORATION_2_NAME" Language="de_DE">
-      <Text>Schatzflotte 2</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_ECONOMIC_VICTORY_EXPLORATION_3_DESC" Language="de_DE">
-      <Text>Schließt als Bolívar den Vermächtnis-Weg "Schatzflotte" 3-mal ab.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_ECONOMIC_VICTORY_EXPLORATION_3_NAME" Language="de_DE">
-      <Text>Schatzflotte 3</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_ECONOMIC_VICTORY_EXPLORATION_DESC" Language="de_DE">
-      <Text>Schließt als Bolívar den Vermächtnis-Weg "Schatzflotte" ab.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_ECONOMIC_VICTORY_EXPLORATION_NAME" Language="de_DE">
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_ECONOMIC_TRIUMPH_EXPLORATION_NAME" Language="de_DE">
       <Text>Schatzflotte</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_ECONOMIC_VICTORY_MODERN_2_DESC" Language="de_DE">
-      <Text>Schließt als Bolívar den Vermächtnis-Weg "Eisenbahnmagnat" 2-mal ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_ECONOMIC_TRIUMPH_MODERN_DESC" Language="de_DE">
+      <Text>Schließt als Bolívar den Triumph "Eisenbahnmagnat" ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_ECONOMIC_VICTORY_MODERN_2_NAME" Language="de_DE">
-      <Text>Eisenbahnmagnat 2</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_ECONOMIC_VICTORY_MODERN_3_DESC" Language="de_DE">
-      <Text>Schließt als Bolívar den Vermächtnis-Weg "Eisenbahnmagnat" 3-mal ab.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_ECONOMIC_VICTORY_MODERN_3_NAME" Language="de_DE">
-      <Text>Eisenbahnmagnat 3</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_ECONOMIC_VICTORY_MODERN_DESC" Language="de_DE">
-      <Text>Schließt als Bolívar den Vermächtnis-Weg "Eisenbahnmagnat" ab.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_ECONOMIC_VICTORY_MODERN_NAME" Language="de_DE">
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_ECONOMIC_TRIUMPH_MODERN_NAME" Language="de_DE">
       <Text>Eisenbahnmagnat</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_FLAWLESS_VICTORY_ANTIQUITY_DESC" Language="de_DE">
-      <Text>Schließt als Bolívar 2 Vermächtnis-Wege in einem einzigen Zeitalter der Antike ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_ECONOMIC_VICTORY_DESC" Language="de_DE">
+      <Text>Erlangt als Bolívar einen Wirtschaftssieg.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_FLAWLESS_VICTORY_ANTIQUITY_NAME" Language="de_DE">
-      <Text>Zwei Vermächtnis-Wege, Antike</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_ECONOMIC_VICTORY_NAME" Language="de_DE">
+      <Text>Wirtschaftssieg</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_FLAWLESS_VICTORY_EXPLORATION_DESC" Language="de_DE">
-      <Text>Schließt als Bolívar 2 Vermächtnis-Wege in einem einzigen Zeitalter der Erkundung ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_EXPANSIONIST_TRIUMPH_2_ANTIQUITY_DESC" Language="de_DE">
+      <Text>Schließt als Bolívar den Triumph "Turm zu Babel" ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_FLAWLESS_VICTORY_EXPLORATION_NAME" Language="de_DE">
-      <Text>Zwei Vermächtnis-Wege, Erkundung</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_EXPANSIONIST_TRIUMPH_2_ANTIQUITY_NAME" Language="de_DE">
+      <Text>Turm zu Babel</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_FLAWLESS_VICTORY_MODERN_DESC" Language="de_DE">
-      <Text>Schließt als Bolívar 2 Vermächtnis-Wege in einem einzigen Zeitalter der Moderne ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_EXPANSIONIST_TRIUMPH_2_EXPLORATION_DESC" Language="de_DE">
+      <Text>Schließt als Bolívar den Triumph "Wir haben Habsburger im Haus" ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_FLAWLESS_VICTORY_MODERN_NAME" Language="de_DE">
-      <Text>Zwei Vermächtnis-Wege, Moderne</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_EXPANSIONIST_TRIUMPH_2_EXPLORATION_NAME" Language="de_DE">
+      <Text>Wir haben Habsburger im Haus</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_MILITARY_VICTORY_ANTIQUITY_2_DESC" Language="de_DE">
-      <Text>Schließt als Bolívar den Vermächtnis-Weg "Pax Imperatoria" 2-mal ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_EXPANSIONIST_TRIUMPH_2_MODERN_DESC" Language="de_DE">
+      <Text>Schließt als Bolívar den Triumph "Megalopolis" ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_MILITARY_VICTORY_ANTIQUITY_2_NAME" Language="de_DE">
-      <Text>Pax Imperatoria 2</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_EXPANSIONIST_TRIUMPH_2_MODERN_NAME" Language="de_DE">
+      <Text>Megalopolis</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_MILITARY_VICTORY_ANTIQUITY_3_DESC" Language="de_DE">
-      <Text>Schließt als Bolívar den Vermächtnis-Weg "Pax Imperatoria" 3-mal ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_EXPANSIONIST_TRIUMPH_ANTIQUITY_DESC" Language="de_DE">
+      <Text>Schließt als Bolívar den Triumph "Vier Ecken der Welt" ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_MILITARY_VICTORY_ANTIQUITY_3_NAME" Language="de_DE">
-      <Text>Pax Imperatoria 3</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_EXPANSIONIST_TRIUMPH_ANTIQUITY_NAME" Language="de_DE">
+      <Text>Vier Ecken der Welt</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_MILITARY_VICTORY_ANTIQUITY_DESC" Language="de_DE">
-      <Text>Schließt als Bolívar den Vermächtnis-Weg "Pax Imperatoria" ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_EXPANSIONIST_TRIUMPH_EXPLORATION_DESC" Language="de_DE">
+      <Text>Schließt als Bolívar den Triumph "Hic Sunt Dracones" ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_MILITARY_VICTORY_ANTIQUITY_NAME" Language="de_DE">
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_EXPANSIONIST_TRIUMPH_EXPLORATION_NAME" Language="de_DE">
+      <Text>Hic Sunt Dracones</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_EXPANSIONIST_TRIUMPH_MODERN_DESC" Language="de_DE">
+      <Text>Schließt als Bolívar den Triumph "Nie untergehende Sonne" ab.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_EXPANSIONIST_TRIUMPH_MODERN_NAME" Language="de_DE">
+      <Text>Nie untergehende Sonne</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_FOUR_MAJOR_TRIUMPHS_ANTIQUITY_DESC" Language="de_DE">
+      <Text>Schließt als Bolívar 4 Große Triumphe in einem einzigen Zeitalter der Antike ab.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_FOUR_MAJOR_TRIUMPHS_ANTIQUITY_NAME" Language="de_DE">
+      <Text>Triumphierend, Antike</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_FOUR_MAJOR_TRIUMPHS_EXPLORATION_DESC" Language="de_DE">
+      <Text>Schließt als Bolívar 4 Große Triumphe in einem einzigen Zeitalter der Erkundung ab.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_FOUR_MAJOR_TRIUMPHS_EXPLORATION_NAME" Language="de_DE">
+      <Text>Triumphierend, Erkundung</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_MILITARY_TRIUMPH_2_ANTIQUITY_DESC" Language="de_DE">
+      <Text>Schließt als Bolívar den Triumph "Was für ein Gaius" ab.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_MILITARY_TRIUMPH_2_ANTIQUITY_NAME" Language="de_DE">
+      <Text>Was für ein Gaius</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_MILITARY_TRIUMPH_2_EXPLORATION_DESC" Language="de_DE">
+      <Text>Schließt als Bolívar den Triumph "Pax Mongolica" ab.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_MILITARY_TRIUMPH_2_EXPLORATION_NAME" Language="de_DE">
+      <Text>Pax Mongolica</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_MILITARY_TRIUMPH_2_MODERN_DESC" Language="de_DE">
+      <Text>Schließt als Bolívar den Triumph "Feind der Welt" ab.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_MILITARY_TRIUMPH_2_MODERN_NAME" Language="de_DE">
+      <Text>Feind der Welt</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_MILITARY_TRIUMPH_ANTIQUITY_DESC" Language="de_DE">
+      <Text>Schließt als Bolívar den Triumph "Pax Imperatoria" ab.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_MILITARY_TRIUMPH_ANTIQUITY_NAME" Language="de_DE">
       <Text>Pax Imperatoria</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_MILITARY_VICTORY_EXPLORATION_2_DESC" Language="de_DE">
-      <Text>Schließt als Bolívar den Vermächtnis-Weg "Non Sufficit Orbis" 2-mal ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_MILITARY_TRIUMPH_EXPLORATION_DESC" Language="de_DE">
+      <Text>Schließt als Bolívar den Triumph "Non Sufficit Orbis" ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_MILITARY_VICTORY_EXPLORATION_2_NAME" Language="de_DE">
-      <Text>Non Sufficit Orbis 2</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_MILITARY_VICTORY_EXPLORATION_3_DESC" Language="de_DE">
-      <Text>Schließt als Bolívar den Vermächtnis-Weg "Non Sufficit Orbis" 3-mal ab.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_MILITARY_VICTORY_EXPLORATION_3_NAME" Language="de_DE">
-      <Text>Non Sufficit Orbis 3</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_MILITARY_VICTORY_EXPLORATION_DESC" Language="de_DE">
-      <Text>Schließt als Bolívar den Vermächtnis-Weg "Non Sufficit Orbis" ab.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_MILITARY_VICTORY_EXPLORATION_NAME" Language="de_DE">
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_MILITARY_TRIUMPH_EXPLORATION_NAME" Language="de_DE">
       <Text>Non Sufficit Orbis</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_MILITARY_VICTORY_MODERN_2_DESC" Language="de_DE">
-      <Text>Schließt als Bolívar den Vermächtnis-Weg "Ideologie" 2-mal ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_MILITARY_TRIUMPH_MODERN_DESC" Language="de_DE">
+      <Text>Schließt als Bolívar den Triumph "Moralischer Imperativ" ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_MILITARY_VICTORY_MODERN_2_NAME" Language="de_DE">
-      <Text>Ideologie 2</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_MILITARY_TRIUMPH_MODERN_NAME" Language="de_DE">
+      <Text>Moralischer Imperativ</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_MILITARY_VICTORY_MODERN_3_DESC" Language="de_DE">
-      <Text>Schließt als Bolívar den Vermächtnis-Weg "Ideologie" 3-mal ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_MILITARY_VICTORY_DESC" Language="de_DE">
+      <Text>Erlangt als Bolívar einen Militärsieg.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_MILITARY_VICTORY_MODERN_3_NAME" Language="de_DE">
-      <Text>Ideologie 3</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_MILITARY_VICTORY_MODERN_DESC" Language="de_DE">
-      <Text>Schließt als Bolívar den Vermächtnis-Weg "Ideologie" ab.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_MILITARY_VICTORY_MODERN_NAME" Language="de_DE">
-      <Text>Ideologie</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_MILITARY_VICTORY_NAME" Language="de_DE">
+      <Text>Militärsieg</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_PLAY_GAMES_1_DESC" Language="de_DE">
-      <Text>Erreicht als Bolívar mindestens 1 Vermächtnis-Weg-Meilenstein.</Text>
+      <Text>Schließt als Bolívar 1 Großen Triumph ab.</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_PLAY_GAMES_1_NAME" Language="de_DE">
       <Text>Spiel 1 spielen</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_PLAY_GAMES_2_DESC" Language="de_DE">
-      <Text>Erreicht als Bolívar mindestens 2 Vermächtnis-Weg-Meilensteine.</Text>
+      <Text>Schließt als Bolívar 5 Große Triumphe über beliebig viele Zeitalter ab.</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_PLAY_GAMES_2_NAME" Language="de_DE">
       <Text>Spiel 2 spielen</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_PLAY_GAMES_3_DESC" Language="de_DE">
-      <Text>Erreicht als Bolívar mindestens 3 Vermächtnis-Weg-Meilensteine.</Text>
+      <Text>Schließt als Bolívar 25 Große Triumphe über beliebig viele Zeitalter ab.</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_PLAY_GAMES_3_NAME" Language="de_DE">
       <Text>Spiel 3 spielen</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_QUEST_A_ANTIQUITY_DESC" Language="de_DE">
-      <Text>Schließt als Simón Bolívar im Zeitalter der Antike eine Quest ab, um die Landbevölkerung zu erreichen.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_SCIENCE_TRIUMPH_2_ANTIQUITY_DESC" Language="de_DE">
+      <Text>Schließt als Bolívar den Triumph "Runderdler" ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_QUEST_A_ANTIQUITY_NAME" Language="de_DE">
-      <Text>Ein Volk</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_SCIENCE_TRIUMPH_2_ANTIQUITY_NAME" Language="de_DE">
+      <Text>Runderdler</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_QUEST_A_EXPLORATION_DESC" Language="de_DE">
-      <Text>Schließt als Simón Bolívar im Zeitalter der Erkundung eine Quest ab, um gefährliche Ozeane zu navigieren.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_SCIENCE_TRIUMPH_2_EXPLORATION_DESC" Language="de_DE">
+      <Text>Schließt als Bolívar den Triumph "De revolutionibus orbium coelestium" ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_QUEST_A_EXPLORATION_NAME" Language="de_DE">
-      <Text>Wenn nötig</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_SCIENCE_TRIUMPH_2_EXPLORATION_NAME" Language="de_DE">
+      <Text>De revolutionibus orbium coelestium</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_QUEST_A_MODERN_DESC" Language="de_DE">
-      <Text>Schließt als Simón Bolívar im Zeitalter der Moderne eine Quest ab, um das Reich durch die Eisenbahn zu vereinen.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_SCIENCE_TRIUMPH_2_MODERN_DESC" Language="de_DE">
+      <Text>Schließt als Bolívar den Triumph "Jenseits des Schwertes" ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_QUEST_A_MODERN_NAME" Language="de_DE">
-      <Text>Eine offene Tür</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_SCIENCE_TRIUMPH_2_MODERN_NAME" Language="de_DE">
+      <Text>Jenseits des Schwertes</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_QUEST_B_ANTIQUITY_DESC" Language="de_DE">
-      <Text>Schließt als Simón Bolívar im Zeitalter der Antike eine Quest ab, um den Staub der Schlacht zu senken.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_SCIENCE_TRIUMPH_ANTIQUITY_DESC" Language="de_DE">
+      <Text>Schließt als Bolívar den Triumph "Bibliothek von Assurbanipal" ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_QUEST_B_ANTIQUITY_NAME" Language="de_DE">
-      <Text>Für alles bereit</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_SCIENCE_TRIUMPH_ANTIQUITY_NAME" Language="de_DE">
+      <Text>Bibliothek von Assurbanipal</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_QUEST_B_EXPLORATION_DESC" Language="de_DE">
-      <Text>Schließt als Simón Bolívar im Zeitalter der Erkundung eine Quest ab, um einen Militär-Veteranen zu befördern.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_SCIENCE_TRIUMPH_EXPLORATION_DESC" Language="de_DE">
+      <Text>Schließt als Bolívar den Triumph "Aufklärung" ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_QUEST_B_EXPLORATION_NAME" Language="de_DE">
-      <Text>Ein Pfeilbündel</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_QUEST_B_MODERN_DESC" Language="de_DE">
-      <Text>Schließt als Simón Bolívar im Zeitalter der Moderne eine Quest ab, um für Eure Überzeugungen zu kämpfen.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_QUEST_B_MODERN_NAME" Language="de_DE">
-      <Text>Unerschütterliche Entschlossenheit</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_SCIENCE_VICTORY_ANTIQUITY_2_DESC" Language="de_DE">
-      <Text>Schließt als Bolívar den Vermächtnis-Weg "Große Bibliothek" 2-mal ab.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_SCIENCE_VICTORY_ANTIQUITY_2_NAME" Language="de_DE">
-      <Text>Große Bibliothek 2</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_SCIENCE_VICTORY_ANTIQUITY_3_DESC" Language="de_DE">
-      <Text>Schließt als Bolívar den Vermächtnis-Weg "Große Bibliothek" 3-mal ab.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_SCIENCE_VICTORY_ANTIQUITY_3_NAME" Language="de_DE">
-      <Text>Große Bibliothek 3</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_SCIENCE_VICTORY_ANTIQUITY_DESC" Language="de_DE">
-      <Text>Schließt als Bolívar den Vermächtnis-Weg "Große Bibliothek" ab.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_SCIENCE_VICTORY_ANTIQUITY_NAME" Language="de_DE">
-      <Text>Große Bibliothek</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_SCIENCE_VICTORY_EXPLORATION_2_DESC" Language="de_DE">
-      <Text>Schließt als Bolívar den Vermächtnis-Weg "Aufklärung" 2-mal ab.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_SCIENCE_VICTORY_EXPLORATION_2_NAME" Language="de_DE">
-      <Text>Aufklärung 2</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_SCIENCE_VICTORY_EXPLORATION_3_DESC" Language="de_DE">
-      <Text>Schließt als Bolívar den Vermächtnis-Weg "Aufklärung" 3-mal ab.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_SCIENCE_VICTORY_EXPLORATION_3_NAME" Language="de_DE">
-      <Text>Aufklärung 3</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_SCIENCE_VICTORY_EXPLORATION_DESC" Language="de_DE">
-      <Text>Schließt als Bolívar den Vermächtnis-Weg "Aufklärung" ab.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_SCIENCE_VICTORY_EXPLORATION_NAME" Language="de_DE">
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_SCIENCE_TRIUMPH_EXPLORATION_NAME" Language="de_DE">
       <Text>Aufklärung</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_SCIENCE_VICTORY_MODERN_2_DESC" Language="de_DE">
-      <Text>Schließt als Bolívar den Vermächtnis-Weg "Weltraumrennen" 2-mal ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_SCIENCE_TRIUMPH_MODERN_DESC" Language="de_DE">
+      <Text>Schließt als Bolívar den Triumph "Weltraumrennen am Horizont" ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_SCIENCE_VICTORY_MODERN_2_NAME" Language="de_DE">
-      <Text>Weltraumrennen 2</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_SCIENCE_TRIUMPH_MODERN_NAME" Language="de_DE">
+      <Text>Weltraumrennen am Horizont</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_SCIENCE_VICTORY_MODERN_3_DESC" Language="de_DE">
-      <Text>Schließt als Bolívar den Vermächtnis-Weg "Weltraumrennen" 3-mal ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_SCIENCE_VICTORY_DESC" Language="de_DE">
+      <Text>Erlangt als Bolívar einen Wissenschaftssieg.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_SCIENCE_VICTORY_MODERN_3_NAME" Language="de_DE">
-      <Text>Weltraumrennen 3</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_SCIENCE_VICTORY_NAME" Language="de_DE">
+      <Text>Wissenschaftssieg</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_SCIENCE_VICTORY_MODERN_DESC" Language="de_DE">
-      <Text>Schließt als Bolívar den Vermächtnis-Weg "Weltraumrennen" ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_BOLIVAR_QUEST_A_ANTIQUITY_DESC" Language="de_DE">
+      <Text>Schließt als Bolívar im Zeitalter der Antike eine Quest ab, um die Landbevölkerung zu erreichen.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_SCIENCE_VICTORY_MODERN_NAME" Language="de_DE">
-      <Text>Weltraumrennen</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_BOLIVAR_QUEST_A_ANTIQUITY_NAME" Language="de_DE">
+      <Text>Ein Volk</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_BOLIVAR_QUEST_A_EXPLORATION_DESC" Language="de_DE">
+      <Text>Schließt als Bolívar im Zeitalter der Erkundung eine Quest ab, um ferne Verbündete zu finden.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_BOLIVAR_QUEST_A_EXPLORATION_NAME" Language="de_DE">
+      <Text>Besucher</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_BOLIVAR_QUEST_A_MODERN_DESC" Language="de_DE">
+      <Text>Schließt als Bolívar im Zeitalter der Moderne eine Quest ab, um das Reich durch die Eisenbahn zu vereinen.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_BOLIVAR_QUEST_A_MODERN_NAME" Language="de_DE">
+      <Text>Eine offene Tür</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_BOLIVAR_QUEST_B_ANTIQUITY_DESC" Language="de_DE">
+      <Text>Schließt als Bolívar im Zeitalter der Antike eine Quest ab, um den Staub der Schlacht zu senken.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_BOLIVAR_QUEST_B_ANTIQUITY_NAME" Language="de_DE">
+      <Text>Zu allem bereit</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_BOLIVAR_QUEST_B_EXPLORATION_DESC" Language="de_DE">
+      <Text>Schließt als Bolívar im Zeitalter der Erkundung eine Quest ab, um Euch gegen Unterdrückung zu stellen.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_BOLIVAR_QUEST_B_EXPLORATION_NAME" Language="de_DE">
+      <Text>Stellung beziehen</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_BOLIVAR_QUEST_B_MODERN_DESC" Language="de_DE">
+      <Text>Schließt als Bolívar im Zeitalter der Moderne eine Quest ab, um für Eure Überzeugungen zu kämpfen.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_BOLIVAR_QUEST_B_MODERN_NAME" Language="de_DE">
+      <Text>Unerschütterliche Entschlossenheit</Text>
     </Replace>
     <Replace Tag="LOC_MOD_ATTRIBUTE_EXPANSIONIST_LEGEND_BOLIVAR_L1_DESCRIPTION" Language="de_DE">
       <Text>Freigeschaltet durch Legenden-Fortschritt. +50 % [icon:YIELD_GOLD] Gold für die Umwandlung einer [icon:YIELD_TOWNS] Gemeinde in eine [icon:YIELD_CITIES] Stadt.</Text>
@@ -1078,38 +1105,38 @@
       <Text>Der Befreier</Text>
     </Replace>
     <Replace Tag="LOC_STRATEGYCARD_BOLIVAR_EXPLORATION_1_DESCRIPTION" Language="de_DE">
-      <Text>Erhaltet als Bolívar Zugang zu einer neuen Vermächtniskarte der Erkundung:[n]
+      <Text>Erhaltet als Bolívar Zugang zu einer neuen Widmung der Erkundung:[n]
 				+15 % Gold, -10 % Nahrung</Text>
     </Replace>
     <Replace Tag="LOC_STRATEGYCARD_BOLIVAR_EXPLORATION_1_NAME" Language="de_DE">
-      <Text>Expansionsvermächtniskarte der Erkundung</Text>
+      <Text>Expansionswidmung der Erkundung</Text>
     </Replace>
     <Replace Tag="LOC_STRATEGYCARD_BOLIVAR_EXPLORATION_2_DESCRIPTION" Language="de_DE">
-      <Text>Erhaltet als Bolívar Zugang zu einer neuen Vermächtniskarte der Erkundung:[n]
+      <Text>Erhaltet als Bolívar Zugang zu einer neuen Widmung der Erkundung:[n]
 				+3 Kampfstärke für Eure Marineeinheiten, -10 % Einfluss</Text>
     </Replace>
     <Replace Tag="LOC_STRATEGYCARD_BOLIVAR_EXPLORATION_2_NAME" Language="de_DE">
-      <Text>Militärvermächtniskarte der Erkundung</Text>
+      <Text>Militärwidmung der Erkundung</Text>
     </Replace>
     <Replace Tag="LOC_STRATEGYCARD_BOLIVAR_MODERN_1_DESCRIPTION" Language="de_DE">
-      <Text>Erhaltet als Bolívar Zugang zu einer neuen Vermächtniskarte der Moderne:[n]
+      <Text>Erhaltet als Bolívar Zugang zu einer neuen Widmung der Moderne:[n]
 				+15 % Nahrung, -10 % Gold</Text>
     </Replace>
     <Replace Tag="LOC_STRATEGYCARD_BOLIVAR_MODERN_1_NAME" Language="de_DE">
-      <Text>Expansionsvermächtniskarte der Moderne</Text>
+      <Text>Expansionswidmung der Moderne</Text>
     </Replace>
     <Replace Tag="LOC_STRATEGYCARD_BOLIVAR_MODERN_2_DESCRIPTION" Language="de_DE">
-      <Text>Erhaltet als Bolívar Zugang zu einer neuen Vermächtniskarte der Moderne:[n]
+      <Text>Erhaltet als Bolívar Zugang zu einer neuen Widmung der Moderne:[n]
 				+3 Kampfstärke für Eure Lufteinheiten, -10 % Einfluss</Text>
     </Replace>
     <Replace Tag="LOC_STRATEGYCARD_BOLIVAR_MODERN_2_NAME" Language="de_DE">
-      <Text>Militärvermächtniskarte der Moderne</Text>
+      <Text>Militärwidmung der Moderne</Text>
     </Replace>
     <Replace Tag="LOC_TITLE_BOLIVAR_NAME" Language="de_DE">
       <Text>Der Befreier</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_LEADER_BOLIVAR_ABILITY_DESCRIPTION" Language="de_DE">
-      <Text>[BLIST][LI]Erhaltet [B]1 [icon:WAR_SUPPORT] Kriegsunterstützung[/B] für all Eure Kriege. [LI]Erobert Ihr eine Siedlung zum ersten Mal, kann diese [B]1 Bauobjekt gratis erwerben[/B].[LI][icon:YIELD_ANGRY] [B]Unruhe[/B] verhindert den Erwerb nicht. [/LIST]</Text>
+      <Text>[BLIST][LI]Erhaltet [B]2 [icon:WAR_SUPPORT] Kriegsunterstützung[/B] für alle [icon:WAR] [B]Kriege[/B], die Ihr erklärt. [LI]Erobert Ihr eine Siedlung zum ersten Mal, kann diese [B]1 [icon:CITY_BUILDING_LIST] Gebäude oder [icon:CITY_RURAL] Modernisierung gratis erwerben[/B].[LI][icon:YIELD_ANGRY] [B]Unruhe[/B] verhindert den Erwerb nicht.[/LIST]</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_LEADER_BOLIVAR_ABILITY_NAME" Language="de_DE">
       <Text>El Libertador</Text>

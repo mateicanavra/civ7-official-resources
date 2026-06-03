@@ -1,58 +1,25 @@
 import ContextManager from '../../../core/ui/context-manager/context-manager.js';
-import { D as DialogBoxAction, a as DialogBoxManager } from '../../../core/ui/dialog-box/manager-dialog-box.chunk.js';
+import { DisplayQueueManager } from '../../../core/ui/context-manager/display-queue-manager.js';
+import { DialogBoxManager } from '../../../core/ui/dialog-box/manager-dialog-box.js';
 import ActionHandler from '../../../core/ui/input/action-handler.js';
 import { PlotCursor } from '../../../core/ui/input/plot-cursor.js';
 import { InterfaceMode } from '../../../core/ui/interface-modes/interface-modes.js';
-import { C as ComponentID } from '../../../core/ui/utilities/utilities-component-id.chunk.js';
+import { ComponentID } from '../../../core/ui/utilities/utilities-component-id.js';
 import { NetworkUtilities } from '../../../core/ui/utilities/utilities-network.js';
-import { P as PlotCoord } from '../../../core/ui/utilities/utilities-plotcoord.chunk.js';
+import { PlotCoord } from '../../../core/ui/utilities/utilities-plotcoord.js';
+import AdviceManager from '../advice/advice-manager.js';
 import { AGE_TRANSITION_BANNER_FADE_OUT_DURATION } from '../age-transition-banner/age-transition-banner.js';
 import { RaiseDiplomacyEvent } from '../diplomacy/diplomacy-events.js';
 import DiplomacyManager from '../diplomacy/diplomacy-manager.js';
-import { N as NarrativePopupManager } from '../narrative-event/narrative-popup-manager.chunk.js';
+import { NarrativePopupManager } from '../narrative-event/narrative-popup-manager.js';
 import { NotificationModel } from './model-notification-train.js';
-import { P as PolicyTabPlacement } from '../policies/model-policies.chunk.js';
+import { setActivePolicyTab } from '../policies/model-government.js';
 import PopupSequencer from '../popup-sequencer/popup-sequencer.js';
-import { T as TechTree } from '../tech-tree/model-tech-tree.chunk.js';
+import TechTree from '../tech-tree/model-tech-tree.js';
 import { TutorialAdvisorType } from '../tutorial/tutorial-item.js';
 import { VictoryProgressOpenTab } from '../victory-progress/screen-victory-progress.js';
 import WatchOutManager from '../watch-out/watch-out-manager.js';
-import '../../../core/ui/context-manager/display-queue-manager.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/input/cursor.js';
-import '../../../core/ui/input/focus-manager.js';
-import '../../../core/ui/audio-base/audio-support.chunk.js';
-import '../../../core/ui/views/view-manager.chunk.js';
-import '../../../core/ui/panel-support.chunk.js';
-import '../../../core/ui/input/input-support.chunk.js';
-import '../../../core/ui/utilities/utilities-update-gate.chunk.js';
-import '../../../core/ui/shell/mp-legal/mp-legal.js';
-import '../../../core/ui/events/shell-events.chunk.js';
-import '../../../core/ui/navigation-tray/model-navigation-tray.chunk.js';
-import '../../../core/ui/utilities/utilities-image.chunk.js';
-import '../../../core/ui/utilities/utilities-dom.chunk.js';
-import '../../../core/ui/utilities/utilities-liveops.js';
-import '../../../core/ui/utilities/utilities-network-constants.chunk.js';
-import '../../../core/ui/utilities/utilities-color.chunk.js';
-import '../../../core/ui/graph-layout/utils.chunk.js';
-import '../../../core/ui/utilities/utilities-layout.chunk.js';
-import '../world-input/world-input.js';
-import '../interface-modes/support-unit-map-decoration.chunk.js';
-import '../utilities/utilities-overlay.chunk.js';
-import '../tree-grid/tree-grid.chunk.js';
-import '../../../core/ui/graph-layout/layout.chunk.js';
-import '../../../core/ui/utilities/utilities-core-textprovider.chunk.js';
-import '../tree-grid/tree-support.chunk.js';
-import '../../../core/ui/utilities/utilities-core-databinding.chunk.js';
-import '../utilities/utilities-textprovider.chunk.js';
-import '../utilities/utilities-tags.chunk.js';
-import '../victory-progress/model-victory-progress.chunk.js';
-import '../cinematic/cinematic-manager.chunk.js';
-import '../endgame/screen-endgame.js';
-import '../../../core/ui/tooltips/tooltip-manager.js';
-import '../end-results/end-results.js';
-import '../endgame/model-endgame.js';
-import '../victory-manager/victory-manager.chunk.js';
+import { DialogBoxAction } from '../../../core/ui/dialog-box/model-dialog-box.js';
 
 var NotificationHandlers;
 ((NotificationHandlers2) => {
@@ -112,7 +79,7 @@ var NotificationHandlers;
       }
       if (city) {
         const cityId = city.id;
-        UI.Player.lookAtID(cityId);
+        UI.Player.lookAtID(cityId, 0);
         InterfaceMode.switchTo("INTERFACEMODE_ACQUIRE_TILE", { CityID: cityId });
         return true;
       }
@@ -129,7 +96,7 @@ var NotificationHandlers;
         unitId = UI.Player.selectNextReadyUnit();
       }
       if (ComponentID.isValid(unitId)) {
-        UI.Player.lookAtID(unitId);
+        UI.Player.lookAtID(unitId, 0);
         const unitLocation = Units.get(unitId)?.location;
         if (unitLocation) {
           PlotCursor.plotCursorCoords = unitLocation;
@@ -163,7 +130,7 @@ var NotificationHandlers;
       }
       if (city) {
         const cityId = city.id;
-        UI.Player.lookAtID(cityId);
+        UI.Player.lookAtID(cityId, 0);
         UI.Player.selectCity(cityId);
         return true;
       }
@@ -171,6 +138,20 @@ var NotificationHandlers;
     }
   }
   NotificationHandlers2.ConsiderRazeCity = ConsiderRazeCity;
+  class ChooseCivilization extends DefaultHandler {
+    activate(_notificationId, _activatedBy) {
+      if (ContextManager.canOpenPauseMenu()) {
+        if (!InterfaceMode.isInInterfaceMode("INTERFACEMODE_AGE_TRANSITION")) {
+          DisplayQueueManager.suspend();
+          InterfaceMode.switchTo("INTERFACEMODE_AGE_TRANSITION");
+        } else {
+          return true;
+        }
+      }
+      return true;
+    }
+  }
+  NotificationHandlers2.ChooseCivilization = ChooseCivilization;
   class ChooseCelebration extends DefaultHandler {
     activate(_notificationId, _activatedBy) {
       ContextManager.push("panel-celebration-chooser", { singleton: true });
@@ -235,22 +216,16 @@ var NotificationHandlers;
   NotificationHandlers2.ViewCultureTree = ViewCultureTree;
   class ViewPoliciesChooserNormal extends DefaultHandler {
     activate(_notificationId, _activatedBy) {
-      ContextManager.push("screen-policies", {
-        singleton: true,
-        createMouseGuard: true,
-        panelOptions: { openTab: PolicyTabPlacement.POLICIES }
-      });
+      ContextManager.push("screen-policies", { singleton: true, createMouseGuard: true });
+      setActivePolicyTab("policies-and-traditions");
       return true;
     }
   }
   NotificationHandlers2.ViewPoliciesChooserNormal = ViewPoliciesChooserNormal;
   class ViewPoliciesChooserCrisis extends DefaultHandler {
     activate(_notificationId, _activatedBy) {
-      ContextManager.push("screen-policies", {
-        singleton: true,
-        createMouseGuard: true,
-        panelOptions: { openTab: PolicyTabPlacement.CRISIS }
-      });
+      ContextManager.push("screen-policies", { singleton: true, createMouseGuard: true });
+      setActivePolicyTab("crisis-policies");
       return true;
     }
   }
@@ -280,7 +255,7 @@ var NotificationHandlers;
     activate(notificationId, _activatedBy) {
       const notification = Game.Notifications.find(notificationId);
       if (notification && notification.Target != void 0 && ComponentID.isValid(notification.Target)) {
-        UI.Player.lookAtID(notification.Target);
+        UI.Player.lookAtID(notification.Target, 0);
         UI.Player.selectCity(notification.Target);
         const cityLocation = Cities.get(notification.Target)?.location;
         if (cityLocation) {
@@ -318,16 +293,16 @@ var NotificationHandlers;
   }
   NotificationHandlers2.CreateAdvancedStart = CreateAdvancedStart;
   class CreateAgeTransition extends DefaultHandler {
-    static didDisplayBanner = false;
+    // TODO: clean this up - remove old age transition banner
+    static didDisplayBanner = true;
     activate(_notificationId, _activatedBy) {
       if (Autoplay.isActive) {
         return true;
       }
       if (CreateAgeTransition.didDisplayBanner) {
-        ContextManager.push("screen-advanced-start", {
+        ContextManager.push("screen-dedication-selection", {
           singleton: true,
-          createMouseGuard: false,
-          panelOptions: { isAgeTransition: true }
+          createMouseGuard: true
         });
       } else {
         CreateAgeTransition.didDisplayBanner = true;
@@ -351,10 +326,9 @@ var NotificationHandlers;
               setTimeout(() => {
                 banner.removeEventListener("animationend", handleBannerAnimationEnd);
                 ContextManager.pop(banner);
-                ContextManager.push("screen-advanced-start", {
+                ContextManager.push("screen-dedication-selection", {
                   singleton: true,
-                  createMouseGuard: false,
-                  panelOptions: { isAgeTransition: true }
+                  createMouseGuard: true
                 });
               }, AGE_TRANSITION_BANNER_FADE_OUT_DURATION);
             }
@@ -380,7 +354,7 @@ var NotificationHandlers;
         if (notification.Target !== UI.Player.getHeadSelectedUnit()) {
           UI.Player.selectUnit(notification.Target);
         }
-        UI.Player.lookAtID(notification.Target);
+        UI.Player.lookAtID(notification.Target, 0);
         Game.Notifications.dismiss(_notificationId);
         return true;
       }
@@ -392,7 +366,7 @@ var NotificationHandlers;
     activate(notificationId, _activatedBy) {
       const notification = Game.Notifications.find(notificationId);
       if (notification && notification.Target != void 0 && ComponentID.isValid(notification.Target)) {
-        UI.Player.lookAtID(notification.Target);
+        UI.Player.lookAtID(notification.Target, 0);
         UI.Player.selectCity(notification.Target);
         const cityLocation = Cities.get(notification.Target)?.location;
         if (cityLocation) {
@@ -407,13 +381,23 @@ var NotificationHandlers;
   class ChooseNarrativeDirection extends DefaultHandler {
     activate(notificationId, _activatedBy) {
       if (ComponentID.isValid(notificationId)) {
-        NarrativePopupManager.raiseNotificationPanel(notificationId, _activatedBy);
+        NarrativePopupManager.raiseNotificationPanel(notificationId, _activatedBy, false);
         return true;
       }
       return false;
     }
   }
   NotificationHandlers2.ChooseNarrativeDirection = ChooseNarrativeDirection;
+  class ChooseNarrativeDirectionFavorDiscovery extends DefaultHandler {
+    activate(notificationId, _activatedBy) {
+      if (ComponentID.isValid(notificationId)) {
+        NarrativePopupManager.raiseNotificationPanel(notificationId, _activatedBy, true);
+        return true;
+      }
+      return false;
+    }
+  }
+  NotificationHandlers2.ChooseNarrativeDirectionFavorDiscovery = ChooseNarrativeDirectionFavorDiscovery;
   class ChoosePantheon extends DefaultHandler {
     activate(_notificationId, _activatedBy) {
       ContextManager.push("screen-pantheon-chooser", { singleton: true, createMouseGuard: false });
@@ -576,9 +560,23 @@ var NotificationHandlers;
       return false;
     }
     add(notificationId) {
-      if (!WatchOutManager.isManagerActive) {
-        this.dismiss(notificationId);
-        return false;
+      AdviceManager.addFromWatchOut(notificationId);
+      if (!AdviceManager.isFollowed(AdviceManager.getAdvisorTypeFromTutorialAdvisorType(this.advisorType))) {
+        const notification = Game.Notifications.find(notificationId);
+        const warningType = notification?.WarningType;
+        if (warningType != void 0 && warningType != -1) {
+          const warningDef = GameInfo.AdvisorWarnings.lookup(warningType);
+          if (warningDef != null) {
+            if (warningDef.TrackedOnly === true) {
+              this.dismiss(notificationId);
+              return false;
+            }
+          }
+        }
+        if (!WatchOutManager.isManagerActive) {
+          this.dismiss(notificationId);
+          return false;
+        }
       }
       return super.add(notificationId);
     }
@@ -647,7 +645,7 @@ var NotificationHandlers;
       const notification = Game.Notifications.find(notificationId);
       const notifTarget = notification?.Target;
       if (notifTarget) {
-        UI.Player.lookAtID(notifTarget);
+        UI.Player.lookAtID(notifTarget, 0);
       }
       return true;
     }
@@ -657,16 +655,11 @@ var NotificationHandlers;
     activate(notificationId, _activatedBy) {
       const notification = Game.Notifications.find(notificationId);
       if (notification) {
-        const unlocksData = {
-          category: PopupSequencer.getCategory(),
-          screenId: "screen-unlocks",
-          properties: {
-            singleton: true,
-            createMouseGuard: true,
-            panelOptions: { navigateToPage: "rewards" }
-          }
-        };
-        PopupSequencer.addDisplayRequest(unlocksData);
+        ContextManager.push("screen-unlocks", {
+          singleton: true,
+          createMouseGuard: true,
+          panelOptions: { navigateToPage: "rewards" }
+        });
       }
       return true;
     }
@@ -686,12 +679,22 @@ var NotificationHandlers;
     activate(notificationId, _activatedBy) {
       const notification = Game.Notifications.find(notificationId);
       if (notification) {
-        ContextManager.push("screen-syncretism-bootstrap", { singleton: true, createMouseGuard: false });
+        ContextManager.push("screen-syncretism", { singleton: true, createMouseGuard: true });
       }
       return true;
     }
   }
   NotificationHandlers2.ChooseSyncretism = ChooseSyncretism;
+  class LegacyCompleted extends DefaultHandler {
+    activate(notificationId, _activatedBy) {
+      const notification = Game.Notifications.find(notificationId);
+      if (notification) {
+        ContextManager.push("screen-legacies", { singleton: true, createMouseGuard: true });
+      }
+      return true;
+    }
+  }
+  NotificationHandlers2.LegacyCompleted = LegacyCompleted;
 })(NotificationHandlers || (NotificationHandlers = {}));
 NotificationModel.manager.setDefaultHandler(new NotificationHandlers.DefaultHandler());
 NotificationModel.manager.registerHandler(
@@ -717,6 +720,10 @@ NotificationModel.manager.registerHandler(
 NotificationModel.manager.registerHandler(
   "NOTIFICATION_CAN_BUY_ATTRIBUTE_SKILL",
   new NotificationHandlers.ViewAttributeTree()
+);
+NotificationModel.manager.registerHandler(
+  "NOTIFICATION_CHOOSE_CIVILIZATION",
+  new NotificationHandlers.ChooseCivilization()
 );
 NotificationModel.manager.registerHandler(
   "NOTIFICATION_CHOOSE_CITY_PRODUCTION",
@@ -763,7 +770,7 @@ NotificationModel.manager.registerHandler(
 );
 NotificationModel.manager.registerHandler(
   "NOTIFICATION_CHOOSE_DISCOVERY_STORY_DIRECTION",
-  new NotificationHandlers.ChooseNarrativeDirection()
+  new NotificationHandlers.ChooseNarrativeDirectionFavorDiscovery()
 );
 NotificationModel.manager.registerHandler(
   "NOTIFICATION_CHOOSE_AUTO_NARRATIVE_STORY_DIRECTION",
@@ -829,6 +836,7 @@ NotificationModel.manager.registerHandler(
   "NOTIFICATION_AGE_PROGRESSION_PROGRESS_CHANGED",
   new NotificationHandlers.AgeProgression()
 );
+NotificationModel.manager.registerHandler("NOTIFICATION_VPGC", new NotificationHandlers.AgeProgression());
 NotificationModel.manager.registerHandler("NOTIFICATION_CAPITAL_LOST", new NotificationHandlers.CapitalLost());
 NotificationModel.manager.registerHandler(
   "NOTIFICATION_PLAYER_UNLOCK_CHANGED",
@@ -842,6 +850,7 @@ NotificationModel.manager.registerHandler(
   "NOTIFICATION_CHOOSE_SYNCRETISM",
   new NotificationHandlers.ChooseSyncretism()
 );
+NotificationModel.manager.registerHandler("NOTIFICATION_LEGACY_COMPLETED", new NotificationHandlers.LegacyCompleted());
 NotificationModel.manager.rebuild();
 
 export { NotificationHandlers };

@@ -51,21 +51,9 @@
 		<Argument name="ResourceType">RESOURCE_RUBIES</Argument>
 		<Argument name="PercentMultiplier">false</Argument>
 	</Modifier>
-	<Modifier id="MOD_RICE_HOMELAND_CITY_PERCENT_FOOD" collection="COLLECTION_ALL_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_AVAILABLE_RESOURCE_TYPE">
-		<SubjectRequirements>
-			<Requirement type="REQUIREMENT_CITY_IS_DISTANT_LANDS" inverse="true"/>
-		</SubjectRequirements>
-		<Argument name="Amount">5</Argument>
-		<Argument name="Percent">true</Argument>
-		<Argument name="ResourceType">RESOURCE_RICE</Argument>
-		<Argument name="YieldType">YIELD_FOOD</Argument>
-	</Modifier>
-	<Modifier id="MOD_RICE_DISTANT_LAND_CITY_PERCENT_FOOD" collection="COLLECTION_ALL_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_AVAILABLE_RESOURCE_TYPE">
-		<SubjectRequirements>
-			<Requirement type="REQUIREMENT_CITY_IS_DISTANT_LANDS"/>
-		</SubjectRequirements>
-		<Argument name="Amount">10</Argument>
-		<Argument name="Percent">true</Argument>
+	<Modifier id="MOD_RICE_CITY_FLAT_FOOD" collection="COLLECTION_ALL_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_AVAILABLE_RESOURCE_TYPE">
+		<Argument name="Amount">2</Argument>
+		<Argument name="PercentMultiplier">false</Argument>
 		<Argument name="ResourceType">RESOURCE_RICE</Argument>
 		<Argument name="YieldType">YIELD_FOOD</Argument>
 	</Modifier>
@@ -77,7 +65,6 @@
 		<Argument name="ResourceType">RESOURCE_LIMESTONE</Argument>
 		<Argument name="Empire">true</Argument>
 		<Argument name="ConstructibleClass">BUILDING</Argument>
-		<Argument name="PercentMultiplier">true</Argument>
 	</Modifier>
 	<Modifier id="MOD_TIN_FLAT_PRODUCTION" collection="COLLECTION_ALL_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_RESOURCE">
 		<Argument name="YieldType">YIELD_PRODUCTION</Argument>

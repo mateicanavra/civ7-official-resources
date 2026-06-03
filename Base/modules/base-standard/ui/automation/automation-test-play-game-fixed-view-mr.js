@@ -1,6 +1,5 @@
-import { A as AutomationBasePlayGameXR } from './automation-base-play-game-xr.chunk.js';
-import { S as Shared_OnAutomationEvent, c as GetFloatParam, d as GetFloat3Param } from './automation-test-support.chunk.js';
-import './automation-base-play-game.chunk.js';
+import { AutomationBasePlayGameXR } from './automation-base-play-game-xr.js';
+import { Shared_OnAutomationEvent, GetFloatParam, GetFloat3Param } from './automation-test-support.js';
 
 console.log("loading automation-test-play-game-fixed-view-mr.ts");
 class AutomationTestPlayGameFixedViewMR extends AutomationBasePlayGameXR {

@@ -54,13 +54,6 @@
 		<Argument name="ChargedAbilityType">CHARGED_ABILITY_MAKE_TRADE_ROUTE</Argument>
 		<Argument name="Amount">1</Argument>
 	</Modifier>
-	<Modifier id="HAMARANA_COUNCIL_MOD_COMBAT_ATTACK" collection="COLLECTION_UNIT_COMBAT" effect="EFFECT_ADJUST_UNIT_STRENGTH_MODIFIER">
-		<SubjectRequirements>
-			<Requirement type="REQUIREMENT_PLAYER_IS_ATTACKING"/>
-		</SubjectRequirements>
-		<Argument name="Amount">3</Argument>
-		<String context="Preview">LOC_ABILITY_HAMARANA_COUNCIL_PREVIEW</String>
-	</Modifier>
 	<Modifier id="HAN_GREAT_WALL_MOD_DEFENSE" collection="COLLECTION_UNIT_COMBAT" effect="EFFECT_ADJUST_UNIT_STRENGTH_MODIFIER">
 		<Argument name="Amount">3</Argument>
 		<String context="Preview">LOC_ABILITY_HAN_GREAT_WALL_PREVIEW</String>
@@ -85,14 +78,6 @@
 		</SubjectRequirements>
 		<Argument name="Amount">2</Argument>
 		<String context="Preview">LOC_ABILITY_HOPLITE_PREVIEW</String>
-	</Modifier>
-	<Modifier id="HOPLITE_MOD_COMBAT_PER_FRIENDLY_INDEPENDENT" collection="COLLECTION_OWNER" effect="EFFECT_ADJUST_UNIT_SUZERAIN_OF_COMBAT_MODIFIER">
-		<SubjectRequirements>
-			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
-				<Argument name="Tag">UNIT_CLASS_HOPLITE</Argument>
-			</Requirement>
-		</SubjectRequirements>
-		<Argument name="Amount">1</Argument>
 	</Modifier>
 	<Modifier id="HULCHE_MOD_IGNORE_FOREST" collection="COLLECTION_OWNER" effect="EFFECT_UNIT_ADJUST_IGNORE_MOVEMENT_OBSTACLE">
 		<Argument name="Obstacle">FEATURE_FOREST</Argument>
@@ -121,7 +106,7 @@
 	</Modifier>
 	<RequirementSet id="REQSET_MEDJAY_FRIENDLY_TERRITORY" type="REQUIREMENTSET_TEST_ANY">
 		<Requirement type="REQUIREMENT_PLOT_IS_OWNER"/>
-		<Requirement type="REQUIREMENT_PLOT_IS_SUZERAIN"/>
+		<Requirement type="REQUIREMENT_PLOT_IS_SUZERAIN_BY_OWNER"/>
 	</RequirementSet>
 	<Modifier id="MEDJAY_MOD_COMBAT_FRIENDLY_TERRITORY" collection="COLLECTION_UNIT_COMBAT" effect="EFFECT_ADJUST_UNIT_STRENGTH_MODIFIER">
 		<SubjectRequirements>
@@ -214,15 +199,7 @@
 		<Argument name="ChargedAbilityType">CHARGED_ABILITY_LAND_CLAIM</Argument>
 		<Argument name="Amount">1</Argument>
 	</Modifier>
-	<Modifier id="TANKWA_MOD_PILLAGE_IMMUNITY" collection="COLLECTION_OWNER" effect="EFFECT_UNIT_SET_TRADE_ROUTE_PROTECTED">
-		<SubjectRequirements>
-			<Requirement type="REQUIREMENT_UNIT_TRADE_ROUTE_ESTABLISHED" />
-		</SubjectRequirements>
-	</Modifier>
-	<Modifier id="TANKWA_MOD_TRADE_ROUTE_GOLD" collection="COLLECTION_OWNER" effect="EFFECT_UNIT_ADJUST_PLAYER_YIELD">
-		<Argument name="YieldType">YIELD_GOLD</Argument>
-		<Argument name="Amount">2</Argument>
-		<String context="Tooltip">LOC_UNIT_TANKWA_NAME</String>
+	<Modifier id="TANKWA_MOD_PILLAGE_IMMUNITY" collection="COLLECTION_PLAYER_TRADE_ROUTES" effect="EFFECT_TRADE_ROUTE_SET_TRADE_ROUTE_PROTECTED">
 	</Modifier>
 	<Modifier id="VAISHYA_MOD_FLOOD_IMMUNITY" collection="COLLECTION_OWNER" effect="EFFECT_UNITS_IMMUNE_TO_RANDOM_EVENTS">
 		<Argument name="RandomEventClass">CLASS_FLOOD</Argument>
@@ -247,35 +224,5 @@
 		<Argument name="Amount" type="ScaleByGameSpeed">25</Argument>
 		<Argument name="PerResource">true</Argument>
 		<Argument name="CommandType">UNITCOMMAND_MAKE_TRADE_ROUTE</Argument>
-	</Modifier>
-	<!-- ==================================================	-->
-	<!--	Crisis Abilities							-->
-	<!-- ==================================================	-->
-	<Modifier id="INVASION_CRISIS_MOD_MELEE_COMBAT_STRENGTH_1" collection="COLLECTION_UNIT_COMBAT" effect="EFFECT_ADJUST_UNIT_STRENGTH_MODIFIER">
-		<Argument name="Amount">2</Argument>
-		<String context="Preview">LOC_ABILITY_INVASION_1_MELEE_PREVIEW</String>
-	</Modifier>
-	<Modifier id="INVASION_CRISIS_MOD_RANGED_COMBAT_STRENGTH_1" collection="COLLECTION_UNIT_COMBAT" effect="EFFECT_ADJUST_UNIT_STRENGTH_MODIFIER">
-		<Argument name="Amount">2</Argument>
-		<Argument name="Type">RANGED</Argument>
-		<String context="Preview">LOC_ABILITY_INVASION_1_RANGED_PREVIEW</String>
-	</Modifier>
-	<Modifier id="INVASION_CRISIS_MOD_MELEE_COMBAT_STRENGTH_2" collection="COLLECTION_UNIT_COMBAT" effect="EFFECT_ADJUST_UNIT_STRENGTH_MODIFIER">
-		<Argument name="Amount">4</Argument>
-		<String context="Preview">LOC_ABILITY_INVASION_2_MELEE_PREVIEW</String>
-	</Modifier>
-	<Modifier id="INVASION_CRISIS_MOD_RANGED_COMBAT_STRENGTH_2" collection="COLLECTION_UNIT_COMBAT" effect="EFFECT_ADJUST_UNIT_STRENGTH_MODIFIER">
-		<Argument name="Amount">4</Argument>
-		<Argument name="Type">RANGED</Argument>
-		<String context="Preview">LOC_ABILITY_INVASION_2_RANGED_PREVIEW</String>
-	</Modifier>
-	<Modifier id="INVASION_CRISIS_MOD_MELEE_COMBAT_STRENGTH_3" collection="COLLECTION_UNIT_COMBAT" effect="EFFECT_ADJUST_UNIT_STRENGTH_MODIFIER">
-		<Argument name="Amount">6</Argument>
-		<String context="Preview">LOC_ABILITY_INVASION_3_MELEE_PREVIEW</String>
-	</Modifier>
-	<Modifier id="INVASION_CRISIS_MOD_RANGED_COMBAT_STRENGTH_3" collection="COLLECTION_UNIT_COMBAT" effect="EFFECT_ADJUST_UNIT_STRENGTH_MODIFIER">
-		<Argument name="Amount">6</Argument>
-		<Argument name="Type">RANGED</Argument>
-		<String context="Preview">LOC_ABILITY_INVASION_3_RANGED_PREVIEW</String>
 	</Modifier>
 </GameEffects>

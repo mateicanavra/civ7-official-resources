@@ -1,4 +1,4 @@
-const styles = "fs://game/base-standard/ui/yield-bar-base/yield-bar-base.css";
+import styles from './yield-bar-base.scss.js';
 
 var YieldBarEntryStyle = /* @__PURE__ */ ((YieldBarEntryStyle2) => {
   YieldBarEntryStyle2[YieldBarEntryStyle2["NONE"] = 0] = "NONE";

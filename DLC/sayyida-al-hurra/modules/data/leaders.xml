@@ -2,16 +2,19 @@
 <Database>
 	<Kinds>
 		<InsertOrIgnore Kind="KIND_TRAIT"/>
+		<InsertOrIgnore Kind="KIND_VICTORY"/>
 	</Kinds>
 	<Types>
 		<Row Type="LEADER_SAYYIDA_AL_HURRA" Kind="KIND_LEADER"/>
 		<Row Type="TRAIT_LEADER_SAYYIDA_AL_HURRA_ABILITY" Kind="KIND_TRAIT"/>
+		<Row Type="VICTORY_LEADER_SAYYIDA_AL_HURRA" Kind="KIND_VICTORY"/>
 	</Types>
 	<Leaders>
 		<Row LeaderType="LEADER_SAYYIDA_AL_HURRA" Name="LOC_LEADER_SAYYIDA_AL_HURRA_NAME" IsMajorLeader="true" InheritFrom="LEADER_DEFAULT" />
 	</Leaders>
 	<TypeQuotes>
 		<Row Type="LEADER_SAYYIDA_AL_HURRA" Quote="LOC_MAIN_CHAR_SELECT_LEADER_SAYYIDA_AL_HURRA_ANY"/>
+		<Row Type="VICTORY_LEADER_SAYYIDA_AL_HURRA" Quote="LOC_VICTORY_LEADER_SAYYIDA_AL_HURRA" QuoteAudio="play_victory_sayyida"/>
 	</TypeQuotes>
 	<AiFavoredItems>
 	</AiFavoredItems>
@@ -36,22 +39,20 @@
 	<AiListTypes>
 		<!-- Leader Psuedoyield Biases -->
 		<Row ListType="Sayyida Yield Biases"/>
-		<Row ListType="Sayyida Diplomatic Biases"/>
+		<Row ListType="Sayyida Diplomacy Biases"/>
 		<Row ListType="Sayyida Tag Biases"/>
 	</AiListTypes>
 	<AiLists>
 		<!-- Leader Psuedoyield Biases -->
 		<Row ListType="Sayyida Yield Biases" LeaderType="TRAIT_LEADER_SAYYIDA_AL_HURRA_ABILITY" System="YieldBiases"/>
-		<Row ListType="Sayyida Diplomatic Biases" LeaderType="TRAIT_LEADER_SAYYIDA_AL_HURRA_ABILITY" System="DiplomaticActions"/>
+		<Row ListType="Sayyida Diplomacy Biases" LeaderType="TRAIT_LEADER_SAYYIDA_AL_HURRA_ABILITY" System="DiplomaticActions"/>
 		<Row ListType="Sayyida Tag Biases" LeaderType="TRAIT_LEADER_SAYYIDA_AL_HURRA_ABILITY" System="TagBiases"/>
 	</AiLists>
 	<AiFavoredItems>
 		<Row ListType="Sayyida Yield Biases" Item="YIELD_PRODUCTION" Value="50"/>
 		<Row ListType="Sayyida Yield Biases" Item="YIELD_DIPLOMACY" Value="25"/>
-		<Row ListType="Sayyida Diplomatic Biases" Item="DIPLOMACY_ACTION_ESPIONAGE_MILITARY_SABOTAGE" Value="50"/>
-		<Row ListType="Sayyida Diplomatic Biases" Item="DIPLOMACY_ACTION_ESPIONAGE_STEAL_TECH" Value="50"/>
-		<Row ListType="Sayyida Diplomatic Biases" Item="DIPLOMACY_ACTION_ESPIONAGE_STEAL_CIVIC" Value="50"/>
-		<Row ListType="Sayyida Diplomatic Biases" Item="DIPLOMACY_ACTION_ESPIONAGE_MILITARY_INFILTRATION" Value="50"/>
+		<Row ListType="Sayyida Diplomacy Biases" Item="DIPLOMACY_ACTION_ESPIONAGE_MILITARY_SABOTAGE" Value="25"/>
+		<Row ListType="Sayyida Diplomacy Biases" Item="DIPLOMACY_ACTION_GROUP_ESPIONAGE" Value="50"/>
 		<Row ListType="Sayyida Tag Biases" Item="UNIT_CLASS_NAVAL" Value="25"/>
 	</AiFavoredItems>
 	<StartBiasAdjacentToCoasts>

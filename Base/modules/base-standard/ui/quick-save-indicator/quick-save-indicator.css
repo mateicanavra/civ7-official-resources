@@ -4,10 +4,25 @@
   bottom: -3.5555555556rem;
   left: 0.4444444444rem;
 }
+@media (experience: mobile) {
+  .save-container {
+    left: 23%;
+  }
+}
+@media (experience: mobile) and (max-height: 55.5555555556rem) {
+  .save-container {
+    left: 32%;
+  }
+}
 
 .save-animation {
   animation-name: quickSaveIndicator;
   animation-duration: 5s;
+}
+@media (experience: mobile) {
+  .save-animation {
+    animation-name: quickSaveIndicatorMobile;
+  }
 }
 
 .save-item {
@@ -55,6 +70,20 @@
   }
   90% {
     bottom: 0.4444444444rem;
+  }
+  100% {
+    bottom: -3.5555555556rem;
+  }
+}
+@keyframes quickSaveIndicatorMobile {
+  0% {
+    bottom: -3.5555555556rem;
+  }
+  10% {
+    bottom: 2.7777777778rem;
+  }
+  90% {
+    bottom: 2.7777777778rem;
   }
   100% {
     bottom: -3.5555555556rem;

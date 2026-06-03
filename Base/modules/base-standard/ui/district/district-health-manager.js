@@ -1,5 +1,5 @@
-import { C as ComponentID } from '../../../core/ui/utilities/utilities-component-id.chunk.js';
-import { P as PlotCoord } from '../../../core/ui/utilities/utilities-plotcoord.chunk.js';
+import { ComponentID } from '../../../core/ui/utilities/utilities-component-id.js';
+import { PlotCoord } from '../../../core/ui/utilities/utilities-plotcoord.js';
 
 class DistrictHealthManager extends Component {
   children = /* @__PURE__ */ new Map();
@@ -258,9 +258,6 @@ class DistrictHealthManager extends Component {
   onDistrictRemovedFromMap(data) {
     const district = this.children.get(ComponentID.toBitfield(data.id));
     if (district == void 0) {
-      console.warn(
-        "district-health-manager: Cannot find district for damage change. CityId: " + ComponentID.toLogString(data.cityID) + ", districtID: " + ComponentID.toLogString(data.id)
-      );
       return;
     }
     this.removeDistrictHealth(district, data.cityID, data.id);
@@ -295,7 +292,7 @@ class DistrictHealthManager extends Component {
     this.Root.classList.remove("hidden");
   }
   static canShowDistrictHealth(currentHealth, maxHealth) {
-    return !!currentHealth && !!maxHealth && maxHealth > currentHealth && currentHealth > 0;
+    return currentHealth != void 0 && !!maxHealth && maxHealth > currentHealth;
   }
 }
 Controls.define("district-health-bars", {

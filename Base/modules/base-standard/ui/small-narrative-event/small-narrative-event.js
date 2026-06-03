@@ -1,24 +1,11 @@
-import FocusManager from '../../../core/ui/input/focus-manager.js';
-import { b as InputEngineEventName } from '../../../core/ui/input/input-support.chunk.js';
-import { N as NavTray } from '../../../core/ui/navigation-tray/model-navigation-tray.chunk.js';
-import { P as Panel } from '../../../core/ui/panel-support.chunk.js';
-import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.chunk.js';
-import { N as NarrativePopupManager } from '../narrative-event/narrative-popup-manager.chunk.js';
-import '../../../core/ui/audio-base/audio-support.chunk.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/input/action-handler.js';
-import '../../../core/ui/input/cursor.js';
-import '../../../core/ui/views/view-manager.chunk.js';
-import '../../../core/ui/utilities/utilities-update-gate.chunk.js';
-import '../../../core/ui/utilities/utilities-image.chunk.js';
-import '../../../core/ui/utilities/utilities-component-id.chunk.js';
-import '../../../core/ui/context-manager/context-manager.js';
-import '../../../core/ui/context-manager/display-queue-manager.js';
-import '../../../core/ui/dialog-box/manager-dialog-box.chunk.js';
-
-const content = "<fxs-modal-frame\r\n\tdata-modal-style=\"on-map\"\r\n\tclass=\"small-narrative__container w-full min-h-48\"\r\n>\r\n\t<div class=\"small-narrative__primary-window flex px-4 pt-5\">\r\n\t\t<div class=\"small-narrative__text-holder w-full text-center font-body-sm\">\r\n\t\t\t<div class=\"small-narrative__body-text pt-3 pb-2 pr-9 pl-4 text-center flex\"></div>\r\n\t\t\t<fxs-vslot class=\"small-narrative__content w-full mt-3 px-3\"> </fxs-vslot>\r\n\t\t</div>\r\n\t</div>\r\n</fxs-modal-frame>\r\n<div class=\"small-narrative__position h-96\"></div>\r\n";
-
-const styles = "fs://game/base-standard/ui/small-narrative-event/small-narrative-event.css";
+import { InputEngineEventName } from '../../../core/ui/input/input-support.js';
+import NavTray from '../../../core/ui/navigation-tray/model-navigation-tray.js';
+import Panel from '../../../core/ui/panel-support.js';
+import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
+import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
+import { NarrativePopupManager } from '../narrative-event/narrative-popup-manager.js';
+import content from './small-narrative-event.html.js';
+import styles from './small-narrative-event.scss.js';
 
 class SmallNarrativeEvent extends Panel {
   static SM_NAR_Z_PLACEMENT = { x: 0, y: 0, z: 18 };
@@ -76,7 +63,7 @@ class SmallNarrativeEvent extends Panel {
     NavTray.addOrUpdateGenericSelect();
     waitForLayout(() => {
       const entryContainer = MustGetElement(".small-narrative__content", this.Root);
-      FocusManager.setFocus(entryContainer);
+      FocusManager.get().setFocus(entryContainer);
     });
   }
   onLoseFocus() {
@@ -156,7 +143,7 @@ class SmallNarrativeEvent extends Panel {
               link.ToNarrativeStoryType
             );
             if (linkDef) {
-              if (linkDef?.Activation.toUpperCase() === "LINKED" || linkDef?.Activation.toUpperCase() === "LINKED_REQUISITE" && playerStories.determineRequisiteLink(linkDef.NarrativeStoryType)) {
+              if (linkDef?.Activation.toUpperCase() === "LINKED" || (linkDef?.Activation.toUpperCase() === "LINKED_REQUISITE" || linkDef?.Activation.toUpperCase() === "LINKED_SUBJECT_REQUISITE") && playerStories.determineRequisiteLink(linkDef.NarrativeStoryType, targetStoryId)) {
                 links = links + 1;
                 const icons = GameInfo.NarrativeRewardIcons.filter(
                   (item) => {
@@ -216,7 +203,7 @@ class SmallNarrativeEvent extends Panel {
           );
         }
         if (this.storyType == "DISCOVERY") {
-          FocusManager.setFocus(entryContainer);
+          FocusManager.get().setFocus(entryContainer);
         }
       }
     }
@@ -236,6 +223,8 @@ class SmallNarrativeEvent extends Panel {
     buttonFXS.setAttribute("data-audio-focus-ref", "data-audio-choice-focus");
     if (!canAfford) {
       buttonFXS.classList.add("opacity-50");
+      buttonFXS.setAttribute("data-audio-press-ref", "data-audio-error");
+      buttonFXS.setAttribute("data-audio-activate-ref", "none");
     }
     container.appendChild(buttonFXS);
   }

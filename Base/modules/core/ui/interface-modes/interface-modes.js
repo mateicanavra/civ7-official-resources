@@ -1,8 +1,4 @@
-import { V as ViewManager } from '../views/view-manager.chunk.js';
-import '../input/focus-manager.js';
-import '../audio-base/audio-support.chunk.js';
-import '../framework.chunk.js';
-import '../panel-support.chunk.js';
+import ViewManager from '../views/view-manager.js';
 
 const debug_showModeChanges = false;
 const InterfaceModeChangedEventName = "interface-mode-changed";

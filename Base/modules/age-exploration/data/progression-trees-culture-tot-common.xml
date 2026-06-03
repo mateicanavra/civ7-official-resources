@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Types>
+		<!-- ==================================================	-->
+		<!--	Attribute Civic Trees						-->
+		<!-- ==================================================	-->
+		<!-- Civic Trees -->
+		<Row Type="TREE_CIVICS_EX_TEST_OF_TIME" Kind="KIND_TREE"/>
+		<!-- Civic Tree Nodes -->
+		<Row Type="NODE_CIVIC_EX_HIERARCHY" Kind="KIND_TREE_NODE" />
+		<Row Type="NODE_CIVIC_EX_SYNCRETISM_CHOICE" Kind="KIND_TREE_NODE" />
+	</Types>
+	<TypeQuotes>
+		<Row Type="NODE_CIVIC_EX_HIERARCHY" Quote="LOC_CIVIC_EX_HIERARCHY_QUOTE" QuoteAuthor="LOC_CIVIC_EX_HIERARCHY_AUTHOR" QuoteAudio="VO_Quote_ToT_EXP_Hierarchy"/>
+		<Row Type="NODE_CIVIC_EX_SYNCRETISM_CHOICE" Quote="LOC_CIVIC_EX_ATTRIBUTE_SYNCRETISM_CHOICE_QUOTE" QuoteAuthor="LOC_CIVIC_EX_ATTRIBUTE_SYNCRETISM_CHOICE_AUTHOR" QuoteAudio="VO_Quote_ToT_EXP_Syncretism"/>
+	</TypeQuotes>
+	<ProgressionTrees>
+		<!-- ==================================================	-->
+		<!--	Attribute Civic Trees						-->
+		<!-- ==================================================	-->
+		<Row ProgressionTreeType="TREE_CIVICS_EX_TEST_OF_TIME" AgeType="AGE_EXPLORATION" SystemType="SYSTEM_CULTURE" Name="LOC_TREE_CIVICS_EX_NAME" CivInjectedName="LOC_TREE_CIVICS_EX_CIV_NAME" PrereqFormat="OR"/>
+	</ProgressionTrees>
+	<ProgressionTreeNodes>
+		<!-- ==================================================	-->
+		<!--	Attribute Civic Nodes						-->
+		<!-- ==================================================	-->
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_HIERARCHY" ProgressionTree="TREE_CIVICS_EX_TEST_OF_TIME" Cost="1200" Name="LOC_CIVIC_EX_HIERARCHY_NAME" CivInjectedIcon="true"  CivInjectedName="LOC_CIVIC_EX_CIV_HIERARCHY_NAME" IconString="cult_authority" CanSteal="false"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_SYNCRETISM_CHOICE" ProgressionTree="TREE_CIVICS_EX_TEST_OF_TIME" Cost="1200" Name="LOC_CIVIC_EX_SYNCRETISM_CHOICE_NAME" IconString="cult_syncretism" CanSteal="false"/>
+	</ProgressionTreeNodes>
+	<ProgressionTreeNodeUnlocks>
+		<!-- ==================================================	-->
+		<!--	Attribute Civic Node Unlocks				-->
+		<!-- ==================================================	-->
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_SYNCRETISM_CHOICE" TargetKind="KIND_MODIFIER" TargetType="MOD_SYNCRETISM" UnlockDepth="1"/>
+		<!-- ========== Cultural ========== -->
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_HIERARCHY" TargetKind="KIND_TRADITION" TargetType="TRADITION_EX_ATTRIBUTE_CULTURAL_01" UnlockDepth="1" RequiredTraitType="TRAIT_ATTRIBUTE_CULTURAL_TOT_EX"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_HIERARCHY" TargetKind="KIND_CONSTRUCTIBLE" TargetType="WONDER_NOTRE_DAME" UnlockDepth="1" AIIgnoreUnlockValue="true" RequiredTraitType="TRAIT_ATTRIBUTE_CULTURAL_TOT_EX"/>
+		<!-- ========== Diplomatic ========== -->
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_HIERARCHY" TargetKind="KIND_TRADITION" TargetType="TRADITION_EX_ATTRIBUTE_DIPLOMATIC_01_HAPPINESS" UnlockDepth="1" RequiredTraitType="TRAIT_ATTRIBUTE_POLITICAL_TOT_EX_HAPPINESS"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_HIERARCHY" TargetKind="KIND_TRADITION" TargetType="TRADITION_EX_ATTRIBUTE_DIPLOMATIC_01_INFLUENCE" UnlockDepth="1" RequiredTraitType="TRAIT_ATTRIBUTE_POLITICAL_TOT_EX_INFLUENCE"/>
+		<!-- ========== Economic ========== -->
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_HIERARCHY" TargetKind="KIND_TRADITION" TargetType="TRADITION_EX_ATTRIBUTE_ECONOMIC_01" UnlockDepth="1" RequiredTraitType="TRAIT_ATTRIBUTE_ECONOMIC_TOT_EX"/>
+		<!-- ========== Expansionist ========== -->
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_HIERARCHY" TargetKind="KIND_TRADITION" TargetType="TRADITION_EX_ATTRIBUTE_EXPANSIONIST_01_TALL" UnlockDepth="1" RequiredTraitType="TRAIT_ATTRIBUTE_EXPANSIONIST_TOT_EX_TALL"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_HIERARCHY" TargetKind="KIND_MODIFIER" TargetType="MOD_CIVIC_EX_ATTRIBUTE_EXPANSIONIST_SPECIALIST_CAP_INCREASE" UnlockDepth="1" RequiredTraitType="TRAIT_ATTRIBUTE_EXPANSIONIST_TOT_EX_TALL"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_HIERARCHY" TargetKind="KIND_TRADITION" TargetType="TRADITION_EX_ATTRIBUTE_EXPANSIONIST_01_WIDE" UnlockDepth="1" RequiredTraitType="TRAIT_ATTRIBUTE_EXPANSIONIST_TOT_EX_WIDE"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_HIERARCHY" TargetKind="KIND_MODIFIER" TargetType="MOD_CIVIC_EX_ATTRIBUTE_EXPANSIONIST_SETTLEMENT_CAP_INCREASE" UnlockDepth="1" RequiredTraitType="TRAIT_ATTRIBUTE_EXPANSIONIST_TOT_EX_WIDE"/>
+		<!-- ========== Militaristic ========== -->
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_HIERARCHY" TargetKind="KIND_TRADITION" TargetType="TRADITION_EX_ATTRIBUTE_MILITARISTIC_01" UnlockDepth="1" RequiredTraitType="TRAIT_ATTRIBUTE_MILITARISTIC_TOT_EX"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_HIERARCHY" TargetKind="KIND_MODIFIER" TargetType="MOD_EX_SETTLEMENT_CAP_INCREASE" UnlockDepth="1" RequiredTraitType="TRAIT_ATTRIBUTE_MILITARISTIC_TOT_EX"/>
+		<!-- ========== Scientific ========== -->
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_HIERARCHY" TargetKind="KIND_TRADITION" TargetType="TRADITION_EX_ATTRIBUTE_SCIENTIFIC_01" UnlockDepth="1" RequiredTraitType="TRAIT_ATTRIBUTE_SCIENTIFIC_TOT_EX"/>
+	</ProgressionTreeNodeUnlocks>
+	<ProgressionTreeNodeTraits>
+	</ProgressionTreeNodeTraits>
+	<ProgressionTreePrereqs>
+	</ProgressionTreePrereqs>
+	<ProgressionTree_Advisories>
+	</ProgressionTree_Advisories>
+</Database>

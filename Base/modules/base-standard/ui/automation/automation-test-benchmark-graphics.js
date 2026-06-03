@@ -1,10 +1,6 @@
-import { V as ViewManager } from '../../../core/ui/views/view-manager.chunk.js';
-import { A as AutomationBaseBenchmarkGame } from './automation-base-benchmark-game.chunk.js';
-import { S as Shared_OnAutomationEvent } from './automation-test-support.chunk.js';
-import '../../../core/ui/input/focus-manager.js';
-import '../../../core/ui/audio-base/audio-support.chunk.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/panel-support.chunk.js';
+import ViewManager from '../../../core/ui/views/view-manager.js';
+import { AutomationBaseBenchmarkGame } from './automation-base-benchmark-game.js';
+import { Shared_OnAutomationEvent } from './automation-test-support.js';
 
 console.log("loading automation-test-benchmark-graphics.ts");
 var States = /* @__PURE__ */ ((States2) => {

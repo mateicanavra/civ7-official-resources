@@ -1,18 +1,13 @@
 import ContextManager from '../../../core/ui/context-manager/context-manager.js';
-import { b as DisplayHandlerBase } from '../../../core/ui/dialog-box/manager-dialog-box.chunk.js';
+import { DisplayHandlerBase } from '../../../core/ui/context-manager/display-handler.js';
 import { DisplayQueueManager } from '../../../core/ui/context-manager/display-queue-manager.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/input/cursor.js';
-import '../../../core/ui/input/focus-manager.js';
-import '../../../core/ui/audio-base/audio-support.chunk.js';
-import '../../../core/ui/views/view-manager.chunk.js';
-import '../../../core/ui/panel-support.chunk.js';
+import { PopupPriority } from './popup-priority.js';
 
 class PopupSequencerClass extends DisplayHandlerBase {
   static instance = null;
   currentPopupData = null;
   constructor() {
-    super("PopupSequencer", 6e3);
+    super("PopupSequencer", PopupPriority.default);
     if (PopupSequencerClass.instance) {
       console.error("Only one instance of the PopupSequencerClass can exist at a time!");
     }
@@ -57,6 +52,18 @@ class PopupSequencerClass extends DisplayHandlerBase {
     }
     this.currentPopupData = null;
   };
+  addDisplayRequest(requestInfo, forceShow) {
+    const popupInfo = requestInfo;
+    if (popupInfo.popupId !== void 0) {
+      if (DisplayQueueManager.findAll(this.getCategory()).some((request) => {
+        const popupRequest = request;
+        return popupRequest.popupId !== void 0 && popupInfo.popupId === popupRequest.popupId;
+      })) {
+        return requestInfo;
+      }
+    }
+    return super.addDisplayRequest(requestInfo, forceShow);
+  }
 }
 const PopupSequencer = new PopupSequencerClass();
 DisplayQueueManager.registerHandler(PopupSequencer);

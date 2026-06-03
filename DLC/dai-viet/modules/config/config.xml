@@ -1,17 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Database>
 	<Civilizations>
-		<Row Domain="ExplorationAgeCivilizations" CivilizationType="CIVILIZATION_DAI_VIET" CivilizationName="LOC_CIVILIZATION_DAI_VIET_NAME" CivilizationFullName="LOC_CIVILIZATION_DAI_VIET_FULLNAME" CivilizationDescription="LOC_CIVILIZATION_DAI_VIET_DESCRIPTION" CivilizationIcon="shawnee_icon.png"/>
+		<Row Domain="ExplorationAgeCivilizations" CivilizationType="CIVILIZATION_DAI_VIET" CivilizationName="LOC_CIVILIZATION_DAI_VIET_NAME" CivilizationFullName="LOC_CIVILIZATION_DAI_VIET_FULLNAME" CivilizationDescription="LOC_CIVILIZATION_DAI_VIET_DESCRIPTION" CivilizationIcon="shawnee_icon.png" CivilizationIntroText="LOC_LOADING_CIV_INTRO_TEXT_DAI_VIET"/>
 	</Civilizations>
 	<CivilizationItems>
-		<Row CivilizationDomain="ExplorationAgeCivilizations" CivilizationType="CIVILIZATION_DAI_VIET" Type="TRAIT_DAI_VIET_ABILITY" Kind="KIND_TRAIT" Name="LOC_TRAIT_DAI_VIET_ABILITY_NAME" Description="LOC_TRAIT_DAI_VIET_ABILITY_DESCRIPTION"/>
+		<!-- Unique Ability -->
+		<Row CivilizationDomain="AntiquityAgeCivilizations" AgeType="AGE_ANTIQUITY" CivilizationType="CIVILIZATION_DAI_VIET" Type="TRAIT_DAI_VIET_ABILITY" Kind="KIND_TRAIT" Name="LOC_TRAIT_DAI_VIET_ABILITY_NAME" Description="LOC_TRAIT_DAI_VIET_ABILITY_AQ_DESCRIPTION"/>
+		<Row CivilizationDomain="ExplorationAgeCivilizations" AgeType="AGE_EXPLORATION" CivilizationType="CIVILIZATION_DAI_VIET" Type="TRAIT_DAI_VIET_ABILITY" Kind="KIND_TRAIT" Name="LOC_TRAIT_DAI_VIET_ABILITY_NAME" Description="LOC_TRAIT_DAI_VIET_ABILITY_EX_DESCRIPTION"/>
+		<Row CivilizationDomain="ModernAgeCivilizations" AgeType="AGE_MODERN" CivilizationType="CIVILIZATION_DAI_VIET" Type="TRAIT_DAI_VIET_ABILITY" Kind="KIND_TRAIT" Name="LOC_TRAIT_DAI_VIET_ABILITY_NAME" Description="LOC_TRAIT_DAI_VIET_ABILITY_MO_DESCRIPTION"/>
+		<!-- Unique Units -->
 		<Row CivilizationDomain="ExplorationAgeCivilizations" CivilizationType="CIVILIZATION_DAI_VIET" Type="UNIT_VOI_CHIEN" Kind="KIND_UNIT" Name="LOC_UNIT_VOI_CHIEN_NAME" Description="LOC_UNIT_VOI_CHIEN_BASE_DESCRIPTION" Icon="unitflag_leiomano.png"/>
 		<Row CivilizationDomain="ExplorationAgeCivilizations" CivilizationType="CIVILIZATION_DAI_VIET" Type="UNIT_VIET_KIEU" Kind="KIND_UNIT" Name="LOC_UNIT_VIET_KIEU_NAME" Description="LOC_UNIT_VIET_KIEU_DESCRIPTION" Icon="unitflag_viet_kieu.png"/>
+		<!-- Unique Infrastructure -->
 		<Row CivilizationDomain="ExplorationAgeCivilizations" CivilizationType="CIVILIZATION_DAI_VIET" Type="IMPROVEMENT_WATER_PUPPET_THEATER" Kind="KIND_IMPROVEMENT" Name="LOC_IMPROVEMENT_WATER_PUPPET_THEATER_NAME" Description="LOC_IMPROVEMENT_WATER_PUPPET_THEATER_DESCRIPTION" Icon="impicon_loikalo.png"/>
 	</CivilizationItems>
 	<CivilizationTags>
 		<Row CivilizationDomain="ExplorationAgeCivilizations" CivilizationType="CIVILIZATION_DAI_VIET" TagType="TAG_TRAIT_CULTURAL"/>
 		<Row CivilizationDomain="ExplorationAgeCivilizations" CivilizationType="CIVILIZATION_DAI_VIET" TagType="TAG_TRAIT_EXPANSIONIST"/>
+		<Row CivilizationDomain="ExplorationAgeCivilizations" CivilizationType="CIVILIZATION_DAI_VIET" TagType="TAG_APEX_AGE_EXPLORATION"/>
 	</CivilizationTags>
 	<CivilizationUnlocks>
 		<Row CivilizationDomain="AntiquityAgeCivilizations" CivilizationType="CIVILIZATION_KHMER" AgeDomain="StandardAges" AgeType="AGE_EXPLORATION" Type="CIVILIZATION_DAI_VIET" Kind="KIND_CIVILIZATION" Name="LOC_CIVILIZATION_DAI_VIET_NAME" Description="LOC_CIVILIZATION_DAI_VIET_DESCRIPTION" Icon="CIVILIZATION_DAI_VIET"/>
@@ -21,9 +27,9 @@
 		<Row LeaderDomain="StandardLeaders" LeaderType="LEADER_TRUNG_TRAC" AgeDomain="StandardAges" AgeType="AGE_EXPLORATION" Type="CIVILIZATION_DAI_VIET" Kind="KIND_CIVILIZATION" Name="LOC_CIVILIZATION_DAI_VIET_NAME" Description="LOC_CIVILIZATION_DAI_VIET_DESCRIPTION" Icon="CIVILIZATION_DAI_VIET"/>
 	</LeaderUnlocks>
 	<LeaderCivilizationBias>
-		<Row CivilizationDomain="ExplorationAgeCivilizations" CivilizationType="CIVILIZATION_DAI_VIET" LeaderDomain="StandardLeaders" LeaderType="LEADER_TRUNG_TRAC" Bias="3" ReasonType="LOC_UNLOCK_PLAY_AS_TRUNG_TRAC_DAI_VIET_TOOLTIP" ChoiceType="LOC_CREATE_GAME_GEOGRAPHIC_CHOICE" />
+		<Row CivilizationDomain="ExplorationAgeCivilizations" CivilizationType="CIVILIZATION_DAI_VIET" LeaderDomain="StandardLeaders" LeaderType="LEADER_TRUNG_TRAC" Bias="4" ReasonType="LOC_UNLOCK_PLAY_AS_TRUNG_TRAC_DAI_VIET_TOOLTIP" ChoiceType="LOC_CREATE_GAME_GEOGRAPHIC_CHOICE" />
 	</LeaderCivilizationBias>
 	<OwnershipConditions>
-		<Row ItemType="CIVILIZATION_CARTHAGE" Action="LOC_LOCKED_INCLUDED_WITH_CONTENT" />
+		<Row ItemType="CIVILIZATION_DAI_VIET" Action="LOC_LOCKED_INCLUDED_WITH_CONTENT" />
 	</OwnershipConditions>
 </Database>

@@ -1,18 +1,8 @@
 import { InterfaceMode } from '../../../../core/ui/interface-modes/interface-modes.js';
-import { L as LensManager } from '../../../../core/ui/lenses/lens-manager.chunk.js';
-import { O as OVERLAY_PRIORITY } from '../../utilities/utilities-overlay.chunk.js';
-import '../../../../core/ui/views/view-manager.chunk.js';
-import '../../../../core/ui/input/focus-manager.js';
-import '../../../../core/ui/audio-base/audio-support.chunk.js';
-import '../../../../core/ui/framework.chunk.js';
-import '../../../../core/ui/panel-support.chunk.js';
+import LensManager from '../../../../core/ui/lenses/lens-manager.js';
+import { HexToFloat4 } from '../../../../core/ui/utilities/utilities-color.js';
+import { OVERLAY_PRIORITY } from '../../utilities/utilities-overlay.js';
 
-const HexToFloat4 = (hex, alpha = 1) => {
-  const r = hex >> 16 & 255;
-  const g = hex >> 8 & 255;
-  const b = hex & 255;
-  return { x: r / 255, y: g / 255, z: b / 255, w: Math.min(1, Math.max(0, alpha)) };
-};
 const SETTLEMENT_BLOCKED_COLOR = HexToFloat4(6883593, 0.6);
 const SETTLEMENT_OKAY_COLOR = HexToFloat4(11836968, 0.6);
 const SETTLEMENT_GOOD_COLOR = HexToFloat4(2682558, 0.45);

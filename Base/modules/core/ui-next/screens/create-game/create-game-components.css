@@ -1,0 +1,52 @@
+.create-game-back-button {
+  background-image: url("fs://game/shell_back-button.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.create-game-back-button:focus, .create-game-back-button:hover, .create-game-back-button.pressed {
+  background-image: url("fs://game/shell_back-button-focus.png");
+}
+
+.create-game-nav-button-outer .create-game-nav-button-inner {
+  border: 2px solid #7c7059;
+  background: #212023;
+}
+.create-game-nav-button-outer:focus .create-game-nav-button-inner, .create-game-nav-button-outer:hover .create-game-nav-button-inner, .create-game-nav-button-outer.pressed .create-game-nav-button-inner {
+  border-color: #d8c9a2;
+  background-color: #000;
+}
+
+.create-game-hrule {
+  height: 0.0555555556rem;
+  background: linear-gradient(270deg, #504a3f 7.01%, #504a3f 78.85%);
+  opacity: 0.9;
+}
+
+.game-creator-nav-button {
+  min-width: 16.6666666667rem;
+  min-height: 2.2222222222rem;
+  padding: 0rem 0.4444444444rem;
+  margin: 0.3333333333rem;
+  background: linear-gradient(270deg, #4c473d 0%, #35373d 50%, #4c473d 100%);
+  border-image-outset: 0.3333333333rem 0.4444444444rem 0.8888888889rem 0.4444444444rem;
+  border-image-slice: 16 96 36 96 fill;
+  border-image-source: url("fs://game/shell_create-tab-bg.png");
+  border-image-width: 0.8888888889rem 5.3333333333rem 2rem 5.3333333333rem;
+}
+.game-creator-nav-button:focus, .game-creator-nav-button:hover, .game-creator-nav-button.pressed {
+  background: linear-gradient(270deg, #8c7e62 0%, #b4975e 0.01%, #584c32 35%, #584c32 65%, #b4975e 100%);
+}
+
+.game-creator-nav-button-selected {
+  border-image-source: url("fs://game/shell_create-tab-bg-focus.png");
+}
+
+.create-game-tab-pips-hrule {
+  height: 0.1111111111rem;
+  background: rgba(44, 44, 55, 0.8);
+}
+
+.create-game-tab-pips-bg {
+  background: rgba(44, 44, 55, 0.8);
+}

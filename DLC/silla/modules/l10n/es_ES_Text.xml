@@ -262,8 +262,8 @@
       <Plurality>1</Plurality>
     </Replace>
     <Replace Tag="LOC_CIVILIZATION_SILLA_NAME" Language="es_ES">
-      <Text>Silla</Text>
-      <Gender>masculine</Gender>
+      <Text>Corea Silla</Text>
+      <Gender>feminine</Gender>
       <Plurality>1</Plurality>
     </Replace>
     <Replace Tag="LOC_INDEPENDENT_ANTIQUITY_16_MAJOR_SILLA_NAME" Language="es_ES">
@@ -598,23 +598,41 @@
     <Replace Tag="LOC_12009C_NAME" Language="es_ES">
       <Text>Hay un gran poder en esa corona.</Text>
     </Replace>
+    <Replace Tag="LOC_TOT_30017A_COMPLETION" Language="es_ES">
+      <Text>El sistema de clase según hueso vertebra la vida en la civilización silla. El poder es cosa de descendencia: el casamiento, la profesión, la vestimenta, la riqueza, el estatus y el valor del individuo emanan de su más hondo ser. No obstante, el reino silla se expande, y al hacerlo incorpora familias desconocidas y tradiciones inauditas.</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30017A_STORYTITLE" Language="es_ES">
+      <Text>Fractura ósea</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30017B_DESCRIPTION" Language="es_ES">
+      <Text>{1_reward}.</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30017B_NAME" Language="es_ES">
+      <Text>Sobre esas familias deben gobernar nobles silla, de estirpe y seonggol respetables. Conservaremos nuestro sistema.</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30017C_DESCRIPTION" Language="es_ES">
+      <Text>{1_reward}.</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30017C_NAME" Language="es_ES">
+      <Text>Nuestro sistema de clases debe flexibilizarse. Cambiemos hueso por cartílago.</Text>
+    </Replace>
     <Replace Tag="LOC_ABILITY_HWARANG_CULTURE_DESCRIPTION" Language="es_ES">
-      <Text>Ganas una cantidad de [icon:YIELD_CULTURE] Cultura equivalente al 25 % de la [icon:NAR_REW_COMBAT] Fuerza de combate de la unidad derrotada.</Text>
+      <Text>Ganas una cantidad de [icon:YIELD_CULTURE] Cultura equivalente al 25 % de la [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Fuerza de combate[/TIP] de la unidad derrotada.</Text>
     </Replace>
     <Replace Tag="LOC_ABILITY_HWARANG_CULTURE_PREVIEW" Language="es_ES">
-      <Text>Ganas una cantidad de Cultura equivalente al 25 % de la Fuerza de combate de la unidad derrotada.</Text>
+      <Text>Ganas una cantidad de Cultura equivalente al 25 % de la [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Fuerza de combate[/TIP] de la unidad derrotada.</Text>
     </Replace>
     <Replace Tag="LOC_BUILDING_LECTURE_HALL_DESCRIPTION" Language="es_ES">
-      <Text>Edificio de Cultura exclusivo silla. +3 a [icon:YIELD_CULTURE] Cultura. +1 a[icon:YIELD_CULTURE] Cultura por adyacencia a Maravillas. +1 a la [icon:RADIAL_RESOURCES] capacidad de recursos en este asentamiento si se construye en [icon:CITY_UNIMPROVED] terreno Abrupto. No envejece.</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_BUILDING_TOOLTIP]Edificio de Cultura exclusivo[/TIP] silla. +3 a [icon:YIELD_CULTURE] Cultura. +1 a[icon:YIELD_CULTURE] Cultura por adyacencia a [TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]Maravillas[/TIP]. +1 a la [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCE_CAPACITY_TOOLTIP]capacidad de recursos[/TIP] en este [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]asentamiento[/TIP] si se construye en [icon:CITY_UNIMPROVED] [TIP:LOC_PEDIA_CONCEPTS_ROUGH_TERRAIN_TOOLTIP]terreno Abrupto[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_BUILDING_LECTURE_HALL_TOOLTIP" Language="es_ES">
-      <Text>[B]Efecto:[/B] +1 a la [icon:RADIAL_RESOURCES] capacidad de recursos en este asentamiento si se construye en [icon:CITY_UNIMPROVED] terreno Abrupto.[N]Edificio exclusivo silla.</Text>
+      <Text>[B]Efecto:[/B] +1 a la [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCE_CAPACITY_TOOLTIP]capacidad de recursos[/TIP] en este [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]asentamiento[/TIP] si se construye en [icon:CITY_UNIMPROVED] [TIP:LOC_PEDIA_CONCEPTS_ROUGH_TERRAIN_TOOLTIP]terreno Abrupto[/TIP].[N][TIP:LOC_PEDIA_CONCEPTS_UNIQUE_BUILDING_TOOLTIP]Edificio exclusivo[/TIP] silla.</Text>
     </Replace>
     <Replace Tag="LOC_BUILDING_PAGODA_DESCRIPTION" Language="es_ES">
-      <Text>Edificio de Felicidad exclusivo silla. +3 a [icon:YIELD_HAPPINESS] Felicidad. +1 a[icon:YIELD_DIPLOMACY] Influencia por adyacencia a Maravillas naturales, Montañas y Maravillas. No envejece.</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_BUILDING_TOOLTIP]Edificio de Felicidad exclusivo[/TIP] silla. +3 a [icon:YIELD_HAPPINESS] Felicidad. +1 a[icon:YIELD_DIPLOMACY] Influencia por adyacencia a Maravillas naturales, Montañas y [TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]Maravillas[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_BUILDING_PAGODA_TOOLTIP" Language="es_ES">
-      <Text>Edificio exclusivo silla.</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_BUILDING_TOOLTIP]Edificio exclusivo[/TIP] silla.</Text>
     </Replace>
     <Replace Tag="LOC_CIVIC_JINGOL_AUTHOR" Language="es_ES">
       <Text>Oda al caballero Kipa</Text>
@@ -658,50 +676,71 @@
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SILLA_COMPLETE_EMILE_BELL_NAME" Language="es_ES">
       <Text>Campana Emille</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SILLA_LEGACY_PATH_ECONOMIC_DESC" Language="es_ES">
-      <Text>Como los silla, completa una Ruta de legado económico.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SILLA_FOUR_MAJOR_TRIUMPHS_DESC" Language="es_ES">
+      <Text>Como Silla, logra 4 Triunfos mayores diplomáticos o económicos durante un mismo apogeo.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SILLA_LEGACY_PATH_ECONOMIC_NAME" Language="es_ES">
-      <Text>Ruta de legado silla</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SILLA_FOUR_MAJOR_TRIUMPHS_NAME" Language="es_ES">
+      <Text>4 Triunfos mayores de Silla</Text>
     </Replace>
     <Replace Tag="LOC_MOD_CIV_WONDER_PRODUCTION_SILLA_DESCRIPTION" Language="es_ES">
       <Text>+30 % a la[icon:YIELD_PRODUCTION] Producción para la [icon:WONDER] Maravilla asociada de Silla.</Text>
     </Replace>
-    <Replace Tag="LOC_MOD_JINGOL_RESOURCE_CAP_DESCRIPTION" Language="es_ES">
-      <Text>+1 a la capacidad de [icon:RADIAL_RESOURCES] recursos en [icon:YIELD_TOWNS] pueblos. </Text>
+    <Replace Tag="LOC_NODE_CIVIC_EX_SILLA_RENAISSANCE_NAME" Language="es_ES">
+      <Text>Renacimiento silla</Text>
     </Replace>
-    <Replace Tag="LOC_MOD_JINGOL_TRADE_ROUTE_RANGE_DESCRIPTION" Language="es_ES">
-      <Text>+5 al alcance de las [icon:TRADE_ROUTE] rutas comerciales terrestres en todos los asentamientos.</Text>
-    </Replace>
-    <Replace Tag="LOC_MOD_KOLP_U_ALLIANCE_ROUTE_GOLD_DESCRIPTION" Language="es_ES">
-      <Text>Cuando formas una [icon:PLAYER_RELATIONSHIP_ALLIANCE] alianza, ambos líderes reciben una [icon:TRADE_ROUTE] ruta comercial gratuita desde la [icon:NOTIFICATION_SELECT_CAPITAL] capital del otro líder (sin importar el alcance). Estas [icon:TRADE_ROUTE] rutas no se eliminan al terminar la [icon:PLAYER_RELATIONSHIP_ALLIANCE] alianza ni computan en lo que respecta a tu límite de [icon:TRADE_ROUTE] rutas comerciales con esta civilización.</Text>
-    </Replace>
-    <Replace Tag="LOC_MOD_KOLP_U_CULTURE_KILLS_HWARANG_DESCRIPTION" Language="es_ES">
-      <Text>Al derrotar a una unidad enemiga con un [icon:UNIT_HWARANG] Hwarang, ganas [icon:YIELD_CULTURE] Cultura equivalente al 25 % de la [icon:NAR_REW_COMBAT] Fuerza de combate de la unidad derrotada.</Text>
+    <Replace Tag="LOC_NODE_CIVIC_MO_SILLA_MODERNIZATION_NAME" Language="es_ES">
+      <Text>Modernización silla</Text>
     </Replace>
     <Replace Tag="LOC_NOTIFICATION_TRADE_ROUTE_TERMINATED_MESSAGE" Language="es_ES">
       <Text>Ruta comercial finalizada</Text>
     </Replace>
     <Replace Tag="LOC_QUARTER_DRAGON_TEMPLE_DESCRIPTION" Language="es_ES">
-      <Text>Barrio exclusivo silla. Se crea al construir el Salón de lectura y la Pagoda en el mismo distrito. +1 de [icon:YIELD_GOLD] Oro por cada [icon:RADIAL_RESOURCES] recurso asignado a esta [icon:YIELD_CITIES] ciudad.</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_QUARTER_TOOLTIP]Barrio exclusivo[/TIP] silla. Se crea al construir el Salón de lectura y la Pagoda en el mismo [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]distrito[/TIP]. +1 de [icon:YIELD_GOLD] Oro por cada [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]recurso[/TIP] asignado a esta [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]ciudad[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_QUARTER_DRAGON_TEMPLE_TOOLTIP" Language="es_ES">
-      <Text>+1 de [icon:YIELD_GOLD] Oro por cada [icon:RADIAL_RESOURCES] recurso asignado a esta [icon:YIELD_CITIES] ciudad.</Text>
+      <Text>+1 de [icon:YIELD_GOLD] Oro por cada [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]recurso[/TIP] asignado a esta [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]ciudad[/TIP].</Text>
     </Replace>
-    <Replace Tag="LOC_TRADITION_BEOPSEONG_DESCRIPTION" Language="es_ES">
-      <Text>+2 a [icon:YIELD_HAPPINESS] Felicidad por [icon:RADIAL_RESOURCES] recursos en [icon:YIELD_TOWNS] pueblos con un [icon:YIELD_HAPPINESS] edificio de Felicidad.</Text>
+    <Replace Tag="LOC_TRADITION_BEOPSEONG_I_DESCRIPTION" Language="es_ES">
+      <Text>+2 a [icon:YIELD_HAPPINESS] Felicidad por [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]recursos[/TIP] en [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]pueblos[/TIP] con un [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]edificio[/TIP] de [icon:YIELD_HAPPINESS] Felicidad.</Text>
     </Replace>
-    <Replace Tag="LOC_TRADITION_SEORABEOL_DESCRIPTION" Language="es_ES">
-      <Text>+1 de [icon:YIELD_GOLD] Oro y +1 a [icon:YIELD_DIPLOMACY] Influencia por los [icon:RADIAL_RESOURCES] recursos asignados a pueblos industriales o con el enfoque Puesto comercial.</Text>
+    <Replace Tag="LOC_TRADITION_BEOPSEONG_II_DESCRIPTION" Language="es_ES">
+      <Text>+2 a [icon:YIELD_HAPPINESS] Felicidad en [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]recursos[/TIP] en [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]pueblos[/TIP].</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_SEORABEOL_I_DESCRIPTION" Language="es_ES">
+      <Text>+1 de [icon:YIELD_GOLD] Oro y a [icon:YIELD_DIPLOMACY] Influencia por los [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]recursos[/TIP] asignados a [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]pueblos[/TIP] con el enfoque Puesto comercial.</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_SEORABEOL_II_DESCRIPTION" Language="es_ES">
+      <Text>+2 de [icon:YIELD_GOLD] Oro y a [icon:YIELD_DIPLOMACY] Influencia por los [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]recursos[/TIP] asignados a [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]pueblos[/TIP] con el enfoque Puesto comercial.</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_SILLA_SYNCRETISM_EXPLORATION_DESCRIPTION" Language="es_ES">
+      <Text>+1 a [icon:YIELD_CULTURE] Cultura y [icon:YIELD_SCIENCE] Ciencia por cada [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]recurso[/TIP] importado.</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_SILLA_SYNCRETISM_MODERN_DESCRIPTION" Language="es_ES">
+      <Text>+2 a [icon:YIELD_CULTURE] Cultura y [icon:YIELD_SCIENCE] Ciencia por cada [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]recurso[/TIP] importado.</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_SILLA_SYNCRETISM_TOOLTIP" Language="es_ES">
+      <Text>Reforma de clase según hueso</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_STRATEGIC_ALLIES_DESCRIPTION" Language="es_ES">
-      <Text>Todas las [icon:TRADE_ROUTE] rutas comerciales entre tus [icon:PLAYER_RELATIONSHIP_ALLIANCE] aliados y tú proporcionan [icon:YIELD_FOOD] Alimentos y [icon:YIELD_PRODUCTION] Producción equivalentes a los [icon:TRADE_INCOME] beneficios por Comercio que produzca la ruta.</Text>
+      <Text>Todas las [icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]rutas comerciales[/TIP] entre tus [icon:PLAYER_RELATIONSHIP_ALLIANCE] [TIP:LOC_PEDIA_CONCEPTS_ALLIANCE_TOOLTIP]aliados[/TIP] y tú proporcionan [icon:YIELD_FOOD] Alimentos y [icon:YIELD_PRODUCTION] Producción para ambos jugadores equivalentes a los [icon:TRADE_INCOME] [TIP:LOC_PEDIA_CONCEPTS_TRADE_INCOME_TOOLTIP]beneficios por Comercio[/TIP] que produzca la ruta.</Text>
     </Replace>
-    <Replace Tag="LOC_TRADITION_THE_GOLDEN_ROAD_DESCRIPTION" Language="es_ES">
-      <Text>+1 a [icon:YIELD_SCIENCE] Ciencia por cada [icon:RADIAL_RESOURCES] recurso importado.</Text>
+    <Replace Tag="LOC_TRADITION_THE_GOLDEN_ROAD_I_DESCRIPTION" Language="es_ES">
+      <Text>Todas las [icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]rutas comerciales[/TIP] entre tus [icon:PLAYER_RELATIONSHIP_ALLIANCE] [TIP:LOC_PEDIA_CONCEPTS_ALLIANCE_TOOLTIP]aliados[/TIP] y tú proporcionan [icon:YIELD_SCIENCE] Ciencia y [icon:YIELD_CULTURE] Cultura para ambos jugadores equivalentes al 50 % de los [icon:TRADE_INCOME] [TIP:LOC_PEDIA_CONCEPTS_TRADE_INCOME_TOOLTIP]beneficios por Comercio[/TIP] que produzca la ruta.</Text>
     </Replace>
-    <Replace Tag="LOC_TRAIT_SILLA_ABILITY_DESCRIPTION" Language="es_ES">
-      <Text>[BLIST][LI][B]+1 a[icon:YIELD_CULTURE] Cultura[/B] por [icon:RADIAL_RESOURCES] [B]recursos[/B].[LI][B]+30 % a la[icon:YIELD_PRODUCTION] Producción [/B]destinada a la construcción de la [B]Campana Emille[/B].[/LIST]</Text>
+    <Replace Tag="LOC_TRADITION_THE_GOLDEN_ROAD_I_TOOLTIP" Language="es_ES">
+      <Text>Ruta Dorada</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_THE_GOLDEN_ROAD_II_DESCRIPTION" Language="es_ES">
+      <Text>Todas las [icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]rutas comerciales[/TIP] entre tus [icon:PLAYER_RELATIONSHIP_ALLIANCE] [TIP:LOC_PEDIA_CONCEPTS_ALLIANCE_TOOLTIP]aliados[/TIP] y tú proporcionan [icon:YIELD_SCIENCE] Ciencia y [icon:YIELD_CULTURE] Cultura para ambos jugadores equivalentes a los [icon:TRADE_INCOME] [TIP:LOC_PEDIA_CONCEPTS_TRADE_INCOME_TOOLTIP]beneficios por Comercio[/TIP] que produzca la ruta.</Text>
+    </Replace>
+    <Replace Tag="LOC_TRAIT_SILLA_ABILITY_AQ_DESCRIPTION" Language="es_ES">
+      <Text>[BLIST][LI]Cuando formas una [icon:PLAYER_RELATIONSHIP_ALLIANCE] [TIP:LOC_PEDIA_CONCEPTS_ALLIANCE_TOOLTIP]alianza[/TIP], ambos líderes reciben una [icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]ruta comercial[/TIP] gratuita desde la [icon:NOTIFICATION_SELECT_CAPITAL] capital del otro líder. Estas [icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]rutas[/TIP] no se eliminan al terminar la [icon:PLAYER_RELATIONSHIP_ALLIANCE] [TIP:LOC_PEDIA_CONCEPTS_ALLIANCE_TOOLTIP]alianza[/TIP].[LI][B]+1 a [icon:YIELD_DIPLOMACY] Influencia[/B] por [B]cada civilización[/B] con la que tengas al menos [B]1 [icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]ruta comercial[/TIP][/B].[LI][B]+30 % a la [icon:YIELD_PRODUCTION] Producción [/B]destinada a construir la [B]Campana Emille[/B].[/BLIST]</Text>
+    </Replace>
+    <Replace Tag="LOC_TRAIT_SILLA_ABILITY_EX_DESCRIPTION" Language="es_ES">
+      <Text>[BLIST][LI]Cuando formas una [icon:PLAYER_RELATIONSHIP_ALLIANCE] [TIP:LOC_PEDIA_CONCEPTS_ALLIANCE_TOOLTIP]alianza[/TIP], ambos líderes reciben una [icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]ruta comercial[/TIP] gratuita desde la [icon:NOTIFICATION_SELECT_CAPITAL] capital del otro líder. Estas [icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]rutas[/TIP] no se eliminan al terminar la [icon:PLAYER_RELATIONSHIP_ALLIANCE] [TIP:LOC_PEDIA_CONCEPTS_ALLIANCE_TOOLTIP]alianza[/TIP].[LI][B]+2 a [icon:YIELD_DIPLOMACY] Influencia[/B] por [B]cada civilización[/B] con la que tengas al menos [B]1 [icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]ruta comercial[/TIP][/B].[/BLIST]</Text>
+    </Replace>
+    <Replace Tag="LOC_TRAIT_SILLA_ABILITY_MO_DESCRIPTION" Language="es_ES">
+      <Text>[BLIST][LI]Cuando formas una [icon:PLAYER_RELATIONSHIP_ALLIANCE] [TIP:LOC_PEDIA_CONCEPTS_ALLIANCE_TOOLTIP]alianza[/TIP], ambos líderes reciben una [icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]ruta comercial[/TIP] gratuita desde la [icon:NOTIFICATION_SELECT_CAPITAL] capital del otro líder. Estas [icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]rutas[/TIP] no se eliminan al terminar la [icon:PLAYER_RELATIONSHIP_ALLIANCE] [TIP:LOC_PEDIA_CONCEPTS_ALLIANCE_TOOLTIP]alianza[/TIP].[LI][B]+3 a [icon:YIELD_DIPLOMACY] Influencia[/B] por [B]cada civilización[/B] con la que tengas al menos [B]1 [icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]ruta comercial[/TIP][/B].[/BLIST]</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_SILLA_ABILITY_NAME" Language="es_ES">
       <Text>Maripgan</Text>
@@ -710,16 +749,16 @@
       <Text>Principios silla</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_HWARANG_2_DESCRIPTION" Language="es_ES">
-      <Text>Unidad a distancia exclusiva silla de categoría 2. Posee +1 de [icon:Action_Move] Movimiento y +3 a la [icon:Action_Ranged] Fuerza de bombardeo. Cuenta como unidad de caballería e ignora las Zonas de control.</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_RANGED_UNITS_TOOLTIP]Unidad a distancia[/TIP] exclusiva silla de categoría 2. Posee +1 de [icon:Action_Move] Movimiento y +3 a la [icon:Action_Ranged] Fuerza de bombardeo. Cuenta como [TIP:LOC_PEDIA_CONCEPTS_CAVALRY_UNITS_TOOLTIP]unidad de caballería[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_HWARANG_BASE_DESCRIPTION" Language="es_ES">
-      <Text>Unidad a distancia exclusiva silla. Posee +1 de [icon:Action_Move] Movimiento y +3 a la [icon:Action_Ranged] Fuerza de bombardeo. Cuenta como unidad de caballería e ignora las Zonas de control.</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_RANGED_UNITS_TOOLTIP]Unidad a distancia[/TIP] exclusiva silla. Posee +1 de [icon:Action_Move] Movimiento y +3 a la [icon:Action_Ranged] Fuerza de bombardeo. Cuenta como [TIP:LOC_PEDIA_CONCEPTS_CAVALRY_UNITS_TOOLTIP]unidad de caballería[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_HWARANG_DESCRIPTION" Language="es_ES">
-      <Text>Unidad a distancia exclusiva silla de categoría 1. Posee +1 de [icon:Action_Move] Movimiento y +3 a la [icon:Action_Ranged] Fuerza de bombardeo. Cuenta como unidad de caballería e ignora las Zonas de control.</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_RANGED_UNITS_TOOLTIP]Unidad a distancia[/TIP] exclusiva silla de categoría 1. Posee +1 de [icon:Action_Move] Movimiento y +3 a la [icon:Action_Ranged] Fuerza de bombardeo. Cuenta como [TIP:LOC_PEDIA_CONCEPTS_CAVALRY_UNITS_TOOLTIP]unidad de caballería[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_SANGDAEDEUNG_DESCRIPTION" Language="es_ES">
-      <Text>Mercader exclusivo silla. Al crear una [icon:TRADE_ROUTE] ruta comercial, recibes +5 de [icon:YIELD_GOLD] Oro por el nivel de Relación actual con el líder en cuestión (a velocidad estándar, no se aplica a ciudades-estado). 5 de [icon:YIELD_GOLD] Oro como mínimo.</Text>
+      <Text>Mercader exclusivo silla. Al crear una [icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]ruta comercial[/TIP], recibes +5 de [icon:YIELD_GOLD] Oro por el nivel de Relación actual con el líder en cuestión (a velocidad estándar), no se aplica a [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]ciudades-estado[/TIP]. 5 de [icon:YIELD_GOLD] Oro como mínimo.</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_PLAY_AS_MACHIAVELLI_SILLA_TOOLTIP" Language="es_ES">
       <Text>[B]Silla[/B] complementa estratégicamente a [B]Maquiavelo[/B].</Text>
@@ -727,19 +766,42 @@
     <Replace Tag="LOC_UNLOCK_PLAY_AS_SILLA_DESCRIPTION" Language="es_ES">
       <Text>Juega como [B]Silla[/B].</Text>
     </Replace>
+    <Replace Tag="LOC_UNLOCK_PLAY_AS_SILLA_SILLA_TOOLTIP" Language="es_ES">
+      <Text>[B]Silla[/B] consigue imponerse al paso de las eras.</Text>
+    </Replace>
     <Replace Tag="LOC_NOTIFICATION_TRADE_ROUTE_TERMINATED_DUE_TO_ALLIANCE_SUMMARY" Language="es_ES">
       <Text>Tu alianza con {1_LeaderName} os otorga rutas comerciales gratuitas entre vuestras capitales. Vuestra ruta comercial anterior se ha cancelado y el Mercader que la inició se encuentra ahora en tu capital.</Text>
     </Replace>
     <Replace Tag="LOC_NOTIFICATION_TRADE_ROUTE_TERMINATED_SUMMARY" Language="es_ES">
       <Text>Tu alianza con {1_LeaderName} ha finalizado. Se han eliminado las rutas comerciales gratuitas entre vuestras capitales.</Text>
     </Replace>
-    <Replace Tag="LOC_TRADITION_BEOPSEONG_NAME" Language="es_ES">
-      <Text>Boseong</Text>
+    <Replace Tag="LOC_TRADITION_BEOPSEONG_I_NAME" Language="es_ES">
+      <Text>Beopseong I</Text>
       <Gender>masculine</Gender>
       <Plurality>1</Plurality>
     </Replace>
-    <Replace Tag="LOC_TRADITION_SEORABEOL_NAME" Language="es_ES">
-      <Text>Seorabeol</Text>
+    <Replace Tag="LOC_TRADITION_BEOPSEONG_II_NAME" Language="es_ES">
+      <Text>Beopseong II</Text>
+      <Gender>masculine</Gender>
+      <Plurality>1</Plurality>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_SEORABEOL_I_NAME" Language="es_ES">
+      <Text>Seorabeol I</Text>
+      <Gender>masculine</Gender>
+      <Plurality>1</Plurality>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_SEORABEOL_II_NAME" Language="es_ES">
+      <Text>Seorabeol II</Text>
+      <Gender>feminine</Gender>
+      <Plurality>1</Plurality>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_SILLA_SYNCRETISM_EXPLORATION_NAME" Language="es_ES">
+      <Text>Reforma de clase según hueso I</Text>
+      <Gender>feminine</Gender>
+      <Plurality>1</Plurality>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_SILLA_SYNCRETISM_MODERN_NAME" Language="es_ES">
+      <Text>Reforma de clase según hueso II</Text>
       <Gender>feminine</Gender>
       <Plurality>1</Plurality>
     </Replace>
@@ -748,8 +810,13 @@
       <Gender>masculine</Gender>
       <Plurality>2</Plurality>
     </Replace>
-    <Replace Tag="LOC_TRADITION_THE_GOLDEN_ROAD_NAME" Language="es_ES">
-      <Text>Ruta Dorada </Text>
+    <Replace Tag="LOC_TRADITION_THE_GOLDEN_ROAD_I_NAME" Language="es_ES">
+      <Text>Ruta Dorada I</Text>
+      <Gender>feminine</Gender>
+      <Plurality>1</Plurality>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_THE_GOLDEN_ROAD_II_NAME" Language="es_ES">
+      <Text>Ruta Dorada II</Text>
       <Gender>feminine</Gender>
       <Plurality>1</Plurality>
     </Replace>

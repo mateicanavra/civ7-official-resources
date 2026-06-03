@@ -1,0 +1,4 @@
+const content = "<div class=\"flex items-center\">\r\n\t<fxs-modal-frame>\r\n\t\t<fxs-header\r\n\t\t\ttitle=\"LOC_UI_TOOLTIP_MODS\"\r\n\t\t\tclass=\"font-title text-xl text-center uppercase tracking-100\"\r\n\t\t\tfiligree-style=\"h2\"\r\n\t\t></fxs-header>\r\n\t\t<fxs-scrollable\r\n\t\t\tclass=\"shrink flex-col pt-2 pb-6 px-12 justify-center\"\r\n\t\t\tdisable-focus-allowed=\"true\"\r\n\t\t>\r\n\t\t\t<fxs-vslot\r\n\t\t\t\tclass=\"font-body text-base py-3\\\\.5 pointer-events-auto additional-content-list\"\r\n\t\t\t\ttabindex=\"-1\"\r\n\t\t\t></fxs-vslot>\r\n\t\t</fxs-scrollable>\r\n\t\t<div class=\"flow-row justify-center\">\r\n\t\t\t<fxs-button\r\n\t\t\t\tclass=\"mp-additional-content__close-button\"\r\n\t\t\t\tcaption=\"LOC_GENERIC_CLOSE\"\r\n\t\t\t\taction-key=\"inline-cancel\"\r\n\t\t\t></fxs-button>\r\n\t\t</div>\r\n\t</fxs-modal-frame>\r\n</div>\r\n";
+
+export { content as default };
+//# sourceMappingURL=mp-additional-content.html.js.map

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+	<Modifier id="MOD_MO_NATURAL_WONDER_ARCHAEOLOGY_REDUX" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_OPEN_ARCHAEOLOGY">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_IS_MAJOR"/>
+			<Requirement type="REQUIREMENT_PLAYER_HAS_CIVILIZATION_OR_LEADER_TRAIT" inverse="true">
+				<Argument name="TraitType">TRAIT_ASSYRIA</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="AllowNaturalWonders">true</Argument>
+		<String context="Description">LOC_MOD_MO_NATURAL_WONDER_ARCHAEOLOGY_DESCRIPTION</String>
+	</Modifier>
+</GameEffects>

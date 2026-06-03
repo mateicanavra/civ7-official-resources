@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Database>
 	<EnglishText>
-
 		<!-- ==================================================	-->
 		<!--	Đại Việt							-->
 		<!-- ==================================================	-->
@@ -44,46 +43,69 @@
 		<Row Tag="LOC_CIVIC_TU_DAN_AUTHOR">
 			<Text>Đặng Trần Côn</Text>
 		</Row>
-		<!--Đại Việt Civic Description-->
-		<Row Tag="LOC_MOD_CAM_QUAN_FORMAL_WAR_COMBAT_ABILITY_DESCRIPTION">
-			<Text>+3 [icon:NAR_REW_COMBAT] Combat Strength for all Military Units during [icon:WAR] Formal Wars, doubled in territory you own.</Text>
-		</Row>
-		<Row Tag="LOC_MOD_CAM_QUAN_FORTIFICATION_CONSTRUCTIBLES_DESCRIPTION">
-			<Text>+50% [icon:YIELD_PRODUCTION] Production towards [icon:Action_Fortify] Fortification Constructibles.</Text>
-		</Row>
-		<Row Tag="LOC_MOD_CHU_NOM_CULTURE_TROPICAL_DESCRIPTION">
-			<Text>[icon:YIELD_CULTURE] Culture Buildings gain a +1 [icon:YIELD_CULTURE] Culture Adjacency from [icon:CITY_UNIMPROVED] Tropical Terrain.</Text>
-		</Row>
-		<Row Tag="LOC_MOD_CHU_NOM_FLOOD_PLAINS_CULTURE_DESCRIPTION">
-			<Text>+2 [icon:YIELD_CULTURE] Culture on Floodplain tiles.</Text>
-		</Row>
-		<Row Tag="LOC_MOD_THANH_HOANG_GRISTMILL_WATER_PUPPET_THEATER_DESCRIPTION">
-			<Text>+2[icon:YIELD_FOOD] Food on Water Puppet Theaters in Settlements with a Gristmill.</Text>
-		</Row>
-		<Row Tag="LOC_MOD_TU_DAN_WALL_COMBAT_STRENGTH_DESCRIPTION">
-			<Text>+5 [icon:NAR_REW_COMBAT] Combat Strength for Military Units while defending in [icon:CITY_FORTIFIED] Fortified Districts in [icon:CITY_UNIMPROVED] Tropical Terrain.</Text>
-		</Row>
-		<Row Tag="LOC_MOD_TU_DAN_WALL_COMBAT_STRENGTH_PREVIEW">
-			<Text>+5 Tứ Dân</Text>
-		</Row>
 		<!--Đại Việt Unique Traditions-->
-		<Row Tag="LOC_TRADITION_CAM_BINH_NAME">
-			<Text>Cấm Binh</Text>
+		<Row Tag="LOC_TRADITION_CAM_BINH_I_NAME">
+			<Text>Cấm Binh I</Text>
 		</Row>
-		<Row Tag="LOC_TRADITION_CAM_BINH_DESCRIPTION">
-			<Text>+2[icon:YIELD_GOLD] Gold on [icon:Action_Fortify] Fortifications in Settlements with at least 1 Garrisoned Unit.</Text>
+		<Row Tag="LOC_TRADITION_CAM_BINH_I_DESCRIPTION">
+			<Text>+1 [icon:YIELD_GOLD] on [icon:CITY_FORTIFIED] Fortifications. +50% [icon:YIELD_PRODUCTION] towards constructing [icon:CITY_FORTIFIED] Fortification Constructibles.</Text>
+		</Row>
+		<Row Tag="LOC_TRADITION_CAM_BINH_II_NAME">
+			<Text>Cấm Binh II</Text>
+		</Row>
+		<Row Tag="LOC_TRADITION_CAM_BINH_II_DESCRIPTION">
+			<Text>+2 [icon:YIELD_GOLD] on [icon:CITY_FORTIFIED] Fortifications. +50% [icon:YIELD_PRODUCTION] towards constructing and [icon:YIELD_GOLD] towards purchasing [icon:CITY_FORTIFIED] Fortification Constructibles.</Text>
+		</Row>
+		<Row Tag="LOC_TRADITION_CAM_BINH_TOOLTIP">
+			<Text>Cấm Binh</Text>
 		</Row>
 		<Row Tag="LOC_TRADITION_CON_KENH_NAME">
 			<Text>Con Kênh</Text>
 		</Row>
 		<Row Tag="LOC_TRADITION_CON_KENH_DESCRIPTION">
-			<Text>+2 [icon:YIELD_CULTURE] Culture on [icon:YIELD_FOOD] Food Buildings and +2 [icon:YIELD_FOOD] Food on [icon:YIELD_CULTURE] Culture Buildings.</Text>
+			<Text>[icon:YIELD_CULTURE] Culture and [icon:YIELD_FOOD] Food [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]Buildings[/TIP] gain a +1 [icon:YIELD_CULTURE] Adjacency for [icon:CITY_UNIMPROVED] Tropical Terrain.</Text>
 		</Row>
-		<Row Tag="LOC_TRADITION_RUONG_LANG_XA_NAME">
+		<Row Tag="LOC_TRADITION_RUONG_LANG_XA_I_NAME">
+			<Text>Ruộng Làng Xã I</Text>
+		</Row>
+		<Row Tag="LOC_TRADITION_RUONG_LANG_XA_I_DESCRIPTION">
+			<Text>+1 [icon:YIELD_FOOD] on Farms, Plantations, and Fortifications in [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]Towns[/TIP] in [icon:CITY_UNIMPROVED] Tropical Terrain. +5 [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Combat Strength[/TIP] for [icon:CITY_FORTIFIED] [TIP:LOC_PEDIA_CONCEPTS_FORTIFIED_DISTRICTS_TOOLTIP]Fortified Districts[/TIP] and Land Units in friendly territory.</Text>
+		</Row>
+		<Row Tag="LOC_TRADITION_RUONG_LANG_XA_II_NAME">
+			<Text>Ruộng Làng Xã II</Text>
+		</Row>
+		<Row Tag="LOC_TRADITION_RUONG_LANG_XA_II_DESCRIPTION">
+			<Text>+2 [icon:YIELD_FOOD] on Farms, Plantations, and Fortifications in [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]Towns[/TIP] in [icon:CITY_UNIMPROVED] Tropical Terrain. +5 [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Combat Strength[/TIP] for [icon:CITY_FORTIFIED] [TIP:LOC_PEDIA_CONCEPTS_FORTIFIED_DISTRICTS_TOOLTIP]Fortified Districts[/TIP] and Land Units in friendly territory.</Text>
+		</Row>
+		<Row Tag="LOC_TRADITION_RUONG_LANG_XA_TOOLTIP">
 			<Text>Ruộng Làng Xã</Text>
 		</Row>
-		<Row Tag="LOC_TRADITION_RUONG_LANG_XA_DESCRIPTION">
-			<Text>+10% [icon:GROWTH_RATE] Growth Rate in [icon:YIELD_TOWNS] Towns.</Text>
+		<Row Tag="LOC_TRADITION_RUONG_LANG_XA_PREVIEW">
+			<Text>+{1_Amount} Ruộng Làng Xã</Text>
+		</Row>
+		<!-- ==================================================	-->
+		<!--	Time Tested										-->
+		<!-- ==================================================	-->
+		<Row Tag="LOC_NODE_CIVIC_AQ_DAI_VIET_ORIGINS_NAME">
+			<Text>Vietnamese Origins</Text>
+		</Row>
+		<Row Tag="LOC_NODE_CIVIC_MO_DAI_VIET_MODERNIZATION_NAME">
+			<Text>Vietnamese Modernization</Text>
+		</Row>
+		<Row Tag="LOC_TRADITION_DAI_VIET_SYNCRETISM_TOOLTIP">
+			<Text>Hành Chính Công</Text>
+		</Row>
+		<Row Tag="LOC_TRADITION_DAI_VIET_SYNCRETISM_ANTIQUITY_NAME">
+			<Text>Hành Chính Công I</Text>
+		</Row>
+		<Row Tag="LOC_TRADITION_DAI_VIET_SYNCRETISM_ANTIQUITY_DESCRIPTION">
+			<Text>+1 [icon:YIELD_CULTURE] on [icon:CITY_RURAL] [TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]Improvements[/TIP] and [icon:CITY_URBAN] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]Districts[/TIP] on [TIP:LOC_PEDIA_CONCEPTS_VEGETATED_TERRAIN_TOOLTIP]Vegetation[/TIP] in [icon:CITY_UNIMPROVED] Tropical Terrain.</Text>
+		</Row>
+		<Row Tag="LOC_TRADITION_DAI_VIET_SYNCRETISM_MODERN_NAME">
+			<Text>Hành Chính Công II</Text>
+		</Row>
+		<Row Tag="LOC_TRADITION_DAI_VIET_SYNCRETISM_MODERN_DESCRIPTION">
+			<Text>+1 [icon:YIELD_CULTURE] and [icon:YIELD_FOOD] on [icon:CITY_RURAL] [TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]Improvements[/TIP] and [icon:CITY_URBAN] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]Districts[/TIP] on [TIP:LOC_PEDIA_CONCEPTS_VEGETATED_TERRAIN_TOOLTIP]Vegetation[/TIP] in [icon:CITY_UNIMPROVED] Tropical Terrain.</Text>
 		</Row>
 	</EnglishText>
 </Database>

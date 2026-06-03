@@ -277,6 +277,9 @@
     <Replace Tag="LOC_MAIN_CHAR_SELECT_LEADER_TECUMSEH_ANY" Language="de_DE">
       <Text>Meine Vorfahren waren Krieger. Ihr Sohn ist ein Krieger. Von ihnen habe ich nur meine Existenz. Ich habe mich selbst zu dem gemacht, was ich bin. </Text>
     </Replace>
+    <Replace Tag="LOC_VICTORY_LEADER_TECUMSEH" Language="de_DE">
+      <Text>Die große Kraft hat uns hierhergeführt; die Fülle an Jagdwild und das fruchtbare Land werden uns Wohlstand bringen. </Text>
+    </Replace>
     <Replace Tag="LOC_RIVER_K_TEKANI_FIPI_NAME" Language="de_DE">
       <Text>K'tekani Fipi|K'tekani Fipi|K'tekani Fipi|K'tekani Fipi|K'tekani Fipi</Text>
       <Gender>masculine</Gender>
@@ -397,7 +400,7 @@
       <Text>Als sich die Shawnees versammeln, steigen blaue Wolken aus Tabakrauch auf, die sich mit Lachen und Gesprächen vermischen.</Text>
     </Replace>
     <Replace Tag="LOC_1497A_COMPLETION" Language="de_DE">
-      <Text>In der Blütezeit der Herrschaft der Shawnee trafen die Ältesten aus dem Cilakofa-Gebiet die politischen Entscheidungen für das Volk. Aber unter einer {1_civilization_adj[2]} Regierung ist ihre Rolle unklar. Einige {2_civilizations_adj[3]} Shawnee glauben, dass sie sich nicht mehr an die alten Bräuche halten müssen, andere sehen Wert in der Tradition.</Text>
+      <Text>In der Blütezeit der Herrschaft der Shawnee trafen die Ältesten aus dem Cilakofa-Gebiet die politischen Entscheidungen für das Volk. Aber unter einer {1_Civilization_adj[2]}{1: gender *:no_space?; other? ;}Regierung ist ihre Rolle unklar. Einige {2_civilizations_adj[3]} Shawnee glauben, dass sie sich nicht mehr an die alten Bräuche halten müssen, andere sehen Wert in der Tradition.</Text>
     </Replace>
     <Replace Tag="LOC_1497A_STORYTITLE" Language="de_DE">
       <Text>Die neuen Shawnee</Text>
@@ -415,7 +418,7 @@
       <Text>Die neuen Shawnee führen neue Formen der Regierungsführung ein.</Text>
     </Replace>
     <Replace Tag="LOC_1498A_COMPLETION" Language="de_DE">
-      <Text>Die Ältesten von Cilakofa, die jetzt eine politische Partei innerhalb der {1_civilization_adj[2]} Regierung sind, äußern Bedenken hinsichtlich der Jagdgründe, die für die Shawnee seit jeher von großer Bedeutung sind. Neue städtische Eingriffe drohen, den Lebensraum der Wildtiere zu verkleinern.</Text>
+      <Text>Die Ältesten von Cilakofa, die jetzt eine politische Partei innerhalb der {1_Civilization_adj[2]}{1: gender *:no_space?; other? ;}Regierung sind, äußern Bedenken hinsichtlich der Jagdgründe, die für die Shawnee seit jeher von großer Bedeutung sind. Neue städtische Eingriffe drohen, den Lebensraum der Wildtiere zu verkleinern.</Text>
     </Replace>
     <Replace Tag="LOC_1498A_STORYTITLE" Language="de_DE">
       <Text>Rechte des Waldes</Text>
@@ -433,7 +436,7 @@
       <Text>Die Bitte ignorieren.</Text>
     </Replace>
     <Replace Tag="LOC_1499A_COMPLETION" Language="de_DE">
-      <Text>Die {1_civilization_adj[3]} Shawnee-Jugend hat die Lehren von Tenskwatawa wiederentdeckt. Nachdem sie sich lange Zeit von der traditionellen Autorität der Ältesten entfernt hatten, interpretieren die jungen Shawnee diese Lehren nun für sich neu und passen sie das moderne Zeitalter an.</Text>
+      <Text>Die {1_Civilization_adj[3]}{1: gender *:no_space?; other? ;}Shawnee-Jugend hat die Lehren von Tenskwatawa wiederentdeckt. Nachdem sie sich lange Zeit von der traditionellen Autorität der Ältesten entfernt hatten, interpretieren die jungen Shawnee diese Lehren nun für sich neu und passen sie das moderne Zeitalter an.</Text>
     </Replace>
     <Replace Tag="LOC_1499A_STORYTITLE" Language="de_DE">
       <Text>Die Shawnee-Renaissance</Text>
@@ -469,7 +472,7 @@
       <Text>Den Rat der Ältesten verwerfen.</Text>
     </Replace>
     <Replace Tag="LOC_1501A_COMPLETION" Language="de_DE">
-      <Text>Ein neues Zeitalter benötigt neue Geschichten. Historiker haben damit begonnen, eine umfangreiche Abhandlung über das {1_civilization_adj[3]} Volk zu verfassen. Die Shawnee-Heiler fragen sich, wie viele von ihren Geschichten es wohl in das Werk schaffen werden.</Text>
+      <Text>Ein neues Zeitalter benötigt neue Geschichten. Historiker haben damit begonnen, eine umfangreiche Abhandlung über das {1_Civilization_adj[3]}{1: gender *:no_space?; other? ;}Volk zu verfassen. Die Shawnee-Heiler fragen sich, wie viele von ihren Geschichten es wohl in das Werk schaffen werden.</Text>
     </Replace>
     <Replace Tag="LOC_1501A_STORYTITLE" Language="de_DE">
       <Text>Nationale Mythen</Text>
@@ -1086,20 +1089,38 @@
     <Replace Tag="LOC_LEADER_CHAIN_1209D_STORYTITLE" Language="de_DE">
       <Text>Ein vereintes Volk</Text>
     </Replace>
+    <Replace Tag="LOC_TOT_30031A_COMPLETION" Language="de_DE">
+      <Text>Zwei Häuptlinge, flankiert von ihren Kriegern, betreten das Haus des Rates, während die Shawnee-Delegation zusieht. Unter den Augen der Shawnee werden Beschwerden in angespanntem, aber angemessenem Ton vorgebracht. Der Shawnee-Diplomat macht einen Vorschlag: Vereinigung, denn es gibt größere Bedrohungen als den eigenen Nachbarn.</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30031A_STORYTITLE" Language="de_DE">
+      <Text>Cilicofe</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30031B_DESCRIPTION" Language="de_DE">
+      <Text>{1_reward}.</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30031B_NAME" Language="de_DE">
+      <Text>Solche Bemühungen können durch eine Aufteilung der Diplomaten erheblich verbessert werden.</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30031C_DESCRIPTION" Language="de_DE">
+      <Text>{1_reward}.</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30031C_NAME" Language="de_DE">
+      <Text>Die Diplomaten der Shawnee können Ratschläge geben, aber auch nicht mehr.</Text>
+    </Replace>
     <Replace Tag="LOC_ABILITY_TECUMSEH_SUZERAIN_DESCRIPTION" Language="de_DE">
-      <Text>+1 [icon:NAR_REW_COMBAT] Kampfstärke für jeden Stadtstaat, dessen Suzerän Ihr seid.</Text>
+      <Text>+1 [icon:NAR_REW_COMBAT] Kampfstärke für jeden [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]Stadtstaat[/TIP], dessen [TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]Suzerän[/TIP] Ihr seid.</Text>
     </Replace>
     <Replace Tag="LOC_ATTRIBUTENODE_TECUMSEH_L1_DESCRIPTION" Language="de_DE">
       <Text>+5 Kampfstärke für alle Einheiten gegen Bezirke.</Text>
     </Replace>
     <Replace Tag="LOC_ATTRIBUTENODE_TECUMSEH_L1_NAME" Language="de_DE">
-      <Text>Militärattribut-Knotenpunkt</Text>
+      <Text>Knotenpunkt: Militärattribut</Text>
     </Replace>
     <Replace Tag="LOC_ATTRIBUTENODE_TECUMSEH_L2_DESCRIPTION" Language="de_DE">
       <Text>+25 % Beziehung für das Starten oder Unterstützen von Unterfangen. -25 % Beziehung für das Initiieren von Sanktionen oder Ablehnen von Unterfangen.</Text>
     </Replace>
     <Replace Tag="LOC_ATTRIBUTENODE_TECUMSEH_L2_NAME" Language="de_DE">
-      <Text>Diplomatieattribut-Knotenpunkt</Text>
+      <Text>Knotenpunkt: Diplomatieattribut</Text>
     </Replace>
     <Replace Tag="LOC_BADGE_TECUMSEH_NAME" Language="de_DE">
       <Text>Tecumseh-Abzeichen 1</Text>
@@ -1114,25 +1135,25 @@
       <Text>Erhaltet für dieses Zeitalter +3 Kampfstärke für Eure Marineeinheiten auf Kosten von -10 % [icon:YIELD_DIPLOMACY] Einfluss</Text>
     </Replace>
     <Replace Tag="LOC_CARD_AT_EXP_LEGEND_TECUMSEH_1_NAME" Language="de_DE">
-      <Text>Tecumseh, Legende der Erkundung (militärisch)</Text>
+      <Text>Tecumseh, Widmung der Erkundung (militärisch)</Text>
     </Replace>
     <Replace Tag="LOC_CARD_AT_EXP_LEGEND_TECUMSEH_2_DESCRIPTION" Language="de_DE">
       <Text>Erhaltet für dieses Zeitalter +15 % [icon:YIELD_DIPLOMACY] Einfluss auf Kosten von -2 Kampfstärke für Eure Marineeinheiten</Text>
     </Replace>
     <Replace Tag="LOC_CARD_AT_EXP_LEGEND_TECUMSEH_2_NAME" Language="de_DE">
-      <Text>Tecumseh, Legende der Erkundung (diplomatisch)</Text>
+      <Text>Tecumseh, Widmung der Erkundung (diplomatisch)</Text>
     </Replace>
     <Replace Tag="LOC_CARD_AT_MOD_LEGEND_TECUMSEH_1_DESCRIPTION" Language="de_DE">
       <Text>Erhaltet für dieses Zeitalter +3 Kampfstärke für Eure Lufteinheiten auf Kosten von -10 % [icon:YIELD_DIPLOMACY] Einfluss</Text>
     </Replace>
     <Replace Tag="LOC_CARD_AT_MOD_LEGEND_TECUMSEH_1_NAME" Language="de_DE">
-      <Text>Tecumseh, Legende der Moderne (militärisch)</Text>
+      <Text>Tecumseh, Widmung der Moderne (militärisch)</Text>
     </Replace>
     <Replace Tag="LOC_CARD_AT_MOD_LEGEND_TECUMSEH_2_DESCRIPTION" Language="de_DE">
       <Text>Erhaltet für dieses Zeitalter +15 % [icon:YIELD_DIPLOMACY] Einfluss auf Kosten von -2 Kampfstärke für Eure Lufteinheiten</Text>
     </Replace>
     <Replace Tag="LOC_CARD_AT_MOD_LEGEND_TECUMSEH_2_NAME" Language="de_DE">
-      <Text>Tecumseh, Legende der Moderne (diplomatisch)</Text>
+      <Text>Tecumseh, Widmung der Moderne (diplomatisch)</Text>
     </Replace>
     <Replace Tag="LOC_CIVIC_MALEKI_KINTAKE_QUOTE" Language="de_DE">
       <Text>"Tötet nicht mehr Tiere, als Ihr benötigt, um Euch zu nähren und zu kleiden."</Text>
@@ -1147,7 +1168,7 @@
       <Text>Kekewepelethy</Text>
     </Replace>
     <Replace Tag="LOC_CIVIC_TELWATIKI_QUOTE" Language="de_DE">
-      <Text>Die Vernichtung steht bevor, wenn wir uns nicht in der gemeinsamen Sache gegen den gemeinsamen Feind vereinen.</Text>
+      <Text>"Die Vernichtung steht bevor, wenn wir uns nicht in der gemeinsamen Sache gegen den gemeinsamen Feind vereinen."</Text>
     </Replace>
     <Replace Tag="LOC_CIVIC_TELWATIKI_QUOTE_AUTHOR" Language="de_DE">
       <Text>Tecumseh</Text>
@@ -1159,22 +1180,22 @@
       <Text>Tecumseh</Text>
     </Replace>
     <Replace Tag="LOC_CIVILIZATION_SHAWNEE_DESCRIPTION" Language="de_DE">
-      <Text>+2 [icon:YIELD_FOOD] Nahrung für [icon:CITY_UNIMPROVED] kleines und schiffbares Flussgelände in Siedlungen, die an schiffbare Flüsse angrenzen. -10 % [icon:YIELD_FOOD] Nahrung in [icon:YIELD_CITIES] Städten, die nicht an schiffbaren Flüssen liegen.</Text>
+      <Text>+2 [icon:YIELD_FOOD] Nahrung für [icon:CITY_UNIMPROVED] kleines und schiffbares Flussgelände in Siedlungen, die an schiffbare Flüsse angrenzen.</Text>
     </Replace>
     <Replace Tag="LOC_IMPROVEMENT_MAWASKAWE_SKOTE_DESCRIPTION" Language="de_DE">
-      <Text>Einzigartige Shawnee-Modernisierung. +4 [icon:YIELD_FOOD] Nahrung. +1 [icon:YIELD_GOLD] Gold für jede angrenzende [icon:RADIAL_RESOURCES] Ressource. Zeitlos. Entfernt keine [icon:YIELD_WAREHOUSE] Lagerhaus-Bonusse von einem Geländefeld. Muss auf einer bestehenden [icon:CITY_RURAL] Modernisierung auf bewachsenem Gelände und kann nicht neben einer anderen Mawaskawe Skote platziert werden.</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_IMPROVEMENT_TOOLTIP]Einzigartige Shawnee-Modernisierung[/TIP]. +4 [icon:YIELD_FOOD] Nahrung. +1 [icon:YIELD_GOLD] Gold für jede angrenzende [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]Ressource[/TIP]. Muss auf [TIP:LOC_PEDIA_CONCEPTS_VEGETATED_TERRAIN_TOOLTIP]bewachsenem Gelände[/TIP] und kann nicht neben einer anderen Mawaskawe Skote platziert werden.</Text>
     </Replace>
     <Replace Tag="LOC_IMPROVEMENT_MAWASKAWE_SKOTE_TOOLTIP" Language="de_DE">
-      <Text>Entfernt keine [icon:YIELD_WAREHOUSE] Lagerhaus-Bonusse von einem Geländefeld. Muss auf einer bestehenden [icon:CITY_RURAL] Modernisierung auf bewachsenem Gelände und kann nicht neben einer anderen Mawaskawe Skote platziert werden.[n]Einzigartige Shawnee-Modernisierung.</Text>
+      <Text>Muss auf [TIP:LOC_PEDIA_CONCEPTS_VEGETATED_TERRAIN_TOOLTIP]bewachsenem Gelände[/TIP] und kann nicht neben einer anderen Mawaskawe Skote platziert werden.[n][TIP:LOC_PEDIA_CONCEPTS_UNIQUE_IMPROVEMENT_TOOLTIP]Einzigartige Shawnee-Modernisierung[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_LEADER_TECUMSEH_DESCRIPTION" Language="de_DE">
-      <Text>+1 [icon:YIELD_FOOD] Nahrung und [icon:YIELD_PRODUCTION] Produktion pro Zeitalter in Siedlungen für jeden [icon:CITYSTATE] Stadtstaat, dessen Suzerän Ihr seid. +1 [icon:NAR_REW_COMBAT] Kampfstärke für alle Einheiten für jeden [icon:CITYSTATE] Stadtstaat, dessen Suzerän Ihr seid.</Text>
+      <Text>+1 [icon:YIELD_FOOD] Nahrung und [icon:YIELD_PRODUCTION] Produktion pro [TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]Zeitalter[/TIP] in [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]Siedlungen[/TIP] für jeden [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]Stadtstaat[/TIP], dessen [TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]Suzerän[/TIP] Ihr seid. +1 [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Kampfstärke[/TIP] für alle Einheiten für jeden [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]Stadtstaat[/TIP], dessen [TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]Suzerän[/TIP] Ihr seid. +2 [icon:MILITARY_VP] Vormacht für jeden [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]Stadtstaat[/TIP], dessen [TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]Suzerän[/TIP] Ihr seid.</Text>
     </Replace>
     <Replace Tag="LOC_LOADING_CIV_INTRO_TEXT_SHAWNEE" Language="de_DE">
       <Text>Die Shawnee sind vollendete Diplomaten, die zu Fuß weite Strecken zurücklegen, um unterschiedliche Gruppen zusammenzubringen, selbst wenn die Chancen dazu katastrophal stehen. Unter den wachsamen Augen der Kispoko rufen die Heiler alle, die gewillt sind, dem Ruf zu folgen, auf dem Versammlungsgelände zusammen, um den Rednern zuzuhören und sich gemeinsam, als ein Ganzes, zu erheben.</Text>
     </Replace>
     <Replace Tag="LOC_LOADING_CIV_TIPS_TEXT_SHAWNEE" Language="de_DE">
-      <Text>Macht Eure Siedlungen mit der Tradition "Kakawfe Pafkotaweta" immun gegen Stürme und erhaltet mehr Kultur und Gold, wenn sie von ihnen getroffen werden.</Text>
+      <Text>Die einzigartige Fähigkeit "Nepekifaki" und die Tradition "Takesiyake Yepepoki" können große Erträge für Modernisierungen auf Flüssen bedeuten. Vermeidet es, Bezirke auf diesen Geländefeldern zu platzieren, durch die entsprechende Erträge entfernt werden.</Text>
     </Replace>
     <Replace Tag="LOC_LOADING_LEADER_INTRO_TEXT_TECUMSEH" Language="de_DE">
       <Text>Wo Spaltung herrscht, sprecht Ihr von Einheit, Tecumseh, und wo Zwietracht herrscht, ratet Ihr zur Vernunft. Bringt die Völker aller Länder zu Euch, großer Häuptling, damit sie gemeinsam stärker sind und die kommenden Stürme überstehen können.</Text>
@@ -1186,7 +1207,7 @@
       <Text>Mörser und Stößel für Bäume.</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_TECUMSEH_POTESKWATE_FUNCTIONAL_DESCRIPTION" Language="de_DE">
-      <Text>+1 [icon:YIELD_FOOD] Nahrung pro Zeitalter in Siedlungen für jeden Stadtstaat, dessen Suzerän Ihr seid.</Text>
+      <Text>[B]+1 [icon:YIELD_FOOD][/B] pro [TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]Zeitalter[/TIP] in [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]Gemeinden[/TIP] für jeden [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]Stadtstaat[/TIP], dessen [TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]Suzerän[/TIP] Ihr seid.</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_TECUMSEH_POTESKWATE_NAME" Language="de_DE">
       <Text>Poteskwate</Text>
@@ -1198,7 +1219,7 @@
       <Text>Symbol der Einheit.</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_TECUMSEH_WAMPUM_BELT_FUNCTIONAL_DESCRIPTION" Language="de_DE">
-      <Text>+1 [icon:YIELD_PRODUCTION] Produktion pro Zeitalter in Siedlungen für jeden Stadtstaat, dessen Suzerän Ihr seid.</Text>
+      <Text>[B]+1 [icon:YIELD_PRODUCTION][/B] pro [TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]Zeitalter[/TIP] in [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]Städten[/TIP] für jeden [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]Stadtstaat[/TIP], dessen [TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]Suzerän[/TIP] Ihr seid.</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_TECUMSEH_WAMPUM_BELT_NAME" Language="de_DE">
       <Text>Wampumgürtel</Text>
@@ -1210,7 +1231,7 @@
       <Text>Nicht mehr ausruhen.</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_TECUMSEH_WARCLUB_FUNCTIONAL_DESCRIPTION" Language="de_DE">
-      <Text>+1 Kampfstärke für alle Einheiten für jeden Stadtstaat, dessen Suzerän Ihr seid.</Text>
+      <Text>[B]+1 [icon:NAR_REW_COMBAT][/B] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Combat Kampfstärke[/TIP] für alle [TIP:LOC_PEDIA_CONCEPTS_INFANTRY_UNITS_TOOLTIP]Infanterieeinheiten[/TIP] für jeden [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]Stadtstaat[/TIP], dessen [TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]Suzerän[/TIP] Ihr seid.</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_TECUMSEH_WARCLUB_NAME" Language="de_DE">
       <Text>Kriegskeule</Text>
@@ -1218,17 +1239,53 @@
     <Replace Tag="LOC_MEMENTO_TECUMSEH_WARCLUB_UNLOCK_TITLE" Language="de_DE">
       <Text>Freischaltung bei Tecumseh - Stufe 5</Text>
     </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_TECUMSEH_QUEST_A_ANTIQUITY_DESC" Language="de_DE">
+      <Text>Schließt als Tecumseh im Zeitalter der Antike eine Quest ab, um dem Omen der Krieger zu folgen.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_TECUMSEH_QUEST_A_ANTIQUITY_NAME" Language="de_DE">
+      <Text>Verstreute Glut</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_TECUMSEH_QUEST_A_EXPLORATION_DESC" Language="de_DE">
+      <Text>Schließt als Tecumseh im Zeitalter der Erkundung eine Quest ab, um Meinungsverschiedenheiten auszuhandeln.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_TECUMSEH_QUEST_A_EXPLORATION_NAME" Language="de_DE">
+      <Text>Interne Abteilungen</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_TECUMSEH_QUEST_A_MODERN_DESC" Language="de_DE">
+      <Text>Schließt als Tecumseh im Zeitalter der Moderne eine Quest ab, um das Volk im Krieg zu stärken.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_TECUMSEH_QUEST_A_MODERN_NAME" Language="de_DE">
+      <Text>Gemeinsam als Eins</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_TECUMSEH_QUEST_B_ANTIQUITY_DESC" Language="de_DE">
+      <Text>Schließt als Tecumseh im Zeitalter der Antike eine Quest ab, um die Tomahawk-Pfeife weiterzugeben.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_TECUMSEH_QUEST_B_ANTIQUITY_NAME" Language="de_DE">
+      <Text>Die Zeremonienpfeife</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_TECUMSEH_QUEST_B_EXPLORATION_DESC" Language="de_DE">
+      <Text>Schließt als Tecumseh im Zeitalter der Erkundung eine Quest ab, um die Erde durch Gebet zu besänftigen.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_TECUMSEH_QUEST_B_EXPLORATION_NAME" Language="de_DE">
+      <Text>Der Boden bebt</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_TECUMSEH_QUEST_B_MODERN_DESC" Language="de_DE">
+      <Text>Schließt als Tecumseh im Zeitalter der Moderne eine Quest ab, um die Welt durch Handel zu führen.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_TECUMSEH_QUEST_B_MODERN_NAME" Language="de_DE">
+      <Text>Ein vereintes Volk</Text>
+    </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SHAWNEE_COMPLETE_SERPENT_MOUND_DESC" Language="de_DE">
       <Text>Stellt als Shawnee den Schlangenwall fertig.</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SHAWNEE_COMPLETE_SERPENT_MOUND_NAME" Language="de_DE">
       <Text>Schlangenwall</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SHAWNEE_LEGACY_PATH_ECONOMIC_DESC" Language="de_DE">
-      <Text>Schließt als Shawnee einen Wirtschaftsvermächtnis-Weg ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SHAWNEE_FOUR_MAJOR_TRIUMPHS_DESC" Language="de_DE">
+      <Text>Schließt als Shawnee-Volk 4 diplomatische oder wirtschaftliche Große Triumphe in einem einzigen Höhepunkt-Zeitalter ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SHAWNEE_LEGACY_PATH_ECONOMIC_NAME" Language="de_DE">
-      <Text>Shawnee-Vermächtnis-Weg</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SHAWNEE_FOUR_MAJOR_TRIUMPHS_NAME" Language="de_DE">
+      <Text>4 Große Triumphe des Shawnee-Volks</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_AGE_COMPLETED_ANTIQUITY_2_DESC" Language="de_DE">
       <Text>Schließt als Tecumseh das Zeitalter der Antike 2-mal ab.</Text>
@@ -1284,293 +1341,281 @@
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_AGE_COMPLETED_MODERN_NAME" Language="de_DE">
       <Text>Moderne abgeschlossen</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_VICTORY_ANTIQUITY_2_DESC" Language="de_DE">
-      <Text>Schließt als Tecumseh den Vermächtnis-Weg "Weltwunder der Antike" 2-mal ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_TRIUMPH_2_ANTIQUITY_DESC" Language="de_DE">
+      <Text>Schließt als Tecumseh den Triumph "Orphische Mysterien" ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_VICTORY_ANTIQUITY_2_NAME" Language="de_DE">
-      <Text>Weltwunder der Antike 2</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_TRIUMPH_2_ANTIQUITY_NAME" Language="de_DE">
+      <Text>Orphische Mysterien</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_VICTORY_ANTIQUITY_3_DESC" Language="de_DE">
-      <Text>Schließt als Tecumseh den Vermächtnis-Weg "Weltwunder der Antike" 3-mal ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_TRIUMPH_2_EXPLORATION_DESC" Language="de_DE">
+      <Text>Schließt als Tecumseh den Triumph "Himmlisches Königreich" ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_VICTORY_ANTIQUITY_3_NAME" Language="de_DE">
-      <Text>Weltwunder der Antike 3</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_TRIUMPH_2_EXPLORATION_NAME" Language="de_DE">
+      <Text>Himmlisches Königreich</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_VICTORY_ANTIQUITY_DESC" Language="de_DE">
-      <Text>Schließt als Tecumseh den Vermächtnis-Weg "Weltwunder der Antike" ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_TRIUMPH_2_MODERN_DESC" Language="de_DE">
+      <Text>Schließt als Tecumseh den Triumph "Wunderland" ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_VICTORY_ANTIQUITY_NAME" Language="de_DE">
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_TRIUMPH_2_MODERN_NAME" Language="de_DE">
+      <Text>Wunderland</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_TRIUMPH_ANTIQUITY_DESC" Language="de_DE">
+      <Text>Schließt als Tecumseh den Triumph "Weltwunder der Antike" ab.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_TRIUMPH_ANTIQUITY_NAME" Language="de_DE">
       <Text>Weltwunder der Antike</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_VICTORY_EXPLORATION_2_DESC" Language="de_DE">
-      <Text>Schließt als Tecumseh den Vermächtnis-Weg "Toshakhana" 2-mal ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_TRIUMPH_EXPLORATION_DESC" Language="de_DE">
+      <Text>Schließt als Tecumseh den Triumph "Toshakhana" ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_VICTORY_EXPLORATION_2_NAME" Language="de_DE">
-      <Text>Toshakhana 2</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_VICTORY_EXPLORATION_3_DESC" Language="de_DE">
-      <Text>Schließt als Tecumseh den Vermächtnis-Weg "Toshakhana" 3-mal ab.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_VICTORY_EXPLORATION_3_NAME" Language="de_DE">
-      <Text>Toshakhana 3</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_VICTORY_EXPLORATION_DESC" Language="de_DE">
-      <Text>Schließt als Tecumseh den Vermächtnis-Weg "Toshakhana" ab.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_VICTORY_EXPLORATION_NAME" Language="de_DE">
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_TRIUMPH_EXPLORATION_NAME" Language="de_DE">
       <Text>Toshakhana</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_VICTORY_MODERN_2_DESC" Language="de_DE">
-      <Text>Schließt als Tecumseh den Vermächtnis-Weg "Geografische Gesellschaft" 2-mal ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_TRIUMPH_MODERN_DESC" Language="de_DE">
+      <Text>Schließt als Tecumseh den Triumph "Geografische Gesellschaft" ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_VICTORY_MODERN_2_NAME" Language="de_DE">
-      <Text>Geografische Gesellschaft 2</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_VICTORY_MODERN_3_DESC" Language="de_DE">
-      <Text>Schließt als Tecumseh den Vermächtnis-Weg "Geografische Gesellschaft" 3-mal ab.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_VICTORY_MODERN_3_NAME" Language="de_DE">
-      <Text>Geografische Gesellschaft 3</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_VICTORY_MODERN_DESC" Language="de_DE">
-      <Text>Schließt als Tecumseh den Vermächtnis-Weg "Geografische Gesellschaft" ab.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_VICTORY_MODERN_NAME" Language="de_DE">
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_TRIUMPH_MODERN_NAME" Language="de_DE">
       <Text>Geografische Gesellschaft</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_VICTORY_ANTIQUITY_2_DESC" Language="de_DE">
-      <Text>Schließt als Tecumseh den Vermächtnis-Weg "Seidenstraßen" 2-mal ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_VICTORY_DESC" Language="de_DE">
+      <Text>Erlangt als Tecumseh einen Kultursieg.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_VICTORY_ANTIQUITY_2_NAME" Language="de_DE">
-      <Text>Seidenstraßen 2</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_VICTORY_NAME" Language="de_DE">
+      <Text>Kultursieg</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_VICTORY_ANTIQUITY_3_DESC" Language="de_DE">
-      <Text>Schließt als Tecumseh den Vermächtnis-Weg "Seidenstraßen" 3-mal ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_DEITY_VICTORY_DESC" Language="de_DE">
+      <Text>Erlangt als Tecumseh einen Sieg mit dem Schwierigkeitsgrad "Gottheit".</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_VICTORY_ANTIQUITY_3_NAME" Language="de_DE">
-      <Text>Seidenstraßen 3</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_DEITY_VICTORY_NAME" Language="de_DE">
+      <Text>Gottheitssieg</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_VICTORY_ANTIQUITY_DESC" Language="de_DE">
-      <Text>Schließt als Tecumseh den Vermächtnis-Weg "Seidenstraßen" ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_DIPLOMATIC_TRIUMPH_2_ANTIQUITY_DESC" Language="de_DE">
+      <Text>Schließt als Tecumseh den Triumph "Brot und Spiele" ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_VICTORY_ANTIQUITY_NAME" Language="de_DE">
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_DIPLOMATIC_TRIUMPH_2_ANTIQUITY_NAME" Language="de_DE">
+      <Text>Brot und Spiele</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_DIPLOMATIC_TRIUMPH_2_EXPLORATION_DESC" Language="de_DE">
+      <Text>Schließt als Tecumseh den Triumph "Vierfache Allianz" ab.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_DIPLOMATIC_TRIUMPH_2_EXPLORATION_NAME" Language="de_DE">
+      <Text>Vierfache Allianz</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_DIPLOMATIC_TRIUMPH_2_MODERN_DESC" Language="de_DE">
+      <Text>Schließt als Tecumseh den Triumph "Enigma-Code" ab.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_DIPLOMATIC_TRIUMPH_2_MODERN_NAME" Language="de_DE">
+      <Text>Enigma-Code</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_DIPLOMATIC_TRIUMPH_ANTIQUITY_DESC" Language="de_DE">
+      <Text>Schließt als Tecumseh den Triumph "Strippenziehen" ab.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_DIPLOMATIC_TRIUMPH_ANTIQUITY_NAME" Language="de_DE">
+      <Text>Strippenziehen</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_DIPLOMATIC_TRIUMPH_EXPLORATION_DESC" Language="de_DE">
+      <Text>Schließt als Tecumseh den Triumph "Orden der Assassinen" ab.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_DIPLOMATIC_TRIUMPH_EXPLORATION_NAME" Language="de_DE">
+      <Text>Orden der Assassinen</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_DIPLOMATIC_TRIUMPH_MODERN_DESC" Language="de_DE">
+      <Text>Schließt als Tecumseh den Triumph "Völkerbund" ab.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_DIPLOMATIC_TRIUMPH_MODERN_NAME" Language="de_DE">
+      <Text>Völkerbund</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_TRIUMPH_2_ANTIQUITY_DESC" Language="de_DE">
+      <Text>Schließt als Tecumseh den Triumph "Gier ist Gold" ab.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_TRIUMPH_2_ANTIQUITY_NAME" Language="de_DE">
+      <Text>Gier ist Gold</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_TRIUMPH_2_EXPLORATION_DESC" Language="de_DE">
+      <Text>Schließt als Tecumseh den Triumph "Kalikutieren wir ein Geschäft" ab.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_TRIUMPH_2_EXPLORATION_NAME" Language="de_DE">
+      <Text>Kalikutieren wir ein Geschäft</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_TRIUMPH_2_MODERN_DESC" Language="de_DE">
+      <Text>Schließt als Tecumseh den Triumph "Werkstatt der Welt" ab.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_TRIUMPH_2_MODERN_NAME" Language="de_DE">
+      <Text>Werkstatt der Welt</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_TRIUMPH_ANTIQUITY_DESC" Language="de_DE">
+      <Text>Schließt als Tecumseh den Triumph "Seidenstraßen" ab.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_TRIUMPH_ANTIQUITY_NAME" Language="de_DE">
       <Text>Seidenstraßen</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_VICTORY_EXPLORATION_2_DESC" Language="de_DE">
-      <Text>Schließt als Tecumseh den Vermächtnis-Weg "Schatzflotte" 2-mal ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_TRIUMPH_EXPLORATION_DESC" Language="de_DE">
+      <Text>Schließt als Tecumseh den Triumph "Schatzflotte" ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_VICTORY_EXPLORATION_2_NAME" Language="de_DE">
-      <Text>Schatzflotte 2</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_VICTORY_EXPLORATION_3_DESC" Language="de_DE">
-      <Text>Schließt als Tecumseh den Vermächtnis-Weg "Schatzflotte" 3-mal ab.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_VICTORY_EXPLORATION_3_NAME" Language="de_DE">
-      <Text>Schatzflotte 3</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_VICTORY_EXPLORATION_DESC" Language="de_DE">
-      <Text>Schließt als Tecumseh den Vermächtnis-Weg "Schatzflotte" ab.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_VICTORY_EXPLORATION_NAME" Language="de_DE">
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_TRIUMPH_EXPLORATION_NAME" Language="de_DE">
       <Text>Schatzflotte</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_VICTORY_MODERN_2_DESC" Language="de_DE">
-      <Text>Schließt als Tecumseh den Vermächtnis-Weg "Eisenbahnmagnat" 2-mal ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_TRIUMPH_MODERN_DESC" Language="de_DE">
+      <Text>Schließt als Tecumseh den Triumph "Eisenbahnmagnat" ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_VICTORY_MODERN_2_NAME" Language="de_DE">
-      <Text>Eisenbahnmagnat 2</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_VICTORY_MODERN_3_DESC" Language="de_DE">
-      <Text>Schließt als Tecumseh den Vermächtnis-Weg "Eisenbahnmagnat" 3-mal ab.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_VICTORY_MODERN_3_NAME" Language="de_DE">
-      <Text>Eisenbahnmagnat 3</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_VICTORY_MODERN_DESC" Language="de_DE">
-      <Text>Schließt als Tecumseh den Vermächtnis-Weg "Eisenbahnmagnat" ab.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_VICTORY_MODERN_NAME" Language="de_DE">
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_TRIUMPH_MODERN_NAME" Language="de_DE">
       <Text>Eisenbahnmagnat</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_FLAWLESS_VICTORY_ANTIQUITY_DESC" Language="de_DE">
-      <Text>Schließt als Tecumseh 2 Vermächtnis-Wege in einem einzigen Zeitalter der Antike ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_VICTORY_DESC" Language="de_DE">
+      <Text>Erlangt als Tecumseh einen Wirtschaftssieg.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_FLAWLESS_VICTORY_ANTIQUITY_NAME" Language="de_DE">
-      <Text>Doppeltes Vermächtnis, Antike</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_VICTORY_NAME" Language="de_DE">
+      <Text>Wirtschaftssieg</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_FLAWLESS_VICTORY_EXPLORATION_DESC" Language="de_DE">
-      <Text>Schließt als Tecumseh 2 Vermächtnis-Wege in einem einzigen Zeitalter der Erkundung ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_EXPANSIONIST_TRIUMPH_2_ANTIQUITY_DESC" Language="de_DE">
+      <Text>Schließt als Tecumseh den Triumph "Turm zu Babel" ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_FLAWLESS_VICTORY_EXPLORATION_NAME" Language="de_DE">
-      <Text>Doppeltes Vermächtnis, Erkundung</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_EXPANSIONIST_TRIUMPH_2_ANTIQUITY_NAME" Language="de_DE">
+      <Text>Turm zu Babel</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_FLAWLESS_VICTORY_MODERN_DESC" Language="de_DE">
-      <Text>Schließt als Tecumseh 2 Vermächtnis-Wege in einem einzigen Zeitalter der Moderne ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_EXPANSIONIST_TRIUMPH_2_EXPLORATION_DESC" Language="de_DE">
+      <Text>Schließt als Tecumseh den Triumph "Wir haben Habsburger im Haus" ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_FLAWLESS_VICTORY_MODERN_NAME" Language="de_DE">
-      <Text>Doppeltes Vermächtnis, Moderne</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_EXPANSIONIST_TRIUMPH_2_EXPLORATION_NAME" Language="de_DE">
+      <Text>Wir haben Habsburger im Haus</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_VICTORY_ANTIQUITY_2_DESC" Language="de_DE">
-      <Text>Schließt als Tecumseh den Vermächtnis-Weg "Pax Imperatoria" 2-mal ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_EXPANSIONIST_TRIUMPH_2_MODERN_DESC" Language="de_DE">
+      <Text>Schließt als Tecumseh den Triumph "Megalopolis" ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_VICTORY_ANTIQUITY_2_NAME" Language="de_DE">
-      <Text>Pax Imperatoria 2</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_EXPANSIONIST_TRIUMPH_2_MODERN_NAME" Language="de_DE">
+      <Text>Megalopolis</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_VICTORY_ANTIQUITY_3_DESC" Language="de_DE">
-      <Text>Schließt als Tecumseh den Vermächtnis-Weg "Pax Imperatoria" 3-mal ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_EXPANSIONIST_TRIUMPH_ANTIQUITY_DESC" Language="de_DE">
+      <Text>Schließt als Tecumseh den Triumph "Vier Ecken der Welt" ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_VICTORY_ANTIQUITY_3_NAME" Language="de_DE">
-      <Text>Pax Imperatoria 3</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_EXPANSIONIST_TRIUMPH_ANTIQUITY_NAME" Language="de_DE">
+      <Text>Vier Ecken der Welt</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_VICTORY_ANTIQUITY_DESC" Language="de_DE">
-      <Text>Schließt als Tecumseh den Vermächtnis-Weg "Pax Imperatoria" ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_EXPANSIONIST_TRIUMPH_EXPLORATION_DESC" Language="de_DE">
+      <Text>Schließt als Tecumseh den Triumph "Hic Sunt Dracones" ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_VICTORY_ANTIQUITY_NAME" Language="de_DE">
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_EXPANSIONIST_TRIUMPH_EXPLORATION_NAME" Language="de_DE">
+      <Text>Hic Sunt Dracones</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_EXPANSIONIST_TRIUMPH_MODERN_DESC" Language="de_DE">
+      <Text>Schließt als Tecumseh den Triumph "Nie untergehende Sonne" ab.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_EXPANSIONIST_TRIUMPH_MODERN_NAME" Language="de_DE">
+      <Text>Nie untergehende Sonne</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_FOUR_MAJOR_TRIUMPHS_ANTIQUITY_DESC" Language="de_DE">
+      <Text>Schließt als Tecumseh 4 Große Triumphe in einem einzigen Zeitalter der Antike ab.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_FOUR_MAJOR_TRIUMPHS_ANTIQUITY_NAME" Language="de_DE">
+      <Text>Triumphierend, Antike</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_FOUR_MAJOR_TRIUMPHS_EXPLORATION_DESC" Language="de_DE">
+      <Text>Schließt als Tecumseh 4 Große Triumphe in einem einzigen Zeitalter der Erkundung ab.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_FOUR_MAJOR_TRIUMPHS_EXPLORATION_NAME" Language="de_DE">
+      <Text>Triumphierend, Erkundung</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_TRIUMPH_2_ANTIQUITY_DESC" Language="de_DE">
+      <Text>Schließt als Tecumseh den Triumph "Was für ein Gaius" ab.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_TRIUMPH_2_ANTIQUITY_NAME" Language="de_DE">
+      <Text>Was für ein Gaius</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_TRIUMPH_2_EXPLORATION_DESC" Language="de_DE">
+      <Text>Schließt als Tecumseh den Triumph "Pax Mongolica" ab.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_TRIUMPH_2_EXPLORATION_NAME" Language="de_DE">
+      <Text>Pax Mongolica</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_TRIUMPH_2_MODERN_DESC" Language="de_DE">
+      <Text>Schließt als Tecumseh den Triumph "Feind der Welt" ab.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_TRIUMPH_2_MODERN_NAME" Language="de_DE">
+      <Text>Feind der Welt</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_TRIUMPH_ANTIQUITY_DESC" Language="de_DE">
+      <Text>Schließt als Tecumseh den Triumph "Pax Imperatoria" ab.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_TRIUMPH_ANTIQUITY_NAME" Language="de_DE">
       <Text>Pax Imperatoria</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_VICTORY_EXPLORATION_2_DESC" Language="de_DE">
-      <Text>Schließt als Tecumseh den Vermächtnis-Weg "Non Sufficit Orbis" 2-mal ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_TRIUMPH_EXPLORATION_DESC" Language="de_DE">
+      <Text>Schließt als Tecumseh den Triumph "Non Sufficit Orbis" ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_VICTORY_EXPLORATION_2_NAME" Language="de_DE">
-      <Text>Non Sufficit Orbis 2</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_VICTORY_EXPLORATION_3_DESC" Language="de_DE">
-      <Text>Schließt als Tecumseh den Vermächtnis-Weg "Non Sufficit Orbis" 3-mal ab.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_VICTORY_EXPLORATION_3_NAME" Language="de_DE">
-      <Text>Non Sufficit Orbis 3</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_VICTORY_EXPLORATION_DESC" Language="de_DE">
-      <Text>Schließt als Tecumseh den Vermächtnis-Weg "Non Sufficit Orbis" ab.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_VICTORY_EXPLORATION_NAME" Language="de_DE">
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_TRIUMPH_EXPLORATION_NAME" Language="de_DE">
       <Text>Non Sufficit Orbis</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_VICTORY_MODERN_2_DESC" Language="de_DE">
-      <Text>Schließt als Tecumseh den Vermächtnis-Weg "Ideologie" 2-mal ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_TRIUMPH_MODERN_DESC" Language="de_DE">
+      <Text>Schließt als Tecumseh den Triumph "Moralischer Imperativ" ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_VICTORY_MODERN_2_NAME" Language="de_DE">
-      <Text>Ideologie 2</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_TRIUMPH_MODERN_NAME" Language="de_DE">
+      <Text>Moralischer Imperativ</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_VICTORY_MODERN_3_DESC" Language="de_DE">
-      <Text>Schließt als Tecumseh den Vermächtnis-Weg "Ideologie" 3-mal ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_VICTORY_DESC" Language="de_DE">
+      <Text>Erlangt als Tecumseh einen Militärsieg.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_VICTORY_MODERN_3_NAME" Language="de_DE">
-      <Text>Ideologie 3</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_VICTORY_MODERN_DESC" Language="de_DE">
-      <Text>Schließt als Tecumseh den Vermächtnis-Weg "Ideologie" ab.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_VICTORY_MODERN_NAME" Language="de_DE">
-      <Text>Ideologie</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_VICTORY_NAME" Language="de_DE">
+      <Text>Militärsieg</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_PLAY_GAMES_1_DESC" Language="de_DE">
-      <Text>Erreicht als Tecumseh mindestens 1 Vermächtnis-Weg-Meilenstein.</Text>
+      <Text>Schließt als Tecumseh 1 Großen Triumph ab.</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_PLAY_GAMES_1_NAME" Language="de_DE">
       <Text>Spiel 1 spielen</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_PLAY_GAMES_2_DESC" Language="de_DE">
-      <Text>Erreicht als Tecumseh mindestens 2 Vermächtnis-Weg-Meilensteine.</Text>
+      <Text>Schließt als Tecumseh 5 Große Triumphe über beliebig viele Zeitalter ab.</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_PLAY_GAMES_2_NAME" Language="de_DE">
       <Text>Spiel 2 spielen</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_PLAY_GAMES_3_DESC" Language="de_DE">
-      <Text>Erreicht als Tecumseh mindestens 3 Vermächtnis-Weg-Meilensteine.</Text>
+      <Text>Schließt als Tecumseh 25 Große Triumphe über beliebig viele Zeitalter ab.</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_PLAY_GAMES_3_NAME" Language="de_DE">
       <Text>Spiel 3 spielen</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_QUEST_A_ANTIQUITY_DESC" Language="de_DE">
-      <Text>Schließt als Tecumseh im Zeitalter der Antike eine Quest ab, um dem Omen der Krieger zu folgen.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_TRIUMPH_2_ANTIQUITY_DESC" Language="de_DE">
+      <Text>Schließt als Tecumseh den Triumph "Runderdler" ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_QUEST_A_ANTIQUITY_NAME" Language="de_DE">
-      <Text>Verstreute Glut</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_TRIUMPH_2_ANTIQUITY_NAME" Language="de_DE">
+      <Text>Runderdler</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_QUEST_A_EXPLORATION_DESC" Language="de_DE">
-      <Text>Schließt als Tecumseh im Zeitalter der Erkundung eine Quest ab, um die Krieger vorzubereiten.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_TRIUMPH_2_EXPLORATION_DESC" Language="de_DE">
+      <Text>Schließt als Tecumseh den Triumph "De revolutionibus orbium coelestium" ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_QUEST_A_EXPLORATION_NAME" Language="de_DE">
-      <Text>Der Vorabend der Schlacht</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_TRIUMPH_2_EXPLORATION_NAME" Language="de_DE">
+      <Text>De revolutionibus orbium coelestium</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_QUEST_A_MODERN_DESC" Language="de_DE">
-      <Text>Schließt als Tecumseh im Zeitalter der Moderne eine Quest ab, um das Volk im Krieg zu stärken.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_TRIUMPH_2_MODERN_DESC" Language="de_DE">
+      <Text>Schließt als Tecumseh den Triumph "Jenseits des Schwertes" ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_QUEST_A_MODERN_NAME" Language="de_DE">
-      <Text>Gemeinsam als Eins</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_TRIUMPH_2_MODERN_NAME" Language="de_DE">
+      <Text>Jenseits des Schwertes</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_QUEST_B_ANTIQUITY_DESC" Language="de_DE">
-      <Text>Schließt als Tecumseh im Zeitalter der Antike eine Quest ab, um die Tomahawk-Pfeife weiterzugeben.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_TRIUMPH_ANTIQUITY_DESC" Language="de_DE">
+      <Text>Schließt als Tecumseh den Triumph "Bibliothek von Assurbanipal" ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_QUEST_B_ANTIQUITY_NAME" Language="de_DE">
-      <Text>Die Zeremonienpfeife</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_TRIUMPH_ANTIQUITY_NAME" Language="de_DE">
+      <Text>Bibliothek von Assurbanipal</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_QUEST_B_EXPLORATION_DESC" Language="de_DE">
-      <Text>Schließt als Tecumseh im Zeitalter der Erkundung eine Quest ab, um Nachbarn zu vereinen.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_TRIUMPH_EXPLORATION_DESC" Language="de_DE">
+      <Text>Schließt als Tecumseh den Triumph "Aufklärung" ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_QUEST_B_EXPLORATION_NAME" Language="de_DE">
-      <Text>Neue Länder</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_QUEST_B_MODERN_DESC" Language="de_DE">
-      <Text>Schließt als Tecumseh im Zeitalter der Moderne eine Quest ab, um die Welt durch Handel zu führen.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_QUEST_B_MODERN_NAME" Language="de_DE">
-      <Text>Ein vereintes Volk</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_VICTORY_ANTIQUITY_2_DESC" Language="de_DE">
-      <Text>Schließt als Tecumseh den Vermächtnis-Weg "Große Bibliothek" 2-mal ab.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_VICTORY_ANTIQUITY_2_NAME" Language="de_DE">
-      <Text>Große Bibliothek 2</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_VICTORY_ANTIQUITY_3_DESC" Language="de_DE">
-      <Text>Schließt als Tecumseh den Vermächtnis-Weg "Große Bibliothek" 3-mal ab.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_VICTORY_ANTIQUITY_3_NAME" Language="de_DE">
-      <Text>Große Bibliothek 3</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_VICTORY_ANTIQUITY_DESC" Language="de_DE">
-      <Text>Schließt als Tecumseh den Vermächtnis-Weg "Große Bibliothek" ab.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_VICTORY_ANTIQUITY_NAME" Language="de_DE">
-      <Text>Große Bibliothek</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_VICTORY_EXPLORATION_2_DESC" Language="de_DE">
-      <Text>Schließt als Tecumseh den Vermächtnis-Weg "Aufklärung" 2-mal ab.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_VICTORY_EXPLORATION_2_NAME" Language="de_DE">
-      <Text>Aufklärung 2</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_VICTORY_EXPLORATION_3_DESC" Language="de_DE">
-      <Text>Schließt als Tecumseh den Vermächtnis-Weg "Aufklärung" 3-mal ab.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_VICTORY_EXPLORATION_3_NAME" Language="de_DE">
-      <Text>Aufklärung 3</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_VICTORY_EXPLORATION_DESC" Language="de_DE">
-      <Text>Schließt als Tecumseh den Vermächtnis-Weg "Aufklärung" ab.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_VICTORY_EXPLORATION_NAME" Language="de_DE">
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_TRIUMPH_EXPLORATION_NAME" Language="de_DE">
       <Text>Aufklärung</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_VICTORY_MODERN_2_DESC" Language="de_DE">
-      <Text>Schließt als Tecumseh den Vermächtnis-Weg "Weltraumrennen" 2-mal ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_TRIUMPH_MODERN_DESC" Language="de_DE">
+      <Text>Schließt als Tecumseh den Triumph "Weltraumrennen am Horizont" ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_VICTORY_MODERN_2_NAME" Language="de_DE">
-      <Text>Weltraumrennen 2</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_TRIUMPH_MODERN_NAME" Language="de_DE">
+      <Text>Weltraumrennen am Horizont</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_VICTORY_MODERN_3_DESC" Language="de_DE">
-      <Text>Schließt als Tecumseh den Vermächtnis-Weg "Weltraumrennen" 3-mal ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_VICTORY_DESC" Language="de_DE">
+      <Text>Erlangt als Tecumseh einen Wissenschaftssieg.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_VICTORY_MODERN_3_NAME" Language="de_DE">
-      <Text>Weltraumrennen 3</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_VICTORY_MODERN_DESC" Language="de_DE">
-      <Text>Schließt als Tecumseh den Vermächtnis-Weg "Weltraumrennen" ab.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_VICTORY_MODERN_NAME" Language="de_DE">
-      <Text>Weltraumrennen</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_VICTORY_NAME" Language="de_DE">
+      <Text>Wissenschaftssieg</Text>
     </Replace>
     <Replace Tag="LOC_MOD_ATTRIBUTE_DIPLOMATIC_LEGEND_TECUMSEH_L2_DESCRIPTION" Language="de_DE">
       <Text>Freigeschaltet durch Legenden-Fortschritt. +25 % [icon:RELATIONSHIP] Beziehung für das Starten oder Unterstützen von [icon:ENDEAVOR] Unterfangen. -25 % [icon:RELATIONSHIP] Beziehung für das Starten von [icon:SANCTIONS] Sanktionen oder Ablehnen von [icon:ENDEAVOR] Unterfangen.</Text>
@@ -1581,26 +1626,11 @@
     <Replace Tag="LOC_MOD_CIV_WONDER_PRODUCTION_SHAWNEE_DESCRIPTION" Language="de_DE">
       <Text>+30 %[icon:YIELD_PRODUCTION] Produktion als zugehöriges [icon:WONDER] Wunder der Shawnee.</Text>
     </Replace>
-    <Replace Tag="LOC_MOD_KISPOKO_NENA_TO_SUPPORT_DESCRIPTION" Language="de_DE">
-      <Text>+1 [icon:NAR_REW_COMBAT] Kampfstärke für den [icon:UNIT_KISPOKO_NENA_TO] Kispoko Nena'to pro positiver [icon:WAR_SUPPORT] Kriegsunterstützung.</Text>
+    <Replace Tag="LOC_NODE_CIVIC_AQ_SHAWNEE_ORIGINS_NAME" Language="de_DE">
+      <Text>Shawnee-Ursprünge</Text>
     </Replace>
-    <Replace Tag="LOC_MOD_MALEKI_KINTAKE_WAREHOUSES_DESCRIPTION" Language="de_DE">
-      <Text>+2 [icon:YIELD_FOOD] Nahrung auf Bauernhöfen und in Lagern.</Text>
-    </Replace>
-    <Replace Tag="LOC_MOD_MIYASKA_LATOWEKI_CITY_STATE_RESOURCES_DESCRIPTION" Language="de_DE">
-      <Text>+1 [icon:RADIAL_RESOURCES] Ressourcen-Kapazität in Eurer [icon:NOTIFICATION_SELECT_CAPITAL] Hauptstadt für jeden [icon:CITYSTATE] Stadtstaat, dessen Suzerän Ihr seid.</Text>
-    </Replace>
-    <Replace Tag="LOC_MOD_MIYASKA_LATOWEKI_ENDEAVOR_TRADE_DESCRIPTION" Language="de_DE">
-      <Text>+2 [icon:YIELD_GOLD] Gold für jeden aktiven [icon:TRADE_ROUTE] Handelsweg, solange Ihr mindestens 3 aktive [icon:ENDEAVOR] Unterfangen habt.</Text>
-    </Replace>
-    <Replace Tag="LOC_MOD_MOD_TELWATIKI_THIRD_PARTY_DESCRIPTION" Language="de_DE">
-      <Text>Ihr könnt den [icon:WAR] Kriegen anderer Anführer 3-mal statt 1-mal [icon:WAR_SUPPORT] Kriegsunterstützung hinzufügen.</Text>
-    </Replace>
-    <Replace Tag="LOC_MOD_TELWATIKI_INFLUENCE_DESCRIPTION" Language="de_DE">
-      <Text>+2 [icon:YIELD_DIPLOMACY] Einfluss pro Runde.</Text>
-    </Replace>
-    <Replace Tag="LOC_MOD_WYEHI_SIMEKOFI_MAWASKAWE_SKOTE_DESCRIPTION" Language="de_DE">
-      <Text>+1 [icon:YIELD_CULTURE] Kultur für die [icon:CITY_RURAL] Mawaskawe Skote für jeden [icon:CITYSTATE] Stadtstaat, dessen Suzerän Ihr seid.</Text>
+    <Replace Tag="LOC_NODE_CIVIC_MO_SHAWNEE_MODERNIZATION_NAME" Language="de_DE">
+      <Text>Shawnee-Modernisierung</Text>
     </Replace>
     <Replace Tag="LOC_PROFILE_TITLE_TECUMSEH" Language="de_DE">
       <Text>Häuptling</Text>
@@ -1612,56 +1642,83 @@
       <Text>Unser Schöpfer sang zu uns im Wind und im fließenden Wasser, im Gesang der Vögel, im Lachen der Kinder, und lehrte uns Musik.</Text>
     </Replace>
     <Replace Tag="LOC_STRATEGYCARD_TECUMSEH_EXPLORATION_1_DESCRIPTION" Language="de_DE">
-      <Text>Erhaltet als Tecumseh Zugang zu einer neuen Vermächtniskarte der Erkundung:[n] 
+      <Text>Erhaltet als Tecumseh Zugang zu einer neuen Widmung der Erkundung:[n] 
 				+3 Kampfstärke für Eure Marineeinheiten, -10 % Einfluss</Text>
     </Replace>
     <Replace Tag="LOC_STRATEGYCARD_TECUMSEH_EXPLORATION_1_NAME" Language="de_DE">
-      <Text>Militärvermächtniskarte der Erkundung</Text>
+      <Text>Militärwidmung der Erkundung</Text>
     </Replace>
     <Replace Tag="LOC_STRATEGYCARD_TECUMSEH_EXPLORATION_2_DESCRIPTION" Language="de_DE">
-      <Text>Erhaltet als Tecumseh Zugang zu einer neuen Vermächtniskarte der Erkundung:[n] 
+      <Text>Erhaltet als Tecumseh Zugang zu einer neuen Widmung der Erkundung:[n] 
 				+15 % Einfluss, -2 Kampfstärke für Marineeinheiten</Text>
     </Replace>
     <Replace Tag="LOC_STRATEGYCARD_TECUMSEH_EXPLORATION_2_NAME" Language="de_DE">
-      <Text>Diplomatievermächtniskarte der Erkundung</Text>
+      <Text>Diplomatiewidmung der Erkundung</Text>
     </Replace>
     <Replace Tag="LOC_STRATEGYCARD_TECUMSEH_MODERN_1_DESCRIPTION" Language="de_DE">
-      <Text>Erhaltet als Tecumseh Zugang zu einer neuen Vermächtniskarte der Moderne:[n] 
+      <Text>Erhaltet als Tecumseh Zugang zu einer neuen Widmung der Moderne:[n] 
 				+3 Kampfstärke für Eure Lufteinheiten, -10 % Einfluss</Text>
     </Replace>
     <Replace Tag="LOC_STRATEGYCARD_TECUMSEH_MODERN_1_NAME" Language="de_DE">
-      <Text>Militärvermächtniskarte der Moderne</Text>
+      <Text>Militärwidmung der Moderne</Text>
     </Replace>
     <Replace Tag="LOC_STRATEGYCARD_TECUMSEH_MODERN_2_DESCRIPTION" Language="de_DE">
-      <Text>Erhaltet als Tecumseh Zugang zu einer neuen Vermächtniskarte der Moderne:[n] 
+      <Text>Erhaltet als Tecumseh Zugang zu einer neuen Widmung der Moderne:[n] 
 				+15 % Einfluss, -2 Kampfstärke für Lufteinheiten</Text>
     </Replace>
     <Replace Tag="LOC_STRATEGYCARD_TECUMSEH_MODERN_2_NAME" Language="de_DE">
-      <Text>Diplomatievermächtniskarte der Moderne</Text>
+      <Text>Diplomatiewidmung der Moderne</Text>
     </Replace>
     <Replace Tag="LOC_TITLE_TECUMSEH_NAME" Language="de_DE">
       <Text>Häuptling</Text>
     </Replace>
-    <Replace Tag="LOC_TRADITION_BREAD_DANCE_DESCRIPTION" Language="de_DE">
-      <Text>+4 [icon:YIELD_CULTURE] Kultur in [icon:YIELD_TOWNS] Bauernstädten und +4 [icon:YIELD_FOOD] Nahrung in [icon:YIELD_TOWNS] Fischerstädten.</Text>
+    <Replace Tag="LOC_TRADITION_BREAD_DANCE_I_DESCRIPTION" Language="de_DE">
+      <Text>+4 [icon:YIELD_CULTURE] Kultur in [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]Bauernstädten[/TIP] und +4 [icon:YIELD_FOOD] Nahrung in [icon:YIELD_TOWNS] Fischer[TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]städten[/TIP].</Text>
     </Replace>
-    <Replace Tag="LOC_TRADITION_HELIKHILENAWEWIPE_DESCRIPTION" Language="de_DE">
+    <Replace Tag="LOC_TRADITION_BREAD_DANCE_II_DESCRIPTION" Language="de_DE">
+      <Text>+8 [icon:YIELD_CULTURE] Kultur in [icon:YIELD_TOWNS] Ackerbürger[TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]städten[/TIP] und +8 [icon:YIELD_FOOD] Nahrung in [icon:YIELD_TOWNS] Fischer[TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]städten[/TIP].</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_HELIKHILENAWEWIPE_I_DESCRIPTION" Language="de_DE">
+      <Text>+33 % [icon:YIELD_DIPLOMACY] Einfluss für das Anregen und Ausführen des [icon:PROJECT] Projekts "Unabhängige befreunden".</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_HELIKHILENAWEWIPE_II_DESCRIPTION" Language="de_DE">
       <Text>+50 % [icon:YIELD_DIPLOMACY] Einfluss auf die Initiierung und den Fortschritt des [icon:PROJECT] Projekts "Unabhängige befreunden".</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_KAKAWFE_PAFKOTAWETA_DESCRIPTION" Language="de_DE">
-      <Text>+1 [icon:YIELD_CULTURE] Kultur und +2 [icon:YIELD_GOLD] Gold für jedes Mal, wenn ein Sturm, eine Flut oder ein Vulkanausbruch in diesem Zeitalter für Fruchtbarkeit gesorgt hat. [icon:CITY_RURAL] Modernisierungen, [icon:CITY_BUILDING_LIST] Gebäude und [icon:CITY_URBAN] Bezirke werden nicht durch Stürme beschädigt.</Text>
+      <Text>+1 [icon:YIELD_CULTURE] Kultur und +2 [icon:YIELD_GOLD] Gold für jedes Mal, wenn ein Sturm, eine Flut oder ein Vulkanausbruch in diesem Zeitalter für Fruchtbarkeit gesorgt hat. [icon:CITY_RURAL] [TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]Modernisierungen[/TIP], [icon:CITY_BUILDING_LIST] [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]Gebäude[/TIP] und [icon:CITY_URBAN] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]Bezirke[/TIP] werden nicht durch Stürme beschädigt.</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_NIWIITIKEEMEKONAAKI_DESCRIPTION" Language="de_DE">
+      <Text>+1 [icon:YIELD_CULTURE] Kultur in [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]Städten[/TIP] für die [icon:CITY_RURAL] Mawaskawe Skote für jeden [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]Stadtstaat[/TIP], dessen [TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]Suzerän[/TIP] Ihr seid.</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_NIWIITIKEEMEKONAAKI_II_DESCRIPTION" Language="de_DE">
+      <Text>+2 [icon:YIELD_CULTURE] Kultur in [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]Städten[/TIP] für die [icon:CITY_RURAL] Mawaskawe Skote für jeden [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]Stadtstaat[/TIP], dessen [TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]Suzerän[/TIP] Ihr seid.</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_SHAWNEE_SYNCRETISM_ANTIQUITY_DESCRIPTION" Language="de_DE">
+      <Text>+1 [icon:YIELD_DIPLOMACY] Einfluss in [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]Städten[/TIP], die an [TIP:LOC_PEDIA_CONCEPTS_NAVIGABLE_RIVER_TOOLTIP]schiffbare Flüsse[/TIP] angrenzen. +2 [icon:YIELD_GOLD] Gold pro [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]Stadtstaat[/TIP], dessen [TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]Suzerän[/TIP] Ihr seid.</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_SHAWNEE_SYNCRETISM_MODERN_DESCRIPTION" Language="de_DE">
+      <Text>+2 [icon:YIELD_DIPLOMACY] Einfluss in [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]Städten[/TIP], die an [TIP:LOC_PEDIA_CONCEPTS_NAVIGABLE_RIVER_TOOLTIP]schiffbare Flüsse[/TIP] angrenzen. +4 [icon:YIELD_GOLD] Gold pro [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]Stadtstaat[/TIP], dessen [TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]Suzerän[/TIP] Ihr seid.</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_SHAWNEE_SYNCRETISM_TOOLTIP" Language="de_DE">
+      <Text>Strategische Geschenke</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_TAKESIYAKE_YEPEPOKI_DESCRIPTION" Language="de_DE">
-      <Text>+2 [icon:YIELD_PRODUCTION] Produktion auf [icon:CITY_UNIMPROVED] Tundra-, Wüsten- und Ebenen-Gelände in [icon:YIELD_CITIES] Städten.</Text>
+      <Text>+2 [icon:YIELD_PRODUCTION] Produktion für [icon:CITY_RURAL] [TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]Modernisierungen[/TIP] auf [icon:CITY_UNIMPROVED] Tundra-, Wüsten- und Ebenen-Gelände in [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]Städten[/TIP]. Diese Werte verdoppeln sich, wenn das Gelände gleichzeitig auf einem [TIP:LOC_PEDIA_CONCEPTS_NAVIGABLE_RIVER_TOOLTIP]schiffbaren Fluss[/TIP] liegt.</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_LEADER_TECUMSEH_ABILITY_DESCRIPTION" Language="de_DE">
-      <Text>[BLIST][LI][B]+1 [icon:YIELD_FOOD] Nahrung [/B]und [icon:YIELD_PRODUCTION] [B]Produktion [/B]pro Zeitalter in [B]Siedlungen [/B]für jeden [icon:CITYSTATE] [B]Stadtstaat[/B], dessen [B]Suzerän Ihr seid[/B].[LI][B]+1 [icon:NAR_REW_COMBAT] Kampfstärke [/B]für alle Einheiten für jeden [icon:CITYSTATE] [B]Stadtstaat[/B], dessen [B]Suzerän[/B] Ihr seid. [/LIST]</Text>
+      <Text>[BLIST][LI][B]+1 [icon:YIELD_FOOD] Nahrung[/B] pro [TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]Zeitalter[/TIP] in [B][icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]Gemeinden[/TIP][/B] und [B]+1 [icon:YIELD_PRODUCTION] Produktion[/B] pro Zeitalter in [B][icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]Städten[/TIP][/B] für jeden [B][icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]Stadtstaat[/TIP][/B], dessen [B][TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]Suzerän[/TIP][/B] Ihr seid.[LI][B]+1 [icon:NAR_REW_COMBAT] Kampfstärke[/B] für alle [B][TIP:LOC_PEDIA_CONCEPTS_INFANTRY_UNITS_TOOLTIP]Infanterie[/TIP][/B]- und [B][TIP:LOC_PEDIA_CONCEPTS_RANGED_UNITS_TOOLTIP]Fernkampfeinheiten[/TIP][/B] für jeden [icon:CITYSTATE] [B][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]Stadtstaat[/TIP][/B], dessen [B][TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]Suzerän[/TIP][/B] Ihr seid.[LI][B]+2 [icon:MILITARY_VP] [TIP:LOC_PEDIA_CONCEPTS_DOMINION_TOOLTIP]Vormacht[/TIP][/B] für jeden [B][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]Stadtstaat[/TIP][/B], dessen [B][TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]Suzerän[/TIP][/B] Ihr seid.[LI]Alle [B][icon:INDEPENDENT_POWER] [TIP:LOC_PEDIA_CONCEPTS_INDEPENDENT_POWER_TOOLTIP]unabhängigen Mächte[/TIP][/B] sind Euch zu Beginn [B][icon:PLAYER_RELATIONSHIP_FRIENDLY] freundlich gesinnt[/B].[/BLIST]</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_LEADER_TECUMSEH_ABILITY_NAME" Language="de_DE">
       <Text>Nicaakiyakoolaakwe</Text>
     </Replace>
-    <Replace Tag="LOC_TRAIT_SHAWNEE_ABILITY_DESCRIPTION" Language="de_DE">
-      <Text>[BLIST][LI][B]+2 [icon:YIELD_FOOD] Nahrung[/B] für [icon:CITY_UNIMPROVED] [B]kleines und schiffbares Flussgelände[/B] in Siedlungen, die an [B]schiffbare Flüsse[/B] angrenzen. [B]-10 % [icon:YIELD_FOOD] Nahrung[/B] in [icon:YIELD_CITIES] [B]Städten[/B], die nicht an [B]schiffbaren Flüssen[/B] liegen.[LI][B]+30 %[icon:YIELD_PRODUCTION] Produktion[/B] für den Bau von [B]Schlangenwall[/B].[/LIST]</Text>
+    <Replace Tag="LOC_TRAIT_SHAWNEE_ABILITY_AQ_DESCRIPTION" Language="de_DE">
+      <Text>[BLIST][LI][B]+1 [icon:YIELD_FOOD] Nahrung[/B] für [icon:CITY_RURAL] [TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]Modernisierungen[/TIP] und [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]Bezirke[/TIP] für [icon:CITY_UNIMPROVED] [B]kleinere und schiffbare Flüsse[/B] in [B][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]Siedlungen[/TIP][/B] angrenzend an [B]schiffbare Flüsse[/B].[/BLIST]</Text>
+    </Replace>
+    <Replace Tag="LOC_TRAIT_SHAWNEE_ABILITY_EX_DESCRIPTION" Language="de_DE">
+      <Text>[BLIST][LI][B]+2 [icon:YIELD_FOOD] Nahrung[/B] für [icon:CITY_RURAL] [TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]Modernisierungen[/TIP] und [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]Bezirke[/TIP] für [icon:CITY_UNIMPROVED] [B]kleinere und schiffbare Flüsse[/B] in [B][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]Siedlungen[/TIP][/B] angrenzend an [B]schiffbare Flüsse[/B].[LI][B]+1 [icon:RADIAL_RESOURCES] Ressourcen-Kapazität[/B] in der [B][icon:NOTIFICATION_SELECT_CAPITAL] Hauptstadt[/B] pro [B][icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]Stadtstaat[/TIP][/B], dessen [B][TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]Suzerän[/TIP][/B] Ihr seid.[LI][B]+30 % [icon:YIELD_PRODUCTION] Produktion[/B] für den Bau des [B]Schlangenwalls[/B].[/BLIST]</Text>
+    </Replace>
+    <Replace Tag="LOC_TRAIT_SHAWNEE_ABILITY_MO_DESCRIPTION" Language="de_DE">
+      <Text>[BLIST][LI][B]+3 [icon:YIELD_FOOD] Nahrung[/B] für [icon:CITY_RURAL] [TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]Modernisierungen[/TIP] und [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]Bezirke[/TIP] für [icon:CITY_UNIMPROVED] [B]kleinere und schiffbare Flüsse[/B] in [B][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]Siedlungen[/TIP][/B] angrenzend an [B]schiffbare Flüsse[/B].[LI][B]+1 [icon:RADIAL_RESOURCES] Ressourcen-Kapazität[/B] in der [B][icon:NOTIFICATION_SELECT_CAPITAL] Hauptstadt[/B] pro [B][icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]Stadtstaat[/TIP][/B], dessen [B][TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]Suzerän[/TIP][/B] Ihr seid.[/BLIST]</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_SHAWNEE_ABILITY_NAME" Language="de_DE">
       <Text>Nepekifaki</Text>
@@ -1673,25 +1730,25 @@
       <Text>Einzigartiger Shawnee-Missionar. +1 [icon:Action_Move] Fortbewegung. Flüsse beenden die [icon:Action_Move] Fortbewegung dieser Einheit nicht.</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_KISPOKO_NENA_TO_2_DESCRIPTION" Language="de_DE">
-      <Text>Shawnee-Infanterie-Spezialeinheit der Stufe 2. +1 [icon:NAR_REW_COMBAT] Kampfstärke für jede einzigartige [icon:RADIAL_RESOURCES] Ressource des Reiches.</Text>
+      <Text>Shawnee-[TIP:LOC_PEDIA_CONCEPTS_INFANTRY_UNITS_TOOLTIP]Infanterie[/TIP]-Spezialeinheit der Stufe 2. +1 [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Kampfstärke[/TIP] für jede einzigartige [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_EMPIRE_RESOURCES_TOOLTIP]Ressource des Reiches[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_KISPOKO_NENA_TO_3_DESCRIPTION" Language="de_DE">
-      <Text>Shawnee-Infanterie-Spezialeinheit der Stufe 3. +1 [icon:NAR_REW_COMBAT] Kampfstärke für jede einzigartige [icon:RADIAL_RESOURCES] Ressource des Reiches.</Text>
+      <Text>Shawnee-[TIP:LOC_PEDIA_CONCEPTS_INFANTRY_UNITS_TOOLTIP]Infanterie[/TIP]-Spezialeinheit der Stufe 3. +1 [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Kampfstärke[/TIP] für jede einzigartige [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_EMPIRE_RESOURCES_TOOLTIP]Ressource des Reiches[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_KISPOKO_NENA_TO_BASE_DESCRIPTION" Language="de_DE">
-      <Text>Shawnee-Infanterie-Spezialeinheit. +1 [icon:NAR_REW_COMBAT] Kampfstärke für jede einzigartige [icon:RADIAL_RESOURCES] Ressource des Reiches.</Text>
+      <Text>Shawnee-[TIP:LOC_PEDIA_CONCEPTS_INFANTRY_UNITS_TOOLTIP]Infanterie[/TIP]-Spezialeinheit. +1 [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Kampfstärke[/TIP] für jede einzigartige [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]Ressource[/TIP] des Reiches.</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_KISPOKO_NENA_TO_DESCRIPTION" Language="de_DE">
-      <Text>Shawnee-Infanterie-Spezialeinheit der Stufe 1. +1 [icon:NAR_REW_COMBAT] Kampfstärke für jede einzigartige [icon:RADIAL_RESOURCES] Ressource des Reiches.</Text>
+      <Text>Shawnee-[TIP:LOC_PEDIA_CONCEPTS_INFANTRY_UNITS_TOOLTIP]Infanterie[/TIP]-Spezialeinheit der Stufe 1. +1 [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Kampfstärke[/TIP] für jede einzigartige [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_EMPIRE_RESOURCES_TOOLTIP]Ressource des Reiches[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_CITY_STATES_DESCRIPTION" Language="de_DE">
-      <Text>Seid [B]Suzerän[/B] von 2 [B]Stadtstaaten[/B].</Text>
+      <Text>Seid [B][TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]Suzerän[/TIP][/B] von 2 [B][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]Stadtstaaten[/TIP][/B].</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_CITY_STATES_TOOLTIP" Language="de_DE">
       <Text>Die [B]Shawnee[/B] waren mit vielen kleineren Nationen befreundet.</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_CITY_STATES_UNLOCK" Language="de_DE">
-      <Text>Ihr habt das Shawnee-Reich freigeschaltet, indem Ihr Suzerän von 2 Stadtstaaten geworden seid.</Text>
+      <Text>Ihr habt das Shawnee-Reich freigeschaltet, indem Ihr [TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]Suzerän[/TIP] von 2 [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]Stadtstaaten[/TIP] geworden seid.</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_HIDES_DESCRIPTION" Language="de_DE">
       <Text>Verbessert 3 [B]Häute[/B].</Text>
@@ -1706,13 +1763,16 @@
       <Text>Die [B]Mississippianer[/B] waren Zeitgenossen der Vorfahren der [B]Shawnee[/B].</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_PLAY_AS_SHAWNEE_AMERICA_TOOLTIP" Language="de_DE">
-      <Text>Die [B]Shawnee[/B] stammten vom selben Kontinent wie [B]Mexiko[/b].</Text>
+      <Text>Die [B]Shawnee[/B] stammten vom selben Kontinent wie [B]Amerika[/b].</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_PLAY_AS_SHAWNEE_DESCRIPTION" Language="de_DE">
       <Text>Spielt als [B]Shawnee[/B].</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_PLAY_AS_SHAWNEE_MEXICO_TOOLTIP" Language="de_DE">
       <Text>Die [B]Shawnee[/B] stammten vom selben Kontinent wie [B]Mexiko[/b].</Text>
+    </Replace>
+    <Replace Tag="LOC_UNLOCK_PLAY_AS_SHAWNEE_SHAWNEE_TOOLTIP" Language="de_DE">
+      <Text>Die [B]Shawnee[/B] sind in der Lage, die Zeitalter zu überdauern.</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_PLAY_AS_TECUMSEH_AMERICA_TOOLTIP" Language="de_DE">
       <Text>[B]Tecumseh[/B] lebte auf Land, das später durch [B]Amerika[/B] besetzt wurde.</Text>
@@ -1733,16 +1793,13 @@
       <Text>[B]Tecumseh[/B] führte die [B]Shawnee[/B] an.</Text>
     </Replace>
     <Replace Tag="LOC_WONDER_SERPENT_MOUND_DESCRIPTION" Language="de_DE">
-      <Text>+4 [icon:YIELD_DIPLOMACY] Einfluss. +3 [icon:YIELD_SCIENCE] Wissenschaft und +2 [icon:YIELD_PRODUCTION] Produktion für alle [icon:CITY_RURAL] einzigartigen Modernisierungen in dieser Siedlung. Zeitlos. Muss auf Grasland platziert werden.</Text>
+      <Text>+4 [icon:YIELD_DIPLOMACY] Einfluss. +3 [icon:YIELD_SCIENCE] Wissenschaft und +2 [icon:YIELD_PRODUCTION] Produktion für alle [icon:CITY_RURAL] [TIP:LOC_PEDIA_CONCEPTS_UNIQUE_IMPROVEMENT_TOOLTIP]einzigartigen Modernisierungen[/TIP] in dieser [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]Siedlung[/TIP]. [TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]Zeitlos[/TIP]. Muss auf Grasland platziert werden.</Text>
     </Replace>
     <Replace Tag="LOC_WONDER_SERPENT_MOUND_TOOLTIP" Language="de_DE">
-      <Text>+3 [icon:YIELD_SCIENCE] Wissenschaft und +2 [icon:YIELD_PRODUCTION] Produktion für alle [icon:CITY_RURAL] einzigartigen Modernisierungen in dieser Siedlung.[N]Muss auf Grasland platziert werden.</Text>
+      <Text>+3 [icon:YIELD_SCIENCE] Wissenschaft und +2 [icon:YIELD_PRODUCTION] Produktion für alle [icon:CITY_RURAL] [TIP:LOC_PEDIA_CONCEPTS_UNIQUE_IMPROVEMENT_TOOLTIP]einzigartigen Modernisierungen[/TIP] in dieser [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]Siedlung[/TIP].[N]Muss auf Grasland platziert werden.</Text>
     </Replace>
     <Replace Tag="LOC_KISPOKO_NENA_TO_RESOURCE_COMBAT_DESCRIPTION" Language="de_DE">
-      <Text>+{1_Amount} für einzigartige Ressourcen des Reiches.</Text>
-    </Replace>
-    <Replace Tag="LOC_KISPOKO_NENA_TO_SUPPORT_COMBAT_DESCRIPTION" Language="de_DE">
-      <Text>+{1_Value} Telwatiki</Text>
+      <Text>+{1_Amount} für einzigartige [TIP:LOC_PEDIA_CONCEPTS_EMPIRE_RESOURCES_TOOLTIP]Ressourcen des Reiches[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_TECUMSEH_WARCLUB_COMBAT_PREVIEW" Language="de_DE">
       <Text>+{1_Amount} Kriegskeule-Memento</Text>
@@ -1754,18 +1811,28 @@
       <Text>+{1_Amount} Nicaakiyakoolaakwe</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_CITY_STATES_NARRATIVE" Language="de_DE">
-      <Text>Macht in {1_Civilization_Adj[2]} Ländern wird nicht nur im Palast, sondern auch durch das Netzwerk diplomatischer Allianzen gewonnen, die dort zusammenlaufen. Die Lehren des Propheten Tenskwatawa zirkulieren mehr und mehr unter einigen von denen, die sich zwischen den Stadtstaaten und {1_Civilization_Adj[2]} Städten bewegen; es ist eine Lehre der Einheit angesichts des Wandels.</Text>
+      <Text>Macht in {1_Civilization_adj[2]}{1: gender *:no_space?; other? ;}Ländern wird nicht nur im Palast, sondern auch durch das Netzwerk diplomatischer Allianzen gewonnen, die dort zusammenlaufen. Die Lehren des Propheten Tenskwatawa zirkulieren mehr und mehr unter einigen von denen, die sich zwischen den Stadtstaaten und {1_Civilization_adj[2]}{1: gender *:no_space?; other? ;}Städten bewegen; es ist eine Lehre der Einheit angesichts des Wandels.</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_HIDES_NARRATIVE" Language="de_DE">
-      <Text>Die Waldfallensteller betreten die Stadt bei Tagesanbruch, beladen mit den gegerbten und gedehnten Häuten, die sie auf dem Markt verkaufen wollen. Sie werden, manchmal sogar schon vor den Toren, von Kaufleuten empfangen, die auf einen Handel aus sind - Häute sind für die {1_Civilization_Adj[3]} Wirtschaft lebenswichtig geworden ... ebenso wie ihre Lieferanten. </Text>
+      <Text>Die Waldfallensteller betreten die Stadt bei Tagesanbruch, beladen mit den gegerbten und gedehnten Häuten, die sie auf dem Markt verkaufen wollen. Sie werden, manchmal sogar schon vor den Toren, von Kaufleuten empfangen, die auf einen Handel aus sind - Häute sind für die {1_Civilization_adj[3]}{1: gender *:no_space?; other? ;}Wirtschaft lebenswichtig geworden ... ebenso wie ihre Lieferanten. </Text>
     </Replace>
-    <Replace Tag="LOC_TRADITION_BREAD_DANCE_NAME" Language="de_DE">
-      <Text>Brottanz|Brottanz|Brottanz|Brottanzes|Brottanz</Text>
+    <Replace Tag="LOC_TRADITION_BREAD_DANCE_I_NAME" Language="de_DE">
+      <Text>Brottanz I|Brottanz I|Brottanz I|Brottanzes I|Brottanz I</Text>
       <Gender>masculine</Gender>
       <Plurality>1</Plurality>
     </Replace>
-    <Replace Tag="LOC_TRADITION_HELIKHILENAWEWIPE_NAME" Language="de_DE">
-      <Text>Helikhilenawewipe|Helikhilenawewipe|Helikhilenawewipe|Helikhilenawewipe|Helikhilenawewipe</Text>
+    <Replace Tag="LOC_TRADITION_BREAD_DANCE_II_NAME" Language="de_DE">
+      <Text>Brottanz II|Brottanz II|Brottanz II|Brottanzes II|Brottanz II</Text>
+      <Gender>masculine</Gender>
+      <Plurality>1</Plurality>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_HELIKHILENAWEWIPE_I_NAME" Language="de_DE">
+      <Text>Helikhilenawewipe I|Helikhilenawewipe I|Helikhilenawewipe I|Helikhilenawewipe I|Helikhilenawewipe I</Text>
+      <Gender>feminine</Gender>
+      <Plurality>1</Plurality>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_HELIKHILENAWEWIPE_II_NAME" Language="de_DE">
+      <Text>Helikhilenawewipe II|Helikhilenawewipe II|Helikhilenawewipe II|Helikhilenawewipe II|Helikhilenawewipe II</Text>
       <Gender>feminine</Gender>
       <Plurality>1</Plurality>
     </Replace>
@@ -1773,6 +1840,26 @@
       <Text>Kakawfe Pafkotaweta|Kakawfe Pafkotaweta|Kakawfe Pafkotaweta|Kakawfe Pafkotaweta|Kakawfe Pafkotaweta</Text>
       <Gender>feminine</Gender>
       <Plurality>1</Plurality>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_NIWIITIKEEMEKONAAKI_II_NAME" Language="de_DE">
+      <Text>Niwiitikeemekonaaki II|Niwiitikeemekonaaki II|Niwiitikeemekonaaki II|Niwiitikeemekonaaki II|Niwiitikeemekonaaki II</Text>
+      <Gender>neuter</Gender>
+      <Plurality>1</Plurality>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_NIWIITIKEEMEKONAAKI_NAME" Language="de_DE">
+      <Text>Niwiitikeemekonaaki I|Niwiitikeemekonaaki I|Niwiitikeemekonaaki I|Niwiitikeemekonaaki I|Niwiitikeemekonaaki I</Text>
+      <Gender>neuter</Gender>
+      <Plurality>1</Plurality>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_SHAWNEE_SYNCRETISM_ANTIQUITY_NAME" Language="de_DE">
+      <Text>Strategische Geschenke I|Strategischen Geschenke I|Strategischen Geschenken I|Strategischen Geschenke I|Strategischen Geschenke I</Text>
+      <Gender>neuter</Gender>
+      <Plurality>2</Plurality>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_SHAWNEE_SYNCRETISM_MODERN_NAME" Language="de_DE">
+      <Text>Strategische Geschenke II|Strategischen Geschenke II|Strategischen Geschenken II|Strategischen Geschenke II|Strategischen Geschenke II</Text>
+      <Gender>neuter</Gender>
+      <Plurality>2</Plurality>
     </Replace>
     <Replace Tag="LOC_TRADITION_TAKESIYAKE_YEPEPOKI_NAME" Language="de_DE">
       <Text>Takesiyake Yepepoki|Takesiyake Yepepoki|Takesiyake Yepepoki|Takesiyake Yepepoki|Takesiyake Yepepoki</Text>

@@ -1,29 +1,8 @@
-import ContextManager from '../../../core/ui/context-manager/context-manager.js';
 import { InterfaceMode } from '../../../core/ui/interface-modes/interface-modes.js';
-import { L as LensManager } from '../../../core/ui/lenses/lens-manager.chunk.js';
+import LensManager from '../../../core/ui/lenses/lens-manager.js';
 import { TutorialAnchorPosition } from '../../../base-standard/ui/tutorial/tutorial-item.js';
 import TutorialManager from '../../../base-standard/ui/tutorial/tutorial-manager.js';
-import { b as calloutAcceptNext$1, d as calloutBeginNext$1, e as calloutCloseNext$1, f as calloutContinueNext$1, i as isUnitOfType, h as didTechUnlock } from '../../../base-standard/ui/tutorial/tutorial-support.chunk.js';
-import '../../../core/ui/context-manager/display-queue-manager.js';
-import '../../../core/ui/dialog-box/manager-dialog-box.chunk.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/input/cursor.js';
-import '../../../core/ui/input/focus-manager.js';
-import '../../../core/ui/audio-base/audio-support.chunk.js';
-import '../../../core/ui/views/view-manager.chunk.js';
-import '../../../core/ui/panel-support.chunk.js';
-import '../../../core/ui/input/input-filter.chunk.js';
-import '../../../base-standard/ui/quest-tracker/quest-item.js';
-import '../../../base-standard/ui/quest-tracker/quest-tracker.js';
-import '../../../base-standard/ui/tutorial/tutorial-events.chunk.js';
-import '../../../core/ui/components/fxs-nav-help.chunk.js';
-import '../../../core/ui/input/action-handler.js';
-import '../../../core/ui/input/input-support.chunk.js';
-import '../../../core/ui/utilities/utilities-update-gate.chunk.js';
-import '../../../core/ui/utilities/utilities-image.chunk.js';
-import '../../../core/ui/utilities/utilities-component-id.chunk.js';
-import '../../../core/ui/utilities/utilities-layout.chunk.js';
-import '../../../core/ui/utilities/utilities-core-databinding.chunk.js';
+import { calloutAcceptNext as calloutAcceptNext$1, calloutBeginNext as calloutBeginNext$1, calloutCloseNext as calloutCloseNext$1, calloutContinueNext as calloutContinueNext$1, isUnitOfType, didTechUnlock } from '../../../base-standard/ui/tutorial/tutorial-support.js';
 
 const calloutBegin = {
   callback: () => {
@@ -101,7 +80,7 @@ TutorialManager.add({
         return ["Error"];
       }
     },
-    option1: calloutContinue
+    option1: calloutClose
   },
   activationCustomEvents: ["interface-mode-changed"],
   onActivateCheck: (_item) => {
@@ -110,8 +89,9 @@ TutorialManager.add({
     }
     return false;
   },
-  runAllTurns: true,
-  nextID: "advancedStart_card_choice"
+  runAllTurns: true
+  // disabling for now.
+  //nextID: "advancedStart_card_choice",
 });
 TutorialManager.add({
   ID: "advancedStart_bonus_placement",
@@ -124,31 +104,6 @@ TutorialManager.add({
   activationCustomEvents: ["advanced-start-bonus-placement-started"],
   runAllTurns: true,
   filterPlayers: []
-});
-TutorialManager.add({
-  ID: "advancedStart_card_choice",
-  callout: {
-    anchorPosition: TutorialAnchorPosition.MiddleCenter,
-    title: "LOC_TUTORIAL_ADVANCED_START_CARD_CHOICE_TITLE",
-    body: { text: "LOC_TUTORIAL_ADVANCED_START_CARD_CHOICE_BODY" },
-    actionPrompts: [
-      {
-        kbm: "LOC_TUTORIAL_ADVANCED_TRANSITION_START_KBM",
-        gamepad: "LOC_TUTORIAL_ADVANCED_TRANSITION_START_GAMEPAD",
-        hybrid: "LOC_TUTORIAL_ADVANCED_TRANSITION_START_KBM",
-        touch: "LOC_TUTORIAL_ADVANCED_TRANSITION_START_TOUCH",
-        actionName: "inline-confirm"
-      },
-      {
-        kbm: "LOC_TUTORIAL_ADVANCED_TRANSITION_START_KBM",
-        gamepad: "LOC_TUTORIAL_ADVANCED_TRANSITION_START_GAMEPAD_ALT",
-        hybrid: "LOC_TUTORIAL_ADVANCED_TRANSITION_START_KBM",
-        touch: "LOC_TUTORIAL_ADVANCED_TRANSITION_START_TOUCH",
-        actionName: "inline-shell-action-1"
-      }
-    ],
-    option1: calloutContinue
-  }
 });
 TutorialManager.add({
   ID: "ageTransition_intro",
@@ -167,13 +122,10 @@ TutorialManager.add({
     anchorPosition: TutorialAnchorPosition.MiddleCenter,
     option1: calloutContinue
   },
-  runAllTurns: true,
-  activationCustomEvents: ["interface-mode-changed"],
+  filterPlayers: [],
+  activationCustomEvents: ["OnContextManagerOpen_screen-dedication-selection"],
   onActivateCheck: (_item) => {
-    if (InterfaceMode.getCurrent() == "INTERFACEMODE_ADVANCED_START") {
-      return Configuration.getGame().previousAgeCount > 0;
-    }
-    return false;
+    return Configuration.getGame().previousAgeCount > 0;
   },
   nextID: "ageTransition_card_choice"
 });
@@ -201,10 +153,8 @@ TutorialManager.add({
     anchorPosition: TutorialAnchorPosition.MiddleCenter,
     option1: calloutContinue
   },
-  runAllTurns: true,
-  onActivateCheck: (_node) => {
-    return Configuration.getGame().previousAgeCount > 0;
-  }
+  filterPlayers: [],
+  completionCustomEvents: ["OnContextManagerClose_screen-dedication-selection"]
 });
 TutorialManager.add({
   ID: "tutorial_missionary_unlocked",
@@ -377,27 +327,6 @@ TutorialManager.add({
       Camera.lookAtPlot(activationEventData.location);
       item.highlightPlots = [GameplayMap.getIndexFromLocation(activationEventData.location)];
     }
-  }
-});
-TutorialManager.add({
-  ID: "educationUnlocked",
-  callout: {
-    anchorPosition: TutorialAnchorPosition.MiddleRight,
-    title: "LOC_TUTORIAL_EDUCATION_TECH_UNLOCKED_TITLE",
-    body: { text: "LOC_TUTORIAL_EDUCATION_TECH_UNLOCKED_BODY" },
-    option1: calloutClose,
-    option2: {
-      callback: () => {
-        ContextManager.push("screen-victory-progress", { singleton: true, createMouseGuard: true });
-      },
-      text: "LOC_TUTORIAL_CALLOUT_VICTORIES",
-      actionKey: "inline-accept",
-      closes: true
-    }
-  },
-  activationEngineEvents: ["TechNodeCompleted"],
-  onActivateCheck: (node) => {
-    return didTechUnlock(node, "NODE_TECH_EX_EDUCATION");
   }
 });
 TutorialManager.add({
@@ -631,6 +560,70 @@ TutorialManager.add({
       Camera.lookAtPlot(plotIndex, { zoom: 0.25 });
     }
   }
+});
+TutorialManager.add({
+  ID: "tutorial_victories_exploration",
+  filterPlayers: [],
+  callout: {
+    anchorPosition: TutorialAnchorPosition.MiddleCenter,
+    title: "LOC_TUTORIAL_VICTORIES_EXPLORATION_TITLE",
+    body: {
+      text: "LOC_TUTORIAL_VICTORIES_EXPLORATION_BODY",
+      getLocParams: (_item) => {
+        let victoryUnlockCondition = "ERROR NO STRING FOUND";
+        if (Configuration.getGame().previousAgeCount == 0) {
+          victoryUnlockCondition = "LOC_TUTORIAL_VICTORIES_EXPLORATION_BODY_ADVANCED_START";
+        } else {
+          victoryUnlockCondition = "LOC_TUTORIAL_VICTORIES_EXPLORATION_BODY_NORMAL_UNLOCK";
+        }
+        return [victoryUnlockCondition];
+      }
+    },
+    option1: calloutClose
+  },
+  onObsoleteCheck: (_item) => {
+    if (TutorialManager.isItemCompleted("tutorial_victory_screen_callout")) {
+      return true;
+    }
+    return false;
+  },
+  activationCustomEvents: ["OnContextManagerOpen_screen-victory-progress"],
+  completionCustomEvents: ["interface-mode-changed", "OnContextManagerClose_screen-victory-progress"]
+});
+TutorialManager.add({
+  ID: "tutorial_victory_screen_callout",
+  filterPlayers: [],
+  callout: {
+    anchorPosition: TutorialAnchorPosition.MiddleCenter,
+    title: "LOC_TUTORIAL_VICTORY_SCREEN_CALLOUT_TITLE",
+    body: {
+      text: "LOC_TUTORIAL_VICTORY_SCREEN_CALLOUT_BODY"
+    },
+    option1: calloutClose
+  },
+  highlights: [".ssb__element.tut-age .ssb-button__highlight"],
+  activationEngineEvents: ["VictoryThresholdChanged"],
+  completionCustomEvents: ["interface-mode-changed", "OnContextManagerOpen_screen-victory-progress"]
+});
+TutorialManager.add({
+  ID: "tutorial_victories_available",
+  filterPlayers: [],
+  callout: {
+    anchorPosition: TutorialAnchorPosition.MiddleCenter,
+    title: "LOC_TUTORIAL_VICTORIES_AVAILABLE_TITLE",
+    body: {
+      text: "LOC_TUTORIAL_VICTORIES_AVAILABLE_BODY"
+    },
+    option1: calloutClose
+  },
+  onActivateCheck: (_item) => {
+    if (TutorialManager.isItemCompleted("tutorial_victory_screen_callout")) {
+      return true;
+    }
+    return false;
+  },
+  activationCustomEvents: ["OnContextManagerOpen_screen-victory-progress"],
+  completionCustomEvents: ["interface-mode-changed", "OnContextManagerClose_screen-victory-progress"]
 });
 TutorialManager.process("exploration items");
 //# sourceMappingURL=tutorial-items-exploration.js.map

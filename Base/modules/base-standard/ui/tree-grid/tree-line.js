@@ -1,10 +1,6 @@
-import { L as Layout } from '../../../core/ui/utilities/utilities-layout.chunk.js';
-import { a as TreeGridDirection, d as UpdateLinesEventName, e as TreeClassSelector } from './tree-support.chunk.js';
-import { s as styles } from './tree-components.chunk.js';
-import '../../../core/ui/input/focus-manager.js';
-import '../../../core/ui/audio-base/audio-support.chunk.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/utilities/utilities-core-databinding.chunk.js';
+import { Layout } from '../../../core/ui/utilities/utilities-layout.js';
+import { TreeGridDirection, UpdateLinesEventName, TreeClassSelector } from './tree-support.js';
+import styles from './tree-components.scss.js';
 
 const TREE_LINE_DEBUG = false;
 class TreeLine extends Component {

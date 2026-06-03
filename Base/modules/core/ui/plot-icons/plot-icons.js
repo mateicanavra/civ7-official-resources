@@ -1,6 +1,5 @@
 import PlotIconsManager from './plot-icons-manager.js';
-
-const styles = "fs://game/core/ui/plot-icons/plot-icons.css";
+import styles from './plot-icons.scss.js';
 
 var IconAnimationState = /* @__PURE__ */ ((IconAnimationState2) => {
   IconAnimationState2[IconAnimationState2["NONE"] = 0] = "NONE";
@@ -88,5 +87,5 @@ Controls.define("plot-icons", {
   attributes: []
 });
 
-export { IconAnimationState, PlotIcons as default, styles as s };
+export { IconAnimationState, PlotIcons as default };
 //# sourceMappingURL=plot-icons.js.map

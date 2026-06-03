@@ -1,40 +1,12 @@
-import FocusManager from '../../../core/ui/input/focus-manager.js';
-import { b as InputEngineEventName } from '../../../core/ui/input/input-support.chunk.js';
-import { N as NavTray } from '../../../core/ui/navigation-tray/model-navigation-tray.chunk.js';
-import { P as Panel } from '../../../core/ui/panel-support.chunk.js';
-import { HidePlotTooltipEvent, ShowPlotTooltipEvent } from '../../../core/ui/tooltips/tooltip-manager.js';
-import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.chunk.js';
+import { InputEngineEventName } from '../../../core/ui/input/input-support.js';
+import NavTray from '../../../core/ui/navigation-tray/model-navigation-tray.js';
+import Panel from '../../../core/ui/panel-support.js';
+import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
+import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
 import { HideMiniMapEvent } from '../mini-map/panel-mini-map.js';
-import '../../../core/ui/audio-base/audio-support.chunk.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/input/action-handler.js';
-import '../../../core/ui/input/cursor.js';
-import '../../../core/ui/views/view-manager.chunk.js';
-import '../../../core/ui/utilities/utilities-update-gate.chunk.js';
-import '../../../core/ui/utilities/utilities-image.chunk.js';
-import '../../../core/ui/utilities/utilities-component-id.chunk.js';
-import '../../../core/ui/input/plot-cursor.js';
-import '../../../core/ui/context-manager/context-manager.js';
-import '../../../core/ui/context-manager/display-queue-manager.js';
-import '../../../core/ui/dialog-box/manager-dialog-box.chunk.js';
-import '../../../core/ui/utilities/utilities-layout.chunk.js';
-import '../../../core/ui/input/focus-support.chunk.js';
-import '../../../core/ui/components/fxs-slot.chunk.js';
-import '../../../core/ui/spatial/spatial-manager.js';
-import '../../../core/ui/lenses/lens-manager.chunk.js';
-import '../../../core/ui/shell/mp-staging/mp-friends.js';
-import '../../../core/ui/shell/mp-staging/model-mp-friends.chunk.js';
-import '../../../core/ui/social-notifications/social-notifications-manager.js';
-import '../../../core/ui/utilities/utilities-liveops.js';
-import '../../../core/ui/utilities/utilities-network.js';
-import '../../../core/ui/shell/mp-legal/mp-legal.js';
-import '../../../core/ui/events/shell-events.chunk.js';
-import '../../../core/ui/utilities/utilities-network-constants.chunk.js';
-import '../../../core/ui/utilities/utilities-core-databinding.chunk.js';
-
-const content = "<fxs-subsystem-frame\r\n\tclass=\"pantheon-frame items-center shrink pointer-events-auto\"\r\n\ttabindex=\"-1\"\r\n\tbackDrop=\"fs://game/pant_altarbg.png\"\r\n>\r\n\t<div\r\n\t\tclass=\"flex flex-col items-center\"\r\n\t\tdata-slot=\"header\"\r\n\t>\r\n\t\t<fxs-header\r\n\t\t\tclass=\"tracking-150 justify-center flex w-96\"\r\n\t\t\ttitle=\"LOC_BELIEF_CLASS_PANTHEON_NAME\"\r\n\t\t\tdata-slot=\"header\"\r\n\t\t></fxs-header>\r\n\t\t<p\r\n\t\t\tclass=\"pantheon-chooser_your-pantheon mt-8 mb-3 text-center font-body-base text-accent-2\"\r\n\t\t\tdata-slot=\"header\"\r\n\t\t></p>\r\n\t</div>\r\n\t<div class=\"pantheon-finished-container mx-6 flex items-center flex-col flex-auto relative\"></div>\r\n</fxs-subsystem-frame>\r\n";
-
-const styles = "fs://game/base-standard/ui/pantheon-complete/panel-pantheon-complete.css";
+import { SetIsPlotTooltipVisible } from '../../ui-next/tooltips/plot-tooltip/plot-tooltip.js';
+import content from './panel-pantheon-complete.html.js';
+import styles from './panel-pantheon-complete.scss.js';
 
 class ScreenPantheonComplete extends Panel {
   engineInputListener = this.onEngineInput.bind(this);
@@ -47,8 +19,9 @@ class ScreenPantheonComplete extends Panel {
     this.enableCloseSound = true;
   }
   onAttach() {
+    super.onAttach();
     this.playAnimateInSound();
-    window.dispatchEvent(new HidePlotTooltipEvent());
+    SetIsPlotTooltipVisible(false);
     window.dispatchEvent(new HideMiniMapEvent(true));
     this.Root.addEventListener(InputEngineEventName, this.engineInputListener);
     this.pantheonFrame.addEventListener("subsystem-frame-close", () => {
@@ -64,10 +37,15 @@ class ScreenPantheonComplete extends Panel {
       console.error("panel-pantheon-complete: onAttach() - no player religion found!");
       return;
     }
-    this.yourPantheonText.innerHTML = Locale.compose(
-      "LOC_UI_PANTHEON_YOUR_PANTHEON",
-      playerReligion.getNumPantheons()
-    );
+    if (playerReligion.getPantheons().length == 0) {
+      this.yourPantheonText.innerHTML = Locale.stylize("LOC_UI_PANTHEON_EMPTY");
+      this.yourPantheonText.classList.add("mx-9", "text-center", "flex");
+    } else {
+      this.yourPantheonText.innerHTML = Locale.compose(
+        "LOC_UI_PANTHEON_YOUR_PANTHEON",
+        playerReligion.getNumPantheons()
+      );
+    }
     const playerPantheons = playerReligion.getPantheons();
     for (const pantheon of playerPantheons) {
       const pantheonDef = GameInfo.Beliefs.lookup(pantheon);
@@ -97,12 +75,12 @@ class ScreenPantheonComplete extends Panel {
       pantheonListDescription.setAttribute("data-l10n-id", pantheonDef.Description);
       pantheonListContainerItem.appendChild(pantheonListDescription);
       pantheonListContainer.appendChild(pantheonListContainerItem);
-      FocusManager.setFocus(this.Root);
+      FocusManager.get().setFocus(this.Root);
     }
   }
   onDetach() {
     this.Root.removeEventListener(InputEngineEventName, this.engineInputListener);
-    window.dispatchEvent(new ShowPlotTooltipEvent());
+    SetIsPlotTooltipVisible(true);
     window.dispatchEvent(new HideMiniMapEvent(false));
     super.onDetach();
   }

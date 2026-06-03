@@ -1,6 +1,5 @@
-const content = "<div class=\"hex-bord-piece\"></div>\r\n<div class=\"hex-bord-piece hex-2\"></div>\r\n<div class=\"hex-bord-piece hex-3\"></div>\r\n";
-
-const styles = "fs://game/core/ui/parts/hex-border/hex-border.css";
+import content from './hex-border.html.js';
+import styles from './hex-border.scss.js';
 
 class HexBorder extends Component {
 }

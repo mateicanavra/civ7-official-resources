@@ -11,9 +11,9 @@
 	</TypeQuotes>
 	<Constructibles>
 		<!--Civ Unique Improvements-->
-		<Row ConstructibleType="IMPROVEMENT_THING" Name="LOC_IMPROVEMENT_THING_NAME" Description="LOC_IMPROVEMENT_THING_DESCRIPTION" Tooltip="LOC_IMPROVEMENT_THING_TOOLTIP" ConstructibleClass="IMPROVEMENT" Cost="90" Population="1" Age="AGE_EXPLORATION" RequiresUnlock="true"/>
+		<Row ConstructibleType="IMPROVEMENT_THING" Name="LOC_IMPROVEMENT_THING_NAME" Description="LOC_IMPROVEMENT_THING_DESCRIPTION" Tooltip="LOC_IMPROVEMENT_THING_TOOLTIP" ConstructibleClass="IMPROVEMENT" Cost="90" Population="1" Age="AGE_EXPLORATION" RequiresUnlock="true" CostProgressionModel="COST_PROGRESSION_PREVIOUS_COPIES_CITY" CostProgressionParam1="45"/>
 		<!--Wonders-->
-		<Row ConstructibleType="WONDER_REYKHOLT" Name="LOC_WONDER_REYKHOLT_NAME" Description="LOC_WONDER_REYKHOLT_DESCRIPTION" Tooltip="LOC_WONDER_REYKHOLT_TOOLTIP" ConstructibleClass="WONDER" Cost="550" Population="0" ImmuneDamage="true" Age="AGE_EXPLORATION" RequiresUnlock="true"/>
+		<Row ConstructibleType="WONDER_REYKHOLT" Name="LOC_WONDER_REYKHOLT_NAME" Description="LOC_WONDER_REYKHOLT_DESCRIPTION" Tooltip="LOC_WONDER_REYKHOLT_TOOLTIP" ConstructibleClass="WONDER" Cost="750" Population="0" ImmuneDamage="true" Age="AGE_EXPLORATION" RequiresUnlock="true"/>
 	</Constructibles>
 	<Improvements>
 		<!--Civ Unique Improvements-->
@@ -31,6 +31,7 @@
 		<Row Type="IMPROVEMENT_THING" Tag="UNIQUE_IMPROVEMENT"/>
 		<Row Type="IMPROVEMENT_THING" Tag="AGELESS"/>
 		<Row Type="WONDER_REYKHOLT" Tag="AGELESS"/>
+		<Row Type="WONDER_REYKHOLT" Tag="GREATWORK"/>
 	</TypeTags>
 	<Constructible_ValidDistricts>
 		<!--Civ Unique Improvements-->

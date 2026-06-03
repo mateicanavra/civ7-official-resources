@@ -1,4 +1,4 @@
-import { S as Shared_OnAutomationEvent, R as ReadUserConfigOptions, e as SharedGame_OnAutoPlayEnd, F as FailTest, A as ApplyCommonNewGameParametersToConfiguration, L as LogCurrentPlayers, G as GetCurrentTestObserver, P as PassTest, a as StartupObserverCamera, b as RestoreUserConfigOptions } from './automation-test-support.chunk.js';
+import { Shared_OnAutomationEvent, ReadUserConfigOptions, SharedGame_OnAutoPlayEnd, FailTest, ApplyCommonNewGameParametersToConfiguration, LogCurrentPlayers, GetCurrentTestObserver, PassTest, StartupObserverCamera, RestoreUserConfigOptions } from './automation-test-support.js';
 
 console.log("loading automation-base-load-game.ts");
 class AutomationTestLoadGame {

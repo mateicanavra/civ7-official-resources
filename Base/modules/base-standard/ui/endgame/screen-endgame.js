@@ -1,29 +1,18 @@
-import { A as Audio } from '../../../core/ui/audio-base/audio-support.chunk.js';
+import { Audio } from '../../../core/ui/audio-base/audio-support.js';
 import ContextManager from '../../../core/ui/context-manager/context-manager.js';
-import { b as DisplayHandlerBase } from '../../../core/ui/dialog-box/manager-dialog-box.chunk.js';
+import { DisplayHandlerBase } from '../../../core/ui/context-manager/display-handler.js';
 import { DisplayQueueManager } from '../../../core/ui/context-manager/display-queue-manager.js';
-import { ActiveDeviceTypeChangedEventName } from '../../../core/ui/input/action-handler.js';
-import FocusManager from '../../../core/ui/input/focus-manager.js';
+import { ActiveDeviceTypeChangedEventName } from '../../../core/ui/input/input-events.js';
 import { InterfaceMode } from '../../../core/ui/interface-modes/interface-modes.js';
-import { N as NavTray } from '../../../core/ui/navigation-tray/model-navigation-tray.chunk.js';
-import { P as Panel } from '../../../core/ui/panel-support.chunk.js';
-import { HidePlotTooltipEvent, ShowPlotTooltipEvent } from '../../../core/ui/tooltips/tooltip-manager.js';
-import { r as realizeCivHeraldry } from '../../../core/ui/utilities/utilities-color.chunk.js';
-import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.chunk.js';
+import NavTray from '../../../core/ui/navigation-tray/model-navigation-tray.js';
+import Panel from '../../../core/ui/panel-support.js';
+import { applyPlayerColorsToElement } from '../../../core/ui/utilities/utilities-color.js';
+import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
+import { Icon } from '../../../core/ui/utilities/utilities-image.js';
+import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
 import { EndResultsFinishedEventName } from '../end-results/end-results.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/input/cursor.js';
-import '../../../core/ui/views/view-manager.chunk.js';
-import '../../../core/ui/input/input-support.chunk.js';
-import '../../../core/ui/utilities/utilities-update-gate.chunk.js';
-import '../../../core/ui/utilities/utilities-image.chunk.js';
-import '../../../core/ui/utilities/utilities-component-id.chunk.js';
-import '../../../core/ui/input/plot-cursor.js';
-import '../../../core/ui/utilities/utilities-layout.chunk.js';
-import '../../../core/ui/graph-layout/utils.chunk.js';
-import './model-endgame.js';
-
-const styles = "fs://game/base-standard/ui/endgame/screen-endgame.css";
+import { SetIsPlotTooltipVisible } from '../../ui-next/tooltips/plot-tooltip/plot-tooltip.js';
+import styles from './screen-endgame.scss.js';
 
 var TransitionState = /* @__PURE__ */ ((TransitionState2) => {
   TransitionState2[TransitionState2["Banner"] = 0] = "Banner";
@@ -35,15 +24,14 @@ var TransitionState = /* @__PURE__ */ ((TransitionState2) => {
 var ContinueButtonType = /* @__PURE__ */ ((ContinueButtonType2) => {
   ContinueButtonType2[ContinueButtonType2["ContinueGame"] = 0] = "ContinueGame";
   ContinueButtonType2[ContinueButtonType2["ExitToMainMenu"] = 1] = "ExitToMainMenu";
-  ContinueButtonType2[ContinueButtonType2["TransitionAge"] = 2] = "TransitionAge";
   return ContinueButtonType2;
 })(ContinueButtonType || {});
 class EndGameScreen extends Panel {
   isMobileViewExperience = UI.getViewExperience() == UIViewExperience.Mobile;
   navContainer = null;
+  shouldShowLegendsReport = Network.isConnectedToSSO() && Network.getLocalHostingPlatform() != HostingType.HOSTING_TYPE_GAMECENTER;
   engineInputListener = this.onEngineInput.bind(this);
   activeDeviceTypeListener = this.onActiveDeviceTypeChanged.bind(this);
-  eventAnimationListener = this.playNextAnimation.bind(this);
   endResultsFinishedListener = this.onEndResultsFinished.bind(this);
   cinemaPanel = null;
   transitionState = 0 /* Banner */;
@@ -172,7 +160,7 @@ class EndGameScreen extends Panel {
       gameSummaryReplayAnimButton.addEventListener("action-activate", () => {
         this.replayAnimation();
         if (this.tabBar) {
-          FocusManager.setFocus(this.tabBar);
+          FocusManager.get().setFocus(this.tabBar);
         }
       });
       gameSummaryPanelReplayAnimationButtonWrapper.appendChild(gameSummaryReplayAnimButton);
@@ -183,58 +171,52 @@ class EndGameScreen extends Panel {
     this.oneMoreTurnAllowed = false;
     if (Players.isAlive(GameContext.localPlayerID)) {
       if (playerDefeat == DefeatTypes.NO_DEFEAT || GameInfo.Defeats.lookup(playerDefeat)?.AllowOneMoreTurn) {
-        const args = {};
-        const result = Game.PlayerOperations.canStart(
-          GameContext.localPlayerID,
-          PlayerOperationTypes.EXTEND_GAME,
-          args,
-          false
-        );
-        if (result.Success) {
-          this.oneMoreTurnAllowed = true;
+        if (Game.AgeProgressManager.isExtendedGame) {
           const continueButton = document.createElement("fxs-button");
           this.continueButtonType = 0 /* ContinueGame */;
           continueButton.setAttribute("caption", "LOC_END_GAME_CONTINUE");
           continueButton.setAttribute("action-key", "inline-shell-action-2");
           continueButton.addEventListener("action-activate", () => {
-            this.justOneMoreTurn();
+            DisplayQueueManager.closeMatching(EndGameScreenCategory);
           });
           gameSummaryPanelOMTButtonWrapper.appendChild(continueButton);
+        } else {
+          const args = {};
+          const result = Game.PlayerOperations.canStart(
+            GameContext.localPlayerID,
+            PlayerOperationTypes.EXTEND_GAME,
+            args,
+            false
+          );
+          if (result.Success) {
+            this.oneMoreTurnAllowed = true;
+            const continueButton = document.createElement("fxs-button");
+            this.continueButtonType = 0 /* ContinueGame */;
+            continueButton.setAttribute("caption", "LOC_END_GAME_CONTINUE");
+            continueButton.setAttribute("action-key", "inline-shell-action-2");
+            continueButton.addEventListener("action-activate", () => {
+              this.justOneMoreTurn();
+            });
+            gameSummaryPanelOMTButtonWrapper.appendChild(continueButton);
+          }
         }
       }
     }
     const gameSummaryPanelContinueButtonWrapper = document.createElement("div");
     gameSummaryPanelContinueButtonWrapper.classList.add("screen-endgame__panel-button-continue-wrapper");
     gameSummaryPanelButtonContainer.appendChild(gameSummaryPanelContinueButtonWrapper);
-    const canTransition = Game.AgeProgressManager.canTransitionToNextAge(GameContext.localPlayerID);
-    if (canTransition) {
-      this.continueButtonType = 2 /* TransitionAge */;
-      const gameSummaryContinueButton = document.createElement("fxs-button");
-      if (Network.supportsSSO() && Network.isMetagamingAvailable()) {
-        gameSummaryContinueButton.setAttribute("caption", "LOC_END_GAME_LEGENDS");
-      } else {
-        gameSummaryContinueButton.setAttribute("caption", "LOC_END_GAME_TRANSITION");
-      }
-      gameSummaryContinueButton.setAttribute("action-key", "inline-sys-menu");
-      gameSummaryContinueButton.addEventListener("action-activate", () => {
-        Telemetry.sendAgeTransitionStart();
-        this.transitionToNextAge();
-      });
-      gameSummaryPanelContinueButtonWrapper.appendChild(gameSummaryContinueButton);
+    this.continueButtonType = 1 /* ExitToMainMenu */;
+    const gameSummaryContinueButton = document.createElement("fxs-button");
+    if (Network.supportsSSO() && Network.isMetagamingAvailable()) {
+      gameSummaryContinueButton.setAttribute("caption", "LOC_END_GAME_LEGENDS");
     } else {
-      this.continueButtonType = 1 /* ExitToMainMenu */;
-      const gameSummaryContinueButton = document.createElement("fxs-button");
-      if (Network.supportsSSO() && Network.isMetagamingAvailable()) {
-        gameSummaryContinueButton.setAttribute("caption", "LOC_END_GAME_LEGENDS");
-      } else {
-        gameSummaryContinueButton.setAttribute("caption", "LOC_END_GAME_EXIT");
-      }
-      gameSummaryContinueButton.setAttribute("action-key", "inline-sys-menu");
-      gameSummaryContinueButton.addEventListener("action-activate", () => {
-        this.exitToMainMenu();
-      });
-      gameSummaryPanelContinueButtonWrapper.appendChild(gameSummaryContinueButton);
+      gameSummaryContinueButton.setAttribute("caption", "LOC_END_GAME_EXIT");
     }
+    gameSummaryContinueButton.setAttribute("action-key", "inline-sys-menu");
+    gameSummaryContinueButton.addEventListener("action-activate", () => {
+      this.exitToMainMenu();
+    });
+    gameSummaryPanelContinueButtonWrapper.appendChild(gameSummaryContinueButton);
     this.tabBar = document.createElement("fxs-tab-bar");
     this.tabBar.classList.add("screen-endgame__tab-bar", "self-center", "w-full");
     this.tabBar.setAttribute(
@@ -394,13 +376,6 @@ class EndGameScreen extends Panel {
       return null;
     }
   }
-  playNextAnimation(event) {
-    switch (event.animationName) {
-      case "age-ending-end-part-1":
-        this.playTransitionPart1();
-        break;
-    }
-  }
   replayAnimation() {
     const movieName = this.chooseTransitionMovie();
     if (movieName) {
@@ -408,8 +383,8 @@ class EndGameScreen extends Panel {
       const summaryContainer = this.Root.querySelector("#age-summary-container");
       summaryContainer?.classList.remove("age-summary_container--active");
       summaryContainer?.classList.add("hidden");
-      const ageEndingContainer = this.Root.querySelector("#age-ending-container");
-      ageEndingContainer?.classList.remove("age-ending__container--fade-in-vignette");
+      const cinemaContainer = this.Root.querySelector("#cinema-container");
+      cinemaContainer?.classList.remove("age-ending__container--fade-in-vignette");
       if (this.cinemaPanel) {
         this.cinemaPanel.style.display = "";
         this.cinemaPanel.setAttribute("data-movie-id", "");
@@ -438,23 +413,6 @@ class EndGameScreen extends Panel {
     ageEndingPanel?.classList.add("age-ending__panel--fade-out");
     this.transitionState = 0 /* Banner */;
   }
-  onBannerFadedOut() {
-    const el = this.Root.querySelector("age-transition-banner");
-    if (el) {
-      el.remove();
-    }
-    if (this.cinemaPanel) {
-      const movieName = this.chooseTransitionMovie();
-      if (movieName && !Game.AgeProgressManager.isExtendedGame) {
-        this.cinemaPanel.style.display = "";
-        this.cinemaPanel.setAttribute("data-movie-id", movieName);
-      } else {
-        this.showEndResultsScreen();
-      }
-    } else {
-      this.showEndResultsScreen();
-    }
-  }
   onMovieEnded() {
     if (this.cinemaPanel) {
       this.cinemaPanel.style.display = "none";
@@ -462,84 +420,82 @@ class EndGameScreen extends Panel {
     this.showEndResultsScreen();
   }
   showEndResultsScreen() {
-    const localPlayerId = GameContext.localPlayerID;
-    const canTransition = Game.AgeProgressManager.canTransitionToNextAge(localPlayerId);
-    if (canTransition) {
-      this.showEndGameScreen();
-      return;
-    } else {
-      ContextManager.push("screen-end-results", { singleton: true, createMouseGuard: true });
-      this.transitionState = 2 /* EndResults */;
-    }
+    ContextManager.push("screen-end-results", { singleton: true, createMouseGuard: true });
+    this.transitionState = 2 /* EndResults */;
   }
+  // This is a callback from the EndResultsScreen, which show the Victory or Defeat.
   onEndResultsFinished() {
     this.showEndGameScreen();
   }
   showEndGameScreen() {
     const summaryContainer = this.Root.querySelector("#age-summary-container");
-    const ageEndingContainer = this.Root.querySelector("#age-ending-container");
-    ageEndingContainer?.classList.add("age-ending__container--fade-in-vignette");
+    const cinemaContainer = this.Root.querySelector("#cinema-container");
+    cinemaContainer?.classList.add("age-ending__container--fade-in-vignette");
     summaryContainer?.classList.add("age-summary_container--active");
     summaryContainer?.classList.remove("hidden");
     UI.sendAudioEvent("age-end-summary");
     Audio.playSound("data-audio-stop-banner-sound", "age-transition");
     if (this.summarySlot) {
-      FocusManager.setFocus(this.summarySlot);
+      FocusManager.get().setFocus(this.summarySlot);
     }
     this.transitionState = 3 /* Summary */;
+    UI.requestReviewAppleArcade();
   }
   onAttach() {
     super.onAttach();
-    window.dispatchEvent(new HidePlotTooltipEvent());
+    SetIsPlotTooltipVisible(false);
     InterfaceMode.switchToDefault();
-    if (Autoplay.isActive && !Game.AgeProgressManager.isFinalAge) {
-      this.transitionToNextAge();
-    }
-    const playerDefeat = Game.VictoryManager.getLatestPlayerDefeat(GameContext.localPlayerID);
+    const playerId = GameContext.localObserverID;
     this.Root.addEventListener("engine-input", this.engineInputListener);
     const fragment = document.createDocumentFragment();
     const contentContainer = document.createElement("div");
     contentContainer.classList.add("flex", "flow-column", "flex", "flex-auto");
-    realizeCivHeraldry(this.Root, GameContext.localPlayerID);
-    const ageEndingContainer = document.createElement("div");
-    ageEndingContainer.id = "age-ending-container";
+    applyPlayerColorsToElement(this.Root, playerId);
+    const player = Players.get(playerId);
+    if (player) {
+      this.Root.style.setProperty(
+        "--civ-symbol",
+        Icon.getCivSymbolCSSFromCivilizationType(player.civilizationType)
+      );
+    }
+    const cinemaPanelContainer = document.createElement("div");
+    cinemaPanelContainer.id = "cinema-container";
     {
-      ageEndingContainer.classList.add("age-ending__container");
+      cinemaPanelContainer.classList.add("age-ending__container");
       const bgContainer = this.buildBackgroundVignette();
-      ageEndingContainer.appendChild(bgContainer);
+      cinemaPanelContainer.appendChild(bgContainer);
       this.cinemaPanel = document.createElement("fxs-movie");
       this.cinemaPanel.classList.add("absolute", "inset-0");
       this.cinemaPanel.style.display = "none";
       this.cinemaPanel.addEventListener("movie-ended", this.onMovieEnded.bind(this));
-      ageEndingContainer.appendChild(this.cinemaPanel);
-      const agePanel = document.createElement("age-transition-banner");
-      agePanel.classList.add("age-ending__panel--pause-animations");
-      ageEndingContainer.appendChild(agePanel);
-      agePanel.addEventListener("age-transition-banner-faded-out", () => {
-        this.onBannerFadedOut();
-      });
+      cinemaPanelContainer.appendChild(this.cinemaPanel);
+      contentContainer.appendChild(cinemaPanelContainer);
     }
-    contentContainer.appendChild(ageEndingContainer);
+    const playerDefeat = Game.VictoryManager.getLatestPlayerDefeat(playerId);
     const summaryContainer = this.buildAgeEndTransitionSummaryScreen(playerDefeat);
     contentContainer.appendChild(summaryContainer);
-    this.Root.addEventListener("animationend", this.eventAnimationListener);
     fragment.appendChild(contentContainer);
     this.Root.appendChild(fragment);
     window.addEventListener(ActiveDeviceTypeChangedEventName, this.activeDeviceTypeListener);
     window.addEventListener(EndResultsFinishedEventName, this.endResultsFinishedListener);
     if (ContextManager.noUserInput()) {
       this.exitToMainMenu();
-    }
-  }
-  transitionToNextAge() {
-    if (Network.isConnectedToSSO() && !Autoplay.isActive) {
-      ContextManager.push("screen-legends-report", { createMouseGuard: true, singleton: true });
     } else {
-      engine.call("transitionToNextAge");
+      if (this.cinemaPanel) {
+        const movieName = this.chooseTransitionMovie();
+        if (movieName && !Game.AgeProgressManager.isExtendedGame) {
+          this.cinemaPanel.style.display = "";
+          this.cinemaPanel.setAttribute("data-movie-id", movieName);
+        } else {
+          this.showEndResultsScreen();
+        }
+      } else {
+        this.showEndResultsScreen();
+      }
     }
   }
   exitToMainMenu() {
-    if (Network.isConnectedToSSO()) {
+    if (this.shouldShowLegendsReport) {
       ContextManager.push("screen-legends-report", { createMouseGuard: true, singleton: true });
     } else {
       UI.sendAudioEvent(Audio.getSoundTag("data-audio-age-end-closed"));
@@ -550,18 +506,17 @@ class EndGameScreen extends Panel {
     this.Root.removeEventListener("engine-input", this.engineInputListener);
     window.removeEventListener(ActiveDeviceTypeChangedEventName, this.activeDeviceTypeListener);
     window.removeEventListener(EndResultsFinishedEventName, this.endResultsFinishedListener);
-    this.Root.removeEventListener("animationend", this.eventAnimationListener);
     if (this.tabBar) {
       this.tabBar.removeEventListener("tab-selected", this.onGameSummaryTabBarSelected.bind(this));
     }
     super.onDetach();
-    window.dispatchEvent(new ShowPlotTooltipEvent());
+    SetIsPlotTooltipVisible(true);
   }
   onReceiveFocus() {
     super.onReceiveFocus();
     NavTray.clear();
     if (this.tabBar) {
-      FocusManager.setFocus(this.tabBar);
+      FocusManager.get().setFocus(this.tabBar);
     }
   }
   onLoseFocus() {
@@ -590,15 +545,13 @@ class EndGameScreen extends Panel {
         break;
       case "sys-menu":
         if (this.transitionState == 3 /* Summary */) {
+          Audio.playSound("data-audio-primary-button-press");
           switch (this.continueButtonType) {
             case 0 /* ContinueGame */:
               DisplayQueueManager.closeMatching(EndGameScreenCategory);
               break;
             case 1 /* ExitToMainMenu */:
               this.exitToMainMenu();
-              break;
-            case 2 /* TransitionAge */:
-              this.transitionToNextAge();
               break;
           }
         }
@@ -607,6 +560,7 @@ class EndGameScreen extends Panel {
         break;
       case "shell-action-1":
         if (this.transitionState == 3 /* Summary */) {
+          Audio.playSound("data-audio-primary-button-press");
           this.replayAnimation();
         }
         inputEvent.stopPropagation();
@@ -619,6 +573,10 @@ class EndGameScreen extends Panel {
           }
           inputEvent.stopPropagation();
           inputEvent.preventDefault();
+        } else if (Game.AgeProgressManager.isExtendedGame) {
+          inputEvent.stopPropagation();
+          inputEvent.preventDefault();
+          DisplayQueueManager.closeMatching(EndGameScreenCategory);
         }
         break;
       case "shell-action-3":
@@ -661,7 +619,7 @@ class EndGameScreenManager extends DisplayHandlerBase {
       return;
     }
     ContextManager.clear();
-    this.endGameScreenElement ??= ContextManager.push("screen-endgame", {
+    this.endGameScreenElement ??= ContextManager.push("endgame-screen", {
       singleton: true,
       createMouseGuard: true,
       attributes: { shouldDarken: false }
@@ -669,7 +627,7 @@ class EndGameScreenManager extends DisplayHandlerBase {
     this.hasShownEndGameScreen = true;
   }
   hide(_request, _options) {
-    ContextManager.pop("screen-endgame");
+    ContextManager.pop("endgame-screen");
     this.endGameScreenElement = null;
     this.hasShownEndGameScreen = false;
   }

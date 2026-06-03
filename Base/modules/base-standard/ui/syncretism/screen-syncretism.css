@@ -1,0 +1,106 @@
+screen-syncretism {
+  top: 1.1111111111rem;
+  bottom: 1.2222222222rem;
+  left: 0.8888888889rem;
+  right: 0.8888888889rem;
+}
+
+.syncretism-frame {
+  border-image-outset: 0.9444444444rem 0.7222222222rem;
+  border-image-slice: 30 20 30 20 fill;
+  border-image-source: url("blp:hud_unit-panel_box-bg.png");
+  border-image-width: 1.6666666667rem 1.1111111111rem 1.6666666667rem 1.1111111111rem;
+}
+
+.syncretism-bg {
+  background-image: url("blp:syncretism_bg");
+}
+
+.syncretism-bg-gradient {
+  background-image: linear-gradient(to bottom, #12151f, rgba(178, 158, 121, 0.1));
+}
+
+.syncretism-card-bg-gradient {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0) 100%);
+}
+
+.syncretism-ticket-shadow {
+  border-image-source: url("blp:ticket_solid_shadow");
+  border-image-slice: 26 35 35 26 fill;
+  border-image-width: 1.3333333333rem 1.8333333333rem 1.8333333333rem 1.3333333333rem;
+  padding: 0.5555555556rem 0.7777777778rem 0.7777777778rem 0.5555555556rem;
+  opacity: 0.85;
+}
+
+.syncretism-preview-warning {
+  background-color: rgba(220, 30, 70, 0.5);
+}
+
+.syncretism-postchoice {
+  background-color: rgba(87, 149, 68, 0.5);
+}
+
+.syncretism-card {
+  border-image-source: url("blp:hud_squarepanel-bg");
+  border-image-slice: 128 64 64 64 fill;
+  border-image-width: 7.1111111111rem 3.5555555556rem 3.5555555556rem 3.5555555556rem;
+  border-image-outset: 0.8333333333rem 1.5555555556rem 1.5555555556rem 1.5555555556rem;
+}
+.syncretism-card:hover .syncretism-hover, .syncretism-card:focus .syncretism-hover, .syncretism-card.focused .syncretism-hover, .syncretism-card.pressed .syncretism-hover {
+  opacity: 1;
+}
+
+.syncretism-hover {
+  opacity: 0;
+  border-image-source: url("blp:rollover_highlight");
+  border-image-slice: 30 fill;
+  border-image-width: 1.6666666667rem;
+}
+
+.syncretism-card-lock {
+  filter: grayscale(1);
+}
+
+.syncretism-card-hover {
+  border-image-slice: 16 fill;
+  border-image-source: url("blp:shell_thick-square-focus");
+  border-image-width: 0.8888888889rem;
+}
+
+.syncretism-confirm-title {
+  font-size: 2.7777777778rem;
+}
+@media (max-height: 55.5555555556rem) {
+  .syncretism-confirm-title {
+    font-size: 1.7777777778rem;
+  }
+}
+
+.syncretism-confirm-subtitle-holder {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.syncretism-body-bg-overlay {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.syncretism-info-card {
+  position: relative;
+  width: 95%;
+  max-width: 100rem;
+  height: 95%;
+  max-height: 55.5555555556rem;
+}
+
+.syncretism-bottom-border {
+  border-bottom: #454545 solid 0.1111111111rem;
+}
+
+.sync-locked-ticket-bg {
+  border-image-source: url("blp:ticket_solid_shadow");
+  border-image-slice: 26 35 35 26 fill;
+  border-image-width: 1.3333333333rem 1.8333333333rem 1.8333333333rem 1.3333333333rem;
+  filter: grayscale(1);
+  padding: 0.5555555556rem 0.7777777778rem 0.7777777778rem 0.5555555556rem;
+  opacity: 0.85;
+}

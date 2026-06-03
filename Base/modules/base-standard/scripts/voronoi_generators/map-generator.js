@@ -1,48 +1,57 @@
-import { VoronoiUtils, MapSize, WrapType, kdTree, RegionCellPosGetter, RegionCell, Aabb2, WrappedKdTree } from '../kd-tree.js';
-import '../../../core/scripts/external/TypeScript-Voronoi-master/src/voronoi.js';
-import '../../../core/scripts/external/TypeScript-Voronoi-master/src/rbtree.js';
-import '../../../core/scripts/external/TypeScript-Voronoi-master/src/vertex.js';
-import '../../../core/scripts/external/TypeScript-Voronoi-master/src/edge.js';
-import '../../../core/scripts/external/TypeScript-Voronoi-master/src/cell.js';
-import '../../../core/scripts/external/TypeScript-Voronoi-master/src/diagram.js';
-import '../../../core/scripts/external/TypeScript-Voronoi-master/src/halfedge.js';
-import '../../../core/scripts/MathHelpers.js';
-import '../random-pcg-32.js';
+import { MapSize } from '../voronoi-types.js';
+import { kdTree, WrappedKdTree } from '../kd-tree.js';
+import { WrapType, RegionCellPosGetter, VoronoiUtils, RegionCell, Aabb2 } from '../voronoi-utils.js';
 
 var GeneratorType = /* @__PURE__ */ ((GeneratorType2) => {
   GeneratorType2[GeneratorType2["Continent"] = 0] = "Continent";
   return GeneratorType2;
 })(GeneratorType || {});
-class GeneratorSettingConfigGroup {
+const ruleDefaults = {
+  weight: 1,
+  isActive: true
+};
+function resolveRuleConfig(cfg) {
+  const obj = {};
+  for (const [ruleCategory, rules] of Object.entries(cfg)) {
+    obj[ruleCategory] = {};
+    for (const [ruleName, ruleSettings] of Object.entries(rules)) {
+      obj[ruleCategory][ruleName] = {
+        ...ruleDefaults,
+        ...ruleSettings,
+        config: { ...ruleSettings.config ?? {} }
+        // avoid shared object.
+      };
+    }
+  }
+  return obj;
+}
+class GeneratorSchemaGroup {
   groupLabel = "";
-  key = "";
   childCount;
   // define this to allow this group to contain arrays of settings.
-  children = { type: "configs", data: [] };
+  children = { type: "configs", data: {} };
 }
 class MapGenerator {
-  m_defaultGeneratorSettings = {};
-  m_mapSizeOverrides = VoronoiUtils.defaultEnumRecord(MapSize);
   m_generatorSettings = {};
   m_regionCells = [];
   m_diagram;
   // initialized in init()
   m_worldDims = { x: 0, y: 0 };
-  m_mapSize = MapSize.Standard;
+  // World size accounting for sizes of hexes
+  m_hexDims = { x: 0, y: 0 };
+  // Actual number of hexes in x/y.
+  m_mapSizeType = MapSize.Standard;
   m_wrap = WrapType.None;
   m_kdTree = new kdTree(RegionCellPosGetter);
   // initialized in init()
   m_wrapDistOpts = { wrap: WrapType.None };
-  init(worldDims, diagram, mapSize, wrap = WrapType.None) {
+  init(worldDims, diagram, hexDims, wrap = WrapType.None) {
     this.m_diagram = diagram;
     this.m_worldDims = worldDims;
-    this.m_mapSize = mapSize;
+    this.m_hexDims = hexDims;
+    this.m_mapSizeType = VoronoiUtils.getMapSizeForDims(hexDims);
     this.m_wrap = wrap;
     this.m_wrapDistOpts = { wrap, width: worldDims.x, height: worldDims.y };
-    if (Object.entries(this.m_generatorSettings).length === 0) {
-      this.m_generatorSettings = VoronoiUtils.clone(this.m_defaultGeneratorSettings);
-    }
-    VoronoiUtils.deepMerge(this.m_generatorSettings, this.m_mapSizeOverrides[this.m_mapSize]);
     this.m_regionCells = diagram.cells.map((cell, index) => {
       const area = VoronoiUtils.calculateCellArea(cell);
       const regionCell = new RegionCell(cell, index, area);
@@ -56,7 +65,7 @@ class MapGenerator {
   }
   logSettings() {
     console.log(
-      "generator " + this.getType() + " for map size [" + this.m_mapSize + "] initialized with the following settings:"
+      `generator ${this.getType()} for map size (x: ${this.m_hexDims.x}, y: ${this.m_hexDims.y}) [${this.m_mapSizeType}] initialized with settings:`
     );
     const logObject = (obj, indent, lastKey = "") => {
       if (obj === null) {
@@ -80,43 +89,46 @@ class MapGenerator {
       }
     };
     logObject(this.m_generatorSettings, "  ");
-    console.log("Rules:");
-    const rules = this.getRules();
-    for (const ruleSection of Object.keys(rules)) {
-      console.log("  " + ruleSection + ":");
-      for (const rule of rules[ruleSection]) {
-        console.log("    " + rule.name + ": weight: " + rule.weight);
+    console.log(`Rules:`);
+    const ruleSections = this.getRules();
+    for (const [ruleSection, rules] of Object.entries(ruleSections)) {
+      console.log(`  ${ruleSection}:`);
+      for (const [ruleName, rule] of Object.entries(rules)) {
+        console.log(`    ${ruleName}: active: ${rule.isActive}, weight: ${rule.weight}`);
         for (const [key, value] of Object.entries(rule.configValues)) {
           logObject(value, "      ", key);
         }
       }
     }
   }
-  buildDefaultSettings(nodes, mapsSizeOverrides) {
-    const processConfigNodes = (nodes2) => {
-      const out = {};
-      for (const node of nodes2) {
-        if ("children" in node) {
-          if (node.children.type === "configs") {
-            if (node.childCount && node.childCount > 0) {
-              out["_defaultChild"] = processConfigNodes(node.children.data);
-              const arr = [];
-              for (let i = 0; i < node.childCount; ++i) {
-                arr[i] = processConfigNodes(node.children.data);
-              }
-              out[node.key] = arr;
-            } else {
-              out[node.key] = processConfigNodes(node.children.data);
+  static buildDefaultSettings(nodes) {
+    const out = {};
+    for (const [key, node] of Object.entries(nodes)) {
+      if ("children" in node) {
+        if (node.children.type === "configs") {
+          if (node.childCount && node.childCount > 0) {
+            out["_defaultChild"] = this.buildDefaultSettings(node.children.data);
+            const arr = [];
+            for (let i = 0; i < node.childCount; ++i) {
+              arr[i] = this.buildDefaultSettings(node.children.data);
             }
+            out[key] = arr;
+          } else {
+            out[key] = this.buildDefaultSettings(node.children.data);
           }
-        } else {
-          out[node.key] = node.default;
         }
+      } else {
+        out[key] = node.default;
       }
-      return out;
-    };
-    this.m_defaultGeneratorSettings = processConfigNodes(nodes);
-    this.m_mapSizeOverrides = mapsSizeOverrides;
+    }
+    return out;
+  }
+  initializeRules(settings) {
+    for (const [cat, rules] of Object.entries(this.getRules())) {
+      for (const [ruleName, rule] of Object.entries(rules)) {
+        rule.initialize(settings[cat][ruleName]);
+      }
+    }
   }
   getRegionCells() {
     return this.m_regionCells;
@@ -130,17 +142,16 @@ class MapGenerator {
   getSettings() {
     return this.m_generatorSettings;
   }
+  setSettings(generatorSettings) {
+    this.m_generatorSettings = generatorSettings;
+  }
   getDiagram() {
     return this.m_diagram;
   }
   getPlatesDiagram() {
     return this.m_diagram;
   }
-  resetToDefault() {
-    this.m_generatorSettings = VoronoiUtils.clone(this.m_defaultGeneratorSettings);
-    VoronoiUtils.deepMerge(this.m_generatorSettings, this.m_mapSizeOverrides[this.m_mapSize]);
-  }
 }
 
-export { GeneratorSettingConfigGroup, GeneratorType, MapGenerator };
+export { GeneratorSchemaGroup, GeneratorType, MapGenerator, resolveRuleConfig, ruleDefaults };
 //# sourceMappingURL=map-generator.js.map

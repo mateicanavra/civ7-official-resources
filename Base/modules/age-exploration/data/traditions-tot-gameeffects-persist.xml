@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+	<!-- Mud Brick: +1 Production on Caravanserai in cities with Gold Building / Mining Town / Trade Outpost -->
+	<Modifier id="MUD_BRICK_MOD_CARAVANSERAI_PRODUCTION" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD">
+		<SubjectRequirements type="REQUIREMENTSET_TEST_ANY">
+			<Requirement type="REQUIREMENT_CITY_HAS_BUILDING">
+				<Argument name="Tag">GOLD</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_CITY_HAS_PROJECT">
+				<Argument name="ProjectType">PROJECT_TOWN_PRODUCTION</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_CITY_HAS_PROJECT">
+				<Argument name="ProjectType">PROJECT_TOWN_TRADE</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="ConstructibleType">IMPROVEMENT_CARAVANSERAI</Argument>
+		<Argument name="YieldType">YIELD_PRODUCTION</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_MUD_BRICK_I_NAME</Argument>
+		<String context="Description">LOC_TRADITION_MUD_BRICK_I_DESCRIPTION</String>
+	</Modifier>
+
+	<!-- Mud Brick II: +2 Production on Caravanserai in cities with Gold Building / Mining Town / Trade Outpost -->
+	<Modifier id="MUD_BRICK_II_MOD_CARAVANSERAI_PRODUCTION" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD">
+		<SubjectRequirements type="REQUIREMENTSET_TEST_ANY">
+			<Requirement type="REQUIREMENT_CITY_HAS_BUILDING">
+				<Argument name="Tag">GOLD</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_CITY_HAS_PROJECT">
+				<Argument name="ProjectType">PROJECT_TOWN_PRODUCTION</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_CITY_HAS_PROJECT">
+				<Argument name="ProjectType">PROJECT_TOWN_TRADE</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="ConstructibleType">IMPROVEMENT_CARAVANSERAI</Argument>
+		<Argument name="YieldType">YIELD_PRODUCTION</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_MUD_BRICK_II_NAME</Argument>
+		<String context="Description">LOC_TRADITION_MUD_BRICK_II_DESCRIPTION</String>
+	</Modifier>
+
+	<!-- Yassa: Ortoo Gold bonus in non-founded settlements - matches original exploration civic -->
+	<Modifier id="YASSA_MOD_ORTOO_GOLD" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD">
+		<SubjectRequirements>
+		<Requirement inverse="true" type="REQUIREMENT_CITY_IS_ORIGINAL_OWNER"/>
+		</SubjectRequirements>
+		<Argument name="ConstructibleType">IMPROVEMENT_ORTOO</Argument>
+		<Argument name="YieldType">YIELD_GOLD</Argument>
+		<Argument name="Amount">4</Argument>
+		<String context="Description">LOC_TRADITION_YASSA_DESCRIPTION</String>
+	</Modifier>
+  
+
+</GameEffects>

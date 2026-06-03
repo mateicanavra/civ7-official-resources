@@ -1,25 +1,12 @@
 import ContextManager from '../../context-manager/context-manager.js';
-import { M as MainMenuReturnEvent } from '../../events/shell-events.chunk.js';
-import FocusManager from '../../input/focus-manager.js';
-import { N as NavTray } from '../../navigation-tray/model-navigation-tray.chunk.js';
-import { P as Panel } from '../../panel-support.chunk.js';
-import { MustGetElement } from '../../utilities/utilities-dom.chunk.js';
+import { MainMenuReturnEvent } from '../../events/shell-events.js';
+import NavTray from '../../navigation-tray/model-navigation-tray.js';
+import Panel from '../../panel-support.js';
+import { MustGetElement } from '../../utilities/utilities-dom.js';
 import { UnlockableRewardItems } from '../../utilities/utilities-liveops.js';
-import '../../context-manager/display-queue-manager.js';
-import '../../dialog-box/manager-dialog-box.chunk.js';
-import '../../framework.chunk.js';
-import '../../input/cursor.js';
-import '../../views/view-manager.chunk.js';
-import '../../audio-base/audio-support.chunk.js';
-import '../../input/action-handler.js';
-import '../../input/input-support.chunk.js';
-import '../../utilities/utilities-update-gate.chunk.js';
-import '../../utilities/utilities-image.chunk.js';
-import '../../utilities/utilities-component-id.chunk.js';
-
-const content = "<div class=\"screen-events flow-column relative\">\r\n\t<div\r\n\t\tclass=\"events-content flex-auto flow-column\"\r\n\t\ttabindex=\"-1\"\r\n\t>\r\n\t\t<fxs-hslot class=\"flex-auto\">\r\n\t\t\t<fxs-vslot\r\n\t\t\t\tclass=\"events-menu\"\r\n\t\t\t\ttabindex=\"-1\"\r\n\t\t\t>\r\n\t\t\t\t<div class=\"events-menu-top bg-cover bg-no-repeat self-center\"></div>\r\n\t\t\t\t<div\r\n\t\t\t\t\tclass=\"events-title font-title text-xl text-secondary-1 uppercase self-center mt-2\"\r\n\t\t\t\t\tdata-l10n-id=\"LOC_MAIN_MENU_EVENTS\"\r\n\t\t\t\t></div>\r\n\t\t\t\t<div class=\"events-menu-divider bg-contain bg-no-repeat self-center mt-4\"></div>\r\n\t\t\t\t<!--<fxs-activatable class=\"events-menu-item events-item-continue font-title uppercase text-xl text-accent-2 self-center\"\r\n\t\t\t\t\t\t\t\t data-l10n-id=\"LOC_UI_CONTINUE_EVENTS\" tabindex=\"-1\"></fxs-activatable>\r\n\t\t\t\t<div class=\"events-menu-divider bg-contain bg-no-repeat self-center\"></div>-->\r\n\t\t\t\t<fxs-activatable\r\n\t\t\t\t\tclass=\"events-menu-item events-item-sp font-title uppercase text-xl text-accent-2 self-center\"\r\n\t\t\t\t\tdata-l10n-id=\"LOC_UI_EVENTS_SINGLEPLAYER\"\r\n\t\t\t\t\ttabindex=\"-1\"\r\n\t\t\t\t></fxs-activatable>\r\n\t\t\t\t<fxs-activatable\r\n\t\t\t\t\tclass=\"events-menu-item events-item-load font-title uppercase text-xl text-accent-2 self-center\"\r\n\t\t\t\t\tdata-l10n-id=\"LOC_UI_LOAD_EVENTS\"\r\n\t\t\t\t\ttabindex=\"-1\"\r\n\t\t\t\t></fxs-activatable>\r\n\t\t\t\t<div class=\"events-menu-divider bg-contain bg-no-repeat self-center\"></div>\r\n\t\t\t\t<fxs-activatable\r\n\t\t\t\t\tclass=\"events-menu-item events-item-mp font-title uppercase text-xl text-accent-2 self-center\"\r\n\t\t\t\t\tdata-l10n-id=\"LOC_UI_EVENTS_MULTIPLAYER\"\r\n\t\t\t\t\ttabindex=\"-1\"\r\n\t\t\t\t></fxs-activatable>\r\n\t\t\t\t<fxs-activatable\r\n\t\t\t\t\tclass=\"events-menu-item events-item-exit events-indent font-title uppercase text-xl text-accent-2 self-center\"\r\n\t\t\t\t\tdata-l10n-id=\"LOC_EXTRAS_EXIT_TO_MAIN\"\r\n\t\t\t\t\ttabindex=\"-1\"\r\n\t\t\t\t></fxs-activatable>\r\n\t\t\t</fxs-vslot>\r\n\t\t\t<fxs-vslot class=\"events-info h-full\">\r\n\t\t\t\t<div class=\"inset-x-4 inset-y-0 flex-auto flow-column\">\r\n\t\t\t\t\t<fxs-vslot class=\"events-description flex-auto py-6 self-center\">\r\n\t\t\t\t\t\t<!-- Title and divider-->\r\n\t\t\t\t\t\t<div\r\n\t\t\t\t\t\t\tclass=\"events-desc-title font-title text-secondary-1 text-2xl self-center uppercase mb-2\"\r\n\t\t\t\t\t\t></div>\r\n\t\t\t\t\t\t<div class=\"filigree-divider-h3 bg-no-repeat bg-contain self-center\"></div>\r\n\t\t\t\t\t\t<div class=\"events-banner w-full h-18 bg-cover bg-no-repeat mb-8\"></div>\r\n\t\t\t\t\t\t<!-- scrollable region -->\r\n\t\t\t\t\t\t<fxs-scrollable\r\n\t\t\t\t\t\t\tclass=\"events-scrollable flex-auto\"\r\n\t\t\t\t\t\t\thandle-gamepad-pan=\"true\"\r\n\t\t\t\t\t\t>\r\n\t\t\t\t\t\t\t<div\r\n\t\t\t\t\t\t\t\tclass=\"events-desc-subtitle font-title text-secondary-1 text-xl self-center uppercase mb-2\"\r\n\t\t\t\t\t\t\t></div>\r\n\t\t\t\t\t\t\t<div class=\"filigree-shell-small bg-no-repeat bg-contain self-center mb-2\"></div>\r\n\t\t\t\t\t\t\t<!-- Rewards -->\r\n\t\t\t\t\t\t\t<div class=\"events-reward-container self-center\"></div>\r\n\t\t\t\t\t\t\t<div class=\"events-desc-text font-body text-lg text-accent-2 leading-tight\"></div>\r\n\t\t\t\t\t\t\t<div\r\n\t\t\t\t\t\t\t\tclass=\"font-title text-secondary-1 text-xl self-center uppercase mt-6\"\r\n\t\t\t\t\t\t\t\tdata-l10n-id=\"LOC_UI_EVENTS_RULES\"\r\n\t\t\t\t\t\t\t></div>\r\n\t\t\t\t\t\t\t<div class=\"filigree-shell-small bg-no-repeat bg-contain self-center mb-2\"></div>\r\n\t\t\t\t\t\t\t<div class=\"events-rules-text font-body text-lg text-accent-2 leading-tight\"></div>\r\n\t\t\t\t\t\t\t<div class=\"font-body text-base text-accent-2 leading-tight\"></div>\r\n\t\t\t\t\t\t</fxs-scrollable>\r\n\t\t\t\t\t</fxs-vslot>\r\n\t\t\t\t</div>\r\n\t\t\t\t<fxs-button\r\n\t\t\t\t\tcaption=\"LOC_GENERIC_BACK\"\r\n\t\t\t\t\tclass=\"event-rules-dismiss\"\r\n\t\t\t\t\taction-key=\"inline-cancel\"\r\n\t\t\t\t></fxs-button>\r\n\t\t\t</fxs-vslot>\r\n\t\t</fxs-hslot>\r\n\t</div>\r\n\t<fxs-close-button class=\"events-close-button absolute\"></fxs-close-button>\r\n</div>\r\n";
-
-const styles = "fs://game/core/ui/shell/events/screen-events.css";
+import { FocusManager } from '../../../ui-next/services/focus-manager.js';
+import content from './screen-events.html.js';
+import styles from './screen-events.scss.js';
 
 const EventsScreenGoSinglePlayerEventName = "screen-events-sp";
 class EventsScreenGoSinglePlayerEvent extends CustomEvent {
@@ -133,7 +120,7 @@ class ScreenEvents extends Panel {
     NavTray.addOrUpdateGenericBack();
     NavTray.addOrUpdateGenericSelect();
     const menu = MustGetElement(".events-menu", this.Root);
-    FocusManager.setFocus(menu);
+    FocusManager.get().setFocus(menu);
   }
   onLoseFocus() {
     NavTray.clear();

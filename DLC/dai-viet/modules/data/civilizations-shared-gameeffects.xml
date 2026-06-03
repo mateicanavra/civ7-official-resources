@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+	<!-- ==================================================	-->
+	<!--				Civ-Specific Traits					-->
+	<!-- ==================================================	-->
+	<Modifier id="MOD_CIV_WALL_AQ_YIELD" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_GRANT_YIELD_PER_POP_DEFENSE_CONSTRUCTED">
+		<OwnerRequirements type="REQUIREMENTSET_TEST_ALL">
+			<Requirement type="REQUIREMENT_GAME_IS_STARTED"/>
+		</OwnerRequirements>
+		<Argument name="Amount">15</Argument>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<String context="WorldText">LOC_WORLD_CULTURE_INCREASE_FLOATER</String>
+	</Modifier>
+	<Modifier id="MOD_CIV_WALL_EX_YIELD" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_GRANT_YIELD_PER_POP_DEFENSE_CONSTRUCTED">
+		<OwnerRequirements type="REQUIREMENTSET_TEST_ALL">
+			<Requirement type="REQUIREMENT_GAME_IS_STARTED"/>
+		</OwnerRequirements>
+		<Argument name="Amount">25</Argument>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<String context="WorldText">LOC_WORLD_CULTURE_INCREASE_FLOATER</String>
+	</Modifier>
+	<Modifier id="MOD_CIV_WALL_MO_YIELD" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_GRANT_YIELD_PER_POP_DEFENSE_CONSTRUCTED">
+		<OwnerRequirements type="REQUIREMENTSET_TEST_ALL">
+			<Requirement type="REQUIREMENT_GAME_IS_STARTED"/>
+		</OwnerRequirements>
+		<Argument name="Amount">35</Argument>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<String context="WorldText">LOC_WORLD_CULTURE_INCREASE_FLOATER</String>
+	</Modifier>
+	<Modifier id="MOD_DAI_VIET_AQ_FORTIFICATION_CULTURE" collection="COLLECTION_PLAYER_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_BIOME_TYPE_MATCHES">
+				<Argument name="BiomeType">BIOME_TROPICAL</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_PLOT_HAS_CONSTRUCTIBLE">
+				<Argument name="Tag">FORTIFICATION</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_DAI_VIET_ABILITY_NAME</Argument>
+	</Modifier>
+	<Modifier id="MOD_DAI_VIET_AQ_FORTIFICATION_FOOD" collection="COLLECTION_PLAYER_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_BIOME_TYPE_MATCHES">
+				<Argument name="BiomeType">BIOME_TROPICAL</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_PLOT_HAS_CONSTRUCTIBLE">
+				<Argument name="Tag">FORTIFICATION</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_FOOD</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_DAI_VIET_ABILITY_NAME</Argument>
+	</Modifier>
+	<Modifier id="MOD_DAI_VIET_EX_FORTIFICATION_CULTURE" collection="COLLECTION_PLAYER_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_BIOME_TYPE_MATCHES">
+				<Argument name="BiomeType">BIOME_TROPICAL</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_PLOT_HAS_CONSTRUCTIBLE">
+				<Argument name="Tag">FORTIFICATION</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_DAI_VIET_ABILITY_NAME</Argument>
+	</Modifier>
+	<Modifier id="MOD_DAI_VIET_EX_FORTIFICATION_FOOD" collection="COLLECTION_PLAYER_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_BIOME_TYPE_MATCHES">
+				<Argument name="BiomeType">BIOME_TROPICAL</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_PLOT_HAS_CONSTRUCTIBLE">
+				<Argument name="Tag">FORTIFICATION</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_FOOD</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_DAI_VIET_ABILITY_NAME</Argument>
+	</Modifier>
+</GameEffects>

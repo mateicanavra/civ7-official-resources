@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+	<!-- This modifier references IMPROVEMENT_HIDDEN_FORTRESS which only exists from Exploration onward.
+		 Loaded under exploration-age-persist so the constructible type is available. -->
+	<Modifier id="ICONOLATRY_II_HIDDEN_FORTRESS_HAPPINESS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_HAS_GREAT_WORK"/>
+		</SubjectRequirements>
+		<Argument name="ConstructibleType">IMPROVEMENT_HIDDEN_FORTRESS</Argument>
+		<Argument name="YieldType">YIELD_HAPPINESS</Argument>
+		<Argument name="Amount">3</Argument>
+		<String context="Description">LOC_TRADITION_ICONOLATRY_II_HIDDEN_FORTRESS_DESCRIPTION</String>
+	</Modifier>
+</GameEffects>

@@ -69,6 +69,20 @@
 		<Argument name="Amount">1</Argument>
 		<String context="Description">LOC_MOD_AQ_TECH_SIEGE_MOVEMENT_DESCRIPTION</String>
 	</Modifier>
+	<Modifier id="MOD_AQ_CITY_RESOURCE_GDP" collection="COLLECTION_OWNER" effect="EFFECT_ATTACH_MODIFIERS">
+		<Argument name="ModifierId">ATTACH_MOD_AQ_BONUS_RESOURCE_GDP, ATTACH_MOD_AQ_CITY_RESOURCE_GDP</Argument>
+		<String context="Description">LOC_MOD_AQ_CITY_REOURCE_VP</String>
+	</Modifier>
+	<Modifier id="ATTACH_MOD_AQ_BONUS_RESOURCE_GDP" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ACTIVATE_VICTORY_POINT_TRACKER" run-once="true" permanent="true">
+		<Argument name="TrackerName">VICTORY_TRACKER_SLOTTED_BONUS</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_MOD_AQ_CITY_RESOURCE_GDP" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ACTIVATE_VICTORY_POINT_TRACKER" run-once="true" permanent="true">
+		<Argument name="TrackerName">VICTORY_TRACKER_SLOTTED_CITY</Argument>
+	</Modifier>
+	<Modifier id="MOD_AQ_GOLD_BUILDING_GDP" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ACTIVATE_VICTORY_POINT_TRACKER" run-once="true" permanent="true">
+		<Argument name="TrackerName">VICTORY_TRACKER_GOLD_BUILDINGS_ANTIQUITY</Argument>
+		<String context="Description">LOC_MOD_AQ_GOLD_BUILDING_VP</String>
+	</Modifier>
 	<Modifier id="MOD_AQ_TECH_NAVAL_STRENGTH" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_ABILITY">
 		<SubjectRequirements>
 			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
@@ -110,7 +124,6 @@
 		<String context="Description">LOC_MOD_AQ_FUTURE_TECH_BOOST_DESCRIPTION</String>
 	</Modifier>
 	<Modifier id="MOD_AQ_FUTURE_TECH_AGE_PROGRESS" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_AGE_PROGRESS" permanent="true" run-once="true">
-		<Argument name="Amount">10</Argument>
 		<Argument name="eventType">AGE_PROGRESSION_FUTURE_TECH</Argument>
 		<Argument name="HumanOnly">true</Argument>
 		<String context="Description">LOC_MOD_AQ_FUTURE_TECH_AGE_PROGRESS_DESCRIPTION</String>
@@ -157,6 +170,16 @@
 		<Argument name="YieldType">YIELD_SCIENCE</Argument>
 		<Argument name="Amount">1</Argument>
 		<String context="Description">LOC_MOD_AQ_TECH_SCIENCE_BUILDING_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="MOD_AQ_FUTURE_TECH_SCIENCE_VP" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_VICTORY_TRACKER_POINTS" permanent="true">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_IS_MAJOR"/>
+		</SubjectRequirements>
+		<Argument name="VictoryType">VICTORY_SCIENCE_MODERN</Argument>
+		<Argument name="Points">2</Argument>
+		<Argument name="ItemName">LOC_TECH_FUTURE_TECH_ANTIQUITY_NAME</Argument>
+		<Argument name="TypeData">FUTURE_TECH</Argument>
+		<String context="Description">LOC_FUTURE_TECH_AQ_VP</String>
 	</Modifier>
 	<!-- Tech Improvement Modifiers -->
 	<Modifier id="MOD_TECH_AQ_MINE_PRODUCTION" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_GRANT_WAREHOUSE_YIELD">
@@ -234,5 +257,15 @@
 	</Modifier>
 	<Modifier id="MOD_TECH_AQ_VEGETATED_PRODUCTION" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_GRANT_WAREHOUSE_YIELD">
 		<Argument name="WarehouseYieldChange">AQVegetatedFeatureProduction</Argument>
+	</Modifier>
+	<!-- Modifiers added for Yields Pass -->
+	<Modifier id="MOD_TECH_AQ_TRADE_RANGE_LAND" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_TRADE_ROUTE_RANGE">
+		<Argument name="Amount">5</Argument>
+		<Argument name="DomainType">DOMAIN_LAND</Argument>
+		<String context="Description">LOC_MOD_TECH_AQ_TRADE_RANGE</String>
+	</Modifier>
+	<Modifier id="MOD_TECH_AQ_TRADE_RANGE_SEA" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_TRADE_ROUTE_RANGE">
+		<Argument name="Amount">5</Argument>
+		<Argument name="DomainType">DOMAIN_SEA</Argument>
 	</Modifier>
 </GameEffects>

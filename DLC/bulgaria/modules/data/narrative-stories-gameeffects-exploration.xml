@@ -109,7 +109,7 @@
     </Modifier>
     <Modifier id="12006B_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_ABILITY" run-once="false" permanent="true">
         <SubjectRequirements>
-            <Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+            <Requirement type="REQUIREMENT_UNIT_TYPE_MATCHES">
                 <Argument name="UnitType">UNIT_COURSER</Argument>
             </Requirement>
         </SubjectRequirements>
@@ -119,9 +119,6 @@
         <Argument name="YieldType">YIELD_FOOD</Argument>
         <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
     </Modifier>
-    <Requirement id="REQ_STORY_CIVILIZATION_BULGARIA" type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
-        <Argument name="CivilizationType">CIVILIZATION_BULGARIA</Argument>
-    </Requirement>
     <RequirementSet id="REQSET_11020A_NARRATIVE_REQUISITE">
         <Requirement xref="REQ_STORY_CIVILIZATION_BULGARIA"/>
     </RequirementSet>

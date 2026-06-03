@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Types>
+		<!--Civ Unique Improvements-->
+		<Row Type="IMPROVEMENT_HIGHLAND_POWER_STATION" Kind="KIND_CONSTRUCTIBLE"/>
+		<!--Wonders-->
+		<Row Type="WONDER_BOUDHANATH" Kind="KIND_CONSTRUCTIBLE"/>
+	</Types>
+	<TypeQuotes>
+		<Row Type="WONDER_BOUDHANATH" Quote="LOC_QUOTE_WONDER_BOUDHANATH" QuoteAuthor="LOC_QUOTE_AUTHOR_WONDER_BOUDHANATH" QuoteAudio="VO_Quote_Boudhanath"/>
+	</TypeQuotes>
+	<Constructibles>
+		<!--Civ Unique Improvements-->
+		<Row ConstructibleType="IMPROVEMENT_HIGHLAND_POWER_STATION" Name="LOC_IMPROVEMENT_HIGHLAND_POWER_STATION_NAME" Description="LOC_IMPROVEMENT_HIGHLAND_POWER_STATION_DESCRIPTION" Tooltip="LOC_IMPROVEMENT_HIGHLAND_POWER_STATION_TOOLTIP" ConstructibleClass="IMPROVEMENT" Cost="200" Population="1" Age="AGE_MODERN" CostProgressionModel="COST_PROGRESSION_PREVIOUS_COPIES_CITY" CostProgressionParam1="100"/>
+		<!--Wonders-->
+		<Row ConstructibleType="WONDER_BOUDHANATH" Name="LOC_WONDER_BOUDHANATH_NAME" Description="LOC_WONDER_BOUDHANATH_DESCRIPTION" Tooltip="LOC_WONDER_BOUDHANATH_TOOLTIP" ConstructibleClass="WONDER" Cost="1500" Population="0" ImmuneDamage="true" Age="AGE_MODERN" RequiresUnlock="true" AdjacentTerrain="TERRAIN_MOUNTAIN"/>
+	</Constructibles>
+	<Improvements>
+		<!--Civ Unique Improvements-->
+		<Row ConstructibleType="IMPROVEMENT_HIGHLAND_POWER_STATION" CityBuildable="true" TraitType="TRAIT_NEPAL"/>
+	</Improvements>
+	<Wonders>
+		<Row ConstructibleType="WONDER_BOUDHANATH" MaxWorldInstances="1"/>
+	</Wonders>
+	<Constructible_ValidBiomes>
+		<Row ConstructibleType="WONDER_BOUDHANATH" BiomeType="BIOME_GRASSLAND"/>
+		<Row ConstructibleType="WONDER_BOUDHANATH" BiomeType="BIOME_TROPICAL"/>
+	</Constructible_ValidBiomes>
+	<Constructible_ValidTerrains>
+		<Row ConstructibleType="IMPROVEMENT_HIGHLAND_POWER_STATION" TerrainType="TERRAIN_MOUNTAIN"/>
+	</Constructible_ValidTerrains>
+	<TypeTags>
+		<Row Type="IMPROVEMENT_HIGHLAND_POWER_STATION" Tag="UNIQUE_IMPROVEMENT"/>
+		<Row Type="IMPROVEMENT_HIGHLAND_POWER_STATION" Tag="AGELESS"/>
+		<Row Type="WONDER_BOUDHANATH" Tag="AGELESS"/>
+	</TypeTags>
+	<Constructible_ValidDistricts>
+		<!--Civ Unique Improvements-->
+		<Row ConstructibleType="IMPROVEMENT_HIGHLAND_POWER_STATION" DistrictType="DISTRICT_RURAL"/>
+		<!--Wonders-->
+		<Row ConstructibleType="WONDER_BOUDHANATH" DistrictType="DISTRICT_WONDER"/>
+	</Constructible_ValidDistricts>
+	<Constructible_YieldChanges>
+		<!--Civ Unique Improvements-->
+		<Row ConstructibleType="IMPROVEMENT_HIGHLAND_POWER_STATION" YieldType="YIELD_PRODUCTION" YieldChange="3"/>
+		<Row ConstructibleType="IMPROVEMENT_HIGHLAND_POWER_STATION" YieldType="YIELD_CULTURE" YieldChange="3"/>
+		<!--Wonders-->
+		<Row ConstructibleType="WONDER_BOUDHANATH" YieldType="YIELD_DIPLOMACY" YieldChange="6"/>
+	</Constructible_YieldChanges>
+	<Constructible_Plunders>
+		<!--Civ Unique Improvements-->
+		<Row ConstructibleType="IMPROVEMENT_HIGHLAND_POWER_STATION" PlunderType="PLUNDER_HEAL" Amount="30"/>
+	</Constructible_Plunders>
+	<ConstructibleModifiers>
+		<!--Wonders-->
+		<Row ConstructibleType="WONDER_BOUDHANATH" ModifierId="MOD_BOUDHANATH_INCREASED_RELATIONSHIP"/>
+	</ConstructibleModifiers>
+	<Constructible_WarehouseYields>
+		<!-- Warehouse Buildings -->
+		<Row ConstructibleType="BUILDING_GROCER" YieldChangeId="NepalGrocerMountainFood" RequiresActivation="true"/>
+		<Row ConstructibleType="BUILDING_IRONWORKS" YieldChangeId="NepalIronworksMountainProduction" RequiresActivation="true"/>
+		<Row ConstructibleType="BUILDING_PALACE" YieldChangeId="HimalPalaceMountainCulture" RequiresActivation="true"/>
+		<Row ConstructibleType="BUILDING_CITY_HALL" YieldChangeId="HimalCityHallMountainCulture" RequiresActivation="true"/>
+	</Constructible_WarehouseYields>
+	<Warehouse_YieldChanges>
+		<Row ID="NepalGrocerMountainFood" YieldType="YIELD_FOOD" YieldChange="1" TerrainInCity="TERRAIN_MOUNTAIN"/>
+		<Row ID="NepalIronworksMountainProduction" YieldType="YIELD_PRODUCTION" YieldChange="1" TerrainInCity="TERRAIN_MOUNTAIN"/>
+		<Row ID="HimalPalaceMountainCulture" YieldType="YIELD_CULTURE" YieldChange="4" TerrainInCity="TERRAIN_MOUNTAIN"/>
+		<Row ID="HimalCityHallMountainCulture" YieldType="YIELD_CULTURE" YieldChange="2" TerrainInCity="TERRAIN_MOUNTAIN"/>
+	</Warehouse_YieldChanges>
+	<ModifierArguments>
+		<Replace ModifierId="MOD_NEPAL_MOUNTAIN_WAREHOUSES" Name="ConstructibleWarehouseYield" Value="NepalBrickyardMountainProduction, NepalFishingQuayMountainFood, NepalHarborMountainProduction, NepalGranaryMountainFood, NepalSawPitMountainProduction, NepalGristmillMountainFood, NepalSawmillMountainProduction, NepalStonecutterMountainProduction, NepalGrocerMountainFood, NepalIronworksMountainProduction"/>
+	</ModifierArguments>
+	<Constructible_Advisories>
+		<Row ConstructibleType="IMPROVEMENT_HIGHLAND_POWER_STATION" AdvisoryClassType="ADVISORY_CLASS_CULTURE"/>
+		<Row ConstructibleType="WONDER_BOUDHANATH" AdvisoryClassType="ADVISORY_CLASS_DIPLOMACY"/>
+	</Constructible_Advisories>
+	<MetaprogressionModifiers>
+		<Row ModifierId="METAPROGRESSION_CHALLENGE_NEPAL_COMPLETE_BOUDHANATH" RequiredCivilizationType="CIVILIZATION_NEPAL" />
+	</MetaprogressionModifiers>
+</Database>

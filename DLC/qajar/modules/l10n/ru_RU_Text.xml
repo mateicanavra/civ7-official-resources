@@ -486,7 +486,7 @@
       <Text>К старым царским рисункам будут добавлены новые.</Text>
     </Replace>
     <Replace Tag="LOC_11083C_DESCRIPTION" Language="ru_RU">
-      <Text>+4 к [icon:YIELD_CULTURE] культуре от всех шедевров.</Text>
+      <Text>+6 к [icon:YIELD_CULTURE] культуре от всех шедевров.</Text>
     </Replace>
     <Replace Tag="LOC_11083C_NAME" Language="ru_RU">
       <Text>Копии оригиналов будут выставлены во дворце.</Text>
@@ -653,11 +653,29 @@
     <Replace Tag="LOC_12011C_NAME" Language="ru_RU">
       <Text>Спросить о великих пирах, на которых он бывал.</Text>
     </Replace>
+    <Replace Tag="LOC_TOT_30042A_COMPLETION" Language="ru_RU">
+      <Text>Каджарский командир преклоняет колени перед черепом своего отца в святилище, молча прося совета. Зенды и другие претенденты на иранский престол замышляют восстания, а великие державы мира постоянно плетут интриги из-за богатств Ирана. Как же ему, чей род восходит не к великим персидским шахам, а к племенам на окраине цивилизации, удержать власть Каджаров над Ираном?</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30042A_STORYTITLE" Language="ru_RU">
+      <Text>Ответ от реликвии</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30042B_DESCRIPTION" Language="ru_RU">
+      <Text>{1_reward}.</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30042B_NAME" Language="ru_RU">
+      <Text>Череп молчит, но его глазницы несут в себе послание: уступить значит умереть.</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30042C_DESCRIPTION" Language="ru_RU">
+      <Text>{1_reward}.</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30042C_NAME" Language="ru_RU">
+      <Text>Череп молча ждет. Такими же терпеливыми должны быть и Каджары.</Text>
+    </Replace>
     <Replace Tag="LOC_ABILITY_GHILMAN_DESCRIPTION" Language="ru_RU">
-      <Text>+5 к [icon:NAR_REW_COMBAT] боевой мощи и +10 к [icon:Action_Heal] лечению в зоне командования [icon:UNIT_SOLTAN] сардара.</Text>
+      <Text>+5 к [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]боевой мощи[/TIP] и +10 к [icon:Action_Heal] лечению в [TIP:LOC_PEDIA_CONCEPTS_COMMAND_RADIUS_TOOLTIP]зоне командования[/TIP] [icon:UNIT_SOLTAN] сардара.</Text>
     </Replace>
     <Replace Tag="LOC_ABILITY_SOLTAN_DESCRIPTION" Language="ru_RU">
-      <Text>+1 к [icon:Action_Move] перемещению. При разрушении поселения дополнительный [icon:CITY_URBAN] район разрушается за ход в поселениях с этим командиром в [icon:CITY_URBAN] районе.</Text>
+      <Text>+1 к [icon:Action_Move] перемещению. При разрушении поселения в два раза больше [icon:CITY_URBAN] районов разрушается за ход в поселениях с этим командиром в [icon:CITY_URBAN] районе.</Text>
     </Replace>
     <Replace Tag="LOC_ATTR_ADJUST_CITY_YIELD_PER_UNDER_THE_SETTLEMENT_CAP" Language="ru_RU">
       <Text>Прибыль за поселение ниже лимита</Text>
@@ -666,16 +684,16 @@
       <Text>Поселение ниже лимита</Text>
     </Replace>
     <Replace Tag="LOC_BUILDING_GHAHVE_KHANE_DESCRIPTION" Language="ru_RU">
-      <Text>Уникальное продуктовое здание Каджаров. +9 к [icon:YIELD_FOOD] пище. Бонус за соседство +1 к [icon:YIELD_HAPPINESS] довольству от зданий золота и чудес. Не устаревает.</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_BUILDING_TOOLTIP]Уникальное продуктовое здание[/TIP] Каджаров. +9 к [icon:YIELD_FOOD] пище. Бонус за соседство +1 к [icon:YIELD_HAPPINESS] довольству от [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]зданий[/TIP] золота и [TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]чудес[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_BUILDING_GHAHVE_KHANE_TOOLTIP" Language="ru_RU">
-      <Text>Уникальное здание Каджаров.</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_BUILDING_TOOLTIP]Уникальное здание[/TIP] Каджаров.</Text>
     </Replace>
     <Replace Tag="LOC_BUILDING_TAKYEH_DESCRIPTION" Language="ru_RU">
-      <Text>Уникальное здание довольства Каджаров. +9 к [icon:YIELD_HAPPINESS] довольству. Бонус за соседство +1 к [icon:YIELD_DIPLOMACY] влиянию от культурных зданий и чудес. Не устаревает.</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_BUILDING_TOOLTIP]Уникальное здание довольства[/TIP] Каджаров. +9 к [icon:YIELD_HAPPINESS] довольству. Бонус за соседство +1 к [icon:YIELD_DIPLOMACY] влиянию от культурных [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]зданий[/TIP] и [TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]чудес[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_BUILDING_TAKYEH_TOOLTIP" Language="ru_RU">
-      <Text>Уникальное здание Каджаров.</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_BUILDING_TOOLTIP]Уникальное здание[/TIP] Каджаров.</Text>
     </Replace>
     <Replace Tag="LOC_CIVIC_NEZAM_E_JADID_AUTHOR" Language="ru_RU">
       <Text>Надир-шах</Text>
@@ -713,29 +731,26 @@
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_QAJAR_COMPLETE_ERAM_GARDEN_NAME" Language="ru_RU">
       <Text>Сад Эрам|сада Эрам|саду Эрам|сад Эрам|садом Эрам|саде Эрам</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_QAJAR_LEGACY_PATH_MILITARY_DESC" Language="ru_RU">
-      <Text>Завершите военную тропу наследия, играя за каджаров.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_QAJAR_FOUR_MAJOR_TRIUMPHS_DESC" Language="ru_RU">
+      <Text>Завершите 4 малых дипломатических или экспансионистских триумфа за одну эпоху зенита, играя за Каджаров.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_QAJAR_LEGACY_PATH_MILITARY_NAME" Language="ru_RU">
-      <Text>Тропа наследия каджаров</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_QAJAR_FOUR_MAJOR_TRIUMPHS_NAME" Language="ru_RU">
+      <Text>4 малых триумфа Каджаров</Text>
     </Replace>
     <Replace Tag="LOC_MOD_CIV_WONDER_PRODUCTION_QAJAR_DESCRIPTION" Language="ru_RU">
       <Text>+30% к [icon:YIELD_PRODUCTION] производству за [icon:WONDER] чудо света, связанное с Каджарами.</Text>
     </Replace>
-    <Replace Tag="LOC_MOD_NEZAM_E_JADID_UNDER_CAP_COMBAT_DESCRIPTION" Language="ru_RU">
-      <Text>+1 к [icon:NAR_REW_COMBAT] боевой мощи сухопутных военных юнитов за каждые 2 поселения ниже [icon:SETTLEMENT_LIMIT] лимита поселений.</Text>
+    <Replace Tag="LOC_NODE_CIVIC_AQ_QAJAR_ORIGINS_NAME" Language="ru_RU">
+      <Text>Происхождение Каджаров</Text>
     </Replace>
-    <Replace Tag="LOC_MOD_SUN_THRONE_DIPLO_SENDER_YIELD_DESCRIPTION" Language="ru_RU">
-      <Text>Когда вы поддерживаете [icon:ENDEAVOR] инициативу, вы получаете 200 очков [icon:YIELD_CULTURE] культуры, а другой лидер получает 100 [icon:YIELD_GOLD] золота (при стандартной скорости).</Text>
-    </Replace>
-    <Replace Tag="LOC_MOD_TWELVE_GATES_YIELD_UNDER_CAP_DESCRIPTION" Language="ru_RU">
-      <Text>+10 к [icon:YIELD_FOOD] пище и [icon:YIELD_PRODUCTION] производству в [icon:NOTIFICATION_SELECT_CAPITAL] столице для каждого поселения ниже [icon:SETTLEMENT_LIMIT] лимита поселений. </Text>
+    <Replace Tag="LOC_NODE_CIVIC_EX_QAJAR_RENAISSANCE_NAME" Language="ru_RU">
+      <Text>Возрождение Каджаров</Text>
     </Replace>
     <Replace Tag="LOC_QUARTER_BAQ_DESCRIPTION" Language="ru_RU">
-      <Text>Уникальный квартал Каджаров. Чтобы создать его, постройте кахве-хане и текью в одном районе. +10% [icon:YIELD_CULTURE] культуры и [icon:YIELD_DIPLOMACY] влияния в этом поселении во время [icon:CELEBRATION] празднества.</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_QUARTER_TOOLTIP]Уникальный квартал[/TIP] Каджаров. Чтобы создать его, постройте кахве-хане и текью в одном [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]районе[/TIP]. +10% [icon:YIELD_CULTURE] культуры и [icon:YIELD_DIPLOMACY] влияния в этом [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]поселении[/TIP] во время [icon:CELEBRATION] [TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]празднества[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_QUARTER_BAQ_TOOLTIP" Language="ru_RU">
-      <Text> +10% [icon:YIELD_CULTURE] культуры и [icon:YIELD_DIPLOMACY] влияния в этом поселении во время [icon:CELEBRATION] празднества.</Text>
+      <Text> +10% [icon:YIELD_CULTURE] культуры и [icon:YIELD_DIPLOMACY] влияния в этом [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]поселении[/TIP] во время [icon:CELEBRATION] [TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]празднества[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_QUOTE_AUTHOR_WONDER_ERAM_GARDEN" Language="ru_RU">
       <Text>Фирдоуси</Text>
@@ -743,17 +758,41 @@
     <Replace Tag="LOC_QUOTE_WONDER_ERAM_GARDEN" Language="ru_RU">
       <Text>Сад облачился в весенние одежды, и воздух наполнился сладкозвучными песнями и музыкой.</Text>
     </Replace>
-    <Replace Tag="LOC_TRADITION_QULLARAQASI_DESCRIPTION" Language="ru_RU">
-      <Text>+15 к [icon:YIELD_HAPPINESS] довольству в поселениях за каждого [icon:UNIT_ARMY_COMMANDER] командира, размещенного в [icon:CITY_URBAN] районе.</Text>
+    <Replace Tag="LOC_TRADITION_DAR_AL_FONUN_I_DESCRIPTION" Language="ru_RU">
+      <Text>+3 к [icon:YIELD_CULTURE] культуре и +3 к [icon:YIELD_SCIENCE] науке в [icon:NOTIFICATION_SELECT_CAPITAL] столице для каждого [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]поселения[/TIP] ниже [icon:SETTLEMENT_LIMIT] [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_LIMIT_TOOLTIP]лимита поселений[/TIP].</Text>
     </Replace>
-    <Replace Tag="LOC_TRADITION_SOLEYMANIYEH_PALACE_DESCRIPTION" Language="ru_RU">
+    <Replace Tag="LOC_TRADITION_DAR_AL_FONUN_II_DESCRIPTION" Language="ru_RU">
+      <Text>+10 к [icon:YIELD_SCIENCE] науке и [icon:YIELD_CULTURE] культуре в [icon:NOTIFICATION_SELECT_CAPITAL] столице для каждого [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]поселения[/TIP] ниже [icon:SETTLEMENT_LIMIT] [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_LIMIT_TOOLTIP]лимита поселений[/TIP].</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_DAR_AL_FONUN_TOOLTIP" Language="ru_RU">
+      <Text>Дар ул-Фунун</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_QAJAR_SYNCRETISM_ANTIQUITY_DESCRIPTION" Language="ru_RU">
+      <Text>+1 к [icon:YIELD_DIPLOMACY] влиянию в [icon:NOTIFICATION_SELECT_CAPITAL] столице за каждое [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]поселение[/TIP] ниже [icon:SETTLEMENT_LIMIT] [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_LIMIT_TOOLTIP]лимита поселений[/TIP].</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_QAJAR_SYNCRETISM_EXPLORATION_DESCRIPTION" Language="ru_RU">
+      <Text>+1 к [icon:YIELD_HAPPINESS] довольству и [icon:YIELD_DIPLOMACY] влиянию в [icon:NOTIFICATION_SELECT_CAPITAL] столице за каждое [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]поселение[/TIP] ниже [icon:SETTLEMENT_LIMIT] [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_LIMIT_TOOLTIP]лимита поселений[/TIP].</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_QAJAR_SYNCRETISM_TOOLTIP" Language="ru_RU">
+      <Text>Вакае-е Эттефагие</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_QULLARAQASI_DESCRIPTION" Language="ru_RU">
+      <Text>+1 к [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]боевой мощи[/TIP] [TIP:LOC_PEDIA_CONCEPTS_LAND_UNITS_TOOLTIP]сухопутных[/TIP] [TIP:LOC_PEDIA_CONCEPTS_MILITARY_UNIT_TOOLTIP]военных юнитов[/TIP] за каждые 2 [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]поселения[/TIP] ниже [icon:SETTLEMENT_LIMIT] [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_LIMIT_TOOLTIP]лимита поселений[/TIP].</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_SOLEYMANIYEH_PALACE_I_DESCRIPTION" Language="ru_RU">
+      <Text>+0,25 к [icon:YIELD_DIPLOMACY] влиянию за каждую единицу [icon:YIELD_POPULATION] населения в [icon:NOTIFICATION_SELECT_CAPITAL] столице.</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_SOLEYMANIYEH_PALACE_II_DESCRIPTION" Language="ru_RU">
       <Text>+0,5 к [icon:YIELD_DIPLOMACY] влиянию за каждую единицу [icon:YIELD_POPULATION] населения в [icon:NOTIFICATION_SELECT_CAPITAL] столице.</Text>
     </Replace>
-    <Replace Tag="LOC_TRADITION_WAQAYE_E_ETTEFAQIYA_DESCRIPTION" Language="ru_RU">
-      <Text>+10 к [icon:YIELD_SCIENCE] науке и [icon:YIELD_CULTURE] культуре в [icon:NOTIFICATION_SELECT_CAPITAL] столице для каждого поселения ниже [icon:SETTLEMENT_LIMIT] лимита поселений.</Text>
+    <Replace Tag="LOC_TRAIT_QAJAR_ABILITY_AQ_DESCRIPTION" Language="ru_RU">
+      <Text>[BLIST][LI][B]+50% [icon:YIELD_DIPLOMACY] влияния[/B] для поддержки [icon:DIPLOMATIC_ACTION] [B]дипломатических процессов[/B].[LI][B]+2 к [icon:YIELD_FOOD] пище[/B] и [B][icon:YIELD_PRODUCTION] производству[/B] в [B][icon:NOTIFICATION_SELECT_CAPITAL] столице[/B] для каждого [B][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]поселения[/TIP][/B] ниже [B][icon:SETTLEMENT_LIMIT] [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_LIMIT_TOOLTIP]лимита поселений[/TIP][/B].[/LIST]</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_QAJAR_ABILITY_DESCRIPTION" Language="ru_RU">
-      <Text>[BLIST][LI][B]+50% [icon:YIELD_DIPLOMACY] влияния[/B] на поддержку [icon:DIPLOMATIC_ACTION] [B]дипломатических процессов[/B][LI][B]+30%[icon:YIELD_PRODUCTION] производства [/B]при строительстве [B]сада Эрам[/B].[/LIST]</Text>
+      <Text>[BLIST][LI][B]+50% [icon:YIELD_DIPLOMACY] влияния[/B] для поддержки [icon:DIPLOMATIC_ACTION] [B]дипломатических процессов[/B].[LI][B]+10 к [icon:YIELD_FOOD] пище[/B] и [B][icon:YIELD_PRODUCTION] производству[/B] в [B][icon:NOTIFICATION_SELECT_CAPITAL] столице[/B] для каждого [B][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]поселения[/TIP][/B] ниже [B][icon:SETTLEMENT_LIMIT] [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_LIMIT_TOOLTIP]лимита поселений[/TIP][/B].[LI][B]+30%[icon:YIELD_PRODUCTION] производства [/B]при строительстве [B]сада Эрам[/B].[/LIST]</Text>
+    </Replace>
+    <Replace Tag="LOC_TRAIT_QAJAR_ABILITY_EX_DESCRIPTION" Language="ru_RU">
+      <Text>[BLIST][LI][B]+50% [icon:YIELD_DIPLOMACY] влияния[/B] для поддержки [icon:DIPLOMATIC_ACTION] [B]дипломатических процессов[/B].[LI][B]+6 к [icon:YIELD_FOOD] пище[/B] и [B][icon:YIELD_PRODUCTION] производству[/B] в [B][icon:NOTIFICATION_SELECT_CAPITAL] столице[/B] для каждого [B][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]поселения[/TIP][/B] ниже [B][icon:SETTLEMENT_LIMIT] [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_LIMIT_TOOLTIP]лимита поселений[/TIP][/B].[/LIST]</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_QAJAR_ABILITY_NAME" Language="ru_RU">
       <Text>Корона Киани</Text>
@@ -762,19 +801,19 @@
       <Text>Социальные институты Каджаров</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_GHILMAN_2_DESCRIPTION" Language="ru_RU">
-      <Text>Уникальный кавалерийский юнит Каджаров 2 уровня. +5 к [icon:NAR_REW_COMBAT] боевой мощи и +10 к [icon:Action_Heal] лечению в [icon:COMMANDER_RADIUS] зоне командования [icon:UNIT_SOLTAN] сардара. Игнорирует зону контроля.</Text>
+      <Text>Уникальный [TIP:LOC_PEDIA_CONCEPTS_CAVALRY_UNITS_TOOLTIP]кавалерийский юнит[/TIP] Каджаров 2 уровня. +5 к [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]боевой мощи[/TIP] и +10 к [icon:Action_Heal] лечению в [icon:COMMANDER_RADIUS] [TIP:LOC_PEDIA_CONCEPTS_COMMAND_RADIUS_TOOLTIP]зоне командования[/TIP] [icon:UNIT_ARMY_COMMANDER] [TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]командира армии[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_GHILMAN_3_DESCRIPTION" Language="ru_RU">
-      <Text>Уникальный кавалерийский юнит Каджаров 3 уровня. +5 к [icon:NAR_REW_COMBAT] боевой мощи и +10 к [icon:Action_Heal] лечению в [icon:COMMANDER_RADIUS] зоне командования [icon:UNIT_SOLTAN] сардара. Игнорирует зону контроля.</Text>
+      <Text>Уникальный [TIP:LOC_PEDIA_CONCEPTS_CAVALRY_UNITS_TOOLTIP]кавалерийский юнит[/TIP] Каджаров 3 уровня. +5 к [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]боевой мощи[/TIP] и +10 к [icon:Action_Heal] лечению в [icon:COMMANDER_RADIUS] [TIP:LOC_PEDIA_CONCEPTS_COMMAND_RADIUS_TOOLTIP]зоне командования[/TIP] [icon:UNIT_ARMY_COMMANDER] [TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]командира армии[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_GHILMAN_BASE_DESCRIPTION" Language="ru_RU">
-      <Text>Уникальный кавалерийский юнит Каджаров. +5 к [icon:NAR_REW_COMBAT] боевой мощи и +10 к [icon:Action_Heal] лечению в [icon:COMMANDER_RADIUS] зоне командования [icon:UNIT_SOLTAN] сардара. Игнорирует зону контроля.</Text>
+      <Text>Уникальный [TIP:LOC_PEDIA_CONCEPTS_CAVALRY_UNITS_TOOLTIP]кавалерийский юнит[/TIP] Каджаров. +5 к [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]боевой мощи[/TIP] и +10 к [icon:Action_Heal] лечению в [icon:COMMANDER_RADIUS] [TIP:LOC_PEDIA_CONCEPTS_COMMAND_RADIUS_TOOLTIP]зоне командования[/TIP] [icon:UNIT_ARMY_COMMANDER] [TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]командира армии[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_GHILMAN_DESCRIPTION" Language="ru_RU">
-      <Text>Уникальный кавалерийский юнит Каджаров 1 уровня. +5 к [icon:NAR_REW_COMBAT] боевой мощи и +10 к [icon:Action_Heal] лечению в [icon:COMMANDER_RADIUS] зоне командования [icon:UNIT_SOLTAN] сардара. Игнорирует зону контроля.</Text>
+      <Text>Уникальный [TIP:LOC_PEDIA_CONCEPTS_CAVALRY_UNITS_TOOLTIP]кавалерийский юнит[/TIP] Каджаров 1 уровня. +5 к [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]боевой мощи[/TIP] и +10 к [icon:Action_Heal] лечению в [icon:COMMANDER_RADIUS] [TIP:LOC_PEDIA_CONCEPTS_COMMAND_RADIUS_TOOLTIP]зоне командования[/TIP] [icon:UNIT_ARMY_COMMANDER] [TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]командира армии[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_SOLTAN_DESCRIPTION" Language="ru_RU">
-      <Text>Уникальный командир армии Каджаров. +1 к [icon:Action_Move] перемещению. Если этот командир находится в одном из [icon:CITY_URBAN] районов разрушаемого поселения, то за ход уничтожается дополнительный [icon:CITY_URBAN] район.</Text>
+      <Text>Уникальный командир армии Каджаров. +1 к [icon:Action_Move] перемещению. При разрушении [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]поселения[/TIP] вдвое больше [icon:CITY_URBAN] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]районов[/TIP] разрушаются за ход в [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]поселениях[/TIP] с этим [TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]командиром[/TIP] в [icon:CITY_URBAN] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]районе[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_5_CITY_WORKERS_DESCRIPTION" Language="ru_RU">
       <Text>Владейте 1 поселением как минимум с пятью [B]специалистами[/B].</Text>
@@ -782,37 +821,63 @@
     <Replace Tag="LOC_UNLOCK_CITY_WORKERS_QAJAR_TOOLTIP" Language="ru_RU">
       <Text>[B]Специалисты[/B] были важной частью идентичности [B]Каджаров[/B].</Text>
     </Replace>
+    <Replace Tag="LOC_UNLOCK_PLAY_AS_QAJAR_DESCRIPTION" Language="ru_RU">
+      <Text>Играйте за [B]Каджаров[/B].</Text>
+    </Replace>
+    <Replace Tag="LOC_UNLOCK_PLAY_AS_QAJAR_QAJAR_TOOLTIP" Language="ru_RU">
+      <Text>[B]Каджары[/B] способны выстоять на протяжении эпох.</Text>
+    </Replace>
     <Replace Tag="LOC_UNLOCK_PLAY_AS_XERXES_QAJAR_TOOLTIP" Language="ru_RU">
       <Text>[B]Ксеркс[/B] правил регионом, который позднее станет [B]Ираном Каджаров[/B].</Text>
     </Replace>
     <Replace Tag="LOC_WONDER_ERAM_GARDEN_DESCRIPTION" Language="ru_RU">
-      <Text>+4 к [icon:YIELD_FOOD] пище. +1 к [icon:SPECIALIST] лимиту специалистов в этом поселении. Не устаревает. Можно построить только в пустыне.</Text>
+      <Text>+4 к [icon:YIELD_FOOD] пище. +1 к [icon:SPECIALIST] [TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_LIMIT_TOOLTIP]лимиту специалистов[/TIP] в этом [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]поселении[/TIP]. [TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]Не устаревает[/TIP]. Можно построить только в пустыне.</Text>
     </Replace>
     <Replace Tag="LOC_WONDER_ERAM_GARDEN_TOOLTIP" Language="ru_RU">
-      <Text>+1 к [icon:SPECIALIST] лимиту специалистов в этом поселении.[N]Можно построить только в пустыне.</Text>
+      <Text>+1 к [icon:SPECIALIST] [TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_LIMIT_TOOLTIP]лимиту специалистов[/TIP] в этом [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]поселении[/TIP].[N]Можно построить только в пустыне.</Text>
     </Replace>
     <Replace Tag="LOC_COMBAT_PREVIEW_NUMBER_UNDER_SETTLEMENT_CAP_BONUS_DESC" Language="ru_RU">
       <Text>+{1_CombatStrength} от {2_NumberUnderSettlementCap} ед. поселений ниже лимита</Text>
     </Replace>
     <Replace Tag="LOC_GHILMAN_COMBAT_PREVIEW" Language="ru_RU">
-      <Text>+{1_Amount} в зоне командования сардара</Text>
+      <Text>+{1_Amount} в [TIP:LOC_PEDIA_CONCEPTS_COMMAND_RADIUS_TOOLTIP]зоне командования[/TIP] сардара</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_CITY_WORKERS_QAJAR_NARRATIVE" Language="ru_RU">
       <Text>За века правления {1_Civilization_Adj} кочевники из ближних земель находили службу — а впоследствии и богатство — прежде всего в {1_Civilization_Adj} армии. Они образовали свой охраняемый клан уже не в шатрах на равнинах, а в салонах и университетах.</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_DAR_AL_FONUN_I_NAME" Language="ru_RU">
+      <Text>Дар ул-Фунун I|Дар ул-Фунуна I|Дар ул-Фунуну I|Дар ул-Фунун I|Дар ул-Фунуном I|Дар ул-Фунуне I</Text>
+      <Gender>masculine</Gender>
+      <Plurality>1</Plurality>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_DAR_AL_FONUN_II_NAME" Language="ru_RU">
+      <Text>Дар ул-Фунун II|Дар ул-Фунуна II|Дар ул-Фунуну II|Дар ул-Фунун II|Дар ул-Фунуном II|Дар ул-Фунуне II</Text>
+      <Gender>masculine</Gender>
+      <Plurality>1</Plurality>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_QAJAR_SYNCRETISM_ANTIQUITY_NAME" Language="ru_RU">
+      <Text>Вакае-е Эттефагие I</Text>
+      <Gender>neuter</Gender>
+      <Plurality>1</Plurality>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_QAJAR_SYNCRETISM_EXPLORATION_NAME" Language="ru_RU">
+      <Text>Вакае-е Эттефагие II</Text>
+      <Gender>neuter</Gender>
+      <Plurality>1</Plurality>
     </Replace>
     <Replace Tag="LOC_TRADITION_QULLARAQASI_NAME" Language="ru_RU">
       <Text>Куллар-агасы|Куллар-агасы|Куллар-агасы|Куллар-агасы|Куллар-агасы|Куллар-агасы</Text>
       <Gender>masculine</Gender>
       <Plurality>1</Plurality>
     </Replace>
-    <Replace Tag="LOC_TRADITION_SOLEYMANIYEH_PALACE_NAME" Language="ru_RU">
-      <Text>Дворец Сулеймание|дворца Сулеймание|дворцу Сулеймание|дворец Сулеймание|дворцом Сулеймание|дворце Сулеймание</Text>
+    <Replace Tag="LOC_TRADITION_SOLEYMANIYEH_PALACE_I_NAME" Language="ru_RU">
+      <Text>Дворец Сулеймание I|Дворца Сулеймание I|Дворцу Сулеймание I|Дворец Сулеймание I|Дворцом Сулеймание I|Дворце Сулеймание I</Text>
       <Gender>masculine</Gender>
       <Plurality>1</Plurality>
     </Replace>
-    <Replace Tag="LOC_TRADITION_WAQAYE_E_ETTEFAQIYA_NAME" Language="ru_RU">
-      <Text>«Вакае-е Эттефагие»|«Вакае-е Эттефагие»|«Вакае-е Эттефагие»|«Вакае-е Эттефагие»|«Вакае-е Эттефагие»|«Вакае-е Эттефагие»</Text>
-      <Gender>feminine</Gender>
+    <Replace Tag="LOC_TRADITION_SOLEYMANIYEH_PALACE_II_NAME" Language="ru_RU">
+      <Text>Дворец Сулеймание II|Дворца Сулеймание II|Дворцу Сулеймание II|Дворец Сулеймание II|Дворцом Сулеймание II|Дворце Сулеймание II</Text>
+      <Gender>masculine</Gender>
       <Plurality>1</Plurality>
     </Replace>
     <Replace Tag="LOC_UNIT_GHILMAN_NAME" Language="ru_RU">

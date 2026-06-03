@@ -20,8 +20,8 @@
 	</Constructibles>
 	<Buildings>
 		<!--Civ Unique Buildings-->
-		<Row ConstructibleType="BUILDING_COTHON" Movable="false" Town="true" TraitType="TRAIT_CARTHAGE"/>
-		<Row ConstructibleType="BUILDING_DOCKYARD" Movable="false" Town="true" TraitType="TRAIT_CARTHAGE"/>
+		<Row ConstructibleType="BUILDING_COTHON" Movable="false" TraitType="TRAIT_CARTHAGE"/>
+		<Row ConstructibleType="BUILDING_DOCKYARD" Movable="false" TraitType="TRAIT_CARTHAGE"/>
 	</Buildings>
 	<Wonders>
 		<Row ConstructibleType="WONDER_BYRSA" MaxWorldInstances="1"/>
@@ -82,7 +82,7 @@
 		<Row ConstructibleType="BUILDING_DOCKYARD" PlunderType="PLUNDER_GOLD" Amount="30"/>
 	</Constructible_Plunders>
 	<Constructible_BuildingCostProgressions>
-		<Row ConstructibleType="BUILDING_COTHON" Percent="5" />
+		<Row ConstructibleType="BUILDING_COTHON" Percent="0" />
 		<Row ConstructibleType="BUILDING_DOCKYARD" Percent="5" />
 	</Constructible_BuildingCostProgressions>
 	<UniqueQuarters>
@@ -91,10 +91,12 @@
 	<GameModifiers>
 		<!-- Unique Quarter modifiers are game-wide -->
 		<Row ModifierId="MOD_CARTHAGE_PUNIC_PORT_RESOURCE_CAP"/>
+		<Row ModifierId="MOD_CARTHAGE_PUNIC_PORT_RESOURCE_CAP_CAPITAL"/>
 	</GameModifiers>
 	<!-- These are listed here so the AI can evalutate Unique Quarters. They do not have any effects on the game for human players. -->
 	<UniqueQuarterModifiers>
 		<Row UniqueQuarterType="QUARTER_PUNIC_PORT" ModifierId="MOD_CARTHAGE_PUNIC_PORT_RESOURCE_CAP"/>
+		<Row UniqueQuarterType="QUARTER_PUNIC_PORT" ModifierId="MOD_CARTHAGE_PUNIC_PORT_RESOURCE_CAP_CAPITAL"/>
 	</UniqueQuarterModifiers>
 	<ConstructibleModifiers>
 		<Row ConstructibleType="WONDER_BYRSA" ModifierId="MOD_BYRSA_WALLS"/>

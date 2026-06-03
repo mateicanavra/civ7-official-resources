@@ -1,30 +1,12 @@
-import { A as Audio } from '../../../core/ui/audio-base/audio-support.chunk.js';
-import { F as Focus } from '../../../core/ui/input/focus-support.chunk.js';
-import { N as NavTray } from '../../../core/ui/navigation-tray/model-navigation-tray.chunk.js';
-import { a as realizePlayerColors } from '../../../core/ui/utilities/utilities-color.chunk.js';
-import { D as Databind } from '../../../core/ui/utilities/utilities-core-databinding.chunk.js';
-import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.chunk.js';
+import { Audio } from '../../../core/ui/audio-base/audio-support.js';
+import { Focus } from '../../../core/ui/input/focus-support.js';
+import NavTray from '../../../core/ui/navigation-tray/model-navigation-tray.js';
+import { applyPlayerColorsToElement } from '../../../core/ui/utilities/utilities-color.js';
+import Databind from '../../../core/ui/utilities/utilities-core-databinding.js';
+import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
 import { ScreenGeneralChooser } from '../general-chooser/screen-general-chooser.js';
-import '../../../core/ui/components/fxs-slot.chunk.js';
-import '../../../core/ui/input/focus-manager.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/views/view-manager.chunk.js';
-import '../../../core/ui/panel-support.chunk.js';
-import '../../../core/ui/spatial/spatial-manager.js';
-import '../../../core/ui/context-manager/context-manager.js';
-import '../../../core/ui/context-manager/display-queue-manager.js';
-import '../../../core/ui/dialog-box/manager-dialog-box.chunk.js';
-import '../../../core/ui/input/cursor.js';
-import '../../../core/ui/input/action-handler.js';
-import '../../../core/ui/input/input-support.chunk.js';
-import '../../../core/ui/utilities/utilities-update-gate.chunk.js';
-import '../../../core/ui/utilities/utilities-image.chunk.js';
-import '../../../core/ui/utilities/utilities-component-id.chunk.js';
-import '../../../core/ui/graph-layout/utils.chunk.js';
-
-const content = "<fxs-frame\r\n\tframe-style=\"f2\"\r\n\toverride-styling=\"pt-5 mt-6 relative flex size-full px-10 pb-10\"\r\n\tfiligree-class=\"mt-3\"\r\n\ttop-border-style=\"b2\"\r\n\tclass=\"flex items-center flex-col\"\r\n>\r\n\t<fxs-close-button></fxs-close-button>\r\n\t<fxs-header\r\n\t\ttitle=\"LOC_UI_GOVERNMENT_PICKER_TITLE\"\r\n\t\tclass=\"government-picker-header mt-4 font-title-2xl text-secondary\"\r\n\t></fxs-header>\r\n\t<div\r\n\t\tdata-l10n-id=\"LOC_UI_GOVERNMENT_OPTIONS_DESC\"\r\n\t\tclass=\"government-picker-desc font-body text-base text-accent-3 my-3 self-center\"\r\n\t></div>\r\n\t<fxs-scrollable class=\"flex-auto\">\r\n\t\t<fxs-vslot\r\n\t\t\tclass=\"government-picker__main-container gen-chooser-content mx-6\"\r\n\t\t\ttabindex=\"-1\"\r\n\t\t></fxs-vslot>\r\n\t</fxs-scrollable>\r\n\t<fxs-hero-button\r\n\t\tclass=\"government-picker-confirm-button w-1\\/2 self-center mt-5\"\r\n\t\tcaption=\"LOC_UI_RESOURCE_ALLOCATION_CONFIRM\"\r\n\t\tdisabled=\"true\"\r\n\t></fxs-hero-button>\r\n</fxs-frame>\r\n";
-
-const styles = "fs://game/base-standard/ui/screen-government-picker/screen-government-picker.css";
+import content from './screen-government-picker.html.js';
+import styles from './screen-government-picker.scss.js';
 
 class ScreenGovernment extends ScreenGeneralChooser {
   confirmButtonListener = this.confirmChooseGovernment.bind(this);
@@ -49,7 +31,7 @@ class ScreenGovernment extends ScreenGeneralChooser {
     this.confirmButton.setAttribute("data-audio-activate-ref", "data-audio-government-confirmed");
     const localPlayer = GameContext.localPlayerID;
     if (Players.isValid(localPlayer)) {
-      realizePlayerColors(this.Root, localPlayer);
+      applyPlayerColorsToElement(this.Root, localPlayer);
     }
     Databind.classToggle(this.confirmButton, "hidden", `g_NavTray.isTrayRequired`);
     this.Root.setAttribute("data-audio-group-ref", "audio-policy-chooser");
@@ -63,10 +45,13 @@ class ScreenGovernment extends ScreenGeneralChooser {
   }
   onReceiveFocus() {
     super.onReceiveFocus();
-    const focusElement = MustGetElement(".government-picker__main-container", this.Root);
-    if (focusElement) {
-      Focus.setContextAwareFocus(focusElement, this.Root);
-    }
+    waitForLayout(() => {
+      const focusElement = MustGetElement(".government-picker__main-container", this.Root);
+      if (focusElement) {
+        Focus.setContextAwareFocus(focusElement, this.Root);
+        Input.setActiveContext(InputContext.Shell);
+      }
+    });
   }
   createEntries(entryContainer) {
     const localPlayerID = GameContext.localPlayerID;

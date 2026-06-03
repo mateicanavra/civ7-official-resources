@@ -1,5 +1,5 @@
-import { A as AutomationBasePlayGame } from './automation-base-play-game.chunk.js';
-import { S as Shared_OnAutomationEvent } from './automation-test-support.chunk.js';
+import { AutomationBasePlayGame } from './automation-base-play-game.js';
+import { Shared_OnAutomationEvent } from './automation-test-support.js';
 
 console.log("loading automation-test-play-game.ts");
 class AutomationTestPlayGame extends AutomationBasePlayGame {

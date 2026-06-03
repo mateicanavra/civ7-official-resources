@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <GameEffects xmlns="GameEffects">
 	<Modifier id="HAPPINESS_WAREHOUSE_IN_CITY_FROM_PROJECT" collection="COLLECTION_OWNER" effect="EFFECT_ATTACH_MODIFIERS">
-		<Argument name="ModifierId">ATTACH_HAPPINESS_WAREHOUSE_IN_CITY_FROM_PROJECT, ATTACH_LAND_TRADE_RANGE_IN_CITY_FROM_PROJECT, ATTACH_SEA_TRADE_RANGE_IN_CITY_FROM_PROJECT</Argument>
+		<Argument name="ModifierId">ATTACH_HAPPINESS_WAREHOUSE_IN_CITY_FROM_PROJECT, ATTACH_LAND_TRADE_RANGE_IN_CITY_FROM_PROJECT, ATTACH_SEA_TRADE_RANGE_IN_CITY_FROM_PROJECT, ATTACH_GOLD_BUILDINGS_FROM_PROJECT</Argument>
 	</Modifier>
 	<Modifier id="ATTACH_HAPPINESS_WAREHOUSE_IN_CITY_FROM_PROJECT" collection="COLLECTION_OWNER" effect="EFFECT_CITY_GRANT_WAREHOUSE_YIELD">
 		<Argument name="WarehouseYieldChange">AQHappinessProjectResourceHappiness</Argument>
@@ -14,16 +14,64 @@
 		<Argument name="Amount">5</Argument>
 		<Argument name="DomainType">DOMAIN_SEA</Argument>
 	</Modifier>
-	<Modifier id="GRANARY_WAREHOUSE_FROM_PROJECT" collection="COLLECTION_OWNER" effect="EFFECT_CITY_GRANT_WAREHOUSE_YIELD">
+	<Modifier id="ATTACH_GOLD_BUILDINGS_FROM_PROJECT" collection="COLLECTION_OWNER" effect="EFFECT_ADJUST_TOWN_CAN_PURCHASE_TAGGED_CONSTRUCTIBLES">
+		<Argument name="ConstructibleTag">GOLD</Argument>
+	</Modifier>
+	<Modifier id="GRANARY_WAREHOUSE_FROM_PROJECT" collection="COLLECTION_OWNER" effect="EFFECT_ATTACH_MODIFIERS">
+		<Argument name="ModifierId">ATTACH_GRANARY_WAREHOUSE_FOOD_FROM_PROJECT, ATTACH_FOOD_BUILDINGS_FROM_PROJECT, ATTACH_WATER_BUILDINGS_FROM_PROJECT</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_GRANARY_WAREHOUSE_FOOD_FROM_PROJECT" collection="COLLECTION_OWNER" effect="EFFECT_CITY_GRANT_WAREHOUSE_YIELD">
 		<Argument name="WarehouseYieldChange">AQTownPastureFood, AQTownPlantationFood, AQTownDesertFloodplainFeatureFood, AQTownGrasslandFloodplainFeatureFood, AQTownPlainsFloodplainFeatureFood, AQTownTropicalFloodplainFeatureFood, AQTownTundraFloodplainFeatureFood, AQTownFlatTerrainFood, AQTownFishingBoatResourceFood, AQTownAtollFeatureFood, AQTownLotusFeatureFood, AQTownReefFeatureFood, AQTownColdReefFeatureFood, AQTownCoastTerrainFood, AQTownNavigableRiverFood</Argument>
 		<Argument name="Tooltip">LOC_GRANARY_WAREHOUSE_IN_THIS_TOWN_FROM_PROJECT</Argument>
 	</Modifier>
-	<Modifier id="FISHING_WAREHOUSE_FROM_PROJECT" collection="COLLECTION_OWNER" effect="EFFECT_CITY_GRANT_WAREHOUSE_YIELD">
+	<Modifier id="ATTACH_FOOD_BUILDINGS_FROM_PROJECT" collection="COLLECTION_OWNER" effect="EFFECT_ADJUST_TOWN_CAN_PURCHASE_TAGGED_CONSTRUCTIBLES">
+		<Argument name="ConstructibleTag">FOOD</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_WATER_BUILDINGS_FROM_PROJECT" collection="COLLECTION_OWNER" effect="EFFECT_ADJUST_TOWN_CAN_PURCHASE_TAGGED_CONSTRUCTIBLES">
+		<Argument name="ConstructibleTag">WATER</Argument>
+	</Modifier>
+	<Modifier id="FISHING_WAREHOUSE_FROM_PROJECT" collection="COLLECTION_OWNER" effect="EFFECT_ATTACH_MODIFIERS">
+		<Argument name="ModifierId">ATTACH_FISHING_WAREHOUSE_FOOD_FROM_PROJECT, ATTACH_FOOD_BUILDINGS_FROM_PROJECT, ATTACH_WATER_BUILDINGS_FROM_PROJECT</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_FISHING_WAREHOUSE_FOOD_FROM_PROJECT" collection="COLLECTION_OWNER" effect="EFFECT_CITY_GRANT_WAREHOUSE_YIELD">
 		<Argument name="WarehouseYieldChange">AQTownFishingBoatResourceFood, AQTownAtollFeatureFood, AQTownLotusFeatureFood, AQTownReefFeatureFood, AQTownColdReefFeatureFood, AQTownCoastTerrainFood, AQTownNavigableRiverFood, AQTownPastureFood, AQTownPlantationFood, AQTownDesertFloodplainFeatureFood, AQTownGrasslandFloodplainFeatureFood, AQTownPlainsFloodplainFeatureFood, AQTownTropicalFloodplainFeatureFood, AQTownTundraFloodplainFeatureFood, AQTownFlatTerrainFood</Argument>
 		<Argument name="Tooltip">LOC_FISHING_WAREHOUSE_IN_THIS_TOWN_FROM_PROJECT</Argument>
 	</Modifier>
-	<Modifier id="PRODUCTION_WAREHOUSE_FROM_PROJECT" collection="COLLECTION_OWNER" effect="EFFECT_CITY_GRANT_WAREHOUSE_YIELD">
-		<Argument name="WarehouseYieldChange">AQTownMineResourceProduction, AQTownQuarryProduction, AQTownRoughTerrainProduction, AQTownWetFeatureProduction, AQTownWoodcutterResourceProduction, AQTownCampProduction, AQTownVegetatedFeatureProduction</Argument>
+	<Modifier id="PRODUCTION_WAREHOUSE_FROM_PROJECT" collection="COLLECTION_OWNER" effect="EFFECT_ATTACH_MODIFIERS">
+		<Argument name="ModifierId">ATTACH_PRODUCTION_WAREHOUSE_FROM_PROJECT</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_PRODUCTION_WAREHOUSE_FROM_PROJECT" collection="COLLECTION_OWNER" effect="EFFECT_CITY_GRANT_WAREHOUSE_YIELD">
+		<Argument name="WarehouseYieldChange">AQTownClayPitResourceProduction, AQTownClayPitProduction, AQTownMineResourceProduction, AQTownQuarryProduction, AQTownRoughTerrainProduction, AQTownWoodcutterResourceProduction, AQTownCampProduction, AQTownVegetatedFeatureProduction</Argument>
 		<Argument name="Tooltip">LOC_BRICKYARD_WAREHOUSE_IN_THIS_TOWN_FROM_PROJECT</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_PRODUCTION_BUILDINGS_FROM_PROJECT" collection="COLLECTION_OWNER" effect="EFFECT_ADJUST_TOWN_CAN_PURCHASE_TAGGED_CONSTRUCTIBLES">
+		<Argument name="ConstructibleTag">PRODUCTION</Argument>
+	</Modifier>
+	<!-- Science Victory -->
+	<Modifier id="MOD_CHART_THE_STARS_VP" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_VICTORY_TRACKER_POINTS" permanent="true">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_IS_MAJOR"/>
+		</SubjectRequirements>
+		<Argument name="VictoryType">VICTORY_SCIENCE_MODERN</Argument>
+		<Argument name="Points">5</Argument>
+		<Argument name="ItemName">LOC_PROJECT_CHART_THE_STARS_NAME</Argument>
+		<Argument name="TypeData">PROJECT</Argument>
+	</Modifier>
+   <Modifier id="MOD_CHART_THE_STARS_ALTAR_PURCHASE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_FREE_PURCHASE_CHARGE" permanent="true">
+        <Argument name="Amount">2</Argument>
+        <Argument name="BuildingType">BUILDING_ALTAR</Argument>
+   </Modifier>
+	<Modifier id="MOD_SPHERICAL_EARTH_VP" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_VICTORY_TRACKER_POINTS" permanent="true">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_IS_MAJOR"/>
+		</SubjectRequirements>
+		<Argument name="VictoryType">VICTORY_SCIENCE_MODERN</Argument>
+		<Argument name="Points">5</Argument>
+		<Argument name="ItemName">LOC_PROJECT_SPHERICAL_EARTH_NAME</Argument>
+		<Argument name="TypeData">PROJECT</Argument>
+	</Modifier>
+	<Modifier id="MOD_SPHERICAL_EARTH_ATTRIBUTE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ATTRIBUTE" permanent="true" run-once="true">
+		<Argument name="AttributeType">ATTRIBUTE_SCIENTIFIC</Argument>
+		<Argument name="Amount">1</Argument>
 	</Modifier>
 </GameEffects>

@@ -1,0 +1,245 @@
+.placeholder {
+  width: 10px;
+}
+
+.civ-age-select-card {
+  width: 11.1111111111rem;
+  height: 4.2222222222rem;
+  transition: width 0.3s ease-out, height 0.3s ease-out;
+}
+.civ-age-select-card-icon {
+  width: 3.6666666667rem;
+  height: 3.6666666667rem;
+  transition: width 0.3s ease-out, height 0.3s ease-out;
+}
+.civ-age-select-card-text {
+  color: #d6c168;
+  opacity: 0;
+  transition: opacity 0.3s ease-out;
+}
+.civ-age-select-card-spacer {
+  height: 0.2222222222rem;
+  transition: height 0.3s ease-out;
+}
+.civ-age-select-card-overlay {
+  background: #141519;
+  opacity: 0.8;
+  transition: opacity 0.3s ease-out;
+}
+.civ-age-select-card-selection {
+  background: linear-gradient(180deg, rgba(47, 54, 64, 0) 10.36%, #2f3640 79.94%);
+  opacity: 0;
+  transition: opacity 0.3s ease-out;
+}
+.civ-age-select-card-selection.apex {
+  background: linear-gradient(180deg, rgba(70, 65, 36, 0) 10.36%, #464124 79.94%);
+}
+.civ-age-select-card-expanded {
+  height: 17.5555555556rem;
+}
+.civ-age-select-card-expanded-unlocks {
+  height: 28.4444444444rem;
+}
+.civ-age-select-card-expanded .civ-age-select-card-icon {
+  width: 5.5555555556rem;
+  height: 5.5555555556rem;
+}
+@media (max-height: 55.5555555556rem) {
+  .civ-age-select-card-expanded .civ-age-select-card-icon {
+    width: 3.6111111111rem;
+    height: 3.6111111111rem;
+  }
+}
+.civ-age-select-card-expanded .civ-age-select-card-text {
+  opacity: 1;
+}
+.civ-age-select-card-expanded .civ-age-select-card-spacer {
+  height: 7.2222222222rem;
+}
+@media (max-height: 55.5555555556rem) {
+  .civ-age-select-card-expanded .civ-age-select-card-spacer {
+    height: 5.3333333333rem;
+  }
+}
+.civ-age-select-card-expanded .civ-age-select-card-overlay {
+  opacity: 0;
+}
+.civ-age-select-card-expanded .civ-age-select-card-selection {
+  opacity: 1;
+}
+@media (max-height: 55.5555555556rem) {
+  .civ-age-select-card-expanded {
+    width: 7.7777777778rem;
+    height: 12.2222222222rem;
+  }
+}
+
+.civ-details-card-outer {
+  background: #2f3640;
+}
+.civ-details-card-outer.apex {
+  background: #464124;
+}
+
+.civ-details-card-inner {
+  padding: 0.5555555556rem 1.3333333333rem 0.7777777778rem 1.1111111111rem;
+  border-image-outset: 0rem 0.3888888889rem 0.3888888889rem 0.1111111111rem;
+  border-image-slice: 26 35 35 26 fill;
+  border-image-source: url("blp:ticket_solid_shadow");
+  border-image-width: 1.3333333333rem 1.8333333333rem 1.8333333333rem 1.3333333333rem;
+}
+
+.civ-details-card-divider-h {
+  height: 0.1111111111rem;
+  background: rgba(44, 44, 55, 0.65);
+}
+
+.civ-details-card-divider-v {
+  width: 0.1111111111rem;
+  background: rgba(44, 44, 55, 0.65);
+}
+
+.civ-select-divider {
+  width: 27.2222222222rem;
+  height: 0.0833333333rem;
+  background: linear-gradient(270deg, rgba(80, 74, 63, 0) 7.01%, #504a3f 78.85%);
+  opacity: 0.9;
+}
+
+.civ-details-card-shadow {
+  height: 7.2222222222rem;
+  margin: 0rem -1.2222222222rem -7.2222222222rem -1rem;
+  background-image: url("blp:create_game_gradient3");
+  background-size: contain;
+  opacity: 0.5;
+  transform: scaleY(-1);
+}
+
+.civ-select-info-divider {
+  height: 0.0833333333rem;
+  background: #504a3f;
+  opacity: 0.9;
+}
+
+.civ-select-v-divider {
+  background: #504a3f;
+  opacity: 0.9;
+}
+
+.civ-select-leader-button-icon {
+  width: 3.3333333333rem;
+  height: 3.3333333333rem;
+}
+@media (max-height: 55.5555555556rem) {
+  .civ-select-leader-button-icon {
+    width: 2.2777777778rem;
+    height: 2.2777777778rem;
+  }
+}
+
+.civ-age-select-body {
+  padding-left: 3.5555555556rem;
+}
+@media (max-height: 55.5555555556rem) {
+  .civ-age-select-body {
+    padding-left: 1.1111111111rem;
+  }
+}
+
+.civ-select-leader-button-base {
+  margin-top: 0.2777777778rem;
+  margin-bottom: 0.8333333333rem;
+}
+
+.civ-details-age-icon {
+  width: 3.3333333333rem;
+  height: 3.3333333333rem;
+}
+
+.civ-select-age-divider {
+  width: 0.0833333333rem;
+  height: 1.7777777778rem;
+  margin: 0.2222222222rem 0.8333333333rem;
+  background: #504a3f;
+  opacity: 0.9;
+}
+
+.civ-select-age-border-divider {
+  width: 0.0833333333rem;
+  background: #504a3f;
+  opacity: 0.9;
+}
+
+.civ-select-age-banner {
+  width: 9.8333333333rem;
+  height: 25.7777777778rem;
+}
+@media (max-height: 55.5555555556rem) {
+  .civ-select-age-banner {
+    width: 7.6111111111rem;
+    height: 18.3333333333rem;
+  }
+}
+
+.civ-details-age-banner {
+  width: 9.8333333333rem;
+  height: 25.7777777778rem;
+}
+@media (max-height: 55.5555555556rem) {
+  .civ-details-age-banner {
+    width: 7.6111111111rem;
+    height: 18.3333333333rem;
+  }
+}
+
+.civ-details-continue-button {
+  min-width: 25.6666666667rem;
+}
+@media (max-height: 55.5555555556rem) {
+  .civ-details-continue-button {
+    min-width: 19.6111111111rem;
+    height: 2.4444444444rem;
+  }
+}
+
+.civ-details-info-header-text {
+  font-size: 2.4444444444rem;
+}
+
+.civ-select-age-text {
+  font-size: calc(1rem + -0.1111111111rem);
+  font-style: normal;
+  font-weight: 800;
+  letter-spacing: 0.0622222222rem;
+  line-height: 1.0555555556rem;
+}
+
+.civ-select-age-type-text {
+  color: #fff;
+  font-size: calc(1rem + 0.2222222222rem);
+  font-style: normal;
+  letter-spacing: 0.0855555556rem;
+  line-height: 1.2222222222rem;
+}
+
+.civ-details-left-content {
+  width: 18.6666666667rem;
+  padding-right: 2.2222222222rem;
+  padding-left: 2.2222222222rem;
+}
+@media (max-height: 55.5555555556rem) {
+  .civ-details-left-content {
+    width: 11.5555555556rem;
+    padding-left: 0rem;
+    margin-left: 2.2222222222rem;
+  }
+}
+
+.civ-select-right-content {
+  margin-left: 0.4444444444rem;
+}
+@media (max-height: 55.5555555556rem) {
+  .civ-select-right-content {
+    margin-left: 0rem;
+  }
+}

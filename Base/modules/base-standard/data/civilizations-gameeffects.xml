@@ -9,8 +9,7 @@
 		</OwnerRequirements>
 		<Argument name="YieldTypes">YIELD_HAPPINESS</Argument>
 		<Argument name="Amount">5</Argument>
-		<Argument name="ScaleByAge">false</Argument>
-		<Argument name="MaxReduction">35</Argument>
+		<Argument name="MaxReduction">1000</Argument>
 	</Modifier>
 	<Modifier id="TRAIT_MOD_NEGATIVE_INFLUENCE_CONQUERED_SETTLEMENTS" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD_PER_CONQUERED_CITY">
 		<Argument name="YieldType">YIELD_DIPLOMACY</Argument>
@@ -61,5 +60,24 @@
 			</Requirement>
 		</SubjectRequirements>
 		<Argument name="Percent">50</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_ORTOO_RESTORE_MOVEMENT" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_RESTORE_UNIT_MOVEMENT">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_BUILDINGS">
+				<Argument name="Amount">1</Argument>
+				<Argument name="BuildingType">IMPROVEMENT_ORTOO</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_DOMAIN_MATCHES">
+				<Argument name="UnitDomain">DOMAIN_LAND</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_PLOT_HAS_CONSTRUCTIBLE">
+				<Argument name="ConstructibleType">IMPROVEMENT_ORTOO</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_PLOT_IS_OWNER"></Requirement>
+		</SubjectRequirements>
+		<Argument name="MovementOnly">true</Argument>
+		<Argument name="RestoreAfterMoving">true</Argument>
 	</Modifier>
 </GameEffects>

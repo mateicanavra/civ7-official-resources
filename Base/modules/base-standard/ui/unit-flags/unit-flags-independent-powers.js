@@ -1,14 +1,11 @@
-import { A as ActionActivateEvent } from '../../../core/ui/components/fxs-activatable.chunk.js';
-import { u as utils } from '../../../core/ui/graph-layout/utils.chunk.js';
-import { C as ComponentID } from '../../../core/ui/utilities/utilities-component-id.chunk.js';
-import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.chunk.js';
-import { Icon } from '../../../core/ui/utilities/utilities-image.chunk.js';
-import { L as Layout } from '../../../core/ui/utilities/utilities-layout.chunk.js';
-import { UnitFlagManager, s as styles, UnitFlagFactory } from './unit-flag-manager.js';
-import '../../../core/ui/audio-base/audio-support.chunk.js';
-import '../../../core/ui/input/focus-manager.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/utilities/utilities-update-gate.chunk.js';
+import { ActionActivateEvent } from '../../../core/ui/components/fxs-activatable.js';
+import { utils } from '../../../core/ui/graph-layout/utils.js';
+import { ComponentID } from '../../../core/ui/utilities/utilities-component-id.js';
+import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
+import { Icon } from '../../../core/ui/utilities/utilities-image.js';
+import { Layout } from '../../../core/ui/utilities/utilities-layout.js';
+import { UnitFlagManager, UnitFlagFactory } from './unit-flag-manager.js';
+import styles from './unit-flags.scss.js';
 
 class IndependentPowersFlagMaker {
   static ipflags = /* @__PURE__ */ new Map();
@@ -582,9 +579,6 @@ class IndependentPowersUnitFlag extends Component {
       return IndependentRelationship.NOT_APPLICABLE;
     }
     if (!player.isIndependent) {
-      console.warn(
-        `unit-flags-independent-powers: Unable to get affinity relationship due to non-independent player from playerID ${playerID}, name: ${player.name}`
-      );
       return IndependentRelationship.NOT_APPLICABLE;
     }
     return Game.IndependentPowers.getIndependentRelationship(this.independentID, localObserverID);
@@ -592,7 +586,6 @@ class IndependentPowersUnitFlag extends Component {
   realizeAffinity() {
     const relationship = this.getRelationship();
     if (relationship == IndependentRelationship.NOT_APPLICABLE) {
-      console.warn("unit-flags-independent-powers: Village Banner unable to determine affinity relationship.");
       return;
     }
     const classList = this.Root.classList;

@@ -1,20 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <metaprogression xmlns="Metaprogression">
 	<challenges class="CHALLENGE_CLASS_FOUNDATION" category="CHALLENGE_CATEGORY_FOUNDATION_CIV_VICTORIES" legendPath="LEGEND_PATH_FOUNDATION">
-		<challenge id="CHALLENGE_OTTOMANS_LEGACY_PATH_MILITARY" scope="Campaign" difficulty="2">
+		<!--Keep the IDs as MAJOR triumphs, since we will move them back to being Major triumph challenges in the future and this way we don't have to sync them again-->
+		<challenge id="CHALLENGE_OTTOMANS_FOUR_MAJOR_TRIUMPHS" scope="Campaign" difficulty="2">
 			<l10n>
-				<name>Ottomans Legacy Path</name>
-				<description>As the Ottomans, complete a Militaristic Legacy Path.</description>
+				<name>Ottomans 4 Minor Triumphs</name>
+				<description>As the Ottomans, complete 4 Militaristic or Cultural Minor Triumphs in a single Apex Age.</description>
 			</l10n>
 			<sortIndex>109000</sortIndex>
 			<reward type="XP" reward="50" />
 		</challenge>
-		<challenge id="CHALLENGE_OTTOMANS_LEGACY_PATH_MILESTONE_COMPLETED" scope="Campaign" difficulty="2" hidden="true">
+		<challenge id="CHALLENGE_OTTOMANS_MAJOR_TRIUMPH_COMPLETED" scope="Campaign" difficulty="2" hidden="true">
 			<l10n>
-				<name>Ottomans Legacy Path Milestone</name>
-				<description>As the Ottomans, reach at least 1 Legacy Path Milestone.</description>
+				<name>Ottomans Minor Triumph</name>
+				<description>As the Ottomans, complete at least 1 Minor Triumph.</description>
 			</l10n>
 			<sortIndex>109210</sortIndex>
+			<tags>
+				<tag>CIVS_PLAYED_PROGRESS</tag>
+			</tags>
 		</challenge>
 	</challenges>
 	<challenges class="CHALLENGE_CLASS_FOUNDATION" category="CHALLENGE_CATEGORY_FOUNDATION_WONDERS" legendPath="LEGEND_PATH_FOUNDATION">

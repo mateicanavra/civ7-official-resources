@@ -1,36 +1,15 @@
 import ContextManager from '../../../core/ui/context-manager/context-manager.js';
-import ActionHandler, { ActiveDeviceTypeChangedEventName } from '../../../core/ui/input/action-handler.js';
-import FocusManager from '../../../core/ui/input/focus-manager.js';
+import ActionHandler from '../../../core/ui/input/action-handler.js';
+import { ActiveDeviceTypeChangedEventName } from '../../../core/ui/input/input-events.js';
 import { InterfaceMode } from '../../../core/ui/interface-modes/interface-modes.js';
-import { N as NavTray } from '../../../core/ui/navigation-tray/model-navigation-tray.chunk.js';
-import { A as AnchorType } from '../../../core/ui/panel-support.chunk.js';
-import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.chunk.js';
-import DiplomacyManager, { DiplomacyInputPanel, L as LeaderModelManager } from '../diplomacy/diplomacy-manager.js';
-import '../../../core/ui/context-manager/display-queue-manager.js';
-import '../../../core/ui/dialog-box/manager-dialog-box.chunk.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/input/cursor.js';
-import '../../../core/ui/views/view-manager.chunk.js';
-import '../../../core/ui/audio-base/audio-support.chunk.js';
-import '../../../core/ui/input/input-support.chunk.js';
-import '../../../core/ui/utilities/utilities-update-gate.chunk.js';
-import '../../../core/ui/utilities/utilities-image.chunk.js';
-import '../../../core/ui/utilities/utilities-component-id.chunk.js';
-import '../diplomacy/diplomacy-events.js';
-import '../../../core/ui/utilities/utilities-layout.chunk.js';
-import '../world-input/world-input.js';
-import '../../../core/ui/input/plot-cursor.js';
-import '../../../core/ui/utilities/utilities-network.js';
-import '../../../core/ui/shell/mp-legal/mp-legal.js';
-import '../../../core/ui/events/shell-events.chunk.js';
-import '../../../core/ui/utilities/utilities-liveops.js';
-import '../../../core/ui/utilities/utilities-network-constants.chunk.js';
-import '../interface-modes/support-unit-map-decoration.chunk.js';
-import '../utilities/utilities-overlay.chunk.js';
-
-const content = "<div\r\n\tclass=\"diplomacy-dialog-content min-w-84 relative flex flex-col-reverse text-center items-center justify-center pt-4 pb-8 px-4 mb-12\"\r\n>\r\n\t<!-- <div class=\"expand-diplomacy-chat-button\">\r\n\t\tTODO: Removing until chat history logic is actually implemented in gamecore\r\n\t</div> -->\r\n\t<fxs-vslot\r\n\t\tclass=\"diplomacy-options relative w-full h-auto flex flex-col justify-center text-center\"\r\n\t\tdata-navrule-up=\"stop\"\r\n\t></fxs-vslot>\r\n\t<div\r\n\t\tclass=\"dialog-text-container my-4 p-10 relative w-full h-auto justify-center\"\r\n\t\tdata-navrule-up=\"stop\"\r\n\t>\r\n\t\t<div class=\"dialog-text text-lg text-center\"></div>\r\n\t</div>\r\n</div>\r\n<div\r\n\tclass=\"skip-dialog-text relative max-w-96 w-full font-title text-xs justify-center uppercase text-center self-center\"\r\n></div>\r\n";
-
-const styles = "fs://game/base-standard/ui/diplomacy-hub/panel-diplomacy-hub.css";
+import NavTray from '../../../core/ui/navigation-tray/model-navigation-tray.js';
+import { AnchorType } from '../../../core/ui/panel-support.js';
+import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
+import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
+import DiplomacyManager, { DiplomacyInputPanel } from '../diplomacy/diplomacy-manager.js';
+import LeaderModelManager from '../diplomacy/leader-model-manager.js';
+import content from './panel-diplomacy-hub.html.js';
+import styles from './panel-diplomacy-hub.scss.js';
 
 const FirstMeetOpenReactions = new CustomEvent("diplomacy-first-meet-open-reactions");
 class DiplomacyHubPanel extends DiplomacyInputPanel {
@@ -87,7 +66,7 @@ class DiplomacyHubPanel extends DiplomacyInputPanel {
   onViewReceiveFocus() {
     const acceptButtons = this.Root.querySelector(".panel-diplomacy-hub__button-acknowledge");
     if (acceptButtons) {
-      FocusManager.setFocus(acceptButtons);
+      FocusManager.get().setFocus(acceptButtons);
     }
     this.populateNavTray();
   }
@@ -337,7 +316,7 @@ class DiplomacyHubPanel extends DiplomacyInputPanel {
     setTimeout(() => {
       this.allowSkip();
     }, 0);
-    FocusManager.setFocus(dialogTextElement);
+    FocusManager.get().setFocus(dialogTextElement);
     NavTray.clear();
     if (Configuration.getXR()) {
       this.skipDialog();
@@ -400,7 +379,7 @@ class DiplomacyHubPanel extends DiplomacyInputPanel {
       console.error("panel-diplomacy-hub: Unable to find dialog-options element!");
       return;
     }
-    FocusManager.setFocus(dialogOptionsContainer);
+    FocusManager.get().setFocus(dialogOptionsContainer);
     if (DiplomacyManager.currentDiplomacyDialogData?.StatementTypeDef?.GroupType == "MEET") {
       const dialogContainer = MustGetElement(
         ".panel-diplomacy-project-reaction__project-dialog-container",
@@ -435,7 +414,7 @@ class DiplomacyHubPanel extends DiplomacyInputPanel {
       return;
     }
     if (ContextManager.isEmpty) {
-      FocusManager.setFocus(dialogOptionsContainer);
+      FocusManager.get().setFocus(dialogOptionsContainer);
     }
     window.removeEventListener("diplomacy-animation-finished", this.diplomacyAnimationFinishedListener);
     if (DiplomacyManager.currentDiplomacyDialogData?.StatementTypeDef?.GroupType == "MEET") {

@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Database>
 	<AiListTypes>
-
 		<!-- Leader Yield biases -->
 		<Row ListType="Tecumseh Yield Biases"/>
+		<Row ListType="Tecumseh Diplomacy Biases"/>
 
-		<!-- Leader PseudoYield Biases -->
-
+		<!-- Civ Diplomacy Biases -->
+		<Row ListType="Shawnee Diplomacy Biases"/>
 	</AiListTypes>
 	<AiLists>
-
 		<!-- Leader Yield Biases -->
 		<Row ListType="Tecumseh Yield Biases" LeaderType="TRAIT_LEADER_TECUMSEH_ABILITY" System="YieldBiases"/>
+		<Row ListType="Tecumseh Diplomacy Biases" LeaderType="TRAIT_LEADER_TECUMSEH_ABILITY" System="DiplomaticGroupBiases"/>
 
-		<!-- Leader PseudoYield Biases -->
-
+		<!-- Civ Diplomacy Biases -->
+		<Row ListType="Shawnee Diplomacy Biases" LeaderType="TRAIT_SHAWNEE" System="DiplomaticGroupBiases"/>
 	</AiLists>
 	<AiFavoredItems>
-
 		<!-- Leader Yield Biases -->
 		<Row ListType="Tecumseh Yield Biases" Item="YIELD_DIPLOMACY" Value="50"/>
 		<Row ListType="Tecumseh Yield Biases" Item="YIELD_PRODUCTION" Value="25"/>
+		<Row ListType="Tecumseh Diplomacy Biases" Item="DIPLOMACY_ACTION_BECOME_SUZERAIN" Value="100"/>
 
-		<!-- Leader PseudoYield Biases -->
-
+		<!-- Civ Diplomacy Biases -->
+		<Row ListType="Shawnee Diplomacy Biases" Item="DIPLOMACY_ACTION_BECOME_SUZERAIN" Value="25"/>
 	</AiFavoredItems>
 </Database>

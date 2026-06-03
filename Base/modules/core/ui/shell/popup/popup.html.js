@@ -1,0 +1,4 @@
+const content = "<div class=\"popup-content font-body text-left\">\r\n\t<div class=\"popup-shadow\"></div>\r\n\t<div class=\"popup-bg\"></div>\r\n\t<div class=\"popup-pattern\"></div>\r\n\t<div class=\"popup-frame\"></div>\r\n\t<div class=\"popup-body\">\r\n\t\t<div class=\"popup-body-text-1\"></div>\r\n\t\t<div class=\"popup-divider\"></div>\r\n\t\t<div class=\"popup-body-text-2\"></div>\r\n\t</div>\r\n\t<div class=\"popup-overlay\"></div>\r\n</div>\r\n";
+
+export { content as default };
+//# sourceMappingURL=popup.html.js.map

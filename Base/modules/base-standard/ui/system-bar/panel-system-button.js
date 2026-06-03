@@ -1,11 +1,6 @@
-import { F as FxsActivatable } from '../../../core/ui/components/fxs-activatable.chunk.js';
-import '../../../core/ui/audio-base/audio-support.chunk.js';
-import '../../../core/ui/input/focus-manager.js';
-import '../../../core/ui/framework.chunk.js';
-
-const content = "<div class=\"ps-btn-icon\"></div>\r\n";
-
-const styles = "fs://game/base-standard/ui/system-bar/panel-system-button.css";
+import { FxsActivatable } from '../../../core/ui/components/fxs-activatable.js';
+import content from './panel-system-button.html.js';
+import styles from './panel-system-button.scss.js';
 
 class PanelSystemButton extends FxsActivatable {
   onAttach() {

@@ -1,24 +1,6 @@
 import { MPStagingDropdown } from './mp-staging-dropdown.js';
-import { MustGetElement } from '../../utilities/utilities-dom.chunk.js';
-import { m as multiplayerTeamColors } from '../../utilities/utilities-network-constants.chunk.js';
-import '../shell-components/icon-dropdown.js';
-import '../../components/fxs-dropdown.chunk.js';
-import '../../audio-base/audio-support.chunk.js';
-import '../../components/fxs-activatable.chunk.js';
-import '../../input/focus-manager.js';
-import '../../framework.chunk.js';
-import '../../input/action-handler.js';
-import '../../input/cursor.js';
-import '../../views/view-manager.chunk.js';
-import '../../panel-support.chunk.js';
-import '../../input/input-support.chunk.js';
-import '../../utilities/utilities-update-gate.chunk.js';
-import '../../input/focus-support.chunk.js';
-import '../../components/fxs-slot.chunk.js';
-import '../../spatial/spatial-manager.js';
-import '../../context-manager/context-manager.js';
-import '../../context-manager/display-queue-manager.js';
-import '../../dialog-box/manager-dialog-box.chunk.js';
+import { MustGetElement } from '../../utilities/utilities-dom.js';
+import { multiplayerTeamColors } from '../../utilities/utilities-network-constants.js';
 
 class MPStagingTeamDropdown extends MPStagingDropdown {
   render() {

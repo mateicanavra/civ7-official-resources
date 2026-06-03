@@ -61,6 +61,7 @@
 		<Row Tag="RELIGIOUS" Category="CONSTRUCTIBLE_TAG"/>
 		<Row Tag="UNIQUE" Category="CONSTRUCTIBLE_TAG"/>
 		<Row Tag="UNIQUE_IMPROVEMENT" Category="CONSTRUCTIBLE_TAG"/>
+		<Row Tag="GREAT_WALL" Category="CONSTRUCTIBLE_TAG"/>
 		<Row Tag="CITY_STATE_UNIQUE_IMPROVEMENT" Category="CONSTRUCTIBLE_TAG"/>
 		<Row Tag="DISTRICT_WALL" Category="CONSTRUCTIBLE_TAG"/>
 		<Row Tag="FULL_TILE" Category="CONSTRUCTIBLE_TAG"/>
@@ -77,6 +78,10 @@
 		<Row Tag="CRISIS" Category="CONSTRUCTIBLE_TAG"/>
 		<Row Tag="URBANCENTER" Category="CONSTRUCTIBLE_TAG"/>
 		<Row Tag="FISHING_BOAT" Category="CONSTRUCTIBLE_TAG" />
+		<Row Tag="FOOD_WAREHOUSE" Category="CONSTRUCTIBLE_TAG"/>
+		<Row Tag="PRODUCTION_WAREHOUSE" Category="CONSTRUCTIBLE_TAG"/>
+		<Row Tag="INNOVATION" Category="CONSTRUCTIBLE_TAG"/>
+		<Row Tag="MUSEUM_CULTURE_VP" Category="CONSTRUCTIBLE_TAG"/> <!--- This is a specific tag for a Triumph -->
 	</Tags>
 	<ConstructibleClasses>
 		<Row ConstructibleClassType="BUILDING" Name="LOC_CONSTRUCTIBLE_CLASS_NAME_BUILDING" Description="LOC_CONSTRUCTIBLE_CLASS_DESCRIPTION_BUILDING"/>
@@ -103,7 +108,7 @@
 		<Row ConstructibleType="IMPROVEMENT_QUARRY" Name="LOC_IMPROVEMENT_QUARRY_NAME" Description="LOC_IMPROVEMENT_QUARRY_DESCRIPTION" Cost="25" Population="1" ConstructibleClass="IMPROVEMENT"/>
 		<Row ConstructibleType="IMPROVEMENT_OIL_RIG" Name="LOC_IMPROVEMENT_OIL_RIG_NAME" Description="LOC_IMPROVEMENT_OIL_RIG_DESCRIPTION" Cost="25" Population="1" ConstructibleClass="IMPROVEMENT"/>
 		<Row ConstructibleType="IMPROVEMENT_EXPEDITION_BASE" Name="LOC_IMPROVEMENT_EXPEDITION_BASE_NAME" Description="LOC_IMPROVEMENT_EXPEDITION_BASE_DESCRIPTION" Cost="25" Population="1" ConstructibleClass="IMPROVEMENT"/>
-		<Row ConstructibleType="IMPROVEMENT_REPAIR_ALL" Name="LOC_UI_PRODUCTION_REPAIR_ALL" Description="LOC_UI_PRODUCTION_REPAIR_ALL" Cost="0" Population="0" ConstructibleClass="IMPROVEMENT" RequiresUnlock="true"/>
+		<Row ConstructibleType="IMPROVEMENT_REPAIR_ALL" Name="LOC_UI_PRODUCTION_REPAIR_ALL" Description="LOC_UI_PRODUCTION_REPAIR_ALL_DESCRIPTION" Cost="0" Population="0" ConstructibleClass="IMPROVEMENT" RequiresUnlock="true"/>
 		<!-- Discoveries -->
 		<Row ConstructibleType="IMPROVEMENT_CAVE" Name="LOC_IMPROVEMENT_CAVE_NAME" Description="LOC_IMPROVEMENT_CAVE_DESCRIPTION" ConstructibleClass="IMPROVEMENT" Cost="1" Population="0" CanBeHidden="true" Discovery="true"/>
 		<Row ConstructibleType="IMPROVEMENT_RUINS" Name="LOC_IMPROVEMENT_RUINS_NAME" Description="LOC_IMPROVEMENT_RUINS_DESCRIPTION" ConstructibleClass="IMPROVEMENT" Cost="1" Population="0" CanBeHidden="true" Discovery="true"/>
@@ -290,11 +295,10 @@
 		<Row ID="QuarterCulture" YieldType="YIELD_CULTURE" YieldChange="1" TilesRequired="1" AdjacentQuarter="true"/>
 		<Row ID="QuarterScience" YieldType="YIELD_SCIENCE" YieldChange="1" TilesRequired="1" AdjacentQuarter="true"/>
 		<!-- Wildcard Adjacency Yields Changes -->
-		<Row ID="AshokaRuralAdjacency" YieldType="YIELD_HAPPINESS" YieldChange="1" TilesRequired="1" AdjacentDistrict="DISTRICT_RURAL"/>
-		<Row ID="CharlemagneMilitaryBuildingHappiness" YieldType="YIELD_HAPPINESS" YieldChange="1" TilesRequired="1" AdjacentQuarter="true"/>
-		<Row ID="CharlemagneScienceBuildingHappiness" YieldType="YIELD_HAPPINESS" YieldChange="1" TilesRequired="1" AdjacentQuarter="true"/>
+		<Row ID="AshokaUniqueBuildingAdjacencyToImprovements" YieldType="YIELD_HAPPINESS" YieldChange="1" TilesRequired="1" AdjacentConstructibleClass="IMPROVEMENT"/>
+		<Row ID="CharlemagneMilitaryBuildingHappiness" YieldType="YIELD_HAPPINESS" YieldChange="1" TilesRequired="1" AdjacentConstructibleTag="FORTIFICATION"/>
+		<Row ID="CharlemagneScienceBuildingHappiness" YieldType="YIELD_HAPPINESS" YieldChange="1" TilesRequired="1" AdjacentConstructibleTag="FORTIFICATION"/>
 		<Row ID="PachacutiMountainFood" YieldType="YIELD_FOOD" YieldChange="1" TilesRequired="1" ProjectMaxYield="true" AdjacentTerrain="TERRAIN_MOUNTAIN"/>
-		<Row ID="PachacutiMountainUniqueImprovementFood" YieldType="YIELD_FOOD" YieldChange="2" TilesRequired="1" ProjectMaxYield="true" AdjacentTerrain="TERRAIN_MOUNTAIN"/>
 		<Row ID="ShellTemperedPotteryWildcardResourceGoldFood" YieldType="YIELD_GOLD" YieldChange="1" TilesRequired="1" AdjacentResource="true"/>
 		<Row ID="ShellTemperedPotteryWildcardResourceGoldGold" YieldType="YIELD_GOLD" YieldChange="1" TilesRequired="1" AdjacentResource="true"/>
 		<Row ID="ShellTemperedPotteryWildcardResourceGoldWarehouse" YieldType="YIELD_GOLD" YieldChange="1" TilesRequired="1" AdjacentResource="true"/>
@@ -312,11 +316,10 @@
 	</Constructible_Adjacencies>
 	<Constructible_WildcardAdjacencies>
 		<!-- Leaders -->
-		<Row YieldChangeId="AshokaRuralAdjacency" RequiresActivation="true" ConstructibleClass="BUILDING"/>
+		<Row YieldChangeId="AshokaUniqueBuildingAdjacencyToImprovements" RequiresActivation="true" ConstructibleTag="UNIQUE"/>
 		<Row YieldChangeId="CharlemagneMilitaryBuildingHappiness" RequiresActivation="true" ConstructibleTag="MILITARY"/>
 		<Row YieldChangeId="CharlemagneScienceBuildingHappiness" RequiresActivation="true" ConstructibleTag="SCIENCE"/>
 		<Row YieldChangeId="PachacutiMountainFood" RequiresActivation="true" ConstructibleClass="BUILDING"/>
-		<Row YieldChangeId="PachacutiMountainUniqueImprovementFood" RequiresActivation="true" ConstructibleTag="UNIQUE_IMPROVEMENT"/>
 		<!-- Traditions -->
 		<Row YieldChangeId="ShellTemperedPotteryWildcardResourceGoldFood" RequiresActivation="true" ConstructibleTag="FOOD"/>
 		<Row YieldChangeId="ShellTemperedPotteryWildcardResourceGoldGold" RequiresActivation="true" ConstructibleTag="GOLD"/>

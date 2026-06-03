@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+  <AiComponents>
+    <!-- Tentatively use the same targeting as in antuqity -->
+    <Row Component="Targets_Antiquity" DefaultPriority="AI_PRIORITY_STRATEGIC"/>
+    <Row Component="Military_Modern" DefaultPriority="AI_PRIORITY_MEDIUM" Consumer="true"/>
+    <Row Component="Diplomatic_Modern" DefaultPriority="AI_PRIORITY_MEDIUM" Consumer="true"/>
+    <Row Component="Archaeology" DefaultPriority="AI_PRIORITY_MEDIUM" Consumer="true"/>
+  </AiComponents>
+  <AiDefinitions>
+    <Row LeaderTrait="TRAIT_LEADER_MAJOR_CIV" AiComponent="Targets_Antiquity"/>
+    <Row LeaderTrait="TRAIT_LEADER_MINOR_CIV" AiComponent="Targets_Antiquity"/>
+    <Row LeaderTrait="TRAIT_LEADER_INDEPENDENT" AiComponent="Targets_Antiquity"/>
+    <Delete LeaderTrait="TRAIT_LEADER_MAJOR_CIV" AiComponent="Military"/>
+    <Row LeaderTrait="TRAIT_LEADER_MAJOR_CIV" AiComponent="Military_Modern"/>
+    <Delete LeaderTrait="TRAIT_LEADER_MAJOR_CIV" AiComponent="Diplomatic"/>
+    <Row LeaderTrait="TRAIT_LEADER_MAJOR_CIV" AiComponent="Diplomatic_Modern"/>
+    <Row LeaderTrait="TRAIT_LEADER_MAJOR_CIV" AiComponent="Archaeology"/>
+  </AiDefinitions>
+  <Pseudoyields>
+    <Update>
+      <Where PseudoYieldType="PSEUDOYIELD_STANDING_AIR_UNIT"/>
+      <Set DefaultValue="240"/>
+    </Update>
+  </Pseudoyields>
+  <IdeologyPriorities>
+    <Row IdeologyType="IDEOLOGY_COMMUNISM" AiListType="IdeologyCommunismYieldBiases"/>
+    <Row IdeologyType="IDEOLOGY_DEMOCRACY" AiListType="IdeologyDemocracyYieldBiases"/>
+    <Row IdeologyType="IDEOLOGY_FASCISM" AiListType="IdeologyFascismYieldBiases"/>
+  </IdeologyPriorities>
+  <OpTeamRequirements>
+    <Update>
+      <Where TeamName="Independent Civ Force" ClassTag="UNIT_CLASS_COMBAT"/>
+      <Set MaxNumber="5"/>
+    </Update>
+  </OpTeamRequirements>
+  <AiListTypes>
+    <!-- Ideology Biases -->
+    <Row ListType="IdeologyCommunismYieldBiases"/>
+    <Row ListType="IdeologyDemocracyYieldBiases"/>
+    <Row ListType="IdeologyFascismYieldBiases"/>
+
+    <!-- Modern Majors -->
+    <Row ListType="Modern Tag Biases"/>
+    <Row ListType="Modern Constructible Biases"/>
+    <Row ListType="Modern Unit Biases"/>
+  </AiListTypes>
+  <AiLists>
+    <!-- Ideology Biases -->
+    <Row ListType="IdeologyCommunismYieldBiases" LeaderType="TRAIT_COMMUNIST_IDEOLOGY" System="YieldBiases"/>
+    <Row ListType="IdeologyDemocracyYieldBiases" LeaderType="TRAIT_DEMOCRATIC_IDEOLOGY" System="YieldBiases"/>
+    <Row ListType="IdeologyFascismYieldBiases" LeaderType="TRAIT_FASCIST_IDEOLOGY" System="YieldBiases"/>
+
+    <!-- Modern Majors  -->
+    <Row ListType="Modern Tag Biases" LeaderType="TRAIT_MODERN_CIV" System="TagBiases"/>
+    <Row ListType="Modern Constructible Biases" LeaderType="TRAIT_MODERN_CIV" System="ConstructibleBiases"/>
+    <Row ListType="Modern Unit Biases" LeaderType="TRAIT_MODERN_CIV" System="UnitBiases"/>
+    <Row ListType="Modern Tag Biases" LeaderType="TRAIT_ANACHRONISTIC_CIV" System="TagBiases"/>
+    <Row ListType="Modern Constructible Biases" LeaderType="TRAIT_ANACHRONISTIC_CIV" System="ConstructibleBiases"/>
+    <Row ListType="Modern Unit Biases" LeaderType="TRAIT_ANACHRONISTIC_CIV" System="UnitBiases"/>
+  </AiLists>
+  <AiFavoredItems>
+    <!-- Ideology Biases -->
+    <Row ListType="IdeologyCommunismYieldBiases" Item="YIELD_FOOD" Value="25"/>
+    <Row ListType="IdeologyDemocracyYieldBiases" Item="YIELD_GOLD" Value="25"/>
+    <Row ListType="IdeologyFascismYieldBiases" Item="YIELD_PRODUCTION" Value="25"/>
+
+    <!-- Modern Majors  -->
+    <Row ListType="Modern Tag Biases" Item="PRODUCTION" Value="100"/>
+    <Row ListType="Modern Unit Biases" Item="UNIT_BIPLANE" Value="25"/>
+    <Row ListType="Modern Unit Biases" Item="UNIT_TRENCH_FIGHTER" Value="25"/>
+    <Row ListType="Modern Unit Biases" Item="UNIT_BOMBER" Value="25"/>
+    <Row ListType="Modern Unit Biases" Item="UNIT_FIGHTER" Value="25"/>
+    <Row ListType="Modern Unit Biases" Item="UNIT_DIVEBOMBER" Value="25"/>
+    <Row ListType="Modern Unit Biases" Item="UNIT_HEAVY_BOMBER" Value="25"/>
+
+	<!-- America -->
+	<Row ListType="America Settlement Plot Evaluations" Item="Resource Class" Value="5" StringVal="RESOURCECLASS_FACTORY" TooltipString="LOC_SETTLEMENT_RECOMMENDATION_STRATEGIC_RESOURCES"/>
+  </AiFavoredItems>
+</Database>

@@ -1,28 +1,22 @@
 import { rotate2, add2 } from '../../core/scripts/MathHelpers.js';
 import { Heap } from './heap.js';
-import { TerrainType, BiomeType, DetailsType, WrapType, VoronoiUtils, kdTree } from './kd-tree.js';
-import '../../core/scripts/external/TypeScript-Voronoi-master/src/voronoi.js';
-import '../../core/scripts/external/TypeScript-Voronoi-master/src/rbtree.js';
-import '../../core/scripts/external/TypeScript-Voronoi-master/src/vertex.js';
-import '../../core/scripts/external/TypeScript-Voronoi-master/src/edge.js';
-import '../../core/scripts/external/TypeScript-Voronoi-master/src/cell.js';
-import '../../core/scripts/external/TypeScript-Voronoi-master/src/diagram.js';
-import '../../core/scripts/external/TypeScript-Voronoi-master/src/halfedge.js';
-import './random-pcg-32.js';
+import { kdTree } from './kd-tree.js';
+import { TerrainType, BiomeType, DetailsType, RegionType } from './voronoi-types.js';
+import { WrapType, VoronoiUtils } from './voronoi-utils.js';
 
 var RemoveBridgingCoastsOptions = /* @__PURE__ */ ((RemoveBridgingCoastsOptions2) => {
   RemoveBridgingCoastsOptions2[RemoveBridgingCoastsOptions2["OFF"] = 0] = "OFF";
-  RemoveBridgingCoastsOptions2[RemoveBridgingCoastsOptions2["ISLANDS_ONLY"] = 1] = "ISLANDS_ONLY";
-  RemoveBridgingCoastsOptions2[RemoveBridgingCoastsOptions2["ALL"] = 2] = "ALL";
+  RemoveBridgingCoastsOptions2[RemoveBridgingCoastsOptions2["DIFFERENT_LANDMASSES"] = 1] = "DIFFERENT_LANDMASSES";
+  RemoveBridgingCoastsOptions2[RemoveBridgingCoastsOptions2["DIFFERENT_LANDMASS_GROUPS"] = 2] = "DIFFERENT_LANDMASS_GROUPS";
+  RemoveBridgingCoastsOptions2[RemoveBridgingCoastsOptions2["DIFFERENT_TYPES"] = 4] = "DIFFERENT_TYPES";
+  RemoveBridgingCoastsOptions2[RemoveBridgingCoastsOptions2["ALL"] = 7] = "ALL";
   return RemoveBridgingCoastsOptions2;
 })(RemoveBridgingCoastsOptions || {});
 class HexValidationSettings {
-  forcePoles = true;
+  polarMargin = 2;
   forceCoasts = true;
   removeLakes = true;
-  removeBridgingCoasts = 2 /* ALL */;
-  firstIslandId = 0;
-  // must be set if removeBridgingCoasts is set to ISLANDS_ONLY
+  removeBridgingCoasts = 7 /* ALL */;
   removeAdjacentVolcanos = true;
   removeBridgingLandmass = false;
 }
@@ -31,11 +25,13 @@ class HexTile {
   coord = { x: 0, y: 0 };
   plateId = -1;
   landmassId = -1;
-  // elevation = 0;
+  playerLandmassId = -1;
+  // used to identify a contiguous land mass where players are allowed to spawn. Used for separating distant and home lands. -1 for unassigned/Ocean, 0 for non-player lands, 1+ for landmasses.
   majorPlayerRegionId = -1;
   terrainType = TerrainType.Unknown;
   biomeType = BiomeType.Unknown;
   detailsType = DetailsType.None;
+  // elevation = 0;
   visited = 0;
   // used during map creation and processing.
   isLand() {
@@ -44,6 +40,11 @@ class HexTile {
   isWater() {
     return this.terrainType === TerrainType.Ocean || this.terrainType === TerrainType.Coast || this.terrainType === TerrainType.NavRiver;
   }
+}
+class PlayerRegion {
+  id = -1;
+  playerAreas = 0;
+  filter = (tile) => tile.landmassId == this.id;
 }
 class HexTileDesc {
   plateId = -1;
@@ -58,64 +59,77 @@ var FloodFillResult = /* @__PURE__ */ ((FloodFillResult2) => {
   FloodFillResult2[FloodFillResult2["Halt"] = 2] = "Halt";
   return FloodFillResult2;
 })(FloodFillResult || {});
+class VoronoiHexStats {
+  oceanTileCount = 0;
+  totalCoastCount = 0;
+  totalLandCount = 0;
+  landmass = [];
+  // 0 is reserved for non-player land, so player land starts at index 1. Index corresponds to playerLandmassId.
+}
 class VoronoiHex {
-  static POLE_MARGIN = 2;
-  // guaranteed rows of ocean near poles.
   m_tiles = [];
+  m_regions = [];
   m_wrappedXIndices = [];
   // Saves lots of % calls
   m_xOffset = 0;
   m_yOffset = 0;
   m_validationSettings = new HexValidationSettings();
+  m_stats = new VoronoiHexStats();
   setValidationSettings(validationSettings) {
     this.m_validationSettings = validationSettings;
   }
-  initFromRegionCells(width, height, tree) {
+  initFromRegionCells(width, height, tree, regions) {
     const offsetPoint = { x: 0.736 * 0.5, y: 0 };
     const offsetPoints = [{ x: 0, y: 0 }];
     for (let i = 0; i < 6; ++i) {
       offsetPoints.push(rotate2(offsetPoint, i * Math.PI / 3));
     }
-    this.initFromTiles(width, height, (_x, _y, centerPos) => {
-      const getRegionCellKey = (cell) => {
-        return `${cell.terrainType}`;
-      };
-      const regionCells = /* @__PURE__ */ new Map();
-      for (const offsetPos of offsetPoints) {
-        const samplePos = add2(offsetPos, centerPos);
-        const regionCell = tree.search(samplePos)?.data;
-        if (regionCell) {
-          const regionCellKey = getRegionCellKey(regionCell);
-          const entry = regionCells.get(regionCellKey);
-          if (entry) {
-            entry[0]++;
-          } else {
-            regionCells.set(regionCellKey, [1, regionCell]);
+    this.initFromTiles(
+      width,
+      height,
+      (_x, _y, centerPos) => {
+        const getRegionCellKey = (cell) => {
+          return `${cell.terrainType}`;
+        };
+        const regionCells = /* @__PURE__ */ new Map();
+        for (const offsetPos of offsetPoints) {
+          const samplePos = add2(offsetPos, centerPos);
+          const regionCell = tree.search(samplePos)?.data;
+          if (regionCell) {
+            const regionCellKey = getRegionCellKey(regionCell);
+            const entry = regionCells.get(regionCellKey);
+            if (entry) {
+              entry[0]++;
+            } else {
+              regionCells.set(regionCellKey, [1, regionCell]);
+            }
           }
         }
-      }
-      let dominantCell = null;
-      let maxCount = 0;
-      for (const [_key, [count, cell]] of regionCells) {
-        if (count > maxCount) {
-          dominantCell = cell;
-          maxCount = count;
+        let dominantCell = null;
+        let maxCount = 0;
+        for (const [_key, [count, cell]] of regionCells) {
+          if (count > maxCount) {
+            dominantCell = cell;
+            maxCount = count;
+          }
         }
-      }
-      const hexTileDesc = new HexTileDesc();
-      if (dominantCell) {
-        hexTileDesc.plateId = dominantCell.plateId;
-        hexTileDesc.landmassId = dominantCell.landmassId;
-        hexTileDesc.terrainType = dominantCell.terrainType;
-        hexTileDesc.biomeType = dominantCell.biomeType;
-        hexTileDesc.detailsType = dominantCell.detailsType;
-      }
-      return hexTileDesc;
-    });
+        const hexTileDesc = new HexTileDesc();
+        if (dominantCell) {
+          hexTileDesc.plateId = dominantCell.plateId;
+          hexTileDesc.landmassId = dominantCell.landmassId;
+          hexTileDesc.terrainType = dominantCell.terrainType;
+          hexTileDesc.biomeType = dominantCell.biomeType;
+          hexTileDesc.detailsType = dominantCell.detailsType;
+        }
+        return hexTileDesc;
+      },
+      regions
+    );
   }
-  initFromTiles(xCount, yCount, getTile) {
+  initFromTiles(xCount, yCount, getTile, regions) {
     this.m_wrappedXIndices = Array.from({ length: xCount * 3 }, (_, index) => index % xCount);
     this.m_tiles = new Array(yCount);
+    this.m_regions = regions;
     const yOffset = 0.325;
     for (let y = 0; y < yCount; ++y) {
       const xOffset = y % 2 == 0 ? 0 : Math.sqrt(3) * 0.25;
@@ -168,8 +182,8 @@ class VoronoiHex {
     }
   }
   validate() {
-    if (this.m_validationSettings.forcePoles) {
-      this.validatePoles(VoronoiHex.POLE_MARGIN);
+    if (this.m_validationSettings.polarMargin > 0) {
+      this.validatePoles(this.m_validationSettings.polarMargin);
     }
     if (this.m_validationSettings.forceCoasts) {
       this.validateCoasts();
@@ -187,15 +201,72 @@ class VoronoiHex {
       this.removeBridgingCoasts();
     }
   }
+  calculatePlayerLandmasses() {
+    this.m_stats = new VoronoiHexStats();
+    this.m_stats.landmass.push({ land: 0, coast: 0 });
+    let currentPlayerLandmassId = 1;
+    for (const tile of this.m_tiles.flat()) {
+      if (tile.terrainType === TerrainType.Ocean) {
+        this.m_stats.oceanTileCount++;
+      } else if (tile.playerLandmassId === -1) {
+        const region = this.m_regions[tile.landmassId];
+        if (region.type === RegionType.Island || region.playerAreas === 0) {
+          tile.playerLandmassId = 0;
+          if (tile.terrainType === TerrainType.Coast) {
+            this.m_stats.landmass[0].coast++;
+          } else {
+            this.m_stats.landmass[0].land++;
+          }
+        } else {
+          let coastCount = 0;
+          let landCount = 0;
+          tile.playerLandmassId = currentPlayerLandmassId;
+          this.floodFill(tile, (neighbor) => {
+            if (neighbor.terrainType !== TerrainType.Ocean) {
+              neighbor.playerLandmassId = currentPlayerLandmassId;
+              if (neighbor.terrainType === TerrainType.Coast) {
+                ++coastCount;
+              } else {
+                ++landCount;
+              }
+              return 0 /* Include */;
+            }
+            return 1 /* Exclude */;
+          });
+          this.m_stats.landmass.push({ land: landCount, coast: coastCount });
+          ++currentPlayerLandmassId;
+        }
+      }
+    }
+    this.clearVisited();
+    for (const landmass of this.m_stats.landmass) {
+      this.m_stats.totalCoastCount += landmass.coast;
+      this.m_stats.totalLandCount += landmass.land;
+    }
+    console.log(`Ocean tiles: ${this.m_stats.oceanTileCount}`);
+    console.log(`Total coast tiles: ${this.m_stats.totalCoastCount}`);
+    console.log(`Total land tiles: ${this.m_stats.totalLandCount}`);
+    for (let i = 0; i < this.m_stats.landmass.length; ++i) {
+      const landmass = this.m_stats.landmass[i];
+      if (i == 0) {
+        console.log(`Non-player lands: ${landmass.land} land tiles, ${landmass.coast} coast tiles`);
+      } else {
+        console.log(`Player landmass ${i}: ${landmass.land} land tiles, ${landmass.coast} coast tiles`);
+      }
+    }
+    return this.m_stats;
+  }
   validatePoles(marginSize) {
     for (let y = 0; y < marginSize; ++y) {
       for (const tile of this.m_tiles[y]) {
         tile.terrainType = TerrainType.Ocean;
+        tile.landmassId = 0;
       }
     }
     for (let y = this.m_tiles.length - marginSize; y < this.m_tiles.length; ++y) {
       for (const tile of this.m_tiles[y]) {
         tile.terrainType = TerrainType.Ocean;
+        tile.landmassId = 0;
       }
     }
   }
@@ -266,18 +337,37 @@ class VoronoiHex {
       if (tile.terrainType === TerrainType.Coast) {
         let allNeighborsAreWater = true;
         let hasForeignNeighbor = false;
-        const isIsland = tile.landmassId >= this.m_validationSettings.firstIslandId;
+        const isIsland = this.m_regions[tile.landmassId].type == RegionType.Island;
+        const thisRegion = this.m_regions[tile.landmassId];
         for (const neighbor of this.getNeighbors(tile)) {
           if (neighbor?.terrainType !== TerrainType.Coast && neighbor?.terrainType !== TerrainType.Ocean) {
             allNeighborsAreWater = false;
             break;
           }
-          if (this.m_validationSettings.removeBridgingCoasts == 2 /* ALL */) {
+          if (neighbor.landmassId != 0) {
+            const neighborRegion = this.m_regions[neighbor.landmassId];
+            if (!hasForeignNeighbor && this.m_validationSettings.removeBridgingCoasts & 1 /* DIFFERENT_LANDMASSES */) {
+              if (neighbor.landmassId != tile.landmassId && neighbor.landmassId != 0) {
+                hasForeignNeighbor = true;
+              }
+            }
+            if (!hasForeignNeighbor && this.m_validationSettings.removeBridgingCoasts & 2 /* DIFFERENT_LANDMASS_GROUPS */) {
+              if (thisRegion.groupId != neighborRegion.groupId) {
+                hasForeignNeighbor = true;
+              }
+            }
+            if (!hasForeignNeighbor && this.m_validationSettings.removeBridgingCoasts & 4 /* DIFFERENT_TYPES */) {
+              if (thisRegion.type != neighborRegion.type) {
+                hasForeignNeighbor = true;
+              }
+            }
+          }
+          if (this.m_validationSettings.removeBridgingCoasts == 7 /* ALL */) {
             if (neighbor.landmassId != tile.landmassId && neighbor.landmassId != 0) {
               hasForeignNeighbor = true;
             }
           } else {
-            const neighborIsIsland = neighbor.landmassId >= this.m_validationSettings.firstIslandId;
+            const neighborIsIsland = this.m_regions[neighbor.landmassId].type == RegionType.Island;
             if (neighborIsIsland != isIsland) {
               hasForeignNeighbor = true;
             }
@@ -345,15 +435,18 @@ class VoronoiHex {
     }
     this.offset(this.m_xOffset - bestColumn, this.m_yOffset);
   }
-  createMajorPlayerAreas(landmasses, valueFunction, wrap = { wrap: WrapType.None }) {
+  createMajorPlayerAreas(landmasses, valueFunction, _wrap = { wrap: WrapType.None }) {
     console.log("Creating major player regions...");
     const detailedLogs = false;
     VoronoiUtils.performanceMarker("createMajorPlayerAreas - Begin");
+    let playerIdOffset = 0;
     for (const landmass of landmasses) {
+      const filter = landmass.filter ? landmass.filter.bind(landmass) : (tile) => tile.landmassId == landmass.id;
+      let landmassTiles = this.m_tiles.flatMap((row) => row.filter(filter));
+      landmassTiles.forEach((tile) => {
+        tile.majorPlayerRegionId = -1;
+      });
       if (landmass.playerAreas == 0) continue;
-      let landmassTiles = this.m_tiles.flatMap(
-        (row) => row.filter((tile) => tile.landmassId === landmass.id)
-      );
       console.log(
         `Requesting ${landmass.playerAreas} player areas on landmass ${landmass.id} with ${landmassTiles.length} tiles.`
       );
@@ -366,20 +459,20 @@ class VoronoiHex {
           floodBucket.push(
             this.floodFill(
               tile,
-              (tile2) => tileIsPassable(tile2) && tile2.landmassId === landmass.id ? 0 /* Include */ : 1 /* Exclude */
+              (tile2) => tileIsPassable(tile2) && filter(tile2) ? 0 /* Include */ : 1 /* Exclude */
             )
           );
         }
       }
       landmassTiles.forEach((tile) => {
         tile.visited = 0;
-        tile.majorPlayerRegionId = -1;
       });
       landmassTiles = floodBucket.sort((a, b) => b.length - a.length)[0];
       if (landmass.playerAreas == 1) {
         landmassTiles.forEach((tile) => {
-          tile.majorPlayerRegionId = 0;
+          tile.majorPlayerRegionId = playerIdOffset;
         });
+        playerIdOffset += landmass.playerAreas;
         continue;
       }
       const landmassKdTree = new kdTree((tile) => tile.pos);
@@ -413,19 +506,43 @@ class VoronoiHex {
       };
       const relaxationSteps = 10;
       let lastSizeDiff = Infinity;
+      const landmassTileSet = new Set(landmassTiles);
       for (let i = 0; i < relaxationSteps; ++i) {
         for (const tile of landmassTiles) {
-          let bestRegion = 0;
-          let closestDistSq = VoronoiUtils.sqDistance(seedTiles[0].tile.pos, tile.pos, wrap);
-          for (let j = 1; j < seedTiles.length; ++j) {
-            const distSq = VoronoiUtils.sqDistance(seedTiles[j].tile.pos, tile.pos, wrap);
-            if (distSq < closestDistSq) {
-              bestRegion = j;
-              closestDistSq = distSq;
+          tile.majorPlayerRegionId = -1;
+        }
+        for (const seed of seedTiles) {
+          seed.count = 0;
+        }
+        const dijkstraHeap = new Heap(
+          (a, b) => a.dist - b.dist
+        );
+        const bestDist = /* @__PURE__ */ new Map();
+        for (let j = 0; j < seedTiles.length; ++j) {
+          const seedTile = seedTiles[j].tile;
+          dijkstraHeap.push({ tile: seedTile, dist: 0, regionId: j });
+          bestDist.set(seedTile, 0);
+          seedTile.majorPlayerRegionId = j;
+          ++seedTiles[j].count;
+        }
+        while (dijkstraHeap.size > 0) {
+          const entry = dijkstraHeap.pop();
+          if (entry.dist > bestDist.get(entry.tile)) continue;
+          for (const neighbor of this.getNeighbors(entry.tile)) {
+            if (!neighbor || !landmassTileSet.has(neighbor)) continue;
+            const cost = neighbor.terrainType === TerrainType.Coast ? 2 : 1;
+            const newDist = entry.dist + cost;
+            const existing = bestDist.get(neighbor);
+            if (existing === void 0 || newDist < existing) {
+              bestDist.set(neighbor, newDist);
+              if (neighbor.majorPlayerRegionId >= 0) {
+                --seedTiles[neighbor.majorPlayerRegionId].count;
+              }
+              neighbor.majorPlayerRegionId = entry.regionId;
+              ++seedTiles[entry.regionId].count;
+              dijkstraHeap.push({ tile: neighbor, dist: newDist, regionId: entry.regionId });
             }
           }
-          tile.majorPlayerRegionId = bestRegion;
-          ++seedTiles[bestRegion].count;
         }
         const counts = seedTiles.map((seedTile) => seedTile.count);
         const sizeDiff = Math.max(...counts) - Math.min(...counts);
@@ -589,7 +706,7 @@ class VoronoiHex {
       const getBorderNeighbors = (tile) => {
         const borderNeighbors = [];
         for (const neighbor of this.getNeighbors(tile)) {
-          if (neighbor && neighbor.majorPlayerRegionId != -1 && neighbor.majorPlayerRegionId != tile.majorPlayerRegionId && neighbor.landmassId == landmass.id) {
+          if (neighbor && neighbor.majorPlayerRegionId != -1 && neighbor.majorPlayerRegionId != tile.majorPlayerRegionId) {
             borderNeighbors.push(neighbor);
           }
         }
@@ -832,15 +949,19 @@ class VoronoiHex {
           }
         }
       }
-      this.m_tiles.forEach(
-        (row) => row.forEach((tile) => {
-          tile.visited = 0;
-        })
-      );
+      if (playerIdOffset > 0) {
+        for (const region of playerRegions) {
+          for (const tile of region.finalSet) {
+            tile.majorPlayerRegionId += playerIdOffset;
+          }
+        }
+      }
+      this.clearVisited();
       VoronoiUtils.performanceMarker("createMajorPlayerAreas - Region Optimizing Done");
       console.log(
-        `"Finished creating major player regions for landmass ${landmass.id}, region sizes are: [${playerRegions.map((region) => region.finalSet.size).join(", ")}] and vales are: [${playerRegions.map((region) => region.totalValue).join(", ")}]`
+        `"Finished creating major player regions for region ${landmass.id}, (ids ${playerIdOffset} - ${playerIdOffset + landmass.playerAreas - 1}). Region sizes are: [${playerRegions.map((region) => region.finalSet.size).join(", ")}] and vales are: [${playerRegions.map((region) => region.totalValue).join(", ")}]`
       );
+      playerIdOffset += landmass.playerAreas;
     }
   }
   floodFill(initialTile, considerCallback) {
@@ -879,5 +1000,5 @@ class VoronoiHex {
   }
 }
 
-export { HexTile, HexTileDesc, HexValidationSettings, RemoveBridgingCoastsOptions, VoronoiHex };
+export { FloodFillResult, HexTile, HexTileDesc, HexValidationSettings, PlayerRegion, RemoveBridgingCoastsOptions, VoronoiHex, VoronoiHexStats };
 //# sourceMappingURL=voronoi-hex.js.map

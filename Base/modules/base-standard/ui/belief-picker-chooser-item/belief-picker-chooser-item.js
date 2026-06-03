@@ -1,11 +1,6 @@
 import { ChooserItem } from '../chooser-item/chooser-item.js';
-import { c as chooserItemStyles } from '../chooser-item/chooser-item.chunk.js';
-import '../../../core/ui/components/fxs-activatable.chunk.js';
-import '../../../core/ui/audio-base/audio-support.chunk.js';
-import '../../../core/ui/input/focus-manager.js';
-import '../../../core/ui/framework.chunk.js';
-
-const beliefPickerChooserItemStyles = "fs://game/base-standard/ui/belief-picker-chooser-item/belief-picker-chooser-item.css";
+import beliefPickerChooserItemStyles from './belief-picker-chooser-item.scss.js';
+import styles from '../chooser-item/chooser-item.scss.js';
 
 class BeliefPickerChooserItem extends ChooserItem {
   get beliefPickerChooserNode() {
@@ -67,6 +62,7 @@ class BeliefPickerChooserItem extends ChooserItem {
       description.classList.value = "belief-picker_desc font-body-xs";
       description.setAttribute("data-l10n-id", node.description);
       textContainer.appendChild(description);
+      this.shouldPlayErrorSound = true;
     } else {
       this.Root.classList.add("belief-picker_slot", "items-center", "cursor-not-allowed", "grow");
       this.Root.classList.remove("cursor-pointer");
@@ -86,7 +82,7 @@ Controls.define("belief-picker-chooser-item", {
   createInstance: BeliefPickerChooserItem,
   description: "A chooser item to be used with the belief picker",
   classNames: ["belief-picker-chooser-item", "relative", "group"],
-  styles: [chooserItemStyles, beliefPickerChooserItemStyles],
+  styles: [styles, beliefPickerChooserItemStyles],
   images: [
     "fs://game/hud_sidepanel_list-bg.png",
     "fs://game/hud_list-focus_frame.png",

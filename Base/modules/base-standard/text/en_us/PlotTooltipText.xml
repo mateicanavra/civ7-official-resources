@@ -16,6 +16,12 @@
 		<Row Tag="LOC_PLOT_TOOLTIP_RIVER_MINOR">
 			<Text>Minor</Text>
 		</Row>
+		<Row Tag="LOC_PLOT_TOOLTIP_BLOCKS_SIGHT">
+			<Text>Blocks Sight</Text>
+		</Row>
+		<Row Tag="LOC_PLOT_TOOLTIP_ENDS_MOVEMENT">
+			<Text>Ends Movement</Text>
+		</Row>
 		<Row Tag="LOC_PLOT_TOOLTIP_THIS_AGE_BUILDINGS">
 			<Text>Buildings: Current Age</Text>
 		</Row>
@@ -31,6 +37,9 @@
 		<Row Tag="LOC_PLOT_TOOLTIP_INDEX">
 			<Text>Index</Text>
 		</Row>
+		<Row Tag="LOC_PLOT_TOOLTIP_INSPECT">
+			<Text>INSPECT</Text>
+		</Row>
 		<Row Tag="LOC_PLOT_TOOLTIP_TAG">
 			<Text>Tag</Text>
 		</Row>
@@ -44,7 +53,7 @@
 			<Text>Unimproved</Text>
 		</Row>
 		<Row Tag="LOC_PLOT_TOTAL_YIELDS">
-			<Text>Total Yields: {1_Yields}</Text>
+			<Text>[style:text-accent-3]Total Yields:[/style] {1_Yields}</Text>
 		</Row>
 		<Row Tag="LOC_PLOT_TOOLTIP_URBAN_DISTRICT">
 			<Text>Urban District</Text>
@@ -55,14 +64,20 @@
 		<Row Tag="LOC_PLOT_TOOLTIP_UNIQUE_QUARTER">
 			<Text>Unique Quarter</Text>
 		</Row>
+		<Row Tag="LOC_PLOT_TOOLTIP_UNIQUE_BUILDING">
+			<Text>Unique Building</Text>
+		</Row>
 		<Row Tag="LOC_PLOT_TOOLTIP_QUARTER">
 			<Text>Quarter</Text>
 		</Row>
 		<Row Tag="LOC_PLOT_TOOLTIP_RESOURCE">
 			<Text>Resource</Text>
 		</Row>
+		<Row Tag="LOC_PLOT_TOOLTIP_TREASURE_RESOURCE">
+			<Text>Treasure Resource</Text>
+		</Row>
 		<Row Tag="LOC_PLOT_TOOLTIP_RURAL_DISTRICT">
-			<Text>Rural District</Text>
+			<Text>Rural</Text>
 		</Row>
 		<Row Tag="LOC_PLOT_TOOLTIP_OVERBUILDABLE">
 			<Text>Overbuildable</Text>
@@ -77,7 +92,10 @@
 			<Text>In Progress</Text>
 		</Row>
 		<Row Tag="LOC_PLOT_TOOLTIP_GROWTH_IMPROVEMENT">
-			<Text>Improve here to get:[N]{1_ConstructibleName}</Text>
+			<Text>Improve here to get:[N][style:text-secondary]{1_ImprovementName}[/style]</Text>
+		</Row>
+		<Row Tag="LOC_PLOT_TOOLTIP_GROWTH_IMPROVEMENT_PREFIX_ONLY">
+			<Text>Improve here to get:</Text>
 		</Row>
 		<Row Tag="LOC_PLOT_TOOLTIP_OWNER">
 			<Text>Owner</Text>
@@ -130,8 +148,29 @@
 		<Row Tag="LOC_PLOT_TOOLTIP_HEALING_DISTRICT">
 			<Text>Healing District</Text>
 		</Row>
+		<Row Tag="LOC_PLOT_TOOLTIP_DAMAGED_WALLS">
+			<Text>Damaged Walls</Text>
+		</Row>
+		<Row Tag="LOC_PLOT_TOOLTIP_ALERT_OCCUPIED">
+			<Text>Occupied</Text>
+		</Row>
+		<Row Tag="LOC_PLOT_TOOLTIP_ALERT_OCCUPIED_DETAILS">
+			<Text>Enemy Military Unit on Tile</Text>
+		</Row>
+		<Row Tag="LOC_PLOT_TOOLTIP_ALERT_UNITS_MAY_TAKE_DAMAGE">
+			<Text>Units may take damage</Text>
+		</Row>
+		<Row Tag="LOC_PLOT_TOOLTIP_ALERT_NO_TILE_EFFECTS_OR_YIELDS">
+			<Text>Not providing Tile Effects or Yields</Text>
+		</Row>
+		<Row Tag="LOC_PLOT_TOOLTIP_ALERT_TURNS_REMAINING">
+			<Text>{1_Turns} {1_Turns: plural 1?Turn; other?Turns;} Remaining</Text>
+		</Row>
 		<Row Tag="LOC_PLOT_TOOLTIP_SPECIALISTS_ASSIGNED">
 			<Text>{1_Current} of {2_Possible} Specialists Assigned</Text>
+		</Row>
+		<Row Tag="LOC_PLOT_TOOLTIP_SPECIALISTS">
+			<Text>Specialists</Text>
 		</Row>
 		<Row Tag="LOC_PLOT_TOOLTIP_TERRAIN_WITH_BIOME">
 			<Text>{1_TerrainName} {2_BiomeName}</Text>

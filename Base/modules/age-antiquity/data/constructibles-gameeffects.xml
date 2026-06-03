@@ -31,7 +31,7 @@
 	<!--	Improvements							-->
 	<!-- ==================================================	-->
 	<!-- Baray -->
-	<Modifier id="MOD_BARAY_RIVER_FLOOD_IMMUNITY" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_AVOID_RANDOM_EVENT" permanent="true">
+	<Modifier id="MOD_BARAY_RIVER_FLOOD_IMMUNITY" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_AVOID_RANDOM_EVENT">
 		<SubjectRequirements>
 			<Requirement type="REQUIREMENT_CITY_HAS_BUILDING">
 				<Argument name="BuildingType">IMPROVEMENT_BARAY</Argument>
@@ -56,15 +56,15 @@
 		<Argument name="TerritoryTypes">ALL_TERRITORIES</Argument>
 	</Modifier>
 	<!-- Pairidaeza -->
-	<Modifier id="MOD_PAIRIDAEZA_SETTLEMENT_HEAL" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_ATTACH_MODIFIERS">
+	<Modifier id="MOD_PAIRIDAEZA_HEAL_ABILITY" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_ABILITY">
 		<SubjectRequirements>
-			<Requirement type="REQUIREMENT_CITY_HAS_BUILDING">
+			<Requirement type="REQUIREMENT_UNIT_NEAR_CITY_WITH_CONSTRUCTIBLE">
 				<Argument name="BuildingType">IMPROVEMENT_PAIRIDAEZA</Argument>
 			</Requirement>
 		</SubjectRequirements>
-		<Argument name="ModifierId">ATTACH_MOD_PAIRIDAEZA_SETTLEMENT_HEAL</Argument>
+    <Argument name="AbilityType">ABILITY_PAIRIDAEZA</Argument>
 	</Modifier>
-	<Modifier id="ATTACH_MOD_PAIRIDAEZA_SETTLEMENT_HEAL" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_HEAL_PER_TURN">
+	<Modifier id="PAIRIDAEZA_MOD_HEALING" collection="COLLECTION_OWNER" effect="EFFECT_UNIT_ADJUST_HEAL_PER_TURN">
 		<Argument name="Amount">5</Argument>
 		<Argument name="TerritoryTypes">FRIENDLY_TERRITORY</Argument>
 	</Modifier>
@@ -129,13 +129,24 @@
 			<Requirement type="REQUIREMENT_PLOT_IS_QUARTER"/>
 		</SubjectRequirements>
 		<Argument name="YieldType">YIELD_HAPPINESS</Argument>
-		<Argument name="Amount">2</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Tooltip">LOC_WONDER_COLOSSEUM_NAME</Argument>
+	</Modifier>
+	<Modifier id="MOD_COLOSSEUM_URBAN_GOLD" collection="COLLECTION_CITY_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_WONDER_IS_ACTIVE">
+				<Argument name="ConstructibleType">WONDER_COLOSSEUM</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_PLOT_IS_QUARTER"/>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_GOLD</Argument>
+		<Argument name="Amount">1</Argument>
 		<Argument name="Tooltip">LOC_WONDER_COLOSSEUM_NAME</Argument>
 	</Modifier>
 	<!-- Colossus -->
 	<Modifier id="MOD_COLOSSUS_ECONOMIC_ATTRIBUTE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ATTRIBUTE" permanent="true">
 		<SubjectRequirements>
-			<Requirement type="REQUIREMENT_WONDER_IS_ACTIVE">
+			<Requirement type="REQUIREMENT_PLAYER_BUILT_CONSTRUCTIBLE_TYPE">
 				<Argument name="ConstructibleType">WONDER_COLOSSUS</Argument>
 			</Requirement>
 		</SubjectRequirements>
@@ -177,7 +188,7 @@
 	<!-- Emile Bell -->
 	<Modifier id="MOD_EMILE_BELL_POLITICAL_ATTRIBUTE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ATTRIBUTE" permanent="true">
 		<SubjectRequirements>
-			<Requirement type="REQUIREMENT_WONDER_IS_ACTIVE">
+			<Requirement type="REQUIREMENT_PLAYER_BUILT_CONSTRUCTIBLE_TYPE">
 				<Argument name="ConstructibleType">WONDER_EMILE_BELL</Argument>
 			</Requirement>
 		</SubjectRequirements>
@@ -217,7 +228,7 @@
 	<!-- Ha Amonga a Maui -->
 	<Modifier id="MOD_HA_AMONGA_A_MAUI_CULTURAL_ATTRIBUTE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ATTRIBUTE" permanent="true">
 		<SubjectRequirements>
-			<Requirement type="REQUIREMENT_WONDER_IS_ACTIVE">
+			<Requirement type="REQUIREMENT_PLAYER_BUILT_CONSTRUCTIBLE_TYPE">
 				<Argument name="ConstructibleType">WONDER_HA_AMONGA_A_MAUI</Argument>
 			</Requirement>
 		</SubjectRequirements>
@@ -237,7 +248,7 @@
 	</Modifier>
 	<Modifier id="MOD_HANGING_GARDENS_EXPANSIONIST_ATTRIBUTE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ATTRIBUTE" permanent="true">
 		<SubjectRequirements>
-			<Requirement type="REQUIREMENT_WONDER_IS_ACTIVE">
+			<Requirement type="REQUIREMENT_PLAYER_BUILT_CONSTRUCTIBLE_TYPE">
 				<Argument name="ConstructibleType">WONDER_HANGING_GARDENS</Argument>
 			</Requirement>
 		</SubjectRequirements>
@@ -248,7 +259,7 @@
 	<!-- Mausoleum of Theodoric -->
 	<Modifier id="MOD_MAUSOLEUM_OF_THEODORIC_MILITARISTIC_ATTRIBUTE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ATTRIBUTE" permanent="true">
 		<SubjectRequirements>
-			<Requirement type="REQUIREMENT_WONDER_IS_ACTIVE">
+			<Requirement type="REQUIREMENT_PLAYER_BUILT_CONSTRUCTIBLE_TYPE">
 				<Argument name="ConstructibleType">WONDER_MAUSOLEUM_OF_THEODORIC</Argument>
 			</Requirement>
 		</SubjectRequirements>
@@ -256,18 +267,24 @@
 		<Argument name="AttributeType">ATTRIBUTE_MILITARISTIC</Argument>
 		<Argument name="PropertyName">MOD_MAUSOLEUM_OF_THEODORIC_MILITARISTIC_ATTRIBUTE</Argument>
 	</Modifier>
-	<Modifier id="MOD_MAUSOLEUM_OF_THEODORIC_PILLAGE_BUILDINGS" collection="COLLECTION_OWNER" effect="EFFECT_ADJUST_PLAYER_UNITS_PILLAGE_BUILDING_MODIFIER">
+	<Modifier id="MOD_MAUSOLEUM_OF_THEODORIC_PILLAGE_BUILDINGS" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ADJUST_UNIT_PERCENT_PILLAGE_BUILDING_MODIFIER">
 		<SubjectRequirements>
 			<Requirement type="REQUIREMENT_WONDER_IS_ACTIVE">
 				<Argument name="ConstructibleType">WONDER_MAUSOLEUM_OF_THEODORIC</Argument>
 			</Requirement>
+			<Requirement type="REQUIREMENT_UNIT_DOMAIN_MATCHES">
+				<Argument name="UnitDomain">DOMAIN_LAND</Argument>
+			</Requirement>
 		</SubjectRequirements>
 		<Argument name="Percent">100</Argument>
 	</Modifier>
-	<Modifier id="MOD_MAUSOLEUM_OF_THEODORIC_PILLAGE_IMPROVEMENTS" collection="COLLECTION_OWNER" effect="EFFECT_ADJUST_PLAYER_UNITS_PILLAGE_IMPROVEMENT_MODIFIER">
+	<Modifier id="MOD_MAUSOLEUM_OF_THEODORIC_PILLAGE_IMPROVEMENTS" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ADJUST_UNIT_PERCENT_PILLAGE_IMPROVEMENT_MODIFIER">
 		<SubjectRequirements>
 			<Requirement type="REQUIREMENT_WONDER_IS_ACTIVE">
 				<Argument name="ConstructibleType">WONDER_MAUSOLEUM_OF_THEODORIC</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_UNIT_DOMAIN_MATCHES">
+				<Argument name="UnitDomain">DOMAIN_LAND</Argument>
 			</Requirement>
 		</SubjectRequirements>
 		<Argument name="Percent">100</Argument>
@@ -301,13 +318,28 @@
 	<!-- Nalanda -->
 	<Modifier id="MOD_NALANDA_SCIENTIFIC_ATTRIBUTE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ATTRIBUTE" permanent="true">
 		<SubjectRequirements>
-			<Requirement type="REQUIREMENT_WONDER_IS_ACTIVE">
+			<Requirement type="REQUIREMENT_PLAYER_BUILT_CONSTRUCTIBLE_TYPE">
 				<Argument name="ConstructibleType">WONDER_NALANDA</Argument>
 			</Requirement>
 		</SubjectRequirements>
 		<Argument name="AttributeType">ATTRIBUTE_SCIENTIFIC</Argument>
 		<Argument name="Amount">1</Argument>
 		<Argument name="PropertyName">MOD_NALANDA_SCIENTIFIC_ATTRIBUTE</Argument>
+	</Modifier>
+	<Modifier id="MOD_NALANDA_SCIENCE_VP" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_VICTORY_TRACKER_POINTS" permanent="true">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_HAS_CONSTRUCTIBLE">
+				<Argument name="ConstructibleType">WONDER_NALANDA</Argument>
+				<Argument name="OriginalOwner">true</Argument>
+				<Argument name="IsCurrentAge">true</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_PLAYER_IS_MAJOR"/>
+		</SubjectRequirements>
+		<Argument name="VictoryType">VICTORY_SCIENCE_MODERN</Argument>
+		<Argument name="Points">3</Argument>
+		<Argument name="ItemName">LOC_WONDER_NALANDA_NAME</Argument>
+		<Argument name="ReplacePoints">true</Argument>
+		<Argument name="TypeData">WONDER</Argument>
 	</Modifier>
 	<!-- Oracle -->
 	<Modifier id="MOD_ORACLE_NARRATIVE_EVENT_CULTURE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD_FOR_COMPLETING_NARRATIVE_EVENTS">
@@ -344,6 +376,22 @@
 			</Requirement>
 		</SubjectRequirements>
 		<Argument name="YieldType">YIELD_GOLD</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Tooltip">LOC_WONDER_PETRA_NAME</Argument>
+	</Modifier>
+	<Modifier id="MOD_PETRA_RURAL_PRODUCTION" collection="COLLECTION_CITY_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_WONDER_IS_ACTIVE">
+				<Argument name="ConstructibleType">WONDER_PETRA</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_PLOT_DISTRICT_CLASS" inverse="true">
+				<Argument name="DistrictClass">CITYCENTER, URBAN</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_PLOT_BIOME_TYPE_MATCHES">
+				<Argument name="BiomeType">BIOME_DESERT</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_PRODUCTION</Argument>
 		<Argument name="Amount">1</Argument>
 		<Argument name="Tooltip">LOC_WONDER_PETRA_NAME</Argument>
 	</Modifier>
@@ -409,7 +457,7 @@
 	<!-- Terracotta Army -->
 	<Modifier id="MOD_TERRACOTTA_ARMY_COMMANDER" collection="COLLECTION_OWNER" effect="EFFECT_CITY_GRANT_UNIT" permanent="true">
 		<SubjectRequirements>
-			<Requirement type="REQUIREMENT_WONDER_IS_ACTIVE">
+			<Requirement type="REQUIREMENT_PLAYER_BUILT_CONSTRUCTIBLE_TYPE">
 				<Argument name="ConstructibleType">WONDER_TERRACOTTA_ARMY</Argument>
 			</Requirement>
 		</SubjectRequirements>
@@ -438,11 +486,26 @@
 		<Argument name="Amount">1</Argument>
 		<Argument name="Tag">SCIENCE</Argument>
 	</Modifier>
+	<Modifier id="MOD_GREAT_LIBRARY_SCIENCE_VP" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_VICTORY_TRACKER_POINTS" permanent="true">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_HAS_CONSTRUCTIBLE">
+				<Argument name="ConstructibleType">WONDER_GREAT_LIBRARY</Argument>
+				<Argument name="OriginalOwner">true</Argument>
+				<Argument name="IsCurrentAge">true</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_PLAYER_IS_MAJOR"/>
+		</SubjectRequirements>
+		<Argument name="VictoryType">VICTORY_SCIENCE_MODERN</Argument>
+		<Argument name="Points">3</Argument>
+		<Argument name="ItemName">LOC_WONDER_GREAT_LIBRARY_NAME</Argument>
+		<Argument name="ReplacePoints">true</Argument>
+		<Argument name="TypeData">WONDER</Argument>
+	</Modifier>
 	<!-- ==================================================	-->
 	<!--	Quarters							-->
 	<!-- ==================================================	-->
 	<!-- Egypt Necropolis -->
-	<Modifier id="MOD_EGYPT_NECROPOLIS_GOLD_ON_WONDER_CREATED" collection="COLLECTION_ALL_CITIES" effect="TRIGGER_CITY_GRANT_YIELD_ON_CONSTRUCTIBLE_CREATED" permanent="true">
+	<Modifier id="MOD_EGYPT_NECROPOLIS_GOLD_ON_WONDER_CREATED" collection="COLLECTION_ALL_CITIES" effect="TRIGGER_CITY_GRANT_YIELD_ON_CONSTRUCTIBLE_CREATED">
 		<SubjectRequirements>
 			<Requirement type="REQUIREMENT_CITY_HAS_UNIQUE_QUARTER">
 				<Argument name="UniqueQuarterType">QUARTER_NECROPOLIS</Argument>
@@ -453,7 +516,7 @@
 		<Argument name="Amount" type="ScaleByGameSpeed">100</Argument>
 	</Modifier>
 	<!-- Greece Acropolis -->
-	<Modifier id="MOD_GREECE_ACROPOLIS_PARTHENON_GOLD_PER_SUZERAIN" collection="COLLECTION_ALL_CITIES" effect="EFFECT_CITY_ADJUST_SUZERAIN_OF_CONSTRUCTIBLE_YIELD" permanent="true">
+	<Modifier id="MOD_GREECE_ACROPOLIS_PARTHENON_GOLD_PER_SUZERAIN" collection="COLLECTION_ALL_CITIES" effect="EFFECT_CITY_ADJUST_SUZERAIN_OF_CONSTRUCTIBLE_YIELD">
 		<SubjectRequirements>
 			<Requirement type="REQUIREMENT_CITY_HAS_UNIQUE_QUARTER">
 				<Argument name="UniqueQuarterType">QUARTER_ACROPOLIS</Argument>
@@ -465,7 +528,7 @@
 		<Argument name="Tooltip">LOC_QUARTER_ACROPOLIS_NAME</Argument>
 	</Modifier>
 	<!-- Maurya Matha -->
-	<Modifier id="MOD_MAURYA_MATHA_HAPPINESS" collection="COLLECTION_ALL_CITIES" effect="EFFECT_CITY_ADJUST_YIELD" permanent="true">
+	<Modifier id="MOD_MAURYA_MATHA_HAPPINESS" collection="COLLECTION_ALL_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
 		<SubjectRequirements>
 			<Requirement type="REQUIREMENT_CITY_HAS_UNIQUE_QUARTER">
 				<Argument name="UniqueQuarterType">QUARTER_MATHA</Argument>
@@ -476,7 +539,7 @@
 		<Argument name="Tooltip">LOC_QUARTER_MATHA_NAME</Argument>
 	</Modifier>
 	<!-- Maya Uwaybil Kuh -->
-	<Modifier id="MOD_MAYA_UWAYBIL_KUH_PRODUCTION_ON_TECH_COMPLETED" collection="COLLECTION_ALL_CITIES" effect="TRIGGER_CITY_GRANT_YIELD_ON_PROGRESSION_TREE_NODE_DEPTH_UNLOCKED" permanent="true">
+	<Modifier id="MOD_MAYA_UWAYBIL_KUH_PRODUCTION_ON_TECH_COMPLETED" collection="COLLECTION_ALL_CITIES" effect="TRIGGER_CITY_GRANT_YIELD_ON_PROGRESSION_TREE_NODE_DEPTH_UNLOCKED">
 		<SubjectRequirements>
 			<Requirement type="REQUIREMENT_CITY_HAS_UNIQUE_QUARTER">
 				<Argument name="UniqueQuarterType">QUARTER_UWAYBIL_KUH</Argument>
@@ -487,7 +550,7 @@
 		<Argument name="PercentCost">5</Argument>
 	</Modifier>
 	<!-- Rome Forum -->
-	<Modifier id="MOD_ROME_FORUM_CULTURE_PER_TRADITION" collection="COLLECTION_ALL_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_ACTIVE_TRADITION" permanent="true">
+	<Modifier id="MOD_ROME_FORUM_CULTURE_PER_TRADITION" collection="COLLECTION_ALL_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_ACTIVE_TRADITION">
 		<SubjectRequirements>
 			<Requirement type="REQUIREMENT_CITY_HAS_UNIQUE_QUARTER">
 				<Argument name="UniqueQuarterType">QUARTER_FORUM</Argument>
@@ -497,5 +560,14 @@
 		<Argument name="YieldType">YIELD_CULTURE</Argument>
 		<Argument name="Amount">1</Argument>
 		<Argument name="Tooltip">LOC_QUARTER_FORUM_NAME</Argument>
+	</Modifier>
+	<Modifier id="MOD_WEIYANG_PALACE_TRADITION_SLOT" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_TRADITION_SLOTS">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_WONDER_IS_ACTIVE">
+				<Argument name="ConstructibleType">WONDER_WEIYANG_PALACE</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">1</Argument>
+		<Argument name="SlotType">TRADITION_CULTURE_SLOT</Argument>
 	</Modifier>
 </GameEffects>

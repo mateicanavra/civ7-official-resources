@@ -1,16 +1,13 @@
-import { F as FxsActivatable } from '../../../core/ui/components/fxs-activatable.chunk.js';
-import { C as ComponentID } from '../../../core/ui/utilities/utilities-component-id.chunk.js';
-import { CreateElementTable, MustGetElement } from '../../../core/ui/utilities/utilities-dom.chunk.js';
-import { Icon } from '../../../core/ui/utilities/utilities-image.chunk.js';
-import { B as BANNER_INVALID_LOCATION, C as CityBannerManager, a as BannerType, b as CityStatusType } from './city-banner-manager.chunk.js';
+import { FxsActivatable } from '../../../core/ui/components/fxs-activatable.js';
+import { ComponentID } from '../../../core/ui/utilities/utilities-component-id.js';
+import { CreateElementTable, MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
+import { Icon } from '../../../core/ui/utilities/utilities-image.js';
+import UpdateGate from '../../../core/ui/utilities/utilities-update-gate.js';
+import { BANNER_INVALID_LOCATION, BannerType, CityStatusType } from './banner-support.js';
+import CityBannerManager from './city-banner-manager.js';
 import { RaiseDiplomacyEvent } from '../diplomacy/diplomacy-events.js';
-import '../../../core/ui/audio-base/audio-support.chunk.js';
-import '../../../core/ui/input/focus-manager.js';
-import '../../../core/ui/framework.chunk.js';
-
-const content = "<div class=\"city-banner__container flex flex-col mt-2\">\r\n\t<div\r\n\t\tclass=\"city-banner__stretch absolute flex flex-row justify-center align-center w-full h-8 top-1\\.5 pointer-events-none\"\r\n\t>\r\n\t\t<div class=\"city-banner__city-state-border absolute -left-2 -right-2 -top-0 -bottom-0\"></div>\r\n\t\t<div class=\"city-banner__city-state-ring absolute -left-1 -right-1 top-1 bottom-0\"></div>\r\n\t\t<div class=\"city-banner__stretch-bg absolute inset-0 pointer-events-none\"></div>\r\n\t</div>\r\n\t<fxs-hslot class=\"city-banner__name-container relative flex justify-between\">\r\n\t\t<div class=\"city-banner__portrait relative pointer-events-auto flex\">\r\n\t\t\t<div class=\"city-banner__portrait-bg1 absolute inset-0 bg-center bg-cover bg-no-repeat\"></div>\r\n\t\t\t<div\r\n\t\t\t\tclass=\"city-banner__portrait-bg2 absolute inset-x-0 top-0 -bottom-2 bg-center bg-cover bg-no-repeat\"\r\n\t\t\t></div>\r\n\t\t\t<div\r\n\t\t\t\tclass=\"city-banner__portrait-img absolute -left-2 -right-2 -top-1 bottom-0 bg-cover bg-center bg-no-repeat pointer-events-none\"\r\n\t\t\t></div>\r\n\t\t</div>\r\n\t\t<fxs-vslot class=\"city-banner__name-vslot pointer-events-auto cursor-pointer max-h-10\">\r\n\t\t\t<fxs-hslot>\r\n\t\t\t\t<div class=\"city-banner__capital-star w-8 h-8 bg-cover bg-no-repeat hidden\"></div>\r\n\t\t\t\t<p class=\"city-banner__name font-title-base uppercase\"></p>\r\n\t\t\t</fxs-hslot>\r\n\t\t\t<fxs-hslot class=\"city-banner__status-religion\">\r\n\t\t\t\t<div class=\"city-banner__status flex justify-center align-center opacity-100 pointer-events-auto\">\r\n\t\t\t\t\t<div class=\"city-banner__status-background h-full w-full absolute\"></div>\r\n\t\t\t\t\t<div class=\"city-banner__status-icon absolute w-full h-full bg-no-repeat\"></div>\r\n\t\t\t\t</div>\r\n\t\t\t\t<fxs-hslot class=\"city-banner__religion self-center\">\r\n\t\t\t\t\t<div\r\n\t\t\t\t\t\tclass=\"city-banner__religion-symbol-bg pointer-events-auto\"\r\n\t\t\t\t\t\tdata-tooltip-content=\"LOC_DISTRICT_URBAN_NAME\"\r\n\t\t\t\t\t>\r\n\t\t\t\t\t\t<div class=\"city-banner__religion-symbol bg-contain bg-no-repeat bg-center\"></div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div\r\n\t\t\t\t\t\tclass=\"city-banner__religion-symbol-bg pointer-events-auto religion-bg--right\"\r\n\t\t\t\t\t\tdata-tooltip-content=\"LOC_DISTRICT_RURAL_NAME\"\r\n\t\t\t\t\t>\r\n\t\t\t\t\t\t<div\r\n\t\t\t\t\t\t\tclass=\"city-banner__religion-symbol bg-contain bg-no-repeat bg-center religion-symbol--right\"\r\n\t\t\t\t\t\t></div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</fxs-hslot>\r\n\t\t\t\t<div\r\n\t\t\t\t\tclass=\"city-banner__trade-network flex justify-center align-center opacity-100 pointer-events-auto\"\r\n\t\t\t\t>\r\n\t\t\t\t\t<div class=\"city-banner__trade-network-background h-full w-full absolute\"></div>\r\n\t\t\t\t\t<div class=\"city-banner__trade-network-icon absolute w-full h-full bg-no-repeat\"></div>\r\n\t\t\t\t</div>\r\n\t\t\t</fxs-hslot>\r\n\t\t</fxs-vslot>\r\n\t\t<div class=\"city-banner__population-container items-center justify-center w-6 h-6 -mt-2\">\r\n\t\t\t<fxs-ring-meter\r\n\t\t\t\tmin-value=\"0\"\r\n\t\t\t\tmax-value=\"24\"\r\n\t\t\t\tvalue=\"18\"\r\n\t\t\t\tclass=\"city-banner__ring city-banner__population-ring bg-cover bg-center flex size-9 self-center align-center\"\r\n\t\t\t>\r\n\t\t\t\t<div\r\n\t\t\t\t\tclass=\"city-banner__population-number font-body-xs text-white top-0 w-full text-center pointer-events-auto\"\r\n\t\t\t\t></div>\r\n\t\t\t</fxs-ring-meter>\r\n\t\t\t<div\r\n\t\t\t\tclass=\"city-banner__turn flex flex-col justify-end align-center self-center top-0\\.5 pointer-events-none relative\"\r\n\t\t\t>\r\n\t\t\t\t<div\r\n\t\t\t\t\tclass=\"city-banner__turn-number font-base-2xs text-white text-center w-full bg-cover bg-center bg-no-repeat\"\r\n\t\t\t\t></div>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t\t<div\r\n\t\t\tclass=\"city-banner__queue-container queue-production queue-none justify-center w-8 h-6 -mt-2 flex-col align-center\"\r\n\t\t>\r\n\t\t\t<fxs-ring-meter\r\n\t\t\t\tmin-value=\"0\"\r\n\t\t\t\tmax-value=\"100\"\r\n\t\t\t\tvalue=\"6\"\r\n\t\t\t\tclass=\"city-banner__ring city-banner__production-ring bg-cover bg-center flex size-9 self-center align-center\"\r\n\t\t\t>\r\n\t\t\t\t<div class=\"city-banner__queue-img queue-production size-4 self-center\"></div>\r\n\t\t\t</fxs-ring-meter>\r\n\r\n\t\t\t<div\r\n\t\t\t\tclass=\"city-banner__turn flex flex-col justify-end align-center self-center w-8 mt-0\\.5 pointer-events-none\"\r\n\t\t\t>\r\n\t\t\t\t<div\r\n\t\t\t\t\tclass=\"city-banner__turn-number font-base-xs text-white text-center w-full bg-cover bg-center bg-no-repeat\"\r\n\t\t\t\t></div>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t\t<div class=\"city-banner__city-state-container justify-center\">\r\n\t\t\t<div class=\"city-banner__city-state-type size-7 self-center align-center justify-center\">\r\n\t\t\t\t<div class=\"city-banner__city-state-icon size-8 self-center align-center bg-cover bg-no-repeat\"></div>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t</fxs-hslot>\r\n</div>\r\n<fxs-hslot class=\"items-center -ml-12 mt-10\">\r\n\t<fxs-vslot class=\"-mr-3 flex-auto\">\r\n\t\t<div class=\"city-banner__conquered-icon relative size-14 -mr-6 bg-cover bg-no-repeat\"></div>\r\n\t</fxs-vslot>\r\n\t<fxs-vslot class=\"city-banner__unrest -mr-3\">\r\n\t\t<div class=\"city-banner__unrest-icon relative size-14 bg-cover bg-no-repeat\"></div>\r\n\t\t<div class=\"city-banner__time-container -mt-3 pr-2 flex flex-row\">\r\n\t\t\t<div class=\"city-banner__time-icon self-center bg-cover bg-no-repeat size-6 ml-1\"></div>\r\n\t\t\t<div class=\"city-banner__time-text self-center font-body-xs text-white\">4</div>\r\n\t\t</div>\r\n\t</fxs-vslot>\r\n\t<fxs-vslot class=\"city-banner__razing\">\r\n\t\t<div class=\"city-banner__razing-icon relative size-14 bg-cover bg-no-repeat\"></div>\r\n\t\t<div class=\"city-banner__time-container -mt-3 pr-2 flex flex-row\">\r\n\t\t\t<div class=\"city-banner__time-icon self-center bg-cover bg-no-repeat size-6 ml-1\"></div>\r\n\t\t\t<div class=\"city-banner__time-text self-center font-body-xs text-white\">7</div>\r\n\t\t</div>\r\n\t</fxs-vslot>\r\n</fxs-hslot>\r\n";
-
-const styles = "fs://game/base-standard/ui/city-banners/city-banners.css";
+import content from './city-banners.html.js';
+import styles from './city-banners.scss.js';
 
 const BANNER_ANCHOR_OFFSET = { x: 0, y: 0, z: 42 };
 class CityBannerComponent extends FxsActivatable {
@@ -20,11 +17,12 @@ class CityBannerComponent extends FxsActivatable {
   isHidden = false;
   location = { x: 0, y: 0 };
   city = null;
-  updateBuildsQueued = false;
   updateNameQueued = false;
   onActivateEventListener = this.onActivate.bind(this);
   elements = CreateElementTable(this.Root, {
     capitalIndicator: ".city-banner__capital-star",
+    originalCapitalIndicator: ".city-banner__original-capital-star",
+    originalCapitalCurrIndicator: ".city-banner__original-capital-curr-star",
     cityStateColor: ".city-banner__city-state-type",
     container: ".city-banner__container",
     growthQueueContainer: ".city-banner__population-container",
@@ -58,18 +56,18 @@ class CityBannerComponent extends FxsActivatable {
   get bannerLocation() {
     return this.location;
   }
-  queueBuildsUpdate() {
-    if (this.updateBuildsQueued) return;
-    this.updateBuildsQueued = true;
-    requestAnimationFrame(this.doBuildsUpdate.bind(this));
+  fullUpdateGate = new UpdateGate(() => {
+    this.doFullUpdate();
+  });
+  fullUpdate(requestor) {
+    this.fullUpdateGate.call(requestor);
   }
-  doBuildsUpdate() {
+  doFullUpdate() {
     this.realizeBuilds();
     this.realizeHappiness();
     this.realizeTradeNetwork();
     this.realizePopulation();
     this.realizeReligion();
-    this.updateBuildsQueued = false;
   }
   queueNameUpdate() {
     if (this.updateNameQueued) return;
@@ -79,7 +77,6 @@ class CityBannerComponent extends FxsActivatable {
   // TODO: I don't believe this should be rebuilding the entire banner?
   doNameUpdate() {
     this.buildBanner();
-    this.updateBuildsQueued = false;
     this.updateNameQueued = false;
   }
   getDebugString() {
@@ -341,7 +338,9 @@ class CityBannerComponent extends FxsActivatable {
       if (bannerType == BannerType.village || (bannerType == BannerType.town || bannerType == BannerType.city) && player.isIndependent) {
         leaderName = Locale.compose(player.name);
       } else {
-        console.error(`city-banners: Leadertype of '-1' is also not an IP.`);
+        if (player.isMinor == false) {
+          console.error(`city-banners: Leadertype of '-1' is also not an IP or a minor.`);
+        }
         leaderName = Locale.compose("LOC_LEADER_NONE_NAME");
       }
     }
@@ -403,7 +402,15 @@ class CityBannerComponent extends FxsActivatable {
   setCityInfo(data) {
     const name = data.name ?? "LOC_CITY_NAME_UNSET";
     const icon = data.icon ?? "blp:base-standard/ui/icons/leaders/leader_portrait_unknown.png";
-    const { capitalIndicator, container, cityName, portrait, portraitIcon } = this.elements;
+    const {
+      capitalIndicator,
+      originalCapitalIndicator,
+      originalCapitalCurrIndicator,
+      container,
+      cityName,
+      portrait,
+      portraitIcon
+    } = this.elements;
     cityName.setAttribute("data-l10n-id", name);
     portraitIcon.style.backgroundImage = `url('${icon}')`;
     portrait.setAttribute("data-tooltip-content", data.tooltip);
@@ -416,6 +423,13 @@ class CityBannerComponent extends FxsActivatable {
     if (data.bannerType == BannerType.town) {
       container.setAttribute("data-tooltip-content", Locale.compose("LOC_CAPITAL_SELECT_PROMOTION_NONE"));
       this.Root.classList.add("city-banner--town");
+      if (this.city && this.city.isValid) {
+        originalCapitalIndicator.classList.toggle(
+          "hidden",
+          !this.city.isOriginalCapital || this.city.isCapital
+        );
+        originalCapitalIndicator.classList.add("city-banner__town-original-capital-star");
+      }
     } else {
       container.setAttribute("data-tooltip-content", data.tooltip);
       if (data.bannerType == BannerType.cityState) {
@@ -427,10 +441,19 @@ class CityBannerComponent extends FxsActivatable {
         this.Root.classList.toggle("city-banner--city", isLocalPlayerCity);
         this.Root.classList.toggle("city-banner--city-other", !isLocalPlayerCity);
         if (this.city && this.city.isValid) {
-          capitalIndicator.classList.toggle("hidden", !this.city.isCapital);
+          capitalIndicator.classList.toggle("hidden", !this.city.isCapital || this.city.isOriginalCapital);
+          originalCapitalIndicator.classList.toggle(
+            "hidden",
+            !this.city.isOriginalCapital || this.city.isCapital
+          );
+          originalCapitalCurrIndicator.classList.toggle(
+            "hidden",
+            !this.city.isCapital || !this.city.isOriginalCapital
+          );
           const player = Players.get(this.componentID.owner);
           if (player && player.isIndependent) {
             capitalIndicator.classList.add("hidden");
+            originalCapitalCurrIndicator.classList.add("hidden");
           }
         }
       }
@@ -749,16 +772,32 @@ class CityBannerComponent extends FxsActivatable {
   }
   capitalUpdate() {
     const capitalIndicator = MustGetElement(".city-banner__capital-star", this.Root);
+    const originalCapitalIndicator = MustGetElement(".city-banner__original-capital-star", this.Root);
+    const originalCapitalCurrIndicator = MustGetElement(".city-banner__original-capital-curr-star", this.Root);
     if (this.city && this.city.isValid) {
-      capitalIndicator.classList.toggle("hidden", !this.city.isCapital);
+      capitalIndicator.classList.toggle("hidden", !this.city.isCapital || this.city.isOriginalCapital);
+      originalCapitalIndicator.classList.toggle("hidden", !this.city.isOriginalCapital || this.city.isCapital);
+      originalCapitalCurrIndicator.classList.toggle(
+        "hidden",
+        !this.city.isCapital || !this.city.isOriginalCapital
+      );
       const player = Players.get(this.componentID.owner);
       if (player && player.isIndependent) {
         capitalIndicator.classList.add("hidden");
+        originalCapitalCurrIndicator.classList.add("hidden");
       }
     }
   }
+  /**
+   * Local player changed (hotseat).
+   */
+  localPlayerUpdate() {
+    const isLocalPlayerCity = this.componentID.owner === GameContext.localObserverID;
+    this.Root.classList.toggle("city-banner--city", isLocalPlayerCity);
+    this.Root.classList.toggle("city-banner--city-other", !isLocalPlayerCity);
+  }
   updateConqueredIcon() {
-    if (this.city && this.city.isValid && this.city.originalOwner != this.city.owner && this.city.owner == GameContext.localObserverID) {
+    if (this.city && this.city.isValid && this.city.originalOwner != this.city.owner && this.city.mostRecentTranseferType != CityTransferTypes.BY_INCORPORATE_CITY_STATE && this.city.owner == GameContext.localObserverID) {
       const conqueredIcon = this.Root.querySelector(".city-banner__conquered-icon");
       if (!conqueredIcon) {
         console.error("city-banners: Unable to find element with class .city-banner__conquered-icon!");

@@ -3,7 +3,6 @@
         <Modifier id="MOD_AMBASSADORS_DIPLOMACY" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD">
                 <Argument name="YieldType">YIELD_DIPLOMACY</Argument>
                 <Argument name="Amount">6</Argument>
-                <Argument name="PercentMultiplier">false</Argument>
                 <Argument name="Tooltip">LOC_TRADITION_AMBASSADORS_NAME</Argument>
                 <String context="Description">LOC_TRADITION_AMBASSADORS_DESCRIPTION</String>
         </Modifier>
@@ -48,13 +47,18 @@
         </Modifier>
         <Modifier id="HUMANISM_MOD_CULTURE_PER_SPECIALIST" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_WORKER_YIELD">
                 <Argument name="YieldType">YIELD_CULTURE</Argument>
-                <Argument name="Amount">2</Argument>
+                <Argument name="Amount">3</Argument>
                 <Argument name="Tooltip">LOC_TRADITION_HUMANISM_NAME</Argument>
                 <String context="Description">LOC_TRADITION_HUMANISM_DESCRIPTION</String>
         </Modifier>
         <Modifier id="HUMANISM_MOD_HAPPINESS_MAINTENANCE_PER_SPECIALIST" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_WORKER_MAINTENANCE_EFFICIENCY">
                 <Argument name="YieldType">YIELD_HAPPINESS</Argument>
-                <Argument name="Percent">-50</Argument>
+                <Argument name="Amount">1</Argument>
+                <Argument name="Tooltip">LOC_TRADITION_HUMANISM_NAME</Argument>
+        </Modifier>
+		<Modifier id="HUMANISM_MOD_FOOD_MAINTENANCE_PER_SPECIALIST" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_WORKER_MAINTENANCE_EFFICIENCY">
+                <Argument name="YieldType">YIELD_FOOD</Argument>
+                <Argument name="Amount">1</Argument>
                 <Argument name="Tooltip">LOC_TRADITION_HUMANISM_NAME</Argument>
         </Modifier>
         <Modifier id="LAISSEZ_FAIRE_MOD_IMPORTED_RESOURCE_GOLD" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD_PER_RESOURCE">
@@ -133,7 +137,7 @@
         </Modifier>
         <Modifier id="PEOPLES_ARMY_MOD_UNIT_MAINTENANCE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_UNIT_MAINTENANCE_EFFICIENCY">
                 <Argument name="UnitTag">UNIT_CLASS_COMBAT, UNIT_CLASS_COMMAND</Argument>
-                <Argument name="UnitDomain">DOMAIN_LAND</Argument>
+                <Argument name="Domain">DOMAIN_LAND</Argument>
                 <Argument name="Amount">-1</Argument>
                 <Argument name="Tooltip">LOC_TRADITION_PEOPLES_ARMY_NAME</Argument>
         </Modifier>
@@ -150,21 +154,27 @@
                 <String context="Description">LOC_TRADITION_PROJECTION_OF_FORCE_DESCRIPTION</String>
         </Modifier>
         <Modifier id="PROJECTION_OF_FORCE_MOD_NAVAL_MAINTENANCE_COST" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_UNIT_MAINTENANCE_EFFICIENCY">
-                <Argument name="UnitDomain">DOMAIN_SEA</Argument>
+                <Argument name="Domain">DOMAIN_SEA</Argument>
                 <Argument name="Amount">-1</Argument>
                 <Argument name="Tooltip">LOC_TRADITION_PROJECTION_OF_FORCE_NAME</Argument>
         </Modifier>
         <Modifier id="SOCIAL_SCIENCE_MOD_SCIENCE_PER_SPECIALIST" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_WORKER_YIELD">
                 <Argument name="YieldType">YIELD_SCIENCE</Argument>
-                <Argument name="Amount">2</Argument>
+                <Argument name="Amount">3</Argument>
                 <Argument name="Tooltip">LOC_TRADITION_SOCIAL_SCIENCE_NAME</Argument>
                 <String context="Description">LOC_TRADITION_SOCIAL_SCIENCE_DESCRIPTION</String>
         </Modifier>
-        <Modifier id="SOCIAL_SCIENCE_MOD_FOOD_MAINTENANCE_PER_SPECIALIST" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_WORKER_MAINTENANCE_EFFICIENCY">
-                <Argument name="YieldType">YIELD_FOOD</Argument>
-                <Argument name="Percent">-50</Argument>
+		<Modifier id="SOCIAL_SCIENCE_MOD_HAPPINESS_MAINTENANCE_PER_SPECIALIST" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_WORKER_MAINTENANCE_EFFICIENCY">
+                <Argument name="YieldType">YIELD_HAPPINESS</Argument>
+                <Argument name="Amount">1</Argument>
                 <Argument name="Tooltip">LOC_TRADITION_SOCIAL_SCIENCE_NAME</Argument>
         </Modifier>
+		<Modifier id="SOCIAL_SCIENCE_MOD_FOOD_MAINTENANCE_PER_SPECIALIST" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_WORKER_MAINTENANCE_EFFICIENCY">
+                <Argument name="YieldType">YIELD_FOOD</Argument>
+                <Argument name="Amount">1</Argument>
+                <Argument name="Tooltip">LOC_TRADITION_SOCIAL_SCIENCE_NAME</Argument>
+        </Modifier>
+
         <Modifier id="SPHERE_OF_INFLUENCE_MOD_CULTURE_ALLIANCES" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD_PER_ATTRIBUTE_AND_ALLIANCES">
                 <Argument name="YieldType">YIELD_CULTURE</Argument>
                 <Argument name="AttributeType">ATTRIBUTE_POLITICAL</Argument>
@@ -203,7 +213,6 @@
                 </SubjectRequirements>
                 <Argument name="YieldType">YIELD_GOLD</Argument>
                 <Argument name="Amount">-3</Argument>
-                <Argument name="PercentMultiplier">false</Argument>
         </Modifier>
         <Modifier id="PROLETARIAT_MOD_SPECIALIST_FOOD_PER_EXPANSIONIST_ATTRIBUTE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_WORKER_YIELD">
                 <Argument name="YieldType">YIELD_FOOD</Argument>
@@ -216,7 +225,6 @@
                 </SubjectRequirements>
                 <Argument name="YieldType">YIELD_HAPPINESS</Argument>
                 <Argument name="Amount">-3</Argument>
-                <Argument name="PercentMultiplier">false</Argument>
         </Modifier>
         <Modifier id="COLLECTIVIZATION_MOD_TOWN_FOOD_EQUAL_TO_EXPANSIONIST_ATTRIBUTE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_ATTRIBUTE">
                 <SubjectRequirements>
@@ -233,7 +241,6 @@
                 </SubjectRequirements>
                 <Argument name="YieldType">YIELD_HAPPINESS</Argument>
                 <Argument name="Amount">-5</Argument>
-                <Argument name="PercentMultiplier">false</Argument>
         </Modifier>
         <Modifier id="NAUKOGRAD_MOD_TOWN_SCIENCE_PER_SCIENCE_ATTRIBUTE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_ATTRIBUTE">
                 <SubjectRequirements>
@@ -250,7 +257,6 @@
                 </SubjectRequirements>
                 <Argument name="YieldType">YIELD_CULTURE</Argument>
                 <Argument name="Amount">-5</Argument>
-                <Argument name="PercentMultiplier">false</Argument>
         </Modifier>
         <Modifier id="PUBLIC_WORKS_MOD_PROJECT_PRODUCTION" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_PROJECT_PRODUCTION">
                 <Argument name="Percent">30</Argument>
@@ -278,7 +284,6 @@
                 </SubjectRequirements>
                 <Argument name="YieldType">YIELD_GOLD</Argument>
                 <Argument name="Amount">-3</Argument>
-                <Argument name="PercentMultiplier">false</Argument>
         </Modifier>
         <Modifier id="SUFFRAGE_MOD_CULTURE_ON_SPECIALISTS_PER_CULTURAL_ATTRIBUTE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_WORKER_YIELD">
                 <Argument name="YieldType">YIELD_CULTURE</Argument>
@@ -291,7 +296,6 @@
                 </SubjectRequirements>
                 <Argument name="YieldType">YIELD_PRODUCTION</Argument>
                 <Argument name="Amount">-3</Argument>
-                <Argument name="PercentMultiplier">false</Argument>
         </Modifier>
         <Modifier id="FREE_PRESS_MOD_TOWN_CULTURE_CULTURAL_ATTRIBUTE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_ATTRIBUTE">
                 <SubjectRequirements>
@@ -308,7 +312,6 @@
                 </SubjectRequirements>
                 <Argument name="YieldType">YIELD_SCIENCE</Argument>
                 <Argument name="Amount">-5</Argument>
-                <Argument name="PercentMultiplier">false</Argument>
         </Modifier>
         <Modifier id="WELFARE_STATE_MOD_TOWN_HAPPINESS_PER_POL_ATTRIBUTE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_ATTRIBUTE">
                 <SubjectRequirements>
@@ -325,7 +328,6 @@
                 </SubjectRequirements>
                 <Argument name="YieldType">YIELD_PRODUCTION</Argument>
                 <Argument name="Amount">-5</Argument>
-                <Argument name="PercentMultiplier">false</Argument>
         </Modifier>
         <Modifier id="AVANT_GARDE_MOD_CULTURE_HAPPINESS_PER_GREAT_WORK" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_GREAT_WORK">
                 <Argument name="YieldType">YIELD_HAPPINESS</Argument>
@@ -377,7 +379,6 @@
                 </SubjectRequirements>
                 <Argument name="YieldType">YIELD_FOOD</Argument>
                 <Argument name="Amount">-2</Argument>
-                <Argument name="PercentMultiplier">false</Argument>
         </Modifier>
         <Modifier id="DIRIGISME_MOD_GOLD_FROM_SPECAILIST_PER_ECON_ATTRIBUTES" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_WORKER_YIELD">
                 <Argument name="YieldType">YIELD_GOLD</Argument>
@@ -390,7 +391,6 @@
                 </SubjectRequirements>
                 <Argument name="YieldType">YIELD_HAPPINESS</Argument>
                 <Argument name="Amount">-3</Argument>
-                <Argument name="PercentMultiplier">false</Argument>
         </Modifier>
         <Modifier id="MARITAL_LAW_MOD_TOWN_PRODUCTION_PER_MILITARY_ATTRIBUTE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_ATTRIBUTE">
                 <SubjectRequirements>
@@ -407,7 +407,6 @@
                 </SubjectRequirements>
                 <Argument name="YieldType">YIELD_HAPPINESS</Argument>
                 <Argument name="Amount">-5</Argument>
-                <Argument name="PercentMultiplier">false</Argument>
         </Modifier>
         <Modifier id="PROPAGANDA_MOD_GOLD_EQUAL_TO_ECON_ATTRIBUTE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_ATTRIBUTE">
                 <SubjectRequirements>
@@ -424,7 +423,6 @@
                 </SubjectRequirements>
                 <Argument name="YieldType">YIELD_CULTURE</Argument>
                 <Argument name="Amount">-5</Argument>
-                <Argument name="PercentMultiplier">false</Argument>
         </Modifier>
         <Modifier id="MILITARY_INDUSTRIAL_COMPLEX_MOD_UNIT_PRODUCTION_RATE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_UNIT_PRODUCTION">
                 <Argument name="UnitClass">UNIT_CLASS_COMBAT</Argument>
@@ -432,9 +430,7 @@
                 <String context="Description">LOC_TRADITION_MILITARY_INDUSTRIAL_COMPLEX_DESCRIPTION</String>
         </Modifier>
         <Modifier id="MILITARY_INDUSTRIAL_COMPLEX_MOD_UNIT_GOLD_MAINTENANCE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_UNIT_MAINTENANCE_EFFICIENCY">
-                <Argument name="UnitClass">UNIT_CLASS_COMBAT</Argument>
                 <Argument name="Amount">-1</Argument>
-                <Argument name="YieldType">YIELD_GOLD</Argument>
         </Modifier>
         <Modifier id="STRATEGIC_RAILWAYS_MOD_CITY_PRODUCTION_RAILROAD" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_PRODUCTION">
                 <SubjectRequirements>
@@ -446,11 +442,21 @@
                 <Argument name="Percent">20</Argument>
                 <String context="Description">LOC_STRATEGIC_RAILWAYS_DESCRIPTION</String>
         </Modifier>
-        <Modifier id="SCORCHED_EARTH_MOD_PILLAGING_YIELDS_BUILDINGS" collection="COLLECTION_OWNER" effect="EFFECT_ADJUST_PLAYER_UNITS_PILLAGE_BUILDING_MODIFIER">
+        <Modifier id="SCORCHED_EARTH_MOD_PILLAGING_YIELDS_BUILDINGS" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ADJUST_UNIT_PERCENT_PILLAGE_BUILDING_MODIFIER">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_DOMAIN_MATCHES">
+				<Argument name="UnitDomain">DOMAIN_LAND</Argument>
+			</Requirement>
+                </SubjectRequirements>
                 <Argument name="Percent">25</Argument>
                 <String context="Description">LOC_SCORCHED_EARTH_DESCRIPTION</String>
         </Modifier>
-        <Modifier id="SCORCHED_EARTH_MOD_PILLAGING_YIELDS_IMPROVEMENTS" collection="COLLECTION_OWNER" effect="EFFECT_ADJUST_PLAYER_UNITS_PILLAGE_IMPROVEMENT_MODIFIER">
+        <Modifier id="SCORCHED_EARTH_MOD_PILLAGING_YIELDS_IMPROVEMENTS" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ADJUST_UNIT_PERCENT_PILLAGE_IMPROVEMENT_MODIFIER">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_DOMAIN_MATCHES">
+				<Argument name="UnitDomain">DOMAIN_LAND</Argument>
+			</Requirement>
+                </SubjectRequirements>
                 <Argument name="Percent">25</Argument>
         </Modifier>
         <Modifier id="SCORCHED_EARTH_MOD_COMBAT_STRENGTH" collection="COLLECTION_PLAYER_COMBAT" effect="EFFECT_ADJUST_UNIT_STRENGTH_MODIFIER">
@@ -529,6 +535,7 @@
                 </SubjectRequirements>
                 <Argument name="Combat">true</Argument>
                 <Argument name="YieldType">YIELD_SCIENCE</Argument>
+                <Argument name="AcquisitionType">ACQUISITION_BUILT</Argument>
                 <Argument name="PercentCost">25</Argument>
                 <String context="Description">LOC_TRADITION_WARTIME_INNOVATION_DESCRIPTION</String>
         </Modifier>
@@ -613,7 +620,7 @@
                 <Argument name="RelationshipType">PLAYER_RELATIONSHIP_HOSTILE</Argument>
                 <Argument name="YieldType">YIELD_PRODUCTION</Argument>
         </Modifier>
-        <Modifier id="GRAND_ALLIANCE_MOD_UNIT_MAINTENANCE" collection="COLLECTION_UNIT_COMBAT" effect="EFFECT_DIPLOMACY_ADJUST_UNIT_MAINTENANCE_PER_PLAYER_RELATIONSHIP">
+        <Modifier id="GRAND_ALLIANCE_MOD_UNIT_MAINTENANCE" collection="COLLECTION_PLAYER_COMBAT" effect="EFFECT_DIPLOMACY_ADJUST_UNIT_MAINTENANCE_PER_PLAYER_RELATIONSHIP">
                 <Argument name="Amount">1</Argument>
                 <Argument name="UnitTag">UNIT_CLASS_COMBAT</Argument>
                 <Argument name="UseAlliances">true</Argument>

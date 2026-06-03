@@ -359,7 +359,7 @@
       <Text>{1_reward}.</Text>
     </Replace>
     <Replace Tag="LOC_11092B_NAME" Language="de_DE">
-      <Text>Zuerst wird das Essen in den Kreis gestellt.</Text>
+      <Text>Zuerst werden die Opfergaben in den Kreis gestellt.</Text>
     </Replace>
     <Replace Tag="LOC_11092C_DESCRIPTION" Language="de_DE">
       <Text>{1_reward}.</Text>
@@ -368,7 +368,7 @@
       <Text>Dann wird sichergestellt, dass alle am richtigen Platz sitzen.</Text>
     </Replace>
     <Replace Tag="LOC_11093A_COMPLETION" Language="de_DE">
-      <Text>Bei der Zubereitung des Tees muss alles nach Plan laufen: Der Tisch muss gedeckt sein, der Tee muss die richtige Temperatur haben, der Zucker muss vor der Milch hinzugefügt werden. Unzählige {1_Civilization_Adj[3]} Bürger führen dieses Ritual täglich durch und doch erinnern sich nur wenige an eine Zeit, als die Schale, die sie an ihre Lippen führten, mit Kava gefüllt war.</Text>
+      <Text>Bei der Zubereitung des Tees muss alles nach Plan laufen: Der Tisch muss gedeckt sein, der Tee muss die richtige Temperatur haben, der Zucker muss vor der Milch hinzugefügt werden. Unzählige {1_Civilization_adj[3]}{1: gender *:no_space?; other? ;}Bürger führen dieses Ritual täglich durch und doch erinnern sich nur wenige an eine Zeit, als die Schale, die sie an ihre Lippen führten, mit Kava gefüllt war.</Text>
     </Replace>
     <Replace Tag="LOC_11093A_STORYTITLE" Language="de_DE">
       <Text>Zeremonien</Text>
@@ -539,16 +539,34 @@
       <Text>Dr. Rizal in Tonga</Text>
     </Replace>
     <Replace Tag="LOC_12015B_DESCRIPTION" Language="de_DE">
-      <Text>{1_reward} in {2_capital}.</Text>
+      <Text>{1_reward}.</Text>
     </Replace>
     <Replace Tag="LOC_12015B_NAME" Language="de_DE">
-      <Text>Weiter durch die Länder reisen.</Text>
+      <Text>Das ist nur ein kleiner Ausschnitt einer umfassenderen Wirtschaft.</Text>
     </Replace>
     <Replace Tag="LOC_12015C_DESCRIPTION" Language="de_DE">
       <Text>{1_reward}.</Text>
     </Replace>
     <Replace Tag="LOC_12015C_NAME" Language="de_DE">
       <Text>Dr. Rizal muss diesen Häuptling treffen.</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30016A_COMPLETION" Language="de_DE">
+      <Text>Mana ist die Macht, die in den Häuptlingen wohnt - sie sorgt dafür, dass die Winde wehen, die Stürme toben oder sich beruhigen, die Ernte vom Land kommt ... und dass die Menschen sie lieben. Aber eine neue Ära bringt eine neue Linie von Königen, und die T'ui Ha'atakalaua kämpfen darum, ihre Macht über eine skeptische Öffentlichkeit zu behaupten.</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30016A_STORYTITLE" Language="de_DE">
+      <Text>Das Netz des Mana</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30016B_DESCRIPTION" Language="de_DE">
+      <Text>{1_reward}.</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30016B_NAME" Language="de_DE">
+      <Text>Macht bedeutet Wohlstand. Alles wird in Übereinstimmung mit dem Tapu geschehen.</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30016C_DESCRIPTION" Language="de_DE">
+      <Text>{1_reward}.</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30016C_NAME" Language="de_DE">
+      <Text>Wohlstand ist Macht. Neue Wege sollen für ein neues Zeitalter beschritten werden.</Text>
     </Replace>
     <Replace Tag="LOC_ATTR_ADJUST_CITY_YIELD_PER_CITY_STATE_TRADE_ROUTES" Language="de_DE">
       <Text>Ertrag pro Handelsweg mit Stadtstaaten</Text>
@@ -557,37 +575,43 @@
       <Text>Anzahl der Handelswege mit Stadtstaaten</Text>
     </Replace>
     <Replace Tag="LOC_BUILDING_LANGI_DESCRIPTION" Language="de_DE">
-      <Text>Einzigartiges tonganisches Kulturgebäude. +3 [icon:YIELD_CULTURE] Kultur. +1 [icon:YIELD_FOOD] Nahrungsnachbarschaft für Ressourcen und Wunder. Zeitlos.</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_BUILDING_TOOLTIP]Einzigartiges tonganisches Kulturgebäude[/TIP]. +3 [icon:YIELD_CULTURE] Kultur. +1 [icon:YIELD_FOOD] Nahrungsnachbarschaft für [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]Ressourcen[/TIP] und [TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]Wunder[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_BUILDING_LANGI_TOOLTIP" Language="de_DE">
-      <Text>Einzigartiges tonganisches Gebäude.</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_BUILDING_TOOLTIP]Einzigartiges tonganisches Gebäude[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_BUILDING_VAI_KAUKAU_DESCRIPTION" Language="de_DE">
-      <Text>Einzigartiges tonganisches Zufriedenheitsgebäude. +3 [icon:YIELD_HAPPINESS] Zufriedenheit. +1 [icon:YIELD_CULTURE] Kulturnachbarschaft für Küsten und Wunder. Zeitlos.</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_BUILDING_TOOLTIP]Einzigartiges tonganisches Zufriedenheitsgebäude[/TIP]. +3 [icon:YIELD_HAPPINESS] Zufriedenheit. +1 [icon:YIELD_CULTURE] Kulturnachbarschaft für Küsten und [TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]Wunder[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_BUILDING_VAI_KAUKAU_TOOLTIP" Language="de_DE">
-      <Text>Einzigartiges tonganisches Gebäude.</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_BUILDING_TOOLTIP]Einzigartiges tonganisches Gebäude[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_CIVIC_ESI_MAKA_FAAKINANGA_AUTHOR" Language="de_DE">
       <Text>George Vason</Text>
     </Replace>
     <Replace Tag="LOC_CIVIC_ESI_MAKA_FAAKINANGA_QUOTE" Language="de_DE">
-      <Text>Die ganze Insel unterwarf sich ihm. Von dort aus ging er zu einer anderen Gruppe von Inseln. Sie unterwarfen sich bereitwillig seiner Macht.</Text>
+      <Text>"Die ganze Insel unterwarf sich ihm. Von dort aus ging er zu einer anderen Gruppe von Inseln. Sie unterwarfen sich bereitwillig seiner Macht."</Text>
     </Replace>
     <Replace Tag="LOC_CIVIC_KAVA_CEREMONY_AUTHOR" Language="de_DE">
       <Text>Tāufaʻāhau I.</Text>
     </Replace>
     <Replace Tag="LOC_CIVIC_KAVA_CEREMONY_QUOTE" Language="de_DE">
-      <Text>Sie sind noch wie ihre Kinder und eins mit ihnen.</Text>
+      <Text>"Sie sind noch wie ihre Kinder und eins mit ihnen."</Text>
     </Replace>
     <Replace Tag="LOC_CIVIC_LAPITA_ORIGINS_AUTHOR" Language="de_DE">
       <Text>Tonganisches Sprichwort</Text>
     </Replace>
     <Replace Tag="LOC_CIVIC_LAPITA_ORIGINS_QUOTE" Language="de_DE">
-      <Text>Bleibt standhaft und die Wellen werden sich brechen.</Text>
+      <Text>"Bleibt standhaft und die Wellen werden sich brechen."</Text>
     </Replace>
     <Replace Tag="LOC_CIVILIZATION_TONGA_DESCRIPTION" Language="de_DE">
       <Text>+1 [icon:YIELD_DIPLOMACY] Einfluss für den Palast und Rathäuser in Siedlungen, die an die Küste angrenzen. [icon:PROJECT] "Stadtstaaten - Eingemeinden" oder die Aktion "Einheit erheben" können nicht verwendet werden.</Text>
+    </Replace>
+    <Replace Tag="LOC_CIVILIZATION_TONGA_EX_DESCRIPTION" Language="de_DE">
+      <Text>+2 [icon:YIELD_DIPLOMACY] Einfluss für den Palast und Rathäuser in Siedlungen, die an die Küste angrenzen. Erhaltet einen kostenlosen [icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]Handelsweg[/TIP] von einem neuen [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]Stadtstaat[/TIP], wenn Ihr dessen [TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]Suzerän[/TIP] werdet.</Text>
+    </Replace>
+    <Replace Tag="LOC_CIVILIZATION_TONGA_MO_DESCRIPTION" Language="de_DE">
+      <Text>+3 [icon:YIELD_DIPLOMACY] Einfluss für den Palast und Rathäuser in Siedlungen, die an die Küste angrenzen. Erhaltet einen kostenlosen [icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]Handelsweg[/TIP] von einem neuen [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]Stadtstaat[/TIP], wenn Ihr dessen [TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]Suzerän[/TIP] werdet.</Text>
     </Replace>
     <Replace Tag="LOC_LOADING_CIV_INTRO_TEXT_TONGA" Language="de_DE">
       <Text>Über die unwegsamen Meere segeln die doppelwandigen tonganischen Schiffe, nur von den Sternen geleitet. Gesang treibt sie voran, auf der Suche nach neuen Häfen aus Meeressteinen, neuen Atollen und neuen Fischgründen. Lauscht der Schlitztrommel und dem Rauschen der Wellen am Rumpf - eine neue Küste erwartet Euch.</Text>
@@ -601,47 +625,59 @@
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TONGA_COMPLETE_WONDER_HA_AMONGA_A_MAUI_NAME" Language="de_DE">
       <Text>Ha'amonga 'a Maui</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TONGA_LEGACY_PATH_CULTURAL_DESC" Language="de_DE">
-      <Text>Schließt als Tonga einen Kulturvermächtnis-Weg ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TONGA_FOUR_MAJOR_TRIUMPHS_DESC" Language="de_DE">
+      <Text>Schließt als Tonga 4 diplomatische oder wirtschaftliche Große Triumphe in einem einzigen Höhepunkt-Zeitalter ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TONGA_LEGACY_PATH_CULTURAL_NAME" Language="de_DE">
-      <Text>Tonga-Vermächtnis-Weg</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TONGA_FOUR_MAJOR_TRIUMPHS_NAME" Language="de_DE">
+      <Text>4 Große Triumphe Tongas</Text>
     </Replace>
     <Replace Tag="LOC_MOD_CIV_WONDER_PRODUCTION_TONGA_DESCRIPTION" Language="de_DE">
       <Text>+30 % [icon:YIELD_PRODUCTION] Produktion als zugehöriges [icon:WONDER] Wunder von Tonga.</Text>
     </Replace>
-    <Replace Tag="LOC_MOD_ESI_MAKA_FAAKINANGA_COMBAT_STRENGTH_DESCRIPTION" Language="de_DE">
-      <Text>+3 [icon:NAR_REW_COMBAT] Kampfstärke für Infanterie- und Marineeinheiten, wenn sie an die Küste angrenzen.</Text>
+    <Replace Tag="LOC_NODE_CIVIC_EX_TONGA_RENAISSANCE_NAME" Language="de_DE">
+      <Text>Tonganische Renaissance</Text>
     </Replace>
-    <Replace Tag="LOC_MOD_KAVA_CEREMONY_BEFRIEND_INDEPENDENT_DESCRIPTION" Language="de_DE">
-      <Text>+100 % [icon:YIELD_DIPLOMACY] Einfluss für das Anregen und die Unterstützung des [icon:PROJECT] Projekts "Unabhängig befreunden", wenn die [icon:INDEPENDENT_POWER] unabhängige Macht sich in fernen Ländern befindet.</Text>
-    </Replace>
-    <Replace Tag="LOC_MOD_LAPITA_ORIGINS_CS_TRADE_DESCRIPTION" Language="de_DE">
-      <Text>Erhaltet einen kostenlosen [icon:TRADE_ROUTE] Handelsweg von einem neuen [icon:CITYSTATE] Stadtstaat, wenn Ihr dessen Suzerän werdet.</Text>
-    </Replace>
-    <Replace Tag="LOC_MOD_LAPITA_ORIGINS_MONUMENT_INFLUENCE_DESCRIPTION" Language="de_DE">
-      <Text>+1 [icon:YIELD_DIPLOMACY] Einfluss für Monumente in Küstennähe.</Text>
-    </Replace>
-    <Replace Tag="LOC_MOD_LAPITA_ORIGINS_OCEAN_TRADE_DESCRIPTION" Language="de_DE">
-      <Text>[icon:TRADE_ROUTE] Handelswege können Ozeane umspannen.</Text>
+    <Replace Tag="LOC_NODE_CIVIC_MO_TONGA_MODERNIZATION_NAME" Language="de_DE">
+      <Text>Tonganische Modernisierung</Text>
     </Replace>
     <Replace Tag="LOC_QUARTER_TOFI_A_DESCRIPTION" Language="de_DE">
-      <Text>Tonganisches Spezialviertel. Wird erschaffen, wenn Ihr das Langi und das Vaikaukau im selben Bezirk baut. +2 [icon:YIELD_CULTURE] Kultur für jeden [icon:TRADE_ROUTE] Handelsweg, den Ihr zu einem [icon:CITYSTATE] Stadtstaat habt. [icon:UNIT_SCOUT] Späher beliebiger Zeitalter eines Reichs, das ein Tofi'a besitzt, können den Ozean betreten, ohne Schaden zu erleiden (aber sie können in der Antike nicht in fernen Ländern von Bord gehen).</Text>
+      <Text>Tonganisches [TIP:LOC_PEDIA_CONCEPTS_UNIQUE_QUARTER_TOOLTIP]Spezialviertel[/TIP]. Wird erschaffen, wenn Ihr das Langi und das Vaikaukau im selben [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]Bezirk[/TIP] baut. +2 [icon:YIELD_CULTURE] Kultur für jeden [icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]Handelsweg[/TIP], den Ihr zu einem [icon:CITYSTATE] Stadtstaat habt.</Text>
     </Replace>
     <Replace Tag="LOC_QUARTER_TOFI_A_TOOLTIP" Language="de_DE">
-      <Text>+2 [icon:YIELD_CULTURE] Kultur für jeden [icon:TRADE_ROUTE] Handelsweg, den Ihr zu einem [icon:CITYSTATE] Stadtstaat habt. [icon:UNIT_SCOUT] Späher beliebiger Zeitalter eines Reichs, das ein Tofi'a besitzt, können den Ozean betreten, ohne Schaden zu erleiden (aber sie können in der Antike nicht in fernen Ländern von Bord gehen).</Text>
+      <Text>+2 [icon:YIELD_CULTURE] Kultur für jeden [icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]Handelsweg[/TIP], den Ihr zu einem [icon:CITYSTATE] Stadtstaat habt.</Text>
     </Replace>
-    <Replace Tag="LOC_TRADITION_NGATU_DESCRIPTION" Language="de_DE">
-      <Text>+1 [icon:YIELD_CULTURE] Kultur für [icon:YIELD_WAREHOUSE] Lagerhaus-Gebäude.</Text>
+    <Replace Tag="LOC_TRADITION_NGATU_I_DESCRIPTION" Language="de_DE">
+      <Text>+100 % [icon:YIELD_DIPLOMACY] Einfluss für das Anregen und die Unterstützung des [icon:PROJECT] Projekts "Unabhängig befreunden", wenn die [icon:INDEPENDENT_POWER] unabhängige Macht sich in [TIP:LOC_PEDIA_CONCEPTS_DISTANT_LANDS_TOOLTIP]fernen Ländern[/TIP] befindet.</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_NGATU_II_DESCRIPTION" Language="de_DE">
+      <Text>+100 % [icon:YIELD_DIPLOMACY] Einfluss für das Anregen und Unterstützen des [icon:PROJECT] Projekts "Unabhängige befreunden", wenn die [icon:INDEPENDENT_POWER] unabhängige Macht sich in [TIP:LOC_PEDIA_CONCEPTS_DISTANT_LANDS_TOOLTIP]fernen Ländern[/TIP] befindet. +100 % [icon:YIELD_DIPLOMACY] Einfluss für alle [icon:CITYSTATE] Stadtstaat-Aktionen, wenn sich der betreffende Stadtstaat in [TIP:LOC_PEDIA_CONCEPTS_DISTANT_LANDS_TOOLTIP]fernen Ländern[/TIP] befindet.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_TAKUAKA_DESCRIPTION" Language="de_DE">
-      <Text>+1 [icon:YIELD_PRODUCTION] Produktion für Fischerboote in [icon:YIELD_CITIES] Städten. +2 [icon:YIELD_SCIENCE] Wissenschaft für Fischerboote auf Riffen in allen Siedlungen.</Text>
+      <Text>+1 [icon:YIELD_PRODUCTION] Produktion für Fischerboote in [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]Städten[/TIP]. +2 [icon:YIELD_SCIENCE] Wissenschaft für Fischerboote auf Riffen in allen [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]Siedlungen[/TIP].</Text>
     </Replace>
-    <Replace Tag="LOC_TRADITION_TONGIAKI_DESCRIPTION" Language="de_DE">
-      <Text>+10 [icon:TRADE_ROUTE] Seehandelsweg-Reichweite</Text>
+    <Replace Tag="LOC_TRADITION_TONGA_SYNCRETISM_EXPLORATION_DESCRIPTION" Language="de_DE">
+      <Text>+3 [icon:YIELD_CULTURE] Kultur und [icon:YIELD_GOLD] Gold in der [icon:NOTIFICATION_SELECT_CAPITAL] Hauptstadt für jeden [icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]Handelsweg[/TIP] mit einem [icon:CITYSTATE] Stadtstaat.</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_TONGA_SYNCRETISM_MODERN_DESCRIPTION" Language="de_DE">
+      <Text>+4 [icon:YIELD_CULTURE] Kultur und [icon:YIELD_GOLD] Gold in der [icon:NOTIFICATION_SELECT_CAPITAL] Hauptstadt für jeden [icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]Handelsweg[/TIP] mit einem [icon:CITYSTATE] Stadtstaat.</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_TONGA_SYNCRETISM_TOOLTIP" Language="de_DE">
+      <Text>T'ui Ha'atakalaua</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_TONGIAKI_I_DESCRIPTION" Language="de_DE">
+      <Text>+10 [icon:TRADE_ROUTE] See[TIP:LOC_PEDIA_CONCEPTS_TRADE_RANGE_TOOLTIP]Handelsweg-Reichweite[/TIP].</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_TONGIAKI_II_DESCRIPTION" Language="de_DE">
+      <Text>+10 [icon:TRADE_ROUTE] See[TIP:LOC_PEDIA_CONCEPTS_TRADE_RANGE_TOOLTIP]handelsweg-Reichweite[/TIP]. +3 [icon:YIELD_GOLD] Gold und [icon:YIELD_SCIENCE] Wissenschaft durch Seehandelswege.</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_TONGA_ABILITY_DESCRIPTION" Language="de_DE">
-      <Text>[BLIST][LI][B]+1 [icon:YIELD_DIPLOMACY] Einfluss[/B] für den [B]Palast[/B] und [B]Rathäuser[/B] in Siedlungen, die an die [B]Küste[/B] angrenzen.[LI][icon:PROJECT] [B]"Stadtstaaten - Eingemeinden"[/B] oder die Aktion [B]"Einheit erheben"[/B] können nicht verwendet werden.[LI][B]+30 % [icon:YIELD_PRODUCTION] Produktion [/B]für den Bau des [B]Ha'amonga'a Maui[/B].[/LIST]</Text>
+      <Text>[BLIST][LI][B]+1 [icon:YIELD_DIPLOMACY] Einfluss[/B] für den [B]Palast[/B] und [B]Rathäuser[/B] in [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]Siedlungen[/TIP], die an die [B]Küste[/B] angrenzen.[LI]Erhaltet einen kostenlosen [B][icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]Handelsweg[/TIP][/B] von einem neuen [B][icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]Stadtstaat[/TIP][/B], wenn Ihr dessen [B][TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]Suzerän[/TIP][/B] werdet.[LI][icon:PROJECT] [B]"Stadtstaaten - Eingemeinden"[/B] oder die Aktion [B]"Einheit erheben"[/B] können nicht verwendet werden.[LI][B]+30 % [icon:YIELD_PRODUCTION] Produktion [/B]für den Bau des [B]Ha'amonga'a Maui[/B].[/BLIST]</Text>
+    </Replace>
+    <Replace Tag="LOC_TRAIT_TONGA_ABILITY_EX_DESCRIPTION" Language="de_DE">
+      <Text>[BLIST][LI][B]+2 [icon:YIELD_DIPLOMACY] Einfluss[/B] für den [B]Palast[/B] und [B]Rathäuser[/B] in [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]Siedlungen[/TIP], die an die [B]Küste[/B] angrenzen.[LI]Erhaltet einen kostenlosen [B][icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]Handelsweg[/TIP][/B] von einem neuen [B][icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]Stadtstaat[/TIP][/B], wenn Ihr dessen [B][TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]Suzerän[/TIP][/B] werdet.[LI][B][icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]Handelswege[/TIP][/B] können Meere umspannen, ohne Schaden zu erleiden.[/BLIST]</Text>
+    </Replace>
+    <Replace Tag="LOC_TRAIT_TONGA_ABILITY_MO_DESCRIPTION" Language="de_DE">
+      <Text>[BLIST][LI][B]+3 [icon:YIELD_DIPLOMACY] Einfluss[/B] für den [B]Palast[/B] und [B]Rathäuser[/B] in Siedlungen, die an die [B]Küste[/B] angrenzen.[LI]Erhaltet einen kostenlosen [B][icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]Handelsweg[/TIP][/B] von einem neuen [B][icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]Stadtstaat[/TIP][/B], wenn Ihr dessen [B][TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]Suzerän[/TIP][/B] werdet.[/LIST]</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_TONGA_ABILITY_NAME" Language="de_DE">
       <Text>Herrscher des Südens</Text>
@@ -650,16 +686,16 @@
       <Text>Tonganische Ausrichtungen</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_KALIA_2_DESCRIPTION" Language="de_DE">
-      <Text>Tonganische Marine-Spezialeinheit der Stufe 3. +5 [icon:NAR_REW_COMBAT] Kampfstärke gegen [icon:CITY_FORTIFIED] befestigte Bezirke.</Text>
+      <Text>Tonganische [TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]Marine-Spezialeinheit[/TIP] der Stufe 3. +5 [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Kampfstärke[/TIP] gegen [icon:CITY_FORTIFIED] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]befestigte Bezirke[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_KALIA_BASE_DESCRIPTION" Language="de_DE">
-      <Text>Tonganische Marine-Spezialeinheit. +5 [icon:NAR_REW_COMBAT] Kampfstärke gegen [icon:CITY_FORTIFIED] befestigte Bezirke.</Text>
+      <Text>Tonganische [TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]Marine-Spezialeinheit[/TIP]. +5 [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Kampfstärke[/TIP] gegen [icon:CITY_FORTIFIED] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]befestigte Bezirke[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_KALIA_DESCRIPTION" Language="de_DE">
-      <Text>Tonganische Marine-Spezialeinheit der Stufe 2. +5 [icon:NAR_REW_COMBAT] Kampfstärke gegen [icon:CITY_FORTIFIED] befestigte Bezirke.</Text>
+      <Text>Tonganische [TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]Marine-Spezialeinheit[/TIP] der Stufe 2. +5 [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Kampfstärke[/TIP] gegen [icon:CITY_FORTIFIED] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]befestigte Bezirke[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_TEHINA_DESCRIPTION" Language="de_DE">
-      <Text>Einzigartiger Späher aus Tonga. Kann den Ozean betreten (erleidet keinen Schaden). Kann nicht in fernen Ländern von Bord gehen. Kann [icon:Action_Pillage] Küstenraubzug auf angrenzende Entdeckungen anwenden und zu Beginn des Zeitalters wassern.</Text>
+      <Text>Einzigartiger Späher aus Tonga. Kann den Ozean betreten (erleidet keinen Schaden). Kann nicht in [TIP:LOC_PEDIA_CONCEPTS_DISTANT_LANDS_TOOLTIP]fernen Ländern[/TIP] [TIP:LOC_PEDIA_CONCEPTS_EMBARK_TOOLTIP]von Bord gehen[/TIP]. Kann [icon:Action_Pillage] Küstenraubzug auf angrenzende Entdeckungen anwenden und zu Beginn des [TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]Zeitalters[/TIP] [TIP:LOC_PEDIA_CONCEPTS_EMBARK_TOOLTIP]wassern[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_PLAY_AS_HIMIKO_ALT_TONGA_TOOLTIP" Language="de_DE">
       <Text>[B]Tonga[/B] komplementiert [B]Himiko[/B] strategisch. </Text>
@@ -676,17 +712,22 @@
     <Replace Tag="LOC_UNLOCK_PLAY_AS_TONGA_HAWAII_TOOLTIP" Language="de_DE">
       <Text>[B]Tonga[/B] und [B]Hawaii[/B] sind beide Pazifikmächte.</Text>
     </Replace>
+    <Replace Tag="LOC_UNLOCK_PLAY_AS_TONGA_TONGA_TOOLTIP" Language="de_DE">
+      <Text>[B]Tonga[/B] kann die Zeitalter überdauern.</Text>
+    </Replace>
     <Replace Tag="LOC_ABILITY_KALIA_DESCRIPTION" Language="de_DE">
-      <Text>+{1_amount} [icon:NAR_REW_COMBAT] Kampfstärke im Kampf gegen [icon:CITY_FORTIFIED] befestigte Bezirke.</Text>
+      <Text>+{1_amount} [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Kampfstärke[/TIP] im Kampf gegen [icon:CITY_FORTIFIED] [TIP:LOC_PEDIA_CONCEPTS_FORTIFIED_DISTRICTS_TOOLTIP]befestigte Bezirke[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_ABILITY_KALIA_PREVIEW" Language="de_DE">
-      <Text>+{1_Amount} gegen befestigte Bezirke</Text>
+      <Text>+{1_Amount} gegen [TIP:LOC_PEDIA_CONCEPTS_FORTIFIED_DISTRICTS_TOOLTIP]befestigte Bezirke[/TIP]</Text>
     </Replace>
-    <Replace Tag="LOC_MOD_ESI_MAKA_FAAKINANGA_ADJACENT_TO_COAST_COMBAT_DESCRIPTION" Language="de_DE">
-      <Text>+{1_Amount} 'Esi Maka Faakinanga</Text>
+    <Replace Tag="LOC_TRADITION_NGATU_I_NAME" Language="de_DE">
+      <Text>Ngatu I|Ngatu I|Ngatu I|Ngatus I|Ngatu I</Text>
+      <Gender>neuter:no_article</Gender>
+      <Plurality>1</Plurality>
     </Replace>
-    <Replace Tag="LOC_TRADITION_NGATU_NAME" Language="de_DE">
-      <Text>Ngatu|Ngatu|Ngatu|Ngatu|Ngatu</Text>
+    <Replace Tag="LOC_TRADITION_NGATU_II_NAME" Language="de_DE">
+      <Text>Ngatu II|Ngatu II|Ngatu II|Ngatus II|Ngatu II</Text>
       <Gender>neuter:no_article</Gender>
       <Plurality>1</Plurality>
     </Replace>
@@ -695,8 +736,23 @@
       <Gender>masculine:no_article</Gender>
       <Plurality>1</Plurality>
     </Replace>
-    <Replace Tag="LOC_TRADITION_TONGIAKI_NAME" Language="de_DE">
-      <Text>Tongiaki|Tongiaki|Tongiaki|Tongiaki|Tongiaki</Text>
+    <Replace Tag="LOC_TRADITION_TONGA_SYNCRETISM_EXPLORATION_NAME" Language="de_DE">
+      <Text>T'ui Ha'atakalaua I|T'ui Ha'atakalaua I|T'ui Ha'atakalaua I|T'ui Ha'atakalaua I|T'ui Ha'atakalaua I</Text>
+      <Gender>feminine</Gender>
+      <Plurality>2</Plurality>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_TONGA_SYNCRETISM_MODERN_NAME" Language="de_DE">
+      <Text>T'ui Ha'atakalaua II|T'ui Ha'atakalaua II|T'ui Ha'atakalaua II|T'ui Ha'atakalaua II|T'ui Ha'atakalaua II</Text>
+      <Gender>feminine</Gender>
+      <Plurality>2</Plurality>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_TONGIAKI_I_NAME" Language="de_DE">
+      <Text>Tongiaki I|Tongiaki I|Tongiaki I|Tongiaki I|Tongiaki I</Text>
+      <Gender>neuter</Gender>
+      <Plurality>1</Plurality>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_TONGIAKI_II_NAME" Language="de_DE">
+      <Text>Tongiaki II|Tongiaki II|Tongiaki II|Tongiaki II|Tongiaki II</Text>
       <Gender>neuter</Gender>
       <Plurality>1</Plurality>
     </Replace>

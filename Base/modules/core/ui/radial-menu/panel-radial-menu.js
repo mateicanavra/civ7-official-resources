@@ -1,56 +1,21 @@
-import { A as Audio } from '../audio-base/audio-support.chunk.js';
+import { Audio } from '../audio-base/audio-support.js';
 import ContextManager from '../context-manager/context-manager.js';
-import { ActiveDeviceTypeChangedEventName } from '../input/action-handler.js';
-import FocusManager from '../input/focus-manager.js';
-import { a as NavigateInputEventName, b as InputEngineEventName } from '../input/input-support.chunk.js';
+import { ActiveDeviceTypeChangedEventName } from '../input/input-events.js';
+import { NavigateInputEventName, InputEngineEventName } from '../input/input-support.js';
 import { InterfaceMode } from '../interface-modes/interface-modes.js';
-import { N as NavTray } from '../navigation-tray/model-navigation-tray.chunk.js';
-import { P as Panel } from '../panel-support.chunk.js';
-import { MustGetElement } from '../utilities/utilities-dom.chunk.js';
-import { L as Layout } from '../utilities/utilities-layout.chunk.js';
+import NavTray from '../navigation-tray/model-navigation-tray.js';
+import Panel from '../panel-support.js';
+import { MustGetElement } from '../utilities/utilities-dom.js';
+import { Layout } from '../utilities/utilities-layout.js';
+import { FocusManager } from '../../ui-next/services/focus-manager.js';
+import styles from './panel-radial-menu.scss.js';
 import AgeScores from '../../../base-standard/ui/age-scores/model-age-scores.js';
-import { R as RibbonYieldType, D as DiploRibbonData } from '../../../base-standard/ui/diplo-ribbon/model-diplo-ribbon.chunk.js';
+import { RibbonYieldType, DiploRibbonData } from '../../../base-standard/ui/diplo-ribbon/model-diplo-ribbon.js';
 import { RaiseDiplomacyEvent } from '../../../base-standard/ui/diplomacy/diplomacy-events.js';
 import GreatWorks from '../../../base-standard/ui/great-works/model-great-works.js';
 import PopupSequencer from '../../../base-standard/ui/popup-sequencer/popup-sequencer.js';
-import { R as ResourceAllocation } from '../../../base-standard/ui/resource-allocation/model-resource-allocation.chunk.js';
+import ResourceAllocation from '../../../base-standard/ui/resource-allocation/model-resource-allocation.js';
 import TutorialManager from '../../../base-standard/ui/tutorial/tutorial-manager.js';
-import PlayerUnlocks from '../../../base-standard/ui/unlocks/model-unlocks.js';
-import '../context-manager/display-queue-manager.js';
-import '../dialog-box/manager-dialog-box.chunk.js';
-import '../framework.chunk.js';
-import '../input/cursor.js';
-import '../views/view-manager.chunk.js';
-import '../utilities/utilities-update-gate.chunk.js';
-import '../utilities/utilities-image.chunk.js';
-import '../utilities/utilities-component-id.chunk.js';
-import '../../../base-standard/ui/victory-manager/victory-manager.chunk.js';
-import '../utilities/utilities-color.chunk.js';
-import '../graph-layout/utils.chunk.js';
-import '../../../base-standard/ui/diplomacy/diplomacy-manager.js';
-import '../../../base-standard/ui/world-input/world-input.js';
-import '../input/plot-cursor.js';
-import '../utilities/utilities-network.js';
-import '../shell/mp-legal/mp-legal.js';
-import '../events/shell-events.chunk.js';
-import '../utilities/utilities-liveops.js';
-import '../utilities/utilities-network-constants.chunk.js';
-import '../../../base-standard/ui/interface-modes/support-unit-map-decoration.chunk.js';
-import '../../../base-standard/ui/utilities/utilities-overlay.chunk.js';
-import '../../../base-standard/ui/victory-progress/model-victory-progress.chunk.js';
-import '../../../base-standard/ui/cinematic/cinematic-manager.chunk.js';
-import '../../../base-standard/ui/endgame/screen-endgame.js';
-import '../tooltips/tooltip-manager.js';
-import '../../../base-standard/ui/end-results/end-results.js';
-import '../../../base-standard/ui/endgame/model-endgame.js';
-import '../../../base-standard/ui/utilities/utilities-city-yields.chunk.js';
-import '../input/input-filter.chunk.js';
-import '../../../base-standard/ui/quest-tracker/quest-item.js';
-import '../../../base-standard/ui/quest-tracker/quest-tracker.js';
-import '../../../base-standard/ui/tutorial/tutorial-events.chunk.js';
-import '../../../base-standard/ui/tutorial/tutorial-item.js';
-
-const styles = "fs://game/core/ui/radial-menu/panel-radial-menu.css";
 
 var NavigationType = /* @__PURE__ */ ((NavigationType2) => {
   NavigationType2["NONE"] = "";
@@ -65,7 +30,7 @@ const DEFAULT_RADIAL_MENUS = [
     title: "LOC_UI_RADIAL_MENU_MENU_TITLE",
     items: [
       {
-        title: "LOC_UI_RADIAL_MENU_DETAILS_AGE_PROGRESS_TITLE",
+        title: "LOC_UI_VICTORY_PROGRESS",
         subtitle: "",
         icon1: "RADIAL_VICTORIES",
         icon2: "",
@@ -328,9 +293,9 @@ const DEFAULT_RADIAL_MENUS = [
         }
       },
       {
-        title: "LOC_UI_RADIAL_MENU_DETAILS_UNLOCK_TITLE",
+        title: "LOC_UI_PLAYER_UNLOCKS_LEGACIES",
         subtitle: "",
-        icon1: "RADIAL_UNLOCK",
+        icon1: "RADIAL_LEGACIES",
         icon2: "",
         fgColor: "",
         bgColor: "",
@@ -338,54 +303,33 @@ const DEFAULT_RADIAL_MENUS = [
         navigation: {
           type: "context" /* CONTEXT */,
           value: () => {
-            return "screen-unlocks";
+            return "screen-legacies";
           },
-          useSequencer: true
+          createsMouseGuard: true
         },
-        tutHidderId: "hideUnlocks",
+        tutHidderId: "hideLegacies",
         description: () => {
-          const rewardPoints = PlayerUnlocks.getLegacyCurrency();
-          const legacyPointsCategories = [
-            CardCategories.CARD_CATEGORY_WILDCARD,
-            CardCategories.CARD_CATEGORY_SCIENTIFIC,
-            CardCategories.CARD_CATEGORY_CULTURAL,
-            CardCategories.CARD_CATEGORY_MILITARISTIC,
-            CardCategories.CARD_CATEGORY_ECONOMIC
-          ];
-          const legacyPointsRewards = legacyPointsCategories.map((category) => ({
-            category,
-            value: rewardPoints.find((rewardPoint) => category == rewardPoint.category)?.value ?? 0
-          }));
-          let maxAgeChrono = -1;
-          for (const e of GameInfo.Ages) {
-            if (e.ChronologyIndex > maxAgeChrono) {
-              maxAgeChrono = e.ChronologyIndex;
-            }
-          }
-          const curAgeChrono = GameInfo.Ages.lookup(Game.age)?.ChronologyIndex ?? -1;
-          if (curAgeChrono === maxAgeChrono) {
-            return "";
-          }
-          return `
-						<div class="flow-row">
-							<div class="radial-menu__name-filigree-left"></div>
-							<div class="radial-menu__name-filigree-right"></div>
-						</div>
-						<div class="flow-row justify-center w-full">
-							<div class="flow-row-wrap mt-1 w-40">
-								${legacyPointsRewards.map(
-            ({ category, value }) => `
-									<div class="flow-row justify-between w-18 -my-0\\.5 mx-1 items-center">
-										<div style="background-image: url('${UI.getIconURL(Object.keys(CardCategories).find((key) => CardCategories[key] === category) || "")}')" class="size-10 bg-contain bg-no-repeat bg-center"></div>
-										<div class="flex-auto flow-row justify-end items-center">
-											<div class="font-fit-shrink whitespace-nowrap text-accent-2 ${window.innerHeight > Layout.pixelsToScreenPixels(720) ? "text-lg" : "text-base"}" data-l10n-id="${value}"></div>
-										</div>
-									</div>
-								`
-          ).join("")}
-							</div>
-						</div>
-					`;
+          return "";
+        }
+      },
+      {
+        title: "LOC_UI_RADIAL_MENU_DETAILS_ADVISORS_TITLE",
+        subtitle: "",
+        icon1: "RADIAL_ADVISORS",
+        icon2: "",
+        fgColor: "",
+        bgColor: "",
+        ratio: 1,
+        navigation: {
+          type: "context" /* CONTEXT */,
+          value: () => {
+            return "screen-advisor-council";
+          },
+          createsMouseGuard: true
+        },
+        tutHidderId: "",
+        description: () => {
+          return "";
         }
       },
       {
@@ -416,7 +360,7 @@ const DEFAULT_RADIAL_MENUS = [
                 return "";
               }
               const numPantheonsToAdd = playerReligion.getNumPantheonsUnlocked();
-              const mustAddPantheons = playerCulture.isNodeUnlocked("NODE_CIVIC_AQ_MAIN_MYSTICISM") && numPantheonsToAdd > 0;
+              const mustAddPantheons = numPantheonsToAdd > 0;
               if (mustAddPantheons) {
                 return "screen-pantheon-chooser";
               } else {
@@ -576,6 +520,7 @@ class PanelRadialMenu extends Panel {
     this.tabBarElement = MustGetElement("fxs-tab-bar", this.Root);
     this.tabBarElement.addEventListener("tab-selected", this.tabBarSelectedEventListener);
     this.slotGroupElement = MustGetElement("fxs-slot-group", this.Root);
+    this.updateSelectedMenuState(this.currentMenuIndex.toString());
     const radialMenuItems = this.Root.querySelectorAll(".radial-menu-item");
     radialMenuItems?.forEach((elem) => {
       elem.addEventListener("action-activate", this.itemActionActivateListener);
@@ -658,7 +603,9 @@ class PanelRadialMenu extends Panel {
           break;
         case "focus" /* FOCUS */:
           onClick = onClickFn(
-            () => FocusManager.setFocus(document.querySelector(".harness")?.querySelector(value()) ?? this.Root)
+            () => FocusManager.get().setFocus(
+              document.querySelector(".harness")?.querySelector(value()) ?? this.Root
+            )
           );
           break;
       }
@@ -682,7 +629,8 @@ class PanelRadialMenu extends Panel {
     super.onDetach();
   }
   onReceiveFocus() {
-    FocusManager.setFocus(this.slotGroupElement ?? this.Root);
+    this.updateSelectedMenuState(this.currentMenuIndex.toString());
+    this.focusItem(this.focusDeg);
     NavTray.clear();
     NavTray.addOrUpdateGenericCancel();
     NavTray.addOrUpdateNavBeam("LOC_NAV_RADIAL_BEAM");
@@ -722,7 +670,7 @@ class PanelRadialMenu extends Panel {
       ) ?? []
     );
     const focusElement = this.selectedMenuItemElements?.[focusItemIndex];
-    FocusManager.setFocus(focusElement ?? this.Root);
+    FocusManager.get().setFocus(focusElement ?? this.Root);
     return this.menus[this.currentMenuIndex]?.items?.[focusItemIndex];
   };
   handleNavigation = (navigationEvent) => {
@@ -774,6 +722,9 @@ class PanelRadialMenu extends Panel {
   }) {
     this.rotation = 0;
     this.focusDeg = 0;
+    this.updateSelectedMenuState(id);
+  }
+  updateSelectedMenuState(id) {
     this.currentMenuIndex = Number.parseInt(id);
     this.selectedMenuArrowContainer = this.Root.querySelector(`.menu-items-arrow-container[index='${id}']`) ?? void 0;
     this.selectedMenuArrowContainer?.style.setProperty("transition-duration", "0s");
@@ -792,18 +743,32 @@ class PanelRadialMenu extends Panel {
     }
   }
   onItemFocus({ target }) {
-    const index = Number.parseInt(target.getAttribute("index") ?? "0");
-    const { positionDeg = 0 } = this.menus[this.currentMenuIndex]?.items?.[index] ?? {};
-    this.rotateMenuArrow(positionDeg);
-    this.focusDeg = positionDeg;
-    this.selectedMenuArrowContainer?.classList.remove("hidden");
-    this.selectedMenuItemDescriptions?.[index]?.classList.remove("hidden");
-    waitForLayout(() => this.selectedMenuArrowContainer?.style.setProperty("transition-duration", "0.1s"));
-    Audio.playSound("data-audio-focus", "controller-radial");
+    const targetIndex = target.getAttribute("index");
+    if (targetIndex !== null) {
+      const index = Number.parseInt(targetIndex);
+      const { positionDeg = 0 } = this.menus[this.currentMenuIndex]?.items?.[index] ?? {};
+      this.rotateMenuArrow(positionDeg);
+      this.focusDeg = positionDeg;
+      this.selectedMenuArrowContainer?.classList.remove("hidden");
+      if (this.selectedMenuItemDescriptions) {
+        for (const [i, desc] of this.selectedMenuItemDescriptions.entries()) {
+          desc.classList.toggle("hidden", i != index);
+        }
+      }
+      waitForLayout(() => this.selectedMenuArrowContainer?.style.setProperty("transition-duration", "0.1s"));
+      Audio.playSound("data-audio-focus", "controller-radial");
+    } else {
+      console.warn("Radial Menu - 'index' attribute was not found on item.");
+    }
   }
   onItemBlur({ target }) {
-    const index = Number.parseInt(target.getAttribute("index") ?? "0");
-    this.selectedMenuItemDescriptions?.[index]?.classList.add("hidden");
+    const targetIndex = target.getAttribute("index");
+    if (targetIndex !== null) {
+      const index = Number.parseInt(targetIndex);
+      this.selectedMenuItemDescriptions?.[index]?.classList.add("hidden");
+    } else {
+      console.warn("Radial Menu - 'index' attribute was not found on item.");
+    }
   }
   populateLeaderMenu = () => {
     this.menus[1].items = this.resolveItemsOnClickFunction(

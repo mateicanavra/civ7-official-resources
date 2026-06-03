@@ -39,9 +39,37 @@
 		<Argument name="UnitCoreClass">CORE_CLASS_RECON</Argument>
 		<Argument name="Percent">40</Argument>
 	</Modifier>
+	<!-- Revolucion -->
+	<Modifier id="MOD_GOLDEN_AGE_REVOLUCION_EX_CULTURE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD">
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Percent">30</Argument>
+	</Modifier>
+	 <Modifier id="MOD_GOLDEN_AGE_REVOLUCION_EX_MISSIONARY_PRODUCTION" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_UNIT_PRODUCTION">
+        <Argument name="Percent">100</Argument>
+		<Argument name="UnitClass">UNIT_CLASS_RELIGIOUS</Argument>
+    </Modifier>
+    <Modifier id="MOD_GOLDEN_AGE_REVOLUCION_EX_MISSIONARY_PURCHASE" collection="COLLECTION_OWNER" effect="EFFECT_ADJUST_PLAYER_OR_CITY_UNIT_PURCHASE_EFFICIENCY">
+        <Argument name="UnitTag">UNIT_CLASS_RELIGIOUS</Argument>
+        <Argument name="Percent">100</Argument>
+    </Modifier>
+	<Modifier id="MOD_GOLDEN_AGE_REVOLUCION_EX_MISSIONARY_CHARGES" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ADJUST_UNIT_SPREAD_CHARGES">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_CLASS_MATCHES">
+				<Argument name="UnitClass">UNIT_CLASS_RELIGIOUS</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">2</Argument>
+	</Modifier>
+	<Modifier id="MOD_GOLDEN_AGE_REVOLUCION_EX_MISSIONARY_MOVEMENT" collection="COLLECTION_ALL_UNITS" effect="EFFECT_UNIT_ADJUST_MOVEMENT">
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_UNIT_TYPE_MATCHES">
+                <Argument name="UnitType">UNIT_CLASS_RELIGIOUS</Argument>
+            </Requirement>
+        </SubjectRequirements>
+        <Argument name="Amount">2</Argument>
+    </Modifier>
 	<!-- Authoritarianism -->
 	<Modifier id="MOD_GOLDEN_AGE_REVOLUTIONARY_AUTHORITARIANISM_UNIT_PRODUCTION" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_UNIT_PRODUCTION">
-		<Argument name="YieldType">YIELD_PRODUCTION</Argument>
 		<Argument name="Percent">100</Argument>
 		<Argument name="UnitCoreClass">CORE_CLASS_MILITARY</Argument>
 	</Modifier>

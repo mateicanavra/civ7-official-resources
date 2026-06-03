@@ -1,0 +1,597 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metaprogression xmlns="Metaprogression">
+	<legendPath id="LEGEND_PATH_ALEXANDER" type="CHALLENGE_CLASS_LEADER">
+		<sortIndex>75</sortIndex>
+		<level level="2">
+			<reward reward="MEMENTO_ALEXANDER_ILIAD"/>
+		</level>
+		<level level="3">
+			<reward reward="NODE_ATTRIBUTE_CULTURAL_LEGEND_ALEXANDER_L1"/>
+		</level>
+		<level level="4">
+			<reward reward="STRATEGYCARD_ALEXANDER_EXPLORATION_1"/>
+			<reward reward="STRATEGYCARD_ALEXANDER_EXPLORATION_2"/>
+		</level>
+		<level level="5">
+			<reward reward="MEMENTO_ALEXANDER_DIADEM"/>
+		</level>
+		<level level="6">
+			<reward reward="BANNER_ALEXANDER"/>
+			<reward reward="BADGE_ALEXANDER"/>
+		</level>
+		<level level="7">
+			<reward reward="NODE_ATTRIBUTE_MILITARISTIC_LEGEND_ALEXANDER_L2"/>
+		</level>
+		<level level="8">
+			<reward reward="STRATEGYCARD_ALEXANDER_MODERN_1"/>
+			<reward reward="STRATEGYCARD_ALEXANDER_MODERN_2"/>
+		</level>
+		<level level="9">
+			<reward reward="MEMENTO_ALEXANDER_BRIDLE_OF_BUCEPHALUS"/>
+		</level>
+		<level level="10">
+			<reward reward="TITLE_ALEXANDER"/>
+			<reward reward="BADGE_ALEXANDER_P"/>
+		</level>
+	</legendPath>
+	<challengeEvents>
+		<event id="CHALLENGE_EVENT_LEADER_ALEXANDER_AGE_ENDED"/>
+		<event id="CHALLENGE_EVENT_ALEXANDER_TRIUMPH_COMPLETED" />
+		<event id="CHALLENGE_EVENT_LEADER_ALEXANDER_UNLOCKED_STRATEGYCARDS_EXPLORATION" />
+		<event id="CHALLENGE_EVENT_LEADER_ALEXANDER_UNLOCKED_STRATEGYCARDS_MODERN" />
+	</challengeEvents>
+	<statistics>
+		<statistic id="CHALLENGE_STATISTIC_ALEXANDER_TRIUMPHS_COMPLETED" event="CHALLENGE_EVENT_ALEXANDER_TRIUMPH_COMPLETED"/>
+		<statistic id="CHALLENGE_STATISTIC_LEADER_ALEXANDER_ANTIQUITY_AGES_COMPLETED" event="CHALLENGE_EVENT_LEADER_ALEXANDER_AGE_ENDED">
+			<rules>
+				<rule type="equals" var="age">AGE_ANTIQUITY</rule>
+			</rules>
+		</statistic>
+		<statistic id="CHALLENGE_STATISTIC_LEADER_ALEXANDER_EXPLORATION_AGES_COMPLETED" event="CHALLENGE_EVENT_LEADER_ALEXANDER_AGE_ENDED">
+			<rules>
+				<rule type="equals" var="age">AGE_EXPLORATION</rule>
+			</rules>
+		</statistic>
+		<statistic id="CHALLENGE_STATISTIC_LEADER_ALEXANDER_MODERN_AGES_COMPLETED" event="CHALLENGE_EVENT_LEADER_ALEXANDER_AGE_ENDED">
+			<rules>
+				<rule type="equals" var="age">AGE_MODERN</rule>
+			</rules>
+		</statistic>
+		<statistic id="CHALLENGE_STATISTIC_LEADER_ALEXANDER_UNLOCKED_STRATEGYCARDS_EXPLORATION_COMPLETED" event="CHALLENGE_EVENT_LEADER_ALEXANDER_UNLOCKED_STRATEGYCARDS_EXPLORATION"/>
+		<statistic id="CHALLENGE_STATISTIC_LEADER_ALEXANDER_UNLOCKED_STRATEGYCARDS_MODERN_COMPLETED" event="CHALLENGE_EVENT_LEADER_ALEXANDER_UNLOCKED_STRATEGYCARDS_MODERN"/>
+	</statistics>
+	<challengeCategoryData>
+		<challengeCategory id="CHALLENGE_CATEGORY_LEADER_ALEXANDER" locName="LOC_LEADER_ALEXANDER_NAME" sortIndex="75"/>
+	</challengeCategoryData>
+	<challenges class="CHALLENGE_CLASS_LEADER" category="CHALLENGE_CATEGORY_LEADER_ALEXANDER" legendPath="LEGEND_PATH_ALEXANDER">
+		<challenge id="CHALLENGE_ALEXANDER_FOUR_MAJOR_TRIUMPHS_ANTIQUITY" scope="Campaign" difficulty="4">
+			<l10n>
+				<name>Triumphant, Antiquity</name>
+				<description>As Alexander, complete 4 Major Triumphs in a single Antiquity Age.</description>
+			</l10n>
+			<sortIndex>10000</sortIndex>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_ALEXANDER_FOUR_MAJOR_TRIUMPHS_EXPLORATION" scope="Campaign" difficulty="4">
+			<l10n>
+				<name>Triumphant, Exploration</name>
+				<description>As Alexander, complete 4 Major Triumphs in a single Exploration Age.</description>
+			</l10n>
+			<sortIndex>10100</sortIndex>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_ALEXANDER_FOUR_MAJOR_TRIUMPHS_MODERN" scope="Campaign" difficulty="4" hidden="true">
+			<l10n>
+				<name>Triumphant, Modern</name>
+				<description>As Alexander, complete 4 Major Triumphs in a single Modern Age.</description>
+			</l10n>
+			<sortIndex>10200</sortIndex>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_ALEXANDER_CULTURE_TRIUMPH_ANTIQUITY" scope="Campaign" difficulty="2">
+			<l10n>
+				<name>Wonders of the Ancient World</name>
+				<description>As Alexander, complete the Wonders of the Ancient World Triumph.</description>
+			</l10n>
+			<sortIndex>10300</sortIndex>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_ALEXANDER_CULTURE_TRIUMPH_2_ANTIQUITY" scope="Campaign" difficulty="2">
+			<l10n>
+				<name>Orphic Mysteries</name>
+				<description>As Alexander, complete the Orphic Mysteries Triumph.</description>
+			</l10n>
+			<sortIndex>10400</sortIndex>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_ALEXANDER_MILITARY_TRIUMPH_ANTIQUITY" scope="Campaign" difficulty="2">
+			<l10n>
+				<name>Pax Imperatoria</name>
+				<description>As Alexander, complete the Pax Imperatoria Triumph.</description>
+			</l10n>
+			<sortIndex>10500</sortIndex>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_ALEXANDER_MILITARY_TRIUMPH_2_ANTIQUITY" scope="Campaign" difficulty="2">
+			<l10n>
+				<name>What a Gaius</name>
+				<description>As Alexander, complete the What a Gaius Triumph.</description>
+			</l10n>
+			<sortIndex>10600</sortIndex>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_ALEXANDER_ECONOMIC_TRIUMPH_ANTIQUITY" scope="Campaign" difficulty="2">
+			<l10n>
+				<name>Silk Roads</name>
+				<description>As Alexander, complete the Silk Roads Triumph.</description>
+			</l10n>
+			<sortIndex>10700</sortIndex>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_ALEXANDER_ECONOMIC_TRIUMPH_2_ANTIQUITY" scope="Campaign" difficulty="2">
+			<l10n>
+				<name>Greed is Golden</name>
+				<description>As Alexander, complete the Greed is Golden Triumph.</description>
+			</l10n>
+			<sortIndex>10800</sortIndex>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_ALEXANDER_SCIENCE_TRIUMPH_ANTIQUITY" scope="Campaign" difficulty="2">
+			<l10n>
+				<name>Library of Ashurbanipal</name>
+				<description>As Alexander, complete the Library of Ashurbanipal Triumph.</description>
+			</l10n>
+			<sortIndex>10900</sortIndex>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_ALEXANDER_SCIENCE_TRIUMPH_2_ANTIQUITY" scope="Campaign" difficulty="2">
+			<l10n>
+				<name>Round Earther</name>
+				<description>As Alexander, complete the Round Earther Triumph.</description>
+			</l10n>
+			<sortIndex>11000</sortIndex>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_ALEXANDER_DIPLOMATIC_TRIUMPH_ANTIQUITY" scope="Campaign" difficulty="2">
+			<l10n>
+				<name>Pulling the Strings</name>
+				<description>As Alexander, complete the Pulling the Strings Triumph.</description>
+			</l10n>
+			<sortIndex>11100</sortIndex>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_ALEXANDER_DIPLOMATIC_TRIUMPH_2_ANTIQUITY" scope="Campaign" difficulty="2">
+			<l10n>
+				<name>Bread and Circuses</name>
+				<description>As Alexander, complete the Bread and Circuses Triumph.</description>
+			</l10n>
+			<sortIndex>11200</sortIndex>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_ALEXANDER_EXPANSIONIST_TRIUMPH_ANTIQUITY" scope="Campaign" difficulty="2">
+			<l10n>
+				<name>Four Corners of the World</name>
+				<description>As Alexander, complete the Four Corners of the World Triumph.</description>
+			</l10n>
+			<sortIndex>11300</sortIndex>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_ALEXANDER_EXPANSIONIST_TRIUMPH_2_ANTIQUITY" scope="Campaign" difficulty="2">
+			<l10n>
+				<name>Tower of Babel</name>
+				<description>As Alexander, complete the Tower of Babel Triumph.</description>
+			</l10n>
+			<sortIndex>11400</sortIndex>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_ALEXANDER_CULTURE_TRIUMPH_EXPLORATION" scope="Campaign" difficulty="2">
+			<l10n>
+				<name>Toshakhana</name>
+				<description>As Alexander, complete the Toshakhana Triumph.</description>
+			</l10n>
+			<sortIndex>11500</sortIndex>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_ALEXANDER_CULTURE_TRIUMPH_2_EXPLORATION" scope="Campaign" difficulty="2">
+			<l10n>
+				<name>Kingdom of Heaven</name>
+				<description>As Alexander, complete the Kingdom of Heaven Triumph.</description>
+			</l10n>
+			<sortIndex>11600</sortIndex>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_ALEXANDER_MILITARY_TRIUMPH_EXPLORATION" scope="Campaign" difficulty="2">
+			<l10n>
+				<name>Non Sufficit Orbis</name>
+				<description>As Alexander, complete the Non Sufficit Orbis Triumph.</description>
+			</l10n>
+			<sortIndex>11700</sortIndex>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_ALEXANDER_MILITARY_TRIUMPH_2_EXPLORATION" scope="Campaign" difficulty="2">
+			<l10n>
+				<name>Pax Mongolica</name>
+				<description>As Alexander, complete the Pax Mongolica Triumph.</description>
+			</l10n>
+			<sortIndex>11800</sortIndex>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_ALEXANDER_ECONOMIC_TRIUMPH_EXPLORATION" scope="Campaign" difficulty="2">
+			<l10n>
+				<name>Treasure Fleet</name>
+				<description>As Alexander, complete the Treasure Fleet Triumph.</description>
+			</l10n>
+			<sortIndex>11900</sortIndex>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_ALEXANDER_ECONOMIC_TRIUMPH_2_EXPLORATION" scope="Campaign" difficulty="2">
+			<l10n>
+				<name>Let's Calicut A Deal</name>
+				<description>As Alexander, complete the Let's Calicut A Deal Triumph.</description>
+			</l10n>
+			<sortIndex>12000</sortIndex>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_ALEXANDER_SCIENCE_TRIUMPH_EXPLORATION" scope="Campaign" difficulty="2">
+			<l10n>
+				<name>Enlightenment</name>
+				<description>As Alexander, complete the Enlightenment Triumph.</description>
+			</l10n>
+			<sortIndex>12100</sortIndex>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_ALEXANDER_SCIENCE_TRIUMPH_2_EXPLORATION" scope="Campaign" difficulty="2">
+			<l10n>
+				<name>On the Revolutions of the Celestial Spheres</name>
+				<description>As Alexander, complete the On the Revolutions of the Celestial Spheres Triumph.</description>
+			</l10n>
+			<sortIndex>12200</sortIndex>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_ALEXANDER_DIPLOMATIC_TRIUMPH_EXPLORATION" scope="Campaign" difficulty="2">
+			<l10n>
+				<name>Order of Assassins</name>
+				<description>As Alexander, complete the Order of Assassins Triumph.</description>
+			</l10n>
+			<sortIndex>12300</sortIndex>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_ALEXANDER_DIPLOMATIC_TRIUMPH_2_EXPLORATION" scope="Campaign" difficulty="2">
+			<l10n>
+				<name>Quadruple Alliance</name>
+				<description>As Alexander, complete the Quadruple Alliance Triumph.</description>
+			</l10n>
+			<sortIndex>12400</sortIndex>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_ALEXANDER_EXPANSIONIST_TRIUMPH_EXPLORATION" scope="Campaign" difficulty="2">
+			<l10n>
+				<name>Hic Sunt Dracones</name>
+				<description>As Alexander, complete the Hic Sunt Dracones Triumph.</description>
+			</l10n>
+			<sortIndex>12500</sortIndex>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_ALEXANDER_EXPANSIONIST_TRIUMPH_2_EXPLORATION" scope="Campaign" difficulty="2">
+			<l10n>
+				<name>We have Habsburgs at Home</name>
+				<description>As Alexander, complete the We have Habsburgs at Home Triumph.</description>
+			</l10n>
+			<sortIndex>12600</sortIndex>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_ALEXANDER_CULTURE_TRIUMPH_MODERN" scope="Campaign" difficulty="2">
+			<l10n>
+				<name>Geographic Society</name>
+				<description>As Alexander, complete the Geographic Society Triumph.</description>
+			</l10n>
+			<sortIndex>12700</sortIndex>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_ALEXANDER_CULTURE_TRIUMPH_2_MODERN" scope="Campaign" difficulty="2">
+			<l10n>
+				<name>Wonderland</name>
+				<description>As Alexander, complete the Wonderland Triumph.</description>
+			</l10n>
+			<sortIndex>12800</sortIndex>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_ALEXANDER_MILITARY_TRIUMPH_MODERN" scope="Campaign" difficulty="2">
+			<l10n>
+				<name>Moral Imperative</name>
+				<description>As Alexander, complete the Moral Imperative Triumph.</description>
+			</l10n>
+			<sortIndex>12900</sortIndex>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_ALEXANDER_MILITARY_TRIUMPH_2_MODERN" scope="Campaign" difficulty="2">
+			<l10n>
+				<name>Enemy of the World</name>
+				<description>As Alexander, complete the Enemy of the World Triumph.</description>
+			</l10n>
+			<sortIndex>13000</sortIndex>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_ALEXANDER_ECONOMIC_TRIUMPH_MODERN" scope="Campaign" difficulty="2">
+			<l10n>
+				<name>Railroad Tycoon</name>
+				<description>As Alexander, complete the Railroad Tycoon Triumph.</description>
+			</l10n>
+			<sortIndex>13100</sortIndex>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_ALEXANDER_ECONOMIC_TRIUMPH_2_MODERN" scope="Campaign" difficulty="2">
+			<l10n>
+				<name>Workshop of the World</name>
+				<description>As Alexander, complete the Workshop of the World Triumph.</description>
+			</l10n>
+			<sortIndex>13200</sortIndex>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_ALEXANDER_SCIENCE_TRIUMPH_MODERN" scope="Campaign" difficulty="2">
+			<l10n>
+				<name>Dawn of the Space Race</name>
+				<description>As Alexander, complete the Dawn of the Space Race Triumph.</description>
+			</l10n>
+			<sortIndex>13300</sortIndex>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_ALEXANDER_SCIENCE_TRIUMPH_2_MODERN" scope="Campaign" difficulty="2">
+			<l10n>
+				<name>Beyond the Sword</name>
+				<description>As Alexander, complete the Beyond the Sword Triumph.</description>
+			</l10n>
+			<sortIndex>13400</sortIndex>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_ALEXANDER_DIPLOMATIC_TRIUMPH_MODERN" scope="Campaign" difficulty="2">
+			<l10n>
+				<name>League of Nations</name>
+				<description>As Alexander, complete the League of Nations Triumph.</description>
+			</l10n>
+			<sortIndex>13500</sortIndex>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_ALEXANDER_DIPLOMATIC_TRIUMPH_2_MODERN" scope="Campaign" difficulty="2">
+			<l10n>
+				<name>Enigma Code</name>
+				<description>As Alexander, complete the Enigma Code Triumph.</description>
+			</l10n>
+			<sortIndex>13600</sortIndex>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_ALEXANDER_EXPANSIONIST_TRIUMPH_MODERN" scope="Campaign" difficulty="2">
+			<l10n>
+				<name>Sun Never Sets</name>
+				<description>As Alexander, complete the Sun Never Sets Triumph.</description>
+			</l10n>
+			<sortIndex>13700</sortIndex>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_ALEXANDER_EXPANSIONIST_TRIUMPH_2_MODERN" scope="Campaign" difficulty="2">
+			<l10n>
+				<name>Megalopolis</name>
+				<description>As Alexander, complete the Megalopolis Triumph.</description>
+			</l10n>
+			<sortIndex>13800</sortIndex>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_ALEXANDER_AGE_COMPLETED_ANTIQUITY" scope="Career" difficulty="1">
+			<l10n>
+				<name>Antiquity Complete</name>
+				<description>As Alexander, finish the Antiquity Age.</description>
+			</l10n>
+			<sortIndex>13900</sortIndex>
+			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_ALEXANDER_ANTIQUITY_AGES_COMPLETED" threshold="1"/>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_ALEXANDER_AGE_COMPLETED_ANTIQUITY_2" scope="Career" difficulty="2">
+			<l10n>
+				<name>Antiquity Complete 2</name>
+				<description>As Alexander, finish the Antiquity Age twice.</description>
+			</l10n>
+			<sortIndex>14000</sortIndex>
+			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_ALEXANDER_ANTIQUITY_AGES_COMPLETED" threshold="2"/>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_ALEXANDER_AGE_COMPLETED_ANTIQUITY_3" scope="Career" difficulty="2">
+			<l10n>
+				<name>Antiquity Complete 3</name>
+				<description>As Alexander, finish the Antiquity Age thrice.</description>
+			</l10n>
+			<sortIndex>14100</sortIndex>
+			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_ALEXANDER_ANTIQUITY_AGES_COMPLETED" threshold="3"/>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_ALEXANDER_AGE_COMPLETED_EXPLORATION" scope="Career" difficulty="3">
+			<l10n>
+				<name>Exploration Complete</name>
+				<description>As Alexander, finish the Exploration Age.</description>
+			</l10n>
+			<sortIndex>14200</sortIndex>
+			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_ALEXANDER_EXPLORATION_AGES_COMPLETED" threshold="1"/>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_ALEXANDER_AGE_COMPLETED_EXPLORATION_2" scope="Career" difficulty="3">
+			<l10n>
+				<name>Exploration Complete 2</name>
+				<description>As Alexander, finish the Exploration Age twice.</description>
+			</l10n>
+			<sortIndex>14300</sortIndex>
+			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_ALEXANDER_EXPLORATION_AGES_COMPLETED" threshold="2"/>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_ALEXANDER_AGE_COMPLETED_EXPLORATION_3" scope="Career" difficulty="3">
+			<l10n>
+				<name>Exploration Complete 3</name>
+				<description>As Alexander, finish the Exploration Age thrice.</description>
+			</l10n>
+			<sortIndex>14400</sortIndex>
+			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_ALEXANDER_EXPLORATION_AGES_COMPLETED" threshold="3"/>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_ALEXANDER_AGE_COMPLETED_MODERN" scope="Career" difficulty="3">
+			<l10n>
+				<name>Modern Complete</name>
+				<description>As Alexander, finish the Modern Age.</description>
+			</l10n>
+			<sortIndex>14500</sortIndex>
+			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_ALEXANDER_MODERN_AGES_COMPLETED" threshold="1"/>
+			<reward type="XP" reward="10" />
+		</challenge>
+		<challenge id="CHALLENGE_ALEXANDER_AGE_COMPLETED_MODERN_2" scope="Career" difficulty="3">
+			<l10n>
+				<name>Modern Complete 2</name>
+				<description>As Alexander, finish the Modern Age twice.</description>
+			</l10n>
+			<sortIndex>14600</sortIndex>
+			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_ALEXANDER_MODERN_AGES_COMPLETED" threshold="2"/>
+			<reward type="XP" reward="10" />
+		</challenge>
+		<challenge id="CHALLENGE_ALEXANDER_AGE_COMPLETED_MODERN_3" scope="Career" difficulty="3">
+			<l10n>
+				<name>Modern Complete 3</name>
+				<description>As Alexander, finish the Modern Age thrice.</description>
+			</l10n>
+			<sortIndex>14700</sortIndex>
+			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_ALEXANDER_MODERN_AGES_COMPLETED" threshold="3"/>
+			<reward type="XP" reward="10" />
+		</challenge>
+		<challenge id="CHALLENGE_ALEXANDER_PLAY_GAMES_1" scope="Career" difficulty="1">
+			<l10n>
+				<name>Play Game 1</name>
+				<description>As Alexander, complete 1 Major Triumph.</description>
+			</l10n>
+			<sortIndex>14800</sortIndex>
+			<careerConfig statistic="CHALLENGE_STATISTIC_ALEXANDER_TRIUMPHS_COMPLETED" threshold="1" />
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_ALEXANDER_PLAY_GAMES_2" scope="Career" difficulty="1">
+			<l10n>
+				<name>Play Game 2</name>
+				<description>As Alexander, complete 5 Major Triumphs across any number of Ages.</description>
+			</l10n>
+			<sortIndex>14900</sortIndex>
+			<careerConfig statistic="CHALLENGE_STATISTIC_ALEXANDER_TRIUMPHS_COMPLETED" threshold="5" />
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_ALEXANDER_PLAY_GAMES_3" scope="Career" difficulty="1">
+			<l10n>
+				<name>Play Game 3</name>
+				<description>As Alexander, complete 25 Major Triumphs across any number of Ages.</description>
+			</l10n>
+			<sortIndex>15000</sortIndex>
+			<careerConfig statistic="CHALLENGE_STATISTIC_ALEXANDER_TRIUMPHS_COMPLETED" threshold="25" />
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_LEADER_ALEXANDER_QUEST_A_ANTIQUITY" scope="Campaign" difficulty="2">
+			<l10n>
+				<name>The Making of a Name</name>
+				<description>As Alexander in Antiquity, complete a quest to conquer for the gods.</description>
+			</l10n>
+			<sortIndex>15100</sortIndex>
+			<reward type="XP" reward="50" />
+		</challenge>
+		<challenge id="CHALLENGE_LEADER_ALEXANDER_QUEST_B_ANTIQUITY" scope="Campaign" difficulty="2">
+			<l10n>
+				<name>Festival of the Muses</name>
+				<description>As Alexander in Antiquity, complete a quest to honor the Muses.</description>
+			</l10n>
+			<sortIndex>15200</sortIndex>
+			<reward type="XP" reward="50" />
+		</challenge>
+		<challenge id="CHALLENGE_LEADER_ALEXANDER_QUEST_A_EXPLORATION" scope="Campaign" difficulty="2">
+			<l10n>
+				<name>To the Shores of Oceanus</name>
+				<description>As Alexander in Exploration, complete a quest to fulfill fate.</description>
+			</l10n>
+			<sortIndex>15300</sortIndex>
+			<reward type="XP" reward="50" />
+		</challenge>
+		<challenge id="CHALLENGE_LEADER_ALEXANDER_QUEST_B_EXPLORATION" scope="Campaign" difficulty="2">
+			<l10n>
+				<name>Capture Them with Culture</name>
+				<description>As Alexander in Exploration, complete a quest to inspire awe and loyalty.</description>
+			</l10n>
+			<sortIndex>15400</sortIndex>
+			<reward type="XP" reward="50" />
+		</challenge>
+		<challenge id="CHALLENGE_LEADER_ALEXANDER_QUEST_A_MODERN" scope="Campaign" difficulty="2">
+			<l10n>
+				<name>King of the World</name>
+				<description>As Alexander in Modern, complete a quest to claim the horizon.</description>
+			</l10n>
+			<sortIndex>15500</sortIndex>
+			<reward type="XP" reward="50" />
+		</challenge>
+		<challenge id="CHALLENGE_LEADER_ALEXANDER_QUEST_B_MODERN" scope="Campaign" difficulty="2">
+			<l10n>
+				<name>An Epic Hero</name>
+				<description>As Alexander in Modern, complete a quest to bring legends to life.</description>
+			</l10n>
+			<sortIndex>15600</sortIndex>
+			<reward type="XP" reward="50" />
+		</challenge>
+		<challenge id="CHALLENGE_ALEXANDER_CULTURE_VICTORY" scope="Campaign" difficulty="2">
+			<l10n>
+				<name>Cultural Victory</name>
+				<description>As Alexander, achieve a Cultural victory.</description>
+			</l10n>
+			<sortIndex>15700</sortIndex>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_ALEXANDER_MILITARY_VICTORY" scope="Campaign" difficulty="2">
+			<l10n>
+				<name>Military Victory</name>
+				<description>As Alexander, achieve a Militaristic victory.</description>
+			</l10n>
+			<sortIndex>15800</sortIndex>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_ALEXANDER_ECONOMIC_VICTORY" scope="Campaign" difficulty="2">
+			<l10n>
+				<name>Economic Victory</name>
+				<description>As Alexander, achieve an Economic victory.</description>
+			</l10n>
+			<sortIndex>15900</sortIndex>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_ALEXANDER_SCIENCE_VICTORY" scope="Campaign" difficulty="2">
+			<l10n>
+				<name>Scientific Victory</name>
+				<description>As Alexander, achieve a Scientific victory.</description>
+			</l10n>
+			<sortIndex>16000</sortIndex>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_ALEXANDER_DEITY_VICTORY" scope="Campaign" difficulty="2">
+			<l10n>
+				<name>Deity Victory</name>
+				<description>As Alexander, achieve a victory on Deity level of Difficulty.</description>
+			</l10n>
+			<sortIndex>16100</sortIndex>
+			<reward type="XP" reward="50" />
+		</challenge>
+		<!-- Hidden Challenges -->
+		<challenge id="CHALLENGE_LEADER_ALEXANDER_UNLOCKED_STRATEGYCARDS_EXPLORATION_RECOVER" scope="Career" difficulty="1" hidden="true" allowRewardWhenHidden="true">
+			<l10n>
+				<name>Age Transition Card Exploration</name>
+				<description>As Alexander unlock age transition legend strategycards for Exploration Age.</description>
+			</l10n>
+			<sortIndex>20000</sortIndex>
+			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_ALEXANDER_UNLOCKED_STRATEGYCARDS_EXPLORATION_COMPLETED" threshold="1" />
+			<reward type="UnlockableReward" reward="STRATEGYCARD_AS_ALEXANDER_EXPLORATION_1" />
+			<reward type="UnlockableReward" reward="STRATEGYCARD_AS_ALEXANDER_EXPLORATION_2" />
+		</challenge>
+		<challenge id="CHALLENGE_LEADER_ALEXANDER_UNLOCKED_STRATEGYCARDS_MODERN_RECOVER" scope="Career" difficulty="1" hidden="true" allowRewardWhenHidden="true">
+			<l10n>
+				<name>Age Transition Card Modern</name>
+				<description>As Alexander unlock age transition legend strategycards for Modern Age.</description>
+			</l10n>
+			<sortIndex>20100</sortIndex>
+			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_ALEXANDER_UNLOCKED_STRATEGYCARDS_MODERN_COMPLETED" threshold="1" />
+			<reward type="UnlockableReward" reward="STRATEGYCARD_AS_ALEXANDER_MODERN_1" />
+			<reward type="UnlockableReward" reward="STRATEGYCARD_AS_ALEXANDER_MODERN_2" />
+		</challenge>
+	</challenges>
+</metaprogression>

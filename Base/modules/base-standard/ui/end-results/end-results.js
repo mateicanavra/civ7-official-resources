@@ -1,16 +1,11 @@
-import { A as Audio } from '../../../core/ui/audio-base/audio-support.chunk.js';
-import FocusManager from '../../../core/ui/input/focus-manager.js';
-import { b as InputEngineEventName } from '../../../core/ui/input/input-support.chunk.js';
-import { P as Panel } from '../../../core/ui/panel-support.chunk.js';
-import { a as realizePlayerColors } from '../../../core/ui/utilities/utilities-color.chunk.js';
-import { Icon } from '../../../core/ui/utilities/utilities-image.chunk.js';
+import { Audio } from '../../../core/ui/audio-base/audio-support.js';
+import { InputEngineEventName } from '../../../core/ui/input/input-support.js';
+import Panel from '../../../core/ui/panel-support.js';
+import { applyPlayerColorsToElement } from '../../../core/ui/utilities/utilities-color.js';
+import { Icon } from '../../../core/ui/utilities/utilities-image.js';
+import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
 import EndGame from '../endgame/model-endgame.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/graph-layout/utils.chunk.js';
-import '../../../core/ui/utilities/utilities-component-id.chunk.js';
-import '../../../core/ui/utilities/utilities-update-gate.chunk.js';
-
-const styles = "fs://game/base-standard/ui/end-results/end-results.css";
+import styles from './end-results.scss.js';
 
 const EndResultsFinishedEventName = "end-results-finished";
 class EndResultsFinishedEvent extends CustomEvent {
@@ -23,7 +18,7 @@ class EndResultsScreen extends Panel {
   continueButton = null;
   onAttach() {
     super.onAttach();
-    realizePlayerColors(this.Root, GameContext.localPlayerID);
+    applyPlayerColorsToElement(this.Root, GameContext.localPlayerID);
     this.Root.classList.add("screen-end-results", "flex", "fullscreen", "absolute");
     const player = Players.get(GameContext.localPlayerID);
     if (!player) {
@@ -119,20 +114,23 @@ class EndResultsScreen extends Panel {
     });
     outerVslot.appendChild(this.continueButton);
     this.Root.addEventListener(InputEngineEventName, this.engineInputListener);
+    engine.trigger("VictoryScreenStarted");
   }
   onDetach() {
     super.onDetach();
     WorldUI.clearBackground();
     this.Root.removeEventListener(InputEngineEventName, this.engineInputListener);
+    engine.trigger("VictoryScreenEnded");
   }
   close() {
     super.close();
     window.dispatchEvent(new EndResultsFinishedEvent());
+    engine.trigger("VictoryScreenEnded");
   }
   onReceiveFocus() {
     super.onReceiveFocus();
     if (this.continueButton) {
-      FocusManager.setFocus(this.continueButton);
+      FocusManager.get().setFocus(this.continueButton);
     }
   }
   onEngineInput(inputEvent) {

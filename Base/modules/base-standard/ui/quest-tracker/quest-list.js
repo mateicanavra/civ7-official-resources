@@ -1,19 +1,14 @@
-import { A as Audio } from '../../../core/ui/audio-base/audio-support.chunk.js';
-import { F as FxsActivatable } from '../../../core/ui/components/fxs-activatable.chunk.js';
-import { ActiveDeviceTypeChangedEventName } from '../../../core/ui/input/action-handler.js';
-import FocusManager from '../../../core/ui/input/focus-manager.js';
-import { a as LensActivationEventName } from '../../../core/ui/lenses/lens-manager.chunk.js';
-import { P as Panel } from '../../../core/ui/panel-support.chunk.js';
-import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.chunk.js';
-import { U as UpdateGate } from '../../../core/ui/utilities/utilities-update-gate.chunk.js';
-import QuestTracker, { QuestListUpdatedEventName } from './quest-tracker.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/input/cursor.js';
-import '../../../core/ui/views/view-manager.chunk.js';
-import '../../../core/ui/input/input-support.chunk.js';
-import './quest-item.js';
-
-const styles = "fs://game/base-standard/ui/quest-tracker/quest-list.css";
+import { Audio } from '../../../core/ui/audio-base/audio-support.js';
+import { FxsActivatable } from '../../../core/ui/components/fxs-activatable.js';
+import ActionHandler from '../../../core/ui/input/action-handler.js';
+import { ActiveDeviceTypeChangedEventName } from '../../../core/ui/input/input-events.js';
+import { LensActivationEventName } from '../../../core/ui/lenses/lens-manager.js';
+import Panel from '../../../core/ui/panel-support.js';
+import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
+import UpdateGate from '../../../core/ui/utilities/utilities-update-gate.js';
+import { QuestListUpdatedEventName, getQuestTracker } from './quest-tracker.js';
+import styles from './quest-list.scss.js';
+import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
 
 const getQuestDescription = (item) => {
   return item.getDescriptionLocParams ? Locale.stylize(item.description, ...item.getDescriptionLocParams()) : Locale.stylize(item.description);
@@ -25,20 +20,13 @@ class QuestList extends Panel {
   questVisibilityToggle;
   bgQuestext;
   questVisibilityNavHelp;
-  questNavHelpContainter;
-  drawerOut = !this.selectOneMode;
   dirty = false;
   listVisibilityToggleListener = this.listVisibilityToggle.bind(this);
   engineInputListener = this.onEngineInput.bind(this);
   activeDeviceTypeListener = this.onActiveDeviceTypeChanged.bind(this);
   updateListener = this.updateQuestList.bind(this);
   activeLensChangedListener = this.onActiveLensChanged.bind(this);
-  inputContextChangedListener = this.onInputContextChanged.bind(this);
   visibleQuests = [];
-  get selectOneMode() {
-    const viewExperience = UI.getViewExperience();
-    return viewExperience == UIViewExperience.Handheld || viewExperience == UIViewExperience.Console;
-  }
   onInitialize() {
     super.onInitialize();
     this.render();
@@ -64,21 +52,24 @@ class QuestList extends Panel {
     engine.on("PlayerTurnActivated", this.onPlayerTurnActivated, this);
     engine.on("UnitAddedToMap", this.onUnitAddedRemoved, this);
     engine.on("UnitRemovedFromMap", this.onUnitAddedRemoved, this);
-    engine.on("InputContextChanged", this.inputContextChangedListener);
-    QuestTracker.AddEvent.on(this.updateListener);
-    QuestTracker.RemoveEvent.on(this.updateListener);
+    const questTracker = getQuestTracker();
+    questTracker.AddEvent.on(this.updateListener);
+    questTracker.RemoveEvent.on(this.updateListener);
+    if (ActionHandler.isGamepadActive) {
+      questTracker.isDrawerOut = false;
+    }
   }
   onDetach() {
     window.removeEventListener(ActiveDeviceTypeChangedEventName, this.activeDeviceTypeListener);
     window.removeEventListener(QuestListUpdatedEventName, this.updateListener);
     window.removeEventListener(LensActivationEventName, this.activeLensChangedListener);
     this.Root.removeEventListener("engine-input", this.engineInputListener);
-    QuestTracker.AddEvent.off(this.updateListener);
-    QuestTracker.RemoveEvent.off(this.updateListener);
+    const questTracker = getQuestTracker();
+    questTracker.AddEvent.off(this.updateListener);
+    questTracker.RemoveEvent.off(this.updateListener);
     engine.off("PlayerTurnActivated", this.onPlayerTurnActivated, this);
     engine.off("UnitAddedToMap", this.onUnitAddedRemoved, this);
     engine.off("UnitRemovedFromMap", this.onUnitAddedRemoved, this);
-    engine.off("InputContextChanged", this.inputContextChangedListener);
     super.onDetach();
   }
   onActiveLensChanged(event) {
@@ -88,21 +79,38 @@ class QuestList extends Panel {
   onActiveDeviceTypeChanged({ detail: { gamepadActive } }) {
     this.questVisibilityToggle.classList.toggle("hidden", gamepadActive);
     this.bgQuestext.classList.toggle("fxs-nav-help", gamepadActive);
+    const focusManager = FocusManager.get();
+    const currentFocus = focusManager.currentFocus();
+    const questTracker = getQuestTracker();
+    if (this.Root == currentFocus || this.Root.contains(currentFocus)) {
+      if (!gamepadActive) {
+        Input.setActiveContext(InputContext.World);
+        focusManager.clearFocus();
+      } else {
+        Input.setActiveContext(InputContext.Dual);
+      }
+    } else if (gamepadActive && questTracker.isDrawerOut) {
+      questTracker.isDrawerOut = false;
+      this.updateQuestContainerVisibility();
+    }
   }
   listVisibilityToggle() {
-    if ((QuestTracker.empty || this.visibleQuests.length == 0) && !this.drawerOut) {
+    const questTracker = getQuestTracker();
+    if ((questTracker.empty || this.visibleQuests.length == 0) && !questTracker.isDrawerOut) {
       return;
     }
-    this.drawerOut = !this.drawerOut;
-    const audioId = this.drawerOut ? "data-audio-journal-open" : "data-audio-journal-close";
+    questTracker.isDrawerOut = !questTracker.isDrawerOut;
+    const audioId = questTracker.isDrawerOut ? "data-audio-journal-open" : "data-audio-journal-close";
     Audio.playSound(audioId, "journal");
-    if (this.selectOneMode) {
-      if (this.drawerOut) {
+    if (ActionHandler.isGamepadActive) {
+      const focusManager = FocusManager.get();
+      if (questTracker.isDrawerOut) {
         Input.setActiveContext(InputContext.Dual);
-        FocusManager.setFocus(this.questItemList);
+        const firstFocusable = focusManager.getFocusChildOf(this.questItemList);
+        focusManager.setFocus(firstFocusable ?? this.questItemList);
       } else {
         Input.setActiveContext(InputContext.World);
-        FocusManager.clearFocus();
+        focusManager.clearFocus();
       }
     }
     this.updateQuestContainerVisibility();
@@ -122,27 +130,18 @@ class QuestList extends Panel {
     }
   }
   updateQuestContainerVisibility() {
-    this.questVisibilityToggle.dataset.disabled = QuestTracker.empty || this.visibleQuests.length == 0 ? "true" : "false";
-    const showQuests = !QuestTracker.empty && this.visibleQuests.length > 0 && this.drawerOut;
-    if (showQuests || this.selectOneMode) {
-      this.questItemContainer.classList.remove("-translate-x-full", "opacity-0");
-    } else {
-      this.questItemContainer.classList.add("-translate-x-full", "opacity-0");
-    }
+    const questTracker = getQuestTracker();
+    this.questVisibilityToggle.dataset.disabled = questTracker.empty || this.visibleQuests.length == 0 ? "true" : "false";
+    const showQuests = !questTracker.empty && this.visibleQuests.length > 0 && questTracker.isDrawerOut;
     for (const questItem of this.questItemElements) {
-      const isSelected = this.selectOneMode && questItem.getAttribute("data-quest-id") == QuestTracker.selectedQuest;
-      questItem.classList.toggle("hidden", !this.drawerOut && !isSelected);
+      const isSelected = questItem.getAttribute("data-quest-id") == questTracker.selectedQuest;
+      questItem.classList.toggle("hidden", !questTracker.isDrawerOut && !isSelected);
     }
     const type = showQuests ? "minus" : "plus";
     this.questVisibilityToggle.setAttribute("type", type);
-    this.questVisibilityToggle.classList.toggle("invisible", this.visibleQuests.length == 0);
+    this.questVisibilityToggle.classList.toggle("invisible", this.visibleQuests.length <= 1);
     this.bgQuestext.classList.toggle("invisible", this.visibleQuests.length == 0);
-    if (this.selectOneMode) {
-      this.questVisibilityNavHelp.setAttribute(
-        "action-key",
-        showQuests ? "inline-cancel" : "inline-toggle-quest"
-      );
-    }
+    this.questVisibilityNavHelp.setAttribute("action-key", showQuests ? "inline-cancel" : "inline-toggle-quest");
   }
   updateQuestList() {
     const player = Players.get(GameContext.localObserverID);
@@ -162,12 +161,13 @@ class QuestList extends Panel {
     while (this.questItemList.hasChildNodes()) {
       this.questItemList.removeChild(this.questItemList.lastChild);
     }
-    const questItems = QuestTracker.getItems();
+    const questTracker = getQuestTracker();
+    const questItems = questTracker.getItems();
     this.visibleQuests = Array.from(questItems).filter((item) => {
       if (!item.victory) {
         return true;
       }
-      const isVisible = QuestTracker.isQuestVictoryInProgress(item.id);
+      const isVisible = questTracker.isQuestVictoryInProgress(item.id);
       return isVisible;
     });
     let selectedQuestFound = false;
@@ -175,16 +175,18 @@ class QuestList extends Panel {
       const questItemElement = document.createElement("quest-item");
       questItemElement.setAttribute("data-quest-id", item.id);
       questItemElement.addEventListener("action-activate", this.onSelectQuest.bind(this));
-      questItemElement.classList.toggle("cursor-pointer", this.selectOneMode);
-      questItemElement.classList.toggle("quest-list-item-selectable", this.selectOneMode);
+      questItemElement.classList.toggle("cursor-pointer", true);
+      questItemElement.classList.toggle("quest-list-item-selectable", true);
+      questItemElement.setAttribute("data-audio-group-ref", "journal");
+      questItemElement.setAttribute("data-audio-focus-ref", "data-audio-quest-item-focus");
       this.questItemList.appendChild(questItemElement);
       this.questItemElements.push(questItemElement);
-      if (item.id == QuestTracker.selectedQuest) {
+      if (item.id == questTracker.selectedQuest) {
         selectedQuestFound = true;
       }
     }
     if (this.visibleQuests.length > 0 && !selectedQuestFound) {
-      QuestTracker.selectedQuest = this.visibleQuests[0].id;
+      questTracker.selectedQuest = this.visibleQuests[0].id;
     }
     if (this.visibleQuests.length > 0) {
       this.questVisibilityNavHelp.classList.remove("opacity-0");
@@ -194,26 +196,16 @@ class QuestList extends Panel {
     this.updateQuestContainerVisibility();
   });
   onSelectQuest(event) {
-    QuestTracker.selectedQuest = event.target?.getAttribute("data-quest-id") ?? "";
-    if (this.selectOneMode) {
-      this.listVisibilityToggle();
-    }
+    const questTracker = getQuestTracker();
+    questTracker.selectedQuest = event.target?.getAttribute("data-quest-id") ?? "";
+    this.listVisibilityToggle();
   }
   onCancelSelectQuest() {
-    if (this.selectOneMode) {
-      this.listVisibilityToggle();
-    }
+    this.listVisibilityToggle();
   }
   onPlayerTurnActivated(data) {
     if (data.player == GameContext.localObserverID) {
       this.updateQuestList();
-    }
-  }
-  onInputContextChanged(contextData) {
-    if (contextData.newContext != InputContext.Dual) {
-      this.questNavHelpContainter.classList.remove("invisible");
-    } else {
-      this.questNavHelpContainter.classList.add("invisible");
     }
   }
   render() {
@@ -228,7 +220,7 @@ class QuestList extends Panel {
 			</div>
 			<div class="relative flex flex-col quest-item-container">
 				<div class="font-title-lg mb-1" data-l10n-id="LOC_UI_QUEST_TRACKER_TITLE"></div>
-				<fxs-scrollable class="max-h-72">
+				<fxs-scrollable>
 					<fxs-vslot tabindex="-1" data-navrule-down="stop" data-navrule-up="stop" class="quest-item-list pr-3"></fxs-vslot>
 				</fxs-scrollable>
 			</div>
@@ -236,7 +228,6 @@ class QuestList extends Panel {
     this.bgQuestext = MustGetElement(".quest-list__img-questext", this.Root);
     this.questVisibilityToggle = MustGetElement("fxs-minus-plus", this.Root);
     this.questVisibilityNavHelp = MustGetElement("fxs-nav-help", this.Root);
-    this.questNavHelpContainter = MustGetElement(".quest-list__nav-help-container", this.Root);
     this.questItemContainer = MustGetElement(".quest-item-container", this.Root);
     this.questItemList = MustGetElement(".quest-item-list", this.Root);
     const highlightObj = document.createElement("div");
@@ -262,7 +253,8 @@ class QuestItemElement extends FxsActivatable {
       console.error("QuestItemElement: No quest id found.");
       return;
     }
-    const quest = QuestTracker.get(id);
+    const questTracker = getQuestTracker();
+    const quest = questTracker.get(id);
     if (!quest) {
       console.error("QuestItemElement: No quest found for id: " + id);
       return;
@@ -289,10 +281,10 @@ class QuestItemElement extends FxsActivatable {
     if (progress) {
       if (progressType) {
         const progressString = goal ? Locale.compose("LOC_UI_QUEST_TRACKER_PROGRESS_AND_GOAL", progressType, progress, goal) : Locale.compose("LOC_UI_QUEST_TRACKER_PROGRESS", progressType, progress);
-        questInfo.firstChild.textContent += ` (${progressString.trim()})`;
+        questInfoText.append(document.createTextNode(` (${progressString.trim()})`));
       } else {
         const progressString = goal ? Locale.compose("LOC_UI_QUEST_TRACKER_PROGRESS_AND_GOAL_NO_TYPE", progress, goal) : Locale.compose("LOC_UI_QUEST_TRACKER_PROGRESS_NO_TYPE", progress);
-        questInfo.firstChild.textContent += ` (${progressString.trim()})`;
+        questInfoText.append(document.createTextNode(` (${progressString.trim()})`));
       }
     }
     questInfo.insertBefore(questBullet, questInfo.firstChild);

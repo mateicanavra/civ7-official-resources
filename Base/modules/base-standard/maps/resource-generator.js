@@ -1,5 +1,4 @@
 import { getMinimumResourcePlacementModifier, replaceIslandResources, shuffle } from './map-utilities.js';
-import './map-globals.js';
 
 function generateResources(iWidth, iHeight, minMarineResourceTypesOverride = 3) {
   const resourceWeight = new Array(GameInfo.Resources.length);
@@ -113,27 +112,8 @@ function generateResources(iWidth, iHeight, minMarineResourceTypesOverride = 3) 
             const allowedOnLandmass = landmassRegionId != LandmassRegion.LANDMASS_REGION_DEFAULT && (assignedLandmass == LandmassRegion.LANDMASS_REGION_ANY || assignedLandmass != LandmassRegion.LANDMASS_REGION_NONE && assignedLandmass % landmassRegionId == 0);
             if (allowedOnLandmass) {
               const minimumPerLandMass = resourceToPlace.MinimumPerHemisphere > 0 ? resourceToPlace.MinimumPerHemisphere + minimumResourcePlacementModifier : 0;
-              if (getImportantResourceCounts(landmassRegionId)[i] < minimumPerLandMass && ResourceBuilder.isResourceRequiredForAge(i, Game.age) && ResourceBuilder.canHaveResource(iX, iY, i, false)) {
-                let hasAdjResource = false;
-                for (let iDirection = 0; iDirection < DirectionTypes.NUM_DIRECTION_TYPES; iDirection++) {
-                  const iIndex = GameplayMap.getIndexFromXY(iX, iY);
-                  const iLocation = GameplayMap.getLocationFromIndex(iIndex);
-                  const iAdjacentX = GameplayMap.getAdjacentPlotLocation(
-                    iLocation,
-                    iDirection
-                  ).x;
-                  const iAdjacentY = GameplayMap.getAdjacentPlotLocation(
-                    iLocation,
-                    iDirection
-                  ).y;
-                  if (GameplayMap.getResourceType(iAdjacentX, iAdjacentY) != ResourceTypes.NO_RESOURCE) {
-                    hasAdjResource = true;
-                    break;
-                  }
-                }
-                if (!hasAdjResource) {
-                  resourcesEligible.push(i);
-                }
+              if (getImportantResourceCounts(landmassRegionId)[i] < minimumPerLandMass && ResourceBuilder.isResourceRequiredForAge(i, Game.age) && ResourceBuilder.canHaveResource(iX, iY, i, false) && !wouldCreateCluster(iX, iY)) {
+                resourcesEligible.push(i);
               }
             }
           }
@@ -165,7 +145,6 @@ function generateResources(iWidth, iHeight, minMarineResourceTypesOverride = 3) 
           const name = GameInfo.Resources.lookup(resourceChosenIndex)?.Name;
           console.log("Force Placed " + Locale.compose(name) + " at (" + iX + ", " + iY + ")");
           getImportantResourceCounts(landmassRegionId)[resourceChosenIndex]++;
-          break;
         }
       }
     }
@@ -180,8 +159,21 @@ function generateResources(iWidth, iHeight, minMarineResourceTypesOverride = 3) 
     }
   }
 }
+function wouldCreateCluster(x, y, resourceType, maxAdjacent = 1) {
+  let count = 0;
+  for (let dir = 0; dir < DirectionTypes.NUM_DIRECTION_TYPES; dir++) {
+    const adjLoc = GameplayMap.getAdjacentPlotLocation(GameplayMap.getLocationFromIndex(GameplayMap.getIndexFromXY(x, y)), dir);
+    const adjResource = GameplayMap.getResourceType(adjLoc.x, adjLoc.y);
+    const matches = resourceType == void 0 ? adjResource != ResourceTypes.NO_RESOURCE : adjResource === resourceType;
+    if (matches) {
+      count++;
+      if (count >= maxAdjacent) return true;
+    }
+  }
+  return false;
+}
 function canHaveFlowerPlot(iX, iY, resourceType) {
-  if (ResourceBuilder.canHaveResource(iX, iY, resourceType, false)) {
+  if (ResourceBuilder.canHaveResource(iX, iY, resourceType, false) && !wouldCreateCluster(iX, iY, resourceType)) {
     return true;
   }
   for (let iDirection = 0; iDirection < DirectionTypes.NUM_DIRECTION_TYPES; iDirection++) {
@@ -189,14 +181,14 @@ function canHaveFlowerPlot(iX, iY, resourceType) {
     const iLocation = GameplayMap.getLocationFromIndex(iIndex);
     const iAdjacentX = GameplayMap.getAdjacentPlotLocation(iLocation, iDirection).x;
     const iAdjacentY = GameplayMap.getAdjacentPlotLocation(iLocation, iDirection).y;
-    if (ResourceBuilder.canHaveResource(iAdjacentX, iAdjacentY, resourceType, false)) {
+    if (ResourceBuilder.canHaveResource(iAdjacentX, iAdjacentY, resourceType, false) && !wouldCreateCluster(iAdjacentX, iAdjacentY, resourceType)) {
       return true;
     }
   }
   return false;
 }
 function getFlowerPlot(iX, iY, resourceType) {
-  if (ResourceBuilder.canHaveResource(iX, iY, resourceType, false)) {
+  if (ResourceBuilder.canHaveResource(iX, iY, resourceType, false) && !wouldCreateCluster(iX, iY, resourceType)) {
     return GameplayMap.getIndexFromXY(iX, iY);
   }
   const resourcePlotIndexes = [];
@@ -206,7 +198,7 @@ function getFlowerPlot(iX, iY, resourceType) {
     const iAdjacentX = GameplayMap.getAdjacentPlotLocation(iLocation, iDirection).x;
     const iAdjacentY = GameplayMap.getAdjacentPlotLocation(iLocation, iDirection).y;
     const iAdjacentIndex = GameplayMap.getIndexFromXY(iAdjacentX, iAdjacentY);
-    if (ResourceBuilder.canHaveResource(iAdjacentX, iAdjacentY, resourceType, false)) {
+    if (ResourceBuilder.canHaveResource(iAdjacentX, iAdjacentY, resourceType, false) && !wouldCreateCluster(iAdjacentX, iAdjacentY, resourceType)) {
       resourcePlotIndexes.push(iAdjacentIndex);
     }
   }
@@ -217,5 +209,5 @@ function getFlowerPlot(iX, iY, resourceType) {
   }
 }
 
-export { canHaveFlowerPlot, generateResources, getFlowerPlot };
+export { canHaveFlowerPlot, generateResources, getFlowerPlot, wouldCreateCluster };
 //# sourceMappingURL=resource-generator.js.map

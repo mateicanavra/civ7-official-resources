@@ -1,374 +1,662 @@
 <?xml version="1.0" encoding="utf-8"?>
 <GameEffects xmlns="GameEffects">
-    <Modifier id="CARD_AT_VICTORY_MILITARISTIC_INFANTRY" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_GRANT_UNIT" run-once="true" permanent="true">
-        <SubjectRequirements>
-            <Requirement type="REQUIREMENT_CITY_IS_DISTANT_LANDS"/>
-        </SubjectRequirements>
-        <Argument name="Amount">1</Argument>
-        <Argument name="UnitTag">UNIT_CLASS_INFANTRY</Argument>
-    </Modifier>
-    <Modifier id="CARD_AT_VICTORY_MILITARISTIC_RANGED" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_GRANT_UNIT" run-once="true" permanent="true">
-        <SubjectRequirements>
-            <Requirement type="REQUIREMENT_CITY_IS_DISTANT_LANDS"/>
-        </SubjectRequirements>
-        <Argument name="Amount">1</Argument>
-        <Argument name="UnitTag">UNIT_CLASS_RANGED</Argument>
-        <Argument name="DomainType">DOMAIN_LAND</Argument>
-    </Modifier>
-    <Modifier id="CARD_AT_VICTORY_MILITARISTIC_SECOND" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
-        <SubjectRequirements>
-            <Requirement type="REQUIREMENT_CITY_IS_DISTANT_LANDS"/>
-        </SubjectRequirements>
-        <Argument name="YieldType">YIELD_PRODUCTION</Argument>
-        <Argument name="Amount">10</Argument>
-    </Modifier>
-    <Modifier id="CARD_AT_MOD_DARK_AGE_MILITARY_1" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_GRANT_UNIT_PROMOTION" run-once="false" permanent="true">
-        <SubjectRequirements>
-            <Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
-                <Argument name="Tag">UNIT_CLASS_COMMAND</Argument>
-            </Requirement>
-        </SubjectRequirements>
-        <Argument name="Amount">2</Argument>
-    </Modifier>
-    <Modifier id="CARD_AT_MOD_DARK_AGE_MILITARY_2_PROD" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_UNIT_PRODUCTION">
-        <Argument name="Apply">Rate</Argument>
-        <Argument name="Percent">-25</Argument>
-        <Argument name="UnitCoreClass">CORE_CLASS_MILITARY</Argument>
-    </Modifier>
-    <Modifier id="CARD_AT_MOD_DARK_AGE_MILITARY_3_GOLD" collection="COLLECTION_OWNER" effect="EFFECT_ADJUST_PLAYER_OR_CITY_UNIT_PURCHASE_EFFICIENCY">
-        <Argument name="UnitTag">UNIT_CLASS_COMBAT</Argument>
-        <Argument name="Percent">-20</Argument>
-    </Modifier>
-    <Modifier id="CARD_AT_VICTORY_ECONOMIC_SECOND" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD_PER_UNIQUE_RESOURCE">
-        <Argument name="YieldType">YIELD_GOLD</Argument>
-        <Argument name="Amount">2</Argument>
-    </Modifier>
-    <Modifier id="CARD_AT_MOD_DARK_AGE_ECONOMIC_1" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_PRODUCTION">
-        <Argument name="Percent">100</Argument>
-        <Argument name="Tag">RAIL_CONNECTION</Argument>
-    </Modifier>
-    <Modifier id="CARD_AT_MOD_DARK_AGE_ECONOMIC_2" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_ADJUST_PLAYER_OR_CITY_BUILDING_PURCHASE_EFFICIENCY">
-        <Argument name="Percent">100</Argument>
-        <Argument name="BuildingTag">RAIL_CONNECTION</Argument>
-    </Modifier>
-    <Modifier id="CARD_AT_MOD_DARK_AGE_ECONOMIC_3" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_RESOURCE_CAP">
-        <Argument name="Amount">1</Argument>
-    </Modifier>
-    <Modifier id="CARD_AT_MOD_DARK_AGE_ECONOMIC_4" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD">
-        <Argument name="Percent">-25</Argument>
-        <Argument name="YieldType">YIELD_CULTURE</Argument>
-    </Modifier>
-    <Modifier id="CARD_AT_MOD_DARK_AGE_CULTURE_1" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_ARTIFACT_EXTRACTION_SPEED">
-        <Argument name="Percent">-50</Argument>
-    </Modifier>
-    <Modifier id="CARD_AT_MOD_DARK_AGE_CULTURE_2" collection="COLLECTION_ALL_UNITS" effect="EFFECT_UNIT_ADJUST_MOVEMENT">
-        <SubjectRequirements>
-            <Requirement type="REQUIREMENT_UNIT_TYPE_MATCHES">
-                <Argument name="UnitType">UNIT_EXPLORER</Argument>
-            </Requirement>
-        </SubjectRequirements>
-        <Argument name="Amount">1</Argument>
-    </Modifier>
-    <Modifier id="CARD_AT_MOD_DARK_AGE_CULTURE_3" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD">
-        <Argument name="Percent">-50</Argument>
-        <Argument name="YieldType">YIELD_DIPLOMACY</Argument>
-    </Modifier>
-    <Modifier id="CARD_AT_MOD_VICTORY_SCIENTIFIC_FIRST" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_REPLACE_CONSTRUCTIBLE" permanent="true" run-once="true">
-        <Argument name="Destroy">BUILDING_UNIVERSITY</Argument>
-        <Argument name="Create">BUILDING_UNIVERSITY_MO</Argument>
-    </Modifier>
-    <Modifier id="CARD_AT_MOD_VICTORY_SCIENTIFIC_SECOND" collection="COLLECTION_PLAYER_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
-        <SubjectRequirements>
-            <Requirement type="REQUIREMENT_PLOT_IS_QUARTER"/>
-        </SubjectRequirements>
-        <Argument name="YieldType">YIELD_SCIENCE</Argument>
-        <Argument name="Amount">3</Argument>
-    </Modifier>
-    <Modifier id="CARD_AT_MOD_DARK_AGE_SCIENCE_1" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_PROGRESSION" permanent="true" run-once="true">
-        <SubjectRequirements>
-            <Requirement type="REQUIREMENT_PLAYER_HAS_COMPLETED_PROGRESSION_TREE_NODE">
-                <Argument name="ProgressionTreeNodeType">NODE_TECH_MO_COMBUSTION</Argument>
-                <Argument name="MinDepth">1</Argument>
-            </Requirement>
-        </SubjectRequirements>
-        <Argument name="Amount">1</Argument>
-        <Argument name="SystemType">SYSTEM_TECH</Argument>
-        <Argument name="FreeProgressionType">FREE_PROGRESSION_NODE_SPECIFIC</Argument>
-        <Argument name="NodeType">NODE_TECH_MO_FLIGHT</Argument>
-    </Modifier>
-    <Modifier id="CARD_AT_MOD_DARK_AGE_SCIENCE_2" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_UNIT_PRODUCTION">
-        <Argument name="Apply">Rate</Argument>
-        <Argument name="Percent">-33</Argument>
-        <Argument name="UnitClass">UNIT_CLASS_AIRCRAFT</Argument>
-    </Modifier>
-    <Modifier id="CARD_AT_MOD_DARK_AGE_SCIENCE_3" collection="COLLECTION_OWNER" effect="EFFECT_ADJUST_PLAYER_OR_CITY_UNIT_PURCHASE_EFFICIENCY">
-        <Argument name="UnitTag">UNIT_CLASS_AIRCRAFT</Argument>
-        <Argument name="Percent">-33</Argument>
-    </Modifier>
-    <Modifier id="CARD_AT_MOD_GOLDEN_AGE_ECONOMIC_POPULATION" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_POPULATION" permanent="true" run-once="true">
-        <SubjectRequirements>
-            <Requirement type="REQUIREMENT_CITY_IS_DISTANT_LANDS" />
-            <Requirement type="REQUIREMENT_CITY_IS_CITY" />
-        </SubjectRequirements>
-        <Argument name="Amount">2</Argument>
-    </Modifier>
-    <!-- Revolutions Crisis -->
-    <Modifier id="CARD_AT_SPECIALIST_CAP_PENALTY" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_WORKER_CAP">
-        <Argument name="Amount">-2</Argument>
-    </Modifier>
-    <Modifier id="CARD_AT_CITY_HAPPINESS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
-        <SubjectRequirements>
-            <Requirement type="REQUIREMENT_CITY_IS_CITY">
-            </Requirement>
-        </SubjectRequirements>
-        <Argument name="Amount">-6</Argument>
-        <Argument name="YieldType">YIELD_HAPPINESS</Argument>
-    </Modifier>
-    <Modifier id="CARD_AT_TOWN_HAPPINESS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
-        <SubjectRequirements>
-            <Requirement type="REQUIREMENT_CITY_IS_TOWN">
-            </Requirement>
-        </SubjectRequirements>
-        <Argument name="Amount">2</Argument>
-        <Argument name="YieldType">YIELD_HAPPINESS</Argument>
-    </Modifier>
-    <Modifier id="CARD_AT_RURAL_YIELDS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_ATTACH_MODIFIERS" permanent="true">
-        <Argument name="ModifierId">CARD_AT_RURAL_YIELDS_ATTACH</Argument>
-    </Modifier>
-    <Modifier id="CARD_AT_RURAL_YIELDS_ATTACH" collection="COLLECTION_CITY_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
-        <SubjectRequirements>
-            <Requirement type="REQUIREMENT_PLOT_DISTRICT_CLASS">
-                <Argument name="DistrictClass">RURAL</Argument>
-            </Requirement>
-        </SubjectRequirements>
-        <Argument name="Amount">3</Argument>
-        <Argument name="YieldType">YIELD_FOOD, YIELD_PRODUCTION</Argument>
-    </Modifier>
-    <Modifier id="CARD_AT_WAR_WEARINESS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_ADJUST_WAR_WEARINESS_YIELD_PENALTY">
-        <Argument name="Percent">-50</Argument>
-    </Modifier>
-    <Modifier id="CARD_AT_COMBAT_FRIENDLY_TERRITORY" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_ABILITY">
-        <Argument name="AbilityType">ABILITY_AT_MOD_COMBAT_FRIENDLY_TERRITORY</Argument>
-    </Modifier>
-    <Modifier id="CARD_AT_ALLIANCE_RELATIONSHIP" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_ADJUST_RELATIONSHIP_GAIN_FROM_EVENT">
-        <Argument name="EventType">GRIEVANCE_FROM_END_ALLIANCE, GRIEVANCE_FROM_BREAK_ALLIANCE</Argument>
-        <Argument name="Percent">-50</Argument>
-    </Modifier>
-    <Modifier id="CARD_AT_DIPLOMATIC_RELATIONSHIP_PROJECTS" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_ADJUST_RELATIONSHIP_GAIN_FROM_EVENT">
-        <Argument name="EventType">FAVOR_FROM_PROJECT</Argument>
-        <Argument name="Percent">50</Argument>
-    </Modifier>
-    <Modifier id="CARD_AT_DIPLOMATIC_RELATIONSHIP_ENDEAVORS" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_ADJUST_RELATIONSHIP_GAIN_FROM_EVENT">
-        <Argument name="EventType">FAVOR_FROM_ENDEAVOR</Argument>
-        <Argument name="Percent">50</Argument>
-    </Modifier>
-    <Modifier id="CARD_AT_DIPLOMATIC_RELATIONSHIP_SUPPORT" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_ADJUST_RELATIONSHIP_GAIN_FROM_EVENT">
-        <Argument name="EventType">FAVOR_FROM_SUPPORT</Argument>
-        <Argument name="Percent">50</Argument>
-    </Modifier>
-    <!-- Exploration Plagues Crisis -->
-    <Modifier id="CARD_AT_EARLY_INDUSTRIALIZATION" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD">
-        <Argument name="Tag">MILL</Argument>
-        <Argument name="YieldType">YIELD_SCIENCE</Argument>
-        <Argument name="Amount">2</Argument>
-    </Modifier>
-    <Modifier id="CARD_AT_CONTAGION_THEORY" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_REPLACE_CONSTRUCTIBLE" permanent="true">
-        <Argument name="Destroy">BUILDING_HOSPITAL</Argument>
-        <Argument name="Create">BUILDING_PLAGUE_HOSPITAL</Argument>
-    </Modifier>
-    <!-- Wars of Religion Crisis -->
-    <Modifier id="CARD_AT_RELIGION_TOLERANCE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
-        <SubjectRequirements>
-            <Requirement type="REQUIREMENT_CITY_FOLLOWS_RELIGION" inverse="true">
-                <Argument name="hasReligion">false</Argument>
-            </Requirement>
-        </SubjectRequirements>
-        <Argument name="YieldType">YIELD_HAPPINESS</Argument>
-        <Argument name="Amount">4</Argument>
-    </Modifier>
-    <Modifier id="CARD_AT_WESTPHALIAN_SOVEREIGNTY" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_ADJUST_DIPLOMATIC_ACTION_TOKEN_BONUS">
-        <Argument name="ActionType">DIPLOMACY_ACTION_DECLARE_WAR</Argument>
-        <Argument name="Amount">3</Argument>
-        <Argument name="OnlyWhenTarget">true</Argument>
-    </Modifier>
-    <!-- For Unimlemented Card Effects -->
-    <Modifier id="CARD_AT_NONE" collection="COLLECTION_OWNER" effect="EFFECT_DO_NOTHING" permanent="true" run-once="true">
-    </Modifier>
-    <!-- Civic Boosts -->
-    <Modifier id="MOD_BOOST_CIVIC_MODERNIZATION" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_PROGRESSION" permanent="true" run-once="true">
-        <Argument name="Amount">1</Argument>
-        <Argument name="BoostPercentage">50</Argument>
-        <Argument name="SystemType">SYSTEM_CULTURE</Argument>
-        <Argument name="FreeProgressionType">FREE_PROGRESSION_BOOST_SPECIFIC</Argument>
-        <Argument name="NodeType">NODE_CIVIC_MO_MAIN_MODERNIZATION</Argument>
-    </Modifier>
-    <Modifier id="MOD_BOOST_CIVIC_NATURAL_HISTORY" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_PROGRESSION" permanent="true" run-once="true">
-        <Argument name="Amount">1</Argument>
-        <Argument name="BoostPercentage">50</Argument>
-        <Argument name="SystemType">SYSTEM_CULTURE</Argument>
-        <Argument name="FreeProgressionType">FREE_PROGRESSION_BOOST_SPECIFIC</Argument>
-        <Argument name="NodeType">NODE_CIVIC_MO_MAIN_NATURAL_HISTORY</Argument>
-    </Modifier>
-    <Modifier id="MOD_BOOST_CIVIC_SOCIAL_QUESTION" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_PROGRESSION" permanent="true" run-once="true">
-        <Argument name="Amount">1</Argument>
-        <Argument name="BoostPercentage">50</Argument>
-        <Argument name="SystemType">SYSTEM_CULTURE</Argument>
-        <Argument name="FreeProgressionType">FREE_PROGRESSION_BOOST_SPECIFIC</Argument>
-        <Argument name="NodeType">NODE_CIVIC_MO_MAIN_SOCIAL_QUESTION</Argument>
-    </Modifier>
-    <!-- Tech Boosts -->
-    <Modifier id="MOD_BOOST_TECH_ACADEMICS" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_PROGRESSION" permanent="true" run-once="true">
-        <Argument name="Amount">1</Argument>
-        <Argument name="BoostPercentage">50</Argument>
-        <Argument name="SystemType">SYSTEM_TECH</Argument>
-        <Argument name="FreeProgressionType">FREE_PROGRESSION_BOOST_SPECIFIC</Argument>
-        <Argument name="NodeType">NODE_TECH_MO_ACADEMICS</Argument>
-    </Modifier>
-    <Modifier id="MOD_BOOST_TECH_STEAM_ENGINE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_PROGRESSION" permanent="true" run-once="true">
-        <Argument name="Amount">1</Argument>
-        <Argument name="BoostPercentage">50</Argument>
-        <Argument name="SystemType">SYSTEM_TECH</Argument>
-        <Argument name="FreeProgressionType">FREE_PROGRESSION_BOOST_SPECIFIC</Argument>
-        <Argument name="NodeType">NODE_TECH_MO_STEAM_ENGINE</Argument>
-    </Modifier>
-    <Modifier id="MOD_BOOST_TECH_MILITARY_SCIENCE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_PROGRESSION" permanent="true" run-once="true">
-        <Argument name="Amount">1</Argument>
-        <Argument name="BoostPercentage">50</Argument>
-        <Argument name="SystemType">SYSTEM_TECH</Argument>
-        <Argument name="FreeProgressionType">FREE_PROGRESSION_BOOST_SPECIFIC</Argument>
-        <Argument name="NodeType">NODE_TECH_MO_MILITARY_SCIENCE</Argument>
-    </Modifier>
-    <!-- Founder Beliefs -->
-    <Modifier id="BONUS_17_CITIES_FOLLOWING_SCIENCE" collection="COLLECTION_OWNER" effect="EFFECT_ADD_RELIGIOUS_BELIEF_YIELD">
-        <Argument name="Amount">4</Argument>
-        <Argument name="YieldType">YIELD_SCIENCE</Argument>
-        <Argument name="BeliefYieldType">BELIEF_YIELD_PER_FOREIGN_CITY</Argument>
-    </Modifier>
-    <Modifier id="BONUS_18_NATURAL_WONDER_SCIENCE" collection="COLLECTION_OWNER" effect="EFFECT_ADD_RELIGIOUS_BELIEF_YIELD">
-        <Argument name="Amount">8</Argument>
-        <Argument name="YieldType">YIELD_SCIENCE</Argument>
-        <Argument name="BeliefYieldType">BELIEF_YIELD_PER_NATURAL_WONDER</Argument>
-    </Modifier>
-    <Modifier id="BONUS_18_NATURAL_WONDER_CULTURE" collection="COLLECTION_OWNER" effect="EFFECT_ADD_RELIGIOUS_BELIEF_YIELD">
-        <Argument name="Amount">8</Argument>
-        <Argument name="YieldType">YIELD_CULTURE</Argument>
-        <Argument name="BeliefYieldType">BELIEF_YIELD_PER_NATURAL_WONDER</Argument>
-    </Modifier>
-    <Modifier id="BONUS_18_NATURAL_WONDER_GOLD" collection="COLLECTION_OWNER" effect="EFFECT_ADD_RELIGIOUS_BELIEF_YIELD">
-        <Argument name="Amount">8</Argument>
-        <Argument name="YieldType">YIELD_GOLD</Argument>
-        <Argument name="BeliefYieldType">BELIEF_YIELD_PER_NATURAL_WONDER</Argument>
-    </Modifier>
-    <Modifier id="BONUS_19_WONDERS_SCIENCE" collection="COLLECTION_OWNER" effect="EFFECT_ADD_RELIGIOUS_BELIEF_YIELD">
-        <Argument name="Amount">4</Argument>
-        <Argument name="YieldType">YIELD_SCIENCE</Argument>
-        <Argument name="BeliefYieldType">BELIEF_YIELD_PER_WONDER</Argument>
-    </Modifier>
-    <Modifier id="BONUS_19_WONDERS_CULTURE" collection="COLLECTION_OWNER" effect="EFFECT_ADD_RELIGIOUS_BELIEF_YIELD">
-        <Argument name="Amount">4</Argument>
-        <Argument name="YieldType">YIELD_CULTURE</Argument>
-        <Argument name="BeliefYieldType">BELIEF_YIELD_PER_WONDER</Argument>
-    </Modifier>
-    <Modifier id="BONUS_19_WONDERS_GOLD" collection="COLLECTION_OWNER" effect="EFFECT_ADD_RELIGIOUS_BELIEF_YIELD">
-        <Argument name="Amount">4</Argument>
-        <Argument name="YieldType">YIELD_GOLD</Argument>
-        <Argument name="BeliefYieldType">BELIEF_YIELD_PER_WONDER</Argument>
-    </Modifier>
-    <Modifier id="BONUS_20_CITIES_FOLLOWING_GOLD" collection="COLLECTION_OWNER" effect="EFFECT_ADD_RELIGIOUS_BELIEF_YIELD">
-        <Argument name="Amount">4</Argument>
-        <Argument name="YieldType">YIELD_GOLD</Argument>
-        <Argument name="BeliefYieldType">BELIEF_YIELD_PER_FOREIGN_CITY</Argument>
-    </Modifier>
-    <Modifier id="BONUS_21_CITIES_FOLLOWING_CULTURE" collection="COLLECTION_OWNER" effect="EFFECT_ADD_RELIGIOUS_BELIEF_YIELD">
-        <Argument name="Amount">4</Argument>
-        <Argument name="YieldType">YIELD_CULTURE</Argument>
-        <Argument name="BeliefYieldType">BELIEF_YIELD_PER_FOREIGN_CITY</Argument>
-    </Modifier>
-    <Modifier id="BONUS_22_TROPICAL_CITIES_FOLLOWING_SCIENCE" collection="COLLECTION_OWNER" effect="EFFECT_ADD_RELIGIOUS_BELIEF_YIELD">
-        <Argument name="Amount">2</Argument>
-        <Argument name="BiomeType">BIOME_TROPICAL</Argument>
-        <Argument name="YieldType">YIELD_SCIENCE</Argument>
-        <Argument name="BeliefYieldType">BELIEF_YIELD_PER_BIOME</Argument>
-    </Modifier>
-    <Modifier id="BONUS_23_TUNDRA_CITIES_FOLLOWING_CULTURE" collection="COLLECTION_OWNER" effect="EFFECT_ADD_RELIGIOUS_BELIEF_YIELD">
-        <Argument name="Amount">2</Argument>
-        <Argument name="BiomeType">BIOME_TUNDRA</Argument>
-        <Argument name="YieldType">YIELD_CULTURE</Argument>
-        <Argument name="BeliefYieldType">BELIEF_YIELD_PER_BIOME</Argument>
-    </Modifier>
-    <Modifier id="BONUS_24_DESERT_CITIES_FOLLOWING_GOLD" collection="COLLECTION_OWNER" effect="EFFECT_ADD_RELIGIOUS_BELIEF_YIELD">
-        <Argument name="Amount">2</Argument>
-        <Argument name="BiomeType">BIOME_DESERT</Argument>
-        <Argument name="YieldType">YIELD_GOLD</Argument>
-        <Argument name="BeliefYieldType">BELIEF_YIELD_PER_BIOME</Argument>
-    </Modifier>
-    <Modifier id="BONUS_25_CITIES_FOLLOWING_HAPPINESS" collection="COLLECTION_OWNER" effect="EFFECT_ADD_RELIGIOUS_BELIEF_YIELD">
-        <Argument name="Amount">4</Argument>
-        <Argument name="YieldType">YIELD_HAPPINESS</Argument>
-        <Argument name="BeliefYieldType">BELIEF_YIELD_PER_FOREIGN_CITY</Argument>
-    </Modifier>
-    <Modifier id="BONUS_26_MARINE_CITIES_FOLLOWING_HAPPINESS" collection="COLLECTION_OWNER" effect="EFFECT_ADD_RELIGIOUS_BELIEF_YIELD">
-        <Argument name="Amount">1</Argument>
-        <Argument name="BiomeType">BIOME_MARINE</Argument>
-        <Argument name="YieldType">YIELD_HAPPINESS</Argument>
-        <Argument name="BeliefYieldType">BELIEF_YIELD_PER_BIOME</Argument>
-    </Modifier>
-    <Modifier id="BONUS_27_GRASSLAND_CITIES_FOLLOWING_SCIENCE" collection="COLLECTION_OWNER" effect="EFFECT_ADD_RELIGIOUS_BELIEF_YIELD">
-        <Argument name="Amount">1</Argument>
-        <Argument name="BiomeType">BIOME_GRASSLAND</Argument>
-        <Argument name="YieldType">YIELD_SCIENCE</Argument>
-        <Argument name="BeliefYieldType">BELIEF_YIELD_PER_BIOME</Argument>
-    </Modifier>
-    <Modifier id="BONUS_28_PLAINS_CITIES_FOLLOWING_CULTURE" collection="COLLECTION_OWNER" effect="EFFECT_ADD_RELIGIOUS_BELIEF_YIELD">
-        <Argument name="Amount">1</Argument>
-        <Argument name="BiomeType">BIOME_PLAINS</Argument>
-        <Argument name="YieldType">YIELD_CULTURE</Argument>
-        <Argument name="BeliefYieldType">BELIEF_YIELD_PER_BIOME</Argument>
-    </Modifier>
-    <!-- Founder Beleifs 1.2.2+ -->
-    <Modifier id="MOD_FOUNDER_BELIEF_CITIES_FOLLOWING_INFLUENCE" collection="COLLECTION_OWNER" effect="EFFECT_ADD_RELIGIOUS_BELIEF_YIELD">
-        <Argument name="Amount">2</Argument>
-        <Argument name="YieldType">YIELD_DIPLOMACY</Argument>
-        <Argument name="BeliefYieldType">BELIEF_YIELD_PER_FOREIGN_CITY</Argument>
-    </Modifier>
-    <Modifier id="MOD_FOUNDER_BELIEF_CITIES_FOLLOWING_INFLUENCE_SELF" collection="COLLECTION_OWNER" effect="EFFECT_ADD_RELIGIOUS_BELIEF_YIELD">
-        <Argument name="Amount">1</Argument>
-        <Argument name="YieldType">YIELD_DIPLOMACY</Argument>
-        <Argument name="BeliefYieldType">BELIEF_YIELD_PER_DOMESTIC_CITY</Argument>
-    </Modifier>
-
-    <Modifier id="MOD_FOUNDER_BELIEF_RIVER_CITIES_FOLLOWING_INFLUENCE" collection="COLLECTION_OWNER" effect="EFFECT_ADD_RELIGIOUS_BELIEF_YIELD">
-        <Argument name="Amount">1</Argument>
-        <Argument name="TerrainType">TERRAIN_NAVIGABLE_RIVER</Argument>
-        <Argument name="YieldType">YIELD_DIPLOMACY</Argument>
-        <Argument name="BeliefYieldType">BELIEF_YIELD_PER_TERRAIN_TYPE</Argument>
-    </Modifier>
-
-    <Modifier id="MOD_FOUNDER_BELIEF_DOMESTIC_FOOD" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
-        <SubjectRequirements>
-            <Requirement type="REQUIREMENT_CITY_FOLLOWS_RELIGION"/>
-        </SubjectRequirements>
-        <Argument name="YieldType">YIELD_FOOD</Argument>
-        <Argument name="Amount">6</Argument>
-    </Modifier>
-
-    <Modifier id="MOD_FOUNDER_BELIEF_DOMESTIC_PRODUCTION" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
-        <SubjectRequirements>
-            <Requirement type="REQUIREMENT_CITY_FOLLOWS_RELIGION"/>
-        </SubjectRequirements>
-        <Argument name="YieldType">YIELD_PRODUCTION</Argument>
-        <Argument name="Amount">4</Argument>
-    </Modifier>
-
-    <Modifier id="MOD_FOUNDER_BELIEF_TEMPLE_PROVIDE_HAPPINESS_ADJACENCY" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ACTIVATE_CONSTRUCTIBLE_ADJACENCY">
-        <Argument name="ConstructibleAdjacency">TemplesWildcardHappinesBuildingsUrbanModern</Argument>
-    </Modifier>
-
-    <Modifier id="BONUS_30_CAPITAL_YIELDS" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_CONSTRUCTIBLE_YIELD">
-        <Argument name="YieldType">YIELD_SCIENCE,YIELD_CULTURE,YIELD_HAPPINESS,YIELD_GOLD,YIELD_DIPLOMACY</Argument>
-        <Argument name="Amount">3</Argument>
-        <Argument name="ConstructibleType">BUILDING_PALACE</Argument>
-    </Modifier>
-    <!-- Legend Cards -->
-    <!-- shared game effects found in advanced-start-gameeffects.xml for modern -->
+	<Modifier id="CARD_AT_VICTORY_MILITARISTIC_INFANTRY" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_GRANT_UNIT" run-once="true" permanent="true">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_DISTANT_LANDS"/>
+		</SubjectRequirements>
+		<Argument name="Amount">1</Argument>
+		<Argument name="UnitTag">UNIT_CLASS_INFANTRY</Argument>
+	</Modifier>
+	<Modifier id="CARD_AT_VICTORY_MILITARISTIC_RANGED" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_GRANT_UNIT" run-once="true" permanent="true">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_DISTANT_LANDS"/>
+		</SubjectRequirements>
+		<Argument name="Amount">1</Argument>
+		<Argument name="UnitTag">UNIT_CLASS_RANGED</Argument>
+		<Argument name="DomainType">DOMAIN_LAND</Argument>
+	</Modifier>
+	<Modifier id="CARD_AT_VICTORY_MILITARISTIC_SECOND" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_DISTANT_LANDS"/>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_PRODUCTION</Argument>
+		<Argument name="Amount">10</Argument>
+	</Modifier>
+	<Modifier id="CARD_AT_MOD_DARK_AGE_MILITARY_1" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_GRANT_UNIT_PROMOTION" run-once="false" permanent="true">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+				<Argument name="Tag">UNIT_CLASS_COMMAND</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">2</Argument>
+	</Modifier>
+	<Modifier id="CARD_AT_MOD_DARK_AGE_MILITARY_2_PROD" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_UNIT_PRODUCTION">
+		<Argument name="Percent">-25</Argument>
+		<Argument name="UnitCoreClass">CORE_CLASS_MILITARY</Argument>
+	</Modifier>
+	<Modifier id="CARD_AT_MOD_DARK_AGE_MILITARY_3_GOLD" collection="COLLECTION_OWNER" effect="EFFECT_ADJUST_PLAYER_OR_CITY_UNIT_PURCHASE_EFFICIENCY">
+		<Argument name="UnitTag">UNIT_CLASS_COMBAT</Argument>
+		<Argument name="Percent">-20</Argument>
+	</Modifier>
+	<Modifier id="CARD_AT_VICTORY_ECONOMIC_SECOND" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD_PER_UNIQUE_RESOURCE">
+		<Argument name="YieldType">YIELD_GOLD</Argument>
+		<Argument name="Amount">2</Argument>
+	</Modifier>
+	<Modifier id="CARD_AT_MOD_DARK_AGE_ECONOMIC_1" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_PRODUCTION">
+		<Argument name="Percent">100</Argument>
+		<Argument name="Tag">RAIL_CONNECTION</Argument>
+	</Modifier>
+	<Modifier id="CARD_AT_MOD_DARK_AGE_ECONOMIC_2" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_ADJUST_PLAYER_OR_CITY_BUILDING_PURCHASE_EFFICIENCY">
+		<Argument name="Percent">100</Argument>
+		<Argument name="BuildingTag">RAIL_CONNECTION</Argument>
+	</Modifier>
+	<Modifier id="CARD_AT_MOD_DARK_AGE_ECONOMIC_3" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_RESOURCE_CAP">
+		<Argument name="Amount">1</Argument>
+	</Modifier>
+	<Modifier id="CARD_AT_MOD_DARK_AGE_ECONOMIC_4" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD">
+		<Argument name="Percent">-25</Argument>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+	</Modifier>
+	<Modifier id="CARD_AT_MOD_DARK_AGE_CULTURE_1" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_ARTIFACT_EXTRACTION_SPEED">
+		<Argument name="Percent">-50</Argument>
+	</Modifier>
+	<Modifier id="CARD_AT_MOD_DARK_AGE_CULTURE_2" collection="COLLECTION_ALL_UNITS" effect="EFFECT_UNIT_ADJUST_MOVEMENT">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_TYPE_MATCHES">
+				<Argument name="UnitType">UNIT_EXPLORER</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">1</Argument>
+	</Modifier>
+	<Modifier id="CARD_AT_MOD_DARK_AGE_CULTURE_3" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD">
+		<Argument name="Percent">-50</Argument>
+		<Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+	</Modifier>
+	<Modifier id="CARD_AT_MOD_VICTORY_SCIENTIFIC_FIRST" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_REPLACE_CONSTRUCTIBLE" permanent="true" run-once="true">
+		<Argument name="Destroy">BUILDING_UNIVERSITY</Argument>
+		<Argument name="Create">BUILDING_UNIVERSITY_MO</Argument>
+	</Modifier>
+	<Modifier id="CARD_AT_MOD_VICTORY_SCIENTIFIC_SECOND" collection="COLLECTION_PLAYER_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_IS_QUARTER"/>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_SCIENCE</Argument>
+		<Argument name="Amount">3</Argument>
+	</Modifier>
+	<Modifier id="CARD_AT_MOD_DARK_AGE_SCIENCE_1" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_PROGRESSION" permanent="true" run-once="true">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_HAS_COMPLETED_PROGRESSION_TREE_NODE">
+				<Argument name="ProgressionTreeNodeType">NODE_TECH_MO_COMBUSTION</Argument>
+				<Argument name="MinDepth">1</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">1</Argument>
+		<Argument name="SystemType">SYSTEM_TECH</Argument>
+		<Argument name="FreeProgressionType">FREE_PROGRESSION_NODE_SPECIFIC</Argument>
+		<Argument name="NodeType">NODE_TECH_MO_FLIGHT</Argument>
+	</Modifier>
+	<Modifier id="CARD_AT_MOD_DARK_AGE_SCIENCE_2" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_UNIT_PRODUCTION">
+		<Argument name="Percent">-33</Argument>
+		<Argument name="UnitClass">UNIT_CLASS_AIRCRAFT</Argument>
+	</Modifier>
+	<Modifier id="CARD_AT_MOD_DARK_AGE_SCIENCE_3" collection="COLLECTION_OWNER" effect="EFFECT_ADJUST_PLAYER_OR_CITY_UNIT_PURCHASE_EFFICIENCY">
+		<Argument name="UnitTag">UNIT_CLASS_AIRCRAFT</Argument>
+		<Argument name="Percent">-33</Argument>
+	</Modifier>
+	<Modifier id="CARD_AT_MOD_GOLDEN_AGE_ECONOMIC_POPULATION" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_POPULATION" permanent="true" run-once="true">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_DISTANT_LANDS"/>
+			<Requirement type="REQUIREMENT_CITY_IS_CITY"/>
+		</SubjectRequirements>
+		<Argument name="Amount">2</Argument>
+	</Modifier>
+	<!-- Revolutions Crisis -->
+	<Modifier id="CARD_AT_SPECIALIST_CAP_PENALTY" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_WORKER_CAP">
+		<Argument name="Amount">-1</Argument>
+	</Modifier>
+	<Modifier id="CARD_AT_RURAL_YIELDS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_ATTACH_MODIFIERS" permanent="true">
+		<Argument name="ModifierId">CARD_AT_RURAL_YIELDS_ATTACH</Argument>
+	</Modifier>
+	<Modifier id="CARD_AT_RURAL_YIELDS_ATTACH" collection="COLLECTION_CITY_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_DISTRICT_CLASS">
+				<Argument name="DistrictClass">RURAL</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">1</Argument>
+		<Argument name="YieldType">YIELD_FOOD, YIELD_PRODUCTION</Argument>
+	</Modifier>
+	<Modifier id="CARD_AT_COMBAT_FRIENDLY_TERRITORY" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_ABILITY">
+		<Argument name="AbilityType">ABILITY_AT_MOD_COMBAT_FRIENDLY_TERRITORY</Argument>
+	</Modifier>
+	<Modifier id="CARD_AT_ALLIANCE_RELATIONSHIP" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_ADJUST_RELATIONSHIP_GAIN_FROM_EVENT">
+		<Argument name="EventType">GRIEVANCE_FROM_END_ALLIANCE, GRIEVANCE_FROM_BREAK_ALLIANCE</Argument>
+		<Argument name="Percent">-50</Argument>
+	</Modifier>
+	<Modifier id="CARD_AT_DIPLOMATIC_RELATIONSHIP_PROJECTS" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_ADJUST_RELATIONSHIP_GAIN_FROM_EVENT">
+		<Argument name="EventType">FAVOR_FROM_PROJECT</Argument>
+		<Argument name="Percent">50</Argument>
+	</Modifier>
+	<Modifier id="CARD_AT_DIPLOMATIC_RELATIONSHIP_ENDEAVORS" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_ADJUST_RELATIONSHIP_GAIN_FROM_EVENT">
+		<Argument name="EventType">FAVOR_FROM_ENDEAVOR</Argument>
+		<Argument name="Percent">50</Argument>
+	</Modifier>
+	<Modifier id="CARD_AT_DIPLOMATIC_RELATIONSHIP_SUPPORT" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_ADJUST_RELATIONSHIP_GAIN_FROM_EVENT">
+		<Argument name="EventType">FAVOR_FROM_SUPPORT</Argument>
+		<Argument name="Percent">50</Argument>
+	</Modifier>
+	<!-- Exploration Plagues Crisis -->
+	<Modifier id="CARD_AT_EARLY_INDUSTRIALIZATION" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD">
+		<Argument name="Tag">MILL</Argument>
+		<Argument name="YieldType">YIELD_SCIENCE</Argument>
+		<Argument name="Amount">2</Argument>
+	</Modifier>
+	<Modifier id="CARD_AT_CONTAGION_THEORY" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_FREE_PURCHASE_CHARGE" permanent="true">
+		<Argument name="Amount">3</Argument>
+		<Argument name="BuildingType">BUILDING_CITY_PARK</Argument>
+	</Modifier>
+	<!-- Wars of Religion Crisis -->
+	<Modifier id="CARD_AT_RELIGION_TOLERANCE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_FOLLOWS_RELIGION" inverse="true">
+				<Argument name="hasReligion">false</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_HAPPINESS</Argument>
+		<Argument name="Amount">4</Argument>
+	</Modifier>
+	<Modifier id="CARD_AT_WESTPHALIAN_SOVEREIGNTY" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_ADJUST_DIPLOMATIC_ACTION_TOKEN_BONUS">
+		<Argument name="ActionType">DIPLOMACY_ACTION_DECLARE_WAR</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="OnlyWhenTarget">true</Argument>
+	</Modifier>
+	<!-- For Unimlemented Card Effects -->
+	<Modifier id="CARD_AT_NONE" collection="COLLECTION_OWNER" effect="EFFECT_DO_NOTHING" permanent="true" run-once="true">
+    </Modifier>
+	<!-- Civic Boosts -->
+	<Modifier id="MOD_BOOST_CIVIC_MODERNIZATION" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_PROGRESSION" permanent="true" run-once="true">
+		<Argument name="Amount">1</Argument>
+		<Argument name="BoostPercentage">50</Argument>
+		<Argument name="SystemType">SYSTEM_CULTURE</Argument>
+		<Argument name="FreeProgressionType">FREE_PROGRESSION_BOOST_SPECIFIC</Argument>
+		<Argument name="NodeType">NODE_CIVIC_MO_MAIN_MODERNIZATION</Argument>
+	</Modifier>
+	<Modifier id="MOD_BOOST_CIVIC_NATURAL_HISTORY" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_PROGRESSION" permanent="true" run-once="true">
+		<Argument name="Amount">1</Argument>
+		<Argument name="BoostPercentage">50</Argument>
+		<Argument name="SystemType">SYSTEM_CULTURE</Argument>
+		<Argument name="FreeProgressionType">FREE_PROGRESSION_BOOST_SPECIFIC</Argument>
+		<Argument name="NodeType">NODE_CIVIC_MO_MAIN_NATURAL_HISTORY</Argument>
+	</Modifier>
+	<Modifier id="MOD_BOOST_CIVIC_SOCIAL_QUESTION" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_PROGRESSION" permanent="true" run-once="true">
+		<Argument name="Amount">1</Argument>
+		<Argument name="BoostPercentage">50</Argument>
+		<Argument name="SystemType">SYSTEM_CULTURE</Argument>
+		<Argument name="FreeProgressionType">FREE_PROGRESSION_BOOST_SPECIFIC</Argument>
+		<Argument name="NodeType">NODE_CIVIC_MO_MAIN_SOCIAL_QUESTION</Argument>
+	</Modifier>
+	<!-- Tech Boosts -->
+	<Modifier id="MOD_BOOST_TECH_ACADEMICS" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_PROGRESSION" permanent="true" run-once="true">
+		<Argument name="Amount">1</Argument>
+		<Argument name="BoostPercentage">50</Argument>
+		<Argument name="SystemType">SYSTEM_TECH</Argument>
+		<Argument name="FreeProgressionType">FREE_PROGRESSION_BOOST_SPECIFIC</Argument>
+		<Argument name="NodeType">NODE_TECH_MO_ACADEMICS</Argument>
+	</Modifier>
+	<Modifier id="MOD_BOOST_TECH_STEAM_ENGINE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_PROGRESSION" permanent="true" run-once="true">
+		<Argument name="Amount">1</Argument>
+		<Argument name="BoostPercentage">50</Argument>
+		<Argument name="SystemType">SYSTEM_TECH</Argument>
+		<Argument name="FreeProgressionType">FREE_PROGRESSION_BOOST_SPECIFIC</Argument>
+		<Argument name="NodeType">NODE_TECH_MO_STEAM_ENGINE</Argument>
+	</Modifier>
+	<Modifier id="MOD_BOOST_TECH_MILITARY_SCIENCE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_PROGRESSION" permanent="true" run-once="true">
+		<Argument name="Amount">1</Argument>
+		<Argument name="BoostPercentage">50</Argument>
+		<Argument name="SystemType">SYSTEM_TECH</Argument>
+		<Argument name="FreeProgressionType">FREE_PROGRESSION_BOOST_SPECIFIC</Argument>
+		<Argument name="NodeType">NODE_TECH_MO_MILITARY_SCIENCE</Argument>
+	</Modifier>
+	<!-- Founder Beliefs -->
+	<Modifier id="BONUS_17_CITIES_FOLLOWING_SCIENCE" collection="COLLECTION_OWNER" effect="EFFECT_ATTACH_MODIFIERS">
+		<Argument name="ModifierId">ATTACH_CITIES_FOLLOWING_SCIENCE,ATTACH_DOMESTIC_CITIES_FOLLOWING_SCIENCE</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_CITIES_FOLLOWING_SCIENCE" collection="COLLECTION_OWNER" effect="EFFECT_ADD_RELIGIOUS_BELIEF_YIELD">
+		<Argument name="Amount">4</Argument>
+		<Argument name="YieldType">YIELD_SCIENCE</Argument>
+		<Argument name="BeliefYieldType">BELIEF_YIELD_PER_FOREIGN_CITY</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_DOMESTIC_CITIES_FOLLOWING_SCIENCE" collection="COLLECTION_OWNER" effect="EFFECT_ADD_RELIGIOUS_BELIEF_YIELD">
+		<Argument name="Amount">1</Argument>
+		<Argument name="YieldType">YIELD_SCIENCE</Argument>
+		<Argument name="BeliefYieldType">BELIEF_YIELD_PER_DOMESTIC_CITY</Argument>
+	</Modifier>
+	<Modifier id="BONUS_18_NATURAL_WONDER_SCIENCE" collection="COLLECTION_OWNER" effect="EFFECT_ADD_RELIGIOUS_BELIEF_YIELD">
+		<Argument name="Amount">8</Argument>
+		<Argument name="YieldType">YIELD_SCIENCE</Argument>
+		<Argument name="BeliefYieldType">BELIEF_YIELD_PER_NATURAL_WONDER</Argument>
+	</Modifier>
+	<Modifier id="BONUS_18_NATURAL_WONDER_CULTURE" collection="COLLECTION_OWNER" effect="EFFECT_ADD_RELIGIOUS_BELIEF_YIELD">
+		<Argument name="Amount">8</Argument>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="BeliefYieldType">BELIEF_YIELD_PER_NATURAL_WONDER</Argument>
+	</Modifier>
+	<Modifier id="BONUS_18_NATURAL_WONDER_GOLD" collection="COLLECTION_OWNER" effect="EFFECT_ADD_RELIGIOUS_BELIEF_YIELD">
+		<Argument name="Amount">8</Argument>
+		<Argument name="YieldType">YIELD_GOLD</Argument>
+		<Argument name="BeliefYieldType">BELIEF_YIELD_PER_NATURAL_WONDER</Argument>
+	</Modifier>
+	<Modifier id="BONUS_19_WONDERS_SCIENCE" collection="COLLECTION_OWNER" effect="EFFECT_ADD_RELIGIOUS_BELIEF_YIELD">
+		<Argument name="Amount">4</Argument>
+		<Argument name="YieldType">YIELD_SCIENCE</Argument>
+		<Argument name="BeliefYieldType">BELIEF_YIELD_PER_WONDER</Argument>
+	</Modifier>
+	<Modifier id="BONUS_19_WONDERS_CULTURE" collection="COLLECTION_OWNER" effect="EFFECT_ADD_RELIGIOUS_BELIEF_YIELD">
+		<Argument name="Amount">4</Argument>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="BeliefYieldType">BELIEF_YIELD_PER_WONDER</Argument>
+	</Modifier>
+	<Modifier id="BONUS_19_WONDERS_GOLD" collection="COLLECTION_OWNER" effect="EFFECT_ADD_RELIGIOUS_BELIEF_YIELD">
+		<Argument name="Amount">4</Argument>
+		<Argument name="YieldType">YIELD_GOLD</Argument>
+		<Argument name="BeliefYieldType">BELIEF_YIELD_PER_WONDER</Argument>
+	</Modifier>
+	<Modifier id="BONUS_20_CITIES_FOLLOWING_GOLD" collection="COLLECTION_OWNER" effect="EFFECT_ATTACH_MODIFIERS">
+		<Argument name="ModifierId">ATTACH_CITIES_FOLLOWING_GOLD,ATTACH_DOMESTIC_CITIES_FOLLOWING_GOLD</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_CITIES_FOLLOWING_GOLD" collection="COLLECTION_OWNER" effect="EFFECT_ADD_RELIGIOUS_BELIEF_YIELD">
+		<Argument name="Amount">4</Argument>
+		<Argument name="YieldType">YIELD_GOLD</Argument>
+		<Argument name="BeliefYieldType">BELIEF_YIELD_PER_FOREIGN_CITY</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_DOMESTIC_CITIES_FOLLOWING_GOLD" collection="COLLECTION_OWNER" effect="EFFECT_ADD_RELIGIOUS_BELIEF_YIELD">
+		<Argument name="Amount">1</Argument>
+		<Argument name="YieldType">YIELD_GOLD</Argument>
+		<Argument name="BeliefYieldType">BELIEF_YIELD_PER_DOMESTIC_CITY</Argument>
+	</Modifier>
+	<Modifier id="BONUS_21_CITIES_FOLLOWING_CULTURE" collection="COLLECTION_OWNER" effect="EFFECT_ATTACH_MODIFIERS">
+		<Argument name="ModifierId">ATTACH_CITIES_FOLLOWING_CULTURE,ATTACH_DOMESTIC_CITIES_FOLLOWING_CULTURE</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_CITIES_FOLLOWING_CULTURE" collection="COLLECTION_OWNER" effect="EFFECT_ADD_RELIGIOUS_BELIEF_YIELD">
+		<Argument name="Amount">4</Argument>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="BeliefYieldType">BELIEF_YIELD_PER_FOREIGN_CITY</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_DOMESTIC_CITIES_FOLLOWING_CULTURE" collection="COLLECTION_OWNER" effect="EFFECT_ADD_RELIGIOUS_BELIEF_YIELD">
+		<Argument name="Amount">1</Argument>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="BeliefYieldType">BELIEF_YIELD_PER_DOMESTIC_CITY</Argument>
+	</Modifier>
+	<Modifier id="BONUS_22_TROPICAL_CITIES_FOLLOWING_SCIENCE" collection="COLLECTION_OWNER" effect="EFFECT_ADD_RELIGIOUS_BELIEF_YIELD">
+		<Argument name="Amount">2</Argument>
+		<Argument name="BiomeType">BIOME_TROPICAL</Argument>
+		<Argument name="YieldType">YIELD_SCIENCE</Argument>
+		<Argument name="BeliefYieldType">BELIEF_YIELD_PER_BIOME</Argument>
+	</Modifier>
+	<Modifier id="BONUS_23_TUNDRA_CITIES_FOLLOWING_CULTURE" collection="COLLECTION_OWNER" effect="EFFECT_ADD_RELIGIOUS_BELIEF_YIELD">
+		<Argument name="Amount">2</Argument>
+		<Argument name="BiomeType">BIOME_TUNDRA</Argument>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="BeliefYieldType">BELIEF_YIELD_PER_BIOME</Argument>
+	</Modifier>
+	<Modifier id="BONUS_24_DESERT_CITIES_FOLLOWING_GOLD" collection="COLLECTION_OWNER" effect="EFFECT_ADD_RELIGIOUS_BELIEF_YIELD">
+		<Argument name="Amount">2</Argument>
+		<Argument name="BiomeType">BIOME_DESERT</Argument>
+		<Argument name="YieldType">YIELD_GOLD</Argument>
+		<Argument name="BeliefYieldType">BELIEF_YIELD_PER_BIOME</Argument>
+	</Modifier>
+	<Modifier id="BONUS_25_FOREIGN_CITIES_FOLLOWING_HAPPINESS" collection="COLLECTION_OWNER" effect="EFFECT_ADD_RELIGIOUS_BELIEF_YIELD">
+		<Argument name="Amount">4</Argument>
+		<Argument name="YieldType">YIELD_HAPPINESS</Argument>
+		<Argument name="BeliefYieldType">BELIEF_YIELD_PER_FOREIGN_CITY</Argument>
+	</Modifier>
+	<Modifier id="BONUS_25_DOMESTIC_CITIES_FOLLOWING_HAPPINESS" collection="COLLECTION_OWNER" effect="EFFECT_ADD_RELIGIOUS_BELIEF_YIELD">
+		<Argument name="Amount">1</Argument>
+		<Argument name="YieldType">YIELD_HAPPINESS</Argument>
+		<Argument name="BeliefYieldType">BELIEF_YIELD_PER_DOMESTIC_CITY</Argument>
+	</Modifier>
+	<Modifier id="BONUS_26_MARINE_CITIES_FOLLOWING_HAPPINESS" collection="COLLECTION_OWNER" effect="EFFECT_ADD_RELIGIOUS_BELIEF_YIELD">
+		<Argument name="Amount">1</Argument>
+		<Argument name="BiomeType">BIOME_MARINE</Argument>
+		<Argument name="YieldType">YIELD_HAPPINESS</Argument>
+		<Argument name="BeliefYieldType">BELIEF_YIELD_PER_BIOME</Argument>
+	</Modifier>
+	<Modifier id="BONUS_27_GRASSLAND_CITIES_FOLLOWING_SCIENCE" collection="COLLECTION_OWNER" effect="EFFECT_ADD_RELIGIOUS_BELIEF_YIELD">
+		<Argument name="Amount">1</Argument>
+		<Argument name="BiomeType">BIOME_GRASSLAND</Argument>
+		<Argument name="YieldType">YIELD_SCIENCE</Argument>
+		<Argument name="BeliefYieldType">BELIEF_YIELD_PER_BIOME</Argument>
+	</Modifier>
+	<Modifier id="BONUS_28_PLAINS_CITIES_FOLLOWING_CULTURE" collection="COLLECTION_OWNER" effect="EFFECT_ADD_RELIGIOUS_BELIEF_YIELD">
+		<Argument name="Amount">1</Argument>
+		<Argument name="BiomeType">BIOME_PLAINS</Argument>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="BeliefYieldType">BELIEF_YIELD_PER_BIOME</Argument>
+	</Modifier>
+	<!-- Founder Beleifs 1.2.2+ -->
+	<Modifier id="MOD_FOUNDER_BELIEF_CITIES_FOLLOWING_INFLUENCE" collection="COLLECTION_OWNER" effect="EFFECT_ADD_RELIGIOUS_BELIEF_YIELD">
+		<Argument name="Amount">2</Argument>
+		<Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+		<Argument name="BeliefYieldType">BELIEF_YIELD_PER_FOREIGN_CITY</Argument>
+	</Modifier>
+	<Modifier id="MOD_FOUNDER_BELIEF_CITIES_FOLLOWING_INFLUENCE_SELF" collection="COLLECTION_OWNER" effect="EFFECT_ADD_RELIGIOUS_BELIEF_YIELD">
+		<Argument name="Amount">1</Argument>
+		<Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+		<Argument name="BeliefYieldType">BELIEF_YIELD_PER_DOMESTIC_CITY</Argument>
+	</Modifier>
+	<Modifier id="MOD_FOUNDER_BELIEF_RIVER_CITIES_FOLLOWING_INFLUENCE" collection="COLLECTION_OWNER" effect="EFFECT_ADD_RELIGIOUS_BELIEF_YIELD">
+		<Argument name="Amount">1</Argument>
+		<Argument name="TerrainType">TERRAIN_NAVIGABLE_RIVER</Argument>
+		<Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+		<Argument name="BeliefYieldType">BELIEF_YIELD_PER_TERRAIN_TYPE</Argument>
+	</Modifier>
+	<Modifier id="MOD_FOUNDER_BELIEF_DOMESTIC_FOOD" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_FOLLOWS_RELIGION"/>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_FOOD</Argument>
+		<Argument name="Amount">6</Argument>
+	</Modifier>
+	<Modifier id="MOD_FOUNDER_BELIEF_DOMESTIC_PRODUCTION" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_FOLLOWS_RELIGION"/>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_PRODUCTION</Argument>
+		<Argument name="Amount">4</Argument>
+	</Modifier>
+	<Modifier id="MOD_FOUNDER_BELIEF_TEMPLE_PROVIDE_HAPPINESS_ADJACENCY" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ACTIVATE_CONSTRUCTIBLE_ADJACENCY">
+		<Argument name="ConstructibleAdjacency">TemplesWildcardHappinesBuildingsUrbanModern</Argument>
+	</Modifier>
+	<Modifier id="BONUS_30_CAPITAL_YIELDS" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_CONSTRUCTIBLE_YIELD">
+		<Argument name="YieldType">YIELD_SCIENCE,YIELD_CULTURE,YIELD_HAPPINESS,YIELD_GOLD,YIELD_DIPLOMACY</Argument>
+		<Argument name="Amount">3</Argument>
+		<Argument name="ConstructibleType">BUILDING_PALACE</Argument>
+	</Modifier>
+	<!-- ==================================================	-->
+	<!--			DEFAULT DEDICAITONS						-->
+	<!-- ==================================================	-->
+	<Modifier id="CARD_MOD_AT_MO_DEFAULT_1" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_GRANT_UNIT" run-once="true" permanent="true">
+		<Argument name="UnitType">UNIT_MERCHANT</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="AllowUniqueOverride">true</Argument>
+	</Modifier>
+	<Modifier id="CARD_MOD_AT_MO_DEFAULT_2" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_GRANT_UNIT" run-once="true" permanent="true">
+		<Argument name="UnitType">UNIT_SETTLER</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="AllowUniqueOverride">true</Argument>
+	</Modifier>
+	<Modifier id="CARD_MOD_AT_MO_DEFAULT_3" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD" run-once="true">
+		<Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+		<Argument name="Amount">500</Argument>
+    <Argument name="Scale">true</Argument>
+  </Modifier>
+	<Modifier id="CARD_MOD_AT_MO_DEFAULT_4" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_TRADITION_SLOTS" permanent="true">
+		<Argument name="SlotType">POLICY_CULTURE_SLOT</Argument>
+		<Argument name="Amount">1</Argument>
+	</Modifier>
+	<!-- ==================================================	-->
+	<!--				LEGACY DEDICAITONS						-->
+	<!-- ==================================================	-->
+	<!-- CULTURAL -->
+	<Modifier id="CARD_MOD_AT_MO_CULTURAL_1" collection="COLLECTION_OWNER" effect="EFFECT_DO_NOTHING">
+	</Modifier>
+	<Modifier id="CARD_MOD_AT_MO_CULTURAL_2" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_CONSTRUCTIBLE_YIELD" permanent="true">
+		<Argument name="YieldType">YIELD_CULTURE, YIELD_PRODUCTION</Argument>
+		<Argument name="ConstructibleClass">WONDER</Argument>
+		<Argument name="Amount">4, 4</Argument>
+	</Modifier>
+	<Modifier id="CARD_MOD_AT_MO_CULTURAL_3_HAPPINESS_BUILDING_SLOT" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_GREAT_WORK_SLOTS" permanent="true" run-once="true">
+		<Argument name="Tag">HAPPINESS</Argument>
+		<Argument name="Amount">1</Argument>
+	</Modifier>
+	<Modifier id="CARD_MOD_AT_MO_CULTURAL_3_NATURAL_HISTORY" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_PROGRESSION" permanent="true" run-once="true">
+    <Argument name="Amount">1</Argument>
+    <Argument name="SystemType">SYSTEM_CULTURE</Argument>
+    <Argument name="FreeProgressionType">FREE_PROGRESSION_NODE_SPECIFIC</Argument>
+    <Argument name="NodeType">NODE_CIVIC_MO_MAIN_NATURAL_HISTORY</Argument>
+  </Modifier>
+	<Modifier id="CARD_MOD_AT_MO_CULTURAL_4_MODERN_WONDER_VP" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ACTIVATE_VICTORY_POINT_TRACKER">
+		<Argument name="TrackerName">VICTORY_TRACKER_LEGACY_EX_CULTURAL_4</Argument>
+	</Modifier>
+	<!-- DIPLOMATIC -->
+	<Modifier id="CARD_MOD_AT_MO_DIPLOMATIC_1_HAPPINESS" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_ADJUST_YIELD_PER_SUZERAIN">
+		<Argument name="YieldType">YIELD_HAPPINESS</Argument>
+		<Argument name="Amount">4</Argument>
+		<Argument name="Tooltip">LOC_UNLOCK_EX_DIPLOMATIC_1_NAME</Argument>
+	</Modifier>
+	<Modifier id="CARD_MOD_AT_MO_DIPLOMATIC_1_INFLUENCE" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_ADJUST_YIELD_PER_SUZERAIN">
+		<Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+		<Argument name="Amount">4</Argument>
+		<Argument name="Tooltip">LOC_UNLOCK_EX_DIPLOMATIC_1_NAME</Argument>
+	</Modifier>
+	<Modifier id="CARD_MOD_AT_MO_DIPLOMATIC_2_ESPIONAGE_CHEAPER" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_ADJUST_DIPLOMATIC_ACTION_TYPE_EFFICIENCY">
+		<Argument name="ActionGroupType">DIPLOMACY_ACTION_GROUP_ESPIONAGE</Argument>
+		<Argument name="Percent">25</Argument>
+	</Modifier>
+	<Modifier id="CARD_MOD_AT_MO_DIPLOMATIC_2_ESPIONAGE_FASTER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_DIPLOMACY_ACTION_GROUP_MOD">
+		<Argument name="ActionGroup">DIPLOMACY_ACTION_GROUP_ESPIONAGE</Argument>
+		<Argument name="Percent">25</Argument>
+	</Modifier>
+	<Modifier id="CARD_MOD_AT_MO_DIPLOMATIC_3_DENOUNCING_INCREASE" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_ADJUST_DIPLOMATIC_ACTION_TYPE_EFFICIENCY">
+		<Argument name="ActionType">DIPLOMACY_ACTION_DENOUNCE</Argument>
+		<Argument name="Percent">-200</Argument>
+	</Modifier>
+	<Modifier id="CARD_MOD_AT_MO_DIPLOMATIC_3_HAPPINESS_PER_ALLIANCE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD_PER_PLAYER_ALLIANCE">
+		<Argument name="YieldType">YIELD_HAPPINESS</Argument>
+		<Argument name="Amount">10</Argument>
+		<Argument name="ConstructibleType">BUILDING_CITY_HALL, BUILDING_PALACE</Argument>
+	</Modifier>
+	<!-- ECONOMIC -->
+	<Modifier id="CARD_MOD_AT_MO_ECONOMIC_1" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_RESOURCE">
+		<Argument name="YieldType">YIELD_GOLD</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="PercentMultiplier">false</Argument>
+	</Modifier>
+	<Modifier id="CARD_MOD_AT_MO_ECONOMIC_2_RAIL_STATION_CHEAPER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_ADJUST_PLAYER_OR_CITY_BUILDING_PURCHASE_EFFICIENCY" permanent="true">
+		<Argument name="Percent">25</Argument>
+		<Argument name="BuildingType">BUILDING_RAIL_STATION</Argument>
+	</Modifier>
+	<Modifier id="CARD_MOD_AT_MO_ECONOMIC_2_RESOURCE_SLOT_IN_RAIL_SETTLEMENTS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_RESOURCE_CAP" permanent="true">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_CONNECTED_BY_RAIL"/>
+		</SubjectRequirements>
+		<Argument name="Amount">1</Argument>
+	</Modifier>
+	<Modifier id="CARD_MOD_AT_MO_ECONOMIC_3_TRADE_CAPACITY" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_TRADE_CAPACITY">
+		<Argument name="Amount">1</Argument>
+		<Argument name="MajorsOnly">true</Argument>
+	</Modifier>
+  <Modifier id="CARD_MOD_AT_MO_ECONOMIC_3_FREE_MERCHANTS" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_GRANT_UNIT" run-once="true" permanent="true">
+    <Argument name="UnitType">UNIT_MERCHANT</Argument>
+    <Argument name="Amount">2</Argument>
+    <Argument name="AllowUniqueOverride">true</Argument>
+  </Modifier>
+	<Modifier id="CARD_MOD_AT_MO_ECONOMIC_5" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ACTIVATE_VICTORY_POINT_TRACKER">
+		<Argument name="TrackerName">VICTORY_TRACKER_LEGACY_EX_ECONOMIC_5</Argument>
+	</Modifier>
+	<!-- EXPANSIONIST -->
+	<Modifier id="CARD_MOD_AT_MO_EXPANSIONIST_1" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ATTACH_MODIFIERS">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+				<Argument name="Tag">UNIT_CLASS_COMBAT</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="ModifierId">CARD_MOD_AT_MO_EXPANSIONIST_1_UNIT_EFFECT</Argument>
+		<String context="Description">LOC_UNLOCK_EX_EXPANSIONIST_1_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="CARD_MOD_AT_MO_EXPANSIONIST_1_UNIT_EFFECT" collection="COLLECTION_UNIT_COMBAT" effect="EFFECT_ADJUST_UNIT_STRENGTH_MODIFIER">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_IS_OWNER"/>
+			<Requirement inverse="true" type="REQUIREMENT_PLOT_IS_HOMELANDS"/>
+		</SubjectRequirements>
+		<Argument name="Amount">5</Argument>
+		<String context="Preview">LOC_UNLOCK_EX_EXPANSIONIST_1_PREVIEW</String>
+	</Modifier>
+	<Modifier id="CARD_MOD_AT_MO_EXPANSIONIST_2" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_SETTLEMENT_CAP">
+		<Argument name="Amount">2</Argument>
+	</Modifier>
+	<Modifier id="CARD_MOD_AT_MO_EXPANSIONIST_3_FOOD_BUILDINGS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD">
+    <Argument name="Tag">FOOD</Argument>
+    <Argument name="YieldType">YIELD_FOOD</Argument>
+    <Argument name="Amount">2</Argument>
+    <String context="Preview">LOC_LEGACY_EX_EXPANSIONIST_3_NAME</String>
+  </Modifier>
+  <Modifier id="CARD_MOD_AT_MO_EXPANSIONIST_3_FOOD_WAREHOUSE" collection="COLLECTION_OWNER" effect="EFFECT_ATTACH_MODIFIERS" owner-stack-limit="1">
+    <Argument name="ModifierId">ATTACH_MO_EXPANSIONIST_3_FOOD_ON_FISHING_QUAY, ATTACH_MO_EXPANSIONIST_3_FOOD_ON_GRANARY, ATTACH_MO_EXPANSIONIST_3_FOOD_ON_GRISTMILL, ATTACH_MO_EXPANSIONIST_3_FOOD_ON_GROCER</Argument>
+  </Modifier>
+  <Modifier id="ATTACH_MO_EXPANSIONIST_3_FOOD_ON_FISHING_QUAY" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD">
+    <Argument name="ConstructibleType">BUILDING_FISHING_QUAY</Argument>
+    <Argument name="YieldType">YIELD_FOOD</Argument>
+    <Argument name="Amount">1</Argument>
+    <String context="Preview">LOC_LEGACY_EX_EXPANSIONIST_3_NAME</String>
+  </Modifier>
+  <Modifier id="ATTACH_MO_EXPANSIONIST_3_FOOD_ON_GRANARY" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD">
+    <Argument name="ConstructibleType">BUILDING_GRANARY</Argument>
+    <Argument name="YieldType">YIELD_FOOD</Argument>
+    <Argument name="Amount">1</Argument>
+    <String context="Preview">LOC_LEGACY_EX_EXPANSIONIST_3_NAME</String>
+  </Modifier>
+  <Modifier id="ATTACH_MO_EXPANSIONIST_3_FOOD_ON_GRISTMILL" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD">
+    <Argument name="ConstructibleType">BUILDING_GRISTMILL</Argument>
+    <Argument name="YieldType">YIELD_FOOD</Argument>
+    <Argument name="Amount">1</Argument>
+    <String context="Preview">LOC_LEGACY_EX_EXPANSIONIST_3_NAME</String>
+  </Modifier>
+  <Modifier id="ATTACH_MO_EXPANSIONIST_3_FOOD_ON_GROCER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD">
+    <Argument name="ConstructibleType">BUILDING_GROCER</Argument>
+    <Argument name="YieldType">YIELD_FOOD</Argument>
+    <Argument name="Amount">1</Argument>
+    <String context="Preview">LOC_LEGACY_EX_EXPANSIONIST_3_NAME</String>
+  </Modifier>
+  <!-- MILITARISTIC -->
+	<Modifier id="CARD_MOD_AT_MO_MILITARISTIC_1" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ATTACH_MODIFIERS">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+				<Argument name="Tag">UNIT_CLASS_COMBAT</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="ModifierId">CARD_MOD_AT_MO_MILITARISTIC_1_UNIT_EFFECT</Argument>
+		<String context="Description">LOC_UNLOCK_EX_MILITARISTIC_1_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="CARD_MOD_AT_MO_MILITARISTIC_1_UNIT_EFFECT" collection="COLLECTION_UNIT_COMBAT" effect="EFFECT_ADJUST_UNIT_STRENGTH_MODIFIER">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_OPPONENT_IS_DISTRICT"/>
+		</SubjectRequirements>
+		<Argument name="Amount">3</Argument>
+		<String context="Preview">LOC_UNLOCK_EX_MILITARISTIC_1_PREVIEW</String>
+	</Modifier>
+	<Modifier id="CARD_MOD_AT_MO_MILITARISTIC_2" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_ADD_COMMANDER_WITH_UNITS" run-once="true" permanent="true">
+		<Argument name="CommanderType">UNIT_ARMY_COMMANDER</Argument>
+		<Argument name="UnitTags">UNIT_CLASS_INFANTRY, UNIT_CLASS_RANGED, UNIT_CLASS_SIEGE, UNIT_CLASS_CAVALRY</Argument>
+	</Modifier>
+	<Modifier id="CARD_MOD_AT_MO_MILITARISTIC_3" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_GRANT_UNIT_PROMOTION" run-once="false" permanent="true">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+				<Argument name="Tag">UNIT_CLASS_COMMAND</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">1</Argument>
+	</Modifier>
+	<Modifier id="CARD_MOD_AT_MO_MILITARISTIC_5" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ACTIVATE_VICTORY_POINT_TRACKER" permanent="true">
+		<Argument name="TrackerName">VICTORY_TRACKER_LEGACY_EX_MILITARISTIC_5</Argument>
+	</Modifier>
+	<!-- SCIENTIFIC -->
+	<Modifier id="CARD_MOD_AT_MO_SCIENTIFIC_1" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_WORKER_CAP" permanent="true">
+		<Argument name="Amount">1</Argument>
+	</Modifier>
+	<Modifier id="CARD_MOD_AT_MO_SCIENTIFIC_2_PROJECT_BONUS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_PROJECT_PRODUCTION">
+		<Argument name="Percent">25</Argument>
+	</Modifier>
+	<Modifier id="CARD_MOD_AT_MO_SCIENTIFIC_2_UNLOCK_ACADEMICS" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_PROGRESSION" permanent="true" run-once="true">
+		<Argument name="Amount">1</Argument>
+		<Argument name="SystemType">SYSTEM_TECH</Argument>
+		<Argument name="FreeProgressionType">FREE_PROGRESSION_NODE_SPECIFIC</Argument>
+		<Argument name="NodeType">NODE_TECH_MO_ACADEMICS</Argument>
+	</Modifier>
+	<Modifier id="CARD_MOD_AT_MO_SCIENTIFIC_4_UNLOCK_GDP_PROJECTS_SOUND_BARRIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_VICTORY_TRACKER_POINTS" permanent="true" run-once="true">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_HAS_COMPLETED_PROJECT">
+				<Argument name="ProjectType">PROJECT_BREAK_SOUND_BARRIER</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="VictoryType">VICTORY_ECONOMIC_MODERN</Argument>
+		<Argument name="Points" type="ScaleByGameSpeed">1000</Argument>
+		<Argument name="ItemName">LOC_PROJECT_BREAK_SOUND_BARRIER_NAME</Argument>
+		<Argument name="ReplacePoints">true</Argument>
+		<Argument name="TypeData">PROJECT</Argument>
+	</Modifier>
+	<Modifier id="CARD_MOD_AT_MO_SCIENTIFIC_4_UNLOCK_GDP_PROJECTS_RADIO_TELESCOPE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_VICTORY_TRACKER_POINTS" permanent="true" run-once="true">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_HAS_COMPLETED_PROJECT">
+				<Argument name="ProjectType">PROJECT_CREWED_SPACE_FLIGHT_RESEARCH</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="VictoryType">VICTORY_ECONOMIC_MODERN</Argument>
+		<Argument name="Points" type="ScaleByGameSpeed">1000</Argument>
+		<Argument name="ItemName">LOC_PROJECT_CREWED_SPACE_FLIGHT_RESEARCH_NAME</Argument>
+		<Argument name="ReplacePoints">true</Argument>
+		<Argument name="TypeData">PROJECT</Argument>
+	</Modifier>
+	<Modifier id="CARD_MOD_AT_MO_SCIENTIFIC_4_UNLOCK_GDP_PROJECTS_TRANS_OCEANIC" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_VICTORY_TRACKER_POINTS" permanent="true" run-once="true">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_HAS_COMPLETED_PROJECT">
+				<Argument name="ProjectType">PROJECT_TRANS_OCEANIC_FLIGHT</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="VictoryType">VICTORY_ECONOMIC_MODERN</Argument>
+		<Argument name="Points" type="ScaleByGameSpeed">1000</Argument>
+		<Argument name="ItemName">LOC_PROJECT_TRANS_OCEANIC_FLIGHT_NAME</Argument>
+		<Argument name="ReplacePoints">true</Argument>
+		<Argument name="TypeData">PROJECT</Argument>
+	</Modifier>
+	<Modifier id="CARD_MOD_AT_MO_SCIENTIFIC_4_UNLOCK_GDP_PROJECTS_LAUNCH_SATELLITE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_VICTORY_TRACKER_POINTS" permanent="true" run-once="true">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_HAS_COMPLETED_PROJECT">
+				<Argument name="ProjectType">PROJECT_LAUNCH_SATELLITE</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="VictoryType">VICTORY_ECONOMIC_MODERN</Argument>
+		<Argument name="Points" type="ScaleByGameSpeed">1000</Argument>
+		<Argument name="ItemName">LOC_PROJECT_LAUNCH_SATELLITE_NAME</Argument>
+		<Argument name="ReplacePoints">true</Argument>
+		<Argument name="TypeData">PROJECT</Argument>
+	</Modifier>
+	<Modifier id="CARD_MOD_AT_MO_SCIENTIFIC_4_UNLOCK_GDP_PROJECTS_SPACE_FLIGHT" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_VICTORY_TRACKER_POINTS" permanent="true" run-once="true">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_HAS_COMPLETED_PROJECT">
+				<Argument name="ProjectType">PROJECT_CREWED_SPACE_FLIGHT_PREP</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="VictoryType">VICTORY_ECONOMIC_MODERN</Argument>
+		<Argument name="Points" type="ScaleByGameSpeed">1000</Argument>
+		<Argument name="ItemName">LOC_PROJECT_CREWED_SPACE_FLIGHT_PREP_NAME</Argument>
+		<Argument name="ReplacePoints">true</Argument>
+		<Argument name="TypeData">PROJECT</Argument>
+	</Modifier>
+	<!-- CONQUEROR -->
+	<Modifier id="CARD_MOD_AT_MO_CONQUEROR_3" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD" permanent="true">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_ORIGINAL_OWNER" inverse="true"/>
+		</SubjectRequirements>
+		<Argument name="Amount">10</Argument>
+		<Argument name="YieldType">YIELD_HAPPINESS</Argument>
+		<String context="Preview">LOC_LEGACY_EX_CONQUEROR_3_NAME</String>
+		<String context="Description">LOC_LEGACY_EX_CONQUEROR_3_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="CARD_MOD_AT_MO_CONQUEROR_4" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ADJUST_UNIT_BASE_COMBAT_STRENGTH" permanent="true">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+				<Argument name="Tag">UNIT_CLASS_NAVAL</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">4</Argument>
+		<Argument name="Type">BOMBARD</Argument>
+	</Modifier>
+	<!-- EXPLORER -->
+	<Modifier id="CARD_MOD_AT_MO_EXPLORER_2" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_FREE_PURCHASE_CHARGE" run-once="false" permanent="true">
+		<Argument name="BuildingType">BUILDING_RAIL_STATION</Argument>
+		<Argument name="Amount">2</Argument>
+	</Modifier>
+	<!-- Legend Cards -->
+	<!-- shared game effects found in advanced-start-gameeffects.xml for modern -->
 </GameEffects>

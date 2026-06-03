@@ -1,18 +1,10 @@
 import { DisplayQueueManager } from '../../../core/ui/context-manager/display-queue-manager.js';
-import { a as DialogBoxManager } from '../../../core/ui/dialog-box/manager-dialog-box.chunk.js';
-import FocusManager from '../../../core/ui/input/focus-manager.js';
+import { DialogBoxManager } from '../../../core/ui/dialog-box/manager-dialog-box.js';
 import { InterfaceMode } from '../../../core/ui/interface-modes/interface-modes.js';
-import { N as NavTray } from '../../../core/ui/navigation-tray/model-navigation-tray.chunk.js';
-import { U as UISystem, V as ViewManager } from '../../../core/ui/views/view-manager.chunk.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/audio-base/audio-support.chunk.js';
-import '../../../core/ui/panel-support.chunk.js';
-import '../../../core/ui/input/action-handler.js';
-import '../../../core/ui/input/cursor.js';
-import '../../../core/ui/input/input-support.chunk.js';
-import '../../../core/ui/utilities/utilities-update-gate.chunk.js';
-import '../../../core/ui/utilities/utilities-image.chunk.js';
-import '../../../core/ui/utilities/utilities-component-id.chunk.js';
+import NavTray from '../../../core/ui/navigation-tray/model-navigation-tray.js';
+import ViewManager, { UISystem } from '../../../core/ui/views/view-manager.js';
+import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
+import { SetIsPlotTooltipVisible } from '../../ui-next/tooltips/plot-tooltip/plot-tooltip.js';
 
 class PauseMenuView {
   getName() {
@@ -27,11 +19,13 @@ class PauseMenuView {
   enterView() {
     WorldUI.pushGaussianBlurFilter(10);
     Input.setClipCursorPaused(true);
+    SetIsPlotTooltipVisible(false);
   }
   exitView() {
     WorldUI.popFilter();
     Input.setClipCursorPaused(false);
     DisplayQueueManager.resume();
+    SetIsPlotTooltipVisible(true);
   }
   addEnterCallback(_func) {
   }
@@ -41,7 +35,7 @@ class PauseMenuView {
     UI.toggleGameCenterAccessPoint(true, UIGameCenterAccessPointLocation.BottomLeading);
     const pauseMenu = document.querySelector("#screen-pause-menu");
     if (pauseMenu) {
-      FocusManager.setFocus(pauseMenu);
+      FocusManager.get().setFocus(pauseMenu);
     }
     NavTray.clear();
   }
@@ -72,7 +66,6 @@ class PauseMenuView {
       { name: "city-banners", type: UISystem.World, visible: "false" },
       { name: "unit-info-panel", type: UISystem.World, visible: "false" },
       { name: "plot-icons", type: UISystem.World, visible: "false" },
-      { name: "plot-tooltips", type: UISystem.World, visible: "false" },
       { name: "plot-vfx", type: UISystem.World, visible: "false" },
       { name: "units", type: UISystem.Events, selectable: false },
       { name: "unit-flags", type: UISystem.World, visible: "false" },

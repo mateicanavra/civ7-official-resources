@@ -1,23 +1,7 @@
-import { D as DropdownSelectionChangeEventName } from '../../../core/ui/components/fxs-dropdown.chunk.js';
-import FocusManager from '../../../core/ui/input/focus-manager.js';
-import { P as Panel } from '../../../core/ui/panel-support.chunk.js';
-import '../../../core/ui/audio-base/audio-support.chunk.js';
-import '../../../core/ui/components/fxs-activatable.chunk.js';
-import '../../../core/ui/input/action-handler.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/input/cursor.js';
-import '../../../core/ui/views/view-manager.chunk.js';
-import '../../../core/ui/input/input-support.chunk.js';
-import '../../../core/ui/utilities/utilities-update-gate.chunk.js';
-import '../../../core/ui/input/focus-support.chunk.js';
-import '../../../core/ui/components/fxs-slot.chunk.js';
-import '../../../core/ui/spatial/spatial-manager.js';
-import '../../../core/ui/context-manager/context-manager.js';
-import '../../../core/ui/context-manager/display-queue-manager.js';
-import '../../../core/ui/dialog-box/manager-dialog-box.chunk.js';
-import '../../../core/ui/utilities/utilities-dom.chunk.js';
-
-const styles = "fs://game/base-standard/ui/end-result-graphs/panel-end-result-graphs.css";
+import { DropdownSelectionChangeEventName } from '../../../core/ui/components/fxs-dropdown.js';
+import Panel from '../../../core/ui/panel-support.js';
+import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
+import styles from './panel-end-result-graphs.scss.js';
 
 class PanelEndResultGraphs extends Panel {
   hofChart = null;
@@ -33,7 +17,7 @@ class PanelEndResultGraphs extends Panel {
   onFocus = () => {
     const firstFocusable = this.Root.querySelector(".graph-container");
     if (firstFocusable) {
-      FocusManager.setFocus(firstFocusable);
+      FocusManager.get().setFocus(firstFocusable);
     }
   };
   render() {

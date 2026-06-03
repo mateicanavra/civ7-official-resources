@@ -1,26 +1,14 @@
-import FocusManager from '../../../core/ui/input/focus-manager.js';
-import { b as InputEngineEventName } from '../../../core/ui/input/input-support.chunk.js';
+import { Audio } from '../../../core/ui/audio-base/audio-support.js';
+import { InputEngineEventName } from '../../../core/ui/input/input-support.js';
 import { InterfaceMode } from '../../../core/ui/interface-modes/interface-modes.js';
-import { N as NavTray } from '../../../core/ui/navigation-tray/model-navigation-tray.chunk.js';
-import { P as Panel } from '../../../core/ui/panel-support.chunk.js';
-import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.chunk.js';
-import { L as Layout } from '../../../core/ui/utilities/utilities-layout.chunk.js';
-import { N as NarrativePopupManager } from './narrative-popup-manager.chunk.js';
-import '../../../core/ui/audio-base/audio-support.chunk.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/views/view-manager.chunk.js';
-import '../../../core/ui/input/action-handler.js';
-import '../../../core/ui/input/cursor.js';
-import '../../../core/ui/utilities/utilities-update-gate.chunk.js';
-import '../../../core/ui/utilities/utilities-image.chunk.js';
-import '../../../core/ui/utilities/utilities-component-id.chunk.js';
-import '../../../core/ui/context-manager/context-manager.js';
-import '../../../core/ui/context-manager/display-queue-manager.js';
-import '../../../core/ui/dialog-box/manager-dialog-box.chunk.js';
-
-const content = "<div class=\"narrative_model__container flex\">\r\n\t<div class=\"narrative_model__column flex flex-col self-center px-1\">\r\n\t\t<div class=\"fxs-inner-frame-darker mx-4 my-6 relative flex-col items-center\">\r\n\t\t\t<div class=\"absolute inset-0 pointer-events-none\">\r\n\t\t\t\t<div class=\"absolute top-0 inset-x-0 filigree-inner-frame-top\"></div>\r\n\t\t\t\t<div class=\"absolute bottom-0 inset-x-0 filigree-inner-frame-bottom\"></div>\r\n\t\t\t</div>\r\n\t\t\t<div class=\"narrative_model__title-container flex flex-col pt-8 pb-3 items-center\">\r\n\t\t\t\t<fxs-header\r\n\t\t\t\t\tclass=\"narrative_model__title-text text-center font-title-xl mb-2 tracking-150 items-center\"\r\n\t\t\t\t\tfiligree-style=\"h2\"\r\n\t\t\t\t></fxs-header>\r\n\t\t\t\t<div class=\"filigree-shell-small flex justify-center\"></div>\r\n\t\t\t</div>\r\n\r\n\t\t\t<fxs-scrollable class=\"flex flex-auto\">\r\n\t\t\t\t<div class=\"narrative_model__text-container mb-5 mt-1 mx-12 p-2 text-center font-body-sm\"></div>\r\n\t\t\t\t<div class=\"narrative_model__button-positioning flex flex-shrink-1 mx-4\">\r\n\t\t\t\t\t<fxs-vslot class=\"narrative_model__button-container w-full px-5 mx-4 justify-center\"></fxs-vslot>\r\n\t\t\t\t</div>\r\n\t\t\t</fxs-scrollable>\r\n\t\t</div>\r\n\t</div>\r\n</div>\r\n";
-
-const styles = "fs://game/base-standard/ui/narrative-event/graphic-narrative-event.css";
+import NavTray from '../../../core/ui/navigation-tray/model-navigation-tray.js';
+import Panel from '../../../core/ui/panel-support.js';
+import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
+import { Layout } from '../../../core/ui/utilities/utilities-layout.js';
+import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
+import { NarrativePopupManager } from './narrative-popup-manager.js';
+import content from './graphic-narrative-event.html.js';
+import styles from './graphic-narrative-event.scss.js';
 
 class GraphicNarrativeEvent extends Panel {
   closeButtonListener = () => (this.close(UIViewChangeMethod.PlayerInteraction), NarrativePopupManager.closePopup());
@@ -38,10 +26,12 @@ class GraphicNarrativeEvent extends Panel {
   previousModeContext = null;
   narrativeSceneModelGroup = null;
   Narrative3DModel = null;
+  DefaultLeaderModel = null;
   storyIdName = null;
   playerAge = "";
   playerCivilization = "";
   leaderCiv = "";
+  playerLeaderAssetName = "";
   playerPrimaryColor = 0;
   playerSecondaryColor = 0;
   constructor(root) {
@@ -58,6 +48,9 @@ class GraphicNarrativeEvent extends Panel {
   }
   getLighitngGameAssetName() {
     return "LEADER_LIGHTING_SCENE_DEFAULT_LEFT";
+  }
+  getDefaultNarrativeLeaderName(LeaderName) {
+    return "NARRATIVE_GAME_ASSET_" + LeaderName;
   }
   onAttach() {
     super.onAttach();
@@ -85,6 +78,7 @@ class GraphicNarrativeEvent extends Panel {
     if (this.narrativeSceneModelGroup) {
       this.narrativeSceneModelGroup.clear();
       this.narrativeSceneModelGroup.destroy();
+      UI.sendAudioEvent("narrative-event-trial-end");
     }
     engine.off("LocalPlayerTurnEnd", this.turnEndListener);
     this.Root.removeEventListener(InputEngineEventName, this.engineInputListener);
@@ -102,7 +96,7 @@ class GraphicNarrativeEvent extends Panel {
       ".narrative_model__button-container"
     );
     if (entryContainer) {
-      FocusManager.setFocus(entryContainer);
+      FocusManager.get().setFocus(entryContainer);
     }
   }
   onLoseFocus() {
@@ -116,6 +110,7 @@ class GraphicNarrativeEvent extends Panel {
     this.build3DPaintingScene();
   }
   build3DPaintingScene() {
+    WorldUI.ForegroundCamera.reset(35, { x: 0, y: 0, z: 0 }, { x: 0, y: 1, z: 0 });
     this.narrativeSceneModelGroup = WorldUI.createModelGroup("NarrativePaintingSceneModelGroup");
     let scale = 0.25;
     let yCoordinate = 31.8;
@@ -147,6 +142,21 @@ class GraphicNarrativeEvent extends Panel {
         );
       }
       if (this.Narrative3DModel == null) {
+        this.DefaultLeaderModel = this.narrativeSceneModelGroup.addModelAtPos(
+          this.getDefaultNarrativeLeaderName(this.playerLeaderAssetName),
+          { x: xCoordinate, y: yCoordinate, z: 0 },
+          {
+            scale,
+            placement: PlacementMode.DEFAULT,
+            foreground: true,
+            initialState: "IDLE",
+            tintColor1: this.playerPrimaryColor,
+            tintColor2: this.playerSecondaryColor,
+            selectionScriptParams: { age: this.playerAge, civilization: this.playerCivilization }
+          }
+        );
+      }
+      if (this.DefaultLeaderModel == null) {
         this.narrativeSceneModelGroup.addModelAtPos(
           this.getFallbackNarrativeGameAssetName(),
           { x: xCoordinate, y: yCoordinate, z: 0 },
@@ -177,17 +187,23 @@ class GraphicNarrativeEvent extends Panel {
     }
     const playerCiv = GameInfo.Civilizations.lookup(player.civilizationType);
     const playerAge = GameInfo.Ages.lookup(Game.age);
-    if (playerCiv && playerAge) {
+    const playerLeader = GameInfo.Leaders.lookup(player.leaderType);
+    const civObj = GameInfo.Civilizations.lookup(player?.civilizationType ?? "");
+    if (civObj != null) {
+      Audio.playSound(civObj.CivilizationType, "narrative-event-trial");
+    }
+    if (playerCiv && playerAge && playerLeader) {
       this.playerCivilization = playerCiv.CivilizationType;
       this.playerAge = playerAge.AgeType;
       this.playerPrimaryColor = UI.Player.getPrimaryColorValueAsHex(player.id);
       this.playerSecondaryColor = UI.Player.getSecondaryColorValueAsHex(player.id);
+      this.playerLeaderAssetName = playerLeader.LeaderType.toString();
     }
     const playerStories = player.Stories;
     if (playerStories == void 0) {
       return;
     }
-    const targetStoryId = playerStories.getFirstPendingMetId();
+    const targetStoryId = playerStories.getFirstPendingDiscoveryLastMetID();
     if (!targetStoryId) {
       return;
     }
@@ -201,14 +217,20 @@ class GraphicNarrativeEvent extends Panel {
       this.storyIdName = storyDef.NarrativeStoryType;
       const titleContainer = this.Root.querySelector(".narrative_model__title-text");
       if (titleContainer && storyDef.StoryTitle) {
-        titleContainer.innerHTML = Locale.toUpper(storyDef.StoryTitle);
+        titleContainer.innerHTML = Locale.toUpper(
+          Locale.stylize(
+            playerStories.determineNarrativeInjectionComponentId(targetStoryId, StoryTextTypes.TITLE)
+          )
+        );
       }
       const bodyContainer = this.Root.querySelector(
         ".narrative_model__text-container"
       );
       if (bodyContainer) {
         if (storyDef.Completion) {
-          bodyContainer.innerHTML = Locale.stylize(storyDef.Completion);
+          bodyContainer.innerHTML = Locale.stylize(
+            playerStories.determineNarrativeInjectionComponentId(targetStoryId, StoryTextTypes.BODY)
+          );
         } else {
           console.error(
             `Narrative event does not have a storyDef.Completion.  bodyContainer: '${bodyContainer.innerHTML}'`
@@ -233,7 +255,7 @@ class GraphicNarrativeEvent extends Panel {
               link.ToNarrativeStoryType
             );
             if (linkDef) {
-              if (linkDef?.Activation.toUpperCase() === "LINKED" || linkDef?.Activation.toUpperCase() === "LINKED_REQUISITE" && playerStories.determineRequisiteLink(linkDef.NarrativeStoryType)) {
+              if (linkDef?.Activation.toUpperCase() === "LINKED" || (linkDef?.Activation.toUpperCase() === "LINKED_REQUISITE" || linkDef?.Activation.toUpperCase() === "LINKED_SUBJECT_REQUISITE") && playerStories.determineRequisiteLink(linkDef.NarrativeStoryType, targetStoryId)) {
                 links = links + 1;
                 const icons = GameInfo.NarrativeRewardIcons.filter(
                   (item) => {
@@ -309,6 +331,8 @@ class GraphicNarrativeEvent extends Panel {
     buttonFXS.setAttribute("data-audio-group-ref", "small-narrative-event");
     if (!canAfford) {
       buttonFXS.classList.add("opacity-50");
+      buttonFXS.setAttribute("data-audio-press-ref", "data-audio-error");
+      buttonFXS.setAttribute("data-audio-activate-ref", "none");
     }
     container.appendChild(buttonFXS);
   }

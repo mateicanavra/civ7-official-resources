@@ -123,6 +123,12 @@ window.addEventListener("unhandledrejection", (ev) => {
 function removeAllChildren(container) {
   container.innerHTML = "";
 }
+var ActiveComponentCallback = /* @__PURE__ */ ((ActiveComponentCallback2) => {
+  ActiveComponentCallback2[ActiveComponentCallback2["Initialize"] = 0] = "Initialize";
+  ActiveComponentCallback2[ActiveComponentCallback2["Attach"] = 1] = "Attach";
+  ActiveComponentCallback2[ActiveComponentCallback2["Detach"] = 2] = "Detach";
+  return ActiveComponentCallback2;
+})(ActiveComponentCallback || {});
 class ComponentRoot extends HTMLElement {
   _isInitialized = false;
   _isMutator = false;
@@ -132,6 +138,14 @@ class ComponentRoot extends HTMLElement {
   whenCreatedListeners;
   engineListenerHandles = null;
   windowListeners = null;
+  mutationObserver = null;
+  mutationCallback = null;
+  /**
+   * Set when attach callbacks are invoked.
+   * Used to prevent detach callbacks from getting unnecessarily called during rapid DOM manipulation.
+   */
+  activeCallback = null;
+  isAttached = false;
   constructor(typeName) {
     super();
     this._typeName = typeName;
@@ -159,6 +173,40 @@ class ComponentRoot extends HTMLElement {
       this.windowListeners = [{ name, callback, useCapture }];
     } else {
       this.windowListeners.push({ name, callback, useCapture });
+    }
+  }
+  redirectChildrenToContent(elOrFunc) {
+    if (this.activeCallback != 1 /* Attach */) {
+      throw new Error("'redirectChildrenToContent' must be called from within 'onAttach'!");
+    }
+    let handler;
+    if (typeof elOrFunc == "function") {
+      handler = elOrFunc;
+    } else {
+      const el = elOrFunc;
+      handler = (node) => el.appendChild(node);
+    }
+    if (this.mutationObserver == null) {
+      this.mutationCallback = (mutations) => {
+        for (const m of mutations) {
+          for (const node of m.addedNodes) {
+            const beforeActiveElement = document.activeElement;
+            if (node.isSameNode(beforeActiveElement) || node.contains(beforeActiveElement)) {
+              console.debug(
+                "Active element was added as a child during mutation observation. Will attempt to refocus.",
+                beforeActiveElement,
+                node
+              );
+            }
+            handler(node);
+            if (beforeActiveElement instanceof HTMLElement && beforeActiveElement.isConnected && document.body.isSameNode(document.activeElement)) {
+              beforeActiveElement.focus();
+            }
+          }
+        }
+      };
+      this.mutationObserver = new MutationObserver(this.mutationCallback);
+      this.mutationObserver.observe(this, { childList: true });
     }
   }
   initialize() {
@@ -199,8 +247,10 @@ class ComponentRoot extends HTMLElement {
           }
           this.whenCreatedListeners = void 0;
         }
-        component.onInitialize();
         this._isInitialized = true;
+        this.activeCallback = 0 /* Initialize */;
+        component.onInitialize();
+        this.activeCallback = null;
         this.doAttach();
       }
     }
@@ -217,6 +267,17 @@ class ComponentRoot extends HTMLElement {
       }
     }
   }
+  cleanupObservers() {
+    if (this.mutationObserver) {
+      const records = this.mutationObserver.takeRecords();
+      if (records.length > 0 && this.mutationCallback) {
+        this.mutationCallback(records, this.mutationObserver);
+      }
+      this.mutationObserver.disconnect();
+      this.mutationObserver = null;
+      this.mutationCallback = null;
+    }
+  }
   doAttach() {
     const c = this._component;
     const decorators = this._decorators;
@@ -227,7 +288,9 @@ class ComponentRoot extends HTMLElement {
       for (const d of decorators) {
         d.beforeAttach();
       }
+      this.activeCallback = 1 /* Attach */;
       c.onAttach();
+      this.activeCallback = null;
       const definition = Controls.getDefinition(this.typeName);
       const skipPostOnAttach = definition?.skipPostOnAttach ?? false;
       if (!skipPostOnAttach) {
@@ -242,6 +305,7 @@ class ComponentRoot extends HTMLElement {
     const c = this._component;
     const decorators = this.decorators;
     if (c) {
+      this.cleanupObservers();
       this.cleanupEventisteners();
       if (USE_OLD_FOCUS_LISTENERS) {
         c.cleanupEventListeners();
@@ -249,7 +313,9 @@ class ComponentRoot extends HTMLElement {
       for (const d of decorators) {
         d.beforeDetach();
       }
+      this.activeCallback = 2 /* Detach */;
       c.onDetach();
+      this.activeCallback = null;
       for (const d of decorators) {
         d.afterDetach();
       }
@@ -257,6 +323,7 @@ class ComponentRoot extends HTMLElement {
   }
   connectedCallback() {
     if (this.isConnected) {
+      this.isAttached = true;
       if (this._isInitialized) {
         if (!this._isMutator) {
           this.doAttach();
@@ -264,13 +331,12 @@ class ComponentRoot extends HTMLElement {
       } else {
         this.initialize();
       }
-    } else {
-      console.warn(`Connected callback for ${this.typeName} called while component was not connected to DOM.`);
     }
   }
   disconnectedCallback() {
-    if (!this._isMutator) {
+    if (!this._isMutator && this.isAttached) {
       this.doDetach();
+      this.isAttached = false;
     }
   }
   adoptedCallback() {
@@ -588,6 +654,8 @@ class ComponentData {
   _whenInitialized;
   _initialized_resolve;
   _initialized_reject;
+  _isInitialized = false;
+  _isInitializing = false;
   _decorators = [];
   _decoratorsAdded;
   constructor() {
@@ -596,6 +664,15 @@ class ComponentData {
       this._initialized_resolve = resolve;
       this._initialized_reject = reject;
     });
+  }
+  get isInitialized() {
+    return this._isInitialized;
+  }
+  get isInitializing() {
+    return this._isInitializing;
+  }
+  set isInitializing(v) {
+    this._isInitializing = v;
   }
   get definition() {
     return this._definition;
@@ -610,12 +687,16 @@ class ComponentData {
     const resolve = this._initialized_resolve;
     this._initialized_resolve = null;
     this._initialized_reject = null;
+    this._isInitializing = false;
+    this._isInitialized = true;
     resolve();
   }
   rejectInitialization(reason) {
     const reject = this._initialized_reject;
     this._initialized_resolve = null;
     this._initialized_reject = null;
+    this._isInitializing = false;
+    this._isInitialized = false;
     reject(reason);
   }
   getDecorators() {
@@ -746,6 +827,10 @@ class ComponentManager {
     if (s.definition == null || newPriority >= existingPriority) {
       s.definition = definition;
     }
+    if (definition.initializeImmediately) {
+      const shouldLog = Configuration.getUser().debugUILowLevelLogging > 0;
+      this.initializeComponent(name, s, shouldLog);
+    }
   }
   /**
    * Returns true if the component is fully defined.
@@ -808,100 +893,110 @@ class ComponentManager {
     const allComponentInitializedPromises = [];
     for (const [name, data] of this._componentData) {
       const definition = data.definition;
-      if (definition) {
-        const requiredComponents = definition.requires;
-        if (requiredComponents) {
-          for (let i = 0; i < requiredComponents.length; ++i) {
-            if (!this.isDefined(requiredComponents[i])) {
-              data.rejectInitialization(
-                `${name} - Required component is not defined: ${requiredComponents[i]}`
-              );
-              break;
-            }
-          }
+      if (definition && !(data.isInitialized || data.isInitializing)) {
+        const componentInitialized = this.initializeComponent(name, data, shouldLog);
+        allComponentInitializedPromises.push(componentInitialized);
+      }
+    }
+    return Promise.allSettled(allComponentInitializedPromises);
+  }
+  initializeComponent(name, data, shouldLog) {
+    const definition = data.definition;
+    if (!definition) {
+      throw new Error("Component must have a definition in order to be initialized.");
+    }
+    if (data.isInitialized || data.isInitializing) {
+      throw new Error("Component must not be initialized twice.");
+    }
+    data.isInitializing = true;
+    const requiredComponents = definition.requires;
+    if (requiredComponents) {
+      for (let i = 0; i < requiredComponents.length; ++i) {
+        if (!this.isDefined(requiredComponents[i])) {
+          data.rejectInitialization(`${name} - Required component is not defined: ${requiredComponents[i]}`);
+          break;
         }
-        const promises = [];
-        if (definition.styles) {
-          for (const url of definition.styles) {
-            const result = this.loadStyle(url);
+      }
+    }
+    const promises = [];
+    if (definition.styles) {
+      for (const url of definition.styles) {
+        const result = this.loadStyle(url);
+        if (typeof result != "boolean") {
+          promises.push(result);
+        }
+      }
+    }
+    if (definition.requires) {
+      for (const component of definition.requires) {
+        if (!this.isDefined(component)) {
+          promises.push(this.whenInitialized(component));
+        }
+      }
+    }
+    if (definition.innerHTML?.length || definition.content?.length) {
+      const contentTemplates = [];
+      definition.contentTemplates = contentTemplates;
+      if (definition.innerHTML) {
+        for (const html of definition.innerHTML) {
+          const template = document.createElement("template");
+          template.innerHTML = html;
+          contentTemplates.push(template);
+        }
+      } else if (definition.content) {
+        for (const url of definition.content) {
+          const p = asyncLoad(url).then((html) => {
+            const template = document.createElement("template");
+            template.innerHTML = html;
+            contentTemplates.push(template);
+          }).catch((e) => {
+            console.error(`Failed to load content for component ${name} - ${url}`, e);
+          });
+          promises.push(p);
+        }
+      }
+    }
+    if (definition.images) {
+      for (const urlOrMethod of definition.images) {
+        if (typeof urlOrMethod === "string") {
+          const result = this.preloadImage(urlOrMethod, name);
+          if (typeof result != "boolean") {
+            promises.push(result);
+          }
+        } else {
+          const results = urlOrMethod();
+          for (const url of results) {
+            const result = this.preloadImage(url, name);
             if (typeof result != "boolean") {
               promises.push(result);
             }
           }
         }
-        if (definition.requires) {
-          for (const component of definition.requires) {
-            if (!this.isDefined(component)) {
-              promises.push(this.whenInitialized(component));
-            }
-          }
-        }
-        if (definition.innerHTML?.length || definition.content?.length) {
-          const contentTemplates = [];
-          definition.contentTemplates = contentTemplates;
-          if (definition.innerHTML) {
-            for (const html of definition.innerHTML) {
-              const template = document.createElement("template");
-              template.innerHTML = html;
-              contentTemplates.push(template);
-            }
-          } else if (definition.content) {
-            for (const url of definition.content) {
-              const p = asyncLoad(url).then((html) => {
-                const template = document.createElement("template");
-                template.innerHTML = html;
-                contentTemplates.push(template);
-              }).catch((e) => {
-                console.error(`Failed to load content for component ${name} - ${url}`, e);
-              });
-              promises.push(p);
-            }
-          }
-        }
-        if (definition.images) {
-          for (const urlOrMethod of definition.images) {
-            if (typeof urlOrMethod === "string") {
-              const result = this.preloadImage(urlOrMethod, name);
-              if (typeof result != "boolean") {
-                promises.push(result);
-              }
-            } else {
-              const results = urlOrMethod();
-              for (const url of results) {
-                const result = this.preloadImage(url, name);
-                if (typeof result != "boolean") {
-                  promises.push(result);
-                }
-              }
-            }
-          }
-        }
-        const attrs = definition.attributes?.map((d) => d.name) ?? [];
-        const componentInitialized = Promise.all(promises).then(() => {
-          const c = class extends ComponentRoot {
-            constructor() {
-              super(name);
-            }
-            static get observedAttributes() {
-              return attrs;
-            }
-          };
-          if (shouldLog) {
-            console.log(`Defining ${name}`);
-          }
-          customElements.define(name, c);
-          data.resolveInitialization();
-          definition.createInstance.onDefined(name);
-          this._componentInitialized.trigger(name);
-        }).catch((reason) => {
-          const msg = `Failed to initialize component ${name}. ${reason}`;
-          console.error(msg);
-          data.rejectInitialization(msg);
-        });
-        allComponentInitializedPromises.push(componentInitialized);
       }
     }
-    return Promise.allSettled(allComponentInitializedPromises);
+    const attrs = definition.attributes?.map((d) => d.name) ?? [];
+    const componentInitialized = Promise.all(promises).then(() => {
+      const c = class extends ComponentRoot {
+        constructor() {
+          super(name);
+        }
+        static get observedAttributes() {
+          return attrs;
+        }
+      };
+      if (shouldLog) {
+        console.log(`Defining ${name}`);
+      }
+      customElements.define(name, c);
+      data.resolveInitialization();
+      definition.createInstance.onDefined(name);
+      this._componentInitialized.trigger(name);
+    }).catch((reason) => {
+      const msg = `Failed to initialize component ${name}. ${reason}`;
+      console.error(msg);
+      data.rejectInitialization(msg);
+    });
+    return componentInitialized;
   }
   //#endregion
   //#region Sources

@@ -12,6 +12,7 @@
 		<Row Type="NODE_TECH_MO_RADIO" Kind="KIND_TREE_NODE"/>
 		<Row Type="NODE_TECH_MO_FLIGHT" Kind="KIND_TREE_NODE"/>
 		<Row Type="NODE_TECH_MO_MASS_PRODUCTION" Kind="KIND_TREE_NODE"/>
+		<Row Type="NODE_TECH_MO_COMPUTATION" Kind="KIND_TREE_NODE"/>
 		<Row Type="NODE_TECH_MO_MOBILIZATION" Kind="KIND_TREE_NODE"/>
 		<Row Type="NODE_TECH_MO_ARMOR" Kind="KIND_TREE_NODE"/>
 		<Row Type="NODE_TECH_MO_AERODYNAMICS" Kind="KIND_TREE_NODE"/>
@@ -30,6 +31,7 @@
 		<Row Type="NODE_TECH_MO_RADIO" Quote="LOC_TECH_RADIO_QUOTE" QuoteAuthor="LOC_TECH_RADIO_QUOTE_AUTHOR" QuoteAudio="VO_Quote_Radio"/>
 		<Row Type="NODE_TECH_MO_FLIGHT" Quote="LOC_TECH_FLIGHT_QUOTE" QuoteAuthor="LOC_TECH_FLIGHT_QUOTE_AUTHOR" QuoteAudio="VO_Quote_Flight"/>
 		<Row Type="NODE_TECH_MO_MASS_PRODUCTION" Quote="LOC_TECH_MASS_PRODUCTION_QUOTE" QuoteAuthor="LOC_TECH_MASS_PRODUCTION_QUOTE_AUTHOR" QuoteAudio="VO_Quote_MassProduction"/>
+		<Row Type="NODE_TECH_MO_COMPUTATION" Quote="LOC_TECH_COMPUTATION_QUOTE" QuoteAuthor="LOC_TECH_COMPUTATION_QUOTE_AUTHOR" QuoteAudio="VO_Quote_Computation"/>
 		<Row Type="NODE_TECH_MO_MOBILIZATION" Quote="LOC_TECH_MOBILIZATION_QUOTE" QuoteAuthor="LOC_TECH_MOBILIZATION_QUOTE_AUTHOR" QuoteAudio="VO_Quote_Mobilization"/>
 		<Row Type="NODE_TECH_MO_ARMOR" Quote="LOC_TECH_ARMOR_QUOTE" QuoteAuthor="LOC_TECH_ARMOR_QUOTE_AUTHOR" QuoteAudio="VO_Quote_Armor"/>
 		<Row Type="NODE_TECH_MO_AERODYNAMICS" Quote="LOC_TECH_AERODYNAMICS_QUOTE" QuoteAuthor="LOC_TECH_AERODYNAMICS_QUOTE_AUTHOR" QuoteAudio="VO_Quote_Aerodynamics"/>
@@ -48,12 +50,13 @@
 		<Row ProgressionTreeNodeType="NODE_TECH_MO_RADIO" ProgressionTree="TREE_TECHS_MO" Cost="3000" Name="LOC_TECH_RADIO_NAME" IconString="tech_radio" UILayoutRow="4" UILayoutColumn="7"/>
 		<Row ProgressionTreeNodeType="NODE_TECH_MO_FLIGHT" ProgressionTree="TREE_TECHS_MO" Cost="3000" Name="LOC_TECH_FLIGHT_NAME" IconString="tech_flight" UILayoutRow="6" UILayoutColumn="3"/>
 		<Row ProgressionTreeNodeType="NODE_TECH_MO_MASS_PRODUCTION" ProgressionTree="TREE_TECHS_MO" Cost="3000" Name="LOC_TECH_MASS_PRODUCTION_NAME" IconString="tech_massproduction" UILayoutRow="2" UILayoutColumn="5"/>
+		<Row ProgressionTreeNodeType="NODE_TECH_MO_COMPUTATION" ProgressionTree="TREE_TECHS_MO" Cost="4000" Name="LOC_TECH_COMPUTATION_NAME" IconString="tech_computation" UILayoutRow="8" UILayoutColumn="7"/>
 		<Row ProgressionTreeNodeType="NODE_TECH_MO_MOBILIZATION" ProgressionTree="TREE_TECHS_MO" Cost="4000" Name="LOC_TECH_MOBILIZATION_NAME" IconString="tech_mobilization" UILayoutRow="8" UILayoutColumn="5"/>
 		<Row ProgressionTreeNodeType="NODE_TECH_MO_ARMOR" ProgressionTree="TREE_TECHS_MO" Cost="4000" Name="LOC_TECH_ARMOR_NAME" IconString="tech_armor" UILayoutRow="10" UILayoutColumn="7"/>
 		<Row ProgressionTreeNodeType="NODE_TECH_MO_AERODYNAMICS" ProgressionTree="TREE_TECHS_MO" Cost="6000" Name="LOC_TECH_AERODYNAMICS_NAME" IconString="tech_aerodynamics" UILayoutRow="8" UILayoutColumn="3"/>
 		<Row ProgressionTreeNodeType="NODE_TECH_MO_ROCKETRY" ProgressionTree="TREE_TECHS_MO" Cost="8500" Name="LOC_TECH_ROCKETRY_NAME" IconString="tech_rocketry" UILayoutRow="10" UILayoutColumn="3"/>
 		<Row ProgressionTreeNodeType="NODE_TECH_MO_NUCLEAR_FISSION" ProgressionTree="TREE_TECHS_MO" Cost="8500" Name="LOC_TECH_NUCLEAR_FISSION_NAME" IconString="tech_nuclearfission" UILayoutRow="10" UILayoutColumn="5"/>
-		<Row ProgressionTreeNodeType="NODE_TECH_MO_FUTURE_TECH" ProgressionTree="TREE_TECHS_MO" Cost="10000" Name="LOC_TECH_FUTURE_TECH_NAME" IconString="tech_futuretech" Repeatable="true" RepeatableCostProgressionModel="COST_PROGRESSION_PREVIOUS_COPIES" RepeatableCostProgressionParam1="8000"/>
+		<Row ProgressionTreeNodeType="NODE_TECH_MO_FUTURE_TECH" ProgressionTree="TREE_TECHS_MO" Cost="10000" Name="LOC_TECH_FUTURE_TECH_NAME" IconString="tech_futuretech" Repeatable="true" RepeatableCostProgressionModel="COST_PROGRESSION_PREVIOUS_COPIES" RepeatableCostProgressionParam1="10000"/>
 	</ProgressionTreeNodes>
 	<ProgressionTreeNodeUnlocks>
 		<Row ProgressionTreeNodeType="NODE_TECH_MO_ACADEMICS" TargetKind="KIND_CONSTRUCTIBLE" TargetType="BUILDING_SCHOOLHOUSE" UnlockDepth="1"/>
@@ -61,29 +64,30 @@
 		<Row ProgressionTreeNodeType="NODE_TECH_MO_STEAM_ENGINE" TargetKind="KIND_CONSTRUCTIBLE" TargetType="BUILDING_IRONWORKS" UnlockDepth="1"/>
 		<Row ProgressionTreeNodeType="NODE_TECH_MO_STEAM_ENGINE" TargetKind="KIND_CONSTRUCTIBLE" TargetType="BUILDING_PORT" UnlockDepth="1"/>
 		<Row ProgressionTreeNodeType="NODE_TECH_MO_STEAM_ENGINE" TargetKind="KIND_UNIT" TargetType="UNIT_IRONCLAD" UnlockDepth="1"/>
-		<Row ProgressionTreeNodeType="NODE_TECH_MO_STEAM_ENGINE" TargetKind="KIND_MODIFIER" TargetType="MOD_TECH_MO_CAMP_PRODUCTION" UnlockDepth="2"/>
+		<!-- <Row ProgressionTreeNodeType="NODE_TECH_MO_STEAM_ENGINE" TargetKind="KIND_MODIFIER" TargetType="MOD_TECH_MO_CAMP_PRODUCTION" UnlockDepth="2"/>
 		<Row ProgressionTreeNodeType="NODE_TECH_MO_STEAM_ENGINE" TargetKind="KIND_MODIFIER" TargetType="MOD_TECH_MO_PLANTATION_FOOD" UnlockDepth="2"/>
 		<Row ProgressionTreeNodeType="NODE_TECH_MO_STEAM_ENGINE" TargetKind="KIND_MODIFIER" TargetType="MOD_TECH_MO_DESERT_FLOODPLAIN_FOOD" UnlockDepth="2" Hidden="true"/>
 		<Row ProgressionTreeNodeType="NODE_TECH_MO_STEAM_ENGINE" TargetKind="KIND_MODIFIER" TargetType="MOD_TECH_MO_GRASSLAND_FLOODPLAIN_FOOD" UnlockDepth="2" Hidden="true"/>
 		<Row ProgressionTreeNodeType="NODE_TECH_MO_STEAM_ENGINE" TargetKind="KIND_MODIFIER" TargetType="MOD_TECH_MO_PLAINS_FLOODPLAIN_FOOD" UnlockDepth="2" Hidden="true"/>
 		<Row ProgressionTreeNodeType="NODE_TECH_MO_STEAM_ENGINE" TargetKind="KIND_MODIFIER" TargetType="MOD_TECH_MO_TROPICAL_FLOODPLAIN_FOOD" UnlockDepth="2" Hidden="true"/>
 		<Row ProgressionTreeNodeType="NODE_TECH_MO_STEAM_ENGINE" TargetKind="KIND_MODIFIER" TargetType="MOD_TECH_MO_TUNDRA_FLOODPLAIN_FOOD" UnlockDepth="2" Hidden="true"/>
-		<Row ProgressionTreeNodeType="NODE_TECH_MO_STEAM_ENGINE" TargetKind="KIND_MODIFIER" TargetType="MOD_TECH_MO_FLAT_FOOD" UnlockDepth="2" Hidden="true"/>
+		<Row ProgressionTreeNodeType="NODE_TECH_MO_STEAM_ENGINE" TargetKind="KIND_MODIFIER" TargetType="MOD_TECH_MO_FLAT_FOOD" UnlockDepth="2" Hidden="true"/> -->
 		<Row ProgressionTreeNodeType="NODE_TECH_MO_MILITARY_SCIENCE" TargetKind="KIND_CONSTRUCTIBLE" TargetType="BUILDING_DEFENSIVE_FORTIFICATIONS" UnlockDepth="1"/>
 		<Row ProgressionTreeNodeType="NODE_TECH_MO_MILITARY_SCIENCE" TargetKind="KIND_CONSTRUCTIBLE" TargetType="BUILDING_MILITARY_ACADEMY" UnlockDepth="1"/>
 		<Row ProgressionTreeNodeType="NODE_TECH_MO_MILITARY_SCIENCE" TargetKind="KIND_CONSTRUCTIBLE" TargetType="WONDER_RED_FORT" UnlockDepth="1"/>
 		<Row ProgressionTreeNodeType="NODE_TECH_MO_ELECTRICITY" TargetKind="KIND_CONSTRUCTIBLE" TargetType="BUILDING_LABORATORY" UnlockDepth="1"/>
-		<Row ProgressionTreeNodeType="NODE_TECH_MO_ELECTRICITY" TargetKind="KIND_CONSTRUCTIBLE" TargetType="BUILDING_STOCK_EXCHANGE" UnlockDepth="1"/>
 		<Row ProgressionTreeNodeType="NODE_TECH_MO_ELECTRICITY" TargetKind="KIND_MODIFIER" TargetType="MOD_MO_SPECIALIST_CAP_INCREASE" UnlockDepth="1"/>
-		<Row ProgressionTreeNodeType="NODE_TECH_MO_ELECTRICITY" TargetKind="KIND_MODIFIER" TargetType="MOD_MO_TECH_GOLD_BUILDING" UnlockDepth="2"/>
-		<Row ProgressionTreeNodeType="NODE_TECH_MO_ELECTRICITY" TargetKind="KIND_MODIFIER" TargetType="MOD_MO_TECH_SCIENCE_BUILDING" UnlockDepth="2"/>
+		<!-- <Row ProgressionTreeNodeType="NODE_TECH_MO_ELECTRICITY" TargetKind="KIND_MODIFIER" TargetType="MOD_MO_TECH_GOLD_BUILDING" UnlockDepth="2"/>
+		<Row ProgressionTreeNodeType="NODE_TECH_MO_ELECTRICITY" TargetKind="KIND_MODIFIER" TargetType="MOD_MO_TECH_SCIENCE_BUILDING" UnlockDepth="2"/> -->
+		<Row ProgressionTreeNodeType="NODE_TECH_MO_ELECTRICITY" TargetKind="KIND_MODIFIER" TargetType="MOD_TECH_MO_ELECTRICITY_SCIENCE_VP" UnlockDepth="2"/>
 		<Row ProgressionTreeNodeType="NODE_TECH_MO_URBANIZATION" TargetKind="KIND_CONSTRUCTIBLE" TargetType="BUILDING_DEPARTMENT_STORE" UnlockDepth="1"/>
 		<Row ProgressionTreeNodeType="NODE_TECH_MO_URBANIZATION" TargetKind="KIND_CONSTRUCTIBLE" TargetType="BUILDING_OPERA_HOUSE" UnlockDepth="1"/>
-		<Row ProgressionTreeNodeType="NODE_TECH_MO_URBANIZATION" TargetKind="KIND_MODIFIER" TargetType="MOD_MO_SETTLEMENT_CAP_INCREASE" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_TECH_MO_URBANIZATION" TargetKind="KIND_MODIFIER" TargetType="MOD_MO_SETTLEMENT_CAP_INCREASE" UnlockDepth="2"/>
 		<Row ProgressionTreeNodeType="NODE_TECH_MO_URBANIZATION" TargetKind="KIND_CONSTRUCTIBLE" TargetType="BUILDING_MODERN_BRIDGE" UnlockDepth="2"/>
-		<Row ProgressionTreeNodeType="NODE_TECH_MO_URBANIZATION" TargetKind="KIND_MODIFIER" TargetType="MOD_TECH_MO_QUARRY_PRODUCTION" UnlockDepth="2"/>
+		<Row ProgressionTreeNodeType="NODE_TECH_MO_URBANIZATION" TargetKind="KIND_MODIFIER" TargetType="MOD_TECH_MO_URBANIZATION_CITY_POP" UnlockDepth="2"/> <!-- ADDED FOR YIELDS PASS -->
+		<!-- <Row ProgressionTreeNodeType="NODE_TECH_MO_URBANIZATION" TargetKind="KIND_MODIFIER" TargetType="MOD_TECH_MO_QUARRY_PRODUCTION" UnlockDepth="2"/>
 		<Row ProgressionTreeNodeType="NODE_TECH_MO_URBANIZATION" TargetKind="KIND_MODIFIER" TargetType="MOD_TECH_MO_CLAY_PIT_PRODUCTION" UnlockDepth="2" Hidden="true"/>
-		<Row ProgressionTreeNodeType="NODE_TECH_MO_URBANIZATION" TargetKind="KIND_MODIFIER" TargetType="MOD_TECH_MO_WET_PRODUCTION" UnlockDepth="2" Hidden="true"/>
+		<Row ProgressionTreeNodeType="NODE_TECH_MO_URBANIZATION" TargetKind="KIND_MODIFIER" TargetType="MOD_TECH_MO_WET_PRODUCTION" UnlockDepth="2" Hidden="true"/> -->
 		<Row ProgressionTreeNodeType="NODE_TECH_MO_COMBUSTION" TargetKind="KIND_UNIT" TargetType="UNIT_CRUISER" UnlockDepth="1"/>
 		<Row ProgressionTreeNodeType="NODE_TECH_MO_COMBUSTION" TargetKind="KIND_UNIT" TargetType="UNIT_DREADNOUGHT" UnlockDepth="1"/>
 		<Row ProgressionTreeNodeType="NODE_TECH_MO_COMBUSTION" TargetKind="KIND_UNIT" TargetType="UNIT_LANDSHIP" UnlockDepth="1"/>
@@ -91,8 +95,9 @@
 		<Row ProgressionTreeNodeType="NODE_TECH_MO_COMBUSTION" TargetKind="KIND_UNIT" TargetType="UNIT_COSSACK_2" UnlockDepth="1" RequiredTraitType="TRAIT_RUSSIA"/>
 		<Row ProgressionTreeNodeType="NODE_TECH_MO_COMBUSTION" TargetKind="KIND_UNIT" TargetType="UNIT_HUSSAR_2" UnlockDepth="1" RequiredTraitType="TRAIT_PRUSSIA"/>
 		<Row ProgressionTreeNodeType="NODE_TECH_MO_COMBUSTION" TargetKind="KIND_MODIFIER" TargetType="MOD_MO_TECH_CAVALRY_STRENGTH" UnlockDepth="2"/>
-		<Row ProgressionTreeNodeType="NODE_TECH_MO_COMBUSTION" TargetKind="KIND_MODIFIER" TargetType="MOD_MO_TECH_PRODUCTION_BUILDING" UnlockDepth="2"/>
-		<Row ProgressionTreeNodeType="NODE_TECH_MO_COMBUSTION" TargetKind="KIND_MODIFIER" TargetType="MOD_TECH_MO_OIL_PRODUCTION" UnlockDepth="2"/>
+		<!-- <Row ProgressionTreeNodeType="NODE_TECH_MO_COMBUSTION" TargetKind="KIND_MODIFIER" TargetType="MOD_MO_TECH_PRODUCTION_BUILDING" UnlockDepth="2"/>
+		<Row ProgressionTreeNodeType="NODE_TECH_MO_COMBUSTION" TargetKind="KIND_MODIFIER" TargetType="MOD_TECH_MO_OIL_PRODUCTION" UnlockDepth="2"/> -->
+		<Row ProgressionTreeNodeType="NODE_TECH_MO_COMBUSTION" TargetKind="KIND_MODIFIER" TargetType="MOD_TECH_MO_COMBUSTION_SCIENCE_VP" UnlockDepth="2"/>
 		<Row ProgressionTreeNodeType="NODE_TECH_MO_INDUSTRIALIZATION" TargetKind="KIND_CONSTRUCTIBLE" TargetType="BUILDING_RAIL_STATION" UnlockDepth="1"/>
 		<Row ProgressionTreeNodeType="NODE_TECH_MO_INDUSTRIALIZATION" TargetKind="KIND_UNIT" TargetType="UNIT_FIELD_GUN" UnlockDepth="1"/>
 		<Row ProgressionTreeNodeType="NODE_TECH_MO_INDUSTRIALIZATION" TargetKind="KIND_UNIT" TargetType="UNIT_HEAVY_ARTILLERY" UnlockDepth="1"/>
@@ -107,15 +112,19 @@
 		<Row ProgressionTreeNodeType="NODE_TECH_MO_INDUSTRIALIZATION" TargetKind="KIND_UNIT" TargetType="UNIT_SOLDADERAS_2" UnlockDepth="1" RequiredTraitType="TRAIT_MEXICO"/>
 		<Row ProgressionTreeNodeType="NODE_TECH_MO_INDUSTRIALIZATION" TargetKind="KIND_UNIT" TargetType="UNIT_PARTISAN_2" UnlockDepth="1" RequiredTraitType="TRAIT_LEADER_MINOR_CIV"/>
 		<Row ProgressionTreeNodeType="NODE_TECH_MO_INDUSTRIALIZATION" TargetKind="KIND_MODIFIER" TargetType="MOD_MO_TECH_INFANTRY_STRENGTH" UnlockDepth="2"/>
-		<Row ProgressionTreeNodeType="NODE_TECH_MO_INDUSTRIALIZATION" TargetKind="KIND_MODIFIER" TargetType="MOD_TECH_MO_MINE_PRODUCTION" UnlockDepth="2"/>
+		<!-- <Row ProgressionTreeNodeType="NODE_TECH_MO_INDUSTRIALIZATION" TargetKind="KIND_MODIFIER" TargetType="MOD_TECH_MO_MINE_PRODUCTION" UnlockDepth="2"/>
 		<Row ProgressionTreeNodeType="NODE_TECH_MO_INDUSTRIALIZATION" TargetKind="KIND_MODIFIER" TargetType="MOD_TECH_MO_ROUGH_PRODUCTION" UnlockDepth="2" Hidden="true"/>
 		<Row ProgressionTreeNodeType="NODE_TECH_MO_INDUSTRIALIZATION" TargetKind="KIND_MODIFIER" TargetType="MOD_TECH_MO_WOODCUTTER_PRODUCTION" UnlockDepth="2" Hidden="true"/>
-		<Row ProgressionTreeNodeType="NODE_TECH_MO_INDUSTRIALIZATION" TargetKind="KIND_MODIFIER" TargetType="MOD_TECH_MO_VEGETATED_PRODUCTION" UnlockDepth="2" Hidden="true"/>
+		<Row ProgressionTreeNodeType="NODE_TECH_MO_INDUSTRIALIZATION" TargetKind="KIND_MODIFIER" TargetType="MOD_TECH_MO_VEGETATED_PRODUCTION" UnlockDepth="2" Hidden="true"/> -->
+		<Row ProgressionTreeNodeType="NODE_TECH_MO_INDUSTRIALIZATION" TargetKind="KIND_MODIFIER" TargetType="MOD_TECH_MO_INDUSTRIALIZATION_SCIENCE_VP" UnlockDepth="2"/>
+		<Row ProgressionTreeNodeType="NODE_TECH_MO_INDUSTRIALIZATION" TargetKind="KIND_MODIFIER" TargetType="MOD_TECH_MO_INDUSTRIALIZATION_CULTURE_VP_UI" UnlockDepth="2"/>
 		<Row ProgressionTreeNodeType="NODE_TECH_MO_RADIO" TargetKind="KIND_CONSTRUCTIBLE" TargetType="BUILDING_RADIO_STATION" UnlockDepth="1"/>
 		<Row ProgressionTreeNodeType="NODE_TECH_MO_RADIO" TargetKind="KIND_CONSTRUCTIBLE" TargetType="BUILDING_TENEMENT" UnlockDepth="1"/>
 		<Row ProgressionTreeNodeType="NODE_TECH_MO_RADIO" TargetKind="KIND_CONSTRUCTIBLE" TargetType="WONDER_EIFFEL_TOWER" UnlockDepth="1"/>
-		<Row ProgressionTreeNodeType="NODE_TECH_MO_RADIO" TargetKind="KIND_MODIFIER" TargetType="MOD_MO_TECH_CULTURE_BUILDING" UnlockDepth="2"/>
-		<Row ProgressionTreeNodeType="NODE_TECH_MO_RADIO" TargetKind="KIND_MODIFIER" TargetType="MOD_MO_TECH_HAPPINESS_BUILDING" UnlockDepth="2"/>
+		<!-- <Row ProgressionTreeNodeType="NODE_TECH_MO_RADIO" TargetKind="KIND_MODIFIER" TargetType="MOD_MO_TECH_CULTURE_BUILDING" UnlockDepth="2"/>
+		<Row ProgressionTreeNodeType="NODE_TECH_MO_RADIO" TargetKind="KIND_MODIFIER" TargetType="MOD_MO_TECH_HAPPINESS_BUILDING" UnlockDepth="2"/> -->
+		<Row ProgressionTreeNodeType="NODE_TECH_MO_RADIO" TargetKind="KIND_MODIFIER" TargetType="MOD_TECH_MO_RADIO_SCIENCE_VP" UnlockDepth="2"/>
+		<Row ProgressionTreeNodeType="NODE_TECH_MO_RADIO" TargetKind="KIND_PROJECT" TargetType="PROJECT_CREWED_SPACE_FLIGHT_RESEARCH" UnlockDepth="2"/>
 		<Row ProgressionTreeNodeType="NODE_TECH_MO_FLIGHT" TargetKind="KIND_CONSTRUCTIBLE" TargetType="BUILDING_AIRFIELD" UnlockDepth="1"/>
 		<Row ProgressionTreeNodeType="NODE_TECH_MO_FLIGHT" TargetKind="KIND_UNIT" TargetType="UNIT_SQUADRON_COMMANDER" UnlockDepth="1"/>
 		<Row ProgressionTreeNodeType="NODE_TECH_MO_FLIGHT" TargetKind="KIND_UNIT" TargetType="UNIT_BIPLANE" UnlockDepth="1"/>
@@ -123,14 +132,16 @@
 		<Row ProgressionTreeNodeType="NODE_TECH_MO_FLIGHT" TargetKind="KIND_UNIT" TargetType="UNIT_BOMBER" UnlockDepth="1"/>
 		<Row ProgressionTreeNodeType="NODE_TECH_MO_FLIGHT" TargetKind="KIND_UNIT" TargetType="UNIT_STUKA" UnlockDepth="1" RequiredTraitType="TRAIT_PRUSSIA"/>
 		<Row ProgressionTreeNodeType="NODE_TECH_MO_FLIGHT" TargetKind="KIND_UNIT" TargetType="UNIT_ZERO" UnlockDepth="1" RequiredTraitType="TRAIT_MEIJI"/>
-		<Row ProgressionTreeNodeType="NODE_TECH_MO_FLIGHT" TargetKind="KIND_PROJECT" TargetType="PROJECT_TRANS_OCEANIC_FLIGHT" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_TECH_MO_FLIGHT" TargetKind="KIND_PROJECT" TargetType="PROJECT_TRANS_OCEANIC_FLIGHT" UnlockDepth="2"/>
 		<Row ProgressionTreeNodeType="NODE_TECH_MO_FLIGHT" TargetKind="KIND_MODIFIER" TargetType="MOD_MO_TECH_INTERCEPT_RANGE" UnlockDepth="2"/>
-		<Row ProgressionTreeNodeType="NODE_TECH_MO_FLIGHT" TargetKind="KIND_MODIFIER" TargetType="MOD_MO_TECH_MILITARY_BUILDING" UnlockDepth="2"/>
+		<!-- <Row ProgressionTreeNodeType="NODE_TECH_MO_FLIGHT" TargetKind="KIND_MODIFIER" TargetType="MOD_MO_TECH_MILITARY_BUILDING" UnlockDepth="2"/> -->
+		<Row ProgressionTreeNodeType="NODE_TECH_MO_FLIGHT" TargetKind="KIND_MODIFIER" TargetType="MOD_TECH_MO_FLIGHT_CULTURE_VP" UnlockDepth="2"/>
 		<Row ProgressionTreeNodeType="NODE_TECH_MO_MASS_PRODUCTION" TargetKind="KIND_CONSTRUCTIBLE" TargetType="BUILDING_CANNERY" UnlockDepth="1"/>
 		<Row ProgressionTreeNodeType="NODE_TECH_MO_MASS_PRODUCTION" TargetKind="KIND_CONSTRUCTIBLE" TargetType="BUILDING_FACTORY" UnlockDepth="1"/>
-		<Row ProgressionTreeNodeType="NODE_TECH_MO_MASS_PRODUCTION" TargetKind="KIND_MODIFIER" TargetType="MOD_MO_SETTLEMENT_CAP_INCREASE" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_TECH_MO_MASS_PRODUCTION" TargetKind="KIND_MODIFIER" TargetType="MOD_MO_FACTORY_RESOURCE_GDP" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_TECH_MO_MASS_PRODUCTION" TargetKind="KIND_MODIFIER" TargetType="MOD_MO_SETTLEMENT_CAP_INCREASE" UnlockDepth="2"/>
 		<Row ProgressionTreeNodeType="NODE_TECH_MO_MASS_PRODUCTION" TargetKind="KIND_DIPLOMATIC_ACTION" TargetType="DIPLOMACY_ACTION_ESPIONAGE_SABOTAGE_SHIPPING" UnlockDepth="2"/>
-		<Row ProgressionTreeNodeType="NODE_TECH_MO_MASS_PRODUCTION" TargetKind="KIND_MODIFIER" TargetType="MOD_MO_TECH_FOOD_BUILDING" UnlockDepth="2"/>
+		<!-- <Row ProgressionTreeNodeType="NODE_TECH_MO_MASS_PRODUCTION" TargetKind="KIND_MODIFIER" TargetType="MOD_MO_TECH_FOOD_BUILDING" UnlockDepth="2"/>
 		<Row ProgressionTreeNodeType="NODE_TECH_MO_MASS_PRODUCTION" TargetKind="KIND_MODIFIER" TargetType="MOD_TECH_MO_FISHING_BOAT_RESOURCE_FOOD" UnlockDepth="2"/>
 		<Row ProgressionTreeNodeType="NODE_TECH_MO_MASS_PRODUCTION" TargetKind="KIND_MODIFIER" TargetType="MOD_TECH_MO_COAST_FOOD" UnlockDepth="2" Hidden="true"/>
 		<Row ProgressionTreeNodeType="NODE_TECH_MO_MASS_PRODUCTION" TargetKind="KIND_MODIFIER" TargetType="MOD_TECH_MO_OCEAN_FOOD" UnlockDepth="2" Hidden="true"/>
@@ -139,19 +150,22 @@
 		<Row ProgressionTreeNodeType="NODE_TECH_MO_MASS_PRODUCTION" TargetKind="KIND_MODIFIER" TargetType="MOD_TECH_MO_REEF_FOOD" UnlockDepth="2" Hidden="true"/>
 		<Row ProgressionTreeNodeType="NODE_TECH_MO_MASS_PRODUCTION" TargetKind="KIND_MODIFIER" TargetType="MOD_TECH_MO_COLD_REEF_FOOD" UnlockDepth="2" Hidden="true"/>
 		<Row ProgressionTreeNodeType="NODE_TECH_MO_MASS_PRODUCTION" TargetKind="KIND_MODIFIER" TargetType="MOD_TECH_MO_NAVIGABLE_RIVER_FOOD" UnlockDepth="2" Hidden="true"/>
-		<Row ProgressionTreeNodeType="NODE_TECH_MO_MASS_PRODUCTION" TargetKind="KIND_MODIFIER" TargetType="MOD_TECH_MO_PASTURE_FOOD" UnlockDepth="2" Hidden="true"/>
+		<Row ProgressionTreeNodeType="NODE_TECH_MO_MASS_PRODUCTION" TargetKind="KIND_MODIFIER" TargetType="MOD_TECH_MO_PASTURE_FOOD" UnlockDepth="2" Hidden="true"/> -->
+		<Row ProgressionTreeNodeType="NODE_TECH_MO_COMPUTATION" TargetKind="KIND_CONSTRUCTIBLE" TargetType="BUILDING_STOCK_EXCHANGE" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_TECH_MO_COMPUTATION" TargetKind="KIND_MODIFIER" TargetType="MOD_TECH_MO_SPECIALIST_HAPPINESS_MAINTENANCE" UnlockDepth="1"/>
 		<Row ProgressionTreeNodeType="NODE_TECH_MO_MOBILIZATION" TargetKind="KIND_UNIT" TargetType="UNIT_CARRIER_COMMANDER" UnlockDepth="1"/>
 		<Row ProgressionTreeNodeType="NODE_TECH_MO_MOBILIZATION" TargetKind="KIND_UNIT" TargetType="UNIT_BATTLESHIP" UnlockDepth="1"/>
 		<Row ProgressionTreeNodeType="NODE_TECH_MO_MOBILIZATION" TargetKind="KIND_UNIT" TargetType="UNIT_DESTROYER" UnlockDepth="1"/>
-		<Row ProgressionTreeNodeType="NODE_TECH_MO_MOBILIZATION" TargetKind="KIND_UNIT" TargetType="UNIT_SUBMARINE" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_TECH_MO_MOBILIZATION" TargetKind="KIND_UNIT" TargetType="UNIT_SUBMARINE" UnlockDepth="2"/>
 		<Row ProgressionTreeNodeType="NODE_TECH_MO_MOBILIZATION" TargetKind="KIND_UNIT" TargetType="UNIT_MIKASA_2" UnlockDepth="1" RequiredTraitType="TRAIT_MEIJI"/>
 		<Row ProgressionTreeNodeType="NODE_TECH_MO_MOBILIZATION" TargetKind="KIND_MODIFIER" TargetType="MOD_MO_TECH_NAVAL_STRENGTH" UnlockDepth="2"/>
-		<Row ProgressionTreeNodeType="NODE_TECH_MO_ARMOR" TargetKind="KIND_UNIT" TargetType="UNIT_AT_GUN" UnlockDepth="1"/>
-		<Row ProgressionTreeNodeType="NODE_TECH_MO_ARMOR" TargetKind="KIND_UNIT" TargetType="UNIT_ASSAULT_GUN" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_TECH_MO_ARMOR" TargetKind="KIND_UNIT" TargetType="UNIT_AT_GUN" UnlockDepth="2"/>
+		<Row ProgressionTreeNodeType="NODE_TECH_MO_ARMOR" TargetKind="KIND_UNIT" TargetType="UNIT_ASSAULT_GUN" UnlockDepth="2"/>
+		<Row ProgressionTreeNodeType="NODE_TECH_MO_ARMOR" TargetKind="KIND_MODIFIER" TargetType="MOD_TECH_MO_ARMOR_SCIENCE_VP" UnlockDepth="2"/>
 		<Row ProgressionTreeNodeType="NODE_TECH_MO_ARMOR" TargetKind="KIND_UNIT" TargetType="UNIT_INFANTRY_COMPANY" UnlockDepth="1"/>
 		<Row ProgressionTreeNodeType="NODE_TECH_MO_ARMOR" TargetKind="KIND_UNIT" TargetType="UNIT_TANK" UnlockDepth="1"/>
-		<Row ProgressionTreeNodeType="NODE_TECH_MO_ARMOR" TargetKind="KIND_UNIT" TargetType="UNIT_CHANG_BEUN_3" UnlockDepth="1" RequiredTraitType="TRAIT_SIAM"/>
-		<Row ProgressionTreeNodeType="NODE_TECH_MO_ARMOR" TargetKind="KIND_UNIT" TargetType="UNIT_KATYUSHA_2" UnlockDepth="1" RequiredTraitType="TRAIT_RUSSIA"/>
+		<Row ProgressionTreeNodeType="NODE_TECH_MO_ARMOR" TargetKind="KIND_UNIT" TargetType="UNIT_CHANG_BEUN_3" UnlockDepth="2" RequiredTraitType="TRAIT_SIAM"/>
+		<Row ProgressionTreeNodeType="NODE_TECH_MO_ARMOR" TargetKind="KIND_UNIT" TargetType="UNIT_KATYUSHA_2" UnlockDepth="2" RequiredTraitType="TRAIT_RUSSIA"/>
 		<Row ProgressionTreeNodeType="NODE_TECH_MO_ARMOR" TargetKind="KIND_UNIT" TargetType="UNIT_ABAMBOWA_3" UnlockDepth="1" RequiredTraitType="TRAIT_BUGANDA"/>
 		<Row ProgressionTreeNodeType="NODE_TECH_MO_ARMOR" TargetKind="KIND_UNIT" TargetType="UNIT_GARDE_IMPERIALE_3" UnlockDepth="1" RequiredTraitType="TRAIT_FRENCH_EMPIRE"/>
 		<Row ProgressionTreeNodeType="NODE_TECH_MO_ARMOR" TargetKind="KIND_UNIT" TargetType="UNIT_GUSA_3" UnlockDepth="1" RequiredTraitType="TRAIT_QING"/>
@@ -167,15 +181,18 @@
 		<Row ProgressionTreeNodeType="NODE_TECH_MO_AERODYNAMICS" TargetKind="KIND_UNIT" TargetType="UNIT_HEAVY_BOMBER" UnlockDepth="1"/>
 		<Row ProgressionTreeNodeType="NODE_TECH_MO_AERODYNAMICS" TargetKind="KIND_UNIT" TargetType="UNIT_STUKA_2" UnlockDepth="1" RequiredTraitType="TRAIT_PRUSSIA"/>
 		<Row ProgressionTreeNodeType="NODE_TECH_MO_AERODYNAMICS" TargetKind="KIND_UNIT" TargetType="UNIT_ZERO_2" UnlockDepth="1" RequiredTraitType="TRAIT_MEIJI"/>
-		<Row ProgressionTreeNodeType="NODE_TECH_MO_AERODYNAMICS" TargetKind="KIND_PROJECT" TargetType="PROJECT_BREAK_SOUND_BARRIER" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_TECH_MO_AERODYNAMICS" TargetKind="KIND_MODIFIER" TargetType="MOD_TECH_MO_AERODYNAMICS_SCIENCE_VP" UnlockDepth="2"/>
+		<Row ProgressionTreeNodeType="NODE_TECH_MO_AERODYNAMICS" TargetKind="KIND_PROJECT" TargetType="PROJECT_BREAK_SOUND_BARRIER" UnlockDepth="2"/>
 		<Row ProgressionTreeNodeType="NODE_TECH_MO_AERODYNAMICS" TargetKind="KIND_MODIFIER" TargetType="MOD_MO_TECH_AIRCRAFT_STRENGTH" UnlockDepth="2"/>
 		<Row ProgressionTreeNodeType="NODE_TECH_MO_ROCKETRY" TargetKind="KIND_CONSTRUCTIBLE" TargetType="BUILDING_LAUNCH_PAD" UnlockDepth="1"/>
 		<Row ProgressionTreeNodeType="NODE_TECH_MO_ROCKETRY" TargetKind="KIND_DIPLOMATIC_ACTION" TargetType="DIPLOMACY_ACTION_ESPIONAGE_SABOTAGE_SPACE_PROGRAM" UnlockDepth="1"/>
 		<Row ProgressionTreeNodeType="NODE_TECH_MO_ROCKETRY" TargetKind="KIND_PROJECT" TargetType="PROJECT_LAUNCH_SATELLITE" UnlockDepth="1"/>
-		<Row ProgressionTreeNodeType="NODE_TECH_MO_ROCKETRY" TargetKind="KIND_PROJECT" TargetType="PROJECT_LAUNCH_ROCKET" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_TECH_MO_ROCKETRY" TargetKind="KIND_MODIFIER" TargetType="MOD_TECH_MO_ROCKETRY_SCIENCE_VP" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_TECH_MO_ROCKETRY" TargetKind="KIND_PROJECT" TargetType="PROJECT_CREWED_SPACE_FLIGHT_PREP" UnlockDepth="1"/>
 		<Row ProgressionTreeNodeType="NODE_TECH_MO_NUCLEAR_FISSION" TargetKind="KIND_CONSTRUCTIBLE" TargetType="WONDER_MANHATTAN_PROJECT" UnlockDepth="1"/>
 		<Row ProgressionTreeNodeType="NODE_TECH_MO_FUTURE_TECH" TargetKind="KIND_MODIFIER" TargetType="MOD_MO_FUTURE_TECH_ATTRIBUTE" UnlockDepth="1"/>
 		<Row ProgressionTreeNodeType="NODE_TECH_MO_FUTURE_TECH" TargetKind="KIND_MODIFIER" TargetType="MOD_MO_FUTURE_TECH_AGE_PROGRESS" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_TECH_MO_FUTURE_TECH" TargetKind="KIND_MODIFIER" TargetType="MOD_MO_FUTURE_TECH_SCIENCE_VP" UnlockDepth="1"/>
 	</ProgressionTreeNodeUnlocks>
 	<ProgressionTreePrereqs>
 		<!--Tech Tree Organization-->
@@ -191,10 +208,12 @@
 		<Row Node="NODE_TECH_MO_FLIGHT" PrereqNode="NODE_TECH_MO_COMBUSTION"/>
 		<Row Node="NODE_TECH_MO_MASS_PRODUCTION" PrereqNode="NODE_TECH_MO_COMBUSTION"/>
 		<Row Node="NODE_TECH_MO_MASS_PRODUCTION" PrereqNode="NODE_TECH_MO_INDUSTRIALIZATION"/>
-		<Row Node="NODE_TECH_MO_MOBILIZATION" PrereqNode="NODE_TECH_MO_RADIO"/>
+		<Row Node="NODE_TECH_MO_COMPUTATION" PrereqNode="NODE_TECH_MO_RADIO"/>
+		<!-- <Row Node="NODE_TECH_MO_MOBILIZATION" PrereqNode="NODE_TECH_MO_RADIO"/> -->
 		<Row Node="NODE_TECH_MO_MOBILIZATION" PrereqNode="NODE_TECH_MO_FLIGHT"/>
-		<Row Node="NODE_TECH_MO_ARMOR" PrereqNode="NODE_TECH_MO_FLIGHT"/>
+		<!-- <Row Node="NODE_TECH_MO_ARMOR" PrereqNode="NODE_TECH_MO_FLIGHT"/> -->
 		<Row Node="NODE_TECH_MO_ARMOR" PrereqNode="NODE_TECH_MO_MASS_PRODUCTION"/>
+		<Row Node="NODE_TECH_MO_AERODYNAMICS" PrereqNode="NODE_TECH_MO_COMPUTATION"/>
 		<Row Node="NODE_TECH_MO_AERODYNAMICS" PrereqNode="NODE_TECH_MO_MOBILIZATION"/>
 		<Row Node="NODE_TECH_MO_AERODYNAMICS" PrereqNode="NODE_TECH_MO_ARMOR"/>
 		<Row Node="NODE_TECH_MO_ROCKETRY" PrereqNode="NODE_TECH_MO_AERODYNAMICS"/>

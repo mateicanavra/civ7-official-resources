@@ -1,37 +1,17 @@
-import { A as Audio } from '../../audio-base/audio-support.chunk.js';
-import { F as FxsSlider } from '../../components/fxs-slider.chunk.js';
+import { Audio } from '../../audio-base/audio-support.js';
+import { FxsSlider } from '../../components/fxs-slider.js';
 import ContextManager from '../../context-manager/context-manager.js';
 import { DisplayQueueManager } from '../../context-manager/display-queue-manager.js';
-import { a as DialogBoxManager, c as DialogSource, D as DialogBoxAction } from '../../dialog-box/manager-dialog-box.chunk.js';
-import FocusManager from '../../input/focus-manager.js';
-import { b as InputEngineEventName } from '../../input/input-support.chunk.js';
-import { N as NavTray } from '../../navigation-tray/model-navigation-tray.chunk.js';
+import { DialogBoxManager } from '../../dialog-box/manager-dialog-box.js';
+import { InputEngineEventName } from '../../input/input-support.js';
+import NavTray from '../../navigation-tray/model-navigation-tray.js';
 import { CreateGameModel } from '../create-panels/create-game-model.js';
-import { MustGetElement } from '../../utilities/utilities-dom.chunk.js';
-import { L as Layout } from '../../utilities/utilities-layout.chunk.js';
-import '../../framework.chunk.js';
-import '../../input/cursor.js';
-import '../../views/view-manager.chunk.js';
-import '../../panel-support.chunk.js';
-import '../../input/action-handler.js';
-import '../../utilities/utilities-update-gate.chunk.js';
-import '../../utilities/utilities-image.chunk.js';
-import '../../utilities/utilities-component-id.chunk.js';
-import '../../events/shell-events.chunk.js';
-import '../../profile-page/screen-profile-page.js';
-import '../../components/fxs-dropdown.chunk.js';
-import '../../components/fxs-activatable.chunk.js';
-import '../../input/focus-support.chunk.js';
-import '../../components/fxs-slot.chunk.js';
-import '../../spatial/spatial-manager.js';
-import '../../save-load/model-save-load.chunk.js';
-import '../leader-select/leader-button/leader-button.js';
-import '../../utilities/utilities-liveops.js';
-import '../../utilities/utilities-metaprogression.chunk.js';
-
-const content = "<fxs-vslot>\r\n\t<div class=\"oobe-container relative w-full\">\r\n\t\t<div class=\"oobe-display-container hidden self-center mt-8\">\r\n\t\t\t<fxs-vslot class=\"oobe-press-start-vslot\">\r\n\t\t\t\t<div class=\"oobe-logo-container self-center\">\r\n\t\t\t\t\t<div class=\"oobe-logo-img\"></div>\r\n\t\t\t\t</div>\r\n\t\t\t\t<div\r\n\t\t\t\t\tclass=\"font-body text-2xl text-white self-center mb-4\"\r\n\t\t\t\t\tdata-l10n-id=\"LOC_OOBE_TITLE_DISPLAY\"\r\n\t\t\t\t></div>\r\n\t\t\t\t<fxs-vslot class=\"oobe-display-controls self-center\"></fxs-vslot>\r\n\t\t\t</fxs-vslot>\r\n\t\t</div>\r\n\r\n\t\t<div class=\"oobe-audio-container hidden self-center mt-8\">\r\n\t\t\t<fxs-vslot class=\"oobe-press-start-vslot\">\r\n\t\t\t\t<div class=\"oobe-logo-container self-center\">\r\n\t\t\t\t\t<div class=\"oobe-logo-img\"></div>\r\n\t\t\t\t</div>\r\n\t\t\t\t<div\r\n\t\t\t\t\tclass=\"font-body text-2xl text-white self-center mb-4\"\r\n\t\t\t\t\tdata-l10n-id=\"LOC_OOBE_TITLE_AUDIO\"\r\n\t\t\t\t></div>\r\n\t\t\t\t<fxs-vslot class=\"oobe-audio-controls\"></fxs-vslot>\r\n\t\t\t</fxs-vslot>\r\n\t\t</div>\r\n\r\n\t\t<div\r\n\t\t\tclass=\"oobe-legal-container self-center mt-12 hidden\"\r\n\t\t\tstyle=\"width: 90%\"\r\n\t\t>\r\n\t\t\t<fxs-vslot>\r\n\t\t\t\t<div class=\"oobe-logo-container self-center\">\r\n\t\t\t\t\t<div class=\"oobe-logo-img\"></div>\r\n\t\t\t\t</div>\r\n\t\t\t\t<div\r\n\t\t\t\t\tclass=\"oobe-legal-text flex text-accent-2 self-center font-body text-xl\"\r\n\t\t\t\t\tdata-l10n-id=\"LOC_COPYRIGHT_BLOCK\"\r\n\t\t\t\t></div>\r\n\t\t\t\t<div class=\"oobe-legal-logos\">\r\n\t\t\t\t\t<fxs-hslot class=\"oobe-legal-logo-hslot self-center mt-12\">\r\n\t\t\t\t\t\t<img\r\n\t\t\t\t\t\t\tsrc=\"blp:intel_319x319.png\"\r\n\t\t\t\t\t\t\tclass=\"oob-intel-logo hidden mr-10\"\r\n\t\t\t\t\t\t\tstyle=\"width: 160px; height: 160px\"\r\n\t\t\t\t\t\t/>\r\n\t\t\t\t\t\t<img\r\n\t\t\t\t\t\t\tsrc=\"blp:powered_by_wwise.png\"\r\n\t\t\t\t\t\t\tclass=\"max-w-40 max-h-32 mr-10\"\r\n\t\t\t\t\t\t/>\r\n\t\t\t\t\t\t<img\r\n\t\t\t\t\t\t\tsrc=\"blp:coherent-gt-white.png\"\r\n\t\t\t\t\t\t\tclass=\"max-w-96 max-h-64 mr-10\"\r\n\t\t\t\t\t\t/>\r\n\t\t\t\t\t\t<img\r\n\t\t\t\t\t\t\tsrc=\"blp:oodle_logo.png\"\r\n\t\t\t\t\t\t\tclass=\"max-w-96 max-h-40 mr-10\"\r\n\t\t\t\t\t\t/>\r\n\t\t\t\t\t</fxs-hslot>\r\n\t\t\t\t</div>\r\n\t\t\t</fxs-vslot>\r\n\t\t</div>\r\n\r\n\t\t<div class=\"oobe-autosave-container flex flex-row items-center justify-center hidden self-center mt-8\">\r\n\t\t\t<fxs-vslot>\r\n\t\t\t\t<div class=\"oobe-logo-container self-center\">\r\n\t\t\t\t\t<div class=\"oobe-logo-img\"></div>\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"flex flex-col items-center\">\r\n\t\t\t\t\t<div class=\"oobe-autosave-container__content-item\">\r\n\t\t\t\t\t\t<div\r\n\t\t\t\t\t\t\tclass=\"font-title text-2xl text-secondary oobe-no-pad-margin\"\r\n\t\t\t\t\t\t\tdata-l10n-id=\"LOC_SAVE_LOAD_SAVEACTION_AUTO\"\r\n\t\t\t\t\t\t></div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class=\"oobe-autosave-container__content-item\">\r\n\t\t\t\t\t\t<div\r\n\t\t\t\t\t\t\tclass=\"font-body text-white text-center text-xl oobe-no-pad-margin\"\r\n\t\t\t\t\t\t\tdata-l10n-id=\"LOC_OOBE_TITLE_AUTOSAVE\"\r\n\t\t\t\t\t\t></div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class=\"oobe-autosave-container__content-item\">\r\n\t\t\t\t\t\t<div class=\"oobe-background-container oobe-autosave-container__save-icon\"></div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t</fxs-vslot>\r\n\t\t</div>\r\n\r\n\t\t<div class=\"intro-movie-container absolute fullscreen-outside-safezone hidden\"></div>\r\n\t</div>\r\n\r\n\t<div class=\"oobe-button-bar flex flex-row justify-center mt-8 hidden\">\r\n\t\t<div class=\"oobe-prev-container\">\r\n\t\t\t<fxs-button\r\n\t\t\t\tclass=\"oobe-prev-subscreen mr-24\"\r\n\t\t\t\tcaption=\"LOC_GENERIC_BACK\"\r\n\t\t\t\tdata-bind-class-toggle=\"hidden:{{g_NavTray.isTrayRequired}}\"\r\n\t\t\t></fxs-button>\r\n\t\t</div>\r\n\t\t<fxs-button\r\n\t\t\tclass=\"oobe-next-subscreen\"\r\n\t\t\tcaption=\"LOC_GENERIC_CONTINUE\"\r\n\t\t\tdata-bind-class-toggle=\"hidden:{{g_NavTray.isTrayRequired}}\"\r\n\t\t></fxs-button>\r\n\t</div>\r\n</fxs-vslot>\r\n";
-
-const styles = "fs://game/core/ui/shell/oob-experience/oob-experience-mgr.css";
+import { MustGetElement } from '../../utilities/utilities-dom.js';
+import { Layout } from '../../utilities/utilities-layout.js';
+import { FocusManager } from '../../../ui-next/services/focus-manager.js';
+import content from './oob-experience-mgr.html.js';
+import styles from './oob-experience-mgr.scss.js';
+import { DialogSource, DialogBoxAction } from '../../dialog-box/model-dialog-box.js';
 
 const audioDynamicRanges = [
   { label: "LOC_OPTIONS_AUDIO_DYNAMIC_RANGE_WIDE", tooltip: "LOC_OPTIONS_AUDIO_DYNAMIC_RANGE_WIDE_DESCRIPTION" },
@@ -153,7 +133,7 @@ class OutOfBoxExperienceManager extends Component {
   onReceiveFocus() {
     super.onReceiveFocus();
     this.updateNavTray();
-    FocusManager.setFocus(this.currentFocus);
+    FocusManager.get().setFocus(this.currentFocus);
   }
   onLoseFocus() {
     NavTray.clear();
@@ -411,8 +391,8 @@ class OutOfBoxExperienceManager extends Component {
         if (DialogBoxManager.isDialogBoxOpen) {
           return;
         }
-        FocusManager.setFocus(this.currentFocus);
-        FocusManager.setFocus(this.currentFocus);
+        FocusManager.get().setFocus(this.currentFocus);
+        FocusManager.get().setFocus(this.currentFocus);
       });
     });
   }
@@ -491,10 +471,10 @@ class OutOfBoxExperienceManager extends Component {
   }
   doAudioSettings() {
     this.currentFocus = this.dynRange;
-    FocusManager.setFocus(this.currentFocus);
+    FocusManager.get().setFocus(this.currentFocus);
     window.requestAnimationFrame(() => {
       window.requestAnimationFrame(() => {
-        FocusManager.setFocus(this.currentFocus);
+        FocusManager.get().setFocus(this.currentFocus);
       });
     });
   }
@@ -512,10 +492,10 @@ class OutOfBoxExperienceManager extends Component {
   }
   doAutosaveIndicator() {
     this.currentFocus = this.Root;
-    FocusManager.setFocus(this.currentFocus);
+    FocusManager.get().setFocus(this.currentFocus);
     window.requestAnimationFrame(() => {
       window.requestAnimationFrame(() => {
-        FocusManager.setFocus(this.currentFocus);
+        FocusManager.get().setFocus(this.currentFocus);
       });
     });
   }
@@ -531,6 +511,10 @@ class OutOfBoxExperienceManager extends Component {
     }
   }
   goToMainMenu() {
+    if (!UI.canSkipMovies()) {
+      setTimeout(this.goToMainMenuListener, 100);
+      return;
+    }
     if (this.legalContainer) {
       this.legalContainer.classList.add("hidden");
     }

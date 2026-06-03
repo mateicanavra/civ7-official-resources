@@ -1,4 +1,4 @@
-import { L as LensManager } from '../../../../core/ui/lenses/lens-manager.chunk.js';
+import LensManager from '../../../../core/ui/lenses/lens-manager.js';
 
 class AcquireTileLens {
   activeLayers = /* @__PURE__ */ new Set([

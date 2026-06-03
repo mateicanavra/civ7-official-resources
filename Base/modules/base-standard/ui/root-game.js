@@ -1,120 +1,16 @@
-/* empty css                                            */
-/* empty css                                   */
-import '../../core/ui/spatial/spatial-manager.js';
-import '../../core/ui/components/fxs-font-icon.chunk.js';
-import '../ui-next/screens/load-screen/load-screen-bootstrap.js';
-import '../../core/ui/input/focus-manager.js';
-import '../../core/ui/audio-base/audio-support.chunk.js';
-import '../../core/ui/framework.chunk.js';
-import '../../core/ui/input/action-handler.js';
-import '../../core/ui/input/cursor.js';
-import '../../core/ui/views/view-manager.chunk.js';
-import '../../core/ui/panel-support.chunk.js';
-import '../../core/ui/input/input-support.chunk.js';
-import '../../core/ui/utilities/utilities-update-gate.chunk.js';
-import '../../core/ui/utilities/utilities-image.chunk.js';
-import '../../core/ui/utilities/utilities-component-id.chunk.js';
-import '../../core/ui-next/components/panel.chunk.js';
-import '../../core/ui/input/focus-support.chunk.js';
-import '../../core/ui/components/fxs-slot.chunk.js';
-import '../../core/ui/context-manager/context-manager.js';
-import '../../core/ui/context-manager/display-queue-manager.js';
-import '../../core/ui/dialog-box/manager-dialog-box.chunk.js';
-import '../../core/ui/navigation-tray/model-navigation-tray.chunk.js';
-import '../ui-next/screens/load-screen/load-screen-model.chunk.js';
-import '../../core/ui-next/components/hero-button.chunk.js';
-import '../../core/ui-next/components/l10n.chunk.js';
-import '../../core/ui-next/components/flipbook.chunk.js';
-import '../ui-next/screens/load-screen/load-screen.chunk.js';
-import '../../core/ui/utilities/utilities-layout.chunk.js';
-import '../../core/ui-next/components/header.chunk.js';
-import '../../core/ui-next/components/scroll-area.chunk.js';
-
-const scriptRel = /* @__PURE__ */ (function detectScriptRel() {
-  const relList = typeof document !== "undefined" && document.createElement("link").relList;
-  return relList && relList.supports && relList.supports("modulepreload") ? "modulepreload" : "preload";
-})();const assetsURL = function(dep) { return "fs://game/"+dep };const seen = {};const __vitePreload = function preload(baseModule, deps, importerUrl) {
-  let promise = Promise.resolve();
-  if (true               && deps && deps.length > 0) {
-    let allSettled2 = function(promises) {
-      return Promise.all(
-        promises.map(
-          (p) => Promise.resolve(p).then(
-            (value) => ({ status: "fulfilled", value }),
-            (reason) => ({ status: "rejected", reason })
-          )
-        )
-      );
-    };
-    const links = document.getElementsByTagName("link");
-    const cspNonceMeta = document.querySelector(
-      "meta[property=csp-nonce]"
-    );
-    const cspNonce = cspNonceMeta?.nonce || cspNonceMeta?.getAttribute("nonce");
-    promise = allSettled2(
-      deps.map((dep) => {
-        dep = assetsURL(dep, importerUrl);
-        if (dep in seen) return;
-        seen[dep] = true;
-        const isCss = dep.endsWith(".css");
-        const cssSelector = isCss ? '[rel="stylesheet"]' : "";
-        const isBaseRelative = !!importerUrl;
-        if (isBaseRelative) {
-          for (let i = links.length - 1; i >= 0; i--) {
-            const link2 = links[i];
-            if (link2.href === dep && (!isCss || link2.rel === "stylesheet")) {
-              return;
-            }
-          }
-        } else if (document.querySelector(`link[href="${dep}"]${cssSelector}`)) {
-          return;
-        }
-        const link = document.createElement("link");
-        link.rel = isCss ? "stylesheet" : scriptRel;
-        if (!isCss) {
-          link.as = "script";
-        }
-        link.crossOrigin = "";
-        link.href = dep;
-        if (cspNonce) {
-          link.setAttribute("nonce", cspNonce);
-        }
-        document.head.appendChild(link);
-        if (isCss) {
-          return new Promise((res, rej) => {
-            link.addEventListener("load", res);
-            link.addEventListener(
-              "error",
-              () => rej(new Error(`Unable to preload CSS for ${dep}`))
-            );
-          });
-        }
-      })
-    );
-  }
-  function handlePreloadError(err) {
-    const e = new Event("vite:preloadError", {
-      cancelable: true
-    });
-    e.payload = err;
-    window.dispatchEvent(e);
-    if (!e.defaultPrevented) {
-      throw err;
-    }
-  }
-  return promise.then((res) => {
-    for (const item of res || []) {
-      if (item.status !== "rejected") continue;
-      handlePreloadError(item.reason);
-    }
-    return baseModule().catch(handlePreloadError);
-  });
-};
+import { __vitePreload } from '../../core/vendor/vite/preload-helper.js';
 
 await Loading.isInitialized;
 const { default: ContextManager } = await __vitePreload(async () => { const { default: ContextManager } = await import('../../core/ui/context-manager/context-manager.js');return { default: ContextManager }},true              ?[]:void 0);
 await __vitePreload(() => import('../../core/ui/input/action-handler.js'),true              ?[]:void 0);
+await __vitePreload(() => import('../../core/ui-next/components/tooltip-compat.js'),true              ?[]:void 0);
 const { TtsManager } = await __vitePreload(async () => { const { TtsManager } = await import('../../core/ui/accessibility/tts-manager.js');return { TtsManager }},true              ?[]:void 0);
+const LoadingStartCurtainRemoveName = "loading-start-curtain-removed";
+class LoadingStartCurtainRemoveEvent extends CustomEvent {
+  constructor(detail) {
+    super(LoadingStartCurtainRemoveName, { bubbles: false, cancelable: false, detail });
+  }
+}
 class LoadingInputHandler {
   loadScreen = null;
   handleInput(inputEvent) {
@@ -152,28 +48,29 @@ const {
   default: DialogManager,
   DialogBoxAction,
   DialogSource
-} = await import('../../core/ui/dialog-box/manager-dialog-box.chunk.js').then(n => n.m);return {
+} = await import('../../core/ui/dialog-box/manager-dialog-box.js');return {
   default: DialogManager,
   DialogBoxAction,
   DialogSource
 }},true              ?[]:void 0);
-const { default: HotkeyManager } = await __vitePreload(async () => { const { default: HotkeyManager } = await import('../../core/ui/input/hotkey-manager.chunk.js');return { default: HotkeyManager }},true              ?[]:void 0);
-const { default: InputFilterManager } = await __vitePreload(async () => { const { default: InputFilterManager } = await import('../../core/ui/input/input-filter.chunk.js');return { default: InputFilterManager }},true              ?[]:void 0);
-const { default: Cursor } = await __vitePreload(async () => { const { default: Cursor } = await import('../../core/ui/input/cursor.js').then(n => n.a);return { default: Cursor }},true              ?[]:void 0);
+const { default: HotkeyManager } = await __vitePreload(async () => { const { default: HotkeyManager } = await import('../../core/ui/input/hotkey-manager.js');return { default: HotkeyManager }},true              ?[]:void 0);
+const { default: InputFilterManager } = await __vitePreload(async () => { const { default: InputFilterManager } = await import('../../core/ui/input/input-filter.js');return { default: InputFilterManager }},true              ?[]:void 0);
+const { default: Cursor } = await __vitePreload(async () => { const { default: Cursor } = await import('../../core/ui/input/cursor.js');return { default: Cursor }},true              ?[]:void 0);
 const { PlotCursor } = await __vitePreload(async () => { const { PlotCursor } = await import('../../core/ui/input/plot-cursor.js');return { PlotCursor }},true              ?[]:void 0);
-const { default: ViewManager, SwitchViewResult } = await __vitePreload(async () => { const { default: ViewManager, SwitchViewResult } = await import('../../core/ui/views/view-manager.chunk.js').then(n => n.v);return { default: ViewManager, SwitchViewResult }},true              ?[]:void 0);
+const { default: ViewManager, SwitchViewResult } = await __vitePreload(async () => { const { default: ViewManager, SwitchViewResult } = await import('../../core/ui/views/view-manager.js');return { default: ViewManager, SwitchViewResult }},true              ?[]:void 0);
 const { InterfaceMode } = await __vitePreload(async () => { const { InterfaceMode } = await import('../../core/ui/interface-modes/interface-modes.js');return { InterfaceMode }},true              ?[]:void 0);
-const { InitDebugWidgets } = await __vitePreload(async () => { const { InitDebugWidgets } = await import('./debug/hud-debug-widgets.chunk.js');return { InitDebugWidgets }},true              ?[]:void 0);
-const { Icon } = await __vitePreload(async () => { const { Icon } = await import('../../core/ui/utilities/utilities-image.chunk.js');return { Icon }},true              ?[]:void 0);
+const { InitDebugWidgets } = await __vitePreload(async () => { const { InitDebugWidgets } = await import('./debug/hud-debug-widgets.js');return { InitDebugWidgets }},true              ?[]:void 0);
+const { Icon } = await __vitePreload(async () => { const { Icon } = await import('../../core/ui/utilities/utilities-image.js');return { Icon }},true              ?[]:void 0);
 const { default: WorldInput } = await __vitePreload(async () => { const { default: WorldInput } = await import('./world-input/world-input.js');return { default: WorldInput }},true              ?[]:void 0);
 const { default: TooltipManager } = await __vitePreload(async () => { const { default: TooltipManager } = await import('../../core/ui/tooltips/tooltip-manager.js');return { default: TooltipManager }},true              ?[]:void 0);
 const { default: TutorialManager } = await __vitePreload(async () => { const { default: TutorialManager } = await import('./tutorial/tutorial-manager.js');return { default: TutorialManager }},true              ?[]:void 0);
 const { DisplayQueueManager } = await __vitePreload(async () => { const { DisplayQueueManager } = await import('../../core/ui/context-manager/display-queue-manager.js');return { DisplayQueueManager }},true              ?[]:void 0);
-const { instance: Civilopedia } = await __vitePreload(async () => { const { instance: Civilopedia } = await import('./civilopedia/model-civilopedia.chunk.js');return { instance: Civilopedia }},true              ?[]:void 0);
+const { instance: Civilopedia } = await __vitePreload(async () => { const { instance: Civilopedia } = await import('./civilopedia/model-civilopedia.js');return { instance: Civilopedia }},true              ?[]:void 0);
 const { openBenchmarkUi } = await __vitePreload(async () => { const { openBenchmarkUi } = await import('./benchmark/screen-benchmark.js');return { openBenchmarkUi }},true              ?[]:void 0);
-const { MustGetElement } = await __vitePreload(async () => { const { MustGetElement } = await import('../../core/ui/utilities/utilities-dom.chunk.js');return { MustGetElement }},true              ?[]:void 0);
-const { displayRequestUniqueId } = await __vitePreload(async () => { const { displayRequestUniqueId } = await import('../../core/ui/dialog-box/manager-dialog-box.chunk.js').then(n => n.e);return { displayRequestUniqueId }},true              ?[]:void 0);
-const { TtsManagerTooltipExtension } = await __vitePreload(async () => { const { TtsManagerTooltipExtension } = await import('../../core/ui/accessibility/tts-manager-tooltip-extension.chunk.js');return { TtsManagerTooltipExtension }},true              ?[]:void 0);
+const { MustGetElement } = await __vitePreload(async () => { const { MustGetElement } = await import('../../core/ui/utilities/utilities-dom.js');return { MustGetElement }},true              ?[]:void 0);
+const { displayRequestUniqueId } = await __vitePreload(async () => { const { displayRequestUniqueId } = await import('../../core/ui/context-manager/display-handler.js');return { displayRequestUniqueId }},true              ?[]:void 0);
+const { TtsManagerTooltipExtension } = await __vitePreload(async () => { const { TtsManagerTooltipExtension } = await import('../../core/ui/accessibility/tts-manager-tooltip-extension.js');return { TtsManagerTooltipExtension }},true              ?[]:void 0);
+const { InitApp } = await __vitePreload(async () => { const { InitApp } = await import('./app.js');return { InitApp }},true              ?[]:void 0);
 const dialogExitId = displayRequestUniqueId();
 let isClosingDialogOpen = false;
 function openCivilopedia(searchTerm) {
@@ -307,6 +204,27 @@ function showDisconnectionPopup() {
 function resetDisconnectionPopup() {
   UI.setDisconnectionPopupWasShown(false);
 }
+function showLoadingAnimation() {
+  const animButtonContainer = document.getElementById("loading-root");
+  if (animButtonContainer) {
+    const flipbook = document.createElement("flip-book");
+    const flipbookDefinition = {
+      fps: 30,
+      atlas: [
+        ["fs://game/hourglasses01.png", 128, 128, 512],
+        ["fs://game/hourglasses02.png", 128, 128, 512],
+        ["fs://game/hourglasses03.png", 128, 128, 1024, 13]
+      ]
+    };
+    flipbook.setAttribute("data-flipbook-definition", JSON.stringify(flipbookDefinition));
+    animButtonContainer.appendChild(flipbook);
+    animButtonContainer.classList.remove("hidden");
+  } else {
+    console.error("root-game: Unable to find container for loading gif.");
+  }
+}
+function hideLoadingAnimation() {
+}
 function handleInput(inputEvent) {
   if (inputEvent.type != "engine-input") {
     console.warn(
@@ -333,7 +251,7 @@ function handleInput(inputEvent) {
   inputEvent.preventDefault();
   return false;
 }
-const onPullCurtain = () => {
+const onPullCurtainImpl = () => {
   ContextManager.unregisterEngineInputHandler(loadingInputHandler);
   const curtain = document.getElementById("loading-curtain");
   if (curtain) {
@@ -342,10 +260,12 @@ const onPullCurtain = () => {
         window.requestAnimationFrame(() => {
           document.body.removeChild(curtain);
           document.head.querySelector('link[href$="load-screen.css"]')?.remove();
+          document.documentElement.classList.remove("age-transition");
         });
       }
     });
     curtain.classList.add("curtain-opened");
+    engine.call("setSnapshotEnabled", false);
     InterfaceMode.startup();
   }
   const userConfig = Configuration.getUser();
@@ -353,10 +273,36 @@ const onPullCurtain = () => {
     userConfig.setFirstTimeTutorialEnabled(false);
     userConfig.saveCheckpoint();
   }
+  const maxSignals = Configuration.getGame().isHotseat ? 2 : 1;
+  window.dispatchEvent(new LoadingStartCurtainRemoveEvent({ id: "global", index: 0, max: maxSignals }));
+  if (Configuration.getGame().isHotseat) {
+    window.dispatchEvent(new LoadingStartCurtainRemoveEvent({ id: "hotseat", index: 1, max: maxSignals }));
+  }
+  hideLoadingAnimation();
   window.addEventListener("engine-input", handleInput);
 };
+const onPullCurtain = () => {
+  const cameraState = UI.getAgeTransitionCameraState();
+  if (cameraState != null && Configuration.getGame().previousAgeCount > 0) {
+    const params = { zoom: cameraState.zoomLevel, instantaneous: true };
+    Camera.lookAt(cameraState.focusPoint.x, cameraState.focusPoint.y, params);
+  }
+  setTimeout(onPullCurtainImpl, 1e3);
+};
 Loading.runWhenFinished(onPullCurtain);
+showLoadingAnimation();
 engine.whenReady.then(() => {
+  if (UI.supports(UISupportedFeature.HUDOffsets)) {
+    let value = UI.getOption("user", "Accessibility", "HUDOffset") ?? 0;
+    if (typeof value != "number" || value < 0 || value > 100) {
+      value = 0;
+    }
+    value = Math.floor(value);
+    document.documentElement.style.setProperty("--hud-offset", value.toString());
+  }
   InitDebugWidgets();
+  InitApp();
 });
+
+export { LoadingStartCurtainRemoveEvent, LoadingStartCurtainRemoveName };
 //# sourceMappingURL=root-game.js.map

@@ -1,0 +1,30 @@
+<GameEffects xmlns="GameEffects">
+	<!-- ==================================================	-->
+	<!--				Civ-Specific Traits					-->
+	<!-- ==================================================	-->
+	<!-- SHAWNEE -->
+	<Modifier id="MOD_SHAWNEE_RIVER_FOOD" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_ATTACH_MODIFIERS">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_ADJACENT_TO_RIVER">
+				<Argument name="Navigable">true</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="ModifierId">ATTACH_MOD_SHAWNEE_RIVER_FOOD</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_MOD_SHAWNEE_RIVER_FOOD" collection="COLLECTION_CITY_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_IS_RIVER">
+				<Argument name="Minor">true</Argument>
+				<Argument name="Navigable">true</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_PLOT_DISTRICT_CLASS" inverse="true">
+				<Argument name="DistrictClass">WONDER</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_FOOD</Argument>
+		<Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+	</Modifier>
+	<Modifier id="MOD_SHAWNEE_CITY_STATE_RESOURCES" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_ADJUST_RESOURCE_CAP_PER_SUZERAIN">
+		<Argument name="Amount">1</Argument>
+	</Modifier>
+</GameEffects>

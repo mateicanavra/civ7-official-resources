@@ -69,4 +69,39 @@
 	<Modifier id="PLAYER_DIPLOMACY_CAPITAL_VISION" collection="COLLECTION_OWNER" effect="EFFECT_DAE_GRANT_CAPITAL_DISTRICT_VISION">
 		<String context="Name">LOC_DIPLOMACY_PROJECT_SEND_DELEGATION_DIPLOMATIC_CITY_STATE_BONUS_NAME</String>
 	</Modifier>
+
+	<Modifier id="PLAYER_DIPLOMACY_PIONEERING_START" collection="COLLECTION_OWNER" effect="EFFECT_DAE_COOPERATIVE_ATTACH_MODIFIER">
+		<String context="Name">LOC_DIPLOMACY_PIONEERING_NAME</String>
+		<Argument name="InitialPlayerAccept">PLAYER_DIPLOMACY_PIONEERING_INITIAL_PLAYER_ACCEPT</Argument>
+		<Argument name="TargetPlayerAccept">PLAYER_DIPLOMACY_PIONEERING_TARGET_PLAYER_ACCEPT</Argument>
+		<Argument name="InitialPlayerSupport">PLAYER_DIPLOMACY_PIONEERING_SUPPORT</Argument>
+		<Argument name="TargetPlayerSupport">PLAYER_DIPLOMACY_PIONEERING_SUPPORT</Argument>
+	</Modifier>
+	<Modifier id="PLAYER_DIPLOMACY_PIONEERING_INITIAL_PLAYER_ACCEPT" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_GRANT_UNIT" run-once="true" permanent="true">
+        <Argument name="UnitType">UNIT_SETTLER</Argument>
+        <Argument name="Amount">1</Argument>
+    </Modifier>
+	<Modifier id="PLAYER_DIPLOMACY_PIONEERING_SUPPORT" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_GRANT_UNIT" run-once="true" permanent="true">
+        <Argument name="UnitType">UNIT_SETTLER</Argument>
+        <Argument name="Amount">1</Argument>
+    </Modifier>
+	<Modifier id="PLAYER_DIPLOMACY_PIONEERING_TARGET_PLAYER_ACCEPT" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD">
+		<Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+		<Argument name="Amount" type="ScaleByGameAge" extra="100">2</Argument>
+		<Argument name="Tooltip">LOC_PLAYER_DIPLOMACY_PIONEERING_TARGET_PLAYER_ACCEPT</Argument>
+	</Modifier>
+	<Modifier id="PLAYER_DIPLOMACY_PIONEERING_MOVEMENT_START" collection="COLLECTION_OWNER" effect="EFFECT_DAE_COOPERATIVE_ATTACH_MODIFIER">
+		<String context="Name">LOC_DIPLOMACY_PIONEERING_NAME</String>
+		<Argument name="InitialPlayerAccept">PLAYER_DIPLOMACY_PIONEERING_PLAYER_MOVEMENT_START</Argument>
+		<Argument name="InitialPlayerSupport">PLAYER_DIPLOMACY_PIONEERING_PLAYER_MOVEMENT_START</Argument>
+		<Argument name="TargetPlayerSupport">PLAYER_DIPLOMACY_PIONEERING_PLAYER_MOVEMENT_START</Argument>
+	</Modifier>
+	<Modifier id="PLAYER_DIPLOMACY_PIONEERING_PLAYER_MOVEMENT_START" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_ABILITY" run-once="false" permanent="false">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+				<Argument name="Tag">UNIT_CLASS_CREATE_TOWN</Argument>
+			</Requirement>
+        </SubjectRequirements>
+        <Argument name="AbilityType">ABILITY_DIPLOMACY_PIONEERING_MOVEMENT</Argument>
+    </Modifier>
 </GameEffects>

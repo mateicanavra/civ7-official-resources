@@ -1,35 +1,24 @@
-import { A as ActionActivateEvent } from '../components/fxs-activatable.chunk.js';
-import { D as DropdownSelectionChangeEventName } from '../components/fxs-dropdown.chunk.js';
-import { c as TextBoxTextEditStopEventName } from '../components/fxs-textbox.chunk.js';
+import { ActionActivateEvent } from '../components/fxs-activatable.js';
+import { DropdownSelectionChangeEventName } from '../components/fxs-dropdown.js';
+import { TextBoxTextEditStopEventName } from '../components/fxs-textbox.js';
 import ContextManager from '../context-manager/context-manager.js';
-import { d as displayRequestUniqueId, a as DialogBoxManager, D as DialogBoxAction } from '../dialog-box/manager-dialog-box.chunk.js';
+import { displayRequestUniqueId } from '../context-manager/display-handler.js';
+import { DialogBoxManager } from '../dialog-box/manager-dialog-box.js';
 import ActionHandler from '../input/action-handler.js';
-import FocusManager from '../input/focus-manager.js';
-import { b as InputEngineEventName } from '../input/input-support.chunk.js';
-import { N as NavTray } from '../navigation-tray/model-navigation-tray.chunk.js';
-import { P as Panel, A as AnchorType } from '../panel-support.chunk.js';
-import { Q as QueryDoneEventName, a as SyncDoneEventName, S as SaveLoadData, D as DEFAULT_SAVE_GAME_INFO } from './model-save-load.chunk.js';
+import { InputEngineEventName } from '../input/input-support.js';
+import NavTray from '../navigation-tray/model-navigation-tray.js';
+import Panel, { AnchorType } from '../panel-support.js';
+import SaveLoadData, { QueryDoneEventName, SyncDoneEventName, DEFAULT_SAVE_GAME_INFO } from './model-save-load.js';
 import { ActionConfirmEventName } from './save-load-card.js';
 import { TriggerQuerySavesEventName } from '../shell/sync-conflict/sync-conflict.js';
-import { S as SystemMessageManager } from '../system-message/system-message-manager.chunk.js';
-import { D as Databind } from '../utilities/utilities-core-databinding.chunk.js';
-import { f as fixupNNBSP } from '../utilities/utilities-core-textprovider.chunk.js';
-import { MustGetElement, MustGetElements } from '../utilities/utilities-dom.chunk.js';
-import { L as Layout } from '../utilities/utilities-layout.chunk.js';
-import '../audio-base/audio-support.chunk.js';
-import '../input/focus-support.chunk.js';
-import '../components/fxs-slot.chunk.js';
-import '../views/view-manager.chunk.js';
-import '../spatial/spatial-manager.js';
-import '../framework.chunk.js';
-import '../context-manager/display-queue-manager.js';
-import '../input/cursor.js';
-import '../utilities/utilities-update-gate.chunk.js';
-import '../utilities/utilities-image.chunk.js';
-import '../utilities/utilities-component-id.chunk.js';
-import '../events/shell-events.chunk.js';
-
-const styles = "fs://game/core/ui/save-load/screen-save-load.css";
+import SystemMessageManager from '../system-message/system-message-manager.js';
+import Databind from '../utilities/utilities-core-databinding.js';
+import { fixupNNBSP } from '../utilities/utilities-core-textprovider.js';
+import { MustGetElement, MustGetElements } from '../utilities/utilities-dom.js';
+import { Layout } from '../utilities/utilities-layout.js';
+import { FocusManager } from '../../ui-next/services/focus-manager.js';
+import styles from './screen-save-load.scss.js';
+import { DialogBoxAction } from '../dialog-box/model-dialog-box.js';
 
 const SaveLoadClosedEventName = "save-load-closed";
 class SaveLoadClosedEvent extends CustomEvent {
@@ -558,7 +547,7 @@ class ScreenSaveLoad extends Panel {
 					<div class="flow-row flex-auto relative">
 						<div class="screen-save__list__content flow-column h-full w-2\\/3">
 							<div class="flow-row justify-center mr-8 px-2">
-								<fxs-tab-bar tab-for=".screen-save__list__content" alt-controls="false" class="flex-1" tab-item-class="mx-4" tab-items='${JSON.stringify(this.getTabItems())}'></fxs-tab-bar>
+								<fxs-tab-bar tab-for=".screen-save__list__content" alt-controls="false" class="flex-1" tab-item-class="mx-4" tab-items='${JSON.stringify(this.getTabItems())}' data-audio-focus-ref="none"></fxs-tab-bar>
 							</div>
 							<div class="relative flex-auto flow-column mt-4 mr-8">
 								<fxs-slot-group class="flex-auto flow-column">
@@ -594,6 +583,7 @@ class ScreenSaveLoad extends Panel {
 									label-class="font-fit-shrink truncate"
 									action-key="inline-shell-action-2"
 									nav-help-side-reversed="true"
+									data-audio-group-ref="save-load"
 								></fxs-dropdown>
 							</div>
 							<fxs-inner-frame class="flex-auto flow-column py-4 px-6 mt-4">
@@ -928,6 +918,10 @@ class ScreenSaveLoad extends Panel {
         this.currentPanelOperation = 0 /* None */;
         this.createOverwriteConfirmationDialog();
         break;
+      case SerializerResult.RESULT_SAVE_NAME_TOO_LONG:
+        this.resetPanelOperation();
+        this.createSaveTooLongConfirm();
+        break;
       case SerializerResult.RESULT_OK:
         this.currentPanelOperation = 0 /* None */;
         if (this.Root.getAttribute("from-invite")) {
@@ -1109,7 +1103,7 @@ class ScreenSaveLoad extends Panel {
     this.focusSlotGroup();
   }
   focusSlotGroup() {
-    FocusManager.setFocus(this.slotGroup);
+    FocusManager.get().setFocus(this.slotGroup);
     if (!ActionHandler.isGamepadActive) {
       const saveType = this.Root.getAttribute("menu-type") ?? "load" /* LOAD */;
       const selectedSlot = this.slotGroup?.getAttribute("selected-slot") ?? "local" /* LOCAL */;
@@ -1155,7 +1149,7 @@ class ScreenSaveLoad extends Panel {
       { isOverwriteQueryIds: true }
     );
     this.updateControls(isReset);
-    FocusManager.setFocus(this.loadingContainer);
+    this.focusSlotGroup();
     this.updateNavTray();
   }
   startDelete() {
@@ -1163,7 +1157,7 @@ class ScreenSaveLoad extends Panel {
       return;
     }
     const focusedSaveGameInfo = this.getSelectedSaveGameInfo();
-    FocusManager.setFocus(this.loadingContainer);
+    FocusManager.get().setFocus(this.loadingContainer);
     this.updateNavTray();
     if (SaveLoadData.handleDelete(focusedSaveGameInfo)) {
       this.panelOperationTimeout = setTimeout(() => {
@@ -1203,7 +1197,7 @@ class ScreenSaveLoad extends Panel {
     const saveType = Number.parseInt(this.Root.getAttribute("save-type") ?? "0");
     const selectedSlot = this.slotGroup?.getAttribute("selected-slot") ?? "local" /* LOCAL */;
     const fileName = this.saveCard?.getAttribute("value") || this.getNewSaveNameDefault();
-    FocusManager.setFocus(this.loadingContainer);
+    FocusManager.get().setFocus(this.loadingContainer);
     this.updateNavTray();
     if (SaveLoadData.handleSave(
       fileName,
@@ -1226,7 +1220,7 @@ class ScreenSaveLoad extends Panel {
     }
     const { fileName, displayName, location, type, contentType } = saveGameInfo;
     const saveFileName = location == SaveLocations.LOCAL_STORAGE ? fileName : displayName;
-    FocusManager.setFocus(this.loadingContainer);
+    FocusManager.get().setFocus(this.loadingContainer);
     this.updateNavTray();
     if (SaveLoadData.handleOverwrite(saveFileName, type, location, contentType)) {
       this.panelOperationTimeout = setTimeout(() => {
@@ -1272,6 +1266,12 @@ class ScreenSaveLoad extends Panel {
     DialogBoxManager.createDialog_Confirm({
       body: "LOC_SAVE_LOAD_UNABLE_TO_LOAD_BODY",
       title: "LOC_SAVE_LOAD_UNABLE_TO_LOAD_TITLE"
+    });
+  }
+  createSaveTooLongConfirm() {
+    DialogBoxManager.createDialog_Confirm({
+      body: "LOC_SAVE_NAME_TOO_LONG",
+      title: "LOC_SAVE_LOAD_SAVE_ERROR"
     });
   }
   createDeleteConfirmationDialog() {
@@ -1375,7 +1375,7 @@ class ScreenSaveLoad extends Panel {
         case 1 /* ALPHA */:
           return a.gameName.toLocaleUpperCase().localeCompare(b.gameName.toLocaleUpperCase());
         case 2 /* TIME_CREATED */:
-          return b.saveTime - a.saveTime;
+          return a.saveTime < b.saveTime ? 1 : a.saveTime > b.saveTime ? -1 : 0;
         default:
           return 0;
       }
@@ -1384,12 +1384,12 @@ class ScreenSaveLoad extends Panel {
   updateNavTray() {
     NavTray.clear();
     NavTray.addOrUpdateGenericBack();
-    const currentFocus = FocusManager.getFocus();
+    const currentFocus = FocusManager.get().currentFocus();
     this.Root.classList.toggle(
       "trigger-nav-help",
       currentFocus.classList.contains("screen-save__list__slot") || currentFocus.classList.contains("save-load-chooser-item") || currentFocus.classList.contains("screen-save__crossplay__loged-out__link-button")
     );
-    if (!ActionHandler.isGamepadActive || FocusManager.getFocus().tagName !== "SAVE-LOAD-CHOOSER-ITEM") {
+    if (!ActionHandler.isGamepadActive || FocusManager.get().currentFocus().tagName !== "SAVE-LOAD-CHOOSER-ITEM") {
       return;
     }
     const selectedSlot = this.slotGroup?.getAttribute("selected-slot") ?? "local" /* LOCAL */;

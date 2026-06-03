@@ -1,33 +1,10 @@
 import ContextManager from '../../../core/ui/context-manager/context-manager.js';
-import { b as InputEngineEventName } from '../../../core/ui/input/input-support.chunk.js';
-import { N as NavTray } from '../../../core/ui/navigation-tray/model-navigation-tray.chunk.js';
-import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.chunk.js';
-import { C as CinematicManager } from './cinematic-manager.chunk.js';
-import '../../../core/ui/context-manager/display-queue-manager.js';
-import '../../../core/ui/dialog-box/manager-dialog-box.chunk.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/input/cursor.js';
-import '../../../core/ui/input/focus-manager.js';
-import '../../../core/ui/audio-base/audio-support.chunk.js';
-import '../../../core/ui/views/view-manager.chunk.js';
-import '../../../core/ui/panel-support.chunk.js';
-import '../../../core/ui/input/action-handler.js';
-import '../../../core/ui/utilities/utilities-update-gate.chunk.js';
-import '../../../core/ui/utilities/utilities-image.chunk.js';
-import '../../../core/ui/utilities/utilities-component-id.chunk.js';
-import '../../../core/ui/interface-modes/interface-modes.js';
-import '../endgame/screen-endgame.js';
-import '../../../core/ui/tooltips/tooltip-manager.js';
-import '../../../core/ui/input/plot-cursor.js';
-import '../../../core/ui/utilities/utilities-layout.chunk.js';
-import '../../../core/ui/utilities/utilities-color.chunk.js';
-import '../../../core/ui/graph-layout/utils.chunk.js';
-import '../end-results/end-results.js';
-import '../endgame/model-endgame.js';
-
-const content = "<div class=\"size-full relative\">\r\n\t<div\r\n\t\tclass=\"cinematic-moment_vignette absolute fullscreen-outside-safezone-x-top bg-center bg-no-repeat bg-cover\"\r\n\t></div>\r\n\t<div class=\"absolute size-full\">\r\n\t\t<!-- header -->\r\n\t\t<div class=\"flex flex-col items-center mt-8\">\r\n\t\t\t<div class=\"cinematic-moment_title-overtitle font-title-lg text-shadow\"></div>\r\n\t\t\t<div class=\"flex flex-col items-center\">\r\n\t\t\t\t<fxs-header\r\n\t\t\t\t\tfiligree-style=\"h1\"\r\n\t\t\t\t\tclass=\"cinematic-moment_title-header text-shadow font-title-2xl text-secondary\"\r\n\t\t\t\t\ttitle=\"LOC_BELIEF_CLASS_PANTHEON_NAME\"\r\n\t\t\t\t>\r\n\t\t\t\t</fxs-header>\r\n\t\t\t\t<div class=\"cinematic-moment_title-subtitle font-title-lg -mt-12 text-shadow\"></div>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t\t<div class=\"flex flex-wrap w-full absolute bottom-0 flex-row-reverse items-center justify-between\">\r\n\t\t\t<!-- buttons -->\r\n\t\t\t<div class=\"cinematic-moment_button-container flex mr-4 mb-6 items-end\">\r\n\t\t\t\t<fxs-button\r\n\t\t\t\t\tcaption=\"LOC_WONDER_MOVIE_REPLAY\"\r\n\t\t\t\t\tclass=\"cinematic-moment__replay-button w-80 mt-6 mr-1\"\r\n\t\t\t\t\taction-key=\"inline-shell-action-1\"\r\n\t\t\t\t></fxs-button>\r\n\t\t\t\t<fxs-hero-button\r\n\t\t\t\t\tcaption=\"LOC_WONDER_MOVIE_CLOSE\"\r\n\t\t\t\t\tclass=\"cinematic-moment__close-button w-80 ml-1\"\r\n\t\t\t\t\taction-key=\"inline-cancel\"\r\n\t\t\t\t></fxs-hero-button>\r\n\t\t\t</div>\r\n\t\t\t<!-- quote -->\r\n\t\t\t<div class=\"cinematic-moment_quote-container\">\r\n\t\t\t\t<div class=\"cinematic-moment_quote-box flex flex-col items-center mb-6 grow mx-10 p-4\">\r\n\t\t\t\t\t<div class=\"cinematic-moment_quote-text-container relative flex flex-col items-center px-8 pb-2\">\r\n\t\t\t\t\t\t<div class=\"cinematic-moment_quote-marks absolute inset-0\"></div>\r\n\t\t\t\t\t\t<div class=\"cinematic-moment_quote-text font-body-base\"></div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<fxs-header\r\n\t\t\t\t\t\tclass=\"cinematic-moment_quote-author-text font-title-base text-secondary\"\r\n\t\t\t\t\t\tfiligree-style=\"h4\"\r\n\t\t\t\t\t></fxs-header>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t</div>\r\n</div>\r\n";
-
-const styles = "fs://game/base-standard/ui/cinematic/screen-cinematic-placard.css";
+import { InputEngineEventName } from '../../../core/ui/input/input-support.js';
+import NavTray from '../../../core/ui/navigation-tray/model-navigation-tray.js';
+import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
+import { CinematicManager } from './cinematic-manager.js';
+import content from './screen-cinematic-placard.html.js';
+import styles from './screen-cinematic-placard.scss.js';
 
 class ScreenCinematicPlacard extends Component {
   engineInputListener = this.onEngineInput.bind(this);
@@ -244,6 +221,8 @@ class ScreenVictoryPlacard extends ScreenCinematicPlacard {
   buildCinematicInfo() {
     let title = "";
     let subtitle = Game.getTurnDate();
+    let quote = "";
+    let author = "";
     const victoryType = this.Root.getAttribute("victoryType");
     if (!victoryType) {
       console.error("ScreenVictoryPlacard: buildCinematicInfo() - no victoryType attribute specified!");
@@ -272,17 +251,35 @@ class ScreenVictoryPlacard extends ScreenCinematicPlacard {
           Game.getTurnDate()
         );
         break;
-      case "VICTORY_MODERN_CULTURE":
+      case "VICTORY_MODERN_CULTURE": {
         title = Locale.compose("LOC_UI_CINEMATIC_WORLDS_FAIR");
         subtitle = Locale.compose("LOC_UI_CINEMATIC_COMPLETED", Game.getTurnDate());
+        const location = CinematicManager.getCinematicLocation();
+        const constructibles = MapConstructibles.getConstructibles(location.x, location.y);
+        for (let i = 0; i < constructibles.length; i++) {
+          const instance = Constructibles.getByComponentID(constructibles[i]);
+          if (instance) {
+            const info = GameInfo.Constructibles.lookup(instance.type);
+            if (info?.ConstructibleClass == "WONDER") {
+              const wonderQuote = GameInfo.TypeQuotes.lookup(info.ConstructibleType);
+              if (wonderQuote) {
+                quote = wonderQuote.Quote;
+                author = wonderQuote.QuoteAuthor ?? "";
+                this.hasQuote = true;
+              }
+              break;
+            }
+          }
+        }
         break;
+      }
       default:
         break;
     }
     return {
       cinematicTitle: title,
-      cinematicQuote: "",
-      cinematicAuthor: "",
+      cinematicQuote: this.hasQuote ? quote : "",
+      cinematicAuthor: this.hasQuote ? author : "",
       cinematicSubtitle: subtitle,
       cinematicOverTitle: ""
     };

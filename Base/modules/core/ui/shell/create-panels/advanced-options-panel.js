@@ -1,39 +1,12 @@
-import FocusManager from '../../input/focus-manager.js';
-import { N as NavTray } from '../../navigation-tray/model-navigation-tray.chunk.js';
-import { O as OptionsBase, A as AdvancedOptionsParameter, a as AdvancedOptionsBase, s as styles } from './advanced-options-panel.chunk.js';
-import { G as GetCivilizationData } from './age-civ-select-model.chunk.js';
+import NavTray from '../../navigation-tray/model-navigation-tray.js';
+import { AdvancedOptionsBase } from './advanced-options-base.js';
+import { GetCivilizationData } from './age-civ-select-model.js';
 import { CreateGameModel } from './create-game-model.js';
-import { g as getLeaderData } from './leader-select-model.chunk.js';
-import { L as LeaderSelectModelManager } from '../leader-select/leader-select-model-manager.chunk.js';
-import '../../audio-base/audio-support.chunk.js';
-import '../../framework.chunk.js';
-import '../../input/action-handler.js';
-import '../../input/cursor.js';
-import '../../views/view-manager.chunk.js';
-import '../../panel-support.chunk.js';
-import '../../input/input-support.chunk.js';
-import '../../utilities/utilities-update-gate.chunk.js';
-import '../../utilities/utilities-image.chunk.js';
-import '../../utilities/utilities-component-id.chunk.js';
-import '../../context-manager/context-manager.js';
-import '../../context-manager/display-queue-manager.js';
-import '../../dialog-box/manager-dialog-box.chunk.js';
-import '../../components/fxs-dropdown.chunk.js';
-import '../../components/fxs-activatable.chunk.js';
-import '../../input/focus-support.chunk.js';
-import '../../components/fxs-slot.chunk.js';
-import '../../spatial/spatial-manager.js';
-import '../../utilities/utilities-dom.chunk.js';
-import './game-creation-panel-base.chunk.js';
-import '../../utilities/utilities-liveops.js';
-import '../live-event-logic/live-event-logic.chunk.js';
-import '../../utilities/utilities-layout.chunk.js';
-import '../../utilities/utilities-data.chunk.js';
-import '../../events/shell-events.chunk.js';
-import '../../profile-page/screen-profile-page.js';
-import '../../save-load/model-save-load.chunk.js';
-import '../leader-select/leader-button/leader-button.js';
-import '../../utilities/utilities-metaprogression.chunk.js';
+import { OptionsBase, AdvancedOptionsParameter } from './game-creation-options.js';
+import { getLeaderData } from './leader-select-model.js';
+import LeaderSelectModelManager from '../leader-select/leader-select-model-manager.js';
+import { FocusManager } from '../../../ui-next/services/focus-manager.js';
+import styles from './advanced-options-panel.scss.js';
 
 let cachedDatabaseChanges = -1;
 let cachedCivData = [];
@@ -165,6 +138,7 @@ class PlayerLeaderOrCivOption extends OptionsBase {
     const strPlayerCivilization = GameSetup.makeString("PlayerCivilization");
     this.possibleValues = [];
     if (setupParam.domain.possibleValues) {
+      const sortedValues = [];
       for (const pv of setupParam.domain.possibleValues) {
         let iconURL = "";
         if (pv.icon != GAMESETUP_INVALID_STRING) {
@@ -188,13 +162,21 @@ class PlayerLeaderOrCivOption extends OptionsBase {
         } else if (setupParam.ID == strPlayerLeader) {
           tooltip = GetLeaderTooltip(pv.value) ?? "";
         }
-        this.possibleValues.push({
+        const name = GameSetup.resolveString(pv.name);
+        const label = name ?? pv.value;
+        sortedValues.push({
           id: pv.value,
-          label: GameSetup.resolveString(pv.name) ?? pv.value,
+          label,
+          labelText: Locale.compose(label),
+          sortIndex: pv.sortIndex,
           iconURL,
           tooltip
         });
       }
+      sortedValues.sort((a, b) => {
+        return a.sortIndex == b.sortIndex ? Locale.compare(a.labelText, b.labelText) : a.sortIndex - b.sortIndex;
+      });
+      this.possibleValues = sortedValues;
     }
   }
 }
@@ -223,9 +205,9 @@ class AdvancedOptionsPanel extends AdvancedOptionsBase {
   activePlayerParameters = /* @__PURE__ */ new Map();
   constructor(root) {
     super(root);
-    this.slotIDs = ["advanced-setup__game", "advanced-setup__legacy"];
+    this.slotIDs = [AdvancedOptionsBase.GAME_PANEL_ID];
     if (!UI.isInGame()) {
-      this.slotIDs.push("advanced-setup__player");
+      this.slotIDs.push(AdvancedOptionsBase.PLAYER_PANEL_ID);
     }
     this.saveConfigAttributes = {
       "menu-type": "save_config",
@@ -243,11 +225,6 @@ class AdvancedOptionsPanel extends AdvancedOptionsBase {
         category: "LOC_ADVANCED_OPTIONS_GAME_SETTINGS",
         isActive: true,
         eventHandler: this.showGameSetupPanel.bind(this)
-      },
-      {
-        category: "LOC_ADVANCED_OPTIONS_LEGACY_PATH_SETTINGS",
-        isActive: false,
-        eventHandler: this.showLegacyPathSetupPanel.bind(this)
       }
     ];
     if (!UI.isInGame()) {
@@ -263,8 +240,11 @@ class AdvancedOptionsPanel extends AdvancedOptionsBase {
   }
   onInitialize() {
     super.onInitialize();
-    this.createPlayerSetupPanel();
-    this.frame.setAttribute("override-styling", "advanced-options_sp-frame flex-auto relative pt-14 px-10 pb-4");
+    this.createPlayerSetupPanel(AdvancedOptionsBase.PLAYER_PANEL_ID);
+    this.frame.setAttribute(
+      "override-styling",
+      "advanced-options_sp-frame flex-auto relative max-h-full pt-14 px-10 pb-4"
+    );
   }
   onUpdate() {
     const strPlayerLeader = GameSetup.makeString("PlayerLeader");
@@ -310,12 +290,13 @@ class AdvancedOptionsPanel extends AdvancedOptionsBase {
         shouldRefreshPlayerOptions = true;
       }
       if (shouldRefreshGameOptions) {
-        const lastChangedParameter = FocusManager.getFocus().id;
+        const focusManager = FocusManager.get();
+        const lastChangedParameter = focusManager.currentFocus().id;
         this.refreshGameOptions();
         if (lastChangedParameter != "") {
           const newFocus = this.Root.querySelector(`#${lastChangedParameter}`);
           if (newFocus) {
-            FocusManager.setFocus(newFocus);
+            focusManager.setFocus(newFocus);
           }
         } else {
           this.updateFocus();
@@ -673,9 +654,9 @@ class AdvancedOptionsPanel extends AdvancedOptionsBase {
     deleteIcon.appendChild(border);
     return playerOptions;
   }
-  createPlayerSetupPanel() {
+  createPlayerSetupPanel(panelId) {
     this.playerSetupPanel.classList.add("player-setup", "flex", "flex-col", "items-center");
-    this.playerSetupPanel.id = this.slotIDs[2];
+    this.playerSetupPanel.id = panelId;
     this.playerConfigContainer.classList.add("mx-6");
     const scrollableContent = document.createElement("fxs-scrollable");
     scrollableContent.classList.add("flex-auto");
@@ -702,7 +683,7 @@ Controls.define("advanced-options-panel", {
     "blp:set_load_config",
     "blp:set_load_config-focus"
   ],
-  classNames: ["fullscreen", "flex", "justify-center"],
+  classNames: ["flex", "justify-center"],
   tabIndex: -1
 });
 

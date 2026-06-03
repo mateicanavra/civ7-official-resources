@@ -1,19 +1,9 @@
 import ContextManager from '../../../core/ui/context-manager/context-manager.js';
-import ActionHandler, { ActiveDeviceTypeChangedEventName } from '../../../core/ui/input/action-handler.js';
-import { P as Panel } from '../../../core/ui/panel-support.chunk.js';
+import ActionHandler from '../../../core/ui/input/action-handler.js';
+import { ActiveDeviceTypeChangedEventName } from '../../../core/ui/input/input-events.js';
+import Panel from '../../../core/ui/panel-support.js';
 import { NotificationModel } from '../notification-train/model-notification-train.js';
-import '../../../core/ui/context-manager/display-queue-manager.js';
-import '../../../core/ui/dialog-box/manager-dialog-box.chunk.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/input/cursor.js';
-import '../../../core/ui/input/focus-manager.js';
-import '../../../core/ui/audio-base/audio-support.chunk.js';
-import '../../../core/ui/views/view-manager.chunk.js';
-import '../../../core/ui/input/input-support.chunk.js';
-import '../../../core/ui/utilities/utilities-update-gate.chunk.js';
-import '../../../core/ui/utilities/utilities-component-id.chunk.js';
-
-const styles = "fs://game/base-standard/ui/notification-train-mobile/panel-notification-mobile-opener.css";
+import styles from './panel-notification-mobile-opener.scss.js';
 
 class NotificationPanelOpener extends Panel {
   notificationCount = 0;

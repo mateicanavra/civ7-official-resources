@@ -1,25 +1,10 @@
 import ContextManager from '../../../core/ui/context-manager/context-manager.js';
-import { a as DialogBoxManager } from '../../../core/ui/dialog-box/manager-dialog-box.chunk.js';
+import { DialogBoxManager } from '../../../core/ui/dialog-box/manager-dialog-box.js';
 import { NetworkUtilities } from '../../../core/ui/utilities/utilities-network.js';
-import '../../../core/ui/context-manager/display-queue-manager.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/input/cursor.js';
-import '../../../core/ui/input/focus-manager.js';
-import '../../../core/ui/audio-base/audio-support.chunk.js';
-import '../../../core/ui/views/view-manager.chunk.js';
-import '../../../core/ui/panel-support.chunk.js';
-import '../../../core/ui/shell/mp-legal/mp-legal.js';
-import '../../../core/ui/events/shell-events.chunk.js';
-import '../../../core/ui/navigation-tray/model-navigation-tray.chunk.js';
-import '../../../core/ui/input/action-handler.js';
-import '../../../core/ui/input/input-support.chunk.js';
-import '../../../core/ui/utilities/utilities-update-gate.chunk.js';
-import '../../../core/ui/utilities/utilities-image.chunk.js';
-import '../../../core/ui/utilities/utilities-component-id.chunk.js';
-import '../../../core/ui/utilities/utilities-dom.chunk.js';
-import '../../../core/ui/utilities/utilities-liveops.js';
-import '../../../core/ui/utilities/utilities-network-constants.chunk.js';
+import { LoadingStartCurtainRemoveName } from '../root-game.js';
+import '../../ui-next/screens/hotseat/hotseat-curtain.js';
 
+const HtmlIdHotseatCurtain = "hotseat-screen-curtain";
 class MultiplayerIngameSingleton {
   mpPauseDialogID;
   multiplayerGameAbandonedListener = (data) => {
@@ -28,23 +13,39 @@ class MultiplayerIngameSingleton {
   multiplayerGameLastPlayerListener = () => {
     this.onMultiplayerGameLastPlayer();
   };
+  localPlayerChangedListener = (data) => {
+    this.onLocalPlayerChanged(data);
+  };
+  loadingStartCurtainRemoveListener = (event) => {
+    this.onLoadingStartCurtainRemove(event);
+  };
   multiplayerGamePauseStateChangedListener = (data) => {
     this.onMultiplayerPauseStatus(data);
   };
+  /**
+   * CTOR
+   */
   constructor() {
     engine.whenReady.then(() => {
       this.onReady();
     });
   }
-  //===============================================================
-  // UI Object Events
+  /**
+   * Engine ready, establish callbacks.
+   */
   onReady() {
-    engine.on("MultiplayerGameAbandoned", this.multiplayerGameAbandonedListener);
-    engine.on("MultiplayerGameLastPlayer", this.multiplayerGameLastPlayerListener);
-    engine.on("GamePauseStateChanged", this.multiplayerGamePauseStateChangedListener);
+    engine.on("MultiplayerGameAbandoned", this.multiplayerGameAbandonedListener, this);
+    engine.on("MultiplayerGameLastPlayer", this.multiplayerGameLastPlayerListener, this);
+    engine.on("GamePauseStateChanged", this.multiplayerGamePauseStateChangedListener, this);
+    engine.on("LocalPlayerChanged", this.localPlayerChangedListener, this);
+    if (Configuration.getGame().isHotseat) {
+      window.addEventListener(LoadingStartCurtainRemoveName, this.loadingStartCurtainRemoveListener);
+    }
   }
-  //===============================================================
-  // Engine Events
+  /**
+   * Engine Event - multiplayer game has been abandoned (by other players?)
+   * @param data
+   */
   onMultiplayerGameAbandoned(data) {
     const abandonPopup = NetworkUtilities.multiplayerAbandonReasonToPopup(
       data.reason
@@ -55,6 +56,9 @@ class MultiplayerIngameSingleton {
       callback: this.onAbandonedConfirm
     });
   }
+  /**
+   * Engine Event - Last player in the game.
+   */
   onMultiplayerGameLastPlayer() {
     if (ContextManager.getTarget("screen-endgame")) {
       return;
@@ -111,6 +115,46 @@ class MultiplayerIngameSingleton {
   // Dialog Callbacks
   onAbandonedConfirm() {
     engine.call("exitToMainMenu");
+  }
+  /**
+   * Is the hotseat curtain up (attached to the DOM and showing?)
+   * @returns true if up, false otherwise.
+   */
+  isHotseatCurtainUp() {
+    const element = document.querySelector(HtmlIdHotseatCurtain);
+    if (element) {
+      return true;
+    }
+    return false;
+  }
+  attachHotseatCurtain() {
+    const curtain = document.createElement("hotseat-curtain");
+    curtain.id = HtmlIdHotseatCurtain;
+    const popups = document.querySelector(".fxs-popups");
+    if (!popups) {
+      return;
+    }
+    popups.parentElement?.insertBefore(curtain, popups);
+  }
+  /**
+   * Local player changed; likely handing off game to another player (hotseat).
+   */
+  onLocalPlayerChanged(_data) {
+    if (Configuration.getGame().isHotseat) {
+      waitForLayout(() => {
+        this.attachHotseatCurtain();
+      });
+    }
+  }
+  onLoadingStartCurtainRemove(event) {
+    if (event.detail.id != "hotseat") {
+      return;
+    }
+    if (Configuration.getGame().isHotseat) {
+      if (!this.isHotseatCurtainUp()) {
+        this.attachHotseatCurtain();
+      }
+    }
   }
 }
 const MultiplayerIngame = new MultiplayerIngameSingleton();

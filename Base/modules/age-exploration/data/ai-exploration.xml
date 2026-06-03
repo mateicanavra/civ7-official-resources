@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+  <AiComponents>
+    <!-- Tentatively use the same targeting as in antuqity -->
+    <Row Component="Tactical_Exploration" DefaultPriority="AI_PRIORITY_LOW"/>
+    <Row Component="Targets_Exploration" DefaultPriority="AI_PRIORITY_STRATEGIC"/>
+    <Row Component="Military_Exploration" DefaultPriority="AI_PRIORITY_MEDIUM" Consumer="true"/>
+    <Row Component="Diplomatic_Exploration" DefaultPriority="AI_PRIORITY_MEDIUM" Consumer="true"/>
+  </AiComponents>
+  <AiDefinitions>
+    <Row LeaderTrait="TRAIT_LEADER_MAJOR_CIV" AiComponent="Targets_Exploration"/>
+    <Row LeaderTrait="TRAIT_LEADER_MINOR_CIV" AiComponent="Targets_Exploration"/>
+    <Row LeaderTrait="TRAIT_LEADER_INDEPENDENT" AiComponent="Targets_Exploration"/>
+    <Delete LeaderTrait="TRAIT_LEADER_MAJOR_CIV" AiComponent="Military"/>
+    <Row LeaderTrait="TRAIT_LEADER_MAJOR_CIV" AiComponent="Military_Exploration"/>
+    <Delete LeaderTrait="TRAIT_LEADER_MAJOR_CIV" AiComponent="Diplomatic"/>
+    <Row LeaderTrait="TRAIT_LEADER_MAJOR_CIV" AiComponent="Diplomatic_Exploration"/>
+    <Delete LeaderTrait="TRAIT_LEADER_MAJOR_CIV" AiComponent="Tactical"/>
+    <Row LeaderTrait="TRAIT_LEADER_MAJOR_CIV" AiComponent="Tactical_Exploration"/>
+  </AiDefinitions>
+  <AiTactics>
+    <Row TacticType="Attack Treasure Fleet"/>
+    <Row TacticType="Return Treasure Fleet"/>
+  </AiTactics>
+  <AiListTypes>
+    <!-- Advanced Start/Age Transition modifiers (mostly intended for dark cards)-->
+    <Row ListType="Dark Age Armies PseudoYields"/>
+
+    <!-- Exploration Majors -->
+    <Row ListType="Exploration Tag Biases"/>
+    <Row ListType="Exploration Constructible Biases"/>
+    <Row ListType="Exploration Unit Biases"/>
+    <Row ListType="Default Exploration Settlement Plot Evaluations"/>
+  </AiListTypes>
+  <AiLists>
+    <!-- Advanced Start/Age Transition modifiers (mostly intended for dark cards)-->
+    <Row ListType="Dark Age Armies PseudoYields" System="PseudoYieldBiases" />
+	<Row ListType="Default Exploration Settlement Plot Evaluations" LeaderType="TRAIT_LEADER_MAJOR_CIV" System="SettlementPlotEvaluations"/>
+  </AiLists>
+  <AiFavoredItems>
+    <!--  Special Tactic for independents -->
+    <!-- [INTERIM] -->
+    <Row ListType="Default Minor Independent" Item="Attack Treasure Fleet" Value="1"/>
+    <Row ListType="Default Tactical" Item="Return Treasure Fleet" Value="1"/>
+    <Row ListType="Default Tactical" Item="Attack Treasure Fleet" Value="1"/>
+    <!-- [/INTERIM] -->
+
+    <!-- Advanced Start/Age Transition modifiers (mostly intended for dark cards)-->
+    <Row ListType="Dark Age Armies PseudoYields" Item="PSEUDOYIELD_CITY_DEFENSES" Value="-100"/>
+
+    <!-- Exploration Majors  -->
+    <Row ListType="Exploration Tag Biases" Item="PRODUCTION" Value="100"/>
+    <Row ListType="Default Exploration Settlement Plot Evaluations" Item="Foreign Hemisphere" Favored="false" Value="200" TooltipString="LOC_SETTLEMENT_RECOMMENDATION_FOREIGN_HEMISPHERE"/>
+    <Row ListType="Default Exploration Settlement Plot Evaluations" Item="Resource Class" Favored="false" Value="50" StringVal="RESOURCECLASS_TREASURE" TooltipString="LOC_SETTLEMENT_RECOMMENDATION_STRATEGIC_RESOURCES"/>
+  </AiFavoredItems>
+  <TargetTypes>
+    <Row TargetType="TARGET_NAVAL_SUPERIORITY"/>
+    <!-- Blank target type intended for use by naval superiority op only -->
+    <Row TargetType="TARGET_DISTANT_LANDS"/>
+  </TargetTypes>
+  <AiOperationTypes>
+    <Row OperationType="NAVAL_SUPERIORITY"/>
+  </AiOperationTypes>
+  <AiFavoredItems>
+    <Row ListType="BaseOperationsLimits" Item="NAVAL_SUPERIORITY" Value="2" />
+  </AiFavoredItems>
+  <AllowedOperations>
+    <Row ListType="Major Civ Operations" OperationDef="Naval Superiority"/>
+    <Row ListType="Major Civ Operations" OperationDef="Distant Lands"/>
+  </AllowedOperations>
+  <AiOperationDefs>
+    <!-- [INTERIM] -->
+    <Row OperationName="Naval Superiority" TargetType="TARGET_NAVAL_SUPERIORITY" EnemyType="NONE" OperationType="NAVAL_SUPERIORITY" BehaviorTree="Naval Superiority Tree" SelfStart="True" Priority="1" MaxTargetDistInRegion="-1" MaxTargetDistInArea="-1" MaxTargetDistInWorld="-1"/>
+    <!-- [/INTERIM] -->
+    <Row OperationName="Distant Lands" TargetType="TARGET_DISTANT_LANDS" EnemyType="NONE" BehaviorTree="Explore Distant Lands" SelfStart="false" Priority="4"/>
+  </AiOperationDefs>
+  <AiTeams>
+    <Row TeamName="Naval Superiority Force"/>
+    <Row TeamName="Naval Explorers"/>
+    <!--  Additional naval team for city attacks -->
+    <Row TeamName="Enemy City Naval Attack"/>
+  </AiTeams>
+  <AiOperationTeams>
+    <!-- [INTERIM] -->
+    <Row TeamName="Naval Superiority Force" OperationName="Naval Superiority" InitialStrengthAdvantage="0" OngoingStrengthAdvantage="1" />
+    <!-- [/INTERIM] -->
+    <Row TeamName="Naval Explorers" OperationName="Distant Lands" InitialStrengthAdvantage="-1" OngoingStrengthAdvantage="-1" />
+    <Row TeamName="Enemy City Naval Attack" OperationName="Attack Enemy City" InitialStrengthAdvantage="-1" OngoingStrengthAdvantage="2"/>
+  </AiOperationTeams>
+  <OpTeamRequirements>
+    <Row TeamName="Naval Superiority Force" ClassTag="UNIT_CLASS_NAVAL" MinPercentage="1" />
+    <Row TeamName="Naval Superiority Force" ClassTag="UNIT_CLASS_COMBAT" MinNumber="1" />
+    <Row TeamName="Naval Superiority Force" ClassTag="UNIT_CLASS_FLEET_COMMANDER" MaxNumber="2" />
+    <Row TeamName="Naval Explorers" ClassTag="UNIT_CLASS_NAVAL" MinNumber="1" MaxNumber="5"/>
+    <Row TeamName="Naval Explorers" ClassTag="UNIT_CLASS_FLEET_COMMANDER" MaxNumber="1" />
+    <Row TeamName="Naval Explorers" ClassTag="UNIT_CLASS_CREATE_TOWN" MaxNumber="1" />
+    <Row TeamName="Enemy City Naval Attack" ClassTag="UNIT_CLASS_NAVAL" MinPercentage="1" />
+    <Row TeamName="Enemy City Naval Attack" ClassTag="UNIT_CLASS_FLEET_COMMANDER" MaxNumber="1" />
+  </OpTeamRequirements>
+  <!-- City Strategies, needed for some distant land effects -->
+  <Strategies>
+    <Row StrategyType="CITY_STRATEGY_COASTAL_DISTANT_LAND" CityStrategy="true" MinNumConditionsNeeded="2" MaxNumConditionsNeeded="2"/>
+  </Strategies>
+  <StrategyConditions>
+    <!-- Coastal Distant Land settlements -->
+    <Row StrategyType="CITY_STRATEGY_COASTAL_DISTANT_LAND" ConditionFunction="DistantLandSettlement" ThresholdValue="1"/>
+    <Row StrategyType="CITY_STRATEGY_COASTAL_DISTANT_LAND" ConditionFunction="HasCoastalDistrict" ThresholdValue="1"/>
+  </StrategyConditions>
+  <Strategy_Priorities>
+    <!-- Buildings -->
+    <Row StrategyType="CITY_STRATEGY_COASTAL_DISTANT_LAND" ListType="CityStrategyBuildingsBiases"/>
+  </Strategy_Priorities>
+  <AiListTypes>
+    <!-- Buildings -->
+    <Row ListType="CityStrategyBuildingsBiases"/>
+  </AiListTypes>
+  <AiLists>
+    <!-- Buildings -->
+    <Row ListType="CityStrategyBuildingsBiases" System="ConstructibleBiases"/>
+  </AiLists>
+  <AiFavoredItems>
+    <!-- Buildings -->
+    <Row ListType="CityStrategyBuildingsBiases" Item="BUILDING_FISHING_QUAY" Value="200"/>
+  </AiFavoredItems>
+  <!-- Privateer related AI -->
+  <TargetTypes>
+      <!-- Special target type that can only be attacked by privateers -->
+      <Row TargetType="TARGET_PRIVATEER_ALLOWED"/>
+  </TargetTypes>
+  <AiTactics>
+    <Row TacticType="Attack Privateer Targets"/>
+  </AiTactics>
+  <AiFavoredItems>
+    <Row ListType="Default Tactical" Item="Attack Privateer Targets" Value="20"/>
+  </AiFavoredItems>
+</Database>

@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <GameEffects xmlns="GameEffects">
+	<Modifier id="MOD_UNLOCK_GREAT_BRITAIN_SYNCRETISM_ANTIQUITY" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
+		<Argument name="Tradition">TRADITION_GREAT_BRITAIN_SYNCRETISM_ANTIQUITY</Argument>
+	</Modifier>
+	<Modifier id="MOD_UNLOCK_GREAT_BRITAIN_SYNCRETISM_EXPLORATION" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
+		<Argument name="Tradition">TRADITION_GREAT_BRITAIN_SYNCRETISM_EXPLORATION</Argument>
+	</Modifier>
 	<!-- ==================================================	-->
 	<!--	MODERN							-->
 	<!-- ==================================================	-->
@@ -16,14 +22,29 @@
 		<Argument name="Tooltip">LOC_TRADITION_PROCEEDINGS_NAME</Argument>
 		<String context="Description">LOC_TRADITION_PROCEEDINGS_DESCRIPTION</String>
 	</Modifier>
+	<Modifier id="PROCEEDINGS_PRODUCTION_FACTORY_RESOURCES" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_RESOURCE_CLASS">
+		<Argument name="ResourceClassType">RESOURCECLASS_FACTORY</Argument>
+		<Argument name="YieldType">YIELD_PRODUCTION</Argument>
+		<Argument name="Amount">3</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_PROCEEDINGS_NAME</Argument>
+	</Modifier>
 	<Modifier id="EAST_INDIA_COMPANY_GOLD_TOWN_BUILDINGS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
 		<SubjectRequirements>
 			<Requirement type="REQUIREMENT_CITY_IS_TOWN"/>
 		</SubjectRequirements>
 		<Argument name="YieldType">YIELD_GOLD</Argument>
 		<Argument name="Amount">5</Argument>
-		<Argument name="Tooltip">LOC_TRADITION_EAST_INDIA_COMPANY_NAME</Argument>
-		<String context="Description">LOC_TRADITION_EAST_INDIA_COMPANY_DESCRIPTION</String>
+		<Argument name="Tooltip">LOC_TRADITION_EAST_INDIA_COMPANY_II_NAME</Argument>
+		<String context="Description">LOC_TRADITION_EAST_INDIA_COMPANY_II_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="EAST_INDIA_COMPANY_COASTAL_TOWN_SCIENCE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_TOWN"/>
+			<Requirement type="REQUIREMENT_PLOT_ADJACENT_TO_COAST" />
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_SCIENCE</Argument>
+		<Argument name="Amount">3</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_EAST_INDIA_COMPANY_II_NAME</Argument>
 	</Modifier>
 	<Modifier id="NO_ETERNAL_ALLIES_POSITIVE_GOLD" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
 		<SubjectRequirements>
@@ -31,13 +52,192 @@
 		</SubjectRequirements>
 		<Argument name="YieldType">YIELD_FOOD, YIELD_GOLD</Argument>
 		<Argument name="Percent">10</Argument>
-		<Argument name="Tooltip">LOC_TRADITION_NO_ETERNAL_ALLIES_NAME</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_NO_ETERNAL_ALLIES_II_NAME</Argument>
 	</Modifier>
 	<Modifier id="NO_ETERNAL_ALLIES_NEGATIVE_GOLD" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_DIPLOMACY_ADJUST_CITY_YIELD_PER_PLAYER_RELATIONSHIP">
 		<Argument name="UseAlliances">true</Argument>
 		<Argument name="YieldType">YIELD_GOLD</Argument>
 		<Argument name="Percent">-5</Argument>
-		<Argument name="Tooltip">LOC_TRADITION_NO_ETERNAL_ALLIES_NAME</Argument>
-		<String context="Description">LOC_TRADITION_NO_ETERNAL_ALLIES_DESCRIPTION</String>
+		<Argument name="Tooltip">LOC_TRADITION_NO_ETERNAL_ALLIES_II_NAME</Argument>
+		<String context="Description">LOC_TRADITION_NO_ETERNAL_ALLIES_II_DESCRIPTION</String>
+	</Modifier>
+	<!-- ==================================================	-->
+	<!--	TEST OF TIME									-->
+	<!-- ==================================================	-->
+	<Modifier id="EAST_INDIA_COMPANY_I_GOLD_TOWN_BUILDINGS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_TOWN"/>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_GOLD</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_EAST_INDIA_COMPANY_I_NAME</Argument>
+		<String context="Description">LOC_TRADITION_EAST_INDIA_COMPANY_I_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="EAST_INDIA_COMPANY_I_COASTAL_TOWN_SCIENCE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_TOWN"/>
+			<Requirement type="REQUIREMENT_PLOT_ADJACENT_TO_COAST" />
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_SCIENCE</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_EAST_INDIA_COMPANY_I_NAME</Argument>
+	</Modifier>
+	<Modifier id="NO_ETERNAL_ALLIES_I_POSITIVE_GOLD" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_TOWN"/>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_FOOD, YIELD_GOLD</Argument>
+		<Argument name="Percent">5</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_NO_ETERNAL_ALLIES_I_NAME</Argument>
+	</Modifier>
+	<Modifier id="NO_ETERNAL_ALLIES_I_NEGATIVE_GOLD" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_DIPLOMACY_ADJUST_CITY_YIELD_PER_PLAYER_RELATIONSHIP">
+		<Argument name="UseAlliances">true</Argument>
+		<Argument name="YieldType">YIELD_GOLD</Argument>
+		<Argument name="Percent">-5</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_NO_ETERNAL_ALLIES_I_NAME</Argument>
+		<String context="Description">LOC_TRADITION_NO_ETERNAL_ALLIES_I_DESCRIPTION</String>
+	</Modifier>
+	<!-- Great Britain Renaissance -->
+	<Modifier id="MOD_GREAT_BRITAIN_RENAISSANCE_COASTAL_GOLD_A" collection="COLLECTION_PLAYER_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_ADJACENT_TO_COAST" />
+			<Requirement type="REQUIREMENT_PLOT_HAS_CONSTRUCTIBLE">
+				<Argument name="Tag">PRODUCTION</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_GOLD</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_GREAT_BRITAIN_RENAISSANCE_NAME</Argument>
+		<String context="Description">LOC_TRADITION_GREAT_BRITAIN_RENAISSANCE_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="MOD_GREAT_BRITAIN_RENAISSANCE_COASTAL_GOLD_B" collection="COLLECTION_PLAYER_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_ADJACENT_TO_COAST" />
+			<Requirement type="REQUIREMENT_PLOT_HAS_CONSTRUCTIBLE">
+				<Argument name="Tag">PRODUCTION</Argument>
+				<Argument name="Count">2</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_GOLD</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_GREAT_BRITAIN_RENAISSANCE_NAME</Argument>
+	</Modifier>
+	<Modifier id="MOD_GREAT_BRITAIN_RENAISSANCE_COASTAL_PRODUCTION_A" collection="COLLECTION_PLAYER_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_ADJACENT_TO_COAST" />
+			<Requirement type="REQUIREMENT_PLOT_HAS_CONSTRUCTIBLE">
+				<Argument name="Tag">GOLD</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_PRODUCTION</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_GREAT_BRITAIN_RENAISSANCE_NAME</Argument>
+	</Modifier>
+	<Modifier id="MOD_GREAT_BRITAIN_RENAISSANCE_COASTAL_PRODUCTION_B" collection="COLLECTION_PLAYER_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_ADJACENT_TO_COAST" />
+			<Requirement type="REQUIREMENT_PLOT_HAS_CONSTRUCTIBLE">
+				<Argument name="Tag">GOLD</Argument>
+				<Argument name="Count">2</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_PRODUCTION</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_GREAT_BRITAIN_RENAISSANCE_NAME</Argument>
+	</Modifier>
+
+	<!-- Great Britain Foundation I -->
+	<Modifier id="BRITAIN_SYNCRETISM_ANTIQUITY_COASTAL_SCIENCE_A" collection="COLLECTION_PLAYER_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_ADJACENT_TO_COAST" />
+			<Requirement type="REQUIREMENT_PLOT_HAS_CONSTRUCTIBLE">
+				<Argument name="Tag">CULTURE</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_SCIENCE</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_GREAT_BRITAIN_SYNCRETISM_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="BRITAIN_SYNCRETISM_ANTIQUITY_COASTAL_SCIENCE_B" collection="COLLECTION_PLAYER_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_ADJACENT_TO_COAST" />
+			<Requirement type="REQUIREMENT_PLOT_HAS_CONSTRUCTIBLE">
+				<Argument name="Tag">CULTURE</Argument>
+				<Argument name="Count">2</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_SCIENCE</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_GREAT_BRITAIN_SYNCRETISM_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="BRITAIN_SYNCRETISM_ANTIQUITY_COASTAL_CULTURE_A" collection="COLLECTION_PLAYER_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_ADJACENT_TO_COAST" />
+			<Requirement type="REQUIREMENT_PLOT_HAS_CONSTRUCTIBLE">
+				<Argument name="Tag">SCIENCE</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_GREAT_BRITAIN_SYNCRETISM_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="BRITAIN_SYNCRETISM_ANTIQUITY_COASTAL_CULTURE_B" collection="COLLECTION_PLAYER_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_ADJACENT_TO_COAST" />
+			<Requirement type="REQUIREMENT_PLOT_HAS_CONSTRUCTIBLE">
+				<Argument name="Tag">SCIENCE</Argument>
+				<Argument name="Count">2</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_GREAT_BRITAIN_SYNCRETISM_TOOLTIP</Argument>
+	</Modifier>
+	<!-- Great Britain Foundation II -->
+	<Modifier id="BRITAIN_SYNCRETISM_EXPLORATION_COASTAL_SCIENCE_A" collection="COLLECTION_PLAYER_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_ADJACENT_TO_COAST" />
+			<Requirement type="REQUIREMENT_PLOT_HAS_CONSTRUCTIBLE">
+				<Argument name="Tag">CULTURE</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_SCIENCE</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_GREAT_BRITAIN_SYNCRETISM_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="BRITAIN_SYNCRETISM_EXPLORATION_COASTAL_SCIENCE_B" collection="COLLECTION_PLAYER_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_ADJACENT_TO_COAST" />
+			<Requirement type="REQUIREMENT_PLOT_HAS_CONSTRUCTIBLE">
+				<Argument name="Tag">CULTURE</Argument>
+				<Argument name="Count">2</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_SCIENCE</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_GREAT_BRITAIN_SYNCRETISM_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="BRITAIN_SYNCRETISM_EXPLORATION_COASTAL_CULTURE_A" collection="COLLECTION_PLAYER_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_ADJACENT_TO_COAST" />
+			<Requirement type="REQUIREMENT_PLOT_HAS_CONSTRUCTIBLE">
+				<Argument name="Tag">SCIENCE</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_GREAT_BRITAIN_SYNCRETISM_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="BRITAIN_SYNCRETISM_EXPLORATION_COASTAL_CULTURE_B" collection="COLLECTION_PLAYER_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_ADJACENT_TO_COAST" />
+			<Requirement type="REQUIREMENT_PLOT_HAS_CONSTRUCTIBLE">
+				<Argument name="Tag">SCIENCE</Argument>
+				<Argument name="Count">2</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_GREAT_BRITAIN_SYNCRETISM_TOOLTIP</Argument>
 	</Modifier>
 </GameEffects>

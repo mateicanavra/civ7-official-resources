@@ -1,22 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <GameEffects xmlns="GameEffects">
 	<!-- ==================================================	-->
-	<!--	ANTIQUITY							-->
+	<!--	ANTIQUITY									-->
 	<!-- ==================================================	-->
-	<!-- Carthage -->
-	<Modifier id="QUINQUEREME_MOD_NAVAL_MAINTENANCE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_UNIT_MAINTENANCE_EFFICIENCY">
-		<Argument name="Amount">1</Argument>
-		<Argument name="UnitTag">UNIT_CLASS_NAVAL</Argument>
-		<String context="Description">LOC_TRADITION_QUINQUEREME_DESCRIPTION</String>
-	</Modifier>
-	<Modifier id="QUINQUEREME_MOD_PURCHASE_RATE_UNITS" collection="COLLECTION_OWNER" effect="EFFECT_ADJUST_PLAYER_OR_CITY_UNIT_PURCHASE_EFFICIENCY">
+	<Modifier id="GAULOS_MOD_PURCHASE_RATE_UNITS" collection="COLLECTION_OWNER" effect="EFFECT_ADJUST_PLAYER_OR_CITY_UNIT_PURCHASE_EFFICIENCY">
 		<Argument name="Percent">25</Argument>
 		<Argument name="UnitTag">UNIT_CLASS_NAVAL</Argument>
 	</Modifier>
 	<Modifier id="GAULOS_MOD_PURCHASE_RATE_BUILDINGS" collection="COLLECTION_OWNER" effect="EFFECT_ADJUST_PLAYER_OR_CITY_BUILDING_PURCHASE_EFFICIENCY">
 		<Argument name="Percent">25</Argument>
 		<Argument name="BuildingTag">WATER</Argument>
-		<String context="Description">LOC_TRADITION_GAULOS_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="GAULOS_I_MOD_CAPITAL_GOLD_PER_TOWN" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_ADJUST_YIELD_PER_NUM_CITIES">
+		<Argument name="YieldType">YIELD_GOLD</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Cities">false</Argument>
+		<Argument name="Towns">true</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_GAULOS_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="QUINQUEREME_MOD_NAVAL_RANGE" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ADJUST_UNIT_ATTACK_RANGE">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+				<Argument name="Tag">UNIT_CLASS_NAVAL</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+				<Argument name="Tag">UNIT_CLASS_HEAVY</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">1</Argument>
+	</Modifier>
+	<Modifier id="QUINQUEREME_MOD_NAVAL_MAINTENANCE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_UNIT_MAINTENANCE_EFFICIENCY">
+		<Argument name="Amount">1</Argument>
+		<Argument name="UnitTag">UNIT_CLASS_NAVAL</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_QUINQUEREME_TOOLTIP</Argument>
 	</Modifier>
 	<Modifier id="SUFFETES_FARM_TOWNS_FOOD" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
 		<SubjectRequirements>
@@ -27,7 +43,6 @@
 		<Argument name="YieldType">YIELD_FOOD</Argument>
 		<Argument name="Percent">20</Argument>
 		<Argument name="Tooltip">LOC_TRADITION_SUFFETES_NAME</Argument>
-		<String context="Description">LOC_TRADITION_SUFFETES_DESCRIPTION</String>
 	</Modifier>
 	<Modifier id="SUFFETES_FISHING_TOWNS_FOOD" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
 		<SubjectRequirements>
@@ -48,5 +63,86 @@
 		<Argument name="YieldType">YIELD_GOLD</Argument>
 		<Argument name="Percent">20</Argument>
 		<Argument name="Tooltip">LOC_TRADITION_SUFFETES_NAME</Argument>
+	</Modifier>
+	<Modifier id="SUFFETES_MOD_TRADE_RANGE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_ATTACH_MODIFIERS">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_HAS_PROJECT">
+				<Argument name="ProjectType">PROJECT_TOWN_TRADE</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="ModifierId">ATTACH_SUFFETES_MOD_TRADE_RANGE</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_SUFFETES_MOD_TRADE_RANGE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_TRADE_ROUTE_RANGE">
+		<Argument name="Amount">1</Argument>
+		<Argument name="DomainType">DOMAIN_SEA</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_SUFFETES_NAME</Argument>
+	</Modifier>
+	<!-- ==================================================	-->
+	<!--	EXPLORATION									-->
+	<!-- ==================================================	-->
+	<Modifier id="QUINQUEREME_II_MOD_NAVAL_MAINTENANCE" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_PLAYER_ADJUST_UNIT_MAINTENANCE_EFFICIENCY">
+		<Argument name="Amount">2</Argument>
+		<Argument name="UnitTag">UNIT_CLASS_NAVAL</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_QUINQUEREME_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="QUINQUEREME_II_MOD_RESOURCE_COMBAT" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ATTACH_MODIFIERS">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+				<Argument name="Tag">UNIT_CLASS_NAVAL</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="ModifierId">ATTACH_QUINQUEREME_II_MOD_RESOURCE_COMBAT</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_QUINQUEREME_II_MOD_RESOURCE_COMBAT" collection="COLLECTION_OWNER" effect="EFFECT_ADJUST_UNIT_RESOURCE_DAMAGE">
+		<Argument name="Amount">1</Argument>
+		<Argument name="ResourceClassType">RESOURCECLASS_CITY</Argument>
+		<String context="Preview">LOC_TRADITION_QUINQUEREME_COMBAT_PREVIEW</String>
+	</Modifier>
+	<Modifier id="TRADITION_CARTHAGE_SYNCRETISM_EXPLORATION_MOD_CAPITAL_RESOURCE_GOLD" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_ADJUST_YIELD_PER_RESOURCE">
+		<Argument name="YieldType">YIELD_GOLD</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="PercentMultiplier">false</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_CARTHAGE_SYNCRETISM_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="TRADITION_CARTHAGE_SYNCRETISM_EXPLORATION_MOD_CAPITAL_RESOURCE_PRODUCTION" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_ADJUST_YIELD_PER_RESOURCE">
+		<Argument name="YieldType">YIELD_PRODUCTION</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="PercentMultiplier">false</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_CARTHAGE_SYNCRETISM_TOOLTIP</Argument>
+	</Modifier>
+	<!-- ==================================================	-->
+	<!--	MODERN										-->
+	<!-- ==================================================	-->
+	<Modifier id="GAULOS_II_MOD_PURCHASE_RATE_BUILDINGS" collection="COLLECTION_OWNER" effect="EFFECT_ADJUST_PLAYER_OR_CITY_BUILDING_PURCHASE_EFFICIENCY">
+		<Argument name="Percent">25</Argument>
+		<Argument name="BuildingTag">WATER</Argument>
+	</Modifier>
+	<Modifier id="GAULOS_II_MOD_CAPITAL_GOLD_PER_TOWN" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_ADJUST_YIELD_PER_NUM_CITIES">
+		<Argument name="YieldType">YIELD_GOLD</Argument>
+		<Argument name="Amount">3</Argument>
+		<Argument name="Cities">false</Argument>
+		<Argument name="Towns">true</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_GAULOS_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="TRADITION_CARTHAGE_SYNCRETISM_MODERN_MOD_CAPITAL_RESOURCE_GOLD" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_ADJUST_YIELD_PER_RESOURCE">
+		<Argument name="YieldType">YIELD_GOLD</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="PercentMultiplier">false</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_CARTHAGE_SYNCRETISM_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="TRADITION_CARTHAGE_SYNCRETISM_MODERN_MOD_CAPITAL_RESOURCE_PRODUCTION" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_ADJUST_YIELD_PER_RESOURCE">
+		<Argument name="YieldType">YIELD_PRODUCTION</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="PercentMultiplier">false</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_CARTHAGE_SYNCRETISM_TOOLTIP</Argument>
+	</Modifier>
+	<!-- ==================================================	-->
+	<!--	Unlock Syncretism Traditions				-->
+	<!-- ==================================================	-->
+	<Modifier id="MOD_UNLOCK_CARTHAGE_SYNCRETISM_EXPLORATION" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
+		<Argument name="Tradition">TRADITION_CARTHAGE_SYNCRETISM_EXPLORATION</Argument>
+	</Modifier>
+	<Modifier id="MOD_UNLOCK_CARTHAGE_SYNCRETISM_MODERN" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
+		<Argument name="Tradition">TRADITION_CARTHAGE_SYNCRETISM_MODERN</Argument>
 	</Modifier>
 </GameEffects>

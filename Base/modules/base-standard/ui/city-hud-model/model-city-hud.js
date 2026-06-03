@@ -1,4 +1,4 @@
-import '../city-trade/model-city-trade.chunk.js';
+import '../city-trade/model-city-trade.js';
 
 class CityHUDModel {
   static _Instance;

@@ -91,6 +91,15 @@ function div3s(a, b) {
 function div4s(a, b) {
   return op4s(a, b, div1);
 }
+function equal2(a, b) {
+  return a.x == b.x && a.y == b.y;
+}
+function equal3(a, b) {
+  return a.x == b.x && a.y == b.y && a.z == b.z;
+}
+function equal4(a, b) {
+  return a.x == b.x && a.y == b.y && a.z == b.z && a.w == b.w;
+}
 function length2(a) {
   return Math.sqrt(dot2(a, a));
 }
@@ -129,5 +138,5 @@ function rotate2(a, radians) {
   return { x: sincos.x * a.x - sincos.y * a.y, y: sincos.y * a.x + sincos.x * a.y };
 }
 
-export { add1, add2, add3, add4, div1, div2, div2s, div3, div3s, div4, div4s, dot2, dot2_90, dot3, dot4, length2, length3, length4, mul1, mul2, mul2s, mul3, mul3s, mul4, mul4s, neg2, neg3, neg4, norm2, norm3, norm4, op2, op2s, op3, op3s, op4, op4s, rotate2, sub1, sub2, sub3, sub4 };
+export { add1, add2, add3, add4, div1, div2, div2s, div3, div3s, div4, div4s, dot2, dot2_90, dot3, dot4, equal2, equal3, equal4, length2, length3, length4, mul1, mul2, mul2s, mul3, mul3s, mul4, mul4s, neg2, neg3, neg4, norm2, norm3, norm4, op2, op2s, op3, op3s, op4, op4s, rotate2, sub1, sub2, sub3, sub4 };
 //# sourceMappingURL=MathHelpers.js.map

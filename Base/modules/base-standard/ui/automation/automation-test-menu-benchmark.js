@@ -1,4 +1,4 @@
-import { S as Shared_OnAutomationEvent, F as FailTest, P as PassTest } from './automation-test-support.chunk.js';
+import { Shared_OnAutomationEvent, FailTest, PassTest } from './automation-test-support.js';
 
 console.log("loading automation-test-menu-benchmark.ts");
 class AutomationTestMenuBenchmark {

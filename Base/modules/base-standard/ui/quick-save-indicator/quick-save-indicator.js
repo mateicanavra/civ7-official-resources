@@ -1,11 +1,6 @@
-import { P as Panel } from '../../../core/ui/panel-support.chunk.js';
-import { c as QuickSaveDoneEventName } from '../../../core/ui/save-load/model-save-load.chunk.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/dialog-box/manager-dialog-box.chunk.js';
-import '../../../core/ui/context-manager/display-queue-manager.js';
-import '../../../core/ui/utilities/utilities-update-gate.chunk.js';
-
-const styles = "fs://game/base-standard/ui/quick-save-indicator/quick-save-indicator.css";
+import Panel from '../../../core/ui/panel-support.js';
+import { QuickSaveDoneEventName } from '../../../core/ui/save-load/model-save-load.js';
+import styles from './quick-save-indicator.scss.js';
 
 class QuickSaveIndicator extends Panel {
   onQuickSave = this.createQuickSaveIndicator.bind(this);

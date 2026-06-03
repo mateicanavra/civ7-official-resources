@@ -2,8 +2,11 @@
 <Database>
 	<PseudoYields>
 		<Update>
-      <!-- TODO: If naval scouts are reintroduced, we will need to adjust this, and possibly decouple it from the land scouting value. -->
+      		<!-- TODO: If naval scouts are reintroduced, we will need to adjust this, and possibly decouple it from the land scouting value. -->
 			<Where PseudoYieldType="PSEUDOYIELD_SCOUTING_UNIT"/><Set DefaultValue="0"/>
+ 		</Update>
+		<Update>
+   			<Where PseudoYieldType="PSEUDOYIELD_WONDER"/><Set DefaultValue="500"/>   
 		</Update>
 	</PseudoYields>
 </Database>

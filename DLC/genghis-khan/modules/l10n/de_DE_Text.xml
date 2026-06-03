@@ -58,8 +58,12 @@
     <Replace Tag="LOC_MAIN_CHAR_SELECT_LEADER_GENGHIS_KHAN_ANY" Language="de_DE">
       <Text>Der ewige blaue Himmel befiehlt allen. Wer wagt es, ihn zu erhören?</Text>
     </Replace>
+    <Replace Tag="LOC_VICTORY_LEADER_GENGHIS_KHAN" Language="de_DE">
+      <Text>Unter der Macht des Ewigen Himmels verbeugt sich die Welt vor mir.</Text>
+    </Replace>
     <Replace Tag="LOC_GREATWORK_ARTIFACT_SECRET_HISTORY_NAME" Language="de_DE">
       <Text>Die Geheime Geschichte der Mongolen</Text>
+      <Gender>feminine</Gender>
     </Replace>
     <Replace Tag="LOC_LEADER_CHAIN_1230B_NAME" Language="de_DE">
       <Text>Es ist wichtig, sich um die Herde zu kümmern.</Text>
@@ -382,7 +386,7 @@
       <Text>Derjenigen, die sich für das Gemeinwohl einsetzen wollen.</Text>
     </Replace>
     <Replace Tag="LOC_10063A_COMPLETION" Language="de_DE">
-      <Text>Gelehrte des Museums machen eine bemerkenswerte Entdeckung: Eine verloren geglaubte historische Schrift über die Vorfahren des {1_CIVILIZATION_ADJ[2]} Volkes und seinen berühmten Gründer ist wieder aufgetaucht. Darin verschmelzen Wahrheit und Fiktion, Geschichte und Epos, Übersetzung und Überarbeitung zu einem Gesamtwerk, dessen Worte entfernt und doch vertraut anmuten.</Text>
+      <Text>Gelehrte des Museums machen eine bemerkenswerte Entdeckung: Eine verloren geglaubte historische Schrift über die Vorfahren des {1_Civilization_adj[2]}{1: gender *:no_space?; other? ;}Volkes und seinen berühmten Gründer ist wieder aufgetaucht. Darin verschmelzen Wahrheit und Fiktion, Geschichte und Epos, Übersetzung und Überarbeitung zu einem Gesamtwerk, dessen Worte entfernt und doch vertraut anmuten.</Text>
     </Replace>
     <Replace Tag="LOC_10063A_STORYTITLE" Language="de_DE">
       <Text>Geheime Geschichte</Text>
@@ -502,7 +506,7 @@
       <Text>{1_reward}.</Text>
     </Replace>
     <Replace Tag="LOC_LEADER_CHAIN_1232B_IMPERATIVE" Language="de_DE">
-      <Text>Habt 3 eroberte Siedlungen.</Text>
+      <Text>Habt 3 Siedlungen, die in diesem Zeitalter erobert wurden.</Text>
     </Replace>
     <Replace Tag="LOC_LEADER_CHAIN_1232B_STORYTITLE" Language="de_DE">
       <Text>Disziplin</Text>
@@ -661,13 +665,13 @@
       <Text>+50 % Gold für die Umwandlung einer Gemeinde in eine Stadt.</Text>
     </Replace>
     <Replace Tag="LOC_ATTRIBUTENODE_GENGHIS_KHAN_L1_NAME" Language="de_DE">
-      <Text>Expansionsattribut-Knotenpunkt</Text>
+      <Text>Knotenpunkt: Expansionsattribut</Text>
     </Replace>
     <Replace Tag="LOC_ATTRIBUTENODE_GENGHIS_KHAN_L2_DESCRIPTION" Language="de_DE">
       <Text>+5 Kampfstärke für alle Einheiten gegen Bezirke.</Text>
     </Replace>
     <Replace Tag="LOC_ATTRIBUTENODE_GENGHIS_KHAN_L2_NAME" Language="de_DE">
-      <Text>Militärattribut-Knotenpunkt</Text>
+      <Text>Knotenpunkt: Militärattribut</Text>
     </Replace>
     <Replace Tag="LOC_BADGE_GENGHIS_KHAN_NAME" Language="de_DE">
       <Text>Dschingis Khan-Abzeichen 1</Text>
@@ -682,25 +686,25 @@
       <Text>Erhaltet für dieses Zeitalter +15 % [icon:YIELD_FOOD] Nahrung auf Kosten von -10 % [icon:YIELD_GOLD] Gold</Text>
     </Replace>
     <Replace Tag="LOC_CARD_AT_EXP_LEGEND_GENGHIS_KHAN_1_NAME" Language="de_DE">
-      <Text>Dschingis Khan, Legende der Erkundung (expansionistisch)</Text>
+      <Text>Dschingis Khan, Widmung der Erkundung (expansionistisch)</Text>
     </Replace>
     <Replace Tag="LOC_CARD_AT_EXP_LEGEND_GENGHIS_KHAN_2_DESCRIPTION" Language="de_DE">
       <Text>Erhaltet für dieses Zeitalter +3 Kampfstärke für Eure Marineeinheiten auf Kosten von -10 % [icon:YIELD_DIPLOMACY] Einfluss</Text>
     </Replace>
     <Replace Tag="LOC_CARD_AT_EXP_LEGEND_GENGHIS_KHAN_2_NAME" Language="de_DE">
-      <Text>Dschingis Khan, Legende der Erkundung (militaristisch)</Text>
+      <Text>Dschingis Khan, Widmung der Erkundung (militaristisch)</Text>
     </Replace>
     <Replace Tag="LOC_CARD_AT_MOD_LEGEND_GENGHIS_KHAN_1_DESCRIPTION" Language="de_DE">
       <Text>Erhaltet für dieses Zeitalter +15 % [icon:YIELD_FOOD] Nahrung auf Kosten von -10 % [icon:YIELD_GOLD] Gold</Text>
     </Replace>
     <Replace Tag="LOC_CARD_AT_MOD_LEGEND_GENGHIS_KHAN_1_NAME" Language="de_DE">
-      <Text>Dschingis Khan, Legende der Moderne (expansionistisch)</Text>
+      <Text>Dschingis Khan, Widmung der Moderne (expansionistisch)</Text>
     </Replace>
     <Replace Tag="LOC_CARD_AT_MOD_LEGEND_GENGHIS_KHAN_2_DESCRIPTION" Language="de_DE">
       <Text>Erhaltet für dieses Zeitalter +3 Kampfstärke für Eure Lufteinheiten auf Kosten von -10 % [icon:YIELD_DIPLOMACY] Einfluss</Text>
     </Replace>
     <Replace Tag="LOC_CARD_AT_MOD_LEGEND_GENGHIS_KHAN_2_NAME" Language="de_DE">
-      <Text>Dschingis Khan, Legende der Moderne (militaristisch)</Text>
+      <Text>Dschingis Khan, Widmung der Moderne (militaristisch)</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_TUMEN_DESC" Language="de_DE">
       <Text>Mag die Zivilisation mit der geringsten Anzahl von Kavallerieeinheiten. Mag die Zivilisation mit der größten Anzahl an Kavallerieeinheiten nicht.</Text>
@@ -721,7 +725,7 @@
       <Text>Steuerfrei und bereit zum Losreiten.</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_GENGHIS_KHAN_PAIZA_FUNCTIONAL_DESCRIPTION" Language="de_DE">
-      <Text>-1 [icon:YIELD_GOLD] Gold Unterhalt für Kavallerieeinheiten</Text>
+      <Text>[B]-1 [icon:YIELD_GOLD][/B]-[TIP:LOC_PEDIA_CONCEPTS_MAINTENANCE_TOOLTIP]Unterhalt[/TIP] für [TIP:LOC_PEDIA_CONCEPTS_CAVALRY_UNITS_TOOLTIP]Kavallerieeinheiten[/TIP]</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_GENGHIS_KHAN_PAIZA_NAME" Language="de_DE">
       <Text>Paiza</Text>
@@ -733,7 +737,7 @@
       <Text>Die Verbindung zwischen Pferd und Krieger.</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_GENGHIS_KHAN_SADDLE_FUNCTIONAL_DESCRIPTION" Language="de_DE">
-      <Text>+1 [icon:YIELD_FOOD] Nahrung pro Zeitalter pro Kavallerieeinheit, die auf einem Gemeindezentrum stationiert ist.</Text>
+      <Text>[B]+1 [icon:YIELD_FOOD][/B] pro [TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]Zeitalter[/TIP] für in einem [TIP:LOC_PEDIA_CONCEPTS_PALACE_TOOLTIP]Palast[/TIP] oder Rathaus [TIP:LOC_PEDIA_CONCEPTS_STATIONED_TOOLTIP]stationierte[/TIP] [TIP:LOC_PEDIA_CONCEPTS_CAVALRY_UNITS_TOOLTIP]Kavallerieeinheiten[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_GENGHIS_KHAN_SADDLE_NAME" Language="de_DE">
       <Text>Sattel</Text>
@@ -745,7 +749,7 @@
       <Text>Ein Kriegsbanner.</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_GENGHIS_KHAN_SULDE_FUNCTIONAL_DESCRIPTION" Language="de_DE">
-      <Text>+1 [icon:YIELD_CULTURE] Kultur pro Zeitalter für jede Kommandantenbeförderung</Text>
+      <Text>[B]+1 [icon:YIELD_CULTURE][/B] pro [TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]Zeitalter[/TIP] für in einem [TIP:LOC_PEDIA_CONCEPTS_PALACE_TOOLTIP]Palast[/TIP] oder Rathaus [TIP:LOC_PEDIA_CONCEPTS_STATIONED_TOOLTIP]stationierte[/TIP] [TIP:LOC_PEDIA_CONCEPTS_CAVALRY_UNITS_TOOLTIP]Kavallerieeinheiten[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_GENGHIS_KHAN_SULDE_NAME" Language="de_DE">
       <Text>Sulde</Text>
@@ -804,293 +808,317 @@
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_AGE_COMPLETED_MODERN_NAME" Language="de_DE">
       <Text>Moderne abgeschlossen</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_CULTURE_VICTORY_ANTIQUITY_2_DESC" Language="de_DE">
-      <Text>Schließt als Dschingis Khan den Vermächtnis-Weg "Weltwunder der Antike" 2-mal ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_CULTURE_TRIUMPH_2_ANTIQUITY_DESC" Language="de_DE">
+      <Text>Schließt als Dschingis Khan den Triumph "Orphische Mysterien" ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_CULTURE_VICTORY_ANTIQUITY_2_NAME" Language="de_DE">
-      <Text>Weltwunder der Antike 2</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_CULTURE_TRIUMPH_2_ANTIQUITY_NAME" Language="de_DE">
+      <Text>Orphische Mysterien</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_CULTURE_VICTORY_ANTIQUITY_3_DESC" Language="de_DE">
-      <Text>Schließt als Dschingis Khan den Vermächtnis-Weg "Weltwunder der Antike" 3-mal ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_CULTURE_TRIUMPH_2_EXPLORATION_DESC" Language="de_DE">
+      <Text>Schließt als Dschingis Khan den Triumph "Himmlisches Königreich" ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_CULTURE_VICTORY_ANTIQUITY_3_NAME" Language="de_DE">
-      <Text>Weltwunder der Antike 3</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_CULTURE_TRIUMPH_2_EXPLORATION_NAME" Language="de_DE">
+      <Text>Himmlisches Königreich</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_CULTURE_VICTORY_ANTIQUITY_DESC" Language="de_DE">
-      <Text>Schließt als Dschingis Khan den Vermächtnis-Weg "Weltwunder der Antike" ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_CULTURE_TRIUMPH_2_MODERN_DESC" Language="de_DE">
+      <Text>Schließt als Dschingis Khan den Triumph "Wunderland" ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_CULTURE_VICTORY_ANTIQUITY_NAME" Language="de_DE">
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_CULTURE_TRIUMPH_2_MODERN_NAME" Language="de_DE">
+      <Text>Wunderland</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_CULTURE_TRIUMPH_ANTIQUITY_DESC" Language="de_DE">
+      <Text>Schließt als Dschingis Khan den Triumph "Weltwunder der Antike" ab.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_CULTURE_TRIUMPH_ANTIQUITY_NAME" Language="de_DE">
       <Text>Weltwunder der Antike</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_CULTURE_VICTORY_EXPLORATION_2_DESC" Language="de_DE">
-      <Text>Schließt als Dschingis Khan den Vermächtnis-Weg "Toshakhana" 2-mal ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_CULTURE_TRIUMPH_EXPLORATION_DESC" Language="de_DE">
+      <Text>Schließt als Dschingis Khan den Triumph "Toshakhana" ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_CULTURE_VICTORY_EXPLORATION_2_NAME" Language="de_DE">
-      <Text>Toshakhana 2</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_CULTURE_VICTORY_EXPLORATION_3_DESC" Language="de_DE">
-      <Text>Schließt als Dschingis Khan den Vermächtnis-Weg "Toshakhana" 3-mal ab.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_CULTURE_VICTORY_EXPLORATION_3_NAME" Language="de_DE">
-      <Text>Toshakhana 3</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_CULTURE_VICTORY_EXPLORATION_DESC" Language="de_DE">
-      <Text>Schließt als Dschingis Khan den Vermächtnis-Weg "Toshakhana" ab.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_CULTURE_VICTORY_EXPLORATION_NAME" Language="de_DE">
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_CULTURE_TRIUMPH_EXPLORATION_NAME" Language="de_DE">
       <Text>Toshakhana</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_CULTURE_VICTORY_MODERN_2_DESC" Language="de_DE">
-      <Text>Schließt als Dschingis Khan den Vermächtnis-Weg "Geografische Gesellschaft" 2-mal ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_CULTURE_TRIUMPH_MODERN_DESC" Language="de_DE">
+      <Text>Schließt als Dschingis Khan den Triumph "Geografische Gesellschaft" ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_CULTURE_VICTORY_MODERN_2_NAME" Language="de_DE">
-      <Text>Geografische Gesellschaft 2</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_CULTURE_VICTORY_MODERN_3_DESC" Language="de_DE">
-      <Text>Schließt als Dschingis Khan den Vermächtnis-Weg "Geografische Gesellschaft" 3-mal ab.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_CULTURE_VICTORY_MODERN_3_NAME" Language="de_DE">
-      <Text>Geografische Gesellschaft 3</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_CULTURE_VICTORY_MODERN_DESC" Language="de_DE">
-      <Text>Schließt als Dschingis Khan den Vermächtnis-Weg "Geografische Gesellschaft" ab.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_CULTURE_VICTORY_MODERN_NAME" Language="de_DE">
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_CULTURE_TRIUMPH_MODERN_NAME" Language="de_DE">
       <Text>Geografische Gesellschaft</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_ECONOMIC_VICTORY_ANTIQUITY_2_DESC" Language="de_DE">
-      <Text>Schließt als Dschingis Khan den Vermächtnis-Weg "Seidenstraßen" 2-mal ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_CULTURE_VICTORY_DESC" Language="de_DE">
+      <Text>Erlangt als Dschingis Khan einen Kultursieg.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_ECONOMIC_VICTORY_ANTIQUITY_2_NAME" Language="de_DE">
-      <Text>Seidenstraßen 2</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_CULTURE_VICTORY_NAME" Language="de_DE">
+      <Text>Kultursieg</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_ECONOMIC_VICTORY_ANTIQUITY_3_DESC" Language="de_DE">
-      <Text>Schließt als Dschingis Khan den Vermächtnis-Weg "Seidenstraßen" 3-mal ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_DEITY_VICTORY_DESC" Language="de_DE">
+      <Text>Erlangt als Dschingis Khan einen Sieg mit dem Schwierigkeitsgrad "Gottheit".</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_ECONOMIC_VICTORY_ANTIQUITY_3_NAME" Language="de_DE">
-      <Text>Seidenstraßen 3</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_DEITY_VICTORY_NAME" Language="de_DE">
+      <Text>Gottheitssieg</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_ECONOMIC_VICTORY_ANTIQUITY_DESC" Language="de_DE">
-      <Text>Schließt als Dschingis Khan den Vermächtnis-Weg "Seidenstraßen" ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_DIPLOMATIC_TRIUMPH_2_ANTIQUITY_DESC" Language="de_DE">
+      <Text>Schließt als Dschingis Khan den Triumph "Brot und Spiele" ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_ECONOMIC_VICTORY_ANTIQUITY_NAME" Language="de_DE">
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_DIPLOMATIC_TRIUMPH_2_ANTIQUITY_NAME" Language="de_DE">
+      <Text>Brot und Spiele</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_DIPLOMATIC_TRIUMPH_2_EXPLORATION_DESC" Language="de_DE">
+      <Text>Schließt als Dschingis Khan den Triumph "Vierfache Allianz" ab.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_DIPLOMATIC_TRIUMPH_2_EXPLORATION_NAME" Language="de_DE">
+      <Text>Vierfache Allianz</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_DIPLOMATIC_TRIUMPH_2_MODERN_DESC" Language="de_DE">
+      <Text>Schließt als Dschingis Khan den Triumph "Enigma-Code" ab.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_DIPLOMATIC_TRIUMPH_2_MODERN_NAME" Language="de_DE">
+      <Text>Enigma-Code</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_DIPLOMATIC_TRIUMPH_ANTIQUITY_DESC" Language="de_DE">
+      <Text>Schließt als Dschingis Khan den Triumph "Strippenziehen" ab.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_DIPLOMATIC_TRIUMPH_ANTIQUITY_NAME" Language="de_DE">
+      <Text>Strippenziehen</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_DIPLOMATIC_TRIUMPH_EXPLORATION_DESC" Language="de_DE">
+      <Text>Schließt als Dschingis Khan den Triumph "Orden der Assassinen" ab.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_DIPLOMATIC_TRIUMPH_EXPLORATION_NAME" Language="de_DE">
+      <Text>Orden der Assassinen</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_DIPLOMATIC_TRIUMPH_MODERN_DESC" Language="de_DE">
+      <Text>Schließt als Dschingis Khan den Triumph "Völkerbund" ab.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_DIPLOMATIC_TRIUMPH_MODERN_NAME" Language="de_DE">
+      <Text>Völkerbund</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_ECONOMIC_TRIUMPH_2_ANTIQUITY_DESC" Language="de_DE">
+      <Text>Schließt als Dschingis Khan den Triumph "Gier ist Gold" ab.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_ECONOMIC_TRIUMPH_2_ANTIQUITY_NAME" Language="de_DE">
+      <Text>Gier ist Gold</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_ECONOMIC_TRIUMPH_2_EXPLORATION_DESC" Language="de_DE">
+      <Text>Schließt als Dschingis Khan den Triumph "Kalikutieren wir ein Geschäft" ab.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_ECONOMIC_TRIUMPH_2_EXPLORATION_NAME" Language="de_DE">
+      <Text>Kalikutieren wir ein Geschäft</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_ECONOMIC_TRIUMPH_2_MODERN_DESC" Language="de_DE">
+      <Text>Schließt als Dschingis Khan den Triumph "Werkstatt der Welt" ab.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_ECONOMIC_TRIUMPH_2_MODERN_NAME" Language="de_DE">
+      <Text>Werkstatt der Welt</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_ECONOMIC_TRIUMPH_ANTIQUITY_DESC" Language="de_DE">
+      <Text>Schließt als Dschingis Khan den Triumph "Seidenstraßen" ab.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_ECONOMIC_TRIUMPH_ANTIQUITY_NAME" Language="de_DE">
       <Text>Seidenstraßen</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_ECONOMIC_VICTORY_EXPLORATION_2_DESC" Language="de_DE">
-      <Text>Schließt als Dschingis Khan den Vermächtnis-Weg "Schatzflotte" 2-mal ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_ECONOMIC_TRIUMPH_EXPLORATION_DESC" Language="de_DE">
+      <Text>Schließt als Dschingis Khan den Triumph "Schatzflotte" ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_ECONOMIC_VICTORY_EXPLORATION_2_NAME" Language="de_DE">
-      <Text>Schatzflotte 2</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_ECONOMIC_VICTORY_EXPLORATION_3_DESC" Language="de_DE">
-      <Text>Schließt als Dschingis Khan den Vermächtnis-Weg "Schatzflotte" 3-mal ab.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_ECONOMIC_VICTORY_EXPLORATION_3_NAME" Language="de_DE">
-      <Text>Schatzflotte 3</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_ECONOMIC_VICTORY_EXPLORATION_DESC" Language="de_DE">
-      <Text>Schließt als Dschingis Khan den Vermächtnis-Weg "Schatzflotte" ab.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_ECONOMIC_VICTORY_EXPLORATION_NAME" Language="de_DE">
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_ECONOMIC_TRIUMPH_EXPLORATION_NAME" Language="de_DE">
       <Text>Schatzflotte</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_ECONOMIC_VICTORY_MODERN_2_DESC" Language="de_DE">
-      <Text>Schließt als Dschingis Khan den Vermächtnis-Weg "Eisenbahnmagnat" 2-mal ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_ECONOMIC_TRIUMPH_MODERN_DESC" Language="de_DE">
+      <Text>Schließt als Dschingis Khan den Triumph "Eisenbahnmagnat" ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_ECONOMIC_VICTORY_MODERN_2_NAME" Language="de_DE">
-      <Text>Eisenbahnmagnat 2</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_ECONOMIC_VICTORY_MODERN_3_DESC" Language="de_DE">
-      <Text>Schließt als Dschingis Khan den Vermächtnis-Weg "Eisenbahnmagnat" 3-mal ab.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_ECONOMIC_VICTORY_MODERN_3_NAME" Language="de_DE">
-      <Text>Eisenbahnmagnat 3</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_ECONOMIC_VICTORY_MODERN_DESC" Language="de_DE">
-      <Text>Schließt als Dschingis Khan den Vermächtnis-Weg "Eisenbahnmagnat" ab.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_ECONOMIC_VICTORY_MODERN_NAME" Language="de_DE">
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_ECONOMIC_TRIUMPH_MODERN_NAME" Language="de_DE">
       <Text>Eisenbahnmagnat</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_FLAWLESS_VICTORY_ANTIQUITY_DESC" Language="de_DE">
-      <Text>Schließt als Dschingis Khan 2 Vermächtnis-Wege in einem einzigen Zeitalter der Antike ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_ECONOMIC_VICTORY_DESC" Language="de_DE">
+      <Text>Erlangt als Dschingis Khan einen Wirtschaftssieg.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_FLAWLESS_VICTORY_ANTIQUITY_NAME" Language="de_DE">
-      <Text>Zwei Vermächtnis-Wege, Antike</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_ECONOMIC_VICTORY_NAME" Language="de_DE">
+      <Text>Wirtschaftssieg</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_FLAWLESS_VICTORY_EXPLORATION_DESC" Language="de_DE">
-      <Text>Schließt als Dschingis Khan 2 Vermächtnis-Wege in einem einzigen Zeitalter der Erkundung ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_EXPANSIONIST_TRIUMPH_2_ANTIQUITY_DESC" Language="de_DE">
+      <Text>Schließt als Dschingis Khan den Triumph "Turm zu Babel" ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_FLAWLESS_VICTORY_EXPLORATION_NAME" Language="de_DE">
-      <Text>Zwei Vermächtnis-Wege, Erkundung</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_EXPANSIONIST_TRIUMPH_2_ANTIQUITY_NAME" Language="de_DE">
+      <Text>Turm zu Babel</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_FLAWLESS_VICTORY_MODERN_DESC" Language="de_DE">
-      <Text>Schließt als Dschingis Khan 2 Vermächtnis-Wege in einem einzigen Zeitalter der Moderne ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_EXPANSIONIST_TRIUMPH_2_EXPLORATION_DESC" Language="de_DE">
+      <Text>Schließt als Dschingis Khan den Triumph "Wir haben Habsburger im Haus" ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_FLAWLESS_VICTORY_MODERN_NAME" Language="de_DE">
-      <Text>Zwei Vermächtnis-Wege, Moderne</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_EXPANSIONIST_TRIUMPH_2_EXPLORATION_NAME" Language="de_DE">
+      <Text>Wir haben Habsburger im Haus</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_MILITARY_VICTORY_ANTIQUITY_2_DESC" Language="de_DE">
-      <Text>Schließt als Dschingis Khan den Vermächtnis-Weg "Pax Imperatoria" 2-mal ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_EXPANSIONIST_TRIUMPH_2_MODERN_DESC" Language="de_DE">
+      <Text>Schließt als Dschingis Khan den Triumph "Megalopolis" ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_MILITARY_VICTORY_ANTIQUITY_2_NAME" Language="de_DE">
-      <Text>Pax Imperatoria 2</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_EXPANSIONIST_TRIUMPH_2_MODERN_NAME" Language="de_DE">
+      <Text>Megalopolis</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_MILITARY_VICTORY_ANTIQUITY_3_DESC" Language="de_DE">
-      <Text>Schließt als Dschingis Khan den Vermächtnis-Weg "Pax Imperatoria" 3-mal ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_EXPANSIONIST_TRIUMPH_ANTIQUITY_DESC" Language="de_DE">
+      <Text>Schließt als Dschingis Khan den Triumph "Vier Ecken der Welt" ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_MILITARY_VICTORY_ANTIQUITY_3_NAME" Language="de_DE">
-      <Text>Pax Imperatoria 3</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_EXPANSIONIST_TRIUMPH_ANTIQUITY_NAME" Language="de_DE">
+      <Text>Vier Ecken der Welt</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_MILITARY_VICTORY_ANTIQUITY_DESC" Language="de_DE">
-      <Text>Schließt als Dschingis Khan den Vermächtnis-Weg "Pax Imperatoria" ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_EXPANSIONIST_TRIUMPH_EXPLORATION_DESC" Language="de_DE">
+      <Text>Schließt als Dschingis Khan den Triumph "Hic Sunt Dracones" ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_MILITARY_VICTORY_ANTIQUITY_NAME" Language="de_DE">
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_EXPANSIONIST_TRIUMPH_EXPLORATION_NAME" Language="de_DE">
+      <Text>Hic Sunt Dracones</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_EXPANSIONIST_TRIUMPH_MODERN_DESC" Language="de_DE">
+      <Text>Schließt als Dschingis Khan den Triumph "Nie untergehende Sonne" ab.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_EXPANSIONIST_TRIUMPH_MODERN_NAME" Language="de_DE">
+      <Text>Nie untergehende Sonne</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_FOUR_MAJOR_TRIUMPHS_ANTIQUITY_DESC" Language="de_DE">
+      <Text>Schließt als Dschingis Khan 4 Große Triumphe in einem einzigen Zeitalter der Antike ab.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_FOUR_MAJOR_TRIUMPHS_ANTIQUITY_NAME" Language="de_DE">
+      <Text>Triumphierend, Antike</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_FOUR_MAJOR_TRIUMPHS_EXPLORATION_DESC" Language="de_DE">
+      <Text>Schließt als Dschingis Khan 4 Große Triumphe in einem einzigen Zeitalter der Erkundung ab.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_FOUR_MAJOR_TRIUMPHS_EXPLORATION_NAME" Language="de_DE">
+      <Text>Triumphierend, Erkundung</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_MILITARY_TRIUMPH_2_ANTIQUITY_DESC" Language="de_DE">
+      <Text>Schließt als Dschingis Khan den Triumph "Was für ein Gaius" ab.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_MILITARY_TRIUMPH_2_ANTIQUITY_NAME" Language="de_DE">
+      <Text>Was für ein Gaius</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_MILITARY_TRIUMPH_2_EXPLORATION_DESC" Language="de_DE">
+      <Text>Schließt als Dschingis Khan den Triumph "Pax Mongolica" ab.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_MILITARY_TRIUMPH_2_EXPLORATION_NAME" Language="de_DE">
+      <Text>Pax Mongolica</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_MILITARY_TRIUMPH_2_MODERN_DESC" Language="de_DE">
+      <Text>Schließt als Dschingis Khan den Triumph "Feind der Welt" ab.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_MILITARY_TRIUMPH_2_MODERN_NAME" Language="de_DE">
+      <Text>Feind der Welt</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_MILITARY_TRIUMPH_ANTIQUITY_DESC" Language="de_DE">
+      <Text>Schließt als Dschingis Khan den Triumph "Pax Imperatoria" ab.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_MILITARY_TRIUMPH_ANTIQUITY_NAME" Language="de_DE">
       <Text>Pax Imperatoria</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_MILITARY_VICTORY_EXPLORATION_2_DESC" Language="de_DE">
-      <Text>Schließt als Dschingis Khan den Vermächtnis-Weg "Non Sufficit Orbis" 2-mal ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_MILITARY_TRIUMPH_EXPLORATION_DESC" Language="de_DE">
+      <Text>Schließt als Dschingis Khan den Triumph "Non Sufficit Orbis" ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_MILITARY_VICTORY_EXPLORATION_2_NAME" Language="de_DE">
-      <Text>Non sufficit orbis 2</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_MILITARY_TRIUMPH_EXPLORATION_NAME" Language="de_DE">
+      <Text>Non Sufficit Orbis</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_MILITARY_VICTORY_EXPLORATION_3_DESC" Language="de_DE">
-      <Text>Schließt als Dschingis Khan den Vermächtnis-Weg "Non Sufficit Orbis" 3-mal ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_MILITARY_TRIUMPH_MODERN_DESC" Language="de_DE">
+      <Text>Schließt als Dschingis Khan den Triumph "Moralischer Imperativ" ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_MILITARY_VICTORY_EXPLORATION_3_NAME" Language="de_DE">
-      <Text>Non sufficit orbis 3</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_MILITARY_TRIUMPH_MODERN_NAME" Language="de_DE">
+      <Text>Moralischer Imperativ</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_MILITARY_VICTORY_EXPLORATION_DESC" Language="de_DE">
-      <Text>Schließt als Dschingis Khan den Vermächtnis-Weg "Non Sufficit Orbis" ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_MILITARY_VICTORY_DESC" Language="de_DE">
+      <Text>Erlangt als Dschingis Khan einen Militärsieg.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_MILITARY_VICTORY_EXPLORATION_NAME" Language="de_DE">
-      <Text>Non sufficit orbis</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_MILITARY_VICTORY_MODERN_2_DESC" Language="de_DE">
-      <Text>Schließt als Dschingis Khan den Vermächtnis-Weg "Ideologie" 2-mal ab.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_MILITARY_VICTORY_MODERN_2_NAME" Language="de_DE">
-      <Text>Ideologie 2</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_MILITARY_VICTORY_MODERN_3_DESC" Language="de_DE">
-      <Text>Schließt als Dschingis Khan den Vermächtnis-Weg "Ideologie" 3-mal ab.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_MILITARY_VICTORY_MODERN_3_NAME" Language="de_DE">
-      <Text>Ideologie 3</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_MILITARY_VICTORY_MODERN_DESC" Language="de_DE">
-      <Text>Schließt als Dschingis Khan den Vermächtnis-Weg "Ideologie" ab.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_MILITARY_VICTORY_MODERN_NAME" Language="de_DE">
-      <Text>Ideologie</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_MILITARY_VICTORY_NAME" Language="de_DE">
+      <Text>Militärsieg</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_PLAY_GAMES_1_DESC" Language="de_DE">
-      <Text>Erreicht als Dschingis Khan mindestens 1 Vermächtnis-Weg-Meilenstein.</Text>
+      <Text>Schließt als Dschingis Khan 1 Großen Triumph ab.</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_PLAY_GAMES_1_NAME" Language="de_DE">
       <Text>Spiel spielen 1</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_PLAY_GAMES_2_DESC" Language="de_DE">
-      <Text>Erreicht als Dschingis Khan mindestens 2 Vermächtnis-Weg-Meilensteine.</Text>
+      <Text>Schließt als Dschingis Khan 5 Große Triumphe über beliebig viele Zeitalter ab.</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_PLAY_GAMES_2_NAME" Language="de_DE">
       <Text>Spiel spielen 2</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_PLAY_GAMES_3_DESC" Language="de_DE">
-      <Text>Erreicht als Dschingis Khan mindestens 3 Vermächtnis-Weg-Meilensteine.</Text>
+      <Text>Schließt als Dschingis Khan 25 Große Triumphe über beliebig viele Zeitalter ab.</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_PLAY_GAMES_3_NAME" Language="de_DE">
       <Text>Spiel spielen 3</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_QUEST_A_ANTIQUITY_DESC" Language="de_DE">
-      <Text>Schließt als Dschingis Khan im Zeitalter der Antike eine Quest ab, um Eure Bürger zu feiern.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_SCIENCE_TRIUMPH_2_ANTIQUITY_DESC" Language="de_DE">
+      <Text>Schließt als Dschingis Khan den Triumph "Runderdler" ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_QUEST_A_ANTIQUITY_NAME" Language="de_DE">
-      <Text>Ein lebenswertes Leben</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_SCIENCE_TRIUMPH_2_ANTIQUITY_NAME" Language="de_DE">
+      <Text>Runderdler</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_QUEST_A_EXPLORATION_DESC" Language="de_DE">
-      <Text>Schließt als Dschingis Khan im Zeitalter der Erkundung eine Quest ab, um ferne Weiden zu suchen.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_SCIENCE_TRIUMPH_2_EXPLORATION_DESC" Language="de_DE">
+      <Text>Schließt als Dschingis Khan den Triumph "De revolutionibus orbium coelestium" ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_QUEST_A_EXPLORATION_NAME" Language="de_DE">
-      <Text>Regungen</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_SCIENCE_TRIUMPH_2_EXPLORATION_NAME" Language="de_DE">
+      <Text>De revolutionibus orbium coelestium</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_QUEST_A_MODERN_DESC" Language="de_DE">
-      <Text>Schließt als Dschingis Khan im Zeitalter der Moderne eine Quest ab, um die Zukunft zu gestalten.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_SCIENCE_TRIUMPH_2_MODERN_DESC" Language="de_DE">
+      <Text>Schließt als Dschingis Khan den Triumph "Jenseits des Schwertes" ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_QUEST_A_MODERN_NAME" Language="de_DE">
-      <Text>Ungezähmt</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_SCIENCE_TRIUMPH_2_MODERN_NAME" Language="de_DE">
+      <Text>Jenseits des Schwertes</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_QUEST_B_ANTIQUITY_DESC" Language="de_DE">
-      <Text>Schließt als Dschingis Khan im Zeitalter der Antike eine Quest ab, um Schlachten zu gewinnen.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_SCIENCE_TRIUMPH_ANTIQUITY_DESC" Language="de_DE">
+      <Text>Schließt als Dschingis Khan den Triumph "Bibliothek von Assurbanipal" ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_QUEST_B_ANTIQUITY_NAME" Language="de_DE">
-      <Text>Disziplin</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_SCIENCE_TRIUMPH_ANTIQUITY_NAME" Language="de_DE">
+      <Text>Bibliothek von Assurbanipal</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_QUEST_B_EXPLORATION_DESC" Language="de_DE">
-      <Text>Schließt als Dschingis Khan im Zeitalter der Erkundung eine Quest ab, um feindliche Banner zu Asche zu verbrennen.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_SCIENCE_TRIUMPH_EXPLORATION_DESC" Language="de_DE">
+      <Text>Schließt als Dschingis Khan den Triumph "Aufklärung" ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_QUEST_B_EXPLORATION_NAME" Language="de_DE">
-      <Text>Alles unter dem Himmel</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_QUEST_B_MODERN_DESC" Language="de_DE">
-      <Text>Schließt als Dschingis Khan im Zeitalter der Moderne eine Quest ab, um zum Sieg zu eilen.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_QUEST_B_MODERN_NAME" Language="de_DE">
-      <Text>Auf Flügeln aus Stahl</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_SCIENCE_VICTORY_ANTIQUITY_2_DESC" Language="de_DE">
-      <Text>Schließt als Dschingis Khan den Vermächtnis-Weg "Große Bibliothek" 2-mal ab.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_SCIENCE_VICTORY_ANTIQUITY_2_NAME" Language="de_DE">
-      <Text>Große Bibliothek 2</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_SCIENCE_VICTORY_ANTIQUITY_3_DESC" Language="de_DE">
-      <Text>Schließt als Dschingis Khan den Vermächtnis-Weg "Große Bibliothek" 3-mal ab.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_SCIENCE_VICTORY_ANTIQUITY_3_NAME" Language="de_DE">
-      <Text>Große Bibliothek 3</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_SCIENCE_VICTORY_ANTIQUITY_DESC" Language="de_DE">
-      <Text>Schließt als Dschingis Khan den Vermächtnis-Weg "Große Bibliothek" ab.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_SCIENCE_VICTORY_ANTIQUITY_NAME" Language="de_DE">
-      <Text>Große Bibliothek</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_SCIENCE_VICTORY_EXPLORATION_2_DESC" Language="de_DE">
-      <Text>Schließt als Dschingis Khan den Vermächtnis-Weg "Aufklärung" 2-mal ab.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_SCIENCE_VICTORY_EXPLORATION_2_NAME" Language="de_DE">
-      <Text>Aufklärung 2</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_SCIENCE_VICTORY_EXPLORATION_3_DESC" Language="de_DE">
-      <Text>Schließt als Dschingis Khan den Vermächtnis-Weg "Aufklärung" 3-mal ab.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_SCIENCE_VICTORY_EXPLORATION_3_NAME" Language="de_DE">
-      <Text>Aufklärung 3</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_SCIENCE_VICTORY_EXPLORATION_DESC" Language="de_DE">
-      <Text>Schließt als Dschingis Khan den Vermächtnis-Weg "Aufklärung" ab.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_SCIENCE_VICTORY_EXPLORATION_NAME" Language="de_DE">
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_SCIENCE_TRIUMPH_EXPLORATION_NAME" Language="de_DE">
       <Text>Aufklärung</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_SCIENCE_VICTORY_MODERN_2_DESC" Language="de_DE">
-      <Text>Schließt als Dschingis Khan den Vermächtnis-Weg "Weltraumrennen" 2-mal ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_SCIENCE_TRIUMPH_MODERN_DESC" Language="de_DE">
+      <Text>Schließt als Dschingis Khan den Triumph "Weltraumrennen am Horizont" ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_SCIENCE_VICTORY_MODERN_2_NAME" Language="de_DE">
-      <Text>Weltraumrennen 2</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_SCIENCE_TRIUMPH_MODERN_NAME" Language="de_DE">
+      <Text>Weltraumrennen am Horizont</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_SCIENCE_VICTORY_MODERN_3_DESC" Language="de_DE">
-      <Text>Schließt als Dschingis Khan den Vermächtnis-Weg "Weltraumrennen" 3-mal ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_SCIENCE_VICTORY_DESC" Language="de_DE">
+      <Text>Erlangt als Dschingis Khan einen Wissenschaftssieg.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_SCIENCE_VICTORY_MODERN_3_NAME" Language="de_DE">
-      <Text>Weltraumrennen 3</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_SCIENCE_VICTORY_NAME" Language="de_DE">
+      <Text>Wissenschaftssieg</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_SCIENCE_VICTORY_MODERN_DESC" Language="de_DE">
-      <Text>Schließt als Dschingis Khan den Vermächtnis-Weg "Weltraumrennen" ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_GENGHIS_KHAN_QUEST_A_ANTIQUITY_DESC" Language="de_DE">
+      <Text>Schließt als Dschingis Khan im Zeitalter der Antike eine Quest ab, um Eure Bürger zu feiern.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GENGHIS_KHAN_SCIENCE_VICTORY_MODERN_NAME" Language="de_DE">
-      <Text>Weltraumrennen</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_GENGHIS_KHAN_QUEST_A_ANTIQUITY_NAME" Language="de_DE">
+      <Text>Ein lebenswertes Leben</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_GENGHIS_KHAN_QUEST_A_EXPLORATION_DESC" Language="de_DE">
+      <Text>Schließt als Dschingis Khan im Zeitalter der Erkundung eine Quest ab, um Tribut zu sammeln.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_GENGHIS_KHAN_QUEST_A_EXPLORATION_NAME" Language="de_DE">
+      <Text>Tributzahlungen</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_GENGHIS_KHAN_QUEST_A_MODERN_DESC" Language="de_DE">
+      <Text>Schließt als Dschingis Khan im Zeitalter der Moderne eine Quest ab, um die Zukunft zu gestalten.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_GENGHIS_KHAN_QUEST_A_MODERN_NAME" Language="de_DE">
+      <Text>Ungezähmt</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_GENGHIS_KHAN_QUEST_B_ANTIQUITY_DESC" Language="de_DE">
+      <Text>Schließt als Dschingis Khan im Zeitalter der Antike eine Quest ab, um Schlachten zu gewinnen.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_GENGHIS_KHAN_QUEST_B_ANTIQUITY_NAME" Language="de_DE">
+      <Text>Disziplin</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_GENGHIS_KHAN_QUEST_B_EXPLORATION_DESC" Language="de_DE">
+      <Text>Schließt als Dschingis Khan im Zeitalter der Erkundung eine Quest ab, um Zerstörung zu verursachen.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_GENGHIS_KHAN_QUEST_B_EXPLORATION_NAME" Language="de_DE">
+      <Text>Vergebliche Gespräche</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_GENGHIS_KHAN_QUEST_B_MODERN_DESC" Language="de_DE">
+      <Text>Schließt als Dschingis Khan im Zeitalter der Moderne eine Quest ab, um zum Sieg zu eilen.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_GENGHIS_KHAN_QUEST_B_MODERN_NAME" Language="de_DE">
+      <Text>Auf Flügeln aus Stahl</Text>
     </Replace>
     <Replace Tag="LOC_MOD_ATTRIBUTE_EXPANSIONIST_LEGEND_GENGHIS_KHAN_L1_DESCRIPTION" Language="de_DE">
       <Text>Freigeschaltet durch Legenden-Fortschritt. +50 % [icon:YIELD_GOLD] Gold für die Umwandlung einer [icon:YIELD_TOWNS] Gemeinde in eine [icon:YIELD_CITIES] Stadt.</Text>
@@ -1102,32 +1130,32 @@
       <Text>Tengris Auserwählte</Text>
     </Replace>
     <Replace Tag="LOC_STRATEGYCARD_GENGHIS_KHAN_EXPLORATION_1_DESCRIPTION" Language="de_DE">
-      <Text>Erhaltet als Dschingis Khan Zugang zu einer neuen Vermächtniskarte der Erkundung:[n]
+      <Text>Erhaltet als Dschingis Khan Zugang zu einer neuen Widmung der Erkundung:[n]
 				+15 % Nahrung, -10 % Gold</Text>
     </Replace>
     <Replace Tag="LOC_STRATEGYCARD_GENGHIS_KHAN_EXPLORATION_1_NAME" Language="de_DE">
-      <Text>Expansionsvermächtniskarte der Erkundung</Text>
+      <Text>Expansionswidmung der Erkundung</Text>
     </Replace>
     <Replace Tag="LOC_STRATEGYCARD_GENGHIS_KHAN_EXPLORATION_2_DESCRIPTION" Language="de_DE">
-      <Text>Erhaltet als Dschingis Khan Zugang zu einer neuen Vermächtniskarte der Erkundung:[n]
+      <Text>Erhaltet als Dschingis Khan Zugang zu einer neuen Widmung der Erkundung:[n]
 				+3 Kampfstärke für Eure Marineeinheiten, -10 % Einfluss</Text>
     </Replace>
     <Replace Tag="LOC_STRATEGYCARD_GENGHIS_KHAN_EXPLORATION_2_NAME" Language="de_DE">
-      <Text>Militärvermächtniskarte der Erkundung</Text>
+      <Text>Militärwidmung der Erkundung</Text>
     </Replace>
     <Replace Tag="LOC_STRATEGYCARD_GENGHIS_KHAN_MODERN_1_DESCRIPTION" Language="de_DE">
-      <Text>Erhaltet als Dschingis Khan Zugang zu einer neuen Vermächtniskarte der Moderne:[n]
+      <Text>Erhaltet als Dschingis Khan Zugang zu einer neuen Widmung der Moderne:[n]
 				+15 % Nahrung, -10 % Gold</Text>
     </Replace>
     <Replace Tag="LOC_STRATEGYCARD_GENGHIS_KHAN_MODERN_1_NAME" Language="de_DE">
-      <Text>Expansionsvermächtniskarte der Moderne</Text>
+      <Text>Expansionswidmung der Moderne</Text>
     </Replace>
     <Replace Tag="LOC_STRATEGYCARD_GENGHIS_KHAN_MODERN_2_DESCRIPTION" Language="de_DE">
-      <Text>Erhaltet als Dschingis Khan Zugang zu einer neuen Vermächtniskarte der Moderne:[n]
+      <Text>Erhaltet als Dschingis Khan Zugang zu einer neuen Widmung der Moderne:[n]
 				+3 Kampfstärke für Eure Lufteinheiten, -10 % Einfluss</Text>
     </Replace>
     <Replace Tag="LOC_STRATEGYCARD_GENGHIS_KHAN_MODERN_2_NAME" Language="de_DE">
-      <Text>Militärvermächtniskarte der Moderne</Text>
+      <Text>Militärwidmung der Moderne</Text>
     </Replace>
     <Replace Tag="LOC_TITLE_GENGHIS_KHAN_NAME" Language="de_DE">
       <Text>Tengris Auserwählte</Text>

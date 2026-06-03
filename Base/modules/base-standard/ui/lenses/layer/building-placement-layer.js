@@ -1,8 +1,8 @@
-import { L as LensManager } from '../../../../core/ui/lenses/lens-manager.chunk.js';
-import { C as ComponentID } from '../../../../core/ui/utilities/utilities-component-id.chunk.js';
+import LensManager from '../../../../core/ui/lenses/lens-manager.js';
+import { ComponentID } from '../../../../core/ui/utilities/utilities-component-id.js';
 import { BuildingPlacementHoveredPlotChangedEventName, BuildingPlacementManager } from '../../building-placement/building-placement-manager.js';
-import { Y as YieldChangeVisualizer } from './yield-change-visualizer.chunk.js';
-import { S as SortYields } from '../../utilities/utilities-city-yields.chunk.js';
+import { YieldChangeVisualizer } from './yield-change-visualizer.js';
+import { SortYields } from '../../utilities/utilities-city-yields.js';
 
 const ADJACENCY_ICON = "adjacencyarrow_east";
 const ADJACENCY_ARROW_SCALE = 1.7;

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <GameEffects xmlns="GameEffects">
     <Modifier id="11134B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_NAVAL_UNIT_WITH_OCEAN_ACCESS" run-once="false" permanent="true">
-        <Argument name="UnitType">UNIT_VIKINGR</Argument>
+        <Argument name="UnitTag">UNIT_CLASS_VIKINGR</Argument>
         <Argument name="Amount">2</Argument>
     </Modifier>
     <Modifier id="11134C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_GRANT_GREAT_WORK" run-once="false" permanent="true">
@@ -373,9 +373,6 @@
         <Argument name="Amount">1</Argument>
         <Argument name="NarrativeTagType">NARRATIVE_TAG_HEIM</Argument>
     </Modifier>
-    <Requirement id="REQ_STORY_CIVILIZATION_ICELAND" type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
-        <Argument name="CivilizationType">CIVILIZATION_ICELAND</Argument>
-    </Requirement>
     <RequirementSet id="REQSET_11137A_NARRATIVE_REQUISITE">
         <Requirement xref="REQ_STORY_CIVILIZATION_ICELAND"/>
         <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_NARRATIVE_TAGS">
@@ -502,7 +499,7 @@
     <RequirementSet id="REQSET_11140A_NARRATIVE">
         <Requirement xref="REQ_STORY_CIVILIZATION_ICELAND"/>
         <Requirement type="REQUIREMENT_PLAYER_HAS_ACTIVE_TRADITION">
-            <Argument name="TraditionType">TRADITION_DROTTKVAETT</Argument>
+            <Argument name="TraditionType">TRADITION_DROTTKVAETT_II</Argument>
             <Argument name="ActiveAtGoldenAge">True</Argument>
         </Requirement>
     </RequirementSet>

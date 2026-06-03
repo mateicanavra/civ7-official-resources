@@ -116,6 +116,8 @@
 		<Row MapType="LOC_MAP_CONTINENTS_NAME" AgeType="AGE_EXPLORATION" ResourceClassType="RESOURCECLASS_TREASURE"/>
 		<Row MapType="LOC_MAP_CONTINENTS_VORONOI_NAME" AgeType="AGE_EXPLORATION" ResourceClassType="RESOURCECLASS_TREASURE" />
 		<Row MapType="LOC_MAP_PANGAEA_VORONOI_NAME" AgeType="AGE_EXPLORATION" ResourceClassType="RESOURCECLASS_TREASURE" />
+		<Row MapType="LOC_MAP_FRACTAL_VORONOI_NAME" AgeType="AGE_EXPLORATION" ResourceClassType="RESOURCECLASS_TREASURE" />
+		<Row MapType="LOC_MAP_SHATTERED_SEAS_NAME" AgeType="AGE_EXPLORATION" ResourceClassType="RESOURCECLASS_TREASURE" />
 	</MapIslandBehavior>
 	<MapResourceMinimumAmountModifier>
 		<!--====Default is used if this data isn't filled out for a map type. Tt ensures the resource gen stays consistent per map size================-->
@@ -168,5 +170,15 @@
 		<Row MapType="LOC_MAP_PANGAEA_VORONOI_NAME" MapSizeType="MAPSIZE_SMALL" Amount="-2" />
 		<Row MapType="LOC_MAP_PANGAEA_VORONOI_NAME" MapSizeType="MAPSIZE_LARGE" Amount="0" />
 		<Row MapType="LOC_MAP_PANGAEA_VORONOI_NAME" MapSizeType="MAPSIZE_HUGE" Amount="4" />
+		<!--==============================================================================-->
+		<Row MapType="LOC_MAP_FRACTAL_VORONOI_NAME" MapSizeType="MAPSIZE_TINY" Amount="-4" />
+		<Row MapType="LOC_MAP_FRACTAL_VORONOI_NAME" MapSizeType="MAPSIZE_SMALL" Amount="-2" />
+		<Row MapType="LOC_MAP_FRACTAL_VORONOI_NAME" MapSizeType="MAPSIZE_LARGE" Amount="0" />
+		<Row MapType="LOC_MAP_FRACTAL_VORONOI_NAME" MapSizeType="MAPSIZE_HUGE" Amount="4" />
+		<!--==============================================================================-->
+		<Row MapType="LOC_MAP_SHATTERED_SEAS_NAME" MapSizeType="MAPSIZE_TINY" Amount="-4"/>
+		<Row MapType="LOC_MAP_SHATTERED_SEAS_NAME" MapSizeType="MAPSIZE_SMALL" Amount="-2"/>
+		<Row MapType="LOC_MAP_SHATTERED_SEAS_NAME" MapSizeType="MAPSIZE_LARGE" Amount="0"/>
+		<Row MapType="LOC_MAP_SHATTERED_SEAS_NAME" MapSizeType="MAPSIZE_HUGE" Amount="4"/>
 	</MapResourceMinimumAmountModifier>
 </Database>

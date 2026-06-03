@@ -1,4 +1,4 @@
-import { S as Shared_OnAutomationEvent, c as GetFloatParam, d as GetFloat3Param, R as ReadUserConfigOptions, L as LogCurrentPlayers, P as PassTest, b as RestoreUserConfigOptions } from './automation-test-support.chunk.js';
+import { Shared_OnAutomationEvent, GetFloatParam, GetFloat3Param, ReadUserConfigOptions, LogCurrentPlayers, PassTest, RestoreUserConfigOptions } from './automation-test-support.js';
 
 console.log("loading automation-test-play-game-xr-fixed.ts");
 class AutomationTestLoadGameFixedViewXR {

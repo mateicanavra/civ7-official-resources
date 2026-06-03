@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Civilizations>
+		<Update>
+			<Where CivilizationType="CIVILIZATION_SHAWNEE" />
+			<Set UniqueCultureProgressionTree="TREE_CIVICS_MO_TEST_OF_TIME" />
+		</Update>
+	</Civilizations>
+	<TraitModifiers>
+		<Row TraitType="TRAIT_SHAWNEE_ABILITY" ModifierId="MOD_SHAWNEE_RIVER_FOOD"/>
+		<Row TraitType="TRAIT_SHAWNEE_ABILITY" ModifierId="MOD_SHAWNEE_CITY_STATE_RESOURCES"/>
+	</TraitModifiers>
+	<CivilizationTraits>
+		<Row CivilizationType="CIVILIZATION_SHAWNEE" TraitType="TRAIT_ANACHRONISTIC_CIV" />
+	</CivilizationTraits>
+</Database>

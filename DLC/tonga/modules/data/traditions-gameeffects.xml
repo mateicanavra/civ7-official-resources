@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <GameEffects xmlns="GameEffects">
+		<Modifier id="MOD_UNLOCK_TONGA_SYNCRETISM_EXPLORATION" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
+			<Argument name="Tradition">TRADITION_TONGA_SYNCRETISM_EXPLORATION</Argument>
+		</Modifier>
+		<Modifier id="MOD_UNLOCK_TONGA_SYNCRETISM_MODERN" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
+			<Argument name="Tradition">TRADITION_TONGA_SYNCRETISM_MODERN</Argument>
+		</Modifier>
 	<!-- ==================================================	-->
 	<!--	ANTIQUITY							-->
 	<!-- ==================================================	-->
@@ -7,13 +13,13 @@
 		<Argument name="YieldType">YIELD_CULTURE</Argument>
 		<Argument name="Amount">1</Argument>
 		<Argument name="Tag">WAREHOUSE</Argument>
-		<Argument name="Tooltip">LOC_TRADITION_NGATU_NAME</Argument>
-		<String context="Description">LOC_TRADITION_NGATU_DESCRIPTION</String>
+		<Argument name="Tooltip">LOC_TRADITION_NGATU_I_NAME</Argument>
+		<String context="Description">LOC_TRADITION_NGATU_I_DESCRIPTION</String>
 	</Modifier>
 	<Modifier id="TONGIAKI_MOD_TRADE_ROUTE_RANGE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_TRADE_ROUTE_RANGE">
 		<Argument name="DomainType">DOMAIN_SEA</Argument>
 		<Argument name="Amount">10</Argument>
-		<String context="Description">LOC_TRADITION_TONGIAKI_DESCRIPTION</String>
+		<String context="Description">LOC_TRADITION_TONGIAKI_I_DESCRIPTION</String>
 	</Modifier>
 	<Modifier id="TAKUAKA_MOD_CITY_WAREHOUSE_BONUS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_GRANT_WAREHOUSE_YIELD">
 		<SubjectRequirements>
@@ -24,5 +30,138 @@
 	</Modifier>
 	<Modifier id="TAKUAKA_MOD_REEF_WAREHOUSE_BONUS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_GRANT_WAREHOUSE_YIELD">
 		<Argument name="WarehouseYieldChange">TakuakaReefScience, TakuakaColdReefScience</Argument>
+	</Modifier>
+	<!-- ==================================================	-->
+	<!--	Tot Tradition Modifiers							-->
+	<!-- ==================================================	-->
+	<Modifier id="MOD_TOT_LAPITA_ORIGINS_CULTURE_BUILDING_INFLUENCE" collection="COLLECTION_PLAYER_CONSTRUCTIBLES" effect="EFFECT_CONSTRUCTIBLE_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_BUILDING_IS_ADJACENT_TO_X">
+				<Argument name="BuildingTags">CULTURE</Argument>
+				<Argument name="AdjacentTerrainTypes">TERRAIN_COAST</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Tooltip">LOC_CIVIC_LAPITA_ORIGINS_NAME</Argument>
+	</Modifier>
+	<Modifier id="MOD_TOT_LAPITA_ORIGINS_II_CULTURE_BUILDING_INFLUENCE" collection="COLLECTION_PLAYER_CONSTRUCTIBLES" effect="EFFECT_CONSTRUCTIBLE_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_BUILDING_IS_ADJACENT_TO_X">
+				<Argument name="BuildingTags">CULTURE</Argument>
+				<Argument name="AdjacentTerrainTypes">TERRAIN_COAST</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="Tooltip">LOC_CIVIC_LAPITA_ORIGINS_NAME</Argument>
+	</Modifier>
+	<Modifier id="MOD_TOT_ESI_MAKA_FAAKINANGA_COMBAT_STRENGTH" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ATTACH_MODIFIERS">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+				<Argument name="Tag">UNIT_CLASS_INFANTRY, UNIT_CLASS_NAVAL</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="ModifierId">ATTACH_MOD_TOT_ESI_MAKA_FAAKINANGA_MELEE_COMBAT</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_MOD_TOT_ESI_MAKA_FAAKINANGA_MELEE_COMBAT" collection="COLLECTION_UNIT_COMBAT" effect="EFFECT_ADJUST_UNIT_STRENGTH_MODIFIER">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_PLOT_ADJACENT_TO_COAST"/>
+		</OwnerRequirements>
+		<Argument name="Amount">3</Argument>
+		<String context="Preview">LOC_MOD_ESI_MAKA_FAAKINANGA_ADJACENT_TO_COAST_COMBAT_PREVIEW</String>
+	</Modifier>
+	<Modifier id="MOD_TOT_NGATU_BEFRIEND_INDEPENDENT" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_ADJUST_DIPLOMATIC_ACTION_TYPE_EFFICIENCY">
+		<Argument name="DistantLandsTargets">true</Argument>
+		<Argument name="Percent">100</Argument>
+		<Argument name="ActionType">DIPLOMACY_ACTION_GIVE_INFLUENCE_TOKEN</Argument>
+	</Modifier>
+	<Modifier id="MOD_TOT_NGATU_II_PROMOTE_GROWTH" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_ADJUST_DIPLOMATIC_ACTION_TYPE_EFFICIENCY">
+		<Argument name="DistantLandsTargets">true</Argument>
+		<Argument name="Percent">100</Argument>
+		<Argument name="ActionType">DIPLOMACY_ACTION_CS_PROMOTE_GROWTH</Argument>
+	</Modifier>
+	<Modifier id="MOD_TOT_NGATU_II_BOLSTER_MILITARY" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_ADJUST_DIPLOMATIC_ACTION_TYPE_EFFICIENCY">
+		<Argument name="DistantLandsTargets">true</Argument>
+		<Argument name="Percent">100</Argument>
+		<Argument name="ActionType">DIPLOMACY_ACTION_CS_BOLSTER_MILITARY</Argument>
+	</Modifier>
+	<Modifier id="MOD_TOT_NGATU_II_ORDER_ATTACK" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_ADJUST_DIPLOMATIC_ACTION_TYPE_EFFICIENCY">
+		<Argument name="DistantLandsTargets">true</Argument>
+		<Argument name="Percent">100</Argument>
+		<Argument name="ActionType">DIPLOMACY_ACTION_CS_ORDER_ATTACK</Argument>
+	</Modifier>
+	<Modifier id="MOD_TOT_NGATU_II_LEVY_UNIT" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_ADJUST_DIPLOMATIC_ACTION_TYPE_EFFICIENCY">
+		<Argument name="DistantLandsTargets">true</Argument>
+		<Argument name="Percent">100</Argument>
+		<Argument name="ActionType">DIPLOMACY_ACTION_CS_LEVY_UNIT</Argument>
+	</Modifier>
+	<Modifier id="MOD_TOT_NGATU_II_INCORPORATE" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_ADJUST_DIPLOMATIC_ACTION_TYPE_EFFICIENCY">
+		<Argument name="DistantLandsTargets">true</Argument>
+		<Argument name="Percent">100</Argument>
+		<Argument name="ActionType">DIPLOMACY_ACTION_CS_INCORPORATE</Argument>
+	</Modifier>
+
+	<Modifier id="MOD_TONGIAKI_II_TRADE_ROUTE_RANGE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_TRADE_ROUTE_RANGE">
+		<Argument name="DomainType">DOMAIN_SEA</Argument>
+		<Argument name="Amount">10</Argument>
+		<String context="Description">LOC_TRADITION_TONGIAKI_II_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="MOD_TOT_TONGIAKI_II_TRADE_ROUTE_GOLD" collection="COLLECTION_PLAYER_TRADE_ROUTES" effect="EFFECT_PLAYER_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_TRADE_ROUTE_IS_DOMAIN">
+				<Argument name="DomainType">DOMAIN_SEA</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_GOLD</Argument>
+		<Argument name="Amount">3</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_TONGIAKI_I_NAME</Argument>
+	</Modifier>
+	<Modifier id="MOD_TOT_TONGIAKI_II_TRADE_ROUTE_SCIENCE" collection="COLLECTION_PLAYER_TRADE_ROUTES" effect="EFFECT_PLAYER_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_TRADE_ROUTE_IS_DOMAIN">
+				<Argument name="DomainType">DOMAIN_SEA</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_SCIENCE</Argument>
+		<Argument name="Amount">3</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_TONGIAKI_I_NAME</Argument>
+	</Modifier>
+	<Modifier id="MOD_NGATU_II_CULTURE_WAREHOUSE_BUILDINGS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD">
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Tag">WAREHOUSE</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_NGATU_I_NAME</Argument>
+		<String context="Description">LOC_TRADITION_NGATU_II_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="MOD_NGATU_II_INFLUENCE_WAREHOUSE_BUILDINGS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_CITY">
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Tag">WAREHOUSE</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_NGATU_I_NAME</Argument>
+	</Modifier>
+	<Modifier id="MOD_TONGA_SYNCRETISM_EXPLORATION_CITY_STATE_TRADE_CULTURE" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_ADJUST_YIELD_PER_CITY_STATE_TRADE_ROUTE">
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount">3</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_TONGA_SYNCRETISM_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="MOD_TONGA_SYNCRETISM_EXPLORATION_CITY_STATE_TRADE_GOLD" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_ADJUST_YIELD_PER_CITY_STATE_TRADE_ROUTE">
+		<Argument name="YieldType">YIELD_GOLD</Argument>
+		<Argument name="Amount">3</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_TONGA_SYNCRETISM_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="MOD_TONGA_SYNCRETISM_MODERN_CITY_STATE_TRADE_CULTURE" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_ADJUST_YIELD_PER_CITY_STATE_TRADE_ROUTE">
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount">4</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_TONGA_SYNCRETISM_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="MOD_TONGA_SYNCRETISM_MODERN_CITY_STATE_TRADE_GOLD" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_ADJUST_YIELD_PER_CITY_STATE_TRADE_ROUTE">
+		<Argument name="YieldType">YIELD_GOLD</Argument>
+		<Argument name="Amount">4</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_TONGA_SYNCRETISM_TOOLTIP</Argument>
 	</Modifier>
 </GameEffects>

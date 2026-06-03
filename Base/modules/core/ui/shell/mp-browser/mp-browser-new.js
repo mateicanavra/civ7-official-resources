@@ -1,44 +1,22 @@
 import ContextManager from '../../context-manager/context-manager.js';
-import { a as DialogBoxManager, D as DialogBoxAction } from '../../dialog-box/manager-dialog-box.chunk.js';
-import { G as GameCreatorOpenedEvent, M as MainMenuReturnEvent } from '../../events/shell-events.chunk.js';
-import ActionHandler, { ActiveDeviceTypeChangedEventName } from '../../input/action-handler.js';
-import FocusManager from '../../input/focus-manager.js';
-import { I as InputEngineEvent } from '../../input/input-support.chunk.js';
-import { N as NavTray } from '../../navigation-tray/model-navigation-tray.chunk.js';
-import { P as Panel, A as AnchorType } from '../../panel-support.chunk.js';
+import { DialogBoxManager } from '../../dialog-box/manager-dialog-box.js';
+import { GameCreatorOpenedEvent, MainMenuReturnEvent } from '../../events/shell-events.js';
+import ActionHandler from '../../input/action-handler.js';
+import { ActiveDeviceTypeChangedEventName } from '../../input/input-events.js';
+import { InputEngineEvent } from '../../input/input-support.js';
+import NavTray from '../../navigation-tray/model-navigation-tray.js';
+import Panel, { AnchorType } from '../../panel-support.js';
 import { ProfileAccountLoggedOutEventName } from '../../profile-header/profile-header.js';
-import { SortOptions, M as MultiplayerGameListQueryCompleteEventName, a as MultiplayerGameListQueryDoneEventName, b as MultiplayerGameListQueryErrorEventName, c as MPBrowserModel, mapSortOptionsToFlex, ActionConfirmEventName } from './mp-browser-chooser-item.js';
-import { a as MultiplayerMatchMakeCompleteEventName, b as MultiplayerMatchMakeFailEventName, c as MultiplayerJoinCompleteEventName, d as MultiplayerJoinFailEventName, e as MultiplayerCreateCompleteEventName, f as MultiplayerCreateFailEventName, g as MultiplayerCreateAttemptEventName, h as MultiplayerGameAbandonedEventName, M as MultiplayerShellManager } from '../mp-shell-logic/mp-shell-logic.chunk.js';
-import { MustGetElements, MustGetElement } from '../../utilities/utilities-dom.chunk.js';
-import { L as Layout } from '../../utilities/utilities-layout.chunk.js';
-import { s as serverTypeToGameModeType, g as gameListUpdateTypeToErrorBody } from '../../utilities/utilities-network-constants.chunk.js';
-import '../../context-manager/display-queue-manager.js';
-import '../../framework.chunk.js';
-import '../../input/cursor.js';
-import '../../views/view-manager.chunk.js';
-import '../../audio-base/audio-support.chunk.js';
-import '../../utilities/utilities-update-gate.chunk.js';
-import '../../utilities/utilities-image.chunk.js';
-import '../../utilities/utilities-component-id.chunk.js';
-import '../../components/fxs-activatable.chunk.js';
-import '../../rewards-notifications/rewards-notification-manager.chunk.js';
-import '../mp-staging/model-mp-friends.chunk.js';
-import '../../social-notifications/social-notifications-manager.js';
-import '../../utilities/utilities-liveops.js';
-import '../../../../base-standard/ui/chooser-item/chooser-item.js';
-import '../../../../base-standard/ui/chooser-item/chooser-item.chunk.js';
-import '../../profile-page/screen-profile-page.js';
-import '../../components/fxs-dropdown.chunk.js';
-import '../../input/focus-support.chunk.js';
-import '../../components/fxs-slot.chunk.js';
-import '../../spatial/spatial-manager.js';
-import '../../save-load/model-save-load.chunk.js';
-import '../leader-select/leader-button/leader-button.js';
-import '../../utilities/utilities-metaprogression.chunk.js';
-import '../../utilities/utilities-network.js';
-import '../mp-legal/mp-legal.js';
-
-const styles = "fs://game/core/ui/shell/mp-browser/mp-browser-new.css";
+import { AdditionalContentType } from '../mp-additional-content/mp-additional-content.js';
+import MPBrowserModel, { MultiplayerGameListQueryCompleteEventName, MultiplayerGameListQueryDoneEventName, MultiplayerGameListQueryErrorEventName } from './model-mp-browser-new.js';
+import { SortOptions, mapSortOptionsToFlex, ActionConfirmEventName } from './mp-browser-chooser-item.js';
+import MultiplayerShellManager, { MultiplayerMatchMakeCompleteEventName, MultiplayerMatchMakeFailEventName, MultiplayerJoinCompleteEventName, MultiplayerJoinFailEventName, MultiplayerCreateCompleteEventName, MultiplayerCreateFailEventName, MultiplayerCreateAttemptEventName, MultiplayerGameAbandonedEventName } from '../mp-shell-logic/mp-shell-logic.js';
+import { MustGetElements, MustGetElement } from '../../utilities/utilities-dom.js';
+import { Layout } from '../../utilities/utilities-layout.js';
+import { serverTypeToGameModeType, gameListUpdateTypeToErrorBody } from '../../utilities/utilities-network-constants.js';
+import { FocusManager } from '../../../ui-next/services/focus-manager.js';
+import styles from './mp-browser-new.scss.js';
+import { DialogBoxAction } from '../../dialog-box/model-dialog-box.js';
 
 var PanelOperation = /* @__PURE__ */ ((PanelOperation2) => {
   PanelOperation2[PanelOperation2["None"] = 0] = "None";
@@ -54,13 +32,14 @@ const sortOptions = [
   SortOptions.RULE_SET,
   SortOptions.MAP_TYPE,
   SortOptions.GAME_SPEED,
-  SortOptions.CONTENT,
-  SortOptions.PLAYERS
+  SortOptions.PLAYERS,
+  SortOptions.CONTENT
 ];
 const mapServerTypeToTitle = {
   [ServerType.SERVER_TYPE_INTERNET]: "LOC_UI_MP_BROWSER_TITLE_INTERNET",
   [ServerType.SERVER_TYPE_LAN]: "LOC_UI_MP_BROWSER_TITLE_LAN",
-  [ServerType.SERVER_TYPE_WIRELESS]: "LOC_UI_MP_BROWSER_TITLE_WIRELESS"
+  [ServerType.SERVER_TYPE_WIRELESS]: "LOC_UI_MP_BROWSER_TITLE_WIRELESS",
+  [ServerType.SERVER_TYPE_HOTSEAT]: "LOC_UI_MP_BROWSER_TITLE_HOTSEAT"
 };
 const mapSortOptionsToTitle = {
   [SortOptions.NONE]: "",
@@ -68,8 +47,8 @@ const mapSortOptionsToTitle = {
   [SortOptions.RULE_SET]: "LOC_UI_MP_BROWSER_FILTER_RULE",
   [SortOptions.MAP_TYPE]: "LOC_UI_MP_BROWSER_FILTER_MAP_TYPE",
   [SortOptions.GAME_SPEED]: "LOC_UI_MP_BROWSER_FILTER_GAME_SPEED",
-  [SortOptions.CONTENT]: "LOC_UI_MP_BROWSER_FILTER_CONTENT",
-  [SortOptions.PLAYERS]: "LOC_UI_MP_BROWSER_FILTER_PLAYERS"
+  [SortOptions.PLAYERS]: "LOC_UI_MP_BROWSER_FILTER_PLAYERS",
+  [SortOptions.CONTENT]: "LOC_UI_MP_BROWSER_FILTER_CONTENT"
 };
 var SortOrder = /* @__PURE__ */ ((SortOrder2) => {
   SortOrder2[SortOrder2["NONE"] = 0] = "NONE";
@@ -110,6 +89,7 @@ class PanelMPBrowser extends Panel {
   joinButtonActivateListener = this.onJoinButtonActivate.bind(this);
   reportButtonActivateListener = this.onReportButtonActivate.bind(this);
   reportButtonFocusListener = this.onReportButtonFocus.bind(this);
+  additionalContentButtonFocusListener = this.onAdditionalContentButtonFocus.bind(this);
   resizeListener = this.onResize.bind(this);
   profileAccountLoggedOutListener = this.onProfileAccountLoggedOut.bind(this);
   activeDeviceTypeListener = this.onActiveDeviceTypeChanged.bind(this);
@@ -147,6 +127,9 @@ class PanelMPBrowser extends Panel {
   createGameButton;
   joinButton;
   backButton;
+  addOnsTitleText = "LOC_UI_TOOLTIP_MODS";
+  disabledContentTitleText = "LOC_UI_TOOLTIP_DISABLED_CONTENT";
+  shouldShowReportButtons = Network.getLocalHostingPlatform() != HostingType.HOSTING_TYPE_GAMECENTER;
   constructor(root) {
     super(root);
     this.animateInType = this.animateOutType = AnchorType.RelativeToRight;
@@ -177,6 +160,11 @@ class PanelMPBrowser extends Panel {
     this.sortContainer = MustGetElement(".mp_browser__sort-container", this.Root);
     this.sortOptions = MustGetElements("fxs-activatable", this.sortContainer);
     this.selectorIndicator = MustGetElement(".mp_browser__selection-indicator", this.Root);
+    const isMobileViewExperience = UI.getViewExperience() == UIViewExperience.Mobile;
+    if (isMobileViewExperience) {
+      const frame = MustGetElement("fxs-frame", this.Root);
+      frame.setAttribute("outside-safezone-mode", "full");
+    }
     this.createLoadingAnimation();
     this.enableCloseSound = true;
     this.Root.setAttribute("data-audio-group-ref", "audio-mp-browser");
@@ -305,8 +293,6 @@ class PanelMPBrowser extends Panel {
             ruleSet: ruleSetName,
             mapType: mapDisplayName,
             gameSpeed: gameSpeedName,
-            disabledContent,
-            mods,
             players: `${numPlayers}/${maxPlayers}`,
             savedGame,
             hostingPlatform,
@@ -315,6 +301,12 @@ class PanelMPBrowser extends Panel {
             hostFriendID_T2GP
           })
         );
+        if (mods?.length) {
+          elem.setAttribute("enabled-content", JSON.stringify(mods));
+        }
+        if (disabledContent?.length) {
+          elem.setAttribute("disabled-content", JSON.stringify(disabledContent));
+        }
         return elem;
       }
     );
@@ -324,7 +316,7 @@ class PanelMPBrowser extends Panel {
       const elem = document.createElement("fxs-activatable");
       elem.addEventListener("action-activate", this.reportButtonActivateListener);
       elem.addEventListener("focus", this.reportButtonFocusListener);
-      elem.classList.add("absolute", "w-8", "h-8", "-right-1", "hidden", "group");
+      elem.classList.add("absolute", "w-8", "h-8", "hidden", "group", "right-0");
       elem.setAttribute("tabindex", "-1");
       elem.setAttribute("index", `${index}`);
       const icon = document.createElement("div");
@@ -416,11 +408,14 @@ class PanelMPBrowser extends Panel {
 		`;
   }
   isScreenSmallMode() {
-    return window.innerHeight <= Layout.pixelsToScreenPixels(this.SMALL_SCREEN_MODE_MAX_HEIGHT) || window.innerWidth <= Layout.pixelsToScreenPixels(this.SMALL_SCREEN_MODE_MAX_WIDTH);
+    return window.innerHeight <= Layout.pixelsToScreenPixels(this.SMALL_SCREEN_MODE_MAX_HEIGHT) || window.innerWidth <= Layout.pixelsToScreenPixels(this.SMALL_SCREEN_MODE_MAX_WIDTH) || UI.getViewExperience() == UIViewExperience.Mobile;
   }
   onQueryDone(_event) {
   }
   onQueryComplete(_event) {
+    this.ImplQueryCompete();
+  }
+  ImplQueryCompete() {
     const queryCompleteTimestamp = /* @__PURE__ */ new Date();
     const bufferMs = this.REFRESH_BUFFER_TIME_MS - (queryCompleteTimestamp.getTime() - this.refreshStartTimestamp.getTime());
     setTimeout(
@@ -577,6 +572,7 @@ class PanelMPBrowser extends Panel {
       return;
     }
     this.refreshStartTimestamp = /* @__PURE__ */ new Date();
+    MultiplayerShellManager.refreshGameCenterAuthentication();
     this.startQuery();
   }
   getQuickJoinItemsData() {
@@ -738,8 +734,12 @@ class PanelMPBrowser extends Panel {
     });
   }
   onReportButtonFocus() {
-    this.updateCardSelection();
     this.updateReportButtons();
+    this.updateCardSelection();
+    this.updateNavTray();
+  }
+  onAdditionalContentButtonFocus() {
+    this.updateCardSelection();
     this.updateNavTray();
   }
   onGameCardFocus({ target }) {
@@ -758,7 +758,7 @@ class PanelMPBrowser extends Panel {
       this.onJoinButtonActivate();
     } else {
       this.handleGameCardFocus(target);
-      FocusManager.setFocus(target);
+      FocusManager.get().setFocus(target);
     }
   }
   onGameCardConfirm({ target }) {
@@ -990,9 +990,95 @@ class PanelMPBrowser extends Panel {
     this.subtitle.classList.toggle("invisible", !isLiveEvent);
     this.subtitle.setAttribute("data-l10n-id", event);
   }
+  onModsSelected({ target }) {
+    const index = parseInt(target.getAttribute("index") ?? "-1");
+    if (index == -1) {
+      return;
+    }
+    const enabledContentAttr = this.gameCards[index]?.getAttribute("enabled-content");
+    const enabledContent = enabledContentAttr ? JSON.parse(enabledContentAttr) : null;
+    ContextManager.push("screen-mp-additional-content", {
+      singleton: true,
+      createMouseGuard: true,
+      panelOptions: {
+        title: this.addOnsTitleText,
+        type: AdditionalContentType.ADDONS,
+        content: enabledContent
+      }
+    });
+  }
+  onDlcsSelected({ target }) {
+    const index = parseInt(target.getAttribute("index") ?? "-1");
+    if (index == -1) {
+      return;
+    }
+    const disabledContentAttr = this.gameCards[index]?.getAttribute("disabled-content");
+    const disabledContent = disabledContentAttr ? JSON.parse(disabledContentAttr) : null;
+    ContextManager.push("screen-mp-additional-content", {
+      singleton: true,
+      createMouseGuard: true,
+      panelOptions: {
+        title: this.disabledContentTitleText,
+        type: AdditionalContentType.DISABLEDCONTENT,
+        content: disabledContent
+      }
+    });
+  }
+  renderAdditionalButtons(gameCard, index) {
+    const container = document.createElement("div");
+    container.classList.add("mp-additional-buttons", "flex", "flex-row", "absolute", "right-10");
+    container.setAttribute("index", `${index}`);
+    container.appendChild(
+      this.createAdditionalContentButton(
+        index,
+        this.disabledContentTitleText,
+        ["img-dlc-icon"],
+        gameCard.hasAttribute("disabled-content"),
+        this.onDlcsSelected
+      )
+    );
+    container.appendChild(
+      this.createAdditionalContentButton(
+        index,
+        this.addOnsTitleText,
+        ["img-action-upgrade", "-scale-100"],
+        gameCard.hasAttribute("enabled-content"),
+        this.onModsSelected
+      )
+    );
+    return container;
+  }
+  createAdditionalContentButton(index, titleText, additionalSelectors, isDisabled, activateMethod) {
+    const highlight = document.createElement("div");
+    highlight.classList.add(
+      "h-full",
+      "inset-0\\.5",
+      "border-2",
+      "border-secondary",
+      "opacity-0",
+      "group-focus\\:opacity-100",
+      "group-hover\\:opacity-100",
+      "transition-opacity"
+    );
+    const button = document.createElement("fxs-activatable");
+    button.addEventListener("focus", this.additionalContentButtonFocusListener);
+    button.setAttribute("tabindex", "-1");
+    button.setAttribute("index", `${index}`);
+    button.setAttribute("data-tooltip-content", titleText);
+    if (isDisabled) {
+      button.addEventListener("action-activate", activateMethod.bind(this));
+    } else {
+      button.setAttribute("disabled", "true");
+      button.classList.add("opacity-50");
+    }
+    button.classList.add("group", "pointer-events-auto", "w-8", "h-8", "mr-2");
+    additionalSelectors.forEach((selector) => button.classList.add(selector));
+    button.appendChild(highlight);
+    return button;
+  }
   updateGameList() {
     this.gameCards = this.renderGameCards();
-    this.gameReportButtons = this.renderReportButtons();
+    this.gameReportButtons = this.shouldShowReportButtons ? this.renderReportButtons() : [];
     this.updateGameCards();
     this.updateReportButtons();
     this.list.innerHTML = "";
@@ -1002,7 +1088,10 @@ class PanelMPBrowser extends Panel {
       row.classList.add("items-center");
       row.setAttribute("ignore-prior-focus", "true");
       row.appendChild(gameCard);
-      row.appendChild(this.gameReportButtons[index]);
+      row.appendChild(this.renderAdditionalButtons(gameCard, index));
+      if (this.shouldShowReportButtons) {
+        row.appendChild(this.gameReportButtons[index]);
+      }
       this.list.appendChild(row);
     });
   }
@@ -1023,7 +1112,7 @@ class PanelMPBrowser extends Panel {
     this.gameCards?.forEach((gameCard) => {
       gameCard.setAttribute(
         "selected",
-        (FocusManager.getFocus() == gameCard || !ActionHandler.isGamepadActive) && this.selectedGameIndex == Number.parseInt(gameCard.getAttribute("index") ?? "") ? "true" : "false"
+        (FocusManager.get().currentFocus() == gameCard || !ActionHandler.isGamepadActive) && this.selectedGameIndex == Number.parseInt(gameCard.getAttribute("index") ?? "") ? "true" : "false"
       );
       gameCard.setAttribute(
         "show-report",
@@ -1058,9 +1147,9 @@ class PanelMPBrowser extends Panel {
       return;
     }
     if (this.sortedGameList.length) {
-      FocusManager.setFocus(this.listContainer);
+      FocusManager.get().setFocus(this.listContainer);
     } else {
-      FocusManager.setFocus(this.sortContainer);
+      FocusManager.get().setFocus(this.sortContainer);
     }
     if (!ActionHandler.isGamepadActive && this.sortedGameList.length) {
       this.selectedGameIndex = 0;
@@ -1080,8 +1169,18 @@ class PanelMPBrowser extends Panel {
     this.updateByCurrentPanelOperationChange();
     return true;
   }
+  canBrowseGames() {
+    const serverType = Number.parseInt(
+      this.Root.getAttribute("server-type") ?? `${ServerType.SERVER_TYPE_INTERNET}`
+    );
+    return serverType != ServerType.SERVER_TYPE_HOTSEAT;
+  }
   startQuery() {
     if (!this.startOperation(1 /* Query */)) {
+      return;
+    }
+    if (!this.canBrowseGames()) {
+      this.ImplQueryCompete();
       return;
     }
     const serverType = Number.parseInt(
@@ -1091,7 +1190,7 @@ class PanelMPBrowser extends Panel {
     this.refreshGameListFilters();
     MPBrowserModel.refreshGameList();
     if (ContextManager.getCurrentTarget() == this.Root) {
-      FocusManager.setFocus(this.loadingContainer);
+      FocusManager.get().setFocus(this.loadingContainer);
       this.updateNavTray();
     }
   }

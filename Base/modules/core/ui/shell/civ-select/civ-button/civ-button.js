@@ -1,9 +1,5 @@
-import { F as FxsActivatable } from '../../../components/fxs-activatable.chunk.js';
-import '../../../audio-base/audio-support.chunk.js';
-import '../../../input/focus-manager.js';
-import '../../../framework.chunk.js';
-
-const styles = "fs://game/core/ui/shell/civ-select/civ-button/civ-button.css";
+import { FxsActivatable } from '../../../components/fxs-activatable.js';
+import styles from './civ-button.scss.js';
 
 const selectedGradient = "radial-gradient(86.87% 86.87% at 50% 50%, rgba(219, 219, 181, 0.75) 0%, rgba(219, 219, 181, 0) 100%)";
 const bgGradient = "linear-gradient(180deg, #333640 0%, #1C1E26 100%)";

@@ -58,6 +58,9 @@
     <Replace Tag="LOC_MAIN_CHAR_SELECT_LEADER_SAYYIDA_AL_HURRA_ANY" Language="it_IT">
       <Text>Ho navigato acque insidiose, uscendone sempre vittoriosa. </Text>
     </Replace>
+    <Replace Tag="LOC_VICTORY_LEADER_SAYYIDA_AL_HURRA" Language="it_IT">
+      <Text>Guardiamo con speranza alla nostra prossima impresa.</Text>
+    </Replace>
     <Replace Tag="LOC_LEADER_CHAIN_1250B_NAME" Language="it_IT">
       <Text>Ora questa libertà si estende all'esterno.</Text>
     </Replace>
@@ -652,25 +655,25 @@
       <Text>Per la durata di quest'epoca, ottieni +15% [icon:YIELD_DIPLOMACY] Influenza al costo di -2 alla Forza di combattimento delle tue unità navali</Text>
     </Replace>
     <Replace Tag="LOC_CARD_AT_EXP_LEGEND_SAYYIDA_1_NAME" Language="it_IT">
-      <Text>Sayyida al Hurra Esplorazione Leggenda Diplomatica</Text>
+      <Text>Sayyida al Hurra Esplorazione Dedizione Diplomatica</Text>
     </Replace>
     <Replace Tag="LOC_CARD_AT_EXP_LEGEND_SAYYIDA_2_DESCRIPTION" Language="it_IT">
       <Text>Per la durata di quest'epoca, +3 alla Forza di combattimento delle tue unità navali al costo di -10% [icon:YIELD_DIPLOMACY] Influenza</Text>
     </Replace>
     <Replace Tag="LOC_CARD_AT_EXP_LEGEND_SAYYIDA_2_NAME" Language="it_IT">
-      <Text>Sayyida al Hurra Esplorazione Leggenda Militarista</Text>
+      <Text>Sayyida al Hurra Esplorazione Dedizione Militarista</Text>
     </Replace>
     <Replace Tag="LOC_CARD_AT_MOD_LEGEND_SAYYIDA_1_DESCRIPTION" Language="it_IT">
       <Text>Per la durata di quest'epoca, ottieni +15% [icon:YIELD_DIPLOMACY] Influenza al costo di -2 alla Forza di combattimento delle tue unità aeree</Text>
     </Replace>
     <Replace Tag="LOC_CARD_AT_MOD_LEGEND_SAYYIDA_1_NAME" Language="it_IT">
-      <Text>Sayyida al Hurra Moderna Leggenda Diplomatica</Text>
+      <Text>Sayyida al Hurra Moderna Dedizione Diplomatica</Text>
     </Replace>
     <Replace Tag="LOC_CARD_AT_MOD_LEGEND_SAYYIDA_2_DESCRIPTION" Language="it_IT">
       <Text>Per la durata di quest'epoca, +3 alla Forza di combattimento delle tue unità aeree al costo di -10% [icon:YIELD_DIPLOMACY] Influenza</Text>
     </Replace>
     <Replace Tag="LOC_CARD_AT_MOD_LEGEND_SAYYIDA_2_NAME" Language="it_IT">
-      <Text>Sayyida al Hurra Moderna Leggenda Militarista</Text>
+      <Text>Sayyida al Hurra Moderna Dedizione Militarista</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_SAYYIDA_DESC" Language="it_IT">
       <Text>Apprezza la civiltà con il minor numero di unità navali. Detesta la civiltà con il maggior numero di unità navali.</Text>
@@ -688,7 +691,7 @@
       <Text>Arte di Granada.</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_SAYYIDA_AL_HURRA_GAZELLE_VASE_FUNCTIONAL_DESCRIPTION" Language="it_IT">
-      <Text>Ottieni 25 [icon:YIELD_CULTURE] Cultura per epoca per ogni azione diplomatica accettata da un altro leader.</Text>
+      <Text>Ottieni [B]25 [icon:YIELD_CULTURE][/B] per [TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]epoca[/TIP] per ogni Azione diplomatica accettata da un altro leader.</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_SAYYIDA_AL_HURRA_GAZELLE_VASE_NAME" Language="it_IT">
       <Text>Vaso della gazzella</Text>
@@ -697,7 +700,7 @@
       <Text>Il peso della valuta.</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_SAYYIDA_AL_HURRA_MITHQAL_FUNCTIONAL_DESCRIPTION" Language="it_IT">
-      <Text>+2 [icon:YIELD_GOLD] Oro per epoca negli insediamenti che hanno un'unità navale di stanza in un distretto.</Text>
+      <Text>[B]+2 [icon:YIELD_GOLD][/B] per [TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]epoca[/TIP] negli [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]insediamenti[/TIP] che hanno un'unità navale [TIP:LOC_PEDIA_CONCEPTS_STATIONED_TOOLTIP]di stanza[/TIP] in un [icon:CITY_URBAN] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]distretto[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_SAYYIDA_AL_HURRA_MITHQAL_NAME" Language="it_IT">
       <Text>Mithqāl</Text>
@@ -706,10 +709,46 @@
       <Text>Una lama perfetta in terra e in mare.</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_SAYYIDA_AL_HURRA_NIMCHA_FUNCTIONAL_DESCRIPTION" Language="it_IT">
-      <Text>Il mantenimento delle unità navali costa 1 [icon:YIELD_GOLD] Oro in meno.</Text>
+      <Text>[B]-1 [icon:YIELD_GOLD][/B] al costo di [TIP:LOC_PEDIA_CONCEPTS_MAINTENANCE_TOOLTIP]mantenimento[/TIP] delle [TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]unità navali[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_SAYYIDA_AL_HURRA_NIMCHA_NAME" Language="it_IT">
       <Text>Nimcha</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_SAYYIDA_AL_HURRA_QUEST_A_ANTIQUITY_DESC" Language="it_IT">
+      <Text>Giocando con Sayyida al Hurra in epoca antica, completa una missione per fare amicizia.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_SAYYIDA_AL_HURRA_QUEST_A_ANTIQUITY_NAME" Language="it_IT">
+      <Text>Alternative</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_SAYYIDA_AL_HURRA_QUEST_A_EXPLORATION_DESC" Language="it_IT">
+      <Text>Giocando con Sayyida al Hurra nell'epoca delle esplorazioni, completa una missione per acquisire nuove merci.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_SAYYIDA_AL_HURRA_QUEST_A_EXPLORATION_NAME" Language="it_IT">
+      <Text>Un piano per il successo</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_SAYYIDA_AL_HURRA_QUEST_A_MODERN_DESC" Language="it_IT">
+      <Text>Giocando con Sayyida al Hurra in epoca moderna, completa una missione per ridare fiducia al popolo.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_SAYYIDA_AL_HURRA_QUEST_A_MODERN_NAME" Language="it_IT">
+      <Text>Un dilemma</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_SAYYIDA_AL_HURRA_QUEST_B_ANTIQUITY_DESC" Language="it_IT">
+      <Text>Giocando con Sayyida al Hurra in epoca antica, completa una missione per sviluppare la cultura di una città.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_SAYYIDA_AL_HURRA_QUEST_B_ANTIQUITY_NAME" Language="it_IT">
+      <Text>La creazione di un retaggio</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_SAYYIDA_AL_HURRA_QUEST_B_EXPLORATION_DESC" Language="it_IT">
+      <Text>Giocando con Sayyida al Hurra nell'epoca delle esplorazioni, completa una missione per aiutare i bisognosi.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_SAYYIDA_AL_HURRA_QUEST_B_EXPLORATION_NAME" Language="it_IT">
+      <Text>Cambio di rotta</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_SAYYIDA_AL_HURRA_QUEST_B_MODERN_DESC" Language="it_IT">
+      <Text>Giocando con Sayyida al Hurra in epoca moderna, completa una missione per scoprire storie del passato.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_SAYYIDA_AL_HURRA_QUEST_B_MODERN_NAME" Language="it_IT">
+      <Text>Un'eco</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_AGE_COMPLETED_ANTIQUITY_2_DESC" Language="it_IT">
       <Text>Giocando con Sayyida al Hurra, arriva alla fine dell'epoca antica due volte.</Text>
@@ -765,293 +804,281 @@
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_AGE_COMPLETED_MODERN_NAME" Language="it_IT">
       <Text>Epoca moderna completata</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_CULTURE_VICTORY_ANTIQUITY_2_DESC" Language="it_IT">
-      <Text>Giocando con Sayyida al Hurra, completa il Percorso Retaggio Meraviglie del mondo antico due volte.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_CULTURE_TRIUMPH_2_ANTIQUITY_DESC" Language="it_IT">
+      <Text>Giocando con Sayyida al Hurra, completa il Trionfo Misteri orfici.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_CULTURE_VICTORY_ANTIQUITY_2_NAME" Language="it_IT">
-      <Text>Meraviglie del mondo antico 2</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_CULTURE_TRIUMPH_2_ANTIQUITY_NAME" Language="it_IT">
+      <Text>Misteri orfici</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_CULTURE_VICTORY_ANTIQUITY_3_DESC" Language="it_IT">
-      <Text>Giocando con Sayyida al Hurra, completa il Percorso Retaggio Meraviglie del mondo antico tre volte.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_CULTURE_TRIUMPH_2_EXPLORATION_DESC" Language="it_IT">
+      <Text>Giocando con Sayyida al Hurra, completa il Trionfo Regno dei cieli.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_CULTURE_VICTORY_ANTIQUITY_3_NAME" Language="it_IT">
-      <Text>Meraviglie del mondo antico 3</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_CULTURE_TRIUMPH_2_EXPLORATION_NAME" Language="it_IT">
+      <Text>Regno dei cieli</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_CULTURE_VICTORY_ANTIQUITY_DESC" Language="it_IT">
-      <Text>Giocando con Sayyida al Hurra, completa il Percorso Retaggio Meraviglie del mondo antico.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_CULTURE_TRIUMPH_2_MODERN_DESC" Language="it_IT">
+      <Text>Giocando con Sayyida al Hurra, completa il Trionfo Il Paese delle Meraviglie.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_CULTURE_VICTORY_ANTIQUITY_NAME" Language="it_IT">
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_CULTURE_TRIUMPH_2_MODERN_NAME" Language="it_IT">
+      <Text>Il Paese delle Meraviglie</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_CULTURE_TRIUMPH_ANTIQUITY_DESC" Language="it_IT">
+      <Text>Giocando con Sayyida al Hurra, completa il Trionfo Meraviglie del mondo antico.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_CULTURE_TRIUMPH_ANTIQUITY_NAME" Language="it_IT">
       <Text>Meraviglie del mondo antico</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_CULTURE_VICTORY_EXPLORATION_2_DESC" Language="it_IT">
-      <Text>Giocando con Sayyida al Hurra, completa il Percorso Retaggio Toshakhana due volte.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_CULTURE_TRIUMPH_EXPLORATION_DESC" Language="it_IT">
+      <Text>Giocando con Sayyida al Hurra, completa il Trionfo Toshakhana.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_CULTURE_VICTORY_EXPLORATION_2_NAME" Language="it_IT">
-      <Text>Toshakhana 2</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_CULTURE_VICTORY_EXPLORATION_3_DESC" Language="it_IT">
-      <Text>Giocando con Sayyida al Hurra, completa il Percorso Retaggio Toshakhana tre volte.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_CULTURE_VICTORY_EXPLORATION_3_NAME" Language="it_IT">
-      <Text>Toshakhana 3</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_CULTURE_VICTORY_EXPLORATION_DESC" Language="it_IT">
-      <Text>Giocando con Sayyida al Hurra, completa il Percorso Retaggio Toshakhana.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_CULTURE_VICTORY_EXPLORATION_NAME" Language="it_IT">
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_CULTURE_TRIUMPH_EXPLORATION_NAME" Language="it_IT">
       <Text>Toshakhana</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_CULTURE_VICTORY_MODERN_2_DESC" Language="it_IT">
-      <Text>Giocando con Sayyida al Hurra, completa il Percorso Retaggio Società geografica due volte.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_CULTURE_TRIUMPH_MODERN_DESC" Language="it_IT">
+      <Text>Giocando con Sayyida al Hurra, completa il Trionfo Società geografica.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_CULTURE_VICTORY_MODERN_2_NAME" Language="it_IT">
-      <Text>Società geografica 2</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_CULTURE_VICTORY_MODERN_3_DESC" Language="it_IT">
-      <Text>Giocando con Sayyida al Hurra, completa il Percorso Retaggio Società geografica tre volte.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_CULTURE_VICTORY_MODERN_3_NAME" Language="it_IT">
-      <Text>Società geografica 3</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_CULTURE_VICTORY_MODERN_DESC" Language="it_IT">
-      <Text>Giocando con Sayyida al Hurra, completa il Percorso Retaggio Società geografica.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_CULTURE_VICTORY_MODERN_NAME" Language="it_IT">
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_CULTURE_TRIUMPH_MODERN_NAME" Language="it_IT">
       <Text>Società geografica</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_ECONOMIC_VICTORY_ANTIQUITY_2_DESC" Language="it_IT">
-      <Text>Giocando con Sayyida al Hurra, completa il Percorso Retaggio Vie della Seta due volte.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_CULTURE_VICTORY_DESC" Language="it_IT">
+      <Text>Giocando con Sayyida al Hurra, ottieni una Vittoria culturale.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_ECONOMIC_VICTORY_ANTIQUITY_2_NAME" Language="it_IT">
-      <Text>Vie della Seta 2</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_CULTURE_VICTORY_NAME" Language="it_IT">
+      <Text>Vittoria culturale</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_ECONOMIC_VICTORY_ANTIQUITY_3_DESC" Language="it_IT">
-      <Text>Giocando con Sayyida al Hurra, completa il Percorso Retaggio Vie della Seta tre volte.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_DEITY_VICTORY_DESC" Language="it_IT">
+      <Text>Giocando con Sayyida al Hurra, ottieni una Vittoria al livello di difficoltà Divinità.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_ECONOMIC_VICTORY_ANTIQUITY_3_NAME" Language="it_IT">
-      <Text>Vie della Seta 3</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_DEITY_VICTORY_NAME" Language="it_IT">
+      <Text>Vittoria Divinità</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_ECONOMIC_VICTORY_ANTIQUITY_DESC" Language="it_IT">
-      <Text>Giocando con Sayyida al Hurra, completa il Percorso Retaggio Vie della Seta.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_DIPLOMATIC_TRIUMPH_2_ANTIQUITY_DESC" Language="it_IT">
+      <Text>Giocando con Sayyida al Hurra, completa il Trionfo Panem et Circenses.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_ECONOMIC_VICTORY_ANTIQUITY_NAME" Language="it_IT">
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_DIPLOMATIC_TRIUMPH_2_ANTIQUITY_NAME" Language="it_IT">
+      <Text>Panem et Circenses</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_DIPLOMATIC_TRIUMPH_2_EXPLORATION_DESC" Language="it_IT">
+      <Text>Giocando con Sayyida al Hurra, completa il Trionfo Quadruplice alleanza.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_DIPLOMATIC_TRIUMPH_2_EXPLORATION_NAME" Language="it_IT">
+      <Text>Quadruplice alleanza</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_DIPLOMATIC_TRIUMPH_2_MODERN_DESC" Language="it_IT">
+      <Text>Giocando con Sayyida al Hurra, completa il Trionfo Enigma.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_DIPLOMATIC_TRIUMPH_2_MODERN_NAME" Language="it_IT">
+      <Text>Enigma</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_DIPLOMATIC_TRIUMPH_ANTIQUITY_DESC" Language="it_IT">
+      <Text>Giocando con Sayyida al Hurra, completa il Trionfo Tenere le fila.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_DIPLOMATIC_TRIUMPH_ANTIQUITY_NAME" Language="it_IT">
+      <Text>Tenere le fila</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_DIPLOMATIC_TRIUMPH_EXPLORATION_DESC" Language="it_IT">
+      <Text>Giocando con Sayyida al Hurra, completa il Trionfo Ordine degli assassini.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_DIPLOMATIC_TRIUMPH_EXPLORATION_NAME" Language="it_IT">
+      <Text>Ordine degli assassini</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_DIPLOMATIC_TRIUMPH_MODERN_DESC" Language="it_IT">
+      <Text>Giocando con Sayyida al Hurra, completa il Trionfo Società delle Nazioni.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_DIPLOMATIC_TRIUMPH_MODERN_NAME" Language="it_IT">
+      <Text>Società delle Nazioni</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_ECONOMIC_TRIUMPH_2_ANTIQUITY_DESC" Language="it_IT">
+      <Text>Giocando con Sayyida al Hurra, completa il Trionfo L'avidità vale oro.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_ECONOMIC_TRIUMPH_2_ANTIQUITY_NAME" Language="it_IT">
+      <Text>L'avidità vale oro</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_ECONOMIC_TRIUMPH_2_EXPLORATION_DESC" Language="it_IT">
+      <Text>Giocando con Sayyida al Hurra, completa il Trionfo Ce n'è per tutti.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_ECONOMIC_TRIUMPH_2_EXPLORATION_NAME" Language="it_IT">
+      <Text>Ce n'è per tutti</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_ECONOMIC_TRIUMPH_2_MODERN_DESC" Language="it_IT">
+      <Text>Giocando con Sayyida al Hurra, completa il Trionfo Officina del mondo.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_ECONOMIC_TRIUMPH_2_MODERN_NAME" Language="it_IT">
+      <Text>Officina del mondo</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_ECONOMIC_TRIUMPH_ANTIQUITY_DESC" Language="it_IT">
+      <Text>Giocando con Sayyida al Hurra, completa il Trionfo Vie della Seta.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_ECONOMIC_TRIUMPH_ANTIQUITY_NAME" Language="it_IT">
       <Text>Vie della Seta</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_ECONOMIC_VICTORY_EXPLORATION_2_DESC" Language="it_IT">
-      <Text>Giocando con Sayyida al Hurra, completa il Percorso Retaggio Flotta del tesoro due volte.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_ECONOMIC_TRIUMPH_EXPLORATION_DESC" Language="it_IT">
+      <Text>Giocando con Sayyida al Hurra, completa il Trionfo Flotta del tesoro.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_ECONOMIC_VICTORY_EXPLORATION_2_NAME" Language="it_IT">
-      <Text>Flotta del tesoro 2</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_ECONOMIC_VICTORY_EXPLORATION_3_DESC" Language="it_IT">
-      <Text>Giocando con Sayyida al Hurra, completa il Percorso Retaggio Flotta del tesoro tre volte.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_ECONOMIC_VICTORY_EXPLORATION_3_NAME" Language="it_IT">
-      <Text>Flotta del tesoro 3</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_ECONOMIC_VICTORY_EXPLORATION_DESC" Language="it_IT">
-      <Text>Giocando con Sayyida al Hurra, completa il Percorso Retaggio Flotta del tesoro.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_ECONOMIC_VICTORY_EXPLORATION_NAME" Language="it_IT">
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_ECONOMIC_TRIUMPH_EXPLORATION_NAME" Language="it_IT">
       <Text>Flotta del tesoro</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_ECONOMIC_VICTORY_MODERN_2_DESC" Language="it_IT">
-      <Text>Giocando con Sayyida al Hurra, completa il Percorso Retaggio Magnate delle ferrovie due volte.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_ECONOMIC_TRIUMPH_MODERN_DESC" Language="it_IT">
+      <Text>Giocando con Sayyida al Hurra, completa il Trionfo Magnate delle ferrovie.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_ECONOMIC_VICTORY_MODERN_2_NAME" Language="it_IT">
-      <Text>Magnate delle ferrovie 2</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_ECONOMIC_VICTORY_MODERN_3_DESC" Language="it_IT">
-      <Text>Giocando con Sayyida al Hurra, completa il Percorso Retaggio Magnate delle ferrovie tre volte.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_ECONOMIC_VICTORY_MODERN_3_NAME" Language="it_IT">
-      <Text>Magnate delle ferrovie 3</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_ECONOMIC_VICTORY_MODERN_DESC" Language="it_IT">
-      <Text>Giocando con Sayyida al Hurra, completa il Percorso Retaggio Magnate delle ferrovie.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_ECONOMIC_VICTORY_MODERN_NAME" Language="it_IT">
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_ECONOMIC_TRIUMPH_MODERN_NAME" Language="it_IT">
       <Text>Magnate delle ferrovie</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_FLAWLESS_VICTORY_ANTIQUITY_DESC" Language="it_IT">
-      <Text>Giocando con Sayyida al Hurra, completa 2 Percorsi Retaggio in una singola epoca antica.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_ECONOMIC_VICTORY_DESC" Language="it_IT">
+      <Text>Giocando con Sayyida al Hurra, ottieni una Vittoria economica.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_FLAWLESS_VICTORY_ANTIQUITY_NAME" Language="it_IT">
-      <Text>Doppio Retaggio, epoca antica</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_ECONOMIC_VICTORY_NAME" Language="it_IT">
+      <Text>Vittoria economica</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_FLAWLESS_VICTORY_EXPLORATION_DESC" Language="it_IT">
-      <Text>Giocando con Sayyida al Hurra, completa 2 Percorsi Retaggio in una singola epoca delle esplorazioni.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_EXPANSIONIST_TRIUMPH_2_ANTIQUITY_DESC" Language="it_IT">
+      <Text>Giocando con Sayyida al Hurra, completa il Trionfo Torre di Babele.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_FLAWLESS_VICTORY_EXPLORATION_NAME" Language="it_IT">
-      <Text>Doppio Retaggio, epoca delle esplorazioni</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_EXPANSIONIST_TRIUMPH_2_ANTIQUITY_NAME" Language="it_IT">
+      <Text>Torre di Babele</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_FLAWLESS_VICTORY_MODERN_DESC" Language="it_IT">
-      <Text>Giocando con Sayyida al Hurra, completa 2 Percorsi Retaggio in una singola epoca moderna.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_EXPANSIONIST_TRIUMPH_2_EXPLORATION_DESC" Language="it_IT">
+      <Text>Giocando con Sayyida al Hurra, completa il Trionfo Un po' come gli Asburgo.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_FLAWLESS_VICTORY_MODERN_NAME" Language="it_IT">
-      <Text>Doppio Retaggio, epoca moderna</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_EXPANSIONIST_TRIUMPH_2_EXPLORATION_NAME" Language="it_IT">
+      <Text>Un po' come gli Asburgo</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_MILITARY_VICTORY_ANTIQUITY_2_DESC" Language="it_IT">
-      <Text>Giocando con Sayyida al Hurra, completa il Percorso Retaggio Pax Imperatoria due volte.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_EXPANSIONIST_TRIUMPH_2_MODERN_DESC" Language="it_IT">
+      <Text>Giocando con Sayyida al Hurra, completa il Trionfo Megalopoli.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_MILITARY_VICTORY_ANTIQUITY_2_NAME" Language="it_IT">
-      <Text>Pax Imperatoria 2</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_EXPANSIONIST_TRIUMPH_2_MODERN_NAME" Language="it_IT">
+      <Text>Megalopoli</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_MILITARY_VICTORY_ANTIQUITY_3_DESC" Language="it_IT">
-      <Text>Giocando con Sayyida al Hurra, completa il Percorso Retaggio Pax Imperatoria tre volte.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_EXPANSIONIST_TRIUMPH_ANTIQUITY_DESC" Language="it_IT">
+      <Text>Giocando con Sayyida al Hurra, completa il Trionfo I quattro angoli del mondo.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_MILITARY_VICTORY_ANTIQUITY_3_NAME" Language="it_IT">
-      <Text>Pax Imperatoria 3</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_EXPANSIONIST_TRIUMPH_ANTIQUITY_NAME" Language="it_IT">
+      <Text>I quattro angoli del mondo</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_MILITARY_VICTORY_ANTIQUITY_DESC" Language="it_IT">
-      <Text>Giocando con Sayyida al Hurra, completa il Percorso Retaggio Pax Imperatoria.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_EXPANSIONIST_TRIUMPH_EXPLORATION_DESC" Language="it_IT">
+      <Text>Giocando con Sayyida al Hurra, completa il Trionfo Hic Sunt Dracones.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_MILITARY_VICTORY_ANTIQUITY_NAME" Language="it_IT">
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_EXPANSIONIST_TRIUMPH_EXPLORATION_NAME" Language="it_IT">
+      <Text>Hic Sunt Dracones</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_EXPANSIONIST_TRIUMPH_MODERN_DESC" Language="it_IT">
+      <Text>Giocando con Sayyida al Hurra, completa il Trionfo Il sole non tramonta mai.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_EXPANSIONIST_TRIUMPH_MODERN_NAME" Language="it_IT">
+      <Text>Il sole non tramonta mai</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_FOUR_MAJOR_TRIUMPHS_ANTIQUITY_DESC" Language="it_IT">
+      <Text>Giocando con Sayyida al Hurra, completa 4 Trionfi maggiori in una singola epoca antica.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_FOUR_MAJOR_TRIUMPHS_ANTIQUITY_NAME" Language="it_IT">
+      <Text>Trionfante - Epoca antica</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_FOUR_MAJOR_TRIUMPHS_EXPLORATION_DESC" Language="it_IT">
+      <Text>Giocando con Sayyida al Hurra, completa 4 Trionfi maggiori in una singola epoca delle esplorazioni.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_FOUR_MAJOR_TRIUMPHS_EXPLORATION_NAME" Language="it_IT">
+      <Text>Trionfante - Epoca delle esplorazioni</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_MILITARY_TRIUMPH_2_ANTIQUITY_DESC" Language="it_IT">
+      <Text>Giocando con Sayyida al Hurra, completa il Trionfo Che Gaio.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_MILITARY_TRIUMPH_2_ANTIQUITY_NAME" Language="it_IT">
+      <Text>Che Gaio</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_MILITARY_TRIUMPH_2_EXPLORATION_DESC" Language="it_IT">
+      <Text>Giocando con Sayyida al Hurra, completa il Trionfo Pax Mongolica.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_MILITARY_TRIUMPH_2_EXPLORATION_NAME" Language="it_IT">
+      <Text>Pax Mongolica</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_MILITARY_TRIUMPH_2_MODERN_DESC" Language="it_IT">
+      <Text>Giocando con Sayyida al Hurra, completa il Trionfo Nemico del mondo.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_MILITARY_TRIUMPH_2_MODERN_NAME" Language="it_IT">
+      <Text>Nemico del mondo</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_MILITARY_TRIUMPH_ANTIQUITY_DESC" Language="it_IT">
+      <Text>Giocando con Sayyida al Hurra, completa il Trionfo Pax Imperatoria.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_MILITARY_TRIUMPH_ANTIQUITY_NAME" Language="it_IT">
       <Text>Pax Imperatoria</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_MILITARY_VICTORY_EXPLORATION_2_DESC" Language="it_IT">
-      <Text>Giocando con Sayyida al Hurra, completa il Percorso Retaggio Non Sufficit Orbis due volte.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_MILITARY_TRIUMPH_EXPLORATION_DESC" Language="it_IT">
+      <Text>Giocando con Sayyida al Hurra, completa il Trionfo Non Sufficit Orbis.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_MILITARY_VICTORY_EXPLORATION_2_NAME" Language="it_IT">
-      <Text>Non Sufficit Orbis 2</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_MILITARY_VICTORY_EXPLORATION_3_DESC" Language="it_IT">
-      <Text>Giocando con Sayyida al Hurra, completa il Percorso Retaggio Non Sufficit Orbis tre volte.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_MILITARY_VICTORY_EXPLORATION_3_NAME" Language="it_IT">
-      <Text>Non Sufficit Orbis 3</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_MILITARY_VICTORY_EXPLORATION_DESC" Language="it_IT">
-      <Text>Giocando con Sayyida al Hurra, completa il Percorso Retaggio Non Sufficit Orbis.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_MILITARY_VICTORY_EXPLORATION_NAME" Language="it_IT">
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_MILITARY_TRIUMPH_EXPLORATION_NAME" Language="it_IT">
       <Text>Non Sufficit Orbis</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_MILITARY_VICTORY_MODERN_2_DESC" Language="it_IT">
-      <Text>Giocando con Sayyida al Hurra, completa il Percorso Retaggio Ideologia due volte.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_MILITARY_TRIUMPH_MODERN_DESC" Language="it_IT">
+      <Text>Giocando con Sayyida al Hurra, completa il Trionfo Obbligo morale.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_MILITARY_VICTORY_MODERN_2_NAME" Language="it_IT">
-      <Text>Ideologia 2</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_MILITARY_TRIUMPH_MODERN_NAME" Language="it_IT">
+      <Text>Obbligo morale</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_MILITARY_VICTORY_MODERN_3_DESC" Language="it_IT">
-      <Text>Giocando con Sayyida al Hurra, completa il Percorso Retaggio Ideologia tre volte.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_MILITARY_VICTORY_DESC" Language="it_IT">
+      <Text>Giocando con Sayyida al Hurra, ottieni una Vittoria militare.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_MILITARY_VICTORY_MODERN_3_NAME" Language="it_IT">
-      <Text>Ideologia 3</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_MILITARY_VICTORY_MODERN_DESC" Language="it_IT">
-      <Text>Giocando con Sayyida al Hurra, completa il Percorso Retaggio Ideologia.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_MILITARY_VICTORY_MODERN_NAME" Language="it_IT">
-      <Text>Ideologia</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_MILITARY_VICTORY_NAME" Language="it_IT">
+      <Text>Vittoria militare</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_PLAY_GAMES_1_DESC" Language="it_IT">
-      <Text>Giocando con Sayyida al Hurra, raggiungi almeno 1 Impresa di un Percorso Retaggio.</Text>
+      <Text>Giocando con Sayyida al Hurra, completa 1 Trionfo maggiore.</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_PLAY_GAMES_1_NAME" Language="it_IT">
       <Text>Gioca la partita 1</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_PLAY_GAMES_2_DESC" Language="it_IT">
-      <Text>Giocando con Sayyida al Hurra, raggiungi almeno 2 Imprese di un Percorso Retaggio.</Text>
+      <Text>Giocando con Sayyida al Hurra, completa 5 Trionfi maggiori in un numero qualsiasi di epoche.</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_PLAY_GAMES_2_NAME" Language="it_IT">
       <Text>Gioca la partita 2</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_PLAY_GAMES_3_DESC" Language="it_IT">
-      <Text>Giocando con Sayyida al Hurra, raggiungi almeno 3 Imprese di un Percorso Retaggio.</Text>
+      <Text>Giocando con Sayyida al Hurra, completa 25 Trionfi maggiori in un numero qualsiasi di epoche.</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_PLAY_GAMES_3_NAME" Language="it_IT">
       <Text>Gioca la partita 3</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_QUEST_A_ANTIQUITY_DESC" Language="it_IT">
-      <Text>Giocando con Sayyida al Hurra in epoca antica, completa una missione per fare amicizia.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_SCIENCE_TRIUMPH_2_ANTIQUITY_DESC" Language="it_IT">
+      <Text>Giocando con Sayyida al Hurra, completa il Trionfo Terratondista.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_QUEST_A_ANTIQUITY_NAME" Language="it_IT">
-      <Text>Alternative</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_SCIENCE_TRIUMPH_2_ANTIQUITY_NAME" Language="it_IT">
+      <Text>Terratondista</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_QUEST_A_EXPLORATION_DESC" Language="it_IT">
-      <Text>Giocando con Sayyida al Hurra nell'epoca delle esplorazioni, completa una missione per acquisire nuove merci.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_SCIENCE_TRIUMPH_2_EXPLORATION_DESC" Language="it_IT">
+      <Text>Giocando con Sayyida al Hurra, completa il Trionfo De revolutionibus orbium coelestium.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_QUEST_A_EXPLORATION_NAME" Language="it_IT">
-      <Text>Un piano per il successo</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_SCIENCE_TRIUMPH_2_EXPLORATION_NAME" Language="it_IT">
+      <Text>De revolutionibus orbium coelestium</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_QUEST_A_MODERN_DESC" Language="it_IT">
-      <Text>Giocando con Sayyida al Hurra in epoca moderna, completa una missione per ridare fiducia al popolo.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_SCIENCE_TRIUMPH_2_MODERN_DESC" Language="it_IT">
+      <Text>Giocando con Sayyida al Hurra, completa il Trionfo Oltre la spada.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_QUEST_A_MODERN_NAME" Language="it_IT">
-      <Text>Un dilemma</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_SCIENCE_TRIUMPH_2_MODERN_NAME" Language="it_IT">
+      <Text>Oltre la spada</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_QUEST_B_ANTIQUITY_DESC" Language="it_IT">
-      <Text>Giocando con Sayyida al Hurra in epoca antica, completa una missione per sviluppare la cultura di una città.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_SCIENCE_TRIUMPH_ANTIQUITY_DESC" Language="it_IT">
+      <Text>Giocando con Sayyida al Hurra, completa il Trionfo Biblioteca di Assurbanipal.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_QUEST_B_ANTIQUITY_NAME" Language="it_IT">
-      <Text>La creazione di un retaggio</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_SCIENCE_TRIUMPH_ANTIQUITY_NAME" Language="it_IT">
+      <Text>Biblioteca di Assurbanipal</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_QUEST_B_EXPLORATION_DESC" Language="it_IT">
-      <Text>Giocando con Sayyida al Hurra nell'epoca delle esplorazioni, completa una missione per aiutare i bisognosi.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_SCIENCE_TRIUMPH_EXPLORATION_DESC" Language="it_IT">
+      <Text>Giocando con Sayyida al Hurra, completa il Trionfo Illuminismo.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_QUEST_B_EXPLORATION_NAME" Language="it_IT">
-      <Text>Cambio di rotta</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_QUEST_B_MODERN_DESC" Language="it_IT">
-      <Text>Giocando con Sayyida al Hurra in epoca moderna, completa una missione per scoprire storie del passato.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_QUEST_B_MODERN_NAME" Language="it_IT">
-      <Text>Un'eco</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_SCIENCE_VICTORY_ANTIQUITY_2_DESC" Language="it_IT">
-      <Text>Giocando con Sayyida al Hurra, completa il Percorso Retaggio Grande Biblioteca due volte.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_SCIENCE_VICTORY_ANTIQUITY_2_NAME" Language="it_IT">
-      <Text>Grande Biblioteca 2</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_SCIENCE_VICTORY_ANTIQUITY_3_DESC" Language="it_IT">
-      <Text>Giocando con Sayyida al Hurra, completa il Percorso Retaggio Grande Biblioteca tre volte.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_SCIENCE_VICTORY_ANTIQUITY_3_NAME" Language="it_IT">
-      <Text>Grande Biblioteca 3</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_SCIENCE_VICTORY_ANTIQUITY_DESC" Language="it_IT">
-      <Text>Giocando con Sayyida al Hurra, completa il Percorso Retaggio Grande Biblioteca.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_SCIENCE_VICTORY_ANTIQUITY_NAME" Language="it_IT">
-      <Text>Grande Biblioteca</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_SCIENCE_VICTORY_EXPLORATION_2_DESC" Language="it_IT">
-      <Text>Giocando con Sayyida al Hurra, completa il Percorso Retaggio Illuminismo due volte.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_SCIENCE_VICTORY_EXPLORATION_2_NAME" Language="it_IT">
-      <Text>Illuminismo 2</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_SCIENCE_VICTORY_EXPLORATION_3_DESC" Language="it_IT">
-      <Text>Giocando con Sayyida al Hurra, completa il Percorso Retaggio Illuminismo tre volte.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_SCIENCE_VICTORY_EXPLORATION_3_NAME" Language="it_IT">
-      <Text>Illuminismo 3</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_SCIENCE_VICTORY_EXPLORATION_DESC" Language="it_IT">
-      <Text>Giocando con Sayyida al Hurra, completa il Percorso Retaggio Illuminismo.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_SCIENCE_VICTORY_EXPLORATION_NAME" Language="it_IT">
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_SCIENCE_TRIUMPH_EXPLORATION_NAME" Language="it_IT">
       <Text>Illuminismo</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_SCIENCE_VICTORY_MODERN_2_DESC" Language="it_IT">
-      <Text>Giocando con Sayyida al Hurra, completa il Percorso Retaggio Corsa allo spazio due volte.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_SCIENCE_TRIUMPH_MODERN_DESC" Language="it_IT">
+      <Text>Giocando con Sayyida al Hurra, completa il Trionfo Inizia la Corsa allo spazio.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_SCIENCE_VICTORY_MODERN_2_NAME" Language="it_IT">
-      <Text>Corsa allo spazio 2</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_SCIENCE_TRIUMPH_MODERN_NAME" Language="it_IT">
+      <Text>Inizia la Corsa allo spazio</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_SCIENCE_VICTORY_MODERN_3_DESC" Language="it_IT">
-      <Text>Giocando con Sayyida al Hurra, completa il Percorso Retaggio Corsa allo spazio tre volte.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_SCIENCE_VICTORY_DESC" Language="it_IT">
+      <Text>Giocando con Sayyida al Hurra, ottieni una Vittoria scientifica.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_SCIENCE_VICTORY_MODERN_3_NAME" Language="it_IT">
-      <Text>Corsa allo spazio 3</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_SCIENCE_VICTORY_MODERN_DESC" Language="it_IT">
-      <Text>Giocando con Sayyida al Hurra, completa il Percorso Retaggio Corsa allo spazio.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_SCIENCE_VICTORY_MODERN_NAME" Language="it_IT">
-      <Text>Corsa allo spazio</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SAYYIDA_AL_HURRA_SCIENCE_VICTORY_NAME" Language="it_IT">
+      <Text>Vittoria scientifica</Text>
     </Replace>
     <Replace Tag="LOC_MOD_ATTRIBUTE_DIPLOMATIC_LEGEND_SAYYIDA_L1_DESCRIPTION" Language="it_IT">
       <Text>Sbloccato tramite la Leggenda. +25% alle [icon:RELATIONSHIP] relazioni dall'avviamento e dal sostegno alle [icon:ENDEAVOR] Iniziative. -25% alle [icon:RELATIONSHIP] relazioni dall'avviamento di una [icon:SANCTIONS] Sanzione o dal rifiuto di una [icon:ENDEAVOR] Iniziativa.</Text>
@@ -1060,32 +1087,32 @@
       <Text>Sbloccato tramite la Leggenda. +5 alla [icon:NAR_REW_COMBAT] Forza di combattimento di tutte le unità contro i [icon:CITY_FORTIFIED] distretti fortificati.</Text>
     </Replace>
     <Replace Tag="LOC_STRATEGYCARD_SAYYIDA_AL_HURRA_EXPLORATION_1_DESCRIPTION" Language="it_IT">
-      <Text>Giocando con Sayyida al Hurra, ottieni una nuova carta Retaggio dell'epoca delle esplorazioni:[n]
+      <Text>Giocando con Sayyida al Hurra, ottieni una nuova Dedizione dell'epoca delle esplorazioni:[n]
 				+15% Influenza, -2 Forza di combattimento delle unità navali</Text>
     </Replace>
     <Replace Tag="LOC_STRATEGYCARD_SAYYIDA_AL_HURRA_EXPLORATION_1_NAME" Language="it_IT">
-      <Text>Carta Retaggio Diplomatica Esplorazioni</Text>
+      <Text>Dedizione Diplomatica Esplorazioni</Text>
     </Replace>
     <Replace Tag="LOC_STRATEGYCARD_SAYYIDA_AL_HURRA_EXPLORATION_2_DESCRIPTION" Language="it_IT">
-      <Text>Giocando con Sayyida al Hurra, ottieni una nuova carta Retaggio dell'epoca delle esplorazioni:[n]
+      <Text>Giocando con Sayyida al Hurra, ottieni una nuova Dedizione dell'epoca delle esplorazioni:[n]
 				+3 alla Forza di combattimento delle unità navali, -10% Influenza</Text>
     </Replace>
     <Replace Tag="LOC_STRATEGYCARD_SAYYIDA_AL_HURRA_EXPLORATION_2_NAME" Language="it_IT">
-      <Text>Carta Retaggio Militarista Esplorazioni</Text>
+      <Text>Dedizione Militarista Esplorazioni</Text>
     </Replace>
     <Replace Tag="LOC_STRATEGYCARD_SAYYIDA_AL_HURRA_MODERN_1_DESCRIPTION" Language="it_IT">
-      <Text>Giocando con Sayyida al Hurra, ottieni una nuova carta Retaggio dell'epoca moderna:[n]
+      <Text>Giocando con Sayyida al Hurra, ottieni una nuova Dedizione dell'epoca moderna:[n]
 				+15% Influenza, -2 Forza di combattimento delle unità aeree</Text>
     </Replace>
     <Replace Tag="LOC_STRATEGYCARD_SAYYIDA_AL_HURRA_MODERN_1_NAME" Language="it_IT">
-      <Text>Carta Retaggio Diplomatica Moderna</Text>
+      <Text>Dedizione Diplomatica Moderna</Text>
     </Replace>
     <Replace Tag="LOC_STRATEGYCARD_SAYYIDA_AL_HURRA_MODERN_2_DESCRIPTION" Language="it_IT">
-      <Text>Giocando con Sayyida al Hurra, ottieni una nuova carta Retaggio dell'epoca moderna:[n]
+      <Text>Giocando con Sayyida al Hurra, ottieni una nuova Dedizione dell'epoca moderna:[n]
 				+3 alla Forza di combattimento delle unità aeree, -10% Influenza</Text>
     </Replace>
     <Replace Tag="LOC_STRATEGYCARD_SAYYIDA_AL_HURRA_MODERN_2_NAME" Language="it_IT">
-      <Text>Carta Retaggio Militarista Moderna</Text>
+      <Text>Dedizione Militarista Moderna</Text>
     </Replace>
     <Replace Tag="LOC_TITLE_SAYYIDA_AL_HURRA_NAME" Language="it_IT">
       <Text>Hakima Tatwan</Text>

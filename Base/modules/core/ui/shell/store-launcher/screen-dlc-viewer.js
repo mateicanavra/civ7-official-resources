@@ -1,19 +1,11 @@
-import FocusManager from '../../input/focus-manager.js';
-import { I as InputEngineEvent } from '../../input/input-support.chunk.js';
-import { N as NavTray } from '../../navigation-tray/model-navigation-tray.chunk.js';
-import { P as Panel } from '../../panel-support.chunk.js';
-import { MustGetElement } from '../../utilities/utilities-dom.chunk.js';
-import { s as styles } from './2k-code-redemption.chunk.js';
-import '../../audio-base/audio-support.chunk.js';
-import '../../framework.chunk.js';
-import '../../input/action-handler.js';
-import '../../input/cursor.js';
-import '../../views/view-manager.chunk.js';
-import '../../utilities/utilities-update-gate.chunk.js';
-import '../../utilities/utilities-image.chunk.js';
-import '../../utilities/utilities-component-id.chunk.js';
-
-const content = "<fxs-frame\r\n\tclass=\"grow mt-24\"\r\n\tframe-style=\"f1\"\r\n>\r\n\t<div class=\"relative flex flex-row flex-auto dlc-main-container\">\r\n\t\t<div class=\"relative flex flex-col dlc-image\"></div>\r\n\t\t<div class=\"relative flex flex-col flex-auto dlc-content-container w-2\\/3 px-10\">\r\n\t\t\t<fxs-scrollable class=\"dlc-viewer-scrollable\">\r\n\t\t\t\t<div class=\"relative flex flex-col dlc-text-container grow\">\r\n\t\t\t\t\t<fxs-header class=\"dlc-name\"></fxs-header>\r\n\t\t\t\t\t<div class=\"dlc-text relative font-body text-base\"></div>\r\n\t\t\t\t</div>\r\n\t\t\t</fxs-scrollable>\r\n\t\t\t<div\r\n\t\t\t\tclass=\"relative flex flex-row relative button-container mt-6 flex flow-row-wrap justify-center\"\r\n\t\t\t\tdata-bind-class-toggle=\"hidden:{{g_NavTray.isTrayRequired}}\"\r\n\t\t\t>\r\n\t\t\t\t<fxs-button\r\n\t\t\t\t\tclass=\"buy hidden mr-2\"\r\n\t\t\t\t\tcaption=\"LOC_UI_STORE_BUY\"\r\n\t\t\t\t\ttabindex=\"-1\"\r\n\t\t\t\t></fxs-button>\r\n\t\t\t\t<fxs-button\r\n\t\t\t\t\tclass=\"cancel\"\r\n\t\t\t\t\tcaption=\"LOC_GENERIC_BACK\"\r\n\t\t\t\t\ttabindex=\"-1\"\r\n\t\t\t\t></fxs-button>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t</div>\r\n</fxs-frame>\r\n";
+import { Audio } from '../../audio-base/audio-support.js';
+import { InputEngineEvent } from '../../input/input-support.js';
+import NavTray from '../../navigation-tray/model-navigation-tray.js';
+import Panel from '../../panel-support.js';
+import { MustGetElement } from '../../utilities/utilities-dom.js';
+import { FocusManager } from '../../../ui-next/services/focus-manager.js';
+import styles from './2k-code-redemption.scss.js';
+import content from './screen-dlc-viewer.html.js';
 
 const bForceShowPromoLoadingSpinner = false;
 class PanelDLCViewer extends Panel {
@@ -72,7 +64,7 @@ class PanelDLCViewer extends Panel {
     if (!this.owned) {
       NavTray.addOrUpdateShellAction1("LOC_UI_STORE_BUY");
     }
-    FocusManager.setFocus(this.Root);
+    FocusManager.get().setFocus(this.Root);
   }
   onLoseFocus() {
     NavTray.clear();
@@ -91,12 +83,14 @@ class PanelDLCViewer extends Panel {
     }
     if (inputEvent.detail.name == "shell-action-1") {
       if (!this.owned) {
+        Audio.playSound("data-audio-primary-button-press");
         this.buyPromo();
       }
       inputEvent.stopPropagation();
       inputEvent.preventDefault();
     }
     if (inputEvent.isCancelInput()) {
+      Audio.playSound("data-audio-primary-button-press");
       this.close();
       inputEvent.stopPropagation();
       inputEvent.preventDefault();

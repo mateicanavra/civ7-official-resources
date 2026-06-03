@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Civilizations>
+		<Update>
+			<Where CivilizationType="CIVILIZATION_ICELAND" />
+			<Set UniqueCultureProgressionTree="TREE_CIVICS_MO_TEST_OF_TIME" />
+		</Update>
+	</Civilizations>
+	<TraitModifiers>
+		<Row TraitType="TRAIT_ICELAND_ABILITY" ModifierId="ICELAND_MOD_NAVAL_SIGHT" />
+		<Row TraitType="TRAIT_ICELAND_ABILITY" ModifierId="ICELAND_MO_MOD_NATURAL_WONDER_CULTURE" />
+		<Row TraitType="TRAIT_ICELAND_ABILITY" ModifierId="ICELAND_MO_MOD_COASTAL_RAID_ARTIFACTS" />
+	</TraitModifiers>
+	<CivilizationTraits>
+		<Row CivilizationType="CIVILIZATION_ICELAND" TraitType="TRAIT_ANACHRONISTIC_CIV" />
+	</CivilizationTraits>
+</Database>

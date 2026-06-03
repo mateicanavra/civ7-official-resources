@@ -1,263 +1,14 @@
 import { TtsManager } from '../accessibility/tts-manager.js';
-import { A as Audio } from '../audio-base/audio-support.chunk.js';
+import { Audio } from '../audio-base/audio-support.js';
 import ContextManager, { ContextManagerEvents } from '../context-manager/context-manager.js';
-import ActionHandler, { ActiveDeviceTypeChangedEventName } from '../input/action-handler.js';
-import FocusManager from '../input/focus-manager.js';
-import { b as InputEngineEventName } from '../input/input-support.chunk.js';
-import { P as Panel } from '../panel-support.chunk.js';
-import { MustGetElement } from '../utilities/utilities-dom.chunk.js';
-import '../context-manager/display-queue-manager.js';
-import '../dialog-box/manager-dialog-box.chunk.js';
-import '../framework.chunk.js';
-import '../input/cursor.js';
-import '../views/view-manager.chunk.js';
-import '../utilities/utilities-update-gate.chunk.js';
-
-var NotificationType = /* @__PURE__ */ ((NotificationType2) => {
-  NotificationType2["PLAYER"] = "Player";
-  NotificationType2["ERROR"] = "Error";
-  NotificationType2["HELP"] = "Help";
-  return NotificationType2;
-})(NotificationType || {});
-var NotificationClassNames = /* @__PURE__ */ ((NotificationClassNames2) => {
-  NotificationClassNames2["PLAYER"] = "player-message";
-  NotificationClassNames2["ERROR"] = "error-message";
-  NotificationClassNames2["HELP"] = "help-message";
-  return NotificationClassNames2;
-})(NotificationClassNames || {});
-class ChatCommandManager {
-  chatComponent;
-  chatCommands = /* @__PURE__ */ new Map();
-  chatCommandConfigs = [];
-  constructor(component) {
-    this.chatComponent = component;
-  }
-  selectCommand(message) {
-    const splitMessage = message.trim().split(" ");
-    const firstWord = splitMessage[0];
-    const isCommand = firstWord.startsWith("/");
-    if (isCommand) {
-      const commandPrompt = firstWord.slice(1);
-      if (commandPrompt.length > 0) {
-        const selectedCommand = this.chatCommands.get(commandPrompt);
-        if (selectedCommand == void 0) {
-          this.chatComponent.setCommandError(
-            Locale.compose("LOC_UI_CHAT_COMMAND_ERROR_UNKNOWN", commandPrompt)
-          );
-          console.warn(`screen-mp-chat: Unknown command '/${commandPrompt}'`);
-          return;
-        }
-        const selectedCommandConfig = selectedCommand.commandConfig;
-        const argumentMessage = splitMessage.slice(1);
-        const commandArguments = argumentMessage.slice(
-          0,
-          selectedCommandConfig.commandArguments.length
-        );
-        const messageContent = argumentMessage.splice(selectedCommandConfig.commandArguments.length).join(" ");
-        selectedCommandConfig.commandHandler(commandArguments, messageContent, this.chatComponent);
-      }
-    }
-  }
-  // command definitions to register
-  registerCommands() {
-    const helpCommandConfig = {
-      description: Locale.compose("LOC_UI_CHAT_COMMAND_DESC_HELP"),
-      commandArguments: [],
-      helpArguments: [],
-      commandHandler: this.helpCommandHandler.bind(this)
-    };
-    const helpCommand = {
-      commandPrompts: [
-        Locale.compose("LOC_UI_CHAT_PROMPT_HELP_SHORT"),
-        Locale.compose("LOC_UI_CHAT_PROMPT_HELP_LONG")
-      ],
-      commandConfig: helpCommandConfig
-    };
-    this.registerChatCommand(helpCommand);
-    const privateMessageCommandConfig = {
-      description: Locale.compose(
-        "LOC_UI_CHAT_COMMAND_DESC_PRIVATE",
-        Locale.compose("LOC_UI_CHAT_COMMAND_ARG_PLAYER")
-      ),
-      commandArguments: [Locale.compose("LOC_UI_CHAT_COMMAND_ARG_PLAYER")],
-      helpArguments: [
-        Locale.compose("LOC_UI_CHAT_COMMAND_ARG_PLAYER"),
-        Locale.compose("LOC_UI_CHAT_COMMAND_ARG_MESSAGE")
-      ],
-      commandHandler: this.privateMessageCommandHandler
-    };
-    const privateMessageCommand = {
-      commandPrompts: [Locale.compose("LOC_UI_CHAT_PROMPT_PRIVATE_SHORT")],
-      commandConfig: privateMessageCommandConfig
-    };
-    this.registerChatCommand(privateMessageCommand);
-    const globalChatCommandConfig = {
-      description: Locale.compose("LOC_UI_CHAT_COMMAND_DESC_GLOBAL"),
-      commandArguments: [],
-      helpArguments: [Locale.compose("LOC_UI_CHAT_COMMAND_ARG_MESSAGE")],
-      commandHandler: this.globalChatCommandHandler
-    };
-    const globalChatCommand = {
-      commandPrompts: [Locale.compose("LOC_UI_CHAT_PROMPT_GLOBAL_SHORT")],
-      commandConfig: globalChatCommandConfig
-    };
-    this.registerChatCommand(globalChatCommand);
-    const localTeamCommandConfig = {
-      description: Locale.compose("LOC_UI_CHAT_COMMAND_DESC_TEAM"),
-      commandArguments: [],
-      helpArguments: [Locale.compose("LOC_UI_CHAT_COMMAND_ARG_MESSAGE")],
-      commandHandler: this.localTeamCommandHandler
-    };
-    const localTeamCommand = {
-      commandPrompts: [Locale.compose("LOC_UI_CHAT_PROMPT_TEAM_SHORT")],
-      commandConfig: localTeamCommandConfig
-    };
-    this.registerChatCommand(localTeamCommand);
-    const respondCommandConfig = {
-      description: Locale.compose("LOC_UI_CHAT_COMMAND_DESC_RESPOND"),
-      commandArguments: [],
-      helpArguments: [Locale.compose("LOC_UI_CHAT_COMMAND_ARG_MESSAGE")],
-      commandHandler: this.respondCommandHandler
-    };
-    const respondCommand = {
-      commandPrompts: [Locale.compose("LOC_UI_CHAT_PROMPT_RESPOND_SHORT")],
-      commandConfig: respondCommandConfig
-    };
-    this.registerChatCommand(respondCommand);
-  }
-  helpCommandHandler(_commandArguments, _messageContent, context) {
-    const commandList = this.stylizeHelpListContent(this.makeCommandList());
-    const helpListContent = commandList;
-    context.setMarkupMessage("");
-    context.attachNodeToScrollable(context.createNotificationMessage(helpListContent, "Help" /* HELP */));
-  }
-  stylizeHelpListContent(commandList) {
-    const initialListToken = "[BLIST]";
-    const finalListToken = "[/LIST]";
-    const listToken = "[LI]";
-    const newLineToken = "[N]";
-    const introductionString = Locale.compose("LOC_UI_CHAT_COMMAND_LIST") + newLineToken;
-    const listItems = commandList.map((commandLine) => {
-      return listToken + commandLine;
-    });
-    const listItemString = listItems.join("");
-    return Locale.stylize(introductionString + initialListToken + listItemString + finalListToken);
-  }
-  makeCommandList() {
-    return this.chatCommandConfigs.map((command) => {
-      return this.createCommandHelpLine(command);
-    });
-  }
-  createCommandHelpLine(command) {
-    const { description, helpArguments } = command.commandConfig;
-    const promptsHelp = this.joinPrompts(command.commandPrompts);
-    const styleCommandPredicate = "[STYLE:screen-mp-chat__command-prompt]";
-    const styleCommandDescription = "[STYLE:screen-mp-chat__command-description]";
-    const predicate = styleCommandPredicate + `${promptsHelp} ${helpArguments.join(" ")}`;
-    const commandHelpLine = `${predicate}: ${styleCommandDescription + description}`;
-    return commandHelpLine;
-  }
-  joinPrompts(prompts) {
-    let finalString = `/${prompts[0]}`;
-    if (prompts.length == 1) {
-      return finalString;
-    } else {
-      for (const prompt of prompts.slice(1).values()) {
-        finalString = finalString + `, /${prompt}`;
-      }
-    }
-    return finalString;
-  }
-  privateMessageCommandHandler(commandArguments, messageContent, context) {
-    let playersMatched = context.getCurrentPlayersByName(commandArguments.join(" "));
-    const splitMessage = messageContent.split(" ");
-    const totalArguments = [...commandArguments];
-    let flag = 0;
-    while (playersMatched.length > 1) {
-      const nextArgument = splitMessage[flag];
-      totalArguments.push(nextArgument);
-      const argumentString = totalArguments.join(" ");
-      playersMatched = context.getCurrentPlayersByName(argumentString);
-      flag++;
-    }
-    if (playersMatched.length != 1) {
-      context.setCommandError(Locale.compose("LOC_UI_CHAT_COMMAND_ERROR_PLAYER", commandArguments[0]));
-      console.warn(
-        `screen-mp-chat: No single player found with name ${commandArguments[0]}. Player doesn't exist or there is more than one player with this name. Please write a precise name`
-      );
-      return;
-    }
-    messageContent = splitMessage.slice(flag).join(" ");
-    if (!messageContent) {
-      context.setCommandError(Locale.compose("LOC_UI_CHAT_COMMAND_ERROR_BLANK"));
-      console.warn("screen-mp-chat: Player attempted to send a blank message");
-      return;
-    }
-    context.setMarkupMessage(messageContent);
-    context.setCurrentTarget(playersMatched[0]);
-  }
-  globalChatCommandHandler(_commandArguments, messageContent, context) {
-    const globalTarget = context.getGlobalChatTarget();
-    if (!globalTarget) {
-      console.error("screen-mp-chat: There is not a global target to select");
-      return;
-    }
-    if (!messageContent) {
-      context.setCommandError(Locale.compose("LOC_UI_CHAT_COMMAND_ERROR_BLANK"));
-      console.warn("screen-mp-chat: Player attempted to send a blank message");
-      return;
-    }
-    context.setMarkupMessage(messageContent);
-    context.setCurrentTarget(globalTarget);
-  }
-  localTeamCommandHandler(_commandArguments, messageContent, context) {
-    const localTeamTarget = context.getLocalTeamChatTarget();
-    if (!localTeamTarget) {
-      console.error("screen-mp-chat: There is not local team target to select");
-      return;
-    }
-    if (!messageContent) {
-      context.setCommandError(Locale.compose("LOC_UI_CHAT_COMMAND_ERROR_BLANK"));
-      console.warn("screen-mp-chat: Player attempted to send a blank message");
-      return;
-    }
-    context.setMarkupMessage(messageContent);
-    context.setCurrentTarget(localTeamTarget);
-  }
-  respondCommandHandler(_commandArguments, messageContent, context) {
-    const lastPrivateToLocalTarget = context.lastPrivateToLocalTarget();
-    if (!lastPrivateToLocalTarget) {
-      console.error("screen-mp-chat: Nobody has sent a private message to the local player");
-      context.setCommandError(Locale.compose("LOC_UI_CHAT_COMMAND_ERROR_RESPOND"));
-      return;
-    }
-    if (!messageContent) {
-      context.setCommandError(Locale.compose("LOC_UI_CHAT_COMMAND_ERROR_BLANK"));
-      console.warn("screen-mp-chat: Player attempted to send a blank message");
-      return;
-    }
-    context.setMarkupMessage(messageContent);
-    context.setCurrentTarget(lastPrivateToLocalTarget);
-  }
-  unregisterCommands() {
-    this.chatCommands.clear();
-  }
-  registerChatCommand(command) {
-    const commandPrompts = command.commandPrompts;
-    for (const prompt of commandPrompts) {
-      if (this.chatCommands.get(prompt)) {
-        console.error(
-          "screen-mp-chat: Command prompt already registered, assign unique string values to prompts"
-        );
-        return;
-      }
-      this.chatCommands.set(prompt, command);
-    }
-    this.chatCommandConfigs.push(command);
-  }
-}
-
-const styles = "fs://game/core/ui/mp-chat/screen-mp-chat.css";
+import ActionHandler from '../input/action-handler.js';
+import { ActiveDeviceTypeChangedEventName } from '../input/input-events.js';
+import { InputEngineEventName } from '../input/input-support.js';
+import ChatCommandManager, { NotificationType } from './chat-command-manager.js';
+import Panel from '../panel-support.js';
+import { MustGetElement } from '../utilities/utilities-dom.js';
+import { FocusManager } from '../../ui-next/services/focus-manager.js';
+import styles from './screen-mp-chat.scss.js';
 
 const mapNotificationTypeToClasses = {
   [NotificationType.PLAYER]: ["font-body-base", "text-accent-3"],
@@ -315,6 +66,7 @@ const mapKickReasonToNotificationMessage = {
   [KickReason.KICK_MATCH_DELETED]: "LOC_UI_CHAT_PANEL_PLAYER_KICKED_DEFAULT",
   [KickReason.KICK_GAME_STARTED]: "LOC_UI_CHAT_PANEL_PLAYER_KICKED_DEFAULT",
   [KickReason.KICK_TOO_MANY_MATCHES]: "LOC_UI_CHAT_PANEL_PLAYER_KICKED_DEFAULT",
+  [KickReason.KICK_AGE_TRANSITION_DEAD]: "LOC_UI_CHAT_PANEL_PLAYER_KICKED_DEFAULT",
   [KickReason.NUM_KICKS]: "LOC_UI_CHAT_PANEL_PLAYER_KICKED_DEFAULT"
 };
 const mapTargetTypeToMessageHeaderPrefix = {
@@ -423,6 +175,9 @@ class ScreenMPChat extends Panel {
   onAttach() {
     super.onAttach();
     window.addEventListener(ActiveDeviceTypeChangedEventName, this.activeDeviceTypeChangedListener);
+    if (!UI.isInGame()) {
+      engine.on("MultiplayerChat", this.onMultiplayerChat, this);
+    }
     engine.on("MultiplayerPlayerConnected", this.onPlayerConnected, this);
     engine.on("MultiplayerPostPlayerDisconnected", this.onPlayerDisconnected, this);
     engine.on("KickVoteComplete", this.onKickVoteComplete, this);
@@ -469,7 +224,7 @@ class ScreenMPChat extends Panel {
   }
   onReceiveFocus() {
     super.onReceiveFocus();
-    FocusManager.setFocus(this.Root);
+    FocusManager.get().setFocus(this.Root);
   }
   close() {
     if (ContextManager.hasInstanceOf("send-to-panel")) {
@@ -521,7 +276,7 @@ class ScreenMPChat extends Panel {
 					</div>
 					<div class="mp-chat__textbox-container h-9 flex-1 mx-2 items-center flow-row justify-center">
 						<fxs-textbox 
-							data-bind-class-toggle="hidden:{{g_NavTray.isTrayRequired}}" 
+							data-bind-class-toggle="opacity-0:{{g_NavTray.isTrayRequired}}" 
 							class="mp-chat__textbox flex flex-auto font-body text-sm" 
 							maxlength="255" 
 							type="text" 
@@ -585,6 +340,7 @@ class ScreenMPChat extends Panel {
   onDetach() {
     window.removeEventListener(ActiveDeviceTypeChangedEventName, this.activeDeviceTypeChangedListener);
     this.editBoxObserver.disconnect();
+    engine.off("MultiplayerChat", this.onMultiplayerChat, this);
     engine.off("MultiplayerPlayerConnected", this.onPlayerConnected, this);
     engine.off("MultiplayerPostPlayerDisconnected", this.onPlayerDisconnected, this);
     engine.off("KickVoteComplete", this.onKickVoteComplete, this);
@@ -672,7 +428,7 @@ class ScreenMPChat extends Panel {
     }
   }
   onFocus(_event) {
-    FocusManager.setFocus(this.scrollable);
+    FocusManager.get().setFocus(this.scrollable);
   }
   onScrollableBlur(_event) {
     this.updateNavHelp();
@@ -795,11 +551,11 @@ class ScreenMPChat extends Panel {
     waitForLayout(() => {
       this.scrollable.classList.toggle(
         "hide-nav-help",
-        !FocusManager.getFocus().classList.contains("mp-chat__scrollable")
+        !FocusManager.get().currentFocus().classList.contains("mp-chat__scrollable")
       );
       this.inputContainer.classList.toggle(
         "hide-nav-help",
-        !FocusManager.getFocus().classList.contains("mp-chat__scrollable")
+        !FocusManager.get().currentFocus().classList.contains("mp-chat__scrollable")
       );
     });
   }
@@ -1008,7 +764,7 @@ class ScreenMPChat extends Panel {
 Controls.define("screen-mp-chat", {
   createInstance: ScreenMPChat,
   description: "Multiplayer Chat screen.",
-  classNames: ["screen-mp-chat", "flow-row"],
+  classNames: ["screen-mp-chat", "flow-row", "w-full"],
   styles: [styles],
   attributes: [
     {

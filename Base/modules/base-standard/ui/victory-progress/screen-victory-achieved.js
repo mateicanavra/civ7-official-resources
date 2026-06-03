@@ -1,56 +1,32 @@
-import { A as Audio } from '../../../core/ui/audio-base/audio-support.chunk.js';
-import { b as DisplayHandlerBase } from '../../../core/ui/dialog-box/manager-dialog-box.chunk.js';
+import { Audio } from '../../../core/ui/audio-base/audio-support.js';
+import { DisplayHandlerBase } from '../../../core/ui/context-manager/display-handler.js';
 import { DisplayQueueManager } from '../../../core/ui/context-manager/display-queue-manager.js';
-import { F as Framework } from '../../../core/ui/framework.chunk.js';
-import { P as Panel, A as AnchorType } from '../../../core/ui/panel-support.chunk.js';
-import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.chunk.js';
-import { instance } from '../civilopedia/model-civilopedia.chunk.js';
-import { a as VictoryAchievedScreenCategory } from './model-victory-progress.chunk.js';
+import { Framework } from '../../../core/ui/framework.js';
+import Panel, { AnchorType } from '../../../core/ui/panel-support.js';
+import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
+import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
+import { instance } from '../civilopedia/model-civilopedia.js';
+import { VictoryAchievedScreenCategory } from './model-victory-progress.js';
 import { VictoryProgressOpenTab } from './screen-victory-progress.js';
-import '../../../core/ui/context-manager/context-manager.js';
-import '../../../core/ui/input/cursor.js';
-import '../../../core/ui/input/focus-manager.js';
-import '../../../core/ui/views/view-manager.chunk.js';
-import '../../../core/ui/utilities/utilities-image.chunk.js';
-import '../../../core/ui/utilities/utilities-component-id.chunk.js';
-import '../cinematic/cinematic-manager.chunk.js';
-import '../../../core/ui/interface-modes/interface-modes.js';
-import '../endgame/screen-endgame.js';
-import '../../../core/ui/input/action-handler.js';
-import '../../../core/ui/input/input-support.chunk.js';
-import '../../../core/ui/utilities/utilities-update-gate.chunk.js';
-import '../../../core/ui/navigation-tray/model-navigation-tray.chunk.js';
-import '../../../core/ui/tooltips/tooltip-manager.js';
-import '../../../core/ui/input/plot-cursor.js';
-import '../../../core/ui/utilities/utilities-layout.chunk.js';
-import '../../../core/ui/utilities/utilities-color.chunk.js';
-import '../../../core/ui/graph-layout/utils.chunk.js';
-import '../end-results/end-results.js';
-import '../endgame/model-endgame.js';
-import '../victory-manager/victory-manager.chunk.js';
-
-const styles = "fs://game/base-standard/ui/victory-progress/screen-victory-achieved.css";
+import styles from './screen-victory-achieved.scss.js';
 
 const LOCAL_WINNER_INNER = `
-<fxs-modal-frame data-modal-style="special" class="victory-achieved__victory-popup-container relative flex w-120 h-180 justify-center mt-42">
+<fxs-modal-frame data-modal-style="special" class="victory-achieved__victory-popup-container relative flex w-120 min-h-180 justify-center mt-42">
 	<fxs-vslot class="victory-achieved__main-column items-center flex-auto">
-		<fxs-header class="victory-achieved__header-text h-12 w-96 font-title-lg uppercase relative self-center justify-center"></fxs-header>
-		<div class="victory-achieved__victory-icon-container flex relative flex-row justify-center mt-12 mb-10">
+		<fxs-header class="victory-achieved__header-text  min-h-12 w-96 font-title-lg uppercase relative self-center justify-center"></fxs-header>
+		<div class="victory-achieved__victory-icon-container flex relative flex-row justify-center mt-8 mb-10">
 			<div class="victory-achieved__icon-filigree img-victory-filagree mr-14 bg-contain bg-no-repeat"></div>
 			<div class="victory-achieved__victory-icon-laurels flex absolute self-center justify-center img-victory-laurels bg-contain bg-no-repeat">
 				<div class="victory-achieved__victory-icon bg-contain bg-no-repeat size-42 bg-center self-center"></div>
 			</div>
 			<div class="victory-achieved__icon-filigree -scale-x-100 img-victory-filagree ml-14 bg-contain bg-no-repeat"></div>
 		</div>
-		<div class="victory-achieved__victory-title font-title-xl uppercase mb-3"></div>
-		<div class="victory-achieved__rewards-container relative flex mx-5 self-stretch justify-center">
-			<div class="victory-achieved__rewards-container-background flex flex-col justify-center relative mt-2 w-113 py-6">
-			<div class="victory-achieved__rewards-container-bar absolute top-0 w-113 h-4"></div>
-			<div class="victory-achieved__rewards-container-bar absolute bottom-0 bottom w-113 h-4"></div>
-				<div class="victory-achieved__rewards-container-text font-title-xs flex self-center pb-6" data-l10n-id="LOC_UI_VICTORY_REWARD_EARNED"></div>
-				<fxs-spatial-slot class="victory-achieved__rewards-container-items flex flex-row self-stretch justify-center"></fxs-spatial-slot>
+	<div class="victory-achieved__victory-title font-title-xl font-bold text-accent-1 text-shadow-subtle tracking-100 uppercase my-1"></div>
+		<div class="victory-achieved__rewards-container relative flex flex-col mx-5 self-stretch justify-center flex-auto">
+			<div class="victory-achieved__rewards-container-background rounded flex flex-col justify-center relative py-1 w-113 my-6">
+				<div class="victory-achieved__rewards-container-text tracking-100 text-accent-2 font-title-xs flex self-center pt-1 pb-2 uppercase" data-l10n-id="LOC_UI_VICTORY_REWARD_EARNED"></div>
+				<fxs-spatial-slot class="victory-achieved__rewards-container-items flex flex-row self-stretch justify-center pb-1"></fxs-spatial-slot>
 			</div>
-			<div class="victory-achieved__rewards-container-filigree absolute top-0 justify-center bg-contain bg-no-repeat w-16 h-4"></div>
 		</div>
 		<div class="victory-achieved__button-container flex flex-auto flex-col px-5 pb-3 justify-end self-stretch">			
 			<fxs-button class="victory-achieved__view-victories-button mb-3 uppercase self-stretch"></fxs-hero-button>
@@ -228,7 +204,7 @@ class ScreenVictoryAchieved extends Panel {
       ".victory-achieved__view-victories-button",
       this.Root
     );
-    Framework.FocusManager.setFocus(viewProgressButton);
+    FocusManager.get().setFocus(viewProgressButton);
   }
 }
 class VictoryAchievedScreenManager extends DisplayHandlerBase {

@@ -44,13 +44,13 @@
 		<Row YieldType="YIELD_DIPLOMACY" Name="LOC_YIELD_DIPLOMACY" IconString="ICON_DIPLOMACY" OccupiedCityChange="0" DefaultValue="1"/>
 	</Yields>
 	<Plunders>
-		<Row PlunderType="PLUNDER_HEAL" Name="LOC_PLUNDER_HEAL_NAME"/>
-		<Row PlunderType="PLUNDER_GOLD" Name="LOC_PLUNDER_GOLD_NAME"/>
-		<Row PlunderType="PLUNDER_SCIENCE" Name="LOC_PLUNDER_SCIENCE_NAME"/>
-		<Row PlunderType="PLUNDER_CULTURE" Name="LOC_PLUNDER_CULTURE_NAME"/>
-		<Row PlunderType="PLUNDER_FOOD_TOWN" Name="LOC_PLUNDER_FOOD_TOWN_NAME"/>
-		<Row PlunderType="PLUNDER_PRODUCTION_CITY" Name="LOC_PLUNDER_PRODUCTION_CITY_NAME"/>
-		<Row PlunderType="PLUNDER_DIPLOMACY" Name="LOC_PLUNDER_DIPLOMACY_NAME"/>
+		<Row PlunderType="PLUNDER_HEAL" Name="LOC_PLUNDER_HEAL_NAME" ScaleByGameSpeed="false"/>
+		<Row PlunderType="PLUNDER_GOLD" Name="LOC_PLUNDER_GOLD_NAME" ScaleByGameSpeed="true"/>
+		<Row PlunderType="PLUNDER_SCIENCE" Name="LOC_PLUNDER_SCIENCE_NAME" ScaleByGameSpeed="true"/>
+		<Row PlunderType="PLUNDER_CULTURE" Name="LOC_PLUNDER_CULTURE_NAME" ScaleByGameSpeed="true"/>
+		<Row PlunderType="PLUNDER_FOOD_TOWN" Name="LOC_PLUNDER_FOOD_TOWN_NAME" ScaleByGameSpeed="true"/>
+		<Row PlunderType="PLUNDER_PRODUCTION_CITY" Name="LOC_PLUNDER_PRODUCTION_CITY_NAME" ScaleByGameSpeed="true"/>
+		<Row PlunderType="PLUNDER_DIPLOMACY" Name="LOC_PLUNDER_DIPLOMACY_NAME" ScaleByGameSpeed="true"/>
 	</Plunders>
 	<KeywordAbilities>
 		<Row KeywordAbilityType="KEYWORD_ABILITY_AMPHIBIOUS" Name="LOC_KEYWORD_ABILITY_AMPHIBIOUS" Summary="LOC_KEYWORD_ABILITY_AMPHIBIOUS_SUMMARY" FullDescription="LOC_KEYWORD_ABILITY_AMPHIBIOUS_DESCRIPTION"/>

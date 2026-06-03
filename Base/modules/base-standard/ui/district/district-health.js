@@ -1,13 +1,12 @@
-import { C as ComponentID } from '../../../core/ui/utilities/utilities-component-id.chunk.js';
-import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.chunk.js';
-import { Icon } from '../../../core/ui/utilities/utilities-image.chunk.js';
-import { P as PlotCoord } from '../../../core/ui/utilities/utilities-plotcoord.chunk.js';
+import { ComponentID } from '../../../core/ui/utilities/utilities-component-id.js';
+import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
+import { Icon } from '../../../core/ui/utilities/utilities-image.js';
+import { PlotCoord } from '../../../core/ui/utilities/utilities-plotcoord.js';
 import DistrictHealthManager from './district-health-manager.js';
+import styles from './district-health.scss.js';
 
-const styles = "fs://game/base-standard/ui/district/district-health.css";
-
-const DISTRICT_BANNER_OFFSET = { x: -30, y: 15, z: 8 };
-const CITY_CENTER_BANNER_OFFSET = { x: -20, y: 25, z: 8 };
+const DISTRICT_BANNER_OFFSET = { x: 0, y: 0, z: 30 };
+const CITY_CENTER_BANNER_OFFSET = { x: 0, y: 0, z: 30 };
 class DistrictHealthBar extends Component {
   _componentID = ComponentID.getInvalidID();
   _worldAnchorHandle = null;
@@ -47,20 +46,19 @@ class DistrictHealthBar extends Component {
     }
     this.isCityCenter = district.type == DistrictTypes.CITY_CENTER;
     this.hslot = document.createElement("fxs-hslot");
-    this.hslot.classList.add("district-health-hslot", "w-full", "h-9", "allow-pan");
+    this.hslot.classList.add("district-health-hslot", "w-fit", "top-5", "h-9", "allow-pan");
+    const controllingPlayer = Players.get(district.controllingPlayer);
     this.civHexOuter = document.createElement("div");
     this.civHexOuter.classList.add("bg-contain", "bg-center", "bg-no-repeat", "relative", "w-9", "h-9");
     this.civHexOuter.style.backgroundImage = "url('blp:city_hex_base')";
-    this.civHexOuter.style.fxsBackgroundImageTint = UI.Player.getSecondaryColorValueAsString(
-      this.componentID.owner
-    );
     this.civHexInner = document.createElement("div");
     this.civHexInner.classList.add("bg-contain", "bg-center", "bg-no-repeat", "absolute", "inset-1");
     this.civHexInner.style.backgroundImage = "url('blp:city_hex_base')";
-    this.civHexInner.style.fxsBackgroundImageTint = UI.Player.getPrimaryColorValueAsString(this.componentID.owner);
+    const controllingPlayerId = controllingPlayer ? district.controllingPlayer : this.componentID.owner;
+    this.civHexOuter.style.fxsBackgroundImageTint = UI.Player.getSecondaryColorValueAsString(controllingPlayerId);
+    this.civHexInner.style.fxsBackgroundImageTint = UI.Player.getPrimaryColorValueAsString(controllingPlayerId);
     this.civHexOuter.appendChild(this.civHexInner);
     const civIcon = document.createElement("div");
-    const iconCSS = Icon.getCivSymbolCSSFromCivilizationType(player.civilizationType);
     civIcon.classList.add(
       "district-health_civ-icon",
       "absolute",
@@ -69,8 +67,8 @@ class DistrictHealthBar extends Component {
       "bg-center",
       "bg-no-repeat"
     );
-    civIcon.style.backgroundImage = iconCSS;
-    civIcon.style.fxsBackgroundImageTint = UI.Player.getSecondaryColorValueAsString(this.componentID.owner);
+    civIcon.style.backgroundImage = controllingPlayer ? this.getHealthIcon(controllingPlayer) : this.getHealthIcon(player);
+    civIcon.style.fxsBackgroundImageTint = UI.Player.getSecondaryColorValueAsString(controllingPlayerId);
     this.civHexOuter.appendChild(civIcon);
     this.hslot.appendChild(this.civHexOuter);
     this.progressBar = document.createElement("div");
@@ -94,6 +92,49 @@ class DistrictHealthBar extends Component {
     this.makeWorldAnchor(location);
     const manager = DistrictHealthManager.instance;
     manager.addChildForTracking(this);
+  }
+  getHealthIcon(player) {
+    let iconCSS = "";
+    if ((player.isMinor || player.isIndependent) && player.Influence?.hasSuzerain) {
+      let indCivType = GameInfo.Civilizations.lookup(
+        player.civilizationType
+      )?.CivilizationType;
+      GameInfo.Independents.forEach((indDef) => {
+        if (player.civilizationAdjective == indDef.CityStateName) {
+          indCivType = indDef.CityStateType;
+        }
+      });
+      switch (indCivType) {
+        case "MILITARISTIC":
+          iconCSS = "url('blp:bonustype_militaristic.png')";
+          break;
+        case "SCIENTIFIC":
+          iconCSS = "url('blp:bonustype_scientific.png')";
+          break;
+        case "ECONOMIC":
+          iconCSS = "url('blp:bonustype_economic.png')";
+          break;
+        case "CULTURAL":
+          iconCSS = "url('blp:bonustype_cultural.png')";
+          break;
+        case "DIPLOMATIC":
+          iconCSS = "url('blp:bonustype_diplomatic.png')";
+          break;
+        case "EXPANSIONIST":
+          iconCSS = "url('blp:bonustype_expansionist.png')";
+          break;
+        case "CIVILIZATION_INDEPENDENT":
+          iconCSS = "url('blp:bonustype_crisis.png')";
+          break;
+      }
+    } else {
+      if (player.isMinor || player.isIndependent) {
+        iconCSS = "url('blp:independent_power_seige.png')";
+      } else {
+        iconCSS = Icon.getCivSymbolCSSFromCivilizationType(player.civilizationType);
+      }
+    }
+    return iconCSS;
   }
   onDetach() {
     this.cleanup();
@@ -140,8 +181,7 @@ class DistrictHealthBar extends Component {
     if (player) {
       if (this.civHexOuter && this.civHexInner) {
         const civIcon = MustGetElement(".district-health_civ-icon", this.civHexOuter);
-        const iconCSS = Icon.getCivSymbolCSSFromCivilizationType(player.civilizationType);
-        civIcon.style.backgroundImage = iconCSS;
+        civIcon.style.backgroundImage = this.getHealthIcon(player);
         civIcon.style.fxsBackgroundImageTint = UI.Player.getSecondaryColorValueAsString(controllingPlayer);
         this.civHexInner.style.fxsBackgroundImageTint = UI.Player.getPrimaryColorValueAsString(controllingPlayer);
         this.civHexOuter.style.fxsBackgroundImageTint = UI.Player.getSecondaryColorValueAsString(controllingPlayer);

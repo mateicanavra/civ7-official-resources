@@ -320,7 +320,7 @@
       <Text>{1_reward}。</Text>
     </Replace>
     <Replace Tag="LOC_11092B_NAME" Language="ja_JP">
-      <Text>まずは食物を円の中に置かねば。</Text>
+      <Text>まずは供物を円の中に置かねば。</Text>
     </Replace>
     <Replace Tag="LOC_11092C_DESCRIPTION" Language="ja_JP">
       <Text>{1_reward}。</Text>
@@ -500,16 +500,34 @@
       <Text>トンガのリサール</Text>
     </Replace>
     <Replace Tag="LOC_12015B_DESCRIPTION" Language="ja_JP">
-      <Text>{2_capital}に{1_reward}。</Text>
+      <Text>{1_reward}。</Text>
     </Replace>
     <Replace Tag="LOC_12015B_NAME" Language="ja_JP">
-      <Text>引きつづき諸国を旅して回ろう。</Text>
+      <Text>大きな経済活動の小さな一部だ。</Text>
     </Replace>
     <Replace Tag="LOC_12015C_DESCRIPTION" Language="ja_JP">
       <Text>{1_reward}。</Text>
     </Replace>
     <Replace Tag="LOC_12015C_NAME" Language="ja_JP">
       <Text>リサールはこの長に会う必要がある。</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30016A_COMPLETION" Language="ja_JP">
+      <Text>マナは長に宿る力だ。それは風を吹かせ、嵐を御し、大地に作物を実らせ、民に長を愛させる。しかし、新たな時代は新たな王統をもたらしたものの、トゥイ・ハアタカラウは自分を疑う民衆を統治するのに苦労している。</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30016A_STORYTITLE" Language="ja_JP">
+      <Text>マナの網</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30016B_DESCRIPTION" Language="ja_JP">
+      <Text>{1_reward}。</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30016B_NAME" Language="ja_JP">
+      <Text>力とは繁栄だ。万事はタプに従って行われる。</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30016C_DESCRIPTION" Language="ja_JP">
+      <Text>{1_reward}。</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30016C_NAME" Language="ja_JP">
+      <Text>繁栄とは力だ。新しい時代のために新しいやり方を取り入れよう。</Text>
     </Replace>
     <Replace Tag="LOC_ATTR_ADJUST_CITY_YIELD_PER_CITY_STATE_TRADE_ROUTES" Language="ja_JP">
       <Text>都市国家との交易路ごとの産出量</Text>
@@ -518,16 +536,16 @@
       <Text>都市国家との交易路の数</Text>
     </Replace>
     <Replace Tag="LOC_BUILDING_LANGI_DESCRIPTION" Language="ja_JP">
-      <Text>トンガ固有の文化関連の建造物。 [icon:YIELD_CULTURE] 文化力+3。資源や遺産に隣接していると [icon:YIELD_FOOD] 食料+1。時代を問わない。</Text>
+      <Text>トンガ[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_BUILDING_TOOLTIP]固有の文化関連の建造物[/TIP]。 [icon:YIELD_CULTURE] 文化力+3。[TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]資源[/TIP]や[TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]遺産[/TIP]に隣接していると [icon:YIELD_FOOD] 食料+1。</Text>
     </Replace>
     <Replace Tag="LOC_BUILDING_LANGI_TOOLTIP" Language="ja_JP">
-      <Text>トンガ固有の建造物</Text>
+      <Text>トンガ[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_BUILDING_TOOLTIP]固有の建造物[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_BUILDING_VAI_KAUKAU_DESCRIPTION" Language="ja_JP">
-      <Text>トンガ固有の幸福度関連の建造物。 [icon:YIELD_HAPPINESS] 幸福度+3。沿岸や遺産に隣接していると [icon:YIELD_CULTURE] 文化力+1。時代を問わない。</Text>
+      <Text>トンガ[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_BUILDING_TOOLTIP]固有の幸福度関連の建造物[/TIP]。 [icon:YIELD_HAPPINESS] 幸福度+3。沿岸や[TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]遺産[/TIP]に隣接していると [icon:YIELD_CULTURE] 文化力+1。</Text>
     </Replace>
     <Replace Tag="LOC_BUILDING_VAI_KAUKAU_TOOLTIP" Language="ja_JP">
-      <Text>トンガ固有の建造物</Text>
+      <Text>トンガ[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_BUILDING_TOOLTIP]固有の建造物[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_CIVIC_ESI_MAKA_FAAKINANGA_AUTHOR" Language="ja_JP">
       <Text>ジョルジュ・ダントン</Text>
@@ -550,6 +568,12 @@
     <Replace Tag="LOC_CIVILIZATION_TONGA_DESCRIPTION" Language="ja_JP">
       <Text>居住地が沿岸に隣接している場合、宮殿とシティホールの [icon:YIELD_DIPLOMACY] 影響力+1。 [icon:PROJECT] 「都市国家 - 併合」アクションと「ユニット徴発」アクションは使用できない。</Text>
     </Replace>
+    <Replace Tag="LOC_CIVILIZATION_TONGA_EX_DESCRIPTION" Language="ja_JP">
+      <Text>沿岸に隣接している居住地の宮殿やシティホールの [icon:YIELD_DIPLOMACY] 影響力+2。新たな [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]都市国家[/TIP]の[TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主国[/TIP]になると、その都市国家からの [icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]交易路[/TIP]を無償で得る。</Text>
+    </Replace>
+    <Replace Tag="LOC_CIVILIZATION_TONGA_MO_DESCRIPTION" Language="ja_JP">
+      <Text>沿岸に隣接している居住地の宮殿やシティホールの [icon:YIELD_DIPLOMACY] 影響力+3。新たな [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]都市国家[/TIP]の[TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主国[/TIP]になると、その都市国家からの [icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]交易路[/TIP]を無償で得る。</Text>
+    </Replace>
     <Replace Tag="LOC_LOADING_CIV_INTRO_TEXT_TONGA" Language="ja_JP">
       <Text>道なき海を、トンガの双胴船が、星だけを頼りに進む。海の石で築かれた新たな港、新たな環礁、新たな漁場を求める彼らを、歌い手の詠唱が導く。木鼓の音色と船腹を叩く波の音に耳を傾けよ。新たな岸辺が待っている。</Text>
     </Replace>
@@ -562,47 +586,59 @@
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TONGA_COMPLETE_WONDER_HA_AMONGA_A_MAUI_NAME" Language="ja_JP">
       <Text>ハアモンガ・ア・マウイ</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TONGA_LEGACY_PATH_CULTURAL_DESC" Language="ja_JP">
-      <Text>トンガでプレイし、文化レガシーパスを完了する。</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TONGA_FOUR_MAJOR_TRIUMPHS_DESC" Language="ja_JP">
+      <Text>トンガでプレイし、1回の全盛時代で外交または経済の大成功を4つ完了する。</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TONGA_LEGACY_PATH_CULTURAL_NAME" Language="ja_JP">
-      <Text>トンガのレガシーパス</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TONGA_FOUR_MAJOR_TRIUMPHS_NAME" Language="ja_JP">
+      <Text>トンガの大成功4</Text>
     </Replace>
     <Replace Tag="LOC_MOD_CIV_WONDER_PRODUCTION_TONGA_DESCRIPTION" Language="ja_JP">
       <Text>トンガの固有 [icon:WONDER] 遺産であることにより [icon:YIELD_PRODUCTION] 生産力+30%。</Text>
     </Replace>
-    <Replace Tag="LOC_MOD_ESI_MAKA_FAAKINANGA_COMBAT_STRENGTH_DESCRIPTION" Language="ja_JP">
-      <Text>沿岸に隣接している歩兵ユニットと海洋ユニットの [icon:NAR_REW_COMBAT] 戦闘力+3。</Text>
+    <Replace Tag="LOC_NODE_CIVIC_EX_TONGA_RENAISSANCE_NAME" Language="ja_JP">
+      <Text>トンガのルネサンス</Text>
     </Replace>
-    <Replace Tag="LOC_MOD_KAVA_CEREMONY_BEFRIEND_INDEPENDENT_DESCRIPTION" Language="ja_JP">
-      <Text>[icon:INDEPENDENT_POWER] 独立勢力が遠隔地にいる場合、 [icon:PROJECT] 「独立勢力と友好関係を築く」プロジェクトの開始と支持に対する [icon:YIELD_DIPLOMACY] 影響力+100%。</Text>
-    </Replace>
-    <Replace Tag="LOC_MOD_LAPITA_ORIGINS_CS_TRADE_DESCRIPTION" Language="ja_JP">
-      <Text>新たな [icon:CITYSTATE] 都市国家の宗主国になると、その都市国家から無償の [icon:TRADE_ROUTE] 交易路を得る。</Text>
-    </Replace>
-    <Replace Tag="LOC_MOD_LAPITA_ORIGINS_MONUMENT_INFLUENCE_DESCRIPTION" Language="ja_JP">
-      <Text>沿岸に隣接するモニュメントの [icon:YIELD_DIPLOMACY] 影響力+1。</Text>
-    </Replace>
-    <Replace Tag="LOC_MOD_LAPITA_ORIGINS_OCEAN_TRADE_DESCRIPTION" Language="ja_JP">
-      <Text>[icon:TRADE_ROUTE] 交易路が外洋を越えられる。</Text>
+    <Replace Tag="LOC_NODE_CIVIC_MO_TONGA_MODERNIZATION_NAME" Language="ja_JP">
+      <Text>トンガの近代化</Text>
     </Replace>
     <Replace Tag="LOC_QUARTER_TOFI_A_DESCRIPTION" Language="ja_JP">
-      <Text>トンガ固有の街区。同じ区域にランギとヴァイ・カウカウを建設すると築かれる。 [icon:CITYSTATE] 都市国家との間に結ばれた [icon:TRADE_ROUTE] 交易路1つにつき [icon:YIELD_CULTURE] 文化力+2。トフィアがあると、 [icon:UNIT_SCOUT] 斥候はどの時代でもダメージを受けずに海洋タイルに入れる（ただし、古代では遠隔地で下船できない）。</Text>
+      <Text>トンガの[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_QUARTER_TOOLTIP]固有街区[/TIP]。同じ[TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]区域[/TIP]にランギとヴァイ・カウカウを建設すると築かれる。 [icon:CITYSTATE] 都市国家との間に築かれた [icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]交易路[/TIP]1つにつき [icon:YIELD_CULTURE] 文化力+2。</Text>
     </Replace>
     <Replace Tag="LOC_QUARTER_TOFI_A_TOOLTIP" Language="ja_JP">
-      <Text>[icon:CITYSTATE] 都市国家との間に結ばれた [icon:TRADE_ROUTE] 交易路1つにつき [icon:YIELD_CULTURE] 文化力+2。トフィアがあると、 [icon:UNIT_SCOUT] 斥候はどの時代でもダメージを受けずに海洋タイルに入れる（ただし、古代では遠隔地で下船できない）。</Text>
+      <Text>[icon:CITYSTATE] 都市国家との間に築かれた [icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]交易路[/TIP]1つにつき [icon:YIELD_CULTURE] 文化力+2。</Text>
     </Replace>
-    <Replace Tag="LOC_TRADITION_NGATU_DESCRIPTION" Language="ja_JP">
-      <Text>[icon:YIELD_WAREHOUSE] 倉庫建造物の [icon:YIELD_CULTURE] 文化力+1。</Text>
+    <Replace Tag="LOC_TRADITION_NGATU_I_DESCRIPTION" Language="ja_JP">
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_DISTANT_LANDS_TOOLTIP]遠隔地[/TIP]にいる [icon:INDEPENDENT_POWER] 独立勢力に対する [icon:PROJECT] 「独立勢力と友好関係を築く」プロジェクトの開始と支持に対する [icon:YIELD_DIPLOMACY] 影響力+100%。</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_NGATU_II_DESCRIPTION" Language="ja_JP">
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_DISTANT_LANDS_TOOLTIP]遠隔地[/TIP]にいる [icon:INDEPENDENT_POWER] 独立勢力に対する [icon:PROJECT] 「独立勢力と友好関係を築く」プロジェクトの開始と支持に対する [icon:YIELD_DIPLOMACY] 影響力+100%。都市国家が[TIP:LOC_PEDIA_CONCEPTS_DISTANT_LANDS_TOOLTIP]遠隔地[/TIP]にいる場合、その [icon:CITYSTATE] 都市国家に対するすべてのアクションの [icon:YIELD_DIPLOMACY] 影響力+100%。</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_TAKUAKA_DESCRIPTION" Language="ja_JP">
-      <Text>[icon:YIELD_CITIES] 都市の漁船の [icon:YIELD_PRODUCTION] 生産力+1。礁に漁船がいると、すべての居住地に [icon:YIELD_SCIENCE] 科学力+2。</Text>
+      <Text>[icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]都市[/TIP]の漁船の [icon:YIELD_PRODUCTION] 生産力+1。礁に漁船がいると、すべての[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]居住地[/TIP]に [icon:YIELD_SCIENCE] 科学力+2。</Text>
     </Replace>
-    <Replace Tag="LOC_TRADITION_TONGIAKI_DESCRIPTION" Language="ja_JP">
-      <Text>[icon:TRADE_ROUTE] 海上交易路の範囲+10。</Text>
+    <Replace Tag="LOC_TRADITION_TONGA_SYNCRETISM_EXPLORATION_DESCRIPTION" Language="ja_JP">
+      <Text>[icon:CITYSTATE] 都市国家との [icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]交易路[/TIP]1つにつき [icon:NOTIFICATION_SELECT_CAPITAL] 首都の [icon:YIELD_CULTURE] 文化力と [icon:YIELD_GOLD] ゴールド+3。</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_TONGA_SYNCRETISM_MODERN_DESCRIPTION" Language="ja_JP">
+      <Text>[icon:CITYSTATE] 都市国家との [icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]交易路[/TIP]1つにつき [icon:NOTIFICATION_SELECT_CAPITAL] 首都の [icon:YIELD_CULTURE] 文化力と [icon:YIELD_GOLD] ゴールド+4。</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_TONGA_SYNCRETISM_TOOLTIP" Language="ja_JP">
+      <Text>トゥイ・ハアタカラウア</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_TONGIAKI_I_DESCRIPTION" Language="ja_JP">
+      <Text>[icon:TRADE_ROUTE] 海上[TIP:LOC_PEDIA_CONCEPTS_TRADE_RANGE_TOOLTIP]交易路の範囲[/TIP]+10。</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_TONGIAKI_II_DESCRIPTION" Language="ja_JP">
+      <Text>[icon:TRADE_ROUTE] 海上[TIP:LOC_PEDIA_CONCEPTS_TRADE_RANGE_TOOLTIP]交易路の範囲[/TIP]+10。海上交易路による [icon:YIELD_GOLD] ゴールドと [icon:YIELD_SCIENCE] 科学力+3。</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_TONGA_ABILITY_DESCRIPTION" Language="ja_JP">
-      <Text>[BLIST][LI][B]沿岸[/B]に隣接している居住地の[B]宮殿[/B]と[B]シティホール[/B]の [B][icon:YIELD_DIPLOMACY] 影響力+1[/B]。[LI][icon:PROJECT] [B]「都市国家 - 併合」[/B]または[B]「ユニット徴発」[/B]アクションは使用できない。[LI][B]ハアモンガ・ア・マウイ[/B]の建設に対する[B] [icon:YIELD_PRODUCTION] 生産力+30%[/B]。[/LIST]</Text>
+      <Text>[BLIST][LI][B]沿岸[/B]に隣接している[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]居住地[/TIP]の[B]宮殿[/B]や[B]シティホール[/B]の [B][icon:YIELD_DIPLOMACY] 影響力+1[/B]。[LI]新たな [B][icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]都市国家[/TIP][/B]の[B][TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主国[/TIP][/B]になると、その都市国家からの [B][icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]交易路[/TIP][/B]を無償で得る。[LI][B][icon:PROJECT] 「都市国家 - 併合」[/B]または[B]「ユニット徴発」アクション[/B]は使用できない。[LI][B]ハアモンガ・ア・アマウイ[/B]の建設に対する [B][icon:YIELD_PRODUCTION] 生産力+30%[/B]。[/BLIST]</Text>
+    </Replace>
+    <Replace Tag="LOC_TRAIT_TONGA_ABILITY_EX_DESCRIPTION" Language="ja_JP">
+      <Text>[BLIST][LI][B]沿岸[/B]に隣接している[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]居住地[/TIP]の[B]宮殿[/B]と[B]シティホール[/B]の [B][icon:YIELD_DIPLOMACY] 影響力+2[/B]。[LI]新たな [B][icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]都市国家[/TIP][/B]の[B][TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主国[/TIP][/B]になると、その都市国家からの [B][icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]交易路[/TIP][/B]を無償で得る。[LI][B][icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]交易路[/TIP][/B]がダメージを受けずに外洋を越えることができる。[/BLIST]</Text>
+    </Replace>
+    <Replace Tag="LOC_TRAIT_TONGA_ABILITY_MO_DESCRIPTION" Language="ja_JP">
+      <Text>[BLIST][LI][B]沿岸[/B]に隣接している居住地の[B]宮殿[/B]や[B]シティホール[/B]の [B][icon:YIELD_DIPLOMACY] 影響力+3[/B]。[LI]新たな [B][icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]都市国家[/TIP][/B]の[B][TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主国[/TIP][/B]になると、その都市国家からの [B][icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]交易路[/TIP][/B]を無償で得る。[/LIST]</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_TONGA_ABILITY_NAME" Language="ja_JP">
       <Text>南の領主</Text>
@@ -611,16 +647,16 @@
       <Text>トンガの社会制度</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_KALIA_2_DESCRIPTION" Language="ja_JP">
-      <Text>トンガ固有の海洋ユニット（ティア3）。 [icon:CITY_FORTIFIED] 要塞化区域に対する [icon:NAR_REW_COMBAT] 戦闘力+5。</Text>
+      <Text>トンガ固有の[TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]海洋ユニット[/TIP]（ティア3）。 [icon:CITY_FORTIFIED] [TIP:LOC_PEDIA_CONCEPTS_FORTIFIED_DISTRICTS_TOOLTIP]要塞化区域[/TIP]に対する [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]戦闘力[/TIP]+5。</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_KALIA_BASE_DESCRIPTION" Language="ja_JP">
-      <Text>トンガ固有の海洋ユニット。 [icon:CITY_FORTIFIED] 要塞化区域に対する [icon:NAR_REW_COMBAT] 戦闘力+5。</Text>
+      <Text>トンガ固有の[TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]海洋ユニット[/TIP]。 [icon:CITY_FORTIFIED] [TIP:LOC_PEDIA_CONCEPTS_FORTIFIED_DISTRICTS_TOOLTIP]要塞化区域[/TIP]に対する [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]戦闘力[/TIP]+5。</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_KALIA_DESCRIPTION" Language="ja_JP">
-      <Text>トンガ固有の海洋ユニット（ティア2）。 [icon:CITY_FORTIFIED] 要塞化区域に対する [icon:NAR_REW_COMBAT] 戦闘力+5。</Text>
+      <Text>トンガ固有の[TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]海洋ユニット[/TIP]（ティア2）。 [icon:CITY_FORTIFIED] [TIP:LOC_PEDIA_CONCEPTS_FORTIFIED_DISTRICTS_TOOLTIP]要塞化区域[/TIP]に対する [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]戦闘力[/TIP]+5。</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_TEHINA_DESCRIPTION" Language="ja_JP">
-      <Text>トンガ固有の斥候。外洋タイルに入ることができる（ダメージを受けない）。遠隔地では下船できない。近隣の「発見」に対して [icon:Action_Pillage] 沿岸襲撃を使用できるほか、時代開始時に乗船できる。</Text>
+      <Text>トンガ固有の斥候。外洋タイルに入ることができる（ダメージを受けない）。[TIP:LOC_PEDIA_CONCEPTS_DISTANT_LANDS_TOOLTIP]遠隔地[/TIP]では[TIP:LOC_PEDIA_CONCEPTS_EMBARK_TOOLTIP]下船[/TIP]できない。近隣の「発見」に対して [icon:Action_Pillage] 沿岸襲撃を使用できるほか、[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]時代[/TIP]開始時に[TIP:LOC_PEDIA_CONCEPTS_EMBARK_TOOLTIP]乗船[/TIP]できる。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_PLAY_AS_HIMIKO_ALT_TONGA_TOOLTIP" Language="ja_JP">
       <Text>[B]トンガ[/B]は[B]卑弥呼[/B]と戦略的に相性がいい。</Text>
@@ -637,23 +673,35 @@
     <Replace Tag="LOC_UNLOCK_PLAY_AS_TONGA_HAWAII_TOOLTIP" Language="ja_JP">
       <Text>[B]トンガ[/B]と[B]ハワイ[/B]はどちらも太平洋の強国だった。</Text>
     </Replace>
+    <Replace Tag="LOC_UNLOCK_PLAY_AS_TONGA_TONGA_TOOLTIP" Language="ja_JP">
+      <Text>[B]トンガ[/B]は時代を超えて存続できる。</Text>
+    </Replace>
     <Replace Tag="LOC_ABILITY_KALIA_DESCRIPTION" Language="ja_JP">
-      <Text>[icon:CITY_FORTIFIED] 要塞化区域に対する [icon:NAR_REW_COMBAT] 戦闘力+{1_amount}。</Text>
+      <Text>[icon:CITY_FORTIFIED] [TIP:LOC_PEDIA_CONCEPTS_FORTIFIED_DISTRICTS_TOOLTIP]要塞化区域[/TIP]に対する [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]戦闘力[/TIP]+{1_amount}。</Text>
     </Replace>
     <Replace Tag="LOC_ABILITY_KALIA_PREVIEW" Language="ja_JP">
-      <Text>要塞化区域に対する戦闘力+{1_Amount}</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_FORTIFIED_DISTRICTS_TOOLTIP]要塞化区域[/TIP]に対する戦闘力+{1_Amount}</Text>
     </Replace>
-    <Replace Tag="LOC_MOD_ESI_MAKA_FAAKINANGA_ADJACENT_TO_COAST_COMBAT_DESCRIPTION" Language="ja_JP">
-      <Text>エシ・マカ・ファアキナンガ+{1_Amount}</Text>
+    <Replace Tag="LOC_TRADITION_NGATU_I_NAME" Language="ja_JP">
+      <Text>ンガトゥI</Text>
     </Replace>
-    <Replace Tag="LOC_TRADITION_NGATU_NAME" Language="ja_JP">
-      <Text>ンガトゥ</Text>
+    <Replace Tag="LOC_TRADITION_NGATU_II_NAME" Language="ja_JP">
+      <Text>ンガトゥII</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_TAKUAKA_NAME" Language="ja_JP">
       <Text>タクアカ</Text>
     </Replace>
-    <Replace Tag="LOC_TRADITION_TONGIAKI_NAME" Language="ja_JP">
-      <Text>トンギアキ</Text>
+    <Replace Tag="LOC_TRADITION_TONGA_SYNCRETISM_EXPLORATION_NAME" Language="ja_JP">
+      <Text>トゥイ・ハアタカラウアI</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_TONGA_SYNCRETISM_MODERN_NAME" Language="ja_JP">
+      <Text>トゥイ・ハアタカラウアII</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_TONGIAKI_I_NAME" Language="ja_JP">
+      <Text>トンギアキI</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_TONGIAKI_II_NAME" Language="ja_JP">
+      <Text>トンギアキII</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_KALIA_NAME" Language="ja_JP">
       <Text>カリア</Text>

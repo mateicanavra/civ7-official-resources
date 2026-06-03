@@ -49,7 +49,7 @@
             <Requirement type="REQUIREMENT_CITY_IS_CITY">
             </Requirement>
             <Requirement type="REQUIREMENT_PLAYER_HAS_ACTIVE_TRADITION">
-                <Argument name="TraditionType">TRADITION_BREAD_DANCE</Argument>
+                <Argument name="TraditionType">TRADITION_BREAD_DANCE_I</Argument>
             </Requirement>
         </SubjectRequirements>
         <Argument name="YieldType">YIELD_CULTURE</Argument>
@@ -60,7 +60,7 @@
             <Requirement type="REQUIREMENT_CITY_IS_CITY">
             </Requirement>
             <Requirement type="REQUIREMENT_PLAYER_HAS_ACTIVE_TRADITION">
-                <Argument name="TraditionType">TRADITION_HELIKHILENAWEWIPE</Argument>
+                <Argument name="TraditionType">TRADITION_HELIKHILENAWEWIPE_II</Argument>
             </Requirement>
         </SubjectRequirements>
         <Argument name="YieldType">YIELD_CULTURE</Argument>
@@ -177,6 +177,7 @@
         <Requirement type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
             <Argument name="CivilizationType">CIVILIZATION_SHAWNEE</Argument>
             <Argument name="IsPastCivilization">True</Argument>
+            <Argument name="OnlyPastCivilization">True</Argument>
         </Requirement>
         <Requirement type="REQUIREMENT_IS_AGE_COUNT" inverse="true">
             <Argument name="AgeCount">1</Argument>
@@ -186,6 +187,7 @@
         <Requirement type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
             <Argument name="CivilizationType">CIVILIZATION_SHAWNEE</Argument>
             <Argument name="IsPastCivilization">True</Argument>
+            <Argument name="OnlyPastCivilization">False</Argument>
         </Requirement>
         <Requirement type="REQUIREMENT_IS_AGE_COUNT" inverse="true">
             <Argument name="AgeCount">1</Argument>
@@ -195,6 +197,7 @@
         <Requirement type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
             <Argument name="CivilizationType">CIVILIZATION_SHAWNEE</Argument>
             <Argument name="IsPastCivilization">True</Argument>
+            <Argument name="OnlyPastCivilization">False</Argument>
         </Requirement>
         <Requirement type="REQUIREMENT_IS_AGE_COUNT" inverse="true">
             <Argument name="AgeCount">1</Argument>

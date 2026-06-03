@@ -1,5 +1,4 @@
-import QuestTracker from './quest-tracker.js';
-import './quest-item.js';
+import { getQuestTracker } from './quest-tracker.js';
 
 class NarrativeQuestManagerClass {
   static instance = null;
@@ -61,7 +60,8 @@ class NarrativeQuestManagerClass {
         goal: quest.goal != -1 ? quest.goal.toString() : void 0,
         endTurn: quest.endTurn
       };
-      QuestTracker.add(questItem);
+      const questTracker = getQuestTracker();
+      questTracker.add(questItem);
     });
   }
   onNarrativeQuestUpdate(event) {
@@ -102,13 +102,17 @@ class NarrativeQuestManagerClass {
       goal: event.goal != -1 ? event.goal.toString() : void 0,
       endTurn: event.endTurn
     };
-    QuestTracker.add(questItem);
+    const questTracker = getQuestTracker();
+    questTracker.add(questItem);
   }
   onNarrativeStoryRemoved(event) {
     if (event.player != GameContext.localObserverID) {
       return;
     }
-    QuestTracker.remove(event.storyId.toString(), "narrative");
+    const questTracker = getQuestTracker();
+    if (questTracker.has(event.storyId.toString(), "narrative")) {
+      questTracker.remove(event.storyId.toString(), "narrative");
+    }
   }
 }
 const NarrativeQuestManager = new NarrativeQuestManagerClass();

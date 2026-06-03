@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Types>
+		<Row Type="IMPROVEMENT_HAWAII_FISHING_BOAT" Kind="KIND_CONSTRUCTIBLE" />
+		<Row Type="IMPROVEMENT_INCA_MOUNTAIN" Kind="KIND_CONSTRUCTIBLE" />
+	</Types>
+	<Constructibles>
+		<Replace ConstructibleType="IMPROVEMENT_HAWAII_FISHING_BOAT" Name="LOC_IMPROVEMENT_FISHING_BOAT_NAME" ConstructibleClass="IMPROVEMENT" Cost="90" Population="1" Age="AGE_EXPLORATION" RequiresUnlock="true"/>
+		<Replace ConstructibleType="IMPROVEMENT_INCA_MOUNTAIN" Name="LOC_IMPROVEMENT_INCA_MOUNTAIN_NAME" ConstructibleClass="IMPROVEMENT" Cost="90" Population="1" Age="AGE_EXPLORATION" RequiresUnlock="true"/>
+	</Constructibles>
+	<TypeTags>
+		<Row Type="IMPROVEMENT_HAWAII_FISHING_BOAT" Tag="FISHING_BOAT" />
+	</TypeTags>
+	<Improvements>
+		<Row ConstructibleType="IMPROVEMENT_HAWAII_FISHING_BOAT"/>
+		<Row ConstructibleType="IMPROVEMENT_INCA_MOUNTAIN"/>
+	</Improvements>
+	<Constructible_ValidDistricts>
+		<Row ConstructibleType="IMPROVEMENT_HAWAII_FISHING_BOAT" DistrictType="DISTRICT_RURAL" />
+		<Row ConstructibleType="IMPROVEMENT_INCA_MOUNTAIN" DistrictType="DISTRICT_RURAL" />
+	</Constructible_ValidDistricts>
+	<District_FreeConstructibles>
+		<Row DistrictType="DISTRICT_RURAL" ConstructibleType="IMPROVEMENT_HAWAII_FISHING_BOAT" TerrainType="TERRAIN_OCEAN" Priority="5" />
+		<Row DistrictType="DISTRICT_RURAL" ConstructibleType="IMPROVEMENT_INCA_MOUNTAIN" TerrainType="TERRAIN_MOUNTAIN" Priority="5" />
+	</District_FreeConstructibles>
+	<CivilopediaPageExcludes>
+		<Row SectionID="IMPROVEMENTS" PageID="IMPROVEMENT_HAWAII_FISHING_BOAT" />
+		<Row SectionID="IMPROVEMENTS" PageID="IMPROVEMENT_INCA_MOUNTAIN" />
+	</CivilopediaPageExcludes>
+	<Adjacency_YieldChanges>
+		<Row ID="IncaMountainGoldAdjacency" YieldType="YIELD_GOLD" YieldChange="1" TilesRequired="1" ProjectMaxYield="true" AdjacentTerrain="TERRAIN_MOUNTAIN"/>
+		<Row ID="IncaMountainFoodAdjacency" YieldType="YIELD_FOOD" YieldChange="1" TilesRequired="1" ProjectMaxYield="true" AdjacentTerrain="TERRAIN_MOUNTAIN"/>
+		<Row ID="CivicExpExpansionistTallWarehouseUrbanFood" YieldType="YIELD_FOOD" YieldChange="1" TilesRequired="1" ProjectMaxYield="true" AdjacentDistrict="DISTRICT_URBAN" />
+		<Row ID="CivicExpExpansionistWideWarehouseRuralFood" YieldType="YIELD_FOOD" YieldChange="1" TilesRequired="1" ProjectMaxYield="true" AdjacentDistrict="DISTRICT_RURAL" />
+		<Row ID="NegaraCultureBuildingCoastCulture" YieldType="YIELD_CULTURE" YieldChange="1" TilesRequired="1" ProjectMaxYield="true" AdjacentTerrain="TERRAIN_COAST"/>
+		<Row ID="ExAttributeCultural01WonderHappiness" YieldType="YIELD_HAPPINESS" YieldChange="1" TilesRequired="1" AdjacentDistrict="DISTRICT_WONDER"/>
+		<Row ID="AbbasidTrialOfTimeBuildingHappinessCityCenter" YieldType="YIELD_HAPPINESS" YieldChange="1" TilesRequired="1" AdjacentDistrict="DISTRICT_CITY_CENTER"/>
+		<Row ID="CityOfPeaceIWildcardScienceCityCenter" YieldType="YIELD_SCIENCE" YieldChange="1" TilesRequired="1" ProjectMaxYield="true" AdjacentDistrict="DISTRICT_CITY_CENTER"/>
+	</Adjacency_YieldChanges>
+	<Constructible_WildcardAdjacencies>
+		<Row YieldChangeId="IncaMountainGoldAdjacency" RequiresActivation="true" ConstructibleTag="GOLD"/>
+		<Row YieldChangeId="IncaMountainFoodAdjacency" RequiresActivation="true" ConstructibleTag="FOOD"/>
+		<Row YieldChangeId="CivicExpExpansionistTallWarehouseUrbanFood" RequiresActivation="true" ConstructibleTag="FOOD_WAREHOUSE" />
+		<Row YieldChangeId="CivicExpExpansionistWideWarehouseRuralFood" RequiresActivation="true" ConstructibleTag="FOOD_WAREHOUSE" />
+		<Row YieldChangeId="NegaraCultureBuildingCoastCulture" RequiresActivation="true" ConstructibleTag="CULTURE"/>
+		<Row YieldChangeId="ExAttributeCultural01WonderHappiness" RequiresActivation="true" ConstructibleClass="BUILDING"/>
+		<Row YieldChangeId="AbbasidTrialOfTimeBuildingHappinessCityCenter" RequiresActivation="true" CurrentAgeConstructiblesOnly="true" ConstructibleClass="BUILDING"/>
+		<Row YieldChangeId="CityOfPeaceIWildcardScienceCityCenter" RequiresActivation="true" CurrentAgeConstructiblesOnly="true"/>
+	</Constructible_WildcardAdjacencies>
+	<Warehouse_YieldChanges>
+		<Row ID="Hawaii_ToT_MO_OceanFood" YieldType="YIELD_FOOD" YieldChange="2" TerrainInCity="TERRAIN_OCEAN" />
+		<Row ID="Hawaii_ToT_MO_OceanGold" YieldType="YIELD_GOLD" YieldChange="4" TerrainInCity="TERRAIN_OCEAN" />
+		<Row ID="Hawaii_ToT_MO_CoastHappiness" YieldType="YIELD_HAPPINESS" YieldChange="1" TerrainInCity="TERRAIN_COAST" />
+		<Row ID="Hawaii_ToT_MO_OceanHappiness" YieldType="YIELD_HAPPINESS" YieldChange="1" TerrainInCity="TERRAIN_OCEAN" />
+		<Row ID="Hawaii_ToT_MO_CoastCulture" YieldType="YIELD_CULTURE" YieldChange="2" TerrainInCity="TERRAIN_COAST" />
+		<Row ID="Hawaii_ToT_MO_OceanCulture" YieldType="YIELD_CULTURE" YieldChange="2" TerrainInCity="TERRAIN_OCEAN" />
+		<Row ID="Hawaii_ToT_MO_FishingBoatResourceHappiness" YieldType="YIELD_HAPPINESS" YieldChange="1" ConstructibleInCity="IMPROVEMENT_FISHING_BOAT_RESOURCE" />
+		<Row ID="Hawaii_ToT_MO_AtollFeatureHappiness" YieldType="YIELD_HAPPINESS" YieldChange="1" FeatureInCity="FEATURE_ATOLL" />
+		<Row ID="Hawaii_ToT_MO_LotusFeatureHappiness" YieldType="YIELD_HAPPINESS" YieldChange="1" FeatureInCity="FEATURE_LOTUS" />
+		<Row ID="Hawaii_ToT_MO_ReefFeatureHappiness" YieldType="YIELD_HAPPINESS" YieldChange="1" FeatureInCity="FEATURE_REEF" />
+		<Row ID="Hawaii_ToT_MO_ColdReefFeatureHappiness" YieldType="YIELD_HAPPINESS" YieldChange="1" FeatureInCity="FEATURE_COLD_REEF" />
+		<!-- Hawaii Modern Culture on features/resources -->
+		<Row ID="Hawaii_ToT_MO_FishingBoatResourceCulture" YieldType="YIELD_CULTURE" YieldChange="2" ConstructibleInCity="IMPROVEMENT_FISHING_BOAT_RESOURCE" />
+		<Row ID="Hawaii_ToT_MO_AtollFeatureCulture" YieldType="YIELD_CULTURE" YieldChange="2" FeatureInCity="FEATURE_ATOLL" />
+		<Row ID="Hawaii_ToT_MO_LotusFeatureCulture" YieldType="YIELD_CULTURE" YieldChange="2" FeatureInCity="FEATURE_LOTUS" />
+		<Row ID="Hawaii_ToT_MO_ReefFeatureCulture" YieldType="YIELD_CULTURE" YieldChange="2" FeatureInCity="FEATURE_REEF" />
+		<Row ID="Hawaii_ToT_MO_ColdReefFeatureCulture" YieldType="YIELD_CULTURE" YieldChange="2" FeatureInCity="FEATURE_COLD_REEF" />
+	</Warehouse_YieldChanges>
+</Database>

@@ -1,24 +1,14 @@
-import '../components/fxs-button-group.chunk.js';
-import { A as Audio } from '../audio-base/audio-support.chunk.js';
-import { F as FxsNavHelp } from '../components/fxs-nav-help.chunk.js';
-import { a as DialogBoxManager, D as DialogBoxAction } from './manager-dialog-box.chunk.js';
-import FocusManager from '../input/focus-manager.js';
-import { b as InputEngineEventName } from '../input/input-support.chunk.js';
-import { P as Panel, A as AnchorType } from '../panel-support.chunk.js';
-import { MustGetElement } from '../utilities/utilities-dom.chunk.js';
-import '../input/action-handler.js';
-import '../framework.chunk.js';
-import '../input/cursor.js';
-import '../views/view-manager.chunk.js';
-import '../utilities/utilities-update-gate.chunk.js';
-import '../utilities/utilities-image.chunk.js';
-import '../utilities/utilities-component-id.chunk.js';
-import '../utilities/utilities-layout.chunk.js';
-import '../context-manager/display-queue-manager.js';
-
-const screenDialogBoxStyles = "fs://game/core/ui/dialog-box/screen-dialog-box.css";
-
-const panelDiplomacyDeclareWarStyles = "fs://game/base-standard/ui/diplomacy-declare-war/panel-diplomacy-declare-war.css";
+import '../components/fxs-button-group.js';
+import { Audio } from '../audio-base/audio-support.js';
+import { FxsNavHelp } from '../components/fxs-nav-help.js';
+import { DialogBoxManager } from './manager-dialog-box.js';
+import { InputEngineEventName } from '../input/input-support.js';
+import Panel, { AnchorType } from '../panel-support.js';
+import { MustGetElement } from '../utilities/utilities-dom.js';
+import { FocusManager } from '../../ui-next/services/focus-manager.js';
+import screenDialogBoxStyles from './screen-dialog-box.scss.js';
+import panelDiplomacyDeclareWarStyles from '../../../base-standard/ui/diplomacy-declare-war/panel-diplomacy-declare-war.scss.js';
+import { DialogBoxAction } from './model-dialog-box.js';
 
 class ScreenDialogBox extends Panel {
   dialogId = 0;
@@ -226,9 +216,9 @@ class ScreenDialogBox extends Panel {
   onReceiveFocus() {
     super.onReceiveFocus();
     if (this.extensions.length != 0 && this.extensionsContainer) {
-      FocusManager.setFocus(this.extensionsContainer);
+      FocusManager.get().setFocus(this.extensionsContainer);
     } else {
-      FocusManager.setFocus(this.Root);
+      FocusManager.get().setFocus(this.Root);
     }
   }
   setDialogId(dialogId) {
@@ -482,7 +472,7 @@ class ScreenDialogBox extends Panel {
           });
         }
         const firstSlot = MustGetElement(".panel-diplomacy-declare-war__button-declare-war", this.Root);
-        FocusManager.setFocus(firstSlot);
+        FocusManager.get().setFocus(firstSlot);
       }
     } else {
       this.options = options;
@@ -610,7 +600,7 @@ class ScreenDialogBox extends Panel {
     }
   }
   onTextboxEditStop({ detail }) {
-    if (!detail.confirmed) this.close();
+    if (!detail.confirmed && UI.getVirtualKeyboardType() != UIVirtualKeyboardType.Inline) this.close();
   }
   //TODO: do we need to update data and refresh visuals on attributes changed?
   onAttributeChanged(name, _oldValue, newValue) {

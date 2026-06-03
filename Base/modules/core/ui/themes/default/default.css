@@ -18,7 +18,7 @@
   background-repeat: no-repeat;
   background-size: contain;
 }
-.img-arrow-hover:hover, .img-arrow-hover.pressed {
+.img-arrow-hover:hover, .img-arrow-hover.pressed, .img-arrow-hover:focus {
   filter: brightness(200%);
 }
 
@@ -29,6 +29,60 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
+}
+
+.img-arrow-highlight {
+  width: 1.7777777778rem;
+  height: 2.6666666667rem;
+  background-image: url("blp:base_component-arrow");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.img-arrow-highlight:hover, .img-arrow-highlight.pressed, .img-arrow-highlight:focus {
+  background-image: url("blp:base_component-arrow_highlight");
+}
+
+.img-arrow-flipped {
+  width: 1.7777777778rem;
+  height: 2.6666666667rem;
+  background-image: url("blp:base_component-arrow-flipped");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.img-arrow-hover-flipped {
+  width: 1.7777777778rem;
+  height: 2.6666666667rem;
+  background-image: url("blp:base_component-arrow-flipped");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.img-arrow-hover-flipped:hover, .img-arrow-hover-flipped.pressed, .img-arrow-hover-flipped:focus {
+  filter: brightness(200%);
+}
+
+.img-arrow-disabled-flipped {
+  width: 1.7777777778rem;
+  height: 2.6666666667rem;
+  background-image: url("blp:base_component-arrow_dis-flipped");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.img-arrow-highlight-flipped {
+  width: 1.7777777778rem;
+  height: 2.6666666667rem;
+  background-image: url("blp:base_component-arrow-flipped");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.img-arrow-highlight-flipped:hover, .img-arrow-highlight-flipped.pressed, .img-arrow-highlight-flipped:focus {
+  background-image: url("blp:base_component-arrow_highlight-flipped");
 }
 
 .img-arrow2 {
@@ -48,7 +102,7 @@
   background-repeat: no-repeat;
   background-size: contain;
 }
-.img-arrow2-hover:hover, .img-arrow2-hover.pressed {
+.img-arrow2-hover:hover, .img-arrow2-hover.pressed, .img-arrow2-hover:focus {
   filter: brightness(200%);
 }
 
@@ -269,8 +323,22 @@
   background-repeat: no-repeat;
   background-size: contain;
 }
+.img-radio-button.high-res {
+  background-image: url("blp:base_radio-bg_highRes");
+}
 
 .img-radio-button-ball {
+  width: 1rem;
+  height: 1rem;
+  background-image: url("blp:base_radio-ball");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.img-radio-button-ball.high-res {
+  background-image: url("blp:base_radio-ball_highRes");
+}
+
+.img-radio-button-ball-sm {
   width: 1rem;
   height: 1rem;
   background-image: url("blp:base_radio-ball");
@@ -291,17 +359,26 @@
   background-repeat: no-repeat;
   background-size: contain;
 }
+.img-radio-button-ball-lg.high-res {
+  background-image: url("blp:base_radio-ball_highRes");
+}
 
 .img-radio-button-focus {
   background-image: url("blp:base_radio-bg-focus");
   background-repeat: no-repeat;
   background-size: contain;
 }
+.img-radio-button-focus.high-res {
+  background-image: url("blp:base_radio-bg-focus_highRes");
+}
 
 .img-radio-button-on-focus {
   background-image: url("blp:base_radio-bg-on-focus");
   background-repeat: no-repeat;
   background-size: contain;
+}
+.img-radio-button-on-focus.high-res {
+  background-image: url("blp:base_radio-bg-on-focus_highRes");
 }
 
 .img-frame-f1 {
@@ -563,7 +640,7 @@
 .img-popup-header-bk {
   border-image-slice: 1 0 0 0 fill;
   border-image-source: url("blp:popup_header_bk");
-  border-image-width: 0.0555555556rem 0 0 0;
+  border-image-width: auto;
 }
 
 .img-unit-panelbox {
@@ -975,7 +1052,7 @@
 }
 
 .img-icon-checkmark {
-  background-image: url("blp:icon-checkmark");
+  background-image: url("blp:icon_checkmark");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -1065,6 +1142,13 @@
   border-image-width: 0.3333333333rem 0.2777777778rem;
 }
 
+.img-bg-card-aksum {
+  background-image: url("blp:bg-card-aksum");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .img-bg-card-buganda {
   background-image: url("blp:bg-card-buganda");
   background-position: center;
@@ -1072,8 +1156,15 @@
   background-size: cover;
 }
 
-.img-bg-card-aksum {
-  background-image: url("blp:bg-card-aksum");
+.img-bg-card-america {
+  background-image: url("blp:bg-card-america");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.img-bg-card-goryeo {
+  background-image: url("blp:bg-card-goryeo");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -1237,6 +1328,13 @@
   background-size: contain;
 }
 
+.img-expand-swap-icon {
+  background-image: url("blp:cityleg_swap");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
 .img-add-population-icon {
   background-image: url("blp:cityleg_specialist");
   background-position: center;
@@ -1344,12 +1442,37 @@
 
 .img-base-ticket-bg, .img-base-ticket-bg-container {
   border-image-source: url("blp:base_ticket-bg");
-  border-image-slice: 16 fill;
-  border-image-width: 0.8888888889rem;
+  border-image-slice: 12 fill;
+  border-image-width: 0.6666666667rem;
 }
 
 .img-base-ticket-bg-container {
   padding: 1.3333333333rem 1rem;
+}
+
+.img-ticket-solid-shadow, .img-ticket-solid-shadow-container {
+  border-image-source: url("blp:ticket_solid_shadow");
+  border-image-slice: 26 35 35 26 fill;
+  border-image-width: 1.3333333333rem 1.8333333333rem 1.8333333333rem 1.3333333333rem;
+}
+
+.img-ticket-solid-shadow-container {
+  padding: 0.5555555556rem 0.7777777778rem 0.7777777778rem 0.5555555556rem;
+}
+
+.img-tag-locked {
+  background-image: url("blp:tag_locked");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 3rem;
+  height: 2.3888888889rem;
+}
+
+.img-rollover-highlight {
+  border-image-source: url("blp:rollover_highlight");
+  border-image-slice: 30 fill;
+  border-image-width: 1.6666666667rem;
 }
 
 .filigree-panel-top-left {
@@ -1367,6 +1490,14 @@
   min-width: 10.6666666667rem;
   min-height: 1.7777777778rem;
   transform: scaleX(-1);
+}
+
+.filigree-panel-top-long {
+  border-image-source: url("fs://game/hud_metaltop-long.png");
+  border-image-slice: 1 32 31 128 fill;
+  border-image-width: 0.0555555556rem 1.7777777778rem 1.7222222222rem 7.1111111111rem;
+  min-width: 35rem;
+  min-height: 1.7777777778rem;
 }
 
 .filigree-panel-top-circle {
@@ -1457,6 +1588,18 @@
   background-size: contain;
   min-width: 1.7777777778rem;
   min-height: 0.8888888889rem;
+}
+
+.filigree-title-accent-left,
+.filigree-title-accent-right {
+  background-image: url("blp:title_accent_filigree");
+  background-size: 100% 100%;
+  width: 12.8888888889rem;
+  height: 2rem;
+}
+
+.filigree-title-accent-right {
+  transform: scaleX(-1);
 }
 
 .filigree-inner-frame-top {
@@ -1686,6 +1829,10 @@ Based on Robert Penner's easing equations
   pointer-events: none;
 }
 
+.fxs-button-small .fxs-button__bg {
+  border-image-slice: 30 50 fill;
+}
+
 .fxs-button__bg--base {
   border-image-source: url("blp:base_button-bg");
 }
@@ -1711,6 +1858,11 @@ Based on Robert Penner's easing equations
 .fxs-button {
   min-height: 2.6666666667rem;
   min-width: 13.3333333333rem;
+}
+
+.fxs-button-small {
+  min-height: 1.3333333333rem;
+  min-width: 3.5555555556rem;
 }
 
 .fxs-button:focus .fxs-button__bg--focus, .fxs-button:hover .fxs-button__bg--focus, .fxs-button.pressed .fxs-button__bg--focus {
@@ -1988,6 +2140,33 @@ Based on Robert Penner's easing equations
   background-repeat: no-repeat;
 }
 
+/** Image Button *******************************************************************/
+.fxs-image-button:focus .fxs-image-button__bg--focus, .fxs-image-button:hover .fxs-image-button__bg--focus, .fxs-image-button.pressed .fxs-image-button__bg--focus {
+  opacity: 1;
+}
+
+.fxs-image-button__bg--focus,
+.fxs-image-button__bg--active,
+.fxs-image-button__bg--disabled {
+  transition: opacity 0.25s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.fxs-image-button:active .fxs-image-button__bg--active,
+.fxs-image-button.pressed .fxs-image-button__bg--active {
+  opacity: 1;
+}
+
+.fxs-image-button.disabled .fxs-image-button__bg--active,
+.fxs-image-button.disabled .fxs-image-button__bg--focus,
+.fxs-image-button.disabled-focusable .fxs-image-button__bg--active,
+.fxs-image-button.disabled-focusable .fxs-image-button__bg--focus {
+  opacity: 0;
+}
+.fxs-image-button.disabled .fxs-image-button__bg--disabled,
+.fxs-image-button.disabled-focusable .fxs-image-button__bg--disabled {
+  opacity: 1;
+}
+
 .fxs-button-group {
   position: relative;
   display: flex;
@@ -2055,6 +2234,12 @@ Based on Robert Penner's easing equations
 }
 .fxs-chooser-item-selected.selected {
   opacity: 1;
+}
+
+.fxs-chooser-item-selected-frame {
+  border-image-source: url("blp:rollover_highlight");
+  border-image-slice: 30 fill;
+  border-image-width: 1.6666666667rem;
 }
 
 .fxs-chooser-item.disabled {
@@ -2578,10 +2763,10 @@ fxs-ring-meter .fxs-ring-meter__default-ring .fxs-ring-meter__ring-left {
 }
 
 .fxs-scrollbar__track--vertical {
-  border-image-source: url("blp:base_scrollbar-track");
-  border-image-slice: 30 15 30 1 fill;
-  border-image-width: 1.6666666667rem 0.8333333333rem 1.6666666667rem 0.0555555556rem;
-  border-image-outset: 1.5555555556rem 0rem;
+  border-image-source: url("blp:rounded_scrollbar-track");
+  border-image-slice: 8 5 fill;
+  border-image-width: 0.4444444444rem 0.2777777778rem;
+  border-image-outset: 0.1111111111rem 0rem;
 }
 
 .fxs-scrollbar__thumb--vertical {
@@ -2601,14 +2786,14 @@ fxs-ring-meter .fxs-ring-meter__default-ring .fxs-ring-meter__ring-left {
 }
 
 .fxs-scrollbar__thumb-bg--vertical {
-  border-image-source: url("blp:base_scrollbar-handle");
+  border-image-source: url("blp:min_scrollbar-handle");
   border-image-slice: 12 15 12 1 fill;
   border-image-width: 0.6666666667rem 0.8333333333rem 0.6666666667rem 0.0555555556rem;
 }
 
 .fxs-scrollbar__thumb-bg-highlight--vertical {
   opacity: 0;
-  border-image-source: url("blp:base_scrollbar-handle-focus");
+  border-image-source: url("blp:min_scrollbar-handle-focus");
   border-image-slice: 12 15 12 1 fill;
   border-image-width: 0.6666666667rem 0.8333333333rem 0.6666666667rem 0.0555555556rem;
   transition-property: opacity;
@@ -2618,7 +2803,7 @@ fxs-ring-meter .fxs-ring-meter__default-ring .fxs-ring-meter__ring-left {
 
 .fxs-scrollbar__thumb-bg-active--vertical {
   opacity: 0;
-  border-image-source: url("blp:base_scrollbar-handle-focus");
+  border-image-source: url("blp:min_scrollbar-handle-focus");
   border-image-slice: 12 15 12 1 fill;
   border-image-width: 0.6666666667rem 0.8333333333rem 0.6666666667rem 0.0555555556rem;
   transition-property: opacity;
@@ -2627,10 +2812,9 @@ fxs-ring-meter .fxs-ring-meter__default-ring .fxs-ring-meter__ring-left {
 }
 
 .fxs-scrollbar__track--horizontal {
-  border-image-source: url("blp:base_scrollbar-track_h");
-  border-image-slice: 1 30 15 30 fill;
-  border-image-width: 0.0555555556rem 1.6666666667rem 0.8333333333rem 1.6666666667rem;
-  border-image-outset: 0rem 1.5555555556rem;
+  border-image-source: url("blp:rounded_scrollbar-track_h");
+  border-image-slice: 1 12 15 12 fill;
+  border-image-width: 0.0555555556rem 0.6666666667rem 0.8333333333rem 0.6666666667rem;
   height: 0.7777777778rem;
 }
 
@@ -2652,14 +2836,14 @@ fxs-ring-meter .fxs-ring-meter__default-ring .fxs-ring-meter__ring-left {
 }
 
 .fxs-scrollbar__thumb-bg--horizontal {
-  border-image-source: url("blp:base_scrollbar-handle_h");
+  border-image-source: url("blp:min_scrollbar-handle_h");
   border-image-slice: 1 12 15 12 fill;
   border-image-width: 0.0555555556rem 0.6666666667rem 0.8333333333rem 0.6666666667rem;
 }
 
 .fxs-scrollbar__thumb-bg-highlight--horizontal {
   opacity: 0;
-  border-image-source: url("blp:base_scrollbar-handle-focus_h");
+  border-image-source: url("blp:min_scrollbar-handle-focus_h");
   border-image-slice: 1 12 15 12 fill;
   border-image-width: 0.0555555556rem 0.6666666667rem 0.8333333333rem 0.6666666667rem;
   transition-property: opacity;
@@ -2669,7 +2853,7 @@ fxs-ring-meter .fxs-ring-meter__default-ring .fxs-ring-meter__ring-left {
 
 .fxs-scrollbar__thumb-bg-active--horizontal {
   opacity: 0;
-  border-image-source: url("blp:base_scrollbar-handle-focus_h");
+  border-image-source: url("blp:min_scrollbar-handle-focus_h");
   border-image-slice: 1 12 15 12 fill;
   border-image-width: 0.0555555556rem 0.6666666667rem 0.8333333333rem 0.6666666667rem;
   transition-property: opacity;
@@ -3077,24 +3261,21 @@ fxs-link:hover, fxs-link.pressed {
 }
 
 .scroll-area_track {
-  margin-top: 1.5555555556rem;
-  margin-bottom: 1.5555555556rem;
-  border-image-outset: 1.5555555556rem 0rem;
-  border-image-slice: 30 15 30 1 fill;
-  border-image-source: url("blp:base_scrollbar-track.png");
-  border-image-width: 1.6666666667rem 0.8333333333rem 1.6666666667rem 0.0555555556rem;
+  border-image-outset: 0.1111111111rem 0rem;
+  border-image-slice: 8 5 fill;
+  border-image-source: url("blp:rounded_scrollbar-track");
+  border-image-width: 0.4444444444rem 0.2777777778rem;
 }
 
-.scroll-area_thumb-bg {
+.scroll-area_thumb-active, .scroll-area_thumb-highlight, .scroll-area_thumb-bg {
+  border-image-outset: 0rem 0rem;
   border-image-slice: 12 15 12 1 fill;
-  border-image-source: url("blp:base_scrollbar-handle.png");
+  border-image-source: url("blp:min_scrollbar-handle");
   border-image-width: 0.6666666667rem 0.8333333333rem 0.6666666667rem 0.0555555556rem;
 }
 
 .scroll-area_thumb-highlight {
-  border-image-slice: 12 15 12 1 fill;
-  border-image-source: url("blp:base_scrollbar-handle-focus.png");
-  border-image-width: 0.6666666667rem 0.8333333333rem 0.6666666667rem 0.0555555556rem;
+  border-image-source: url("blp:min_scrollbar-handle-focus");
   opacity: 0;
   transition-duration: 0.125s;
   transition-property: opacity;
@@ -3102,9 +3283,7 @@ fxs-link:hover, fxs-link.pressed {
 }
 
 .scroll-area_thumb-active {
-  border-image-slice: 12 15 12 1 fill;
-  border-image-source: url("blp:base_scrollbar-handle-focus.png");
-  border-image-width: 0.6666666667rem 0.8333333333rem 0.6666666667rem 0.0555555556rem;
+  border-image-source: url("blp:min_scrollbar-handle-focus");
   opacity: 0;
   transition-duration: 0.125s;
   transition-property: opacity;
@@ -3119,6 +3298,105 @@ fxs-link:hover, fxs-link.pressed {
 }
 .scroll-area_thumb:active:hover .scroll-area_thumb-highlight {
   opacity: 0.375;
+}
+
+.tooltip-keyword {
+  color: #c1a25f;
+}
+
+.tooltip-keyword:hover {
+  color: #eedbb1;
+}
+
+.tooltip-keyword-focus:focus {
+  color: #eedbb1;
+}
+
+#uinext-tooltips p {
+  pointer-events: inherit;
+}
+
+.card-frame-bg {
+  border-image-slice: 16 fill;
+  border-image-source: url("blp:base_ticket-bg");
+  border-image-width: auto;
+}
+
+.metal-card-frame-bg {
+  border-image-slice: 22 fill;
+  border-image-source: url("blp:base_ticket-metal2_frame");
+  border-image-width: 0.5555555556rem;
+}
+
+.metal-card-frame-bg-hover {
+  border-image-slice: 22 fill;
+  border-image-source: url("blp:base_ticket-metal2_frame_hover");
+  border-image-width: 0.5555555556rem;
+}
+
+.ornate-card-bg {
+  border-image-outset: 0.1111111111rem 0.7222222222rem 0.7222222222rem 0.7777777778rem;
+  border-image-slice: 16 100 fill;
+  border-image-source: url("fs://game/hud_mini_box.png");
+  border-image-width: 0.8888888889rem 6.4444444444rem;
+}
+
+.minimal-card-bg {
+  border-image-outset: 0.3333333333rem 0.8888888889rem 1.3333333333rem 0.8888888889rem;
+  border-image-slice: 14 22 34 22 fill;
+  border-image-source: url("blp:base_tooltip-bg");
+  border-image-width: 0.8888888889rem 1.3333333333rem 2rem 1.3333333333rem;
+  fxs-border-image-tint: #6d6c6c;
+}
+
+.minimal-card-bg-bright {
+  border-image-outset: 0.3333333333rem 0.8888888889rem 1.3333333333rem 0.8888888889rem;
+  border-image-slice: 14 22 34 22 fill;
+  border-image-source: url("blp:base_brightframe-bg");
+  border-image-width: auto;
+}
+
+.ornate-panel-frame {
+  border-image: url("fs://game/hud_unit-panel_box-bg");
+  border-image-slice: 30 fill;
+  border-image-width: auto;
+}
+
+.ornate-panel-frame-no-margin {
+  border-image: url("fs://game/hud_unit-panel_box-bg");
+  border-image-outset: 17px 13px;
+  border-image-slice: 30 fill;
+  border-image-width: auto;
+}
+
+.ring-meter-pip {
+  width: 0.1111111111rem;
+  height: 0.2777777778rem;
+  margin-top: -0.1666666667rem;
+  margin-left: -0.0555555556rem;
+  background-color: black;
+}
+
+.check-box-off {
+  background-image: url("blp:base_checkbox-off");
+}
+.check-box-off:hover, .check-box-off:focus {
+  background-image: url("blp:base_checkbox-off-highlight");
+}
+
+.check-box-on {
+  background-image: url("blp:base_checkbox-on");
+}
+.check-box-on:hover, .check-box-on:focus {
+  background-image: url("blp:base_checkbox-on-highlight");
+}
+
+.wip-banner {
+  width: 22.2222222222rem;
+  height: 5.1111111111rem;
+  background-image: url("blp:wip_label");
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 fxs-slot {
@@ -4030,12 +4308,20 @@ fxs-vslot {
   transform: translateY(0);
 }
 
+.translate-0 {
+  transform: translate(0, 0);
+}
+
 .translate-x-1\/4 {
   transform: translateX(25%);
 }
 
 .translate-y-1\/4 {
   transform: translateY(25%);
+}
+
+.translate-1\/4 {
+  transform: translate(25%, 25%);
 }
 
 .-translate-x-1\/4 {
@@ -4046,12 +4332,20 @@ fxs-vslot {
   transform: translateY(-25%);
 }
 
+.-translate-1\/4 {
+  transform: translate(-25%, -25%);
+}
+
 .translate-x-1\/3 {
   transform: translateX(33.3333%);
 }
 
 .translate-y-1\/3 {
   transform: translateY(33.3333%);
+}
+
+.translate-1\/3 {
+  transform: translate(33.3333%, 33.3333%);
 }
 
 .-translate-x-1\/3 {
@@ -4062,12 +4356,20 @@ fxs-vslot {
   transform: translateY(-33.3333%);
 }
 
+.-translate-1\/3 {
+  transform: translate(-33.3333%, -33.3333%);
+}
+
 .translate-x-1\/2 {
   transform: translateX(50%);
 }
 
 .translate-y-1\/2 {
   transform: translateY(50%);
+}
+
+.translate-1\/2 {
+  transform: translate(50%, 50%);
 }
 
 .-translate-x-1\/2 {
@@ -4078,12 +4380,20 @@ fxs-vslot {
   transform: translateY(-50%);
 }
 
+.-translate-1\/2 {
+  transform: translate(-50%, -50%);
+}
+
 .translate-x-2\/3 {
   transform: translateX(66.6667%);
 }
 
 .translate-y-2\/3 {
   transform: translateY(66.6667%);
+}
+
+.translate-2\/3 {
+  transform: translate(66.6667%, 66.6667%);
 }
 
 .-translate-x-2\/3 {
@@ -4094,12 +4404,20 @@ fxs-vslot {
   transform: translateY(-66.6667%);
 }
 
+.-translate-2\/3 {
+  transform: translate(-66.6667%, -66.6667%);
+}
+
 .translate-x-3\/4 {
   transform: translateX(75%);
 }
 
 .translate-y-3\/4 {
   transform: translateY(75%);
+}
+
+.translate-3\/4 {
+  transform: translate(75%, 75%);
 }
 
 .-translate-x-3\/4 {
@@ -4110,6 +4428,10 @@ fxs-vslot {
   transform: translateY(-75%);
 }
 
+.-translate-3\/4 {
+  transform: translate(-75%, -75%);
+}
+
 .translate-x-full {
   transform: translateX(100%);
 }
@@ -4118,12 +4440,20 @@ fxs-vslot {
   transform: translateY(100%);
 }
 
+.translate-full {
+  transform: translate(100%, 100%);
+}
+
 .-translate-x-full {
   transform: translateX(-100%);
 }
 
 .-translate-y-full {
   transform: translateY(-100%);
+}
+
+.-translate-full {
+  transform: translate(-100%, -100%);
 }
 
 .scale-0 {
@@ -5221,6 +5551,30 @@ fxs-vslot {
   fxs-background-image-tint: #4c5366;
 }
 
+.decoration-primary {
+  text-decoration-color: #4c5366;
+}
+
+.group:hover .group-hover\:decoration-primary,
+.hover\:decoration-primary:hover {
+  text-decoration-color: #4c5366;
+}
+
+.group:focus .group-focus\:decoration-primary,
+.focus\:decoration-primary:focus {
+  text-decoration-color: #4c5366;
+}
+
+.group:active .group-active\:decoration-primary,
+.active\:decoration-primary:active {
+  text-decoration-color: #4c5366;
+}
+
+.group.pressed .group-pressed\:decoration-primary,
+.pressed\:decoration-primary.pressed {
+  text-decoration-color: #4c5366;
+}
+
 .text-primary-1 {
   color: #8d97a6;
 }
@@ -5419,6 +5773,30 @@ fxs-vslot {
 .group.pressed .group-pressed\:tint-bg-primary-1,
 .pressed\:tint-bg-primary-1.pressed {
   fxs-background-image-tint: #8d97a6;
+}
+
+.decoration-primary-1 {
+  text-decoration-color: #8d97a6;
+}
+
+.group:hover .group-hover\:decoration-primary-1,
+.hover\:decoration-primary-1:hover {
+  text-decoration-color: #8d97a6;
+}
+
+.group:focus .group-focus\:decoration-primary-1,
+.focus\:decoration-primary-1:focus {
+  text-decoration-color: #8d97a6;
+}
+
+.group:active .group-active\:decoration-primary-1,
+.active\:decoration-primary-1:active {
+  text-decoration-color: #8d97a6;
+}
+
+.group.pressed .group-pressed\:decoration-primary-1,
+.pressed\:decoration-primary-1.pressed {
+  text-decoration-color: #8d97a6;
 }
 
 .text-primary-2 {
@@ -5621,6 +5999,30 @@ fxs-vslot {
   fxs-background-image-tint: #4c5366;
 }
 
+.decoration-primary-2 {
+  text-decoration-color: #4c5366;
+}
+
+.group:hover .group-hover\:decoration-primary-2,
+.hover\:decoration-primary-2:hover {
+  text-decoration-color: #4c5366;
+}
+
+.group:focus .group-focus\:decoration-primary-2,
+.focus\:decoration-primary-2:focus {
+  text-decoration-color: #4c5366;
+}
+
+.group:active .group-active\:decoration-primary-2,
+.active\:decoration-primary-2:active {
+  text-decoration-color: #4c5366;
+}
+
+.group.pressed .group-pressed\:decoration-primary-2,
+.pressed\:decoration-primary-2.pressed {
+  text-decoration-color: #4c5366;
+}
+
 .text-primary-3 {
   color: #333640;
 }
@@ -5819,6 +6221,30 @@ fxs-vslot {
 .group.pressed .group-pressed\:tint-bg-primary-3,
 .pressed\:tint-bg-primary-3.pressed {
   fxs-background-image-tint: #333640;
+}
+
+.decoration-primary-3 {
+  text-decoration-color: #333640;
+}
+
+.group:hover .group-hover\:decoration-primary-3,
+.hover\:decoration-primary-3:hover {
+  text-decoration-color: #333640;
+}
+
+.group:focus .group-focus\:decoration-primary-3,
+.focus\:decoration-primary-3:focus {
+  text-decoration-color: #333640;
+}
+
+.group:active .group-active\:decoration-primary-3,
+.active\:decoration-primary-3:active {
+  text-decoration-color: #333640;
+}
+
+.group.pressed .group-pressed\:decoration-primary-3,
+.pressed\:decoration-primary-3.pressed {
+  text-decoration-color: #333640;
 }
 
 .text-primary-4 {
@@ -6021,6 +6447,30 @@ fxs-vslot {
   fxs-background-image-tint: #23252b;
 }
 
+.decoration-primary-4 {
+  text-decoration-color: #23252b;
+}
+
+.group:hover .group-hover\:decoration-primary-4,
+.hover\:decoration-primary-4:hover {
+  text-decoration-color: #23252b;
+}
+
+.group:focus .group-focus\:decoration-primary-4,
+.focus\:decoration-primary-4:focus {
+  text-decoration-color: #23252b;
+}
+
+.group:active .group-active\:decoration-primary-4,
+.active\:decoration-primary-4:active {
+  text-decoration-color: #23252b;
+}
+
+.group.pressed .group-pressed\:decoration-primary-4,
+.pressed\:decoration-primary-4.pressed {
+  text-decoration-color: #23252b;
+}
+
 .text-primary-5 {
   color: #12151f;
 }
@@ -6219,6 +6669,30 @@ fxs-vslot {
 .group.pressed .group-pressed\:tint-bg-primary-5,
 .pressed\:tint-bg-primary-5.pressed {
   fxs-background-image-tint: #12151f;
+}
+
+.decoration-primary-5 {
+  text-decoration-color: #12151f;
+}
+
+.group:hover .group-hover\:decoration-primary-5,
+.hover\:decoration-primary-5:hover {
+  text-decoration-color: #12151f;
+}
+
+.group:focus .group-focus\:decoration-primary-5,
+.focus\:decoration-primary-5:focus {
+  text-decoration-color: #12151f;
+}
+
+.group:active .group-active\:decoration-primary-5,
+.active\:decoration-primary-5:active {
+  text-decoration-color: #12151f;
+}
+
+.group.pressed .group-pressed\:decoration-primary-5,
+.pressed\:decoration-primary-5.pressed {
+  text-decoration-color: #12151f;
 }
 
 .text-secondary {
@@ -6421,6 +6895,30 @@ fxs-vslot {
   fxs-background-image-tint: #e5d2ac;
 }
 
+.decoration-secondary {
+  text-decoration-color: #e5d2ac;
+}
+
+.group:hover .group-hover\:decoration-secondary,
+.hover\:decoration-secondary:hover {
+  text-decoration-color: #e5d2ac;
+}
+
+.group:focus .group-focus\:decoration-secondary,
+.focus\:decoration-secondary:focus {
+  text-decoration-color: #e5d2ac;
+}
+
+.group:active .group-active\:decoration-secondary,
+.active\:decoration-secondary:active {
+  text-decoration-color: #e5d2ac;
+}
+
+.group.pressed .group-pressed\:decoration-secondary,
+.pressed\:decoration-secondary.pressed {
+  text-decoration-color: #e5d2ac;
+}
+
 .text-secondary-1 {
   color: #e5d2ac;
 }
@@ -6619,6 +7117,30 @@ fxs-vslot {
 .group.pressed .group-pressed\:tint-bg-secondary-1,
 .pressed\:tint-bg-secondary-1.pressed {
   fxs-background-image-tint: #e5d2ac;
+}
+
+.decoration-secondary-1 {
+  text-decoration-color: #e5d2ac;
+}
+
+.group:hover .group-hover\:decoration-secondary-1,
+.hover\:decoration-secondary-1:hover {
+  text-decoration-color: #e5d2ac;
+}
+
+.group:focus .group-focus\:decoration-secondary-1,
+.focus\:decoration-secondary-1:focus {
+  text-decoration-color: #e5d2ac;
+}
+
+.group:active .group-active\:decoration-secondary-1,
+.active\:decoration-secondary-1:active {
+  text-decoration-color: #e5d2ac;
+}
+
+.group.pressed .group-pressed\:decoration-secondary-1,
+.pressed\:decoration-secondary-1.pressed {
+  text-decoration-color: #e5d2ac;
 }
 
 .text-secondary-2 {
@@ -6821,6 +7343,30 @@ fxs-vslot {
   fxs-background-image-tint: #8c7e62;
 }
 
+.decoration-secondary-2 {
+  text-decoration-color: #8c7e62;
+}
+
+.group:hover .group-hover\:decoration-secondary-2,
+.hover\:decoration-secondary-2:hover {
+  text-decoration-color: #8c7e62;
+}
+
+.group:focus .group-focus\:decoration-secondary-2,
+.focus\:decoration-secondary-2:focus {
+  text-decoration-color: #8c7e62;
+}
+
+.group:active .group-active\:decoration-secondary-2,
+.active\:decoration-secondary-2:active {
+  text-decoration-color: #8c7e62;
+}
+
+.group.pressed .group-pressed\:decoration-secondary-2,
+.pressed\:decoration-secondary-2.pressed {
+  text-decoration-color: #8c7e62;
+}
+
 .text-secondary-3 {
   color: #4c473d;
 }
@@ -7019,6 +7565,30 @@ fxs-vslot {
 .group.pressed .group-pressed\:tint-bg-secondary-3,
 .pressed\:tint-bg-secondary-3.pressed {
   fxs-background-image-tint: #4c473d;
+}
+
+.decoration-secondary-3 {
+  text-decoration-color: #4c473d;
+}
+
+.group:hover .group-hover\:decoration-secondary-3,
+.hover\:decoration-secondary-3:hover {
+  text-decoration-color: #4c473d;
+}
+
+.group:focus .group-focus\:decoration-secondary-3,
+.focus\:decoration-secondary-3:focus {
+  text-decoration-color: #4c473d;
+}
+
+.group:active .group-active\:decoration-secondary-3,
+.active\:decoration-secondary-3:active {
+  text-decoration-color: #4c473d;
+}
+
+.group.pressed .group-pressed\:decoration-secondary-3,
+.pressed\:decoration-secondary-3.pressed {
+  text-decoration-color: #4c473d;
 }
 
 .text-tertiary-1 {
@@ -7221,6 +7791,30 @@ fxs-vslot {
   fxs-background-image-tint: #b29e79;
 }
 
+.decoration-tertiary-1 {
+  text-decoration-color: #b29e79;
+}
+
+.group:hover .group-hover\:decoration-tertiary-1,
+.hover\:decoration-tertiary-1:hover {
+  text-decoration-color: #b29e79;
+}
+
+.group:focus .group-focus\:decoration-tertiary-1,
+.focus\:decoration-tertiary-1:focus {
+  text-decoration-color: #b29e79;
+}
+
+.group:active .group-active\:decoration-tertiary-1,
+.active\:decoration-tertiary-1:active {
+  text-decoration-color: #b29e79;
+}
+
+.group.pressed .group-pressed\:decoration-tertiary-1,
+.pressed\:decoration-tertiary-1.pressed {
+  text-decoration-color: #b29e79;
+}
+
 .text-tertiary-2 {
   color: #dad0bd;
 }
@@ -7419,6 +8013,30 @@ fxs-vslot {
 .group.pressed .group-pressed\:tint-bg-tertiary-2,
 .pressed\:tint-bg-tertiary-2.pressed {
   fxs-background-image-tint: #dad0bd;
+}
+
+.decoration-tertiary-2 {
+  text-decoration-color: #dad0bd;
+}
+
+.group:hover .group-hover\:decoration-tertiary-2,
+.hover\:decoration-tertiary-2:hover {
+  text-decoration-color: #dad0bd;
+}
+
+.group:focus .group-focus\:decoration-tertiary-2,
+.focus\:decoration-tertiary-2:focus {
+  text-decoration-color: #dad0bd;
+}
+
+.group:active .group-active\:decoration-tertiary-2,
+.active\:decoration-tertiary-2:active {
+  text-decoration-color: #dad0bd;
+}
+
+.group.pressed .group-pressed\:decoration-tertiary-2,
+.pressed\:decoration-tertiary-2.pressed {
+  text-decoration-color: #dad0bd;
 }
 
 .text-negative {
@@ -7621,6 +8239,30 @@ fxs-vslot {
   fxs-background-image-tint: #dc1e46;
 }
 
+.decoration-negative {
+  text-decoration-color: #dc1e46;
+}
+
+.group:hover .group-hover\:decoration-negative,
+.hover\:decoration-negative:hover {
+  text-decoration-color: #dc1e46;
+}
+
+.group:focus .group-focus\:decoration-negative,
+.focus\:decoration-negative:focus {
+  text-decoration-color: #dc1e46;
+}
+
+.group:active .group-active\:decoration-negative,
+.active\:decoration-negative:active {
+  text-decoration-color: #dc1e46;
+}
+
+.group.pressed .group-pressed\:decoration-negative,
+.pressed\:decoration-negative.pressed {
+  text-decoration-color: #dc1e46;
+}
+
 .text-negative-light {
   color: #dc1e46;
 }
@@ -7819,6 +8461,30 @@ fxs-vslot {
 .group.pressed .group-pressed\:tint-bg-negative-light,
 .pressed\:tint-bg-negative-light.pressed {
   fxs-background-image-tint: #dc1e46;
+}
+
+.decoration-negative-light {
+  text-decoration-color: #dc1e46;
+}
+
+.group:hover .group-hover\:decoration-negative-light,
+.hover\:decoration-negative-light:hover {
+  text-decoration-color: #dc1e46;
+}
+
+.group:focus .group-focus\:decoration-negative-light,
+.focus\:decoration-negative-light:focus {
+  text-decoration-color: #dc1e46;
+}
+
+.group:active .group-active\:decoration-negative-light,
+.active\:decoration-negative-light:active {
+  text-decoration-color: #dc1e46;
+}
+
+.group.pressed .group-pressed\:decoration-negative-light,
+.pressed\:decoration-negative-light.pressed {
+  text-decoration-color: #dc1e46;
 }
 
 .text-negative-dark {
@@ -8021,6 +8687,30 @@ fxs-vslot {
   fxs-background-image-tint: #490d1b;
 }
 
+.decoration-negative-dark {
+  text-decoration-color: #490d1b;
+}
+
+.group:hover .group-hover\:decoration-negative-dark,
+.hover\:decoration-negative-dark:hover {
+  text-decoration-color: #490d1b;
+}
+
+.group:focus .group-focus\:decoration-negative-dark,
+.focus\:decoration-negative-dark:focus {
+  text-decoration-color: #490d1b;
+}
+
+.group:active .group-active\:decoration-negative-dark,
+.active\:decoration-negative-dark:active {
+  text-decoration-color: #490d1b;
+}
+
+.group.pressed .group-pressed\:decoration-negative-dark,
+.pressed\:decoration-negative-dark.pressed {
+  text-decoration-color: #490d1b;
+}
+
 .text-positive {
   color: #579544;
 }
@@ -8219,6 +8909,30 @@ fxs-vslot {
 .group.pressed .group-pressed\:tint-bg-positive,
 .pressed\:tint-bg-positive.pressed {
   fxs-background-image-tint: #579544;
+}
+
+.decoration-positive {
+  text-decoration-color: #579544;
+}
+
+.group:hover .group-hover\:decoration-positive,
+.hover\:decoration-positive:hover {
+  text-decoration-color: #579544;
+}
+
+.group:focus .group-focus\:decoration-positive,
+.focus\:decoration-positive:focus {
+  text-decoration-color: #579544;
+}
+
+.group:active .group-active\:decoration-positive,
+.active\:decoration-positive:active {
+  text-decoration-color: #579544;
+}
+
+.group.pressed .group-pressed\:decoration-positive,
+.pressed\:decoration-positive.pressed {
+  text-decoration-color: #579544;
 }
 
 .text-positive-light {
@@ -8421,6 +9135,30 @@ fxs-vslot {
   fxs-background-image-tint: #579544;
 }
 
+.decoration-positive-light {
+  text-decoration-color: #579544;
+}
+
+.group:hover .group-hover\:decoration-positive-light,
+.hover\:decoration-positive-light:hover {
+  text-decoration-color: #579544;
+}
+
+.group:focus .group-focus\:decoration-positive-light,
+.focus\:decoration-positive-light:focus {
+  text-decoration-color: #579544;
+}
+
+.group:active .group-active\:decoration-positive-light,
+.active\:decoration-positive-light:active {
+  text-decoration-color: #579544;
+}
+
+.group.pressed .group-pressed\:decoration-positive-light,
+.pressed\:decoration-positive-light.pressed {
+  text-decoration-color: #579544;
+}
+
 .text-positive-dark {
   color: #0d4920;
 }
@@ -8619,6 +9357,30 @@ fxs-vslot {
 .group.pressed .group-pressed\:tint-bg-positive-dark,
 .pressed\:tint-bg-positive-dark.pressed {
   fxs-background-image-tint: #0d4920;
+}
+
+.decoration-positive-dark {
+  text-decoration-color: #0d4920;
+}
+
+.group:hover .group-hover\:decoration-positive-dark,
+.hover\:decoration-positive-dark:hover {
+  text-decoration-color: #0d4920;
+}
+
+.group:focus .group-focus\:decoration-positive-dark,
+.focus\:decoration-positive-dark:focus {
+  text-decoration-color: #0d4920;
+}
+
+.group:active .group-active\:decoration-positive-dark,
+.active\:decoration-positive-dark:active {
+  text-decoration-color: #0d4920;
+}
+
+.group.pressed .group-pressed\:decoration-positive-dark,
+.pressed\:decoration-positive-dark.pressed {
+  text-decoration-color: #0d4920;
 }
 
 .text-info {
@@ -8821,6 +9583,30 @@ fxs-vslot {
   fxs-background-image-tint: #0089ff;
 }
 
+.decoration-info {
+  text-decoration-color: #0089ff;
+}
+
+.group:hover .group-hover\:decoration-info,
+.hover\:decoration-info:hover {
+  text-decoration-color: #0089ff;
+}
+
+.group:focus .group-focus\:decoration-info,
+.focus\:decoration-info:focus {
+  text-decoration-color: #0089ff;
+}
+
+.group:active .group-active\:decoration-info,
+.active\:decoration-info:active {
+  text-decoration-color: #0089ff;
+}
+
+.group.pressed .group-pressed\:decoration-info,
+.pressed\:decoration-info.pressed {
+  text-decoration-color: #0089ff;
+}
+
 .text-warning {
   color: yellow;
 }
@@ -9019,6 +9805,30 @@ fxs-vslot {
 .group.pressed .group-pressed\:tint-bg-warning,
 .pressed\:tint-bg-warning.pressed {
   fxs-background-image-tint: yellow;
+}
+
+.decoration-warning {
+  text-decoration-color: yellow;
+}
+
+.group:hover .group-hover\:decoration-warning,
+.hover\:decoration-warning:hover {
+  text-decoration-color: yellow;
+}
+
+.group:focus .group-focus\:decoration-warning,
+.focus\:decoration-warning:focus {
+  text-decoration-color: yellow;
+}
+
+.group:active .group-active\:decoration-warning,
+.active\:decoration-warning:active {
+  text-decoration-color: yellow;
+}
+
+.group.pressed .group-pressed\:decoration-warning,
+.pressed\:decoration-warning.pressed {
+  text-decoration-color: yellow;
 }
 
 .text-accent {
@@ -9221,6 +10031,30 @@ fxs-vslot {
   fxs-background-image-tint: #616266;
 }
 
+.decoration-accent {
+  text-decoration-color: #616266;
+}
+
+.group:hover .group-hover\:decoration-accent,
+.hover\:decoration-accent:hover {
+  text-decoration-color: #616266;
+}
+
+.group:focus .group-focus\:decoration-accent,
+.focus\:decoration-accent:focus {
+  text-decoration-color: #616266;
+}
+
+.group:active .group-active\:decoration-accent,
+.active\:decoration-accent:active {
+  text-decoration-color: #616266;
+}
+
+.group.pressed .group-pressed\:decoration-accent,
+.pressed\:decoration-accent.pressed {
+  text-decoration-color: #616266;
+}
+
 .text-accent-1 {
   color: #e5e5e5;
 }
@@ -9419,6 +10253,30 @@ fxs-vslot {
 .group.pressed .group-pressed\:tint-bg-accent-1,
 .pressed\:tint-bg-accent-1.pressed {
   fxs-background-image-tint: #e5e5e5;
+}
+
+.decoration-accent-1 {
+  text-decoration-color: #e5e5e5;
+}
+
+.group:hover .group-hover\:decoration-accent-1,
+.hover\:decoration-accent-1:hover {
+  text-decoration-color: #e5e5e5;
+}
+
+.group:focus .group-focus\:decoration-accent-1,
+.focus\:decoration-accent-1:focus {
+  text-decoration-color: #e5e5e5;
+}
+
+.group:active .group-active\:decoration-accent-1,
+.active\:decoration-accent-1:active {
+  text-decoration-color: #e5e5e5;
+}
+
+.group.pressed .group-pressed\:decoration-accent-1,
+.pressed\:decoration-accent-1.pressed {
+  text-decoration-color: #e5e5e5;
 }
 
 .text-accent-2 {
@@ -9621,6 +10479,30 @@ fxs-vslot {
   fxs-background-image-tint: #c2c4cc;
 }
 
+.decoration-accent-2 {
+  text-decoration-color: #c2c4cc;
+}
+
+.group:hover .group-hover\:decoration-accent-2,
+.hover\:decoration-accent-2:hover {
+  text-decoration-color: #c2c4cc;
+}
+
+.group:focus .group-focus\:decoration-accent-2,
+.focus\:decoration-accent-2:focus {
+  text-decoration-color: #c2c4cc;
+}
+
+.group:active .group-active\:decoration-accent-2,
+.active\:decoration-accent-2:active {
+  text-decoration-color: #c2c4cc;
+}
+
+.group.pressed .group-pressed\:decoration-accent-2,
+.pressed\:decoration-accent-2.pressed {
+  text-decoration-color: #c2c4cc;
+}
+
 .text-accent-3 {
   color: #9da0a6;
 }
@@ -9819,6 +10701,30 @@ fxs-vslot {
 .group.pressed .group-pressed\:tint-bg-accent-3,
 .pressed\:tint-bg-accent-3.pressed {
   fxs-background-image-tint: #9da0a6;
+}
+
+.decoration-accent-3 {
+  text-decoration-color: #9da0a6;
+}
+
+.group:hover .group-hover\:decoration-accent-3,
+.hover\:decoration-accent-3:hover {
+  text-decoration-color: #9da0a6;
+}
+
+.group:focus .group-focus\:decoration-accent-3,
+.focus\:decoration-accent-3:focus {
+  text-decoration-color: #9da0a6;
+}
+
+.group:active .group-active\:decoration-accent-3,
+.active\:decoration-accent-3:active {
+  text-decoration-color: #9da0a6;
+}
+
+.group.pressed .group-pressed\:decoration-accent-3,
+.pressed\:decoration-accent-3.pressed {
+  text-decoration-color: #9da0a6;
 }
 
 .text-accent-4 {
@@ -10021,6 +10927,30 @@ fxs-vslot {
   fxs-background-image-tint: #85878c;
 }
 
+.decoration-accent-4 {
+  text-decoration-color: #85878c;
+}
+
+.group:hover .group-hover\:decoration-accent-4,
+.hover\:decoration-accent-4:hover {
+  text-decoration-color: #85878c;
+}
+
+.group:focus .group-focus\:decoration-accent-4,
+.focus\:decoration-accent-4:focus {
+  text-decoration-color: #85878c;
+}
+
+.group:active .group-active\:decoration-accent-4,
+.active\:decoration-accent-4:active {
+  text-decoration-color: #85878c;
+}
+
+.group.pressed .group-pressed\:decoration-accent-4,
+.pressed\:decoration-accent-4.pressed {
+  text-decoration-color: #85878c;
+}
+
 .text-accent-5 {
   color: #616266;
 }
@@ -10219,6 +11149,30 @@ fxs-vslot {
 .group.pressed .group-pressed\:tint-bg-accent-5,
 .pressed\:tint-bg-accent-5.pressed {
   fxs-background-image-tint: #616266;
+}
+
+.decoration-accent-5 {
+  text-decoration-color: #616266;
+}
+
+.group:hover .group-hover\:decoration-accent-5,
+.hover\:decoration-accent-5:hover {
+  text-decoration-color: #616266;
+}
+
+.group:focus .group-focus\:decoration-accent-5,
+.focus\:decoration-accent-5:focus {
+  text-decoration-color: #616266;
+}
+
+.group:active .group-active\:decoration-accent-5,
+.active\:decoration-accent-5:active {
+  text-decoration-color: #616266;
+}
+
+.group.pressed .group-pressed\:decoration-accent-5,
+.pressed\:decoration-accent-5.pressed {
+  text-decoration-color: #616266;
 }
 
 .text-accent-6 {
@@ -10421,6 +11375,30 @@ fxs-vslot {
   fxs-background-image-tint: #05070d;
 }
 
+.decoration-accent-6 {
+  text-decoration-color: #05070d;
+}
+
+.group:hover .group-hover\:decoration-accent-6,
+.hover\:decoration-accent-6:hover {
+  text-decoration-color: #05070d;
+}
+
+.group:focus .group-focus\:decoration-accent-6,
+.focus\:decoration-accent-6:focus {
+  text-decoration-color: #05070d;
+}
+
+.group:active .group-active\:decoration-accent-6,
+.active\:decoration-accent-6:active {
+  text-decoration-color: #05070d;
+}
+
+.group.pressed .group-pressed\:decoration-accent-6,
+.pressed\:decoration-accent-6.pressed {
+  text-decoration-color: #05070d;
+}
+
 .text-glow {
   color: #875b2f;
 }
@@ -10619,6 +11597,30 @@ fxs-vslot {
 .group.pressed .group-pressed\:tint-bg-glow,
 .pressed\:tint-bg-glow.pressed {
   fxs-background-image-tint: #875b2f;
+}
+
+.decoration-glow {
+  text-decoration-color: #875b2f;
+}
+
+.group:hover .group-hover\:decoration-glow,
+.hover\:decoration-glow:hover {
+  text-decoration-color: #875b2f;
+}
+
+.group:focus .group-focus\:decoration-glow,
+.focus\:decoration-glow:focus {
+  text-decoration-color: #875b2f;
+}
+
+.group:active .group-active\:decoration-glow,
+.active\:decoration-glow:active {
+  text-decoration-color: #875b2f;
+}
+
+.group.pressed .group-pressed\:decoration-glow,
+.pressed\:decoration-glow.pressed {
+  text-decoration-color: #875b2f;
 }
 
 .text-gradient-light {
@@ -10821,6 +11823,30 @@ fxs-vslot {
   fxs-background-image-tint: #fffdfa;
 }
 
+.decoration-gradient-light {
+  text-decoration-color: #fffdfa;
+}
+
+.group:hover .group-hover\:decoration-gradient-light,
+.hover\:decoration-gradient-light:hover {
+  text-decoration-color: #fffdfa;
+}
+
+.group:focus .group-focus\:decoration-gradient-light,
+.focus\:decoration-gradient-light:focus {
+  text-decoration-color: #fffdfa;
+}
+
+.group:active .group-active\:decoration-gradient-light,
+.active\:decoration-gradient-light:active {
+  text-decoration-color: #fffdfa;
+}
+
+.group.pressed .group-pressed\:decoration-gradient-light,
+.pressed\:decoration-gradient-light.pressed {
+  text-decoration-color: #fffdfa;
+}
+
 .text-gradient-base {
   color: #a8845a;
 }
@@ -11019,6 +12045,30 @@ fxs-vslot {
 .group.pressed .group-pressed\:tint-bg-gradient-base,
 .pressed\:tint-bg-gradient-base.pressed {
   fxs-background-image-tint: #a8845a;
+}
+
+.decoration-gradient-base {
+  text-decoration-color: #a8845a;
+}
+
+.group:hover .group-hover\:decoration-gradient-base,
+.hover\:decoration-gradient-base:hover {
+  text-decoration-color: #a8845a;
+}
+
+.group:focus .group-focus\:decoration-gradient-base,
+.focus\:decoration-gradient-base:focus {
+  text-decoration-color: #a8845a;
+}
+
+.group:active .group-active\:decoration-gradient-base,
+.active\:decoration-gradient-base:active {
+  text-decoration-color: #a8845a;
+}
+
+.group.pressed .group-pressed\:decoration-gradient-base,
+.pressed\:decoration-gradient-base.pressed {
+  text-decoration-color: #a8845a;
 }
 
 .text-yield-gold {
@@ -11221,6 +12271,30 @@ fxs-vslot {
   fxs-background-image-tint: #d9c8ad;
 }
 
+.decoration-yield-gold {
+  text-decoration-color: #d9c8ad;
+}
+
+.group:hover .group-hover\:decoration-yield-gold,
+.hover\:decoration-yield-gold:hover {
+  text-decoration-color: #d9c8ad;
+}
+
+.group:focus .group-focus\:decoration-yield-gold,
+.focus\:decoration-yield-gold:focus {
+  text-decoration-color: #d9c8ad;
+}
+
+.group:active .group-active\:decoration-yield-gold,
+.active\:decoration-yield-gold:active {
+  text-decoration-color: #d9c8ad;
+}
+
+.group.pressed .group-pressed\:decoration-yield-gold,
+.pressed\:decoration-yield-gold.pressed {
+  text-decoration-color: #d9c8ad;
+}
+
 .text-yield-science {
   color: #98b5d9;
 }
@@ -11419,6 +12493,30 @@ fxs-vslot {
 .group.pressed .group-pressed\:tint-bg-yield-science,
 .pressed\:tint-bg-yield-science.pressed {
   fxs-background-image-tint: #98b5d9;
+}
+
+.decoration-yield-science {
+  text-decoration-color: #98b5d9;
+}
+
+.group:hover .group-hover\:decoration-yield-science,
+.hover\:decoration-yield-science:hover {
+  text-decoration-color: #98b5d9;
+}
+
+.group:focus .group-focus\:decoration-yield-science,
+.focus\:decoration-yield-science:focus {
+  text-decoration-color: #98b5d9;
+}
+
+.group:active .group-active\:decoration-yield-science,
+.active\:decoration-yield-science:active {
+  text-decoration-color: #98b5d9;
+}
+
+.group.pressed .group-pressed\:decoration-yield-science,
+.pressed\:decoration-yield-science.pressed {
+  text-decoration-color: #98b5d9;
 }
 
 .text-yield-influence {
@@ -11621,6 +12719,30 @@ fxs-vslot {
   fxs-background-image-tint: #add9c1;
 }
 
+.decoration-yield-influence {
+  text-decoration-color: #add9c1;
+}
+
+.group:hover .group-hover\:decoration-yield-influence,
+.hover\:decoration-yield-influence:hover {
+  text-decoration-color: #add9c1;
+}
+
+.group:focus .group-focus\:decoration-yield-influence,
+.focus\:decoration-yield-influence:focus {
+  text-decoration-color: #add9c1;
+}
+
+.group:active .group-active\:decoration-yield-influence,
+.active\:decoration-yield-influence:active {
+  text-decoration-color: #add9c1;
+}
+
+.group.pressed .group-pressed\:decoration-yield-influence,
+.pressed\:decoration-yield-influence.pressed {
+  text-decoration-color: #add9c1;
+}
+
 .text-yield-culture {
   color: #bfa3d9;
 }
@@ -11819,6 +12941,30 @@ fxs-vslot {
 .group.pressed .group-pressed\:tint-bg-yield-culture,
 .pressed\:tint-bg-yield-culture.pressed {
   fxs-background-image-tint: #bfa3d9;
+}
+
+.decoration-yield-culture {
+  text-decoration-color: #bfa3d9;
+}
+
+.group:hover .group-hover\:decoration-yield-culture,
+.hover\:decoration-yield-culture:hover {
+  text-decoration-color: #bfa3d9;
+}
+
+.group:focus .group-focus\:decoration-yield-culture,
+.focus\:decoration-yield-culture:focus {
+  text-decoration-color: #bfa3d9;
+}
+
+.group:active .group-active\:decoration-yield-culture,
+.active\:decoration-yield-culture:active {
+  text-decoration-color: #bfa3d9;
+}
+
+.group.pressed .group-pressed\:decoration-yield-culture,
+.pressed\:decoration-yield-culture.pressed {
+  text-decoration-color: #bfa3d9;
 }
 
 .text-yield-happiness {
@@ -12021,6 +13167,30 @@ fxs-vslot {
   fxs-background-image-tint: #d9b198;
 }
 
+.decoration-yield-happiness {
+  text-decoration-color: #d9b198;
+}
+
+.group:hover .group-hover\:decoration-yield-happiness,
+.hover\:decoration-yield-happiness:hover {
+  text-decoration-color: #d9b198;
+}
+
+.group:focus .group-focus\:decoration-yield-happiness,
+.focus\:decoration-yield-happiness:focus {
+  text-decoration-color: #d9b198;
+}
+
+.group:active .group-active\:decoration-yield-happiness,
+.active\:decoration-yield-happiness:active {
+  text-decoration-color: #d9b198;
+}
+
+.group.pressed .group-pressed\:decoration-yield-happiness,
+.pressed\:decoration-yield-happiness.pressed {
+  text-decoration-color: #d9b198;
+}
+
 .text-victory-science {
   color: #4d7c96;
 }
@@ -12219,6 +13389,30 @@ fxs-vslot {
 .group.pressed .group-pressed\:tint-bg-victory-science,
 .pressed\:tint-bg-victory-science.pressed {
   fxs-background-image-tint: #4d7c96;
+}
+
+.decoration-victory-science {
+  text-decoration-color: #4d7c96;
+}
+
+.group:hover .group-hover\:decoration-victory-science,
+.hover\:decoration-victory-science:hover {
+  text-decoration-color: #4d7c96;
+}
+
+.group:focus .group-focus\:decoration-victory-science,
+.focus\:decoration-victory-science:focus {
+  text-decoration-color: #4d7c96;
+}
+
+.group:active .group-active\:decoration-victory-science,
+.active\:decoration-victory-science:active {
+  text-decoration-color: #4d7c96;
+}
+
+.group.pressed .group-pressed\:decoration-victory-science,
+.pressed\:decoration-victory-science.pressed {
+  text-decoration-color: #4d7c96;
 }
 
 .text-victory-culture {
@@ -12421,6 +13615,30 @@ fxs-vslot {
   fxs-background-image-tint: #892bb3;
 }
 
+.decoration-victory-culture {
+  text-decoration-color: #892bb3;
+}
+
+.group:hover .group-hover\:decoration-victory-culture,
+.hover\:decoration-victory-culture:hover {
+  text-decoration-color: #892bb3;
+}
+
+.group:focus .group-focus\:decoration-victory-culture,
+.focus\:decoration-victory-culture:focus {
+  text-decoration-color: #892bb3;
+}
+
+.group:active .group-active\:decoration-victory-culture,
+.active\:decoration-victory-culture:active {
+  text-decoration-color: #892bb3;
+}
+
+.group.pressed .group-pressed\:decoration-victory-culture,
+.pressed\:decoration-victory-culture.pressed {
+  text-decoration-color: #892bb3;
+}
+
 .text-victory-economic {
   color: #ffd553;
 }
@@ -12619,6 +13837,30 @@ fxs-vslot {
 .group.pressed .group-pressed\:tint-bg-victory-economic,
 .pressed\:tint-bg-victory-economic.pressed {
   fxs-background-image-tint: #ffd553;
+}
+
+.decoration-victory-economic {
+  text-decoration-color: #ffd553;
+}
+
+.group:hover .group-hover\:decoration-victory-economic,
+.hover\:decoration-victory-economic:hover {
+  text-decoration-color: #ffd553;
+}
+
+.group:focus .group-focus\:decoration-victory-economic,
+.focus\:decoration-victory-economic:focus {
+  text-decoration-color: #ffd553;
+}
+
+.group:active .group-active\:decoration-victory-economic,
+.active\:decoration-victory-economic:active {
+  text-decoration-color: #ffd553;
+}
+
+.group.pressed .group-pressed\:decoration-victory-economic,
+.pressed\:decoration-victory-economic.pressed {
+  text-decoration-color: #ffd553;
 }
 
 .text-victory-military {
@@ -12821,6 +14063,30 @@ fxs-vslot {
   fxs-background-image-tint: #af1b1c;
 }
 
+.decoration-victory-military {
+  text-decoration-color: #af1b1c;
+}
+
+.group:hover .group-hover\:decoration-victory-military,
+.hover\:decoration-victory-military:hover {
+  text-decoration-color: #af1b1c;
+}
+
+.group:focus .group-focus\:decoration-victory-military,
+.focus\:decoration-victory-military:focus {
+  text-decoration-color: #af1b1c;
+}
+
+.group:active .group-active\:decoration-victory-military,
+.active\:decoration-victory-military:active {
+  text-decoration-color: #af1b1c;
+}
+
+.group.pressed .group-pressed\:decoration-victory-military,
+.pressed\:decoration-victory-military.pressed {
+  text-decoration-color: #af1b1c;
+}
+
 .text-team {
   color: #e9b0b0;
 }
@@ -13019,6 +14285,30 @@ fxs-vslot {
 .group.pressed .group-pressed\:tint-bg-team,
 .pressed\:tint-bg-team.pressed {
   fxs-background-image-tint: #e9b0b0;
+}
+
+.decoration-team {
+  text-decoration-color: #e9b0b0;
+}
+
+.group:hover .group-hover\:decoration-team,
+.hover\:decoration-team:hover {
+  text-decoration-color: #e9b0b0;
+}
+
+.group:focus .group-focus\:decoration-team,
+.focus\:decoration-team:focus {
+  text-decoration-color: #e9b0b0;
+}
+
+.group:active .group-active\:decoration-team,
+.active\:decoration-team:active {
+  text-decoration-color: #e9b0b0;
+}
+
+.group.pressed .group-pressed\:decoration-team,
+.pressed\:decoration-team.pressed {
+  text-decoration-color: #e9b0b0;
 }
 
 .text-direct {
@@ -13221,6 +14511,30 @@ fxs-vslot {
   fxs-background-image-tint: #d4e9b0;
 }
 
+.decoration-direct {
+  text-decoration-color: #d4e9b0;
+}
+
+.group:hover .group-hover\:decoration-direct,
+.hover\:decoration-direct:hover {
+  text-decoration-color: #d4e9b0;
+}
+
+.group:focus .group-focus\:decoration-direct,
+.focus\:decoration-direct:focus {
+  text-decoration-color: #d4e9b0;
+}
+
+.group:active .group-active\:decoration-direct,
+.active\:decoration-direct:active {
+  text-decoration-color: #d4e9b0;
+}
+
+.group.pressed .group-pressed\:decoration-direct,
+.pressed\:decoration-direct.pressed {
+  text-decoration-color: #d4e9b0;
+}
+
 .text-magenta {
   color: magenta;
 }
@@ -13419,6 +14733,30 @@ fxs-vslot {
 .group.pressed .group-pressed\:tint-bg-magenta,
 .pressed\:tint-bg-magenta.pressed {
   fxs-background-image-tint: magenta;
+}
+
+.decoration-magenta {
+  text-decoration-color: magenta;
+}
+
+.group:hover .group-hover\:decoration-magenta,
+.hover\:decoration-magenta:hover {
+  text-decoration-color: magenta;
+}
+
+.group:focus .group-focus\:decoration-magenta,
+.focus\:decoration-magenta:focus {
+  text-decoration-color: magenta;
+}
+
+.group:active .group-active\:decoration-magenta,
+.active\:decoration-magenta:active {
+  text-decoration-color: magenta;
+}
+
+.group.pressed .group-pressed\:decoration-magenta,
+.pressed\:decoration-magenta.pressed {
+  text-decoration-color: magenta;
 }
 
 .text-white {
@@ -13621,6 +14959,30 @@ fxs-vslot {
   fxs-background-image-tint: #ffffff;
 }
 
+.decoration-white {
+  text-decoration-color: #ffffff;
+}
+
+.group:hover .group-hover\:decoration-white,
+.hover\:decoration-white:hover {
+  text-decoration-color: #ffffff;
+}
+
+.group:focus .group-focus\:decoration-white,
+.focus\:decoration-white:focus {
+  text-decoration-color: #ffffff;
+}
+
+.group:active .group-active\:decoration-white,
+.active\:decoration-white:active {
+  text-decoration-color: #ffffff;
+}
+
+.group.pressed .group-pressed\:decoration-white,
+.pressed\:decoration-white.pressed {
+  text-decoration-color: #ffffff;
+}
+
 .text-black {
   color: #000000;
 }
@@ -13821,6 +15183,30 @@ fxs-vslot {
   fxs-background-image-tint: #000000;
 }
 
+.decoration-black {
+  text-decoration-color: #000000;
+}
+
+.group:hover .group-hover\:decoration-black,
+.hover\:decoration-black:hover {
+  text-decoration-color: #000000;
+}
+
+.group:focus .group-focus\:decoration-black,
+.focus\:decoration-black:focus {
+  text-decoration-color: #000000;
+}
+
+.group:active .group-active\:decoration-black,
+.active\:decoration-black:active {
+  text-decoration-color: #000000;
+}
+
+.group.pressed .group-pressed\:decoration-black,
+.pressed\:decoration-black.pressed {
+  text-decoration-color: #000000;
+}
+
 .text-transparent {
   color: rgba(0, 0, 0, 0);
 }
@@ -14019,6 +15405,30 @@ fxs-vslot {
 .group.pressed .group-pressed\:tint-bg-transparent,
 .pressed\:tint-bg-transparent.pressed {
   fxs-background-image-tint: rgba(0, 0, 0, 0);
+}
+
+.decoration-transparent {
+  text-decoration-color: rgba(0, 0, 0, 0);
+}
+
+.group:hover .group-hover\:decoration-transparent,
+.hover\:decoration-transparent:hover {
+  text-decoration-color: rgba(0, 0, 0, 0);
+}
+
+.group:focus .group-focus\:decoration-transparent,
+.focus\:decoration-transparent:focus {
+  text-decoration-color: rgba(0, 0, 0, 0);
+}
+
+.group:active .group-active\:decoration-transparent,
+.active\:decoration-transparent:active {
+  text-decoration-color: rgba(0, 0, 0, 0);
+}
+
+.group.pressed .group-pressed\:decoration-transparent,
+.pressed\:decoration-transparent.pressed {
+  text-decoration-color: rgba(0, 0, 0, 0);
 }
 
 /* Spacing utilities */
@@ -25791,6 +27201,55 @@ fxs-vslot {
   margin-left: 100%;
 }
 
+/* Gap utilities */
+.gap-0 {
+  gap: 0rem;
+}
+
+.gap-px {
+  gap: 0.0555555556rem;
+}
+
+.gap-0\.5 {
+  gap: 0.1111111111rem;
+}
+
+.gap-1 {
+  gap: 0.2222222222rem;
+}
+
+.gap-1\.5 {
+  gap: 0.3333333333rem;
+}
+
+.gap-2 {
+  gap: 0.4444444444rem;
+}
+
+.gap-2\.5 {
+  gap: 0.5555555556rem;
+}
+
+.gap-3 {
+  gap: 0.6666666667rem;
+}
+
+.gap-4 {
+  gap: 0.8888888889rem;
+}
+
+.gap-5 {
+  gap: 1.1111111111rem;
+}
+
+.gap-6 {
+  gap: 1.3333333333rem;
+}
+
+.gap-8 {
+  gap: 1.7777777778rem;
+}
+
 /* Background Utilities */
 .bg-none {
   background: none;
@@ -26051,6 +27510,14 @@ Not supported as of Gameface 1.56
 
 .hidden-important {
   display: none !important;
+}
+
+.aspect-16\/9 {
+  aspect-ratio: 16/9;
+}
+
+.aspect-3\/4 {
+  aspect-ratio: 3/4;
 }
 
 .font-thin {

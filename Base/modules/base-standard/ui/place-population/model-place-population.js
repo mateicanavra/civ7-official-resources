@@ -1,23 +1,12 @@
 import { PlotCursorUpdatedEventName } from '../../../core/ui/input/plot-cursor.js';
 import { InterfaceMode } from '../../../core/ui/interface-modes/interface-modes.js';
-import { C as ComponentID } from '../../../core/ui/utilities/utilities-component-id.chunk.js';
-import { U as UpdateGate } from '../../../core/ui/utilities/utilities-update-gate.chunk.js';
+import { ComponentID } from '../../../core/ui/utilities/utilities-component-id.js';
+import UpdateGate from '../../../core/ui/utilities/utilities-update-gate.js';
 import { BuildingPlacementManager } from '../building-placement/building-placement-manager.js';
 import { UpdatePlacementCityBannerEvent } from '../placement-city-banner/placement-city-banner.js';
 import PlotWorkersManager, { PlotWorkersHoveredPlotChangedEventName } from '../plot-workers/plot-workers-manager.js';
-import { C as CityYields } from '../utilities/utilities-city-yields.chunk.js';
+import CityYields from '../utilities/utilities-city-yields.js';
 import { YieldBarEntryStyle } from '../yield-bar-base/yield-bar-base.js';
-import '../../../core/ui/context-manager/context-manager.js';
-import '../../../core/ui/context-manager/display-queue-manager.js';
-import '../../../core/ui/dialog-box/manager-dialog-box.chunk.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/input/cursor.js';
-import '../../../core/ui/input/focus-manager.js';
-import '../../../core/ui/audio-base/audio-support.chunk.js';
-import '../../../core/ui/views/view-manager.chunk.js';
-import '../../../core/ui/panel-support.chunk.js';
-import '../../../core/ui/input/action-handler.js';
-import '../../../core/ui/input/input-support.chunk.js';
 
 var PlacePopulationSelectionState = /* @__PURE__ */ ((PlacePopulationSelectionState2) => {
   PlacePopulationSelectionState2[PlacePopulationSelectionState2["NONE"] = 0] = "NONE";
@@ -58,6 +47,10 @@ class PlacePopulationModel {
   afterSpecialistMaintenance = [];
   showChangeSpecialistMaintenance = true;
   changeSpecialistMaintenance = [];
+  showNonHoverSpecialistMaintenanceBase = false;
+  nonHoverSpecialistMaintenanceBase = [];
+  showNonHoverSpecialistMaintenanceAdditional = false;
+  nonHoverSpecialistMaintenanceAdditional = [];
   constructibleToBeBuiltOnExpand;
   addImprovementType = "";
   addImprovementText = "";
@@ -79,10 +72,6 @@ class PlacePopulationModel {
   }
   expandPlots = [];
   ExpandPlotDataUpdatedEvent = new LiteEvent();
-  _cityWorkerCap = 0;
-  get cityWorkerCap() {
-    return this._cityWorkerCap;
-  }
   hoveredPlotWorkerIndex = null;
   hoveredPlotWorkerPlacementInfo = void 0;
   plotCursorCoordsUpdatedListener = this.onPlotCursorCoordsUpdated.bind(this);
@@ -101,7 +90,10 @@ class PlacePopulationModel {
     this.expandPlots = [];
     const result = Game.CityCommands.canStart(id, CityCommandTypes.EXPAND, {}, false);
     if (!result.Plots) {
-      console.trace("model-place-population: updateExpandPlots() no plots available");
+      console.error(
+        `model-place-population: updateExpandPlots(${ComponentID.toLogString(id)}) no plots available`
+      );
+      console.trace();
       return;
     }
     for (const [index, plotIndex] of result.Plots.entries()) {
@@ -171,6 +163,53 @@ class PlacePopulationModel {
   updateGate = new UpdateGate(() => {
     this.update();
   });
+  updateNonHoverSpecialistMaintenance() {
+    this.showNonHoverSpecialistMaintenanceBase = false;
+    this.nonHoverSpecialistMaintenanceBase = [];
+    this.showNonHoverSpecialistMaintenanceAdditional = false;
+    this.nonHoverSpecialistMaintenanceAdditional = [];
+    const baseCostPerWorker = new Array(GameInfo.Yields.length).fill(0);
+    for (const workerYield of GameInfo.WorkerYields) {
+      const yieldDef = GameInfo.Yields.lookup(workerYield.YieldType);
+      if (yieldDef) {
+        baseCostPerWorker[yieldDef.$index] = workerYield.Amount;
+      }
+    }
+    const ageModCostPerWorker = new Array(GameInfo.Yields.length).fill(0);
+    for (const ageModifier of GameInfo.WorkerYields_AgeModifier) {
+      const yieldDef = GameInfo.Yields.lookup(ageModifier.YieldType);
+      if (yieldDef) {
+        ageModCostPerWorker[yieldDef.$index] = ageModifier.Amount;
+      }
+    }
+    for (let i = 0; i < GameInfo.Yields.length; i++) {
+      const yieldDefinition = GameInfo.Yields[i];
+      const baseValue = baseCostPerWorker[i];
+      const additionalValue = ageModCostPerWorker[i];
+      if (baseValue < 0) {
+        this.showNonHoverSpecialistMaintenanceBase = true;
+        this.nonHoverSpecialistMaintenanceBase.push(
+          Locale.stylize(
+            "LOC_BUILDING_PLACEMENT_YIELD_BONUS",
+            "text-negative",
+            baseValue,
+            yieldDefinition.YieldType
+          )
+        );
+      }
+      if (additionalValue < 0) {
+        this.showNonHoverSpecialistMaintenanceAdditional = true;
+        this.nonHoverSpecialistMaintenanceAdditional.push(
+          Locale.stylize(
+            "LOC_BUILDING_PLACEMENT_YIELD_BONUS",
+            "text-negative",
+            baseValue + additionalValue,
+            yieldDefinition.YieldType
+          )
+        );
+      }
+    }
+  }
   update() {
     if (InterfaceMode.getCurrent() != "INTERFACEMODE_ACQUIRE_TILE") {
       return;
@@ -205,10 +244,10 @@ class PlacePopulationModel {
     this.cityName = city.name;
     this.isTown = city.isTown;
     this.cityYields = CityYields.getCityYieldDetails(cityID);
-    this._cityWorkerCap = cityWorkers.getCityWorkerCap();
-    this.hasUnlockedSpecialist = this._cityWorkerCap > 0 ? true : false;
+    this.hasUnlockedSpecialist = cityWorkers.getCityWorkerCap() > 0 ? true : false;
     this.growthTitle = this.isTown ? "LOC_UI_TOWN_GROWTH_TITLE" : "LOC_UI_CITY_GROWTH_TITLE";
     this.growthDescription = this.isTown ? Locale.compose("LOC_UI_TOWN_GROWTH_DESCRIPTION") : Locale.compose("LOC_UI_CITY_GROWTH_DESCRIPTION");
+    this.updateNonHoverSpecialistMaintenance();
     this.selectionState = 0 /* NONE */;
     if (this.hoveredPlotWorkerIndex != null && !this.isTown && !this.isResettling && this.hasUnlockedSpecialist) {
       this.hasHoveredWorkerPlot = true;
@@ -248,7 +287,7 @@ class PlacePopulationModel {
         const yieldDefinition = GameInfo.Yields[i];
         const currentValue = this.hoveredPlotWorkerPlacementInfo.CurrentYields[i];
         const nextValue = this.hoveredPlotWorkerPlacementInfo.NextYields[i];
-        const changeValue = nextValue - currentValue;
+        const changeValue = Math.round((nextValue - currentValue) * 10) / 10;
         bonusChanges.push(changeValue);
         if (currentValue > 0) {
           this.showBeforeSpecialistBonus = true;
@@ -299,7 +338,7 @@ class PlacePopulationModel {
         const yieldDefinition = GameInfo.Yields[i];
         const currentValue = this.hoveredPlotWorkerPlacementInfo.CurrentMaintenance[i];
         const nextValue = this.hoveredPlotWorkerPlacementInfo.NextMaintenance[i];
-        const changeValue = nextValue - currentValue;
+        const changeValue = Math.round((nextValue - currentValue) * 10) / 10;
         maintenanceChanges.push(changeValue);
         if (currentValue > 0) {
           this.showBeforeSpecialistMaintenance = true;
@@ -370,11 +409,11 @@ class PlacePopulationModel {
       this.canAddSpecialistMessage = this.hoveredPlotWorkerPlacementInfo.IsBlocked ? Locale.compose("LOC_UI_ACQUIRE_TILE_CANNOT_ADD_SPECIALISTS") : Locale.compose("LOC_UI_ACQUIRE_TILE_CAN_ADD_SPECIALISTS");
       this.slotsAvailableMessage = Locale.compose(
         "LOC_UI_ACQUIRE_TILE_SPECIALIST_SLOTS_AVAILABLE",
-        this._cityWorkerCap - cityWorkers.getNumWorkersAtPlot(this.hoveredPlotWorkerIndex)
+        this.hoveredPlotWorkerPlacementInfo.MaxWorkers - this.hoveredPlotWorkerPlacementInfo.NumWorkers
       );
       this.beforeSpecialistSlotStatus = [];
       this.afterSpecialistSlotStatus = [];
-      for (let i = 0; i < this._cityWorkerCap; i++) {
+      for (let i = 0; i < this.hoveredPlotWorkerPlacementInfo.MaxWorkers; i++) {
         if (i < this.hoveredPlotWorkerPlacementInfo.NumWorkers) {
           this.beforeSpecialistSlotStatus.push(true);
           this.afterSpecialistSlotStatus.push(true);
@@ -388,7 +427,8 @@ class PlacePopulationModel {
         }
       }
       this.alreadyHasSpecialists = this.hoveredPlotWorkerPlacementInfo.NumWorkers > 0;
-      this.selectionState = 2 /* ADD_SPECIALIST */;
+      const canAddSpecialist = !this.hoveredPlotWorkerPlacementInfo.IsBlocked && this.hoveredPlotWorkerPlacementInfo.NumWorkers < this.hoveredPlotWorkerPlacementInfo.MaxWorkers;
+      this.selectionState = canAddSpecialist ? 2 /* ADD_SPECIALIST */ : 0 /* NONE */;
     } else {
       this.hasHoveredWorkerPlot = false;
       this.numSpecialistsMessage = "";

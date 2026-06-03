@@ -1,37 +1,9 @@
-import { F as FxsActivatable } from '../../../core/ui/components/fxs-activatable.chunk.js';
-import FocusManager from '../../../core/ui/input/focus-manager.js';
-import { b as InputEngineEventName } from '../../../core/ui/input/input-support.chunk.js';
-import { P as Panel } from '../../../core/ui/panel-support.chunk.js';
+import { FxsActivatable } from '../../../core/ui/components/fxs-activatable.js';
+import { InputEngineEventName } from '../../../core/ui/input/input-support.js';
+import Panel from '../../../core/ui/panel-support.js';
+import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
 import { HideMiniMapEvent } from '../mini-map/panel-mini-map.js';
-import '../../../core/ui/audio-base/audio-support.chunk.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/context-manager/context-manager.js';
-import '../../../core/ui/context-manager/display-queue-manager.js';
-import '../../../core/ui/dialog-box/manager-dialog-box.chunk.js';
-import '../../../core/ui/input/cursor.js';
-import '../../../core/ui/views/view-manager.chunk.js';
-import '../../../core/ui/input/action-handler.js';
-import '../../../core/ui/utilities/utilities-update-gate.chunk.js';
-import '../../../core/ui/input/focus-support.chunk.js';
-import '../../../core/ui/components/fxs-slot.chunk.js';
-import '../../../core/ui/spatial/spatial-manager.js';
-import '../../../core/ui/lenses/lens-manager.chunk.js';
-import '../../../core/ui/shell/mp-staging/mp-friends.js';
-import '../../../core/ui/navigation-tray/model-navigation-tray.chunk.js';
-import '../../../core/ui/utilities/utilities-image.chunk.js';
-import '../../../core/ui/utilities/utilities-component-id.chunk.js';
-import '../../../core/ui/shell/mp-staging/model-mp-friends.chunk.js';
-import '../../../core/ui/social-notifications/social-notifications-manager.js';
-import '../../../core/ui/utilities/utilities-layout.chunk.js';
-import '../../../core/ui/utilities/utilities-dom.chunk.js';
-import '../../../core/ui/utilities/utilities-liveops.js';
-import '../../../core/ui/utilities/utilities-network.js';
-import '../../../core/ui/shell/mp-legal/mp-legal.js';
-import '../../../core/ui/events/shell-events.chunk.js';
-import '../../../core/ui/utilities/utilities-network-constants.chunk.js';
-import '../../../core/ui/utilities/utilities-core-databinding.chunk.js';
-
-const styles = "fs://game/base-standard/ui/pantheon-chooser/panel-religion-chooser.css";
+import styles from './panel-religion-chooser.scss.js';
 
 const ROOT_INNER_HTML = `
 <fxs-vslot>
@@ -401,7 +373,8 @@ class PanelReligionChooser extends Panel {
       Players.getAlive().forEach((_player) => {
         if (_player.Stats) {
           citiesInReligion += _player.Stats?.getNumMyCitiesFollowingSpecificReligion(
-            currentReligion.getReligionType()
+            currentReligion.getReligionType(),
+            false
           );
         }
         _player.Cities?.getCities().forEach((_city) => {
@@ -611,7 +584,7 @@ class PanelReligionChooser extends Panel {
   }
   determineInitialFocus() {
     if (this.enhancerButton) {
-      FocusManager.setFocus(this.enhancerButton);
+      FocusManager.get().setFocus(this.enhancerButton);
     }
   }
 }

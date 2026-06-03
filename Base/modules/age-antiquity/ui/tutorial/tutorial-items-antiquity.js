@@ -1,42 +1,12 @@
 import ContextManager from '../../../core/ui/context-manager/context-manager.js';
 import { PlotCursor } from '../../../core/ui/input/plot-cursor.js';
 import { InterfaceMode } from '../../../core/ui/interface-modes/interface-modes.js';
-import { L as LensManager } from '../../../core/ui/lenses/lens-manager.chunk.js';
+import LensManager from '../../../core/ui/lenses/lens-manager.js';
 import DiplomacyManager from '../../../base-standard/ui/diplomacy/diplomacy-manager.js';
 import { TutorialAnchorPosition, NextItemStatus } from '../../../base-standard/ui/tutorial/tutorial-item.js';
 import TutorialManager from '../../../base-standard/ui/tutorial/tutorial-manager.js';
-import { b as calloutAcceptNext$1, d as calloutBeginNext$1, e as calloutCloseNext$1, f as calloutContinueNext$1, k as getCurrentTurnBlockingNotification, g as getTutorialPrompts, O as OpenCivilopediaAt, l as getNameOfFirstUnlockedUnitWithTag, h as didTechUnlock } from '../../../base-standard/ui/tutorial/tutorial-support.chunk.js';
-import '../../../core/ui/context-manager/display-queue-manager.js';
-import '../../../core/ui/dialog-box/manager-dialog-box.chunk.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/input/cursor.js';
-import '../../../core/ui/input/focus-manager.js';
-import '../../../core/ui/audio-base/audio-support.chunk.js';
-import '../../../core/ui/views/view-manager.chunk.js';
-import '../../../core/ui/panel-support.chunk.js';
-import '../../../core/ui/input/action-handler.js';
-import '../../../core/ui/input/input-support.chunk.js';
-import '../../../core/ui/utilities/utilities-update-gate.chunk.js';
-import '../../../core/ui/utilities/utilities-image.chunk.js';
-import '../../../core/ui/utilities/utilities-component-id.chunk.js';
-import '../../../base-standard/ui/diplomacy/diplomacy-events.js';
-import '../../../core/ui/utilities/utilities-layout.chunk.js';
-import '../../../base-standard/ui/world-input/world-input.js';
-import '../../../core/ui/utilities/utilities-network.js';
-import '../../../core/ui/shell/mp-legal/mp-legal.js';
-import '../../../core/ui/events/shell-events.chunk.js';
-import '../../../core/ui/navigation-tray/model-navigation-tray.chunk.js';
-import '../../../core/ui/utilities/utilities-dom.chunk.js';
-import '../../../core/ui/utilities/utilities-liveops.js';
-import '../../../core/ui/utilities/utilities-network-constants.chunk.js';
-import '../../../base-standard/ui/interface-modes/support-unit-map-decoration.chunk.js';
-import '../../../base-standard/ui/utilities/utilities-overlay.chunk.js';
-import '../../../core/ui/input/input-filter.chunk.js';
-import '../../../base-standard/ui/quest-tracker/quest-item.js';
-import '../../../base-standard/ui/quest-tracker/quest-tracker.js';
-import '../../../base-standard/ui/tutorial/tutorial-events.chunk.js';
-import '../../../core/ui/components/fxs-nav-help.chunk.js';
-import '../../../core/ui/utilities/utilities-core-databinding.chunk.js';
+import { calloutAcceptNext as calloutAcceptNext$1, calloutBeginNext as calloutBeginNext$1, calloutCloseNext as calloutCloseNext$1, calloutContinueNext as calloutContinueNext$1, getCurrentTurnBlockingNotification, getTutorialPrompts, OpenCivilopediaAt, getNameOfFirstUnlockedUnitWithTag, didTechUnlock } from '../../../base-standard/ui/tutorial/tutorial-support.js';
+import PlayerUnlocks from '../../../base-standard/ui/unlocks/model-unlocks.js';
 
 const calloutBegin = {
   callback: () => {
@@ -83,7 +53,6 @@ const welcome0 = {
   ID: "welcome0",
   activationEngineEvents: ["GameStarted"],
   //skip: true, // TODO: uncomment when real content added below: ((): boolean => { return (Configuration.getUser().skipEraWelcomeTutorial == 1); })(),		// evaluated immediately when item is added to the bank
-  filterPlayers: [],
   runAllTurns: true,
   dialog: {
     series: [
@@ -912,7 +881,6 @@ TutorialManager.add({
   },
   inputContext: InputContext.Dual,
   completionEngineEvents: ["TechTreeChanged", "TechTargetChanged"],
-  nextID: "tutorial_tech_progression",
   highlights: [".tech-item"]
 });
 TutorialManager.add({
@@ -953,6 +921,13 @@ TutorialManager.add({
       }
     },
     option1: calloutContinue
+  },
+  activationEngineEvents: ["TechTreeChanged", "TechTargetChanged"],
+  onActivateCheck: (_item) => {
+    if (TutorialManager.isItemCompleted("tutorial_choose_first_tech")) {
+      return true;
+    }
+    return false;
   },
   onCleanUp: (item) => {
     const player = Players.get(GameContext.localPlayerID);
@@ -1417,9 +1392,9 @@ TutorialManager.add({
   onCompleteCheck: (_item) => {
     const player = Players.get(GameContext.localPlayerID);
     if (player) {
-      const playerCulture = player.Culture;
-      if (playerCulture != null) {
-        if (playerCulture.isNodeUnlocked("NODE_CIVIC_AQ_MAIN_MYSTICISM")) {
+      const playerReligion = player.Religion;
+      if (playerReligion != null) {
+        if (playerReligion.getNumPantheonsUnlocked() > 0) {
           return true;
         }
       }
@@ -2069,6 +2044,7 @@ TutorialManager.add({
 });
 TutorialManager.add({
   ID: "choose_first_government",
+  canMinimize: false,
   filterPlayers: [],
   callout: {
     title: Locale.compose("LOC_TUTORIAL_CHOOSE_FIRST_GOVERNMENT_TITLE"),
@@ -2102,11 +2078,13 @@ TutorialManager.add({
 });
 TutorialManager.add({
   ID: "slot_first_policy",
+  canMinimize: false,
   filterPlayers: [],
   callout: {
-    anchorPosition: TutorialAnchorPosition.TopCenter,
+    anchorPosition: TutorialAnchorPosition.MiddleCenter,
     title: Locale.compose("LOC_TUTORIAL_CHOOSE_FIRST_POLICY_TITLE"),
-    body: { text: Locale.compose("LOC_TUTORIAL_CHOOSE_FIRST_POLICY_BODY") }
+    body: { text: Locale.compose("LOC_TUTORIAL_CHOOSE_FIRST_POLICY_BODY") },
+    option1: calloutClose
   },
   activationCustomEvents: ["OnContextManagerOpen_screen-policies"],
   onActivateCheck: (_item) => {
@@ -2141,13 +2119,40 @@ TutorialManager.add({
   onActivateCheck: (_item) => {
     const player = Players.get(GameContext.localPlayerID);
     if (player) {
-      const numTraditionSlots = player.Culture?.numTraditionSlots;
+      const numTraditionSlots = player.Culture?.getNumAllCultureSlots();
       if (numTraditionSlots) {
         return numTraditionSlots > 0;
       }
     }
     return false;
   }
+});
+TutorialManager.add({
+  ID: "slot_first_tradition",
+  filterPlayers: [],
+  callout: {
+    anchorPosition: TutorialAnchorPosition.TopCenter,
+    title: Locale.compose("LOC_TUTORIAL_CHOOSE_FIRST_TRADITION_TITLE"),
+    body: { text: Locale.compose("LOC_TUTORIAL_CHOOSE_FIRST_TRADITION_BODY") },
+    option1: calloutClose
+  },
+  onActivateCheck: (_item) => {
+    const player = Players.get(GameContext.localPlayerID);
+    if (player) {
+      const culture = Players.Culture.get(GameContext.localPlayerID);
+      if (culture) {
+        const unlockedTraditions = culture.getUnlockedTraditions(
+          CultureSlotTypes.TRADITION_CULTURE_SLOT
+        );
+        if (unlockedTraditions.length > 0) {
+          return true;
+        }
+      }
+    }
+    return false;
+  },
+  activationCustomEvents: ["OnContextManagerOpen_screen-policies"],
+  completionEngineEvents: ["TraditionChanged", "OnContextManagerClose"]
 });
 TutorialManager.add({
   ID: "first_settler_trained",
@@ -2250,7 +2255,8 @@ TutorialManager.add({
   callout: {
     anchorPosition: TutorialAnchorPosition.MiddleRight,
     title: Locale.compose("LOC_TUTORIAL_SPEND_FIRST_ATTRIBUTE_POINT_TITLE"),
-    body: { text: Locale.compose("LOC_TUTORIAL_SPEND_FIRST_ATTRIBUTE_POINT_BODY") }
+    body: { text: Locale.compose("LOC_TUTORIAL_SPEND_FIRST_ATTRIBUTE_POINT_BODY") },
+    option1: calloutClose
   },
   completionCustomEvents: ["OnContextManagerClose"]
 });
@@ -3137,7 +3143,37 @@ TutorialManager.add({
   isPersistent: true,
   filterPlayers: [],
   activationCustomEvents: ["user-interface-loaded-and-ready"],
+  completionEngineEvents: ["PlayerUnlockChanged"],
+  onCompleteCheck: (_item) => {
+    let conditionMet = false;
+    const activationEventData = TutorialManager.activatingEvent;
+    if (activationEventData.player == GameContext.localPlayerID) {
+      const allRewards = PlayerUnlocks.getRewardItems();
+      if (allRewards.length > 0) {
+        conditionMet = true;
+      }
+    }
+    return conditionMet;
+  },
   hiders: [".tut-unlocks"]
+});
+TutorialManager.add({
+  ID: "hideAdvisors",
+  isPersistent: true,
+  runAllTurns: true,
+  filterPlayers: [],
+  activationCustomEvents: ["user-interface-loaded-and-ready"],
+  completionEngineEvents: ["OnContextManagerOpen_advisor-council-popup"],
+  hiders: [".tut-advisors"]
+});
+TutorialManager.add({
+  ID: "hideTriumphs",
+  isPersistent: true,
+  runAllTurns: true,
+  filterPlayers: [],
+  activationCustomEvents: ["user-interface-loaded-and-ready"],
+  completionEngineEvents: ["PlayerLegacyComplete"],
+  hiders: [".tut-legacies"]
 });
 TutorialManager.add({
   ID: "enemyArmyFirstEncounter",
@@ -3474,32 +3510,6 @@ TutorialManager.add({
   }
 });
 TutorialManager.add({
-  ID: "tutorial_milestone_completed",
-  callout: {
-    anchorPosition: TutorialAnchorPosition.MiddleCenter,
-    title: "LOC_TUTORIAL_MILESTONE_COMPLETED_TITLE",
-    body: { text: "LOC_TUTORIAL_MILESTONE_COMPLETED_BODY" },
-    option1: calloutClose,
-    option2: {
-      callback: () => {
-        ContextManager.push("screen-victory-progress", { singleton: true, createMouseGuard: true });
-      },
-      text: "LOC_TUTORIAL_CALLOUT_VICTORIES",
-      actionKey: "inline-accept",
-      closes: true
-    }
-  },
-  filterPlayers: [],
-  activationEngineEvents: ["LegacyPathMilestoneCompleted"],
-  onActivateCheck: (_item) => {
-    const player = Players.get(GameContext.localPlayerID);
-    if (player) {
-      return true;
-    }
-    return false;
-  }
-});
-TutorialManager.add({
   ID: "unlocked_first_unique_building",
   callout: {
     anchorPosition: TutorialAnchorPosition.MiddleCenter,
@@ -3747,15 +3757,7 @@ TutorialManager.add({
         return [];
       }
     },
-    option1: calloutClose,
-    option2: {
-      callback: () => {
-        ContextManager.push("screen-victory-progress", { singleton: true, createMouseGuard: true });
-      },
-      text: "LOC_TUTORIAL_CALLOUT_VICTORIES",
-      actionKey: "inline-accept",
-      closes: true
-    }
+    option1: calloutClose
   },
   activationEngineEvents: ["AgeProgressionChanged"],
   onActivateCheck: (_item) => {
@@ -3984,7 +3986,7 @@ TutorialManager.add({
     if (player) {
       const culture = Players.Culture.get(GameContext.localPlayerID);
       if (culture) {
-        if (culture?.numCrisisTraditionSlots > 0) {
+        if (culture?.getNumCultureSlots(CultureSlotTypes.CRISIS_CULTURE_SLOT) > 0) {
           return true;
         }
       }
@@ -4854,7 +4856,6 @@ TutorialManager.add({
   completionCustomEvents: ["interface-mode-changed", "OnContextManagerClose"]
 });
 TutorialManager.add({
-  //TODO: Add Leader icon highlight
   ID: "tutorial_leader_screen_intro",
   callout: {
     anchorPosition: TutorialAnchorPosition.MiddleRight,
@@ -4894,31 +4895,13 @@ TutorialManager.add({
     return capitalHasPop;
   },
   completionCustomEvents: ["interface-mode-changed"],
-  nextID: "tutorial_leader_screen",
   onObsoleteCheck: (_item) => {
-    if (TutorialManager.isItemCompleted("tutorial_leader_screen_left")) {
+    if (TutorialManager.isItemCompleted("tutorial_leader_screen_right")) {
       return true;
     }
     return false;
   },
   highlights: ['.diplo-ribbon__portrait[data-player-id="0"]']
-});
-TutorialManager.add({
-  ID: "tutorial_leader_screen_left",
-  callout: {
-    anchorPosition: TutorialAnchorPosition.MiddleLeft,
-    title: "LOC_TUTORIAL_LEADER_SCREEN_TITLE",
-    body: { text: "LOC_TUTORIAL_LEADER_SCREEN_OPENED_BODY" },
-    option1: calloutContinue
-  },
-  activationCustomEvents: ["interface-mode-changed"],
-  onActivateCheck: (_item) => {
-    if (InterfaceMode.isInInterfaceMode("INTERFACEMODE_DIPLOMACY_HUB") && DiplomacyManager.selectedPlayerID == GameContext.localPlayerID) {
-      return true;
-    }
-    return false;
-  },
-  nextID: "tutorial_leader_screen_right"
 });
 TutorialManager.add({
   ID: "tutorial_leader_screen_right",
@@ -4927,6 +4910,13 @@ TutorialManager.add({
     title: "LOC_TUTORIAL_LEADER_SCREEN_TITLE",
     body: { text: "LOC_TUTORIAL_LEADER_SCREEN_PANELS_BODY" },
     option1: calloutClose
+  },
+  activationCustomEvents: ["interface-mode-changed"],
+  onActivateCheck: (_item) => {
+    if (InterfaceMode.isInInterfaceMode("INTERFACEMODE_DIPLOMACY_HUB") && DiplomacyManager.selectedPlayerID == GameContext.localPlayerID) {
+      return true;
+    }
+    return false;
   },
   completionCustomEvents: ["interface-mode-changed"],
   highlights: [
@@ -5126,6 +5116,162 @@ TutorialManager.add({
     }
     return false;
   }
+});
+TutorialManager.add({
+  ID: "tutorial_advisors_intro",
+  filterPlayers: [],
+  callout: {
+    anchorPosition: TutorialAnchorPosition.MiddleCenter,
+    title: "LOC_TUTORIAL_ADVISORS_TITLE",
+    body: {
+      text: "LOC_TUTORIAL_ADVISORS_BODY"
+    },
+    option1: calloutClose
+  },
+  highlights: [".tut-advisors"],
+  activationCustomEvents: ["OnContextManagerClose_advisor-council-popup"],
+  completionCustomEvents: ["interface-mode-changed", "OnContextManagerOpen_advisor-council"]
+});
+TutorialManager.add({
+  ID: "tutorial_advisors_screen",
+  filterPlayers: [],
+  callout: {
+    anchorPosition: TutorialAnchorPosition.MiddleCenter,
+    title: "LOC_TUTORIAL_ADVISOR_COUNCIL_TITLE",
+    body: {
+      text: "LOC_TUTORIAL_ADVISOR_COUNCIL_BODY"
+    },
+    option1: calloutClose
+  },
+  activationCustomEvents: ["OnContextManagerOpen_advisor-council"],
+  completionCustomEvents: ["interface-mode-changed", "OnContextManagerClose"]
+});
+TutorialManager.add({
+  ID: "tutorial_victory_screen_callout",
+  filterPlayers: [],
+  callout: {
+    anchorPosition: TutorialAnchorPosition.MiddleCenter,
+    title: "LOC_TUTORIAL_VICTORY_SCREEN_CALLOUT_TITLE",
+    body: {
+      text: "LOC_TUTORIAL_VICTORY_SCREEN_CALLOUT_BODY"
+    },
+    option1: calloutClose
+  },
+  onObsoleteCheck: (_item) => {
+    if (TutorialManager.isItemCompleted("tutorial_victory_screen")) {
+      return true;
+    }
+    return false;
+  },
+  highlights: [".ssb__element.tut-age .ssb-button__highlight"],
+  activationCustomEvents: ["OnContextManagerClose_advisor-council"],
+  completionCustomEvents: ["interface-mode-changed", "OnContextManagerOpen_screen-victory-progress"]
+});
+TutorialManager.add({
+  ID: "tutorial_victory_screen",
+  canMinimize: false,
+  filterPlayers: [],
+  callout: {
+    anchorPosition: TutorialAnchorPosition.MiddleCenter,
+    title: "LOC_TUTORIAL_VICTORY_SCREEN_TITLE",
+    body: {
+      text: "LOC_TUTORIAL_VICTORY_SCREEN_BODY"
+    },
+    option1: calloutClose
+  },
+  activationCustomEvents: ["OnContextManagerOpen_screen-victory-progress"],
+  completionCustomEvents: ["interface-mode-changed", "OnContextManagerClose_screen-victory-progress"]
+});
+TutorialManager.add({
+  ID: "tutorial_triumphs_intro",
+  filterPlayers: [],
+  runAllTurns: true,
+  callout: {
+    anchorPosition: TutorialAnchorPosition.MiddleCenter,
+    title: "LOC_TUTORIAL_TRIUMPHS_INTRO_TITLE",
+    body: {
+      text: "LOC_TUTORIAL_TRIUMPHS_INTRO_BODY",
+      getLocParams: (_item) => {
+        let triggerCondition = "ERROR NO TRIGGER FOUND";
+        if (TutorialManager.activatingEventName == "AgeProgressionChanged") {
+          const maxAgeProgress = Game.AgeProgressManager.getMaxAgeProgressionPoints();
+          const curAgeProgress = Game.AgeProgressManager.getCurrentAgeProgressionPoints();
+          if (curAgeProgress >= maxAgeProgress * 0.4) {
+            triggerCondition = "LOC_TUTORIAL_TRIUMPHS_INTRO_TRIGGERED_BY_TIME";
+          }
+        } else {
+          const activationEventData = TutorialManager.activatingEvent;
+          const player = Players.get(GameContext.localPlayerID);
+          if (player != null && activationEventData.player == player.id) {
+            triggerCondition = "LOC_TUTORIAL_TRIUMPHS_INTRO_TRIGGERED_BY_PLAYER";
+          } else {
+            triggerCondition = "LOC_TUTORIAL_TRIUMPHS_INTRO_TRIGGERED_BY_OPPONENT";
+          }
+        }
+        return [triggerCondition];
+      }
+    },
+    option1: calloutClose
+  },
+  onActivateCheck: (_item) => {
+    const activatingEventName = TutorialManager.activatingEventName;
+    if (activatingEventName != null && activatingEventName == "AgeProgressionChanged") {
+      const maxAgeProgress = Game.AgeProgressManager.getMaxAgeProgressionPoints();
+      const curAgeProgress = Game.AgeProgressManager.getCurrentAgeProgressionPoints();
+      if (curAgeProgress >= maxAgeProgress * 0.4) {
+        return true;
+      } else {
+        return false;
+      }
+    } else {
+      return true;
+    }
+  },
+  onActivate: (_item) => {
+    TutorialManager.forceComplete("hideTriumphs");
+  },
+  highlights: [".tut-legacies"],
+  activationEngineEvents: ["PlayerLegacyCompleted", "AgeProgressionChanged"],
+  completionCustomEvents: ["interface-mode-changed", "OnContextManagerOpen_screen-legacies"]
+});
+TutorialManager.add({
+  ID: "tutorial_triumphs_screen",
+  canMinimize: false,
+  filterPlayers: [],
+  callout: {
+    anchorPosition: TutorialAnchorPosition.MiddleCenter,
+    title: "LOC_TUTORIAL_TRIUMPH_SCREEN_TITLE",
+    body: {
+      text: "LOC_TUTORIAL_TRIUMPH_SCREEN_BODY"
+    },
+    option1: calloutClose
+  },
+  activationCustomEvents: ["OnContextManagerOpen_screen-legacies"],
+  completionCustomEvents: ["interface-mode-changed", "OnContextManagerClose_screen-legacies"]
+});
+TutorialManager.add({
+  ID: "crisis_triumphs",
+  callout: {
+    anchorPosition: TutorialAnchorPosition.MiddleCenter,
+    title: Locale.compose("LOC_TUTORIAL_CRISIS_TRIUMPHS_TITLE"),
+    body: { text: "LOC_TUTORIAL_CRISIS_TRIUMPHS_BODY" },
+    option1: calloutContinue
+  },
+  activationEngineEvents: ["LocalPlayerTurnBegin"],
+  onActivateCheck: (_item) => {
+    const player = Players.get(GameContext.localPlayerID);
+    if (player) {
+      const culture = Players.Culture.get(GameContext.localPlayerID);
+      if (culture) {
+        if (culture?.getNumCultureSlots(CultureSlotTypes.CRISIS_CULTURE_SLOT) > 0) {
+          return true;
+        }
+      }
+    }
+    return false;
+  },
+  highlights: [".tut-legacies"],
+  completionCustomEvents: ["interface-mode-changed", "OnContextManagerClose_screen-legacies"]
 });
 TutorialManager.process("antiquity items");
 //# sourceMappingURL=tutorial-items-antiquity.js.map

@@ -1,4 +1,4 @@
-import { F as FxsIcon } from '../../../core/ui/components/fxs-icon.chunk.js';
+import { FxsIcon } from '../../../core/ui/components/fxs-icon.js';
 
 class PlotIconResource extends FxsIcon {
   location = { x: -1, y: -1 };

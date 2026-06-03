@@ -36,108 +36,12 @@
 	</legendPath>
 	<challengeEvents>
 		<event id="CHALLENGE_EVENT_LEADER_HIMIKO_ALT_AGE_ENDED" />
-		<event id="CHALLENGE_EVENT_LEADER_HIMIKO_ALT_VICTORY_ACHIEVED" />
-		<event id="CHALLENGE_EVENT_LEADER_HIMIKO_ALT_FLAWLESS_VICTORY_ACHIEVED" />
-		<event id="CHALLENGE_EVENT_LEADER_HIMIKO_ALT_LEGACY_PATH_MILESTONE_COMPLETED" />
+		<event id="CHALLENGE_EVENT_LEADER_HIMIKO_ALT_UNLOCKED_STRATEGYCARDS_EXPLORATION" />
+		<event id="CHALLENGE_EVENT_LEADER_HIMIKO_ALT_UNLOCKED_STRATEGYCARDS_MODERN" />
+		<event id="CHALLENGE_EVENT_HIMIKO_ALT_TRIUMPH_COMPLETED" />
 	</challengeEvents>
 	<statistics>
-		<statistic id="CHALLENGE_STATISTIC_LEADER_HIMIKO_ALT_LEGACY_PATH_MILESTONE_COMPLETED" event="CHALLENGE_EVENT_LEADER_HIMIKO_ALT_LEGACY_PATH_MILESTONE_COMPLETED"/>
-		<statistic id="CHALLENGE_STATISTIC_LEADER_HIMIKO_ALT_MILITARY_VICTORY_ANTIQUITY" event="CHALLENGE_EVENT_LEADER_HIMIKO_ALT_VICTORY_ACHIEVED">
-			<rules>
-				<rule type="and">
-					<rule type="equals" var="victoryType">VICTORY_CLASS_MILITARY</rule>
-					<rule type="equals" var="age">AGE_ANTIQUITY</rule>
-				</rule>
-			</rules>
-		</statistic>
-		<statistic id="CHALLENGE_STATISTIC_LEADER_HIMIKO_ALT_MILITARY_VICTORY_EXPLORATION" event="CHALLENGE_EVENT_LEADER_HIMIKO_ALT_VICTORY_ACHIEVED">
-			<rules>
-				<rule type="and">
-					<rule type="equals" var="victoryType">VICTORY_CLASS_MILITARY</rule>
-					<rule type="equals" var="age">AGE_EXPLORATION</rule>
-				</rule>
-			</rules>
-		</statistic>
-		<statistic id="CHALLENGE_STATISTIC_LEADER_HIMIKO_ALT_MILITARY_VICTORY_MODERN" event="CHALLENGE_EVENT_LEADER_HIMIKO_ALT_VICTORY_ACHIEVED">
-			<rules>
-				<rule type="and">
-					<rule type="equals" var="victoryType">VICTORY_CLASS_MILITARY</rule>
-					<rule type="equals" var="age">AGE_MODERN</rule>
-				</rule>
-			</rules>
-		</statistic>
-		<statistic id="CHALLENGE_STATISTIC_LEADER_HIMIKO_ALT_ECONOMIC_VICTORY_ANTIQUITY" event="CHALLENGE_EVENT_LEADER_HIMIKO_ALT_VICTORY_ACHIEVED">
-			<rules>
-				<rule type="and">
-					<rule type="equals" var="victoryType">VICTORY_CLASS_ECONOMIC</rule>
-					<rule type="equals" var="age">AGE_ANTIQUITY</rule>
-				</rule>
-			</rules>
-		</statistic>
-		<statistic id="CHALLENGE_STATISTIC_LEADER_HIMIKO_ALT_ECONOMIC_VICTORY_EXPLORATION" event="CHALLENGE_EVENT_LEADER_HIMIKO_ALT_VICTORY_ACHIEVED">
-			<rules>
-				<rule type="and">
-					<rule type="equals" var="victoryType">VICTORY_CLASS_ECONOMIC</rule>
-					<rule type="equals" var="age">AGE_EXPLORATION</rule>
-				</rule>
-			</rules>
-		</statistic>
-		<statistic id="CHALLENGE_STATISTIC_LEADER_HIMIKO_ALT_ECONOMIC_VICTORY_MODERN" event="CHALLENGE_EVENT_LEADER_HIMIKO_ALT_VICTORY_ACHIEVED">
-			<rules>
-				<rule type="and">
-					<rule type="equals" var="victoryType">VICTORY_CLASS_ECONOMIC</rule>
-					<rule type="equals" var="age">AGE_MODERN</rule>
-				</rule>
-			</rules>
-		</statistic>
-		<statistic id="CHALLENGE_STATISTIC_LEADER_HIMIKO_ALT_SCIENCE_VICTORY_ANTIQUITY" event="CHALLENGE_EVENT_LEADER_HIMIKO_ALT_VICTORY_ACHIEVED">
-			<rules>
-				<rule type="and">
-					<rule type="equals" var="victoryType">VICTORY_CLASS_SCIENCE</rule>
-					<rule type="equals" var="age">AGE_ANTIQUITY</rule>
-				</rule>
-			</rules>
-		</statistic>
-		<statistic id="CHALLENGE_STATISTIC_LEADER_HIMIKO_ALT_SCIENCE_VICTORY_EXPLORATION" event="CHALLENGE_EVENT_LEADER_HIMIKO_ALT_VICTORY_ACHIEVED">
-			<rules>
-				<rule type="and">
-					<rule type="equals" var="victoryType">VICTORY_CLASS_SCIENCE</rule>
-					<rule type="equals" var="age">AGE_EXPLORATION</rule>
-				</rule>
-			</rules>
-		</statistic>
-		<statistic id="CHALLENGE_STATISTIC_LEADER_HIMIKO_ALT_SCIENCE_VICTORY_MODERN" event="CHALLENGE_EVENT_LEADER_HIMIKO_ALT_VICTORY_ACHIEVED">
-			<rules>
-				<rule type="and">
-					<rule type="equals" var="victoryType">VICTORY_CLASS_SCIENCE</rule>
-					<rule type="equals" var="age">AGE_MODERN</rule>
-				</rule>
-			</rules>
-		</statistic>
-		<statistic id="CHALLENGE_STATISTIC_LEADER_HIMIKO_ALT_CULTURE_VICTORY_ANTIQUITY" event="CHALLENGE_EVENT_LEADER_HIMIKO_ALT_VICTORY_ACHIEVED">
-			<rules>
-				<rule type="and">
-					<rule type="equals" var="victoryType">VICTORY_CLASS_CULTURE</rule>
-					<rule type="equals" var="age">AGE_ANTIQUITY</rule>
-				</rule>
-			</rules>
-		</statistic>
-		<statistic id="CHALLENGE_STATISTIC_LEADER_HIMIKO_ALT_CULTURE_VICTORY_EXPLORATION" event="CHALLENGE_EVENT_LEADER_HIMIKO_ALT_VICTORY_ACHIEVED">
-			<rules>
-				<rule type="and">
-					<rule type="equals" var="victoryType">VICTORY_CLASS_CULTURE</rule>
-					<rule type="equals" var="age">AGE_EXPLORATION</rule>
-				</rule>
-			</rules>
-		</statistic>
-		<statistic id="CHALLENGE_STATISTIC_LEADER_HIMIKO_ALT_CULTURE_VICTORY_MODERN" event="CHALLENGE_EVENT_LEADER_HIMIKO_ALT_VICTORY_ACHIEVED">
-			<rules>
-				<rule type="and">
-					<rule type="equals" var="victoryType">VICTORY_CLASS_CULTURE</rule>
-					<rule type="equals" var="age">AGE_MODERN</rule>
-				</rule>
-			</rules>
-		</statistic>
+		<statistic id="CHALLENGE_STATISTIC_HIMIKO_ALT_TRIUMPHS_COMPLETED" event="CHALLENGE_EVENT_HIMIKO_ALT_TRIUMPH_COMPLETED"/>
 		<statistic id="CHALLENGE_STATISTIC_LEADER_HIMIKO_ALT_ANTIQUITY_AGES_COMPLETED" event="CHALLENGE_EVENT_LEADER_HIMIKO_ALT_AGE_ENDED">
 			<rules>
 				<rule type="equals" var="age">AGE_ANTIQUITY</rule>
@@ -153,180 +57,332 @@
 				<rule type="equals" var="age">AGE_MODERN</rule>
 			</rules>
 		</statistic>
+		<statistic id="CHALLENGE_STATISTIC_LEADER_HIMIKO_ALT_UNLOCKED_STRATEGYCARDS_EXPLORATION_COMPLETED" event="CHALLENGE_EVENT_LEADER_HIMIKO_ALT_UNLOCKED_STRATEGYCARDS_EXPLORATION"/>
+		<statistic id="CHALLENGE_STATISTIC_LEADER_HIMIKO_ALT_UNLOCKED_STRATEGYCARDS_MODERN_COMPLETED" event="CHALLENGE_EVENT_LEADER_HIMIKO_ALT_UNLOCKED_STRATEGYCARDS_MODERN"/>
 	</statistics>
 	<challengeCategoryData>
 		<challengeCategory id="CHALLENGE_CATEGORY_LEADER_HIMIKO_ALT" locName="LOC_LEADER_HIMIKO_ALT_NAME" sortIndex="1050"/>
 	</challengeCategoryData>
 	<challenges class="CHALLENGE_CLASS_LEADER" category="CHALLENGE_CATEGORY_LEADER_HIMIKO_ALT" legendPath="LEGEND_PATH_HIMIKO_ALT">
-		<challenge id="CHALLENGE_HIMIKO_ALT_MILITARY_VICTORY_ANTIQUITY" scope="Career" difficulty="3">
+		<challenge id="CHALLENGE_HIMIKO_ALT_FOUR_MAJOR_TRIUMPHS_ANTIQUITY" scope="Campaign" difficulty="4">
+			<l10n>
+				<name>Triumphant, Antiquity</name>
+				<description>As Himiko, High Shaman, complete 4 Major Triumphs in a single Antiquity Age.</description>
+			</l10n>
+			<sortIndex>10000</sortIndex>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_HIMIKO_ALT_FOUR_MAJOR_TRIUMPHS_EXPLORATION" scope="Campaign" difficulty="4">
+			<l10n>
+				<name>Triumphant, Exploration</name>
+				<description>As Himiko, High Shaman, complete 4 Major Triumphs in a single Exploration Age.</description>
+			</l10n>
+			<sortIndex>10100</sortIndex>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_HIMIKO_ALT_FOUR_MAJOR_TRIUMPHS_MODERN" scope="Campaign" difficulty="4" hidden="true">
+			<l10n>
+				<name>Triumphant, Modern</name>
+				<description>As Himiko, High Shaman, complete 4 Major Triumphs in a single Modern Age.</description>
+			</l10n>
+			<sortIndex>10200</sortIndex>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_HIMIKO_ALT_CULTURE_TRIUMPH_ANTIQUITY" scope="Campaign" difficulty="2">
+			<l10n>
+				<name>Wonders of the Ancient World</name>
+				<description>As Himiko, High Shaman, complete the Wonders of the Ancient World Triumph.</description>
+			</l10n>
+			<sortIndex>10300</sortIndex>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_HIMIKO_ALT_CULTURE_TRIUMPH_2_ANTIQUITY" scope="Campaign" difficulty="2">
+			<l10n>
+				<name>Orphic Mysteries</name>
+				<description>As Himiko, High Shaman, complete the Orphic Mysteries Triumph.</description>
+			</l10n>
+			<sortIndex>10400</sortIndex>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_HIMIKO_ALT_MILITARY_TRIUMPH_ANTIQUITY" scope="Campaign" difficulty="2">
 			<l10n>
 				<name>Pax Imperatoria</name>
-				<description>As Himiko, High Shaman, complete the Pax Imperatoria Legacy Path.</description>
+				<description>As Himiko, High Shaman, complete the Pax Imperatoria Triumph.</description>
 			</l10n>
-			<sortIndex>62800</sortIndex>
-			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_HIMIKO_ALT_MILITARY_VICTORY_ANTIQUITY" threshold="1" />
-			<reward type="XP" reward="50" />
-		</challenge>
-		<challenge id="CHALLENGE_HIMIKO_ALT_MILITARY_VICTORY_ANTIQUITY_2" scope="Career" difficulty="3">
-			<l10n>
-				<name>Pax Imperatoria 2</name>
-				<description>As Himiko, High Shaman, complete the Pax Imperatoria Legacy Path twice.</description>
-			</l10n>
-			<sortIndex>62810</sortIndex>
-			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_HIMIKO_ALT_MILITARY_VICTORY_ANTIQUITY" threshold="2" />
+			<sortIndex>10500</sortIndex>
 			<reward type="XP" reward="25" />
 		</challenge>
-		<challenge id="CHALLENGE_HIMIKO_ALT_MILITARY_VICTORY_ANTIQUITY_3" scope="Career" difficulty="3">
+		<challenge id="CHALLENGE_HIMIKO_ALT_MILITARY_TRIUMPH_2_ANTIQUITY" scope="Campaign" difficulty="2">
 			<l10n>
-				<name>Pax Imperatoria 3</name>
-				<description>As Himiko, High Shaman, complete the Pax Imperatoria Legacy Path thrice.</description>
+				<name>What a Gaius</name>
+				<description>As Himiko, High Shaman, complete the What a Gaius Triumph.</description>
 			</l10n>
-			<sortIndex>62820</sortIndex>
-			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_HIMIKO_ALT_MILITARY_VICTORY_ANTIQUITY" threshold="3" />
+			<sortIndex>10600</sortIndex>
 			<reward type="XP" reward="25" />
 		</challenge>
-		<challenge id="CHALLENGE_HIMIKO_ALT_ECONOMIC_VICTORY_ANTIQUITY" scope="Career" difficulty="3">
+		<challenge id="CHALLENGE_HIMIKO_ALT_ECONOMIC_TRIUMPH_ANTIQUITY" scope="Campaign" difficulty="2">
 			<l10n>
 				<name>Silk Roads</name>
-				<description>As Himiko, High Shaman, complete the Silk Roads Legacy Path.</description>
+				<description>As Himiko, High Shaman, complete the Silk Roads Triumph.</description>
 			</l10n>
-			<sortIndex>63000</sortIndex>
-			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_HIMIKO_ALT_ECONOMIC_VICTORY_ANTIQUITY" threshold="1" />
-			<reward type="XP" reward="50" />
-		</challenge>
-		<challenge id="CHALLENGE_HIMIKO_ALT_ECONOMIC_VICTORY_ANTIQUITY_2" scope="Career" difficulty="3">
-			<l10n>
-				<name>Silk Roads 2</name>
-				<description>As Himiko, High Shaman, complete the Silk Roads Legacy Path twice.</description>
-			</l10n>
-			<sortIndex>63010</sortIndex>
-			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_HIMIKO_ALT_ECONOMIC_VICTORY_ANTIQUITY" threshold="2" />
+			<sortIndex>10700</sortIndex>
 			<reward type="XP" reward="25" />
 		</challenge>
-		<challenge id="CHALLENGE_HIMIKO_ALT_ECONOMIC_VICTORY_ANTIQUITY_3" scope="Career" difficulty="3">
+		<challenge id="CHALLENGE_HIMIKO_ALT_ECONOMIC_TRIUMPH_2_ANTIQUITY" scope="Campaign" difficulty="2">
 			<l10n>
-				<name>Silk Roads 3</name>
-				<description>As Himiko, High Shaman, complete the Silk Roads Legacy Path thrice.</description>
+				<name>Greed is Golden</name>
+				<description>As Himiko, High Shaman, complete the Greed is Golden Triumph.</description>
 			</l10n>
-			<sortIndex>63020</sortIndex>
-			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_HIMIKO_ALT_ECONOMIC_VICTORY_ANTIQUITY" threshold="3" />
+			<sortIndex>10800</sortIndex>
 			<reward type="XP" reward="25" />
 		</challenge>
-		<challenge id="CHALLENGE_HIMIKO_ALT_MILITARY_VICTORY_EXPLORATION" scope="Career" difficulty="3">
+		<challenge id="CHALLENGE_HIMIKO_ALT_SCIENCE_TRIUMPH_ANTIQUITY" scope="Campaign" difficulty="2">
+			<l10n>
+				<name>Library of Ashurbanipal</name>
+				<description>As Himiko, High Shaman, complete the Library of Ashurbanipal Triumph.</description>
+			</l10n>
+			<sortIndex>10900</sortIndex>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_HIMIKO_ALT_SCIENCE_TRIUMPH_2_ANTIQUITY" scope="Campaign" difficulty="2">
+			<l10n>
+				<name>Round Earther</name>
+				<description>As Himiko, High Shaman, complete the Round Earther Triumph.</description>
+			</l10n>
+			<sortIndex>11000</sortIndex>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_HIMIKO_ALT_DIPLOMATIC_TRIUMPH_ANTIQUITY" scope="Campaign" difficulty="2">
+			<l10n>
+				<name>Pulling the Strings</name>
+				<description>As Himiko, High Shaman, complete the Pulling the Strings Triumph.</description>
+			</l10n>
+			<sortIndex>11100</sortIndex>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_HIMIKO_ALT_DIPLOMATIC_TRIUMPH_2_ANTIQUITY" scope="Campaign" difficulty="2">
+			<l10n>
+				<name>Bread and Circuses</name>
+				<description>As Himiko, High Shaman, complete the Bread and Circuses Triumph.</description>
+			</l10n>
+			<sortIndex>11200</sortIndex>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_HIMIKO_ALT_EXPANSIONIST_TRIUMPH_ANTIQUITY" scope="Campaign" difficulty="2">
+			<l10n>
+				<name>Four Corners of the World</name>
+				<description>As Himiko, High Shaman, complete the Four Corners of the World Triumph.</description>
+			</l10n>
+			<sortIndex>11300</sortIndex>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_HIMIKO_ALT_EXPANSIONIST_TRIUMPH_2_ANTIQUITY" scope="Campaign" difficulty="2">
+			<l10n>
+				<name>Tower of Babel</name>
+				<description>As Himiko, High Shaman, complete the Tower of Babel Triumph.</description>
+			</l10n>
+			<sortIndex>11400</sortIndex>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_HIMIKO_ALT_CULTURE_TRIUMPH_EXPLORATION" scope="Campaign" difficulty="2">
+			<l10n>
+				<name>Toshakhana</name>
+				<description>As Himiko, High Shaman, complete the Toshakhana Triumph.</description>
+			</l10n>
+			<sortIndex>11500</sortIndex>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_HIMIKO_ALT_CULTURE_TRIUMPH_2_EXPLORATION" scope="Campaign" difficulty="2">
+			<l10n>
+				<name>Kingdom of Heaven</name>
+				<description>As Himiko, High Shaman, complete the Kingdom of Heaven Triumph.</description>
+			</l10n>
+			<sortIndex>11600</sortIndex>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_HIMIKO_ALT_MILITARY_TRIUMPH_EXPLORATION" scope="Campaign" difficulty="2">
 			<l10n>
 				<name>Non Sufficit Orbis</name>
-				<description>As Himiko, High Shaman, complete the Non Sufficit Orbis Legacy Path.</description>
+				<description>As Himiko, High Shaman, complete the Non Sufficit Orbis Triumph.</description>
 			</l10n>
-			<sortIndex>63300</sortIndex>
-			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_HIMIKO_ALT_MILITARY_VICTORY_EXPLORATION" threshold="1" />
-			<reward type="XP" reward="50" />
-		</challenge>
-		<challenge id="CHALLENGE_HIMIKO_ALT_MILITARY_VICTORY_EXPLORATION_2" scope="Career" difficulty="3">
-			<l10n>
-				<name>Non Sufficit Orbis 2</name>
-				<description>As Himiko, High Shaman, complete the Non Sufficit Orbis Legacy Path twice.</description>
-			</l10n>
-			<sortIndex>63310</sortIndex>
-			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_HIMIKO_ALT_MILITARY_VICTORY_EXPLORATION" threshold="2" />
+			<sortIndex>11700</sortIndex>
 			<reward type="XP" reward="25" />
 		</challenge>
-		<challenge id="CHALLENGE_HIMIKO_ALT_MILITARY_VICTORY_EXPLORATION_3" scope="Career" difficulty="3">
+		<challenge id="CHALLENGE_HIMIKO_ALT_MILITARY_TRIUMPH_2_EXPLORATION" scope="Campaign" difficulty="2">
 			<l10n>
-				<name>Non Sufficit Orbis 3</name>
-				<description>As Himiko, High Shaman, complete the Non Sufficit Orbis Legacy Path thrice.</description>
+				<name>Pax Mongolica</name>
+				<description>As Himiko, High Shaman, complete the Pax Mongolica Triumph.</description>
 			</l10n>
-			<sortIndex>63320</sortIndex>
-			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_HIMIKO_ALT_MILITARY_VICTORY_EXPLORATION" threshold="3" />
+			<sortIndex>11800</sortIndex>
 			<reward type="XP" reward="25" />
 		</challenge>
-		<challenge id="CHALLENGE_HIMIKO_ALT_ECONOMIC_VICTORY_EXPLORATION" scope="Career" difficulty="3">
+		<challenge id="CHALLENGE_HIMIKO_ALT_ECONOMIC_TRIUMPH_EXPLORATION" scope="Campaign" difficulty="2">
 			<l10n>
 				<name>Treasure Fleet</name>
-				<description>As Himiko, High Shaman, complete the Treasure Fleet Legacy Path.</description>
+				<description>As Himiko, High Shaman, complete the Treasure Fleet Triumph.</description>
 			</l10n>
-			<sortIndex>63500</sortIndex>
-			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_HIMIKO_ALT_ECONOMIC_VICTORY_EXPLORATION" threshold="1" />
-			<reward type="XP" reward="50" />
-		</challenge>
-		<challenge id="CHALLENGE_HIMIKO_ALT_ECONOMIC_VICTORY_EXPLORATION_2" scope="Career" difficulty="3">
-			<l10n>
-				<name>Treasure Fleet 2</name>
-				<description>As Himiko, High Shaman, complete the Treasure Fleet Legacy Path twice.</description>
-			</l10n>
-			<sortIndex>63510</sortIndex>
-			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_HIMIKO_ALT_ECONOMIC_VICTORY_EXPLORATION" threshold="2" />
+			<sortIndex>11900</sortIndex>
 			<reward type="XP" reward="25" />
 		</challenge>
-		<challenge id="CHALLENGE_HIMIKO_ALT_ECONOMIC_VICTORY_EXPLORATION_3" scope="Career" difficulty="3">
+		<challenge id="CHALLENGE_HIMIKO_ALT_ECONOMIC_TRIUMPH_2_EXPLORATION" scope="Campaign" difficulty="2">
 			<l10n>
-				<name>Treasure Fleet 3</name>
-				<description>As Himiko, High Shaman, complete the Treasure Fleet Legacy Path thrice.</description>
+				<name>Let's Calicut A Deal</name>
+				<description>As Himiko, High Shaman, complete the Let's Calicut A Deal Triumph.</description>
 			</l10n>
-			<sortIndex>63520</sortIndex>
-			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_HIMIKO_ALT_ECONOMIC_VICTORY_EXPLORATION" threshold="3" />
+			<sortIndex>12000</sortIndex>
 			<reward type="XP" reward="25" />
 		</challenge>
-		<challenge id="CHALLENGE_HIMIKO_ALT_MILITARY_VICTORY_MODERN" scope="Career" difficulty="3">
+		<challenge id="CHALLENGE_HIMIKO_ALT_SCIENCE_TRIUMPH_EXPLORATION" scope="Campaign" difficulty="2">
 			<l10n>
-				<name>Ideology</name>
-				<description>As Himiko, High Shaman, complete the Ideology Legacy Path.</description>
+				<name>Enlightenment</name>
+				<description>As Himiko, High Shaman, complete the Enlightenment Triumph.</description>
 			</l10n>
-			<sortIndex>64000</sortIndex>
-			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_HIMIKO_ALT_MILITARY_VICTORY_MODERN" threshold="1" />
-			<reward type="XP" reward="50" />
-		</challenge>
-		<challenge id="CHALLENGE_HIMIKO_ALT_MILITARY_VICTORY_MODERN_2" scope="Career" difficulty="3">
-			<l10n>
-				<name>Ideology 2</name>
-				<description>As Himiko, High Shaman, complete the Ideology Legacy Path twice.</description>
-			</l10n>
-			<sortIndex>64010</sortIndex>
-			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_HIMIKO_ALT_MILITARY_VICTORY_MODERN" threshold="2" />
+			<sortIndex>12100</sortIndex>
 			<reward type="XP" reward="25" />
 		</challenge>
-		<challenge id="CHALLENGE_HIMIKO_ALT_MILITARY_VICTORY_MODERN_3" scope="Career" difficulty="3">
+		<challenge id="CHALLENGE_HIMIKO_ALT_SCIENCE_TRIUMPH_2_EXPLORATION" scope="Campaign" difficulty="2">
 			<l10n>
-				<name>Ideology 3</name>
-				<description>As Himiko, High Shaman, complete the Ideology Legacy Path thrice.</description>
+				<name>On the Revolutions of the Celestial Spheres</name>
+				<description>As Himiko, High Shaman, complete the On the Revolutions of the Celestial Spheres Triumph.</description>
 			</l10n>
-			<sortIndex>64020</sortIndex>
-			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_HIMIKO_ALT_MILITARY_VICTORY_MODERN" threshold="3" />
+			<sortIndex>12200</sortIndex>
 			<reward type="XP" reward="25" />
 		</challenge>
-		<challenge id="CHALLENGE_HIMIKO_ALT_ECONOMIC_VICTORY_MODERN" scope="Career" difficulty="3">
+		<challenge id="CHALLENGE_HIMIKO_ALT_DIPLOMATIC_TRIUMPH_EXPLORATION" scope="Campaign" difficulty="2">
+			<l10n>
+				<name>Order of Assassins</name>
+				<description>As Himiko, High Shaman, complete the Order of Assassins Triumph.</description>
+			</l10n>
+			<sortIndex>12300</sortIndex>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_HIMIKO_ALT_DIPLOMATIC_TRIUMPH_2_EXPLORATION" scope="Campaign" difficulty="2">
+			<l10n>
+				<name>Quadruple Alliance</name>
+				<description>As Himiko, High Shaman, complete the Quadruple Alliance Triumph.</description>
+			</l10n>
+			<sortIndex>12400</sortIndex>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_HIMIKO_ALT_EXPANSIONIST_TRIUMPH_EXPLORATION" scope="Campaign" difficulty="2">
+			<l10n>
+				<name>Hic Sunt Dracones</name>
+				<description>As Himiko, High Shaman, complete the Hic Sunt Dracones Triumph.</description>
+			</l10n>
+			<sortIndex>12500</sortIndex>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_HIMIKO_ALT_EXPANSIONIST_TRIUMPH_2_EXPLORATION" scope="Campaign" difficulty="2">
+			<l10n>
+				<name>We have Habsburgs at Home</name>
+				<description>As Himiko, High Shaman, complete the We have Habsburgs at Home Triumph.</description>
+			</l10n>
+			<sortIndex>12600</sortIndex>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_HIMIKO_ALT_CULTURE_TRIUMPH_MODERN" scope="Campaign" difficulty="2">
+			<l10n>
+				<name>Geographic Society</name>
+				<description>As Himiko, High Shaman, complete the Geographic Society Triumph.</description>
+			</l10n>
+			<sortIndex>12700</sortIndex>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_HIMIKO_ALT_CULTURE_TRIUMPH_2_MODERN" scope="Campaign" difficulty="2">
+			<l10n>
+				<name>Wonderland</name>
+				<description>As Himiko, High Shaman, complete the Wonderland Triumph.</description>
+			</l10n>
+			<sortIndex>12800</sortIndex>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_HIMIKO_ALT_MILITARY_TRIUMPH_MODERN" scope="Campaign" difficulty="2">
+			<l10n>
+				<name>Moral Imperative</name>
+				<description>As Himiko, High Shaman, complete the Moral Imperative Triumph.</description>
+			</l10n>
+			<sortIndex>12900</sortIndex>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_HIMIKO_ALT_MILITARY_TRIUMPH_2_MODERN" scope="Campaign" difficulty="2">
+			<l10n>
+				<name>Enemy of the World</name>
+				<description>As Himiko, High Shaman, complete the Enemy of the World Triumph.</description>
+			</l10n>
+			<sortIndex>13000</sortIndex>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_HIMIKO_ALT_ECONOMIC_TRIUMPH_MODERN" scope="Campaign" difficulty="2">
 			<l10n>
 				<name>Railroad Tycoon</name>
-				<description>As Himiko, High Shaman, complete the Railroad Tycoon Legacy Path.</description>
+				<description>As Himiko, High Shaman, complete the Railroad Tycoon Triumph.</description>
 			</l10n>
-			<sortIndex>63900</sortIndex>
-			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_HIMIKO_ALT_ECONOMIC_VICTORY_MODERN" threshold="1" />
-			<reward type="XP" reward="50" />
-		</challenge>
-		<challenge id="CHALLENGE_HIMIKO_ALT_ECONOMIC_VICTORY_MODERN_2" scope="Career" difficulty="3">
-			<l10n>
-				<name>Railroad Tycoon 2</name>
-				<description>As Himiko, High Shaman, complete the Railroad Tycoon Legacy Path twice.</description>
-			</l10n>
-			<sortIndex>63910</sortIndex>
-			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_HIMIKO_ALT_ECONOMIC_VICTORY_MODERN" threshold="2" />
+			<sortIndex>13100</sortIndex>
 			<reward type="XP" reward="25" />
 		</challenge>
-		<challenge id="CHALLENGE_HIMIKO_ALT_ECONOMIC_VICTORY_MODERN_3" scope="Career" difficulty="3">
+		<challenge id="CHALLENGE_HIMIKO_ALT_ECONOMIC_TRIUMPH_2_MODERN" scope="Campaign" difficulty="2">
 			<l10n>
-				<name>Railroad Tycoon 3</name>
-				<description>As Himiko, High Shaman, complete the Railroad Tycoon Legacy Path thrice.</description>
+				<name>Workshop of the World</name>
+				<description>As Himiko, High Shaman, complete the Workshop of the World Triumph.</description>
 			</l10n>
-			<sortIndex>63920</sortIndex>
-			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_HIMIKO_ALT_ECONOMIC_VICTORY_MODERN" threshold="3" />
+			<sortIndex>13200</sortIndex>
 			<reward type="XP" reward="25" />
 		</challenge>
-		<challenge id="CHALLENGE_HIMIKO_ALT_AGE_COMPLETED_ANTIQUITY" scope="Career" difficulty="2">
+		<challenge id="CHALLENGE_HIMIKO_ALT_SCIENCE_TRIUMPH_MODERN" scope="Campaign" difficulty="2">
+			<l10n>
+				<name>Dawn of the Space Race</name>
+				<description>As Himiko, High Shaman, complete the Dawn of the Space Race Triumph.</description>
+			</l10n>
+			<sortIndex>13300</sortIndex>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_HIMIKO_ALT_SCIENCE_TRIUMPH_2_MODERN" scope="Campaign" difficulty="2">
+			<l10n>
+				<name>Beyond the Sword</name>
+				<description>As Himiko, High Shaman, complete the Beyond the Sword Triumph.</description>
+			</l10n>
+			<sortIndex>13400</sortIndex>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_HIMIKO_ALT_DIPLOMATIC_TRIUMPH_MODERN" scope="Campaign" difficulty="2">
+			<l10n>
+				<name>League of Nations</name>
+				<description>As Himiko, High Shaman, complete the League of Nations Triumph.</description>
+			</l10n>
+			<sortIndex>13500</sortIndex>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_HIMIKO_ALT_DIPLOMATIC_TRIUMPH_2_MODERN" scope="Campaign" difficulty="2">
+			<l10n>
+				<name>Enigma Code</name>
+				<description>As Himiko, High Shaman, complete the Enigma Code Triumph.</description>
+			</l10n>
+			<sortIndex>13600</sortIndex>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_HIMIKO_ALT_EXPANSIONIST_TRIUMPH_MODERN" scope="Campaign" difficulty="2">
+			<l10n>
+				<name>Sun Never Sets</name>
+				<description>As Himiko, High Shaman, complete the Sun Never Sets Triumph.</description>
+			</l10n>
+			<sortIndex>13700</sortIndex>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_HIMIKO_ALT_EXPANSIONIST_TRIUMPH_2_MODERN" scope="Campaign" difficulty="2">
+			<l10n>
+				<name>Megalopolis</name>
+				<description>As Himiko, High Shaman, complete the Megalopolis Triumph.</description>
+			</l10n>
+			<sortIndex>13800</sortIndex>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_HIMIKO_ALT_AGE_COMPLETED_ANTIQUITY" scope="Career" difficulty="1">
 			<l10n>
 				<name>Antiquity Complete</name>
 				<description>As Himiko, High Shaman, finish the Antiquity Age.</description>
 			</l10n>
-			<sortIndex>62600</sortIndex>
-			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_HIMIKO_ALT_ANTIQUITY_AGES_COMPLETED" threshold="1" />
+			<sortIndex>13900</sortIndex>
+			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_HIMIKO_ALT_ANTIQUITY_AGES_COMPLETED" threshold="1"/>
 			<reward type="XP" reward="25" />
 		</challenge>
 		<challenge id="CHALLENGE_HIMIKO_ALT_AGE_COMPLETED_ANTIQUITY_2" scope="Career" difficulty="2">
@@ -334,8 +390,8 @@
 				<name>Antiquity Complete 2</name>
 				<description>As Himiko, High Shaman, finish the Antiquity Age twice.</description>
 			</l10n>
-			<sortIndex>62610</sortIndex>
-			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_HIMIKO_ALT_ANTIQUITY_AGES_COMPLETED" threshold="2" />
+			<sortIndex>14000</sortIndex>
+			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_HIMIKO_ALT_ANTIQUITY_AGES_COMPLETED" threshold="2"/>
 			<reward type="XP" reward="25" />
 		</challenge>
 		<challenge id="CHALLENGE_HIMIKO_ALT_AGE_COMPLETED_ANTIQUITY_3" scope="Career" difficulty="2">
@@ -343,8 +399,8 @@
 				<name>Antiquity Complete 3</name>
 				<description>As Himiko, High Shaman, finish the Antiquity Age thrice.</description>
 			</l10n>
-			<sortIndex>62620</sortIndex>
-			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_HIMIKO_ALT_ANTIQUITY_AGES_COMPLETED" threshold="3" />
+			<sortIndex>14100</sortIndex>
+			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_HIMIKO_ALT_ANTIQUITY_AGES_COMPLETED" threshold="3"/>
 			<reward type="XP" reward="25" />
 		</challenge>
 		<challenge id="CHALLENGE_HIMIKO_ALT_AGE_COMPLETED_EXPLORATION" scope="Career" difficulty="3">
@@ -352,8 +408,8 @@
 				<name>Exploration Complete</name>
 				<description>As Himiko, High Shaman, finish the Exploration Age.</description>
 			</l10n>
-			<sortIndex>63600</sortIndex>
-			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_HIMIKO_ALT_EXPLORATION_AGES_COMPLETED" threshold="1" />
+			<sortIndex>14200</sortIndex>
+			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_HIMIKO_ALT_EXPLORATION_AGES_COMPLETED" threshold="1"/>
 			<reward type="XP" reward="25" />
 		</challenge>
 		<challenge id="CHALLENGE_HIMIKO_ALT_AGE_COMPLETED_EXPLORATION_2" scope="Career" difficulty="3">
@@ -361,8 +417,8 @@
 				<name>Exploration Complete 2</name>
 				<description>As Himiko, High Shaman, finish the Exploration Age twice.</description>
 			</l10n>
-			<sortIndex>63610</sortIndex>
-			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_HIMIKO_ALT_EXPLORATION_AGES_COMPLETED" threshold="2" />
+			<sortIndex>14300</sortIndex>
+			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_HIMIKO_ALT_EXPLORATION_AGES_COMPLETED" threshold="2"/>
 			<reward type="XP" reward="25" />
 		</challenge>
 		<challenge id="CHALLENGE_HIMIKO_ALT_AGE_COMPLETED_EXPLORATION_3" scope="Career" difficulty="3">
@@ -370,334 +426,173 @@
 				<name>Exploration Complete 3</name>
 				<description>As Himiko, High Shaman, finish the Exploration Age thrice.</description>
 			</l10n>
-			<sortIndex>63620</sortIndex>
-			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_HIMIKO_ALT_EXPLORATION_AGES_COMPLETED" threshold="3" />
+			<sortIndex>14400</sortIndex>
+			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_HIMIKO_ALT_EXPLORATION_AGES_COMPLETED" threshold="3"/>
 			<reward type="XP" reward="25" />
 		</challenge>
-		<challenge id="CHALLENGE_HIMIKO_ALT_AGE_COMPLETED_MODERN" scope="Career" difficulty="2">
+		<challenge id="CHALLENGE_HIMIKO_ALT_AGE_COMPLETED_MODERN" scope="Career" difficulty="3">
 			<l10n>
 				<name>Modern Complete</name>
 				<description>As Himiko, High Shaman, finish the Modern Age.</description>
 			</l10n>
-			<sortIndex>63800</sortIndex>
-			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_HIMIKO_ALT_MODERN_AGES_COMPLETED" threshold="1" />
-			<reward type="XP" reward="25" />
+			<sortIndex>14500</sortIndex>
+			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_HIMIKO_ALT_MODERN_AGES_COMPLETED" threshold="1"/>
+			<reward type="XP" reward="10" />
 		</challenge>
-		<challenge id="CHALLENGE_HIMIKO_ALT_AGE_COMPLETED_MODERN_2" scope="Career" difficulty="2">
+		<challenge id="CHALLENGE_HIMIKO_ALT_AGE_COMPLETED_MODERN_2" scope="Career" difficulty="3">
 			<l10n>
 				<name>Modern Complete 2</name>
 				<description>As Himiko, High Shaman, finish the Modern Age twice.</description>
 			</l10n>
-			<sortIndex>63810</sortIndex>
-			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_HIMIKO_ALT_MODERN_AGES_COMPLETED" threshold="2" />
-			<reward type="XP" reward="25" />
+			<sortIndex>14600</sortIndex>
+			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_HIMIKO_ALT_MODERN_AGES_COMPLETED" threshold="2"/>
+			<reward type="XP" reward="10" />
 		</challenge>
-		<challenge id="CHALLENGE_HIMIKO_ALT_AGE_COMPLETED_MODERN_3" scope="Career" difficulty="2">
+		<challenge id="CHALLENGE_HIMIKO_ALT_AGE_COMPLETED_MODERN_3" scope="Career" difficulty="3">
 			<l10n>
 				<name>Modern Complete 3</name>
 				<description>As Himiko, High Shaman, finish the Modern Age thrice.</description>
 			</l10n>
-			<sortIndex>63820</sortIndex>
-			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_HIMIKO_ALT_MODERN_AGES_COMPLETED" threshold="3" />
-			<reward type="XP" reward="25" />
+			<sortIndex>14700</sortIndex>
+			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_HIMIKO_ALT_MODERN_AGES_COMPLETED" threshold="3"/>
+			<reward type="XP" reward="10" />
 		</challenge>
 		<challenge id="CHALLENGE_HIMIKO_ALT_PLAY_GAMES_1" scope="Career" difficulty="1">
 			<l10n>
 				<name>Play Game 1</name>
-				<description>As Himiko, High Shaman, reach at least 1 Legacy Path Milestone.</description>
+				<description>As Himiko, High Shaman, complete 1 Major Triumph.</description>
 			</l10n>
-			<sortIndex>64400</sortIndex>
-			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_HIMIKO_ALT_LEGACY_PATH_MILESTONE_COMPLETED" threshold="1" />
+			<sortIndex>14800</sortIndex>
+			<careerConfig statistic="CHALLENGE_STATISTIC_HIMIKO_ALT_TRIUMPHS_COMPLETED" threshold="1" />
 			<reward type="XP" reward="25" />
+			<tags>
+				<tag>LEADERS_PLAYED_PROGRESS</tag>
+			</tags>
 		</challenge>
 		<challenge id="CHALLENGE_HIMIKO_ALT_PLAY_GAMES_2" scope="Career" difficulty="1">
 			<l10n>
 				<name>Play Game 2</name>
-				<description>As Himiko, High Shaman, reach at least 2 Legacy Path Milestones.</description>
+				<description>As Himiko, High Shaman, complete 5 Major Triumphs across any number of Ages.</description>
 			</l10n>
-			<sortIndex>64500</sortIndex>
-			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_HIMIKO_ALT_LEGACY_PATH_MILESTONE_COMPLETED" threshold="2" />
+			<sortIndex>14900</sortIndex>
+			<careerConfig statistic="CHALLENGE_STATISTIC_HIMIKO_ALT_TRIUMPHS_COMPLETED" threshold="5" />
 			<reward type="XP" reward="25" />
 		</challenge>
 		<challenge id="CHALLENGE_HIMIKO_ALT_PLAY_GAMES_3" scope="Career" difficulty="1">
 			<l10n>
 				<name>Play Game 3</name>
-				<description>As Himiko, High Shaman, reach at least 3 Legacy Path Milestones.</description>
+				<description>As Himiko, High Shaman, complete 25 Major Triumphs across any number of Ages.</description>
 			</l10n>
-			<sortIndex>64600</sortIndex>
-			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_HIMIKO_ALT_LEGACY_PATH_MILESTONE_COMPLETED" threshold="3" />
+			<sortIndex>15000</sortIndex>
+			<careerConfig statistic="CHALLENGE_STATISTIC_HIMIKO_ALT_TRIUMPHS_COMPLETED" threshold="25" />
 			<reward type="XP" reward="25" />
 		</challenge>
-		<challenge id="CHALLENGE_HIMIKO_ALT_SCIENCE_VICTORY_ANTIQUITY" scope="Career" difficulty="3">
-			<l10n>
-				<name>Great Library</name>
-				<description>As Himiko, High Shaman, complete the Great Library Legacy Path.</description>
-			</l10n>
-			<sortIndex>62900</sortIndex>
-			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_HIMIKO_ALT_SCIENCE_VICTORY_ANTIQUITY" threshold="1" />
-			<reward type="XP" reward="50" />
-		</challenge>
-		<challenge id="CHALLENGE_HIMIKO_ALT_SCIENCE_VICTORY_ANTIQUITY_2" scope="Career" difficulty="3">
-			<l10n>
-				<name>Great Library 2</name>
-				<description>As Himiko, High Shaman, complete the Great Library Legacy Path twice.</description>
-			</l10n>
-			<sortIndex>62910</sortIndex>
-			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_HIMIKO_ALT_SCIENCE_VICTORY_ANTIQUITY" threshold="2" />
-			<reward type="XP" reward="25" />
-		</challenge>
-		<challenge id="CHALLENGE_HIMIKO_ALT_SCIENCE_VICTORY_ANTIQUITY_3" scope="Career" difficulty="3">
-			<l10n>
-				<name>Great Library 3</name>
-				<description>As Himiko, High Shaman, complete the Great Library Legacy Path thrice.</description>
-			</l10n>
-			<sortIndex>62920</sortIndex>
-			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_HIMIKO_ALT_SCIENCE_VICTORY_ANTIQUITY" threshold="3" />
-			<reward type="XP" reward="25" />
-		</challenge>
-		<challenge id="CHALLENGE_HIMIKO_ALT_SCIENCE_VICTORY_EXPLORATION" scope="Career" difficulty="3">
-			<l10n>
-				<name>Enlightenment</name>
-				<description>As Himiko, High Shaman, complete the Enlightenment Legacy Path.</description>
-			</l10n>
-			<sortIndex>63600</sortIndex>
-			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_HIMIKO_ALT_SCIENCE_VICTORY_EXPLORATION" threshold="1" />
-			<reward type="XP" reward="50" />
-		</challenge>
-		<challenge id="CHALLENGE_HIMIKO_ALT_SCIENCE_VICTORY_EXPLORATION_2" scope="Career" difficulty="3">
-			<l10n>
-				<name>Enlightenment 2</name>
-				<description>As Himiko, High Shaman, complete the Enlightenment Legacy Path twice.</description>
-			</l10n>
-			<sortIndex>63610</sortIndex>
-			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_HIMIKO_ALT_SCIENCE_VICTORY_EXPLORATION" threshold="2" />
-			<reward type="XP" reward="25" />
-		</challenge>
-		<challenge id="CHALLENGE_HIMIKO_ALT_SCIENCE_VICTORY_EXPLORATION_3" scope="Career" difficulty="3">
-			<l10n>
-				<name>Enlightenment 3</name>
-				<description>As Himiko, High Shaman, complete the Enlightenment Legacy Path thrice.</description>
-			</l10n>
-			<sortIndex>63620</sortIndex>
-			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_HIMIKO_ALT_SCIENCE_VICTORY_EXPLORATION" threshold="3" />
-			<reward type="XP" reward="25" />
-		</challenge>
-		<challenge id="CHALLENGE_HIMIKO_ALT_SCIENCE_VICTORY_MODERN" scope="Career" difficulty="3">
-			<l10n>
-				<name>Space Race</name>
-				<description>As Himiko, High Shaman, complete the Space Race Legacy Path.</description>
-			</l10n>
-			<sortIndex>64100</sortIndex>
-			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_HIMIKO_ALT_SCIENCE_VICTORY_MODERN" threshold="1" />
-			<reward type="XP" reward="50" />
-		</challenge>
-		<challenge id="CHALLENGE_HIMIKO_ALT_SCIENCE_VICTORY_MODERN_2" scope="Career" difficulty="3">
-			<l10n>
-				<name>Space Race 2</name>
-				<description>As Himiko, High Shaman, complete the Space Race Legacy Path twice.</description>
-			</l10n>
-			<sortIndex>64110</sortIndex>
-			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_HIMIKO_ALT_SCIENCE_VICTORY_MODERN" threshold="2" />
-			<reward type="XP" reward="25" />
-		</challenge>
-		<challenge id="CHALLENGE_HIMIKO_ALT_SCIENCE_VICTORY_MODERN_3" scope="Career" difficulty="3">
-			<l10n>
-				<name>Space Race 3</name>
-				<description>As Himiko, High Shaman, complete the Space Race Legacy Path thrice.</description>
-			</l10n>
-			<sortIndex>64120</sortIndex>
-			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_HIMIKO_ALT_SCIENCE_VICTORY_MODERN" threshold="3" />
-			<reward type="XP" reward="25" />
-		</challenge>
-		<challenge id="CHALLENGE_HIMIKO_ALT_CULTURE_VICTORY_ANTIQUITY" scope="Career" difficulty="3">
-			<l10n>
-				<name>Wonders of the Ancient World</name>
-				<description>As Himiko, High Shaman, complete the Wonders of the Ancient World Legacy Path.</description>
-			</l10n>
-			<sortIndex>62700</sortIndex>
-			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_HIMIKO_ALT_CULTURE_VICTORY_ANTIQUITY" threshold="1" />
-			<reward type="XP" reward="50" />
-		</challenge>
-		<challenge id="CHALLENGE_HIMIKO_ALT_CULTURE_VICTORY_ANTIQUITY_2" scope="Career" difficulty="3">
-			<l10n>
-				<name>Wonders of the Ancient World 2</name>
-				<description>As Himiko, High Shaman, complete the Wonders of the Ancient World Legacy Path twice.</description>
-			</l10n>
-			<sortIndex>62710</sortIndex>
-			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_HIMIKO_ALT_CULTURE_VICTORY_ANTIQUITY" threshold="2" />
-			<reward type="XP" reward="25" />
-		</challenge>
-		<challenge id="CHALLENGE_HIMIKO_ALT_CULTURE_VICTORY_ANTIQUITY_3" scope="Career" difficulty="3">
-			<l10n>
-				<name>Wonders of the Ancient World 3</name>
-				<description>As Himiko, High Shaman, complete the Wonders of the Ancient World Legacy Path thrice.</description>
-			</l10n>
-			<sortIndex>62720</sortIndex>
-			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_HIMIKO_ALT_CULTURE_VICTORY_ANTIQUITY" threshold="3" />
-			<reward type="XP" reward="25" />
-		</challenge>
-		<challenge id="CHALLENGE_HIMIKO_ALT_CULTURE_VICTORY_EXPLORATION" scope="Career" difficulty="3">
-			<l10n>
-				<name>Toshakhana</name>
-				<description>As Himiko, High Shaman, complete the Toshakhana Legacy Path.</description>
-			</l10n>
-			<sortIndex>63200</sortIndex>
-			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_HIMIKO_ALT_CULTURE_VICTORY_EXPLORATION" threshold="1" />
-			<reward type="XP" reward="50" />
-		</challenge>
-		<challenge id="CHALLENGE_HIMIKO_ALT_CULTURE_VICTORY_EXPLORATION_2" scope="Career" difficulty="3">
-			<l10n>
-				<name>Toshakhana 2</name>
-				<description>As Himiko, High Shaman, complete the Toshakhana Legacy Path twice.</description>
-			</l10n>
-			<sortIndex>63210</sortIndex>
-			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_HIMIKO_ALT_CULTURE_VICTORY_EXPLORATION" threshold="2" />
-			<reward type="XP" reward="25" />
-		</challenge>
-		<challenge id="CHALLENGE_HIMIKO_ALT_CULTURE_VICTORY_EXPLORATION_3" scope="Career" difficulty="3">
-			<l10n>
-				<name>Toshakhana 3</name>
-				<description>As Himiko, High Shaman, complete the Toshakhana Legacy Path thrice.</description>
-			</l10n>
-			<sortIndex>63220</sortIndex>
-			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_HIMIKO_ALT_CULTURE_VICTORY_EXPLORATION" threshold="3" />
-			<reward type="XP" reward="25" />
-		</challenge>
-		<challenge id="CHALLENGE_HIMIKO_ALT_CULTURE_VICTORY_MODERN" scope="Career" difficulty="3">
-			<l10n>
-				<name>Geographic Society</name>
-				<description>As Himiko, High Shaman, complete the Geographic Society Legacy Path.</description>
-			</l10n>
-			<sortIndex>64200</sortIndex>
-			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_HIMIKO_ALT_CULTURE_VICTORY_MODERN" threshold="1" />
-			<reward type="XP" reward="50" />
-		</challenge>
-		<challenge id="CHALLENGE_HIMIKO_ALT_CULTURE_VICTORY_MODERN_2" scope="Career" difficulty="3">
-			<l10n>
-				<name>Geographic Society 2</name>
-				<description>As Himiko, High Shaman, complete the Geographic Society Legacy Path twice.</description>
-			</l10n>
-			<sortIndex>64210</sortIndex>
-			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_HIMIKO_ALT_CULTURE_VICTORY_MODERN" threshold="2" />
-			<reward type="XP" reward="25" />
-		</challenge>
-		<challenge id="CHALLENGE_HIMIKO_ALT_CULTURE_VICTORY_MODERN_3" scope="Career" difficulty="3">
-			<l10n>
-				<name>Geographic Society 3</name>
-				<description>As Himiko, High Shaman, complete the Geographic Society Legacy Path thrice.</description>
-			</l10n>
-			<sortIndex>64220</sortIndex>
-			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_HIMIKO_ALT_CULTURE_VICTORY_MODERN" threshold="3" />
-			<reward type="XP" reward="25" />
-		</challenge>
-		<challenge id="CHALLENGE_HIMIKO_ALT_FLAWLESS_VICTORY_ANTIQUITY" scope="Campaign" difficulty="4">
-			<l10n>
-				<name>Dual Legacies, Antiquity</name>
-				<description>As Himiko, High Shaman, complete 2 Legacy Paths in a single Antiquity Age.</description>
-			</l10n>
-			<sortIndex>63100</sortIndex>
-			<campaignConfig event="CHALLENGE_EVENT_LEADER_HIMIKO_ALT_FLAWLESS_VICTORY_ACHIEVED" />
-			<rules>
-				<rule type="and">
-					<rule type="equals" var="legacyPathCount">2</rule>
-					<rule type="equals" var="age">AGE_ANTIQUITY</rule>
-				</rule>
-			</rules>
-			<reward type="XP" reward="50" />
-		</challenge>
-		<challenge id="CHALLENGE_HIMIKO_ALT_FLAWLESS_VICTORY_EXPLORATION" scope="Campaign" difficulty="4">
-			<l10n>
-				<name>Dual Legacies, Exploration</name>
-				<description>As Himiko, High Shaman, complete 2 Legacy Paths in a single Exploration Age.</description>
-			</l10n>
-			<sortIndex>63700</sortIndex>
-			<campaignConfig event="CHALLENGE_EVENT_LEADER_HIMIKO_ALT_FLAWLESS_VICTORY_ACHIEVED" />
-			<rules>
-				<rule type="and">
-					<rule type="equals" var="legacyPathCount">2</rule>
-					<rule type="equals" var="age">AGE_EXPLORATION</rule>
-				</rule>
-			</rules>
-			<reward type="XP" reward="50" />
-		</challenge>
-		<challenge id="CHALLENGE_HIMIKO_ALT_FLAWLESS_VICTORY_MODERN" scope="Campaign" difficulty="4">
-			<l10n>
-				<name>Dual Legacies, Modern</name>
-				<description>As Himiko, High Shaman, complete 2 Legacy Paths in a single Modern Age.</description>
-			</l10n>
-			<sortIndex>64300</sortIndex>
-			<campaignConfig event="CHALLENGE_EVENT_LEADER_HIMIKO_ALT_FLAWLESS_VICTORY_ACHIEVED" />
-			<rules>
-				<rule type="and">
-					<rule type="equals" var="legacyPathCount">2</rule>
-					<rule type="equals" var="age">AGE_MODERN</rule>
-				</rule>
-			</rules>
-			<reward type="XP" reward="50" />
-		</challenge>
-		<challenge id="CHALLENGE_HIMIKO_ALT_QUEST_A_ANTIQUITY" scope="Campaign" difficulty="2">
+		<challenge id="CHALLENGE_LEADER_HIMIKO_ALT_QUEST_A_ANTIQUITY" scope="Campaign" difficulty="2">
 			<l10n>
 				<name>Daughter of the Mountain</name>
-				<description>As Himiko, High Shaman, in Antiquity, complete a quest to influence the world.</description>
+				<description>As Himiko, High Shaman in Antiquity, complete a quest to influence the world.</description>
 			</l10n>
-			<sortIndex>65000</sortIndex>
+			<sortIndex>15100</sortIndex>
 			<reward type="XP" reward="50" />
 		</challenge>
-		<challenge id="CHALLENGE_HIMIKO_ALT_QUEST_B_ANTIQUITY" scope="Campaign" difficulty="2">
+		<challenge id="CHALLENGE_LEADER_HIMIKO_ALT_QUEST_B_ANTIQUITY" scope="Campaign" difficulty="2">
 			<l10n>
 				<name>Daughter of the Sun</name>
-				<description>As Himiko, High Shaman, in Antiquity, complete a quest to import treasures.</description>
+				<description>As Himiko, High Shaman in Antiquity, complete a quest to import treasures.</description>
 			</l10n>
-			<sortIndex>65005</sortIndex>
+			<sortIndex>15200</sortIndex>
 			<reward type="XP" reward="50" />
 		</challenge>
-		<challenge id="CHALLENGE_HIMIKO_ALT_QUEST_A_EXPLORATION" scope="Campaign" difficulty="2">
+		<challenge id="CHALLENGE_LEADER_HIMIKO_ALT_QUEST_A_EXPLORATION" scope="Campaign" difficulty="2">
 			<l10n>
-				<name>The Kami</name>
-				<description>As Himiko, High Shaman, in Exploration, complete a quest to spread the stories of Amaterasu.</description>
+				<name>Kegawa</name>
+				<description>As Himiko, High Shaman in Exploration,  complete a quest to collect nature's gifts.</description>
 			</l10n>
-			<sortIndex>65010</sortIndex>
+			<sortIndex>15300</sortIndex>
 			<reward type="XP" reward="50" />
 		</challenge>
-		<challenge id="CHALLENGE_HIMIKO_ALT_QUEST_B_EXPLORATION" scope="Campaign" difficulty="2">
+		<challenge id="CHALLENGE_LEADER_HIMIKO_ALT_QUEST_B_EXPLORATION" scope="Campaign" difficulty="2">
 			<l10n>
-				<name>Divine Prosperity</name>
-				<description>As Himiko, High Shaman, in Exploration, complete a quest to celebrate grace and elegance.</description>
+				<name>Hisui</name>
+				<description>As Himiko, High Shaman in Exploration, complete a quest to gather jade.</description>
 			</l10n>
-			<sortIndex>65015</sortIndex>
+			<sortIndex>15400</sortIndex>
 			<reward type="XP" reward="50" />
 		</challenge>
-		<challenge id="CHALLENGE_HIMIKO_ALT_QUEST_A_MODERN" scope="Campaign" difficulty="2">
+		<challenge id="CHALLENGE_LEADER_HIMIKO_ALT_QUEST_A_MODERN" scope="Campaign" difficulty="2">
 			<l10n>
-				<name>Himiko, Triumphant</name>
-				<description>As Himiko, High Shaman, in Modern, complete a quest to collect symbols of the past.</description>
+				<name>Himiko Triumphant</name>
+				<description>As Himiko, High Shaman in Modern, complete a quest to collect symbols of the past.</description>
 			</l10n>
-			<sortIndex>65020</sortIndex>
+			<sortIndex>15500</sortIndex>
 			<reward type="XP" reward="50" />
 		</challenge>
-		<challenge id="CHALLENGE_HIMIKO_ALT_QUEST_B_MODERN" scope="Campaign" difficulty="2">
+		<challenge id="CHALLENGE_LEADER_HIMIKO_ALT_QUEST_B_MODERN" scope="Campaign" difficulty="2">
 			<l10n>
 				<name>Amaterasu Triumphant</name>
-				<description>As Himiko, High Shaman, in Modern, complete a quest to amplify production.</description>
+				<description>As Himiko, High Shaman in Modern, complete a quest to amplify production.</description>
 			</l10n>
-			<sortIndex>65025</sortIndex>
+			<sortIndex>15600</sortIndex>
 			<reward type="XP" reward="50" />
 		</challenge>
-		<challenge id="CHALLENGE_HIMIKO_ALT_UNLOCKED_STRATEGYCARDS_EXPLORATION" scope="Campaign" difficulty="1" hidden="true" allowRewardWhenHidden="true">
+		<challenge id="CHALLENGE_HIMIKO_ALT_CULTURE_VICTORY" scope="Campaign" difficulty="2">
+			<l10n>
+				<name>Cultural Victory</name>
+				<description>As Himiko, High Shaman, achieve a Cultural victory.</description>
+			</l10n>
+			<sortIndex>15700</sortIndex>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_HIMIKO_ALT_MILITARY_VICTORY" scope="Campaign" difficulty="2">
+			<l10n>
+				<name>Military Victory</name>
+				<description>As Himiko, High Shaman, achieve a Militaristic victory.</description>
+			</l10n>
+			<sortIndex>15800</sortIndex>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_HIMIKO_ALT_ECONOMIC_VICTORY" scope="Campaign" difficulty="2">
+			<l10n>
+				<name>Economic Victory</name>
+				<description>As Himiko, High Shaman, achieve an Economic victory.</description>
+			</l10n>
+			<sortIndex>15900</sortIndex>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_HIMIKO_ALT_SCIENCE_VICTORY" scope="Campaign" difficulty="2">
+			<l10n>
+				<name>Scientific Victory</name>
+				<description>As Himiko, High Shaman, achieve a Scientific victory.</description>
+			</l10n>
+			<sortIndex>16000</sortIndex>
+			<reward type="XP" reward="25" />
+		</challenge>
+		<challenge id="CHALLENGE_HIMIKO_ALT_DEITY_VICTORY" scope="Campaign" difficulty="2">
+			<l10n>
+				<name>Deity Victory</name>
+				<description>As Himiko, High Shaman, achieve a victory on Deity level of Difficulty.</description>
+			</l10n>
+			<sortIndex>16100</sortIndex>
+			<reward type="XP" reward="50" />
+		</challenge>
+		<!-- Hidden Challenges -->
+		<challenge id="CHALLENGE_LEADER_HIMIKO_ALT_UNLOCKED_STRATEGYCARDS_EXPLORATION_RECOVER" scope="Career" difficulty="1" hidden="true" allowRewardWhenHidden="true">
 			<l10n>
 				<name>Age Transition Card Exploration</name>
-				<description>As Himiko, High Shaman, unlock age transition legend strategycards for exploration age.</description>
+				<description>As Himiko, High Shaman unlock age transition legend strategycards for Exploration Age.</description>
 			</l10n>
-			<sortIndex>64301</sortIndex>
+			<sortIndex>20000</sortIndex>
+			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_HIMIKO_ALT_UNLOCKED_STRATEGYCARDS_EXPLORATION_COMPLETED" threshold="1" />
 			<reward type="UnlockableReward" reward="STRATEGYCARD_AS_HIMIKO_SHAMAN_EXPLORATION_1" />
 			<reward type="UnlockableReward" reward="STRATEGYCARD_AS_HIMIKO_SHAMAN_EXPLORATION_2" />
 		</challenge>
-		<challenge id="CHALLENGE_HIMIKO_ALT_UNLOCKED_STRATEGYCARDS_MODERN" scope="Campaign" difficulty="1" hidden="true" allowRewardWhenHidden="true">
+		<challenge id="CHALLENGE_LEADER_HIMIKO_ALT_UNLOCKED_STRATEGYCARDS_MODERN_RECOVER" scope="Career" difficulty="1" hidden="true" allowRewardWhenHidden="true">
 			<l10n>
 				<name>Age Transition Card Modern</name>
-				<description>As Himiko, High Shaman, unlock age transition legend strategycards for modern age.</description>
+				<description>As Himiko, High Shaman unlock age transition legend strategycards for Modern Age.</description>
 			</l10n>
-			<sortIndex>64302</sortIndex>
+			<sortIndex>20100</sortIndex>
+			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_HIMIKO_ALT_UNLOCKED_STRATEGYCARDS_MODERN_COMPLETED" threshold="1" />
 			<reward type="UnlockableReward" reward="STRATEGYCARD_AS_HIMIKO_SHAMAN_MODERN_1" />
 			<reward type="UnlockableReward" reward="STRATEGYCARD_AS_HIMIKO_SHAMAN_MODERN_2" />
 		</challenge>

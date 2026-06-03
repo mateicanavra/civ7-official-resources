@@ -1,4 +1,4 @@
-import { U as UpdateGate } from '../../../core/ui/utilities/utilities-update-gate.chunk.js';
+import UpdateGate from '../../../core/ui/utilities/utilities-update-gate.js';
 
 class PlayerUnlockModel {
   onUpdate;
@@ -129,7 +129,7 @@ class PlayerUnlockModel {
   }
   getAgelessTraditions() {
     const localPlayer = Players.get(GameContext.localPlayerID);
-    const playerTraditions = localPlayer?.Culture?.getUnlockedTraditions();
+    const playerTraditions = localPlayer?.Culture?.getAllUnlockedTraditions();
     const unlockedTraditions = [];
     playerTraditions?.forEach((traditionHash) => {
       const traditionInfo = GameInfo.Traditions.lookup(traditionHash);

@@ -1,17 +1,10 @@
 import ContextManager from '../../../core/ui/context-manager/context-manager.js';
-import { a as DialogBoxManager } from '../../../core/ui/dialog-box/manager-dialog-box.chunk.js';
-import FocusManager from '../../../core/ui/input/focus-manager.js';
-import { P as Panel, A as AnchorType } from '../../../core/ui/panel-support.chunk.js';
-import { Icon } from '../../../core/ui/utilities/utilities-image.chunk.js';
-import PopupSequencer from '../popup-sequencer/popup-sequencer.js';
-import '../../../core/ui/context-manager/display-queue-manager.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/input/cursor.js';
-import '../../../core/ui/views/view-manager.chunk.js';
-import '../../../core/ui/audio-base/audio-support.chunk.js';
-import '../../../core/ui/utilities/utilities-component-id.chunk.js';
-
-const styles = "fs://game/base-standard/ui/sub-system-dock/panel-sub-system-dock.css";
+import { DialogBoxManager } from '../../../core/ui/dialog-box/manager-dialog-box.js';
+import { ModdingRegistry } from '../../../core/ui/modding-registry-handler/modding-registry-handler.js';
+import Panel, { AnchorType } from '../../../core/ui/panel-support.js';
+import { Icon } from '../../../core/ui/utilities/utilities-image.js';
+import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
+import styles from './panel-sub-system-dock.scss.js';
 
 class PanelSubSystemDock extends Panel {
   buttonContainer = document.createElement("fxs-hslot");
@@ -24,8 +17,8 @@ class PanelSubSystemDock extends Panel {
   techRing = null;
   techTurnCounter = null;
   goldenAgeCrown;
-  goldenAgeTurns;
   policiesButton = null;
+  policiesTurnCounter;
   resourcesButton = null;
   focusSubsystemListener = this.onFocusSubsystem.bind(this);
   onInitialize() {
@@ -40,7 +33,7 @@ class PanelSubSystemDock extends Panel {
       const ageElements = this.addRingButton({
         useCrisisMeter: false,
         tooltip: "LOC_UI_VICTORY_PROGRESS",
-        callback: this.openRankings,
+        callback: this.openVictories,
         class: ["ring-age", "tut-age"],
         ringClass: "ssb__texture-ring",
         modifierClass: "ageextended",
@@ -53,7 +46,7 @@ class PanelSubSystemDock extends Panel {
       const ageElements = this.addRingButton({
         useCrisisMeter: true,
         tooltip: "LOC_UI_VICTORY_PROGRESS",
-        callback: this.openRankings,
+        callback: this.openVictories,
         class: ["ring-age", "tut-age"],
         ringClass: "ssb__texture-ring",
         modifierClass: "agetimer",
@@ -87,13 +80,15 @@ class PanelSubSystemDock extends Panel {
     this.cultureButton = cultureElements.button;
     this.cultureRing = cultureElements.ring;
     this.cultureTurnCounter = cultureElements.turnCounter;
+    this.policiesTurnCounter = this.createTurnCounter(true);
     this.policiesButton = this.addButton({
       tooltip: "LOC_UI_VIEW_TRADITIONS",
       modifierClass: "gov",
       callback: this.onOpenPolicies.bind(this),
       class: "tut-traditions",
       audio: "government",
-      focusedAudio: "data-audio-focus-small"
+      focusedAudio: "data-audio-focus-small",
+      turnCounter: this.policiesTurnCounter
     });
     this.goldenAgeCrown = document.createElement("div");
     this.goldenAgeCrown.classList.add(
@@ -104,18 +99,6 @@ class PanelSubSystemDock extends Panel {
       "bg-cover",
       "hidden"
     );
-    const turnsBG = document.createElement("div");
-    turnsBG.classList.add("sub-system-dock--golden-age-timer-bg", "relative", "w-7", "self-center");
-    this.goldenAgeTurns = document.createElement("div");
-    this.goldenAgeTurns.classList.add(
-      "sub-system-dock--golden-age-timer",
-      "relative",
-      "font-title-base",
-      "text-shadow",
-      "self-center"
-    );
-    turnsBG.appendChild(this.goldenAgeTurns);
-    this.goldenAgeCrown.appendChild(turnsBG);
     this.policiesButton.appendChild(this.goldenAgeCrown);
     this.resourcesButton = this.addButton({
       tooltip: "LOC_UI_VIEW_RESOURCE_ALLOCATION",
@@ -144,15 +127,26 @@ class PanelSubSystemDock extends Panel {
       });
     }
     this.addButton({
-      tooltip: "LOC_UI_VIEW_UNLOCKS",
-      modifierClass: "unlocks",
-      callback: this.onOpenUnlocks.bind(this),
-      class: "tut-unlocks",
+      tooltip: "LOC_UI_VIEW_ADVISORS",
+      modifierClass: "advisors",
+      callback: this.onOpenAdvisorCouncil.bind(this),
+      class: "tut-advisors",
+      audio: "unlocks",
+      focusedAudio: "data-audio-focus-small"
+    });
+    this.addButton({
+      tooltip: "LOC_UI_VIEW_LEGACIES",
+      modifierClass: "legacies",
+      callback: this.onOpenLegacies.bind(this),
+      class: "tut-legacies",
       audio: "unlocks",
       focusedAudio: "data-audio-focus-small"
     });
     this.attachAdditionalInfo(this.resourcesButton, null);
     this.updateButtonTimers();
+    const moddingButtonContainer = document.createElement("fxs-hslot");
+    moddingButtonContainer.id = "panel-sub-system-dock-mod-slot";
+    this.buttonContainer.appendChild(moddingButtonContainer);
     this.Root.appendChild(fragment);
   }
   onAttach() {
@@ -175,31 +169,41 @@ class PanelSubSystemDock extends Panel {
     this.Root.listenForEngineEvent("PlotOwnershipChanged", this.updateResourcesButton, this);
     this.Root.listenForEngineEvent("GameExtended", this.onGameExtended, this);
     this.Root.listenForWindowEvent("focus-sub-system", this.focusSubsystemListener);
+    this.Root.listenForWindowEvent("hotkey-open-trade", this.onTradeHotkey);
+    this.Root.listenForWindowEvent("hotkey-open-religion", this.onReligionHotkey);
+    this.Root.listenForWindowEvent("hotkey-open-advisors", this.onAdvisorsHotkey);
+    this.Root.listenForWindowEvent("hotkey-open-legacies", this.onLegaciesHotkey);
+    ModdingRegistry.attachModElements("panel-sub-system-dock");
   }
   onDetach() {
     super.onDetach();
   }
   generateOpenCallbacks(callbacks) {
     callbacks["screen-culture-tree-chooser"] = this.openCultureChooser;
-    callbacks["screen-victory-progress"] = this.openRankings;
+    callbacks["screen-victory-progress"] = this.openVictories;
     callbacks["screen-tech-tree-chooser"] = this.openTechChooser;
     callbacks["screen-policies"] = this.onOpenPolicies;
     callbacks["screen-great-works"] = this.onOpenGreatWorks;
     callbacks["screen-resource-allocation"] = this.onOpenResourceAllocation;
-    callbacks["screen-unlocks"] = this.onOpenUnlocks;
     const religionScreen = this.getReligionScreenName();
     callbacks["screen-pantheon-chooser"] = religionScreen == "screen-pantheon-chooser" ? this.openReligionViewer : void 0;
     callbacks["panel-pantheon-complete"] = religionScreen == "panel-pantheon-complete" ? this.openReligionViewer : void 0;
     callbacks["panel-religion-picker"] = religionScreen == "panel-religion-picker" ? this.openReligionViewer : void 0;
     callbacks["panel-belief-picker"] = religionScreen == "panel-belief-picker" ? this.openReligionViewer : void 0;
   }
-  addRingButton(buttonData, index) {
+  createTurnCounter(isForPolicyButton) {
     const turnCounter = document.createElement("div");
     turnCounter.classList.add("ssb-button__turn-counter");
     turnCounter.setAttribute("data-tut-highlight", "founderHighlight");
+    turnCounter.classList.toggle("ssb-button__turn-counter__policies", isForPolicyButton);
+    turnCounter.classList.toggle("flex", isForPolicyButton);
     const turnCounterContent = document.createElement("div");
     turnCounterContent.classList.add("ssb-button__turn-counter-content", "font-title-base");
     turnCounter.appendChild(turnCounterContent);
+    return turnCounter;
+  }
+  addRingButton(buttonData, index) {
+    const turnCounter = this.createTurnCounter(false);
     const ringAndButton = {
       button: this.createButton(buttonData),
       ring: this.createRing(buttonData),
@@ -248,6 +252,9 @@ class PanelSubSystemDock extends Panel {
   createButton(buttonData) {
     const button = document.createElement("fxs-activatable");
     {
+      if (buttonData.turnCounter != void 0) {
+        button.append(buttonData.turnCounter);
+      }
       button.classList.add("ssb__button", buttonData.modifierClass);
       button.setAttribute("data-tut-highlight", "founderHighlight");
       Array.isArray(buttonData.class) ? button.classList.add(...buttonData.class) : button.classList.add(buttonData.class);
@@ -260,7 +267,7 @@ class PanelSubSystemDock extends Panel {
       }
       button.addEventListener("action-activate", (_event) => {
         buttonData.callback();
-        FocusManager.clearFocus(button);
+        FocusManager.get().clearFocus(button);
       });
       const buttonIconBg = document.createElement("div");
       {
@@ -328,7 +335,7 @@ class PanelSubSystemDock extends Panel {
     if (content) {
       content.textContent = amount.toString();
     }
-    element.classList.toggle("ssb-button__turn-counter--hidden", amount == 0 || amount == "");
+    element.classList.toggle("hidden", amount == 0 || amount == "");
   }
   updateButtonIcon(element, icon) {
     const iconElement = element.querySelector(".ssb__button-icon");
@@ -345,7 +352,7 @@ class PanelSubSystemDock extends Panel {
     this.updateCultureButtonTimer();
     this.updateTechButtonTimer();
     this.updateResourcesButton();
-    this.updatePoliciesTooltip();
+    this.updatePoliciesStructure();
   }
   updateCultureButtonTimer() {
     if (!this.cultureButton) {
@@ -380,10 +387,11 @@ class PanelSubSystemDock extends Panel {
             nodeData.nodeType
           );
           if (nodeInfo) {
-            cultureNameString = Locale.compose(nodeInfo.Name ?? nodeInfo.ProgressionTreeNodeType);
+            cultureNameString = nodeInfo.Name ?? nodeInfo.ProgressionTreeNodeType;
             if (nodeData.depthUnlocked >= 1) {
               const depthNumeral = Locale.toRomanNumeral(nodeData.depthUnlocked + 1);
               if (depthNumeral) {
+                cultureNameString = Locale.compose(cultureNameString);
                 cultureNameString += " " + depthNumeral;
               }
             }
@@ -485,7 +493,7 @@ class PanelSubSystemDock extends Panel {
     let techTimer = 0;
     let techTooltipString = "";
     let techIcon = "";
-    let techProgressRatio = 100;
+    let techProgressRatio = 1;
     let techNameString = "";
     const techs = localPlayer.Techs;
     if (techs) {
@@ -497,10 +505,11 @@ class PanelSubSystemDock extends Panel {
         if (nodeData) {
           const nodeInfo = GameInfo.ProgressionTreeNodes.lookup(activeNode.nodeType);
           if (nodeInfo) {
-            techNameString = Locale.compose(nodeInfo.Name ?? nodeInfo.ProgressionTreeNodeType);
+            techNameString = nodeInfo.Name ?? nodeInfo.ProgressionTreeNodeType;
             if (nodeData.depthUnlocked >= 1) {
               const depthNumeral = Locale.toRomanNumeral(nodeData.depthUnlocked + 1);
               if (depthNumeral) {
+                techNameString = Locale.compose(techNameString);
                 techNameString += " " + depthNumeral;
               }
             }
@@ -512,7 +521,11 @@ class PanelSubSystemDock extends Panel {
               techNameString,
               techTimer
             );
-            techProgressRatio = 1 - nodeData.progress / cost;
+            if (cost !== 0) {
+              techProgressRatio = 1 - nodeData.progress / cost;
+            } else {
+              techProgressRatio = 1;
+            }
           }
         }
       }
@@ -526,7 +539,10 @@ class PanelSubSystemDock extends Panel {
     }
     this.techRing?.setAttribute("value", (100 - techProgressRatio * 100).toString());
   }
-  updatePoliciesTooltip() {
+  /**
+   * Update the policies structure, including the tooltip, the turn counter, and the golden age crown.
+   */
+  updatePoliciesStructure() {
     const localPlayer = Players.get(GameContext.localPlayerID);
     if (!localPlayer) {
       console.error("panel-sub-system-dock: createTraditionsTooltip() - No local player!");
@@ -543,6 +559,7 @@ class PanelSubSystemDock extends Panel {
       return;
     }
     if (localPlayerHappiness.isInGoldenAge()) {
+      this.goldenAgeCrown.classList.remove("hidden");
       const goldenAgeTurnsLeft = localPlayerHappiness.getGoldenAgeTurnsLeft();
       const goldenAgeType = localPlayerHappiness.getCurrentGoldenAge();
       const celebrationItemDef = GameInfo.GoldenAges.lookup(goldenAgeType);
@@ -561,20 +578,41 @@ class PanelSubSystemDock extends Panel {
           Locale.compose("LOC_SUB_SYSTEM_TRADITIONS_TURNS_UNTIL_CELEBRATION_END", goldenAgeTurnsLeft)
         );
       }
-      this.goldenAgeTurns.innerHTML = goldenAgeTurnsLeft.toString();
-      this.goldenAgeCrown.classList.remove("hidden");
+      const displayPoliciesTurnCounter = goldenAgeTurnsLeft > 0 && goldenAgeTurnsLeft < Infinity;
+      this.policiesTurnCounter?.classList.toggle("ssb-button__turn-counter-hidden", !displayPoliciesTurnCounter);
+      this.updateProgressLabel(this.policiesTurnCounter, goldenAgeTurnsLeft);
+      this.policiesTurnCounter.classList.add(
+        "sub-system-dock--golden-age-timer-bg",
+        "ssb-button__turn-counter_policies-celebration"
+      );
+      this.policiesTurnCounter?.classList.toggle(
+        "ssb-button__turn-counter-wide",
+        goldenAgeTurnsLeft >= 10 && goldenAgeTurnsLeft < Infinity
+      );
     } else {
+      this.goldenAgeCrown.classList.add("hidden");
       const happinessPerTurn = localPlayerStats.getNetYield(YieldTypes.YIELD_HAPPINESS) ?? -1;
       const nextGoldenAgeThreshold = localPlayerHappiness.nextGoldenAgeThreshold;
       const happinessTotal = Math.ceil(localPlayerStats.getLifetimeYield(YieldTypes.YIELD_HAPPINESS)) ?? -1;
-      const turnsToNextGoldenAge = Math.ceil(
-        (nextGoldenAgeThreshold - happinessTotal) / happinessPerTurn
+      const turnsToNextGoldenAge = Math.max(
+        1,
+        Math.ceil((nextGoldenAgeThreshold - happinessTotal) / happinessPerTurn)
       );
       this.policiesButton?.setAttribute(
         "data-tooltip-content",
         Locale.compose("LOC_SUB_SYSTEM_TRADITIONS_TURNS_UNTIL_CELEBRATION_START", turnsToNextGoldenAge)
       );
-      this.goldenAgeCrown.classList.add("hidden");
+      const displayPoliciesTurnCounter = turnsToNextGoldenAge < Infinity;
+      this.policiesTurnCounter?.classList.remove("sub-system-dock--golden-age-timer-bg");
+      this.policiesTurnCounter?.classList.remove("ssb-button__turn-counter_policies-celebration");
+      this.policiesTurnCounter?.classList.toggle("ssb-button__turn-counter-hidden", !displayPoliciesTurnCounter);
+      this.policiesTurnCounter?.classList.toggle(
+        "ssb-button__turn-counter-wide",
+        turnsToNextGoldenAge >= 10 && turnsToNextGoldenAge < Infinity
+      );
+      if (displayPoliciesTurnCounter) {
+        this.updateProgressLabel(this.policiesTurnCounter, turnsToNextGoldenAge);
+      }
     }
   }
   updateResourcesButton() {
@@ -605,57 +643,63 @@ class PanelSubSystemDock extends Panel {
       );
     }
   }
+  // NOTE: The "PlayerYieldChanged" engine event, which this function is a callback for, is not currently connected to GameCore.
   onPlayerYieldUpdated(data) {
-    if (data.player && data.player != GameContext.localPlayerID) {
+    if (data.player != GameContext.localPlayerID) {
       return;
     }
-    if (data.yield == YieldTypes.YIELD_CULTURE) {
-      this.updateCultureButtonTimer();
-    } else if (data.yield == YieldTypes.YIELD_SCIENCE) {
-      this.updateTechButtonTimer();
-    }
+    this.playerYieldChanged(data.yield);
   }
   onPlayerYieldGranted(data) {
-    if (data.player && data.player != GameContext.localPlayerID) {
+    if (data.player != GameContext.localPlayerID) {
       return;
     }
-    if (data.yield == YieldTypes.YIELD_CULTURE) {
-      this.updateCultureButtonTimer();
-    } else if (data.yield == YieldTypes.YIELD_SCIENCE) {
-      this.updateTechButtonTimer();
+    this.playerYieldChanged(data.yield);
+  }
+  playerYieldChanged(YieldGranted) {
+    switch (YieldGranted) {
+      case YieldTypes.YIELD_CULTURE:
+        this.updateCultureButtonTimer();
+        break;
+      case YieldTypes.YIELD_SCIENCE:
+        this.updateTechButtonTimer();
+        break;
+      case YieldTypes.YIELD_HAPPINESS:
+        this.updatePoliciesStructure();
+        break;
     }
   }
   onTechsUpdated(data) {
-    if (data.player && data.player != GameContext.localPlayerID) {
+    if (data.player != GameContext.localPlayerID) {
       return;
     }
     this.updateTechButtonTimer();
   }
   onTechTargetUpdated(data) {
-    if (data.player && data.player != GameContext.localPlayerID) {
+    if (data.player != GameContext.localPlayerID) {
       return;
     }
     this.updateTechButtonTimer();
   }
   onCultureUpdated(data) {
-    if (data.player && data.player != GameContext.localPlayerID) {
+    if (data.player != GameContext.localPlayerID) {
       return;
     }
     this.updateCultureButtonTimer();
   }
   onCultureTargetUpdated(data) {
-    if (data.player && data.player != GameContext.localPlayerID) {
+    if (data.player != GameContext.localPlayerID) {
       return;
     }
     this.updateCultureButtonTimer();
   }
   onPlayerTurnEnd(data) {
-    if (data.player && data.player != GameContext.localPlayerID) {
+    if (data.player != GameContext.localPlayerID) {
       return;
     }
   }
   onPlayerTurnBegin(data) {
-    if (data.player && data.player != GameContext.localPlayerID) {
+    if (data.player != GameContext.localPlayerID) {
       return;
     }
     this.updateButtonTimers();
@@ -671,7 +715,7 @@ class PanelSubSystemDock extends Panel {
       {
         useCrisisMeter: false,
         tooltip: "LOC_UI_VICTORY_PROGRESS",
-        callback: this.openRankings,
+        callback: this.openVictories,
         class: ["ring-age", "tut-age"],
         ringClass: "ssb__texture-ring",
         modifierClass: "ageextended",
@@ -688,9 +732,9 @@ class PanelSubSystemDock extends Panel {
     if (this.techButton) {
       const focus = this.Root.querySelector(":focus");
       if (focus) {
-        FocusManager.clearFocus(focus);
+        FocusManager.get().clearFocus(focus);
       } else {
-        FocusManager.setFocus(this.techButton);
+        FocusManager.get().setFocus(this.techButton);
       }
     }
   }
@@ -703,8 +747,8 @@ class PanelSubSystemDock extends Panel {
   onOpenPolicies() {
     ContextManager.push("screen-policies", { singleton: true, createMouseGuard: true });
   }
-  openRankings() {
-    ContextManager.push("screen-victory-progress", { singleton: true, createMouseGuard: true });
+  openVictories() {
+    ContextManager.push("screen-victory-progress", { singleton: true, createMouseGuard: false });
   }
   onOpenGreatWorks() {
     ContextManager.push("screen-great-works", { singleton: true, createMouseGuard: true });
@@ -712,16 +756,14 @@ class PanelSubSystemDock extends Panel {
   onOpenResourceAllocation() {
     ContextManager.push("screen-resource-allocation", { singleton: true, createMouseGuard: true });
   }
-  onOpenUnlocks() {
-    const unlocksData = {
-      category: PopupSequencer.getCategory(),
-      screenId: "screen-unlocks",
-      properties: { singleton: true, createMouseGuard: true }
-    };
-    PopupSequencer.addDisplayRequest(unlocksData);
+  onOpenLegacies() {
+    ContextManager.push("screen-legacies", { singleton: true, createMouseGuard: true });
+  }
+  onOpenAdvisorCouncil() {
+    ContextManager.push("screen-advisor-council", { singleton: true, createMouseGuard: true });
   }
   onGoldenAgeChanged() {
-    this.updatePoliciesTooltip();
+    this.updatePoliciesStructure();
   }
   getReligionScreenName() {
     const curAge = Game.age;
@@ -742,7 +784,7 @@ class PanelSubSystemDock extends Panel {
         return;
       }
       const numPantheonsToAdd = playerReligion.getNumPantheonsUnlocked();
-      const mustAddPantheons = playerCulture.isNodeUnlocked("NODE_CIVIC_AQ_MAIN_MYSTICISM") && numPantheonsToAdd > 0;
+      const mustAddPantheons = numPantheonsToAdd > 0;
       if (mustAddPantheons) {
         return "screen-pantheon-chooser";
       } else {
@@ -766,6 +808,38 @@ class PanelSubSystemDock extends Panel {
     }
     return;
   }
+  onReligionHotkey = () => {
+    const screen = this.getReligionScreenName();
+    if (!screen) {
+      return;
+    }
+    if (ContextManager.getCurrentTarget()?.tagName == screen.toUpperCase()) {
+      ContextManager.pop(ContextManager.getCurrentTarget());
+    } else {
+      this.openReligionViewer();
+    }
+  };
+  onTradeHotkey = () => {
+    if (ContextManager.getCurrentTarget()?.tagName == "SCREEN-RESOURCE-ALLOCATION") {
+      ContextManager.pop(ContextManager.getCurrentTarget());
+    } else {
+      ContextManager.push("screen-resource-allocation", { singleton: true, createMouseGuard: true });
+    }
+  };
+  onAdvisorsHotkey = () => {
+    if (ContextManager.getCurrentTarget()?.tagName == "SCREEN-ADVISOR-COUNCIL") {
+      ContextManager.pop(ContextManager.getCurrentTarget());
+    } else {
+      ContextManager.push("screen-advisor-council", { singleton: true, createMouseGuard: true });
+    }
+  };
+  onLegaciesHotkey = () => {
+    if (ContextManager.getCurrentTarget()?.tagName == "SCREEN-LEGACIES") {
+      ContextManager.pop(ContextManager.getCurrentTarget());
+    } else {
+      ContextManager.push("screen-legacies", { singleton: true, createMouseGuard: true });
+    }
+  };
   openReligionViewer() {
     const screen = this.getReligionScreenName();
     if (screen) {
@@ -787,11 +861,11 @@ Controls.define("panel-sub-system-dock", {
   opens: [
     "screen-culture-tree-chooser",
     "screen-victory-progress",
+    "screen-advisor-council",
     "screen-tech-tree-chooser",
     "screen-policies",
     "screen-great-works",
     "screen-resource-allocation",
-    "screen-unlocks",
     "screen-pantheon-chooser",
     "panel-pantheon-complete",
     "panel-religion-picker",

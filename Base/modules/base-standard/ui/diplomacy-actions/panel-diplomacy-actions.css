@@ -257,6 +257,18 @@
     height: 25rem;
   }
 }
+@media (experience: mobile) {
+  .panel-diplomacy-actions__ribbons-not-showing {
+    height: 42.4444444444rem;
+    top: 12.7777777778rem;
+  }
+}
+@media (experience: mobile) and (max-height: 55.5555555556rem) {
+  .panel-diplomacy-actions__ribbons-not-showing {
+    height: 24.1111111111rem;
+    top: 12.3333333333rem;
+  }
+}
 
 .panel-diplomacy-actions__ribbons-showing {
   height: 27.7777777778rem;
@@ -266,6 +278,23 @@
   .panel-diplomacy-actions__ribbons-showing {
     height: 16.6666666667rem;
     top: 21.3888888889rem;
+  }
+}
+@media (experience: mobile) {
+  .panel-diplomacy-actions__ribbons-showing {
+    height: 35.1111111111rem;
+    top: 21.6666666667rem;
+  }
+}
+@media (experience: mobile) and (max-height: 55.5555555556rem) {
+  .panel-diplomacy-actions__ribbons-showing {
+    height: 15.5555555556rem;
+    top: 21.1111111111rem;
+  }
+}
+@media (experience: mobile) {
+  .panel-diplomacy-actions__ribbons-showing .fxs-scrollbar__track--vertical {
+    margin-top: 2.2222222222rem;
   }
 }
 

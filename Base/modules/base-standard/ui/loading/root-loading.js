@@ -99,7 +99,6 @@ window.addEventListener("load", function() {
       anim.classList.remove("hidden");
     }
   });
-  UI.notifyUIReady();
   UI.lockCursor(true);
   UI.setCursorByType(UIHTMLCursorTypes.Default);
   UI.hideCursor();
@@ -113,24 +112,26 @@ window.addEventListener("load", function() {
       }, 250);
     }
   }
-  if (shouldTransition()) {
-    transition();
-  } else {
-    const whenReadyToTransition = new Promise((resolve, _reject) => {
-      engine.whenReady.then(() => {
-        const eventName = "UIGameLoadingStateChanged";
-        const callback = () => {
-          if (shouldTransition()) {
-            engine.off(eventName, callback);
-            resolve();
-          }
-        };
-        engine.on(eventName, callback);
-      });
-    });
-    whenReadyToTransition.then(() => {
+  if (UI.getGameLoadingState() != UIGameLoadingState.WaitingForGameUnloadScreenReady) {
+    if (shouldTransition()) {
       transition();
-    });
+    } else {
+      const whenReadyToTransition = new Promise((resolve, _reject) => {
+        engine.whenReady.then(() => {
+          const eventName = "UIGameLoadingStateChanged";
+          const callback = () => {
+            if (shouldTransition()) {
+              engine.off(eventName, callback);
+              resolve();
+            }
+          };
+          engine.on(eventName, callback);
+        });
+      });
+      whenReadyToTransition.then(() => {
+        transition();
+      });
+    }
   }
 });
 function updateLoadingBarWidthRatio(numerator, denominator) {
@@ -160,5 +161,13 @@ engine.whenReady.then(() => {
   engine.on("AppInForeground", setRootLoadingSafeMargins);
   engine.on("update-safe-area", setRootLoadingSafeMargins);
   setRootLoadingSafeMargins();
+  if (UI.isTransitioningBetweenAges()) {
+    document.body.classList.add("age-transition");
+    requestAnimationFrame(() => {
+      UI.notifyUIReady();
+    });
+  } else {
+    UI.notifyUIReady();
+  }
 });
 //# sourceMappingURL=root-loading.js.map

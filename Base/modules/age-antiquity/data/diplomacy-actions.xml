@@ -4,32 +4,41 @@
 		<Row Type="DIPLOMACY_ACTION_WONDER_CONSTRUCTION" Kind="KIND_DIPLOMACY_ACTION" />
 		<Row Type="DIPLOMACY_WONDER_CONSTRUCTION_COMPLETE" Kind="KIND_DIPLOMACY_ACTION_STAGE" />
 		<Row Type="DIPLOMACY_ACTION_SEND_DELEGATION_DIPLOMATIC_CITY_STATE_BONUS" Kind="KIND_DIPLOMACY_ACTION" />
-		<Row Type="DIPLOMACY_ACTION_SEND_DELEGATION_DIPLOMATIC_CITY_STATE_BONUS_COMPLETE" Kind="KIND_DIPLOMACY_ACTION_STAGE" />	
+		<Row Type="DIPLOMACY_ACTION_SEND_DELEGATION_DIPLOMATIC_CITY_STATE_BONUS_COMPLETE" Kind="KIND_DIPLOMACY_ACTION_STAGE" />
+		<!-- <Row Type="DIPLOMACY_ACTION_PIONEERING" Kind="KIND_DIPLOMACY_ACTION" />
+		<Row Type="DIPLOMACY_PIONEERING_START" Kind="KIND_DIPLOMACY_ACTION_STAGE" />-->
 	</Types>
 	<DiplomacyActions>
-		<Row DiplomacyActionType="DIPLOMACY_ACTION_WONDER_CONSTRUCTION" Name="LOC_DIPLOMACY_PROJECT_WONDER_CONSTRUCTION_NAME" Description="LOC_DIPLOMACY_PROJECT_WONDER_CONSTRUCTION_NO_DATA" BaseTokenCost="1" BaseDuration="15" Symmetrical="false" Opposed="true" IsMutualSupport="false" SupportFavors="1500" TargetFavors="1000" TargetFavorsFreq="3" RejectionRefundsInfluence="true"/>
+		<Row DiplomacyActionType="DIPLOMACY_ACTION_WONDER_CONSTRUCTION" Name="LOC_DIPLOMACY_PROJECT_WONDER_CONSTRUCTION_NAME" Description="LOC_DIPLOMACY_PROJECT_WONDER_CONSTRUCTION_NO_DATA" BaseTokenCost="1" BaseDuration="15" Symmetrical="false" Opposed="true" IsMutualSupport="false" SupportFavors="1500" TargetFavors="1000" TargetFavorsFreq="3" RejectionRefundsInfluence="true" UIIconPath="blp:dipaction_wonder"/>
 		<Row DiplomacyActionType="DIPLOMACY_ACTION_SEND_DELEGATION_DIPLOMATIC_CITY_STATE_BONUS" Name="LOC_DIPLOMACY_PROJECT_SEND_DELEGATION_DIPLOMATIC_CITY_STATE_BONUS_NAME" Description="LOC_DIPLOMACY_PROJECT_SEND_DELEGATION_DIPLOMATIC_CITY_STATE_BONUS_NO_DATA" BaseTokenCost="1" BaseDuration="15" Symmetrical="false" Opposed="true" IsMutualSupport="true" SupportFavors="1500" TargetFavors="1000" TargetFavorsFreq="3" RejectionRefundsInfluence="true" RequiresUnlock="true" UIIconPath="blp:dipaction_senddelegation"/>
+		<!-- <Row DiplomacyActionType="DIPLOMACY_ACTION_PIONEERING" Name="LOC_DIPLOMACY_PROJECT_PIONEERING_NAME" Description="LOC_DIPLOMACY_PROJECT_PIONEERING_NO_DATA" BaseTokenCost="1" BaseDuration="15" Symmetrical="true" IsMutualSupport="true" SupportFavors="1500" TargetFavors="1000" TargetFavorsFreq="3" RequestString="LOC_DIPLOMACY_PROJECT_PIONEERING_REQUEST" UIIconPath="blp:dipaction_pioneering" RequiresUnlock="true" RejectionRefundsInfluence="true"/>-->
 	</DiplomacyActions>
 	<DiplomaticActionValidTokens>
 		<Row TokenType="DIPLOMACY_TOKEN_GLOBAL" DiplomacyActionType="DIPLOMACY_ACTION_WONDER_CONSTRUCTION"/>
 		<Row TokenType="DIPLOMACY_TOKEN_GLOBAL" DiplomacyActionType="DIPLOMACY_ACTION_SEND_DELEGATION_DIPLOMATIC_CITY_STATE_BONUS" />
+		<!--<Row TokenType="DIPLOMACY_TOKEN_GLOBAL" DiplomacyActionType="DIPLOMACY_ACTION_PIONEERING" />-->
 	</DiplomaticActionValidTokens>
 	<DiplomaticActionStages>
 		<Row DiplomacyActionType="DIPLOMACY_ACTION_WONDER_CONSTRUCTION" StageType="DIPLOMACY_WONDER_CONSTRUCTION_COMPLETE" ProgressRequirement="0"/>
 		<Row DiplomacyActionType="DIPLOMACY_ACTION_SEND_DELEGATION_DIPLOMATIC_CITY_STATE_BONUS" StageType="DIPLOMACY_ACTION_SEND_DELEGATION_DIPLOMATIC_CITY_STATE_BONUS_COMPLETE" ProgressRequirement="0" />
+		<!--<Row DiplomacyActionType="DIPLOMACY_ACTION_PIONEERING" StageType="DIPLOMACY_PIONEERING_START" ProgressRequirement="0" />-->
 	</DiplomaticActionStages>
 	<EnterStageModifiers>
 		<Row StageType="DIPLOMACY_WONDER_CONSTRUCTION_COMPLETE" ModifierId="PLAYER_DIPLOMACY_WONDER_CONSTRUCTION_COMPLETE" />
 		<Row StageType="DIPLOMACY_ACTION_SEND_DELEGATION_DIPLOMATIC_CITY_STATE_BONUS_COMPLETE" ModifierId="PLAYER_DIPLOMACY_ACTION_SEND_DELEGATION_DIPLOMATIC_CITY_STATE_BONUS_COMPLETE" />
 		<Row StageType="DIPLOMACY_ACTION_SEND_DELEGATION_DIPLOMATIC_CITY_STATE_BONUS_COMPLETE" ModifierId="PLAYER_DIPLOMACY_CAPITAL_VISION" />
+		<!--<Row StageType="DIPLOMACY_PIONEERING_START" ModifierId="PLAYER_DIPLOMACY_PIONEERING_MOVEMENT_START" />
+		<Row StageType="DIPLOMACY_PIONEERING_START" ModifierId="PLAYER_DIPLOMACY_PIONEERING_START" />-->
 	</EnterStageModifiers>
 	<DiplomaticProjects_UI_Data>
 		<Row DiplomacyActionType="DIPLOMACY_ACTION_WONDER_CONSTRUCTION" DiplomacyActionGroup="DIPLOMACY_ACTION_GROUP_ENDEAVOR" PlayerOperationType="COOPERATIVE_YIELDS_DIPLOMATIC_ACTION" UIStartProject="true" Target1Type="DIPLOMACY_TARGET_PLAYER" Target2Type="DIPLOMACY_TARGET_NONE" MaxNumEnvoys="1" MinNumVirtEnvoys="2" MaxNumVirtEnvoys="2" MaxNumSupportEnvoys="0" MaxNumOpposeEnvoys="0" Description="LOC_DIPLOMACY_PROJECT_WONDER_CONSTRUCTION_INITIAL" ActiveDescription="LOC_DIPLOMACY_PROJECT_WONDER_CONSTRUCTION"/>
 		<Row DiplomacyActionType="DIPLOMACY_ACTION_SEND_DELEGATION_DIPLOMATIC_CITY_STATE_BONUS" DiplomacyActionGroup="DIPLOMACY_ACTION_GROUP_ENDEAVOR" PlayerOperationType="COOPERATIVE_YIELDS_DIPLOMATIC_ACTION" UIStartProject="true" Target1Type="DIPLOMACY_TARGET_PLAYER" Target2Type="DIPLOMACY_TARGET_NONE" MaxNumEnvoys="1" MinNumVirtEnvoys="2" MaxNumVirtEnvoys="2" MaxNumSupportEnvoys="0" MaxNumOpposeEnvoys="0" Description="LOC_DIPLOMACY_PROJECT_SEND_DELEGATION_DIPLOMATIC_CITY_STATE_BONUS_INITIAL" ActiveDescription="LOC_DIPLOMACY_PROJECT_SEND_DELEGATION_DIPLOMATIC_CITY_STATE_BONUS" />
+		<!--<Row DiplomacyActionType="DIPLOMACY_ACTION_PIONEERING" DiplomacyActionGroup="DIPLOMACY_ACTION_GROUP_ENDEAVOR" PlayerOperationType="COOPERATIVE_YIELDS_DIPLOMATIC_ACTION" Target1Type="DIPLOMACY_TARGET_PLAYER" Target2Type="DIPLOMACY_TARGET_NONE" MaxNumEnvoys="1" MinNumVirtEnvoys="1" MaxNumVirtEnvoys="2" MaxNumSupportEnvoys="0" MaxNumOpposeEnvoys="0" Description="LOC_DIPLOMACY_PROJECT_PIONEERING_INITIAL" ActiveDescription="LOC_DIPLOMACY_PROJECT_PIONEERING" UIOnly_GivesYieldType="YIELD_DIPLOMACY" UIOnly_BaseAmount="1" UIOnly_SupportAmount="2"/>-->
 	</DiplomaticProjects_UI_Data>
 	<DiplomacyBonusEnvoyData>
 		<Row DiplomacyActionType="DIPLOMACY_ACTION_WONDER_CONSTRUCTION" InitialUnfriendly="0" InitialFriendly="0" TargetUnfriendly="0" TargetFriendly="0"/>
 		<Row DiplomacyActionType="DIPLOMACY_ACTION_SEND_DELEGATION_DIPLOMATIC_CITY_STATE_BONUS" InitialUnfriendly="0" InitialFriendly="0" TargetUnfriendly="0" TargetFriendly="0" />
+		<!--<Row DiplomacyActionType="DIPLOMACY_ACTION_PIONEERING" InitialUnfriendly="0" InitialFriendly="0" TargetUnfriendly="0" TargetFriendly="0" />-->
 	</DiplomacyBonusEnvoyData>
 	<DiplomaticActionInfluenceCosts>
 		<Row DiplomacyActionType="DIPLOMACY_ACTION_GIVE_INFLUENCE_TOKEN" InfCostNoRelationship="80" InfCostSupportIncreaseFlat="10"/>
@@ -70,6 +79,9 @@
 		<Row DiplomacyActionType="DIPLOMACY_ACTION_CS_INCORPORATE" InfCostNoRelationship="240"/>
 		<Row DiplomacyActionType="DIPLOMACY_ACTION_GRANT_POLICY_SLOT" InfCostUnfriendly="200" InfCostNeutral="180" InfCostFriendly="160" InfCostHelpful="140"/>
 		<Row DiplomacyActionType="DIPLOMACY_ACTION_DENOUNCE_MILITARY_PRESENCE" InfCostHostile="20" InfCostUnfriendly="20" InfCostNeutral="20" InfCostFriendly="20" InfCostHelpful="20"/>
+
+		<!--<Row DiplomacyActionType="DIPLOMACY_ACTION_PIONEERING" InfCostUnfriendly="130" InfCostNeutral="120" InfCostFriendly="110" InfCostHelpful="100"/>-->
+		<Row DiplomacyActionType="DIPLOMACY_ACTION_BECOME_SUZERAIN" InfCostNoRelationship="255"/>
 	</DiplomaticActionInfluenceCosts>
 	<DiplomaticActionResponses>
 		<Row DiplomacyActionType="DIPLOMACY_ACTION_OPEN_BORDERS" DiplomaticResponseType="DIPLOMACY_RESPONSE_ACCEPT" InfCost="0" Name="LOC_DIPLOMACY_RESPONSE_ACCEPT" Description="LOC_DIPLOMACY_PROJECT_OPEN_BORDERS_ACCEPT"/>
@@ -133,6 +145,9 @@
 		<Row DiplomacyActionType="DIPLOMACY_ACTION_DENOUNCE_MILITARY_PRESENCE" DiplomaticResponseType="DIPLOMACY_RESPONSE_SUPPORT" InfCost="20" Name="LOC_DIPLOMACY_RESPONSE_SUPPORT" Description="LOC_DIPLOMACY_PROJECT_DENOUNCE_MILITARY_PRESENCE_SUPPORT"/>
 		<Row DiplomacyActionType="DIPLOMACY_ACTION_DENOUNCE_MILITARY_PRESENCE" DiplomaticResponseType="DIPLOMACY_RESPONSE_ACCEPT" InfCost="0" Name="LOC_DIPLOMACY_RESPONSE_ACCEPT" Description="LOC_DIPLOMACY_PROJECT_DENOUNCE_MILITARY_PRESENCE_ACCEPT"/>
 		<Row DiplomacyActionType="DIPLOMACY_ACTION_DENOUNCE_MILITARY_PRESENCE" DiplomaticResponseType="DIPLOMACY_RESPONSE_REJECT" InfCost="0" Name="LOC_DIPLOMACY_RESPONSE_REJECT" Description="LOC_DIPLOMACY_PROJECT_DENOUNCE_MILITARY_PRESENCE_REJECT"/>
+		<!--<Row DiplomacyActionType="DIPLOMACY_ACTION_PIONEERING" DiplomaticResponseType="DIPLOMACY_RESPONSE_SUPPORT" InfCost="120" Name="LOC_DIPLOMACY_RESPONSE_SUPPORT" Description="LOC_DIPLOMACY_PROJECT_PIONEERING_SUPPORT"/>
+		<Row DiplomacyActionType="DIPLOMACY_ACTION_PIONEERING" DiplomaticResponseType="DIPLOMACY_RESPONSE_ACCEPT" InfCost="0" Name="LOC_DIPLOMACY_RESPONSE_ACCEPT" Description="LOC_DIPLOMACY_PROJECT_PIONEERING_ACCEPT"/>
+		<Row DiplomacyActionType="DIPLOMACY_ACTION_PIONEERING" DiplomaticResponseType="DIPLOMACY_RESPONSE_REJECT" InfCost="40" Name="LOC_DIPLOMACY_RESPONSE_REJECT" Description="LOC_DIPLOMACY_PROJECT_PIONEERING_REJECT"/>-->
 	</DiplomaticActionResponses>
 	<DiplomaticActionResponseModifiers>
 		<Row DiplomacyActionType="DIPLOMACY_ACTION_WONDER_CONSTRUCTION" DiplomaticResponseType="DIPLOMACY_RESPONSE_REJECT" ModifierId="PLAYER_DIPLOMACY_BLOCK_ENDEAVORS_10" ModifierType="DIPLOMACY_MODIFIER_TYPE_ACTION" ModifierTarget="DIPLOMACY_MODIFIER_TARGET_BOTH"/>

@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+	<!-- +2 Combat Strength for Land Units base-->
+	<Modifier id="ALEXANDER_COMBAT_BONUS_BASE" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ATTACH_MODIFIERS">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_DOMAIN_MATCHES">
+				<Argument name="UnitDomain">DOMAIN_LAND</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="ModifierId">ALEXANDER_COMBAT_BONUS_BASE_ATTACH</Argument>
+	</Modifier>
+	<Modifier id="ALEXANDER_COMBAT_BONUS_BASE_ATTACH" collection="COLLECTION_UNIT_COMBAT" effect="EFFECT_ADJUST_UNIT_STRENGTH_MODIFIER">
+		<Argument name="Amount">2</Argument>
+		<String context="Preview">LOC_ALEXANDER_KING_OF_THE_WORLD_SUZERAIN_PREVIEW</String>
+	</Modifier>
+	<!-- ALEX_TO_DO +1 Combat Strength for Unique Units for each Non-Capital City with a Wonder -->
+
+	<!-- Non-Capital Cities with a Wonder get +10% Production and Culture, doubled if they are on a different Continent than your Capital. -->
+	<Modifier id="ALEXANDER_YIELD_BONUS_WITH_WONDER_CAPITAL_CONT" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_HAS_ANY_WONDER"/>
+			<Requirement type="REQUIREMENT_CITY_IS_CITY"/>
+			<Requirement type="REQUIREMENT_CITY_IS_CAPITAL" inverse="true"/>
+			<Requirement type="REQUIREMENT_CITY_IS_OWNER_CAPITAL_CONTINENT"/>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_CULTURE, YIELD_PRODUCTION</Argument>
+		<Argument name="Percent">10</Argument>
+		<Argument name="Tooltip">LOC_ALEXANDER_KING_OF_THE_WORLD_NAME</Argument>
+	</Modifier>
+	<Modifier id="ALEXANDER_YIELD_BONUS_WITH_WONDER_NOT_CAPITAL_CONT" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_HAS_ANY_WONDER"/>
+			<Requirement type="REQUIREMENT_CITY_IS_CITY"/>
+			<Requirement type="REQUIREMENT_CITY_IS_CAPITAL" inverse="true"/>
+			<Requirement type="REQUIREMENT_CITY_IS_OWNER_CAPITAL_CONTINENT" inverse="true"/>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_CULTURE, YIELD_PRODUCTION</Argument>
+		<Argument name="Percent">20</Argument>
+		<Argument name="Tooltip">LOC_ALEXANDER_KING_OF_THE_WORLD_NAME</Argument>
+	</Modifier>
+
+	<!-- =============================== Combat Bonus per non-capital city with a wonder =================================================== -->
+	
+	<Modifier id="ALEXANDER_WONDER_COMBAT_STRENGTH_1" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ATTACH_MODIFIERS">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+				<Argument name="RequirementSetId">REQSET_NON_CAPITAL_WONDER_CITIES_1</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+				<Argument name="Tag">UNIT_CLASS_UNIQUE</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="ModifierId">ATTACH_ALEXANDER_WONDER_COMBAT_STRENGTH_1</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_ALEXANDER_WONDER_COMBAT_STRENGTH_1" collection="COLLECTION_UNIT_COMBAT" effect="EFFECT_ADJUST_UNIT_STRENGTH_MODIFIER">
+		<Argument name="Amount">1</Argument>
+		<String context="Preview">LOC_ALEXANDER_KING_OF_THE_WORLD_WONDERS_PREVIEW</String>
+	</Modifier>
+	<Modifier id="ALEXANDER_WONDER_COMBAT_STRENGTH_2" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ATTACH_MODIFIERS">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+				<Argument name="RequirementSetId">REQSET_NON_CAPITAL_WONDER_CITIES_2</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+				<Argument name="Tag">UNIT_CLASS_UNIQUE</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="ModifierId">ATTACH_ALEXANDER_WONDER_COMBAT_STRENGTH_2</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_ALEXANDER_WONDER_COMBAT_STRENGTH_2" collection="COLLECTION_UNIT_COMBAT" effect="EFFECT_ADJUST_UNIT_STRENGTH_MODIFIER">
+		<Argument name="Amount">2</Argument>
+		<String context="Preview">LOC_ALEXANDER_KING_OF_THE_WORLD_WONDERS_PREVIEW</String>
+	</Modifier>
+	<Modifier id="ALEXANDER_WONDER_COMBAT_STRENGTH_3" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ATTACH_MODIFIERS">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+				<Argument name="RequirementSetId">REQSET_NON_CAPITAL_WONDER_CITIES_3</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+				<Argument name="Tag">UNIT_CLASS_UNIQUE</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="ModifierId">ATTACH_ALEXANDER_WONDER_COMBAT_STRENGTH_3</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_ALEXANDER_WONDER_COMBAT_STRENGTH_3" collection="COLLECTION_UNIT_COMBAT" effect="EFFECT_ADJUST_UNIT_STRENGTH_MODIFIER">
+		<Argument name="Amount">3</Argument>
+		<String context="Preview">LOC_ALEXANDER_KING_OF_THE_WORLD_WONDERS_PREVIEW</String>
+	</Modifier>
+	<Modifier id="ALEXANDER_WONDER_COMBAT_STRENGTH_4" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ATTACH_MODIFIERS">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+				<Argument name="RequirementSetId">REQSET_NON_CAPITAL_WONDER_CITIES_4</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+				<Argument name="Tag">UNIT_CLASS_UNIQUE</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="ModifierId">ATTACH_ALEXANDER_WONDER_COMBAT_STRENGTH_4</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_ALEXANDER_WONDER_COMBAT_STRENGTH_4" collection="COLLECTION_UNIT_COMBAT" effect="EFFECT_ADJUST_UNIT_STRENGTH_MODIFIER">
+		<Argument name="Amount">4</Argument>
+		<String context="Preview">LOC_ALEXANDER_KING_OF_THE_WORLD_WONDERS_PREVIEW</String>
+	</Modifier>
+	<Modifier id="ALEXANDER_WONDER_COMBAT_STRENGTH_5" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ATTACH_MODIFIERS">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+				<Argument name="RequirementSetId">REQSET_NON_CAPITAL_WONDER_CITIES_5</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+				<Argument name="Tag">UNIT_CLASS_UNIQUE</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="ModifierId">ATTACH_ALEXANDER_WONDER_COMBAT_STRENGTH_5</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_ALEXANDER_WONDER_COMBAT_STRENGTH_5" collection="COLLECTION_UNIT_COMBAT" effect="EFFECT_ADJUST_UNIT_STRENGTH_MODIFIER">
+		<Argument name="Amount">5</Argument>
+		<String context="Preview">LOC_ALEXANDER_KING_OF_THE_WORLD_WONDERS_PREVIEW</String>
+	</Modifier>
+	<Modifier id="ALEXANDER_WONDER_COMBAT_STRENGTH_6" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ATTACH_MODIFIERS">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+				<Argument name="RequirementSetId">REQSET_NON_CAPITAL_WONDER_CITIES_6</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+				<Argument name="Tag">UNIT_CLASS_UNIQUE</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="ModifierId">ATTACH_ALEXANDER_WONDER_COMBAT_STRENGTH_6</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_ALEXANDER_WONDER_COMBAT_STRENGTH_6" collection="COLLECTION_UNIT_COMBAT" effect="EFFECT_ADJUST_UNIT_STRENGTH_MODIFIER">
+		<Argument name="Amount">6</Argument>
+		<String context="Preview">LOC_ALEXANDER_KING_OF_THE_WORLD_WONDERS_PREVIEW</String>
+	</Modifier>
+	<RequirementSet id="REQSET_NON_CAPITAL_WONDER_CITIES_1">
+        <Requirement type="REQUIREMENT_COLLECTION_COUNT_ATLEAST">
+            <Argument name="Count">1</Argument>
+            <Argument name="CollectionType">COLLECTION_PLAYER_CITIES</Argument>
+            <Argument name="RequirementSetId">SUBREQSET_NON_CAPITAL_CITY_HAS_WONDER</Argument>
+        </Requirement>
+		<Requirement type="REQUIREMENT_COLLECTION_COUNT_ATLEAST" inverse="true">
+            <Argument name="Count">2</Argument>
+            <Argument name="CollectionType">COLLECTION_PLAYER_CITIES</Argument>
+            <Argument name="RequirementSetId">SUBREQSET_NON_CAPITAL_CITY_HAS_WONDER</Argument>
+        </Requirement>
+    </RequirementSet>
+	<RequirementSet id="REQSET_NON_CAPITAL_WONDER_CITIES_2">
+        <Requirement type="REQUIREMENT_COLLECTION_COUNT_ATLEAST">
+            <Argument name="Count">2</Argument>
+            <Argument name="CollectionType">COLLECTION_PLAYER_CITIES</Argument>
+            <Argument name="RequirementSetId">SUBREQSET_NON_CAPITAL_CITY_HAS_WONDER</Argument>
+        </Requirement>
+		<Requirement type="REQUIREMENT_COLLECTION_COUNT_ATLEAST" inverse="true">
+            <Argument name="Count">3</Argument>
+            <Argument name="CollectionType">COLLECTION_PLAYER_CITIES</Argument>
+            <Argument name="RequirementSetId">SUBREQSET_NON_CAPITAL_CITY_HAS_WONDER</Argument>
+        </Requirement>
+    </RequirementSet>
+	<RequirementSet id="REQSET_NON_CAPITAL_WONDER_CITIES_3">
+        <Requirement type="REQUIREMENT_COLLECTION_COUNT_ATLEAST">
+            <Argument name="Count">3</Argument>
+            <Argument name="CollectionType">COLLECTION_PLAYER_CITIES</Argument>
+            <Argument name="RequirementSetId">SUBREQSET_NON_CAPITAL_CITY_HAS_WONDER</Argument>
+        </Requirement>
+		<Requirement type="REQUIREMENT_COLLECTION_COUNT_ATLEAST" inverse="true">
+            <Argument name="Count">4</Argument>
+            <Argument name="CollectionType">COLLECTION_PLAYER_CITIES</Argument>
+            <Argument name="RequirementSetId">SUBREQSET_NON_CAPITAL_CITY_HAS_WONDER</Argument>
+        </Requirement>
+    </RequirementSet>
+	<RequirementSet id="REQSET_NON_CAPITAL_WONDER_CITIES_4">
+        <Requirement type="REQUIREMENT_COLLECTION_COUNT_ATLEAST">
+            <Argument name="Count">4</Argument>
+            <Argument name="CollectionType">COLLECTION_PLAYER_CITIES</Argument>
+            <Argument name="RequirementSetId">SUBREQSET_NON_CAPITAL_CITY_HAS_WONDER</Argument>
+        </Requirement>
+		<Requirement type="REQUIREMENT_COLLECTION_COUNT_ATLEAST" inverse="true">
+            <Argument name="Count">5</Argument>
+            <Argument name="CollectionType">COLLECTION_PLAYER_CITIES</Argument>
+            <Argument name="RequirementSetId">SUBREQSET_NON_CAPITAL_CITY_HAS_WONDER</Argument>
+        </Requirement>
+    </RequirementSet>
+	<RequirementSet id="REQSET_NON_CAPITAL_WONDER_CITIES_5">
+        <Requirement type="REQUIREMENT_COLLECTION_COUNT_ATLEAST">
+            <Argument name="Count">5</Argument>
+            <Argument name="CollectionType">COLLECTION_PLAYER_CITIES</Argument>
+            <Argument name="RequirementSetId">SUBREQSET_NON_CAPITAL_CITY_HAS_WONDER</Argument>
+        </Requirement>
+		<Requirement type="REQUIREMENT_COLLECTION_COUNT_ATLEAST" inverse="true">
+            <Argument name="Count">6</Argument>
+            <Argument name="CollectionType">COLLECTION_PLAYER_CITIES</Argument>
+            <Argument name="RequirementSetId">SUBREQSET_NON_CAPITAL_CITY_HAS_WONDER</Argument>
+        </Requirement>
+    </RequirementSet>
+	<RequirementSet id="REQSET_NON_CAPITAL_WONDER_CITIES_6">
+        <Requirement type="REQUIREMENT_COLLECTION_COUNT_ATLEAST">
+            <Argument name="Count">6</Argument>
+            <Argument name="CollectionType">COLLECTION_PLAYER_CITIES</Argument>
+            <Argument name="RequirementSetId">SUBREQSET_NON_CAPITAL_CITY_HAS_WONDER</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="SUBREQSET_NON_CAPITAL_CITY_HAS_WONDER">
+        <Requirement type="REQUIREMENT_CITY_HAS_ANY_WONDER">
+        </Requirement>
+		<Requirement type="REQUIREMENT_CITY_IS_CITY">
+        </Requirement>
+		<Requirement type="REQUIREMENT_CITY_IS_CAPITAL" inverse="true">
+        </Requirement>
+    </RequirementSet>
+	<!-- ======================================================================================== -->
+
+	<!-- +2 Dominion for each Non-Capital City with a Wonder -->
+	<Modifier id="ALEXANDER_MOD_SETTLEMENT_MILITARY_VICTORY" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ACTIVATE_VICTORY_POINT_TRACKER" run-once="true" permanent="true">
+		<Argument name="TrackerName">VICTORY_TRACKER_SETTLEMENT_ALEXANDER</Argument>
+	</Modifier>
+	<!-- Towns converted into Cities are renamed after Alexander. -->
+	<Modifier id="ALEXANDER_MOD_ALEXANDRIA_RENAME" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_RENAME">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_TOWN_WAS_UPGRADED_TO_CITY"/>
+		</SubjectRequirements>
+		<Argument name="Rename">LOC_ALEXANDER_ALEXANDRIA_RENAME</Argument>
+		<Argument name="AppendtoRename">true</Argument>
+	</Modifier>
+	<!-- Godlike Basileus Agenda:  Likes Leaders with the fewest conquered Settlements. Dislikes Leaders with the most conquered Settlements. -->
+	<Modifier id="ALEXANDER_MOD_AGENDA_GODLIKE_BASILEUS" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_AGENDA_TIMED_UPDATE">
+		<String context="Name">LOC_DIPLOMACY_AGENDA_GODLIKE_BASILEUS_NAME</String>
+		<Argument name="ModName">LOC_DIPLOMACY_AGENDA_GODLIKE_BASILEUS_NAME</Argument>
+		<Argument name="Tooltip">LOC_DIPLOMACY_AGENDA_GODLIKE_BASILEUS_DESC</Argument>
+		<Argument name="WeightType">DIPLOMACY_AGENDA_COMPARE_NUM_CONQUERED_SETTLEMENTS</Argument>
+		<Argument name="FirstMeetDelay">20</Argument>
+		<Argument name="UpdateFreq">10</Argument>
+		<Argument name="AwardTo1">DIPLOMACY_AGENDA_AWARD_HIGHEST</Argument>
+		<Argument name="AwardAmtType1">DIPLOMACY_AGENDA_NEG_AMT_MEDIUM</Argument>
+		<Argument name="AwardTo2">DIPLOMACY_AGENDA_AWARD_LOWEST</Argument>
+		<Argument name="AwardAmtType2">DIPLOMACY_AGENDA_AMT_SMALL</Argument>
+		<Argument name="NotifyMessage">LOC_NOTIFICATION_DIPLOMATIC_AGENDA_DEFAULT_MESSAGE</Argument>
+		<Argument name="NotifySummary">LOC_NOTIFICATION_DIPLOMATIC_AGENDA_DEFAULT_SUMMARY</Argument>
+	</Modifier>
+</GameEffects>

@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Strategies>
+		<Row StrategyType="CD_VICTORY_STRATEGY_CULTURAL" CountdownVictoryType="VICTORY_CULTURE_MODERN" MinNumConditionsNeeded="2" MaxNumConditionsNeeded="5"/>
+		<Row StrategyType="CD_VICTORY_STRATEGY_ECONOMIC" CountdownVictoryType="VICTORY_ECONOMIC_MODERN" MinNumConditionsNeeded="2" MaxNumConditionsNeeded="5"/>
+		<Row StrategyType="CD_VICTORY_STRATEGY_MILITARY" CountdownVictoryType="VICTORY_MILITARY_MODERN" MinNumConditionsNeeded="2" MaxNumConditionsNeeded="7"/>
+		<Row StrategyType="CD_VICTORY_STRATEGY_SCIENCE" CountdownVictoryType="VICTORY_SCIENCE_MODERN" MinNumConditionsNeeded="2" MaxNumConditionsNeeded="6" MinConditionPercentage="33"/>
+    	<Row StrategyType="CD_VICTORY_STRATEGY_CULTURAL_OFFENSE" CountdownVictoryType="VICTORY_CULTURE_MODERN" MinNumConditionsNeeded="2" MaxNumConditionsNeeded="2" BehaviorTree="Fight Victory Opponent"/>
+     	<Row StrategyType="CD_VICTORY_STRATEGY_ECONOMIC_OFFENSE" CountdownVictoryType="VICTORY_ECONOMIC_MODERN" MinNumConditionsNeeded="2" MaxNumConditionsNeeded="2" BehaviorTree="Fight Victory Opponent"/>
+   		<Row StrategyType="CD_VICTORY_STRATEGY_MILITARY_OFFENSE" CountdownVictoryType="VICTORY_MILITARY_MODERN" MinNumConditionsNeeded="2" MaxNumConditionsNeeded="2" BehaviorTree="Fight Victory Opponent"/>
+		<!-- Triumph strategies useful in multiple ages -->
+		<Row StrategyType="TRIUMPH_STRATEGY_ALLAGES_ESPIONAGE" MinNumConditionsNeeded="2" MaxNumConditionsNeeded="2"/>
+    </Strategies>
+	<StrategyConditions>
+		<!-- Culture Victory Conditions  -->
+		<Row StrategyType="CD_VICTORY_STRATEGY_CULTURAL" ConditionFunction="GovernmentMatches" ThresholdValue="25" StringValue="GOVERNMENT_ELECTIVE_REPUBLIC"/>
+		<Row StrategyType="CD_VICTORY_STRATEGY_CULTURAL" ConditionFunction="NumGreatWorks" ThresholdValue="3"/>
+		<Row StrategyType="CD_VICTORY_STRATEGY_CULTURAL" ConditionFunction="HasLeaderTrait" ThresholdValue="1" StringValue="TRAIT_LEADER_ATTRIBUTE_CULTURAL"/>
+		<Row StrategyType="CD_VICTORY_STRATEGY_CULTURAL" ConditionFunction="HasLeaderTrait" ThresholdValue="1" StringValue="TRAIT_LEADER_ATTRIBUTE_POLITICAL"/>
+		<Row StrategyType="CD_VICTORY_STRATEGY_CULTURAL" ConditionFunction="HasLeaderTrait" ThresholdValue="1" StringValue="TRAIT_MO_CULTURE_VICTORY"/>
+		<Row StrategyType="CD_VICTORY_STRATEGY_CULTURAL" ConditionFunction="HasVictoryPoints" ThresholdValue="25" StringValue="VICTORY_CULTURE_MODERN"/>
+		<Row StrategyType="CD_VICTORY_STRATEGY_CULTURAL" ConditionFunction="VictoryPlacement" ThresholdValue="3" StringValue="VICTORY_CULTURE_MODERN"/>
+		<Row StrategyType="CD_VICTORY_STRATEGY_CULTURAL" Exclusive="true" ConditionFunction="IsDominant" StringValue="VICTORY_CULTURE_MODERN"/>
+		<!-- Economic Victory Conditions -->
+		<Row StrategyType="CD_VICTORY_STRATEGY_ECONOMIC" ConditionFunction="GovernmentMatches" StringValue="GOVERNMENT_BUREAUCRATIC_MONARCHY"/>
+		<Row StrategyType="CD_VICTORY_STRATEGY_ECONOMIC" ConditionFunction="YieldIncome" ThresholdValue="60" StringValue="YIELD_PRODUCTION"/>
+		<Row StrategyType="CD_VICTORY_STRATEGY_ECONOMIC" ConditionFunction="NumCities" ThresholdValue="4"/>
+		<Row StrategyType="CD_VICTORY_STRATEGY_ECONOMIC" ConditionFunction="HasLeaderTrait" ThresholdValue="1" StringValue="TRAIT_LEADER_ATTRIBUTE_ECONOMIC"/>
+		<Row StrategyType="CD_VICTORY_STRATEGY_ECONOMIC" ConditionFunction="HasLeaderTrait" ThresholdValue="1" StringValue="TRAIT_LEADER_ATTRIBUTE_EXPANSIONIST"/>
+		<Row StrategyType="CD_VICTORY_STRATEGY_ECONOMIC" ConditionFunction="HasVictoryPoints" ThresholdValue="1000" StringValue="VICTORY_ECONOMIC_MODERN"/>
+		<Row StrategyType="CD_VICTORY_STRATEGY_ECONOMIC" ConditionFunction="VictoryPlacement" ThresholdValue="3" StringValue="VICTORY_ECONOMIC_MODERN"/>
+		<Row StrategyType="CD_VICTORY_STRATEGY_ECONOMIC" Exclusive="true" ConditionFunction="IsDominant" StringValue="VICTORY_ECONOMIC_MODERN"/>
+		<!--  Military Victory Conditions -->
+		<Row StrategyType="CD_VICTORY_STRATEGY_MILITARY" ConditionFunction="GovernmentMatches" StringValue="GOVERNMENT_AUTHORITARIANISM"/>
+		<Row StrategyType="CD_VICTORY_STRATEGY_MILITARY" ConditionFunction="GovernmentMatches" StringValue="GOVERNMENT_FEUDAL_MONARCHY"/>
+		<Row StrategyType="CD_VICTORY_STRATEGY_MILITARY" ConditionFunction="GovernmentMatches" StringValue="GOVERNMENT_DESPOTISM"/>
+		<Row StrategyType="CD_VICTORY_STRATEGY_MILITARY" ConditionFunction="TopMilitaryPercent" ThresholdValue="25"/>
+		<Row StrategyType="CD_VICTORY_STRATEGY_MILITARY" ConditionFunction="TopMilitaryPercent" ThresholdValue="50"/>
+		<Row StrategyType="CD_VICTORY_STRATEGY_MILITARY" ConditionFunction="HasLeaderTrait" ThresholdValue="1" StringValue="TRAIT_LEADER_ATTRIBUTE_MILITARISTIC"/>
+		<Row StrategyType="CD_VICTORY_STRATEGY_MILITARY" ConditionFunction="HasLeaderTrait" ThresholdValue="1" StringValue="TRAIT_LEADER_ATTRIBUTE_POLITICAL"/>
+		<Row StrategyType="CD_VICTORY_STRATEGY_MILITARY" ConditionFunction="HasLeaderTrait" ThresholdValue="1" StringValue="TRAIT_MO_MILITARY_VICTORY"/>
+		<Row StrategyType="CD_VICTORY_STRATEGY_MILITARY" ConditionFunction="HasVictoryPoints" ThresholdValue="10" StringValue="VICTORY_MILITARY_MODERN"/>
+		<Row StrategyType="CD_VICTORY_STRATEGY_MILITARY" ConditionFunction="VictoryPlacement" ThresholdValue="3" StringValue="VICTORY_MILITARY_MODERN"/>
+		<Row StrategyType="CD_VICTORY_STRATEGY_MILITARY" Exclusive="true" ConditionFunction="IsDominant" StringValue="VICTORY_MILITARY_MODERN"/>
+		<!--  Science Victory Conditions -->
+		<Row StrategyType="CD_VICTORY_STRATEGY_SCIENCE" ConditionFunction="GovernmentMatches" StringValue="GOVERNMENT_ELECTIVE_REPUBLIC"/>
+		<Row StrategyType="CD_VICTORY_STRATEGY_SCIENCE" ConditionFunction="GovernmentMatches" StringValue="GOVERNMENT_THEOCRACY"/>
+		<Row StrategyType="CD_VICTORY_STRATEGY_SCIENCE" ConditionFunction="GovernmentMatches" StringValue="GOVERNMENT_CLASSICAL_REPUBLIC"/>
+		<Row StrategyType="CD_VICTORY_STRATEGY_SCIENCE" ConditionFunction="TopSciencePercent" ThresholdValue="25"/>
+		<Row StrategyType="CD_VICTORY_STRATEGY_SCIENCE" ConditionFunction="TopSciencePercent" ThresholdValue="50"/>
+		<Row StrategyType="CD_VICTORY_STRATEGY_SCIENCE" ConditionFunction="HasLeaderTrait" ThresholdValue="1" StringValue="TRAIT_LEADER_ATTRIBUTE_SCIENTIFIC"/>
+		<Row StrategyType="CD_VICTORY_STRATEGY_SCIENCE" ConditionFunction="HasLeaderTrait" ThresholdValue="1" StringValue="TRAIT_MO_SCIENCE_VICTORY"/>
+		<Row StrategyType="CD_VICTORY_STRATEGY_SCIENCE" ConditionFunction="HasVictoryPoints" ThresholdValue="10" StringValue="VICTORY_SCIENCE_MODERN"/>
+		<Row StrategyType="CD_VICTORY_STRATEGY_SCIENCE" ConditionFunction="VictoryPlacement" ThresholdValue="3" StringValue="VICTORY_SCIENCE_MODERN"/>
+		<Row StrategyType="CD_VICTORY_STRATEGY_SCIENCE" Exclusive="true" ConditionFunction="HasVictoryPoints" ThresholdValue="30" StringValue="VICTORY_SCIENCE_MODERN"/>
+		<!-- Culture Offense Conditions -->
+		<Row StrategyType="CD_VICTORY_STRATEGY_CULTURAL_OFFENSE" ConditionFunction="LeaderPointsToDominance" ThresholdValue="100" StringValue="VICTORY_CULTURE_MODERN"/>
+		<Row StrategyType="CD_VICTORY_STRATEGY_CULTURAL_OFFENSE" ConditionFunction="PlayerPercentageToDominance" ThresholdValue="50" StringValue="VICTORY_CULTURE_MODERN"/>
+		<Row StrategyType="CD_VICTORY_STRATEGY_CULTURAL_OFFENSE" ConditionFunction="VictoryPlacement" ThresholdValue="2" StringValue="VICTORY_CULTURE_MODERN"/>
+		<!-- Economic Offense Conditions -->
+		<Row StrategyType="CD_VICTORY_STRATEGY_ECONOMIC_OFFENSE" ConditionFunction="LeaderPointsToDominance" ThresholdValue="800" StringValue="VICTORY_ECONOMIC_MODERN"/>
+		<Row StrategyType="CD_VICTORY_STRATEGY_ECONOMIC_OFFENSE" ConditionFunction="PlayerPercentageToDominance" ThresholdValue="50" StringValue="VICTORY_ECONOMIC_MODERN"/>
+		<Row StrategyType="CD_VICTORY_STRATEGY_ECONOMIC_OFFENSE" ConditionFunction="VictoryPlacement" ThresholdValue="2" StringValue="VICTORY_ECONOMIC_MODERN"/>
+		<!-- Military Offense Conditions -->
+		<Row StrategyType="CD_VICTORY_STRATEGY_MILITARY_OFFENSE" ConditionFunction="LeaderPointsToDominance" ThresholdValue="15" StringValue="VICTORY_MILITARY_MODERN"/>
+		<Row StrategyType="CD_VICTORY_STRATEGY_MILITARY_OFFENSE" ConditionFunction="PlayerPercentageToDominance" ThresholdValue="50" StringValue="VICTORY_MILITARY_MODERN"/>
+		<Row StrategyType="CD_VICTORY_STRATEGY_MILITARY_OFFENSE" ConditionFunction="VictoryPlacement" ThresholdValue="2" StringValue="VICTORY_MILITARY_MODERN"/>
+		<!-- Triumph Strategy Conditions -->
+		<Row StrategyType="TRIUMPH_STRATEGY_ALLAGES_ESPIONAGE" ConditionFunction="HasLeaderTrait" StringValue="TRAIT_LEADER_ATTRIBUTE_POLITICAL"/>
+		<Row StrategyType="TRIUMPH_STRATEGY_ALLAGES_ESPIONAGE" ConditionFunction="OnVictoryStrategy" ThresholdValue="66" StringValue="CD_VICTORY_STRATEGY_CULTURAL"/>
+		<Row StrategyType="TRIUMPH_STRATEGY_ALLAGES_ESPIONAGE" ConditionFunction="CompletedEspionage" ThresholdValue="3"/>
+    </StrategyConditions>
+	<Strategy_Priorities>
+		<!-- Cultural Victory -->
+		<Row StrategyType="CD_VICTORY_STRATEGY_CULTURAL" ListType="CulturalVictoryStrategyConstructibleBiases"/>
+		<Row StrategyType="CD_VICTORY_STRATEGY_CULTURAL" ListType="CulturalVictoryStrategyConstructibleClassBiases"/>
+		<Row StrategyType="CD_VICTORY_STRATEGY_CULTURAL" ListType="CulturalVictoryStrategyUnitBiases"/>
+		<Row StrategyType="CD_VICTORY_STRATEGY_CULTURAL" ListType="CulturalVictoryStrategyPseudoYieldBiases"/>
+		<Row StrategyType="CD_VICTORY_STRATEGY_CULTURAL" ListType="CulturalVictoryStrategyBudgetBiases"/>
+		<Row StrategyType="CD_VICTORY_STRATEGY_CULTURAL" ListType="CulturalVictoryStrategyProgressionTreeNodesBiases"/>
+		<!-- Economic Victory -->
+		<Row StrategyType="CD_VICTORY_STRATEGY_ECONOMIC" ListType="EconomicVictoryStrategyConstructibleBiases"/>
+		<Row StrategyType="CD_VICTORY_STRATEGY_ECONOMIC" ListType="EconomicVictoryStrategyPseudoYieldBiases"/>
+		<Row StrategyType="CD_VICTORY_STRATEGY_ECONOMIC" ListType="EconomicVictoryStrategySettlements"/>
+		<Row StrategyType="CD_VICTORY_STRATEGY_ECONOMIC" ListType="EconomicVictoryStrategyBudgetBiases"/>
+		<!-- Military Victory -->
+		<Row StrategyType="CD_VICTORY_STRATEGY_MILITARY" ListType="MilitaryVictoryStrategyPseduoyieldBiases"/>
+		<Row StrategyType="CD_VICTORY_STRATEGY_MILITARY" ListType="MilitaryVictoryStrategyBudgetBiases"/>
+		<Row StrategyType="CD_VICTORY_STRATEGY_MILITARY" ListType="MilitaryVictoryStrategyProgressionTreeNodesBiases"/>
+		<!-- Science Victory -->
+		<Row StrategyType="CD_VICTORY_STRATEGY_SCIENCE" ListType="ScienceVictoryStrategyConstructibleBiases"/>
+		<Row StrategyType="CD_VICTORY_STRATEGY_SCIENCE" ListType="ScienceVictoryStrategyPseudoYieldBiases"/>
+		<Row StrategyType="CD_VICTORY_STRATEGY_SCIENCE" ListType="ScienceVictoryStrategyYieldBiases"/>
+		<!-- Triumph Strategy Conditions -->
+		<Row StrategyType="TRIUMPH_STRATEGY_ALLAGES_ESPIONAGE" ListType="TriumphEspionageStrategyDiplomacyBiases"/>
+	</Strategy_Priorities>
+	<AiListTypes>
+		<!-- Cultural Victory -->
+		<Row ListType="CulturalVictoryStrategyConstructibleBiases"/>
+		<Row ListType="CulturalVictoryStrategyConstructibleClassBiases"/>
+		<Row ListType="CulturalVictoryStrategyUnitBiases"/>
+		<Row ListType="CulturalVictoryStrategyPseudoYieldBiases"/>
+		<Row ListType="CulturalVictoryStrategyBudgetBiases"/>
+		<Row ListType="CulturalVictoryStrategyProgressionTreeNodesBiases"/>
+		<!-- Economic Victory -->
+		<Row ListType="EconomicVictoryStrategyConstructibleBiases"/>
+		<Row ListType="EconomicVictoryStrategyPseudoYieldBiases"/>
+		<Row ListType="EconomicVictoryStrategySettlements"/>
+		<Row ListType="EconomicVictoryStrategyBudgetBiases"/>
+		<!-- Military Victory -->
+		<Row ListType="MilitaryVictoryStrategyBudgetBiases"/>
+		<Row ListType="MilitaryVictoryStrategyConstructibleBiases"/>
+		<Row ListType="MilitaryVictoryStrategyProgressionTreeNodesBiases"/>
+		<Row ListType="MilitaryVictoryStrategyPseduoyieldBiases"/>
+		<!-- Science Victory -->
+		<Row ListType="ScienceVictoryStrategyConstructibleBiases"/>
+		<Row ListType="ScienceVictoryStrategyPseudoYieldBiases"/>
+		<Row ListType="ScienceVictoryStrategyYieldBiases"/>
+		<!-- Triumph Strategy Conditions -->
+		<Row ListType="TriumphEspionageStrategyDiplomacyBiases"/>
+	</AiListTypes>
+	<AiLists>
+		<!-- Cultural Victory -->
+		<Row ListType="CulturalVictoryStrategyConstructibleBiases" System="ConstructibleBiases"/>
+		<Row ListType="CulturalVictoryStrategyConstructibleClassBiases" System="ConstructibleClassBiases"/>
+		<Row ListType="CulturalVictoryStrategyUnitBiases" System="UnitBiases"/>
+		<Row ListType="CulturalVictoryStrategyPseudoYieldBiases" System="PseudoYieldBiases"/>
+		<Row ListType="CulturalVictoryStrategyBudgetBiases" System="AiBudgetBiases"/>
+		<Row ListType="CulturalVictoryStrategyProgressionTreeNodesBiases" System="ProgressionTreeNodeBiases"/>
+		<!-- Economic Victory -->
+		<Row ListType="EconomicVictoryStrategyConstructibleBiases" System="ConstructibleBiases"/>
+		<Row ListType="EconomicVictoryStrategyPseudoYieldBiases" System="PseudoYieldBiases"/>
+		<Row ListType="EconomicVictoryStrategySettlements" System="PlotEvalConditionBiases"/>
+		<Row ListType="EconomicVictoryStrategyBudgetBiases" System="AiBudgetBiases"/>
+		<!-- Military Victory -->
+		<Row ListType="MilitaryVictoryStrategyPseduoyieldBiases" System="PseudoYieldBiases"/>
+		<Row ListType="MilitaryVictoryStrategyBudgetBiases" System="AiBudgetBiases"/>
+		<Row ListType="MilitaryVictoryStrategyConstructibleBiases" System="ConstructibleBiases"/>
+		<Row ListType="MilitaryVictoryStrategyProgressionTreeNodesBiases" System="ProgressionTreeNodeBiases"/>
+		<!-- Science Victory -->
+		<Row ListType="ScienceVictoryStrategyConstructibleBiases" System="ConstructibleBiases"/>
+		<Row ListType="ScienceVictoryStrategyYieldBiases" System="YieldBiases"/>
+		<Row ListType="ScienceVictoryStrategyPseudoYieldBiases" System="PseudoYieldBiases"/>
+		<!-- Triumph Strategy Conditions -->
+		<Row ListType="TriumphEspionageStrategyDiplomacyBiases" System="DiplomaticGroupBiases"/>
+	</AiLists>
+	<AiFavoredItems>
+		<!-- Cultural Victory -->
+		<Row ListType="CulturalVictoryStrategyConstructibleBiases" Item="BUILDING_MUSEUM" Value="200"/>
+		<Row ListType="CulturalVictoryStrategyConstructibleClassBiases" Item="WONDER" Value="50"/>
+		<Row ListType="CulturalVictoryStrategyUnitBiases" Item="UNIT_EXPLORER" Value="200"/>
+		<Row ListType="CulturalVictoryStrategyPseudoYieldBiases" Item="PSEUDOYIELD_GREAT_WORK" Value="200"/>
+		<Row ListType="CulturalVictoryStrategyPseudoYieldBiases" Item="PSEUDOYIELD_GREAT_WORK_SLOT" Value="200"/>
+		<Row ListType="CulturalVictoryStrategyPseudoYieldBiases" Item="PSEUDOYIELD_BUILD_QUEUE_IN_CITY" Value="50"/>
+		<Row ListType="CulturalVictoryStrategyPseudoYieldBiases" Item="PSEUDOYIELD_DIGGING_RESEARCHING_UNIT" Value="500"/>
+		<Row ListType="CulturalVictoryStrategyPseudoYieldBiases" Item="PSEUDOYIELD_UNLOCK_CONTINENT_AGE_DIGGING" Value="500"/>
+		<Row ListType="CulturalVictoryStrategyPseudoYieldBiases" Item="PSEUDOYIELD_UNLOCK_NATURAL_WONDER_DIGGING" Value="500"/>
+		<Row ListType="CulturalVictoryStrategyPseudoYieldBiases" Item="PSEUDOYIELD_VICTORY_POINT_CULTURAL" Value="100"/>
+		<Row ListType="CulturalVictoryStrategyBudgetBiases" Item="AI_BUDGET_CITY_DEVELOPMENT" Value="50"/>
+		<Row ListType="CulturalVictoryStrategyProgressionTreeNodesBiases" Item="NODE_CIVIC_MO_MAIN_NATURAL_HISTORY" Value="400"/>
+		<Row ListType="CulturalVictoryStrategyProgressionTreeNodesBiases" Item="NODE_CIVIC_MO_MAIN_HEGEMONY" Value="400"/>
+		<!-- Economic Victory -->
+		<Row ListType="EconomicVictoryStrategyConstructibleBiases" Item="BUILDING_FACTORY" Value="2000"/>
+		<Row ListType="EconomicVictoryStrategyConstructibleBiases" Item="BUILDING_RAIL_STATION" Value="1000"/>
+		<Row ListType="EconomicVictoryStrategyConstructibleBiases" Item="BUILDING_PORT" Value="1000"/>
+		<Row ListType="EconomicVictoryStrategyConstructibleBiases" Item="BUILDING_DEPARTMENT_STORE" Value="500"/>
+		<Row ListType="EconomicVictoryStrategyPseudoYieldBiases" Item="PSEUDOYIELD_RAIL_CONNECTION" Value="300"/>
+		<Row ListType="EconomicVictoryStrategyPseudoYieldBiases" Item="PSEUDOYIELD_POTENTIAL_RAIL_CONNECTION" Value="100"/>
+		<Row ListType="EconomicVictoryStrategyPseudoYieldBiases" Item="PSEUDOYIELD_NEW_CITY" Value="50"/>
+		<Row ListType="EconomicVictoryStrategyPseudoYieldBiases" Item="PSEUDOYIELD_VICTORY_POINT_ECONOMIC" Value="100"/>
+		<Row ListType="EconomicVictoryStrategyPseudoYieldBiases" Item="PSEUDOYIELD_RESOURCE_IMPORT" Value="100"/>
+		<Row ListType="EconomicVictoryStrategySettlements" Item="Resource Class" Value="50" StringVal="RESOURCECLASS_FACTORY" TooltipString="LOC_SETTLEMENT_RECOMMENDATION_STRATEGIC_RESOURCES"/>
+		<Row ListType="EconomicVictoryStrategyBudgetBiases" Item="AI_BUDGET_EXPANSION" Value="50"/>
+		<!-- Military Victory -->
+		<Row ListType="MilitaryVictoryStrategyBudgetBiases" Item="AI_BUDGET_STANDING_ARMY" Value="50"/>
+		<Row ListType="MilitaryVictoryStrategyConstructibleBiases" Item="BUILDING_AIRFIELD" Value="500"/>
+		<Row ListType="MilitaryVictoryStrategyPseduoyieldBiases" Item="PSEUDOYIELD_STANDING_ARMY_UNIT" Value="100"/>
+		<Row ListType="MilitaryVictoryStrategyPseduoyieldBiases" Item="PSEUDOYIELD_STANDING_ARMY_UNIT_COMBAT_VALUE" Value="75"/>
+		<Row ListType="MilitaryVictoryStrategyPseduoyieldBiases" Item="PSEUDOYIELD_UNLOCK_IDEOLOGIES" Value="1000"/>
+		<Row ListType="MilitaryVictoryStrategyPseduoyieldBiases" Item="PSEUDOYIELD_VICTORY_POINT_MILITARY" Value="100"/>
+		<Row ListType="MilitaryVictoryStrategyPseduoyieldBiases" Item="PSEUDOYIELD_IDEOLOGY_EARLY_PICK_PER_TIER" Value="2000"/>
+		<Row ListType="MilitaryVictoryStrategyPseduoyieldBiases" Item="PSEUDOYIELD_NEW_CITY" Value="100"/>
+		<Row ListType="MilitaryVictoryStrategyProgressionTreeNodesBiases" Item="NODE_TECH_MO_FLIGHT" Value="200"/>
+		<Row ListType="MilitaryVictoryStrategyProgressionTreeNodesBiases" Item="NODE_CIVIC_MO_MAIN_POLITICAL_THEORY" Value="2000"/>
+		<!-- Science Victory -->
+		<Row ListType="ScienceVictoryStrategyConstructibleBiases" Item="BUILDING_AIRFIELD" Value="500"/>
+		<Row ListType="ScienceVictoryStrategyConstructibleBiases" Item="BUILDING_LAUNCH_PAD" Value="500"/>
+		<Row ListType="ScienceVictoryStrategyPseudoYieldBiases" Item="PSEUDOYIELD_GREAT_WORK" Value="100"/>
+		<Row ListType="ScienceVictoryStrategyPseudoYieldBiases" Item="PSEUDOYIELD_VICTORY_POINT_SCIENTIFIC" Value="100"/>
+		<Row ListType="ScienceVictoryStrategyPseudoYieldBiases" Item="PSEUDOYIELD_FOUND_RELIGION" Value="75"/>
+		<Row ListType="ScienceVictoryStrategyYieldBiases" Item="YIELD_SCIENCE" Value="250"/>
+		<!-- Triumph Strategy Conditions -->
+		<Row ListType="TriumphEspionageStrategyDiplomacyBiases" Item="DIPLOMACY_ACTION_GROUP_ESPIONAGE" Value="100"/>
+	</AiFavoredItems>
+</Database>

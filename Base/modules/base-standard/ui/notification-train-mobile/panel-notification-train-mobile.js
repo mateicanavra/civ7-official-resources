@@ -1,31 +1,17 @@
-import { A as Audio } from '../../../core/ui/audio-base/audio-support.chunk.js';
-import { a as ActionActivateEventName } from '../../../core/ui/components/fxs-activatable.chunk.js';
-import FocusManager from '../../../core/ui/input/focus-manager.js';
-import { F as Focus } from '../../../core/ui/input/focus-support.chunk.js';
-import { N as NavTray } from '../../../core/ui/navigation-tray/model-navigation-tray.chunk.js';
-import { P as Panel } from '../../../core/ui/panel-support.chunk.js';
-import { D as Databind } from '../../../core/ui/utilities/utilities-core-databinding.chunk.js';
-import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.chunk.js';
-import { Icon } from '../../../core/ui/utilities/utilities-image.chunk.js';
-import { U as UpdateGate } from '../../../core/ui/utilities/utilities-update-gate.chunk.js';
+import { Audio } from '../../../core/ui/audio-base/audio-support.js';
+import { ActionActivateEventName } from '../../../core/ui/components/fxs-activatable.js';
+import { Focus } from '../../../core/ui/input/focus-support.js';
+import NavTray from '../../../core/ui/navigation-tray/model-navigation-tray.js';
+import Panel from '../../../core/ui/panel-support.js';
+import Databind from '../../../core/ui/utilities/utilities-core-databinding.js';
+import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
+import { Icon } from '../../../core/ui/utilities/utilities-image.js';
+import UpdateGate from '../../../core/ui/utilities/utilities-update-gate.js';
+import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
 import { ChooserItem } from '../chooser-item/chooser-item.js';
 import { NotificationModel } from '../notification-train/model-notification-train.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/components/fxs-slot.chunk.js';
-import '../../../core/ui/views/view-manager.chunk.js';
-import '../../../core/ui/spatial/spatial-manager.js';
-import '../../../core/ui/context-manager/context-manager.js';
-import '../../../core/ui/context-manager/display-queue-manager.js';
-import '../../../core/ui/dialog-box/manager-dialog-box.chunk.js';
-import '../../../core/ui/input/cursor.js';
-import '../../../core/ui/input/action-handler.js';
-import '../../../core/ui/input/input-support.chunk.js';
-import '../../../core/ui/utilities/utilities-component-id.chunk.js';
-import '../chooser-item/chooser-item.chunk.js';
-
-const content = "<fxs-modal-frame class=\"fxs-center-panel my-4\">\r\n\t<div class=\"flow-column max-h-full\">\r\n\t\t<fxs-header\r\n\t\t\tfiligree-style=\"h2\"\r\n\t\t\ttitle=\"LOC_UI_NOTIFICATIONS_TITLE\"\r\n\t\t></fxs-header>\r\n\t\t<fxs-scrollable\r\n\t\t\tclass=\"py-12 flex-auto\"\r\n\t\t\tflex=\"initial\"\r\n\t\t>\r\n\t\t\t<fxs-vslot class=\"panel-notification-train-mobile-content flex flex-initial\"> </fxs-vslot>\r\n\t\t</fxs-scrollable>\r\n\t</div>\r\n</fxs-modal-frame>\r\n";
-
-const styles = "fs://game/base-standard/ui/notification-train-mobile/panel-notification-train-mobile.css";
+import content from './panel-notification-train-mobile.html.js';
+import styles from './panel-notification-train-mobile.scss.js';
 
 const DISMISS_NOTIFICATION_ID_ATTRIBUTE_NAME = "data-dismiss-notification-Id";
 const ACTIVATE_NOTIFICATION_ID_ATTRIBUTE_NAME = "data-action-notification-id";
@@ -115,7 +101,7 @@ class PanelNotificationTrainMobile extends Panel {
         batchNumber++;
       }
     });
-    FocusManager.setFocus(MustGetElement("fxs-vslot", this.Root));
+    FocusManager.get().setFocus(MustGetElement("fxs-vslot", this.Root));
     const closeButton = document.createElement("fxs-close-button");
     closeButton.addEventListener("action-activate", this.buttonCloseListener);
     this.frameElement.appendChild(closeButton);
@@ -417,7 +403,7 @@ class NotificationTypeGroup extends Component {
   switchToNotification(index) {
     this.notificationCards[this.currentIndex].classList.replace("flex", "hidden");
     this.notificationCards[index].classList.replace("hidden", "flex");
-    FocusManager.setFocus(this.notificationCards[index]);
+    FocusManager.get().setFocus(this.notificationCards[index]);
     this.currentIndex = index;
     Audio.playSound("data-audio-activate", "audio-pager");
   }

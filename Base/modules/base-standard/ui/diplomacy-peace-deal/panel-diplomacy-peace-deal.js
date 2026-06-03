@@ -1,36 +1,17 @@
+import { Audio } from '../../../core/ui/audio-base/audio-support.js';
 import ContextManager from '../../../core/ui/context-manager/context-manager.js';
-import { a as DialogBoxManager, D as DialogBoxAction } from '../../../core/ui/dialog-box/manager-dialog-box.chunk.js';
-import FocusManager from '../../../core/ui/input/focus-manager.js';
+import { DialogBoxManager } from '../../../core/ui/dialog-box/manager-dialog-box.js';
 import { InterfaceMode } from '../../../core/ui/interface-modes/interface-modes.js';
-import { N as NavTray } from '../../../core/ui/navigation-tray/model-navigation-tray.chunk.js';
-import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.chunk.js';
-import { Icon } from '../../../core/ui/utilities/utilities-image.chunk.js';
-import { L as Layout } from '../../../core/ui/utilities/utilities-layout.chunk.js';
-import DiplomacyManager, { DiplomacyInputPanel, DiplomacyDealProposalResponseEventName, L as LeaderModelManager } from '../diplomacy/diplomacy-manager.js';
-import '../../../core/ui/context-manager/display-queue-manager.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/input/cursor.js';
-import '../../../core/ui/views/view-manager.chunk.js';
-import '../../../core/ui/panel-support.chunk.js';
-import '../../../core/ui/audio-base/audio-support.chunk.js';
-import '../../../core/ui/input/action-handler.js';
-import '../../../core/ui/input/input-support.chunk.js';
-import '../../../core/ui/utilities/utilities-update-gate.chunk.js';
-import '../../../core/ui/utilities/utilities-component-id.chunk.js';
-import '../diplomacy/diplomacy-events.js';
-import '../world-input/world-input.js';
-import '../../../core/ui/input/plot-cursor.js';
-import '../../../core/ui/utilities/utilities-network.js';
-import '../../../core/ui/shell/mp-legal/mp-legal.js';
-import '../../../core/ui/events/shell-events.chunk.js';
-import '../../../core/ui/utilities/utilities-liveops.js';
-import '../../../core/ui/utilities/utilities-network-constants.chunk.js';
-import '../interface-modes/support-unit-map-decoration.chunk.js';
-import '../utilities/utilities-overlay.chunk.js';
-
-const content = "<fxs-hslot\r\n\tclass=\"peace-deal__main-container w-full h-full self-center\"\r\n\tdata-audio-focus=\"generic-button-focus\"\r\n\tdata-navrule-up=\"stop\"\r\n>\r\n\t<fxs-vslot class=\"peace-deal__deal-container w-2\\/3 min-w-192 mt-12 mr-10 ml-10\">\r\n\t\t<div class=\"flex flex-row pb-6\">\r\n\t\t\t<div\r\n\t\t\t\tclass=\"local-player-leader-civ peace-deal__leader-civ-name-container relative pointer-events-none flex flex-1 flex-row justify-center w-1\\/3 pt-5\"\r\n\t\t\t>\r\n\t\t\t\t<div class=\"peace-deal__portrait mt-4 relative pointer-events-none size-16\">\r\n\t\t\t\t\t<div\r\n\t\t\t\t\t\tclass=\"peace-deal__portrait-image absolute self-center size-22 -mt-3\\.5 pointer-events-none bg-no-repeat bg-contain\"\r\n\t\t\t\t\t></div>\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"peace-deal__civ-icon mt-4 ml-2 relative pointer-events-none\">\r\n\t\t\t\t\t<div class=\"peace-deal__civ-icon-image size-16 bg-no-repeat\"></div>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t\t<div class=\"peace-deal__title-card w-1\\/3 flex flex-col mt-8\">\r\n\t\t\t\t<div\r\n\t\t\t\t\tclass=\"peace-deal__title fxs-header font-title text-lg uppercase text-center tracking-150\"\r\n\t\t\t\t></div>\r\n\t\t\t\t<div\r\n\t\t\t\t\tclass=\"peace-deal__to-end fxs-header self-center font-title text-xxs uppercase text-center tracking-150\"\r\n\t\t\t\t></div>\r\n\t\t\t\t<div\r\n\t\t\t\t\tclass=\"peace-deal__war-name fxs-header self-center font-title text-lg uppercase text-center tracking-150\"\r\n\t\t\t\t></div>\r\n\t\t\t\t<div class=\"peace-deal__select-settlements self-center font-body text-xs text-accent-2 mt-3\"></div>\r\n\t\t\t</div>\r\n\t\t\t<div\r\n\t\t\t\tclass=\"other-player-leader-civ peace-deal__leader-civ-name-container relative pointer-events-none flex flex-1 flex-row justify-center w-1\\/3 pt-5\"\r\n\t\t\t>\r\n\t\t\t\t<div class=\"peace-deal__civ-icon mt-4 mr-2 relative pointer-events-none\">\r\n\t\t\t\t\t<div class=\"peace-deal__civ-icon-image size-16\"></div>\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"peace-deal__portrait mt-4 relative pointer-events-none size-16 flex flex-col\">\r\n\t\t\t\t\t<div\r\n\t\t\t\t\t\tclass=\"peace-deal__portrait-image absolute self-center size-22 -mt-3\\.5 pointer-events-none bg-no-repeat bg-contain\"\r\n\t\t\t\t\t></div>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t\t<div class=\"flex flex-1 flex-col\">\r\n\t\t\t<div class=\"flex flex-row w-full px-5 mt-2 min-h-12 max-h-18\">\r\n\t\t\t\t<div class=\"local-player-leader-name flex flex-col flex-end w-1\\/3\">\r\n\t\t\t\t\t<div\r\n\t\t\t\t\t\tclass=\"player-info__leader-name-text fxs-header font-title text-base uppercase text-center\"\r\n\t\t\t\t\t></div>\r\n\t\t\t\t\t<div\r\n\t\t\t\t\t\tclass=\"peace-deal__playername-bar filigree-shell-small bottom-bar h-6 w-3\\/4 self-center bg-no-repeat bg-contain bg-center\"\r\n\t\t\t\t\t></div>\r\n\t\t\t\t\t<div class=\"player-info__outside-bar\"></div>\r\n\t\t\t\t</div>\r\n\t\t\t\t<fxs-inner-frame class=\"peace-deal__offer-header-wrapper flex flex-row w-1\\/3 justify-center -mt-4\">\r\n\t\t\t\t\t<div class=\"flex flex-row items-center justify-center items-center h-1\\/3\">\r\n\t\t\t\t\t\t<div class=\"filigree-h4-left items-center\"></div>\r\n\t\t\t\t\t\t<div\r\n\t\t\t\t\t\t\tclass=\"peace-deal__offer-header font-title uppercase text-lg fxs-header text-center justify-center\"\r\n\t\t\t\t\t\t></div>\r\n\t\t\t\t\t\t<div class=\"filigree-h4-right items-center\"></div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</fxs-inner-frame>\r\n\t\t\t\t<div class=\"other-player-leader-name flex flex-col flex-end w-1\\/3\">\r\n\t\t\t\t\t<div\r\n\t\t\t\t\t\tclass=\"player-info__leader-name-text fxs-header font-title text-lg uppercase text-center\"\r\n\t\t\t\t\t></div>\r\n\t\t\t\t\t<div\r\n\t\t\t\t\t\tclass=\"peace-deal__playername-bar filigree-shell-small bottom-bar h-4 w-3\\/4 self-center bg-no-repeat bg-contain bg-center\"\r\n\t\t\t\t\t></div>\r\n\t\t\t\t\t<div class=\"player-info__outside-bar\"></div>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t\t<fxs-scrollable class=\"peace-deal__settlement-scrollable flex-1\">\r\n\t\t\t\t<fxs-hslot\r\n\t\t\t\t\tclass=\"pl-5 pr-5 mb-0 -mt-4 h-full flex flex-row flex-wrap peace-deal__navigation-container\"\r\n\t\t\t\t\ttabindex=\"-1\"\r\n\t\t\t\t>\r\n\t\t\t\t\t<fxs-vslot class=\"local-player-deal-container local-player-settlements w-1\\/3 flex flex-col px-3\">\r\n\t\t\t\t\t\t<fxs-vslot\r\n\t\t\t\t\t\t\tclass=\"peace-deal__deal-items flex flex-col\"\r\n\t\t\t\t\t\t\tdata-audio-focus=\"generic-button-focus\"\r\n\t\t\t\t\t\t></fxs-vslot>\r\n\t\t\t\t\t</fxs-vslot>\r\n\t\t\t\t\t<fxs-vslot class=\"peace-deal__offer-container w-1\\/3 -mt-6 relative flex flex-col h-full\">\r\n\t\t\t\t\t\t<div class=\"peace-deal__local-player-receives-container w-full flex flex-col justify-start p-3\">\r\n\t\t\t\t\t\t\t<div\r\n\t\t\t\t\t\t\t\tclass=\"peace-deal__local-player-receives-title-wrapper hidden relative flex flex-row justify-center min-h-0 max-h-full\"\r\n\t\t\t\t\t\t\t>\r\n\t\t\t\t\t\t\t\t<div class=\"peace-deal__local-player-receives-title-bg absolute size-full\"></div>\r\n\t\t\t\t\t\t\t\t<div class=\"peace-deal__local-player-receives-icon-wrapper relative mr-1 -mt-1\"></div>\r\n\t\t\t\t\t\t\t\t<div\r\n\t\t\t\t\t\t\t\t\tclass=\"peace-deal__local-player-receives-title flex font-fit-shrink font-title text-xs text-accent-1 uppercase text-center justify-center items-center relative\"\r\n\t\t\t\t\t\t\t\t></div>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<div class=\"peace-deal__local-player-receives-settlements\"></div>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t<div\r\n\t\t\t\t\t\t\tclass=\"peace-deal__other-player-receives-container w-full flex flex-col justify-start p-3 grow\"\r\n\t\t\t\t\t\t>\r\n\t\t\t\t\t\t\t<div\r\n\t\t\t\t\t\t\t\tclass=\"peace-deal__other-player-receives-title-wrapper hidden relative flex flex-row justify-center min-h-0 max-h-full\"\r\n\t\t\t\t\t\t\t>\r\n\t\t\t\t\t\t\t\t<div class=\"peace-deal__other-player-receives-title-bg absolute size-full\"></div>\r\n\t\t\t\t\t\t\t\t<div class=\"peace-deal__other-player-receives-icon-wrapper relative mr-1 -mt-1\"></div>\r\n\t\t\t\t\t\t\t\t<div\r\n\t\t\t\t\t\t\t\t\tclass=\"peace-deal__other-player-receives-title flex font-fit-shrink font-title text-xs text-accent-1 uppercase text-center justify-center items-center relative\"\r\n\t\t\t\t\t\t\t\t></div>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<div class=\"peace-deal__other-player-receives-settlements\"></div>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t</fxs-vslot>\r\n\t\t\t\t\t<fxs-vslot\r\n\t\t\t\t\t\tclass=\"other-player-deal-container other-player-settlements flex-1 flex flex-col px-3 w-1\\/3\"\r\n\t\t\t\t\t>\r\n\t\t\t\t\t\t<fxs-vslot\r\n\t\t\t\t\t\t\tclass=\"peace-deal__deal-items flex flex-col\"\r\n\t\t\t\t\t\t\tdata-audio-focus=\"generic-button-focus\"\r\n\t\t\t\t\t\t></fxs-vslot>\r\n\t\t\t\t\t</fxs-vslot>\r\n\t\t\t\t</fxs-hslot>\r\n\t\t\t</fxs-scrollable>\r\n\t\t\t<div class=\"w-full flex flex-col justify-center items-center\">\r\n\t\t\t\t<div class=\"filigree-inner-frame-bottom w-1\\/3 -mt-3\"></div>\r\n\t\t\t</div>\r\n\t\t\t<fxs-hslot class=\"peace-deal__button-container mt-0 pt-5 pb-3 justify-center w-full flex flex-nowrap\">\r\n\t\t\t\t<fxs-button\r\n\t\t\t\t\tclass=\"peace-deal__propose-deal-button h-10 w-32 mr-4 ml-4\"\r\n\t\t\t\t\taction-key=\"inline-shell-action-1\"\r\n\t\t\t\t></fxs-button>\r\n\t\t\t\t<fxs-button\r\n\t\t\t\t\tclass=\"peace-deal__reject-deal-button h-10 w-32 mr-4 ml-4\"\r\n\t\t\t\t\taction-key=\"inline-cancel\"\r\n\t\t\t\t></fxs-button>\r\n\t\t\t</fxs-hslot>\r\n\t\t\t<fxs-hslot class=\"panel-diplomacy-peace-deal__inspect-wrapper justify-center pb-2\"></fxs-hslot>\r\n\t\t</div>\r\n\t\t<fxs-close-button class=\"top-1 right-1\"></fxs-close-button>\r\n\t</fxs-vslot>\r\n</fxs-hslot>\r\n";
-
-const styles = "fs://game/base-standard/ui/diplomacy-peace-deal/panel-diplomacy-peace-deal.css";
+import NavTray from '../../../core/ui/navigation-tray/model-navigation-tray.js';
+import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
+import { Icon } from '../../../core/ui/utilities/utilities-image.js';
+import { Layout } from '../../../core/ui/utilities/utilities-layout.js';
+import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
+import DiplomacyManager, { DiplomacyInputPanel, DiplomacyDealProposalResponseEventName } from '../diplomacy/diplomacy-manager.js';
+import LeaderModelManager from '../diplomacy/leader-model-manager.js';
+import content from './panel-diplomacy-peace-deal.html.js';
+import styles from './panel-diplomacy-peace-deal.scss.js';
+import { DialogBoxAction } from '../../../core/ui/dialog-box/model-dialog-box.js';
 
 class DiplomacyPeaceDealPanel extends DiplomacyInputPanel {
   interfaceModeChangedListener = this.onInterfaceModeChanged.bind(this);
@@ -1046,8 +1027,10 @@ class DiplomacyPeaceDealPanel extends DiplomacyInputPanel {
   closeCurrentDeal() {
     if (this.dealSessionID) {
       DiplomacyManager.closeCurrentDiplomacyDeal(this.isWaitingForStatement == false, this.dealSessionID);
+      Audio.playSound("data-audio-close", "peace-deal-item");
     } else {
       DiplomacyManager.closeCurrentDiplomacyDeal(this.isWaitingForStatement == false);
+      Audio.playSound("data-audio-close", "peace-deal-item");
     }
     if (this.isNewDeal) {
       InterfaceMode.switchTo("INTERFACEMODE_DIPLOMACY_HUB");
@@ -1128,12 +1111,12 @@ class DiplomacyPeaceDealPanel extends DiplomacyInputPanel {
     let isFocusSet = false;
     if (dealOwner == GameContext.localPlayerID) {
       if (target.parentElement != this.localPlayerDealContainer && this.peaceDealNavigationContainer && this.peaceDealNavigationContainer.childElementCount > 0) {
-        FocusManager.setFocus(this.peaceDealNavigationContainer);
+        FocusManager.get().setFocus(this.peaceDealNavigationContainer);
         isFocusSet = true;
       }
     } else {
       if (target.parentElement != this.otherPlayerDealContainer && this.peaceDealNavigationContainer && this.peaceDealNavigationContainer.childElementCount > 0) {
-        FocusManager.setFocus(this.peaceDealNavigationContainer);
+        FocusManager.get().setFocus(this.peaceDealNavigationContainer);
         isFocusSet = true;
       }
     }
@@ -1245,11 +1228,11 @@ class DiplomacyPeaceDealPanel extends DiplomacyInputPanel {
       return;
     }
     if (this.ourYourDealItemsContainer && this.ourYourDealItemsContainer.childElementCount > 0) {
-      FocusManager.setFocus(localPlayerDealContainer);
+      FocusManager.get().setFocus(localPlayerDealContainer);
     } else if (this.theirTheirDealItemsContainer && this.theirTheirDealItemsContainer.childElementCount > 0) {
-      FocusManager.setFocus(otherPlayerDealContainer);
+      FocusManager.get().setFocus(otherPlayerDealContainer);
     } else {
-      FocusManager.setFocus(buttonContainer);
+      FocusManager.get().setFocus(buttonContainer);
     }
     NavTray.clear();
   }
@@ -1285,17 +1268,20 @@ class DiplomacyPeaceDealPanel extends DiplomacyInputPanel {
         this.closeButton?.dispatchEvent(new CustomEvent("action-activate"));
         return false;
       case "shell-action-2":
-        if (FocusManager.getFocus() && FocusManager.getFocus().hasAttribute("city-location-x")) {
-          const locationXString = FocusManager.getFocus().getAttribute("city-location-x");
-          const locationYString = FocusManager.getFocus().getAttribute("city-location-y");
-          if (!locationXString || !locationYString) {
-            console.error(
-              "panel-diplomacy-peace-deal: Unable to get a valid location for focused cityDealItemElement!"
-            );
-            return false;
+        {
+          const currentFocus = FocusManager.get().currentFocus();
+          if (currentFocus && currentFocus.hasAttribute("city-location-x")) {
+            const locationXString = currentFocus.getAttribute("city-location-x");
+            const locationYString = currentFocus.getAttribute("city-location-y");
+            if (!locationXString || !locationYString) {
+              console.error(
+                "panel-diplomacy-peace-deal: Unable to get a valid location for focused cityDealItemElement!"
+              );
+              return false;
+            }
+            const location = { x: parseFloat(locationXString), y: parseFloat(locationYString) };
+            this.panToCity(location);
           }
-          const location = { x: parseFloat(locationXString), y: parseFloat(locationYString) };
-          this.panToCity(location);
         }
         return false;
     }

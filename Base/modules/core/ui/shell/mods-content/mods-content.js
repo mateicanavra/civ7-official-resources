@@ -1,16 +1,9 @@
-import { A as Audio } from '../../audio-base/audio-support.chunk.js';
+import { Audio } from '../../audio-base/audio-support.js';
 import ActionHandler from '../../input/action-handler.js';
-import FocusManager from '../../input/focus-manager.js';
-import { N as NavTray } from '../../navigation-tray/model-navigation-tray.chunk.js';
-import { P as Panel } from '../../panel-support.chunk.js';
-import { MustGetElement } from '../../utilities/utilities-dom.chunk.js';
-import '../../framework.chunk.js';
-import '../../input/cursor.js';
-import '../../views/view-manager.chunk.js';
-import '../../input/input-support.chunk.js';
-import '../../utilities/utilities-update-gate.chunk.js';
-import '../../utilities/utilities-image.chunk.js';
-import '../../utilities/utilities-component-id.chunk.js';
+import NavTray from '../../navigation-tray/model-navigation-tray.js';
+import Panel from '../../panel-support.js';
+import { MustGetElement } from '../../utilities/utilities-dom.js';
+import { FocusManager } from '../../../ui-next/services/focus-manager.js';
 
 function compareInstalledMods(a, b) {
   if (a.length != b.length) {
@@ -37,6 +30,7 @@ class ModsContent extends Panel {
   selectedModIndex = 0;
   selectedModHandle = null;
   showNotOwnedContent = false;
+  disableToggling = false;
   onModActivateListener = this.onModActivate.bind(this);
   onModFocusListener = this.onModFocus.bind(this);
   focusListener = this.onFocus.bind(this);
@@ -149,19 +143,38 @@ class ModsContent extends Panel {
         this.selectedMod = installedMods[0];
       }
       installedMods.forEach((mod, index) => {
+        const modentry = document.createElement("fxs-hslot");
+        modentry.classList.add("mod-entry");
+        modentry.classList.add(index % 2 === 0 ? "" : "bg-primary-5");
+        modentry.style.display = "flex";
+        modentry.style.alignItems = "center";
+        modList.appendChild(modentry);
         const modActivatable = document.createElement("fxs-activatable");
-        modActivatable.classList.add("mod-entry", "group", "relative", "flex", "w-full", "grow", "m-2");
+        modActivatable.classList.add("mod-activatable", "group", "relative", "flex", "w-full", "shrink", "m-2");
         modActivatable.classList.add(index % 2 === 0 ? "" : "bg-primary-5");
+        modActivatable.setAttribute("mod-handle", mod.handle.toString());
         modActivatable.setAttribute("tabindex", "-1");
         modActivatable.setAttribute("index", `${index}`);
         modActivatable.setAttribute("mod-handle", mod.handle.toString());
         modActivatable.addEventListener("action-activate", this.onModActivateListener);
         modActivatable.addEventListener("focus", this.onModFocusListener);
-        modList.appendChild(modActivatable);
+        modentry.appendChild(modActivatable);
         if (this.selectedModHandle == mod.handle) {
           this.selectedMod = mod;
-          FocusManager.setFocus(modActivatable);
+          FocusManager.get().setFocus(modActivatable);
         }
+        const checkbox = document.createElement("fxs-checkbox");
+        checkbox.classList.add("mod-checkbox-enabled", "scale-150", "origin-center", "inline-block");
+        if (mod.enabled) {
+          checkbox.setAttribute("selected", "true");
+        }
+        const handle = mod.handle;
+        checkbox.addEventListener("action-activate", () => {
+          const mod2 = Modding.getModInfo(handle);
+          if (!mod2) return;
+          this.handleSpecificModToggle(mod2.enabled, handle, index);
+        });
+        modentry.appendChild(checkbox);
         const modHoverOverlay = document.createElement("div");
         modHoverOverlay.classList.add(
           "img-mod-hover-overlay",
@@ -204,18 +217,6 @@ class ModsContent extends Panel {
         modName.classList.add("mod-text-name", "relative", "flex", "grow", "shrink", "text-lg");
         modName.innerHTML = Locale.stylize(entry);
         modTextContainer.appendChild(modName);
-        const modEnabled = document.createElement("div");
-        modEnabled.classList.add(
-          "mod-text-enabled",
-          "relative",
-          "flex",
-          "justify-end",
-          "uppercase",
-          "text-lg",
-          "font-title"
-        );
-        modEnabled.setAttribute("data-l10n-id", mod.enabled ? "LOC_UI_ENABLED" : "LOC_UI_DISABLED");
-        modTextContainer.appendChild(modEnabled);
       });
     }
   }
@@ -310,6 +311,7 @@ class ModsContent extends Panel {
       const canEnableModResult = Modding.canEnableMods(modHandles, true);
       allowed = canEnableModResult.status == 0;
     }
+    this.disableToggling = !allowed;
     toggleEnableButton.setAttribute("disabled", allowed ? "false" : "true");
     toggleEnableButton.setAttribute(
       "caption",
@@ -325,22 +327,29 @@ class ModsContent extends Panel {
       this.handleModToggle();
     }
   }
-  handleModToggle() {
-    if (this.selectedModHandle == null || this.selectedMod == null) {
+  handleSpecificModToggle(enabled, modhandle, modindex) {
+    if (this.disableToggling) {
       return;
     }
-    const enabled = this.selectedMod.enabled;
-    const modHandles = [this.selectedModHandle];
+    const modHandles = [modhandle];
     if (enabled) {
       Modding.disableMods(modHandles);
     } else {
       Modding.enableMods(modHandles, true);
     }
+    this.disableToggling = true;
     const toggleEnableButton = MustGetElement(".toggle-enable", this.Root);
     toggleEnableButton.setAttribute("disabled", "true");
-    this.handleSelection(this.selectedModHandle, this.selectedModIndex);
-    this.updateModEntry(this.selectedModIndex);
+    this.handleSelection(modhandle, modindex);
+    this.updateModEntry(modindex);
     this.updateNavTray();
+  }
+  handleModToggle() {
+    if (this.selectedModHandle == null || this.selectedMod == null) {
+      return;
+    }
+    const enabled = this.selectedMod.enabled;
+    this.handleSpecificModToggle(enabled, this.selectedModHandle, this.selectedModIndex);
   }
   onModsEnableAll(event) {
     if (!(event.target instanceof HTMLElement)) {
@@ -416,7 +425,7 @@ class ModsContent extends Panel {
     return false;
   }
   resolveFocus() {
-    FocusManager.setFocus(this.mainSlot);
+    FocusManager.get().setFocus(this.mainSlot);
   }
   onModActivate(event) {
     if (!(event.target instanceof HTMLElement)) {
@@ -449,8 +458,12 @@ class ModsContent extends Panel {
     this.updateDetails();
   }
   updateModEntry(index) {
-    const modEnrty = this.modEntries.item(index);
-    const modHandleString = modEnrty.getAttribute("mod-handle");
+    const modSpan = this.modEntries.item(index);
+    const modEntry = modSpan.querySelector(".mod-activatable");
+    if (!modEntry) {
+      return;
+    }
+    const modHandleString = modEntry.getAttribute("mod-handle");
     if (!modHandleString) {
       return;
     }
@@ -458,9 +471,9 @@ class ModsContent extends Panel {
       return;
     }
     const modInfo = Modding.getModInfo(this.selectedModHandle);
-    const enabledText = modEnrty.querySelector(".mod-text-enabled");
-    if (enabledText) {
-      enabledText.setAttribute("data-l10n-id", modInfo.enabled ? "LOC_UI_ENABLED" : "LOC_UI_DISABLED");
+    const enabledCheckbox = modSpan.querySelector(".mod-checkbox-enabled");
+    if (enabledCheckbox) {
+      enabledCheckbox.setAttribute("selected", modInfo.enabled ? "true" : "false");
     }
   }
 }

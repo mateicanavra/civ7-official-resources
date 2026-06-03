@@ -1,24 +1,11 @@
 import ContextManager from '../../../core/ui/context-manager/context-manager.js';
-import FocusManager from '../../../core/ui/input/focus-manager.js';
-import { N as NavTray } from '../../../core/ui/navigation-tray/model-navigation-tray.chunk.js';
-import { P as Panel } from '../../../core/ui/panel-support.chunk.js';
-import { T as TradeRoute } from '../../../core/ui/utilities/utilities-data.chunk.js';
-import { C as CityTradeData } from './model-city-trade.chunk.js';
-import '../../../core/ui/context-manager/display-queue-manager.js';
-import '../../../core/ui/dialog-box/manager-dialog-box.chunk.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/input/cursor.js';
-import '../../../core/ui/views/view-manager.chunk.js';
-import '../../../core/ui/audio-base/audio-support.chunk.js';
-import '../../../core/ui/input/action-handler.js';
-import '../../../core/ui/input/input-support.chunk.js';
-import '../../../core/ui/utilities/utilities-update-gate.chunk.js';
-import '../../../core/ui/utilities/utilities-image.chunk.js';
-import '../../../core/ui/utilities/utilities-component-id.chunk.js';
-
-const content = "<fxs-frame id=\"screen-city-trade-frame\">\r\n\t<div\r\n\t\tclass=\"main-container\"\r\n\t\tid=\"city-trade-main-container\"\r\n\t></div>\r\n</fxs-frame>\r\n";
-
-const styles = "fs://game/base-standard/ui/city-trade/screen-city-trade.css";
+import NavTray from '../../../core/ui/navigation-tray/model-navigation-tray.js';
+import Panel from '../../../core/ui/panel-support.js';
+import { TradeRoute } from '../../../core/ui/utilities/utilities-data.js';
+import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
+import CityTradeData from './model-city-trade.js';
+import content from './screen-city-trade.html.js';
+import styles from './screen-city-trade.scss.js';
 
 class ScreenCityTrade extends Panel {
   engineInputListener = (inputEvent) => {
@@ -38,7 +25,7 @@ class ScreenCityTrade extends Panel {
     const mainContainer = document.getElementById("city-trade-main-container");
     const c = mainContainer.firstElementChild;
     if (c) {
-      FocusManager.setFocus(c);
+      FocusManager.get().setFocus(c);
     }
   }
   onDetach() {

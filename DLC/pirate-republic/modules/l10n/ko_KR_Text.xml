@@ -573,23 +573,41 @@
     <Replace Tag="LOC_12012C_NAME" Language="ko_KR">
       <Text>이들이 날뛰는 모습을 볼 드문 기회입니다!</Text>
     </Replace>
+    <Replace Tag="LOC_TOT_30030A_COMPLETION" Language="ko_KR">
+      <Text>고양이 몰고 다니기. 비로 농사 짓기. 염소에게 트롬본 연주법 가르치기. 해적단 조직하기. 전부 어려운 일입니다. 검은 깃발에 붙어 다니는 방랑자들은 너덜너덜하고, 낡고, 망가진 모습 그대로 오지만... 약탈을 하고자 하는 욕망만큼은 가득합니다.</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30030A_STORYTITLE" Language="ko_KR">
+      <Text>악당 무리</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30030B_DESCRIPTION" Language="ko_KR">
+      <Text>{1_reward}.</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30030B_NAME" Language="ko_KR">
+      <Text>오는 이를 전부 받아들이고 규율을 가르칩니다. 해적에게 필요한 것은 장비가 아니라 탐욕입니다.</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30030C_DESCRIPTION" Language="ko_KR">
+      <Text>{1_reward}.</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30030C_NAME" Language="ko_KR">
+      <Text>가장 뒤처지는 자는 내쫓습니다. 공화국에는 기준이 있어야 합니다.</Text>
+    </Replace>
     <Replace Tag="LOC_ABILITY_SLOOP_DESCRIPTION" Language="ko_KR">
       <Text>공격 후에 이동할 수 있습니다.</Text>
     </Replace>
-    <Replace Tag="LOC_ARTICLES_OF_AGREEMENTS_MOD_BUCCANEER_LOOTING_DESCRIPTION" Language="ko_KR">
-      <Text>[icon:UNIT_BUCCANEER] 부카니에가 무료로 [icon:NAR_REW_PROMOTION] 약탈 진급을 얻습니다.</Text>
+    <Replace Tag="LOC_BLACK_FLAG_STEALTH_PREVIEW" Language="ko_KR">
+      <Text>해적기로 [TIP:LOC_PEDIA_CONCEPTS_STEALTH_TOOLTIP]잠행[/TIP]을 얻습니다.</Text>
     </Replace>
     <Replace Tag="LOC_BUILDING_NAVAL_ARSENAL_DESCRIPTION" Language="ko_KR">
-      <Text>해적 공화국 특유 금 건물입니다. [icon:YIELD_GOLD] 금이 +4 증가합니다. 자원 및 불가사의 인접 시 [icon:YIELD_GOLD] 금이 +1 증가합니다. 시대를 초월합니다. 해안에 배치해야 합니다.</Text>
+      <Text>해적 공화국 [TIP:LOC_PEDIA_CONCEPTS_UNIQUE_BUILDING_TOOLTIP]특유 금 건물[/TIP]입니다. [icon:YIELD_GOLD] 금이 +4 증가합니다. [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]자원[/TIP] 및 [TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]불가사의[/TIP] 인접 시 [icon:YIELD_GOLD] 금이 +1 증가합니다. 해안에 배치해야 합니다.</Text>
     </Replace>
     <Replace Tag="LOC_BUILDING_NAVAL_ARSENAL_TOOLTIP" Language="ko_KR">
-      <Text>해안에 배치해야 합니다.[n]해적 공화국 특유 건물입니다.</Text>
+      <Text>해안에 배치해야 합니다.[n]해적 공화국 [TIP:LOC_PEDIA_CONCEPTS_UNIQUE_BUILDING_TOOLTIP]특유 건물[/TIP]입니다.</Text>
     </Replace>
     <Replace Tag="LOC_BUILDING_NAVAL_STATION_DESCRIPTION" Language="ko_KR">
-      <Text>해적 공화국 특유 생산력 건물입니다. [icon:YIELD_PRODUCTION] 생산력이 +5 증가합니다. 군사 건물, 금 건물 및 불가사의 인접 시 [icon:YIELD_PRODUCTION] 생산력이 +1 증가합니다. 시대를 초월합니다. 해안에 배치해야 합니다. [icon:YIELD_GOLD] 금 유지 비용이 없습니다.</Text>
+      <Text>해적 공화국 [TIP:LOC_PEDIA_CONCEPTS_UNIQUE_BUILDING_TOOLTIP]특유 생산력 건물[/TIP]입니다. [icon:YIELD_PRODUCTION] 생산력이 +5 증가합니다. 군사 [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]건물[/TIP], 금 [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]건물[/TIP] 및 [TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]불가사의[/TIP] 인접 시 [icon:YIELD_PRODUCTION] 생산력이 +1 증가합니다. 해안에 배치해야 합니다. [icon:YIELD_GOLD] 금 [TIP:LOC_PEDIA_CONCEPTS_MAINTENANCE_TOOLTIP]유지[/TIP] 비용이 없습니다.</Text>
     </Replace>
     <Replace Tag="LOC_BUILDING_NAVAL_STATION_TOOLTIP" Language="ko_KR">
-      <Text>해안에 배치해야 합니다.[n]해적 공화국 특유 건물입니다.</Text>
+      <Text>해안에 배치해야 합니다.[n]해적 공화국 [TIP:LOC_PEDIA_CONCEPTS_UNIQUE_BUILDING_TOOLTIP]특유 건물[/TIP]입니다.</Text>
     </Replace>
     <Replace Tag="LOC_CIVIC_ARTICLES_OF_AGREEMENT_AUTHOR" Language="ko_KR">
       <Text>익명의 해적</Text>
@@ -610,13 +628,16 @@
       <Text>''천국이라고? 넌 바보인가? 해적이 천국에 간다는 얘기를 들어본 적 있어? 난 차라리 지옥이 더 좋아.''</Text>
     </Replace>
     <Replace Tag="LOC_CIVILIZATION_PIRATE_REPUBLIC_DESCRIPTION" Language="ko_KR">
-      <Text>해상 유닛의 [icon:Action_Pillage] [B]약탈[/B]과 [B]해안 강습[/B]으로 얻는 [B]생산량이 +100%[/B] 증가합니다. [icon:UNIT_SETTLER] 개척자를 양성하거나 구매할 수 없지만, 다른 문명의 [icon:UNIT_SETTLER] 개척자를 생포할 수 있습니다. 해상, 보물 호송대 및 부카니에 유닛이 [icon:WAR] 전쟁이나 국경 개방 중이 아닐 때도 다른 문명의 국경 안으로 들어갈 수 있습니다. </Text>
+      <Text>해상 유닛의 [B][icon:Action_Pillage] 약탈 생산량과 턴당 [icon:Action_Heal] 체력 회복량이 +100% 증가[/B]합니다. [icon:UNIT_SETTLER] 개척자를 양성하거나 구매할 수 없지만, 다른 문명의 [icon:UNIT_SETTLER] 개척자를 나포할 수 있습니다. 해상, 보물 호송대 및 부카니에 유닛이 [icon:WAR] 전쟁이나 국경 개방 중이 아닐 때도 다른 문명의 국경 안으로 들어갈 수 있습니다. 우리 문명의 [TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]해상 유닛[/TIP]이 다른 [B]유닛[/B]을 처치하면 [icon:ECONOMIC_VP] [TIP:LOC_PEDIA_CONCEPTS_GDP_TOOLTIP]GDP[/TIP]가 +5 증가합니다.</Text>
     </Replace>
     <Replace Tag="LOC_ENEMY_OF_ALL_NATIONS_MOD_TREASURE_FLEET_CS_DESCRIPTION" Language="ko_KR">
-      <Text>[icon:UNIT_TREASURE_FLEET] 보물 호송대 상대 시 [icon:NAR_REW_COMBAT] 모든 군사 유닛의 전투력이 +15 증가합니다.</Text>
+      <Text>[icon:UNIT_TREASURE_FLEET] [TIP:LOC_PEDIA_CONCEPTS_TREASURE_CONVOY_TOOLTIP]보물 호송대[/TIP] 상대 시 모든 [TIP:LOC_PEDIA_CONCEPTS_MILITARY_UNIT_TOOLTIP]군사 유닛[/TIP]의 [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]전투력[/TIP]이 +15 증가합니다.</Text>
     </Replace>
     <Replace Tag="LOC_ENEMY_OF_ALL_NATIONS_MOD_TREASURE_FLEET_EXTRA_VP_DESCRIPTION" Language="ko_KR">
-      <Text>[icon:UNIT_TREASURE_FLEET] 보물 호송대 유닛을 생포하면 보물선단 점수를 추가로 얻습니다.</Text>
+      <Text>나포한 [icon:UNIT_TREASURE_FLEET] [TIP:LOC_PEDIA_CONCEPTS_TREASURE_CONVOY_TOOLTIP]보물 호송대[/TIP]에서 얻는 화물이 +2 증가합니다.</Text>
+    </Replace>
+    <Replace Tag="LOC_ENEMY_OF_ALL_NATIONS_MOD_TREASURE_FLEET_EXTRA_VP_DESCRIPTION_ALT" Language="ko_KR">
+      <Text>나포한 [icon:UNIT_TREASURE_FLEET] [TIP:LOC_PEDIA_CONCEPTS_TREASURE_CONVOY_TOOLTIP]보물 호송대[/TIP]에서 얻는 화물이 +100% 증가합니다.</Text>
     </Replace>
     <Replace Tag="LOC_LOADING_CIV_INTRO_TEXT_PIRATE_REPUBLIC" Language="ko_KR">
       <Text>어이, 주목! 이 배에 오른 너희들은 모두 바다와 소금 말고는 아무것도 섬기지 않는 놈들이다. 닻을 올리고, 이 모험의 끝에 있는 것이 보물인지, 사형장인지 알아보러 가자고. 왕실에서 특허장이 나왔으니, 이제 마구 날뛸 시간이야.</Text>
@@ -630,23 +651,29 @@
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_PIRATE_REPUBLIC_COMPLETE_HAVANA_HARBOR_NAME" Language="ko_KR">
       <Text>아바나 항만</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_PIRATE_REPUBLIC_LEGACY_PATH_ECONOMIC_ACHIEVED_DESC" Language="ko_KR">
-      <Text>해적 공화국으로 경제 유산의 길을 완료하세요.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_PIRATE_REPUBLIC_FOUR_MAJOR_TRIUMPHS_DESC" Language="ko_KR">
+      <Text>해적 공화국으로 하나의 정점기 시대 내에 경제 또는 군사 상급 대성공을 4번 완료하세요.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_PIRATE_REPUBLIC_LEGACY_PATH_ECONOMIC_ACHIEVED_NAME" Language="ko_KR">
-      <Text>해적 공화국 유산의 길</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_PIRATE_REPUBLIC_FOUR_MAJOR_TRIUMPHS_NAME" Language="ko_KR">
+      <Text>해적 공화국 상급 대성공 4번</Text>
     </Replace>
     <Replace Tag="LOC_MOD_CIV_WONDER_PRODUCTION_PIRATE_REPUBLIC_DESCRIPTION" Language="ko_KR">
       <Text>해적 공화국과 연관된 [icon:WONDER] 불가사의이므로 [icon:YIELD_PRODUCTION] 생산력이 +30% 증가합니다.</Text>
     </Replace>
-    <Replace Tag="LOC_PORTS_OF_CALL_BUCCANEER_SETTLER_CHARGE_DESCRIPTION" Language="ko_KR">
-      <Text>[icon:UNIT_BUCCANEER] 부카니에가 새 [icon:YIELD_TOWNS] 마을 생성에 쓸 수 있는 사용 횟수를 1회 얻습니다.</Text>
+    <Replace Tag="LOC_NODE_CIVIC_AQ_PIRATE_REPUBLIC_ORIGINS_NAME" Language="ko_KR">
+      <Text>해적 기원</Text>
+    </Replace>
+    <Replace Tag="LOC_NODE_CIVIC_MO_PIRATE_REPUBLIC_MODERNIZATION_NAME" Language="ko_KR">
+      <Text>해적 근대화</Text>
+    </Replace>
+    <Replace Tag="LOC_PIRATE_AQ_MOD_FREE_SETTLER_DESCRIPTION" Language="ko_KR">
+      <Text>[icon:UNIT_SETTLER] 개척자 1기를 무료로 얻습니다.</Text>
     </Replace>
     <Replace Tag="LOC_QUARTER_HAVEN_DESCRIPTION" Language="ko_KR">
-      <Text>해적 공화국 특유 구역입니다. 하나의 특수지구에 해군 기지와 해군 군수창고를 지으면 생성됩니다. 보유한 [icon:TREASURE_FLEET] 보물 자원 하나마다 [icon:YIELD_GOLD] 금이 +1 증가합니다. 우호적인 해상 유닛이 이 타일에서 [icon:Action_Heal] 체력을 +50 회복합니다.</Text>
+      <Text>해적 공화국 [TIP:LOC_PEDIA_CONCEPTS_UNIQUE_QUARTER_TOOLTIP]특유 구역[/TIP]입니다. 하나의 [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]특수지구[/TIP]에 해군 기지와 해군 군수창고를 지으면 생성됩니다. 보유한 [icon:TREASURE_FLEET] [TIP:LOC_PEDIA_CONCEPTS_TREASURE_RESOURCES_TOOLTIP]보물 자원[/TIP] 하나마다 [icon:YIELD_GOLD] 금이 +1 증가합니다. 우호적인 [TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]해상 유닛[/TIP]이 이 타일에서 [icon:Action_Heal] 체력을 +50 회복합니다.</Text>
     </Replace>
     <Replace Tag="LOC_QUARTER_HAVEN_TOOLTIP" Language="ko_KR">
-      <Text>보유한 [icon:TREASURE_FLEET] 보물 자원 하나마다 [icon:YIELD_GOLD] 금이 +1 증가하며, 우호적인 해상 유닛이 이 타일에서 [icon:Action_Heal] 체력을 +50 회복합니다.</Text>
+      <Text>보유한 [icon:TREASURE_FLEET] [TIP:LOC_PEDIA_CONCEPTS_TREASURE_RESOURCES_TOOLTIP]보물 자원[/TIP] 하나마다 [icon:YIELD_GOLD] 금이 +1 증가하며, 우호적인 [TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]해상 유닛[/TIP]이 이 타일에서 턴마다 [icon:Action_Heal] 체력을 +50 회복합니다.</Text>
     </Replace>
     <Replace Tag="LOC_QUOTE_AUTHOR_WONDER_HAVANA_HARBOR" Language="ko_KR">
       <Text>로버트 루이스 스티븐슨</Text>
@@ -654,17 +681,38 @@
     <Replace Tag="LOC_QUOTE_WONDER_HAVANA_HARBOR" Language="ko_KR">
       <Text>금이 지척에 다가오자 다른 모든 것은 잊혀져 버렸다.</Text>
     </Replace>
-    <Replace Tag="LOC_TRADITION_BLACK_FLAG_DESCRIPTION" Language="ko_KR">
-      <Text>교역로 [icon:Action_Pillage] 약탈 시 [icon:YIELD_GOLD] 금을 +100% 더 얻습니다. </Text>
+    <Replace Tag="LOC_TRADITION_BLACK_FLAG_I_DESCRIPTION" Language="ko_KR">
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]교역로[/TIP] [icon:Action_Pillage] 약탈 시 얻는 [icon:YIELD_GOLD] 금이 +50(게임 속도에 따라 변화) 증가합니다. 해상 유닛으로 [icon:Action_Pillage] 해안 강습 수행 시의 생산량 및 [icon:Action_Heal] 체력 회복량이 +50% 증가합니다.</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_BLACK_FLAG_II_DESCRIPTION" Language="ko_KR">
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]교역로[/TIP] [icon:Action_Pillage] 약탈 시 얻는 [icon:YIELD_GOLD] 금이 +100(게임 속도에 따라 변화) 증가합니다. 해상 유닛으로 [icon:Action_Pillage] 해안 강습 수행 시의 생산량 및 [icon:Action_Heal] 체력 회복량이 +100% 증가합니다. 환초에서 [icon:UNIT_FLEET_COMMANDER] [TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]전단장[/TIP]과 [TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]해상 유닛[/TIP]이 [TIP:LOC_PEDIA_CONCEPTS_STEALTH_TOOLTIP]잠행[/TIP]을 얻습니다.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_MERRY_LIFE_AND_A_SHORT_ONE_DESCRIPTION" Language="ko_KR">
-      <Text>지원 유닛을 처치할 때마다 해당 유닛 [icon:YIELD_PRODUCTION] 생산 비용에 해당하는 [icon:YIELD_GOLD] 금을 얻습니다. 해상 유닛을 처치할 때마다 해당 유닛 [icon:YIELD_PRODUCTION] 생산 비용의 25%에 해당하는 [icon:YIELD_GOLD] 금을 얻습니다.</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_SUPPORT_UNIT_TOOLTIP]지원 유닛[/TIP]을 처치할 때마다 해당 유닛 [icon:YIELD_PRODUCTION] 생산 비용에 해당하는 [icon:YIELD_GOLD] 금을 얻습니다. [TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]해상 유닛[/TIP]을 처치할 때마다 해당 유닛 [icon:YIELD_PRODUCTION] 생산 비용의 25%에 해당하는 [icon:YIELD_GOLD] 금을 얻습니다.</Text>
     </Replace>
-    <Replace Tag="LOC_TRADITION_PRESS_GANGS_DESCRIPTION" Language="ko_KR">
-      <Text>보유한 [icon:UNIT_FLEET_COMMANDER] 전단장 하나마다 해상 유닛 양성에 드는 [icon:YIELD_PRODUCTION] 생산력 효율을 +50% 제공합니다.</Text>
+    <Replace Tag="LOC_TRADITION_PIRATE_REPUBLIC_SYNCRETISM_ANTIQUITY_DESCRIPTION" Language="ko_KR">
+      <Text>해안에 있거나 해안에 인접한 [icon:CITY_URBAN] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]특수지구[/TIP]의 [icon:YIELD_PRODUCTION] 생산력이 +2 증가합니다. 해안에 없거나 해안에 인접하지 않은 [icon:CITY_URBAN] 특수지구의 [icon:YIELD_HAPPINESS] 행복도가 -1 감소합니다.</Text>
     </Replace>
-    <Replace Tag="LOC_TRAIT_PIRATE_REPUBLIC_ABILITY_DESCRIPTION" Language="ko_KR">
-      <Text>[BLIST][LI]해상 유닛의 [icon:Action_Pillage] [B]약탈[/B]과 [B]해안 강습[/B]으로 얻는 [B]생산량이 +100%[/B] 증가합니다.[LI][icon:UNIT_SETTLER] [B]개척자[/B]를 양성하거나 구매할 수 없지만, 다른 문명의 [icon:UNIT_SETTLER] [B]개척자[/B]를 생포할 수 있습니다.[LI][B]해상, 보물 호송대 및 부카니에 유닛[/B]이 [icon:WAR] [B]전쟁[/B]이나 [B]국경 개방[/B] 중이 아닐 때도 다른 [B]문명[/B]의 국경 안으로 들어갈 수 있습니다.[LI][B]아바나 항만[/B] 건설에 드는 [icon:YIELD_PRODUCTION] [B]생산력 효율을 +30%[/B] 제공합니다.[/LIST]</Text>
+    <Replace Tag="LOC_TRADITION_PIRATE_REPUBLIC_SYNCRETISM_MODERN_DESCRIPTION" Language="ko_KR">
+      <Text>해안에 있거나 해안에 인접한 [icon:CITY_URBAN] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]특수지구[/TIP]의 [icon:YIELD_PRODUCTION] 생산력이 +3 증가합니다. 해안에 없거나 해안에 인접하지 않은 [icon:CITY_URBAN] 특수지구의 [icon:YIELD_HAPPINESS] 행복도가 -2 감소합니다.</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_PIRATE_REPUBLIC_SYNCRETISM_TOOLTIP" Language="ko_KR">
+      <Text>해안의 무리</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_PRESS_GANGS_I_DESCRIPTION" Language="ko_KR">
+      <Text>경무장 해상 유닛 양성 시 [icon:YIELD_PRODUCTION] 생산력 및 [icon:YIELD_GOLD] 금 효율을 +100% 제공합니다. [icon:UNIT_FLEET_COMMANDER] [TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]전단장[/TIP]이 무료로 [icon:NAR_REW_PROMOTION] [TIP:LOC_PROMOTION_FLEET_LOOTING_DESCRIPTION]약탈 진급[/TIP]을 얻습니다.</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_PRESS_GANGS_II_DESCRIPTION" Language="ko_KR">
+      <Text>경무장 해상 유닛 양성 시 [icon:YIELD_PRODUCTION] 생산력 및 [icon:YIELD_GOLD] 금 효율을 +150% 제공합니다. [icon:UNIT_FLEET_COMMANDER] [TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]전단장[/TIP]이 무료로 [icon:NAR_REW_PROMOTION] [TIP:LOC_PROMOTION_FLEET_LOOTING_DESCRIPTION]약탈 진급[/TIP]을 얻습니다.</Text>
+    </Replace>
+    <Replace Tag="LOC_TRAIT_PIRATE_REPUBLIC_ABILITY_AQ_DESCRIPTION" Language="ko_KR">
+      <Text>[BLIST][LI][B]해상 유닛[/B]이 [icon:WAR] [B]전쟁[/B] 또는 [B]국경 개방[/B] 중이 아닐 때도 다른 [B]문명[/B]의 국경 안으로 들어갈 수 있습니다.[LI][icon:UNIT_SETTLER] [B]개척자[/B]를 양성하거나 구매할 수 없지만, 다른 문명의 [icon:UNIT_SETTLER] [B]개척자[/B]를 나포할 수 있습니다. [icon:RADIAL_TECH] 항해 및 항해술 기술과 [icon:RADIAL_CIVICS] 해적 기원 사회 제도를 완료하면 [icon:UNIT_SETTLER] [B]개척자[/B]를 한 기 무료로 얻습니다.[LI]우리 문명의 [TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]해상 유닛[/TIP]이 다른 [B]유닛[/B]을 처치하면 [icon:ECONOMIC_VP] [TIP:LOC_PEDIA_CONCEPTS_GDP_TOOLTIP]GDP[/TIP]가 +5 증가합니다.[/BLIST]</Text>
+    </Replace>
+    <Replace Tag="LOC_TRAIT_PIRATE_REPUBLIC_ABILITY_EX_DESCRIPTION" Language="ko_KR">
+      <Text>[BLIST][LI][B]해상 유닛, [icon:UNIT_TREASURE_FLEET] 보물 호송대 및 [icon:UNIT_BUCCANEER] 부카니에[/B]가 [icon:WAR] [B]전쟁[/B]이나 [B]국경 개방[/B] 중이 아닐 때도 다른 [B]문명[/B]의 국경 안으로 들어갈 수 있습니다.[LI][B][icon:UNIT_BUCCANEER] 부카니에[/B]가 [B]처음으로 [icon:NAR_REW_PROMOTION] [TIP:LOC_PEDIA_CONCEPTS_PROMOTION_TOOLTIP]진급[/TIP][/B]하면 [B]새로운 [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]정착지[/TIP]를 세울 수 있는 사용 횟수를 1회[/B] 얻습니다.[LI][icon:UNIT_SETTLER] [B]개척자[/B]를 양성하거나 구매할 수 없지만, 다른 문명의 [icon:UNIT_SETTLER] [B]개척자[/B]를 나포할 수 있습니다.[LI]우리 문명의 [TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]해상 유닛[/TIP]이 다른 [B]유닛[/B]을 처치하면 [icon:ECONOMIC_VP] [TIP:LOC_PEDIA_CONCEPTS_GDP_TOOLTIP]GDP[/TIP]가 +5 증가합니다.[LI][B]아바나 항만[/B] 건설 시 [B][icon:YIELD_PRODUCTION] 생산력 효율을 +30% 제공[/B]합니다.[/BLIST]</Text>
+    </Replace>
+    <Replace Tag="LOC_TRAIT_PIRATE_REPUBLIC_ABILITY_MO_DESCRIPTION" Language="ko_KR">
+      <Text>[BLIST][LI][B]해상 유닛 및 [icon:UNIT_FLEET_COMMANDER] [TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]전단장[/TIP][/B]이 [icon:WAR] [B]전쟁[/B]이나 [B]국경 개방[/B] 중이 아닐 때도 다른 [B]문명[/B]의 국경 안으로 들어갈 수 있습니다.[LI][B][icon:UNIT_FLEET_COMMANDER] [TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]전단장[/TIP][/B]이 [B]처음으로 [icon:NAR_REW_PROMOTION] [TIP:LOC_PEDIA_CONCEPTS_PROMOTION_TOOLTIP]진급[/TIP][/B]하면 [B]새로운 [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]정착지[/TIP]를 세울 수 있는 사용 횟수를 1회[/B] 얻습니다.[LI][icon:UNIT_SETTLER] [B]개척자[/B]를 양성하거나 구매할 수 없지만, 다른 문명의 [icon:UNIT_SETTLER] [B]개척자[/B]를 나포할 수 있습니다.[LI]우리 문명의 [TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]해상 유닛[/TIP]이 다른 [B]유닛[/B]을 처치하면 [icon:ECONOMIC_VP] [TIP:LOC_PEDIA_CONCEPTS_GDP_TOOLTIP]GDP[/TIP]가 +5 증가합니다.[/BLIST]</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_PIRATE_REPUBLIC_ABILITY_NAME" Language="ko_KR">
       <Text>플라잉 갱</Text>
@@ -673,19 +721,19 @@
       <Text>해적 사회 제도</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_BUCCANEER_DESCRIPTION" Language="ko_KR">
-      <Text>해적 공화국 특유 전단장입니다. [icon:NAR_REW_PROMOTION] 2레벨마다 약탈단 행동 사용 횟수를 1회 얻습니다. 약탈단: 다른 문명이 보유한, 머나먼 땅의 인접한 [icon:TREASURE_FLEET] 보물 자원을 목표로 합니다. 이 정착지에서 즉시 우리 문명 소유의 [icon:UNIT_TREASURE_FLEET] 보물 호송대가 생성됩니다. 이 행동은 다른 [icon:UNIT_TREASURE_FLEET] 보물 호송대 생성에 필요한 턴 수를 초기화하지 않습니다.</Text>
+      <Text>해적 공화국 특유 전단장입니다. [icon:NAR_REW_PROMOTION] 진급 2회마다 약탈단 행동 사용 횟수를 1회 얻습니다. 약탈단: 다른 문명이 보유한, [TIP:LOC_PEDIA_CONCEPTS_DISTANT_LANDS_TOOLTIP]머나먼 땅[/TIP]의 인접한 [icon:TREASURE_FLEET] [TIP:LOC_PEDIA_CONCEPTS_TREASURE_RESOURCES_TOOLTIP]보물 자원[/TIP]을 목표로 합니다. 이 [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]정착지[/TIP]에서 즉시 우리 문명 소유의 [icon:UNIT_TREASURE_FLEET] [TIP:LOC_PEDIA_CONCEPTS_TREASURE_CONVOY_TOOLTIP]보물 호송대[/TIP]가 생성됩니다. 이 행동은 다른 [icon:UNIT_TREASURE_FLEET] [TIP:LOC_PEDIA_CONCEPTS_TREASURE_CONVOY_TOOLTIP]보물 호송대[/TIP] 생성에 필요한 턴 수를 초기화하지 않습니다.</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_SLOOP_2_DESCRIPTION" Language="ko_KR">
-      <Text>2티어 해적 공화국 경무장 해상 유닛은 [icon:UNIT_CAUTION] 해적 능력을 가지고 있습니다. 다른 문명의 국경을 넘고, 동맹이 아닌 문명 간의 [icon:Action_Pillage] 교역로를 약탈할 수 있으며 [icon:WAR] 선전포고 없이 동맹이 아닌 문명의 유닛을 공격할 수 있습니다. 슬루프로 유닛을 처치하면 해당 유닛 [icon:NAR_REW_COMBAT] 전투력의 100%에 해당하는 [icon:YIELD_GOLD] 금을 얻습니다. 공격 후 이동할 수 있으며 [icon:Action_Move] 이동력이 5입니다.</Text>
+      <Text>해적 공화국 특유 2티어 경무장 [TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]해상 유닛[/TIP]입니다. [icon:UNIT_CAUTION] [TIP:LOC_PEDIA_CONCEPTS_PIRATE_TOOLTIP]해적[/TIP] 능력을 가지고 있습니다. 슬루프로 유닛을 처치하면 해당 유닛 [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]전투력[/TIP]의 100%에 해당하는 [icon:YIELD_GOLD] 금을 얻습니다. 공격 후 이동할 수 있으며 [icon:Action_Move] 이동력이 5입니다.</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_SLOOP_3_DESCRIPTION" Language="ko_KR">
-      <Text>3티어 해적 공화국 경무장 해상 유닛은 [icon:UNIT_CAUTION] 해적 능력을 가지고 있습니다. 다른 문명의 국경을 넘고, 동맹이 아닌 문명 간의 [icon:Action_Pillage] 교역로를 약탈할 수 있으며 [icon:WAR] 선전포고 없이 동맹이 아닌 문명의 유닛을 공격할 수 있습니다. 슬루프로 유닛을 처치하면 해당 유닛 [icon:NAR_REW_COMBAT] 전투력의 100%에 해당하는 [icon:YIELD_GOLD] 금을 얻습니다. 공격 후 이동할 수 있으며 [icon:Action_Move] 이동력이 5입니다.</Text>
+      <Text>해적 공화국 특유 3티어 경무장 [TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]해상 유닛[/TIP]입니다. [icon:UNIT_CAUTION] [TIP:LOC_PEDIA_CONCEPTS_PIRATE_TOOLTIP]해적[/TIP] 능력을 가지고 있습니다. 슬루프로 유닛을 처치하면 해당 유닛 [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]전투력[/TIP]의 100%에 해당하는 [icon:YIELD_GOLD] 금을 얻습니다. 공격 후 이동할 수 있으며 [icon:Action_Move] 이동력이 5입니다.</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_SLOOP_BASE_DESCRIPTION" Language="ko_KR">
-      <Text>해적 공화국 특유 경무장 해상 유닛은 [icon:UNIT_CAUTION] 해적 능력을 가지고 있습니다. 다른 문명의 국경을 넘고, 동맹이 아닌 문명 간의 [icon:Action_Pillage] 교역로를 약탈할 수 있으며 [icon:WAR] 선전포고 없이 동맹이 아닌 문명의 유닛을 공격할 수 있습니다. 슬루프로 유닛을 처치하면 해당 유닛 [icon:NAR_REW_COMBAT] 전투력의 100%에 해당하는 [icon:YIELD_GOLD] 금을 얻습니다. 공격 후 이동할 수 있으며 [icon:Action_Move] 이동력이 5입니다.</Text>
+      <Text>해적 공화국 특유 경무장 [TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]해상 유닛[/TIP]입니다. [icon:UNIT_CAUTION] [TIP:LOC_PEDIA_CONCEPTS_PIRATE_TOOLTIP]해적[/TIP] 능력을 가지고 있습니다. 슬루프로 유닛을 처치하면 해당 유닛 [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]전투력[/TIP]의 100%에 해당하는 [icon:YIELD_GOLD] 금을 얻습니다. 공격 후 이동할 수 있으며 [icon:Action_Move] 이동력이 5입니다.</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_SLOOP_DESCRIPTION" Language="ko_KR">
-      <Text>1티어 해적 공화국 경무장 해상 유닛은 [icon:UNIT_CAUTION] 해적 능력을 가지고 있습니다. 다른 문명의 국경을 넘고, 동맹이 아닌 문명 간의 [icon:Action_Pillage] 교역로를 약탈할 수 있으며 [icon:WAR] 선전포고 없이 동맹이 아닌 문명의 유닛을 공격할 수 있습니다. 슬루프로 유닛을 처치하면 해당 유닛 [icon:NAR_REW_COMBAT] 전투력의 100%에 해당하는 [icon:YIELD_GOLD] 금을 얻습니다. 공격 후 이동할 수 있으며 [icon:Action_Move] 이동력이 5입니다.</Text>
+      <Text>해적 공화국 특유 1티어 경무장 [TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]해상 유닛[/TIP]입니다. [icon:UNIT_CAUTION] [TIP:LOC_PEDIA_CONCEPTS_PIRATE_TOOLTIP]해적[/TIP] 능력을 가지고 있습니다. 슬루프로 유닛을 처치하면 해당 유닛 [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]전투력[/TIP]의 100%에 해당하는 [icon:YIELD_GOLD] 금을 얻습니다. 공격 후 이동할 수 있으며 [icon:Action_Move] 이동력이 5입니다.</Text>
     </Replace>
     <Replace Tag="LOC_UNITOPERATION_RAIDING_PARTY_DESCRIPTION" Language="ko_KR">
       <Text>다른 문명이 보유한, 머나먼 땅의 보물 자원과 인접했으며 비어 있는 타일에서 활성화합니다. 이 정착지에서 즉시 우리 문명 소유의 보물 호송대가 생성됩니다. 이 행동은 다른 보물 호송대 생성에 필요한 턴 수를 초기화하지 않습니다.</Text>
@@ -705,6 +753,9 @@
     <Replace Tag="LOC_UNLOCK_PLAY_AS_PIRATE_REPUBLIC_DESCRIPTION" Language="ko_KR">
       <Text>[B]해적 공화국[/B]으로 플레이하세요.</Text>
     </Replace>
+    <Replace Tag="LOC_UNLOCK_PLAY_AS_PIRATE_REPUBLIC_PIRATE_REPUBLIC_TOOLTIP" Language="ko_KR">
+      <Text>[B]해적 공화국[/B]은 시대 내내 인내할 수 있습니다.</Text>
+    </Replace>
     <Replace Tag="LOC_UNLOCK_PLUNDERS_DESCRIPTION" Language="ko_KR">
       <Text>[B]교역로[/B]를 두 개 약탈하세요.</Text>
     </Replace>
@@ -715,22 +766,34 @@
       <Text>[B]약탈[/B]은 [B]해적 공화국[/B]의 정체성에서 중요한 역할을 차지했습니다.</Text>
     </Replace>
     <Replace Tag="LOC_WONDER_HAVANA_HARBOR_DESCRIPTION" Language="ko_KR">
-      <Text>[icon:YIELD_GOLD] 금이 +3 증가합니다. 이 정착지는 대항해시대에 보물선단 점수 3점에 해당하는 [icon:UNIT_TREASURE_FLEET] 보물 호송대를 생성합니다. [icon:ATTRIBUTE_ECONOMIC] 경제 속성 점수를 +1점 얻습니다. 시대를 초월합니다. 호수가 아닌 육지에 인접한, 머나먼 땅의 해안에 건설해야 합니다.</Text>
+      <Text>[icon:YIELD_GOLD] 금이 +3 증가합니다. 이 [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]정착지[/TIP]는 [TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]대항해시대[/TIP]에 화물 3개에 해당하는 [icon:UNIT_TREASURE_FLEET] [TIP:LOC_PEDIA_CONCEPTS_TREASURE_CONVOY_TOOLTIP]보물 호송대[/TIP]를 생성합니다. [icon:ATTRIBUTE_ECONOMIC] 경제 [TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]속성[/TIP] 점수가 +1점 증가합니다. [TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]시대를 초월합니다[/TIP]. 호수가 아닌 육지에 인접한, [TIP:LOC_PEDIA_CONCEPTS_DISTANT_LANDS_TOOLTIP]머나먼 땅[/TIP]의 해안에 건설해야 합니다.</Text>
     </Replace>
     <Replace Tag="LOC_WONDER_HAVANA_HARBOR_TOOLTIP" Language="ko_KR">
-      <Text>이 정착지는 대항해시대에 보물선단 점수 3점에 해당하는 [icon:UNIT_TREASURE_FLEET] 보물 호송대를 생성합니다. [icon:ATTRIBUTE_ECONOMIC] 경제 속성 점수를 +1점 얻습니다.[N]호수가 아닌 육지에 인접한, 머나먼 땅의 해안에 건설해야 합니다.</Text>
+      <Text>이 [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]정착지[/TIP]는 [TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]대항해시대[/TIP]에 화물 3개에 해당하는 [icon:UNIT_TREASURE_FLEET] [TIP:LOC_PEDIA_CONCEPTS_TREASURE_CONVOY_TOOLTIP]보물 호송대[/TIP]를 생성합니다. [icon:ATTRIBUTE_ECONOMIC] 경제 [TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]속성[/TIP] 점수가 +1점 증가합니다.[N]호수가 아닌 육지에 인접한, [TIP:LOC_PEDIA_CONCEPTS_DISTANT_LANDS_TOOLTIP]머나먼 땅[/TIP]의 해안에 건설해야 합니다.</Text>
     </Replace>
     <Replace Tag="LOC_ENEMY_OF_ALL_NATIONS_MOD_TREASURE_FLEET_CS_PREVIEW" Language="ko_KR">
       <Text>만국의 적 +{1_Amount}</Text>
     </Replace>
-    <Replace Tag="LOC_TRADITION_BLACK_FLAG_NAME" Language="ko_KR">
-      <Text>해적기</Text>
+    <Replace Tag="LOC_TRADITION_BLACK_FLAG_I_NAME" Language="ko_KR">
+      <Text>해적기 I</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_BLACK_FLAG_II_NAME" Language="ko_KR">
+      <Text>해적기 II</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_MERRY_LIFE_AND_A_SHORT_ONE_NAME" Language="ko_KR">
       <Text>짧지만 즐거운 삶</Text>
     </Replace>
-    <Replace Tag="LOC_TRADITION_PRESS_GANGS_NAME" Language="ko_KR">
-      <Text>강제 징집대</Text>
+    <Replace Tag="LOC_TRADITION_PIRATE_REPUBLIC_SYNCRETISM_ANTIQUITY_NAME" Language="ko_KR">
+      <Text>해안의 무리 I</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_PIRATE_REPUBLIC_SYNCRETISM_MODERN_NAME" Language="ko_KR">
+      <Text>해안의 무리 II</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_PRESS_GANGS_I_NAME" Language="ko_KR">
+      <Text>강제 징집대 I</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_PRESS_GANGS_II_NAME" Language="ko_KR">
+      <Text>강제 징집대 II</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_BUCCANEER_NAME" Language="ko_KR">
       <Text>부카니에</Text>

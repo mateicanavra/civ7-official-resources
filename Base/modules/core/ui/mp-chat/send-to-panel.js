@@ -1,26 +1,9 @@
-import FocusManager from '../input/focus-manager.js';
 import { mapChatTargetTypeToImageClass, PrivateSelectEvent } from './screen-mp-chat.js';
-import { N as NavTray } from '../navigation-tray/model-navigation-tray.chunk.js';
-import { P as Panel } from '../panel-support.chunk.js';
-import { MustGetElement } from '../utilities/utilities-dom.chunk.js';
+import NavTray from '../navigation-tray/model-navigation-tray.js';
+import Panel from '../panel-support.js';
+import { MustGetElement } from '../utilities/utilities-dom.js';
 import { NetworkUtilities } from '../utilities/utilities-network.js';
-import '../audio-base/audio-support.chunk.js';
-import '../framework.chunk.js';
-import '../accessibility/tts-manager.js';
-import '../context-manager/context-manager.js';
-import '../context-manager/display-queue-manager.js';
-import '../dialog-box/manager-dialog-box.chunk.js';
-import '../input/cursor.js';
-import '../views/view-manager.chunk.js';
-import '../input/action-handler.js';
-import '../input/input-support.chunk.js';
-import '../utilities/utilities-update-gate.chunk.js';
-import '../utilities/utilities-image.chunk.js';
-import '../utilities/utilities-component-id.chunk.js';
-import '../shell/mp-legal/mp-legal.js';
-import '../events/shell-events.chunk.js';
-import '../utilities/utilities-liveops.js';
-import '../utilities/utilities-network-constants.chunk.js';
+import { FocusManager } from '../../ui-next/services/focus-manager.js';
 
 class SendToPanel extends Panel {
   globalChatIndex = 0;
@@ -88,7 +71,7 @@ class SendToPanel extends Panel {
   }
   onReceiveFocus() {
     super.onReceiveFocus();
-    FocusManager.setFocus(this.scrollableContainer);
+    FocusManager.get().setFocus(this.scrollableContainer);
     NavTray.clear();
   }
   getContent() {

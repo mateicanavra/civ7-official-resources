@@ -1,13 +1,5 @@
 import { div2s, add2 } from '../../core/scripts/MathHelpers.js';
-import { VoronoiUtils, Aabb2, WrapType } from './kd-tree.js';
-import '../../core/scripts/external/TypeScript-Voronoi-master/src/voronoi.js';
-import '../../core/scripts/external/TypeScript-Voronoi-master/src/rbtree.js';
-import '../../core/scripts/external/TypeScript-Voronoi-master/src/vertex.js';
-import '../../core/scripts/external/TypeScript-Voronoi-master/src/edge.js';
-import '../../core/scripts/external/TypeScript-Voronoi-master/src/cell.js';
-import '../../core/scripts/external/TypeScript-Voronoi-master/src/diagram.js';
-import '../../core/scripts/external/TypeScript-Voronoi-master/src/halfedge.js';
-import './random-pcg-32.js';
+import { Aabb2, WrapType, VoronoiUtils } from './voronoi-utils.js';
 
 var QuadIdx = /* @__PURE__ */ ((QuadIdx2) => {
   QuadIdx2[QuadIdx2["SW"] = 0] = "SW";
@@ -24,7 +16,7 @@ class QuadTree {
   getPos;
   items = [];
   children = null;
-  constructor(bounds, getPos, capacity = 4, maxDepth = 16, depth = 0) {
+  constructor(bounds, getPos, capacity = 16, maxDepth = 16, depth = 0) {
     this.bounds = bounds;
     this.getPos = getPos;
     this.capacity = capacity;
@@ -55,7 +47,10 @@ class QuadTree {
   nearestInternal(x, y, st, filter = void 0) {
     for (const item of this.items) {
       if (!filter || filter(item)) {
-        const d = VoronoiUtils.sqDistance(this.getPos(item), { x, y });
+        const pos = this.getPos(item);
+        const dx = pos.x - x;
+        const dy = pos.y - y;
+        const d = dx * dx + dy * dy;
         if (d < st.bestDistSq) {
           st.bestDistSq = d;
           st.best = item;
@@ -74,7 +69,7 @@ class QuadTree {
     for (const i of order) {
       const child = this.children[i];
       const cb = child.bounds;
-      const aabbd2 = cb.distSqToPoint({ x, y });
+      const aabbd2 = cb.distSqToPoint(x, y);
       if (aabbd2 < st.bestDistSq) {
         child.nearestInternal(x, y, st, filter);
       }

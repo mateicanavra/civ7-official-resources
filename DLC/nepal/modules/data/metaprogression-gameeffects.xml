@@ -1,24 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <GameEffects xmlns="GameEffects">
-	<Modifier id="METAPROGRESSION_CHALLENGE_NEPAL_LEGACY_PATH_CULTURAL_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+	<Modifier id="CHALLENGE_NEPAL_FOUR_MAJOR_TRIUMPHS_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
 		<OwnerRequirements>
-			<Requirement type="REQUIREMENT_LEGACY_PATH_COMPLETED">
-				<Argument name="LegacyPathType">LEGACY_PATH_MODERN_CULTURE</Argument>
-			</Requirement>
 			<Requirement type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
 				<Argument name="CivilizationType">CIVILIZATION_NEPAL</Argument>
 			</Requirement>
+			<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
+				<Argument name="AgeType">AGE_MODERN</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="MinorOnly">true</Argument>
+				<Argument name="MinCount">4</Argument>
+				<Argument name="TriumphClassTags">CULTURAL,DIPLOMATIC</Argument>
+			</Requirement>
 		</OwnerRequirements>
-		<Argument name="Challenge">CHALLENGE_NEPAL_LEGACY_PATH_CULTURAL</Argument>
+		<Argument name="Challenge">CHALLENGE_NEPAL_FOUR_MAJOR_TRIUMPHS</Argument>
 	</Modifier>
-	<Modifier id="METAPROGRESSION_CHALLENGE_NEPAL_LEGACY_PATH_MILESTONE_COMPLETED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+	<Modifier id="CHALLENGE_NEPAL_MAJOR_TRIUMPH_COMPLETED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
 		<OwnerRequirements>
 			<Requirement type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
 				<Argument name="CivilizationType">CIVILIZATION_NEPAL</Argument>
 			</Requirement>
-			<Requirement type="REQUIREMENT_LEGACY_PATH_MILESTONE_COMPLETED" />
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="MinorOnly">True</Argument>
+			</Requirement>
 		</OwnerRequirements>
-		<Argument name="Challenge">CHALLENGE_NEPAL_LEGACY_PATH_MILESTONE_COMPLETED</Argument>
+		<Argument name="Challenge">CHALLENGE_NEPAL_MAJOR_TRIUMPH_COMPLETED</Argument>
 	</Modifier>
 	<Modifier id="METAPROGRESSION_CHALLENGE_NEPAL_COMPLETE_BOUDHANATH" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
 		<OwnerRequirements>

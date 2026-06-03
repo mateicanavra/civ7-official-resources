@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Types>
+		<InsertOrIgnore Type="UNLOCK_CIVILIZATION_CARTHAGE" Kind="KIND_UNLOCK"/>
+	</Types>
+	<Unlocks>
+		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_CARTHAGE"/>
+	</Unlocks>
+	<UnlockRewards>
+		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_CARTHAGE" Name="LOC_CIVILIZATION_CARTHAGE_NAME" Description="LOC_UNLOCK_MODERN_CIV_DESCRIPTION" Icon="CIVILIZATION_CARTHAGE" UnlockRewardType="CIVILIZATION_CARTHAGE" UnlockRewardKind="KIND_CIVILIZATION"/>
+	</UnlockRewards>
+	<UnlockRequirements>
+	</UnlockRequirements>
+	<UnlockConfigurationValues>
+	</UnlockConfigurationValues>
+
+	<RequirementSets>
+		<InsertOrIgnore RequirementSetId="REQSET_CIV_IS_CARTHAGE" RequirementSetType="REQUIREMENTSET_TEST_ALL"/>
+	</RequirementSets>
+	<Requirements>
+		<InsertOrIgnore RequirementId="REQ_CIV_IS_CARTHAGE" RequirementType="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES"/>
+	</Requirements>
+	<RequirementArguments>
+		<InsertOrIgnore RequirementId="REQ_CIV_IS_CARTHAGE" Name="CivilizationType" Value="CIVILIZATION_CARTHAGE"/>
+	</RequirementArguments>
+	<RequirementSetRequirements>
+		<InsertOrIgnore RequirementSetId="REQSET_CIV_IS_CARTHAGE" RequirementId="REQ_CIV_IS_CARTHAGE"/>
+	</RequirementSetRequirements>
+	<UnlockRequirements>
+		<Row UnlockType="UNLOCK_CIVILIZATION_SPAIN" RequirementSetId="REQSET_CIV_IS_CARTHAGE" Description="LOC_UNLOCK_PLAY_AS_CARTHAGE_DESCRIPTION" Tooltip="LOC_UNLOCK_PLAY_AS_CARTHAGE_SPAIN_TOOLTIP"/>
+	</UnlockRequirements>
+</Database>

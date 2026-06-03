@@ -1,36 +1,15 @@
 import { DisplayQueueManager } from '../../../core/ui/context-manager/display-queue-manager.js';
-import { D as DialogBoxAction, a as DialogBoxManager } from '../../../core/ui/dialog-box/manager-dialog-box.chunk.js';
-import FocusManager from '../../../core/ui/input/focus-manager.js';
+import { DialogBoxManager } from '../../../core/ui/dialog-box/manager-dialog-box.js';
 import { InterfaceMode } from '../../../core/ui/interface-modes/interface-modes.js';
-import { N as NavTray } from '../../../core/ui/navigation-tray/model-navigation-tray.chunk.js';
-import { A as AnchorType } from '../../../core/ui/panel-support.chunk.js';
-import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.chunk.js';
-import DiplomacyManager, { DiplomacyInputPanel, L as LeaderModelManager } from '../diplomacy/diplomacy-manager.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/audio-base/audio-support.chunk.js';
-import '../../../core/ui/views/view-manager.chunk.js';
-import '../../../core/ui/input/action-handler.js';
-import '../../../core/ui/input/cursor.js';
-import '../../../core/ui/input/input-support.chunk.js';
-import '../../../core/ui/utilities/utilities-update-gate.chunk.js';
-import '../../../core/ui/utilities/utilities-image.chunk.js';
-import '../../../core/ui/utilities/utilities-component-id.chunk.js';
-import '../../../core/ui/context-manager/context-manager.js';
-import '../diplomacy/diplomacy-events.js';
-import '../../../core/ui/utilities/utilities-layout.chunk.js';
-import '../world-input/world-input.js';
-import '../../../core/ui/input/plot-cursor.js';
-import '../../../core/ui/utilities/utilities-network.js';
-import '../../../core/ui/shell/mp-legal/mp-legal.js';
-import '../../../core/ui/events/shell-events.chunk.js';
-import '../../../core/ui/utilities/utilities-liveops.js';
-import '../../../core/ui/utilities/utilities-network-constants.chunk.js';
-import '../interface-modes/support-unit-map-decoration.chunk.js';
-import '../utilities/utilities-overlay.chunk.js';
-
-const content = "<div class=\"panel-diplomacy-project-reaction__project-dialog-container h-30 flex-initial w-full self-center\">\r\n\t<div\r\n\t\tclass=\"panel-diplomacy-project-reaction_project-dialog-leader font-title text-sm text-secondary tracking-150 pb-2\"\r\n\t></div>\r\n\t<div class=\"panel-diplomacy-project-reaction__project-dialog-info font-base text-sm\"></div>\r\n</div>\r\n<fxs-vslot\r\n\tclass=\"panel-diplomacy-project-reaction__main-container h-auto min-w-187 mb flex flex-col\"\r\n\tdata-navrule-up=\"stop\"\r\n></fxs-vslot>\r\n";
-
-const styles = "fs://game/base-standard/ui/diplomacy-project-reaction/panel-diplomacy-project-reaction.css";
+import NavTray from '../../../core/ui/navigation-tray/model-navigation-tray.js';
+import { AnchorType } from '../../../core/ui/panel-support.js';
+import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
+import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
+import DiplomacyManager, { DiplomacyInputPanel } from '../diplomacy/diplomacy-manager.js';
+import LeaderModelManager from '../diplomacy/leader-model-manager.js';
+import content from './panel-diplomacy-project-reaction.html.js';
+import styles from './panel-diplomacy-project-reaction.scss.js';
+import { DialogBoxAction } from '../../../core/ui/dialog-box/model-dialog-box.js';
 
 class DiplomacyProjectReactionPanel extends DiplomacyInputPanel {
   firstMeetOpenReactionsListener = this.onFirstMeetOpenReactions.bind(this);
@@ -157,7 +136,7 @@ class DiplomacyProjectReactionPanel extends DiplomacyInputPanel {
     }
   }
   onViewReceiveFocus() {
-    FocusManager.setFocus(MustGetElement(".panel-diplomacy-project-reaction__response-container", this.Root));
+    FocusManager.get().setFocus(MustGetElement(".panel-diplomacy-project-reaction__response-container", this.Root));
   }
   //#endregion
   //#region Populate Project Responses
@@ -220,7 +199,7 @@ class DiplomacyProjectReactionPanel extends DiplomacyInputPanel {
       );
     });
     const firstSlot = MustGetElement(".panel-diplomacy-project-reaction__response-item", responseContainer);
-    FocusManager.setFocus(firstSlot);
+    FocusManager.get().setFocus(firstSlot);
     LeaderModelManager.showLeaderModels(
       GameContext.localPlayerID,
       DiplomacyManager.currentProjectReactionData.initialPlayer
@@ -864,10 +843,13 @@ class DiplomacyProjectReactionPanel extends DiplomacyInputPanel {
       this.createFirstMeetGreetingButton(DiplomacyPlayerFirstMeets.PLAYER_REALATIONSHIP_FIRSTMEET_UNFRIENDLY)
     );
     const firstSlot = MustGetElement(".panel-diplomacy-project-reaction__response-item", responseContainer);
-    FocusManager.setFocus(firstSlot);
+    FocusManager.get().setFocus(firstSlot);
   }
   createFirstMeetGreetingButton(greetingType) {
-    const costAndRelationship = Game.Diplomacy.getFirstMeetResponseCostAndRelDelta(greetingType);
+    const costAndRelationship = Game.Diplomacy.getFirstMeetResponseCostAndRelDelta(
+      greetingType,
+      GameContext.localPlayerID
+    );
     const costString = costAndRelationship[0].toString();
     const relationShipDeltaString = costAndRelationship[1].toString();
     const responseItem = document.createElement("fxs-vslot");
@@ -1286,7 +1268,7 @@ class DiplomacyProjectReactionPanel extends DiplomacyInputPanel {
       hideText.innerHTML = Locale.compose("LOC_DIPLOMACY_ALLY_WAR_BACK_TO_MAP");
       hideButton.appendChild(hideText);
       const firstSlot = MustGetElement(".panel-diplomacy-project-reaction__response-item", responseContainer);
-      FocusManager.setFocus(firstSlot);
+      FocusManager.get().setFocus(firstSlot);
     });
   }
   createCallToArmsOption(title, description, neutral, playerID) {

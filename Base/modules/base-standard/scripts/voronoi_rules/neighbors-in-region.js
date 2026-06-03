@@ -1,33 +1,34 @@
 import { Rule } from './rules-base.js';
 
+const ruleSchema = {
+  preferredNeighborCount: {
+    label: "Preferred Neighbor Count",
+    description: "The normal distribution used for scoring is centered on this value. Any cells with exactly this number of neighbors will score 1, everything else will be less than that.",
+    default: 3,
+    min: 0,
+    max: 10,
+    step: 0.1
+  },
+  deviation: {
+    label: "Preferred Neighbors Deviation",
+    description: "The standard deviation for the normal distribution. Higher values will score number near the preferred count higher.",
+    default: 1,
+    min: 0,
+    max: 5,
+    step: 0.1
+  }
+};
 class RuleNeighborsInRegion extends Rule {
+  parameterSpecs = ruleSchema;
+  configValues = Rule.createDefaultsFromSpecs(ruleSchema);
+  name = RuleNeighborsInRegion.getName();
+  description = "Scores cells based on how many of their neighbors are already in the region";
   static getName() {
     return "Neighbors In Region";
   }
-  name = RuleNeighborsInRegion.getName();
-  description = "Scores cells based on how many of their neighbors are already in the region";
-  configDefs = {
-    preferredNeighborCount: {
-      label: "Preferred Neighbor Count",
-      description: "The normal distribution used for scoring is centered on this value. Any cells with exactly this number of neighbors will score 1, everything else will be less than that.",
-      defaultValue: 3,
-      min: 0,
-      max: 10,
-      step: 0.1
-    },
-    deviation: {
-      label: "Preferred Neighbors Deviation",
-      description: "The standard deviation for the normal distribution. Higher values will score number near the preferred count higher.",
-      defaultValue: 1,
-      min: 0,
-      max: 5,
-      step: 0.1
-    }
-  };
-  configValues = {
-    preferredNeighborCount: this.configDefs.preferredNeighborCount.defaultValue,
-    deviation: this.configDefs.deviation.defaultValue
-  };
+  static getSchema() {
+    return ruleSchema;
+  }
   // Can be replaced with custom logic.
   inRegionCheck = (ctx, _thisCell, neighborCell) => {
     return ctx.region.getRegionIdForCell(neighborCell) === ctx.region.id;

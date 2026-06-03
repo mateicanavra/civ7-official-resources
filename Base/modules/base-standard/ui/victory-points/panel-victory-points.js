@@ -1,15 +1,8 @@
-import FocusManager from '../../../core/ui/input/focus-manager.js';
-import { P as Panel } from '../../../core/ui/panel-support.chunk.js';
-import { g as getPlayerColorValues } from '../../../core/ui/utilities/utilities-color.chunk.js';
+import Panel from '../../../core/ui/panel-support.js';
+import { applyPlayerColorsToElement } from '../../../core/ui/utilities/utilities-color.js';
+import { multiplayerTeamColors } from '../../../core/ui/utilities/utilities-network-constants.js';
+import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
 import VictoryPoints from './model-victory-points.js';
-import { m as multiplayerTeamColors } from '../../../core/ui/utilities/utilities-network-constants.chunk.js';
-import '../../../core/ui/audio-base/audio-support.chunk.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/graph-layout/utils.chunk.js';
-import '../../../core/ui/utilities/utilities-image.chunk.js';
-import '../../../core/ui/utilities/utilities-component-id.chunk.js';
-import '../../../core/ui/utilities/utilities-update-gate.chunk.js';
-import '../victory-manager/victory-manager.chunk.js';
 
 class PanelVictoryPoints extends Panel {
   onAttach() {
@@ -24,7 +17,7 @@ class PanelVictoryPoints extends Panel {
   onFocus = () => {
     const firstFocusable = this.Root.querySelector(".player-score__item");
     if (firstFocusable) {
-      FocusManager.setFocus(firstFocusable);
+      FocusManager.get().setFocus(firstFocusable);
     }
   };
   render() {
@@ -184,7 +177,7 @@ class PanelVictoryPoints extends Panel {
     civLeader.appendChild(portrait);
     const civLeaderContainer = document.createElement("div");
     civLeaderContainer.classList.add("flow-row");
-    civLeaderContainer.setAttribute("style", getPlayerColorValues(data.playerID));
+    applyPlayerColorsToElement(civLeaderContainer, data.playerID);
     civLeaderContainer.appendChild(civLeader);
     playerContainer.appendChild(civLeaderContainer);
     const scoreVslot = document.createElement("fxs-vslot");

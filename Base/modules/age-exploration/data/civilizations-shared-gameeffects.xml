@@ -1,0 +1,500 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+	<!-- ==================================================	-->
+	<!--				Civ-Specific Traits					-->
+	<!-- ==================================================	-->
+	<!-- ABBASID -->
+	<Modifier id="TRAIT_MOD_GOLD_SPECIALISTS" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_ASSIGNED_WORKERS">
+		<Argument name="Amount" type="ScaleByGameSpeed">30</Argument>
+		<Argument name="YieldType">YIELD_GOLD</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_ABBASID_ABILITY_NAME</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_TOT_AQ_GOLD_SPECIALISTS" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_PER_RURAL_POPULATION_ON_GROWTH_EVENT">
+        <Argument name="Worker">true</Argument>
+        <Argument name="Rural">true</Argument>
+		<Argument name="Amount" type="ScaleByGameSpeed">10</Argument>
+		<Argument name="YieldType">YIELD_GOLD</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_ABBASID_ABILITY_NAME</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_TOT_MO_GOLD_SPECIALISTS" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_ASSIGNED_WORKERS">
+		<Argument name="Amount" type="ScaleByGameSpeed">50</Argument>
+		<Argument name="YieldType">YIELD_GOLD</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_ABBASID_ABILITY_NAME</Argument>
+	</Modifier>
+
+	<Modifier id="MOD_TRAIT_ABBASID_PRODUCTION_SPECIALISTS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_PRODUCTION">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_POPULATION">
+				<Argument name="MinWorkerPopulation">5</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_CITY_IS_CITY"/>
+		</SubjectRequirements>
+		<Argument name="Percent">20</Argument>
+		<Argument name="ConstructibleClass">BUILDING</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_ABBASID_ABILITY_NAME</Argument>
+	</Modifier>
+	<Modifier id="MOD_TRAIT_ABBASID_PRODUCTION_MO_SPECIALISTS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_PRODUCTION">
+	<SubjectRequirements>
+		<Requirement type="REQUIREMENT_CITY_POPULATION">
+			<Argument name="MinWorkerPopulation">8</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_CITY_IS_CITY" />
+	</SubjectRequirements>
+		<Argument name="Percent">30</Argument>
+		<Argument name="ConstructibleClass">BUILDING</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_ABBASID_ABILITY_NAME</Argument>
+	</Modifier>
+	<!-- CHOLA -->
+	<Modifier id="MOD_TOT_CHANGE_TRADE_ROUTE_CAPACITY" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_DIPLOMACY_CHANGE_TRADE_ROUTE_CAPACITY">
+		<Argument name="Amount">1</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_TOT_EX_TRADE_ROUTE_GOLD" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD_PER_NUM_TRADE_ROUTES">
+		<Argument name="YieldType">YIELD_GOLD</Argument>
+		<Argument name="Amount">3</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_CHOLA_ABILITY_NAME</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_TOT_AQ_TRADE_ROUTE_GOLD" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD_PER_NUM_TRADE_ROUTES">
+		<Argument name="YieldType">YIELD_GOLD</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_CHOLA_ABILITY_NAME</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_TOT_MO_TRADE_ROUTE_GOLD" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD_PER_NUM_TRADE_ROUTES">
+		<Argument name="YieldType">YIELD_GOLD</Argument>
+		<Argument name="Amount">4</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_CHOLA_ABILITY_NAME</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_TOT_EX_TRADE_ROUTE_INFLUENCE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD_PER_NUM_TRADE_ROUTES">
+		<Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_CHOLA_ABILITY_NAME</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_TOT_AQ_TRADE_ROUTE_INFLUENCE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD_PER_NUM_TRADE_ROUTES">
+		<Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_CHOLA_ABILITY_NAME</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_TOT_MO_TRADE_ROUTE_INFLUENCE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD_PER_NUM_TRADE_ROUTES">
+		<Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+		<Argument name="Amount">3</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_CHOLA_ABILITY_NAME</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_CHOLA_MERCHANT_MOVEMENT" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_MOVEMENT">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+				<Argument name="Tag">UNIT_CLASS_MAKE_TRADE_ROUTE</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">1</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_CHOLA_IMPORTED_RESOURCE_GDP" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ACTIVATE_VICTORY_POINT_TRACKER">
+		<Argument name="TrackerName">VICTORY_TRACKER_CHOLA_IMPORTED_RESOURCES</Argument>
+	</Modifier>
+	<Modifier id="MOD_OTTRU_ABILITY" collection="COLLECTION_ALL_UNITS" effect="EFFECT_UNIT_ADJUST_ABILITY">
+		<SubjectRequirements type="REQUIREMENTSET_TEST_ALL">
+			<Requirement type="REQUIREMENT_PLOT_IN_COMMAND_RADIUS"/>
+			<Requirement type="REQUIREMENT_UNIT_IS_ENEMY_OF_OWNER"/>
+		</SubjectRequirements>
+		<Argument name="AbilityType">ABILITY_OTTRU</Argument>
+	</Modifier>
+	<!-- HAWAII -->
+	<Modifier id="TRAIT_MOD_HAWAII_IMPROVE_OCEAN" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_CONSTRUCTIBLE_UNLOCK">
+		<Argument name="ConstructibleType">IMPROVEMENT_HAWAII_FISHING_BOAT</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_HAWAII_TOT_AQ_CULTURE_ON_MARINE" collection="COLLECTION_PLAYER_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_BIOME_TYPE_MATCHES">
+				<Argument name="BiomeType">BIOME_MARINE</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_PLOT_DISTRICT_CLASS" inverse="true">
+				<Argument name="DistrictClass">CITYCENTER, URBAN, WONDER</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">1</Argument>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_HAWAII_TOT_AQ_CULTURE_WAREHOUSE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_GRANT_WAREHOUSE_YIELD">
+		<Argument name="WarehouseYieldChange">HawaiiAQ_FishingBoatResourceCulture, HawaiiAQ_AtollFeatureCulture, HawaiiAQ_LotusFeatureCulture, HawaiiAQ_ReefFeatureCulture, HawaiiAQ_ColdReefFeatureCulture</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_HAPPINESS_WAREHOUSE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_GRANT_WAREHOUSE_YIELD">
+		<Argument name="WarehouseYieldChange">HawaiiOceanFood, HawaiiOceanGold, HawaiiCoastHappiness, HawaiiOceanHappiness, HawaiiCoastCulture, HawaiiOceanCulture, HawaiiFishingBoatResourceHappiness, HawaiiAtollFeatureHappiness, HawaiiLotusFeatureHappiness, HawaiiReefFeatureHappiness, HawaiiColdReefFeatureHappiness, HawaiiFishingBoatResourceCulture, HawaiiAtollFeatureCulture, HawaiiLotusFeatureCulture, HawaiiReefFeatureCulture, HawaiiColdReefFeatureCulture</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_HAWAII_TOT_MO_HAPPINESS_WAREHOUSE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_GRANT_WAREHOUSE_YIELD">
+		<Argument name="WarehouseYieldChange">Hawaii_ToT_MO_OceanFood, Hawaii_ToT_MO_OceanGold, Hawaii_ToT_MO_CoastHappiness, Hawaii_ToT_MO_OceanHappiness, Hawaii_ToT_MO_CoastCulture, Hawaii_ToT_MO_OceanCulture, Hawaii_ToT_MO_FishingBoatResourceHappiness, Hawaii_ToT_MO_AtollFeatureHappiness, Hawaii_ToT_MO_LotusFeatureHappiness, Hawaii_ToT_MO_ReefFeatureHappiness, Hawaii_ToT_MO_ColdReefFeatureHappiness, Hawaii_ToT_MO_FishingBoatResourceCulture, Hawaii_ToT_MO_AtollFeatureCulture, Hawaii_ToT_MO_LotusFeatureCulture, Hawaii_ToT_MO_ReefFeatureCulture, Hawaii_ToT_MO_ColdReefFeatureCulture</Argument>
+	</Modifier>
+	<!-- INCA -->
+	<Modifier id="TRAIT_MOD_APUS_IMPROVE_MOUNTAINS" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_CONSTRUCTIBLE_UNLOCK">
+		<Argument name="ConstructibleType">IMPROVEMENT_INCA_MOUNTAIN</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_TOT_AQ_APUS_MOUNTAIN_FOOD" collection="COLLECTION_PLAYER_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_TERRAIN_TYPE_MATCHES">
+				<Argument name="TerrainType">TERRAIN_MOUNTAIN</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_PLOT_DISTRICT_CLASS" inverse="true">
+				<Argument name="DistrictClass">CITYCENTER, URBAN, WONDER</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">1</Argument>
+		<Argument name="YieldType">YIELD_FOOD</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_APUS_MOUNTAIN_FOOD" collection="COLLECTION_PLAYER_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_TERRAIN_TYPE_MATCHES">
+				<Argument name="TerrainType">TERRAIN_MOUNTAIN</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_PLOT_DISTRICT_CLASS" inverse="true">
+				<Argument name="DistrictClass">CITYCENTER, URBAN, WONDER</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">2</Argument>
+		<Argument name="YieldType">YIELD_FOOD</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_APUS_MOUNTAIN_PRODUCTION" collection="COLLECTION_PLAYER_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_TERRAIN_TYPE_MATCHES">
+				<Argument name="TerrainType">TERRAIN_MOUNTAIN</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_PLOT_DISTRICT_CLASS" inverse="true">
+				<Argument name="DistrictClass">CITYCENTER, URBAN, WONDER</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">1</Argument>
+		<Argument name="YieldType">YIELD_PRODUCTION</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_TOT_MO_APUS_MOUNTAIN_FOOD" collection="COLLECTION_PLAYER_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_TERRAIN_TYPE_MATCHES">
+				<Argument name="TerrainType">TERRAIN_MOUNTAIN</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_PLOT_DISTRICT_CLASS" inverse="true">
+				<Argument name="DistrictClass">CITYCENTER, URBAN, WONDER</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">3</Argument>
+		<Argument name="YieldType">YIELD_FOOD</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_TOT_MO_APUS_MOUNTAIN_PRODUCTION" collection="COLLECTION_PLAYER_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_TERRAIN_TYPE_MATCHES">
+				<Argument name="TerrainType">TERRAIN_MOUNTAIN</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_PLOT_DISTRICT_CLASS" inverse="true">
+				<Argument name="DistrictClass">CITYCENTER, URBAN, WONDER</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">2</Argument>
+		<Argument name="YieldType">YIELD_PRODUCTION</Argument>
+	</Modifier>
+	<!-- MAJAPAHIT -->
+	<Modifier id="TRAIT_MOD_NEGARA_CULTURE_BUILDING_ADJACENCY" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ACTIVATE_CONSTRUCTIBLE_ADJACENCY">
+		<Argument name="ConstructibleAdjacency">NegaraCultureBuildingCoastCulture</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_NEGARA_SPECIALIST_CAP_INCREASE" collection="COLLECTION_PLAYER_DISTRICTS" effect="EFFECT_DISTRICT_ADJUST_WORKER_CAP">
+		<SubjectRequirements type="REQUIREMENTSET_TEST_ANY">
+			<Requirement type="REQUIREMENT_PLOT_ADJACENT_TO_COAST"/>
+			<Requirement type="REQUIREMENT_PLOT_IS_COAST"/>
+		</SubjectRequirements>
+		<Argument name="Amount">1</Argument>
+	</Modifier>
+	<!-- MING -->
+	<Modifier id="TRAIT_MOD_CAPITAL_EXTRA_SCIENCE" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_ADJUST_YIELD">
+		<Argument name="YieldType">YIELD_SCIENCE</Argument>
+		<Argument name="Percent">50</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_LOSE_SCIENCE_PER_NON_UNIQUE_TRADITION" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD_PER_ACTIVE_TRADITION">
+		<Argument name="YieldType">YIELD_SCIENCE</Argument>
+		<Argument name="Amount">-15</Argument>
+		<Argument name="CivUnique">true</Argument>
+		<Argument name="Invert">true</Argument>
+	</Modifier>
+	<!-- Ming Antiquity UA: -2 Science per non-unique tradition -->
+	<Modifier id="TRAIT_MOD_TOT_AQ_LOSE_SCIENCE_PER_NON_UNIQUE_TRADITION" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD_PER_ACTIVE_TRADITION">
+		<Argument name="YieldType">YIELD_SCIENCE</Argument>
+		<Argument name="Amount">-2</Argument>
+		<Argument name="CivUnique">true</Argument>
+		<Argument name="Invert">true</Argument>
+	</Modifier>
+	<!-- Ming Modern UA: -25 Science per non-unique tradition -->
+	<Modifier id="TRAIT_MOD_TOT_MO_LOSE_SCIENCE_PER_NON_UNIQUE_TRADITION" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD_PER_ACTIVE_TRADITION">
+		<Argument name="YieldType">YIELD_SCIENCE</Argument>
+		<Argument name="Amount">-25</Argument>
+		<Argument name="CivUnique">true</Argument>
+		<Argument name="Invert">true</Argument>
+	</Modifier>
+	<!-- Ming UA: +1 Tradition Slot (all ages) -->
+	<Modifier id="TRAIT_MOD_TOT_MING_TRADITION_SLOT" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_TRADITION_SLOTS" permanent="true">
+		<Argument name="SlotType">TRADITION_CULTURE_SLOT</Argument>
+		<Argument name="Amount">1</Argument>
+		<String context="Description">LOC_TRAIT_MOD_TOT_MING_TRADITION_SLOT_DESCRIPTION</String>
+	</Modifier>
+	<!-- Ming Mandarin: Naval trade route grants Culture + Treasure Fleet -->
+	<!-- [INTERIM] -->
+	<!-- Homelands: TreasureAmount 1 -->
+	<Modifier id="MANDARIN_MOD_NAVAL_TRADE_ATTACH_HOMELANDS" collection="COLLECTION_PLAYER_TRADE_ROUTES" effect="EFFECT_ATTACH_MODIFIERS">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_TRADE_ROUTE_IS_DOMAIN">
+				<Argument name="DomainType">DOMAIN_SEA</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_TRADE_ROUTE_IS_DISTANT_LANDS" inverse="true"/>
+		</SubjectRequirements>
+		<Argument name="ModifierId">MANDARIN_MOD_NAVAL_TRADE_TARGET_CULTURE, MANDARIN_MOD_NAVAL_TRADE_TREASURE_FLEET_HOMELANDS</Argument>
+	</Modifier>
+	<!-- Distant Lands: TreasureAmount 2 -->
+	<Modifier id="MANDARIN_MOD_NAVAL_TRADE_ATTACH_DISTANT" collection="COLLECTION_PLAYER_TRADE_ROUTES" effect="EFFECT_ATTACH_MODIFIERS">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_TRADE_ROUTE_IS_DOMAIN">
+				<Argument name="DomainType">DOMAIN_SEA</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_TRADE_ROUTE_IS_DISTANT_LANDS"/>
+		</SubjectRequirements>
+		<Argument name="ModifierId">MANDARIN_MOD_NAVAL_TRADE_TARGET_CULTURE, MANDARIN_MOD_NAVAL_TRADE_TREASURE_FLEET_DISTANT</Argument>
+	</Modifier>
+	<Modifier id="MANDARIN_MOD_NAVAL_TRADE_TARGET_CULTURE" collection="COLLECTION_TRADE_ROUTE_TARGET_CITY" effect="EFFECT_CITY_GRANT_YIELD" run-once="true" permanent="true">
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount">100</Argument>
+	</Modifier>
+	<Modifier id="MANDARIN_MOD_NAVAL_TRADE_TREASURE_FLEET_HOMELANDS" collection="COLLECTION_TRADE_ROUTE_TARGET_CITY" effect="EFFECT_PLAYER_GRANT_UNIT_AT_PLOT" run-once="true" permanent="true">
+		<Argument name="GrantToOwnerPlayer">true</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="UnitType">UNIT_TREASURE_FLEET</Argument>
+		<Argument name="TreasureAmount">1</Argument>
+	</Modifier>
+	<Modifier id="MANDARIN_MOD_NAVAL_TRADE_TREASURE_FLEET_DISTANT" collection="COLLECTION_TRADE_ROUTE_TARGET_CITY" effect="EFFECT_PLAYER_GRANT_UNIT_AT_PLOT" run-once="true" permanent="true">
+		<Argument name="GrantToOwnerPlayer">true</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="UnitType">UNIT_TREASURE_FLEET</Argument>
+		<Argument name="TreasureAmount">2</Argument>
+	</Modifier>
+	<!-- [/INTERIM] -->
+	<!-- MONGOLIA -->
+	<Modifier id="TRAIT_MOD_CONQUER_UNIT" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_UNIT_ON_CAPTURE_CITY">
+		<Argument name="UnitTag">UNIT_CLASS_CAVALRY</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_EXPENSIVE_SETTLER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_UNIT_PRODUCTION">
+		<Argument name="Percent">-50</Argument>
+		<Argument name="UnitType">UNIT_SETTLER</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_TOT_MO_MONGOLIA_SETTLEMENT_CAP" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_SETTLEMENT_CAP">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_GAME_IS_STARTED"/>
+		</SubjectRequirements>
+		<Argument name="Amount">3</Argument>
+	</Modifier>
+	<!-- NORMAN -->
+	<Modifier id="TRAIT_MOD_ADJACENT_TO_COAST_COMBAT" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ATTACH_MODIFIERS">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_DOMAIN_MATCHES">
+				<Argument name="UnitDomain">DOMAIN_LAND</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_PLOT_ADJACENT_TO_COAST"/>
+		</SubjectRequirements>
+		<Argument name="ModifierId">ATTACH_TRAIT_MOD_ADJACENT_TO_COAST_COMBAT</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_TRAIT_MOD_ADJACENT_TO_COAST_COMBAT" collection="COLLECTION_UNIT_COMBAT" effect="EFFECT_ADJUST_UNIT_STRENGTH_MODIFIER">
+		<Argument name="Amount">5</Argument>
+		<String context="Preview">LOC_TRAIT_NORMAN_ABILITY_PREVIEW</String>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_NORMANNITAS_DISTRICT_ADJACENT_TO_COAST_COMBAT" collection="COLLECTION_PLAYER_COMBAT" effect="EFFECT_ADJUST_UNIT_STRENGTH_MODIFIER">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_ADJACENT_TO_COAST"/>
+			<Requirement type="REQUIREMENT_DEFENDER_IS_PLAYER_OWNED_DISTRICT"/>
+		</SubjectRequirements>
+		<Argument name="Amount">5</Argument>
+		<String context="Preview">LOC_TRAIT_NORMAN_ABILITY_PREVIEW</String>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_NORMANNITAS_WALL_HEALTH" collection="COLLECTION_PLAYER_DISTRICTS" effect="EFFECT_DISTRICT_ADJUST_TOTAL_HEALTH">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_HAS_CONSTRUCTIBLE">
+				<Argument name="Tag">FORTIFICATION</Argument>
+				<Argument name="CurrentAgeOnly">false</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">25</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_NORMAN_ABILITY_NAME</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_SOKEMAN_WALLS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_GRANT_WALLS" permanent="true">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_FOUNDED_BY_UNIT_TYPE">
+				<Argument name="UnitType">UNIT_SOKEMAN</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">1</Argument>
+		<Argument name="BuildingType">BUILDING_MEDIEVAL_WALLS</Argument>
+	</Modifier>
+	<!-- SONGHAI -->
+	<Modifier id="TRAIT_MOD_NAVIGABLE_RIVER_RESOURCE_CAP" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_RESOURCE_CAP">
+		<SubjectRequirements type="REQUIREMENTSET_TEST_ALL">
+			<Requirement type="REQUIREMENT_PLOT_DISTRICT_CLASS">
+				<Argument name="DistrictClass">CITYCENTER</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_PLOT_ADJACENT_TO_RIVER">
+				<Argument name="Navigable">true</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_CITY_IS_CITY"/>
+		</SubjectRequirements>
+		<Argument name="Amount">2</Argument>
+		<String context="Description">LOC_TRAIT_SONGHAI_ABILITY_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_RESOURCE_PRODUCTION" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_RESOURCE">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_ADJACENT_TO_RIVER">
+				<Argument name="Navigable">true</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">1</Argument>
+		<Argument name="PercentMultiplier">false</Argument>
+		<Argument name="YieldType">YIELD_PRODUCTION</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_SONGHAI_ABILITY_NAME</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_SONGHAI_TOT_AQ_NAVIGABLE_RIVER_RESOURCE_CAP" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_RESOURCE_CAP">
+		<SubjectRequirements type="REQUIREMENTSET_TEST_ALL">
+			<Requirement type="REQUIREMENT_PLOT_DISTRICT_CLASS">
+				<Argument name="DistrictClass">CITYCENTER</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_PLOT_ADJACENT_TO_RIVER">
+				<Argument name="Navigable">true</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_CITY_IS_CITY" />
+		</SubjectRequirements>
+		<Argument name="Amount">1</Argument>
+		<String context="Description">LOC_TRAIT_SONGHAI_ABILITY_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_SONGHAI_TOT_MO_RESOURCE_PRODUCTION" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_RESOURCE">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_ADJACENT_TO_RIVER">
+				<Argument name="Navigable">true</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">2</Argument>
+		<Argument name="PercentMultiplier">false</Argument>
+		<Argument name="YieldType">YIELD_PRODUCTION</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_SONGHAI_ABILITY_NAME</Argument>
+	</Modifier>
+	<!-- SPAIN -->
+	<Modifier id="TRAIT_MOD_COASTAL_SETTLEMENT_YIELDS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_DISTANT_LANDS" inverse="true"/>
+			<Requirement type="REQUIREMENT_PLOT_ADJACENT_TO_COAST"/>
+			<Requirement type="REQUIREMENT_PLOT_DISTRICT_CLASS">
+				<Argument name="DistrictClass">CITYCENTER</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_FOOD, YIELD_GOLD, YIELD_PRODUCTION</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_SPAIN_ABILITY_PREVIEW_COASTAL</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_RELIGION_SETTLEMENT_YIELDS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_DISTANT_LANDS" inverse="true"/>
+			<Requirement type="REQUIREMENT_CITY_FOLLOWS_RELIGION"/>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_FOOD, YIELD_GOLD, YIELD_PRODUCTION</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_SPAIN_ABILITY_PREVIEW_RELIGIOUS</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_COASTAL_SETTLEMENT_YIELDS_DISTANT_LANDS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_DISTANT_LANDS"/>
+			<Requirement type="REQUIREMENT_PLOT_ADJACENT_TO_COAST"/>
+			<Requirement type="REQUIREMENT_PLOT_DISTRICT_CLASS">
+				<Argument name="DistrictClass">CITYCENTER</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_FOOD, YIELD_GOLD, YIELD_PRODUCTION</Argument>
+		<Argument name="Amount">4</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_SPAIN_ABILITY_PREVIEW_COASTAL</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_RELIGION_SETTLEMENT_YIELDS_DISTANT_LANDS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_DISTANT_LANDS"/>
+			<Requirement type="REQUIREMENT_CITY_FOLLOWS_RELIGION"/>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_FOOD, YIELD_GOLD, YIELD_PRODUCTION</Argument>
+		<Argument name="Amount">4</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_SPAIN_ABILITY_PREVIEW_RELIGIOUS</Argument>
+	</Modifier>
+	<!-- Town > City Conversion Bonus -->
+	<Modifier id="MOD_TRAIT_SPAIN_ABILITY_TOWN_CONVERSION" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_PROJECT_PRODUCTION">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_TOWN"/>
+			<Requirement type="REQUIREMENT_CITY_IS_DISTANT_LANDS" inverse="true"/>
+		</SubjectRequirements>
+		<Argument name="Percent">15</Argument>
+		<Argument name="ProjectType">PROJECT_CONVERT_TOWN_TO_CITY</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_SPAIN_ABILITY_NAME</Argument>
+	</Modifier>
+	<Modifier id="MOD_TRAIT_SPAIN_ABILITY_TOWN_CONVERSION_DISTANT" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_PROJECT_PRODUCTION">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_TOWN"/>
+			<Requirement type="REQUIREMENT_CITY_IS_DISTANT_LANDS"/>
+		</SubjectRequirements>
+		<Argument name="Percent">30</Argument>
+		<Argument name="ProjectType">PROJECT_CONVERT_TOWN_TO_CITY</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_SPAIN_ABILITY_NAME</Argument>
+	</Modifier>
+	<!-- SPAIN - Antiquity Age Modifiers (+1 yields instead of +2) -->
+	<Modifier id="TRAIT_MOD_TOT_AQ_COASTAL_SETTLEMENT_YIELDS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_ADJACENT_TO_COAST"/>
+			<Requirement type="REQUIREMENT_PLOT_DISTRICT_CLASS">
+				<Argument name="DistrictClass">CITYCENTER</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_FOOD, YIELD_GOLD, YIELD_PRODUCTION</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_SPAIN_ABILITY_PREVIEW_COASTAL</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_TOT_AQ_ALTAR_SETTLEMENT_YIELDS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_HAS_BUILDING">
+				<Argument name="BuildingType">BUILDING_ALTAR</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_FOOD, YIELD_GOLD, YIELD_PRODUCTION</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_SPAIN_ABILITY_PREVIEW_ALTAR</Argument>
+	</Modifier>
+	<!-- SPAIN - Modern Age Modifiers (+3 yields instead of +2, +6 in Distant Lands) -->
+	<Modifier id="TRAIT_MOD_TOT_MO_COASTAL_SETTLEMENT_YIELDS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_DISTANT_LANDS" inverse="true"/>
+			<Requirement type="REQUIREMENT_PLOT_ADJACENT_TO_COAST"/>
+			<Requirement type="REQUIREMENT_PLOT_DISTRICT_CLASS">
+				<Argument name="DistrictClass">CITYCENTER</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_FOOD, YIELD_GOLD, YIELD_PRODUCTION</Argument>
+		<Argument name="Amount">3</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_SPAIN_ABILITY_PREVIEW_COASTAL</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_TOT_MO_RELIGION_SETTLEMENT_YIELDS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_DISTANT_LANDS" inverse="true"/>
+			<Requirement type="REQUIREMENT_CITY_FOLLOWS_RELIGION"/>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_FOOD, YIELD_GOLD, YIELD_PRODUCTION</Argument>
+		<Argument name="Amount">3</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_SPAIN_ABILITY_PREVIEW_RELIGIOUS</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_TOT_MO_COASTAL_SETTLEMENT_YIELDS_DISTANT_LANDS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_DISTANT_LANDS"/>
+			<Requirement type="REQUIREMENT_PLOT_ADJACENT_TO_COAST"/>
+			<Requirement type="REQUIREMENT_PLOT_DISTRICT_CLASS">
+				<Argument name="DistrictClass">CITYCENTER</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_FOOD, YIELD_GOLD, YIELD_PRODUCTION</Argument>
+		<Argument name="Amount">6</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_SPAIN_ABILITY_PREVIEW_COASTAL</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_TOT_MO_RELIGION_SETTLEMENT_YIELDS_DISTANT_LANDS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_DISTANT_LANDS"/>
+			<Requirement type="REQUIREMENT_CITY_FOLLOWS_RELIGION"/>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_FOOD, YIELD_GOLD, YIELD_PRODUCTION</Argument>
+		<Argument name="Amount">6</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_SPAIN_ABILITY_PREVIEW_RELIGIOUS</Argument>
+	</Modifier>
+</GameEffects>

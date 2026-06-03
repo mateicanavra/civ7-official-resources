@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects>
+	<RequirementSet id="REQSET_MODERN_VICTORY_MILITARY_PREREQ">
+	<!-- These need to be persistent to ensure they always display correctly on the UI -->
+		<Requirement type="REQUIREMENT_ALWAYS_MET" persistent="true"/> 
+	</RequirementSet>
+	<RequirementSet id="REQSET_MODERN_VICTORY_CULTURE_PREREQ">
+	<!-- These need to be persistent to ensure they always display correctly on the UI -->
+		<Requirement type="REQUIREMENT_ALWAYS_MET" persistent="true"/>
+	</RequirementSet>
+	<RequirementSet id="REQSET_MODERN_VICTORY_ECONOMIC_PREREQ">
+	<!-- These need to be persistent to ensure they always display correctly on the UI -->
+		<Requirement type="REQUIREMENT_ALWAYS_MET" persistent="true"/> 
+	</RequirementSet>
+	<RequirementSet id="REQSET_SCORE_PREREQ">
+	<!-- These need to be persistent to ensure they always display correctly on the UI -->
+		<Requirement type="REQUIREMENT_ALWAYS_MET" persistent="true"/> 
+	</RequirementSet>
+	<RequirementSet id="REQSET_MODERN_VICTORY_SCIENCE_PREREQ">
+	<!-- These need to be persistent to ensure they always display correctly on the UI -->
+		<Requirement type="REQUIREMENT_PLAYER_HAS_CONSTRUCTIBLE" persistent="true">
+			<Argument name="ConstructibleType">BUILDING_LAUNCH_PAD</Argument>
+			<Argument name="Undamaged">true</Argument>
+			<String context="Description">LOC_HAS_UNDAMAGED_LAUNCH_PAD</String>
+		</Requirement> 
+	</RequirementSet>
+	<RequirementSet id="REQSET_VICTORY_MODERN_MILITARY_COUNTDOWN">
+		<Requirement type="REQUIREMENT_PLAYER_HAS_WON_COUNTDOWN_VICTORY"> 
+			<Argument name="VictoryType">VICTORY_MILITARY_MODERN</Argument>
+		</Requirement>
+	</RequirementSet>
+	<RequirementSet id="REQSET_VICTORY_MODERN_CULTURE_COUNTDOWN">
+		<Requirement type="REQUIREMENT_PLAYER_HAS_WON_COUNTDOWN_VICTORY"> 
+			<Argument name="VictoryType">VICTORY_CULTURE_MODERN</Argument>
+		</Requirement>
+	</RequirementSet>
+	<RequirementSet id="REQSET_VICTORY_MODERN_ECONOMIC_COUNTDOWN">
+		<Requirement type="REQUIREMENT_PLAYER_HAS_WON_COUNTDOWN_VICTORY"> 
+			<Argument name="VictoryType">VICTORY_ECONOMIC_MODERN</Argument>
+		</Requirement>
+	</RequirementSet>
+	<RequirementSet id="REQSET_VICTORY_MODERN_SCIENCE_COUNTDOWN">
+		<Requirement type="REQUIREMENT_PLAYER_HAS_WON_COUNTDOWN_VICTORY"> 
+			<Argument name="VictoryType">VICTORY_SCIENCE_MODERN</Argument>
+		</Requirement>
+	</RequirementSet>
+</GameEffects>

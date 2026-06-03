@@ -1,68 +1,17 @@
-import { A as Audio } from '../../../core/ui/audio-base/audio-support.chunk.js';
+import { Audio } from '../../../core/ui/audio-base/audio-support.js';
 import ContextManager, { ContextManagerEvents } from '../../../core/ui/context-manager/context-manager.js';
-import ActionHandler, { ActiveDeviceTypeChangedEventName } from '../../../core/ui/input/action-handler.js';
+import ActionHandler from '../../../core/ui/input/action-handler.js';
 import { CursorUpdatedEventName } from '../../../core/ui/input/cursor.js';
-import { F as Focus } from '../../../core/ui/input/focus-support.chunk.js';
-import { b as InputEngineEventName } from '../../../core/ui/input/input-support.chunk.js';
-import { L as LensManager, a as LensActivationEventName, b as LensLayerEnabledEventName, c as LensLayerDisabledEventName } from '../../../core/ui/lenses/lens-manager.chunk.js';
-import { P as Panel, A as AnchorType } from '../../../core/ui/panel-support.chunk.js';
+import { Focus } from '../../../core/ui/input/focus-support.js';
+import { ActiveDeviceTypeChangedEventName } from '../../../core/ui/input/input-events.js';
+import { InputEngineEventName } from '../../../core/ui/input/input-support.js';
+import LensManager, { LensActivationEventName, LensLayerEnabledEventName, LensLayerDisabledEventName } from '../../../core/ui/lenses/lens-manager.js';
+import Panel, { AnchorType } from '../../../core/ui/panel-support.js';
 import { SocialPanelOpenEventName } from '../../../core/ui/shell/mp-staging/mp-friends.js';
-import { D as Databind } from '../../../core/ui/utilities/utilities-core-databinding.chunk.js';
-import { L as Layout } from '../../../core/ui/utilities/utilities-layout.chunk.js';
-import '../../../core/ui/context-manager/display-queue-manager.js';
-import '../../../core/ui/dialog-box/manager-dialog-box.chunk.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/input/focus-manager.js';
-import '../../../core/ui/views/view-manager.chunk.js';
-import '../../../core/ui/utilities/utilities-update-gate.chunk.js';
-import '../../../core/ui/components/fxs-slot.chunk.js';
-import '../../../core/ui/spatial/spatial-manager.js';
-import '../../../core/ui/navigation-tray/model-navigation-tray.chunk.js';
-import '../../../core/ui/utilities/utilities-image.chunk.js';
-import '../../../core/ui/utilities/utilities-component-id.chunk.js';
-import '../../../core/ui/shell/mp-staging/model-mp-friends.chunk.js';
-import '../../../core/ui/social-notifications/social-notifications-manager.js';
-import '../../../core/ui/utilities/utilities-dom.chunk.js';
-import '../../../core/ui/utilities/utilities-liveops.js';
-import '../../../core/ui/utilities/utilities-network.js';
-import '../../../core/ui/shell/mp-legal/mp-legal.js';
-import '../../../core/ui/events/shell-events.chunk.js';
-import '../../../core/ui/utilities/utilities-network-constants.chunk.js';
-
-class MiniMapModel {
-  static _Instance;
-  static getInstance() {
-    if (!MiniMapModel._Instance) {
-      MiniMapModel._Instance = new MiniMapModel();
-    }
-    return MiniMapModel._Instance;
-  }
-  setLensDisplayOption(lens, value) {
-    UI.setOption("user", "Interface", lens, value);
-  }
-  getLensDisplayOption(lens) {
-    return UI.getOption("user", "Interface", lens);
-  }
-  setDecorationOption(decorLayer, value) {
-    const convValue = value ? 1 : 0;
-    UI.setOption("user", "Gameplay", LensManager.getLayerOption(decorLayer), convValue);
-    Configuration.getUser().saveCheckpoint();
-  }
-  getDecorationOption(decorLayer) {
-    const intval = UI.getOption(
-      "user",
-      "Gameplay",
-      LensManager.getLayerOption(decorLayer)
-    );
-    return intval != 0;
-  }
-}
-const MiniMapData = MiniMapModel.getInstance();
-engine.whenReady.then(() => {
-  engine.createJSModel("g_MiniMap", MiniMapData);
-});
-
-const styles = "fs://game/base-standard/ui/mini-map/panel-mini-map.css";
+import Databind from '../../../core/ui/utilities/utilities-core-databinding.js';
+import { Layout } from '../../../core/ui/utilities/utilities-layout.js';
+import MiniMapData from './model-mini-map.js';
+import styles from './panel-mini-map.scss.js';
 
 class MinimapSubpanel extends Panel {
   constructor(root) {
@@ -169,7 +118,7 @@ class PanelMiniMap extends Panel {
     miniMapRightContainer.classList.add("absolute", "left-full", "bottom-4");
     const saveIndicator = document.createElement("save-indicator");
     miniMapRightContainer.appendChild(saveIndicator);
-    if (Configuration.getGame().isAnyMultiplayer && Network.hasCommunicationsPrivilege(false)) {
+    if (Configuration.getGame().isAnyMultiplayer && Network.hasCommunicationsPrivilege(false) && !Configuration.getGame().isHotseat) {
       this.miniMapChatButton.setAttribute("data-audio-group-ref", "audio-panel-mini-map");
       this.miniMapChatButton.setAttribute("data-audio-press-ref", "data-audio-minimap-panel-open-press");
       this.miniMapButtonRow.appendChild(this.miniMapChatButton);
@@ -507,7 +456,7 @@ class PanelMiniMap extends Panel {
     return nextState;
   }
   createChatPanel() {
-    if (!Configuration.getGame().isAnyMultiplayer || !Network.hasCommunicationsPrivilege(false)) {
+    if (!Configuration.getGame().isAnyMultiplayer || !Network.hasCommunicationsPrivilege(false) || Configuration.getGame().isHotseat) {
       return false;
     }
     this.chatScreen = ContextManager.push("screen-mp-chat", {
@@ -530,7 +479,7 @@ class PanelMiniMap extends Panel {
    * @returns true if panel should be expanded
    */
   toggleChatPanel = () => {
-    if (!Configuration.getGame().isAnyMultiplayer || !Network.hasCommunicationsPrivilege(false)) {
+    if (!Configuration.getGame().isAnyMultiplayer || !Network.hasCommunicationsPrivilege(false) || Configuration.getGame().isHotseat) {
       return false;
     }
     this.chatPanelState = !this.chatPanelState;
@@ -731,9 +680,11 @@ class LensPanel extends MinimapSubpanel {
     this.createLensButton("LOC_UI_MINI_MAP_SETTLER", "fxs-settler-lens", "lens-group");
     this.createLensButton("LOC_UI_MINI_MAP_CONTINENT", "fxs-continent-lens", "lens-group");
     this.createLensButton("LOC_UI_MINI_MAP_TRADE", "fxs-trade-lens", "lens-group");
+    this.createLensButton("LOC_UI_MINI_MAP_GENERAL_APPEAL", "fxs-general-appeal-lens", "lens-group");
     this.createLayerCheckbox("LOC_UI_MINI_MAP_HEX_GRID", "fxs-hexgrid-layer");
     this.createLayerCheckbox("LOC_UI_MINI_MAP_RESOURCE", "fxs-resource-layer");
     this.createLayerCheckbox("LOC_UI_MINI_MAP_YIELDS", "fxs-yields-layer");
+    this.createLayerCheckbox("LOC_UI_MINI_MAP_CONQUEST", "fxs-conquest-layer", "LOC_UI_MINI_MAP_CONQUEST_TOOLTIP");
     this.Root.appendChild(this.lensPanel);
   }
   onAttach() {
@@ -771,10 +722,10 @@ class LensPanel extends MinimapSubpanel {
     });
     return checkboxLabelContainer;
   }
-  createLayerCheckbox(caption, layer) {
-    const isLayerEnabled = LensManager.isLayerEnabled(layer);
+  createLayerCheckbox(caption, layerType, tooltip) {
+    const isLayerEnabled = LensManager.isLayerEnabled(layerType);
     const checkbox = document.createElement("fxs-checkbox");
-    this.layerElementMap[layer] = checkbox;
+    this.layerElementMap[layerType] = checkbox;
     checkbox.classList.add("mr-2");
     checkbox.setAttribute("selected", isLayerEnabled.toString());
     checkbox.setAttribute("data-audio-group-ref", "audio-panel-mini-map");
@@ -782,6 +733,9 @@ class LensPanel extends MinimapSubpanel {
     const checkboxLabelContainer = document.createElement("div");
     checkboxLabelContainer.className = "w-1\\/2 flex flex-row items-center";
     checkboxLabelContainer.appendChild(checkbox);
+    if (tooltip) {
+      checkboxLabelContainer.setAttribute("data-tooltip-content", Locale.compose(tooltip));
+    }
     const label = document.createElement("div");
     label.role = "paragraph";
     label.className = "text-accent-2 text-base font-body pointer-events-auto";
@@ -789,10 +743,10 @@ class LensPanel extends MinimapSubpanel {
     checkboxLabelContainer.appendChild(label);
     this.layerCheckboxContainer.appendChild(checkboxLabelContainer);
     checkbox.addEventListener(ComponentValueChangeEventName, (event) => {
-      const isLayerEnabled2 = LensManager.isLayerEnabled(layer);
+      const isLayerEnabled2 = LensManager.isLayerEnabled(layerType);
       if (isLayerEnabled2 != event.detail.value) {
-        LensManager.toggleLayer(layer, event.detail.value);
-        MiniMapData.setDecorationOption(layer, event.detail.value);
+        LensManager.toggleLayer(layerType, { force: event.detail.value, serialize: true });
+        MiniMapData.setDecorationOption(layerType, event.detail.value);
       }
     });
   }

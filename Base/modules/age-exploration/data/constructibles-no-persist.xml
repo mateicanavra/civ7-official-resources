@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Database>
 	<TypeTags>
+		<Row Type="BUILDING_ARMORER" Tag="PRODUCTION"/>
 		<Row Type="BUILDING_ARMORER" Tag="MILITARY"/>
 		<Row Type="BUILDING_ALTAR" Tag="RELIGIOUS"/>
 		<Row Type="BUILDING_BANK" Tag="GOLD"/>
@@ -18,11 +19,11 @@
 		<Row Type="BUILDING_KILN" Tag="URBANCENTER"/>
 		<Row Type="BUILDING_MEDIEVAL_BRIDGE" Tag="WATER"/>
 		<Row Type="BUILDING_MEDIEVAL_BRIDGE" Tag="BRIDGE"/>
-		<Row Type="BUILDING_MEDIEVAL_WALLS" Tag="FORTIFICATION"/>
 		<Row Type="BUILDING_MENAGERIE" Tag="HAPPINESS"/>
 		<Row Type="BUILDING_OBSERVATORY" Tag="SCIENCE"/>
 		<Row Type="BUILDING_OBSERVATORY" Tag="URBANCENTER"/>
 		<Row Type="BUILDING_PAVILION" Tag="CULTURE"/>
+		<Row Type="BUILDING_SHIPYARD" Tag="PRODUCTION"/>
 		<Row Type="BUILDING_SHIPYARD" Tag="MILITARY"/>
 		<Row Type="BUILDING_SHIPYARD" Tag="WATER"/>
 		<Row Type="BUILDING_TAVERN" Tag="FOOD"/>
@@ -48,8 +49,8 @@
 		<Row ID="EXMineResourceProduction" Age="AGE_EXPLORATION" YieldType="YIELD_PRODUCTION" YieldChange="1" ConstructibleInCity="IMPROVEMENT_MINE_RESOURCE"/>
 		<Row ID="EXQuarryProduction" Age="AGE_EXPLORATION" YieldType="YIELD_PRODUCTION" YieldChange="1" ConstructibleInCity="IMPROVEMENT_QUARRY"/>
 		<Row ID="EXRoughTerrainProduction" Age="AGE_EXPLORATION" YieldType="YIELD_PRODUCTION" YieldChange="1" TerrainInCity="TERRAIN_HILL"/>
-		<Row ID="EXClayPitResourceProduction" Age="AGE_EXPLORATION" YieldType="YIELD_PRODUCTION" YieldChange="1" ConstructibleInCity="IMPROVEMENT_CLAY_PIT_RESOURCE"/>
 		<Row ID="EXWetFeatureProduction" Age="AGE_EXPLORATION" YieldType="YIELD_PRODUCTION" YieldChange="1" FeatureClassInCity="FEATURE_CLASS_WET"/>
+		<Row ID="EXClayPitResourceProduction" Age="AGE_EXPLORATION" YieldType="YIELD_PRODUCTION" YieldChange="1" ConstructibleInCity="IMPROVEMENT_CLAY_PIT_RESOURCE"/>
 		<Row ID="EXFishingBoatResourceFood" Age="AGE_EXPLORATION" YieldType="YIELD_FOOD" YieldChange="1" ConstructibleInCity="IMPROVEMENT_FISHING_BOAT_RESOURCE"/>
 		<Row ID="EXAtollFeatureFood" Age="AGE_EXPLORATION" YieldType="YIELD_FOOD" YieldChange="1" FeatureInCity="FEATURE_ATOLL"/>
 		<Row ID="EXLotusFeatureFood" Age="AGE_EXPLORATION" YieldType="YIELD_FOOD" YieldChange="1" FeatureInCity="FEATURE_LOTUS"/>
@@ -70,29 +71,34 @@
 		<Row ID="EXCampProduction" Age="AGE_EXPLORATION" YieldType="YIELD_PRODUCTION" YieldChange="1" ConstructibleInCity="IMPROVEMENT_CAMP"/>
 		<Row ID="EXVegetatedFeatureProduction" Age="AGE_EXPLORATION" YieldType="YIELD_PRODUCTION" YieldChange="1" FeatureClassInCity="FEATURE_CLASS_VEGETATED"/>
 		<!-- Town Specializations -->
-		<Row ID="EXTownMineResourceProduction" Age="AGE_EXPLORATION" YieldType="YIELD_PRODUCTION" YieldChange="3" ConstructibleInCity="IMPROVEMENT_MINE_RESOURCE"/>
-		<Row ID="EXTownQuarryProduction" Age="AGE_EXPLORATION" YieldType="YIELD_PRODUCTION" YieldChange="3" ConstructibleInCity="IMPROVEMENT_QUARRY"/>
-		<Row ID="EXTownRoughTerrainProduction" Age="AGE_EXPLORATION" YieldType="YIELD_PRODUCTION" YieldChange="3" TerrainInCity="TERRAIN_HILL"/>
-		<Row ID="EXTownWetFeatureProduction" Age="AGE_EXPLORATION" YieldType="YIELD_PRODUCTION" YieldChange="3" FeatureClassInCity="FEATURE_CLASS_WET"/>
-		<Row ID="EXTownFishingBoatResourceFood" Age="AGE_EXPLORATION" YieldType="YIELD_FOOD" YieldChange="2" ConstructibleInCity="IMPROVEMENT_FISHING_BOAT_RESOURCE"/>
-		<Row ID="EXTownAtollFeatureFood" Age="AGE_EXPLORATION" YieldType="YIELD_FOOD" YieldChange="2" FeatureInCity="FEATURE_ATOLL"/>
-		<Row ID="EXTownLotusFeatureFood" Age="AGE_EXPLORATION" YieldType="YIELD_FOOD" YieldChange="2" FeatureInCity="FEATURE_LOTUS"/>
-		<Row ID="EXTownReefFeatureFood" Age="AGE_EXPLORATION" YieldType="YIELD_FOOD" YieldChange="2" FeatureInCity="FEATURE_REEF"/>
-		<Row ID="EXTownColdReefFeatureFood" Age="AGE_EXPLORATION" YieldType="YIELD_FOOD" YieldChange="2" FeatureInCity="FEATURE_COLD_REEF"/>
-		<Row ID="EXTownCoastTerrainFood" Age="AGE_EXPLORATION" YieldType="YIELD_FOOD" YieldChange="2" TerrainInCity="TERRAIN_COAST"/>
-		<Row ID="EXTownNavigableRiverFood" Age="AGE_EXPLORATION" YieldType="YIELD_FOOD" YieldChange="2" NavigableRiverInCity="true"/>
-		<Row ID="EXTownPastureFood" Age="AGE_EXPLORATION" YieldType="YIELD_FOOD" YieldChange="2" ConstructibleInCity="IMPROVEMENT_PASTURE"/>
-		<Row ID="EXTownPlantationFood" Age="AGE_EXPLORATION" YieldType="YIELD_FOOD" YieldChange="2" ConstructibleInCity="IMPROVEMENT_PLANTATION"/>
-		<Row ID="EXTownDesertFloodplainFeatureFood" Age="AGE_EXPLORATION" YieldType="YIELD_FOOD" YieldChange="2" FeatureInCity="FEATURE_DESERT_FLOODPLAIN_MINOR"/>
-		<Row ID="EXTownGrasslandFloodplainFeatureFood" Age="AGE_EXPLORATION" YieldType="YIELD_FOOD" YieldChange="2" FeatureInCity="FEATURE_GRASSLAND_FLOODPLAIN_MINOR"/>
-		<Row ID="EXTownPlainsFloodplainFeatureFood" Age="AGE_EXPLORATION" YieldType="YIELD_FOOD" YieldChange="2" FeatureInCity="FEATURE_PLAINS_FLOODPLAIN_MINOR"/>
-		<Row ID="EXTownTropicalFloodplainFeatureFood" Age="AGE_EXPLORATION" YieldType="YIELD_FOOD" YieldChange="2" FeatureInCity="FEATURE_TROPICAL_FLOODPLAIN_MINOR"/>
-		<Row ID="EXTownTundraFloodplainFeatureFood" Age="AGE_EXPLORATION" YieldType="YIELD_FOOD" YieldChange="2" FeatureInCity="FEATURE_TUNDRA_FLOODPLAIN_MINOR"/>
-		<Row ID="EXTownFlatTerrainFood" Age="AGE_EXPLORATION" YieldType="YIELD_FOOD" YieldChange="2" TerrainInCity="TERRAIN_FLAT"/>
-		<Row ID="EXTownWoodcutterResourceProduction" Age="AGE_EXPLORATION" YieldType="YIELD_PRODUCTION" YieldChange="3" ConstructibleInCity="IMPROVEMENT_WOODCUTTER_RESOURCE"/>
-		<Row ID="EXTownCampProduction" Age="AGE_EXPLORATION" YieldType="YIELD_PRODUCTION" YieldChange="3" ConstructibleInCity="IMPROVEMENT_CAMP"/>
-		<Row ID="EXTownVegetatedFeatureProduction" Age="AGE_EXPLORATION" YieldType="YIELD_PRODUCTION" YieldChange="3" FeatureClassInCity="FEATURE_CLASS_VEGETATED"/>
-		<Row ID="EXHappinessProjectResourceHappiness" Age="AGE_EXPLORATION" YieldType="YIELD_HAPPINESS" YieldChange="2" ResourceInCity="true"/>
+		<Row ID="EXTownMineResourceProduction" Age="AGE_EXPLORATION" YieldType="YIELD_PRODUCTION" YieldChange="2" ConstructibleInCity="IMPROVEMENT_MINE_RESOURCE"/>
+		<Row ID="EXTownQuarryProduction" Age="AGE_EXPLORATION" YieldType="YIELD_PRODUCTION" YieldChange="2" ConstructibleInCity="IMPROVEMENT_QUARRY"/>
+		<Row ID="EXTownRoughTerrainProduction" Age="AGE_EXPLORATION" YieldType="YIELD_PRODUCTION" YieldChange="2" TerrainInCity="TERRAIN_HILL"/>
+		<Row ID="EXTownWetFeatureProduction" Age="AGE_EXPLORATION" YieldType="YIELD_PRODUCTION" YieldChange="2" FeatureClassInCity="FEATURE_CLASS_WET"/>
+		<Row ID="EXTownClayPitResourceProduction" Age="AGE_EXPLORATION" YieldType="YIELD_PRODUCTION" YieldChange="2" ConstructibleInCity="IMPROVEMENT_CLAY_PIT_RESOURCE"/>
+		<Row ID="EXTownClayPitProduction" Age="AGE_EXPLORATION" YieldType="YIELD_PRODUCTION" YieldChange="2" ConstructibleInCity="IMPROVEMENT_CLAY_PIT"/>
+		<Row ID="EXTownFishingBoatResourceFood" Age="AGE_EXPLORATION" YieldType="YIELD_FOOD" YieldChange="1" ConstructibleInCity="IMPROVEMENT_FISHING_BOAT_RESOURCE"/>
+		<Row ID="EXTownAtollFeatureFood" Age="AGE_EXPLORATION" YieldType="YIELD_FOOD" YieldChange="1" FeatureInCity="FEATURE_ATOLL"/>
+		<Row ID="EXTownLotusFeatureFood" Age="AGE_EXPLORATION" YieldType="YIELD_FOOD" YieldChange="1" FeatureInCity="FEATURE_LOTUS"/>
+		<Row ID="EXTownReefFeatureFood" Age="AGE_EXPLORATION" YieldType="YIELD_FOOD" YieldChange="1" FeatureInCity="FEATURE_REEF"/>
+		<Row ID="EXTownColdReefFeatureFood" Age="AGE_EXPLORATION" YieldType="YIELD_FOOD" YieldChange="1" FeatureInCity="FEATURE_COLD_REEF"/>
+		<Row ID="EXTownCoastTerrainFood" Age="AGE_EXPLORATION" YieldType="YIELD_FOOD" YieldChange="1" TerrainInCity="TERRAIN_COAST"/>
+		<Row ID="EXTownNavigableRiverFood" Age="AGE_EXPLORATION" YieldType="YIELD_FOOD" YieldChange="1" NavigableRiverInCity="true"/>
+		<Row ID="EXTownPastureFood" Age="AGE_EXPLORATION" YieldType="YIELD_FOOD" YieldChange="1" ConstructibleInCity="IMPROVEMENT_PASTURE"/>
+		<Row ID="EXTownPlantationFood" Age="AGE_EXPLORATION" YieldType="YIELD_FOOD" YieldChange="1" ConstructibleInCity="IMPROVEMENT_PLANTATION"/>
+		<Row ID="EXTownDesertFloodplainFeatureFood" Age="AGE_EXPLORATION" YieldType="YIELD_FOOD" YieldChange="1" FeatureInCity="FEATURE_DESERT_FLOODPLAIN_MINOR"/>
+		<Row ID="EXTownGrasslandFloodplainFeatureFood" Age="AGE_EXPLORATION" YieldType="YIELD_FOOD" YieldChange="1" FeatureInCity="FEATURE_GRASSLAND_FLOODPLAIN_MINOR"/>
+		<Row ID="EXTownPlainsFloodplainFeatureFood" Age="AGE_EXPLORATION" YieldType="YIELD_FOOD" YieldChange="1" FeatureInCity="FEATURE_PLAINS_FLOODPLAIN_MINOR"/>
+		<Row ID="EXTownTropicalFloodplainFeatureFood" Age="AGE_EXPLORATION" YieldType="YIELD_FOOD" YieldChange="1" FeatureInCity="FEATURE_TROPICAL_FLOODPLAIN_MINOR"/>
+		<Row ID="EXTownTundraFloodplainFeatureFood" Age="AGE_EXPLORATION" YieldType="YIELD_FOOD" YieldChange="1" FeatureInCity="FEATURE_TUNDRA_FLOODPLAIN_MINOR"/>
+		<Row ID="EXTownFlatTerrainFood" Age="AGE_EXPLORATION" YieldType="YIELD_FOOD" YieldChange="1" TerrainInCity="TERRAIN_FLAT"/>
+		<Row ID="EXTownWoodcutterResourceProduction" Age="AGE_EXPLORATION" YieldType="YIELD_PRODUCTION" YieldChange="2" ConstructibleInCity="IMPROVEMENT_WOODCUTTER_RESOURCE"/>
+		<Row ID="EXTownCampProduction" Age="AGE_EXPLORATION" YieldType="YIELD_PRODUCTION" YieldChange="2" ConstructibleInCity="IMPROVEMENT_CAMP"/>
+		<Row ID="EXTownVegetatedFeatureProduction" Age="AGE_EXPLORATION" YieldType="YIELD_PRODUCTION" YieldChange="2" FeatureClassInCity="FEATURE_CLASS_VEGETATED"/>
+		<Row ID="EXHappinessProjectResourceHappiness" Age="AGE_EXPLORATION" YieldType="YIELD_HAPPINESS" YieldChange="1" ResourceInCity="true"/>
+		<!-- Feudalism Waehouse Bonuses -->
+		 <Row ID="EXFeudalismFarmFood" Age="AGE_EXPLORATION" YieldType="YIELD_FOOD" YieldChange="1" ConstructibleInCity="IMPROVEMENT_FARM"/>
+		 <Row ID="EXFeudalismPlantationFood" Age="AGE_EXPLORATION" YieldType="YIELD_FOOD" YieldChange="1" ConstructibleInCity="IMPROVEMENT_PLANTATION"/>
 	</Warehouse_YieldChanges>
 	<Constructible_YieldChanges>
 		<Update>
@@ -116,19 +122,10 @@
 			<Set YieldChange="6"/>
 		</Update>
 	</Constructible_YieldChanges>
-	<GameModifiers>
-		<!-- Unique Quarter modifiers are game-wide -->
-		<Row ModifierId="MOD_NORMAN_DONJON_FREE_CHEVALER"/>
-		<Row ModifierId="MOD_MAJAPAHIT_PURA_RELIC"/>
-	</GameModifiers>
-	<!-- These are listed here so the AI can evalutate Unique Quarters. They do not have any effects on the game for human players. -->
-	<UniqueQuarterModifiers>
-		<Row UniqueQuarterType="QUARTER_DONJON" ModifierId="MOD_NORMAN_DONJON_FREE_CHEVALER"/>
-		<Row UniqueQuarterType="QUARTER_PURA" ModifierId="MOD_MAJAPAHIT_PURA_RELIC"/>
-	</UniqueQuarterModifiers>
 	<ConstructibleModifiers>
 		<Row ConstructibleType="WONDER_NOTRE_DAME" ModifierId="MOD_NOTRE_DAME_GOLDEN_AGE"/>
 		<Row ConstructibleType="WONDER_HOUSE_OF_WISDOM" ModifierId="MOD_HOUSE_OF_WISDOM_FREE_RELICS"/>
+		<Row ConstructibleType="WONDER_HOUSE_OF_WISDOM" ModifierId="MOD_HOUSE_OF_WISDOM_SCIENCE_VP"/>
 		<!-- Buildings -->
 		<Row ConstructibleType="BUILDING_ARMORER" ModifierId="MOD_ARMORER_UNIT_PRODUCTION"/>
 		<Row ConstructibleType="BUILDING_BANK" ModifierId="MOD_BANK_GOLD_ON_URBAN_PLOTS"/>
@@ -141,10 +138,15 @@
 		<!-- Antique Revived Buildings -->
 		<Row ConstructibleType="BUILDING_AMPHITHEATER_EX" ModifierId="MOD_AMPHITHEATER_EX_WONDER_PRODUCTION"/>
 	</ConstructibleModifiers>
+	<!-- Specialist Yields based on constructible type and age relevancy -->
 	<WorkerYields>
-		<Row YieldType="YIELD_FOOD" Amount="-2"/>
-		<Row YieldType="YIELD_HAPPINESS" Amount="-2"/>
-		<Row YieldType="YIELD_SCIENCE" Amount="2"/>
-		<Row YieldType="YIELD_CULTURE" Amount="2"/>
+		<Row YieldType="YIELD_FOOD" Amount="-1"/>
+		<Row YieldType="YIELD_HAPPINESS" Amount="-1"/>
+		<Row YieldType="YIELD_SCIENCE" Amount="0"/>
+		<Row YieldType="YIELD_CULTURE" Amount="0"/>
 	</WorkerYields>
+	<WorkerYields_AgeModifier>
+		<Row YieldType="YIELD_FOOD" Amount="-3"/>
+		<Row YieldType="YIELD_HAPPINESS" Amount="-3"/>
+	</WorkerYields_AgeModifier>
 </Database>

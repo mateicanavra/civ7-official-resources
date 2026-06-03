@@ -1,12 +1,6 @@
 import AgeScores from './model-age-scores.js';
-import '../../../core/ui/utilities/utilities-image.chunk.js';
-import '../../../core/ui/utilities/utilities-component-id.chunk.js';
-import '../../../core/ui/utilities/utilities-update-gate.chunk.js';
-import '../victory-manager/victory-manager.chunk.js';
-
-const content = "<div class=\"age-scores-container\"></div>\r\n";
-
-const styles = "fs://game/base-standard/ui/age-scores/panel-age-scores.css";
+import content from './panel-age-scores.html.js';
+import styles from './panel-age-scores.scss.js';
 
 class PanelAgeScores extends Component {
   ageScoresContainerClass = ".age-scores-container";

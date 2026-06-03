@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <Database>
 	<EnglishText>
 		<Row Tag="LOC_TUTORIAL_CALLOUT_CLOSE">
@@ -62,7 +62,7 @@
 			<Text>Click to re-open</Text>
 		</Row>
 		<Row Tag="LOC_TUTORIAL_REOPEN_GAMEPAD">
-			<Text>Re-open</Text>
+			<Text>To Re-open</Text>
 		</Row>
 		<Row Tag="LOC_TUTORIAL_REOPEN_TOUCH">
 			<Text>Select to re-open</Text>
@@ -75,13 +75,56 @@
 			<Text>Plagues</Text>
 		</Row>
 		<Row Tag="LOC_TUTORIAL_PLAGUES_BODY">
-			<Text>A Settlement is suffering from an Outbreak. Outbreaks cause Unrest, pillage Buildings and Improvements and damage Units in the affected tiles. While a settlement is Infected, it cannot grow and will create Migrants instead.[n]Major Outbreaks can spread and cause Minor Outbreaks in Connected settlements.[n]Outbreaks are more likely to occur in settlements that are densely populated, connected to road and trade networks or under siege.</Text>
+			<Text>A [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]Settlement[/TIP] is suffering from an Outbreak. Outbreaks cause [TIP:LOC_PEDIA_CONCEPTS_UNREST_TOOLTIP]Unrest[/TIP], pillage [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]Buildings[/TIP] and [TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]Improvements[/TIP] and damage Units in the affected tiles. While a Settlement is [TIP:LOC_PEDIA_CONCEPTS_INFECTED_TOOLTIP]Infected[/TIP], it cannot [TIP:LOC_PEDIA_CONCEPTS_POPULATION_TOOLTIP]Grow[/TIP] and will create Migrants instead.[n]Major Outbreaks can spread and cause Minor Outbreaks in [TIP:LOC_PEDIA_CONCEPTS_CONNECTED_TOOLTIP]Connected Settlements[/TIP].[n]Outbreaks are more likely to occur in Settlements that are densely populated, Connected to road and [TIP:LOC_PEDIA_CONCEPTS_TRADE_NETWORK_TOOLTIP]Trade Networks[/TIP] or under siege.</Text>
 		</Row>
 		<Row Tag="LOC_TUTORIAL_REVOLTS_NAME">
 			<Text>Revolts</Text>
 		</Row>
 		<Row Tag="LOC_TUTORIAL_REVOLTS_BODY">
-			<Text>The Settlement of [b]{1_CityName} [/b] is so unhappy they are considering Revolt. If they remain Unhappy they may petition to join another Civilization.[n]Consider changing your Policies or moving Resources to this settlement to improve their Happiness. If all else fails, Stationing a Commander here will help reduce the Unhappiness as well.</Text>
+			<Text>The [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]Settlement[/TIP] of [b]{1_CityName}[/b] is so unhappy they are considering Revolt. If they remain Unhappy they may petition to join another Civilization.[n]Consider changing your Policies or moving [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]Resources[/TIP] to this Settlement to improve their [icon:YIELD_HAPPINESS][b]Happiness[/b]. If all else fails, Stationing a [TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]Commander[/TIP] here will help reduce the Unhappiness as well.</Text>
+		</Row>
+		<!-- ToT Tutorial Text -->
+		<Row Tag="LOC_TUTORIAL_SYNCRETISM_AVAILABLE_TITLE">
+			<Text>Syncretism</Text>
+		</Row>
+		<Row Tag="LOC_TUTORIAL_SYNCRETISM_AVAILABLE_BODY">
+			<Text>You may now research [TIP:LOC_PEDIA_CONCEPTS_SYNCRETISM_TOOLTIP]Syncretism[/TIP], a powerful tool for Time-Tested Civilizations. [n]Syncretism allows you to study other Civilizations currently in their [TIP:LOC_PEDIA_CONCEPTS_APEX_AGE_TOOLTIP]Apex Age[/TIP] and adopt their [TIP:LOC_PEDIA_CONCEPTS_UNIQUE_UNITS_TOOLTIP]Unique Units[/TIP] or infrastructure for the remainder of this Age; you can also choose a strategically complimentary [TIP:LOC_PEDIA_CONCEPTS_TRADITION_TOOLTIP]Tradition[/TIP] to affirm your Time-Tested identity.</Text>
+		</Row>
+		<Row Tag="LOC_TUTORIAL_SYNCRETISM_SCREEN_TITLE">
+			<Text>Syncretic Choice</Text>
+		</Row>
+		<Row Tag="LOC_TUTORIAL_SYNCRETISM_SCREEN_BODY">
+			<Text>Welcome to the [TIP:LOC_PEDIA_CONCEPTS_SYNCRETISM_TOOLTIP]Syncretism[/TIP] Screen. Here you will choose what to adopt from [TIP:LOC_PEDIA_CONCEPTS_APEX_AGE_TOOLTIP]Apex Age[/TIP] Civilizations based on your current Civilization and Leader; you can also choose to affirm your own Civilization with a strategically complimentary [TIP:LOC_PEDIA_CONCEPTS_TRADITION_TOOLTIP]Tradition[/TIP]. 
+				[n]Once you choose what to syncretize, it cannot be changed!</Text>
+		</Row>
+		<Row Tag="LOC_TUTORIAL_APEX_AGE_TITLE">
+			<Text>Apex Civilizations</Text>
+		</Row>
+		<Row Tag="LOC_TUTORIAL_APEX_AGE_BODY">
+			<Text>Your Civilization is currently in its [TIP:LOC_PEDIA_CONCEPTS_APEX_AGE_TOOLTIP]Apex Age[/TIP]: a critical point of your people's identity. 
+				[n]Civilizations in their Apex can train [TIP:LOC_PEDIA_CONCEPTS_UNIQUE_UNITS_TOOLTIP]Unique Units[/TIP], build unique Infrastructure, and study unique [TIP:LOC_PEDIA_CONCEPTS_CIVIC_TOOLTIP]Civics[/TIP]. 
+				[n]{1_nextAgeInfo}</Text>
+		</Row>
+		<Row Tag="LOC_TUTORIAL_APEX_AGE_BODY_NEXT_AGE_AVAILABLE">
+			<Text>When this [TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]Age[/TIP] ends, you will be faced with a choice: stay as this Civilization and become Time-Tested, or pick a new Civilization that will be entering their Apex.
+				[n]For now, explore what this Civilization has to offer; it will help you decide whether to transition to a new Civilization or stand the test of time.</Text>
+		</Row>
+		<Row Tag="LOC_TUTORIAL_APEX_AGE_BODY_NEXT_AGE_UNAVAILABLE">
+			<Text>This is the final [TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]Age[/TIP], utilize your Civilization's ability to claim Victory!</Text>
+		</Row>
+		<Row Tag="LOC_TUTORIAL_TIME_TESTED_AGE_TITLE">
+			<Text>Time-Tested Civilizations</Text>
+		</Row>
+		<Row Tag="LOC_TUTORIAL_TIME_TESTED_AGE_BODY">
+			<Text>You are currently playing a Time-Tested Civilization, which means your Civilization is not in its [TIP:LOC_PEDIA_CONCEPTS_APEX_AGE_TOOLTIP]Apex Age[/TIP].
+				[n]While you do not have access to most of your Civilization's unique items, you still have [TIP:LOC_PEDIA_CONCEPTS_CIVIC_TOOLTIP]Civics[/TIP] to study that are relevant to your Civilization.
+				[n]{1_nextAgeInfo}</Text>
+		</Row>
+		<Row Tag="LOC_TUTORIAL_TIME_TESTED_AGE_BODY_NEXT_AGE_AVAILABLE">
+			<Text>When this [TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]Age[/TIP] ends, you will be able to stay as your current Civilization, or pick a different Civilization entering its Apex Age.</Text>
+		</Row>
+		<Row Tag="LOC_TUTORIAL_TIME_TESTED_AGE_BODY_NEXT_AGE_UNAVAILABLE">
+			<Text>While your Apex Age has passed, your people are ready to claim Victory!</Text>
 		</Row>
 	</EnglishText>
 </Database>

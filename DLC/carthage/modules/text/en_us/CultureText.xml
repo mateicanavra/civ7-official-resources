@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Database>
 	<EnglishText>
-
 		<!-- ==================================================	-->
-		<!--	CARTHAGE							-->
+		<!--	ANTIQUITY									-->
 		<!-- ==================================================	-->
+		<!-- Civics -->
 		<Row Tag="LOC_TREE_CIVICS_AQ_CARTHAGE_NAME">
 			<Text>Carthage Civics</Text>
 		</Row>
@@ -35,49 +35,74 @@
 		<Row Tag="LOC_CIVIC_RED_SLIP_AUTHOR">
 			<Text>Mago</Text>
 		</Row>
-		<!--Carthage Civic Description-->
-		<Row Tag="LOC_MOD_SHIPSHEDS_NAVAL_MOVEMENT_DESCRIPTION">
-			<Text>+1 [icon:Action_Move] Movement for Naval Units.</Text>
-		</Row>
-		<Row Tag="LOC_MOD_SHIPSHEDS_NAVAL_FIRST_STRIKE_DESCRIPTION">
-			<Text>+5 [icon:NAR_REW_COMBAT] Combat Strength for Naval Units at full health.</Text>
-		</Row>
-		<Row Tag="LOC_MOD_SHIPSHEDS_NAVAL_FIRST_STRIKE_PREVIEW">
-			<Text>+5 Shipsheds Mastery</Text>
-		</Row>
-		<Row Tag="LOC_MOD_RED_SLIP_TRADE_GOLD_DESCRIPTION">
-			<Text>+15 [icon:TRADE_ROUTE] Naval Trade Route Range. +3 [icon:YIELD_GOLD] Gold in the [icon:NOTIFICATION_SELECT_CAPITAL] Capital for every [icon:TRADE_ROUTE] Trade Route from the Capital. </Text>
-		</Row>
-		<Row Tag="LOC_MOD_RED_SLIP_RESOURCE_CAP_DESCRIPTION">
-			<Text>+3 [icon:RADIAL_RESOURCES] Resource Capacity in the [icon:NOTIFICATION_SELECT_CAPITAL] Capital.</Text>
-		</Row>
+		<!-- Civic Descriptions -->
 		<Row Tag="LOC_MOD_SICILIAN_WARS_SETTLEMENT_CAP_DESCRIPTION">
-			<Text>+2 [icon:SETTLEMENT_LIMIT] Settlement Limit.</Text>
+			<Text>+2 [icon:SETTLEMENT_LIMIT] [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_LIMIT_TOOLTIP]Settlement Limit[/TIP].</Text>
 		</Row>
-		<Row Tag="LOC_MOD_SICILIAN_WARS_MOVEMENT_NUMIDIAN_CAVALRY_DESCRIPTION">
-			<Text>+1 [icon:Action_Move] Movement and [icon:Action_Showall] Sight for the [icon:UNIT_NUMIDIAN_CAVALRY] Numidian Cavalry.</Text>
+		<!-- Traditions -->
+		<Row Tag="LOC_TRADITION_GAULOS_I_NAME">
+			<Text>Gaulos I</Text>
 		</Row>
-		<Row Tag="LOC_MOD_SICILIAN_WARS_TOWN_PROJECT_DESCRIPTION">
-			<Text>+1 [icon:NAR_REW_GREATWORK] Codex slot in City Halls in [icon:YIELD_TOWNS] Towns with the [icon:TOWN_FOCUS] Trade Outpost Focus.</Text>
+		<Row Tag="LOC_TRADITION_GAULOS_I_DESCRIPTION">
+			<Text>+25% [icon:YIELD_GOLD] Gold towards purchasing [TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]Naval Units[/TIP] and [icon:CITY_BUILDING_LIST] Water [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]Buildings[/TIP]. +1 [icon:YIELD_GOLD] Gold in the [icon:NOTIFICATION_SELECT_CAPITAL] [TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]Capital[/TIP] for every [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]Town[/TIP].</Text>
 		</Row>
-		<!--Carthage Unique Traditions-->
-		<Row Tag="LOC_TRADITION_GAULOS_NAME">
-			<Text>Gaulos</Text>
+		<Row Tag="LOC_TRADITION_QUINQUEREME_I_NAME">
+			<Text>Quinquereme I</Text>
 		</Row>
-		<Row Tag="LOC_TRADITION_GAULOS_DESCRIPTION">
-			<Text>+25% [icon:YIELD_GOLD] Gold towards purchasing [icon:CITY_BUILDING_LIST] Buildings on Coast or Navigable Rivers.</Text>
-		</Row>
-		<Row Tag="LOC_TRADITION_QUINQUEREME_NAME">
-			<Text>Quinquereme</Text>
-		</Row>
-		<Row Tag="LOC_TRADITION_QUINQUEREME_DESCRIPTION">
-			<Text>+25% [icon:YIELD_GOLD] Gold towards purchasing Naval Units. -1 [icon:YIELD_GOLD] Gold Maintenance for Naval Units.</Text>
+		<Row Tag="LOC_TRADITION_QUINQUEREME_I_DESCRIPTION">
+			<Text>+1 Range for [TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]Heavy Naval Units[/TIP]. -1 [icon:YIELD_GOLD] Gold [TIP:LOC_PEDIA_CONCEPTS_MAINTENANCE_TOOLTIP]Maintenance[/TIP] for Naval Units.</Text>
 		</Row>
 		<Row Tag="LOC_TRADITION_SUFFETES_NAME">
 			<Text>Suffetes</Text>
 		</Row>
 		<Row Tag="LOC_TRADITION_SUFFETES_DESCRIPTION">
-			<Text>+20% [icon:YIELD_GOLD] Gold in Mining [icon:YIELD_TOWNS] Towns. +20% [icon:YIELD_FOOD] Food in Fishing or Farming [icon:YIELD_TOWNS] Towns.</Text>
+			<Text>+20% [icon:YIELD_GOLD] Gold in Mining [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]Towns[/TIP]. +20% [icon:YIELD_FOOD] Food in Fishing or Farming [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]Towns[/TIP]. +1 [icon:TRADE_ROUTE] Naval Trade Route Range for every [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]Town[/TIP] with a [icon:TOWN_FOCUS] Trade Outpost Focus.</Text>
+		</Row>
+		<!-- ==================================================	-->
+		<!--	EXPLORATION								-->
+		<!-- ==================================================	-->
+		<!-- Civics-->
+		<Row Tag="LOC_NODE_CIVIC_EX_CARTHAGE_RENAISSANCE_NAME">
+			<Text>Carthaginian Renaissance</Text>
+		</Row>
+		<!-- Traditions -->
+		<Row Tag="LOC_TRADITION_QUINQUEREME_II_NAME">
+			<Text>Quinquereme II</Text>
+		</Row>
+		<Row Tag="LOC_TRADITION_QUINQUEREME_II_DESCRIPTION">
+			<Text>+1 Range for [TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]Heavy Naval Units[/TIP]. -2 [icon:YIELD_GOLD] Gold [TIP:LOC_PEDIA_CONCEPTS_MAINTENANCE_TOOLTIP]Maintenance[/TIP] for Naval Units. +1 [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Combat Strength[/TIP] for Naval Units for each [icon:RADIAL_RESOURCES] Unique City [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]Resource[/TIP] assigned to your [icon:NOTIFICATION_SELECT_CAPITAL] [TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]Capital[/TIP].</Text>
+		</Row>
+		<Row Tag="LOC_TRADITION_QUINQUEREME_COMBAT_PREVIEW">
+			<Text>+{1_Amount} Quinquereme</Text>
+		</Row>
+		<Row Tag="LOC_TRADITION_CARTHAGE_SYNCRETISM_EXPLORATION_NAME">
+			<Text>Hannoid Rule I</Text>
+		</Row>
+		<Row Tag="LOC_TRADITION_CARTHAGE_SYNCRETISM_EXPLORATION_DESCRIPTION">
+			<Text>+1 [icon:YIELD_GOLD] Gold and [icon:YIELD_PRODUCTION] Production in the [icon:NOTIFICATION_SELECT_CAPITAL] [TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]Capital[/TIP] for every [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]Resource[/TIP] assigned to it.</Text>
+		</Row>
+		<Row Tag="LOC_TRADITION_CARTHAGE_SYNCRETISM_TOOLTIP">
+			<Text>Hannoid Rule</Text>
+		</Row>
+		<!-- ==================================================	-->
+		<!--	MODERN								-->
+		<!-- ==================================================	-->
+		<!-- Civics-->
+		<Row Tag="LOC_NODE_CIVIC_MO_CARTHAGE_MODERNIZATION_NAME">
+			<Text>Carthaginian Modernization</Text>
+		</Row>
+		<!-- Traditions -->
+		<Row Tag="LOC_TRADITION_GAULOS_II_NAME">
+			<Text>Gaulos II</Text>
+		</Row>
+		<Row Tag="LOC_TRADITION_GAULOS_II_DESCRIPTION">
+			<Text>+25% [icon:YIELD_GOLD] Gold towards purchasing [TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]Naval Units[/TIP] and [icon:CITY_BUILDING_LIST] Water [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]Buildings[/TIP]. +3 [icon:YIELD_GOLD] Gold in the [icon:NOTIFICATION_SELECT_CAPITAL] [TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]Capital[/TIP] for every [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]Town[/TIP].</Text>
+		</Row>
+		<Row Tag="LOC_TRADITION_CARTHAGE_SYNCRETISM_MODERN_NAME">
+			<Text>Hannoid Rule II</Text>
+		</Row>
+		<Row Tag="LOC_TRADITION_CARTHAGE_SYNCRETISM_MODERN_DESCRIPTION">
+			<Text>+2 [icon:YIELD_GOLD] Gold and [icon:YIELD_PRODUCTION] Production in the [icon:NOTIFICATION_SELECT_CAPITAL] [TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]Capital[/TIP] for every [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]Resource[/TIP] assigned to it.</Text>
 		</Row>
 	</EnglishText>
 </Database>

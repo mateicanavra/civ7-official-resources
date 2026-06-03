@@ -1,19 +1,12 @@
-import { A as ActionActivateEvent } from '../components/fxs-activatable.chunk.js';
+import { ActionActivateEvent } from '../components/fxs-activatable.js';
 import ContextManager from '../context-manager/context-manager.js';
-import { a as DialogBoxManager } from '../dialog-box/manager-dialog-box.chunk.js';
-import { R as RewardsNotificationsManager } from '../rewards-notifications/rewards-notification-manager.chunk.js';
-import { a as MPFriendsModel } from '../shell/mp-staging/model-mp-friends.chunk.js';
+import { DialogBoxManager } from '../dialog-box/manager-dialog-box.js';
+import RewardsNotificationsManager from '../rewards-notifications/rewards-notification-manager.js';
+import MPFriendsModel from '../shell/mp-staging/model-mp-friends.js';
 import SocialNotificationsManager, { SocialNotificationIndicatorType } from '../social-notifications/social-notifications-manager.js';
-import { MustGetElement } from '../utilities/utilities-dom.chunk.js';
+import { MustGetElement } from '../utilities/utilities-dom.js';
+import { stringifyJSON } from '../utilities/utilities-json.js';
 import { getDefaultPlayerInfo, getPlayerCardInfo } from '../utilities/utilities-liveops.js';
-import '../audio-base/audio-support.chunk.js';
-import '../input/focus-manager.js';
-import '../framework.chunk.js';
-import '../context-manager/display-queue-manager.js';
-import '../input/cursor.js';
-import '../views/view-manager.chunk.js';
-import '../panel-support.chunk.js';
-import '../utilities/utilities-layout.chunk.js';
 
 const ProfileAccountLoggedOutEventName = "profile-account-logged-out";
 class ProfileAccountLoggedOutEvent extends CustomEvent {
@@ -188,29 +181,21 @@ class ProfileHeader extends Component {
   }
   updateGiftboxButton() {
     const disabled = this.Root.getAttribute("disabled");
-    const blockedAccessReason = Network.getBlockedAccessReason(
-      Network.isChildAccount(),
-      Network.isChildOnlinePermissionsGranted(),
-      false
-    );
+    const blockedInfo = Network.getBlockedAccessInfo(DNAPermissionType.PLAY_ONLINE);
     this.giftboxButton.setAttribute("disabled", disabled ?? "false");
     this.giftboxButton.setAttribute(
       "data-tooltip-content",
-      blockedAccessReason.length > 0 ? blockedAccessReason : "LOC_REWARD_RECEIVED"
+      blockedInfo.reason !== BlockedAccessReason.NONE ? blockedInfo.locKey : "LOC_REWARD_RECEIVED"
     );
     this.giftboxButton.classList.toggle("tint-bg-accent-4", !this.isFullAccountLinkedOnline());
   }
   updateSocialButton() {
     const disabled = this.Root.getAttribute("disabled");
-    const blockedAccessReason = Network.getBlockedAccessReason(
-      Network.isChildAccount(),
-      Network.isChildOnlinePermissionsGranted(),
-      false
-    );
+    const blockedInfo = Network.getBlockedAccessInfo(DNAPermissionType.PLAY_ONLINE);
     this.socialButton.setAttribute("disabled", disabled ?? "false");
     this.socialButton.setAttribute(
       "data-tooltip-content",
-      blockedAccessReason.length > 0 ? blockedAccessReason : "LOC_UI_MP_SOCIAL_BUTTON_LABEL"
+      blockedInfo.reason !== BlockedAccessReason.NONE ? blockedInfo.locKey : "LOC_UI_MP_SOCIAL_BUTTON_LABEL"
     );
     this.socialButton.classList.toggle("tint-bg-accent-4", !this.isFullAccountLinkedOnline());
   }
@@ -232,17 +217,15 @@ class ProfileHeader extends Component {
     }
     const playerCardStyle = this.Root.getAttribute("player-card-style") ?? "micro";
     this.progressionHeader.setAttribute("disabled", this.Root.getAttribute("disabled") ?? "false");
-    if (Network.isMetagamingAvailable()) {
+    const blockedInfo = Network.getBlockedAccessInfo(DNAPermissionType.PLAY_ONLINE);
+    if (blockedInfo.reason === BlockedAccessReason.NONE) {
       this.progressionHeader.removeAttribute("data-tooltip-content");
     } else {
-      this.progressionHeader.setAttribute(
-        "data-tooltip-content",
-        Network.getBlockedAccessReason(false, true, true)
-      );
+      this.progressionHeader.setAttribute("data-tooltip-content", blockedInfo.locKey);
     }
     this.progressionHeader.setAttribute("player-card-style", playerCardStyle);
     const playerInfo = disabled ? getDefaultPlayerInfo() : getPlayerCardInfo(void 0, void 0, true);
-    this.progressionHeader.setAttribute("data-player-info", JSON.stringify(playerInfo));
+    this.progressionHeader.setAttribute("data-player-info", stringifyJSON(playerInfo));
   }
   updateSocialNotification() {
     SocialNotificationsManager.setNotificationVisibility(
@@ -251,7 +234,9 @@ class ProfileHeader extends Component {
     );
   }
   updateRewardsNotification() {
-    RewardsNotificationsManager.setNotificationVisibility(Online.UserProfile.getNewlyUnlockedItems().length > 0);
+    RewardsNotificationsManager.setNotificationVisibility(
+      Online.UserProfile.getNewlyUnlockedItems().length > 0 && !RewardsNotificationsManager.allNewRewardsAreHidden()
+    );
   }
   onEngineInput(inputEvent) {
     if (this.handleEngineInput(inputEvent)) {
@@ -299,10 +284,10 @@ class ProfileHeader extends Component {
       case InputNavigationAction.NEXT:
         if (!this.hideGift) {
           this.onGiftboxButtonActivate();
-          return true;
+          return false;
         }
     }
-    return false;
+    return true;
   }
   onAccountUpdated() {
     MPFriendsModel.refreshFriendList();
@@ -317,25 +302,15 @@ class ProfileHeader extends Component {
     this.updateGiftboxButton();
   }
   onProfileHeaderButtonClicked(popupToOpen) {
-    let flags = {
-      isChildAccount: Network.isChildAccount(),
-      isPermittedChild: Network.isChildOnlinePermissionsGranted(),
-      ignoreChildPermissions: false
-    };
-    const blockReason = Network.getBlockedAccessReason(
-      flags.isChildAccount,
-      flags.isPermittedChild,
-      flags.ignoreChildPermissions
-    );
     let ignoreAllNetworkBlockReasonsWhenAvailable = false;
     let ignoreUnlinkedAccountBlockReason = false;
     let checkUnlockedRewards = false;
     let popupProperties;
     let isAvailable = false;
+    const blockInfo = Network.getBlockedAccessInfo(DNAPermissionType.PLAY_ONLINE);
     switch (popupToOpen) {
       case this.progressionHeaderButtonName:
         {
-          flags = { isChildAccount: false, isPermittedChild: true, ignoreChildPermissions: true };
           ignoreAllNetworkBlockReasonsWhenAvailable = true;
           popupProperties = {
             singleton: true,
@@ -347,7 +322,7 @@ class ProfileHeader extends Component {
         break;
       case giftboxButtonName:
         {
-          ignoreUnlinkedAccountBlockReason = blockReason == Locale.compose("LOC_UI_LINK_ACCOUNT_REQUIRED");
+          ignoreUnlinkedAccountBlockReason = blockInfo.reason === BlockedAccessReason.ACCOUNT_NOT_LINKED;
           checkUnlockedRewards = true;
           popupProperties = { singleton: true, createMouseGuard: true };
           const disabled = this.Root.getAttribute("disabled") == "true";
@@ -362,14 +337,21 @@ class ProfileHeader extends Component {
         }
         break;
     }
-    if ((blockReason == "" || ignoreUnlinkedAccountBlockReason || ignoreAllNetworkBlockReasonsWhenAvailable) && isAvailable) {
-      if (checkUnlockedRewards && Online.UserProfile.getNewlyUnlockedItems().length <= 0) {
-        this.showDialogBox("LOC_NO_REWARDS_AVAIALBE", "LOC_REWARDS_TITLE", { isClosable: true });
+    if (isAvailable && (blockInfo.reason === BlockedAccessReason.NONE || ignoreUnlinkedAccountBlockReason || ignoreAllNetworkBlockReasonsWhenAvailable)) {
+      if (checkUnlockedRewards && (Online.UserProfile.getNewlyUnlockedItems().length <= 0 || RewardsNotificationsManager.allNewRewardsAreHidden())) {
+        this.showDialogBox("LOC_NO_REWARDS_AVAILABLE", "LOC_REWARDS_TITLE", { isClosable: true });
       } else {
         ContextManager.push(popupToOpen, popupProperties);
       }
-    } else if (blockReason != "") {
-      this.showDialogBox(blockReason, "LOC_UI_ACCOUNT_TITLE", { isClosable: true });
+    } else if (blockInfo.reason !== BlockedAccessReason.NONE) {
+      ContextManager.push("screen-mp-account-permissions", {
+        singleton: true,
+        createMouseGuard: true,
+        attributes: {
+          "loc-key": blockInfo.locKey,
+          "block-reason": blockInfo.reason
+        }
+      });
     }
   }
   onProgressionHeaderActivate(_event) {
@@ -415,8 +397,7 @@ Controls.define("profile-header", {
     {
       name: "hide-social"
     }
-  ],
-  tabIndex: -1
+  ]
 });
 
 export { ProfileAccountLoggedOutEvent, ProfileAccountLoggedOutEventName, ProfileHeader, giftboxButtonName };

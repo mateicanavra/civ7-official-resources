@@ -1,19 +1,7 @@
-import FocusManager from '../input/focus-manager.js';
-import { N as NavTray } from '../navigation-tray/model-navigation-tray.chunk.js';
-import { P as Panel } from '../panel-support.chunk.js';
-import { S as SystemMessageManager } from './system-message-manager.chunk.js';
-import '../audio-base/audio-support.chunk.js';
-import '../framework.chunk.js';
-import '../input/action-handler.js';
-import '../input/cursor.js';
-import '../views/view-manager.chunk.js';
-import '../input/input-support.chunk.js';
-import '../utilities/utilities-update-gate.chunk.js';
-import '../utilities/utilities-image.chunk.js';
-import '../utilities/utilities-component-id.chunk.js';
-import '../context-manager/context-manager.js';
-import '../context-manager/display-queue-manager.js';
-import '../dialog-box/manager-dialog-box.chunk.js';
+import NavTray from '../navigation-tray/model-navigation-tray.js';
+import Panel from '../panel-support.js';
+import SystemMessageManager from './system-message-manager.js';
+import { FocusManager } from '../../ui-next/services/focus-manager.js';
 
 class ScreenSystemManager extends Panel {
   constructor(root) {
@@ -48,7 +36,7 @@ class ScreenSystemManager extends Panel {
       if (index === 0) {
         window.requestAnimationFrame(() => {
           window.requestAnimationFrame(() => {
-            FocusManager.setFocus(button);
+            FocusManager.get().setFocus(button);
           });
         });
       } else {

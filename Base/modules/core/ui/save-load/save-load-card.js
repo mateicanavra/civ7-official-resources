@@ -1,11 +1,6 @@
-import { F as FxsActivatable } from '../components/fxs-activatable.chunk.js';
-import '../audio-base/audio-support.chunk.js';
-import '../input/focus-manager.js';
-import '../framework.chunk.js';
-
-const content = "<div class=\"card__bg\"></div>\r\n<div class=\"card__frame\"></div>\r\n<div class=\"card-selection\">\r\n\t<div class=\"card__bg--highlight\"></div>\r\n\t<div class=\"card-selection__frame\">\r\n\t\t<div class=\"card-selection__frame-top\"></div>\r\n\t\t<div class=\"card-selection__frame-bottom\"></div>\r\n\t</div>\r\n</div>\r\n";
-
-const styles = "fs://game/core/ui/save-load/save-load-card.css";
+import { FxsActivatable } from '../components/fxs-activatable.js';
+import content from './save-load-card.html.js';
+import styles from './save-load-card.scss.js';
 
 const ActionConfirmEventName = "action-confirm";
 class ActionConfirmEvent extends CustomEvent {

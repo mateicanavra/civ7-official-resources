@@ -1,25 +1,13 @@
-import { A as Audio } from '../../audio-base/audio-support.chunk.js';
-import { a as DialogBoxManager } from '../../dialog-box/manager-dialog-box.chunk.js';
-import FocusManager from '../../input/focus-manager.js';
-import { N as NavTray } from '../../navigation-tray/model-navigation-tray.chunk.js';
-import { P as Panel } from '../../panel-support.chunk.js';
-import { MustGetElement } from '../../utilities/utilities-dom.chunk.js';
-import { s as styles } from './2k-code-redemption.chunk.js';
-import '../../context-manager/display-queue-manager.js';
-import '../../framework.chunk.js';
-import '../../input/action-handler.js';
-import '../../input/cursor.js';
-import '../../views/view-manager.chunk.js';
-import '../../input/input-support.chunk.js';
-import '../../utilities/utilities-update-gate.chunk.js';
-import '../../utilities/utilities-image.chunk.js';
-import '../../utilities/utilities-component-id.chunk.js';
-
-const $2kCodeRedemptionResponseGenericContent = "<fxs-frame>\r\n\t<div class=\"rules-container flex flex-col flex-auto mt-4 mb-10\">\r\n\t\t<div class=\"flex flex-col items-center -mt-10\">\r\n\t\t\t<div class=\"title font-title text-2xl text-secondary\"></div>\r\n\t\t\t<div class=\"filigree-divider-h2 w-64\"></div>\r\n\t\t</div>\r\n\t\t<div class=\"flex flow-row justify-center\">\r\n\t\t\t<div class=\"info-box\"></div>\r\n\t\t</div>\r\n\t</div>\r\n\r\n\t<fxs-hslot class=\"button-container justify-around\">\r\n\t\t<fxs-button class=\"left-button\"></fxs-button>\r\n\t\t<fxs-button class=\"right-button\"></fxs-button>\r\n\t</fxs-hslot>\r\n</fxs-frame>\r\n";
-
-const $2kCodeRedemptionResponseGenericStyles = "fs://game/core/ui/shell/store-launcher/2k-code-redemption-response-generic.css";
-
-const $2kCodeRedemptionContent = "<fxs-frame frame-style=\"f1\">\r\n\t<fxs-vslot class=\"rules-container mx-18\">\r\n\t\t<div class=\"relative flex flex-col items-center\">\r\n\t\t\t<p\r\n\t\t\t\tclass=\"relative font-title text-xl text-secondary uppercase mb-2\"\r\n\t\t\t\tdata-l10n-id=\"LOC_GENERIC_REDEEMCODE\"\r\n\t\t\t></p>\r\n\t\t\t<div class=\"relative filigree-divider-h2 w-64\"></div>\r\n\t\t</div>\r\n\t\t<div class=\"relative flex flow-row justify-between\">\r\n\t\t\t<fxs-textbox\r\n\t\t\t\tclass=\"enter-code-textbox my-9\"\r\n\t\t\t\tmax-length=\"10\"\r\n\t\t\t></fxs-textbox>\r\n\t\t</div>\r\n\t</fxs-vslot>\r\n\t<div class=\"relative button-container flex flow-row justify-between mx-18\">\r\n\t\t<fxs-button\r\n\t\t\tclass=\"redeem\"\r\n\t\t\tcaption=\"LOC_GENERIC_REDEEM\"\r\n\t\t\taction-key=\"inline-shell-action-1\"\r\n\t\t></fxs-button>\r\n\t\t<fxs-button\r\n\t\t\tclass=\"cancel\"\r\n\t\t\tcaption=\"LOC_GENERIC_CANCEL\"\r\n\t\t\taction-key=\"inline-cancel\"\r\n\t\t></fxs-button>\r\n\t</div>\r\n</fxs-frame>\r\n";
+import { Audio } from '../../audio-base/audio-support.js';
+import { DialogBoxManager } from '../../dialog-box/manager-dialog-box.js';
+import NavTray from '../../navigation-tray/model-navigation-tray.js';
+import Panel from '../../panel-support.js';
+import { MustGetElement } from '../../utilities/utilities-dom.js';
+import { FocusManager } from '../../../ui-next/services/focus-manager.js';
+import $2kCodeRedemptionResponseGenericContent from './2k-code-redemption-response-generic.html.js';
+import $2kCodeRedemptionResponseGenericStyles from './2k-code-redemption-response-generic.scss.js';
+import $2kCodeRedemptionContent from './2k-code-redemption.html.js';
+import styles from './2k-code-redemption.scss.js';
 
 class Panel2KCodeRedemption extends Panel {
   cancelButtonListener = () => {
@@ -173,7 +161,7 @@ class Panel2KCodeRedemption extends Panel {
     );
     const rulesContainer = this.Root.querySelector(".rules-container");
     if (rulesContainer) {
-      FocusManager.setFocus(rulesContainer);
+      FocusManager.get().setFocus(rulesContainer);
     }
   }
   onLoseFocus() {

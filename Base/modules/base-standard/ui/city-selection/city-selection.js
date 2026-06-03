@@ -1,10 +1,5 @@
 import { InterfaceMode } from '../../../core/ui/interface-modes/interface-modes.js';
-import { C as ComponentID } from '../../../core/ui/utilities/utilities-component-id.chunk.js';
-import '../../../core/ui/views/view-manager.chunk.js';
-import '../../../core/ui/input/focus-manager.js';
-import '../../../core/ui/audio-base/audio-support.chunk.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/panel-support.chunk.js';
+import { ComponentID } from '../../../core/ui/utilities/utilities-component-id.js';
 
 var City;
 ((City2) => {

@@ -1,45 +1,12 @@
 import ContextManager from '../../../core/ui/context-manager/context-manager.js';
 import { InterfaceMode } from '../../../core/ui/interface-modes/interface-modes.js';
-import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.chunk.js';
-import { U as UpdateDiploRibbonEvent } from '../diplo-ribbon/model-diplo-ribbon.chunk.js';
+import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
+import { UpdateDiploRibbonEvent } from '../diplo-ribbon/model-diplo-ribbon.js';
 import { RaiseDiplomacyEvent } from '../diplomacy/diplomacy-events.js';
-import DiplomacyManager, { L as LeaderModelManager } from '../diplomacy/diplomacy-manager.js';
+import DiplomacyManager from '../diplomacy/diplomacy-manager.js';
+import LeaderModelManager from '../diplomacy/leader-model-manager.js';
 import { DiplomacyActionPanel } from './panel-diplomacy-actions.js';
-import { s as styles } from './panel-diplomacy-actions.chunk.js';
-import '../../../core/ui/context-manager/display-queue-manager.js';
-import '../../../core/ui/dialog-box/manager-dialog-box.chunk.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/input/cursor.js';
-import '../../../core/ui/input/focus-manager.js';
-import '../../../core/ui/audio-base/audio-support.chunk.js';
-import '../../../core/ui/views/view-manager.chunk.js';
-import '../../../core/ui/panel-support.chunk.js';
-import '../../../core/ui/utilities/utilities-color.chunk.js';
-import '../../../core/ui/graph-layout/utils.chunk.js';
-import '../../../core/ui/utilities/utilities-image.chunk.js';
-import '../../../core/ui/utilities/utilities-component-id.chunk.js';
-import '../victory-progress/model-victory-progress.chunk.js';
-import '../cinematic/cinematic-manager.chunk.js';
-import '../endgame/screen-endgame.js';
-import '../../../core/ui/input/action-handler.js';
-import '../../../core/ui/input/input-support.chunk.js';
-import '../../../core/ui/utilities/utilities-update-gate.chunk.js';
-import '../../../core/ui/navigation-tray/model-navigation-tray.chunk.js';
-import '../../../core/ui/tooltips/tooltip-manager.js';
-import '../../../core/ui/input/plot-cursor.js';
-import '../../../core/ui/utilities/utilities-layout.chunk.js';
-import '../end-results/end-results.js';
-import '../endgame/model-endgame.js';
-import '../victory-manager/victory-manager.chunk.js';
-import '../world-input/world-input.js';
-import '../../../core/ui/utilities/utilities-network.js';
-import '../../../core/ui/shell/mp-legal/mp-legal.js';
-import '../../../core/ui/events/shell-events.chunk.js';
-import '../../../core/ui/utilities/utilities-liveops.js';
-import '../../../core/ui/utilities/utilities-network-constants.chunk.js';
-import '../interface-modes/support-unit-map-decoration.chunk.js';
-import '../utilities/utilities-overlay.chunk.js';
-import '../relationship-breakdown/relationship-breakdown.chunk.js';
+import styles from './panel-diplomacy-actions.scss.js';
 
 class PlayerDiplomacyActionPanel extends DiplomacyActionPanel {
   onAttach() {
@@ -225,6 +192,13 @@ class PlayerDiplomacyActionPanel extends DiplomacyActionPanel {
       });
       availableProjectsSlot.appendChild(actionsContainer);
     }
+    if (!availableProjectsSlot.hasChildNodes()) {
+      const emptyActionDescription = document.createElement("div");
+      emptyActionDescription.role = "paragraph";
+      emptyActionDescription.classList.value = "font-body text-sm flex flex-col pointer-events-auto items-center";
+      emptyActionDescription.innerHTML = Locale.stylize("LOC_UI_DIPLOMACY_ALL_ACTIONS_EMPTY");
+      availableProjectsSlot.appendChild(emptyActionDescription);
+    }
   }
   createOngoingActionListItem(action) {
     const ongoingActionElement = document.createElement("fxs-chooser-item");
@@ -355,7 +329,9 @@ class PlayerDiplomacyActionPanel extends DiplomacyActionPanel {
   }
   populateAvailableActions() {
     while (this.majorActionsSlot?.hasChildNodes()) {
-      this.majorActionsSlot?.removeChild(this.majorActionsSlot?.lastChild);
+      if (this.majorActionsSlot?.lastChild != null) {
+        this.majorActionsSlot?.removeChild(this.majorActionsSlot?.lastChild);
+      }
     }
     const attributesButton = document.createElement("fxs-hero-button");
     attributesButton.setAttribute("caption", Locale.stylize("LOC_DIPLOMACY_ATTRIBUTES_BUTTON_NAME"));
@@ -466,6 +442,15 @@ class PlayerDiplomacyActionPanel extends DiplomacyActionPanel {
       header.setAttribute("title", "LOC_UI_CITYSTATE_BONUS_CHOOSER_SUBTITLE");
       header.setAttribute("filigree-style", "h3");
       relationshipContainer.appendChild(header);
+      const headerTextElem = header.children[0].children[0];
+      if (headerTextElem) {
+        headerTextElem.classList.add("flex");
+        const headerIcon = document.createElement("fxs-icon");
+        headerIcon.classList.add("relative", "size-8", "-top-1");
+        headerIcon.setAttribute("data-icon-id", "CITYSTATE");
+        headerTextElem.insertBefore(headerIcon, headerTextElem.childNodes[0]);
+        headerTextElem.appendChild(headerIcon.cloneNode());
+      }
       const collapseButton = document.createElement("fxs-minus-plus");
       collapseButton.classList.add("absolute", "top-1", "right-5");
       collapseButton.setAttribute("type", "minus");
@@ -496,6 +481,15 @@ class PlayerDiplomacyActionPanel extends DiplomacyActionPanel {
       header.setAttribute("title", "LOC_DIPLOMACY_ACTIONS_INDEPENDENTS_HEADER");
       header.setAttribute("filigree-style", "h3");
       relationshipContainer.appendChild(header);
+      const headerTextElem = header.children[0].children[0];
+      if (headerTextElem) {
+        headerTextElem.classList.add("flex");
+        const headerIcon = document.createElement("fxs-icon");
+        headerIcon.classList.add("relative", "size-8", "-top-1");
+        headerIcon.setAttribute("data-icon-id", "INDEPENDENT_POWER");
+        headerTextElem.insertBefore(headerIcon, headerTextElem.childNodes[0]);
+        headerTextElem.appendChild(headerIcon.cloneNode());
+      }
       const collapseButton = document.createElement("fxs-minus-plus");
       collapseButton.classList.add("absolute", "top-1", "right-5");
       collapseButton.setAttribute("type", "minus");
@@ -520,6 +514,13 @@ class PlayerDiplomacyActionPanel extends DiplomacyActionPanel {
       });
       relationshipContainer.appendChild(itemContainer);
     }
+    if (!relationshipContainer.hasChildNodes()) {
+      const emptyRelationshipDescription = document.createElement("div");
+      emptyRelationshipDescription.role = "paragraph";
+      emptyRelationshipDescription.classList.value = "font-body text-sm flex flex-col pointer-events-auto items-center";
+      emptyRelationshipDescription.innerHTML = Locale.stylize("LOC_UI_DIPLOMACY_MINOR_POWERS_EMPTY");
+      relationshipContainer.appendChild(emptyRelationshipDescription);
+    }
   }
   createMinorPlayerListItem(player) {
     const playerListItem = document.createElement("fxs-chooser-item");
@@ -531,7 +532,7 @@ class PlayerDiplomacyActionPanel extends DiplomacyActionPanel {
     playerListItemContentContainer.classList.add("flex", "items-center", "size-full");
     playerListItem.appendChild(playerListItemContentContainer);
     const iconContainer = document.createElement("div");
-    iconContainer.classList.value = "size-19 flex self-center items-center justify-center pointer-events-none relative";
+    iconContainer.classList.value = "size-19 flex self-center items-center justify-center relative";
     playerListItemContentContainer.appendChild(iconContainer);
     const iconImage = document.createElement("div");
     iconImage.classList.value = "size-14 -top-px bg-center rounded-full relative flex flex-col items-center bg-cover justify-center";
@@ -539,7 +540,12 @@ class PlayerDiplomacyActionPanel extends DiplomacyActionPanel {
     const iconFront = document.createElement("div");
     iconFront.classList.value = "absolute img-civics-icon-frame size-19 flex self-center items-center justify-center pointer-events-none relative";
     iconContainer.appendChild(iconFront);
-    iconImage.style.backgroundImage = `url("blp:leader_portrait_independent")`;
+    const independentType = GameInfo.CityStateTypes.lookup(player.getCityStateCityStateType());
+    const iconSrc = independentType?.CityStateType ? UI.getIconURL(`CITY_STATE_${independentType?.CityStateType}`) : "blp:leader_portrait_independent";
+    iconImage.style.backgroundImage = `url(${iconSrc})`;
+    if (independentType && iconSrc) {
+      iconContainer.setAttribute("data-tooltip-content", Locale.compose(independentType.Name));
+    }
     if (player.Influence && player.Influence.getSuzerain() != -1) {
       const suzerain = Configuration.getPlayer(player.Influence.getSuzerain());
       if (suzerain.leaderTypeName) {
@@ -551,7 +557,7 @@ class PlayerDiplomacyActionPanel extends DiplomacyActionPanel {
           return playerListItem;
         }
         const suzerainIcon = document.createElement("leader-icon");
-        suzerainIcon.classList.add("mr-2", "mt-2", "size-13");
+        suzerainIcon.classList.add("mr-2", "size-13");
         if (localPlayerDiplomacy.hasMet(suzerain.id) || GameContext.localPlayerID == suzerain.id) {
           suzerainIcon.setAttribute("leader", suzerain.leaderTypeName);
           suzerainIcon.setAttribute(
@@ -565,14 +571,7 @@ class PlayerDiplomacyActionPanel extends DiplomacyActionPanel {
       }
     }
     const independentName = document.createElement("div");
-    independentName.classList.add(
-      "font-title",
-      "text-sm",
-      "mb-1",
-      "pointer-events-none",
-      "font-fit-shrink",
-      "relative"
-    );
+    independentName.classList.add("font-title", "text-sm", "pointer-events-none", "font-fit-shrink", "relative");
     independentName.innerHTML = Locale.stylize(player.civilizationFullName);
     playerListItemContentContainer.appendChild(independentName);
     playerListItem.addEventListener("action-activate", () => {

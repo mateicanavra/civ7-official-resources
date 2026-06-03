@@ -1,7 +1,7 @@
-import { A as Audio } from '../../../core/ui/audio-base/audio-support.chunk.js';
-import { C as ComponentID } from '../../../core/ui/utilities/utilities-component-id.chunk.js';
-import { Icon } from '../../../core/ui/utilities/utilities-image.chunk.js';
-import { U as UpdateGate } from '../../../core/ui/utilities/utilities-update-gate.chunk.js';
+import { Audio } from '../../../core/ui/audio-base/audio-support.js';
+import { ComponentID } from '../../../core/ui/utilities/utilities-component-id.js';
+import { Icon } from '../../../core/ui/utilities/utilities-image.js';
+import UpdateGate from '../../../core/ui/utilities/utilities-update-gate.js';
 
 class BuildQueueModel {
   CityID = null;

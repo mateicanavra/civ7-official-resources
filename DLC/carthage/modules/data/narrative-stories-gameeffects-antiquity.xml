@@ -77,6 +77,7 @@
         <Argument name="Amount">2</Argument>
     </Modifier>
     <Modifier id="11006C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_TRADITION_SLOTS" run-once="false" permanent="true">
+        <Argument name="SlotType">POLICY_CULTURE_SLOT</Argument>
         <Argument name="Amount">1</Argument>
     </Modifier>
     <Modifier id="11006D_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_GRANT_UNIT" run-once="true" permanent="true">
@@ -175,7 +176,7 @@
     </Modifier>
     <Modifier id="12004B_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_ABILITY" run-once="false" permanent="true">
         <SubjectRequirements>
-            <Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+            <Requirement type="REQUIREMENT_UNIT_TYPE_MATCHES">
                 <Argument name="UnitType">UNIT_GALLEY</Argument>
             </Requirement>
         </SubjectRequirements>
@@ -193,9 +194,6 @@
         <Argument name="Amount">1</Argument>
         <Argument name="NarrativeTagType">NARRATIVE_TAG_LEADER_CHAIN_B</Argument>
     </Modifier>
-    <Requirement id="REQ_STORY_CIVILIZATION_CARTHAGE" type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
-        <Argument name="CivilizationType">CIVILIZATION_CARTHAGE</Argument>
-    </Requirement>
     <RequirementSet id="REQSET_11000A_NARRATIVE_REQUISITE">
         <Requirement xref="REQ_STORY_CIVILIZATION_CARTHAGE"/>
     </RequirementSet>
@@ -479,11 +477,11 @@
     <RequirementSet id="REQSET_11065A_NARRATIVE">
         <Requirement xref="REQ_STORY_CIVILIZATION_CARTHAGE"/>
         <Requirement type="REQUIREMENT_PLAYER_HAS_ACTIVE_TRADITION">
-            <Argument name="TraditionType">TRADITION_QUINQUEREME</Argument>
+            <Argument name="TraditionType">TRADITION_QUINQUEREME_I</Argument>
         </Requirement>
         <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
             <Argument name="GossipTypes">GOSSIP_TRADITION_ACTIVATED01,GOSSIP_UNIT_COMBAT_DEATH02</Argument>
-            <Argument name="GOSSIP_TRADITION_ACTIVATED01">Hash,TraditionType,TRADITION_QUINQUEREME</Argument>
+            <Argument name="GOSSIP_TRADITION_ACTIVATED01">Hash,TraditionType,TRADITION_QUINQUEREME_I</Argument>
             <Argument name="GOSSIP_UNIT_COMBAT_DEATH02">Hash,OtherPlayer,Self,Hash,DomainType,DOMAIN_SEA,Hash,KillingDomainType,DOMAIN_SEA</Argument>
             <Argument name="OrderedTurnWindow">1000</Argument>
             <Argument name="Amount">2</Argument>
@@ -523,7 +521,7 @@
     <RequirementSet id="REQSET_LEADER_CHAIN_1060_CARTHAGEC_NARRATIVE">
         <Requirement type="REQUIREMENT_PLAYER_HAS_CONSTRUCTIBLE_FILLED_WITH_GREATWORKS">
             <Argument name="ConstructibleType">BUILDING_LIBRARY</Argument>
-            <Argument name="Count">1</Argument>
+            <Argument name="Amount">1</Argument>
         </Requirement>
     </RequirementSet>
     <RequirementSet id="REQSET_LEADER_CHAIN_1090_CARTHAGEC_NARRATIVE">
@@ -536,7 +534,7 @@
     <RequirementSet id="REQSET_LEADER_CHAIN_1130_CARTHAGEB_NARRATIVE">
         <Requirement type="REQUIREMENT_PLAYER_HAS_CONSTRUCTIBLE_FILLED_WITH_GREATWORKS">
             <Argument name="ConstructibleType">BUILDING_LIBRARY</Argument>
-            <Argument name="Count">1</Argument>
+            <Argument name="Amount">1</Argument>
         </Requirement>
     </RequirementSet>
     <RequirementSet id="REQSET_LEADER_CHAIN_1170_CARTHAGEC_NARRATIVE">
@@ -584,14 +582,14 @@
         <Requirement xref="REQ_STORY_CIVILIZATION_CARTHAGE"/>
         <Requirement type="REQUIREMENT_PLAYER_HAS_CONSTRUCTIBLE_FILLED_WITH_GREATWORKS">
             <Argument name="ConstructibleType">BUILDING_LIBRARY</Argument>
-            <Argument name="Count">1</Argument>
+            <Argument name="Amount">1</Argument>
         </Requirement>
     </RequirementSet>
     <RequirementSet id="REQSET_LEADER_CHAIN_1172_CARTHAGEA_NARRATIVE">
         <Requirement xref="REQ_STORY_CIVILIZATION_CARTHAGE"/>
         <Requirement type="REQUIREMENT_PLAYER_HAS_CONSTRUCTIBLE_FILLED_WITH_GREATWORKS">
             <Argument name="ConstructibleType">BUILDING_LIBRARY</Argument>
-            <Argument name="Count">1</Argument>
+            <Argument name="Amount">1</Argument>
         </Requirement>
     </RequirementSet>
     <RequirementSet id="REQSET_LEADER_CHAIN_1030_CARTHAGEB_NARRATIVE">

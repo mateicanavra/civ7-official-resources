@@ -1,115 +1,165 @@
 <?xml version="1.0" encoding="utf-8"?>
 <GameEffects xmlns="GameEffects">
 	<!-- Victory Challenges -->
-	<Modifier id="METAPROGRESSION_CHALLENGE_AMERICA_LEGACY_PATH_ECONOMIC_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+	<Modifier id="CHALLENGE_AMERICA_FOUR_MINOR_TRIUMPHS_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
 		<OwnerRequirements>
-			<Requirement type="REQUIREMENT_LEGACY_PATH_COMPLETED">
-				<Argument name="LegacyPathType">LEGACY_PATH_MODERN_ECONOMIC</Argument>
-			</Requirement>
 			<Requirement type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
 				<Argument name="CivilizationType">CIVILIZATION_AMERICA</Argument>
 			</Requirement>
-		</OwnerRequirements>
-		<Argument name="Challenge">CHALLENGE_AMERICA_LEGACY_PATH_ECONOMIC</Argument>
-	</Modifier>
-	<Modifier id="METAPROGRESSION_CHALLENGE_BUGANDA_LEGACY_PATH_CULTURE_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
-		<OwnerRequirements>
-			<Requirement type="REQUIREMENT_LEGACY_PATH_COMPLETED">
-				<Argument name="LegacyPathType">LEGACY_PATH_MODERN_CULTURE</Argument>
+			<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
+				<Argument name="AgeType">AGE_MODERN</Argument>
 			</Requirement>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="MinorOnly">true</Argument>
+				<Argument name="MinCount">4</Argument>
+				<Argument name="TriumphClassTags">ECONOMIC,DIPLOMATIC</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_AMERICA_FOUR_MINOR_TRIUMPHS</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_BUGANDA_FOUR_MINOR_TRIUMPHS_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
 			<Requirement type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
 				<Argument name="CivilizationType">CIVILIZATION_BUGANDA</Argument>
 			</Requirement>
-		</OwnerRequirements>
-		<Argument name="Challenge">CHALLENGE_BUGANDA_LEGACY_PATH_CULTURE</Argument>
-	</Modifier>
-	<Modifier id="METAPROGRESSION_CHALLENGE_FRENCH_EMPIRE_LEGACY_PATH_MILITARY_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
-		<OwnerRequirements>
-			<Requirement type="REQUIREMENT_LEGACY_PATH_COMPLETED">
-				<Argument name="LegacyPathType">LEGACY_PATH_MODERN_MILITARY</Argument>
+			<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
+				<Argument name="AgeType">AGE_MODERN</Argument>
 			</Requirement>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="MinorOnly">true</Argument>
+				<Argument name="MinCount">4</Argument>
+				<Argument name="TriumphClassTags">CULTURAL,EXPANSIONIST</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_BUGANDA_FOUR_MINOR_TRIUMPHS</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_FRENCH_EMPIRE_FOUR_MINOR_TRIUMPHS_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
 			<Requirement type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
 				<Argument name="CivilizationType">CIVILIZATION_FRENCH_EMPIRE</Argument>
 			</Requirement>
-		</OwnerRequirements>
-		<Argument name="Challenge">CHALLENGE_FRENCH_EMPIRE_LEGACY_PATH_MILITARY</Argument>
-	</Modifier>
-	<Modifier id="METAPROGRESSION_CHALLENGE_MEIJI_LEGACY_PATH_MILITARY_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
-		<OwnerRequirements>
-			<Requirement type="REQUIREMENT_LEGACY_PATH_COMPLETED">
-				<Argument name="LegacyPathType">LEGACY_PATH_MODERN_MILITARY</Argument>
+			<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
+				<Argument name="AgeType">AGE_MODERN</Argument>
 			</Requirement>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="MinorOnly">true</Argument>
+				<Argument name="MinCount">4</Argument>
+				<Argument name="TriumphClassTags">CULTURAL,DIPLOMATIC</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_FRENCH_EMPIRE_FOUR_MINOR_TRIUMPHS</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_MEIJI_FOUR_MINOR_TRIUMPHS_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
 			<Requirement type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
 				<Argument name="CivilizationType">CIVILIZATION_MEIJI</Argument>
 			</Requirement>
-		</OwnerRequirements>
-		<Argument name="Challenge">CHALLENGE_MEIJI_LEGACY_PATH_MILITARY</Argument>
-	</Modifier>
-	<Modifier id="METAPROGRESSION_CHALLENGE_MEXICO_LEGACY_PATH_CULTURE_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
-		<OwnerRequirements>
-			<Requirement type="REQUIREMENT_LEGACY_PATH_COMPLETED">
-				<Argument name="LegacyPathType">LEGACY_PATH_MODERN_CULTURE</Argument>
+			<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
+				<Argument name="AgeType">AGE_MODERN</Argument>
 			</Requirement>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="MinorOnly">true</Argument>
+				<Argument name="MinCount">4</Argument>
+				<Argument name="TriumphClassTags">MILITARISTIC,SCIENTIFIC</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_MEIJI_FOUR_MINOR_TRIUMPHS</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_MEXICO_FOUR_MINOR_TRIUMPHS_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
 			<Requirement type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
 				<Argument name="CivilizationType">CIVILIZATION_MEXICO</Argument>
 			</Requirement>
-		</OwnerRequirements>
-		<Argument name="Challenge">CHALLENGE_MEXICO_LEGACY_PATH_CULTURE</Argument>
-	</Modifier>
-	<Modifier id="METAPROGRESSION_CHALLENGE_MUGHAL_LEGACY_PATH_ECONOMIC_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
-		<OwnerRequirements>
-			<Requirement type="REQUIREMENT_LEGACY_PATH_COMPLETED">
-				<Argument name="LegacyPathType">LEGACY_PATH_MODERN_ECONOMIC</Argument>
+			<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
+				<Argument name="AgeType">AGE_MODERN</Argument>
 			</Requirement>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="MinorOnly">true</Argument>
+				<Argument name="MinCount">4</Argument>
+				<Argument name="TriumphClassTags">CULTURAL,DIPLOMATIC</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_MEXICO_FOUR_MINOR_TRIUMPHS</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_MUGHAL_FOUR_MINOR_TRIUMPHS_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
 			<Requirement type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
 				<Argument name="CivilizationType">CIVILIZATION_MUGHAL</Argument>
 			</Requirement>
-		</OwnerRequirements>
-		<Argument name="Challenge">CHALLENGE_MUGHAL_LEGACY_PATH_ECONOMIC</Argument>
-	</Modifier>
-	<Modifier id="METAPROGRESSION_CHALLENGE_PRUSSIA_LEGACY_PATH_MILITARY_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
-		<OwnerRequirements>
-			<Requirement type="REQUIREMENT_LEGACY_PATH_COMPLETED">
-				<Argument name="LegacyPathType">LEGACY_PATH_MODERN_MILITARY</Argument>
+			<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
+				<Argument name="AgeType">AGE_MODERN</Argument>
 			</Requirement>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="MinorOnly">true</Argument>
+				<Argument name="MinCount">4</Argument>
+				<Argument name="TriumphClassTags">ECONOMIC,EXPANSIONIST</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_MUGHAL_FOUR_MINOR_TRIUMPHS</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_PRUSSIA_FOUR_MINOR_TRIUMPHS_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
 			<Requirement type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
 				<Argument name="CivilizationType">CIVILIZATION_PRUSSIA</Argument>
 			</Requirement>
-		</OwnerRequirements>
-		<Argument name="Challenge">CHALLENGE_PRUSSIA_LEGACY_PATH_MILITARY</Argument>
-	</Modifier>
-	<Modifier id="METAPROGRESSION_CHALLENGE_QING_LEGACY_PATH_ECONOMIC_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
-		<OwnerRequirements>
-			<Requirement type="REQUIREMENT_LEGACY_PATH_COMPLETED">
-				<Argument name="LegacyPathType">LEGACY_PATH_MODERN_ECONOMIC</Argument>
+			<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
+				<Argument name="AgeType">AGE_MODERN</Argument>
 			</Requirement>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="MinorOnly">true</Argument>
+				<Argument name="MinCount">4</Argument>
+				<Argument name="TriumphClassTags">MILITARISTIC,DIPLOMATIC</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_PRUSSIA_FOUR_MINOR_TRIUMPHS</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_QING_FOUR_MINOR_TRIUMPHS_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
 			<Requirement type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
 				<Argument name="CivilizationType">CIVILIZATION_QING</Argument>
 			</Requirement>
-		</OwnerRequirements>
-		<Argument name="Challenge">CHALLENGE_QING_LEGACY_PATH_ECONOMIC</Argument>
-	</Modifier>
-	<Modifier id="METAPROGRESSION_CHALLENGE_RUSSIA_LEGACY_PATH_SCIENCE_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
-		<OwnerRequirements>
-			<Requirement type="REQUIREMENT_LEGACY_PATH_COMPLETED">
-				<Argument name="LegacyPathType">LEGACY_PATH_MODERN_SCIENCE</Argument>
+			<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
+				<Argument name="AgeType">AGE_MODERN</Argument>
 			</Requirement>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="MinorOnly">true</Argument>
+				<Argument name="MinCount">4</Argument>
+				<Argument name="TriumphClassTags">ECONOMIC,EXPANSIONIST</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_QING_FOUR_MINOR_TRIUMPHS</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_RUSSIA_FOUR_MINOR_TRIUMPHS_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
 			<Requirement type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
 				<Argument name="CivilizationType">CIVILIZATION_RUSSIA</Argument>
 			</Requirement>
-		</OwnerRequirements>
-		<Argument name="Challenge">CHALLENGE_RUSSIA_LEGACY_PATH_SCIENCE</Argument>
-	</Modifier>
-	<Modifier id="METAPROGRESSION_CHALLENGE_SIAM_LEGACY_PATH_CULTURE_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
-		<OwnerRequirements>
-			<Requirement type="REQUIREMENT_LEGACY_PATH_COMPLETED">
-				<Argument name="LegacyPathType">LEGACY_PATH_MODERN_CULTURE</Argument>
+			<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
+				<Argument name="AgeType">AGE_MODERN</Argument>
 			</Requirement>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="MinorOnly">true</Argument>
+				<Argument name="MinCount">4</Argument>
+				<Argument name="TriumphClassTags">CULTURAL,SCIENTIFIC</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_RUSSIA_FOUR_MINOR_TRIUMPHS</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_SIAM_FOUR_MINOR_TRIUMPHS_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
 			<Requirement type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
 				<Argument name="CivilizationType">CIVILIZATION_SIAM</Argument>
 			</Requirement>
+			<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
+				<Argument name="AgeType">AGE_MODERN</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="MinorOnly">true</Argument>
+				<Argument name="MinCount">4</Argument>
+				<Argument name="TriumphClassTags">CULTURAL,DIPLOMATIC</Argument>
+			</Requirement>
 		</OwnerRequirements>
-		<Argument name="Challenge">CHALLENGE_SIAM_LEGACY_PATH_CULTURE</Argument>
+		<Argument name="Challenge">CHALLENGE_SIAM_FOUR_MINOR_TRIUMPHS</Argument>
 	</Modifier>
 
 	<!-- Wonder Challenges -->
@@ -223,96 +273,382 @@
 		</OwnerRequirements>
 		<Argument name="Challenge">CHALLENGE_SIAM_COMPLETE_DOI_SUTHEP</Argument>
 	</Modifier>
-
-	<!-- Legacy Path Challenges -->
-	<Modifier id="METAPROGRESSION_CHALLENGE_AMERICA_LEGACY_PATH_MILESTONE_COMPLETED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+	<!-- Civ Triumphs Challenges -->
+	<Modifier id="METAPROGRESSION_CHALLENGE_AMERICA_MINOR_TRIUMPH_COMPLETED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
 		<OwnerRequirements>
 			<Requirement type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
 				<Argument name="CivilizationType">CIVILIZATION_AMERICA</Argument>
 			</Requirement>
-			<Requirement type="REQUIREMENT_LEGACY_PATH_MILESTONE_COMPLETED" />
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="MinorOnly">true</Argument>
+			</Requirement>
 		</OwnerRequirements>
-		<Argument name="Challenge">CHALLENGE_AMERICA_LEGACY_PATH_MILESTONE_COMPLETED</Argument>
+		<Argument name="Challenge">CHALLENGE_AMERICA_MINOR_TRIUMPH_COMPLETED</Argument>
 	</Modifier>
-	<Modifier id="METAPROGRESSION_CHALLENGE_BUGANDA_LEGACY_PATH_MILESTONE_COMPLETED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+	<Modifier id="METAPROGRESSION_CHALLENGE_BUGANDA_MINOR_TRIUMPH_COMPLETED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
 		<OwnerRequirements>
 			<Requirement type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
 				<Argument name="CivilizationType">CIVILIZATION_BUGANDA</Argument>
 			</Requirement>
-			<Requirement type="REQUIREMENT_LEGACY_PATH_MILESTONE_COMPLETED" />
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="MinorOnly">true</Argument>
+			</Requirement>
 		</OwnerRequirements>
-		<Argument name="Challenge">CHALLENGE_BUGANDA_LEGACY_PATH_MILESTONE_COMPLETED</Argument>
+		<Argument name="Challenge">CHALLENGE_BUGANDA_MINOR_TRIUMPH_COMPLETED</Argument>
 	</Modifier>
-	<Modifier id="METAPROGRESSION_CHALLENGE_FRENCH_EMPIRE_LEGACY_PATH_MILESTONE_COMPLETED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+	<Modifier id="METAPROGRESSION_CHALLENGE_FRENCH_EMPIRE_MINOR_TRIUMPH_COMPLETED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
 		<OwnerRequirements>
 			<Requirement type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
 				<Argument name="CivilizationType">CIVILIZATION_FRENCH_EMPIRE</Argument>
 			</Requirement>
-			<Requirement type="REQUIREMENT_LEGACY_PATH_MILESTONE_COMPLETED" />
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="MinorOnly">true</Argument>
+			</Requirement>
 		</OwnerRequirements>
-		<Argument name="Challenge">CHALLENGE_FRENCH_EMPIRE_LEGACY_PATH_MILESTONE_COMPLETED</Argument>
+		<Argument name="Challenge">CHALLENGE_FRENCH_EMPIRE_MINOR_TRIUMPH_COMPLETED</Argument>
 	</Modifier>
-	<Modifier id="METAPROGRESSION_CHALLENGE_MEIJI_LEGACY_PATH_MILESTONE_COMPLETED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+	<Modifier id="METAPROGRESSION_CHALLENGE_MEIJI_MINOR_TRIUMPH_COMPLETED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
 		<OwnerRequirements>
 			<Requirement type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
 				<Argument name="CivilizationType">CIVILIZATION_MEIJI</Argument>
 			</Requirement>
-			<Requirement type="REQUIREMENT_LEGACY_PATH_MILESTONE_COMPLETED" />
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="MinorOnly">true</Argument>
+			</Requirement>
 		</OwnerRequirements>
-		<Argument name="Challenge">CHALLENGE_MEIJI_LEGACY_PATH_MILESTONE_COMPLETED</Argument>
+		<Argument name="Challenge">CHALLENGE_MEIJI_MINOR_TRIUMPH_COMPLETED</Argument>
 	</Modifier>
-	<Modifier id="METAPROGRESSION_CHALLENGE_MEXICO_LEGACY_PATH_MILESTONE_COMPLETED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+	<Modifier id="METAPROGRESSION_CHALLENGE_MEXICO_MINOR_TRIUMPH_COMPLETED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
 		<OwnerRequirements>
 			<Requirement type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
 				<Argument name="CivilizationType">CIVILIZATION_MEXICO</Argument>
 			</Requirement>
-			<Requirement type="REQUIREMENT_LEGACY_PATH_MILESTONE_COMPLETED" />
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="MinorOnly">true</Argument>
+			</Requirement>
 		</OwnerRequirements>
-		<Argument name="Challenge">CHALLENGE_MEXICO_LEGACY_PATH_MILESTONE_COMPLETED</Argument>
+		<Argument name="Challenge">CHALLENGE_MEXICO_MINOR_TRIUMPH_COMPLETED</Argument>
 	</Modifier>
-	<Modifier id="METAPROGRESSION_CHALLENGE_MUGHAL_LEGACY_PATH_MILESTONE_COMPLETED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+	<Modifier id="METAPROGRESSION_CHALLENGE_MUGHAL_MINOR_TRIUMPH_COMPLETED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
 		<OwnerRequirements>
 			<Requirement type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
 				<Argument name="CivilizationType">CIVILIZATION_MUGHAL</Argument>
 			</Requirement>
-			<Requirement type="REQUIREMENT_LEGACY_PATH_MILESTONE_COMPLETED" />
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="MinorOnly">true</Argument>
+			</Requirement>
 		</OwnerRequirements>
-		<Argument name="Challenge">CHALLENGE_MUGHAL_LEGACY_PATH_MILESTONE_COMPLETED</Argument>
+		<Argument name="Challenge">CHALLENGE_MUGHAL_MINOR_TRIUMPH_COMPLETED</Argument>
 	</Modifier>
-	<Modifier id="METAPROGRESSION_CHALLENGE_PRUSSIA_LEGACY_PATH_MILESTONE_COMPLETED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+	<Modifier id="METAPROGRESSION_CHALLENGE_PRUSSIA_MINOR_TRIUMPH_COMPLETED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
 		<OwnerRequirements>
 			<Requirement type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
 				<Argument name="CivilizationType">CIVILIZATION_PRUSSIA</Argument>
 			</Requirement>
-			<Requirement type="REQUIREMENT_LEGACY_PATH_MILESTONE_COMPLETED" />
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="MinorOnly">true</Argument>
+			</Requirement>
 		</OwnerRequirements>
-		<Argument name="Challenge">CHALLENGE_PRUSSIA_LEGACY_PATH_MILESTONE_COMPLETED</Argument>
+		<Argument name="Challenge">CHALLENGE_PRUSSIA_MINOR_TRIUMPH_COMPLETED</Argument>
 	</Modifier>
-	<Modifier id="METAPROGRESSION_CHALLENGE_QING_LEGACY_PATH_MILESTONE_COMPLETED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+	<Modifier id="METAPROGRESSION_CHALLENGE_QING_MINOR_TRIUMPH_COMPLETED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
 		<OwnerRequirements>
 			<Requirement type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
 				<Argument name="CivilizationType">CIVILIZATION_QING</Argument>
 			</Requirement>
-			<Requirement type="REQUIREMENT_LEGACY_PATH_MILESTONE_COMPLETED" />
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="MinorOnly">true</Argument>
+			</Requirement>
 		</OwnerRequirements>
-		<Argument name="Challenge">CHALLENGE_QING_LEGACY_PATH_MILESTONE_COMPLETED</Argument>
+		<Argument name="Challenge">CHALLENGE_QING_MINOR_TRIUMPH_COMPLETED</Argument>
 	</Modifier>
-	<Modifier id="METAPROGRESSION_CHALLENGE_RUSSIA_LEGACY_PATH_MILESTONE_COMPLETED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+	<Modifier id="METAPROGRESSION_CHALLENGE_RUSSIA_MINOR_TRIUMPH_COMPLETED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
 		<OwnerRequirements>
 			<Requirement type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
 				<Argument name="CivilizationType">CIVILIZATION_RUSSIA</Argument>
 			</Requirement>
-			<Requirement type="REQUIREMENT_LEGACY_PATH_MILESTONE_COMPLETED" />
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="MinorOnly">true</Argument>
+			</Requirement>
 		</OwnerRequirements>
-		<Argument name="Challenge">CHALLENGE_RUSSIA_LEGACY_PATH_MILESTONE_COMPLETED</Argument>
+		<Argument name="Challenge">CHALLENGE_RUSSIA_MINOR_TRIUMPH_COMPLETED</Argument>
 	</Modifier>
-	<Modifier id="METAPROGRESSION_CHALLENGE_SIAM_LEGACY_PATH_MILESTONE_COMPLETED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+	<Modifier id="METAPROGRESSION_CHALLENGE_SIAM_MINOR_TRIUMPH_COMPLETED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
 		<OwnerRequirements>
 			<Requirement type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
 				<Argument name="CivilizationType">CIVILIZATION_SIAM</Argument>
 			</Requirement>
-			<Requirement type="REQUIREMENT_LEGACY_PATH_MILESTONE_COMPLETED" />
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="MinorOnly">true</Argument>
+			</Requirement>
 		</OwnerRequirements>
-		<Argument name="Challenge">CHALLENGE_SIAM_LEGACY_PATH_MILESTONE_COMPLETED</Argument>
+		<Argument name="Challenge">CHALLENGE_SIAM_MINOR_TRIUMPH_COMPLETED</Argument>
+	</Modifier>
+	<!--TRIUMPHS COMPLETION-->
+	<Modifier id="CHALLENGE_ALL_MINOR_TRIUMPHS_COMPLETED_MODERN_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_METAPROGRESSION_COMPLETED_CHALLENGES">
+				<Argument name="ChallengeTags">ALL_MINOR_TRIUMPHS_MODERN_PROGRESS</Argument>
+				<Argument name="CompleteAll">true</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_ALL_MINOR_TRIUMPHS_COMPLETED_MODERN</Argument>
+	</Modifier>
+	<!--TODO: THIS CHALLENGE NEEDS REWORK - THERE ARE NO MAJOR TRIUMPHS IN MODERN-->
+	<Modifier id="CHALLENGE_ALL_MAJOR_TRIUMPHS_COMPLETED_MODERN_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_METAPROGRESSION_COMPLETED_CHALLENGES">
+				<Argument name="ChallengeTags">ALL_MAJOR_TRIUMPHS_MODERN_PROGRESS</Argument>
+				<Argument name="CompleteAll">true</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_ALL_MAJOR_TRIUMPHS_COMPLETED_MODERN</Argument>
+	</Modifier>
+
+	<!-- Culture Triumphs Challenges -->
+	<Modifier id="CHALLENGE_CULTURE_MINOR_TRIUMPH_1_COMPLETED_MODERN_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="TriumphTypes">LEGACY_MO_CULTURAL_1, LEGACY_MO_CULTURAL_1_RACE</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_CULTURE_MINOR_TRIUMPH_1_COMPLETED_MODERN</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_CULTURE_MINOR_TRIUMPH_2_COMPLETED_MODERN_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="TriumphTypes">LEGACY_MO_CULTURAL_2, LEGACY_MO_CULTURAL_2_RACE</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_CULTURE_MINOR_TRIUMPH_2_COMPLETED_MODERN</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_CULTURE_MINOR_TRIUMPH_3_COMPLETED_MODERN_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="TriumphTypes">LEGACY_MO_CULTURAL_3, LEGACY_MO_CULTURAL_3_RACE</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_CULTURE_MINOR_TRIUMPH_3_COMPLETED_MODERN</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_CULTURE_MINOR_TRIUMPH_4_COMPLETED_MODERN_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="TriumphTypes">LEGACY_MO_CULTURAL_4, LEGACY_MO_CULTURAL_4_RACE</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_CULTURE_MINOR_TRIUMPH_4_COMPLETED_MODERN</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_CULTURE_MINOR_TRIUMPH_5_COMPLETED_MODERN_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="TriumphTypes">LEGACY_MO_CULTURAL_5, LEGACY_MO_CULTURAL_5_RACE</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_CULTURE_MINOR_TRIUMPH_5_COMPLETED_MODERN</Argument>
+	</Modifier>
+	<!-- Diplomatic Triumphs Challenges -->
+	<Modifier id="CHALLENGE_DIPLOMATIC_MINOR_TRIUMPH_1_COMPLETED_MODERN_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="TriumphTypes">LEGACY_MO_DIPLOMATIC_1, LEGACY_MO_DIPLOMATIC_1_RACE</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_DIPLOMATIC_MINOR_TRIUMPH_1_COMPLETED_MODERN</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_DIPLOMATIC_MINOR_TRIUMPH_2_COMPLETED_MODERN_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="TriumphTypes">LEGACY_MO_DIPLOMATIC_2, LEGACY_MO_DIPLOMATIC_2_RACE</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_DIPLOMATIC_MINOR_TRIUMPH_2_COMPLETED_MODERN</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_DIPLOMATIC_MINOR_TRIUMPH_3_COMPLETED_MODERN_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="TriumphTypes">LEGACY_MO_DIPLOMATIC_3</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_DIPLOMATIC_MINOR_TRIUMPH_3_COMPLETED_MODERN</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_DIPLOMATIC_MINOR_TRIUMPH_4_COMPLETED_MODERN_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="TriumphTypes">LEGACY_MO_DIPLOMATIC_4, LEGACY_MO_DIPLOMATIC_4_RACE</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_DIPLOMATIC_MINOR_TRIUMPH_4_COMPLETED_MODERN</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_DIPLOMATIC_MINOR_TRIUMPH_5_COMPLETED_MODERN_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="TriumphTypes">LEGACY_MO_DIPLOMATIC_5, LEGACY_MO_DIPLOMATIC_5_RACE</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_DIPLOMATIC_MINOR_TRIUMPH_5_COMPLETED_MODERN</Argument>
+	</Modifier>
+	<!-- Economic Triumphs Challenges -->
+	<Modifier id="CHALLENGE_ECONOMIC_MINOR_TRIUMPH_1_COMPLETED_MODERN_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="TriumphTypes">LEGACY_MO_ECONOMIC_1, LEGACY_MO_ECONOMIC_1_RACE</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_ECONOMIC_MINOR_TRIUMPH_1_COMPLETED_MODERN</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_ECONOMIC_MINOR_TRIUMPH_2_COMPLETED_MODERN_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="TriumphTypes">LEGACY_MO_ECONOMIC_2, LEGACY_MO_ECONOMIC_2_RACE</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_ECONOMIC_MINOR_TRIUMPH_2_COMPLETED_MODERN</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_ECONOMIC_MINOR_TRIUMPH_3_COMPLETED_MODERN_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="TriumphTypes">LEGACY_MO_ECONOMIC_3, LEGACY_MO_ECONOMIC_3_RACE</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_ECONOMIC_MINOR_TRIUMPH_3_COMPLETED_MODERN</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_ECONOMIC_MINOR_TRIUMPH_4_COMPLETED_MODERN_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="TriumphTypes">LEGACY_MO_ECONOMIC_4, LEGACY_MO_ECONOMIC_4_RACE</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_ECONOMIC_MINOR_TRIUMPH_4_COMPLETED_MODERN</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_ECONOMIC_MINOR_TRIUMPH_5_COMPLETED_MODERN_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="TriumphTypes">LEGACY_MO_ECONOMIC_5, LEGACY_MO_ECONOMIC_5_RACE</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_ECONOMIC_MINOR_TRIUMPH_5_COMPLETED_MODERN</Argument>
+	</Modifier>
+	<!-- Expansionist Triumphs Challenges -->
+	<Modifier id="CHALLENGE_EXPANSIONIST_MINOR_TRIUMPH_1_COMPLETED_MODERN_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="TriumphTypes">LEGACY_MO_EXPANSIONIST_1, LEGACY_MO_EXPANSIONIST_1_RACE</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_EXPANSIONIST_MINOR_TRIUMPH_1_COMPLETED_MODERN</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_EXPANSIONIST_MINOR_TRIUMPH_2_COMPLETED_MODERN_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="TriumphTypes">LEGACY_MO_EXPANSIONIST_2, LEGACY_MO_EXPANSIONIST_2_RACE</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_EXPANSIONIST_MINOR_TRIUMPH_2_COMPLETED_MODERN</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_EXPANSIONIST_MINOR_TRIUMPH_3_COMPLETED_MODERN_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="TriumphTypes">LEGACY_MO_EXPANSIONIST_3, LEGACY_MO_EXPANSIONIST_3_RACE</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_EXPANSIONIST_MINOR_TRIUMPH_3_COMPLETED_MODERN</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_EXPANSIONIST_MINOR_TRIUMPH_4_COMPLETED_MODERN_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="TriumphTypes">LEGACY_MO_EXPANSIONIST_4, LEGACY_MO_EXPANSIONIST_4_RACE</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_EXPANSIONIST_MINOR_TRIUMPH_4_COMPLETED_MODERN</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_EXPANSIONIST_MINOR_TRIUMPH_5_COMPLETED_MODERN_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="TriumphTypes">LEGACY_MO_EXPANSIONIST_5, LEGACY_MO_EXPANSIONIST_5_RACE</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_EXPANSIONIST_MINOR_TRIUMPH_5_COMPLETED_MODERN</Argument>
+	</Modifier>
+	<!-- Militaristic Triumphs Challenges -->
+	<Modifier id="CHALLENGE_MILITARISTIC_MINOR_TRIUMPH_1_COMPLETED_MODERN_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="TriumphTypes">LEGACY_MO_MILITARISTIC_1, LEGACY_MO_MILITARISTIC_1_RACE</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_MILITARISTIC_MINOR_TRIUMPH_1_COMPLETED_MODERN</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_MILITARISTIC_MINOR_TRIUMPH_2_COMPLETED_MODERN_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="TriumphTypes">LEGACY_MO_MILITARISTIC_2, LEGACY_MO_MILITARISTIC_2_RACE</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_MILITARISTIC_MINOR_TRIUMPH_2_COMPLETED_MODERN</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_MILITARISTIC_MINOR_TRIUMPH_3_COMPLETED_MODERN_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="TriumphTypes">LEGACY_MO_MILITARISTIC_3, LEGACY_MO_MILITARISTIC_3_RACE</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_MILITARISTIC_MINOR_TRIUMPH_3_COMPLETED_MODERN</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_MILITARISTIC_MINOR_TRIUMPH_4_COMPLETED_MODERN_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="TriumphTypes">LEGACY_MO_MILITARISTIC_4, LEGACY_MO_MILITARISTIC_4_RACE</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_MILITARISTIC_MINOR_TRIUMPH_4_COMPLETED_MODERN</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_MILITARISTIC_MINOR_TRIUMPH_5_COMPLETED_MODERN_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="TriumphTypes">LEGACY_MO_MILITARISTIC_5, LEGACY_MO_MILITARISTIC_5_RACE</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_MILITARISTIC_MINOR_TRIUMPH_5_COMPLETED_MODERN</Argument>
+	</Modifier>
+	<!-- Scientific Triumphs Challenges -->
+	<Modifier id="CHALLENGE_SCIENTIFIC_MINOR_TRIUMPH_1_COMPLETED_MODERN_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="TriumphTypes">LEGACY_MO_SCIENTIFIC_1, LEGACY_MO_SCIENTIFIC_1_RACE</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_SCIENTIFIC_MINOR_TRIUMPH_1_COMPLETED_MODERN</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_SCIENTIFIC_MINOR_TRIUMPH_2_COMPLETED_MODERN_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="TriumphTypes">LEGACY_MO_SCIENTIFIC_2, LEGACY_MO_SCIENTIFIC_2_RACE</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_SCIENTIFIC_MINOR_TRIUMPH_2_COMPLETED_MODERN</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_SCIENTIFIC_MINOR_TRIUMPH_3_COMPLETED_MODERN_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="TriumphTypes">LEGACY_MO_SCIENTIFIC_3, LEGACY_MO_SCIENTIFIC_3_RACE</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_SCIENTIFIC_MINOR_TRIUMPH_3_COMPLETED_MODERN</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_SCIENTIFIC_MINOR_TRIUMPH_4_COMPLETED_MODERN_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="TriumphTypes">LEGACY_MO_SCIENTIFIC_4, LEGACY_MO_SCIENTIFIC_4_RACE</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_SCIENTIFIC_MINOR_TRIUMPH_4_COMPLETED_MODERN</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_SCIENTIFIC_MINOR_TRIUMPH_5_COMPLETED_MODERN_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="TriumphTypes">LEGACY_MO_SCIENTIFIC_5, LEGACY_MO_SCIENTIFIC_5_RACE</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_SCIENTIFIC_MINOR_TRIUMPH_5_COMPLETED_MODERN</Argument>
 	</Modifier>
 </GameEffects>

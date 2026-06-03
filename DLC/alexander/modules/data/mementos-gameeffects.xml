@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+	<Modifier id="MEMENTO_ALEXANDER_ILIAD_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_ATTACH_MODIFIERS">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_CITY"/>
+			<Requirement type="REQUIREMENT_CITY_IS_CAPITAL" inverse="true"/>
+			<Requirement type="REQUIREMENT_CITY_HAS_ANY_WONDER"/>
+		</SubjectRequirements>
+        <Argument name="ModifierId">MEMENTO_ALEXANDER_ILIAD_MODIFIER_ATTACH_CULTURE,MEMENTO_ALEXANDER_ILIAD_MODIFIER_ATTACH_PRODUCTION</Argument>
+		<Argument name="Tooltip">LOC_MEMENTO_ALEXANDER_ILIAD_NAME</Argument>
+		<String context="Description">LOC_MEMENTO_ALEXANDER_ILIAD_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="MEMENTO_ALEXANDER_ILIAD_MODIFIER_ATTACH_CULTURE" collection="COLLECTION_CITY_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_HAS_CONSTRUCTIBLE">
+				<Argument name="ConstructibleClass">WONDER</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+		<Argument name="Tooltip">LOC_MEMENTO_ALEXANDER_ILIAD_NAME</Argument>
+	</Modifier>
+		<Modifier id="MEMENTO_ALEXANDER_ILIAD_MODIFIER_ATTACH_PRODUCTION" collection="COLLECTION_CITY_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_HAS_CONSTRUCTIBLE">
+				<Argument name="ConstructibleClass">WONDER</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_PRODUCTION</Argument>
+		<Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+		<Argument name="Tooltip">LOC_MEMENTO_ALEXANDER_ILIAD_NAME</Argument>
+	</Modifier>
+	<Modifier id="MEMENTO_ALEXANDER_DIADEM_MODIFIER_SETTLEMENT_LIMIT" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_SETTLEMENT_CAP">
+		<Argument name="Amount">1</Argument>
+		<String context="Description">LOC_MEMENTO_ALEXANDER_DIADEM_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="MEMENTO_ALEXANDER_DIADEM_MODIFIER_GOLD_MAINTENANCE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_UNIT_MAINTENANCE_EFFICIENCY">
+		<Argument name="Domain">DOMAIN_LAND</Argument>
+		<Argument name="Amount" type="ScaleByGameAge" extra="100">-1</Argument>
+	</Modifier>
+	<Modifier id="MEMENTO_ALEXANDER_BRIDLE_OF_BUCEPHALUS_MODIFIER_CS" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ADJUST_UNIT_BASE_COMBAT_STRENGTH">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+				<Argument name="Tag">UNIT_CLASS_CAVALRY</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">3</Argument>
+		<String context="Description">LOC_MEMENTO_ALEXANDER_BRIDLE_OF_BUCEPHALUS_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="MEMENTO_ALEXANDER_BRIDLE_OF_BUCEPHALUS_MODIFIER_COST" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_UNIT_PRODUCTION">
+		<Argument name="Percent">-25</Argument>
+		<Argument name="UnitClass">UNIT_CLASS_CAVALRY</Argument>
+	</Modifier>
+	<Modifier id="MEMENTO_ALEXANDER_BRIDLE_OF_BUCEPHALUS_MODIFIER_PURCHASE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_ADJUST_PLAYER_OR_CITY_UNIT_PURCHASE_EFFICIENCY">
+		<Argument name="Percent">-25</Argument>
+		<Argument name="UnitTag">UNIT_CLASS_CAVALRY</Argument>
+	</Modifier>
+</GameEffects>

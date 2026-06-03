@@ -1,4 +1,4 @@
-const styles = "fs://game/core/ui/mouse-guard/mouse-guard.css";
+import styles from './mouse-guard.scss.js';
 
 class MouseGuard extends Component {
   onReceiveFocus() {

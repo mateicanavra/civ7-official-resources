@@ -2,16 +2,19 @@
 <Database>
 	<Kinds>
 		<InsertOrIgnore Kind="KIND_TRAIT"/>
+		<InsertOrIgnore Kind="KIND_VICTORY"/>
 	</Kinds>
 	<Types>
 		<Row Type="LEADER_ADA_LOVELACE" Kind="KIND_LEADER"/>
 		<Row Type="TRAIT_LEADER_ADA_LOVELACE_ABILITY" Kind="KIND_TRAIT"/>
+		<Row Type="VICTORY_LEADER_ADA_LOVELACE" Kind="KIND_VICTORY"/>
 	</Types>
 	<Leaders>
 		<Row LeaderType="LEADER_ADA_LOVELACE" Name="LOC_LEADER_ADA_LOVELACE_NAME" IsMajorLeader="true" InheritFrom="LEADER_DEFAULT" />
 	</Leaders>
 	<TypeQuotes>
 		<Row Type="LEADER_ADA_LOVELACE" Quote="LOC_MAIN_CHAR_SELECT_LEADER_ADA_LOVELACE_ANY"/>
+		<Row Type="VICTORY_LEADER_ADA_LOVELACE" Quote="LOC_VICTORY_LEADER_ADA_LOVELACE" QuoteAudio="play_victory_ada"/>
 	</TypeQuotes>
 	<AiFavoredItems>
 	</AiFavoredItems>
@@ -32,18 +35,20 @@
 		<Row TraitType="TRAIT_LEADER_ADA_LOVELACE_ABILITY" ModifierId="ADA_LOVELACE_MOD_AGENDA_ANALYTICAL_ENGINE"/>
 	</TraitModifiers>
 	<AiListTypes>
-	
 		<Row ListType="Ada Lovelace Yield Biases"/>
 		<Row ListType="Ada Lovelace Pseudoyield Biases"/>
+		<Row ListType="Ada Lovelace Diplomacy Biases"/>
 	</AiListTypes>
 	<AiLists>
 		<Row ListType="Ada Lovelace Yield Biases" LeaderType="TRAIT_LEADER_ADA_LOVELACE_ABILITY" System="YieldBiases"/>
 		<Row ListType="Ada Lovelace Pseudoyield Biases" LeaderType="TRAIT_LEADER_ADA_LOVELACE_ABILITY" System="PseudoYieldBiases"/>
+		<Row ListType="Ada Lovelace Diplomacy Biases" LeaderType="TRAIT_LEADER_ADA_LOVELACE_ABILITY" System="DiplomaticGroupBiases"/>
 	</AiLists>
 	<AiFavoredItems>
 		<Row ListType="Ada Lovelace Yield Biases" Item="YIELD_SCIENCE" Value="50"/>
 		<Row ListType="Ada Lovelace Yield Biases" Item="YIELD_CULTURE" Value="25"/>
 		<Row ListType="Ada Lovelace Pseudoyield Biases" Item="PSEUDOYIELD_TECH_MASTERY" Value="50"/>
 		<Row ListType="Ada Lovelace Pseudoyield Biases" Item="PSEUDOYIELD_CIVIC_MASTERY" Value="50"/>
+		<Row ListType="Ada Lovelace Diplomacy Biases" Item="DIPLOMACY_ACTION_BECOME_SUZERAIN" Value="50"/>
 	</AiFavoredItems>
 </Database>

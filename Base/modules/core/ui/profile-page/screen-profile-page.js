@@ -1,33 +1,18 @@
-import { A as Audio } from '../audio-base/audio-support.chunk.js';
-import { D as DropdownSelectionChangeEventName } from '../components/fxs-dropdown.chunk.js';
+import { Audio } from '../audio-base/audio-support.js';
 import ActionHandler from '../input/action-handler.js';
-import FocusManager from '../input/focus-manager.js';
-import { F as Focus } from '../input/focus-support.chunk.js';
-import { N as NavTray } from '../navigation-tray/model-navigation-tray.chunk.js';
-import { P as Panel, A as AnchorType } from '../panel-support.chunk.js';
-import { S as SaveLoadData } from '../save-load/model-save-load.chunk.js';
+import { Focus } from '../input/focus-support.js';
+import NavTray from '../navigation-tray/model-navigation-tray.js';
+import Panel, { AnchorType } from '../panel-support.js';
+import SaveLoadData from '../save-load/model-save-load.js';
 import { LeaderButton } from '../shell/leader-select/leader-button/leader-button.js';
-import { MustGetElement, MustGetElements } from '../utilities/utilities-dom.chunk.js';
-import { L as Layout } from '../utilities/utilities-layout.chunk.js';
+import { MustGetElement, MustGetElements } from '../utilities/utilities-dom.js';
+import { stringifyJSON } from '../utilities/utilities-json.js';
+import { Layout } from '../utilities/utilities-layout.js';
 import { getPlayerCardInfo, UnlockableRewardItems, getRewardType, UnlockableRewardType, updatePlayerProfile } from '../utilities/utilities-liveops.js';
-import { C as ChallengeClass, a as ChallengeCategorySortIndex } from '../utilities/utilities-metaprogression.chunk.js';
-import '../components/fxs-activatable.chunk.js';
-import '../framework.chunk.js';
-import '../input/cursor.js';
-import '../views/view-manager.chunk.js';
-import '../input/input-support.chunk.js';
-import '../utilities/utilities-update-gate.chunk.js';
-import '../components/fxs-slot.chunk.js';
-import '../spatial/spatial-manager.js';
-import '../context-manager/context-manager.js';
-import '../context-manager/display-queue-manager.js';
-import '../dialog-box/manager-dialog-box.chunk.js';
-import '../utilities/utilities-image.chunk.js';
-import '../utilities/utilities-component-id.chunk.js';
-
-const content = "<fxs-frame\r\n\tframe-style=\"f2\"\r\n\tclass=\"profile-main-frame relative size-full\"\r\n\toverride-styling=\"fxs-frame z-0 pointer-events-auto flex max-w-full max-h-full pt-5 pb-6 px-6\"\r\n>\r\n\t<div\r\n\t\tclass=\"profile-content flow-column flex-auto relative flex pointer-events-auto w-full mt-8\"\r\n\t\ttabindex=\"-1\"\r\n\t>\r\n\t\t<div\r\n\t\t\tclass=\"profile-tab-container relative w-full flex flex-auto pointer-events-auto self-center flex-col\"\r\n\t\t></div>\r\n\t</div>\r\n</fxs-frame>\r\n";
-
-const styles = "fs://game/core/ui/profile-page/screen-profile-page.css";
+import { ChallengeClass, ChallengeCategorySortIndex } from '../utilities/utilities-metaprogression.js';
+import { FocusManager } from '../../ui-next/services/focus-manager.js';
+import content from './screen-profile-page.html.js';
+import styles from './screen-profile-page.scss.js';
 
 var ProfileTabType = /* @__PURE__ */ ((ProfileTabType2) => {
   ProfileTabType2[ProfileTabType2["NONE"] = -1] = "NONE";
@@ -51,10 +36,6 @@ class ScreenProfilePage extends Panel {
     this.updateProfile();
     this.close();
   };
-  userProfileReadyListener = this.refreshLeaderboard.bind(this);
-  // Refresh leaderboard content when the user profiles are ready
-  leaderboardFetchedListener = this.refreshLeaderboard.bind(this);
-  // Refresh leaderboard content when the leaderboard is fetched
   engineInputListener = this.onEngineInput.bind(this);
   navigationInputListener = this.onNavigateInput.bind(this);
   progressLeaderSelectedListener = this.onClickedProgressLeaderButton.bind(this);
@@ -87,7 +68,6 @@ class ScreenProfilePage extends Panel {
   challengeCategoriesMap = /* @__PURE__ */ new Map();
   challengesMap = /* @__PURE__ */ new Map();
   onlyChallenges = false;
-  onlyLeaderboards = false;
   focusTab = -1 /* NONE */;
   noCustomize = false;
   currentSortType = 0 /* Challenge */;
@@ -130,17 +110,6 @@ class ScreenProfilePage extends Panel {
   get didChangeUserProfile() {
     return this.selectedBannerId !== this.currentProfile.BannerId || this.selectedBadgeId !== this.currentProfile.BadgeId || this.selectedTitleLocKey !== this.currentProfile.TitleLocKey || this.selectedPortraitBorder !== this.currentProfile.PortraitBorder || this.selectedBackgroundColor !== this.currentProfile.BackgroundColor || this.getFoundationLevel() !== this.currentProfile.FoundationLevel;
   }
-  populateLeaderboardDropDownList() {
-    this.eventItems = [];
-    const AllLeaderboardData = Online.Leaderboard.getDisplayableLeaderboardInfo();
-    AllLeaderboardData.forEach((LeaderboardData) => {
-      const item = {
-        label: "LOC_" + LeaderboardData.eventNameLocKey,
-        id: LeaderboardData.leaderboardID
-      };
-      this.eventItems.push(item);
-    });
-  }
   getIndexByEventName(eventName) {
     const index = this.eventItems.findIndex((item) => item.label === eventName);
     return index !== -1 ? index : 0;
@@ -154,22 +123,18 @@ class ScreenProfilePage extends Panel {
   }
   onAttach() {
     super.onAttach();
-    engine.on("DNAUserProfileCacheReady", this.userProfileReadyListener);
-    engine.on("DNALeaderboardFetched", this.leaderboardFetchedListener);
     Telemetry.sendUIMenuAction({ Menu: TelemetryMenuType.Legends, MenuAction: TelemetryMenuActionType.Load });
   }
   onDetach() {
     Telemetry.sendUIMenuAction({ Menu: TelemetryMenuType.Legends, MenuAction: TelemetryMenuActionType.Exit });
     this.Root.removeEventListener("engine-input", this.engineInputListener);
     this.Root.removeEventListener("navigate-input", this.navigationInputListener);
-    engine.off("DNAUserProfileCacheReady", this.userProfileReadyListener);
-    engine.off("DNALeaderboardFetched", this.leaderboardFetchedListener);
     super.onDetach();
   }
   onReceiveFocus() {
     super.onReceiveFocus();
     if (this.slotGroup) {
-      FocusManager.setFocus(this.slotGroup);
+      FocusManager.get().setFocus(this.slotGroup);
     } else {
       console.error("screen-profile-page: onReceiveFocus - slot group not found for focus!");
     }
@@ -185,7 +150,6 @@ class ScreenProfilePage extends Panel {
     }
     this.panelOptions = options;
     this.onlyChallenges = this.panelOptions.onlyChallenges;
-    this.onlyLeaderboards = this.panelOptions.onlyLeaderboards;
     if (this.panelOptions.focusTab) {
       this.focusTab = this.panelOptions.focusTab;
     }
@@ -208,11 +172,6 @@ class ScreenProfilePage extends Panel {
       titleFrame.setAttribute("subtitle", Locale.compose("LOC_METAPROGRESSION_CHALLENGES_PANEL_SUB_TITLE"));
       const mainTab = MustGetElement(".profile-main-tab", this.Root);
       mainTab.classList.add("hidden");
-    } else if (this.onlyLeaderboards) {
-      titleFrame.setAttribute("subtitle", Locale.compose("LOC_PROFILE_TAB_LEADERBOARDS"));
-      const mainTab = MustGetElement(".profile-main-tab", this.Root);
-      mainTab.classList.add("hidden");
-      this.updateLeaderboardContent(Online.Leaderboard.getActiveEventLeaderboardID());
     } else {
       titleFrame.setAttribute("subtitle", Locale.compose("LOC_METAPROGRESSION_PANEL_SUB_TITLE"));
     }
@@ -220,16 +179,6 @@ class ScreenProfilePage extends Panel {
   generalNavTrayUpdate() {
     NavTray.clear();
     NavTray.addOrUpdateGenericBack();
-  }
-  refreshLeaderboard() {
-    if (Online.Leaderboard.isLeaderboardAvailable()) {
-      const dropDownList = MustGetElement("fxs-dropdown", this.Root);
-      const selectedItemIndexAttr = dropDownList.getAttribute("selected-item-index");
-      if (selectedItemIndexAttr !== null) {
-        const index = parseInt(selectedItemIndexAttr, 10);
-        this.updateLeaderboardContent(this.eventItems[index].id);
-      }
-    }
   }
   setupProgressUI(frag) {
     const outerSlot = document.createElement("fxs-hslot");
@@ -382,7 +331,7 @@ class ScreenProfilePage extends Panel {
       progHeader.classList.add("profile-customize-progression-header", "mt-10", "mb-2", "w-full");
       progHeader.whenComponentCreated((c) => c.Root.removeAttribute("tabindex"));
       progHeader.setAttribute("player-card-style", "large");
-      progHeader.setAttribute("data-player-info", JSON.stringify(this.cardInfo));
+      progHeader.setAttribute("data-player-info", stringifyJSON(this.cardInfo));
       progressRightColumn.appendChild(progHeader);
     } else {
       const progressLeaderStats = document.createElement("fxs-header");
@@ -633,7 +582,7 @@ class ScreenProfilePage extends Panel {
       progHeader.classList.toggle("mb-2", this.isMobileViewExperience);
       progHeader.whenComponentCreated((c) => c.Root.removeAttribute("tabindex"));
       progHeader.setAttribute("player-card-style", "large");
-      progHeader.setAttribute("data-player-info", JSON.stringify(this.cardInfo));
+      progHeader.setAttribute("data-player-info", stringifyJSON(this.cardInfo));
       rightVslot.appendChild(progHeader);
       const customizeRight = document.createElement("div");
       customizeRight.classList.add(
@@ -985,7 +934,7 @@ class ScreenProfilePage extends Panel {
         const headers = MustGetElements("progression-header", this.Root);
         this.cardInfo.BadgeURL = url;
         for (let i = 0; i < headers.length; i++) {
-          headers[i].setAttribute("data-player-info", JSON.stringify(this.cardInfo));
+          headers[i].setAttribute("data-player-info", stringifyJSON(this.cardInfo));
         }
         this.selectedBadgeId = gameItemId;
       }
@@ -1021,7 +970,7 @@ class ScreenProfilePage extends Panel {
         const headers = MustGetElements("progression-header", this.Root);
         this.cardInfo.BackgroundURL = url;
         for (let i = 0; i < headers.length; i++) {
-          headers[i].setAttribute("data-player-info", JSON.stringify(this.cardInfo));
+          headers[i].setAttribute("data-player-info", stringifyJSON(this.cardInfo));
         }
         this.selectedBannerId = gameItemId;
       }
@@ -1054,7 +1003,7 @@ class ScreenProfilePage extends Panel {
         const headers = MustGetElements("progression-header", this.Root);
         this.cardInfo.playerTitle = locKey;
         for (let i = 0; i < headers.length; i++) {
-          headers[i].setAttribute("data-player-info", JSON.stringify(this.cardInfo));
+          headers[i].setAttribute("data-player-info", stringifyJSON(this.cardInfo));
         }
         this.selectedTitleLocKey = locKey;
       }
@@ -1092,7 +1041,7 @@ class ScreenProfilePage extends Panel {
         const headers = MustGetElements("progression-header", this.Root);
         this.cardInfo.BorderURL = border.url;
         for (let i = 0; i < headers.length; i++) {
-          headers[i].setAttribute("data-player-info", JSON.stringify(this.cardInfo));
+          headers[i].setAttribute("data-player-info", stringifyJSON(this.cardInfo));
         }
         const portraits = MustGetElements("progression-portrait", this.Root);
         for (const portrait of portraits) {
@@ -1131,7 +1080,7 @@ class ScreenProfilePage extends Panel {
         const headers = MustGetElements("progression-header", this.Root);
         this.cardInfo.BackgroundColor = color.color;
         for (let i = 0; i < headers.length; i++) {
-          headers[i].setAttribute("data-player-info", JSON.stringify(this.cardInfo));
+          headers[i].setAttribute("data-player-info", stringifyJSON(this.cardInfo));
         }
         this.selectedBackgroundColor = color.color;
       }
@@ -1819,43 +1768,6 @@ class ScreenProfilePage extends Panel {
   		return fragment;
   	}
   */
-  setupLeaderboardUI(frag) {
-    const outerVslot = document.createElement("fxs-vslot");
-    outerVslot.classList.add("profile-leaderboards-outer-vslot");
-    const controlStrip = document.createElement("fxs-hslot");
-    controlStrip.classList.add("profile-leaderboards-control-strip");
-    controlStrip.removeAttribute("tabindex");
-    const eventDropdown = document.createElement("fxs-dropdown");
-    eventDropdown.setAttribute("optionID", "events");
-    eventDropdown.setAttribute("dropdown-items", JSON.stringify(this.eventItems));
-    const currentLiveEvent = "LOC_" + Online.LiveEvent.getCurrentLiveEvent();
-    const currentLiveEvnetIndex = this.getIndexByEventName(currentLiveEvent).toString();
-    eventDropdown.setAttribute("selected-item-index", currentLiveEvnetIndex);
-    controlStrip.appendChild(eventDropdown);
-    const componentRoot = eventDropdown;
-    waitUntilValue(() => componentRoot.maybeComponent).then((component) => {
-      component.Root.addEventListener(DropdownSelectionChangeEventName, (event) => {
-        const index = event.detail.selectedIndex;
-        Online.Leaderboard.fetchByLeaderboardID(this.eventItems[index].id, false);
-        this.updateLeaderboardContent(this.eventItems[index].id);
-      });
-    });
-    outerVslot.appendChild(controlStrip);
-    const header = this.createLeaderboardHeader();
-    outerVslot.appendChild(header);
-    const userArea = document.createElement("div");
-    userArea.classList.add("profile-leaderboards-user");
-    outerVslot.appendChild(userArea);
-    const scrollable = document.createElement("fxs-scrollable");
-    scrollable.setAttribute("attached-scrollbar", "true");
-    scrollable.setAttribute("allow-mouse-panning", "true");
-    scrollable.classList.add("flex-auto");
-    const scrollVslot = document.createElement("fxs-vslot");
-    scrollVslot.classList.add("profile-leaderboards-scrollable-vslot");
-    scrollable.appendChild(scrollVslot);
-    outerVslot.appendChild(scrollable);
-    frag.appendChild(outerVslot);
-  }
   setupChallengeUI(frag) {
     const challengeOuter = document.createElement("fxs-slot");
     challengeOuter.classList.add("profile-challenges-outer", "pt-8", "flex-auto", "size-full");
@@ -1966,7 +1878,7 @@ class ScreenProfilePage extends Panel {
     const sortText = MustGetElement(".profile-challenges-sort-text", this.Root);
     this.currentSortType = newSortType;
     sortText.setAttribute("data-l10n-id", this.sortTextLocale[this.currentSortType]);
-    waitForLayout(() => FocusManager.setFocus(this.challengeSortHslot));
+    waitForLayout(() => FocusManager.get().setFocus(this.challengeSortHslot));
   }
   onChallengeTabSelected(e) {
     const slotId = this.challengeTabItems[e.detail.index].id;
@@ -2013,9 +1925,9 @@ class ScreenProfilePage extends Panel {
         progressItemType: item.legendPathType,
         mainTitleLoc: item.legendPathLoc,
         currentLevel: item.currentLevel,
-        currentXP: item.currentXp,
-        nextLevelXP: item.nextLevelXp,
-        prevLevelXP: item.prevLevelXp,
+        currentXP: Number(item.currentXp),
+        nextLevelXP: Number(item.nextLevelXp),
+        prevLevelXP: Number(item.prevLevelXp),
         maxLevel: item.maxLevel,
         rewards: [],
         leaderId: item.leaderTypeName
@@ -2026,8 +1938,6 @@ class ScreenProfilePage extends Panel {
       legendPathItems.push(progressItem);
     });
     if (Network.supportsSSO()) {
-      Online.Leaderboard.fetchActiveEventLeaderboard();
-      this.populateLeaderboardDropDownList();
       this.challengeGroups = [];
       for (const challengeClassValue in ChallengeClass) {
         if (isNaN(Number(challengeClassValue))) {
@@ -2078,23 +1988,20 @@ class ScreenProfilePage extends Panel {
     this.slotGroup = document.createElement("fxs-slot-group");
     this.slotGroup.classList.add("flex-auto");
     const profileItems = [];
-    if (!this.onlyChallenges && !this.onlyLeaderboards) {
+    if (!this.onlyChallenges) {
       if (this.isOfflineMemento) {
         profileItems.push({ label: "LOC_METAPROGRESSION_PATH_FOUNDATION", id: "progress" });
       } else {
         profileItems.push({ label: "LOC_PROFILE_TAB_PROGRESS", id: "progress" });
       }
     }
-    if (!this.onlyLeaderboards && Network.supportsSSO()) {
+    if (Network.supportsSSO()) {
       profileItems.push({ label: "LOC_PROFILE_TAB_CHALLENGES", id: "challenges" });
     }
-    if (!this.onlyChallenges && !this.onlyLeaderboards) {
+    if (!this.onlyChallenges) {
       if (!this.noCustomize) {
         profileItems.push({ label: "LOC_PROFILE_TAB_CUSTOMIZE", id: "customize" });
       }
-    }
-    if (!this.onlyChallenges && Network.supportsSSO() && Online.Leaderboard.isLeaderboardAvailable()) {
-      profileItems.push({ label: "LOC_PROFILE_TAB_LEADERBOARDS", id: "leaderboards" });
     }
     for (const item of profileItems) {
       const container = document.createElement("fxs-slot");
@@ -2134,23 +2041,14 @@ class ScreenProfilePage extends Panel {
         MenuAction: TelemetryMenuActionType.Select,
         Item: slotId
       });
-      if (slotId == "leaderboards") {
-        setupTabItem("#leaderboards", (frag) => {
-          this.setupLeaderboardUI(frag);
-        });
-        const dropDownList = MustGetElement("fxs-dropdown", this.Root);
-        const currentLiveEvent = "LOC_" + Online.LiveEvent.getCurrentLiveEvent();
-        const currentLiveEvnetIndex = this.getIndexByEventName(currentLiveEvent).toString();
-        dropDownList.setAttribute("selected-item-index", currentLiveEvnetIndex);
-        this.updateLeaderboardContent(Online.Leaderboard.getActiveEventLeaderboardID());
-      } else if (slotId == "challenges") {
+      if (slotId == "challenges") {
         setupTabItem("#challenges", (frag) => {
           this.setupChallengeUI(frag);
         });
-        const currentFocusClassList = FocusManager.getFocus().classList;
+        const currentFocusClassList = FocusManager.get().currentFocus().classList;
         if (currentFocusClassList.contains("profile-challenges-sort-text") || currentFocusClassList.contains("profile-hof-left-sort-text")) {
           if (this.challengesSlotGroup) {
-            FocusManager.setFocus(this.challengesSlotGroup);
+            FocusManager.get().setFocus(this.challengesSlotGroup);
           }
           NavTray.addOrUpdateShellAction2("LOC_PROFILE_CHALLENGE_HELP");
         }
@@ -2167,7 +2065,7 @@ class ScreenProfilePage extends Panel {
         if (!playerInfo.LeaderID) {
           playerInfo.LeaderID = this.getLastSaveLeaderID();
         }
-        const jsonString = JSON.stringify(playerInfo);
+        const jsonString = stringifyJSON(playerInfo);
         for (const headerElement of headerElements) {
           headerElement.setAttribute("data-player-info", jsonString);
         }
@@ -2188,10 +2086,6 @@ class ScreenProfilePage extends Panel {
         setupTabItem("#challenges", (frag) => {
           this.setupChallengeUI(frag);
         });
-      } else if (this.onlyLeaderboards) {
-        setupTabItem("#leaderboards", (frag) => {
-          this.setupLeaderboardUI(frag);
-        });
       } else {
         setupTabItem("#progress", (frag) => {
           this.setupProgressUI(frag);
@@ -2207,13 +2101,13 @@ class ScreenProfilePage extends Panel {
       const progressionCard = document.createElement("progression-header");
       progressionCard.classList.add("absolute", "right-16", "-top-4", "profile-top-player-card");
       progressionCard.setAttribute("player-card-style", "mini");
-      progressionCard.setAttribute("data-player-info", JSON.stringify(getPlayerCardInfo()));
+      progressionCard.setAttribute("data-player-info", stringifyJSON(getPlayerCardInfo()));
       tabContainer.appendChild(progressionCard);
     }
     tabControlWrapper.appendChild(tabControl);
     tabContainer.appendChild(tabControlWrapper);
     tabContainer.appendChild(this.slotGroup);
-    FocusManager.setFocus(this.slotGroup);
+    FocusManager.get().setFocus(this.slotGroup);
   }
   getLastSaveLeaderID() {
     const saves = SaveLoadData.saves;
@@ -2222,54 +2116,6 @@ class ScreenProfilePage extends Panel {
       return lastSave.leaderIconUrl;
     }
     return "";
-  }
-  updateLeaderboardContent(leaderboardId) {
-    const userArea = MustGetElement(".profile-leaderboards-user", this.Root);
-    const scrollable = MustGetElement(
-      ".profile-leaderboards-scrollable-vslot",
-      this.Root
-    );
-    while (userArea.childNodes.length > 0) {
-      userArea.removeChild(userArea.childNodes[0]);
-    }
-    while (scrollable.childNodes.length > 0) {
-      scrollable.removeChild(scrollable.childNodes[0]);
-    }
-    const entries = Online.Leaderboard.getLeaderboardEntriesByID(leaderboardId);
-    const leaderboardItems = [];
-    const playerEntry = Online.Leaderboard.getUserLeaderboardEntryByID(leaderboardId);
-    const isCurrentlyPlayingLiveEvent = Online.Metaprogression.isPlayingActiveEvent() && leaderboardId == Online.Leaderboard.getActiveEventLeaderboardID();
-    const userItem = {
-      place: playerEntry.playerRanking,
-      name: playerEntry.playerName,
-      title: "Example Data",
-      score: parseInt(playerEntry.playerScore),
-      date: playerEntry.playerAchievedTime,
-      leader: playerEntry.playerLeaderName,
-      civilization: playerEntry.playerCivilizationName
-    };
-    const userEntry = this.createLeaderboard(userItem, isCurrentlyPlayingLiveEvent);
-    userArea.appendChild(userEntry);
-    let currentLeaderboardPlace = 1;
-    for (const entry of entries) {
-      const currentPlayerName = entry.playerName;
-      const currentPlayerScore = entry.playerScore;
-      const tempItem = {
-        place: entry.playerRanking,
-        name: currentPlayerName,
-        title: "Haunted Hollow",
-        score: parseInt(currentPlayerScore),
-        date: entry.playerAchievedTime,
-        leader: entry.playerLeaderName,
-        civilization: entry.playerCivilizationName
-      };
-      leaderboardItems.push(tempItem);
-      currentLeaderboardPlace++;
-    }
-    leaderboardItems.forEach((item) => {
-      const leaderboard = this.createLeaderboard(item, isCurrentlyPlayingLiveEvent);
-      scrollable.appendChild(leaderboard);
-    });
   }
   addChallenge(item) {
     const showUnownedContent = Configuration.getUser().showUnownedContent;
@@ -2351,6 +2197,7 @@ class ScreenProfilePage extends Panel {
       inputEvent.stopPropagation();
       inputEvent.preventDefault();
     }
+    const focusManager = FocusManager.get();
     if (this.currentlySelectedMainTab == "customize") {
       if (inputEvent.detail.name == "sys-menu") {
         this.onClickedMarkAllAsSeen();
@@ -2358,16 +2205,16 @@ class ScreenProfilePage extends Panel {
     } else if (this.currentlySelectedMainTab == "challenges") {
       if (inputEvent.detail.name == "shell-action-2") {
         let canJump = true;
-        if (!FocusManager.getFocus().classList.contains("profile-challenges-sort-text")) {
+        if (!focusManager.currentFocus().classList.contains("profile-challenges-sort-text")) {
           const sortControl = MustGetElement(".profile-challenges-sort-text", this.Root);
-          FocusManager.setFocus(sortControl);
+          focusManager.setFocus(sortControl);
           NavTray.addOrUpdateShellAction2("LOC_PROFILE_CHALLENGE_RETURN");
           canJump = false;
         }
-        if (canJump && FocusManager.getFocus().classList.contains("profile-challenges-sort-text")) {
+        if (canJump && focusManager.currentFocus().classList.contains("profile-challenges-sort-text")) {
           NavTray.addOrUpdateShellAction2("LOC_PROFILE_CHALLENGE_HELP");
           if (this.challengesSlotGroup) {
-            FocusManager.setFocus(this.challengesSlotGroup);
+            focusManager.setFocus(this.challengesSlotGroup);
           }
         }
         inputEvent.stopPropagation();
@@ -2376,21 +2223,21 @@ class ScreenProfilePage extends Panel {
     }
     if (this.currentlySelectedMainTab == "halloffame" && this.currentHOFGroup == "general") {
       if (inputEvent.detail.name == "shell-action-1") {
-        if (!FocusManager.getFocus().classList.contains("profile-hof-left-sort-text")) {
+        if (!focusManager.currentFocus().classList.contains("profile-hof-left-sort-text")) {
           const sortControl = MustGetElement(".profile-hof-left-sort-text", this.Root);
-          FocusManager.setFocus(sortControl);
+          focusManager.setFocus(sortControl);
         }
         inputEvent.stopPropagation();
         inputEvent.preventDefault();
       } else if (inputEvent.detail.name == "shell-action-2") {
-        if (!FocusManager.getFocus().classList.contains("profile-hof-right-sort-text")) {
+        if (!focusManager.currentFocus().classList.contains("profile-hof-right-sort-text")) {
           const sortControl = MustGetElement(".profile-hof-right-sort-text", this.Root);
           NavTray.addOrUpdateShellAction2("LOC_PROFILE_CHALLENGE_RETURN");
-          FocusManager.setFocus(sortControl);
+          focusManager.setFocus(sortControl);
         }
-        if (FocusManager.getFocus().classList.contains("profile-hof-right-sort-text")) {
+        if (focusManager.currentFocus().classList.contains("profile-hof-right-sort-text")) {
           if (this.challengesSlotGroup) {
-            FocusManager.setFocus(this.challengesSlotGroup);
+            focusManager.setFocus(this.challengesSlotGroup);
           }
           NavTray.addOrUpdateShellAction2("LOC_PROFILE_CHALLENGE_HELP");
         }
@@ -2404,7 +2251,7 @@ class ScreenProfilePage extends Panel {
       return;
     }
     if (this.currentlySelectedMainTab == "challenges") {
-      if (FocusManager.getFocus().classList.contains("profile-challenges-sort-text")) {
+      if (FocusManager.get().currentFocus().classList.contains("profile-challenges-sort-text")) {
         if (navEvent.detail.name == "nav-left") {
           Audio.playSound("data-audio-activate", "audio-pager");
           this.challengeSortLeft();
@@ -2586,7 +2433,7 @@ class ScreenProfilePage extends Panel {
     this.challengesSlotGroup?.appendChild(challengesContainer);
     waitForLayout(() => {
       if (this.challengesSlotGroup) {
-        FocusManager.setFocus(this.challengesSlotGroup);
+        FocusManager.get().setFocus(this.challengesSlotGroup);
       }
     });
   }
@@ -2615,127 +2462,6 @@ class ScreenProfilePage extends Panel {
       if (ChallengeCategorySortIndex[a.category] > ChallengeCategorySortIndex[b.category]) return 1;
       return 0;
     });
-  }
-  createLeaderboardHeader() {
-    const fragment = document.createDocumentFragment();
-    const outerBox = document.createElement("div");
-    outerBox.setAttribute("tabindex", "-1");
-    outerBox.classList.add("profile-leaderboard-outer-box");
-    const positionBox = document.createElement("fxs-hslot");
-    positionBox.classList.add("leaderboard-position-box");
-    const posInnerBox = document.createElement("fxs-hslot");
-    posInnerBox.classList.add("leaderboard-pos-inner-box");
-    const position = document.createElement("div");
-    position.classList.add("leaderboard-text", "font-body");
-    position.innerHTML = Locale.compose("LOC_GENERIC_POSITION");
-    posInnerBox.appendChild(position);
-    positionBox.appendChild(posInnerBox);
-    outerBox.appendChild(positionBox);
-    const nameBox = document.createElement("fxs-hslot");
-    nameBox.classList.add("leaderboard-name-box");
-    const name = document.createElement("div");
-    name.classList.add("leaderboard-text", "font-body");
-    name.innerHTML = Locale.compose("LOC_GENERIC_PLAYER_NAME");
-    nameBox.appendChild(name);
-    outerBox.appendChild(nameBox);
-    const scoreBox = document.createElement("fxs-hslot");
-    scoreBox.classList.add("leaderboard-score-box");
-    const score = document.createElement("div");
-    score.classList.add("leaderboard-text", "font-body");
-    score.innerHTML = Locale.compose("LOC_GENERIC_SCORE");
-    scoreBox.appendChild(score);
-    outerBox.appendChild(scoreBox);
-    const dateBox = document.createElement("fxs-hslot");
-    dateBox.classList.add("leaderboard-date-box");
-    const date = document.createElement("div");
-    date.classList.add("leaderboard-text", "font-body");
-    date.innerHTML = Locale.compose("LOC_GENERIC_DATE");
-    dateBox.appendChild(date);
-    outerBox.appendChild(dateBox);
-    const leaderBox = document.createElement("fxs-hslot");
-    leaderBox.classList.add("leaderboard-leader-box");
-    const leader = document.createElement("div");
-    leader.classList.add("leaderboard-text", "font-body");
-    leader.innerHTML = Locale.compose("LOC_GENERIC_LEADER");
-    leaderBox.appendChild(leader);
-    outerBox.appendChild(leaderBox);
-    const civBox = document.createElement("fxs-hslot");
-    civBox.classList.add("leaderboard-civ-box");
-    const civ = document.createElement("div");
-    civ.classList.add("leaderboard-text", "font-body");
-    civ.innerHTML = Locale.compose("LOC_GENERIC_CIVILIZATION");
-    civBox.appendChild(civ);
-    outerBox.appendChild(civBox);
-    fragment.appendChild(outerBox);
-    return fragment;
-  }
-  createLeaderboard(item, isCurrentlyPlaying) {
-    const fragment = document.createDocumentFragment();
-    const outerBox = document.createElement("div");
-    outerBox.classList.add("profile-leaderboard-outer-box");
-    outerBox.classList.add("profile-leaderboard-outer-box-item");
-    outerBox.setAttribute("tabindex", "-1");
-    const positionBox = document.createElement("fxs-hslot");
-    positionBox.classList.add("leaderboard-position-box");
-    const posInnerBox = document.createElement("fxs-hslot");
-    posInnerBox.classList.add("leaderboard-pos-inner-box");
-    const position = document.createElement("div");
-    position.classList.add("leaderboard-text", "font-body");
-    if (item.place == 0) {
-      position.innerHTML = "-";
-    } else {
-      position.innerHTML = item.place.toString();
-    }
-    posInnerBox.appendChild(position);
-    positionBox.appendChild(posInnerBox);
-    outerBox.appendChild(positionBox);
-    const nameBox = document.createElement("fxs-hslot");
-    nameBox.classList.add("leaderboard-name-box");
-    const name = document.createElement("div");
-    name.classList.add("leaderboard-name-text", "font-body");
-    name.innerHTML = item.name;
-    nameBox.appendChild(name);
-    outerBox.appendChild(nameBox);
-    const scoreBox = document.createElement("fxs-hslot");
-    scoreBox.classList.add("leaderboard-score-box");
-    const score = document.createElement("div");
-    score.classList.add("leaderboard-text", "font-body");
-    if (item.score == 0) {
-      score.innerHTML = "-";
-    } else {
-      score.innerHTML = item.score.toString();
-    }
-    scoreBox.appendChild(score);
-    outerBox.appendChild(scoreBox);
-    const dateBox = document.createElement("fxs-hslot");
-    dateBox.classList.add("leaderboard-date-box");
-    const date = document.createElement("div");
-    date.classList.add("leaderboard-text", "font-body");
-    date.innerHTML = item.date;
-    dateBox.appendChild(date);
-    outerBox.appendChild(dateBox);
-    const leaderBox = document.createElement("fxs-hslot");
-    leaderBox.classList.add("leaderboard-leader-box");
-    const leader = document.createElement("div");
-    leader.classList.add("leaderboard-text", "font-body");
-    leader.setAttribute("data-l10n-id", item.leader);
-    leaderBox.appendChild(leader);
-    outerBox.appendChild(leaderBox);
-    const civBox = document.createElement("fxs-hslot");
-    civBox.classList.add("leaderboard-civ-box");
-    const civ = document.createElement("div");
-    civ.classList.add("leaderboard-text", "font-body");
-    civ.setAttribute("data-l10n-id", item.civilization);
-    civBox.appendChild(civ);
-    outerBox.appendChild(civBox);
-    if (isCurrentlyPlaying) {
-      name.style.fontWeight = "bold";
-      date.style.fontWeight = "bold";
-      leader.style.fontWeight = "bold";
-      civ.style.fontWeight = "bold";
-    }
-    fragment.appendChild(outerBox);
-    return fragment;
   }
 }
 Controls.define("screen-profile-page", {

@@ -16,7 +16,7 @@
 		<Row Type="EXPLORATION_ECONOMIC_MILESTONE_3" Kind="KIND_AGE_PROGRESSION_MILESTONE"/>
 	</Types>
 	<AgeProgressions>
-		<Row AgeProgressionType="AGE_PROGRESSION_EXPLORATION_AGE_TIMER" AgeType="AGE_EXPLORATION" EndsAge="true" MaxPoints_Abbreviated="160" MaxPoints_Standard="200" MaxPoints_Long="240"/>
+		<Row AgeProgressionType="AGE_PROGRESSION_EXPLORATION_AGE_TIMER" AgeType="AGE_EXPLORATION" EndsAge="true" MaxPoints_Abbreviated="120" MaxPoints_Standard="140" MaxPoints_Long="160"/>
 	</AgeProgressions>
 	<AgeProgressionTurns>
 		<Row AgeProgressionTurnType="AGE_PROGRESSION_PER_TURN_BASE" Points="1" GameSpeedScaling="false" AgeProgressionType="AGE_PROGRESSION_EXPLORATION_AGE_TIMER"/>
@@ -27,14 +27,14 @@
 		<Row AgeProgressionEventType="AGE_PROGRESSION_PLAYER_MILESTONE_3" Points="20" AgeProgressionType="AGE_PROGRESSION_EXPLORATION_AGE_TIMER"/>
 		<Row AgeProgressionEventType="AGE_PROGRESSION_FUTURE_CIVIC" Points="10" AgeProgressionType="AGE_PROGRESSION_EXPLORATION_AGE_TIMER"/>
 		<Row AgeProgressionEventType="AGE_PROGRESSION_FUTURE_TECH" Points="10" AgeProgressionType="AGE_PROGRESSION_EXPLORATION_AGE_TIMER"/>
-		<Row AgeProgressionEventType="AGE_PROGRESSION_PLAYER_ELIMINATED" Points="10" AgeProgressionType="AGE_PROGRESSION_EXPLORATION_AGE_TIMER"/>
+		<Row AgeProgressionEventType="AGE_PROGRESSION_PLAYER_ELIMINATED" Points="0" AgeProgressionType="AGE_PROGRESSION_EXPLORATION_AGE_TIMER"/>
 	</AgeProgressionEvents>
 	<AgeProgressionEventMapSizeOverrides>
-		<Row AgeProgressionEventType="AGE_PROGRESSION_PLAYER_ELIMINATED" MapSizeType="MAPSIZE_TINY" Points="20"/>
-		<Row AgeProgressionEventType="AGE_PROGRESSION_PLAYER_ELIMINATED" MapSizeType="MAPSIZE_SMALL" Points="15"/>
-		<Row AgeProgressionEventType="AGE_PROGRESSION_PLAYER_ELIMINATED" MapSizeType="MAPSIZE_STANDARD" Points="10"/>
-		<Row AgeProgressionEventType="AGE_PROGRESSION_PLAYER_ELIMINATED" MapSizeType="MAPSIZE_LARGE" Points="8"/>
-		<Row AgeProgressionEventType="AGE_PROGRESSION_PLAYER_ELIMINATED" MapSizeType="MAPSIZE_HUGE" Points="5"/>
+		<Row AgeProgressionEventType="AGE_PROGRESSION_PLAYER_ELIMINATED" MapSizeType="MAPSIZE_TINY" Points="0"/>
+		<Row AgeProgressionEventType="AGE_PROGRESSION_PLAYER_ELIMINATED" MapSizeType="MAPSIZE_SMALL" Points="0"/>
+		<Row AgeProgressionEventType="AGE_PROGRESSION_PLAYER_ELIMINATED" MapSizeType="MAPSIZE_STANDARD" Points="0"/>
+		<Row AgeProgressionEventType="AGE_PROGRESSION_PLAYER_ELIMINATED" MapSizeType="MAPSIZE_LARGE" Points="0"/>
+		<Row AgeProgressionEventType="AGE_PROGRESSION_PLAYER_ELIMINATED" MapSizeType="MAPSIZE_HUGE" Points="0"/>
 	</AgeProgressionEventMapSizeOverrides>
 	<!--LEGACY PATH SCORING ITEMS -->
 	<PlayerModifiers>
@@ -133,58 +133,11 @@
 		<Row RequirementId="REQ_VICTORY_EXPLORATION_SCIENCE_HIGH_YIELD_DISTRICT_VP" Name="LegacyPathType" Value="LEGACY_PATH_EXPLORATION_SCIENCE"/>
 	</RequirementArguments>
 	<Strategies>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_DISTANT_SETTLEMENTS" LegacyPathType="LEGACY_PATH_EXPLORATION_MILITARY" MinNumConditionsNeeded="2" MaxNumConditionsNeeded="6" BehaviorTree="Strategy Settle Other Hemisphere"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_BUILDINGS" LegacyPathType="LEGACY_PATH_EXPLORATION_SCIENCE" MinNumConditionsNeeded="2" MaxNumConditionsNeeded="4"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_RESOURCES" LegacyPathType="LEGACY_PATH_EXPLORATION_ECONOMIC" MinNumConditionsNeeded="2" MaxNumConditionsNeeded="4"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_RELICS" LegacyPathType="LEGACY_PATH_EXPLORATION_CULTURE" MinNumConditionsNeeded="1" MaxNumConditionsNeeded="2"/>
 	</Strategies>
 	<!-- Reminder: These conditions must be met to START following the strategy - they are not victory conditions themselves -->
 	<StrategyConditions>
-		<!-- Science Victory -->
-		<Row StrategyType="LEGACY_PATH_STRATEGY_BUILDINGS" ConditionFunction="GovernmentMatches" ThresholdValue="25" StringValue="GOVERNMENT_PLUTOCRACY"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_BUILDINGS" ConditionFunction="TopSciencePercent" ThresholdValue="25"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_BUILDINGS" ConditionFunction="HasLeaderTrait" ThresholdValue="1" StringValue="TRAIT_LEADER_ATTRIBUTE_SCIENTIFIC"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_BUILDINGS" ConditionFunction="HasLeaderTrait" ThresholdValue="1" StringValue="TRAIT_LEADER_ATTRIBUTE_EXPANSIONIST"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_BUILDINGS" ConditionFunction="HasLeaderTrait" Exclusive="true" ThresholdValue="1" StringValue="TRAIT_EX_SCIENCE_VICTORY"/>
-		<!-- Military Victory -->
-		<Row StrategyType="LEGACY_PATH_STRATEGY_DISTANT_SETTLEMENTS" ConditionFunction="GovernmentMatches" ThresholdValue="25" StringValue="GOVERNMENT_FEUDAL_MONARCHY"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_DISTANT_SETTLEMENTS" ConditionFunction="TopMilitaryPercent" ThresholdValue="25"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_DISTANT_SETTLEMENTS" ConditionFunction="NumCommanders" ThresholdValue="2"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_DISTANT_SETTLEMENTS" ConditionFunction="VictoryPoints" ThresholdValue="1" StringValue="VICTORY_EXPLORATION_MILITARY"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_DISTANT_SETTLEMENTS" ConditionFunction="HasLeaderTrait" ThresholdValue="1" StringValue="TRAIT_LEADER_ATTRIBUTE_MILITARISTIC"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_DISTANT_SETTLEMENTS" ConditionFunction="HasLeaderTrait" ThresholdValue="1" StringValue="TRAIT_LEADER_ATTRIBUTE_EXPANSIONIST"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_DISTANT_SETTLEMENTS" ConditionFunction="HasLeaderTrait" Exclusive="true" ThresholdValue="1" StringValue="TRAIT_EX_MILITARY_VICTORY"/>
-		<!-- Economic Victory -->
-		<Row StrategyType="LEGACY_PATH_STRATEGY_RESOURCES" ConditionFunction="GovernmentMatches" ThresholdValue="25" StringValue="GOVERNMENT_FEUDAL_MONARCHY"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_RESOURCES" ConditionFunction="VictoryPoints" ThresholdValue="10" StringValue="VICTORY_EXPLORATION_ECONOMIC"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_RESOURCES" ConditionFunction="HasLeaderTrait" ThresholdValue="1" StringValue="TRAIT_LEADER_ATTRIBUTE_ECONOMIC"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_RESOURCES" ConditionFunction="HasLeaderTrait" ThresholdValue="1" StringValue="TRAIT_LEADER_ATTRIBUTE_POLITICAL"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_RESOURCES" ConditionFunction="HasLeaderTrait" Exclusive="true" ThresholdValue="1" StringValue="TRAIT_EX_ECONOMIC_VICTORY"/>
-		<!-- Culture Victory -->
-		<Row StrategyType="LEGACY_PATH_STRATEGY_RELICS" ConditionFunction="GovernmentMatches" ThresholdValue="25" StringValue="GOVERNMENT_THEOCRACY"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_RELICS" ConditionFunction="NumCities" ThresholdValue="3"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_RELICS" ConditionFunction="NumGreatWorks" ThresholdValue="3"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_RELICS" ConditionFunction="HasLeaderTrait" ThresholdValue="1" StringValue="TRAIT_LEADER_ATTRIBUTE_CULTURAL"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_RELICS" ConditionFunction="HasLeaderTrait" ThresholdValue="1" StringValue="TRAIT_LEADER_ATTRIBUTE_POLITICAL"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_RELICS" ConditionFunction="HasLeaderTrait" Exclusive="true" ThresholdValue="1" StringValue="TRAIT_EX_CULTURE_VICTORY"/>
 	</StrategyConditions>
 	<Strategy_Priorities>
-		<!-- Buildings -->
-		<Row StrategyType="LEGACY_PATH_STRATEGY_BUILDINGS" ListType="LegacyPathStrategyBuildingsPseudoYieldBiases"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_BUILDINGS" ListType="LegacyPathStrategyBuildingsBudgetBiases"/>
-		<!-- Settle Other Hemisphere -->
-		<Row StrategyType="LEGACY_PATH_STRATEGY_DISTANT_SETTLEMENTS" ListType="LegacyPathStrategyDistantSettlementsSettlementPlotEvaluations"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_DISTANT_SETTLEMENTS" ListType="LegacyPathStrategyDistantSettlementsPseudoYieldBiases"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_DISTANT_SETTLEMENTS" ListType="LegacyPathStrategyDistantSettlementsBudgetBiases"/>
-		<!-- Trade Other Hemisphere -->
-		<Row StrategyType="LEGACY_PATH_STRATEGY_RESOURCES" ListType="LegacyPathStrategyTreasureFleetConstructibleBiases"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_RESOURCES" ListType="LegacyPathStrategyTreasureFleetSettlements"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_RESOURCES" ListType="LegacyPathStrategyTreasureFleetBudgetBiases"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_RESOURCES" ListType="LegacyPathStrategyTreasureFleetProgressionTreeNodeBiases"/>
-		<!-- Relics -->
-		<Row StrategyType="LEGACY_PATH_STRATEGY_RELICS" ListType="LegacyPathStrategyCultureFilledConstructibleBiases"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_RELICS" ListType="LegacyPathStrategyCultureFilledPseudoYieldBiases"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_RELICS" ListType="LegacyPathStrategyCultureFilledProgressionTreeNodeBiases"/>
 	</Strategy_Priorities>
 	<AiListTypes>
 		<!-- Buildings -->
@@ -239,7 +192,8 @@
 		<Row ListType="LegacyPathStrategyTreasureFleetBudgetBiases" Item="AI_BUDGET_GARRISON" Value="50"/>
 		<Row ListType="LegacyPathStrategyTreasureFleetBudgetBiases" Item="AI_BUDGET_EXPLORATION" Value="100"/>
 		<Row ListType="LegacyPathStrategyTreasureFleetSettlements" Item="Coastal" Favored="false" Value="15" TooltipString="LOC_SETTLEMENT_RECOMMENDATION_COAST"/>
-		<Row ListType="LegacyPathStrategyTreasureFleetSettlements" Item="Resource Class" Value="2000" StringVal="RESOURCECLASS_TREASURE" TooltipString="LOC_SETTLEMENT_RECOMMENDATION_STRATEGIC_RESOURCES"/>
+		<Row ListType="LegacyPathStrategyTreasureFleetSettlements" Item="Foreign Hemisphere" Value="500"/>
+		<Row ListType="LegacyPathStrategyTreasureFleetSettlements" Item="Resource Class" Value="1000" StringVal="RESOURCECLASS_TREASURE" TooltipString="LOC_SETTLEMENT_RECOMMENDATION_STRATEGIC_RESOURCES"/>
 		<Row ListType="LegacyPathStrategyTreasureFleetProgressionTreeNodeBiases" Item="NODE_TECH_EX_SHIPBUILDING" Value="2000"/>
 		<!-- Relics -->
 		<Row ListType="LegacyPathStrategyCultureFilledConstructibleBiases" Item="BUILDING_TEMPLE" Value="200"/>

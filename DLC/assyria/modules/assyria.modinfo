@@ -10,6 +10,7 @@
 	</Properties>
 	<References>
 		<Mod id="friedrich-xerxes-alt" title="LOC_MODULE_FRIEDRICH_XERXES_ALT_NAME" />
+		<Mod id="gilgamesh" title="LOC_MODULE_GILGAMESH_NAME" />
 	</References>
 	<Dependencies>
 		<Mod id="base-standard" title="LOC_MODULE_BASE_STANDARD_NAME" />
@@ -31,6 +32,10 @@
 		</Criteria>
 		<Criteria id="antiquity-age-xerxes">
 			<ModInUse>friedrich-xerxes-alt</ModInUse>
+			<AgeInUse>AGE_ANTIQUITY</AgeInUse>
+		</Criteria>
+		<Criteria id="antiquity-age-gilgamesh">
+			<ModInUse>gilgamesh</ModInUse>
 			<AgeInUse>AGE_ANTIQUITY</AgeInUse>
 		</Criteria>
 		<Criteria id="always">
@@ -173,6 +178,7 @@
 					<Item>text/UnitText.xml</Item>
 					<Item>text/UnlockText.xml</Item>
 					<Item>text/en_us/MetaprogressionText.generated.xml</Item>
+					<Item>text/en_us/tot-NarrativeStoriesText.xml</Item>
 
 					<!-- Items below were generated via our loc tool. -->
 					<Item>l10n/ModuleText.xml</Item>
@@ -193,10 +199,25 @@
 		<ActionGroup id="base-game-main-assyria" scope="game" criteria="always">
 			<Actions>
 				<UpdateDatabase>
+					<Item>data/civilizations-shared.xml</Item>
+					<Item>data/civilizations-shared-gameeffects.xml</Item>
 					<Item>data/civilizations-legacy.xml</Item>
 					<Item>data/named-places.xml</Item>
 					<Item>data/traditions.xml</Item>
 					<Item>data/traditions-gameeffects.xml</Item>
+					<Item>data/citizen-names.xml</Item>
+					<Item>data/loading-info-antiquity.xml</Item>
+					<Item>data/metaprogression.xml</Item>
+					<Item>data/metaprogression-gameeffects.xml</Item>
+					<Item>data/unlocks.xml</Item>
+					<Item>data/unlocks-syncretism.xml</Item>
+					<Item>data/constructibles.xml</Item>
+					<Item>data/constructibles-gameeffects.xml</Item>
+					<Item>data/progression-trees-culture-unique-gameeffects.xml</Item>
+					<Item>data/tot-base-narrative-stories-gameeffects.xml</Item>
+					<Item>data/tot-base-narrative-stories.xml</Item>
+					<Item>data/tot-units.xml</Item>
+					<Item>data/narrative-stories-common-gameeffects.xml</Item>
 				</UpdateDatabase>
 			</Actions>
 		</ActionGroup>
@@ -204,32 +225,38 @@
 			<Actions>
 				<UpdateDatabase>
 					<Item>data/remove-data.xml</Item>
-					<Item>data/citizen-names.xml</Item>
-					<Item>data/civilizations-antiquity.xml</Item>
-					<Item>data/civilizations-gameeffects.xml</Item>
-					<Item>data/loading-info-antiquity.xml</Item>
-					<Item>data/metaprogression.xml</Item>
-					<Item>data/metaprogression-gameeffects.xml</Item>
 					<Item>data/narrative-display.xml</Item>
 					<Item>data/narrative-stories-gameeffects-antiquity.xml</Item>
 					<Item>data/narrative-stories-antiquity.xml</Item>
 					<Item>data/progression-trees-culture-unique.xml</Item>
-					<Item>data/progression-trees-culture-unique-gameeffects.xml</Item>
+					<Item>data/progression-trees-culture-unique-gameeffects-aq.xml</Item>
 					<Item>data/progression-trees-tech.xml</Item>
 					<Item>data/units.xml</Item>
 					<Item>data/units-gameeffects.xml</Item>
-					<Item>data/unlocks-antiquity.xml</Item>
+					<Item>data/civilizations-antiquity.xml</Item>
+					<Item>data/civilizations-gameeffects.xml</Item>
 				</UpdateDatabase>
 				<UIScripts>
-					<Item>ui/tutorial/tutorial-quest-items-antiquity.js</Item>
 				</UIScripts>
 			</Actions>
 		</ActionGroup>
-		<ActionGroup id="age-antiquity-persist-assyria" scope="game" criteria="antiquity-age-persist">
+		<ActionGroup id="assyria-gameplay-exploration" scope="game" criteria="exploration-age-current">
 			<Actions>
 				<UpdateDatabase>
-					<Item>data/constructibles.xml</Item>
-					<Item>data/constructibles-gameeffects.xml</Item>
+					<Item>data/civilizations-exploration.xml</Item>
+					<Item>data/progression-trees-culture-unique-ex.xml</Item>
+					<Item>data/progression-trees-culture-unique-gameeffects-ex.xml</Item>
+					<Item>data/tot-narrative-stories-gameeffects.xml</Item>
+					<Item>data/tot-narrative-stories.xml</Item>
+				</UpdateDatabase>
+			</Actions>
+		</ActionGroup>
+		<ActionGroup id="assyria-gameplay-modern" scope="game" criteria="modern-age-current">
+			<Actions>
+				<UpdateDatabase>
+					<Item>data/civilizations-modern.xml</Item>
+					<Item>data/progression-trees-culture-unique-mo.xml</Item>
+					<Item>data/progression-trees-culture-unique-gameeffects-mo.xml</Item>
 				</UpdateDatabase>
 			</Actions>
 		</ActionGroup>
@@ -237,6 +264,13 @@
 			<Actions>
 				<UpdateDatabase>
 					<Item>data/civilizations-antiquity-xerxes.xml</Item>
+				</UpdateDatabase>
+			</Actions>
+		</ActionGroup>
+		<ActionGroup id="age-antiquity-gilgamesh" scope="game" criteria="antiquity-age-gilgamesh">
+			<Actions>
+				<UpdateDatabase>
+					<Item>data/civilizations-antiquity-gilgamesh.xml</Item>
 				</UpdateDatabase>
 			</Actions>
 		</ActionGroup>
@@ -250,11 +284,14 @@
 				</UpdateIcons>
 				<UpdateDatabase>
 					<Item>config/config.xml</Item>
+					<Item>config/config-traditions.xml</Item>
 					<Item>config/metaprogression.xml</Item>
+					<Item>data/unlocks-syncretism.xml</Item>
 				</UpdateDatabase>
 				<UpdateText>
 					<Item>text/CivilizationLegacyText.xml</Item>
 					<Item>text/CivilizationText.xml</Item>
+					<Item>text/CultureText.xml</Item>
 					<Item>text/ConstructibleText.xml</Item>
 					<Item>text/LoadingText.xml</Item>
 					<Item>text/ModuleText.xml</Item>

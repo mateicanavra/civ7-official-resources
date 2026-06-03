@@ -1,23 +1,6 @@
 import { ScreenGeneralChooser } from '../../../base-standard/ui/general-chooser/screen-general-chooser.js';
-import '../../../core/ui/context-manager/context-manager.js';
-import '../../../core/ui/context-manager/display-queue-manager.js';
-import '../../../core/ui/dialog-box/manager-dialog-box.chunk.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/input/cursor.js';
-import '../../../core/ui/input/focus-manager.js';
-import '../../../core/ui/audio-base/audio-support.chunk.js';
-import '../../../core/ui/views/view-manager.chunk.js';
-import '../../../core/ui/panel-support.chunk.js';
-import '../../../core/ui/input/input-support.chunk.js';
-import '../../../core/ui/navigation-tray/model-navigation-tray.chunk.js';
-import '../../../core/ui/input/action-handler.js';
-import '../../../core/ui/utilities/utilities-update-gate.chunk.js';
-import '../../../core/ui/utilities/utilities-image.chunk.js';
-import '../../../core/ui/utilities/utilities-component-id.chunk.js';
-
-const content = "<fxs-frame class=\"general-chooser-frame\">\r\n\t<div class=\"primary-window\">\r\n\t\t<fxs-vslot>\r\n\t\t\t<fxs-scrollable class=\"belief-chooser-scroll\">\r\n\t\t\t\t<fxs-vslot class=\"belief-chooser__content gen-chooser-content\"> </fxs-vslot>\r\n\t\t\t</fxs-scrollable>\r\n\t\t\t<fxs-button\r\n\t\t\t\tclass=\"belief-confirm-button\"\r\n\t\t\t\tcaption=\"LOC_UI_BELIEF_CHOOSER_CONFIRM\"\r\n\t\t\t></fxs-button>\r\n\t\t</fxs-vslot>\r\n\t</div>\r\n</fxs-frame>\r\n";
-
-const styles = "fs://game/age-exploration/ui/belief-chooser/screen-belief-chooser.css";
+import content from './screen-belief-chooser.html.js';
+import styles from './screen-belief-chooser.scss.js';
 
 class ScreenBeliefChooser extends ScreenGeneralChooser {
   chosenBelief = null;

@@ -1,38 +1,16 @@
-import { D as DropdownSelectionChangeEventName } from '../../components/fxs-dropdown.chunk.js';
+import { DropdownSelectionChangeEventName } from '../../components/fxs-dropdown.js';
 import ContextManager from '../../context-manager/context-manager.js';
-import { a as DialogBoxManager, D as DialogBoxAction } from '../../dialog-box/manager-dialog-box.chunk.js';
-import { F as Focus } from '../../input/focus-support.chunk.js';
-import { N as NavTray } from '../../navigation-tray/model-navigation-tray.chunk.js';
-import { P as Panel, A as AnchorType } from '../../panel-support.chunk.js';
-import { a as MPFriendsModel } from './model-mp-friends.chunk.js';
+import { DialogBoxManager } from '../../dialog-box/manager-dialog-box.js';
+import { Focus } from '../../input/focus-support.js';
+import NavTray from '../../navigation-tray/model-navigation-tray.js';
+import Panel, { AnchorType } from '../../panel-support.js';
+import MPFriendsModel from './model-mp-friends.js';
 import { TabNames, TabNameTypes } from './mp-friends.js';
-import { MustGetElement } from '../../utilities/utilities-dom.chunk.js';
+import { MustGetElement } from '../../utilities/utilities-dom.js';
+import { NetworkUtilities } from '../../utilities/utilities-network.js';
 import { abuseReasonToName, abuseReasonToTooltip } from '../../utilities/utilities-online.js';
-import '../../audio-base/audio-support.chunk.js';
-import '../../components/fxs-activatable.chunk.js';
-import '../../input/focus-manager.js';
-import '../../framework.chunk.js';
-import '../../input/action-handler.js';
-import '../../input/cursor.js';
-import '../../views/view-manager.chunk.js';
-import '../../input/input-support.chunk.js';
-import '../../utilities/utilities-update-gate.chunk.js';
-import '../../context-manager/display-queue-manager.js';
-import '../../components/fxs-slot.chunk.js';
-import '../../spatial/spatial-manager.js';
-import '../../utilities/utilities-image.chunk.js';
-import '../../utilities/utilities-component-id.chunk.js';
-import '../../social-notifications/social-notifications-manager.js';
-import '../../utilities/utilities-layout.chunk.js';
-import '../../utilities/utilities-liveops.js';
-import '../../utilities/utilities-network.js';
-import '../mp-legal/mp-legal.js';
-import '../../events/shell-events.chunk.js';
-import '../../utilities/utilities-network-constants.chunk.js';
-
-const content = "<fxs-frame class=\"mp-friends-options-frame\">\r\n\t<fxs-vslot class=\"main-container\">\r\n\t\t<div class=\"leader-portrait\"></div>\r\n\t\t<fxs-button\r\n\t\t\tclass=\"view-profile\"\r\n\t\t\tcaption=\"LOC_UI_MP_PLAYER_OPTIONS_VIEW_PROFILE\"\r\n\t\t></fxs-button>\r\n\t\t<fxs-button\r\n\t\t\tclass=\"invite-to-join\"\r\n\t\t\tcaption=\"LOC_UI_MP_PLAYER_OPTIONS_INVITE_FRIEND\"\r\n\t\t></fxs-button>\r\n\t\t<fxs-button\r\n\t\t\tclass=\"add-friend\"\r\n\t\t\tcaption=\"LOC_UI_MP_PLAYER_OPTIONS_ADD_T2GP_FRIEND\"\r\n\t\t></fxs-button>\r\n\t\t<fxs-button\r\n\t\t\tclass=\"cancel-friend-request\"\r\n\t\t\tcaption=\"LOC_UI_MP_PLAYER_OPTIONS_CANCEL_T2GP_FRIEND_REQUEST\"\r\n\t\t></fxs-button>\r\n\t\t<fxs-button\r\n\t\t\tclass=\"accept-friend-request\"\r\n\t\t\tcaption=\"LOC_UI_MP_PLAYER_OPTIONS_ACCEPT_T2GP_FRIEND_REQUEST\"\r\n\t\t></fxs-button>\r\n\t\t<fxs-button\r\n\t\t\tclass=\"decline-friend-request\"\r\n\t\t\tcaption=\"LOC_UI_MP_PLAYER_OPTIONS_DECLINE_T2GP_FRIEND_REQUEST\"\r\n\t\t></fxs-button>\r\n\t\t<fxs-button\r\n\t\t\tclass=\"accept-game-invite\"\r\n\t\t\tcaption=\"LOC_UI_MP_PLAYER_OPTIONS_ACCEPT_T2GP_GAME_INVITE_REQUEST\"\r\n\t\t></fxs-button>\r\n\t\t<fxs-button\r\n\t\t\tclass=\"decline-game-invite\"\r\n\t\t\tcaption=\"LOC_UI_MP_PLAYER_OPTIONS_DECLINE_T2GP_GAME_INVITE_REQUEST\"\r\n\t\t></fxs-button>\r\n\t\t<fxs-button\r\n\t\t\tclass=\"block\"\r\n\t\t\tcaption=\"LOC_UI_MP_PLAYER_OPTIONS_BLOCK\"\r\n\t\t></fxs-button>\r\n\t\t<fxs-button\r\n\t\t\tclass=\"unblock\"\r\n\t\t\tcaption=\"LOC_UI_MP_PLAYER_OPTIONS_UNBLOCK\"\r\n\t\t></fxs-button>\r\n\t\t<fxs-button\r\n\t\t\tclass=\"remove-friend\"\r\n\t\t\tcaption=\"LOC_UI_MP_PLAYER_OPTIONS_REMOVE_FRIEND\"\r\n\t\t></fxs-button>\r\n\t\t<fxs-button\r\n\t\t\tclass=\"report\"\r\n\t\t\tcaption=\"LOC_UI_MP_PLAYER_OPTIONS_REPORT\"\r\n\t\t></fxs-button>\r\n\t\t<fxs-button\r\n\t\t\tclass=\"kick\"\r\n\t\t\tcaption=\"LOC_UI_MP_PLAYER_OPTIONS_KICK\"\r\n\t\t></fxs-button>\r\n\t\t<fxs-button\r\n\t\t\tclass=\"mute\"\r\n\t\t\tcaption=\"LOC_UI_MP_PLAYER_OPTIONS_MUTE\"\r\n\t\t></fxs-button>\r\n\t\t<fxs-button\r\n\t\t\tclass=\"unmute\"\r\n\t\t\tcaption=\"LOC_UI_MP_PLAYER_OPTIONS_UNMUTE\"\r\n\t\t></fxs-button>\r\n\t</fxs-vslot>\r\n\t<fxs-close-button></fxs-close-button>\r\n</fxs-frame>\r\n<fxs-model-frame\r\n\tclass=\"mp-options-popup absolute flex flex-col max-w-full max-h-full min-w-187 pointer-events-auto img-modal-frame p-8 self-center hidden\"\r\n>\r\n\t<div class=\"absolute top-2 left-2 bottom-0 w-1\\/2 img-frame-filigree pointer-events-none\"></div>\r\n\t<div class=\"absolute top-2 right-2 bottom-0 w-1\\/2 rotate-y-180 img-frame-filigree pointer-events-none\"></div>\r\n\t<fxs-vslot class=\"items-center\">\r\n\t\t<div\r\n\t\t\tclass=\"font-title text-secondary text-2xl\"\r\n\t\t\tdata-l10n-id=\"LOC_UI_MP_REPORT_PLAYER_TITLE\"\r\n\t\t></div>\r\n\t\t<div class=\"filigree-divider-h2 w-64 h-8\"></div>\r\n\t\t<div\r\n\t\t\tclass=\"font-body text-primary-1 text mb-12\"\r\n\t\t\tdata-l10n-id=\"LOC_UI_MP_REPORT_PLAYER_BODY\"\r\n\t\t></div>\r\n\t\t<fxs-vslot class=\"mp-options-popup-button-container\"> </fxs-vslot>\r\n\t</fxs-vslot>\r\n</fxs-model-frame>\r\n";
-
-const styles = "fs://game/core/ui/shell/mp-staging/mp-friends-options.css";
+import content from './mp-friends-options.html.js';
+import { DialogBoxAction } from '../../dialog-box/model-dialog-box.js';
 
 var SocialButtonTypes = /* @__PURE__ */ ((SocialButtonTypes2) => {
   SocialButtonTypes2[SocialButtonTypes2["VIEW_PROFILE"] = 0] = "VIEW_PROFILE";
@@ -126,6 +104,23 @@ class PanelMPFriendOptions extends Panel {
     false
     // unmute
   ];
+  buttonStrings = [
+    "LOC_UI_MP_PLAYER_OPTIONS_VIEW_PROFILE",
+    "LOC_UI_MP_PLAYER_OPTIONS_INVITE_FRIEND",
+    "LOC_UI_MP_PLAYER_OPTIONS_ADD_T2GP_FRIEND",
+    "LOC_UI_MP_PLAYER_OPTIONS_ACCEPT_T2GP_FRIEND_REQUEST",
+    "LOC_UI_MP_PLAYER_OPTIONS_CANCEL_T2GP_FRIEND_REQUEST",
+    "LOC_UI_MP_PLAYER_OPTIONS_DECLINE_T2GP_FRIEND_REQUEST",
+    "LOC_UI_MP_PLAYER_OPTIONS_ACCEPT_T2GP_GAME_INVITE_REQUEST",
+    "LOC_UI_MP_PLAYER_OPTIONS_DECLINE_T2GP_GAME_INVITE_REQUEST",
+    "LOC_UI_MP_PLAYER_OPTIONS_BLOCK",
+    "LOC_UI_MP_PLAYER_OPTIONS_UNBLOCK",
+    "LOC_UI_MP_PLAYER_OPTIONS_REMOVE_FRIEND",
+    "LOC_UI_MP_PLAYER_OPTIONS_REPORT",
+    "LOC_UI_MP_PLAYER_OPTIONS_KICK",
+    "LOC_UI_MP_PLAYER_OPTIONS_MUTE",
+    "LOC_UI_MP_PLAYER_OPTIONS_UNMUTE"
+  ];
   mainContainer;
   socialButtons = [];
   friendId1p = "";
@@ -149,8 +144,10 @@ class PanelMPFriendOptions extends Panel {
   onAttach() {
     super.onAttach();
     const frame = MustGetElement(".mp-friends-options-frame", this.Root);
-    const closeButton = MustGetElement("fxs-close-button", frame);
-    closeButton.setAttribute("data-audio-group-ref", "audio-mp-friends-popups");
+    const cancelButton = MustGetElement(".mp-friends-profile-cancel", this.Root);
+    const playerName = MustGetElement(".social-player-options-name", this.Root);
+    const playerIcon = MustGetElement(".social-player-options-icon", this.Root);
+    cancelButton.setAttribute("data-audio-group-ref", "audio-mp-friends-popups");
     const friendId1pAttribute = this.Root.getAttribute("friendId1p");
     if (friendId1pAttribute) {
       this.friendId1p = friendId1pAttribute;
@@ -278,7 +275,9 @@ class PanelMPFriendOptions extends Panel {
       this.setButtonActivate(0 /* VIEW_PROFILE */, true);
     }
     this.Root.addEventListener("engine-input", this.engineInputListener);
-    closeButton.addEventListener("action-activate", this.closeButtonListener);
+    cancelButton.addEventListener("action-activate", this.closeButtonListener);
+    playerIcon.style.backgroundImage = `url(${NetworkUtilities.getHostingTypeURL(this.platform) ?? ""})`;
+    playerName.innerHTML = this.getGamerTag();
   }
   addFriendInviteButtons(friendId) {
     if (Online.Social.isUserPendingFriend(friendId)) {
@@ -297,6 +296,14 @@ class PanelMPFriendOptions extends Panel {
     }
   }
   setButtonActivate(buttonType, buttonActive) {
+    this.socialButtons[buttonType].innerHTML = `
+		<div class="flex flex-col relative w-full px-1 py-3">
+			<div class="font-body mb-1 text-center"
+				data-l10n-id="${Locale.compose(this.buttonStrings[buttonType])}"
+			></div>
+			<div class="cap-chooser__keep-text font-body text-sm"></div>
+		</div>`;
+    this.socialButtons[buttonType].classList.add("mb-2");
     if (buttonActive) {
       this.socialButtons[buttonType].classList.remove("disabled");
       this.socialButtons[buttonType].classList.remove("hidden");
@@ -761,7 +768,6 @@ Controls.define("screen-mp-friends-options", {
   createInstance: PanelMPFriendOptions,
   description: "Create popup for Multiplayer Lobby Player Options.",
   classNames: ["mp-friends-options"],
-  styles: [styles],
   innerHTML: [content],
   attributes: [
     {

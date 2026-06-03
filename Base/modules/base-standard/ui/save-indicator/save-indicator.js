@@ -1,5 +1,4 @@
-import { P as Panel } from '../../../core/ui/panel-support.chunk.js';
-import '../../../core/ui/framework.chunk.js';
+import Panel from '../../../core/ui/panel-support.js';
 
 class SaveIndicator extends Panel {
   timeoutID = 0;

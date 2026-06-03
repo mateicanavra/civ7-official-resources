@@ -1,22 +1,13 @@
-import { A as Audio } from '../../../core/ui/audio-base/audio-support.chunk.js';
+import { Audio } from '../../../core/ui/audio-base/audio-support.js';
 import ContextManager from '../../../core/ui/context-manager/context-manager.js';
-import ActionHandler, { ActiveDeviceTypeChangedEventName } from '../../../core/ui/input/action-handler.js';
-import FocusManager from '../../../core/ui/input/focus-manager.js';
-import { N as NavTray } from '../../../core/ui/navigation-tray/model-navigation-tray.chunk.js';
-import { P as Panel } from '../../../core/ui/panel-support.chunk.js';
-import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.chunk.js';
-import { s as styles } from './tutorial-dialog.chunk.js';
-import '../../../core/ui/context-manager/display-queue-manager.js';
-import '../../../core/ui/dialog-box/manager-dialog-box.chunk.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/input/cursor.js';
-import '../../../core/ui/views/view-manager.chunk.js';
-import '../../../core/ui/input/input-support.chunk.js';
-import '../../../core/ui/utilities/utilities-update-gate.chunk.js';
-import '../../../core/ui/utilities/utilities-image.chunk.js';
-import '../../../core/ui/utilities/utilities-component-id.chunk.js';
-
-const content = "<div class=\"tutorial-dialog-content flex absolute fullscreen overflow-hidden\">\r\n\t<div class=\"tutorial-dialog-page-overlay absolute fullscreen\"></div>\r\n\t<div class=\"tutorial-dialog-pages relative flex flex-col size-full bg-cover bg-center bg-primary-5\">\r\n\t\t<div class=\"tutorial-dialog-pagination-container flex-col absolute w-full bottom-3 z-1\">\r\n\t\t\t<div class=\"w-full flex flex-row justify-center pt-7 pb-3\">\r\n\t\t\t\t<fxs-button class=\"tutorial-dialog-previous-button disabled mx-6\"></fxs-button>\r\n\t\t\t\t<fxs-button class=\"tutorial-dialog-next-button mx-6\"></fxs-button>\r\n\t\t\t</div>\r\n\t\t\t<div class=\"w-full p-2\">\r\n\t\t\t\t<div class=\"tutorial-dialog-counter justify-center flex-row flex\"></div>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t</div>\r\n\t<div class=\"absolute fullscreen\">\r\n\t\t<div class=\"tutorial-dialog-frame mt-6 ml-6 pointer-events-none size-full\"></div>\r\n\t</div>\r\n\t<div class=\"absolute fullscreen\">\r\n\t\t<div class=\"tutorial-dialog-frame -scale-x-100 mt-6 -ml-6 pointer-events-none size-full\"></div>\r\n\t</div>\r\n\t<div class=\"absolute fullscreen\">\r\n\t\t<div class=\"relative size-full\">\r\n\t\t\t<fxs-close-button></fxs-close-button>\r\n\t\t</div>\r\n\t</div>\r\n</div>\r\n";
+import ActionHandler from '../../../core/ui/input/action-handler.js';
+import { ActiveDeviceTypeChangedEventName } from '../../../core/ui/input/input-events.js';
+import NavTray from '../../../core/ui/navigation-tray/model-navigation-tray.js';
+import Panel from '../../../core/ui/panel-support.js';
+import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
+import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
+import content from './tutorial-dialog.html.js';
+import styles from './tutorial-dialog.scss.js';
 
 class LowerTutorialDialogEvent extends CustomEvent {
   constructor(itemID) {
@@ -95,6 +86,8 @@ class TutorialDialogPanel extends Panel {
     if (this.nextButton) {
       this.nextButton.setAttribute("caption", Locale.compose("LOC_TUTORIAL_NEXT_PAGE"));
       this.nextButton.setAttribute("data-audio-group-ref", "tutorial-intro");
+      this.nextButton.setAttribute("data-audio-focus-ref", "data-audio-focus");
+      this.nextButton.setAttribute("data-audio-press-ref", "data-audio-press");
       this.nextButton.setAttribute("data-audio-activate-ref", "none");
       this.nextButton.addEventListener("action-activate", (event) => {
         event.stopPropagation();
@@ -108,6 +101,8 @@ class TutorialDialogPanel extends Panel {
     if (this.previousButton) {
       this.previousButton.setAttribute("caption", Locale.compose("LOC_TUTORIAL_PREVIOUS_PAGE"));
       this.previousButton.setAttribute("data-audio-group-ref", "tutorial-intro");
+      this.previousButton.setAttribute("data-audio-focus-ref", "data-audio-focus");
+      this.previousButton.setAttribute("data-audio-press-ref", "data-audio-press");
       this.previousButton.setAttribute("data-audio-activate-ref", "none");
       this.previousButton.addEventListener("action-activate", (event) => {
         event.stopPropagation();
@@ -349,7 +344,7 @@ class TutorialDialogPanel extends Panel {
     }
     this.pagesReady++;
     if (this.pagesReady == this.pages.length) {
-      FocusManager.setFocus(this.Root);
+      FocusManager.get().setFocus(this.Root);
       this.open();
     } else if (this.pagesReady > this.pages.length) {
       console.warn(

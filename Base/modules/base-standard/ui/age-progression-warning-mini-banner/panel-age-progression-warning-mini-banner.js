@@ -1,18 +1,8 @@
-import { P as Panel } from '../../../core/ui/panel-support.chunk.js';
-import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.chunk.js';
-import { A as AgeProgressionMiniBannerShowEventName, a as AgeProgressionPopupManager } from '../age-progression-warning-popup/age-progression-warning-popup-manager.chunk.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/context-manager/context-manager.js';
-import '../../../core/ui/context-manager/display-queue-manager.js';
-import '../../../core/ui/dialog-box/manager-dialog-box.chunk.js';
-import '../../../core/ui/input/cursor.js';
-import '../../../core/ui/input/focus-manager.js';
-import '../../../core/ui/audio-base/audio-support.chunk.js';
-import '../../../core/ui/views/view-manager.chunk.js';
-
-const content = "<div class=\"progress-banner__container w-200 flex items-center justify-center\">\r\n\t<div class=\"progress-banner__text py-2 font-title font-bold uppercase text-shadow tracking-100\"></div>\r\n</div>\r\n";
-
-const styles = "fs://game/base-standard/ui/age-progression-warning-mini-banner/panel-age-progression-warning-mini-banner.css";
+import Panel from '../../../core/ui/panel-support.js';
+import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
+import AgeProgressionPopupManager, { AgeProgressionMiniBannerShowEventName } from '../age-progression-warning-popup/age-progression-warning-popup-manager.js';
+import content from './panel-age-progression-warning-mini-banner.html.js';
+import styles from './panel-age-progression-warning-mini-banner.scss.js';
 
 class PanelAgeProgressionWarningMiniBanner extends Panel {
   textElement;

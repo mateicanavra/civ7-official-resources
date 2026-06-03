@@ -1,17 +1,13 @@
 import ContextManager, { ContextManagerEvents } from '../../../core/ui/context-manager/context-manager.js';
-import { b as DisplayHandlerBase } from '../../../core/ui/dialog-box/manager-dialog-box.chunk.js';
+import { DisplayHandlerBase } from '../../../core/ui/context-manager/display-handler.js';
 import { DisplayQueueManager, DisplayHideReason } from '../../../core/ui/context-manager/display-queue-manager.js';
-import FocusManager from '../../../core/ui/input/focus-manager.js';
-import InputFilterManager from '../../../core/ui/input/input-filter.chunk.js';
-import { V as ViewManager } from '../../../core/ui/views/view-manager.chunk.js';
+import InputFilterManager from '../../../core/ui/input/input-filter.js';
+import ViewManager from '../../../core/ui/views/view-manager.js';
 import { VictoryQuestState } from '../quest-tracker/quest-item.js';
-import QuestTracker from '../quest-tracker/quest-tracker.js';
-import { L as LowerCalloutEvent, a as LowerQuestPanelEvent } from './tutorial-events.chunk.js';
+import { getQuestTracker } from '../quest-tracker/quest-tracker.js';
+import { TutorialCalloutInspectEvent, TutorialCalloutMinimizeEvent, LowerCalloutEvent, LowerQuestPanelEvent } from './tutorial-events.js';
 import TutorialItem, { TutorialLevel, TutorialItemState, TutorialAnchorPosition, TutorialAdvisorType, NextItemStatus } from './tutorial-item.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/input/cursor.js';
-import '../../../core/ui/audio-base/audio-support.chunk.js';
-import '../../../core/ui/panel-support.chunk.js';
+import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
 
 const DEBUG_LOG_AUTO_PLAY = false;
 const DEBUG_LOG_CALLOUTS = false;
@@ -21,12 +17,6 @@ const DEBUG_LOG_READ_WRITES = false;
 const DEBUG_LOG_COMPLETE_CALLS = false;
 const DEBUG_LOG_OBSOLETE_CALLS = false;
 const DATA_VERSION = 3;
-const TutorialCalloutMinimizeEventName = "callout-minimize";
-class TutorialCalloutMinimizeEvent extends CustomEvent {
-  constructor(bubbles) {
-    super(TutorialCalloutMinimizeEventName, { bubbles: false, cancelable: true, detail: { bubbles } });
-  }
-}
 class TutorialManagerClass extends DisplayHandlerBase {
   MAX_CALLOUT_CHECKBOX = 5;
   // max times the checkbox for deactivation is showing
@@ -87,6 +77,11 @@ class TutorialManagerClass extends DisplayHandlerBase {
   wasSuspended = false;
   isPendingShow = false;
   lastItemID = "";
+  get isInspecting() {
+    return this.callouts.some(
+      (c) => c.calloutElement?.querySelector(".tutorial-callout-content")?.classList.contains("track-input-change")
+    );
+  }
   _calloutBodyParams = [];
   _calloutAdvisorParams = [];
   set calloutBodyParams(value) {
@@ -178,6 +173,15 @@ class TutorialManagerClass extends DisplayHandlerBase {
           if (this.currentTutorialPopupData && this.currentTutorialPopupData.canMinimize) {
             window.dispatchEvent(new TutorialCalloutMinimizeEvent(true));
             return false;
+          }
+          break;
+        // this is here because the keyboard inspect sends the event to the window
+        // tutorial callouts are not a screen in the context manager so the event doesn't reach
+        case "keyboard-inspect-tooltip":
+        case "toggle-tooltip":
+          if (this.currentTutorialPopupData) {
+            window.dispatchEvent(new TutorialCalloutInspectEvent(true));
+            return true;
           }
           break;
       }
@@ -273,9 +277,10 @@ class TutorialManagerClass extends DisplayHandlerBase {
           this.unseenItems.splice(index, 1);
           this.completedItems.push(item);
           if (item.quest && item.quest.victory) {
-            QuestTracker.setQuestVictoryState(item.quest, VictoryQuestState.QUEST_COMPLETED);
-            QuestTracker.writeQuestVictory(item.quest);
-            QuestTracker.add(item.quest);
+            const questTracker = getQuestTracker();
+            questTracker.setQuestVictoryState(item.quest, VictoryQuestState.QUEST_COMPLETED);
+            questTracker.writeQuestVictory(item.quest);
+            questTracker.add(item.quest);
           }
           item.eState = TutorialItemState.Completed;
           break;
@@ -1029,9 +1034,12 @@ class TutorialManagerClass extends DisplayHandlerBase {
     for (let index = this.callouts.length - 1; index > -1; index--) {
       const callout = this.callouts[index];
       if (item == void 0 || callout.ID == item.ID) {
+        const focusManager = FocusManager.get();
         if (callout.calloutElement && callout.calloutElement.tagName.toLowerCase() == "tutorial-callout") {
-          FocusManager.unlockFocus(callout.calloutElement, "tutorial-callout");
-          if (!FocusManager.isWorldFocused()) {
+          if (focusManager.isFocusLocked()) {
+            focusManager.unlockFocus(focusManager.currentFocus(), "tutorial-callout");
+          }
+          if (!focusManager.isWorldFocused()) {
             ViewManager.getHarness()?.classList.add("trigger-nav-help");
           }
           callout.calloutElement.parentElement?.removeChild(callout.calloutElement);
@@ -1171,7 +1179,7 @@ class TutorialManagerClass extends DisplayHandlerBase {
       const questPanel = questPanels[index];
       const ID = questPanel.getAttribute("itemID");
       if (item == void 0 || ID && ID == item.ID) {
-        FocusManager.unlockFocus(questPanel, "tutorial-quest-panel");
+        FocusManager.get().unlockFocus(questPanel, "tutorial-quest-panel");
         ContextManager.pop("tutorial-quest-panel");
         this.callouts.splice(index, 1);
         this.currentTutorialPopupData = null;
@@ -1262,6 +1270,9 @@ class TutorialManagerClass extends DisplayHandlerBase {
     return this.activeItems[0] != void 0 ? this.activeItems[0] : this.getPersistentNode(this.lastItemID);
   }
   onActiveContextChanged() {
+    if (this.isInspecting) {
+      return;
+    }
     if (this.isSuspended()) {
       return;
     }
@@ -1894,7 +1905,8 @@ class TutorialManagerClass extends DisplayHandlerBase {
       }
     }
     if (item.quest) {
-      QuestTracker.remove(item.quest.id, item.quest.system);
+      const questTracker = getQuestTracker();
+      questTracker.remove(item.quest.id, item.quest.system);
     }
     if (item.highlightPlots) {
       this.clearHighlights();
@@ -2138,21 +2150,22 @@ class TutorialManagerClass extends DisplayHandlerBase {
       return false;
     }
     if (item.quest) {
+      const questTracker = getQuestTracker();
       if (item.quest.victory) {
         const overwriteItem = this.overwriteItems.find((overwrite) => overwrite.ID === item.ID);
         if (overwriteItem !== void 0 && overwriteItem.quest != void 0) {
-          QuestTracker.remove(item.ID, item.quest.system, { forceRemove: true });
+          questTracker.remove(item.ID, item.quest.system, { forceRemove: true });
         }
-        const oldQuest = QuestTracker.readQuestVictory(item.quest.id);
+        const oldQuest = questTracker.readQuestVictory(item.quest.id);
         const oldState = oldQuest.state;
         if (oldState) {
-          QuestTracker.setQuestVictoryState(item.quest, oldState);
+          questTracker.setQuestVictoryState(item.quest, oldState);
         } else {
-          QuestTracker.setQuestVictoryState(item.quest, VictoryQuestState.QUEST_UNSTARTED);
+          questTracker.setQuestVictoryState(item.quest, VictoryQuestState.QUEST_UNSTARTED);
         }
-        QuestTracker.writeQuestVictory(item.quest);
+        questTracker.writeQuestVictory(item.quest);
       }
-      QuestTracker.add(item.quest);
+      questTracker.add(item.quest);
       return true;
     }
     console.error(
@@ -2206,5 +2219,5 @@ class TutorialManagerClass extends DisplayHandlerBase {
 const TutorialManager = new TutorialManagerClass();
 DisplayQueueManager.registerHandler(TutorialManager);
 
-export { TutorialCalloutMinimizeEvent, TutorialCalloutMinimizeEventName, TutorialManager as default };
+export { TutorialManager as default };
 //# sourceMappingURL=tutorial-manager.js.map

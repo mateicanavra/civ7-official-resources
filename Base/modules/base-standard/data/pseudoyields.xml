@@ -23,7 +23,7 @@
     <Row PseudoYieldType="PSEUDOYIELD_UNLOCK_IDEOLOGIES" DefaultValue="1000"/>
     <Row PseudoYieldType="PSEUDOYIELD_IDEOLOGY_EARLY_PICK_PER_TIER" DefaultValue="1000"/>
     <Row PseudoYieldType="PSEUDOYIELD_UNIT_CLASS_PERCENT_PRODUCTION_BONUS" DefaultValue="10"/>
-    <Row PseudoYieldType="PSEUDOYIELD_UNIT_MOVEMENT_BONUS" DefaultValue="100"/>
+    <Row PseudoYieldType="PSEUDOYIELD_UNIT_MOVEMENT_BONUS" DefaultValue="20"/>
     <Row PseudoYieldType="PSEUDOYIELD_UNIT_ABILITY" DefaultValue="100"/>
     <Row PseudoYieldType="PSEUDOYIELD_LEADER_ATTRIBUTE_POINT_CULTURAL" DefaultValue="100"/>
     <Row PseudoYieldType="PSEUDOYIELD_LEADER_ATTRIBUTE_POINT_POLITICAL" DefaultValue="100"/>
@@ -42,6 +42,7 @@
     <Row PseudoYieldType="PSEUDOYIELD_STANDING_ARMY_COMMANDER" DefaultValue="50"/>
     <Row PseudoYieldType="PSEUDOYIELD_STANDING_ARMY_UNIT" DefaultValue="50"/>
     <Row PseudoYieldType="PSEUDOYIELD_STANDING_ARMY_COMBAT_VALUE" DefaultValue="10"/>
+	<Row PseudoYieldType="PSEUDOYIELD_WMD" DefaultValue="750"/>
     <Row PseudoYieldType="PSEUDOYIELD_GROWTH_FOOD" DefaultValue="1"/>
     <Row PseudoYieldType="PSEUDOYIELD_ENABLE_UNIT_EMBARKATION_INLAND" DefaultValue="10"/>
     <Row PseudoYieldType="PSEUDOYIELD_ENABLE_UNIT_EMBARKATION_SHALLOW" DefaultValue="50"/>
@@ -52,11 +53,17 @@
     <Row PseudoYieldType="PSEUDOYIELD_UNLOCK_PANTHEON" DefaultValue="400"/>
     <Row PseudoYieldType="PSEUDOYIELD_REPAIR_BONUS" DefaultValue="10000"/>
     <Row PseudoYieldType="PSEUDOYIELD_PARTIAL_CONSTRUCTION_BONUS" DefaultValue="1000"/>
-    <Row PseudoYieldType="PSEUDOYIELD_VICTORY_PROJECT" DefaultValue="1500"/>
+    <Row PseudoYieldType="PSEUDOYIELD_VICTORY_POINT_CULTURAL" DefaultValue="40"/>
+    <Row PseudoYieldType="PSEUDOYIELD_VICTORY_POINT_ECONOMIC" DefaultValue="20"/>
+    <Row PseudoYieldType="PSEUDOYIELD_VICTORY_POINT_MILITARY" DefaultValue="200"/>
+    <Row PseudoYieldType="PSEUDOYIELD_VICTORY_POINT_SCIENTIFIC" DefaultValue="100"/>
     <Row PseudoYieldType="PSEUDOYIELD_TOWN_TO_CITY_UPGRADE_PER_POPULATION" DefaultValue="150"/>
     <Row PseudoYieldType="PSEUDOYIELD_GREAT_PERSON" DefaultValue="2000"/>
     <Row PseudoYieldType="PSEUDOYIELD_GREAT_PERSON_VALUE_REDUCTION_PER" DefaultValue="600"/>
-    <Row PseudoYieldType="PSEUDOYIELD_ASSIGNED_FACTORY_RESOURCE" DefaultValue="1000"/>    
+    <Row PseudoYieldType="PSEUDOYIELD_ASSIGNED_FACTORY_RESOURCE" DefaultValue="1000"/>
+    <Row PseudoYieldType="PSEUDOYIELD_WONDER" DefaultValue="200"/>
+    <Row PseudoYieldType="PSEUDOYIELD_ADJACENT_UNCLAIMED_RESOURCE" DefaultValue="2"/>
+    <Row PseudoYieldType="PSEUDOYIELD_ADJACENT_UNCLAIMED_NATURAL_WONDER" DefaultValue="3"/>
     
     <!-- *********************************************************************************** -->
     <!-- Naval and air pseudoyields - debating whether this should be in base, or age-specific -->
@@ -66,6 +73,7 @@
     <Row PseudoYieldType="PSEUDOYIELD_STANDING_AIR_COMBAT_VALUE" DefaultValue="6"/>
     <Row PseudoYieldType="PSEUDOYIELD_STANDING_AIR_COMMANDER" DefaultValue="50"/>
     <Row PseudoYieldType="PSEUDOYIELD_STANDING_AIR_UNIT" DefaultValue="120"/>
+    <Row PseudoYieldType="PSEUDOYIELD_UNLOCK_SYNCRETISM" DefaultValue="20000"/>
 
     <!-- The value of those pseudoyields are computed dynamically. They should have a value of 1 so that biases can multiplicatively affect the dynamic value. -->
     <Row PseudoYieldType="PSEUDOYIELD_UNASSIGNED_WORKER" DefaultValue="1"/>
@@ -76,8 +84,8 @@
     <Row PseudoYieldType="PSEUDOYIELD_SETTLEMENT_CAP_INCREASE" DefaultValue="1"/>
     <Row PseudoYieldType="PSEUDOYIELD_TECH_MASTERY" DefaultValue="1"/>
     <Row PseudoYieldType="PSEUDOYIELD_CIVIC_MASTERY" DefaultValue="1"/>
-    <Row PseudoYieldType="PSEUDOYIELD_SLOT_CIV_UNIQUE_TRADITION" DefaultValue="1"/>
-    <Row PseudoYieldType="PSEUDOYIELD_UNLOCK_CIV_UNIQUE_TRADITION" DefaultValue="1"/>
+    <Row PseudoYieldType="PSEUDOYIELD_SLOT_CIV_UNIQUE_TRADITION" DefaultValue="50"/>
+    <Row PseudoYieldType="PSEUDOYIELD_UNLOCK_CIV_UNIQUE_TRADITION" DefaultValue="1000"/>
         
     <!-- Yield that is always worth 1. Used for scoring stuff that doesn't warrant its own pseudoyield while having a guaranteed scoring criteria. -->
     <Row PseudoYieldType="PSEUDOYIELD_BASIC_YIELD" DefaultValue="1"/>

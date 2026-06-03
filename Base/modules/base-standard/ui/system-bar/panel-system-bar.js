@@ -1,15 +1,9 @@
 import { DisplayQueueManager } from '../../../core/ui/context-manager/display-queue-manager.js';
 import { InterfaceMode } from '../../../core/ui/interface-modes/interface-modes.js';
-import { P as Panel, A as AnchorType } from '../../../core/ui/panel-support.chunk.js';
-import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.chunk.js';
-import '../../../core/ui/views/view-manager.chunk.js';
-import '../../../core/ui/input/focus-manager.js';
-import '../../../core/ui/audio-base/audio-support.chunk.js';
-import '../../../core/ui/framework.chunk.js';
-
-const content = "<fxs-hslot ignore-focus=\"true\">\r\n\t<div class=\"ps-content-wrapper\">\r\n\t\t<div\r\n\t\t\trole=\"paragraph\"\r\n\t\t\tclass=\"flex mr-10 font-title text-base pointer-events-auto\"\r\n\t\t>\r\n\t\t\t<div class=\"ps-turn-number\"></div>\r\n\t\t\t<div class=\"mx-2\">|</div>\r\n\t\t\t<div class=\"ps-turn-age\"></div>\r\n\t\t</div>\r\n\t\t<div\r\n\t\t\tid=\"ps-clock\"\r\n\t\t\trole=\"paragraph\"\r\n\t\t\tclass=\"font-title-base pointer-events-auto\"\r\n\t\t></div>\r\n\t\t<div\r\n\t\t\tid=\"ps-icons\"\r\n\t\t\tclass=\"ps-icon-container\"\r\n\t\t></div>\r\n\t</div>\r\n</fxs-hslot>\r\n";
-
-const styles = "fs://game/base-standard/ui/system-bar/panel-system-bar.css";
+import Panel, { AnchorType } from '../../../core/ui/panel-support.js';
+import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
+import content from './panel-system-bar.html.js';
+import styles from './panel-system-bar.scss.js';
 
 class PanelSystemBar extends Panel {
   joinCode = null;
@@ -28,6 +22,7 @@ class PanelSystemBar extends Panel {
   timeoutID = 0;
   currentTurnTimerDisplay = 0;
   joinCodeShowing = false;
+  shouldShowJoinCode = !UI.isGameCenterNetworkBuild() && !Configuration.getGame().isHotseat;
   constructor(root) {
     super(root);
     this.animateInType = this.animateOutType = AnchorType.RelativeToTopRight;
@@ -36,7 +31,7 @@ class PanelSystemBar extends Panel {
     const isMobileViewExperience = UI.getViewExperience() == UIViewExperience.Mobile;
     this.Root.classList.toggle("top-0", !isMobileViewExperience);
     this.Root.classList.toggle("top-1\\.5", isMobileViewExperience);
-    if (Configuration.getGame().isAnyMultiplayer) {
+    if (Configuration.getGame().isAnyMultiplayer && this.shouldShowJoinCode) {
       const content2 = this.Root.querySelector("fxs-hslot");
       if (!content2) {
         console.error("panel-system-bar: Could not find <fxs-hslot>.");
@@ -71,15 +66,17 @@ class PanelSystemBar extends Panel {
       const turnInfoJoinCode = document.createElement("div");
       turnInfoJoinCode.classList.value = "ps-turn-info game-code";
       turnInfoJoinCode.id = "ps-code-multiplayer";
+      const isMobile = UI.getViewExperience() == UIViewExperience.Mobile;
       this.joinCodeButton.classList.add(
         "ps-turn-multiplayer-code",
         "font-body",
-        "text-xs",
         "flex",
         "items-center",
         "transition-opacity",
         "opacity-0"
       );
+      this.joinCodeButton.classList.toggle("text-xs", !isMobile);
+      this.joinCodeButton.classList.toggle("text-base", isMobile);
       this.joinCodeButton.id = "ps-multiplayer-code";
       this.multiplayerStringCode = Network.getJoinCode();
       this.joinCodeButton.innerHTML = Locale.compose(
@@ -178,8 +175,19 @@ class PanelSystemBar extends Panel {
   }
   //update turn number and year
   updateTurnNumber() {
+    const ageInfo = GameInfo.Ages.lookup(Game.age);
+    if (!ageInfo) {
+      console.error("Panel-System-Bar, updateTurnNumber: Current Age Not Found");
+      return;
+    }
     const turnNumberElement = MustGetElement(".ps-turn-number", this.Root);
     const turnAgeElement = MustGetElement(".ps-turn-age", this.Root);
+    const turnAgeIconElement = MustGetElement(".ps-turn-age-icon", this.Root);
+    const ageType = ageInfo.AgeType;
+    const ageTypeIcon = UI.getIconCSS(`${ageType}`);
+    const ageTypeToolTip = Locale.compose(ageInfo.Name);
+    turnAgeIconElement.style.backgroundImage = ageTypeIcon;
+    turnAgeIconElement.setAttribute("data-tooltip-content", ageTypeToolTip);
     turnNumberElement.textContent = Locale.compose("LOC_ACTION_PANEL_CURRENT_TURN", Game.turn);
     turnAgeElement.textContent = Game.getTurnDate();
   }

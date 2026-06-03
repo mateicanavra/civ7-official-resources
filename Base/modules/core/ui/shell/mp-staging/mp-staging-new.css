@@ -61,3 +61,34 @@ panel-mp-lobby-chat .mp-staging__chat-panel {
 lobby-dropdown fxs-scrollable {
   width: 13.8888888889rem;
 }
+@media (experience: mobile) {
+  lobby-dropdown fxs-scrollable {
+    width: 17.2222222222rem;
+  }
+}
+
+@media (experience: mobile) {
+  .team-dropdown-and-divider icon-dropdown-item {
+    min-height: 2.2222222222rem;
+  }
+}
+
+@media (experience: mobile) {
+  .dropdown-and-divider .dropdownitem__icon {
+    width: 2.3333333333rem;
+    height: 2.3333333333rem;
+  }
+}
+
+@media (experience: mobile) {
+  .civ-dropdown-and-divider .dropdownitem__icon {
+    width: 2.3333333333rem;
+    height: 2.3333333333rem;
+  }
+}
+@media (experience: mobile) and (max-height: 55.5555555556rem) {
+  .civ-dropdown-and-divider .dropdownitem__icon {
+    margin-left: 2.4444444444rem;
+    margin-right: 0.2222222222rem;
+  }
+}

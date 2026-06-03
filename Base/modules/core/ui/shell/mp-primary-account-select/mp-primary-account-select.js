@@ -1,25 +1,11 @@
-import { a as DialogBoxManager, D as DialogBoxAction } from '../../dialog-box/manager-dialog-box.chunk.js';
-import { F as Focus } from '../../input/focus-support.chunk.js';
-import { N as NavTray } from '../../navigation-tray/model-navigation-tray.chunk.js';
-import { P as Panel } from '../../panel-support.chunk.js';
-import { MustGetElement } from '../../utilities/utilities-dom.chunk.js';
+import { DialogBoxManager } from '../../dialog-box/manager-dialog-box.js';
+import { Focus } from '../../input/focus-support.js';
+import NavTray from '../../navigation-tray/model-navigation-tray.js';
+import Panel from '../../panel-support.js';
+import { MustGetElement } from '../../utilities/utilities-dom.js';
 import { UnlockableRewardItems } from '../../utilities/utilities-liveops.js';
-import '../../context-manager/display-queue-manager.js';
-import '../../framework.chunk.js';
-import '../../components/fxs-slot.chunk.js';
-import '../../input/focus-manager.js';
-import '../../audio-base/audio-support.chunk.js';
-import '../../views/view-manager.chunk.js';
-import '../../spatial/spatial-manager.js';
-import '../../context-manager/context-manager.js';
-import '../../input/cursor.js';
-import '../../input/action-handler.js';
-import '../../input/input-support.chunk.js';
-import '../../utilities/utilities-update-gate.chunk.js';
-import '../../utilities/utilities-image.chunk.js';
-import '../../utilities/utilities-component-id.chunk.js';
-
-const content = "<fxs-modal-frame class=\"mp-primary-account-select__frame p-12\">\r\n\t<fxs-header\r\n\t\tclass=\"font-title text-center uppercase tracking-100 fxs-header text-gradient-secondary max-w-full\"\r\n\t\ttitle=\"LOC_UI_PRIMARY_ACCOUNT_SELECT_TITLE\"\r\n\t\tfiligree-style=\"h2\"\r\n\t></fxs-header>\r\n\t<fxs-vslot class=\"mp-primary-account-select__buttons-container mt-6\">\r\n\t\t<fxs-chooser-item class=\"mp-primary-account__current-primary-button w-full\">\r\n\t\t\t<div\r\n\t\t\t\tclass=\"mp-primary-account-select__primary-button-contents grow flow-column flex justify-stretch items-center\"\r\n\t\t\t>\r\n\t\t\t\t<div\r\n\t\t\t\t\tclass=\"mp-primary-account-select__primary-button-header mt-2 font-title text-accent-1 text-m text-header-4 tracking-100 whitespace-nowrap\"\r\n\t\t\t\t\tdata-l10n-id=\"LOC_UI_CURRENT_PRIMARY_ACCOUNT\"\r\n\t\t\t\t></div>\r\n\t\t\t\t<div class=\"mp-primary-account-select__primary-progression-container mt-3 w-96\">\r\n\t\t\t\t\t<div class=\"mp-primary-account-select__primary-account-info relative w-96\"></div>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t</fxs-chooser-item>\r\n\t\t<fxs-chooser-item class=\"mp-primary-account__current-platform-button w-full mt-2\">\r\n\t\t\t<div\r\n\t\t\t\tclass=\"mp-primary-account-select__platform-button-contents grow flow-column flex justify-stretch items-center\"\r\n\t\t\t>\r\n\t\t\t\t<div\r\n\t\t\t\t\tclass=\"mp-primary-account-select__platform-button-header mt-2 font-title text-accent-1 text-m text-header-4 tracking-100 whitespace-nowrap\"\r\n\t\t\t\t\tdata-l10n-id=\"LOC_UI_CURRENT_PLATFORM_ACCOUNT\"\r\n\t\t\t\t></div>\r\n\t\t\t\t<div class=\"mp-primary-account-select__platform-progression-container mt-3 w-96\">\r\n\t\t\t\t\t<div class=\"mp-primary-account-select__platform-account-info relative w-96\"></div>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t</fxs-chooser-item>\r\n\t</fxs-vslot>\r\n</fxs-modal-frame>\r\n";
+import content from './mp-primary-account-select.html.js';
+import { DialogBoxAction } from '../../dialog-box/model-dialog-box.js';
 
 class MpPrimaryAccountSelect extends Panel {
   //TODO: Have these structures populated with real info

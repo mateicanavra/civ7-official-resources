@@ -11,6 +11,7 @@
 	</Modifier>
 	<Modifier id="MOD_MO_TRADITION_SLOT" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_TRADITION_SLOTS" permanent="true">
 		<Argument name="Amount">1</Argument>
+		<Argument name="SlotType">POLICY_CULTURE_SLOT</Argument>
 		<String context="Description">LOC_MOD_MO_TRADITION_SLOT_DESCRIPTION</String>
 	</Modifier>
 	<Modifier id="MOD_MO_UNLOCK_IDEOLOGIES" collection="COLLECTION_OWNER" effect="EFFECT_DO_NOTHING">
@@ -25,7 +26,6 @@
 		<String context="Description">LOC_MOD_MO_FUTURE_CIVIC_ATTRIBUTE_DESCRIPTION</String>
 	</Modifier>
 	<Modifier id="MOD_MO_FUTURE_CIVIC_AGE_PROGRESS" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_AGE_PROGRESS" permanent="true" run-once="true">
-		<Argument name="Amount">10</Argument>
 		<Argument name="eventType">AGE_PROGRESSION_FUTURE_CIVIC</Argument>
 		<Argument name="HumanOnly">true</Argument>
 		<String context="Description">LOC_MOD_MO_FUTURE_CIVIC_AGE_PROGRESS_DESCRIPTION</String>
@@ -63,6 +63,7 @@
 	<Modifier id="MOD_COMMUNISM_AT_GUNS" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_GRANT_UNIT" permanent="true">
 		<Argument name="Amount">3</Argument>
 		<Argument name="UnitTag">UNIT_CLASS_RANGED</Argument>
+		<Argument name="DomainType">DOMAIN_LAND</Argument>
 		<String context="Description">LOC_MOD_COMMUNISM_AT_GUNS_DESCRIPTION</String>
 	</Modifier>
 	<Modifier id="MOD_COMMUNISM_EXPANSIONIST_ATTRIBUTE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ATTRIBUTE" permanent="true" run-once="true">
@@ -76,9 +77,11 @@
 		<String context="Description">LOC_CARD_AT_MOD_SCIENTIFIC_ATTRIBUTE_DESCRIPTION</String>
 	</Modifier>
 	<Modifier id="MOD_IDEOLOGY_FIRST_ADOPTER_SLOTS" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_TRADITION_SLOTS" permanent="true">
+		<Argument name="SlotType">POLICY_CULTURE_SLOT</Argument>
 		<Argument name="Amount">2</Argument>
 	</Modifier>
 	<Modifier id="MOD_IDEOLOGY_SECOND_ADOPTER_SLOTS" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_TRADITION_SLOTS" permanent="true">
+		<Argument name="SlotType">POLICY_CULTURE_SLOT</Argument>
 		<Argument name="Amount">1</Argument>
 	</Modifier>
 	<Modifier id="MOD_MO_ARTIFACT" collection="COLLECTION_OWNER" effect="EFFECT_GRANT_GREAT_WORK" run-once="true" permanent="true">
@@ -98,5 +101,31 @@
 		</SubjectRequirements>
 		<Argument name="Amount">1</Argument>
 		<String context="Description">LOC_MOD_MO_EXPLORER_SIGHT_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="MOD_MO_FUTURE_CIVIC_CULTURE_VP" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_VICTORY_TRACKER_POINTS" permanent="true">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_IS_MAJOR"/>
+		</SubjectRequirements>
+		<Argument name="VictoryType">VICTORY_CULTURE_MODERN</Argument>
+		<Argument name="Points">10</Argument>
+		<Argument name="ItemName">LOC_MO_FUTURE_CIVIC_NAME</Argument>
+		<Argument name="TypeData">FUTURE_CIVIC</Argument>
+		<String context="Description">LOC_FUTURE_CIVIC_MO_VP</String>
+	</Modifier>
+	<Modifier id="MOD_MO_CAPITALISM_RESOURCE_VP" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ACTIVATE_VICTORY_POINT_TRACKER" permanent="true">
+		<Argument name="TrackerName">VICTORY_TRACKER_IMPROVED_OIL_AND_COAL</Argument>
+		<String context="Description">LOC_CIVIC_CAPITALISM_RESOURCE_VP_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="MOD_MO_CAPITALISM_TOURISM_VP" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ACTIVATE_VICTORY_POINT_TRACKER">
+		<Argument name="TrackerName">VICTORY_TRACKER_TRADE_ROUTE_TOURISM</Argument>
+		<String context="Description">LOC_CIVIC_CAPITALISM_TOURISM_VP_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="MOD_MO_MILITARISM_GDP" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ACTIVATE_VICTORY_POINT_TRACKER">
+		<Argument name="TrackerName">VICTORY_TRACKER_SETTLEMENT_GDP</Argument>
+		<String context="Description">LOC_CIVIC_MILITARISM_VP_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="MOD_MO_RESORT_TOWN_VP" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ACTIVATE_VICTORY_POINT_TRACKER" run-once="true" permanent="true">
+		<Argument name="TrackerName">VICTORY_TRACKER_RESORT_TOWN_TOURISM_MODERN</Argument>
+		<String context="Description">LOC_CIVIC_GLOBALISM_RESTORT_TOWN_VP_DESCRIPTION</String>
 	</Modifier>
 </GameEffects>

@@ -1,23 +1,8 @@
-import { d as displayRequestUniqueId } from '../dialog-box/manager-dialog-box.chunk.js';
+import { displayRequestUniqueId } from '../context-manager/display-handler.js';
 import { DisplayQueueManager } from '../context-manager/display-queue-manager.js';
-import { F as Framework } from '../framework.chunk.js';
+import { Framework } from '../framework.js';
 import { LegalDocsPlacementAcceptName } from '../shell/mp-legal/mp-legal.js';
-import { a as abandonStrToErrorBody, b as abandonStrToErrorTitle } from './utilities-network-constants.chunk.js';
-import '../audio-base/audio-support.chunk.js';
-import '../context-manager/context-manager.js';
-import '../input/cursor.js';
-import '../input/focus-manager.js';
-import '../views/view-manager.chunk.js';
-import '../panel-support.chunk.js';
-import '../events/shell-events.chunk.js';
-import '../navigation-tray/model-navigation-tray.chunk.js';
-import '../input/action-handler.js';
-import '../input/input-support.chunk.js';
-import './utilities-update-gate.chunk.js';
-import './utilities-image.chunk.js';
-import './utilities-component-id.chunk.js';
-import './utilities-dom.chunk.js';
-import './utilities-liveops.js';
+import { abandonStrToErrorBody, abandonStrToErrorTitle } from './utilities-network-constants.js';
 
 const socialPanelErrorDialogId = displayRequestUniqueId();
 var NetworkUtilities;
@@ -69,6 +54,15 @@ var NetworkUtilities;
     return true;
   }
   NetworkUtilities2.areLegalDocumentsConfirmed = areLegalDocumentsConfirmed;
+  function isAccessAllowed(permissionType) {
+    const blockInfo = Network.getBlockedAccessInfo(permissionType);
+    return blockInfo.reason === BlockedAccessReason.NONE;
+  }
+  NetworkUtilities2.isAccessAllowed = isAccessAllowed;
+  function requiresAccountValidation(blockReason) {
+    return blockReason === BlockedAccessReason.ACCOUNT_NOT_LINKED || blockReason === BlockedAccessReason.ACCOUNT_INCOMPLETE || blockReason === BlockedAccessReason.NOT_LOGGED_IN;
+  }
+  NetworkUtilities2.requiresAccountValidation = requiresAccountValidation;
   function multiplayerAbandonReasonToPopup(reason) {
     const returnPopup = {
       title: "LOC_GAME_ABANDONED_CONNECTION_LOST_TITLE",
@@ -99,41 +93,16 @@ var NetworkUtilities;
     const isUserInput = true;
     const result = Network.triggerNetworkCheck(isUserInput);
     const isConnectedToNetwork = result.networkResult != NetworkResult.NETWORKRESULT_NO_NETWORK;
-    const connectedToNetwork = Network.isConnectedToNetwork();
-    const loggedIn = Network.isLoggedIn();
-    const fullyLinked = Network.isFullAccountLinked();
-    const childAccount = Network.isChildAccount();
-    const childPermissions = Network.isChildOnlinePermissionsGranted();
-    if (!isConnectedToNetwork || !connectedToNetwork) {
+    const blockInfo = Network.getBlockedAccessInfo(DNAPermissionType.PLAY_ONLINE);
+    if (!isConnectedToNetwork || blockInfo.reason !== BlockedAccessReason.NONE) {
       if (DisplayQueueManager.findAll(socialPanelErrorDialogId).length < 1) {
-        Framework.DialogManager.createDialog_Confirm({
-          body: Locale.compose("LOC_UI_NO_INTERNET_CONNECTION_TITLE"),
-          title: Locale.compose("LOC_UI_ACCOUNT_TITLE"),
-          dialogId: socialPanelErrorDialogId
-        });
-      }
-    } else if (!loggedIn) {
-      if (DisplayQueueManager.findAll(socialPanelErrorDialogId).length < 1) {
-        Framework.DialogManager.createDialog_Confirm({
-          body: Locale.compose("LOC_UI_OFFLINE_ACCOUNT_BODY"),
-          title: Locale.compose("LOC_UI_ACCOUNT_TITLE"),
-          dialogId: socialPanelErrorDialogId
-        });
-      }
-    } else if (!fullyLinked) {
-      if (DisplayQueueManager.findAll(socialPanelErrorDialogId).length < 1) {
-        Framework.DialogManager.createDialog_Confirm({
-          body: Locale.compose("LOC_UI_LINK_ACCOUNT_REQUIRED"),
-          title: Locale.compose("LOC_UI_ACCOUNT_TITLE"),
-          dialogId: socialPanelErrorDialogId
-        });
-      }
-    } else if (childAccount && !childPermissions) {
-      if (DisplayQueueManager.findAll(socialPanelErrorDialogId).length < 1) {
-        Framework.DialogManager.createDialog_Confirm({
-          body: Locale.compose("LOC_UI_PARENT_PERMISSION_REQUIRED"),
-          title: Locale.compose("LOC_UI_ACCOUNT_TITLE"),
-          dialogId: socialPanelErrorDialogId
+        Framework.ContextManager.push("screen-mp-account-permissions", {
+          singleton: true,
+          createMouseGuard: true,
+          attributes: {
+            "loc-key": blockInfo.locKey,
+            "block-reason": blockInfo.reason
+          }
         });
       }
     } else {

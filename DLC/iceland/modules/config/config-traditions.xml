@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- NOTE: These are copies - the real implementation should use a shared database -->
+<Database>
+	<!-- ========================== -->
+	<!-- Iceland -->
+	<!-- ========================== -->
+	<Traditions>
+		<Row TraditionType="TRADITION_DROTTKVAETT_I" Name="LOC_TRADITION_DROTTKVAETT_I_NAME" Description="LOC_TRADITION_DROTTKVAETT_I_DESCRIPTION" TraitType="TRAIT_ICELAND" AgeType="AGE_ANTIQUITY" CultureSlotType="TRADITION_CULTURE_SLOT"/>
+		<Row TraditionType="TRADITION_DROTTKVAETT_II" Name="LOC_TRADITION_DROTTKVAETT_II_NAME" Description="LOC_TRADITION_DROTTKVAETT_II_DESCRIPTION" TraitType="TRAIT_ICELAND" AgeType="AGE_EXPLORATION" CultureSlotType="TRADITION_CULTURE_SLOT" ObsoletesTraditionType="TRADITION_DROTTKVAETT_I"/>
+		<Row TraditionType="TRADITION_LYFSTEINN_I" Name="LOC_TRADITION_LYFSTEINN_I_NAME" Description="LOC_TRADITION_LYFSTEINN_I_DESCRIPTION" TraitType="TRAIT_ICELAND" AgeType="AGE_EXPLORATION" CultureSlotType="TRADITION_CULTURE_SLOT"/>
+		<Row TraditionType="TRADITION_LYFSTEINN_II" Name="LOC_TRADITION_LYFSTEINN_II_NAME" Description="LOC_TRADITION_LYFSTEINN_II_DESCRIPTION" TraitType="TRAIT_ICELAND" AgeType="AGE_MODERN" CultureSlotType="TRADITION_CULTURE_SLOT" ObsoletesTraditionType="TRADITION_LYFSTEINN_I"/>
+		<Row TraditionType="TRADITION_REIDI_GUDANNA" Name="LOC_TRADITION_REIDI_GUDANNA_NAME" Description="LOC_TRADITION_REIDI_GUDANNA_DESCRIPTION" TraitType="TRAIT_ICELAND" AgeType="AGE_EXPLORATION" CultureSlotType="TRADITION_CULTURE_SLOT"/>
+		<Row TraditionType="TRADITION_STRANDHOGG" Name="LOC_TRADITION_STRANDHOGG_NAME" Description="LOC_TRADITION_STRANDHOGG_DESCRIPTION" TraitType="TRAIT_ICELAND" AgeType="AGE_EXPLORATION" CultureSlotType="TRADITION_CULTURE_SLOT"/>
+		<Row TraditionType="TRADITION_ICELAND_SYNCRETISM_ANTIQUITY" Name="LOC_TRADITION_ICELAND_SYNCRETISM_ANTIQUITY_NAME" Description="LOC_TRADITION_ICELAND_SYNCRETISM_ANTIQUITY_DESCRIPTION" AgeType="AGE_ANTIQUITY" CultureSlotType="TRADITION_CULTURE_SLOT" TraitType="TRAIT_ICELAND" IgnoreInitializeUnlock="true" AllowInitializeAdvancedStart="true"/>
+		<Row TraditionType="TRADITION_ICELAND_SYNCRETISM_MODERN" Name="LOC_TRADITION_ICELAND_SYNCRETISM_MODERN_NAME" Description="LOC_TRADITION_ICELAND_SYNCRETISM_MODERN_DESCRIPTION" AgeType="AGE_MODERN" CultureSlotType="TRADITION_CULTURE_SLOT" TraitType="TRAIT_ICELAND" IgnoreInitializeUnlock="true" ObsoletesTraditionType="TRADITION_ICELAND_SYNCRETISM_ANTIQUITY" AllowInitializeAdvancedStart="true"/>
+	</Traditions>
+	<ProgressionTreeNodes>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_ICELAND_HUGINS_DREKKA" ProgressionTree="TREE_CIVICS_EX_ICELAND" Cost="1200" Name="LOC_CIVIC_HUGINS_DREKKA_NAME" IconString="cult_iceland"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_ICELAND_LANDNAMABOK" ProgressionTree="TREE_CIVICS_EX_ICELAND" Cost="800" Name="LOC_CIVIC_LANDNAMABOK_NAME" IconString="cult_iceland"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_ICELAND_VAERINGJAR" ProgressionTree="TREE_CIVICS_EX_ICELAND" Cost="1200" Name="LOC_CIVIC_VAERINGJAR_NAME" IconString="cult_iceland"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_ICELAND_ORIGINS" ProgressionTree="TREE_CIVICS_AQ_TEST_OF_TIME" Cost="150" Name="LOC_NODE_CIVIC_AQ_ICELAND_ORIGINS_NAME" IconString="cult_iceland"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_ICELAND_MODERNIZATION" ProgressionTree="TREE_CIVICS_MO_TEST_OF_TIME" Cost="2000" Name="LOC_NODE_CIVIC_MO_ICELAND_MODERNIZATION_NAME" IconString="cult_iceland"/>
+	</ProgressionTreeNodes>
+	<ProgressionTreeNodeUnlocks>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_ICELAND_HUGINS_DREKKA" TargetKind="KIND_TRADITION" TargetType="TRADITION_STRANDHOGG" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_ICELAND_LANDNAMABOK" TargetKind="KIND_TRADITION" TargetType="TRADITION_REIDI_GUDANNA" UnlockDepth="2"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_ICELAND_LANDNAMABOK" TargetKind="KIND_TRADITION" TargetType="TRADITION_DROTTKVAETT_II" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_ICELAND_VAERINGJAR" TargetKind="KIND_TRADITION" TargetType="TRADITION_LYFSTEINN_I" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_ICELAND_ORIGINS" TargetKind="KIND_TRADITION" TargetType="TRADITION_DROTTKVAETT_I" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_ICELAND_MODERNIZATION" TargetKind="KIND_TRADITION" TargetType="TRADITION_LYFSTEINN_II" UnlockDepth="1"/>
+	</ProgressionTreeNodeUnlocks>
+</Database>

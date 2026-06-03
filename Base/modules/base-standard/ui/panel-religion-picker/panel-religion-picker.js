@@ -1,41 +1,15 @@
-import { c as TextBoxTextEditStopEventName } from '../../../core/ui/components/fxs-textbox.chunk.js';
+import { TextBoxTextEditStopEventName } from '../../../core/ui/components/fxs-textbox.js';
 import ContextManager from '../../../core/ui/context-manager/context-manager.js';
-import { a as DialogBoxManager } from '../../../core/ui/dialog-box/manager-dialog-box.chunk.js';
+import { DialogBoxManager } from '../../../core/ui/dialog-box/manager-dialog-box.js';
 import ActionHandler from '../../../core/ui/input/action-handler.js';
-import FocusManager from '../../../core/ui/input/focus-manager.js';
-import { N as NavTray } from '../../../core/ui/navigation-tray/model-navigation-tray.chunk.js';
-import { D as Databind } from '../../../core/ui/utilities/utilities-core-databinding.chunk.js';
-import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.chunk.js';
+import NavTray from '../../../core/ui/navigation-tray/model-navigation-tray.js';
+import Databind from '../../../core/ui/utilities/utilities-core-databinding.js';
+import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
+import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
 import { ScreenGeneralChooser } from '../general-chooser/screen-general-chooser.js';
 import { HideMiniMapEvent } from '../mini-map/panel-mini-map.js';
-import '../../../core/ui/components/fxs-activatable.chunk.js';
-import '../../../core/ui/audio-base/audio-support.chunk.js';
-import '../../../core/ui/input/input-support.chunk.js';
-import '../../../core/ui/context-manager/display-queue-manager.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/input/cursor.js';
-import '../../../core/ui/views/view-manager.chunk.js';
-import '../../../core/ui/panel-support.chunk.js';
-import '../../../core/ui/utilities/utilities-update-gate.chunk.js';
-import '../../../core/ui/utilities/utilities-image.chunk.js';
-import '../../../core/ui/utilities/utilities-component-id.chunk.js';
-import '../../../core/ui/input/focus-support.chunk.js';
-import '../../../core/ui/components/fxs-slot.chunk.js';
-import '../../../core/ui/spatial/spatial-manager.js';
-import '../../../core/ui/lenses/lens-manager.chunk.js';
-import '../../../core/ui/shell/mp-staging/mp-friends.js';
-import '../../../core/ui/shell/mp-staging/model-mp-friends.chunk.js';
-import '../../../core/ui/social-notifications/social-notifications-manager.js';
-import '../../../core/ui/utilities/utilities-layout.chunk.js';
-import '../../../core/ui/utilities/utilities-liveops.js';
-import '../../../core/ui/utilities/utilities-network.js';
-import '../../../core/ui/shell/mp-legal/mp-legal.js';
-import '../../../core/ui/events/shell-events.chunk.js';
-import '../../../core/ui/utilities/utilities-network-constants.chunk.js';
-
-const content = "<fxs-subsystem-frame\r\n\tclass=\"religion-picker_religion-window items-center left-1\"\r\n\tbackDrop=\"fs://game/rel_starrybg.png\"\r\n>\r\n\t<fxs-header\r\n\t\tclass=\"religion-picker_header mt-3 tracking-150\"\r\n\t\ttitle=\"LOC_UI_RADIAL_MENU_DETAILS_RELIGION_TITLE\"\r\n\t\tdata-slot=\"header\"\r\n\t>\r\n\t</fxs-header>\r\n\t<div\r\n\t\tclass=\"flex items-center my-4 self-center\"\r\n\t\tdata-slot=\"header\"\r\n\t>\r\n\t\t<div class=\"relative flex mr-2 items-center justify-center\">\r\n\t\t\t<div\r\n\t\t\t\tclass=\"religion-picker_religion-info-icon-container_holder absolute bg-contain bg-no-repeat size-32\"\r\n\t\t\t></div>\r\n\t\t\t<div\r\n\t\t\t\tclass=\"religion-picker_religion-info-icon-container_religion relative mb-3 bg-contain bg-no-repeat size-24\"\r\n\t\t\t></div>\r\n\t\t\t<div\r\n\t\t\t\tclass=\"religion-picker_religion-info-icon-container_glow absolute size-full bg-contain bg-no-repeat hidden\"\r\n\t\t\t></div>\r\n\t\t</div>\r\n\t\t<div class=\"flex flex-col ml-4 mb-6\">\r\n\t\t\t<p\r\n\t\t\t\tclass=\"religion-picker_religion-name-regular font-title text-2xl\"\r\n\t\t\t\tdata-l10n-id=\"LOC_UI_ESTABLISH_RELIGION_TITLE\"\r\n\t\t\t></p>\r\n\t\t\t<div\r\n\t\t\t\tclass=\"religion-picker_religion-info-name-edit-container border border-primary-2 hover\\:border-secondary focus\\:border-secondary bg-primary-5 flex h-10 mt-1\\.25 pointer-events-auto hidden\"\r\n\t\t\t>\r\n\t\t\t\t<fxs-textbox\r\n\t\t\t\t\tclass=\"religion-picker_religion-info-name font-body pl-2 pr-1 text-base text-accent-2 w-80\"\r\n\t\t\t\t\thas-border=\"false\"\r\n\t\t\t\t\tmax-length=\"16\"\r\n\t\t\t\t></fxs-textbox>\r\n\t\t\t\t<fxs-edit-button\r\n\t\t\t\t\tclass=\"religion-picker_religion-info-name-edit hidden relative flex size-9 bg-contain bg-no-repeat bg-center mt-px\"\r\n\t\t\t\t></fxs-edit-button>\r\n\t\t\t</div>\r\n\t\t\t<p class=\"religion-picker_religion-info-founder-name font-body-sm text-accent-2\"></p>\r\n\t\t\t<p class=\"religion-picker_religion-info-city-name font-body-sm text-accent-2\"></p>\r\n\t\t</div>\r\n\t</div>\r\n\t<div class=\"religion-picker_religion-choices relative ml-6 mr-5 h-128\">\r\n\t\t<div class=\"filigree-inner-frame-top absolute top-0 inset-x-0\"></div>\r\n\t\t<fxs-spatial-slot class=\"religion-picker_religions flex flex-wrap bg-primary-5\"> </fxs-spatial-slot>\r\n\t</div>\r\n\t<div\r\n\t\tclass=\"mt-5 mb-12 flex items-center justify-center religion-picker_confirm-container\"\r\n\t\tdata-slot=\"footer\"\r\n\t>\r\n\t\t<fxs-hero-button\r\n\t\t\tclass=\"religion-picker_confirm relative self-center\"\r\n\t\t\tcaption=\"LOC_UI_RESOURCE_ALLOCATION_CONFIRM\"\r\n\t\t\tdisabled=\"true\"\r\n\t\t></fxs-hero-button>\r\n\t</div>\r\n</fxs-subsystem-frame>\r\n";
-
-const styles = "fs://game/base-standard/ui/panel-religion-picker/panel-religion-picker.css";
+import content from './panel-religion-picker.html.js';
+import styles from './panel-religion-picker.scss.js';
 
 class ScreenReligionPicker extends ScreenGeneralChooser {
   religionConfirmButtonListener = this.onConfirm.bind(this);
@@ -108,7 +82,9 @@ class ScreenReligionPicker extends ScreenGeneralChooser {
     super.onReceiveFocus();
     NavTray.addOrUpdateAccept("LOC_GENERIC_CONFIRM");
     const focusElement = MustGetElement(".religion-picker_religions", this.Root);
-    FocusManager.setFocus(focusElement);
+    waitForLayout(() => {
+      FocusManager.get().setFocus(focusElement);
+    });
   }
   getHolyCityName() {
     if (!this.playerObject.Cities) {
@@ -341,7 +317,7 @@ class ScreenReligionPicker extends ScreenGeneralChooser {
         this.religionInfoNameTextBox.setAttribute("enabled", "false");
         this.selectedReligionEntry?.classList.remove("entry-selected");
         const focusElement = MustGetElement(".religion-picker_religions", this.Root);
-        FocusManager.setFocus(focusElement);
+        FocusManager.get().setFocus(focusElement);
       }
     }
   }

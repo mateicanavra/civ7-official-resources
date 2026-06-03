@@ -1,4 +1,4 @@
-const styles = "fs://game/core/ui/progression-portrait/progression-portrait.css";
+import styles from './progression-portrait.scss.js';
 
 class ProgressionPortrait extends Component {
   portraitLevel = "base";

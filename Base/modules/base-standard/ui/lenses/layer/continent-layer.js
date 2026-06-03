@@ -1,6 +1,6 @@
-import { L as LensManager } from '../../../../core/ui/lenses/lens-manager.chunk.js';
+import LensManager from '../../../../core/ui/lenses/lens-manager.js';
 import PlotIconsManager from '../../../../core/ui/plot-icons/plot-icons-manager.js';
-import { O as OVERLAY_PRIORITY } from '../../utilities/utilities-overlay.chunk.js';
+import { OVERLAY_PRIORITY } from '../../utilities/utilities-overlay.js';
 
 const availableStyle = {
   style: "CultureBorder_Closed",
@@ -14,14 +14,11 @@ const ownedStyle = {
 };
 const CONTINENT_COLORS = [
   1291966711,
-  // 0x4d -> ~0.3 alpha
-  1293058559,
-  1506607213,
-  // 0x59 -> ~0.35 alpha
-  1291893581,
-  1724731392,
-  // 0x66 -> 0.4 alpha
-  1291911372
+  2005874688,
+  2011256480,
+  1711564050,
+  1724695389,
+  1711341953
 ];
 const ToggleContinentPanelEventName = "raise-continent-panel";
 class ToggleContinentPanelEvent extends CustomEvent {

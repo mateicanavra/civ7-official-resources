@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Database>
 	<Types>
-		<!-- Science Legacy Path -->
+		<!-- Science Victory -->
 		<Row Type="PROJECT_TRANS_OCEANIC_FLIGHT" Kind="KIND_PROJECT"/>
 		<Row Type="PROJECT_BREAK_SOUND_BARRIER" Kind="KIND_PROJECT"/>
 		<Row Type="PROJECT_LAUNCH_SATELLITE" Kind="KIND_PROJECT"/>
 		<Row Type="PROJECT_LAUNCH_ROCKET" Kind="KIND_PROJECT"/>
 		<Row Type="PROJECT_PRODUCE_WMD" Kind="KIND_PROJECT"/>
 		<Row Type="PROJECT_OPERATION_IVY" Kind="KIND_PROJECT"/>
+		<Row Type="PROJECT_CREWED_SPACE_FLIGHT_RESEARCH" Kind="KIND_PROJECT"/>
+		<Row Type="PROJECT_CREWED_SPACE_FLIGHT_PREP" Kind="KIND_PROJECT"/>
 		<!-- Warehouse Projects -->
 		<Row Type="PROJECT_TOWN_GRANARY" Kind="KIND_PROJECT"/>
 		<Row Type="PROJECT_TOWN_FISHING" Kind="KIND_PROJECT"/>
@@ -15,40 +17,48 @@
 		<!-- Common Projects -->
 		<Row Type="PROJECT_TOWN_FACTORY" Kind="KIND_PROJECT"/>
 		<Row Type="PROJECT_TOWN_INN" Kind="KIND_PROJECT"/>
+		<Row Type="PROJECT_TOWN_TRADE" Kind="KIND_PROJECT"/>
 		<!-- Unique Projects -->
 		<Row Type="PROJECT_CITY_SCIENCE_PROJECT" Kind="KIND_PROJECT"/>
 		<Row Type="PROJECT_CITY_CULTURE_PROJECT" Kind="KIND_PROJECT"/>
 	</Types>
 	<Projects>
-		<!-- Science Legacy Path -->
+		<!-- Science Victory -->
 		<Row ProjectType="PROJECT_TRANS_OCEANIC_FLIGHT" Name="LOC_PROJECT_TRANS_OCEANIC_FLIGHT_NAME" ShortName="LOC_PROJECT_TRANS_OCEANIC_FLIGHT_SHORT_NAME" Description="LOC_PROJECT_TRANS_OCEANIC_FLIGHT_DESCRIPTION" CityOnly="true" Cost="1000" PrereqConstructible="BUILDING_AIRFIELD" MaxPlayerInstances="1"/>
 		<Row ProjectType="PROJECT_BREAK_SOUND_BARRIER" Name="LOC_PROJECT_BREAK_SOUND_BARRIER_NAME" ShortName="LOC_PROJECT_BREAK_SOUND_BARRIER_SHORT_NAME" Description="LOC_PROJECT_BREAK_SOUND_BARRIER_DESCRIPTION" CityOnly="true" Cost="1000" PrereqConstructible="BUILDING_AIRFIELD" MaxPlayerInstances="1"/>
 		<Row ProjectType="PROJECT_LAUNCH_SATELLITE" Name="LOC_PROJECT_LAUNCH_SATELLITE_NAME" ShortName="LOC_PROJECT_LAUNCH_SATELLITE_SHORT_NAME" Description="LOC_PROJECT_LAUNCH_SATELLITE_DESCRIPTION" CityOnly="true" Cost="1000" PrereqConstructible="BUILDING_LAUNCH_PAD" MaxPlayerInstances="1"/>
 		<Row ProjectType="PROJECT_LAUNCH_ROCKET" Name="LOC_PROJECT_LAUNCH_ROCKET_NAME" ShortName="LOC_PROJECT_LAUNCH_ROCKET_SHORT_NAME" Description="LOC_PROJECT_LAUNCH_ROCKET_DESCRIPTION" CityOnly="true" Cost="3000" PrereqConstructible="BUILDING_LAUNCH_PAD" MaxPlayerInstances="1" ProjectVictoryCinematicLocation="PROJECT_VICTORY_CINEMATIC_PROJECT_CONSTRUCTIBLE_PREREQ_LOCATION" RequireCompletedLegacyPathType="LEGACY_PATH_MODERN_SCIENCE"/>
+		<Row ProjectType="PROJECT_CREWED_SPACE_FLIGHT_RESEARCH" Name="LOC_PROJECT_CREWED_SPACE_FLIGHT_RESEARCH_NAME" ShortName="LOC_PROJECT_CREWED_SPACE_FLIGHT_RESEARCH_NAME" Description="LOC_PROJECT_CREWED_SPACE_FLIGHT_RESEARCH_DESCRIPTION" PrereqConstructible="BUILDING_RADIO_STATION" CityOnly="true" Cost="1200" RequiresUnlock="false" MaxPlayerInstances="1"/>
+		<Row ProjectType="PROJECT_CREWED_SPACE_FLIGHT_PREP" Name="LOC_PROJECT_CREWED_SPACE_FLIGHT_PREP_NAME" ShortName="LOC_PROJECT_CREWED_SPACE_FLIGHT_PREP_NAME" Description="LOC_PROJECT_CREWED_SPACE_FLIGHT_PREP_DESCRIPTION" PrereqConstructible="BUILDING_LAUNCH_PAD" CityOnly="true" Cost="2000" RequiresUnlock="false"/>
 		<!-- Military Legacy Path -->
 		<Row ProjectType="PROJECT_PRODUCE_WMD" Name="LOC_PROJECT_PRODUCE_WMD_NAME" ShortName="LOC_PROJECT_PRODUCE_WMD_SHORT_NAME" Description="LOC_PROJECT_PRODUCE_WMD_DESCRIPTION" CityOnly="true" Cost="1000" PrereqConstructible="WONDER_MANHATTAN_PROJECT" MaxPlayerInstances="999" WMD="true" PrereqAnyCity="true"/>
-		<Row ProjectType="PROJECT_OPERATION_IVY" Name="LOC_PROJECT_OPERATION_IVY_NAME" ShortName="LOC_PROJECT_OPERATION_IVY_SHORT_NAME" Description="LOC_PROJECT_OPERATION_IVY_DESCRIPTION" CityOnly="true" Cost="2400" PrereqConstructible="WONDER_MANHATTAN_PROJECT" MaxPlayerInstances="1" ProjectVictoryCinematicLocation="PROJECT_VICTORY_CINEMATIC_PROJECT_CONSTRUCTIBLE_REMOTE_LOCATION" RequireCompletedLegacyPathType="LEGACY_PATH_MODERN_MILITARY" PrereqAnyCity="true"/>
+		<Row ProjectType="PROJECT_OPERATION_IVY" Name="LOC_PROJECT_OPERATION_IVY_NAME" ShortName="LOC_PROJECT_OPERATION_IVY_SHORT_NAME" Description="LOC_PROJECT_OPERATION_IVY_DESCRIPTION" CityOnly="true" Cost="2400" PrereqConstructible="WONDER_MANHATTAN_PROJECT" MaxPlayerInstances="1" PrereqAnyCity="true"/>
 		<!-- Warehouse Projects -->
 		<Row ProjectType="PROJECT_TOWN_GRANARY" Name="LOC_PROJECT_TOWN_GRANARY_NAME" ShortName="LOC_PROJECT_TOWN_GRANARY_SHORT_NAME" Description="LOC_PROJECT_TOWN_GRANARY_DESCRIPTION" Food="true" ExclusiveSpecialization="true" TownOnly="true" PrereqPopulation="7" RequiresUnlock="true"/>
 		<Row ProjectType="PROJECT_TOWN_FISHING" Name="LOC_PROJECT_TOWN_FISHING_NAME" ShortName="LOC_PROJECT_TOWN_FISHING_SHORT_NAME" Description="LOC_PROJECT_TOWN_FISHING_DESCRIPTION" Food="true" ExclusiveSpecialization="true" TownOnly="true" PrereqPopulation="7" RequiresUnlock="true"/>
 		<Row ProjectType="PROJECT_TOWN_PRODUCTION" Name="LOC_PROJECT_TOWN_PRODUCTION_NAME" ShortName="LOC_PROJECT_TOWN_PRODUCTION_SHORT_NAME" Description="LOC_PROJECT_TOWN_PRODUCTION_DESCRIPTION" Food="true" ExclusiveSpecialization="true" TownOnly="true" PrereqPopulation="7"/>
 		<!-- Common Projects -->
 		<Row ProjectType="PROJECT_TOWN_FACTORY" Name="LOC_PROJECT_TOWN_FACTORY_NAME" ShortName="LOC_PROJECT_TOWN_FACTORY_SHORT_NAME" Description="LOC_PROJECT_TOWN_FACTORY_DESCRIPTION" Food="true" ExclusiveSpecialization="true" TownOnly="true" PrereqPopulation="7" RequiresUnlock="true"/>
-		<Row ProjectType="PROJECT_TOWN_INN" Name="LOC_PROJECT_TOWN_INN_NAME" ShortName="LOC_PROJECT_TOWN_INN_SHORT_NAME" Description="LOC_PROJECT_TOWN_INN_DESCRIPTION" Food="true" ExclusiveSpecialization="true" TownOnly="true" PrereqPopulation="7"/>
+		<Row ProjectType="PROJECT_TOWN_INN" Name="LOC_PROJECT_TOWN_INN_NAME" ShortName="LOC_PROJECT_TOWN_INN_SHORT_NAME" Description="LOC_PROJECT_TOWN_INN_DESCRIPTION" Food="true" ExclusiveSpecialization="true" TownOnly="true" PrereqPopulation="7" MaxSpecializationInstancesOnContinent="1"/>
+		<Row ProjectType="PROJECT_TOWN_TRADE" Name="LOC_PROJECT_TOWN_TRADE_NAME" ShortName="LOC_PROJECT_TOWN_TRADE_SHORT_NAME" Description="LOC_PROJECT_TOWN_TRADE_DESCRIPTION" Food="true" ExclusiveSpecialization="true" TownOnly="true" PrereqPopulation="7"/>
+		<!-- Unique Projects -->
 		<!-- Unique Projects -->
 		<Row ProjectType="PROJECT_CITY_SCIENCE_PROJECT" Name="LOC_PROJECT_CITY_SCIENCE_PROJECT_NAME" ShortName="LOC_PROJECT_CITY_SCIENCE_PROJECT_SHORT_NAME" Description="LOC_PROJECT_CITY_SCIENCE_PROJECT_DESCRIPTION" Cost="400" CostProgressionModel="COST_PROGRESSION_PREVIOUS_COPIES" CostProgressionParam1="200" Food="false" CityOnly="true" RequiresUnlock="false"/>
 		<Row ProjectType="PROJECT_CITY_CULTURE_PROJECT" Name="LOC_PROJECT_CITY_CULTURE_PROJECT_NAME" ShortName="LOC_PROJECT_CITY_CULTURE_PROJECT_SHORT_NAME" Description="LOC_PROJECT_CITY_CULTURE_PROJECT_DESCRIPTION" Cost="400" CostProgressionModel="COST_PROGRESSION_PREVIOUS_COPIES" CostProgressionParam1="200" Food="false" CityOnly="true" RequiresUnlock="false"/>
 	</Projects>
 	<ProjectCompletionModifiers>
 		<Row ProjectType="PROJECT_PRODUCE_WMD" ModifierId="MOD_PRODUCE_WMD"/>
+		<Row ProjectType="PROJECT_OPERATION_IVY" ModifierId="MOD_OPERATION_IVY_BLAST_RADIUS"/>
 		<!-- Space Race Victory -->
-		<Row ProjectType="PROJECT_TRANS_OCEANIC_FLIGHT" ModifierId="MOD_TRANS_OCEANIC_FLIGHT_VP_FROM_PROJECT"/>
 		<Row ProjectType="PROJECT_TRANS_OCEANIC_FLIGHT" ModifierId="MOD_TRANS_OCEANIC_FLIGHT_REWARD_FROM_PROJECT"/>
-		<Row ProjectType="PROJECT_BREAK_SOUND_BARRIER" ModifierId="MOD_BREAK_SOUND_BARRIER_VP_FROM_PROJECT"/>
+		<Row ProjectType="PROJECT_TRANS_OCEANIC_FLIGHT" ModifierId="MOD_TRANS_OCEANIC_FLIGHT_VP"/>
 		<Row ProjectType="PROJECT_BREAK_SOUND_BARRIER" ModifierId="MOD_BREAK_SOUND_BARRIER_ADJUST_COMBAT_STRENGTH"/>
-		<Row ProjectType="PROJECT_LAUNCH_SATELLITE" ModifierId="MOD_LAUNCH_SATELLITE_VP_FROM_PROJECT"/>
+		<Row ProjectType="PROJECT_BREAK_SOUND_BARRIER" ModifierId="MOD_BREAK_SOUND_BARRIER_VP"/>
 		<Row ProjectType="PROJECT_LAUNCH_SATELLITE" ModifierId="MOD_LAUNCH_SATELLITE_REWARD_FROM_PROJECT"/>
+		<Row ProjectType="PROJECT_LAUNCH_SATELLITE" ModifierId="MOD_LAUNCH_SATELLITE_VP"/>
 		<Row ProjectType="PROJECT_LAUNCH_ROCKET" ModifierId="MOD_LAUNCH_ROCKET_VP_FROM_PROJECT"/>
+		<Row ProjectType="PROJECT_CREWED_SPACE_FLIGHT_RESEARCH" ModifierId="MOD_CREWED_SPACE_FLIGHT_RESEARCH_VP"/>
+		<Row ProjectType="PROJECT_CREWED_SPACE_FLIGHT_PREP" ModifierId="MOD_CREWED_SPACE_FLIGHT_PREPERATION_VP"/>
 	</ProjectCompletionModifiers>
 	<ProjectModifiers>
 		<!-- Warehouse Modifiers -->
@@ -58,6 +68,7 @@
 		<!-- Common Project Modifiers -->
 		<Row ProjectType="PROJECT_TOWN_FACTORY" ModifierId="FACTORY_MODS_FROM_PROJECT"/>
 		<Row ProjectType="PROJECT_TOWN_INN" ModifierId="INFLUENCE_ON_INNS_IN_CITY_FROM_PROJECT"/>
+		<Row ProjectType="PROJECT_TOWN_TRADE" ModifierId="HAPPINESS_WAREHOUSE_IN_CITY_FROM_PROJECT"/>
 	</ProjectModifiers>
 	<Project_YieldConversions>
 		<!-- Unique Projects -->

@@ -1,36 +1,11 @@
-import FocusManager from '../../../core/ui/input/focus-manager.js';
-import { b as InputEngineEventName } from '../../../core/ui/input/input-support.chunk.js';
-import { N as NavTray } from '../../../core/ui/navigation-tray/model-navigation-tray.chunk.js';
-import { P as Panel, A as AnchorType } from '../../../core/ui/panel-support.chunk.js';
-import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.chunk.js';
+import { InputEngineEventName } from '../../../core/ui/input/input-support.js';
+import NavTray from '../../../core/ui/navigation-tray/model-navigation-tray.js';
+import Panel, { AnchorType } from '../../../core/ui/panel-support.js';
+import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
+import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
 import DiplomacyManager from '../diplomacy/diplomacy-manager.js';
-import '../../../core/ui/audio-base/audio-support.chunk.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/input/action-handler.js';
-import '../../../core/ui/input/cursor.js';
-import '../../../core/ui/views/view-manager.chunk.js';
-import '../../../core/ui/utilities/utilities-update-gate.chunk.js';
-import '../../../core/ui/utilities/utilities-image.chunk.js';
-import '../../../core/ui/utilities/utilities-component-id.chunk.js';
-import '../../../core/ui/context-manager/context-manager.js';
-import '../../../core/ui/context-manager/display-queue-manager.js';
-import '../../../core/ui/dialog-box/manager-dialog-box.chunk.js';
-import '../../../core/ui/interface-modes/interface-modes.js';
-import '../diplomacy/diplomacy-events.js';
-import '../../../core/ui/utilities/utilities-layout.chunk.js';
-import '../world-input/world-input.js';
-import '../../../core/ui/input/plot-cursor.js';
-import '../../../core/ui/utilities/utilities-network.js';
-import '../../../core/ui/shell/mp-legal/mp-legal.js';
-import '../../../core/ui/events/shell-events.chunk.js';
-import '../../../core/ui/utilities/utilities-liveops.js';
-import '../../../core/ui/utilities/utilities-network-constants.chunk.js';
-import '../interface-modes/support-unit-map-decoration.chunk.js';
-import '../utilities/utilities-overlay.chunk.js';
-
-const content = "<fxs-vslot class=\"diplomacy-action-details-root-vslot min-w-200\">\r\n\t<fxs-frame\r\n\t\tclass=\"title-progress-bar-frame\"\r\n\t\tframe-style=\"f2\"\r\n\t\toverride-styling=\"relative flex max-w-full max-h-full p-8\"\r\n\t\tfiligree-class=\"hidden\"\r\n\t>\r\n\t\t<fxs-vslot class=\"title-progress-bar-container items-center\"></fxs-vslot>\r\n\t</fxs-frame>\r\n\t<fxs-frame\r\n\t\tclass=\"action-content-frame\"\r\n\t\tframe-style=\"f2\"\r\n\t\toverride-styling=\"relative flex max-w-full max-h-full p-8 -mt-6\"\r\n\t\tfiligree-class=\" hidden\"\r\n\t>\r\n\t\t<fxs-header\r\n\t\t\tclass=\"uppercase\"\r\n\t\t\ttitle=\"LOC_DIPLOMACY_ACTIONS\"\r\n\t\t\tfiligree-style=\"h4\"\r\n\t\t></fxs-header>\r\n\t\t<fxs-hslot class=\"diplomacy-yield-container justify-center mb-2\">\r\n\t\t\t<img\r\n\t\t\t\tsrc=\"fs://game/yield_influence\"\r\n\t\t\t\tclass=\"relative size-8\"\r\n\t\t\t/>\r\n\t\t\t<div\r\n\t\t\t\tclass=\"screen-diplomacy-action-details__accumulated-influence relative flex items-center font-title text-base\"\r\n\t\t\t></div>\r\n\t\t</fxs-hslot>\r\n\t\t<fxs-hslot class=\"your-war-content-container\"></fxs-hslot>\r\n\t\t<fxs-hslot class=\"support-war-content-container hidden justify-between\"></fxs-hslot>\r\n\t</fxs-frame>\r\n\t<fxs-close-button class=\"absolute right-1 top-1\"></fxs-close-button>\r\n</fxs-vslot>\r\n";
-
-const styles = "fs://game/base-standard/ui/diplomacy-action-details/screen-diplomacy-action-details.css";
+import content from './screen-diplomacy-action-details.html.js';
+import styles from './screen-diplomacy-action-details.scss.js';
 
 class DiplomacyActionDetailsScreen extends Panel {
   supportChangedListener = (data) => {
@@ -1377,10 +1352,10 @@ class DiplomacyActionDetailsScreen extends Panel {
     );
     const focusElement = availableElements.find((element) => !element?.classList.contains("disabled")) ?? availableElements.find(() => true);
     if (focusElement) {
-      FocusManager.setFocus(focusElement);
+      FocusManager.get().setFocus(focusElement);
     } else {
       if (this.yourWarContentContainer) {
-        FocusManager.setFocus(this.yourWarContentContainer);
+        FocusManager.get().setFocus(this.yourWarContentContainer);
       }
     }
   }

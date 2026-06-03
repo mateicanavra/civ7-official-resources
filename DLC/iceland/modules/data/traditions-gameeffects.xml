@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <GameEffects xmlns="GameEffects">
+	<Modifier id="MOD_UNLOCK_ICELAND_SYNCRETISM_ANTIQUITY" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
+		<Argument name="Tradition">TRADITION_ICELAND_SYNCRETISM_ANTIQUITY</Argument>
+	</Modifier>
+	<Modifier id="MOD_UNLOCK_ICELAND_SYNCRETISM_MODERN" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
+		<Argument name="Tradition">TRADITION_ICELAND_SYNCRETISM_MODERN</Argument>
+	</Modifier>
 	<!-- ==================================================	-->
 	<!--	EXPLORATION							-->
 	<!-- ==================================================	-->
-	<Modifier id="DREKAHOFUD_NAVAL_UNIT_CULTURE" collection="COLLECTION_OWNER" effect="TRIGGER_PLAYER_GRANT_YIELD_ON_UNIT_CREATED">
-		<Argument name="Combat">true</Argument>
-		<Argument name="UnitTags">UNIT_CLASS_NAVAL</Argument>
-		<Argument name="YieldType">YIELD_CULTURE</Argument>
-		<Argument name="PercentCost">25</Argument>
-		<String context="WorldText">LOC_WORLD_CULTURE_INCREASE_FLOATER</String>
-		<String context="Description">LOC_TRADITION_DREKAHOFUD_DESCRIPTION</String>
-	</Modifier>
 	<Modifier id="REIDI_GUDANNA_MOD_VOLCANO_ADJACENCY" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ACTIVATE_CONSTRUCTIBLE_ADJACENCY">
 		<Argument name="ConstructibleAdjacency">ReidiGudannaVolcanoCulture, ReidiGudannaVolcanoProduction, ReidiGudannaNWCulture, ReidiGudannaNWProduction</Argument>
 		<String context="Description">LOC_TRADITION_REIDI_GUDANNA_DESCRIPTION</String>
@@ -26,7 +24,7 @@
 		</SubjectRequirements>
 		<Argument name="Amount">10</Argument>
 		<Argument name="TerritoryTypes">NEUTRAL_TERRITORY, ENEMY_TERRITORY</Argument>
-		<String context="Description">LOC_TRADITION_LYFSTEINN_DESCRIPTION</String>
+		<String context="Description">LOC_TRADITION_LYFSTEINN_I_DESCRIPTION</String>
 	</Modifier>
 	<Modifier id="MOD_DROTTKVAETT_COASTAL_RAID_CULTURE" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ADJUST_UNIT_COASTAL_RAID_YIELD_MODIFIER">
 		<SubjectRequirements>
@@ -36,6 +34,63 @@
 		</SubjectRequirements>
 		<Argument name="PlunderTypes">PLUNDER_CULTURE</Argument>
 		<Argument name="Percent">50</Argument>
-		<String context="Description">LOC_TRADITION_DROTTKVAETT_DESCRIPTION</String>
+		<String context="Description">LOC_TRADITION_DROTTKVAETT_II_DESCRIPTION</String>
+	</Modifier>
+		<!-- ==================================================	-->
+		<!--	TEST OF TIME								-->
+		<!-- ==================================================	-->
+	<Modifier id="MOD_DROTTKVAETT_I_COASTAL_RAID_CULTURE" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ADJUST_UNIT_COASTAL_RAID_YIELD_MODIFIER">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+				<Argument name="Tag">UNIT_CLASS_NAVAL</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="PlunderTypes">PLUNDER_CULTURE</Argument>
+		<Argument name="Percent">25</Argument>
+	</Modifier>
+	<Modifier id="MOD_TRADITION_STRANDHOGG_RANGE_PILLAGE" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ADJUST_UNIT_ADVANCED_PILLAGING">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+				<Argument name="Tag">UNIT_CLASS_NAVAL</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Range">2</Argument>
+	</Modifier>
+	<Modifier id="MOD_STRANDHOGG_PILLAGE_ONE_MOVE" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ADJUST_UNIT_ADVANCED_PILLAGING">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+				<Argument name="Tag">UNIT_CLASS_NAVAL</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_UNIT_IS_IN_HOMELANDS" inverse="true"/>
+		</SubjectRequirements>
+		<Argument name="UseAdvancedPillaging">true</Argument>
+	</Modifier>
+
+	<Modifier id="MOD_LYFSTEINN_II_HEAL_NAVAL" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_HEAL_PER_TURN">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+				<Argument name="Tag">UNIT_CLASS_NAVAL</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">20</Argument>
+		<Argument name="TerritoryTypes">NEUTRAL_TERRITORY, ENEMY_TERRITORY</Argument>
+	</Modifier>
+	
+	<Modifier id="ICELAND_SYNCRETISM_NAVAL_UNIT_CULTURE" collection="COLLECTION_OWNER" effect="TRIGGER_PLAYER_GRANT_YIELD_ON_UNIT_CREATED">
+		<Argument name="Combat">true</Argument>
+		<Argument name="UnitTags">UNIT_CLASS_NAVAL</Argument>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="PercentCost">50</Argument>
+    <Argument name="AcquisitionType">ACQUISITION_BUILT</Argument>
+		<String context="WorldText">LOC_WORLD_CULTURE_INCREASE_FLOATER</String>
+	</Modifier>
+	<Modifier id="ICELAND_SYNCRETISM_NATURAL_WONDER_COMBAT_BONUS" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_NATURAL_WONDER_COMBAT_BONUS">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+				<Argument name="Tag">UNIT_CLASS_NAVAL</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_ICELAND_SYNCRETISM_TOOLTIP</Argument>
 	</Modifier>
 </GameEffects>

@@ -1,44 +1,16 @@
-import { A as Audio } from '../../../core/ui/audio-base/audio-support.chunk.js';
-import ActionHandler, { ActiveDeviceTypeChangedEventName } from '../../../core/ui/input/action-handler.js';
-import { F as Focus } from '../../../core/ui/input/focus-support.chunk.js';
+import { Audio } from '../../../core/ui/audio-base/audio-support.js';
+import ActionHandler from '../../../core/ui/input/action-handler.js';
+import { Focus } from '../../../core/ui/input/focus-support.js';
+import { ActiveDeviceTypeChangedEventName } from '../../../core/ui/input/input-events.js';
 import { InterfaceMode } from '../../../core/ui/interface-modes/interface-modes.js';
-import { L as LensManager } from '../../../core/ui/lenses/lens-manager.chunk.js';
-import { N as NavTray } from '../../../core/ui/navigation-tray/model-navigation-tray.chunk.js';
-import { P as Panel } from '../../../core/ui/panel-support.chunk.js';
-import { C as CityBannerManager } from '../city-banners/city-banner-manager.chunk.js';
+import LensManager from '../../../core/ui/lenses/lens-manager.js';
+import NavTray from '../../../core/ui/navigation-tray/model-navigation-tray.js';
+import Panel from '../../../core/ui/panel-support.js';
 import { HideMiniMapEvent } from '../mini-map/panel-mini-map.js';
 import { TradeRoutesModel, getResourceTypeIcon } from './trade-routes-model.js';
+import { UnitFlagManager } from '../unit-flags/unit-flag-manager.js';
 import WorldInput from '../world-input/world-input.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/input/cursor.js';
-import '../../../core/ui/input/focus-manager.js';
-import '../../../core/ui/views/view-manager.chunk.js';
-import '../../../core/ui/input/input-support.chunk.js';
-import '../../../core/ui/utilities/utilities-update-gate.chunk.js';
-import '../../../core/ui/components/fxs-slot.chunk.js';
-import '../../../core/ui/spatial/spatial-manager.js';
-import '../../../core/ui/context-manager/context-manager.js';
-import '../../../core/ui/context-manager/display-queue-manager.js';
-import '../../../core/ui/dialog-box/manager-dialog-box.chunk.js';
-import '../../../core/ui/utilities/utilities-image.chunk.js';
-import '../../../core/ui/utilities/utilities-component-id.chunk.js';
-import '../../../core/ui/shell/mp-staging/mp-friends.js';
-import '../../../core/ui/shell/mp-staging/model-mp-friends.chunk.js';
-import '../../../core/ui/social-notifications/social-notifications-manager.js';
-import '../../../core/ui/utilities/utilities-layout.chunk.js';
-import '../../../core/ui/utilities/utilities-dom.chunk.js';
-import '../../../core/ui/utilities/utilities-liveops.js';
-import '../../../core/ui/utilities/utilities-network.js';
-import '../../../core/ui/shell/mp-legal/mp-legal.js';
-import '../../../core/ui/events/shell-events.chunk.js';
-import '../../../core/ui/utilities/utilities-network-constants.chunk.js';
-import '../../../core/ui/utilities/utilities-core-databinding.chunk.js';
-import '../../../core/ui/input/plot-cursor.js';
-import '../diplomacy/diplomacy-events.js';
-import '../interface-modes/support-unit-map-decoration.chunk.js';
-import '../utilities/utilities-overlay.chunk.js';
-
-const styles = "fs://game/base-standard/ui/trade-route-chooser/trade-route-chooser.css";
+import styles from './trade-route-chooser.scss.js';
 
 class TradeRouteChooser extends Panel {
   static _activeChooser;
@@ -221,9 +193,7 @@ class TradeRouteChooser extends Panel {
   }
   close(uiViewChangeMethod) {
     super.close(uiViewChangeMethod);
-    if (LensManager.getActiveLens() != "fxs-default-lens") {
-      LensManager.setActiveLens("fxs-default-lens");
-    }
+    LensManager.setActiveLens("fxs-default-lens");
   }
   // close panel if unit move action is selected
   onInterfaceModeChange(event) {
@@ -255,10 +225,12 @@ class TradeRouteChooser extends Panel {
     if (direction == InputNavigationAction.SHELL_PREVIOUS) {
       this.sortOrder.component.selectPrevious();
       Focus.setContextAwareFocus(this.routesListEl, this.Root);
+      Audio.playSound("data-audio-activate", "audio-pager");
       event.stopPropagation();
     } else if (direction == InputNavigationAction.SHELL_NEXT) {
       this.sortOrder.component.selectNext();
       Focus.setContextAwareFocus(this.routesListEl, this.Root);
+      Audio.playSound("data-audio-activate", "audio-pager");
       event.stopPropagation();
     }
   }
@@ -350,11 +322,7 @@ class TradeRouteChooser extends Panel {
       payloadInfo.appendChild(payloadIcon);
       const payloadType = document.createElement("fxs-icon");
       const resourceTypeIcon = getResourceTypeIcon(payload, tradeRoute.city);
-      if (resourceTypeIcon == "RESOURCECLASS_TREASURE_FLEET") {
-        payloadType.classList.add("size-8", "absolute", "left-0", "-bottom-2");
-      } else {
-        payloadType.classList.add("size-4", "absolute", "left-0", "bottom-0");
-      }
+      payloadType.classList.add("size-4", "absolute", "left-0", "bottom-0");
       payloadType.setAttribute("data-icon-id", resourceTypeIcon);
       payloadType.setAttribute("data-icon-context", "RESOURCECLASS");
       payloadIcon.appendChild(payloadType);
@@ -443,7 +411,7 @@ class TradeRouteChooser extends Panel {
       this.tradeRouteBanner.whenComponentCreated((banner) => {
         banner.routeInfo = this.selectedRoute;
       });
-      CityBannerManager.instance.Root.appendChild(this.tradeRouteBanner);
+      UnitFlagManager.instance.Root.appendChild(this.tradeRouteBanner);
     }
   }
   checkAndStartTradeRoute(checkOnly = false) {

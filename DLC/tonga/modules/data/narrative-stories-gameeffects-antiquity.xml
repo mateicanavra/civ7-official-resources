@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <GameEffects xmlns="GameEffects">
-    <Modifier id="12015B_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_ADJUST_YIELD" run-once="false" permanent="true">
-        <Argument name="YieldType">YIELD_FOOD</Argument>
-        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+    <Modifier id="12015B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_NARRATIVE" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_GOLD</Argument>
+        <Argument name="MultiplierType">REWARD_TYPE_MINOR_EARLY</Argument>
     </Modifier>
     <Modifier id="12015C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_NARRATIVE" run-once="false" permanent="true">
         <Argument name="YieldType">YIELD_DIPLOMACY</Argument>
@@ -19,7 +19,7 @@
         <Argument name="ConstructibleType">BUILDING_VAI_KAUKAU</Argument>
     </Modifier>
     <Modifier id="11092B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ATTRIBUTE" run-once="false" permanent="true">
-        <Argument name="AttributeType">ATTRIBUTE_EXPANSIONIST</Argument>
+        <Argument name="AttributeType">ATTRIBUTE_ECONOMIC</Argument>
         <Argument name="Amount">1</Argument>
     </Modifier>
     <Modifier id="11092C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ATTRIBUTE" run-once="false" permanent="true">
@@ -31,7 +31,6 @@
             <Requirement type="REQUIREMENT_CITY_HAS_BUILDING">
                 <Argument name="Amount">1</Argument>
                 <Argument name="BuildingType">WONDER_HA_AMONGA_A_MAUI</Argument>
-                <Argument name="ConstructibleType">BUILDING_FISHING_QUAY</Argument>
             </Requirement>
         </SubjectRequirements>
         <Argument name="Amount">2</Argument>
@@ -135,9 +134,6 @@
         <Argument name="Amount">1</Argument>
         <Argument name="NarrativeTagType">NARRATIVE_TAG_KAVA_CEREMONY</Argument>
     </Modifier>
-    <Requirement id="REQ_STORY_CIVILIZATION_TONGA" type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
-        <Argument name="CivilizationType">CIVILIZATION_TONGA</Argument>
-    </Requirement>
     <RequirementSet id="REQSET_11091A_NARRATIVE_REQUISITE">
         <Requirement xref="REQ_STORY_CIVILIZATION_TONGA"/>
     </RequirementSet>

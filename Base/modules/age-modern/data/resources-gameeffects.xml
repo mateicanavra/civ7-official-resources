@@ -13,7 +13,6 @@
 		<Argument name="ResourceType">RESOURCE_COAL</Argument>
 		<Argument name="Empire">true</Argument>
 		<Argument name="ConstructibleType">BUILDING_RAIL_STATION</Argument>
-		<Argument name="PercentMultiplier">true</Argument>
 	</Modifier>
 	<Modifier id="MOD_COAL_PORT_PRODUCTION" collection="COLLECTION_ALL_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_PRODUCTION_PER_RESOURCE">
 		<SubjectRequirements>
@@ -23,7 +22,6 @@
 		<Argument name="ResourceType">RESOURCE_COAL</Argument>
 		<Argument name="Empire">true</Argument>
 		<Argument name="ConstructibleType">BUILDING_PORT</Argument>
-		<Argument name="PercentMultiplier">true</Argument>
 	</Modifier>
 	<Modifier id="MOD_COAL_LIGHT_NAVAL_COMBAT_STRENGTH" collection="COLLECTION_ALL_UNITS" effect="EFFECT_UNIT_ADJUST_COMBAT_STRENGTH_PER_RESOURCE">
 		<SubjectRequirements>
@@ -38,7 +36,6 @@
 		<Argument name="Amount">3</Argument>
 		<Argument name="YieldType">YIELD_HAPPINESS</Argument>
 		<Argument name="ResourceType">RESOURCE_COCOA</Argument>
-		<Argument name="PercentMultiplier">true</Argument>
 	</Modifier>
 	<Modifier id="MOD_COFFEE_CITY_BUILDING_PRODUCTION" collection="COLLECTION_ALL_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_PRODUCTION_PER_SLOTTED_RESOURCE">
 		<Argument name="Amount">5</Argument>
@@ -61,7 +58,7 @@
 				<Argument name="BuildingType">BUILDING_PORT</Argument>
 			</Requirement>
 		</SubjectRequirements>
-		<Argument name="Amount">6</Argument>
+		<Argument name="Amount">8</Argument>
 		<Argument name="ResourceType">RESOURCE_FISH</Argument>
 		<Argument name="YieldType">YIELD_FOOD</Argument>
 		<Argument name="PercentMultiplier">false</Argument>
@@ -72,7 +69,7 @@
 				<Argument name="BuildingType">BUILDING_PORT</Argument>
 			</Requirement>
 		</SubjectRequirements>
-		<Argument name="Amount">3</Argument>
+		<Argument name="Amount">4</Argument>
 		<Argument name="ResourceType">RESOURCE_FISH</Argument>
 		<Argument name="YieldType">YIELD_FOOD</Argument>
 		<Argument name="PercentMultiplier">false</Argument>
@@ -95,7 +92,7 @@
 		<Argument name="AffectBuildings">true</Argument>
 	</Modifier>
 	<Modifier id="MOD_HORSES_CITY_FLAT_HAPPINESS" collection="COLLECTION_ALL_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_RESOURCE">
-		<Argument name="Amount">6</Argument>
+		<Argument name="Amount">8</Argument>
 		<Argument name="YieldType">YIELD_HAPPINESS</Argument>
 		<Argument name="ResourceType">RESOURCE_HORSES</Argument>
 		<Argument name="PercentMultiplier">false</Argument>
@@ -129,7 +126,6 @@
 		<Argument name="ResourceType">RESOURCE_OIL</Argument>
 		<Argument name="Empire">true</Argument>
 		<Argument name="ConstructibleType">BUILDING_FACTORY</Argument>
-		<Argument name="PercentMultiplier">true</Argument>
 	</Modifier>
 	<Modifier id="MOD_OIL_HEAVY_NAVAL_AND_CAVALRY_COMBAT_STRENGTH" collection="COLLECTION_ALL_UNITS" effect="EFFECT_UNIT_ADJUST_COMBAT_STRENGTH_PER_RESOURCE">
 		<SubjectRequirements>
@@ -146,7 +142,7 @@
 				<Argument name="BuildingType">BUILDING_PALACE</Argument>
 			</Requirement>
 		</SubjectRequirements>
-		<Argument name="Amount">6</Argument>
+		<Argument name="Amount">8</Argument>
 		<Argument name="ResourceType">RESOURCE_PEARLS</Argument>
 		<Argument name="YieldType">YIELD_HAPPINESS</Argument>
 		<Argument name="PercentMultiplier">false</Argument>
@@ -157,7 +153,7 @@
 				<Argument name="BuildingType">BUILDING_PALACE</Argument>
 			</Requirement>
 		</SubjectRequirements>
-		<Argument name="Amount">3</Argument>
+		<Argument name="Amount">4</Argument>
 		<Argument name="ResourceType">RESOURCE_PEARLS</Argument>
 		<Argument name="YieldType">YIELD_HAPPINESS</Argument>
 		<Argument name="PercentMultiplier">false</Argument>
@@ -205,7 +201,7 @@
 		<Argument name="PercentMultiplier">false</Argument>
 	</Modifier>
 	<Modifier id="MOD_SUGAR_CITY_FLAT_FOOD" collection="COLLECTION_ALL_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_RESOURCE">
-		<Argument name="Amount">6</Argument>
+		<Argument name="Amount">8</Argument>
 		<Argument name="YieldType">YIELD_FOOD</Argument>
 		<Argument name="ResourceType">RESOURCE_SUGAR</Argument>
 		<Argument name="PercentMultiplier">false</Argument>
@@ -217,7 +213,7 @@
 		<Argument name="PercentMultiplier">true</Argument>
 	</Modifier>
 	<Modifier id="MOD_WHALES_FLAT_PRODUCTION" collection="COLLECTION_ALL_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_RESOURCE">
-		<Argument name="Amount">6</Argument>
+		<Argument name="Amount">8</Argument>
 		<Argument name="YieldType">YIELD_PRODUCTION</Argument>
 		<Argument name="ResourceType">RESOURCE_WHALES</Argument>
 		<Argument name="PercentMultiplier">false</Argument>
@@ -228,7 +224,7 @@
 				<Argument name="BuildingType">BUILDING_RAIL_STATION</Argument>
 			</Requirement>
 		</SubjectRequirements>
-		<Argument name="Amount">6</Argument>
+		<Argument name="Amount">8</Argument>
 		<Argument name="ResourceType">RESOURCE_FURS</Argument>
 		<Argument name="YieldType">YIELD_HAPPINESS</Argument>
 		<Argument name="PercentMultiplier">false</Argument>
@@ -239,7 +235,7 @@
 				<Argument name="BuildingType">BUILDING_RAIL_STATION</Argument>
 			</Requirement>
 		</SubjectRequirements>
-		<Argument name="Amount">3</Argument>
+		<Argument name="Amount">4</Argument>
 		<Argument name="ResourceType">RESOURCE_FURS</Argument>
 		<Argument name="YieldType">YIELD_HAPPINESS</Argument>
 		<Argument name="PercentMultiplier">false</Argument>
@@ -304,7 +300,7 @@
 				<Argument name="BuildingType">BUILDING_PALACE</Argument>
 			</Requirement>
 		</SubjectRequirements>
-		<Argument name="Amount">6</Argument>
+		<Argument name="Amount">8</Argument>
 		<Argument name="ResourceType">RESOURCE_SILK</Argument>
 		<Argument name="YieldType">YIELD_CULTURE</Argument>
 		<Argument name="PercentMultiplier">false</Argument>
@@ -315,7 +311,7 @@
 				<Argument name="BuildingType">BUILDING_PALACE</Argument>
 			</Requirement>
 		</SubjectRequirements>
-		<Argument name="Amount">3</Argument>
+		<Argument name="Amount">4</Argument>
 		<Argument name="ResourceType">RESOURCE_SILK</Argument>
 		<Argument name="YieldType">YIELD_CULTURE</Argument>
 		<Argument name="PercentMultiplier">false</Argument>
@@ -326,7 +322,7 @@
 				<Argument name="BuildingType">BUILDING_RAIL_STATION</Argument>
 			</Requirement>
 		</SubjectRequirements>
-		<Argument name="Amount">6</Argument>
+		<Argument name="Amount">8</Argument>
 		<Argument name="ResourceType">RESOURCE_TOBACCO</Argument>
 		<Argument name="YieldType">YIELD_PRODUCTION</Argument>
 		<Argument name="PercentMultiplier">false</Argument>
@@ -337,7 +333,7 @@
 				<Argument name="BuildingType">BUILDING_RAIL_STATION</Argument>
 			</Requirement>
 		</SubjectRequirements>
-		<Argument name="Amount">3</Argument>
+		<Argument name="Amount">4</Argument>
 		<Argument name="ResourceType">RESOURCE_TOBACCO</Argument>
 		<Argument name="YieldType">YIELD_PRODUCTION</Argument>
 		<Argument name="PercentMultiplier">false</Argument>
@@ -348,7 +344,7 @@
 				<Argument name="BuildingType">BUILDING_RAIL_STATION</Argument>
 			</Requirement>
 		</SubjectRequirements>
-		<Argument name="Amount">6</Argument>
+		<Argument name="Amount">8</Argument>
 		<Argument name="ResourceType">RESOURCE_TRUFFLES</Argument>
 		<Argument name="YieldType">YIELD_FOOD</Argument>
 		<Argument name="PercentMultiplier">false</Argument>
@@ -359,7 +355,7 @@
 				<Argument name="BuildingType">BUILDING_RAIL_STATION</Argument>
 			</Requirement>
 		</SubjectRequirements>
-		<Argument name="Amount">3</Argument>
+		<Argument name="Amount">4</Argument>
 		<Argument name="ResourceType">RESOURCE_TRUFFLES</Argument>
 		<Argument name="YieldType">YIELD_FOOD</Argument>
 		<Argument name="PercentMultiplier">false</Argument>

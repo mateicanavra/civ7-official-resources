@@ -10,26 +10,31 @@
 		<Row UnlockType="UNLOCK_CIVILIZATION_QAJAR" Name="LOC_CIVILIZATION_QAJAR_NAME" Description="LOC_UNLOCK_MODERN_CIV_DESCRIPTION" Icon="CIVILIZATION_QAJAR" UnlockRewardType="CIVILIZATION_QAJAR" UnlockRewardKind="KIND_CIVILIZATION"/>
 	</UnlockRewards>
 	<RequirementSets>
+		<InsertOrIgnore RequirementSetId="REQSET_CIV_IS_QAJAR" RequirementSetType="REQUIREMENTSET_TEST_ALL"/>
 		<Row RequirementSetId="REQSET_LEADER_IS_XERXES_QAJAR" RequirementSetType="REQUIREMENTSET_TEST_ALL"/>
 		<Row RequirementSetId="REQSET_PLAYER_HAS_5_CITY_WORKERS" RequirementSetType="REQUIREMENTSET_TEST_ALL"/>
 	</RequirementSets>
 	<Requirements>
+		<InsertOrIgnore RequirementId="REQ_CIV_IS_QAJAR" RequirementType="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES"/>
 		<Row RequirementId="REQ_PLAYER_HAS_5_CITY_WORKERS" RequirementType="REQUIREMENT_PLAYER_HAS_CITY_WITH_X_WORKERS"/>
 		<Row RequirementId="REQ_LEADER_IS_XERXES_QAJAR" RequirementType="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES"/>
 	</Requirements>
 	<RequirementArguments>
+		<InsertOrIgnore RequirementId="REQ_CIV_IS_QAJAR" Name="CivilizationType" Value="CIVILIZATION_QAJAR"/>
 		<Row RequirementId="REQ_PLAYER_HAS_5_CITY_WORKERS" Name="WorkerAmount" Value="5"/>
 		<Row RequirementId="REQ_PLAYER_HAS_5_CITY_WORKERS" Name="CityAmount" Value="1"/>
 		<Row RequirementId="REQ_LEADER_IS_XERXES_QAJAR" Name="LeaderType" Value="LEADER_XERXES"/>
 	</RequirementArguments>
 	<RequirementSetRequirements>
+		<InsertOrIgnore RequirementSetId="REQSET_CIV_IS_QAJAR" RequirementId="REQ_CIV_IS_QAJAR"/>
 		<Row RequirementSetId="REQSET_PLAYER_HAS_5_CITY_WORKERS" RequirementId="REQ_PLAYER_HAS_5_CITY_WORKERS"/>
 		<Row RequirementSetId="REQSET_PLAYER_HAS_5_CITY_WORKERS" RequirementId="REQ_AGE_IS_EXPLORATION"/>
 		<Row RequirementSetId="REQSET_LEADER_IS_XERXES_QAJAR" RequirementId="REQ_LEADER_IS_XERXES_QAJAR"/>
 	</RequirementSetRequirements>
 	<UnlockRequirements>
 		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_QAJAR" RequirementSetId="REQSET_LEADER_IS_XERXES_QAJAR" Description="LOC_UNLOCK_PLAY_AS_XERXES_DESCRIPTION" Tooltip="LOC_UNLOCK_PLAY_AS_XERXES_QAJAR_TOOLTIP"/>
-		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_QAJAR" RequirementSetId="REQSET_PLAYER_HAS_5_CITY_WORKERS" Description="LOC_UNLOCK_5_CITY_WORKERS_DESCRIPTION" Tooltip="LOC_UNLOCK_CITY_WORKERS_QAJAR_TOOLTIP" NarrativeText="LOC_UNLOCK_CITY_WORKERS_QAJAR_NARRATIVE"/>
+		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_QAJAR" RequirementSetId="REQSET_PLAYER_HAS_5_CITY_WORKERS" Description="LOC_UNLOCK_5_CITY_WORKERS_DESCRIPTION" Tooltip="LOC_UNLOCK_CITY_WORKERS_QAJAR_TOOLTIP" GameplayUnlock="True" NarrativeText="LOC_UNLOCK_CITY_WORKERS_QAJAR_NARRATIVE"/>
+		<Row UnlockType="UNLOCK_CIVILIZATION_QAJAR" RequirementSetId="REQSET_CIV_IS_QAJAR" Description="LOC_UNLOCK_PLAY_AS_QAJAR_DESCRIPTION" Tooltip="LOC_UNLOCK_PLAY_AS_QAJAR_QAJAR_TOOLTIP"/>
 	</UnlockRequirements>
 	<UnlockConfigurationValues>
 		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_QAJAR" ConfigurationValue="CIVILIZATION_QAJAR"/>

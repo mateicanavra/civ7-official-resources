@@ -1,25 +1,17 @@
-import { A as Audio } from '../../../core/ui/audio-base/audio-support.chunk.js';
-import ActionHandler, { ActiveDeviceTypeChangedEventName } from '../../../core/ui/input/action-handler.js';
-import FocusManager from '../../../core/ui/input/focus-manager.js';
-import { b as InputEngineEventName } from '../../../core/ui/input/input-support.chunk.js';
+import { Audio } from '../../../core/ui/audio-base/audio-support.js';
+import ActionHandler from '../../../core/ui/input/action-handler.js';
+import { ActiveDeviceTypeChangedEventName } from '../../../core/ui/input/input-events.js';
+import { InputEngineEventName } from '../../../core/ui/input/input-support.js';
 import { InterfaceMode } from '../../../core/ui/interface-modes/interface-modes.js';
-import { N as NavTray } from '../../../core/ui/navigation-tray/model-navigation-tray.chunk.js';
-import { P as Panel } from '../../../core/ui/panel-support.chunk.js';
-import { C as ComponentID } from '../../../core/ui/utilities/utilities-component-id.chunk.js';
-import { D as Databind } from '../../../core/ui/utilities/utilities-core-databinding.chunk.js';
-import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.chunk.js';
-import { U as UnitPromotion } from './model-unit-promotion.chunk.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/input/cursor.js';
-import '../../../core/ui/views/view-manager.chunk.js';
-import '../../../core/ui/utilities/utilities-update-gate.chunk.js';
-import '../../../core/ui/utilities/utilities-image.chunk.js';
-import '../../../core/ui/graph-layout/utils.chunk.js';
-import '../../../core/ui/graph-layout/layout.chunk.js';
-
-const content = "<fxs-frame\r\n\tclass=\"panel-unit-promotion flex-auto\"\r\n\toverride-styling=\"relative flex w-full max-h-full\"\r\n\tfiligree-class=\"hidden\"\r\n\tframe-style=\"f2\"\r\n>\r\n\t<div class=\"flex absolute h-16 w-full justify-center -top-7\">\r\n\t\t<div class=\"promotion-header__lines h-full bg-contain bg-no-repeat pointer-events-none flex-auto\"></div>\r\n\t\t<div\r\n\t\t\tclass=\"promotion-header__icon w-40 h-40 absolute -bottom-4 bg-contain bg-no-repeat pointer-events-none\"\r\n\t\t></div>\r\n\t</div>\r\n\t<div class=\"flex flex-auto flex-col w-full pl-8 pr-5\">\r\n\t\t<div class=\"flex flex-auto flex-row py-3\">\r\n\t\t\t<fxs-hslot class=\"promotion-progress__container flex items-end mr-10\">\r\n\t\t\t\t<fxs-ring-meter class=\"experience-ring w-20 h-20 mb-5 justify-center bg-contain bg-center flex\">\r\n\t\t\t\t\t<div\r\n\t\t\t\t\t\tclass=\"experience-level font-bold font-title-xl flex justify-center items-center flex-auto\"\r\n\t\t\t\t\t></div>\r\n\t\t\t\t</fxs-ring-meter>\r\n\t\t\t</fxs-hslot>\r\n\t\t\t<fxs-vslot class=\"items-center flex self-center pr-20 mr-10 grow\">\r\n\t\t\t\t<div\r\n\t\t\t\t\tdata-slot=\"header\"\r\n\t\t\t\t\tclass=\"panel-unit-promotion__header max-w-128 uppercase text-center tracking-100 mt-2 font-title-xl fxs-header truncate font-title-xl self-center\"\r\n\t\t\t\t></div>\r\n\t\t\t\t<fxs-hslot\r\n\t\t\t\t\tid=\"promotion-progress__capcontainer\"\r\n\t\t\t\t\tclass=\"items-center mt-3\"\r\n\t\t\t\t>\r\n\t\t\t\t\t<div class=\"promotion-progress__caption\"></div>\r\n\t\t\t\t</fxs-hslot>\r\n\t\t\t</fxs-vslot>\r\n\t\t</div>\r\n\t\t<fxs-scrollable class=\"panel-unit-promotion-content flex flex-col flex-auto hidden\">\r\n\t\t\t<fxs-vslot class=\"mr-3\\.5\">\r\n\t\t\t\t<div\r\n\t\t\t\t\tclass=\"promotion-trees-container flex\"\r\n\t\t\t\t\ttabindex=\"-1\"\r\n\t\t\t\t></div>\r\n\t\t\t\t<div\r\n\t\t\t\t\tid=\"commendations-container\"\r\n\t\t\t\t\tclass=\"flex flex-col m-1 relative\"\r\n\t\t\t\t>\r\n\t\t\t\t\t<fxs-inner-frame class=\"p-4 mt-2\">\r\n\t\t\t\t\t\t<fxs-hslot\r\n\t\t\t\t\t\t\tid=\"promotion-commendations-container\"\r\n\t\t\t\t\t\t\tclass=\"w-full flex justify-around items-center mx-1 flex-row\"\r\n\t\t\t\t\t\t></fxs-hslot>\r\n\t\t\t\t\t</fxs-inner-frame>\r\n\t\t\t\t</div>\r\n\t\t\t</fxs-vslot>\r\n\t\t</fxs-scrollable>\r\n\t\t<fxs-hslot\r\n\t\t\tid=\"promotion-button-container\"\r\n\t\t\tclass=\"flex justify-center pb-4\"\r\n\t\t>\r\n\t\t\t<fxs-hero-button\r\n\t\t\t\tid=\"promotion-confirm-button\"\r\n\t\t\t\tdisabled=\"true\"\r\n\t\t\t\tcaption=\"LOC_UI_PANTHEON_CONFIRM\"\r\n\t\t\t>\r\n\t\t\t</fxs-hero-button>\r\n\t\t</fxs-hslot>\r\n\t\t<div class=\"panel-unit-promotion-content-loading hidden flex flex-auto justify-center items-center\"></div>\r\n\t</div>\r\n</fxs-frame>\r\n";
-
-const styles = "fs://game/base-standard/ui/unit-promotion/panel-unit-promotion.css";
+import NavTray from '../../../core/ui/navigation-tray/model-navigation-tray.js';
+import Panel from '../../../core/ui/panel-support.js';
+import { ComponentID } from '../../../core/ui/utilities/utilities-component-id.js';
+import Databind from '../../../core/ui/utilities/utilities-core-databinding.js';
+import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
+import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
+import UnitPromotion from './model-unit-promotion.js';
+import content from './panel-unit-promotion.html.js';
+import styles from './panel-unit-promotion.scss.js';
 
 class UnitPromotionPanel extends Panel {
   viewReceiveFocusListener = this.realizeFocus.bind(this);
@@ -809,7 +801,9 @@ class UnitPromotionPanel extends Panel {
   onUnitPromoted(data) {
     if (this.selectedUnitID && ComponentID.isMatch(data.unit, this.selectedUnitID)) {
       UnitPromotion.updateGate.call("onUnitPromoted");
-      this.populateUnitPromotionPanel(true);
+      waitForLayout(() => {
+        this.populateUnitPromotionPanel(true);
+      });
     }
   }
   onUnitExperienceChanged(data) {
@@ -865,7 +859,7 @@ class UnitPromotionPanel extends Panel {
       console.error("panel-unit-promotion: navigateTree(): No card in horizontal level: " + horizontalLevel);
       return;
     }
-    FocusManager.setFocus(nextCard);
+    FocusManager.get().setFocus(nextCard);
   }
   getNextCardFromRow(rowElements, reverseDirection) {
     if (rowElements.length <= 0) {
@@ -895,7 +889,7 @@ class UnitPromotionPanel extends Panel {
       console.error("panel-unit-promotion: navigateCommendations(): No commendation found!");
       return;
     }
-    FocusManager.setFocus(currentCommendation);
+    FocusManager.get().setFocus(currentCommendation);
   }
   onNavigateInput = (navigationEvent) => {
     const live = this.handleNavigation(navigationEvent);
@@ -915,7 +909,7 @@ class UnitPromotionPanel extends Panel {
       return true;
     }
     const direction = navigationEvent.getDirection();
-    const originCard = FocusManager.getFocus();
+    const originCard = FocusManager.get().currentFocus();
     if (!originCard.parentElement) {
       console.error("panel-unit-promotion: handleNavigation(): current focus parent element not found.");
       return true;
@@ -973,7 +967,7 @@ class UnitPromotionPanel extends Panel {
         `div[row="${nextTarget.y}"][col="${nextTarget.x}"] .promotion-element`
       );
       if (card) {
-        FocusManager.setFocus(card);
+        FocusManager.get().setFocus(card);
       }
     } else {
       if (direction == InputNavigationAction.LEFT || direction == InputNavigationAction.RIGHT) {
@@ -1184,7 +1178,7 @@ class UnitPromotionPanel extends Panel {
       console.error("panel-unit-promotion: onTreesFocus(): No card in horizontal last row");
       return;
     }
-    FocusManager.setFocus(nextCard);
+    FocusManager.get().setFocus(nextCard);
   };
   onRectangularGridFocus = (focusedTree) => {
     const cards = focusedTree.querySelectorAll(".promotion-element");
@@ -1201,9 +1195,9 @@ class UnitPromotionPanel extends Panel {
       }
     }
     if (canEarnCard) {
-      FocusManager.setFocus(canEarnCard);
+      FocusManager.get().setFocus(canEarnCard);
     } else {
-      FocusManager.setFocus(cards[0]);
+      FocusManager.get().setFocus(cards[0]);
     }
   };
 }

@@ -1,0 +1,24 @@
+<Database>
+	<!-- Modern -->
+	<Types>
+		<Row Type="NODE_CIVIC_MO_SILLA_MODERNIZATION" Kind="KIND_TREE_NODE" />
+	</Types>
+	<TypeQuotes>
+		<Row Type="NODE_CIVIC_MO_SILLA_MODERNIZATION" Quote="LOC_CIVIC_MO_MODERNIZATION_QUOTE" QuoteAuthor="LOC_CIVIC_MO_MODERNIZATION_AUTHOR" QuoteAudio="VO_Quote_ToT_MOD_Modernization" />
+	</TypeQuotes>
+	<ProgressionTreeNodes>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_SILLA_MODERNIZATION" ProgressionTree="TREE_CIVICS_MO_TEST_OF_TIME" Cost="2000" Name="LOC_NODE_CIVIC_MO_SILLA_MODERNIZATION_NAME" IconString="cult_silla" CanSteal="false" />
+	</ProgressionTreeNodes>
+	<ProgressionTreeNodeUnlocks>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_ADMINISTRATION" TargetKind="KIND_TRADITION" TargetType="TRADITION_BEOPSEONG_II" UnlockDepth="1" RequiredTraitType="TRAIT_SILLA"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_SILLA_MODERNIZATION" TargetKind="KIND_TRADITION" TargetType="TRADITION_THE_GOLDEN_ROAD_II" />
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_SILLA_MODERNIZATION" TargetKind="KIND_MODIFIER" TargetType="MOD_TOT_TRADITION_SLOT" />
+	</ProgressionTreeNodeUnlocks>
+	<ProgressionTreeNodeTraits>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_SILLA_MODERNIZATION" RequiredTraitType="TRAIT_SILLA" />
+	</ProgressionTreeNodeTraits>
+	<ProgressionTreePrereqs>
+		<Row Node="NODE_CIVIC_MO_ADMINISTRATION" PrereqNode="NODE_CIVIC_MO_SILLA_MODERNIZATION" />
+		<Row Node="NODE_CIVIC_MO_SYNCRETISM_CHOICE" PrereqNode="NODE_CIVIC_MO_SILLA_MODERNIZATION" />
+	</ProgressionTreePrereqs>
+</Database>

@@ -1,0 +1,4 @@
+const content = "<div class=\"tutorial-dialog-backgrounds flex absolute fullscreen-outside-safezone bg-cover\"></div>\r\n<div class=\"tutorial-dialog-bg-overlay absolute fullscreen-outside-safezone\"></div>\r\n<div class=\"tutorial-dialog-page-image-container absolute right-1\\.5\"></div>\r\n<div class=\"tutorial-dialog-page-logo\"></div>\r\n<div class=\"tutorial-dialog-info-container flex flex-col mx-26 mb-28 pb-5 flex-auto\">\r\n\t<div>\r\n\t\t<div class=\"tutorial-dialog-page-title uppercase fxs-header font-title ml-x mb-1 tracking-150\">\r\n\t\t\ttitle\r\n\t\t</div>\r\n\t\t<div class=\"tutorial-dialog-divider h-4 w-174 -mt-0\\.5 -ml-6 mb-0\\.5 opacity-50\"></div>\r\n\t\t<div class=\"tutorial-dialog-page-subtitle w-full ml-px font-title mb-2\">subtitle</div>\r\n\t\t<div class=\"tutorial-dialog-page-body font-body-lg mt-6 ml-4\">body</div>\r\n\t</div>\r\n</div>\r\n";
+
+export { content as default };
+//# sourceMappingURL=tutorial-dialog-page.html.js.map

@@ -1,7 +1,6 @@
-import { g as getModifierTextByContext, b as parseConstructibleAdjacencyNameOnly } from '../../../core/ui/utilities/utilities-core-textprovider.chunk.js';
-import { g as getConstructibleTagsFromType } from '../utilities/utilities-tags.chunk.js';
-
-const styles = "fs://game/base-standard/ui/constructible-details/constructible-details.css";
+import { getModifierTextByContext, parseConstructibleAdjacencyNameOnly } from '../../../core/ui/utilities/utilities-core-textprovider.js';
+import { getConstructibleTagsFromType } from '../utilities/utilities-tags.js';
+import styles from './constructible-details.scss.js';
 
 const bulletChar = String.fromCodePoint(8226);
 class ConstructibleDetails extends Component {
@@ -90,6 +89,11 @@ class ConstructibleDetails extends Component {
     this.adjacencyBonusContainer.appendChild(adjacencyFontIcon);
   }
   update() {
+    const iconOnlyEntries = /* @__PURE__ */ new Set(["BUILDING_OPEN", "BUILDING_ADD", "BUILDING_WARNING"]);
+    if (iconOnlyEntries.has(this.constructibleType)) {
+      this.constructibleIcon.setAttribute("data-icon-id", this.constructibleType);
+      return;
+    }
     const definition = GameInfo.Constructibles.lookup(this.constructibleType);
     if (!definition) {
       console.error(

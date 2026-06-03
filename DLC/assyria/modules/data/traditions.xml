@@ -1,26 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Database>
 	<Types>
-		<!-- ==================================================	-->
-		<!--	ANTIQUITY							-->
-		<!-- ==================================================	-->
-		<!-- Carthage -->
+		<!-- Antiquity -->
 		<Row Type="TRADITION_DURANI" Kind="KIND_TRADITION"/>
 		<Row Type="TRADITION_MIHISTU" Kind="KIND_TRADITION"/>
 		<Row Type="TRADITION_GIRRU" Kind="KIND_TRADITION"/>
+		<!-- Exploration -->
+		<Row Type="TRADITION_MIHISTU_II" Kind="KIND_TRADITION" />
+		<Row Type="TRADITION_GIRRU_II" Kind="KIND_TRADITION" />
+		<Row Type="TRADITION_ASSYRIA_SYNCRETISM_EXPLORATION" Kind="KIND_TRADITION" />
+		<!-- Modern -->
+		<Row Type="TRADITION_DURANI_II" Kind="KIND_TRADITION" />
+		<Row Type="TRADITION_ASSYRIA_SYNCRETISM_MODERN" Kind="KIND_TRADITION" />
 	</Types>
 	<Traditions>
-		<!-- ==================================================	-->
-		<!--	ANTIQUITY							-->
-		<!-- ==================================================	-->
-		<!-- Carthage -->
-		<Row TraditionType="TRADITION_DURANI" Name="LOC_TRADITION_DURANI_NAME" Description="LOC_TRADITION_DURANI_DESCRIPTION" TraitType="TRAIT_ASSYRIA" AgeType="AGE_ANTIQUITY"/>
-		<Row TraditionType="TRADITION_MIHISTU" Name="LOC_TRADITION_MIHISTU_NAME" Description="LOC_TRADITION_MIHISTU_DESCRIPTION" TraitType="TRAIT_ASSYRIA" AgeType="AGE_ANTIQUITY"/>
-		<Row TraditionType="TRADITION_GIRRU" Name="LOC_TRADITION_GIRRU_NAME" Description="LOC_TRADITION_GIRRU_DESCRIPTION" TraitType="TRAIT_ASSYRIA" AgeType="AGE_ANTIQUITY"/>
+		<!-- Antiquity -->
+		<Row TraditionType="TRADITION_DURANI" Name="LOC_TRADITION_DURANI_I_NAME" Description="LOC_TRADITION_DURANI_I_DESCRIPTION" TraitType="TRAIT_ASSYRIA" AgeType="AGE_ANTIQUITY" CultureSlotType="TRADITION_CULTURE_SLOT"/>
+		<Row TraditionType="TRADITION_MIHISTU" Name="LOC_TRADITION_MIHISTU_I_NAME" Description="LOC_TRADITION_MIHISTU_I_DESCRIPTION" TraitType="TRAIT_ASSYRIA" AgeType="AGE_ANTIQUITY" CultureSlotType="TRADITION_CULTURE_SLOT"/>
+		<Row TraditionType="TRADITION_GIRRU" Name="LOC_TRADITION_GIRRU_I_NAME" Description="LOC_TRADITION_GIRRU_I_DESCRIPTION" TraitType="TRAIT_ASSYRIA" AgeType="AGE_ANTIQUITY" CultureSlotType="TRADITION_CULTURE_SLOT"/>
+		<!-- Exploration -->
+		<Row TraditionType="TRADITION_MIHISTU_II" Name="LOC_TRADITION_MIHISTU_II_NAME" Description="LOC_TRADITION_MIHISTU_II_DESCRIPTION" TraitType="TRAIT_ASSYRIA" AgeType="AGE_EXPLORATION" CultureSlotType="TRADITION_CULTURE_SLOT" ObsoletesTraditionType="TRADITION_MIHISTU"/>
+		<Row TraditionType="TRADITION_GIRRU_II" Name="LOC_TRADITION_GIRRU_II_NAME" Description="LOC_TRADITION_GIRRU_II_DESCRIPTION" TraitType="TRAIT_ASSYRIA" AgeType="AGE_EXPLORATION" CultureSlotType="TRADITION_CULTURE_SLOT" ObsoletesTraditionType="TRADITION_GIRRU"/>
+		<Row TraditionType="TRADITION_ASSYRIA_SYNCRETISM_EXPLORATION" Name="LOC_TRADITION_ASSYRIA_SYNCRETISM_EXPLORATION_NAME" Description="LOC_TRADITION_ASSYRIA_SYNCRETISM_EXPLORATION_DESCRIPTION" TraitType="TRAIT_ASSYRIA" AgeType="AGE_EXPLORATION" CultureSlotType="TRADITION_CULTURE_SLOT" IgnoreInitializeUnlock="true" AllowInitializeAdvancedStart="true"/>
+		<!-- Modern -->
+		<Row TraditionType="TRADITION_DURANI_II" Name="LOC_TRADITION_DURANI_II_NAME" Description="LOC_TRADITION_DURANI_II_DESCRIPTION" TraitType="TRAIT_ASSYRIA" AgeType="AGE_MODERN" CultureSlotType="TRADITION_CULTURE_SLOT" ObsoletesTraditionType="TRADITION_DURANI"/>
+		<Row TraditionType="TRADITION_ASSYRIA_SYNCRETISM_MODERN" Name="LOC_TRADITION_ASSYRIA_SYNCRETISM_MODERN_NAME" Description="LOC_TRADITION_ASSYRIA_SYNCRETISM_MODERN_DESCRIPTION" TraitType="TRAIT_ASSYRIA" AgeType="AGE_MODERN" CultureSlotType="TRADITION_CULTURE_SLOT" IgnoreInitializeUnlock="true" ObsoletesTraditionType="TRADITION_ASSYRIA_SYNCRETISM_EXPLORATION" AllowInitializeAdvancedStart="true"/>
 	</Traditions>
 	<TraditionModifiers>
-		<Row TraditionType="TRADITION_DURANI" ModifierId="DURANI_MOD_SCIENCE_FORTIFICATION"/>
+		<!-- Antiquity -->
+		<Row TraditionType="TRADITION_DURANI" ModifierId="DURANI_MOD_TECH_MASTERY_CULTURE"/>
 		<Row TraditionType="TRADITION_MIHISTU" ModifierId="MIHISTU_MOD_GREATWORK_PRODUCTION"/>
+		<Row TraditionType="TRADITION_GIRRU" ModifierId="GIRRU_MOD_CAVALRY_ABILITY"/>
 		<Row TraditionType="TRADITION_GIRRU" ModifierId="GIRRU_MOD_CONQUERED_FOOD_PRODUCTION"/>
+		<!-- Exploration -->	
+		<Row TraditionType="TRADITION_MIHISTU_II" ModifierId="MIHISTU_II_MOD_GREATWORK_PRODUCTION"/>
+		<Row TraditionType="TRADITION_MIHISTU_II" ModifierId="MIHISTU_II_MOD_GREATWORK_SCIENCE"/>
+		<Row TraditionType="TRADITION_GIRRU_II" ModifierId="GIRRU_MOD_CAVALRY_ABILITY"/>
+		<Row TraditionType="TRADITION_GIRRU_II" ModifierId="GIRRU_II_MOD_CONQUERED_FOOD_PRODUCTION"/>
+		<Row TraditionType="TRADITION_ASSYRIA_SYNCRETISM_EXPLORATION" ModifierId="TRADITION_ASSYRIA_SYNCRETISM_EXPLORATION_MOD_COMBAT_VS_DISTRICT"/>
+		<!-- Modern -->
+		<Row TraditionType="TRADITION_DURANI_II" ModifierId="DURANI_II_MOD_TECH_MASTERY_CULTURE"/>
+		<Row TraditionType="TRADITION_ASSYRIA_SYNCRETISM_MODERN" ModifierId="TRADITION_ASSYRIA_SYNCRETISM_MODERN_MOD_SCIENCE_FORTIFICATION"/>
+		<Row TraditionType="TRADITION_ASSYRIA_SYNCRETISM_MODERN" ModifierId="TRADITION_ASSYRIA_SYNCRETISM_EXPLORATION_MOD_COMBAT_VS_DISTRICT"/>
 	</TraditionModifiers>
 </Database>

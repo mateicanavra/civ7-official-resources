@@ -352,7 +352,13 @@
 
 	<!-- Army PromotionDiscipline Logistics -->
 	<!-- ____________________________________________________________________________________________________ -->
-	<Modifier id="MOD_PROMOTION_ARMY_QUARTERMASTER" collection="COLLECTION_COMMANDER_PACKED_UNITS" effect="EFFECT_UNIT_ADJUST_PLAYER_YIELD">
+	<Modifier id="MOD_PROMOTION_ARMY_QUARTERMASTER" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_PLAYER_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_IN_OWNER_ARMY"/>
+			<Requirement type="REQUIREMENT_UNIT_DOMAIN_MATCHES">
+				<Argument name="UnitDomain">DOMAIN_LAND</Argument>
+			</Requirement>
+		</SubjectRequirements>
 		<Argument name="YieldType">YIELD_GOLD</Argument>
 		<Argument name="Amount">1</Argument>
 	</Modifier>
@@ -866,7 +872,6 @@
 	</Modifier>
 	<Modifier id="MOD_PROMOTION_FLEET_CONVOYS_TRADE_PROTECTION" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_SET_TRADE_ROUTE_PROTECTED">
 		<SubjectRequirements>
-			<Requirement type="REQUIREMENT_UNIT_TRADE_ROUTE_ESTABLISHED" />
 			<Requirement type="REQUIREMENT_PLOT_IN_COMMAND_RADIUS"/>
 			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
 				<Argument name="Tag">UNIT_CLASS_TRADE_ROUTE</Argument>
@@ -987,16 +992,22 @@
 		<Argument name="Amount">2</Argument>
 	</Modifier>
 	<!-- ____________________________________________________________________________________________________ -->
-	<Modifier id="MOD_PROMOTION_SQUADRON_FIELD_COMMISSION" collection="COLLECTION_COMMANDER_PACKED_UNITS" effect="EFFECT_UNIT_ADJUST_ABILITY">
+	<Modifier id="MOD_PROMOTION_SQUADRON_FIELD_COMMISSION" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_ABILITY">
 		<SubjectRequirements>
-			<Requirement type="REQUIREMENT_PLOT_IN_COMMAND_RADIUS"/>
+			<Requirement type="REQUIREMENT_UNIT_IN_OWNER_ARMY"/>
 			<Requirement type="REQUIREMENT_UNIT_DOMAIN_MATCHES">
 				<Argument name="UnitDomain">DOMAIN_AIR</Argument>
 			</Requirement>
 		</SubjectRequirements>
 		<Argument name="AbilityType">ABILITY_ALLOW_UNIT_UPGRADE_OUTSIDE_FRIENDLY_TERRITORY</Argument>
 	</Modifier>
-	<Modifier id="MOD_PROMOTION_SQUADRON_FIELD_COMMISSION_UPDAGRE_DISCOUNT" collection="COLLECTION_COMMANDER_PACKED_UNITS" effect="EFFECT_UNIT_PROPERTY">
+	<Modifier id="MOD_PROMOTION_SQUADRON_FIELD_COMMISSION_UPDAGRE_DISCOUNT" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_PROPERTY">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_IN_OWNER_ARMY"/>
+			<Requirement type="REQUIREMENT_UNIT_DOMAIN_MATCHES">
+				<Argument name="UnitDomain">DOMAIN_AIR</Argument>
+			</Requirement>
+		</SubjectRequirements>
 		<Argument name="Key">UpgradeDiscount</Argument>
 		<Argument name="Value">25</Argument>
 		<Argument name="Operation">SET</Argument>

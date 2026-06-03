@@ -1,52 +1,12 @@
-import { F as Framework } from '../framework.chunk.js';
+import { Framework } from '../framework.js';
 import Cursor from './cursor.js';
-import { A as AnalogInput, N as NavigateInputEvent, a as NavigateInputEventName, I as InputEngineEvent, b as InputEngineEventName } from './input-support.chunk.js';
-import { U as UpdateGate } from '../utilities/utilities-update-gate.chunk.js';
-import './focus-manager.js';
-import '../audio-base/audio-support.chunk.js';
-import '../views/view-manager.chunk.js';
-import '../panel-support.chunk.js';
-
-class DebugInputSingleton {
-  sendTunerActionA() {
-    if (!UI.isInGame()) {
-      return true;
-    }
-    const plotCoords = Camera.pickPlotFromPoint(Cursor.position.x, Cursor.position.y);
-    if (plotCoords) {
-      return window.dispatchEvent(
-        new CustomEvent("tuner-user-action-a", { cancelable: true, detail: { plotCoords } })
-      );
-    }
-    return true;
-  }
-  sendTunerActionB() {
-    if (!UI.isInGame()) {
-      return true;
-    }
-    const plotCoords = Camera.pickPlotFromPoint(Cursor.position.x, Cursor.position.y);
-    if (plotCoords) {
-      return window.dispatchEvent(
-        new CustomEvent("tuner-user-action-b", { cancelable: true, detail: { plotCoords } })
-      );
-    }
-    return true;
-  }
-}
-const DebugInput = new DebugInputSingleton();
+import DebugInput from './debug-input-handler.js';
+import { MoveSoftCursorEvent, ActiveDeviceTypeChangedEvent } from './input-events.js';
+import { AnalogInput, NavigateInputEvent, NavigateInputEventName, InputEngineEvent, InputEngineEventName } from './input-support.js';
+import UpdateGate from '../utilities/utilities-update-gate.js';
 
 const FORCE_GAMEPAD = false;
-const ActiveDeviceTypeChangedEventName = "active-device-type-changed";
-class ActiveDeviceTypeChangedEvent extends CustomEvent {
-  constructor(deviceType, gamepadActive) {
-    super(ActiveDeviceTypeChangedEventName, { bubbles: false, detail: { deviceType, gamepadActive } });
-  }
-}
-class MoveSoftCursorEvent extends CustomEvent {
-  constructor(status, x, y) {
-    super("move-soft-cursor", { detail: { status, x, y } });
-  }
-}
+const LOG_CURSOR_MISMATCH = false;
 class ActionHandlerSingleton {
   static Instance;
   // Singleton
@@ -282,14 +242,18 @@ class ActionHandlerSingleton {
     this._deviceType = inputDeviceType;
     if (this._deviceType != InputDeviceType.Keyboard && this._deviceType != InputDeviceType.Mouse && this._deviceType != InputDeviceType.Hybrid) {
       if (!this.isCursorShowing) {
-        console.warn("Attempt to hide cursor when it's already hidden!");
+        if (LOG_CURSOR_MISMATCH) {
+          console.warn("Attempt to hide cursor when it's already hidden!");
+        }
         return;
       }
       this.isCursorShowing = false;
       UI.hideCursor();
     } else {
       if (this.isCursorShowing) {
-        console.warn("Attempt to show cursor when it's already shown!");
+        if (LOG_CURSOR_MISMATCH) {
+          console.warn("Attempt to show cursor when it's already shown!");
+        }
         return;
       }
       this.isCursorShowing = true;
@@ -334,5 +298,5 @@ engine.whenReady.then(() => {
   engine.synchronizeModels();
 });
 
-export { ActiveDeviceTypeChangedEvent, ActiveDeviceTypeChangedEventName, MoveSoftCursorEvent, ActionHandler as default };
+export { ActionHandler as default };
 //# sourceMappingURL=action-handler.js.map

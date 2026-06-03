@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<!-- Antiquity -->
+	<Types>
+		<Row Type="NODE_CIVIC_AQ_BULGARIA_ORIGINS" Kind="KIND_TREE_NODE" />
+	</Types>
+	<TypeQuotes>
+		<Row Type="NODE_CIVIC_AQ_BULGARIA_ORIGINS" Quote="LOC_CIVIC_AQ_ORIGINS_QUOTE" QuoteAuthor="LOC_CIVIC_AQ_ORIGINS_AUTHOR" QuoteAudio="VO_Quote_ToT_ANT_Origins" />
+	</TypeQuotes>
+	<ProgressionTreeNodes>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_BULGARIA_ORIGINS" ProgressionTree="TREE_CIVICS_AQ_TEST_OF_TIME" Cost="150" Name="LOC_NODE_CIVIC_AQ_BULGARIA_ORIGINS_NAME" IconString="cult_bulgaria" CanSteal="false" />
+	</ProgressionTreeNodes>
+	<ProgressionTreeNodeUnlocks>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_BULGARIA_ORIGINS" TargetKind="KIND_TRADITION" TargetType="TRADITION_STRATAGEMS_I" />
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_BULGARIA_ORIGINS" TargetKind="KIND_MODIFIER" TargetType="MOD_TOT_TRADITION_SLOT" />
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_BULGARIA_ORIGINS" TargetKind="KIND_MODIFIER" TargetType="MOD_AQ_SETTLEMENT_CAP_INCREASE" />
+	</ProgressionTreeNodeUnlocks>
+	<ProgressionTreeNodeTraits>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_BULGARIA_ORIGINS" RequiredTraitType="TRAIT_BULGARIA" />
+	</ProgressionTreeNodeTraits>
+	<ProgressionTreePrereqs>
+		<Row Node="NODE_CIVIC_AQ_FOUNDATION" PrereqNode="NODE_CIVIC_AQ_BULGARIA_ORIGINS" />
+		<Row Node="NODE_CIVIC_AQ_SYNCRETISM_CHOICE" PrereqNode="NODE_CIVIC_AQ_BULGARIA_ORIGINS" />
+	</ProgressionTreePrereqs>
+</Database>

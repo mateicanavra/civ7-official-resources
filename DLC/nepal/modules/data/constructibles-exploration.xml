@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Constructible_WarehouseYields>
+		<!-- Warehouse Buildings -->
+		<Row ConstructibleType="BUILDING_GRISTMILL" YieldChangeId="NepalGristmillMountainFood" RequiresActivation="true"/>
+		<Row ConstructibleType="BUILDING_SAWMILL" YieldChangeId="NepalSawmillMountainProduction" RequiresActivation="true"/>
+		<Row ConstructibleType="BUILDING_STONECUTTER" YieldChangeId="NepalStonecutterMountainProduction" RequiresActivation="true"/>
+	</Constructible_WarehouseYields>
+	<Warehouse_YieldChanges>
+		<Row ID="NepalGristmillMountainFood" YieldType="YIELD_FOOD" YieldChange="1" TerrainInCity="TERRAIN_MOUNTAIN"/>
+		<Row ID="NepalSawmillMountainProduction" YieldType="YIELD_PRODUCTION" YieldChange="1" TerrainInCity="TERRAIN_MOUNTAIN"/>
+		<Row ID="NepalStonecutterMountainProduction" YieldType="YIELD_PRODUCTION" YieldChange="1" TerrainInCity="TERRAIN_MOUNTAIN"/>
+	</Warehouse_YieldChanges>
+	<ModifierArguments>
+		<Replace ModifierId="MOD_NEPAL_MOUNTAIN_WAREHOUSES" Name="ConstructibleWarehouseYield" Value="NepalBrickyardMountainProduction, NepalFishingQuayMountainFood, NepalHarborMountainProduction, NepalGranaryMountainFood, NepalSawPitMountainProduction, NepalGristmillMountainFood, NepalSawmillMountainProduction, NepalStonecutterMountainProduction"/>
+	</ModifierArguments>
+</Database>

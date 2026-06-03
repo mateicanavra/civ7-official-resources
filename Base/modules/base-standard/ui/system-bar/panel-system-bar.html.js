@@ -1,0 +1,4 @@
+const content = "<fxs-hslot ignore-focus=\"true\">\r\n\t<div class=\"ps-content-wrapper\">\r\n\t\t<div\r\n\t\t\trole=\"paragraph\"\r\n\t\t\tclass=\"flex mr-10 font-title text-base pointer-events-auto\"\r\n\t\t>\r\n\t\t\t<div class=\"ps-turn-number\"></div>\r\n\t\t\t<div class=\"mx-2\">|</div>\r\n\t\t\t<div class=\"ps-turn-age\"></div>\r\n\t\t\t<div class=\"ps-turn-age-icon size-7 bg-center bg-cover bg-no-repeat -mt-px -mb-1\\.5 ml-1\\.5\"></div>\r\n\t\t</div>\r\n\t\t<div\r\n\t\t\tid=\"ps-clock\"\r\n\t\t\trole=\"paragraph\"\r\n\t\t\tclass=\"font-title-base pointer-events-auto\"\r\n\t\t></div>\r\n\t\t<div\r\n\t\t\tid=\"ps-icons\"\r\n\t\t\tclass=\"ps-icon-container\"\r\n\t\t></div>\r\n\t</div>\r\n</fxs-hslot>\r\n";
+
+export { content as default };
+//# sourceMappingURL=panel-system-bar.html.js.map

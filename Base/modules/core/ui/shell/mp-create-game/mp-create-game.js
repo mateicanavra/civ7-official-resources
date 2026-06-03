@@ -1,41 +1,18 @@
-import { j as SendCampaignSetupTelemetryEvent } from '../../events/shell-events.chunk.js';
-import FocusManager from '../../input/focus-manager.js';
-import { N as NavTray } from '../../navigation-tray/model-navigation-tray.chunk.js';
-import { A as AnchorType } from '../../panel-support.chunk.js';
-import { a as AdvancedOptionsBase, s as styles } from '../create-panels/advanced-options-panel.chunk.js';
-import { M as MultiplayerShellManager } from '../mp-shell-logic/mp-shell-logic.chunk.js';
-import { MustGetElement } from '../../utilities/utilities-dom.chunk.js';
-import { s as serverTypeToGameModeType } from '../../utilities/utilities-network-constants.chunk.js';
-import '../../audio-base/audio-support.chunk.js';
-import '../../framework.chunk.js';
-import '../../input/action-handler.js';
-import '../../input/cursor.js';
-import '../../views/view-manager.chunk.js';
-import '../../input/input-support.chunk.js';
-import '../../utilities/utilities-update-gate.chunk.js';
-import '../../utilities/utilities-image.chunk.js';
-import '../../utilities/utilities-component-id.chunk.js';
-import '../../context-manager/context-manager.js';
-import '../../context-manager/display-queue-manager.js';
-import '../../dialog-box/manager-dialog-box.chunk.js';
-import '../create-panels/create-game-model.js';
-import '../../profile-page/screen-profile-page.js';
-import '../../components/fxs-dropdown.chunk.js';
-import '../../components/fxs-activatable.chunk.js';
-import '../../input/focus-support.chunk.js';
-import '../../components/fxs-slot.chunk.js';
-import '../../spatial/spatial-manager.js';
-import '../../save-load/model-save-load.chunk.js';
-import '../leader-select/leader-button/leader-button.js';
-import '../../utilities/utilities-layout.chunk.js';
-import '../../utilities/utilities-liveops.js';
-import '../../utilities/utilities-metaprogression.chunk.js';
-import '../create-panels/game-creation-panel-base.chunk.js';
-import '../live-event-logic/live-event-logic.chunk.js';
-import '../../utilities/utilities-network.js';
-import '../mp-legal/mp-legal.js';
+import ContextManager from '../../context-manager/context-manager.js';
+import { SendCampaignSetupTelemetryEvent } from '../../events/shell-events.js';
+import NavTray from '../../navigation-tray/model-navigation-tray.js';
+import { AnchorType } from '../../panel-support.js';
+import { AdvancedOptionsBase } from '../create-panels/advanced-options-base.js';
+import { CreateGameModel } from '../create-panels/create-game-model.js';
+import MultiplayerShellManager from '../mp-shell-logic/mp-shell-logic.js';
+import { MustGetElement } from '../../utilities/utilities-dom.js';
+import { serverTypeToGameModeType } from '../../utilities/utilities-network-constants.js';
+import { FocusManager } from '../../../ui-next/services/focus-manager.js';
+import styles from '../create-panels/advanced-options-panel.scss.js';
 
 class PanelMPCreateGame extends AdvancedOptionsBase {
+  static ADVANCED_PANEL_ID = "advanced-setup-mp__advanced";
+  static ADDONS_PANEL_ID = "advanced-setup-mp__add-ons";
   gameSetupRevision = 0;
   groupNamesConfigChanges = -1;
   enteredAdditionalContent = false;
@@ -48,7 +25,13 @@ class PanelMPCreateGame extends AdvancedOptionsBase {
     this.animateInType = this.animateOutType = AnchorType.RelativeToRight;
     this.enableOpenSound = true;
     this.Root.setAttribute("data-audio-group-ref", "multiplayer-create-game");
-    this.slotIDs = ["advanced-setup-mp__game", "advanced-setup-mp__legacy", "advanced-setup-mp__advanced"];
+    this.slotIDs = [
+      AdvancedOptionsBase.GAME_PANEL_ID,
+      // Removing for 1.4.0 - PTR 1 with legacy path updates.
+      //AdvancedOptionsBase.LEGACY_PATHS_PANEL_ID,
+      PanelMPCreateGame.ADVANCED_PANEL_ID
+      //"PanelMPCreateGame.ADDONS_PANEL_ID" is added dynamically
+    ];
     this.saveConfigAttributes = {
       "menu-type": "save_config",
       "server-type": MultiplayerShellManager.serverType,
@@ -66,11 +49,13 @@ class PanelMPCreateGame extends AdvancedOptionsBase {
         isActive: true,
         eventHandler: this.showGameSetupPanel.bind(this)
       },
-      {
-        category: "LOC_ADVANCED_OPTIONS_LEGACY_PATH_SETTINGS",
-        isActive: false,
-        eventHandler: this.showLegacyPathSetupPanel.bind(this)
-      },
+      // Removing for 1.4.0 - PTR 1 with legacy path updates.
+      // TODO: If reimplemented, be sure to adjust the panel id in createAdvancedPanel() and createAddOnsPanel()
+      /*{
+      	category: "LOC_ADVANCED_OPTIONS_LEGACY_PATH_SETTINGS",
+      	isActive: false,
+      	eventHandler: this.showLegacyPathSetupPanel.bind(this),
+      },*/
       {
         category: "LOC_GROUPID_ADVANCEDOPTIONS",
         isActive: false,
@@ -78,11 +63,14 @@ class PanelMPCreateGame extends AdvancedOptionsBase {
       }
     ];
     if (UI.supportsDLC()) {
-      this.slotIDs.push("advanced-setup-mp__add-ons");
+      this.slotIDs.push(PanelMPCreateGame.ADDONS_PANEL_ID);
       this.navControlButtonInfo.push({
         category: "LOC_UI_CONTENT_MGR_SUBTITLE",
         isActive: false,
-        eventHandler: this.showAddOnsSetupPanel.bind(this)
+        eventHandler: () => {
+          this.showAddOnsSetupPanel();
+          this.enteredAdditionalContent = true;
+        }
       });
     }
   }
@@ -92,12 +80,13 @@ class PanelMPCreateGame extends AdvancedOptionsBase {
     if (UI.supportsDLC()) {
       this.createAddOnsPanel();
     }
-    this.frame.setAttribute("override-styling", "advanced-options_mp-frame flex-auto relative pt-14 px-10 pb-4");
     const subheader = document.createElement("fxs-header");
     subheader.setAttribute("title", "LOC_UI_MP_BROWSER_CREATE_GAME_SETTINGS");
     subheader.setAttribute("filigree-style", "none");
     subheader.classList.add("text-sm");
-    this.frame.insertBefore(subheader, MustGetElement(".advanced-options__top-nav", this.Root));
+    this.frame.setAttribute("override-styling", "advanced-options_mp-frame flex-auto relative pt-14 px-10 pb-4");
+    const topNav = MustGetElement(".advanced-options__top-nav", this.Root);
+    topNav.insertAdjacentElement("afterend", subheader);
   }
   onAttach() {
     const gameMode = serverTypeToGameModeType.get(MultiplayerShellManager.serverType);
@@ -110,6 +99,7 @@ class PanelMPCreateGame extends AdvancedOptionsBase {
       Configuration.editGame()?.reset(GameModeTypes.INTERNET);
     }
     super.onAttach();
+    this.enteredAdditionalContent = false;
     this.createGameConfirmed = false;
   }
   onUpdate() {
@@ -143,12 +133,13 @@ class PanelMPCreateGame extends AdvancedOptionsBase {
         shouldRefreshGameOptions = true;
       }
       if (shouldRefreshGameOptions) {
-        const lastChangedParameter = FocusManager.getFocus().id;
+        const focusManager = FocusManager.get();
+        const lastChangedParameter = focusManager.currentFocus().id;
         this.refreshGameOptions();
         if (lastChangedParameter != "") {
           const newFocus = this.Root.querySelector(`#${lastChangedParameter}`);
           if (newFocus) {
-            FocusManager.setFocus(newFocus);
+            focusManager.setFocus(newFocus);
           }
         } else {
           this.updateFocus();
@@ -182,6 +173,14 @@ class PanelMPCreateGame extends AdvancedOptionsBase {
   }
   createBottomNav() {
     const bottomNav = super.createBottomNav();
+    if (Configuration.getGame().isHotseat) {
+      const loadGameButton = document.createElement("fxs-button");
+      loadGameButton.classList.add("mx-2", "mb-2", "mt-6");
+      loadGameButton.setAttribute("caption", "LOC_SAVE_LOAD_TITLE_LOAD");
+      loadGameButton.addEventListener("action-activate", this.onLoadPressed.bind(this));
+      const item = bottomNav.querySelector(".reset-button");
+      item?.insertAdjacentElement("afterend", loadGameButton);
+    }
     this.confirmButton.setAttribute("caption", "LOC_UI_MP_HOST_LOBBY");
     return bottomNav;
   }
@@ -189,6 +188,18 @@ class PanelMPCreateGame extends AdvancedOptionsBase {
     Configuration.editGame()?.reset(serverTypeToGameModeType.get(MultiplayerShellManager.serverType));
     waitForLayout(() => {
       this.refreshGameOptions();
+    });
+  }
+  onLoadPressed() {
+    ContextManager.push("screen-save-load", {
+      singleton: true,
+      createMouseGuard: true,
+      attributes: {
+        "menu-type": "load",
+        "server-type": ServerType.SERVER_TYPE_HOTSEAT,
+        "save-type": SaveTypes.HOTSEAT,
+        "from-event": false
+      }
     });
   }
   onConfirmButtonPressed() {
@@ -201,6 +212,8 @@ class PanelMPCreateGame extends AdvancedOptionsBase {
   }
   setupNavTray() {
     if (this.activePanel == this.addOnsSetupPanel) {
+      NavTray.addOrUpdateNavShellPrevious("LOC_UI_SAVE_CONFIG");
+      NavTray.addOrUpdateNavShellNext("LOC_UI_LOAD_CONFIG");
       NavTray.addOrUpdateShellAction1("LOC_OPTIONS_MODDING_ENABLE_ALL");
     } else {
       super.setupNavTray();
@@ -213,6 +226,7 @@ class PanelMPCreateGame extends AdvancedOptionsBase {
       return;
     }
     if (event.isCancelInput()) {
+      CreateGameModel.showPreviousPanel();
       this.close();
       event.stopPropagation();
       event.preventDefault();
@@ -220,7 +234,7 @@ class PanelMPCreateGame extends AdvancedOptionsBase {
   }
   createAdvancedPanel() {
     this.mpAdvancedSetupPanel.classList.add("mp-advanced-setup", "flex", "flex-col");
-    this.mpAdvancedSetupPanel.id = this.slotIDs[2];
+    this.mpAdvancedSetupPanel.id = this.slotIDs[1];
     const scrollableContent = document.createElement("fxs-scrollable");
     scrollableContent.classList.add("flex-auto");
     scrollableContent.setAttribute("allow-mouse-panning", "true");
@@ -232,7 +246,7 @@ class PanelMPCreateGame extends AdvancedOptionsBase {
   }
   createAddOnsPanel() {
     this.addOnsSetupPanel.classList.add("addons-setup", "shrink");
-    this.addOnsSetupPanel.id = this.slotIDs[3];
+    this.addOnsSetupPanel.id = this.slotIDs[2];
     const modsContent = document.createElement("mods-content");
     modsContent.classList.add("flex-auto");
     this.addOnsSetupPanel.appendChild(modsContent);

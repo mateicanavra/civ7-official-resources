@@ -1,23 +1,11 @@
 import Cursor from '../../../core/ui/input/cursor.js';
 import { PlotCursorUpdatedEventName, PlotCursor } from '../../../core/ui/input/plot-cursor.js';
-import { C as ComponentID } from '../../../core/ui/utilities/utilities-component-id.chunk.js';
-import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.chunk.js';
-import { Icon } from '../../../core/ui/utilities/utilities-image.chunk.js';
-import '../../../core/ui/input/focus-manager.js';
-import '../../../core/ui/audio-base/audio-support.chunk.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/views/view-manager.chunk.js';
-import '../../../core/ui/panel-support.chunk.js';
-import '../../../core/ui/context-manager/context-manager.js';
-import '../../../core/ui/context-manager/display-queue-manager.js';
-import '../../../core/ui/dialog-box/manager-dialog-box.chunk.js';
-import '../../../core/ui/input/action-handler.js';
-import '../../../core/ui/input/input-support.chunk.js';
-import '../../../core/ui/utilities/utilities-update-gate.chunk.js';
-
-const content = "<div class=\"main-container\">\r\n\t<div\r\n\t\tclass=\"preview-modifier-container\"\r\n\t\tid=\"attacker-modifier-container\"\r\n\t>\r\n\t\t<div\r\n\t\t\tclass=\"preview-modifier-info\"\r\n\t\t\tid=\"attacker-modifier-info\"\r\n\t\t></div>\r\n\t</div>\r\n\t<div\r\n\t\tclass=\"preview-modifier-container preview-modifier-right\"\r\n\t\tid=\"target-modifier-container\"\r\n\t>\r\n\t\t<div\r\n\t\t\tclass=\"preview-modifier-info\"\r\n\t\t\tid=\"target-modifier-info\"\r\n\t\t></div>\r\n\t</div>\r\n\t<div class=\"preview-header\">\r\n\t\t<div class=\"preview-outcome\">\r\n\t\t\t<div class=\"preview-outcome-color-bg\">\r\n\t\t\t\t<div class=\"preview-outcome-label\">\r\n\t\t\t\t\t<div\r\n\t\t\t\t\t\tclass=\"preview-outcome-text font-title\"\r\n\t\t\t\t\t\tid=\"outcome-label\"\r\n\t\t\t\t\t></div>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t\t<div class=\"preview-bg\">\r\n\t\t\t<div class=\"preview-vs-label font-title\">VS</div>\r\n\t\t\t<div class=\"preview-health-meter-container\">\r\n\t\t\t\t<div class=\"preview-health-meter\">\r\n\t\t\t\t\t<div class=\"preview-max-health\">\r\n\t\t\t\t\t\t<div\r\n\t\t\t\t\t\t\tclass=\"preview-actual-health\"\r\n\t\t\t\t\t\t\tid=\"attacker-health\"\r\n\t\t\t\t\t\t></div>\r\n\t\t\t\t\t\t<div\r\n\t\t\t\t\t\t\tclass=\"preview-simulated-health\"\r\n\t\t\t\t\t\t\tid=\"attacker-simulated-health\"\r\n\t\t\t\t\t\t></div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"preview-health-meter preview-health-right\">\r\n\t\t\t\t\t<div class=\"preview-max-health\">\r\n\t\t\t\t\t\t<div\r\n\t\t\t\t\t\t\tclass=\"preview-actual-health\"\r\n\t\t\t\t\t\t\tid=\"target-health\"\r\n\t\t\t\t\t\t></div>\r\n\t\t\t\t\t\t<div\r\n\t\t\t\t\t\t\tclass=\"preview-simulated-health\"\r\n\t\t\t\t\t\t\tid=\"target-simulated-health\"\r\n\t\t\t\t\t\t></div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t\t<div class=\"preview-leader-icon-container\">\r\n\t\t\t<div class=\"preview-leader-icon\">\r\n\t\t\t\t<div class=\"preview-hex-bg\"></div>\r\n\t\t\t\t<fxs-icon\r\n\t\t\t\t\tclass=\"preview-icon-img\"\r\n\t\t\t\t\tid=\"attacker-leader-icon\"\r\n\t\t\t\t></fxs-icon>\r\n\t\t\t</div>\r\n\t\t\t<div class=\"preview-leader-icon preview-leader-right\">\r\n\t\t\t\t<div class=\"preview-hex-bg preview-hex-target\"></div>\r\n\t\t\t\t<fxs-icon\r\n\t\t\t\t\tclass=\"preview-icon-img\"\r\n\t\t\t\t\tid=\"target-leader-icon\"\r\n\t\t\t\t></fxs-icon>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t\t<div class=\"preview-banner-container\">\r\n\t\t\t<div class=\"combat-preview__banner-rod-left\"></div>\r\n\t\t\t<div class=\"combat-preview__banner-rod-right\"></div>\r\n\t\t\t<div class=\"combat-preview__banner-rod-dot\"></div>\r\n\t\t\t<div class=\"preview-banner\">\r\n\t\t\t\t<div class=\"preview-banner-bg\">\r\n\t\t\t\t\t<div class=\"preview-banner-bars\"></div>\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"preview-banner-stat-container\">\r\n\t\t\t\t\t<fxs-icon\r\n\t\t\t\t\t\tclass=\"size-8 border-2 rounded-full preview-unit-icon\"\r\n\t\t\t\t\t\tid=\"attacker-unit-icon\"\r\n\t\t\t\t\t></fxs-icon>\r\n\t\t\t\t\t<img\r\n\t\t\t\t\t\tclass=\"preview-stat-icon\"\r\n\t\t\t\t\t\tid=\"attacker-stats-icon\"\r\n\t\t\t\t\t/>\r\n\t\t\t\t\t<div\r\n\t\t\t\t\t\tclass=\"preview-stat-number font-body\"\r\n\t\t\t\t\t\tid=\"attacker-stats-string\"\r\n\t\t\t\t\t></div>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t\t<div class=\"preview-banner preview-banner-right\">\r\n\t\t\t\t<div class=\"preview-banner-bg\">\r\n\t\t\t\t\t<div class=\"preview-banner-bars\"></div>\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"preview-banner-stat-container\">\r\n\t\t\t\t\t<fxs-icon\r\n\t\t\t\t\t\tclass=\"size-8 border-2 rounded-full preview-unit-icon preview-unit-icon-right\"\r\n\t\t\t\t\t\tid=\"target-unit-icon\"\r\n\t\t\t\t\t></fxs-icon>\r\n\t\t\t\t\t<img\r\n\t\t\t\t\t\tclass=\"preview-stat-icon\"\r\n\t\t\t\t\t\tid=\"target-stats-icon\"\r\n\t\t\t\t\t/>\r\n\t\t\t\t\t<div\r\n\t\t\t\t\t\tclass=\"preview-stat-number\"\r\n\t\t\t\t\t\tid=\"target-stats-string\"\r\n\t\t\t\t\t></div>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t</div>\r\n</div>\r\n";
-
-const styles = "fs://game/base-standard/ui/unit-combat-preview/panel-unit-combat-preview.css";
+import { ComponentID } from '../../../core/ui/utilities/utilities-component-id.js';
+import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
+import { Icon } from '../../../core/ui/utilities/utilities-image.js';
+import { SetIsPlotTooltipVisible } from '../../ui-next/tooltips/plot-tooltip/plot-tooltip.js';
+import content from './panel-unit-combat-preview.html.js';
+import styles from './panel-unit-combat-preview.scss.js';
 
 class PanelUnitCombatPreview extends Component {
   plotCursorCoordsUpdatedListener = this.onPlotCursorCoordsUpdated.bind(this);
@@ -84,6 +72,7 @@ class PanelUnitCombatPreview extends Component {
   }
   onDetach() {
     UI.lockCursor(false);
+    SetIsPlotTooltipVisible(true);
     engine.off("UnitSelectionChanged", this.onUnitSelectionChanged, this);
     engine.off("UnitRemovedFromMap", this.onUnitRemovedFromMap, this);
     engine.off("UnitMoveComplete", this.onUnitMoveComplete, this);
@@ -155,6 +144,7 @@ class PanelUnitCombatPreview extends Component {
   }
   removeCombatPreview() {
     UI.lockCursor(false);
+    SetIsPlotTooltipVisible(true);
     window.dispatchEvent(new CustomEvent("combat-preview-hidden"));
     WorldAnchors.ClearWorldUnitsSelectedUnitTargeting();
     this.Root.classList.remove("visible");
@@ -434,6 +424,7 @@ class PanelUnitCombatPreview extends Component {
       UI.setCursorByType(UIHTMLCursorTypes.Attack);
     }
     window.dispatchEvent(new CustomEvent("combat-preview-shown"));
+    SetIsPlotTooltipVisible(false);
     WorldAnchors.SetWorldUnitsSelectedUnitTargeting(this.targetID);
     this.Root.classList.remove("hidden");
     this.Root.classList.add("visible");

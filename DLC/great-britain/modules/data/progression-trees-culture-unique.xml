@@ -23,23 +23,25 @@
 	<ProgressionTreeNodes>
 		<!--Civ Unique Mastery Tree Nodes-->
 		<!--Great Britain-->
-		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_GREAT_BRITAIN_PAX_BRITANNICA" ProgressionTree="TREE_CIVICS_MO_GREAT_BRITAIN" Cost="2070" Name="LOC_CIVIC_PAX_BRITANNICA_NAME" IconString="cult_great_britain"/>
-		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_GREAT_BRITAIN_SOCIETY_OF_ANTIQUARIES" ProgressionTree="TREE_CIVICS_MO_GREAT_BRITAIN" Cost="2300" Name="LOC_CIVIC_SOCIETY_OF_ANTIQUARIES_NAME" IconString="cult_great_britain"/>
-		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_GREAT_BRITAIN_CHARTERED_COMPANIES" ProgressionTree="TREE_CIVICS_MO_GREAT_BRITAIN" Cost="2530" Name="LOC_CIVIC_CHARTERED_COMPANIES_NAME" IconString="cult_great_britain"/>
-		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_GREAT_BRITAIN_SPLENDID_ISOLATION" ProgressionTree="TREE_CIVICS_MO_GREAT_BRITAIN" Cost="2530" Name="LOC_CIVIC_SPLENDID_ISOLATION_NAME" IconString="cult_great_britain"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_GREAT_BRITAIN_PAX_BRITANNICA" ProgressionTree="TREE_CIVICS_MO_GREAT_BRITAIN" Cost="2000" Name="LOC_CIVIC_PAX_BRITANNICA_NAME" IconString="cult_great_britain"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_GREAT_BRITAIN_SOCIETY_OF_ANTIQUARIES" ProgressionTree="TREE_CIVICS_MO_GREAT_BRITAIN" Cost="3000" Name="LOC_CIVIC_SOCIETY_OF_ANTIQUARIES_NAME" IconString="cult_great_britain"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_GREAT_BRITAIN_CHARTERED_COMPANIES" ProgressionTree="TREE_CIVICS_MO_GREAT_BRITAIN" Cost="4000" Name="LOC_CIVIC_CHARTERED_COMPANIES_NAME" IconString="cult_great_britain"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_GREAT_BRITAIN_SPLENDID_ISOLATION" ProgressionTree="TREE_CIVICS_MO_GREAT_BRITAIN" Cost="4000" Name="LOC_CIVIC_SPLENDID_ISOLATION_NAME" IconString="cult_great_britain"/>
 	</ProgressionTreeNodes>
 	<ProgressionTreeNodeUnlocks>
 		<!--Great Britain-->
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_GREAT_BRITAIN_PAX_BRITANNICA" TargetKind="KIND_CONSTRUCTIBLE" TargetType="WONDER_BATTERSEA_POWER_STATION" UnlockDepth="1" AIIgnoreUnlockValue="true"/>
 		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_GREAT_BRITAIN_PAX_BRITANNICA" TargetKind="KIND_CONSTRUCTIBLE" TargetType="BUILDING_ROYAL_EXCHANGE" UnlockDepth="1"/>
-		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_GREAT_BRITAIN_PAX_BRITANNICA" TargetKind="KIND_MODIFIER" TargetType="MOD_PAX_BRITANNICA_PRODUCTION_FACTORY_RESOURCES" UnlockDepth="1"/>
-		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_GREAT_BRITAIN_PAX_BRITANNICA" TargetKind="KIND_CONSTRUCTIBLE" TargetType="BUILDING_MANUFACTORY" UnlockDepth="2"/>
-		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_GREAT_BRITAIN_PAX_BRITANNICA" TargetKind="KIND_CONSTRUCTIBLE" TargetType="WONDER_BATTERSEA_POWER_STATION" UnlockDepth="2" AIIgnoreUnlockValue="true"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_GREAT_BRITAIN_PAX_BRITANNICA" TargetKind="KIND_CONSTRUCTIBLE" TargetType="BUILDING_MANUFACTORY" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_GREAT_BRITAIN_PAX_BRITANNICA" TargetKind="KIND_MODIFIER" TargetType="MOD_TOT_TRADITION_SLOT" UnlockDepth="1"/>
+
 		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_GREAT_BRITAIN_SOCIETY_OF_ANTIQUARIES" TargetKind="KIND_TRADITION" TargetType="TRADITION_PROCEEDINGS" UnlockDepth="1"/>
-		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_GREAT_BRITAIN_SOCIETY_OF_ANTIQUARIES" TargetKind="KIND_MODIFIER" TargetType="MOD_SOCIETY_OF_ANTIQUARIES_MOVEMENT" UnlockDepth="1"/>
-		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_GREAT_BRITAIN_CHARTERED_COMPANIES" TargetKind="KIND_TRADITION" TargetType="TRADITION_EAST_INDIA_COMPANY" UnlockDepth="1"/>
-		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_GREAT_BRITAIN_CHARTERED_COMPANIES" TargetKind="KIND_MODIFIER" TargetType="MOD_CHARTERED_COMPANIES_PORT_RESOURCE_CAP" UnlockDepth="1"/>
-		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_GREAT_BRITAIN_SPLENDID_ISOLATION" TargetKind="KIND_MODIFIER" TargetType="MOD_SPLENDID_ISOLATION_POSITIVE_GOLD_CS" UnlockDepth="1"/>
-		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_GREAT_BRITAIN_SPLENDID_ISOLATION" TargetKind="KIND_TRADITION" TargetType="TRADITION_NO_ETERNAL_ALLIES" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_GREAT_BRITAIN_SOCIETY_OF_ANTIQUARIES" TargetKind="KIND_MODIFIER" TargetType="MOD_MO_ARTIFACT" UnlockDepth="1"/>
+
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_GREAT_BRITAIN_CHARTERED_COMPANIES" TargetKind="KIND_TRADITION" TargetType="TRADITION_EAST_INDIA_COMPANY_II" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_GREAT_BRITAIN_CHARTERED_COMPANIES" TargetKind="KIND_MODIFIER" TargetType="MOD_TOT_TRADITION_SLOT" UnlockDepth="1"/>
+
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_GREAT_BRITAIN_SPLENDID_ISOLATION" TargetKind="KIND_TRADITION" TargetType="TRADITION_NO_ETERNAL_ALLIES_II" UnlockDepth="1"/>
 		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_GREAT_BRITAIN_SPLENDID_ISOLATION" TargetKind="KIND_MODIFIER" TargetType="MOD_MO_SETTLEMENT_CAP_INCREASE" UnlockDepth="1"/>
 	</ProgressionTreeNodeUnlocks>
 	<ProgressionTreePrereqs>

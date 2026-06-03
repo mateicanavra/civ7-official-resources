@@ -128,9 +128,6 @@
         <Argument name="YieldType">YIELD_DIPLOMACY</Argument>
         <Argument name="MultiplierType">REWARD_TYPE_MINOR_EARLY</Argument>
     </Modifier>
-    <Requirement id="REQ_STORY_CIVILIZATION_NEPAL" type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
-        <Argument name="CivilizationType">CIVILIZATION_NEPAL</Argument>
-    </Requirement>
     <RequirementSet id="REQSET_11030A_NARRATIVE_REQUISITE">
         <Requirement xref="REQ_STORY_CIVILIZATION_NEPAL"/>
         <Requirement type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
@@ -239,12 +236,12 @@
     <RequirementSet id="REQSET_11038D_NARRATIVE">
         <Requirement xref="REQ_STORY_CIVILIZATION_NEPAL"/>
         <Requirement type="REQUIREMENT_PLAYER_HAS_ACTIVE_TRADITION">
-            <Argument name="TraditionType">TRADITION_MAITRI_SANADHI</Argument>
+            <Argument name="TraditionType">TRADITION_MAITRI_SANDHI</Argument>
         </Requirement>
     </RequirementSet>
     <RequirementSet id="REQSET_11038A_NARRATIVE">
         <Requirement type="REQUIREMENT_PLAYER_HAS_ACTIVE_TRADITION">
-            <Argument name="TraditionType">TRADITION_MAITRI_SANADHI</Argument>
+            <Argument name="TraditionType">TRADITION_MAITRI_SANDHI</Argument>
         </Requirement>
         <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
             <Argument name="GossipTypes">GOSSIP_DIPLOMACY_ACTION_STARTED01</Argument>

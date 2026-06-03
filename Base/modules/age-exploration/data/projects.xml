@@ -12,6 +12,9 @@
 		<!-- Unique Projects -->
 		<Row Type="PROJECT_CITY_SCIENCE_PROJECT" Kind="KIND_PROJECT"/>
 		<Row Type="PROJECT_CITY_CULTURE_PROJECT" Kind="KIND_PROJECT"/>
+		<!-- Science Victory -->
+		<Row Type="PROJECT_HELIOCENTRIC_MODEL" Kind="KIND_PROJECT"/>
+		<Row Type="PROJECT_INVENT_CALCULUS" Kind="KIND_PROJECT"/>
 	</Types>
 	<Projects>
 		<!-- Warehouse Projects -->
@@ -21,10 +24,13 @@
 		<!-- Common Projects -->
 		<Row ProjectType="PROJECT_TOWN_TRADE" Name="LOC_PROJECT_TOWN_TRADE_NAME" ShortName="LOC_PROJECT_TOWN_TRADE_SHORT_NAME" Description="LOC_PROJECT_TOWN_TRADE_DESCRIPTION" Food="true" ExclusiveSpecialization="true" TownOnly="true" PrereqPopulation="7" RequiresUnlock="true"/>
 		<Row ProjectType="PROJECT_TOWN_TEMPLE" Name="LOC_PROJECT_TOWN_TEMPLE_NAME" ShortName="LOC_PROJECT_TOWN_TEMPLE_SHORT_NAME" Description="LOC_PROJECT_TOWN_TEMPLE_DESCRIPTION" Food="true" ExclusiveSpecialization="true" TownOnly="true" PrereqPopulation="7"/>
-		<Row ProjectType="PROJECT_TOWN_INN" Name="LOC_PROJECT_TOWN_INN_NAME" ShortName="LOC_PROJECT_TOWN_INN_SHORT_NAME" Description="LOC_PROJECT_TOWN_INN_DESCRIPTION" Food="true" ExclusiveSpecialization="true" TownOnly="true" PrereqPopulation="7"/>
+		<Row ProjectType="PROJECT_TOWN_INN" Name="LOC_PROJECT_TOWN_INN_NAME" ShortName="LOC_PROJECT_TOWN_INN_SHORT_NAME" Description="LOC_PROJECT_TOWN_INN_DESCRIPTION" Food="true" ExclusiveSpecialization="true" TownOnly="true" PrereqPopulation="7" MaxSpecializationInstancesOnContinent="1"/>
 		<!-- Unique Projects -->
 		<Row ProjectType="PROJECT_CITY_SCIENCE_PROJECT" Name="LOC_PROJECT_CITY_SCIENCE_PROJECT_NAME" ShortName="LOC_PROJECT_CITY_SCIENCE_PROJECT_SHORT_NAME" Description="LOC_PROJECT_CITY_SCIENCE_PROJECT_DESCRIPTION" Cost="300" CostProgressionModel="COST_PROGRESSION_PREVIOUS_COPIES" CostProgressionParam1="200" Food="false" CityOnly="true" RequiresUnlock="false"/>
 		<Row ProjectType="PROJECT_CITY_CULTURE_PROJECT" Name="LOC_PROJECT_CITY_CULTURE_PROJECT_NAME" ShortName="LOC_PROJECT_CITY_CULTURE_PROJECT_SHORT_NAME" Description="LOC_PROJECT_CITY_CULTURE_PROJECT_DESCRIPTION" Cost="300" CostProgressionModel="COST_PROGRESSION_PREVIOUS_COPIES" CostProgressionParam1="200" Food="false" CityOnly="true" RequiresUnlock="false"/>
+		<!-- Science Victory -->
+		<Row ProjectType="PROJECT_HELIOCENTRIC_MODEL" Name="LOC_PROJECT_HELIOCENTRIC_MODEL_NAME" ShortName="LOC_PROJECT_HELIOCENTRIC_MODEL_NAME" Description="LOC_PROJECT_HELIOCENTRIC_MODEL_DESCRIPTION" CityOnly="true" Cost="750" MaxPlayerInstances="1" RequiresUnlock="false"/>
+		<Row ProjectType="PROJECT_INVENT_CALCULUS" Name="LOC_PROJECT_INVENT_CALCULUS_NAME" ShortName="LOC_PROJECT_INVENT_CALCULUS_NAME" Description="LOC_PROJECT_INVENT_CALCULUS_DESCRIPTION" CityOnly="true" Cost="900" MaxPlayerInstances="1" RequiresUnlock="false"/>
 	</Projects>
 	<ProjectModifiers>
 		<!-- Warehouse Modifiers -->
@@ -41,4 +47,11 @@
 		<Row ProjectType="PROJECT_CITY_SCIENCE_PROJECT" YieldType="YIELD_SCIENCE" PercentOfProductionRate="25"/>
 		<Row ProjectType="PROJECT_CITY_CULTURE_PROJECT" YieldType="YIELD_CULTURE" PercentOfProductionRate="25"/>
 	</Project_YieldConversions>
+	<ProjectCompletionModifiers>
+		<Row ProjectType="PROJECT_HELIOCENTRIC_MODEL" ModifierId="MOD_HELIOCENTRIC_MODEL_VP"/>
+		<Row ProjectType="PROJECT_HELIOCENTRIC_MODEL" ModifierId="MOD_HELIOCENTRIC_MODEL_VP_NAVAL_MOVEMENT"/>
+		<Row ProjectType="PROJECT_INVENT_CALCULUS" ModifierId="MOD_INVENT_CALCULUS_VP"/>
+		<Row ProjectType="PROJECT_INVENT_CALCULUS" ModifierId="MOD_INVENT_CALCULUS_SIEGE_UNITS"/>
+		<Row ProjectType="PROJECT_INVENT_CALCULUS" ModifierId="MOD_INVENT_CALCULUS_ATTRIBUTE"/>
+	</ProjectCompletionModifiers>
 </Database>

@@ -5,12 +5,13 @@
 	<!-- ==================================================	-->
 	<Modifier id="MOD_NORMAN_DONJON_FREE_CHEVALER" collection="COLLECTION_ALL_CITIES" effect="EFFECT_CITY_GRANT_UNIT" permanent="true">
 		<SubjectRequirements>
-			<Requirement type="REQUIREMENT_CITY_HAS_UNIQUE_QUARTER">
+			<Requirement type="REQUIREMENT_CITY_BUILT_UNIQUE_QUARTER">
 				<Argument name="UniqueQuarterType">QUARTER_DONJON</Argument>
 			</Requirement>
 		</SubjectRequirements>
 		<Argument name="Amount">1</Argument>
-		<Argument name="UnitTag">UNIT_CLASS_CHEVALER</Argument>
+		<Argument name="UnitTag">UNIT_CLASS_CAVALRY</Argument>
+		<Argument name="AllowUniqueOverride">true</Argument>
 	</Modifier>
 	<Modifier id="MOD_NORMAN_DONJON_CAVALRY_PRODUCTION_BONUS" collection="COLLECTION_ALL_CITIES" effect="EFFECT_ATTACH_MODIFIERS">
 		<SubjectRequirements>
@@ -47,7 +48,7 @@
 	</Modifier>
 	<Modifier id="MOD_MAJAPAHIT_PURA_RELIC" collection="COLLECTION_ALL_CITIES" effect="EFFECT_CITY_GRANT_GREAT_WORK" permanent="true">
 		<SubjectRequirements>
-			<Requirement type="REQUIREMENT_CITY_HAS_UNIQUE_QUARTER">
+			<Requirement type="REQUIREMENT_CITY_BUILT_UNIQUE_QUARTER">
 				<Argument name="UniqueQuarterType">QUARTER_PURA</Argument>
 			</Requirement>
 		</SubjectRequirements>
@@ -105,7 +106,6 @@
 	<!--					Improvements					-->
 	<!-- ==================================================	-->
 	<Modifier id="MOD_ANJUVANNAM_SEA_UNIT_RATE" collection="COLLECTION_OWNER" effect="EFFECT_CITY_ADJUST_UNIT_PRODUCTION">
-		<Argument name="Apply">Rate</Argument>
 		<Argument name="Percent">50</Argument>
 		<Argument name="UnitClass">UNIT_CLASS_NAVAL</Argument>
 		<Argument name="Description">LOC_MOD_ANJUVANNAM_SEA_UNIT_RATE_DESCRIPTION</Argument>
@@ -125,6 +125,9 @@
 			<Requirement type="REQUIREMENT_WONDER_IS_ACTIVE">
 				<Argument name="ConstructibleType">WONDER_BRIHADEESWARAR_TEMPLE</Argument>
 			</Requirement>
+			<Requirement type="REQUIREMENT_CITY_BUILT_CONSTRUCTIBLE_TYPE">
+				<Argument name="ConstructibleType">WONDER_BRIHADEESWARAR_TEMPLE</Argument>
+			</Requirement>
 		</SubjectRequirements>
 		<Argument name="ConstructibleAdjacency">BrihadeeswararTempleWildcardNavigableHappiness</Argument>
 	</Modifier>
@@ -137,7 +140,7 @@
 			<Requirement type="REQUIREMENT_PLOT_IS_QUARTER"/>
 		</SubjectRequirements>
 		<Argument name="YieldType">YIELD_FOOD</Argument>
-		<Argument name="Amount">2</Argument>
+		<Argument name="Amount">3</Argument>
 		<Argument name="Tooltip">LOC_WONDER_BOROBUDUR_NAME</Argument>
 		<Argument name="Description">LOC_MOD_BOROBUDUR_URBAN_FOOD_DESCRIPTION</Argument>
 	</Modifier>
@@ -149,7 +152,7 @@
 			<Requirement type="REQUIREMENT_PLOT_IS_QUARTER"/>
 		</SubjectRequirements>
 		<Argument name="YieldType">YIELD_HAPPINESS</Argument>
-		<Argument name="Amount">2</Argument>
+		<Argument name="Amount">1</Argument>
 		<Argument name="Tooltip">LOC_WONDER_BOROBUDUR_NAME</Argument>
 		<Argument name="Description">LOC_MOD_BOROBUDUR_URBAN_HAPPINESS_DESCRIPTION</Argument>
 	</Modifier>
@@ -187,11 +190,12 @@
 		<Argument name="Combat">true</Argument>
 		<Argument name="UnitTags">UNIT_CLASS_CAVALRY</Argument>
 		<Argument name="YieldType">YIELD_CULTURE</Argument>
+    <Argument name="AcquisitionType">ACQUISITION_BUILT</Argument>
 		<Argument name="PercentCost">25</Argument>
 		<String context="WorldText">LOC_WORLD_CULTURE_INCREASE_FLOATER</String>
 	</Modifier>
 	<!-- Forbidden City -->
-	<Modifier id="MOD_FORBIDDEN_CITY_FORTIFICATION_CULTURE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD">
+	<Modifier id="MOD_FORBIDDEN_CITY_FORTIFICATION_CULTURE" collection="COLLECTION_OWNER" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD">
 		<SubjectRequirements>
 			<Requirement type="REQUIREMENT_WONDER_IS_ACTIVE">
 				<Argument name="ConstructibleType">WONDER_FORBIDDEN_CITY</Argument>
@@ -201,6 +205,15 @@
 		<Argument name="YieldType">YIELD_CULTURE,YIELD_GOLD</Argument>
 		<Argument name="Amount">1</Argument>
 		<Argument name="Tooltip">LOC_WONDER_FORBIDDEN_CITY_NAME</Argument>
+		<Argument name="Description">LOC_WONDER_FORBIDDEN_CITY_DESCRIPTION</Argument>
+	</Modifier>
+	<Modifier id="MOD_FORBIDDEN_CITY_FORTIFICATION_TOURISM" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_PLAYER_ACTIVATE_VICTORY_POINT_TRACKER">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_WONDER_IS_ACTIVE">
+				<Argument name="ConstructibleType">WONDER_FORBIDDEN_CITY</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="TrackerName">VICTORY_TRACKER_FORBIDDEN_CITY_TOURISM</Argument>
 		<Argument name="Description">LOC_WONDER_FORBIDDEN_CITY_DESCRIPTION</Argument>
 	</Modifier>
 	<!-- Hale O Keawe -->
@@ -228,17 +241,35 @@
 	</Modifier>
 	<Modifier id="MOD_HOUSE_OF_WISDOM_FREE_RELICS" collection="COLLECTION_OWNER" effect="EFFECT_CITY_GRANT_GREAT_WORK" permanent="true">
 		<SubjectRequirements>
-			<Requirement type="REQUIREMENT_WONDER_IS_ACTIVE">
+			<Requirement type="REQUIREMENT_PLAYER_BUILT_CONSTRUCTIBLE_TYPE">
 				<Argument name="ConstructibleType">WONDER_HOUSE_OF_WISDOM</Argument>
 			</Requirement>
 		</SubjectRequirements>
 		<Argument name="ObjectType">GREATWORKOBJECT_RELIC</Argument>
 		<Argument name="Amount">1</Argument>
 	</Modifier>
+	<Modifier id="MOD_HOUSE_OF_WISDOM_SCIENCE_VP" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_VICTORY_TRACKER_POINTS" permanent="true">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_HAS_CONSTRUCTIBLE">
+				<Argument name="ConstructibleType">WONDER_HOUSE_OF_WISDOM</Argument>
+				<Argument name="OriginalOwner">true</Argument>
+				<Argument name="IsCurrentAge">true</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_PLAYER_IS_MAJOR"/>
+		</SubjectRequirements>
+		<Argument name="VictoryType">VICTORY_SCIENCE_MODERN</Argument>
+		<Argument name="Points">3</Argument>
+		<Argument name="ItemName">LOC_WONDER_HOUSE_OF_WISDOM_NAME</Argument>
+		<Argument name="ReplacePoints">true</Argument>
+		<Argument name="TypeData">WONDER</Argument>
+	</Modifier>
 	<!-- Machu Pikchu -->
 	<Modifier id="MOD_MACHU_PIKCHU_MOUNTAIN_ADJACENT_CULTURE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ACTIVATE_CONSTRUCTIBLE_ADJACENCY">
 		<SubjectRequirements>
 			<Requirement type="REQUIREMENT_WONDER_IS_ACTIVE">
+				<Argument name="ConstructibleType">WONDER_MACHU_PIKCHU</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_CITY_BUILT_CONSTRUCTIBLE_TYPE">
 				<Argument name="ConstructibleType">WONDER_MACHU_PIKCHU</Argument>
 			</Requirement>
 		</SubjectRequirements>
@@ -247,6 +278,9 @@
 	<Modifier id="MOD_MACHU_PIKCHU_MOUNTAIN_ADJACENT_GOLD" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ACTIVATE_CONSTRUCTIBLE_ADJACENCY">
 		<SubjectRequirements>
 			<Requirement type="REQUIREMENT_WONDER_IS_ACTIVE">
+				<Argument name="ConstructibleType">WONDER_MACHU_PIKCHU</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_CITY_BUILT_CONSTRUCTIBLE_TYPE">
 				<Argument name="ConstructibleType">WONDER_MACHU_PIKCHU</Argument>
 			</Requirement>
 		</SubjectRequirements>
@@ -275,24 +309,38 @@
 			<Requirement type="REQUIREMENT_PLOT_DISTRICT_CLASS">
 				<Argument name="DistrictClass">RURAL</Argument>
 			</Requirement>
-			<Requirement type="REQUIREMENT_PLOT_HAS_YIELD">
-				<Argument name="YieldType">YIELD_HAPPINESS</Argument>
-				<Argument name="Amount">1</Argument>
+			<Requirement type="REQUIREMENT_PLOT_HAS_APPEAL">
+				<Argument name="UseAppealHappinessThreshold">true</Argument>
 			</Requirement>
 		</SubjectRequirements>
 		<Argument name="YieldType">YIELD_SCIENCE</Argument>
-		<Argument name="Amount">2</Argument>
+		<Argument name="Amount">1</Argument>
 		<Argument name="Tooltip">LOC_WONDER_SHWEDAGON_ZEDI_DAW_NAME</Argument>
 	</Modifier>
 	<Modifier id="MOD_SHWEDAGON_ZEDI_DAW_WILDCARD_ATTRIBUTE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ATTRIBUTE" permanent="true">
 		<SubjectRequirements>
-			<Requirement type="REQUIREMENT_WONDER_IS_ACTIVE">
+			<Requirement type="REQUIREMENT_PLAYER_BUILT_CONSTRUCTIBLE_TYPE">
 				<Argument name="ConstructibleType">WONDER_SHWEDAGON_ZEDI_DAW</Argument>
 			</Requirement>
 		</SubjectRequirements>
 		<Argument name="AttributeType">ATTRIBUTE_WILDCARD</Argument>
 		<Argument name="Amount">1</Argument>
 		<Argument name="PropertyName">MOD_SHWEDAGON_ZEDI_DAW_WILDCARD_ATTRIBUTE</Argument>
+	</Modifier>
+	<Modifier id="MOD_SHWEDAGON_ZEDI_DAW_SCIENCE_VP" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_VICTORY_TRACKER_POINTS" permanent="true">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_HAS_CONSTRUCTIBLE">
+				<Argument name="ConstructibleType">WONDER_SHWEDAGON_ZEDI_DAW</Argument>
+				<Argument name="OriginalOwner">true</Argument>
+				<Argument name="IsCurrentAge">true</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_PLAYER_IS_MAJOR"/>
+		</SubjectRequirements>
+		<Argument name="VictoryType">VICTORY_SCIENCE_MODERN</Argument>
+		<Argument name="Points">3</Argument>
+		<Argument name="ItemName">LOC_WONDER_SHWEDAGON_ZEDI_DAW_NAME</Argument>
+		<Argument name="ReplacePoints">true</Argument>
+		<Argument name="TypeData">WONDER</Argument>
 	</Modifier>
 	<!-- Tomb of Askia -->
 	<Modifier id="MOD_TOMB_OF_ASKIA_RESOURCE_CAP" collection="COLLECTION_OWNER" effect="EFFECT_CITY_ADJUST_RESOURCE_CAP">

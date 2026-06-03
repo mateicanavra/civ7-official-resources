@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+	<!-- ==================================================	-->
+	<!--				Civ-Specific Traits					-->
+	<!-- ==================================================	-->
+	<!-- AMERICA -->
+	<Modifier id="TRAIT_MOD_FRONTIER_EXPANSION_GOLD_ON_IMPROVED_RESOURCES" collection="COLLECTION_OWNER" effect="EFFECT_ADJUST_PLAYER_YIELD_FOR_RESOURCE">
+		<OwnerRequirements type="REQUIREMENTSET_TEST_ALL">
+			<Requirement type="REQUIREMENT_GAME_IS_STARTED"/>
+		</OwnerRequirements>
+		<Argument name="Amount" type="ScaleByGameAge" extra="100">50</Argument>
+		<Argument name="YieldType">YIELD_GOLD</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_FRONTIER_EXPANSION_PRODUCTION_ON_RESOURCES" collection="COLLECTION_PLAYER_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_RESOURCE_TAG_MATCHES">
+		</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">1</Argument>
+		<Argument name="YieldType">YIELD_PRODUCTION</Argument>
+	</Modifier>
+	<!-- BUGANDA -->
+	<Modifier id="TRAIT_MOD_AMPHIBIOUS_ABILITY" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_ABILITY">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_DOMAIN_MATCHES">
+				<Argument name="UnitDomain">DOMAIN_LAND</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="AbilityType">ABILITY_AMPHIBIOUS</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_RIVER_RAIDS_PILLAGING_ABILITY" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_ABILITY">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_DOMAIN_MATCHES">
+				<Argument name="UnitDomain">DOMAIN_LAND</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="AbilityType">ABILITY_RIVER_RAIDS</Argument>
+	</Modifier>
+	<Modifier id="TOT_RIVER_RAIDS_MOD_PILLAGE_BUILDINGS_CULTURE" collection="COLLECTION_OWNER" effect="EFFECT_ADJUST_UNIT_BUILDING_PILLAGE_YIELD_MODIFIER">
+		<Argument name="Amount">100</Argument>
+		<Argument name="PlunderTypes">PLUNDER_CULTURE</Argument>
+		<String context="WorldText">LOC_WORLD_CULTURE_INCREASE_FLOATER</String>
+	</Modifier>
+	<Modifier id="TOT_RIVER_RAIDS_MOD_PILLAGE_IMPROVEMENTS_CULTURE" collection="COLLECTION_OWNER" effect="EFFECT_ADJUST_UNIT_IMPROVEMENT_PILLAGE_YIELD_MODIFIER">
+		<Argument name="Amount">100</Argument>
+		<Argument name="PlunderTypes">PLUNDER_CULTURE</Argument>
+		<String context="WorldText">LOC_WORLD_CULTURE_INCREASE_FLOATER</String>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_RIVER_RAIDS_MOVEMENT_SPEED_SUPPORT" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ADJUST_UNIT_EMBARKED_MOVEMENT">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_CORE_CLASS_MATCHES">
+				<Argument name="UnitCoreClass">CORE_CLASS_SUPPORT</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">3</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_RIVER_RAIDS_MOVEMENT_SPEED_CIVILIAN" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ADJUST_UNIT_EMBARKED_MOVEMENT">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_CORE_CLASS_MATCHES">
+				<Argument name="UnitCoreClass">CORE_CLASS_CIVILIAN</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">3</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_RIVER_RAIDS_MOVEMENT_SPEED_SCOUT" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ADJUST_UNIT_EMBARKED_MOVEMENT">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_CLASS_MATCHES">
+				<Argument name="UnitClass">UNIT_CLASS_RECON</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">3</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_RIVER_RAIDS_LAKE_YIELDS" collection="COLLECTION_PLAYER_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+				<Argument name="RequirementSetId">REQSET_PLOT_IS_BUGANDA_LAKE</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_CULTURE,YIELD_FOOD</Argument>
+		<Argument name="Amount" type="ScaleByGameAge" extra="100">2</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_BUGANDA_LAKE_TOURISM" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ACTIVATE_VICTORY_POINT_TRACKER" run-once="true" permanent="true">
+		<Argument name="TrackerName">VICTORY_TRACKER_BUGANDA_LAKES</Argument>
+	</Modifier>
+	<!-- FRENCH EMPIRE -->
+		<!-- The French UA uses modifiers separated by age -->
+	<!-- MEIJI -->
+	<Modifier id="TRAIT_MOD_GOISSHIN_AQ_SCIENCE_ON_BUILD" collection="COLLECTION_PLAYER_CITIES" effect="TRIGGER_CITY_GRANT_YIELD_ON_CONSTRUCTIBLE_CREATED">
+		<Argument name="ConstructibleClass">BUILDING</Argument>
+		<Argument name="YieldType">YIELD_SCIENCE</Argument>
+		<Argument name="PercentCost" type="ScaleByGameSpeed">25</Argument>
+		<String context="WorldText">LOC_WORLD_SCIENCE_INCREASE_FLOATER</String>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_GOISSHIN_SCIENCE_ON_OVERBUILD" collection="COLLECTION_PLAYER_CITIES" effect="TRIGGER_CITY_GRANT_YIELD_ON_CONSTRUCTIBLE_CREATED">
+		<Argument name="ConstructibleClass">BUILDING</Argument>
+		<Argument name="YieldType">YIELD_SCIENCE</Argument>
+		<Argument name="PercentCost" type="ScaleByGameSpeed">25</Argument>
+		<Argument name="Overbuilt">true</Argument>
+		<String context="WorldText">LOC_WORLD_SCIENCE_INCREASE_FLOATER</String>
+	</Modifier>
+	<Modifier id="MOD_JUKOGYO_RESOURCE_CAP" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_RESOURCE_CAP">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_HAS_BUILDING">
+				<Argument name="BuildingType">BUILDING_JUKOGYO</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">1</Argument>
+	</Modifier>
+	<!-- MEXICO -->
+	<Modifier id="TRAIT_MOD_REVOLUCION_GOVERNMENT_UNIQUE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_SET_GOVERNMENT">
+		<Argument name="GovernmentType">GOVERNMENT_REVOLUCION</Argument>
+	</Modifier>
+	<!-- MUGHAL -->
+	<Modifier id="TRAIT_MOD_PARADISE_OF_NATIONS_GOLD" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD">
+		<Argument name="YieldType">YIELD_GOLD</Argument>
+		<Argument name="Percent">100</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_PARADISE_OF_NATIONS_CITY_YIELD_PENALTY" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
+		<Argument name="YieldType">YIELD_PRODUCTION</Argument>
+		<Argument name="Percent">-25</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_MUGHAL_ABILITY_NAME</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_PARADISE_OF_NATIONS_YIELD_PENALTY" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD">
+		<Argument name="YieldType">YIELD_CULTURE,YIELD_HAPPINESS,YIELD_SCIENCE,YIELD_DIPLOMACY</Argument>
+		<Argument name="Percent">-25</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_MUGHAL_ABILITY_NAME</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_PARADISE_OF_NATIONS_WONDER_PURCHASE_ABILITY" collection="COLLECTION_OWNER" effect="EFFECT_ADJUST_PLAYER_OR_CITY_BUILDING_PURCHASE_EFFICIENCY">
+		<Argument name="ConstructibleClass">WONDER</Argument>
+		<Argument name="Percent">-150</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_ZAMINDAR_POPULATION_BONUS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_POPULATION" permanent="true" new-only="true">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_HAS_BUILD_QUEUE" inverse="true"/>
+			<Requirement type="REQUIREMENT_CITY_FOUNDED_BY_UNIT_TYPE">
+				<Argument name="UnitType">UNIT_ZAMINDAR</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">1</Argument>
+	</Modifier>
+	<!-- PRUSSIA -->
+	<Modifier id="TRAIT_MOD_BLOOD_AND_IRON_COMBAT_STRENGTH" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ADJUST_UNIT_RELATIONSHIP_COMBAT_STRENGTH">
+		<Argument name="Amount">1</Argument>
+		<Argument name="RelationshipTypes">PLAYER_RELATIONSHIP_HOSTILE, PLAYER_RELATIONSHIP_UNFRIENDLY</Argument>
+	</Modifier>
+		<Modifier id="TRAIT_MOD_ZOLLVEREIN_TRADE_DURING_WAR" collection="COLLECTION_OWNER" effect="EFFECT_ADJUST_PLAYER_TRADE_DURING_WAR">
+		<Argument name="TradeDuringWar">true</Argument>
+		<String context="Description">LOC_MOD_ZOLLVEREIN_TRADE_DURING_WAR_DESCRIPTION</String>
+	</Modifier>
+	<!-- QING -->
+	<Modifier id="TRAIT_MOD_AQ_SHENGSHI_GOLD_PER_IMPORTED_RESOURCE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD_PER_RESOURCE">
+		<Argument name="YieldType">YIELD_GOLD</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Imported">true</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_QING_ABILITY_NAME</Argument>
+		<String context="Description">LOC_TRAIT_QING_ABILITY_AQ_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_AQ_SHENGSHI_CULTURE_PER_IMPORTED_RESOURCE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD_PER_RESOURCE">
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Imported">true</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_QING_ABILITY_NAME</Argument>
+		<String context="Description">LOC_TRAIT_QING_ABILITY_AQ_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_AQ_SHENGSHI_SCIENCE_MALUS_PER_TRADE_ROUTE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD_PER_NUM_TRADE_ROUTES">
+		<Argument name="YieldType">YIELD_SCIENCE</Argument>
+		<Argument name="Amount">-2</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_QING_ABILITY_NAME</Argument>
+		<String context="Description">LOC_TRAIT_QING_ABILITY_AQ_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_EX_SHENGSHI_GOLD_PER_IMPORTED_RESOURCE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD_PER_RESOURCE">
+		<Argument name="YieldType">YIELD_GOLD</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="Imported">true</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_QING_ABILITY_NAME</Argument>
+		<String context="Description">LOC_TRAIT_QING_ABILITY_EX_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_EX_SHENGSHI_CULTURE_PER_IMPORTED_RESOURCE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD_PER_RESOURCE">
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="Imported">true</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_QING_ABILITY_NAME</Argument>
+		<String context="Description">LOC_TRAIT_QING_ABILITY_EX_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_EX_SHENGSHI_SCIENCE_MALUS_PER_TRADE_ROUTE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD_PER_NUM_TRADE_ROUTES">
+		<Argument name="YieldType">YIELD_SCIENCE</Argument>
+		<Argument name="Amount">-4</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_QING_ABILITY_NAME</Argument>
+		<String context="Description">LOC_TRAIT_QING_ABILITY_EX_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_SHENGSHI_GOLD_PER_IMPORTED_RESOURCE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD_PER_RESOURCE">
+		<Argument name="YieldType">YIELD_GOLD</Argument>
+		<Argument name="Amount">3</Argument>
+		<Argument name="Imported">true</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_QING_ABILITY_NAME</Argument>
+		<String context="Description">LOC_TRAIT_QING_ABILITY_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_SHENGSHI_CULTURE_PER_IMPORTED_RESOURCE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD_PER_RESOURCE">
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount">3</Argument>
+		<Argument name="Imported">true</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_QING_ABILITY_NAME</Argument>
+		<String context="Description">LOC_TRAIT_QING_ABILITY_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_SHENGSHI_SCIENCE_MALUS_PER_TRADE_ROUTE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD_PER_NUM_TRADE_ROUTES">
+		<Argument name="YieldType">YIELD_SCIENCE</Argument>
+		<Argument name="Amount">-6</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_QING_ABILITY_NAME</Argument>
+		<String context="Description">LOC_TRAIT_QING_ABILITY_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_QING_IMPORTED_RESOURCE_GDP" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ACTIVATE_VICTORY_POINT_TRACKER">
+		<Argument name="TrackerName">VICTORY_TRACKER_QING_IMPORTED_RESOURCES</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_SHENGSHI_COMBAT_STRENGTH" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_ABILITY">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_DOMAIN_MATCHES">
+				<Argument name="UnitDomain">DOMAIN_LAND</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="AbilityType">ABILITY_SHENGSHI</Argument>
+		<String context="Description">LOC_TRAIT_SHENGSHI_COMBAT_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="SHENGSHI_MOD_COMBAT_STRENGTH" collection="COLLECTION_OWNER" effect="EFFECT_ADJUST_UNIT_TRADE_ROUTE_COMBAT_MODIFIER">
+		<Argument name="Amount">1</Argument>
+		<String context="Preview">LOC_TRAIT_SHENGSHI_COMBAT_PREVIEW</String>
+	</Modifier>
+	<Modifier id="MOD_AQ_QING_FREE_MERCHANT" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_GRANT_UNIT" run-once="true" permanent="true">
+		<Argument name="UnitType">UNIT_MERCHANT</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="AllowUniqueOverride">true</Argument>
+		<String context="Description">LOC_MOD_AQ_QING_FREE_MERCHANT_DESCRIPTION</String>
+	</Modifier>
+	<!-- RUSSIA -->
+	<Modifier id="PROSVESHCHENIE_CITY_YIELDS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_ATTACH_MODIFIERS">
+		<Argument name="ModifierId">PROSVESHCHENIE_CITY_CULTURE,PROSVESHCHENIE_CITY_SCIENCE</Argument>
+	</Modifier>
+	<Modifier id="PROSVESHCHENIE_CITY_CULTURE" collection="COLLECTION_CITY_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_CITY"/>
+		</OwnerRequirements>
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_IS_QUARTER">
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_RUSSIA_ABILITY_NAME</Argument>
+	</Modifier>
+	<Modifier id="PROSVESHCHENIE_CITY_SCIENCE" collection="COLLECTION_CITY_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_CITY"/>
+			<Requirement type="REQUIREMENT_PLOT_BIOME_TYPE_MATCHES">
+				<Argument name="BiomeType">BIOME_TUNDRA</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_IS_QUARTER">
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_SCIENCE</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_RUSSIA_ABILITY_NAME</Argument>
+	</Modifier>
+	<Modifier id="PROSVESHCHENIE_TOWN_FOOD" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_GRANT_WAREHOUSE_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_TOWN"/>
+		</SubjectRequirements>
+		<Argument name="WarehouseYieldChange">Prosveshchenie_DesertFloodplainFeatureFood,Prosveshchenie_GrasslandFloodplainFeatureFood,Prosveshchenie_PlainsFloodplainFeatureFood,Prosveshchenie_TropicalFloodplainFeatureFood,Prosveshchenie_TundraFloodplainFeatureFood,Prosveshchenie_FlatTerrainFood</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_RUSSIA_ABILITY_NAME</Argument>
+	</Modifier>
+	<Modifier id="PROSVESHCHENIE_TOWN_PRODUCTION" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_GRANT_WAREHOUSE_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_TOWN"/>
+			<Requirement type="REQUIREMENT_PLOT_BIOME_TYPE_MATCHES">
+				<Argument name="BiomeType">BIOME_TUNDRA</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="WarehouseYieldChange">Prosveshchenie_DesertFloodplainFeatureProduction,Prosveshchenie_GrasslandFloodplainFeatureProduction,Prosveshchenie_PlainsFloodplainFeatureProduction,Prosveshchenie_TropicalFloodplainFeatureProduction,Prosveshchenie_TundraFloodplainFeatureProduction,Prosveshchenie_FlatTerrainProduction</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_RUSSIA_ABILITY_NAME</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_TUNDRA_OBSHCHINA_CULTURE" collection="COLLECTION_PLAYER_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_BIOME_TYPE_MATCHES">
+				<Argument name="BiomeType">BIOME_TUNDRA</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_PLOT_HAS_CONSTRUCTIBLE">
+				<Argument name="ConstructibleType">IMPROVEMENT_OBSHCHINA</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount">2</Argument>
+	</Modifier>
+	<!-- SIAM -->
+	<Modifier id="TRAIT_MOD_ITSARAPHAB" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_GRANT_DIPLOMATIC_ACTION">
+		<Argument name="ActionType">DIPLOMACY_ACTION_BECOME_SUZERAIN</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_ITSARAPHAB_BECOME_SUZERAIN" collection="COLLECTION_OWNER" effect="EFFECT_ELEVATE_INDEPENDENT" permanent="true">
+	</Modifier>
+	<Modifier id="TRAIT_MOD_ITSARAPHAB_AQ_INFLUENCE_FRIENDLY" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_ADJUST_YIELD_PER_PLAYER_RELATIONSHIP">
+		<Argument name="RelationshipType">PLAYER_RELATIONSHIP_FRIENDLY</Argument>
+		<Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_SIAM_ABILITY_NAME</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_ITSARAPHAB_AQ_INFLUENCE_HELPFUL" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_ADJUST_YIELD_PER_PLAYER_RELATIONSHIP">
+		<Argument name="RelationshipType">PLAYER_RELATIONSHIP_HELPFUL</Argument>
+		<Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_SIAM_ABILITY_NAME</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_ITSARAPHAB_EX_INFLUENCE_FRIENDLY" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_ADJUST_YIELD_PER_PLAYER_RELATIONSHIP">
+		<Argument name="RelationshipType">PLAYER_RELATIONSHIP_FRIENDLY</Argument>
+		<Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_SIAM_ABILITY_NAME</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_ITSARAPHAB_EX_INFLUENCE_HELPFUL" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_ADJUST_YIELD_PER_PLAYER_RELATIONSHIP">
+		<Argument name="RelationshipType">PLAYER_RELATIONSHIP_HELPFUL</Argument>
+		<Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_SIAM_ABILITY_NAME</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_ITSARAPHAB_MO_INFLUENCE_FRIENDLY" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_ADJUST_YIELD_PER_PLAYER_RELATIONSHIP">
+		<Argument name="RelationshipType">PLAYER_RELATIONSHIP_FRIENDLY</Argument>
+		<Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+		<Argument name="Amount">3</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_SIAM_ABILITY_NAME</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_ITSARAPHAB_MO_INFLUENCE_HELPFUL" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_ADJUST_YIELD_PER_PLAYER_RELATIONSHIP">
+		<Argument name="RelationshipType">PLAYER_RELATIONSHIP_HELPFUL</Argument>
+		<Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+		<Argument name="Amount">3</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_SIAM_ABILITY_NAME</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_ITSARAPHAB_MO_CITY_STATE_TOURISM" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ACTIVATE_VICTORY_POINT_TRACKER" run-once="true" permanent="true">
+		<Argument name="TrackerName">VICTORY_TRACKER_SIAM_SUZERAIN</Argument>
+	</Modifier>
+</GameEffects>

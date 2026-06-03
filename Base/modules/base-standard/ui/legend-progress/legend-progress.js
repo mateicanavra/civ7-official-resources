@@ -1,23 +1,11 @@
-import { A as Audio } from '../../../core/ui/audio-base/audio-support.chunk.js';
+import { Audio } from '../../../core/ui/audio-base/audio-support.js';
 import ContextManager from '../../../core/ui/context-manager/context-manager.js';
-import FocusManager from '../../../core/ui/input/focus-manager.js';
-import { N as NavTray } from '../../../core/ui/navigation-tray/model-navigation-tray.chunk.js';
-import { P as Panel } from '../../../core/ui/panel-support.chunk.js';
-import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.chunk.js';
+import NavTray from '../../../core/ui/navigation-tray/model-navigation-tray.js';
+import Panel from '../../../core/ui/panel-support.js';
+import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
+import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
 import LegendsManager from '../legends-manager/legends-manager.js';
-import '../../../core/ui/context-manager/display-queue-manager.js';
-import '../../../core/ui/dialog-box/manager-dialog-box.chunk.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/input/cursor.js';
-import '../../../core/ui/views/view-manager.chunk.js';
-import '../../../core/ui/input/action-handler.js';
-import '../../../core/ui/input/input-support.chunk.js';
-import '../../../core/ui/utilities/utilities-update-gate.chunk.js';
-import '../../../core/ui/utilities/utilities-image.chunk.js';
-import '../../../core/ui/utilities/utilities-component-id.chunk.js';
-import '../../../core/ui/utilities/utilities-metaprogression.chunk.js';
-
-const styles = "fs://game/base-standard/ui/legend-progress/legend-progress.css";
+import styles from './legend-progress.scss.js';
 
 class LegendProgressScreen extends Panel {
   onAttach() {
@@ -177,7 +165,7 @@ class LegendProgressScreen extends Panel {
     super.onReceiveFocus();
     NavTray.clear();
     const transitionButton = MustGetElement(".legend-continue-button", this.Root);
-    FocusManager.setFocus(transitionButton);
+    FocusManager.get().setFocus(transitionButton);
   }
   onLoseFocus() {
     super.onLoseFocus();

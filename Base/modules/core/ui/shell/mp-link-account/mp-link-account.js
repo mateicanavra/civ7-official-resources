@@ -1,20 +1,9 @@
-import FocusManager from '../../input/focus-manager.js';
-import { N as NavTray } from '../../navigation-tray/model-navigation-tray.chunk.js';
-import { P as Panel } from '../../panel-support.chunk.js';
-import { MustGetElement } from '../../utilities/utilities-dom.chunk.js';
-import '../../audio-base/audio-support.chunk.js';
-import '../../framework.chunk.js';
-import '../../input/action-handler.js';
-import '../../input/cursor.js';
-import '../../views/view-manager.chunk.js';
-import '../../input/input-support.chunk.js';
-import '../../utilities/utilities-update-gate.chunk.js';
-import '../../utilities/utilities-image.chunk.js';
-import '../../utilities/utilities-component-id.chunk.js';
-
-const content = "<fxs-modal-frame\r\n\tclass=\"link-account max-w-full max-h-full\"\r\n\tid=\"screen-link-account\"\r\n>\r\n\t<div\r\n\t\tclass=\"mp-link-account__main-content flex flex-col flex-auto justify-start mt-4\"\r\n\t\tid=\"focus-root\"\r\n\t>\r\n\t\t<div class=\"flex\">\r\n\t\t\t<div class=\"qr-code-image size-48 justify-center self-center ml-6\"></div>\r\n\t\t\t<div\r\n\t\t\t\trole=\"paragraph\"\r\n\t\t\t\tclass=\"qr-code-text font-body pointer-events-auto w-96 px-8 text-accent-2 text-xs\"\r\n\t\t\t></div>\r\n\t\t</div>\r\n\t</div>\r\n</fxs-modal-frame>\r\n";
-
-const styles = "fs://game/core/ui/shell/mp-link-account/mp-link-account.css";
+import NavTray from '../../navigation-tray/model-navigation-tray.js';
+import Panel from '../../panel-support.js';
+import { MustGetElement } from '../../utilities/utilities-dom.js';
+import { FocusManager } from '../../../ui-next/services/focus-manager.js';
+import content from './mp-link-account.html.js';
+import styles from './mp-link-account.scss.js';
 
 class MpLinkAccount extends Panel {
   engineInputListener = this.onEngineInput.bind(this);
@@ -75,7 +64,7 @@ class MpLinkAccount extends Panel {
   }
   onReceiveFocus() {
     super.onReceiveFocus();
-    FocusManager.setFocus(this.Root);
+    FocusManager.get().setFocus(this.Root);
     NavTray.clear();
     NavTray.addOrUpdateGenericBack();
   }

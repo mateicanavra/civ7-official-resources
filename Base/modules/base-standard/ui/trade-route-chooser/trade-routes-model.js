@@ -1,4 +1,4 @@
-import { C as ComponentID } from '../../../core/ui/utilities/utilities-component-id.chunk.js';
+import { ComponentID } from '../../../core/ui/utilities/utilities-component-id.js';
 
 class TradeRoutesModelImpl {
   projectedTradeRoutes = [];
@@ -34,8 +34,9 @@ class TradeRoutesModelImpl {
     const leaderIcon = GameInfo.Leaders.lookup(player.leaderType)?.LeaderType ?? "";
     const leaderName = player.leaderName;
     const isLandRoute = tradeRoute.domain === DomainType.DOMAIN_LAND;
-    const statusIcon = this.getTradeRouteStatusIcon(tradeRoute.status, isLandRoute);
-    const statusTexts = this.getTradeActionText(tradeRoute.status, targetCity, leaderName, isLandRoute);
+    const tradeRouteStatus = tradeRoute.status && tradeRoute.status.length > 0 ? tradeRoute.status[0] : TradeRouteStatus.INVALID;
+    const statusIcon = this.getTradeRouteStatusIcon(tradeRouteStatus, isLandRoute);
+    const statusTexts = this.getTradeActionText(tradeRouteStatus, targetCity, leaderName, isLandRoute);
     const importPayloads = [];
     const exportYieldAmounts = [];
     for (const resource of tradeRoute.importPayloads) {
@@ -60,7 +61,7 @@ class TradeRoutesModelImpl {
       cityPlotIndex,
       leaderIcon,
       leaderName,
-      status: tradeRoute.status,
+      status: tradeRouteStatus,
       statusIcon,
       statusText: statusTexts.statusText,
       statusTooltip: statusTexts.statusTooltip,
@@ -107,6 +108,8 @@ class TradeRoutesModelImpl {
         return "TRADE_ROUTE_WAR";
       case TradeRouteStatus.DISTANCE:
         return "TRADE_ROUTE_OUT_OF_RANGE";
+      case TradeRouteStatus.NO_URBAN_SEA_ROUTE:
+        return "TRADE_ROUTE_OUT_OF_RANGE";
       case TradeRouteStatus.NEED_MORE_FRIENDSHIP:
         return "TRADE_ROUTE_ALLIANCE";
     }
@@ -137,6 +140,10 @@ class TradeRoutesModelImpl {
         break;
       case TradeRouteStatus.DISTANCE:
         results.statusText = Locale.compose("LOC_TRADE_LENS_ROUTE_TYPE_OUT_OF_RANGE");
+        results.statusTooltip = results.statusText;
+        break;
+      case TradeRouteStatus.NO_URBAN_SEA_ROUTE:
+        results.statusText = Locale.compose("LOC_TRADE_LENS_ROUTE_TYPE_NO_URBAN_SEA_ROUTE");
         results.statusTooltip = results.statusText;
         break;
     }

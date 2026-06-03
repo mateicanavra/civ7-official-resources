@@ -14,7 +14,8 @@
 		<Row Type="MODERN_ECONOMIC_MILESTONE_2" Kind="KIND_AGE_PROGRESSION_MILESTONE"/>
 		<Row Type="MODERN_ECONOMIC_MILESTONE_3" Kind="KIND_AGE_PROGRESSION_MILESTONE"/>
 	</Types>
-	<Victories>
+	<!-- DEPRECATED 1.4.0 -->
+	<!--Victories>
 		<Row VictoryType="VICTORY_MODERN_ECONOMIC" VictoryClassType="VICTORY_CLASS_ECONOMIC" Name="LOC_VICTORY_MODERN_ECONOMIC_NAME" Description="LOC_VICTORY_MODERN_ECONOMIC_DESCRIPTION" RequirementSetId="REQSET_VICTORY_MODERN_ECONOMIC"/>
 		<Row VictoryType="VICTORY_MODERN_MILITARY" VictoryClassType="VICTORY_CLASS_MILITARY" Name="LOC_VICTORY_MODERN_MILITARY_NAME" Description="LOC_VICTORY_MODERN_MILITARY_DESCRIPTION" RequirementSetId="REQSET_VICTORY_MODERN_MILITARY"/>
 		<Row VictoryType="VICTORY_MODERN_SCIENCE" VictoryClassType="VICTORY_CLASS_SCIENCE" Name="LOC_VICTORY_MODERN_SCIENCE_NAME" Description="LOC_VICTORY_MODERN_SCIENCE_DESCRIPTION" RequirementSetId="REQSET_VICTORY_MODERN_SCIENCE"/>
@@ -25,9 +26,9 @@
 		<Row VictoryType="VICTORY_MODERN_MILITARY" VictoryCinematicType="VICTORY_CINEMATIC_TYPE_NUKE" Name="LOC_VICTORY_MODERN_MILITARY_CINEMATIC"/>
 		<Row VictoryType="VICTORY_MODERN_SCIENCE" VictoryCinematicType="VICTORY_CINEMATIC_TYPE_UNIT" Name="LOC_VICTORY_MODERN_MILITARY_CINEMATIC"/>
 		<Row VictoryType="VICTORY_MODERN_CULTURE" VictoryCinematicType="VICTORY_CINEMATIC_TYPE_WONDER" Name="LOC_VICTORY_MODERN_MILITARY_CINEMATIC"/>
-	</VictoryCinematics>
+	</VictoryCinematics-->
 	<AgeProgressions>
-		<Row AgeProgressionType="AGE_PROGRESSION_MODERN_AGE_TIMER" AgeType="AGE_MODERN" EndsAge="true" MaxPoints_Abbreviated="160" MaxPoints_Standard="200" MaxPoints_Long="240"/>
+		<Row AgeProgressionType="AGE_PROGRESSION_MODERN_AGE_TIMER" AgeType="AGE_MODERN" EndsAge="true" MaxPoints_Abbreviated="120" MaxPoints_Standard="140" MaxPoints_Long="160"/>
 	</AgeProgressions>
 	<AgeProgressionTurns>
 		<Row AgeProgressionTurnType="AGE_PROGRESSION_PER_TURN_BASE" Points="1" GameSpeedScaling="false" AgeProgressionType="AGE_PROGRESSION_MODERN_AGE_TIMER"/>
@@ -100,68 +101,14 @@
 		<Row ModifierId="VICTORY_MODERN_CULTURE_GREAT_WORK_SCORING" Name="GreatWorkObjectType" Value="GREATWORKOBJECT_ARTIFACT"/>
 	</ModifierArguments>
 	<Strategies>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_IDEOLOGY" LegacyPathType="LEGACY_PATH_MODERN_MILITARY" MinNumConditionsNeeded="2" MaxNumConditionsNeeded="7"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_RAILROAD_TYCOON" LegacyPathType="LEGACY_PATH_MODERN_ECONOMIC" MinNumConditionsNeeded="2" MaxNumConditionsNeeded="6"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_SPACE_RACE" LegacyPathType="LEGACY_PATH_MODERN_SCIENCE" MinNumConditionsNeeded="2" MaxNumConditionsNeeded="6"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_ARTIFACTS" LegacyPathType="LEGACY_PATH_MODERN_CULTURE" MinNumConditionsNeeded="2" MaxNumConditionsNeeded="4"/>
 		<Row StrategyType="VICTORY_STRATEGY_MODERN_ECONOMIC" SaveGoldForVictory="VICTORY_MODERN_ECONOMIC" SaveInfluenceForVictory="VICTORY_MODERN_ECONOMIC" MinNumConditionsNeeded="1" MaxNumConditionsNeeded="1"/>
 	</Strategies>
 	<!-- Reminder: These conditions must be met to START following the strategy - they are not victory conditions themselves -->
 	<StrategyConditions>
-		<!-- Military Legacy -->
-		<Row StrategyType="LEGACY_PATH_STRATEGY_IDEOLOGY" ConditionFunction="TopMilitaryPercent" ThresholdValue="50"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_IDEOLOGY" ConditionFunction="TopMilitaryPercent" ThresholdValue="25"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_IDEOLOGY" ConditionFunction="NumCommanders" ThresholdValue="4"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_IDEOLOGY" ConditionFunction="NumConqueredCities" ThresholdValue="1"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_IDEOLOGY" ConditionFunction="GovernmentMatches" ThresholdValue="25" StringValue="GOVERNMENT_AUTHORITARIANISM"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_IDEOLOGY" ConditionFunction="HasLeaderTrait" ThresholdValue="1" StringValue="TRAIT_LEADER_ATTRIBUTE_MILITARISTIC"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_IDEOLOGY" ConditionFunction="HasLeaderTrait" ThresholdValue="1" StringValue="TRAIT_LEADER_ATTRIBUTE_POLITICAL"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_IDEOLOGY" ConditionFunction="HasLeaderTrait" Exclusive="true" ThresholdValue="1" StringValue="TRAIT_MO_MILITARY_VICTORY"/>
-		<!-- Science Legacy -->
-		<Row StrategyType="LEGACY_PATH_STRATEGY_SPACE_RACE" ConditionFunction="GovernmentMatches" ThresholdValue="25" StringValue="GOVERNMENT_ELECTIVE_REPUBLIC"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_SPACE_RACE" ConditionFunction="TopSciencePercent" ThresholdValue="25"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_SPACE_RACE" ConditionFunction="TopSciencePercent" ThresholdValue="50"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_SPACE_RACE" ConditionFunction="VictoryPoints" ThresholdValue="1" StringValue="VICTORY_MODERN_SCIENCE"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_SPACE_RACE" ConditionFunction="HasLeaderTrait" ThresholdValue="1" StringValue="TRAIT_LEADER_ATTRIBUTE_SCIENTIFIC"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_SPACE_RACE" ConditionFunction="HasLeaderTrait" ThresholdValue="1" StringValue="TRAIT_LEADER_ATTRIBUTE_MILITARISTIC"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_SPACE_RACE" ConditionFunction="HasLeaderTrait" Exclusive="true" ThresholdValue="1" StringValue="TRAIT_MO_SCIENCE_VICTORY"/>
-		<!-- Economic Legacy -->
-		<Row StrategyType="LEGACY_PATH_STRATEGY_RAILROAD_TYCOON" ConditionFunction="GovernmentMatches" StringValue="GOVERNMENT_BUREAUCRATIC_MONARCHY"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_RAILROAD_TYCOON" ConditionFunction="YieldIncome" ThresholdValue="60" StringValue="YIELD_PRODUCTION"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_RAILROAD_TYCOON" ConditionFunction="NumCities" ThresholdValue="4"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_RAILROAD_TYCOON" ConditionFunction="VictoryPoints" ThresholdValue="1" StringValue="VICTORY_MODERN_ECONOMIC"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_RAILROAD_TYCOON" ConditionFunction="HasLeaderTrait" ThresholdValue="1" StringValue="TRAIT_LEADER_ATTRIBUTE_ECONOMIC"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_RAILROAD_TYCOON" ConditionFunction="HasLeaderTrait" ThresholdValue="1" StringValue="TRAIT_LEADER_ATTRIBUTE_EXPANSIONIST"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_RAILROAD_TYCOON" ConditionFunction="HasLeaderTrait" Exclusive="true" ThresholdValue="1" StringValue="TRAIT_MO_ECONOMIC_VICTORY"/>
-		<!-- Culture Legacy -->
-		<Row StrategyType="LEGACY_PATH_STRATEGY_ARTIFACTS" ConditionFunction="GovernmentMatches" ThresholdValue="25" StringValue="GOVERNMENT_ELECTIVE_REPUBLIC"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_ARTIFACTS" ConditionFunction="NumGreatWorks" ThresholdValue="3"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_ARTIFACTS" ConditionFunction="HasLeaderTrait" ThresholdValue="1" StringValue="TRAIT_LEADER_ATTRIBUTE_CULTURAL"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_ARTIFACTS" ConditionFunction="HasLeaderTrait" ThresholdValue="1" StringValue="TRAIT_LEADER_ATTRIBUTE_POLITICAL"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_ARTIFACTS" ConditionFunction="HasLeaderTrait" Exclusive="true" ThresholdValue="1" StringValue="TRAIT_MO_CULTURE_VICTORY"/>
 		<!-- EconomicVictory -->
 		<Row StrategyType="VICTORY_STRATEGY_MODERN_ECONOMIC" ConditionFunction="HasReachedLegacyPathMilestone" Exclusive="true" ThresholdValue="1" StringValue="MODERN_ECONOMIC_MILESTONE_2"/>
 	</StrategyConditions>
 	<Strategy_Priorities>
-		<!-- Railroad Tycoon -->
-		<Row StrategyType="LEGACY_PATH_STRATEGY_RAILROAD_TYCOON" ListType="LegacyPathStrategyRailroadsConstructibleBiases"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_RAILROAD_TYCOON" ListType="LegacyPathStrategyRailroadsPseudoYieldBiases"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_RAILROAD_TYCOON" ListType="LegacyPathStrategyRailroadsSettlements"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_RAILROAD_TYCOON" ListType="LegacyPathStrategyRailroadsBudgetBiases"/>
-		<!-- Ideology -->
-		<Row StrategyType="LEGACY_PATH_STRATEGY_IDEOLOGY" ListType="LegacyPathStrategyIdeologyPseduoyieldBiases"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_IDEOLOGY" ListType="LegacyPathStrategyIdeologyBudgetBiases"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_IDEOLOGY" ListType="LegacyPathStrategyIdeologyProgressionTreeNodesBiases"/>
-		<!-- Space Race -->
-		<Row StrategyType="LEGACY_PATH_STRATEGY_SPACE_RACE" ListType="LegacyPathStrategyThreeLaunchesConstructibleBiases"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_SPACE_RACE" ListType="LegacyPathStrategyThreeLaunchesProjectBiases"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_SPACE_RACE" ListType="LegacyPathStrategyThreeLaunchesBudgetBiases"/>
-		<!-- Artifacts -->
-		<Row StrategyType="LEGACY_PATH_STRATEGY_ARTIFACTS" ListType="LegacyPathArtifactsConstructibleBiases"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_ARTIFACTS" ListType="LegacyPathArtifactsUnitBiases"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_ARTIFACTS" ListType="LegacyPathArtifactsPseudoYieldBiases"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_ARTIFACTS" ListType="LegacyPathArtifactsBudgetBiases"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_ARTIFACTS" ListType="LegacyPathArtifactsProgressionTreeNodesBiases"/>
 	</Strategy_Priorities>
 	<AiListTypes>
 		<!-- Railroad Tycoon -->

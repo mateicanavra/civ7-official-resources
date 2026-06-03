@@ -1,49 +1,21 @@
-import { A as Audio } from '../../audio-base/audio-support.chunk.js';
-import { a as ActionActivateEventName } from '../../components/fxs-activatable.chunk.js';
-import { D as DropdownSelectionChangeEventName } from '../../components/fxs-dropdown.chunk.js';
+import { Audio } from '../../audio-base/audio-support.js';
+import { ActionActivateEventName } from '../../components/fxs-activatable.js';
+import { DropdownSelectionChangeEventName } from '../../components/fxs-dropdown.js';
 import ContextManager, { ContextManagerEvents } from '../../context-manager/context-manager.js';
-import { d as StartCampaignEvent, j as SendCampaignSetupTelemetryEvent } from '../../events/shell-events.chunk.js';
-import ActionHandler, { ActiveDeviceTypeChangedEventName } from '../../input/action-handler.js';
-import FocusManager from '../../input/focus-manager.js';
-import { N as NavTray } from '../../navigation-tray/model-navigation-tray.chunk.js';
-import { P as Panel, A as AnchorType } from '../../panel-support.chunk.js';
+import { StartCampaignEvent, SendCampaignSetupTelemetryEvent } from '../../events/shell-events.js';
+import ActionHandler from '../../input/action-handler.js';
+import { ActiveDeviceTypeChangedEventName } from '../../input/input-events.js';
+import NavTray from '../../navigation-tray/model-navigation-tray.js';
+import Panel, { AnchorType } from '../../panel-support.js';
 import { ProfileAccountLoggedOutEventName } from '../../profile-header/profile-header.js';
-import { M as MultiplayerShellManager } from '../mp-shell-logic/mp-shell-logic.chunk.js';
-import { M as MPLobbyDataModelProxy, L as LobbyUpdateEventName, S as SMALL_SCREEN_MODE_MAX_HEIGHT, a as SMALL_SCREEN_MODE_MAX_WIDTH } from './model-mp-staging-new.chunk.js';
-import { D as Databind } from '../../utilities/utilities-core-databinding.chunk.js';
-import { MustGetElement, MustGetElements } from '../../utilities/utilities-dom.chunk.js';
-import { L as Layout } from '../../utilities/utilities-layout.chunk.js';
-import '../../input/focus-support.chunk.js';
-import '../../components/fxs-slot.chunk.js';
-import '../../views/view-manager.chunk.js';
-import '../../spatial/spatial-manager.js';
-import '../../framework.chunk.js';
-import '../../context-manager/display-queue-manager.js';
-import '../../dialog-box/manager-dialog-box.chunk.js';
-import '../../input/cursor.js';
-import '../../input/input-support.chunk.js';
-import '../../utilities/utilities-update-gate.chunk.js';
-import '../../utilities/utilities-image.chunk.js';
-import '../../utilities/utilities-component-id.chunk.js';
-import '../../rewards-notifications/rewards-notification-manager.chunk.js';
-import './model-mp-friends.chunk.js';
-import '../../social-notifications/social-notifications-manager.js';
-import '../../utilities/utilities-liveops.js';
-import '../../profile-page/screen-profile-page.js';
-import '../../save-load/model-save-load.chunk.js';
-import '../leader-select/leader-button/leader-button.js';
-import '../../utilities/utilities-metaprogression.chunk.js';
-import '../../utilities/utilities-network-constants.chunk.js';
-import '../../utilities/utilities-network.js';
-import '../mp-legal/mp-legal.js';
-import '../create-panels/age-civ-select-model.chunk.js';
-import '../live-event-logic/live-event-logic.chunk.js';
-import '../../utilities/utilities-data.chunk.js';
-import '../create-panels/leader-select-model.chunk.js';
-
-const content = "<fxs-frame class=\"mp-staging__frame flex-1 flow-column relative w-full h-full\">\r\n\t<div class=\"flex-auto flow-column relative\">\r\n\t\t<div\r\n\t\t\tclass=\"mp-staging__ready-button-container absolute bottom-0 left-0 right-0 flow-row justify-center items-center\"\r\n\t\t>\r\n\t\t\t<div class=\"w-36 h-36 relative flow-row justify-center items-center\">\r\n\t\t\t\t<fxs-activatable\r\n\t\t\t\t\tclass=\"ready-button group absolute top-3 bottom-7 left-5 right-5 flow-row justify-center items-center\"\r\n\t\t\t\t\tdata-bind-attributes=\"{'disabled': !{{g_MPLobbyModel.canToggleReady}}}\"\r\n\t\t\t\t>\r\n\t\t\t\t\t<div\r\n\t\t\t\t\t\tclass=\"pointer-events-none absolute img-popup_icon_glow -inset-28 tint-bg-white transition-opacity opacity-0 group-hover\\:opacity-75\"\r\n\t\t\t\t\t></div>\r\n\t\t\t\t\t<div class=\"img-popup_icon_wood_bk absolute inset-0\"></div>\r\n\t\t\t\t\t<div\r\n\t\t\t\t\t\tclass=\"absolute inset-0 transition-transform group-active\\:scale-95 flow-row justify-center items-center\"\r\n\t\t\t\t\t>\r\n\t\t\t\t\t\t<div class=\"absolute inset-0 p-0\\.5\">\r\n\t\t\t\t\t\t\t<div class=\"relative size-full\">\r\n\t\t\t\t\t\t\t\t<div\r\n\t\t\t\t\t\t\t\t\tclass=\"mp-staging__ready-button__len img-popup_len absolute inset-4 opacity-5 transition-opacity\"\r\n\t\t\t\t\t\t\t\t\tdata-bind-class-toggle=\"opacity-100:['INIT', 'NOT_READY'].includes({{g_MPLobbyModel.readyStatus}})\"\r\n\t\t\t\t\t\t\t\t></div>\r\n\t\t\t\t\t\t\t\t<div\r\n\t\t\t\t\t\t\t\t\tclass=\"mp-staging__ready-button__len-selected img-popup_len_selected absolute inset-4 opacity-5 transition-opacity\"\r\n\t\t\t\t\t\t\t\t\tdata-bind-class-toggle=\"opacity-100:['WAITING_FOR_OTHERS', 'STARTING_GAME', 'WAITING_FOR_HOST'].includes({{g_MPLobbyModel.readyStatus}})\"\r\n\t\t\t\t\t\t\t\t></div>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t<div class=\"absolute inset-1 top-1 bottom-1 right-1\\.25\">\r\n\t\t\t\t\t\t\t<fxs-ring-meter\r\n\t\t\t\t\t\t\t\tmax-value=\"10\"\r\n\t\t\t\t\t\t\t\tmin-value=\"0\"\r\n\t\t\t\t\t\t\t\tclass=\"mp-staging__ring-meter h-full w-full flex self-center align-center items-center -scale-100 transition-opacity opacity-5\"\r\n\t\t\t\t\t\t\t\tring-class=\"img-ring-meter-ring\"\r\n\t\t\t\t\t\t\t\tdata-bind-attributes=\"{'animation-duration': {{g_MPLobbyModel.allReadyCountdownRemainingSeconds}} == 10 || {{g_MPLobbyModel.readyStatus}} != 'STARTING_GAME' ? '1' : '1500', 'value': {{g_MPLobbyModel.allReadyCountdownRemainingSeconds}}}\"\r\n\t\t\t\t\t\t\t\tdata-bind-class-toggle=\"opacity-70:{{g_MPLobbyModel.readyStatus}} == 'STARTING_GAME'\"\r\n\t\t\t\t\t\t\t>\r\n\t\t\t\t\t\t\t</fxs-ring-meter>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t<div class=\"absolute inset-0 pr-0\\.5\">\r\n\t\t\t\t\t\t\t<div class=\"relative size-full\">\r\n\t\t\t\t\t\t\t\t<div\r\n\t\t\t\t\t\t\t\t\tclass=\"img-ntf_block_hov absolute inset-3 opacity-5 transition-opacity group-hover\\:opacity-100\"\r\n\t\t\t\t\t\t\t\t></div>\r\n\t\t\t\t\t\t\t\t<div\r\n\t\t\t\t\t\t\t\t\tclass=\"img-ntf_block_active absolute inset-3 opacity-5 transition-opacity group-active\\:opacity-100\"\r\n\t\t\t\t\t\t\t\t></div>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t<div class=\"absolute inset-0 p-0\\.5\">\r\n\t\t\t\t\t\t\t<div class=\"relative size-full\">\r\n\t\t\t\t\t\t\t\t<div\r\n\t\t\t\t\t\t\t\t\tclass=\"img-popup_checkmark absolute inset-4 opacity-5 transition-opacity\"\r\n\t\t\t\t\t\t\t\t\tdata-bind-class-toggle=\"opacity-90:{{g_MPLobbyModel.readyStatus}} == 'WAITING_FOR_OTHERS'\"\r\n\t\t\t\t\t\t\t\t></div>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t<div\r\n\t\t\t\t\t\t\tclass=\"mp-staging__ring-meter__text font-title-2xl text-secondary w-full text-center center z-1 opacity-5 transition-opacity\"\r\n\t\t\t\t\t\t\tdata-bind-class-toggle=\"opacity-80:{{g_MPLobbyModel.readyStatus}} == 'STARTING_GAME'\"\r\n\t\t\t\t\t\t\tdata-bind-attributes=\"{'data-l10n-id': {{g_MPLobbyModel.allReadyCountdownRemainingSeconds}}}\"\r\n\t\t\t\t\t\t></div>\r\n\t\t\t\t\t\t<div\r\n\t\t\t\t\t\t\tclass=\"mp-staging__ring-meter__loading absolute inset-0 z-1 flow-row justify-center items-center opacity-0 transition-opacity\"\r\n\t\t\t\t\t\t\tdata-bind-class-toggle=\"opacity-80:{{g_MPLobbyModel.readyStatus}} == 'WAITING_FOR_HOST'\"\r\n\t\t\t\t\t\t></div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</fxs-activatable>\r\n\t\t\t\t<div class=\"absolute pointer-events-none -inset-0\\.5 img-popup-laurels\"></div>\r\n\t\t\t\t<div class=\"absolute flow-row -bottom-3 w-96 h-16 flex-row justify-center items-center\">\r\n\t\t\t\t\t<div class=\"img-popup_header_bk absolute inset-0\"></div>\r\n\t\t\t\t\t<fxs-nav-help\r\n\t\t\t\t\t\taction-key=\"inline-nav-shell-next\"\r\n\t\t\t\t\t\tclass=\"absolute right-0\"\r\n\t\t\t\t\t></fxs-nav-help>\r\n\t\t\t\t\t<p\r\n\t\t\t\t\t\tclass=\"mp-staging__ready-button__text font-fit-shrink whitespace-nowrap flex-auto font-title-lg text-accent-1 uppercase tracking-150 z-1 mx-2 text-center\"\r\n\t\t\t\t\t\tdata-bind-attributes=\"{'data-l10n-id': {{g_MPLobbyModel.readyButtonCaption}}}\"\r\n\t\t\t\t\t\tdata-bind-class-toggle=\"mx-12:{{g_NavTray.isTrayRequired}}\"\r\n\t\t\t\t\t></p>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t\t<div class=\"flow-row\">\r\n\t\t\t<div class=\"mp-staging__header-spacing mr-2\">\r\n\t\t\t\t<div class=\"flex\">\r\n\t\t\t\t\t<fxs-button\r\n\t\t\t\t\t\tclass=\"show-join-code-button-top min-w-auto\"\r\n\t\t\t\t\t\taction-key=\"inline-nav-shell-previous\"\r\n\t\t\t\t\t></fxs-button>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t\t<div class=\"flex-auto flow-column items-center\">\r\n\t\t\t\t<p\r\n\t\t\t\t\tclass=\"font-title text-2xl text-center uppercase text-gradient-secondary whitespace-nowrap font-fit-shrink max-w-full\"\r\n\t\t\t\t\tdata-bind-attributes=\"{'data-l10n-id':{{g_MPLobbyModel.gameName}}}\"\r\n\t\t\t\t></p>\r\n\t\t\t\t<p\r\n\t\t\t\t\tclass=\"font-title-lg uppercase tracking-100 text-gradient-accent-4\"\r\n\t\t\t\t\tdata-bind-class-toggle=\"hidden:!{{g_MPLobbyModel.isUsingGlobalCountdown}}\"\r\n\t\t\t\t\tdata-bind-attributes=\"{'data-l10n-id':{{g_MPLobbyModel.timeRemainingTimer}}}\"\r\n\t\t\t\t></p>\r\n\t\t\t\t<fxs-ornament3\r\n\t\t\t\t\tclass=\"min-h-0 tint-bg-accent-5 mt-1 w-77\"\r\n\t\t\t\t\tdata-bind-class-toggle=\"hidden:!{{g_MPLobbyModel.isUsingGlobalCountdown}}\"\r\n\t\t\t\t></fxs-ornament3>\r\n\t\t\t</div>\r\n\t\t\t<div\r\n\t\t\t\tclass=\"mp-staging__header-spacing mp-staging__profile-header-container ml-2 relative flow-row justify-end items-center\"\r\n\t\t\t></div>\r\n\t\t</div>\r\n\t\t<div class=\"mb-2 mt-1 mp-staging__content\">\r\n\t\t\t<div class=\"flow-row mp-staging__left-section-top mb-2\">\r\n\t\t\t\t<fxs-button\r\n\t\t\t\t\tclass=\"rules-top min-w-auto mr-3\"\r\n\t\t\t\t\tcaption=\"LOC_UI_MP_LOBBY_RULES\"\r\n\t\t\t\t></fxs-button>\r\n\t\t\t\t<fxs-button\r\n\t\t\t\t\tclass=\"mp-staging__toggle-chat\"\r\n\t\t\t\t\tcaption=\"LOC_UI_MP_CHAT\"\r\n\t\t\t\t></fxs-button>\r\n\t\t\t</div>\r\n\t\t\t<div class=\"flow-row items-end justify-center\">\r\n\t\t\t\t<div class=\"mr-4 flex mp-staging__left-section-header\">\r\n\t\t\t\t\t<fxs-button\r\n\t\t\t\t\t\tclass=\"show-join-code-button-bot min-w-auto\"\r\n\t\t\t\t\t\taction-key=\"inline-nav-shell-previous\"\r\n\t\t\t\t\t></fxs-button>\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"flow-row flex-auto player-info-header-container\">\r\n\t\t\t\t\t<div class=\"flow-row flex-auto items-center\">\r\n\t\t\t\t\t\t<div\r\n\t\t\t\t\t\t\tclass=\"pr-1 flex-3 font-body-base text-accent-3 mp-staging__player-header font-fit-shrink whitespace-nowrap\"\r\n\t\t\t\t\t\t\tdata-l10n-id=\"LOC_UI_MP_HEADER_PLAYER\"\r\n\t\t\t\t\t\t></div>\r\n\t\t\t\t\t\t<div\r\n\t\t\t\t\t\t\tclass=\"pr-1 flex-1 font-body-base text-accent-3 mp-staging__team-header font-fit-shrink whitespace-nowrap\"\r\n\t\t\t\t\t\t\tdata-l10n-id=\"LOC_UI_MP_HEADER_TEAM\"\r\n\t\t\t\t\t\t></div>\r\n\t\t\t\t\t\t<div\r\n\t\t\t\t\t\t\tclass=\"pr-1 flex-1 font-body-base text-accent-3 mp-staging__civ-header font-fit-shrink whitespace-nowrap\"\r\n\t\t\t\t\t\t\tdata-l10n-id=\"LOC_UI_MP_HEADER_CIV\"\r\n\t\t\t\t\t\t></div>\r\n\t\t\t\t\t\t<div\r\n\t\t\t\t\t\t\tclass=\"pr-1 flex-2 font-body-base text-accent-3 font-fit-shrink whitespace-nowrap\"\r\n\t\t\t\t\t\t\tdata-l10n-id=\"LOC_UI_MP_HEADER_LEADER\"\r\n\t\t\t\t\t\t></div>\r\n\t\t\t\t\t\t<div\r\n\t\t\t\t\t\t\tclass=\"px-1 font-body-base text-accent-3 text-center mp-staging__ready-header font-fit-shrink whitespace-nowrap\"\r\n\t\t\t\t\t\t\tdata-l10n-id=\"LOC_UI_MP_HEADER_READY\"\r\n\t\t\t\t\t\t></div>\r\n\t\t\t\t\t\t<div\r\n\t\t\t\t\t\t\tclass=\"px-1 font-body-base text-accent-3 text-center mp-staging__kick-header font-fit-shrink whitespace-nowrap\"\r\n\t\t\t\t\t\t\tdata-l10n-id=\"LOC_UI_MP_HEADER_KICK\"\r\n\t\t\t\t\t\t></div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t\t<div class=\"flex-auto flow-row justify-center\">\r\n\t\t\t<div class=\"flow-column mr-4 mp-staging__left-section-content\">\r\n\t\t\t\t<fxs-inner-frame class=\"flex-auto flow-column mb-8\">\r\n\t\t\t\t\t<div class=\"p-4 w-full flow-column items-center\">\r\n\t\t\t\t\t\t<fxs-header\r\n\t\t\t\t\t\t\tclass=\"mt-3\"\r\n\t\t\t\t\t\t\ttitle=\"LOC_UI_MP_LOBBY_GAME_OPTION\"\r\n\t\t\t\t\t\t\tfiligree-style=\"h4\"\r\n\t\t\t\t\t\t></fxs-header>\r\n\t\t\t\t\t\t<div\r\n\t\t\t\t\t\t\trole=\"paragraph\"\r\n\t\t\t\t\t\t\tclass=\"flow-column mb-4 mt-3 items-center pointer-events-auto\"\r\n\t\t\t\t\t\t>\r\n\t\t\t\t\t\t\t<div\r\n\t\t\t\t\t\t\t\tclass=\"font-fit-shrink whitespace-nowrap font-body-sm text-accent-2 max-w-full\"\r\n\t\t\t\t\t\t\t\tdata-bind-attributes=\"{'data-l10n-id':{{g_MPLobbyModel.playerCounters}}}\"\r\n\t\t\t\t\t\t\t></div>\r\n\t\t\t\t\t\t\t<div class=\"flow-row items-center max-w-full\">\r\n\t\t\t\t\t\t\t\t<div\r\n\t\t\t\t\t\t\t\t\tclass=\"font-body-sm text-accent-2 mr-1\"\r\n\t\t\t\t\t\t\t\t\tdata-l10n-id=\"LOC_UI_MP_LOBBY_DIFFICULTY\"\r\n\t\t\t\t\t\t\t\t></div>\r\n\t\t\t\t\t\t\t\t<div class=\"flex-auto\">\r\n\t\t\t\t\t\t\t\t\t<div\r\n\t\t\t\t\t\t\t\t\t\tclass=\"font-fit-shrink whitespace-nowrap font-body-sm text-accent-2\"\r\n\t\t\t\t\t\t\t\t\t\tdata-bind-attributes=\"{'data-l10n-id':{{g_MPLobbyModel.difficulty}}}\"\r\n\t\t\t\t\t\t\t\t\t></div>\r\n\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<div class=\"flow-row items-center max-w-full\">\r\n\t\t\t\t\t\t\t\t<div\r\n\t\t\t\t\t\t\t\t\tclass=\"font-body-sm text-accent-2 mr-1\"\r\n\t\t\t\t\t\t\t\t\tdata-l10n-id=\"LOC_UI_MP_LOBBY_RULE_SET\"\r\n\t\t\t\t\t\t\t\t></div>\r\n\t\t\t\t\t\t\t\t<div class=\"flex-auto\">\r\n\t\t\t\t\t\t\t\t\t<div\r\n\t\t\t\t\t\t\t\t\t\tclass=\"font-fit-shrink whitespace-nowrap font-body-sm text-accent-2\"\r\n\t\t\t\t\t\t\t\t\t\tdata-bind-attributes=\"{'data-l10n-id':{{g_MPLobbyModel.summaryMapRuleSet}}}\"\r\n\t\t\t\t\t\t\t\t\t></div>\r\n\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<div class=\"flow-row items-center max-w-full\">\r\n\t\t\t\t\t\t\t\t<div\r\n\t\t\t\t\t\t\t\t\tclass=\"font-body-sm text-accent-2 mr-1\"\r\n\t\t\t\t\t\t\t\t\tdata-l10n-id=\"LOC_UI_MP_LOBBY_MAP_TYPE\"\r\n\t\t\t\t\t\t\t\t></div>\r\n\t\t\t\t\t\t\t\t<div class=\"flex-auto\">\r\n\t\t\t\t\t\t\t\t\t<div\r\n\t\t\t\t\t\t\t\t\t\tclass=\"font-fit-shrink whitespace-nowrap font-body-sm text-accent-2\"\r\n\t\t\t\t\t\t\t\t\t\tdata-bind-attributes=\"{'data-l10n-id':{{g_MPLobbyModel.summaryMapType}}}\"\r\n\t\t\t\t\t\t\t\t\t></div>\r\n\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<div class=\"flow-row items-center max-w-full\">\r\n\t\t\t\t\t\t\t\t<div\r\n\t\t\t\t\t\t\t\t\tclass=\"font-body-sm text-accent-2 mr-1\"\r\n\t\t\t\t\t\t\t\t\tdata-l10n-id=\"LOC_UI_MP_LOBBY_MAP_SIZE\"\r\n\t\t\t\t\t\t\t\t></div>\r\n\t\t\t\t\t\t\t\t<div class=\"flex-auto\">\r\n\t\t\t\t\t\t\t\t\t<div\r\n\t\t\t\t\t\t\t\t\t\tclass=\"font-fit-shrink whitespace-nowrap font-body-sm text-accent-2\"\r\n\t\t\t\t\t\t\t\t\t\tdata-bind-attributes=\"{'data-l10n-id':{{g_MPLobbyModel.summaryMapSize}}}\"\r\n\t\t\t\t\t\t\t\t\t></div>\r\n\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<div class=\"flow-row items-center max-w-full\">\r\n\t\t\t\t\t\t\t\t<div\r\n\t\t\t\t\t\t\t\t\tclass=\"font-body-sm text-accent-2 mr-1\"\r\n\t\t\t\t\t\t\t\t\tdata-l10n-id=\"LOC_UI_MP_LOBBY_GAME_SPEED\"\r\n\t\t\t\t\t\t\t\t></div>\r\n\t\t\t\t\t\t\t\t<div class=\"flex-auto\">\r\n\t\t\t\t\t\t\t\t\t<div\r\n\t\t\t\t\t\t\t\t\t\tclass=\"font-fit-shrink whitespace-nowrap font-body-sm text-accent-2\"\r\n\t\t\t\t\t\t\t\t\t\tdata-bind-attributes=\"{'data-l10n-id':{{g_MPLobbyModel.summarySpeed}}}\"\r\n\t\t\t\t\t\t\t\t\t></div>\r\n\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t<div class=\"flex\">\r\n\t\t\t\t\t\t\t<fxs-button\r\n\t\t\t\t\t\t\t\tclass=\"rules-bot\"\r\n\t\t\t\t\t\t\t\tcaption=\"LOC_UI_MP_LOBBY_RULES\"\r\n\t\t\t\t\t\t\t\taction-key=\"inline-shell-action-2\"\r\n\t\t\t\t\t\t\t></fxs-button>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<fxs-inner-frame class=\"mp-staging__chat-frame relative flex-auto w-full\"></fxs-inner-frame>\r\n\t\t\t\t</fxs-inner-frame>\r\n\t\t\t</div>\r\n\t\t\t<div class=\"flow-column mt-1 flex-auto player-info-slot-container\">\r\n\t\t\t\t<div class=\"flex-auto flow-column\">\r\n\t\t\t\t\t<fxs-spatial-slot\r\n\t\t\t\t\t\tdisable-focus-allowed=\"true\"\r\n\t\t\t\t\t\tclass=\"player-info-slot flex-auto flow-column\"\r\n\t\t\t\t\t></fxs-spatial-slot>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t\t<div class=\"mp-staging__bot-section flow-row justify-between items-end\">\r\n\t\t\t<fxs-button\r\n\t\t\t\tclass=\"back-button mr-3\"\r\n\t\t\t\tcaption=\"LOC_GENERIC_BACK\"\r\n\t\t\t></fxs-button>\r\n\t\t\t<div class=\"mp-staging__bot-section2 flow-row-wrap flex-auto\">\r\n\t\t\t\t<fxs-button\r\n\t\t\t\t\tclass=\"rules-bot2 mr-3 mt-3\"\r\n\t\t\t\t\tcaption=\"LOC_UI_MP_LOBBY_RULES\"\r\n\t\t\t\t></fxs-button>\r\n\t\t\t\t<fxs-button\r\n\t\t\t\t\tclass=\"memento-button mt-3\"\r\n\t\t\t\t\tcaption=\"LOC_UI_MP_MEMENTO\"\r\n\t\t\t\t\taction-key=\"inline-shell-action-1\"\r\n\t\t\t\t\tdata-bind-attributes=\"{'disabled': !{{g_MPLobbyModel.canEditMementos}}}\"\r\n\t\t\t\t></fxs-button>\r\n\t\t\t</div>\r\n\t\t\t<div class=\"mp-staging__ready-description-container flow-row justify-end items-center w-60\">\r\n\t\t\t\t<p\r\n\t\t\t\t\tclass=\"mp-staging__ready-button__text font-fit-shrink whitespace-nowrap flex-auto font-title-lg text-accent-1 text-accent-1 mx-2 text-center text-right opacity-0\"\r\n\t\t\t\t\tdata-bind-attributes=\"{'data-l10n-id': {{g_MPLobbyModel.readyButtonCaption}}}\"\r\n\t\t\t\t\tdata-bind-class-toggle=\"opacity-100:['WAITING_FOR_OTHERS', 'STARTING_GAME', 'WAITING_FOR_HOST'].includes({{g_MPLobbyModel.readyStatus}})\"\r\n\t\t\t\t></p>\r\n\t\t\t\t<div class=\"w-14 h-14 flow-row justify-center items-center relative\">\r\n\t\t\t\t\t<fxs-ring-meter\r\n\t\t\t\t\t\tmax-value=\"10\"\r\n\t\t\t\t\t\tmin-value=\"0\"\r\n\t\t\t\t\t\tclass=\"mp-staging__ring-meter absolute inset-0 flex self-center align-center items-center -scale-100 transition-opacity opacity-5\"\r\n\t\t\t\t\t\tring-class=\"img-ring-meter-ring\"\r\n\t\t\t\t\t\tdata-bind-attributes=\"{'animation-duration': {{g_MPLobbyModel.allReadyCountdownRemainingSeconds}} == 10 || {{g_MPLobbyModel.readyStatus}} != 'STARTING_GAME' ? '1' : '1500', 'value': {{g_MPLobbyModel.allReadyCountdownRemainingSeconds}}}\"\r\n\t\t\t\t\t\tdata-bind-class-toggle=\"opacity-70:{{g_MPLobbyModel.readyStatus}} == 'STARTING_GAME'\"\r\n\t\t\t\t\t>\r\n\t\t\t\t\t</fxs-ring-meter>\r\n\t\t\t\t\t<div\r\n\t\t\t\t\t\tclass=\"mp-staging__ring-meter__text font-title-base text-secondary w-full text-center center z-1 opacity-0 transition-opacity\"\r\n\t\t\t\t\t\tdata-bind-class-toggle=\"opacity-80:{{g_MPLobbyModel.readyStatus}} == 'STARTING_GAME'\"\r\n\t\t\t\t\t\tdata-bind-attributes=\"{'data-l10n-id': {{g_MPLobbyModel.allReadyCountdownRemainingSeconds}}}\"\r\n\t\t\t\t\t></div>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t</div>\r\n</fxs-frame>\r\n";
-
-const styles = "fs://game/core/ui/shell/mp-staging/mp-staging-new.css";
+import MultiplayerShellManager from '../mp-shell-logic/mp-shell-logic.js';
+import { MPLobbyDataModelProxy, LobbyUpdateEventName, SMALL_SCREEN_MODE_MAX_HEIGHT, SMALL_SCREEN_MODE_MAX_WIDTH } from './model-mp-staging-new.js';
+import Databind from '../../utilities/utilities-core-databinding.js';
+import { MustGetElement, MustGetElements } from '../../utilities/utilities-dom.js';
+import { Layout } from '../../utilities/utilities-layout.js';
+import { FocusManager } from '../../../ui-next/services/focus-manager.js';
+import content from './mp-staging-new.html.js';
+import styles from './mp-staging-new.scss.js';
 
 var FocusState = /* @__PURE__ */ ((FocusState2) => {
   FocusState2["PLAYER_SLOT"] = "PLAYER_SLOT";
@@ -78,9 +50,11 @@ class PanelMPLobby extends Panel {
   headerSpacings;
   profileHeader;
   profileHeaderContainer;
+  readyHeader = MustGetElement(".mp-staging__ready-header", this.Root);
   kickHeader = MustGetElement(".mp-staging__kick-header", this.Root);
   MPLobbyDataModelProxy = new MPLobbyDataModelProxy();
   joinCodeShown = false;
+  shouldShowJoinCode = (Network.supportsSSO() || Network.getLocalHostingPlatform() == HostingType.HOSTING_TYPE_GAMECENTER && !UI.isGameCenterNetworkBuild()) && !Configuration.getGame().isHotseat;
   focusState = "PLAYER_SLOT" /* PLAYER_SLOT */;
   constructor(root) {
     super(root);
@@ -119,7 +93,7 @@ class PanelMPLobby extends Panel {
     this.leftSectionContent = MustGetElement(".mp-staging__left-section-content", this.Root);
     this.toggleChatButton = MustGetElement(".mp-staging__toggle-chat", this.Root);
     this.chatFrame = MustGetElement(".mp-staging__chat-frame", this.Root);
-    if (Network.hasCommunicationsPrivilege(false)) {
+    if (Network.hasCommunicationsPrivilege(false) && !Configuration.getGame().isHotseat) {
       this.chat = document.createElement("screen-mp-chat");
       this.chat.classList.add("flex-auto");
       this.chatNavHelp = document.createElement("fxs-nav-help");
@@ -128,15 +102,6 @@ class PanelMPLobby extends Panel {
       this.chatFrame.appendChild(this.chatNavHelp);
       this.chat.addEventListener("focus", this.chatFocusListener);
       this.chat.addEventListener("engine-input", this.chatEngineInputListener);
-      waitForLayout(() => {
-        if (this.multiplayerChatHandle == null && this.chat?.component != null) {
-          this.multiplayerChatHandle = engine.on(
-            "MultiplayerChat",
-            this.chat.component.onMultiplayerChat,
-            this
-          );
-        }
-      });
     } else {
       this.toggleChatButton.classList.add("hidden");
       this.chatFrame.classList.add("hidden");
@@ -259,13 +224,15 @@ class PanelMPLobby extends Panel {
       const closeLeaderParamSpace = document.createElement("div");
       closeLeaderParamSpace.classList.add("flex-2");
       closeRow.appendChild(closeLeaderParamSpace);
-      const closeReadySpace = document.createElement("div");
-      closeReadySpace.classList.add("mp-staging__ready-slot");
-      closeRow.appendChild(closeReadySpace);
-      const closeKickSpace = document.createElement("div");
-      closeKickSpace.classList.add("mp-staging__kick-slot");
-      Databind.classToggle(closeKickSpace, "hidden", "{{g_MPLobbyModel.isKickOptionHidden}}");
-      closeRow.appendChild(closeKickSpace);
+      if (!Configuration.getGame().isHotseat) {
+        const closeReadySpace = document.createElement("div");
+        closeReadySpace.classList.add("mp-staging__ready-slot");
+        closeRow.appendChild(closeReadySpace);
+        const closeKickSpace = document.createElement("div");
+        closeKickSpace.classList.add("mp-staging__kick-slot");
+        Databind.classToggle(closeKickSpace, "hidden", "{{g_MPLobbyModel.isKickOptionHidden}}");
+        closeRow.appendChild(closeKickSpace);
+      }
       {
         const playerInfoDropdownAndDivider = document.createElement("div");
         playerInfoDropdownAndDivider.classList.add(
@@ -468,57 +435,63 @@ class PanelMPLobby extends Panel {
         this.createDivider(leaderDropdownAndDivider);
         playerInfoFrame.appendChild(leaderDropdownAndDivider);
       }
-      const readyIndicatorContainer = document.createElement("div");
-      readyIndicatorContainer.classList.add(
-        "flow-row",
-        "justify-center",
-        "mp-staging__ready-slot",
-        "items-center"
-      );
-      const readyIndicator = document.createElement("fxs-activatable");
-      readyIndicator.classList.add("w-12", "h-12", "group", "relative", "mp-staging__focusable-slot");
-      readyIndicator.setAttribute("tabindex", "-1");
-      readyIndicator.setAttribute(
-        "data-bind-attributes",
-        "{'disabled':({{player.isLocal}}&&{{g_MPLobbyModel.readyStatus}}!='WAITING_FOR_HOST')?'false':'true'}"
-      );
-      readyIndicator.addEventListener(ActionActivateEventName, this.readyIndicatorActivateListener);
-      const readyIndicatorReady = document.createElement("div");
-      readyIndicatorReady.classList.add("img-hud-civic-complete", "absolute", "-inset-1");
-      Databind.classToggle(readyIndicatorReady, "hidden", "!{{player.isReady}} && {{player.isHuman}}");
-      const readyIndicatorNotReady = document.createElement("div");
-      readyIndicatorNotReady.classList.add("img-civics-icon-frame", "absolute", "-inset-1");
-      Databind.classToggle(readyIndicatorNotReady, "hidden", "{{player.isReady}} || !{{player.isHuman}}");
-      const readyIndicatorNotReadyHover = document.createElement("div");
-      readyIndicatorNotReadyHover.classList.add(
-        "techtree-icon-empty-highlight",
-        "absolute",
-        "-inset-0\\.5",
-        "transition-opacity",
-        "opacity-0",
-        "group-hover\\:opacity-100",
-        "group-focus\\:opacity-100",
-        "group-pressed\\:opacity-100"
-      );
-      Databind.classToggle(readyIndicatorNotReadyHover, "hidden", "{{player.isReady}} || !{{player.isHuman}}");
-      const readyIndicatorContainerHighlight = document.createElement("div");
-      readyIndicatorContainerHighlight.classList.add(
-        "absolute",
-        "-inset-6",
-        "pointer-events-none",
-        "img-popup_icon_glow",
-        "opacity-0",
-        "transition-opacity",
-        "group-hover\\:opacity-100",
-        "group-focus\\:opacity-100",
-        "group-pressed\\:opacity-100"
-      );
-      readyIndicator.appendChild(readyIndicatorContainerHighlight);
-      readyIndicator.appendChild(readyIndicatorNotReady);
-      readyIndicator.appendChild(readyIndicatorNotReadyHover);
-      readyIndicator.appendChild(readyIndicatorReady);
-      readyIndicatorContainer.appendChild(readyIndicator);
-      playerInfoFrame.appendChild(readyIndicatorContainer);
+      if (!Configuration.getGame().isHotseat) {
+        const readyIndicatorContainer = document.createElement("div");
+        readyIndicatorContainer.classList.add(
+          "flow-row",
+          "justify-center",
+          "mp-staging__ready-slot",
+          "items-center"
+        );
+        const readyIndicator = document.createElement("fxs-activatable");
+        readyIndicator.classList.add("w-12", "h-12", "group", "relative", "mp-staging__focusable-slot");
+        readyIndicator.setAttribute("tabindex", "-1");
+        readyIndicator.setAttribute(
+          "data-bind-attributes",
+          "{'disabled':({{player.isLocal}}&&{{g_MPLobbyModel.readyStatus}}!='WAITING_FOR_HOST')?'false':'true'}"
+        );
+        readyIndicator.addEventListener(ActionActivateEventName, this.readyIndicatorActivateListener);
+        const readyIndicatorReady = document.createElement("div");
+        readyIndicatorReady.classList.add("img-hud-civic-complete", "absolute", "-inset-1");
+        Databind.classToggle(readyIndicatorReady, "hidden", "!{{player.isReady}} && {{player.isHuman}}");
+        const readyIndicatorNotReady = document.createElement("div");
+        readyIndicatorNotReady.classList.add("img-civics-icon-frame", "absolute", "-inset-1");
+        Databind.classToggle(readyIndicatorNotReady, "hidden", "{{player.isReady}} || !{{player.isHuman}}");
+        const readyIndicatorNotReadyHover = document.createElement("div");
+        readyIndicatorNotReadyHover.classList.add(
+          "techtree-icon-empty-highlight",
+          "absolute",
+          "-inset-0\\.5",
+          "transition-opacity",
+          "opacity-0",
+          "group-hover\\:opacity-100",
+          "group-focus\\:opacity-100",
+          "group-pressed\\:opacity-100"
+        );
+        Databind.classToggle(
+          readyIndicatorNotReadyHover,
+          "hidden",
+          "{{player.isReady}} || !{{player.isHuman}}"
+        );
+        const readyIndicatorContainerHighlight = document.createElement("div");
+        readyIndicatorContainerHighlight.classList.add(
+          "absolute",
+          "-inset-6",
+          "pointer-events-none",
+          "img-popup_icon_glow",
+          "opacity-0",
+          "transition-opacity",
+          "group-hover\\:opacity-100",
+          "group-focus\\:opacity-100",
+          "group-pressed\\:opacity-100"
+        );
+        readyIndicator.appendChild(readyIndicatorContainerHighlight);
+        readyIndicator.appendChild(readyIndicatorNotReady);
+        readyIndicator.appendChild(readyIndicatorNotReadyHover);
+        readyIndicator.appendChild(readyIndicatorReady);
+        readyIndicatorContainer.appendChild(readyIndicator);
+        playerInfoFrame.appendChild(readyIndicatorContainer);
+      }
       playerRow.appendChild(playerInfoFrame);
       const kickButtonContainer = document.createElement("div");
       kickButtonContainer.classList.add("flow-row", "justify-center", "mp-staging__kick-slot");
@@ -566,9 +539,11 @@ class PanelMPLobby extends Panel {
     playerInfoScrollable.appendChild(playerInfoContainer);
     this.playerInfoSlot.appendChild(playerInfoScrollable);
     this.backButton.addEventListener("action-activate", this.close.bind(this));
+    const hideMementos = !Configuration.getGame().isMementosEnabled;
     mementosButton.addEventListener("action-activate", this.mementosButtonActivateListener);
-    mementosButton.classList.toggle("hidden", !Configuration.getGame().isMementosEnabled);
+    mementosButton.classList.toggle("hidden", hideMementos);
     Databind.if(mementosButton, `!{{g_NavTray.isTrayRequired}}`);
+    Databind.classToggle(this.readyHeader, "hidden", "{{g_MPLobbyModel.isReadyOptionHidden}}");
     Databind.classToggle(this.kickHeader, "hidden", "{{g_MPLobbyModel.isKickOptionHidden}}");
     this.viewAllRulesButtonTop.addEventListener("action-activate", this.onViewAllRules.bind(this));
     Databind.if(this.viewAllRulesButtonTop, `!{{g_NavTray.isTrayRequired}}`);
@@ -607,7 +582,7 @@ class PanelMPLobby extends Panel {
     switch (this.focusState) {
       case "CHAT" /* CHAT */:
         if (this.chat) {
-          FocusManager.setFocus(this.chat);
+          FocusManager.get().setFocus(this.chat);
         }
         this.updateFocusState();
         break;
@@ -617,7 +592,7 @@ class PanelMPLobby extends Panel {
           if (!ContextManager.hasInstanceOf("screen-mp-lobby") || ContextManager.getCurrentTarget() != this.Root) {
             return;
           }
-          FocusManager.setFocus(this.playerInfoSlot);
+          FocusManager.get().setFocus(this.playerInfoSlot);
           this.updateFocusState();
         });
         break;
@@ -634,7 +609,6 @@ class PanelMPLobby extends Panel {
     return window.innerHeight <= Layout.pixelsToScreenPixels(SMALL_SCREEN_MODE_MAX_HEIGHT) || window.innerWidth <= Layout.pixelsToScreenPixels(SMALL_SCREEN_MODE_MAX_WIDTH);
   }
   onPlayerInfoFocus = () => {
-    FocusManager.setFocus(this.playerInfoSlot);
     this.updateFocusState();
     this.updateChatNavHelp();
     this.updateNavTray();
@@ -684,6 +658,7 @@ class PanelMPLobby extends Panel {
     if (inputEvent.detail.status != InputActionStatuses.FINISH) {
       return;
     }
+    const model = this.MPLobbyDataModelProxy.access();
     switch (inputEvent.detail.name) {
       case "cancel":
       case "mousebutton-right":
@@ -692,7 +667,7 @@ class PanelMPLobby extends Panel {
         inputEvent.preventDefault();
         break;
       case "shell-action-1":
-        if (Configuration.getGame().isMementosEnabled && !this.MPLobbyDataModelProxy.access().isLocalPlayerReady) {
+        if (model.canEditMementos && !model.isLocalPlayerReady) {
           this.openMementos();
           inputEvent.stopPropagation();
           inputEvent.preventDefault();
@@ -709,7 +684,7 @@ class PanelMPLobby extends Panel {
             inputEvent.preventDefault();
           } else {
             if (this.chat) {
-              FocusManager.setFocus(this.chat);
+              FocusManager.get().setFocus(this.chat);
             }
             this.updateFocusState();
             this.updateToggleNavHelp();
@@ -738,7 +713,7 @@ class PanelMPLobby extends Panel {
     const direction = navigationEvent.getDirection();
     switch (direction) {
       case InputNavigationAction.SHELL_PREVIOUS:
-        if (Network.supportsSSO()) {
+        if (this.shouldShowJoinCode) {
           this.showJoinCode();
           Audio.playSound("data-audio-show-code-activate", "multiplayer-lobby");
           live = false;
@@ -865,8 +840,8 @@ class PanelMPLobby extends Panel {
     );
   }
   updateShowJoinCodeButton() {
-    this.showJoinCodeButtonTop.classList.toggle("hidden", !this.isSmallScreen() || !Network.supportsSSO());
-    this.showJoinCodeButtonBot.classList.toggle("hidden", this.isSmallScreen() || !Network.supportsSSO());
+    this.showJoinCodeButtonTop.classList.toggle("hidden", !this.isSmallScreen() || !this.shouldShowJoinCode);
+    this.showJoinCodeButtonBot.classList.toggle("hidden", this.isSmallScreen() || !this.shouldShowJoinCode);
   }
   updateViewAllRulesFarBot() {
     this.viewAllRulesButtonFarBot.classList.toggle("hidden", !this.isSmallScreen());
@@ -898,8 +873,8 @@ class PanelMPLobby extends Panel {
       if (this.focusState != "PLAYER_SLOT" /* PLAYER_SLOT */ || ContextManager.getCurrentTarget() != this.Root) {
         return;
       }
-      if (!this.playerInfoSlot.contains(FocusManager.getFocus())) {
-        FocusManager.setFocus(this.playerInfoSlot);
+      if (!this.playerInfoSlot.contains(FocusManager.get().currentFocus())) {
+        FocusManager.get().setFocus(this.playerInfoSlot);
       }
     });
   }
@@ -932,7 +907,7 @@ class PanelMPLobby extends Panel {
     }
     switch (name) {
       case "cancel":
-        FocusManager.setFocus(this.playerInfoSlot);
+        FocusManager.get().setFocus(this.playerInfoSlot);
         this.updateFocusState();
         this.updateToggleNavHelp();
         return true;
@@ -947,10 +922,10 @@ class PanelMPLobby extends Panel {
     );
   }
   updateChatNavHelp() {
-    const currentFocus = FocusManager.getFocus();
+    const currentFocus = FocusManager.get().currentFocus();
     this.chatNavHelp?.setAttribute(
       "action-key",
-      this.chat == currentFocus || this.chat?.contains(FocusManager.getFocus()) ? "inline-cancel" : "inline-shell-action-3"
+      this.chat == currentFocus || this.chat?.contains(FocusManager.get().currentFocus()) ? "inline-cancel" : "inline-shell-action-3"
     );
   }
   updatePlayerInfoSlot() {
@@ -980,7 +955,7 @@ class PanelMPLobby extends Panel {
     if (ContextManager.hasInstanceOf("panel-mp-lobby-chat")) {
       this.focusState = "CHAT_DIALOG" /* CHAT_DIALOG */;
     } else {
-      this.focusState = this.chat?.contains(FocusManager.getFocus()) ? "CHAT" /* CHAT */ : "PLAYER_SLOT" /* PLAYER_SLOT */;
+      this.focusState = this.chat?.contains(FocusManager.get().currentFocus()) ? "CHAT" /* CHAT */ : "PLAYER_SLOT" /* PLAYER_SLOT */;
     }
   }
   updateNavTray() {
@@ -992,7 +967,7 @@ class PanelMPLobby extends Panel {
       return;
     }
     NavTray.addOrUpdateGenericBack();
-    if (Configuration.getGame().isMementosEnabled) {
+    if (this.MPLobbyDataModelProxy.access().canEditMementos) {
       NavTray.addOrUpdateShellAction1("LOC_UI_MP_MEMENTO");
     }
     if (this.isSmallScreen()) {
@@ -1011,6 +986,7 @@ class PanelMPLobby extends Panel {
   }
   close() {
     this.MPLobbyDataModelProxy.access().cancelGlobalCountdown();
+    Network.leaveMultiplayerGame();
     let lastHumanCount = 0;
     let lastParticipantCount = 0;
     this.MPLobbyDataModelProxy.access().lobbyPlayersData.forEach((playerData) => {
@@ -1021,7 +997,6 @@ class PanelMPLobby extends Panel {
         lastParticipantCount++;
       }
     });
-    Network.leaveMultiplayerGame();
     MultiplayerShellManager.exitMPGame("", "");
     window.dispatchEvent(
       new SendCampaignSetupTelemetryEvent(CampaignSetupType.Abandon, lastHumanCount, lastParticipantCount)
@@ -1069,7 +1044,7 @@ class PanelMPChat extends Panel {
   }
   onReceiveFocus() {
     super.onReceiveFocus();
-    FocusManager.setFocus(this.chat);
+    FocusManager.get().setFocus(this.chat);
     this.updateNavTray();
   }
   onLoseFocus() {

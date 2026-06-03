@@ -1,6 +1,5 @@
-const content = "<div class=\"turn-hex-line\"></div>\r\n<div class=\"turn-hex-bg\"></div>\r\n<div class=\"turn-img\"></div>\r\n<div class=\"turn-display\"></div>\r\n";
-
-const styles = "fs://game/base-standard/ui/turn-icon/turn-icon.css";
+import content from './turn-icon.html.js';
+import styles from './turn-icon.scss.js';
 
 class TurnIcon extends Component {
   constructor(root) {

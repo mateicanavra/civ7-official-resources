@@ -1,7 +1,6 @@
-import { P as PlotCoord } from '../../../core/ui/utilities/utilities-plotcoord.chunk.js';
+import { PlotCoord } from '../../../core/ui/utilities/utilities-plotcoord.js';
 import WorldAnchorTextManager from './world-anchor-text-manager.js';
-
-const styles = "fs://game/base-standard/ui/world-anchor-text/world-anchor-text.css";
+import styles from './world-anchor-text.scss.js';
 
 class AnchorText extends Component {
   static ANCHOR_OFFSET = { x: 0, y: 0, z: 8 };

@@ -1,43 +1,12 @@
-/* empty css                        */
-/* empty css                                 */
-import ContextManager from '../context-manager/context-manager.js';
-import '../input/focus-manager.js';
-import '../input/action-handler.js';
-import '../input/cursor.js';
-import '../tooltips/tooltip-manager.js';
-import '../tooltips/default-tooltip.js';
-import '../spatial/spatial-manager.js';
-import { TtsManagerTooltipExtension } from '../accessibility/tts-manager-tooltip-extension.chunk.js';
+import { TtsManagerTooltipExtension } from '../accessibility/tts-manager-tooltip-extension.js';
 import { TtsManager } from '../accessibility/tts-manager.js';
-import { d as displayRequestUniqueId, D as DialogBoxAction, a as DialogBoxManager } from '../dialog-box/manager-dialog-box.chunk.js';
-import { S as SuspendCloseListenerEventName, R as ResumeCloseListenerEventName, M as MainMenuReturnEvent } from '../events/shell-events.chunk.js';
-import { M as MultiplayerShellManager } from './mp-shell-logic/mp-shell-logic.chunk.js';
-import './live-event-logic/live-event-logic.chunk.js';
-import '../context-manager/display-queue-manager.js';
-import '../framework.chunk.js';
-import '../views/view-manager.chunk.js';
-import '../panel-support.chunk.js';
-import '../audio-base/audio-support.chunk.js';
-import '../input/input-support.chunk.js';
-import '../utilities/utilities-update-gate.chunk.js';
-import '../input/plot-cursor.js';
-import '../utilities/utilities-dom.chunk.js';
-import '../utilities/utilities-layout.chunk.js';
-import '../profile-page/screen-profile-page.js';
-import '../components/fxs-dropdown.chunk.js';
-import '../components/fxs-activatable.chunk.js';
-import '../input/focus-support.chunk.js';
-import '../components/fxs-slot.chunk.js';
-import '../navigation-tray/model-navigation-tray.chunk.js';
-import '../utilities/utilities-image.chunk.js';
-import '../utilities/utilities-component-id.chunk.js';
-import '../save-load/model-save-load.chunk.js';
-import './leader-select/leader-button/leader-button.js';
-import '../utilities/utilities-liveops.js';
-import '../utilities/utilities-metaprogression.chunk.js';
-import '../utilities/utilities-network-constants.chunk.js';
-import '../utilities/utilities-network.js';
-import './mp-legal/mp-legal.js';
+import ContextManager from '../context-manager/context-manager.js';
+import { displayRequestUniqueId } from '../context-manager/display-handler.js';
+import { DialogBoxManager } from '../dialog-box/manager-dialog-box.js';
+import { SuspendCloseListenerEventName, ResumeCloseListenerEventName, MainMenuReturnEvent } from '../events/shell-events.js';
+import MultiplayerShellManager from './mp-shell-logic/mp-shell-logic.js';
+import '../../ui-next/components/tooltip-compat.js';
+import { DialogBoxAction } from '../dialog-box/model-dialog-box.js';
 
 window.addEventListener("DOMContentLoaded", () => {
   const menu = document.getElementById("content-manager");
@@ -146,6 +115,4 @@ function showDisconnectionPopup() {
 function resetDisconnectionPopup() {
   UI.setDisconnectionPopupWasShown(false);
 }
-
-const rootShell_html_htmlProxy_inlineCss_index_11 = '';
 //# sourceMappingURL=root-shell.js.map

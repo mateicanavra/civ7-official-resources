@@ -1,46 +1,12 @@
-import { A as Audio } from '../../../core/ui/audio-base/audio-support.chunk.js';
-import FocusManager from '../../../core/ui/input/focus-manager.js';
-import { b as InputEngineEventName } from '../../../core/ui/input/input-support.chunk.js';
-import { P as Panel } from '../../../core/ui/panel-support.chunk.js';
-import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.chunk.js';
-import { L as Layout } from '../../../core/ui/utilities/utilities-layout.chunk.js';
+import { Audio } from '../../../core/ui/audio-base/audio-support.js';
+import { InputEngineEventName } from '../../../core/ui/input/input-support.js';
+import Panel from '../../../core/ui/panel-support.js';
+import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
+import { Layout } from '../../../core/ui/utilities/utilities-layout.js';
+import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
 import LegendsManager from '../legends-manager/legends-manager.js';
-import { U as UpdateGate } from '../../../core/ui/utilities/utilities-update-gate.chunk.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/utilities/utilities-metaprogression.chunk.js';
-
-class LegendsReportModel {
-  legendsData = null;
-  _showRewards = false;
-  onUpdate;
-  constructor() {
-    this.updateGate.call("LegendsReportModel:constructor");
-  }
-  get showRewards() {
-    return this._showRewards;
-  }
-  set showRewards(shouldShowRewards) {
-    this._showRewards = shouldShowRewards;
-    this.updateGate.call("LegendsReportModel:set showRewards");
-  }
-  set updateCallback(callback) {
-    this.onUpdate = callback;
-  }
-  updateGate = new UpdateGate(() => {
-    this.legendsData = LegendsManager.getData();
-    this.onUpdate?.(this);
-  });
-}
-const LegendsReport = new LegendsReportModel();
-engine.whenReady.then(() => {
-  const updateModel = () => {
-    engine.updateWholeModel(LegendsReport);
-  };
-  engine.createJSModel("g_LegendsReportModel", LegendsReport);
-  LegendsReport.updateCallback = updateModel;
-});
-
-const styles = "fs://game/base-standard/ui/legends-report/screen-legends-report.css";
+import LegendsReport from './model-legends-report.js';
+import styles from './screen-legends-report.scss.js';
 
 const STARTING_INNER_HTML = `
 <fxs-frame class="w-full h-full">
@@ -107,7 +73,7 @@ class ScreenLegendsReport extends Panel {
   onReceiveFocus() {
     super.onReceiveFocus();
     const progressContainer = MustGetElement(".progress-container", this.Root);
-    FocusManager.setFocus(progressContainer);
+    FocusManager.get().setFocus(progressContainer);
   }
   render() {
     this.Root.innerHTML = STARTING_INNER_HTML;
@@ -391,7 +357,7 @@ class ScreenLegendsReport extends Panel {
     }
     if (inputEvent.detail.name == "accept") {
       this.onContinueButton();
-      FocusManager.setFocus(this.continueButton);
+      FocusManager.get().setFocus(this.continueButton);
       inputEvent.stopPropagation();
       inputEvent.preventDefault();
     }

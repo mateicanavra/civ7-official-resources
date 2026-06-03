@@ -72,6 +72,7 @@
 		<Row Type="NOTIFICATION_IDEOLOGY_CHOSEN_ENEMY" Kind="KIND_NOTIFICATION"/>
 		<Row Type="NOTIFICATION_INVALID_ASSIGNED_RESOURCE" Kind="KIND_NOTIFICATION"/>
 		<Row Type="NOTIFICATION_MAKE_PEACE" Kind="KIND_NOTIFICATION"/>
+		<Row Type="NOTIFICATION_NINJA_SIGHTED" Kind="KIND_NOTIFICATION"/>
 		<Row Type="NOTIFICATION_PLAYER_MET" Kind="KIND_NOTIFICATION"/>
 		<Row Type="NOTIFICATION_PLAYER_DEFEATED" Kind="KIND_NOTIFICATION"/>
 		<Row Type="NOTIFICATION_PLAYER_UNLOCK_CHANGED" Kind="KIND_NOTIFICATION"/>
@@ -88,6 +89,8 @@
 		<Row Type="NOTIFICATION_RELEGION_CREATED" Kind="KIND_NOTIFICATION"/>
 		<Row Type="NOTIFICATION_DISPERSE_IP_REWARD" Kind="KIND_NOTIFICATION"/>
 		<Row Type="NOTIFICATION_REVOLT" Kind="KIND_NOTIFICATION"/>
+		<Row Type="NOTIFICATION_LEGACY_COMPLETED" Kind="KIND_NOTIFICATION"/>
+		<Row Type="NOTIFICATION_CHOOSE_SYNCRETISM" Kind="KIND_NOTIFICATION"/>
 		<!-- Multiplayer Notifications-->
 		<Row Type="NOTIFICATION_PLAYER_CONNECTING" Kind="KIND_NOTIFICATION"/>
 		<Row Type="NOTIFICATION_PLAYER_CONNECTED" Kind="KIND_NOTIFICATION"/>
@@ -98,6 +101,7 @@
 		<Row Type="NOTIFICATION_SEQUENTIAL_TURNS" Kind="KIND_NOTIFICATION"/>
 		<Row Type="NOTIFICATION_SIMULTANEOUS_TURNS" Kind="KIND_NOTIFICATION"/>
 		<Row Type="NOTIFICATION_GAME_INVITE" Kind="KIND_NOTIFICATION"/>
+		<Row Type="NOTIFICATION_HOST_UNRESPONSIVE" Kind="KIND_NOTIFICATION"/>
 		<Row Type="NOTIFICATION_KICK_VOTE_STARTED" Kind="KIND_NOTIFICATION"/>
 		<Row Type="NOTIFICATION_STARVATION_LOST_CONSTRUCTIBLE" Kind="KIND_NOTIFICATION"/>
 		<Row Type="NOTIFICATION_STORM_ARRIVED" Kind="KIND_NOTIFICATION"/>
@@ -132,6 +136,8 @@
 		<Row Type="NOTIFICATION_AGE_PROGRESSION_PROGRESS_CHANGED" Kind="KIND_NOTIFICATION"/>
 		<Row Type="NOTIFICATION_AGE_PROGRESSION_MILESTONE_MET" Kind="KIND_NOTIFICATION"/>
 		<Row Type="NOTIFICATION_AGE_EXTENDED" Kind="KIND_NOTIFICATION"/>
+		<Row Type="NOTIFICATION_CHOOSE_CIVILIZATION" Kind="KIND_NOTIFICATION" />
+		<Row Type="NOTIFICATION_VPGC" Kind="KIND_NOTIFICATION"/>
 	</Types>
 	<Notifications>
 		<Row NotificationType="NOTIFICATION_ASSIGN_NEW_RESOURCES" SeverityType="HIGH" ExpiresEndOfTurn="False" AutoNotify="True" Message="LOC_NOTIFICATION_ASSIGN_NEW_RESOURCES_MESSAGE" Summary="LOC_NOTIFICATION_ASSIGN_NEW_RESOURCES_SUMMARY" Priority="1"/>
@@ -202,6 +208,7 @@
 		<Row NotificationType="NOTIFICATION_RELEGION_CREATED" SeverityType="MID" ExpiresEndOfTurn="True" AutoNotify="False" Message="LOC_NOTIFICATION_RELIGION_CREATED_MESSAGE" Summary="LOC_NOTIFICATION_RELIGION_CREATED_SUMMARY" Priority="0"/>
 		<Row NotificationType="NOTIFICATION_DISPERSE_IP_REWARD" SeverityType="MID" ExpiresEndOfTurn="True" AutoNotify="False" Message="LOC_NOTIFICATION_DISPERSE_IP_REWARD_MESSAGE" Summary="LOC_NOTIFICATION_DISPERSE_IP_REWARD_SUMMARY" Priority="0"/>
 		<Row NotificationType="NOTIFICATION_REVOLT" SeverityType="HIGH" ExpiresEndOfTurn="True" AutoNotify="False" Message="LOC_NOTIFICATION_REVOLT_MESSAGE" Summary="LOC_NOTIFICATION_REVOLT_SUMMARY" Priority="0"/>
+		<Row NotificationType="NOTIFICATION_LEGACY_COMPLETED" SeverityType="LOW" ExpiresEndOfTurn="True" Priority="0"/>
 		<!-- Multiplayer Notifications -->
 		<Row NotificationType="NOTIFICATION_PLAYER_CONNECTING" SeverityType="MID" ExpiresEndOfTurn="False" ExpiresEndOfNextTurn="True" AutoNotify="False" GroupType="NETWORK" Priority="0"/>
 		<Row NotificationType="NOTIFICATION_PLAYER_CONNECTED" SeverityType="MID" ExpiresEndOfTurn="False" ExpiresEndOfNextTurn="True" AutoNotify="False" GroupType="NETWORK" Priority="0"/>
@@ -212,6 +219,7 @@
 		<Row NotificationType="NOTIFICATION_SEQUENTIAL_TURNS" SeverityType="MID" ExpiresEndOfTurn="True" AutoNotify="False" Priority="0"/>
 		<Row NotificationType="NOTIFICATION_SIMULTANEOUS_TURNS" SeverityType="MID" ExpiresEndOfTurn="True" AutoNotify="False" Priority="0"/>
 		<Row NotificationType="NOTIFICATION_GAME_INVITE" SeverityType="MID" ExpiresEndOfTurn="False" AutoNotify="False" GroupType="NETWORK" Priority="0"/>
+		<Row NotificationType="NOTIFICATION_HOST_UNRESPONSIVE" SeverityType="MID" ExpiresEndOfTurn="False" AutoNotify="False" GroupType="NETWORK" Priority="0"/>
 		<Row NotificationType="NOTIFICATION_KICK_VOTE_STARTED" SeverityType="MID" ExpiresEndOfTurn="False" AutoNotify="False" GroupType="NETWORK" Priority="0"/>
 		<Row NotificationType="NOTIFICATION_STARVATION_LOST_CONSTRUCTIBLE" SeverityType="HIGH" ExpiresEndOfTurn="True" AutoNotify="False" Priority="6"/>
 		<Row NotificationType="NOTIFICATION_STORM_ARRIVED" SeverityType="MID" ExpiresEndOfTurn="True" AutoNotify="False" Message="LOC_NOTIFICATION_STORM_ARRIVED_MESSAGE" Summary="LOC_NOTIFICATION_STORM_ARRIVED_SUMMARY" Priority="2"/>
@@ -262,8 +270,10 @@
 		<Row NotificationType="NOTIFICATION_AGE_PROGRESSION_MILESTONE_MET" SeverityType="LOW" ExpiresEndOfTurn="True" Priority="0"/>
 		<Row NotificationType="NOTIFICATION_AGE_PROGRESSION_PROGRESS_CHANGED" SeverityType="LOW" ExpiresEndOfTurn="True" Priority="0"/>
 		<Row NotificationType="NOTIFICATION_AGE_EXTENDED" SeverityType="LOW" ExpiresEndOfTurn="False" Message="LOC_NOTIFICATION_AGE_EXTENDED_MESSAGE" Summary="LOC_NOTIFICATION_AGE_EXTENDED_SUMMARY" Priority="0"/>
-
-
+		<Row NotificationType="NOTIFICATION_CHOOSE_CIVILIZATION" SeverityType="LOW" ExpiresEndOfTurn="False" AutoNotify="False" Message="LOC_NOTIFICATION_CHOOSE_CIVILIZATION_MESSAGE" Summary="LOC_NOTIFICATION_CHOOSE_CIVILIZATION_SUMMARY" Priority="0" />
+		<Row NotificationType="NOTIFICATION_VPGC" SeverityType="LOW" ExpiresEndOfTurn="True" Priority="0"/>
+		<Row NotificationType="NOTIFICATION_CHOOSE_SYNCRETISM" SeverityType="VERY_HIGH" ExpiresEndOfTurn="False" AutoNotify="True" AutoActivate="False" Message="LOC_NOTIFICATION_CHOOSE_SYNCRETISM_MESSAGE" Summary="LOC_NOTIFICATION_CHOOSE_SYNCRETISM_SUMMARY" Priority="0"/>
+		<Row NotificationType="NOTIFICATION_NINJA_SIGHTED" SeverityType="LOW" ExpiresEndOfTurn="True" AutoNotify="False" Message="LOC_NOTIFICATION_NINJA_SIGHTED_MESSAGE" Summary="LOC_NOTIFICATION_NINJA_SIGHTED_SUMMARY" Priority="4"/>
 	</Notifications>
 	<NotificationSounds>
 		<!-- Supported Notification Contexts are currently, Add, Dismiss, Activate -->
@@ -291,6 +301,7 @@
 		<Row NotificationType="NOTIFICATION_STARVATION_LOST_CONSTRUCTIBLE" Context="Add" Audio="notif-Starvation_Lost_Constructible"/>
 		<Row NotificationType="NOTIFICATION_TILE_PILLAGED" Context="Add" Audio="notif-Tile_Pillaged"/>
 		<Row NotificationType="NOTIFICATION_UNHAPPINESS_LOST_CONSTRUCTIBLE" Context="Add" Audio="notif-Unhappiness_Lost_Constructible"/>
+		<Row NotificationType="NOTIFICATION_CITY_NEW_RELIGION" Context="Add" Audio="notif-City_New_Religion"/>
 		<!-- Narrative -->
 		<Row NotificationType="NOTIFICATION_CHOOSE_AUTO_NARRATIVE_STORY_DIRECTION" Context="Add" Audio="notif-Choose_Auto_Narrative_Story_Direction"/>
 		<!-- Civic -->
@@ -312,9 +323,11 @@
 		<Row NotificationType="NOTIFICATION_DIPLOMATIC_ACTION_ESPIONAGE" Context="Add" Audio="notif-Diplomatic_Action_Espionage"/>
 		<Row NotificationType="NOTIFICATION_PLAYER_MET" Context="Add" Audio="notif-Player_Met"/>
 		<Row NotificationType="NOTIFICATION_DIPLOMATIC_ACTION_AWARD" Context="Add" Audio="notif-Diplomatic_Action_Award"/>
-        <Row NotificationType="NOTIFICATION_DIPLOMATIC_RELATIONSHIP_CHANGED" Context="Add" Audio="notif-Relationship_Changed"/>
+		<Row NotificationType="NOTIFICATION_DIPLOMATIC_RELATIONSHIP_CHANGED" Context="Add" Audio="notif-Relationship_Changed"/>
 		<Row NotificationType="NOTIFICATION_CITY_STATE_BONUS_CHOSEN" Context="Add" Audio="notif-Suzerain"/>
 		<Row NotificationType="NOTIFICATION_DIPLOMACY_SESSION" Context="Add" Audio="notif-Peace_Deal"/>
+			<!-- Note: this 'NOTIFICATION_DIPLOMACY_SESSION_WAR' entry is a fake notif only used by audio. see: model-notification-train.ts -->
+		<Row NotificationType="NOTIFICATION_DIPLOMACY_SESSION_WAR" Context="Add" Audio="notif-War_Deal"/>
 		<Row NotificationType="NOTIFICATION_DIPLOMATIC_ACTION_WARNING" Context="Add" Audio="notif-Diplomatic_Warning"/>
 		<Row NotificationType="NOTIFICATION_DIPLOMATIC_ACTION_LOW" Context="Add" Audio="notif-Diplomatic_Low"/>
 		<Row NotificationType="NOTIFICATION_DIPLOMATIC_ACTION" Context="Add" Audio="notif-Diplomatic_Neutral"/>
@@ -349,6 +362,7 @@
 		<Row NotificationType="NOTIFICATION_MAKE_PEACE" Context="Add" Audio="notif-Make_Peace"/>
 		<!-- War/Peace -->
 		<Row NotificationType="NOTIFICATION_COMMANDER_RESPAWNED" Context="Add" Audio="notif-Commander_Respawned"/>
+		<Row NotificationType="NOTIFICATION_DECLARE_WAR" Context="Add" Audio="notif-Declare_War"/>
 		<Row NotificationType="NOTIFICATION_DECLARE_WAR_ON_YOU" Context="Add" Audio="notif-Declare_War_On_You"/>
 		<Row NotificationType="NOTIFICATION_PLAYER_DEFEATED" Context="Add" Audio="notif-Player_Defeated"/>
 		<!-- Multiplayer -->
@@ -360,6 +374,7 @@
 		<Row NotificationType="NOTIFICATION_PLAYER_DISCONNECT" Context="Add" Audio="notif-Player_Disconnect"/>
 		<Row NotificationType="NOTIFICATION_CAPITAL_CAPTURED" Context="Add" Audio="notif-Capital_Captured"/>
 		<Row NotificationType="NOTIFICATION_GAME_INVITE" Context="Add" Audio="notif-Game_Invite"/>
+		<Row NotificationType="NOTIFICATION_HOST_UNRESPONSIVE" Context="Add" Audio="notif-DefaultDefault"/>
 		<Row NotificationType="NOTIFICATION_KICK_VOTE_STARTED" Context="Add" Audio="notif-DefaultDefault"/>
 		<Row NotificationType="NOTIFICATION_DISCOVER_NATURAL_WONDER" Context="Add" Audio="notif-Discover_Natural_Wonder"/>
 		<Row NotificationType="NOTIFICATION_TRADITIONS_AVAILABLE" Context="Add" Audio="notif-Traditions_Available"/>
@@ -390,5 +405,7 @@
         <Row NotificationType="NOTIFICATION_AGE_PROGRESSION_MILESTONE_MET" Context="Add" Audio="notif-Age_Progression_Milestone_Met" />
         <Row NotificationType="NOTIFICATION_AGE_PROGRESSION_PROGRESS_CHANGED" Context="Add" Audio="notif-Age_Progression_Progress_Changed" />
         <Row NotificationType="NOTIFICATION_AGE_EXTENDED" Context="Add" Audio="notif-Age_Extended" />
+		<Row NotificationType="NOTIFICATION_VPGC" Context="Add" Audio="notif-Age_Progression_Milestone_Met"/>
+		<Row NotificationType="NOTIFICATION_LEGACY_COMPLETED" Context="Add" Audio="notif-Triumph_Milestone_Met"/>
 	</NotificationSounds>
 </Database>

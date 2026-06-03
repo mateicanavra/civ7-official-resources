@@ -136,9 +136,6 @@
         <Argument name="YieldType">YIELD_CULTURE</Argument>
         <Argument name="MultiplierType">REWARD_TYPE_MINOR_EARLY</Argument>
     </Modifier>
-    <Requirement id="REQ_STORY_CIVILIZATION_OTTOMANS" type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
-        <Argument name="CivilizationType">CIVILIZATION_OTTOMANS</Argument>
-    </Requirement>
     <RequirementSet id="REQSET_11103D_NARRATIVE_REQUISITE">
         <Requirement type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
             <Argument name="LeaderType">LEADER_SAYYIDA_AL_HURRA</Argument>
@@ -259,9 +256,10 @@
         </Requirement>
     </RequirementSet>
     <RequirementSet id="REQSET_11105B_NARRATIVE">
-        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_BUILDINGS">
-            <Argument name="BuildingType">BUILDING_MILITARY_ACADEMY</Argument>
-            <Argument name="Amount">1</Argument>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
+            <Argument name="GossipTypes">GOSSIP_CONSTRUCT_BUILDING01</Argument>
+            <Argument name="GOSSIP_CONSTRUCT_BUILDING01">Hash,ConstructibleType,BUILDING_MILITARY_ACADEMY</Argument>
+            <Argument name="AfterInit">True</Argument>
         </Requirement>
     </RequirementSet>
     <RequirementSet id="REQSET_11105C_NARRATIVE">

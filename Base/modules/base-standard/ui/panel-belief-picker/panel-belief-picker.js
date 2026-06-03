@@ -1,39 +1,16 @@
-import { A as Audio } from '../../../core/ui/audio-base/audio-support.chunk.js';
+import { Audio } from '../../../core/ui/audio-base/audio-support.js';
 import ContextManager from '../../../core/ui/context-manager/context-manager.js';
-import { a as DialogBoxManager } from '../../../core/ui/dialog-box/manager-dialog-box.chunk.js';
-import FocusManager from '../../../core/ui/input/focus-manager.js';
-import { b as InputEngineEventName } from '../../../core/ui/input/input-support.chunk.js';
-import { N as NavTray } from '../../../core/ui/navigation-tray/model-navigation-tray.chunk.js';
-import { P as Panel } from '../../../core/ui/panel-support.chunk.js';
-import { D as Databind } from '../../../core/ui/utilities/utilities-core-databinding.chunk.js';
-import { a as formatStringArrayAsNewLineText } from '../../../core/ui/utilities/utilities-core-textprovider.chunk.js';
-import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.chunk.js';
+import { DialogBoxManager } from '../../../core/ui/dialog-box/manager-dialog-box.js';
+import { InputEngineEventName } from '../../../core/ui/input/input-support.js';
+import NavTray from '../../../core/ui/navigation-tray/model-navigation-tray.js';
+import Panel from '../../../core/ui/panel-support.js';
+import Databind from '../../../core/ui/utilities/utilities-core-databinding.js';
+import { formatStringArrayAsNewLineText } from '../../../core/ui/utilities/utilities-core-textprovider.js';
+import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
+import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
 import { HideMiniMapEvent } from '../mini-map/panel-mini-map.js';
-import '../../../core/ui/context-manager/display-queue-manager.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/input/cursor.js';
-import '../../../core/ui/views/view-manager.chunk.js';
-import '../../../core/ui/input/action-handler.js';
-import '../../../core/ui/utilities/utilities-update-gate.chunk.js';
-import '../../../core/ui/utilities/utilities-image.chunk.js';
-import '../../../core/ui/utilities/utilities-component-id.chunk.js';
-import '../../../core/ui/input/focus-support.chunk.js';
-import '../../../core/ui/components/fxs-slot.chunk.js';
-import '../../../core/ui/spatial/spatial-manager.js';
-import '../../../core/ui/lenses/lens-manager.chunk.js';
-import '../../../core/ui/shell/mp-staging/mp-friends.js';
-import '../../../core/ui/shell/mp-staging/model-mp-friends.chunk.js';
-import '../../../core/ui/social-notifications/social-notifications-manager.js';
-import '../../../core/ui/utilities/utilities-layout.chunk.js';
-import '../../../core/ui/utilities/utilities-liveops.js';
-import '../../../core/ui/utilities/utilities-network.js';
-import '../../../core/ui/shell/mp-legal/mp-legal.js';
-import '../../../core/ui/events/shell-events.chunk.js';
-import '../../../core/ui/utilities/utilities-network-constants.chunk.js';
-
-const content = "<div class=\"panel-belief-picker-content mt-36 flex flex-row-reverse shrink\">\r\n\t<fxs-frame\r\n\t\tframe-style=\"f2\"\r\n\t\tclass=\"belief-choice-menu hidden relative -ml-9 mr-4 mt-4 mb-1 flex-auto\"\r\n\t\toverride-styling=\"fxs-frame z-0 pointer-events-auto flex max-w-96 max-h-full px-0 pb-6\"\r\n\t>\r\n\t\t<fxs-close-button class=\"belief-choice-menu_close absolute\"></fxs-close-button>\r\n\t\t<div class=\"p-6 flex flex-col items-center size-full\">\r\n\t\t\t<fxs-header\r\n\t\t\t\tclass=\"belief-choice-menu_title font-title-base text-secondary mr-7\"\r\n\t\t\t\tfiligree-style=\"none\"\r\n\t\t\t></fxs-header>\r\n\t\t\t<div class=\"belief-choice-menu_subtitle text-accent-4 font-body-base text-center\"></div>\r\n\t\t\t<fxs-scrollable\r\n\t\t\t\tclass=\"flex-auto\"\r\n\t\t\t\thandle-gamepad-pan=\"true\"\r\n\t\t\t>\r\n\t\t\t\t<fxs-vslot class=\"belief-choice-menu_list pr-4\"></fxs-vslot>\r\n\t\t\t</fxs-scrollable>\r\n\t\t</div>\r\n\t</fxs-frame>\r\n\t<fxs-subsystem-frame\r\n\t\tclass=\"belief-picker_subsystem-frame relative flex items-center flex-col\"\r\n\t\tbackDrop=\"fs://game/rel_starrybg.png\"\r\n\t>\r\n\t\t<fxs-header\r\n\t\t\tclass=\"mt-3 tracking-150\"\r\n\t\t\ttitle=\"LOC_UI_RADIAL_MENU_DETAILS_RELIGION_TITLE\"\r\n\t\t\tdata-slot=\"header\"\r\n\t\t\theader-bg-glow=\"true\"\r\n\t\t></fxs-header>\r\n\t\t<fxs-tab-bar\r\n\t\t\tclass=\"belief-picker_belief-tabs mx-3\\.5 mb-6 hidden\"\r\n\t\t\ttab-item-class=\"py-4\"\r\n\t\t\tdata-slot=\"header\"\r\n\t\t\trect-render=\"true\"\r\n\t\t\ttab-for=\"panel-belief-picker\"\r\n\t\t></fxs-tab-bar>\r\n\t\t<div\r\n\t\t\tclass=\"belief-picker-main-icon relative flex mr-2 items-center justify-center hidden\"\r\n\t\t\tdata-slot=\"header\"\r\n\t\t>\r\n\t\t\t<div class=\"relative flex mr-4 items-center justify-center\">\r\n\t\t\t\t<div\r\n\t\t\t\t\tclass=\"belief-picker_religion-info-icon-container_holder absolute bg-contain bg-no-repeat size-32\"\r\n\t\t\t\t></div>\r\n\t\t\t\t<div class=\"belief-picker_belief-info-icon-image relative mb-3 bg-contain bg-no-repeat size-24\"></div>\r\n\t\t\t\t<div\r\n\t\t\t\t\tclass=\"belief-picker_religion-info-icon-container_glow absolute size-full bg-contain bg-no-repeat hidden\"\r\n\t\t\t\t></div>\r\n\t\t\t</div>\r\n\t\t\t<div class=\"flex flex-col ml-4 mb-5\">\r\n\t\t\t\t<div class=\"flex items-end\">\r\n\t\t\t\t\t<div class=\"belief-picker_belief-info-religion-name font-title-xl font-fit-shrink\"></div>\r\n\t\t\t\t\t<div class=\"belief-picker_belief-info-percent-following font-body-base ml-5 text-accent-3\"></div>\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"belief-picker_belief-info-founder-name font-body-sm text-accent-2\"></div>\r\n\t\t\t\t<div class=\"belief-picker_belief-info-city-name font-body-sm text-accent-2\"></div>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t\t<fxs-vslot class=\"belief-picker_belief-choices flex flex-col items-center w-192 h-128 self-center px-4 py-1 opacity-0\">\r\n\t\t\t<fxs-header\r\n\t\t\t\tclass=\"font-title-lg text-secondary\"\r\n\t\t\t\ttitle=\"LOC_UI_ESTABLISH_BELIEFS_RELIQUARY_BELIEFS\"\r\n\t\t\t\tfiligree-style=\"h4\"\r\n\t\t\t></fxs-header>\r\n\t\t\t<div\r\n\t\t\t\tclass=\"belief-picker_belief-relic-container belief-container flex flex-col items-center m-3 justify-center w-full\"\r\n\t\t\t></div>\r\n\t\t\t<fxs-header\r\n\t\t\t\tclass=\"font-title-lg text-secondary\"\r\n\t\t\t\ttitle=\"LOC_UI_ESTABLISH_BELIEFS_FOUNDER_BELIEFS\"\r\n\t\t\t\tfiligree-style=\"h4\"\r\n\t\t\t></fxs-header>\r\n\t\t\t<div\r\n\t\t\t\tclass=\"belief-picker_belief-founder-container belief-container flex flex-col items-center m-3 justify-center w-full\"\r\n\t\t\t></div>\r\n\t\t\t<fxs-header\r\n\t\t\t\tclass=\"font-title-lg text-secondary\"\r\n\t\t\t\ttitle=\"LOC_UI_ESTABLISH_BELIEFS_ENHANCER_BELIEF\"\r\n\t\t\t\tfiligree-style=\"h4\"\r\n\t\t\t></fxs-header>\r\n\t\t\t<div\r\n\t\t\t\tclass=\"belief-picker_belief-enhancer-container belief-container flex flex-col items-center m-3 justify-center w-full\"\r\n\t\t\t></div>\r\n\t\t</fxs-vslot>\r\n\t\t<div\r\n\t\t\tclass=\"belief-picker_bottom-container relative mt-4\"\r\n\t\t\tdata-slot=\"footer\"\r\n\t\t>\r\n\t\t\t<fxs-activatable\r\n\t\t\t\tclass=\"belief-picker_back absolute bg-contain bg-no-repeat size-12 self-left left-20 top-6\"\r\n\t\t\t></fxs-activatable>\r\n\t\t\t<fxs-hero-button\r\n\t\t\t\tclass=\"belief-picker_confirm relative mt-3 mb-3 self-center hidden\"\r\n\t\t\t\tcaption=\"LOC_UI_RESOURCE_ALLOCATION_CONFIRM\"\r\n\t\t\t\tdisabled=\"true\"\r\n\t\t\t\tdata-slot=\"footer\"\r\n\t\t\t></fxs-hero-button>\r\n\t\t</div>\r\n\t</fxs-subsystem-frame>\r\n</div>\r\n";
-
-const styles = "fs://game/base-standard/ui/panel-belief-picker/panel-belief-picker.css";
+import content from './panel-belief-picker.html.js';
+import styles from './panel-belief-picker.scss.js';
 
 var BeliefPickerSlotState = /* @__PURE__ */ ((BeliefPickerSlotState2) => {
   BeliefPickerSlotState2[BeliefPickerSlotState2["LOCKED"] = 0] = "LOCKED";
@@ -125,7 +102,7 @@ class PanelBeliefPicker extends Panel {
     NavTray.clear();
     NavTray.addOrUpdateGenericBack();
     const focusElement = MustGetElement(".belief-picker_belief-choices", this.Root);
-    FocusManager.setFocus(focusElement);
+    FocusManager.get().setFocus(focusElement);
   }
   getHolyCityName() {
     if (!this.playerObject.Cities) {
@@ -153,7 +130,7 @@ class PanelBeliefPicker extends Panel {
     this.currentlySelectedBeliefSlot?.setAttribute("selected", "false");
     const focusElement = this.Root.querySelector(".belief-picker_belief-choices");
     if (focusElement) {
-      FocusManager.setFocus(focusElement);
+      FocusManager.get().setFocus(focusElement);
     }
   }
   buildBeliefWindow() {
@@ -314,7 +291,7 @@ class PanelBeliefPicker extends Panel {
       this.playerReligion != this.viewingReligion || !hasOpenSlot && this.beliefsToAdd.length == 0
     );
     const focusElement = MustGetElement(".belief-picker_belief-choices", this.Root);
-    FocusManager.setFocus(focusElement);
+    FocusManager.get().setFocus(focusElement);
   }
   buildBeliefIdentity(viewingReligion) {
     const beliefReligionName = MustGetElement(".belief-picker_belief-info-religion-name", this.Root);
@@ -489,7 +466,7 @@ class PanelBeliefPicker extends Panel {
         menuList.appendChild(this.createBeliefChoice(belief));
       }
     }
-    FocusManager.setFocus(menuList);
+    FocusManager.get().setFocus(menuList);
   }
   createBeliefChoiceNode(belief) {
     let primaryIcon = "";
@@ -551,7 +528,7 @@ class PanelBeliefPicker extends Panel {
         continue;
       }
       numSettlementsInWorld += playerCities.getCities().length;
-      numSettlementsFollowingReligion += playerStats.getNumMyCitiesFollowingSpecificReligion(rType);
+      numSettlementsFollowingReligion += playerStats.getNumMyCitiesFollowingSpecificReligion(rType, false);
     }
     const religionPercent = Math.round(numSettlementsFollowingReligion / numSettlementsInWorld * 100);
     const religionPercentString = Locale.compose("LOC_METAPROGRESSION_PERCENT", religionPercent.toString());
@@ -583,8 +560,8 @@ class PanelBeliefPicker extends Panel {
         iconClass: "size-10 mr-2"
       });
     }
-    tabsContainer.setAttribute("tab-items", JSON.stringify(tabItems));
     tabsContainer.addEventListener("tab-selected", this.onReligionTabSelectedListener);
+    tabsContainer.setAttribute("tab-items", JSON.stringify(tabItems));
   }
   getNumFounderSlots(viewingReligion) {
     if (this.mustCreateReligion) {
@@ -621,7 +598,7 @@ class PanelBeliefPicker extends Panel {
     this.buildBeliefWindow();
     const focusElement = this.Root.querySelector(".belief-picker_belief-choices");
     if (focusElement) {
-      FocusManager.setFocus(focusElement);
+      FocusManager.get().setFocus(focusElement);
     }
   }
   constructAllPlayerReligionInfo() {

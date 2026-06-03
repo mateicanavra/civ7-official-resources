@@ -1,30 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
 <GameEffects xmlns="GameEffects">
 	<!-- ==================================================	-->
-	<!--	ANTIQUITY							-->
+	<!--	TRADITIONS							-->
 	<!-- ==================================================	-->
-	<!-- Assyria -->
-	<Modifier id="DURANI_MOD_SCIENCE_FORTIFICATION" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD">
-		<Argument name="Tag">FORTIFICATION</Argument>
-		<Argument name="YieldType">YIELD_SCIENCE</Argument>
-		<Argument name="Amount">1</Argument>
-		<Argument name="Tooltip">LOC_TRADITION_DURANI_NAME</Argument>
-		<Argument name="Description">LOC_TRADITION_DURANI_DESCRIPTION</Argument>
+	<!-- Antiquity -->
+	<Modifier id="DURANI_MOD_TECH_MASTERY_CULTURE" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_ADJUST_YIELD_PER_UNLOCKED_PROGRESSION_TREE_NODE">
+		<Argument name="SystemType">SYSTEM_TECH</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_DURANI_TOOLTIP</Argument>
 	</Modifier>
 	<Modifier id="MIHISTU_MOD_GREATWORK_PRODUCTION" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_PRODUCTION">
 		<Argument name="Tag">GREATWORK</Argument>
 		<Argument name="Percent">25</Argument>
-		<Argument name="Apply">Rate</Argument>
-		<Argument name="Tooltip">LOC_TRADITION_MIHISTU_NAME</Argument>
-		<String context="Description">LOC_TRADITION_MIHISTU_DESCRIPTION</String>
+		<Argument name="Tooltip">LOC_TRADITION_MIHISTU_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="GIRRU_MOD_CAVALRY_ABILITY" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_ABILITY">
+		<Argument name="AbilityType">ABILITY_GIRRU</Argument>
+	</Modifier>
+	<Modifier id="GIRRU_MOD_COMMAND_RADIUS" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_ABILITY">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_IN_COMMAND_RADIUS"/>
+		</SubjectRequirements>
+		<Argument name="AbilityType">ABILITY_GIRRU_COMBAT</Argument>
+	</Modifier>
+	<Modifier id="GIRRU_MOD_COMBAT" collection="COLLECTION_UNIT_COMBAT" effect="EFFECT_ADJUST_UNIT_STRENGTH_MODIFIER">
+		<Argument name="Amount">5</Argument>
+		<String context="Preview">LOC_TRADITION_GIRRU_COMBAT_PREVIEW</String>
 	</Modifier>
 	<Modifier id="GIRRU_MOD_CONQUERED_FOOD_PRODUCTION" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
 		<SubjectRequirements>
-			<Requirement inverse="true" type="REQUIREMENT_CITY_IS_ORIGINAL_OWNER"/>
+			<Requirement type="REQUIREMENT_CITY_CONQUERED_ANY_AGE"/>
 		</SubjectRequirements>
 		<Argument name="Amount">3</Argument>
-		<Argument name="YieldType">YIELD_FOOD, YIELD_PRODUCTION</Argument>
-		<Argument name="Tooltip">LOC_TRADITION_GIRRU_NAME</Argument>
-		<String context="Description">LOC_TRADITION_GIRRU_DESCRIPTION</String>
+		<Argument name="YieldType">YIELD_FOOD, YIELD_PRODUCTION, YIELD_SCIENCE</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_GIRRU_TOOLTIP</Argument>
+	</Modifier>
+	<!-- Exploration -->
+	<Modifier id="MIHISTU_II_MOD_GREATWORK_PRODUCTION" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_PRODUCTION">
+		<Argument name="Tag">GREATWORK</Argument>
+		<Argument name="Percent">25</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_MIHISTU_II_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="MIHISTU_II_MOD_GREATWORK_SCIENCE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_GREAT_WORK">
+		<Argument name="YieldType">YIELD_SCIENCE</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_MIHISTU_II_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="GIRRU_II_MOD_CONQUERED_FOOD_PRODUCTION" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_CONQUERED_ANY_AGE"/>
+		</SubjectRequirements>
+		<Argument name="Amount">5</Argument>
+		<Argument name="YieldType">YIELD_FOOD, YIELD_PRODUCTION, YIELD_SCIENCE</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_GIRRU_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="TRADITION_ASSYRIA_SYNCRETISM_EXPLORATION_MOD_COMBAT_VS_DISTRICT" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ATTACH_MODIFIERS">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+				<Argument name="Tag">UNIT_CLASS_CAVALRY, UNIT_CLASS_INFANTRY</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="ModifierId">ATTACH_TRADITION_ASSYRIA_SYNCRETISM_EXPLORATION_MOD_COMBAT_VS_DISTRICT</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_TRADITION_ASSYRIA_SYNCRETISM_EXPLORATION_MOD_COMBAT_VS_DISTRICT" collection="COLLECTION_UNIT_COMBAT" effect="EFFECT_ADJUST_UNIT_STRENGTH_MODIFIER">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_OPPONENT_IS_DISTRICT"/>
+		</SubjectRequirements>
+		<Argument name="Amount">5</Argument>
+		<String context="Preview">LOC_TRADITION_ASSYRIA_SYNCRETISM_EXPLORATION_COMBAT_PREVIEW</String>
+	</Modifier>
+	<!-- Modern -->
+	<Modifier id="DURANI_II_MOD_TECH_MASTERY_CULTURE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_UNLOCKED_PROGRESSION_TREE_NODE">
+		<SubjectRequirements type="REQUIREMENTSET_TEST_ANY">
+			<Requirement type="REQUIREMENT_CITY_IS_CAPITAL"/>
+			<Requirement type="REQUIREMENT_CITY_IS_ORIGINAL_OWNER" inverse="true"/>
+		</SubjectRequirements>
+		<Argument name="SystemType">SYSTEM_TECH</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_DURANI_II_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="TRADITION_ASSYRIA_SYNCRETISM_MODERN_MOD_SCIENCE_FORTIFICATION" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD">
+		<Argument name="Tag">FORTIFICATION</Argument>
+		<Argument name="YieldType">YIELD_SCIENCE</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_ASSYRIA_SYNCRETISM_TOOLTIP</Argument>
+	</Modifier>
+	<!-- ==================================================	-->
+	<!--	Unlock Syncretism Traditions				-->
+	<!-- ==================================================	-->
+	<Modifier id="MOD_UNLOCK_ASSYRIA_SYNCRETISM_EXPLORATION" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
+		<Argument name="Tradition">TRADITION_ASSYRIA_SYNCRETISM_EXPLORATION</Argument>
+	</Modifier>
+	<Modifier id="MOD_UNLOCK_ASSYRIA_SYNCRETISM_MODERN" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
+		<Argument name="Tradition">TRADITION_ASSYRIA_SYNCRETISM_MODERN</Argument>
 	</Modifier>
 </GameEffects>

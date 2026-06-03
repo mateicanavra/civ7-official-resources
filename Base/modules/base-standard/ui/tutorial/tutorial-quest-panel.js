@@ -1,36 +1,19 @@
-import { A as Audio } from '../../../core/ui/audio-base/audio-support.chunk.js';
-import { D as DialogBoxAction, a as DialogBoxManager } from '../../../core/ui/dialog-box/manager-dialog-box.chunk.js';
-import ActionHandler, { ActiveDeviceTypeChangedEventName } from '../../../core/ui/input/action-handler.js';
-import FocusManager from '../../../core/ui/input/focus-manager.js';
-import { F as Focus } from '../../../core/ui/input/focus-support.chunk.js';
-import { N as NavTray } from '../../../core/ui/navigation-tray/model-navigation-tray.chunk.js';
-import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.chunk.js';
-import QuestTracker from '../quest-tracker/quest-tracker.js';
-import { a as LowerQuestPanelEvent } from './tutorial-events.chunk.js';
+import { Audio } from '../../../core/ui/audio-base/audio-support.js';
+import { DialogBoxManager } from '../../../core/ui/dialog-box/manager-dialog-box.js';
+import ActionHandler from '../../../core/ui/input/action-handler.js';
+import { Focus } from '../../../core/ui/input/focus-support.js';
+import { ActiveDeviceTypeChangedEventName } from '../../../core/ui/input/input-events.js';
+import NavTray from '../../../core/ui/navigation-tray/model-navigation-tray.js';
+import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
+import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
+import { getQuestTracker } from '../quest-tracker/quest-tracker.js';
+import { LowerQuestPanelEvent } from './tutorial-events.js';
 import { TutorialAnchorPosition } from './tutorial-item.js';
 import TutorialManager from './tutorial-manager.js';
-import { g as getTutorialPrompts } from './tutorial-support.chunk.js';
-import '../../../core/ui/context-manager/display-queue-manager.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/input/cursor.js';
-import '../../../core/ui/views/view-manager.chunk.js';
-import '../../../core/ui/panel-support.chunk.js';
-import '../../../core/ui/input/input-support.chunk.js';
-import '../../../core/ui/utilities/utilities-update-gate.chunk.js';
-import '../../../core/ui/components/fxs-slot.chunk.js';
-import '../../../core/ui/spatial/spatial-manager.js';
-import '../../../core/ui/context-manager/context-manager.js';
-import '../../../core/ui/utilities/utilities-image.chunk.js';
-import '../../../core/ui/utilities/utilities-component-id.chunk.js';
-import '../quest-tracker/quest-item.js';
-import '../../../core/ui/input/input-filter.chunk.js';
-import '../../../core/ui/components/fxs-nav-help.chunk.js';
-import '../../../core/ui/utilities/utilities-layout.chunk.js';
-import '../../../core/ui/utilities/utilities-core-databinding.chunk.js';
-
-const content = "<fxs-modal-frame\r\n\tclass=\"tutorial-quest-panel-content absolute self-center w-full\"\r\n\tdata-modal-style=\"special\"\r\n>\r\n\t<div class=\"tutorial-quest-panel-title-container relative h-auto flex flex-col items-center\">\r\n\t\t<div\r\n\t\t\tclass=\"tutorial-quest-panel-title font-title-2xl text-secondary uppercase relative pointer-events-none justify-center text-center\"\r\n\t\t></div>\r\n\t\t<div\r\n\t\t\tclass=\"tutorial-quest-panel-divider h-4 filigree-shell-small absolute self-center bg-contain bg-no-repeat bg-center\"\r\n\t\t></div>\r\n\t</div>\r\n\t<div class=\"tutorial-quest-panel-body relative pointer-events-none flex justify-around flex-col\">\r\n\t\t<div class=\"tutorial-quest-panel-body-text font-body-base text-primary-1\"></div>\r\n\t</div>\r\n\t<fxs-hslot class=\"tutorial-quest-panel-advisors flex max-w-full relative justify-center\"></fxs-hslot>\r\n\t<div class=\"tutorial-quest-panel-overlay absolute inset-0 pointer-events-none\"></div>\r\n</fxs-modal-frame>\r\n";
-
-const styles = "fs://game/base-standard/ui/tutorial/tutorial-quest-panel.css";
+import { getTutorialPrompts } from './tutorial-support.js';
+import content from './tutorial-quest-panel.html.js';
+import styles from './tutorial-quest-panel.scss.js';
+import { DialogBoxAction } from '../../../core/ui/dialog-box/model-dialog-box.js';
 
 class TutorialQuestPanel extends Component {
   data;
@@ -286,7 +269,8 @@ class TutorialQuestPanel extends Component {
       }
       const advisorButton = document.createElement("fxs-button");
       advisorButton.classList.add("quest-advisor-button", "mx-3", "mb-2", "leading-none", "h-14", "text-center");
-      if (optionDef.nextID && QuestTracker.isQuestVictoryInProgress(optionDef.questID)) {
+      const questTracker = getQuestTracker();
+      if (optionDef.nextID && questTracker.isQuestVictoryInProgress(optionDef.questID)) {
         advisorButton.setAttribute("disabled", "true");
         advisorButton.setAttribute("caption", "LOC_TUTORIAL_QUEST_ALREADY_FOLLOWING");
       } else {
@@ -305,7 +289,7 @@ class TutorialQuestPanel extends Component {
       advisorsContainer.appendChild(advisorElement);
     }
     const advisorButtons = MustGetElement(".tutorial-quest-panel-advisors", this.Root);
-    FocusManager.setFocus(advisorButtons);
+    FocusManager.get().setFocus(advisorButtons);
   }
   /// Helper
   setHTMLInDivClass(innerHTML, cssClassName) {

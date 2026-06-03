@@ -1,10 +1,6 @@
-import { b as InputEngineEventName } from '../../../core/ui/input/input-support.chunk.js';
+import { InputEngineEventName } from '../../../core/ui/input/input-support.js';
 import { InterfaceMode } from '../../../core/ui/interface-modes/interface-modes.js';
-import { U as UISystem, V as ViewManager } from '../../../core/ui/views/view-manager.chunk.js';
-import '../../../core/ui/input/focus-manager.js';
-import '../../../core/ui/audio-base/audio-support.chunk.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/panel-support.chunk.js';
+import ViewManager, { UISystem } from '../../../core/ui/views/view-manager.js';
 
 const FocusCityViewEventName = "focus-city-view";
 class FocusCityViewEvent extends CustomEvent {

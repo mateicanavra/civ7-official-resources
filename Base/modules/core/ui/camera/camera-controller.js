@@ -1,13 +1,7 @@
-import { u as utils } from '../graph-layout/utils.chunk.js';
+import { utils } from '../graph-layout/utils.js';
 import ActionHandler from '../input/action-handler.js';
-import { b as InputEngineEventName } from '../input/input-support.chunk.js';
-import { V as ViewManager } from '../views/view-manager.chunk.js';
-import '../framework.chunk.js';
-import '../input/cursor.js';
-import '../input/focus-manager.js';
-import '../audio-base/audio-support.chunk.js';
-import '../panel-support.chunk.js';
-import '../utilities/utilities-update-gate.chunk.js';
+import { InputEngineEventName } from '../input/input-support.js';
+import ViewManager from '../views/view-manager.js';
 
 var DragType = /* @__PURE__ */ ((DragType2) => {
   DragType2[DragType2["None"] = 0] = "None";

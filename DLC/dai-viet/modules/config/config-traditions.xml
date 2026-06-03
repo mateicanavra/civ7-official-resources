@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- NOTE: These are copies - the real implementation should use a shared database -->
+<Database>
+	<!-- ========================== -->
+	<!-- Dai Viet -->
+	<!-- ========================== -->
+	<Traditions>
+		<Row TraditionType="TRADITION_CAM_BINH_I" Name="LOC_TRADITION_CAM_BINH_I_NAME" Description="LOC_TRADITION_CAM_BINH_I_DESCRIPTION" TraitType="TRAIT_DAI_VIET" AgeType="AGE_ANTIQUITY" CultureSlotType="TRADITION_CULTURE_SLOT"/>
+		<Row TraditionType="TRADITION_CAM_BINH_II" Name="LOC_TRADITION_CAM_BINH_II_NAME" Description="LOC_TRADITION_CAM_BINH_II_DESCRIPTION" TraitType="TRAIT_DAI_VIET" AgeType="AGE_EXPLORATION" CultureSlotType="TRADITION_CULTURE_SLOT" ObsoletesTraditionType="TRADITION_CAM_BINH_I"/>
+		<Row TraditionType="TRADITION_CON_KENH" Name="LOC_TRADITION_CON_KENH_NAME" Description="LOC_TRADITION_CON_KENH_DESCRIPTION" TraitType="TRAIT_DAI_VIET" AgeType="AGE_EXPLORATION" CultureSlotType="TRADITION_CULTURE_SLOT"/>
+		<Row TraditionType="TRADITION_RUONG_LANG_XA_I" Name="LOC_TRADITION_RUONG_LANG_XA_I_NAME" Description="LOC_TRADITION_RUONG_LANG_XA_I_DESCRIPTION" TraitType="TRAIT_DAI_VIET" AgeType="AGE_EXPLORATION" CultureSlotType="TRADITION_CULTURE_SLOT"/>
+		<Row TraditionType="TRADITION_RUONG_LANG_XA_II" Name="LOC_TRADITION_RUONG_LANG_XA_II_NAME" Description="LOC_TRADITION_RUONG_LANG_XA_II_DESCRIPTION" TraitType="TRAIT_DAI_VIET" AgeType="AGE_MODERN" CultureSlotType="TRADITION_CULTURE_SLOT" ObsoletesTraditionType="TRADITION_RUONG_LANG_XA_I"/>
+		<Row TraditionType="TRADITION_DAI_VIET_SYNCRETISM_ANTIQUITY" Name="LOC_TRADITION_DAI_VIET_SYNCRETISM_ANTIQUITY_NAME" Description="LOC_TRADITION_DAI_VIET_SYNCRETISM_ANTIQUITY_DESCRIPTION" AgeType="AGE_ANTIQUITY" CultureSlotType="TRADITION_CULTURE_SLOT" TraitType="TRAIT_DAI_VIET" IgnoreInitializeUnlock="true" AllowInitializeAdvancedStart="true"/>
+		<Row TraditionType="TRADITION_DAI_VIET_SYNCRETISM_MODERN" Name="LOC_TRADITION_DAI_VIET_SYNCRETISM_MODERN_NAME" Description="LOC_TRADITION_DAI_VIET_SYNCRETISM_MODERN_DESCRIPTION" AgeType="AGE_MODERN" CultureSlotType="TRADITION_CULTURE_SLOT" TraitType="TRAIT_DAI_VIET" IgnoreInitializeUnlock="true" ObsoletesTraditionType="TRADITION_DAI_VIET_SYNCRETISM_ANTIQUITY" AllowInitializeAdvancedStart="true"/>
+	</Traditions>
+	<ProgressionTreeNodes>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_DAI_VIET_CAM_QUAN" ProgressionTree="TREE_CIVICS_EX_DAI_VIET" Cost="800" Name="LOC_CIVIC_CAM_QUAN_NAME" IconString="cult_dai_viet"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_DAI_VIET_CHU_NOM" ProgressionTree="TREE_CIVICS_EX_DAI_VIET" Cost="800" Name="LOC_CIVIC_CHU_NOM_NAME" IconString="cult_dai_viet"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_DAI_VIET_TU_DAN" ProgressionTree="TREE_CIVICS_EX_DAI_VIET" Cost="1200" Name="LOC_CIVIC_TU_DAN_NAME" IconString="cult_dai_viet"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_DAI_VIET_ORIGINS" ProgressionTree="TREE_CIVICS_AQ_TEST_OF_TIME" Cost="150" Name="LOC_NODE_CIVIC_AQ_DAI_VIET_ORIGINS_NAME" IconString="cult_dai_viet" CanSteal="false"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_DAI_VIET_MODERNIZATION" ProgressionTree="TREE_CIVICS_MO_TEST_OF_TIME" Cost="2000" Name="LOC_NODE_CIVIC_MO_DAI_VIET_MODERNIZATION_NAME" IconString="cult_dai_viet" CanSteal="false"/>
+	</ProgressionTreeNodes>
+	<ProgressionTreeNodeUnlocks>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_DAI_VIET_CAM_QUAN" TargetKind="KIND_TRADITION" TargetType="TRADITION_CAM_BINH_II" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_DAI_VIET_CHU_NOM" TargetKind="KIND_TRADITION" TargetType="TRADITION_CON_KENH" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_DAI_VIET_TU_DAN" TargetKind="KIND_TRADITION" TargetType="TRADITION_RUONG_LANG_XA_I" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_DAI_VIET_ORIGINS" TargetKind="KIND_TRADITION" TargetType="TRADITION_CAM_BINH_I"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_DAI_VIET_MODERNIZATION" TargetKind="KIND_TRADITION" TargetType="TRADITION_RUONG_LANG_XA_II"/>
+	</ProgressionTreeNodeUnlocks>
+</Database>

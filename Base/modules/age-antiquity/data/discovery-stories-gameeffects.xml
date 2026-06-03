@@ -882,9 +882,6 @@
         <Argument name="YieldType">YIELD_HAPPINESS</Argument>
         <Argument name="MultiplierType">REWARD_TYPE_MEDIUM</Argument>
     </Modifier>
-    <Modifier id="DISCOVERY_22004D_NARRATIVE_MODIFIER2" collection="COLLECTION_OWNER_UNIT_NEAREST_STORY" effect="EFFECT_UNIT_ADJUST_DAMAGE" run-once="true" permanent="true">
-        <Argument name="Amount">-10000</Argument>
-    </Modifier>
     <Modifier id="DISCOVERY_22005B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_MODIFY_PLAYER_YIELD_FOR_X_TURNS" run-once="true" permanent="true">
         <Argument name="YieldType">YIELD_HAPPINESS</Argument>
         <Argument name="ReductionPercent">100</Argument>
@@ -1123,4 +1120,71 @@
             <Argument name="AfterTurn">2</Argument>
         </Requirement>
     </RequirementSet>
+    <Modifier id="DISCOVERY_21136B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_DISCOVERY" run-once="true" permanent="true">
+        <Argument name="YieldType">YIELD_HAPPINESS</Argument>
+        <Argument name="MultiplierType">REWARD_TYPE_MEDIUM</Argument>
+    </Modifier>
+    <Modifier id="DISCOVERY_21136C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_DISCOVERY" run-once="true" permanent="true">
+        <Argument name="YieldType">YIELD_CULTURE</Argument>
+        <Argument name="MultiplierType">REWARD_TYPE_MEDIUM</Argument>
+    </Modifier>
+    <Modifier id="DISCOVERY_21137B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER_CITY_NEAREST_STORY" effect="EFFECT_CITY_GRANT_YIELD_DISCOVERY" run-once="true" permanent="true">
+        <Argument name="YieldType">YIELD_PRODUCTION</Argument>
+        <Argument name="MultiplierType">REWARD_TYPE_MEDIUM</Argument>
+    </Modifier>
+    <Modifier id="DISCOVERY_21137C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_DISCOVERY" run-once="true" permanent="true">
+        <Argument name="YieldType">YIELD_SCIENCE</Argument>
+        <Argument name="MultiplierType">REWARD_TYPE_MEDIUM</Argument>
+    </Modifier>
+    <Modifier id="DISCOVERY_21138B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER_CITY_NEAREST_STORY" effect="EFFECT_CITY_GRANT_YIELD_DISCOVERY" run-once="true" permanent="true">
+        <Argument name="YieldType">YIELD_FOOD</Argument>
+        <Argument name="MultiplierType">REWARD_TYPE_MEDIUM</Argument>
+    </Modifier>
+    <Modifier id="DISCOVERY_21138C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_DISCOVERY" run-once="true" permanent="true">
+        <Argument name="YieldType">YIELD_HAPPINESS</Argument>
+        <Argument name="MultiplierType">REWARD_TYPE_MEDIUM</Argument>
+    </Modifier>
+    <Modifier id="DISCOVERY_21139B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_DISCOVERY" run-once="true" permanent="true">
+        <Argument name="YieldType">YIELD_CULTURE</Argument>
+        <Argument name="MultiplierType">REWARD_TYPE_MEDIUM</Argument>
+    </Modifier>
+    <Modifier id="DISCOVERY_21139C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_DISCOVERY" run-once="true" permanent="true">
+        <Argument name="YieldType">YIELD_HAPPINESS</Argument>
+        <Argument name="MultiplierType">REWARD_TYPE_MEDIUM</Argument>
+    </Modifier>
+    <Modifier id="DISCOVERY_21140B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER_CITY_NEAREST_STORY" effect="EFFECT_CITY_GRANT_UNIT" run-once="true" permanent="true">
+        <Argument name="Amount">1</Argument>
+        <Argument name="UnitType">UNIT_MIGRANT</Argument>
+        <Argument name="AllowUniqueOverride">FALSE</Argument>
+    </Modifier>
+    <Modifier id="DISCOVERY_21140C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER_CITY_NEAREST_STORY" effect="EFFECT_CITY_GRANT_UNIT" run-once="true" permanent="true">
+        <Argument name="Amount">1</Argument>
+        <Argument name="UnitTag">UNIT_CLASS_INFANTRY</Argument>
+        <Argument name="AllowUniqueOverride">FALSE</Argument>
+    </Modifier>
+    <Modifier id="DISCOVERY_21141B_NARRATIVE_MODIFIER" collection="COLLECTION_NARRATIVE_STORY" effect="EFFECT_PLAYER_GRANT_UNIT_AT_PLOT" run-once="true" permanent="true">
+        <Argument name="Amount">1</Argument>
+        <Argument name="UnitType">UNIT_GALLEY</Argument>
+        <Argument name="AllowUniqueOverride">FALSE</Argument>
+    </Modifier>
+    <Modifier id="DISCOVERY_21141C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER_CITY_NEAREST_STORY" effect="EFFECT_CITY_GRANT_YIELD_DISCOVERY" run-once="true" permanent="true">
+        <Argument name="YieldType">YIELD_PRODUCTION</Argument>
+        <Argument name="MultiplierType">REWARD_TYPE_MEDIUM</Argument>
+    </Modifier>
+    <Modifier id="DISCOVERY_21142B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_DISCOVERY" run-once="true" permanent="true">
+        <Argument name="YieldType">YIELD_HAPPINESS</Argument>
+        <Argument name="MultiplierType">REWARD_TYPE_MEDIUM</Argument>
+    </Modifier>
+    <Modifier id="DISCOVERY_21142C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_DISCOVERY" run-once="true" permanent="true">
+        <Argument name="YieldType">YIELD_CULTURE</Argument>
+        <Argument name="MultiplierType">REWARD_TYPE_MEDIUM</Argument>
+    </Modifier>
+    <Modifier id="DISCOVERY_21143B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER_CITY_NEAREST_STORY" effect="EFFECT_CITY_GRANT_YIELD_DISCOVERY" run-once="true" permanent="true">
+        <Argument name="YieldType">YIELD_FOOD</Argument>
+        <Argument name="MultiplierType">REWARD_TYPE_MEDIUM</Argument>
+    </Modifier>
+    <Modifier id="DISCOVERY_21143C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_DISCOVERY" run-once="true" permanent="true">
+        <Argument name="YieldType">YIELD_GOLD</Argument>
+        <Argument name="MultiplierType">REWARD_TYPE_MEDIUM</Argument>
+    </Modifier>
 </GameEffects>

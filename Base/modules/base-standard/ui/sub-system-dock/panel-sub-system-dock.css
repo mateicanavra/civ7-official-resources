@@ -27,7 +27,6 @@
 }
 
 .sub-system-dock--golden-age-timer-bg {
-  bottom: -3.7777777778rem;
   background-color: rgba(40, 40, 40, 0.5);
 }
 
@@ -350,8 +349,16 @@
   background-image: url("blp:sub_unlock");
 }
 
+.ssb__button-icon.advisors {
+  background-image: url("blp:sub_advisors");
+}
+
 .ssb__button-icon.advanced-start {
   background-image: url("blp:sub_advstart");
+}
+
+.ssb__button-icon.legacies {
+  background-image: url("blp:sub_legacy");
 }
 
 .ssb__button-icon {
@@ -383,6 +390,28 @@
   text-align: center;
 }
 
-.ssb-button__turn-counter--hidden {
+.ssb-button__turn-counter__policies {
+  top: 2rem;
+  position: relative;
+  border-image-source: url("blp:hud_sub_circle_timer_banner");
+  border-image-slice: 5 fill;
+  border-image-width: 0.2777777778rem;
+  height: 1.7777777778rem;
+  width: 1.5555555556rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20%;
+}
+
+.ssb-button__turn-counter_policies-celebration {
+  top: 2.3888888889rem;
+  height: 2.3333333333rem;
+}
+
+.ssb-button__turn-counter-wide {
+  width: 1.7777777778rem;
+}
+
+.ssb-button__turn-counter-hidden {
   display: none;
 }

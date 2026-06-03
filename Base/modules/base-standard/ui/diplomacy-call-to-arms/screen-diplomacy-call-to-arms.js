@@ -1,36 +1,11 @@
-import FocusManager from '../../../core/ui/input/focus-manager.js';
 import { InterfaceMode } from '../../../core/ui/interface-modes/interface-modes.js';
-import { A as AnchorType } from '../../../core/ui/panel-support.chunk.js';
-import { Icon } from '../../../core/ui/utilities/utilities-image.chunk.js';
-import DiplomacyManager, { DiplomacyInputPanel, L as LeaderModelManager } from '../diplomacy/diplomacy-manager.js';
-import '../../../core/ui/audio-base/audio-support.chunk.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/views/view-manager.chunk.js';
-import '../../../core/ui/utilities/utilities-component-id.chunk.js';
-import '../../../core/ui/context-manager/context-manager.js';
-import '../../../core/ui/context-manager/display-queue-manager.js';
-import '../../../core/ui/dialog-box/manager-dialog-box.chunk.js';
-import '../../../core/ui/input/cursor.js';
-import '../diplomacy/diplomacy-events.js';
-import '../../../core/ui/utilities/utilities-layout.chunk.js';
-import '../world-input/world-input.js';
-import '../../../core/ui/input/action-handler.js';
-import '../../../core/ui/input/input-support.chunk.js';
-import '../../../core/ui/utilities/utilities-update-gate.chunk.js';
-import '../../../core/ui/input/plot-cursor.js';
-import '../../../core/ui/utilities/utilities-network.js';
-import '../../../core/ui/shell/mp-legal/mp-legal.js';
-import '../../../core/ui/events/shell-events.chunk.js';
-import '../../../core/ui/navigation-tray/model-navigation-tray.chunk.js';
-import '../../../core/ui/utilities/utilities-dom.chunk.js';
-import '../../../core/ui/utilities/utilities-liveops.js';
-import '../../../core/ui/utilities/utilities-network-constants.chunk.js';
-import '../interface-modes/support-unit-map-decoration.chunk.js';
-import '../utilities/utilities-overlay.chunk.js';
-
-const content = "<fxs-vslot>\r\n\t<div class=\"call-to-arms__title-text\"></div>\r\n\t<div class=\"call-to-arms__body-text\"></div>\r\n\t<div class=\"call-to-arms__portrait-container\">\r\n\t\t<div class=\"call-to-arms__portrait\">\r\n\t\t\t<div class=\"call-to-arms__portrait-shadow\"></div>\r\n\t\t\t<div class=\"call-to-arms__portrait-bg\"></div>\r\n\t\t\t<div class=\"call-to-arms__portrait-bg--inner\"></div>\r\n\t\t\t<div class=\"call-to-arms__portrait-icon target-player-icon\"></div>\r\n\t\t\t<div class=\"call-to-arms__relationship-icon target-relationship-icon\"></div>\r\n\t\t</div>\r\n\t\t<div class=\"call-to-arms__war-icon\"></div>\r\n\t\t<div class=\"call-to-arms__portrait\">\r\n\t\t\t<div class=\"call-to-arms__portrait-shadow\"></div>\r\n\t\t\t<div class=\"call-to-arms__portrait-bg\"></div>\r\n\t\t\t<div class=\"call-to-arms__portrait-bg--inner\"></div>\r\n\t\t\t<div class=\"call-to-arms__portrait-icon initiator-player-icon\"></div>\r\n\t\t\t<div class=\"call-to-arms__relationship-icon initiator-relationship-icon\"></div>\r\n\t\t</div>\r\n\t</div>\r\n\t<fxs-hslot\r\n\t\tclass=\"call-to-arms__pick-side-button-container\"\r\n\t\tdata-navrule-down=\"stop\"\r\n\t></fxs-hslot>\r\n\t<fxs-hslot\r\n\t\tclass=\"call-to-arms__button-container\"\r\n\t\tdata-navrule-right=\"stop\"\r\n\t></fxs-hslot>\r\n</fxs-vslot>\r\n";
-
-const styles = "fs://game/base-standard/ui/diplomacy-call-to-arms/screen-diplomacy-call-to-arms.css";
+import { AnchorType } from '../../../core/ui/panel-support.js';
+import { Icon } from '../../../core/ui/utilities/utilities-image.js';
+import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
+import DiplomacyManager, { DiplomacyInputPanel } from '../diplomacy/diplomacy-manager.js';
+import LeaderModelManager from '../diplomacy/leader-model-manager.js';
+import content from './screen-diplomacy-call-to-arms.html.js';
+import styles from './screen-diplomacy-call-to-arms.scss.js';
 
 class DiplomacyCallToArmsScreen extends DiplomacyInputPanel {
   declineButton = null;
@@ -131,7 +106,7 @@ class DiplomacyCallToArmsScreen extends DiplomacyInputPanel {
       });
       pickSidesButtonContainer.appendChild(sideButtonTwo);
       pickSidesButtonContainer.appendChild(sideButtonOne);
-      FocusManager.setFocus(pickSidesButtonContainer);
+      FocusManager.get().setFocus(pickSidesButtonContainer);
       targetRelationshipIcon.style.backgroundImage = `url(${UI.getIcon("PLAYER_RELATIONSHIP_ALLIANCE", "PLAYER_RELATIONSHIP")})`;
       initiatorRelationshipIcon.style.backgroundImage = `url(${UI.getIcon("PLAYER_RELATIONSHIP_ALLIANCE", "PLAYER_RELATIONSHIP")})`;
     } else {
@@ -168,7 +143,7 @@ class DiplomacyCallToArmsScreen extends DiplomacyInputPanel {
         targetRelationshipIcon.style.backgroundImage = `url(${UI.getIcon(DiplomacyManager.getRelationshipTypeString(relationshipWithTarget), "PLAYER_RELATIONSHIP")})`;
       }
       buttonContainer?.appendChild(acceptButton);
-      FocusManager.setFocus(acceptButton);
+      FocusManager.get().setFocus(acceptButton);
     }
     const hideButton = document.createElement("fxs-button");
     hideButton.setAttribute("caption", Locale.compose("LOC_DIPLOMACY_ALLY_WAR_HIDE"));

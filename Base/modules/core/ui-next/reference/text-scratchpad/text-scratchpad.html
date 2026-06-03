@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<title>Text Scratchpad</title>
+	<script src="fs://game/core/ui/cohtml.js"></script>
+	<script src="fs://game/core/ui/themes/default/global-scaling.js"></script>
+	<script src="fs://game/core/ui/component-support.js"></script>
+	<script src="fs://game/core/ui/components/fxs-header.js" type="module"></script>
+	<style>
+		.colorize-icons fxs-font-icon {
+			background-color: pink;
+		}
+	</style>
+  <script type="module" crossorigin src="fs://game/core/ui-next/reference/text-scratchpad/text-scratchpad.html2.js"></script>
+  <script type="module" crossorigin src="fs://game/core/vendor/solid-js/dist/solid.js"></script>
+  <script type="module" crossorigin src="fs://game/core/vendor/solid-js/web/dist/web.js"></script>
+  <script type="module" crossorigin src="fs://game/core/ui-next/utilities/image-cache.js"></script>
+  <script type="module" crossorigin src="fs://game/core/ui-next/utilities/style-cache.js"></script>
+  <script type="module" crossorigin src="fs://game/core/ui-next/utilities/component-utilities.js"></script>
+  <script type="module" crossorigin src="fs://game/core/ui-next/services/component-registry.js"></script>
+  <script type="module" crossorigin src="fs://game/core/ui/input/input-support.js"></script>
+  <script type="module" crossorigin src="fs://game/core/ui-next/components/trigger.js"></script>
+  <script type="module" crossorigin src="fs://game/core/ui-next/utilities/async-load.js"></script>
+  <script type="module" crossorigin src="fs://game/core/ui-next/services/audio-support.js"></script>
+  <script type="module" crossorigin src="fs://game/core/ui/audio-base/audio-base.json.js"></script>
+  <script type="module" crossorigin src="fs://game/core/ui-next/services/audio.js"></script>
+  <script type="module" crossorigin src="fs://game/core/ui-next/utilities/game-core-utilities.js"></script>
+  <script type="module" crossorigin src="fs://game/core/ui-next/services/input.js"></script>
+  <script type="module" crossorigin src="fs://game/core/ui-next/utilities/solid-utilities.js"></script>
+  <script type="module" crossorigin src="fs://game/core/ui-next/services/focus.js"></script>
+  <script type="module" crossorigin src="fs://game/core/ui/framework.js"></script>
+  <script type="module" crossorigin src="fs://game/core/ui/utilities/animations.js"></script>
+  <script type="module" crossorigin src="fs://game/core/ui/input/navigation-support.js"></script>
+  <script type="module" crossorigin src="fs://game/core/ui/panel-support.js"></script>
+  <script type="module" crossorigin src="fs://game/core/ui/audio-base/audio-support.js"></script>
+  <script type="module" crossorigin src="fs://game/core/ui-next/services/model-registry.js"></script>
+  <script type="module" crossorigin src="fs://game/core/ui-next/services/focus-manager.js"></script>
+  <script type="module" crossorigin src="fs://game/core/ui/views/view-manager.js"></script>
+  <script type="module" crossorigin src="fs://game/core/ui/input/cursor.scss2.js"></script>
+  <script type="module" crossorigin src="fs://game/core/ui/input/cursor.scss.js"></script>
+  <script type="module" crossorigin src="fs://game/core/ui/input/cursor.js"></script>
+  <script type="module" crossorigin src="fs://game/core/ui/input/debug-input-handler.js"></script>
+  <script type="module" crossorigin src="fs://game/core/ui/input/input-events.js"></script>
+  <script type="module" crossorigin src="fs://game/core/ui/utilities/utilities-update-gate.js"></script>
+  <script type="module" crossorigin src="fs://game/core/ui/input/action-handler.js"></script>
+  <script type="module" crossorigin src="fs://game/core/ui/utilities/utilities-component-id.js"></script>
+  <script type="module" crossorigin src="fs://game/core/ui/utilities/utilities-image.js"></script>
+  <script type="module" crossorigin src="fs://game/core/ui/navigation-tray/model-navigation-tray.js"></script>
+  <script type="module" crossorigin src="fs://game/core/ui-next/services/hotkey.js"></script>
+  <script type="module" crossorigin src="fs://game/core/ui/vfx/vfx-manager.js"></script>
+  <script type="module" crossorigin src="fs://game/core/ui-next/vfx-rules.json.js"></script>
+  <script type="module" crossorigin src="fs://game/core/ui-next/services/ui-vfx-support.js"></script>
+  <script type="module" crossorigin src="fs://game/core/ui-next/components/activatable.js"></script>
+  <script type="module" crossorigin src="fs://game/core/ui-next/components/button.js"></script>
+  <script type="module" crossorigin src="fs://game/core/ui-next/components/header.js"></script>
+  <script type="module" crossorigin src="fs://game/core/ui/utilities/ordered-min-heap.js"></script>
+  <script type="module" crossorigin src="fs://game/core/ui/context-manager/display-queue-manager.js"></script>
+  <script type="module" crossorigin src="fs://game/core/ui/context-manager/display-handler.js"></script>
+  <script type="module" crossorigin src="fs://game/core/ui/dialog-box/model-dialog-box.js"></script>
+  <script type="module" crossorigin src="fs://game/core/ui/dialog-box/manager-dialog-box.js"></script>
+  <script type="module" crossorigin src="fs://game/core/ui/context-manager/context-manager.js"></script>
+  <script type="module" crossorigin src="fs://game/core/vendor/solid-js/store/dist/store.js"></script>
+  <script type="module" crossorigin src="fs://game/core/ui/external/js-spatial-navigation/spatial_navigation.js"></script>
+  <script type="module" crossorigin src="fs://game/core/ui/external/js-spatial-navigation/spatial-wrapper.js"></script>
+  <script type="module" crossorigin src="fs://game/core/ui/spatial/spatial-manager.js"></script>
+  <script type="module" crossorigin src="fs://game/core/ui/input/navigation-handlers.js"></script>
+  <script type="module" crossorigin src="fs://game/core/ui/components/fxs-slot.js"></script>
+  <script type="module" crossorigin src="fs://game/core/ui/input/focus-support.js"></script>
+  <script type="module" crossorigin src="fs://game/core/ui-next/components/fxs-solid-component.js"></script>
+  <script type="module" crossorigin src="fs://game/core/ui/interface-modes/interface-modes.js"></script>
+  <script type="module" crossorigin src="fs://game/core/ui-next/components/tooltip-model.js"></script>
+  <script type="module" crossorigin src="fs://game/core/ui-next/components/panel.js"></script>
+  <script type="module" crossorigin src="fs://game/core/ui-next/services/view-experience.js"></script>
+  <script type="module" crossorigin src="fs://game/core/ui-next/components/radio-button.js"></script>
+  <script type="module" crossorigin src="fs://game/core/ui-next/sandbox/sandbox-box.js"></script>
+  <script type="module" crossorigin src="fs://game/core/ui-next/reference/text-scratchpad/text-scratchpad.js"></script>
+  <link rel="stylesheet" crossorigin href="fs://game/core/ui/themes/default/default.css">
+</head>
+
+<body class="font-body text-base text-accent-2">
+	<div id="root" class="fullscreen inset-4"></div>
+	<div id="tooltips" class="absolute pointer-events-none"></div>
+	<div id="tooltip-root">
+		<div id="tooltip-root-content"></div>
+	</div>
+</body>
+
+</html>

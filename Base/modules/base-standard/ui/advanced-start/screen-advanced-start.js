@@ -1,42 +1,20 @@
-import { A as Audio } from '../../../core/ui/audio-base/audio-support.chunk.js';
-import { d as displayRequestUniqueId, D as DialogBoxAction, a as DialogBoxManager } from '../../../core/ui/dialog-box/manager-dialog-box.chunk.js';
+import { Audio } from '../../../core/ui/audio-base/audio-support.js';
+import { displayRequestUniqueId } from '../../../core/ui/context-manager/display-handler.js';
+import { DialogBoxManager } from '../../../core/ui/dialog-box/manager-dialog-box.js';
 import Cursor from '../../../core/ui/input/cursor.js';
-import FocusManager from '../../../core/ui/input/focus-manager.js';
 import { PlotCursor } from '../../../core/ui/input/plot-cursor.js';
 import { InterfaceMode } from '../../../core/ui/interface-modes/interface-modes.js';
-import { N as NavTray } from '../../../core/ui/navigation-tray/model-navigation-tray.chunk.js';
-import { P as Panel } from '../../../core/ui/panel-support.chunk.js';
-import { D as Databind } from '../../../core/ui/utilities/utilities-core-databinding.chunk.js';
-import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.chunk.js';
+import NavTray from '../../../core/ui/navigation-tray/model-navigation-tray.js';
+import Panel from '../../../core/ui/panel-support.js';
+import Databind from '../../../core/ui/utilities/utilities-core-databinding.js';
+import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
+import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
 import AdvancedStart from './model-advanced-start.js';
 import TutorialManager from '../tutorial/tutorial-manager.js';
 import WorldInput from '../world-input/world-input.js';
-import '../../../core/ui/context-manager/display-queue-manager.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/views/view-manager.chunk.js';
-import '../../../core/ui/context-manager/context-manager.js';
-import '../../../core/ui/input/action-handler.js';
-import '../../../core/ui/input/input-support.chunk.js';
-import '../../../core/ui/utilities/utilities-update-gate.chunk.js';
-import '../../../core/ui/utilities/utilities-image.chunk.js';
-import '../../../core/ui/utilities/utilities-component-id.chunk.js';
-import '../../../core/ui/input/input-filter.chunk.js';
-import '../quest-tracker/quest-item.js';
-import '../quest-tracker/quest-tracker.js';
-import '../tutorial/tutorial-events.chunk.js';
-import '../tutorial/tutorial-item.js';
-import '../../../core/ui/utilities/utilities-network.js';
-import '../../../core/ui/shell/mp-legal/mp-legal.js';
-import '../../../core/ui/events/shell-events.chunk.js';
-import '../../../core/ui/utilities/utilities-liveops.js';
-import '../../../core/ui/utilities/utilities-network-constants.chunk.js';
-import '../diplomacy/diplomacy-events.js';
-import '../interface-modes/support-unit-map-decoration.chunk.js';
-import '../utilities/utilities-overlay.chunk.js';
-
-const content = "<div class=\"adv-start__content\">\r\n\t<mouse-guard data-bind-if=\"{{g_AdvancedStartModel.deckConfirmed}} == false\"></mouse-guard>\r\n\t<fxs-vslot class=\"advanced-start-outer-vslot\">\r\n\t\t<fxs-hslot class=\"adv-start__parent-slot relative w-full h-full flow-column\">\r\n\t\t\t<div\r\n\t\t\t\tclass=\"adv-start__available-legacy-wrapper absolute flow-column justify-start items-center self-start top-0 left-0 h-full mt-10 ml-8\"\r\n\t\t\t>\r\n\t\t\t\t<fxs-vslot\r\n\t\t\t\t\tclass=\"adv-start__available-legacy-container pr-5 mb-19 relative flex-1\"\r\n\t\t\t\t\tfocus-rule=\"last\"\r\n\t\t\t\t>\r\n\t\t\t\t\t<div\r\n\t\t\t\t\t\tclass=\"absolute -top-7 left-1\\.5 bottom-0 w-56 h-52 mt-9 img-frame-filigree pointer-events-none\"\r\n\t\t\t\t\t></div>\r\n\t\t\t\t\t<div\r\n\t\t\t\t\t\tclass=\"absolute -top-7 right-1\\.5 bottom-0 w-56 h-52 mt-9 rotate-y-180 img-frame-filigree pointer-events-none\"\r\n\t\t\t\t\t></div>\r\n\t\t\t\t\t<div class=\"adv-start__subheader-container flow-column items-center self-center relative\">\r\n\t\t\t\t\t\t<div class=\"adv-start__glow absolute inset-0 opacity-50\"></div>\r\n\t\t\t\t\t\t<div class=\"adv-start__header-info relative mt-7 mb-2\\.5\">\r\n\t\t\t\t\t\t\t<div\r\n\t\t\t\t\t\t\t\tclass=\"font-title-lg uppercase text-shadow-subtle fxs-header font-bold mb-3 text-center tracking-150\"\r\n\t\t\t\t\t\t\t\tdata-l10n-id=\"LOC_UI_ADVANCED_START_CHOOSE_LEGACIES\"\r\n\t\t\t\t\t\t\t></div>\r\n\t\t\t\t\t\t\t<img\r\n\t\t\t\t\t\t\t\tclass=\"h-4 w-84\"\r\n\t\t\t\t\t\t\t\tsrc=\"fs://game/shell_small-filigree.png\"\r\n\t\t\t\t\t\t\t/>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<fxs-hslot class=\"adv-start__filter-bar mb-2\\.5 filter-list justify-center\"> </fxs-hslot>\r\n\t\t\t\t\t<div class=\"adv-start__available-cards-content relative px-0 pb-10 flow-column items-center flex-1\">\r\n\t\t\t\t\t\t<fxs-scrollable\r\n\t\t\t\t\t\t\tclass=\"adv-start__scrollable\"\r\n\t\t\t\t\t\t\thandle-gamepad-pan=\"true\"\r\n\t\t\t\t\t\t\tattached-scrollbar=\"true\"\r\n\t\t\t\t\t\t>\r\n\t\t\t\t\t\t\t<fxs-vslot\r\n\t\t\t\t\t\t\t\tclass=\"available-cards adv-start__available-cards-list pt-1 pr-4 pl-5 flow-column\"\r\n\t\t\t\t\t\t\t\ttabindex=\"-1\"\r\n\t\t\t\t\t\t\t>\r\n\t\t\t\t\t\t\t</fxs-vslot>\r\n\t\t\t\t\t\t</fxs-scrollable>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</fxs-vslot>\r\n\t\t\t</div>\r\n\t\t\t<div\r\n\t\t\t\tdata-bind-if=\"{{g_AdvancedStartModel.deckConfirmed}}\"\r\n\t\t\t\tclass=\"card-effects-container absolute right-0 bottom-96\"\r\n\t\t\t>\r\n\t\t\t\t<div class=\"box-contents\">\r\n\t\t\t\t\t<div class=\"subheader-box\">\r\n\t\t\t\t\t\t<div class=\"deck-confirmed text-center ml-1\">\r\n\t\t\t\t\t\t\t<div class=\"adv-start__subheader-image-container mr-13\">\r\n\t\t\t\t\t\t\t\t<p\r\n\t\t\t\t\t\t\t\t\tclass=\"text-shadow-subtle font-title-xs placement-title uppercase tracking-150 text-accent-1 py-1 px-3 m-2\"\r\n\t\t\t\t\t\t\t\t\tdata-l10n-id=\"LOC_UI_ADVANCED_START_PLACE_EFFECTS\"\r\n\t\t\t\t\t\t\t\t></p>\r\n\t\t\t\t\t\t\t\t<div class=\"adv-start__subheader-bar bottom-bar\"></div>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<fxs-scrollable class=\"advanced-start-scrollable\">\r\n\t\t\t\t\t\t<fxs-vslot class=\"card-effects entries-list pt-1\"></fxs-vslot>\r\n\t\t\t\t\t</fxs-scrollable>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t\t<fxs-vslot\r\n\t\t\t\tdata-bind-if=\"{{g_AdvancedStartModel.deckConfirmed}} == false\"\r\n\t\t\t\tclass=\"adv-start__selected-cards-container absolute flow-column items-start flex-1 left-1\\/2 top-4 bottom-24 w-164\"\r\n\t\t\t\tfocus-rule=\"last\"\r\n\t\t\t>\r\n\t\t\t\t<div\r\n\t\t\t\t\tclass=\"adv-start__top-container flow-column items-start justify-start pointer-events-auto top-5 w-128\"\r\n\t\t\t\t>\r\n\t\t\t\t\t<div class=\"adv-start__header-container relative text-center w-full\">\r\n\t\t\t\t\t\t<p\r\n\t\t\t\t\t\t\tclass=\"adv-start__header-title font-title text-lg uppercase fxs-header text-shadow text-center tracking-150 flex font-bold mt-12 mb-2\"\r\n\t\t\t\t\t\t\tdata-l10n-id=\"LOC_UI_ADVANCED_START_TITLE\"\r\n\t\t\t\t\t\t></p>\r\n\t\t\t\t\t\t<img\r\n\t\t\t\t\t\t\tclass=\"h-4 w-84\"\r\n\t\t\t\t\t\t\tsrc=\"fs://game/shell_small-filigree.png\"\r\n\t\t\t\t\t\t/>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<p\r\n\t\t\t\t\t\tclass=\"adv-start__subtext pt-2 text-accent-1 font-body-base text-center w-full\"\r\n\t\t\t\t\t\tdata-l10n-id=\"LOC_ADVANCED_START_SUBTEXT\"\r\n\t\t\t\t\t></p>\r\n\t\t\t\t\t<fxs-hslot\r\n\t\t\t\t\t\trole=\"paragraph\"\r\n\t\t\t\t\t\tclass=\"adv-start__preset-container pointer-events-auto\"\r\n\t\t\t\t\t>\r\n\t\t\t\t\t</fxs-hslot>\r\n\t\t\t\t\t<div\r\n\t\t\t\t\t\tclass=\"adv-start__currency-container font-body font-bold text-lg text-accent-1 justify-center w-full\"\r\n\t\t\t\t\t>\r\n\t\t\t\t\t\t<fxs-hslot>\r\n\t\t\t\t\t\t\t<div class=\"adv-start__currency-list mt-2 px-6 w-full\"></div>\r\n\t\t\t\t\t\t</fxs-hslot>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"adv-start__selected-cards-content flex-auto\">\r\n\t\t\t\t\t<fxs-scrollable\r\n\t\t\t\t\t\tattached-scrollbar=\"true\"\r\n\t\t\t\t\t\tclass=\"adv-start__selected-card-list-scrollable h-full\"\r\n\t\t\t\t\t\thandle-gamepad-pan=\"false\"\r\n\t\t\t\t\t>\r\n\t\t\t\t\t\t<div\r\n\t\t\t\t\t\t\tclass=\"adv-start__selected-cards-list-container pt-4 flow-column justify-between items-start\"\r\n\t\t\t\t\t\t>\r\n\t\t\t\t\t\t\t<div\r\n\t\t\t\t\t\t\t\tclass=\"adv-start__selected-cards-list mr-13 cards-list--full selected-cards entries-list flow-column flex-nowrap items-center justify-start\"\r\n\t\t\t\t\t\t\t></div>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t</fxs-scrollable>\r\n\t\t\t\t</div>\r\n\t\t\t</fxs-vslot>\r\n\t\t</fxs-hslot>\r\n\t\t<fxs-hslot class=\"adv-start__button-container absolute items-end bottom-6 right-6 justify-between\"> </fxs-hslot>\r\n\t</fxs-vslot>\r\n</div>\r\n";
-
-const styles = "fs://game/base-standard/ui/advanced-start/screen-advanced-start.css";
+import content from './screen-advanced-start.html.js';
+import styles from './screen-advanced-start.scss.js';
+import { DialogBoxAction } from '../../../core/ui/dialog-box/model-dialog-box.js';
 
 const AdvancedStartBonusPlacementStarted = new CustomEvent("advanced-start-bonus-placement-started");
 class ScreenAdvancedStart extends Panel {
@@ -178,12 +156,12 @@ class ScreenAdvancedStart extends Panel {
     waitForLayout(() => {
       if (AdvancedStart.deckConfirmed) {
         const cardEffects = MustGetElement(".card-effects", this.Root);
-        FocusManager.setFocus(cardEffects);
+        FocusManager.get().setFocus(cardEffects);
         Input.setActiveContext(InputContext.Dual);
       } else {
         const advStartCard = this.Root.querySelector(".adv-start__card");
         if (advStartCard) {
-          FocusManager.setFocus(advStartCard);
+          FocusManager.get().setFocus(advStartCard);
         } else {
           console.error("ScreenAdvancedStart: Could not find adv-start__card when receiving focus");
         }
@@ -635,7 +613,7 @@ class ScreenAdvancedStart extends Panel {
     if (event.target instanceof HTMLElement) {
       const typeID = event.target.getAttribute("data-type-id");
       if (typeID) {
-        FocusManager.setFocus(event.target);
+        FocusManager.get().setFocus(event.target);
         const localPlayer = Players.get(GameContext.localPlayerID);
         if (!localPlayer) {
           console.error("screen-advanced-start: couldn't get the local player");
@@ -780,7 +758,7 @@ class ScreenAdvancedStart extends Panel {
     const locKey = AdvancedStart.preSelectLoc;
     preselectText.innerHTML = Locale.compose(locKey);
     if (AdvancedStart.preSelectIndex == 0) {
-      FocusManager.setFocus(MustGetElement(".adv-start__available-cards-list", this.Root));
+      FocusManager.get().setFocus(MustGetElement(".adv-start__available-cards-list", this.Root));
     }
   }
   onFlashAnimationEnd(event) {
@@ -794,7 +772,7 @@ class ScreenAdvancedStart extends Panel {
   }
   onSelectedCardActivate(event) {
     if (event.currentTarget instanceof HTMLElement) {
-      FocusManager.setFocus(event.currentTarget);
+      FocusManager.get().setFocus(event.currentTarget);
       event.currentTarget.addEventListener("animationend", this.removeCardAnimationListener);
       event.currentTarget.classList.add("adv-start__card--remove");
     }
@@ -811,11 +789,11 @@ class ScreenAdvancedStart extends Panel {
             console.error("screen-advanced-start: Unable to find element with class available-cards!");
             return;
           }
-          FocusManager.setFocus(availableCardsSlot);
+          FocusManager.get().setFocus(availableCardsSlot);
         } else if (event.currentTarget.parentElement?.classList.contains("adv-start__card--selected") && AdvancedStart.selectedCards.length >= 2) {
           const cardContainer = this.Root.querySelector(".adv-start__card--selected");
           if (cardContainer) {
-            FocusManager.setFocus(cardContainer);
+            FocusManager.get().setFocus(cardContainer);
           }
         }
       }
@@ -825,10 +803,10 @@ class ScreenAdvancedStart extends Panel {
   onCardAdded() {
     this.updateDeckLimitHeader();
     waitForLayout(() => {
-      if (!FocusManager.getFocus().isConnected) {
+      if (!FocusManager.get().currentFocus().isConnected) {
         const cardContainer = this.Root.querySelector(".adv-start__card--selected");
         if (cardContainer) {
-          FocusManager.setFocus(cardContainer);
+          FocusManager.get().setFocus(cardContainer);
         }
       }
     });
@@ -841,12 +819,12 @@ class ScreenAdvancedStart extends Panel {
         console.error("screen-advanced-start: Unable to find element with class available-cards!");
         return;
       }
-      FocusManager.setFocus(advCardSlot);
+      FocusManager.get().setFocus(advCardSlot);
     } else {
       waitForLayout(() => {
         const cardContainer = this.Root.querySelector(".adv-start__card--selected");
         if (cardContainer) {
-          FocusManager.setFocus(cardContainer);
+          FocusManager.get().setFocus(cardContainer);
         }
       });
     }
@@ -878,7 +856,7 @@ class ScreenAdvancedStart extends Panel {
             this.setupNavTray();
             const advStartChooser = MustGetElement(".adv-start__available-legacy-wrapper", this.Root);
             advStartChooser.classList.add("hidden");
-            FocusManager.setFocus(cardEffects);
+            FocusManager.get().setFocus(cardEffects);
           } else {
             this.close();
           }
@@ -928,7 +906,7 @@ class ScreenAdvancedStart extends Panel {
       if (typeID) {
         WorldInput.setPlotSelectionHandler(this.plotSelectionHandler);
         AdvancedStart.selectPlacementEffect(typeID);
-        FocusManager.SetWorldFocused();
+        FocusManager.get().clearFocus();
       }
     }
   }
@@ -941,7 +919,7 @@ class ScreenAdvancedStart extends Panel {
       this.setupNavTray();
       waitForLayout(() => {
         const cardEffects = MustGetElement(".card-effects", this.Root);
-        FocusManager.setFocus(cardEffects);
+        FocusManager.get().setFocus(cardEffects);
       });
     }
   }
@@ -1133,7 +1111,7 @@ class ScreenAdvancedStart extends Panel {
       console.error("screen-advanced-start navigateFilters: Unable to find element with class available-cards!");
       return;
     }
-    FocusManager.setFocus(advCardSlot);
+    FocusManager.get().setFocus(advCardSlot);
   }
 }
 Controls.define("screen-advanced-start", {

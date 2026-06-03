@@ -64,6 +64,8 @@
 		<Row Type="DIPLOMACY_ACTION_GINSING_AGREEMENT" Kind="KIND_DIPLOMACY_ACTION" />
 		<Row Type="DIPLOMACY_ACTION_FRIEND_OF_WA" Kind="KIND_DIPLOMACY_ACTION" />
 		<Row Type="DIPLOMACY_ACTION_COUNTER_SPY" Kind="KIND_DIPLOMACY_ACTION" />
+		<Row Type="DIPLOMACY_ACTION_BECOME_SUZERAIN" Kind="KIND_DIPLOMACY_ACTION" />
+		<Row Type="DIPLOMACY_BECOME_SUZERAIN_COMPLETE" Kind="KIND_DIPLOMACY_ACTION_STAGE" />
 		<!-- Espionage Actions -->
 		<Row Type="DIPLOMACY_ACTION_ESPIONAGE_MILITARY_SABOTAGE" Kind="KIND_DIPLOMACY_ACTION" />
 		<Row Type="DIPLOMACY_ACTION_ESPIONAGE_STEAL_TECH" Kind="KIND_DIPLOMACY_ACTION" />
@@ -314,7 +316,7 @@
 	<DiplomacyActions>
 		<!--  To determine the precision of the SupportFavors and TargetFavors check out the FG_TOKEN_PRECISION in the ModifierTokens below.  Currently, for example, SupportFavors="100" will equal 0.1 tokens with a FG_TOKEN_PRECISION FavorsGiven of 1000.   -->
 		<Row DiplomacyActionType="DIPLOMACY_ACTION_LAND_CLAIM" Name="LOC_DIPLOMACY_ACTION_LAND_CLAIM_NAME" Description="LOC_DIPLOMACY_ACTION_LAND_CLAIM_DESCRIPTION" BaseTokenCost="0" BaseDuration="4" Momentum="1" SingleInstanceProject="false" SupportFavors="100" ChangeSupportMsg="LOC_DIPLOMACY_ACTION_CHANGE_LAND_CLAIM_SUPPORT_MESSAGE" SupportDesc="LOC_DIPLOMACY_ACTION_SUPPORT_LAND_CLAIM_SUMMARY" OpposeDesc="LOC_DIPLOMACY_ACTION_OPPOSE_LAND_CLAIM_SUMMARY" SupportRemovedDesc="LOC_DIPLOMACY_ACTION_SUPPORT_REMOVED_LAND_CLAIM_SUMMARY" OpposeRemovedDesc="LOC_DIPLOMACY_ACTION_OPPOSE_REMOVED_LAND_CLAIM_SUMMARY" />
-		<Row DiplomacyActionType="DIPLOMACY_ACTION_GIVE_INFLUENCE_TOKEN" Name="LOC_DIPLOMACY_ACTION_GIVE_INFLUENCE_TOKEN_NAME" Description="LOC_DIPLOMACY_ACTION_GIVE_INFLUENCE_TOKEN_DESCRIPTION" BaseTokenCost="2" BaseDuration="60" RelativeZero="20" SingleInstanceProject="false" EnvoysInfluenceProgress="true" Supportable="false" Opposable="false" ChangeSupportMsg="LOC_DIPLOMACY_ACTION_CHANGE_INFLUENCE_IND_SUPPORT_MESSAGE" SupportDesc="LOC_DIPLOMACY_ACTION_SUPPORT_INFLUENCE_IND_SUMMARY" OpposeDesc="LOC_DIPLOMACY_ACTION_OPPOSE_INFLUENCE_IND_SUMMARY" SupportRemovedDesc="LOC_DIPLOMACY_ACTION_SUPPORT_REMOVED_INFLUENCE_IND_SUMMARY" OpposeRemovedDesc="LOC_DIPLOMACY_ACTION_OPPOSE_REMOVED_INFLUENCE_IND_SUMMARY" UIIconPath="blp:dipaction_befriend" />
+		<Row DiplomacyActionType="DIPLOMACY_ACTION_GIVE_INFLUENCE_TOKEN" Name="LOC_DIPLOMACY_ACTION_GIVE_INFLUENCE_TOKEN_NAME" Description="LOC_DIPLOMACY_ACTION_GIVE_INFLUENCE_TOKEN_DESCRIPTION" BaseTokenCost="2" BaseDuration="60" RelativeZero="20" SingleInstanceProject="false" EnvoysInfluenceProgress="true" Supportable="false" Opposable="false" ChangeSupportMsg="LOC_DIPLOMACY_ACTION_CHANGE_INFLUENCE_IND_SUPPORT_MESSAGE" SupportDesc="LOC_DIPLOMACY_ACTION_SUPPORT_INFLUENCE_IND_SUMMARY" OpposeDesc="LOC_DIPLOMACY_ACTION_OPPOSE_INFLUENCE_IND_SUMMARY" SupportRemovedDesc="LOC_DIPLOMACY_ACTION_SUPPORT_REMOVED_INFLUENCE_IND_SUMMARY" OpposeRemovedDesc="LOC_DIPLOMACY_ACTION_OPPOSE_REMOVED_INFLUENCE_IND_SUMMARY" UIIconPath="blp:dipaction_befriend" DiplomacyCostProgressionModel="COST_PROGRESSION_NUM_SUZERAIN_AND_CURRENTLY_BEFRIENDING" CostProgressionParam1="20"/>
 		<Row DiplomacyActionType="DIPLOMACY_ACTION_RECEIVE_GIFT" Name="LOC_DIPLOMACY_ACTION_RECEIVE_GIFT_NAME" Description="LOC_DIPLOMACY_ACTION_RECEIVE_GIFT_DESCRIPTION" BaseTokenCost="1" BaseDuration="0" SingleInstanceProject="false" EnvoysInfluenceProgress="true" Supportable="false" Opposable="false"/>
 		<Row DiplomacyActionType="DIPLOMACY_ACTION_DECLARE_WAR" Name="LOC_DIPLOMACY_ACTION_DECLARE_WAR_NAME" Description="LOC_DIPLOMACY_ACTION_DECLARE_WAR_DESCRIPTION" BaseTokenCost="0" BaseDuration="-1" Symmetrical="true" SingleInstanceProject="false" Opposed="true" NegativeProgressAllowed="true" SupportWindow="-1" MaxThirdPartySupport="1" ChangeSupportMsg="LOC_DIPLOMACY_ACTION_CHANGE_WAR_SUPPORT_MESSAGE" SupportDesc="LOC_DIPLOMACY_ACTION_SUPPORT_WAR_SUMMARY" OpposeDesc="LOC_DIPLOMACY_ACTION_OPPOSE_WAR_SUMMARY" SupportRemovedDesc="LOC_DIPLOMACY_ACTION_SUPPORT_REMOVED_WAR_SUMMARY" OpposeRemovedDesc="LOC_DIPLOMACY_ACTION_OPPOSE_REMOVED_WAR_SUMMARY" UIIconPath="blp:dip_sanctions" />
 		<Row DiplomacyActionType="DIPLOMACY_ACTION_DECLARE_FORMAL_WAR" Name="LOC_DIPLOMACY_ACTION_DECLARE_FORMAL_WAR_NAME" Description="LOC_DIPLOMACY_ACTION_DECLARE_FORMAL_WAR_DESCRIPTION" BaseTokenCost="0" BaseDuration="-1" Symmetrical="true" SingleInstanceProject="false" Opposed="true" NegativeProgressAllowed="true" SupportWindow="-1" MaxThirdPartySupport="1" ChangeSupportMsg="LOC_DIPLOMACY_ACTION_CHANGE_WAR_SUPPORT_MESSAGE" SupportDesc="LOC_DIPLOMACY_ACTION_SUPPORT_WAR_SUMMARY" OpposeDesc="LOC_DIPLOMACY_ACTION_OPPOSE_WAR_SUMMARY" SupportRemovedDesc="LOC_DIPLOMACY_ACTION_SUPPORT_REMOVED_WAR_SUMMARY" OpposeRemovedDesc="LOC_DIPLOMACY_ACTION_OPPOSE_REMOVED_WAR_SUMMARY" UIIconPath="blp:dip_sanctions" />
@@ -348,7 +350,7 @@
 		<Row DiplomacyActionType="DIPLOMACY_ACTION_CS_ORDER_ATTACK" Name="LOC_DIPLOMACY_PROJECT_CS_ORDER_ATTACK_NAME" Description="LOC_DIPLOMACY_PROJECT_CS_ORDER_ATTACK_NO_DATA" BaseTokenCost="1" BaseDuration="30" Symmetrical="true" SingleInstanceProject="false" Opposed="true" IsMutualSupport="false" TargetFavors="0"/>
 		<Row DiplomacyActionType="DIPLOMACY_ACTION_CS_LEVY_UNIT" Name="LOC_DIPLOMACY_PROJECT_CS_LEVY_UNIT_NAME" Description="LOC_DIPLOMACY_PROJECT_CS_LEVY_UNIT_NO_DATA" BaseTokenCost="1" BaseDuration="0" Symmetrical="true" SingleInstanceProject="false" Opposed="true" IsMutualSupport="false" TargetFavors="0" UIIconPath="blp:dipaction_levyunit"/>
 		<Row DiplomacyActionType="DIPLOMACY_ACTION_CS_INCORPORATE" Name="LOC_DIPLOMACY_PROJECT_CS_INCORPORATE_NAME" Description="LOC_DIPLOMACY_PROJECT_CS_INCORPORATE_NO_DATA" BaseTokenCost="1" BaseDuration="10" Symmetrical="true" SingleInstanceProject="false" Opposed="true" IsMutualSupport="false" TargetFavors="0" UIIconPath="blp:dipaction_incorporate"/>
-		<Row DiplomacyActionType="DIPLOMACY_ACTION_IMPROVE_TRADE_RELATIONS" Name="LOC_DIPLOMACY_PROJECT_IMPROVE_TRADE_RELATIONS_NAME" Description="LOC_DIPLOMACY_PROJECT_IMPROVE_TRADE_RELATIONS_NO_DATA" BaseTokenCost="1" BaseDuration="0" Symmetrical="true" SingleInstanceProject="false" Opposed="true" IsMutualSupport="false" TargetFavors="0" RequestString="LOC_DIPLOMACY_PROJECT_IMPROVE_TRADE_RELATIONS_REQUEST" RejectionRefundsInfluence="true" UIIconPath="blp:dipaction_continental"/>
+		<Row DiplomacyActionType="DIPLOMACY_ACTION_IMPROVE_TRADE_RELATIONS" Name="LOC_DIPLOMACY_PROJECT_IMPROVE_TRADE_RELATIONS_NAME" Description="LOC_DIPLOMACY_PROJECT_IMPROVE_TRADE_RELATIONS_NO_DATA" BaseTokenCost="1" BaseDuration="0" Symmetrical="true" SingleInstanceProject="false" Opposed="true" IsMutualSupport="false" TargetFavors="0" RequestString="LOC_DIPLOMACY_PROJECT_IMPROVE_TRADE_RELATIONS_REQUEST" RejectionRefundsInfluence="true" UIIconPath="blp:dipaction_continental" DiplomacyCostProgressionModel="COST_PROGRESSION_PREVIOUS_SUCCESSFUL_SAME_ACTION" CostProgressionParam1="25"/>
 		<Row DiplomacyActionType="DIPLOMACY_ACTION_GINSING_AGREEMENT" Name="LOC_DIPLOMACY_PROJECT_GINSING_AGREEMENT_NAME" Description="LOC_DIPLOMACY_PROJECT_GINSING_AGREEMENT_NO_DATA" BaseTokenCost="1" BaseDuration="15" Symmetrical="true" IsMutualSupport="true" SupportFavors="3000" TargetFavors="2000" TargetFavorsFreq="3" RequestString="LOC_DIPLOMACY_PROJECT_GINSING_AGREEMENT_REQUEST" RequiresUnlock="true" RejectionRefundsInfluence="true" UIIconPath="blp:dipaction_food"/>
 		<Row DiplomacyActionType="DIPLOMACY_ACTION_FRIEND_OF_WA" Name="LOC_DIPLOMACY_PROJECT_FRIEND_OF_WA_NAME" Description="LOC_DIPLOMACY_PROJECT_FRIEND_OF_WA_NO_DATA" BaseTokenCost="1" BaseDuration="15" Symmetrical="true" IsMutualSupport="true" SupportFavors="1500" TargetFavors="1000" TargetFavorsFreq="3" AllyOnly="true" RequestString="LOC_DIPLOMACY_PROJECT_FRIEND_OF_WA_REQUEST" RequiresUnlock="true" RejectionRefundsInfluence="true" UIIconPath="blp:dipaction_friendofwa"/>
 		<Row DiplomacyActionType="DIPLOMACY_ACTION_DENOUNCE_MILITARY_PRESENCE" Name="LOC_DIPLOMACY_PROJECT_DENOUNCE_MILITARY_PRESENCE_NAME" Description="LOC_DIPLOMACY_PROJECT_DENOUNCE_MILITARY_PRESENCE_NO_DATA" BaseTokenCost="1" BaseDuration="10" Symmetrical="true" IsMutualSupport="true" RequestString="LOC_DIPLOMACY_PROJECT_DENOUNCE_MILITARY_PRESENCE_REQUEST" UIIconPath="blp:dipaction_military_negative"/>
@@ -358,7 +360,8 @@
 		<Row DiplomacyActionType="DIPLOMACY_ACTION_ESPIONAGE_STEAL_CIVIC" Name="LOC_DIPLOMACY_ESPIONAGE_STEAL_CIVIC_NAME" Description="LOC_DIPLOMACY_ESPIONAGE_STEAL_CIVIC_DESCRIPTION" BaseTokenCost="1" BaseDuration="21" RandomInitialProgress="6" Symmetrical="true" RevealChance="50" SuccessChance="100" UIIconPath="blp:esp_stealgovt_negative"/>
 		<Row DiplomacyActionType="DIPLOMACY_ACTION_ESPIONAGE_MILITARY_INFILTRATION" Name="LOC_DIPLOMACY_ESPIONAGE_MILITARY_INFILTRATION_NAME" Description="LOC_DIPLOMACY_ESPIONAGE_MILITARY_INFILTRATION_DESCRIPTION" BaseTokenCost="1" BaseDuration="20" RandomInitialProgress="6" Symmetrical="true" RevealChance="20" SuccessChance="100" UIIconPath="blp:esp_militaryinfiltration_negative"/>
 		<!--<Row DiplomacyActionType="DIPLOMACY_ACTION_FREE_CAPTURED_COMMANDER" Name="LOC_DIPLOMACY_PROJECT_FREE_CAPTURED_COMMANDER_NAME" Description="LOC_DIPLOMACY_PROJECT_FREE_CAPTURED_COMMANDER_NO_DATA" BaseTokenCost="1" BaseDuration="1" Symmetrical="true" IsMutualSupport="true"/ RejectionRefundsInfluence="true">-->
-		<Row DiplomacyActionType="DIPLOMACY_ACTION_GRANT_POLICY_SLOT" Name="LOC_DIPLOMACY_PROJECT_GRANT_POLICY_SLOT_NAME" Description="LOC_DIPLOMACY_PROJECT_GRANT_POLICY_SLOT_NO_DATA" BaseTokenCost="1" BaseDuration="10" Symmetrical="true" IsMutualSupport="true" RequestString="LOC_DIPLOMACY_PROJECT_GRANT_POLICY_SLOT_REQUEST" UIIconPath="blp:dipaction_reform" RequiresUnlock="true" RejectionRefundsInfluence="true"/>
+		<Row DiplomacyActionType="DIPLOMACY_ACTION_GRANT_POLICY_SLOT" Name="LOC_DIPLOMACY_PROJECT_GRANT_POLICY_SLOT_NAME" Description="LOC_DIPLOMACY_PROJECT_GRANT_POLICY_SLOT_NO_DATA" BaseTokenCost="1" BaseDuration="10" Symmetrical="true" IsMutualSupport="true" RequestString="LOC_DIPLOMACY_PROJECT_GRANT_POLICY_SLOT_REQUEST" UIIconPath="blp:dipaction_reform" RequiresUnlock="true" RejectionRefundsInfluence="true" NumTimesPerPlayer="1"/>
+		<Row DiplomacyActionType="DIPLOMACY_ACTION_BECOME_SUZERAIN" Name="LOC_DIPLOMACY_PROJECT_BECOME_SUZERAIN_NAME" Description="LOC_DIPLOMACY_PROJECT_BECOME_SUZERAIN_DESCRIPTION" BaseTokenCost="1" BaseDuration="0" EnvoysInfluenceProgress="true" Symmetrical="true" Opposed="true" IsMutualSupport="false" TargetFavors="0" RequiresUnlock="true" UIIconPath="blp:dipaction_convertcity" DiplomacyCostProgressionModel="COST_PROGRESSION_NUM_SUZERAIN_AND_CURRENTLY_BEFRIENDING" CostProgressionParam1="10"/>
 	</DiplomacyActions>
 	<DiplomacyActionGroups>
 		<Row DiplomacyActionGroupType="DIPLOMACY_ACTION_GROUP_PROJECT" Name="DIPLOMACY_ACTION_GROUP_PROJECT"/>
@@ -421,6 +424,7 @@
 		<Row TokenType="DIPLOMACY_TOKEN_GLOBAL" DiplomacyActionType="DIPLOMACY_ACTION_ESPIONAGE_STEAL_CIVIC"/>
 		<Row TokenType="DIPLOMACY_TOKEN_GLOBAL" DiplomacyActionType="DIPLOMACY_ACTION_ESPIONAGE_MILITARY_INFILTRATION"/>
 		<!--<Row TokenType="DIPLOMACY_TOKEN_GLOBAL" DiplomacyActionType="DIPLOMACY_ACTION_FREE_CAPTURED_COMMANDER"/>-->
+		<Row TokenType="DIPLOMACY_TOKEN_GLOBAL" DiplomacyActionType="DIPLOMACY_ACTION_BECOME_SUZERAIN"/>
 	</DiplomaticActionValidTokens>
 	<DiplomaticActionStages>
 		<!-- Influence Independents -->
@@ -539,6 +543,8 @@
 		<!-- Free Captured Commander
 		<Row DiplomacyActionType="DIPLOMACY_ACTION_FREE_CAPTURED_COMMANDER" StageType="DIPLOMACY_FREE_CAPTURED_COMMANDER_IN_PROGRESS" ProgressRequirement="0"/>
 		<Row DiplomacyActionType="DIPLOMACY_ACTION_FREE_CAPTURED_COMMANDER" StageType="DIPLOMACY_FREE_CAPTURED_COMMANDER_COMPLETE" ProgressRequirement="1"/>-->
+		<!-- Become Suzerain -->
+		<Row DiplomacyActionType="DIPLOMACY_ACTION_BECOME_SUZERAIN" StageType="DIPLOMACY_BECOME_SUZERAIN_COMPLETE" ProgressRequirement="0"/>
 	</DiplomaticActionStages>
 	<UnitDiplomacyAction_ValidUnits>
 		<Row DiplomacyActionType="DIPLOMACY_ACTION_GIVE_INFLUENCE_TOKEN" UnitTag="UNIT_CLASS_INFLUENCE_INDEPENDENT"/>
@@ -665,9 +671,7 @@
 		<Row StageType="DIPLOMACY_IMPROVE_TRADE_RELATIONS_COMPLETE" ModifierId="PLAYER_DIPLOMACY_IMPROVE_TRADE_RELATIONS_COMPLETE" />
 		<Row StageType="DIPLOMACY_IMPROVE_TRADE_RELATIONS_COMPLETE" ModifierId="PLAYER_DIPLOMACY_IMPROVE_TRADE_RELATIONS_COMPLETE_TARGET" />
 		<!-- Grant Policy Slot -->
-		<Row StageType="DIPLOMACY_GRANT_POLICY_SLOT_STARTED" ModifierId="PLAYER_DIPLOMACY_GRANT_POLICY_SLOT_STARTED" />
-		<Row StageType="DIPLOMACY_GRANT_POLICY_SLOT_COMPLETE" ModifierId="PLAYER_DIPLOMACY_GRANT_POLICY_SLOT_COMPLETE" />
-		<Row StageType="DIPLOMACY_GRANT_POLICY_SLOT_COMPLETE" ModifierId="PLAYER_DIPLOMACY_GRANT_POLICY_SLOT_COMPLETE_TARGET" />
+		<Row StageType="DIPLOMACY_GRANT_POLICY_SLOT_COMPLETE" ModifierId="PLAYER_DIPLOMACY_GRANT_TRADITION_OR_POLICY_SLOT_COMPLETE" />
 		<!-- EMILLE BELL Ginsing Agreement -->
 		<Row StageType="DIPLOMACY_GINSING_AGREEMENT_COMPLETE" ModifierId="PLAYER_DIPLOMACY_GINSING_AGREEMENT_COMPLETE" />
 		<!-- HIMIKO -->
@@ -691,6 +695,8 @@
 		<!-- Free Captured Commander
 		<Row StageType="DIPLOMACY_FREE_CAPTURED_COMMANDER_IN_PROGRESS" ModifierId="PLAYER_DIPLOMACY_FREE_CAPTURED_COMMANDER_IN_PROGRESS" />
 		<Row StageType="DIPLOMACY_FREE_CAPTURED_COMMANDER_COMPLETE" ModifierId="PLAYER_DIPLOMACY_FREE_CAPTURED_COMMANDER_COMPLETE" />  -->
+		<!-- Become Suzerain -->
+		<Row StageType="DIPLOMACY_BECOME_SUZERAIN_COMPLETE" ModifierId="TRAIT_MOD_ITSARAPHAB_BECOME_SUZERAIN" />
 	</EnterStageModifiers>
 	<EnvoysInStageModifiers>
 		<!-- Just an example node, do not uncomment.  This would apply the modifier while there is at least one effective envoy (not countered by opposed ones) during this stage.   -->
@@ -805,6 +811,7 @@
 		<Row DiplomacyActionType="DIPLOMACY_ACTION_ESPIONAGE_STEAL_CIVIC" DiplomacyActionGroup="DIPLOMACY_ACTION_GROUP_ESPIONAGE" PlayerOperationType="STEAL_TREE_NODE_DIPLOMATIC_ACTION" Target1Type="DIPLOMACY_TARGET_PLAYER" Target2Type="DIPLOMACY_TARGET_NONE" MaxNumEnvoys="1" MinNumVirtEnvoys="1" MaxNumVirtEnvoys="1" MaxNumSupportEnvoys="0" MaxNumOpposeEnvoys="0" Description="LOC_DIPLOMACY_PROJECT_STEAL_CIVIC_INITIAL" ActiveDescription="LOC_DIPLOMACY_ESPIONAGE_STEAL_CIVIC_DESCRIPTION" DescriptionDetailsInitialPlayer="LOC_DIPLOMATIC_ESPIONAGE_STEAL_CIVIC_TREE_NODE_EFFECT" DescriptionDetailsTargetPlayer="LOC_DIPLOMATIC_ESPIONAGE_STEAL_CIVIC_TREE_NODE_EFFECT_TARGET"/>
 		<Row DiplomacyActionType="DIPLOMACY_ACTION_ESPIONAGE_MILITARY_INFILTRATION" DiplomacyActionGroup="DIPLOMACY_ACTION_GROUP_ESPIONAGE" PlayerOperationType="MILITARY_INFILTRATION_DIPLOMATIC_ACTION" Target1Type="DIPLOMACY_TARGET_PLAYER" Target2Type="DIPLOMACY_TARGET_NONE" MaxNumEnvoys="1" MinNumVirtEnvoys="1" MaxNumVirtEnvoys="1" MaxNumSupportEnvoys="0" MaxNumOpposeEnvoys="0" Description="LOC_DIPLOMACY_ESPIONAGE_MILITARY_INFILTRATION_DESCRIPTION" ActiveDescription="LOC_DIPLOMACY_ESPIONAGE_MILITARY_INFILTRATION_DESCRIPTION" DescriptionDetailsInitialPlayer="LOC_DIPLOMATIC_ESPIONAGE_MILITARY_INFILTRATION_EFFECT" DescriptionDetailsTargetPlayer="LOC_DIPLOMATIC_ESPIONAGE_MILITARY_INFILTRATION_EFFECT_TARGET"/>
 		<!-- <Row DiplomacyActionType="DIPLOMACY_ACTION_FREE_CAPTURED_COMMANDER" DiplomacyActionGroup="DIPLOMACY_ACTION_GROUP_ENDEAVOR" PlayerOperationType="FREE_CAPTURED_COMMANDER_DIPLOMATIC_ACTION" Target1Type="DIPLOMACY_TARGET_PLAYER" Target2Type="DIPLOMACY_TARGET_UNIT" MaxNumEnvoys="1" MinNumVirtEnvoys="2" MaxNumVirtEnvoys="2" MaxNumSupportEnvoys="0" MaxNumOpposeEnvoys="0" Description="LOC_DIPLOMACY_PROJECT_FREE_CAPTURED_COMMANDER_INITIAL" ActiveDescription="LOC_DIPLOMACY_ACTION_FREE_CAPTURED_COMMANDER_DESCRIPTION"/> -->
+		<Row DiplomacyActionType="DIPLOMACY_ACTION_BECOME_SUZERAIN" DiplomacyActionGroup="DIPLOMACY_ACTION_GROUP_PROJECT" PlayerOperationType="BECOME_SUZERAIN_DIPLOMATIC_ACTION" UIStartProject="true" Target1Type="DIPLOMACY_TARGET_INDEPENDENT" Target2Type="DIPLOMACY_TARGET_NONE" MaxNumEnvoys="2" MinNumVirtEnvoys="1" MaxNumVirtEnvoys="1" MaxNumSupportEnvoys="0" MaxNumOpposeEnvoys="0" Description="LOC_DIPLOMACY_PROJECT_BECOME_SUZERAIN_INITIAL" ActiveDescription="LOC_DIPLOMACY_PROJECT_BECOME_SUZERAIN_DESCRIPTION"/>
 	</DiplomaticProjects_UI_Data>
 	<!--  For relationships we're checking for the level being below the MinRelationship.  Going for the shift on the "0"s so the positives needed to be one less to work right.   -->
 	<DiplomacyPlayerRelationships>
@@ -846,6 +853,7 @@
 		<Row DiplomacyFavorGrievanceEventType="GRIEVANCE_FROM_PRIVATEER_ATTACK" Amount="-4" Name="LOC_GRIEVANCE_FROM_PRIVATER_ATTACK" DiplomacyFavorGrievanceEventGroup="DIPLOMACY_GRIEVANCE"/>
 		<Row DiplomacyFavorGrievanceEventType="GRIEVANCE_FROM_PRIVATEER_PILLAGE" Amount="-4" Name="LOC_GRIEVANCE_FROM_PRIVATER_PILLAGE" DiplomacyFavorGrievanceEventGroup="DIPLOMACY_GRIEVANCE"/>
 		<Row DiplomacyFavorGrievanceEventType="HISTORICAL_EVENT_DECLARING_WAR" Amount="-30" Name="LOC_HISTORICAL_EVENT_DECLARING_WAR" DiplomacyFavorGrievanceEventGroup="DIPLOMACY_HISTORICAL_EVENT"/>
+		<Row DiplomacyFavorGrievanceEventType="HISTORICAL_EVENT_DECLARING_PEACE" Name="LOC_HISTORICAL_EVENT_DECLARING_PEACE" DiplomacyFavorGrievanceEventGroup="DIPLOMACY_HISTORICAL_EVENT"/>
 		<Row DiplomacyFavorGrievanceEventType="HISTORICAL_EVENT_ELIMINATE_CIV" Amount="-10" Name="LOC_HISTORICAL_EVENT_ELIMINATE_CIV" DiplomacyFavorGrievanceEventGroup="DIPLOMACY_HISTORICAL_EVENT"/>
 		<Row DiplomacyFavorGrievanceEventType="HISTORICAL_EVENT_MUTUAL_WAR" Amount="10" Name="LOC_HISTORICAL_EVENT_MUTUAL_WAR" DiplomacyFavorGrievanceEventGroup="DIPLOMACY_HISTORICAL_EVENT"/>
 		<Row DiplomacyFavorGrievanceEventType="HISTORICAL_EVENT_BORDERS_TOUCH" Amount="-10" Name="LOC_HISTORICAL_EVENT_BORDERS_TOUCH" DiplomacyFavorGrievanceEventGroup="DIPLOMACY_UNIQUE_EVENT"/>
@@ -910,7 +918,7 @@
 		<Row DiplomacyActionType="DIPLOMACY_ACTION_LAND_CLAIM" InfCostNoRelationship="0"/>
 		<Row DiplomacyActionType="DIPLOMACY_ACTION_FORM_ALLIANCE" InfCostFriendly="0" InfCostHelpful="0"/>
 		<Row DiplomacyActionType="DIPLOMACY_ACTION_CS_LEVY_UNIT" InfCostNoRelationship="0" InfCostHostile="0" InfCostUnfriendly="0" InfCostNeutral="0" InfCostFriendly="0" InfCostHelpful="0"/>
-		<Row DiplomacyActionType="DIPLOMACY_ACTION_SEND_GOLD" InfCostHostile="-1" InfCostUnfriendly="-1" InfCostNeutral="15" InfCostFriendly="10" InfCostHelpful="5"/>
+		<Row DiplomacyActionType="DIPLOMACY_ACTION_SEND_GOLD" InfCostHostile="0" InfCostUnfriendly="0" InfCostNeutral="0" InfCostFriendly="0" InfCostHelpful="0"/>
 		<!-- <Row DiplomacyActionType="DIPLOMACY_ACTION_FREE_CAPTURED_COMMANDER" InfCostHostile="90" InfCostUnfriendly="90" InfCostNeutral="90" InfCostFriendly="90" InfCostHelpful="90"/> -->
 	</DiplomaticActionInfluenceCosts>
 	<DiplomaticResponses>
@@ -941,6 +949,7 @@
 		<Row DiplomacyActionType="DIPLOMACY_ACTION_COUNTER_SPY" DiplomaticResponseType="DIPLOMACY_RESPONSE_ACCEPT" InfCost="0" Name="LOC_DIPLOMACY_RESPONSE_ACCEPT"/>
 		<!-- <Row DiplomacyActionType="DIPLOMACY_ACTION_FREE_CAPTURED_COMMANDER" DiplomaticResponseType="DIPLOMACY_RESPONSE_ACCEPT" InfCost="0" Name="LOC_DIPLOMACY_RESPONSE_ACCEPT" Description="LOC_DIPLOMACY_PROJECT_FREE_CAPTURED_COMMANDER_ACCEPT"/>
 		<Row DiplomacyActionType="DIPLOMACY_ACTION_FREE_CAPTURED_COMMANDER" DiplomaticResponseType="DIPLOMACY_RESPONSE_REJECT" InfCost="0" Name="LOC_DIPLOMACY_RESPONSE_REJECT" Description="LOC_DIPLOMACY_PROJECT_FREE_CAPTURED_COMMANDER_REJECT"/> -->
+		<Row DiplomacyActionType="DIPLOMACY_ACTION_BECOME_SUZERAIN" DiplomaticResponseType="DIPLOMACY_RESPONSE_ACCEPT" InfCost="0" Name="LOC_DIPLOMACY_RESPONSE_ACCEPT"/>
 	</DiplomaticActionResponses>
 	<DiplomacyModifierTargetTypes>
 		<Row DiplomacyModifierTargetType="DIPLOMACY_MODIFIER_TARGET_INITIAL" Name="DIPLOMACY_MODIFIER_TARGET_INITIAL"/>

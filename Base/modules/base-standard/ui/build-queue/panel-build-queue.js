@@ -1,47 +1,16 @@
-import { A as Audio } from '../../../core/ui/audio-base/audio-support.chunk.js';
-import { a as ActionActivateEventName } from '../../../core/ui/components/fxs-activatable.chunk.js';
-import ActionHandler, { ActiveDeviceTypeChangedEventName } from '../../../core/ui/input/action-handler.js';
-import FocusManager from '../../../core/ui/input/focus-manager.js';
+import { Audio } from '../../../core/ui/audio-base/audio-support.js';
+import { ActionActivateEventName } from '../../../core/ui/components/fxs-activatable.js';
+import ActionHandler from '../../../core/ui/input/action-handler.js';
+import { ActiveDeviceTypeChangedEventName } from '../../../core/ui/input/input-events.js';
 import { InterfaceMode } from '../../../core/ui/interface-modes/interface-modes.js';
-import { N as NavTray } from '../../../core/ui/navigation-tray/model-navigation-tray.chunk.js';
-import { D as Databind } from '../../../core/ui/utilities/utilities-core-databinding.chunk.js';
+import NavTray from '../../../core/ui/navigation-tray/model-navigation-tray.js';
+import Databind from '../../../core/ui/utilities/utilities-core-databinding.js';
+import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
+import { RequestBuildQueueCancelItemEvent, RequestBuildQueueMoveItemLastEvent, RequestBuildQueueMoveItemUpEvent } from './build-queue-events.js';
 import { BuildQueue } from './model-build-queue.js';
 import { FocusCityViewEventName, FocusCityViewEvent } from '../views/view-city.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/input/cursor.js';
-import '../../../core/ui/views/view-manager.chunk.js';
-import '../../../core/ui/panel-support.chunk.js';
-import '../../../core/ui/input/input-support.chunk.js';
-import '../../../core/ui/utilities/utilities-update-gate.chunk.js';
-import '../../../core/ui/utilities/utilities-image.chunk.js';
-import '../../../core/ui/utilities/utilities-component-id.chunk.js';
+import styles from './panel-build-queue.scss.js';
 
-const styles = "fs://game/base-standard/ui/build-queue/panel-build-queue.css";
-
-class RequestBuildQueueMoveItemUpEvent extends CustomEvent {
-  constructor(index) {
-    super("request-build-queue-move-item-up", {
-      bubbles: true,
-      detail: { index }
-    });
-  }
-}
-class RequestBuildQueueMoveItemLastEvent extends CustomEvent {
-  constructor(index) {
-    super("request-build-queue-move-item-last", {
-      bubbles: true,
-      detail: { index }
-    });
-  }
-}
-class RequestBuildQueueCancelItemEvent extends CustomEvent {
-  constructor(index) {
-    super("request-build-queue-cancel-item", {
-      bubbles: true,
-      detail: { index }
-    });
-  }
-}
 class PanelBuildQueue extends Component {
   focusInListener = this.onFocusIn.bind(this);
   focusOutListener = this.onFocusOut.bind(this);
@@ -267,7 +236,7 @@ class PanelBuildQueue extends Component {
         console.error("panel-build-queue: onFocusCityViewEvent(): Missing vSlot with '.fxs-vslot'");
         return;
       }
-      FocusManager.setFocus(vSlot);
+      FocusManager.get().setFocus(vSlot);
     }
   };
   onFocusIn() {
@@ -323,7 +292,7 @@ class PanelBuildQueue extends Component {
             );
           }
           if (newFocusElement) {
-            FocusManager.setFocus(newFocusElement);
+            FocusManager.get().setFocus(newFocusElement);
           } else {
             window.dispatchEvent(new FocusCityViewEvent({ source: "right", destination: "left" }));
           }
@@ -352,7 +321,7 @@ class PanelBuildQueue extends Component {
           `.build-queue__item-container[item-index="${moveIndex}"]`
         );
         if (newFocusElement) {
-          FocusManager.setFocus(newFocusElement);
+          FocusManager.get().setFocus(newFocusElement);
         }
         event.stopPropagation();
       }

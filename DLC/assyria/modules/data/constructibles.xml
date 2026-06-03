@@ -39,18 +39,16 @@
 		<Row ConstructibleType="BUILDING_ROYAL_LIBRARY" YieldType="YIELD_SCIENCE" YieldChange="3"/>
 	</Constructible_YieldChanges>
 	<Constructible_Adjacencies>
-		<Row ConstructibleType="BUILDING_ROYAL_LIBRARY" YieldChangeId="RoyalLibraryRiverScience"/>
+		<Row ConstructibleType="BUILDING_ROYAL_LIBRARY" YieldChangeId="RoyalLibraryRiverHappiness"/>
 		<Row ConstructibleType="BUILDING_ROYAL_LIBRARY" YieldChangeId="WonderScience"/>
 		<Row ConstructibleType="BUILDING_CITADEL" YieldChangeId="WonderProduction"/>
 	</Constructible_Adjacencies>
 	<Constructible_Maintenances>
-		<Row ConstructibleType="BUILDING_ROYAL_LIBRARY" YieldType="YIELD_HAPPINESS" Amount="2"/>
 		<Row ConstructibleType="BUILDING_ROYAL_LIBRARY" YieldType="YIELD_GOLD" Amount="2"/>
-		<Row ConstructibleType="BUILDING_CITADEL" YieldType="YIELD_HAPPINESS" Amount="2"/>
 		<Row ConstructibleType="BUILDING_CITADEL" YieldType="YIELD_GOLD" Amount="2"/>
 	</Constructible_Maintenances>
 	<Adjacency_YieldChanges>
-		<Row ID="RoyalLibraryRiverScience" YieldType="YIELD_SCIENCE" YieldChange="1" TilesRequired="1" ProjectMaxYield="true"  AdjacentRiver="true"/>
+		<Row ID="RoyalLibraryRiverHappiness" YieldType="YIELD_HAPPINESS" YieldChange="1" TilesRequired="1" ProjectMaxYield="true"  AdjacentRiver="true"/>
 	</Adjacency_YieldChanges>
 	<Constructible_Plunders>
 		<!--Civ Unique Buildings-->
@@ -58,7 +56,7 @@
 		<Row ConstructibleType="BUILDING_ROYAL_LIBRARY" PlunderType="PLUNDER_HEAL" Amount="30"/>
 	</Constructible_Plunders>
 	<Constructible_BuildingCostProgressions>
-		 <Row ConstructibleType="BUILDING_CITADEL" Percent="5" />
+		 <Row ConstructibleType="BUILDING_CITADEL" Percent="0" />
 		 <Row ConstructibleType="BUILDING_ROYAL_LIBRARY" Percent="5" />
 	</Constructible_BuildingCostProgressions>
 	<UniqueQuarters>

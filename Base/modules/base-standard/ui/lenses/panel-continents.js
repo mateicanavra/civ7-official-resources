@@ -1,18 +1,10 @@
-import { a as LensActivationEventName, L as LensManager } from '../../../core/ui/lenses/lens-manager.chunk.js';
-import { P as Panel } from '../../../core/ui/panel-support.chunk.js';
-import { n as numberHexToStringRGB } from '../../../core/ui/utilities/utilities-color.chunk.js';
-import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.chunk.js';
+import LensManager, { LensActivationEventName } from '../../../core/ui/lenses/lens-manager.js';
+import Panel from '../../../core/ui/panel-support.js';
+import { numberHexToStringRGB } from '../../../core/ui/utilities/utilities-color.js';
+import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
 import { ContinentLensLayer } from './layer/continent-layer.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/graph-layout/utils.chunk.js';
-import '../../../core/ui/utilities/utilities-image.chunk.js';
-import '../../../core/ui/utilities/utilities-component-id.chunk.js';
-import '../../../core/ui/plot-icons/plot-icons-manager.js';
-import '../utilities/utilities-overlay.chunk.js';
-
-const content = "<fxs-subsystem-frame\r\n\tclass=\"continent-frame flex flex-col items-center pointer-events-auto img-tooltip-bg pb-2\"\r\n\tno-close=\"true\"\r\n\tbox-style=\"b4\"\r\n>\r\n\t<fxs-header\r\n\t\ttitle=\"LOC_UI_CONTINENTS_PANEL_TITLE\"\r\n\t\tclass=\"continents__header flex mb-2 text-center self-center font-title text-base text-secondary\"\r\n\t\tfiligree-style=\"h4\"\r\n\t\tdata-slot=\"header\"\r\n\t></fxs-header>\r\n\t<div class=\"continents__subheader text-center self-center text-sm mb-2\"></div>\r\n\t<fxs-vslot\r\n\t\tclass=\"continents__info-container flex flex-col\"\r\n\t\ttabIndex=\"-1\"\r\n\t>\r\n\t</fxs-vslot>\r\n</fxs-subsystem-frame>\r\n";
-
-const styles = "fs://game/base-standard/ui/lenses/panel-continents.css";
+import content from './panel-continents.html.js';
+import styles from './panel-continents.scss.js';
 
 class ContinentLensInfo extends Panel {
   subsystemFrameCloseListener = this.close.bind(this);

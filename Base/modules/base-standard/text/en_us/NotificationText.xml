@@ -524,6 +524,12 @@
 		<Row Tag="LOC_NOTIFICATION_BARBARIANS_SIGHTED_SUMMARY">
 			<Text>We have spotted Barbarians approaching our City of {1_CityName}.</Text>
 		</Row>
+		<Row Tag="LOC_NOTIFICATION_NINJA_SIGHTED_MESSAGE">
+			<Text>Shinobi Approach</Text>
+		</Row>
+		<Row Tag="LOC_NOTIFICATION_NINJA_SIGHTED_SUMMARY">
+			<Text>We have spotted Shinobi approaching our City of {1_CityName}. They can kill Army Commanders.</Text>
+		</Row>
 		<Row Tag="LOC_NOTIFICATION_NEW_BARBARIAN_CAMP_MESSAGE">
 			<Text>New Barbarian Outpost</Text>
 		</Row>
@@ -564,7 +570,7 @@
 			<Text>New City-State</Text>
 		</Row>
 		<Row Tag="LOC_NOTIFICATION_CITY_STATE_BONUS_CHOSEN_SUMMARY">
-			<Text>{1_Leader} has become the Suzerain of the new City-State of {2_CityStateName} and assigned it the bonus: {3_BonusName} </Text>
+			<Text>{1_Leader} has become the Suzerain of the new City-State of {2_CityStateName} and assigned it the bonus: {3_BonusName}.</Text>
 		</Row>
 		<Row Tag="LOC_NOTIFICATION_CAPITAL_LOST_MESSAGE">
 			<Text>Capital Captured</Text>
@@ -651,10 +657,10 @@
 			<Text>Create your advanced start to begin this Age.</Text>
 		</Row>
 		<Row Tag="LOC_NOTIFICATION_AGE_TRANSITION_MESSAGE">
-			<Text>Choose Legacies</Text>
+			<Text>Choose Dedications</Text>
 		</Row>
 		<Row Tag="LOC_NOTIFICATION_AGE_TRANSITION_SUMMARY">
-			<Text>Choose the Legacies you want to enshrine as you enter this Age.</Text>
+			<Text>Choose the Dedications you want to enshrine as you enter this Age.</Text>
 		</Row>
 		<Row Tag="LOC_NOTIFICATION_DECLARE_WAR_MESSAGE">
 			<Text>Declaration of War</Text>
@@ -732,7 +738,7 @@
 			<Text>Trade Resource Gained</Text>
 		</Row>
 		<Row Tag="LOC_NOTIFICATION_TRADE_RESOURCES_GAINED_SUMMARY">
-			<Text>The foreign Settlement {1_CityName} has added {2_ResourceName} to your Trade Route. You can now assign this Resource to one of your Settlements.</Text>
+			<Text>The foreign Settlement {1_CityName} has added {2_ResourceName} to your Trade Route. You can now utilize this Resource in your Settlements.</Text>
 		</Row>
 		<Row Tag="LOC_NOTIFICATION_TRADE_RESOURCES_LOST_MESSAGE">
 			<Text>Trade Resource Lost</Text>
@@ -927,13 +933,13 @@
 			<Text>Civic Boosts</Text>
 		</Row>
 		<Row Tag="LOC_NOTIFICATION_CIVIC_BOOST_AWARDED_SUMMARY">
-			<Text>Civics have been boosted: {1_CivicNames}.</Text>
+			<Text>Civics have been unlocked: {1_CivicNames}.</Text>
 		</Row>
 		<Row Tag="LOC_NOTIFICATION_TECH_BOOST_AWARDED_MESSAGE">
 			<Text>Technology Boosts</Text>
 		</Row>
 		<Row Tag="LOC_NOTIFICATION_TECH_BOOST_AWARDED_SUMMARY">
-			<Text>Technologies have been boosted: {1_TechNames}.</Text>
+			<Text>Technologies have been unlocked: {1_TechNames}.</Text>
 		</Row>
 		<Row Tag="LOC_NOTIFICATION_REVOLT_MESSAGE">
 			<Text>Settlement Revolt</Text>
@@ -979,6 +985,21 @@
 		<Row Tag="LOC_NOTIFICATION_AGE_EXTENDED_SUMMARY">
 			<Text>While in [B]Just One More Turn[/B] mode, you may play for as many turns as you'd like.  To leave [B]Just One More Turn[/B] mode, select [B]No More Turns[/B] from the Pause menu.</Text>
 		</Row>
+		<Row Tag="LOC_NOTIFICATION_LEGACY_COMPLETED_MESSAGE">
+			<Text>Triumph Completed</Text>
+		</Row>
+		<Row Tag="LOC_NOTIFICATION_LEGACY_COMPLETED_SUMMARY">
+			<Text>{1_PlayerName} has completed the Triumph "{2_Name}" - {3_TriggerDescription}</Text>
+		</Row>
+
+		<!-- Age Transition Notifications -->
+		<Row Tag="LOC_NOTIFICATION_CHOOSE_CIVILIZATION_MESSAGE">
+			<Text>Age Transition has begun</Text>
+		</Row>
+		<Row Tag="LOC_NOTIFICATION_CHOOSE_CIVILIZATION_SUMMARY">
+			<Text>Choose a civilization for the next age</Text>
+		</Row>
+
 		<!-- Legacy Path Notification -->
 		<Row Tag="LOC_NOTIFICATION_LEGACY_PATH_PROGRESS_MESSAGE">
 			<Text>Legacy Path</Text>
@@ -1035,6 +1056,12 @@
 		<Row Tag="LOC_NOTIFICATION_GAME_INVITE_TT">
 			<Text>{1_FriendName} has invited you to a multiplayer game.</Text>
 		</Row>
+		<Row Tag="LOC_NOTIFICATION_HOST_UNRESPONSIVE">
+			<Text>Host is unresponsive!</Text>
+		</Row>
+		<Row Tag="LOC_NOTIFICATION_HOST_UNRESPONSIVE_TT">
+			<Text>Gameplay will be paused until communication with the host is restored.</Text>
+		</Row>    
 		<Row Tag="LOC_NOTIFICATION_DISMISS">
 			<Text>Dismiss</Text>
 		</Row>
@@ -1064,6 +1091,15 @@
 		</Row>
 		<Row Tag="LOC_DIPLOMACY_MAKE_DEAL_NOTIFICATION_MESSAGE_REJECTED">
 			<Text>Peace deal rejected</Text>
+		</Row>
+		<Row Tag="LOC_NOTIFICATION_CHOOSE_SYNCRETISM_MESSAGE">
+			<Text>Syncretic Choice</Text>
+		</Row>
+		<Row Tag="LOC_NOTIFICATION_CHOOSE_SYNCRETISM_SUMMARY">
+			<Text>Choose to unlock either Units or Infrastructure from an associated Civ, or Affirm a unique new Tradition.</Text>
+		</Row>
+		<Row Tag="LOC_MOD_TEST_OF_TIME_SYNCRETISM_DESCRIPTION">
+			<Text>Select an associated Civ's Units or Infrastructure, or Affirm your own Traditions.</Text>
 		</Row>
 	</EnglishText>
 </Database>

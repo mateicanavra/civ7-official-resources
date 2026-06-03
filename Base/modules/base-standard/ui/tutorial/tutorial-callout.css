@@ -1,9 +1,3 @@
-tutorial-callout {
-  --title-display: none;
-  position: relative;
-  height: 100%;
-  width: 100%;
-}
 tutorial-callout.handheld.top-center .tutorial-callout-content {
   max-width: 80vw;
 }
@@ -151,9 +145,6 @@ tutorial-callout.bottom-center .tutorial-callout-content, tutorial-callout.middl
     coh-font-fit-mode: shrink;
   }
 }
-tutorial-callout.show-title {
-  --title-display: flex;
-}
 tutorial-callout.tutorial-callout__anchor-position {
   position: absolute;
   pointer-events: none;
@@ -211,10 +202,9 @@ tutorial-callout.type--notification .advisor-text__tail {
 tutorial-callout.minimized .tutorial-callout-content {
   visibility: hidden;
 }
-tutorial-callout.minimized .tutorial-callout-content fxs-minus-plus,
+tutorial-callout.minimized .tutorial-callout-content .callout-min-button,
 tutorial-callout.minimized .tutorial-callout-content .tutorial-callout-title-container,
 tutorial-callout.minimized .tutorial-callout-content .tutorial-callout-body,
-tutorial-callout.minimized .tutorial-callout-content .callout-minimize__navhelp,
 tutorial-callout.minimized .tutorial-callout-content .tutorial-callout-buttons {
   display: none;
 }
@@ -260,10 +250,9 @@ tutorial-callout.minimized.empty-advisor .tutorial-callout-content {
   bottom: 0;
   left: 0;
   right: 0;
-  border-image-source: url("fs://game/hud_unit-panel_box-bg.png");
+  border-image-source: url("blp:tutorial_bg_update");
   border-image-slice: 30 20 30 20 fill;
   border-image-width: auto;
-  border-image-outset: 0.9444444444rem 0.7222222222rem;
 }
 
 .tutorial-callout-body-advisor-wrapper {
@@ -282,43 +271,24 @@ tutorial-callout.minimized.empty-advisor .tutorial-callout-content {
   right: 15.4444444444rem;
 }
 
-.tutorial-callout-content .tutorial-callout-title-container {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: auto;
-  display: var(--title-display);
-}
-
 .tutorial-callout-content .tutorial-callout-title {
-  position: relative;
-  margin-top: 0.3333333333rem;
-  padding-bottom: 0.4444444444rem;
   letter-spacing: 0.1666666667rem;
-  margin-right: -0.1666666667rem;
-  justify-content: center;
-  text-align: center;
   line-height: 1.5em;
 }
 .tutorial-callout-content .tutorial-callout-title p {
   margin: 0;
 }
 
-.tutorial-callout-title-decoration {
-  background: url("fs://game/hud_fleur.png");
-}
-
-.tutorial-callout-content > .tutorial-callout-body {
+.tutorial-callout-body {
   position: relative;
   display: flex;
   justify-content: space-around;
   flex-direction: column;
 }
-.tutorial-callout-content > .tutorial-callout-body fxs-font-icon {
+.tutorial-callout-body fxs-font-icon {
   margin-right: 0.3333333333rem;
 }
-.tutorial-callout-content > .tutorial-callout-body p {
+.tutorial-callout-body p {
   margin-bottom: 0.6666666667rem;
 }
 
@@ -326,7 +296,6 @@ tutorial-callout.minimized.empty-advisor .tutorial-callout-content {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  margin: 0rem 0.3333333333rem;
   position: relative;
 }
 
@@ -425,6 +394,12 @@ tutorial-callout.minimized.empty-advisor .tutorial-callout-content {
 @media (experience: mobile) {
   .tutorial-callout_has-advisor {
     margin-top: 2.2222222222rem;
+  }
+}
+
+@media (max-height: 55.5555555556rem) {
+  .tutorial-callout-button {
+    width: 66%;
   }
 }
 

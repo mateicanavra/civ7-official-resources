@@ -1,26 +1,18 @@
-import { A as Audio } from '../../../core/ui/audio-base/audio-support.chunk.js';
-import ActionHandler, { ActiveDeviceTypeChangedEventName } from '../../../core/ui/input/action-handler.js';
+import { Audio } from '../../../core/ui/audio-base/audio-support.js';
+import ActionHandler from '../../../core/ui/input/action-handler.js';
+import { ActiveDeviceTypeChangedEventName } from '../../../core/ui/input/input-events.js';
 import { PlotCursor } from '../../../core/ui/input/plot-cursor.js';
 import { InterfaceMode } from '../../../core/ui/interface-modes/interface-modes.js';
-import { P as Panel, A as AnchorType } from '../../../core/ui/panel-support.chunk.js';
-import { S as SpriteSheetAnimation } from '../../../core/ui/input/cursor.js';
-import { C as ComponentID } from '../../../core/ui/utilities/utilities-component-id.chunk.js';
-import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.chunk.js';
-import { Icon } from '../../../core/ui/utilities/utilities-image.chunk.js';
-import { U as UpdateGate } from '../../../core/ui/utilities/utilities-update-gate.chunk.js';
+import Panel, { AnchorType } from '../../../core/ui/panel-support.js';
+import { SpriteSheetAnimation } from '../../../core/ui/utilities/animations.js';
+import { ComponentID } from '../../../core/ui/utilities/utilities-component-id.js';
+import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
+import { Icon } from '../../../core/ui/utilities/utilities-image.js';
+import UpdateGate from '../../../core/ui/utilities/utilities-update-gate.js';
+import AdviceManager from '../advice/advice-manager.js';
 import { NotificationModel } from '../notification-train/model-notification-train.js';
 import WatchOutManager from '../watch-out/watch-out-manager.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/input/input-support.chunk.js';
-import '../../../core/ui/input/focus-manager.js';
-import '../../../core/ui/views/view-manager.chunk.js';
-import '../../../core/ui/context-manager/context-manager.js';
-import '../../../core/ui/context-manager/display-queue-manager.js';
-import '../../../core/ui/dialog-box/manager-dialog-box.chunk.js';
-import '../../../core/ui/utilities/utilities-plotcoord.chunk.js';
-import '../tutorial/tutorial-item.js';
-
-const styles = "fs://game/base-standard/ui/action/panel-action.css";
+import styles from './panel-action.scss.js';
 
 const TURN_BLOCKING_NOTIFICATION_ICON_COUNT = 8;
 const TIMER_FLASH_START = 20;
@@ -138,6 +130,7 @@ class PanelAction extends Panel {
     this.actionButton.setAttribute("data-tooltip-content", Locale.compose("LOC_ACTION_PANEL_TAKE_THE_NEXT_ACTION"));
     this.actionButton.setAttribute("data-audio-group-ref", "turn-action");
     this.actionButton.setAttribute("data-audio-activate-ref", "data-audio-activate");
+    this.actionButton.setAttribute("data-vfx-path", "turn-action-button");
     actionPanelContainer.appendChild(this.actionButton);
     const actionButtonNotificationContainer = document.createElement("div");
     actionButtonNotificationContainer.classList.add("absolute", "inset-0", "pointer-events-none");
@@ -209,6 +202,7 @@ class PanelAction extends Panel {
     engine.on("LocalPlayerTurnEnd", this.onLocalPlayerTurnEnd, this);
     engine.on("NotificationAdded", this.onNotificationAdded, this);
     engine.on("NotificationDismissed", this.onNotificationDismissed, this);
+    engine.on("NotificationUpdated", this.onNotificationUpdated, this);
     engine.on("PlayerTurnActivated", this.onPlayerTurnActivated, this);
     engine.on("PlayerTurnDeactivated", this.onPlayerTurnDeactivated, this);
     engine.on("RemotePlayerTurnBegin", this.remotePlayerTurnChanged, this);
@@ -237,6 +231,7 @@ class PanelAction extends Panel {
     engine.off("LocalPlayerTurnEnd", this.onLocalPlayerTurnEnd, this);
     engine.off("NotificationAdded", this.onNotificationAdded, this);
     engine.off("NotificationDismissed", this.onNotificationDismissed, this);
+    engine.off("NotificationUpdated", this.onNotificationUpdated, this);
     engine.off("PlayerTurnActivated", this.onPlayerTurnActivated, this);
     engine.off("PlayerTurnDeactivated", this.onPlayerTurnDeactivated, this);
     engine.off("RemotePlayerTurnBegin", this.remotePlayerTurnChanged, this);
@@ -340,7 +335,7 @@ class PanelAction extends Panel {
         if (!selectedUnitID) {
           const nextReadyUnitID = UI.Player.getFirstReadyUnit();
           if (nextReadyUnitID) {
-            UI.Player.lookAtID(nextReadyUnitID);
+            UI.Player.lookAtID(nextReadyUnitID, 0);
             UI.Player.selectUnit(nextReadyUnitID);
             return;
           }
@@ -451,7 +446,7 @@ class PanelAction extends Panel {
       const endTurnBlockingType = Game.Notifications.getEndTurnBlockingType(playerID);
       const endTurnBlockingNotificationId = Game.Notifications.findEndTurnBlocking(playerID, endTurnBlockingType);
       const notificationIds = Game.Notifications.getIdsForPlayer(playerID) ?? [];
-      if (endTurnBlockingType == EndTurnBlockingTypes.VIEW_ADVISOR_WARNING && !WatchOutManager.isManagerActive) {
+      if (endTurnBlockingType == EndTurnBlockingTypes.VIEW_ADVISOR_WARNING && !WatchOutManager.isManagerActive && !AdviceManager.isAnyFollowed()) {
         this.setEndTurnWaiting();
         return;
       }
@@ -580,10 +575,15 @@ class PanelAction extends Panel {
         this.sendEndTurn();
       }
       if (!foundNotification) {
-        this.actionText.textContent = Locale.compose("LOC_ACTION_PANEL_NEXT_TURN");
-        this.actionButton.setAttribute("data-tooltip-content", Locale.compose("LOC_ACTION_PANEL_NEXT_TURN"));
+        const isFinalAge = Game.AgeProgressManager.isFinalAge;
+        const ageProgress = Game.AgeProgressManager.getCurrentAgeProgressionPoints();
+        const maxAgeProgress = Game.AgeProgressManager.getMaxAgeProgressionPoints();
+        const showAgeTransition = !isFinalAge && maxAgeProgress - ageProgress <= 0;
+        const iconSrc = showAgeTransition ? UI.getIconURL("NOTIFICATION_CHOOSE_CIVILIZATION", "BUBBLE") : UI.getIconURL("NEXT_TURN", "NOTIFICATION");
+        const displayText = showAgeTransition ? "LOC_END_GAME_TRANSITION" : "LOC_ACTION_PANEL_NEXT_TURN";
+        this.actionText.textContent = Locale.compose(displayText);
+        this.actionButton.setAttribute("data-tooltip-content", Locale.compose(displayText));
         this.pleaseWaitAnimation.stop();
-        const iconSrc = UI.getIconURL("NEXT_TURN", "NOTIFICATION");
         this.notificationIcon.style.backgroundImage = `url(${iconSrc})`;
         this.Root.classList.remove("new-notification");
       }
@@ -667,6 +667,9 @@ class PanelAction extends Panel {
     return false;
   }
   showRemainingMovesState() {
+    if (Game.UnitOperations.canStartAny(GameContext.localPlayerID) == false) {
+      return false;
+    }
     const firstReadyID = UI.Player.getFirstReadyUnit();
     if (firstReadyID && !Configuration.getUser().isUnitCycle_RemainingMoves) {
       const unit = Units.get(firstReadyID);
@@ -714,6 +717,10 @@ class PanelAction extends Panel {
   // Sends turn complete if we haven't already and sets the end turn button to Please Wait.
   sendEndTurn() {
     if (!GameContext.hasSentTurnComplete()) {
+      if (Game.AgeProgressManager.isAgeOver && !Game.AgeProgressManager.isExtendedGame && !Game.AgeProgressManager.isFinalAge) {
+        WorldUI.pushGaussianBlurFilter(5);
+        engine.call("setSnapshotEnabled", true);
+      }
       this.setEndTurnWaiting();
       UI.Player.deselectAllUnits();
       GameContext.sendTurnComplete();
@@ -759,6 +766,9 @@ class PanelAction extends Panel {
     this.queueUpdateIfLocalPlayer(data.id?.owner);
   }
   onNotificationDismissed(data) {
+    this.queueUpdateIfLocalPlayer(data.id?.owner);
+  }
+  onNotificationUpdated(data) {
     this.queueUpdateIfLocalPlayer(data.id?.owner);
   }
   onActionButton(_event) {
@@ -813,7 +823,7 @@ class PanelAction extends Panel {
     if (!localPlayer.isTurnActive) {
       return false;
     }
-    if (Configuration.getGame().isAnyMultiplayer) {
+    if (Configuration.getGame().isNetworkMultiplayer) {
       const playerList = Players.getAlive();
       for (const player of playerList) {
         if (player.isHuman && player.isTurnActive && player.id != localPlayer.id) {
@@ -864,7 +874,7 @@ class PanelAction extends Panel {
         }
       }
     }
-    this.tryAutoUnitCycle();
+    this.tryAutoUnitCycle(Configuration.getUser().autoUnitCycleDelay);
     this.updateGate.call("onUnitMoved");
   }
   onUnitActivityChanged(data) {
@@ -872,24 +882,44 @@ class PanelAction extends Panel {
     if (!ComponentID.isMatch(data.unit, selectedUnitID)) {
       return;
     }
-    this.tryAutoUnitCycle();
+    let delayMS = Configuration.getUser().autoUnitCycleDelay;
+    const isMove = data.activity == UnitActivityTypes.OPERATION && data.operationType == UnitOperationTypes.MOVE_TO;
+    const skipTurn = data.activity == UnitActivityTypes.OPERATION && data.operationType == UnitOperationTypes.SKIP_TURN;
+    let hasMoves = false;
+    if (data.activity == UnitActivityTypes.AWAKE || data.activity == UnitActivityTypes.NONE) {
+      if (!skipTurn && ComponentID.isValid(selectedUnitID)) {
+        const selectedUnit = Units.get(selectedUnitID);
+        if (selectedUnit) {
+          const currentUnitMovesRemaining = selectedUnit.Movement?.movementMovesRemaining ?? 0;
+          if (currentUnitMovesRemaining > 0) {
+            hasMoves = true;
+          }
+        }
+      }
+    }
+    if (skipTurn) {
+      delayMS = 0;
+    }
+    if (!isMove && (skipTurn || !hasMoves)) {
+      this.tryAutoUnitCycle(delayMS);
+    }
     this.updateGate.call("onUnitActivityChanged");
   }
   onUnitBermudaTeleported(data) {
     if (data.unit.owner == GameContext.localPlayerID) {
       delayByFrame(() => {
-        UI.Player.lookAtID(data.unit);
+        UI.Player.lookAtID(data.unit, 0);
         Audio.playSound("data-audio-unit-bermuda-teleported-reappear", "audio-unit");
       }, 200);
     }
   }
-  tryAutoUnitCycle() {
+  tryAutoUnitCycle(delayMS) {
     if (!Configuration.getUser().isAutoUnitCycle) {
       return;
     }
     const nextReadyUnitID = UI.Player.selectNextReadyUnit();
     if (ComponentID.isValid(nextReadyUnitID)) {
-      UI.Player.lookAtID(nextReadyUnitID);
+      UI.Player.lookAtID(nextReadyUnitID, delayMS / 1e3);
       const unitLocation = Units.get(nextReadyUnitID)?.location;
       if (unitLocation) {
         PlotCursor.plotCursorCoords = unitLocation;

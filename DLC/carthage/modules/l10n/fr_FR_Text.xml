@@ -784,29 +784,41 @@
     <Replace Tag="LOC_LEADER_CHAIN_1180_CARTHAGEE_IMPERATIVE" Language="fr_FR">
       <Text>Possédez un monument et lancez une célébration.</Text>
     </Replace>
+    <Replace Tag="LOC_TOT_30015A_COMPLETION" Language="fr_FR">
+      <Text>Les commerçant carthaginois sont présents sur tous les marchés du monde connu ou presque. Les guildes carthaginoises négocient les droits de passage, et les douanes carthaginoises réorientent les profits vers Carthage. Ce système ne fait pas l'unanimité : les pays voisins pestent de plus en plus fort.</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30015A_STORYTITLE" Language="fr_FR">
+      <Text>Le pouvoir de la bourse</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30015B_DESCRIPTION" Language="fr_FR">
+      <Text>{1_reward}.</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30015B_NAME" Language="fr_FR">
+      <Text>Puissance mercantile est synonyme de pouvoir politique. Serrons encore plus la vis.</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30015C_DESCRIPTION" Language="fr_FR">
+      <Text>{1_reward}.</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30015C_NAME" Language="fr_FR">
+      <Text>Les soldats aident à peaufiner les détails des accords.</Text>
+    </Replace>
     <Replace Tag="LOC_ABILITY_COLONIST_DESCRIPTION" Language="fr_FR">
-      <Text>[icon:Action_Move] PM +1 lorsque cette unité est embarquée. [icon:YIELD_POPULATION] Population +1 si elle fonde une colonie adjacente à une [icon:RADIAL_RESOURCES] ressource.</Text>
+      <Text>[icon:Action_Move] PM +1 lorsque cette unité est [TIP:LOC_PEDIA_CONCEPTS_EMBARK_TOOLTIP]embarquée[/TIP]. [icon:YIELD_POPULATION] Population +1 si elle fonde une colonie adjacente à une [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]ressource[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_ABILITY_NUMIDIAN_CAVALRY_DESCRIPTION" Language="fr_FR">
-      <Text>[icon:NAR_REW_COMBAT] Puissance de combat +1 par [icon:RADIAL_RESOURCES] ressource de ville différente assignée à votre [icon:NOTIFICATION_SELECT_CAPITAL] capitale.</Text>
-    </Replace>
-    <Replace Tag="LOC_ATTR_TOTAL_TRADE_ROUTES" Language="fr_FR">
-      <Text>Routes commerciales totales</Text>
-    </Replace>
-    <Replace Tag="LOC_ATTR_YIELDS_FROM_NUM_TRADE_ROUTES" Language="fr_FR">
-      <Text>Nombre de routes commerciales</Text>
+      <Text>[icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Puissance de combat[/TIP] +1 par [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_CITY_RESOURCES_TOOLTIP]ressource de ville[/TIP] différente assignée à votre [icon:NOTIFICATION_SELECT_CAPITAL] capitale.</Text>
     </Replace>
     <Replace Tag="LOC_BUILDING_COTHON_DESCRIPTION" Language="fr_FR">
-      <Text>Bâtiment de Production exclusif à Carthage. [icon:YIELD_PRODUCTION] Production +2. [icon:YIELD_PRODUCTION] Production +1 par case de côte, merveille ou fleuve navigable adjacente. Intemporel. Peut être acheté dans les [icon:YIELD_TOWNS] communes. Doit être placé sur la côte.</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_BUILDING_TOOLTIP]Bâtiment de Production exclusif[/TIP] à Carthage. [icon:YIELD_PRODUCTION] Production +2. [icon:YIELD_PRODUCTION] Production +1 par case de côte, [TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]merveille[/TIP] ou [TIP:LOC_PEDIA_CONCEPTS_NAVIGABLE_RIVER_TOOLTIP]fleuve navigable[/TIP] adjacente. Doit être placé sur la côte.</Text>
     </Replace>
     <Replace Tag="LOC_BUILDING_COTHON_TOOLTIP" Language="fr_FR">
-      <Text>Peut être acheté dans les [icon:YIELD_TOWNS] communes. Doit être placé sur la côte.[n]Bâtiment exclusif à Carthage.</Text>
+      <Text>Doit être placé sur la côte.[n][TIP:LOC_PEDIA_CONCEPTS_UNIQUE_BUILDING_TOOLTIP]Bâtiment exclusif[/TIP] à Carthage.</Text>
     </Replace>
     <Replace Tag="LOC_BUILDING_DOCKYARD_DESCRIPTION" Language="fr_FR">
-      <Text>Bâtiment générant de l'Or exclusif à Carthage. [icon:YIELD_GOLD] Or +2. [icon:YIELD_FOOD] Nourriture +1 par ressource, merveille et district adjacents. Intemporel. Peut être acheté dans les [icon:YIELD_TOWNS] communes. Doit être placé sur la côte.</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_BUILDING_TOOLTIP]Bâtiment générant de l'Or exclusif[/TIP] à Carthage. [icon:YIELD_GOLD] Or +2. [icon:YIELD_FOOD] Nourriture +1 par [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]ressource[/TIP], [TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]merveille[/TIP] et [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]district[/TIP] adjacents. Doit être placé sur la côte.</Text>
     </Replace>
     <Replace Tag="LOC_BUILDING_DOCKYARD_TOOLTIP" Language="fr_FR">
-      <Text>Peut être acheté dans les [icon:YIELD_TOWNS] communes. Doit être placé sur la côte.[n]Bâtiment exclusif à Carthage.</Text>
+      <Text>Doit être placé sur la côte.[n][TIP:LOC_PEDIA_CONCEPTS_UNIQUE_BUILDING_TOOLTIP]Bâtiment exclusif[/TIP] à Carthage.</Text>
     </Replace>
     <Replace Tag="LOC_CIVIC_RED_SLIP_AUTHOR" Language="fr_FR">
       <Text>Mago</Text>
@@ -827,13 +839,13 @@
       <Text>"En présentant la flotte capturée, les Carthaginois permettaient au peuple de voir de ses propres yeux la gloire de leur réussite."</Text>
     </Replace>
     <Replace Tag="LOC_CIVILIZATION_CARTHAGE_DESCRIPTION" Language="fr_FR">
-      <Text>Vous ne pouvez posséder qu'une seule [icon:YIELD_CITIES] ville. Les [icon:YIELD_TOWNS] communes n'ont pas accès au projet Conversion en ville. Chaque fois que vous formez ou achetez un [icon:UNIT_MERCHANT] marchand ou un [icon:UNIT_COLONIST] colon carthaginois, vous en recevez un second.</Text>
+      <Text>Vous ne pouvez avoir qu'une seule [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]ville[/TIP]. Les [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]communes[/TIP] peuvent acheter des [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]bâtiments[/TIP] hydriques quelle que soit leur [TIP:LOC_PEDIA_CONCEPTS_TOWN_FOCUS_TOOLTIP]spécialisation[/TIP], mais elles n'ont pas accès au projet Conversion en ville. Chaque fois que vous formez ou achetez un [icon:UNIT_MERCHANT] marchand ou un [icon:UNIT_COLONIST] colon carthaginois, vous en recevez un second.</Text>
     </Replace>
     <Replace Tag="LOC_LOADING_CIV_INTRO_TEXT_CARTHAGE" Language="fr_FR">
       <Text>Bien à l'abri dans leurs cothons, les navires préparent leurs expéditions. Certains sont chargés de poteries de luxe, de céréales et d'autres articles à échanger contre de l'or et de l'ivoire. D'autres transportent des soldats cherchant le profit par des moyens différents. Les uns comme les autres rentreront chez eux, au centre du monde, à Carthage. Ouvrez les portes des cothons, et qu'à leur retour, vos flottes apportent prospérité à la cité.</Text>
     </Replace>
     <Replace Tag="LOC_LOADING_CIV_TIPS_TEXT_CARTHAGE" Language="fr_FR">
-      <Text>Le quartier exclusif du port punique peut être acheté dans les communes. Il augmente leur capacité en ressources et est conservé à travers les âges, ce qui vous fournira de puissants avantages à long terme !</Text>
+      <Text>Carthage a la possibilité d'acheter des bâtiments hydriques dans ses communes. Elles peuvent donc réunir les deux bâtiments exclusifs pour créer le quartier exclusif du port punique qui augmente leur capacité en ressources pour le restant de la partie.</Text>
     </Replace>
     <Replace Tag="LOC_LOADING_INTRO_CARTHAGE" Language="fr_FR">
       <Text>Les enfants de Tyr ont longuement voyagé pour prendre en main leur destinée. Depuis le centre du monde, ils régneront sur un empire sans égal.</Text>
@@ -844,44 +856,29 @@
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_CARTHAGE_COMPLETE_BYRSA_NAME" Language="fr_FR">
       <Text>Byrsa</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_CARTHAGE_LEGACY_PATH_MILITARISTIC_DESC" Language="fr_FR">
-      <Text>Terminer une orientation d'héritage militaire avec Carthage.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_CARTHAGE_FOUR_MAJOR_TRIUMPHS_DESC" Language="fr_FR">
+      <Text>Terminer 4 triomphes majeurs économiques ou militaristes en un seul apogée avec Carthage</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_CARTHAGE_LEGACY_PATH_MILITARISTIC_NAME" Language="fr_FR">
-      <Text>Orientation d'héritage de Carthage</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_CARTHAGE_FOUR_MAJOR_TRIUMPHS_NAME" Language="fr_FR">
+      <Text>Carthage - 4 triomphes majeurs</Text>
     </Replace>
     <Replace Tag="LOC_MOD_CIV_WONDER_PRODUCTION_CARTHAGE_DESCRIPTION" Language="fr_FR">
       <Text>[icon:WONDER] Merveille associée à Carthage : [icon:YIELD_PRODUCTION] Production +30 %.</Text>
     </Replace>
-    <Replace Tag="LOC_MOD_RED_SLIP_RESOURCE_CAP_DESCRIPTION" Language="fr_FR">
-      <Text>Capacité en [icon:RADIAL_RESOURCES] ressources +3 dans la [icon:NOTIFICATION_SELECT_CAPITAL] capitale.</Text>
-    </Replace>
-    <Replace Tag="LOC_MOD_RED_SLIP_TRADE_GOLD_DESCRIPTION" Language="fr_FR">
-      <Text>Portée +15 pour les [icon:TRADE_ROUTE] routes commerciales navales. [icon:YIELD_GOLD] Or +3 dans la [icon:NOTIFICATION_SELECT_CAPITAL] capitale par [icon:TRADE_ROUTE] route commerciale partant de la capitale. </Text>
-    </Replace>
-    <Replace Tag="LOC_MOD_SHIPSHEDS_NAVAL_FIRST_STRIKE_DESCRIPTION" Language="fr_FR">
-      <Text>[icon:NAR_REW_COMBAT] Puissance de combat +5 pour les unités navales disposant de tous leurs PV.</Text>
-    </Replace>
-    <Replace Tag="LOC_MOD_SHIPSHEDS_NAVAL_FIRST_STRIKE_PREVIEW" Language="fr_FR">
-      <Text>Maîtrise de Hangars à bateaux : +5</Text>
-    </Replace>
-    <Replace Tag="LOC_MOD_SHIPSHEDS_NAVAL_MOVEMENT_DESCRIPTION" Language="fr_FR">
-      <Text>[icon:Action_Move] PM +1 pour les unités navales.</Text>
-    </Replace>
-    <Replace Tag="LOC_MOD_SICILIAN_WARS_MOVEMENT_NUMIDIAN_CAVALRY_DESCRIPTION" Language="fr_FR">
-      <Text>[icon:Action_Move] PM +1 et [icon:Action_Showall] vision +1 pour la [icon:UNIT_NUMIDIAN_CAVALRY] cavalerie numide.</Text>
-    </Replace>
     <Replace Tag="LOC_MOD_SICILIAN_WARS_SETTLEMENT_CAP_DESCRIPTION" Language="fr_FR">
-      <Text>[icon:SETTLEMENT_LIMIT] Limite de colonies +2.</Text>
+      <Text>[icon:SETTLEMENT_LIMIT] [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_LIMIT_TOOLTIP]Limite de colonies[/TIP] +2.</Text>
     </Replace>
-    <Replace Tag="LOC_MOD_SICILIAN_WARS_TOWN_PROJECT_DESCRIPTION" Language="fr_FR">
-      <Text>+1 emplacement de [icon:NAR_REW_GREATWORK] codex pour les hôtels de ville dans les [icon:YIELD_TOWNS] communes possédant la [icon:TOWN_FOCUS] spécialisation Comptoir commercial.</Text>
+    <Replace Tag="LOC_NODE_CIVIC_EX_CARTHAGE_RENAISSANCE_NAME" Language="fr_FR">
+      <Text>Renaissance carthaginoise</Text>
+    </Replace>
+    <Replace Tag="LOC_NODE_CIVIC_MO_CARTHAGE_MODERNIZATION_NAME" Language="fr_FR">
+      <Text>Modernisation carthaginoise</Text>
     </Replace>
     <Replace Tag="LOC_QUARTER_PUNIC_PORT_DESCRIPTION" Language="fr_FR">
-      <Text>Quartier exclusif aux Carthaginois. Créé en construisant un cothon et un atelier naval dans le même district. [icon:RADIAL_RESOURCES] Capacité en ressources +2 dans cette colonie.</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_QUARTER_TOOLTIP]Quartier exclusif[/TIP] aux Carthaginois. Créé en construisant un cothon et un atelier naval dans le même [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]district[/TIP]. [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCE_CAPACITY_TOOLTIP]Capacité en ressources[/TIP] +2 dans cette [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]colonie[/TIP]. [TIP:LOC_PEDIA_CONCEPTS_RESOURCE_CAPACITY_TOOLTIP]Capacité en ressources[/TIP] [icon:RADIAL_RESOURCES] +3 en cas de placement dans la [icon:NOTIFICATION_SELECT_CAPITAL] capitale.</Text>
     </Replace>
     <Replace Tag="LOC_QUARTER_PUNIC_PORT_TOOLTIP" Language="fr_FR">
-      <Text>[icon:RADIAL_RESOURCES] Capacité en ressources +2 dans cette colonie.</Text>
+      <Text>[icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCE_CAPACITY_TOOLTIP]Capacité en ressources[/TIP] +2 dans cette [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]colonie[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_QUOTE_AUTHOR_WONDER_BYRSA" Language="fr_FR">
       <Text>Léon l'Africain</Text>
@@ -889,17 +886,38 @@
     <Replace Tag="LOC_QUOTE_WONDER_BYRSA" Language="fr_FR">
       <Text>Il demeure à ce jour certains vestiges des remparts de la ville.</Text>
     </Replace>
-    <Replace Tag="LOC_TRADITION_GAULOS_DESCRIPTION" Language="fr_FR">
-      <Text>Réduit de +25 % le coût en [icon:YIELD_GOLD] Or des [icon:CITY_BUILDING_LIST] bâtiments sur des côtes ou des fleuves navigables.</Text>
+    <Replace Tag="LOC_TRADITION_CARTHAGE_SYNCRETISM_EXPLORATION_DESCRIPTION" Language="fr_FR">
+      <Text>[icon:YIELD_GOLD] Or +1 et [icon:YIELD_PRODUCTION] Production +1 dans la [icon:NOTIFICATION_SELECT_CAPITAL] [TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]capitale[/TIP] pour chaque [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]ressource[/TIP] assignée.</Text>
     </Replace>
-    <Replace Tag="LOC_TRADITION_QUINQUEREME_DESCRIPTION" Language="fr_FR">
-      <Text>Réduit de +25 % le coût en [icon:YIELD_GOLD] Or des unités navales. Coût d'entretien en [icon:YIELD_GOLD] Or -1 pour les unités navales.</Text>
+    <Replace Tag="LOC_TRADITION_CARTHAGE_SYNCRETISM_MODERN_DESCRIPTION" Language="fr_FR">
+      <Text>[icon:YIELD_GOLD] Or +2 et [icon:YIELD_PRODUCTION] Production +2 dans la [icon:NOTIFICATION_SELECT_CAPITAL] [TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]capitale[/TIP] pour chaque [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]ressource[/TIP] assignée.</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_CARTHAGE_SYNCRETISM_TOOLTIP" Language="fr_FR">
+      <Text>Règne des Hannon</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_GAULOS_I_DESCRIPTION" Language="fr_FR">
+      <Text>[icon:YIELD_GOLD] Or alloué à l'achat [TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]d'unités navales[/TIP] et de [icon:CITY_BUILDING_LIST] [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]bâtiments[/TIP] hydriques augmenté de 25 %. [icon:YIELD_GOLD] Or +1 dans la [icon:NOTIFICATION_SELECT_CAPITAL] [TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]capitale[/TIP] pour chaque [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]commune[/TIP].</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_GAULOS_II_DESCRIPTION" Language="fr_FR">
+      <Text>[icon:YIELD_GOLD] Or alloué à l'achat [TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]d'unités navales[/TIP] et de [icon:CITY_BUILDING_LIST] [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]bâtiments[/TIP] hydriques augmenté de 25 %. [icon:YIELD_GOLD] Or +3 dans la [icon:NOTIFICATION_SELECT_CAPITAL] [TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]capitale[/TIP] pour chaque [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]commune[/TIP].</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_QUINQUEREME_I_DESCRIPTION" Language="fr_FR">
+      <Text>Portée +1 pour les [TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]unités navales lourdes[/TIP]. Coût [TIP:LOC_PEDIA_CONCEPTS_MAINTENANCE_TOOLTIP]d'entretien[/TIP] en [icon:YIELD_GOLD] Or -1 pour les unités navales.</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_QUINQUEREME_II_DESCRIPTION" Language="fr_FR">
+      <Text>Portée +1 pour les [TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]unités navales lourdes[/TIP]. Coût [TIP:LOC_PEDIA_CONCEPTS_MAINTENANCE_TOOLTIP]d'entretien[/TIP] en [icon:YIELD_GOLD] Or -2 pour les unités navales. [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Puissance de combat[/TIP] +1 pour les unités navales par [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]ressource[/TIP] de ville différente assignée à votre [icon:NOTIFICATION_SELECT_CAPITAL] [TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]capitale[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_SUFFETES_DESCRIPTION" Language="fr_FR">
-      <Text>[icon:YIELD_GOLD] Or +20 % dans les [icon:YIELD_TOWNS] communes minières. [icon:YIELD_FOOD] Nourriture +20 % dans les [icon:YIELD_TOWNS] communes agricoles et de pêche.</Text>
+      <Text>[icon:YIELD_GOLD] Or +20 % dans les [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]communes[/TIP] minières. [icon:YIELD_FOOD] Nourriture +20 % dans les [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]communes[/TIP] agricoles et de pêche. Portée +1 pour les [icon:TRADE_ROUTE] routes commerciales navales par [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]commune[/TIP] dotée de la [icon:TOWN_FOCUS] spécialisation Comptoir commercial.</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_CARTHAGE_ABILITY_DESCRIPTION" Language="fr_FR">
-      <Text>[BLIST][LI]Vous ne pouvez avoir [B]qu'une seule [icon:YIELD_CITIES] ville[/B]. Les [icon:YIELD_TOWNS] communes n'ont pas accès au projet [B]Conversion en ville[/B].[LI]Chaque fois que vous formez ou achetez un [icon:UNIT_MERCHANT] [B]marchand[/B] ou un [icon:UNIT_COLONIST] [B]colon carthaginois[/B], vous en recevez un second.[LI][B][icon:YIELD_PRODUCTION] Production +30 %[/B] pour la construction de [B]Byrsa[/B].[/LIST]</Text>
+      <Text>[BLIST][LI]Vous ne pouvez avoir qu'une seule [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]ville[/TIP]. Les [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]communes[/TIP] peuvent acheter des [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]bâtiments[/TIP] hydriques quelle que soit leur [TIP:LOC_PEDIA_CONCEPTS_TOWN_FOCUS_TOOLTIP]spécialisation[/TIP], mais n'ont pas accès au projet [B]Conversion en ville[/B].[LI]Chaque fois que vous formez ou achetez un [icon:UNIT_MERCHANT] [B]marchand[/B] ou un [icon:UNIT_COLONIST] [B]colon carthaginois[/B], vous en recevez un second.[LI][B][icon:YIELD_PRODUCTION] Production +30 %[/B] pour la construction de [B]Byrsa[/B].[/LIST]</Text>
+    </Replace>
+    <Replace Tag="LOC_TRAIT_CARTHAGE_ABILITY_EX_DESCRIPTION" Language="fr_FR">
+      <Text>[BLIST][LI]Vous ne pouvez avoir qu'une seule [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]ville[/TIP]. Les [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]communes[/TIP] peuvent acheter des [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]bâtiments[/TIP] hydriques quelle que soit leur [TIP:LOC_PEDIA_CONCEPTS_TOWN_FOCUS_TOOLTIP]spécialisation[/TIP], mais n'ont pas accès au projet [B]Conversion en ville[/B].[LI]Chaque fois que vous formez ou achetez un [icon:UNIT_MERCHANT] [B]marchand[/B] ou un [icon:UNIT_SETTLER] [B]colon[/B], vous en recevez un second.[/BLIST]</Text>
+    </Replace>
+    <Replace Tag="LOC_TRAIT_CARTHAGE_ABILITY_MO_DESCRIPTION" Language="fr_FR">
+      <Text>[BLIST][LI]Vous ne pouvez avoir qu'une seule [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]ville[/TIP]. Les [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]communes[/TIP] peuvent acheter des [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]bâtiments[/TIP] hydriques quelle que soit leur [TIP:LOC_PEDIA_CONCEPTS_TOWN_FOCUS_TOOLTIP]spécialisation[/TIP], mais n'ont pas accès au projet [B]Conversion en ville[/B].[LI]Chaque fois que vous formez ou achetez un [icon:UNIT_MERCHANT] [B]marchand[/B] ou un [icon:UNIT_SETTLER] [B]colon[/B], vous en recevez un second.[/BLIST]</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_CARTHAGE_ABILITY_NAME" Language="fr_FR">
       <Text>Héritage phénicien</Text>
@@ -908,19 +926,22 @@
       <Text>Dogmes carthaginois</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_COLONIST_DESCRIPTION" Language="fr_FR">
-      <Text>Colon exclusif à Carthage. [icon:Action_Move] PM +1 lorsque cette unité est embarquée. [icon:YIELD_POPULATION] Population +1 si elle fonde une colonie adjacente à une [icon:RADIAL_RESOURCES] ressource.</Text>
+      <Text>Colon exclusif à Carthage. [icon:Action_Move] PM +1 lorsque cette unité est [TIP:LOC_PEDIA_CONCEPTS_EMBARK_TOOLTIP]embarquée[/TIP]. [icon:YIELD_POPULATION] Population +1 si elle fonde une colonie adjacente à une [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]ressource[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_NUMIDIAN_CAVALRY_2_DESCRIPTION" Language="fr_FR">
-      <Text>Unité de cavalerie de niveau 3 exclusive à Carthage. Uniquement disponible à l'achat et plus coûteuse. [icon:NAR_REW_COMBAT] Puissance de combat +1 par [icon:RADIAL_RESOURCES] ressource de ville différente affectée à votre [icon:NOTIFICATION_SELECT_CAPITAL] capitale. Ignore les zones de contrôle.</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_CAVALRY_UNITS_TOOLTIP]Unité de cavalerie[/TIP] de niveau 3 exclusive à Carthage. Uniquement disponible à l'achat et plus coûteuse. [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Puissance de combat[/TIP] +1 par [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_CITY_RESOURCES_TOOLTIP]ressource de ville[/TIP] différente affectée à votre [icon:NOTIFICATION_SELECT_CAPITAL] capitale.</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_NUMIDIAN_CAVALRY_BASE_DESCRIPTION" Language="fr_FR">
-      <Text>Unité de cavalerie exclusive à Carthage. Uniquement disponible à l'achat et plus coûteuse. [icon:NAR_REW_COMBAT] Puissance de combat +1 par [icon:RADIAL_RESOURCES] ressource de ville différente affectée à votre [icon:NOTIFICATION_SELECT_CAPITAL] capitale. Ignore les zones de contrôle.</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_CAVALRY_UNITS_TOOLTIP]Unité de cavalerie[/TIP] exclusive à Carthage. Uniquement disponible à l'achat et plus coûteuse. [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Puissance de combat[/TIP] +1 par [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_CITY_RESOURCES_TOOLTIP]ressource de ville[/TIP] différente affectée à votre [icon:NOTIFICATION_SELECT_CAPITAL] capitale.</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_NUMIDIAN_CAVALRY_DESCRIPTION" Language="fr_FR">
-      <Text>Unité de cavalerie de niveau 2 exclusive à Carthage. Uniquement disponible à l'achat et plus coûteuse. [icon:NAR_REW_COMBAT] Puissance de combat +1 par [icon:RADIAL_RESOURCES] ressource de ville différente affectée à votre [icon:NOTIFICATION_SELECT_CAPITAL] capitale. Ignore les zones de contrôle.</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_CAVALRY_UNITS_TOOLTIP]Unité de cavalerie[/TIP] de niveau 2 exclusive à Carthage. Uniquement disponible à l'achat et plus coûteuse. [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Puissance de combat[/TIP] +1 par [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_CITY_RESOURCES_TOOLTIP]ressource de ville[/TIP] différente affectée à votre [icon:NOTIFICATION_SELECT_CAPITAL] capitale.</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_PLAY_AS_AUGUSTUS_CARTHAGE_TOOLTIP" Language="fr_FR">
       <Text>[B]Carthage[/B] présente des synergies stratégiques avec [B]Auguste[/B].</Text>
+    </Replace>
+    <Replace Tag="LOC_UNLOCK_PLAY_AS_CARTHAGE_CARTHAGE_TOOLTIP" Language="fr_FR">
+      <Text>[B]Carthage[/B] est capable de traverser les âges.</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_PLAY_AS_CARTHAGE_DESCRIPTION" Language="fr_FR">
       <Text>Jouer avec [B]Carthage[/B].</Text>
@@ -938,23 +959,31 @@
       <Text>[B]Isabelle[/B] et [B]Carthage[/B] étaient établies autour de la Méditerranée.</Text>
     </Replace>
     <Replace Tag="LOC_WONDER_BYRSA_DESCRIPTION" Language="fr_FR">
-      <Text>[icon:YIELD_GOLD] Or +2. Les [icon:TRADE_ROUTE] routes commerciales sont insensibles au [icon:Action_Pillage] pillage. Tous les [icon:CITY_URBAN] districts de cette [icon:YIELD_CITIES] ville adjacents à la côte et pouvant accueillir des remparts en sont immédiatement dotés. Doit être placée sur une case adjacente à la côte.</Text>
+      <Text>[icon:YIELD_GOLD] Or +2. Les [icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]routes commerciales[/TIP] sont insensibles au [icon:Action_Pillage] pillage. Tous les [icon:CITY_URBAN] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]districts[/TIP] de cette [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]ville[/TIP] adjacents à la côte et pouvant accueillir des [TIP:LOC_PEDIA_CONCEPTS_WALL_TOOLTIP]remparts[/TIP] en sont immédiatement dotés. [TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]Intemporelle[/TIP]. Doit être placée sur une case adjacente à la côte.</Text>
     </Replace>
     <Replace Tag="LOC_WONDER_BYRSA_TOOLTIP" Language="fr_FR">
-      <Text>Les [icon:TRADE_ROUTE] routes commerciales sont insensibles au [icon:Action_Pillage] pillage. Tous les [icon:CITY_URBAN] districts de cette [icon:YIELD_CITIES] ville adjacents à la côte et pouvant accueillir des remparts en sont immédiatement dotés.[N]Doit être placée sur une case adjacente à la côte.</Text>
+      <Text>Les [icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]routes commerciales[/TIP] sont insensibles au [icon:Action_Pillage] pillage. Tous les [icon:CITY_URBAN] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]districts[/TIP] de cette [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]ville[/TIP] adjacents à la côte et pouvant accueillir des [TIP:LOC_PEDIA_CONCEPTS_WALL_TOOLTIP]remparts[/TIP] en sont immédiatement dotés.[N]Doit être placée sur une case adjacente à la côte.</Text>
     </Replace>
-    <Replace Tag="LOC_COMBAT_PREVIEW_NUMBER_RESOURCES_CAPITAL_BONUS_DESC" Language="fr_FR">
-      <Text>Puissance de combat +{1_Value} grâce aux ressources affectées à la capitale.</Text>
+    <Replace Tag="LOC_TRADITION_QUINQUEREME_COMBAT_PREVIEW" Language="fr_FR">
+      <Text>Quinquérème : +{1_Amount}</Text>
     </Replace>
-    <Replace Tag="LOC_TRADITION_GAULOS_NAME" Language="fr_FR">
-      <Text>Gaulos</Text>
-      <Gender>masculine</Gender>
-      <Plurality>1</Plurality>
+    <Replace Tag="LOC_TRADITION_CARTHAGE_SYNCRETISM_EXPLORATION_NAME" Language="fr_FR">
+      <Text>Règne des Hannon I</Text>
     </Replace>
-    <Replace Tag="LOC_TRADITION_QUINQUEREME_NAME" Language="fr_FR">
-      <Text>Quinquérème</Text>
-      <Gender>feminine</Gender>
-      <Plurality>1</Plurality>
+    <Replace Tag="LOC_TRADITION_CARTHAGE_SYNCRETISM_MODERN_NAME" Language="fr_FR">
+      <Text>Règne des Hannon II</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_GAULOS_I_NAME" Language="fr_FR">
+      <Text>Gaulos I</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_GAULOS_II_NAME" Language="fr_FR">
+      <Text>Gaulos II</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_QUINQUEREME_I_NAME" Language="fr_FR">
+      <Text>Quinquérème I</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_QUINQUEREME_II_NAME" Language="fr_FR">
+      <Text>Quinquérème II</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_SUFFETES_NAME" Language="fr_FR">
       <Text>Suffètes</Text>

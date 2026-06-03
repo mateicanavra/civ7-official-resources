@@ -1,39 +1,13 @@
-import { A as Audio } from '../../audio-base/audio-support.chunk.js';
-import { F as FxsActivatable } from '../../components/fxs-activatable.chunk.js';
+import { Audio } from '../../audio-base/audio-support.js';
+import { FxsActivatable } from '../../components/fxs-activatable.js';
 import ContextManager from '../../context-manager/context-manager.js';
-import FocusManager from '../../input/focus-manager.js';
-import { N as NavTray } from '../../navigation-tray/model-navigation-tray.chunk.js';
-import { P as Panel } from '../../panel-support.chunk.js';
+import NavTray from '../../navigation-tray/model-navigation-tray.js';
+import Panel from '../../panel-support.js';
 import { CreateGameModel } from './create-game-model.js';
-import { a as getMementoData } from './leader-select-model.chunk.js';
-import { D as Databind } from '../../utilities/utilities-core-databinding.chunk.js';
-import '../../context-manager/display-queue-manager.js';
-import '../../dialog-box/manager-dialog-box.chunk.js';
-import '../../framework.chunk.js';
-import '../../input/cursor.js';
-import '../../views/view-manager.chunk.js';
-import '../../input/action-handler.js';
-import '../../input/input-support.chunk.js';
-import '../../utilities/utilities-update-gate.chunk.js';
-import '../../utilities/utilities-image.chunk.js';
-import '../../utilities/utilities-component-id.chunk.js';
-import '../../events/shell-events.chunk.js';
-import '../../profile-page/screen-profile-page.js';
-import '../../components/fxs-dropdown.chunk.js';
-import '../../input/focus-support.chunk.js';
-import '../../components/fxs-slot.chunk.js';
-import '../../spatial/spatial-manager.js';
-import '../../utilities/utilities-dom.chunk.js';
-import '../../save-load/model-save-load.chunk.js';
-import '../leader-select/leader-button/leader-button.js';
-import '../../utilities/utilities-layout.chunk.js';
-import '../../utilities/utilities-liveops.js';
-import '../../utilities/utilities-metaprogression.chunk.js';
-import './age-civ-select-model.chunk.js';
-import '../live-event-logic/live-event-logic.chunk.js';
-import '../../utilities/utilities-data.chunk.js';
-
-const styles = "fs://game/core/ui/shell/create-panels/memento-editor.css";
+import { getMementoData } from './leader-select-model.js';
+import Databind from '../../utilities/utilities-core-databinding.js';
+import { FocusManager } from '../../../ui-next/services/focus-manager.js';
+import styles from './memento-editor.scss.js';
 
 class Memento extends FxsActivatable {
   _mementoData;
@@ -93,6 +67,8 @@ class Memento extends FxsActivatable {
       const desc = Locale.compose(this._mementoData.functionalTextDesc);
       const flavor = Locale.stylize(this._mementoData.flavorTextDesc);
       const unlock = Locale.stylize(this._mementoData.unlockReason);
+      this.Root.setAttribute("data-tooltip-anchor", "right");
+      this.Root.setAttribute("data-tooltip-anchor-offset", "10");
       if (this._mementoData.displayType == DisplayType.DISPLAY_LOCKED) {
         this.Root.setAttribute(
           "data-tooltip-content",
@@ -246,7 +222,7 @@ class MementoEditor extends Panel {
     NavTray.addOrUpdateGenericCancel();
     NavTray.addOrUpdateShellAction1("LOC_EDIT_MEMENTOS_CONFIRM");
     this.handleSlotSelected(this.mementoSlotEles[0]);
-    FocusManager.setFocus(this.mementoEles[0]);
+    FocusManager.get().setFocus(this.mementoEles[0]);
   }
   setPanelOptions(_panelOptions) {
     waitForLayout(() => {

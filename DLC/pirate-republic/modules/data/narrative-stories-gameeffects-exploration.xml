@@ -130,7 +130,7 @@
     <Modifier id="12012C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_ABILITY" run-once="false" permanent="true">
         <SubjectRequirements>
             <Requirement type="REQUIREMENT_UNIT_TYPE_MATCHES">
-                <Argument name="UnitType">UNIT_COURSER</Argument>
+                <Argument name="UnitType">UNIT_COG</Argument>
             </Requirement>
         </SubjectRequirements>
         <Argument name="AbilityType">ABILITY_NARRATIVE_STRENGTH</Argument>
@@ -147,9 +147,6 @@
         <Argument name="Amount">1</Argument>
         <Argument name="NarrativeTagType">NARRATIVE_TAG_PIRATICAL_PIRATES</Argument>
     </Modifier>
-    <Requirement id="REQ_STORY_CIVILIZATION_PIRATE_REPUBLIC" type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
-        <Argument name="CivilizationType">CIVILIZATION_PIRATE_REPUBLIC</Argument>
-    </Requirement>
     <RequirementSet id="REQSET_11122A_NARRATIVE_REQUISITE">
         <Requirement xref="REQ_STORY_CIVILIZATION_PIRATE_REPUBLIC"/>
         <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_NARRATIVE_TAGS">

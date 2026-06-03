@@ -1,11 +1,5 @@
 import { InterfaceMode } from '../../../core/ui/interface-modes/interface-modes.js';
 import AdvancedStart from '../advanced-start/model-advanced-start.js';
-import '../../../core/ui/views/view-manager.chunk.js';
-import '../../../core/ui/input/focus-manager.js';
-import '../../../core/ui/audio-base/audio-support.chunk.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/panel-support.chunk.js';
-import '../../../core/ui/utilities/utilities-update-gate.chunk.js';
 
 class AdvancedStartInterfaceMode {
   transitionTo(_oldMode, _newMode, _context) {

@@ -2,7 +2,7 @@
 <Database>
 	<!-- Input version. This is written to the settings file, and the settings file is rejected if it doesn't match -->
 	<InputVersion>
-		<Row Value="53" />
+		<Row Value="54" />
 	</InputVersion>
 
 	<InputContexts>
@@ -57,6 +57,10 @@
 		<Row ActionId="open-techs" DeviceType="Keyboard" Name="LOC_OPEN_TECH_TREE" Description="LOC_OPEN_TECH_TREE" SortIndex="19" />
 		<Row ActionId="open-traditions" DeviceType="Keyboard" Name="LOC_UI_KBM_MAPPING_OPEN_GOVERNMENT" Description="LOC_UI_KBM_MAPPING_OPEN_GOVERNMENT_TT" SortIndex="22" />
 		<Row ActionId="open-civilopedia" DeviceType="Keyboard" Name="LOC_UI_KBM_MAPPING_OPEN_CIVILOPEDIA" Description="LOC_UI_KBM_MAPPING_OPEN_CIVILOPEDIA" SortIndex="23" />
+		<Row ActionId="open-advisors" DeviceType="Keyboard" Name="LOC_UI_VIEW_ADVISORS" Description="LOC_UI_VIEW_ADVISORS" SortIndex="23" />
+		<Row ActionId="open-legacies" DeviceType="Keyboard" Name="LOC_UI_VIEW_LEGACIES" Description="LOC_UI_VIEW_LEGACIES" SortIndex="23" />
+		<Row ActionId="open-religion" DeviceType="Keyboard" Name="LOC_UI_KBM_MAPPING_TOGGLE_RELIGION" Description="LOC_UI_KBM_MAPPING_TOGGLE_RELIGION" SortIndex="23" />
+		<Row ActionId="open-trade" DeviceType="Keyboard" Name="LOC_UI_KBM_MAPPING_TOGGLE_TRADE_SCREEN" Description="LOC_UI_KBM_MAPPING_TOGGLE_TRADE_SCREEN" SortIndex="23" />
 		<Row ActionId="plot-move" DeviceType="Controller" Name="LOC_PLOT_MOVE" Description="LOC_PLOT_MOVE_HELP" EventType="All"/>
 		<Row ActionId="quick-load" DeviceType="Keyboard" Name="LOC_UI_KBM_MAPPING_QUICK_LOAD" Description="LOC_UI_KBM_MAPPING_QUICK_LOAD_TT" SortIndex="24" />
 		<Row ActionId="quick-save" DeviceType="Keyboard" Name="LOC_UI_KBM_MAPPING_QUICK_SAVE" Description="LOC_UI_KBM_MAPPING_QUICK_SAVE_TT" SortIndex="25" />
@@ -77,6 +81,7 @@
 		<Row ActionId="toggle-radial-menu" DeviceType="Controller" Name="LOC_TOGGLE_RADIAL_MENU" Description="LOC_TOGGLE_RADIAL_MENU_HELP" SortIndex="7" />
 		<Row ActionId="open-lens-panel" DeviceType="Controller" Name="LOC_OPEN_LENS_PANEL" Description="LOC_OPEN_LENS_PANEL_HELP" SortIndex="9" />
 		<Row ActionId="toggle-tooltip" DeviceType="Controller" Name="LOC_SHELL_ACTION_4" Description="LOC_SHELL_ACTION_4_HELP" SortIndex="19" />
+		<Row ActionId="keyboard-inspect-tooltip" DeviceType="Keyboard" Name="LOC_INSPECT_TOOLTIP" Description="LOC_INSPECT_TOOLTIP_HELP" SortIndex="19" />
 		<Row ActionId="touch-complete" DeviceType="Touch" Name="LOC_TOUCH_COMPLETE" Description="LOC_TOUCH_COMPLETE_HELP" EventType="All"/>
 		<Row ActionId="touch-pan" DeviceType="Touch" Name="LOC_TOUCH_PAN" Description="LOC_TOUCH_PAN_HELP" EventType="All"/>
 		<Row ActionId="touch-press" DeviceType="Touch" Name="LOC_TOUCH_PRESS" Description="LOC_TOUCH_PRESS_HELP" EventType="All"/>
@@ -319,6 +324,14 @@
 
 		<Row ActionId="open-civilopedia" Index="0" GestureType="KBMouse" GestureData="KEY_F9"/>
 
+		<Row ActionId="open-advisors" Index="0" GestureType="KBMouse" GestureData="KEY_B"/>
+
+		<Row ActionId="open-legacies" Index="0" GestureType="KBMouse" GestureData="KEY_I"/>
+
+		<Row ActionId="open-religion" Index="0" GestureType="KBMouse" GestureData="KEY_J"/>
+
+		<Row ActionId="open-trade" Index="0" GestureType="KBMouse" GestureData="KEY_U"/>
+
 		<Row ActionId="plot-move" Index="0" GestureType="Controller" GestureData="LOC_OPTIONS_PAD_LTHUMB_AXIS"/>
 
 		<Row ActionId="quick-load" Index="0" GestureType="KBMouse" GestureData="KEY_F6"/>
@@ -355,7 +368,10 @@
 		<Row ActionId="open-lens-panel" Index="0" GestureType="Controller" GestureData="LOC_OPTIONS_PAD_LSHOULDER"/>
 
 		<Row ActionId="toggle-tooltip" Index="0" GestureType="Controller" GestureData="LOC_OPTIONS_PAD_LTHUMB_PRESS"/>
-
+		<Row ActionId="toggle-tooltip" Index="0" GestureType="Hybrid" GestureData="LOC_OPTIONS_PAD_LTHUMB_PRESS"/>
+		
+		<Row ActionId="keyboard-inspect-tooltip" Index="0" GestureType="KBMouse" GestureData="KEY_K"/>
+		
 		<Row ActionId="touch-complete" Index="0" GestureType="Touch" GestureData="LOC_OPTIONS_TOUCH_COMPLETE"/>
 
 		<Row ActionId="touch-pan" Index="0" GestureType="Touch" GestureData="LOC_OPTIONS_TOUCH_PAN"/>
@@ -540,11 +556,18 @@
 		<Row KeyId="KEY_DANOMITE" KeyString="LOC_OPTIONS_KEY_DANOMITE" KeyIcon="ICON_KEY_DANOMITE" KeyType="KBMouse"/>
 		<Row KeyId="KEY_IGNORE" KeyString="LOC_OPTIONS_KEY_IGNORE" KeyIcon="ICON_KEY_IGNORE" KeyType="KBMouse"/>
 
-		<Row KeyId="MOUSE_L" KeyString="LOC_OPTIONS_MOUSE_L" KeyIcon="ICON_MOUSE_L" KeyType="KBMouse"/>
-		<Row KeyId="MOUSE_R" KeyString="LOC_OPTIONS_MOUSE_R" KeyIcon="ICON_MOUSE_R" KeyType="KBMouse"/>
-		<Row KeyId="MOUSE_M" KeyString="LOC_OPTIONS_MOUSE_M" KeyIcon="ICON_MOUSE_M" KeyType="KBMouse"/>
-		<Row KeyId="MOUSE_X1" KeyString="LOC_OPTIONS_MOUSE_X1" KeyIcon="ICON_MOUSE_X1" KeyType="KBMouse"/>
-		<Row KeyId="MOUSE_X2" KeyString="LOC_OPTIONS_MOUSE_X2" KeyIcon="ICON_MOUSE_X2" KeyType="KBMouse"/>
+		<Row KeyId="MOUSE_L" KeyString="LOC_OPTIONS_MOUSE_L" KeyIcon="mouse_icon_left" KeyType="KBMouse"/>
+		<Row KeyId="MOUSE_R" KeyString="LOC_OPTIONS_MOUSE_R" KeyIcon="mouse_icon_right" KeyType="KBMouse"/>
+		<Row KeyId="MOUSE_M" KeyString="LOC_OPTIONS_MOUSE_M" KeyIcon="mouse_icon_mid" KeyType="KBMouse"/>
+		<Row KeyId="MOUSE_X1" KeyString="LOC_OPTIONS_MOUSE_X1" KeyIcon="mouse_icon_m1" KeyType="KBMouse"/>
+		<Row KeyId="MOUSE_X2" KeyString="LOC_OPTIONS_MOUSE_X2" KeyIcon="mouse_icon_m2" KeyType="KBMouse"/>
+		<!-- <Row KeyId="MOUSE_X3" KeyString="LOC_OPTIONS_MOUSE_X3" KeyIcon="mouse_icon_m3" KeyType="KBMouse"/>
+		<Row KeyId="MOUSE_X4" KeyString="LOC_OPTIONS_MOUSE_X4" KeyIcon="mouse_icon_m4" KeyType="KBMouse"/>
+		<Row KeyId="MOUSE_X5" KeyString="LOC_OPTIONS_MOUSE_X5" KeyIcon="mouse_icon_m5" KeyType="KBMouse"/>
+		<Row KeyId="MOUSE_X6" KeyString="LOC_OPTIONS_MOUSE_X6" KeyIcon="mouse_icon_m6" KeyType="KBMouse"/>
+		<Row KeyId="MOUSE_X7" KeyString="LOC_OPTIONS_MOUSE_X7" KeyIcon="mouse_icon_m7" KeyType="KBMouse"/>
+		<Row KeyId="MOUSE_X8" KeyString="LOC_OPTIONS_MOUSE_X8" KeyIcon="mouse_icon_m8" KeyType="KBMouse"/>
+		<Row KeyId="MOUSE_X9" KeyString="LOC_OPTIONS_MOUSE_X9" KeyIcon="mouse_icon_m9" KeyType="KBMouse"/> -->
 
 		<Row KeyId="MOUSE_WHEEL_UP" KeyString="LOC_OPTIONS_MOUSE_WHEEL_UP" KeyIcon="ICON_MOUSE_WHEEL_UP" KeyType="KBMouse"/>
 		<Row KeyId="MOUSE_WHEEL_DOWN" KeyString="LOC_OPTIONS_MOUSE_WHEEL_DOWN" KeyIcon="ICON_MOUSE_WHEEL_DOWN" KeyType="KBMouse"/>

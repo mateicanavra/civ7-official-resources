@@ -1,7 +1,4 @@
-import { F as FxsActivatable } from '../../../core/ui/components/fxs-activatable.chunk.js';
-import '../../../core/ui/audio-base/audio-support.chunk.js';
-import '../../../core/ui/input/focus-manager.js';
-import '../../../core/ui/framework.chunk.js';
+import { FxsActivatable } from '../../../core/ui/components/fxs-activatable.js';
 
 class AttributeSmallCard extends FxsActivatable {
   disabledDiv;

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<!-- ========================== -->
+	<!-- Tonga -->
+	<!-- ========================== -->
+	<Traditions>
+		<Row TraditionType="TRADITION_NGATU_I" Name="LOC_TRADITION_NGATU_I_NAME" Description="LOC_TRADITION_NGATU_I_DESCRIPTION" TraitType="TRAIT_TONGA" AgeType="AGE_ANTIQUITY" CultureSlotType="TRADITION_CULTURE_SLOT"/>
+		<Row TraditionType="TRADITION_NGATU_II" Name="LOC_TRADITION_NGATU_II_NAME" Description="LOC_TRADITION_NGATU_II_DESCRIPTION" TraitType="TRAIT_TONGA" AgeType="AGE_MODERN" CultureSlotType="TRADITION_CULTURE_SLOT" ObsoletesTraditionType="TRADITION_NGATU_I"/>
+		<Row TraditionType="TRADITION_TAKUAKA" Name="LOC_TRADITION_TAKUAKA_NAME" Description="LOC_TRADITION_TAKUAKA_DESCRIPTION" TraitType="TRAIT_TONGA" AgeType="AGE_ANTIQUITY" CultureSlotType="TRADITION_CULTURE_SLOT"/>
+		<Row TraditionType="TRADITION_TONGIAKI_I" Name="LOC_TRADITION_TONGIAKI_I_NAME" Description="LOC_TRADITION_TONGIAKI_I_DESCRIPTION" TraitType="TRAIT_TONGA" AgeType="AGE_ANTIQUITY" CultureSlotType="TRADITION_CULTURE_SLOT"/>
+		<Row TraditionType="TRADITION_TONGIAKI_II" Name="LOC_TRADITION_TONGIAKI_II_NAME" Description="LOC_TRADITION_TONGIAKI_II_DESCRIPTION" TraitType="TRAIT_TONGA" AgeType="AGE_EXPLORATION" CultureSlotType="TRADITION_CULTURE_SLOT" ObsoletesTraditionType="TRADITION_TONGIAKI_I"/>
+		<Row TraditionType="TRADITION_TONGA_SYNCRETISM_EXPLORATION" Name="LOC_TRADITION_TONGA_SYNCRETISM_EXPLORATION_NAME" Description="LOC_TRADITION_TONGA_SYNCRETISM_EXPLORATION_DESCRIPTION" AgeType="AGE_EXPLORATION" CultureSlotType="TRADITION_CULTURE_SLOT" TraitType="TRAIT_TONGA" IgnoreInitializeUnlock="true" AllowInitializeAdvancedStart="true"/>
+		<Row TraditionType="TRADITION_TONGA_SYNCRETISM_MODERN" Name="LOC_TRADITION_TONGA_SYNCRETISM_MODERN_NAME" Description="LOC_TRADITION_TONGA_SYNCRETISM_MODERN_DESCRIPTION" AgeType="AGE_MODERN" CultureSlotType="TRADITION_CULTURE_SLOT" TraitType="TRAIT_TONGA" IgnoreInitializeUnlock="true" ObsoletesTraditionType="TRADITION_TONGA_SYNCRETISM_EXPLORATION" AllowInitializeAdvancedStart="true"/>
+	</Traditions>
+	<ProgressionTreeNodes>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_TONGA_ESI_MAKA_FAAKINANGA" ProgressionTree="TREE_CIVICS_AQ_TONGA" Cost="150" Name="LOC_CIVIC_ESI_MAKA_FAAKINANGA_NAME" IconString="cult_tonga"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_TONGA_KAVA_CEREMONY" ProgressionTree="TREE_CIVICS_AQ_TONGA" Cost="250" Name="LOC_CIVIC_KAVA_CEREMONY_NAME" IconString="cult_tonga"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_TONGA_LAPITA_ORIGINS" ProgressionTree="TREE_CIVICS_AQ_TONGA" Cost="150" Name="LOC_CIVIC_LAPITA_ORIGINS_NAME" IconString="cult_tonga"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_TONGA_RENAISSANCE" ProgressionTree="TREE_CIVICS_EX_TEST_OF_TIME" Cost="800" Name="LOC_NODE_CIVIC_EX_TONGA_RENAISSANCE_NAME" IconString="cult_tonga"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_TONGA_MODERNIZATION" ProgressionTree="TREE_CIVICS_MO_TEST_OF_TIME" Cost="2000" Name="LOC_NODE_CIVIC_MO_TONGA_MODERNIZATION_NAME" IconString="cult_tonga"/>
+	</ProgressionTreeNodes>
+	<ProgressionTreeNodeUnlocks>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_TONGA_ESI_MAKA_FAAKINANGA" TargetKind="KIND_TRADITION" TargetType="TRADITION_TONGIAKI_I" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_TONGA_KAVA_CEREMONY" TargetKind="KIND_TRADITION" TargetType="TRADITION_NGATU_I" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_TONGA_LAPITA_ORIGINS" TargetKind="KIND_TRADITION" TargetType="TRADITION_TAKUAKA" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_TONGA_RENAISSANCE" TargetKind="KIND_TRADITION" TargetType="TRADITION_TONGIAKI_II" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_TONGA_MODERNIZATION" TargetKind="KIND_TRADITION" TargetType="TRADITION_NGATU_II" UnlockDepth="1"/>
+	</ProgressionTreeNodeUnlocks>
+</Database>

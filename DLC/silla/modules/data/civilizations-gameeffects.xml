@@ -1,17 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <GameEffects xmlns="GameEffects">
 	<!-- ==================================================	-->
-	<!--				Civ-Specific Traits					-->
-	<!-- ==================================================	-->
-	<!-- SILLA -->
-	<Modifier id="MOD_CIV_RESOURCE_CULTURE" collection="COLLECTION_PLAYER_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
-		<SubjectRequirements>
-			<Requirement type="REQUIREMENT_PLOT_RESOURCE_VISIBLE"></Requirement>
-		</SubjectRequirements>
-		<Argument name="YieldType">YIELD_CULTURE</Argument>
-		<Argument name="Amount">1</Argument>
-	</Modifier>
-	<!-- ==================================================	-->
 	<!--				Civ-Specific Trees					-->
 	<!-- ==================================================	-->
 	<Modifier id="MOD_REVEAL_CIV_CULTURE_TREE_SILLA" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_REVEAL_CULTURE_TREE">

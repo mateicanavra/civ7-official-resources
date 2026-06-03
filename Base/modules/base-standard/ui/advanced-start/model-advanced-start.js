@@ -1,4 +1,4 @@
-import { U as UpdateGate } from '../../../core/ui/utilities/utilities-update-gate.chunk.js';
+import UpdateGate from '../../../core/ui/utilities/utilities-update-gate.js';
 
 class AdvancedStartModel {
   onUpdate;
@@ -23,6 +23,9 @@ class AdvancedStartModel {
   effectUsedListener = () => {
     this.updateGate.call("effectUsedListener");
   };
+  localPlayerChangedListener = () => {
+    this.deckConfirmed = false;
+  };
   selectedPlacementEffectID = "";
   // If false we have no cards that can be added so deck is probably full
   canAddCards = true;
@@ -34,6 +37,7 @@ class AdvancedStartModel {
     engine.on("AdvancedStartCardAdded", this.cardAddedListener);
     engine.on("AdvancedStartCardRemoved", this.cardRemovedListener);
     engine.on("AdvancedStartEffectUsed", this.effectUsedListener);
+    engine.on("LocalPlayerChanged", this.localPlayerChangedListener);
     this.updateGate.call("constructor");
   }
   set updateCallback(callback) {
@@ -306,14 +310,29 @@ class AdvancedStartModel {
     if (argsArray.length > 1) {
       const baseName = argsArray[0];
       argsArray.shift();
-      for (let i = 0; i < argsArray.length; ++i) {
-        if (argsArray[i].includes("LOC_")) {
-          argsArray[i] = Locale.compose(argsArray[i]);
+      for (let i = 1; i < argsArray.length; ++i) {
+        const temp = argsArray[i].split("//");
+        if (temp.length > 1) {
+          argsArray[i] = Locale.compose(this.parseCardTextArray(temp));
+        } else {
+          if (argsArray[i].includes("LOC_")) {
+            argsArray[i] = Locale.compose(argsArray[i]);
+          }
         }
       }
       return Locale.compose(baseName, ...argsArray);
     }
     return Locale.compose(args);
+  }
+  parseCardTextArray(args) {
+    const baseName = args[0];
+    args.shift();
+    for (let i = 0; i < args.length; ++i) {
+      if (args[i].includes("LOC_")) {
+        args[i] = Locale.compose(args[i]);
+      }
+    }
+    return Locale.compose(baseName, ...args);
   }
   makeCosts(cost) {
     const output = [];

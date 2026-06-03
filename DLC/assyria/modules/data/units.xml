@@ -9,9 +9,6 @@
 		<!--Civ Unique Abilities-->
 		<Row Type="ABILITY_MAGARRU" Kind="KIND_ABILITY"/>
 		<Row Type="ABILITY_TURTANU" Kind="KIND_ABILITY"/>
-		<Row Type="ABILITY_TURTANU_COMBAT" Kind="KIND_ABILITY"/>
-		<Row Type="ABILITY_KIBRAT_ARBA_I" Kind="KIND_ABILITY"/>
-		<Row Type="ABILITY_KIBRAT_ARBA_I_COMBAT" Kind="KIND_ABILITY"/>
 	</Types>
 	<Units>
 		<!--Civ Unique Military-->
@@ -59,11 +56,13 @@
 		<Row Type="UNIT_MAGARRU" Tag="UNIT_CLASS_WHEELED"/>
 		<Row Type="UNIT_MAGARRU" Tag="UNIT_CLASS_CAVALRY"/>
 		<Row Type="UNIT_MAGARRU" Tag="UNIT_CLASS_MAGARRU"/>
+		<Row Type="UNIT_MAGARRU" Tag="UNIT_CLASS_UNIQUE"/>
 		<Row Type="UNIT_MAGARRU_2" Tag="UNIT_CLASS_COMBAT"/>
 		<Row Type="UNIT_MAGARRU_2" Tag="UNIT_CLASS_WHEELED"/>
 		<Row Type="UNIT_MAGARRU_2" Tag="UNIT_CLASS_CAVALRY"/>
 		<Row Type="UNIT_MAGARRU_2" Tag="UNIT_CLASS_MAGARRU"/>
 		<Row Type="UNIT_MAGARRU_2" Tag="UNIT_CLASS_ELITE_CAVALRY"/>
+		<Row Type="UNIT_MAGARRU_2" Tag="UNIT_CLASS_UNIQUE"/>
 		<!--Civ Unique Civilian-->
 		<Row Type="UNIT_TURTANU" Tag="UNIT_CLASS_COMMAND"/>
 		<Row Type="UNIT_TURTANU" Tag="UNIT_CLASS_ARMY_COMMANDER"/>
@@ -72,22 +71,17 @@
 	<UnitClass_Abilities>
 		<Row UnitAbilityType="ABILITY_MAGARRU" UnitClassType="UNIT_CLASS_MAGARRU"/>
 		<Row UnitAbilityType="ABILITY_TURTANU" UnitClassType="UNIT_CLASS_TURTANU"/>
-		<Row UnitAbilityType="ABILITY_KIBRAT_ARBA_I" UnitClassType="UNIT_CLASS_TURTANU"/>
-		<Row UnitAbilityType="ABILITY_KIBRAT_ARBA_I_COMBAT" UnitClassType="UNIT_CLASS_MAGARRU"/>
 	</UnitClass_Abilities>
 	<UnitAbilities>
 		<!--Unique-->
 		<Row UnitAbilityType="ABILITY_MAGARRU" Name="LOC_UNIT_MAGARRU_NAME" Description="LOC_ABILITY_MAGARRU_DESCRIPTION"/>
 		<Row UnitAbilityType="ABILITY_TURTANU" Name="LOC_UNIT_TURTANU_NAME" Description="LOC_ABILITY_TURTANU_DESCRIPTION"/>
-		<Row UnitAbilityType="ABILITY_KIBRAT_ARBA_I" Name="LOC_CIVIC_KIBRAT_ARBA_I_NAME" Description="LOC_MOD_KIBRAT_ARBA_I_COMBAT_MAGARRU_DESCRIPTION" Inactive="true"/>
-		<Row UnitAbilityType="ABILITY_KIBRAT_ARBA_I_COMBAT" Name="LOC_CIVIC_KIBRAT_ARBA_I_NAME" Description="LOC_MOD_KIBRAT_ARBA_I_COMBAT_MAGARRU_DESCRIPTION" Inactive="true"/>
 	</UnitAbilities>
 	<UnitAbilityModifiers>
 		<Row UnitAbilityType="ABILITY_MAGARRU" ModifierId="MAGARRU_MOD_MOVE_AFTER_ATTACK"/>
 		<Row UnitAbilityType="ABILITY_MAGARRU" ModifierId="MAGARRU_MOD_IGNORE_ZOC"/>
+		<Row UnitAbilityType="ABILITY_MAGARRU" ModifierId="MAGARRU_MOD_CAVALRY_DEFENDING"/>
 		<Row UnitAbilityType="ABILITY_TURTANU" ModifierId="TURTANU_COMMAND_RADIUS"/>
-		<Row UnitAbilityType="ABILITY_KIBRAT_ARBA_I" ModifierId="MAGARRU_COMMAND_RADIUS"/>
-		<Row UnitAbilityType="ABILITY_KIBRAT_ARBA_I_COMBAT" ModifierId="MAGARRU_COMMAND_RADIUS_EFFECT"/>
 	</UnitAbilityModifiers>
 	<Unit_Advisories>
 		<Row UnitType="UNIT_MAGARRU" AdvisoryClassType="ADVISORY_CLASS_MILITARY"/>

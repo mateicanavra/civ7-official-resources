@@ -1,4 +1,5 @@
-import { L as LensManager } from '../../../../core/ui/lenses/lens-manager.chunk.js';
+import LensManager from '../../../../core/ui/lenses/lens-manager.js';
+import { HexToFloat4 } from '../../../../core/ui/utilities/utilities-color.js';
 
 const UpdateOperationTargetEventName = "update-operation-target";
 class UpdateOperationTargetEvent extends CustomEvent {
@@ -10,12 +11,6 @@ class UpdateOperationTargetEvent extends CustomEvent {
     });
   }
 }
-const HexToFloat4 = (hex, alpha = 1) => {
-  const r = hex >> 16 & 255;
-  const g = hex >> 8 & 255;
-  const b = hex & 255;
-  return { x: r / 255, y: g / 255, z: b / 255, w: Math.min(1, Math.max(0, alpha)) };
-};
 const EXCLUSION_TEST = HexToFloat4(6883593, 0.6);
 const CAN_START = HexToFloat4(2682558, 0.45);
 class OperationTargetLensLayer {

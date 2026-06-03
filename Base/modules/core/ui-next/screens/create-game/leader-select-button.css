@@ -1,0 +1,101 @@
+.leader-button-box {
+  width: 7.7777777778rem;
+  height: 7.7777777778rem;
+  background-image: url("blp:leader_box");
+  background-size: cover;
+}
+.leader-button-box.locked {
+  background-image: url("blp:leader_box_locked");
+  background-size: cover;
+}
+@media (max-height: 55.5555555556rem) {
+  .leader-button-box {
+    width: 5.5555555556rem;
+    height: 5.5555555556rem;
+  }
+}
+
+.leader-button-focus {
+  width: 7.1111111111rem;
+  height: 7.1111111111rem;
+  background-image: url("blp:popup_icon_glow_mm");
+  background-size: cover;
+}
+@media (max-height: 55.5555555556rem) {
+  .leader-button-focus {
+    width: 5.1111111111rem;
+    height: 5.1111111111rem;
+  }
+}
+.leader-button-focus.locked {
+  width: 7.7777777778rem;
+  height: 7.7777777778rem;
+  background-image: url("blp:leader_box_negativeaction");
+  background-size: cover;
+}
+@media (max-height: 55.5555555556rem) {
+  .leader-button-focus.locked {
+    width: 5.5555555556rem;
+    height: 5.5555555556rem;
+  }
+}
+
+.leader-button-selection {
+  width: 7.7777777778rem;
+  height: 7.7777777778rem;
+  background-image: url("blp:leader_box_selectedrays");
+  background-size: cover;
+}
+@media (max-height: 55.5555555556rem) {
+  .leader-button-selection {
+    width: 5.5555555556rem;
+    height: 5.5555555556rem;
+  }
+}
+
+.leader-button-ring-meter {
+  width: 7.7777777778rem;
+  height: 7.7777777778rem;
+  background-image: url("blp:leaderselect_xp_well");
+  background-size: cover;
+}
+.leader-button-ring-meter .fxs-ring-meter__ring-right {
+  background-position: right;
+  fxs-background-image-tint: #bdbfc7;
+}
+.leader-button-ring-meter .fxs-ring-meter__ring-left {
+  background-position: left;
+  fxs-background-image-tint: #bdbfc7;
+}
+@media (max-height: 55.5555555556rem) {
+  .leader-button-ring-meter {
+    width: 5.5555555556rem;
+    height: 5.5555555556rem;
+  }
+}
+
+.leader-button-ring-xp-bubble {
+  width: 1.7777777778rem;
+  height: 1.7777777778rem;
+  background-image: url("blp:shell_number-circle");
+  background-size: cover;
+}
+@media (max-height: 55.5555555556rem) {
+  .leader-button-ring-xp-bubble {
+    width: 1.2777777778rem;
+    height: 1.2777777778rem;
+  }
+}
+
+.leader-button-portrait {
+  width: 7.7777777778rem;
+  height: 7.7777777778rem;
+  mask-size: cover !important;
+}
+@media (max-height: 55.5555555556rem) {
+  .leader-button-portrait {
+    width: 5.1111111111rem;
+    height: 5.1111111111rem;
+    mask-size: cover !important;
+  }
+}

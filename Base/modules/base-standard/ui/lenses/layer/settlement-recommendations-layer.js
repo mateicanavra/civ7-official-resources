@@ -1,4 +1,4 @@
-import { L as LensManager } from '../../../../core/ui/lenses/lens-manager.chunk.js';
+import LensManager from '../../../../core/ui/lenses/lens-manager.js';
 import PlotIconsManager from '../../../../core/ui/plot-icons/plot-icons-manager.js';
 
 const SETTLEMENT_RECCOMENDATION_COUNT = 3;

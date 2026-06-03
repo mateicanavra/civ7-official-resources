@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by Ed Beach (Firaxis Games) -->
 <GameEffects xmlns="GameEffects">
-	<Modifier id="MOD_RICE_CITY_PERCENT_FOOD" collection="COLLECTION_ALL_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_AVAILABLE_RESOURCE_TYPE">
-		<Argument name="Amount">10</Argument>
-		<Argument name="Percent">true</Argument>
+	<Modifier id="MOD_RICE_CITY_FLAT_FOOD" collection="COLLECTION_ALL_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_AVAILABLE_RESOURCE_TYPE">
+		<Argument name="Amount">2</Argument>
+		<Argument name="PercentMultiplier">false</Argument>
 		<Argument name="ResourceType">RESOURCE_RICE</Argument>
 		<Argument name="YieldType">YIELD_FOOD</Argument>
 	</Modifier>
@@ -15,7 +15,6 @@
 		<Argument name="ResourceType">RESOURCE_LIMESTONE</Argument>
 		<Argument name="Empire">true</Argument>
 		<Argument name="ConstructibleClass">BUILDING</Argument>
-		<Argument name="PercentMultiplier">true</Argument>
 	</Modifier>
 	<Modifier id="MOD_TIN_GROWTH_PERCENT" collection="COLLECTION_ALL_CITIES" effect="EFFECT_CITY_ADJUST_GROWTH_PER_RESOURCE">
 		<Argument name="Percent">3</Argument>

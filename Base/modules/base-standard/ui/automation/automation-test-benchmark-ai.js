@@ -1,10 +1,5 @@
-import { A as AutomationBaseBenchmarkGame } from './automation-base-benchmark-game.chunk.js';
-import { S as Shared_OnAutomationEvent, a as StartupObserverCamera } from './automation-test-support.chunk.js';
-import '../../../core/ui/views/view-manager.chunk.js';
-import '../../../core/ui/input/focus-manager.js';
-import '../../../core/ui/audio-base/audio-support.chunk.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/panel-support.chunk.js';
+import { AutomationBaseBenchmarkGame } from './automation-base-benchmark-game.js';
+import { Shared_OnAutomationEvent, StartupObserverCamera } from './automation-test-support.js';
 
 console.log("loading automation-test-benchmark-ai.ts");
 class AutomationTestBenchmarkAI extends AutomationBaseBenchmarkGame {

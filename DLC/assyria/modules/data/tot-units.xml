@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Types>
+		<Row Type="ABILITY_GIRRU" Kind="KIND_ABILITY"/>
+		<Row Type="ABILITY_GIRRU_COMBAT" Kind="KIND_ABILITY"/>
+	</Types>
+	<UnitClass_Abilities>
+		<Row UnitAbilityType="ABILITY_GIRRU" UnitClassType="UNIT_CLASS_ARMY_COMMANDER"/>
+		<Row UnitAbilityType="ABILITY_GIRRU_COMBAT" UnitClassType="UNIT_CLASS_CAVALRY"/>
+	</UnitClass_Abilities>
+	<UnitAbilities>
+		<Row UnitAbilityType="ABILITY_GIRRU" Inactive="true"/>
+		<Row UnitAbilityType="ABILITY_GIRRU_COMBAT" Inactive="true"/>
+	</UnitAbilities>
+	<UnitAbilityModifiers>
+		<Row UnitAbilityType="ABILITY_GIRRU" ModifierId="GIRRU_MOD_COMMAND_RADIUS"/>
+		<Row UnitAbilityType="ABILITY_GIRRU_COMBAT" ModifierId="GIRRU_MOD_COMBAT"/>
+	</UnitAbilityModifiers>
+</Database>

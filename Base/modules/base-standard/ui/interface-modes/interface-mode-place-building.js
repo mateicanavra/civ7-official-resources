@@ -1,61 +1,19 @@
-import { A as Audio } from '../../../core/ui/audio-base/audio-support.chunk.js';
-import { a as DialogBoxManager } from '../../../core/ui/dialog-box/manager-dialog-box.chunk.js';
+import { Audio } from '../../../core/ui/audio-base/audio-support.js';
+import { DialogBoxManager } from '../../../core/ui/dialog-box/manager-dialog-box.js';
 import { CursorUpdatedEventName } from '../../../core/ui/input/cursor.js';
-import { F as Focus } from '../../../core/ui/input/focus-support.chunk.js';
+import { Focus } from '../../../core/ui/input/focus-support.js';
 import { PlotCursor, PlotCursorUpdatedEventName } from '../../../core/ui/input/plot-cursor.js';
 import { InterfaceMode } from '../../../core/ui/interface-modes/interface-modes.js';
-import { L as LensManager } from '../../../core/ui/lenses/lens-manager.chunk.js';
-import { N as NavTray } from '../../../core/ui/navigation-tray/model-navigation-tray.chunk.js';
-import { C as ComponentID } from '../../../core/ui/utilities/utilities-component-id.chunk.js';
-import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.chunk.js';
+import LensManager from '../../../core/ui/lenses/lens-manager.js';
+import NavTray from '../../../core/ui/navigation-tray/model-navigation-tray.js';
+import { ComponentID } from '../../../core/ui/utilities/utilities-component-id.js';
+import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
 import { BuildingPlacementManager } from '../building-placement/building-placement-manager.js';
 import { City } from '../city-selection/city-selection.js';
-import { C as CityZoomer } from '../city-zoomer/city-zoomer.chunk.js';
+import { CityZoomer } from '../city-zoomer/city-zoomer.js';
 import ChoosePlotInterfaceMode from './interface-mode-choose-plot.js';
 import { PlaceBuildingV2 } from '../place-building/model-place-building-v2.js';
 import { ProductionChooserScreen } from '../production-chooser/panel-production-chooser.js';
-import '../../../core/ui/context-manager/display-queue-manager.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/input/focus-manager.js';
-import '../../../core/ui/views/view-manager.chunk.js';
-import '../../../core/ui/panel-support.chunk.js';
-import '../../../core/ui/components/fxs-slot.chunk.js';
-import '../../../core/ui/spatial/spatial-manager.js';
-import '../../../core/ui/context-manager/context-manager.js';
-import '../../../core/ui/input/action-handler.js';
-import '../../../core/ui/input/input-support.chunk.js';
-import '../../../core/ui/utilities/utilities-update-gate.chunk.js';
-import '../../../core/ui/utilities/utilities-image.chunk.js';
-import '../../../core/ui/graph-layout/utils.chunk.js';
-import '../utilities/utilities-overlay.chunk.js';
-import '../world-input/world-input.js';
-import '../../../core/ui/utilities/utilities-network.js';
-import '../../../core/ui/shell/mp-legal/mp-legal.js';
-import '../../../core/ui/events/shell-events.chunk.js';
-import '../../../core/ui/utilities/utilities-liveops.js';
-import '../../../core/ui/utilities/utilities-network-constants.chunk.js';
-import '../diplomacy/diplomacy-events.js';
-import './support-unit-map-decoration.chunk.js';
-import '../../../core/ui/utilities/utilities-core-textprovider.chunk.js';
-import '../utilities/utilities-tags.chunk.js';
-import '../yield-bar-base/yield-bar-base.js';
-import '../../../core/ui/components/fxs-editable-header.chunk.js';
-import '../../../core/ui/components/fxs-activatable.chunk.js';
-import '../../../core/ui/utilities/utilities-core-databinding.chunk.js';
-import '../../../core/ui/utilities/utilities-layout.chunk.js';
-import '../build-queue/model-build-queue.js';
-import '../city-details/panel-city-details.js';
-import '../production-chooser/production-chooser-helpers.chunk.js';
-import '../tutorial/tutorial-support.chunk.js';
-import '../../../core/ui/components/fxs-nav-help.chunk.js';
-import '../quest-tracker/quest-item.js';
-import '../quest-tracker/quest-tracker.js';
-import '../tutorial/tutorial-item.js';
-import '../tutorial/tutorial-manager.js';
-import '../../../core/ui/input/input-filter.chunk.js';
-import '../tutorial/tutorial-events.chunk.js';
-import '../views/view-city.js';
-import '../../../core/ui/components/fxs-chooser-item.chunk.js';
 
 const TogglePlacementMinMaxEventName = "toggle-placement-min-max";
 class TogglePlacementMinMaxEvent extends CustomEvent {
@@ -218,6 +176,12 @@ class PlaceBuildingInterfaceMode extends ChoosePlotInterfaceMode {
         }
         Audio.playSound("data-audio-city-production-placement-focus", "city-actions");
       }
+    } else {
+      if (UI.getCursorType() != UIHTMLCursorTypes.Default) {
+        UI.setCursorByType(UIHTMLCursorTypes.Default);
+      }
+      BuildingPlacementManager.hoveredPlotIndex = null;
+      BuildingPlacementManager.selectedPlotIndex = null;
     }
   }
   acceptProposePlotCallback(plot) {
@@ -267,7 +231,7 @@ class PlaceBuildingInterfaceMode extends ChoosePlotInterfaceMode {
         reject();
         return;
       }
-      const oldImprovementName = this.getImprovementName(plot);
+      const oldImprovementNameKey = this.getImprovementNameKey(plot);
       const okOption = {
         actions: ["accept"],
         label: "LOC_GENERIC_OK",
@@ -280,9 +244,9 @@ class PlaceBuildingInterfaceMode extends ChoosePlotInterfaceMode {
       };
       const options = [okOption, cancelOption];
       if (BuildingPlacementManager.currentConstructible.ConstructibleClass == "WONDER") {
-        const body = oldImprovementName != "" ? Locale.compose(
+        const body = oldImprovementNameKey != "" ? Locale.compose(
           "LOC_BUILDING_PLACEMENT_REMOVE_IMPOVEMENT_BODY",
-          oldImprovementName,
+          oldImprovementNameKey,
           BuildingPlacementManager.currentConstructible.Name
         ) : Locale.compose(
           "LOC_BUILDING_PLACEMENT_REMOVE_GENERIC_IMPOVEMENT_BODY",
@@ -298,9 +262,9 @@ class PlaceBuildingInterfaceMode extends ChoosePlotInterfaceMode {
       } else {
         const replacedConstructibleType = MapConstructibles.getReplaceableConstructible(plot.x, plot.y);
         if (replacedConstructibleType == -1) {
-          const body = oldImprovementName != "" ? Locale.compose(
+          const body = oldImprovementNameKey != "" ? Locale.compose(
             "LOC_BUILDING_PLACEMENT_CREATE_URBAN_TILE_REMOVE_IMPROVEMENT",
-            oldImprovementName,
+            oldImprovementNameKey,
             BuildingPlacementManager.currentConstructible.Name
           ) : Locale.compose(
             "LOC_BUILDING_PLACEMENT_CREATE_URBAN_TILE_BODY",
@@ -331,14 +295,14 @@ class PlaceBuildingInterfaceMode extends ChoosePlotInterfaceMode {
       this.isPlotProposed = false;
     }
   }
-  getImprovementName(plotCoord) {
+  getImprovementNameKey(plotCoord) {
     const constructibles = MapConstructibles.getConstructibles(plotCoord.x, plotCoord.y);
     for (const constructible of constructibles) {
       const instance = Constructibles.getByComponentID(constructible);
       if (instance) {
         const info = GameInfo.Constructibles.lookup(instance.type);
         if (info && info.ConstructibleClass == "IMPROVEMENT") {
-          return Locale.compose(info.Name);
+          return info.Name;
         }
       }
     }
@@ -381,9 +345,9 @@ class PlaceBuildingInterfaceMode extends ChoosePlotInterfaceMode {
       } else {
         NavTray.addOrUpdateNotification("LOC_BUILDING_PLACEMENT_PRESS_SPACE_SHOW_DETAILS");
       }
-      NavTray.addOrUpdateNextAction("LOC_UI_FOCUS_PLACEMENT_INFO");
+      NavTray.addOrUpdateNextAction("LOC_UI_FOCUS_WORLD");
     } else {
-      NavTray.addOrUpdateShellAction2("LOC_UI_FOCUS_WORLD");
+      NavTray.addOrUpdateShellAction2("LOC_UI_FOCUS_PLACEMENT_INFO");
     }
     NavTray.addOrUpdateGenericCancel();
   }
@@ -392,9 +356,11 @@ class PlaceBuildingInterfaceMode extends ChoosePlotInterfaceMode {
     this.updateNavTray();
     if (this.mapFocused) {
       Input.setActiveContext(InputContext.World);
+      Audio.playSound("data-audio-hero-press");
     } else {
       Input.setActiveContext(InputContext.Shell);
       const placeBuildingPanel = MustGetElement("panel-place-building-v2", document);
+      Audio.playSound("data-audio-hero-press");
       if (placeBuildingPanel) {
         Focus.setContextAwareFocus(placeBuildingPanel, placeBuildingPanel);
       }

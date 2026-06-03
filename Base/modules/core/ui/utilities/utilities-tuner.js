@@ -67,7 +67,35 @@ class TunerUtilities {
       str = "id=" + tValue.id.toString();
     }
     str = str + ";" + tValue.value.toString();
+    str = str + ";" + this.getGameValueStepTypeString(tValue.type);
+    if (tValue.description) {
+      str = str + ";id=" + tValue.id.toString();
+    }
     node.name = str;
+    if (tValue.context != void 0) {
+      const contextNode = {};
+      contextNode.name = ".context";
+      contextNode.children = [];
+      if (tValue.context.owner != void 0) {
+        const v = {};
+        v.name = ".owner = " + tValue.context.owner.toString();
+        contextNode.children.push(v);
+      }
+      if (tValue.context.id != void 0) {
+        const v = {};
+        v.name = ".id = " + tValue.context.id.toString();
+        contextNode.children.push(v);
+      }
+      if (tValue.context.type != void 0) {
+        const v = {};
+        v.name = ".type = " + tValue.context.type.toString();
+        contextNode.children.push(v);
+      }
+      if (node.children == void 0) {
+        node.children = [];
+      }
+      node.children.push(contextNode);
+    }
     if (tValue.base != void 0) {
       if (tValue.base.value != 0 || tValue.base.steps != void 0) {
         const baseNode = {};
@@ -112,6 +140,40 @@ class TunerUtilities {
       }
     }
     return node;
+  }
+  getGameValueStepTypeString(type) {
+    switch (type) {
+      case GameValueStepTypes.INVALID:
+        return "INVALID";
+      case GameValueStepTypes.VALUE:
+        return "VALUE";
+      case GameValueStepTypes.ADDITION:
+        return "ADDITION";
+      case GameValueStepTypes.MAXIMUM:
+        return "MAXIMUM";
+      case GameValueStepTypes.MINIMUM:
+        return "MINIMUM";
+      case GameValueStepTypes.ATTRIBUTE:
+        return "ATTRIBUTE";
+      case GameValueStepTypes.MULTIPLY:
+        return "MULTIPLY";
+      case GameValueStepTypes.INCREMENT:
+        return "INCREMENT";
+      case GameValueStepTypes.LNSCALAR:
+        return "LNSCALAR";
+      case GameValueStepTypes.NEGATIVE:
+        return "NEGATIVE";
+      case GameValueStepTypes.PERCENTAGE:
+        return "PERCENTAGE";
+      case GameValueStepTypes.RENAME:
+        return "RENAME";
+      case GameValueStepTypes.HALVE:
+        return "HALVE";
+      case GameValueStepTypes.EFFICIENCY:
+        return "EFFICIENCY";
+      default:
+        return "UNKNOWN";
+    }
   }
 }
 const tunerUtilities = new TunerUtilities();

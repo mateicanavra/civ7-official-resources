@@ -1,23 +1,9 @@
-import FocusManager from '../input/focus-manager.js';
 import { EmoticonSelectEvent } from './screen-mp-chat.js';
-import { N as NavTray } from '../navigation-tray/model-navigation-tray.chunk.js';
-import { P as Panel } from '../panel-support.chunk.js';
-import { MustGetElement } from '../utilities/utilities-dom.chunk.js';
-import '../audio-base/audio-support.chunk.js';
-import '../framework.chunk.js';
-import '../accessibility/tts-manager.js';
-import '../context-manager/context-manager.js';
-import '../context-manager/display-queue-manager.js';
-import '../dialog-box/manager-dialog-box.chunk.js';
-import '../input/cursor.js';
-import '../views/view-manager.chunk.js';
-import '../input/action-handler.js';
-import '../input/input-support.chunk.js';
-import '../utilities/utilities-update-gate.chunk.js';
-import '../utilities/utilities-image.chunk.js';
-import '../utilities/utilities-component-id.chunk.js';
-
-const styles = "fs://game/core/ui/mp-chat/emoticon-panel.css";
+import NavTray from '../navigation-tray/model-navigation-tray.js';
+import Panel from '../panel-support.js';
+import { MustGetElement } from '../utilities/utilities-dom.js';
+import { FocusManager } from '../../ui-next/services/focus-manager.js';
+import styles from './emoticon-panel.scss.js';
 
 var GroupIds = /* @__PURE__ */ ((GroupIds2) => {
   GroupIds2["EMOJI"] = "EMOJI";
@@ -62,7 +48,7 @@ class EmoticonPanel extends Panel {
   }
   onReceiveFocus() {
     super.onReceiveFocus();
-    FocusManager.setFocus(this.slotGroup);
+    FocusManager.get().setFocus(this.slotGroup);
     NavTray.clear();
   }
   getContent() {

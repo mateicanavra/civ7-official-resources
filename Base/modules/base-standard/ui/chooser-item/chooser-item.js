@@ -1,8 +1,5 @@
-import { F as FxsActivatable } from '../../../core/ui/components/fxs-activatable.chunk.js';
-import { c as chooserItemStyles } from './chooser-item.chunk.js';
-import '../../../core/ui/audio-base/audio-support.chunk.js';
-import '../../../core/ui/input/focus-manager.js';
-import '../../../core/ui/framework.chunk.js';
+import { FxsActivatable } from '../../../core/ui/components/fxs-activatable.js';
+import styles from './chooser-item.scss.js';
 
 class ChooserItem extends FxsActivatable {
   isSelectHighlight = false;
@@ -153,7 +150,7 @@ class ChooserItem extends FxsActivatable {
 Controls.define("chooser-item", {
   createInstance: ChooserItem,
   description: "A chooser item to be used with the tech or civic choosers",
-  styles: [chooserItemStyles],
+  styles: [styles],
   images: [
     "fs://game/hud_sidepanel_list-bg.png",
     "fs://game/hud_list-focus_frame.png",

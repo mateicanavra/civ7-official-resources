@@ -1,21 +1,5 @@
-import { F as FxsDropdown } from '../../components/fxs-dropdown.chunk.js';
-import { MustGetElement } from '../../utilities/utilities-dom.chunk.js';
-import '../../audio-base/audio-support.chunk.js';
-import '../../components/fxs-activatable.chunk.js';
-import '../../input/focus-manager.js';
-import '../../framework.chunk.js';
-import '../../input/action-handler.js';
-import '../../input/cursor.js';
-import '../../views/view-manager.chunk.js';
-import '../../panel-support.chunk.js';
-import '../../input/input-support.chunk.js';
-import '../../utilities/utilities-update-gate.chunk.js';
-import '../../input/focus-support.chunk.js';
-import '../../components/fxs-slot.chunk.js';
-import '../../spatial/spatial-manager.js';
-import '../../context-manager/context-manager.js';
-import '../../context-manager/display-queue-manager.js';
-import '../../dialog-box/manager-dialog-box.chunk.js';
+import { FxsDropdown } from '../../components/fxs-dropdown.js';
+import { MustGetElement } from '../../utilities/utilities-dom.js';
 
 class MPLobbyPlayerInfoCardDropdown extends FxsDropdown {
   hideArrowElement = true;
@@ -46,6 +30,7 @@ class MPLobbyPlayerInfoCardDropdown extends FxsDropdown {
       case "disabled":
         this.hideArrowElement = newValue == "true";
         super.updateOpenArrowElement();
+        this.Root.classList.toggle("opacity-100", newValue == "true");
         break;
       case "is-local":
         this.permanantHighlight.classList.toggle("opacity-100", newValue == "true");

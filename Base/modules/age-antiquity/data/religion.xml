@@ -37,9 +37,9 @@
 		<Row BeliefType="PANTHEON_BONUS_10" Name="LOC_PANTHEON_BONUS_10_NAME" Description="LOC_PANTHEON_BONUS_10_DESCRIPTION" BeliefClassType="BELIEF_CLASS_PANTHEON" AISelectionBin="1"/>
 		<Row BeliefType="PANTHEON_BONUS_11" Name="LOC_PANTHEON_BONUS_11_NAME" Description="LOC_PANTHEON_BONUS_11_DESCRIPTION" BeliefClassType="BELIEF_CLASS_PANTHEON" AISelectionBin="3"/>
 		<Row BeliefType="PANTHEON_BONUS_12" Name="LOC_PANTHEON_BONUS_12_NAME" Description="LOC_PANTHEON_BONUS_12_DESCRIPTION" BeliefClassType="BELIEF_CLASS_PANTHEON" AISelectionBin="2"/>
-		<Row BeliefType="PANTHEON_BONUS_13" Name="LOC_PANTHEON_BONUS_13_NAME" Description="LOC_PANTHEON_BONUS_13_DESCRIPTION" BeliefClassType="BELIEF_CLASS_PANTHEON" AISelectionBin="2"/>
+		<Row BeliefType="PANTHEON_BONUS_13" Name="LOC_PANTHEON_BONUS_13_NAME" Description="LOC_PANTHEON_BONUS_13_DESCRIPTION" BeliefClassType="BELIEF_CLASS_PANTHEON" Shareable="true" AISelectionBin="2"/>
 		<Row BeliefType="PANTHEON_BONUS_14" Name="LOC_PANTHEON_BONUS_14_NAME" Description="LOC_PANTHEON_BONUS_14_DESCRIPTION" BeliefClassType="BELIEF_CLASS_PANTHEON" AISelectionBin="3"/>
-		<Row BeliefType="PANTHEON_BONUS_15" Name="LOC_PANTHEON_BONUS_15_NAME" Description="LOC_PANTHEON_BONUS_15_DESCRIPTION" BeliefClassType="BELIEF_CLASS_PANTHEON" AISelectionBin="3"/>
+		<Row BeliefType="PANTHEON_BONUS_15" Name="LOC_PANTHEON_BONUS_15_NAME" Description="LOC_PANTHEON_BONUS_15_DESCRIPTION" BeliefClassType="BELIEF_CLASS_PANTHEON" Shareable="true" AISelectionBin="3"/>
 		<Row BeliefType="PANTHEON_BONUS_16" Name="LOC_PANTHEON_BONUS_16_NAME" Description="LOC_PANTHEON_BONUS_16_DESCRIPTION" BeliefClassType="BELIEF_CLASS_PANTHEON" AISelectionBin="1"/>
 		<Row BeliefType="PANTHEON_BONUS_17" Name="LOC_PANTHEON_BONUS_17_NAME" Description="LOC_PANTHEON_BONUS_17_DESCRIPTION" BeliefClassType="BELIEF_CLASS_PANTHEON" Shareable="true" AISelectionBin="3"/>
 		<Row BeliefType="PANTHEON_BONUS_18" Name="LOC_PANTHEON_BONUS_18_NAME" Description="LOC_PANTHEON_BONUS_18_DESCRIPTION" BeliefClassType="BELIEF_CLASS_PANTHEON" Shareable="true" AISelectionBin="3"/>
@@ -70,6 +70,7 @@
 		<Row BeliefType="PANTHEON_BONUS_9" ModifierID="MOD_PANTHEON_ALTAR_REEF_WAREHOUSE"/>
 		<Row BeliefType="PANTHEON_BONUS_9" ModifierID="MOD_PANTHEON_ALTAR_COLD_REEF_WAREHOUSE"/>
 		<Row BeliefType="PANTHEON_BONUS_9" ModifierID="MOD_PANTHEON_ALTAR_COAST_WAREHOUSE"/>
+		<Row BeliefType="PANTHEON_BONUS_9" ModifierID="MOD_PANTHEON_ALTAR_OCEAN_WAREHOUSE"/>
 		<Row BeliefType="PANTHEON_BONUS_9" ModifierID="MOD_PANTHEON_ALTAR_NAVIGABLE_RIVER_WAREHOUSE"/>
 		<Row BeliefType="PANTHEON_BONUS_10" ModifierID="MOD_PANTHEON_ALTAR_YIELD"/>
 		<Row BeliefType="PANTHEON_BONUS_11" ModifierID="MOD_PANTHEON_UNIT_PRODUCTION"/>
@@ -129,6 +130,7 @@
 		<Row ConstructibleType="BUILDING_ALTAR" YieldChangeId="PantheonAltarReefFeatureProduction" RequiresActivation="true"/>
 		<Row ConstructibleType="BUILDING_ALTAR" YieldChangeId="PantheonAltarColdReefFeatureProduction" RequiresActivation="true"/>
 		<Row ConstructibleType="BUILDING_ALTAR" YieldChangeId="PantheonAltarCoastTerrainProduction" RequiresActivation="true"/>
+		<Row ConstructibleType="BUILDING_ALTAR" YieldChangeId="PantheonAltarOceanTerrainProduction" RequiresActivation="true"/>
 		<Row ConstructibleType="BUILDING_ALTAR" YieldChangeId="PantheonAltarNavigableRiverProduction" RequiresActivation="true"/>
 		<Row ConstructibleType="BUILDING_ALTAR" YieldChangeId="PantheonAltarMineResourceProduction" RequiresActivation="true"/>
 		<Row ConstructibleType="BUILDING_ALTAR" YieldChangeId="PantheonAltarQuarryProduction" RequiresActivation="true"/>
@@ -155,6 +157,7 @@
 		<Row ID="PantheonAltarReefFeatureProduction" Age="AGE_ANTIQUITY" YieldType="YIELD_PRODUCTION" YieldChange="1" FeatureInCity="FEATURE_REEF"/>
 		<Row ID="PantheonAltarColdReefFeatureProduction" Age="AGE_ANTIQUITY" YieldType="YIELD_PRODUCTION" YieldChange="1" FeatureInCity="FEATURE_COLD_REEF"/>
 		<Row ID="PantheonAltarCoastTerrainProduction" Age="AGE_ANTIQUITY" YieldType="YIELD_PRODUCTION" YieldChange="1" TerrainInCity="TERRAIN_COAST"/>
+		<Row ID="PantheonAltarOceanTerrainProduction" Age="AGE_ANTIQUITY" YieldType="YIELD_PRODUCTION" YieldChange="1" TerrainInCity="TERRAIN_OCEAN"/>
 		<Row ID="PantheonAltarNavigableRiverProduction" Age="AGE_ANTIQUITY" YieldType="YIELD_PRODUCTION" YieldChange="1" NavigableRiverInCity="true"/>
 		<Row ID="PantheonAltarMineResourceProduction" Age="AGE_ANTIQUITY" YieldType="YIELD_PRODUCTION" YieldChange="1" ConstructibleInCity="IMPROVEMENT_MINE_RESOURCE"/>
 		<Row ID="PantheonAltarClayPitResourceProduction" Age="AGE_ANTIQUITY" YieldType="YIELD_PRODUCTION" YieldChange="1" ConstructibleInCity="IMPROVEMENT_CLAY_PIT_RESOURCE"/>

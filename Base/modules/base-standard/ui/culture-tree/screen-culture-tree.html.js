@@ -1,0 +1,4 @@
+const content = "<fxs-subsystem-frame\r\n\tno-scroll=\"true\"\r\n\tclass=\"items-center justify-center flex-auto\"\r\n\tdata-audio-showing=\"culture-tree-chooser-panel-showing\"\r\n\tdata-audio-shown=\"culture-tree-chooser-panel-shown\"\r\n\tdata-audio-hiding=\"culture-tree-chooser-panel-hiding\"\r\n\tdata-audio-hidden=\"culture-tree-chooser-panel-hidden\"\r\n>\r\n\t<div class=\"flex flex-auto flex-col relative\">\r\n\t\t<fxs-header\r\n\t\t\tdata-slot=\"header\"\r\n\t\t\tclass=\"uppercase text-center tracking-100 mb-2 font-title-xl text-secondary\"\r\n\t\t\ttitle=\"LOC_UI_CULTURE_TREE_TITLE\"\r\n\t\t\tfiligree-style=\"h3\"\r\n\t\t>\r\n\t\t</fxs-header>\r\n\t\t<div\r\n\t\t\tid=\"culture-tree-tab-container\"\r\n\t\t\tclass=\"flex flex-col flex-auto\"\r\n\t\t></div>\r\n\t</div>\r\n</fxs-subsystem-frame>\r\n";
+
+export { content as default };
+//# sourceMappingURL=screen-culture-tree.html.js.map

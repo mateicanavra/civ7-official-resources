@@ -1,4 +1,4 @@
-import { L as LensManager } from '../../../../core/ui/lenses/lens-manager.chunk.js';
+import LensManager from '../../../../core/ui/lenses/lens-manager.js';
 
 class DiscoveryLens {
   activeLayers = /* @__PURE__ */ new Set([
@@ -6,8 +6,13 @@ class DiscoveryLens {
     "fxs-culture-borders-layer",
     "fxs-operation-target-layer"
   ]);
-  allowedLayers = /* @__PURE__ */ new Set(["fxs-hexgrid-layer", "fxs-resource-layer", "fxs-yields-layer"]);
-  ignoreEnabledLayers = true;
+  allowedLayers = /* @__PURE__ */ new Set([
+    "fxs-hexgrid-layer",
+    "fxs-resource-layer",
+    "fxs-yields-layer",
+    "fxs-conquest-layer"
+  ]);
+  skipCachingEnabledLayers = true;
 }
 LensManager.registerLens("fxs-discovery-lens", new DiscoveryLens());
 //# sourceMappingURL=discovery-lens.js.map

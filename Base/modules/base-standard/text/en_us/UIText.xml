@@ -19,6 +19,9 @@
 		<Row Tag="LOC_UNIT_INFO_RANGE">
 			<Text>Range</Text>
 		</Row>
+		<Row Tag="LOC_UNIT_INFO_BOMBARD">
+			<Text>Bombard</Text>
+		</Row>
 		<Row Tag="LOC_UNIT_INFO_MOVES_REMAINING">
 			<Text>Moves</Text>
 		</Row>
@@ -148,6 +151,9 @@
 		<Row Tag="LOC_UI_TUT_ACTIVATE_EVENT">
 			<Text>Activate Event</Text>
 		</Row>
+		<Row Tag="LOC_UI_TUT_ACTIVATE">
+			<Text>Activate</Text>
+		</Row>
 		<Row Tag="LOC_UI_NO_SELECTION">
 			<Text>Nothing Selected</Text>
 		</Row>
@@ -161,13 +167,16 @@
 			<Text>View the Technology Tree</Text>
 		</Row>
 		<Row Tag="LOC_UI_VIEW_TRADITIONS">
-			<Text>View Your Social Policies</Text>
+			<Text>View Your Government</Text>
 		</Row>
 		<Row Tag="LOC_UI_VIEW_RANKINGS">
 			<Text>View Rankings</Text>
 		</Row>
 		<Row Tag="LOC_UI_VIEW_UNLOCKS">
 			<Text>View Player Unlocks</Text>
+		</Row>
+		<Row Tag="LOC_UI_VIEW_ADVISORS">
+			<Text>View Advisor Council</Text>
 		</Row>
 		<Row Tag="LOC_UI_VIEW_ATTRIBUTE_TREES">
 			<Text>View Your Attribute Skills</Text>
@@ -180,6 +189,9 @@
 		</Row>
 		<Row Tag="LOC_UI_VIEW_RELIGION">
 			<Text>View Religion</Text>
+		</Row>
+		<Row Tag="LOC_UI_VIEW_LEGACIES">
+			<Text>View Legacies</Text>
 		</Row>
 		<Row Tag="LOC_UI_VIEW_CIVILOPEDIA">
 			<Text>Civilopedia</Text>
@@ -335,7 +347,7 @@
 			<Text>Leader Attribute</Text>
 		</Row>
 		<Row Tag="LOC_UI_ATTRIBUTE_TREES_POINTS_WILDCARD">
-			<Text>[icon:ATTRIBUTE_WILDCARD] Wildcard Points  {1_Num}</Text>
+			<Text>[icon:ATTRIBUTE_WILDCARD] Wildcard Points {1_Num}</Text>
 		</Row>
 		<Row Tag="LOC_UI_ATTRIBUTE_TREES_ATTRIBUTE">
 			<Text>Attribute</Text>
@@ -409,6 +421,21 @@
 		<Row Tag="LOC_UI_TECH_HEX_INTRO">
 			<Text>What Technology project would you like to research next?</Text>
 		</Row>
+		<Row Tag="LOC_UI_ADVISORS_CHOOSE">
+			<Text>Choose Your Advisor</Text>
+		</Row>
+		<Row Tag="LOC_UI_ADVISORS_VIEW_PAGE">
+			<Text>View Page</Text>
+		</Row>
+		<Row Tag="LOC_UI_ADVISORS_FOLLOW">
+			<Text>Follow Advisor</Text>
+		</Row>
+		<Row Tag="LOC_UI_ADVISORS_UNFOLLOW">
+			<Text>Unfollow Advisor</Text>
+		</Row>
+		<Row Tag="LOC_UI_ADVISORS_INSPECT">
+			<Text>Inspect</Text>
+		</Row>
 		<Row Tag="LOC_UI_FOOD_CHOOSER_TITLE">
 			<Text>Growth</Text>
 		</Row>
@@ -428,10 +455,10 @@
 			<Text>+50% Growth. All of the Town's Production is converted into Gold. When the Town grows, it can claim a new Rural tile to add to its territory. This tile comes with the basic Improvement for its Terrain and Features. </Text>
 		</Row>
 		<Row Tag="LOC_UI_FOOD_CHOOSER_GROWTH_DESC_TAXES">
-			<Text>All of the Town's Food is converted into Gold.  The Town will no longer grow.</Text>
+			<Text>All of the Town's Food is converted into Gold. The Town will no longer grow.</Text>
 		</Row>
 		<Row Tag="LOC_UI_FOOD_CHOOSER_GROWTH_DESC_MIGRATE">
-			<Text>All of the Town's Food is sent to the chosen City.  The Town will no longer grow.</Text>
+			<Text>All of the Town's Food is sent to the chosen City. The Town will no longer grow.</Text>
 		</Row>
 		<Row Tag="LOC_UI_FOOD_CHOOSER_CIVILIAN_DESC_DEFAULT">
 			<Text>This Civilian Unit will be created in the City Center.</Text>
@@ -598,6 +625,9 @@
 		<Row Tag="LOC_UI_ADJACENCY_INFO_CONSTRUCTIBLE_SHORT">
 			<Text>{1_TagName} Constructible</Text>
 		</Row>
+		<Row Tag="LOC_UI_ADJACENCY_INFO_RESOURCE_SHORT">
+			<Text>{1_ResourceName} Resource</Text>
+		</Row>
 		<Row Tag="LOC_UI_ADJACENCY_INFO_GENERIC">
 			<Text>+{1_Amount} [icon:{2_YieldType}] for each adjacent:</Text>
 		</Row>
@@ -700,6 +730,12 @@
 		<Row Tag="LOC_UI_CITY_DETAILS_BUILDING_DAMAGED">
 			<Text>Damaged</Text>
 		</Row>
+		<Row Tag="LOC_UI_SHOW_CITY_DETAILS">
+			<Text>Show city details</Text>
+		</Row>
+		<Row Tag="LOC_UI_SHOW_TOWN_DETAILS">
+			<Text>Show town details</Text>
+		</Row>
 		<Row Tag="LOC_UI_CITY_DETAILS_UNIQUE_QUARTER_NEEDS">
 			<Text>Build {1_Name} to complete Unique Quarter</Text>
 		</Row>
@@ -769,8 +805,23 @@
 		<Row Tag="LOC_UI_CITY_DETAILS_YIELD_ONE_DECIMAL">
 			<Text>{1_Amount: number +#.#;-#.#}</Text>
 		</Row>
+		<Row Tag="LOC_UI_CITY_DETAILS_YIELD_ONE_DECIMAL_NO_PLUS">
+			<Text>{1_Amount: number #.#;-#.#}</Text>
+		</Row>
 		<Row Tag="LOC_UI_CITY_DETAILS_YIELD_ONE_DECIMAL_COMMA">
 			<Text>{1_Amount: number +#.#;-#.#},</Text>
+		</Row>
+		<Row Tag="LOC_UI_CITY_DETAILS_YIELD_PERCENT_ONE_DECIMAL">
+			<Text>{1_Amount: number +#.#;-#.#}%</Text>
+		</Row>
+		<Row Tag="LOC_UI_CITY_DETAILS_YIELD_PERCENT_ONE_DECIMAL_NO_PLUS">
+			<Text>{1_Amount: number #.#;-#.#}%</Text>
+		</Row>
+		<Row Tag="LOC_UI_CITY_DETAILS_YIELD_MULTIPLIER_ONE_DECIMAL">
+			<Text>{1_Amount: number x #.#;x -#.#}</Text>
+		</Row>
+		<Row Tag="LOC_UI_CITY_DETAILS_YIELD_MULTIPLIER_ONE_DECIMAL_NO_PLUS">
+			<Text>{1_Amount: number x #.#;x -#.#}</Text>
 		</Row>
 		<Row Tag="LOC_UI_CITY_DETAILS_TREASURE_FLEET_RESOURCE_PREREQ_NEEDED">
 			<Text>No Treasure resources available.</Text>
@@ -809,13 +860,16 @@
 			<Text>Add Improvement</Text>
 		</Row>
 		<Row Tag="LOC_UI_CITY_GROWTH_ADD_IMPROVEMENT_DESC">
-			<Text>Add an Improvement to claim that tile's yields, and upgrade the tile from Unimproved [icon:CITY_UNIMPROVED] to Rural [icon:CITY_RURAL]</Text>
+			<Text>Add an Improvement to claim that tile's yields, and upgrade the tile from an Unimproved [icon:CITY_UNIMPROVED] tile to a Rural [icon:CITY_RURAL] tile in this Settlement.</Text>
+		</Row>
+		<Row Tag="LOC_UI_CITY_GROWTH_ADD_IMPROVEMENT_SWAP_DESC">
+			<Text>Add an Improvement to claim that tile's yields, and upgrade the tile from an Unimproved [icon:CITY_UNIMPROVED] tile to a Rural [icon:CITY_RURAL] tile in this Settlement from a neighboring Settlement.</Text>
 		</Row>
 		<Row Tag="LOC_UI_CITY_GROWTH_ADD_SPECIALST">
 			<Text>Add Specialist</Text>
 		</Row>
 		<Row Tag="LOC_UI_CITY_GROWTH_ADD_SPECIALST_DESC">
-			<Text>Specialists give +2[icon:YIELD_SCIENCE], +2[icon:YIELD_CULTURE] and half the adjacency bonus of the buildings in a district</Text>
+			<Text>Specialists give Yield equal to the adjacency bonus of the Buildings in a District</Text>
 		</Row>
 		<Row Tag="LOC_UI_CITY_GROWTH_SPECIALIST_CAP">
 			<Text>Specialist Cap per Urban tile: {1_Cap}</Text>
@@ -946,10 +1000,10 @@
 			<Text>Add Trade Route</Text>
 		</Row>
 		<Row Tag="LOC_TRADE_LENS_DESCRIPTION">
-			<Text>Send your Merchant to a city to trade Resources with</Text>
+			<Text>Send your Merchant to a Settlement to trade Resources with</Text>
 		</Row>
 		<Row Tag="LOC_TRADE_LENS_DESCRIPTION_ALT">
-			<Text>Select a City below to create a Trade Route with</Text>
+			<Text>Select a Settlement below to create a Trade Route with</Text>
 		</Row>
 		<Row Tag="LOC_TRADE_LENS_SORT_DEFAULT">
 			<Text>Default Sort</Text>
@@ -965,6 +1019,9 @@
 		</Row>
 		<Row Tag="LOC_TRADE_LENS_ROUTE_TYPE_OUT_OF_RANGE">
 			<Text>Out of range</Text>
+		</Row>
+		<Row Tag="LOC_TRADE_LENS_ROUTE_TYPE_NO_URBAN_SEA_ROUTE">
+			<Text>Naval Trade Route needs to end on a District on or adjacent to accessible water</Text>
 		</Row>
 		<Row Tag="LOC_TRADE_LENS_ROUTE_TYPE_ALLIANCE">
 			<Text>Need to Improve Trade Relations</Text>
@@ -1124,6 +1181,9 @@
 		</Row>
 		<Row Tag="LOC_UI_CITY_VIEW_SELECT_A_PLOT">
 			<Text>Select a tile to Place the {1_BuildingName}</Text>
+		</Row>
+		<Row Tag="LOC_UI_CITY_VIEW_SELECT_A_PLOT_REPAIR">
+			<Text>Select a tile to Repair the {1_BuildingName}</Text>
 		</Row>
 		<Row Tag="LOC_UI_CITY_VIEW_FROM_THIS_PLOT">
 			<Text>From This Tile</Text>
@@ -1473,6 +1533,9 @@
 		<Row Tag="LOC_UI_PANTHEON_ALREADY_TAKEN">
 			<Text>Another Civilization already worships this Pantheon.</Text>
 		</Row>
+		<Row Tag="LOC_UI_PANTHEON_ALREADY_TAKEN_BY_YOU">
+			<Text>You already worship this Pantheon.</Text>
+		</Row>
 		<Row Tag="LOC_UI_PANTHEON_CONFIRM_FAIL_ALREADY_TAKEN">
 			<Text>A Pantheon you have chosen has already been taken by another Civilization.</Text>
 		</Row>
@@ -1481,6 +1544,9 @@
 		</Row>
 		<Row Tag="LOC_UI_PANTHEON_CANCEL">
 			<Text>Cancel</Text>
+		</Row>
+		<Row Tag="LOC_UI_PANTHEON_EMPTY">
+			<Text>Research [icon:RADIAL_CIVICS] [B]Mysticism[/B] to Found a [icon:NAR_REW_RELIGION] [B]Pantheon[/B].</Text>
 		</Row>
 		<Row Tag="LOC_UI_ESTABLISH_RELIGION_TITLE">
 			<Text>Create a Religion</Text>
@@ -1611,6 +1677,15 @@
 		<Row Tag="LOC_UI_MINI_MAP_HEX_GRID">
 			<Text>Hex Grid</Text>
 		</Row>
+		<Row Tag="LOC_UI_MINI_MAP_GENERAL_APPEAL">
+			<Text>Appeal</Text>
+		</Row>
+		<Row Tag="LOC_UI_CHARMING_APPEAL">
+			<Text>Charming Appeal</Text>
+		</Row>
+		<Row Tag="LOC_UI_BREATHTAKING_APPEAL">
+			<Text>Breathtaking Appeal</Text>
+		</Row>
 		<Row Tag="LOC_UI_MINI_MAP_SETTLER">
 			<Text>Settler</Text>
 		</Row>
@@ -1635,8 +1710,17 @@
 		<Row Tag="LOC_UI_MINI_MAP_SPECIALISTS">
 			<Text>Specialists</Text>
 		</Row>
+		<Row Tag="LOC_UI_MINI_MAP_TERRAIN">
+			<Text>Terrain</Text>
+		</Row>
 		<Row Tag="LOC_UI_MINI_MAP_TRADE">
 			<Text>Trade</Text>
+		</Row>
+		<Row Tag="LOC_UI_MINI_MAP_CONQUEST">
+			<Text>Conquest</Text>
+		</Row>
+		<Row Tag="LOC_UI_MINI_MAP_CONQUEST_TOOLTIP">
+			<Text>Shows districts that must be captured to take control of a settlement.</Text>
 		</Row>
 		<Row Tag="LOC_UI_SHOW_MINIMAP">
 			<Text>Show Minimap</Text>
@@ -1962,6 +2046,9 @@
 		<Row Tag="LOC_UI_RADIAL_MENU_DETAILS_CIVILOPEDIA_TITLE">
 			<Text>Civilopedia</Text>
 		</Row>
+		<Row Tag="LOC_UI_RADIAL_MENU_DETAILS_ADVISORS_TITLE">
+			<Text>Advisor Council</Text>
+		</Row>
 		<Row Tag="LOC_UI_RADIAL_MENU_DETAILS_AGE_PROGRESS_TITLE">
 			<Text>Age Progress</Text>
 		</Row>
@@ -1981,7 +2068,7 @@
 			<Text>Ranking</Text>
 		</Row>
 		<Row Tag="LOC_UI_RADIAL_MENU_DETAILS_GREATWORKS_TITLE">
-			<Text>Greatworks</Text>
+			<Text>Great Works</Text>
 		</Row>
 		<Row Tag="LOC_UI_RADIAL_MENU_DETAILS_GREATWORKS_LATEST">
 			<Text>Latest Unlock</Text>
@@ -2085,6 +2172,22 @@
 		<Row Tag="LOC_UI_TOOPTIP_TREASURE_HOMELANDS">
 			<Text>This Resource is in the Homelands.</Text>
 		</Row>
+		<Row Tag="LOC_UI_GENERAL_APPEAL_LEGEND_HEADER">
+			<Text>Appeal</Text>
+		</Row>
+		<Row Tag="LOC_UI_GENERAL_APPEAL_LEGEND_BREATHTAKING">
+			<Text>[STYLE:text-secondary]Breathtaking:[/STYLE] +2 [icon:YIELD_HAPPINESS]Happiness per tile</Text>
+		</Row>
+		<Row Tag="LOC_UI_GENERAL_APPEAL_LEGEND_CHARMING">
+			<Text>[STYLE:text-secondary]Charming:[/STYLE] +1 [icon:YIELD_HAPPINESS]Happiness per tile</Text>
+		</Row>
+		<Row Tag="LOC_UI_GENERAL_APPEAL_LEGEND_AVERAGE">
+			<Text>[STYLE:text-secondary]Average:[/STYLE] No change</Text>
+		</Row>
+		<Row Tag="LOC_UI_GENERAL_APPEAL_LEGEND_NATURAL_WONDER">
+			<Text>[STYLE:text-secondary]Natural Wonder:[/STYLE] Yields as specified for that particular Wonder</Text>
+		</Row>
+
 		<Row Tag="LOC_UI_SETTLER_LEGEND_HEADER">
 			<Text>Settler</Text>
 		</Row>
@@ -2108,6 +2211,180 @@
 		</Row>
 		<Row Tag="LOC_UI_CITY_DETAILS_INFECTED">
 			<Text>Infected</Text>
+		</Row>
+		<Row Tag="LOC_UI_DIPLOMACY_ALL_ACTIONS_TOOLTIP">
+			<Text>Diplomatic Actions</Text>
+		</Row>
+		<Row Tag="LOC_UI_DIPLOMACY_ALL_ACTIONS_EMPTY">
+			<Text>Explore to meet other Leaders.</Text>
+		</Row>
+		<Row Tag="LOC_UI_DIPLOMACY_MINOR_POWERS_TOOLTIP">
+			<Text>Minor Powers</Text>
+		</Row>
+		<Row Tag="LOC_UI_DIPLOMACY_MINOR_POWERS_EMPTY">
+			<Text>Explore to meet Independent Powers and [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]City-States[/TIP].</Text>
+		</Row>
+		<Row Tag="LOC_UI_DIPLOMACY_GOVERNMENT_TOOLTIP">
+			<Text>Government</Text>
+		</Row>
+		<Row Tag="LOC_UI_DIPLOMACY_GOVERNMENT_EMPTY">
+			<Text>Gain more Culture to choose a Government.</Text>
+		</Row>
+		<Row Tag="LOC_UI_DIPLOMACY_OTHER_GOVERNMENT_EMPTY">
+			<Text>This Civilization has not chosen a Government yet.</Text>
+		</Row>
+		<Row Tag="LOC_UI_DIPLOMACY_ABILITIES_TOOLTIP">
+			<Text>Unique Abilities</Text>
+		</Row>
+		<Row Tag="LOC_UI_DIPLOMACY_RELATIONSHIPS_TOOLTIP">
+			<Text>Relationships</Text>
+		</Row>
+		<Row Tag="LOC_UI_TRADITIONS_TITLE">
+			<Text>Traditions</Text>
+		</Row>
+		<Row Tag="LOC_UI_POLICIES_ADD_TRADITION">
+			<Text>Assign a Policy or Tradition</Text>
+		</Row>
+		<Row Tag="LOC_UI_POLICIES_ADD_POLICY">
+			<Text>Assign a Policy</Text>
+		</Row>
+		<Row Tag="LOC_UI_POLICIES_POLICIES_ACTIVE">
+			<Text>Active Policies &amp; Traditions</Text>
+		</Row>
+		<Row Tag="LOC_UI_POLICIES_AVAILABLE">
+			<Text>Available Policies</Text>
+		</Row>
+		<Row Tag="LOC_UI_TRADITIONS_AVAILABLE">
+			<Text>Available Traditions</Text>
+		</Row>
+		<Row Tag="LOC_UI_POLICIES_DESCRIPTION">
+			<Text>Policies and Traditions determine how your Civilization grows.</Text>
+		</Row>
+		<Row Tag="LOC_UI_SYNCRETISM_TITLE">
+			<Text>Syncretism</Text>
+		</Row>
+		<Row Tag="LOC_UI_SYNCRETISM_PREVIEW_TITLE">
+			<Text>Syncretism Options</Text>
+		</Row>
+		<Row Tag="LOC_UI_SYNCRETISM_CHOOSE_ONE">
+			<Text>Choose One</Text>
+		</Row>
+		<Row Tag="LOC_UI_SYNCRETISM_INSTRUCTIONS">
+			<Text>The {1_civPeopleName} people have changed, adapting to a new Age. [n]Because of your Leader and Civilization, you may select [b]one[/b] element from an associated Civ to become a part of {2_civName}. [n]Or, reflect inward and strengthen your own Traditions instead.</Text>
+		</Row>
+		<Row Tag="LOC_UI_SYNCRETISM_PREVIEW">
+			<Text>Upon studying Syncretism, you may select a Unique Unit or Unique Infrastructure from an associated Civ to become a part of your Empire for the Age. [n]Or, reflect inward and strengthen your own Traditions.</Text>
+		</Row>
+		<Row Tag="LOC_UI_SYNCRETISM_PREVIEW_ONLY">
+			<Text>This is only a preview of available options.</Text>
+		</Row>
+		<Row Tag="LOC_UI_SYNCRETISM_POSTVIEW">
+			<Text>A choice has been made for this era.</Text>
+		</Row>
+		<Row Tag="LOC_UI_SYNCRETISM_TOOLTIP">
+			<Text>Preview what options you may select from Syncretism.</Text>
+		</Row>
+		<Row Tag="LOC_UI_SYNCRETISM_REQUIRES_TOOLTIP">
+			<Text>This selection can be made, but will require a tech in order to be built or trained.</Text>
+		</Row>
+		<Row Tag="LOC_UI_SYNCRETISM_UPGRADES_TOOLTIP">
+			<Text>Selecting this Syncretism option will immediately replace existing Units of the appropriate type.</Text>
+		</Row>
+		<Row Tag="LOC_UI_SYNCRETISM_CONFIRM_DESCRIPTION">
+			<Text>Will {1_selectedCiv}'s {2_selectedType} carry the {3_playersCiv} through the {4_currentAge} Age?</Text>
+		</Row>
+		<Row Tag="LOC_GAME_START_CIV_SELECTION_MODE_NAME">
+			<Text>Random Civ Selection, Game Start</Text>
+		</Row>
+		<Row Tag="LOC_GAME_START_CIV_SELECTION_MODE_DESCRIPTION">
+			<Text>How random Civilizations are selected at the beginning of the game.</Text>
+		</Row>
+		<Row Tag="LOC_AGE_TRANSITION_CIV_SELECTION_MODE_NAME">
+			<Text>AI Civ selection, Age Transition</Text>
+		</Row>
+		<Row Tag="LOC_AGE_TRANSITION_CIV_SELECTION_MODE_DESCRIPTION">
+			<Text>How Leader impacts random Civilization selection.</Text>
+		</Row>
+		<Row Tag="LOC_LEADER_ASSOCIATED_CIV_SELECTION_MODE_NAME">
+			<Text>Random Civ Selection, Leader Association</Text>
+		</Row>
+		<Row Tag="LOC_LEADER_ASSOCIATED_CIV_SELECTION_MODE_DESCRIPTION">
+			<Text>How AI selects Civilizations at Age Transition.</Text>
+		</Row>
+		<Row Tag="LOC_GAME_START_CIV_SELECTION_MODE_ANACHRONISTIC_NAME">
+			<Text>Time-Tested Allowed</Text>
+		</Row>
+		<Row Tag="LOC_GAME_START_CIV_SELECTION_MODE_ANACHRONISTIC_DESCRIPTION">
+			<Text>Randomized Civs may be selected from outside the starting Age when beginning a new game.[nn]This applies to both AI and human players selecting Randomized Civs.[nn]AI opponents can be assigned to non-Random Civs in the Player tab of Advanced Settings.</Text>
+		</Row>
+		<Row Tag="LOC_GAME_START_CIV_SELECTION_MODE_APEX_NAME">
+			<Text>Apex Only</Text>
+		</Row>
+		<Row Tag="LOC_GAME_START_CIV_SELECTION_MODE_APEX_DESCRIPTION">
+			<Text>Randomized Civs will only be selected from those associated with the starting Age when beginning a new game.[nn]This applies to both AI and human players selecting Randomized Civs.[nn]AI opponents can be assigned to non-random Civs in the Player tab of Advanced Settings.</Text>
+		</Row>
+		<Row Tag="LOC_AGE_TRANSITION_CIV_SELECTION_MODE_MIRRORING_NAME">
+			<Text>Mirroring</Text>
+		</Row>
+		<Row Tag="LOC_AGE_TRANSITION_CIV_SELECTION_MODE_MIRRORING_DESCRIPTION">
+			<Text>AI will examine and mirror the behavior of human players.[nn]If a human player switches into an Apex Age Civ, the AI will do the same[nn]If a human player persists as their current Civ, the AI will do the same.</Text>
+		</Row>
+		<Row Tag="LOC_AGE_TRANSITION_CIV_SELECTION_MODE_PERSISTENCE_NAME">
+			<Text>Current Civilization Persistence</Text>
+		</Row>
+		<Row Tag="LOC_AGE_TRANSITION_CIV_SELECTION_MODE_PERSISTENCE_DESCRIPTION">
+			<Text>AI will persist as their previously selected Civilization, even into a Time-Tested Age.</Text>
+		</Row>
+		<Row Tag="LOC_AGE_TRANSITION_CIV_SELECTION_MODE_SWITCHING_NAME">
+			<Text>Apex Civilization Transition</Text>
+		</Row>
+		<Row Tag="LOC_AGE_TRANSITION_CIV_SELECTION_MODE_SWITCHING_DESCRIPTION">
+			<Text>AI will always transition into an Apex Age Civ.</Text>
+		</Row>
+		<Row Tag="LOC_AGE_TRANSITION_CIV_SELECTION_MODE_RANDOM_NAME">
+			<Text>Random</Text>
+		</Row>
+		<Row Tag="LOC_AGE_TRANSITION_CIV_SELECTION_MODE_RANDOM_DESCRIPTION">
+			<Text>AI will, on a 50/50 basis, elect to persist as their previous Civ into a Time-Tested Age OR transition into an Apex Age Civ.</Text>
+		</Row>
+		<Row Tag="LOC_LEADER_ASSOCIATED_CIV_SELECTION_MODE_HISTORICAL_NAME">
+			<Text>Historical</Text>
+		</Row>
+		<Row Tag="LOC_LEADER_ASSOCIATED_CIV_SELECTION_MODE_HISTORICAL_DESCRIPTION">
+			<Text>Randomized Civs will be selected from a smaller pool associated with a given Leader, if possible.[nn]Historical Civ selections may be avoided if duplicate Civs would result.</Text>
+		</Row>
+		<Row Tag="LOC_LEADER_ASSOCIATED_CIV_SELECTION_MODE_RANDOM_NAME">
+			<Text>Random</Text>
+		</Row>
+		<Row Tag="LOC_LEADER_ASSOCIATED_CIV_SELECTION_MODE_RANDOM_DESCRIPTION">
+			<Text>Randomized Civs will be selected truly randomly, regardless of their associations.</Text>
+		</Row>
+		<Row Tag="LOC_UI_CITY_CAPITAL_CURR_DESC">
+			<Text>New Capital</Text>
+		</Row>
+		<Row Tag="LOC_UI_CITY_CAPITAL_OG_DESC">
+			<Text>Original Capital</Text>
+		</Row>
+		<Row Tag="LOC_UI_CITY_CAPITAL_OG_CURR_DESC">
+			<Text>Capital</Text>
+		</Row>
+		<Row Tag="LOC_UI_SYNCRETISM_INFRASTRUCTURE">
+			<Text>Infrastructure</Text>
+		</Row>
+		<Row Tag="LOC_UI_SYNCRETISM_UNITS">
+			<Text>Units</Text>
+		</Row>
+		<Row Tag="LOC_UI_SYNCRETISM_SELF">
+			<Text>Affirmation</Text>
+		</Row>
+		<Row Tag="LOC_UI_TRIUMPH">
+			<Text>Triumph</Text>
+		</Row>
+		<Row Tag="LOC_UI_APEX">
+			<Text>Apex</Text>
+		</Row>
+		<Row Tag="LOC_UI_TIME_TESTED">
+			<Text>Time-Tested</Text>
 		</Row>
 	</EnglishText>
 </Database>

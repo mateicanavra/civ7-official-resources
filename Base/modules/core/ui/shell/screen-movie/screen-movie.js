@@ -1,10 +1,8 @@
-import { b as InputEngineEventName } from '../../input/input-support.chunk.js';
-import { P as Panel } from '../../panel-support.chunk.js';
-import { MustGetElement } from '../../utilities/utilities-dom.chunk.js';
-import { L as Layout } from '../../utilities/utilities-layout.chunk.js';
-import '../../framework.chunk.js';
-
-const content = "<div class=\"screen-movie-container absolute fullscreen\">\r\n\t<fxs-movie class=\"screen-movie-player fullscreen absolute inset-0\"></fxs-movie>\r\n</div>";
+import { InputEngineEventName } from '../../input/input-support.js';
+import Panel from '../../panel-support.js';
+import { MustGetElement } from '../../utilities/utilities-dom.js';
+import { Layout } from '../../utilities/utilities-layout.js';
+import content from './screen-movie.html.js';
 
 const MovieScreenOpenedEventName = "screen-movie-opened";
 class MovieScreenOpenedEvent extends CustomEvent {

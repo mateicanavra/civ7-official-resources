@@ -1,16 +1,11 @@
 import ContextManager from '../../../core/ui/context-manager/context-manager.js';
-import { b as DisplayHandlerBase } from '../../../core/ui/dialog-box/manager-dialog-box.chunk.js';
+import { DisplayHandlerBase } from '../../../core/ui/context-manager/display-handler.js';
 import { DisplayQueueManager } from '../../../core/ui/context-manager/display-queue-manager.js';
-import { P as PlotCoord } from '../../../core/ui/utilities/utilities-plotcoord.chunk.js';
+import { PlotCoord } from '../../../core/ui/utilities/utilities-plotcoord.js';
+import AdviceManager from '../advice/advice-manager.js';
 import { NotificationModel } from '../notification-train/model-notification-train.js';
+import { PopupPriority } from '../popup-sequencer/popup-priority.js';
 import TutorialItem, { TutorialLevel, TutorialCalloutType, TutorialAnchorPosition, TutorialAdvisorType } from '../tutorial/tutorial-item.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/input/cursor.js';
-import '../../../core/ui/input/focus-manager.js';
-import '../../../core/ui/audio-base/audio-support.chunk.js';
-import '../../../core/ui/views/view-manager.chunk.js';
-import '../../../core/ui/panel-support.chunk.js';
-import '../../../core/ui/utilities/utilities-component-id.chunk.js';
 
 class WatchOutManagerClass extends DisplayHandlerBase {
   static instance = null;
@@ -54,7 +49,7 @@ class WatchOutManagerClass extends DisplayHandlerBase {
     }
   };
   raiseNotificationPanel(notificationId, advisorType, lookAtCallback) {
-    if (!this.isManagerActive) {
+    if (!this.isManagerActive && advisorType !== void 0 && !AdviceManager.isFollowed(AdviceManager.getAdvisorTypeFromTutorialAdvisorType(advisorType))) {
       NotificationModel.manager.dismiss(notificationId);
       return;
     }
@@ -76,6 +71,16 @@ class WatchOutManagerClass extends DisplayHandlerBase {
     const summary = Game.Notifications.getSummary(notificationId) || "";
     const notification = Game.Notifications.find(notificationId);
     const location = notification?.Location;
+    let advicePageId = void 0;
+    const adviceID = notification?.AdviceType;
+    if (adviceID != void 0 && adviceID != -1) {
+      const adviceInfo = GameInfo.AdviceInstances.lookup(adviceID);
+      if (adviceInfo != null) {
+        if (adviceInfo.AdviceID) {
+          advicePageId = adviceInfo.AdviceID;
+        }
+      }
+    }
     const calloutDismiss = {
       callback: () => {
         NotificationModel.manager.dismiss(notificationId);
@@ -87,18 +92,26 @@ class WatchOutManagerClass extends DisplayHandlerBase {
     const calloutTakeMe = {
       callback: () => {
         const notification2 = Game.Notifications.find(notificationId);
-        if (lookAtCallback && notification2) {
-          lookAtCallback(notificationId);
-        } else if (location && PlotCoord.isValid(location)) {
+        if (location && PlotCoord.isValid(location)) {
           Camera.lookAtPlot(location);
+        } else if (advicePageId != void 0) {
+          ContextManager.push("screen-advisor-council", {
+            createMouseGuard: true,
+            singleton: true,
+            attributes: { "tab-id": advisorType, "page-id": advicePageId }
+          });
+        } else if (lookAtCallback && notification2) {
+          lookAtCallback(notificationId);
         }
         NotificationModel.manager.dismiss(notificationId);
       },
-      text: "LOC_TUTORIAL_CALLOUT_TAKE_ME",
+      text: location && PlotCoord.isValid(location) ? "LOC_TUTORIAL_CALLOUT_TAKE_ME" : "LOC_TUTORIAL_CIVILOPEDIA_TELL_ME_MORE",
       actionKey: "inline-accept",
       closes: true
     };
-    const hasExtraContent = notification?.Location != void 0 && PlotCoord.isValid(notification?.Location);
+    const hasLocationContent = notification?.Location != void 0 && PlotCoord.isValid(notification?.Location);
+    const hasAdvicePageContent = advicePageId != void 0;
+    const hasExtraContent = hasLocationContent || hasAdvicePageContent;
     const dialogTutorialDef = {
       ID: name,
       callout: {
@@ -117,7 +130,8 @@ class WatchOutManagerClass extends DisplayHandlerBase {
     const TutorialData = new TutorialItem(dialogTutorialDef);
     const watchOutPopupData = {
       category: this.getCategory(),
-      item: TutorialData
+      item: TutorialData,
+      priority: PopupPriority.beforeCinematics
     };
     this.isNotificationPanelRaised = true;
     this.addDisplayRequest(watchOutPopupData);

@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+	<!-- ==================================================	-->
+	<!--	Civ-Specific Traits							-->
+	<!-- ==================================================	-->
+	<!-- AKSUM -->
+	<Modifier id="TRAIT_MOD_KINGDOM_OF_NATURAL_WEALTH_RESOURCE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_GRANT_WAREHOUSE_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_ADJACENT_TO_COAST"/>
+			<Requirement type="REQUIREMENT_PLOT_DISTRICT_CLASS">
+				<Argument name="DistrictClass">CITYCENTER</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="WarehouseYieldChange">AksumKingdomOfNaturalWealthResourceGold</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_AKSUM_ABILITY_NAME</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_KINGDOM_OF_NATURAL_WEALTH_TRADE_ROUTE_CAP_SELF" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_TRADE_CAPACITY">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_GAME_TURN_ATLEAST">
+				<Argument name="MinGameTurn">2</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">1</Argument>
+		<Argument name="MajorsOnly">true</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_KINGDOM_OF_NATURAL_WEALTH_TRADE_ROUTE_CAP_OTHERS" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_TRADE_CAPACITY">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_GAME_TURN_ATLEAST">
+				<Argument name="MinGameTurn">2</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">1</Argument>
+		<Argument name="MajorsOnly">true</Argument>
+		<Argument name="RoutesToPlayer">true</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_KINGDOM_OF_NATURAL_WEALTH_TRADE_ROUTE_UNLIMITED_RANGE" collection="COLLECTION_OWNER" effect="EFFECT_ADJUST_PLAYER_UNLIMITED_RANGE_TRADE_ROUTES">
+		<Argument name="UnlimitedRange">true</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_MO_KINGDOM_OF_NATURAL_WEALTH_RESOURCE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_GRANT_WAREHOUSE_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_ADJACENT_TO_COAST"/>
+			<Requirement type="REQUIREMENT_PLOT_DISTRICT_CLASS">
+				<Argument name="DistrictClass">CITYCENTER</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="WarehouseYieldChange">AksumMOKingdomOfNaturalWealthResourceGold</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_AKSUM_ABILITY_NAME</Argument>
+	</Modifier>
+	<!-- EGYPT -->
+	<Modifier id="TRAIT_MOD_GIFTS_OF_OSIRIS_NAVIGABLE_RIVER" collection="COLLECTION_PLAYER_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_IS_RIVER">
+				<Argument name="Navigable">true</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_PLOT_DISTRICT_CLASS">
+				<Argument name="DistrictClass">RURAL, URBAN, CITYCENTER</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_PRODUCTION</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_EGYPT_ABILITY_NAME</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_GIFTS_OF_OSIRIS_UNITS_IGNORE_MINOR_RIVER" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_IGNORE_MOVEMENT_OBSTACLE">
+		<Argument name="Obstacle">RIVER_MINOR</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_GIFTS_OF_OSIRIS_WONDER_TOURISM" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ACTIVATE_VICTORY_POINT_TRACKER" run-once="true" permanent="true">
+		<Argument name="TrackerName">VICTORY_TRACKER_WONDERS_EGYPT_TRADITION</Argument>
+	</Modifier>
+	<!-- GREECE -->
+	<Modifier id="TRAIT_MOD_DEMOKRATIA_INFLUENCE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_CONSTRUCTIBLE_YIELD">
+		<Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+		<Argument name="Amount">3</Argument>
+		<Argument name="ConstructibleType">BUILDING_PALACE</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_GREECE_ABILITY_NAME</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_DEMOKRATIA_INFLUENCE_TOT_EX" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_CONSTRUCTIBLE_YIELD">
+		<Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+		<Argument name="Amount">4</Argument>
+		<Argument name="ConstructibleType">BUILDING_PALACE</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_GREECE_ABILITY_NAME</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_DEMOKRATIA_INFLUENCE_TOT_MO" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_CONSTRUCTIBLE_YIELD">
+		<Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+		<Argument name="Amount">5</Argument>
+		<Argument name="ConstructibleType">BUILDING_PALACE</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_GREECE_ABILITY_NAME</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_DEMOKRATIA_CULTURE_ENDEAVOR" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_ADJUST_YIELD_PER_PLAYER_INVOLVED_ACTION">
+		<Argument name="ActionGroupType">DIPLOMACY_ACTION_GROUP_ENDEAVOR</Argument>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_GREECE_ABILITY_NAME</Argument>
+		<String context="Description">LOC_MOD_EKKLESIA_CULTURE_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_DEMOKRATIA_CULTURE_SANCTION" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_ADJUST_YIELD_PER_PLAYER_INVOLVED_ACTION">
+		<Argument name="ActionGroupType">DIPLOMACY_ACTION_GROUP_SANCTION</Argument>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_GREECE_ABILITY_NAME</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_DEMOKRATIA_CULTURE_PROJECT" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_ADJUST_YIELD_PER_PLAYER_INVOLVED_ACTION">
+		<Argument name="ActionGroupType">DIPLOMACY_ACTION_GROUP_PROJECT</Argument>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_GREECE_ABILITY_NAME</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_DEMOKRATIA_CULTURE_ESPIONAGE" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_ADJUST_YIELD_PER_PLAYER_INVOLVED_ACTION">
+		<Argument name="ActionGroupType">DIPLOMACY_ACTION_GROUP_ESPIONAGE</Argument>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_GREECE_ABILITY_NAME</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_DEMOKRATIA_CULTURE_ENDEAVOR_TOT_MO" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_ADJUST_YIELD_PER_PLAYER_INVOLVED_ACTION">
+		<Argument name="ActionGroupType">DIPLOMACY_ACTION_GROUP_ENDEAVOR</Argument>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount">3</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_GREECE_ABILITY_NAME</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_DEMOKRATIA_CULTURE_SANCTION_TOT_MO" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_ADJUST_YIELD_PER_PLAYER_INVOLVED_ACTION">
+		<Argument name="ActionGroupType">DIPLOMACY_ACTION_GROUP_SANCTION</Argument>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount">3</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_GREECE_ABILITY_NAME</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_DEMOKRATIA_CULTURE_PROJECT_TOT_MO" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_ADJUST_YIELD_PER_PLAYER_INVOLVED_ACTION">
+		<Argument name="ActionGroupType">DIPLOMACY_ACTION_GROUP_PROJECT</Argument>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount">3</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_GREECE_ABILITY_NAME</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_DEMOKRATIA_CULTURE_ESPIONAGE_TOT_MO" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_ADJUST_YIELD_PER_PLAYER_INVOLVED_ACTION">
+		<Argument name="ActionGroupType">DIPLOMACY_ACTION_GROUP_ESPIONAGE</Argument>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount">3</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_GREECE_ABILITY_NAME</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_DEMOKRATIA_CITY_STATE_TOURISM" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ACTIVATE_VICTORY_POINT_TRACKER" run-once="true" permanent="true">
+		<Argument name="TrackerName">VICTORY_TRACKER_GREECE_SUZERAIN</Argument>
+	</Modifier>
+	<!-- HAN -->
+	<Modifier id="TRAIT_MOD_NINE_PROVINCES_CAPITAL" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_POPULATION" permanent="true">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_HAS_BUILDING">
+				<Argument name="BuildingType">BUILDING_PALACE</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_GAME_TURN_ATLEAST">
+				<Argument name="MinGameTurn">3</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_CITY_IS_ORIGINAL_OWNER"/>
+      <Requirement type="REQUIREMENT_CITY_IS_ORIGINAL_CAPITAL"/>
+		</SubjectRequirements>
+		<Argument name="Amount">1</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_NINE_PROVINCES_POP_IN_CAPITAL_ON_SCIENCE_BUILDING" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_ADJUST_POPULATION">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_BUILT_TAGGED_CONSTRUCTIBLE">
+				<Argument name="Tags">SCIENCE</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">1</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_NINE_PROVINCES_POP_IN_CITIES_ON_SCIENCE_BUILDING" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_POPULATION">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_CITY"/>
+			<Requirement type="REQUIREMENT_CITY_BUILT_TAGGED_CONSTRUCTIBLE">
+				<Argument name="Tags">SCIENCE</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">1</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_NINE_PROVINCES_POP_ON_SCIENCE_BUILDING" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_POPULATION">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_BUILT_TAGGED_CONSTRUCTIBLE">
+				<Argument name="Tags">SCIENCE</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">1</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_NINE_PROVINCES_TOWN" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_POPULATION" permanent="true">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_TOWN"/>
+			<Requirement type="REQUIREMENT_CITY_IS_ORIGINAL_OWNER"/>
+		</SubjectRequirements>
+		<Argument name="Amount">1</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_NINE_PROVINCES_TOT_TOWN" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_POPULATION" permanent="true" new-only="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_GAME_IS_STARTED"/>
+		</OwnerRequirements>
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_TOWN"/>
+			<Requirement type="REQUIREMENT_CITY_IS_ORIGINAL_OWNER"/>
+		</SubjectRequirements>
+		<Argument name="Amount">1</Argument>
+	</Modifier>
+	<!-- KHMER -->
+	<Modifier id="TRAIT_MOD_KSEKAM_CHAMNON_MINOR_RIVER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_GRANT_NATURAL_YIELDS">
+		<Argument name="MinorRivers">true</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_KHMER_ABILITY_NAME</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_KSEKAM_CHAMNON_NAVIGABLE_RIVER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_GRANT_NATURAL_YIELDS">
+		<Argument name="TerrainTypes">TERRAIN_NAVIGABLE_RIVER</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_KHMER_ABILITY_NAME</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_KSEKAM_CHAMNON_CAPITAL_GROWTH" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_ADJUST_GROWTH">
+		<Argument name="Percent">50</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_KHMER_ABILITY_NAME</Argument>
+		<String context="Description">LOC_TRAIT_MOD_KSEKAM_CHAMNON_CAPITAL_GROWTH_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_KSEKAM_CHAMNON_CITY_HAPPINESS_PENALTY" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_CITY"/>
+			<Requirement type="REQUIREMENT_CITY_HAS_BUILDING" inverse="true">
+				<Argument name="BuildingType">BUILDING_PALACE</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_HAPPINESS</Argument>
+		<Argument name="Amount" type="ScaleByGameAge" extra="100">-5</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_KHMER_ABILITY_NAME</Argument>
+	</Modifier>
+	<!-- MAURYA -->
+	<Modifier id="TRAIT_MOD_DHAMMA_THAMBHA_AQ_HAPPINESS_BUILDING_HAPPINESS" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_CONSTRUCTIBLE_YIELD">
+		<Argument name="Tag">HAPPINESS</Argument>
+		<Argument name="YieldType">YIELD_HAPPINESS</Argument>
+		<Argument name="Amount">2</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_DHAMMA_THAMBHA_AQ_MILITARY_BUILDING_HAPPINESS" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_CONSTRUCTIBLE_YIELD">
+		<Argument name="Tag">MILITARY</Argument>
+		<Argument name="YieldType">YIELD_HAPPINESS</Argument>
+		<Argument name="Amount">2</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_DHAMMA_THAMBHA_AQ_SCIENCE_BUILDING_HAPPINESS" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_CONSTRUCTIBLE_YIELD">
+		<Argument name="Tag">SCIENCE</Argument>
+		<Argument name="YieldType">YIELD_HAPPINESS</Argument>
+		<Argument name="Amount">2</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_DHAMMA_THAMBHA_CELEBRATION_HEAL" collection="COLLECTION_OWNER" effect="TRIGGER_PLAYER_GRANT_HEALING_ON_GOLDEN_AGE">
+		<Argument name="DomainType">DOMAIN_LAND</Argument>
+		<Argument name="Amount">100</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_DHAMMA_THAMBHA_MO_HAPPINESS_BUILDING_HAPPINESS" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_CONSTRUCTIBLE_YIELD">
+		<Argument name="Tag">HAPPINESS</Argument>
+		<Argument name="YieldType">YIELD_HAPPINESS</Argument>
+		<Argument name="Amount">3</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_DHAMMA_THAMBHA_MO_MILITARY_BUILDING_HAPPINESS" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_CONSTRUCTIBLE_YIELD">
+		<Argument name="Tag">MILITARY</Argument>
+		<Argument name="YieldType">YIELD_HAPPINESS</Argument>
+		<Argument name="Amount">3</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_DHAMMA_THAMBHA_MO_SCIENCE_BUILDING_HAPPINESS" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_CONSTRUCTIBLE_YIELD">
+		<Argument name="Tag">SCIENCE</Argument>
+		<Argument name="YieldType">YIELD_HAPPINESS</Argument>
+		<Argument name="Amount">3</Argument>
+	</Modifier>
+ 	<Modifier id="TRAIT_MOD_NAGARIKA_ALTAR_PURCHASE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_GRANT_FREE_PURCHASE_CHARGE" permanent="true">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_FIRST_TIME_SETTLEMENT_OCCUPATION">
+				<Argument name="OwnerSettled">true</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_CITY_IS_TOWN"/>
+		</SubjectRequirements>
+        <Argument name="BuildingType">BUILDING_ALTAR</Argument>
+        <Argument name="Amount">1</Argument>
+	</Modifier>
+	<!-- MAYA -->
+	<Modifier id="TRAIT_MOD_SKIES_OF_ITZAMNA_CULTURE_FOR_TECH" collection="COLLECTION_OWNER" effect="TRIGGER_PLAYER_GRANT_YIELD_ON_PROGRESSION_TREE_NODE_DEPTH_UNLOCKED">
+		<Argument name="SystemType">SYSTEM_TECH</Argument>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="PercentCost">10</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_MAYA_ABILITY_NAME</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_SKIES_OF_ITZAMNA_SCIENCE_FOR_CIVIC" collection="COLLECTION_OWNER" effect="TRIGGER_PLAYER_GRANT_YIELD_ON_PROGRESSION_TREE_NODE_DEPTH_UNLOCKED">
+		<Argument name="SystemType">SYSTEM_CULTURE</Argument>
+		<Argument name="YieldType">YIELD_SCIENCE</Argument>
+		<Argument name="PercentCost">10</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_MAYA_ABILITY_NAME</Argument>
+	</Modifier>
+	<!-- MISSISSIPPIAN -->
+	<Modifier id="TRAIT_MOD_GOOSE_SOCIETIES" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ACTIVATE_CONSTRUCTIBLE_ADJACENCY">
+		<Argument name="ConstructibleAdjacency">GooseSocietiesWildcardResourceFood</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_GOOSE_SOCIETIES_BUILDING_PRODUCTION" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_PRODUCTION">
+		<Argument name="ConstructibleClass">BUILDING</Argument>
+		<Argument name="Percent">10</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_MISSISSIPPIAN_ABILITY_NAME</Argument>
+	</Modifier>
+	<!-- PERSIA -->
+	<Modifier id="HAMARANA_COUNCIL_MOD_COMBAT_ATTACK" collection="COLLECTION_UNIT_COMBAT" effect="EFFECT_ADJUST_UNIT_STRENGTH_MODIFIER">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_IS_ATTACKING"/>
+		</SubjectRequirements>
+		<Argument name="Amount">3</Argument>
+		<String context="Preview">LOC_ABILITY_HAMARANA_COUNCIL_PREVIEW</String>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_HAMARANA_COUNCIL" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_ABILITY">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+				<Argument name="Tag">UNIT_CLASS_INFANTRY</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="AbilityType">ABILITY_HAMARANA_COUNCIL</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_HAMARANA_COMMANDER_PROMOTION" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_GRANT_UNIT_PROMOTION" run-once="false" permanent="true">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+				<Argument name="Tag">UNIT_CLASS_ARMY_COMMANDER</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">1</Argument>
+	</Modifier>
+	<!-- ROME -->
+	<Modifier id="TRAIT_MOD_TWELVE_TABLES_CAPITAL" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_ATTACH_MODIFIERS">
+		<Argument name="ModifierId">ATTACH_MOD_TWELVE_TABLES_CAPITAL</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_TWELVE_TABLES_TOWNS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_ATTACH_MODIFIERS">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_TOWN"/>
+		</SubjectRequirements>
+		<Argument name="ModifierId">ATTACH_MOD_TWELVE_TABLES_TOWNS</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_MOD_TWELVE_TABLES_CAPITAL" collection="COLLECTION_CITY_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_DISTRICT_CLASS">
+				<Argument name="DistrictClass">CITYCENTER, URBAN</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_ROME_ABILITY_NAME</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_MOD_TWELVE_TABLES_TOWNS" collection="COLLECTION_CITY_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_DISTRICT_CLASS">
+				<Argument name="DistrictClass">CITYCENTER</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_ROME_ABILITY_NAME</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_MO_TWELVE_TABLES_CAPITAL" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_ATTACH_MODIFIERS">
+		<Argument name="ModifierId">ATTACH_MOD_MO_TWELVE_TABLES_CAPITAL</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_MO_TWELVE_TABLES_TOWNS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_ATTACH_MODIFIERS">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_TOWN"/>
+		</SubjectRequirements>
+		<Argument name="ModifierId">ATTACH_MOD_MO_TWELVE_TABLES_TOWNS</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_MOD_MO_TWELVE_TABLES_CAPITAL" collection="COLLECTION_CITY_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_DISTRICT_CLASS">
+				<Argument name="DistrictClass">CITYCENTER, URBAN</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_ROME_ABILITY_NAME</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_MOD_MO_TWELVE_TABLES_TOWNS" collection="COLLECTION_CITY_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_DISTRICT_CLASS">
+				<Argument name="DistrictClass">CITYCENTER</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_ROME_ABILITY_NAME</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_TWELVE_TABLES_TOWN_INFANTRY" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_GRANT_UNIT" permanent="true">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_FIRST_TIME_SETTLEMENT_OCCUPATION">
+				<Argument name="OwnerSettled">true</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_CITY_IS_TOWN"/>
+		</SubjectRequirements>
+		<Argument name="UnitTag">UNIT_CLASS_INFANTRY</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="AllowUniqueOverride">true</Argument>
+	</Modifier>
+</GameEffects>

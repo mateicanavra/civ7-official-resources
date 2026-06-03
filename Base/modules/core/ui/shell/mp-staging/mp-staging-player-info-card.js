@@ -1,10 +1,7 @@
-import { P as Panel } from '../../panel-support.chunk.js';
-import { MustGetElement } from '../../utilities/utilities-dom.chunk.js';
-import '../../framework.chunk.js';
-
-const content = "<div class=\"mspic-bg bg-cover bg-no-repeat bg-center flex flex-auto\">\r\n\t<div class=\"relative flex flex-auto\">\r\n\t\t<div class=\"mspic-hslot relative flex flex-auto items-center flex-row p-1\">\r\n\t\t\t<div class=\"mspic-badge-container mr-2 pb-2\">\r\n\t\t\t\t<progression-badge badge-size=\"small\"></progression-badge>\r\n\t\t\t</div>\r\n\t\t\t<div class=\"mspic-title-container flex flex-auto\">\r\n\t\t\t\t<div class=\"mspic-title-sub-container flex flex-auto self-center flow-column\">\r\n\t\t\t\t\t<div class=\"mspic-social-data flow-row items-center\">\r\n\t\t\t\t\t\t<div class=\"mspic-title-icon w-7 h-7 mr-2 my-2 bg-cover bg-no-repeat\"></div>\r\n\t\t\t\t\t\t<div\r\n\t\t\t\t\t\t\tclass=\"mspic-title max-w-84 font-body text-lg text-accent-1 text-shadow flex self-center font-fit-shrink whitespace-nowrap\"\r\n\t\t\t\t\t\t></div>\r\n\t\t\t\t\t\t<div class=\"mspic-is-connected-icon w-3 h-3 ml-2 bg-cover bg-no-repeat\"></div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class=\"flow-row items-center\">\r\n\t\t\t\t\t\t<div class=\"mspic-title2-icon w-6 h-6 mr-2\\.5 ml-0\\.5 bg-cover bg-no-repeat\"></div>\r\n\t\t\t\t\t\t<div\r\n\t\t\t\t\t\t\tclass=\"mspic-title2 max-w-84 font-body text-lg text-accent-1 text-shadow flex self-center font-fit-shrink whitespace-nowrap\"\r\n\t\t\t\t\t\t></div>\r\n\t\t\t\t\t\t<div class=\"mspic-is-connected-icon2 w-3 h-3 ml-2 bg-cover bg-no-repeat\"></div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class=\"mspic-social-additional-data\">\r\n\t\t\t\t\t\t<div\r\n\t\t\t\t\t\t\tclass=\"mspic-subtitle font-body ml-9 mb-2 text-base text-accent-3 text-shadow flex font-fit-shrink whitespace-nowrap\"\r\n\t\t\t\t\t\t></div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t\t<div class=\"mspic-highlight absolute top-0 bottom-0 left-0 right-0\"></div>\r\n\t</div>\r\n\t<div class=\"mspic-host-icon w-8 h-8 bg-cover bg-no-repeat absolute -top-1 -left-3\"></div>\r\n\t<div class=\"mspic-local-player-filligree bg-cover bg-no-repeat w-9 h-9 absolute bottom-1 right-1\"></div>\r\n</div>\r\n";
-
-const styles = "fs://game/core/ui/shell/mp-staging/mp-staging-player-info-card.css";
+import Panel from '../../panel-support.js';
+import { MustGetElement } from '../../utilities/utilities-dom.js';
+import content from './mp-staging-player-info-card.html.js';
+import styles from './mp-staging-player-info-card.scss.js';
 
 class MpStagingPlayerInfoCard extends Panel {
   playerData = {
@@ -81,7 +78,8 @@ class MpStagingPlayerInfoCard extends Panel {
     }
   }
   refresh() {
-    this.titleLabel.innerHTML = this.playerData.firstPartyName;
+    const isHotseat = Configuration.getGame().isHotseat;
+    this.titleLabel.innerHTML = isHotseat ? this.playerData.gamertag : this.playerData.firstPartyName;
     this.titleLabel.firstChild?.classList?.add("font-fit-shrink", "whitespace-nowrap");
     this.title2Label.innerHTML = this.playerData.isHuman ? this.playerData.twoKName : this.playerData.gamertag;
     this.title2Label.firstChild?.classList?.add("font-fit-shrink", "whitespace-nowrap");
@@ -90,24 +88,27 @@ class MpStagingPlayerInfoCard extends Panel {
     if (!this.playerData.isHuman || !this.playerData.isConnected || !this.playerData.samePlatformAsLocalPlayer) {
       this.titleLabel.classList.toggle("hidden", !playerTwoKNameIsEmpty);
       this.titleIcon.classList.toggle("hidden", true);
-      this.isConnectedIcon.classList.toggle("hidden", !playerTwoKNameIsEmpty);
+      this.isConnectedIcon.classList.toggle("hidden", !playerTwoKNameIsEmpty || isHotseat);
     } else {
       this.titleLabel.classList.toggle("hidden", false);
       this.titleIcon.classList.toggle("hidden", !this.displayPlatformIcon);
-      this.isConnectedIcon.classList.toggle("hidden", false);
+      this.isConnectedIcon.classList.toggle("hidden", isHotseat);
       firstConnectionIconShown = true;
     }
     this.title2Label.classList.toggle("hidden", playerTwoKNameIsEmpty);
-    this.titleIcon2.classList.toggle("hidden", playerTwoKNameIsEmpty || !this.playerData.isHuman);
+    this.titleIcon2.classList.toggle("hidden", playerTwoKNameIsEmpty || !this.playerData.isHuman || isHotseat);
     this.isConnectedIcon2.classList.toggle(
       "hidden",
       playerTwoKNameIsEmpty || firstConnectionIconShown || !this.playerData.isHuman
     );
-    this.subtitleLabel.classList.toggle("hidden", !this.playerData.isHuman || !this.playerData.isConnected);
-    this.badgeContainer.classList.toggle("mr-6", !this.playerData.isHuman);
+    this.subtitleLabel.classList.toggle(
+      "hidden",
+      !this.playerData.isHuman || !this.playerData.isConnected || isHotseat
+    );
+    this.badgeContainer.classList.toggle("mr-6", !this.playerData.isHuman || isHotseat);
     this.badgeComponent.classList.toggle(
       "hidden",
-      !this.playerData.isHuman || !this.playerData.isConnected || !Network.isMetagamingAvailable()
+      !this.playerData.isHuman || !this.playerData.isConnected || !Network.isMetagamingAvailable() || isHotseat
     );
     this.badgeComponent.classList.add("ml-1");
     this.hostIcon.classList.toggle("invisible", !this.playerData.isHost);

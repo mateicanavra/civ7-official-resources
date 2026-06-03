@@ -1,21 +1,10 @@
 import ContextManager from '../../context-manager/context-manager.js';
-import { a as DialogBoxManager } from '../../dialog-box/manager-dialog-box.chunk.js';
-import FocusManager from '../../input/focus-manager.js';
-import { N as NavTray } from '../../navigation-tray/model-navigation-tray.chunk.js';
-import { P as Panel } from '../../panel-support.chunk.js';
-import { MustGetElement } from '../../utilities/utilities-dom.chunk.js';
-import '../../context-manager/display-queue-manager.js';
-import '../../framework.chunk.js';
-import '../../input/cursor.js';
-import '../../views/view-manager.chunk.js';
-import '../../audio-base/audio-support.chunk.js';
-import '../../input/action-handler.js';
-import '../../input/input-support.chunk.js';
-import '../../utilities/utilities-update-gate.chunk.js';
-import '../../utilities/utilities-image.chunk.js';
-import '../../utilities/utilities-component-id.chunk.js';
-
-const styles = "fs://game/core/ui/shell/collection/collection-content.css";
+import NavTray from '../../navigation-tray/model-navigation-tray.js';
+import Panel from '../../panel-support.js';
+import { MustGetElement } from '../../utilities/utilities-dom.js';
+import { NetworkUtilities } from '../../utilities/utilities-network.js';
+import { FocusManager } from '../../../ui-next/services/focus-manager.js';
+import styles from './collection-content.scss.js';
 
 const bForceShowPromoLoadingSpinner = false;
 class CollectionContent extends Panel {
@@ -71,12 +60,11 @@ class CollectionContent extends Panel {
     this.updateNavTray();
   }
   realizeFocus() {
-    FocusManager.setFocus(this.selectedCard ? this.selectedCard : this.mainSlot);
+    FocusManager.get().setFocus(this.selectedCard ? this.selectedCard : this.mainSlot);
   }
   onActivate(selectedCard, promo) {
     const isFullyLinked = Network.isFullAccountLinked() && Network.isAccountLinked();
-    const isChild = Network.isChildAccount();
-    if (isFullyLinked && (!isChild || isChild && Network.isChildPermittedPurchasing())) {
+    if (isFullyLinked && NetworkUtilities.isAccessAllowed(DNAPermissionType.SPEND_MONEY)) {
       const attributes = {
         contentID: promo.contentID,
         imageUrl: promo.imageUrl,
@@ -87,17 +75,15 @@ class CollectionContent extends Panel {
       this.selectedCard = selectedCard;
       ContextManager.push("screen-dlc-viewer", { singleton: true, createMouseGuard: true, attributes });
     } else {
-      if (!isFullyLinked) {
-        DialogBoxManager.createDialog_Confirm({
-          body: Locale.compose("LOC_JOIN_GAME_LINK_ACCOUNT"),
-          title: Locale.compose("LOC_UI_ACCOUNT_TITLE")
-        });
-      } else {
-        DialogBoxManager.createDialog_Confirm({
-          body: Locale.compose("LOC_UI_PARENT_PERMISSION_REQUIRED"),
-          title: Locale.compose("LOC_UI_ACCOUNT_TITLE")
-        });
-      }
+      const blockInfo = Network.getBlockedAccessInfo(DNAPermissionType.SPEND_MONEY);
+      ContextManager.push("screen-mp-account-permissions", {
+        singleton: true,
+        createMouseGuard: true,
+        attributes: {
+          "loc-key": blockInfo.locKey,
+          "block-reason": blockInfo.reason
+        }
+      });
     }
   }
   // PROMO_TODO: We will want to make this animated like the one in loading screen. Waiting on UI/UX design and implementation: https://2kfxs.atlassian.net/browse/IGP-103673

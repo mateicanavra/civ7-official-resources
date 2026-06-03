@@ -1,39 +1,12 @@
-import { A as Audio } from '../../../core/ui/audio-base/audio-support.chunk.js';
-import FocusManager from '../../../core/ui/input/focus-manager.js';
-import { N as NavTray } from '../../../core/ui/navigation-tray/model-navigation-tray.chunk.js';
-import { D as Databind } from '../../../core/ui/utilities/utilities-core-databinding.chunk.js';
-import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.chunk.js';
+import { Audio } from '../../../core/ui/audio-base/audio-support.js';
+import NavTray from '../../../core/ui/navigation-tray/model-navigation-tray.js';
+import Databind from '../../../core/ui/utilities/utilities-core-databinding.js';
+import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
+import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
 import { ScreenGeneralChooser } from '../general-chooser/screen-general-chooser.js';
 import { HideMiniMapEvent } from '../mini-map/panel-mini-map.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/input/action-handler.js';
-import '../../../core/ui/input/cursor.js';
-import '../../../core/ui/views/view-manager.chunk.js';
-import '../../../core/ui/panel-support.chunk.js';
-import '../../../core/ui/input/input-support.chunk.js';
-import '../../../core/ui/utilities/utilities-update-gate.chunk.js';
-import '../../../core/ui/utilities/utilities-image.chunk.js';
-import '../../../core/ui/utilities/utilities-component-id.chunk.js';
-import '../../../core/ui/context-manager/context-manager.js';
-import '../../../core/ui/context-manager/display-queue-manager.js';
-import '../../../core/ui/dialog-box/manager-dialog-box.chunk.js';
-import '../../../core/ui/input/focus-support.chunk.js';
-import '../../../core/ui/components/fxs-slot.chunk.js';
-import '../../../core/ui/spatial/spatial-manager.js';
-import '../../../core/ui/lenses/lens-manager.chunk.js';
-import '../../../core/ui/shell/mp-staging/mp-friends.js';
-import '../../../core/ui/shell/mp-staging/model-mp-friends.chunk.js';
-import '../../../core/ui/social-notifications/social-notifications-manager.js';
-import '../../../core/ui/utilities/utilities-layout.chunk.js';
-import '../../../core/ui/utilities/utilities-liveops.js';
-import '../../../core/ui/utilities/utilities-network.js';
-import '../../../core/ui/shell/mp-legal/mp-legal.js';
-import '../../../core/ui/events/shell-events.chunk.js';
-import '../../../core/ui/utilities/utilities-network-constants.chunk.js';
-
-const content = "<div class=\"suzerain-bonus__frame-container\">\r\n\t<fxs-subsystem-frame\r\n\t\tclass=\"suzerain-bonus__subsystem-frame flex items-center left-1\"\r\n\t\tbox-style=\"b2\"\r\n\t\tbackDrop=\"blp:city_state_bg\"\r\n\r\n\t>\r\n\t\t<fxs-header\r\n\t\t\tclass=\"suzerain-bonus-header mt-5 tracking-150 mb-8 w-96 text-center self-center font-title-xl text-shadow-subtle\"\r\n\t\t\tfiligree-style=\"h2\"\r\n\t\t\tdata-slot=\"header\"\r\n\t\t\ttitle=\"LOC_UI_CITYSTATE_BONUS_CHOOSER_TITLE\"\r\n\t\t></fxs-header>\r\n\t\t<fxs-vslot\r\n\t\t\tclass=\"suzerain-bonus__choices-container mx-5 flex flex-col w-128 grow\"\r\n\t\t\ttabIndex=\"-1\"\r\n\t\t>\r\n\t\t</fxs-vslot>\r\n\t\t<div\r\n\t\t\tclass=\"mt-1 mb-2\"\r\n\t\t\tdata-slot=\"footer\"\r\n\t\t>\r\n\t\t\t<fxs-hero-button\r\n\t\t\t\tclass=\"suzerain-bonus__confirm relative my-5 self-center\"\r\n\t\t\t\tcaption=\"LOC_UI_RESOURCE_ALLOCATION_CONFIRM\"\r\n\t\t\t\tdisabled=\"true\"\r\n\t\t\t></fxs-hero-button>\r\n\t\t</div>\r\n\t</fxs-subsystem-frame>\r\n</div>\r\n";
-
-const styles = "fs://game/base-standard/ui/city-state-bonus-chooser/screen-city-state-bonus-chooser.css";
+import content from './screen-city-state-bonus-chooser.html.js';
+import styles from './screen-city-state-bonus-chooser.scss.js';
 
 class ScreenCityStateBonusChooser extends ScreenGeneralChooser {
   confirmButtonListener = this.onConfirm.bind(this);
@@ -64,7 +37,9 @@ class ScreenCityStateBonusChooser extends ScreenGeneralChooser {
   }
   onReceiveFocus() {
     super.onReceiveFocus();
-    FocusManager.setFocus(this.bonusEntryContainer);
+    waitForLayout(() => {
+      FocusManager.get().setFocus(this.bonusEntryContainer);
+    });
   }
   onEngineInput(inputEvent) {
     if (inputEvent.detail.status != InputActionStatuses.FINISH) {
@@ -146,7 +121,7 @@ class ScreenCityStateBonusChooser extends ScreenGeneralChooser {
       );
       return;
     }
-    UI.Player.lookAtID(cityStateSettlement.id);
+    UI.Player.lookAtID(cityStateSettlement.id, 0);
   }
   onConfirm() {
     if (!this.currentlySelectedChoice) {
@@ -180,7 +155,7 @@ class ScreenCityStateBonusChooser extends ScreenGeneralChooser {
 Controls.define("screen-city-state-bonus-chooser", {
   createInstance: ScreenCityStateBonusChooser,
   description: "City-State Bonus Chooser screen.",
-  classNames: ["city-state-bonus-chooser", "fullscreen", "pointer-events-auto"],
+  classNames: ["city-state-bonus-chooser", "fullscreen"],
   innerHTML: [content],
   styles: [styles],
   attributes: []

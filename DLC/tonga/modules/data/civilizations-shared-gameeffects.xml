@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+	<!-- Modern -->
+	<Modifier id="MOD_TONGA_MODERNIZATION_SUZERAIN_HOMELANDS" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD_PER_SUZERAIN">
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount">4</Argument>
+		<Argument name="OnlyHomelands">true</Argument>
+		<Argument name="Tooltip">LOC_NODE_CIVIC_MO_TONGA_MODERNIZATION_NAME</Argument>
+		<String context="Description">LOC_NODE_CIVIC_MO_TONGA_MODERNIZATION_NAME_SUZERAIN_HOMELANDS_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="MOD_TONGA_MODERNIZATION_SUZERAIN_DISTANT_LANDS" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD_PER_SUZERAIN">
+		<Argument name="YieldType">YIELD_SCIENCE</Argument>
+		<Argument name="Amount">4</Argument>
+		<Argument name="OnlyDistantLands">true</Argument>
+		<Argument name="Tooltip">LOC_NODE_CIVIC_MO_TONGA_MODERNIZATION_NAME</Argument>
+		<String context="Description">LOC_NODE_CIVIC_MO_TONGA_MODERNIZATION_NAME_SUZERAIN_DISTANT_LANDS_DESCRIPTION</String>
+	</Modifier>
+</GameEffects>

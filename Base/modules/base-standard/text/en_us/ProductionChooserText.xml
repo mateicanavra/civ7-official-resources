@@ -67,6 +67,9 @@
 		<Row Tag="LOC_UI_PRODUCTION_REPAIR_NAME">
 			<Text>REPAIR: {1_ConstructibleName}</Text>
 		</Row>
+		<Row Tag="LOC_UI_PRODUCTION_REPAIR_DESCRIPTION">
+			<Text>Repair this [TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]Improvement[/TIP] or [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]Building[/TIP], bringing it back into service so you regain access to its yields, to any [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]Resources[/TIP] it unlocks, and to any special bonuses it might provide.</Text>
+		</Row>
 		<Row Tag="LOC_PROJECT_FAILED_RESOURCE_REQUIREMENT">
 			<Text>Project requires the {1_Resource} Resource.</Text>
 		</Row>
@@ -98,7 +101,7 @@
 			<Text>Upgrade to City</Text>
 		</Row>
 		<Row Tag="LOC_PROJECT_TOWN_UPGRADE_DIALOG_BODY">
-			<Text>This Project will permanently upgrade your Town to a City. A City has increased Production and increases the cost of non-Warehouse Buildings across your empire by 10%. Are you sure?</Text>
+			<Text>This action will permanently upgrade your Town to a City. A City has increased Production and increases the cost of non-Warehouse Buildings across your empire by 10%. Are you sure?</Text>
 		</Row>
 		<Row Tag="LOC_BUILDING_PLACEMENT_SETTLEMENT_YIELDS_HEADER">
 			<Text>Settlement Yields</Text>
@@ -117,6 +120,12 @@
 		</Row>
 		<Row Tag="LOC_BUILDING_PLACEMENT_SPECIALIST_MAINTENANCE">
 			<Text>Specialist Maintenance:</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_PLACEMENT_SPECIALIST_MAINTENANCE_BASE">
+			<Text>Specialist Maintenance (Warehouse or Obsolete Buildings):</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_PLACEMENT_SPECIALIST_MAINTENANCE_ADDITIONAL">
+			<Text>Specialist Maintenance (Others):</Text>
 		</Row>
 		<Row Tag="LOC_BUILDING_PLACEMENT_INCOMING_ADJACENCY_DIRECTION">
 			<Text>+{1_yieldDelta} {2_yieldType} from the {3_direction}</Text>
@@ -163,6 +172,9 @@
 		<Row Tag="LOC_FORBIDDEN_CONVERT_TOWNS_TO_CITIES">
 			<Text>Town is Forbidden for City Conversion</Text>
 		</Row>
+		<Row Tag="LOC_NEED_MORE_CITY_LIMIT">
+			<Text>Aquire more City Limit for City Conversion</Text>
+		</Row>
 		<Row Tag="LOC_CITY_PURCHASE_LIMIT_MET">
 			<Text>Purchase already made this turn</Text>
 		</Row>
@@ -208,6 +220,9 @@
 		<Row Tag="LOC_UI_PRODUCTION_QUARTER_BUILDINGS_COMPLETED">
 			<Text>{1_Completed}/2 Buildings Completed</Text>
 		</Row>
+		<Row Tag="LOC_UI_PRODUCTION_ALLOWS_TRAINING">
+			<Text>Allows training the [icon:{1_UnitType}] {2_UnitName} in this [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]Settlement[/TIP].</Text>
+		</Row>
 		<Row Tag="LOC_UI_PRODUCTION_COST">
 			<Text>Production Cost: [icon:YIELD_PRODUCTION] {1_Cost}</Text>
 		</Row>
@@ -235,6 +250,9 @@
 		<Row Tag="LOC_UI_PRODUCTION_REPAIR_ALL">
 			<Text>Repair: All</Text>
 		</Row>
+		<Row Tag="LOC_UI_PRODUCTION_REPAIR_ALL_DESCRIPTION">
+			<Text>Repair all damaged [TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]Improvements[/TIP] and [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]Buildings[/TIP], bringing them back into service so you regain access to their yields, to any [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]Resources[/TIP] they unlock, and to any special bonuses they might provide.</Text>
+		</Row>
 		<Row Tag="LOC_UI_PRODUCTION_CONSTRUCTIBLE_COST">
 			<Text>Cost: {1_Amount}[icon:{2_Yield}]</Text>
 		</Row>
@@ -257,7 +275,7 @@
 			<Text>[style: {1_Style}]{2_Amount: number +#.#;-#.#}[icon:{3_Icon}][/style]</Text>
 		</Row>
 		<Row Tag="LOC_BUILDING_PLACEMENT_YIELD_ICON_ONLY">
-			<Text>{1_Amount: number +#.#;-#.#}[icon:{2_Icon}]</Text>
+			<Text>{1_Amount: number +#.#;-#.#} [icon:{2_Icon}]</Text>
 		</Row>
 		<Row Tag="LOC_BUILDING_PLACEMENT_BASE_YIELD">
 			<Text>Base Yield:</Text>
@@ -282,6 +300,9 @@
 		</Row>
 		<Row Tag="LOC_BUILDING_PLACEMENT_TILE_TYPE">
 			<Text>Tile Type:</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_PLACEMENT_TO_OTHER_SETTLEMENTS">
+			<Text>To Other Settlements:</Text>
 		</Row>
 		<Row Tag="LOC_BUILDING_PLACEMENT_TO_EAST">
 			<Text>To East Adjacency:</Text>
@@ -351,6 +372,9 @@
 		</Row>
 		<Row Tag="LOC_BUILDING_PLACEMENT_PLACEING_CONSTRUCTIBLE">
 			<Text>Place {1_ConstructibleName}</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_PLACEMENT_REPAIRING_CONSTRUCTIBLE">
+			<Text>Repair {1_ConstructibleName}</Text>
 		</Row>
 		<Row Tag="LOC_BUILDING_PLACEMENT_UNIMPROVED_TO_IMPROVED">
 			<Text>This Unimproved Tile will become an Improvement</Text>

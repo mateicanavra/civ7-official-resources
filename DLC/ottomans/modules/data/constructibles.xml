@@ -27,6 +27,7 @@
 		<Row ConstructibleType="WONDER_SULTANAHMET_CAMII" MaxWorldInstances="1"/>
 	</Wonders>
 	<TypeTags>
+		<Row Type="BUILDING_CAMII" Tag="GREATWORK"/>
 		<Row Type="BUILDING_CAMII" Tag="CULTURE"/>
 		<Row Type="BUILDING_CAMII" Tag="UNIQUE"/>
 		<Row Type="BUILDING_CAMII" Tag="AGELESS"/>
@@ -97,4 +98,12 @@
 		<Row ConstructibleType="WONDER_SULTANAHMET_CAMII" AdvisoryClassType="ADVISORY_CLASS_ECONOMIC"/>
 		<Row ConstructibleType="WONDER_SULTANAHMET_CAMII" AdvisoryClassType="ADVISORY_CLASS_CULTURE"/>
 	</Constructible_Advisories>
+	<!-- This tradition modifier targets the museum, so placing the modifier here -->
+	<TraditionModifiers>
+		<Row TraditionType="TRADITION_OSMANLI_BAROK_II" ModifierId="OSMANLI_BAROK_MUSEUM_PRODUCTION_EFFICIENCY"/>
+	</TraditionModifiers>
+	<!-- This challenge target this wonder, so placing the modifiers here -->
+	<MetaprogressionModifiers>
+		<Row ModifierId="METAPROGRESSION_CHALLENGE_OTTOMANS_COMPLETE_SULTANAHMET_CAMII" RequiredCivilizationType="CIVILIZATION_OTTOMANS" />
+	</MetaprogressionModifiers>
 </Database>

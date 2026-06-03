@@ -23,13 +23,13 @@
 			<Text>Unload Cargo</Text>
 		</Row>
 		<Row Tag="LOC_UNITCOMMAND_DISBAND_DESCRIPTION">
-			<Text>Scores Treasure Fleet Points, awards Gold, and removes the Unit from the game.</Text>
+			<Text>Scores GDP, awards Gold, and removes the Unit from the game.</Text>
 		</Row>
 		<Row Tag="LOC_UNITCOMMAND_DISBAND_FAILURE_WRONG_LOCATION">
 			<Text>Must be within the borders of one of your Homeland Settlements to unload cargo.</Text>
 		</Row>
 		<Row Tag="LOC_UNITCOMMAND_DISBAND_CARGO_SUMMARY">
-			<Text>This unit is worth {1_Amount} {1_Amount: plural 1?Treasure Fleet Point; other?Treasure Fleet Points;} and {2_Gold} Gold.</Text>
+			<Text>This unit is worth {1_Amount} [icon:ECONOMIC_VP] GDP and {2_Gold} [icon:YIELD_GOLD] Gold.</Text>
 		</Row>
 		<Row Tag="LOC_UNITCOMMAND_CONFIRM_DEFAULT_TITLE">
 			<Text>Are you sure?</Text>
@@ -128,7 +128,7 @@
 			<Text>Move By Rail</Text>
 		</Row>
 		<Row Tag="LOC_UNITCOMMAND_MOVE_BY_RAIL_DESCRIPTION">
-			<Text>Transfer Unit between Settlements in the Empire's Rail Network. Requires a Rail Station in the Capital.</Text>
+			<Text>Transfer Unit between Settlements in the Empire's Rail Network. Requires a Rail Station in the Capital. Requires Unit be on or adjacent to a Rail Station.</Text>
 		</Row>
 		<Row Tag="LOC_UNITCOMMAND_ARMY_OVERRUN_NAME">
 			<Text>Overrun</Text>
@@ -152,7 +152,7 @@
 			<Text>Heroic Assault</Text>
 		</Row>
 		<Row Tag="LOC_UNITCOMMAND_SCALING_COMMANDER_ATTACK_DESCRIPTION">
-			<Text>Directly attack a unit that shares the domain type with the commander. Damage increases for each commander level.</Text>
+			<Text>Directly attack a unit that shares the domain type with the commander. Damage increases for each commander promotion.</Text>
 		</Row>
 		<Row Tag="LOC_UNITCOMMAND_COMMANDER_ATTACK_NAME">
 			<Text>Heroic Assault</Text>
@@ -170,7 +170,7 @@
 			<Text>Upgrade Unit</Text>
 		</Row>
 		<Row Tag="LOC_UNITCOMMAND_UPGRADE_DESCRIPTION">
-			<Text>Upgrade to the next tier Unit of the same class, which gives +5 Combat Strength.</Text>
+			<Text>Upgrade to the next tier Unit of the same class, which gives +5 Combat Strength. Consumes all remaining Movement.</Text>
 		</Row>
 		<Row Tag="LOC_UNITCOMMAND_UPGRADE_ARMY_NAME">
 			<Text>Upgrade All Units</Text>
@@ -294,7 +294,7 @@
 			<Text>Upgrade to {1_Unit}: {2_Amount} [icon:YIELD_GOLD] Gold</Text>
 		</Row>
 		<Row Tag="LOC_UNITCOMMAND_UPGRADE_INSUFFICIENT_FUNDS">
-			<Text>Not enough [icon:YIELD_GOLD] Gold in treasury.</Text>
+			<Text>Not enough [icon:YIELD_GOLD] Gold in Treasury.</Text>
 		</Row>
 		<Row Tag="LOC_UNITCOMMAND_UPGRADE_MUST_BE_IN_TERRITORY">
 			<Text>Must be in friendly territory.</Text>
@@ -416,6 +416,12 @@
 		<Row Tag="LOC_UNITCOMMAND_NEAREST_INFECTED_CITY">
 			<Text>The nearest Infected Settlement is {1_CityList}</Text>
 		</Row>
+		<Row Tag="LOC_PLAYEROPERATION_CHOOSE_SYNCRETISM_UNITS_UPGRADE_LOCKED">
+			<Text>Requires {1_NodeName}.</Text>
+		</Row>
+		<Row Tag="LOC_PLAYEROPERATION_CHOOSE_SYNCRETISM_UNITS_UPGRADE_DETAILS">
+			<Text>Will replace {1_Amount} {1_Amount: plural 1?Unit; other?Units;}.</Text>
+		</Row>
 		<Row Tag="LOC_HUD_UNIT_ACTION_AUTOEXPLORE_NEAR_GOODY_HUT">
 			<Text>There is a Discovery nearby!</Text>
 		</Row>
@@ -424,6 +430,15 @@
 		</Row>
 		<Row Tag="LOC_HUD_UNIT_ACTION_AUTOEXPLORE_UNAVAILABLE">
 			<Text>Automate Exploration is not available now. Try moving to safer ground.</Text>
+		</Row>
+		<Row Tag="LOC_UNITCOMMAND_DISPERSE_CLAN_NAME">
+			<Text>Disperse Shinobi Clan</Text>
+		</Row>
+		<Row Tag="LOC_UNITCOMMAND_DISPERSE_CLAN_DESCRIPTION">
+			<Text>Kill this Shinobi.</Text>
+		</Row>
+		<Row Tag="LOC_UNITCOMMAND_UPGRADE_KILLS">
+			<Text>Must defeat {1_NeededKills}  units ({2_KillCount}/{1_NeededKills})</Text>
 		</Row>
 	</EnglishText>
 </Database>

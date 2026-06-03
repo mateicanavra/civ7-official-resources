@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Database>
 	<Civilizations>
-		<Row Domain="ExplorationAgeCivilizations" CivilizationType="CIVILIZATION_BULGARIA" CivilizationName="LOC_CIVILIZATION_BULGARIA_NAME" CivilizationFullName="LOC_CIVILIZATION_BULGARIA_FULLNAME" CivilizationDescription="LOC_CIVILIZATION_BULGARIA_DESCRIPTION" CivilizationIcon="shawnee_icon.png"/>
+		<Row Domain="ExplorationAgeCivilizations" CivilizationType="CIVILIZATION_BULGARIA" CivilizationName="LOC_CIVILIZATION_BULGARIA_NAME" CivilizationFullName="LOC_CIVILIZATION_BULGARIA_FULLNAME" CivilizationDescription="LOC_CIVILIZATION_BULGARIA_DESCRIPTION" CivilizationIcon="shawnee_icon.png" CivilizationIntroText="LOC_LOADING_CIV_INTRO_TEXT_BULGARIA"/>
 	</Civilizations>
 	<CivilizationItems>
-		<Row CivilizationDomain="ExplorationAgeCivilizations" CivilizationType="CIVILIZATION_BULGARIA" Type="TRAIT_BULGARIA_ABILITY" Kind="KIND_TRAIT" Name="LOC_TRAIT_BULGARIA_ABILITY_NAME" Description="LOC_TRAIT_BULGARIA_ABILITY_DESCRIPTION"/>
+		<Row CivilizationDomain="AntiquityAgeCivilizations" AgeType="AGE_ANTIQUITY" CivilizationType="CIVILIZATION_BULGARIA" Type="TRAIT_BULGARIA_ABILITY" Kind="KIND_TRAIT" Name="LOC_TRAIT_BULGARIA_ABILITY_NAME" Description="LOC_TRAIT_BULGARIA_ABILITY_AQ_DESCRIPTION"/>
+		<Row CivilizationDomain="ExplorationAgeCivilizations" AgeType="AGE_EXPLORATION" CivilizationType="CIVILIZATION_BULGARIA" Type="TRAIT_BULGARIA_ABILITY" Kind="KIND_TRAIT" Name="LOC_TRAIT_BULGARIA_ABILITY_NAME" Description="LOC_TRAIT_BULGARIA_ABILITY_DESCRIPTION"/>
+		<Row CivilizationDomain="ModernAgeCivilizations" AgeType="AGE_MODERN" CivilizationType="CIVILIZATION_BULGARIA" Type="TRAIT_BULGARIA_ABILITY" Kind="KIND_TRAIT" Name="LOC_TRAIT_BULGARIA_ABILITY_NAME" Description="LOC_TRAIT_BULGARIA_ABILITY_MO_DESCRIPTION"/>
 		<Row CivilizationDomain="ExplorationAgeCivilizations" CivilizationType="CIVILIZATION_BULGARIA" Type="UNIT_BOYAR" Kind="KIND_UNIT" Name="LOC_UNIT_BOYAR_NAME" Description="LOC_UNIT_BOYAR_BASE_DESCRIPTION" Icon="unitflag_leiomano.png"/>
 		<Row CivilizationDomain="ExplorationAgeCivilizations" CivilizationType="CIVILIZATION_BULGARIA" Type="UNIT_BALIK" Kind="KIND_UNIT" Name="LOC_UNIT_BALIK_NAME" Description="LOC_UNIT_BALIK_DESCRIPTION" Icon="unitflag_BALIK.png"/>
 		<Row CivilizationDomain="ExplorationAgeCivilizations" CivilizationType="CIVILIZATION_BULGARIA" Type="IMPROVEMENT_HIDDEN_FORTRESS" Kind="KIND_IMPROVEMENT" Name="LOC_IMPROVEMENT_HIDDEN_FORTRESS_NAME" Description="LOC_IMPROVEMENT_HIDDEN_FORTRESS_DESCRIPTION" Icon="impicon_loikalo.png"/>
@@ -12,6 +14,7 @@
 	<CivilizationTags>
 		<Row CivilizationDomain="ExplorationAgeCivilizations" CivilizationType="CIVILIZATION_BULGARIA" TagType="TAG_TRAIT_EXPANSIONIST"/>
 		<Row CivilizationDomain="ExplorationAgeCivilizations" CivilizationType="CIVILIZATION_BULGARIA" TagType="TAG_TRAIT_MILITARISTIC"/>
+		<Row CivilizationDomain="ExplorationAgeCivilizations" CivilizationType="CIVILIZATION_BULGARIA" TagType="TAG_APEX_AGE_EXPLORATION"/>
 	</CivilizationTags>
 	<CivilizationUnlocks>
 		<Row CivilizationDomain="AntiquityAgeCivilizations" CivilizationType="CIVILIZATION_GREECE" AgeDomain="StandardAges" AgeType="AGE_EXPLORATION" Type="CIVILIZATION_BULGARIA" Kind="KIND_CIVILIZATION" Name="LOC_CIVILIZATION_BULGARIA_NAME" Description="LOC_CIVILIZATION_BULGARIA_DESCRIPTION" Icon="CIVILIZATION_BULGARIA"/>

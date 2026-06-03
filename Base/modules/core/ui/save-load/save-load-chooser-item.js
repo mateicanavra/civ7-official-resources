@@ -1,19 +1,8 @@
-import { F as FxsTextboxValidateVirtualKeyboard } from '../components/fxs-textbox.chunk.js';
-import { L as Layout } from '../utilities/utilities-layout.chunk.js';
+import { FxsTextboxValidateVirtualKeyboard } from '../components/fxs-textbox.js';
+import { Layout } from '../utilities/utilities-layout.js';
+import saveLoadChooserItemStyles from './save-load-chooser-item.scss.js';
 import { ChooserItem } from '../../../base-standard/ui/chooser-item/chooser-item.js';
-import { c as chooserItemStyles } from '../../../base-standard/ui/chooser-item/chooser-item.chunk.js';
-import '../components/fxs-activatable.chunk.js';
-import '../audio-base/audio-support.chunk.js';
-import '../input/focus-manager.js';
-import '../framework.chunk.js';
-import '../input/action-handler.js';
-import '../input/cursor.js';
-import '../views/view-manager.chunk.js';
-import '../panel-support.chunk.js';
-import '../input/input-support.chunk.js';
-import '../utilities/utilities-update-gate.chunk.js';
-
-const saveLoadChooserItemStyles = "fs://game/core/ui/save-load/save-load-chooser-item.css";
+import styles from '../../../base-standard/ui/chooser-item/chooser-item.scss.js';
 
 const ActionConfirmEventName = "action-confirm";
 class ActionConfirmEvent extends CustomEvent {
@@ -66,6 +55,7 @@ class SaveLoadChooserItem extends ChooserItem {
       return;
     }
     this.Root.innerHTML = "";
+    this.Root.setAttribute("data-audio-group-ref", "save-load");
     super.render();
     const content = document.createElement("div");
     content.classList.add("relative", "flow-row", "min-h-24", "p-3\\.5");
@@ -275,7 +265,7 @@ Controls.define("save-load-chooser-item", {
   createInstance: SaveLoadChooserItem,
   description: "A chooser item to be used with the save-load screen",
   classNames: ["save-load-chooser-item", "chooser-item_unlocked", "grow", "relative", "group"],
-  styles: [chooserItemStyles, saveLoadChooserItemStyles],
+  styles: [styles, saveLoadChooserItemStyles],
   attributes: [
     { name: "node" },
     { name: "type" },

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Civilizations>
+		<Update>
+			<Where CivilizationType="CIVILIZATION_QAJAR" />
+			<Set UniqueCultureProgressionTree="TREE_CIVICS_AQ_TEST_OF_TIME" />
+		</Update>
+	</Civilizations>
+	<Traits>
+	</Traits>
+	<TraitModifiers>
+		<Delete TraitType="TRAIT_QAJAR_ABILITY"/>
+		<Row TraitType="TRAIT_QAJAR_ABILITY" ModifierId="MOD_CIV_QAJAR_DIPLOMACY" />
+		<Row TraitType="TRAIT_QAJAR_ABILITY" ModifierId="MOD_CIV_QAJAR_YIELDS_UNDER_SETTLEMENT_CAP_AQ" />
+	</TraitModifiers>
+	<CivilizationTraits>
+		<Row CivilizationType="CIVILIZATION_QAJAR" TraitType="TRAIT_ANACHRONISTIC_CIV" />
+	</CivilizationTraits>
+</Database>

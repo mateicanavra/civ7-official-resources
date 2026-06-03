@@ -1,42 +1,16 @@
-import { A as Audio } from '../../../core/ui/audio-base/audio-support.chunk.js';
+import { Audio } from '../../../core/ui/audio-base/audio-support.js';
 import ContextManager from '../../../core/ui/context-manager/context-manager.js';
-import { F as Focus } from '../../../core/ui/input/focus-support.chunk.js';
-import { N as NavTray } from '../../../core/ui/navigation-tray/model-navigation-tray.chunk.js';
-import { D as Databind } from '../../../core/ui/utilities/utilities-core-databinding.chunk.js';
-import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.chunk.js';
+import { Focus } from '../../../core/ui/input/focus-support.js';
+import NavTray from '../../../core/ui/navigation-tray/model-navigation-tray.js';
+import Databind from '../../../core/ui/utilities/utilities-core-databinding.js';
+import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
 import { ChooserItem } from '../chooser-item/chooser-item.js';
 import { ScreenGeneralChooser } from '../general-chooser/screen-general-chooser.js';
 import { HideMiniMapEvent } from '../mini-map/panel-mini-map.js';
-import { c as chooserItemStyles } from '../chooser-item/chooser-item.chunk.js';
-import '../../../core/ui/context-manager/display-queue-manager.js';
-import '../../../core/ui/dialog-box/manager-dialog-box.chunk.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/input/cursor.js';
-import '../../../core/ui/input/focus-manager.js';
-import '../../../core/ui/views/view-manager.chunk.js';
-import '../../../core/ui/panel-support.chunk.js';
-import '../../../core/ui/components/fxs-slot.chunk.js';
-import '../../../core/ui/spatial/spatial-manager.js';
-import '../../../core/ui/input/action-handler.js';
-import '../../../core/ui/input/input-support.chunk.js';
-import '../../../core/ui/utilities/utilities-update-gate.chunk.js';
-import '../../../core/ui/utilities/utilities-image.chunk.js';
-import '../../../core/ui/utilities/utilities-component-id.chunk.js';
-import '../../../core/ui/components/fxs-activatable.chunk.js';
-import '../../../core/ui/lenses/lens-manager.chunk.js';
-import '../../../core/ui/shell/mp-staging/mp-friends.js';
-import '../../../core/ui/shell/mp-staging/model-mp-friends.chunk.js';
-import '../../../core/ui/social-notifications/social-notifications-manager.js';
-import '../../../core/ui/utilities/utilities-layout.chunk.js';
-import '../../../core/ui/utilities/utilities-liveops.js';
-import '../../../core/ui/utilities/utilities-network.js';
-import '../../../core/ui/shell/mp-legal/mp-legal.js';
-import '../../../core/ui/events/shell-events.chunk.js';
-import '../../../core/ui/utilities/utilities-network-constants.chunk.js';
-
-const content = "<div class=\"size-full relative\">\r\n\t<fxs-subsystem-frame\r\n\t\tclass=\"celebration-subsystem-frame absolute flex items-center left-1 bottom-2\"\r\n\t\tbox-style=\"b2\"\r\n\t\tbackDrop=\"blp:cele_chooser_bg\"\r\n\t>\r\n\t\t<fxs-header\r\n\t\t\tclass=\"celebrations__header mt-5 tracking-150 mb-8 w-80 text-center self-center font-title-xl text-shadow-subtle\"\r\n\t\t\tfiligree-style=\"h2\"\r\n\t\t\tdata-slot=\"header\"\r\n\t\t></fxs-header>\r\n\t\t<div class=\"celebrations__government-container flex flex-col items-center mt-10\">\r\n\t\t\t<div class=\"flex w-full bg-primary-4 flex max-w-128 justify-center items-center mb-2\">\r\n\t\t\t\t<fxs-icon\r\n\t\t\t\t\tclass=\"size-6 mr-1\"\r\n\t\t\t\t\tdata-icon-id=\"DEFAULT_TRADITION\"\r\n\t\t\t\t\tdata-icon-context=\"DEFAULT\"\r\n\t\t\t\t>\r\n\t\t\t\t</fxs-icon>\r\n\t\t\t\t<div\r\n\t\t\t\t\tdata-l10n-id=\"LOC_UI_CELEBRATION_CHOOSER_SLOT_UNLOCKED\"\r\n\t\t\t\t\tclass=\"font-title-base ml-1 text-accent-2\"\r\n\t\t\t\t></div>\r\n\t\t\t</div>\r\n\t\t\t<div class=\"celebrations__government\">\r\n\t\t\t\t<div class=\"celebrations__government-title text-center mb-3 font-title-xl tracking-150\"></div>\r\n\t\t\t\t<div\r\n\t\t\t\t\tclass=\"celebrations__government-desc-top font-body-base text-center self-center max-w-96\"\r\n\t\t\t\t\tdata-l10n-id=\"LOC_UI_CELEBRATION_DESC_1\"\r\n\t\t\t\t></div>\r\n\t\t\t\t<div class=\"celebrations__government-desc-bottom font-body-base text-center self-center max-w-96\"></div>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t\t<fxs-vslot\r\n\t\t\tclass=\"celebrations__choices-container mx-11 flex flex-col w-96\"\r\n\t\t\ttabIndex=\"-1\"\r\n\t\t>\r\n\t\t</fxs-vslot>\r\n\t\t<fxs-hero-button\r\n\t\t\tclass=\"celebrations__confirm relative my-5 self-center\"\r\n\t\t\tdata-slot=\"footer\"\r\n\t\t\tcaption=\"LOC_UI_RESOURCE_ALLOCATION_CONFIRM\"\r\n\t\t\tdisabled=\"true\"\r\n\t\t></fxs-hero-button>\r\n\t</fxs-subsystem-frame>\r\n</div>\r\n";
-
-const panelCelebrationChooserStyles = "fs://game/base-standard/ui/celebration-chooser/panel-celebration-chooser.css";
+import { setActivePolicyTab } from '../policies/model-government.js';
+import content from './panel-celebration-chooser.html.js';
+import panelCelebrationChooserStyles from './panel-celebration-chooser.scss.js';
+import styles from '../chooser-item/chooser-item.scss.js';
 
 class CelebrationChooser extends ScreenGeneralChooser {
   confirmButtonListener = this.onConfirm.bind(this);
@@ -204,7 +178,6 @@ class CelebrationChooser extends ScreenGeneralChooser {
   }
   createCelebrationNode(celebrationItemDef, celebrationDuration) {
     const primaryIcon = UI.getIconURL(celebrationItemDef.GoldenAgeType);
-    console.log(primaryIcon);
     return {
       name: Locale.compose(celebrationItemDef.Name),
       primaryIcon,
@@ -272,6 +245,7 @@ class CelebrationChooser extends ScreenGeneralChooser {
   onPolicySlotsAdded(data) {
     if (data.player == GameContext.localPlayerID) {
       ContextManager.push("screen-policies", { singleton: true, createMouseGuard: true });
+      setActivePolicyTab("policies-and-traditions");
       this.close();
     }
   }
@@ -313,7 +287,7 @@ Controls.define("celebration-chooser-item", {
   createInstance: CelebrationChooserItem,
   description: "A chooser item to be used with the celebration chooser",
   classNames: ["celebration-chooser-item", "relative", "group"],
-  styles: [chooserItemStyles],
+  styles: [styles],
   images: [
     "fs://game/hud_sidepanel_list-bg.png",
     "fs://game/hud_list-focus_frame.png",

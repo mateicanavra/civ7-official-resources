@@ -11,26 +11,30 @@
 		<String context="Preview">LOC_TRADITION_BOURGEOISIE_NAME</String>
 		<String context="Description">LOC_TRADITION_BOURGEOISIE_DESCRIPTION</String>
 	</Modifier>
-	<Modifier id="CHARTERS_MOD_GOLD_ADJACENCY" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_ADJACENCY_FLAT_AMOUNT">
-		<Argument name="Adjacency_YieldChange">RiverGold</Argument>
-		<Argument name="Amount">1</Argument>
-		<Argument name="Divisor">1</Argument>
-		<Argument name="Tooltip">LOC_TRADITION_CHARTERS_NAME</Argument>
-		<String context="Description">LOC_TRADITION_CHARTERS_DESCRIPTION</String>
+	<Modifier id="CHARTERS_MOD_GOLD_ON_WORKERS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_WORKER_YIELD">
+		<Argument name="YieldType">YIELD_GOLD</Argument>
+		<Argument name="Amount">2</Argument>
 	</Modifier>
+	<Modifier id="CHARTERS_MOD_HAPPINESS_MAINTENANCE_PER_SPECIALIST" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_WORKER_MAINTENANCE_EFFICIENCY">
+		<Argument name="YieldType">YIELD_HAPPINESS</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_CHARTERS_NAME</Argument>
+    </Modifier>
 	<Modifier id="CHIVALRY_MOD_MOUNTED_PRODUCTION" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_UNIT_PRODUCTION">
 		<Argument name="UnitClass">UNIT_CLASS_MOUNTED</Argument>
 		<Argument name="Percent">30</Argument>
 		<Argument name="Tooltip">LOC_TRADITION_CHIVALRY_NAME</Argument>
 		<String context="Description">LOC_TRADITION_CHIVALRY_DESCRIPTION</String>
 	</Modifier>
-	<Modifier id="COLONIAL_SURPLUS_MOD_PRODUCTION_ADJACENCY" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_ADJACENCY_FLAT_AMOUNT">
-		<Argument name="Adjacency_YieldChange">ResourceProduction</Argument>
-		<Argument name="Amount">1</Argument>
-		<Argument name="Divisor">1</Argument>
-		<Argument name="Tooltip">LOC_TRADITION_COLONIAL_SURPLUS_NAME</Argument>
-		<String context="Description">LOC_TRADITION_COLONIAL_SURPLUS_DESCRIPTION</String>
+	<Modifier id="COLONIAL_SURPLUS_MOD_PRODUCTION_ON_WORKERS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_WORKER_YIELD">
+		<Argument name="YieldType">YIELD_PRODUCTION</Argument>
+		<Argument name="Amount">2</Argument>
 	</Modifier>
+	<Modifier id="COLONIAL_SURPLUS_MOD_HAPPINESS_MAINTENANCE_PER_SPECIALIST" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_WORKER_MAINTENANCE_EFFICIENCY">
+		<Argument name="YieldType">YIELD_HAPPINESS</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_COLONIAL_SURPLUS_NAME</Argument>
+    </Modifier>
 	<Modifier id="COMMISSIONED_OFFICERS_MOD_COMMANDER_XP" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ARMY_ADJUST_EXPERIENCE_RATE">
 		<SubjectRequirements>
 			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
@@ -83,12 +87,12 @@
 		<String context="Description">LOC_TRADITION_DE_JURE_DESCRIPTION</String>
 	</Modifier>
 	<Modifier id="MOD_TRADITION_ABILITY_DE_JURE_COMBAT" collection="COLLECTION_UNIT_COMBAT" effect="EFFECT_ADJUST_UNIT_STRENGTH_MODIFIER">
-		<Argument name="AbilityType">3</Argument>
+		<Argument name="Amount">3</Argument>
 		<String context="Preview">LOC_TRADITION_DE_JURE_PREVIEW</String>
 		<String context="Description">LOC_TRADITION_DE_JURE_DESCRIPTION</String>
 	</Modifier>
 	<Modifier id="MOD_TRADITION_ABILITY_DE_FACTO_COMBAT" collection="COLLECTION_UNIT_COMBAT" effect="EFFECT_ADJUST_UNIT_STRENGTH_MODIFIER">
-		<Argument name="AbilityType">3</Argument>
+		<Argument name="Amount">3</Argument>
 		<String context="Preview">LOC_ABILITY_FACTO_PREVIEW</String>
 		<String context="Description">LOC_TRADITION_DE_FACTO_DESCRIPTION</String>
 	</Modifier>
@@ -105,13 +109,15 @@
 		<Argument name="ConstructibleType">BUILDING_PALACE</Argument>
 		<Argument name="Tooltip">LOC_TRADITION_DIVINE_RIGHT_NAME</Argument>
 	</Modifier>
-	<Modifier id="ENLIGHTENMENT_MOD_SCIENCE_ADJACENCY" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_ADJACENCY_FLAT_AMOUNT">
-		<Argument name="Adjacency_YieldChange">ResourceScience</Argument>
-		<Argument name="Amount">1</Argument>
-		<Argument name="Divisor">1</Argument>
-		<Argument name="Tooltip">LOC_TRADITION_ENLIGHTENMENT_NAME</Argument>
-		<String context="Description">LOC_TRADITION_ENLIGHTENMENT_DESCRIPTION</String>
+	<Modifier id="ENLIGHTENMENT_MOD_SCIENCE_ON_WORKERS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_WORKER_YIELD">
+		<Argument name="YieldType">YIELD_SCIENCE</Argument>
+		<Argument name="Amount">2</Argument>
 	</Modifier>
+	<Modifier id="ENLIGHTENMENT_MOD_HAPPINESS_MAINTENANCE_PER_SPECIALIST" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_WORKER_MAINTENANCE_EFFICIENCY">
+		<Argument name="YieldType">YIELD_HAPPINESS</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_ENLIGHTENMENT_NAME</Argument>
+    </Modifier>
 	<Modifier id="EVANGELISM_MOD_CIVILIAN_MOVEMENT" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_MOVEMENT">
 		<SubjectRequirements>
 			<Requirement type="REQUIREMENT_UNIT_CORE_CLASS_MATCHES">
@@ -131,13 +137,15 @@
 		<Argument name="Tooltip">LOC_TRADITION_HEQIN_NAME</Argument>
 		<String context="Description">LOC_TRADITION_HEQIN_DESCRIPTION</String>
 	</Modifier>
-	<Modifier id="INDENTURE_MOD_FOOD_ADJACENCY" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_ADJACENCY_FLAT_AMOUNT">
-		<Argument name="Adjacency_YieldChange">RiverFood</Argument>
-		<Argument name="Amount">1</Argument>
-		<Argument name="Divisor">1</Argument>
-		<Argument name="Tooltip">LOC_TRADITION_INDENTURE_NAME</Argument>
-		<String context="Description">LOC_TRADITION_INDENTURE_DESCRIPTION</String>
+	<Modifier id="INDENTURE_MOD_FOOD_ON_WORKERS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_WORKER_YIELD">
+		<Argument name="YieldType">YIELD_FOOD</Argument>
+		<Argument name="Amount">2</Argument>
 	</Modifier>
+	<Modifier id="INDENTURE_MOD_HAPPINESS_MAINTENANCE_PER_SPECIALIST" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_WORKER_MAINTENANCE_EFFICIENCY">
+		<Argument name="YieldType">YIELD_HAPPINESS</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_INDENTURE_NAME</Argument>
+    </Modifier>
 	<Modifier id="LEVIES_MOD_REDUCED_MAINTENANCE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_UNIT_MAINTENANCE_EFFICIENCY">
 		<Argument name="Amount">1</Argument>
 		<Argument name="Tooltip">LOC_TRADITION_LEVIES_NAME</Argument>
@@ -169,13 +177,15 @@
 		<Argument name="DomainType">DOMAIN_SEA</Argument>
 		<Argument name="Amount">10</Argument>
 	</Modifier>
-	<Modifier id="PATRONAGE_MOD_CULTURE_ADJACENCY" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_ADJACENCY_FLAT_AMOUNT">
-		<Argument name="Adjacency_YieldChange">MountainCulture</Argument>
-		<Argument name="Amount">1</Argument>
-		<Argument name="Divisor">1</Argument>
-		<Argument name="Tooltip">LOC_TRADITION_PATRONAGE_NAME</Argument>
-		<String context="Description">LOC_TRADITION_PATRONAGE_DESCRIPTION</String>
+	<Modifier id="PATRONAGE_MOD_CULTURE_ON_WORKERS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_WORKER_YIELD">
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount">2</Argument>
 	</Modifier>
+	<Modifier id="PATRONAGE_MOD_HAPPINESS_MAINTENANCE_PER_SPECIALIST" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_WORKER_MAINTENANCE_EFFICIENCY">
+		<Argument name="YieldType">YIELD_HAPPINESS</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_PATRONAGE_NAME</Argument>
+    </Modifier>
 	<Modifier id="RATIONALISM_MOD_CITY_FOLLOWS_RELIGION_GOLD" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
 		<SubjectRequirements>
 			<Requirement type="REQUIREMENT_CITY_FOLLOWS_RELIGION"/>
@@ -234,7 +244,6 @@
 		<Argument name="Percent">10</Argument>
 	</Modifier>
 	<Modifier id="TARIFFS_MOD_TRADE_INCOME" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_TRADE_YIELD">
-		<Argument name="YieldType">YIELD_GOLD</Argument>
 		<Argument name="Percent">50</Argument>
 		<Argument name="Tooltip">LOC_TRADITION_TARIFF_NAME</Argument>
 		<String context="Description">LOC_TRADITION_TARIFFS_DESCRIPTION</String>
@@ -259,13 +268,23 @@
 		<Argument name="Imported">true</Argument>
 		<Argument name="Tooltip">LOC_TRADITION_TRADE_WINDS_NAME</Argument>
 	</Modifier>
-	<Modifier id="UPOSATHA_MOD_HAPPINESS_ADJACENCY" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_ADJACENCY_FLAT_AMOUNT">
-		<Argument name="Adjacency_YieldChange">MountainHappiness</Argument>
+	<Modifier id="TRADE_WINDS_MERCHANT_MOVEMENT" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_MOVEMENT">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+				<Argument name="Tag">UNIT_CLASS_MAKE_TRADE_ROUTE</Argument>
+			</Requirement>
+		</SubjectRequirements>
 		<Argument name="Amount">1</Argument>
-		<Argument name="Divisor">1</Argument>
-		<Argument name="Tooltip">LOC_TRADITION_UPOSATHA_NAME</Argument>
-		<String context="Description">LOC_TRADITION_UPOSATHA_DESCRIPTION</String>
 	</Modifier>
+	<Modifier id="UPOSATHA_MOD_HAPPINESS_ON_WORKERS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_WORKER_YIELD">
+		<Argument name="YieldType">YIELD_HAPPINESS</Argument>
+		<Argument name="Amount">2</Argument>
+	</Modifier>
+	<Modifier id="UPOSATHA_MOD_FOOD_MAINTENANCE_PER_SPECIALIST" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_WORKER_MAINTENANCE_EFFICIENCY">
+		<Argument name="YieldType">YIELD_FOOD</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_UPOSATHA_NAME</Argument>
+    </Modifier>
 	<Modifier id="VASSALAGE_MOD_SUZERAINS_CULTURE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD_PER_SUZERAIN">
 		<Argument name="YieldType">YIELD_CULTURE</Argument>
 		<Argument name="Amount">3</Argument>

@@ -529,7 +529,7 @@
         <Argument name="YieldType">YIELD_GOLD</Argument>
         <Argument name="MultiplierType">REWARD_TYPE_MINOR_EARLY</Argument>
     </Modifier>
-    <Modifier id="3339C_NARRATIVE_MODIFIER" collection="COLLECTION_INDEPENDENT_NEAREST_STORY" effect="EFFECT_CHANGE_INDEPENDENT_AT_LOCATION_INVESTMENT" run-once="false" permanent="true">
+    <Modifier id="3339C_NARRATIVE_MODIFIER" collection="COLLECTION_HOMELANDS_INDEPENDENT_NEAREST_STORY" effect="EFFECT_CHANGE_INDEPENDENT_AT_LOCATION_INVESTMENT" run-once="false" permanent="true">
         <Argument name="Amount">0</Argument>
         <Argument name="Reveal">TRUE</Argument>
     </Modifier>
@@ -1103,7 +1103,7 @@
         <Argument name="MultiplierType">REWARD_TYPE_MEDIUM_LATE</Argument>
     </Modifier>
     <Modifier id="3625B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ATTRIBUTE" run-once="false" permanent="true">
-        <Argument name="AttributeType">ATTRIBUTE_ECONOMIC</Argument>
+        <Argument name="AttributeType">ATTRIBUTE_CULTURAL</Argument>
         <Argument name="Amount">1</Argument>
     </Modifier>
     <Modifier id="3625C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ATTRIBUTE" run-once="false" permanent="true">
@@ -1175,7 +1175,7 @@
         <Argument name="MultiplierType">REWARD_TYPE_MEDIUM_LATE</Argument>
     </Modifier>
     <Modifier id="3628B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ATTRIBUTE" run-once="false" permanent="true">
-        <Argument name="AttributeType">ATTRIBUTE_EXPANSIONIST</Argument>
+        <Argument name="AttributeType">ATTRIBUTE_ECONOMIC</Argument>
         <Argument name="Amount">1</Argument>
     </Modifier>
     <Modifier id="3628C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ATTRIBUTE" run-once="false" permanent="true">
@@ -1245,9 +1245,9 @@
         <Argument name="YieldType">YIELD_HAPPINESS</Argument>
         <Argument name="MultiplierType">REWARD_TYPE_MINOR_LATE</Argument>
     </Modifier>
-    <Modifier id="250B_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_ADJUST_YIELD" run-once="false" permanent="true">
-        <Argument name="YieldType">YIELD_FOOD</Argument>
-        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+    <Modifier id="250B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_NARRATIVE" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_GOLD</Argument>
+        <Argument name="MultiplierType">REWARD_TYPE_MINOR_EARLY</Argument>
     </Modifier>
     <Modifier id="250C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_ABILITY" run-once="false" permanent="true">
         <SubjectRequirements>
@@ -1382,7 +1382,7 @@
         <Argument name="Amount">1</Argument>
     </Modifier>
     <Modifier id="3619C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ATTRIBUTE" run-once="false" permanent="true">
-        <Argument name="AttributeType">ATTRIBUTE_ECONOMIC</Argument>
+        <Argument name="AttributeType">ATTRIBUTE_SCIENTIFIC</Argument>
         <Argument name="Amount">1</Argument>
     </Modifier>
     <Modifier id="3629B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_NARRATIVE" run-once="false" permanent="true">
@@ -1595,17 +1595,13 @@
         <Argument name="YieldType">YIELD_CULTURE</Argument>
         <Argument name="MultiplierType">REWARD_TYPE_MEDIUM_LATE</Argument>
     </Modifier>
+    <Modifier id="249B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_NARRATIVE" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_CULTURE</Argument>
+        <Argument name="MultiplierType">REWARD_TYPE_MINOR_EARLY</Argument>
+    </Modifier>
     <Modifier id="249C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_NARRATIVE" run-once="false" permanent="true">
         <Argument name="YieldType">YIELD_SCIENCE</Argument>
         <Argument name="MultiplierType">REWARD_TYPE_MINOR_EARLY</Argument>
-    </Modifier>
-    <Modifier id="249B_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_ABILITY" run-once="false" permanent="true">
-        <SubjectRequirements>
-            <Requirement type="REQUIREMENT_UNIT_TYPE_MATCHES">
-                <Argument name="UnitType">UNIT_WARRIOR</Argument>
-            </Requirement>
-        </SubjectRequirements>
-        <Argument name="AbilityType">ABILITY_NARRATIVE_AGGRESSION</Argument>
     </Modifier>
     <Modifier id="3518B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_NARRATIVE" run-once="false" permanent="true">
         <Argument name="YieldType">YIELD_HAPPINESS</Argument>
@@ -2091,6 +2087,7 @@
         <Argument name="MultiplierType">REWARD_TYPE_MEDIUM_EARLY</Argument>
     </Modifier>
     <Modifier id="1084D_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_TRADITION_SLOTS" run-once="false" permanent="true">
+        <Argument name="SlotType">POLICY_CULTURE_SLOT</Argument>
         <Argument name="Amount">1</Argument>
     </Modifier>
     <Modifier id="1085B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_NARRATIVE" run-once="false" permanent="true">
@@ -2110,6 +2107,7 @@
         <Argument name="MultiplierType">REWARD_TYPE_MAJOR_LATE</Argument>
     </Modifier>
     <Modifier id="1212C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_TRADITION_SLOTS" run-once="false" permanent="true">
+		<Argument name="SlotType">POLICY_CULTURE_SLOT</Argument>
         <Argument name="Amount">1</Argument>
     </Modifier>
     <Modifier id="1212D_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
@@ -2254,10 +2252,9 @@
         <Argument name="YieldType">YIELD_CULTURE</Argument>
         <Argument name="MultiplierType">REWARD_TYPE_MEDIUM_EARLY</Argument>
     </Modifier>
-    <Modifier id="299B_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_GRANT_UNIT" run-once="true" permanent="true">
-        <Argument name="UnitType">UNIT_MIGRANT</Argument>
-        <Argument name="Amount">1</Argument>
-        <Argument name="AllowUniqueOverride">FALSE</Argument>
+    <Modifier id="299B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_NARRATIVE" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+        <Argument name="MultiplierType">REWARD_TYPE_MINOR_EARLY</Argument>
     </Modifier>
     <Modifier id="299C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_NARRATIVE" run-once="false" permanent="true">
         <Argument name="YieldType">YIELD_SCIENCE</Argument>
@@ -3012,6 +3009,7 @@
         <Argument name="MultiplierType">REWARD_TYPE_MINOR_LATE</Argument>
     </Modifier>
     <Modifier id="159B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_TRADITION_SLOTS" run-once="false" permanent="true">
+        <Argument name="SlotType">POLICY_CULTURE_SLOT</Argument>
         <Argument name="Amount">1</Argument>
     </Modifier>
     <Modifier id="159C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ATTRIBUTE" run-once="false" permanent="true">
@@ -3077,6 +3075,7 @@
         <Argument name="MultiplierType">REWARD_TYPE_MINOR_LATE</Argument>
     </Modifier>
     <Modifier id="166B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_TRADITION_SLOTS" run-once="false" permanent="true">
+        <Argument name="SlotType">POLICY_CULTURE_SLOT</Argument>
         <Argument name="Amount">1</Argument>
     </Modifier>
     <Modifier id="166C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ATTRIBUTE" run-once="false" permanent="true">
@@ -3123,7 +3122,7 @@
     </Modifier>
     <Modifier id="7011C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_UNIT_PRODUCTION" run-once="false" permanent="true">
         <Argument name="Percent">15</Argument>
-        <Argument name="UnitClass">UNIT_CLASS_MOUNTED</Argument>
+        <Argument name="UnitClass">UNIT_CLASS_CAVALRY</Argument>
     </Modifier>
     <Modifier id="7012B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_NARRATIVE" run-once="false" permanent="true">
         <Argument name="YieldType">YIELD_SCIENCE</Argument>
@@ -4159,36 +4158,6 @@
         <Argument name="Amount">1</Argument>
         <Argument name="NarrativeTagType">NARRATIVE_TAG_ROMAN_EAGLE</Argument>
     </Modifier>
-    <Requirement id="REQ_STORY_CIVILIZATION_AKSUM" type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
-        <Argument name="CivilizationType">CIVILIZATION_AKSUM</Argument>
-    </Requirement>
-    <Requirement id="REQ_STORY_CIVILIZATION_EGYPT" type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
-        <Argument name="CivilizationType">CIVILIZATION_EGYPT</Argument>
-    </Requirement>
-    <Requirement id="REQ_STORY_CIVILIZATION_GREECE" type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
-        <Argument name="CivilizationType">CIVILIZATION_GREECE</Argument>
-    </Requirement>
-    <Requirement id="REQ_STORY_CIVILIZATION_HAN" type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
-        <Argument name="CivilizationType">CIVILIZATION_HAN</Argument>
-    </Requirement>
-    <Requirement id="REQ_STORY_CIVILIZATION_KHMER" type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
-        <Argument name="CivilizationType">CIVILIZATION_KHMER</Argument>
-    </Requirement>
-    <Requirement id="REQ_STORY_CIVILIZATION_MAURYA" type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
-        <Argument name="CivilizationType">CIVILIZATION_MAURYA</Argument>
-    </Requirement>
-    <Requirement id="REQ_STORY_CIVILIZATION_MAYA" type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
-        <Argument name="CivilizationType">CIVILIZATION_MAYA</Argument>
-    </Requirement>
-    <Requirement id="REQ_STORY_CIVILIZATION_MISSISSIPPIAN" type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
-        <Argument name="CivilizationType">CIVILIZATION_MISSISSIPPIAN</Argument>
-    </Requirement>
-    <Requirement id="REQ_STORY_CIVILIZATION_PERSIA" type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
-        <Argument name="CivilizationType">CIVILIZATION_PERSIA</Argument>
-    </Requirement>
-    <Requirement id="REQ_STORY_CIVILIZATION_ROME" type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
-        <Argument name="CivilizationType">CIVILIZATION_ROME</Argument>
-    </Requirement>
     <RequirementSet id="REQSET_1092A_NARRATIVE_REQUISITE">
         <Requirement type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
             <Argument name="CivilizationType">CIVILIZATION_PERSIA</Argument>
@@ -4340,7 +4309,9 @@
         <Requirement xref="REQ_STORY_CIVILIZATION_MAURYA"/>
     </RequirementSet>
     <RequirementSet id="REQSET_1002A_NARRATIVE_REQUISITE">
-        <Requirement xref="REQ_STORY_CIVILIZATION_MAURYA"/>
+        <Requirement type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
+            <Argument name="CivilizationType">CIVILIZATION_MAURYA,CIVILIZATION_KHMER</Argument>
+        </Requirement>
     </RequirementSet>
     <RequirementSet id="REQSET_1087A_NARRATIVE_REQUISITE">
         <Requirement xref="REQ_STORY_CIVILIZATION_KHMER"/>
@@ -5801,11 +5772,13 @@
         </Requirement>
     </RequirementSet>
     <RequirementSet id="REQSET_1002A_NARRATIVE">
-        <Requirement xref="REQ_STORY_CIVILIZATION_MAURYA"/>
-		<Requirement type="REQUIREMENT_PLAYER_IS_IN_GOLDEN_AGE"/>
+        <Requirement type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
+            <Argument name="CivilizationType">CIVILIZATION_MAURYA,CIVILIZATION_KHMER</Argument>
+        </Requirement>
+    	<Requirement type="REQUIREMENT_PLAYER_IS_IN_GOLDEN_AGE"/>
         <Requirement type="REQUIREMENT_PLAYER_MET_IMMEDIATE_GOSSIP">
             <Argument name="GossipTypes">GOSSIP_CONSTRUCT_BUILDING</Argument>
-            <Argument name="GOSSIP_CONSTRUCT_BUILDING01">Hash,ConstructibleType,BUILDING_ALTAR</Argument>
+            <Argument name="GOSSIP_CONSTRUCT_BUILDING">Hash,ConstructibleType,BUILDING_ALTAR</Argument>
         </Requirement>
     </RequirementSet>
     <RequirementSet id="REQSET_1071A_NARRATIVE">
@@ -5953,9 +5926,11 @@
     </RequirementSet>
     <RequirementSet id="REQSET_3381A_NARRATIVE">
         <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
-            <Argument name="GossipTypes">GOSSIP_UNIT_COMBAT_DEATH01</Argument>
+            <Argument name="GossipTypes">GOSSIP_UNIT_COMBAT_DEATH01,GOSSIP_UNIT_COMBAT_DEATH02</Argument>
             <Argument name="GOSSIP_UNIT_COMBAT_DEATH01">Hash,KillingUnitType,UNIT_IMMORTAL,Hash,OtherPlayer,Self,Hash,IsDyingUnitCavalry,True</Argument>
+            <Argument name="GOSSIP_UNIT_COMBAT_DEATH02">Hash,KillingUnitType,UNIT_IMMORTAL_2,Hash,OtherPlayer,Self,Hash,IsDyingUnitCavalry,True</Argument>
             <Argument name="AfterInit">True</Argument>
+            <Argument name="Amount">1</Argument>
         </Requirement>
     </RequirementSet>
     <RequirementSet id="REQSET_3425A_NARRATIVE">
@@ -6411,7 +6386,7 @@
         <Requirement xref="REQ_STORY_CIVILIZATION_AKSUM"/>
         <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
             <Argument name="GossipTypes">GOSSIP_TRADITION_ACTIVATED01</Argument>
-            <Argument name="GOSSIP_TRADITION_ACTIVATED01">Hash,TraditionType,TRADITION_PORT_OF_NATIONS,Hash,CivilizationTrait,TRAIT_AKSUM</Argument>
+            <Argument name="GOSSIP_TRADITION_ACTIVATED01">Hash,TraditionType,TRADITION_PORT_OF_NATIONS_I,Hash,CivilizationTrait,TRAIT_AKSUM</Argument>
         </Requirement>
     </RequirementSet>
     <RequirementSet id="REQSET_3647A_NARRATIVE">
@@ -6425,7 +6400,7 @@
         <Requirement xref="REQ_STORY_CIVILIZATION_AKSUM"/>
         <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
             <Argument name="GossipTypes">GOSSIP_TRADITION_ACTIVATED01</Argument>
-            <Argument name="GOSSIP_TRADITION_ACTIVATED01">Hash,TraditionType,TRADITION_MAY_THIS_PLEASE_THE_PEOPLE,Hash,CivilizationTrait,TRAIT_AKSUM</Argument>
+            <Argument name="GOSSIP_TRADITION_ACTIVATED01">Hash,TraditionType,TRADITION_MAY_THIS_PLEASE_THE_PEOPLE_I,Hash,CivilizationTrait,TRAIT_AKSUM</Argument>
         </Requirement>
     </RequirementSet>
     <RequirementSet id="REQSET_295A_NARRATIVE">
@@ -6871,7 +6846,7 @@
     <RequirementSet id="REQSET_102A_NARRATIVE">
         <Requirement xref="REQ_STORY_CIVILIZATION_ROME"/>
         <Requirement type="REQUIREMENT_PLAYER_HAS_ACTIVE_TRADITION">
-            <Argument name="TraditionType">TRADITION_AUXILIA</Argument>
+            <Argument name="TraditionType">TRADITION_AUXILIA_I</Argument>
             <Argument name="ActiveAtGoldenAge">True</Argument>
         </Requirement>
     </RequirementSet>
@@ -7021,11 +6996,11 @@
     <RequirementSet id="REQSET_100A_NARRATIVE">
         <Requirement xref="REQ_STORY_CIVILIZATION_GREECE"/>
         <Requirement type="REQUIREMENT_PLAYER_HAS_ACTIVE_TRADITION">
-            <Argument name="TraditionType">TRADITION_DELIAN_LEAGUE</Argument>
+            <Argument name="TraditionType">TRADITION_DELIAN_LEAGUE_I</Argument>
             <Argument name="ActiveAtGoldenAge">True</Argument>
         </Requirement>
         <Requirement type="REQUIREMENT_PLAYER_HAS_ACTIVE_TRADITION">
-            <Argument name="TraditionType">TRADITION_PELOPONNESIAN_LEAGUE</Argument>
+            <Argument name="TraditionType">TRADITION_PELOPONNESIAN_LEAGUE_I</Argument>
             <Argument name="ActiveAtGoldenAge">True</Argument>
         </Requirement>
     </RequirementSet>
@@ -7187,8 +7162,10 @@
     <RequirementSet id="REQSET_8026A_NARRATIVE">
         <Requirement xref="REQ_STORY_CIVILIZATION_HAN"/>
         <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
-            <Argument name="GossipTypes">GOSSIP_COMPLETED_PROGRESSION_TREE_NODE01</Argument>
-            <Argument name="GOSSIP_COMPLETED_PROGRESSION_TREE_NODE01">Hash,ProgressionTreeNodeType,NODE_CIVIC_AQ_HAN_JUNZI</Argument>
+            <Argument name="GossipTypes">GOSSIP_COMPLETED_PROGRESSION_TREE_NODE01,GOSSIP_COMPLETED_PROGRESSION_TREE_NODE02</Argument>
+            <Argument name="GOSSIP_COMPLETED_PROGRESSION_TREE_NODE01">Hash,ProgressionTreeNodeType,NODE_CIVIC_AQ_HAN_ZHI</Argument>
+            <Argument name="GOSSIP_COMPLETED_PROGRESSION_TREE_NODE02">Hash,ProgressionTreeNodeType,NODE_CIVIC_AQ_HAN_LI</Argument>
+            <Argument name="Amount">2</Argument>
         </Requirement>
     </RequirementSet>
     <RequirementSet id="REQSET_8028A_NARRATIVE">
@@ -8914,11 +8891,11 @@
     <RequirementSet id="REQSET_1027A_NARRATIVE">
         <Requirement type="REQUIREMENT_PLAYER_HAS_COMPLETED_PROGRESSION_TREE_NODE">
             <Argument name="ProgressionTreeNodeType">NODE_CIVIC_AQ_MAIN_MYSTICISM</Argument>
-            <Argument name="TreeDepth">2</Argument>
+            <Argument name="MinDepth">2</Argument>
         </Requirement>
         <Requirement type="REQUIREMENT_PLAYER_HAS_COMPLETED_PROGRESSION_TREE_NODE">
             <Argument name="ProgressionTreeNodeType">NODE_TECH_AQ_WRITING</Argument>
-            <Argument name="TreeDepth">2</Argument>
+            <Argument name="MinDepth">2</Argument>
         </Requirement>
     </RequirementSet>
     <RequirementSet id="REQSET_8002E_NARRATIVE">
@@ -8993,7 +8970,7 @@
         </Requirement>
         <Requirement type="REQUIREMENT_PLAYER_HAS_COMPLETED_PROGRESSION_TREE_NODE">
             <Argument name="ProgressionTreeNodeType">NODE_TECH_AQ_BRONZE_WORKING</Argument>
-            <Argument name="TreeDepth">2</Argument>
+            <Argument name="MinDepth">2</Argument>
         </Requirement>
     </RequirementSet>
     <RequirementSet id="REQSET_9017A_NARRATIVE">

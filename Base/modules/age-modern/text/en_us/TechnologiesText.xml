@@ -59,6 +59,12 @@
 		<Row Tag="LOC_TECH_ELECTRICITY_QUOTE_AUTHOR">
 			<Text>Michael Faraday</Text>
 		</Row>
+		<Row Tag="LOC_TECH_COMPUTATION_QUOTE">
+			<Text>"This is only a foretaste of what is to come, and only the shadow of what is going to be."</Text>
+		</Row>
+		<Row Tag="LOC_TECH_COMPUTATION_QUOTE_AUTHOR">
+			<Text>Alan Turing</Text>
+		</Row>
 		<Row Tag="LOC_TECH_INDUSTRIALIZATION_NAME">
 			<Text>Industrialization</Text>
 		</Row>
@@ -94,6 +100,9 @@
 		</Row>
 		<Row Tag="LOC_TECH_COMBUSTION_QUOTE_AUTHOR">
 			<Text>The Marvelous Vogue of the Automobile</Text>
+		</Row>
+		<Row Tag="LOC_TECH_COMPUTATION_NAME">
+			<Text>Computation</Text>
 		</Row>
 		<Row Tag="LOC_TECH_MOBILIZATION_NAME">
 			<Text>Mobilization</Text>
@@ -144,65 +153,74 @@
 			<Text>Future Tech</Text>
 		</Row>
 		<Row Tag="LOC_TECH_FUTURE_TECH_QUOTE">
-			<Text></Text>
+			<Text />
 		</Row>
 		<Row Tag="LOC_TECH_FUTURE_TECH_AUTHOR">
-			<Text></Text>
+			<Text />
 		</Row>
 		<Row Tag="LOC_MOD_MO_FUTURE_TECH_AGE_PROGRESS_DESCRIPTION">
-			<Text>+10 Age Progress.</Text>
+			<Text>+10 [TIP:LOC_PEDIA_CONCEPTS_AGE_PROGRESS_TOOLTIP]Age Progress[/TIP].</Text>
 		</Row>
 		<!-- Tech Standard Modifiers -->
 		<Row Tag="LOC_MOD_TECH_MO_EMBARKATION_DESCRIPTION">
-			<Text>Trade Units can enter deep Ocean Terrain. Settlements across deep Ocean can now serve as origin Settlements for [icon:TRADE_ROUTE] Trade Routes.</Text>
+			<Text>Trade Units can enter deep Ocean Terrain. [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]Settlements[/TIP] across deep Ocean can now serve as origin [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]Settlements[/TIP] for [icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]Trade Routes[/TIP].</Text>
 		</Row>
 		<Row Tag="LOC_MOD_MO_SETTLEMENT_CAP_INCREASE_DESCRIPTION">
-			<Text>+1 [icon:SETTLEMENT_LIMIT] Settlement Limit.</Text>
+			<Text>+1 [icon:SETTLEMENT_LIMIT] [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_LIMIT_TOOLTIP]Settlement Limit[/TIP].</Text>
 		</Row>
 		<Row Tag="LOC_MOD_MO_SPECIALIST_CAP_INCREASE_DESCRIPTION">
-			<Text>+1 [icon:SPECIALIST] Specialist Limit in all [icon:YIELD_CITIES] Cities.</Text>
+			<Text>+1 [icon:SPECIALIST] [TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_LIMIT_TOOLTIP]Specialist Limit[/TIP] in all [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]Cities[/TIP].</Text>
 		</Row>
 		<Row Tag="LOC_MOD_MO_TECH_CAVALRY_STRENGTH_DESCRIPTION">
-			<Text>+3 [icon:NAR_REW_COMBAT] Combat Strength for Cavalry Units.</Text>
+			<Text>+3 [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Combat Strength[/TIP] for [TIP:LOC_PEDIA_CONCEPTS_CAVALRY_UNITS_TOOLTIP]Cavalry Units[/TIP].</Text>
 		</Row>
 		<Row Tag="LOC_MOD_MO_TECH_INFANTRY_STRENGTH_DESCRIPTION">
-			<Text>+3 [icon:NAR_REW_COMBAT] Combat Strength for Infantry Units.</Text>
+			<Text>+3 [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Combat Strength[/TIP] for [TIP:LOC_PEDIA_CONCEPTS_INFANTRY_UNITS_TOOLTIP]Infantry Units[/TIP].</Text>
 		</Row>
 		<Row Tag="LOC_MOD_MO_TECH_INTERCEPT_RANGE_DESCRIPTION">
 			<Text>+1 Intercept Range for Fighter Units.</Text>
 		</Row>
+		<Row Tag="LOC_MOD_MO_TECH_FLIGHT_TOURISM">
+			<Text>Settlements with an Aerodrome gain +3 [icon:CULTURE_VP] Tourism on Unique Buildings.</Text>
+		</Row>
+		<Row Tag="LOC_MOD_MO_TECH_INDUSTRIALIZATION_TOURISM">
+			<Text>Settlements connected by Rail gain +3 [icon:CULTURE_VP] Tourism for each type of Unique Improvement in the Settlement.</Text>
+		</Row>
 		<Row Tag="LOC_MOD_MO_TECH_NAVAL_STRENGTH_DESCRIPTION">
-			<Text>+3 [icon:NAR_REW_COMBAT] Combat Strength for Naval Units.</Text>
+			<Text>+3 [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Combat Strength[/TIP] for [TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]Naval Units[/TIP].</Text>
 		</Row>
 		<Row Tag="LOC_MOD_MO_TECH_RANGED_STRENGTH_DESCRIPTION">
-			<Text>+3 [icon:NAR_REW_COMBAT] Combat Strength for Ranged and Siege Units.</Text>
+			<Text>+3 [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Combat Strength[/TIP] for [TIP:LOC_PEDIA_CONCEPTS_RANGED_UNITS_TOOLTIP]Ranged[/TIP] and [TIP:LOC_PEDIA_CONCEPTS_SIEGE_UNITS_TOOLTIP]Siege Units[/TIP].</Text>
 		</Row>
 		<Row Tag="LOC_MOD_MO_TECH_AIRCRAFT_STRENGTH_DESCRIPTION">
-			<Text>+3 [icon:NAR_REW_COMBAT] Combat Strength for Air Units.</Text>
+			<Text>+3 [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Combat Strength[/TIP] for [TIP:LOC_PEDIA_CONCEPTS_AIR_UNITS_TOOLTIP]Air Units[/TIP].</Text>
 		</Row>
 		<Row Tag="LOC_MOD_MO_TECH_CULTURE_BUILDING_DESCRIPTION">
-			<Text>+1 [icon:YIELD_CULTURE] Culture on [icon:YIELD_CULTURE] Culture Buildings.</Text>
+			<Text>+1 [icon:YIELD_CULTURE] Culture on [icon:YIELD_CULTURE] Culture [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]Buildings[/TIP].</Text>
 		</Row>
 		<Row Tag="LOC_MOD_MO_TECH_FOOD_BUILDING_DESCRIPTION">
-			<Text>+1 [icon:YIELD_FOOD] Food on [icon:YIELD_FOOD] Food Buildings.</Text>
+			<Text>+1 [icon:YIELD_FOOD] Food on [icon:YIELD_FOOD] Food [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]Buildings[/TIP].</Text>
 		</Row>
 		<Row Tag="LOC_MOD_MO_TECH_GOLD_BUILDING_DESCRIPTION">
-			<Text>+1 [icon:YIELD_GOLD] Gold on [icon:YIELD_GOLD] Gold Buildings.</Text>
+			<Text>+1 [icon:YIELD_GOLD] Gold on [icon:YIELD_GOLD] Gold [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]Buildings[/TIP].</Text>
 		</Row>
 		<Row Tag="LOC_MOD_MO_TECH_HAPPINESS_BUILDING_DESCRIPTION">
-			<Text>+1 [icon:YIELD_HAPPINESS] Happiness on [icon:YIELD_HAPPINESS] Happiness Buildings.</Text>
+			<Text>+1 [icon:YIELD_HAPPINESS] Happiness on [icon:YIELD_HAPPINESS] Happiness [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]Buildings[/TIP].</Text>
 		</Row>
 		<Row Tag="LOC_MOD_MO_TECH_MILITARY_BUILDING_DESCRIPTION">
-			<Text>+2 [icon:YIELD_PRODUCTION] Production on [icon:MILITARY] Military Buildings.</Text>
+			<Text>+2 [icon:YIELD_PRODUCTION] Production on [icon:MILITARY] Military [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]Buildings[/TIP].</Text>
 		</Row>
 		<Row Tag="LOC_MOD_MO_TECH_PRODUCTION_BUILDING_DESCRIPTION">
-			<Text>+1 [icon:YIELD_PRODUCTION] Production on [icon:YIELD_PRODUCTION] Production Buildings.</Text>
+			<Text>+1 [icon:YIELD_PRODUCTION] Production on [icon:YIELD_PRODUCTION] Production [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]Buildings[/TIP].</Text>
 		</Row>
 		<Row Tag="LOC_MOD_MO_TECH_SCIENCE_BUILDING_DESCRIPTION">
-			<Text>+1 [icon:YIELD_SCIENCE] Science on [icon:YIELD_SCIENCE] Science Buildings.</Text>
+			<Text>+1 [icon:YIELD_SCIENCE] Science on [icon:YIELD_SCIENCE] Science [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]Buildings[/TIP].</Text>
 		</Row>
 		<Row Tag="LOC_MOD_MO_FUTURE_TECH_ATTRIBUTE_DESCRIPTION">
-			<Text>+1 [icon:ATTRIBUTE] Random Attribute Point.</Text>
+			<Text>+1 [icon:ATTRIBUTE] Random [TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]Attribute[/TIP] Point.</Text>
+		</Row>
+		<Row Tag="LOC_CIVIC_FACTORY_RESOURCE_GDP_DESCRIPTION">
+			<Text>+3 [icon:ECONOMIC_VP] GDP per turn for Slotted Factory [icon:RADIAL_RESOURCES] Resources.</Text>
 		</Row>
 		<!-- Tech Improvement Modifiers -->
 		<Row Tag="LOC_MOD_TECH_MO_MINE_PRODUCTION_DESCRIPTION">
@@ -222,6 +240,12 @@
 		</Row>
 		<Row Tag="LOC_MOD_TECH_MO_CAMP_PRODUCTION_DESCRIPTION">
 			<Text>+1[icon:YIELD_PRODUCTION] Production on Camps.</Text>
+		</Row>
+		<Row Tag="LOC_MOD_TECH_MO_URBANIZATION_CITY_POP">
+			<Text>+1 [icon:YIELD_POPULATION] Population in every City</Text>
+		</Row>
+		<Row Tag="LOC_MOD_TECH_MO_SPECIALIST_HAPPINESS_MAINTENANCE">
+			<Text>-1 [icon:YIELD_HAPPINESS] Happiness [TIP:LOC_PEDIA_CONCEPTS_MAINTENANCE_TOOLTIP]Maintenance[/TIP] on [icon:SPECIALIST] [TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_TOOLTIP]Specialists[/TIP].</Text>
 		</Row>
 	</EnglishText>
 </Database>

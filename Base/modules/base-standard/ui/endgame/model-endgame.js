@@ -1,6 +1,5 @@
-import { Icon } from '../../../core/ui/utilities/utilities-image.chunk.js';
-import { U as UpdateGate } from '../../../core/ui/utilities/utilities-update-gate.chunk.js';
-import '../../../core/ui/utilities/utilities-component-id.chunk.js';
+import { Icon } from '../../../core/ui/utilities/utilities-image.js';
+import UpdateGate from '../../../core/ui/utilities/utilities-update-gate.js';
 
 class EndGameModel {
   onUpdate;
@@ -49,10 +48,9 @@ class EndGameModel {
   }
   getLeaderPortrait(player) {
     if (player.leaderType == -1) {
-      if (player.isMinor) {
-        return "blp:leader_portrait_unknown.png";
+      if (player.isMajor) {
+        console.error("model-endgame cannot get leaderPortrait, it's leaderType=-1 but isMajor is true.");
       }
-      console.error("model-endgame cannot get leaderPortrait, it's leaderType=-1 but its not isMinor.");
       return "blp:leader_portrait_unknown.png";
     }
     return Icon.getLeaderPortraitIcon(player.leaderType);

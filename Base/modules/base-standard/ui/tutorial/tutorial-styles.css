@@ -1,0 +1,312 @@
+.tut-default-highlight {
+  z-index: 1;
+  animation: highlightPulse 1.3s infinite;
+  animation-fill-mode: forwards;
+  filter: fxs-color-mask(#e5e5e5);
+}
+@keyframes highlightPulse {
+  0% {
+    opacity: 0.9;
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1.6);
+  }
+  90% {
+    opacity: 0.2;
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 0.9;
+    transform: scale(1);
+  }
+}
+
+.tut-container-highlight {
+  position: absolute;
+  z-index: 1;
+  animation: highlightPulseContainer 1.8s infinite;
+  animation-fill-mode: forwards;
+  background: linear-gradient(0deg, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0) 8%, rgba(0, 0, 0, 0) 92%, rgb(0, 0, 0) 100%), linear-gradient(90deg, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0) 3%, rgba(0, 0, 0, 0) 97%, rgb(0, 0, 0) 100%);
+  filter: fxs-color-mask(#e5e5e5);
+  pointer-events: none;
+}
+.tut-container-highlight.production-highlight {
+  top: -0.3333333333rem;
+  left: -1.1111111111rem;
+  width: 24.2222222222rem;
+  height: 100%;
+  border-radius: 0.2222222222rem;
+  background: linear-gradient(0deg, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 0) 80%, rgb(0, 0, 0) 100%), linear-gradient(90deg, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0) 3%, rgba(0, 0, 0, 0) 97%, rgb(0, 0, 0) 100%);
+}
+
+@keyframes highlightPulseContainer {
+  0% {
+    opacity: 0.9;
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1.03);
+  }
+  60% {
+    opacity: 0.1;
+  }
+  100% {
+    opacity: 0.9;
+  }
+}
+.tut-chooser-item-highlight {
+  position: absolute;
+  z-index: 1;
+  top: 0rem;
+  right: 0rem;
+  bottom: 0rem;
+  left: 0rem;
+  border: 0.0555555556rem solid white;
+  animation: highlightPulseBorder 1.3s infinite;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
+  filter: fxs-color-mask(#e5e5e5);
+  pointer-events: none;
+}
+
+@keyframes highlightPulseBorder {
+  0% {
+    opacity: 0.5;
+  }
+  35% {
+    opacity: 0.1;
+  }
+  65% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+.tut-ping-pos-highlight {
+  position: absolute;
+  z-index: 1;
+  animation: tutPingHighlightPulse 1.3s infinite;
+  background: radial-gradient(circle, rgb(240, 200, 144) 0%, rgb(240, 200, 144) 15%, rgba(240, 200, 144, 0.4) 30%, rgba(240, 200, 144, 0) 60%);
+  filter: fxs-color-mask(#e5e5e5);
+}
+
+.tut-ping-pos-highlight-top {
+  top: -0.8333333333rem;
+  left: 50%;
+  width: 1.6666666667rem;
+  height: 1.6666666667rem;
+  margin-left: -0.8333333333rem;
+}
+
+.tut-ping-pos-highlight-right {
+  top: 50%;
+  right: -0.8333333333rem;
+  width: 1.6666666667rem;
+  height: 1.6666666667rem;
+  margin-top: -0.8333333333rem;
+}
+
+.tut-ping-pos-highlight-bottom {
+  bottom: -0.8333333333rem;
+  left: 50%;
+  width: 1.6666666667rem;
+  height: 1.6666666667rem;
+  margin-left: -0.8333333333rem;
+}
+
+.tut-ping-pos-highlight-left {
+  top: 50%;
+  left: -0.8333333333rem;
+  width: 1.6666666667rem;
+  height: 1.6666666667rem;
+  margin-top: -0.8333333333rem;
+}
+
+@keyframes tutPingHighlightPulse {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  35% {
+    opacity: 0.1;
+    transform: scale(0);
+  }
+  55% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  75% {
+    opacity: 0.1;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+}
+.tut-ping-arrow {
+  position: absolute;
+  z-index: 2;
+  background-image: url("fs://game/base_component-arrow.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.tut-ping-arrow-top {
+  top: -1.4444444444rem;
+  left: 50%;
+  width: 1.7777777778rem;
+  height: 2.6666666667rem;
+  margin-left: -0.8888888889rem;
+  animation: tutPingArrowTopBounce 1.3s ease infinite;
+}
+
+.tut-ping-arrow-right {
+  top: 50%;
+  right: -1.3333333333rem;
+  width: 1.7777777778rem;
+  height: 2.6666666667rem;
+  margin-top: -1.3333333333rem;
+  animation: tutPingArrowRightBounce 1.3s ease infinite;
+}
+
+.tut-ping-arrow-bottom {
+  bottom: -1.4444444444rem;
+  left: 50%;
+  width: 1.7777777778rem;
+  height: 2.6666666667rem;
+  margin-left: -0.8888888889rem;
+  animation: tutPingArrowBottomBounce 1.3s ease infinite;
+}
+
+.tut-ping-arrow-left {
+  top: 50%;
+  left: -1.3333333333rem;
+  width: 1.7777777778rem;
+  height: 2.6666666667rem;
+  margin-top: -1.3333333333rem;
+  animation: tutPingArrowLeftBounce 1.3s ease infinite;
+}
+
+@keyframes tutPingArrowTopBounce {
+  0% {
+    transform: rotateZ(-90deg) translateX(1.3333333333rem);
+  }
+  50% {
+    transform: rotateZ(-90deg) translateX(0rem);
+  }
+  100% {
+    transform: rotateZ(-90deg) translateX(1.3333333333rem);
+  }
+}
+@keyframes tutPingArrowRightBounce {
+  0% {
+    transform: translateX(1.3333333333rem);
+  }
+  50% {
+    transform: translateX(0rem);
+  }
+  100% {
+    transform: translateX(1.3333333333rem);
+  }
+}
+@keyframes tutPingArrowBottomBounce {
+  0% {
+    transform: rotateZ(90deg) translateX(1.3333333333rem);
+  }
+  50% {
+    transform: rotateZ(90deg) translateX(0rem);
+  }
+  100% {
+    transform: rotateZ(90deg) translateX(1.3333333333rem);
+  }
+}
+@keyframes tutPingArrowLeftBounce {
+  0% {
+    transform: scaleX(-1) translateX(1.3333333333rem);
+  }
+  50% {
+    transform: scaleX(-1) translateX(0rem);
+  }
+  100% {
+    transform: scaleX(-1) translateX(1.3333333333rem);
+  }
+}
+.tut-circle-highlight {
+  z-index: 1;
+  width: 140%;
+  height: 140%;
+  border-radius: 50%;
+  animation: tutCirclePing 1.3s infinite;
+  background: radial-gradient(circle, rgba(240, 200, 144, 0) 0%, rgba(240, 200, 144, 0.1) 42%, rgb(240, 200, 144) 51%, rgb(240, 200, 144) 59%, rgba(240, 200, 144, 0) 60%);
+  filter: fxs-color-mask(#e5e5e5);
+}
+
+@keyframes tutCirclePing {
+  0% {
+    opacity: 0.1;
+    transform: scale(0.5);
+  }
+  70% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+}
+.tut-arrow-vert {
+  position: absolute;
+  z-index: 1;
+  width: 4rem;
+  height: 7.5555555556rem;
+  animation: bounce 2s ease infinite;
+  background-image: url("fs://game/core/ui/themes/default/img/tutorial/FTUE-arrow.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0rem);
+  }
+  40% {
+    transform: translateY(-3.1111111111rem);
+  }
+  60% {
+    transform: translateY(-1.3333333333rem);
+  }
+}
+.advisor-recommendation__container {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+.advisor-recommendation__container.hidden {
+  display: none;
+}
+.advisor-recommendation__container .advisor-recommendation__icon {
+  width: 1.5555555556rem;
+  height: 1.5555555556rem;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.advisor-recommendation__container .recommendation-cultural {
+  background-image: url("fs://game/adv_gem_cultural.png");
+}
+.advisor-recommendation__container .recommendation-economic {
+  background-image: url("fs://game/adv_gem_economic.png");
+}
+.advisor-recommendation__container .recommendation-military {
+  background-image: url("fs://game/adv_gem_militaristic.png");
+}
+.advisor-recommendation__container .recommendation-scientific {
+  background-image: url("fs://game/adv_gem_scientific.png");
+}

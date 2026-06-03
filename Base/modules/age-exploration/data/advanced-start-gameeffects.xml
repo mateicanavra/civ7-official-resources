@@ -29,6 +29,11 @@
 		<Argument name="AttributeType">ATTRIBUTE_WILDCARD</Argument>
 		<Argument name="Amount">1</Argument>
 	</Modifier>
+	<Modifier id="CARD_GRANT_COGS" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_NAVAL_UNIT_WITH_OCEAN_ACCESS" permanent="true" run-once="true">
+		<Argument name="Amount">3</Argument>
+		<Argument name="AllowUniqueOverride">FALSE</Argument>
+		<Argument name="UnitType">UNIT_COG</Argument>
+	</Modifier>
 	<!-- Civic Boosts -->
 	<Modifier id="CARD_GRANT_CIVIC_PIETY" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_PROGRESSION" permanent="true" run-once="true">
 		<Argument name="Amount">1</Argument>

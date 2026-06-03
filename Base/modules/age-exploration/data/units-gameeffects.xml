@@ -137,14 +137,28 @@
 		<Argument name="YieldType">YIELD_CULTURE</Argument>
 		<Argument name="PercentDefeatedStrength">25</Argument>
 	</Modifier>
-	<Modifier id="MAMLUK_MOD_COMBAT_URBAN_POP_ADD_ABILITY" collection="COLLECTION_OWNER" effect="EFFECT_UNIT_ADJUST_ABILITY">
+	<Modifier id="MAMLUK_MOD_COMBAT_URBAN_POP" collection="COLLECTION_OWNER" effect="EFFECT_ATTACH_MODIFIERS">
 		<OwnerRequirements>
 			<Requirement type="REQUIREMENT_UNIT_IN_OWNER_TERRITORY"/>
+			<Requirement type="REQUIREMENT_COLLECTION_ANY_MET">
+				<Argument name="CollectionType">COLLECTION_UNIT_OCCUPIED_CITY</Argument>
+				<Argument name="RequirementSetId">MAMLUK_ABILITY_CITY_HAS_SPECIALISTS</Argument>
+			</Requirement>
 		</OwnerRequirements>
-		<Argument name="AbilityType">ABILITY_MAMLUK</Argument>
+		<Argument name="ModifierId">MAMLUK_MOD_COMBAT_URBAN_POP_ATTACH</Argument>
 	</Modifier>
-	<Modifier id="MAMLUK_MOD_COMBAT_URBAN_POP" collection="COLLECTION_OWNER" effect="EFFECT_ADJUST_UNIT_URBAN_POPULATION_COMBAT_MODIFIER">
-		<Argument name="Amount">1</Argument>
+	<RequirementSet id="MAMLUK_ABILITY_CITY_HAS_SPECIALISTS" type="REQUIREMENTSET_TEST_ANY">
+        <Requirement type="REQUIREMENT_CITY_HAS_X_WORKERS">
+			<Argument name="WorkerAmount">5</Argument>
+        </Requirement>
+		<Requirement type="REQUIREMENT_CITY_IS_TOWN">
+		</Requirement>
+    </RequirementSet>
+	<Modifier id="MAMLUK_MOD_COMBAT_URBAN_POP_ATTACH" collection="COLLECTION_UNIT_COMBAT" effect="EFFECT_ADJUST_UNIT_STRENGTH_MODIFIER">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_IS_ATTACKING"/>
+		</SubjectRequirements>
+		<Argument name="Amount">5</Argument>
 		<String context="Preview">LOC_ABILITY_MAMLUK_PREVIEW</String>
 	</Modifier>
 	<Modifier id="NOYAN_MOD_GRANT_ABILITY_IN_COMMAND_RADIUS" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_ABILITY">
@@ -199,12 +213,7 @@
 		<Argument name="Amount">3</Argument>
 		<String context="Preview">LOC_ABILITY_XUNLEICHONG_BONUS_PREVIEW</String>
 	</Modifier>
-	<Modifier id="MANDARIN_MOD_TRADE_CREATION_YIELD" collection="COLLECTION_OWNER" effect="EFFECT_UNIT_ADJUST_COMMAND_AWARD">
-		<Argument name="YieldType">YIELD_GOLD</Argument>
-		<Argument name="Amount" type="ScaleByGameSpeed">100</Argument>
-		<Argument name="PerResource">true</Argument>
-		<Argument name="CommandType">UNITCOMMAND_CONNECT_WITH_ROAD</Argument>
-	</Modifier>
+
 	<Modifier id="MANDARIN_BONUS_MOD_TRADE_CREATION_YIELD" collection="COLLECTION_OWNER" effect="EFFECT_UNIT_ADJUST_COMMAND_AWARD">
 		<Argument name="YieldType">YIELD_SCIENCE</Argument>
 		<Argument name="Amount" type="ScaleByGameSpeed">25</Argument>
@@ -213,20 +222,11 @@
 	</Modifier>
 	<Modifier id="TAJIRO_MOD_TRADE_CREATION_YIELD" collection="COLLECTION_OWNER" effect="EFFECT_UNIT_ADJUST_COMMAND_AWARD">
 		<Argument name="YieldType">YIELD_GOLD</Argument>
-		<Argument name="Amount" type="ScaleByGameSpeed">100</Argument>
+		<Argument name="Amount" type="ScaleByGameSpeed">200</Argument>
 		<Argument name="IncludesNavigableRiver">true</Argument>
 		<Argument name="CommandType">UNITCOMMAND_MAKE_TRADE_ROUTE</Argument>
 	</Modifier>
-	<Modifier id="TAJIRO_BONUS_MOD_TRADE_CREATION_YIELD" collection="COLLECTION_OWNER" effect="EFFECT_UNIT_ADJUST_COMMAND_AWARD">
-		<Argument name="YieldType">YIELD_GOLD</Argument>
-		<Argument name="Amount" type="ScaleByGameSpeed">100</Argument>
-		<Argument name="IncludesNavigableRiver">true</Argument>
-		<Argument name="CommandType">UNITCOMMAND_MAKE_TRADE_ROUTE</Argument>
-	</Modifier>
-	<Modifier id="TRADE_UNIT_MOD_NAVIGABLE_RIVER_PROTECTION" collection="COLLECTION_OWNER" effect="EFFECT_UNIT_SET_TRADE_ROUTE_PROTECTED">
-		<SubjectRequirements>
-			<Requirement type="REQUIREMENT_UNIT_TRADE_ROUTE_ESTABLISHED" />
-		</SubjectRequirements>
+	<Modifier id="TRADE_UNIT_MOD_NAVIGABLE_RIVER_PROTECTION" collection="COLLECTION_PLAYER_TRADE_ROUTES" effect="EFFECT_TRADE_ROUTE_SET_TRADE_ROUTE_PROTECTED">
 	</Modifier>
 	<Modifier id="TERCIO_ADJACENT_COMBAT" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_ABILITY">
 		<SubjectRequirements>

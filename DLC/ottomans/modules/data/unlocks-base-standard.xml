@@ -14,10 +14,28 @@
 		<InsertOrIgnore RequirementSetId="REQSET_PLAYER_HAS_1_CONQUERED_CAPITAL" RequirementId="REQ_AGE_IS_EXPLORATION"/>
 	</RequirementSetRequirements>
 	<UnlockRequirements>
-		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_OTTOMANS" RequirementSetId="REQSET_PLAYER_HAS_1_CONQUERED_CAPITAL" Description="LOC_UNLOCK_CONQUERED_CAPITAL_DESCRIPTION" Tooltip="LOC_UNLOCK_CONQUERED_CAPITAL_OTTOMANS_TOOLTIP" NarrativeText="LOC_UNLOCK_CONQUERED_CAPITAL_OTTOMANS_NARRATIVE"/>
+		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_OTTOMANS" RequirementSetId="REQSET_PLAYER_HAS_1_CONQUERED_CAPITAL" Description="LOC_UNLOCK_CONQUERED_CAPITAL_DESCRIPTION" Tooltip="LOC_UNLOCK_CONQUERED_CAPITAL_OTTOMANS_TOOLTIP" GameplayUnlock="True" NarrativeText="LOC_UNLOCK_CONQUERED_CAPITAL_OTTOMANS_NARRATIVE"/>
 		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_OTTOMANS" RequirementSetId="REQSET_LEADER_IS_IBN_BATTUTA" Description="LOC_UNLOCK_PLAY_AS_IBN_BATTUTA_DESCRIPTION" Tooltip="LOC_UNLOCK_PLAY_AS_IBN_BATTUTA_OTTOMANS_TOOLTIP"/>
 	</UnlockRequirements>
 	<UnlockConfigurationValues>
 		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_OTTOMANS" ConfigurationValue="CIVILIZATION_OTTOMANS"/>
 	</UnlockConfigurationValues>
+	<!-- ====================================== -->
+	<!-- Test of Time Unlocks -->
+	<!-- ====================================== -->
+	<RequirementSets>
+		<InsertOrIgnore RequirementSetId="REQSET_CIV_IS_OTTOMANS" RequirementSetType="REQUIREMENTSET_TEST_ALL"/>
+	</RequirementSets>
+	<Requirements>
+		<InsertOrIgnore RequirementId="REQ_CIV_IS_OTTOMANS" RequirementType="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES"/>
+	</Requirements>
+	<RequirementArguments>
+		<InsertOrIgnore RequirementId="REQ_CIV_IS_OTTOMANS" Name="CivilizationType" Value="CIVILIZATION_OTTOMANS"/>
+	</RequirementArguments>
+	<RequirementSetRequirements>
+		<InsertOrIgnore RequirementSetId="REQSET_CIV_IS_OTTOMANS" RequirementId="REQ_CIV_IS_OTTOMANS"/>
+	</RequirementSetRequirements>
+	<UnlockRequirements>
+		<Row UnlockType="UNLOCK_CIVILIZATION_OTTOMANS" RequirementSetId="REQSET_CIV_IS_OTTOMANS" Description="LOC_UNLOCK_PLAY_AS_OTTOMANS_DESCRIPTION" Tooltip="LOC_UNLOCK_PLAY_AS_OTTOMANS_OTTOMANS_TOOLTIP"/>
+	</UnlockRequirements>
 </Database>

@@ -1,20 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <GameEffects xmlns="GameEffects">
+	<Modifier id="MOD_UNLOCK_PIRATE_REPUBLIC_SYNCRETISM_ANTIQUITY" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
+		<Argument name="Tradition">TRADITION_PIRATE_REPUBLIC_SYNCRETISM_ANTIQUITY</Argument>
+	</Modifier>
+	<Modifier id="MOD_UNLOCK_PIRATE_REPUBLIC_SYNCRETISM_MODERN" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
+		<Argument name="Tradition">TRADITION_PIRATE_REPUBLIC_SYNCRETISM_MODERN</Argument>
+	</Modifier>
 	<!-- ==================================================	-->
 	<!--	EXPLORATION							-->
 	<!-- ==================================================	-->
-	<Modifier id="PRESS_GANGS_PRODUCTION_NAVAL_UNITS_FOR_EACH_FLEET_COMMANDER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_UNIT_PRODUCTION_PER_OTHER_UNIT_TYPE">
-		<Argument name="Domain">DOMAIN_SEA</Argument>
-		<Argument name="Percent">50</Argument>
-		<Argument name="UnitTypeMultiplier">UNIT_FLEET_COMMANDER</Argument>
-		<String context="Description">LOC_TRADITION_PRESS_GANGS_DESCRIPTION</String>
+	<Modifier id="PRESS_GANGS_I_LIGHT_NAVAL_PRODUCTION" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_UNIT_PRODUCTION">
+		<Argument name="UnitClass">UNIT_CLASS_LIGHT</Argument>
+		<Argument name="Percent">100</Argument>
+	</Modifier>
+	<Modifier id="PRESS_GANGS_I_LIGHT_NAVAL_PURCHASE_RATE" collection="COLLECTION_OWNER" effect="EFFECT_ADJUST_PLAYER_OR_CITY_UNIT_PURCHASE_EFFICIENCY">
+		<Argument name="Percent">100</Argument>
+		<Argument name="UnitTag">UNIT_CLASS_LIGHT</Argument>
+	</Modifier>
+	<Modifier id="PRESS_GANGS_II_LIGHT_NAVAL_PRODUCTION" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_UNIT_PRODUCTION">
+		<Argument name="UnitClass">UNIT_CLASS_LIGHT</Argument>
+		<Argument name="Percent">150</Argument>
+	</Modifier>
+	<Modifier id="PRESS_GANGS_II_LIGHT_NAVAL_PURCHASE_RATE" collection="COLLECTION_OWNER" effect="EFFECT_ADJUST_PLAYER_OR_CITY_UNIT_PURCHASE_EFFICIENCY">
+		<Argument name="Percent">150</Argument>
+		<Argument name="UnitTag">UNIT_CLASS_LIGHT</Argument>
+	</Modifier>
+	<Modifier id="PRESS_GANGS_FREE_PROMOTION" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_GRANT_UNIT_PROMOTION" permanent="true">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+				<Argument name="Tag">UNIT_CLASS_FLEET_COMMANDER</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="UnitPromotionDisciplineType">DISCIPLINE_FLEET_LOGISTICS</Argument>
+		<Argument name="UnitPromotionType">PROMOTION_FLEET_LOOTING</Argument>
+	</Modifier>
+
+	<Modifier id="MERRY_LIFE_AND_A_SHORT_ONE_RECON_UNIT_GOLD" collection="COLLECTION_PLAYER_COMBAT" effect="EFFECT_ADJUST_UNIT_POST_COMBAT_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_OPPONENT_UNIT_TAG_MATCHES">
+				<Argument name="Tag">UNIT_CLASS_RECON_ABILITIES</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_GOLD</Argument>
+		<Argument name="PercentDefeatedUnitCost">100</Argument>
+		<String context="WorldText">LOC_WORLD_GOLD_INCREASE_FLOATER</String>
 	</Modifier>
 	<Modifier id="MERRY_LIFE_AND_A_SHORT_ONE_SUPPORT_UNIT_GOLD" collection="COLLECTION_PLAYER_COMBAT" effect="EFFECT_ADJUST_UNIT_POST_COMBAT_YIELD">
 		<Argument name="YieldType">YIELD_GOLD</Argument>
 		<Argument name="PercentDefeatedUnitCost">100</Argument>
 		<Argument name="OnlyWhenDefeatedSupportUnit">true</Argument>
 		<String context="WorldText">LOC_WORLD_GOLD_INCREASE_FLOATER</String>
-		<String context="Description">LOC_TRADITION_MERRY_LIFE_AND_A_SHORT_ONE_DESCRIPTION</String>
 	</Modifier>
 	<Modifier id="MERRY_LIFE_AND_A_SHORT_ONE_NAVAL_UNIT_GOLD" collection="COLLECTION_PLAYER_COMBAT" effect="EFFECT_ADJUST_UNIT_POST_COMBAT_YIELD">
 		<SubjectRequirements>
@@ -26,8 +61,108 @@
 		<Argument name="PercentDefeatedUnitCost">25</Argument>
 		<String context="WorldText">LOC_WORLD_GOLD_INCREASE_FLOATER</String>
 	</Modifier>
-	<Modifier id="BLACK_FLAG_PLUNDER" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ADJUST_UNIT_PLUNDER_YIELDS">
+
+	<Modifier id="BLACK_FLAG_I_PLUNDER" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ADJUST_UNIT_PLUNDER_YIELDS">
+		<Argument name="Amount">50</Argument>
+	</Modifier>
+	<Modifier id="BLACK_FLAG_I_COASTAL_RAID_PILLAGE_IMPROVEMENT" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ADJUST_UNIT_PERCENT_PILLAGE_IMPROVEMENT_MODIFIER">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+				<Argument name="Tag">UNIT_CLASS_NAVAL</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Percent">50</Argument>
+	</Modifier>
+	<Modifier id="BLACK_FLAG_I_COASTAL_RAID_PILLAGE_BUILDING" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ADJUST_UNIT_PERCENT_PILLAGE_BUILDING_MODIFIER">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+				<Argument name="Tag">UNIT_CLASS_NAVAL</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Percent">50</Argument>
+	</Modifier>
+	<Modifier id="BLACK_FLAG_II_PLUNDER" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ADJUST_UNIT_PLUNDER_YIELDS">
 		<Argument name="Amount">100</Argument>
-		<String context="Description">LOC_TRADITION_BLACK_FLAG_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="BLACK_FLAG_II_COASTAL_RAID_PILLAGE_IMPROVEMENT" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ADJUST_UNIT_PERCENT_PILLAGE_IMPROVEMENT_MODIFIER">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+				<Argument name="Tag">UNIT_CLASS_NAVAL</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Percent">100</Argument>
+	</Modifier>
+	<Modifier id="BLACK_FLAG_II_COASTAL_RAID_PILLAGE_BUILDING" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ADJUST_UNIT_PERCENT_PILLAGE_BUILDING_MODIFIER">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+				<Argument name="Tag">UNIT_CLASS_NAVAL</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Percent">100</Argument>
+	</Modifier>
+	<Modifier id="BLACK_FLAG_II_ATOLL_STEALTH" collection="COLLECTION_PLAYER_UNITS"  effect="EFFECT_ADJUST_UNIT_HIDDEN_VISIBILITY">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_FEATURE_TYPE_MATCHES">
+				<Argument name="FeatureType">FEATURE_ATOLL</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+				<Argument name="Tag">UNIT_CLASS_NAVAL,UNIT_FLEET_COMMANDER</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Hidden">true</Argument>
+		<String context="Preview">LOC_BLACK_FLAG_STEALTH_PREVIEW</String>
+	</Modifier>
+
+	<Modifier id="PIRATE_SYNCRETISM_ANTIQUITY_MOD_COASTAL_DISTRICT_PRODUCTION" collection="COLLECTION_PLAYER_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_DISTRICT_CLASS">
+				<Argument name="DistrictClass">CITYCENTER, URBAN</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+				<Argument name="RequirementSetId">REQSET_PLOT_ON_OR_ADJACENT_TO_COAST</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_PRODUCTION</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_PIRATE_REPUBLIC_SYNCRETISM_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="PIRATE_SYNCRETISM_ANTIQUITY_MOD_COASTAL_DISTRICT_HAPPINESS" collection="COLLECTION_PLAYER_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_DISTRICT_CLASS">
+				<Argument name="DistrictClass">CITYCENTER, URBAN</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET" inverse="true">
+				<Argument name="RequirementSetId">REQSET_PLOT_ON_OR_ADJACENT_TO_COAST</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_HAPPINESS</Argument>
+		<Argument name="Amount">-1</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_PIRATE_REPUBLIC_SYNCRETISM_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="PIRATE_SYNCRETISM_MODERN_MOD_COASTAL_DISTRICT_PRODUCTION" collection="COLLECTION_PLAYER_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_DISTRICT_CLASS">
+				<Argument name="DistrictClass">CITYCENTER, URBAN</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+				<Argument name="RequirementSetId">REQSET_PLOT_ON_OR_ADJACENT_TO_COAST</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_PRODUCTION</Argument>
+		<Argument name="Amount">3</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_PIRATE_REPUBLIC_SYNCRETISM_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="PIRATE_SYNCRETISM_MODERN_MOD_COASTAL_DISTRICT_HAPPINESS" collection="COLLECTION_PLAYER_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_DISTRICT_CLASS">
+				<Argument name="DistrictClass">CITYCENTER, URBAN</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET" inverse="true">
+				<Argument name="RequirementSetId">REQSET_PLOT_ON_OR_ADJACENT_TO_COAST</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_HAPPINESS</Argument>
+		<Argument name="Amount">-2</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_PIRATE_REPUBLIC_SYNCRETISM_TOOLTIP</Argument>
 	</Modifier>
 </GameEffects>

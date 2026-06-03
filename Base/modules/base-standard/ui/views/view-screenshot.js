@@ -1,9 +1,6 @@
-import FocusManager from '../../../core/ui/input/focus-manager.js';
 import { InterfaceMode } from '../../../core/ui/interface-modes/interface-modes.js';
-import { V as ViewManager, U as UISystem } from '../../../core/ui/views/view-manager.chunk.js';
-import '../../../core/ui/audio-base/audio-support.chunk.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/panel-support.chunk.js';
+import ViewManager, { UISystem } from '../../../core/ui/views/view-manager.js';
+import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
 
 class ScreenshotView {
   getName() {
@@ -26,7 +23,7 @@ class ScreenshotView {
       console.error("View screenshot: Unable to obtain harness!");
       return;
     }
-    FocusManager.setFocus(this.addButtonTo(harness, ".top.left", "foo"));
+    FocusManager.get().setFocus(this.addButtonTo(harness, ".top.left", "foo"));
     this.addButtonTo(harness, ".top.center", "bar");
     const quitButton = this.addButtonTo(harness, ".top.right", "Quit");
     quitButton.addEventListener("action-activate", () => {

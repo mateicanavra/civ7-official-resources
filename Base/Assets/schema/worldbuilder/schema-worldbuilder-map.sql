@@ -5,6 +5,8 @@
 -- this file!
 --
 -- Revision History
+-- Version 10:
+--  * Updated GameAttributes to a two level hierarchy
 -- Version 9:
 --  * Added LandmassRegionId to Plots table.
 -- Version 8:
@@ -32,6 +34,13 @@ CREATE TABLE "MetaData" (
 		"Name" TEXT NOT NULL,
 		"Value" TEXT,
 		PRIMARY KEY(Name));
+
+DROP TABLE IF EXISTS "GameAttributes";
+CREATE TABLE "GameAttributes" (
+		"Type" TEXT NOT NULL,
+		"Name" TEXT NOT NULL,
+		"Value" TEXT,
+		PRIMARY KEY(Type, Name));
 
 DROP TABLE IF EXISTS "Map";
 CREATE TABLE "Map" (
@@ -182,6 +191,7 @@ CREATE TABLE "UnitShadows" (
 		"Owner" INTEGER NOT NULL,		-- The owner ID in the database, not the game
 		"Plot"	INTEGER NOT NULL,
 		"IsInCommander"	BOOLEAN NOT NULL,
+		"ActivityType"	INTEGER NOT NULL,
 		PRIMARY KEY(ID));
 
 DROP TABLE IF EXISTS "UnitAttributes";
@@ -201,6 +211,7 @@ CREATE TABLE "Cities" (
 		"Civilization" INTEGER NOT NULL,
 		"OriginalOwner" INTEGER NOT NULL,
 		"IsCapital" BOOLEAN NOT NULL,
+		"IsOriginalCapital" BOOLEAN NOT NULL,
 		PRIMARY KEY(Plot));
 		
 DROP TABLE IF EXISTS "CityAttributes";
@@ -210,6 +221,16 @@ CREATE TABLE "CityAttributes" (
 		"Name" TEXT NOT NULL,
 		"Value" TEXT,
 		PRIMARY KEY(ID, Type, Name));
+
+DROP TABLE IF EXISTS "CityPreviousAgeOwnerHistroy";
+CREATE TABLE "CityPreviousAgeOwnerHistroy" (
+		"ID" INTEGER NOT NULL,
+		"Type" TEXT NOT NULL,
+		"CityPlotID" INTEGER NOT NULL,
+		"Owner" INTEGER NOT NULL,
+		"TransferType" INTEGER NOT NULL,
+		"TransferTurn" INTEGER NOT NULL,
+		PRIMARY KEY(ID, CityPlotID));
 
 DROP TABLE IF EXISTS "CityConnections";
 CREATE TABLE "CityConnections" (
@@ -242,6 +263,9 @@ CREATE TABLE "Constructibles" (
 		"Owner" INTEGER NOT NULL,		-- The owner ID in the database, not the game
 		"DistrictID" INTEGER NOT NULL,	-- The district ID in the database, not the game
 		"Plot"	INTEGER NOT NULL,
+		"TurnControlled"	INTEGER NOT NULL,
+		"AgeControlled"	INTEGER NOT NULL,
+		"OriginalOwner"	INTEGER NOT NULL,
 		PRIMARY KEY(ConstructibleType, DistrictID));
 
 DROP TABLE IF EXISTS "Players";
@@ -307,14 +331,43 @@ CREATE TABLE "PlayerUniqueGreatWorks" (
 		"TurnCreated" INTEGER NOT NULL,
 		PRIMARY KEY(PlayerID, GreatWorkType));
 
+DROP TABLE IF EXISTS "PlayerUnlockedTraditions";
+CREATE TABLE "PlayerUnlockedTraditions" (
+		"PlayerID" INTEGER NOT NULL,
+		"TraditionType" TEXT NOT NULL,
+		PRIMARY KEY(PlayerID, TraditionType));
+
+DROP TABLE IF EXISTS "PlayerCatalogAdvisors";
+CREATE TABLE "PlayerCatalogAdvisors" (
+		"PlayerID" INTEGER NOT NULL,
+		"AdvisorType" INTEGER NOT NULL,
+		"Followed" BOOLEAN NOT NULL,
+		"Pages" TEXT NOT NULL,
+		"Turns" TEXT NOT NULL,
+		PRIMARY KEY(PlayerID, AdvisorType));
+
 DROP TABLE IF EXISTS "PlayerVictoryPoints";
 CREATE TABLE "PlayerVictoryPoints" (
 		"PlayerID" INTEGER NOT NULL,
 		"VictoryType" INTEGER NOT NULL,
+		"TrackerID" INTEGER NOT NULL,
 		"PointID" INTEGER NOT NULL,
 		"Name" INTEGER NOT NULL,
 		"Points" INTEGER NOT NULL,
-		PRIMARY KEY(PlayerID, VictoryType, PointID));
+		"Turn" INTEGER NOT NULL,
+		"Age" INTEGER NOT NULL,
+		"TrackerType" INTEGER NOT NULL,
+		"Data" INTEGER NOT NULL,
+		PRIMARY KEY(PlayerID, VictoryType, TrackerID, PointID));
+
+DROP TABLE IF EXISTS "PlayerPastAgeVictoryHistory";
+CREATE TABLE "PlayerPastAgeVictoryHistory" (
+		"PlayerID" INTEGER NOT NULL,
+		"VictoryType" INTEGER NOT NULL,
+		"Age" INTEGER NOT NULL,
+		"Turn" INTEGER NOT NULL,
+		"Points" INTEGER NOT NULL,
+		PRIMARY KEY (PlayerID, VictoryType, Age, Turn));
 
 DROP TABLE IF EXISTS "ModProperties";
 CREATE TABLE "ModProperties" (
@@ -377,12 +430,6 @@ DROP TABLE IF EXISTS "ModDependencies";
 CREATE TABLE "ModDependencies" (
 		"ID" TEXT NOT NULL,
 		"Title" TEXT NOT NULL,
-		PRIMARY KEY(ID));
-
-DROP TABLE IF EXISTS "GameAttributes";
-CREATE TABLE "GameAttributes" (
-		"ID" TEXT NOT NULL,
-		"Value" TEXT,
 		PRIMARY KEY(ID));
 
 -- Age Transition specific information

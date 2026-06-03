@@ -53,7 +53,7 @@
 
 .load-screen-bg-filigree {
   border-image-slice: 142 0 0 142 fill;
-  border-image-source: url("blp:base_frame-filigree.png");
+  border-image-source: url("blp:base_frame-filigree");
   border-image-width: 1 1 1 1;
   fxs-border-image-tint: rgba(58, 55, 41, 0.25);
 }
@@ -80,13 +80,6 @@
   color: #c2c4cc;
   font-weight: normal;
 }
-.load-screen-markup img {
-  width: 1em !important;
-  height: 1em !important;
-  margin-left: 0.25em !important;
-  transform: scale(1.5, 1.5);
-  transform-origin: 50% 75%;
-}
 .load-screen-markup .indent-1 {
   margin-right: 0.2222222222rem;
   color: white;
@@ -103,31 +96,23 @@
 }
 
 .load-screen-leader-image-area {
-  bottom: 0rem;
-  left: 54.9444444444rem;
-  width: 62.4444444444rem;
-  height: 54.7222222222rem;
-}
-@media (max-height: 52.7777777778rem), (max-width: 72.2222222222rem), (max-aspect-ratio: 3/2) {
-  .load-screen-leader-image-area {
-    left: 38.5rem;
-  }
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
 }
 
 .load-screen-leader-image {
-  width: 68.3888888889rem;
-  height: 84.6111111111rem;
-  margin-left: -8.3333333333rem;
-  margin-top: -5.5555555556rem;
-}
-@media (max-height: 52.7777777778rem), (max-width: 72.2222222222rem), (max-aspect-ratio: 3/2) {
-  .load-screen-leader-image {
-    width: 41.4444444444rem;
-    height: 54.7777777778rem;
-    margin-top: 11.7777777778rem;
-    margin-left: -5.3333333333rem;
-    background-size: contain;
-  }
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  background-position: 90% bottom;
 }
 
 .load-screen-centered-content {
@@ -186,6 +171,11 @@
   background-size: cover;
 }
 
+.load-screen-not-available-banner {
+  width: 100%;
+  background: #2f3640;
+}
+
 .load-screen-icon {
   width: 5.2222222222rem;
   height: 5.2222222222rem;
@@ -204,7 +194,7 @@
 
 .load-screen-progress-bar-bg {
   height: 1.4444444444rem;
-  background: url("blp:meter_well.png");
+  background: url("blp:meter_well");
   background-position: center;
   background-repeat: repeat-x;
   background-size: 1.4444444444rem;
@@ -213,7 +203,7 @@
 .load-screen-progress-bar-fill {
   width: 1%;
   height: 1.4444444444rem;
-  background: url("blp:meter_fill.png");
+  background: url("blp:meter_fill");
   background-position: center;
   background-repeat: repeat-x;
   background-size: 1.4444444444rem;
@@ -225,25 +215,21 @@
     margin: 0.5555555556rem -1.7777777778rem 0;
   }
 }
-
 @media (max-height: 52.7777777778rem), (max-width: 72.2222222222rem), (max-aspect-ratio: 3/2) {
   .load-screen-bg-filigrees-bottom {
     margin: 0 -1.7777777778rem 0.5555555556rem;
   }
 }
-
 @media (max-height: 52.7777777778rem), (max-width: 72.2222222222rem), (max-aspect-ratio: 3/2) {
   .load-screen-above-stage {
     height: 2.4444444444rem;
   }
 }
-
 @media (max-height: 52.7777777778rem), (max-width: 72.2222222222rem), (max-aspect-ratio: 3/2) {
   .load-screen-below-stage {
     height: 3.5555555556rem;
   }
 }
-
 @media (max-height: 52.7777777778rem), (max-width: 72.2222222222rem), (max-aspect-ratio: 3/2) {
   .load-screen-filigree-top {
     top: -0.4444444444rem;
@@ -251,7 +237,6 @@
     min-height: 2.2222222222rem;
   }
 }
-
 @media (max-height: 52.7777777778rem), (max-width: 72.2222222222rem), (max-aspect-ratio: 3/2) {
   .load-screen-filigree-bottom {
     bottom: -0.4444444444rem;
@@ -259,13 +244,11 @@
     min-height: 2.2222222222rem;
   }
 }
-
 @media (max-height: 52.7777777778rem), (max-width: 72.2222222222rem), (max-aspect-ratio: 3/2) {
   .load-screen-begin-game {
     margin-top: 0.5555555556rem;
   }
 }
-
 @keyframes curtain-opened-fadeout {
   100% {
     opacity: 0;

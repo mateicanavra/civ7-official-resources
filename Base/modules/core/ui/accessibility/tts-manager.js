@@ -1,12 +1,4 @@
 import ContextManager from '../context-manager/context-manager.js';
-import '../context-manager/display-queue-manager.js';
-import '../dialog-box/manager-dialog-box.chunk.js';
-import '../framework.chunk.js';
-import '../input/cursor.js';
-import '../input/focus-manager.js';
-import '../audio-base/audio-support.chunk.js';
-import '../views/view-manager.chunk.js';
-import '../panel-support.chunk.js';
 
 var TextToSpeechSearchType = /* @__PURE__ */ ((TextToSpeechSearchType2) => {
   TextToSpeechSearchType2[TextToSpeechSearchType2["Hover"] = 0] = "Hover";

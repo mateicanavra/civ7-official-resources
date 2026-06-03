@@ -1,23 +1,12 @@
 import ContextManager from '../../context-manager/context-manager.js';
-import ActionHandler, { ActiveDeviceTypeChangedEventName } from '../../input/action-handler.js';
-import FocusManager from '../../input/focus-manager.js';
-import { N as NavTray } from '../../navigation-tray/model-navigation-tray.chunk.js';
-import { P as Panel } from '../../panel-support.chunk.js';
-import { MustGetElement } from '../../utilities/utilities-dom.chunk.js';
-import '../../context-manager/display-queue-manager.js';
-import '../../dialog-box/manager-dialog-box.chunk.js';
-import '../../framework.chunk.js';
-import '../../input/cursor.js';
-import '../../views/view-manager.chunk.js';
-import '../../audio-base/audio-support.chunk.js';
-import '../../input/input-support.chunk.js';
-import '../../utilities/utilities-update-gate.chunk.js';
-import '../../utilities/utilities-image.chunk.js';
-import '../../utilities/utilities-component-id.chunk.js';
-
-const content = "<fxs-frame class=\"additional-content-root-frame h-screen\">\r\n\t<fxs-vslot\r\n\t\tclass=\"extras-menu items-center flex-auto\"\r\n\t\ttabindex=\"-1\"\r\n\t>\r\n\t\t<fxs-header\r\n\t\t\tfiligree-style=\"none\"\r\n\t\t\tclass=\"additional-content-header relative flex justify-center font-title text-2xl uppercase text-secondary mb-3\"\r\n\t\t\ttitle=\"LOC_MAIN_MENU_ADDITIONAL_CONTENT\"\r\n\t\t></fxs-header>\r\n\t\t<fxs-hslot class=\"additional-content-container w-full flex-auto my-4\">\r\n\t\t\t<fxs-slot-group\r\n\t\t\t\tclass=\"additional-content-slot-group flex-auto relative\"\r\n\t\t\t\tselected-slot=\"main\"\r\n\t\t\t>\r\n\t\t\t\t<fxs-slot\r\n\t\t\t\t\tid=\"main\"\r\n\t\t\t\t\tclass=\"additional-content-main w-full flex-auto relative flex flex-col justify-center items-center\"\r\n\t\t\t\t>\r\n\t\t\t\t\t<fxs-vslot class=\"w-full\">\r\n\t\t\t\t\t\t<fxs-text-button\r\n\t\t\t\t\t\t\tbutton-id=\"mods\"\r\n\t\t\t\t\t\t\ttype=\"big\"\r\n\t\t\t\t\t\t\tclass=\"uppercase extras-item-mods\"\r\n\t\t\t\t\t\t\tcaption=\"LOC_UI_CONTENT_MGR_SUBTITLE\"\r\n\t\t\t\t\t\t\ttabindex=\"-1\"\r\n\t\t\t\t\t\t\tdata-tooltip-content=\"LOC_UI_CONTENT_MGR_SUBTITLE_DESCRIPTION\"\r\n\t\t\t\t\t\t\thighlight-style=\"decorative\"\r\n\t\t\t\t\t\t\tdata-audio-group-ref=\"additional-content-audio\"\r\n\t\t\t\t\t\t\tdata-audio-activate-ref=\"data-audio-clicked-credits\"\r\n\t\t\t\t\t\t></fxs-text-button>\r\n\t\t\t\t\t\t<fxs-text-button\r\n\t\t\t\t\t\t\tbutton-id=\"benchmark-graphics\"\r\n\t\t\t\t\t\t\ttype=\"big\"\r\n\t\t\t\t\t\t\tclass=\"uppercase extras-item-benchmark-graphics\"\r\n\t\t\t\t\t\t\tcaption=\"LOC_MAIN_MENU_BENCHMARK_GRAPHICS\"\r\n\t\t\t\t\t\t\ttabindex=\"-1\"\r\n\t\t\t\t\t\t\thighlight-style=\"decorative\"\r\n\t\t\t\t\t\t\tdata-tooltip-content=\"LOC_MAIN_MENU_BENCHMARK_GRAPHICS_DESCRIPTION\"\r\n\t\t\t\t\t\t\tdata-audio-group-ref=\"additional-content-audio\"\r\n\t\t\t\t\t\t\tdata-audio-activate-ref=\"data-audio-clicked-credits\"\r\n\t\t\t\t\t\t></fxs-text-button>\r\n\t\t\t\t\t\t<fxs-text-button\r\n\t\t\t\t\t\t\tbutton-id=\"benchmark-ai\"\r\n\t\t\t\t\t\t\ttype=\"big\"\r\n\t\t\t\t\t\t\tclass=\"uppercase extras-item-benchmark-ai\"\r\n\t\t\t\t\t\t\tcaption=\"LOC_MAIN_MENU_BENCHMARK_AI\"\r\n\t\t\t\t\t\t\ttabindex=\"-1\"\r\n\t\t\t\t\t\t\thighlight-style=\"decorative\"\r\n\t\t\t\t\t\t\tdata-tooltip-content=\"LOC_MAIN_MENU_BENCHMARK_AI_DESCRIPTION\"\r\n\t\t\t\t\t\t\tdata-audio-group-ref=\"additional-content-audio\"\r\n\t\t\t\t\t\t\tdata-audio-activate-ref=\"data-audio-clicked-credits\"\r\n\t\t\t\t\t\t></fxs-text-button>\r\n\t\t\t\t\t\t<fxs-text-button\r\n\t\t\t\t\t\t\tbutton-id=\"credits\"\r\n\t\t\t\t\t\t\ttype=\"big\"\r\n\t\t\t\t\t\t\tclass=\"uppercase extras-item-credits\"\r\n\t\t\t\t\t\t\tcaption=\"LOC_MAIN_MENU_CREDITS\"\r\n\t\t\t\t\t\t\ttabindex=\"-1\"\r\n\t\t\t\t\t\t\thighlight-style=\"decorative\"\r\n\t\t\t\t\t\t\tdata-tooltip-content=\"LOC_MAIN_MENU_CREDITS_DESCRIPTION\"\r\n\t\t\t\t\t\t\tdata-audio-group-ref=\"additional-content-audio\"\r\n\t\t\t\t\t\t\tdata-audio-activate-ref=\"data-audio-clicked-credits\"\r\n\t\t\t\t\t\t></fxs-text-button>\r\n\t\t\t\t\t\t<fxs-text-button\r\n\t\t\t\t\t\t\tbutton-id=\"legal\"\r\n\t\t\t\t\t\t\ttype=\"big\"\r\n\t\t\t\t\t\t\tclass=\"uppercase extras-item-legal\"\r\n\t\t\t\t\t\t\tcaption=\"LOC_UI_LEGAL_TITLE\"\r\n\t\t\t\t\t\t\ttabindex=\"-1\"\r\n\t\t\t\t\t\t\thighlight-style=\"decorative\"\r\n\t\t\t\t\t\t\tdata-tooltip-content=\"LOC_UI_LEGAL_TITLE_DESCRIPTION\"\r\n\t\t\t\t\t\t\tdata-audio-group-ref=\"additional-content-audio\"\r\n\t\t\t\t\t\t\tdata-audio-activate-ref=\"data-audio-clicked-credits\"\r\n\t\t\t\t\t\t></fxs-text-button>\r\n\t\t\t\t\t\t<fxs-text-button\r\n\t\t\t\t\t\t\tbutton-id=\"rewatch-intro\"\r\n\t\t\t\t\t\t\ttype=\"big\"\r\n\t\t\t\t\t\t\tclass=\"uppercase extras-item-rewatch-intro\"\r\n\t\t\t\t\t\t\tcaption=\"LOC_UI_REWATCH_INTRO\"\r\n\t\t\t\t\t\t\ttabindex=\"-1\"\r\n\t\t\t\t\t\t\thighlight-style=\"decorative\"\r\n\t\t\t\t\t\t\tdata-tooltip-content=\"LOC_UI_REWATCH_INTRO_DESCRIPTION\"\r\n\t\t\t\t\t\t\tdata-audio-group-ref=\"additional-content-audio\"\r\n\t\t\t\t\t\t\tdata-audio-activate-ref=\"data-audio-clicked-credits\"\r\n\t\t\t\t\t\t></fxs-text-button>\r\n\t\t\t\t\t</fxs-vslot>\r\n\t\t\t\t</fxs-slot>\r\n\t\t\t\t<mods-content\r\n\t\t\t\t\tid=\"mods\"\r\n\t\t\t\t\tclass=\"mods-content flex-auto flow-column\"\r\n\t\t\t\t></mods-content>\r\n\t\t\t\t<fxs-slot\r\n\t\t\t\t\tid=\"credits\"\r\n\t\t\t\t\tclass=\"additional-content-credits flex-auto relative flex flex-col justify-center\"\r\n\t\t\t\t>\r\n\t\t\t\t</fxs-slot>\r\n\t\t\t\t<fxs-slot\r\n\t\t\t\t\tid=\"legal\"\r\n\t\t\t\t\tclass=\"additional-content-legal flex-auto relative flex flex-col justify-center\"\r\n\t\t\t\t>\r\n\t\t\t\t</fxs-slot>\r\n\t\t\t</fxs-slot-group>\r\n\t\t</fxs-hslot>\r\n\t\t<fxs-hslot class=\"self-center\">\r\n\t\t\t<fxs-button\r\n\t\t\t\tclass=\"additional-content-back-button cancel\"\r\n\t\t\t\tcaption=\"LOC_GENERIC_BACK\"\r\n\t\t\t></fxs-button>\r\n\t\t</fxs-hslot>\r\n\t</fxs-vslot>\r\n</fxs-frame>\r\n";
-
-const styles = "fs://game/core/ui/shell/extras/screen-extras.css";
+import ActionHandler from '../../input/action-handler.js';
+import { ActiveDeviceTypeChangedEventName } from '../../input/input-events.js';
+import NavTray from '../../navigation-tray/model-navigation-tray.js';
+import Panel from '../../panel-support.js';
+import { MustGetElement } from '../../utilities/utilities-dom.js';
+import { FocusManager } from '../../../ui-next/services/focus-manager.js';
+import content from './screen-extras.html.js';
+import styles from './screen-extras.scss.js';
 
 class ScreenExtras extends Panel {
   title;
@@ -88,7 +77,7 @@ class ScreenExtras extends Panel {
   onReceiveFocus() {
     super.onReceiveFocus();
     const extraMenu = MustGetElement(".extras-menu", this.Root);
-    FocusManager.setFocus(extraMenu);
+    FocusManager.get().setFocus(extraMenu);
     NavTray.clear();
     NavTray.addOrUpdateGenericBack();
   }
@@ -125,7 +114,7 @@ class ScreenExtras extends Panel {
     const slotGroup = MustGetElement(".additional-content-slot-group", this.Root);
     const screenModContent = MustGetElement(".mods-content", this.Root);
     slotGroup.setAttribute("selected-slot", buttonID);
-    FocusManager.setFocus(screenModContent);
+    FocusManager.get().setFocus(screenModContent);
   }
   onCredits() {
     ContextManager.popUntil("main-menu");
@@ -159,10 +148,12 @@ class ScreenExtras extends Panel {
   }
   onGraphicsBenchmark() {
     Benchmark.Game.setDebugUiVisiblity(false);
+    Configuration.editGame()?.reset(GameModeTypes.SINGLEPLAYER);
     Benchmark.Automation.start(GameBenchmarkType.GRAPHICS);
   }
   onAiBenchmark() {
     Benchmark.Game.setDebugUiVisiblity(false);
+    Configuration.editGame()?.reset(GameModeTypes.SINGLEPLAYER);
     Benchmark.Automation.start(GameBenchmarkType.AI);
   }
 }

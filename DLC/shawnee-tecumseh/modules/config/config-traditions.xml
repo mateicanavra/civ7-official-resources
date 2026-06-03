@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- NOTE: These are copies - the real implementation should use a shared database -->
+<Database>
+	<!-- ========================== -->
+	<!-- Shawnee -->
+	<!-- ========================== -->
+	<Traditions>
+		<Row TraditionType="TRADITION_BREAD_DANCE_I" Name="LOC_TRADITION_BREAD_DANCE_I_NAME" Description="LOC_TRADITION_BREAD_DANCE_I_DESCRIPTION" TraitType="TRAIT_SHAWNEE" AgeType="AGE_EXPLORATION" CultureSlotType="TRADITION_CULTURE_SLOT" IgnoreInitializeUnlock="false"/>
+		<Row TraditionType="TRADITION_BREAD_DANCE_II" Name="LOC_TRADITION_BREAD_DANCE_II_NAME" Description="LOC_TRADITION_BREAD_DANCE_II_DESCRIPTION" TraitType="TRAIT_SHAWNEE" AgeType="AGE_MODERN" CultureSlotType="TRADITION_CULTURE_SLOT" IgnoreInitializeUnlock="false" ObsoletesTraditionType="TRADITION_BREAD_DANCE_I"/>
+		<Row TraditionType="TRADITION_HELIKHILENAWEWIPE_I" Name="LOC_TRADITION_HELIKHILENAWEWIPE_I_NAME" Description="LOC_TRADITION_HELIKHILENAWEWIPE_I_DESCRIPTION" TraitType="TRAIT_SHAWNEE" AgeType="AGE_ANTIQUITY" CultureSlotType="TRADITION_CULTURE_SLOT" IgnoreInitializeUnlock="false"/>
+		<Row TraditionType="TRADITION_HELIKHILENAWEWIPE_II" Name="LOC_TRADITION_HELIKHILENAWEWIPE_II_NAME" Description="LOC_TRADITION_HELIKHILENAWEWIPE_II_DESCRIPTION" TraitType="TRAIT_SHAWNEE" AgeType="AGE_EXPLORATION" CultureSlotType="TRADITION_CULTURE_SLOT" IgnoreInitializeUnlock="false" ObsoletesTraditionType="TRADITION_HELIKHILENAWEWIPE_I"/>
+		<Row TraditionType="TRADITION_NIWIITIKEEMEKONAAKI" Name="LOC_TRADITION_NIWIITIKEEMEKONAAKI_NAME" Description="LOC_TRADITION_NIWIITIKEEMEKONAAKI_DESCRIPTION" TraitType="TRAIT_SHAWNEE" AgeType="AGE_EXPLORATION" CultureSlotType="TRADITION_CULTURE_SLOT" IgnoreInitializeUnlock="false"/>
+		<Row TraditionType="TRADITION_NIWIITIKEEMEKONAAKI_II" Name="LOC_TRADITION_NIWIITIKEEMEKONAAKI_II_NAME" Description="LOC_TRADITION_NIWIITIKEEMEKONAAKI_II_DESCRIPTION" TraitType="TRAIT_SHAWNEE" AgeType="AGE_MODERN" CultureSlotType="TRADITION_CULTURE_SLOT" IgnoreInitializeUnlock="false" ObsoletesTraditionType="TRADITION_NIWIITIKEEMEKONAAKI"/>
+		<Row TraditionType="TRADITION_TAKESIYAKE_YEPEPOKI" Name="LOC_TRADITION_TAKESIYAKE_YEPEPOKI_NAME" Description="LOC_TRADITION_TAKESIYAKE_YEPEPOKI_DESCRIPTION" TraitType="TRAIT_SHAWNEE" AgeType="AGE_EXPLORATION" CultureSlotType="TRADITION_CULTURE_SLOT" IgnoreInitializeUnlock="false"/>
+		<Row TraditionType="TRADITION_SHAWNEE_SYNCRETISM_ANTIQUITY" Name="LOC_TRADITION_SHAWNEE_SYNCRETISM_ANTIQUITY_NAME" Description="LOC_TRADITION_SHAWNEE_SYNCRETISM_ANTIQUITY_DESCRIPTION" AgeType="AGE_ANTIQUITY" CultureSlotType="TRADITION_CULTURE_SLOT" TraitType="TRAIT_SHAWNEE" IgnoreInitializeUnlock="true" AllowInitializeAdvancedStart="true"/>
+		<Row TraditionType="TRADITION_SHAWNEE_SYNCRETISM_MODERN" Name="LOC_TRADITION_SHAWNEE_SYNCRETISM_MODERN_NAME" Description="LOC_TRADITION_SHAWNEE_SYNCRETISM_MODERN_DESCRIPTION" AgeType="AGE_MODERN" CultureSlotType="TRADITION_CULTURE_SLOT" TraitType="TRAIT_SHAWNEE" IgnoreInitializeUnlock="true" ObsoletesTraditionType="TRADITION_SHAWNEE_SYNCRETISM_ANTIQUITY" AllowInitializeAdvancedStart="true"/>
+	</Traditions>
+	<ProgressionTreeNodes>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_SHAWNEE_MALEKI_KINTAKE" ProgressionTree="TREE_CIVICS_EX_SHAWNEE" Cost="2000" Name="LOC_CIVIC_MALEKI_KINTAKE_NAME" IconString="cult_shawnee"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_SHAWNEE_MIYASKA_LATOWEKI" ProgressionTree="TREE_CIVICS_EX_SHAWNEE" Cost="1200" Name="LOC_CIVIC_MIYASKA_LATOWEKI_NAME" IconString="cult_shawnee"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_SHAWNEE_TELWATIKI" ProgressionTree="TREE_CIVICS_EX_SHAWNEE" Cost="1200" Name="LOC_CIVIC_TELWATIKI_NAME" IconString="cult_shawnee"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_SHAWNEE_WYEHI_SIMEKOFI" ProgressionTree="TREE_CIVICS_EX_SHAWNEE" Cost="800" Name="LOC_CIVIC_WYEHI_SIMEKOFI_NAME" IconString="cult_shawnee"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_SHAWNEE_ORIGINS" ProgressionTree="TREE_CIVICS_AQ_TEST_OF_TIME" Cost="150" Name="LOC_NODE_CIVIC_AQ_SHAWNEE_ORIGINS_NAME" IconString="cult_shawnee" CanSteal="false"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_SHAWNEE_MODERNIZATION" ProgressionTree="TREE_CIVICS_MO_TEST_OF_TIME" Cost="2000" Name="LOC_NODE_CIVIC_MO_SHAWNEE_MODERNIZATION_NAME" IconString="cult_shawnee" CanSteal="false"/>
+	</ProgressionTreeNodes>
+	<ProgressionTreeNodeUnlocks>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_SHAWNEE_MALEKI_KINTAKE" TargetKind="KIND_TRADITION" TargetType="TRADITION_TAKESIYAKE_YEPEPOKI" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_SHAWNEE_MIYASKA_LATOWEKI" TargetKind="KIND_TRADITION" TargetType="TRADITION_NIWIITIKEEMEKONAAKI" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_SHAWNEE_TELWATIKI" TargetKind="KIND_TRADITION" TargetType="TRADITION_HELIKHILENAWEWIPE_II" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_SHAWNEE_WYEHI_SIMEKOFI" TargetKind="KIND_TRADITION" TargetType="TRADITION_BREAD_DANCE_I" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_SHAWNEE_ORIGINS" TargetKind="KIND_TRADITION" TargetType="TRADITION_HELIKHILENAWEWIPE_I"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_SHAWNEE_MODERNIZATION" TargetKind="KIND_TRADITION" TargetType="TRADITION_NIWIITIKEEMEKONAAKI_II"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_ADMINISTRATION" TargetKind="KIND_TRADITION" TargetType="TRADITION_BREAD_DANCE_II" RequiredTraitType="TRAIT_SHAWNEE"/>
+	</ProgressionTreeNodeUnlocks>
+</Database>

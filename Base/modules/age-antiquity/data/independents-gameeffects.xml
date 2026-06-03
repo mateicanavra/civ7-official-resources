@@ -160,6 +160,7 @@
 			</Requirement>
 		</SubjectRequirements>
 		<Argument name="Amount">1</Argument>
+		<Argument name="SlotType">POLICY_CULTURE_SLOT</Argument>
 	</Modifier>
 	<Modifier id="MOD_CS_WONDER_PRODUCTION_SUZERAIN" collection="COLLECTION_MAJOR_PLAYERS" effect="EFFECT_ATTACH_MODIFIERS">
 		<Argument name="ModifierId">ATTACH_WONDER_PRODUCTION_SUZERAIN</Argument>
@@ -191,15 +192,26 @@
 	</Modifier>
 
 	<Modifier id="MOD_CS_CULTURAL_CULTURE_ON_WAREHOUSE" collection="COLLECTION_MAJOR_PLAYERS" effect="EFFECT_ATTACH_MODIFIERS" owner-stack-limit="1">
-		<Argument name="ModifierId">ATTACH_CS_CULTURAL_CULTURE_ON_WAREHOUSE</Argument>
+		<Argument name="ModifierId">ATTACH_CS_CULTURAL_CULTURE_ON_SAW_PIT, ATTACH_CS_CULTURAL_CULTURE_ON_FISHING_QUAY</Argument>
 	</Modifier>
-	<Modifier id="ATTACH_CS_CULTURAL_CULTURE_ON_WAREHOUSE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD">
+	<Modifier id="ATTACH_CS_CULTURAL_CULTURE_ON_SAW_PIT" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD">
 		<SubjectRequirements>
 			<Requirement type="REQUIREMENT_PLAYER_ELIGIBLE_CS_BONUS">
 				<Argument name="CityStateBonus">CITY_STATE_CULTURAL_BONUS_ANTIQUITY_7</Argument>
 			</Requirement>
 		</SubjectRequirements>
-		<Argument name="Tag">WAREHOUSE</Argument>
+		<Argument name="ConstructibleType">BUILDING_SAW_PIT</Argument>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount">1</Argument>
+		<String context="Preview">CITY_STATE_CULTURAL_BONUS_ANTIQUITY_7_DESCRIPTION</String>
+	</Modifier>
+		<Modifier id="ATTACH_CS_CULTURAL_CULTURE_ON_FISHING_QUAY" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_ELIGIBLE_CS_BONUS">
+				<Argument name="CityStateBonus">CITY_STATE_CULTURAL_BONUS_ANTIQUITY_7</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="ConstructibleType">BUILDING_FISHING_QUAY</Argument>
 		<Argument name="YieldType">YIELD_CULTURE</Argument>
 		<Argument name="Amount">1</Argument>
 		<String context="Preview">CITY_STATE_CULTURAL_BONUS_ANTIQUITY_7_DESCRIPTION</String>
@@ -299,15 +311,26 @@
 	</Modifier>
 
 	<Modifier id="MOD_CS_ECONOMIC_GOLD_ON_WAREHOUSE" collection="COLLECTION_MAJOR_PLAYERS" effect="EFFECT_ATTACH_MODIFIERS" owner-stack-limit="1">
-		<Argument name="ModifierId">ATTACH_CS_ECONOMIC_GOLD_ON_WAREHOUSE</Argument>
+		<Argument name="ModifierId">ATTACH_CS_ECONOMIC_GOLD_ON_SAW_PIT, ATTACH_CS_ECONOMIC_GOLD_ON_HARBOR</Argument>
 	</Modifier>
-	<Modifier id="ATTACH_CS_ECONOMIC_GOLD_ON_WAREHOUSE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD">
+	<Modifier id="ATTACH_CS_ECONOMIC_GOLD_ON_SAW_PIT" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD">
 		<SubjectRequirements>
 			<Requirement type="REQUIREMENT_PLAYER_ELIGIBLE_CS_BONUS">
 				<Argument name="CityStateBonus">CITY_STATE_ECONOMIC_BONUS_ANTIQUITY_7</Argument>
 			</Requirement>
 		</SubjectRequirements>
-		<Argument name="Tag">WAREHOUSE</Argument>
+		<Argument name="ConstructibleType">BUILDING_SAW_PIT</Argument>
+		<Argument name="YieldType">YIELD_GOLD</Argument>
+		<Argument name="Amount">1</Argument>
+		<String context="Preview">CITY_STATE_ECONOMIC_BONUS_ANTIQUITY_7_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="ATTACH_CS_ECONOMIC_GOLD_ON_HARBOR" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_ELIGIBLE_CS_BONUS">
+				<Argument name="CityStateBonus">CITY_STATE_ECONOMIC_BONUS_ANTIQUITY_7</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="ConstructibleType">BUILDING_HARBOR</Argument>
 		<Argument name="YieldType">YIELD_GOLD</Argument>
 		<Argument name="Amount">1</Argument>
 		<String context="Preview">CITY_STATE_ECONOMIC_BONUS_ANTIQUITY_7_DESCRIPTION</String>
@@ -377,7 +400,7 @@
 		<Argument name="Percent">5</Argument>
 	</Modifier>
 
-	<!-- 1.2.2+ Scientific Suzerain Bonuses --> 
+	<!-- 1.2.2+ Scientific Suzerain Bonuses -->
 	<Modifier id="MOD_CS_SCIENTIFIC_SCIENCE_ON_GREAT_WORKS" collection="COLLECTION_MAJOR_PLAYERS" effect="EFFECT_ATTACH_MODIFIERS">
 		<Argument name="ModifierId">ATTACH_CS_SCIENTIFIC_SCIENCE_ON_GREAT_WORKS</Argument>
 	</Modifier>
@@ -391,17 +414,27 @@
 		<Argument name="Amount">2</Argument>
 		<String context="Preview">CITY_STATE_SCIENTIFIC_BONUS_ANTIQUITY_6_DESCRIPTION</String>
 	</Modifier>
-
 	<Modifier id="MOD_CS_SCIENTIFIC_SCIENCE_ON_WAREHOUSE" collection="COLLECTION_MAJOR_PLAYERS" effect="EFFECT_ATTACH_MODIFIERS" owner-stack-limit="1">
-		<Argument name="ModifierId">ATTACH_CS_SCIENTIFIC_SCIENCE_ON_WAREHOUSE</Argument>
+		<Argument name="ModifierId">ATTACH_CS_SCIENTIFIC_SCIENCE_ON_BRICKYARD, ATTACH_CS_SCIENTIFIC_SCIENCE_ON_HARBOR</Argument>
 	</Modifier>
-	<Modifier id="ATTACH_CS_SCIENTIFIC_SCIENCE_ON_WAREHOUSE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD">
+	<Modifier id="ATTACH_CS_SCIENTIFIC_SCIENCE_ON_BRICKYARD" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD">
 		<SubjectRequirements>
 			<Requirement type="REQUIREMENT_PLAYER_ELIGIBLE_CS_BONUS">
 				<Argument name="CityStateBonus">CITY_STATE_SCIENTIFIC_BONUS_ANTIQUITY_7</Argument>
 			</Requirement>
 		</SubjectRequirements>
-		<Argument name="Tag">WAREHOUSE</Argument>
+		<Argument name="ConstructibleType">BUILDING_BRICKYARD</Argument>
+		<Argument name="YieldType">YIELD_SCIENCE</Argument>
+		<Argument name="Amount">1</Argument>
+		<String context="Preview">CITY_STATE_SCIENTIFIC_BONUS_ANTIQUITY_7_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="ATTACH_CS_SCIENTIFIC_SCIENCE_ON_HARBOR" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_ELIGIBLE_CS_BONUS">
+				<Argument name="CityStateBonus">CITY_STATE_SCIENTIFIC_BONUS_ANTIQUITY_7</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="ConstructibleType">BUILDING_HARBOR</Argument>
 		<Argument name="YieldType">YIELD_SCIENCE</Argument>
 		<Argument name="Amount">1</Argument>
 		<String context="Preview">CITY_STATE_SCIENTIFIC_BONUS_ANTIQUITY_7_DESCRIPTION</String>
@@ -488,8 +521,8 @@
 			</Requirement>
 		</SubjectRequirements>
 		<Argument name="UnitType">UNIT_SETTLER</Argument>
-        <Argument name="Amount">1</Argument>
-    </Modifier>
+		<Argument name="Amount">1</Argument>
+	</Modifier>
 	<Modifier id="MOD_CS_EXPANSIONIST_SETTLEMENT_CAP" collection="COLLECTION_MAJOR_PLAYERS" effect="EFFECT_ATTACH_MODIFIERS" owner-stack-limit="1">
 		<Argument name="ModifierId">ATTACH_MOD_CS_EXPANSIONIST_SETTLEMENT_CAP</Argument>
 	</Modifier>
@@ -502,15 +535,26 @@
 		<Argument name="Amount">1</Argument>
 	</Modifier>
 	<Modifier id="MOD_CS_EXPANSIONIST_FOOD_ON_WAREHOUSE" collection="COLLECTION_MAJOR_PLAYERS" effect="EFFECT_ATTACH_MODIFIERS" owner-stack-limit="1">
-		<Argument name="ModifierId">ATTACH_MOD_CS_EXPANSIONIST_FOOD_ON_WAREHOUSE</Argument>
+		<Argument name="ModifierId">ATTACH_MOD_CS_EXPANSIONIST_FOOD_ON_GRANARY, ATTACH_MOD_CS_EXPANSIONIST_FOOD_ON_FISHING_QUAY</Argument>
 	</Modifier>
-	<Modifier id="ATTACH_MOD_CS_EXPANSIONIST_FOOD_ON_WAREHOUSE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD">
+	<Modifier id="ATTACH_MOD_CS_EXPANSIONIST_FOOD_ON_GRANARY" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD">
 		<SubjectRequirements>
 			<Requirement type="REQUIREMENT_PLAYER_ELIGIBLE_CS_BONUS">
 				<Argument name="CityStateBonus">CITY_STATE_EXPANSIONIST_BONUS_ANTIQUITY_7</Argument>
 			</Requirement>
 		</SubjectRequirements>
-		<Argument name="Tag">WAREHOUSE</Argument>
+		<Argument name="ConstructibleType">BUILDING_GRANARY</Argument>
+		<Argument name="YieldType">YIELD_FOOD</Argument>
+		<Argument name="Amount">1</Argument>
+		<String context="Preview">CITY_STATE_EXPANSIONIST_BONUS_ANTIQUITY_7_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="ATTACH_MOD_CS_EXPANSIONIST_FOOD_ON_FISHING_QUAY" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_ELIGIBLE_CS_BONUS">
+				<Argument name="CityStateBonus">CITY_STATE_EXPANSIONIST_BONUS_ANTIQUITY_7</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="ConstructibleType">BUILDING_FISHING_QUAY</Argument>
 		<Argument name="YieldType">YIELD_FOOD</Argument>
 		<Argument name="Amount">1</Argument>
 		<String context="Preview">CITY_STATE_EXPANSIONIST_BONUS_ANTIQUITY_7_DESCRIPTION</String>
@@ -603,17 +647,29 @@
 			</Requirement>
 		</SubjectRequirements>
 		<Argument name="Amount">1</Argument>
+		<Argument name="SlotType">POLICY_CULTURE_SLOT</Argument>
 	</Modifier>
 	<Modifier id="MOD_CS_DIPLOMATIC_HAPPINESS_ON_WAREHOUSE" collection="COLLECTION_MAJOR_PLAYERS" effect="EFFECT_ATTACH_MODIFIERS" owner-stack-limit="1">
-		<Argument name="ModifierId">ATTACH_MOD_CS_DIPLOMATIC_HAPPINESS_ON_WAREHOUSE</Argument>
+		<Argument name="ModifierId">ATTACH_MOD_CS_DIPLOMATIC_HAPPINESS_ON_GRANARY, ATTACH_MOD_CS_DIPLOMATIC_HAPPINESS_ON_BRICKYARD</Argument>
 	</Modifier>
-	<Modifier id="ATTACH_MOD_CS_DIPLOMATIC_HAPPINESS_ON_WAREHOUSE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD">
+	<Modifier id="ATTACH_MOD_CS_DIPLOMATIC_HAPPINESS_ON_GRANARY" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD">
 		<SubjectRequirements>
 			<Requirement type="REQUIREMENT_PLAYER_ELIGIBLE_CS_BONUS">
 				<Argument name="CityStateBonus">CITY_STATE_DIPLOMATIC_BONUS_ANTIQUITY_7</Argument>
 			</Requirement>
 		</SubjectRequirements>
-		<Argument name="Tag">WAREHOUSE</Argument>
+		<Argument name="ConstructibleType">BUILDING_GRANARY</Argument>
+		<Argument name="YieldType">YIELD_HAPPINESS</Argument>
+		<Argument name="Amount">1</Argument>
+		<String context="Preview">CITY_STATE_DIPLOMATIC_BONUS_ANTIQUITY_7_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="ATTACH_MOD_CS_DIPLOMATIC_HAPPINESS_ON_BRICKYARD" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_ELIGIBLE_CS_BONUS">
+				<Argument name="CityStateBonus">CITY_STATE_DIPLOMATIC_BONUS_ANTIQUITY_7</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="ConstructibleType">BUILDING_BRICKYARD</Argument>
 		<Argument name="YieldType">YIELD_HAPPINESS</Argument>
 		<Argument name="Amount">1</Argument>
 		<String context="Preview">CITY_STATE_DIPLOMATIC_BONUS_ANTIQUITY_7_DESCRIPTION</String>

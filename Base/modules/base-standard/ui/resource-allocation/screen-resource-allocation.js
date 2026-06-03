@@ -1,29 +1,17 @@
-import ActionHandler, { ActiveDeviceTypeChangedEventName } from '../../../core/ui/input/action-handler.js';
-import FocusManager from '../../../core/ui/input/focus-manager.js';
-import { F as Focus } from '../../../core/ui/input/focus-support.chunk.js';
-import { b as InputEngineEventName } from '../../../core/ui/input/input-support.chunk.js';
-import { N as Navigation } from '../../../core/ui/views/view-manager.chunk.js';
-import { N as NavTray } from '../../../core/ui/navigation-tray/model-navigation-tray.chunk.js';
-import { P as Panel } from '../../../core/ui/panel-support.chunk.js';
-import { D as Databind } from '../../../core/ui/utilities/utilities-core-databinding.chunk.js';
-import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.chunk.js';
-import { Icon } from '../../../core/ui/utilities/utilities-image.chunk.js';
-import { R as ResourceAllocation } from './model-resource-allocation.chunk.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/input/cursor.js';
-import '../../../core/ui/audio-base/audio-support.chunk.js';
-import '../../../core/ui/utilities/utilities-update-gate.chunk.js';
-import '../../../core/ui/components/fxs-slot.chunk.js';
-import '../../../core/ui/spatial/spatial-manager.js';
-import '../../../core/ui/context-manager/context-manager.js';
-import '../../../core/ui/context-manager/display-queue-manager.js';
-import '../../../core/ui/dialog-box/manager-dialog-box.chunk.js';
-import '../../../core/ui/utilities/utilities-component-id.chunk.js';
-import '../utilities/utilities-city-yields.chunk.js';
-
-const content = "<div class=\"resource-root h-full w-full flex flex-col\">\r\n\t<div class=\"resource-allocation-parent-slot flex flex-col flex-auto w-full mt-8 mb-16\">\r\n\t\t<div\r\n\t\t\tclass=\"wait-turn img-modal-frame absolute flex p-4\"\r\n\t\t\tdata-bind-if=\"{{g_ResourceAllocationModel.isResourceAssignmentLocked}}\"\r\n\t\t>\r\n\t\t\t<div class=\"img-city-ageless relative size-12 mr-1\"></div>\r\n\t\t\t<div class=\"relative flex flex-col flex-auto\">\r\n\t\t\t\t<div\r\n\t\t\t\t\tclass=\"font-title text-xs uppercase\"\r\n\t\t\t\t\tdata-l10n-id=\"LOC_UI_RESOURCE_ALLOCATION_UNAVAILABLE\"\r\n\t\t\t\t></div>\r\n\t\t\t\t<div\r\n\t\t\t\t\tclass=\"font-body text-xs\"\r\n\t\t\t\t\tdata-l10n-id=\"LOC_UI_RESOURCE_ALLOCATION_RESOURCE_SLOT_REQUIRED\"\r\n\t\t\t\t></div>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t\t<div class=\"resource-civ-symbol relative bg-center bg-contain self-center size-20\"></div>\r\n\t\t<fxs-header\r\n\t\t\tclass=\"civilization-name relative font-title text-base uppercase text-shadow\"\r\n\t\t\tfiligree-style=\"none\"\r\n\t\t></fxs-header>\r\n\t\t<fxs-header\r\n\t\t\tclass=\"resource-header relative font-title text-xl uppercase text-shadow\"\r\n\t\t\tfiligree-style=\"none\"\r\n\t\t\ttitle=\"LOC_UI_RESOURCE_ALLOCATION_RESOURCES\"\r\n\t\t></fxs-header>\r\n\t\t<fxs-vslot class=\"border-frame-container shrink grow w-full\">\r\n\t\t\t<fxs-frame\r\n\t\t\t\tframe-style=\"f2\"\r\n\t\t\t\tclass=\"resource-allocation-inner-frame grow\"\r\n\t\t\t\toverride-styling=\"items-center pt-5 relative flex max-w-full max-h-full px-10 pb-10\"\r\n\t\t\t\tfiligree-class=\"hidden\"\r\n\t\t\t\ttop-border-style=\"none\"\r\n\t\t\t>\r\n\t\t\t\t<div class=\"empire-resources mx-4 mb-6\">\r\n\t\t\t\t\t<div class=\"empire-resource-box relative items-center\">\r\n\t\t\t\t\t\t<fxs-spatial-slot\r\n\t\t\t\t\t\t\tclass=\"empire-resource-list flex items-center justify-center flex-wrap max-w-full\"\r\n\t\t\t\t\t\t></fxs-spatial-slot>\r\n\t\t\t\t\t\t<fxs-header\r\n\t\t\t\t\t\t\tfiligree-style=\"none\"\r\n\t\t\t\t\t\t\tclass=\"resource-column-header relative flex justify-center font-title text-2xs uppercase text-secondary\"\r\n\t\t\t\t\t\t\ttitle=\"LOC_UI_RESOURCE_ALLOCATION_EMPIRE_RESOURCES\"\r\n\t\t\t\t\t\t></fxs-header>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"city-header-filter-container mb-2 flow-row\">\r\n\t\t\t\t\t<div class=\"available-resources-header-container mb-2 mx-4 w-1\\/4\">\r\n\t\t\t\t\t\t<p\r\n\t\t\t\t\t\t\tclass=\"resource-column-header relative flex justify-start font-title text-base uppercase text-secondary\"\r\n\t\t\t\t\t\t\tdata-l10n-id=\"LOC_UI_RESOURCE_ALLOCATION_RESOURCES\"\r\n\t\t\t\t\t\t></p>\r\n\t\t\t\t\t\t<p\r\n\t\t\t\t\t\t\tclass=\"box-header flex justify-start font-body text-xs\"\r\n\t\t\t\t\t\t\tdata-l10n-id=\"LOC_UI_RESOURCE_ALLOCATION_ALLOCATE_RESOURCE_SETTLEMENT\"\r\n\t\t\t\t\t\t></p>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class=\"flow-row mx-8 flex-auto\">\r\n\t\t\t\t\t\t<div class=\"city-header-container grow h-full\">\r\n\t\t\t\t\t\t\t<p\r\n\t\t\t\t\t\t\t\tclass=\"city-column-header relative flex justify-start font-title text-base uppercase text-secondary\"\r\n\t\t\t\t\t\t\t\tdata-l10n-id=\"LOC_UI_RESOURCE_ALLOCATION_SETTLEMENTS\"\r\n\t\t\t\t\t\t\t></p>\r\n\t\t\t\t\t\t\t<p\r\n\t\t\t\t\t\t\t\tclass=\"box-header flex justify-start font-body text-xs\"\r\n\t\t\t\t\t\t\t\tdata-l10n-id=\"LOC_UI_RESOURCE_ALLOCATION_SELECT_SETTLEMENT\"\r\n\t\t\t\t\t\t\t></p>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t<fxs-hslot class=\"city-filter-container grow h-full justify-end items-end\">\r\n\t\t\t\t\t\t\t<div class=\"relative flex items-end mr-3\">\r\n\t\t\t\t\t\t\t\t<p\r\n\t\t\t\t\t\t\t\t\tclass=\"font-body text-xs mb-1\"\r\n\t\t\t\t\t\t\t\t\tdata-l10n-id=\"LOC_UI_RESOURCE_ALLOCATION_SHOW_YIELDS\"\r\n\t\t\t\t\t\t\t\t\tselected=\"true\"\r\n\t\t\t\t\t\t\t\t></p>\r\n\t\t\t\t\t\t\t\t<fxs-checkbox class=\"show-yields\"></fxs-checkbox>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<div class=\"relative flex items-end mr-3\">\r\n\t\t\t\t\t\t\t\t<div\r\n\t\t\t\t\t\t\t\t\tclass=\"font-body text-xs mb-1\"\r\n\t\t\t\t\t\t\t\t\tdata-l10n-id=\"LOC_UI_RESOURCE_ALLOCATION_SHOW_TOWNS\"\r\n\t\t\t\t\t\t\t\t\tselected=\"true\"\r\n\t\t\t\t\t\t\t\t></div>\r\n\t\t\t\t\t\t\t\t<fxs-checkbox class=\"show-cities\"></fxs-checkbox>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<div class=\"relative flex items-end show-factories-container\">\r\n\t\t\t\t\t\t\t\t<p\r\n\t\t\t\t\t\t\t\t\tclass=\"font-body text-xs mb-1\"\r\n\t\t\t\t\t\t\t\t\tdata-l10n-id=\"LOC_UI_RESOURCE_ALLOCATION_SHOW_FACTORIES\"\r\n\t\t\t\t\t\t\t\t\tselected=\"true\"\r\n\t\t\t\t\t\t\t\t></p>\r\n\t\t\t\t\t\t\t\t<fxs-checkbox class=\"show-factories\"></fxs-checkbox>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t</fxs-hslot>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t\t<fxs-hslot\r\n\t\t\t\t\tclass=\"resources-columns grow shrink w-full mb-4\"\r\n\t\t\t\t\tfocus-rule=\"last\"\r\n\t\t\t\t>\r\n\t\t\t\t\t<fxs-vslot\r\n\t\t\t\t\t\tclass=\"available-resources-column w-1\\/4 mx-4 max-h-full\"\r\n\t\t\t\t\t\tignore-prior-focus=\"true\"\r\n\t\t\t\t\t>\r\n\t\t\t\t\t\t<fxs-inner-frame class=\"resource-box relative items-stretch flex-auto\">\r\n\t\t\t\t\t\t\t<div\r\n\t\t\t\t\t\t\t\tclass=\"no-resources-overlay flex flex-col items-center justify-center absolute w-full h-full\"\r\n\t\t\t\t\t\t\t>\r\n\t\t\t\t\t\t\t\t<p\r\n\t\t\t\t\t\t\t\t\tclass=\"font-body text-base\"\r\n\t\t\t\t\t\t\t\t\tdata-l10n-id=\"LOC_UI_RESOURCE_NO_RESOURCES_AVAILABLE\"\r\n\t\t\t\t\t\t\t\t></p>\r\n\t\t\t\t\t\t\t\t<p\r\n\t\t\t\t\t\t\t\t\tclass=\"font-body text-sm\"\r\n\t\t\t\t\t\t\t\t\tdata-l10n-id=\"LOC_UI_RESOURCE_RESOURCE_ALLOCATION_UNAVAILABLE\"\r\n\t\t\t\t\t\t\t\t></p>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<div class=\"available-resources-wrapper flex flex-col max-h-full grow m-2\">\r\n\t\t\t\t\t\t\t\t<div class=\"available-city-resources-container flex-auto max-h-1\\/3\">\r\n\t\t\t\t\t\t\t\t\t<div class=\"flex p-3\">\r\n\t\t\t\t\t\t\t\t\t\t<fxs-header\r\n\t\t\t\t\t\t\t\t\t\t\tfiligree-style=\"none\"\r\n\t\t\t\t\t\t\t\t\t\t\tclass=\"available-city-resources-header flex justify-start font-title text-sm uppercase text-secondary\"\r\n\t\t\t\t\t\t\t\t\t\t\ttitle=\"LOC_UI_RESOURCE_CITY\"\r\n\t\t\t\t\t\t\t\t\t\t>\r\n\t\t\t\t\t\t\t\t\t\t</fxs-header>\r\n\t\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t\t<fxs-scrollable class=\"available-city-resources-scrollable flex-auto pr-4 w-full\">\r\n\t\t\t\t\t\t\t\t\t\t<fxs-spatial-slot\r\n\t\t\t\t\t\t\t\t\t\t\tclass=\"available-city-resource-list flex w-full mb-8 flex-wrap flex-auto justify-start items-start\"\r\n\t\t\t\t\t\t\t\t\t\t\tignore-prior-focus=\"true\"\r\n\t\t\t\t\t\t\t\t\t\t></fxs-spatial-slot>\r\n\t\t\t\t\t\t\t\t\t</fxs-scrollable>\r\n\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t<div class=\"available-bonus-resources-container flex-auto max-h-1\\/3\">\r\n\t\t\t\t\t\t\t\t\t<div class=\"flex p-3\">\r\n\t\t\t\t\t\t\t\t\t\t<fxs-header\r\n\t\t\t\t\t\t\t\t\t\t\tfiligree-style=\"none\"\r\n\t\t\t\t\t\t\t\t\t\t\tclass=\"available-bonus-resources-header flex justify-start font-title text-sm uppercase text-secondary\"\r\n\t\t\t\t\t\t\t\t\t\t\ttitle=\"LOC_UI_RESOURCE_BONUS\"\r\n\t\t\t\t\t\t\t\t\t\t></fxs-header>\r\n\t\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t\t<fxs-scrollable class=\"available-bonus-resources-scrollable flex-auto pr-4 w-full\">\r\n\t\t\t\t\t\t\t\t\t\t<fxs-spatial-slot\r\n\t\t\t\t\t\t\t\t\t\t\tclass=\"available-bonus-resource-list flex w-full mb-8 flex-wrap flex-auto justify-start items-start\"\r\n\t\t\t\t\t\t\t\t\t\t\tignore-prior-focus=\"true\"\r\n\t\t\t\t\t\t\t\t\t\t></fxs-spatial-slot>\r\n\t\t\t\t\t\t\t\t\t</fxs-scrollable>\r\n\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t<div class=\"available-factory-resources-container flex-auto max-h-1\\/3\">\r\n\t\t\t\t\t\t\t\t\t<div class=\"flex p-3\">\r\n\t\t\t\t\t\t\t\t\t\t<fxs-header\r\n\t\t\t\t\t\t\t\t\t\t\tfiligree-style=\"none\"\r\n\t\t\t\t\t\t\t\t\t\t\tclass=\"available-factory-resources-header flex justify-start font-title text-sm uppercase text-secondary\"\r\n\t\t\t\t\t\t\t\t\t\t\ttitle=\"LOC_UI_RESOURCE_FACTORY\"\r\n\t\t\t\t\t\t\t\t\t\t></fxs-header>\r\n\t\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t\t<fxs-scrollable\r\n\t\t\t\t\t\t\t\t\t\tclass=\"available-factory-resources-scrollable flex-auto pr-4 w-full\"\r\n\t\t\t\t\t\t\t\t\t>\r\n\t\t\t\t\t\t\t\t\t\t<fxs-spatial-slot\r\n\t\t\t\t\t\t\t\t\t\t\tclass=\"available-factory-resource-list flex w-full mb-8 flex-wrap flex-auto justify-start items-start\"\r\n\t\t\t\t\t\t\t\t\t\t\tignore-prior-focus=\"true\"\r\n\t\t\t\t\t\t\t\t\t\t></fxs-spatial-slot>\r\n\t\t\t\t\t\t\t\t\t</fxs-scrollable>\r\n\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t</fxs-inner-frame>\r\n\t\t\t\t\t</fxs-vslot>\r\n\t\t\t\t\t<div class=\"city-column flow-column flex-auto mx-2 relative\">\r\n\t\t\t\t\t\t<fxs-inner-frame class=\"absolute inset-0 city-inner-frame inset-x-6\"></fxs-inner-frame>\r\n\t\t\t\t\t\t<fxs-scrollable class=\"resource-allocation-scrollable my-4 flex-auto w-full\">\r\n\t\t\t\t\t\t\t<fxs-vslot\r\n\t\t\t\t\t\t\t\tclass=\"city-list flex flex-col items-stretch\"\r\n\t\t\t\t\t\t\t\tignore-prior-focus=\"true\"\r\n\t\t\t\t\t\t\t\ttabindex=\"-1\"\r\n\t\t\t\t\t\t\t></fxs-vslot>\r\n\t\t\t\t\t\t</fxs-scrollable>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</fxs-hslot>\r\n\t\t\t\t<fxs-close-button\r\n\t\t\t\t\tdata-audio-group-ref=\"audio-screen-resource-allocation\"\r\n\t\t\t\t\tdata-audio-close-selected=\"resource-alloc-close-selected\"\r\n\t\t\t\t></fxs-close-button>\r\n\t\t\t</fxs-frame>\r\n\t\t</fxs-vslot>\r\n\t</div>\r\n</div>\r\n";
-
-const styles = "fs://game/base-standard/ui/resource-allocation/screen-resource-allocation.css";
+import ActionHandler from '../../../core/ui/input/action-handler.js';
+import { Focus } from '../../../core/ui/input/focus-support.js';
+import { ActiveDeviceTypeChangedEventName } from '../../../core/ui/input/input-events.js';
+import { InputEngineEventName } from '../../../core/ui/input/input-support.js';
+import { Navigation } from '../../../core/ui/input/navigation-support.js';
+import NavTray from '../../../core/ui/navigation-tray/model-navigation-tray.js';
+import Panel from '../../../core/ui/panel-support.js';
+import Databind from '../../../core/ui/utilities/utilities-core-databinding.js';
+import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
+import { Icon } from '../../../core/ui/utilities/utilities-image.js';
+import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
+import ResourceAllocation from './model-resource-allocation.js';
+import content from './screen-resource-allocation.html.js';
+import styles from './screen-resource-allocation.scss.js';
 
 var PanelType = /* @__PURE__ */ ((PanelType2) => {
   PanelType2[PanelType2["None"] = 0] = "None";
@@ -751,7 +739,7 @@ class ScreenResourceAllocation extends Panel {
     const cityResourceContainer = MustGetElement(".city-resource-container", target.parentElement);
     const focusableResources = cityResourceContainer.querySelectorAll("fxs-activatable[disabled='false']");
     if (focusableResources.length) {
-      FocusManager.setFocus(cityResourceContainer);
+      FocusManager.get().setFocus(cityResourceContainer);
     }
     this.updateNavTrayEntries();
   }
@@ -895,7 +883,7 @@ class ScreenResourceAllocation extends Panel {
   }
   updateNavTrayEntries() {
     NavTray.clear();
-    const currentFocus = FocusManager.getFocus();
+    const currentFocus = FocusManager.get().currentFocus();
     if (currentFocus.classList.contains("city-resource")) {
       NavTray.addOrUpdateGenericBack();
       NavTray.addOrUpdateShellAction1("LOC_UI_RESOURCE_ALLOCATION_UNASSIGN");
@@ -931,7 +919,7 @@ class ScreenResourceAllocation extends Panel {
     } else if (ResourceAllocation.availableCities.length > 0) {
       this.focusCityList();
     } else {
-      FocusManager.setFocus(this.parentSlot);
+      FocusManager.get().setFocus(this.parentSlot);
     }
   }
   focusCityList() {
@@ -950,7 +938,7 @@ class ScreenResourceAllocation extends Panel {
         break;
       }
     }
-    FocusManager.setFocus(this.cityList);
+    FocusManager.get().setFocus(this.cityList);
   }
   selectCityAndTryAllocateSelectedResource(cityEntry) {
     const cityIDAttribute = cityEntry.getAttribute("data-city-id");
@@ -1034,7 +1022,7 @@ class ScreenResourceAllocation extends Panel {
     if (cityEntries && ResourceAllocation.selectedResource == -1) {
       for (const city of cityEntries) {
         if (city.getAttribute("data-city-id") == cityIDAttribute) {
-          FocusManager.setFocus(city);
+          FocusManager.get().setFocus(city);
           break;
         }
       }
@@ -1046,7 +1034,7 @@ class ScreenResourceAllocation extends Panel {
     const focusableResources = event.target.querySelectorAll("fxs-activatable[disabled='false']");
     const cityActivatable = event.target.parentElement;
     if (!focusableResources.length && ResourceAllocation.selectedResource == -1 && cityActivatable) {
-      FocusManager.setFocus(cityActivatable);
+      FocusManager.get().setFocus(cityActivatable);
     }
   }
   updateCityEntriesDisabledState() {
@@ -1076,7 +1064,7 @@ class ScreenResourceAllocation extends Panel {
     }
   }
   updateAllScrollbarHandleGamepad() {
-    const currentFocus = FocusManager.getFocus();
+    const currentFocus = FocusManager.get().currentFocus();
     this.availableResourceListScrollable.setAttribute(
       "handle-gamepad-pan",
       this.availableResourceList.contains(currentFocus) ? "true" : "false"
@@ -1099,6 +1087,7 @@ Controls.define("screen-resource-allocation", {
   createInstance: ScreenResourceAllocation,
   description: "Resource Allocation screen.",
   styles: [styles],
+  priority: -1,
   innerHTML: [content],
   attributes: [],
   classNames: ["trigger-nav-help", "w-full", "h-full"]

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Constructible_WildcardAdjacencies>
+		<Row YieldChangeId="ConKenhTropicalCulture" RequiresActivation="true" ConstructibleTag="CULTURE"/>
+		<Row YieldChangeId="ConKenhTropicalFood" RequiresActivation="true" ConstructibleTag="FOOD"/>
+	</Constructible_WildcardAdjacencies>
+	<Adjacency_YieldChanges>
+		<Row ID="ConKenhTropicalCulture" YieldType="YIELD_CULTURE" YieldChange="1" TilesRequired="1" ProjectMaxYield="true" AdjacentBiome="BIOME_TROPICAL"/>
+		<Row ID="ConKenhTropicalFood" YieldType="YIELD_CULTURE" YieldChange="1" TilesRequired="1" ProjectMaxYield="true" AdjacentBiome="BIOME_TROPICAL"/>
+	</Adjacency_YieldChanges>
+	<Warehouse_YieldChanges>
+		<!-- Roung Lang Xa I -->
+		<Row ID="RuongLangXaIPlantationFood" YieldType="YIELD_FOOD" YieldChange="1" ConstructibleInCity="IMPROVEMENT_PLANTATION"/>
+		<Row ID="RuongLangXaIDesertFloodplainFeatureFood" YieldType="YIELD_FOOD" YieldChange="1" FeatureInCity="FEATURE_DESERT_FLOODPLAIN_MINOR"/>
+		<Row ID="RuongLangXaIGrasslandFloodplainFeatureFood" YieldType="YIELD_FOOD" YieldChange="1" FeatureInCity="FEATURE_GRASSLAND_FLOODPLAIN_MINOR"/>
+		<Row ID="RuongLangXaIPlainsFloodplainFeatureFood" YieldType="YIELD_FOOD" YieldChange="1" FeatureInCity="FEATURE_PLAINS_FLOODPLAIN_MINOR"/>
+		<Row ID="RuongLangXaITropicalFloodplainFeatureFood" YieldType="YIELD_FOOD" YieldChange="1" FeatureInCity="FEATURE_TROPICAL_FLOODPLAIN_MINOR"/>
+		<Row ID="RuongLangXaITundraFloodplainFeatureFood" YieldType="YIELD_FOOD" YieldChange="1" FeatureInCity="FEATURE_TUNDRA_FLOODPLAIN_MINOR"/>
+		<Row ID="RuongLangXaIFlatTerrainFood" YieldType="YIELD_FOOD" YieldChange="1" TerrainInCity="TERRAIN_FLAT"/>
+		<!-- Roung Lang Xa II -->
+		<Row ID="RuongLangXaIIPlantationFood" YieldType="YIELD_FOOD" YieldChange="2" ConstructibleInCity="IMPROVEMENT_PLANTATION"/>
+		<Row ID="RuongLangXaIIDesertFloodplainFeatureFood" YieldType="YIELD_FOOD" YieldChange="2" FeatureInCity="FEATURE_DESERT_FLOODPLAIN_MINOR"/>
+		<Row ID="RuongLangXaIIGrasslandFloodplainFeatureFood" YieldType="YIELD_FOOD" YieldChange="2" FeatureInCity="FEATURE_GRASSLAND_FLOODPLAIN_MINOR"/>
+		<Row ID="RuongLangXaIIPlainsFloodplainFeatureFood" YieldType="YIELD_FOOD" YieldChange="2" FeatureInCity="FEATURE_PLAINS_FLOODPLAIN_MINOR"/>
+		<Row ID="RuongLangXaIITropicalFloodplainFeatureFood" YieldType="YIELD_FOOD" YieldChange="2" FeatureInCity="FEATURE_TROPICAL_FLOODPLAIN_MINOR"/>
+		<Row ID="RuongLangXaIITundraFloodplainFeatureFood" YieldType="YIELD_FOOD" YieldChange="2" FeatureInCity="FEATURE_TUNDRA_FLOODPLAIN_MINOR"/>
+		<Row ID="RuongLangXaIIFlatTerrainFood" YieldType="YIELD_FOOD" YieldChange="2" TerrainInCity="TERRAIN_FLAT"/>
+	</Warehouse_YieldChanges>
+</Database>

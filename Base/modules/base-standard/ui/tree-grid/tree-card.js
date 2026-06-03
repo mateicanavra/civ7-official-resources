@@ -1,11 +1,7 @@
-import FocusManager from '../../../core/ui/input/focus-manager.js';
-import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.chunk.js';
-import { b as TreeCardBase, S as ScaleTreeCardEventName } from './tree-support.chunk.js';
-import { s as styles } from './tree-components.chunk.js';
-import '../../../core/ui/audio-base/audio-support.chunk.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/utilities/utilities-core-databinding.chunk.js';
-import '../../../core/ui/utilities/utilities-layout.chunk.js';
+import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
+import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
+import { TreeCardBase, ScaleTreeCardEventName } from './tree-support.js';
+import styles from './tree-components.scss.js';
 
 var TreeCardStates = /* @__PURE__ */ ((TreeCardStates2) => {
   TreeCardStates2[TreeCardStates2["COMPLETE"] = 0] = "COMPLETE";
@@ -95,11 +91,11 @@ class TreeCard extends TreeCardBase {
       for (let i = 0; i < target.children.length; i++) {
         const currentChild = target.children[i];
         if (currentChild.getAttribute("level-complete") != "true") {
-          FocusManager.setFocus(currentChild);
+          FocusManager.get().setFocus(currentChild);
           return;
         }
       }
-      FocusManager.setFocus(target);
+      FocusManager.get().setFocus(target);
     }
   }
   onCardHover(event) {

@@ -1,6 +1,17 @@
 <Database>
+	<Civilizations>
+		<!-- Replace civics tree. -->
+		<Update>
+			<Where CivilizationType="CIVILIZATION_TONGA" />
+			<Set UniqueCultureProgressionTree="TREE_CIVICS_EX_TEST_OF_TIME" />
+		</Update>
+	</Civilizations>
 	<TraitModifiers>
-		<Row TraitType="TRAIT_EXPLORATION_CIV" ModifierId="TRAIT_MOD_QUARTER_TOFI_A_AND_UNIT_IS_SCOUT_EMBARK"/>
-		<Row TraitType="TRAIT_EXPLORATION_CIV" ModifierId="MOD_QUARTER_TOFI_A_NO_OCEAN_DAMAGE"/>
+		<Row TraitType="TRAIT_TONGA_ABILITY" ModifierId="MOD_TONGA_PALACE_CITY_HALL_INFLUENCE" />
+		<Row TraitType="TRAIT_TONGA_ABILITY" ModifierId="MOD_TONGA_OCEAN_TRADE" />
+		<Row TraitType="TRAIT_TONGA_ABILITY" ModifierId="MOD_TONGA_CS_TRADE" />
 	</TraitModifiers>
+	<CivilizationTraits>
+		<Row CivilizationType="CIVILIZATION_TONGA" TraitType="TRAIT_ANACHRONISTIC_CIV" />
+	</CivilizationTraits>
 </Database>

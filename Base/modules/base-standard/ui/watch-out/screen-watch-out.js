@@ -1,18 +1,7 @@
-import FocusManager from '../../../core/ui/input/focus-manager.js';
-import { P as Panel } from '../../../core/ui/panel-support.chunk.js';
-import { L as LowerCalloutEvent } from '../tutorial/tutorial-events.chunk.js';
+import Panel from '../../../core/ui/panel-support.js';
+import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
+import { LowerCalloutEvent } from '../tutorial/tutorial-events.js';
 import WatchOutManager from './watch-out-manager.js';
-import '../../../core/ui/audio-base/audio-support.chunk.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/context-manager/context-manager.js';
-import '../../../core/ui/context-manager/display-queue-manager.js';
-import '../../../core/ui/dialog-box/manager-dialog-box.chunk.js';
-import '../../../core/ui/input/cursor.js';
-import '../../../core/ui/views/view-manager.chunk.js';
-import '../../../core/ui/utilities/utilities-plotcoord.chunk.js';
-import '../notification-train/model-notification-train.js';
-import '../../../core/ui/utilities/utilities-component-id.chunk.js';
-import '../tutorial/tutorial-item.js';
 
 class ScreenWatchOut extends Panel {
   lowerTutorialCalloutListener = (event) => {
@@ -35,7 +24,7 @@ class ScreenWatchOut extends Panel {
   }
   onDetach() {
     window.removeEventListener(LowerCalloutEvent.name, this.lowerTutorialCalloutListener);
-    FocusManager.unlockFocus(this.callout, "tutorial-callout");
+    FocusManager.get().unlockFocus(this.callout, "tutorial-callout");
     WatchOutManager.closePopup();
     super.onDetach();
   }

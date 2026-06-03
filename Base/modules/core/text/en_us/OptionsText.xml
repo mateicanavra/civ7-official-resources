@@ -265,10 +265,34 @@
 			<Text>Adjust the size of user interface elements.</Text>
 		</Row>
 		<Row Tag="LOC_OPTIONS_UI_AUTO_SCALE">
-			<Text>Enable High Resolution UI Scaling</Text>
+			<Text>Enable High Resolution UI Scaling (1080p+)</Text>
+		</Row>
+		<Row Tag="LOC_OPTIONS_UI_AUTO_SCALE_ADJUSTMENT">
+			<Text>UI Scaling Adjustment (1080p+)</Text>
+		</Row>
+		<Row Tag="LOC_OPTIONS_UI_MENU_LAYOUT">
+			<Text>Menu Layout</Text>
+		</Row>
+		<Row Tag="LOC_OPTIONS_UI_MENU_LAYOUT_DESCRIPTION">
+			<Text>Use a fixed aspect-ratio (16/9) for large in-game menus or stretch to use all available space.</Text>
+		</Row>
+		<Row Tag="LOC_OPTIONS_UI_MENU_LAYOUT_FIXED">
+			<Text>Fixed (16:9)</Text>
+		</Row>
+		<Row Tag="LOC_OPTIONS_UI_MENU_LAYOUT_STRETCH">
+			<Text>Stretched (Ultrawide)</Text>
+		</Row>
+		<Row Tag="LOC_OPTIONS_UI_MENU_HUD_H_OFFSET">
+			<Text>HUD Element Offset (Ultrawide)</Text>
+		</Row>
+		<Row Tag="LOC_OPTIONS_UI_MENU_HUD_H_OFFSET_DESCRIPTION">
+			<Text>Adjust the docked position of HUD elements for Ultrawide displays.</Text>
 		</Row>
 		<Row Tag="LOC_OPTIONS_UI_AUTO_SCALE_DESCRIPTION">
 			<Text>Scale up the size of the user interface at high display resolutions.</Text>
+		</Row>
+		<Row Tag="LOC_OPTIONS_UI_AUTO_SCALE_ADJUSTMENT_DESCRIPTION">
+			<Text>Adjust the scale of the UI by the specified percentage.</Text>
 		</Row>
 		<Row Tag="LOC_OPTIONS_UI_SCALE_EXTRA_SMALL">
 			<Text>Extra Small</Text>
@@ -397,7 +421,7 @@
 			<Text>Voice Volume</Text>
 		</Row>
 		<Row Tag="LOC_OPTIONS_AUDIO_VOLUME_VOICE_DESCRIPTION">
-			<Text>Loudness of leaders and advisors in the game.</Text>
+			<Text>Loudness of leaders in the game.</Text>
 		</Row>
 		<Row Tag="LOC_OPTIONS_AUDIO_VOLUME_UI">
 			<Text>Interface Volume</Text>
@@ -463,7 +487,7 @@
 		<Row Tag="LOC_OPTIONS_QUICK_MOVEMENT_DESCRIPTION">
 			<Text>Toggle using quick movement for units moving across tiles.</Text>
 		</Row>
-		<Row Tag="LOC_OPTIONS_CITY_RANGED_ATTACK_TURN_BLOCKING">
+    <Row Tag="LOC_OPTIONS_CITY_RANGED_ATTACK_TURN_BLOCKING">
 			<Text>City Ranged Attack Turn Blocking</Text>
 		</Row>
 		<Row Tag="LOC_OPTIONS_CITY_RANGED_ATTACK_TURN_BLOCKING_DESCRIPTION">
@@ -493,11 +517,21 @@
 		<Row Tag="LOC_OPTIONS_AUTOUNITYCYCLE">
 			<Text>Auto Unit Cycle</Text>
 		</Row>
-		<Row Tag="LOC_OPTIONS_AUTOUNITYCYCLE_DESCRIPTION">
-            <Text>After expending all movement points for the selected unit, cycle through units
+    <Row Tag="LOC_OPTIONS_AUTOUNITYCYCLE_DESCRIPTION">
+      <Text>After expending all movement points for the selected unit, cycle through units
                 with movement points remaining.</Text>
 		</Row>
-		<Row Tag="LOC_OPTIONS_PRODUCTIONPANEL_STAYSOPEN">
+    <Row Tag="LOC_OPTIONS_AUTOUNITCYCLE_DELAY">
+      <Text>Auto Unit Cycle Delay</Text>
+    </Row>
+    <Row Tag="LOC_OPTIONS_AUTOUNITCYCLE_DELAY_DESCRIPTION">
+      <Text>How many seconds to wait before cycling to the next unit.</Text>
+    </Row>
+    <Row Tag="LOC_OPTIONS_AUTOUNITCYCLE_DELAY_VALUE">
+      <Text>{1: number 0.0}s</Text>
+    </Row>
+
+    <Row Tag="LOC_OPTIONS_PRODUCTIONPANEL_STAYSOPEN">
 			<Text>Production Panel Stays Open</Text>
 		</Row>
 		<Row Tag="LOC_OPTIONS_PRODUCTIONPANEL_STAYSOPEN_DESCRIPTION">
@@ -595,6 +629,27 @@
 		</Row>
 		<Row Tag="LOC_OPTIONS_CROSSPLAY_DESCRIPTION">
 			<Text>Play multiplayer with players on other platforms.</Text>
+		</Row>
+		<Row Tag="LOC_OPTIONS_TUTORIAL_DESCRIPTION">
+			<Text>Enable tutorial popups that introduce the features of the game.</Text>
+		</Row>
+		<Row Tag="LOC_OPTIONS_ADVISOR_WARNINGS_0">
+			<Text>Advisor Warnings</Text>
+		</Row>
+		<Row Tag="LOC_OPTIONS_ADVISOR_WARNINGS_1">
+			<Text>Only If Followed</Text>
+		</Row>
+		<Row Tag="LOC_OPTIONS_ADVISOR_WARNINGS_2">
+			<Text>Always</Text>
+		</Row>
+		<Row Tag="LOC_OPTIONS_ADVISOR_WARNINGS_0_DESCRIPTION">
+			<Text>Sets how the game's Advisors notify you of important warnings.</Text>
+		</Row>
+		<Row Tag="LOC_OPTIONS_ADVISOR_WARNINGS_1_DESCRIPTION">
+			<Text>Each Advisor will only provide important warnings if you are following them.</Text>
+		</Row>
+		<Row Tag="LOC_OPTIONS_ADVISOR_WARNINGS_2_DESCRIPTION">
+			<Text>Each Advisor will always provide important warnings even if you don't follow them.</Text>
 		</Row>
 		<Row Tag="LOC_OPTIONS_AUTOSAVE_BETWEEN">
 			<Text>Turns Between Autosaves</Text>
@@ -1332,8 +1387,26 @@
 		<Row Tag="LOC_OPTIONS_TOOLTIP_DELAY_VALUE">
 			<Text>{1: number 0.0}s</Text>
 		</Row>
+		<Row Tag="LOC_OPTIONS_TOOLTIP_TIME_TO_LOCK">
+			<Text>Time to lock</Text>
+		</Row>
+		<Row Tag="LOC_OPTIONS_TOOLTIP_AUTOLOCK_ENABLED_LABEL">
+			<Text>Tooltip Autolock Enabled</Text>
+		</Row>
+		<Row Tag="LOC_OPTIONS_TOOLTIP_AUTOLOCK_ENABLED_DESCRIPTION">
+			<Text>Enable the autolocking of tooltips when hovering a keyword, allowing you to interact with the next tooltip.</Text>
+		</Row>
+		<Row Tag="LOC_OPTIONS_TOOLTIP_AUTOLOCK_VALUE">
+			<Text>{1: number 0.0}s</Text>
+		</Row>
+		<Row Tag="LOC_OPTIONS_TOOLTIP_AUTOLOCK_LABEL">
+			<Text>Tooltip Autolock Time</Text>
+		</Row>
+		<Row Tag="LOC_OPTIONS_TOOLTIP_AUTOLOCK_DESCRIPTION">
+			<Text>The amount of time spent hovering a keyword before the tooltip autolocks.</Text>
+		</Row>
 		<Row Tag="LOC_OPTIONS_PLOT_TOOLTIP_DELAY">
-			<Text>World Tooltip delay</Text>
+			<Text>Plot Tooltip Delay</Text>
 		</Row>
 		<Row Tag="LOC_OPTIONS_PLOT_TOOLTIP_DELAY_DESCRIPTION">
 			<Text>How many seconds to wait before showing a tooltip on the world tiles.</Text>
@@ -1398,7 +1471,31 @@
 		<Row Tag="LOC_OPTIONS_NOTIFICATION_CAMERA_PAN_DESCRIPTION">
 			<Text>Automatically pan the camera to the next turn blocking notification.</Text>
 		</Row>
-		<Row Tag="LOC_OPTIONS_ENABLE_EDGE_PANNING">
+    <Row Tag="LOC_OPTIONS_PLAYER_COMBAT_CAMERA_PAN">
+      <Text>Auto Pan to Combat</Text>
+    </Row>
+    <Row Tag="LOC_OPTIONS_PLAYER_COMBAT_CAMERA_PAN_DESCRIPTION">
+      <Text>Automatically pan the camera to combat against your units.</Text>
+    </Row>
+    <Row Tag="LOC_OPTIONS_PLAYER_COMBAT_CAMERA_PAN_0">
+      <Text>Off</Text>
+    </Row>
+    <Row Tag="LOC_OPTIONS_PLAYER_COMBAT_CAMERA_PAN_0_DESCRIPTION">
+      <Text>Auto Pan to Combat is disabled.</Text>
+    </Row>
+    <Row Tag="LOC_OPTIONS_PLAYER_COMBAT_CAMERA_PAN_1">
+      <Text>Only Defeated Units</Text>
+    </Row>
+    <Row Tag="LOC_OPTIONS_PLAYER_COMBAT_CAMERA_PAN_1_DESCRIPTION">
+      <Text>The camera will only pan to your units when they are defeated.</Text>
+    </Row>
+    <Row Tag="LOC_OPTIONS_PLAYER_COMBAT_CAMERA_PAN_2">
+      <Text>All Combat</Text>
+    </Row>
+    <Row Tag="LOC_OPTIONS_PLAYER_COMBAT_CAMERA_PAN_2_DESCRIPTION">
+      <Text>The camera will pan to your units whenever they take damage.</Text>
+    </Row>
+    <Row Tag="LOC_OPTIONS_ENABLE_EDGE_PANNING">
 			<Text>Edge Panning</Text>
 		</Row>
 		<Row Tag="LOC_OPTIONS_ENABLE_EDGE_PANNING_DESCRIPTION">
@@ -1472,6 +1569,9 @@
 		</Row>
 		<Row Tag="LOC_OPTIONS_GROUP_GENERAL">
 			<Text>General</Text>
+		</Row>
+		<Row Tag="LOC_OPTIONS_GROUP_TOOLTIP">
+			<Text>Tooltip</Text>
 		</Row>
 		<Row Tag="LOC_OPTIONS_GROUP_SUBTITLES">
 			<Text>Subtitles</Text>

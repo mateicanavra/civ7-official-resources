@@ -52,6 +52,10 @@
 	<!-- ==================================================	-->
 	<!-- Ashoka, World Renouncer -->
 	<!-- ==================================================	-->
+	<Modifier id="ASHOKA_MOD_WILDCARD_UNIQUE_BUILDING_ADJACENCY_TO_IMPROVEMENTS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ACTIVATE_CONSTRUCTIBLE_ADJACENCY">
+		<Argument name="ConstructibleAdjacency">AshokaUniqueBuildingAdjacencyToImprovements</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_LEADER_ASHOKA_ABILITY_NAME</Argument>
+	</Modifier>
 	<Modifier id="ASHOKA_MOD_HAPPINESS_FOOD" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_SURPLUS_HAPPINESS">
 		<SubjectRequirements>
 			<Requirement type="REQUIREMENT_CITY_IS_CITY"/>
@@ -67,9 +71,6 @@
 		</SubjectRequirements>
 		<Argument name="YieldType">YIELD_FOOD</Argument>
 		<Argument name="Percent">10</Argument>
-	</Modifier>
-	<Modifier id="ASHOKA_MOD_HAPPINESS_RURAL_ADJACENCY" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ACTIVATE_CONSTRUCTIBLE_ADJACENCY">
-		<Argument name="ConstructibleAdjacency">AshokaRuralAdjacency</Argument>
 	</Modifier>
 	<Modifier id="ASHOKA_MOD_AGENDA_WITHOUT_SORROW" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_AGENDA_TIMED_UPDATE">
 		<String context="Name">LOC_DIPLOMACY_AGENDA_WITHOUT_SORROW_NAME</String>
@@ -101,9 +102,17 @@
 			<Requirement type="REQUIREMENT_CITY_IS_TOWN"/>
 		</SubjectRequirements>
 		<Argument name="ConstructibleClass">BUILDING</Argument>
-		<Argument name="Percent">50</Argument>
+		<Argument name="Percent">15</Argument>
 		<Argument name="Tooltip">LOC_TRAIT_LEADER_AUGUSTUS_ABILITY_NAME</Argument>
 	</Modifier>
+  <Modifier id="AUGUSTUS_MOD_TOWN_PURCHASE_RATE_SAME_BUILDING_IN_CAPITAL" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_ADJUST_CITY_BUILDING_PURCHASE_EFFICIENCY_WITH_DISCOUNTS">
+    <SubjectRequirements>
+      <Requirement type="REQUIREMENT_CITY_IS_TOWN"/>
+    </SubjectRequirements>
+    <Argument name="PurchaseDiscountReason">CAPITAL_HAS_SAME_BUILDING</Argument>
+    <Argument name="Percent">15</Argument>
+    <Argument name="Tooltip">LOC_TRAIT_LEADER_AUGUSTUS_ABILITY_NAME</Argument>
+  </Modifier>
 	<Modifier id="AUGUSTUS_MOD_TOWN_CULTURE_BUILDING" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_ADJUST_TOWN_CAN_PURCHASE_TAGGED_CONSTRUCTIBLES">
 		<SubjectRequirements>
 			<Requirement type="REQUIREMENT_CITY_IS_TOWN"/>
@@ -139,14 +148,26 @@
 		<Argument name="Tooltip">LOC_TRAIT_LEADER_BENJAMIN_FRANKLIN_ABILITY_NAME</Argument>
 		<String context="Description">LOC_TRAIT_LEADER_BENJAMIN_FRANKLIN_ABILITY_NAME</String>
 	</Modifier>
-	<Modifier id="FRANKLIN_MOD_PRODUCTION_BUILDING_RATE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_PRODUCTION">
-		<Argument name="Percent">50</Argument>
-		<Argument name="Tag">PRODUCTION</Argument>
+	<Modifier id="FRANKLIN_MOD_PRODUCTION_BUILDING_RATE_PER_NUM_ACTIVE_DIPLOMATIC_ACTIONS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_ADJUST_BUILDING_PRODUCTION_EFFICIENCY_PER_NUM_ACTIVE_DIPLOMATIC_ACTIONS">
+		<Argument name="Percent">5</Argument>
+		<Argument name="ConstructibleClass">BUILDING</Argument>
+		<Argument name="DiplomaticActionGroup">DIPLOMACY_ACTION_GROUP_ENDEAVOR</Argument>
+		<Argument name="CountOnlyStartedOrSupportedActions">True</Argument>
+	</Modifier>
+	<Modifier id="FRANKLIN_MOD_SCIENCE_BUILDING_SCIENCE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_CITY"/>
+		</SubjectRequirements>
+		<Argument name="Tag">SCIENCE</Argument>
+		<Argument name="YieldType">YIELD_SCIENCE</Argument>
+		<Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_LEADER_BENJAMIN_FRANKLIN_ABILITY_NAME</Argument>
+		<String context="Description">LOC_TRAIT_LEADER_BENJAMIN_FRANKLIN_ABILITY_NAME</String>
 	</Modifier>
 	<Modifier id="FRANKLIN_MOD_DIPLO_EVENT_SCIENCE" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_ADJUST_YIELD_PER_PLAYER_INVOLVED_ACTION">
 		<Argument name="ActionGroupType">DIPLOMACY_ACTION_GROUP_ENDEAVOR</Argument>
 		<Argument name="YieldType">YIELD_SCIENCE</Argument>
-		<Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+		<Argument name="Amount" type="ScaleByGameAge" extra="100">2</Argument>
 		<Argument name="Tooltip">LOC_TRAIT_LEADER_BENJAMIN_FRANKLIN_ABILITY_NAME</Argument>
 		<String context="Description">LOC_TRAIT_LEADER_BENJAMIN_FRANKLIN_ABILITY_NAME</String>
 	</Modifier>
@@ -193,6 +214,7 @@
 			<Requirement type="REQUIREMENT_CONSTRUCTIBLE_HAS_GREAT_WORK_SLOT"/>
 		</SubjectRequirements>
 		<Argument name="Amount">1</Argument>
+		<Argument name="SlotType">GREATWORKSLOT_ANY</Argument>
 	</Modifier>
 	<Modifier id="CATHERINE_MOD_CITY_SCIENCE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_CONVERSION">
 		<SubjectRequirements>
@@ -288,7 +310,7 @@
 	<!-- ==================================================	-->
 	<!-- Friedrich, Oblique -->
 	<!-- ==================================================	-->
-	<Modifier id="FRIEDRICH_MOD_COMMANDER_COMMENDATION" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_GRANT_UNIT_PROMOTION">
+	<Modifier id="FRIEDRICH_MOD_COMMANDER_COMMENDATION" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_GRANT_UNIT_PROMOTION" permanent="true">
 		<SubjectRequirements>
 			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
 				<Argument name="Tag">UNIT_CLASS_ARMY_COMMANDER</Argument>
@@ -296,6 +318,11 @@
 		</SubjectRequirements>
 		<Argument name="UnitPromotionType">PROMOTION_COMMENDATION_ARMY_MERIT</Argument>
 		<Argument name="UnitPromotionDisciplineType">DISCIPLINE_ARMY_COMMENDATION_MERIT</Argument>
+	</Modifier>
+	<Modifier id="FRIEDRICH_MOD_COMMENDATION_SCIENCE_YIELD" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD_PER_PROMOTION_LEVEL">
+		<Argument name="YieldType">YIELD_SCIENCE</Argument>
+		<Argument name="Amount" type="ScaleByGameAge" extra="100">2</Argument>
+		<Argument name="CommendationsOnly">true</Argument>
 	</Modifier>
 	<Modifier id="FRIEDRICH_MOD_INFANTRY_CONSTRUCT_SCIENCE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_GRANT_UNIT" permanent="true">
 		<SubjectRequirements>
@@ -335,6 +362,9 @@
 		<Argument name="ActionGroupType">DIPLOMACY_ACTION_GROUP_ESPIONAGE</Argument>
 		<Argument name="Percent">100</Argument>
 	</Modifier>
+	<Modifier id="HARRIET_TUBMAN_MOD_ESPIONAGE_MIGRANT" collection="COLLECTION_OWNER" effect="EFFECT_GRANT_UNIT_ON_SUCCESSFUL_UNDETECTED_ESPIONAGE_ACTION">
+		<Argument name="UnitType">UNIT_MIGRANT</Argument>
+	</Modifier>
 	<Modifier id="HARRIET_TUBMAN_MOD_WAR_SUPPORT" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_ADJUST_DIPLOMATIC_ACTION_TOKEN_BONUS">
 		<Argument name="ActionType">DIPLOMACY_ACTION_DECLARE_WAR</Argument>
 		<Argument name="OnlyWhenTarget">true</Argument>
@@ -371,7 +401,6 @@
 				<Argument name="Navigable">true</Argument>
 			</Requirement>
 		</SubjectRequirements>
-		<Argument name="Apply">Rate</Argument>
 		<Argument name="Percent">15</Argument>
 		<Argument name="Tooltip">LOC_TRAIT_LEADER_HATSHEPSUT_ABILITY_NAME</Argument>
 		<String context="Description">LOC_TRAIT_LEADER_HATSHEPSUT_ABILITY_NAME</String>
@@ -414,6 +443,12 @@
 		<Argument name="NotifyMessage">LOC_NOTIFICATION_DIPLOMATIC_AGENDA_DEFAULT_MESSAGE</Argument>
 		<Argument name="NotifySummary">LOC_NOTIFICATION_DIPLOMATIC_AGENDA_DEFAULT_SUMMARY</Argument>
 		<String context="Name">LOC_DIPLOMACY_NO_COST_ENDEAVOR_SUPPORT_NAME</String>
+	</Modifier>
+	<Modifier id="HIMIKO_MOD_DIPLOMATIC_RESPONSE_REJECT_COST_INCREASE" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_ADJUST_DIPLOMATIC_RESPONSE_EFFICIENCY">
+		<Argument name="ResponseType">DIPLOMACY_RESPONSE_REJECT</Argument>
+		<Argument name="Percent">100</Argument>
+		<Argument name="ApplyToTarget">true</Argument>
+		<Argument name="Reverse">true</Argument>
 	</Modifier>
 	<Modifier id="HIMIKO_MOD_AGENDA_YAMATAI" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_AGENDA_TIMED_UPDATE">
 		<String context="Name">LOC_DIPLOMACY_AGENDA_YAMATAI_NAME</String>
@@ -515,6 +550,8 @@
 	</Modifier>
 	<Modifier id="RIZAL_MOD_EXTRA_STORIES" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_BONUS_STORIES" permanent="true">
 		<Argument name="Amount">1</Argument>
+	</Modifier>
+	<Modifier id="RIZAL_MOD_EXTRA_STORIES2" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_BYPASS_NARRATIVE_SUPPRESSION" permanent="true">
 	</Modifier>
 	<Modifier id="RIZAL_MOD_CELEBRATION_LENGTH" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_GOLDEN_AGE_DURATION">
 		<Argument name="Percent">50</Argument>
@@ -632,7 +669,7 @@
 	<!-- Pachacuti -->
 	<!-- ==================================================	-->
 	<Modifier id="PACHACUTI_MOD_WILDCARD_ADJACENCY_MOUNTAINS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ACTIVATE_CONSTRUCTIBLE_ADJACENCY">
-		<Argument name="ConstructibleAdjacency">PachacutiMountainFood, PachacutiMountainUniqueImprovementFood</Argument>
+		<Argument name="ConstructibleAdjacency">PachacutiMountainFood</Argument>
 		<Argument name="Tooltip">LOC_TRAIT_LEADER_PACHACUTI_ABILITY_NAME</Argument>
 	</Modifier>
 	<Modifier id="PACHACUTI_MOD_MOUNTAIN_SPECIALIST_HAPPINESS" collection="COLLECTION_PLAYER_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_WORKER_MAINTENANCE">
@@ -643,6 +680,16 @@
 		</SubjectRequirements>
 		<Argument name="YieldType">YIELD_HAPPINESS</Argument>
 		<Argument name="Amount">-2</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_LEADER_PACHACUTI_ABILITY_NAME</Argument>
+	</Modifier>
+		<Modifier id="PACHACUTI_MOD_MOUNTAIN_SPECIALIST_HAPPINESS_INVERSE" collection="COLLECTION_PLAYER_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_WORKER_MAINTENANCE">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_ADJACENT_TERRAIN_TYPE_MATCHES" inverse="true">
+				<Argument name="TerrainType">TERRAIN_MOUNTAIN</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_HAPPINESS</Argument>
+		<Argument name="Amount">1</Argument>
 		<Argument name="Tooltip">LOC_TRAIT_LEADER_PACHACUTI_ABILITY_NAME</Argument>
 	</Modifier>
 	<Modifier id="PACHACUTI_MOD_CITY_PRODUCTION_FROM_FOOD" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_CONVERSION">
@@ -774,7 +821,7 @@
 	</Modifier>
 	<Modifier id="XERXES_MOD_SETTLEMENT_GOLD" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
 		<SubjectRequirements>
-			<Requirement type="REQUIREMENT_CITY_IS_ORIGINAL_OWNER"/>
+			<Requirement type="REQUIREMENT_CITY_CONQUERED_ANY_AGE" inverse="true"/>
 		</SubjectRequirements>
 		<Argument name="YieldType">YIELD_GOLD</Argument>
 		<Argument name="Percent">10</Argument>
@@ -782,7 +829,7 @@
 	</Modifier>
 	<Modifier id="XERXES_MOD_CAPTURED_SETTLEMENT_GOLD" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
 		<SubjectRequirements>
-			<Requirement type="REQUIREMENT_CITY_IS_ORIGINAL_OWNER" inverse="true"/>
+			<Requirement type="REQUIREMENT_CITY_CONQUERED_ANY_AGE"/>
 		</SubjectRequirements>
 		<Argument name="YieldType">YIELD_GOLD</Argument>
 		<Argument name="Percent">20</Argument>
@@ -792,7 +839,7 @@
 		<SubjectRequirements>
 			<Requirement type="REQUIREMENT_GAME_IS_STARTED"/>
 		</SubjectRequirements>
-		<Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+		<Argument name="Amount">1</Argument>
 		<Argument name="Ageless">true</Argument>
 	</Modifier>
 	<Modifier id="XERXES_MOD_AGENDA_LORD_OF_FIRE" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_AGENDA_TIMED_UPDATE">

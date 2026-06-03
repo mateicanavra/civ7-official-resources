@@ -1,29 +1,15 @@
-import { A as Audio } from '../../../core/ui/audio-base/audio-support.chunk.js';
+import { Audio } from '../../../core/ui/audio-base/audio-support.js';
 import ContextManager from '../../../core/ui/context-manager/context-manager.js';
 import ActionHandler from '../../../core/ui/input/action-handler.js';
 import Cursor from '../../../core/ui/input/cursor.js';
-import FocusManager from '../../../core/ui/input/focus-manager.js';
 import { PlotCursor } from '../../../core/ui/input/plot-cursor.js';
 import { InterfaceMode } from '../../../core/ui/interface-modes/interface-modes.js';
-import { C as ComponentID } from '../../../core/ui/utilities/utilities-component-id.chunk.js';
+import { ComponentID } from '../../../core/ui/utilities/utilities-component-id.js';
 import { NetworkUtilities } from '../../../core/ui/utilities/utilities-network.js';
-import { V as ViewManager } from '../../../core/ui/views/view-manager.chunk.js';
+import ViewManager from '../../../core/ui/views/view-manager.js';
+import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
 import { RaiseDiplomacyEvent } from '../diplomacy/diplomacy-events.js';
-import { U as UnitMapDecorationSupport } from '../interface-modes/support-unit-map-decoration.chunk.js';
-import '../../../core/ui/context-manager/display-queue-manager.js';
-import '../../../core/ui/dialog-box/manager-dialog-box.chunk.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/panel-support.chunk.js';
-import '../../../core/ui/input/input-support.chunk.js';
-import '../../../core/ui/utilities/utilities-update-gate.chunk.js';
-import '../../../core/ui/shell/mp-legal/mp-legal.js';
-import '../../../core/ui/events/shell-events.chunk.js';
-import '../../../core/ui/navigation-tray/model-navigation-tray.chunk.js';
-import '../../../core/ui/utilities/utilities-image.chunk.js';
-import '../../../core/ui/utilities/utilities-dom.chunk.js';
-import '../../../core/ui/utilities/utilities-liveops.js';
-import '../../../core/ui/utilities/utilities-network-constants.chunk.js';
-import '../utilities/utilities-overlay.chunk.js';
+import { UnitMapDecorationSupport } from '../interface-modes/support-unit-map-decoration.js';
 
 class WorldInputSingleton {
   selectedPlot = null;
@@ -110,7 +96,7 @@ class WorldInputSingleton {
   }
   trySelectPlot(isOnUI) {
     const coord = PlotCursor.plotCursorCoords;
-    if (isOnUI || coord == null || !FocusManager.isWorldFocused() && InterfaceMode.isInInterfaceMode("INTERFACEMODE_DEFAULT")) {
+    if (isOnUI || coord == null || !FocusManager.get().isWorldFocused() && InterfaceMode.isInInterfaceMode("INTERFACEMODE_DEFAULT")) {
       console.log(`World Input: Fail because isOnUI (${isOnUI}), plot (${PlotCursor.plotCursorCoords == null}) `);
       return true;
     }

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+	<Modifier id="MOD_EX_RELIC_REDUX" collection="COLLECTION_OWNER" effect="EFFECT_GRANT_GREAT_WORK" run-once="true" permanent="true">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_IS_MAJOR"/>
+			<Requirement type="REQUIREMENT_PLAYER_HAS_CIVILIZATION_OR_LEADER_TRAIT" inverse="true">
+				<Argument name="TraitType">TRAIT_ASSYRIA</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">1</Argument>
+		<Argument name="ObjectType">GREATWORKOBJECT_RELIC</Argument>
+		<String context="Description">LOC_MOD_EXPLORATION_RELIC_DESCRIPTION</String>
+	</Modifier>
+</GameEffects>

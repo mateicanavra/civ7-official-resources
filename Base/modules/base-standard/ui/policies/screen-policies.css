@@ -1,9 +1,3 @@
-.screen-policies {
-  top: 2.2222222222rem;
-  bottom: 1.5555555556rem;
-  left: 10.5555555556rem;
-  right: 10.5555555556rem;
-}
 @media (max-height: 55.5555555556rem), (experience: mobile) {
   .screen-policies {
     top: 0;
@@ -14,8 +8,8 @@
 }
 @media (max-aspect-ratio: 3/2) {
   .screen-policies {
-    left: 0.2777777778rem;
     right: 0.2777777778rem;
+    left: 0.2777777778rem;
   }
 }
 @media (experience: mobile) {
@@ -25,82 +19,194 @@
   }
 }
 
-.policy-chooser-element {
-  width: 16.6666666667rem;
-  border-image-slice: 45 84 fill;
-  border-image-width: 2.5rem 4.6666666667rem;
-  border-image-outset: 2.3333333333rem 3.1666666667rem;
+#policies-screen {
+  margin-bottom: 0rem;
+}
+
+.policy-base-card, .empty-base-card {
+  min-height: 6.1111111111rem;
+  width: 20.6666666667rem;
 }
 @media (experience: mobile) {
-  .policy-chooser-element {
+  .policy-base-card, .empty-base-card {
     width: 90%;
     height: 8.3333333333rem;
     max-height: 8.3333333333rem;
   }
 }
-@media (max-height: 55.5555555556rem) {
-  .policy-chooser-element {
-    flex-grow: 1;
+@media (max-height: 55.5555555556rem), (max-aspect-ratio: 4/3) {
+  .policy-base-card, .empty-base-card {
+    width: 90%;
   }
 }
-.policy-chooser-element .normal-bg {
-  opacity: 1;
-}
-.policy-chooser-element .glow-bg {
-  opacity: 0;
-}
-.policy-chooser-element:hover .glow-bg, .policy-chooser-element:focus .glow-bg, .policy-chooser-element.pressed .glow-bg {
-  opacity: 1;
-}
-.policy-chooser-element:hover .normal-bg, .policy-chooser-element:focus .normal-bg, .policy-chooser-element.pressed .normal-bg {
-  opacity: 0;
+@media (max-width: 94.4444444444rem) {
+  .policy-base-card, .empty-base-card {
+    width: 90%;
+  }
 }
 
+.gov-overview {
+  width: 20rem;
+}
 @media (experience: mobile) {
-  .policies-open-slot-wide_container {
-    width: 98%;
+  .gov-overview {
+    width: 90%;
     height: 8.3333333333rem;
     max-height: 8.3333333333rem;
   }
 }
-
-.policy-chooser-element__normal {
-  border-image-source: url("blp:rect_card_idle");
+@media (max-height: 55.5555555556rem), (max-aspect-ratio: 4/3) {
+  .gov-overview {
+    width: 90%;
+  }
+}
+@media (max-width: 94.4444444444rem) {
+  .gov-overview {
+    width: 90%;
+  }
 }
 
-.policy-chooser-element__normal-glow {
-  border-image-source: url("blp:rect_card_idle_hover");
+.policies-2-col {
+  width: 44.4444444444rem;
+}
+@media (max-height: 55.5555555556rem), (max-aspect-ratio: 4/3) {
+  .policies-2-col {
+    width: 90%;
+  }
+}
+@media (max-width: 94.4444444444rem) {
+  .policies-2-col {
+    width: 90%;
+  }
 }
 
-.policy-chooser-element__crisis {
-  border-image-source: url("blp:rect_crisis_idle");
+.policy-card-icon {
+  height: 2.1111111111rem;
+  width: 2.1111111111rem;
 }
 
-.policy-chooser-element__crisis-glow {
-  border-image-source: url("blp:rect_crisis_hover");
+.policies-focus-icon-scale {
+  transform: scale(1.1);
+  transform-origin: 0% 55%;
 }
 
-.policy-chooser-element__normal-placeable {
-  border-image-source: url("blp:rect_card_placeable");
+.policy-card-icon-backer {
+  height: 2.7777777778rem;
+  width: 2.7777777778rem;
 }
 
-.policy-chooser-element__normal-placeable-glow {
-  border-image-source: url("blp:rect_card_placeable_hover");
+.tradition-civ-icon {
+  height: 1.4444444444rem;
+  width: 1.4444444444rem;
 }
 
-.policy-chooser-element__crisis-placeable {
-  border-image-source: url("blp:rect_crisis_placeable");
+.policy-card-bg-image {
+  mask-image: linear-gradient(to left, rgb(0, 0, 0), rgba(0, 0, 0, 0.25));
+  opacity: 0.35;
 }
 
-.policy-chooser-element__crisis-placeable-glow {
-  border-image-source: url("blp:rect_crisis_hover_placeable");
+.policy-base-bg {
+  border: solid 0.1111111111rem #5E7094;
+  background: linear-gradient(to right, #11283D, #09131D);
+}
+.policy-base-bg:hover, .policy-base-bg:focus, .policy-base-bg.focused, .policy-base-bg.pressed {
+  border: solid 0.1111111111rem #B7C1D5;
+  background: linear-gradient(to right, #1D3C59, #0E1E2C);
+  border-image-source: url("blp:rollover_highlight");
+  border-image-slice: 30 fill;
+  border-image-width: 1.6666666667rem;
+}
+.policy-base-bg:hover .policy-card-tint, .policy-base-bg:focus .policy-card-tint, .policy-base-bg.focused .policy-card-tint, .policy-base-bg.pressed .policy-card-tint {
+  filter: fxs-color-mask(#B7C1D5);
 }
 
-.card-bg {
-  transition: opacity 0.25s cubic-bezier(0.215, 0.61, 0.355, 1);
+.tradition-base-bg {
+  border: solid 0.1111111111rem #918365;
+  background: linear-gradient(to right, #5C3F13, #1d1809);
+}
+.tradition-base-bg:hover, .tradition-base-bg:focus, .tradition-base-bg.focused, .tradition-base-bg.pressed {
+  border: solid 0.1111111111rem #F0E5CE;
+  border-image-source: url("blp:rollover_highlight");
+  border-image-slice: 30 fill;
+  border-image-width: 1.6666666667rem;
+}
+.tradition-base-bg:hover .policy-card-bg-image, .tradition-base-bg:focus .policy-card-bg-image, .tradition-base-bg.focused .policy-card-bg-image, .tradition-base-bg.pressed .policy-card-bg-image {
+  opacity: 0.85;
+}
+.tradition-base-bg:hover .tradition-card-tint, .tradition-base-bg:focus .tradition-card-tint, .tradition-base-bg.focused .tradition-card-tint, .tradition-base-bg.pressed .tradition-card-tint {
+  filter: fxs-color-mask(#F0E5CE);
+}
+
+.crisis-base-bg {
+  background-color: #1b0707;
+  border: solid 0.1111111111rem #583838;
+}
+.crisis-base-bg:hover, .crisis-base-bg:focus, .crisis-base-bg.focused, .crisis-base-bg.pressed {
+  border: solid 0.1111111111rem #f3b6b4;
+  border-image-source: url("blp:rollover_highlight");
+  border-image-slice: 30 fill;
+  border-image-width: 1.6666666667rem;
+  background-color: #461111;
+}
+
+.empty-base-bg {
+  border: solid 0.1111111111rem rgba(176, 173, 173, 0.4);
+}
+
+.empty-base-bg-highlight {
+  border: solid 0.1111111111rem rgba(155, 153, 153, 0.75);
+}
+
+.policy-slot-bg {
+  background-color: rgba(33, 88, 216, 0.05);
+}
+
+.tradition-slot-bg {
+  background-color: rgba(216, 144, 33, 0.08);
+}
+
+.policies-text-color {
+  color: #84A0DB;
+}
+
+.crisis-text-color {
+  color: #dd5151;
+}
+
+.policy-card-tint {
+  filter: fxs-color-mask(#5E7094);
+}
+
+.tradition-card-tint {
+  filter: fxs-color-mask(#918365);
+}
+
+.crisis-card-tint {
+  filter: fxs-color-mask(#993232);
+}
+
+.empty-card-tint {
+  filter: fxs-color-mask(#D9D9D9);
+}
+
+.new-dot-tint {
+  filter: fxs-color-tint(#2ff12f);
+}
+
+.policy-dark-backer {
+  filter: fxs-color-mask(#1e1e25);
+}
+
+.policy-card-frame {
+  border-image-source: url("blp:frame_policy_tradition");
+  border-image-slice: 12 8 fill;
+  border-image-width: 0.6666666667rem 0.4444444444rem;
+}
+
+.policy-card-bg {
+  border-image-outset: 2.3333333333rem 3.1666666667rem;
   border-image-slice: 45 84 fill;
   border-image-width: 2.5rem 4.6666666667rem;
-  border-image-outset: 2.3333333333rem 3.1666666667rem;
 }
 
 .crisis-image {
@@ -111,36 +217,20 @@
   background-image: url("blp:govt_tradition_badge");
 }
 
-.communism-image {
-  background-image: url("blp:govt_mini_comm");
-}
-
-.democracy-image {
-  background-image: url("blp:govt_mini_demo");
-}
-
-.fascism-image {
-  background-image: url("blp:govt_idea_faci");
-}
-
 .policies__crisis-progress-bar-inner {
   background-image: url("blp:govt_crisis_progress_fill");
 }
 
-@media (experience: mobile) {
-  .policies__crisis-age-begins {
-    min-width: 8.8888888889rem;
-    max-width: 8.8888888889rem;
-    left: -0.2222222222rem;
-  }
+.policies__overview-happiness-meter-image {
+  background-image: url("blp:celeb_happiness_icon");
 }
 
-.policies-open-slot-normal {
-  border-image-source: url("blp:rect_card_empty");
+.policies__overview-happiness-meter-circle {
+  background-image: url("blp:hud_sub_circle_bk");
 }
 
-.policies-open-slot-crisis {
-  border-image-source: url("blp:rect_crisis_empty");
+.policy-grayscale {
+  filter: grayscale(1);
 }
 
 @media (experience: mobile) {
@@ -150,35 +240,41 @@
 }
 
 @media (experience: mobile) {
+  .policies__crisis-age-begins {
+    left: -0.2222222222rem;
+    min-width: 8.8888888889rem;
+    max-width: 8.8888888889rem;
+  }
+}
+
+.crisis-bar-pulse {
+  background: linear-gradient(90deg, rgba(255, 0, 0, 0.05) 0%, rgba(255, 0, 0, 0.25) 100%);
+  background-size: 400% 400%;
+  animation: crisisBarPulse 3s ease infinite;
+}
+
+@keyframes crisisBarPulse {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@media (experience: mobile) {
   .policies__overview-gov-desc {
     text-align: center;
   }
 }
 
-.policies__overview-happiness-meter-image {
-  background-image: url("blp:celeb_happiness_icon");
-}
-
-.policies__overview-happiness-meter .fxs-ring-meter__ring-left,
-.policies__overview-happiness-meter .fxs-ring-meter__ring-right {
-  background-image: url("blp:govt_happ_circle_rad");
-}
-
-.policies__overview-happiness-meter-circle {
-  background-image: url("blp:hud_sub_circle_bk");
-}
-
-.policies-swap-arrow {
-  background-image: url("blp:govt_switch_arrows");
-}
-
 .policies__overview-xy-container {
-  background: linear-gradient(0deg, #23252b 0%, #12151f 100%);
-  border-image: linear-gradient(0deg, #4c473d 0%, #8c7e62 100%);
-  border-width: 0.0555555556rem;
-  border-style: solid;
-  border-image-slice: 1;
-  z-index: 2;
+  border-image: url("blp:mp_timer_bk");
+  border-image-slice: 30 20 fill;
+  border-image-width: 1.6666666667rem 1.1111111111rem;
+  border-image-outset: 0.8333333333rem 0.5555555556rem;
 }
 
 .policies__crisis-progress-bar {
@@ -190,27 +286,18 @@
   }
 }
 
-.policies-column {
-  width: 48%;
-}
-
 .policies__overview-government-divider {
   border-image: url("blp:shell_line-divider");
   border-image-slice: 1 0 1 1 fill;
   border-image-width: 1 1 1 1;
 }
 
-.policies-open-slot-wide_half-bg {
-  border-image-source: url("blp:rect_card_empty_half");
-  border-image-slice: 64 45 64 90 fill;
-  border-image-width: 3.5555555556rem 2.5rem 3.5555555556rem 5rem;
-  border-image-outset: 2.2222222222rem 0rem 2.2222222222rem 3.0555555556rem;
-}
-
-.policy-card-body-text p {
-  text-align: center;
-}
-
 .policies__tab-bar {
-  width: 66.6666666667rem;
+  min-height: 3rem;
+}
+@media (max-height: 55.5555555556rem) {
+  .policies__tab-bar {
+    height: 2.7777777778rem;
+    margin-bottom: 0.6666666667rem;
+  }
 }

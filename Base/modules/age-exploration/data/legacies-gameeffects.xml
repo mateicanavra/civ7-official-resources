@@ -1,0 +1,750 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects>
+	<!-- ==================================================	-->
+	<!--				Legacy Modifiers					-->
+	<!-- ==================================================	-->
+	<!-- CULTURAL -->
+	<Modifier id="MOD_LEGACY_EX_CULTURAL_1" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_UNLOCK" permanent="true">
+		<Argument name="Unlock">UNLOCK_EX_CULTURAL_1</Argument>
+	</Modifier>
+	<Modifier id="MOD_LEGACY_EX_CULTURAL_2" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_UNLOCK" permanent="true">
+		<Argument name="Unlock">UNLOCK_EX_CULTURAL_2</Argument>
+	</Modifier>
+	<Modifier id="MOD_LEGACY_EX_CULTURAL_3" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_UNLOCK" permanent="true">
+		<Argument name="Unlock">UNLOCK_EX_CULTURAL_3</Argument>
+	</Modifier>
+	<Modifier id="MOD_LEGACY_EX_CULTURAL_4" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_UNLOCK">
+		<Argument name="Unlock">UNLOCK_EX_CULTURAL_4</Argument>
+	</Modifier>
+	<Modifier id="MOD_LEGACY_EX_CULTURAL_5" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_VICTORY_TRACKER_POINTS" permanent="true">
+		<Argument name="VictoryType">VICTORY_CULTURE_MODERN</Argument>
+		<Argument name="Points">36</Argument>
+		<Argument name="ItemName">LOC_LEGACY_EX_CULTURAL_5_NAME</Argument>
+		<Argument name="Description">LOC_LEGACY_EX_CULTURAL_5_TRIGGER_DESCRIPTION</Argument>
+		<Argument name="TypeData">TRIUMPH</Argument>
+	</Modifier>
+	<!-- DIPLOMATIC -->
+	<Modifier id="MOD_LEGACY_EX_DIPLOMATIC_1" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_UNLOCK" permanent="true">
+		<Argument name="Unlock">UNLOCK_EX_DIPLOMATIC_1</Argument>
+	</Modifier>
+	<Modifier id="MOD_LEGACY_EX_DIPLOMATIC_2" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_UNLOCK" permanent="true">
+		<Argument name="Unlock">UNLOCK_EX_DIPLOMATIC_2</Argument>
+	</Modifier>
+	<Modifier id="MOD_LEGACY_EX_DIPLOMATIC_3" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_UNLOCK" permanent="true">
+		<Argument name="Unlock">UNLOCK_EX_DIPLOMATIC_3</Argument>
+	</Modifier>
+	<Modifier id="MOD_LEGACY_EX_DIPLOMATIC_4" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_TRADITION_SLOTS" permanent="true" run-once="true">
+		<Argument name="Amount">1</Argument>
+		<Argument name="SlotType">POLICY_CULTURE_SLOT</Argument>
+	</Modifier>
+	<Modifier id="MOD_LEGACY_EX_DIPLOMATIC_5" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_TRADITION_SLOTS" permanent="true" run-once="true">
+		<Argument name="Amount">1</Argument>
+		<Argument name="SlotType">TRADITION_CULTURE_SLOT</Argument>
+	</Modifier>
+	<!-- ECONOMIC -->
+	<Modifier id="MOD_LEGACY_EX_ECONOMIC_1" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_UNLOCK" permanent="true">
+		<Argument name="Unlock">UNLOCK_EX_ECONOMIC_1</Argument>
+	</Modifier>
+	<Modifier id="MOD_LEGACY_EX_ECONOMIC_2" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_UNLOCK" permanent="true">
+		<Argument name="Unlock">UNLOCK_EX_ECONOMIC_2</Argument>
+	</Modifier>
+	<Modifier id="MOD_LEGACY_EX_ECONOMIC_3" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_UNLOCK" permanent="true">
+		<Argument name="Unlock">UNLOCK_EX_ECONOMIC_3</Argument>
+	</Modifier>
+	<Modifier id="MOD_LEGACY_EX_ECONOMIC_4" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_VICTORY_TRACKER_POINTS" permanent="true" run-once="true">
+		<Argument name="VictoryType">VICTORY_ECONOMIC_MODERN</Argument>
+		<Argument name="Points">500</Argument>
+		<Argument name="ItemName">LOC_LEGACY_EX_ECONOMIC_4_NAME</Argument>
+		<Argument name="TypeData">TRIUMPH</Argument>
+		<Argument name="Description">LOC_LEGACY_EX_ECONOMIC_4_TRIGGER_DESCRIPTION</Argument>
+	</Modifier>
+	<Modifier id="MOD_LEGACY_EX_ECONOMIC_5" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_UNLOCK" permanent="true">
+		<Argument name="Unlock">UNLOCK_EX_ECONOMIC_5</Argument>
+	</Modifier>
+	<!-- EXPANSIONIST -->
+	<Modifier id="MOD_LEGACY_EX_EXPANSIONIST_1" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_UNLOCK" permanent="true">
+		<Argument name="Unlock">UNLOCK_EX_EXPANSIONIST_1</Argument>
+	</Modifier>
+	<Modifier id="MOD_LEGACY_EX_EXPANSIONIST_2" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_SETTLEMENT_CAP" permanent="true">
+		<Argument name="Amount">2</Argument>
+	</Modifier>
+	<Modifier id="MOD_LEGACY_EX_EXPANSIONIST_3" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_UNLOCK" permanent="true">
+		<Argument name="Unlock">UNLOCK_EX_EXPANSIONIST_3</Argument>
+	</Modifier>
+	<Modifier id="MOD_LEGACY_EX_EXPANSIONIST_4" collection="COLLECTION_PLAYER_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_HAS_APPEAL">
+				<Argument name="UseAppealDoubleHappinessThreshold">true</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_FOOD</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Tooltip">LOC_LEGACY_EX_EXPANSIONIST_4_NAME</Argument>
+		<String context="Description">LOC_LEGACY_EX_EXPANSIONIST_4_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="MOD_LEGACY_EX_EXPANSIONIST_5" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_MOVEMENT">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_DOMAIN_MATCHES">
+				<Argument name="UnitDomain">DOMAIN_SEA</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_UNIT_TYPE_MATCHES">
+				<Argument name="UnitType">UNIT_FLEET_COMMANDER</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">1</Argument>
+	</Modifier>
+	<!-- MILITARISTIC -->
+	<Modifier id="MOD_LEGACY_EX_MILITARISTIC_1" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_UNLOCK" permanent="true">
+		<Argument name="Unlock">UNLOCK_EX_MILITARISTIC_1</Argument>
+	</Modifier>
+	<Modifier id="MOD_LEGACY_EX_MILITARISTIC_2" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_UNLOCK" permanent="true">
+		<Argument name="Unlock">UNLOCK_EX_MILITARISTIC_2</Argument>
+	</Modifier>
+	<Modifier id="MOD_LEGACY_EX_MILITARISTIC_3" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_UNLOCK" permanent="true">
+		<Argument name="Unlock">UNLOCK_EX_MILITARISTIC_3</Argument>
+	</Modifier>
+	<Modifier id="MOD_LEGACY_EX_MILITARISTIC_4" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_VICTORY_TRACKER_POINTS" permanent="true" run-once="true">
+		<Argument name="VictoryType">VICTORY_MILITARY_MODERN</Argument>
+		<Argument name="Points">4</Argument>
+		<Argument name="ItemName">LOC_LEGACY_EX_MILITARISTIC_4_NAME</Argument>
+		<Argument name="TypeData">TRIUMPH</Argument>
+		<Argument name="Description">LOC_LEGACY_EX_MILITARISTIC_4_TRIGGER_DESCRIPTION</Argument>
+	</Modifier>
+	<Modifier id="MOD_LEGACY_EX_MILITARISTIC_5" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_UNLOCK" permanent="true">
+		<Argument name="Unlock">UNLOCK_EX_MILITARISTIC_5</Argument>
+	</Modifier>
+	<!-- SCIENTIFIC -->
+	<Modifier id="MOD_LEGACY_EX_SCIENTIFIC_1" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_PLAYER_GRANT_UNLOCK" permanent="true">
+		<Argument name="Unlock">UNLOCK_EX_SCIENTIFIC_1</Argument>
+	</Modifier>
+	<Modifier id="MOD_LEGACY_EX_SCIENTIFIC_2" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_UNLOCK" permanent="true">
+		<Argument name="Unlock">UNLOCK_EX_SCIENTIFIC_2</Argument>
+	</Modifier>
+	<Modifier id="MOD_LEGACY_EX_SCIENTIFIC_3" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_MOVEMENT">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_CLASS_MATCHES">
+				<Argument name="UnitClass">UNIT_CLASS_NAVAL</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">1</Argument>
+	</Modifier>
+	<Modifier id="MOD_LEGACY_EX_SCIENTIFIC_4" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_UNLOCK">
+		<Argument name="Unlock">UNLOCK_EX_SCIENTIFIC_4</Argument>
+	</Modifier>
+	<Modifier id="MOD_LEGACY_EX_SCIENTIFIC_5" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_POPULATION" permanent="true">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_CITY"/>
+		</SubjectRequirements>
+		<Argument name="Amount">1</Argument>
+	</Modifier>
+	<!--CRISIS-->
+	<Modifier id="MOD_LEGACY_EX_RELIGION_CRISIS_1" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_UNLOCK" permanent="true">
+		<Argument name="Unlock">UNLOCK_RELIGION_TOLERANCE</Argument>
+	</Modifier>
+	<Modifier id="MOD_LEGACY_EX_RELIGION_CRISIS_2" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_UNLOCK" permanent="true">
+		<Argument name="Unlock">UNLOCK_RELIGION_WESTPHALIAN_SOVEREIGNTY</Argument>
+	</Modifier>
+	<Modifier id="MOD_LEGACY_EX_REVOLUTION_CRISIS_1" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_UNLOCK" permanent="true">
+		<Argument name="Unlock">UNLOCK_REVOLUTION_SPECIALISTS</Argument>
+	</Modifier>
+	<Modifier id="MOD_LEGACY_EX_REVOLUTION_CRISIS_2" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_UNLOCK" permanent="true">
+		<Argument name="Unlock">UNLOCK_REVOLUTION_WAR_SUPPORT</Argument>
+	</Modifier>
+	<Modifier id="MOD_LEGACY_EX_REVOLUTION_CRISIS_3" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_UNLOCK" permanent="true">
+		<Argument name="Unlock">UNLOCK_REVOLUTION_ALLIES</Argument>
+	</Modifier>
+	<Modifier id="MOD_LEGACY_EX_PLAGUE_CRISIS_1" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_UNLOCK" permanent="true">
+		<Argument name="Unlock">UNLOCK_EX_PLAGUE_EARLY_INDUSTRIALIZATION</Argument>
+	</Modifier>
+	<Modifier id="MOD_LEGACY_EX_PLAGUE_CRISIS_2" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_UNLOCK" permanent="true">
+		<Argument name="Unlock">UNLOCK_EX_PLAGUE_CONTAGION_THEORY</Argument>
+	</Modifier>
+	<!--CONQUEROR-->
+	<Modifier id="MOD_LEGACY_EX_CONQUEROR_1" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_VICTORY_TRACKER_POINTS" permanent="true" run-once="true">
+		<Argument name="VictoryType">VICTORY_ECONOMIC_MODERN</Argument>
+		<Argument name="Points">300</Argument>
+		<Argument name="ItemName">LOC_LEGACY_EX_CONQUEROR_1_NAME</Argument>
+		<Argument name="TypeData">TRIUMPH</Argument>
+		<Argument name="Description">LOC_LEGACY_EX_CONQUEROR_1_TRIGGER_DESCRIPTION</Argument>
+	</Modifier>
+	<Modifier id="MOD_LEGACY_EX_CONQUEROR_2" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_ADJUST_DIPLOMATIC_ACTION_TYPE_EFFICIENCY" permanent="true">
+		<Argument name="ActionType">DIPLOMACY_ACTION_CS_LEVY_UNIT</Argument>
+		<Argument name="Percent">100</Argument>
+	</Modifier>
+	<Modifier id="MOD_LEGACY_EX_CONQUEROR_3" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_UNLOCK" permanent="true">
+		<Argument name="Unlock">UNLOCK_EX_CONQUEROR_3</Argument>
+	</Modifier>
+	<Modifier id="MOD_LEGACY_EX_CONQUEROR_4" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_UNLOCK" permanent="true">
+		<Argument name="Unlock">UNLOCK_AQ_CONQUEROR_4</Argument>
+	</Modifier>
+	<!--EXPLORER-->
+	<Modifier id="MOD_LEGACY_EX_EXPLORER_1" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_HEAL_PER_TURN">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_CLASS_MATCHES">
+				<Argument name="UnitClass">UNIT_CLASS_NAVAL</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">10</Argument>
+	</Modifier>
+	<Modifier id="MOD_LEGACY_EX_EXPLORER_2" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_UNLOCK" permanent="true">
+		<Argument name="Unlock">UNLOCK_EX_EXPLORER_2</Argument>
+	</Modifier>
+	<Modifier id="MOD_LEGACY_EX_EXPLORER_3" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_GRANT_UNIT" run-once="true" permanent="true">
+		<Argument name="UnitType">UNIT_SETTLER</Argument>
+		<Argument name="AllowUniqueOverride">true</Argument>
+		<Argument name="Amount">2</Argument>
+	</Modifier>
+	<!-- ==================================================	-->
+	<!--Modifiers to Activate Crisis Legacies			-->
+	<!-- ==================================================	-->
+	<Modifier id="MOD_EX_RELIGION_CRISIS_1_ADD_TRIUMPH" collection="COLLECTION_MAJOR_PLAYERS" effect="EFFECT_ATTACH_MODIFIERS">
+		<Argument name="ModifierId">ATTACH_EX_RELIGION_CRISIS_1</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_EX_RELIGION_CRISIS_1" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADD_LEGACY">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_NARRATIVE_TAGS">
+				<Argument name="NarrativeTagType">NARRATIVE_TAG_CRISIS_EXPLORATION_LOYALTY</Argument>
+				<Argument name="Amount">1</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="LegacyType">LEGACY_EX_RELIGION_CRISIS_1</Argument>
+	</Modifier>
+	<Modifier id="MOD_EX_RELIGION_CRISIS_2_ADD_TRIUMPH" collection="COLLECTION_MAJOR_PLAYERS" effect="EFFECT_ATTACH_MODIFIERS">
+		<Argument name="ModifierId">ATTACH_EX_RELIGION_CRISIS_2</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_EX_RELIGION_CRISIS_2" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADD_LEGACY">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_NARRATIVE_TAGS">
+				<Argument name="NarrativeTagType">NARRATIVE_TAG_CRISIS_EXPLORATION_LOYALTY</Argument>
+				<Argument name="Amount">1</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="LegacyType">LEGACY_EX_RELIGION_CRISIS_2</Argument>
+	</Modifier>
+	<Modifier id="MOD_EX_REVOLUTION_CRISIS_1_ADD_TRIUMPH" collection="COLLECTION_MAJOR_PLAYERS" effect="EFFECT_ATTACH_MODIFIERS">
+		<Argument name="ModifierId">ATTACH_EX_REVOLUTION_CRISIS_1</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_EX_REVOLUTION_CRISIS_1" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADD_LEGACY">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_NARRATIVE_TAGS">
+				<Argument name="NarrativeTagType">NARRATIVE_TAG_CRISIS_REVOLUTION</Argument>
+				<Argument name="Amount">1</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="LegacyType">LEGACY_EX_REVOLUTION_CRISIS_1</Argument>
+	</Modifier>
+	<Modifier id="MOD_EX_REVOLUTION_CRISIS_2_ADD_TRIUMPH" collection="COLLECTION_MAJOR_PLAYERS" effect="EFFECT_ATTACH_MODIFIERS">
+		<Argument name="ModifierId">ATTACH_EX_REVOLUTION_CRISIS_2</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_EX_REVOLUTION_CRISIS_2" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADD_LEGACY">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_NARRATIVE_TAGS">
+				<Argument name="NarrativeTagType">NARRATIVE_TAG_CRISIS_REVOLUTION</Argument>
+				<Argument name="Amount">1</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="LegacyType">LEGACY_EX_REVOLUTION_CRISIS_2</Argument>
+	</Modifier>
+	<Modifier id="MOD_EX_REVOLUTION_CRISIS_3_ADD_TRIUMPH" collection="COLLECTION_MAJOR_PLAYERS" effect="EFFECT_ATTACH_MODIFIERS">
+		<Argument name="ModifierId">ATTACH_EX_REVOLUTION_CRISIS_3</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_EX_REVOLUTION_CRISIS_3" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADD_LEGACY">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_NARRATIVE_TAGS">
+				<Argument name="NarrativeTagType">NARRATIVE_TAG_CRISIS_REVOLUTION</Argument>
+				<Argument name="Amount">1</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="LegacyType">LEGACY_EX_REVOLUTION_CRISIS_3</Argument>
+	</Modifier>
+	<Modifier id="MOD_EX_PLAGUE_CRISIS_1_ADD_TRIUMPH" collection="COLLECTION_MAJOR_PLAYERS" effect="EFFECT_ATTACH_MODIFIERS">
+		<Argument name="ModifierId">ATTACH_EX_PLAGUE_CRISIS_1</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_EX_PLAGUE_CRISIS_1" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADD_LEGACY">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_NARRATIVE_TAGS">
+				<Argument name="NarrativeTagType">NARRATIVE_TAG_CRISIS_EXPLORATION_PLAGUE</Argument>
+				<Argument name="Amount">1</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="LegacyType">LEGACY_EX_PLAGUE_CRISIS_1</Argument>
+	</Modifier>
+	<Modifier id="MOD_EX_PLAGUE_CRISIS_2_ADD_TRIUMPH" collection="COLLECTION_MAJOR_PLAYERS" effect="EFFECT_ATTACH_MODIFIERS">
+		<Argument name="ModifierId">ATTACH_EX_PLAGUE_CRISIS_2</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_EX_PLAGUE_CRISIS_2" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADD_LEGACY">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_NARRATIVE_TAGS">
+				<Argument name="NarrativeTagType">NARRATIVE_TAG_CRISIS_EXPLORATION_PLAGUE</Argument>
+				<Argument name="Amount">1</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="LegacyType">LEGACY_EX_PLAGUE_CRISIS_2</Argument>
+	</Modifier>
+	<!-- ==================================================	-->
+	<!--					Requirements					-->
+	<!-- ==================================================	-->
+	<!-- CULTURAL -->
+	<RequirementSet id="REQSET_LEGACY_EX_CULTURAL_1">
+		<Requirement type="REQUIREMENT_PLAYER_HAS_X_GREAT_WORKS">
+			<Argument name="ObjectType">GREATWORKOBJECT_RELIC</Argument>
+			<Argument name="IncludeArchived">False</Argument>
+			<Argument name="Count">20</Argument>
+		</Requirement>
+	</RequirementSet>
+	<RequirementSet id="REQSET_LEGACY_EX_CULTURAL_2">
+		<Requirement type="REQUIREMENT_PLAYER_HAS_X_WONDERS">
+			<Argument name="Count">6</Argument>
+			<Argument name="RequiresCurrentAge">true</Argument>
+			<Argument name="OriginalConstructor">true</Argument>
+		</Requirement>
+	</RequirementSet>
+	<RequirementSet id="REQSET_LEGACY_EX_CULTURAL_3">
+		<Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_BUILDINGS">
+			<Argument name="BuildingType">BUILDING_TEMPLE</Argument>
+			<Argument name="Amount">8</Argument>
+		</Requirement>
+	</RequirementSet>
+	<RequirementSet id="REQSET_LEGACY_EX_CULTURAL_4">
+		<Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_BUILDINGS">
+			<Argument name="BuildingTag">INNOVATION</Argument>
+			<Argument name="Amount">2</Argument>
+		</Requirement>
+	</RequirementSet>
+	<RequirementSet id="REQSET_LEGACY_EX_CULTURAL_5">
+		<Requirement type="REQUIREMENT_PLAYER_HAS_CONVERTED_X_SETTLEMENTS">
+			<Argument name="Amount">25</Argument>
+		</Requirement>
+	</RequirementSet>
+	<!-- DIPLOMATIC -->
+	<RequirementSet id="REQSET_LEGACY_EX_DIPLOMATIC_1">
+		<Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_TRIBUTARIES">
+			<Argument name="Amount">5</Argument>
+		</Requirement>
+	</RequirementSet>
+	<RequirementSet id="REQSET_LEGACY_EX_DIPLOMATIC_2">
+		<Requirement type="REQUIREMENT_PLAYER_HAS_COMPLETED_X_ESPIONAGE_ACTIONS">
+			<Argument name="Amount">10</Argument>
+			<Argument name="Undetected">false</Argument>
+		</Requirement>
+	</RequirementSet>
+	<RequirementSet id="REQSET_LEGACY_EX_DIPLOMATIC_3">
+		<Requirement type="REQUIREMENT_PLAYER_HAS_X_ALLIANCES">
+			<Argument name="Amount">3</Argument>
+		</Requirement>
+	</RequirementSet>
+	<RequirementSet id="REQSET_LEGACY_EX_DIPLOMATIC_4">
+		<Requirement type="REQUIREMENT_PLAYER_DIPLOMACY_ENGAGED_WITH_X_CIVS">
+			<Argument name="WithAll">true</Argument>
+		</Requirement>
+	</RequirementSet>
+	<RequirementSet id="REQSET_LEGACY_EX_DIPLOMATIC_5">
+		<Requirement type="REQUIREMENT_CITY_HAPPINESS">
+			<Argument name="MinSurplusHappiness">150</Argument>
+			<Argument name="Unhappy">false</Argument>
+		</Requirement>
+	</RequirementSet>
+	<!-- ECONOMIC -->
+	<RequirementSet id="REQSET_LEGACY_EX_ECONOMIC_1">
+		<Requirement type="REQUIREMENT_PLAYER_HAS_NUM_RESOURCES_ASSIGNED">
+			<Argument name="Amount">45</Argument>
+		</Requirement>
+	</RequirementSet>
+	<RequirementSet id="REQSET_LEGACY_EX_ECONOMIC_2">
+		<Requirement type="REQUIREMENT_PLAYER_HAS_X_VICTORY_POINTS_FROM_TRACKER">
+			<Argument name="VPNeeded">800</Argument>
+			<Argument name="VictoryTrackerType">VICTORY_TRACKER_UNIT_DISBAND</Argument>
+			<Argument name="ScoringID">VICTORY_TRACKER_TREASURE_RESOURCES</Argument>
+		</Requirement>
+	</RequirementSet>
+	<RequirementSet id="REQSET_LEGACY_EX_ECONOMIC_3">
+		<Requirement type="REQUIREMENT_PLAYER_TRADES_WITH_X_PLAYERS">
+			<Argument name="Percent">100</Argument>
+		</Requirement>
+	</RequirementSet>
+	<RequirementSet id="REQSET_LEGACY_EX_ECONOMIC_4">
+		<Requirement type="REQUIREMENT_PLAYER_SPENT_X_GOLD">
+			<Argument name="GoldSpentThreshold">50000</Argument>
+		</Requirement>
+	</RequirementSet>
+	<RequirementSet id="REQSET_LEGACY_EX_ECONOMIC_5">
+		<Requirement type="REQUIREMENT_PLAYER_DISBANDED_UNIT_WORTH_X_AMOUNT">
+			<Argument name="Amount">10</Argument>
+		</Requirement>
+	</RequirementSet>
+	<!-- EXPANSIONIST -->
+	<RequirementSet id="REQSET_LEGACY_EX_EXPANSIONIST_1">
+		<Requirement type="REQUIREMENT_PLAYER_HAS_X_SETTLEMENTS">
+			<Argument name="CountPerConqueredSettlement">0</Argument>
+			<Argument name="CountPerOwnSettlement">1</Argument>
+			<Argument name="OnlyDistantlands">true</Argument>
+			<Argument name="RequiredCount">6</Argument>
+		</Requirement>
+	</RequirementSet>
+	<RequirementSet id="REQSET_LEGACY_EX_EXPANSIONIST_2">
+		<Requirement type="REQUIREMENT_PLAYER_HAS_X_SETTLEMENTS">
+			<Argument name="CountPerConqueredSettlement">0</Argument>
+			<Argument name="CountPerOwnSettlement">1</Argument>
+			<Argument name="OnlyHomelands">true</Argument>
+			<Argument name="RequiredCount">16</Argument>
+		</Requirement>
+	</RequirementSet>
+	<RequirementSet id="REQSET_LEGACY_EX_EXPANSIONIST_3">
+		<Requirement type="REQUIREMENT_PLAYER_TOTAL_POPULATION">
+			<Argument name="Amount">350</Argument>
+		</Requirement>
+	</RequirementSet>
+	<RequirementSet id="REQSET_LEGACY_EX_EXPANSIONIST_4">
+		<Requirement type="REQUIREMENT_PLAYER_DISCOVERED_X_NATURAL_WONDERS">
+			<Argument name="PercentageThreshold">100</Argument>
+		</Requirement>
+	</RequirementSet>
+	<RequirementSet id="REQSET_LEGACY_EX_EXPANSIONIST_5">
+		<Requirement type="REQUIREMENT_PLAYER_HAS_CIRCUMNAVIGATED"/>
+	</RequirementSet>
+	<!-- MILITARISTIC -->
+	<RequirementSet id="REQSET_LEGACY_EX_MILITARISTIC_1">
+		<Requirement type="REQUIREMENT_PLAYER_HAS_X_SETTLEMENTS_FOREIGN_HEMISPHERE">
+			<Argument name="Count">6</Argument>
+			<Argument name="OnlyConquered">true</Argument>
+		</Requirement>
+	</RequirementSet>
+	<RequirementSet id="REQSET_LEGACY_EX_MILITARISTIC_2">
+		<Requirement type="REQUIREMENT_PLAYER_CONQUERED_X_CITIES">
+			<Argument name="CitiesConquered">8</Argument>
+			<Argument name="HomeLandsOnly">true</Argument>
+		</Requirement>
+	</RequirementSet>
+	<RequirementSet id="REQSET_LEGACY_EX_MILITARISTIC_3">
+		<Requirement type="REQUIREMENT_PLAYER_HAS_COMMANDERS_WITH_X_LEVELS">
+			<Argument name="CommanderCount">1</Argument>
+			<Argument name="LevelCount">8</Argument>
+			<Argument name="DomainType">DOMAIN_SEA</Argument>
+		</Requirement>
+	</RequirementSet>
+	<RequirementSet id="REQSET_LEGACY_EX_MILITARISTIC_4">
+		<Requirement type="REQUIREMENT_PLAYER_CONQUERED_X_CITIES">
+			<Argument name="OnlyCapital">true</Argument>
+			<Argument name="CitiesConquered">1</Argument>
+		</Requirement>
+	</RequirementSet>
+	<RequirementSet id="REQSET_LEGACY_EX_MILITARISTIC_5">
+		<Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_BUILDINGS">
+			<Argument name="BuildingTag">DISTRICT_WALL, FORTIFICATION</Argument>
+			<Argument name="Amount">30</Argument>
+		</Requirement>
+	</RequirementSet>
+	<!-- SCIENTIFIC -->
+	<RequirementSet id="REQSET_LEGACY_EX_SCIENTIFIC_1">
+		<Requirement type="REQUIREMENT_PLAYER_HAS_X_DISTRICTS_WITH_YIELD">
+			<Argument name="Count">5</Argument>
+			<Argument name="YieldAmount">75</Argument>
+			<Argument name="DistrictTypes">DISTRICT_URBAN</Argument>
+		</Requirement>
+	</RequirementSet>
+	<RequirementSet id="REQSET_LEGACY_EX_SCIENTIFIC_2">
+		<Requirement type="REQUIREMENT_PLAYER_HAS_COMPLETED_PROJECT">
+			<Argument name="ProjectType">PROJECT_HELIOCENTRIC_MODEL, PROJECT_INVENT_CALCULUS</Argument>
+		</Requirement>
+	</RequirementSet>
+	<RequirementSet id="REQSET_LEGACY_EX_SCIENTIFIC_3">
+		<Requirement type="REQUIREMENT_PLAYER_HAS_COMPLETED_PROGRESSION_TREE_NODE">
+			<Argument name="ProgressionTreeNodeType">NODE_TECH_EX_GUNPOWDER</Argument>
+			<Argument name="MinDepth">1</Argument>
+		</Requirement>
+	</RequirementSet>
+	<RequirementSet id="REQSET_LEGACY_EX_SCIENTIFIC_4">
+		<Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_BUILDINGS">
+			<Argument name="BuildingType">BUILDING_UNIVERSITY</Argument>
+			<Argument name="Amount">7</Argument>
+		</Requirement>
+	</RequirementSet>
+	<RequirementSet id="REQSET_LEGACY_EX_SCIENTIFIC_5">
+		<Requirement type="REQUIREMENT_PLAYER_HAS_COMPLETED_X_PROGRESSION_TREE_NODES">
+			<Argument name="TechOnly">True</Argument>
+			<Argument name="AllNodes">True</Argument>
+			<Argument name="CountRepeatableNodes">False</Argument>
+		</Requirement>
+	</RequirementSet>
+	<!-- CONQUEROR-->
+	<RequirementSet id="REQSET_LEGACY_EX_CONQUEROR_1">
+		<Requirement type="REQUIREMENT_PLAYER_HAS_CAPTURED_X_TREASURE_CONVOYS">
+			<Argument name="Amount">5</Argument>
+		</Requirement>
+	</RequirementSet>
+	<RequirementSet id="REQSET_LEGACY_EX_CONQUEROR_2">
+		<Requirement type="REQUIREMENT_PLAYER_HAS_X_TRIBUTARIES_OF_TYPE">
+			<Argument name="Amount">2</Argument>
+			<Argument name="CityStateType">MILITARISTIC</Argument>
+		</Requirement>
+	</RequirementSet>
+	<RequirementSet id="REQSET_LEGACY_EX_CONQUEROR_3">
+		<Requirement type="REQUIREMENT_PLAYER_HAS_X_CITIES_WITH_MIN_YIELD">
+			<Argument name="YieldType">YIELD_FOOD</Argument>
+			<Argument name="RequiredYield">-100</Argument>
+			<Argument name="Conquered">true</Argument>
+			<Argument name="HolySite">true</Argument>
+			<Argument name="Amount">1</Argument>
+		</Requirement>
+	</RequirementSet>
+	<RequirementSet id="REQSET_LEGACY_EX_CONQUEROR_4">
+		<Requirement type="REQUIREMENT_PLAYER_CONQUERED_X_CITIES">
+			<Argument name="MustBeCoastal">true</Argument>
+			<Argument name="CitiesConquered">4</Argument>
+		</Requirement>
+	</RequirementSet>
+	<!-- EXPLORER -->
+	<RequirementSet id="REQSET_LEGACY_EX_EXPLORER_1">
+		<Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_BUILDINGS">
+			<Argument name="BuildingType">BUILDING_HARBOR</Argument>
+			<Argument name="Amount">10</Argument>
+		</Requirement>
+	</RequirementSet>
+	<RequirementSet id="REQSET_LEGACY_EX_EXPLORER_2">
+		<Requirement type="REQUIREMENT_PLAYER_HAS_X_TRIBUTARIES_OF_TYPE">
+			<Argument name="Amount">2</Argument>
+			<Argument name="CityStateType">ECONOMIC</Argument>
+		</Requirement>
+	</RequirementSet>
+	<RequirementSet id="REQSET_LEGACY_EX_EXPLORER_3">
+		<Requirement type="REQUIREMENT_PLAYER_HAS_COMPLETED_PROGRESSION_TREE_NODE">
+			<Argument name="ProgressionTreeNodeType">NODE_TECH_EX_SHIPBUILDING</Argument>
+			<Argument name="MinDepth">1</Argument>
+		</Requirement>
+	</RequirementSet>
+	<!-- ==================================================	-->
+	<!--Unlock Requirements					-->
+	<!-- ==================================================	-->
+	<!-- CULTURAL -->
+	<RequirementSet id="REQSET_LEGACY_EX_CULTURAL_1_UNLOCK">
+		<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+			<Argument name="TriumphTypes">LEGACY_EX_CULTURAL_1, LEGACY_EX_CULTURAL_1_RACE</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+			<Argument name="RequirementSetId">REQSET_LEGACY_EX_CULTURAL_1</Argument>
+		</Requirement>
+	</RequirementSet>
+	<RequirementSet id="REQSET_LEGACY_EX_CULTURAL_2_UNLOCK">
+		<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+			<Argument name="TriumphTypes">LEGACY_EX_CULTURAL_2, LEGACY_EX_CULTURAL_2_RACE</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+			<Argument name="RequirementSetId">REQSET_LEGACY_EX_CULTURAL_2</Argument>
+		</Requirement>
+	</RequirementSet>
+	<RequirementSet id="REQSET_LEGACY_EX_CULTURAL_3_UNLOCK">
+		<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+			<Argument name="TriumphTypes">LEGACY_EX_CULTURAL_3, LEGACY_EX_CULTURAL_3_RACE</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+			<Argument name="RequirementSetId">REQSET_LEGACY_EX_CULTURAL_3</Argument>
+		</Requirement>
+	</RequirementSet>
+	<RequirementSet id="REQSET_LEGACY_EX_CULTURAL_4_UNLOCK">
+		<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+			<Argument name="TriumphTypes">LEGACY_EX_CULTURAL_4, LEGACY_EX_CULTURAL_4_RACE</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+			<Argument name="RequirementSetId">REQSET_LEGACY_EX_CULTURAL_4</Argument>
+		</Requirement>
+	</RequirementSet>
+	<!-- DIPLOMATIC -->
+	<RequirementSet id="REQSET_LEGACY_EX_DIPLOMATIC_1_UNLOCK">
+		<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+			<Argument name="TriumphTypes">LEGACY_EX_DIPLOMATIC_1, LEGACY_EX_DIPLOMATIC_1_RACE</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+			<Argument name="RequirementSetId">REQSET_LEGACY_EX_DIPLOMATIC_1</Argument>
+		</Requirement>
+	</RequirementSet>
+	<RequirementSet id="REQSET_LEGACY_EX_DIPLOMATIC_2_UNLOCK">
+		<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+			<Argument name="TriumphTypes">LEGACY_EX_DIPLOMATIC_2, LEGACY_EX_DIPLOMATIC_2_RACE</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+			<Argument name="RequirementSetId">REQSET_LEGACY_EX_DIPLOMATIC_2</Argument>
+		</Requirement>
+	</RequirementSet>
+	<RequirementSet id="REQSET_LEGACY_EX_DIPLOMATIC_3_UNLOCK">
+		<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+			<Argument name="TriumphTypes">LEGACY_EX_DIPLOMATIC_3, LEGACY_EX_DIPLOMATIC_3_RACE</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+			<Argument name="RequirementSetId">REQSET_LEGACY_EX_DIPLOMATIC_3</Argument>
+		</Requirement>
+	</RequirementSet>
+	<!-- ECONOMIC -->
+	<RequirementSet id="REQSET_LEGACY_EX_ECONOMIC_1_UNLOCK">
+		<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+			<Argument name="TriumphTypes">LEGACY_EX_ECONOMIC_1, LEGACY_EX_ECONOMIC_1_RACE</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+			<Argument name="RequirementSetId">REQSET_LEGACY_EX_ECONOMIC_1</Argument>
+		</Requirement>
+	</RequirementSet>
+	<RequirementSet id="REQSET_LEGACY_EX_ECONOMIC_2_UNLOCK">
+		<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+			<Argument name="TriumphTypes">LEGACY_EX_ECONOMIC_2, LEGACY_EX_ECONOMIC_2_RACE</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+			<Argument name="RequirementSetId">REQSET_LEGACY_EX_ECONOMIC_2</Argument>
+		</Requirement>
+	</RequirementSet>
+	<RequirementSet id="REQSET_LEGACY_EX_ECONOMIC_3_UNLOCK">
+		<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+			<Argument name="TriumphTypes">LEGACY_EX_ECONOMIC_3, LEGACY_EX_ECONOMIC_3_RACE</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+			<Argument name="RequirementSetId">REQSET_LEGACY_EX_ECONOMIC_3</Argument>
+		</Requirement>
+	</RequirementSet>
+	<RequirementSet id="REQSET_LEGACY_EX_ECONOMIC_5_UNLOCK">
+		<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+			<Argument name="TriumphTypes">LEGACY_EX_ECONOMIC_5, LEGACY_EX_ECONOMIC_5_RACE</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+			<Argument name="RequirementSetId">REQSET_LEGACY_EX_ECONOMIC_5</Argument>
+		</Requirement>
+	</RequirementSet>
+	<!-- EXPANSIONIST -->
+	<RequirementSet id="REQSET_LEGACY_EX_EXPANSIONIST_1_UNLOCK">
+		<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+			<Argument name="TriumphTypes">LEGACY_EX_EXPANSIONIST_1, LEGACY_EX_EXPANSIONIST_1_RACE</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+			<Argument name="RequirementSetId">REQSET_LEGACY_EX_EXPANSIONIST_1</Argument>
+		</Requirement>
+	</RequirementSet>
+	<RequirementSet id="REQSET_LEGACY_EX_EXPANSIONIST_2_UNLOCK">
+		<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+			<Argument name="TriumphTypes">LEGACY_EX_EXPANSIONIST_2, LEGACY_EX_EXPANSIONIST_2_RACE</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+			<Argument name="RequirementSetId">REQSET_LEGACY_EX_EXPANSIONIST_2</Argument>
+		</Requirement>
+	</RequirementSet>
+	<RequirementSet id="REQSET_LEGACY_EX_EXPANSIONIST_3_UNLOCK">
+		<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+			<Argument name="TriumphTypes">LEGACY_EX_EXPANSIONIST_3, LEGACY_EX_EXPANSIONIST_3_RACE</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+			<Argument name="RequirementSetId">REQSET_LEGACY_EX_EXPANSIONIST_3</Argument>
+		</Requirement>
+	</RequirementSet>
+	<!-- MILITARISTIC -->
+	<RequirementSet id="REQSET_LEGACY_EX_MILITARISTIC_1_UNLOCK">
+		<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+			<Argument name="TriumphTypes">LEGACY_EX_MILITARISTIC_1, LEGACY_EX_MILITARISTIC_1_RACE</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+			<Argument name="RequirementSetId">REQSET_LEGACY_EX_MILITARISTIC_1</Argument>
+		</Requirement>
+	</RequirementSet>
+	<RequirementSet id="REQSET_LEGACY_EX_MILITARISTIC_2_UNLOCK">
+		<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+			<Argument name="TriumphTypes">LEGACY_EX_MILITARISTIC_2, LEGACY_EX_MILITARISTIC_2_RACE</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+			<Argument name="RequirementSetId">REQSET_LEGACY_EX_MILITARISTIC_2</Argument>
+		</Requirement>
+	</RequirementSet>
+	<RequirementSet id="REQSET_LEGACY_EX_MILITARISTIC_3_UNLOCK">
+		<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+			<Argument name="TriumphTypes">LEGACY_EX_MILITARISTIC_3, LEGACY_EX_MILITARISTIC_3_RACE</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+			<Argument name="RequirementSetId">REQSET_LEGACY_EX_MILITARISTIC_3</Argument>
+		</Requirement>
+	</RequirementSet>
+	<RequirementSet id="REQSET_LEGACY_EX_MILITARISTIC_5_UNLOCK">
+		<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+			<Argument name="TriumphTypes">LEGACY_EX_MILITARISTIC_5, LEGACY_EX_MILITARISTIC_5_RACE</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+			<Argument name="RequirementSetId">REQSET_LEGACY_EX_MILITARISTIC_5</Argument>
+		</Requirement>
+	</RequirementSet>
+	<!-- SCIENTIFIC -->
+	<RequirementSet id="REQSET_LEGACY_EX_SCIENTIFIC_1_UNLOCK">
+		<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+			<Argument name="TriumphTypes">LEGACY_EX_SCIENTIFIC_1, LEGACY_EX_SCIENTIFIC_1_RACE</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+			<Argument name="RequirementSetId">REQSET_LEGACY_EX_SCIENTIFIC_1</Argument>
+		</Requirement>
+	</RequirementSet>
+	<RequirementSet id="REQSET_LEGACY_EX_SCIENTIFIC_2_UNLOCK">
+		<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+			<Argument name="TriumphTypes">LEGACY_EX_SCIENTIFIC_2, LEGACY_EX_SCIENTIFIC_2_RACE</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+			<Argument name="RequirementSetId">REQSET_LEGACY_EX_SCIENTIFIC_2</Argument>
+		</Requirement>
+	</RequirementSet>
+	<!-- CRISIS -->
+	<RequirementSet id="REQSET_LEGACY_EX_RELIGION_CRISIS_1">
+		<Requirement type="REQUIREMENT_PLAYER_HAS_X_RELIGIONS">
+			<Argument name="Amount">3</Argument>
+		</Requirement>
+	</RequirementSet>
+	<RequirementSet id="REQSET_LEGACY_EX_RELIGION_CRISIS_2">
+		<Requirement type="REQUIREMENT_PLAYER_DECLARED_WAR">
+			<Argument name="DeclaredByOpponent">true</Argument>
+		</Requirement>
+	</RequirementSet>
+	<RequirementSet id="REQSET_LEGACY_EX_REVOLUTION_CRISIS_1">
+		<Requirement type="REQUIREMENT_PLAYER_HAS_X_CITIES_WITH_MIN_YIELD">
+			<Argument name="Amount">10</Argument>
+			<Argument name="YieldType">YIELD_HAPPINESS</Argument>
+			<Argument name="RequiredYield">20</Argument>
+		</Requirement>
+	</RequirementSet>
+	<RequirementSet id="REQSET_LEGACY_EX_REVOLUTION_CRISIS_2">
+		<Requirement type="REQUIREMENT_PLAYER_HAS_X_WAR_SUPPORT">
+			<Argument name="Amount">8</Argument>
+		</Requirement>
+	</RequirementSet>
+	<RequirementSet id="REQSET_LEGACY_EX_REVOLUTION_CRISIS_3">
+		<Requirement type="REQUIREMENT_PLAYER_DIPLOMACY_IS_INVOLVED_WITH_X_ACTIONS">
+			<Argument name="Amount">10</Argument>
+		</Requirement>
+	</RequirementSet>
+	<RequirementSet id="REQSET_LEGACY_EX_PLAGUE_CRISIS_1">
+		<Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_BUILDINGS">
+			<Argument name="Amount">10</Argument>
+			<Argument name="BuildingTag">MILL</Argument>
+		</Requirement>
+	</RequirementSet>
+	<RequirementSet id="REQSET_LEGACY_EX_PLAGUE_CRISIS_2">
+		<Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_BUILDINGS">
+			<Argument name="Amount">4</Argument>
+			<Argument name="BuildingType">BUILDING_HOSPITAL</Argument>
+		</Requirement>
+	</RequirementSet>
+	<!-- CONQUEROR -->
+	<RequirementSet id="REQSET_LEGACY_EX_CONQUEROR_3_UNLOCK">
+		<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+			<Argument name="TriumphTypes">LEGACY_EX_CONQUEROR_3</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+			<Argument name="RequirementSetId">REQSET_LEGACY_EX_CONQUEROR_3</Argument>
+		</Requirement>
+	</RequirementSet>
+	<RequirementSet id="REQSET_LEGACY_EX_CONQUEROR_4_UNLOCK">
+		<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+			<Argument name="TriumphTypes">LEGACY_EX_CONQUEROR_4</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+			<Argument name="RequirementSetId">REQSET_LEGACY_EX_CONQUEROR_4</Argument>
+		</Requirement>
+	</RequirementSet>
+	<!-- EXPLORER -->
+	<RequirementSet id="REQSET_LEGACY_EX_EXPLORER_2_UNLOCK">
+		<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+			<Argument name="TriumphTypes">LEGACY_EX_EXPLORER_2</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+			<Argument name="RequirementSetId">REQSET_LEGACY_EX_EXPLORER_2</Argument>
+		</Requirement>
+	</RequirementSet>
+</GameEffects>

@@ -16,7 +16,7 @@
 		<Row Type="ANTIQUITY_ECONOMIC_MILESTONE_3" Kind="KIND_AGE_PROGRESSION_MILESTONE"/>
 	</Types>
 	<AgeProgressions>
-		<Row AgeProgressionType="AGE_PROGRESSION_ANTIQUITY_AGE_TIMER" AgeType="AGE_ANTIQUITY" EndsAge="true" MaxPoints_Abbreviated="160" MaxPoints_Standard="200" MaxPoints_Long="240"/>
+		<Row AgeProgressionType="AGE_PROGRESSION_ANTIQUITY_AGE_TIMER" AgeType="AGE_ANTIQUITY" EndsAge="true" MaxPoints_Abbreviated="120" MaxPoints_Standard="140" MaxPoints_Long="160"/>
 	</AgeProgressions>
 	<AgeProgressionTurns>
 		<Row AgeProgressionTurnType="AGE_PROGRESSION_PER_TURN_BASE" Points="1" GameSpeedScaling="false" AgeProgressionType="AGE_PROGRESSION_ANTIQUITY_AGE_TIMER"/>
@@ -27,14 +27,14 @@
 		<Row AgeProgressionEventType="AGE_PROGRESSION_PLAYER_MILESTONE_3" Points="10" AgeProgressionType="AGE_PROGRESSION_ANTIQUITY_AGE_TIMER"/>
 		<Row AgeProgressionEventType="AGE_PROGRESSION_FUTURE_CIVIC" Points="10" AgeProgressionType="AGE_PROGRESSION_ANTIQUITY_AGE_TIMER"/>
 		<Row AgeProgressionEventType="AGE_PROGRESSION_FUTURE_TECH" Points="10" AgeProgressionType="AGE_PROGRESSION_ANTIQUITY_AGE_TIMER"/>
-		<Row AgeProgressionEventType="AGE_PROGRESSION_PLAYER_ELIMINATED" Points="25" AgeProgressionType="AGE_PROGRESSION_ANTIQUITY_AGE_TIMER"/>
+		<Row AgeProgressionEventType="AGE_PROGRESSION_PLAYER_ELIMINATED" Points="0" AgeProgressionType="AGE_PROGRESSION_ANTIQUITY_AGE_TIMER"/>
 	</AgeProgressionEvents>
 	<AgeProgressionEventMapSizeOverrides>
-		<Row AgeProgressionEventType="AGE_PROGRESSION_PLAYER_ELIMINATED" MapSizeType="MAPSIZE_TINY" Points="40"/>
-		<Row AgeProgressionEventType="AGE_PROGRESSION_PLAYER_ELIMINATED" MapSizeType="MAPSIZE_SMALL" Points="30"/>
-		<Row AgeProgressionEventType="AGE_PROGRESSION_PLAYER_ELIMINATED" MapSizeType="MAPSIZE_STANDARD" Points="25"/>
-		<Row AgeProgressionEventType="AGE_PROGRESSION_PLAYER_ELIMINATED" MapSizeType="MAPSIZE_LARGE" Points="20"/>
-		<Row AgeProgressionEventType="AGE_PROGRESSION_PLAYER_ELIMINATED" MapSizeType="MAPSIZE_HUGE" Points="15"/>
+		<Row AgeProgressionEventType="AGE_PROGRESSION_PLAYER_ELIMINATED" MapSizeType="MAPSIZE_TINY" Points="0"/>
+		<Row AgeProgressionEventType="AGE_PROGRESSION_PLAYER_ELIMINATED" MapSizeType="MAPSIZE_SMALL" Points="0"/>
+		<Row AgeProgressionEventType="AGE_PROGRESSION_PLAYER_ELIMINATED" MapSizeType="MAPSIZE_STANDARD" Points="0"/>
+		<Row AgeProgressionEventType="AGE_PROGRESSION_PLAYER_ELIMINATED" MapSizeType="MAPSIZE_LARGE" Points="0"/>
+		<Row AgeProgressionEventType="AGE_PROGRESSION_PLAYER_ELIMINATED" MapSizeType="MAPSIZE_HUGE" Points="0"/>
 	</AgeProgressionEventMapSizeOverrides>
 	<!--LEGACY PATH SCORING ITEMS-->
 	<PlayerModifiers>
@@ -101,68 +101,12 @@
 		<Row RequirementId="REQ_VICTORY_ANTIQUITY_RESOURCE_VP" Name="LegacyPathType" Value="LEGACY_PATH_ANTIQUITY_ECONOMIC"/>
 	</RequirementArguments>
 	<Strategies>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_EXPANSION" LegacyPathType="LEGACY_PATH_ANTIQUITY_MILITARY" MinNumConditionsNeeded="2" MaxNumConditionsNeeded="7"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_SCIENCE" LegacyPathType="LEGACY_PATH_ANTIQUITY_SCIENCE" MinNumConditionsNeeded="2" MaxNumConditionsNeeded="5"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_WONDERS" LegacyPathType="LEGACY_PATH_ANTIQUITY_CULTURE" MinNumConditionsNeeded="2" MaxNumConditionsNeeded="4"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_IMPORTS" LegacyPathType="LEGACY_PATH_ANTIQUITY_ECONOMIC" MinNumConditionsNeeded="2" MaxNumConditionsNeeded="6"/>
 		<!-- <Row StrategyType="STRATEGY_AGGRESSIVE_SETTLING" MinNumConditionsNeeded="1" MaxNumConditionsNeeded="3"/>  -->
 	</Strategies>
 	<!-- Reminder: These conditions must be met to START following the strategy - they are not victory conditions themselves -->
 	<StrategyConditions>
-		<!-- Military Victory -->
-		<Row StrategyType="LEGACY_PATH_STRATEGY_EXPANSION" ConditionFunction="GovernmentMatches" ThresholdValue="1" StringValue="GOVERNMENT_DESPOTISM"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_EXPANSION" ConditionFunction="NumCities" ThresholdValue="4"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_EXPANSION" ConditionFunction="NumConqueredCities" ThresholdValue="1"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_EXPANSION" ConditionFunction="TopMilitaryPercent" ThresholdValue="25"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_EXPANSION" ConditionFunction="NumCommanders" ThresholdValue="2"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_EXPANSION" ConditionFunction="HasLeaderTrait" ThresholdValue="1" StringValue="TRAIT_LEADER_ATTRIBUTE_MILITARISTIC"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_EXPANSION" ConditionFunction="HasLeaderTrait" ThresholdValue="1" StringValue="TRAIT_LEADER_ATTRIBUTE_EXPANSIONIST"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_EXPANSION" ConditionFunction="HasLeaderTrait" Exclusive="true" ThresholdValue="1" StringValue="TRAIT_AQ_MILITARY_VICTORY"/>
-		<!-- Science Victory -->
-		<Row StrategyType="LEGACY_PATH_STRATEGY_SCIENCE" ConditionFunction="GovernmentMatches" ThresholdValue="1" StringValue="GOVERNMENT_DESPOTISM"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_SCIENCE" ConditionFunction="NumCities" ThresholdValue="3"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_SCIENCE" ConditionFunction="TopSciencePercent" ThresholdValue="33"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_SCIENCE" ConditionFunction="NumGreatWorks" ThresholdValue="2"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_SCIENCE" ConditionFunction="HasLeaderTrait" ThresholdValue="1" StringValue="TRAIT_LEADER_ATTRIBUTE_SCIENTIFIC"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_SCIENCE" ConditionFunction="HasLeaderTrait" Exclusive="true" ThresholdValue="1" StringValue="TRAIT_AQ_SCIENCE_VICTORY"/>
-		<!-- Culture Victory -->
-		<Row StrategyType="LEGACY_PATH_STRATEGY_WONDERS" ConditionFunction="GovernmentMatches" ThresholdValue="1" StringValue="GOVERNMENT_CLASSICAL_REPUBLIC"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_WONDERS" ConditionFunction="TopYieldPercent" ThresholdValue="33" StringValue="YIELD_PRODUCTION"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_WONDERS" ConditionFunction="NumWonders" ThresholdValue="2"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_WONDERS" ConditionFunction="HasLeaderTrait" ThresholdValue="1" StringValue="TRAIT_LEADER_ATTRIBUTE_CULTURAL"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_WONDERS" ConditionFunction="HasLeaderTrait" Exclusive="true" ThresholdValue="1" StringValue="TRAIT_AQ_CULTURE_VICTORY"/>
-		<!-- Economic Victory -->
-		<Row StrategyType="LEGACY_PATH_STRATEGY_IMPORTS" ConditionFunction="GovernmentMatches" ThresholdValue="1" StringValue="GOVERNMENT_OLIGARCHY"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_IMPORTS" ConditionFunction="NumMajorsMet" ThresholdValue="2"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_IMPORTS" ConditionFunction="LimitedWars" ThresholdValue="2"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_IMPORTS" ConditionFunction="VictoryPoints" ThresholdValue="3" StringValue="VICTORY_ANTIQUITY_ECONOMIC"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_IMPORTS" ConditionFunction="HasLeaderTrait" ThresholdValue="1" StringValue="TRAIT_LEADER_ATTRIBUTE_POLITICAL"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_IMPORTS" ConditionFunction="HasLeaderTrait" ThresholdValue="1" StringValue="TRAIT_LEADER_ATTRIBUTE_ECONOMIC"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_IMPORTS" ConditionFunction="HasLeaderTrait" Exclusive="true" ThresholdValue="1" StringValue="TRAIT_AQ_ECONOMIC_VICTORY"/>
 	</StrategyConditions>
 	<Strategy_Priorities>
-		<!-- Expansion -->
-		<Row StrategyType="LEGACY_PATH_STRATEGY_EXPANSION" ListType="LegacyPathStrategyExpansionBudgetBiases"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_EXPANSION" ListType="LegacyPathStrategyExpansionPseudoYieldBiases"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_EXPANSION" ListType="LegacyPathStrategyExpansionYieldBiases"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_EXPANSION" ListType="LegacyPathStrategyExpansionTagBiases"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_EXPANSION" ListType="LegacyPathStrategyExpansionConstructibleClassesBiases"/>
-		<!-- Science -->
-		<Row StrategyType="LEGACY_PATH_STRATEGY_SCIENCE" ListType="LegacyPathStrategyScienceConstructibleBiases"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_SCIENCE" ListType="LegacyPathStrategyScienceYieldBiases"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_SCIENCE" ListType="LegacyPathStrategySciencePseudoYieldBiases"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_SCIENCE" ListType="LegacyPathStrategyScienceConstructibleClassesBiases"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_SCIENCE" ListType="LegacyPathStrategyScienceBudgetBiases"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_SCIENCE" ListType="LegacyPathStrategyScienceProgressionTreeNodesBiases"/>
-		<!-- Wonders-->
-		<Row StrategyType="LEGACY_PATH_STRATEGY_WONDERS" ListType="LegacyPathStrategyWondersConstructibleClassesBiases"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_WONDERS" ListType="LegacyPathStrategyWondersYieldBiases"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_WONDERS" ListType="LegacyPathStrategyWondersPseudoYieldBiases"/>
-		<!-- Imports -->
-		<Row StrategyType="LEGACY_PATH_STRATEGY_IMPORTS" ListType="LegacyPathStrategyImportsPseudoYieldBiases"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_IMPORTS" ListType="LegacyPathStrategyImportsProgressionTreeNodesBiases"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_IMPORTS" ListType="LegacyPathStrategyImportsUnitBiases"/>
-		<Row StrategyType="LEGACY_PATH_STRATEGY_IMPORTS" ListType="LegacyPathStrategyImportsBudgetBiases"/>
 	</Strategy_Priorities>
 	<AiListTypes>
 		<!-- Expansion -->

@@ -7,57 +7,56 @@ class LatitudeCells {
     this.cellsPerLatitude = new Array(numLatitudes).fill(0);
   }
 }
+const ruleSchema = {
+  overlap: {
+    label: "Overlap %",
+    description: "The amount of overlap allowed between latitudes",
+    default: 2,
+    min: 0,
+    max: 10,
+    step: 0.1
+  },
+  mirror: {
+    label: "Mirror",
+    description: "Should the preferred latitudes be mirrored across the equator",
+    default: true,
+    min: 0,
+    max: 1,
+    step: 1
+  },
+  latitudes: {
+    label: "Latitudes",
+    description: "latitude bands from -90 to +90 degrees",
+    children: {
+      latitude: {
+        label: "Latitude",
+        description: "A latitude bands between -90 and +90 degrees",
+        default: 0
+      },
+      weight: {
+        label: "Weight %",
+        description: "What percentage of this continent should be in this latitude band",
+        default: 0,
+        min: 0,
+        max: 100,
+        step: 1
+      }
+    }
+  }
+};
 class RulePreferLatitude extends Rule {
+  parameterSpecs = ruleSchema;
+  configValues = Rule.createDefaultsFromSpecs(ruleSchema);
+  name = RulePreferLatitude.getName();
+  description = "This rule scores cells based on how much area a given region occupies at different latitudes. When it is lacking certain latitudes, then it scores cells in that are higher. When it already has plenty of cells in a latitude, those cells will be scored lower. ";
+  m_latitudeBounds = [];
+  m_regionLatitudeCells = /* @__PURE__ */ new Map();
   static getName() {
     return "Prefer Latitude";
   }
-  name = RulePreferLatitude.getName();
-  description = "This rule scores cells based on how much area a given region occupies at different latitudes. When it is lacking certain latitudes, then it scores cells in that are higher. When it already has plenty of cells in a latitude, those cells will be scored lower. ";
-  configDefs = {
-    overlap: {
-      label: "Overlap %",
-      description: "The amount of overlap allowed between latitudes",
-      defaultValue: 2,
-      min: 0,
-      max: 10,
-      step: 0.1
-    },
-    mirror: {
-      label: "Mirror",
-      description: "Should the preferred latitudes be mirrored across the equator",
-      defaultValue: true,
-      min: 0,
-      max: 1,
-      step: 1
-    },
-    latitudes: {
-      label: "Latitudes",
-      description: "latitude bands from -90 to +90 degrees",
-      defaultValue: [],
-      arrayField: {
-        latitude: {
-          label: "Latitude",
-          description: "A latitude bands between -90 and +90 degrees",
-          defaultValue: 0
-        },
-        weight: {
-          label: "Weight %",
-          description: "What percentage of this continent should be in this latitude band",
-          defaultValue: 0,
-          min: 0,
-          max: 100,
-          step: 1
-        }
-      }
-    }
-  };
-  configValues = {
-    overlap: this.configDefs.overlap.defaultValue,
-    mirror: this.configDefs.mirror.defaultValue,
-    latitudes: new Array(0)
-  };
-  m_latitudeBounds = [];
-  m_regionLatitudeCells = /* @__PURE__ */ new Map();
+  static getSchema() {
+    return ruleSchema;
+  }
   prepare() {
     super.prepare();
     this.m_latitudeBounds = [];

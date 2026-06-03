@@ -1,123 +1,5 @@
+import { Catalog } from '../../../core/ui/utilities/utility-serialize.js';
 import { VictoryQuestState } from './quest-item.js';
-
-class SerialBase {
-  id;
-  scope;
-  hashPreamble;
-  childrenIDs = /* @__PURE__ */ new Set();
-  /**
-   * CTOR
-   * @param id is the identifier of this object in the catalog
-   * @param scope the parent scope
-   */
-  constructor(id, scope) {
-    this.id = id;
-    this.scope = scope;
-    this.hashPreamble = "_" + scope + "_" + id + "_";
-    this.readIDs();
-  }
-  /**
-   * Consistent way to make a hash from a value using the preamble
-   * @param key Value to hash (along with the preamble.)
-   * @returns hash value
-   */
-  makeHash(key) {
-    const hash = Database.makeHash(this.hashPreamble + key);
-    return hash;
-  }
-  /**
-   * Read in the list of ids (keys) for the values this scopes.
-   * @returns the number of IDs read or -1 if they don't exist
-   */
-  readIDs() {
-    const hash = this.makeHash("KEYS");
-    const ids = GameTutorial.getProperty(hash);
-    if (ids) {
-      if (typeof ids === "string") {
-        this.childrenIDs = new Set(ids.split(","));
-        return this.childrenIDs.size;
-      }
-    }
-    return -1;
-  }
-  /**
-   * Write out the list of ids (keys) for the values this scopes.
-   */
-  writeIDs() {
-    const hash = this.makeHash("KEYS");
-    const ids = Array.from(this.childrenIDs).join(",");
-    GameTutorial.setProperty(hash, ids);
-  }
-  /**
-   * Get collection of IDs maintained by this object.
-   * @returns a set of IDs
-   */
-  getKeys() {
-    return this.childrenIDs;
-  }
-  /**
-   * Debug Helper
-   * @returns a comma separated string of IDs maintained by this object
-   */
-  getKeysAsString() {
-    return [...this.childrenIDs].join(", ");
-  }
-}
-class SerialObject extends SerialBase {
-  /**
-   * Read a single value
-   * @param key of value to read
-   * @returns a type supported for serialization
-   */
-  read(key) {
-    const hash = this.makeHash(key);
-    const value = GameTutorial.getProperty(hash);
-    return value;
-  }
-  /**
-   * Write a single key,value
-   * @param key the key to associate with this value
-   * @param value to save out
-   */
-  write(key, value) {
-    const hash = this.makeHash(key);
-    GameTutorial.setProperty(hash, value);
-    if (!this.childrenIDs.has(key)) {
-      this.childrenIDs.add(key);
-      this.writeIDs();
-    }
-  }
-}
-class Catalog extends SerialBase {
-  /**
-   * CTOR
-   * @description Tracks object with values in array kept in key: _DEFAULT__KEYS
-   * @param scope, optional parameter for what named "catalog" objects will be a part of
-   */
-  constructor(scope = "DEFAULT") {
-    super("", scope);
-  }
-  /**
-   * Return an object associated with this catalog; creates one if it doesn't exist.
-   * @param id Identifier of the object.
-   * @returns {SerialObject}
-   */
-  getObject(id) {
-    if (!this.exists(id)) {
-      this.childrenIDs.add(id);
-      this.writeIDs();
-    }
-    return new SerialObject(id, this.scope + "_OBJ");
-  }
-  /**
-   * Does an object exist in this catalog?
-   * @param id Identifier of the object.
-   * @returns true if object exists.
-   */
-  exists(id) {
-    return this.childrenIDs.has(id);
-  }
-}
 
 const QuestListUpdatedEventName = "quest-list-update";
 class QuestListUpdatedEvent extends CustomEvent {
@@ -131,27 +13,33 @@ class QuestCompletedEvent extends CustomEvent {
     super(QuestCompletedEventName, { bubbles: false, detail: { name } });
   }
 }
-class QuestTrackerClass {
-  static instance = null;
+class QuestTracker {
   items = /* @__PURE__ */ new Map();
   trackerItemAddedLiteEvent = new LiteEvent();
   trackerItemRemovedLiteEvent = new LiteEvent();
   questCatalogName = "QuestTrackerCatalog";
   catalog;
   _listSelectedQuest = "";
+  _isDrawerOut = true;
   set selectedQuest(value) {
     this._listSelectedQuest = value;
   }
   get selectedQuest() {
     return this._listSelectedQuest;
   }
+  set isDrawerOut(value) {
+    this._isDrawerOut = value;
+  }
+  get isDrawerOut() {
+    return this._isDrawerOut;
+  }
   constructor() {
-    if (QuestTrackerClass.instance) {
-      console.error("Attempt to create more than one quest manager class; ignoring call.");
-    } else {
-      QuestTrackerClass.instance = this;
-    }
-    this.catalog = new Catalog(this.questCatalogName);
+    const localPlayerId = GameContext.localObserverID;
+    this.catalog = new Catalog({
+      name: this.questCatalogName,
+      version: 1,
+      player: Players.get(localPlayerId)
+    });
   }
   get AddEvent() {
     return this.trackerItemAddedLiteEvent.expose();
@@ -260,8 +148,8 @@ class QuestTrackerClass {
     }
     const { content: _, ...victoryWithoutContent } = quest.victory;
     const victoryEntries = Object.entries(victoryWithoutContent);
+    const object = this.catalog.getObject(quest.id);
     for (const [key, value] of victoryEntries) {
-      const object = this.catalog.getObject(quest.id);
       object.write(key, value);
     }
     this.updateQuestList(quest.id);
@@ -334,7 +222,16 @@ class QuestTrackerClass {
     window.dispatchEvent(new QuestListUpdatedEvent(questName));
   }
 }
-const QuestTracker = new QuestTrackerClass();
+let instance = null;
+function getQuestTracker() {
+  if (!instance) {
+    if (!UI.isInGame()) {
+      throw new Error("QuestTracker should only be accessed in-game.");
+    }
+    instance = new QuestTracker();
+  }
+  return instance;
+}
 
-export { QuestCompletedEvent, QuestCompletedEventName, QuestListUpdatedEvent, QuestListUpdatedEventName, QuestTracker as default };
+export { QuestCompletedEvent, QuestCompletedEventName, QuestListUpdatedEvent, QuestListUpdatedEventName, getQuestTracker };
 //# sourceMappingURL=quest-tracker.js.map

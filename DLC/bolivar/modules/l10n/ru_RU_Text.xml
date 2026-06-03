@@ -46,6 +46,9 @@
     <Replace Tag="LOC_MAIN_CHAR_SELECT_LEADER_BOLIVAR_ANY" Language="ru_RU">
       <Text>Поддерживать равновесие свободы труднее, чем страдать под гнетом тирании. </Text>
     </Replace>
+    <Replace Tag="LOC_VICTORY_LEADER_BOLIVAR" Language="ru_RU">
+      <Text>Те, кто борется за свободу, всегда находятся на правильной стороне истории.</Text>
+    </Replace>
     <Replace Tag="LOC_LEADER_BOLIVAR_NAME" Language="ru_RU">
       <Text>Симон Боливар|Симона Боливара|Симону Боливару|Симона Боливара|Симоном Боливаром|Симоне Боливаре</Text>
       <Gender>masculine</Gender>
@@ -658,25 +661,25 @@
       <Text>В эту эпоху вы получите +15% [icon:YIELD_FOOD] пищи в обмен на -10% [icon:YIELD_GOLD] золота</Text>
     </Replace>
     <Replace Tag="LOC_CARD_AT_EXP_LEGEND_BOLIVAR_1_NAME" Language="ru_RU">
-      <Text>Легенда Боливара в эпоху исследований: экспансионизм</Text>
+      <Text>Устремление Боливара в эпоху исследований: экспансионизм</Text>
     </Replace>
     <Replace Tag="LOC_CARD_AT_EXP_LEGEND_BOLIVAR_2_DESCRIPTION" Language="ru_RU">
       <Text>В эту эпоху вы получите +3 к боевой мощи морских юнитов в обмен на -10% [icon:YIELD_DIPLOMACY] влияния</Text>
     </Replace>
     <Replace Tag="LOC_CARD_AT_EXP_LEGEND_BOLIVAR_2_NAME" Language="ru_RU">
-      <Text>Легенда Боливара в эпоху исследований: военное дело</Text>
+      <Text>Устремление Боливара в эпоху исследований: военное дело</Text>
     </Replace>
     <Replace Tag="LOC_CARD_AT_MOD_LEGEND_BOLIVAR_1_DESCRIPTION" Language="ru_RU">
       <Text>В эту эпоху вы получите +15% [icon:YIELD_FOOD] пищи в обмен на -10% [icon:YIELD_GOLD] золота</Text>
     </Replace>
     <Replace Tag="LOC_CARD_AT_MOD_LEGEND_BOLIVAR_1_NAME" Language="ru_RU">
-      <Text>Легенда Боливара в современную эпоху: экспансионизм</Text>
+      <Text>Устремление Боливара в современную эпоху: экспансионизм</Text>
     </Replace>
     <Replace Tag="LOC_CARD_AT_MOD_LEGEND_BOLIVAR_2_DESCRIPTION" Language="ru_RU">
       <Text>В эту эпоху вы получите +3 к боевой мощи воздушных юнитов в обмен на -10% [icon:YIELD_DIPLOMACY] влияния</Text>
     </Replace>
     <Replace Tag="LOC_CARD_AT_MOD_LEGEND_BOLIVAR_2_NAME" Language="ru_RU">
-      <Text>Легенда Боливара в современную эпоху: военное дело</Text>
+      <Text>Устремление Боливара в современную эпоху: военное дело</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_CORNERSTONE_FREEDOM_DESC" Language="ru_RU">
       <Text>Этому лидеру нравятся лидеры, у которых меньше всего недовольных поселений, и не нравятся те, у которых их больше всего.</Text>
@@ -685,7 +688,7 @@
       <Text>Фундамент свободы</Text>
     </Replace>
     <Replace Tag="LOC_LEADER_BOLIVAR_DESCRIPTION" Language="ru_RU">
-      <Text>Получите 1 [icon:WAR_SUPPORT] военную поддержку во всех своих войнах. Когда вы впервые захватываете поселение, оно может бесплатно приобрести 1 конструкцию. [icon:YIELD_ANGRY] Беспорядки не мешают приобретению.</Text>
+      <Text>Получите 2 очка [icon:WAR_SUPPORT] военной поддержки во всех объявляемых вами [icon:WAR] войнах. Когда вы впервые захватываете поселение, оно может бесплатно приобрести 1 [icon:CITY_BUILDING_LIST] здание или [icon:CITY_RURAL] улучшение. [icon:YIELD_ANGRY] Беспорядки не мешают приобретению.</Text>
     </Replace>
     <Replace Tag="LOC_LOADING_LEADER_INTRO_TEXT_BOLIVAR" Language="ru_RU">
       <Text>Старый мир исчезает, рождается новый мир. Симон Боливар, Великий Освободитель, ты готов восстать против тех, кто не согласен с масштабом твоих мечтаний. Твоя харизма привлекает людей, а храбрость побуждает их идти вперед. Сражайся, хотя это не легче, чем вспахать море.</Text>
@@ -694,7 +697,7 @@
       <Text>Наследие Аякучо.</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_BOLIVAR_DAVALOS_MEDAL_FUNCTIONAL_DESCRIPTION" Language="ru_RU">
-      <Text>+1 к [icon:YIELD_HAPPINESS] довольству за эпоху при строительстве военных зданий.</Text>
+      <Text>[B]+1 к [icon:YIELD_HAPPINESS][/B] за [TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]эпоху[/TIP] от [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]военных зданий[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_BOLIVAR_DAVALOS_MEDAL_NAME" Language="ru_RU">
       <Text>Медаль Давалоса</Text>
@@ -706,7 +709,7 @@
       <Text>Подарок от королевской особы.</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_BOLIVAR_GOLD_SNUFF_BOX_FUNCTIONAL_DESCRIPTION" Language="ru_RU">
-      <Text>+20% [icon:YIELD_FOOD] пищи, если вы состоите только в одном союзе.</Text>
+      <Text>[B]+20 к [icon:YIELD_FOOD][/B] за [TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]эпоху[/TIP] в городах, когда у вас есть только один [icon:PLAYER_RELATIONSHIP_ALLIANCE] [TIP:LOC_PEDIA_CONCEPTS_ALLIANCE_TOOLTIP]союз[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_BOLIVAR_GOLD_SNUFF_BOX_NAME" Language="ru_RU">
       <Text>Золотая табакерка</Text>
@@ -718,7 +721,7 @@
       <Text>Видение будущего.</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_BOLIVAR_LETTER_TO_JAMAICA_FUNCTIONAL_DESCRIPTION" Language="ru_RU">
-      <Text>+50% [icon:YIELD_GOLD] золота для покупки юнитов во время празднества.</Text>
+      <Text>[B]+50% к [icon:YIELD_GOLD][/B] для покупки юнитов во время [icon:CELEBRATION] [TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]празднества[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_BOLIVAR_LETTER_TO_JAMAICA_NAME" Language="ru_RU">
       <Text>Письмо на Ямайку</Text>
@@ -780,293 +783,317 @@
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_AGE_COMPLETED_MODERN_NAME" Language="ru_RU">
       <Text>Современная эпоха завершена</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_CULTURE_VICTORY_ANTIQUITY_2_DESC" Language="ru_RU">
-      <Text>Дважды завершите тропу наследия «Чудеса древнего мира», играя за Боливара.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_CULTURE_TRIUMPH_2_ANTIQUITY_DESC" Language="ru_RU">
+      <Text>Завершите триумф «Орфические тайны», играя за Боливара.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_CULTURE_VICTORY_ANTIQUITY_2_NAME" Language="ru_RU">
-      <Text>Чудеса древнего мира 2</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_CULTURE_TRIUMPH_2_ANTIQUITY_NAME" Language="ru_RU">
+      <Text>Орфические тайны</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_CULTURE_VICTORY_ANTIQUITY_3_DESC" Language="ru_RU">
-      <Text>Трижды завершите тропу наследия «Чудеса древнего мира», играя за Боливара.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_CULTURE_TRIUMPH_2_EXPLORATION_DESC" Language="ru_RU">
+      <Text>Завершите триумф «Царство небесное», играя за Боливара.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_CULTURE_VICTORY_ANTIQUITY_3_NAME" Language="ru_RU">
-      <Text>Чудеса древнего мира 3</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_CULTURE_TRIUMPH_2_EXPLORATION_NAME" Language="ru_RU">
+      <Text>Царство небесное</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_CULTURE_VICTORY_ANTIQUITY_DESC" Language="ru_RU">
-      <Text>Завершите тропу наследия «Чудеса древнего мира», играя за Боливара.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_CULTURE_TRIUMPH_2_MODERN_DESC" Language="ru_RU">
+      <Text>Завершите триумф «Страна чудес», играя за Боливара.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_CULTURE_VICTORY_ANTIQUITY_NAME" Language="ru_RU">
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_CULTURE_TRIUMPH_2_MODERN_NAME" Language="ru_RU">
+      <Text>Страна чудес</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_CULTURE_TRIUMPH_ANTIQUITY_DESC" Language="ru_RU">
+      <Text>Завершите триумф «Чудеса древнего мира», играя за Боливара.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_CULTURE_TRIUMPH_ANTIQUITY_NAME" Language="ru_RU">
       <Text>Чудеса древнего мира</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_CULTURE_VICTORY_EXPLORATION_2_DESC" Language="ru_RU">
-      <Text>Дважды завершите тропу наследия «Тошахана», играя за Боливара.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_CULTURE_TRIUMPH_EXPLORATION_DESC" Language="ru_RU">
+      <Text>Завершите триумф «Тошахана», играя за Боливара.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_CULTURE_VICTORY_EXPLORATION_2_NAME" Language="ru_RU">
-      <Text>Тошахана 2</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_CULTURE_VICTORY_EXPLORATION_3_DESC" Language="ru_RU">
-      <Text>Трижды завершите тропу наследия «Тошахана», играя за Боливара.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_CULTURE_VICTORY_EXPLORATION_3_NAME" Language="ru_RU">
-      <Text>Тошахана 3</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_CULTURE_VICTORY_EXPLORATION_DESC" Language="ru_RU">
-      <Text>Завершите тропу наследия «Тошахана», играя за Боливара.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_CULTURE_VICTORY_EXPLORATION_NAME" Language="ru_RU">
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_CULTURE_TRIUMPH_EXPLORATION_NAME" Language="ru_RU">
       <Text>Тошахана</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_CULTURE_VICTORY_MODERN_2_DESC" Language="ru_RU">
-      <Text>Дважды завершите тропу наследия «Географическое общество», играя за Боливара.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_CULTURE_TRIUMPH_MODERN_DESC" Language="ru_RU">
+      <Text>Завершите триумф «Географическое общество», играя за Боливара.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_CULTURE_VICTORY_MODERN_2_NAME" Language="ru_RU">
-      <Text>Географическое общество 2</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_CULTURE_VICTORY_MODERN_3_DESC" Language="ru_RU">
-      <Text>Трижды завершите тропу наследия «Географическое общество», играя за Боливара.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_CULTURE_VICTORY_MODERN_3_NAME" Language="ru_RU">
-      <Text>Географическое общество 3</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_CULTURE_VICTORY_MODERN_DESC" Language="ru_RU">
-      <Text>Завершите тропу наследия «Географическое общество», играя за Боливара.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_CULTURE_VICTORY_MODERN_NAME" Language="ru_RU">
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_CULTURE_TRIUMPH_MODERN_NAME" Language="ru_RU">
       <Text>Географическое общество</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_ECONOMIC_VICTORY_ANTIQUITY_2_DESC" Language="ru_RU">
-      <Text>Дважды завершите тропу наследия «Шелковые пути», играя за Боливара.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_CULTURE_VICTORY_DESC" Language="ru_RU">
+      <Text>Одержите культурную победу, играя за Боливара.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_ECONOMIC_VICTORY_ANTIQUITY_2_NAME" Language="ru_RU">
-      <Text>Шелковые пути 2</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_CULTURE_VICTORY_NAME" Language="ru_RU">
+      <Text>Культурная победа</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_ECONOMIC_VICTORY_ANTIQUITY_3_DESC" Language="ru_RU">
-      <Text>Трижды завершите тропу наследия «Шелковые пути», играя за Боливара.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_DEITY_VICTORY_DESC" Language="ru_RU">
+      <Text>Одержите победу на уровне сложности «Божество», играя за Боливара.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_ECONOMIC_VICTORY_ANTIQUITY_3_NAME" Language="ru_RU">
-      <Text>Шелковые пути 3</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_DEITY_VICTORY_NAME" Language="ru_RU">
+      <Text>Победа на уровне «Божество»</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_ECONOMIC_VICTORY_ANTIQUITY_DESC" Language="ru_RU">
-      <Text>Завершите тропу наследия «Шелковые пути», играя за Боливара.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_DIPLOMATIC_TRIUMPH_2_ANTIQUITY_DESC" Language="ru_RU">
+      <Text>Завершите триумф «Хлеб и зрелища», играя за Боливара.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_ECONOMIC_VICTORY_ANTIQUITY_NAME" Language="ru_RU">
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_DIPLOMATIC_TRIUMPH_2_ANTIQUITY_NAME" Language="ru_RU">
+      <Text>Хлеб и зрелища</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_DIPLOMATIC_TRIUMPH_2_EXPLORATION_DESC" Language="ru_RU">
+      <Text>Завершите триумф «Четверной союз», играя за Боливара.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_DIPLOMATIC_TRIUMPH_2_EXPLORATION_NAME" Language="ru_RU">
+      <Text>Четверной союз</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_DIPLOMATIC_TRIUMPH_2_MODERN_DESC" Language="ru_RU">
+      <Text>Завершите триумф «Код "Энигмы"», играя за Боливара.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_DIPLOMATIC_TRIUMPH_2_MODERN_NAME" Language="ru_RU">
+      <Text>Код «Энигмы»</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_DIPLOMATIC_TRIUMPH_ANTIQUITY_DESC" Language="ru_RU">
+      <Text>Завершите триумф «Дергая за ниточки», играя за Боливара.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_DIPLOMATIC_TRIUMPH_ANTIQUITY_NAME" Language="ru_RU">
+      <Text>Дергая за ниточки</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_DIPLOMATIC_TRIUMPH_EXPLORATION_DESC" Language="ru_RU">
+      <Text>Завершите триумф «Орден ассасинов», играя за Боливара.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_DIPLOMATIC_TRIUMPH_EXPLORATION_NAME" Language="ru_RU">
+      <Text>Орден ассасинов</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_DIPLOMATIC_TRIUMPH_MODERN_DESC" Language="ru_RU">
+      <Text>Завершите триумф «Лига Наций», играя за Боливара.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_DIPLOMATIC_TRIUMPH_MODERN_NAME" Language="ru_RU">
+      <Text>Лига Наций</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_ECONOMIC_TRIUMPH_2_ANTIQUITY_DESC" Language="ru_RU">
+      <Text>Завершите триумф «Жадность — золото», играя за Боливара.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_ECONOMIC_TRIUMPH_2_ANTIQUITY_NAME" Language="ru_RU">
+      <Text>Жадность — золото</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_ECONOMIC_TRIUMPH_2_EXPLORATION_DESC" Language="ru_RU">
+      <Text>Завершите триумф «Каликутская сделка», играя за Боливара.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_ECONOMIC_TRIUMPH_2_EXPLORATION_NAME" Language="ru_RU">
+      <Text>Каликутская сделка</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_ECONOMIC_TRIUMPH_2_MODERN_DESC" Language="ru_RU">
+      <Text>Завершите триумф «Всемирная мастерская», играя за Боливара.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_ECONOMIC_TRIUMPH_2_MODERN_NAME" Language="ru_RU">
+      <Text>Всемирная мастерская</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_ECONOMIC_TRIUMPH_ANTIQUITY_DESC" Language="ru_RU">
+      <Text>Завершите триумф «Шелковые пути», играя за Боливара.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_ECONOMIC_TRIUMPH_ANTIQUITY_NAME" Language="ru_RU">
       <Text>Шелковые пути</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_ECONOMIC_VICTORY_EXPLORATION_2_DESC" Language="ru_RU">
-      <Text>Дважды завершите тропу наследия «Серебряный флот», играя за Боливара.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_ECONOMIC_TRIUMPH_EXPLORATION_DESC" Language="ru_RU">
+      <Text>Завершите триумф «Серебряный флот», играя за Боливара.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_ECONOMIC_VICTORY_EXPLORATION_2_NAME" Language="ru_RU">
-      <Text>Серебряный флот 2</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_ECONOMIC_VICTORY_EXPLORATION_3_DESC" Language="ru_RU">
-      <Text>Трижды завершите тропу наследия «Серебряный флот», играя за Боливара.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_ECONOMIC_VICTORY_EXPLORATION_3_NAME" Language="ru_RU">
-      <Text>Серебряный флот 3</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_ECONOMIC_VICTORY_EXPLORATION_DESC" Language="ru_RU">
-      <Text>Завершите тропу наследия «Серебряный флот», играя за Боливара.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_ECONOMIC_VICTORY_EXPLORATION_NAME" Language="ru_RU">
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_ECONOMIC_TRIUMPH_EXPLORATION_NAME" Language="ru_RU">
       <Text>Серебряный флот</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_ECONOMIC_VICTORY_MODERN_2_DESC" Language="ru_RU">
-      <Text>Дважды завершите тропу наследия «Железнодорожный магнат», играя за Боливара.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_ECONOMIC_TRIUMPH_MODERN_DESC" Language="ru_RU">
+      <Text>Завершите триумф «Железнодорожный магнат», играя за Боливара.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_ECONOMIC_VICTORY_MODERN_2_NAME" Language="ru_RU">
-      <Text>Железнодорожный магнат 2</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_ECONOMIC_VICTORY_MODERN_3_DESC" Language="ru_RU">
-      <Text>Трижды завершите тропу наследия «Железнодорожный магнат», играя за Боливара.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_ECONOMIC_VICTORY_MODERN_3_NAME" Language="ru_RU">
-      <Text>Железнодорожный магнат 3</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_ECONOMIC_VICTORY_MODERN_DESC" Language="ru_RU">
-      <Text>Завершите тропу наследия «Железнодорожный магнат», играя за Боливара.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_ECONOMIC_VICTORY_MODERN_NAME" Language="ru_RU">
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_ECONOMIC_TRIUMPH_MODERN_NAME" Language="ru_RU">
       <Text>Железнодорожный магнат</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_FLAWLESS_VICTORY_ANTIQUITY_DESC" Language="ru_RU">
-      <Text>Завершите 2 тропы наследия за одну эпоху античности, играя за Боливара.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_ECONOMIC_VICTORY_DESC" Language="ru_RU">
+      <Text>Одержите экономическую победу, играя за Боливара.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_FLAWLESS_VICTORY_ANTIQUITY_NAME" Language="ru_RU">
-      <Text>Двойное наследие, эпоха античности</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_ECONOMIC_VICTORY_NAME" Language="ru_RU">
+      <Text>Экономическая победа</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_FLAWLESS_VICTORY_EXPLORATION_DESC" Language="ru_RU">
-      <Text>Завершите 2 тропы наследия за одну эпоху исследований, играя за Боливара.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_EXPANSIONIST_TRIUMPH_2_ANTIQUITY_DESC" Language="ru_RU">
+      <Text>Завершите триумф «Вавилонская башня», играя за Боливара.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_FLAWLESS_VICTORY_EXPLORATION_NAME" Language="ru_RU">
-      <Text>Двойное наследие, эпоха исследования</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_EXPANSIONIST_TRIUMPH_2_ANTIQUITY_NAME" Language="ru_RU">
+      <Text>Вавилонская башня</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_FLAWLESS_VICTORY_MODERN_DESC" Language="ru_RU">
-      <Text>Завершите 2 тропы наследия за одну современную эпоху, играя за Боливара.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_EXPANSIONIST_TRIUMPH_2_EXPLORATION_DESC" Language="ru_RU">
+      <Text>Завершите триумф «А у нас Габсбурги», играя за Боливара.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_FLAWLESS_VICTORY_MODERN_NAME" Language="ru_RU">
-      <Text>Двойное наследие, современная эпоха</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_EXPANSIONIST_TRIUMPH_2_EXPLORATION_NAME" Language="ru_RU">
+      <Text>А у нас Габсбурги</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_MILITARY_VICTORY_ANTIQUITY_2_DESC" Language="ru_RU">
-      <Text>Дважды завершите тропу наследия Pax Imperatoria, играя за Боливара.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_EXPANSIONIST_TRIUMPH_2_MODERN_DESC" Language="ru_RU">
+      <Text>Завершите триумф «Мегаполис», играя за Боливара.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_MILITARY_VICTORY_ANTIQUITY_2_NAME" Language="ru_RU">
-      <Text>Pax Imperatoria 2</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_EXPANSIONIST_TRIUMPH_2_MODERN_NAME" Language="ru_RU">
+      <Text>Мегаполис</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_MILITARY_VICTORY_ANTIQUITY_3_DESC" Language="ru_RU">
-      <Text>Трижды завершите тропу наследия Pax Imperatoria, играя за Боливара.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_EXPANSIONIST_TRIUMPH_ANTIQUITY_DESC" Language="ru_RU">
+      <Text>Завершите триумф «Четыре стороны света», играя за Боливара.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_MILITARY_VICTORY_ANTIQUITY_3_NAME" Language="ru_RU">
-      <Text>Pax Imperatoria 3</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_EXPANSIONIST_TRIUMPH_ANTIQUITY_NAME" Language="ru_RU">
+      <Text>Четыре стороны света</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_MILITARY_VICTORY_ANTIQUITY_DESC" Language="ru_RU">
-      <Text>Завершите тропу наследия Pax Imperatoria, играя за Боливара.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_EXPANSIONIST_TRIUMPH_EXPLORATION_DESC" Language="ru_RU">
+      <Text>Завершите триумф «Здесь обитают драконы», играя за Боливара.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_MILITARY_VICTORY_ANTIQUITY_NAME" Language="ru_RU">
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_EXPANSIONIST_TRIUMPH_EXPLORATION_NAME" Language="ru_RU">
+      <Text>Здесь обитают драконы</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_EXPANSIONIST_TRIUMPH_MODERN_DESC" Language="ru_RU">
+      <Text>Завершите триумф «Над империей не заходит солнце», играя за Боливара.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_EXPANSIONIST_TRIUMPH_MODERN_NAME" Language="ru_RU">
+      <Text>Над империей не заходит солнце</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_FOUR_MAJOR_TRIUMPHS_ANTIQUITY_DESC" Language="ru_RU">
+      <Text>Завершите 4 великих триумфа за одну эпоху античности, играя за Боливара.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_FOUR_MAJOR_TRIUMPHS_ANTIQUITY_NAME" Language="ru_RU">
+      <Text>Триумфы в эпоху античности</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_FOUR_MAJOR_TRIUMPHS_EXPLORATION_DESC" Language="ru_RU">
+      <Text>Завершите 4 великих триумфа за одну эпоху исследований, играя за Боливара.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_FOUR_MAJOR_TRIUMPHS_EXPLORATION_NAME" Language="ru_RU">
+      <Text>Триумфы в эпоху исследований</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_MILITARY_TRIUMPH_2_ANTIQUITY_DESC" Language="ru_RU">
+      <Text>Завершите триумф «Вот это Гай», играя за Боливара.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_MILITARY_TRIUMPH_2_ANTIQUITY_NAME" Language="ru_RU">
+      <Text>Вот это Гай</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_MILITARY_TRIUMPH_2_EXPLORATION_DESC" Language="ru_RU">
+      <Text>Завершите триумф Pax Mongolica, играя за Боливара.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_MILITARY_TRIUMPH_2_EXPLORATION_NAME" Language="ru_RU">
+      <Text>Pax Mongolica</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_MILITARY_TRIUMPH_2_MODERN_DESC" Language="ru_RU">
+      <Text>Завершите триумф «Враг мира», играя за Боливара.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_MILITARY_TRIUMPH_2_MODERN_NAME" Language="ru_RU">
+      <Text>Враг мира</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_MILITARY_TRIUMPH_ANTIQUITY_DESC" Language="ru_RU">
+      <Text>Завершите триумф Pax Imperatoria, играя за Боливара.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_MILITARY_TRIUMPH_ANTIQUITY_NAME" Language="ru_RU">
       <Text>Pax Imperatoria</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_MILITARY_VICTORY_EXPLORATION_2_DESC" Language="ru_RU">
-      <Text>Дважды завершите тропу наследия «И целого мира мало», играя за Боливара.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_MILITARY_TRIUMPH_EXPLORATION_DESC" Language="ru_RU">
+      <Text>Завершите триумф «И целого мира мало», играя за Боливара.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_MILITARY_VICTORY_EXPLORATION_2_NAME" Language="ru_RU">
-      <Text>И целого мира мало 2</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_MILITARY_VICTORY_EXPLORATION_3_DESC" Language="ru_RU">
-      <Text>Трижды завершите тропу наследия «И целого мира мало», играя за Боливара.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_MILITARY_VICTORY_EXPLORATION_3_NAME" Language="ru_RU">
-      <Text>И целого мира мало 3</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_MILITARY_VICTORY_EXPLORATION_DESC" Language="ru_RU">
-      <Text>Завершите тропу наследия «И целого мира мало», играя за Боливара.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_MILITARY_VICTORY_EXPLORATION_NAME" Language="ru_RU">
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_MILITARY_TRIUMPH_EXPLORATION_NAME" Language="ru_RU">
       <Text>И целого мира мало</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_MILITARY_VICTORY_MODERN_2_DESC" Language="ru_RU">
-      <Text>Дважды завершите тропу наследия «Идеология», играя за Боливара.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_MILITARY_TRIUMPH_MODERN_DESC" Language="ru_RU">
+      <Text>Завершите триумф «Императив нравственности», играя за Боливара.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_MILITARY_VICTORY_MODERN_2_NAME" Language="ru_RU">
-      <Text>Идеология 2</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_MILITARY_TRIUMPH_MODERN_NAME" Language="ru_RU">
+      <Text>Императив нравственности</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_MILITARY_VICTORY_MODERN_3_DESC" Language="ru_RU">
-      <Text>Трижды завершите тропу наследия «Идеология», играя за Боливара.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_MILITARY_VICTORY_DESC" Language="ru_RU">
+      <Text>Одержите военную победу, играя за Боливара.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_MILITARY_VICTORY_MODERN_3_NAME" Language="ru_RU">
-      <Text>Идеология 3</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_MILITARY_VICTORY_MODERN_DESC" Language="ru_RU">
-      <Text>Завершите тропу наследия «Идеология», играя за Боливара.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_MILITARY_VICTORY_MODERN_NAME" Language="ru_RU">
-      <Text>Идеология</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_MILITARY_VICTORY_NAME" Language="ru_RU">
+      <Text>Военная победа</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_PLAY_GAMES_1_DESC" Language="ru_RU">
-      <Text>Достигните хотя бы 1 вехи на тропе наследия, играя за Боливара.</Text>
+      <Text>Завершите великий триумф, играя за Боливара.</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_PLAY_GAMES_1_NAME" Language="ru_RU">
       <Text>Сыграть в игру 1</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_PLAY_GAMES_2_DESC" Language="ru_RU">
-      <Text>Достигните хотя бы 2 вех на тропе наследия, играя за Боливара.</Text>
+      <Text>Завершите 5 великих триумфов за любое количество эпох, играя за Боливара.</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_PLAY_GAMES_2_NAME" Language="ru_RU">
       <Text>Сыграть в игру 2</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_PLAY_GAMES_3_DESC" Language="ru_RU">
-      <Text>Достигните хотя бы 3 вех на тропе наследия, играя за Боливара.</Text>
+      <Text>Завершите 25 великих триумфов за любое количество эпох, играя за Боливара.</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_PLAY_GAMES_3_NAME" Language="ru_RU">
       <Text>Сыграть в игру 3</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_QUEST_A_ANTIQUITY_DESC" Language="ru_RU">
-      <Text>Играя за Симона Боливара в эпоху античности, завершите задание и установите связь с сельским населением.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_SCIENCE_TRIUMPH_2_ANTIQUITY_DESC" Language="ru_RU">
+      <Text>Завершите триумф «Круглая Земля», играя за Боливара.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_QUEST_A_ANTIQUITY_NAME" Language="ru_RU">
-      <Text>Народ</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_SCIENCE_TRIUMPH_2_ANTIQUITY_NAME" Language="ru_RU">
+      <Text>Круглая Земля</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_QUEST_A_EXPLORATION_DESC" Language="ru_RU">
-      <Text>Играя за Симона Боливара в эпоху античности, завершите задание и совершите плавание по опасным океанам.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_SCIENCE_TRIUMPH_2_EXPLORATION_DESC" Language="ru_RU">
+      <Text>Завершите триумф «О вращении небесных сфер», играя за Боливара.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_QUEST_A_EXPLORATION_NAME" Language="ru_RU">
-      <Text>В случае необходимости</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_SCIENCE_TRIUMPH_2_EXPLORATION_NAME" Language="ru_RU">
+      <Text>О вращении небесных сфер</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_QUEST_A_MODERN_DESC" Language="ru_RU">
-      <Text>Играя за Симона Боливара в современную эпоху, завершите задание и объедините империю с помощью железной дороги.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_SCIENCE_TRIUMPH_2_MODERN_DESC" Language="ru_RU">
+      <Text>Завершите триумф «Уже не мечом», играя за Боливара.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_QUEST_A_MODERN_NAME" Language="ru_RU">
-      <Text>Открытая дверь</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_SCIENCE_TRIUMPH_2_MODERN_NAME" Language="ru_RU">
+      <Text>Уже не мечом</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_QUEST_B_ANTIQUITY_DESC" Language="ru_RU">
-      <Text>Играя за Симона Боливара в эпоху античности, завершите задание и дайте пыли битвы улечься.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_SCIENCE_TRIUMPH_ANTIQUITY_DESC" Language="ru_RU">
+      <Text>Завершите триумф «Библиотека Ашшурбанапала», играя за Боливара.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_QUEST_B_ANTIQUITY_NAME" Language="ru_RU">
-      <Text>Готовы ко всему</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_SCIENCE_TRIUMPH_ANTIQUITY_NAME" Language="ru_RU">
+      <Text>Библиотека Ашшурбанапала</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_QUEST_B_EXPLORATION_DESC" Language="ru_RU">
-      <Text>Играя за Симона Боливара в эпоху исследований, завершите задание и повысьте солдата-ветерана.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_SCIENCE_TRIUMPH_EXPLORATION_DESC" Language="ru_RU">
+      <Text>Завершите триумф «Просвещение», играя за Боливара.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_QUEST_B_EXPLORATION_NAME" Language="ru_RU">
-      <Text>Пучок стрел</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_QUEST_B_MODERN_DESC" Language="ru_RU">
-      <Text>Играя за Симона Боливара в современную эпоху, завершите задание и сразитесь за свои убеждения.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_QUEST_B_MODERN_NAME" Language="ru_RU">
-      <Text>Непоколебимая решимость</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_SCIENCE_VICTORY_ANTIQUITY_2_DESC" Language="ru_RU">
-      <Text>Дважды завершите тропу наследия «Великая библиотека», играя за Боливара.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_SCIENCE_VICTORY_ANTIQUITY_2_NAME" Language="ru_RU">
-      <Text>Великая библиотека 2</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_SCIENCE_VICTORY_ANTIQUITY_3_DESC" Language="ru_RU">
-      <Text>Трижды завершите тропу наследия «Великая библиотека», играя за Боливара.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_SCIENCE_VICTORY_ANTIQUITY_3_NAME" Language="ru_RU">
-      <Text>Великая библиотека 3</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_SCIENCE_VICTORY_ANTIQUITY_DESC" Language="ru_RU">
-      <Text>Завершите тропу наследия «Великая библиотека», играя за Боливара.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_SCIENCE_VICTORY_ANTIQUITY_NAME" Language="ru_RU">
-      <Text>Великая библиотека</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_SCIENCE_VICTORY_EXPLORATION_2_DESC" Language="ru_RU">
-      <Text>Дважды завершите тропу наследия «Просвещение», играя за Боливара.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_SCIENCE_VICTORY_EXPLORATION_2_NAME" Language="ru_RU">
-      <Text>Просвещение 2</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_SCIENCE_VICTORY_EXPLORATION_3_DESC" Language="ru_RU">
-      <Text>Трижды завершите тропу наследия «Просвещение», играя за Боливара.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_SCIENCE_VICTORY_EXPLORATION_3_NAME" Language="ru_RU">
-      <Text>Просвещение 3</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_SCIENCE_VICTORY_EXPLORATION_DESC" Language="ru_RU">
-      <Text>Завершите тропу наследия «Просвещение», играя за Боливара.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_SCIENCE_VICTORY_EXPLORATION_NAME" Language="ru_RU">
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_SCIENCE_TRIUMPH_EXPLORATION_NAME" Language="ru_RU">
       <Text>Просвещение</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_SCIENCE_VICTORY_MODERN_2_DESC" Language="ru_RU">
-      <Text>Дважды завершите тропу наследия «Космическая гонка», играя за Боливара.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_SCIENCE_TRIUMPH_MODERN_DESC" Language="ru_RU">
+      <Text>Завершите триумф «Начало космической гонки», играя за Боливара.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_SCIENCE_VICTORY_MODERN_2_NAME" Language="ru_RU">
-      <Text>Космическая гонка 2</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_SCIENCE_TRIUMPH_MODERN_NAME" Language="ru_RU">
+      <Text>Начало космической гонки</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_SCIENCE_VICTORY_MODERN_3_DESC" Language="ru_RU">
-      <Text>Трижды завершите тропу наследия «Космическая гонка», играя за Боливара.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_SCIENCE_VICTORY_DESC" Language="ru_RU">
+      <Text>Одержите научную победу, играя за Боливара.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_SCIENCE_VICTORY_MODERN_3_NAME" Language="ru_RU">
-      <Text>Космическая гонка 3</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_SCIENCE_VICTORY_NAME" Language="ru_RU">
+      <Text>Научная победа</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_SCIENCE_VICTORY_MODERN_DESC" Language="ru_RU">
-      <Text>Завершите тропу наследия «Космическая гонка», играя за Боливара.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_BOLIVAR_QUEST_A_ANTIQUITY_DESC" Language="ru_RU">
+      <Text>Играя за Боливара в эпоху античности, завершите задание и установите связь с сельским населением.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BOLIVAR_SCIENCE_VICTORY_MODERN_NAME" Language="ru_RU">
-      <Text>Космическая гонка</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_BOLIVAR_QUEST_A_ANTIQUITY_NAME" Language="ru_RU">
+      <Text>Народ</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_BOLIVAR_QUEST_A_EXPLORATION_DESC" Language="ru_RU">
+      <Text>Играя за Боливара в эпоху исследований, завершите задание и отправьтесь на поиски далеких союзников.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_BOLIVAR_QUEST_A_EXPLORATION_NAME" Language="ru_RU">
+      <Text>Гости</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_BOLIVAR_QUEST_A_MODERN_DESC" Language="ru_RU">
+      <Text>Играя за Боливара в современную эпоху, завершите задание и объедините империю с помощью железной дороги.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_BOLIVAR_QUEST_A_MODERN_NAME" Language="ru_RU">
+      <Text>Открытая дверь</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_BOLIVAR_QUEST_B_ANTIQUITY_DESC" Language="ru_RU">
+      <Text>Играя за Боливара в эпоху античности, завершите задание и дайте пыли битвы улечься.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_BOLIVAR_QUEST_B_ANTIQUITY_NAME" Language="ru_RU">
+      <Text>Готовы ко всему</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_BOLIVAR_QUEST_B_EXPLORATION_DESC" Language="ru_RU">
+      <Text>Играя за Боливара в эпоху исследований, завершите задание и выступите против угнетения.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_BOLIVAR_QUEST_B_EXPLORATION_NAME" Language="ru_RU">
+      <Text>Противостояние</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_BOLIVAR_QUEST_B_MODERN_DESC" Language="ru_RU">
+      <Text>Играя за Боливара в современную эпоху, завершите задание и сразитесь за свои убеждения.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_BOLIVAR_QUEST_B_MODERN_NAME" Language="ru_RU">
+      <Text>Непоколебимая решимость</Text>
     </Replace>
     <Replace Tag="LOC_MOD_ATTRIBUTE_EXPANSIONIST_LEGEND_BOLIVAR_L1_DESCRIPTION" Language="ru_RU">
       <Text>Открывается легендой. +50% [icon:YIELD_GOLD] золота для превращения [icon:YIELD_TOWNS] городка в [icon:YIELD_CITIES] город.</Text>
@@ -1078,42 +1105,42 @@
       <Text>Освободитель</Text>
     </Replace>
     <Replace Tag="LOC_STRATEGYCARD_BOLIVAR_EXPLORATION_1_DESCRIPTION" Language="ru_RU">
-      <Text>Играя за Боливара, получите доступ к новой карте наследия эпохи исследований:[n]
+      <Text>Играя за Боливара, получите доступ к новому устремлению в эпоху исследований:[n]
 
 				+15% золота, -10% пищи</Text>
     </Replace>
     <Replace Tag="LOC_STRATEGYCARD_BOLIVAR_EXPLORATION_1_NAME" Language="ru_RU">
-      <Text>Карта экспансионистского наследия эпохи исследований</Text>
+      <Text>Экспансионистское устремление в эпоху исследований</Text>
     </Replace>
     <Replace Tag="LOC_STRATEGYCARD_BOLIVAR_EXPLORATION_2_DESCRIPTION" Language="ru_RU">
-      <Text>Играя за Боливара, получите доступ к новой карте наследия эпохи исследований:[n]
+      <Text>Играя за Боливара, получите доступ к новому устремлению в эпоху исследований:[n]
 
 				+3 к боевой мощи для ваших морских юнитов, -10% влияния</Text>
     </Replace>
     <Replace Tag="LOC_STRATEGYCARD_BOLIVAR_EXPLORATION_2_NAME" Language="ru_RU">
-      <Text>Карта военного наследия эпохи исследований</Text>
+      <Text>Военное устремление в эпоху исследований</Text>
     </Replace>
     <Replace Tag="LOC_STRATEGYCARD_BOLIVAR_MODERN_1_DESCRIPTION" Language="ru_RU">
-      <Text>Играя за Боливара, получите доступ к новой карте наследия современной эпохи:[n]
+      <Text>Играя за Боливара, получите доступ к новому устремлению в современную эпоху:[n]
 
 				+15% пищи, -10% золота</Text>
     </Replace>
     <Replace Tag="LOC_STRATEGYCARD_BOLIVAR_MODERN_1_NAME" Language="ru_RU">
-      <Text>Карта экспансионистского наследия современной эпохи</Text>
+      <Text>Экспансионистское устремление в современную эпоху</Text>
     </Replace>
     <Replace Tag="LOC_STRATEGYCARD_BOLIVAR_MODERN_2_DESCRIPTION" Language="ru_RU">
-      <Text>Играя за Боливара, получите доступ к новой карте наследия современной эпохи:[n]
+      <Text>Играя за Боливара, получите доступ к новому устремлению в современную эпоху:[n]
 
 				+3 к боевой мощи для ваших воздушных юнитов, -10% влияния</Text>
     </Replace>
     <Replace Tag="LOC_STRATEGYCARD_BOLIVAR_MODERN_2_NAME" Language="ru_RU">
-      <Text>Карта военного наследия современной эпохи</Text>
+      <Text>Военное устремление в современную эпоху</Text>
     </Replace>
     <Replace Tag="LOC_TITLE_BOLIVAR_NAME" Language="ru_RU">
       <Text>Освободитель</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_LEADER_BOLIVAR_ABILITY_DESCRIPTION" Language="ru_RU">
-      <Text>[BLIST][LI]Получите [B]1 [icon:WAR_SUPPORT] военную поддержку [/B]в своих войнах.[LI]Когда вы впервые захватываете поселение, оно может [B]бесплатно приобрести 1 конструкцию[/B].[LI][icon:YIELD_ANGRY] [B]Беспорядки[/B] не мешают приобретению.[/LIST]</Text>
+      <Text>[BLIST][LI]Получите [B]2 очка [icon:WAR_SUPPORT] военной поддержки [/B]во всех объявляемых вами [icon:WAR] [B]войнах[/B].[LI]Когда вы впервые захватываете поселение, оно может бесплатно [B]приобрести 1 [icon:CITY_BUILDING_LIST] здание или [icon:CITY_RURAL] улучшение[/B].[LI][icon:YIELD_ANGRY] [B]Беспорядки[/B] не мешают приобретению.[/LIST]</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_LEADER_BOLIVAR_ABILITY_NAME" Language="ru_RU">
       <Text>Освободитель</Text>

@@ -1,60 +1,82 @@
-import { L as LensManager } from '../../../../core/ui/lenses/lens-manager.chunk.js';
+import LensManager from '../../../../core/ui/lenses/lens-manager.js';
+import { ResourceLensLayer } from './resource-layer.js';
 import { PlacePopulation } from '../../place-population/model-place-population.js';
-import '../../../../core/ui/input/plot-cursor.js';
-import '../../../../core/ui/context-manager/context-manager.js';
-import '../../../../core/ui/context-manager/display-queue-manager.js';
-import '../../../../core/ui/dialog-box/manager-dialog-box.chunk.js';
-import '../../../../core/ui/framework.chunk.js';
-import '../../../../core/ui/input/cursor.js';
-import '../../../../core/ui/input/focus-manager.js';
-import '../../../../core/ui/audio-base/audio-support.chunk.js';
-import '../../../../core/ui/views/view-manager.chunk.js';
-import '../../../../core/ui/panel-support.chunk.js';
-import '../../../../core/ui/input/action-handler.js';
-import '../../../../core/ui/input/input-support.chunk.js';
-import '../../../../core/ui/utilities/utilities-update-gate.chunk.js';
-import '../../../../core/ui/interface-modes/interface-modes.js';
-import '../../../../core/ui/utilities/utilities-component-id.chunk.js';
-import '../../building-placement/building-placement-manager.js';
-import '../../placement-city-banner/placement-city-banner.js';
-import '../../plot-workers/plot-workers-manager.js';
-import '../../utilities/utilities-city-yields.chunk.js';
-import '../../yield-bar-base/yield-bar-base.js';
 
 class CityGrowthImprovementsLensLayer {
   spriteOffset = { x: 0, y: 15, z: 5 };
   spriteScale = 1;
-  improvementSpriteGrid = WorldUI.createSpriteGrid(
-    "CityGrowthImprovements_SpriteGroup",
-    true
-  );
+  resourceXOffset = 10;
+  improvementSpriteGrid = WorldUI.createSpriteGrid("CityGrowthImprovements", SpriteMode.Billboard);
+  resourceTypeSpriteGrid = WorldUI.createSpriteGrid("CityGrowthImprovementsTop", SpriteMode.Billboard);
+  suppressedResources = [];
   expandPlotDataUpdatedEventListener = this.updateImprovementIcons.bind(this);
   initLayer() {
     this.improvementSpriteGrid.setVisible(false);
+    this.resourceTypeSpriteGrid.setVisible(false);
   }
   applyLayer() {
     this.updateImprovementIcons(PlacePopulation.getExpandPlots());
     PlacePopulation.ExpandPlotDataUpdatedEvent.on(this.expandPlotDataUpdatedEventListener);
     this.improvementSpriteGrid.setVisible(true);
+    this.resourceTypeSpriteGrid.setVisible(true);
   }
   removeLayer() {
     PlacePopulation.ExpandPlotDataUpdatedEvent.off(this.expandPlotDataUpdatedEventListener);
     this.improvementSpriteGrid.clear();
     this.improvementSpriteGrid.setVisible(false);
+    this.resourceTypeSpriteGrid.clear();
+    this.resourceTypeSpriteGrid.setVisible(false);
+    ResourceLensLayer.instance.clearSuppressedPlots();
+    this.suppressedResources = [];
+  }
+  addResourceIcon(plot) {
+    const location = GameplayMap.getLocationFromIndex(plot);
+    const resource = GameplayMap.getResourceType(location.x, location.y);
+    if (resource == ResourceTypes.NO_RESOURCE) {
+      return false;
+    }
+    const player = Players.get(GameContext.localPlayerID);
+    if (!player) {
+      console.log(`resource-layer: initLayer() Failed to find player for ${GameContext.localPlayerID}`);
+      return false;
+    }
+    const def = GameInfo.Resources.lookup(resource);
+    if (!def) {
+      return false;
+    }
+    const asset = UI.getIconBLP(def.ResourceType);
+    const treasureFleet = def.ResourceClassType == "RESOURCECLASS_TREASURE" && player.isDistantLands(location);
+    const typeAsset = UI.getIconBLP(treasureFleet ? "RESOURCECLASS_TREASURE_FLEET" : def.ResourceClassType);
+    const PX_SCALE = 16 / 42;
+    this.improvementSpriteGrid.addSprite(plot, asset, this.spriteOffset, {
+      offset: { x: this.resourceXOffset, y: 0 }
+    });
+    this.resourceTypeSpriteGrid.addSprite(plot, typeAsset, this.spriteOffset, {
+      scale: 1.25 * PX_SCALE,
+      offset: { x: this.resourceXOffset, y: -16 * PX_SCALE }
+    });
+    return true;
   }
   updateImprovementIcons(data) {
     this.improvementSpriteGrid.clear();
+    this.resourceTypeSpriteGrid.clear();
+    ResourceLensLayer.instance.clearSuppressedPlots();
+    this.suppressedResources = [];
     for (const entry of data) {
       if (entry.constructibleType) {
         const constructibleDefinition = GameInfo.Constructibles.lookup(entry.constructibleType);
         if (constructibleDefinition) {
+          const params = { scale: this.spriteScale };
+          if (this.addResourceIcon(entry.plotIndex)) {
+            params.offset = { x: -this.resourceXOffset, y: 0 };
+          }
           const icon = UI.getIconBLP(constructibleDefinition.ConstructibleType, "BUILDING");
-          this.improvementSpriteGrid.addSprite(entry.plotIndex, icon, this.spriteOffset, {
-            scale: this.spriteScale
-          });
+          this.improvementSpriteGrid.addSprite(entry.plotIndex, icon, this.spriteOffset, params);
+          this.suppressedResources.push(entry.plotIndex);
         }
       }
     }
+    ResourceLensLayer.instance.suppressPlots(this.suppressedResources);
   }
 }
 LensManager.registerLensLayer("fxs-city-growth-improvements-layer", new CityGrowthImprovementsLensLayer());

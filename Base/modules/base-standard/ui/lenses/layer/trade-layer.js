@@ -1,16 +1,7 @@
 import ContextManager from '../../../../core/ui/context-manager/context-manager.js';
-import { L as LensManager } from '../../../../core/ui/lenses/lens-manager.chunk.js';
+import LensManager from '../../../../core/ui/lenses/lens-manager.js';
 import { TradeRoutesModel } from '../../trade-route-chooser/trade-routes-model.js';
-import { O as OVERLAY_PRIORITY } from '../../utilities/utilities-overlay.chunk.js';
-import '../../../../core/ui/context-manager/display-queue-manager.js';
-import '../../../../core/ui/dialog-box/manager-dialog-box.chunk.js';
-import '../../../../core/ui/framework.chunk.js';
-import '../../../../core/ui/input/cursor.js';
-import '../../../../core/ui/input/focus-manager.js';
-import '../../../../core/ui/audio-base/audio-support.chunk.js';
-import '../../../../core/ui/views/view-manager.chunk.js';
-import '../../../../core/ui/panel-support.chunk.js';
-import '../../../../core/ui/utilities/utilities-component-id.chunk.js';
+import { OVERLAY_PRIORITY } from '../../utilities/utilities-overlay.js';
 
 const TRADE_RANGE_OUT_OF_RANGE_COLOR = 1426063565;
 const TRADE_RANGE_AVAILABLE_COLOR = 1426115840;
@@ -77,7 +68,8 @@ class TradeLensLayer {
     ContextManager.push("trade-route-chooser", { singleton: true });
   }
   removeLayer() {
-    this.tradeRangeOverlayGroup.setVisible(false);
+    this.tradeRangeOverlayGroup.clearAll();
+    this.tradeRangeOverlay.clear();
     ContextManager.pop("trade-route-chooser");
   }
 }

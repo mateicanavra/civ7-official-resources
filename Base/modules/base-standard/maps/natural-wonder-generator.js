@@ -1,5 +1,4 @@
 import { shuffle } from './map-utilities.js';
-import './map-globals.js';
 
 function addNaturalWonders(iWidth, iHeight, iNumNaturalWonders, wonderEventActive = false, requestedWonders = []) {
   if (GameInfo.Feature_NaturalWonders.length < iNumNaturalWonders) {

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+	<Modifier id="MOD_CIV_FIRST_TIME_CONQUER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_PLAYER_GRANT_PROGRESSION" permanent="true">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_FIRST_TIME_SETTLEMENT_OCCUPATION"/>
+		</SubjectRequirements>
+		<Argument name="Amount">1</Argument>
+		<Argument name="SystemType">SYSTEM_TECH</Argument>
+		<Argument name="FreeProgressionType">FREE_PROGRESSION_NODE_ANY_UNLOCKED</Argument>
+	</Modifier>
+	<!-- Antiquity -->
+	<Modifier id="MOD_CIV_FIRST_TIME_CONQUER_CODEX" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_GRANT_GREAT_WORK" permanent="true">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_FIRST_TIME_SETTLEMENT_OCCUPATION"/>
+		</SubjectRequirements>
+		<Argument name="Amount">1</Argument>
+		<Argument name="ObjectType">GREATWORKOBJECT_WRITING</Argument>
+	</Modifier>
+	<!-- Exploration -->
+	<Modifier id="MOD_CIV_FIRST_TIME_CONQUER_RELIC" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_GRANT_GREAT_WORK" permanent="true">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_FIRST_TIME_SETTLEMENT_OCCUPATION"/>
+		</SubjectRequirements>
+		<Argument name="Amount">1</Argument>
+		<Argument name="ObjectType">GREATWORKOBJECT_RELIC</Argument>
+	</Modifier>
+	<!-- Modern -->
+	<Modifier id="MOD_CIV_FIRST_TIME_CONQUER_ARTIFACT" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_GRANT_GREAT_WORK" permanent="true">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_FIRST_TIME_SETTLEMENT_OCCUPATION"/>
+		</SubjectRequirements>
+		<Argument name="Amount">1</Argument>
+		<Argument name="ObjectType">GREATWORKOBJECT_ARTIFACT</Argument>
+	</Modifier>
+</GameEffects>

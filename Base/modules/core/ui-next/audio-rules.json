@@ -1,0 +1,1440 @@
+[
+	{
+		"path": "Activatable",
+		"events": {
+			"focus": "hero-focus",
+			"press": "select-press"
+		}
+	},
+	{
+		"path": "Button",
+		"events": {
+			"press": "primary-button-press",
+			"focus": "primary-button-focus"
+		}
+	},
+	{
+		"path": "CloseButton",
+		"events": {
+			"activate": "generic-window-close",
+			"press": "generic-close-button-press",
+			"focus": "select-focus"
+		}
+	},
+	{
+		"path": "CollapsibleContainer",
+		"constraints": {
+			"isCollapsed": {
+				"op": "eq",
+				"value": "false"
+			}
+		},
+		"events": {
+			"activate": "generic-dropdown-open",
+			"press": "select-press",
+			"focus": "select-focus"
+		}
+	},
+	{
+		"path": "CollapsibleContainer",
+		"constraints": {
+			"isCollapsed": {
+				"op": "eq",
+				"value": "true"
+			}
+		},
+		"events": {
+			"activate": "generic-dropdown-close",
+			"press": "select-press",
+			"focus": "select-focus"
+		}
+	},
+	{
+		"path": "HeroButton2",
+		"events": {
+			"activate": "generic-hero-activate",
+			"press": "hero-press",
+			"focus": "hero-focus",
+			"pressError": "error-press"
+		}
+	},
+	{
+		"path": "ArrowButton",
+		"events": {
+			"press": "generic-pager-press",
+			"focus": "generic-pager-focus"
+		}
+	},
+	{
+		"path": "RadioButton",
+		"events": {
+			"activate": "generic-pager-navigate",
+			"press": "generic-radio-press",
+			"focus": "generic-radio-focus"
+		}
+	},
+	{
+		"path": "RadioItem",
+		"events": {
+			"tab-nav-next": "generic-pager-navigate",
+			"tab-nav-previous": "generic-pager-navigate"
+		}
+	},
+	{
+		"path": "RingMeter",
+		"events": {
+			"activate": "",
+			"press": "",
+			"focus": ""
+		}
+	},
+	{
+		"path": "TabListItem",
+		"events": {
+			"activate": "generic-tab-navigate",
+			"press": "",
+			"focus": "",
+			"tab-nav-next": "generic-tab-navigate",
+			"tab-nav-previous": "generic-tab-navigate"
+		}
+	},
+	{
+		"path": "CheckBox",
+		"events": {
+			"press": "generic-checkbox-press"
+		}
+	},
+	{
+		"path": "Dropdown",
+		"events": {
+			"dropdown-open": "generic-dropdown-open",
+			"dropdown-close": "generic-dropdown-close"
+		}
+	},
+	{
+		"path": "TutorialPopup",
+		"events": {
+			"popup-open": "tutorial-popup-open",
+			"popup-close": "tutorial-popup-closed",
+			"popup-minimize": "journal-press",
+			"popup-maximize": "journal-press"
+		}
+	},
+	{
+		"path": "TutorialPopup/Button",
+		"events": {
+			"press": "primary-button-press",
+			"focus": "hero-focus"
+		}
+	},
+	{
+		"path": "TutorialPopupMinimize",
+		"events": {
+			"activate": "",
+			"press": "",
+			"focus": ""
+		}
+	},
+	{
+		"path": "TutorialMinimized",
+		"events": {
+			"activate": "",
+			"press": "primary-button-press",
+			"focus": "hero-focus"
+		}
+	},
+	{
+		"path": "LoadScreen/HeroButton2",
+		"constraints": {
+			"canBeginGame": {
+				"op": "eq",
+				"value": "true"
+			}
+		},
+		"events": {
+			"activate": "main-menu-begin-game",
+			"press": "hero-press",
+			"focus": "hero-focus"
+		}
+	},
+	{
+		"path": "LoadScreen/HeroButton2",
+		"constraints": {
+			"canBeginGame": {
+				"op": "eq",
+				"value": "false"
+			}
+		},
+		"events": {
+			"activate": "",
+			"pressError": "error-press",
+			"focus": "hero-focus"
+		}
+	},
+	{
+		"path": "ChooseDedicationsPopup",
+		"events": {
+			"popup-open": "dedications-choose-showing"
+		}
+	},
+	{
+		"path": "ChooseDedicationsPopup/DragonDrop/Activatable",
+		"events": {
+			"focus": "hero-focus"
+		}
+	},
+	{
+		"path": "ChooseDedicationsPopup/DragonDrop/DedicationCard",
+		"events": {
+			"activate": "dedication-selected",
+			"press": "dedication-press",
+			"focus": "hero-focus",
+			"dropAccept": "dedication-selected",
+			"dropReject": "play-drop-reject",
+			"dropReleased": "play-drop-release"
+		}
+	},
+	{
+		"path": "ChooseDedicationsPopup/Confirm/Button",
+		"events": {
+			"activate": "dedications-confirm",
+			"press": "primary-button-press",
+			"focus": "hero-focus"
+		}
+	},
+	{
+		"path": "ChooseDedicationsPopup/ViewMap/Button",
+		"events": {
+			"activate": "generic-panel-hiding",
+			"press": "primary-button-press",
+			"focus": "hero-focus"
+		}
+	},
+	{
+		"path": "ChooseDedicationsPopup/Dropdown",
+		"events": {
+			"dropdown-open": "generic-dropdown-open",
+			"dropdown-close": "generic-dropdown-close"
+		}
+	},
+	{
+		"path": "ChooseDedicationsPopup/Activatable",
+		"events": {
+			"press": "select-press",
+			"focus": "select-focus"
+		}
+	},
+	{
+		"path": "AdvisorScreen",
+		"events": {
+			"popup-open": "quest-panel-open",
+			"popup-close": "overlay-window-close",
+			"navigate-tab": "generic-tab-navigate",
+			"focus": "hero-focus",
+			"press": "select-press"
+		}
+	},
+	{
+		"path": "AdvisorScreen/Button",
+		"constraints": {
+			"following": {
+				"op": "eq",
+				"value": "false"
+			}
+		},
+		"events": {
+			"activate": "follow-advisor-{advisorType}",
+			"press": "primary-button-press",
+			"focus": "hero-focus"
+		}
+	},
+	{
+		"path": "AdvisorScreen/Button",
+		"constraints": {
+			"following": {
+				"op": "eq",
+				"value": "true"
+			}
+		},
+		"events": {
+			"activate": "advisor-unfollow-activate",
+			"press": "primary-button-press",
+			"focus": "hero-focus"
+		}
+	},
+	{
+		"path": "AdvisorScreen/ArrowButton",
+		"events": {
+			"activate": "generic-pager-navigate",
+			"press": "generic-pager-press",
+			"focus": "generic-pager-focus"
+		}
+	},
+	{
+		"path": "AdvisorScreen/RadioItem",
+		"events": {
+			"tab-nav-next": "generic-pager-navigate",
+			"tab-nav-previous": "generic-pager-navigate"
+		}
+	},
+	{
+		"path": "AdvisorScreen/CloseButton",
+		"events": {
+			"activate": "generic-window-close",
+			"press": "generic-close-button-press",
+			"focus": "select-focus"
+		}
+	},
+	{
+		"path": "AdvisorScreen/TabListItem",
+		"events": {
+			"activate": "generic-tab-navigate",
+			"press": "",
+			"focus": "",
+			"tab-nav-next": "generic-tab-navigate",
+			"tab-nav-previous": "generic-tab-navigate"
+		}
+	},
+	{
+		"path": "AdvisorScreen/AdvisorCard/Activatable",
+		"constraints": {
+			"isPopup": "true"
+		},
+		"events": {
+			"activate": "",
+			"press": "",
+			"focus": ""
+		}
+	},
+	{
+		"path": "AdvisorScreen/AdvisorPortrait/Activatable",
+		"constraints": {
+			"isPopup": "true"
+		},
+		"events": {
+			"activate": "",
+			"press": "",
+			"focus": ""
+		}
+	},
+	{
+		"path": "AdvisorScreen/AdvisorCard/Activatable",
+		"constraints": {
+			"isPopup": "false"
+		},
+		"events": {
+			"activate": "",
+			"press": "primary-button-press",
+			"focus": "primary-button-focus"
+		}
+	},
+	{
+		"path": "AdvisorScreen/AdvisorPortrait/Activatable",
+		"constraints": {
+			"isPopup": "false"
+		},
+		"events": {
+			"activate": "",
+			"press": "primary-button-press",
+			"focus": ""
+		}
+	},
+	{
+		"path": "AdvisorScreen/Confirm/Button",
+		"events": {
+			"activate": "confirm-advisor-activate",
+			"press": "primary-button-press",
+			"focus": "hero-focus"
+		}
+	},
+	{
+		"path": "AdvisorWatchoutPopup",
+		"events": {
+			"popup-open": "popup-open-advisor-warning",
+			"popup-close": "tutorial-popup-closed"
+		}
+	},
+	{
+		"path": "LeaderSelectPortraitButton",
+		"constraints": {
+			"leaderType": {
+				"op": "eq",
+				"value": "random"
+			}
+		},
+		"events": {
+			"activate": "leader-select-random",
+			"press": "leader-select-press",
+			"focus": "leader-select-focus"
+		}
+	},
+	{
+		"path": "LeaderSelectPortraitButton",
+		"constraints": {
+			"leaderType": {
+				"op": "neq",
+				"value": "random"
+			}
+		},
+		"events": {
+			"activate": "leader-select-selected",
+			"press": "leader-select-press",
+			"focus": "leader-select-focus"
+		}
+	},
+	{
+		"path": "LeaderSelectFilter/Dropdown",
+		"events": {
+			"dropdown-open": "generic-dropdown-open",
+			"dropdown-close": "generic-dropdown-close"
+		}
+	},
+	{
+		"path": "LeaderSelectFilter/Activatable",
+		"events": {
+			"press": "generic-dropdown-press",
+			"focus": "select-focus"
+		}
+	},
+	{
+		"path": "LeaderSelectScreen/TextInput",
+		"events": {
+			"activate": "search-press",
+			"press": "",
+			"focus": "select-focus"
+		}
+	},
+	{
+		"path": "LeaderSelectContinue/HeroButton2",
+		"events": {
+			"activate": "create-continue-selected",
+			"press": "hero-press",
+			"focus": "hero-focus"
+		}
+	},
+	{
+		"path": "AgeSelectPopup/Activatable",
+		"events": {
+			"activate": "age-select-activate",
+			"press": "hero-press",
+			"focus": "age-select-focus",
+			"pressError": "error-press"
+		}
+	},
+	{
+		"path": "AgePreviewButton/Activatable",
+		"events": {
+			"activate": "hero-press",
+			"press": "age-preview-activate",
+			"focus": "select-focus"
+		}
+	},
+	{
+		"path": "AgeSelectButton",
+		"events": {
+			"activate": "age-select-{ageType}",
+			"press": "hero-press",
+			"focus": "age-select-focus"
+		}
+	},
+	{
+		"path": "CivSelectScreen/TextInput",
+		"events": {
+			"activate": "search-press",
+			"press": "",
+			"focus": "select-focus"
+		}
+	},
+	{
+		"path": "CivSelectScreen/Filters/Dropdown",
+		"events": {
+			"dropdown-open": "generic-dropdown-open",
+			"dropdown-close": "generic-dropdown-close"
+		}
+	},
+	{
+		"path": "CivSelectScreen/Filters/Activatable",
+		"events": {
+			"press": "generic-dropdown-press",
+			"focus": "select-focus"
+		}
+	},
+	{
+		"path": "CivSelectScreen/RandomCivButton",
+		"events": {
+			"activate": "leader-select-random",
+			"press": "civ-select-press",
+			"focus": "select-focus"
+		}
+	},
+	{
+		"path": "CivSelectScreen/AgeSelectPopup/Activatable",
+		"events": {
+			"activate": "age-select-activate",
+			"press": "hero-press",
+			"focus": "age-select-focus",
+			"pressError": "error-press"
+		}
+	},
+	{
+		"path": "CivSelectScreen/AgeSelectButton",
+		"events": {
+			"activate": "age-select-{ageType}",
+			"press": "hero-press",
+			"focus": "age-select-focus"
+		}
+	},
+	{
+		"path": "CivSelectScreen/CivSelectCard",
+		"events": {
+			"activate": "civ-select-selected",
+			"press": "civ-select-press",
+			"focus": "civ-select-focus"
+		}
+	},
+	{
+		"path": "GameSetupOptions/Activatable",
+		"events": {
+			"focus": "age-select-focus"
+		}
+	},
+	{
+		"path": "GameSetupOptions/MapSelectButton",
+		"events": {
+			"activate": "advanced-options-button-release",
+			"press": "hero-press",
+			"focus": "age-select-focus"
+		}
+	},
+	{
+		"path": "GameSetupOptions/AdvancedSettingsButton",
+		"events": {
+			"activate": "advanced-options-button-release",
+			"press": "hero-press",
+			"focus": "age-select-focus"
+		}
+	},
+	{
+		"path": "GameSetupOptions/ArrowButton",
+		"events": {
+			"press": "generic-pager-press",
+			"focus": "generic-pager-focus"
+		}
+	},
+	{
+		"path": "GameSetupOptions/RadioButton",
+		"events": {
+			"activate": "generic-pager-navigate",
+			"press": "generic-radio-press",
+			"focus": "generic-radio-focus"
+		}
+	},
+	{
+		"path": "GameSetupOptions/RadioItem",
+		"events": {
+			"tab-nav-next": "generic-pager-navigate",
+			"tab-nav-previous": "generic-pager-navigate"
+		}
+	},
+	{
+		"path": "CreateGameBackButton",
+		"events": {
+			"activate": "generic-back-activate",
+			"press": "generic-back-press",
+			"focus": "select-focus"
+		}
+	},
+	{
+		"path": "CreateGameNavButton",
+		"events": {
+			"activate": "generic-back-activate",
+			"press": "generic-back-press",
+			"focus": "select-focus"
+		}
+	},
+	{
+		"path": "MapSelectPopup/Activatable",
+		"events": {
+			"activate": "map-type-activate",
+			"press": "hero-press",
+			"focus": "map-type-focus"
+		}
+	},
+	{
+		"path": "CreateGameHub/Activatable",
+		"events": {
+			"activate": "generic-hero-activate",
+			"press": "hero-press",
+			"focus": "main-menu-focus"
+		}
+	},
+	{
+		"path": "CreateGameHub/HeroButton2",
+		"events": {
+			"activate": "launch-game-activate",
+			"press": "hero-press",
+			"focus": "hero-focus"
+		}
+	},
+	{
+		"path": "CreateGameHub/HubLeaderInfo",
+		"events": {
+			"activate": "overlay-window-open",
+			"press": "hero-press",
+			"focus": "overview-stripes-focus"
+		}
+	},
+	{
+		"path": "CreateGameHub/HubCivInfo",
+		"events": {
+			"activate": "overlay-window-open",
+			"press": "hero-press",
+			"focus": "overview-stripes-focus"
+		}
+	},
+	{
+		"path": "CreateGameHub/HubAgeInfo",
+		"events": {
+			"activate": "age-select-activate",
+			"press": "hero-press",
+			"focus": "overview-stripes-focus"
+		}
+	},
+	{
+		"path": "CreateGameHub/HubLeaderInfo/TraitIcon/Activatable",
+		"events": {
+			"activate": "",
+			"press": "select-press",
+			"focus": "overview-info-hover"
+		}
+	},
+	{
+		"path": "CreateGameHub/HubCivInfo/TraitIcon/Activatable",
+		"events": {
+			"activate": "",
+			"press": "select-press",
+			"focus": "overview-info-hover"
+		}
+	},
+	{
+		"path": "CreateGameHub/HubMementos",
+		"events": {
+			"activate": "",
+			"press": "memento-slot-press",
+			"focus": "memento-slot-focus"
+		}
+	},
+	{
+		"path": "MementoSelect/MementoSlot/Activatable",
+		"events": {
+			"activate": "",
+			"press": "memento-slot-press",
+			"focus": "memento-slot-focus"
+		}
+	},
+	{
+		"path": "MementoSelect/TextInput",
+		"events": {
+			"activate": "search-press",
+			"press": "",
+			"focus": "select-focus"
+		}
+	},
+	{
+		"path": "MementoSelect/FilterDropdown/Dropdown",
+		"events": {
+			"dropdown-open": "generic-dropdown-open",
+			"dropdown-close": "generic-dropdown-close"
+		}
+	},
+	{
+		"path": "MementoSelect/FilterDropdown/Activatable",
+		"events": {
+			"press": "generic-dropdown-press",
+			"focus": "select-focus"
+		}
+	},
+	{
+		"path": "MementoSelect/MementoArray/Activatable",
+		"constraints": {
+			"isEquipped": {
+				"op": "eq",
+				"value": "false"
+			}
+		},
+		"events": {
+			"activate": "memento-remove-release",
+			"press": "hero-press",
+			"focus": "memento-item-focus",
+			"pressError": "data-audio-error-press"
+		}
+	},
+	{
+		"path": "MementoSelect/MementoArray/Activatable",
+		"constraints": {
+			"isEquipped": {
+				"op": "eq",
+				"value": "true"
+			}
+		},
+		"events": {
+			"activate": "memento-selected",
+			"press": "hero-press",
+			"focus": "memento-item-focus",
+			"pressError": "data-audio-error-press"
+		}
+	},
+	{
+		"path": "MementoSelect/Button",
+		"events": {
+			"activate": "memento-confirm-release",
+			"press": "primary-button-press",
+			"focus": "hero-focus"
+		}
+	},
+	{
+		"path": "SyncretismPreview",
+		"events": {
+			"popup-open": "overlay-window-open",
+			"popup-close": "overlay-window-close",
+			"popup-back": "overlay-window-close"
+		}
+	},
+	{
+		"path": "SyncretismScreen",
+		"events": {
+			"popup-open": "syncretism-showing",
+			"popup-close": "overlay-window-close",
+			"popup-back": "generic-back-activate"
+		}
+	},
+	{
+		"path": "SyncretismScreen/SyncretismCard",
+		"events": {
+			"activate": "overlay-window-open",
+			"press": "hero-press",
+			"focus": "addcontent-focus"
+		}
+	},
+	{
+		"path": "SyncretismScreen/Confirm/HeroButton2",
+		"constraints": {
+			"syncChoiceType": {
+				"op": "eq",
+				"value": "units"
+			}
+		},
+		"events": {
+			"activate": "syncretism-choice-military",
+			"press": "hero-press",
+			"focus": "hero-focus"
+		}
+	},
+	{
+		"path": "SyncretismScreen/Confirm/HeroButton2",
+		"constraints": {
+			"syncChoiceType": {
+				"op": "eq",
+				"value": "infrastructure"
+			}
+		},
+		"events": {
+			"activate": "syncretism-choice-building",
+			"press": "hero-press",
+			"focus": "hero-focus"
+		}
+	},
+	{
+		"path": "SyncretismScreen/Confirm/HeroButton2",
+		"constraints": {
+			"syncChoiceType": {
+				"op": "eq",
+				"value": "self"
+			}
+		},
+		"events": {
+			"activate": "syncretism-choice-affirmation",
+			"press": "hero-press",
+			"focus": "hero-focus"
+		}
+	},
+	{
+		"path": "SyncretismScreen/Button",
+		"events": {
+			"activate": "generic-back-activate",
+			"press": "primary-button-press",
+			"focus": "primary-button-focus"
+		}
+	},
+	{
+		"path": "SyncretismScreen/CloseButton",
+		"events": {
+			"activate": "generic-window-close",
+			"press": "generic-close-button-press",
+			"focus": "select-focus"
+		}
+	},
+	{
+		"path": "CivUnlocks/Activatable",
+		"events": {
+			"activate": "overlay-window-open",
+			"press": "primary-button-press",
+			"focus": "options-focus"
+		}
+	},
+	{
+		"path": "CivUnlocks/RadioButton",
+		"events": {
+			"activate": "generic-pager-navigate",
+			"press": "generic-radio-press",
+			"focus": "minimap-radio-button-focus"
+		}
+	},
+	{
+		"path": "CivUnlocks/RadioItem",
+		"events": {
+			"tab-nav-next": "generic-pager-navigate",
+			"tab-nav-previous": "generic-pager-navigate"
+		}
+	},
+	{
+		"path": "CivUnlocks/ArrowButton",
+		"events": {
+			"activate": "generic-pager-navigate",
+			"press": "generic-pager-press",
+			"focus": "generic-pager-focus"
+		}
+	},
+	{
+		"path": "CivUnlocks/CheckBox/CheckBox",
+		"events": {
+			"press": "generic-checkbox-press",
+			"focus": "minimap-checkbox-focus"
+		}
+	},
+	{
+		"path": "CivUnlocks/Dropdown/Activatable",
+		"events": {
+			"activate": "generic-dropdown-open",
+			"press": "select-press",
+			"focus": "select-focus"
+		}
+	},
+	{
+		"path": "AgeTransition/Activatable",
+		"events": {
+			"activate": "overlay-window-open",
+			"press": "primary-button-press",
+			"focus": "create-top-focus"
+		}
+	},
+	{
+		"path": "AgeTransition/Button",
+		"events": {
+			"activate": "overlay-window-open",
+			"press": "primary-button-press",
+			"focus": "primary-button-focus"
+		}
+	},
+	{
+		"path": "AgeTransition/ArrowButton",
+		"events": {
+			"activate": "generic-pager-navigate",
+			"press": "generic-pager-press",
+			"focus": "generic-pager-focus"
+		}
+	},
+	{
+		"path": "AgeTransition/RadioButton",
+		"events": {
+			"activate": "generic-pager-navigate",
+			"press": "generic-radio-press",
+			"focus": "generic-radio-focus"
+		}
+	},
+	{
+		"path": "AgeTransition/RadioItem",
+		"events": {
+			"tab-nav-next": "generic-pager-navigate",
+			"tab-nav-previous": "generic-pager-navigate"
+		}
+	},
+	{
+		"path": "AgeTransition/SelectCiv",
+		"events": {
+			"activate": "overlay-window-open"
+		}
+	},
+	{
+		"path": "AgeTransition/CreateGameBackButton",
+		"events": {
+			"activate": "generic-back-activate",
+			"press": "generic-back-press",
+			"focus": "select-focus"
+		}
+	},
+	{
+		"path": "AgeTransition/MementoSelect/FilterDropdown/Activatable",
+		"events": {
+			"activate": "generic-dropdown-open",
+			"press": "select-press",
+			"focus": "select-focus"
+		}
+	},
+	{
+		"path": "AgeTransition/AgePreviewButton/Activatable",
+		"events": {
+			"activate": "hero-press",
+			"press": "age-preview-activate",
+			"focus": "age-select-focus"
+		}
+	},
+	{
+		"path": "AgeTransition/CivSelectScreen/Filters/Dropdown",
+		"events": {
+			"activate": "generic-dropdown-open",
+			"press": "select-press",
+			"focus": "select-focus"
+		}
+	},
+	{
+		"path": "AgeTransitionPopup",
+		"events": {
+			"popup-open": "age-transition-showing",
+			"popup-close": "overlay-window-close"
+		}
+	},
+	{
+		"path": "LegacyOverlay",
+		"events": {
+			"popup-open": "legacies-triumphs-showing",
+			"popup-close": "legacies-triumphs-hiding"
+		}
+	},
+	{
+		"path": "CommerceScreen/Button",
+		"events": {
+			"activate": "popup-close-generic",
+			"press": "primary-button-press",
+			"focus": "hero-focus"
+		}
+	},
+	{
+		"path": "CommerceScreen/CloseButton",
+		"events": {
+			"activate": "generic-window-close",
+			"press": "generic-close-button-press",
+			"focus": "select-focus"
+		}
+	},
+	{
+		"path": "CommerceScreen/TabListItem",
+		"events": {
+			"activate": "generic-tab-navigate",
+			"press": "",
+			"focus": "",
+			"tab-nav-next": "generic-tab-navigate",
+			"tab-nav-previous": "generic-tab-navigate"
+		}
+	},
+	{
+		"path": "CommerceScreen/Dropdown",
+		"events": {
+			"dropdown-open": "generic-dropdown-open",
+			"dropdown-close": "generic-dropdown-close",
+			"press": "select-press",
+			"focus": "select-focus"
+		}
+	},
+	{
+		"path": "CommerceScreen/Activatable",
+		"events": {
+			"press": "select-press",
+			"pressError": "error"
+		}
+	},
+	{
+		"path": "CommerceScreen/city-resource-activatable",
+		"events": {
+			"press": "select-press",
+			"focus": "select-focus"
+		}
+	},
+	{
+		"path": "CommerceScreenPopup",
+		"events": {
+			"popup-open": "overlay-window-open",
+			"popup-close": "overlay-window-close"
+		}
+	},
+	{
+		"path": "CommerceScreen/DraggableResource",
+		"events": {
+			"press": "select-press",
+			"focus": "select-focus",
+			"dropReject": "drop-resource-reject"
+		}
+	},
+	{
+		"path": "CommerceScreen/ResourceSlotting",
+		"events": {
+			"dropUnassign": "resource-unassign",
+			"dropSwap": "resource-swap",
+			"dropAccept": "resource-slot-selected-{resourceType}",
+			"dropReject": "drop-resource-reject"
+		}
+	},
+	{
+		"path": "CommerceScreen/CollapsibleContainer",
+		"constraints": {
+			"isCollapsed": {
+				"op": "eq",
+				"value": "false"
+			}
+		},
+		"events": {
+			"activate": "generic-dropdown-open",
+			"press": "select-press",
+			"focus": "select-focus"
+		}
+	},
+	{
+		"path": "CommerceScreen/CollapsibleContainer",
+		"constraints": {
+			"isCollapsed": {
+				"op": "eq",
+				"value": "true"
+			}
+		},
+		"events": {
+			"activate": "generic-dropdown-close",
+			"press": "select-press",
+			"focus": "select-focus"
+		}
+	},
+	{
+		"path": "CommerceScreen/Filters/Dropdown",
+		"events": {
+			"dropdown-open": "generic-dropdown-open",
+			"dropdown-close": "generic-dropdown-close",
+			"press": "select-press",
+			"focus": "select-focus"
+		}
+	},
+	{
+		"path": "CommerceScreen/Filters/Activatable",
+		"events": {
+			"activate": "",
+			"press": "select-press",
+			"focus": "select-focus"
+		}
+	},
+	{
+		"path": "CommerceScreen/ReturnResources",
+		"events": {
+			"activate": "resources-unassign-release",
+			"press": "select-press",
+			"focus": "select-focus",
+			"pressError": "error-press"
+		}
+	},
+	{
+		"path": "CommerceScreen/ReturnAllResources",
+		"events": {
+			"activate": "popup-open-generic",
+			"pressError": "error-press",
+			"focus": "select-focus",
+			"press": "select-press"
+		}
+	},
+	{
+		"path": "CommerceScreen/ReturnAllResources/Confirm",
+		"events": {
+			"activate": "resources-unassign-release"
+		}
+	},
+	{
+		"path": "LegaciesPopup",
+		"events": {
+			"popup-open": "overlay-window-open",
+			"popup-close": "overlay-window-close"
+		}
+	},
+	{
+		"path": "CollapsibleContainer/Activatable",
+		"constraints": {
+			"isCollapsed": {
+				"op": "eq",
+				"value": "true"
+			}
+		},
+		"events": {
+			"activate": "generic-dropdown-close",
+			"press": "select-press",
+			"focus": "select-focus"
+		}
+	},
+	{
+		"path": "CollapsibleContainer/Activatable",
+		"constraints": {
+			"isCollapsed": {
+				"op": "eq",
+				"value": "false"
+			}
+		},
+		"events": {
+			"activate": "generic-dropdown-open",
+			"press": "select-press",
+			"focus": "select-focus"
+		}
+	},
+	{
+		"path": "LegaciesCiv",
+		"events": {
+			"popup-open": "legacies-civ-showing",
+			"popup-close": "legacies-civ-hiding",
+			"focus": "hero-focus",
+			"press": "select-press",
+			"activate": ""
+		}
+	},
+	{
+		"path": "LegaciesCiv/LegaciesCivShowing",
+		"events": {
+			"popup-open": "legacies-civ-showing",
+			"popup-close": "legacies-civ-hiding",
+			"focus": "hero-focus",
+			"press": "select-press"
+		}
+	},
+	{
+		"path": "LegaciesCiv/LegaciesCivShowing/ArrowButton",
+		"events": {
+			"activate": "generic-pager-navigate",
+			"press": "generic-pager-press",
+			"focus": "generic-pager-focus"
+		}
+	},
+	{
+		"path": "LegaciesCiv/LegaciesCivShowing/RadioButton",
+		"events": {
+			"activate": "generic-pager-navigate",
+			"press": "generic-radio-press",
+			"focus": "generic-radio-focus"
+		}
+	},
+	{
+		"path": "LegaciesCiv/LegaciesCivShowing/RadioItem",
+		"events": {
+			"tab-nav-next": "generic-pager-navigate",
+			"tab-nav-previous": "generic-pager-navigate"
+		}
+	},
+	{
+		"path": "LegaciesCiv/LegaciesCivShowing/AgePreviewButton/Activatable",
+		"events": {
+			"activate": "hero-press",
+			"press": "age-preview-activate",
+			"focus": "age-select-focus"
+		}
+	},
+	{
+		"path": "LegaciesCiv/LegaciesCivShowing/AgeSelectPopup/Activatable",
+		"events": {
+			"activate": "age-select-activate",
+			"press": "hero-press",
+			"focus": "age-select-focus",
+			"pressError": "error-press"
+		}
+	},
+	{
+		"path": "LegaciesCiv/CheckBox",
+		"events": {
+			"press": "generic-checkbox-press"
+		}
+	},
+	{
+		"path": "LegaciesCiv/Dropdown",
+		"events": {
+			"dropdown-open": "generic-dropdown-open",
+			"dropdown-close": "generic-dropdown-close"
+		}
+	},
+	{
+		"path": "LegaciesCiv/TextInput",
+		"events": {
+			"activate": "search-press",
+			"press": "",
+			"focus": "select-focus"
+		}
+	},
+	{
+		"path": "LegaciesCiv/CivCard/Activatable",
+		"events": {
+			"popup-open": "legacies-civ-showing",
+			"popup-close": "legacies-civ-hiding",
+			"focus": "hero-focus",
+			"press": "select-press",
+			"activate": "overlay-window-open"
+		}
+	},
+	{
+		"path": "AgeTransition/CivSelectScreen/AgeSelectPopup/Activatable",
+		"events": {
+			"activate": "age-select-activate",
+			"press": "hero-press",
+			"focus": "age-select-focus",
+			"pressError": "error-press"
+		}
+	},
+	{
+		"path": "AgeTransition/CivSelectScreen/Filters/Dropdown",
+		"events": {
+			"dropdown-open": "generic-dropdown-open",
+			"dropdown-close": "generic-dropdown-close",
+			"press": "select-press",
+			"focus": "select-focus"
+		}
+	},
+	{
+		"path": "AgeTransition/CivSelectScreen/Filters/Activatable",
+		"events": {
+			"activate": "",
+			"press": "select-press",
+			"focus": "select-focus"
+		}
+	},
+	{
+		"path": "AgeTransition/CivSelectScreen/CivSelectCard/Activatable",
+		"events": {
+			"focus": "hero-focus",
+			"press": "select-press",
+			"activate": "overlay-window-open"
+		}
+	},
+	{
+		"path": "GovernmentOverview",
+		"events": {
+			"popup-open": "overlay-window-open",
+			"popup-close": "overlay-window-close"
+		}
+	},
+	{
+		"path": "PolicyCard/Assigned",
+		"events": {
+			"activate": "social-policy-remove",
+			"press": "policy-card-press",
+			"focus": "social-policy-focus",
+			"pressError": "error-press"
+		}
+	},
+	{
+		"path": "PolicyCard/Unassigned",
+		"events": {
+			"activate": "social-policy-activate",
+			"press": "policy-card-press",
+			"focus": "social-policy-focus",
+			"pressError": "error-press"
+		}
+	},
+	{
+		"path": "PolicyConfirmButton",
+		"events": {
+			"activate": "social-policy-confim-release",
+			"press": "primary-button-press",
+			"focus": "hero-focus",
+			"pressError": "error-press"
+		}
+	},
+	{
+		"path": "VictoryScreen/TabListItem",
+		"events": {
+			"activate": "generic-tab-navigate",
+			"tab-nav-next": "generic-tab-navigate",
+			"tab-nav-previous": "generic-tab-navigate"
+		}
+	},
+	{
+		"path": "VictoryScreen/Activatable",
+		"events": {
+			"focus": "select-focus"
+		}
+	},
+	{
+		"path": "VictoryScreen/ArrowButton",
+		"events": {
+			"activate": "generic-pager-navigate",
+			"press": "generic-pager-press",
+			"pressError": "error-press",
+			"focus": "generic-pager-focus"
+		}
+	},
+	{
+		"path": "VictoryScreen/PlayerRow",
+		"events": {
+			"focus": "hero-focus"
+		}
+	},
+	{
+		"path": "VictoryScreen/SummaryCard",
+		"events": {
+			"navigate-tab": "generic-tab-navigate"
+		}
+	},
+	{
+		"path": "VictoryScreen/SummaryCard/Cultural",
+		"events": {
+			"activate": "victory-culture-showing",
+			"press": "hero-press",
+			"focus": "hero-focus"
+		}
+	},
+	{
+		"path": "VictoryScreen/SummaryCard/Scientific",
+		"events": {
+			"activate": "victory-science-showing",
+			"press": "hero-press",
+			"focus": "hero-focus"
+		}
+	},
+	{
+		"path": "VictoryScreen/SummaryCard/Military",
+		"events": {
+			"activate": "victory-military-showing",
+			"press": "hero-press",
+			"focus": "hero-focus"
+		}
+	},
+	{
+		"path": "VictoryScreen/SummaryCard/Economic",
+		"events": {
+			"activate": "victory-economic-showing",
+			"press": "hero-press",
+			"focus": "hero-focus"
+		}
+	},
+	{
+		"path": "VictoryScreen/CloseButton",
+		"events": {
+			"activate": "generic-window-close",
+			"press": "generic-close-button-press",
+			"focus": "select-focus"
+		}
+	},
+	{
+		"path": "Victory",
+		"events": {
+			"focus": "hero-focus"
+		}
+	},
+	{
+		"path": "TechChooserItem",
+		"events": {
+			"focus": "select-focus"
+		}
+	},
+	{
+		"path": "CultureChooserItem",
+		"events": {
+			"focus": "select-focus"
+		}
+	},
+	{
+		"path": "VictoryScreen",
+		"events": {
+			"popup-close": "overlay-window-close",
+			"popup-open": "overlay-window-open"
+		}
+	},
+	{
+		"path": "VictoryScreen/Dropdown",
+		"events": {
+			"dropdown-open": "generic-dropdown-open",
+			"dropdown-close": "generic-dropdown-close"
+		}
+	},
+	{
+		"path": "ProductionChooserItem",
+		"constraints": {
+			"isPurchase": {
+				"op": "eq",
+				"value": "false"
+			}
+		},
+		"events": {
+			"focus": "select-focus",
+			"press": "select-press",
+			"activate": "none",
+			"pressError": "error-press"
+		}
+	},
+	{
+		"path": "ProductionChooserItem",
+		"constraints": {
+			"isPurchase": {
+				"op": "eq",
+				"value": "true"
+			}
+		},
+		"events": {
+			"focus": "select-focus",
+			"press": "select-press",
+			"activate": "city-purchase-activate",
+			"pressError": "error-press"
+		}
+	},
+	{
+		"path": "PromoCarousel/Small/Container",
+		"events": {
+			"activate": "hero-press",
+			"press": "",
+			"focus": "hero-focus"
+		}
+	},
+	{
+		"path": "PromoCarousel/Small/ArrowButton",
+		"events": {
+			"activate": "generic-pager-navigate",
+			"press": "generic-pager-press",
+			"pressError": "error-press",
+			"focus": "generic-pager-focus"
+		}
+	},
+	{
+		"path": "PromoCarousel/Small/ControllerHack",
+		"events": {
+			"tab-nav-next": "generic-pager-navigate",
+			"tab-nav-previous": "generic-pager-navigate",
+			"pressError": "error-press"
+		}
+	},
+	{
+		"path": "PromoCarousel/Small/RadioButton",
+		"events": {
+			"activate": "generic-pager-navigate",
+			"press": "generic-radio-press",
+			"pressError": "error-press",
+			"focus": "generic-radio-focus"
+		}
+	},
+	{
+		"path": "PromoCarousel/Expanded",
+		"events": {
+			"activate": "hero-press",
+			"tab-nav-next": "generic-pager-navigate",
+			"tab-nav-previous": "generic-pager-navigate",
+			"pressError": "error-press",
+			"popup-open": "overlay-window-open",
+			"popup-close": "overlay-window-close"
+		}
+	},
+	{
+		"path": "PromoCarousel/Expanded/ArrowButton",
+		"events": {
+			"activate": "",
+			"press": "generic-pager-press",
+			"pressError": "error-press",
+			"focus": "generic-pager-focus"
+		}
+	}
+]

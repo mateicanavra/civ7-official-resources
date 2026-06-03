@@ -1,0 +1,1327 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+	<!-- ==================================================	-->
+	<!--	Attribute Traditions						-->
+	<!-- ==================================================	-->
+	<!-- Antiquity -->
+	<Modifier id="TRADITION_AQ_ATTRIBUTE_CULTURAL_01_WONDER_CONSTRUCTION_BONUS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_WONDER_PRODUCTION">
+		<Argument name="Percent">15</Argument>
+	</Modifier>
+    <Modifier id="TRADITION_AQ_ATTRIBUTE_DIPLOMATIC_01_HAPPINESS_BUILDING_MAINTENANCE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_SPECIFIC_CONSTRUCTIBLE_MAINTENANCE">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_CITY"/>
+		</SubjectRequirements>
+ 		<Argument name="Tag">HAPPINESS</Argument>
+		<Argument name="YieldType">YIELD_GOLD, YIELD_HAPPINESS</Argument>
+		<Argument name="Percent">-100</Argument>
+        <Argument name="Tooltip">LOC_TRADITION_AQ_ATTRIBUTE_DIPLOMATIC_01_HAPPINESS_NAME</Argument>
+    </Modifier>
+	<Modifier id="TRADITION_AQ_ATTRIBUTE_DIPLOMATIC_01_INFLUENCE_ENDEAVOR_DISCOUNT" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_ADJUST_DIPLOMATIC_ACTION_TYPE_EFFICIENCY">
+		<Argument name="ActionGroupType">DIPLOMACY_ACTION_GROUP_ENDEAVOR</Argument>
+		<Argument name="Percent">25</Argument>
+	</Modifier>
+	<Modifier id="TRADITION_AQ_ATTRIBUTE_DIPLOMATIC_01_INFLUENCE_ENDEAVOR_GOLD" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_ADJUST_YIELD_PER_PLAYER_INVOLVED_ACTION">
+		<Argument name="ActionGroupType">DIPLOMACY_ACTION_GROUP_ENDEAVOR</Argument>
+		<Argument name="YieldType">YIELD_GOLD</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_AQ_ATTRIBUTE_DIPLOMATIC_01_INFLUENCE_NAME</Argument>
+	</Modifier>
+	<Modifier id="TRADITION_AQ_ATTRIBUTE_ECONOMIC_01_EXTRA_RESOURCE_CAP" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_RESOURCE_CAP">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_HAS_BUILDING">
+				<Argument name="Tag">GOLD</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">1</Argument>
+	</Modifier>
+	<Modifier id="TRADITION_AQ_ATTRIBUTE_EXPANSIONIST_01_WAREHOUSE_CONSTRUCTION" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_PRODUCTION">
+		<Argument name="Percent">10</Argument>
+		<Argument name="Tag">WAREHOUSE</Argument>
+	</Modifier>
+	<Modifier id="TRADITION_AQ_ATTRIBUTE_EXPANSIONIST_01_WAREHOUSE_PURCHASING" collection="COLLECTION_OWNER" effect="EFFECT_ADJUST_PLAYER_OR_CITY_BUILDING_PURCHASE_EFFICIENCY">
+		<Argument name="Percent">10</Argument>
+		<Argument name="BuildingTag">WAREHOUSE</Argument>
+	</Modifier>
+	<Modifier id="TRADITION_AQ_ATTRIBUTE_MILITARISTIC_01_COMMANDER_PRODUCTION" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_UNIT_PRODUCTION">
+		<Argument name="UnitClass">UNIT_CLASS_COMMAND</Argument>
+		<Argument name="Percent">25</Argument>
+	</Modifier>
+	<Modifier id="TRADITION_AQ_ATTRIBUTE_MILITARISTIC_01_COMMANDER_PACKED_GOLD" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_ABILITY">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+				<Argument name="Tag">UNIT_CLASS_COMMAND</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="AbilityType">ABILITY_AQ_ATTRIBUTE_MILITARISTIC_01_PACKED_UNIT_GOLD</Argument>
+	</Modifier>
+	<Modifier id="MOD_ABILITY_AQ_ATTRIBUTE_MILITARISTIC_01_PACKED_UNIT_GOLD" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_PLAYER_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_IN_OWNER_ARMY"/>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_GOLD</Argument>
+		<Argument name="Amount">1</Argument>
+	</Modifier>
+	<Modifier id="TRADITION_AQ_ATTRIBUTE_SCIENTIFIC_01_TECH_MASTERY_CONSTRUCTION_BONUS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_PRODUCTION_PER_MASTERY">
+		<Argument name="ConstructibleClass">BUILDING</Argument>
+		<Argument name="Amount">5</Argument>
+		<Argument name="SystemType">SYSTEM_TECH</Argument>
+	</Modifier>
+	<!-- ==================================================	-->
+	<!--	Exploration Apex Self Syncretism				-->
+	<!-- ==================================================	-->
+	<Modifier id="MOD_UNLOCK_AKSUM_SYNCRETISM_EXPLORATION" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
+		<Argument name="Tradition">TRADITION_AKSUM_SYNCRETISM_EXPLORATION</Argument>
+	</Modifier>
+	<Modifier id="MOD_UNLOCK_AKSUM_SYNCRETISM_MODERN" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
+		<Argument name="Tradition">TRADITION_AKSUM_SYNCRETISM_MODERN</Argument>
+	</Modifier>
+	<Modifier id="MOD_UNLOCK_EGYPT_SYNCRETISM_EXPLORATION" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
+		<Argument name="Tradition">TRADITION_EGYPT_SYNCRETISM_EXPLORATION</Argument>
+	</Modifier>
+	<Modifier id="MOD_UNLOCK_EGYPT_SYNCRETISM_MODERN" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
+		<Argument name="Tradition">TRADITION_EGYPT_SYNCRETISM_MODERN</Argument>
+	</Modifier>
+	<Modifier id="MOD_UNLOCK_GREECE_SYNCRETISM_EXPLORATION" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
+		<Argument name="Tradition">TRADITION_GREECE_SYNCRETISM_EXPLORATION</Argument>
+	</Modifier>
+	<Modifier id="MOD_UNLOCK_GREECE_SYNCRETISM_MODERN" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
+		<Argument name="Tradition">TRADITION_GREECE_SYNCRETISM_MODERN</Argument>
+	</Modifier>
+    <Modifier id="MOD_UNLOCK_HAN_SYNCRETISM_EXPLORATION" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
+        <Argument name="Tradition">TRADITION_HAN_SYNCRETISM_EXPLORATION</Argument>
+    </Modifier>
+    <Modifier id="MOD_UNLOCK_HAN_SYNCRETISM_MODERN" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
+        <Argument name="Tradition">TRADITION_HAN_SYNCRETISM_MODERN</Argument>
+    </Modifier>
+	<Modifier id="MOD_UNLOCK_KHMER_SYNCRETISM_EXPLORATION" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
+		<Argument name="Tradition">TRADITION_KHMER_SYNCRETISM_EXPLORATION</Argument>
+	</Modifier>
+	<Modifier id="MOD_UNLOCK_KHMER_SYNCRETISM_MODERN" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
+		<Argument name="Tradition">TRADITION_KHMER_SYNCRETISM_MODERN</Argument>
+	</Modifier>
+	<Modifier id="MOD_UNLOCK_MAURYA_SYNCRETISM_EXPLORATION" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
+		<Argument name="Tradition">TRADITION_MAURYA_SYNCRETISM_EXPLORATION</Argument>
+	</Modifier>
+	<Modifier id="MOD_UNLOCK_MAURYA_SYNCRETISM_MODERN" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
+		<Argument name="Tradition">TRADITION_MAURYA_SYNCRETISM_MODERN</Argument>
+	</Modifier>
+	<Modifier id="MOD_UNLOCK_MAYA_SYNCRETISM_EXPLORATION" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
+		<Argument name="Tradition">TRADITION_MAYA_SYNCRETISM_EXPLORATION</Argument>
+	</Modifier>
+	<Modifier id="MOD_UNLOCK_MAYA_SYNCRETISM_MODERN" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
+		<Argument name="Tradition">TRADITION_MAYA_SYNCRETISM_MODERN</Argument>
+	</Modifier>
+	<Modifier id="MOD_UNLOCK_MISSISSIPPIAN_SYNCRETISM_EXPLORATION" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
+		<Argument name="Tradition">TRADITION_MISSISSIPPIAN_SYNCRETISM_EXPLORATION</Argument>
+	</Modifier>
+	<Modifier id="MOD_UNLOCK_MISSISSIPPIAN_SYNCRETISM_MODERN" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
+		<Argument name="Tradition">TRADITION_MISSISSIPPIAN_SYNCRETISM_MODERN</Argument>
+	</Modifier>
+	<Modifier id="MOD_UNLOCK_PERSIA_SYNCRETISM_EXPLORATION" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
+		<Argument name="Tradition">TRADITION_PERSIA_SYNCRETISM_EXPLORATION</Argument>
+	</Modifier>
+	<Modifier id="MOD_UNLOCK_PERSIA_SYNCRETISM_MODERN" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
+		<Argument name="Tradition">TRADITION_PERSIA_SYNCRETISM_MODERN</Argument>
+	</Modifier>
+    <Modifier id="MOD_UNLOCK_ROME_SYNCRETISM_EXPLORATION" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
+        <Argument name="Tradition">TRADITION_ROME_SYNCRETISM_EXPLORATION</Argument>
+    </Modifier>
+    <Modifier id="MOD_UNLOCK_ROME_SYNCRETISM_MODERN" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
+        <Argument name="Tradition">TRADITION_ROME_SYNCRETISM_MODERN</Argument>
+    </Modifier>
+	<!-- ==================================================	-->
+	<!--	AKSUM										-->
+	<!-- ==================================================	-->
+	<Modifier id="PORT_OF_NATIONS_I_MOD_TRADE_ROUTE_CULTURE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD_PER_NUM_TRADE_ROUTES">
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_PORT_OF_NATIONS_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="PORT_OF_NATIONS_I_MOD_TRADE_ROUTE_GOLD" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD_PER_NUM_TRADE_ROUTES">
+		<Argument name="YieldType">YIELD_GOLD</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_PORT_OF_NATIONS_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="PORT_OF_NATIONS_I_MOD_TRADE_INCOME" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_TRADE_YIELD">
+		<Argument name="Percent">100</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_PORT_OF_NATIONS_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="PORT_OF_NATIONS_II_MOD_TRADE_ROUTE_CULTURE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD_PER_NUM_TRADE_ROUTES">
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount">3</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_PORT_OF_NATIONS_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="PORT_OF_NATIONS_II_MOD_TRADE_ROUTE_GOLD" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD_PER_NUM_TRADE_ROUTES">
+		<Argument name="YieldType">YIELD_GOLD</Argument>
+		<Argument name="Amount">3</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_PORT_OF_NATIONS_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="PORT_OF_NATIONS_II_MOD_TRADE_INCOME" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_TRADE_YIELD">
+		<Argument name="Percent">200</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_PORT_OF_NATIONS_TOOLTIP</Argument>
+	</Modifier>
+
+	<Modifier id="THRONE_OF_MY_FATHERS_MOD_COASTAL_CITY_GOLD" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_ADJACENT_TO_COAST"/>
+			<Requirement type="REQUIREMENT_CITY_IS_CITY"/>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_GOLD</Argument>
+		<Argument name="Percent">15</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_THRONE_OF_MY_FATHERS_NAME</Argument>
+	</Modifier>
+	<Modifier id="THRONE_OF_MY_FATHERS_MOD_TRADE_INCOME_CULTURE" collection="COLLECTION_OWNER" effect="EFFECT_MODIFY_PLAYER_TRADE_YIELD_CONVERSION">
+		<Argument name="Percent">25</Argument>
+		<Argument name="FromYieldType">YIELD_GOLD</Argument>
+		<Argument name="ToYieldType">YIELD_CULTURE</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_THRONE_OF_MY_FATHERS_NAME</Argument>
+	</Modifier>
+
+	<Modifier id="PLEASE_THE_PEOPLE_I_MOD_COASTAL_RESOURCE_CULTURE" collection="COLLECTION_PLAYER_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_RESOURCE_VISIBLE"></Requirement>
+			<Requirement type="REQUIREMENT_PLOT_ADJACENT_TO_COAST"></Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_MAY_THIS_PLEASE_THE_PEOPLE_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="PLEASE_THE_PEOPLE_II_MOD_COASTAL_RESOURCE_CULTURE" collection="COLLECTION_PLAYER_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_RESOURCE_VISIBLE"></Requirement>
+			<Requirement type="REQUIREMENT_PLOT_ADJACENT_TO_COAST"></Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount">3</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_MAY_THIS_PLEASE_THE_PEOPLE_TOOLTIP</Argument>
+	</Modifier>
+
+	<Modifier id="AKSUM_SYNCRETISM_EXPLORATION_TRADE_ROUTE_PRODUCTION" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_ADJUST_YIELD_PER_TOTAL_NUM_TRADE_ROUTES">
+		<Argument name="YieldType">YIELD_PRODUCTION</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_AKSUM_SYNCRETISM_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="AKSUM_SYNCRETISM_EXPLORATION_TRADE_ROUTE_PROTECTION" collection="COLLECTION_PLAYER_TRADE_ROUTES" effect="EFFECT_TRADE_ROUTE_SET_TRADE_ROUTE_PROTECTED">
+	</Modifier>
+	<Modifier id="AKSUM_SYNCRETISM_EXPLORATION_TRADE_ROUTE_SIGHT" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ADJUST_UNIT_SIGHT">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+				<Argument name="Tag">UNIT_CLASS_TRADE_ROUTE</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">2</Argument>
+	</Modifier>
+	<Modifier id="AKSUM_SYNCRETISM_MODERN_TRADE_ROUTE_PRODUCTION" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_ADJUST_YIELD_PER_TOTAL_NUM_TRADE_ROUTES">
+		<Argument name="YieldType">YIELD_PRODUCTION</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_AKSUM_SYNCRETISM_TOOLTIP</Argument>
+	</Modifier>
+	<!-- ==================================================	-->
+	<!--	EGYPT										-->
+	<!-- ==================================================	-->
+	<Modifier id="AKHET_I_MOD_NAVIGABLE_RIVER_FOOD" collection="COLLECTION_PLAYER_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_IS_RIVER">
+				<Argument name="Navigable">true</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_PLOT_DISTRICT_CLASS">
+				<Argument name="DistrictClass">RURAL, URBAN, CITYCENTER</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_FOOD</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_AKHET_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="AKHET_II_MOD_NAVIGABLE_RIVER_FOOD" collection="COLLECTION_PLAYER_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_IS_RIVER">
+				<Argument name="Navigable">true</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_PLOT_DISTRICT_CLASS">
+				<Argument name="DistrictClass">RURAL, URBAN, CITYCENTER</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_FOOD</Argument>
+		<Argument name="Amount">3</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_AKHET_TOOLTIP</Argument>
+	</Modifier>
+
+	<Modifier id="RICHES_OF_THE_DUAT_MOD_WONDER_PRODUCTION" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_WONDER_PRODUCTION">
+		<Argument name="Percent">10</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_RICHES_OF_THE_DUAT_NAME</Argument>
+	</Modifier>
+	<Modifier id="RICHES_OF_THE_DUAT_MOD_WONDER_PRODUCTION_DOUBLED" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_WONDER_PRODUCTION">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_DISTRICT_CLASS">
+				<Argument name="DistrictClass">CITYCENTER</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_PLOT_BIOME_TYPE_MATCHES">
+				<Argument name="BiomeType">BIOME_DESERT</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Percent">10</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_RICHES_OF_THE_DUAT_NAME</Argument>
+	</Modifier>
+	<Modifier id="RICHES_OF_THE_DUAT_MOD_WONDER_PRODUCTION_DESERT_WONDER_PRODUCTION" collection="COLLECTION_PLAYER_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_BIOME_TYPE_MATCHES">
+				<Argument name="BiomeType">BIOME_DESERT</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_PLOT_DISTRICT_CLASS">
+				<Argument name="DistrictClass">WONDER</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_PRODUCTION</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_RICHES_OF_THE_DUAT_NAME</Argument>
+	</Modifier>
+
+	<Modifier id="KEMET_I_MOD_NAVIGABLE_RIVER_CULTURE" collection="COLLECTION_PLAYER_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_IS_RIVER">
+				<Argument name="Navigable">true</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_PLOT_DISTRICT_CLASS">
+				<Argument name="DistrictClass">RURAL, URBAN, CITYCENTER</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_KEMET_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="KEMET_II_MOD_NAVIGABLE_RIVER_CULTURE" collection="COLLECTION_PLAYER_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_IS_RIVER">
+				<Argument name="Navigable">true</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_PLOT_DISTRICT_CLASS">
+				<Argument name="DistrictClass">RURAL, URBAN, CITYCENTER</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount">3</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_KEMET_TOOLTIP</Argument>
+	</Modifier>
+
+	<Modifier id="EGYPT_SYNCRETISM_EXPLORATION_WONDER_YIELD" collection="COLLECTION_PLAYER_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_DISTRICT_CLASS">
+				<Argument name="DistrictClass">WONDER</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_CULTURE,YIELD_GOLD</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_EGYPT_SYNCRETISM_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="EGYPT_SYNCRETISM_EXPLORATION_ANTIQUITY_WONDER_YIELD" collection="COLLECTION_PLAYER_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_DISTRICT_CLASS">
+				<Argument name="DistrictClass">WONDER</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_PLOT_HAS_CONSTRUCTIBLE">
+				<Argument name="Age">AGE_ANTIQUITY</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_CULTURE,YIELD_GOLD</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_EGYPT_SYNCRETISM_TOOLTIP</Argument>
+	</Modifier>
+
+	<Modifier id="EGYPT_SYNCRETISM_MODERN_WONDER_YIELD" collection="COLLECTION_PLAYER_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_DISTRICT_CLASS">
+				<Argument name="DistrictClass">WONDER</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_CULTURE,YIELD_GOLD</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_EGYPT_SYNCRETISM_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="EGYPT_SYNCRETISM_MODERN_ANTIQUITY_WONDER_YIELD" collection="COLLECTION_PLAYER_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_DISTRICT_CLASS">
+				<Argument name="DistrictClass">WONDER</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_PLOT_HAS_CONSTRUCTIBLE">
+				<Argument name="Age">AGE_ANTIQUITY</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_CULTURE,YIELD_GOLD</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_EGYPT_SYNCRETISM_TOOLTIP</Argument>
+	</Modifier>
+	<!-- ==================================================	-->
+	<!--	GREECE										-->
+	<!-- ==================================================	-->
+	<Modifier id="XENIA_I_MOD_ADJUST_PROGRESS_FRIENDLY_INDEPENDENT" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_ADJUST_DIPLOMATIC_ACTION_TYPE_EFFICIENCY">
+		<Argument name="ActionType">DIPLOMACY_ACTION_GIVE_INFLUENCE_TOKEN</Argument>
+		<Argument name="Percent">50</Argument>
+	</Modifier>
+	<Modifier id="XENIA_II_CULTURE_PER_FRIENDLY_INDEPENDENT" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD_PER_SUZERAIN">
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount">4</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_XENIA_TOOLTIP</Argument>
+	</Modifier>
+
+	<Modifier id="STRATEGOI_MOD_INFANTRY_FRIENDLY_INDEPENDENT" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ATTACH_MODIFIERS">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+				<Argument name="Tag">UNIT_CLASS_INFANTRY</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="ModifierId">ATTACH_TRADITION_STRATEGOI_INFANTRY_FRIENDLY_INDEPENDENT</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_TRADITION_STRATEGOI_INFANTRY_FRIENDLY_INDEPENDENT" collection="COLLECTION_OWNER" effect="EFFECT_ADJUST_UNIT_SUZERAIN_OF_COMBAT_MODIFIER">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+				<Argument name="Tag">UNIT_CLASS_INFANTRY</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">1</Argument>
+		<String context="Preview">LOC_TRADITION_STRATEGOI_PREVIEW</String>
+	</Modifier>
+
+	<Modifier id="DELIAN_LEAGUE_I_MOD_ADJUST_ENDEAVOR" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_ADJUST_DIPLOMATIC_ACTION_TYPE_EFFICIENCY">
+		<Argument name="ActionGroupType">DIPLOMACY_ACTION_GROUP_ENDEAVOR</Argument>
+		<Argument name="Percent">30</Argument>
+	</Modifier>
+	<Modifier id="DELIAN_LEAGUE_II_MOD_ADJUST_ENDEAVOR" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_ADJUST_DIPLOMATIC_ACTION_TYPE_EFFICIENCY">
+		<Argument name="ActionGroupType">DIPLOMACY_ACTION_GROUP_ENDEAVOR</Argument>
+		<Argument name="Percent">50</Argument>
+	</Modifier>
+	<Modifier id="DELIAN_LEAGUE_II_MOD_ADJUST_SUPPORT" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_ADJUST_DIPLOMATIC_RESPONSE_EFFICIENCY">
+		<Argument name="ResponseType">DIPLOMACY_RESPONSE_SUPPORT</Argument>
+		<Argument name="Percent">50</Argument>
+		<Argument name="ApplyToTarget">false</Argument>
+	</Modifier>
+
+	<Modifier id="PELOPONNESIAN_LEAGUE_I_MOD_ADJUST_SANCTION" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_ADJUST_DIPLOMATIC_ACTION_TYPE_EFFICIENCY">
+		<Argument name="ActionGroupType">DIPLOMACY_ACTION_GROUP_SANCTION</Argument>
+		<Argument name="Percent">30</Argument>
+	</Modifier>
+	<Modifier id="PELOPONNESIAN_LEAGUE_II_MOD_ADJUST_SANCTION" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_ADJUST_DIPLOMATIC_ACTION_TYPE_EFFICIENCY">
+		<Argument name="ActionGroupType">DIPLOMACY_ACTION_GROUP_SANCTION</Argument>
+		<Argument name="Percent">50</Argument>
+	</Modifier>
+	<Modifier id="PELOPONNESIAN_LEAGUE_II_MOD_ADJUST_ESPIONAGE" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_ADJUST_DIPLOMATIC_ACTION_TYPE_EFFICIENCY">
+		<Argument name="ActionGroupType">DIPLOMACY_ACTION_GROUP_ESPIONAGE</Argument>
+		<Argument name="Percent">50</Argument>
+	</Modifier>
+
+	<Modifier id="GREECE_SYNCRETISM_EXPLORATION_CITY_STATE_HAPPINESS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_SUZERAIN">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_CITY"/>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_HAPPINESS</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_GREECE_SYNCRETISM_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="GREECE_SYNCRETISM_EXPLORATION_CITY_STATE_PRODUCTION" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_SUZERAIN">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_CITY"/>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_PRODUCTION</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_GREECE_SYNCRETISM_TOOLTIP</Argument>
+	</Modifier>
+
+	<Modifier id="GREECE_SYNCRETISM_MODERN_CITY_STATE_HAPPINESS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_SUZERAIN">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_CITY"/>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_HAPPINESS</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_GREECE_SYNCRETISM_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="GREECE_SYNCRETISM_MODERN_CITY_STATE_PRODUCTION" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_SUZERAIN">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_CITY"/>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_PRODUCTION</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_GREECE_SYNCRETISM_TOOLTIP</Argument>
+	</Modifier>
+	<!-- ==================================================	-->
+	<!--	HAN											-->
+	<!-- ==================================================	-->
+	<Modifier id="MOD_FENGHUO_FORTIFICATION_GOLD" collection="COLLECTION_PLAYER_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_HAS_CONSTRUCTIBLE">
+				<Argument name="Tag">FORTIFICATION</Argument>
+				<Argument name="CurrentAgeOnly">false</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_GOLD</Argument>
+		<Argument name="Amount">2</Argument>
+	</Modifier>
+	<Modifier id="MOD_FENGHUO_II_FORTIFICATION_GOLD" collection="COLLECTION_PLAYER_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_HAS_CONSTRUCTIBLE">
+				<Argument name="Tag">FORTIFICATION</Argument>
+				<Argument name="CurrentAgeOnly">false</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_GOLD</Argument>
+		<Argument name="Amount">3</Argument>
+	</Modifier>
+	<Modifier id="MOD_FENGHUO_MOVEMENT_SPEED" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_MOVEMENT">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_DOMAIN_MATCHES">
+				<Argument name="UnitDomain">DOMAIN_LAND</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_PLOT_HAS_CONSTRUCTIBLE">
+				<Argument name="Tag">FORTIFICATION</Argument>
+				<Argument name="CurrentAgeOnly">false</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_PLOT_IS_OWNER"></Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">1</Argument>
+	</Modifier>
+	<Modifier id="MOD_FENGHUO_COMBAT_STRENGTH" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ATTACH_MODIFIERS">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_DOMAIN_MATCHES">
+				<Argument name="UnitDomain">DOMAIN_LAND</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_PLOT_HAS_CONSTRUCTIBLE">
+				<Argument name="Tag">FORTIFICATION</Argument>
+				<Argument name="CurrentAgeOnly">false</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_PLOT_IS_OWNER"></Requirement>
+		</SubjectRequirements>
+		<Argument name="ModifierId">ATTACH_MOD_FENGHUO_COMBAT_STRENGTH</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_MOD_FENGHUO_COMBAT_STRENGTH" collection="COLLECTION_UNIT_COMBAT" effect="EFFECT_ADJUST_UNIT_STRENGTH_MODIFIER">
+		<Argument name="Amount">3</Argument>
+		<String context="Preview">LOC_TRADITION_FENGHUO_PREVIEW</String>
+	</Modifier>
+	<Modifier id="MOD_FENGHUO_II_COMBAT_STRENGTH" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ATTACH_MODIFIERS">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_DOMAIN_MATCHES">
+				<Argument name="UnitDomain">DOMAIN_LAND</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_PLOT_HAS_CONSTRUCTIBLE">
+				<Argument name="Tag">FORTIFICATION</Argument>
+				<Argument name="CurrentAgeOnly">false</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_PLOT_IS_OWNER"></Requirement>
+		</SubjectRequirements>
+		<Argument name="ModifierId">ATTACH_MOD_FENGHUO_II_COMBAT_STRENGTH</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_MOD_FENGHUO_II_COMBAT_STRENGTH" collection="COLLECTION_UNIT_COMBAT" effect="EFFECT_ADJUST_UNIT_STRENGTH_MODIFIER">
+		<Argument name="Amount">5</Argument>
+		<String context="Preview">LOC_TRADITION_FENGHUO_PREVIEW</String>
+	</Modifier>
+
+	<Modifier id="MOD_XUMIN_ZHAO_HAPPINESS_BUILDING_FOOD" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_CONSTRUCTIBLE_YIELD">
+		<Argument name="YieldType">YIELD_FOOD</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="Tag">HAPPINESS</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_XUMIN_ZHAO_NAME</Argument>
+	</Modifier>
+	<Modifier id="MOD_XUMIN_ZHAO_INFLUENCE_PER_TRADITION" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD_PER_ACTIVE_TRADITION">
+		<Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="CivUnique">true</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_XUMIN_ZHAO_NAME</Argument>
+	</Modifier>
+
+	<Modifier id="MOD_XIU_TAIXUE_SCIENCE_ADJACENCY" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ACTIVATE_CONSTRUCTIBLE_ADJACENCY">
+		<Argument name="ConstructibleAdjacency">TOTHanQuarterScienceAdjacency</Argument>
+	</Modifier>
+
+	<Modifier id="MOD_TRADITION_JU_XIAN_SPECIALIST_SCIENCE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_WORKER_YIELD">
+		<Argument name="YieldType">YIELD_SCIENCE</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_JU_XIAN_NAME</Argument>
+	</Modifier>
+	<Modifier id="MOD_TRADITION_JU_XIAN_II_CAPITAL_SCIENCE" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_ADJUST_YIELD">
+		<Argument name="YieldType">YIELD_SCIENCE</Argument>
+		<Argument name="Percent">10</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_JU_XIAN_II_NAME</Argument>
+	</Modifier>
+	<!-- Han Syncretism -->
+	<Modifier id="HAN_SYNCRETISM_EXPLORATION_MOD_SCIENCE_PER_TRADITION" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_ACTIVE_TRADITION">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_CITY"/>
+		</SubjectRequirements>
+		<Argument name="CivUnique">true</Argument>
+		<Argument name="YieldType">YIELD_SCIENCE</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_HAN_SYNCRETISM_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="HAN_SYNCRETISM_MODERN_MOD_SCIENCE_PER_TRADITION" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_ACTIVE_TRADITION">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_CITY"/>
+		</SubjectRequirements>
+		<Argument name="CivUnique">true</Argument>
+		<Argument name="YieldType">YIELD_SCIENCE</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_HAN_SYNCRETISM_TOOLTIP</Argument>
+	</Modifier>
+	<!-- ==================================================	-->
+	<!--	KHMER										-->
+	<!-- ==================================================	-->
+	<Modifier id="PITHI_CHRAT_I_FLOODPLAIN_FOOD" collection="COLLECTION_PLAYER_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_FEATURE_TYPE_MATCHES">
+				<Argument name="FeatureClassType">FEATURE_CLASS_FLOODPLAIN</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_CITY_IS_TOWN"/>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_FOOD</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_PITHI_CHRAT_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="PITHI_CHRAT_I_CITY_FOOD_PENALTY" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_CITY"/>
+			<Requirement type="REQUIREMENT_CITY_HAS_BUILDING" inverse="true">
+				<Argument name="BuildingType">BUILDING_PALACE</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_FOOD</Argument>
+		<Argument name="Amount">-5</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_PITHI_CHRAT_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="PITHI_CHRAT_II_FLOODPLAIN_FOOD" collection="COLLECTION_PLAYER_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_FEATURE_TYPE_MATCHES">
+				<Argument name="FeatureClassType">FEATURE_CLASS_FLOODPLAIN</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_CITY_IS_TOWN"/>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_FOOD</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_PITHI_CHRAT_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="PITHI_CHRAT_II_CITY_FOOD_PENALTY" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_CITY"/>
+			<Requirement type="REQUIREMENT_CITY_HAS_BUILDING" inverse="true">
+				<Argument name="BuildingType">BUILDING_PALACE</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_FOOD</Argument>
+		<Argument name="Amount">-10</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_PITHI_CHRAT_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="BON_OM_TOUK_SCIENCE_ADJACENCY" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ACTIVATE_CONSTRUCTIBLE_ADJACENCY">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_CITY"/>
+		</SubjectRequirements>
+		<Argument name="ConstructibleAdjacency">KhmerScienceFloodplainAdjacency</Argument>
+	</Modifier>
+	<Modifier id="BON_OM_TOUK_GREAT_WORKS_SLOTS" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_ADJUST_GREAT_WORK_SLOTS">
+		<Argument name="ConstructibleType">BUILDING_PALACE</Argument>
+		<Argument name="Amount">3</Argument>
+	</Modifier>
+	<Modifier id="KAMBU_MERA_I_WORKER_MAINTENANCE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_WORKER_MAINTENANCE_EFFICIENCY">
+		<Argument name="YieldType">YIELD_FOOD, YIELD_HAPPINESS</Argument>
+		<Argument name="Percent">50</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_KAMBU_MERA_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="KAMBU_MERA_II_WORKER_MAINTENANCE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_WORKER_MAINTENANCE_EFFICIENCY">
+		<Argument name="YieldType">YIELD_FOOD, YIELD_HAPPINESS</Argument>
+		<Argument name="Percent">100</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_KAMBU_MERA_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="KAMBU_MERA_II_CAPITAL_WORKER_CAP" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_ADJUST_WORKER_CAP">
+        <Argument name="Amount">1</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_KAMBU_MERA_TOOLTIP</Argument>
+    </Modifier>
+	<Modifier id="KHMER_SYNCRETISM_WORKER_GOLD" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_WORKER_YIELD">
+		<Argument name="YieldType">YIELD_GOLD</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_KHMER_SYNCRETISM_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="KHMER_SYNCRETISM_WORKER_SCIENCE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_WORKER_YIELD">
+		<Argument name="YieldType">YIELD_SCIENCE</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_KHMER_SYNCRETISM_TOOLTIP</Argument>
+	</Modifier>
+	<!-- ==================================================	-->
+	<!--	MAURYA										-->
+	<!-- ==================================================	-->
+	<Modifier id="CHARVAKA_I_MOD_EXCESS_HAPPINESS_GOLD" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_SURPLUS_HAPPINESS">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_CITY"/>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_GOLD</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Divisor">5</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_CHARVAKA_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="CHARVAKA_II_MOD_PRODUCTION_CELEBRATION" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_CITY"/>
+			<Requirement type="REQUIREMENT_PLAYER_IS_IN_GOLDEN_AGE"/>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_PRODUCTION</Argument>
+		<Argument name="Percent">10</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_CHARVAKA_TOOLTIP</Argument>
+	</Modifier>
+
+	<Modifier id="KSHATRIYA_MOD_CAVALRY_COMBAT" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ATTACH_MODIFIERS">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+				<Argument name="Tag">UNIT_CLASS_CAVALRY</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_PLAYER_IS_IN_GOLDEN_AGE" inverse="true"/>
+		</SubjectRequirements>
+		<Argument name="ModifierId">ATTACH_KSHATRIYA_MOD_CAVALRY_COMBAT</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_KSHATRIYA_MOD_CAVALRY_COMBAT" collection="COLLECTION_UNIT_COMBAT" effect="EFFECT_ADJUST_UNIT_STRENGTH_MODIFIER">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_ADJACENT_FRIENDLY_UNIT_TAG_MATCHES">
+				<Argument name="Tag">UNIT_CLASS_INFANTRY</Argument>
+				<Argument name="IncludeCenter">false</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">3</Argument>
+		<String context="Preview">LOC_TRADITION_KSHATRIYA_PREVIEW</String>
+	</Modifier>
+	<Modifier id="KSHATRIYA_MOD_INFANTRY_COMBAT" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ATTACH_MODIFIERS">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+				<Argument name="Tag">UNIT_CLASS_INFANTRY</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_PLAYER_IS_IN_GOLDEN_AGE" inverse="true"/>
+		</SubjectRequirements>
+		<Argument name="ModifierId">ATTACH_KSHATRIYA_MOD_INFANTRY_COMBAT</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_KSHATRIYA_MOD_INFANTRY_COMBAT" collection="COLLECTION_UNIT_COMBAT" effect="EFFECT_ADJUST_UNIT_STRENGTH_MODIFIER">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_ADJACENT_FRIENDLY_UNIT_TAG_MATCHES">
+				<Argument name="Tag">UNIT_CLASS_CAVALRY</Argument>
+				<Argument name="IncludeCenter">false</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">3</Argument>
+		<String context="Preview">LOC_TRADITION_KSHATRIYA_PREVIEW</String>
+	</Modifier>
+	<Modifier id="KSHATRIYA_MOD_CAVALRY_COMBAT_CELEBRATION" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ATTACH_MODIFIERS">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+				<Argument name="Tag">UNIT_CLASS_CAVALRY</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_PLAYER_IS_IN_GOLDEN_AGE"/>
+		</SubjectRequirements>
+		<Argument name="ModifierId">ATTACH_KSHATRIYA_MOD_CAVALRY_COMBAT_CELEBRATION</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_KSHATRIYA_MOD_CAVALRY_COMBAT_CELEBRATION" collection="COLLECTION_UNIT_COMBAT" effect="EFFECT_ADJUST_UNIT_STRENGTH_MODIFIER">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_ADJACENT_FRIENDLY_UNIT_TAG_MATCHES">
+				<Argument name="Tag">UNIT_CLASS_INFANTRY</Argument>
+				<Argument name="IncludeCenter">false</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">5</Argument>
+		<String context="Preview">LOC_TRADITION_KSHATRIYA_PREVIEW</String>
+	</Modifier>
+	<Modifier id="KSHATRIYA_MOD_INFANTRY_COMBAT_CELEBRATION" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ATTACH_MODIFIERS">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+				<Argument name="Tag">UNIT_CLASS_INFANTRY</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_PLAYER_IS_IN_GOLDEN_AGE"/>
+		</SubjectRequirements>
+		<Argument name="ModifierId">ATTACH_KSHATRIYA_MOD_INFANTRY_COMBAT_CELEBRATION</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_KSHATRIYA_MOD_INFANTRY_COMBAT_CELEBRATION" collection="COLLECTION_UNIT_COMBAT" effect="EFFECT_ADJUST_UNIT_STRENGTH_MODIFIER">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_ADJACENT_FRIENDLY_UNIT_TAG_MATCHES">
+				<Argument name="Tag">UNIT_CLASS_CAVALRY</Argument>
+				<Argument name="IncludeCenter">false</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">5</Argument>
+		<String context="Preview">LOC_TRADITION_KSHATRIYA_PREVIEW</String>
+	</Modifier>
+
+	<Modifier id="ARTHASHASTRA_I_MOD_EXCESS_HAPPINESS_SCIENCE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_SURPLUS_HAPPINESS">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_CITY"/>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_SCIENCE</Argument>
+		<Argument name="Divisor">5</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_ARTHASHASTRA_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="ARTHASHASTRA_II_MOD_SCIENCE_CELEBRATION" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_CITY"/>
+			<Requirement type="REQUIREMENT_PLAYER_IS_IN_GOLDEN_AGE"/>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_SCIENCE</Argument>
+		<Argument name="Percent">10</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_ARTHASHASTRA_TOOLTIP</Argument>
+	</Modifier>
+
+	<Modifier id="MAURYA_SYNCRETISM_EXPLORATION_MOD_PALACE_YIELD" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_CONSTRUCTIBLE_YIELD">
+		<Argument name="YieldType">YIELD_PRODUCTION,YIELD_SCIENCE</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="ConstructibleType">BUILDING_PALACE</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_MAURYA_SYNCRETISM_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="MAURYA_SYNCRETISM_EXPLORATION_MOD_OCCUPIED_CITY_HALL_YIELD" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_CONQUERED_ANY_AGE"/>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_PRODUCTION,YIELD_SCIENCE</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="ConstructibleType">BUILDING_CITY_HALL</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_MAURYA_SYNCRETISM_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="MAURYA_SYNCRETISM_EXPLORATION_MOD_PALACE_YIELD_CELEBRATION" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_CONSTRUCTIBLE_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_IS_IN_GOLDEN_AGE"/>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_PRODUCTION,YIELD_SCIENCE</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="ConstructibleType">BUILDING_PALACE</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_MAURYA_SYNCRETISM_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="MAURYA_SYNCRETISM_EXPLORATION_MOD_OCCUPIED_CITY_HALL_YIELD_CELEBRATION" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_CONQUERED_ANY_AGE"/>
+			<Requirement type="REQUIREMENT_PLAYER_IS_IN_GOLDEN_AGE"/>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_PRODUCTION,YIELD_SCIENCE</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="ConstructibleType">BUILDING_CITY_HALL</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_MAURYA_SYNCRETISM_TOOLTIP</Argument>
+	</Modifier>
+
+	<Modifier id="MAURYA_SYNCRETISM_MODERN_MOD_PALACE_YIELD" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_CONSTRUCTIBLE_YIELD">
+		<Argument name="YieldType">YIELD_PRODUCTION,YIELD_SCIENCE</Argument>
+		<Argument name="Amount">3</Argument>
+		<Argument name="ConstructibleType">BUILDING_PALACE</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_MAURYA_SYNCRETISM_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="MAURYA_SYNCRETISM_MODERN_MOD_OCCUPIED_CITY_HALL_YIELD" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_CONQUERED_ANY_AGE"/>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_PRODUCTION,YIELD_SCIENCE</Argument>
+		<Argument name="Amount">3</Argument>
+		<Argument name="ConstructibleType">BUILDING_CITY_HALL</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_MAURYA_SYNCRETISM_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="MAURYA_SYNCRETISM_MODERN_MOD_PALACE_YIELD_CELEBRATION" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_CONSTRUCTIBLE_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_IS_IN_GOLDEN_AGE"/>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_PRODUCTION,YIELD_SCIENCE</Argument>
+		<Argument name="Amount">3</Argument>
+		<Argument name="ConstructibleType">BUILDING_PALACE</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_MAURYA_SYNCRETISM_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="MAURYA_SYNCRETISM_MODERN_MOD_OCCUPIED_CITY_HALL_YIELD_CELEBRATION" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_CONQUERED_ANY_AGE"/>
+			<Requirement type="REQUIREMENT_PLAYER_IS_IN_GOLDEN_AGE"/>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_PRODUCTION,YIELD_SCIENCE</Argument>
+		<Argument name="Amount">3</Argument>
+		<Argument name="ConstructibleType">BUILDING_CITY_HALL</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_MAURYA_SYNCRETISM_TOOLTIP</Argument>
+	</Modifier>
+	<!-- ==================================================	-->
+	<!--	MAYA										-->
+	<!-- ==================================================	-->
+	<Modifier id="PET_KOT_MOD_VEGETATED_SCIENCE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_ATTACH_MODIFIERS">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_CITY"/>
+		</SubjectRequirements>
+		<Argument name="ModifierId">ATTACH_PET_KOT_MOD_VEGETATED_SCIENCE</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_PET_KOT_MOD_VEGETATED_SCIENCE" collection="COLLECTION_CITY_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_FEATURE_TYPE_MATCHES">
+				<Argument name="FeatureClassType">FEATURE_CLASS_VEGETATED</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_PLOT_DISTRICT_CLASS" inverse="true">
+				<Argument name="DistrictClass">CITYCENTER, URBAN</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_SCIENCE</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_PET_KOT_NAME</Argument>
+	</Modifier>
+
+	<Modifier id="TWINS_I_MOD_ABILITY_POISON" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_ABILITY">
+		<Argument name="AbilityType">ABILITY_POISON</Argument>
+	</Modifier>
+	<Modifier id="TWINS_I_VEGETATED_STEALTH" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_ABILITY">
+		<SubjectRequirements type="REQUIREMENTSET_TEST_ANY">
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+				<Argument name="Tag">UNIT_CLASS_RANGED</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+				<Argument name="Tag">UNIT_CLASS_RECON</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="AbilityType">ABILITY_VEGETATED_STEALTH</Argument>
+	</Modifier>
+	<Modifier id="TWINS_II_MOD_IGNORE_VEGETATION" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_IGNORE_MOVEMENT_OBSTACLE">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+				<Argument name="Tag">UNIT_CLASS_RANGED</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="FeatureClassTypes">FEATURE_CLASS_VEGETATED</Argument>
+	</Modifier>
+
+	<Modifier id="HAAB_I_MOD_HAPPINESS_BUILDING_CULTURE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_CONSTRUCTIBLE_YIELD">
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="Tag">HAPPINESS</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_HAAB_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="HAAB_II_MOD_HAPPINESS_BUILDING_CULTURE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_CONSTRUCTIBLE_YIELD">
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="Tag">HAPPINESS</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_HAAB_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="HAAB_II_MOD_HAPPINESS_BUILDING_CULTURE_CELEBRATION" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_CONSTRUCTIBLE_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_IS_IN_GOLDEN_AGE" />
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="Tag">HAPPINESS</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_HAAB_TOOLTIP</Argument>
+	</Modifier>
+
+	<Modifier id="TZOLKIN_I_MOD_HAPPINESS_BUILDING_SCIENCE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_CONSTRUCTIBLE_YIELD">
+		<Argument name="YieldType">YIELD_SCIENCE</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="Tag">HAPPINESS</Argument>
+		<String context="Description">LOC_TRADITION_TZOLKIN_I_DESCRIPTION</String>
+		<Argument name="Tooltip">LOC_TRADITION_TZOLKIN_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="TZOLKIN_II_MOD_HAPPINESS_BUILDING_SCIENCE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_CONSTRUCTIBLE_YIELD">
+		<Argument name="YieldType">YIELD_SCIENCE</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="Tag">HAPPINESS</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_TZOLKIN_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="TZOLKIN_II_MOD_HAPPINESS_BUILDING_SCIENCE_CELEBRATION" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_CONSTRUCTIBLE_YIELD">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_IS_IN_GOLDEN_AGE" />
+		</OwnerRequirements>
+		<Argument name="YieldType">YIELD_SCIENCE</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="Tag">HAPPINESS</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_TZOLKIN_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="MAYA_SYNCRETISM_EXPLORATION_SCIENCE_VEGETATION_SCIENCE" collection="COLLECTION_PLAYER_CONSTRUCTIBLES" effect="EFFECT_CONSTRUCTIBLE_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_FEATURE_TYPE_MATCHES">
+				<Argument name="FeatureClassType">FEATURE_CLASS_VEGETATED</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_CONSTRUCTIBLE_TAG_MATCHES">
+				<Argument name="Tag">SCIENCE</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_SCIENCE</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_MAYA_SYNCRETISM_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="MAYA_SYNCRETISM_MODERN_HAPPINESS_VEGETATION_SCIENCE"  collection="COLLECTION_PLAYER_CONSTRUCTIBLES" effect="EFFECT_CONSTRUCTIBLE_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_FEATURE_TYPE_MATCHES">
+				<Argument name="FeatureClassType">FEATURE_CLASS_VEGETATED</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_CONSTRUCTIBLE_TAG_MATCHES">
+				<Argument name="Tag">HAPPINESS</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_SCIENCE</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_MAYA_SYNCRETISM_TOOLTIP</Argument>
+	</Modifier>
+	<!-- ==================================================	-->
+	<!--	MISSISSIPPIAN								-->
+	<!-- ==================================================	-->
+	<Modifier id="GIFT_ECONOMY_MOD_IMPORTED_RESOURCE_GOLD" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD_PER_RESOURCE">
+		<Argument name="YieldType">YIELD_GOLD</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Imported">true</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_GIFT_ECONOMY_NAME</Argument>
+		<String context="Description">LOC_TRADITION_GIFT_ECONOMY_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="GIFT_ECONOMY_MOD_IMPORTED_RESOURCE_HAPPINESS" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD_PER_RESOURCE">
+		<Argument name="YieldType">YIELD_HAPPINESS</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Imported">true</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_GIFT_ECONOMY_NAME</Argument>
+	</Modifier>
+	<Modifier id="GIFT_ECONOMY_II_MOD_IMPORTED_RESOURCE_GOLD" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD_PER_RESOURCE">
+		<Argument name="YieldType">YIELD_GOLD</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="Imported">true</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_GIFT_ECONOMY_II_NAME</Argument>
+		<String context="Description">LOC_TRADITION_GIFT_ECONOMY_II_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="GIFT_ECONOMY_II_MOD_IMPORTED_RESOURCE_HAPPINESS" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD_PER_RESOURCE">
+		<Argument name="YieldType">YIELD_HAPPINESS</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="Imported">true</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_GIFT_ECONOMY_II_NAME</Argument>
+	</Modifier>
+	<Modifier id="SHELL_TEMPERED_POTTERY_MOD_BUILDING_GOLD_FOOD" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ACTIVATE_CONSTRUCTIBLE_ADJACENCY">
+		<Argument name="ConstructibleAdjacency">ShellTemperedPotteryWildcardResourceGoldFood</Argument>
+		<String context="Description">LOC_TRADITION_SHELL_TEMPERED_POTTERY_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="SHELL_TEMPERED_POTTERY_MOD_BUILDING_GOLD_GOLD" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ACTIVATE_CONSTRUCTIBLE_ADJACENCY">
+		<Argument name="ConstructibleAdjacency">ShellTemperedPotteryWildcardResourceGoldGold</Argument>
+	</Modifier>
+	<Modifier id="SHELL_TEMPERED_POTTERY_MOD_BUILDING_GOLD_WAREHOUSE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ACTIVATE_CONSTRUCTIBLE_ADJACENCY">
+		<Argument name="ConstructibleAdjacency">ShellTemperedPotteryWildcardResourceGoldWarehouse</Argument>
+	</Modifier>
+	<Modifier id="SHELL_TEMPERED_POTTERY_II_MOD_BUILDING_GOLD" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ACTIVATE_CONSTRUCTIBLE_ADJACENCY">
+		<Argument name="ConstructibleAdjacency">ShellTemperedPotteryIIWildcardResourceGold</Argument>
+		<String context="Description">LOC_TRADITION_SHELL_TEMPERED_POTTERY_II_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="BUZZARD_CULT_MOD_LAND_DEFENSE" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ATTACH_MODIFIERS">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_DOMAIN_MATCHES">
+				<Argument name="UnitDomain">DOMAIN_LAND</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="ModifierId">ATTACH_BUZZARD_CULT_LAND_DEFENSE_COMBAT</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_BUZZARD_CULT_LAND_DEFENSE_COMBAT" collection="COLLECTION_UNIT_COMBAT" effect="EFFECT_ADJUST_UNIT_STRENGTH_MODIFIER">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_IS_ATTACKING" inverse="true"/>
+		</SubjectRequirements>
+		<Argument name="Amount">3</Argument>
+		<String context="Preview">LOC_TRADITION_ATASSA_PREVIEW</String>
+	</Modifier>
+	<Modifier id="BUZZARD_CULT_MOD_FREE_MERCHANT" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_GRANT_UNIT" permanent="true">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_MAKES_PEACE_IMMEDIATE">
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="UnitType">UNIT_MERCHANT</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="AllowUniqueOverride">true</Argument>
+		<String context="Description">LOC_TRADITION_ATASSA_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="BUZZARD_CULT_MOD_RESET_ON_PEACE" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_PLAYER_RESET_RELATIONSHIP_ON_PEACE" run-once="true">
+	</Modifier>
+	<Modifier id="MISSISSIPPIAN_SYNCRETISM_MOD_RANGED_BURNING" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ADJUST_UNIT_ATTACK_CREATES_PLOT_EFFECT">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+				<Argument name="Tag">UNIT_CLASS_RANGED</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_UNIT_DOMAIN_MATCHES">
+				<Argument name="UnitDomain">DOMAIN_LAND</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="PlotEffect">PLOTEFFECT_IS_BURNING</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_MISSISSIPPIAN_SYNCRETISM_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="MISSISSIPPIAN_SYNCRETISM_MODERN_MOD_TRADE_ROUTE_GOLD" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ATTACH_MODIFIERS">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+				<Argument name="Tag">UNIT_CLASS_MAKE_TRADE_ROUTE</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="ModifierId">ATTACH_MISSISSIPPIAN_SYNCRETISM_MODERN_TRADE_ROUTE_GOLD</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_MISSISSIPPIAN_SYNCRETISM_MODERN_TRADE_ROUTE_GOLD" collection="COLLECTION_OWNER" effect="EFFECT_UNIT_ADJUST_COMMAND_AWARD">
+		<Argument name="YieldType">YIELD_GOLD</Argument>
+		<Argument name="Amount" type="ScaleByGameSpeed">50</Argument>
+		<Argument name="PerResource">true</Argument>
+		<Argument name="CommandType">UNITCOMMAND_MAKE_TRADE_ROUTE</Argument>
+	</Modifier>
+	<!-- ==================================================	-->
+	<!--	PERSIA										-->
+	<!-- ==================================================	-->
+	<Modifier id="KARA_MOD_CLASS_INFANTRY_PRODUCTION" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_UNIT_PRODUCTION">
+		<Argument name="Percent">25</Argument>
+		<Argument name="UnitClass">UNIT_CLASS_INFANTRY</Argument>
+		<String context="Description">LOC_TRADITION_KARA_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="KARA_MOD_CLASS_INFANTRY_MAINTENANCE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_UNIT_MAINTENANCE_EFFICIENCY">
+		<Argument name="UnitTag">UNIT_CLASS_INFANTRY</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_KARA_NAME</Argument>
+	</Modifier>
+	<Modifier id="KARA_II_MOD_CLASS_INFANTRY_PRODUCTION" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_UNIT_PRODUCTION">
+		<Argument name="Percent">25</Argument>
+		<Argument name="UnitClass">UNIT_CLASS_INFANTRY</Argument>
+		<String context="Description">LOC_TRADITION_KARA_II_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="KARA_II_MOD_CLASS_INFANTRY_MAINTENANCE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_UNIT_MAINTENANCE_EFFICIENCY">
+		<Argument name="UnitTag">UNIT_CLASS_INFANTRY</Argument>
+		<Argument name="Amount">3</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_KARA_II_NAME</Argument>
+	</Modifier>
+	<Modifier id="KARA_II_MOD_INFANTRY_HEALING" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ADJUST_UNIT_POST_COMBAT_HEAL">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+				<Argument name="Tag">UNIT_CLASS_INFANTRY</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="AttackAmount">15</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_KARA_II_NAME</Argument>
+	</Modifier>
+	<Modifier id="ANGARIUM_MOD_GOLD_PER_TOWN" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_TOWN"/>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_GOLD</Argument>
+		<Argument name="Amount">3</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_ANGARIUM_NAME</Argument>
+		<String context="Description">LOC_TRADITION_ANGARIUM_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="ANGARIUM_MOD_GOLD_PER_TOWN_NOT_FOUNDED" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_TOWN"/>
+			<Requirement type="REQUIREMENT_CITY_CONQUERED_ANY_AGE"/>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_GOLD</Argument>
+		<Argument name="Amount">3</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_ANGARIUM_NAME</Argument>
+	</Modifier>
+	<Modifier id="ANGARIUM_II_MOD_GOLD_PER_TOWN" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_TOWN"/>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_GOLD</Argument>
+		<Argument name="Amount">6</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_ANGARIUM_II_NAME</Argument>
+		<String context="Description">LOC_TRADITION_ANGARIUM_II_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="ANGARIUM_II_MOD_GOLD_PER_TOWN_NOT_FOUNDED" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_TOWN"/>
+			<Requirement type="REQUIREMENT_CITY_CONQUERED_ANY_AGE"/>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_GOLD</Argument>
+		<Argument name="Amount">6</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_ANGARIUM_II_NAME</Argument>
+	</Modifier>
+	<Modifier id="SAHANSAH_MOD_UNIT_ABILITY" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_ABILITY">
+		<Argument name="AbilityType">ABILITY_PERSIA_SHAHANSHAH</Argument>
+		<String context="Description">LOC_TRADITION_SHAHANSHAH_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="SHAHANSHAH_MOD_CAPTURED_CIV_CULTURE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD_PER_UNIQUE_CIV_CONQUERED_CITY">
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount">5</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_SHAHANSHAH_NAME</Argument>
+	</Modifier>
+	<Modifier id="SHAHANSHAH_MOD_CAPTURED_CIV_GOLD" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD_PER_UNIQUE_CIV_CONQUERED_CITY">
+		<Argument name="YieldType">YIELD_GOLD</Argument>
+		<Argument name="Amount">5</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_SHAHANSHAH_NAME</Argument>
+	</Modifier>
+	<Modifier id="SAHANSAH_II_MOD_UNIT_ABILITY" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_ABILITY">
+		<Argument name="AbilityType">ABILITY_PERSIA_SHAHANSHAH</Argument>
+		<String context="Description">LOC_TRADITION_SHAHANSHAH_II_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="SHAHANSHAH_II_MOD_CAPTURED_CIV_CULTURE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD_PER_UNIQUE_CIV_CONQUERED_CITY">
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount">10</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_SHAHANSHAH_II_NAME</Argument>
+	</Modifier>
+	<Modifier id="SHAHANSHAH_II_MOD_CAPTURED_CIV_GOLD" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD_PER_UNIQUE_CIV_CONQUERED_CITY">
+		<Argument name="YieldType">YIELD_GOLD</Argument>
+		<Argument name="Amount">10</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_SHAHANSHAH_II_NAME</Argument>
+	</Modifier>
+	<!-- Syncretism Traditions -->
+	<Modifier id="PERSIA_SYNCRETISM_EXPLORATION_MOD_UNIQUE_CONSTRUCTIBLE_CULTURE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD">
+		<Argument name="Tag">UNIQUE_IMPROVEMENT</Argument>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_PERSIA_SYNCRETISM_EXPLORATION_NAME</Argument>
+	</Modifier>
+	<Modifier id="PERSIA_SYNCRETISM_EXPLORATION_MOD_UNIQUE_CONSTRUCTIBLE_GOLD" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_CONQUERED_ANY_AGE"/>
+		</SubjectRequirements>
+		<Argument name="Tag">UNIQUE, UNIQUE_IMPROVEMENT</Argument>
+		<Argument name="YieldType">YIELD_GOLD</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_PERSIA_SYNCRETISM_EXPLORATION_NAME</Argument>
+	</Modifier>
+	<Modifier id="PERSIA_SYNCRETISM_EXPLORATION_MOD_BUILDING_GOLD" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_CONQUERED_ANY_AGE"/>
+		</SubjectRequirements>
+		<Argument name="ConstructibleClass">BUILDING</Argument>
+		<Argument name="YieldType">YIELD_GOLD</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_PERSIA_SYNCRETISM_EXPLORATION_NAME</Argument>
+	</Modifier>
+	<Modifier id="PERSIA_SYNCRETISM_MODERN_MOD_UNIQUE_CONSTRUCTIBLE_CULTURE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD">
+		<Argument name="Tag">UNIQUE_IMPROVEMENT</Argument>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_PERSIA_SYNCRETISM_MODERN_NAME</Argument>
+	</Modifier>
+	<Modifier id="PERSIA_SYNCRETISM_MODERN_MOD_UNIQUE_CONSTRUCTIBLE_GOLD" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_CONQUERED_ANY_AGE"/>
+		</SubjectRequirements>
+		<Argument name="Tag">UNIQUE, UNIQUE_IMPROVEMENT</Argument>
+		<Argument name="YieldType">YIELD_GOLD</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_PERSIA_SYNCRETISM_MODERN_NAME</Argument>
+	</Modifier>
+	<Modifier id="PERSIA_SYNCRETISM_MODERN_MOD_BUILDING_GOLD" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_CONQUERED_ANY_AGE"/>
+		</SubjectRequirements>
+		<Argument name="ConstructibleClass">BUILDING</Argument>
+		<Argument name="YieldType">YIELD_GOLD</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_PERSIA_SYNCRETISM_MODERN_NAME</Argument>
+	</Modifier>
+	<!-- ==================================================	-->
+	<!--	ROME										-->
+	<!-- ==================================================	-->
+	<Modifier id="AUXILIA_MOD_MILITARY_UNIT_PRODUCTION" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_ADJUST_UNIT_PRODUCTION_MOD_PER_SETTLEMENT">
+		<Argument name="Towns">true</Argument>
+		<Argument name="Percent">3</Argument>
+		<Argument name="UnitClass">CORE_CLASS_MILITARY</Argument>
+	</Modifier>
+	<Modifier id="AUXILIA_MOD_UNIT_CULTURE" collection="COLLECTION_OWNER" effect="TRIGGER_PLAYER_GRANT_YIELD_ON_UNIT_CREATED">
+		<Argument name="UnitTags">UNIT_CLASS_INFANTRY</Argument>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="PercentCost">25</Argument>
+    <Argument name="AcquisitionType">ACQUISITION_BUILT</Argument>
+		<Argument name="Combat">true</Argument>
+		<String context="WorldText">LOC_WORLD_CULTURE_INCREASE_FLOATER</String>
+	</Modifier>
+	<Modifier id="AUXILIA_II_MOD_MILITARY_UNIT_PRODUCTION" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_ADJUST_UNIT_PRODUCTION_MOD_PER_SETTLEMENT">
+		<Argument name="Towns">true</Argument>
+		<Argument name="Percent">5</Argument>
+		<Argument name="UnitClass">CORE_CLASS_MILITARY</Argument>
+	</Modifier>
+	<Modifier id="AUXILIA_II_MOD_UNIT_CULTURE" collection="COLLECTION_OWNER" effect="TRIGGER_PLAYER_GRANT_YIELD_ON_UNIT_CREATED">
+		<Argument name="UnitTags">UNIT_CLASS_INFANTRY</Argument>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+    <Argument name="AcquisitionType">ACQUISITION_BUILT</Argument>
+		<Argument name="PercentCost">50</Argument>
+		<Argument name="Combat">true</Argument>
+		<String context="WorldText">LOC_WORLD_CULTURE_INCREASE_FLOATER</String>
+	</Modifier>
+
+	<Modifier id="CURSUS_HONORUM_MOD_MILITARY_CULTURE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_CONSTRUCTIBLE_YIELD">
+		<Argument name="Amount">2</Argument>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Tag">MILITARY</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_CURSUS_HONORUM_NAME</Argument>
+	</Modifier>
+	<Modifier id="CURSUS_HONORUM_MOD_DIPLOMACY_CULTURE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_CONSTRUCTIBLE_YIELD">
+		<Argument name="Amount">2</Argument>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Tag">DIPLOMACY</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_CURSUS_HONORUM_NAME</Argument>
+	</Modifier>
+	<Modifier id="CURSUS_HONORUM_MOD_COMMANDER_PROMOTION" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_GRANT_UNIT_PROMOTION" run-once="false" permanent="true">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+				<Argument name="Tag">UNIT_CLASS_ARMY_COMMANDER</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="UnitPromotionType">PROMOTION_ARMY_BULWARK</Argument>
+		<Argument name="UnitPromotionDisciplineType">DISCIPLINE_ARMY_BASTION</Argument>
+	</Modifier>
+	
+	<Modifier id="LATINITAS_MOD_PROJECT_TOWN_YIELDS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_TOWN"/>
+			<Requirement type="REQUIREMENT_CITY_HAS_PROJECT" inverse="true">
+				<Argument name="ProjectType">PROJECT_TOWN_FORT</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_FOOD, YIELD_CULTURE</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_LATINITAS_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="LATINITAS_MOD_PROJECT_FORT_TOWN_YIELDS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_TOWN"/>
+			<Requirement type="REQUIREMENT_CITY_HAS_PROJECT">
+				<Argument name="ProjectType">PROJECT_TOWN_FORT</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_FOOD, YIELD_CULTURE</Argument>
+		<Argument name="Amount">4</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_LATINITAS_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="LATINITAS_II_MOD_PROJECT_TOWN_YIELDS_DISTANT_LANDS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
+		<SubjectRequirements>
+            <Requirement type="REQUIREMENT_CITY_IS_DISTANT_LANDS"/>
+			<Requirement type="REQUIREMENT_CITY_IS_TOWN"/>
+			<Requirement type="REQUIREMENT_CITY_HAS_PROJECT" inverse="true">
+				<Argument name="ProjectType">PROJECT_TOWN_FORT</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_FOOD, YIELD_CULTURE</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_LATINITAS_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="LATINITAS_II_MOD_PROJECT_FORT_TOWN_YIELDS_DISTANT_LANDS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
+		<SubjectRequirements>
+            <Requirement type="REQUIREMENT_CITY_IS_DISTANT_LANDS"/>
+			<Requirement type="REQUIREMENT_CITY_IS_TOWN"/>
+			<Requirement type="REQUIREMENT_CITY_HAS_PROJECT">
+				<Argument name="ProjectType">PROJECT_TOWN_FORT</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_FOOD, YIELD_CULTURE</Argument>
+		<Argument name="Amount">4</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_LATINITAS_TOOLTIP</Argument>
+	</Modifier>
+
+	<Modifier id="PRINCEPS_CIVITATIS_MOD_CAPITAL_URBAN_PRODUCTION" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_ATTACH_MODIFIERS">
+		<Argument name="ModifierId">ATTACH_PRINCEPS_CIVITATIS_MOD_CAPITAL_URBAN_PRODUCTION</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_PRINCEPS_CIVITATIS_MOD_CAPITAL_URBAN_PRODUCTION" collection="COLLECTION_CITY_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_DISTRICT_CLASS">
+				<Argument name="DistrictClass">CITYCENTER, URBAN</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_PRODUCTION</Argument>
+		<Argument name="Amount">1</Argument>
+	</Modifier>
+	<Modifier id="PRINCEPS_CIVITATIS_II_MOD_CAPITAL_URBAN_PRODUCTION" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_ATTACH_MODIFIERS">
+		<Argument name="ModifierId">ATTACH_PRINCEPS_CIVITATIS_II_MOD_CAPITAL_URBAN_PRODUCTION</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_PRINCEPS_CIVITATIS_II_MOD_CAPITAL_URBAN_PRODUCTION" collection="COLLECTION_CITY_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_DISTRICT_CLASS">
+				<Argument name="DistrictClass">CITYCENTER, URBAN</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_PRODUCTION</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_PRINCEPS_CIVITATIS_TOOLTIP</Argument>
+	</Modifier>
+
+	<Modifier id="ROME_SYNCRETISM_EXPLORATION_MOD_COMBAT_PER_TRADITION" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ADJUST_UNIT_CIV_UNIQUE_TRADITION_COMBAT_MODIFIER">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+				<Argument name="Tag">UNIT_CLASS_INFANTRY</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">1</Argument>
+		<String context="Preview">LOC_TRADITION_ROME_SYNCRETISM_COMBAT_PREVIEW</String>
+	</Modifier>
+	<Modifier id="ROME_SYNCRETISM_MODERN_MOD_CAPITAL_CULTURE_PER_TOWN" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_ADJUST_YIELD_PER_NUM_CITIES">
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount">3</Argument>
+		<Argument name="Cities">false</Argument>
+		<Argument name="Towns">true</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_ROME_SYNCRETISM_TOOLTIP</Argument>
+	</Modifier>
+</GameEffects>

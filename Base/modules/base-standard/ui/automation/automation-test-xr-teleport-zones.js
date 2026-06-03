@@ -1,4 +1,4 @@
-import { S as Shared_OnAutomationEvent, P as PassTest, F as FailTest } from './automation-test-support.chunk.js';
+import { Shared_OnAutomationEvent, PassTest, FailTest } from './automation-test-support.js';
 
 console.log("automation-test-xr-teleport-zones.ts");
 var XRTeleportTestState = /* @__PURE__ */ ((XRTeleportTestState2) => {

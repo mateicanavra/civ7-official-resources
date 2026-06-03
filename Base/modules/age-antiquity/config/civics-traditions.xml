@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<!-- ==================================================	-->
+	<!--	#endregion  -->
+	<!--	COMMON -  TIME-TESTED - TRADITIONS -->
+	<!--	#region  -->
+	<!-- ==================================================	-->
+	<Traditions>
+		<Row TraditionType="TRADITION_AQ_ATTRIBUTE_CULTURAL_01" Name="LOC_TRADITION_AQ_ATTRIBUTE_CULTURAL_01_NAME" Description="LOC_TRADITION_AQ_ATTRIBUTE_CULTURAL_01_DESCRIPTION" TraitType="TRAIT_ATTRIBUTE_CULTURAL_TOT_AQ" AgeType="AGE_ANTIQUITY"  CultureSlotType="TRADITION_CULTURE_SLOT"/>
+		<Row TraditionType="TRADITION_AQ_ATTRIBUTE_DIPLOMATIC_01_HAPPINESS" Name="LOC_TRADITION_AQ_ATTRIBUTE_DIPLOMATIC_01_HAPPINESS_NAME" Description="LOC_TRADITION_AQ_ATTRIBUTE_DIPLOMATIC_01_HAPPINESS_DESCRIPTION" TraitType="TRAIT_ATTRIBUTE_POLITICAL_TOT_AQ_HAPPINESS" AgeType="AGE_ANTIQUITY"  CultureSlotType="TRADITION_CULTURE_SLOT"/>
+		<Row TraditionType="TRADITION_AQ_ATTRIBUTE_DIPLOMATIC_01_INFLUENCE" Name="LOC_TRADITION_AQ_ATTRIBUTE_DIPLOMATIC_01_INFLUENCE_NAME" Description="LOC_TRADITION_AQ_ATTRIBUTE_DIPLOMATIC_01_INFLUENCE_DESCRIPTION" TraitType="TRAIT_ATTRIBUTE_POLITICAL_TOT_AQ_INFLUENCE" AgeType="AGE_ANTIQUITY"  CultureSlotType="TRADITION_CULTURE_SLOT"/>
+		<Row TraditionType="TRADITION_AQ_ATTRIBUTE_ECONOMIC_01" Name="LOC_TRADITION_AQ_ATTRIBUTE_ECONOMIC_01_NAME" Description="LOC_TRADITION_AQ_ATTRIBUTE_ECONOMIC_01_DESCRIPTION" TraitType="TRAIT_ATTRIBUTE_ECONOMIC_TOT_AQ" AgeType="AGE_ANTIQUITY"  CultureSlotType="TRADITION_CULTURE_SLOT"/>
+		<Row TraditionType="TRADITION_AQ_ATTRIBUTE_EXPANSIONIST_01" Name="LOC_TRADITION_AQ_ATTRIBUTE_EXPANSIONIST_01_NAME" Description="LOC_TRADITION_AQ_ATTRIBUTE_EXPANSIONIST_01_DESCRIPTION" TraitType="TRAIT_ATTRIBUTE_EXPANSIONIST_TOT_AQ" AgeType="AGE_ANTIQUITY"  CultureSlotType="TRADITION_CULTURE_SLOT"/>
+		<Row TraditionType="TRADITION_AQ_ATTRIBUTE_MILITARISTIC_01" Name="LOC_TRADITION_AQ_ATTRIBUTE_MILITARISTIC_01_NAME" Description="LOC_TRADITION_AQ_ATTRIBUTE_MILITARISTIC_01_DESCRIPTION" TraitType="TRAIT_ATTRIBUTE_MILITARISTIC_TOT_AQ" AgeType="AGE_ANTIQUITY"  CultureSlotType="TRADITION_CULTURE_SLOT"/>
+		<Row TraditionType="TRADITION_AQ_ATTRIBUTE_SCIENTIFIC_01" Name="LOC_TRADITION_AQ_ATTRIBUTE_SCIENTIFIC_01_NAME" Description="LOC_TRADITION_AQ_ATTRIBUTE_SCIENTIFIC_01_DESCRIPTION" TraitType="TRAIT_ATTRIBUTE_SCIENTIFIC_TOT_AQ" AgeType="AGE_ANTIQUITY"  CultureSlotType="TRADITION_CULTURE_SLOT"/>
+	</Traditions>
+	<ProgressionTreeNodes>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_FOUNDATION" ProgressionTree="TREE_CIVICS_AQ_TEST_OF_TIME" Cost="250" Name="LOC_CIVIC_AQ_FOUNDATION_NAME" IconString="cult_chiefdom" CanSteal="false"/>
+	</ProgressionTreeNodes>
+	<ProgressionTreeNodeUnlocks>
+		<!-- ========== Cultural ========== -->
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_FOUNDATION" TargetKind="KIND_TRADITION" TargetType="TRADITION_AQ_ATTRIBUTE_CULTURAL_01" UnlockDepth="1" RequiredTraitType="TRAIT_ATTRIBUTE_CULTURAL_TOT_AQ"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_FOUNDATION" TargetKind="KIND_CONSTRUCTIBLE" TargetType="WONDER_PYRAMID_OF_THE_SUN" UnlockDepth="1" AIIgnoreUnlockValue="true" RequiredTraitType="TRAIT_ATTRIBUTE_CULTURAL_TOT_AQ"/>
+		<!-- ========== Diplomatic ========== -->
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_FOUNDATION" TargetKind="KIND_TRADITION" TargetType="TRADITION_AQ_ATTRIBUTE_DIPLOMATIC_01_HAPPINESS" UnlockDepth="1" RequiredTraitType="TRAIT_ATTRIBUTE_POLITICAL_TOT_AQ_HAPPINESS"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_FOUNDATION" TargetKind="KIND_TRADITION" TargetType="TRADITION_AQ_ATTRIBUTE_DIPLOMATIC_01_INFLUENCE" UnlockDepth="1" RequiredTraitType="TRAIT_ATTRIBUTE_POLITICAL_TOT_AQ_INFLUENCE"/>
+		<!-- ========== Economic ========== -->
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_FOUNDATION" TargetKind="KIND_TRADITION" TargetType="TRADITION_AQ_ATTRIBUTE_ECONOMIC_01" UnlockDepth="1" RequiredTraitType="TRAIT_ATTRIBUTE_ECONOMIC_TOT_AQ"/>
+		<!-- ========== Expansionist ========== -->
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_FOUNDATION" TargetKind="KIND_TRADITION" TargetType="TRADITION_AQ_ATTRIBUTE_EXPANSIONIST_01" UnlockDepth="1" RequiredTraitType="TRAIT_ATTRIBUTE_EXPANSIONIST_TOT_AQ"/>
+		<!-- ========== Militaristic ========== -->
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_FOUNDATION" TargetKind="KIND_TRADITION" TargetType="TRADITION_AQ_ATTRIBUTE_MILITARISTIC_01" UnlockDepth="1" RequiredTraitType="TRAIT_ATTRIBUTE_MILITARISTIC_TOT_AQ"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_FOUNDATION" TargetKind="KIND_MODIFIER" TargetType="MOD_AQ_SETTLEMENT_CAP_INCREASE" UnlockDepth="1" RequiredTraitType="TRAIT_ATTRIBUTE_MILITARISTIC_TOT_AQ"/>
+		<!-- ========== Scientific ========== -->
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_FOUNDATION" TargetKind="KIND_TRADITION" TargetType="TRADITION_AQ_ATTRIBUTE_SCIENTIFIC_01" UnlockDepth="1" RequiredTraitType="TRAIT_ATTRIBUTE_SCIENTIFIC_TOT_AQ"/>
+	</ProgressionTreeNodeUnlocks>
+	<!-- ==================================================	-->
+	<!--	#endregion  -->
+	<!--	UNIQUE -  BASE GAME - TRADITIONS -->
+	<!--	#region  -->
+	<!-- ==================================================	-->
+	<!-- Aksum -->
+	<!-- ========================== -->
+	<Traditions>
+		<Row TraditionType="TRADITION_AKSUM_SYNCRETISM_EXPLORATION" Name="LOC_TRADITION_AKSUM_SYNCRETISM_EXPLORATION_NAME" Description="LOC_TRADITION_AKSUM_SYNCRETISM_EXPLORATION_DESCRIPTION" AgeType="AGE_EXPLORATION" CultureSlotType="TRADITION_CULTURE_SLOT" TraitType="TRAIT_AKSUM" IgnoreInitializeUnlock="true" AllowInitializeAdvancedStart="true"/>
+		<Row TraditionType="TRADITION_AKSUM_SYNCRETISM_MODERN" Name="LOC_TRADITION_AKSUM_SYNCRETISM_MODERN_NAME" Description="LOC_TRADITION_AKSUM_SYNCRETISM_MODERN_DESCRIPTION" AgeType="AGE_MODERN" CultureSlotType="TRADITION_CULTURE_SLOT" TraitType="TRAIT_AKSUM" IgnoreInitializeUnlock="true" ObsoletesTraditionType="TRADITION_AKSUM_SYNCRETISM_EXPLORATION" AllowInitializeAdvancedStart="true"/>
+		<Row TraditionType="TRADITION_MAY_THIS_PLEASE_THE_PEOPLE_I" Name="LOC_TRADITION_MAY_THIS_PLEASE_THE_PEOPLE_I_NAME" Description="LOC_TRADITION_MAY_THIS_PLEASE_THE_PEOPLE_I_DESCRIPTION" TraitType="TRAIT_AKSUM" AgeType="AGE_ANTIQUITY" CultureSlotType="TRADITION_CULTURE_SLOT"/>
+		<Row TraditionType="TRADITION_MAY_THIS_PLEASE_THE_PEOPLE_II" Name="LOC_TRADITION_MAY_THIS_PLEASE_THE_PEOPLE_II_NAME" Description="LOC_TRADITION_MAY_THIS_PLEASE_THE_PEOPLE_II_DESCRIPTION" TraitType="TRAIT_AKSUM" AgeType="AGE_EXPLORATION" CultureSlotType="TRADITION_CULTURE_SLOT" ObsoletesTraditionType="TRADITION_MAY_THIS_PLEASE_THE_PEOPLE_I"/>
+		<Row TraditionType="TRADITION_PORT_OF_NATIONS_I" Name="LOC_TRADITION_PORT_OF_NATIONS_I_NAME" Description="LOC_TRADITION_PORT_OF_NATIONS_I_DESCRIPTION" TraitType="TRAIT_AKSUM" AgeType="AGE_ANTIQUITY" CultureSlotType="TRADITION_CULTURE_SLOT"/>
+		<Row TraditionType="TRADITION_PORT_OF_NATIONS_II" Name="LOC_TRADITION_PORT_OF_NATIONS_II_NAME" Description="LOC_TRADITION_PORT_OF_NATIONS_II_DESCRIPTION" TraitType="TRAIT_AKSUM" AgeType="AGE_MODERN" CultureSlotType="TRADITION_CULTURE_SLOT" ObsoletesTraditionType="TRADITION_PORT_OF_NATIONS_I"/>
+		<Row TraditionType="TRADITION_THRONE_OF_MY_FATHERS" Name="LOC_TRADITION_THRONE_OF_MY_FATHERS_NAME" Description="LOC_TRADITION_THRONE_OF_MY_FATHERS_DESCRIPTION" TraitType="TRAIT_AKSUM" AgeType="AGE_ANTIQUITY" CultureSlotType="TRADITION_CULTURE_SLOT"/>
+	</Traditions>
+	<ProgressionTreeNodes>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_AKSUM_BOOK_OF_THE_HIMYARITES" ProgressionTree="TREE_CIVICS_AQ_AKSUM" Cost="400" Name="LOC_CIVIC_BOOK_OF_THE_HIMYARITES_NAME" IconString="cult_aksum"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_AKSUM_MONUMENTUM_ADULITANUM" ProgressionTree="TREE_CIVICS_AQ_AKSUM" Cost="250" Name="LOC_CIVIC_MONUMENTUM_ADULITANUM_NAME" IconString="cult_aksum"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_AKSUM_PERIPLUS_OF_THE_ERYTHRAEAN_SEA" ProgressionTree="TREE_CIVICS_AQ_AKSUM" Cost="150" Name="LOC_CIVIC_PERIPLUS_OF_THE_ERYTHRAEAN_SEA_NAME" IconString="cult_aksum"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_AKSUM_RENAISSANCE" ProgressionTree="TREE_CIVICS_EX_TEST_OF_TIME" Cost="800" Name="LOC_NODE_CIVIC_EX_AKSUM_RENAISSANCE_NAME" IconString="cult_aksum" CanSteal="false"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_AKSUM_MODERNIZATION" ProgressionTree="TREE_CIVICS_MO_TEST_OF_TIME" Cost="2000" Name="LOC_NODE_CIVIC_MO_AKSUM_MODERNIZATION_NAME" IconString="cult_aksum" CanSteal="false"/>
+	</ProgressionTreeNodes>
+	<ProgressionTreeNodeUnlocks>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_AKSUM_BOOK_OF_THE_HIMYARITES" TargetKind="KIND_TRADITION" TargetType="TRADITION_MAY_THIS_PLEASE_THE_PEOPLE_I" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_AKSUM_MONUMENTUM_ADULITANUM" TargetKind="KIND_TRADITION" TargetType="TRADITION_THRONE_OF_MY_FATHERS" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_AKSUM_PERIPLUS_OF_THE_ERYTHRAEAN_SEA" TargetKind="KIND_TRADITION" TargetType="TRADITION_PORT_OF_NATIONS_I" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_AKSUM_RENAISSANCE" TargetKind="KIND_TRADITION" TargetType="TRADITION_MAY_THIS_PLEASE_THE_PEOPLE_II" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_AKSUM_MODERNIZATION" TargetKind="KIND_TRADITION" TargetType="TRADITION_PORT_OF_NATIONS_II" UnlockDepth="1"/>
+	</ProgressionTreeNodeUnlocks>
+	<!-- ========================== -->
+	<!-- Egypt -->
+	<!-- ========================== -->
+	<Traditions>
+		<Row TraditionType="TRADITION_AKHET_I" Name="LOC_TRADITION_AKHET_I_NAME" Description="LOC_TRADITION_AKHET_I_DESCRIPTION" TraitType="TRAIT_EGYPT" AgeType="AGE_ANTIQUITY" CultureSlotType="TRADITION_CULTURE_SLOT"/>
+		<Row TraditionType="TRADITION_AKHET_II" Name="LOC_TRADITION_AKHET_II_NAME" Description="LOC_TRADITION_AKHET_II_DESCRIPTION" TraitType="TRAIT_EGYPT" AgeType="AGE_EXPLORATION" CultureSlotType="TRADITION_CULTURE_SLOT" ObsoletesTraditionType="TRADITION_AKHET_I"/>
+		<Row TraditionType="TRADITION_EGYPT_SYNCRETISM_EXPLORATION" Name="LOC_TRADITION_EGYPT_SYNCRETISM_EXPLORATION_NAME" Description="LOC_TRADITION_EGYPT_SYNCRETISM_EXPLORATION_DESCRIPTION" AgeType="AGE_EXPLORATION" CultureSlotType="TRADITION_CULTURE_SLOT" TraitType="TRAIT_EGYPT" IgnoreInitializeUnlock="true" AllowInitializeAdvancedStart="true"/>
+		<Row TraditionType="TRADITION_EGYPT_SYNCRETISM_MODERN" Name="LOC_TRADITION_EGYPT_SYNCRETISM_MODERN_NAME" Description="LOC_TRADITION_EGYPT_SYNCRETISM_MODERN_DESCRIPTION" AgeType="AGE_MODERN" CultureSlotType="TRADITION_CULTURE_SLOT" TraitType="TRAIT_EGYPT" IgnoreInitializeUnlock="true" ObsoletesTraditionType="TRADITION_EGYPT_SYNCRETISM_EXPLORATION" AllowInitializeAdvancedStart="true"/>
+		<Row TraditionType="TRADITION_KEMET_I" Name="LOC_TRADITION_KEMET_I_NAME" Description="LOC_TRADITION_KEMET_I_DESCRIPTION" TraitType="TRAIT_EGYPT" AgeType="AGE_ANTIQUITY" CultureSlotType="TRADITION_CULTURE_SLOT"/>
+		<Row TraditionType="TRADITION_KEMET_II" Name="LOC_TRADITION_KEMET_II_NAME" Description="LOC_TRADITION_KEMET_II_DESCRIPTION" TraitType="TRAIT_EGYPT" AgeType="AGE_MODERN" CultureSlotType="TRADITION_CULTURE_SLOT" ObsoletesTraditionType="TRADITION_KEMET_I"/>
+		<Row TraditionType="TRADITION_RICHES_OF_THE_DUAT" Name="LOC_TRADITION_RICHES_OF_THE_DUAT_NAME" Description="LOC_TRADITION_RICHES_OF_THE_DUAT_DESCRIPTION" TraitType="TRAIT_EGYPT" AgeType="AGE_ANTIQUITY" CultureSlotType="TRADITION_CULTURE_SLOT"/>
+	</Traditions>
+	<ProgressionTreeNodes>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_EGYPT_ARRIVAL_OF_HAPI" ProgressionTree="TREE_CIVICS_AQ_EGYPT" Cost="150" Name="LOC_CIVIC_ARRIVAL_OF_HAPI_NAME" IconString="cult_egypt"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_EGYPT_LIGHT_OF_AMUN_RA" ProgressionTree="TREE_CIVICS_AQ_EGYPT" Cost="250" Name="LOC_CIVIC_LIGHT_OF_AMUN_RA_NAME" IconString="cult_egypt"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_EGYPT_SCALES_OF_ANUBIS" ProgressionTree="TREE_CIVICS_AQ_EGYPT" Cost="150" Name="LOC_CIVIC_SCALES_OF_ANUBIS_NAME" IconString="cult_egypt"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_EGYPT_RENAISSANCE" ProgressionTree="TREE_CIVICS_EX_TEST_OF_TIME" Cost="800" Name="LOC_NODE_CIVIC_EX_EGYPT_RENAISSANCE_NAME" IconString="cult_egypt" CanSteal="false"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_EGYPT_MODERNIZATION" ProgressionTree="TREE_CIVICS_MO_TEST_OF_TIME" Cost="2000" Name="LOC_NODE_CIVIC_MO_EGYPT_MODERNIZATION_NAME" IconString="cult_egypt" CanSteal="false"/>
+	</ProgressionTreeNodes>
+	<ProgressionTreeNodeUnlocks>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_EGYPT_ARRIVAL_OF_HAPI" TargetKind="KIND_TRADITION" TargetType="TRADITION_AKHET_I" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_EGYPT_LIGHT_OF_AMUN_RA" TargetKind="KIND_TRADITION" TargetType="TRADITION_KEMET_I" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_EGYPT_SCALES_OF_ANUBIS" TargetKind="KIND_TRADITION" TargetType="TRADITION_RICHES_OF_THE_DUAT" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_EGYPT_RENAISSANCE" TargetKind="KIND_TRADITION" TargetType="TRADITION_AKHET_II" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_EGYPT_MODERNIZATION" TargetKind="KIND_TRADITION" TargetType="TRADITION_KEMET_II" UnlockDepth="1"/>
+	</ProgressionTreeNodeUnlocks>
+	<!-- ========================== -->
+	<!-- Greece -->
+	<!-- ========================== -->
+	<Traditions>
+		<Row TraditionType="TRADITION_DELIAN_LEAGUE_I" Name="LOC_TRADITION_DELIAN_LEAGUE_I_NAME" Description="LOC_TRADITION_DELIAN_LEAGUE_I_DESCRIPTION" TraitType="TRAIT_GREECE" AgeType="AGE_ANTIQUITY" CultureSlotType="TRADITION_CULTURE_SLOT"/>
+		<Row TraditionType="TRADITION_DELIAN_LEAGUE_II" Name="LOC_TRADITION_DELIAN_LEAGUE_II_NAME" Description="LOC_TRADITION_DELIAN_LEAGUE_II_DESCRIPTION" TraitType="TRAIT_GREECE" AgeType="AGE_EXPLORATION" CultureSlotType="TRADITION_CULTURE_SLOT" ObsoletesTraditionType="TRADITION_DELIAN_LEAGUE_I"/>
+		<Row TraditionType="TRADITION_GREECE_SYNCRETISM_EXPLORATION" Name="LOC_TRADITION_GREECE_SYNCRETISM_EXPLORATION_NAME" Description="LOC_TRADITION_GREECE_SYNCRETISM_EXPLORATION_DESCRIPTION" AgeType="AGE_EXPLORATION" CultureSlotType="TRADITION_CULTURE_SLOT" TraitType="TRAIT_GREECE" IgnoreInitializeUnlock="true" AllowInitializeAdvancedStart="true"/>
+		<Row TraditionType="TRADITION_GREECE_SYNCRETISM_MODERN" Name="LOC_TRADITION_GREECE_SYNCRETISM_MODERN_NAME" Description="LOC_TRADITION_GREECE_SYNCRETISM_MODERN_DESCRIPTION" AgeType="AGE_MODERN" CultureSlotType="TRADITION_CULTURE_SLOT" TraitType="TRAIT_GREECE" IgnoreInitializeUnlock="true" ObsoletesTraditionType="TRADITION_GREECE_SYNCRETISM_EXPLORATION" AllowInitializeAdvancedStart="true"/>
+		<Row TraditionType="TRADITION_PELOPONNESIAN_LEAGUE_I" Name="LOC_TRADITION_PELOPONNESIAN_LEAGUE_I_NAME" Description="LOC_TRADITION_PELOPONNESIAN_LEAGUE_I_DESCRIPTION" TraitType="TRAIT_GREECE" AgeType="AGE_ANTIQUITY" CultureSlotType="TRADITION_CULTURE_SLOT"/>
+		<Row TraditionType="TRADITION_PELOPONNESIAN_LEAGUE_II" Name="LOC_TRADITION_PELOPONNESIAN_LEAGUE_II_NAME" Description="LOC_TRADITION_PELOPONNESIAN_LEAGUE_II_DESCRIPTION" TraitType="TRAIT_GREECE" AgeType="AGE_EXPLORATION" CultureSlotType="TRADITION_CULTURE_SLOT" ObsoletesTraditionType="TRADITION_PELOPONNESIAN_LEAGUE_I"/>
+		<Row TraditionType="TRADITION_STRATEGOI" Name="LOC_TRADITION_STRATEGOI_NAME" Description="LOC_TRADITION_STRATEGOI_DESCRIPTION" TraitType="TRAIT_GREECE" AgeType="AGE_ANTIQUITY" CultureSlotType="TRADITION_CULTURE_SLOT"/>
+		<Row TraditionType="TRADITION_XENIA_I" Name="LOC_TRADITION_XENIA_I_NAME" Description="LOC_TRADITION_XENIA_I_DESCRIPTION" TraitType="TRAIT_GREECE" AgeType="AGE_ANTIQUITY" CultureSlotType="TRADITION_CULTURE_SLOT"/>
+		<Row TraditionType="TRADITION_XENIA_II" Name="LOC_TRADITION_XENIA_II_NAME" Description="LOC_TRADITION_XENIA_II_DESCRIPTION" TraitType="TRAIT_GREECE" AgeType="AGE_MODERN" CultureSlotType="TRADITION_CULTURE_SLOT" ObsoletesTraditionType="TRADITION_XENIA_I"/>
+	</Traditions>
+	<ProgressionTreeNodes>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_GREECE_AGOGE" ProgressionTree="TREE_CIVICS_AQ_GREECE" Cost="150" Name="LOC_CIVIC_AGOGE_NAME" IconString="cult_greece"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_GREECE_EKKLESIA" ProgressionTree="TREE_CIVICS_AQ_GREECE" Cost="150" Name="LOC_CIVIC_EKKLESIA_NAME" IconString="cult_greece"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_GREECE_SYMMACHIA" ProgressionTree="TREE_CIVICS_AQ_GREECE" Cost="250" Name="LOC_CIVIC_SYMMACHIA_NAME" IconString="cult_greece"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_GREECE_RENAISSANCE" ProgressionTree="TREE_CIVICS_EX_TEST_OF_TIME" Cost="800" Name="LOC_NODE_CIVIC_EX_GREECE_RENAISSANCE_NAME" IconString="cult_greece" CanSteal="false"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_GREECE_MODERNIZATION" ProgressionTree="TREE_CIVICS_MO_TEST_OF_TIME" Cost="2000" Name="LOC_NODE_CIVIC_MO_GREECE_MODERNIZATION_NAME" IconString="cult_greece" CanSteal="false"/>
+	</ProgressionTreeNodes>
+	<ProgressionTreeNodeUnlocks>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_GREECE_AGOGE" TargetKind="KIND_TRADITION" TargetType="TRADITION_STRATEGOI" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_GREECE_EKKLESIA" TargetKind="KIND_TRADITION" TargetType="TRADITION_XENIA_I" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_GREECE_SYMMACHIA" TargetKind="KIND_TRADITION" TargetType="TRADITION_DELIAN_LEAGUE_I" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_GREECE_SYMMACHIA" TargetKind="KIND_TRADITION" TargetType="TRADITION_PELOPONNESIAN_LEAGUE_I" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_GREECE_RENAISSANCE" TargetKind="KIND_TRADITION" TargetType="TRADITION_DELIAN_LEAGUE_II" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_GREECE_RENAISSANCE" TargetKind="KIND_TRADITION" TargetType="TRADITION_PELOPONNESIAN_LEAGUE_II" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_GREECE_MODERNIZATION" TargetKind="KIND_TRADITION" TargetType="TRADITION_XENIA_II" UnlockDepth="1"/>
+	</ProgressionTreeNodeUnlocks>
+	<!-- ========================== -->
+	<!-- Han -->
+	<!-- ========================== -->
+	<Traditions>
+		<Row TraditionType="TRADITION_FENGHUO" Name="LOC_TRADITION_FENGHUO_NAME" Description="LOC_TRADITION_FENGHUO_DESCRIPTION" TraitType="TRAIT_HAN" AgeType="AGE_ANTIQUITY" CultureSlotType="TRADITION_CULTURE_SLOT"/>
+		<Row TraditionType="TRADITION_FENGHUO_II" Name="LOC_TRADITION_FENGHUO_II_NAME" Description="LOC_TRADITION_FENGHUO_II_DESCRIPTION" TraitType="TRAIT_HAN" AgeType="AGE_EXPLORATION" CultureSlotType="TRADITION_CULTURE_SLOT" ObsoletesTraditionType="TRADITION_FENGHUO"/>
+		<Row TraditionType="TRADITION_HAN_SYNCRETISM_EXPLORATION" Name="LOC_TRADITION_HAN_SYNCRETISM_EXPLORATION_NAME" Description="LOC_TRADITION_HAN_SYNCRETISM_EXPLORATION_DESCRIPTION" AgeType="AGE_EXPLORATION" CultureSlotType="TRADITION_CULTURE_SLOT" TraitType="TRAIT_HAN" IgnoreInitializeUnlock="true" AllowInitializeAdvancedStart="true"/>
+		<Row TraditionType="TRADITION_HAN_SYNCRETISM_MODERN" Name="LOC_TRADITION_HAN_SYNCRETISM_MODERN_NAME" Description="LOC_TRADITION_HAN_SYNCRETISM_MODERN_DESCRIPTION" AgeType="AGE_MODERN" CultureSlotType="TRADITION_CULTURE_SLOT" TraitType="TRAIT_HAN" IgnoreInitializeUnlock="true" ObsoletesTraditionType="TRADITION_HAN_SYNCRETISM_EXPLORATION" AllowInitializeAdvancedStart="true"/>
+		<Row TraditionType="TRADITION_JU_XIAN" Name="LOC_TRADITION_JU_XIAN_NAME" Description="LOC_TRADITION_JU_XIAN_DESCRIPTION" TraitType="TRAIT_HAN" AgeType="AGE_ANTIQUITY" CultureSlotType="TRADITION_CULTURE_SLOT"/>
+		<Row TraditionType="TRADITION_JU_XIAN_II" Name="LOC_TRADITION_JU_XIAN_II_NAME" Description="LOC_TRADITION_JU_XIAN_II_DESCRIPTION" TraitType="TRAIT_HAN" AgeType="AGE_MODERN" CultureSlotType="TRADITION_CULTURE_SLOT" ObsoletesTraditionType="TRADITION_JU_XIAN"/>
+		<Row TraditionType="TRADITION_XIU_TAIXUE" Name="LOC_TRADITION_XIU_TAIXUE_NAME" Description="LOC_TRADITION_XIU_TAIXUE_DESCRIPTION" TraitType="TRAIT_HAN" AgeType="AGE_ANTIQUITY" CultureSlotType="TRADITION_CULTURE_SLOT"/>
+		<Row TraditionType="TRADITION_XUMIN_ZHAO" Name="LOC_TRADITION_XUMIN_ZHAO_NAME" Description="LOC_TRADITION_XUMIN_ZHAO_DESCRIPTION" TraitType="TRAIT_HAN" AgeType="AGE_ANTIQUITY" CultureSlotType="TRADITION_CULTURE_SLOT"/>
+	</Traditions>
+	<ProgressionTreeNodes>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_HAN_REN" ProgressionTree="TREE_CIVICS_AQ_HAN" Cost="150" Name="LOC_CIVIC_REN_NAME" IconString="cult_han"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_HAN_YI" ProgressionTree="TREE_CIVICS_AQ_HAN" Cost="250" Name="LOC_CIVIC_YI_NAME" IconString="cult_han"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_HAN_ZHI" ProgressionTree="TREE_CIVICS_AQ_HAN" Cost="250" Name="LOC_CIVIC_ZHI_NAME" IconString="cult_han"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_HAN_RENAISSANCE" ProgressionTree="TREE_CIVICS_EX_TEST_OF_TIME" Cost="800" Name="LOC_NODE_CIVIC_EX_HAN_RENAISSANCE_NAME" IconString="cult_han" CanSteal="false"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_HAN_MODERNIZATION" ProgressionTree="TREE_CIVICS_MO_TEST_OF_TIME" Cost="2000" Name="LOC_NODE_CIVIC_MO_HAN_MODERNIZATION_NAME" IconString="cult_han" CanSteal="false"/>
+	</ProgressionTreeNodes>
+	<ProgressionTreeNodeUnlocks>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_HAN_REN" TargetKind="KIND_TRADITION" TargetType="TRADITION_XUMIN_ZHAO" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_HAN_YI" TargetKind="KIND_TRADITION" TargetType="TRADITION_FENGHUO" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_HAN_ZHI" TargetKind="KIND_TRADITION" TargetType="TRADITION_XIU_TAIXUE" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_HAN_ZHI" TargetKind="KIND_TRADITION" TargetType="TRADITION_JU_XIAN" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_HAN_RENAISSANCE" TargetKind="KIND_TRADITION" TargetType="TRADITION_FENGHUO_II" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_HAN_MODERNIZATION" TargetKind="KIND_TRADITION" TargetType="TRADITION_JU_XIAN_II" UnlockDepth="1"/>
+	</ProgressionTreeNodeUnlocks>
+	<!-- ========================== -->
+	<!-- Khmer -->
+	<!-- ========================== -->
+	<Traditions>
+		<Row TraditionType="TRADITION_BON_OM_TOUK" Name="LOC_TRADITION_BON_OM_TOUK_NAME" Description="LOC_TRADITION_BON_OM_TOUK_DESCRIPTION" TraitType="TRAIT_KHMER" AgeType="AGE_ANTIQUITY" CultureSlotType="TRADITION_CULTURE_SLOT"/>
+		<Row TraditionType="TRADITION_KAMBU_MERA_I" Name="LOC_TRADITION_KAMBU_MERA_I_NAME" Description="LOC_TRADITION_KAMBU_MERA_I_DESCRIPTION" TraitType="TRAIT_KHMER" AgeType="AGE_ANTIQUITY" CultureSlotType="TRADITION_CULTURE_SLOT"/>
+		<Row TraditionType="TRADITION_KAMBU_MERA_II" Name="LOC_TRADITION_KAMBU_MERA_II_NAME" Description="LOC_TRADITION_KAMBU_MERA_II_DESCRIPTION" TraitType="TRAIT_KHMER" AgeType="AGE_MODERN" CultureSlotType="TRADITION_CULTURE_SLOT" ObsoletesTraditionType="TRADITION_KAMBU_MERA_I"/>
+		<Row TraditionType="TRADITION_KHMER_SYNCRETISM_EXPLORATION" Name="LOC_TRADITION_KHMER_SYNCRETISM_EXPLORATION_NAME" Description="LOC_TRADITION_KHMER_SYNCRETISM_EXPLORATION_DESCRIPTION" AgeType="AGE_EXPLORATION" CultureSlotType="TRADITION_CULTURE_SLOT" TraitType="TRAIT_KHMER" IgnoreInitializeUnlock="true" AllowInitializeAdvancedStart="true"/>
+		<Row TraditionType="TRADITION_KHMER_SYNCRETISM_MODERN" Name="LOC_TRADITION_KHMER_SYNCRETISM_MODERN_NAME" Description="LOC_TRADITION_KHMER_SYNCRETISM_MODERN_DESCRIPTION" AgeType="AGE_MODERN" CultureSlotType="TRADITION_CULTURE_SLOT" TraitType="TRAIT_KHMER" IgnoreInitializeUnlock="true" ObsoletesTraditionType="TRADITION_KHMER_SYNCRETISM_EXPLORATION" AllowInitializeAdvancedStart="true"/>
+		<Row TraditionType="TRADITION_PITHI_CHRAT_I" Name="LOC_TRADITION_PITHI_CHRAT_I_NAME" Description="LOC_TRADITION_PITHI_CHRAT_I_DESCRIPTION" TraitType="TRAIT_KHMER" AgeType="AGE_ANTIQUITY" CultureSlotType="TRADITION_CULTURE_SLOT"/>
+		<Row TraditionType="TRADITION_PITHI_CHRAT_II" Name="LOC_TRADITION_PITHI_CHRAT_II_NAME" Description="LOC_TRADITION_PITHI_CHRAT_II_DESCRIPTION" TraitType="TRAIT_KHMER" AgeType="AGE_EXPLORATION" CultureSlotType="TRADITION_CULTURE_SLOT" ObsoletesTraditionType="TRADITION_PITHI_CHRAT_I"/>
+	</Traditions>
+	<ProgressionTreeNodes>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_KHMER_AMNACH" ProgressionTree="TREE_CIVICS_AQ_KHMER" Cost="250" Name="LOC_CIVIC_AMNACH_NAME" IconString="cult_khmer"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_KHMER_CHAKRAVARTI" ProgressionTree="TREE_CIVICS_AQ_KHMER" Cost="400" Name="LOC_CIVIC_CHAKRAVARTI_NAME" IconString="cult_khmer"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_KHMER_MOUSONG" ProgressionTree="TREE_CIVICS_AQ_KHMER" Cost="150" Name="LOC_CIVIC_MOUSONG_NAME" IconString="cult_khmer"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_KHMER_RENAISSANCE" ProgressionTree="TREE_CIVICS_EX_TEST_OF_TIME" Cost="800" Name="LOC_NODE_CIVIC_EX_KHMER_RENAISSANCE_NAME" IconString="cult_khmer" CanSteal="false"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_KHMER_MODERNIZATION" ProgressionTree="TREE_CIVICS_MO_TEST_OF_TIME" Cost="2000" Name="LOC_NODE_CIVIC_MO_KHMER_MODERNIZATION_NAME" IconString="cult_khmer" CanSteal="false"/>
+	</ProgressionTreeNodes>
+	<ProgressionTreeNodeUnlocks>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_KHMER_AMNACH" TargetKind="KIND_TRADITION" TargetType="TRADITION_BON_OM_TOUK" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_KHMER_CHAKRAVARTI" TargetKind="KIND_TRADITION" TargetType="TRADITION_KAMBU_MERA_I" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_KHMER_MOUSONG" TargetKind="KIND_TRADITION" TargetType="TRADITION_PITHI_CHRAT_I" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_KHMER_RENAISSANCE" TargetKind="KIND_TRADITION" TargetType="TRADITION_PITHI_CHRAT_II"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_KHMER_MODERNIZATION" TargetKind="KIND_TRADITION" TargetType="TRADITION_KAMBU_MERA_II"/>
+	</ProgressionTreeNodeUnlocks>
+	<!-- ========================== -->
+	<!-- Maurya -->
+	<!-- ========================== -->
+	<Traditions>
+		<Row TraditionType="TRADITION_ARTHASHASTRA_I" Name="LOC_TRADITION_ARTHASHASTRA_I_NAME" Description="LOC_TRADITION_ARTHASHASTRA_I_DESCRIPTION" TraitType="TRAIT_MAURYA" AgeType="AGE_ANTIQUITY" CultureSlotType="TRADITION_CULTURE_SLOT"/>
+		<Row TraditionType="TRADITION_ARTHASHASTRA_II" Name="LOC_TRADITION_ARTHASHASTRA_II_NAME" Description="LOC_TRADITION_ARTHASHASTRA_II_DESCRIPTION" TraitType="TRAIT_MAURYA" AgeType="AGE_MODERN" CultureSlotType="TRADITION_CULTURE_SLOT" ObsoletesTraditionType="TRADITION_ARTHASHASTRA_I"/>
+		<Row TraditionType="TRADITION_CHARVAKA_I" Name="LOC_TRADITION_CHARVAKA_I_NAME" Description="LOC_TRADITION_CHARVAKA_I_DESCRIPTION" TraitType="TRAIT_MAURYA" AgeType="AGE_ANTIQUITY" CultureSlotType="TRADITION_CULTURE_SLOT"/>
+		<Row TraditionType="TRADITION_CHARVAKA_II" Name="LOC_TRADITION_CHARVAKA_II_NAME" Description="LOC_TRADITION_CHARVAKA_II_DESCRIPTION" TraitType="TRAIT_MAURYA" AgeType="AGE_EXPLORATION" CultureSlotType="TRADITION_CULTURE_SLOT" ObsoletesTraditionType="TRADITION_CHARVAKA_I"/>
+		<Row TraditionType="TRADITION_KSHATRIYA" Name="LOC_TRADITION_KSHATRIYA_NAME" Description="LOC_TRADITION_KSHATRIYA_DESCRIPTION" TraitType="TRAIT_MAURYA" AgeType="AGE_ANTIQUITY" CultureSlotType="TRADITION_CULTURE_SLOT"/>
+		<Row TraditionType="TRADITION_MAURYA_SYNCRETISM_EXPLORATION" Name="LOC_TRADITION_MAURYA_SYNCRETISM_EXPLORATION_NAME" Description="LOC_TRADITION_MAURYA_SYNCRETISM_EXPLORATION_DESCRIPTION" AgeType="AGE_EXPLORATION" CultureSlotType="TRADITION_CULTURE_SLOT" TraitType="TRAIT_MAURYA" IgnoreInitializeUnlock="true" AllowInitializeAdvancedStart="true"/>
+		<Row TraditionType="TRADITION_MAURYA_SYNCRETISM_MODERN" Name="LOC_TRADITION_MAURYA_SYNCRETISM_MODERN_NAME" Description="LOC_TRADITION_MAURYA_SYNCRETISM_MODERN_DESCRIPTION" AgeType="AGE_MODERN" CultureSlotType="TRADITION_CULTURE_SLOT" TraitType="TRAIT_MAURYA" IgnoreInitializeUnlock="true" ObsoletesTraditionType="TRADITION_MAURYA_SYNCRETISM_EXPLORATION" AllowInitializeAdvancedStart="true"/>
+	</Traditions>
+	<ProgressionTreeNodes>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_MAURYA_ACHARYA" ProgressionTree="TREE_CIVICS_AQ_MAURYA" Cost="150" Name="LOC_CIVIC_ACHARYA_NAME" IconString="cult_maurya"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_MAURYA_MANTRIPARISHAD" ProgressionTree="TREE_CIVICS_AQ_MAURYA" Cost="400" Name="LOC_CIVIC_MANTRIPARISHAD_NAME" IconString="cult_maurya"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_MAURYA_VYUHAM" ProgressionTree="TREE_CIVICS_AQ_MAURYA" Cost="250" Name="LOC_CIVIC_VYUHAM_NAME" IconString="cult_maurya"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_MAURYA_RENAISSANCE" ProgressionTree="TREE_CIVICS_EX_TEST_OF_TIME" Cost="800" Name="LOC_NODE_CIVIC_EX_MAURYA_RENAISSANCE_NAME" IconString="cult_maurya" CanSteal="false"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_MAURYA_MODERNIZATION" ProgressionTree="TREE_CIVICS_MO_TEST_OF_TIME" Cost="2000" Name="LOC_NODE_CIVIC_MO_MAURYA_MODERNIZATION_NAME" IconString="cult_maurya" CanSteal="false"/>
+	</ProgressionTreeNodes>
+	<ProgressionTreeNodeUnlocks>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_MAURYA_ACHARYA" TargetKind="KIND_TRADITION" TargetType="TRADITION_CHARVAKA_I" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_MAURYA_MANTRIPARISHAD" TargetKind="KIND_TRADITION" TargetType="TRADITION_ARTHASHASTRA_I" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_MAURYA_VYUHAM" TargetKind="KIND_TRADITION" TargetType="TRADITION_KSHATRIYA" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_MAURYA_RENAISSANCE" TargetKind="KIND_TRADITION" TargetType="TRADITION_CHARVAKA_II" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_MAURYA_MODERNIZATION" TargetKind="KIND_TRADITION" TargetType="TRADITION_ARTHASHASTRA_II" UnlockDepth="1"/>
+	</ProgressionTreeNodeUnlocks>
+	<!-- ========================== -->
+	<!-- Maya -->
+	<!-- ========================== -->
+	<Traditions>
+		<Row TraditionType="TRADITION_HAAB_I" Name="LOC_TRADITION_HAAB_I_NAME" Description="LOC_TRADITION_HAAB_I_DESCRIPTION" TraitType="TRAIT_MAYA" AgeType="AGE_ANTIQUITY" CultureSlotType="TRADITION_CULTURE_SLOT"/>
+		<Row TraditionType="TRADITION_HAAB_II" Name="LOC_TRADITION_HAAB_II_NAME" Description="LOC_TRADITION_HAAB_II_DESCRIPTION" TraitType="TRAIT_MAYA" AgeType="AGE_MODERN" CultureSlotType="TRADITION_CULTURE_SLOT" ObsoletesTraditionType="TRADITION_HAAB_I"/>
+		<Row TraditionType="TRADITION_MAYA_SYNCRETISM_EXPLORATION" Name="LOC_TRADITION_MAYA_SYNCRETISM_EXPLORATION_NAME" Description="LOC_TRADITION_MAYA_SYNCRETISM_EXPLORATION_DESCRIPTION" AgeType="AGE_EXPLORATION" CultureSlotType="TRADITION_CULTURE_SLOT" TraitType="TRAIT_MAYA" IgnoreInitializeUnlock="true" AllowInitializeAdvancedStart="true"/>
+		<Row TraditionType="TRADITION_MAYA_SYNCRETISM_MODERN" Name="LOC_TRADITION_MAYA_SYNCRETISM_MODERN_NAME" Description="LOC_TRADITION_MAYA_SYNCRETISM_MODERN_DESCRIPTION" AgeType="AGE_MODERN" CultureSlotType="TRADITION_CULTURE_SLOT" TraitType="TRAIT_MAYA" IgnoreInitializeUnlock="true" ObsoletesTraditionType="TRADITION_MAYA_SYNCRETISM_EXPLORATION" AllowInitializeAdvancedStart="true"/>
+		<Row TraditionType="TRADITION_MIRACLES_OF_THE_TWINS_I" Name="LOC_TRADITION_MIRACLES_OF_THE_TWINS_I_NAME" Description="LOC_TRADITION_MIRACLES_OF_THE_TWINS_I_DESCRIPTION" TraitType="TRAIT_MAYA" AgeType="AGE_ANTIQUITY" CultureSlotType="TRADITION_CULTURE_SLOT"/>
+		<Row TraditionType="TRADITION_MIRACLES_OF_THE_TWINS_II" Name="LOC_TRADITION_MIRACLES_OF_THE_TWINS_II_NAME" Description="LOC_TRADITION_MIRACLES_OF_THE_TWINS_II_DESCRIPTION" TraitType="TRAIT_MAYA" AgeType="AGE_EXPLORATION" CultureSlotType="TRADITION_CULTURE_SLOT" ObsoletesTraditionType="TRADITION_MIRACLES_OF_THE_TWINS_I"/>
+		<Row TraditionType="TRADITION_PET_KOT" Name="LOC_TRADITION_PET_KOT_NAME" Description="LOC_TRADITION_PET_KOT_DESCRIPTION" TraitType="TRAIT_MAYA" AgeType="AGE_ANTIQUITY" CultureSlotType="TRADITION_CULTURE_SLOT"/>
+		<Row TraditionType="TRADITION_TZOLKIN_I" Name="LOC_TRADITION_TZOLKIN_I_NAME" Description="LOC_TRADITION_TZOLKIN_I_DESCRIPTION" TraitType="TRAIT_MAYA" AgeType="AGE_ANTIQUITY" CultureSlotType="TRADITION_CULTURE_SLOT"/>
+		<Row TraditionType="TRADITION_TZOLKIN_II" Name="LOC_TRADITION_TZOLKIN_II_NAME" Description="LOC_TRADITION_TZOLKIN_II_DESCRIPTION" TraitType="TRAIT_MAYA" AgeType="AGE_MODERN" CultureSlotType="TRADITION_CULTURE_SLOT" ObsoletesTraditionType="TRADITION_TZOLKIN_I"/>
+	</Traditions>
+	<ProgressionTreeNodes>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_MAYA_CALENDAR_ROUND" ProgressionTree="TREE_CIVICS_AQ_MAYA" Cost="250" Name="LOC_CIVIC_CALENDAR_ROUND_NAME" IconString="cult_maya"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_MAYA_LORDS_OF_XIBALBA" ProgressionTree="TREE_CIVICS_AQ_MAYA" Cost="150" Name="LOC_CIVIC_LORDS_OF_XIBALBA_NAME" IconString="cult_maya"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_MAYA_RAIN_OF_CHAAC" ProgressionTree="TREE_CIVICS_AQ_MAYA" Cost="150" Name="LOC_CIVIC_RAIN_OF_CHAAC_NAME" IconString="cult_maya"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_MAYA_RENAISSANCE" ProgressionTree="TREE_CIVICS_EX_TEST_OF_TIME" Cost="800" Name="LOC_NODE_CIVIC_EX_MAYA_RENAISSANCE_NAME" IconString="cult_maya" CanSteal="false"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_MAYA_MODERNIZATION" ProgressionTree="TREE_CIVICS_MO_TEST_OF_TIME" Cost="2000" Name="LOC_NODE_CIVIC_MO_MAYA_MODERNIZATION_NAME" IconString="cult_maya" CanSteal="false"/>
+	</ProgressionTreeNodes>
+	<ProgressionTreeNodeUnlocks>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_MAYA_CALENDAR_ROUND" TargetKind="KIND_TRADITION" TargetType="TRADITION_HAAB_I" UnlockDepth="2"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_MAYA_CALENDAR_ROUND" TargetKind="KIND_TRADITION" TargetType="TRADITION_TZOLKIN_I" UnlockDepth="2"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_MAYA_LORDS_OF_XIBALBA" TargetKind="KIND_TRADITION" TargetType="TRADITION_MIRACLES_OF_THE_TWINS_I" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_MAYA_RAIN_OF_CHAAC" TargetKind="KIND_TRADITION" TargetType="TRADITION_PET_KOT" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_MAYA_RENAISSANCE" TargetKind="KIND_TRADITION" TargetType="TRADITION_MIRACLES_OF_THE_TWINS_II" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_MAYA_MODERNIZATION" TargetKind="KIND_TRADITION" TargetType="TRADITION_HAAB_II" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_MAYA_MODERNIZATION" TargetKind="KIND_TRADITION" TargetType="TRADITION_TZOLKIN_II" UnlockDepth="1"/>
+	</ProgressionTreeNodeUnlocks>
+	<!-- ========================== -->
+	<!-- Mississippian -->
+	<!-- ========================== -->
+	<Traditions>
+		<Row TraditionType="TRADITION_ATASSA" Name="LOC_TRADITION_ATASSA_NAME" Description="LOC_TRADITION_ATASSA_DESCRIPTION" TraitType="TRAIT_MISSISSIPPIAN" AgeType="AGE_ANTIQUITY" CultureSlotType="TRADITION_CULTURE_SLOT"/>
+		<Row TraditionType="TRADITION_GIFT_ECONOMY" Name="LOC_TRADITION_GIFT_ECONOMY_NAME" Description="LOC_TRADITION_GIFT_ECONOMY_DESCRIPTION" TraitType="TRAIT_MISSISSIPPIAN" AgeType="AGE_ANTIQUITY" CultureSlotType="TRADITION_CULTURE_SLOT"/>
+		<Row TraditionType="TRADITION_GIFT_ECONOMY_II" Name="LOC_TRADITION_GIFT_ECONOMY_II_NAME" Description="LOC_TRADITION_GIFT_ECONOMY_II_DESCRIPTION" TraitType="TRAIT_MISSISSIPPIAN" AgeType="AGE_EXPLORATION" CultureSlotType="TRADITION_CULTURE_SLOT" ObsoletesTraditionType="TRADITION_GIFT_ECONOMY"/>
+		<Row TraditionType="TRADITION_MISSISSIPPIAN_SYNCRETISM_EXPLORATION" Name="LOC_TRADITION_MISSISSIPPIAN_SYNCRETISM_EXPLORATION_NAME" Description="LOC_TRADITION_MISSISSIPPIAN_SYNCRETISM_EXPLORATION_DESCRIPTION" AgeType="AGE_EXPLORATION" CultureSlotType="TRADITION_CULTURE_SLOT" TraitType="TRAIT_MISSISSIPPIAN" IgnoreInitializeUnlock="true" AllowInitializeAdvancedStart="true"/>
+		<Row TraditionType="TRADITION_MISSISSIPPIAN_SYNCRETISM_MODERN" Name="LOC_TRADITION_MISSISSIPPIAN_SYNCRETISM_MODERN_NAME" Description="LOC_TRADITION_MISSISSIPPIAN_SYNCRETISM_MODERN_DESCRIPTION" AgeType="AGE_MODERN" CultureSlotType="TRADITION_CULTURE_SLOT" TraitType="TRAIT_MISSISSIPPIAN" IgnoreInitializeUnlock="true" ObsoletesTraditionType="TRADITION_MISSISSIPPIAN_SYNCRETISM_EXPLORATION" AllowInitializeAdvancedStart="true"/>
+		<Row TraditionType="TRADITION_SHELL_TEMPERED_POTTERY" Name="LOC_TRADITION_SHELL_TEMPERED_POTTERY_NAME" Description="LOC_TRADITION_SHELL_TEMPERED_POTTERY_DESCRIPTION" TraitType="TRAIT_MISSISSIPPIAN" AgeType="AGE_ANTIQUITY" CultureSlotType="TRADITION_CULTURE_SLOT"/>
+		<Row TraditionType="TRADITION_SHELL_TEMPERED_POTTERY_II" Name="LOC_TRADITION_SHELL_TEMPERED_POTTERY_II_NAME" Description="LOC_TRADITION_SHELL_TEMPERED_POTTERY_II_DESCRIPTION" TraitType="TRAIT_MISSISSIPPIAN" AgeType="AGE_MODERN" CultureSlotType="TRADITION_CULTURE_SLOT" ObsoletesTraditionType="TRADITION_SHELL_TEMPERED_POTTERY"/>
+	</Traditions>
+	<ProgressionTreeNodes>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_MISSISSIPPIAN_CAH_NAH_HA" ProgressionTree="TREE_CIVICS_AQ_MISSISSIPPIAN" Cost="150" Name="LOC_CIVIC_CAH_NAH_HA_NAME" IconString="cult_mississippian"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_MISSISSIPPIAN_EARTHWORKS" ProgressionTree="TREE_CIVICS_AQ_MISSISSIPPIAN" Cost="150" Name="LOC_CIVIC_EARTHWORKS_NAME" IconString="cult_mississippian"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_MISSISSIPPIAN_WAAHIH" ProgressionTree="TREE_CIVICS_AQ_MISSISSIPPIAN" Cost="250" Name="LOC_CIVIC_WAAHIH_NAME" IconString="cult_mississippian"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_MISSISSIPPIAN_RENAISSANCE" ProgressionTree="TREE_CIVICS_EX_TEST_OF_TIME" Cost="800" Name="LOC_NODE_CIVIC_EX_MISSISSIPPIAN_RENAISSANCE_NAME" IconString="cult_mississippian" CanSteal="false"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_MISSISSIPPIAN_MODERNIZATION" ProgressionTree="TREE_CIVICS_MO_TEST_OF_TIME" Cost="2000" Name="LOC_NODE_CIVIC_MO_MISSISSIPPIAN_MODERNIZATION_NAME" IconString="cult_mississippian" CanSteal="false"/>
+	</ProgressionTreeNodes>
+	<ProgressionTreeNodeUnlocks>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_MISSISSIPPIAN_CAH_NAH_HA" TargetKind="KIND_TRADITION" TargetType="TRADITION_GIFT_ECONOMY" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_MISSISSIPPIAN_EARTHWORKS" TargetKind="KIND_TRADITION" TargetType="TRADITION_SHELL_TEMPERED_POTTERY" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_MISSISSIPPIAN_WAAHIH" TargetKind="KIND_TRADITION" TargetType="TRADITION_ATASSA" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_MISSISSIPPIAN_RENAISSANCE" TargetKind="KIND_TRADITION" TargetType="TRADITION_GIFT_ECONOMY_II" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_MISSISSIPPIAN_MODERNIZATION" TargetKind="KIND_TRADITION" TargetType="TRADITION_SHELL_TEMPERED_POTTERY_II" UnlockDepth="1"/>
+	</ProgressionTreeNodeUnlocks>
+	<!-- ========================== -->
+	<!-- Persia -->
+	<!-- ========================== -->
+	<Traditions>
+		<Row TraditionType="TRADITION_ANGARIUM" Name="LOC_TRADITION_ANGARIUM_NAME" Description="LOC_TRADITION_ANGARIUM_DESCRIPTION" TraitType="TRAIT_PERSIA" AgeType="AGE_ANTIQUITY" CultureSlotType="TRADITION_CULTURE_SLOT"/>
+		<Row TraditionType="TRADITION_ANGARIUM_II" Name="LOC_TRADITION_ANGARIUM_II_NAME" Description="LOC_TRADITION_ANGARIUM_II_DESCRIPTION" TraitType="TRAIT_PERSIA" AgeType="AGE_MODERN" CultureSlotType="TRADITION_CULTURE_SLOT" ObsoletesTraditionType="TRADITION_ANGARIUM"/>
+		<Row TraditionType="TRADITION_KARA" Name="LOC_TRADITION_KARA_NAME" Description="LOC_TRADITION_KARA_DESCRIPTION" TraitType="TRAIT_PERSIA" AgeType="AGE_ANTIQUITY" CultureSlotType="TRADITION_CULTURE_SLOT"/>
+		<Row TraditionType="TRADITION_KARA_II" Name="LOC_TRADITION_KARA_II_NAME" Description="LOC_TRADITION_KARA_II_DESCRIPTION" TraitType="TRAIT_PERSIA" AgeType="AGE_EXPLORATION" CultureSlotType="TRADITION_CULTURE_SLOT" ObsoletesTraditionType="TRADITION_KARA"/>
+		<Row TraditionType="TRADITION_PERSIA_SYNCRETISM_EXPLORATION" Name="LOC_TRADITION_PERSIA_SYNCRETISM_EXPLORATION_NAME" Description="LOC_TRADITION_PERSIA_SYNCRETISM_EXPLORATION_DESCRIPTION" AgeType="AGE_EXPLORATION" CultureSlotType="TRADITION_CULTURE_SLOT" TraitType="TRAIT_PERSIA" IgnoreInitializeUnlock="true" AllowInitializeAdvancedStart="true"/>
+		<Row TraditionType="TRADITION_PERSIA_SYNCRETISM_MODERN" Name="LOC_TRADITION_PERSIA_SYNCRETISM_MODERN_NAME" Description="LOC_TRADITION_PERSIA_SYNCRETISM_MODERN_DESCRIPTION" AgeType="AGE_MODERN" CultureSlotType="TRADITION_CULTURE_SLOT" TraitType="TRAIT_PERSIA" IgnoreInitializeUnlock="true" ObsoletesTraditionType="TRADITION_PERSIA_SYNCRETISM_EXPLORATION" AllowInitializeAdvancedStart="true"/>
+		<Row TraditionType="TRADITION_SHAHANSHAH" Name="LOC_TRADITION_SHAHANSHAH_NAME" Description="LOC_TRADITION_SHAHANSHAH_DESCRIPTION" TraitType="TRAIT_PERSIA" AgeType="AGE_ANTIQUITY" CultureSlotType="TRADITION_CULTURE_SLOT"/>
+		<Row TraditionType="TRADITION_SHAHANSHAH_II" Name="LOC_TRADITION_SHAHANSHAH_II_NAME" Description="LOC_TRADITION_SHAHANSHAH_II_DESCRIPTION" TraitType="TRAIT_PERSIA" AgeType="AGE_MODERN" CultureSlotType="TRADITION_CULTURE_SLOT" ObsoletesTraditionType="TRADITION_SHAHANSHAH"/>
+	</Traditions>
+	<ProgressionTreeNodes>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_PERSIA_ACHAEMENID_EMPIRE" ProgressionTree="TREE_CIVICS_AQ_PERSIA" Cost="250" Name="LOC_CIVIC_ACHAEMENID_EMPIRE_NAME" IconString="cult_persia"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_PERSIA_SATRAPIES" ProgressionTree="TREE_CIVICS_AQ_PERSIA" Cost="150" Name="LOC_CIVIC_SATRAPIES_NAME" IconString="cult_persia"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_PERSIA_SPADA" ProgressionTree="TREE_CIVICS_AQ_PERSIA" Cost="150" Name="LOC_CIVIC_SPADA_NAME" IconString="cult_persia"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_PERSIA_RENAISSANCE" ProgressionTree="TREE_CIVICS_EX_TEST_OF_TIME" Cost="800" Name="LOC_NODE_CIVIC_EX_PERSIA_RENAISSANCE_NAME" IconString="cult_persia" CanSteal="false"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_PERSIA_MODERNIZATION" ProgressionTree="TREE_CIVICS_MO_TEST_OF_TIME" Cost="2000" Name="LOC_NODE_CIVIC_MO_PERSIA_MODERNIZATION_NAME" IconString="cult_persia" CanSteal="false"/>
+	</ProgressionTreeNodes>
+	<ProgressionTreeNodeUnlocks>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_PERSIA_ACHAEMENID_EMPIRE" TargetKind="KIND_TRADITION" TargetType="TRADITION_SHAHANSHAH" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_PERSIA_SATRAPIES" TargetKind="KIND_TRADITION" TargetType="TRADITION_ANGARIUM" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_PERSIA_SPADA" TargetKind="KIND_TRADITION" TargetType="TRADITION_KARA" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_PERSIA_RENAISSANCE" TargetKind="KIND_TRADITION" TargetType="TRADITION_KARA_II" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_PERSIA_MODERNIZATION" TargetKind="KIND_TRADITION" TargetType="TRADITION_ANGARIUM_II" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_PERSIA_MODERNIZATION" TargetKind="KIND_TRADITION" TargetType="TRADITION_SHAHANSHAH_II" UnlockDepth="1"/>
+	</ProgressionTreeNodeUnlocks>
+	<!-- ========================== -->
+	<!-- Rome -->
+	<!-- ========================== -->
+	<Traditions>
+		<Row TraditionType="TRADITION_AUXILIA_I" Name="LOC_TRADITION_AUXILIA_I_NAME" Description="LOC_TRADITION_AUXILIA_I_DESCRIPTION" TraitType="TRAIT_ROME" AgeType="AGE_ANTIQUITY" CultureSlotType="TRADITION_CULTURE_SLOT"/>
+		<Row TraditionType="TRADITION_AUXILIA_II" Name="LOC_TRADITION_AUXILIA_II_NAME" Description="LOC_TRADITION_AUXILIA_II_DESCRIPTION" TraitType="TRAIT_ROME" AgeType="AGE_MODERN" ObsoletesTraditionType="TRADITION_AUXILIA_I" CultureSlotType="TRADITION_CULTURE_SLOT"/>
+		<Row TraditionType="TRADITION_CURSUS_HONORUM" Name="LOC_TRADITION_CURSUS_HONORUM_NAME" Description="LOC_TRADITION_CURSUS_HONORUM_DESCRIPTION" TraitType="TRAIT_ROME" AgeType="AGE_ANTIQUITY" CultureSlotType="TRADITION_CULTURE_SLOT"/>
+		<Row TraditionType="TRADITION_LATINITAS_I" Name="LOC_TRADITION_LATINITAS_I_NAME" Description="LOC_TRADITION_LATINITAS_I_DESCRIPTION" TraitType="TRAIT_ROME" AgeType="AGE_ANTIQUITY" CultureSlotType="TRADITION_CULTURE_SLOT"/>
+		<Row TraditionType="TRADITION_LATINITAS_II" Name="LOC_TRADITION_LATINITAS_II_NAME" Description="LOC_TRADITION_LATINITAS_II_DESCRIPTION" TraitType="TRAIT_ROME" AgeType="AGE_EXPLORATION" ObsoletesTraditionType="TRADITION_LATINITAS_I" CultureSlotType="TRADITION_CULTURE_SLOT"/>
+		<Row TraditionType="TRADITION_PRINCEPS_CIVITATIS_I" Name="LOC_TRADITION_PRINCEPS_CIVITATIS_I_NAME" Description="LOC_TRADITION_PRINCEPS_CIVITATIS_I_DESCRIPTION" TraitType="TRAIT_ROME" AgeType="AGE_ANTIQUITY" CultureSlotType="TRADITION_CULTURE_SLOT"/>
+		<Row TraditionType="TRADITION_PRINCEPS_CIVITATIS_II" Name="LOC_TRADITION_PRINCEPS_CIVITATIS_II_NAME" Description="LOC_TRADITION_PRINCEPS_CIVITATIS_II_DESCRIPTION" TraitType="TRAIT_ROME" AgeType="AGE_MODERN" ObsoletesTraditionType="TRADITION_PRINCEPS_CIVITATIS_I" CultureSlotType="TRADITION_CULTURE_SLOT"/>
+		<Row TraditionType="TRADITION_ROME_SYNCRETISM_EXPLORATION" Name="LOC_TRADITION_ROME_SYNCRETISM_EXPLORATION_NAME" Description="LOC_TRADITION_ROME_SYNCRETISM_EXPLORATION_DESCRIPTION" AgeType="AGE_EXPLORATION" CultureSlotType="TRADITION_CULTURE_SLOT" TraitType="TRAIT_ROME" IgnoreInitializeUnlock="true" AllowInitializeAdvancedStart="true"/>
+		<Row TraditionType="TRADITION_ROME_SYNCRETISM_MODERN" Name="LOC_TRADITION_ROME_SYNCRETISM_MODERN_NAME" Description="LOC_TRADITION_ROME_SYNCRETISM_MODERN_DESCRIPTION" AgeType="AGE_MODERN" CultureSlotType="TRADITION_CULTURE_SLOT" TraitType="TRAIT_ROME" IgnoreInitializeUnlock="true" ObsoletesTraditionType="TRADITION_ROME_SYNCRETISM_EXPLORATION" AllowInitializeAdvancedStart="true"/>
+	</Traditions>
+	<ProgressionTreeNodes>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_ROME_CIVIS_ROMANUS" ProgressionTree="TREE_CIVICS_AQ_ROME" Cost="150" Name="LOC_CIVIC_CIVIS_ROMANUS_NAME" IconString="cult_rome"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_ROME_EXERCITUS_ROMANUS" ProgressionTree="TREE_CIVICS_AQ_ROME" Cost="150" Name="LOC_CIVIC_EXERCITUS_ROMANUS_NAME" IconString="cult_rome"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_ROME_LEGATUS_PRO_PRAETORE" ProgressionTree="TREE_CIVICS_AQ_ROME" Cost="250" Name="LOC_CIVIC_LEGATUS_PRO_PRAETORE_NAME" IconString="cult_rome"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_ROME_SENATUS_POPULUSQUE_ROMANUS" ProgressionTree="TREE_CIVICS_AQ_ROME" Cost="400" Name="LOC_CIVIC_SENATUS_POPULUSQUE_ROMANUS_NAME" IconString="cult_rome"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_ROMAN_RENAISSANCE" ProgressionTree="TREE_CIVICS_EX_TEST_OF_TIME" Cost="800" Name="LOC_NODE_CIVIC_EX_ROMAN_RENAISSANCE_NAME" IconString="cult_rome" CanSteal="false"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_ROMAN_MODERNIZATION" ProgressionTree="TREE_CIVICS_MO_TEST_OF_TIME" Cost="2000" Name="LOC_NODE_CIVIC_MO_ROMAN_MODERNIZATION_NAME" IconString="cult_rome" CanSteal="false"/>
+	</ProgressionTreeNodes>
+	<ProgressionTreeNodeUnlocks>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_ROME_CIVIS_ROMANUS" TargetKind="KIND_TRADITION" TargetType="TRADITION_CURSUS_HONORUM" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_ROME_EXERCITUS_ROMANUS" TargetKind="KIND_TRADITION" TargetType="TRADITION_AUXILIA_I" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_ROME_LEGATUS_PRO_PRAETORE" TargetKind="KIND_TRADITION" TargetType="TRADITION_LATINITAS_I" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_ROME_SENATUS_POPULUSQUE_ROMANUS" TargetKind="KIND_TRADITION" TargetType="TRADITION_PRINCEPS_CIVITATIS_I" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_ROMAN_RENAISSANCE" TargetKind="KIND_TRADITION" TargetType="TRADITION_LATINITAS_II" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_ROMAN_MODERNIZATION" TargetKind="KIND_TRADITION" TargetType="TRADITION_AUXILIA_II" RequiredTraitType="TRAIT_ROME" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_ROMAN_MODERNIZATION" TargetKind="KIND_TRADITION" TargetType="TRADITION_PRINCEPS_CIVITATIS_II" UnlockDepth="1"/>
+	</ProgressionTreeNodeUnlocks>
+</Database>

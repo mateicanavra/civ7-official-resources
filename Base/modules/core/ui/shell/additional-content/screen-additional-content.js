@@ -1,19 +1,9 @@
 import ContextManager from '../../context-manager/context-manager.js';
-import FocusManager from '../../input/focus-manager.js';
-import { b as InputEngineEventName } from '../../input/input-support.chunk.js';
-import { N as NavTray } from '../../navigation-tray/model-navigation-tray.chunk.js';
-import { P as Panel } from '../../panel-support.chunk.js';
-import { MustGetElement } from '../../utilities/utilities-dom.chunk.js';
-import '../../context-manager/display-queue-manager.js';
-import '../../dialog-box/manager-dialog-box.chunk.js';
-import '../../framework.chunk.js';
-import '../../input/cursor.js';
-import '../../views/view-manager.chunk.js';
-import '../../audio-base/audio-support.chunk.js';
-import '../../input/action-handler.js';
-import '../../utilities/utilities-update-gate.chunk.js';
-import '../../utilities/utilities-image.chunk.js';
-import '../../utilities/utilities-component-id.chunk.js';
+import { InputEngineEventName } from '../../input/input-support.js';
+import NavTray from '../../navigation-tray/model-navigation-tray.js';
+import Panel from '../../panel-support.js';
+import { MustGetElement } from '../../utilities/utilities-dom.js';
+import { FocusManager } from '../../../ui-next/services/focus-manager.js';
 
 class ScreenAdditionalContent extends Panel {
   backButton;
@@ -57,7 +47,7 @@ class ScreenAdditionalContent extends Panel {
     if (ContextManager.getCurrentTarget() != this.Root) {
       return;
     }
-    FocusManager.setFocus(this.modsContent);
+    FocusManager.get().setFocus(this.modsContent);
   }
   onLoseFocus() {
     NavTray.clear();

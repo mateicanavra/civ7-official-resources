@@ -1,12 +1,7 @@
-import { q as quickFormatProgressionTreeNodeUnlocks } from '../../../core/ui/utilities/utilities-core-textprovider.chunk.js';
-import { U as UpdateGate } from '../../../core/ui/utilities/utilities-update-gate.chunk.js';
-import { c as TreeNodesSupport } from './tree-support.chunk.js';
-import { s as styles } from './tree-components.chunk.js';
-import '../../../core/ui/input/focus-manager.js';
-import '../../../core/ui/audio-base/audio-support.chunk.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/utilities/utilities-core-databinding.chunk.js';
-import '../../../core/ui/utilities/utilities-layout.chunk.js';
+import { quickFormatProgressionTreeNodeUnlocks } from '../../../core/ui/utilities/utilities-core-textprovider.js';
+import UpdateGate from '../../../core/ui/utilities/utilities-update-gate.js';
+import { TreeNodesSupport } from './tree-support.js';
+import styles from './tree-components.scss.js';
 
 const getWonderPlayerId = (wonderType) => {
   wonderType = typeof wonderType == "string" ? Database.makeHash(wonderType) : wonderType;
@@ -40,12 +35,24 @@ class TreeDetail extends Component {
   chooserContainer = document.createElement("div");
   ringContent = document.createElement("div");
   repeatedCount = document.createElement("div");
+  costContainer = document.createElement("div");
   get type() {
     const type = this.Root.getAttribute("type");
     return type != null ? +type : 0;
   }
   get name() {
     return this.level > 0 ? "LOC_UI_TREE_MASTERY" : this.Root.getAttribute("name") ?? "";
+  }
+  get cost() {
+    const sCost = this.Root.getAttribute("cost");
+    if (sCost) {
+      return parseInt(sCost, 10);
+    } else {
+      return 0;
+    }
+  }
+  get costIcon() {
+    return this.Root.getAttribute("cost-icon") ?? "";
   }
   get lockedReason() {
     return this.Root.getAttribute("locked-reason") ?? "";
@@ -91,7 +98,7 @@ class TreeDetail extends Component {
     mainContainer.classList.add("flex", "flex-auto", "pointer-events-none", "px-6", "py-4");
     waitForLayout(() => mainContainer.classList.remove("flex-col"));
     const detailContainer = document.createElement("div");
-    detailContainer.classList.add("flex", "flex-col", "flex-auto");
+    detailContainer.classList.add("flex", "flex-col", "flex-auto", "max-h-full");
     this.scrollable.classList.add("flex-auto");
     this.scrollable.setAttribute("attached-scrollbar", "true");
     const contentContainer = document.createElement("div");
@@ -120,8 +127,10 @@ class TreeDetail extends Component {
       "text-sm",
       "mr-3"
     );
+    this.costContainer.classList.add("flex", "justify-center");
     this.scrollable.appendChild(this.scrollableContent);
     this.scrollableContent.appendChild(this.unlocksContainer);
+    this.scrollableContent.appendChild(this.costContainer);
     this.progressContainer.appendChild(this.turnContainer);
     contentContainer.appendChild(this.progressContainer);
     contentContainer.appendChild(this.nameContainer);
@@ -134,6 +143,7 @@ class TreeDetail extends Component {
     if (this.repeated > 0) {
       this.repeatedCount.innerHTML = Locale.compose("LOC_UI_ATTRIBUTE_TREES_BOUGHT_TIMES", this.repeated);
     }
+    this.updateCost();
     this.updateDetailed();
     this.lockedOverlay.classList.add("absolute", "inset-0", "flex", "items-center", "justify-center");
     const lockedOverlayBackground = document.createElement("div");
@@ -164,6 +174,22 @@ class TreeDetail extends Component {
       "items-center",
       "flex-auto"
     );
+  }
+  updateCostsUpdateGate = new UpdateGate(this.updateCost.bind(this));
+  updateCost() {
+    this.costContainer.innerHTML = "";
+    const cost = this.cost;
+    const costIcon = this.costIcon;
+    if (cost != 0 && costIcon) {
+      const costPill = document.createElement("div");
+      costPill.classList.add("text-sm", "h-9", "flex", "items-center", "rounded-full", "leading-normal");
+      costPill.style.border = "1px solid #53565D";
+      const costPillContent = document.createElement("div");
+      costPillContent.classList.add("px-2");
+      costPillContent.innerHTML = Locale.stylize("LOC_UI_PRODUCTION_CONSTRUCTIBLE_COST", cost, costIcon);
+      costPill.appendChild(costPillContent);
+      this.costContainer.appendChild(costPill);
+    }
   }
   updateDetailedUpdateGate = new UpdateGate(this.updateDetailed.bind(this));
   updateDetailed() {
@@ -372,6 +398,10 @@ class TreeDetail extends Component {
           this.repeatedCount.innerHTML = Locale.compose("LOC_UI_ATTRIBUTE_TREES_BOUGHT_TIMES", this.repeated);
         }
         break;
+      case "cost":
+      case "cost-icon":
+        this.updateCostsUpdateGate.call("onAttributeChanged");
+        break;
     }
   }
 }
@@ -419,6 +449,14 @@ Controls.define("tree-detail", {
     {
       name: "repeated",
       description: "Number of repeated purchases. Only for repeatable nodes."
+    },
+    {
+      name: "cost",
+      description: "The amount of research the item costs."
+    },
+    {
+      name: "cost-icon",
+      description: "The icon which represents the type of cost."
     }
   ]
 });

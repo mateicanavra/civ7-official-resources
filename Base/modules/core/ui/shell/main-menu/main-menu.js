@@ -1,78 +1,49 @@
-import { A as Audio } from '../../audio-base/audio-support.chunk.js';
-import { a as ActionActivateEventName } from '../../components/fxs-activatable.chunk.js';
+import { Audio } from '../../audio-base/audio-support.js';
+import { ActionActivateEventName } from '../../components/fxs-activatable.js';
 import ContextManager from '../../context-manager/context-manager.js';
-import { d as displayRequestUniqueId, a as DialogBoxManager, D as DialogBoxAction } from '../../dialog-box/manager-dialog-box.chunk.js';
+import { displayRequestUniqueId } from '../../context-manager/display-handler.js';
 import { DisplayQueueManager } from '../../context-manager/display-queue-manager.js';
-import { e as GameCreatorOpenedEventName, f as GameCreatorClosedEventName, g as StartCampaignEventName, h as MainMenuReturnEventName, i as SendCampaignSetupTelemetryEventName, j as SendCampaignSetupTelemetryEvent } from '../../events/shell-events.chunk.js';
-import ActionHandler, { ActiveDeviceTypeChangedEventName } from '../../input/action-handler.js';
-import FocusManager from '../../input/focus-manager.js';
-import { F as Focus } from '../../input/focus-support.chunk.js';
-import { b as InputEngineEventName } from '../../input/input-support.chunk.js';
-import { N as NavTray } from '../../navigation-tray/model-navigation-tray.chunk.js';
-import { E as EditorCalibrateHDROpenedEventName, e as EditorCalibrateHDRClosedEventName } from '../../options/editors/index.chunk.js';
+import { DialogBoxManager } from '../../dialog-box/manager-dialog-box.js';
+import { GameCreatorOpenedEventName, GameCreatorClosedEventName, StartCampaignEventName, MainMenuReturnEventName, SendCampaignSetupTelemetryEventName, SendCampaignSetupTelemetryEvent } from '../../events/shell-events.js';
+import { Focus } from '../../input/focus-support.js';
+import { InputEngineEventName, NavigateInputEventName } from '../../input/input-support.js';
+import NavTray from '../../navigation-tray/model-navigation-tray.js';
+import '../../options/editors/index.js';
 import { giftboxButtonName } from '../../profile-header/profile-header.js';
 import { ProfileTabType } from '../../profile-page/screen-profile-page.js';
-import { b as QueryCompleteEventName, S as SaveLoadData } from '../../save-load/model-save-load.chunk.js';
+import RewardsNotificationsManager from '../../rewards-notifications/rewards-notification-manager.js';
+import SaveLoadData, { QueryCompleteEventName } from '../../save-load/model-save-load.js';
 import { SaveLoadClosedEventName } from '../../save-load/screen-save-load.js';
-import { G as GetCivilizationData } from '../create-panels/age-civ-select-model.chunk.js';
-import { g as getLeaderData } from '../create-panels/leader-select-model.chunk.js';
+import { GetCivilizationData } from '../create-panels/age-civ-select-model.js';
+import { getLeaderData } from '../create-panels/leader-select-model.js';
 import { ScreenCreditsOpenedEventName, ScreenCreditsClosedEventName } from '../credits/screen-credits.js';
 import { EventsScreenGoSinglePlayerEventName, EventsScreenGoMultiPlayerEventName, EventsScreenLoadEventName, EventsScreenContinueEventName } from '../events/screen-events.js';
+import { mainMenuAssetPreload } from './main-menu-asset-preload.js';
+import { PromoCarouselModel } from './main-menu-carousel-model.js';
 import { LegalDocsAcceptedEventName, LegalDocsPlacementAcceptName } from '../mp-legal/mp-legal.js';
-import { M as MultiplayerShellManager } from '../mp-shell-logic/mp-shell-logic.chunk.js';
+import MultiplayerShellManager from '../mp-shell-logic/mp-shell-logic.js';
 import { MovieScreenOpenedEventName, MovieScreenClosedEventName } from '../screen-movie/screen-movie.js';
-import { c as cancelAllChainedAnimations } from '../../input/cursor.js';
-import { f as fixupNNBSP } from '../../utilities/utilities-core-textprovider.chunk.js';
-import { MustGetElement } from '../../utilities/utilities-dom.chunk.js';
+import { cancelAllChainedAnimations } from '../../utilities/animations.js';
+import { fixupNNBSP } from '../../utilities/utilities-core-textprovider.js';
+import { MustGetElement } from '../../utilities/utilities-dom.js';
+import { Layout } from '../../utilities/utilities-layout.js';
 import { getPlayerCardInfo, updatePlayerProfile } from '../../utilities/utilities-liveops.js';
 import { NetworkUtilities } from '../../utilities/utilities-network.js';
-import '../../framework.chunk.js';
-import '../../views/view-manager.chunk.js';
-import '../../panel-support.chunk.js';
-import '../../utilities/utilities-update-gate.chunk.js';
-import '../../components/fxs-slot.chunk.js';
-import '../../spatial/spatial-manager.js';
-import '../../utilities/utilities-image.chunk.js';
-import '../../utilities/utilities-component-id.chunk.js';
-import '../../accessibility/tts-manager.js';
-import '../../components/fxs-chooser-item.chunk.js';
-import '../../utilities/utilities-layout.chunk.js';
-import '../../../../base-standard/ui/chooser-item/chooser-item.chunk.js';
-import '../../components/fxs-button.chunk.js';
-import '../../utilities/utilities-core-databinding.chunk.js';
-import '../../rewards-notifications/rewards-notification-manager.chunk.js';
-import '../mp-staging/model-mp-friends.chunk.js';
-import '../../social-notifications/social-notifications-manager.js';
-import '../../components/fxs-dropdown.chunk.js';
-import '../leader-select/leader-button/leader-button.js';
-import '../../utilities/utilities-metaprogression.chunk.js';
-import '../../components/fxs-textbox.chunk.js';
-import '../../save-load/save-load-card.js';
-import '../sync-conflict/sync-conflict.js';
-import '../../system-message/system-message-manager.chunk.js';
-import '../live-event-logic/live-event-logic.chunk.js';
-import '../../utilities/utilities-data.chunk.js';
-import '../../utilities/utilities-network-constants.chunk.js';
+import { FocusManager } from '../../../ui-next/services/focus-manager.js';
+import styles from './main-menu.scss2.js';
+import { EditorCalibrateHDROpenedEventName, EditorCalibrateHDRClosedEventName } from '../../options/editors/calibrateHDR/editor-calibrate-hdr.js';
+import { DialogBoxAction } from '../../dialog-box/model-dialog-box.js';
 
-const content = "<div class=\"menu-border menu-border-left top-10 left-8 pointer-events-none absolute\"></div>\r\n<div class=\"menu-border menu-border-right -scale-x-100 top-10 right-8 pointer-events-none absolute\"></div>\r\n<div class=\"main-menu-container relative self-center\">\r\n\t<div class=\"main-menu-bg-container relative w-full h-full\"></div>\r\n\t<div class=\"main-menu-selection-container absolute h-full self-center -top-20\">\r\n\t\t<fxs-vslot class=\"main-menu-button-container h-full justify-between\">\r\n\t\t\t<fxs-vslot\r\n\t\t\t\tclass=\"main-menu-slot opacity-100\"\r\n\t\t\t\tid=\"MainMenuSlot\"\r\n\t\t\t>\r\n\t\t\t\t<div\r\n\t\t\t\t\tclass=\"main-menu-title-divider min-h-8 min-w-128 bg-center bg-contain bg-no-repeat self-center\"\r\n\t\t\t\t></div>\r\n\t\t\t\t<div class=\"logo-box min-h-16 min-w-128 bg-center bg-cover bg-no-repeat self-center\"></div>\r\n\t\t\t\t<div class=\"filigree-menu-top relative -top-2 self-center\"></div>\r\n\t\t\t</fxs-vslot>\r\n\t\t</fxs-vslot>\r\n\t</div>\r\n</div>\r\n<div\r\n\tclass=\"main-menu__profile-header-container absolute w-auto flex flex-row flex-row-reverse flex-nowrap items-center\"\r\n></div>\r\n";
-
-const styles = "fs://game/core/ui/shell/main-menu/main-menu.css";
-
-var CarouselActionTypes = /* @__PURE__ */ ((CarouselActionTypes2) => {
-  CarouselActionTypes2[CarouselActionTypes2["NO_ACTION"] = 0] = "NO_ACTION";
-  CarouselActionTypes2[CarouselActionTypes2["PROCESS_PROMO"] = 1] = "PROCESS_PROMO";
-  return CarouselActionTypes2;
-})(CarouselActionTypes || {});
 const isLiveEventGame = false;
 const accountDialogId = displayRequestUniqueId();
 const getKickDialogId = displayRequestUniqueId();
-const bForceShowPromoLoadingSpinner = false;
 class MainMenu extends Component {
   profileHeaderContainer;
   profileHeader;
   odrDownload;
   slot;
-  bgContainer;
+  buttonContainer;
+  carouselSmallContainer;
   connStatus;
   connIcon;
   accountStatus;
@@ -83,24 +54,11 @@ class MainMenu extends Component {
   motdDisplay = document.createElement("div");
   motdDisplayMessage = document.createElement("div");
   buildInfo;
-  carouselMain;
-  carouselBreadcrumbs;
-  carouselContent;
-  carouselBackButton;
-  carouselInteractButton;
-  carouselText;
-  carouselContentText;
-  carouselTextScrollable;
-  carouselStandardTextScrollable;
-  carouselImageContainer;
-  carouselBaseLayout;
-  carouselBaseLayoutImage;
-  carouselBaseLayoutText;
-  carouselSliderId = -1;
+  promoCarouselSmall;
   movieContainer;
   shroud;
+  mainMenuBackground;
   engineInputListener = this.onEngineInput.bind(this);
-  carouselEngineInputListener = this.onCarouselEngineInput.bind(this);
   navigateInputListener = this.onNavigateInput.bind(this);
   qrCompletedListener = this.onAccountUpdated.bind(this);
   accountUpdatedListener = this.onAccountUpdated.bind(this);
@@ -123,8 +81,6 @@ class MainMenu extends Component {
   gameCreatorClosedListener = this.onGameCreatorClosed.bind(this);
   startNewCampaignListener = this.onNewCampaignStart.bind(this);
   motdCompletedListener = this.gotMOTD.bind(this);
-  promosDataReceivedListener = this.resolvePromoDataReceived.bind(this);
-  refreshPromosListener = this.refreshPromos.bind(this);
   startGameSectionListener = this.startSection.bind(this);
   spoPCompleteListener = this.onSPoPComplete.bind(this);
   spoPKickPromptCheckListener = this.onSPoPKickPromptCheck.bind(this);
@@ -142,18 +98,15 @@ class MainMenu extends Component {
   MainMenuSceneModels = null;
   static VO_CAMERA_POSITION = { x: -1.834, y: -23.0713, z: 15.2 };
   static VO_CAMERA_TARGET = { x: -2.7588, y: -17.4867, z: 14.8042 };
+  static VO_SMALL_SCREEN_CAMERA_POSITION = { x: -1.834, y: -23.0713, z: 15.2 };
+  static VO_SMALL_SCREEN_CAMERA_TARGET = { x: -3.7, y: -17.4867, z: 14.8042 };
   currentPreloadingAsset = null;
   hasPreloadingBegun = false;
-  leaderIndexToPreload = 0;
+  preloadAssetNames = [];
+  preloadAssetIndex = 0;
   campaignSetupTimestamp = 0;
   campaignSetupId = null;
-  carouselItems = [];
-  selectedCarouselItem = 0;
   areLegalDocsAccepted = false;
-  bootLoaded = false;
-  toggleCarouselAdded = false;
-  nextPromoAdded = false;
-  previousPromoAdded = false;
   isUserInitiatedLogout = false;
   firstLaunchTutorialPending = false;
   inSubScreen = false;
@@ -167,121 +120,35 @@ class MainMenu extends Component {
   bPendingSSOCheck = false;
   pendingSSODialogBoxID = -1;
   forceOfflineLegalFlow = false;
+  hasShownDNAErrorPopup = false;
   isInLoginFlow = false;
   constructor(root) {
     super(root);
     engine.on("LaunchToHostMPGame", this.onLaunchHostMPGameListener);
   }
   onInitialize() {
+    this.render();
+    this.slot = MustGetElement("#MainMenuSlot", this.Root);
+    this.slot.setAttribute("data-navrule-up", "wrap");
+    this.slot.setAttribute("data-navrule-down", "wrap");
+    this.carouselSmallContainer = MustGetElement(".carousel-small-container", this.Root);
+    this.buttonContainer = MustGetElement(".main-menu-button-container", this.Root);
+    this.mainMenuBackground = MustGetElement("main-menu-background", this.Root);
     if (Network.supportsSSO()) {
-      this.carouselMain = document.createElement("fxs-vslot");
-      this.carouselMain.classList.value = "carousel absolute hidden text-accent-2 self-center";
-      this.carouselMain.setAttribute("tabindex", "-1");
-      this.carouselMain.innerHTML = `
-			<fxs-vslot class="carousel-outer w-full">
-					<fxs-hslot class="carousel-main-hslot">
-						<div class="carousel-close-button-div absolute top-1 right-1 hidden">
-							<fxs-close-button class="carousel-close-button"></fxs-close-button>
-						</div>
-						<fxs-hslot class="carousel-top-filigree decoration w-full justify-center items-center absolute -top-9">
-							<div class="img-top-filigree-left grow"></div>
-							<div class="img-top-filigree-center"></div>
-							<div class="img-top-filigree-right grow"></div>
-						</fxs-hslot>
-						<div
-							 class="carousel-content relative pointer-events-auto flex flex-col font-body text-base text-accent-2">
-							<div class="carousel-title justify-center">
-								<fxs-hslot class="justify-center">
-								<fxs-activatable
-									class="carousel-expanded-bumper carousel-clickable carousel-left-bumper carousel-bumper relative pointer-events-auto align-center bg-no-repeat bg-cover w-12 h-14 self-center">
-										<fxs-nav-help action-key='inline-nav-shell-previous'></fxs-nav-help>
-								</fxs-activatable>
-								<div
-								 	class="carousel-text relative flex self-center text-center font-title text-accent-2">
-								</div>
-								<fxs-activatable
-										 class="carousel-expanded-bumper carousel-clickable carousel-right-bumper carousel-bumper -scale-x-100 relative pointer-events-auto align-center bg-no-repeat bg-cover w-12 h-14 self-center">
-									<fxs-nav-help class='-scale-x-100' action-key='inline-nav-shell-next'></fxs-nav-help>
-								</fxs-activatable>
-								</fxs-hslot>
-								<div class="carousel-title-filigree filigree-divider-h3 w-80 self-center mb-2"></div>
-							</div>
-							<fxs-activatable class="carousel-image-container"></fxs-activatable>
-							<fxs-scrollable class="carousel-text-only-scrollable w-full py-2 px-4 mx-6 relative flex self-center justify-center" handle-gamepad-pan="true" tabindex="-1">
-								<div
-								 	class="carousel-text-content text-justify text-accent-2 font-normal">
-								</div>
-							</fxs-scrollable>
-							<fxs-hslot class="carousel-standard-layout realtive hidden hidden ml-4 mt-4">
-								<div class="carousel-standard-layout-image flex flex-auto"></div>
-								<fxs-scrollable class="carousel-standard-layout-text px-8 -mt-36 flex flex-auto self-center justify-center" handle-gamepad-pan="true" tabindex="-1">
-									<div
-								 		class="carousel-standard-text-content text-accent-2 font-normal text-lg">
-									</div>
-								</fxs-scrollable>
-							</fxs-hslot>
-						</div>
-						<fxs-activatable
-										 class="carousel-clickable carousel-thumbnail-bumper carousel-left-bumper carousel-bumper absolute pointer-events-auto align-center bg-no-repeat bg-cover w-12 h-14 self-center left-2">
-							<fxs-nav-help action-key='inline-nav-shell-previous'></fxs-nav-help>
-						</fxs-activatable>
-						<fxs-activatable
-										 class="carousel-clickable carousel-thumbnail-bumper carousel-right-bumper carousel-bumper -scale-x-100 absolute pointer-events-auto align-center bg-no-repeat bg-cover w-12 h-14 self-center right-2">
-							<fxs-nav-help class='-scale-x-100' action-key='inline-nav-shell-next'></fxs-nav-help>
-						</fxs-activatable>
-					</fxs-hslot>
-					<fxs-hslot class="carousel-breadcrumb-bar justify-center absolute bottom-2"></fxs-hslot>
-					<div class="carousel-back-button-container flex flex-row justify-center w-full">
-						<fxs-nav-help class="carousel-content-help flex absolute w-0.5 -top-4 right-4"
-									  action-key='inline-shell-action-1'></fxs-nav-help>
-						<fxs-button class="carousel-back-button hidden" caption="LOC_GENERIC_BACK"></fxs-button>
-						<fxs-button class="carousel-interact-button hidden" caption="LOC_GENERIC_GO"></fxs-button>
-					</div>
-				</fxs-vslot>
-				<div class="carousel-thumb-bg carousel-outer w-full bg-primary-4">
-					<p class="carousel-thumb-title mt-2 font-title text-lg text-shadow self-center font-fit-shrink whitespace-nowrap"></p>
-				</div>`;
-      this.carouselMain.addEventListener(InputEngineEventName, this.carouselEngineInputListener);
-      this.Root.appendChild(this.carouselMain);
-      this.carouselBreadcrumbs = MustGetElement(".carousel-breadcrumb-bar", this.carouselMain);
-      this.carouselContent = MustGetElement(".carousel-content", this.carouselMain);
-      this.carouselBackButton = MustGetElement(".carousel-back-button", this.carouselMain);
-      this.carouselInteractButton = MustGetElement(".carousel-interact-button", this.carouselMain);
-      this.carouselText = MustGetElement(".carousel-text", this.carouselMain);
-      this.carouselContentText = MustGetElement(".carousel-text-content", this.carouselMain);
-      this.carouselTextScrollable = MustGetElement(".carousel-text-only-scrollable", this.carouselMain);
-      this.carouselTextScrollable.whenComponentCreated((c) => c.setEngineInputProxy(this.carouselMain));
-      this.carouselStandardTextScrollable = MustGetElement(".carousel-standard-layout-text", this.carouselMain);
-      this.carouselStandardTextScrollable.whenComponentCreated((c) => c.setEngineInputProxy(this.carouselMain));
-      this.carouselBaseLayout = MustGetElement(".carousel-standard-layout", this.carouselMain);
-      this.carouselImageContainer = MustGetElement(".carousel-image-container", this.carouselMain);
-      this.carouselBaseLayoutImage = MustGetElement(".carousel-standard-layout-image", this.carouselMain);
-      this.carouselBaseLayoutText = MustGetElement(".carousel-standard-text-content", this.carouselMain);
+      this.promoCarouselSmall = document.createElement("promo-carousel-small");
+      this.carouselSmallContainer.appendChild(this.promoCarouselSmall);
       this.connStatus = document.createElement("div");
       this.connStatus.role = "status";
-      this.connStatus.classList.value = "connection-status hidden absolute flex bottom-8 left-32";
+      this.connStatus.classList.value = "connection-status hidden absolute flex bottom-8";
       this.Root.appendChild(this.connStatus);
-      const closeButton = document.querySelector(".carousel-close-button");
-      closeButton?.addEventListener("action-activate", () => {
-        this.toggleCarouselMode();
-      });
       this.accountStatusNavHelp = document.createElement("fxs-nav-help");
       this.accountStatusNavHelp.setAttribute("action-key", "inline-shell-action-2");
       this.accountStatusNavHelp.classList.add("absolute", "top-2", "left-2");
     }
     this.profileHeaderContainer = MustGetElement(".main-menu__profile-header-container", this.Root);
-    this.buildInfo = document.createElement("div");
-    this.buildInfo.role = "paragraph";
-    this.buildInfo.classList.value = "main-menu-build-info absolute font-body-sm text-accent-2";
+    this.buildInfo = MustGetElement(".main-menu-build-info", this.Root);
     this.buildInfo.innerHTML = Locale.compose("LOC_SHELL_BUILD_INFO", BuildInfo.version.display);
-    const isMobile = UI.getViewExperience() == UIViewExperience.Mobile;
-    if (isMobile) {
-      this.buildInfo.classList.add("self-center");
-      const buttonContainer = MustGetElement(".main-menu-button-container", this.Root);
-      buttonContainer.appendChild(this.buildInfo);
-    } else {
-      this.Root.appendChild(this.buildInfo);
-    }
+    this.slot.appendChild(this.buildInfo);
     this.odrDownload = document.createElement("div");
     this.odrDownload.classList.add("ml-2", "relative", "main-menu_odr-download", "hidden");
     const odrDownloadButton = document.createElement("fxs-activatable");
@@ -319,7 +186,7 @@ class MainMenu extends Component {
       this.Root.appendChild(this.motdDisplay);
       this.motdDisplayMessage.role = "paragraph";
       this.motdDisplay.appendChild(this.motdDisplayMessage);
-      this.bShowRewardsScreen = Online.UserProfile.getNewlyUnlockedItems().length > 0;
+      this.bShowRewardsScreen = Online.UserProfile.getNewlyUnlockedItems().length > 0 && !RewardsNotificationsManager.allNewRewardsAreHidden();
     } else if (Online.Metaprogression.supportsMemento()) {
       this.profileHeader = document.createElement("profile-header");
       this.profileHeader.classList.add("main-menu__profile-header");
@@ -339,6 +206,36 @@ class MainMenu extends Component {
     this.shroud.classList.value = "menu-shroud pointer-events-none absolute inset-0 fullscreen-outside-safezone";
     this.Root.appendChild(this.shroud);
   }
+  render() {
+    this.Root.innerHTML = `
+			<main-menu-background></main-menu-background>
+			<div class="main-menu-slot-container-outer">
+				<div class="flex self-end h-full">
+					<div class="main-menu-slot-container flex self-center">
+						<fxs-vslot id="MainMenuSlot">
+							<div class="flex flex-col mr-48">
+								<div class="logo-box bg-center bg-cover bg-no-repeat self-center -my-6"></div>
+								<div class="filigree-divider-h2 my-2 self-center"></div>
+							</div>
+							<div class="relative pl-18">
+								<div class="flex my-8 main-menu-container-inner">
+									<div class="img-frame-filigree main-menu-container-top opacity-70 absolute left-24 top-2 w-128 h-36 -z-1"></div>
+									<div class="img-frame-filigree main-menu-container-bottom opacity-70 absolute left-24 -bottom-14 w-128 h-36 -scale-y-100 -z-1"></div>
+									<div class="flex items-center carousel-button-container -ml-8">
+										<div class="carousel-small-container -ml-10 my-4"></div>
+										<div class="main-menu-button-container flex flex-col ml-4 my-2"></div>
+									</div>
+								</div>
+							</div>
+							<div
+								class="main-menu__profile-header-container flex flex-row flex-row-reverse flex-nowrap items-center self-center mt-8 ml-24"
+							></div>
+							<div role="paragraph" class="main-menu-build-info font-body-sm text-secondary-2 self-center mt-12 mr-48"></div>
+						</fxs-vslot>
+					</div>
+				</div>
+			</div>`;
+  }
   onAttach() {
     super.onAttach();
     engine.on("SPoPComplete", this.spoPCompleteListener);
@@ -349,13 +246,13 @@ class MainMenu extends Component {
     engine.on("LiveEventsSettingsChanged", this.liveEventsSettingsChangeListener);
     engine.on("EndStateReached", this.endStateListener);
     engine.on("EntitlementsUpdated", this.rewardReceivedListener);
-    this.bgContainer = MustGetElement(".main-menu-bg-container", this.Root);
+    engine.call("setSnapshotEnabled", false);
     this.Root.addEventListener(InputEngineEventName, this.engineInputListener);
-    this.Root.addEventListener("navigate-input", this.navigateInputListener);
-    this.slot = MustGetElement("#MainMenuSlot", this.Root);
-    this.slot.setAttribute("data-navrule-up", "wrap");
-    this.slot.setAttribute("data-navrule-down", "wrap");
+    this.Root.addEventListener(NavigateInputEventName, this.navigateInputListener);
     this.leaderModelSetup = false;
+    this.preload3DSceneAssets();
+    this.queue3DSceneAssetPreloads();
+    mainMenuAssetPreload.preload();
     Input.setActiveContext(InputContext.Shell);
     Input.setClipCursorPaused(true);
     let mpAgeTransition = false;
@@ -469,19 +366,16 @@ class MainMenu extends Component {
         }
       });
     }
-    let firstButton = true;
     buttonList.forEach((button) => {
       const newButton = document.createElement("fxs-text-button");
+      newButton.classList.add("main-menu-text-button", "self-start", "whitespace-nowrap");
       newButton.setAttribute("type", "big");
+      newButton.setAttribute("centered", "false");
       newButton.setAttribute("highlight-style", "decorative");
       newButton.setAttribute("caption", Locale.stylize(button.name).toUpperCase());
       newButton.setAttribute("data-tooltip-style", "none");
       newButton.setAttribute("data-audio-group-ref", "main-menu-audio");
       newButton.setAttribute("data-audio-activate-ref", "data-audio-clicked-" + button.audio);
-      if (firstButton) {
-        newButton.classList.add("-mt-4");
-        firstButton = false;
-      }
       newButton.addEventListener("action-activate", () => {
         if (this.canPerformInputs()) {
           Telemetry.sendUIMenuAction({
@@ -492,21 +386,11 @@ class MainMenu extends Component {
         }
       });
       newButton.addEventListener("action-activate", button.buttonListener, {});
-      this.slot.appendChild(newButton);
+      this.buttonContainer.appendChild(newButton);
       if (button.separator) {
         const separator = document.createElement("div");
-        separator.classList.add(
-          "main-menu-filigree-divider",
-          "h-4",
-          "mt-1",
-          "min-w-96",
-          "bg-center",
-          "bg-contain",
-          "bg-no-repeat",
-          "self-center",
-          "min-w-96"
-        );
-        this.slot.appendChild(separator);
+        separator.classList.add("main-menu-separator", "min-w-96", "my-1");
+        this.buttonContainer.appendChild(separator);
       }
       if (button.disabled) {
         newButton.classList.add("disabled");
@@ -569,7 +453,7 @@ class MainMenu extends Component {
       this.accountIconActivatable.classList.add("absolute", "inset-6");
       this.accountIcon.appendChild(this.accountIconActivatable);
       this.accountStatus = document.createElement("div");
-      this.accountStatus.classList.value = "account-status hidden absolute flex left-10 bottom-3";
+      this.accountStatus.classList.value = "account-status hidden absolute flex right-28 bottom-24";
       this.accountStatus.appendChild(this.accountIcon);
       this.accountStatus.appendChild(this.accountStatusNavHelp);
       this.accountStatusAnim = document.createElement("div");
@@ -616,11 +500,7 @@ class MainMenu extends Component {
       }
       engine.on("DNAForceOfflineFromEmptyResponse", this.checkDNAFatalError, this);
       engine.on("RequestPrimaryAccountSelection", this.checkPrimaryAccount, this);
-      this.carouselBackButton.addEventListener("action-activate", this.onCarouselBack);
-      this.carouselInteractButton.addEventListener("action-activate", this.onCarouselInteract);
       engine.on("MotDCompleted", this.motdCompletedListener);
-      engine.on("PromosRetrievalCompleted", this.promosDataReceivedListener);
-      engine.on("PromoRefresh", this.refreshPromosListener);
     }
     engine.on("ConnectionStatusChanged", this.connectionStatusChangedListener);
     engine.on("FetchedOnlineLegalDocsComplete", this.onRecheckSSO, this);
@@ -679,8 +559,13 @@ class MainMenu extends Component {
     }
     if (!Network.isConnectedToNetwork() && Network.areLegalDocsCompleted()) {
       waitForLayout(() => engine.trigger("NetworkDisconnected"));
+      if (Network.getLocalHostingPlatform() == HostingType.HOSTING_TYPE_GAMECENTER) {
+        DialogBoxManager.createDialog_Confirm({
+          body: "LOC_UI_MP_LANDING_ERROR_NO_CONNECTION",
+          title: "LOC_UI_NO_INTERNET_CONNECTION_TITLE"
+        });
+      }
     }
-    this.refreshPromos();
     const launchToHostMPGame = this.Root.getAttribute("data-launch-to-host-MP-game") == "true";
     if (launchToHostMPGame) {
       this.onLaunchToHostMPGame();
@@ -692,13 +577,22 @@ class MainMenu extends Component {
     if (this.bShowRewardsScreen && !ageTransition && !mpAgeTransition) {
       this.showRewardsScreen();
     }
+    if (UI.shouldShowLowMemoryWarning()) {
+      DialogBoxManager.createDialog_CustomOptions({
+        body: Locale.compose("LOC_APPLE_ARCADE_MIN_SPECS_NOT_MET_BODY"),
+        canClose: false,
+        custom: false,
+        styles: false,
+        options: [],
+        customOptions: []
+      });
+    }
   }
   onDetach() {
     this.mainMenuActivated = false;
     Telemetry.sendUIMenuAction({ Menu: TelemetryMenuType.MainMenu, MenuAction: TelemetryMenuActionType.Exit });
     this.Root.removeEventListener(InputEngineEventName, this.engineInputListener);
     this.Root.removeEventListener("navigate-input", this.navigateInputListener);
-    window.removeEventListener(ActiveDeviceTypeChangedEventName, this.onActiveDeviceTypeChanged);
     window.removeEventListener(GameCreatorOpenedEventName, this.gameCreatorOpenedListener);
     window.removeEventListener(GameCreatorClosedEventName, this.gameCreatorClosedListener);
     window.removeEventListener(StartCampaignEventName, this.startNewCampaignListener);
@@ -713,27 +607,33 @@ class MainMenu extends Component {
     super.onDetach();
   }
   onReceiveFocus() {
+    NavTray.clear();
     super.onReceiveFocus();
+    this.mainMenuBackground.setAttribute("visible", "true");
     this.updateFoundationLevel();
-    this.updateNavTray();
     UI.toggleGameCenterAccessPoint(true, UIGameCenterAccessPointLocation.BottomLeading);
-    if (this.isCarouselExpanded()) {
-      Focus.setContextAwareFocus(this.carouselMain, this.Root);
-    } else if (!this.hdrCalibrationMenuOpen) {
+    if (!this.hdrCalibrationMenuOpen) {
       Focus.setContextAwareFocus(this.slot, this.Root);
       this.showOnlineFeaturesUI();
-    }
-    if (this.slot && !this.slot.classList.contains("hidden")) {
-      this.updatePromoCarouselVisibility();
     }
     this.checkPrimaryAccount();
   }
   checkDNAFatalError() {
+    if (this.hasShownDNAErrorPopup) {
+      return;
+    }
     if (!Network.isConnectedToSSO() && Network.isConnectedToNetwork() && Network.isForcedOfflineFromEmptyResponse()) {
-      DialogBoxManager.createDialog_Confirm({
-        body: Locale.compose("LOC_UI_FORCE_OFFLINE_ACCOUNT_BODY"),
-        title: Locale.compose("LOC_UI_OFFLINE_ACCOUNT_TITLE")
-      });
+      this.hasShownDNAErrorPopup = true;
+      if (Network.getLocalHostingPlatform() == HostingType.HOSTING_TYPE_GAMECENTER) {
+        DialogBoxManager.createDialog_Confirm({
+          body: Locale.compose("LOC_UI_NETWORK_CONNECTION_FAILED")
+        });
+      } else {
+        DialogBoxManager.createDialog_Confirm({
+          body: Locale.compose("LOC_UI_FORCE_OFFLINE_ACCOUNT_BODY"),
+          title: Locale.compose("LOC_UI_OFFLINE_ACCOUNT_TITLE")
+        });
+      }
     }
   }
   checkPrimaryAccount() {
@@ -748,14 +648,6 @@ class MainMenu extends Component {
       }
     } else {
       this.updateFoundationLevel();
-    }
-  }
-  updatePromoCarouselVisibility() {
-    if (Network.supportsSSO()) {
-      this.carouselMain.classList.toggle(
-        "hidden",
-        this.carouselItems.length === 0 || !Network.isConnectedToNetwork()
-      );
     }
   }
   onNewUserLogin() {
@@ -781,27 +673,8 @@ class MainMenu extends Component {
   }
   onLoseFocus() {
     UI.toggleGameCenterAccessPoint(false, UIGameCenterAccessPointLocation.BottomLeading);
-    NavTray.clear();
+    this.mainMenuBackground.setAttribute("visible", "false");
     super.onLoseFocus();
-  }
-  isSelectedPromoInteractable() {
-    if (!Network.hasPromoInteractivity()) {
-      return false;
-    }
-    return this.carouselItems[this.selectedCarouselItem]?.isInteractable ?? false;
-  }
-  updateNavTray() {
-    if (ContextManager.getCurrentTarget() == this.Root) {
-      NavTray.clear();
-      if (this.isCarouselVisible() && this.isCarouselExpanded()) {
-        NavTray.addOrUpdateGenericBack();
-        if (this.isSelectedPromoInteractable()) {
-          NavTray.addOrUpdateAccept("LOC_GENERIC_GO");
-        } else {
-          NavTray.removeAccept();
-        }
-      }
-    }
   }
   openLoadGame(isFromEvent = false) {
     if (this.checkForLegalDocs()) {
@@ -828,7 +701,7 @@ class MainMenu extends Component {
     }
     this.inSubScreen = true;
     this.slot.classList.remove("hidden");
-    if (Network.getLocalHostingPlatform() == HostingType.HOSTING_TYPE_GAMECENTER) {
+    if (UI.isGameCenterNetworkBuild()) {
       MultiplayerShellManager.onGameMode();
       return;
     }
@@ -880,18 +753,23 @@ class MainMenu extends Component {
     this.profileHeader?.classList.remove("hidden");
     this.hdrCalibrationMenuOpen = false;
     window.removeEventListener(EditorCalibrateHDRClosedEventName, this.calibrateHDRClosedListener);
+    ContextManager.push("screen-options", {
+      singleton: true,
+      createMouseGuard: true,
+      attributes: { "selected-tab": "3" }
+    });
   }
+  // Updated On-Demand Resource download
   updateOdrDownload() {
-    this.odrDownload?.classList.toggle("hidden", !UI.shouldShowHighEndAssetsDownloadOption());
   }
   returnedToMainMenu() {
     UI.toggleGameCenterAccessPoint(true, UIGameCenterAccessPointLocation.BottomLeading);
     if (ContextManager.getCurrentTarget() == this.Root) {
-      FocusManager.setFocus(this.slot);
+      FocusManager.get().setFocus(this.slot);
     }
     this.updateOdrDownload();
     this.build3DScene();
-    this.bgContainer.classList.remove("create");
+    this.Root.classList.remove("create");
     this.Root.classList.remove("hidden");
     this.slot.classList.remove("hidden");
     this.buildInfo.classList.remove("hidden");
@@ -899,10 +777,10 @@ class MainMenu extends Component {
     if (Network.supportsSSO()) {
       this.onAccountUpdated();
       this.showOnlineFeaturesUI();
-      this.updatePromoCarouselVisibility();
     }
     this.lowerShroud();
     this.inSubScreen = false;
+    MultiplayerShellManager.skipToGameCreator = false;
     Sound.onGameplayEvent(GameplayEvent.MainMenu);
     if (this.needKickDecision) {
       this.needKickDecision = false;
@@ -973,7 +851,7 @@ class MainMenu extends Component {
     });
   }
   onRewardRecieved() {
-    this.bShowRewardsScreen = true;
+    this.bShowRewardsScreen = !RewardsNotificationsManager.allNewRewardsAreHidden();
   }
   handleOfflineLegalDocFlow() {
     this.forceOfflineLegalFlow = true;
@@ -1036,20 +914,11 @@ class MainMenu extends Component {
   }
   showRewardsScreen() {
     if (Online.UserProfile.getRewardsAutoPopupEnabledConfiguration()) {
-      const flags = {
-        isChildAccount: Network.isChildAccount(),
-        isPermittedChild: Network.isChildOnlinePermissionsGranted(),
-        ignoreChildPermissions: false
-      };
       const popupProperties = { singleton: true, createMouseGuard: true };
-      const blockReason = Network.getBlockedAccessReason(
-        flags.isChildAccount,
-        flags.isPermittedChild,
-        flags.ignoreChildPermissions
-      );
-      if (blockReason == "" || blockReason == Locale.compose("LOC_UI_LINK_ACCOUNT_REQUIRED")) {
+      const blockInfo = Network.getBlockedAccessInfo(DNAPermissionType.ANY_ACCESS);
+      if (blockInfo.reason === BlockedAccessReason.NONE || blockInfo.reason === BlockedAccessReason.ACCOUNT_NOT_LINKED) {
         if (this.Root.getAttribute("disabled") != "true" && ContextManager.getCurrentTarget() == this.Root && !Network.isWaitingForPrimaryAccountSelection()) {
-          FocusManager.setFocus(this.slot);
+          FocusManager.get().setFocus(this.slot);
           ContextManager.push(giftboxButtonName, popupProperties);
         }
       }
@@ -1214,6 +1083,9 @@ class MainMenu extends Component {
         continueItem.classList.toggle("disabled", isDisabled);
         continueItem.setAttribute("disabled", isDisabled ? "true" : "false");
         if (this.continueSave) {
+          if (!this.inSubScreen) {
+            this.build3DScene();
+          }
           const save = this.continueSave;
           const tooltip = Locale.stylize(
             "LOC_MAIN_MENU_CONTINUE_INFO",
@@ -1229,16 +1101,13 @@ class MainMenu extends Component {
           continueItem.setAttribute("data-tooltip-content", "");
         }
         if (ContextManager.getCurrentTarget() == this.Root) {
-          FocusManager.setFocus(this.slot);
+          FocusManager.get().setFocus(this.slot);
         }
         break;
       default:
         break;
     }
     window.removeEventListener(QueryCompleteEventName, this.queryCompleteListener);
-    if (!this.inSubScreen) {
-      this.build3DScene();
-    }
     event.preventDefault();
     event.stopPropagation();
   }
@@ -1258,7 +1127,6 @@ class MainMenu extends Component {
     if (data.server == ServerType.SERVER_TYPE_INTERNET) {
       this.onAccountUpdated();
     }
-    this.updatePromoCarouselVisibility();
   }
   onLiveEventsSettingsChanged() {
     const resolvedName = Locale.stylize("LOC_MAIN_MENU_EVENTS").toUpperCase();
@@ -1299,19 +1167,17 @@ class MainMenu extends Component {
     if (!Network.supportsSSO()) {
       return;
     }
-    if (Online.MOTD.isMOTDReady()) {
-      const titles = Online.MOTD.getAllMOTDHeaders();
-      titles.forEach((title) => {
-        const msg2 = Online.MOTD.getMOTD(title);
-        if (msg2) {
-          console.log(title, ": ", msg2);
-        }
-      });
-      const randIndex = Math.floor(Math.random() * titles.length);
-      const msg = Online.MOTD.getMOTD(titles[randIndex]);
-      if (msg) {
-        this.motdDisplayMessage.setAttribute("data-l10n-id", msg);
+    const titles = Online.MOTD.getAllMOTDHeaders();
+    titles.forEach((title) => {
+      const msg2 = Online.MOTD.getMOTD(title);
+      if (msg2) {
+        console.log(title, ": ", msg2);
       }
+    });
+    const randIndex = Math.floor(Math.random() * titles.length);
+    const msg = Online.MOTD.getMOTD(titles[randIndex]);
+    if (msg) {
+      this.motdDisplayMessage.setAttribute("data-l10n-id", msg);
     }
   }
   onSPoPComplete() {
@@ -1467,7 +1333,9 @@ class MainMenu extends Component {
         this.openMultiplayer();
         break;
       case "events":
-        this.toggleCarouselMode();
+        if (PromoCarouselModel.get().carouselItems.length > 0) {
+          ContextManager.push("promo-carousel-expanded", { singleton: true, createMouseGuard: true });
+        }
         this.openEvents();
         break;
       case "playNow":
@@ -1480,10 +1348,14 @@ class MainMenu extends Component {
         if (Network.isMetagamingAvailable()) {
           this.showProfilePage(ProfileTabType.CHALLENGES);
         } else {
-          const blockReason = Network.getBlockedAccessReason(false, true, true);
-          DialogBoxManager.createDialog_Confirm({
-            body: Locale.compose(blockReason),
-            title: Locale.compose("LOC_UI_ACCOUNT_TITLE")
+          const blockInfo = Network.getBlockedAccessInfo(DNAPermissionType.PLAY_ONLINE);
+          ContextManager.push("screen-mp-account-permissions", {
+            singleton: true,
+            createMouseGuard: true,
+            attributes: {
+              "loc-key": blockInfo.locKey,
+              "block-reason": blockInfo.reason
+            }
           });
         }
         break;
@@ -1496,469 +1368,9 @@ class MainMenu extends Component {
         console.error("Unknown GameSection to start:" + data);
     }
   }
-  resolvePromoDataReceived(data) {
-    if (!Online.Promo.isPromoReady()) {
-      console.error("Promo is not ready! CreateCarousel skipped");
-      return;
-    }
-    if (data.placement == "mainmenu_primary") {
-      this.bootLoaded = this.bootLoaded && !data.fullRefresh;
-      this.createCarousel(data);
-    }
-  }
-  appendPromoToCarousel(promo, itemIndex) {
-    if (itemIndex < 0) {
-      console.error("Invalid promo index");
-      return;
-    }
-    if (promo == null) return;
-    for (let i = 0; i < this.carouselItems.length; i++) {
-      if (this.carouselItems[i].promoId == promo.promoID) {
-        this.carouselItems[i].carouselImageUrl = promo.secondaryImageUrl;
-        this.carouselItems[i].modalImageUrl = promo.primaryImageUrl;
-        this.carouselItems[i].isInteractable = promo.isInteractable;
-        this.carouselItems[i].autoRedeemOnShow = promo.autoRedeemOnShow;
-        return;
-      }
-    }
-    this.carouselItems.push({
-      carouselTitle: promo.localizedCarouselTitle,
-      title: promo.localizedTitle,
-      content: promo.localizedContent,
-      carouselImageUrl: promo.secondaryImageUrl,
-      modalImageUrl: promo.primaryImageUrl,
-      promoId: promo.promoID,
-      isInteractable: promo.isInteractable,
-      autoRedeemOnShow: promo.autoRedeemOnShow,
-      layout: promo.promoLayout
-    });
-    const item = document.createElement("fxs-radio-button");
-    item.classList.add("relative", "pointer-events-auto", "flex", "bg-no-repeat", "bg-cover");
-    if (itemIndex > 0) {
-      item.classList.add("ml-2");
-    }
-    item.setAttribute("data-item-id", itemIndex.toString());
-    item.setAttribute("group-tag", "carousel-breadcrumbs");
-    item.setAttribute("value", itemIndex.toString());
-    item.addEventListener("action-activate", () => {
-      if (this.selectedCarouselItem != itemIndex) {
-        Audio.playSound("data-audio-activate", "audio-pager");
-      }
-      this.selectedCarouselItem = itemIndex;
-      this.updateCarousel();
-    });
-    this.carouselBreadcrumbs.appendChild(item);
-  }
-  createCarousel(data) {
-    if (!Network.supportsSSO()) {
-      return;
-    }
-    if (data.fullRefresh) {
-      while (this.carouselBreadcrumbs.children.length > 0) {
-        this.carouselBreadcrumbs.removeChild(this.carouselBreadcrumbs.children[0]);
-      }
-      this.carouselItems = [];
-      if (this.selectedCarouselItem > 0) {
-        if (this.selectedCarouselItem >= data.promoCount) this.selectedCarouselItem = data.promoCount - 1;
-      }
-    }
-    let bootItemIndex = -1;
-    for (let itemIndex = 0; itemIndex < data.promoCount; itemIndex += 1) {
-      const promo = data.promos[itemIndex];
-      this.appendPromoToCarousel(promo, itemIndex);
-      if (promo.isBootPromo && !promo.isBootShown && bootItemIndex <= -1 && data.fullRefresh) {
-        bootItemIndex = itemIndex;
-      }
-    }
-    this.updatePromoCarouselVisibility();
-    if (!this.toggleCarouselAdded) {
-      this.carouselImageContainer.addEventListener("action-activate", () => {
-        this.toggleCarouselMode();
-      });
-      this.toggleCarouselAdded = true;
-    }
-    const leftBumpers = document.querySelectorAll(".carousel-left-bumper");
-    if (leftBumpers && !this.previousPromoAdded) {
-      leftBumpers.forEach((bumper) => {
-        bumper.addEventListener("action-activate", () => {
-          this.carouselPrevious();
-        });
-        bumper.setAttribute("data-audio-group-ref", "audio-pager");
-        bumper.setAttribute("data-audio-activate-ref", "none");
-      });
-      this.previousPromoAdded = true;
-    }
-    const rightBumpers = document.querySelectorAll(".carousel-right-bumper");
-    if (rightBumpers && !this.nextPromoAdded) {
-      rightBumpers.forEach((bumper) => {
-        bumper.addEventListener("action-activate", () => {
-          this.carouselNext();
-        });
-        bumper.setAttribute("data-audio-group-ref", "audio-pager");
-        bumper.setAttribute("data-audio-activate-ref", "none");
-      });
-      this.nextPromoAdded = true;
-    }
-    this.updateCarousel(0 /* NO_ACTION */);
-    if (data.fullRefresh && !this.bootLoaded && bootItemIndex >= 0) {
-      this.selectedCarouselItem = bootItemIndex;
-      this.toggleCarouselMode();
-      this.bootLoaded = true;
-    }
-    this.resetCarouselSlider();
-  }
-  carouselPrevious() {
-    if (this.selectedCarouselItem > 0) {
-      this.selectedCarouselItem -= 1;
-      this.updateCarousel();
-      this.resetCarouselSlider();
-      Audio.playSound("data-audio-activate", "audio-pager");
-    }
-  }
-  carouselNext() {
-    if (this.selectedCarouselItem < this.carouselItems.length - 1) {
-      this.selectedCarouselItem += 1;
-      this.updateCarousel();
-      this.resetCarouselSlider();
-      Audio.playSound("data-audio-activate", "audio-pager");
-    }
-  }
-  interactWithPromo(promoId, promoLocation) {
-    Online.Promo.interactWithPromo(PromoAction.Interact, promoId, promoLocation, this.selectedCarouselItem);
-  }
-  telemetryPromoAction(promoAction, promoId, promoLocation, interactionDestination) {
-    Online.Promo.telemetryPromoAction(
-      promoAction,
-      promoId,
-      promoLocation,
-      this.selectedCarouselItem,
-      interactionDestination
-    );
-  }
-  interactWithSelectedPromo() {
-    if (!Network.supportsSSO()) {
-      return;
-    }
-    this.interactWithPromo(this.carouselItems[this.selectedCarouselItem]?.promoId, "Expanded Carousel");
-  }
-  onCarouselBack = (_event) => {
-    this.toggleCarouselMode();
-  };
-  onCarouselInteract = (_event) => {
-    this.interactWithSelectedPromo();
-  };
-  setPromoBackButtonVisibility(isVisible) {
-    if (!Network.supportsSSO()) {
-      return;
-    }
-    this.carouselBackButton.classList.toggle("hidden", !isVisible);
-  }
-  setPromoInteractButtonVisibility(isVisible) {
-    if (!Network.supportsSSO()) {
-      return;
-    }
-    if (!Network.hasPromoInteractivity()) {
-      return;
-    }
-    this.carouselInteractButton.classList.toggle("hidden", !isVisible);
-  }
-  updatePromoButtonsVisibility() {
-    if (!Network.supportsSSO()) {
-      return;
-    }
-    let isBackVisible = false;
-    let isInteractVisible = false;
-    if (!ActionHandler.isGamepadActive) {
-      if (this.isCarouselVisible() && this.isCarouselExpanded()) {
-        isBackVisible = true;
-        isInteractVisible = this.isSelectedPromoInteractable();
-      }
-    }
-    this.setPromoBackButtonVisibility(isBackVisible);
-    this.setPromoInteractButtonVisibility(isInteractVisible);
-  }
-  processSelectedPromo() {
-    const selectedPromo = this.carouselItems[this.selectedCarouselItem];
-    if (selectedPromo) {
-      Online.Promo.viewPromo(selectedPromo.promoId);
-      this.updatePromoButtonsVisibility();
-      this.updateNavTray();
-      if (selectedPromo.autoRedeemOnShow) {
-        this.interactWithPromo(selectedPromo.promoId, "Expanded Carousel");
-        selectedPromo.autoRedeemOnShow = false;
-      }
-    }
-  }
-  onActiveDeviceTypeChanged = (_event) => {
-    this.updatePromoButtonsVisibility();
-  };
-  toggleCarouselMode() {
-    if (!Network.supportsSSO() || this.carouselItems.length == 0) {
-      return;
-    }
-    this.carouselMain.classList.toggle("carousel-expanded");
-    this.updateNavTray();
-    if (this.isCarouselExpanded()) {
-      Audio.playSound("data-audio-window-overlay-open");
-      window.addEventListener(ActiveDeviceTypeChangedEventName, this.onActiveDeviceTypeChanged);
-      this.hideOnlineFeaturesUI();
-      this.carouselMain.classList.remove("hidden");
-      this.carouselText.classList.toggle("hidden", false);
-      document.querySelector(".carousel-thumb-title").textContent = "";
-      document.querySelector(".carousel-top-filigree")?.classList.remove("hidden");
-      document.querySelectorAll(".carousel-expanded-bumper").forEach((bumper) => bumper.classList.remove("hidden"));
-      document.querySelectorAll(".carousel-thumbnail-bumper").forEach((bumper) => bumper.classList.add("hidden"));
-      document.querySelector(".carousel-close-button-div")?.classList.remove("hidden");
-      this.carouselBreadcrumbs.classList.add("hidden");
-      const selectedCarousel = this.carouselItems[this.selectedCarouselItem];
-      this.telemetryPromoAction(
-        PromoAction.Interact,
-        selectedCarousel?.promoId,
-        "Main Menu Carousel",
-        "Expanded Carousel"
-      );
-      this.processSelectedPromo();
-      this.carouselContent.classList.add("carousel-content-large");
-      if (selectedCarousel?.modalImageUrl && !bForceShowPromoLoadingSpinner) {
-        this.carouselImageContainer.innerHTML = `<img src="${selectedCarousel.modalImageUrl}" class="carousel-image relative w-full h-full pointer-events-auto self-center" > `;
-        if (selectedCarousel.layout == DNAPromoLayout.TextHeavy) {
-          this.carouselImageContainer.classList.add("hidden");
-          this.carouselTextScrollable.classList.remove("hidden");
-          this.carouselContentText.innerHTML = Locale.stylize(selectedCarousel.content);
-          Focus.setContextAwareFocus(this.carouselTextScrollable, this.carouselMain);
-        } else if (selectedCarousel.layout == DNAPromoLayout.Standard) {
-          this.carouselImageContainer.classList.add("hidden");
-          this.carouselBaseLayout.classList.remove("hidden");
-          this.carouselTextScrollable.classList.add("hidden");
-          this.carouselBaseLayoutImage.style.backgroundImage = `url(${selectedCarousel.modalImageUrl})`;
-          this.carouselBaseLayoutText.innerHTML = Locale.stylize(selectedCarousel.content);
-          Focus.setContextAwareFocus(this.carouselStandardTextScrollable, this.carouselMain);
-        } else {
-          this.carouselTextScrollable.classList.add("hidden");
-          Focus.setContextAwareFocus(this.carouselStandardTextScrollable, this.carouselMain);
-        }
-        if (selectedCarousel.title) {
-          this.Root.querySelector(".carousel-title-filigree")?.classList.remove("hidden");
-          this.carouselText.innerHTML = Locale.stylize(selectedCarousel.title);
-        } else {
-          document.querySelector(".carousel-title-filigree")?.classList.add("hidden");
-          this.carouselText.innerHTML = "";
-        }
-      } else {
-        this.showPromoLoadingSpinner();
-        Online.Promo.checkPromoUIData("mainmenu_primary", selectedCarousel?.promoId ?? "");
-      }
-      clearInterval(this.carouselSliderId);
-    } else {
-      Audio.playSound("data-audio-window-overlay-close");
-      window.removeEventListener(ActiveDeviceTypeChangedEventName, this.onActiveDeviceTypeChanged);
-      this.carouselText.classList.toggle("hidden", true);
-      document.querySelector(".carousel-thumb-title").textContent = Locale.stylize(
-        this.carouselItems[this.selectedCarouselItem]?.carouselTitle
-      );
-      this.Root.querySelector(".carousel-title-filigree")?.classList.add("hidden");
-      document.querySelector(".carousel-top-filigree")?.classList.add("hidden");
-      document.querySelector(".carousel-close-button-div")?.classList.add("hidden");
-      if (ContextManager.getCurrentTarget() == this.Root) {
-        FocusManager.setFocus(this.slot);
-      }
-      this.showOnlineFeaturesUI();
-      document.querySelectorAll(".carousel-expanded-bumper").forEach((bumper) => bumper.classList.add("hidden"));
-      document.querySelectorAll(".carousel-thumbnail-bumper").forEach((bumper) => bumper.classList.remove("hidden"));
-      this.carouselImageContainer.classList.remove("hidden");
-      this.carouselBaseLayout.classList.add("hidden");
-      this.carouselTextScrollable.classList.add("hidden");
-      this.carouselBreadcrumbs.classList.remove("hidden");
-      this.carouselImageContainer.innerHTML = `<img src="${this.carouselItems[this.selectedCarouselItem]?.carouselImageUrl ?? ""}" class="carousel-image relative pointer-events-auto bg-cover bg-no-repeat self-center" > </div>`;
-      if (this.carouselItems[this.selectedCarouselItem]?.carouselTitle) {
-        this.carouselText.innerHTML = Locale.stylize(
-          this.carouselItems[this.selectedCarouselItem]?.carouselTitle
-        );
-      } else {
-        this.carouselText.innerHTML = "";
-      }
-      this.carouselContent.classList.remove("carousel-content-large");
-      this.setPromoBackButtonVisibility(false);
-      this.setPromoInteractButtonVisibility(false);
-      this.resetCarouselSlider();
-    }
-  }
-  resetCarouselSlider() {
-    const secondsForAutomaticSlide = Online.Promo.getPromoCarouselAutoSlideTime();
-    clearInterval(this.carouselSliderId);
-    if (this.carouselItems.length <= 1) {
-      return;
-    }
-    if (!this.isCarouselExpanded()) {
-      this.carouselSliderId = setInterval(() => {
-        this.selectedCarouselItem = Math.abs(this.selectedCarouselItem + 1) % this.carouselItems.length;
-        this.updateCarousel();
-      }, secondsForAutomaticSlide * 1e3);
-    }
-  }
-  // PROMO_TODO: We will want to make this animated like the one in loading screen. Waiting on UI/UX design and implementation: https://2kfxs.atlassian.net/browse/IGP-103673
-  showPromoLoadingSpinner() {
-    const isCarouselExpanded = this.isCarouselExpanded();
-    if (isCarouselExpanded) {
-    } else {
-    }
-  }
-  // PROMO_TODO: We will want to make this animated like the one in loading screen. Waiting on UI/UX design and implementation: https://2kfxs.atlassian.net/browse/IGP-103673
-  hidePromoLoadingSpinner() {
-    const isCarouselExpanded = this.isCarouselExpanded();
-    if (isCarouselExpanded) {
-    } else {
-    }
-  }
-  refreshPromos() {
-    if (!Network.supportsSSO()) {
-      return;
-    }
-    if (Online.Promo.hasFetchPromotionFailed()) {
-      Online.Promo.reloadPromos();
-      return;
-    }
-    const data = Online.Promo.getPlacementUIData("mainmenu_primary");
-    if (data.placement == "mainmenu_primary") {
-      this.bootLoaded = this.bootLoaded && !data.fullRefresh;
-      this.createCarousel(data);
-    }
-  }
-  updateCarousel(action = 1 /* PROCESS_PROMO */) {
-    if (getComputedStyle(this.carouselMain).visibility == "hidden") {
-      return;
-    }
-    const isCarouselExpanded = this.isCarouselExpanded();
-    for (let i = 0; i < this.carouselBreadcrumbs.children.length; i++) {
-      if (i == this.selectedCarouselItem) {
-        this.carouselBreadcrumbs.children[i].setAttribute("selected", "true");
-        if (isCarouselExpanded && action == 1 /* PROCESS_PROMO */) {
-          this.processSelectedPromo();
-        }
-        if (this.carouselItems[i].carouselImageUrl && !bForceShowPromoLoadingSpinner) {
-          this.carouselText.classList.remove("carousel-text-only");
-          this.hidePromoLoadingSpinner();
-          if (isCarouselExpanded) {
-            this.telemetryPromoAction(
-              PromoAction.View,
-              this.carouselItems[this.selectedCarouselItem]?.promoId,
-              "Expanded Carousel",
-              ""
-            );
-          } else if (this.isCarouselVisible()) {
-            this.telemetryPromoAction(
-              PromoAction.View,
-              this.carouselItems[this.selectedCarouselItem]?.promoId,
-              "Main Menu Carousel",
-              ""
-            );
-          }
-          if (isCarouselExpanded) {
-            this.carouselText.classList.toggle("hidden", false);
-            document.querySelector(".carousel-thumb-title").textContent = "";
-            document.querySelector(".carousel-top-filigree")?.classList.remove("hidden");
-            this.carouselBreadcrumbs.classList.add("hidden");
-            document.querySelectorAll(".carousel-expanded-bumper").forEach((bumper) => bumper.classList.remove("hidden"));
-            document.querySelectorAll(".carousel-thumbnail-bumper").forEach((bumper) => bumper.classList.add("hidden"));
-            document.querySelector(".carousel-close-button-div")?.classList.remove("hidden");
-            this.carouselImageContainer.innerHTML = `<img src="${this.carouselItems[i].carouselImageUrl}" class="carousel-image relative pointer-events-auto bg-cover bg-no-repeat self-center"></div>`;
-            if (this.carouselItems[i].layout == DNAPromoLayout.TextHeavy) {
-              this.carouselImageContainer.classList.add("hidden");
-              this.carouselContentText.innerHTML = Locale.stylize(this.carouselItems[i].content);
-              this.carouselTextScrollable.classList.remove("hidden");
-              this.carouselTextScrollable.component.scrollToPercentage(0);
-              this.carouselBaseLayout.classList.add("hidden");
-              Focus.setContextAwareFocus(this.carouselTextScrollable, this.carouselMain);
-            } else if (this.carouselItems[i].layout == DNAPromoLayout.Standard) {
-              this.carouselImageContainer.classList.add("hidden");
-              this.carouselBaseLayout.classList.remove("hidden");
-              this.carouselTextScrollable.classList.add("hidden");
-              this.carouselBaseLayoutImage.style.backgroundImage = `url(${this.carouselItems[i].modalImageUrl})`;
-              this.carouselBaseLayoutText.innerHTML = Locale.stylize(this.carouselItems[i].content);
-              Focus.setContextAwareFocus(this.carouselStandardTextScrollable, this.carouselMain);
-              this.carouselStandardTextScrollable.component.scrollToPercentage(0);
-            } else {
-              this.carouselImageContainer.classList.remove("hidden");
-              this.carouselTextScrollable.classList.add("hidden");
-              this.carouselBaseLayout.classList.add("hidden");
-              Focus.setContextAwareFocus(this.carouselStandardTextScrollable, this.carouselMain);
-            }
-            if (this.carouselItems[i].title) {
-              this.Root.querySelector(".carousel-title-filigree")?.classList.remove("hidden");
-              this.carouselText.innerHTML = Locale.stylize(this.carouselItems[i].title);
-            } else {
-              this.Root.querySelector(".carousel-title-filigree")?.classList.remove("hidden");
-              this.carouselText.innerHTML = "";
-            }
-          } else {
-            document.querySelector(".carousel-title-filigree")?.classList.add("hidden");
-            document.querySelector(".carousel-top-filigree")?.classList.add("hidden");
-            this.carouselBreadcrumbs.classList.remove("hidden");
-            this.carouselBaseLayout.classList.add("hidden");
-            this.carouselImageContainer.classList.remove("hidden");
-            this.carouselTextScrollable.classList.add("hidden");
-            document.querySelector(".carousel-close-button-div")?.classList.add("hidden");
-            document.querySelectorAll(".carousel-expanded-bumper").forEach((bumper) => bumper.classList.add("hidden"));
-            document.querySelectorAll(".carousel-thumbnail-bumper").forEach((bumper) => bumper.classList.remove("hidden"));
-            this.carouselImageContainer.innerHTML = `<div class="carousel-image relative bg-cover bg-no-repeat pointer-events-auto self-center" style="background-image: url('${this.carouselItems[i].carouselImageUrl}')"></div>`;
-            if (this.carouselItems[i].carouselTitle) {
-              this.carouselText.classList.toggle("hidden", true);
-              document.querySelector(".carousel-thumb-title").textContent = Locale.stylize(
-                this.carouselItems[i].carouselTitle
-              );
-            } else {
-              this.carouselText.innerHTML = "";
-            }
-          }
-        } else {
-          this.carouselImageContainer.innerHTML = "";
-          if (this.carouselItems[i].title) {
-            this.carouselText.innerHTML = Locale.stylize(this.carouselItems[i].title);
-            this.carouselText.classList.add("carousel-text-only");
-          } else {
-            console.error(`main-menu: Selected carousel item ${i} has neither an image nor text`);
-          }
-          this.showPromoLoadingSpinner();
-          Online.Promo.checkPromoUIData("mainmenu_primary", this.carouselItems[i].promoId);
-        }
-      }
-    }
-    const leftBumpers = this.carouselMain.querySelectorAll(".carousel-left-bumper");
-    leftBumpers.forEach((leftBumper) => {
-      if (this.selectedCarouselItem > 0) {
-        leftBumper.classList.remove("carousel-bumper-disabled");
-      } else {
-        leftBumper.classList.add("carousel-bumper-disabled");
-      }
-    });
-    const rightBumper = this.carouselMain.querySelectorAll(".carousel-right-bumper");
-    rightBumper.forEach((bumper) => {
-      if (this.selectedCarouselItem < this.carouselItems.length - 1) {
-        bumper.classList.remove("carousel-bumper-disabled");
-      } else {
-        bumper.classList.add("carousel-bumper-disabled");
-      }
-    });
-    this.updatePromoButtonsVisibility();
-  }
-  isCarouselVisible() {
-    if (!Network.supportsSSO()) {
-      return false;
-    }
-    return !this.carouselMain.classList.contains("hidden");
-  }
-  isCarouselExpanded() {
-    if (!Network.supportsSSO()) {
-      return false;
-    }
-    return this.carouselMain.classList.contains("carousel-expanded");
-  }
   canPerformInputs() {
     if (this.movieContainer.children.length > 0) {
       this.trySkipMenuAnimations();
-      return false;
-    }
-    if (this.isCarouselExpanded()) {
       return false;
     }
     if (this.inSubScreen) {
@@ -1974,8 +1386,9 @@ class MainMenu extends Component {
     Telemetry.sendUIMenuAction({ Menu: TelemetryMenuType.MainMenu, MenuAction: TelemetryMenuActionType.Load });
     UI.sendAudioEvent(Audio.getSoundTag("data-audio-main-menu-activated", "main-menu-audio"));
     Sound.onGameplayEvent(GameplayEvent.MainMenu);
-    if (this.slot && (this.Root == FocusManager.getFocus() || FocusManager.isWorldFocused())) {
-      FocusManager.setFocus(this.slot);
+    const focusManager = FocusManager.get();
+    if (this.slot && (this.Root == focusManager.currentFocus() || focusManager.isWorldFocused())) {
+      focusManager.setFocus(this.slot);
     }
     this.motdCompletedListener();
     this.showOnlineFeaturesUI();
@@ -1995,7 +1408,7 @@ class MainMenu extends Component {
     if (this.inSubScreen) {
       return;
     }
-    if (this.bgContainer?.classList.contains("create")) {
+    if (this.Root.classList.contains("create")) {
       return;
     }
     if (inputEvent.detail.status != InputActionStatuses.FINISH) {
@@ -2034,19 +1447,13 @@ class MainMenu extends Component {
         }
         break;
       case "shell-action-1":
-        if (this.isCarouselVisible()) {
-          this.toggleCarouselMode();
+        if (PromoCarouselModel.get().carouselItems.length > 0) {
+          ContextManager.push("promo-carousel-expanded", { singleton: true, createMouseGuard: true });
         }
         live = false;
         break;
       case "cancel":
       case "keyboard-escape":
-      case "mousebutton-right":
-        if (this.isCarouselVisible() && this.isCarouselExpanded()) {
-          this.toggleCarouselMode();
-          live = false;
-        }
-        break;
       case "shell-action-5":
         if (!this.canPerformInputs()) {
           live = false;
@@ -2072,36 +1479,6 @@ class MainMenu extends Component {
       inputEvent.preventDefault();
     }
   }
-  onCarouselEngineInput(inputEvent) {
-    if (inputEvent.detail.status != InputActionStatuses.FINISH) {
-      return;
-    }
-    let live = true;
-    switch (inputEvent.detail.name) {
-      case "accept":
-        this.onCarouselInteract(inputEvent);
-        live = false;
-        break;
-      case "shell-action-1":
-        this.toggleCarouselMode();
-        live = false;
-        break;
-      case "cancel":
-        if (this.isCarouselVisible() && this.isCarouselExpanded()) {
-          this.toggleCarouselMode();
-          live = false;
-        }
-        break;
-    }
-    if (live && inputEvent.isCancelInput()) {
-      this.onCarouselBack(inputEvent);
-      live = false;
-    }
-    if (!live) {
-      inputEvent.stopPropagation();
-      inputEvent.preventDefault();
-    }
-  }
   onNavigateInput(navigationEvent) {
     const live = this.handleNavigation(navigationEvent);
     if (!live) {
@@ -2120,12 +1497,20 @@ class MainMenu extends Component {
     const direction = navigationEvent.getDirection();
     switch (direction) {
       case InputNavigationAction.SHELL_PREVIOUS:
-        this.carouselPrevious();
-        live = false;
+        if (this.promoCarouselSmall) {
+          this.promoCarouselSmall.dispatchEvent(
+            new CustomEvent("promo-carousel-small-promo-previous", { bubbles: true })
+          );
+          live = false;
+        }
         break;
       case InputNavigationAction.SHELL_NEXT:
-        this.carouselNext();
-        live = false;
+        if (this.promoCarouselSmall) {
+          this.promoCarouselSmall.dispatchEvent(
+            new CustomEvent("promo-carousel-small-promo-next", { bubbles: true })
+          );
+          live = false;
+        }
         break;
       case InputNavigationAction.NEXT:
         if (!this.canPerformInputs()) {
@@ -2140,9 +1525,6 @@ class MainMenu extends Component {
     this.skipToMainMenu();
   }
   skipToMainMenu() {
-    if (this.isCarouselExpanded()) {
-      return;
-    }
     if (this.movieContainer.childElementCount > 0) {
       this.onVideoEnded();
     }
@@ -2185,7 +1567,6 @@ class MainMenu extends Component {
     this.accountStatus?.classList.remove("hidden");
     this.motdDisplay.classList.remove("hidden");
     this.profileHeader?.classList.remove("hidden");
-    this.updateNavTray();
   }
   hideOnlineFeaturesUI() {
     if (Online.Metaprogression.supportsMemento()) {
@@ -2197,9 +1578,7 @@ class MainMenu extends Component {
     this.connStatus?.classList.add("hidden");
     this.accountStatus?.classList.add("hidden");
     this.motdDisplay.classList.add("hidden");
-    this.carouselMain.classList.add("hidden");
     this.profileHeader?.classList.add("hidden");
-    this.updateNavTray();
   }
   updateAreLegalDocsAccepted() {
     this.areLegalDocsAccepted = NetworkUtilities.areLegalDocumentsConfirmed(this.showLegalDocuments);
@@ -2246,7 +1625,7 @@ class MainMenu extends Component {
     this.clear3DScene();
     this.raiseShroud();
     this.inSubScreen = true;
-    this.bgContainer.classList.add("create");
+    this.Root.classList.add("create");
     this.Root.classList.add("hidden");
     ContextManager.push("create-game-sp", {
       singleton: true,
@@ -2315,28 +1694,28 @@ class MainMenu extends Component {
   onEventsGoSP() {
     this.clearEventsListeners();
     if (ContextManager.getCurrentTarget() == this.Root) {
-      FocusManager.setFocus(this.slot);
+      FocusManager.get().setFocus(this.slot);
     }
     this.openCreateGame();
   }
   onEventsGoLoad() {
     this.clearEventsListeners();
     if (ContextManager.getCurrentTarget() == this.Root) {
-      FocusManager.setFocus(this.slot);
+      FocusManager.get().setFocus(this.slot);
     }
     this.openLoadGame(true);
   }
   onEventsGoContinue() {
     this.clearEventsListeners();
     if (ContextManager.getCurrentTarget() == this.Root) {
-      FocusManager.setFocus(this.slot);
+      FocusManager.get().setFocus(this.slot);
     }
     this.goContinue();
   }
   onEventsGoMP() {
     this.returnedToMainMenu();
     if (ContextManager.getCurrentTarget() == this.Root) {
-      FocusManager.setFocus(this.slot);
+      FocusManager.get().setFocus(this.slot);
     }
     this.openMultiplayer();
   }
@@ -2392,20 +1771,34 @@ class MainMenu extends Component {
     this.updateAreLegalDocsAccepted();
     return !this.areLegalDocsAccepted;
   }
+  isSmallScreen() {
+    return window.innerHeight < Layout.pixelsToScreenPixels(1080);
+  }
   build3DScene() {
     if (this.leaderModelSetup) {
       return;
     }
     this.clear3DScene();
-    Camera.pushCamera(MainMenu.VO_CAMERA_POSITION, {
-      x: MainMenu.VO_CAMERA_TARGET.x,
-      y: MainMenu.VO_CAMERA_TARGET.y,
-      z: MainMenu.VO_CAMERA_TARGET.z
-    });
+    if (this.isSmallScreen()) {
+      Camera.pushCamera(
+        MainMenu.VO_SMALL_SCREEN_CAMERA_POSITION,
+        {
+          x: MainMenu.VO_SMALL_SCREEN_CAMERA_TARGET.x,
+          y: MainMenu.VO_SMALL_SCREEN_CAMERA_TARGET.y,
+          z: MainMenu.VO_SMALL_SCREEN_CAMERA_TARGET.z
+        },
+        { fovy: 43 }
+      );
+    } else {
+      Camera.pushCamera(MainMenu.VO_CAMERA_POSITION, {
+        x: MainMenu.VO_CAMERA_TARGET.x,
+        y: MainMenu.VO_CAMERA_TARGET.y,
+        z: MainMenu.VO_CAMERA_TARGET.z
+      });
+    }
     const leaderData = getLeaderData().filter((l) => l.isOwned);
     const civData = GetCivilizationData().filter((l) => l.isOwned);
     this.MainMenuSceneModels = WorldUI.createModelGroup("MainMenuScene");
-    let mainMenuAssetID = null;
     let assetName = "";
     let backgroundName = "";
     if (this.continueSave) {
@@ -2417,12 +1810,18 @@ class MainMenu extends Component {
     let leader = this.MainMenuSceneModels.addModelAtPos(
       assetName,
       { x: 0, y: 0, z: 0 },
-      { angle: 0, initialState: "IDLE_CharSelect", triggerCallbacks: true, seed: UI.randomInt(0, 1e3) }
+      {
+        angle: 0,
+        foreground: true,
+        initialState: "IDLE_CharSelect",
+        triggerCallbacks: true,
+        seed: UI.randomInt(0, 1e3)
+      }
     );
     this.MainMenuSceneModels.addModelAtPos(
       "LEADER_LIGHTING_SCENE_CHAR_SELECT_GAME_ASSET",
       { x: 0, y: 0, z: 0 },
-      { angle: 0 }
+      { angle: 0, foreground: true }
     );
     const maxAttempts = 3;
     for (let attemptsLeft = maxAttempts; attemptsLeft >= 0; attemptsLeft--) {
@@ -2443,7 +1842,13 @@ class MainMenu extends Component {
       leader = this.MainMenuSceneModels.addModelAtPos(
         assetName,
         { x: 0, y: 0, z: 0 },
-        { angle: 0, initialState: "IDLE_CharSelect", triggerCallbacks: true, seed: UI.randomInt(0, 1e3) }
+        {
+          angle: 0,
+          foreground: true,
+          initialState: "IDLE_CharSelect",
+          triggerCallbacks: true,
+          seed: UI.randomInt(0, 1e3)
+        }
       );
       if (leader) {
         break;
@@ -2454,10 +1859,15 @@ class MainMenu extends Component {
       leader = this.MainMenuSceneModels.addModelAtPos(
         assetName,
         { x: 0, y: 0, z: 0 },
-        { angle: 0, initialState: "IDLE_CharSelect", triggerCallbacks: true, seed: UI.randomInt(0, 1e3) }
+        {
+          angle: 0,
+          foreground: true,
+          initialState: "IDLE_CharSelect",
+          triggerCallbacks: true,
+          seed: UI.randomInt(0, 1e3)
+        }
       );
     }
-    mainMenuAssetID = WorldUI.loadAsset(assetName);
     if (backgroundName == "") {
       const civIndex = civData.length > 0 ? UI.randomInt(0, civData.length - 1) : -1;
       if (civIndex != -1)
@@ -2466,14 +1876,7 @@ class MainMenu extends Component {
     if (backgroundName == "") {
       backgroundName = "bg-panel-abbasid";
     }
-    WorldUI.addBackgroundLayer("mm_bg_ramp", {});
-    WorldUI.addMaskedBackgroundLayer(backgroundName, "mm_bg_mask", {
-      stretch: StretchMode.UniformFill,
-      alignY: AlignMode.Maximum
-    });
     this.leaderModelSetup = true;
-    this.leaderIndexToPreload = 0;
-    this.beginPreloadingForNextLeader(mainMenuAssetID);
   }
   clear3DScene() {
     if (this.MainMenuSceneModels) {
@@ -2484,10 +1887,27 @@ class MainMenu extends Component {
       this.leaderModelSetup = false;
     }
   }
-  beginPreloadingForNextLeader(assetToWaitFor) {
-    const leaderData = getLeaderData();
-    if (this.leaderIndexToPreload >= leaderData.length) {
-      this.leaderIndexToPreload = -1;
+  preload3DSceneAssets() {
+    WorldUI.loadAsset("LEADER_RANDOMIZED_GAME_ASSET");
+    WorldUI.loadAsset("CIVILIZATION_RANDOM_BANNER_GAME_ASSET");
+    WorldUI.loadAsset("LEADER_LIGHTING_SCENE_CHAR_SELECT_GAME_ASSET");
+    WorldUI.loadAsset("LEADER_SELECTION_PEDESTAL");
+  }
+  queue3DSceneAssetPreloads() {
+    const leaderAssetNames = getLeaderData().map((leader) => leader.leaderID + "_GAME_ASSET");
+    const civBannerAssetNames = GetCivilizationData().map(
+      (civilization) => civilization.civID + "_BANNER_GAME_ASSET"
+    );
+    this.preloadAssetNames = Array.from(/* @__PURE__ */ new Set([...leaderAssetNames, ...civBannerAssetNames]));
+    this.currentPreloadingAsset = null;
+    this.hasPreloadingBegun = false;
+    this.preloadAssetIndex = 0;
+    this.beginPreloadingForNextAsset(null);
+  }
+  beginPreloadingForNextAsset(assetToWaitFor) {
+    if (this.preloadAssetIndex >= this.preloadAssetNames.length) {
+      this.preloadAssetIndex = -1;
+      this.hasPreloadingBegun = true;
       return;
     }
     this.hasPreloadingBegun = false;
@@ -2496,22 +1916,21 @@ class MainMenu extends Component {
       this.onUpdate();
     });
   }
-  preloadLeaderModels(index) {
-    const leaderData = getLeaderData();
-    if (index >= leaderData.length || index < 0) {
-      this.leaderIndexToPreload = -1;
+  preloadQueued3DSceneAsset(index) {
+    if (index >= this.preloadAssetNames.length || index < 0) {
+      this.preloadAssetIndex = -1;
       this.hasPreloadingBegun = true;
       return;
     }
-    const assetName = leaderData[index].leaderID + "_GAME_ASSET";
-    this.beginPreloadingForNextLeader(WorldUI.loadAsset(assetName));
-    this.leaderIndexToPreload += 1;
+    const assetName = this.preloadAssetNames[index];
+    this.beginPreloadingForNextAsset(WorldUI.loadAsset(assetName));
+    this.preloadAssetIndex += 1;
     return;
   }
   onUpdate() {
     if (!this.hasPreloadingBegun) {
       if (this.currentPreloadingAsset == null || WorldUI.isAssetLoaded(this.currentPreloadingAsset)) {
-        this.preloadLeaderModels(this.leaderIndexToPreload);
+        this.preloadQueued3DSceneAsset(this.preloadAssetIndex);
       } else {
         window.requestAnimationFrame(() => {
           this.onUpdate();
@@ -2524,13 +1943,17 @@ class MainMenu extends Component {
   }
   // blank out main menu
   raiseShroud() {
+    console.log("raiseShroud");
     this.slot.classList.add("hidden");
     this.buildInfo.classList.add("hidden");
+    this.promoCarouselSmall?.setAttribute("visible", "false");
     this.hideOnlineFeaturesUI();
     this.clear3DScene();
   }
   // show main menu
   lowerShroud() {
+    console.log("lowerShroud");
+    this.promoCarouselSmall?.setAttribute("visible", "true");
     this.slot.classList.remove("hidden");
     this.shroud.style.display = "none";
   }
@@ -2548,6 +1971,7 @@ class MainMenu extends Component {
   isFullAccountLinkedAndConnected() {
     return Network.isConnectedToNetwork() && Network.isLoggedIn() && Network.isFullAccountLinked();
   }
+  // Activate On-Demand Resource
   onOdrButtonActivate() {
     this.showDownloadAssetsDialogConfirm();
   }
@@ -2582,7 +2006,7 @@ Loading.runWhenFinished(() => {
 Controls.define("main-menu", {
   createInstance: MainMenu,
   description: "Main Menu",
-  classNames: ["relative"],
+  classNames: ["relative", "w-full", "h-full"],
   attributes: [
     {
       name: "data-is-first-boot",
@@ -2594,7 +2018,6 @@ Controls.define("main-menu", {
     }
   ],
   styles: [styles],
-  innerHTML: [content],
   tabIndex: -1
 });
 

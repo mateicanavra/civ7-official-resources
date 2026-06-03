@@ -1,8 +1,4 @@
-import { V as ViewManager, U as UISystem } from '../../../core/ui/views/view-manager.chunk.js';
-import '../../../core/ui/input/focus-manager.js';
-import '../../../core/ui/audio-base/audio-support.chunk.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/panel-support.chunk.js';
+import ViewManager, { UISystem } from '../../../core/ui/views/view-manager.js';
 
 class UnitView {
   getName() {

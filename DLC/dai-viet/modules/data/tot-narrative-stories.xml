@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database>
+    <Types>
+        <Row Type="TOT_30028A" Kind="KIND_NARRATIVE_STORY"/>
+        <Row Type="TOT_30028B" Kind="KIND_NARRATIVE_STORY"/>
+        <Row Type="TOT_30028C" Kind="KIND_NARRATIVE_STORY"/>
+    </Types>
+    <NarrativeStories>
+        <Row NarrativeStoryType="TOT_30028A" Name="LOC_TOT_30028A_NAME" Description="LOC_TOT_30028A_DESCRIPTION" Completion="LOC_TOT_30028A_COMPLETION" StoryTitle="LOC_TOT_30028A_STORYTITLE" Age="AGE_ANTIQUITY" Activation="REQUISITE" RequirementSetId="REQSET_TOT_30028A_NARRATIVE" ActivationRequirementSetId="REQSET_TOT_30028A_NARRATIVE_REQUISITE" UIActivation="STANDARD"/>
+        <Row NarrativeStoryType="TOT_30028B" Name="LOC_TOT_30028B_NAME" Description="LOC_TOT_30028B_DESCRIPTION" Completion="LOC_TOT_30028B_COMPLETION" Age="AGE_ANTIQUITY" Activation="LINKED" Hidden="TRUE" RequirementSetId="Met" UIActivation="STANDARD"/>
+        <Row NarrativeStoryType="TOT_30028C" Name="LOC_TOT_30028C_NAME" Description="LOC_TOT_30028C_DESCRIPTION" Completion="LOC_TOT_30028C_COMPLETION" Age="AGE_ANTIQUITY" Activation="LINKED" Hidden="TRUE" RequirementSetId="Met" UIActivation="STANDARD"/>
+    </NarrativeStories>
+    <NarrativeRewards>
+        <Row NarrativeRewardType="TOT_30028B_REWARD" ModifierID="TOT_30028B_NARRATIVE_MODIFIER"/>
+        <Row NarrativeRewardType="TOT_30028C_REWARD" ModifierID="TOT_30028C_NARRATIVE_MODIFIER"/>
+    </NarrativeRewards>
+    <NarrativeStory_Rewards>
+        <Row NarrativeStoryType="TOT_30028B" NarrativeRewardType="TOT_30028B_REWARD" Activation="START"/>
+        <Row NarrativeStoryType="TOT_30028C" NarrativeRewardType="TOT_30028C_REWARD" Activation="START"/>
+    </NarrativeStory_Rewards>
+    <NarrativeStoryOverrides>
+    </NarrativeStoryOverrides>
+    <NarrativeVariations>
+    </NarrativeVariations>
+    <NarrativeRewardIcons>
+        <Row NarrativeStoryType="TOT_30028B" RewardIconType="ATTRIBUTE_CULTURAL"/>
+        <Row NarrativeStoryType="TOT_30028C" RewardIconType="ATTRIBUTE_EXPANSIONIST"/>
+    </NarrativeRewardIcons>
+    <NarrativeStory_TextReplacements>
+        <Row NarrativeStoryType="TOT_30028B" NarrativeStoryTextType="REWARD" NarrativeTextReplacementType="REWARD" Priority="1"/>
+        <Row NarrativeStoryType="TOT_30028C" NarrativeStoryTextType="REWARD" NarrativeTextReplacementType="REWARD" Priority="1"/>
+    </NarrativeStory_TextReplacements>
+    <NarrativeStory_Links>
+        <Row FromNarrativeStoryType="TOT_30028A" ToNarrativeStoryType="TOT_30028B" Priority="0" Name="LOC_TOT_30028B_NAME" Description="LOC_TOT_30028B_DESCRIPTION"/>
+        <Row FromNarrativeStoryType="TOT_30028A" ToNarrativeStoryType="TOT_30028C" Priority="1" Name="LOC_TOT_30028C_NAME" Description="LOC_TOT_30028C_DESCRIPTION"/>
+    </NarrativeStory_Links>
+</Database>

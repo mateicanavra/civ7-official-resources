@@ -557,6 +557,7 @@
         <Argument name="MultiplierType">REWARD_TYPE_MEDIUM_LATE</Argument>
     </Modifier>
     <Modifier id="1089A_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_TRADITION_SLOTS" run-once="false" permanent="true">
+        <Argument name="SlotType">POLICY_CULTURE_SLOT</Argument>
         <Argument name="Amount">1</Argument>
     </Modifier>
     <Modifier id="1098B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_NARRATIVE" run-once="false" permanent="true">
@@ -780,7 +781,7 @@
         <Argument name="Amount">1</Argument>
     </Modifier>
     <Modifier id="3580C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ATTRIBUTE" run-once="false" permanent="true">
-        <Argument name="AttributeType">ATTRIBUTE_CULTURAL</Argument>
+        <Argument name="AttributeType">ATTRIBUTE_EXPANSIONIST</Argument>
         <Argument name="Amount">1</Argument>
     </Modifier>
     <Modifier id="3587B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_NARRATIVE" run-once="false" permanent="true">
@@ -876,7 +877,7 @@
         <Argument name="MultiplierType">REWARD_TYPE_MEDIUM_LATE</Argument>
     </Modifier>
     <Modifier id="3592B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ATTRIBUTE" run-once="false" permanent="true">
-        <Argument name="AttributeType">ATTRIBUTE_ECONOMIC</Argument>
+        <Argument name="AttributeType">ATTRIBUTE_EXPANSIONIST</Argument>
         <Argument name="Amount">1</Argument>
     </Modifier>
     <Modifier id="3592C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ATTRIBUTE" run-once="false" permanent="true">
@@ -924,7 +925,7 @@
         <Argument name="MultiplierType">REWARD_TYPE_MEDIUM_LATE</Argument>
     </Modifier>
     <Modifier id="3604B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ATTRIBUTE" run-once="false" permanent="true">
-        <Argument name="AttributeType">ATTRIBUTE_EXPANSIONIST</Argument>
+        <Argument name="AttributeType">ATTRIBUTE_ECONOMIC</Argument>
         <Argument name="Amount">1</Argument>
     </Modifier>
     <Modifier id="3604C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ATTRIBUTE" run-once="false" permanent="true">
@@ -943,9 +944,9 @@
         <Argument name="YieldType">YIELD_SCIENCE</Argument>
         <Argument name="MultiplierType">REWARD_TYPE_MINOR_EARLY</Argument>
     </Modifier>
-    <Modifier id="252C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_NARRATIVE" run-once="false" permanent="true">
-        <Argument name="YieldType">YIELD_CULTURE</Argument>
-        <Argument name="MultiplierType">REWARD_TYPE_MINOR_EARLY</Argument>
+    <Modifier id="252C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_ADJUST_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_FOOD</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
     </Modifier>
     <Modifier id="254B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_NARRATIVE" run-once="false" permanent="true">
         <Argument name="YieldType">YIELD_CULTURE</Argument>
@@ -1283,12 +1284,12 @@
         <Argument name="TargetCivilization">CIVILIZATION_CHOLA</Argument>
     </Modifier>
     <Modifier id="256B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_NARRATIVE" run-once="false" permanent="true">
-        <Argument name="YieldType">YIELD_GOLD</Argument>
-        <Argument name="MultiplierType">REWARD_TYPE_MINOR_EARLY</Argument>
-    </Modifier>
-    <Modifier id="256C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_NARRATIVE" run-once="false" permanent="true">
         <Argument name="YieldType">YIELD_CULTURE</Argument>
         <Argument name="MultiplierType">REWARD_TYPE_MINOR_EARLY</Argument>
+    </Modifier>
+    <Modifier id="256C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_ADJUST_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_FOOD</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
     </Modifier>
     <Modifier id="259B_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_ABILITY" run-once="false" permanent="true">
         <SubjectRequirements>
@@ -1298,9 +1299,9 @@
         </SubjectRequirements>
         <Argument name="AbilityType">ABILITY_NARRATIVE_AGGRESSION</Argument>
     </Modifier>
-    <Modifier id="259C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_ADJUST_YIELD" run-once="false" permanent="true">
-        <Argument name="YieldType">YIELD_FOOD</Argument>
-        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+    <Modifier id="259C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_NARRATIVE" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_GOLD</Argument>
+        <Argument name="MultiplierType">REWARD_TYPE_MINOR_EARLY</Argument>
     </Modifier>
     <Modifier id="259D_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_NARRATIVE" run-once="false" permanent="true">
         <Argument name="YieldType">YIELD_DIPLOMACY</Argument>
@@ -1348,6 +1349,7 @@
         <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
     </Modifier>
     <Modifier id="140C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_TRADITION_SLOTS" run-once="false" permanent="true">
+        <Argument name="SlotType">POLICY_CULTURE_SLOT</Argument>
         <Argument name="Amount">1</Argument>
     </Modifier>
     <Modifier id="1044B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER_COMMANDER_NEAREST_STORY" effect="EFFECT_GRANT_UNIT_PROMOTION" run-once="true" permanent="true">
@@ -1887,6 +1889,7 @@
         <Argument name="MultiplierType">REWARD_TYPE_MINOR_EARLY</Argument>
     </Modifier>
     <Modifier id="8022B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_TRADITION_SLOTS" run-once="false" permanent="true">
+        <Argument name="SlotType">POLICY_CULTURE_SLOT</Argument>
         <Argument name="Amount">1</Argument>
     </Modifier>
     <Modifier id="8022C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_ADD_RELIGIOUS_BELIEF_YIELD" run-once="false" permanent="true">
@@ -2524,6 +2527,7 @@
         <Argument name="MultiplierType">REWARD_TYPE_MINOR</Argument>
     </Modifier>
     <Modifier id="9006C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_TRADITION_SLOTS" run-once="false" permanent="true">
+        <Argument name="SlotType">POLICY_CULTURE_SLOT</Argument>
         <Argument name="Amount">1</Argument>
     </Modifier>
     <Modifier id="9007B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_NARRATIVE" run-once="false" permanent="true">
@@ -2915,7 +2919,7 @@
     </Modifier>
     <Modifier id="9029C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_UNIT_PRODUCTION" run-once="false" permanent="true">
         <Argument name="Percent">15</Argument>
-        <Argument name="UnitClass">UNIT_CLASS_MEDJAY</Argument>
+		<Argument name="Domain">DOMAIN_SEA</Argument>
     </Modifier>
     <Modifier id="9029C_NARRATIVE_MODIFIER2" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_DEDUCT_TREASURY_NARRATIVE" run-once="false" permanent="true">
         <Argument name="MultiplierType">REWARD_TYPE_MEDIUM_EARLY</Argument>
@@ -2960,9 +2964,6 @@
         <SubjectRequirements>
             <Requirement type="REQUIREMENT_UNIT_DOMAIN_MATCHES">
                 <Argument name="UnitDomain">DOMAIN_SEA</Argument>
-            </Requirement>
-            <Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
-                <Argument name="Tag">UNIT_CLASS_PRIVATEER</Argument>
             </Requirement>
         </SubjectRequirements>
         <Argument name="AbilityType">ABILITY_NARRATIVE_STRENGTH</Argument>
@@ -3580,36 +3581,6 @@
         <Argument name="Amount">1</Argument>
         <Argument name="NarrativeTagType">NARRATIVE_TAG_SYSTEMIC_UNIT_DIES</Argument>
     </Modifier>
-    <Requirement id="REQ_STORY_CIVILIZATION_ABBASID" type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
-        <Argument name="CivilizationType">CIVILIZATION_ABBASID</Argument>
-    </Requirement>
-    <Requirement id="REQ_STORY_CIVILIZATION_CHOLA" type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
-        <Argument name="CivilizationType">CIVILIZATION_CHOLA</Argument>
-    </Requirement>
-    <Requirement id="REQ_STORY_CIVILIZATION_HAWAII" type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
-        <Argument name="CivilizationType">CIVILIZATION_HAWAII</Argument>
-    </Requirement>
-    <Requirement id="REQ_STORY_CIVILIZATION_INCA" type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
-        <Argument name="CivilizationType">CIVILIZATION_INCA</Argument>
-    </Requirement>
-    <Requirement id="REQ_STORY_CIVILIZATION_MAJAPAHIT" type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
-        <Argument name="CivilizationType">CIVILIZATION_MAJAPAHIT</Argument>
-    </Requirement>
-    <Requirement id="REQ_STORY_CIVILIZATION_MING" type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
-        <Argument name="CivilizationType">CIVILIZATION_MING</Argument>
-    </Requirement>
-    <Requirement id="REQ_STORY_CIVILIZATION_MONGOLIA" type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
-        <Argument name="CivilizationType">CIVILIZATION_MONGOLIA</Argument>
-    </Requirement>
-    <Requirement id="REQ_STORY_CIVILIZATION_NORMAN" type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
-        <Argument name="CivilizationType">CIVILIZATION_NORMAN</Argument>
-    </Requirement>
-    <Requirement id="REQ_STORY_CIVILIZATION_SONGHAI" type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
-        <Argument name="CivilizationType">CIVILIZATION_SONGHAI</Argument>
-    </Requirement>
-    <Requirement id="REQ_STORY_CIVILIZATION_SPAIN" type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
-        <Argument name="CivilizationType">CIVILIZATION_SPAIN</Argument>
-    </Requirement>
     <RequirementSet id="REQSET_3100A_NARRATIVE_REQUISITE">
         <Requirement type="REQUIREMENT_COLLECTION_ANY_MET">
             <Argument name="CollectionType">COLLECTION_PLAYER_CITIES</Argument>
@@ -3664,6 +3635,7 @@
         <Requirement type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
             <Argument name="CivilizationType">CIVILIZATION_ROME</Argument>
             <Argument name="IsPastCivilization">True</Argument>
+            <Argument name="OnlyPastCivilization">False</Argument>
         </Requirement>
     </RequirementSet>
     <RequirementSet id="REQSET_3482A_NARRATIVE_REQUISITE">
@@ -4602,7 +4574,7 @@
         </Requirement>
         <Requirement type="REQUIREMENT_PLAYER_PRODUCES_AT_LEAST_X_RESOURCE">
             <Argument name="ResourceType">RESOURCE_CAMELS</Argument>
-            <Argument name="PlayerCount">2</Argument>
+            <Argument name="Amount">2</Argument>
         </Requirement>
     </RequirementSet>
     <RequirementSet id="REQSET_3018A_NARRATIVE">
@@ -5205,7 +5177,7 @@
     <RequirementSet id="REQSET_1113A_NARRATIVE">
         <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
             <Argument name="GossipTypes">GOSSIP_FOUND_CITY01,GOSSIP_BELIEF_ADDED02,GOSSIP_CONSTRUCT_BUILDING03</Argument>
-            <Argument name="GOSSIP_BELIEF_ADDED02">Hash,BeliefType,BELIEF_FEED_THE_WORLD</Argument>
+            <Argument name="GOSSIP_BELIEF_ADDED02">Hash,BeliefType,FOUNDER_BELIEF_BONUS_15</Argument>
             <Argument name="GOSSIP_CONSTRUCT_BUILDING03">Hash,ConstructibleType,BUILDING_TEMPLE,Numeric,PlayerCount,2</Argument>
             <Argument name="Amount">3</Argument>
         </Requirement>
@@ -5290,7 +5262,7 @@
         </Requirement>
     </RequirementSet>
     <RequirementSet id="REQSET_1124A_NARRATIVE">
-        <Requirement type="REQUIREMENT_CITY_CONVERTED">
+        <Requirement type="REQUIREMENT_PLAYER_HAS_CONVERTED_X_SETTLEMENTS">
             <Argument name="Amount">2</Argument>
         </Requirement>
     </RequirementSet>
@@ -5645,7 +5617,7 @@
         <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
             <Argument name="GossipTypes">GOSSIP_FOUND_CITY01,GOSSIP_TRADITION_ACTIVATED02</Argument>
             <Argument name="GOSSIP_FOUND_CITY01">Hash,IsCoastal,True</Argument>
-            <Argument name="GOSSIP_TRADITION_ACTIVATED02">Hash,TraditionType,TRADITION_JURE,Hash,CivilizationTrait,TRAIT_NORMAN</Argument>
+            <Argument name="GOSSIP_TRADITION_ACTIVATED02">Hash,TraditionType,TRADITION_JURE_II,Hash,CivilizationTrait,TRAIT_NORMAN</Argument>
             <Argument name="Amount">2</Argument>
         </Requirement>
     </RequirementSet>
@@ -5791,7 +5763,7 @@
     <RequirementSet id="REQSET_3636A_NARRATIVE">
         <Requirement xref="REQ_STORY_CIVILIZATION_NORMAN"/>
         <Requirement type="REQUIREMENT_PLAYER_HAS_ACTIVE_TRADITION">
-            <Argument name="TraditionType">TRADITION_BAYEUX_TAPESTRY</Argument>
+            <Argument name="TraditionType">TRADITION_BAYEUX_TAPESTRY_I</Argument>
             <Argument name="ActiveAtGoldenAge">True</Argument>
         </Requirement>
     </RequirementSet>
@@ -5807,7 +5779,7 @@
         <Requirement xref="REQ_STORY_CIVILIZATION_SONGHAI"/>
         <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
             <Argument name="GossipTypes">GOSSIP_TRADITION_ACTIVATED01</Argument>
-            <Argument name="GOSSIP_TRADITION_ACTIVATED01">Hash,TraditionType,TRADITION_TIMBUKTU,Hash,CivilizationTrait,TRAIT_SONGHAI</Argument>
+            <Argument name="GOSSIP_TRADITION_ACTIVATED01">Hash,TraditionType,TRADITION_TIMBUKTU_I,Hash,CivilizationTrait,TRAIT_SONGHAI</Argument>
         </Requirement>
     </RequirementSet>
     <RequirementSet id="REQSET_3674B_NARRATIVE">
@@ -5908,7 +5880,7 @@
     </RequirementSet>
     <RequirementSet id="REQSET_3400A_NARRATIVE">
         <Requirement type="REQUIREMENT_PLAYER_HAS_ACTIVE_TRADITION">
-            <Argument name="TraditionType">TRADITION_COMPENDIOUS_BOOK</Argument>
+            <Argument name="TraditionType">TRADITION_COMPENDIOUS_BOOK_II</Argument>
             <Argument name="ActiveAtGoldenAge">True</Argument>
         </Requirement>
     </RequirementSet>
@@ -8256,14 +8228,12 @@
         <Requirement type="REQUIREMENT_PLAYER_CONQUERED_RELIGIOUS_CITY">
             <Argument name="HasReligion">True</Argument>
             <Argument name="DifferentThanFounded">True</Argument>
-            <Argument name="DifferentThanMajority">True</Argument>
         </Requirement>
     </RequirementSet>
     <RequirementSet id="REQSET_1146D_NARRATIVE">
         <Requirement type="REQUIREMENT_PLAYER_CONQUERED_RELIGIOUS_CITY">
             <Argument name="HasReligion">True</Argument>
             <Argument name="DifferentThanFounded">True</Argument>
-            <Argument name="DifferentThanMajority">True</Argument>
         </Requirement>
     </RequirementSet>
     <RequirementSet id="REQSET_1435A_NARRATIVE">

@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <GameEffects xmlns="GameEffects">
+	<Modifier id="MOD_UNLOCK_OTTOMANS_SYNCRETISM_ANTIQUITY" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
+		<Argument name="Tradition">TRADITION_OTTOMANS_SYNCRETISM_ANTIQUITY</Argument>
+	</Modifier>
+	<Modifier id="MOD_UNLOCK_OTTOMANS_SYNCRETISM_EXPLORATION" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
+		<Argument name="Tradition">TRADITION_OTTOMANS_SYNCRETISM_EXPLORATION</Argument>
+	</Modifier>
 	<!-- ==================================================	-->
 	<!--	MODERN							-->
 	<!-- ==================================================	-->
@@ -17,7 +23,7 @@
 		</SubjectRequirements>
 		<String context="Description">LOC_TRADITION_SIEGE_TRAIN_DESCRIPTION</String>
 	</Modifier>
-	<Modifier id="ERKAN_I_HARBIYE_MEKTEBI_MOD_UNIT_NO_REDUCTION_DAMAGE" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ADJUST_UNIT_NO_REDUCTION_DAMAGE">
+	<!-- <Modifier id="ERKAN_I_HARBIYE_MEKTEBI_MOD_UNIT_NO_REDUCTION_DAMAGE" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ADJUST_UNIT_NO_REDUCTION_DAMAGE">
 		<SubjectRequirements>
 			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES" >
 				<Argument name="Tag">UNIT_CLASS_COMBAT</Argument>
@@ -27,12 +33,27 @@
 			</Requirement>
 		</SubjectRequirements>
 		<String context="Description">LOC_TRADITION_ERKAN_I_HARBIYE_MEKTEBI_DESCRIPTION</String>
+	</Modifier> -->
+	<Modifier id="ERKAN_I_HARBIYE_MEKTEBI_MOD_SIEGE_PRODUCTION" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_UNIT_PRODUCTION">
+		<Argument name="UnitClass">UNIT_CLASS_SIEGE</Argument>
+		<Argument name="Percent">25</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_ERKAN_I_HARBIYE_MEKTEBI_NAME</Argument>
 	</Modifier>
-	<Modifier id="SEDEF_KAKMA_MOD_CULTURE_HAPPINESS_QUARTERS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_ATTACH_MODIFIERS">
-		<Argument name="ModifierId">ATTACH_MOD_CULTURE_HAPPINESS_QUARTERS,ATTACH_MOD_HAPPINESS_CULTURE_QUARTERS</Argument>
-		<String context="Description">LOC_TRADITION_SEDEF_KAKMA_DESCRIPTION</String>
+	<Modifier id="ERKAN_I_HARBIYE_MEKTEBI_MOD_INFANTRY_PRODUCTION" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_UNIT_PRODUCTION">
+		<Argument name="UnitClass">UNIT_CLASS_INFANTRY</Argument>
+		<Argument name="Percent">25</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_ERKAN_I_HARBIYE_MEKTEBI_NAME</Argument>
 	</Modifier>
-	<Modifier id="ATTACH_MOD_CULTURE_HAPPINESS_QUARTERS" collection="COLLECTION_CITY_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+	 <Modifier id="ERKAN_I_HARBIYE_MEKTEBI_LAND_MAINTENANCE_COST" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_UNIT_MAINTENANCE_EFFICIENCY">
+		<Argument name="Domain">DOMAIN_LAND</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_ERKAN_I_HARBIYE_MEKTEBI_NAME</Argument>
+	</Modifier>
+	<Modifier id="SEDEF_KAKMA_I_MOD_CULTURE_HAPPINESS_QUARTERS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_ATTACH_MODIFIERS">
+		<Argument name="ModifierId">ATTACH_SEDEF_KAKMA_I_MOD_CULTURE_HAPPINESS_QUARTERS,ATTACH_SEDEF_KAKMA_I_MOD_HAPPINESS_CULTURE_QUARTERS</Argument>
+		<String context="Description">LOC_TRADITION_SEDEF_KAKMA_I_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="ATTACH_SEDEF_KAKMA_I_MOD_CULTURE_HAPPINESS_QUARTERS" collection="COLLECTION_CITY_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
 		<SubjectRequirements>
 			<Requirement type="REQUIREMENT_PLOT_IS_QUARTER"/>
 			<Requirement type="REQUIREMENT_PLOT_HAS_CONSTRUCTIBLE">
@@ -41,9 +62,9 @@
 		</SubjectRequirements>
 		<Argument name="YieldType">YIELD_CULTURE</Argument>
 		<Argument name="Amount">3</Argument>
-		<Argument name="Tooltip">LOC_TRADITION_SEDEF_KAKMA_NAME</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_SEDEF_KAKMA_I_NAME</Argument>
 	</Modifier>
-	<Modifier id="ATTACH_MOD_HAPPINESS_CULTURE_QUARTERS" collection="COLLECTION_CITY_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+	<Modifier id="ATTACH_SEDEF_KAKMA_I_MOD_HAPPINESS_CULTURE_QUARTERS" collection="COLLECTION_CITY_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
 		<SubjectRequirements>
 			<Requirement type="REQUIREMENT_PLOT_IS_QUARTER"/>
 			<Requirement type="REQUIREMENT_PLOT_HAS_CONSTRUCTIBLE">
@@ -52,12 +73,79 @@
 		</SubjectRequirements>
 		<Argument name="YieldType">YIELD_HAPPINESS</Argument>
 		<Argument name="Amount">3</Argument>
-		<Argument name="Tooltip">LOC_TRADITION_SEDEF_KAKMA_NAME</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_SEDEF_KAKMA_I_NAME</Argument>
+	</Modifier>
+	<Modifier id="SEDEF_KAKMA_MOD_CULTURE_HAPPINESS_QUARTERS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_ATTACH_MODIFIERS">
+		<Argument name="ModifierId">ATTACH_SEDEF_KAKMA_MOD_CULTURE_HAPPINESS_QUARTERS,ATTACH_SEDEF_KAKMA_MOD_HAPPINESS_CULTURE_QUARTERS</Argument>
+		<String context="Description">LOC_TRADITION_SEDEF_KAKMA_II_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="ATTACH_SEDEF_KAKMA_MOD_CULTURE_HAPPINESS_QUARTERS" collection="COLLECTION_CITY_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_IS_QUARTER"/>
+			<Requirement type="REQUIREMENT_PLOT_HAS_CONSTRUCTIBLE">
+				<Argument name="Tag">HAPPINESS</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount">5</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_SEDEF_KAKMA_II_NAME</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_SEDEF_KAKMA_MOD_HAPPINESS_CULTURE_QUARTERS" collection="COLLECTION_CITY_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_IS_QUARTER"/>
+			<Requirement type="REQUIREMENT_PLOT_HAS_CONSTRUCTIBLE">
+				<Argument name="Tag">CULTURE</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_HAPPINESS</Argument>
+		<Argument name="Amount">5</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_SEDEF_KAKMA_II_NAME</Argument>
+	</Modifier>
+	<Modifier id="OSMANLI_BAROK_I_GREAT_WORKS_HAPPINESS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_GREAT_WORK">
+		<Argument name="YieldType">YIELD_HAPPINESS</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_OSMANLI_BAROK_II_NAME</Argument>
 	</Modifier>
 	<Modifier id="OSMANLI_BAROK_GREAT_WORKS_HAPPINESS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_GREAT_WORK">
 		<Argument name="YieldType">YIELD_HAPPINESS</Argument>
 		<Argument name="Amount">3</Argument>
-		<Argument name="Tooltip">LOC_TRADITION_OSMANLI_BAROK_NAME</Argument>
-		<String context="Description">LOC_TRADITION_OSMANLI_BAROK_DESCRIPTION</String>
+		<Argument name="Tooltip">LOC_TRADITION_OSMANLI_BAROK_II_NAME</Argument>
+	</Modifier>
+
+	<Modifier id="OTTOMAN_SYNCRETISM_UNITS_COMBAT" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ATTACH_MODIFIERS">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+				<Argument name="Tag">UNIT_CLASS_SIEGE</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="ModifierId">ATTACH_OTTOMAN_SYNCRETISM_UNITS_COMBAT</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_OTTOMAN_SYNCRETISM_UNITS_COMBAT" collection="COLLECTION_UNIT_COMBAT" effect="EFFECT_ADJUST_UNIT_STRENGTH_MODIFIER">
+		<Argument name="Amount">5</Argument>
+		<String context="Preview">LOC_TRADITION_OTTOMANS_SYNCRETISM_PREVIEW</String>
+	</Modifier>
+	<Modifier id="OTTOMAN_SYNCRETISM_UNITS_MOVEMENT_BONUS" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_MOVEMENT">
+		<SubjectRequirements type="REQUIREMENTSET_TEST_ANY">
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+				<Argument name="Tag">UNIT_CLASS_SIEGE</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_UNIT_CORE_CLASS_MATCHES">
+				<Argument name="UnitCoreClass">CORE_CLASS_SUPPORT</Argument>
+			</Requirement>
+			<!-- Scouts count as Support Units sooo..... :shrugs: -->
+			<Requirement type="REQUIREMENT_UNIT_CORE_CLASS_MATCHES">
+				<Argument name="UnitCoreClass">CORE_CLASS_RECON</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">1</Argument>
+	</Modifier>
+	<Modifier id="OTTOMAN_SYNCRETISM_HAPPINESS_ON_SIEGE_CREATED" collection="COLLECTION_OWNER" effect="TRIGGER_PLAYER_GRANT_YIELD_ON_UNIT_CREATED">
+		<Argument name="UnitTags">UNIT_CLASS_SIEGE</Argument>
+		<Argument name="YieldType">YIELD_HAPPINESS</Argument>
+		<Argument name="AcquisitionType">ACQUISITION_BUILT</Argument>
+		<Argument name="PercentCost">50</Argument>
+		<Argument name="Combat">true</Argument>
+		<Argument name="Civilian">true</Argument>
+		<String context="WorldText">LOC_WORLD_HAPPINESS_INCREASE_FLOATER</String>
 	</Modifier>
 </GameEffects>

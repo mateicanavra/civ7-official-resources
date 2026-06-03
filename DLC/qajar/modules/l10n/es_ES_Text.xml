@@ -488,7 +488,7 @@
       <Text>Se añadirán nuevos grabados a los antiguos.</Text>
     </Replace>
     <Replace Tag="LOC_11083C_DESCRIPTION" Language="es_ES">
-      <Text>+4 a [icon:YIELD_CULTURE] Cultura en todas las Grandes obras.</Text>
+      <Text>+6 a [icon:YIELD_CULTURE] Cultura en todas las Grandes obras.</Text>
     </Replace>
     <Replace Tag="LOC_11083C_NAME" Language="es_ES">
       <Text>Se instalarán copias de los originales en el palacio.</Text>
@@ -655,11 +655,29 @@
     <Replace Tag="LOC_12011C_NAME" Language="es_ES">
       <Text>Preguntémosle por los banquetes de los que ha disfrutado.</Text>
     </Replace>
+    <Replace Tag="LOC_TOT_30042A_COMPLETION" Language="es_ES">
+      <Text>El comandante kayar se arrodilla ante el cráneo consagrado de su padre mientras le pide orientación en silencio. En casa, la tribu Zand y otros pretendientes al trono de Irán traman insurrecciones y las grandes potencias del mundo conspiran constantemente por sus riquezas. ¿Cómo podría él, cuya línea no proviene de los grandes shas persas, sino de un pueblo tribal al borde de la civilización, garantizar el dominio kayar sobre Irán?</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30042A_STORYTITLE" Language="es_ES">
+      <Text>La respuesta de una reliquia</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30042B_DESCRIPTION" Language="es_ES">
+      <Text>{1_reward}.</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30042B_NAME" Language="es_ES">
+      <Text>El cráneo permanece en silencio, pero sus órbitas oculares transmiten un mensaje: ceder terreno supone la muerte.</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30042C_DESCRIPTION" Language="es_ES">
+      <Text>{1_reward}.</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30042C_NAME" Language="es_ES">
+      <Text>El cráneo espera en silencio. Igual que los kayar deben mostrar paciencia.</Text>
+    </Replace>
     <Replace Tag="LOC_ABILITY_GHILMAN_DESCRIPTION" Language="es_ES">
-      <Text>+5 a la [icon:NAR_REW_COMBAT] Fuerza de combate y +10 de [icon:Action_Heal] curación en la Zona de mando de un [icon:UNIT_SOLTAN] Sardār.</Text>
+      <Text>+5 a la [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Fuerza de combate[/TIP] y +10 de [icon:Action_Heal] curación en la [TIP:LOC_PEDIA_CONCEPTS_COMMAND_RADIUS_TOOLTIP]Zona de mando[/TIP] de un [icon:UNIT_SOLTAN] Sardār.</Text>
     </Replace>
     <Replace Tag="LOC_ABILITY_SOLTAN_DESCRIPTION" Language="es_ES">
-      <Text>+1 al [icon:Action_Move] Movimiento. Al arrasar un asentamiento, se arrasa un [icon:CITY_URBAN] distrito adicional por cada turno en los asentamientos en los que este Comandante esté en un [icon:CITY_URBAN] distrito.</Text>
+      <Text>+1 al [icon:Action_Move] Movimiento. Al arrasar un asentamiento, se arrasan el doble de [icon:CITY_URBAN] distritos por cada turno en los asentamientos en los que este Comandante esté en un [icon:CITY_URBAN] distrito.</Text>
     </Replace>
     <Replace Tag="LOC_ATTR_ADJUST_CITY_YIELD_PER_UNDER_THE_SETTLEMENT_CAP" Language="es_ES">
       <Text>Rendimiento por asentamiento por debajo del límite</Text>
@@ -668,16 +686,16 @@
       <Text>Asentamiento por debajo el límite</Text>
     </Replace>
     <Replace Tag="LOC_BUILDING_GHAHVE_KHANE_DESCRIPTION" Language="es_ES">
-      <Text>Edificio de Alimentos exclusivo kayar. +9 a [icon:YIELD_FOOD] Alimentos. +1 a [icon:YIELD_HAPPINESS] Felicidad por adyacencia a edificios de Oro y Maravillas. No envejece.</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_BUILDING_TOOLTIP]Edificio de Alimentos exclusivo[/TIP] kayar. +9 a [icon:YIELD_FOOD] Alimentos. +1 a [icon:YIELD_HAPPINESS] Felicidad por adyacencia a [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]edificios de Oro[/TIP] y [TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]Maravillas[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_BUILDING_GHAHVE_KHANE_TOOLTIP" Language="es_ES">
-      <Text>Edificio exclusivo kayar.</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_BUILDING_TOOLTIP]Edificio exclusivo[/TIP] kayar.</Text>
     </Replace>
     <Replace Tag="LOC_BUILDING_TAKYEH_DESCRIPTION" Language="es_ES">
-      <Text>Edificio de Felicidad exclusivo kayar. +9 a[icon:YIELD_HAPPINESS] Felicidad. +1 a [icon:YIELD_DIPLOMACY] Influencia por adyacencia a edificios de Cultura y Maravillas. No envejece.</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_BUILDING_TOOLTIP]Edificio de Felicidad exclusivo[/TIP] kayar. +9 a[icon:YIELD_HAPPINESS] Felicidad. +1 a [icon:YIELD_DIPLOMACY] Influencia por adyacencia a [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]edificios[/TIP] de Cultura y [TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]Maravillas[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_BUILDING_TAKYEH_TOOLTIP" Language="es_ES">
-      <Text>Edificio exclusivo kayar.</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_BUILDING_TOOLTIP]Edificio exclusivo[/TIP] kayar.</Text>
     </Replace>
     <Replace Tag="LOC_CIVIC_NEZAM_E_JADID_AUTHOR" Language="es_ES">
       <Text>Nader Shah</Text>
@@ -715,29 +733,26 @@
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_QAJAR_COMPLETE_ERAM_GARDEN_NAME" Language="es_ES">
       <Text>Jardín de Eram</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_QAJAR_LEGACY_PATH_MILITARY_DESC" Language="es_ES">
-      <Text>Como los kayar, completa una Ruta de legado militarista.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_QAJAR_FOUR_MAJOR_TRIUMPHS_DESC" Language="es_ES">
+      <Text>Como los kayar, logra 4 Triunfos menores diplomáticos o expansionistas durante un mismo apogeo.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_QAJAR_LEGACY_PATH_MILITARY_NAME" Language="es_ES">
-      <Text>Ruta de legado kayar</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_QAJAR_FOUR_MAJOR_TRIUMPHS_NAME" Language="es_ES">
+      <Text>4 Triunfos menores de los kayar</Text>
     </Replace>
     <Replace Tag="LOC_MOD_CIV_WONDER_PRODUCTION_QAJAR_DESCRIPTION" Language="es_ES">
       <Text>+30 % a la [icon:YIELD_PRODUCTION] Producción para la [icon:WONDER] Maravilla asociada del Imperio kayar.</Text>
     </Replace>
-    <Replace Tag="LOC_MOD_NEZAM_E_JADID_UNDER_CAP_COMBAT_DESCRIPTION" Language="es_ES">
-      <Text>+1 a la [icon:NAR_REW_COMBAT] Fuerza de combate de unidades militares terrestres por cada 2 asentamientos por debajo del [icon:SETTLEMENT_LIMIT] límite de asentamientos.</Text>
+    <Replace Tag="LOC_NODE_CIVIC_AQ_QAJAR_ORIGINS_NAME" Language="es_ES">
+      <Text>Orígenes kayar</Text>
     </Replace>
-    <Replace Tag="LOC_MOD_SUN_THRONE_DIPLO_SENDER_YIELD_DESCRIPTION" Language="es_ES">
-      <Text>Al apoyar un [icon:ENDEAVOR] Esfuerzo, recibes 200 de [icon:YIELD_CULTURE] Cultura y el otro líder recibe 100 de [icon:YIELD_GOLD] Oro (a velocidad estándar).</Text>
-    </Replace>
-    <Replace Tag="LOC_MOD_TWELVE_GATES_YIELD_UNDER_CAP_DESCRIPTION" Language="es_ES">
-      <Text>+10 a [icon:YIELD_FOOD] Alimentos y a la [icon:YIELD_PRODUCTION] Producción en la [icon:NOTIFICATION_SELECT_CAPITAL] capital por cada asentamiento por debajo del [icon:SETTLEMENT_LIMIT] límite de asentamientos. </Text>
+    <Replace Tag="LOC_NODE_CIVIC_EX_QAJAR_RENAISSANCE_NAME" Language="es_ES">
+      <Text>Renacimiento kayar</Text>
     </Replace>
     <Replace Tag="LOC_QUARTER_BAQ_DESCRIPTION" Language="es_ES">
-      <Text>Barrio exclusivo kayar. Se crea al construir el Ghahve khane y el Takyeh en el mismo distrito. +10 % a [icon:YIELD_CULTURE] Cultura y a [icon:YIELD_DIPLOMACY] Influencia en este asentamiento durante una [icon:CELEBRATION] Celebración.</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_QUARTER_TOOLTIP]Barrio exclusivo[/TIP] kayar. Se crea al construir el Ghahve khane y el Takyeh en el mismo [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]distrito[/TIP]. +10 % a [icon:YIELD_CULTURE] Cultura y a [icon:YIELD_DIPLOMACY] Influencia en este [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]asentamiento[/TIP] durante una [icon:CELEBRATION] [TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]Celebración[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_QUARTER_BAQ_TOOLTIP" Language="es_ES">
-      <Text> +10 % a [icon:YIELD_CULTURE] Cultura y a [icon:YIELD_DIPLOMACY] Influencia en este asentamiento durante una [icon:CELEBRATION] Celebración.</Text>
+      <Text> +10 % a [icon:YIELD_CULTURE] Cultura y a [icon:YIELD_DIPLOMACY] Influencia en este [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]asentamiento[/TIP] durante una [icon:CELEBRATION] [TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]Celebración[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_QUOTE_AUTHOR_WONDER_ERAM_GARDEN" Language="es_ES">
       <Text>Ferdousí</Text>
@@ -745,17 +760,41 @@
     <Replace Tag="LOC_QUOTE_WONDER_ERAM_GARDEN" Language="es_ES">
       <Text>El jardín vestía de primavera, y el dulce aire vibraba de música y canciones.</Text>
     </Replace>
-    <Replace Tag="LOC_TRADITION_QULLARAQASI_DESCRIPTION" Language="es_ES">
-      <Text>+15 a [icon:YIELD_HAPPINESS] Felicidad en asentamientos por cada [icon:UNIT_ARMY_COMMANDER] Comandante estacionado en alguno de sus [icon:CITY_URBAN] distritos.</Text>
+    <Replace Tag="LOC_TRADITION_DAR_AL_FONUN_I_DESCRIPTION" Language="es_ES">
+      <Text>+3 a [icon:YIELD_CULTURE] Cultura y +3 a [icon:YIELD_SCIENCE] Ciencia en la [icon:NOTIFICATION_SELECT_CAPITAL] capital por cada [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]asentamiento[/TIP] por debajo del [icon:SETTLEMENT_LIMIT] [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_LIMIT_TOOLTIP]límite de asentamientos[/TIP].</Text>
     </Replace>
-    <Replace Tag="LOC_TRADITION_SOLEYMANIYEH_PALACE_DESCRIPTION" Language="es_ES">
+    <Replace Tag="LOC_TRADITION_DAR_AL_FONUN_II_DESCRIPTION" Language="es_ES">
+      <Text>+10 a [icon:YIELD_SCIENCE] Ciencia y a [icon:YIELD_CULTURE] Cultura en la [icon:NOTIFICATION_SELECT_CAPITAL] capital por cada [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]asentamiento[/TIP] por debajo del [icon:SETTLEMENT_LIMIT] [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_LIMIT_TOOLTIP]límite de asentamientos[/TIP].</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_DAR_AL_FONUN_TOOLTIP" Language="es_ES">
+      <Text>Dār al-Fonūn</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_QAJAR_SYNCRETISM_ANTIQUITY_DESCRIPTION" Language="es_ES">
+      <Text>+1 a [icon:YIELD_DIPLOMACY] Influencia en la [icon:NOTIFICATION_SELECT_CAPITAL] capital por cada [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]asentamiento[/TIP] por debajo del [icon:SETTLEMENT_LIMIT] [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_LIMIT_TOOLTIP]límite de asentamientos[/TIP].</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_QAJAR_SYNCRETISM_EXPLORATION_DESCRIPTION" Language="es_ES">
+      <Text>+1 a [icon:YIELD_HAPPINESS] Felicidad e [icon:YIELD_DIPLOMACY] Influencia en la [icon:NOTIFICATION_SELECT_CAPITAL] capital por cada [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]asentamiento[/TIP] por debajo del [icon:SETTLEMENT_LIMIT] [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_LIMIT_TOOLTIP]límite de asentamientos[/TIP].</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_QAJAR_SYNCRETISM_TOOLTIP" Language="es_ES">
+      <Text>Waqāye'-e Ettefāqiya</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_QULLARAQASI_DESCRIPTION" Language="es_ES">
+      <Text>+1 a la [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Fuerza de combate[/TIP] de [TIP:LOC_PEDIA_CONCEPTS_MILITARY_UNIT_TOOLTIP]unidades militares[/TIP] [TIP:LOC_PEDIA_CONCEPTS_LAND_UNITS_TOOLTIP]terrestres[/TIP] por cada 2 [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]asentamientos[/TIP] por debajo del [icon:SETTLEMENT_LIMIT] [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_LIMIT_TOOLTIP]límite de asentamientos[/TIP].</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_SOLEYMANIYEH_PALACE_I_DESCRIPTION" Language="es_ES">
+      <Text>+0,25 a [icon:YIELD_DIPLOMACY] Influencia por cada [icon:YIELD_POPULATION] Población en la [icon:NOTIFICATION_SELECT_CAPITAL] capital.</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_SOLEYMANIYEH_PALACE_II_DESCRIPTION" Language="es_ES">
       <Text>+0,5 a [icon:YIELD_DIPLOMACY] Influencia por cada [icon:YIELD_POPULATION] Población en la [icon:NOTIFICATION_SELECT_CAPITAL] capital.</Text>
     </Replace>
-    <Replace Tag="LOC_TRADITION_WAQAYE_E_ETTEFAQIYA_DESCRIPTION" Language="es_ES">
-      <Text>+10 a [icon:YIELD_SCIENCE] Ciencia y a [icon:YIELD_CULTURE] Cultura en la [icon:NOTIFICATION_SELECT_CAPITAL] capital por cada asentamiento por debajo del [icon:SETTLEMENT_LIMIT] límite de asentamientos.</Text>
+    <Replace Tag="LOC_TRAIT_QAJAR_ABILITY_AQ_DESCRIPTION" Language="es_ES">
+      <Text>[BLIST][LI][B]+50 % a la [icon:YIELD_DIPLOMACY] Influencia[/B] destinada a financiar [icon:DIPLOMATIC_ACTION] [B]Acciones diplomáticas[/B].[LI][B]+2 a [icon:YIELD_FOOD] Alimentos[/B] y a la [B][icon:YIELD_PRODUCTION] Producción[/B] en la [B][icon:NOTIFICATION_SELECT_CAPITAL] capital[/B] por cada [B][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]asentamiento[/TIP][/B] por debajo del [B][icon:SETTLEMENT_LIMIT] [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_LIMIT_TOOLTIP]límite de asentamientos[/TIP][/B].[/LIST]</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_QAJAR_ABILITY_DESCRIPTION" Language="es_ES">
-      <Text>[BLIST][LI][B]+50 % a la [icon:YIELD_DIPLOMACY] Influencia[/B] destinada a financiar [icon:DIPLOMATIC_ACTION] [B]Acciones diplomáticas[/B].[LI][B]+30 % a la[icon:YIELD_PRODUCTION] Producción [/B]destinada a la construcción del [B]Jardín de Eram[/B].[/LIST]</Text>
+      <Text>[BLIST][LI][B]+50 % a la [icon:YIELD_DIPLOMACY] Influencia[/B] destinada a financiar [icon:DIPLOMATIC_ACTION] [B]Acciones diplomáticas[/B].[LI][B]+10 a [icon:YIELD_FOOD] Alimentos[/B] y a la [B][icon:YIELD_PRODUCTION] Producción[/B] en la [B][icon:NOTIFICATION_SELECT_CAPITAL] capital[/B] por cada [B][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]asentamiento[/TIP][/B] por debajo del [B][icon:SETTLEMENT_LIMIT] [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_LIMIT_TOOLTIP]límite de asentamientos[/TIP][/B].[LI][B]+30 % a la[icon:YIELD_PRODUCTION] Producción [/B]destinada a construir el [B]Jardín de Eram[/B].[/LIST]</Text>
+    </Replace>
+    <Replace Tag="LOC_TRAIT_QAJAR_ABILITY_EX_DESCRIPTION" Language="es_ES">
+      <Text>[BLIST][LI][B]+50 % a la [icon:YIELD_DIPLOMACY] Influencia[/B] destinada a financiar [icon:DIPLOMATIC_ACTION] [B]Acciones diplomáticas[/B].[LI][B]+6 a [icon:YIELD_FOOD] Alimentos[/B] y a la [B][icon:YIELD_PRODUCTION] Producción[/B] en la [B][icon:NOTIFICATION_SELECT_CAPITAL] capital[/B] por cada [B][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]asentamiento[/TIP][/B] por debajo del [B][icon:SETTLEMENT_LIMIT] [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_LIMIT_TOOLTIP]límite de asentamientos[/TIP][/B].[/LIST]</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_QAJAR_ABILITY_NAME" Language="es_ES">
       <Text>Corona de Kayānī</Text>
@@ -764,19 +803,19 @@
       <Text>Principios kayar</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_GHILMAN_2_DESCRIPTION" Language="es_ES">
-      <Text>Unidad de caballería exclusiva kayar de categoría 2. +5 a la [icon:NAR_REW_COMBAT] Fuerza de combate y +10 de [icon:Action_Heal] curación en la [icon:COMMANDER_RADIUS] Zona de mando de un [icon:UNIT_SOLTAN] Sardār. Ignora las Zonas de control.</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_CAVALRY_UNITS_TOOLTIP]Unidad de caballería[/TIP] exclusiva kayar de categoría 2. +5 a la [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Fuerza de combate[/TIP] y +10 de [icon:Action_Heal] curación en la [icon:COMMANDER_RADIUS] [TIP:LOC_PEDIA_CONCEPTS_COMMAND_RADIUS_TOOLTIP]Zona de mando[/TIP] de un [icon:UNIT_ARMY_COMMANDER] [TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]Comandante de ejército[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_GHILMAN_3_DESCRIPTION" Language="es_ES">
-      <Text>Unidad de caballería exclusiva kayar de categoría 3. +5 a la [icon:NAR_REW_COMBAT] Fuerza de combate y +10 de [icon:Action_Heal] curación en la [icon:COMMANDER_RADIUS] Zona de mando de un [icon:UNIT_SOLTAN] Sardār. Ignora las Zonas de control.</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_CAVALRY_UNITS_TOOLTIP]Unidad de caballería[/TIP] exclusiva kayar de categoría 3. +5 a la [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Fuerza de combate[/TIP] y +10 de [icon:Action_Heal] curación en la [icon:COMMANDER_RADIUS] [TIP:LOC_PEDIA_CONCEPTS_COMMAND_RADIUS_TOOLTIP]Zona de mando[/TIP] de un [icon:UNIT_ARMY_COMMANDER] [TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]Comandante de ejército[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_GHILMAN_BASE_DESCRIPTION" Language="es_ES">
-      <Text>Unidad de caballería exclusiva kayar. +5 a la [icon:NAR_REW_COMBAT] Fuerza de combate y +10 de [icon:Action_Heal] curación en la [icon:COMMANDER_RADIUS] Zona de mando de un [icon:UNIT_SOLTAN] Sardār. Ignora las Zonas de control.</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_CAVALRY_UNITS_TOOLTIP]Unidad de caballería[/TIP] exclusiva kayar. +5 a la [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Fuerza de combate[/TIP] y +10 de [icon:Action_Heal] curación en la [icon:COMMANDER_RADIUS] [TIP:LOC_PEDIA_CONCEPTS_COMMAND_RADIUS_TOOLTIP]Zona de mando[/TIP] de un [icon:UNIT_ARMY_COMMANDER] [TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]Comandante de ejército[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_GHILMAN_DESCRIPTION" Language="es_ES">
-      <Text>Unidad de caballería exclusiva kayar de categoría 1. +5 a la [icon:NAR_REW_COMBAT] Fuerza de combate y +10 de [icon:Action_Heal] curación en la [icon:COMMANDER_RADIUS] Zona de mando de un [icon:UNIT_SOLTAN] Sardār. Ignora las Zonas de control.</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_CAVALRY_UNITS_TOOLTIP]Unidad de caballería[/TIP] exclusiva kayar de categoría 1. +5 a la [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Fuerza de combate[/TIP] y +10 de [icon:Action_Heal] curación en la [icon:COMMANDER_RADIUS] [TIP:LOC_PEDIA_CONCEPTS_COMMAND_RADIUS_TOOLTIP]Zona de mando[/TIP] de un [icon:UNIT_ARMY_COMMANDER] [TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]Comandante de ejército[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_SOLTAN_DESCRIPTION" Language="es_ES">
-      <Text>Comandante de ejército exclusivo kayar. +1 al [icon:Action_Move] Movimiento. Al arrasar un asentamiento, se arrasa un [icon:CITY_URBAN] distrito adicional por cada turno en los asentamientos en los que este comandante esté en un [icon:CITY_URBAN] distrito.</Text>
+      <Text>Comandante de ejército exclusivo kayar. +1 al [icon:Action_Move] Movimiento. Al arrasar un [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]asentamiento[/TIP], se arrasan el doble de [icon:CITY_URBAN] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]distritos[/TIP] por cada turno en los [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]asentamientos[/TIP] en los que este [TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]Comandante[/TIP] esté en un [icon:CITY_URBAN] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]distrito[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_5_CITY_WORKERS_DESCRIPTION" Language="es_ES">
       <Text>Ten un asentamiento con al menos cinco [B]Especialistas[/B].</Text>
@@ -784,36 +823,62 @@
     <Replace Tag="LOC_UNLOCK_CITY_WORKERS_QAJAR_TOOLTIP" Language="es_ES">
       <Text>Los [B]Especialistas[/B] eran parte fundamental de la identidad [B]kayar[/B].</Text>
     </Replace>
+    <Replace Tag="LOC_UNLOCK_PLAY_AS_QAJAR_DESCRIPTION" Language="es_ES">
+      <Text>Juega como los [B]kayar[/B].</Text>
+    </Replace>
+    <Replace Tag="LOC_UNLOCK_PLAY_AS_QAJAR_QAJAR_TOOLTIP" Language="es_ES">
+      <Text>Los [B]kayar[/B] consiguen imponerse al paso de las eras.</Text>
+    </Replace>
     <Replace Tag="LOC_UNLOCK_PLAY_AS_XERXES_QAJAR_TOOLTIP" Language="es_ES">
       <Text>[B]Jerjes[/B] gobernó la región que se convertiría en la [B]Irán kayar[/B].</Text>
     </Replace>
     <Replace Tag="LOC_WONDER_ERAM_GARDEN_DESCRIPTION" Language="es_ES">
-      <Text>+4 a [icon:YIELD_FOOD] Alimentos. +1 al límite de [icon:SPECIALIST] Especialistas en este asentamiento. No envejece. Se debe construir en terreno de Desierto.</Text>
+      <Text>+4 a [icon:YIELD_FOOD] Alimentos. +1 al límite de [icon:SPECIALIST] [TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_LIMIT_TOOLTIP]Especialistas[/TIP] en este [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]asentamiento[/TIP]. [TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]No envejece[/TIP]. Se debe construir en terreno de Desierto.</Text>
     </Replace>
     <Replace Tag="LOC_WONDER_ERAM_GARDEN_TOOLTIP" Language="es_ES">
-      <Text>+1 al límite de [icon:SPECIALIST] Especialistas en este asentamiento.[N]Se debe construir en terreno de Desierto.</Text>
+      <Text>+1 al límite de [icon:SPECIALIST] [TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_LIMIT_TOOLTIP]Especialistas[/TIP] en este [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]asentamiento[/TIP].[N]Se debe construir en terreno de Desierto.</Text>
     </Replace>
     <Replace Tag="LOC_COMBAT_PREVIEW_NUMBER_UNDER_SETTLEMENT_CAP_BONUS_DESC" Language="es_ES">
       <Text>+{1_CombatStrength} por tener {2_NumberUnderSettlementCap} asentamientos por debajo del límite.</Text>
     </Replace>
     <Replace Tag="LOC_GHILMAN_COMBAT_PREVIEW" Language="es_ES">
-      <Text>+{1_Amount} en la Zona de mando de un Sardār</Text>
+      <Text>+{1_Amount} en la [TIP:LOC_PEDIA_CONCEPTS_COMMAND_RADIUS_TOOLTIP]Zona de mando[/TIP] de un Sardār.</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_CITY_WORKERS_QAJAR_NARRATIVE" Language="es_ES">
       <Text>Durante los siglos de gobierno {1_Civilization_Adj}, los nómadas de tierras cercanas encontraron trabajo y, en ocasiones, riquezas, sobre todo en su ejército. Formaron su propio clan protegido, ya no en tiendas instaladas en las llanuras, sino en salones y universidades.</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_DAR_AL_FONUN_I_NAME" Language="es_ES">
+      <Text>Dār al-Fonūn I</Text>
+      <Gender>masculine</Gender>
+      <Plurality>1</Plurality>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_DAR_AL_FONUN_II_NAME" Language="es_ES">
+      <Text>Dār al-Fonūn II</Text>
+      <Gender>masculine</Gender>
+      <Plurality>1</Plurality>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_QAJAR_SYNCRETISM_ANTIQUITY_NAME" Language="es_ES">
+      <Text>Waqāye'-e Ettefāqiya I</Text>
+      <Gender>masculine</Gender>
+      <Plurality>1</Plurality>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_QAJAR_SYNCRETISM_EXPLORATION_NAME" Language="es_ES">
+      <Text>Waqāye'-e Ettefāqiya II</Text>
+      <Gender>masculine</Gender>
+      <Plurality>1</Plurality>
     </Replace>
     <Replace Tag="LOC_TRADITION_QULLARAQASI_NAME" Language="es_ES">
       <Text>Qullarāqāsi</Text>
       <Gender>masculine</Gender>
       <Plurality>1</Plurality>
     </Replace>
-    <Replace Tag="LOC_TRADITION_SOLEYMANIYEH_PALACE_NAME" Language="es_ES">
-      <Text>Palacio de Solimán</Text>
+    <Replace Tag="LOC_TRADITION_SOLEYMANIYEH_PALACE_I_NAME" Language="es_ES">
+      <Text>Palacio de Solimán I</Text>
       <Gender>masculine</Gender>
       <Plurality>1</Plurality>
     </Replace>
-    <Replace Tag="LOC_TRADITION_WAQAYE_E_ETTEFAQIYA_NAME" Language="es_ES">
-      <Text>Waqāye'-e Ettefāqiya</Text>
+    <Replace Tag="LOC_TRADITION_SOLEYMANIYEH_PALACE_II_NAME" Language="es_ES">
+      <Text>Palacio de Solimán II</Text>
       <Gender>masculine</Gender>
       <Plurality>1</Plurality>
     </Replace>

@@ -16,15 +16,15 @@ function designateBiomes(iWidth, iHeight) {
       }
     }
   }
-  let iPlainsLowering = 0;
-  let iDesertLowering = 0;
-  let iGrassLowering = 0;
-  let iTropicalLowering = 0;
+  let _iPlainsLowering = 0;
+  let _iDesertLowering = 0;
+  let _iGrassLowering = 0;
+  let _iTropicalLowering = 0;
   if (Math.round(iTotalLandPlots / 5 * 2 * 0.75) > iTotalLandPlotsAbove) {
-    iPlainsLowering += 5;
-    iDesertLowering += 4;
-    iGrassLowering += 4;
-    iTropicalLowering += 2;
+    _iPlainsLowering += 5;
+    _iDesertLowering += 4;
+    _iGrassLowering += 4;
+    _iTropicalLowering += 2;
     console.log(
       "Less  iTotalLandPlots: " + iTotalLandPlots + " iTotalLandPlotsAbove: " + iTotalLandPlotsAbove
     );
@@ -211,13 +211,13 @@ function addAquaticFeatures(iWidth, iHeight) {
       }
     }
   }
-  let skipPlotIndices = [];
+  const skipPlotIndices = [];
   let skipPlot = false;
   for (let iY = 0; iY < iHeight; iY++) {
     for (let iX = 0; iX < iWidth; iX++) {
       const feature = GameplayMap.getFeatureType(iX, iY);
-      for (let skipIndex = 0; skipIndex < skipPlotIndices.length; ++skipIndex) {
-        const plot = GameplayMap.getLocationFromIndex(skipPlotIndices[skipIndex]);
+      for (const skipPlotIndex of skipPlotIndices) {
+        const plot = GameplayMap.getLocationFromIndex(skipPlotIndex);
         if (plot.x == iX && plot.y && iY) {
           skipPlot = true;
           break;
@@ -246,10 +246,15 @@ function addAquaticFeatures(iWidth, iHeight) {
                 if (shallowWaterAdjacencyCheck(iX, iY, "Feature Atoll Spawn Chance")) {
                   AddFeature(iX, iY, featIdx, 100, "Feature Atoll");
                   const neighbors = GameplayMap.getPlotIndicesInRadius(iX, iY, 1);
-                  const iRollForClusterSize = TerrainBuilder.getRandomNumber(neighbors.length, "Feature Atoll Size");
+                  const iRollForClusterSize = TerrainBuilder.getRandomNumber(
+                    neighbors.length,
+                    "Feature Atoll Size"
+                  );
                   const growthChancePercent = latitude <= 15 && latitude >= -15 ? 15 : 5;
                   for (let plotIndex = 0; plotIndex < iRollForClusterSize; ++plotIndex) {
-                    const iLocation = GameplayMap.getLocationFromIndex(neighbors[plotIndex]);
+                    const iLocation = GameplayMap.getLocationFromIndex(
+                      neighbors[plotIndex]
+                    );
                     if (canAddFeature(
                       iLocation.x,
                       iLocation.y,
@@ -264,7 +269,11 @@ function addAquaticFeatures(iWidth, iHeight) {
                       false,
                       true
                     )) {
-                      if (shallowWaterAdjacencyCheck(iLocation.x, iLocation.y, "Feature Atoll Spawn Chance")) {
+                      if (shallowWaterAdjacencyCheck(
+                        iLocation.x,
+                        iLocation.y,
+                        "Feature Atoll Spawn Chance"
+                      )) {
                         const iRoll = TerrainBuilder.getRandomNumber(100, "Feature Atoll");
                         if (iRoll < growthChancePercent) {
                           AddFeature(iLocation.x, iLocation.y, featIdx, 30, "Feature Atoll");

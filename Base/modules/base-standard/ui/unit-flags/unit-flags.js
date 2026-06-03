@@ -1,14 +1,11 @@
-import { A as ActionActivateEvent } from '../../../core/ui/components/fxs-activatable.chunk.js';
-import { u as utils } from '../../../core/ui/graph-layout/utils.chunk.js';
-import { C as ComponentID } from '../../../core/ui/utilities/utilities-component-id.chunk.js';
-import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.chunk.js';
-import { Icon } from '../../../core/ui/utilities/utilities-image.chunk.js';
-import { L as Layout } from '../../../core/ui/utilities/utilities-layout.chunk.js';
-import { UnitFlagManager, s as styles, UnitFlagFactory } from './unit-flag-manager.js';
-import '../../../core/ui/audio-base/audio-support.chunk.js';
-import '../../../core/ui/input/focus-manager.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/utilities/utilities-update-gate.chunk.js';
+import { ActionActivateEvent } from '../../../core/ui/components/fxs-activatable.js';
+import { utils } from '../../../core/ui/graph-layout/utils.js';
+import { ComponentID } from '../../../core/ui/utilities/utilities-component-id.js';
+import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
+import { Icon } from '../../../core/ui/utilities/utilities-image.js';
+import { Layout } from '../../../core/ui/utilities/utilities-layout.js';
+import { UnitFlagManager, UnitFlagFactory } from './unit-flag-manager.js';
+import styles from './unit-flags.scss.js';
 
 class GenericFlagMaker {
   initialize() {
@@ -49,6 +46,9 @@ class GenericUnitFlag extends Component {
   unitHealthBar = null;
   unitHealthBarInner = null;
   unitFlagIcon = null;
+  SPACING = 32;
+  BASE_OFFSET = -24;
+  // Centered, w-12 maps to 48px
   /**
    * A vertical offset when the unit is 'stacked' with other units.
    * TODO - The unit world anchor should be able to incorporate this offset in C++ to avoid constantly recalculating this in Script.
@@ -71,6 +71,12 @@ class GenericUnitFlag extends Component {
     if (GameContext.localObserverID == this._componentID.owner || GameContext.localObserverID == PlayerIds.OBSERVER_ID) {
       this.Root.classList.add("cursor-pointer");
     }
+    const localObserverID = GameContext.localObserverID;
+    const localObserver = Players.get(localObserverID);
+    const unitOwner = Players.get(this.componentID.owner);
+    if (unitOwner?.isMinor && localObserver?.Diplomacy?.isAtWarWithUnitOwner(this.componentID)) {
+      this.Root.classList.add("unit-flag--hostile");
+    }
     let playerColorPri = "rgb(0, 0, 0)";
     let playerColorSec = "rgb(255, 255, 255)";
     if (Players.isValid(this.componentID.owner)) {
@@ -82,7 +88,6 @@ class GenericUnitFlag extends Component {
       "unit-flag__container",
       "absolute",
       "-top-4",
-      "-left-6",
       "pointer-events-auto",
       "flex",
       "flex-col",
@@ -93,7 +98,7 @@ class GenericUnitFlag extends Component {
       "allow-pan"
     );
     this.unitContainer = unitFlagContainer;
-    this.unitContainer.style.left = "0";
+    this.unitContainer.style.left = Layout.pixels(this.BASE_OFFSET);
     const unitFlagShadow = document.createElement("div");
     unitFlagShadow.classList.add("unit-flag__shadow", "pointer-events-none", "absolute", "inset-0", "bg-cover");
     unitFlagContainer.appendChild(unitFlagShadow);
@@ -411,7 +416,7 @@ class GenericUnitFlag extends Component {
       return;
     }
     const TFPointsContainer = MustGetElement(".unit-flag__level-number", this.Root);
-    const TFPoints = this.unit.getDisbandVictoryPoints();
+    const TFPoints = this.unit.getDisbandBaseAmount();
     if (TFPoints && TFPoints > 0) {
       let TreasureFleetPoints = this.Root.querySelector(".tf-points");
       if (!TreasureFleetPoints) {
@@ -500,11 +505,11 @@ class GenericUnitFlag extends Component {
     UnitFlagManager.instance.recalculateFlagOffsets(unit.location);
   }
   updateTop(position, total) {
-    const offset = position - (total - 1) / 2 - 0.5;
+    const offset = position - (total - 1) / 2;
     if (this.unitContainer) {
       if (this.flagOffset != offset) {
         this.flagOffset = offset;
-        this.unitContainer.style.left = Layout.pixels(offset * 32);
+        this.unitContainer.style.left = Layout.pixels(offset * this.SPACING + this.BASE_OFFSET);
       }
     }
   }

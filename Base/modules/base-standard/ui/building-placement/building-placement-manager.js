@@ -1,4 +1,4 @@
-import { C as ComponentID } from '../../../core/ui/utilities/utilities-component-id.chunk.js';
+import { ComponentID } from '../../../core/ui/utilities/utilities-component-id.js';
 
 const BuildingPlacementHoveredPlotChangedEventName = "building-placement-hovered-plot-changed";
 class BuildingPlacementHoveredPlotChangedEvent extends CustomEvent {
@@ -151,36 +151,12 @@ class BuildingPlacementManagerClass {
     }
     BuildingPlacementManagerClass.instance = this;
   }
-  getTotalYieldChangesFromPlacementData(placementPlotData) {
+  getTotalYieldChangesFromPlacementData(placementPlotData, excludeOtherCities) {
     const yieldsCopy = [];
     for (const change of placementPlotData.yieldChanges) {
       yieldsCopy.push(change);
     }
     const yieldChangeInfo = [];
-    if (this._currentConstructible?.ConstructibleClass != "IMPROVEMENT") {
-      const plotCoord = GameplayMap.getLocationFromIndex(placementPlotData.plotID);
-      const constructibles = MapConstructibles.getConstructibles(plotCoord.x, plotCoord.y);
-      for (const constructible of constructibles) {
-        const instance = Constructibles.getByComponentID(constructible);
-        if (instance) {
-          const info = GameInfo.Constructibles.lookup(instance.type);
-          if (info && info.ConstructibleClass == "IMPROVEMENT") {
-            if (this.cityID) {
-              const improvementYields = GameplayMap.getYieldsWithCity(
-                placementPlotData.plotID,
-                this.cityID
-              );
-              for (const improvementYield of improvementYields) {
-                const yieldDefinition = GameInfo.Yields.lookup(improvementYield[0]);
-                if (yieldDefinition) {
-                  yieldsCopy[yieldDefinition.$index] -= improvementYield[1];
-                }
-              }
-            }
-          }
-        }
-      }
-    }
     const cityConstructibles = this.city?.Constructibles;
     if (!cityConstructibles) {
       console.error("building-placement-manager: getTotalYieldChanges() failed to find cityConstructibles");
@@ -205,6 +181,20 @@ class BuildingPlacementManagerClass {
         yieldsCopy[i] -= newConstructibleMaintenance[i];
       }
     }
+    if (excludeOtherCities && excludeOtherCities == true) {
+      for (const change of placementPlotData.changeDetails) {
+        if (change.sourceType == YieldSourceTypes.ADJACENCY) {
+          const location = GameplayMap.getLocationFromIndex(change.targetPlotIndex);
+          const targetCity = MapCities.getCity(location.x, location.y);
+          if (!ComponentID.isMatch(targetCity, this._cityID)) {
+            const yieldDefinition = GameInfo.Yields.lookup(change.yieldType);
+            if (yieldDefinition) {
+              yieldsCopy[yieldDefinition.$index] -= change.change;
+            }
+          }
+        }
+      }
+    }
     GameInfo.Yields.forEach((yieldDefinition, index) => {
       if (yieldsCopy[index] != 0) {
         yieldChangeInfo.push({
@@ -217,6 +207,7 @@ class BuildingPlacementManagerClass {
     });
     return yieldChangeInfo;
   }
+  // Calculates total yields for a building placement, including those going to adjacency bonuses in other cities
   getTotalYieldChanges(plotIndex) {
     const placementPlotData = this.getPlacementPlotData(plotIndex);
     if (!placementPlotData) {
@@ -226,6 +217,17 @@ class BuildingPlacementManagerClass {
       return [];
     }
     return this.getTotalYieldChangesFromPlacementData(placementPlotData);
+  }
+  // Calculates city yields for a building placement, excluding those going to adjacency bonuses in other cities
+  getCityYieldChanges(plotIndex) {
+    const placementPlotData = this.getPlacementPlotData(plotIndex);
+    if (!placementPlotData) {
+      console.error(
+        `building-placement-manager: getCityYieldChanges(): Failed to find PlacementPlotData for plotIndex ${plotIndex}`
+      );
+      return [];
+    }
+    return this.getTotalYieldChangesFromPlacementData(placementPlotData, true);
   }
   getPrimaryBuildingYields() {
     const result = [];
@@ -334,36 +336,41 @@ class BuildingPlacementManagerClass {
     placementPlotData.changeDetails.forEach((changeDetails) => {
       switch (changeDetails.sourceType) {
         case YieldSourceTypes.ADJACENCY: {
-          const yieldDefinition = GameInfo.Yields.lookup(changeDetails.yieldType);
-          if (!yieldDefinition) {
-            console.error(
-              `building-placement-manager: Failed to find yield definition for ${changeDetails.yieldType}`
-            );
-            break;
-          }
-          if (changeDetails.sourcePlotIndex == plotIndex) {
-            yieldChangeInfo.push({
-              text: Locale.compose(
-                "LOC_BUILDING_PLACEMENT_YIELD_NAME_TO_OTHER_BUILDINGS",
-                yieldDefinition.Name
-              ),
-              yieldType: yieldDefinition.YieldType,
-              yieldChange: changeDetails.change,
-              iconURL: UI.getIconURL(yieldDefinition.YieldType, "YIELD")
-            });
-            break;
-          } else {
-            yieldChangeInfo.push({
-              text: Locale.compose(
-                "LOC_BUILDING_PLACEMENT_YIELD_NAME_FROM_DIRECTION",
-                yieldDefinition.Name,
-                this.getDirectionString(changeDetails.sourcePlotIndex, plotIndex)
-              ),
-              yieldType: yieldDefinition.YieldType,
-              yieldChange: changeDetails.change,
-              iconURL: UI.getIconURL(yieldDefinition.YieldType, "YIELD")
-            });
-            break;
+          if (this.city?.Yields && this.city.Yields.extractYieldChangesData(
+            placementPlotData.yieldChanges,
+            changeDetails.yieldType
+          ) > 0) {
+            const yieldDefinition = GameInfo.Yields.lookup(changeDetails.yieldType);
+            if (!yieldDefinition) {
+              console.error(
+                `building-placement-manager: Failed to find yield definition for ${changeDetails.yieldType}`
+              );
+              break;
+            }
+            if (changeDetails.sourcePlotIndex == plotIndex) {
+              yieldChangeInfo.push({
+                text: Locale.compose(
+                  "LOC_BUILDING_PLACEMENT_YIELD_NAME_TO_OTHER_BUILDINGS",
+                  yieldDefinition.Name
+                ),
+                yieldType: yieldDefinition.YieldType,
+                yieldChange: changeDetails.change,
+                iconURL: UI.getIconURL(yieldDefinition.YieldType, "YIELD")
+              });
+              break;
+            } else {
+              yieldChangeInfo.push({
+                text: Locale.compose(
+                  "LOC_BUILDING_PLACEMENT_YIELD_NAME_FROM_DIRECTION",
+                  yieldDefinition.Name,
+                  this.getDirectionString(changeDetails.sourcePlotIndex, plotIndex)
+                ),
+                yieldType: yieldDefinition.YieldType,
+                yieldChange: changeDetails.change,
+                iconURL: UI.getIconURL(yieldDefinition.YieldType, "YIELD")
+              });
+              break;
+            }
           }
         }
       }
@@ -643,7 +650,7 @@ class BuildingPlacementManagerClass {
       const descriptionSourceTypeMap = /* @__PURE__ */ new Map();
       for (const change of placementData.changeDetails) {
         const isMatch = typeof sourceTypeOrPred === "function" ? sourceTypeOrPred(change.sourceType) : change.sourceType === sourceTypeOrPred;
-        if (isMatch && (includeNegativeChanges || change.change > 0)) {
+        if (isMatch && (includeNegativeChanges || this.city?.Yields && this.city.Yields.extractYieldChangesData(placementData.yieldChanges, change.yieldType) > 0)) {
           const yieldDefinition = GameInfo.Yields.lookup(change.yieldType);
           if (!yieldDefinition) {
             console.error(
@@ -692,7 +699,7 @@ class BuildingPlacementManagerClass {
     addGroupedYieldBonuses(YieldSourceTypes.NATURAL, "LOC_BUILDING_PLACEMENT_NATURAL_YIELD");
     addGroupedYieldBonuses(YieldSourceTypes.WAREHOUSE, "LOC_BUILDING_PLACEMENT_WAREHOUSE_YIELD");
     addGroupedYieldBonuses(YieldSourceTypes.CONSTRUCTIBLES, "LOC_BUILDING_PLACEMENT_CONSTRUCTIBLE_YIELD");
-    addGroupedYieldBonuses(YieldSourceTypes.WORKERS, "LOC_BUILDING_PLACEMENT_SPECIALIST_YIELD");
+    addGroupedYieldBonuses(YieldSourceTypes.WORKERS, "LOC_BUILDING_PLACEMENT_SPECIALIST_YIELD", true);
     addGroupedYieldBonuses(
       YieldSourceTypes.CITY_MODIFIERS,
       (change) => {
@@ -738,6 +745,10 @@ class BuildingPlacementManagerClass {
       sourcePlotLocation,
       targetPlotLocation
     );
+    const targetCity = MapCities.getCity(targetPlotLocation.x, targetPlotLocation.y);
+    if (!ComponentID.isMatch(targetCity, this._cityID)) {
+      return "LOC_BUILDING_PLACEMENT_TO_OTHER_SETTLEMENTS";
+    }
     switch (adjacencyDirection) {
       case DirectionTypes.DIRECTION_EAST:
         return "LOC_BUILDING_PLACEMENT_TO_EAST";

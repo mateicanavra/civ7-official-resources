@@ -362,13 +362,13 @@
       <Text>強制徵兵隊</Text>
     </Replace>
     <Replace Tag="LOC_11013B_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>海軍單位{1_reward}，但{2_reward}。</Text>
+      <Text>海上單位{1_reward}，但{2_reward}。</Text>
     </Replace>
     <Replace Tag="LOC_11013B_NAME" Language="zh_Hant_HK">
       <Text>人民必須服從命令。</Text>
     </Replace>
     <Replace Tag="LOC_11013C_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>{1_reward}，但海軍單位{2_reward}。</Text>
+      <Text>{1_reward}，但海上單位{2_reward}。</Text>
     </Replace>
     <Replace Tag="LOC_11013C_NAME" Language="zh_Hant_HK">
       <Text>船隻的主人將會獲得補償。</Text>
@@ -536,22 +536,40 @@
       <Text>他們似乎遵循著某種嚴格的階級結構。</Text>
     </Replace>
     <Replace Tag="LOC_12005C_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>所有聚落{1_reward}。</Text>
+      <Text>{1_reward}。</Text>
     </Replace>
     <Replace Tag="LOC_12005C_NAME" Language="zh_Hant_HK">
-      <Text>他們似乎來自帝國的各個角落。</Text>
+      <Text>他們對教育極為重視。</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30039A_COMPLETION" Language="zh_Hant_HK">
+      <Text>英國船長在失落水手的紀念碑前俯首致意——大海與風暴奪走能奪走的一切。然而，英國的命運也正是由這片海域所塑造——大海既孕育生命，也帶來死亡。當船長抬眼望向地平線，一幅短暫的幻象浮現於眼前：一道木製城牆，一列戰艦，以及一個未來——或許他人稱霸陸地，但不列顛將主宰海洋。</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30039A_STORYTITLE" Language="zh_Hant_HK">
+      <Text>木之牆</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30039B_DESCRIPTION" Language="zh_Hant_HK">
+      <Text>{1_reward}。</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30039B_NAME" Language="zh_Hant_HK">
+      <Text>英國商人將行走於其上的道路。</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30039C_DESCRIPTION" Language="zh_Hant_HK">
+      <Text>{1_reward}。</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30039C_NAME" Language="zh_Hant_HK">
+      <Text>這是一個需要英國頭腦來解決的工程難題。</Text>
     </Replace>
     <Replace Tag="LOC_BUILDING_MANUFACTORY_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>英國特色生產力建築。+9[icon:YIELD_PRODUCTION]生產力。從資源與奇觀獲得+1[icon:YIELD_PRODUCTION]生產力相鄰加成。從可航行河流獲得+1[icon:YIELD_GOLD]金幣相鄰加成。不分時代。</Text>
+      <Text>英國[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_BUILDING_TOOLTIP]特色生產力建築[/TIP]。+9[icon:YIELD_PRODUCTION]生產力。從[TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]資源[/TIP]與[TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]奇觀[/TIP]獲得+1[icon:YIELD_PRODUCTION]生產力相鄰加成。從[TIP:LOC_PEDIA_CONCEPTS_NAVIGABLE_RIVER_TOOLTIP]可航行河流[/TIP]獲得+1[icon:YIELD_GOLD]金幣相鄰加成。</Text>
     </Replace>
     <Replace Tag="LOC_BUILDING_MANUFACTORY_TOOLTIP" Language="zh_Hant_HK">
-      <Text>英國特色建築。</Text>
+      <Text>英國[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_BUILDING_TOOLTIP]特色建築[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_BUILDING_ROYAL_EXCHANGE_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>英國特色金幣建築。+9[icon:YIELD_GOLD]金幣。從城區與奇觀獲得+1[icon:YIELD_GOLD]金幣相鄰加成。不分時代。</Text>
+      <Text>英國[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_BUILDING_TOOLTIP]特色金幣建築[/TIP]。+9[icon:YIELD_GOLD]金幣。從[TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]城區[/TIP]與[TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]奇觀[/TIP]獲得+1[icon:YIELD_GOLD]金幣相鄰加成。</Text>
     </Replace>
     <Replace Tag="LOC_BUILDING_ROYAL_EXCHANGE_TOOLTIP" Language="zh_Hant_HK">
-      <Text>英國特色建築。</Text>
+      <Text>英國[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_BUILDING_TOOLTIP]特色建築[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_CIVIC_CHARTERED_COMPANIES_AUTHOR" Language="zh_Hant_HK">
       <Text>拜倫勳爵</Text>
@@ -595,35 +613,26 @@
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GREAT_BRITAIN_COMPLETE_BATTERSEA_POWER_STATION_NAME" Language="zh_Hant_HK">
       <Text>巴特西發電廠</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GREAT_BRITAIN_LEGACY_PATH_ECONOMIC_DESC" Language="zh_Hant_HK">
-      <Text>扮演大不列顛，完成一條經濟傳承路徑。</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GREAT_BRITAIN_FOUR_MAJOR_TRIUMPHS_DESC" Language="zh_Hant_HK">
+      <Text>扮演大不列顛，在一次巔峰時代中完成4項經濟或科技小型凱旋挑戰。</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GREAT_BRITAIN_LEGACY_PATH_ECONOMIC_NAME" Language="zh_Hant_HK">
-      <Text>大不列顛傳承路徑</Text>
-    </Replace>
-    <Replace Tag="LOC_MOD_CHARTERED_COMPANIES_PORT_RESOURCE_CAP_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>擁有港口的聚落+1[icon:RADIAL_RESOURCES]資源容量。</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_GREAT_BRITAIN_FOUR_MAJOR_TRIUMPHS_NAME" Language="zh_Hant_HK">
+      <Text>大不列顛4小型凱旋挑戰</Text>
     </Replace>
     <Replace Tag="LOC_MOD_CIV_WONDER_PRODUCTION_GREAT_BRITAIN_DESCRIPTION" Language="zh_Hant_HK">
       <Text>+30%[icon:YIELD_PRODUCTION]生產力，來自身為與大不列顛相關的[icon:WONDER]奇觀。</Text>
     </Replace>
-    <Replace Tag="LOC_MOD_PAX_BRITANNICA_PRODUCTION_FACTORY_RESOURCES_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>每有1[icon:RADIAL_RESOURCES]工廠資源指派至聚落，該聚落便+3[icon:YIELD_PRODUCTION]生產力。</Text>
+    <Replace Tag="LOC_NODE_CIVIC_AQ_GREAT_BRITAIN_ORIGINS_NAME" Language="zh_Hant_HK">
+      <Text>英國起源</Text>
     </Replace>
-    <Replace Tag="LOC_MOD_SOCIETY_OF_ANTIQUARIES_ENTER_FOREIGN_LANDS_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>[icon:UNIT_ANTIQUARIAN]古物學家可以無須開放邊境便進入其他文明之邊境。</Text>
-    </Replace>
-    <Replace Tag="LOC_MOD_SOCIETY_OF_ANTIQUARIES_MOVEMENT_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>平民+1[icon:Action_Move]移動力。</Text>
-    </Replace>
-    <Replace Tag="LOC_MOD_SPLENDID_ISOLATION_POSITIVE_GOLD_CS_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>如果在回合開始時你每回合的[icon:YIELD_GOLD]金幣收入為正值或0，單位+3[icon:NAR_REW_COMBAT]戰鬥力。</Text>
+    <Replace Tag="LOC_NODE_CIVIC_EX_GREAT_BRITAIN_RENAISSANCE_NAME" Language="zh_Hant_HK">
+      <Text>英國復興</Text>
     </Replace>
     <Replace Tag="LOC_QUARTER_FINANCIAL_CENTRE_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>英國特色城區。透過在同一個區域建造製造廠和皇家交易所來創造。每有一個相連接的聚落，便+2[icon:YIELD_GOLD]金幣和[icon:YIELD_SCIENCE]科技值。</Text>
+      <Text>英國[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_QUARTER_TOOLTIP]特色城區[/TIP]。透過在同一個[TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]區域[/TIP]建造製造廠和皇家交易所來創造。每有一個相連接的[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]，便+2[icon:YIELD_GOLD]金幣和[icon:YIELD_SCIENCE]科技值。</Text>
     </Replace>
     <Replace Tag="LOC_QUARTER_FINANCIAL_CENTRE_TOOLTIP" Language="zh_Hant_HK">
-      <Text>每有一個相連接的聚落，便+2[icon:YIELD_GOLD]金幣和[icon:YIELD_SCIENCE]科技值。</Text>
+      <Text>每有一個相連接的[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]，便+2[icon:YIELD_GOLD]金幣和[icon:YIELD_SCIENCE]科技值。</Text>
     </Replace>
     <Replace Tag="LOC_QUOTE_AUTHOR_WONDER_BATTERSEA_POWER_STATION" Language="zh_Hant_HK">
       <Text>蘇珊娜‧克拉克</Text>
@@ -631,17 +640,38 @@
     <Replace Tag="LOC_QUOTE_WONDER_BATTERSEA_POWER_STATION" Language="zh_Hant_HK">
       <Text>「你曾經問過我是否記得巴特西。現在我記得了。」</Text>
     </Replace>
-    <Replace Tag="LOC_TRADITION_EAST_INDIA_COMPANY_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>[icon:YIELD_TOWNS]城鎮+5[icon:YIELD_GOLD]金幣。</Text>
+    <Replace Tag="LOC_TRADITION_EAST_INDIA_COMPANY_I_DESCRIPTION" Language="zh_Hant_HK">
+      <Text>[icon:YIELD_TOWNS][TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]城鎮[/TIP]+1[icon:YIELD_GOLD]金幣。相鄰於水岸的[icon:YIELD_TOWNS][TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]城鎮[/TIP]+1[icon:YIELD_SCIENCE]科技值。</Text>
     </Replace>
-    <Replace Tag="LOC_TRADITION_NO_ETERNAL_ALLIES_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>各[icon:YIELD_TOWNS]城鎮+10%[icon:YIELD_FOOD]食物與[icon:YIELD_GOLD]金幣，但每擁有一個[icon:PLAYER_RELATIONSHIP_ALLIANCE]同盟關係，[icon:NOTIFICATION_SELECT_CAPITAL]首都便-5%[icon:YIELD_GOLD]金幣。</Text>
+    <Replace Tag="LOC_TRADITION_EAST_INDIA_COMPANY_II_DESCRIPTION" Language="zh_Hant_HK">
+      <Text>[icon:YIELD_TOWNS][TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]城鎮[/TIP]+5[icon:YIELD_GOLD]金幣。相鄰於水岸的[icon:YIELD_TOWNS][TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]城鎮[/TIP]+3[icon:YIELD_SCIENCE]科技值。</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_GREAT_BRITAIN_SYNCRETISM_ANTIQUITY_DESCRIPTION" Language="zh_Hant_HK">
+      <Text>相鄰於水岸的[icon:YIELD_CULTURE]文化值建築+1[icon:YIELD_SCIENCE]科技值。相鄰於水岸的[icon:YIELD_SCIENCE]科技值建築+1[icon:YIELD_CULTURE]文化值。</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_GREAT_BRITAIN_SYNCRETISM_EXPLORATION_DESCRIPTION" Language="zh_Hant_HK">
+      <Text>相鄰於水岸的[icon:YIELD_CULTURE]文化值建築+2[icon:YIELD_SCIENCE]科技值。相鄰於水岸的[icon:YIELD_SCIENCE]科技值建築+2[icon:YIELD_CULTURE]文化值。</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_GREAT_BRITAIN_SYNCRETISM_TOOLTIP" Language="zh_Hant_HK">
+      <Text>皇家學會</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_NO_ETERNAL_ALLIES_I_DESCRIPTION" Language="zh_Hant_HK">
+      <Text>[icon:YIELD_TOWNS][TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]城鎮[/TIP]+5%[icon:YIELD_FOOD]食物與[icon:YIELD_GOLD]金幣；但每擁有一個[icon:PLAYER_RELATIONSHIP_ALLIANCE][TIP:LOC_PEDIA_CONCEPTS_ALLIANCE_TOOLTIP]同盟關係[/TIP]，[icon:NOTIFICATION_SELECT_CAPITAL]首都便-5%[icon:YIELD_GOLD]金幣。</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_NO_ETERNAL_ALLIES_II_DESCRIPTION" Language="zh_Hant_HK">
+      <Text>[icon:YIELD_TOWNS][TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]城鎮[/TIP]+10%[icon:YIELD_FOOD]食物與[icon:YIELD_GOLD]金幣；但每擁有一個[icon:PLAYER_RELATIONSHIP_ALLIANCE][TIP:LOC_PEDIA_CONCEPTS_ALLIANCE_TOOLTIP]同盟關係[/TIP]，[icon:NOTIFICATION_SELECT_CAPITAL]首都便-5%[icon:YIELD_GOLD]金幣。</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_PROCEEDINGS_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>同時放置了[icon:NAR_REW_GREATWORK]巨作與[icon:RADIAL_RESOURCES]資源的[icon:YIELD_CITIES]城市+4[icon:YIELD_CULTURE]文化值和[icon:YIELD_SCIENCE]科技值。</Text>
+      <Text>同時放置了[icon:NAR_REW_GREATWORK][TIP:LOC_PEDIA_CONCEPTS_GREAT_WORKS_TOOLTIP]巨作[/TIP]與[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]資源[/TIP]的[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]+4[icon:YIELD_CULTURE]文化值和[icon:YIELD_SCIENCE]科技值。每有一個[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_FACTORY_RESOURCES_TOOLTIP]工廠資源[/TIP]指派至聚落，[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]便+3[icon:YIELD_PRODUCTION]生產力。</Text>
     </Replace>
-    <Replace Tag="LOC_TRAIT_GREAT_BRITAIN_ABILITY_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>[BLIST][LI]購買[icon:CITY_BUILDING_LIST][B]建築[/B]時[B]+25%[icon:YIELD_GOLD]金幣效益[/B]，且建造[icon:CITY_BUILDING_LIST][B]建築[/B]時[B]+25%[icon:YIELD_PRODUCTION]生產力效益[/B]。[LI]將[icon:YIELD_TOWNS][B]城鎮[/B]轉化為[icon:YIELD_CITIES][B]城市[/B]的花費[B]增加50%[/B]。[LI]建造[B]巴特西發電廠[/B]時[B]+30%[icon:YIELD_PRODUCTION]生產力效益[/B]。[/LIST]</Text>
+    <Replace Tag="LOC_TRAIT_GREAT_BRITAIN_ABILITY_AQ_DESCRIPTION" Language="zh_Hant_HK">
+      <Text>[BLIST][LI] 購買[B][icon:CITY_BUILDING_LIST][TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建築[/TIP][/B]時[B]+25%[icon:YIELD_GOLD]金幣效益[/B]，且建造[B][icon:CITY_BUILDING_LIST][TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建築[/TIP][/B]時[B]+25%[icon:YIELD_PRODUCTION]生產力效益[/B]。[LI]將[B][icon:YIELD_TOWNS][TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]城鎮[/TIP][/B]轉變為[B][icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP][/B]的花費[B]多50%[/B]。[BLIST][LI]相鄰於水岸的[B]啟用中[icon:CITY_BUILDING_LIST][TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建築[/TIP][/B][B]+1[icon:YIELD_SCIENCE]科技值[/B]。[/BLIST][/BLIST]</Text>
+    </Replace>
+    <Replace Tag="LOC_TRAIT_GREAT_BRITAIN_ABILITY_EX_DESCRIPTION" Language="zh_Hant_HK">
+      <Text>[BLIST][LI] 購買[B][icon:CITY_BUILDING_LIST][TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建築[/TIP][/B]時[B]+25%[icon:YIELD_GOLD]金幣效益[/B]，且建造[B][icon:CITY_BUILDING_LIST][TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建築[/TIP][/B]時[B]+25%[icon:YIELD_PRODUCTION]生產力效益[/B]。[LI]將[B][icon:YIELD_TOWNS][TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]城鎮[/TIP][/B]轉變為[B][icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP][/B]的花費[B]多50%[/B]。[BLIST][LI]相鄰於水岸的[B]啟用中[icon:CITY_BUILDING_LIST][TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建築[/TIP][/B][B]+2[icon:YIELD_SCIENCE]科技值[/B]。[/BLIST][/BLIST]</Text>
+    </Replace>
+    <Replace Tag="LOC_TRAIT_GREAT_BRITAIN_ABILITY_MO_DESCRIPTION" Language="zh_Hant_HK">
+      <Text>[BLIST][LI] 購買[B][icon:CITY_BUILDING_LIST][TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建築[/TIP][/B]時[B]+25%[icon:YIELD_GOLD]金幣效益[/B]，且建造[B][icon:CITY_BUILDING_LIST][TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建築[/TIP][/B]時[B]+25%[icon:YIELD_PRODUCTION]生產力效益[/B]。[LI]將[B][icon:YIELD_TOWNS][TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]城鎮[/TIP][/B]轉變為[B][icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP][/B]的花費[B]多50%[/B]。[BLIST][LI]相鄰於水岸的[B]啟用中[icon:CITY_BUILDING_LIST][TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建築[/TIP][/B][B]+3[icon:YIELD_SCIENCE]科技值[/B]。[/BLIST][LI]建造[B]巴特西發電廠[/B]時[B]+30%[icon:YIELD_PRODUCTION]生產力效益[/B]。[/BLIST]</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_GREAT_BRITAIN_ABILITY_NAME" Language="zh_Hant_HK">
       <Text>世界的工坊</Text>
@@ -653,13 +683,13 @@
       <Text>英國特色探索者。當你使用「挖掘文物」時，距離[icon:NOTIFICATION_SELECT_CAPITAL]首都每有一格距離，便+20[icon:YIELD_CULTURE]文化值。</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_REVENGE_2_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>3階英國特色重型海軍單位。+5[icon:NAR_REW_COMBAT]戰鬥力、遠程戰鬥力，以及轟擊戰鬥力。位於與攻擊目標相鄰格位之敵方單位需承受目標所受25%的傷害。</Text>
+      <Text>3階英國特色重型[TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]海上單位[/TIP]。+5[icon:NAR_REW_COMBAT][TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]戰鬥力、遠程戰鬥力，以及轟擊戰鬥力[/TIP]。位於與攻擊目標相鄰格位之敵方單位需承受目標所受25%的傷害。</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_REVENGE_BASE_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>英國特色重型海軍單位。+5[icon:NAR_REW_COMBAT]戰鬥力、遠程戰鬥力，以及轟擊戰鬥力。位於與攻擊目標相鄰格位之敵方單位需承受目標所受25%的傷害。</Text>
+      <Text>英國特色重型[TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]海上單位[/TIP]。+5[icon:NAR_REW_COMBAT][TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]戰鬥力、遠程戰鬥力，以及轟擊戰鬥力[/TIP]。位於與攻擊目標相鄰格位之敵方單位需承受目標所受25%的傷害。</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_REVENGE_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>2階英國特色重型海軍單位。+5[icon:NAR_REW_COMBAT]戰鬥力、遠程戰鬥力，以及轟擊戰鬥力。位於與攻擊目標相鄰格位之敵方單位需承受目標所受25%的傷害。</Text>
+      <Text>2階英國特色重型[TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]海上單位[/TIP]。+5[icon:NAR_REW_COMBAT][TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]戰鬥力、遠程戰鬥力，以及轟擊戰鬥力[/TIP]。位於與攻擊目標相鄰格位之敵方單位需承受目標所受25%的傷害。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_FLEET_COMMANDERS_DESCRIPTION" Language="zh_Hant_HK">
       <Text>擁有兩名[B]艦隊指揮官[/B]。</Text>
@@ -676,6 +706,12 @@
     <Replace Tag="LOC_UNLOCK_PLAY_AS_BENJAMIN_FRANKLIN_GREAT_BRITAIN_TOOLTIP" Language="zh_Hant_HK">
       <Text>[B]大不列顛[/B]和[B]班傑明‧富蘭克林[/B]在策略上互補。</Text>
     </Replace>
+    <Replace Tag="LOC_UNLOCK_PLAY_AS_GREAT_BRITAIN_DESCRIPTION" Language="zh_Hant_HK">
+      <Text>扮演[B]大不列顛[/B]。</Text>
+    </Replace>
+    <Replace Tag="LOC_UNLOCK_PLAY_AS_GREAT_BRITAIN_GREAT_BRITAIN_TOOLTIP" Language="zh_Hant_HK">
+      <Text>[B]大不列顛[/B]得以歷經各個時代而長存。</Text>
+    </Replace>
     <Replace Tag="LOC_UNLOCK_PLAY_AS_NORMAN_GREAT_BRITAIN_TOOLTIP" Language="zh_Hant_HK">
       <Text>[B]諾曼人[/B]曾是[B]大不列顛[/B]在文明方面的其中一個前身。</Text>
     </Replace>
@@ -683,19 +719,28 @@
       <Text>[B]羅馬[/B]曾是[B]大不列顛[/B]在文明方面的其中一個前身。</Text>
     </Replace>
     <Replace Tag="LOC_WONDER_BATTERSEA_POWER_STATION_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>+4[icon:YIELD_PRODUCTION]生產力。每次你訓練海軍單位時多獲得一個（但購買不算）。不分時代。必須放置在相鄰於海岸處。</Text>
+      <Text>+4[icon:YIELD_PRODUCTION]生產力。每次你訓練[TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]海上單位[/TIP]時再多獲得一個[TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]海上單位[/TIP]（但購買不算）。[TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]不分時代[/TIP]。必須放置在相鄰於水岸的陸地上。</Text>
     </Replace>
     <Replace Tag="LOC_WONDER_BATTERSEA_POWER_STATION_TOOLTIP" Language="zh_Hant_HK">
-      <Text>每次你訓練海軍單位時多獲得一個。[N]必須放置在相鄰於海岸處。</Text>
+      <Text>每次你訓練[TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]海上單位[/TIP]時再多獲得一個[TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]海上單位[/TIP]。[N]必須放置在相鄰於水岸的陸地上。</Text>
     </Replace>
-    <Replace Tag="LOC_MOD_SPLENDID_ISOLATION_POSITIVE_GOLD_CS_PREVIEW" Language="zh_Hant_HK">
-      <Text>+{1_Amount}光榮孤立</Text>
+    <Replace Tag="LOC_TRADITION_EAST_INDIA_COMPANY_I_NAME" Language="zh_Hant_HK">
+      <Text>東印度公司I</Text>
     </Replace>
-    <Replace Tag="LOC_TRADITION_EAST_INDIA_COMPANY_NAME" Language="zh_Hant_HK">
-      <Text>東印度公司</Text>
+    <Replace Tag="LOC_TRADITION_EAST_INDIA_COMPANY_II_NAME" Language="zh_Hant_HK">
+      <Text>東印度公司II</Text>
     </Replace>
-    <Replace Tag="LOC_TRADITION_NO_ETERNAL_ALLIES_NAME" Language="zh_Hant_HK">
-      <Text>盟友無恆常</Text>
+    <Replace Tag="LOC_TRADITION_GREAT_BRITAIN_SYNCRETISM_ANTIQUITY_NAME" Language="zh_Hant_HK">
+      <Text>皇家學會I</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_GREAT_BRITAIN_SYNCRETISM_EXPLORATION_NAME" Language="zh_Hant_HK">
+      <Text>皇家學會II</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_NO_ETERNAL_ALLIES_I_NAME" Language="zh_Hant_HK">
+      <Text>盟友無恆常I</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_NO_ETERNAL_ALLIES_II_NAME" Language="zh_Hant_HK">
+      <Text>盟友無恆常II</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_PROCEEDINGS_NAME" Language="zh_Hant_HK">
       <Text>論文集</Text>

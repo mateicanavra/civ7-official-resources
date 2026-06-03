@@ -11,9 +11,9 @@
 	</TypeQuotes>
 	<Constructibles>
 		<!--Civ Unique Improvements-->
-		<Row ConstructibleType="IMPROVEMENT_HIDDEN_FORTRESS" Name="LOC_IMPROVEMENT_HIDDEN_FORTRESS_NAME" Description="LOC_IMPROVEMENT_HIDDEN_FORTRESS_DESCRIPTION" Tooltip="LOC_IMPROVEMENT_HIDDEN_FORTRESS_TOOLTIP" ConstructibleClass="IMPROVEMENT" Cost="90" Population="1" Age="AGE_EXPLORATION"/>
+		<Row ConstructibleType="IMPROVEMENT_HIDDEN_FORTRESS" Name="LOC_IMPROVEMENT_HIDDEN_FORTRESS_NAME" Description="LOC_IMPROVEMENT_HIDDEN_FORTRESS_DESCRIPTION" Tooltip="LOC_IMPROVEMENT_HIDDEN_FORTRESS_TOOLTIP" ConstructibleClass="IMPROVEMENT" Cost="90" Population="1" Age="AGE_EXPLORATION" CostProgressionModel="COST_PROGRESSION_PREVIOUS_COPIES_CITY" CostProgressionParam1="45"/>
 		<!--Wonders-->
-		<Row ConstructibleType="WONDER_RILA_MONASTERY" Name="LOC_WONDER_RILA_MONASTERY_NAME" Description="LOC_WONDER_RILA_MONASTERY_DESCRIPTION" Tooltip="LOC_WONDER_RILA_MONASTERY_TOOLTIP" ConstructibleClass="WONDER" Cost="550" Population="0" ImmuneDamage="true" Age="AGE_EXPLORATION" RequiresUnlock="true"/>
+		<Row ConstructibleType="WONDER_RILA_MONASTERY" Name="LOC_WONDER_RILA_MONASTERY_NAME" Description="LOC_WONDER_RILA_MONASTERY_DESCRIPTION" Tooltip="LOC_WONDER_RILA_MONASTERY_TOOLTIP" ConstructibleClass="WONDER" Cost="750" Population="0" ImmuneDamage="true" Age="AGE_EXPLORATION" RequiresUnlock="true"/>
 	</Constructibles>
 	<Improvements>
 		<!--Civ Unique Improvements-->
@@ -45,10 +45,10 @@
 		<Row ConstructibleType="WONDER_RILA_MONASTERY" YieldType="YIELD_CULTURE" YieldChange="4"/>
 	</Constructible_YieldChanges>
 	<Constructible_Adjacencies>
-		<Row ConstructibleType="IMPROVEMENT_HIDDEN_FORTRESS" YieldChangeId="TsartvieHiddenFortressMountainCulture" RequiresActivation="true"/>
+		<Row ConstructibleType="IMPROVEMENT_HIDDEN_FORTRESS" YieldChangeId="HiddenFortressMountainCulture"/>
 	</Constructible_Adjacencies>
 	<Adjacency_YieldChanges>
-		<Row ID="TsartvieHiddenFortressMountainCulture" YieldType="YIELD_CULTURE" YieldChange="2" TilesRequired="1" AdjacentTerrain="TERRAIN_MOUNTAIN"/>
+		<Row ID="HiddenFortressMountainCulture" YieldType="YIELD_CULTURE" YieldChange="2" TilesRequired="1" AdjacentTerrain="TERRAIN_MOUNTAIN"/>
 	</Adjacency_YieldChanges>
 	<Constructible_Plunders>
 		<!--Civ Unique Improvements-->

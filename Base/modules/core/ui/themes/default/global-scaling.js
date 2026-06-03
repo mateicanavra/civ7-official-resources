@@ -11,8 +11,17 @@ const DEFAULT_W = 1920;
 const DEFAULT_H = 1080;
 const DEFAULT_ASPECT_W = 16;
 const DEFAULT_ASPECT_H = 9;
-const SCALING_RES_W = [3840, 2560];
-const SCALING_RES_H = [2160, 1440];
+function getScalingResolutions() {
+  const SCALING_RES_W = [3840, 2560];
+  const SCALING_RES_H = [2160, 1440];
+  const SCALING_RES_W_DESKTOP = [3840];
+  const SCALING_RES_H_DESKTOP = [2160];
+  if (UI.getViewExperience() == UIViewExperience.Desktop) {
+    return [SCALING_RES_W_DESKTOP, SCALING_RES_H_DESKTOP];
+  } else {
+    return [SCALING_RES_W, SCALING_RES_H];
+  }
+}
 const BASE_CURSOR_SIZE = 32;
 const MEDIA_RES_H = 1e3;
 const MEDIA_RES_W = MEDIA_RES_H * DEFAULT_ASPECT_W / DEFAULT_ASPECT_H;
@@ -51,6 +60,7 @@ class GlobalScalingImpl {
   mediaFontSizesCssRulesList;
   fontScale = Configuration.getUser().uiFontScale;
   autoScale = Configuration.getUser().uiAutoScale;
+  autoScaleAdjustment = Configuration.getUser().uiAutoScaleAdjustment;
   currentScalePx = BASE_FONT_SIZE;
   currentBasis = 0;
   readyResolve = null;
@@ -178,6 +188,13 @@ class GlobalScalingImpl {
       this.globalScale = newScale;
       requiresUpdate = true;
     }
+    if (UI.supports(UISupportedFeature.AutoScaleAdjustment)) {
+      const newAdjustment = Configuration.getUser().uiAutoScaleAdjustment;
+      if (newAdjustment != this.autoScaleAdjustment) {
+        this.autoScaleAdjustment = newAdjustment;
+        requiresUpdate = true;
+      }
+    }
     if (requiresUpdate) {
       this.updateScales(true);
     }
@@ -243,6 +260,9 @@ class GlobalScalingImpl {
   getCurrentScale() {
     return this.autoScale ? this.currentBasis * 100 : this.globalScale;
   }
+  getCurrentScalePx() {
+    return this.currentScalePx;
+  }
   clearCssRuleList(ruleList) {
     while (ruleList.cssRules.length > 0) {
       ruleList.deleteRule(0);
@@ -273,8 +293,20 @@ class GlobalScalingImpl {
       const height = window.innerHeight;
       const wRatio = width / DEFAULT_ASPECT_W;
       const hRatio = height / DEFAULT_ASPECT_H;
+      const [SCALING_RES_W, SCALING_RES_H] = getScalingResolutions();
       this.currentBasis = hRatio <= wRatio ? this.calculateBasis(height, DEFAULT_H, MEDIA_RES_H, SCALING_RES_H) : this.calculateBasis(width, DEFAULT_W, MEDIA_RES_W, SCALING_RES_W);
-      newScalePx = this.currentBasis * BASE_FONT_SIZE;
+      let adjustmentFactor = 1;
+      if (height >= 1e3) {
+        if (UI.supports(UISupportedFeature.AutoScaleAdjustment)) {
+          let configValue = Configuration.getUser().uiAutoScaleAdjustment;
+          if (typeof configValue !== "number" || configValue < 50 || configValue > 150) {
+            configValue = 100;
+          }
+          adjustmentFactor = configValue / 100;
+          adjustmentFactor = Math.max(0.5, Math.min(1.5, adjustmentFactor));
+        }
+      }
+      newScalePx = this.currentBasis * BASE_FONT_SIZE * adjustmentFactor;
       newCursorScalePx = this.currentBasis * BASE_CURSOR_SIZE;
     } else {
       newScalePx = this.globalScale / 100 * BASE_FONT_SIZE;

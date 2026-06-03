@@ -7,6 +7,9 @@
 		<Row Tag="LOC_DRIVER_OUT_OF_DATE_MESSAGE">
 			<Text>"The graphics drivers on this machine might be out of date.  We recommend using graphics drivers with official support for Sid Meier's Civilization VII for the best experience.  More information can be found at https://support.2k.com/"</Text>
 		</Row>
+		<Row Tag="LOC_CPU_NOT_SUPPORTED_MESSAGE">
+			<Text>The CPU in this machine does not support AVX2 or is too old. Unfortunately, you must upgrade your hardware to run Sid Meier's Civilization VII.  More information can be found at https://support.2k.com/</Text>
+		</Row>
 		<Row Tag="LOC_DRIVER_OUT_OF_DATE_EXIT">
 			<Text>"Exit"</Text>
 		</Row>
@@ -174,6 +177,9 @@
 		<Row Tag="LOC_UI_MP_LANDING_WIRELESS">
 			<Text>Wireless</Text>
 		</Row>
+		<Row Tag="LOC_UI_MP_LANDING_HOTSEAT">
+			<Text>Hotseat</Text>
+		</Row>
 		<Row Tag="LOC_UI_MP_LANDING_MATCHMAKE_GAME">
 			<Text>QUICK JOIN</Text>
 		</Row>
@@ -282,6 +288,9 @@
 		</Row>
 		<Row Tag="LOC_MP_JOIN_PARENT_PERMISSIONS_DISABLED">
 			<Text>2K Account not authorized, please ask a parent or guardian for permission to play online.</Text>
+		</Row>
+		<Row Tag="LOC_MP_JOIN_MULTIPLAYER_RESTRICTED">
+			<Text>Multiplayer is restricted on your device.</Text>
 		</Row>
 		<Row Tag="LOC_MP_JOINING_GAME_TITLE">
 			<Text>Joining a game</Text>
@@ -630,6 +639,9 @@
 		<Row Tag="LOC_GROUPID_ADVANCEDOPTIONS">
 			<Text>Advanced</Text>
 		</Row>
+		<Row Tag="LOC_GROUPID_CIVSELECTION">
+			<Text>Civilization Selection</Text>
+		</Row>
 		<Row Tag="LOC_GROUPID_DISASTER_CRISIS_OPTIONS">
 			<Text>Disaster and Crisis Settings</Text>
 		</Row>
@@ -671,8 +683,14 @@
 		<Row Tag="LOC_UI_MP_GAME_RULES_TITLE">
 			<Text>Multiplayer Rules and Mods</Text>
 		</Row>
+		<Row Tag="LOC_UI_HOTSEAT_GAME_RULES_TITLE">
+			<Text>Hotseat Rules and Mods</Text>
+		</Row>
 		<Row Tag="LOC_UI_MP_GAME_RULES_NO_MODS_TITLE">
 			<Text>Multiplayer Rules</Text>
+		</Row>
+		<Row Tag="LOC_UI_HOTSEAT_GAME_RULES_NO_MODS_TITLE">
+			<Text>Hotseat Rules</Text>
 		</Row>
 		<Row Tag="LOC_UI_MP_HEADER_RULES">
 			<Text>Rules</Text>
@@ -717,7 +735,7 @@
 			<Text>None</Text>
 		</Row>
 		<Row Tag="LOC_UI_MP_GAME_RULE_TURN_MODE_SINGLEPLAYER">
-			<Text>Singleplayer</Text>
+			<Text>Sequential</Text>
 		</Row>
 		<Row Tag="LOC_UI_MP_GAME_RULE_TURN_MODE_SIMULTANEOUS">
 			<Text>Simultaneous</Text>
@@ -767,6 +785,9 @@
 		</Row>
 		<Row Tag="LOC_APPLE_ARCADE_LEGAL_DOCUMENT_LINK_PP">
 			<Text>Privacy Policy</Text>
+		</Row>
+		<Row Tag="LOC_APPLE_ARCADE_MIN_SPECS_NOT_MET_BODY">
+			<Text>Unfortunately your device does not meet the minimum specifications for this game.</Text>
 		</Row>
 	</EnglishText>
 </Database>

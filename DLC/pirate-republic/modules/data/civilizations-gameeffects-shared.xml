@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+	<!-- ==================================================	-->
+	<!--				Civ-Specific Traits					-->
+	<!-- ==================================================	-->
+	<!-- Shared -->
+	<Modifier id="MOD_CIV_NAVAL_UNITS_FOREIGN_TERRITORY" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ADJUST_UNIT_ENTER_FOREIGN_LANDS">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+				<Argument name="Tag">UNIT_CLASS_NAVAL, UNIT_CLASS_FLEET_COMMANDER, UNIT_CLASS_NAVAL_TREASURE</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Enter">true</Argument>
+	</Modifier>
+	<Modifier id="MOD_CIV_PIRATE_REPUBLIC_CAPTURE_NAVAL_GDP" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_VICTORY_TRACKER_POINTS">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_HAS_UNIT_OF_DOMAIN_KILL_UNIT">
+				<Argument name="Domain">DOMAIN_SEA</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="VictoryType">VICTORY_ECONOMIC_MODERN</Argument>
+		<Argument name="Points">5</Argument>
+		<Argument name="ItemName">LOC_TRAIT_PIRATE_REPUBLIC_ABILITY_NAME</Argument>
+		<Argument name="TypeData">CIVILIZATION</Argument>
+	</Modifier>
+	<Modifier id="MOD_CIV_PIRATE_REPUBLIC_FLEET_COMMANDER_LAND_CLAIM_CHARGE" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_GRANT_UNIT_ABILITY_CHARGE" permanent="true" subject-stack-limit="1">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+				<Argument name="Tag">UNIT_CLASS_FLEET_COMMANDER</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_COMMANDER_HAS_X_PROMOTIONS">
+				<Argument name="Amount">1</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="ChargedAbilityType">CHARGED_ABILITY_LAND_CLAIM</Argument>
+		<Argument name="Amount">1</Argument>
+	</Modifier>
+	<Modifier id="MOD_CIV_PIRATE_REPUBLIC_CAPTURE_SETTLERS" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ADJUST_UNIT_COMBAT_CAPTURE"> 
+		<Argument name="CapturesUnitWithTag">UNIT_CLASS_CREATE_TOWN</Argument>
+	</Modifier>
+	<Modifier id="MOD_CIV_PIRATE_REPUBLIC_DISABLE_SETTLERS" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_DISABLE_BUILD_UNIT" run-once="true" permanent="true"> 
+		<Argument name="UnitType">UNIT_SETTLER</Argument>
+		<Argument name="PermanentlyDisabled">true</Argument>
+	</Modifier>
+	<!-- Antiquity -->
+	<Modifier id="PIRATE_AQ_MOD_FREE_SETTLER" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_GRANT_UNIT" permanent="true">
+		<Argument name="UnitType">UNIT_SETTLER</Argument>
+		<Argument name="Amount">1</Argument>
+		<String context="Description">LOC_PIRATE_AQ_MOD_FREE_SETTLER_DESCRIPTION</String>
+	</Modifier>
+</GameEffects>

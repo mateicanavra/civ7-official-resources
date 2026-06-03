@@ -1,27 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
 <GameEffects xmlns="GameEffects">
-	<!-- ==================================================	-->
-	<!--	MODERN							-->
-	<!-- ==================================================	-->
-	<Modifier id="HIMAL_MOD_MOUNTAIN_CULTURE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ACTIVATE_CONSTRUCTIBLE_WAREHOUSE_YIELD">
-		<Argument name="ConstructibleWarehouseYield">HimalPalaceMountainCulture, HimalCityHallMountainCulture</Argument>
-		<String context="Description">LOC_TRADITION_HIMAL_DESCRIPTION</String>
+	<Modifier id="MOD_UNLOCK_NEPAL_SYNCRETISM_ANTIQUITY" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
+		<Argument name="Tradition">TRADITION_NEPAL_SYNCRETISM_ANTIQUITY</Argument>
 	</Modifier>
-	<Modifier id="MAITRI_SANADHI_MOD_ENDEAVOR_DISCOUNT" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_ADJUST_DIPLOMATIC_ACTION_TYPE_EFFICIENCY">
+	<Modifier id="MOD_UNLOCK_NEPAL_SYNCRETISM_EXPLORATION" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
+		<Argument name="Tradition">TRADITION_NEPAL_SYNCRETISM_EXPLORATION</Argument>
+	</Modifier>
+	<!-- ==================================================	-->
+	<!--	Himal							-->
+	<!-- ==================================================	-->
+	<Modifier id="HIMAL_I_MOUNTAIN_CULTURE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_ATTACH_MODIFIERS">
+		<Argument name="ModifierId">ATTACH_HIMAL_I_MOUNTAIN_CULTURE_CAPITAL, ATTACH_HIMAL_I_MOUNTAIN_CULTURE_OTHER</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_HIMAL_I_MOUNTAIN_CULTURE_CAPITAL" collection="COLLECTION_CITY_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<OwnerRequirements>
+            <Requirement type="REQUIREMENT_CITY_IS_CAPITAL">
+            </Requirement>
+		</OwnerRequirements>	
+		<SubjectRequirements>
+            <Requirement type="REQUIREMENT_PLOT_TERRAIN_TYPE_MATCHES">
+                <Argument name="TerrainType">TERRAIN_MOUNTAIN</Argument>
+            </Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_HIMAL_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_HIMAL_I_MOUNTAIN_CULTURE_OTHER" collection="COLLECTION_CITY_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<OwnerRequirements>
+            <Requirement type="REQUIREMENT_CITY_IS_CAPITAL" inverse="true">
+            </Requirement>
+		</OwnerRequirements>	
+		<SubjectRequirements>
+            <Requirement type="REQUIREMENT_PLOT_TERRAIN_TYPE_MATCHES">
+                <Argument name="TerrainType">TERRAIN_MOUNTAIN</Argument>
+            </Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_HIMAL_TOOLTIP</Argument>
+	</Modifier>	
+	<Modifier id="HIMAL_MOUNTAIN_CULTURE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_ATTACH_MODIFIERS">
+		<Argument name="ModifierId">ATTACH_HIMAL_MOUNTAIN_CULTURE_CAPITAL, ATTACH_HIMAL_MOUNTAIN_CULTURE_OTHER</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_HIMAL_MOUNTAIN_CULTURE_CAPITAL" collection="COLLECTION_CITY_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<OwnerRequirements>
+            <Requirement type="REQUIREMENT_CITY_IS_CAPITAL">
+            </Requirement>
+		</OwnerRequirements>	
+		<SubjectRequirements>
+            <Requirement type="REQUIREMENT_PLOT_TERRAIN_TYPE_MATCHES">
+                <Argument name="TerrainType">TERRAIN_MOUNTAIN</Argument>
+            </Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount">4</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_HIMAL_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_HIMAL_MOUNTAIN_CULTURE_OTHER" collection="COLLECTION_CITY_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<OwnerRequirements>
+            <Requirement type="REQUIREMENT_CITY_IS_CAPITAL" inverse="true">
+            </Requirement>
+		</OwnerRequirements>	
+		<SubjectRequirements>
+            <Requirement type="REQUIREMENT_PLOT_TERRAIN_TYPE_MATCHES">
+                <Argument name="TerrainType">TERRAIN_MOUNTAIN</Argument>
+            </Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_HIMAL_TOOLTIP</Argument>
+	</Modifier>
+	<!-- ==================================================	-->
+	<!--	Maitri Sandhi							-->
+	<!-- ==================================================	-->
+	<Modifier id="MAITRI_SANDHI_I_MOD_ENDEAVOR_DISCOUNT" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_ADJUST_DIPLOMATIC_ACTION_TYPE_EFFICIENCY">
+		<SubjectRequirements>
+			<Requirement inverse="true" type="REQUIREMENT_PLAYER_HAS_FEWEST_SETTLEMENTS"/>
+		</SubjectRequirements>
+		<Argument name="ActionGroupType">DIPLOMACY_ACTION_GROUP_ENDEAVOR</Argument>
+		<Argument name="Percent">10</Argument>
+	</Modifier>
+	<Modifier id="MAITRI_SANDHI_I_MOD_ENDEAVOR_DISCOUNT_FEWEST_SETTLEMENTS" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_ADJUST_DIPLOMATIC_ACTION_TYPE_EFFICIENCY">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_HAS_FEWEST_SETTLEMENTS"/>
+		</SubjectRequirements>
+		<Argument name="ActionGroupType">DIPLOMACY_ACTION_GROUP_ENDEAVOR</Argument>
+		<Argument name="Percent">25</Argument>
+	</Modifier>
+	<Modifier id="MAITRI_SANDHI_MOD_ENDEAVOR_DISCOUNT" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_ADJUST_DIPLOMATIC_ACTION_TYPE_EFFICIENCY">
 		<SubjectRequirements>
 			<Requirement inverse="true" type="REQUIREMENT_PLAYER_HAS_FEWEST_SETTLEMENTS"/>
 		</SubjectRequirements>
 		<Argument name="ActionGroupType">DIPLOMACY_ACTION_GROUP_ENDEAVOR</Argument>
 		<Argument name="Percent">20</Argument>
-		<String context="Description">LOC_TRADITION_MAITRI_SANADHI_DESCRIPTION</String>
 	</Modifier>
-	<Modifier id="MAITRI_SANADHI_MOD_ENDEAVOR_DISCOUNT_FEWEST_SETTLEMENTS" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_ADJUST_DIPLOMATIC_ACTION_TYPE_EFFICIENCY">
+	<Modifier id="MAITRI_SANDHI_MOD_ENDEAVOR_DISCOUNT_FEWEST_SETTLEMENTS" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_ADJUST_DIPLOMATIC_ACTION_TYPE_EFFICIENCY">
 		<SubjectRequirements>
 			<Requirement type="REQUIREMENT_PLAYER_HAS_FEWEST_SETTLEMENTS"/>
 		</SubjectRequirements>
 		<Argument name="ActionGroupType">DIPLOMACY_ACTION_GROUP_ENDEAVOR</Argument>
 		<Argument name="Percent">50</Argument>
 	</Modifier>
+	<!-- ==================================================	-->
+	<!--	Tundikhel										-->
+	<!-- ==================================================	-->
 	<Modifier id="TUNDIKHEL_MOD_MOUNTAIN_COMBAT_NOT_TERRITORY" collection="COLLECTION_PLAYER_COMBAT" effect="EFFECT_ADJUST_UNIT_STRENGTH_MODIFIER">
 		<SubjectRequirements>
 			<Requirement type="REQUIREMENT_PLOT_ADJACENT_TERRAIN_TYPE_MATCHES">
@@ -31,7 +114,6 @@
 		</SubjectRequirements>
 		<Argument name="Amount">3</Argument>
 		<String context="Preview">LOC_TRADITION_TUNDIKHEL_NAME</String>
-		<String context="Description">LOC_TRADITION_TUNDIKHEL_DESCRIPTION</String>
 	</Modifier>
 	<Modifier id="TUNDIKHEL_MOD_MOUNTAIN_COMBAT_TERRITORY" collection="COLLECTION_PLAYER_COMBAT" effect="EFFECT_ADJUST_UNIT_STRENGTH_MODIFIER">
 		<SubjectRequirements>
@@ -43,4 +125,43 @@
 		<Argument name="Amount">6</Argument>
 		<String context="Preview">LOC_TRADITION_TUNDIKHEL_NAME</String>
 	</Modifier>
+	<Modifier id="TUNDIKHEL_MOD_MOUNTAIN_FORTIFICATION" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_FORTIFICATION_CONSTRUCTION_TIME">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_ADJACENT_TERRAIN_TYPE_MATCHES">
+				<Argument name="TerrainType">TERRAIN_MOUNTAIN</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">-1</Argument>
+	</Modifier>
+	<!-- ==================================================	-->
+	<!--	Sagarmatha										-->
+	<!-- ==================================================	-->
+	<Modifier id="MOD_SAGARMATHA_BUILDINGS_MOUNTAIN_ADJACENCY" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ACTIVATE_CONSTRUCTIBLE_ADJACENCY">
+		<Argument name="ConstructibleAdjacency">SagarmathaWildcardFoodBuildingMountain, SagarmathaWildcardScienceBuildingMountain</Argument>
+	</Modifier>
+	<!-- ==================================================	-->
+	<!--	Syncretism					-->
+	<!-- ==================================================	-->
+    <Modifier id="NEPAL_SYNCRETISM_ANTIQUITY_WAREHOUSE_CULTURE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD">
+        <Argument name="YieldType">YIELD_CULTURE</Argument>
+        <Argument name="Amount">1</Argument>
+        <Argument name="Tag">WAREHOUSE</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_NEPAL_SYNCRETISM_TOOLTIP</Argument>
+    </Modifier>
+    <Modifier id="NEPAL_SYNCRETISM_EXPLORATION_WAREHOUSE_CULTURE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD">
+        <Argument name="YieldType">YIELD_CULTURE</Argument>
+        <Argument name="Amount">2</Argument>
+        <Argument name="Tag">WAREHOUSE</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_NEPAL_SYNCRETISM_TOOLTIP</Argument>
+    </Modifier>
+	<Modifier id="NEPAL_SYNCRETISM_MOUNTAIN_INFLUENCE" collection="COLLECTION_PLAYER_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<SubjectRequirements>
+            <Requirement type="REQUIREMENT_PLOT_TERRAIN_TYPE_MATCHES">
+                <Argument name="TerrainType">TERRAIN_MOUNTAIN</Argument>
+            </Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_NEPAL_SYNCRETISM_TOOLTIP</Argument>
+	</Modifier>	
 </GameEffects>

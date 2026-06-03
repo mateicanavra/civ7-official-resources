@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- NOTE: These are copies - the real implementation should use a shared database -->
+<Database>
+	<!-- ========================== -->
+	<!-- Nepal -->
+	<!-- ========================== -->
+	<Traditions>
+		<Row TraditionType="TRADITION_HIMAL" Name="LOC_TRADITION_HIMAL_NAME" Description="LOC_TRADITION_HIMAL_DESCRIPTION" TraitType="TRAIT_NEPAL" AgeType="AGE_MODERN" CultureSlotType="TRADITION_CULTURE_SLOT" ObsoletesTraditionType="TRADITION_HIMAL_I"/>
+		<Row TraditionType="TRADITION_HIMAL_I" Name="LOC_TRADITION_HIMAL_I_NAME" Description="LOC_TRADITION_HIMAL_I_DESCRIPTION" TraitType="TRAIT_NEPAL" AgeType="AGE_ANTIQUITY" CultureSlotType="TRADITION_CULTURE_SLOT"/>
+		<Row TraditionType="TRADITION_MAITRI_SANDHI" Name="LOC_TRADITION_MAITRI_SANDHI_NAME" Description="LOC_TRADITION_MAITRI_SANDHI_DESCRIPTION" TraitType="TRAIT_NEPAL" AgeType="AGE_MODERN" CultureSlotType="TRADITION_CULTURE_SLOT" ObsoletesTraditionType="TRADITION_MAITRI_SANDHI_I"/>
+		<Row TraditionType="TRADITION_MAITRI_SANDHI_I" Name="LOC_TRADITION_MAITRI_SANDHI_I_NAME" Description="LOC_TRADITION_MAITRI_SANDHI_I_DESCRIPTION" TraitType="TRAIT_NEPAL" AgeType="AGE_EXPLORATION" CultureSlotType="TRADITION_CULTURE_SLOT"/>
+		<Row TraditionType="TRADITION_SAGARMATHA" Name="LOC_TRADITION_SAGARMATHA_NAME" Description="LOC_TRADITION_SAGARMATHA_DESCRIPTION" TraitType="TRAIT_NEPAL" AgeType="AGE_MODERN" CultureSlotType="TRADITION_CULTURE_SLOT"/>
+		<Row TraditionType="TRADITION_TUNDIKHEL" Name="LOC_TRADITION_TUNDIKHEL_NAME" Description="LOC_TRADITION_TUNDIKHEL_DESCRIPTION" TraitType="TRAIT_NEPAL" AgeType="AGE_MODERN" CultureSlotType="TRADITION_CULTURE_SLOT"/>
+		<Row TraditionType="TRADITION_NEPAL_SYNCRETISM_ANTIQUITY" Name="LOC_TRADITION_NEPAL_SYNCRETISM_ANTIQUITY_NAME" Description="LOC_TRADITION_NEPAL_SYNCRETISM_ANTIQUITY_DESCRIPTION" AgeType="AGE_ANTIQUITY" CultureSlotType="TRADITION_CULTURE_SLOT" TraitType="TRAIT_NEPAL" IgnoreInitializeUnlock="true" AllowInitializeAdvancedStart="true"/>
+		<Row TraditionType="TRADITION_NEPAL_SYNCRETISM_EXPLORATION" Name="LOC_TRADITION_NEPAL_SYNCRETISM_EXPLORATION_NAME" Description="LOC_TRADITION_NEPAL_SYNCRETISM_EXPLORATION_DESCRIPTION" AgeType="AGE_EXPLORATION" CultureSlotType="TRADITION_CULTURE_SLOT" TraitType="TRAIT_NEPAL" IgnoreInitializeUnlock="true" ObsoletesTraditionType="TRADITION_NEPAL_SYNCRETISM_ANTIQUITY" AllowInitializeAdvancedStart="true"/>
+	</Traditions>
+	<ProgressionTreeNodes>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_NEPAL_GORKHAPATRA" ProgressionTree="TREE_CIVICS_MO_NEPAL" Cost="3000" Name="LOC_CIVIC_GORKHAPATRA_NAME" IconString="cult_nepal"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_NEPAL_JYUMDO_BAGHA" ProgressionTree="TREE_CIVICS_MO_NEPAL" Cost="2000" Name="LOC_CIVIC_JYUMDO_BAGHA_NAME" IconString="cult_nepal"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_NEPAL_SINGHA_DURBAR" ProgressionTree="TREE_CIVICS_MO_NEPAL" Cost="2000" Name="LOC_CIVIC_SINGHA_DURBAR_NAME" IconString="cult_nepal"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_NEPAL_ORIGINS" ProgressionTree="TREE_CIVICS_AQ_TEST_OF_TIME" Cost="150" Name="LOC_NODE_CIVIC_AQ_NEPAL_ORIGINS_NAME" IconString="cult_nepal" CanSteal="false"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_NEPAL_RENAISSANCE" ProgressionTree="TREE_CIVICS_EX_TEST_OF_TIME" Cost="800" Name="LOC_NODE_CIVIC_EX_NEPAL_RENAISSANCE_NAME" IconString="cult_nepal" CanSteal="false"/>
+	</ProgressionTreeNodes>
+	<ProgressionTreeNodeUnlocks>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_NEPAL_GORKHAPATRA" TargetKind="KIND_TRADITION" TargetType="TRADITION_HIMAL" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_NEPAL_GORKHAPATRA" TargetKind="KIND_TRADITION" TargetType="TRADITION_SAGARMATHA" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_NEPAL_JYUMDO_BAGHA" TargetKind="KIND_TRADITION" TargetType="TRADITION_TUNDIKHEL" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_NEPAL_SINGHA_DURBAR" TargetKind="KIND_TRADITION" TargetType="TRADITION_MAITRI_SANDHI" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_NEPAL_ORIGINS" TargetKind="KIND_TRADITION" TargetType="TRADITION_HIMAL_I"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_NEPAL_RENAISSANCE" TargetKind="KIND_TRADITION" TargetType="TRADITION_MAITRI_SANDHI_I"/>
+	</ProgressionTreeNodeUnlocks>
+</Database>

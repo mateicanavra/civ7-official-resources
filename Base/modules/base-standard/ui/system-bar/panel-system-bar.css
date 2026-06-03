@@ -63,6 +63,13 @@ Based on Robert Penner's easing equations
   width: 100%;
 }
 
+@media (experience: mobile) {
+  .ps-bar-multiplayer-code.ps-btn {
+    width: 2.3333333333rem;
+    height: 2.3333333333rem;
+  }
+}
+
 .ps-spacer {
   position: relative;
   width: 1.5em;
@@ -121,6 +128,11 @@ Based on Robert Penner's easing equations
   align-items: center;
   padding-left: 0.2222222222rem;
   padding-right: 0.4444444444rem;
+}
+@media (experience: mobile) {
+  .ps-content-wrapper-multiplayer {
+    padding-right: 1.1111111111rem;
+  }
 }
 
 .radial-menu-mode .ps-content-wrapper-multiplayer.focused {

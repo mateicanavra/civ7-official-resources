@@ -1,4 +1,5 @@
 import { g_LandmassFractal, g_CenterExponent, g_IgnoreStartSectorPctFromCtr, g_FlatTerrain, g_OceanTerrain } from './map-globals.js';
+import { wouldCreateCluster } from './resource-generator.js';
 
 function needHumanNearEquator() {
   const uiMapSize = GameplayMap.getMapSize();
@@ -473,8 +474,9 @@ function replaceIslandResources(iWidth, iHeight, zResourceClassType) {
             let resourceChosen = ResourceTypes.NO_RESOURCE;
             let resourceChosenIndex = 0;
             for (let iI = 0; iI < resources.length; iI++) {
-              if (resources[iI] != resourceAtLocation) {
-                if (ResourceBuilder.canHaveResource(iX, iY, resources[iI], true)) {
+              const newResource = resources[iI];
+              if (newResource != resourceAtLocation) {
+                if (ResourceBuilder.canHaveResource(iX, iY, resources[iI], true) && !wouldCreateCluster(iX, iY, newResource)) {
                   if (resourceChosen == ResourceTypes.NO_RESOURCE) {
                     resourceChosen = resources[iI];
                     resourceChosenIndex = resources[iI];
@@ -516,6 +518,93 @@ function replaceIslandResources(iWidth, iHeight, zResourceClassType) {
       }
     }
   }
+}
+function auditMinimumResourcesPlacement(iWidth, iHeight) {
+  const landmassIds = /* @__PURE__ */ new Set();
+  const actualCountsByLandmass = /* @__PURE__ */ new Map();
+  const actualIslandCounts = /* @__PURE__ */ new Map();
+  const getActualCounts = (landmassId) => {
+    if (!actualCountsByLandmass.has(landmassId)) {
+      actualCountsByLandmass.set(landmassId, new Array(GameInfo.Resources.length).fill(0));
+    }
+    return actualCountsByLandmass.get(landmassId);
+  };
+  const getActualIslandCounts = (landmassId) => {
+    if (!actualIslandCounts.has(landmassId)) {
+      actualIslandCounts.set(landmassId, new Array(GameInfo.Resources.length).fill(0));
+    }
+    return actualIslandCounts.get(landmassId);
+  };
+  const islandResourceClasses = /* @__PURE__ */ new Set();
+  const mapType = Configuration.getMapValue("Name");
+  for (const option of GameInfo.MapIslandBehavior) {
+    if (option.MapType === mapType && option.ResourceClassType) {
+      islandResourceClasses.add(option.ResourceClassType);
+    }
+  }
+  for (let y = 0; y < iHeight; y++) {
+    for (let x = 0; x < iWidth; x++) {
+      const landmassId = GameplayMap.getLandmassRegionId(x, y);
+      if (landmassId == LandmassRegion.LANDMASS_REGION_NONE || landmassId == LandmassRegion.LANDMASS_REGION_ANY) continue;
+      landmassIds.add(landmassId);
+      const resource = GameplayMap.getResourceType(x, y);
+      if (resource != ResourceTypes.NO_RESOURCE) {
+        getActualCounts(landmassId)[resource]++;
+        if (GameplayMap.hasPlotTag(x, y, PlotTags.PLOT_TAG_ISLAND)) {
+          getActualIslandCounts(landmassId)[resource]++;
+        }
+      }
+    }
+  }
+  console.log("Landmass Layout:");
+  for (let iY = iHeight - 1; iY >= 0; iY--) {
+    let str = "";
+    if (iY % 2 == 1) {
+      str += " ";
+    }
+    for (let iX = 0; iX < iWidth; iX++) {
+      const landmassId = GameplayMap.getLandmassRegionId(iX, iY);
+      let landmass = landmassId == 255 ? "." : landmassId;
+      str += landmass + " ";
+    }
+    console.log(str);
+  }
+  let unmetTotal = 0;
+  for (const landmassId of landmassIds) {
+    for (let i = 0; i < GameInfo.Resources.length; i++) {
+      const resourceInfo = GameInfo.Resources.lookup(i);
+      if (!resourceInfo) {
+        continue;
+      }
+      const assignedLandmass = ResourceBuilder.getResourceLandmass(i);
+      const allowedOnLandmass = assignedLandmass == LandmassRegion.LANDMASS_REGION_ANY || assignedLandmass != LandmassRegion.LANDMASS_REGION_NONE && assignedLandmass % landmassId == 0;
+      if (!allowedOnLandmass)
+        continue;
+      let minimumResourcePlacementModifier = getMinimumResourcePlacementModifier();
+      if (minimumResourcePlacementModifier == void 0) {
+        minimumResourcePlacementModifier = 0;
+      }
+      const required = resourceInfo.MinimumPerHemisphere > 0 ? resourceInfo.MinimumPerHemisphere + minimumResourcePlacementModifier : 0;
+      if (required <= 0 || !ResourceBuilder.isResourceRequiredForAge(i, Game.age))
+        continue;
+      const isIslandResource = islandResourceClasses.has(resourceInfo.ResourceClassType);
+      if (isIslandResource && (landmassId == LandmassRegion.LANDMASS_REGION_EAST || landmassId == LandmassRegion.LANDMASS_REGION_WEST))
+        continue;
+      const actual = isIslandResource ? getActualIslandCounts(landmassId)[i] : getActualCounts(landmassId)[i];
+      if (actual < required) {
+        unmetTotal++;
+        console.log(
+          "Resource minimum unmet: " + (isIslandResource ? "[ISLAND] " : "") + Locale.compose(resourceInfo.Name) + " | landmassId=" + landmassId + " | required=" + required + " | actual=" + actual
+        );
+      } else {
+        console.log(
+          // MET
+          "Resource minimum met: " + (isIslandResource ? "[ISLAND] " : "") + Locale.compose(resourceInfo.Name) + " | landmassId=" + landmassId + " | required=" + required + " | actual=" + actual
+        );
+      }
+    }
+  }
+  console.log("Resource minimum unmet total: " + unmetTotal);
 }
 function isAdjacentToLand(iX, iY) {
   if (GameplayMap.hasPlotTag(iX, iY, PlotTags.PLOT_TAG_ISLAND)) {
@@ -709,5 +798,5 @@ function markLandmassRegionId(continent, id) {
   }
 }
 
-export { applyCoastalErosion, applyCoastalErosionAdjustingForStartSectors, clearContinent, createIslands, createOrganicLandmasses, determineXShift, determineYShift, getContinentEdgeHeightBump, getDistanceFromContinentCenter, getDistanceToClosestStart, getHeightAdjustingForStartSector, getMaxDistanceFromContinentCenter, getMinimumResourcePlacementModifier, getSector, getSectorRegion, isAdjacentToLand, isAdjacentToNaturalWonder, isCliff, isOceanAccess, markLandmassRegionId, needHumanNearEquator, placeRuralDistrict, removeRuralDistrict, replaceIslandResources, shiftPlotTypesBy, shiftTerrain, shuffle };
+export { applyCoastalErosion, applyCoastalErosionAdjustingForStartSectors, auditMinimumResourcesPlacement, clearContinent, createIslands, createOrganicLandmasses, determineXShift, determineYShift, getContinentEdgeHeightBump, getDistanceFromContinentCenter, getDistanceToClosestStart, getHeightAdjustingForStartSector, getMaxDistanceFromContinentCenter, getMinimumResourcePlacementModifier, getSector, getSectorRegion, isAdjacentToLand, isAdjacentToNaturalWonder, isCliff, isOceanAccess, markLandmassRegionId, needHumanNearEquator, placeRuralDistrict, removeRuralDistrict, replaceIslandResources, shiftPlotTypesBy, shiftTerrain, shuffle };
 //# sourceMappingURL=map-utilities.js.map

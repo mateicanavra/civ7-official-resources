@@ -6,7 +6,7 @@
     </Modifier>
     <Modifier id="10090C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_ADJUST_PLAYER_OR_CITY_UNIT_PURCHASE_EFFICIENCY" run-once="false" permanent="true">
         <Argument name="Percent">15</Argument>
-        <Argument name="UnitClass">UNIT_CLASS_NAVAL</Argument>
+        <Argument name="UnitTag">UNIT_CLASS_NAVAL</Argument>
     </Modifier>
     <Modifier id="10090D_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_NARRATIVE" run-once="false" permanent="true">
         <Argument name="YieldType">YIELD_DIPLOMACY</Argument>
@@ -352,6 +352,7 @@
     <RequirementSet id="REQSET_LEADER_CHAIN_1267B_NARRATIVE">
         <Requirement type="REQUIREMENT_PLAYER_TRADITION_SLOTS">
             <Argument name="MinUnlocked">8</Argument>
+            <Argument name="SlotTypes">POLICY_CULTURE_SLOT,TRADITION_CULTURE_SLOT</Argument>
         </Requirement>
     </RequirementSet>
 </GameEffects>

@@ -1,768 +1,16 @@
-import { A as Audio } from '../../../core/ui/audio-base/audio-support.chunk.js';
-import { F as FxsActivatable } from '../../../core/ui/components/fxs-activatable.chunk.js';
-import FocusManager from '../../../core/ui/input/focus-manager.js';
+import { Audio } from '../../../core/ui/audio-base/audio-support.js';
+import { FxsActivatable } from '../../../core/ui/components/fxs-activatable.js';
 import { InterfaceMode } from '../../../core/ui/interface-modes/interface-modes.js';
-import { P as Panel } from '../../../core/ui/panel-support.chunk.js';
-import { C as ComponentID } from '../../../core/ui/utilities/utilities-component-id.chunk.js';
-import { a as formatStringArrayAsNewLineText } from '../../../core/ui/utilities/utilities-core-textprovider.chunk.js';
-import { Icon } from '../../../core/ui/utilities/utilities-image.chunk.js';
-import { U as UpdateGate } from '../../../core/ui/utilities/utilities-update-gate.chunk.js';
-import { V as ViewManager } from '../../../core/ui/views/view-manager.chunk.js';
-import { UnitActionCategory } from '../unit-actions/unit-actions.js';
+import Panel from '../../../core/ui/panel-support.js';
+import { ComponentID } from '../../../core/ui/utilities/utilities-component-id.js';
+import { formatStringArrayAsNewLineText } from '../../../core/ui/utilities/utilities-core-textprovider.js';
+import { Icon } from '../../../core/ui/utilities/utilities-image.js';
+import UpdateGate from '../../../core/ui/utilities/utilities-update-gate.js';
+import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
+import CommanderInteract from '../commander-interact/model-commander-interact.js';
 import { UnitActionHandlers } from '../unit-interact/unit-action-handlers.js';
 import UnitSelection from '../unit-selection/unit-selection.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/dialog-box/manager-dialog-box.chunk.js';
-import '../../../core/ui/context-manager/display-queue-manager.js';
-import '../../../core/ui/input/action-handler.js';
-import '../../../core/ui/input/cursor.js';
-import '../../../core/ui/input/input-support.chunk.js';
-import '../../../core/ui/input/focus-support.chunk.js';
-import '../../../core/ui/components/fxs-slot.chunk.js';
-import '../../../core/ui/spatial/spatial-manager.js';
-import '../../../core/ui/context-manager/context-manager.js';
-import '../../../core/ui/input/plot-cursor.js';
-import '../../../core/ui/utilities/utilities-dom.chunk.js';
-import '../../../core/ui/utilities/utilities-layout.chunk.js';
-import '../lenses/layer/operation-target-layer.js';
-import '../../../core/ui/lenses/lens-manager.chunk.js';
-import '../unit-rename/unit-rename.js';
-import '../../../core/ui/components/fxs-textbox.chunk.js';
-import '../world-input/world-input.js';
-import '../../../core/ui/utilities/utilities-network.js';
-import '../../../core/ui/shell/mp-legal/mp-legal.js';
-import '../../../core/ui/events/shell-events.chunk.js';
-import '../../../core/ui/navigation-tray/model-navigation-tray.chunk.js';
-import '../../../core/ui/utilities/utilities-liveops.js';
-import '../../../core/ui/utilities/utilities-network-constants.chunk.js';
-import '../diplomacy/diplomacy-events.js';
-import '../interface-modes/support-unit-map-decoration.chunk.js';
-import '../utilities/utilities-overlay.chunk.js';
-
-class CommanderInteractModel {
-  _registeredComponents = [];
-  armyCommanders = [];
-  availableReinforcementIDs = [];
-  _index = 0;
-  // Model Data
-  _name = "";
-  _experience = null;
-  _hasExperience = false;
-  _hasPackedUnits = false;
-  _hasActions = false;
-  _hasData = false;
-  _currentArmyCommander = null;
-  _availableReinforcements = [];
-  _commanderActions = [];
-  _OnUpdate;
-  updateGate = new UpdateGate(() => {
-    this.update();
-  });
-  constructor() {
-    engine.whenReady.then(() => {
-      this.updateGate.call("init");
-      engine.on("UnitSelectionChanged", this.onUnitSelectionChanged, this);
-    });
-  }
-  set updateCallback(callback) {
-    this._OnUpdate = callback;
-  }
-  registerListener(c) {
-    if (this._registeredComponents.length == 0) {
-      engine.on("UnitAddedToMap", this.onUnitAddedRemoved, this);
-      engine.on("UnitRemovedFromMap", this.onUnitAddedRemoved, this);
-      engine.on("UnitAddedToArmy", this.onUnitArmyChange, this);
-      engine.on("UnitRemovedFromArmy", this.onUnitArmyChange, this);
-      engine.on("UnitExperienceChanged", this.onUnitExperienceChanged, this);
-    }
-    this._registeredComponents.push(c);
-  }
-  unregisterListener(c) {
-    const raiseIndex = this._registeredComponents.findIndex((listener) => {
-      return listener == c;
-    });
-    this._registeredComponents.splice(raiseIndex, 1);
-    if (this._registeredComponents.length == 0) {
-      engine.off("UnitAddedToMap", this.onUnitAddedRemoved, this);
-      engine.off("UnitRemovedFromMap", this.onUnitAddedRemoved, this);
-      engine.off("UnitAddedToArmy", this.onUnitArmyChange, this);
-      engine.off("UnitRemovedFromArmy", this.onUnitArmyChange, this);
-      engine.off("UnitExperienceChanged", this.onUnitExperienceChanged, this);
-    }
-  }
-  get name() {
-    return this._name;
-  }
-  get experience() {
-    return this._experience;
-  }
-  get hasExperience() {
-    return this._hasExperience;
-  }
-  get hasPackedUnits() {
-    return this._hasPackedUnits;
-  }
-  get hasActions() {
-    return this._hasActions;
-  }
-  get hasData() {
-    return this._hasData;
-  }
-  get currentArmyCommander() {
-    return this._currentArmyCommander;
-  }
-  get availableReinforcements() {
-    return this._availableReinforcements;
-  }
-  get commanderActions() {
-    return this._commanderActions;
-  }
-  update() {
-    this.availableReinforcementIDs = [];
-    this._availableReinforcements = [];
-    const localPlayerID = GameContext.localPlayerID;
-    const player = Players.get(localPlayerID);
-    if (!player) {
-      console.error("model-commander-interact: Local player not found");
-      return;
-    }
-    const playerUnits = player.Units;
-    if (playerUnits == void 0) {
-      return;
-    }
-    this.updateArmyData();
-    this._hasData = this.armyCommanders.length > 0;
-    if (!this._hasData) {
-      this._name = "LOC_UI_COMMANDER_NO_AVAILABLE";
-      this._hasPackedUnits = false;
-      this._hasActions = false;
-      this._hasExperience = false;
-      return;
-    }
-    this._currentArmyCommander = this.armyCommanders[this._index];
-    this._name = this._currentArmyCommander.commander.name;
-    this._hasPackedUnits = this._currentArmyCommander.packedUnits.length > 0;
-    const commanderLocation = this._currentArmyCommander.commander.location;
-    if (commanderLocation.x >= 0 && commanderLocation.y >= 0 && this.currentArmyCommander?.commander.isReadyToSelect) {
-      UI.Player.selectUnit(this._currentArmyCommander.commander.id);
-    }
-    const experience = this._currentArmyCommander.commanderExperience;
-    if (!experience) {
-      this._hasExperience = false;
-      this._experience = null;
-    } else {
-      this._hasExperience = true;
-      const currentExperience = experience.experiencePoints;
-      const experienceToNextLevel = experience.experienceToNextLevel;
-      const normalizedXpProgress = Math.min(1, currentExperience / experienceToNextLevel);
-      const experienceProgress = normalizedXpProgress * 100 + "%";
-      const experienceCaption = `${Locale.compose("LOC_PROMOTION_EXPERIENCE")}: ${currentExperience}/${experienceToNextLevel}`;
-      this._experience = {
-        progress: experienceProgress,
-        caption: experienceCaption
-      };
-    }
-    if (!this.currentArmyCommander) {
-      console.error("model-commander-interact: current army commander not set");
-      return;
-    }
-    for (let i = 0; i < this.availableReinforcementIDs.length; i++) {
-      const unitID = this.availableReinforcementIDs[i];
-      const args = {};
-      const result = Game.UnitOperations.canStart(
-        unitID,
-        "UNITOPERATION_REINFORCE_ARMY",
-        args,
-        false
-      );
-      if (result.Success && result.Units) {
-        const commanderId = this.currentArmyCommander.commander.localId;
-        const unitId = result.Units.find((id) => {
-          return id == commanderId;
-        });
-        if (!unitId) {
-          continue;
-        }
-      }
-      const unit = Units.get(unitID);
-      if (!unit) {
-        console.error("model-commander-interact: No unit with id: " + unitID);
-        return;
-      }
-      const playerArmies = player.Armies;
-      if (!playerArmies) {
-        console.error("model-commander-interact: No PlayerArmy defined for player with id: " + player.id);
-        return;
-      }
-      const reinforcementPathPlots = playerArmies.getUnitReinforcementPath(unitID, localPlayerID);
-      const reinforcementETA = playerArmies.getUnitReinforcementETA(unitID, localPlayerID);
-      const startLocation = playerArmies.getUnitReinforcementStartLocation(unitID, localPlayerID);
-      const armyId = playerArmies.getUnitReinforcementCommanderId(unitID, localPlayerID);
-      const armyCommander = this.armyCommanders.find((c) => {
-        return c.army.localId == armyId;
-      });
-      const unitCurrentLocation = unit.location;
-      const pathToCommander = Units.getPathTo(
-        unitID,
-        this.currentArmyCommander.commander.location
-      );
-      const turnsToCurrentCommander = Math.max(...pathToCommander.turns, 0);
-      const location = startLocation.x >= 0 && startLocation.y >= 0 ? startLocation : unitCurrentLocation;
-      const arrivalTime = reinforcementETA > 0 ? reinforcementETA : turnsToCurrentCommander;
-      const reinforcementPath = {
-        plots: reinforcementPathPlots,
-        turns: [reinforcementETA],
-        obstacles: []
-      };
-      const path = pathToCommander.plots.length > 0 ? pathToCommander : reinforcementPath;
-      const reinforcementItem = {
-        unitID,
-        armyID: armyId,
-        startLocation: location,
-        path,
-        arrivalTime,
-        commanderToReinforce: armyCommander?.commander,
-        isTraveling: !unit.isOnMap
-      };
-      this._availableReinforcements.push(reinforcementItem);
-    }
-    const commander = this.currentArmyCommander.commander || null;
-    if (!commander) {
-      console.warn("model-commander-interact: Couldn't find commander unit");
-      return;
-    }
-    const actions = this.getUnitActions(commander);
-    const commanderActions = actions.filter((action) => {
-      return action.UICategory == UnitActionCategory.COMMAND || action.type == "UNITCOMMAND_PROMOTE";
-    });
-    commanderActions.forEach((action, index) => action.priority = index);
-    this._commanderActions = commanderActions;
-    this._hasActions = this.commanderActions.length > 0;
-    if (this._OnUpdate) {
-      this._OnUpdate(this);
-    }
-    this._registeredComponents.forEach((c) => {
-      c.updateCallback();
-    });
-  }
-  setName(name) {
-    this._name = name;
-    if (this._OnUpdate) {
-      this._OnUpdate(this);
-    }
-  }
-  setArmyCommander(unitID) {
-    const selectedIndex = this.armyCommanders.findIndex((c) => {
-      return ComponentID.isMatch(c.commander.id, unitID);
-    });
-    if (selectedIndex != void 0 && selectedIndex >= 0) {
-      this._index = selectedIndex;
-      this.update();
-    }
-  }
-  getCommanderReinforcementItem(unitID) {
-    return this.availableReinforcements.find((r) => {
-      return ComponentID.isMatch(unitID, r.unitID);
-    });
-  }
-  // update reinforcements, packed units, and commander
-  updateArmyData() {
-    this.armyCommanders = [];
-    const player = Players.get(GameContext.localPlayerID);
-    if (!player) {
-      console.error("model-commander-interact: Local player not found");
-      return;
-    }
-    const playerUnits = player.Units;
-    if (playerUnits == void 0) {
-      return;
-    }
-    const unitIDs = playerUnits.getUnitIds();
-    for (const unitID of unitIDs) {
-      const unit = Units.get(unitID);
-      const args = {};
-      const result = Game.UnitOperations.canStart(
-        unitID,
-        "UNITOPERATION_REINFORCE_ARMY",
-        args,
-        false
-      );
-      const reinforcementId = player.Armies?.getUnitReinforcementCommanderId(
-        unitID,
-        GameContext.localPlayerID
-      );
-      if (result.Success || reinforcementId != -1) {
-        this.availableReinforcementIDs.push(unitID);
-      }
-      if (unit != null && unit.isCommanderUnit) {
-        const commanderExperience = unit.Experience;
-        const armyId = unit.armyId;
-        const army = Armies.get(armyId);
-        if (!army) {
-          console.error("model-commander-interact: No army defined for commander with id: " + unitID);
-          return;
-        }
-        const armyUnitIds = army.getUnitIds();
-        const packedUnits = armyUnitIds.reduce((result2, unitId) => {
-          const unit2 = Units.get(unitId);
-          if (unit2) {
-            result2.push(unit2);
-          }
-          return result2;
-        }, new Array());
-        this.armyCommanders.push({
-          commander: unit,
-          commanderExperience,
-          army,
-          packedUnits
-        });
-      }
-    }
-  }
-  onUnitAddedRemoved(data) {
-    if (data.unit.owner == GameContext.localPlayerID) {
-      this.updateGate.call("onUnitAddedRemoved");
-    }
-  }
-  onUnitArmyChange(data) {
-    if (ComponentID.isValid(data.initiatingUnit)) {
-      const unit = Units.get(data.initiatingUnit);
-      if (!unit) {
-        console.error(
-          "model-commander-interact: onUnitArmyChange: Unable to retrieve unit object for unit with id: " + data.initiatingUnit.id.toString()
-        );
-        return;
-      }
-      this.updateGate.call("onUnitArmyChange");
-    }
-  }
-  onUnitExperienceChanged(data) {
-    if (ComponentID.isMatch(data.unit, UI.Player.getHeadSelectedUnit())) {
-      const unit = Units.get(data.unit);
-      if (!unit) {
-        console.error(
-          "model-commander-interact: onUnitExperienceChanged: Unable to retrieve unit object for unit with id: " + data.unit.id.toString()
-        );
-        return;
-      }
-      this.updateGate.call("onUnitExperienceChanged");
-    }
-  }
-  onUnitSelectionChanged(event) {
-    if (!ViewManager.isUnitSelectingAllowed) {
-      return;
-    }
-    if (event.unit.owner == GameContext.localPlayerID && event.selected) {
-      const unitComponentID = UI.Player.getHeadSelectedUnit();
-      if (!ComponentID.isValid(unitComponentID)) {
-        console.warn(
-          "model-commander-interact: onUnitSelectionChanged: Unit selected message signaled but no head selected unit!"
-        );
-        return;
-      }
-      if (ComponentID.isMatch(unitComponentID, event.unit)) {
-        const unit = Units.get(event.unit);
-        if (unit && unit.isCommanderUnit) {
-          this.updateArmyData();
-          this.setArmyCommander(event.unit);
-        }
-      }
-    }
-  }
-  getUnitActions(unit) {
-    const actions = [];
-    const processOperation = (operation, unitAbility = null) => {
-      const parameters = {
-        X: -9999,
-        // PlotCoord.Range.INVALID_X
-        Y: -9999
-        // PlotCoord.Range.INVALID_Y
-      };
-      parameters.UnitAbilityType = unitAbility ? unitAbility.$index : -1;
-      if (operation.OperationType == "UNITOPERATION_WMD_STRIKE") {
-        parameters.Type = Database.makeHash("WMD_NUCLEAR_DEVICE");
-      }
-      const result = Game.UnitOperations?.canStart(
-        unit.id,
-        operation.OperationType,
-        parameters,
-        true
-      );
-      const enabled = Game.UnitOperations?.canStart(
-        unit.id,
-        operation.OperationType,
-        parameters,
-        false
-      );
-      let annotation = "";
-      switch (operation.OperationType) {
-        case "UNITOPERATION_MOVE_TO":
-          annotation = `${unit.Movement?.movementMovesRemaining.toString()}/${unit.Movement?.maxMoves.toString()}`;
-          break;
-        case "UNITOPERATION_RANGE_ATTACK":
-          annotation = unit.Combat?.attacksRemaining.toString();
-          break;
-        default:
-          annotation = "";
-          break;
-      }
-      if (result.Success) {
-        let name = "[ERR] Ability (Operation) Unknown";
-        let icon = operation.Icon;
-        if (unitAbility) {
-          const keywordAbilityDef = unitAbility.KeywordAbilityType ? GameInfo.KeywordAbilities.lookup(unitAbility.KeywordAbilityType) : null;
-          if (keywordAbilityDef?.IconString) {
-            icon = keywordAbilityDef.IconString;
-          }
-          const nameKey = unitAbility.Name ?? keywordAbilityDef?.Summary ?? "";
-          name = Locale.compose(nameKey, unitAbility.KeywordAbilityValue ?? -1);
-          let abilityDesc = "";
-          if (unitAbility.Description) {
-            if (keywordAbilityDef) {
-              abilityDesc = Locale.compose(keywordAbilityDef.Summary, unitAbility.KeywordAbilityValue ?? -1) + ": ";
-            }
-            abilityDesc += Locale.compose(unitAbility.Description, unitAbility.KeywordAbilityValue ?? -1);
-          } else if (keywordAbilityDef) {
-            abilityDesc = Locale.compose(
-              keywordAbilityDef.FullDescription,
-              unitAbility.KeywordAbilityValue ?? -1
-            );
-          }
-          if (abilityDesc) {
-            name += "<br><br>" + abilityDesc;
-          }
-        } else {
-          name = Locale.compose(operation.Description);
-        }
-        if (enabled.AdditionalDescription) {
-          const addlDescString = formatStringArrayAsNewLineText(enabled.AdditionalDescription);
-          name += "<br><p>" + addlDescString + "</p>";
-        }
-        if (!enabled.Success) {
-          if (enabled.FailureReasons) {
-            const failureString = formatStringArrayAsNewLineText(enabled.FailureReasons);
-            name += "<br><p style='color:orange;'>" + failureString + "</p>";
-          }
-        }
-        if (this.isTargetPlotOperation(operation.OperationType)) {
-          const unitAction = {
-            name,
-            icon,
-            type: operation.OperationType,
-            annotation,
-            active: enabled.Success,
-            requireConfirm: enabled.RequiresConfirmation ? enabled.RequiresConfirmation : false,
-            confirmTitle: enabled.ConfirmDialogTitle,
-            confirmBody: enabled.ConfirmDialogBody,
-            UICategory: UnitActionCategory.NONE,
-            priority: operation.PriorityInUI ? operation.PriorityInUI : 0,
-            callback: (_location) => {
-              if (enabled.Success) {
-                parameters.X = _location.x;
-                parameters.Y = _location.y;
-                Game.UnitOperations?.sendRequest(unit.id, operation.OperationType, parameters);
-              }
-            }
-          };
-          if (UnitActionHandlers.doesActionHaveHandler(operation.OperationType)) {
-            unitAction.callback = (_location) => {
-              if (enabled.Success) {
-                UnitActionHandlers.switchToActionInterfaceMode(operation.OperationType, {
-                  UnitID: unit.id
-                });
-              }
-            };
-          }
-          actions.push(unitAction);
-        } else {
-          actions.push({
-            name,
-            icon,
-            type: operation.OperationType,
-            annotation,
-            active: enabled.Success,
-            requireConfirm: enabled.RequiresConfirmation ? enabled.RequiresConfirmation : false,
-            confirmTitle: enabled.ConfirmDialogTitle,
-            confirmBody: enabled.ConfirmDialogBody,
-            UICategory: UnitActionCategory.NONE,
-            priority: operation.PriorityInUI ? operation.PriorityInUI : 0,
-            callback: (_location) => {
-              if (enabled.Success) {
-                parameters.X = _location.x;
-                parameters.Y = _location.y;
-                Game.UnitOperations?.sendRequest(unit.id, operation.OperationType, parameters);
-                InterfaceMode.switchToDefault();
-              }
-            }
-          });
-        }
-      }
-    };
-    GameInfo.UnitOperations.forEach((operation) => {
-      if (!operation.VisibleInUI) {
-        return;
-      }
-      const unitAbilities = this.getUnitAbilitiesForOperationOrCommand(
-        operation.OperationType
-      );
-      if (unitAbilities.length > 0) {
-        for (const unitAbility of unitAbilities) {
-          processOperation(operation, unitAbility);
-        }
-      } else {
-        processOperation(operation);
-      }
-    });
-    const processCommand = (command, unitAbility = null) => {
-      let parameters = {
-        X: -9999,
-        // PlotCoord.Range.INVALID_X
-        Y: -9999
-        // PlotCoord.Range.INVALID_Y
-      };
-      parameters.UnitAbilityType = unitAbility ? unitAbility.$index : -1;
-      const result = Game.UnitCommands?.canStart(unit.id, command.CommandType, parameters, true);
-      const enabled = Game.UnitCommands?.canStart(
-        unit.id,
-        command.CommandType,
-        parameters,
-        false
-      );
-      let annotation;
-      switch (command.CommandType) {
-        case "UNITCOMMAND_CONSTRUCT":
-          if (enabled.BestConstructible) {
-            parameters = {
-              ConstructibleType: enabled.BestConstructible
-            };
-          }
-          break;
-        //TODO: Convert Pack Army, Unpack Army, and Promote to always show but disabled when unavailable
-        //TODO: Make available a way to keep more actions visible but disabled, so the player is aware of what a unit can do (even if it can't be done in the current context)
-        // Always show these common Commander actions
-        case "UNITCOMMAND_PACK_ARMY":
-          if (unit.isCommanderUnit) {
-            result.Success = true;
-          }
-          break;
-        case "UNITCOMMAND_UNPACK_ARMY":
-          if (unit.isCommanderUnit) {
-            result.Success = true;
-          }
-          break;
-        // Should be able to open Promotion window regardless of whether you can promote or not
-        case "UNITCOMMAND_PROMOTE":
-          if (unit.isCommanderUnit) {
-            result.Success = true;
-            enabled.Success = true;
-          }
-          break;
-        default:
-          annotation = "";
-          break;
-      }
-      if (result.Success) {
-        let commandText = command.Description ? Locale.compose(command.Description) : "";
-        let icon = "";
-        if (unitAbility?.KeywordAbilityType) {
-          const keywordAbilityDef = GameInfo.KeywordAbilities.lookup(unitAbility.KeywordAbilityType);
-          if (keywordAbilityDef) {
-            commandText = Locale.compose(keywordAbilityDef.Summary, unitAbility.KeywordAbilityValue ?? -1);
-            icon = keywordAbilityDef.IconString ?? command.Icon;
-          } else {
-            commandText = "[ERR] Unknown Keyword Ability";
-          }
-        } else {
-          if (unitAbility?.Name) {
-            commandText = Locale.compose(unitAbility.Name);
-          }
-          icon = command.Icon;
-        }
-        if (enabled.AdditionalDescription) {
-          const addlDescString = formatStringArrayAsNewLineText(enabled.AdditionalDescription);
-          commandText += "<br><p>" + addlDescString + "</p>";
-        }
-        if (!enabled.Success) {
-          if (enabled.FailureReasons) {
-            const failureString = formatStringArrayAsNewLineText(enabled.FailureReasons);
-            commandText += "<br><p style='color:orange;'>" + failureString + "</p>";
-          }
-        } else {
-          if (enabled.BestConstructible) {
-            const constructibleInfo = GameInfo.Constructibles.lookup(
-              enabled.BestConstructible
-            );
-            if (constructibleInfo) {
-              let constructibleText = Locale.compose(constructibleInfo.Name);
-              if (constructibleInfo.Description) {
-                constructibleText += ": " + Locale.compose(constructibleInfo.Description);
-              }
-              commandText += "<br><p style='color:cyan;'>" + constructibleText + "</p>";
-            }
-          }
-        }
-        if (this.isTargetPlotOperation(command.CommandType)) {
-          const unitAction = {
-            name: commandText,
-            icon,
-            type: command.CommandType,
-            annotation,
-            active: enabled.Success,
-            requireConfirm: enabled.RequiresConfirmation ? enabled.RequiresConfirmation : false,
-            confirmTitle: enabled.ConfirmDialogTitle,
-            confirmBody: enabled.ConfirmDialogBody,
-            UICategory: UnitActionCategory.NONE,
-            priority: command.PriorityInUI ? command.PriorityInUI : 0,
-            callback: (_location) => {
-              if (enabled.Success) {
-                parameters.X = _location.x;
-                parameters.Y = _location.y;
-                Game.UnitCommands?.sendRequest(unit.id, command.CommandType, parameters);
-              }
-            }
-          };
-          if (UnitActionHandlers.doesActionHaveHandler(command.CommandType)) {
-            unitAction.callback = (_location) => {
-              if (enabled.Success) {
-                UnitActionHandlers.switchToActionInterfaceMode(command.CommandType, {
-                  UnitID: unit.id,
-                  CommandArguments: parameters
-                });
-              }
-            };
-          }
-          actions.push(unitAction);
-        } else {
-          if (UnitActionHandlers.doesActionHaveHandler(command.CommandType)) {
-            actions.push({
-              name: commandText,
-              icon,
-              type: command.CommandType,
-              annotation,
-              active: enabled.Success,
-              requireConfirm: enabled.RequiresConfirmation ? enabled.RequiresConfirmation : false,
-              confirmTitle: enabled.ConfirmDialogTitle,
-              confirmBody: enabled.ConfirmDialogBody,
-              UICategory: UnitActionCategory.NONE,
-              priority: command.PriorityInUI ? command.PriorityInUI : 0,
-              callback: (_location) => {
-                if (enabled.Success) {
-                  UnitActionHandlers.switchToActionInterfaceMode(command.CommandType, {
-                    UnitID: unit.id,
-                    CommandArguments: parameters
-                  });
-                }
-              }
-            });
-            return;
-          }
-          actions.push({
-            name: commandText,
-            icon,
-            type: command.CommandType,
-            annotation,
-            active: enabled.Success,
-            requireConfirm: enabled.RequiresConfirmation ? enabled.RequiresConfirmation : false,
-            confirmTitle: enabled.ConfirmDialogTitle,
-            confirmBody: enabled.ConfirmDialogBody,
-            UICategory: UnitActionCategory.NONE,
-            priority: command.PriorityInUI ? command.PriorityInUI : 0,
-            callback: (_location) => {
-              if (enabled.Success) {
-                parameters.X = _location.x;
-                parameters.Y = _location.y;
-                Game.UnitCommands?.sendRequest(unit.id, command.CommandType, parameters);
-                if (command.CommandType == "UNITCOMMAND_WAKE" || command.CommandType == "UNITCOMMAND_CANCEL") {
-                  const frameLimit = 5;
-                  let framesLeft = frameLimit;
-                  new Promise((resolve, reject) => {
-                    const checkWakeStatus = () => {
-                      framesLeft--;
-                      requestAnimationFrame(() => {
-                        if (Game.UnitOperations?.canStart(
-                          unit.id,
-                          "UNITOPERATION_SLEEP",
-                          parameters,
-                          true
-                        ).Success) {
-                          resolve();
-                        } else if (framesLeft <= 0) {
-                          console.error(
-                            `Could not wake unit ${unit.name} after completing action ${command.CommandType} within ${frameLimit} frame(s)`
-                          );
-                          reject();
-                        } else {
-                          checkWakeStatus();
-                        }
-                      });
-                    };
-                    checkWakeStatus();
-                  }).then(() => {
-                  }).catch(() => {
-                    InterfaceMode.switchToDefault();
-                  });
-                } else if (command.CommandType == "UNITCOMMAND_PACK_ARMY" || command.CommandType == "UNITCOMMAND_FORCE_MARCH") {
-                  FocusManager.SetWorldFocused();
-                } else {
-                  InterfaceMode.switchToDefault();
-                }
-              }
-            }
-          });
-        }
-      }
-    };
-    GameInfo.UnitCommands.forEach((command) => {
-      if (!command.VisibleInUI) {
-        return;
-      }
-      const unitAbilities = this.getUnitAbilitiesForOperationOrCommand(
-        command.CommandType
-      );
-      if (unitAbilities.length > 0) {
-        for (const unitAbility of unitAbilities) {
-          processCommand(command, unitAbility);
-        }
-      } else {
-        processCommand(command);
-      }
-    });
-    return actions;
-  }
-  /**
-   * Does a particular unit operation require a targetPlot if selected?
-   * @param type Game core unit operation as string name.
-   * @returns true if this operation requires a plot to be targeted before exectuing.
-   */
-  isTargetPlotOperation(type) {
-    if (UnitActionHandlers.doesActionHaveHandler(type.toString())) {
-      return UnitActionHandlers.doesActionRequireTargetPlot(type.toString());
-    }
-    return false;
-  }
-  //TODO - Database Definitions Collections will make this irrelevant
-  getUnitAbilitiesForOperationOrCommand(type) {
-    const results = [];
-    for (const unitAbility of GameInfo.UnitAbilities) {
-      if (unitAbility.CommandType && unitAbility.CommandType == type) {
-        results.push(unitAbility);
-      } else if (unitAbility.OperationType && unitAbility.OperationType == type) {
-        results.push(unitAbility);
-      }
-    }
-    return results;
-  }
-}
-const CommanderInteract = new CommanderInteractModel();
-engine.whenReady.then(() => {
-  const updateModel = () => {
-    engine.updateWholeModel(CommanderInteract);
-  };
-  engine.createJSModel("g_CommanderInteract", CommanderInteract);
-  CommanderInteract.updateCallback = updateModel;
-});
-
-const styles = "fs://game/base-standard/ui/army-panel/army-panel.css";
+import styles from './army-panel.scss.js';
 
 var UnitArmyPanelState = /* @__PURE__ */ ((UnitArmyPanelState2) => {
   UnitArmyPanelState2[UnitArmyPanelState2["HIDDEN"] = 0] = "HIDDEN";
@@ -772,7 +20,7 @@ var UnitArmyPanelState = /* @__PURE__ */ ((UnitArmyPanelState2) => {
 const STARTING_INNER_HTML = `
 <div class="army-panel__container-background flex">
 	<div class="army-panel__main-container relative flex w-auto p-2">
-		<fxs-vslot class="army-panel__main-column flex relative flex-col justify-start">
+		<fxs-vslot class="army-panel__main-column flex relative flex-col justify-start" focus-rule="last">
 			<fxs-hslot class="army-panel__standard-actions flex relative flex-row justify-center mb-2" ignore-prior-focus>
 			</fxs-hslot>
 			<div class="army-panel__units-background relative pointer-events-none pl-5 h-49">
@@ -844,7 +92,7 @@ class ArmyPanel extends Panel {
     switch (_state) {
       case 0 /* HIDDEN */:
         if (this._currentState == 1 /* VISIBLE */) {
-          this.Root.classList.remove("army-panel--visible", "army-panel--hidden");
+          this.Root.classList.remove("army-panel--visible");
           this.animationTimeout = setTimeout(() => {
             this.animationTimeout = null;
             requestAnimationFrame(() => this.Root.classList.add("army-panel--hidden"));
@@ -858,9 +106,11 @@ class ArmyPanel extends Panel {
           clearTimeout(this.animationTimeout);
           this.animationTimeout = null;
         }
-        this.Root.classList.remove("army-panel--visible", "army-panel--hidden");
-        requestAnimationFrame(() => this.Root.classList.add("army-panel--visible"));
-        this.Root.style.display = "flex";
+        this.Root.classList.remove("army-panel--hidden");
+        if (!this.Root.classList.contains("army-panel--visible")) {
+          requestAnimationFrame(() => this.Root.classList.add("army-panel--visible"));
+          this.Root.style.display = "flex";
+        }
         break;
       default:
         console.error(`Bad state enum of ${_state} attempting to be set to unit-actions->currentState`);
@@ -918,7 +168,9 @@ class ArmyPanel extends Panel {
       return;
     }
     CommanderInteract.registerListener({ updateCallback: this.updateArmyPanel });
-    this.Root.innerHTML = STARTING_INNER_HTML;
+    if (this.Root.innerHTML == "" || this.Root.innerHTML == null) {
+      this.Root.innerHTML = STARTING_INNER_HTML;
+    }
     this.updateArmyPanel();
     if (this.currentState == 0 /* HIDDEN */) {
       Audio.playSound("data-audio-showing", "army-panel");
@@ -987,17 +239,22 @@ class ArmyPanel extends Panel {
     if (!CommanderInteract.currentArmyCommander) {
       return;
     }
+    function selectTopRow(index) {
+      if (index < 3) return true;
+      if (index < 6) return false;
+      return index % 2 == 0;
+    }
     const currentArmy = CommanderInteract.currentArmyCommander?.packedUnits;
     for (let index = 0; index < currentArmy.length; index++) {
       this.armyButtons.push(this.createArmyUnitButton(currentArmy[index].id));
       this.setUnitButtonData(this.armyButtons[index], currentArmy[index]);
-      if (index < 3) {
+      if (selectTopRow(index)) {
         topRow.appendChild(this.armyButtons[index]);
       } else {
         bottomRow.appendChild(this.armyButtons[index]);
       }
     }
-    const reinforcementItems = CommanderInteract.availableReinforcements;
+    const reinforcementItems = CommanderInteract.currentReinforcements;
     reinforcementItems.forEach((item) => {
       if (item.isTraveling && item.commanderToReinforce && CommanderInteract.currentArmyCommander) {
         if (ComponentID.isMatch(
@@ -1006,12 +263,12 @@ class ArmyPanel extends Panel {
         )) {
           const reinforcementUnit = Units.get(item.unitID);
           if (reinforcementUnit) {
-            this.armyButtons.push(this.createArmyUnitButton(item.unitID));
-            this.setUnitButtonData(this.armyButtons[this.armyButtons.length - 1], reinforcementUnit);
-            if (this.armyButtons.length <= 3) {
-              topRow.appendChild(this.armyButtons[this.armyButtons.length - 1]);
+            const index = this.armyButtons.push(this.createArmyUnitButton(item.unitID)) - 1;
+            this.setUnitButtonData(this.armyButtons[index], reinforcementUnit);
+            if (selectTopRow(index)) {
+              topRow.appendChild(this.armyButtons[index]);
             } else {
-              bottomRow.appendChild(this.armyButtons[this.armyButtons.length - 1]);
+              bottomRow.appendChild(this.armyButtons[index]);
             }
           }
         }
@@ -1025,7 +282,7 @@ class ArmyPanel extends Panel {
           this.armyButtons[index].classList.add("locked");
         }
       }
-      if (index < 3) {
+      if (selectTopRow(index)) {
         topRow.appendChild(this.armyButtons[index]);
       } else {
         bottomRow.appendChild(this.armyButtons[index]);
@@ -1058,11 +315,7 @@ class ArmyPanel extends Panel {
             );
             const portraitPath = `url("live:/${unitType}")`;
             portraitImage.style.backgroundImage = portraitPath;
-            if (unitId.id != CommanderInteract.currentArmyCommander?.commander.id.id) {
-              portraitImage.classList.add("border", "border-primary-2");
-            } else {
-              portraitImage.classList.add("bg-black");
-            }
+            portraitImage.classList.add("border", "border-primary-2");
           }
         }
         if (unit?.Health) {
@@ -1080,6 +333,11 @@ class ArmyPanel extends Panel {
             unitHealthbar?.classList.toggle("army-panel__med-health-bar", false);
             unitHealthbar?.classList.toggle("army-panel__low-health-bar", false);
           }
+        }
+        const selectedUnitID = UI.Player.getHeadSelectedUnit();
+        if (selectedUnitID?.id == unit.id.id) {
+          newUnitButton.classList.add("focused");
+          newUnitButton.classList.add("pressed");
         }
       }
     }
@@ -1109,7 +367,7 @@ class ArmyPanel extends Panel {
         this.onButtonFocused(event);
       });
       if (unit) {
-        const reinforcementItems = CommanderInteract.availableReinforcements;
+        const reinforcementItems = CommanderInteract.currentReinforcements;
         let isTraveling = false;
         reinforcementItems.forEach((item) => {
           if (ComponentID.isMatch(item.unitID, unit.id)) {
@@ -1178,6 +436,8 @@ class ArmyPanel extends Panel {
       const selectedUnit = CommanderInteract.currentArmyCommander?.packedUnits[unitIndex];
       if (selectedUnit != void 0) {
         UI.Player.selectUnit(selectedUnit.id);
+        this.Root.querySelector("pressed")?.classList.remove("pressed");
+        event.target.classList.add("pressed");
       } else {
       }
     }
@@ -1192,7 +452,12 @@ class ArmyPanel extends Panel {
   }
   onButtonFocused(event) {
     if (event.target instanceof HTMLElement) {
-      event.target.classList.toggle("focused", event.type == "focus");
+      if (!event.target.classList.contains("focused") && event.type == "focus") {
+        event.target.classList.add("focused");
+      }
+      if (event.type == "blur") {
+        event.target.classList.remove("focused");
+      }
     }
   }
   setupArmyActions(unit) {
@@ -1279,7 +544,7 @@ class ArmyPanel extends Panel {
             parameters.Y = _location.y;
             Game.UnitCommands?.sendRequest(unit.id, command.CommandType, parameters);
             if (command.CommandType == "UNITCOMMAND_PACK_ARMY") {
-              FocusManager.SetWorldFocused();
+              FocusManager.get().clearFocus();
             } else {
               InterfaceMode.switchToDefault();
             }

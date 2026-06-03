@@ -332,7 +332,7 @@
       <Text>海上单位{1_reward}。</Text>
     </Replace>
     <Replace Tag="LOC_11112B_IMPERATIVE" Language="zh_Hans_CN">
-      <Text>掠夺3个诺曼海岸地块。</Text>
+      <Text>掠夺3个诺曼沿岸地块。</Text>
     </Replace>
     <Replace Tag="LOC_11112B_NAME" Language="zh_Hans_CN">
       <Text>确保各大海域仍在黑旗统治之下。</Text>
@@ -571,23 +571,41 @@
     <Replace Tag="LOC_12012C_NAME" Language="zh_Hans_CN">
       <Text>这是千载难逢的机会，亲眼见证他们的行动！</Text>
     </Replace>
+    <Replace Tag="LOC_TOT_30030A_COMPLETION" Language="zh_Hans_CN">
+      <Text>放牧猫咪，耕种雨水，教羊吹号，外加统领海盗。这几件事都堪称难如登天。聚拢在黑旗之下的流浪汉们，都带着本来的面目：衣衫褴褛，伤痕累累，身心俱疲……只有那股劫掠的欲望从未熄灭。</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30030A_STORYTITLE" Language="zh_Hans_CN">
+      <Text>乌合之众</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30030B_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>{1_reward}。</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30030B_NAME" Language="zh_Hans_CN">
+      <Text>来者不拒，但须让他们熟知法典——海盗所需要的，是心中的贪欲，而不是他们携带的装备。</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30030C_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>{1_reward}。</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30030C_NAME" Language="zh_Hans_CN">
+      <Text>把最差的人打发走。共和国必须有自己的标准。</Text>
+    </Replace>
     <Replace Tag="LOC_ABILITY_SLOOP_DESCRIPTION" Language="zh_Hans_CN">
       <Text>攻击后可移动。</Text>
     </Replace>
-    <Replace Tag="LOC_ARTICLES_OF_AGREEMENTS_MOD_BUCCANEER_LOOTING_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>[icon:UNIT_BUCCANEER]大海贼免费获得[icon:NAR_REW_PROMOTION]“掠夺”晋升。</Text>
+    <Replace Tag="LOC_BLACK_FLAG_STEALTH_PREVIEW" Language="zh_Hans_CN">
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_STEALTH_TOOLTIP]隐身[/TIP]，来自黑旗。</Text>
     </Replace>
     <Replace Tag="LOC_BUILDING_NAVAL_ARSENAL_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>海盗共和国特色金币建筑。+4[icon:YIELD_GOLD]金币。从资源和奇观获得+1[icon:YIELD_GOLD]金币相邻加成。无时代限制。必须放置在海岸上。</Text>
+      <Text>海盗共和国[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_BUILDING_TOOLTIP]特色金币建筑[/TIP]。+4[icon:YIELD_GOLD]金币。从[TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]资源[/TIP]和[TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]奇观[/TIP]获得+1[icon:YIELD_GOLD]金币相邻加成。必须放置在水岸上。</Text>
     </Replace>
     <Replace Tag="LOC_BUILDING_NAVAL_ARSENAL_TOOLTIP" Language="zh_Hans_CN">
-      <Text>必须放置在海岸上。[n]海盗共和国特色建筑。</Text>
+      <Text>必须放置在水岸上。[n]海盗共和国[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_BUILDING_TOOLTIP]特色建筑[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_BUILDING_NAVAL_STATION_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>海盗共和国特色生产力建筑。+5[icon:YIELD_PRODUCTION]生产力。从军事建筑、金币建筑和奇观获得+1[icon:YIELD_PRODUCTION]生产力相邻加成。无时代限制。必须放置在海岸上。无需[icon:YIELD_GOLD]金币进行维护。</Text>
+      <Text>海盗共和国[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_BUILDING_TOOLTIP]特色生产力建筑[/TIP]。+5[icon:YIELD_PRODUCTION]生产力。从军事[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建筑[/TIP]、金币[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建筑[/TIP]和[TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]奇观[/TIP]获得+1[icon:YIELD_PRODUCTION]生产力相邻加成。必须放置在水岸上。无需[icon:YIELD_GOLD]金币进行[TIP:LOC_PEDIA_CONCEPTS_MAINTENANCE_TOOLTIP]维护[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_BUILDING_NAVAL_STATION_TOOLTIP" Language="zh_Hans_CN">
-      <Text>必须放置在海岸上。[n]海盗共和国特色建筑。</Text>
+      <Text>必须放置在水岸上。[n]海盗共和国[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_BUILDING_TOOLTIP]特色建筑[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_CIVIC_ARTICLES_OF_AGREEMENT_AUTHOR" Language="zh_Hans_CN">
       <Text>匿名海盗</Text>
@@ -608,13 +626,16 @@
       <Text>“天堂？别犯傻了。听说过有海盗去那儿吗？我还是选地狱，那里才是一方乐土。 ”</Text>
     </Replace>
     <Replace Tag="LOC_CIVILIZATION_PIRATE_REPUBLIC_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>用海上单位进行的[icon:Action_Pillage][B]掠夺[/B]和[B]海岸扫荡[/B][B]+100%收益[/B]。无法生产或购买[icon:UNIT_SETTLER]开拓者，但你能俘虏其他文明的[icon:UNIT_SETTLER]开拓者。海上单位、宝藏护送队和大海贼无需[icon:WAR]宣战或开放边界即可进入其他文明的边界。 </Text>
+      <Text>海上单位获得的[B][icon:Action_Pillage]掠夺收益和[icon:Action_Heal]治疗量+100%[/B]。无法生产或购买[icon:UNIT_SETTLER]开拓者，但你能俘虏其他文明的[icon:UNIT_SETTLER]开拓者。海上单位、宝藏护送队和大海贼无需[icon:WAR]宣战或开放边界即可进入其他文明的边界。你的[TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]海上单位[/TIP]击败其他[B]单位[/B]后，+5 [icon:ECONOMIC_VP][TIP:LOC_PEDIA_CONCEPTS_GDP_TOOLTIP]GDP[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_ENEMY_OF_ALL_NATIONS_MOD_TREASURE_FLEET_CS_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>对抗[icon:UNIT_TREASURE_FLEET]宝藏护送队时所有军事单位+15[icon:NAR_REW_COMBAT]战斗力。</Text>
+      <Text>对抗[icon:UNIT_TREASURE_FLEET][TIP:LOC_PEDIA_CONCEPTS_TREASURE_CONVOY_TOOLTIP]宝藏护送队[/TIP]时所有[TIP:LOC_PEDIA_CONCEPTS_MILITARY_UNIT_TOOLTIP]军事单位[/TIP]+15[icon:NAR_REW_COMBAT][TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]战斗力[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_ENEMY_OF_ALL_NATIONS_MOD_TREASURE_FLEET_EXTRA_VP_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>俘获一个[icon:UNIT_TREASURE_FLEET]宝藏护送队单位时，额外获得1宝藏舰队点。</Text>
+      <Text>来自被俘[icon:UNIT_TREASURE_FLEET][TIP:LOC_PEDIA_CONCEPTS_TREASURE_CONVOY_TOOLTIP]宝藏护送队[/TIP]的货物点+2。</Text>
+    </Replace>
+    <Replace Tag="LOC_ENEMY_OF_ALL_NATIONS_MOD_TREASURE_FLEET_EXTRA_VP_DESCRIPTION_ALT" Language="zh_Hans_CN">
+      <Text>来自被俘[icon:UNIT_TREASURE_FLEET][TIP:LOC_PEDIA_CONCEPTS_TREASURE_CONVOY_TOOLTIP]宝藏护送队[/TIP]的货物点+100%。</Text>
     </Replace>
     <Replace Tag="LOC_LOADING_CIV_INTRO_TEXT_PIRATE_REPUBLIC" Language="zh_Hans_CN">
       <Text>嘿，兄弟！你已经与那群以海为尊的亡命之徒结为同党。拉起船锚航向大海，看看等待你的究竟是金山银山，还是绞刑台上的冰冷绳索。生死契约已然签下，恶魔之舞即将开场。</Text>
@@ -628,23 +649,29 @@
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_PIRATE_REPUBLIC_COMPLETE_HAVANA_HARBOR_NAME" Language="zh_Hans_CN">
       <Text>哈瓦那港</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_PIRATE_REPUBLIC_LEGACY_PATH_ECONOMIC_ACHIEVED_DESC" Language="zh_Hans_CN">
-      <Text>扮演海盗共和国，完成一条经济传承路径。</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_PIRATE_REPUBLIC_FOUR_MAJOR_TRIUMPHS_DESC" Language="zh_Hans_CN">
+      <Text>扮演海盗共和国，在一次巅峰时代中完成4项经济或军事主要伟业。</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_PIRATE_REPUBLIC_LEGACY_PATH_ECONOMIC_ACHIEVED_NAME" Language="zh_Hans_CN">
-      <Text>海盗共和国传承路径</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_PIRATE_REPUBLIC_FOUR_MAJOR_TRIUMPHS_NAME" Language="zh_Hans_CN">
+      <Text>海盗共和国4主要伟业</Text>
     </Replace>
     <Replace Tag="LOC_MOD_CIV_WONDER_PRODUCTION_PIRATE_REPUBLIC_DESCRIPTION" Language="zh_Hans_CN">
       <Text>作为海盗共和国的关联[icon:WONDER]奇观，+30%[icon:YIELD_PRODUCTION]生产力。</Text>
     </Replace>
-    <Replace Tag="LOC_PORTS_OF_CALL_BUCCANEER_SETTLER_CHARGE_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>[icon:UNIT_BUCCANEER]大海贼获得创建新[icon:YIELD_TOWNS]城镇的1使用次数。</Text>
+    <Replace Tag="LOC_NODE_CIVIC_AQ_PIRATE_REPUBLIC_ORIGINS_NAME" Language="zh_Hans_CN">
+      <Text>海盗起源</Text>
+    </Replace>
+    <Replace Tag="LOC_NODE_CIVIC_MO_PIRATE_REPUBLIC_MODERNIZATION_NAME" Language="zh_Hans_CN">
+      <Text>海盗共和国现代化</Text>
+    </Replace>
+    <Replace Tag="LOC_PIRATE_AQ_MOD_FREE_SETTLER_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>免费获得1个[icon:UNIT_SETTLER]开拓者。</Text>
     </Replace>
     <Replace Tag="LOC_QUARTER_HAVEN_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>海盗共和国特色城区。建造方法是将海上驻地和海上军械库放置在同一个区块中。你的池中每有1[icon:TREASURE_FLEET]宝藏资源，便+1[icon:YIELD_GOLD]金币。友方海上单位在此地块中+50[icon:Action_Heal]治疗。</Text>
+      <Text>海盗共和国[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_QUARTER_TOOLTIP]特色城区[/TIP]。建造方法是将海上驻地和海上军械库放置在同一个[TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]区块[/TIP]中。你的资源池中每有1[icon:TREASURE_FLEET][TIP:LOC_PEDIA_CONCEPTS_TREASURE_RESOURCES_TOOLTIP]宝藏资源[/TIP]，便+1[icon:YIELD_GOLD]金币。友方[TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]海上单位[/TIP]在此地块中+50[icon:Action_Heal]治疗量。</Text>
     </Replace>
     <Replace Tag="LOC_QUARTER_HAVEN_TOOLTIP" Language="zh_Hans_CN">
-      <Text>你的池中每有1[icon:TREASURE_FLEET]宝藏资源，便+1[icon:YIELD_GOLD]金币。友方海上单位在此地块中+50[icon:Action_Heal]治疗。</Text>
+      <Text>你的资源池中每有1[icon:TREASURE_FLEET][TIP:LOC_PEDIA_CONCEPTS_TREASURE_RESOURCES_TOOLTIP]宝藏资源[/TIP]，便+1[icon:YIELD_GOLD]金币。友方[TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]海上单位[/TIP]在此地块中+50[icon:Action_Heal]治疗量。</Text>
     </Replace>
     <Replace Tag="LOC_QUOTE_AUTHOR_WONDER_HAVANA_HARBOR" Language="zh_Hans_CN">
       <Text>罗伯特·路易斯·史蒂文森</Text>
@@ -652,17 +679,38 @@
     <Replace Tag="LOC_QUOTE_WONDER_HAVANA_HARBOR" Language="zh_Hans_CN">
       <Text>黄金近在咫尺时，其他一切都将被遗忘。</Text>
     </Replace>
-    <Replace Tag="LOC_TRADITION_BLACK_FLAG_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>[icon:Action_Pillage]掠夺贸易路线所获得的[icon:YIELD_GOLD]金币+100%。 </Text>
+    <Replace Tag="LOC_TRADITION_BLACK_FLAG_I_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>掠夺[TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]贸易路线[/TIP]获得的[icon:YIELD_GOLD]金币+50（根据游戏速度进行调整）。海上单位进行[icon:Action_Pillage]沿岸扫荡获得的收益和[icon:Action_Heal]治疗+50%。</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_BLACK_FLAG_II_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>掠夺[TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]贸易路线[/TIP]获得的[icon:YIELD_GOLD]金币+100（根据游戏速度进行调整）。海上单位进行[icon:Action_Pillage]沿岸扫荡获得的收益和[icon:Action_Heal]治疗+100%。[icon:UNIT_FLEET_COMMANDER][TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]舰队指挥官[/TIP]和[TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]海上单位[/TIP]在环礁上进入[TIP:LOC_PEDIA_CONCEPTS_STEALTH_TOOLTIP]隐身[/TIP]状态。</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_MERRY_LIFE_AND_A_SHORT_ONE_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>击杀一个支援单位时，获得等同于此单位[icon:YIELD_PRODUCTION]生产力花费数额的[icon:YIELD_GOLD]金币。击杀一个海上单位时，获得等同于此单位[icon:YIELD_PRODUCTION]生产力花费数额25%的[icon:YIELD_GOLD]金币。</Text>
+      <Text>击杀一个[TIP:LOC_PEDIA_CONCEPTS_SUPPORT_UNIT_TOOLTIP]支援单位[/TIP]时，获得等同于此单位[icon:YIELD_PRODUCTION]生产力花费数额的[icon:YIELD_GOLD]金币。击杀一个[TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]海上单位[/TIP]时，获得等同于此单位[icon:YIELD_PRODUCTION]生产力花费数额25%的[icon:YIELD_GOLD]金币。</Text>
     </Replace>
-    <Replace Tag="LOC_TRADITION_PRESS_GANGS_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>每拥有一名[icon:UNIT_FLEET_COMMANDER]舰队指挥官，生产海上单位时便+50%[icon:YIELD_PRODUCTION]生产力效用。</Text>
+    <Replace Tag="LOC_TRADITION_PIRATE_REPUBLIC_SYNCRETISM_ANTIQUITY_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>处于沿岸上，或与之相邻的[icon:CITY_URBAN][TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]区块[/TIP]+2[icon:YIELD_PRODUCTION]生产力。不处于沿岸上，不与之相邻的[icon:CITY_URBAN]区块-1[icon:YIELD_HAPPINESS]幸福值。</Text>
     </Replace>
-    <Replace Tag="LOC_TRAIT_PIRATE_REPUBLIC_ABILITY_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>[BLIST][LI]用海上单位进行的[icon:Action_Pillage][B]掠夺[/B]和[B]海岸扫荡[/B][B]+100%收益[/B]。[LI]无法生产或购买[icon:UNIT_SETTLER][B]开拓者[/B]，但你能俘虏其他文明的[icon:UNIT_SETTLER][B]开拓者[/B]。[LI][B]海上单位、宝藏护送队和大海贼[/B]无需[icon:WAR][B]宣战[/B]或[B]开放边界[/B]即可进入其他[B]文明[/B]的边界。[LI]建造[B]哈瓦那港[/B]时[B]+30%[icon:YIELD_PRODUCTION]生产力效用[/B]。[/LIST]</Text>
+    <Replace Tag="LOC_TRADITION_PIRATE_REPUBLIC_SYNCRETISM_MODERN_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>处于沿岸上，或与之相邻的[icon:CITY_URBAN][TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]区块[/TIP]+3[icon:YIELD_PRODUCTION]生产力。不处于沿岸上，不与之相邻的[icon:CITY_URBAN]区块-2[icon:YIELD_HAPPINESS]幸福值。</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_PIRATE_REPUBLIC_SYNCRETISM_TOOLTIP" Language="zh_Hans_CN">
+      <Text>海岸兄弟会</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_PRESS_GANGS_I_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>生产轻型海上单位时+100%[icon:YIELD_PRODUCTION]生产力和[icon:YIELD_GOLD]金币效用。[icon:UNIT_FLEET_COMMANDER][TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]舰队指挥官[/TIP]免费获得[icon:NAR_REW_PROMOTION][TIP:LOC_PROMOTION_FLEET_LOOTING_DESCRIPTION]“掠夺”晋升[/TIP]。</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_PRESS_GANGS_II_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>生产轻型海上单位时+150%[icon:YIELD_PRODUCTION]生产力和[icon:YIELD_GOLD]金币效用。[icon:UNIT_FLEET_COMMANDER][TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]舰队指挥官[/TIP]免费获得[icon:NAR_REW_PROMOTION][TIP:LOC_PROMOTION_FLEET_LOOTING_DESCRIPTION]“掠夺”晋升[/TIP]。</Text>
+    </Replace>
+    <Replace Tag="LOC_TRAIT_PIRATE_REPUBLIC_ABILITY_AQ_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>[BLIST][LI][B]海上单位[/B]无需[icon:WAR][B]宣战[/B]或[B]开放边界[/B]即可进入其他[B]文明[/B]的边界。[LI]无法生产或购买[icon:UNIT_SETTLER][B]开拓者[/B]，但你能俘虏其他文明的[icon:UNIT_SETTLER][B]开拓者[/B]。研究完[icon:RADIAL_TECH]“航海”和“导航”科技和[icon:RADIAL_CIVICS]“海盗起源”市政后，获得一个免费的[icon:UNIT_SETTLER][B]开拓者[/B]。[LI]你的[TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]海上单位[/TIP]击败其他[B]单位[/B]后，+5[icon:ECONOMIC_VP][TIP:LOC_PEDIA_CONCEPTS_GDP_TOOLTIP]GDP[/TIP]。[/BLIST]</Text>
+    </Replace>
+    <Replace Tag="LOC_TRAIT_PIRATE_REPUBLIC_ABILITY_EX_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>[BLIST][LI][B]海上单位、[icon:UNIT_TREASURE_FLEET]宝藏护送队和[icon:UNIT_BUCCANEER]大海贼[/B]无需[icon:WAR][B]宣战[/B]或[B]开放边界[/B]即可进入其他[B]文明[/B]的边界。[LI][B][icon:UNIT_BUCCANEER]大海贼[/B]在获得[B]首次[icon:NAR_REW_PROMOTION][TIP:LOC_PEDIA_CONCEPTS_PROMOTION_TOOLTIP]晋升[/TIP][/B]后，将获得[B]创建新[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP]的1点使用次数[/B]。[LI]无法生产或购买[icon:UNIT_SETTLER][B]开拓者[/B]，但你可以俘虏其他文明的[icon:UNIT_SETTLER][B]开拓者[/B]。[LI]你的[TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]海上单位[/TIP]击败其他[B]单位[/B]后，+5[icon:ECONOMIC_VP][TIP:LOC_PEDIA_CONCEPTS_GDP_TOOLTIP]GDP[/TIP]。[LI]建造[B]哈瓦那港[/B]时[B]+30%[icon:YIELD_PRODUCTION]生产力效用[/B]。[/BLIST]</Text>
+    </Replace>
+    <Replace Tag="LOC_TRAIT_PIRATE_REPUBLIC_ABILITY_MO_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>[BLIST][LI][B]海上单位和[icon:UNIT_FLEET_COMMANDER][TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]舰队指挥官[/TIP][/B]无需[icon:WAR][B]宣战[/B]或[B]开放边界[/B]即可进入其他[B]文明[/B]的边界。[LI][B][icon:UNIT_FLEET_COMMANDER][TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]舰队指挥官[/TIP][/B]在获得[B]首次[icon:NAR_REW_PROMOTION][TIP:LOC_PEDIA_CONCEPTS_PROMOTION_TOOLTIP]晋升[/TIP][/B]后，将获得[B]创建新[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP]的1点使用次数[/B]。[LI]无法生产或购买[icon:UNIT_SETTLER][B]开拓者[/B]，但你可以俘虏其他文明的[icon:UNIT_SETTLER][B]开拓者[/B]。[LI]你的[TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]海上单位[/TIP]击败其他[B]单位[/B]后，+5[icon:ECONOMIC_VP][TIP:LOC_PEDIA_CONCEPTS_GDP_TOOLTIP]GDP[/TIP]。[/BLIST]</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_PIRATE_REPUBLIC_ABILITY_NAME" Language="zh_Hans_CN">
       <Text>飞翔海盗邦</Text>
@@ -671,19 +719,19 @@
       <Text>海盗市政</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_BUCCANEER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>海盗共和国特色舰队指挥官。其每拥有2个[icon:NAR_REW_PROMOTION]等级，便获得1使用次数，用于“劫掠小队”行动。劫掠小队：以其他文明在遥远土地中拥有的一处相邻[icon:TREASURE_FLEET]宝藏资源为目标。此定居点立即生成一支由你掌控的[icon:UNIT_TREASURE_FLEET]宝藏护送队。在另一支宝藏护送队生成之前，不会重置回合数。</Text>
+      <Text>海盗共和国特色舰队指挥官。其每拥有2次[icon:NAR_REW_PROMOTION]晋升，便获得1使用次数，用于“劫掠小队”行动。劫掠小队：以其他文明在[TIP:LOC_PEDIA_CONCEPTS_DISTANT_LANDS_TOOLTIP]遥远土地[/TIP]中拥有的一处相邻[icon:TREASURE_FLEET][TIP:LOC_PEDIA_CONCEPTS_TREASURE_RESOURCES_TOOLTIP]宝藏资源[/TIP]为目标。此[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP]立即生成一支由你掌控的[icon:UNIT_TREASURE_FLEET][TIP:LOC_PEDIA_CONCEPTS_TREASURE_CONVOY_TOOLTIP]宝藏护送队[/TIP]。在另一支[icon:UNIT_TREASURE_FLEET][TIP:LOC_PEDIA_CONCEPTS_TREASURE_CONVOY_TOOLTIP]宝藏护送队[/TIP]生成之前，不会重置回合数。</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_SLOOP_2_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>第2阶海盗共和国轻型海上单位。拥有[icon:UNIT_CAUTION]海盗能力。可跨越其他文明的边界，可[icon:Action_Pillage]掠夺非结盟文明之间的贸易路线，并可攻击非结盟文明的单位而不进入[icon:WAR]交战状态。用单桅帆船击杀单位将获得等同于此单位[icon:NAR_REW_COMBAT]战斗力100%的[icon:YIELD_GOLD]金币。攻击后可以移动，拥有5[icon:Action_Move]移动力。</Text>
+      <Text>海盗共和国特色第2阶轻型[TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]海上单位[/TIP]。拥有[icon:UNIT_CAUTION][TIP:LOC_PEDIA_CONCEPTS_PIRATE_TOOLTIP]海盗能力[/TIP]。用单桅帆船击杀单位将获得等同于此单位[icon:NAR_REW_COMBAT][TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]战斗力[/TIP]100%的[icon:YIELD_GOLD]金币。攻击后可以移动，拥有5[icon:Action_Move]移动力。</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_SLOOP_3_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>第3阶海盗共和国轻型海上单位。拥有[icon:UNIT_CAUTION]海盗能力。可跨越其他文明的边界，可[icon:Action_Pillage]掠夺非结盟文明之间的贸易路线，并可攻击非结盟文明的单位而不进入[icon:WAR]交战状态。用单桅帆船击杀单位将获得等同于此单位[icon:NAR_REW_COMBAT]战斗力100%的[icon:YIELD_GOLD]金币。攻击后可以移动，拥有5[icon:Action_Move]移动力。</Text>
+      <Text>海盗共和国特色第3阶轻型[TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]海上单位[/TIP]。拥有[icon:UNIT_CAUTION][TIP:LOC_PEDIA_CONCEPTS_PIRATE_TOOLTIP]海盗能力[/TIP]。用单桅帆船击杀单位将获得等同于此单位[icon:NAR_REW_COMBAT][TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]战斗力[/TIP]100%的[icon:YIELD_GOLD]金币。攻击后可以移动，拥有5[icon:Action_Move]移动力。</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_SLOOP_BASE_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>海盗共和国特色轻型海上单位。拥有[icon:UNIT_CAUTION]海盗能力。可跨越其他文明的边界，可[icon:Action_Pillage]掠夺非结盟文明之间的贸易路线，并可攻击非结盟文明的单位而不进入[icon:WAR]交战状态。用单桅帆船击杀单位将获得等同于此单位[icon:NAR_REW_COMBAT]战斗力100%的[icon:YIELD_GOLD]金币。攻击后可以移动，拥有5[icon:Action_Move]移动力。</Text>
+      <Text>海盗共和国特色轻型[TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]海上单位[/TIP]。拥有[icon:UNIT_CAUTION][TIP:LOC_PEDIA_CONCEPTS_PIRATE_TOOLTIP]海盗能力[/TIP]。用单桅帆船击杀单位将获得等同于此单位[icon:NAR_REW_COMBAT][TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]战斗力[/TIP]100%的[icon:YIELD_GOLD]金币。攻击后可以移动，拥有5[icon:Action_Move]移动力。</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_SLOOP_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>第1阶海盗共和国轻型海上单位。拥有[icon:UNIT_CAUTION]海盗能力。可跨越其他文明的边界，可[icon:Action_Pillage]掠夺非结盟文明之间的贸易路线，并可攻击非结盟文明的单位而不进入[icon:WAR]交战状态。用单桅帆船击杀单位将获得等同于此单位[icon:NAR_REW_COMBAT]战斗力100%的[icon:YIELD_GOLD]金币。攻击后可以移动，拥有5[icon:Action_Move]移动力。</Text>
+      <Text>海盗共和国特色第1阶轻型[TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]海上单位[/TIP]。拥有[icon:UNIT_CAUTION][TIP:LOC_PEDIA_CONCEPTS_PIRATE_TOOLTIP]海盗能力[/TIP]。用单桅帆船击杀单位将获得等同于此单位[icon:NAR_REW_COMBAT][TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]战斗力[/TIP]100%的[icon:YIELD_GOLD]金币。攻击后可以移动，拥有5[icon:Action_Move]移动力。</Text>
     </Replace>
     <Replace Tag="LOC_UNITOPERATION_RAIDING_PARTY_DESCRIPTION" Language="zh_Hans_CN">
       <Text>在遥远土地中由其他文明所拥有的宝藏资源相邻地块上激活。此定居点立即生成一支由你掌控的宝藏护送队，在另一支宝藏护送队生成之前，回合数不会重置。</Text>
@@ -703,6 +751,9 @@
     <Replace Tag="LOC_UNLOCK_PLAY_AS_PIRATE_REPUBLIC_DESCRIPTION" Language="zh_Hans_CN">
       <Text>扮演[B]海盗共和国[/B]。</Text>
     </Replace>
+    <Replace Tag="LOC_UNLOCK_PLAY_AS_PIRATE_REPUBLIC_PIRATE_REPUBLIC_TOOLTIP" Language="zh_Hans_CN">
+      <Text>[B]海盗共和国[/B]能够在时代之间得以延续。</Text>
+    </Replace>
     <Replace Tag="LOC_UNLOCK_PLUNDERS_DESCRIPTION" Language="zh_Hans_CN">
       <Text>掠夺2条[B]贸易路线[/B]</Text>
     </Replace>
@@ -713,22 +764,34 @@
       <Text>[B]掠夺[/B]是[B]海盗共和国[/B]身份认同的重要组成部分。</Text>
     </Replace>
     <Replace Tag="LOC_WONDER_HAVANA_HARBOR_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>+3[icon:YIELD_GOLD]金币。此定居点在探索时代中生成[icon:UNIT_TREASURE_FLEET]宝藏护送队，计3宝藏舰队点。+1[icon:ATTRIBUTE_ECONOMIC]经济属性点。无时代限制。必须建造在与陆地相邻的遥远土地非湖泊海岸上。</Text>
+      <Text>+3[icon:YIELD_GOLD]金币。此[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP]在[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]探索时代[/TIP]中生成计3货物点的[icon:UNIT_TREASURE_FLEET][TIP:LOC_PEDIA_CONCEPTS_TREASURE_CONVOY_TOOLTIP]宝藏护送队[/TIP]。+1[icon:ATTRIBUTE_ECONOMIC]经济[TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]属性[/TIP]点。[TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]无时代限制[/TIP]。必须建造在与非湖泊陆地相邻的[TIP:LOC_PEDIA_CONCEPTS_DISTANT_LANDS_TOOLTIP]遥远土地[/TIP]水岸上。</Text>
     </Replace>
     <Replace Tag="LOC_WONDER_HAVANA_HARBOR_TOOLTIP" Language="zh_Hans_CN">
-      <Text>此定居点在探索时代中生成[icon:UNIT_TREASURE_FLEET]宝藏护送队，计3宝藏舰队点。+1[icon:ATTRIBUTE_ECONOMIC]经济属性点。[N]必须建造在与陆地相邻的遥远土地非湖泊海岸上。</Text>
+      <Text>此[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP]在[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]探索时代[/TIP]中生成计3货物点的[icon:UNIT_TREASURE_FLEET][TIP:LOC_PEDIA_CONCEPTS_TREASURE_CONVOY_TOOLTIP]宝藏护送队[/TIP]。+1[icon:ATTRIBUTE_ECONOMIC]经济[TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]属性[/TIP]点。[N]必须建造在与非湖泊陆地相邻的[TIP:LOC_PEDIA_CONCEPTS_DISTANT_LANDS_TOOLTIP]遥远土地[/TIP]水岸上。</Text>
     </Replace>
     <Replace Tag="LOC_ENEMY_OF_ALL_NATIONS_MOD_TREASURE_FLEET_CS_PREVIEW" Language="zh_Hans_CN">
       <Text>+{1_Amount}万国之敌</Text>
     </Replace>
-    <Replace Tag="LOC_TRADITION_BLACK_FLAG_NAME" Language="zh_Hans_CN">
-      <Text>黑旗</Text>
+    <Replace Tag="LOC_TRADITION_BLACK_FLAG_I_NAME" Language="zh_Hans_CN">
+      <Text>黑旗I</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_BLACK_FLAG_II_NAME" Language="zh_Hans_CN">
+      <Text>黑旗II</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_MERRY_LIFE_AND_A_SHORT_ONE_NAME" Language="zh_Hans_CN">
       <Text>及时行乐</Text>
     </Replace>
-    <Replace Tag="LOC_TRADITION_PRESS_GANGS_NAME" Language="zh_Hans_CN">
-      <Text>强征入伙</Text>
+    <Replace Tag="LOC_TRADITION_PIRATE_REPUBLIC_SYNCRETISM_ANTIQUITY_NAME" Language="zh_Hans_CN">
+      <Text>海岸兄弟会I</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_PIRATE_REPUBLIC_SYNCRETISM_MODERN_NAME" Language="zh_Hans_CN">
+      <Text>海岸兄弟会II</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_PRESS_GANGS_I_NAME" Language="zh_Hans_CN">
+      <Text>强征入伙I</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_PRESS_GANGS_II_NAME" Language="zh_Hans_CN">
+      <Text>强征入伙II</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_BUCCANEER_NAME" Language="zh_Hans_CN">
       <Text>大海贼</Text>

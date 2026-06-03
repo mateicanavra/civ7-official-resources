@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+	<Modifier id="MOD_SILLA_ALLIANCE_ROUTE" collection="COLLECTION_OWNER" effect="EFFECT_ADJUST_PLAYER_ALLIANCE_CAPITAL_ROUTES">
+		<Argument name="AllianceCapitalRoutes">true</Argument>
+		<Argument name="CapitalRoutesAwardGold">true</Argument>
+	</Modifier>
+	<Modifier id="MOD_SILLA_INFLUENCE_PER_TRADE_PARTNER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD_PER_NUM_CIVS_TRADING_WITH">
+		<Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+		<Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+	</Modifier>
+</GameEffects>

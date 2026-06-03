@@ -46,12 +46,10 @@
 		<Row RequirementId="REQ_PLAYER_HAS_3_HIDES_IMPROVED" Name="Amount" Value="3"/>
 		<Row RequirementId="REQ_PLAYER_HAS_2_TRIBUTARIES" Name="Amount" Value="2"/>
 
-		<Row RequirementId="REQ_LEGEND_LEVEL_4_TECUMSEH" Name="LegendPaths" Value="LEGEND_PATH_TECUMSEH"/>
+		<Row RequirementId="REQ_LEGEND_LEVEL_4_TECUMSEH" Name="SpecificPath" Value="LEGEND_PATH_TECUMSEH"/>
 		<Row RequirementId="REQ_LEGEND_LEVEL_4_TECUMSEH" Name="LevelThreshold" Value="4"/>
-		<Row RequirementId="REQ_LEGEND_LEVEL_4_TECUMSEH" Name="Amount" Value="1"/>
-		<Row RequirementId="REQ_LEGEND_LEVEL_8_TECUMSEH" Name="LegendPaths" Value="LEGEND_PATH_TECUMSEH"/>
+		<Row RequirementId="REQ_LEGEND_LEVEL_8_TECUMSEH" Name="SpecificPath" Value="LEGEND_PATH_TECUMSEH"/>
 		<Row RequirementId="REQ_LEGEND_LEVEL_8_TECUMSEH" Name="LevelThreshold" Value="8"/>
-		<Row RequirementId="REQ_LEGEND_LEVEL_8_TECUMSEH" Name="Amount" Value="1"/>
 	</RequirementArguments>
 	<RequirementSetRequirements>
 		<Row RequirementSetId="REQSET_LEADER_IS_TECUMSEH" RequirementId="REQ_LEADER_IS_TECUMSEH"/>
@@ -68,8 +66,8 @@
 	</RequirementSetRequirements>
 	<UnlockRequirements>
 		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_SHAWNEE" RequirementSetId="REQSET_LEADER_IS_TECUMSEH" Description="LOC_UNLOCK_PLAY_AS_TECUMSEH_DESCRIPTION" Tooltip="LOC_UNLOCK_PLAY_AS_TECUMSEH_TOOLTIP"/>
-		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_SHAWNEE" RequirementSetId="REQSET_PLAYER_HAS_3_HIDES_IMPROVED" Description="LOC_UNLOCK_HIDES_DESCRIPTION" Tooltip="LOC_UNLOCK_HIDES_TOOLTIP" NarrativeText="LOC_UNLOCK_HIDES_NARRATIVE"/>
-		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_SHAWNEE" RequirementSetId="REQSET_PLAYER_HAS_2_TRIBUTARIES" Description="LOC_UNLOCK_CITY_STATES_DESCRIPTION" Tooltip="LOC_UNLOCK_CITY_STATES_TOOLTIP" NarrativeText="LOC_UNLOCK_CITY_STATES_NARRATIVE"/>
+		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_SHAWNEE" RequirementSetId="REQSET_PLAYER_HAS_3_HIDES_IMPROVED" Description="LOC_UNLOCK_HIDES_DESCRIPTION" Tooltip="LOC_UNLOCK_HIDES_TOOLTIP" GameplayUnlock="True" NarrativeText="LOC_UNLOCK_HIDES_NARRATIVE"/>
+		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_SHAWNEE" RequirementSetId="REQSET_PLAYER_HAS_2_TRIBUTARIES" Description="LOC_UNLOCK_CITY_STATES_DESCRIPTION" Tooltip="LOC_UNLOCK_CITY_STATES_TOOLTIP" GameplayUnlock="True" NarrativeText="LOC_UNLOCK_CITY_STATES_NARRATIVE"/>
 		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_AMERICA" RequirementSetId="REQSET_LEADER_IS_TECUMSEH" Description="LOC_UNLOCK_PLAY_AS_TECUMSEH_DESCRIPTION" Tooltip="LOC_UNLOCK_PLAY_AS_TECUMSEH_AMERICA_TOOLTIP"/>
 		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_AMERICA" RequirementSetId="REQSET_CIVILIZATION_IS_SHAWNEE" Description="LOC_UNLOCK_PLAY_AS_SHAWNEE_DESCRIPTION" Tooltip="LOC_UNLOCK_PLAY_AS_SHAWNEE_AMERICA_TOOLTIP"/>
 		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_MEXICO" RequirementSetId="REQSET_CIVILIZATION_IS_SHAWNEE" Description="LOC_UNLOCK_PLAY_AS_SHAWNEE_DESCRIPTION" Tooltip="LOC_UNLOCK_PLAY_AS_SHAWNEE_MEXICO_TOOLTIP"/>
@@ -81,4 +79,10 @@
 	<UnlockConfigurationValues>
 		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_SHAWNEE" ConfigurationValue="CIVILIZATION_SHAWNEE"/>
 	</UnlockConfigurationValues>
+	<!-- ====================================== -->
+	<!-- Test of Time Unlocks -->
+	<!-- ====================================== -->
+	<UnlockRequirements>
+		<Row UnlockType="UNLOCK_CIVILIZATION_SHAWNEE" RequirementSetId="REQSET_CIVILIZATION_IS_SHAWNEE" Description="LOC_UNLOCK_PLAY_AS_SHAWNEE_DESCRIPTION" Tooltip="LOC_UNLOCK_PLAY_AS_SHAWNEE_SHAWNEE_TOOLTIP"/>
+	</UnlockRequirements>
 </Database>

@@ -21,7 +21,7 @@
 			<Text>Hugins Drekka</Text>
 		</Row>
 		<Row Tag="LOC_CIVIC_HUGINS_DREKKA_QUOTE">
-			<Text>"Eagerly I accepted your sword, Njǫrðr of battle, and I will find no fault with it later. This is is my wish – it is a praiseworthy pursuit."</Text>
+			<Text>"Eagerly I accepted your sword, Njǫrðr of battle, and I will find no fault with it later. This is my wish – it is a praiseworthy pursuit."</Text>
 		</Row>
 		<Row Tag="LOC_CIVIC_HUGINS_DREKKA_AUTHOR">
 			<Text>Sigvatr Þórðarson</Text>
@@ -45,51 +45,79 @@
 			<Text>Egill Skallagrímsson</Text>
 		</Row>
 		<!--Iceland Civic Description-->
-		<Row Tag="LOC_MOD_LANDNAMBOK_RELIC_CIVIC_MASTERY_DESCRIPTION">
-			<Text>Gain a [icon:NAR_REW_GREATWORK] Relic every time you study a [icon:RADIAL_CIVICS] Civic Mastery.</Text>
-		</Row>
-		<Row Tag="LOC_MOD_LANDNAMBOK_KILN_WAREHOUSE_THING_DESCRIPTION">
-			<Text>+2 [icon:YIELD_GOLD] Gold on [icon:CITY_RURAL] Þingstaðr in Settlements with a Kiln.</Text>
-		</Row>
-		<Row Tag="LOC_MOD_HUGINS_DREKKA_RANGE_PILLAGE_DESCRIPTION">
-			<Text>Naval Units can [icon:Action_Pillage] Pillage and Coastal Raid within 2 tiles.</Text>
-		</Row>
-		<Row Tag="LOC_MOD_HUGINS_DREKKA_PILLAGE_ONE_MOVE_DESCRIPTION">
-			<Text>Víkingr may [icon:Action_Pillage] Pillage and Coastal Raid for 1 [icon:Action_Move] Movement when in Distant Lands. Does not apply to Discoveries.</Text>
-		</Row>
-		<Row Tag="LOC_MOD_VAERINGJAR_EMBARKED_NAVAL_COMBAT_PREVIEW">
-			<Text>+{1_amount} Væringjar</Text>
-		</Row>
-		<Row Tag="LOC_MOD_VAERINGJAR_EMBARKED_MOVEMENT_DESCRIPTION">
-			<Text>+3 [icon:NAR_REW_COMBAT] Combat Strength and +1 [icon:Action_Move] Movement for Naval and Embarked Units.</Text>
-		</Row>
 		<Row Tag="LOC_MOD_THJODVELDID_RELIC_DESCRIPTION">
-			<Text>Gain 2 [icon:NAR_REW_GREATWORK] Relics.</Text>
+			<Text>Gain 2 [icon:NAR_REW_GREATWORK] [TIP:LOC_PEDIA_CONCEPTS_RELIC_TOOLTIP]Relics[/TIP].</Text>
 		</Row>
 		<!--Iceland Unique Traditions-->
-		<Row Tag="LOC_TRADITION_DREKAHOFUD_NAME">
-			<Text>Drekahöfuð</Text>
+		<Row Tag="LOC_TRADITION_STRANDHOGG_NAME">
+			<Text>Strandhögg</Text>
 		</Row>
-		<Row Tag="LOC_TRADITION_DREKAHOFUD_DESCRIPTION">
-			<Text>Training a Naval Unit grants [icon:YIELD_CULTURE] Culture equal to 25% of the Unit's base [icon:YIELD_Production] Production cost.</Text>
+		<Row Tag="LOC_TRADITION_STRANDHOGG_DESCRIPTION">
+			<Text>[TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]Naval Units[/TIP] can [icon:Action_Pillage] Pillage and Coastal Raid tiles within 2 tiles. [TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]Naval Units[/TIP] can disperse [icon:INDEPENDENT_POWER] [TIP:LOC_PEDIA_CONCEPTS_INDEPENDENT_POWER_TOOLTIP]Independent Powers[/TIP] or [icon:Action_Pillage] Coastal Raid for 1 [icon:UNIT_MOVEMENT_ICON] Movement when in [TIP:LOC_PEDIA_CONCEPTS_DISTANT_LANDS_TOOLTIP]Distant Lands[/TIP]. Does not apply to Discoveries.</Text>
 		</Row>
 		<Row Tag="LOC_TRADITION_REIDI_GUDANNA_NAME">
 			<Text>Reiði Guðanna</Text>
 		</Row>
 		<Row Tag="LOC_TRADITION_REIDI_GUDANNA_DESCRIPTION">
-			<Text>All [icon:CITY_BUILDING_LIST] Buildings gain a +1 [icon:YIELD_CULTURE] Cultural and [icon:YIELD_PRODUCTION] Production Adjacency from Volcanoes and [icon:NOTIFICATION_DISCOVER_NATURAL_WONDER] Natural Wonders. (Natural Wonder Volcanoes do not count twice) +25% [icon:YIELD_GOLD] Gold towards purchasing [icon:ACTION_IMPROVE] Repairs.</Text>
+			<Text>All [icon:CITY_BUILDING_LIST] [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]Buildings[/TIP] gain a +1 [icon:YIELD_CULTURE] Cultural and [icon:YIELD_PRODUCTION] Production Adjacency from Volcanoes and [icon:NOTIFICATION_DISCOVER_NATURAL_WONDER] Natural Wonders. (Natural Wonder Volcanoes do not count twice) +25% [icon:YIELD_GOLD] Gold towards purchasing [icon:ACTION_IMPROVE] Repairs.</Text>
 		</Row>
-		<Row Tag="LOC_TRADITION_DROTTKVAETT_NAME">
-			<Text>Dróttkvætt</Text>
+		<Row Tag="LOC_TRADITION_DROTTKVAETT_II_NAME">
+			<Text>Dróttkvætt II</Text>
 		</Row>
-		<Row Tag="LOC_TRADITION_DROTTKVAETT_DESCRIPTION">
-			<Text>[icon:Action_Pillage] Coastal Raiding grants [icon:YIELD_CULTURE] Culture equal to 50% the [icon:YIELD_GOLD] Gold gained.</Text>
+		<Row Tag="LOC_TRADITION_DROTTKVAETT_II_DESCRIPTION">
+			<Text>Coastal Raiding and Pillaging with [TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]Naval Units[/TIP] grants [icon:YIELD_CULTURE] Culture equal to 50% of [icon:Action_Pillage] Pillage Yields and [icon:Action_Heal] Healing.</Text>
 		</Row>
-		<Row Tag="LOC_TRADITION_LYFSTEINN_NAME">
-			<Text>Lyfsteinn </Text>
+		<Row Tag="LOC_TRADITION_LYFSTEINN_I_NAME">
+			<Text>Lyfsteinn I</Text>
 		</Row>
-		<Row Tag="LOC_TRADITION_LYFSTEINN_DESCRIPTION">
-			<Text>+10 [icon:Action_Heal] Healing for Naval Units outside friendly territory.</Text>
+		<Row Tag="LOC_TRADITION_LYFSTEINN_I_DESCRIPTION">
+			<Text>+10 [icon:Action_Heal] Healing for [TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]Naval Units[/TIP] outside friendly territory.</Text>
+		</Row>
+		<!-- ==================================================	-->
+		<!--	CARTHAGE ToT								-->
+		<!-- ==================================================	-->
+		<!-- Civilization Ability-->
+		<!-- Civics-->
+		<Row Tag="LOC_NODE_CIVIC_AQ_ICELAND_ORIGINS_NAME">
+			<Text>Icelandic Origins</Text>
+		</Row>
+		<Row Tag="LOC_NODE_CIVIC_MO_ICELAND_MODERNIZATION_NAME">
+			<Text>Icelandic Modernization</Text>
+		</Row>
+		<!-- Tradition Names and Effects -->
+		<Row Tag="LOC_TRADITION_DROTTKVAETT_I_NAME">
+			<Text>Dróttkvætt I</Text>
+		</Row>
+		<Row Tag="LOC_TRADITION_DROTTKVAETT_I_DESCRIPTION">
+			<Text>Coastal Raiding and Pillaging with [TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]Naval Units[/TIP] grants [icon:YIELD_CULTURE] Culture equal to 25% of [icon:Action_Pillage] Pillage Yields and [icon:Action_Heal] Healing.</Text>
+		</Row>
+		<Row Tag="LOC_TRADITION_LYFSTEINN_II_NAME">
+			<Text>Lyfsteinn II</Text>
+		</Row>
+		<Row Tag="LOC_TRADITION_LYFSTEINN_II_DESCRIPTION">
+			<Text>+20 [icon:Action_Heal] Healing for [TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]Naval Units[/TIP] outside friendly territory.</Text>
+		</Row>
+		<Row Tag="LOC_TRADITION_ICELAND_SYNCRETISM_TOOLTIP">
+			<Text>Drekahöfuð</Text>
+		</Row>
+		<Row Tag="LOC_TRADITION_ICELAND_SYNCRETISM_PREVIEW">
+			<Text>+{1} {LOC_TRADITION_ICELAND_SYNCRETISM_TOOLTIP}</Text>
+		</Row>
+		<Row Tag="LOC_TRADITION_ICELAND_SYNCRETISM_ANTIQUITY_NAME">
+			<Text>Drekahöfuð I</Text>
+		</Row>
+		<Row Tag="LOC_TRADITION_ICELAND_SYNCRETISM_ANTIQUITY_DESCRIPTION">
+			<Text>Producing a [TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]Naval Unit[/TIP] grants [icon:YIELD_CULTURE] Culture equal to 50% of the Unit's [icon:YIELD_PRODUCTION] Production cost.</Text>
+		</Row>
+		<Row Tag="LOC_TRADITION_ICELAND_SYNCRETISM_MODERN_NAME">
+			<Text>Drekahöfuð II</Text>
+		</Row>
+		<Row Tag="LOC_TRADITION_ICELAND_SYNCRETISM_MODERN_DESCRIPTION">
+			<Text>Producing a [TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]Naval Unit[/TIP] grants [icon:YIELD_CULTURE] Culture equal to 50% of the Unit's [icon:YIELD_PRODUCTION] Production cost. +1 [icon:NAR_REW_COMBAT] Combat Strength for [TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]Naval Units[/TIP] for each improved [icon:NOTIFICATION_DISCOVER_NATURAL_WONDER] [TIP:LOC_PEDIA_CONCEPTS_NATURAL_WONDER_TOOLTIP]Natural Wonder[/TIP] in your empire.</Text>
+		</Row>
+		<!-- -->
+		<Row Tag="LOC_UNLOCK_PLAY_AS_ICELAND_ICELAND_TOOLTIP">
+			<Text>[B]Iceland[/B] is able to endure throughout the Ages.</Text>
 		</Row>
 	</EnglishText>
 </Database>

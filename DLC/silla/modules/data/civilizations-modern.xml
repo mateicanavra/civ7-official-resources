@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Civilizations>
+		<Update>
+			<Where CivilizationType="CIVILIZATION_SILLA" />
+			<Set UniqueCultureProgressionTree="TREE_CIVICS_MO_TEST_OF_TIME" />
+		</Update>
+	</Civilizations>
+	<Traits>
+	</Traits>
+	<TraitModifiers>
+		<Row TraitType="TRAIT_SILLA_ABILITY" ModifierId="MOD_SILLA_ALLIANCE_ROUTE" />
+		<Row TraitType="TRAIT_SILLA_ABILITY" ModifierId="MOD_SILLA_INFLUENCE_PER_TRADE_PARTNER" />
+	</TraitModifiers>
+	<CivilizationTraits>
+		<Row CivilizationType="CIVILIZATION_SILLA" TraitType="TRAIT_ANACHRONISTIC_CIV" />
+	</CivilizationTraits>
+</Database>

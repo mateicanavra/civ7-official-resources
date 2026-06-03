@@ -2,26 +2,64 @@
 <Database>
 	<Types>
 		<!-- ==================================================	-->
+		<!--	ANTIQUITY							-->
+		<!-- ==================================================	-->
+		<Row Type="TRADITION_STRATAGEMS_I" Kind="KIND_TRADITION"/>
+		<!-- ==================================================	-->
 		<!--	EXPLORATION							-->
 		<!-- ==================================================	-->
 		<Row Type="TRADITION_FALSE_RETREAT" Kind="KIND_TRADITION"/>
 		<Row Type="TRADITION_ICONOLATRY" Kind="KIND_TRADITION"/>
 		<Row Type="TRADITION_STRATAGEMS" Kind="KIND_TRADITION"/>
+		<!-- ==================================================	-->
+		<!--	MODERN								-->
+		<!-- ==================================================	-->
+		<Row Type="TRADITION_ICONOLATRY_II" Kind="KIND_TRADITION"/>
+		<!-- Syncretism -->
+		<Row Type="TRADITION_BULGARIA_SYNCRETISM_ANTIQUITY" Kind="KIND_TRADITION"/>
+		<Row Type="TRADITION_BULGARIA_SYNCRETISM_MODERN" Kind="KIND_TRADITION"/>
 	</Types>
 	<Traditions>
 		<!-- ==================================================	-->
+		<!--	ANTIQUITY							-->
+		<!-- ==================================================	-->
+		<Row TraditionType="TRADITION_STRATAGEMS_I" Name="LOC_TRADITION_STRATAGEMS_I_NAME" Description="LOC_TRADITION_STRATAGEMS_I_DESCRIPTION" TraitType="TRAIT_BULGARIA" AgeType="AGE_ANTIQUITY" CultureSlotType="TRADITION_CULTURE_SLOT"/>
+		<!-- ==================================================	-->
 		<!--	EXPLORATION							-->
 		<!-- ==================================================	-->
-		<Row TraditionType="TRADITION_FALSE_RETREAT" Name="LOC_TRADITION_FALSE_RETREAT_NAME" Description="LOC_TRADITION_FALSE_RETREAT_DESCRIPTION" TraitType="TRAIT_BULGARIA" AgeType="AGE_EXPLORATION"/>
-		<Row TraditionType="TRADITION_ICONOLATRY" Name="LOC_TRADITION_ICONOLATRY_NAME" Description="LOC_TRADITION_ICONOLATRY_DESCRIPTION" TraitType="TRAIT_BULGARIA" AgeType="AGE_EXPLORATION"/>
-		<Row TraditionType="TRADITION_STRATAGEMS" Name="LOC_TRADITION_STRATAGEMS_NAME" Description="LOC_TRADITION_STRATAGEMS_DESCRIPTION" TraitType="TRAIT_BULGARIA" AgeType="AGE_EXPLORATION"/>
+		<Row TraditionType="TRADITION_FALSE_RETREAT" Name="LOC_TRADITION_FALSE_RETREAT_NAME" Description="LOC_TRADITION_FALSE_RETREAT_DESCRIPTION" TraitType="TRAIT_BULGARIA" AgeType="AGE_EXPLORATION" CultureSlotType="TRADITION_CULTURE_SLOT"/>
+		<Row TraditionType="TRADITION_ICONOLATRY" Name="LOC_TRADITION_ICONOLATRY_NAME" Description="LOC_TRADITION_ICONOLATRY_DESCRIPTION" TraitType="TRAIT_BULGARIA" AgeType="AGE_EXPLORATION" CultureSlotType="TRADITION_CULTURE_SLOT"/>
+		<Row TraditionType="TRADITION_STRATAGEMS" Name="LOC_TRADITION_STRATAGEMS_NAME" Description="LOC_TRADITION_STRATAGEMS_DESCRIPTION" TraitType="TRAIT_BULGARIA" AgeType="AGE_EXPLORATION" CultureSlotType="TRADITION_CULTURE_SLOT" ObsoletesTraditionType="TRADITION_STRATAGEMS_I"/>
+		<!-- ==================================================	-->
+		<!--	MODERN								-->
+		<!-- ==================================================	-->
+		<Row TraditionType="TRADITION_ICONOLATRY_II" Name="LOC_TRADITION_ICONOLATRY_II_NAME" Description="LOC_TRADITION_ICONOLATRY_II_DESCRIPTION" TraitType="TRAIT_BULGARIA" AgeType="AGE_MODERN" CultureSlotType="TRADITION_CULTURE_SLOT" ObsoletesTraditionType="TRADITION_ICONOLATRY"/>
+		<!-- Syncretism -->
+		<Row TraditionType="TRADITION_BULGARIA_SYNCRETISM_ANTIQUITY" Name="LOC_TRADITION_BULGARIA_SYNCRETISM_ANTIQUITY_NAME" Description="LOC_TRADITION_BULGARIA_SYNCRETISM_ANTIQUITY_DESCRIPTION" AgeType="AGE_ANTIQUITY" CultureSlotType="TRADITION_CULTURE_SLOT" TraitType="TRAIT_BULGARIA" IgnoreInitializeUnlock="true" AllowInitializeAdvancedStart="true"/>
+		<Row TraditionType="TRADITION_BULGARIA_SYNCRETISM_MODERN" Name="LOC_TRADITION_BULGARIA_SYNCRETISM_MODERN_NAME" Description="LOC_TRADITION_BULGARIA_SYNCRETISM_MODERN_DESCRIPTION" AgeType="AGE_MODERN" CultureSlotType="TRADITION_CULTURE_SLOT" TraitType="TRAIT_BULGARIA" IgnoreInitializeUnlock="true" ObsoletesTraditionType="TRADITION_BULGARIA_SYNCRETISM_ANTIQUITY" AllowInitializeAdvancedStart="true"/>
+
 	</Traditions>
 	<TraditionModifiers>
-		<Row TraditionType="TRADITION_FALSE_RETREAT" ModifierId="FALSE_RETREAT_FOOD_PILLAGE_IMPROVEMENT"/>
+		<!-- Antiquity -->
+		<Row TraditionType="TRADITION_STRATAGEMS_I" ModifierId="STRATAGEMS_I_PILLAGE_BUILDINGS_MODIFIER"/>
+		<Row TraditionType="TRADITION_STRATAGEMS_I" ModifierId="STRATAGEMS_I_PILLAGE_IMPROVEMENTS_MODIFIER"/>
+		<Row TraditionType="TRADITION_STRATAGEMS_I" ModifierId="STRATAGEMS_I_GREAT_WORKS_COMBAT"/>
+		<!-- Exploration -->
+		<Row TraditionType="TRADITION_FALSE_RETREAT" ModifierId="FALSE_RETREAT_FOOD_PILLAGE_BUILDING"/>
 		<Row TraditionType="TRADITION_FALSE_RETREAT" ModifierId="FALSE_RETREAT_COMBAT_MODIFIER"/>
 		<Row TraditionType="TRADITION_ICONOLATRY" ModifierId="ICONOLATRY_GREAT_WORKS_HAPPINESS"/>
 		<Row TraditionType="TRADITION_ICONOLATRY" ModifierId="ICONOLATRY_GREAT_WORKS_GOLD"/>
 		<Row TraditionType="TRADITION_STRATAGEMS" ModifierId="STRATAGEMS_PILLAGE_BUILDINGS_MODIFIER"/>
 		<Row TraditionType="TRADITION_STRATAGEMS" ModifierId="STRATAGEMS_PILLAGE_IMPROVEMENTS_MODIFIER"/>
+		<Row TraditionType="TRADITION_STRATAGEMS" ModifierId="STRATAGEMS_GREAT_WORKS_COMBAT"/>
+		<!-- Modern -->
+		<Row TraditionType="TRADITION_ICONOLATRY_II" ModifierId="ICONOLATRY_II_GREAT_WORKS_HAPPINESS"/>
+		<Row TraditionType="TRADITION_ICONOLATRY_II" ModifierId="ICONOLATRY_II_GREAT_WORKS_GOLD"/>
+		<!-- ICONOLATRY_II_HIDDEN_FORTRESS_HAPPINESS TraditionModifier is in traditions-persist.xml (exploration-age-persist) -->
+		<!-- Test of Time -->
+		<!-- Syncretism -->
+		<Row TraditionType="TRADITION_BULGARIA_SYNCRETISM_ANTIQUITY" ModifierId="BULGARIA_SYNCRETISM_ANTIQUITY_GREAT_WORKS_PRODUCTION"/>
+		<Row TraditionType="TRADITION_BULGARIA_SYNCRETISM_MODERN" ModifierId="BULGARIA_SYNCRETISM_MODERN_GREAT_WORKS_PRODUCTION"/>
+		<Row TraditionType="TRADITION_BULGARIA_SYNCRETISM_MODERN" ModifierId="BULGARIA_SYNCRETISM_MODERN_PILLAGE"/>
 	</TraditionModifiers>
 </Database>

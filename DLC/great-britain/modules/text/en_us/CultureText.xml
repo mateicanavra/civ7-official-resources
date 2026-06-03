@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Database>
 	<EnglishText>
-
 		<!-- ==================================================	-->
 		<!--	GREAT_BRITAIN							-->
 		<!-- ==================================================	-->
@@ -48,43 +47,57 @@
 			<Text>Lord Salisbury</Text>
 		</Row>
 
-		<!--Great Britain Civic Description-->
-		<Row Tag="LOC_MOD_PAX_BRITANNICA_PRODUCTION_FACTORY_RESOURCES_DESCRIPTION">
-			<Text>+3 [icon:YIELD_PRODUCTION] Production in Settlements for every [icon:RADIAL_RESOURCES] Factory Resource assigned to them.</Text>
+		<Row Tag="LOC_NODE_CIVIC_AQ_GREAT_BRITAIN_ORIGINS_NAME">
+			<Text>British Origins</Text>
 		</Row>
-		<Row Tag="LOC_MOD_SOCIETY_OF_ANTIQUARIES_ENTER_FOREIGN_LANDS_DESCRIPTION">
-			<Text>[icon:UNIT_ANTIQUARIAN] Antiquaries can enter other Civilizations’ borders without Open Borders.</Text>
-		</Row>
-		<Row Tag="LOC_MOD_SOCIETY_OF_ANTIQUARIES_MOVEMENT_DESCRIPTION">
-			<Text>+1 [icon:Action_Move] Movement for Civilians.</Text>
-		</Row>
-		<Row Tag="LOC_MOD_SPLENDID_ISOLATION_POSITIVE_GOLD_CS_DESCRIPTION">
-			<Text>+3 [icon:NAR_REW_COMBAT] Combat Strength for Units if you have positive or 0 [icon:YIELD_GOLD] Gold per turn at the start of the turn.</Text>
-		</Row>
-		<Row Tag="LOC_MOD_SPLENDID_ISOLATION_POSITIVE_GOLD_CS_PREVIEW">
-			<Text>+{1_Amount} Splendid Isolation</Text>
-		</Row>
-		<Row Tag="LOC_MOD_CHARTERED_COMPANIES_PORT_RESOURCE_CAP_DESCRIPTION">
-			<Text>+1 [icon:RADIAL_RESOURCES] Resource Capacity in Settlements with a Port.</Text>
+		<Row Tag="LOC_NODE_CIVIC_EX_GREAT_BRITAIN_RENAISSANCE_NAME">
+			<Text>British Renaissance</Text>
 		</Row>
 		<!--Great Britain Unique Traditions-->
 		<Row Tag="LOC_TRADITION_PROCEEDINGS_NAME">
 			<Text>Proceedings</Text>
 		</Row>
 		<Row Tag="LOC_TRADITION_PROCEEDINGS_DESCRIPTION">
-			<Text>+4 [icon:YIELD_CULTURE] Culture and [icon:YIELD_SCIENCE] Science in [icon:YIELD_CITIES] Cities with both a [icon:NAR_REW_GREATWORK] Great Work and a [icon:RADIAL_RESOURCES] Resource slotted.</Text>
+			<Text>+4 [icon:YIELD_CULTURE] Culture and [icon:YIELD_SCIENCE] Science in [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]Cities[/TIP] with both a [icon:NAR_REW_GREATWORK] [TIP:LOC_PEDIA_CONCEPTS_GREAT_WORKS_TOOLTIP]Great Work[/TIP] and a [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]Resource[/TIP] slotted. [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]Settlements[/TIP] receive +3 [icon:YIELD_PRODUCTION] Production for each [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_FACTORY_RESOURCES_TOOLTIP]Factory Resource[/TIP] assigned to them.</Text>
 		</Row>
-		<Row Tag="LOC_TRADITION_EAST_INDIA_COMPANY_NAME">
-			<Text>East India Company</Text>
+		<Row Tag="LOC_TRADITION_EAST_INDIA_COMPANY_I_NAME">
+			<Text>East India Company I</Text>
 		</Row>
-		<Row Tag="LOC_TRADITION_EAST_INDIA_COMPANY_DESCRIPTION">
-			<Text>+5 [icon:YIELD_GOLD] Gold in [icon:YIELD_TOWNS] Towns.</Text>
+		<Row Tag="LOC_TRADITION_EAST_INDIA_COMPANY_I_DESCRIPTION">
+			<Text>+2 [icon:YIELD_GOLD] Gold in [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]Towns[/TIP]. +1 [icon:YIELD_SCIENCE] Science in [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]Towns[/TIP] adjacent to Coast.</Text>
 		</Row>
-		<Row Tag="LOC_TRADITION_NO_ETERNAL_ALLIES_NAME">
-			<Text>No Eternal Allies</Text>
+		<Row Tag="LOC_TRADITION_EAST_INDIA_COMPANY_II_NAME">
+			<Text>East India Company II</Text>
 		</Row>
-		<Row Tag="LOC_TRADITION_NO_ETERNAL_ALLIES_DESCRIPTION">
-			<Text>+10% [icon:YIELD_FOOD] Food and [icon:YIELD_GOLD] Gold in [icon:YIELD_TOWNS] Towns, but -5% [icon:YIELD_GOLD] Gold in the [icon:NOTIFICATION_SELECT_CAPITAL] Capital for every [icon:PLAYER_RELATIONSHIP_ALLIANCE] Alliance.</Text>
+		<Row Tag="LOC_TRADITION_EAST_INDIA_COMPANY_II_DESCRIPTION">
+			<Text>+5 [icon:YIELD_GOLD] Gold in [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]Towns[/TIP]. +3 [icon:YIELD_SCIENCE] Science in [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]Towns[/TIP] adjacent to Coast.</Text>
+		</Row>
+		<Row Tag="LOC_TRADITION_NO_ETERNAL_ALLIES_I_NAME">
+			<Text>No Eternal Allies I</Text>
+		</Row>
+		<Row Tag="LOC_TRADITION_NO_ETERNAL_ALLIES_I_DESCRIPTION">
+			<Text>+5% [icon:YIELD_FOOD] Food and [icon:YIELD_GOLD] Gold in [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]Towns[/TIP], but -5% [icon:YIELD_GOLD] Gold in the [icon:NOTIFICATION_SELECT_CAPITAL] Capital for every [icon:PLAYER_RELATIONSHIP_ALLIANCE] [TIP:LOC_PEDIA_CONCEPTS_ALLIANCE_TOOLTIP]Alliance[/TIP].</Text>
+		</Row>
+		<Row Tag="LOC_TRADITION_NO_ETERNAL_ALLIES_II_NAME">
+			<Text>No Eternal Allies II</Text>
+		</Row>
+		<Row Tag="LOC_TRADITION_NO_ETERNAL_ALLIES_II_DESCRIPTION">
+			<Text>+10% [icon:YIELD_FOOD] Food and [icon:YIELD_GOLD] Gold in [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]Towns[/TIP], but -5% [icon:YIELD_GOLD] Gold in the [icon:NOTIFICATION_SELECT_CAPITAL] Capital for every [icon:PLAYER_RELATIONSHIP_ALLIANCE] [TIP:LOC_PEDIA_CONCEPTS_ALLIANCE_TOOLTIP]Alliance[/TIP].</Text>
+		</Row>
+		<Row Tag="LOC_TRADITION_GREAT_BRITAIN_SYNCRETISM_TOOLTIP">
+			<Text>Royal Society</Text>
+		</Row>
+		<Row Tag="LOC_TRADITION_GREAT_BRITAIN_SYNCRETISM_ANTIQUITY_NAME">
+			<Text>Royal Society I</Text>
+		</Row>
+		<Row Tag="LOC_TRADITION_GREAT_BRITAIN_SYNCRETISM_ANTIQUITY_DESCRIPTION">
+			<Text>+1 [icon:YIELD_SCIENCE] Science on [icon:YIELD_CULTURE] Culture Buildings adjacent to Coast. +1 [icon:YIELD_CULTURE] Culture on [icon:YIELD_SCIENCE] Science Buildings adjacent to Coast.</Text>
+		</Row>
+		<Row Tag="LOC_TRADITION_GREAT_BRITAIN_SYNCRETISM_EXPLORATION_NAME">
+			<Text>Royal Society II</Text>
+		</Row>
+		<Row Tag="LOC_TRADITION_GREAT_BRITAIN_SYNCRETISM_EXPLORATION_DESCRIPTION">
+			<Text>+2 [icon:YIELD_SCIENCE] Science on [icon:YIELD_CULTURE] Culture Buildings adjacent to Coast. +2 [icon:YIELD_CULTURE] Culture on [icon:YIELD_SCIENCE] Science Buildings adjacent to Coast.</Text>
 		</Row>
 	</EnglishText>
 </Database>

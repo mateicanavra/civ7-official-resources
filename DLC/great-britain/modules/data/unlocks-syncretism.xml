@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<!-- ====================================== -->
+	<!-- Syncretic Unlocks -->
+	<!-- ====================================== -->
+	<LeaderSyncretismUnlocks>
+		<InsertOrIgnore LeaderType="LEADER_ADA_LOVELACE" UnlockCivilizationType="CIVILIZATION_GREAT_BRITAIN" />
+		<InsertOrIgnore LeaderType="LEADER_EDWARD_TEACH" UnlockCivilizationType="CIVILIZATION_GREAT_BRITAIN" />
+		<InsertOrIgnore LeaderType="LEADER_BENJAMIN_FRANKLIN" UnlockCivilizationType="CIVILIZATION_GREAT_BRITAIN" />
+	</LeaderSyncretismUnlocks>
+	<CivilizationSyncretismUnlocks>
+		<InsertOrIgnore CivilizationType="CIVILIZATION_PIRATE_REPUBLIC" UnlockCivilizationType="CIVILIZATION_GREAT_BRITAIN" />
+		<InsertOrIgnore CivilizationType="CIVILIZATION_ROME" UnlockCivilizationType="CIVILIZATION_GREAT_BRITAIN" />
+		<InsertOrIgnore CivilizationType="CIVILIZATION_NORMAN" UnlockCivilizationType="CIVILIZATION_GREAT_BRITAIN" />
+	</CivilizationSyncretismUnlocks>
+	<CivSelfSyncretismUnlocks>
+		<Row CivilizationType="CIVILIZATION_GREAT_BRITAIN" UnlockType="TRADITION_GREAT_BRITAIN_SYNCRETISM_ANTIQUITY" Kind="KIND_TRADITION" Age="AGE_ANTIQUITY" ModifierID="MOD_UNLOCK_GREAT_BRITAIN_SYNCRETISM_ANTIQUITY" />
+		<Row CivilizationType="CIVILIZATION_GREAT_BRITAIN" UnlockType="TRADITION_CULTURE_SLOT" Kind="KIND_CULTURE_SLOT" Age="AGE_ANTIQUITY" ModifierID="MOD_SELF_SYNCRETISM_GRANT_TRADITION_SLOT" />
+		<Row CivilizationType="CIVILIZATION_GREAT_BRITAIN" UnlockType="TRADITION_GREAT_BRITAIN_SYNCRETISM_EXPLORATION" Kind="KIND_TRADITION" Age="AGE_EXPLORATION" ModifierID="MOD_UNLOCK_GREAT_BRITAIN_SYNCRETISM_EXPLORATION" />
+		<Row CivilizationType="CIVILIZATION_GREAT_BRITAIN" UnlockType="TRADITION_CULTURE_SLOT" Kind="KIND_CULTURE_SLOT" Age="AGE_EXPLORATION" ModifierID="MOD_SELF_SYNCRETISM_GRANT_TRADITION_SLOT" />
+	</CivSelfSyncretismUnlocks>
+</Database>

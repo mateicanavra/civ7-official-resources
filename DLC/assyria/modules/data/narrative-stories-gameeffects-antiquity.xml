@@ -113,9 +113,6 @@
         <Argument name="YieldType">YIELD_SCIENCE</Argument>
         <Argument name="MultiplierType">REWARD_TYPE_MINOR_EARLY</Argument>
     </Modifier>
-    <Requirement id="REQ_STORY_CIVILIZATION_ASSYRIA" type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
-        <Argument name="CivilizationType">CIVILIZATION_ASSYRIA</Argument>
-    </Requirement>
     <RequirementSet id="REQSET_11071A_NARRATIVE_REQUISITE">
         <Requirement xref="REQ_STORY_CIVILIZATION_ASSYRIA"/>
     </RequirementSet>
@@ -168,7 +165,7 @@
     <RequirementSet id="REQSET_11074A_NARRATIVE">
         <Requirement xref="REQ_STORY_CIVILIZATION_ASSYRIA"/>
         <Requirement type="REQUIREMENT_PLAYER_CONQUERED_SETTLEMENT_WITH_BUILDING">
-            <Argument name="BuildingType">BUILDING_ALTAR</Argument>
+            <Argument name="ConstructibleType">BUILDING_ALTAR</Argument>
         </Requirement>
         <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
             <Argument name="GossipTypes">GOSSIP_CREATE_PANTHEON01</Argument>

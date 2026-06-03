@@ -1,46 +1,13 @@
-import { A as Audio } from '../../../core/ui/audio-base/audio-support.chunk.js';
-import { b as InputEngineEventName } from '../../../core/ui/input/input-support.chunk.js';
+import { Audio } from '../../../core/ui/audio-base/audio-support.js';
+import { InputEngineEventName } from '../../../core/ui/input/input-support.js';
 import { InterfaceModeChangedEventName, InterfaceMode } from '../../../core/ui/interface-modes/interface-modes.js';
-import { N as NavTray } from '../../../core/ui/navigation-tray/model-navigation-tray.chunk.js';
-import { P as Panel, A as AnchorType } from '../../../core/ui/panel-support.chunk.js';
-import { MustGetElements } from '../../../core/ui/utilities/utilities-dom.chunk.js';
-import { V as ViewManager } from '../../../core/ui/views/view-manager.chunk.js';
+import NavTray from '../../../core/ui/navigation-tray/model-navigation-tray.js';
+import Panel, { AnchorType } from '../../../core/ui/panel-support.js';
+import { MustGetElements } from '../../../core/ui/utilities/utilities-dom.js';
+import ViewManager from '../../../core/ui/views/view-manager.js';
 import { ToggleGrowthMinMaxEventName } from '../interface-modes/interface-mode-acquire-tile.js';
 import { PlacePopulation, PlacePopulationSelectionChangedEventName, PlacePopulationSelectionState } from './model-place-population.js';
-import '../../../core/ui/input/focus-manager.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/input/action-handler.js';
-import '../../../core/ui/input/cursor.js';
-import '../../../core/ui/utilities/utilities-update-gate.chunk.js';
-import '../../../core/ui/utilities/utilities-image.chunk.js';
-import '../../../core/ui/utilities/utilities-component-id.chunk.js';
-import '../../../core/ui/input/focus-support.chunk.js';
-import '../../../core/ui/components/fxs-slot.chunk.js';
-import '../../../core/ui/spatial/spatial-manager.js';
-import '../../../core/ui/context-manager/context-manager.js';
-import '../../../core/ui/context-manager/display-queue-manager.js';
-import '../../../core/ui/dialog-box/manager-dialog-box.chunk.js';
-import '../../../core/ui/input/plot-cursor.js';
-import '../../../core/ui/lenses/lens-manager.chunk.js';
-import '../building-placement/building-placement-manager.js';
-import '../city-zoomer/city-zoomer.chunk.js';
-import '../../../core/ui/graph-layout/utils.chunk.js';
-import '../interface-modes/interface-mode-choose-plot.js';
-import '../utilities/utilities-overlay.chunk.js';
-import '../world-input/world-input.js';
-import '../../../core/ui/utilities/utilities-network.js';
-import '../../../core/ui/shell/mp-legal/mp-legal.js';
-import '../../../core/ui/events/shell-events.chunk.js';
-import '../../../core/ui/utilities/utilities-liveops.js';
-import '../../../core/ui/utilities/utilities-network-constants.chunk.js';
-import '../diplomacy/diplomacy-events.js';
-import '../interface-modes/support-unit-map-decoration.chunk.js';
-import '../plot-workers/plot-workers-manager.js';
-import '../placement-city-banner/placement-city-banner.js';
-import '../utilities/utilities-city-yields.chunk.js';
-import '../yield-bar-base/yield-bar-base.js';
-
-const styles = "fs://game/base-standard/ui/place-population/panel-place-population.css";
+import styles from './panel-place-population.scss.js';
 
 class PlacePopulationPanel extends Panel {
   subsystemFrame = document.createElement("fxs-subsystem-frame");
@@ -134,32 +101,48 @@ class PlacePopulationPanel extends Panel {
     this.subsystemFrame.classList.add("panel-place-population-info");
     this.subsystemFrame.innerHTML = `
 			<div class="flex flex-col pb-4 px-4">
-				<fxs-header header-bg-glow="true" class="uppercase tracking-100 mt-2" filigree-style="small" data-bind-attr-title="{{g_PlacePopulation.growthTitle}}" filigree-style="h3"></fxs-header>
+				<fxs-header header-bg-glow="true" class="uppercase tracking-100 mt-2" data-bind-attr-title="{{g_PlacePopulation.growthTitle}}"></fxs-header>
 				<div class="self-center my-3\\.5 text-base" data-bind-value="{{g_PlacePopulation.growthDescription}}"></div>
                 <fxs-header title="LOC_UI_CITY_GROWTH_SELECT_A_TILE" filigree-style="h4"></fxs-header>
-				<div class="img-base-ticket-bg-container flex-col mt-10">
-					<div class="img-expand-icon size-20 -mt-16 self-center"></div>
-					<div class="flex items-center w-full my-2">
-						<div class="constructible-details__divider-line-left"></div>
-						<p data-l10n-id="LOC_UI_CITY_GROWTH_ADD_IMPROVEMENT" class="mx-2 font-title text-secondary text-sm uppercase"></p>
-						<div class="constructible-details__divider-line-right"></div>
+				<div class="img-base-ticket-bg-container flex-col mt-4 py-2">
+					<p data-l10n-id="LOC_UI_CITY_GROWTH_ADD_IMPROVEMENT" class="mx-2 -mb-1 font-title text-secondary text-sm uppercase self-center"></p>
+					<div class="flex-auto h-px my-2 mx-2 bg-accent-2 opacity-30"></div>
+					<div class="flex flex-row">
+						<div class="img-expand-icon size-20 -my-2 self-center"></div>
+						<div class="self-stretch w-px mx-2 bg-accent-2 opacity-30"></div>
+						<div class="shrink text-sm" data-l10n-id="LOC_UI_CITY_GROWTH_ADD_IMPROVEMENT_DESC"></div>
 					</div>
-					<div class="mt-2 self-center text-sm" data-l10n-id="LOC_UI_CITY_GROWTH_ADD_IMPROVEMENT_DESC"></div>
+					<div class="flex-auto h-px my-2 bg-accent-2 opacity-30"></div>
+					<div class="flex flex-row">
+						<div class="img-expand-swap-icon size-20 -my-2 self-center"></div>
+						<div class="self-stretch w-px mx-2 bg-accent-2 opacity-30"></div>
+						<div class="shrink text-sm" data-l10n-id="LOC_UI_CITY_GROWTH_ADD_IMPROVEMENT_SWAP_DESC"></div>
+					</div>
 				</div>
-				<div class="img-base-ticket-bg-container flex-col mt-10" data-bind-if="!{{g_PlacePopulation.isTown}} && !{{g_PlacePopulation.isResettling}} && {{g_PlacePopulation.hasUnlockedSpecialist}}">
-					<div class="img-add-population-icon size-20 -mt-16 self-center"></div>
-					<div class="flex items-center w-full my-2">
-						<div class="constructible-details__divider-line-left"></div>
-						<p data-l10n-id="LOC_UI_CITY_GROWTH_ADD_SPECIALST" class="mx-2 font-title text-secondary text-sm uppercase"></p>
-						<div class="constructible-details__divider-line-right"></div>
-					</div>
-					<div class="mt-2 text-sm" data-l10n-id="LOC_UI_CITY_GROWTH_ADD_SPECIALST_DESC"></div>
-					<div class="flex justify-between mt-1 items-center text-sm">
-						<div class="text-sm w-64" data-l10n-id="LOC_BUILDING_PLACEMENT_SPECIALIST_MAINTENANCE"></div>
-						<div class="flex">
-							<div class="ml-1" data-bind-for="entry:{{g_PlacePopulation.changeSpecialistMaintenance}}">
-								<div class="text-sm" data-bind-html="{{entry}}"></div>
+				<div class="img-base-ticket-bg-container flex-col mt-4 py-2" data-bind-if="!{{g_PlacePopulation.isTown}} && !{{g_PlacePopulation.isResettling}} && {{g_PlacePopulation.hasUnlockedSpecialist}}">
+					<p data-l10n-id="LOC_UI_CITY_GROWTH_ADD_SPECIALST" class="mx-2 -mb-1 font-title text-secondary text-sm uppercase self-center"></p>
+					<div class="flex-auto h-px my-2 mx-2 bg-accent-2 opacity-30"></div>
+					<div class="flex flex-row">
+						<div class="img-add-population-icon size-20 -my-2 self-center"></div>
+						<div class="self-stretch w-px mx-2 bg-accent-2 opacity-30"></div>
+						<div class="flex-col shrink">
+							<div class="shrink text-sm" data-l10n-id="LOC_UI_CITY_GROWTH_ADD_SPECIALST_DESC"></div>
+							<div class="flex justify-between mt-1 items-center text-sm shrink" data-bind-if={{g_PlacePopulation.showNonHoverSpecialistMaintenanceBase}}>
+								<div class="text-sm w-48" data-l10n-id="LOC_BUILDING_PLACEMENT_SPECIALIST_MAINTENANCE_BASE"></div>
+								<div class="flex">
+									<div class="ml-1" data-bind-for="entry:{{g_PlacePopulation.nonHoverSpecialistMaintenanceBase}}">
+										<div class="text-sm" data-bind-html="{{entry}}"></div>
+									</div>
+								</div>
 							</div>
+							<div class="flex justify-between mt-1 items-center text-sm shrink" data-bind-if={{g_PlacePopulation.showNonHoverSpecialistMaintenanceAdditional}}>
+								<div class="text-sm w-48" data-l10n-id="LOC_BUILDING_PLACEMENT_SPECIALIST_MAINTENANCE_ADDITIONAL"></div>
+								<div class="flex">
+									<div class="ml-1" data-bind-for="entry:{{g_PlacePopulation.nonHoverSpecialistMaintenanceAdditional}}">
+										<div class="text-sm" data-bind-html="{{entry}}"></div>
+									</div>
+								</div>
+							</div>							
 						</div>
 					</div>
 				</div>
@@ -178,7 +161,7 @@ class PlacePopulationPanel extends Panel {
     this.placeSpecialistFrame.appendChild(specialistInfoFrameHeader);
     this.placeSpecialistFrame.appendChild(this.buildSpecialistMinimized());
     this.placeSpecialistFrame.appendChild(this.buildSpecialistMaximized());
-    const footerContainer = document.createElement("div");
+    const footerContainer = document.createElement("fxs-activatable");
     footerContainer.className = "flex self-center items-center mb-2 px-6 min-w-0";
     footerContainer.setAttribute("data-slot", "footer");
     this.placeSpecialistFrame.appendChild(footerContainer);
@@ -215,6 +198,7 @@ class PlacePopulationPanel extends Panel {
     }
     footerContainer.appendChild(this.specialistExpandText);
     footerContainer.appendChild(this.specialistTouchExpandText);
+    footerContainer.addEventListener("action-activate", () => this.toggleMinMax());
     return this.placeSpecialistFrame;
   }
   buildSpecialistMinimized() {
@@ -310,7 +294,7 @@ class PlacePopulationPanel extends Panel {
 					<p data-l10n-id="LOC_BUILDING_PLACEMENT_BREAKDOWN" class="mx-2 font-title text-secondary text-sm uppercase"></p>
 					<div class="constructible-details__divider-line-right"></div>
 				</div>
-				<div class="flex flex-auto justify-between mx-2" data-bind-if={{g_PlacePopulation.showAfterSpecialistBonus}}>
+				<div class="flex flex-auto justify-between mx-2 flex-wrap" data-bind-if={{g_PlacePopulation.showAfterSpecialistBonus}}>
 					<div class="text-sm" data-l10n-id="LOC_BUILDING_PLACEMENT_SPECIALIST_BONUS"></div>
 					<div class="flex">
 						<div class="ml-1" data-bind-for="entry:{{g_PlacePopulation.afterSpecialistBonus}}">
@@ -318,7 +302,7 @@ class PlacePopulationPanel extends Panel {
 						</div>
 					</div>
 				</div>
-				<div class="flex flex-auto justify-between mx-2" data-bind-if={{g_PlacePopulation.showAfterSpecialistMaintenance}}>
+				<div class="flex flex-auto justify-between mx-2 flex-wrap" data-bind-if={{g_PlacePopulation.showAfterSpecialistMaintenance}}>
 					<div class="text-sm" data-l10n-id="LOC_BUILDING_PLACEMENT_SPECIALIST_MAINTENANCE"></div>
 					<div class="flex">
 						<div class="ml-1" data-bind-for="entry:{{g_PlacePopulation.afterSpecialistMaintenance}}">
@@ -342,7 +326,7 @@ class PlacePopulationPanel extends Panel {
     this.placeImprovementFrame.appendChild(improvementInfoFrameHeader);
     this.placeImprovementFrame.appendChild(this.buildImprovementMinimized());
     this.placeImprovementFrame.appendChild(this.buildImprovementMaximized());
-    const footerContainer = document.createElement("div");
+    const footerContainer = document.createElement("fxs-activatable");
     footerContainer.className = "flex self-center items-center px-6 mb-2 min-w-0";
     footerContainer.setAttribute("data-slot", "footer");
     this.placeImprovementFrame.appendChild(footerContainer);
@@ -379,6 +363,7 @@ class PlacePopulationPanel extends Panel {
     }
     footerContainer.appendChild(this.improvementExpandText);
     footerContainer.appendChild(this.improvementTouchExpandText);
+    footerContainer.addEventListener("action-activate", () => this.toggleMinMax());
     return this.placeImprovementFrame;
   }
   buildImprovementMinimized() {
@@ -414,7 +399,7 @@ class PlacePopulationPanel extends Panel {
 				<div class="flex justify-between items-center">
 					<div class="text-sm" data-l10n-id="LOC_BUILDING_PLACEMENT_TILE_TYPE"></div>
 					<div class="flex">
-						<div class="text-sm" class="uppercase font-bold" data-l10n-id="LOC_DISTRICT_UNIMPROVED_NAME"></div>
+						<div class="text-sm" data-l10n-id="LOC_DISTRICT_UNIMPROVED_NAME"></div>
 						<fxs-icon class="ml-2 size-6" data-icon-id="CITY_UNIMPROVED"></fxs-icon>
 					</div>
 				</div> 
@@ -434,7 +419,7 @@ class PlacePopulationPanel extends Panel {
 				<div class="flex justify-between items-center mb-2">
 					<div class="text-sm" data-l10n-id="LOC_BUILDING_PLACEMENT_TILE_TYPE"></div>
 					<div class="flex">
-						<div class="text-sm" class="uppercase font-bold" data-l10n-id="LOC_BUILDING_PLACEMENT_IMPROVEMENT"></div>
+						<div class="text-sm" data-l10n-id="LOC_BUILDING_PLACEMENT_IMPROVEMENT"></div>
 						<fxs-icon class="ml-2 size-6" data-icon-id="CITY_RURAL"></fxs-icon>
 					</div>
 				</div>
@@ -451,6 +436,7 @@ class PlacePopulationPanel extends Panel {
 						</div>
 					</div>
 				</div>
+			</div>
         `;
     return this.improvementMaximizedContainer;
   }

@@ -1,18 +1,10 @@
-import FocusManager from '../../../core/ui/input/focus-manager.js';
-import { P as Panel } from '../../../core/ui/panel-support.chunk.js';
-import { g as getPlayerColorValues } from '../../../core/ui/utilities/utilities-color.chunk.js';
-import { D as Databind } from '../../../core/ui/utilities/utilities-core-databinding.chunk.js';
+import Panel from '../../../core/ui/panel-support.js';
+import { applyPlayerColorsToElement } from '../../../core/ui/utilities/utilities-color.js';
+import Databind from '../../../core/ui/utilities/utilities-core-databinding.js';
+import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
 import AgeRankings from './model-age-rankings.js';
 import AgeSummary from '../age-summary/model-age-summary-hub.js';
-import '../../../core/ui/audio-base/audio-support.chunk.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/graph-layout/utils.chunk.js';
-import '../../../core/ui/utilities/utilities-image.chunk.js';
-import '../../../core/ui/utilities/utilities-component-id.chunk.js';
-import '../../../core/ui/utilities/utilities-update-gate.chunk.js';
-import '../victory-manager/victory-manager.chunk.js';
-
-const styles = "fs://game/base-standard/ui/age-rankings/panel-age-rankings.css";
+import styles from './panel-age-rankings.scss.js';
 
 class PanelAgeRankings extends Panel {
   selectedAgeType = "";
@@ -36,7 +28,7 @@ class PanelAgeRankings extends Panel {
     super.onDetach();
   }
   onFocus = () => {
-    FocusManager.setFocus(this.ageRankScrollable);
+    FocusManager.get().setFocus(this.ageRankScrollable);
   };
   render() {
     while (this.Root.lastChild) {
@@ -161,7 +153,7 @@ class PanelAgeRankings extends Panel {
     const playerContainer = document.createElement("div");
     playerContainer.classList.add("self-center", "flex", "flex-row", "pointer-events-auto", "mt-6");
     Databind.tooltip(playerContainer, player.playerName);
-    playerContainer.setAttribute("style", getPlayerColorValues(player.playerID));
+    applyPlayerColorsToElement(playerContainer, player.playerID);
     const civLeader = document.createElement("div");
     civLeader.classList.add("size-20", "relative");
     const civLeaderHexBGShadow = document.createElement("div");

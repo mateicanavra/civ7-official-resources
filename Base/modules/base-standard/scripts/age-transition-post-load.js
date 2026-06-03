@@ -1,11 +1,14 @@
 import { generateDiscoveries } from '../maps/discovery-generator.js';
+import { wouldCreateCluster } from '../maps/resource-generator.js';
 import { dumpResources } from '../maps/map-debug-helpers.js';
 import { g_PolarWaterRows } from '../maps/map-globals.js';
 import { removeRuralDistrict, placeRuralDistrict, getMinimumResourcePlacementModifier, shuffle, replaceIslandResources } from '../maps/map-utilities.js';
 
 console.log("Loading age-transition-post-load.ts");
+console.log("Legacies and Victories overriden version!");
 let g_numMajorPlayers = 0;
 let g_incomingAge = 0;
+let g_continuityMode = false;
 function requestInitializationParameters(initParams) {
   console.log("Getting Age Transition Parameters");
   console.log("Players: ", initParams.numMajorPlayers);
@@ -22,10 +25,9 @@ function generateTransition() {
   console.log("Generating age transition!");
   const setting = Configuration.getGameValue("AgeTransitionSettingName");
   console.log("Age Transition Setting: " + setting);
-  let continuityMode = false;
   if (setting == "AGE_TRANSITION_SETTING_KEEP_MORE") {
     console.log("Using continuity setting");
-    continuityMode = true;
+    g_continuityMode = true;
   }
   doMapUpdates();
   const iRemovedResourcePlots = [];
@@ -40,15 +42,14 @@ function generateTransition() {
       continue;
     }
     const regressedCities = regressCitiesToTowns(iPlayer);
-    if (continuityMode) {
+    if (g_continuityMode) {
       positionUnits(iPlayer);
     } else {
       positionArmyCommanders(iPlayer);
       positionFleetCommanders(iPlayer);
     }
-    capGold(iPlayer, continuityMode);
-    capInfluence(iPlayer, continuityMode);
-    changeCapitalCards(iPlayer);
+    capGold(iPlayer);
+    capInfluence(iPlayer);
     generateDarkAgeCards(iPlayer);
     generateDynamicVictoryCards(iPlayer);
     generateRetainCityCards(iPlayer, regressedCities);
@@ -62,8 +63,8 @@ function removeObsoleteResources(iRemovedResourcePlots, aGeneratedResources) {
   const resourcesAvailable = ResourceBuilder.getResourceCounts(-1);
   let countOnMap = 0;
   let countRemoved = 0;
-  for (let i = 0; i < resourcesAvailable.length; ++i) {
-    if (resourcesAvailable[i] > 0) {
+  for (const r of resourcesAvailable) {
+    if (r > 0) {
       countOnMap++;
     }
   }
@@ -76,8 +77,8 @@ function removeObsoleteResources(iRemovedResourcePlots, aGeneratedResources) {
   }
   console.log("Number of resources to cut: " + totalResourceToCut);
   const resourceToCut = ResourceBuilder.getBestMapResourceCuts(aGeneratedResources, totalResourceToCut);
-  for (let iI = 0; iI < resourceToCut.length; ++iI) {
-    const resourceInfo = GameInfo.Resources.lookup(resourceToCut[iI]);
+  for (const r of resourceToCut) {
+    const resourceInfo = GameInfo.Resources.lookup(r);
     if (resourceInfo) {
       aCutResources.push(resourceInfo.$index);
     }
@@ -124,8 +125,8 @@ function addNewResources(iRemovedResourcePlots, aGeneratedResources) {
   console.log("Adding new resources");
   const iResourceCounts = ResourceBuilder.getResourceCounts(-1);
   const aResourceTypes = [];
-  for (let ridx = 0; ridx < aGeneratedResources.length; ++ridx) {
-    const resourceInfo = GameInfo.Resources.lookup(aGeneratedResources[ridx]);
+  for (const gr of aGeneratedResources) {
+    const resourceInfo = GameInfo.Resources.lookup(gr);
     if (resourceInfo && resourceInfo.Tradeable) {
       if (iResourceCounts[resourceInfo.$index] == 0) {
         aResourceTypes.push(resourceInfo.$index);
@@ -190,7 +191,7 @@ function addNewResources(iRemovedResourcePlots, aGeneratedResources) {
       }
     }
   });
-  let iNumPlaced = 0;
+  let _iNumPlaced = 0;
   aPlacementPlots.forEach((index) => {
     if (index) {
       const kLocation = GameplayMap.getLocationFromIndex(index);
@@ -202,11 +203,11 @@ function addNewResources(iRemovedResourcePlots, aGeneratedResources) {
         if (allowedOnLandmass) {
           const existingResource = GameplayMap.getResourceType(kLocation.x, kLocation.y);
           if (existingResource != ResourceTypes.NO_RESOURCE && !ResourceBuilder.isResourceClassRequiredForLegacyPath(existingResource)) {
-            if (ResourceBuilder.canHaveResource(kLocation.x, kLocation.y, resourceIdx, true)) {
+            if (ResourceBuilder.canHaveResource(kLocation.x, kLocation.y, resourceIdx, true) && !wouldCreateCluster(kLocation.x, kLocation.y, resourceIdx)) {
               resources.push(resourceIdx);
             }
           } else {
-            if (ResourceBuilder.canHaveResource(kLocation.x, kLocation.y, resourceIdx, true)) {
+            if (ResourceBuilder.canHaveResource(kLocation.x, kLocation.y, resourceIdx, true) && !wouldCreateCluster(kLocation.x, kLocation.y, resourceIdx)) {
               resources.push(resourceIdx);
             }
           }
@@ -215,32 +216,32 @@ function addNewResources(iRemovedResourcePlots, aGeneratedResources) {
       if (resources.length > 0) {
         let resourceChosen = ResourceTypes.NO_RESOURCE;
         let resourceChosenIndex = 0;
-        for (let iI = 0; iI < resources.length; iI++) {
+        for (const r of resources) {
           if (resourceChosen == ResourceTypes.NO_RESOURCE) {
-            resourceChosen = resources[iI];
-            resourceChosenIndex = resources[iI];
+            resourceChosen = r;
+            resourceChosenIndex = r;
           } else {
-            if (resourceRunningWeight[resources[iI]] > resourceRunningWeight[resourceChosenIndex]) {
-              resourceChosen = resources[iI];
-              resourceChosenIndex = resources[iI];
-            } else if (resourceRunningWeight[resources[iI]] == resourceRunningWeight[resourceChosenIndex]) {
+            if (resourceRunningWeight[r] > resourceRunningWeight[resourceChosenIndex]) {
+              resourceChosen = r;
+              resourceChosenIndex = r;
+            } else if (resourceRunningWeight[r] == resourceRunningWeight[resourceChosenIndex]) {
               const iRoll = TerrainBuilder.getRandomNumber(2, "Resource Scatter");
               if (iRoll >= 1) {
-                resourceChosen = resources[iI];
-                resourceChosenIndex = resources[iI];
+                resourceChosen = r;
+                resourceChosenIndex = r;
               }
             }
           }
         }
         if (getImportantResourceCounts(landmassRegionId)[resourceChosenIndex] < maxPerHemisphere) {
-          if (resourceChosen != ResourceTypes.NO_RESOURCE) {
+          if (resourceChosen != ResourceTypes.NO_RESOURCE && !wouldCreateCluster(kLocation.x, kLocation.y, resourceChosenIndex)) {
             ResourceBuilder.setResourceType(kLocation.x, kLocation.y, resourceChosen);
             resourceRunningWeight[resourceChosenIndex] -= resourceWeight[resourceChosenIndex];
             const name = GameInfo.Resources[resourceChosenIndex].Name;
             console.log(
               "Placed " + Locale.compose(name) + " at (" + kLocation.x + ", " + kLocation.y + ")"
             );
-            iNumPlaced++;
+            _iNumPlaced++;
             getImportantResourceCounts(landmassRegionId)[resourceChosenIndex]++;
             resourcesPlacedCount[resourceChosenIndex]++;
             removeRuralDistrict(kLocation.x, kLocation.y);
@@ -268,11 +269,11 @@ function addNewResources(iRemovedResourcePlots, aGeneratedResources) {
             const minimumPerLandMass = resourceToPlace.MinimumPerHemisphere > 0 ? resourceToPlace.MinimumPerHemisphere + iMapMinimumModifer : 0;
             if (getImportantResourceCounts(landmassRegionId)[i] < minimumPerLandMass) {
               if (resourcesPlacedCount[i] > 0 && ResourceBuilder.isResourceRequiredForAge(i, Game.age)) {
-                if (ResourceBuilder.canHaveResource(iX, iY, i, false)) {
+                if (ResourceBuilder.canHaveResource(iX, iY, i, false) && !wouldCreateCluster(iX, iY, i)) {
                   ResourceBuilder.setResourceType(iX, iY, i);
                   const name = GameInfo.Resources.lookup(i)?.Name;
                   console.log(
-                    "Force Placed " + Locale.compose(name) + " at (" + iX + ", " + iY + ")"
+                    "Force Placed " + Locale.compose(name ?? "unknown") + " at (" + iX + ", " + iY + ")"
                   );
                   getImportantResourceCounts(landmassRegionId)[i]++;
                   removeRuralDistrict(iX, iY);
@@ -314,78 +315,17 @@ function regressCitiesToTowns(iPlayer) {
   const playerSettlements = player?.Cities?.getCityIds();
   const regressedCities = [];
   if (playerSettlements != null) {
-    for (let i = 0; i < playerSettlements.length; i++) {
-      const settlement = Cities.get(playerSettlements[i]);
+    for (const ps of playerSettlements) {
+      const settlement = Cities.get(ps);
       if (settlement != null) {
         if (!settlement.isCapital && !settlement.isTown) {
-          regressedCities.push(playerSettlements[i]);
+          regressedCities.push(ps);
           settlement.changeHasBuildQueue(-1);
         }
       }
     }
   }
   return regressedCities;
-}
-function changeCapitalCards(iPlayer) {
-  const capitalOptions = 2;
-  const player = Players.get(iPlayer);
-  let playerSettlements = player?.Cities?.getCityIds();
-  let currentPlayerCapitalName = "LOC_ERROR_NO_CAPITAL_NAME";
-  const currentPlayerCapital = player?.Cities?.getCapital();
-  if (currentPlayerCapital != null) {
-    currentPlayerCapitalName = currentPlayerCapital.name;
-  }
-  if (player != null && playerSettlements != null) {
-    playerSettlements = playerSettlements.sort((a, b) => {
-      const popA = Cities.get(a)?.population;
-      const popB = Cities.get(b)?.population;
-      if (popA == null) return 1;
-      if (popB == null) return -1;
-      return popB - popA;
-    });
-    let capitalName = "LOC_ERROR_NO_CAPITAL_NAME";
-    const civ = GameInfo.Civilizations.lookup(player.civilizationType);
-    if (civ != null) {
-      capitalName = civ.CapitalName;
-    }
-    let cardsGenerated = 0;
-    for (let i = 0; i < playerSettlements.length && cardsGenerated < capitalOptions; i++) {
-      const settlement = Cities.get(playerSettlements[i]);
-      if (settlement != null) {
-        if (!settlement.isCapital && settlement.Trade != null && settlement.Trade.isConnectedToOwnersCapitalByLand()) {
-          const card = {
-            id: "CARD_AT_CHANGE_CAPITAL_" + cardsGenerated,
-            name: "LOC_CARD_AT_CHANGE_CAPITAL",
-            description: "LOC_CARD_AT_CHANGE_CAPITAL_DESCRIPTION\\" + settlement.name + "\\" + capitalName + "\\" + currentPlayerCapitalName,
-            tooltip: "",
-            iconOverride: "",
-            limitID: "CARD_AT_CHANGE_CAPITAL_0",
-            individualLimit: 1,
-            groupLimit: 1,
-            categorySortOrder: 100,
-            cost: [{ category: CardCategories.CARD_CATEGORY_WILDCARD, value: 0 }],
-            effects: [
-              {
-                id: "CARD_AT_CHANGE_CAPITAL_" + cardsGenerated,
-                type: "CARD_AT_CHANGE_CAPITAL",
-                name: "",
-                description: "",
-                amount: 1,
-                special: 0,
-                metadata: {
-                  Type: 1 /* Capital */,
-                  SettlementId: settlement.id.id
-                }
-              }
-            ],
-            aiModifierLists: []
-          };
-          Players.AdvancedStart.get(iPlayer)?.addDynamicAvailableCard(card);
-          cardsGenerated += 1;
-        }
-      }
-    }
-  }
 }
 function positionUnits(iPlayer) {
   const player = Players.get(iPlayer);
@@ -453,12 +393,8 @@ function positionArmyCommanders(iPlayer) {
                   packedUnits.push(i);
                 }
               }
-              for (let i = 0; i < packedUnits.length; i++) {
-                const newUnitID = createUnitFromShadowAtLocation(
-                  player,
-                  shadows[packedUnits[i]],
-                  unit.location
-                );
+              for (const pu of packedUnits) {
+                const newUnitID = createUnitFromShadowAtLocation(player, shadows[pu], unit.location);
                 totalUnitsCreated++;
                 if (newUnitID != null) {
                   console.log("Packing unit");
@@ -476,8 +412,8 @@ function positionArmyCommanders(iPlayer) {
           });
         }
         shadows = playerUnits.getUnitShadows();
-        for (let i = 0; i < shadows.length; i++) {
-          console.log(JSON.stringify(shadows[i]));
+        for (const s of shadows) {
+          console.log(JSON.stringify(s));
         }
         let cityIndex = 0;
         for (let i = 0; i < numDefensiveUnits; i++) {
@@ -654,6 +590,9 @@ function createUnitFromShadowAtLocation(player, shadow, location) {
       if (buildUnit != null) {
         const result = Units.create(player.id, { Type: buildUnit, Location: location, Validate: true });
         if (result.Success && result.ID) {
+          if (g_continuityMode && shadow.activityType != UnitActivityTypes.NONE) {
+            Units.setActivity(result.ID, shadow.activityType);
+          }
           return result.ID;
         }
       }
@@ -668,10 +607,10 @@ function getNumDefenders() {
   }
   return 0;
 }
-function capGold(iPlayer, bContinuityMode) {
+function capGold(iPlayer) {
   const player = Players.get(iPlayer);
   let defaultGold = Game.EconomicRules.adjustForGameSpeed(3e3);
-  if (bContinuityMode) {
+  if (g_continuityMode) {
     if (Game.age == Database.makeHash("AGE_EXPLORATION")) {
       defaultGold = Game.EconomicRules.adjustForGameSpeed(6e3);
     } else if (Game.age == Database.makeHash("AGE_MODERN")) {
@@ -682,14 +621,14 @@ function capGold(iPlayer, bContinuityMode) {
   const currentGold = player?.Treasury?.goldBalance;
   if (currentGold != null) {
     if (currentGold > defaultGold) {
-      player?.Treasury?.changeGoldBalance(defaultGold - currentGold);
+      player?.Treasury?.changeGoldBalance(defaultGold - currentGold, -1);
     }
   }
 }
-function capInfluence(iPlayer, bContinuityMode) {
+function capInfluence(iPlayer) {
   const player = Players.get(iPlayer);
   let defaultInfluence = Game.EconomicRules.adjustForGameSpeed(500);
-  if (bContinuityMode) {
+  if (g_continuityMode) {
     if (Game.age == Database.makeHash("AGE_EXPLORATION")) {
       defaultInfluence = Game.EconomicRules.adjustForGameSpeed(800);
     } else if (Game.age == Database.makeHash("AGE_MODERN")) {
@@ -750,79 +689,36 @@ function generateRetainCityCards(iPlayer, aSettlements) {
   const player = Players.get(iPlayer);
   if (player != null) {
     if (aSettlements.length > 0) {
-      if (Game.age == Database.makeHash("AGE_EXPLORATION")) {
-        const card = {
-          id: "CARD_AT_EXP_GOLDEN_AGE_ECONOMIC",
-          name: "LOC_LEGACY_PATH_ANTIQUITY_ECONOMIC_GOLDEN_AGE_NAME",
-          description: "LOC_LEGACY_PATH_ANTIQUITY_ECONOMIC_GOLDEN_AGE_DESCRIPTION",
-          tooltip: "",
-          iconOverride: "agecard_victory.png",
-          limitID: "CARD_AT_EXP_VICTORY_CULTURE_GOLDEN_AGE",
-          individualLimit: 1,
-          goldenAgeReward: true,
-          categorySortOrder: 10,
-          unlock: "UNLOCK_WON_ECONOMIC_VICTORY_1",
-          cost: [{ category: CardCategories.CARD_CATEGORY_ECONOMIC, value: 2 }],
-          effects: [],
-          aiModifierLists: []
-        };
-        for (let i = 0; i < aSettlements.length; i++) {
-          card.effects.push({
-            id: "CARD_AT_EXP_GOLDEN_AGE_ECONOMIC_" + i,
-            type: "CARD_AT_EXP_GOLDEN_AGE_ECONOMIC",
-            name: "",
-            description: "",
-            amount: 1,
-            special: 0,
-            metadata: {
-              Type: 2 /* City */,
-              SettlementId: aSettlements[i].id
-            }
-          });
-        }
-        Players.AdvancedStart.get(iPlayer)?.addDynamicAvailableCard(card);
-      } else if (Game.age == Database.makeHash("AGE_MODERN")) {
-        const card = {
-          id: "CARD_AT_MOD_GOLDEN_AGE_ECONOMIC",
-          name: "LOC_LEGACY_PATH_EXPLORATION_ECONOMIC_GOLDEN_AGE_NAME",
-          description: "LOC_LEGACY_PATH_EXPLORATION_ECONOMIC_GOLDEN_AGE_DESCRIPTION",
-          tooltip: "",
-          iconOverride: "agecard_victory.png",
-          limitID: "CARD_AT_MOD_VICTORY_MILITARISTIC_FIRST",
-          individualLimit: 1,
-          goldenAgeReward: true,
-          categorySortOrder: 10,
-          unlock: "UNLOCK_WON_ECONOMIC_VICTORY_2",
-          cost: [{ category: CardCategories.CARD_CATEGORY_ECONOMIC, value: 2 }],
-          effects: [
-            {
-              id: "CARD_AT_MOD_GOLDEN_AGE_ECONOMIC_POPULATION",
-              type: "CARD_AT_MOD_GOLDEN_AGE_ECONOMIC_POPULATION",
-              name: "",
-              description: "",
-              amount: 1,
-              special: 0,
-              metadata: {}
-            }
-          ],
-          aiModifierLists: []
-        };
-        for (let i = 0; i < aSettlements.length; i++) {
-          card.effects.push({
-            id: "CARD_AT_MOD_GOLDEN_AGE_ECONOMIC_" + i,
-            type: "CARD_AT_MOD_GOLDEN_AGE_ECONOMIC",
-            name: "",
-            description: "",
-            amount: 1,
-            special: 0,
-            metadata: {
-              Type: 2 /* City */,
-              SettlementId: aSettlements[i].id
-            }
-          });
-        }
-        Players.AdvancedStart.get(iPlayer)?.addDynamicAvailableCard(card);
+      const card = {
+        id: "CARD_AT_EXP_GOLDEN_AGE_ECONOMIC",
+        name: "LOC_UNLOCK_AQ_DEFAULT_5_NAME",
+        description: "LOC_UNLOCK_AQ_DEFAULT_5_DESCRIPTION",
+        tooltip: "",
+        iconOverride: "agecard_victory.png",
+        limitID: "",
+        individualLimit: 1,
+        goldenAgeReward: false,
+        categorySortOrder: 60,
+        unlock: "",
+        cost: [{ category: CardCategories.CARD_CATEGORY_WILDCARD, value: 1 }],
+        effects: [],
+        aiModifierLists: []
+      };
+      for (let i = 0; i < aSettlements.length; i++) {
+        card.effects.push({
+          id: "CARD_AT_EXP_GOLDEN_AGE_ECONOMIC_" + i,
+          type: "CARD_AT_EXP_GOLDEN_AGE_ECONOMIC",
+          name: "",
+          description: "",
+          amount: 1,
+          special: 0,
+          metadata: {
+            Type: 2 /* City */,
+            SettlementId: aSettlements[i].id
+          }
+        });
       }
+      Players.AdvancedStart.get(iPlayer)?.addDynamicAvailableCard(card);
     }
   }
 }
@@ -913,8 +809,9 @@ function generateDynamicVictoryCards(iPlayer) {
           aiModifierLists: []
         };
         let totalUnits = 0;
-        if (player.Cities?.getCities() != null) {
-          for (const city of player.Cities?.getCities()) {
+        const playerCities = player.Cities?.getCities();
+        if (playerCities) {
+          for (const city of playerCities) {
             if (city.getProperty(Database.makeHash("PROPERTY_WAS_CONQUERED"))) {
               console.log("Was conquered: " + city.name);
               card.effects.push({

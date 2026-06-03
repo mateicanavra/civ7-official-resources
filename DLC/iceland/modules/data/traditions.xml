@@ -4,25 +4,50 @@
 		<!-- ==================================================	-->
 		<!--	EXPLORATION							-->
 		<!-- ==================================================	-->
-		<Row Type="TRADITION_DREKAHOFUD" Kind="KIND_TRADITION"/>
-		<Row Type="TRADITION_DROTTKVAETT" Kind="KIND_TRADITION"/>
+		<Row Type="TRADITION_STRANDHOGG" Kind="KIND_TRADITION"/>
+		<Row Type="TRADITION_DROTTKVAETT_II" Kind="KIND_TRADITION"/>
 		<Row Type="TRADITION_REIDI_GUDANNA" Kind="KIND_TRADITION"/>
-		<Row Type="TRADITION_LYFSTEINN" Kind="KIND_TRADITION"/>
+		<Row Type="TRADITION_LYFSTEINN_I" Kind="KIND_TRADITION"/>
+		<!-- ==================================================	-->
+		<!--	TEST OF TIME								-->
+		<!-- ==================================================	-->
+		<Row Type="TRADITION_DROTTKVAETT_I" Kind="KIND_TRADITION" />
+		<Row Type="TRADITION_LYFSTEINN_II" Kind="KIND_TRADITION" />
+		<Row Type="TRADITION_ICELAND_SYNCRETISM_ANTIQUITY" Kind="KIND_TRADITION" />
+		<Row Type="TRADITION_ICELAND_SYNCRETISM_MODERN" Kind="KIND_TRADITION" />
 	</Types>
 	<Traditions>
 		<!-- ==================================================	-->
 		<!--	EXPLORATION							-->
 		<!-- ==================================================	-->
-		<Row TraditionType="TRADITION_DREKAHOFUD" Name="LOC_TRADITION_DREKAHOFUD_NAME" Description="LOC_TRADITION_DREKAHOFUD_DESCRIPTION" TraitType="TRAIT_ICELAND" AgeType="AGE_EXPLORATION"/>
-		<Row TraditionType="TRADITION_REIDI_GUDANNA" Name="LOC_TRADITION_REIDI_GUDANNA_NAME" Description="LOC_TRADITION_REIDI_GUDANNA_DESCRIPTION" TraitType="TRAIT_ICELAND" AgeType="AGE_EXPLORATION"/>
-		<Row TraditionType="TRADITION_DROTTKVAETT" Name="LOC_TRADITION_DROTTKVAETT_NAME" Description="LOC_TRADITION_DROTTKVAETT_DESCRIPTION" TraitType="TRAIT_ICELAND" AgeType="AGE_EXPLORATION"/>
-		<Row TraditionType="TRADITION_LYFSTEINN" Name="LOC_TRADITION_LYFSTEINN_NAME" Description="LOC_TRADITION_LYFSTEINN_DESCRIPTION" TraitType="TRAIT_ICELAND" AgeType="AGE_EXPLORATION"/>
-	</Traditions>
+		<Row TraditionType="TRADITION_STRANDHOGG" Name="LOC_TRADITION_STRANDHOGG_NAME" Description="LOC_TRADITION_STRANDHOGG_DESCRIPTION" TraitType="TRAIT_ICELAND" AgeType="AGE_EXPLORATION" CultureSlotType="TRADITION_CULTURE_SLOT"/>
+		<Row TraditionType="TRADITION_REIDI_GUDANNA" Name="LOC_TRADITION_REIDI_GUDANNA_NAME" Description="LOC_TRADITION_REIDI_GUDANNA_DESCRIPTION" TraitType="TRAIT_ICELAND" AgeType="AGE_EXPLORATION" CultureSlotType="TRADITION_CULTURE_SLOT"/>
+		<Row TraditionType="TRADITION_DROTTKVAETT_II" Name="LOC_TRADITION_DROTTKVAETT_II_NAME" Description="LOC_TRADITION_DROTTKVAETT_II_DESCRIPTION" TraitType="TRAIT_ICELAND" AgeType="AGE_EXPLORATION" CultureSlotType="TRADITION_CULTURE_SLOT" ObsoletesTraditionType="TRADITION_DROTTKVAETT_I"/>
+		<Row TraditionType="TRADITION_LYFSTEINN_I" Name="LOC_TRADITION_LYFSTEINN_I_NAME" Description="LOC_TRADITION_LYFSTEINN_I_DESCRIPTION" TraitType="TRAIT_ICELAND" AgeType="AGE_EXPLORATION" CultureSlotType="TRADITION_CULTURE_SLOT"/>
+		<!-- ==================================================	-->
+		<!--	TEST OF TIME								-->
+		<!-- ==================================================	-->
+		<Row TraditionType="TRADITION_DROTTKVAETT_I" Name="LOC_TRADITION_DROTTKVAETT_I_NAME" Description="LOC_TRADITION_DROTTKVAETT_I_DESCRIPTION" TraitType="TRAIT_ICELAND" AgeType="AGE_ANTIQUITY" CultureSlotType="TRADITION_CULTURE_SLOT" />
+		<Row TraditionType="TRADITION_LYFSTEINN_II" Name="LOC_TRADITION_LYFSTEINN_II_NAME" Description="LOC_TRADITION_LYFSTEINN_II_DESCRIPTION" TraitType="TRAIT_ICELAND" AgeType="AGE_MODERN" CultureSlotType="TRADITION_CULTURE_SLOT" ObsoletesTraditionType="TRADITION_LYFSTEINN_I" />
+		<Row TraditionType="TRADITION_ICELAND_SYNCRETISM_ANTIQUITY" Name="LOC_TRADITION_ICELAND_SYNCRETISM_ANTIQUITY_NAME" Description="LOC_TRADITION_ICELAND_SYNCRETISM_ANTIQUITY_DESCRIPTION" AgeType="AGE_ANTIQUITY" CultureSlotType="TRADITION_CULTURE_SLOT" TraitType="TRAIT_ICELAND" IgnoreInitializeUnlock="true"  AllowInitializeAdvancedStart="true"/>
+		<Row TraditionType="TRADITION_ICELAND_SYNCRETISM_MODERN" Name="LOC_TRADITION_ICELAND_SYNCRETISM_MODERN_NAME" Description="LOC_TRADITION_ICELAND_SYNCRETISM_MODERN_DESCRIPTION" AgeType="AGE_MODERN" CultureSlotType="TRADITION_CULTURE_SLOT" TraitType="TRAIT_ICELAND" IgnoreInitializeUnlock="true" ObsoletesTraditionType="TRADITION_ICELAND_SYNCRETISM_ANTIQUITY"  AllowInitializeAdvancedStart="true"/>	</Traditions>
 	<TraditionModifiers>
-		<Row TraditionType="TRADITION_DREKAHOFUD" ModifierId="DREKAHOFUD_NAVAL_UNIT_CULTURE"/>
+		<!-- ==================================================	-->
+		<!--	EXPLORATION							-->
+		<!-- ==================================================	-->
+		<Row TraditionType="TRADITION_STRANDHOGG" ModifierId="MOD_TRADITION_STRANDHOGG_RANGE_PILLAGE"/>
+		<Row TraditionType="TRADITION_STRANDHOGG" ModifierId="MOD_STRANDHOGG_PILLAGE_ONE_MOVE"/>
 		<Row TraditionType="TRADITION_REIDI_GUDANNA" ModifierId="REIDI_GUDANNA_MOD_VOLCANO_ADJACENCY"/>
 		<Row TraditionType="TRADITION_REIDI_GUDANNA" ModifierId="REIDI_GUDANNA_MOD_REPAIR_DISCOUNT"/>
-		<Row TraditionType="TRADITION_LYFSTEINN" ModifierId="MOD_LYFSTEINN_HEAL_NAVAL"/>
-		<Row TraditionType="TRADITION_DROTTKVAETT" ModifierId="MOD_DROTTKVAETT_COASTAL_RAID_CULTURE"/>
+		<Row TraditionType="TRADITION_LYFSTEINN_I" ModifierId="MOD_LYFSTEINN_HEAL_NAVAL"/>
+		<Row TraditionType="TRADITION_DROTTKVAETT_II" ModifierId="MOD_DROTTKVAETT_COASTAL_RAID_CULTURE"/>
+		<!-- ==================================================	-->
+		<!--	TEST OF TIME								-->
+		<!-- ==================================================	-->
+		<Row TraditionType="TRADITION_DROTTKVAETT_I" ModifierId="MOD_DROTTKVAETT_I_COASTAL_RAID_CULTURE"/>
+		<Row TraditionType="TRADITION_LYFSTEINN_II" ModifierId="MOD_LYFSTEINN_II_HEAL_NAVAL"/>
+		<Row TraditionType="TRADITION_ICELAND_SYNCRETISM_ANTIQUITY" ModifierId="ICELAND_SYNCRETISM_NAVAL_UNIT_CULTURE"/>
+		<Row TraditionType="TRADITION_ICELAND_SYNCRETISM_MODERN" ModifierId="ICELAND_SYNCRETISM_NAVAL_UNIT_CULTURE"/>
+		<Row TraditionType="TRADITION_ICELAND_SYNCRETISM_MODERN" ModifierId="ICELAND_SYNCRETISM_NATURAL_WONDER_COMBAT_BONUS"/>
 	</TraditionModifiers>
 </Database>

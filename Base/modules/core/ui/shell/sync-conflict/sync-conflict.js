@@ -1,25 +1,14 @@
-import { d as displayRequestUniqueId, a as DialogBoxManager } from '../../dialog-box/manager-dialog-box.chunk.js';
-import { M as MainMenuReturnEvent } from '../../events/shell-events.chunk.js';
-import FocusManager from '../../input/focus-manager.js';
-import { N as NavTray } from '../../navigation-tray/model-navigation-tray.chunk.js';
-import { P as Panel } from '../../panel-support.chunk.js';
-import { Q as QueryDoneEventName, R as ResolveConflictDoneEventName, S as SaveLoadData } from '../../save-load/model-save-load.chunk.js';
-import { f as fixupNNBSP } from '../../utilities/utilities-core-textprovider.chunk.js';
-import { MustGetElement } from '../../utilities/utilities-dom.chunk.js';
-import '../../context-manager/display-queue-manager.js';
-import '../../framework.chunk.js';
-import '../../audio-base/audio-support.chunk.js';
-import '../../input/action-handler.js';
-import '../../input/cursor.js';
-import '../../views/view-manager.chunk.js';
-import '../../input/input-support.chunk.js';
-import '../../utilities/utilities-update-gate.chunk.js';
-import '../../utilities/utilities-image.chunk.js';
-import '../../utilities/utilities-component-id.chunk.js';
-
-const content = "<fxs-modal-frame>\r\n\t<fxs-header\r\n\t\ttitle=\"LOC_LOAD_GAME_ERROR_SYNC\"\r\n\t\tclass=\"font-title text-xl text-center uppercase tracking-100\"\r\n\t\tfiligree-style=\"h2\"\r\n\t></fxs-header>\r\n\t<div\r\n\t\tclass=\"sync-conflict__description font-fit-shrink shrink font-body-base text-accent-2 my-4 self-center text-center\"\r\n\t\tdata-l10n-id=\"LOC_LOAD_GAME_ERROR_SYNC_DESCRIPTION\"\r\n\t></div>\r\n\t<div class=\"pt-2 px-12 relative\">\r\n\t\t<div\r\n\t\t\tclass=\"sync-conflict__loading absolute inset-0 flow-column justify-center items-center transition-opacity opacity-0 pointer-events-none\"\r\n\t\t>\r\n\t\t\t<div class=\"loading-animation-container relative inset-0 flow-row justify-center items-center\"></div>\r\n\t\t</div>\r\n\t\t<fxs-hslot\r\n\t\t\tclass=\"sync-conflict__slot justify-center opacity-0\"\r\n\t\t\tdisable-focus-allowed=\"true\"\r\n\t\t>\r\n\t\t\t<fxs-chooser-item\r\n\t\t\t\tclass=\"sync-conflict__local-button w-84 mx-3 pointer-events-none\"\r\n\t\t\t\tdata-audio-group-ref=\"audio-mp-landing\"\r\n\t\t\t\tdata-audio-activate=\"mp-landing-internet-selected\"\r\n\t\t\t\tselectable-when-disabled=\"true\"\r\n\t\t\t\tdata-bind-attributes=\"{'select-on-focus':{{g_NavTray.isTrayRequired}}?'true':'false'}\"\r\n\t\t\t>\r\n\t\t\t\t<div class=\"flow-column p-3 w-full\">\r\n\t\t\t\t\t<fxs-header\r\n\t\t\t\t\t\ttitle=\"Local\"\r\n\t\t\t\t\t\tclass=\"uppercase text-center font-title text-xl tracking-100 font-fit-shrink whitespace-nowrap pointer-events-none\"\r\n\t\t\t\t\t\tfiligree-style=\"none\"\r\n\t\t\t\t\t\tfont-fit-mode=\"shrink\"\r\n\t\t\t\t\t\twrap=\"nowrap\"\r\n\t\t\t\t\t></fxs-header>\r\n\t\t\t\t\t<div class=\"flow-row justify-center -mt-2\">\r\n\t\t\t\t\t\t<div class=\"img-unit-panel-divider -scale-y-100\"></div>\r\n\t\t\t\t\t\t<div class=\"img-unit-panel-divider -scale-100\"></div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class=\"flex-auto mx-2 my-6 flow-column justify-between\">\r\n\t\t\t\t\t\t<fxs-header\r\n\t\t\t\t\t\t\tfiligree-style=\"none\"\r\n\t\t\t\t\t\t\tclass=\"sync-conflict__local__title uppercase text-center font-title-lg text-accent-2 flex flex-shrink pointer-events-none\"\r\n\t\t\t\t\t\t\ttext-class=\"max-h-18\"\r\n\t\t\t\t\t\t\tfont-fit-mode=\"shrink\"\r\n\t\t\t\t\t\t\twrap=\"nowrap\"\r\n\t\t\t\t\t\t\ttruncate=\"true\"\r\n\t\t\t\t\t\t\ttitle=\"Testsupersavetitle\"\r\n\t\t\t\t\t\t></fxs-header>\r\n\t\t\t\t\t\t<div>\r\n\t\t\t\t\t\t\t<div\r\n\t\t\t\t\t\t\t\tclass=\"sync-conflict__local__age font-body text-accent-2 text-center font-fit-shrink whitespace-nowrap\"\r\n\t\t\t\t\t\t\t\tdata-l10n-id=\"Exploration\"\r\n\t\t\t\t\t\t\t></div>\r\n\t\t\t\t\t\t\t<div\r\n\t\t\t\t\t\t\t\tclass=\"sync-conflict__local__turn font-body text-accent-2 text-center font-fit-shrink whitespace-nowrap\"\r\n\t\t\t\t\t\t\t\tdata-l10n-id=\"Turn 32 - 750AD\"\r\n\t\t\t\t\t\t\t></div>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t<div>\r\n\t\t\t\t\t\t\t<div\r\n\t\t\t\t\t\t\t\tclass=\"sync-conflict__local__date font-body text-accent-2 text-center font-fit-shrink whitespace-nowrap\"\r\n\t\t\t\t\t\t\t\tdata-l10n-id=\"11/29/2025\"\r\n\t\t\t\t\t\t\t></div>\r\n\t\t\t\t\t\t\t<div\r\n\t\t\t\t\t\t\t\tclass=\"sync-conflict__local__time font-body text-accent-2 text-center font-fit-shrink whitespace-nowrap\"\r\n\t\t\t\t\t\t\t\tdata-l10n-id=\"9:25 PM\"\r\n\t\t\t\t\t\t\t></div>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<fxs-button\r\n\t\t\t\t\t\tclass=\"sync-conflict__local-button-2 my-1 mx-2\"\r\n\t\t\t\t\t\tcaption=\"Keep\"\r\n\t\t\t\t\t></fxs-button>\r\n\t\t\t\t</div>\r\n\t\t\t</fxs-chooser-item>\r\n\t\t\t<fxs-chooser-item\r\n\t\t\t\tclass=\"sync-conflict__icloud-button w-84 mx-3\"\r\n\t\t\t\tdata-audio-group-ref=\"audio-mp-landing\"\r\n\t\t\t\tdata-audio-activate=\"mp-landing-lan-selected\"\r\n\t\t\t\tselectable-when-disabled=\"true\"\r\n\t\t\t\tdata-bind-attributes=\"{'select-on-focus':{{g_NavTray.isTrayRequired}}?'true':'false'}\"\r\n\t\t\t>\r\n\t\t\t\t<div class=\"flow-column p-3 w-full\">\r\n\t\t\t\t\t<fxs-header\r\n\t\t\t\t\t\ttitle=\"ICloud\"\r\n\t\t\t\t\t\tclass=\"uppercase text-center font-title text-xl tracking-100 font-fit-shrink whitespace-nowrap pointer-events-none\"\r\n\t\t\t\t\t\tfiligree-style=\"none\"\r\n\t\t\t\t\t\tfont-fit-mode=\"shrink\"\r\n\t\t\t\t\t\twrap=\"nowrap\"\r\n\t\t\t\t\t></fxs-header>\r\n\t\t\t\t\t<div class=\"flow-row justify-center -mt-2\">\r\n\t\t\t\t\t\t<div class=\"img-unit-panel-divider -scale-y-100\"></div>\r\n\t\t\t\t\t\t<div class=\"img-unit-panel-divider -scale-100\"></div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class=\"flex-auto mx-2 my-6 flow-column justify-between\">\r\n\t\t\t\t\t\t<fxs-header\r\n\t\t\t\t\t\t\tfiligree-style=\"none\"\r\n\t\t\t\t\t\t\tclass=\"sync-conflict__icloud__title uppercase text-center font-title-lg text-accent-2 flex flex-shrink pointer-events-none\"\r\n\t\t\t\t\t\t\ttext-class=\"max-h-18\"\r\n\t\t\t\t\t\t\tfont-fit-mode=\"shrink\"\r\n\t\t\t\t\t\t\twrap=\"nowrap\"\r\n\t\t\t\t\t\t\ttruncate=\"true\"\r\n\t\t\t\t\t\t\ttitle=\"Testsupersavetitle\"\r\n\t\t\t\t\t\t></fxs-header>\r\n\t\t\t\t\t\t<div>\r\n\t\t\t\t\t\t\t<div\r\n\t\t\t\t\t\t\t\tclass=\"sync-conflict__icloud__age font-body text-accent-2 text-center font-fit-shrink whitespace-nowrap\"\r\n\t\t\t\t\t\t\t\tdata-l10n-id=\"Exploration\"\r\n\t\t\t\t\t\t\t></div>\r\n\t\t\t\t\t\t\t<div\r\n\t\t\t\t\t\t\t\tclass=\"sync-conflict__icloud__turn font-body text-accent-2 text-center font-fit-shrink whitespace-nowrap\"\r\n\t\t\t\t\t\t\t\tdata-l10n-id=\"Turn 32 - 750AD\"\r\n\t\t\t\t\t\t\t></div>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t<div>\r\n\t\t\t\t\t\t\t<div\r\n\t\t\t\t\t\t\t\tclass=\"sync-conflict__icloud__date font-body text-accent-2 text-center font-fit-shrink whitespace-nowrap\"\r\n\t\t\t\t\t\t\t\tdata-l10n-id=\"11/29/2025\"\r\n\t\t\t\t\t\t\t></div>\r\n\t\t\t\t\t\t\t<div\r\n\t\t\t\t\t\t\t\tclass=\"sync-conflict__icloud__time font-body text-accent-2 text-center font-fit-shrink whitespace-nowrap\"\r\n\t\t\t\t\t\t\t\tdata-l10n-id=\"9:25 PM\"\r\n\t\t\t\t\t\t\t></div>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<fxs-button\r\n\t\t\t\t\t\tclass=\"sync-conflict__icloud-button-2 my-1 mx-2\"\r\n\t\t\t\t\t\tcaption=\"Keep\"\r\n\t\t\t\t\t></fxs-button>\r\n\t\t\t\t</div>\r\n\t\t\t</fxs-chooser-item>\r\n\t\t</fxs-hslot>\r\n\t</div>\r\n</fxs-modal-frame>\r\n";
-
-const styles = "fs://game/core/ui/shell/sync-conflict/sync-conflict.css";
+import { displayRequestUniqueId } from '../../context-manager/display-handler.js';
+import { DialogBoxManager } from '../../dialog-box/manager-dialog-box.js';
+import { MainMenuReturnEvent } from '../../events/shell-events.js';
+import NavTray from '../../navigation-tray/model-navigation-tray.js';
+import Panel from '../../panel-support.js';
+import SaveLoadData, { QueryDoneEventName, ResolveConflictDoneEventName } from '../../save-load/model-save-load.js';
+import { fixupNNBSP } from '../../utilities/utilities-core-textprovider.js';
+import { MustGetElement } from '../../utilities/utilities-dom.js';
+import { FocusManager } from '../../../ui-next/services/focus-manager.js';
+import content from './sync-conflict.html.js';
+import styles from './sync-conflict.scss.js';
 
 var PanelOperation = /* @__PURE__ */ ((PanelOperation2) => {
   PanelOperation2[PanelOperation2["None"] = 0] = "None";
@@ -110,7 +99,7 @@ class PanelSyncConflict extends Panel {
   onReceiveFocus() {
     super.onReceiveFocus();
     NavTray.clear();
-    FocusManager.setFocus(this.slotDiv);
+    FocusManager.get().setFocus(this.slotDiv);
   }
   onClose() {
     this.close();

@@ -48,6 +48,7 @@
 		<Row Type="UNITCOMMAND_TREAT_SICK" Kind="KIND_UNITCOMMAND"/>
 		<Row Type="UNITCOMMAND_NAME_UNIT" Kind="KIND_UNITCOMMAND"/>
 		<Row Type="UNITCOMMAND_PET_THE_DOG" Kind="KIND_UNITCOMMAND"/>
+		<Row Type="UNITCOMMAND_DISPERSE_CLAN" Kind="KIND_UNITCOMMAND"/>
 	</Types>
 	<UnitCommands>
 		<!-- Left to Right in UI: PASSIVE_SECONDARY -> PASSIVE_PRIMARY -> MOVE -> ACTIVE_PRIMARY -> ACTIVE_SECONDARY-->
@@ -88,6 +89,7 @@
 		<Row CommandType="UNITCOMMAND_TREAT_SICK" VisibleInUI="true" HoldCycling="false" CategoryInUI="ACTIVE_PRIMARY" PriorityInUI="0" Icon="blp:action_greatperson.png" Name="LOC_UNITCOMMAND_TREAT_SICK_NAME" Description="LOC_UNITCOMMAND_TREAT_SICK_DESCRIPTION"/>
 		<Row CommandType="UNITCOMMAND_NAME_UNIT" VisibleInUI="false" HoldCycling="false" CategoryInUI="COMMAND" PriorityInUI="0" Icon="blp:city_edit.png" Name="LOC_UNITCOMMAND_NAME_UNIT_NAME" Description="LOC_UNITCOMMAND_NAME_UNIT_DESCRIPTION"/>
 		<Row CommandType="UNITCOMMAND_PET_THE_DOG" VisibleInUI="true" HoldCycling="false" CategoryInUI="ACTIVE_PRIMARY" PriorityInUI="80" Icon="blp:action_pet.png" Name="LOC_UNITCOMMAND_PET_THE_DOG_NAME" Description="LOC_UNITCOMMAND_PET_THE_DOG_DESCRIPTION"/>
+		<Row CommandType="UNITCOMMAND_DISPERSE_CLAN" VisibleInUI="true" HoldCycling="true" CategoryInUI="ACTIVE_PRIMARY" PriorityInUI="0" Icon="blp:action_disperseclan.png" Name="LOC_UNITCOMMAND_DISPERSE_CLAN_NAME" Description="LOC_UNITCOMMAND_DISPERSE_CLAN_DESCRIPTION"/>
 		<!--				
 		<Row CommandType="UNITCOMMAND_EXECUTE_SCRIPT" VisibleInUI="false" HoldCycling="false" CategoryInUI="SPECIFIC" Icon="ICON_UNITCOMMAND_NAME_UNIT" Description="LOC_UNITCOMMAND_EXECUTE_SCRIPT_DESCRIPTION"/>
 		<Row CommandType="UNITCOMMAND_ENTER_FORMATION" VisibleInUI="true" HoldCycling="true" CategoryInUI="SPECIFIC" Icon="ICON_UNITCOMMAND_ENTER_FORMATION" Description="LOC_UNITCOMMAND_ENTER_FORMATION_DESCRIPTION"/>

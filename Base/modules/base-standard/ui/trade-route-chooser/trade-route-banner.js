@@ -1,7 +1,5 @@
 import { getResourceTypeIcon } from './trade-routes-model.js';
-import '../../../core/ui/utilities/utilities-component-id.chunk.js';
-
-const styles = "fs://game/base-standard/ui/trade-route-chooser/trade-route-banner.css";
+import styles from './trade-route-banner.scss.js';
 
 const TRADE_BANNER_OFFSET = { x: 0, y: 0, z: 42 };
 class TradeRouteBanner extends Component {

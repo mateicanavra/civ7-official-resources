@@ -1,4 +1,4 @@
-import { P as PlotCoord } from '../../../core/ui/utilities/utilities-plotcoord.chunk.js';
+import { PlotCoord } from '../../../core/ui/utilities/utilities-plotcoord.js';
 
 const INVALID_TRACKING_ID = -1;
 class WorldAnchorTextManager extends Component {
@@ -9,6 +9,8 @@ class WorldAnchorTextManager extends Component {
   static get instance() {
     return WorldAnchorTextManager._instance;
   }
+  hideListener = this.onHideWorldAnchorTexts.bind(this);
+  showListener = this.onShowWorldAnchorTexts.bind(this);
   /**
    * Onetime callback on creation.
    */
@@ -24,10 +26,20 @@ class WorldAnchorTextManager extends Component {
   onAttach() {
     super.onAttach();
     engine.on("WorldTextMessage", this.onWorldTextMessage, this);
+    window.addEventListener("ui-hide-world-anchor-texts", this.hideListener);
+    window.addEventListener("ui-show-world-anchor-texts", this.showListener);
   }
   onDetach() {
+    window.removeEventListener("ui-show-world-anchor-texts", this.showListener);
+    window.removeEventListener("ui-hide-world-anchor-texts", this.hideListener);
     engine.off("WorldTextMessage", this.onWorldTextMessage, this);
     super.onDetach();
+  }
+  onHideWorldAnchorTexts() {
+    this.Root.classList.add("hidden");
+  }
+  onShowWorldAnchorTexts() {
+    this.Root.classList.remove("hidden");
   }
   /**
    * Called by an instance of AnchorText to register it with the manager

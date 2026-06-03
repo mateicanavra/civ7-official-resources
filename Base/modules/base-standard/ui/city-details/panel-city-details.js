@@ -1,37 +1,15 @@
-import { A as Audio } from '../../../core/ui/audio-base/audio-support.chunk.js';
+import { Audio } from '../../../core/ui/audio-base/audio-support.js';
 import ActionHandler from '../../../core/ui/input/action-handler.js';
-import FocusManager from '../../../core/ui/input/focus-manager.js';
-import { N as NavTray } from '../../../core/ui/navigation-tray/model-navigation-tray.chunk.js';
-import { P as Panel } from '../../../core/ui/panel-support.chunk.js';
-import { C as ComponentID } from '../../../core/ui/utilities/utilities-component-id.chunk.js';
-import { D as Databind } from '../../../core/ui/utilities/utilities-core-databinding.chunk.js';
-import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.chunk.js';
-import { U as UpdateCityDetailsEventName, G as GetPrevCityID, a as GetNextCityID, C as CityDetails } from '../production-chooser/production-chooser-helpers.chunk.js';
-import { O as OVERLAY_PRIORITY } from '../utilities/utilities-overlay.chunk.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/input/cursor.js';
-import '../../../core/ui/views/view-manager.chunk.js';
-import '../../../core/ui/input/input-support.chunk.js';
-import '../../../core/ui/utilities/utilities-update-gate.chunk.js';
-import '../../../core/ui/utilities/utilities-image.chunk.js';
-import '../../../core/ui/interface-modes/interface-modes.js';
-import '../building-placement/building-placement-manager.js';
-import '../../../core/ui/utilities/utilities-core-textprovider.chunk.js';
-import '../tutorial/tutorial-support.chunk.js';
-import '../../../core/ui/components/fxs-nav-help.chunk.js';
-import '../../../core/ui/utilities/utilities-layout.chunk.js';
-import '../quest-tracker/quest-item.js';
-import '../quest-tracker/quest-tracker.js';
-import '../tutorial/tutorial-item.js';
-import '../tutorial/tutorial-manager.js';
-import '../../../core/ui/context-manager/context-manager.js';
-import '../../../core/ui/context-manager/display-queue-manager.js';
-import '../../../core/ui/dialog-box/manager-dialog-box.chunk.js';
-import '../../../core/ui/input/input-filter.chunk.js';
-import '../tutorial/tutorial-events.chunk.js';
-import '../utilities/utilities-tags.chunk.js';
-
-const styles = "fs://game/base-standard/ui/city-details/panel-city-details.css";
+import NavTray from '../../../core/ui/navigation-tray/model-navigation-tray.js';
+import Panel from '../../../core/ui/panel-support.js';
+import { ComponentID } from '../../../core/ui/utilities/utilities-component-id.js';
+import Databind from '../../../core/ui/utilities/utilities-core-databinding.js';
+import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
+import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
+import CityDetails, { UpdateCityDetailsEventName } from './model-city-details.js';
+import { GetPrevCityID, GetNextCityID } from '../production-chooser/production-chooser-helpers.js';
+import { OVERLAY_PRIORITY } from '../utilities/utilities-overlay.js';
+import styles from './panel-city-details.scss.js';
 
 const ShowCityDetailsEventName = "show-city-details";
 class ShowCityDetailsEvent extends CustomEvent {
@@ -226,6 +204,8 @@ class PanelCityDetails extends Panel {
       case "cancel":
         this.toggleClose(true);
         return false;
+      case "accept":
+        return false;
     }
     return true;
   }
@@ -267,7 +247,7 @@ class PanelCityDetails extends Panel {
     this.slotGroup.setAttribute("selected-slot", "city-details-tab-growth" /* growth */);
     const growthSlot = this.Root.querySelector(`#${"city-details-tab-growth" /* growth */}`);
     if (growthSlot) {
-      FocusManager.setFocus(growthSlot);
+      FocusManager.get().setFocus(growthSlot);
     }
   };
   onShowCityDetailsEvent = (event) => {
@@ -482,7 +462,7 @@ class PanelCityDetails extends Panel {
     } else {
       this.headerElement.setAttribute("title", "LOC_UI_CITY_DETAILS_HEADER");
     }
-    const growthHasFocus = this.growthSlot.contains(FocusManager.getFocus());
+    const growthHasFocus = this.growthSlot.contains(FocusManager.get().currentFocus());
     if (CityDetails.isTown) {
       this.specialistContainer.classList.add("hidden");
     } else {
@@ -535,9 +515,9 @@ class PanelCityDetails extends Panel {
       CityDetails.happinessPerTurn
     );
     if (growthHasFocus) {
-      FocusManager.setFocus(this.growthSlot);
+      FocusManager.get().setFocus(this.growthSlot);
     }
-    const constructiblesHaveFocus = this.constructibleSlot.contains(FocusManager.getFocus());
+    const constructiblesHaveFocus = this.constructibleSlot.contains(FocusManager.get().currentFocus());
     const shouldShowBuildings = CityDetails.buildings.length > 0;
     this.buildingsCategory.classList.toggle("hidden", !shouldShowBuildings);
     this.buildingsList.innerHTML = "";
@@ -560,12 +540,12 @@ class PanelCityDetails extends Panel {
       this.wondersList.appendChild(this.createDivider());
     }
     if (constructiblesHaveFocus) {
-      FocusManager.setFocus(this.constructibleSlot);
+      FocusManager.get().setFocus(this.constructibleSlot);
     }
-    const yieldsHaveFocus = this.yieldsSlot.contains(FocusManager.getFocus());
+    const yieldsHaveFocus = this.yieldsSlot.contains(FocusManager.get().currentFocus());
     this.updateYields();
     if (yieldsHaveFocus) {
-      FocusManager.setFocus(this.yieldsSlot);
+      FocusManager.get().setFocus(this.yieldsSlot);
     }
     this.beingRazedContainer.classList.toggle("hidden", !CityDetails.isBeingRazed);
     this.razedTurnsText.textContent = Locale.compose(
@@ -607,6 +587,24 @@ class PanelCityDetails extends Panel {
       this.addTopYieldButton(this.yieldsContainer, currentYield);
     }
   }
+  getValueFormat(format) {
+    switch (format) {
+      case GameValueDisplayTypes.FLAT:
+        return "LOC_UI_CITY_DETAILS_YIELD_ONE_DECIMAL";
+      case GameValueDisplayTypes.FLAT_NO_SIGN:
+        return "LOC_UI_CITY_DETAILS_YIELD_ONE_DECIMAL_NO_PLUS";
+      case GameValueDisplayTypes.PERCENTAGE:
+        return "LOC_UI_CITY_DETAILS_YIELD_PERCENT_ONE_DECIMAL";
+      case GameValueDisplayTypes.PERCENTAGE_NO_SIGN:
+        return "LOC_UI_CITY_DETAILS_YIELD_PERCENT_ONE_DECIMAL_NO_PLUS";
+      case GameValueDisplayTypes.MULTIPLIER:
+        return "LOC_UI_CITY_DETAILS_YIELD_MULTIPLIER_ONE_DECIMAL";
+      case GameValueDisplayTypes.MULTIPLIER_NO_SIGN:
+        return "LOC_UI_CITY_DETAILS_YIELD_MULTIPLIER_ONE_DECIMAL_NO_PLUS";
+      default:
+        return "LOC_UI_CITY_DETAILS_YIELD_ONE_DECIMAL";
+    }
+  }
   addTopYieldButton(parent, yieldData) {
     const yieldButton = document.createElement("fxs-activatable");
     yieldButton.classList.add("yield-button", "h-16", "flex", "flex-auto", "hud_sidepanel_list-bg", "mr-1");
@@ -633,7 +631,7 @@ class PanelCityDetails extends Panel {
       leftContainer.appendChild(yieldIcon);
     }
     const yieldName = document.createElement("div");
-    yieldName.textContent = yieldData.name;
+    yieldName.innerHTML = yieldData.name;
     yieldName.classList.add("ml-2", "self-center", "font-title", "uppercase");
     leftContainer.appendChild(yieldName);
     const rightContainer = document.createElement("div");
@@ -677,6 +675,17 @@ class PanelCityDetails extends Panel {
     const leftContainer = document.createElement("div");
     leftContainer.classList.add("flex", "items-center", "indented-yield-item");
     rowContainer.appendChild(leftContainer);
+    if (yieldData.tooltip) {
+      rowContainer.setAttribute("data-tooltip-content", Locale.compose(yieldData.tooltip));
+    }
+    if (yieldData.sourceContext) {
+      rowContainer.classList.add("pointer-events-none");
+      columnContainer.setAttribute("data-constructible-data", JSON.stringify(yieldData.sourceContext));
+      columnContainer.addEventListener("mouseover", this.mouseOverBuildingListener);
+      columnContainer.addEventListener("mouseout", this.mouseOutBuildingListener);
+      columnContainer.addEventListener("focus", this.focusBuildingListener);
+      columnContainer.addEventListener("focusout", this.focusOutBuildingListener);
+    }
     if (yieldData.icon && yieldData.iconContext) {
       const yieldIcon = document.createElement("fxs-icon");
       yieldIcon.setAttribute("data-icon-context", yieldData.iconContext);
@@ -685,14 +694,14 @@ class PanelCityDetails extends Panel {
       leftContainer.appendChild(yieldIcon);
     }
     const yieldName = document.createElement("div");
-    yieldName.textContent = yieldData.name;
+    yieldName.innerHTML = yieldData.name;
     yieldName.classList.add("ml-2", "self-center");
     leftContainer.appendChild(yieldName);
     const rightContainer = document.createElement("div");
     rightContainer.classList.add("flex", "mr-4");
     rowContainer.appendChild(rightContainer);
     const yieldValue = document.createElement("div");
-    yieldValue.textContent = Locale.compose("LOC_UI_CITY_DETAILS_YIELD_ONE_DECIMAL", yieldData.value);
+    yieldValue.textContent = Locale.compose(this.getValueFormat(yieldData.valueType), yieldData.value);
     yieldValue.classList.add("self-center");
     rightContainer.appendChild(yieldValue);
     const arrowImg = document.createElement("div");

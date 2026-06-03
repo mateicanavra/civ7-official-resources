@@ -5,7 +5,6 @@
 		<String context="Description">LOC_MOD_CODE_OF_LAWS_REVEAL_CIV_CULTURE_TREE_DESCRIPTION</String>
 	</Modifier>
 	<Modifier id="MOD_PANTHEON_UNLOCK" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_PANTHEON" permanent="true">
-		<Argument name="Amount">1</Argument>
 		<String context="Description">LOC_MOD_PANTHEON_UNLOCK_DESCRIPTION</String>
 	</Modifier>
 	<Modifier id="MOD_DISCIPLINE_FREE_COMMANDER" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_GRANT_UNIT" run-once="true" permanent="true">
@@ -22,7 +21,18 @@
 	</Modifier>
 	<Modifier id="MOD_AQ_TRADITION_SLOT" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_TRADITION_SLOTS" permanent="true">
 		<Argument name="Amount">1</Argument>
+		<Argument name="SlotType">POLICY_CULTURE_SLOT</Argument>
 		<String context="Description">LOC_MOD_AQ_TRADITION_SLOT_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="MOD_AQ_LITERACY_SCIENCE_VP" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_VICTORY_TRACKER_POINTS">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_IS_MAJOR"/>
+		</SubjectRequirements>
+		<Argument name="VictoryType">VICTORY_SCIENCE_MODERN</Argument>
+		<Argument name="Points">2</Argument>
+		<Argument name="ItemName">LOC_INNOVATION_LITERACY_NAME</Argument>
+		<String context="Description">LOC_SCIENCE_VP_2_DESCRIPTION</String>
+		<Argument name="TypeData">CIVIC</Argument>
 	</Modifier>
 	<Modifier id="MOD_AQ_FUTURE_CIVIC_ATTRIBUTE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ATTRIBUTE" permanent="true" run-once="true">
 		<Argument name="Amount">1</Argument>
@@ -35,9 +45,119 @@
 		<String context="Description">LOC_MOD_AQ_FUTURE_CIVIC_BOOST_DESCRIPTION</String>
 	</Modifier>
 	<Modifier id="MOD_AQ_FUTURE_CIVIC_AGE_PROGRESS" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_AGE_PROGRESS" permanent="true" run-once="true">
-		<Argument name="Amount">10</Argument>
 		<Argument name="eventType">AGE_PROGRESSION_FUTURE_CIVIC</Argument>
 		<Argument name="HumanOnly">true</Argument>
 		<String context="Description">LOC_MOD_AQ_FUTURE_CIVIC_AGE_PROGRESS_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="MOD_AQ_FUTURE_CIVIC_CULTURE_VP" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_VICTORY_TRACKER_POINTS" permanent="true">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_IS_MAJOR"/>
+		</SubjectRequirements>
+		<Argument name="VictoryType">VICTORY_CULTURE_MODERN</Argument>
+		<Argument name="Points">5</Argument>
+		<Argument name="ItemName">LOC_AQ_FUTURE_CIVIC_NAME</Argument>
+		<String context="Description">LOC_FUTURE_CIVIC_AQ_VP</String>
+		<Argument name="TypeData">FUTURE_CIVIC</Argument>
+	</Modifier>
+	<Modifier id="MOD_AQ_ENTERTAINMENT_CELEBRATION_VP" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ACTIVATE_VICTORY_POINT_TRACKER" run-once="true" permanent="true">
+		<Argument name="TrackerName">VICTORY_TRACKER_CELEBRATIONS_ANTIQUITY</Argument>
+		<String context="Description">LOC_MOD_AQ_ENTERTAINMENT_CELEBRATION_VP_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="MOD_AQ_SKILLED_TRADE_GDP" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ACTIVATE_VICTORY_POINT_TRACKER" run-once="true" permanent="true">
+		<Argument name="TrackerName">VICTORY_TRACKER_IMPORTED_RESOURCES</Argument>
+		<String context="Description">LOC_MOD_AQ_SKILLED_TRADES_GDP_IMPORTED_RESOURCES_DESCRIPTION</String>
+	</Modifier>
+	<!-- ==================================================	-->
+	<!--	Reveal Civ Trees							-->
+	<!-- ==================================================	-->
+	<Modifier id="MOD_CODE_OF_LAWS_REVEAL_CIV_CULTURE_TREE_AKSUM" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_REVEAL_CULTURE_TREE">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_HAS_CIVILIZATION_OR_LEADER_TRAIT">
+				<Argument name="TraitType">TRAIT_AKSUM</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="ProgressionTreeType">TREE_CIVICS_AQ_AKSUM</Argument>
+		<String context="Description">LOC_MOD_CODE_OF_LAWS_REVEAL_CIV_CULTURE_TREE_AKSUM_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="MOD_CODE_OF_LAWS_REVEAL_CIV_CULTURE_TREE_EGYPT" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_REVEAL_CULTURE_TREE">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_HAS_CIVILIZATION_OR_LEADER_TRAIT">
+				<Argument name="TraitType">TRAIT_EGYPT</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="ProgressionTreeType">TREE_CIVICS_AQ_EGYPT</Argument>
+		<String context="Description">LOC_MOD_CODE_OF_LAWS_REVEAL_CIV_CULTURE_TREE_EGYPT_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="MOD_CODE_OF_LAWS_REVEAL_CIV_CULTURE_TREE_GREECE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_REVEAL_CULTURE_TREE">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_HAS_CIVILIZATION_OR_LEADER_TRAIT">
+				<Argument name="TraitType">TRAIT_GREECE</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="ProgressionTreeType">TREE_CIVICS_AQ_GREECE</Argument>
+		<String context="Description">LOC_MOD_CODE_OF_LAWS_REVEAL_CIV_CULTURE_TREE_GREECE_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="MOD_CODE_OF_LAWS_REVEAL_CIV_CULTURE_TREE_HAN" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_REVEAL_CULTURE_TREE">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_HAS_CIVILIZATION_OR_LEADER_TRAIT">
+				<Argument name="TraitType">TRAIT_HAN</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="ProgressionTreeType">TREE_CIVICS_AQ_HAN</Argument>
+		<String context="Description">LOC_MOD_CODE_OF_LAWS_REVEAL_CIV_CULTURE_TREE_HAN_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="MOD_CODE_OF_LAWS_REVEAL_CIV_CULTURE_TREE_KHMER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_REVEAL_CULTURE_TREE">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_HAS_CIVILIZATION_OR_LEADER_TRAIT">
+				<Argument name="TraitType">TRAIT_KHMER</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="ProgressionTreeType">TREE_CIVICS_AQ_KHMER</Argument>
+		<String context="Description">LOC_MOD_CODE_OF_LAWS_REVEAL_CIV_CULTURE_TREE_KHMER_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="MOD_CODE_OF_LAWS_REVEAL_CIV_CULTURE_TREE_MAURYA" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_REVEAL_CULTURE_TREE">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_HAS_CIVILIZATION_OR_LEADER_TRAIT">
+				<Argument name="TraitType">TRAIT_MAURYA</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="ProgressionTreeType">TREE_CIVICS_AQ_MAURYA</Argument>
+		<String context="Description">LOC_MOD_CODE_OF_LAWS_REVEAL_CIV_CULTURE_TREE_MAURYA_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="MOD_CODE_OF_LAWS_REVEAL_CIV_CULTURE_TREE_MAYA" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_REVEAL_CULTURE_TREE">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_HAS_CIVILIZATION_OR_LEADER_TRAIT">
+				<Argument name="TraitType">TRAIT_MAYA</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="ProgressionTreeType">TREE_CIVICS_AQ_MAYA</Argument>
+		<String context="Description">LOC_MOD_CODE_OF_LAWS_REVEAL_CIV_CULTURE_TREE_MAYA_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="MOD_CODE_OF_LAWS_REVEAL_CIV_CULTURE_TREE_MISSISSIPPIAN" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_REVEAL_CULTURE_TREE">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_HAS_CIVILIZATION_OR_LEADER_TRAIT">
+				<Argument name="TraitType">TRAIT_MISSISSIPPIAN</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="ProgressionTreeType">TREE_CIVICS_AQ_MISSISSIPPIAN</Argument>
+		<String context="Description">LOC_MOD_CODE_OF_LAWS_REVEAL_CIV_CULTURE_TREE_MISSISSIPPIAN_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="MOD_CODE_OF_LAWS_REVEAL_CIV_CULTURE_TREE_PERSIA" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_REVEAL_CULTURE_TREE">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_HAS_CIVILIZATION_OR_LEADER_TRAIT">
+				<Argument name="TraitType">TRAIT_PERSIA</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="ProgressionTreeType">TREE_CIVICS_AQ_PERSIA</Argument>
+		<String context="Description">LOC_MOD_CODE_OF_LAWS_REVEAL_CIV_CULTURE_TREE_PERSIA_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="MOD_CODE_OF_LAWS_REVEAL_CIV_CULTURE_TREE_ROME" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_REVEAL_CULTURE_TREE">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_HAS_CIVILIZATION_OR_LEADER_TRAIT">
+				<Argument name="TraitType">TRAIT_ROME</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="ProgressionTreeType">TREE_CIVICS_AQ_ROME</Argument>
+		<String context="Description">LOC_MOD_CODE_OF_LAWS_REVEAL_CIV_CULTURE_TREE_ROME_DESCRIPTION</String>
 	</Modifier>
 </GameEffects>

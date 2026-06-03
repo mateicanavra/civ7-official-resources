@@ -1,0 +1,4 @@
+const content = "<div\r\n\tclass=\"diplomacy-dialog-content min-w-84 relative flex flex-col-reverse text-center items-center justify-center pt-4 pb-8 px-4 mb-12\"\r\n>\r\n\t<!-- <div class=\"expand-diplomacy-chat-button\">\r\n\t\tTODO: Removing until chat history logic is actually implemented in gamecore\r\n\t</div> -->\r\n\t<fxs-vslot\r\n\t\tclass=\"diplomacy-options relative w-full h-auto flex flex-col justify-center text-center\"\r\n\t\tdata-navrule-up=\"stop\"\r\n\t></fxs-vslot>\r\n\t<div\r\n\t\tclass=\"dialog-text-container my-4 p-10 relative w-full h-auto justify-center\"\r\n\t\tdata-navrule-up=\"stop\"\r\n\t>\r\n\t\t<div class=\"dialog-text text-lg text-center\"></div>\r\n\t</div>\r\n</div>\r\n<div\r\n\tclass=\"skip-dialog-text relative max-w-96 w-full font-title text-xs justify-center uppercase text-center self-center\"\r\n></div>\r\n";
+
+export { content as default };
+//# sourceMappingURL=panel-diplomacy-hub.html.js.map

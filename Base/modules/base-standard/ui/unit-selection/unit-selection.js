@@ -1,14 +1,8 @@
 import ActionHandler from '../../../core/ui/input/action-handler.js';
 import { InterfaceMode } from '../../../core/ui/interface-modes/interface-modes.js';
-import { C as ComponentID } from '../../../core/ui/utilities/utilities-component-id.chunk.js';
-import { U as UpdateGate } from '../../../core/ui/utilities/utilities-update-gate.chunk.js';
-import { V as ViewManager } from '../../../core/ui/views/view-manager.chunk.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/input/cursor.js';
-import '../../../core/ui/input/focus-manager.js';
-import '../../../core/ui/audio-base/audio-support.chunk.js';
-import '../../../core/ui/panel-support.chunk.js';
-import '../../../core/ui/input/input-support.chunk.js';
+import { ComponentID } from '../../../core/ui/utilities/utilities-component-id.js';
+import UpdateGate from '../../../core/ui/utilities/utilities-update-gate.js';
+import ViewManager from '../../../core/ui/views/view-manager.js';
 
 class RaiseUnitSelectionEvent extends CustomEvent {
   constructor(cid) {

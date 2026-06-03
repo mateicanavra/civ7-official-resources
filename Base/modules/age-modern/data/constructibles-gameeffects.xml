@@ -4,7 +4,12 @@
 	<!--	BUILDINGS						-->
 	<!-- ==================================================	-->
 	<!-- Airfield -->
-	<Modifier id="MOD_AIRFIELD_INTERCEPT_RANGE" collection="COLLECTION_OWNER" effect="EFFECT_ARMY_ADJUST_AIR_INTERCEPTION_RANGE">
+	<Modifier id="MOD_AIRFIELD_INTERCEPT_RANGE" collection="COLLECTION_ALL_UNITS" effect="EFFECT_ARMY_ADJUST_AIR_INTERCEPTION_RANGE">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_TYPE_MATCHES">
+				<Argument name="UnitType">UNIT_AERODROME_COMMANDER</Argument>
+			</Requirement>
+		</SubjectRequirements>
 		<Argument name="Amount">1</Argument>
 	</Modifier>
 	<!-- Cannery -->
@@ -126,18 +131,15 @@
 			</Requirement>
 		</SubjectRequirements>
 		<Argument name="YieldType">YIELD_CULTURE</Argument>
-		<Argument name="Amount">3</Argument>
+		<Argument name="Amount">4</Argument>
 	</Modifier>
-	<Modifier id="MOD_EIFFEL_TOWER_URBAN_HAPPINESS" collection="COLLECTION_CITY_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+	<Modifier id="MOD_EIFFEL_TOWER_TOURISM" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_PLAYER_ACTIVATE_VICTORY_POINT_TRACKER">
 		<SubjectRequirements>
 			<Requirement type="REQUIREMENT_WONDER_IS_ACTIVE">
-				<Argument name="ConstructibleType">WONDER_EIFFEL_TOWER</Argument>
-			</Requirement>
-			<Requirement type="REQUIREMENT_PLOT_IS_QUARTER">
+				<Argument name="ConstructibleType">WONDER_FORBIDDEN_CITY</Argument>
 			</Requirement>
 		</SubjectRequirements>
-		<Argument name="YieldType">YIELD_HAPPINESS</Argument>
-		<Argument name="Amount">3</Argument>
+		<Argument name="TrackerName">VICTORY_TRACKER_EIFFEL_TOWER_TOURISM</Argument>
 	</Modifier>
 	<!-- Hermitage -->
 	<Modifier id="MOD_HERMITAGE_GREAT_WORK_CULTURE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
@@ -213,6 +215,16 @@
 		<Argument name="Amount">4</Argument>
 		<Argument name="Tooltip">LOC_WONDER_MUZIBU_AZAALA_MPANGA_NAME</Argument>
 	</Modifier>
+	<Modifier id="MOD_MUZIBU_AZAALA_MPANGA_LAKE_SETTLEMENT_POPULATION" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_POPULATION" permanent="true">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+				<!-- This ReqSet is in Buganda's section of the traditions-tot-gameeffects.xml file -->
+				<!-- This Reqset counts Kabaka's Lake as a Lake -->
+				<Argument name="RequirementSetId">REQSET_PLOT_ADJACENT_BUGANDA_LAKE</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">1</Argument>
+	</Modifier>
 	<!-- Manhattan Project -->
 	<Modifier id="MOD_MANHATTAN_PROJECT_GRANT_NUCLEAR_DEVICE" collection="COLLECTION_OWNER" effect="EFFECT_ADJUST_PLAYER_WMD_COUNT" permanent="true">
 		<SubjectRequirements>
@@ -223,10 +235,25 @@
 		<Argument name="Amount">1</Argument>
 		<Argument name="Type">WMD_NUCLEAR_DEVICE</Argument>
 	</Modifier>
+	<Modifier id="MOD_MANHATTAN_PROJECT_SCIENCE_VP" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_VICTORY_TRACKER_POINTS" permanent="true">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_HAS_CONSTRUCTIBLE">
+				<Argument name="ConstructibleType">WONDER_MANHATTAN_PROJECT</Argument>
+				<Argument name="OriginalOwner">true</Argument>
+				<Argument name="IsCurrentAge">true</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_PLAYER_IS_MAJOR"/>
+		</SubjectRequirements>
+		<Argument name="VictoryType">VICTORY_SCIENCE_MODERN</Argument>
+		<Argument name="Points">3</Argument>
+		<Argument name="ItemName">LOC_WONDER_MANHATTAN_PROJECT_NAME</Argument>
+		<Argument name="ReplacePoints">true</Argument>
+		<Argument name="TypeData">WONDER</Argument>
+	</Modifier>
 	<!-- Oxford -->
 	<Modifier id="MOD_OXFORD_FREE_TECHS" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_PROGRESSION" permanent="true">
 		<SubjectRequirements>
-			<Requirement type="REQUIREMENT_WONDER_IS_ACTIVE">
+			<Requirement type="REQUIREMENT_PLAYER_BUILT_CONSTRUCTIBLE_TYPE">
 				<Argument name="ConstructibleType">WONDER_OXFORD_UNIVERSITY</Argument>
 			</Requirement>
 		</SubjectRequirements>
@@ -236,12 +263,27 @@
 	</Modifier>
 	<Modifier id="MOD_OXFORD_WILDCARD_ATTRIBUTE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ATTRIBUTE" permanent="true">
 		<SubjectRequirements>
-			<Requirement type="REQUIREMENT_WONDER_IS_ACTIVE">
+			<Requirement type="REQUIREMENT_PLAYER_BUILT_CONSTRUCTIBLE_TYPE">
 				<Argument name="ConstructibleType">WONDER_OXFORD_UNIVERSITY</Argument>
 			</Requirement>
 		</SubjectRequirements>
 		<Argument name="Amount">1</Argument>
 		<Argument name="AttributeType">ATTRIBUTE_WILDCARD</Argument>
+	</Modifier>
+	<Modifier id="MOD_OXFORD_SCIENCE_VP" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_VICTORY_TRACKER_POINTS" permanent="true">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_HAS_CONSTRUCTIBLE">
+				<Argument name="ConstructibleType">WONDER_OXFORD_UNIVERSITY</Argument>
+				<Argument name="OriginalOwner">true</Argument>
+				<Argument name="IsCurrentAge">true</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_PLAYER_IS_MAJOR"/>
+		</SubjectRequirements>
+		<Argument name="VictoryType">VICTORY_SCIENCE_MODERN</Argument>
+		<Argument name="Points">3</Argument>
+		<Argument name="ItemName">LOC_WONDER_OXFORD_UNIVERSITY_NAME</Argument>
+		<Argument name="ReplacePoints">true</Argument>
+		<Argument name="TypeData">WONDER</Argument>
 	</Modifier>
 	<!-- Palacio de Bellas Artes -->
 	<Modifier id="MOD_PALACIO_DE_BELLAS_ARTES_GREAT_WORK_HAPPINESS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_GREAT_WORK">
@@ -256,7 +298,7 @@
 	</Modifier>
 	<Modifier id="MOD_PALACIO_DE_BELLAS_ARTES_FREE_ARTIFACT" collection="COLLECTION_OWNER" effect="EFFECT_CITY_GRANT_GREAT_WORK" permanent="true">
 		<SubjectRequirements>
-			<Requirement type="REQUIREMENT_WONDER_IS_ACTIVE">
+			<Requirement type="REQUIREMENT_PLAYER_BUILT_CONSTRUCTIBLE_TYPE">
 				<Argument name="ConstructibleType">WONDER_PALACIO_DE_BELLAS_ARTES</Argument>
 			</Requirement>
 		</SubjectRequirements>
@@ -300,7 +342,7 @@
 	<!-- Statue of Liberty -->
 	<Modifier id="MOD_STATUE_OF_LIBERTY_MIGRANTS" collection="COLLECTION_OWNER" effect="EFFECT_CITY_GRANT_UNIT" permanent="true">
 		<SubjectRequirements>
-			<Requirement type="REQUIREMENT_WONDER_IS_ACTIVE">
+			<Requirement type="REQUIREMENT_PLAYER_BUILT_CONSTRUCTIBLE_TYPE">
 				<Argument name="ConstructibleType">WONDER_STATUE_OF_LIBERTY</Argument>
 			</Requirement>
 		</SubjectRequirements>
@@ -326,25 +368,26 @@
 	</Modifier>
 	<Modifier id="MOD_TAJ_MAHAL_WILDCARD_ATTRIBUTE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ATTRIBUTE" permanent="true">
 		<SubjectRequirements>
-			<Requirement type="REQUIREMENT_WONDER_IS_ACTIVE">
+			<Requirement type="REQUIREMENT_PLAYER_BUILT_CONSTRUCTIBLE_TYPE">
 				<Argument name="ConstructibleType">WONDER_TAJ_MAHAL</Argument>
 			</Requirement>
 		</SubjectRequirements>
 		<Argument name="Amount">1</Argument>
 		<Argument name="AttributeType">ATTRIBUTE_WILDCARD</Argument>
 	</Modifier>
+	<Modifier id="MOD_WORLDS_FAIR_TOURISM" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ACTIVATE_VICTORY_POINT_TRACKER" permanent="true">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_WONDER_IS_ACTIVE">
+				<Argument name="ConstructibleType">WONDER_WORLDS_FAIR</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="TrackerName">VICTORY_TRACKER_WORLDS_FAIR</Argument>
+	</Modifier>
 	<!-- ==================================================	-->
 	<!--	QUARTERS							-->
 	<!-- ==================================================	-->
 	<!--America Industrial Park-->
-	<Modifier id="MOD_AMERICA_INDUSTRIAL_PARK_RESOURCE_CAP" collection="COLLECTION_ALL_CITIES" effect="EFFECT_CITY_ADJUST_RESOURCE_CAP">
-		<SubjectRequirements>
-			<Requirement type="REQUIREMENT_CITY_HAS_UNIQUE_QUARTER">
-				<Argument name="UniqueQuarterType">QUARTER_INDUSTRIAL_PARK</Argument>
-			</Requirement>
-		</SubjectRequirements>
-		<Argument name="Amount">2</Argument>
-	</Modifier>
+		<!-- Effect is located in victories.xml -->
 	<!--French Empire Avenue-->
 	<Modifier id="MOD_FRENCH_EMPIRE_AVENUE_URBAN_HAPPINESS" collection="COLLECTION_ALL_CITIES" effect="EFFECT_ATTACH_MODIFIERS" permanent="true">
 		<SubjectRequirements>
@@ -355,12 +398,9 @@
 		<Argument name="ModifierId">ATTACH_MOD_FRENCH_EMPIRE_AVENUE_URBAN_HAPPINESS</Argument>
 	</Modifier>
 	<Modifier id="ATTACH_MOD_FRENCH_EMPIRE_AVENUE_URBAN_HAPPINESS" collection="COLLECTION_CITY_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD" permanent="true">
-		<SubjectRequirements type="REQUIREMENTSET_TEST_ANY">
+		<SubjectRequirements>
 			<Requirement type="REQUIREMENT_PLOT_DISTRICT_CLASS">
-				<Argument name="DistrictClass">CITY_CENTER</Argument>
-			</Requirement>
-			<Requirement type="REQUIREMENT_PLOT_DISTRICT_CLASS">
-				<Argument name="DistrictClass">URBAN</Argument>
+				<Argument name="DistrictClass">URBAN, CITYCENTER</Argument>
 			</Requirement>
 		</SubjectRequirements>
 		<Argument name="YieldType">YIELD_HAPPINESS</Argument>
@@ -420,18 +460,15 @@
 		<Argument name="Amount">1</Argument>
 	</Modifier>
 	<Modifier id="MOD_RAILYARD_CONNECTED_PRODUCTION" collection="COLLECTION_OWNER" effect="EFFECT_CITY_ADJUST_UNIT_PRODUCTION">
-		<Argument name="YieldType">YIELD_PRODUCTION</Argument>
 		<Argument name="Percent">10</Argument>
-		<String context="Description">LOC_MOD_RAILYARD_CONNECTED_PRODUCTION_DESCRIPTION</String>
 	</Modifier>
-	<Modifier id="MOD_MILITARY_ACADEMY_COMMANDER_PROMOTION" collection="COLLECTION_CITY_TRAINED_UNITS" effect="EFFECT_GRANT_UNIT_PROMOTION">
+	<Modifier id="MOD_MILITARY_ACADEMY_COMMANDER_PROMOTION" collection="COLLECTION_CITY_TRAINED_UNITS" effect="EFFECT_GRANT_UNIT_PROMOTION" permanent="true">
 		<SubjectRequirements>
 			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
 				<Argument name="Tag">UNIT_CLASS_COMMAND</Argument>
 			</Requirement>
 		</SubjectRequirements>
 		<Argument name="Amount">1</Argument>
-		<String context="Description">LOC_BUILDING_MILITARY_ACADEMY_DESCRIPTION</String>
 	</Modifier>
 	<Modifier id="MOD_ROUTE_STAATSEISENBAHN_GOLD" collection="COLLECTION_PLAYER_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
 		<SubjectRequirements>
@@ -486,16 +523,7 @@
 				<Argument name="Tag">UNIT_CLASS_RANGED, UNIT_CLASS_SIEGE</Argument>
 			</Requirement>
 		</SubjectRequirements>
-		<Argument name="Type">RANGED</Argument>
 		<Argument name="Amount">3</Argument>
 		<String context="Preview">LOC_ABILITY_SHORE_BATTERY_RANGED_PREVIEW</String>
-	</Modifier>
-	<Modifier id="TRAIT_MOD_JUKOGYO_RESOURCE_CAP" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_RESOURCE_CAP">
-		<SubjectRequirements>
-			<Requirement type="REQUIREMENT_CITY_HAS_BUILDING">
-				<Argument name="BuildingType">BUILDING_JUKOGYO</Argument>
-			</Requirement>
-		</SubjectRequirements>
-		<Argument name="Amount">1</Argument>
 	</Modifier>
 </GameEffects>

@@ -9,5 +9,8 @@
 			They should have a value of 1, with biases and dynamic evaluation used to control their actual values. -->
 		<Row PseudoYieldType="PSEUDOYIELD_RAIL_CONNECTION" DefaultValue="1"/>
 		<Row PseudoYieldType="PSEUDOYIELD_POTENTIAL_RAIL_CONNECTION" DefaultValue="1"/>		
+		<Update>
+    		<Where PseudoYieldType="PSEUDOYIELD_WONDER"/><Set DefaultValue="1500"/>   
+		</Update>
 	</PseudoYields>
 </Database>

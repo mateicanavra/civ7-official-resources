@@ -488,7 +488,7 @@
       <Text>Ajoutons de nouvelles gravures rupestres royales aux anciennes.</Text>
     </Replace>
     <Replace Tag="LOC_11083C_DESCRIPTION" Language="fr_FR">
-      <Text>[icon:YIELD_CULTURE] Culture +4 pour tous les chefs-d'œuvre.</Text>
+      <Text>[icon:YIELD_CULTURE] Culture +6 pour tous les chefs-d'œuvre.</Text>
     </Replace>
     <Replace Tag="LOC_11083C_NAME" Language="fr_FR">
       <Text>Des reproductions des originaux seront exposées au palais.</Text>
@@ -655,11 +655,29 @@
     <Replace Tag="LOC_12011C_NAME" Language="fr_FR">
       <Text>Interrogeons-le sur les grands festins auxquels il a participé.</Text>
     </Replace>
+    <Replace Tag="LOC_TOT_30042A_COMPLETION" Language="fr_FR">
+      <Text>Le commandant kadjar s'agenouille devant le sanctuaire contenant le crâne de son père, pour lui demander silencieusement conseil. La tribu Zand et d'autres prétendants au trône d'Iran fomentent des révoltes, et les grandes puissances du monde conspirent sans cesse pour s'emparer des richesses du royaume. Lui qui ne descend pas des grands shahs perses mais d'une peuplade tribale issue des confins de la civilisation, comment peut-il affermir la mainmise des Kadjar sur l'Iran ?</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30042A_STORYTITLE" Language="fr_FR">
+      <Text>La sagesse d'une relique</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30042B_DESCRIPTION" Language="fr_FR">
+      <Text>{1_reward}.</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30042B_NAME" Language="fr_FR">
+      <Text>Le crâne garde le silence, mais ses orbites caves recèlent un message : céder, c'est périr.</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30042C_DESCRIPTION" Language="fr_FR">
+      <Text>{1_reward}.</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30042C_NAME" Language="fr_FR">
+      <Text>Le crâne attend en silence. Les Kadjar seront donc patients.</Text>
+    </Replace>
     <Replace Tag="LOC_ABILITY_GHILMAN_DESCRIPTION" Language="fr_FR">
-      <Text>[icon:NAR_REW_COMBAT] Puissance de combat +5 et [icon:Action_Heal] Soins +10 dans le rayon de commandement d'un [icon:UNIT_SOLTAN] sardar.</Text>
+      <Text>[icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Puissance de combat[/TIP] +5 et [icon:Action_Heal] Soins +10 dans le [TIP:LOC_PEDIA_CONCEPTS_COMMAND_RADIUS_TOOLTIP]rayon de commandement[/TIP] d'un [icon:UNIT_SOLTAN] sardar.</Text>
     </Replace>
     <Replace Tag="LOC_ABILITY_SOLTAN_DESCRIPTION" Language="fr_FR">
-      <Text>[icon:Action_Move] PM +1. Lorsqu'une colonie est rasée, un [icon:CITY_URBAN] district supplémentaire est rasé par tour dans les colonies où ce commandant se trouve dans un [icon:CITY_URBAN] district.</Text>
+      <Text>[icon:Action_Move] PM +1. Lorsqu'une colonie est rasée, deux fois plus de [icon:CITY_URBAN] districts sont rasés par tour dans les colonies où ce commandant se trouve dans un [icon:CITY_URBAN] district.</Text>
     </Replace>
     <Replace Tag="LOC_ATTR_ADJUST_CITY_YIELD_PER_UNDER_THE_SETTLEMENT_CAP" Language="fr_FR">
       <Text>Rendement par colonie sous la limite</Text>
@@ -668,16 +686,16 @@
       <Text>Rendement sous la limite</Text>
     </Replace>
     <Replace Tag="LOC_BUILDING_GHAHVE_KHANE_DESCRIPTION" Language="fr_FR">
-      <Text>Bâtiment générant de la Nourriture exclusif aux Kadjar. [icon:YIELD_FOOD] Nourriture +9. [icon:YIELD_HAPPINESS] Bonheur +1 par bâtiment générant de l'Or et merveille adjacents. Intemporelle.</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_BUILDING_TOOLTIP]Bâtiment générant de la Nourriture exclusif[/TIP] aux Kadjar. [icon:YIELD_FOOD] Nourriture +9. [icon:YIELD_HAPPINESS] Bonheur +1 par [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]bâtiment[/TIP] générant de l'Or et [TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]merveille[/TIP] adjacents.</Text>
     </Replace>
     <Replace Tag="LOC_BUILDING_GHAHVE_KHANE_TOOLTIP" Language="fr_FR">
-      <Text>Bâtiment exclusif aux Kadjar.</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_BUILDING_TOOLTIP]Bâtiment exclusif[/TIP] aux Kadjar.</Text>
     </Replace>
     <Replace Tag="LOC_BUILDING_TAKYEH_DESCRIPTION" Language="fr_FR">
-      <Text>Bâtiment générant du Bonheur exclusif aux Kadjar.[icon:YIELD_HAPPINESS] Bonheur +9. [icon:YIELD_DIPLOMACY] Influence +1 par bâtiment culturel et merveille adjacents. Intemporel.</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_BUILDING_TOOLTIP]Bâtiment générant du Bonheur exclusif[/TIP] aux Kadjar. [icon:YIELD_HAPPINESS] Bonheur +9. [icon:YIELD_DIPLOMACY] Influence +1 par [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]bâtiment[/TIP] culturel et [TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]merveille[/TIP] adjacents.</Text>
     </Replace>
     <Replace Tag="LOC_BUILDING_TAKYEH_TOOLTIP" Language="fr_FR">
-      <Text>Bâtiment exclusif aux Kadjar.</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_BUILDING_TOOLTIP]Bâtiment exclusif[/TIP] aux Kadjar.</Text>
     </Replace>
     <Replace Tag="LOC_CIVIC_NEZAM_E_JADID_AUTHOR" Language="fr_FR">
       <Text>Nader Chah</Text>
@@ -715,29 +733,26 @@
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_QAJAR_COMPLETE_ERAM_GARDEN_NAME" Language="fr_FR">
       <Text>Jardin d'Eram</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_QAJAR_LEGACY_PATH_MILITARY_DESC" Language="fr_FR">
-      <Text>Terminer une orientation d'héritage militaire avec les Kadjar</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_QAJAR_FOUR_MAJOR_TRIUMPHS_DESC" Language="fr_FR">
+      <Text>Terminer 4 triomphes mineurs diplomatiques ou expansionnistes en un seul apogée avec les Kadjar</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_QAJAR_LEGACY_PATH_MILITARY_NAME" Language="fr_FR">
-      <Text>Orientation d'héritage des Kadjar</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_QAJAR_FOUR_MAJOR_TRIUMPHS_NAME" Language="fr_FR">
+      <Text>Kadjar - 4 triomphes mineurs</Text>
     </Replace>
     <Replace Tag="LOC_MOD_CIV_WONDER_PRODUCTION_QAJAR_DESCRIPTION" Language="fr_FR">
       <Text>[icon:WONDER] Merveille associée aux Kadjar : [icon:YIELD_PRODUCTION] Production +30 %.</Text>
     </Replace>
-    <Replace Tag="LOC_MOD_NEZAM_E_JADID_UNDER_CAP_COMBAT_DESCRIPTION" Language="fr_FR">
-      <Text>[icon:NAR_REW_COMBAT] Puissance de combat +1 pour les unités militaires terrestres toutes les 2 colonies sous la [icon:SETTLEMENT_LIMIT] limite.</Text>
+    <Replace Tag="LOC_NODE_CIVIC_AQ_QAJAR_ORIGINS_NAME" Language="fr_FR">
+      <Text>Origines kadjar</Text>
     </Replace>
-    <Replace Tag="LOC_MOD_SUN_THRONE_DIPLO_SENDER_YIELD_DESCRIPTION" Language="fr_FR">
-      <Text>Soutenir une [icon:ENDEAVOR] initiative conjointe octroie [icon:YIELD_CULTURE] Culture +200. L'autre dirigeant reçoit [icon:YIELD_GOLD] Or +100 (en vitesse normale).</Text>
-    </Replace>
-    <Replace Tag="LOC_MOD_TWELVE_GATES_YIELD_UNDER_CAP_DESCRIPTION" Language="fr_FR">
-      <Text>[icon:YIELD_FOOD] Nourriture +10 et [icon:YIELD_PRODUCTION] Production +10 dans la [icon:NOTIFICATION_SELECT_CAPITAL] capitale pour chacune de vos colonies sous la [icon:SETTLEMENT_LIMIT] limite de colonies. </Text>
+    <Replace Tag="LOC_NODE_CIVIC_EX_QAJAR_RENAISSANCE_NAME" Language="fr_FR">
+      <Text>Renaissance kadjar</Text>
     </Replace>
     <Replace Tag="LOC_QUARTER_BAQ_DESCRIPTION" Language="fr_FR">
-      <Text>Quartier exclusif aux Kadjar. Créé en construisant une ghahve khaneh et un tekiyeh dans le même district. [icon:YIELD_CULTURE] Culture +10 % et [icon:YIELD_DIPLOMACY] Influence +10 % dans cette colonie pendant les [icon:CELEBRATION] célébrations.</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_QUARTER_TOOLTIP]Quartier exclusif[/TIP] aux Kadjar. Créé en construisant une ghahve khaneh et un tekiyeh dans le même [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]district[/TIP]. [icon:YIELD_CULTURE] Culture +10 % et [icon:YIELD_DIPLOMACY] Influence +10 % dans cette [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]colonie[/TIP] pendant les [icon:CELEBRATION] [TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]célébrations[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_QUARTER_BAQ_TOOLTIP" Language="fr_FR">
-      <Text> [icon:YIELD_CULTURE] Culture +10 % et [icon:YIELD_DIPLOMACY] Influence +10 % dans cette colonie pendant les [icon:CELEBRATION] célébrations.</Text>
+      <Text> [icon:YIELD_CULTURE] Culture +10 % et [icon:YIELD_DIPLOMACY] Influence +10 % dans cette [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]colonie[/TIP] pendant les [icon:CELEBRATION] [TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]célébrations[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_QUOTE_AUTHOR_WONDER_ERAM_GARDEN" Language="fr_FR">
       <Text>Ferdowsi</Text>
@@ -745,17 +760,41 @@
     <Replace Tag="LOC_QUOTE_WONDER_ERAM_GARDEN" Language="fr_FR">
       <Text>Le jardin était paré d'atours printaniers, et l'air empli de doux chants et mélodies.</Text>
     </Replace>
-    <Replace Tag="LOC_TRADITION_QULLARAQASI_DESCRIPTION" Language="fr_FR">
-      <Text>[icon:YIELD_HAPPINESS] Bonheur +15 dans les colonies par [icon:UNIT_ARMY_COMMANDER] commandant stationné dans un de leurs [icon:CITY_URBAN] districts.</Text>
+    <Replace Tag="LOC_TRADITION_DAR_AL_FONUN_I_DESCRIPTION" Language="fr_FR">
+      <Text>[icon:YIELD_CULTURE] Culture +3 et [icon:YIELD_SCIENCE] Science +3 dans la [icon:NOTIFICATION_SELECT_CAPITAL] capitale par [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]colonie[/TIP] sous la [icon:SETTLEMENT_LIMIT] [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_LIMIT_TOOLTIP]limite de colonies[/TIP].</Text>
     </Replace>
-    <Replace Tag="LOC_TRADITION_SOLEYMANIYEH_PALACE_DESCRIPTION" Language="fr_FR">
+    <Replace Tag="LOC_TRADITION_DAR_AL_FONUN_II_DESCRIPTION" Language="fr_FR">
+      <Text>[icon:YIELD_SCIENCE] Science +10 et [icon:YIELD_CULTURE] Culture +10 dans la [icon:NOTIFICATION_SELECT_CAPITAL] capitale par [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]colonie[/TIP] sous la [icon:SETTLEMENT_LIMIT] [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_LIMIT_TOOLTIP]limite de colonies[/TIP].</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_DAR_AL_FONUN_TOOLTIP" Language="fr_FR">
+      <Text>Dar-ol-Fonoun</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_QAJAR_SYNCRETISM_ANTIQUITY_DESCRIPTION" Language="fr_FR">
+      <Text>[icon:YIELD_DIPLOMACY] Influence +1 dans la [icon:NOTIFICATION_SELECT_CAPITAL] capitale par [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]colonie[/TIP] sous la [icon:SETTLEMENT_LIMIT] [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_LIMIT_TOOLTIP]limite de colonies[/TIP].</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_QAJAR_SYNCRETISM_EXPLORATION_DESCRIPTION" Language="fr_FR">
+      <Text>[icon:YIELD_HAPPINESS] Bonheur +1 et [icon:YIELD_DIPLOMACY] Influence +1 dans la [icon:NOTIFICATION_SELECT_CAPITAL] capitale par [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]colonie[/TIP] sous la [icon:SETTLEMENT_LIMIT] [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_LIMIT_TOOLTIP]limite de colonies[/TIP].</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_QAJAR_SYNCRETISM_TOOLTIP" Language="fr_FR">
+      <Text>Waqāye'-e Ettefāqiya</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_QULLARAQASI_DESCRIPTION" Language="fr_FR">
+      <Text>[icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Puissance de combat[/TIP] +1 pour les [TIP:LOC_PEDIA_CONCEPTS_MILITARY_UNIT_TOOLTIP]unités militaires[/TIP] [TIP:LOC_PEDIA_CONCEPTS_LAND_UNITS_TOOLTIP]terrestres[/TIP] toutes les 2 [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]colonies[/TIP] sous la [icon:SETTLEMENT_LIMIT] [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_LIMIT_TOOLTIP]limite de colonies[/TIP].</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_SOLEYMANIYEH_PALACE_I_DESCRIPTION" Language="fr_FR">
+      <Text>[icon:YIELD_DIPLOMACY] Influence +0,25 par point de [icon:YIELD_POPULATION] population dans la [icon:NOTIFICATION_SELECT_CAPITAL] capitale.</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_SOLEYMANIYEH_PALACE_II_DESCRIPTION" Language="fr_FR">
       <Text>[icon:YIELD_DIPLOMACY] Influence +0,5 par point de [icon:YIELD_POPULATION] population dans la [icon:NOTIFICATION_SELECT_CAPITAL] capitale.</Text>
     </Replace>
-    <Replace Tag="LOC_TRADITION_WAQAYE_E_ETTEFAQIYA_DESCRIPTION" Language="fr_FR">
-      <Text>[icon:YIELD_SCIENCE] Science +10 et [icon:YIELD_CULTURE] Culture +10 dans la [icon:NOTIFICATION_SELECT_CAPITAL] capitale pour chacune de vos colonies sous la [icon:SETTLEMENT_LIMIT] limite de colonies.</Text>
+    <Replace Tag="LOC_TRAIT_QAJAR_ABILITY_AQ_DESCRIPTION" Language="fr_FR">
+      <Text>[BLIST][LI][B][icon:YIELD_DIPLOMACY] Influence +50 %[/B] pour soutenir des [icon:DIPLOMATIC_ACTION] [B]actions diplomatiques[/B].[LI][B][icon:YIELD_FOOD] Nourriture +2[/B] et [B][icon:YIELD_PRODUCTION] Production +2[/B] dans la [B][icon:NOTIFICATION_SELECT_CAPITAL] capitale[/B] pour chacune de vos [B][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]colonies[/TIP][/B] sous la [B][icon:SETTLEMENT_LIMIT] [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_LIMIT_TOOLTIP]limite de colonies[/TIP][/B].[/LIST]</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_QAJAR_ABILITY_DESCRIPTION" Language="fr_FR">
-      <Text>[BLIST][LI][B][icon:YIELD_DIPLOMACY] Influence +50 %[/B] pour soutenir des [icon:DIPLOMATIC_ACTION] [B]actions diplomatiques[/B].[LI][B][icon:YIELD_PRODUCTION] Production +30 %[/B] pour la construction du [B]jardin d'Eram[/B].[/LIST]</Text>
+      <Text>[BLIST][LI][B][icon:YIELD_DIPLOMACY] Influence +50 %[/B] pour soutenir des [icon:DIPLOMATIC_ACTION] [B]actions diplomatiques[/B].[LI][B][icon:YIELD_FOOD] Nourriture +10[/B] et [B][icon:YIELD_PRODUCTION] Production +10[/B] dans la [B][icon:NOTIFICATION_SELECT_CAPITAL] capitale[/B] pour chacune de vos [B][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]colonies[/TIP][/B] sous la [B][icon:SETTLEMENT_LIMIT] [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_LIMIT_TOOLTIP]limite de colonies[/TIP][/B].[LI][B][icon:YIELD_PRODUCTION] Production +30 %[/B] pour la construction du [B]jardin d'Eram[/B].[/LIST]</Text>
+    </Replace>
+    <Replace Tag="LOC_TRAIT_QAJAR_ABILITY_EX_DESCRIPTION" Language="fr_FR">
+      <Text>[BLIST][LI][B][icon:YIELD_DIPLOMACY] Influence +50 %[/B] pour soutenir des [icon:DIPLOMATIC_ACTION] [B]actions diplomatiques[/B].[LI][B][icon:YIELD_FOOD] Nourriture +6[/B] et [B][icon:YIELD_PRODUCTION] Production +6[/B] dans la [B][icon:NOTIFICATION_SELECT_CAPITAL] capitale[/B] pour chacune de vos [B][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]colonies[/TIP][/B] sous la [B][icon:SETTLEMENT_LIMIT] [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_LIMIT_TOOLTIP]limite de colonies[/TIP][/B].[/LIST]</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_QAJAR_ABILITY_NAME" Language="fr_FR">
       <Text>Couronne de Kayānī</Text>
@@ -764,19 +803,19 @@
       <Text>Dogmes des Kadjar</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_GHILMAN_2_DESCRIPTION" Language="fr_FR">
-      <Text>Unité de cavalerie de niveau 2 exclusive aux Kadjar. [icon:NAR_REW_COMBAT] Puissance de combat +5 et [icon:Action_Heal] Soins +10 dans le [icon:COMMANDER_RADIUS] rayon de commandement d'un [icon:UNIT_SOLTAN] sardar. Ignore les zones de contrôle.</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_CAVALRY_UNITS_TOOLTIP]Unité de cavalerie[/TIP] de niveau 2 exclusive aux Kadjar. [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Puissance de combat[/TIP] +5 et [icon:Action_Heal] Soins +10 dans le [icon:COMMANDER_RADIUS] [TIP:LOC_PEDIA_CONCEPTS_COMMAND_RADIUS_TOOLTIP]rayon de commandement[/TIP] d'un [icon:UNIT_ARMY_COMMANDER] [TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]commandant d'armée[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_GHILMAN_3_DESCRIPTION" Language="fr_FR">
-      <Text>Unité de cavalerie de niveau 3 exclusive aux Kadjar. [icon:NAR_REW_COMBAT] Puissance de combat +5 et [icon:Action_Heal] Soins +10 dans le [icon:COMMANDER_RADIUS] rayon de commandement d'un [icon:UNIT_SOLTAN] sardar. Ignore les zones de contrôle.</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_CAVALRY_UNITS_TOOLTIP]Unité de cavalerie[/TIP] de niveau 3 exclusive aux Kadjar. [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Puissance de combat[/TIP] +5 et [icon:Action_Heal] Soins +10 dans le [icon:COMMANDER_RADIUS] [TIP:LOC_PEDIA_CONCEPTS_COMMAND_RADIUS_TOOLTIP]rayon de commandement[/TIP] d'un [icon:UNIT_ARMY_COMMANDER] [TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]commandant d'armée[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_GHILMAN_BASE_DESCRIPTION" Language="fr_FR">
-      <Text>Unité de cavalerie exclusive aux Kadjar. [icon:NAR_REW_COMBAT] Puissance de combat +5 et [icon:Action_Heal] Soins +10 dans le [icon:COMMANDER_RADIUS] rayon de commandement d'un [icon:UNIT_SOLTAN] sardar. Ignore les zones de contrôle.</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_CAVALRY_UNITS_TOOLTIP]Unité de cavalerie[/TIP] exclusive aux Kadjar. [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Puissance de combat[/TIP] +5 et [icon:Action_Heal] Soins +10 dans le [icon:COMMANDER_RADIUS] [TIP:LOC_PEDIA_CONCEPTS_COMMAND_RADIUS_TOOLTIP]rayon de commandement[/TIP] d'un [icon:UNIT_ARMY_COMMANDER] [TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]commandant d'armée[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_GHILMAN_DESCRIPTION" Language="fr_FR">
-      <Text>Unité de cavalerie de niveau 1 exclusive aux Kadjar. [icon:NAR_REW_COMBAT] Puissance de combat +5 et [icon:Action_Heal] Soins +10 dans le [icon:COMMANDER_RADIUS] rayon de commandement d'un [icon:UNIT_SOLTAN] sardar. Ignore les zones de contrôle.</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_CAVALRY_UNITS_TOOLTIP]Unité de cavalerie[/TIP] de niveau 1 exclusive aux Kadjar. [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Puissance de combat[/TIP] +5 et [icon:Action_Heal] Soins +10 dans le [icon:COMMANDER_RADIUS] [TIP:LOC_PEDIA_CONCEPTS_COMMAND_RADIUS_TOOLTIP]rayon de commandement[/TIP] d'un [icon:UNIT_ARMY_COMMANDER] [TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]commandant d'armée[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_SOLTAN_DESCRIPTION" Language="fr_FR">
-      <Text>Commandant d'armée exclusif aux Kadjar. [icon:Action_Move] PM +1. Lorsqu'une colonie est rasée, un [icon:CITY_URBAN] district supplémentaire est rasé par tour dans les colonies où ce commandant se trouve dans un [icon:CITY_URBAN] district.</Text>
+      <Text>Commandant d'armée exclusif aux Kadjar. [icon:Action_Move] PM +1. Lorsqu'une [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]colonie[/TIP] est rasée, deux fois plus de [icon:CITY_URBAN] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]districts[/TIP] sont rasés par tour dans les [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]colonies[/TIP] où ce [TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]commandant[/TIP] se trouve dans un [icon:CITY_URBAN] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]district[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_5_CITY_WORKERS_DESCRIPTION" Language="fr_FR">
       <Text>Posséder 1 colonie comportant au moins 5 [B]spécialistes[/B]</Text>
@@ -784,38 +823,52 @@
     <Replace Tag="LOC_UNLOCK_CITY_WORKERS_QAJAR_TOOLTIP" Language="fr_FR">
       <Text>Les [B]spécialistes[/B] jouaient un rôle important dans l'identité des [B]Kadjar[/B].</Text>
     </Replace>
+    <Replace Tag="LOC_UNLOCK_PLAY_AS_QAJAR_DESCRIPTION" Language="fr_FR">
+      <Text>Jouer avec les [B]Kadjar[/B].</Text>
+    </Replace>
+    <Replace Tag="LOC_UNLOCK_PLAY_AS_QAJAR_QAJAR_TOOLTIP" Language="fr_FR">
+      <Text>Les [B]Kadjar[/B] sont capables de traverser les âges.</Text>
+    </Replace>
     <Replace Tag="LOC_UNLOCK_PLAY_AS_XERXES_QAJAR_TOOLTIP" Language="fr_FR">
       <Text>[B]Xerxès[/B] a régné sur la région qui allait devenir [B]l'Iran des Kadjar[/B].</Text>
     </Replace>
     <Replace Tag="LOC_WONDER_ERAM_GARDEN_DESCRIPTION" Language="fr_FR">
-      <Text>[icon:YIELD_FOOD] Nourriture +4. Limite de [icon:SPECIALIST] spécialistes +1 dans cette colonie. Intemporel. Doit être construit sur une case de désert.</Text>
+      <Text>[icon:YIELD_FOOD] Nourriture +4. [icon:SPECIALIST] [TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_LIMIT_TOOLTIP]Limite de spécialistes[/TIP] +1 dans cette [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]colonie[/TIP]. [TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]Intemporel[/TIP]. Doit être construit sur une case de désert.</Text>
     </Replace>
     <Replace Tag="LOC_WONDER_ERAM_GARDEN_TOOLTIP" Language="fr_FR">
-      <Text>Limite de [icon:SPECIALIST] spécialistes +1 dans cette colonie.[N]Doit être construit sur une case de désert.</Text>
+      <Text>[icon:SPECIALIST] [TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_LIMIT_TOOLTIP]Limite de spécialistes[/TIP] +1 dans cette [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]colonie[/TIP].[N]Doit être construit sur une case de désert.</Text>
     </Replace>
     <Replace Tag="LOC_COMBAT_PREVIEW_NUMBER_UNDER_SETTLEMENT_CAP_BONUS_DESC" Language="fr_FR">
       <Text>+{1_CombatStrength} - {2_NumberUnderSettlementCap} colonies sous la limite.</Text>
     </Replace>
     <Replace Tag="LOC_GHILMAN_COMBAT_PREVIEW" Language="fr_FR">
-      <Text>+{1_Amount} dans le rayon de commandement d'un sardar.</Text>
+      <Text>+{1_Amount} dans le [TIP:LOC_PEDIA_CONCEPTS_COMMAND_RADIUS_TOOLTIP]rayon de commandement[/TIP] d'un sardar</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_CITY_WORKERS_QAJAR_NARRATIVE" Language="fr_FR">
       <Text>Sous le règne {1_Civilization_Adj}, des nomades des terres voisines se sont engagés dans l'armée, notamment pour s'enrichir. Ils ont formé leur propre clan et ne vivent plus sous la tente en extérieur, mais dans les salons et les universités.</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_DAR_AL_FONUN_I_NAME" Language="fr_FR">
+      <Text>Dar-ol-Fonoun I</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_DAR_AL_FONUN_II_NAME" Language="fr_FR">
+      <Text>Dar-ol-Fonoun II</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_QAJAR_SYNCRETISM_ANTIQUITY_NAME" Language="fr_FR">
+      <Text>Waqāye'-e Ettefāqiya I</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_QAJAR_SYNCRETISM_EXPLORATION_NAME" Language="fr_FR">
+      <Text>Waqāye'-e Ettefāqiya II</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_QULLARAQASI_NAME" Language="fr_FR">
       <Text>Qullarāqāsi</Text>
       <Gender>masculine</Gender>
       <Plurality>1</Plurality>
     </Replace>
-    <Replace Tag="LOC_TRADITION_SOLEYMANIYEH_PALACE_NAME" Language="fr_FR">
-      <Text>Palais de Soleymaniyeh</Text>
-      <Gender>masculine</Gender>
-      <Plurality>1</Plurality>
+    <Replace Tag="LOC_TRADITION_SOLEYMANIYEH_PALACE_I_NAME" Language="fr_FR">
+      <Text>Palais de Soleymaniyeh I</Text>
     </Replace>
-    <Replace Tag="LOC_TRADITION_WAQAYE_E_ETTEFAQIYA_NAME" Language="fr_FR">
-      <Text>Waqāye'-e Ettefāqiya</Text>
-      <Gender>masculine</Gender>
-      <Plurality>1</Plurality>
+    <Replace Tag="LOC_TRADITION_SOLEYMANIYEH_PALACE_II_NAME" Language="fr_FR">
+      <Text>Palais de Soleymaniyeh II</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_GHILMAN_NAME" Language="fr_FR">
       <Text>Ghulam|Ghilman</Text>

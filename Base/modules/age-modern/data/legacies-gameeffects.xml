@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects>
+	<!-- ==================================================	-->
+	<!--				Legacy Modifiers					-->
+	<!-- ==================================================	-->
+	<!-- CULTURAL -->
+	<Modifier id="MOD_LEGACY_MO_CULTURAL_1" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ACTIVATE_VICTORY_POINT_TRACKER">
+		<Argument name="TrackerName">VICTORY_TRACKER_MO_CULTURAL_1</Argument>
+	</Modifier>
+	<Modifier id="MOD_LEGACY_MO_CULTURAL_2" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_VICTORY_TRACKER_POINTS" run-once="false" permanent="true">
+		<Argument name="VictoryType">VICTORY_CULTURE_MODERN</Argument>
+		<Argument name="Points">36</Argument>
+		<Argument name="ItemName">LOC_LEGACY_MO_CULTURAL_2_NAME</Argument>
+		<Argument name="TypeData">TRIUMPH</Argument>
+	</Modifier>
+	<Modifier id="MOD_LEGACY_MO_CULTURAL_3" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ACTIVATE_VICTORY_POINT_TRACKER">
+		<Argument name="TrackerName">VICTORY_TRACKER_MANIFESTO</Argument>
+	</Modifier>
+	<Modifier id="MOD_LEGACY_MO_CULTURAL_4" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ACTIVATE_VICTORY_POINT_TRACKER">
+		<Argument name="TrackerName">VICTORY_TRACKER_WONDERLAND</Argument>
+	</Modifier>
+	<Modifier id="MOD_LEGACY_MO_CULTURAL_5" collection="COLLECTION_OWNER" effect="EFFECT_ATTACH_MODIFIERS">
+		<Argument name="ModifierId">MOD_LEGACY_MO_CULTURAL_5_MOD_QUARTERS, MOD_LEGACY_MO_CULTURAL_5_MOD_IMPROVEMENTS</Argument>
+	</Modifier>
+	<Modifier id="MOD_LEGACY_MO_CULTURAL_5_MOD_QUARTERS" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ACTIVATE_VICTORY_POINT_TRACKER">
+		<Argument name="TrackerName">VICTORY_TRACKER_ZEITGIEST_QUARTERS</Argument>
+	</Modifier>
+	<Modifier id="MOD_LEGACY_MO_CULTURAL_5_MOD_IMPROVEMENTS" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ACTIVATE_VICTORY_POINT_TRACKER">
+		<Argument name="TrackerName">VICTORY_TRACKER_ZEITGIEST_IMPROVEMENTS</Argument>
+	</Modifier>
+	<!-- DIPLOMATIC -->
+	<Modifier id="MOD_LEGACY_MO_DIPLOMATIC_1"  collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_ADJUST_DIPLOMATIC_ACTION_TYPE_EFFICIENCY">
+		<Argument name="ActionGroupType">DIPLOMACY_ACTION_GROUP_SANCTION, DIPLOMACY_ACTION_GROUP_ESPIONAGE, DIPLOMACY_ACTION_GROUP_ENDEAVOR</Argument>
+		<Argument name="Percent">20</Argument>
+	</Modifier>
+	<Modifier id="MOD_LEGACY_MO_DIPLOMATIC_2" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD" run-once="true" permanent="true">
+		<Argument name="Amount">500</Argument>
+		<Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+		<String context="Summary">LOC_LEGACY_MO_DIPLOMATIC_2_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="MOD_LEGACY_MO_DIPLOMATIC_3" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_ADJUST_DIPLOMATIC_ACTION_TYPE_EFFICIENCY">
+		<Argument name="Percent">50</Argument>
+		<Argument name="ActionGroupType">DIPLOMACY_ACTION_GROUP_PROJECT</Argument>
+	</Modifier>
+	<Modifier id="MOD_LEGACY_MO_DIPLOMATIC_4" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD" run-once="true" permanent="true">
+		<Argument name="Amount">500</Argument>
+		<Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+		<String context="Summary">LOC_LEGACY_MO_DIPLOMATIC_4_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="MOD_LEGACY_MO_DIPLOMATIC_5" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_TRADITION_SLOTS" permanent="true">
+		<Argument name="Amount">1</Argument>
+		<Argument name="SlotType">TRADITION_CULTURE_SLOT</Argument>
+	</Modifier>
+	<!-- ECONOMIC -->
+	<Modifier id="MOD_LEGACY_MO_ECONOMIC_1" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_GRANT_UNIT" permanent="true">
+		<Argument name="Amount">1</Argument>
+		<Argument name="UnitType">UNIT_JOHN_MAYNARD_KEYNES</Argument>
+		<Argument name="AllowUniqueOverride">FALSE</Argument>
+		<String context="Description">LOC_LEGACY_MO_ECONOMIC_1_TRIGGER_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="MOD_LEGACY_MO_ECONOMIC_2" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ACTIVATE_VICTORY_POINT_TRACKER">
+		<Argument name="TrackerName">VICTORY_TRACKER_WEALTH_OF_NATIONS</Argument>
+	</Modifier>
+	<Modifier id="MOD_LEGACY_MO_ECONOMIC_3" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ACTIVATE_VICTORY_POINT_TRACKER">
+		<Argument name="TrackerName">VICTORY_TRACKER_RAIL_BARON</Argument>
+	</Modifier>
+	<Modifier id="MOD_LEGACY_MO_ECONOMIC_4" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ACTIVATE_VICTORY_POINT_TRACKER" permanent="true">
+		<Argument name="TrackerName">VICTORY_TRACKER_ABUNDANCE_III</Argument>
+	</Modifier>
+	<Modifier id="MOD_LEGACY_MO_ECONOMIC_5" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_VICTORY_TRACKER_POINTS" permanent="true">
+		<Argument name="VictoryType">VICTORY_ECONOMIC_MODERN</Argument>
+		<Argument name="Points">1000</Argument>
+		<Argument name="ItemName">LOC_LEGACY_MO_ECONOMIC_5_NAME</Argument>
+		<Argument name="TypeData">TRIUMPH</Argument>
+	</Modifier>
+	<!-- EXPANSIONIST -->
+	<Modifier id="MOD_LEGACY_MO_EXPANSIONIST_1" collection="COLLECTION_PLAYER_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_HAS_APPEAL">
+				<Argument name="UseAppealDoubleHappinessThreshold">true</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_FOOD</Argument>
+		<Argument name="Amount">6</Argument>
+		<Argument name="Tooltip">LOC_LEGACY_MO_EXPANSIONIST_1_NAME</Argument>
+	</Modifier>
+	<Modifier id="MOD_LEGACY_MO_EXPANSIONIST_2" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+		<Argument name="YieldType">YIELD_PRODUCTION</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Tag">FORTIFICATION</Argument>
+	</Modifier>
+	<Modifier id="MOD_LEGACY_MO_EXPANSIONIST_3" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" permanent="true">
+		<Argument name="YieldType">YIELD_FOOD</Argument>
+		<Argument name="Amount">4</Argument>
+		<Argument name="ConstructibleType">BUILDING_GROCER</Argument>
+	</Modifier>
+	<Modifier id="MOD_LEGACY_MO_EXPANSIONIST_4" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_GOLDEN_AGE" run-once="true" permanent="true">
+	</Modifier>
+	<Modifier id="MOD_LEGACY_MO_EXPANSIONIST_5" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD" run-once="false" permanent="true">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_CITY">
+            </Requirement>
+		</SubjectRequirements>        
+		<Argument name="YieldType">YIELD_HAPPINESS</Argument>
+        <Argument name="Amount">20</Argument>
+    </Modifier>
+	<!-- MILITARISTIC -->
+	<Modifier id="MOD_LEGACY_MO_MILITARISTIC_1" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_VICTORY_TRACKER_POINTS" permanent="true">
+		<Argument name="VictoryType">VICTORY_MILITARY_MODERN</Argument>
+		<Argument name="Points">3</Argument>
+		<Argument name="ItemName">LOC_LEGACY_MO_MILITARISTIC_1_NAME</Argument>
+		<Argument name="TypeData">TRIUMPH</Argument>
+	</Modifier>
+	<Modifier id="MOD_LEGACY_MO_MILITARISTIC_2" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_MOVEMENT">
+		<Requirement type="REQUIREMENT_UNIT_DOMAIN_MATCHES">
+			<Argument name="UnitDomain">DOMAIN_AIR</Argument>
+		</Requirement>
+		<Argument name="Amount">3</Argument>
+	</Modifier>
+	<Modifier id="MOD_LEGACY_MO_MILITARISTIC_3" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" permanent="true">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_CITY" inverse="true">
+            </Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_HAPPINESS</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="ConstructibleType">BUILDING_CITY_HALL</Argument>
+	</Modifier>
+	<Modifier id="MOD_LEGACY_MO_MILITARISTIC_4" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_VICTORY_TRACKER_POINTS" permanent="true">
+		<Argument name="VictoryType">VICTORY_MILITARY_MODERN</Argument>
+		<Argument name="Points">4</Argument>
+		<Argument name="ItemName">LOC_LEGACY_MO_MILITARISTIC_4_NAME</Argument>
+		<Argument name="TypeData">TRIUMPH</Argument>
+	</Modifier>
+	<Modifier id="MOD_LEGACY_MO_MILITARISTIC_5" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_ADJUST_DIPLOMATIC_ACTION_TOKEN_BONUS" permanent="true">
+		<Argument name="ActionType">DIPLOMACY_ACTION_DECLARE_WAR</Argument>
+		<Argument name="Amount">1</Argument>
+	</Modifier>
+	<!-- SCIENTIFIC -->
+	<Modifier id="MOD_LEGACY_MO_SCIENTIFIC_1" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" permanent="true">
+		<Argument name="YieldType">YIELD_SCIENCE</Argument>
+		<Argument name="Amount">10</Argument>
+		<Argument name="ConstructibleType">BUILDING_AIRFIELD</Argument>
+	</Modifier>
+	<Modifier id="MOD_LEGACY_MO_SCIENTIFIC_2" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" permanent="true">
+		<Argument name="YieldType">YIELD_PRODUCTION</Argument>
+		<Argument name="Amount">10</Argument>
+		<Argument name="ConstructibleType">BUILDING_AIRFIELD</Argument>
+	</Modifier>
+	<Modifier id="MOD_LEGACY_MO_SCIENTIFIC_3" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_VICTORY_TRACKER_POINTS" permanent="true">
+		<Argument name="VictoryType">VICTORY_MILITARY_MODERN</Argument>
+		<Argument name="Points">25</Argument>
+		<Argument name="ItemName">LOC_LEGACY_MO_SCIENTIFIC_3_NAME</Argument>
+		<Argument name="TypeData">TRIUMPH</Argument>
+	</Modifier>
+	<Modifier id="MOD_LEGACY_MO_SCIENTIFIC_4" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_PROJECT_PRODUCTION">
+		<Argument name="Percent">50</Argument>
+	</Modifier>
+	<Modifier id="MOD_LEGACY_MO_SCIENTIFIC_5" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_CONSTRUCTIBLE_YIELD">
+		<Argument name="YieldType">YIELD_PRODUCTION</Argument>
+		<Argument name="Amount">4</Argument>
+		<Argument name="ConstructibleType">BUILDING_LABORATORY</Argument>
+		<Argument name="Tooltip">LOC_LEGACY_MO_SCIENTIFIC_5_NAME</Argument>
+	</Modifier>
+	<!--CONQUEROR-->
+	<Modifier id="MOD_LEGACY_MO_CONQUEROR_1" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ADJUST_UNIT_BASE_COMBAT_STRENGTH" permanent="true">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+				<Argument name="Tag">UNIT_CLASS_SIEGE</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">4</Argument>
+		<Argument name="Type">BOMBARD</Argument>
+	</Modifier>
+	<Modifier id="MOD_LEGACY_MO_CONQUEROR_2" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_ADJUST_DIPLOMATIC_ACTION_TYPE_EFFICIENCY" permanent="true">
+		<Argument name="ActionType">DIPLOMACY_ACTION_CS_LEVY_UNIT</Argument>
+		<Argument name="Percent">100</Argument>
+	</Modifier>
+	<Modifier id="MOD_LEGACY_MO_CONQUEROR_3" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_MOVEMENT">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+				<Argument name="Tag">UNIT_CLASS_ARMY_COMMANDER, UNIT_CLASS_FLEET_COMMANDER</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">1</Argument>
+	</Modifier>
+	<Modifier id="MOD_LEGACY_MO_CONQUEROR_4" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_MOVEMENT">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+				<Argument name="Tag">UNIT_CLASS_CARRIER_COMMANDER</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">1</Argument>
+	</Modifier>
+	<!--EXPLORER-->
+	<Modifier id="MOD_LEGACY_MO_EXPLORER_1" effect="EFFECT_PLAYER_ACTIVATE_VICTORY_POINT_TRACKER" permanent="true">
+		<Argument name="TrackerName">VICTORY_TRACKER_FIELD_MUSEUM</Argument>
+	</Modifier>
+	<Modifier id="MOD_LEGACY_MO_EXPLORER_2" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_ADJUST_DIPLOMATIC_ACTION_TYPE_EFFICIENCY" permanent="true">
+		<Argument name="ActionType">DIPLOMACY_ACTION_CS_BOLSTER_MILITARY</Argument>
+		<Argument name="Percent">100</Argument>
+	</Modifier>
+	<Modifier id="MOD_LEGACY_MO_EXPLORER_3" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_MOVEMENT">
+		<Requirement type="REQUIREMENT_UNIT_DOMAIN_MATCHES">
+			<Argument name="UnitDomain">DOMAIN_AIR</Argument>
+		</Requirement>
+		<Argument name="Amount">1</Argument>
+	</Modifier>
+	<!-- ==================================================	-->
+	<!--					Requirements					-->
+	<!-- ==================================================	-->
+	<!-- CULTURAL -->
+	<RequirementSet id="REQSET_LEGACY_MO_CULTURAL_1">
+		<Requirement type="REQUIREMENT_PLAYER_HAS_X_GREAT_WORKS">
+			<Argument name="ObjectType">GREATWORKOBJECT_ARTIFACT</Argument>
+			<Argument name="IncludeArchived">False</Argument>
+			<Argument name="Count">15</Argument>
+		</Requirement>
+	</RequirementSet>
+	<RequirementSet id="REQSET_LEGACY_MO_CULTURAL_2">
+		<Requirement type="REQUIREMENT_PLAYER_HAS_X_WONDERS">
+			<Argument name="Count">6</Argument>
+			<Argument name="RequiresCurrentAge">true</Argument>
+			<Argument name="OriginalConstructor">true</Argument>
+		</Requirement>
+	</RequirementSet>
+	<RequirementSet id="REQSET_LEGACY_MO_CULTURAL_3">
+		<Requirement type="REQUIREMENT_PLAYER_TRADITION_SLOTS">
+			<Argument name="MinFilled">10</Argument>
+			<Argument name="MinUnlocked">0</Argument>
+			<Argument name="SlotTypes">TRADITION_CULTURE_SLOT, POLICY_CULTURE_SLOT</Argument>
+		</Requirement>
+	</RequirementSet>
+	<RequirementSet id="REQSET_LEGACY_MO_CULTURAL_4">
+		<Requirement type="REQUIREMENT_PLAYER_HAS_X_WONDERS">
+			<Argument name="Count">20</Argument>
+			<Argument name="OriginalConstructor">true</Argument>
+		</Requirement>
+	</RequirementSet>
+	<RequirementSet id="REQSET_LEGACY_MO_CULTURAL_5">
+		<Requirement type="REQUIREMENT_PLAYER_HAS_COMPLETED_X_PROGRESSION_TREE_NODES">
+			<Argument name="CultureOnly">True</Argument>
+			<Argument name="AllNodes">True</Argument>
+			<Argument name="MainTreeOnly">True</Argument>
+			<Argument name="CountRepeatableNodes">False</Argument>
+		</Requirement>
+	</RequirementSet>
+	<!-- DIPLOMATIC -->
+	<RequirementSet id="REQSET_LEGACY_MO_DIPLOMATIC_1">
+		<Requirement type="REQUIREMENT_PLAYER_HAS_IDEOLOGY">
+            <Argument name="HasAnyIdeology">True</Argument>
+        </Requirement>
+	</RequirementSet>
+	<RequirementSet id="REQSET_LEGACY_MO_DIPLOMATIC_2">
+		<Requirement type="REQUIREMENT_PLAYER_HAS_X_ALLIANCES">
+			<Argument name="AmountAsPercent">true</Argument>
+			<Argument name="Amount">50</Argument>
+			<Argument name="OnlyLiving">true</Argument>
+		</Requirement>
+	</RequirementSet>
+	<RequirementSet id="REQSET_LEGACY_MO_DIPLOMATIC_3">
+		<Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_TRIBUTARIES">
+			<Argument name="Amount">7</Argument>
+		</Requirement>
+	</RequirementSet>
+	<RequirementSet id="REQSET_LEGACY_MO_DIPLOMATIC_4">
+		<Requirement type="REQUIREMENT_PLAYER_HAS_COMPLETED_X_ESPIONAGE_ACTIONS">
+			<Argument name="Amount">15</Argument>
+		</Requirement>
+	</RequirementSet>
+	<RequirementSet id="REQSET_LEGACY_MO_DIPLOMATIC_5">
+		<Requirement type="REQUIREMENT_CITY_HAPPINESS">
+			<Argument name="MinSurplusHappiness">250</Argument>
+			<Argument name="Unhappy">false</Argument>
+		</Requirement>
+	</RequirementSet>
+	<!-- ECONOMIC -->
+	<RequirementSet id="REQSET_LEGACY_MO_ECONOMIC_1">
+		<Requirement type="REQUIREMENT_PLAYER_HAS_X_VICTORY_POINTS_FROM_TRACKER">
+			<Argument name="VPNeeded">500</Argument>
+			<Argument name="VictoryTrackerType">VICTORY_TRACKER_SLOTTED_RESOURCE_CLASS</Argument>
+			<Argument name="ScoringID">VICTORY_TRACKER_SLOTTED_FACTORY</Argument>
+		</Requirement>
+	</RequirementSet>
+	<RequirementSet id="REQSET_LEGACY_MO_ECONOMIC_2">
+		<Requirement type="REQUIREMENT_PLAYER_HAS_X_TRADE_ROUTES_WITH_PLAYER">
+			<Argument name="Amount">12</Argument>
+			<Argument name="AllPlayers">true</Argument>
+		</Requirement>
+	</RequirementSet>
+	<RequirementSet id="REQSET_LEGACY_MO_ECONOMIC_3">
+		<Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_BUILDINGS">
+			<Argument name="BuildingType">BUILDING_RAIL_STATION</Argument>
+			<Argument name="Amount">12</Argument>
+		</Requirement>
+	</RequirementSet>
+	<RequirementSet id="REQSET_LEGACY_MO_ECONOMIC_4">
+		<Requirement type="REQUIREMENT_PLAYER_HAS_NUM_RESOURCES_ASSIGNED">
+			<Argument name="Amount">60</Argument>
+		</Requirement>
+	</RequirementSet>
+	<RequirementSet id="REQSET_LEGACY_MO_ECONOMIC_5">
+		<Requirement type="REQUIREMENT_PLAYER_HAS_NUM_RESOURCES_ASSIGNED">
+            <Argument name="Amount">30</Argument>
+            <Argument name="ResourceClassType">RESOURCECLASS_FACTORY</Argument>
+		</Requirement>
+	</RequirementSet>
+	<!-- EXPANSIONIST -->
+	<RequirementSet id="REQSET_LEGACY_MO_EXPANSIONIST_1">
+		<Requirement type="REQUIREMENT_PLAYER_IMPROVED_X_NATURAL_WONDERS">
+			<Argument name="PercentageThreshold">100</Argument>
+		</Requirement>
+	</RequirementSet>
+	<RequirementSet id="REQSET_LEGACY_MO_EXPANSIONIST_2">
+		<Requirement type="REQUIREMENT_PLAYER_HAS_X_SETTLEMENTS">
+			<Argument name="RequiredCount">27</Argument>
+			<Argument name="CountPerOwnSettlement">1</Argument>
+			<Argument name="CountPerConqueredSettlement">1</Argument>
+		</Requirement>
+	</RequirementSet>
+	<RequirementSet id="REQSET_LEGACY_MO_EXPANSIONIST_3">
+		<Requirement type="REQUIREMENT_PLAYER_TOTAL_POPULATION">
+			<Argument name="Amount">450</Argument>
+		</Requirement>
+	</RequirementSet>
+	<RequirementSet id="REQSET_LEGACY_MO_EXPANSIONIST_4">
+		<Requirement type="REQUIREMENT_PLAYER_PLOTS_REVEALED_ARE_X">
+			<Argument name="PlotsRevealedIsPercentage">True</Argument>
+			<Argument name="PlotsRevealed">100</Argument>
+			<Argument name="ExcludeSharedVis">False</Argument>
+		</Requirement>
+	</RequirementSet>
+	<RequirementSet id="REQSET_LEGACY_MO_EXPANSIONIST_5">
+		<Requirement type="REQUIREMENT_PLAYER_HAS_X_WORKERS">
+			<Argument name="Amount">60</Argument>
+		</Requirement>
+	</RequirementSet>
+	<!-- MILITARISTIC -->
+	<RequirementSet id="REQSET_LEGACY_MO_MILITARISTIC_1">
+		<Requirement type="REQUIREMENT_PLAYER_HAS_X_IDEOLOGICAL_CONQUESTS">
+			<Argument name="CountPerOtherIdeology">1</Argument>
+			<Argument name="CountPerRivalIdeology">1</Argument>
+			<Argument name="CountPerSameIdeology">0</Argument>
+			<Argument name="Count">5</Argument>
+		</Requirement>
+	</RequirementSet>
+	<RequirementSet id="REQSET_LEGACY_MO_MILITARISTIC_2">
+		<Requirement type="REQUIREMENT_PLAYER_HAS_COMMANDERS_WITH_X_LEVELS">
+			<Argument name="CommanderCount">1</Argument>
+			<Argument name="DomainType">DOMAIN_AIR</Argument>
+			<Argument name="LevelCount">6</Argument>
+		</Requirement>
+	</RequirementSet>
+	<RequirementSet id="REQSET_LEGACY_MO_MILITARISTIC_3">
+		<Requirement type="REQUIREMENT_PLAYER_HAS_X_IDEOLOGICAL_CONQUESTS">
+			<Argument name="CountPerSameIdeology">1</Argument>
+			<Argument name="Count">5</Argument>
+		</Requirement>
+	</RequirementSet>
+	<RequirementSet id="REQSET_LEGACY_MO_MILITARISTIC_4">
+		<Requirement type="REQUIREMENT_PLAYER_CONQUERED_X_CITIES">
+			<Argument name="OnlyCapital">true</Argument>
+			<Argument name="MajorOwnedSettlementsOnly">true</Argument>
+			<Argument name="CitiesConquered">1</Argument>
+		</Requirement>
+	</RequirementSet>
+	<RequirementSet id="REQSET_LEGACY_MO_MILITARISTIC_5">
+		<Requirement type="REQUIREMENT_PLAYER_HAS_X_WARS">
+			<Argument name="AllMajors">true</Argument>
+      <Argument name="OnlyLiving">true</Argument>
+    </Requirement>
+	</RequirementSet>
+	<!-- SCIENTIFIC -->
+	<RequirementSet id="REQSET_LEGACY_MO_SCIENTIFIC_1">
+		<Requirement type="REQUIREMENT_PLAYER_HAS_COMPLETED_PROGRESSION_TREE_NODE">
+			<Argument name="ProgressionTreeNodeType">NODE_TECH_MO_FLIGHT</Argument>
+			<Argument name="MinDepth">1</Argument>
+		</Requirement>
+	</RequirementSet>
+	<RequirementSet id="REQSET_LEGACY_MO_SCIENTIFIC_2">
+		<Requirement type="REQUIREMENT_PLAYER_HAS_COMPLETED_PROJECT">
+			<Argument name="ProjectType">PROJECT_BREAK_SOUND_BARRIER</Argument>
+		</Requirement>
+	</RequirementSet>
+	<RequirementSet id="REQSET_LEGACY_MO_SCIENTIFIC_3">
+		<Requirement type="REQUIREMENT_PLAYER_HAS_COMPLETED_PROJECT">
+			<Argument name="ProjectType">PROJECT_OPERATION_IVY</Argument>
+		</Requirement>
+	</RequirementSet>
+	<RequirementSet id="REQSET_LEGACY_MO_SCIENTIFIC_4">
+		<Requirement type="REQUIREMENT_PLAYER_HAS_X_DISTRICTS_WITH_YIELD">
+			<Argument name="Count">5</Argument>
+			<Argument name="YieldAmount">120</Argument>
+			<Argument name="DistrictTypes">DISTRICT_URBAN</Argument>
+		</Requirement>
+	</RequirementSet>
+	<RequirementSet id="REQSET_LEGACY_MO_SCIENTIFIC_5">
+		<Requirement type="REQUIREMENT_PLAYER_HAS_COMPLETED_X_PROGRESSION_TREE_NODES">
+			<Argument name="TechOnly">True</Argument>
+			<Argument name="AllNodes">True</Argument>
+			<Argument name="CountRepeatableNodes">False</Argument>
+		</Requirement>
+	</RequirementSet>
+	<!-- CONQUEROR-->
+	<RequirementSet id="REQSET_LEGACY_MO_CONQUEROR_1">
+		<Requirement type="REQUIREMENT_PLAYER_CONQUERED_SETTLEMENT_WITH_BUILDING">
+			<Argument name="ConstructibleType">BUILDING_DEFENSIVE_FORTIFICATIONS</Argument>
+			<Argument name="Amount">6</Argument>
+		</Requirement>
+	</RequirementSet>
+	<RequirementSet id="REQSET_LEGACY_MO_CONQUEROR_2">
+		<Requirement type="REQUIREMENT_PLAYER_HAS_X_TRIBUTARIES_OF_TYPE">
+			<Argument name="Amount">2</Argument>
+			<Argument name="CityStateType">MILITARISTIC</Argument>
+		</Requirement>
+	</RequirementSet>
+	<RequirementSet id="REQSET_LEGACY_MO_CONQUEROR_3">
+		<Requirement type="REQUIREMENT_PLAYER_CONQUERED_X_CITIES">
+			<Argument name="OnlyCapital">true</Argument>
+			<Argument name="MajorOwnedSettlementsOnly">true</Argument>
+			<Argument name="CitiesConquered">2</Argument>
+		</Requirement>
+	</RequirementSet>
+	<RequirementSet id="REQSET_LEGACY_MO_CONQUEROR_4">
+		<Requirement type="REQUIREMENT_PLAYER_HAS_COMMANDERS_WITH_X_LEVELS">
+			<Argument name="LevelCount">4</Argument>
+			<Argument name="Tag">UNIT_CLASS_CARRIER_COMMANDER</Argument>
+		</Requirement>
+	</RequirementSet>
+	<!-- EXPLORER-->
+	<RequirementSet id="REQSET_LEGACY_MO_EXPLORER_1">
+		<Requirement type="REQUIREMENT_PLAYER_HAS_X_GREAT_WORKS">
+			<Argument name="ObjectType">GREATWORKOBJECT_ARTIFACT</Argument>
+			<Argument name="IncludeArchived">False</Argument>
+            <Argument name="NaturalWonderWorksOnly">True</Argument>
+            <Argument name="CountEqualToNaturalWondersOnMap">True</Argument>
+		</Requirement>
+	</RequirementSet>
+	<RequirementSet id="REQSET_LEGACY_MO_EXPLORER_2">
+		<Requirement type="REQUIREMENT_PLAYER_HAS_X_TRIBUTARIES_OF_TYPE">
+			<Argument name="Amount">2</Argument>
+			<Argument name="CityStateType">DIPLOMATIC</Argument>
+		</Requirement>
+	</RequirementSet>
+	<RequirementSet id="REQSET_LEGACY_MO_EXPLORER_3">
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_UNIT_TYPE">
+            <Argument name="UnitTag">UNIT_CLASS_SQUADRON_COMMANDER</Argument>
+            <Argument name="Amount">3</Argument>
+        </Requirement>
+	</RequirementSet>
+</GameEffects>

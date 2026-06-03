@@ -1,42 +1,10 @@
 import ContextManager from '../../../core/ui/context-manager/context-manager.js';
-import ActionHandler, { ActiveDeviceTypeChangedEventName } from '../../../core/ui/input/action-handler.js';
-import FocusManager from '../../../core/ui/input/focus-manager.js';
-import { N as NavTray } from '../../../core/ui/navigation-tray/model-navigation-tray.chunk.js';
-import { V as ViewManager, U as UISystem } from '../../../core/ui/views/view-manager.chunk.js';
-import { a as RibbonStatsToggleStatus, D as DiploRibbonData, U as UpdateDiploRibbonEvent } from '../diplo-ribbon/model-diplo-ribbon.chunk.js';
-import '../../../core/ui/context-manager/display-queue-manager.js';
-import '../../../core/ui/dialog-box/manager-dialog-box.chunk.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/input/cursor.js';
-import '../../../core/ui/audio-base/audio-support.chunk.js';
-import '../../../core/ui/panel-support.chunk.js';
-import '../../../core/ui/input/input-support.chunk.js';
-import '../../../core/ui/utilities/utilities-update-gate.chunk.js';
-import '../../../core/ui/utilities/utilities-image.chunk.js';
-import '../../../core/ui/utilities/utilities-component-id.chunk.js';
-import '../../../core/ui/interface-modes/interface-modes.js';
-import '../../../core/ui/utilities/utilities-color.chunk.js';
-import '../../../core/ui/graph-layout/utils.chunk.js';
-import '../diplomacy/diplomacy-manager.js';
-import '../diplomacy/diplomacy-events.js';
-import '../../../core/ui/utilities/utilities-layout.chunk.js';
-import '../world-input/world-input.js';
-import '../../../core/ui/input/plot-cursor.js';
-import '../../../core/ui/utilities/utilities-network.js';
-import '../../../core/ui/shell/mp-legal/mp-legal.js';
-import '../../../core/ui/events/shell-events.chunk.js';
-import '../../../core/ui/utilities/utilities-dom.chunk.js';
-import '../../../core/ui/utilities/utilities-liveops.js';
-import '../../../core/ui/utilities/utilities-network-constants.chunk.js';
-import '../interface-modes/support-unit-map-decoration.chunk.js';
-import '../utilities/utilities-overlay.chunk.js';
-import '../victory-progress/model-victory-progress.chunk.js';
-import '../cinematic/cinematic-manager.chunk.js';
-import '../endgame/screen-endgame.js';
-import '../../../core/ui/tooltips/tooltip-manager.js';
-import '../end-results/end-results.js';
-import '../endgame/model-endgame.js';
-import '../victory-manager/victory-manager.chunk.js';
+import ActionHandler from '../../../core/ui/input/action-handler.js';
+import { ActiveDeviceTypeChangedEventName } from '../../../core/ui/input/input-events.js';
+import NavTray from '../../../core/ui/navigation-tray/model-navigation-tray.js';
+import ViewManager, { UISystem } from '../../../core/ui/views/view-manager.js';
+import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
+import { RibbonStatsToggleStatus, DiploRibbonData, UpdateDiploRibbonEvent } from '../diplo-ribbon/model-diplo-ribbon.js';
 
 class WorldView {
   deviceTypeChangedListener = this.onDeviceTypeChanged.bind(this);
@@ -73,6 +41,7 @@ class WorldView {
       { name: "unit-flags", type: UISystem.World, visible: "true" },
       { name: "unit-info-panel", type: UISystem.World, visible: "true" },
       { name: "small-narratives", type: UISystem.World, visible: "true" },
+      { name: "world-anchor-texts", type: UISystem.World, visible: "true" },
       { name: "units", type: UISystem.Events, selectable: true },
       { name: "cities", type: UISystem.Events, selectable: true },
       { name: "radial-selection", type: UISystem.Events, selectable: true },
@@ -87,7 +56,7 @@ class WorldView {
   }
   handleReceiveFocus() {
     NavTray.clear();
-    FocusManager.SetWorldFocused();
+    FocusManager.get().clearFocus();
     ViewManager.getHarness()?.classList.add("trigger-nav-help");
     window.dispatchEvent(new CustomEvent("ui-show-plot-vfx", { bubbles: false }));
   }

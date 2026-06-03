@@ -18,7 +18,7 @@
 		<Row UnitType="UNIT_VOI_CHIEN_2" Name="LOC_UNIT_VOI_CHIEN_NAME" Description="LOC_UNIT_VOI_CHIEN_2_DESCRIPTION" Tier="2" Maintenance="4" BaseSightRange="3" BaseMoves="3" UnitMovementClass="UNIT_MOVEMENT_CLASS_FOOT" Domain="DOMAIN_LAND" CoreClass="CORE_CLASS_MILITARY" FormationClass="FORMATION_CLASS_LAND_COMBAT" ZoneOfControl="false" TraitType="TRAIT_DAI_VIET"/>
 		<Row UnitType="UNIT_VOI_CHIEN_3" Name="LOC_UNIT_VOI_CHIEN_NAME" Description="LOC_UNIT_VOI_CHIEN_3_DESCRIPTION" Tier="3" Maintenance="6" BaseSightRange="3" BaseMoves="3" UnitMovementClass="UNIT_MOVEMENT_CLASS_FOOT" Domain="DOMAIN_LAND" CoreClass="CORE_CLASS_MILITARY" FormationClass="FORMATION_CLASS_LAND_COMBAT" ZoneOfControl="false" TraitType="TRAIT_DAI_VIET"/>
 		<!--Civ Unique Civilian-->
-		<Row UnitType="UNIT_VIET_KIEU" Name="LOC_UNIT_VIET_KIEU_NAME" Description="LOC_UNIT_VIET_KIEU_DESCRIPTION" BaseSightRange="1" BaseMoves="3" UnitMovementClass="UNIT_MOVEMENT_CLASS_FOOT" Domain="DOMAIN_LAND" CoreClass="CORE_CLASS_SUPPORT" FormationClass="FORMATION_CLASS_CIVILIAN" ZoneOfControl="false" FoundCity="true" CostProgressionModel="COST_PROGRESSION_NUM_SETTLEMENTS" PrereqPopulation="5" CostProgressionParam1="30" TraitType="TRAIT_DAI_VIET"/>
+		<Row UnitType="UNIT_VIET_KIEU" Name="LOC_UNIT_VIET_KIEU_NAME" Description="LOC_UNIT_VIET_KIEU_DESCRIPTION" BaseSightRange="1" BaseMoves="3" UnitMovementClass="UNIT_MOVEMENT_CLASS_FOOT" Domain="DOMAIN_LAND" CoreClass="CORE_CLASS_SUPPORT" FormationClass="FORMATION_CLASS_CIVILIAN" ZoneOfControl="false" FoundCity="true" CostProgressionModel="COST_PROGRESSION_NUM_SETTLEMENTS" PrereqPopulation="5" CostProgressionParam1="20" TraitType="TRAIT_DAI_VIET"/>
 	</Units>
 	<Unit_Stats>
 		<!--Civ Unique Military-->
@@ -58,13 +58,16 @@
 		<Row Type="UNIT_VOI_CHIEN" Tag="UNIT_CLASS_COMBAT"/>
 		<Row Type="UNIT_VOI_CHIEN" Tag="UNIT_CLASS_RANGED"/>
 		<Row Type="UNIT_VOI_CHIEN" Tag="UNIT_CLASS_VOI_CHIEN"/>
+		<Row Type="UNIT_VOI_CHIEN" Tag="UNIT_CLASS_UNIQUE"/>
 		<Row Type="UNIT_VOI_CHIEN_2" Tag="UNIT_CLASS_COMBAT"/>
 		<Row Type="UNIT_VOI_CHIEN_2" Tag="UNIT_CLASS_RANGED"/>
 		<Row Type="UNIT_VOI_CHIEN_2" Tag="UNIT_CLASS_VOI_CHIEN"/>
+		<Row Type="UNIT_VOI_CHIEN_2" Tag="UNIT_CLASS_UNIQUE"/>
 		<Row Type="UNIT_VOI_CHIEN_3" Tag="UNIT_CLASS_COMBAT"/>
 		<Row Type="UNIT_VOI_CHIEN_3" Tag="UNIT_CLASS_RANGED"/>
 		<Row Type="UNIT_VOI_CHIEN_3" Tag="UNIT_CLASS_VOI_CHIEN"/>
 		<Row Type="UNIT_VOI_CHIEN_3" Tag="UNIT_CLASS_ELITE_RANGED"/>
+		<Row Type="UNIT_VOI_CHIEN_3" Tag="UNIT_CLASS_UNIQUE"/>
 		<!--Civ Unique Civilian-->
 		<Row Type="UNIT_VIET_KIEU" Tag="UNIT_CLASS_CREATE_TOWN"/>
 		<Row Type="UNIT_VIET_KIEU" Tag="UNIT_CLASS_VIET_KIEU"/>

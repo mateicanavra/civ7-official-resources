@@ -1,12 +1,11 @@
 import { DisplayQueueManager } from './display-queue-manager.js';
-import { a as DialogBoxManager } from '../dialog-box/manager-dialog-box.chunk.js';
-import { s as setContextManager } from '../framework.chunk.js';
+import { DialogBoxManager } from '../dialog-box/manager-dialog-box.js';
+import { setContextManager } from '../framework.js';
 import Cursor from '../input/cursor.js';
-import FocusManager from '../input/focus-manager.js';
-import { V as ViewManager } from '../views/view-manager.chunk.js';
-import '../audio-base/audio-support.chunk.js';
-import '../panel-support.chunk.js';
+import ViewManager from '../views/view-manager.js';
+import { FocusManager } from '../../ui-next/services/focus-manager.js';
 
+const DEBUG_LOG_PASSED_ATTRIBUTES = false;
 var ContextManagerEvents;
 ((ContextManagerEvents2) => {
   ContextManagerEvents2.OnChanged = "OnContextManagerChanged";
@@ -127,6 +126,10 @@ class ContextManagerSingleton {
       }
       if (targetIndex == -1) {
         target = document.createElement(targetClassName);
+      } else {
+        target = this.screens[targetIndex];
+      }
+      if (!target?.isConnected) {
         if (prop?.attributes) {
           this.passTargetAttributes(target, prop.attributes);
         }
@@ -425,10 +428,12 @@ class ContextManagerSingleton {
       target.setAttribute(key, value);
       logInfo += `${key}: ${value ?? "-"}, `;
     }
-    if (logInfo.length > 3) {
-      logInfo = logInfo.substring(0, logInfo.length - 2);
+    if (DEBUG_LOG_PASSED_ATTRIBUTES) {
+      if (logInfo.length > 3) {
+        logInfo = logInfo.substring(0, logInfo.length - 2);
+      }
+      console.log("context-manager, attrs: " + logInfo);
     }
-    console.log("context-manager, attrs: " + logInfo);
   }
   /** ------------------------------------------------------------------------------------------------------------------ */
   /**
@@ -527,8 +532,9 @@ class ContextManagerSingleton {
     if (inputEvent.detail.status == InputActionStatuses.DRAG && inputEvent.detail.name != "mousebutton-right" && (inputEvent.detail.isMouse || inputEvent.detail.isTouch)) {
       this.ignoreCursorTargetDueToDragging = true;
     }
-    if (FocusManager.isFocusActive() && !inputEvent.detail.isTouch && !this.shouldSendEventToCursor(inputEvent)) {
-      FocusManager.getFocus().dispatchEvent(inputEvent);
+    const focusManager = FocusManager.get();
+    if (focusManager.isFocusActive() && !inputEvent.detail.isTouch && !this.shouldSendEventToCursor(inputEvent)) {
+      focusManager.currentFocus().dispatchEvent(inputEvent);
       if (inputEvent.defaultPrevented) {
         return false;
       }
@@ -584,7 +590,12 @@ class ContextManagerSingleton {
    * @returns true if even is still valid, or false if it was cancelled.
    */
   handleNavigation(navigationEvent) {
-    const focus = FocusManager.getFocus();
+    const focusManager = FocusManager.get();
+    let focus = focusManager.currentFocus();
+    if (!focus.isConnected) {
+      focusManager.realizeFocus(false);
+      focus = focusManager.currentFocus();
+    }
     focus.dispatchEvent(navigationEvent);
     if (!navigationEvent.defaultPrevented && this.getCurrentTarget() != void 0) {
       this.getCurrentTarget().dispatchEvent(navigationEvent);
@@ -607,7 +618,7 @@ class ContextManagerSingleton {
     if (pausingDisabled) {
       return false;
     }
-    if (ContextManager.getTarget("screen-endgame")) {
+    if (ContextManager.getTarget("endgame-screen")) {
       return false;
     }
     if (ViewManager && ViewManager.current.getName() == "Diplomacy") {

@@ -22,6 +22,7 @@
 		<!-- TURNPHASE_TWOPHASE -->
 		<Row Type="TURNSEG_TACTICAL"            Kind="KIND_TURNSEGMENT"/>
 		<Row Type="TURNSEG_STRATEGIC"           Kind="KIND_TURNSEGMENT"/>	
+		<Row Type="TURNSEG_AGE_TRANSITION" 		Kind="KIND_TURNSEGMENT"/>
 	</Types>
 	<!-- 
 		TurnSegment Attributes
@@ -34,22 +35,30 @@
 		TimeLimit_Base				Defines the minimum time limit of the turn segment (in seconds).  The other timelimit components are added on top of this value.
 		TimeLimit_PerCity			Defines the additional time limit provided per city (in seconds).  This is calculated globally for everyone based on the civ with the most cities.
 		TimeLimit_PerUnit			Defines the additional time limit provided per unit (in seconds).  This is calculated globally for everyone based on the civ with the most units.
+		CancelRemainingActions		Phase does not allow any unit automation completion or any other pending actions from the previous phase to occur.
+		ExplicitActivation			Phase must be explicitly activated.  i.e. It will not activate by automatically flowing from the previous phase segment.
 	-->
 	<TurnSegments>
-		<Row TurnSegmentType="TURNSEG_SINGLEPLAYER" Name=""							Sound=""									AllowStrategicCommands="true"   AllowTacticalCommands="true"	TimeLimit_Base ="30"  TimeLimit_PerCity="10"  TimeLimit_PerUnit="5"/>
-		<Row TurnSegmentType="TURNSEG_SINGLEPHASE"	Name=""							Sound="Play_MP_Strategic_Turn_Start"		AllowStrategicCommands="true"   AllowTacticalCommands="true"	TimeLimit_Base ="30"  TimeLimit_PerCity="10"  TimeLimit_PerUnit="5"/>
+		<Row TurnSegmentType="TURN_SEGMENT_SINGLEPLAYER" Name=""						Sound=""									AllowStrategicCommands="true"   AllowTacticalCommands="true"	TimeLimit_Base ="30"  TimeLimit_PerCity="10"  TimeLimit_PerUnit="5"/>
+		<Row TurnSegmentType="TURN_SEGMENT_SINGLEPHASE"	Name=""							Sound="Play_MP_Strategic_Turn_Start"		AllowStrategicCommands="true"   AllowTacticalCommands="true"	TimeLimit_Base ="30"  TimeLimit_PerCity="10"  TimeLimit_PerUnit="5"/>
 		<!-- TURNPHASE_TWOPHASE -->
-		<Row TurnSegmentType="TURNSEG_TACTICAL"     Name="LOC_TACTICAL_PHASE"		Sound="Play_MP_Tactical_Turn_Start"			AllowStrategicCommands="false"  AllowTacticalCommands="true"	TimeLimit_Base ="10"  TimeLimit_PerCity="0"   TimeLimit_PerUnit="5"/>
-		<Row TurnSegmentType="TURNSEG_STRATEGIC"    Name="LOC_STRATEGIC_PHASE"		Sound="Play_MP_Strategic_Turn_Start"		AllowStrategicCommands="true"   AllowTacticalCommands="false"	TimeLimit_Base ="20"  TimeLimit_PerCity="10"  TimeLimit_PerUnit="0"/>
+		<Row TurnSegmentType="TURN_SEGMENT_TACTICAL"     Name="LOC_TACTICAL_PHASE"		Sound="Play_MP_Tactical_Turn_Start"			AllowStrategicCommands="false"  AllowTacticalCommands="true"	TimeLimit_Base ="10"  TimeLimit_PerCity="0"   TimeLimit_PerUnit="5"/>
+		<Row TurnSegmentType="TURN_SEGMENT_STRATEGIC"    Name="LOC_STRATEGIC_PHASE"		Sound="Play_MP_Strategic_Turn_Start"		AllowStrategicCommands="true"   AllowTacticalCommands="false"	TimeLimit_Base ="20"  TimeLimit_PerCity="10"  TimeLimit_PerUnit="0"/>
+
+		<Row TurnSegmentType="TURN_SEGMENT_AGE_TRANSITION" Name="LOC_TURNSEG_AGE_TRANSITION_NAME" Sound="" AllowStrategicCommands="false" AllowTacticalCommands="false" AllowAgeTransitionCommands="true" TimeLimit_Base ="3000"  TimeLimit_PerCity="0"  TimeLimit_PerUnit="0" CancelRemainingActions="true" ExplicitActivation="true"/>
 	</TurnSegments>
-	<TurnPhases>
-		<Row TurnPhaseType="TURNPHASE_SINGLEPLAYER"	PhaseOrder="0"  TurnMode="TURNMODE_SEQUENTIAL"		ActiveSegmentType="TURNSEG_SINGLEPLAYER"/>
-		<Row TurnPhaseType="TURNPHASE_SIMULTANEOUS"	PhaseOrder="0"  TurnMode="TURNMODE_SIMULTANEOUS"	ActiveSegmentType="TURNSEG_SINGLEPHASE"/>
-		<Row TurnPhaseType="TURNPHASE_DYNAMIC"		PhaseOrder="0"  TurnMode="TURNMODE_DYNAMIC"			ActiveSegmentType="TURNSEG_SINGLEPHASE"/>
+	<TurnPhases>		
+		<Row TurnPhaseType="TURNPHASE_SINGLEPLAYER"	PhaseOrder="0"  TurnMode="TURNMODE_SEQUENTIAL"		ActiveSegmentType="TURN_SEGMENT_SINGLEPLAYER"/>
+		<Row TurnPhaseType="TURNPHASE_SINGLEPLAYER"	PhaseOrder="1"  TurnMode="TURNMODE_SEQUENTIAL"		ActiveSegmentType="TURN_SEGMENT_AGE_TRANSITION"/>
+		<Row TurnPhaseType="TURNPHASE_SIMULTANEOUS"	PhaseOrder="0"  TurnMode="TURNMODE_SIMULTANEOUS"	ActiveSegmentType="TURN_SEGMENT_SINGLEPHASE"/>
+		<Row TurnPhaseType="TURNPHASE_SIMULTANEOUS"	PhaseOrder="1"  TurnMode="TURNMODE_SIMULTANEOUS"	ActiveSegmentType="TURN_SEGMENT_AGE_TRANSITION"/>
+		<Row TurnPhaseType="TURNPHASE_DYNAMIC"		PhaseOrder="0"  TurnMode="TURNMODE_DYNAMIC"			ActiveSegmentType="TURN_SEGMENT_SINGLEPHASE"/>
+		<Row TurnPhaseType="TURNPHASE_DYNAMIC"		PhaseOrder="1"  TurnMode="TURNMODE_DYNAMIC"			ActiveSegmentType="TURN_SEGMENT_AGE_TRANSITION"/>
 		
 		<!-- TURNPHASE_TWOPHASE -->
-		<Row TurnPhaseType="TURNPHASE_TWOPHASE"		PhaseOrder="0"  TurnMode="TURNMODE_DYNAMIC"			ActiveSegmentType="TURNSEG_TACTICAL"/>
-		<Row TurnPhaseType="TURNPHASE_TWOPHASE"		PhaseOrder="1"  TurnMode="TURNMODE_SIMULTANEOUS"	ActiveSegmentType="TURNSEG_STRATEGIC"/>
+		<Row TurnPhaseType="TURNPHASE_TWOPHASE"		PhaseOrder="0"  TurnMode="TURNMODE_DYNAMIC"			ActiveSegmentType="TURN_SEGMENT_TACTICAL"/>
+		<Row TurnPhaseType="TURNPHASE_TWOPHASE"		PhaseOrder="1"  TurnMode="TURNMODE_SIMULTANEOUS"	ActiveSegmentType="TURN_SEGMENT_STRATEGIC"/>
+		<Row TurnPhaseType="TURNPHASE_TWOPHASE"		PhaseOrder="2"  TurnMode="TURNMODE_SIMULTANEOUS"	ActiveSegmentType="TURN_SEGMENT_AGE_TRANSITION"/>
 
 </TurnPhases>
 </Database>

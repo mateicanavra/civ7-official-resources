@@ -1,0 +1,206 @@
+.create-game-civ-card {
+  width: 21.7777777778rem;
+  height: 14.4444444444rem;
+  margin-top: 0.5555555556rem;
+  margin-right: 0.5555555556rem;
+  margin-bottom: 0.5555555556rem;
+}
+@media (max-height: 55.5555555556rem) {
+  .create-game-civ-card {
+    width: 17.7777777778rem;
+    height: 12.3888888889rem;
+    margin: 0.5555555556rem;
+  }
+  .create-game-civ-card.is-unlocks {
+    margin: 1.1111111111rem;
+  }
+}
+@media (min-height: 80rem) {
+  .create-game-civ-card {
+    margin: 1.3333333333rem;
+  }
+}
+.create-game-civ-card.is-unlocks {
+  margin: 1.3333333333rem;
+}
+.create-game-civ-card.mt-6 {
+  margin-top: 1.3333333333rem;
+}
+
+.create-game-civ-card-icon-area {
+  height: 2.3888888889rem;
+  background: #10131b;
+}
+
+.create-game-civ-card-gradient {
+  width: 9.1111111111rem;
+  height: 9.1111111111rem;
+  margin-left: -4.5555555556rem;
+  background: radial-gradient(50% 50% at 50% 50%, #000 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+.create-game-civ-card-text-gradient {
+  padding: 1.7777777778rem 3.5555555556rem;
+  margin: -1.7777777778rem -3.5555555556rem;
+  background-image: radial-gradient(50% 50% at 50% 50%, #000 0%, rgba(0, 0, 0, 0) 100%);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.create-game-civ-card-top-filigree {
+  width: 10.6666666667rem;
+  height: 1.2222222222rem;
+  background-image: url("blp:cPromo_header_half");
+  background-size: 100% 100%;
+}
+@media (max-height: 55.5555555556rem) {
+  .create-game-civ-card-top-filigree {
+    width: 50%;
+  }
+}
+
+.create-game-civ-card-inner-filigree {
+  width: 21.3333333333rem;
+  height: 1.3888888889rem;
+  background-image: url("blp:shell_top-filigree");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+@media (max-height: 55.5555555556rem) {
+  .create-game-civ-card-inner-filigree {
+    width: 17.7777777778rem;
+  }
+}
+
+.create-game-civ-card-icon-gradient {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 160.59%);
+  opacity: 0.9;
+}
+
+.create-game-civ-card-laurels {
+  width: 4.4444444444rem;
+  height: 4.4444444444rem;
+  background-image: url("blp:popup_bronze_laurels");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.create-game-civ-card-leader-hex {
+  width: 2.5rem;
+  height: 3.5rem;
+  background-image: url("blp:lp_hex_bk_128");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.create-game-civ-card-leader {
+  width: 2.5rem;
+  height: 3.5rem;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.create-game-civ-card-icon-container {
+  width: 3.6111111111rem;
+  height: 3.6111111111rem;
+  padding-bottom: 0.1111111111rem;
+  margin-left: 0.4444444444rem;
+  background-image: url("blp:hud_sub_circle_dis");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+@media (max-height: 55.5555555556rem) {
+  .create-game-civ-card-icon-container {
+    width: 2.4444444444rem;
+    height: 2.4444444444rem;
+    margin-left: 0.1111111111rem;
+  }
+}
+
+.create-game-civ-card-tooltip-icon-container {
+  width: 2.4444444444rem;
+  height: 2.4444444444rem;
+  padding-bottom: 0.1111111111rem;
+  margin-left: 0.1111111111rem;
+  background-image: url("blp:hud_sub_circle_dis");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.create-game-civ-card-icon-attribute {
+  width: 2.6666666667rem;
+  height: 2.6666666667rem;
+}
+@media (max-height: 55.5555555556rem) {
+  .create-game-civ-card-icon-attribute {
+    width: 1.7777777778rem;
+    height: 1.7777777778rem;
+  }
+}
+
+.create-game-civ-card-icon-age {
+  width: 2.6666666667rem;
+  height: 2.6666666667rem;
+}
+@media (max-height: 55.5555555556rem) {
+  .create-game-civ-card-icon-age {
+    width: 1.7777777778rem;
+    height: 1.7777777778rem;
+  }
+}
+
+.create-game-civ-card-icon-tot {
+  width: 3.1111111111rem;
+  height: 3.1111111111rem;
+}
+@media (max-height: 55.5555555556rem) {
+  .create-game-civ-card-icon-tot {
+    width: 2.3333333333rem;
+    height: 2.3333333333rem;
+  }
+}
+
+.create-game-civ-card-disabled-bg {
+  background-color: rgba(60, 60, 60, 0.8);
+}
+
+.create-game-civ-card-hex-disabled {
+  width: 2.5rem;
+  height: 3.5rem;
+  background-image: url("blp:lp_hex_color_64");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.create-game-civ-card-locked-tag {
+  border-image-repeat: stretch;
+  border-image-slice: 1 6 1 1 fill;
+  border-image-source: url("blp:tag_locked.png");
+}
+
+.create-game-civ-card-current-tag {
+  border-image-repeat: stretch;
+  border-image-slice: 1 1 1 1 fill;
+  border-image-source: url("blp:tag_equipped.png");
+}
+
+.create-game-civ-card-info {
+  margin-top: 3.5555555556rem;
+}
+@media (max-height: 55.5555555556rem) {
+  .create-game-civ-card-info {
+    margin-top: 2.7777777778rem;
+  }
+}
+
+.create-game-civ-card-info-icon {
+  width: 4rem;
+  height: 4rem;
+}
+@media (max-height: 55.5555555556rem) {
+  .create-game-civ-card-info-icon {
+    width: 2.2222222222rem;
+    height: 2.2222222222rem;
+  }
+}

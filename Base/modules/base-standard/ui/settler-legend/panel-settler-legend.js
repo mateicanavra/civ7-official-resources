@@ -1,6 +1,5 @@
-import { a as LensActivationEventName } from '../../../core/ui/lenses/lens-manager.chunk.js';
-
-const styles = "fs://game/base-standard/ui/settler-legend/panel-settler-legend.css";
+import { LensActivationEventName } from '../../../core/ui/lenses/lens-manager.js';
+import styles from './panel-settler-legend.scss.js';
 
 const SETTLEMENT_BLOCKED_COLOR = "rgb(105, 9, 9)";
 const SETTLEMENT_OKAY_COLOR = "rgb(180, 158, 40)";

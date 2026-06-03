@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by Ed Beach (Firaxis Games) -->
+<?xml version='1.0' encoding='utf-8'?>
 <Database>
 	<EnglishText>
 		<Row Tag="LOC_TUTORIAL_EXPLORATION_WELCOME_TITLE">
@@ -7,12 +6,11 @@
 		</Row>
 		<Row Tag="LOC_TUTORIAL_EXPLORATION_WELCOME_BODY">
 			<Text>
-				New adventures across the sea await!
-				[n][n]The Exploration Age brings many new opportunities:
+				New adventures across the sea await![n]The [TIP:LOC_PEDIA_CONCEPTS_EXPLORATION_AGE_TOOLTIP]Exploration Age[/TIP] brings many new opportunities:
 				[BLIST]
-				[LI]  Explore the great oceans in search of Distant Lands. Your Naval Units can heal in coastal waters.
-				[LI]  Establish Settlements on Distant Lands, meet new Civilizations, and gather new Resources to enrich your empire.
-				[LI]  Embrace Religion by building a Temple. With a Religion in place, you can train Missionaries to spread your faith across the globe.
+				[LI] Explore the great oceans in search of [TIP:LOC_PEDIA_CONCEPTS_DISTANT_LANDS_TOOLTIP]Distant Lands[/TIP]. Your [TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]Naval Units[/TIP] can heal in coastal waters.
+				[LI] Establish [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]Settlements[/TIP] on Distant Lands, meet new Civilizations, and gather new [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]Resources[/TIP] to enrich your empire.
+				[LI] Embrace [TIP:LOC_PEDIA_CONCEPTS_RELIGION_TOOLTIP]Religion[/TIP] by [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]Building[/TIP] a Temple. With a Religion in place, you can train Missionaries to spread your faith across the globe.
 				[/LIST]
 			</Text>
 		</Row>
@@ -27,56 +25,50 @@
 		</Row>
 		<Row Tag="LOC_TUTORIAL_MISSIONARY_TRAINED_BODY">
 			<Text>A {1_MissionaryIcon} [b]{2_MissionaryName}[/b] has been trained in {3_CityName}!
-				[n]To convert a Settlement with no Religion, you must use the Convert action once anywhere within its borders.
-				[n]If the Settlement already has a Religion, you must Convert both its Urban and Rural populations. Use the Convert action once on an [b]Urban tile [/b]and once on a [b]Rural tile[/b].</Text>
+				[n]To convert a [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]Settlement[/TIP] with no [TIP:LOC_PEDIA_CONCEPTS_RELIGION_TOOLTIP]Religion[/TIP], you must use the Convert action once anywhere within its borders.
+				[n]If the Settlement already has a Religion, you must Convert both its Urban and [TIP:LOC_PEDIA_CONCEPTS_RURAL_TOOLTIP]Rural[/TIP] [TIP:LOC_PEDIA_CONCEPTS_POPULATION_TOOLTIP]Populations[/TIP]. Use the Convert action once on an [b]Urban tile[/b] and once on a [b]Rural tile[/b].</Text>
 		</Row>
 		<Row Tag="LOC_TUTORIAL_RELIGION_TECH_UNLOCKED_TITLE">
 			<Text>Founding a Religion</Text>
 		</Row>
 		<Row Tag="LOC_TUTORIAL_RELIGION_TECH_UNLOCKED_BODY">
-			<Text>You can now construct a [b]Temple [/b]in one of your Settlements, which will allow you to establish a [b]Religion[/b]. To define your Religion, you will need to choose 2 Beliefs: an [b]Enhancer Belief [/b]and a [b]Founder Belief[/b].[BLIST][LI]Additional Beliefs can be found through special Civics or from Narrative Events.[LI]Train a [b]Missionary [/b]Unit to convert other Settlements to your faith.[/LIST]</Text>
-		</Row>
-		<Row Tag="LOC_TUTORIAL_EDUCATION_TECH_UNLOCKED_TITLE">
-			<Text>Education to Enlightenment</Text>
-		</Row>
-		<Row Tag="LOC_TUTORIAL_EDUCATION_TECH_UNLOCKED_BODY">
-			<Text>Your Specialist Cap has increased, allowing you to place more Specialists on Urban tiles. Place Specialists on high adjacency tiles to achieve the [b]{LOC_LEGACY_PATH_EXPLORATION_SCIENCE_NAME} Legacy Path[/b].</Text>
+			<Text>You can now construct a [b]Temple[/b] in one of your [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]Settlements[/TIP], which will allow you to establish a [TIP:LOC_PEDIA_CONCEPTS_RELIGION_TOOLTIP]Religion[/TIP]. To define your Religion, you will need to choose 2 Beliefs: an [b]Enhancer Belief[/b] and a [b]Founder Belief[/b].[BLIST][LI]Additional Beliefs can be found through special [TIP:LOC_PEDIA_CONCEPTS_CIVIC_TOOLTIP]Civics[/TIP] or from Narrative Events.[LI]Train a [b]Missionary[/b] Unit to convert other Settlements to your faith.[/LIST]</Text>
 		</Row>
 		<Row Tag="LOC_TUTORIAL_UNIT_DAMAGED_AT_SEA_TITLE">
 			<Text>Here Be Dragons</Text>
 		</Row>
 		<Row Tag="LOC_TUTORIAL_UNIT_DAMAGED_AT_SEA_BODY">
-			<Text>The Ocean is navigable but [b]dangerous[/b]. Naval Units travelling by sea will [b]take damage [/b]if they end their turn in deep [b]Ocean [/b]tiles.
-				[n][b][icon:NOTIFICATION_TECH_DISCOVERED] {LOC_TECH_CARTOGRAPHY_NAME} [/b]will allow your non-Military Units to take this dangerous voyage.
-				[n][b]Mastering [icon:NOTIFICATION_TECH_DISCOVERED] {LOC_TECH_SHIPBUILDING_NAME} [/b]will ensure the safety of all Units in the water.</Text>
+			<Text>The Ocean is navigable but [b]dangerous[/b]. [TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]Naval Units[/TIP] travelling by sea will [b]take damage[/b] if they end their turn in deep [b]Ocean[/b] tiles.
+				[n][b][icon:NOTIFICATION_TECH_DISCOVERED]{LOC_TECH_CARTOGRAPHY_NAME}[/b] will allow your non-[TIP:LOC_PEDIA_CONCEPTS_MILITARY_UNIT_TOOLTIP]Military Units[/TIP] to take this dangerous voyage.
+				[n][b]Mastering [icon:NOTIFICATION_TECH_DISCOVERED]{LOC_TECH_SHIPBUILDING_NAME}[/b] will ensure the safety of all Units in the water.</Text>
 		</Row>
 		<!-- Alt version added for later design updates. Loc should translate this string-->
 		<Row Tag="LOC_TUTORIAL_UNIT_DAMAGED_AT_SEA_BODY_ALT">
-			<Text>The Ocean is navigable but [b]dangerous[/b]. Naval Units travelling by sea will move slowly in deep [b]Ocean [/b]tiles and [b]take damage [/b]if they end their turn there.
-				[n][b][icon:NOTIFICATION_TECH_DISCOVERED] {LOC_TECH_CARTOGRAPHY_NAME} [/b]will allow your non-Military Units to take this dangerous voyage.
-				[n][b][icon:NOTIFICATION_TECH_DISCOVERED] {LOC_TECH_SHIPBUILDING_NAME} [/b]will remove the dangerous effects of the voyage, and make it quicker.
-				[n][b]Mastering [icon:NOTIFICATION_TECH_DISCOVERED] {LOC_TECH_SHIPBUILDING_NAME} [/b]will allow all Units to embark on this voyage.</Text>
+			<Text>The Ocean is navigable but [b]dangerous[/b]. [TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]Naval Units[/TIP] travelling by sea will move slowly in deep [b]Ocean[/b] tiles and [b]take damage[/b] if they end their turn there.
+				[n][b][icon:NOTIFICATION_TECH_DISCOVERED]{LOC_TECH_CARTOGRAPHY_NAME}[/b] will allow your non-[TIP:LOC_PEDIA_CONCEPTS_MILITARY_UNIT_TOOLTIP]Military Units[/TIP] to take this dangerous voyage.
+				[n][b][icon:NOTIFICATION_TECH_DISCOVERED]{LOC_TECH_SHIPBUILDING_NAME}[/b] will remove the dangerous effects of the voyage, and make it quicker.
+				[n][b]Mastering [icon:NOTIFICATION_TECH_DISCOVERED]{LOC_TECH_SHIPBUILDING_NAME}[/b] will allow all Units to [TIP:LOC_PEDIA_CONCEPTS_EMBARK_TOOLTIP]Embark[/TIP] on this voyage.</Text>
 		</Row>
 		<Row Tag="LOC_TUTORIAL_FLEET_COMMANDER_AVAILABLE_TITLE">
 			<Text>Masters of the Sea</Text>
 		</Row>
 		<Row Tag="LOC_TUTORIAL_FLEET_COMMANDER_AVAILABLE_BODY">
-			<Text>While the {LOC_UNIT_ARMY_COMMANDER_NAME} supports Land Units, The {1_fleetCommanderIcon} [b]{2_fleetCommanderName} [/b]organizes and directs [b]Naval Units[/b].</Text>
+			<Text>While the {LOC_UNIT_ARMY_COMMANDER_NAME} supports [TIP:LOC_PEDIA_CONCEPTS_LAND_UNITS_TOOLTIP]Land Units[/TIP], The {1_fleetCommanderIcon} [b]{2_fleetCommanderName}[/b] organizes and directs [TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]Naval Units[/TIP].</Text>
 		</Row>
 		<Row Tag="LOC_TUTORIAL_RELIGION_TITLE">
 			<Text>Religion</Text>
 		</Row>
 		<Row Tag="LOC_TUTORIAL_RELIGION_BODY">
-			<Text>With a [icon:BUILDING_TEMPLE] {LOC_BUILDING_TEMPLE_NAME} complete, the {1_civAdj} people can found a [b]Religion[/b]!
-				[n]Similar to [b]Pantheons[/b], Religions can boost various parts of your Civilization based on the [b]Beliefs[/b] you choose. More Beliefs can be unlocked via the [icon:YIELD_CULTURE] Civic Tree.
-				[n]Your [b]Reliquary Belief [/b]will determine how you will earn Relics, which are critical to the {LOC_LEGACY_PATH_EXPLORATION_CULTURE_NAME} Legacy Path.</Text>
+			<Text>With a [icon:BUILDING_TEMPLE]{LOC_BUILDING_TEMPLE_NAME} complete, the {1_civAdj} people can found a [TIP:LOC_PEDIA_CONCEPTS_RELIGION_TOOLTIP]Religion[/TIP]!
+				[n]Similar to [TIP:LOC_PEDIA_CONCEPTS_PANTHEON_TOOLTIP]Pantheons[/TIP], Religions can boost various parts of your Civilization based on the [b]Beliefs[/b] you choose. More Beliefs can be unlocked via the [icon:YIELD_CULTURE][TIP:LOC_PEDIA_CONCEPTS_CIVIC_TOOLTIP]Civic Tree[/TIP].
+				[n]Your [b]Reliquary Belief[/b] will determine how you will earn [TIP:LOC_PEDIA_CONCEPTS_RELIC_TOOLTIP]Relics[/TIP], which are critical to the {LOC_LEGACY_PATH_EXPLORATION_CULTURE_NAME} Legacy Path.</Text>
 		</Row>
 		<Row Tag="LOC_TUTORIAL_BELIEF_TITLE">
 			<Text>Religion: Enhancer Beliefs</Text>
 		</Row>
 		<Row Tag="LOC_TUTORIAL_BELIEF_BODY">
 			<Text>You can now choose an Enhancer Belief!
-				[n][b]Enhancer Beliefs [/b]can make it easier to spread your Religion.</Text>
+				[n][b]Enhancer Beliefs[/b] can make it easier to spread your [TIP:LOC_PEDIA_CONCEPTS_RELIGION_TOOLTIP]Religion[/TIP].</Text>
 		</Row>
 		<Row Tag="LOC_TUTORIAL_ADVANCED_START_INTRO_TITLE">
 			<Text>Advanced Start</Text>
@@ -85,37 +77,40 @@
 			<Text>Settlement Placement</Text>
 		</Row>
 		<Row Tag="LOC_TUTORIAL_ADVANCED_START_BONUS_PLACEMENT_BODY">
-			<Text>You will now place the Settlements you selected. Choose one of them to place, then choose a tile to place it on. Try to place your Settlements on fresh water (teal highlighted tiles) and near valuable Resources.</Text>
+			<Text>You will now place the [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]Settlements[/TIP] you selected. Choose one of them to place, then choose a tile to place it on. Try to place your Settlements on fresh water (teal highlighted tiles) and near valuable [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]Resources[/TIP].</Text>
 		</Row>
 		<Row Tag="LOC_TUTORIAL_ADVANCED_START_INTRO_BODY">
-			<Text>Welcome to the {1_AgeName} Age Advanced Start![n][n]You have a variety of options for your starting empire from a list of available Legacies. Once you've made your selections, you can place any Settlements you have, and then begin your journey into the {1_AgeName} Age.[n][n]</Text>
+			<Text>Welcome to the {1_AgeName} [TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]Age[/TIP] Advanced Start![n]You have a variety of options for your starting empire from a list of available Legacies. Once you've made your selections, you can place any [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]Settlements[/TIP] you have, and then begin your journey into the {1_AgeName} Age.</Text>
 		</Row>
 		<Row Tag="LOC_TUTORIAL_ADVANCED_START_CARD_CHOICE_TITLE">
 			<Text>Starting Options</Text>
 		</Row>
 		<Row Tag="LOC_TUTORIAL_ADVANCED_START_CARD_CHOICE_BODY">
 			<Text>
-				Select Legacies based on the number of [b]Legacy Points [/b] you have. Each Legacy has a point cost.
-				[n][n][BLIST][LI]  {1_Prompts} a Legacy to add it to your selection.
-				[LI]  {1_Prompts} a Legacy in your selection to remove it.[/LIST]
-				[n][n]After you make all of your selections, {2_Prompts} [b]Confirm[/b].
+				You can select up to three [b]Dedications[/b]. Each Dedication provides a powerful effect that lasts the [TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]Age[/TIP] or an instant bonus.[n][BLIST][LI] {1_Prompts} a card to add it to your selection.
+				[LI] {1_Prompts} a card in your selection to remove it.[/LIST][n]After you make all of your selections, {1_Prompts} [b]Confirm[/b].
 			</Text>
 		</Row>
 		<Row Tag="LOC_TUTORIAL_AGE_TRANSITION_INTRO_TITLE">
-			<Text>Legacy</Text>
+			<Text>Dedications</Text>
 		</Row>
 		<Row Tag="LOC_TUTORIAL_AGE_TRANSITION_INTRO_BODY">
-			<Text>Welcome to the {1_AgeName} Age![n][n]Here you will decide which [b]Legacies [/b] to carry forward. The options available are based on which Milestones you completed in the previous Age. Fully completing a Legacy Path unlocks the [b]Golden Age Legacy [/b]for that Path, while not gaining any Milestones in a Path will unlock its [b]Dark Age Legacy.[/b][n][n]You can only choose one Golden Age or Dark Age Legacy, but any number of other Legacies can be added as long as you have enough Legacy Points of the matching type.</Text>
+			<Text>
+				Welcome to the {1_AgeName} [TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]Age[/TIP]!
+				[n]Here you may [b]Dedicate[/b] the accomplishments of your people to gain powerful effects or instant bonuses. The options available are based on the [TIP:LOC_PEDIA_CONCEPTS_MAJOR_TRIUMPH_TOOLTIP]Major Triumphs[/TIP] you completed, how you managed the Crisis, and your empire's [TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]Attributes[/TIP].
+			</Text>
 		</Row>
 		<Row Tag="LOC_TUTORIAL_AGE_TRANSITION_CARD_CHOICE_TITLE">
-			<Text>Legacy Choices</Text>
+			<Text>Dedication Choices</Text>
 		</Row>
 		<Row Tag="LOC_TUTORIAL_AGE_TRANSITION_CARD_CHOICE_BODY">
 			<Text>
-				Select Legacies based on the number and type of [b]Legacy Points [/b]you have. Each Legacy has a point cost.[n][n]Wildcard points can be spent on any Legacy.
-				[n][n][BLIST][LI]{1_Prompts} a Legacy to add it to your selection.
-				[LI]{1_Prompts} a Legacy in your selection to remove it.[/LIST]
-				[n][n]After you make all of your selections, {2_Prompts} [b]Confirm[/b].</Text>
+				You can select up to three [b]Dedications[/b]. Each Dedication provides a powerful effect that lasts the [TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]Age[/TIP] or an instant bonus.
+				[n][BLIST]
+				[LI] {1_Prompts} a Dedication to add it to your selection.
+				[LI] {1_Prompts} a Dedication in your selection to remove it.[/LIST]
+				[n]After you make all of your selections, {1_Prompts} [b]Confirm[/b].
+			</Text>
 		</Row>
 		<Row Tag="LOC_TUTORIAL_ADVANCED_TRANSITION_START_KBM">
 			<Text> Click </Text>
@@ -323,7 +318,7 @@
 			<Text>{1_Quest1BodyPathInjection}</Text>
 		</Row>
 		<Row Tag="LOC_TUTORIAL_MILITARY_QUEST_1_BODY_GENERIC_PATH">
-			<Text>Objective: Research the [icon:NOTIFICATION_TECH_DISCOVERED] [b]{LOC_TECH_CARTOGRAPHY_NAME} [/b]and [icon:NOTIFICATION_TECH_DISCOVERED] [b]{LOC_TECH_ASTRONOMY_NAME} [/b]Technologies, the first step towards establishing a [b][icon:NOTIFICATION_TEAM_VICTORIOUS] {LOC_LEGACY_PATH_EXPLORATION_MILITARY_NAME} [/b][icon:NOTIFICATION_DECLARE_WAR] Military Legacy of the Exploration Age.
+			<Text>Objective: Research the [icon:NOTIFICATION_TECH_DISCOVERED] [b]{LOC_TECH_CARTOGRAPHY_NAME} [/b]and [icon:NOTIFICATION_TECH_DISCOVERED] [b]{LOC_TECH_ASTRONOMY_NAME} [/b]Technologies, the first step toward establishing a [b][icon:NOTIFICATION_TEAM_VICTORIOUS] {LOC_LEGACY_PATH_EXPLORATION_MILITARY_NAME} [/b][icon:NOTIFICATION_DECLARE_WAR] Military Legacy of the Exploration Age.
 				[n][b]{LOC_TECH_CARTOGRAPHY_NAME} [/b]will allow your Units to traverse dangerous [b]Deep Ocean[/b], and [b]{LOC_TECH_ASTRONOMY_NAME} [/b]will unlock the powerful {1_CommanderIcon} {2_CommanderName}, which can organize your [b]Naval Units[/b].
 				[n][n]Remember: [icon:NOTIFICATION_TEAM_VICTORIOUS] [b]Legacies [/b]improve your performance in later Ages, but [b]you can choose to pursue one, multiple, or none at all[/b].</Text>
 		</Row>
@@ -366,7 +361,7 @@
 			<Text>{1_Quest2BodyPathInjection}</Text>
 		</Row>
 		<Row Tag="LOC_TUTORIAL_MILITARY_QUEST_2_BODY_GENERIC_PATH">
-			<Text>[b]Distant Lands [/b]are any lands inaccessible in Antiquity, typically by [b]Deep Ocean[/b]. It can be dangerous to traverse the oceans, but there are new [icon:NOTIFICATION_DISCOVER_RESOURCE] [b]Resources[/b], space to [b]settle[/b], and [b]people [/b]beyond the horizon.
+			<Text>[b]Distant Lands [/b]are any lands inaccessible in Antiquity, typically by [b]Deep Ocean[/b]. It can be dangerous to traverse the oceans, but there are new [icon:RADIAL_RESOURCES] [b]Resources[/b], space to [b]settle[/b], and [b]people [/b]beyond the horizon.
 				[n]Next Objective: Establish a Settlement in [b]Distant Lands[/b].</Text>
 		</Row>
 		<Row Tag="LOC_TUTORIAL_MILITARY_QUEST_2_BODY_MONGOLIA_PATH">
@@ -539,7 +534,7 @@
 			<Text>The currency of the world is not gold, but fame. Let us collect the beautiful, the prestigious, the sacred, that the {1_CivAdj} name will be synonymous everywhere with the good.</Text>
 		</Row>
 		<Row Tag="LOC_TUTORIAL_CULTURE_QUEST_1_BODY">
-			<Text>Objective: Study [icon:NOTIFICATION_CULTURE_TREE_REVEALED] [b]{LOC_CIVIC_PIETY_NAME} [/b]Civic, the first step towards establishing a [b][icon:NOTIFICATION_TEAM_VICTORIOUS] {LOC_LEGACY_PATH_EXPLORATION_CULTURE_NAME} [/b][icon:YIELD_CULTURE] Cultural Legacy of the Exploration Age.
+			<Text>Objective: Study [icon:NOTIFICATION_CULTURE_TREE_REVEALED] [b]{LOC_CIVIC_PIETY_NAME} [/b]Civic, the first step toward establishing a [b][icon:NOTIFICATION_TEAM_VICTORIOUS] {LOC_LEGACY_PATH_EXPLORATION_CULTURE_NAME} [/b][icon:YIELD_CULTURE] Cultural Legacy of the Exploration Age.
 				[n][icon:NOTIFICATION_CULTURE_TREE_REVEALED] [b]{LOC_CIVIC_PIETY_NAME} [/b]will allow you to build a [icon:BUILDING_TEMPLE] [b]{LOC_BUILDING_TEMPLE_NAME} [/b]and [b]establish a Religion[/b].
 				[n][n]Remember: [icon:NOTIFICATION_TEAM_VICTORIOUS] [b]Legacies [/b]improve your performance in later Ages, but [b]you can choose to pursue one, multiple, or none at all[/b].</Text>
 		</Row>
@@ -609,7 +604,7 @@
 			<Text>The reliquary shines with gold, jewels, and with the collected hopes of the faithful.</Text>
 		</Row>
 		<Row Tag="LOC_TUTORIAL_CULTURE_QUEST_5_BODY">
-			<Text>You've displayed 6 Relics! You can earn Relics through your [b]Reliquary Belief[/b], but you can also earn them through Narrative Events, becoming Suzerain of a City-State, and more.
+			<Text>You've displayed 6 Relics! You can earn Relics through your [b]Reliquary Belief[/b], but you can also earn them through Narrative Events, becoming [TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]Suzerain[/TIP] of a [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]City-State[/TIP], and more.
 				[n]Next Objective: Collect and Display [b]9 Relics[/b], the second Milestone along the [b]{LOC_LEGACY_PATH_EXPLORATION_CULTURE_NAME} Legacy Path[/b].</Text>
 		</Row>
 		<Row Tag="LOC_TUTORIAL_CULTURE_QUEST_5_TRACKING_TITLE">
@@ -625,7 +620,7 @@
 			<Text>It is whispered that our relics give divine aid to our cause. True or not, it is an impressive collection.</Text>
 		</Row>
 		<Row Tag="LOC_TUTORIAL_CULTURE_QUEST_6_BODY">
-			<Text>You've displayed 9 Relics! You can earn Relics through your [b]Reliquary Belief[/b], but you can also earn them through Narrative Events, becoming Suzerain of a City-State, and more.
+			<Text>You've displayed 9 Relics! You can earn Relics through your [b]Reliquary Belief[/b], but you can also earn them through Narrative Events, becoming [TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]Suzerain[/TIP] of a [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]City-State[/TIP], and more.
 				[n]Next Objective: Collect and Display [b]12 Relics[/b], the third and final Milestone along the [b]{LOC_LEGACY_PATH_EXPLORATION_CULTURE_NAME} Legacy Path[/b].</Text>
 		</Row>
 		<Row Tag="LOC_TUTORIAL_CULTURE_QUEST_6_TRACKING_TITLE">
@@ -651,7 +646,7 @@
 			<Text>If we are to seek our fortune in Distant Lands, we will need the right knowledge, and the right tools.</Text>
 		</Row>
 		<Row Tag="LOC_TUTORIAL_ECONOMIC_QUEST_1_BODY">
-			<Text>Objective: Research the [icon:NOTIFICATION_TECH_DISCOVERED] [b]{LOC_TECH_CARTOGRAPHY_NAME} [/b]and [icon:NOTIFICATION_TECH_DISCOVERED] [b]{LOC_TECH_ASTRONOMY_NAME} [/b]Technologies, the first step towards establishing a [b][icon:NOTIFICATION_TEAM_VICTORIOUS] {LOC_LEGACY_PATH_EXPLORATION_ECONOMIC_NAME} [/b][icon:YIELD_GOLD] Economic Legacy of the Exploration Age.
+			<Text>Objective: Research the [icon:NOTIFICATION_TECH_DISCOVERED] [b]{LOC_TECH_CARTOGRAPHY_NAME} [/b]and [icon:NOTIFICATION_TECH_DISCOVERED] [b]{LOC_TECH_ASTRONOMY_NAME} [/b]Technologies, the first step toward establishing a [b][icon:NOTIFICATION_TEAM_VICTORIOUS] {LOC_LEGACY_PATH_EXPLORATION_ECONOMIC_NAME} [/b][icon:YIELD_GOLD] Economic Legacy of the Exploration Age.
 				[n][b]{LOC_TECH_CARTOGRAPHY_NAME} [/b]will allow your Units to traverse dangerous [b]Deep Ocean[/b], and [b]{LOC_TECH_ASTRONOMY_NAME} [/b]will unlock the powerful {1_CommanderIcon} {2_CommanderName}, which can organize your [b]Naval Units[/b].
 				[n][n]Remember: [icon:NOTIFICATION_TEAM_VICTORIOUS] [b]Legacies [/b]improve your performance in later Ages, but [b]you can choose to pursue one, multiple, or none at all[/b].</Text>
 		</Row>
@@ -670,7 +665,7 @@
 		</Row>
 		<Row Tag="LOC_TUTORIAL_ECONOMIC_QUEST_2_BODY">
 			<Text>
-				[b]Distant Lands [/b]are any lands inaccessible in Antiquity, typically by [b]Deep Ocean[/b]. It can be dangerous to traverse the oceans, but there are new [icon:NOTIFICATION_DISCOVER_RESOURCE] [b]Resources [/b]and [b]people [/b]beyond the horizon.
+				[b]Distant Lands [/b]are any lands inaccessible in Antiquity, typically by [b]Deep Ocean[/b]. It can be dangerous to traverse the oceans, but there are new [icon:RADIAL_RESOURCES] [b]Resources [/b]and [b]people [/b]beyond the horizon.
 				[n]Next Objective: Establish a Settlement in [b]Distant Lands[/b]. Then, find and improve a [icon:RESOURCE_TYPE_DISTANT_TREASURE] Distant Lands Treasure resource there.</Text>
 		</Row>
 		<Row Tag="LOC_TUTORIAL_ECONOMIC_QUEST_2_TRACKING_TITLE">
@@ -688,7 +683,7 @@
 			<Text>With a newly established base in Distant Lands, the real work can begin. Let's improve Resources before our rivals do, to ensure that we reap the benefits.</Text>
 		</Row>
 		<Row Tag="LOC_TUTORIAL_ECONOMIC_QUEST_3_BODY">
-			<Text>[b]Distant Lands [/b]have different [icon:NOTIFICATION_DISCOVER_RESOURCE] [b]Resources [/b]from your Homelands, and after enough time, a [b]Treasure Convoy [/b]can be loaded to take these Resources to your Homelands.
+			<Text>[b]Distant Lands [/b]have different [icon:RADIAL_RESOURCES] [b]Resources [/b]from your Homelands, and after enough time, a [b]Treasure Convoy [/b]can be loaded to take these Resources to your Homelands.
 				[n]Next Objective: Improve five [icon:RESOURCE_TYPE_DISTANT_TREASURE] [b]Distant Lands Treasure Resources[/b] and wait for a [b]Treasure Convoy [/b]to spawn in the Settlement[/b].</Text>
 		</Row>
 		<Row Tag="LOC_TUTORIAL_ECONOMIC_QUEST_3_TRACKING_TITLE">
@@ -705,7 +700,7 @@
 			<Text>We have produced our first bounty, but there is work yet to be done. One does not prepare a delicious meal only to let it go cold on the table.</Text>
 		</Row>
 		<Row Tag="LOC_TUTORIAL_ECONOMIC_QUEST_4_BODY">
-			<Text>Now that you have a [b]Treasure Convoy [/b]full of valuable [icon:NOTIFICATION_DISCOVER_RESOURCE] [b]Treasure Resources[/b], you need to grant it safe passage to a [b]Homelands Settlement[/b].
+			<Text>Now that you have a [b]Treasure Convoy [/b]full of valuable [icon:RADIAL_RESOURCES] [b]Treasure Resources[/b], you need to grant it safe passage to a [b]Homelands Settlement[/b].
 				[n]When you unload the treasure, you will receive one {LOC_LEGACY_PATH_EXPLORATION_ECONOMIC_NAME} Point for every [b]Treasure Resource [/b]improved in the Settlement the Treasure Convoy originated from.
 				[n]Next Objective: [b]Score 10 {LOC_LEGACY_PATH_EXPLORATION_ECONOMIC_NAME} (TF) Points[/b], the first Milestone along the [b]{LOC_LEGACY_PATH_EXPLORATION_ECONOMIC_NAME} Legacy Path[/b].</Text>
 		</Row>
@@ -722,7 +717,7 @@
 			<Text>I have received news of our Treasure Convoy's arrival. This is cause for celebration, certainly, but it is only the beginning. Now all our empire looks to Distant Lands for its prosperity. Let's not keep them waiting.</Text>
 		</Row>
 		<Row Tag="LOC_TUTORIAL_ECONOMIC_QUEST_5_BODY">
-			<Text>You can increase your scoring rate by founding more [b]Settlements in Distant Lands[/b], [b]acquiring more [icon:NOTIFICATION_DISCOVER_RESOURCE] Treasure Resources[/b].
+			<Text>You can increase your scoring rate by founding more [b]Settlements in Distant Lands[/b], [b]acquiring more [icon:RADIAL_RESOURCES] Treasure Resources[/b].
 				[n]Next Objective: [b]Score 20 {LOC_LEGACY_PATH_EXPLORATION_ECONOMIC_NAME} (TF) Points[/b], the second Milestone along the [b]{LOC_LEGACY_PATH_EXPLORATION_ECONOMIC_NAME} Legacy Path[/b].</Text>
 		</Row>
 		<Row Tag="LOC_TUTORIAL_ECONOMIC_QUEST_5_TRACKING_TITLE">
@@ -738,7 +733,7 @@
 			<Text>The trade winds have been more than favorable to us, bringing wealth beyond measure from Distant Lands. If we are diligent, no one will dare question the legacy we create.</Text>
 		</Row>
 		<Row Tag="LOC_TUTORIAL_ECONOMIC_QUEST_6_BODY">
-			<Text>You can increase your scoring rate by founding more [b]Settlements in Distant Lands[/b], [b]acquiring more [icon:NOTIFICATION_DISCOVER_RESOURCE] Treasure Resources[/b].
+			<Text>You can increase your scoring rate by founding more [b]Settlements in Distant Lands[/b], [b]acquiring more [icon:RADIAL_RESOURCES] Treasure Resources[/b].
 				[n]Next Objective: [b]Score 30 {LOC_LEGACY_PATH_EXPLORATION_ECONOMIC_NAME} (TF) Points[/b], the third and final Milestone along the [b]{LOC_LEGACY_PATH_EXPLORATION_ECONOMIC_NAME} Legacy Path[/b].</Text>
 		</Row>
 		<Row Tag="LOC_TUTORIAL_ECONOMIC_QUEST_6_TRACKING_TITLE">
@@ -760,19 +755,50 @@
 			<Text>Overbuilding</Text>
 		</Row>
 		<Row Tag="LOC_TUTORIAL_OVERBUILDING_BODY">
-			<Text>As the {1_CivAdj} people have plans for new Buildings, you may not want to create more Urban Quarters. In [b]Exploration [/b]and beyond, you can choose to build atop an existing but outdated Building by [b]Overbuilding[/b].[n]While Overbuilding doesn't have particular benefits now, you may find [b]Social Policies[/b], [b]Civ Abilities[/b], and more that will make Overbuilding especially efficient.</Text>
+			<Text>As the {1_CivAdj} people have plans for new [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]Buildings[/TIP], you may not want to create more Urban Quarters. In [b]Exploration[/b] and beyond, you can choose to build atop an existing but outdated Building by [b]Overbuilding[/b].[n]While Overbuilding doesn't have particular benefits now, you may find [TIP:LOC_PEDIA_CONCEPTS_SOCIAL_POLICY_TOOLTIP]Social Policies[/TIP], [b]Civ Abilities[/b], and more that will make Overbuilding especially efficient.</Text>
 		</Row>
 		<Row Tag="LOC_TUTORIAL_LIGHT_HEAVY_NAVAL_TITLE">
 			<Text>Light &amp; Heavy Naval</Text>
 		</Row>
 		<Row Tag="LOC_TUTORIAL_LIGHT_HEAVY_NAVAL_BODY">
-			<Text>In the Exploration Age and beyond, Naval Units can be Light or Heavy. [n]Light Naval Units are fast but can only attack adjacent targets, whereas Heavy Naval Units can attack farther and do more damage. Use these ship types to your advantage on the open Ocean.</Text>
+			<Text>In the [TIP:LOC_PEDIA_CONCEPTS_EXPLORATION_AGE_TOOLTIP]Exploration Age[/TIP] and beyond, [TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]Naval Units[/TIP] can be Light or Heavy. [n]Light Naval Units are fast but can only attack adjacent targets, whereas Heavy Naval Units can attack farther and do more damage. Use these ship types to your advantage on the open Ocean.</Text>
 		</Row>
 		<Row Tag="LOC_TUTORIAL_PIRATE_TITLE">
 			<Text>Pirating</Text>
 		</Row>
 		<Row Tag="LOC_TUTORIAL_PIRATE_BODY">
-			<Text>Some Units have the [icon:UNIT_CAUTION] [b]Pirate [/b]ability, or can gain it from a Civilization or Leader ability. With Pirating, Units can attack other Naval Units that they are not at War with. Be on the lookout for [icon:UNIT_CAUTION] [b]Pirates[/b]: you may need to fight back.</Text>
+			<Text>Some Units have the [icon:UNIT_CAUTION][TIP:LOC_PEDIA_CONCEPTS_PIRATE_TOOLTIP]Pirate[/TIP] ability, or can gain it from a Civilization or Leader ability. With Pirating, Units can attack other Units that they are not at War with. Be on the lookout for [icon:UNIT_CAUTION]Pirates: you may need to fight back.</Text>
+		</Row>
+
+		<!-- NEW 1.4.0 ITEMS-->
+		<Row Tag="LOC_TUTORIAL_VICTORIES_EXPLORATION_TITLE">
+			<Text>Victories in the Exploration Age</Text>
+		</Row>
+		<Row Tag="LOC_TUTORIAL_VICTORIES_EXPLORATION_BODY">
+			<Text>{1_UnlockCondition} Feel free to review your progress now; more information will be provided when Victories are available!</Text>
+		</Row>
+		<!-- LOC: the trigger for the above tutorial can depend on player setup. -->
+		<Row Tag="LOC_TUTORIAL_VICTORIES_EXPLORATION_BODY_NORMAL_UNLOCK">
+			<Text>Victories are not available now, but will be available when Age Progress reaches 50%.</Text>
+		</Row>
+		<Row Tag="LOC_TUTORIAL_VICTORIES_EXPLORATION_BODY_ADVANCED_START">
+			<Text>Victories will be available in the Modern Age.</Text>
+		</Row>
+
+		<Row Tag="LOC_TUTORIAL_VICTORY_SCREEN_CALLOUT_TITLE">
+			<Text>Victories are Available!</Text>
+		</Row>
+		<Row Tag="LOC_TUTORIAL_VICTORY_SCREEN_CALLOUT_BODY">
+			<Text>Victories are now available for all Players to achieve! While highly unlikely in the Exploration Age, now is a good time to learn exactly how to win.</Text>
+		</Row>
+		<Row Tag="LOC_TUTORIAL_VICTORIES_AVAILABLE_TITLE">
+			<Text>Achieving Victory</Text>
+		</Row>
+		<Row Tag="LOC_TUTORIAL_VICTORIES_AVAILABLE_BODY">
+			<Text>To win a game of Civilization VII, you will need to become dominant in one of four categories: Military, Culture, Science, or Economy.
+				[n]A Player is considered dominant if their score in a category is multiple times higher the second place Player. The multiplier required to win reduces over time, so Victories will require less dominance as the game progresses. Once any Player has reached the target score, they will have to maintain dominance for a number of turns. 
+				[n]The Science Victory is different as it requires you to collect 100 Innovation, regardless of other Players' performance. It will only be available in the Modern Age, as you must have a Launch Pad to begin the Victory countdown.
+				[n]Pursue any Victory you like, or continue to experiment! Your Advisors may also have ideas on what to do.</Text>
 		</Row>
 	</EnglishText>
 </Database>

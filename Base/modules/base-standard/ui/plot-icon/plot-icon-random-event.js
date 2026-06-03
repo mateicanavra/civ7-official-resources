@@ -14,7 +14,6 @@ class PlotIconRandomEvent extends Component {
       return;
     }
     this.Root.classList.add("size-16", "bg-cover", "bg-no-repeat", "bg-center");
-    this.Root.setAttribute("data-pointer-passthrough", "true");
     this.Root.style.backgroundImage = `url(${UI.getIconURL(data.EventClass)})`;
     this.Root.dataset.tooltipStyle = "random-event";
     this.Root.setAttribute("node-id", `${this.location.x},${this.location.y}`);

@@ -1,30 +1,18 @@
-import { A as Audio } from '../../../core/ui/audio-base/audio-support.chunk.js';
+import { Audio } from '../../../core/ui/audio-base/audio-support.js';
 import ContextManager from '../../../core/ui/context-manager/context-manager.js';
-import FocusManager from '../../../core/ui/input/focus-manager.js';
-import { N as NavTray } from '../../../core/ui/navigation-tray/model-navigation-tray.chunk.js';
-import { P as Panel } from '../../../core/ui/panel-support.chunk.js';
-import { D as Databind } from '../../../core/ui/utilities/utilities-core-databinding.chunk.js';
-import { a as formatStringArrayAsNewLineText } from '../../../core/ui/utilities/utilities-core-textprovider.chunk.js';
-import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.chunk.js';
-import { Icon } from '../../../core/ui/utilities/utilities-image.chunk.js';
-import { P as ProgressionTreeTypes, a as TechCivicPopupManager } from './tech-civic-popup-manager.chunk.js';
-import { c as TreeNodesSupport } from '../tree-grid/tree-support.chunk.js';
-import { g as getUnlockTargetName, a as getUnlockTargetDescriptions, b as getUnlockTargetIcon } from '../utilities/utilities-textprovider.chunk.js';
-import '../../../core/ui/context-manager/display-queue-manager.js';
-import '../../../core/ui/dialog-box/manager-dialog-box.chunk.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/input/cursor.js';
-import '../../../core/ui/views/view-manager.chunk.js';
-import '../../../core/ui/input/action-handler.js';
-import '../../../core/ui/input/input-support.chunk.js';
-import '../../../core/ui/utilities/utilities-update-gate.chunk.js';
-import '../../../core/ui/utilities/utilities-component-id.chunk.js';
-import '../../../core/ui/interface-modes/interface-modes.js';
-import '../tutorial/tutorial-item.js';
-import '../../../core/ui/utilities/utilities-layout.chunk.js';
-import '../utilities/utilities-tags.chunk.js';
-
-const styles = "fs://game/base-standard/ui/tech-civic-complete/screen-tech-civic-complete.css";
+import NavTray from '../../../core/ui/navigation-tray/model-navigation-tray.js';
+import Panel from '../../../core/ui/panel-support.js';
+import Databind from '../../../core/ui/utilities/utilities-core-databinding.js';
+import { formatStringArrayAsNewLineText } from '../../../core/ui/utilities/utilities-core-textprovider.js';
+import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
+import { Icon } from '../../../core/ui/utilities/utilities-image.js';
+import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
+import { setActivePolicyTab } from '../policies/model-government.js';
+import TechCivicPopupManager, { ProgressionTreeTypes } from './tech-civic-popup-manager.js';
+import { TreeNodesSupport } from '../tree-grid/tree-support.js';
+import { getUnlockTargetName, getUnlockTargetDescriptions, getNodeNameFromType } from '../utilities/utilities-textprovider.js';
+import { getUnlockTargetIconUrl } from '../../ui-next/screens/choosers/helpers.js';
+import styles from './screen-tech-civic-complete.scss.js';
 
 var ScrollDirection = /* @__PURE__ */ ((ScrollDirection2) => {
   ScrollDirection2[ScrollDirection2["Left"] = 0] = "Left";
@@ -152,9 +140,9 @@ class ScreenTechCivicComplete extends Panel {
     super.onReceiveFocus();
     this.setUpNavTray();
     if (!this.tooltipsFocused) {
-      FocusManager.setFocus(this.Root);
+      FocusManager.get().setFocus(this.Root);
     } else {
-      FocusManager.setFocus(this.unlockedItemsContainer);
+      FocusManager.get().setFocus(this.unlockedItemsContainer);
     }
   }
   onLoseFocus() {
@@ -162,10 +150,10 @@ class ScreenTechCivicComplete extends Panel {
   }
   toggleTooltips() {
     if (this.tooltipsFocused) {
-      FocusManager.setFocus(this.Root);
+      FocusManager.get().setFocus(this.Root);
       this.setUpNavTray();
     } else {
-      FocusManager.setFocus(this.unlockedItemsContainer);
+      FocusManager.get().setFocus(this.unlockedItemsContainer);
       NavTray.removeGenericOK();
     }
     this.tooltipsFocused = !this.tooltipsFocused;
@@ -182,6 +170,7 @@ class ScreenTechCivicComplete extends Panel {
   onChangePolicies = () => {
     TechCivicPopupManager.closePopup();
     ContextManager.push("screen-policies", { singleton: true, createMouseGuard: true });
+    setActivePolicyTab("policies-and-traditions");
   };
   updateItemsUnlockedByNode() {
     this.unlockedItemDefinitions = [];
@@ -224,6 +213,7 @@ class ScreenTechCivicComplete extends Panel {
     );
     unlockedItem.setAttribute("tabindex", index.toString());
     unlockedItem.addEventListener("focus", this.unlockedItemFocusListener);
+    unlockedItem.setAttribute("data-audio-press-ref", "none");
     const unlockDescriptions = getUnlockTargetDescriptions(unlockInfo.TargetType, unlockInfo.TargetKind);
     const unlockName = getUnlockTargetName(unlockInfo.TargetType, unlockInfo.TargetKind);
     unlockDescriptions.unshift(unlockName);
@@ -231,7 +221,7 @@ class ScreenTechCivicComplete extends Panel {
     unlockedItem.setAttribute("data-tooltip-content", unlockTooltip);
     if (isOverflow) {
     }
-    const unlockIcon = getUnlockTargetIcon(unlockInfo.TargetType, unlockInfo.TargetKind);
+    const unlockIcon = getUnlockTargetIconUrl(unlockInfo.TargetType, unlockInfo.TargetKind);
     unlockedItem.style.backgroundImage = `url(${unlockIcon})`;
     const unlockGlow = document.createElement("div");
     unlockGlow.classList.value = "absolute -inset-0\\.5 opacity-0 bg-center bg-contain bg-no-repeat group-pressed\\:opacity-100 group-hover\\:opacity-100 group-focus\\:opacity-100 transition-opacity";
@@ -361,6 +351,11 @@ class ScreenTechCivicComplete extends Panel {
     };
     const { title, unlocksTitle } = popupData[this.treeType];
     const iconUrl = `url(${Icon.getCultureIconFromProgressionTreeNodeDefinition(this.nodeDefinition)})`;
+    const nodeName = getNodeNameFromType(
+      this.nodeDefinition.ProgressionTreeNodeType,
+      this.node.depthUnlocked - 1,
+      Players.get(GameContext.localPlayerID)
+    );
     this.modalFrame.dataset.modalStyle = "special";
     this.modalFrame.innerHTML = `
 			<fxs-header class="text-secondary font-title uppercase text-lg tracking-150" title="${title}" filigree-style="small"></fxs-header>
@@ -378,7 +373,7 @@ class ScreenTechCivicComplete extends Panel {
 				</div>
 			</div>
 			<div class="tech-civic-name-container flex items-center justify-center mt-5 mb-3\\.5 img-popup-header-bk">
-				<div data-l10n-id="${this.nodeDefinition.Name}" class="text-accent-2 text-base text-center uppercase font-title tracking-100 px-1 pt-4 pb-3"></div>
+				<div data-l10n-id="${nodeName}" class="text-accent-2 text-base text-center uppercase font-title font-bold tracking-100 px-1 pt-4 pb-3"></div>
 			</div>
 		`;
     if (isMobileViewExperience) {

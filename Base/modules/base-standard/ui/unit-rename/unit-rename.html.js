@@ -1,0 +1,4 @@
+const content = "<div\r\n\tclass=\"unit-rename__container flex flex-col items-center size-full justify-around\"\r\n\tframe-style=\"simple\"\r\n\toverride-styling=\"relative flex flex-col p-1\"\r\n>\r\n\t<fxs-nav-help\r\n\t\taction-key=\"inline-cancel\"\r\n\t\tclass=\"absolute -top-3 -right-3\"\r\n\t></fxs-nav-help>\r\n\t<fxs-close-button></fxs-close-button>\r\n\t<fxs-header\r\n\t\tclass=\"mt-1\"\r\n\t\ttitle=\"LOC_UNIT_RENAME_UNIT\"\r\n\t\tfiligree-style=\"none\"\r\n\t></fxs-header>\r\n\t<div class=\"h-10 w-96\">\r\n\t\t<fxs-textbox\r\n\t\t\tclass=\"unit-rename__textbox\"\r\n\t\t\thas-background=\"false\"\r\n\t\t></fxs-textbox>\r\n\t</div>\r\n\t<div class=\"relative\">\r\n\t\t<fxs-button\r\n\t\t\tclass=\"unit-rename__confirm mb-1\"\r\n\t\t\tcaption=\"LOC_UI_RESOURCE_ALLOCATION_CONFIRM\"\r\n\t\t\tdisabled=\"true\"\r\n\t\t></fxs-button>\r\n\t</div>\r\n</div>\r\n";
+
+export { content as default };
+//# sourceMappingURL=unit-rename.html.js.map

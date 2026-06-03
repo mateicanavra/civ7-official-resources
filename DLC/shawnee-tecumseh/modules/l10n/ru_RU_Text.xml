@@ -372,6 +372,9 @@
     <Replace Tag="LOC_MAIN_CHAR_SELECT_LEADER_TECUMSEH_ANY" Language="ru_RU">
       <Text>Праотцы мои были воинами. И сын их стал воином. Они породили меня, но сделал я себя сам. </Text>
     </Replace>
+    <Replace Tag="LOC_VICTORY_LEADER_TECUMSEH" Language="ru_RU">
+      <Text>Дух привел нас сюда; обильная дичь и плодородные земли позволят нам процветать. </Text>
+    </Replace>
     <Replace Tag="LOC_RIVER_K_TEKANI_FIPI_NAME" Language="ru_RU">
       <Text>К'текани Фипи|К'текани Фипи|К'текани Фипи|К'текани Фипи|К'текани Фипи|К'текани Фипи</Text>
       <Gender>feminine</Gender>
@@ -1181,8 +1184,26 @@
     <Replace Tag="LOC_LEADER_CHAIN_1209D_STORYTITLE" Language="ru_RU">
       <Text>Единый народ</Text>
     </Replace>
+    <Replace Tag="LOC_TOT_30031A_COMPLETION" Language="ru_RU">
+      <Text>Два вождя в сопровождении своих воинов входят в здание совета, пока делегация шони наблюдает. Под взглядами шони напряженным, но взвешенным тоном высказываются недовольства. Дипломат шони предлагает объединиться, ведь есть угрозы куда более серьезные, чем соседи.</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30031A_STORYTITLE" Language="ru_RU">
+      <Text>Чиликофэ</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30031B_DESCRIPTION" Language="ru_RU">
+      <Text>{1_reward}.</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30031B_NAME" Language="ru_RU">
+      <Text>Разделение дипломатов сделало бы эти усилия более эффективными.</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30031C_DESCRIPTION" Language="ru_RU">
+      <Text>{1_reward}.</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30031C_NAME" Language="ru_RU">
+      <Text>Дипломаты шони могут дать совет, но не более того.</Text>
+    </Replace>
     <Replace Tag="LOC_ABILITY_TECUMSEH_SUZERAIN_DESCRIPTION" Language="ru_RU">
-      <Text>+1 к [icon:NAR_REW_COMBAT] боевой мощи за каждый город-государство, сюзереном которого вы являетесь.</Text>
+      <Text>+1 к [icon:NAR_REW_COMBAT] боевой мощи за каждый [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]город-государство[/TIP], [TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]сюзереном[/TIP] которого вы являетесь.</Text>
     </Replace>
     <Replace Tag="LOC_ATTRIBUTENODE_TECUMSEH_L1_DESCRIPTION" Language="ru_RU">
       <Text>+5 к боевой мощи всех юнитов против районов.</Text>
@@ -1209,25 +1230,25 @@
       <Text>В эту эпоху вы получите +3 к боевой мощи морских юнитов в обмен на -10% [icon:YIELD_DIPLOMACY] влияния</Text>
     </Replace>
     <Replace Tag="LOC_CARD_AT_EXP_LEGEND_TECUMSEH_1_NAME" Language="ru_RU">
-      <Text>Легенда Текумсе в эпоху исследований: военное дело</Text>
+      <Text>Устремление Текумсе в эпоху исследований: военное дело</Text>
     </Replace>
     <Replace Tag="LOC_CARD_AT_EXP_LEGEND_TECUMSEH_2_DESCRIPTION" Language="ru_RU">
       <Text>В эту эпоху вы получите +15% [icon:YIELD_DIPLOMACY] влияния в обмен на -2 боевой мощи ваших морских юнитов</Text>
     </Replace>
     <Replace Tag="LOC_CARD_AT_EXP_LEGEND_TECUMSEH_2_NAME" Language="ru_RU">
-      <Text>Легенда Текумсе в эпоху исследований: дипломатия</Text>
+      <Text>Устремление Текумсе в эпоху исследований: дипломатия</Text>
     </Replace>
     <Replace Tag="LOC_CARD_AT_MOD_LEGEND_TECUMSEH_1_DESCRIPTION" Language="ru_RU">
       <Text>В эту эпоху вы получите +3 к боевой мощи воздушных юнитов в обмен на -10% [icon:YIELD_DIPLOMACY] влияния</Text>
     </Replace>
     <Replace Tag="LOC_CARD_AT_MOD_LEGEND_TECUMSEH_1_NAME" Language="ru_RU">
-      <Text>Легенда Текумсе в современную эпоху: военное дело</Text>
+      <Text>Устремление Текумсе в современную эпоху: военное дело</Text>
     </Replace>
     <Replace Tag="LOC_CARD_AT_MOD_LEGEND_TECUMSEH_2_DESCRIPTION" Language="ru_RU">
       <Text>В эту эпоху вы получите +15% к [icon:YIELD_DIPLOMACY] влиянию в обмен на -2 боевой мощи ваших воздушных юнитов</Text>
     </Replace>
     <Replace Tag="LOC_CARD_AT_MOD_LEGEND_TECUMSEH_2_NAME" Language="ru_RU">
-      <Text>Легенда Текумсе в современную эпоху: дипломатия</Text>
+      <Text>Устремление Текумсе в современную эпоху: дипломатия</Text>
     </Replace>
     <Replace Tag="LOC_CIVIC_MALEKI_KINTAKE_QUOTE" Language="ru_RU">
       <Text>«Не убивай зверей больше, чем нужно, чтобы добыть пропитание и одежду».</Text>
@@ -1254,22 +1275,22 @@
       <Text>Текумсе</Text>
     </Replace>
     <Replace Tag="LOC_CIVILIZATION_SHAWNEE_DESCRIPTION" Language="ru_RU">
-      <Text>+2 к [icon:YIELD_FOOD] пище на [icon:CITY_UNIMPROVED] малых и судоходных реках в поселениях по соседству с судоходными реками. -10% к [icon:YIELD_FOOD] пище в [icon:YIELD_CITIES] городах, не соседствующих с судоходными реками.</Text>
+      <Text>+2 к [icon:YIELD_FOOD] пище на [icon:CITY_UNIMPROVED] малых и судоходных реках в поселениях по соседству с судоходными реками.</Text>
     </Replace>
     <Replace Tag="LOC_IMPROVEMENT_MAWASKAWE_SKOTE_DESCRIPTION" Language="ru_RU">
-      <Text>Уникальное улучшение шони. +4 к [icon:YIELD_FOOD] пище. +1 к [icon:YIELD_GOLD] золоту за каждый [icon:RADIAL_RESOURCES] ресурс по соседству. Не устаревает. Не убирает бонусы от [icon:YIELD_WAREHOUSE] складов с клетки. Размещается только на существующем [icon:CITY_RURAL] улучшении на ландшафте с растительностью, которое не соседствует с другим мауаскауэ скоте.</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_IMPROVEMENT_TOOLTIP]Уникальное улучшение[/TIP] шони. +4 к [icon:YIELD_FOOD] пище. +1 к [icon:YIELD_GOLD] золоту за каждый [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]ресурс[/TIP] по соседству. Размещается на сухопутной клетке с [TIP:LOC_PEDIA_CONCEPTS_VEGETATED_TERRAIN_TOOLTIP]растительностью[/TIP], но не по соседству с другим мауаскауэ скоте.</Text>
     </Replace>
     <Replace Tag="LOC_IMPROVEMENT_MAWASKAWE_SKOTE_TOOLTIP" Language="ru_RU">
-      <Text>Не убирает бонусы от [icon:YIELD_WAREHOUSE] складов с клетки. Размещается только на существующем [icon:CITY_RURAL] улучшении на ландшафте с растительностью, которое не соседствует с другим мауаскауэ скоте.[n]Уникальное улучшение шони.</Text>
+      <Text>Размещается на сухопутной клетке с [TIP:LOC_PEDIA_CONCEPTS_VEGETATED_TERRAIN_TOOLTIP]растительностью[/TIP], но не по соседству с другим мауаскауэ скоте.[n][TIP:LOC_PEDIA_CONCEPTS_UNIQUE_IMPROVEMENT_TOOLTIP]Уникальное улучшение[/TIP] шони.</Text>
     </Replace>
     <Replace Tag="LOC_LEADER_TECUMSEH_DESCRIPTION" Language="ru_RU">
-      <Text>+1 к [icon:YIELD_FOOD] пище и к [icon:YIELD_PRODUCTION] производству за эпоху в поселениях за каждый [icon:CITYSTATE] город-государство, сюзереном которого вы являетесь. +1 к [icon:NAR_REW_COMBAT] боевой мощи всем юнитам за каждый [icon:CITYSTATE] город-государство, сюзереном которого вы являетесь.</Text>
+      <Text>+1 к [icon:YIELD_FOOD] пище и к [icon:YIELD_PRODUCTION] производству за [TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]эпоху[/TIP] в [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]поселениях[/TIP] за каждый [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]город-государство[/TIP], [TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]сюзереном[/TIP] которого вы являетесь. +1 к [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]боевой мощи[/TIP] всех юнитов за каждый [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]город-государство[/TIP], [TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]сюзереном[/TIP] которого вы являетесь. +2 к [icon:MILITARY_VP] господству за каждый [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]город-государство[/TIP], [TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]сюзереном[/TIP] которого вы являетесь.</Text>
     </Replace>
     <Replace Tag="LOC_LOADING_CIV_INTRO_TEXT_SHAWNEE" Language="ru_RU">
       <Text>Шони — непревзойденные дипломаты, способные пешком преодолеть много лиг и объединить разрозненные группы, несмотря на всевозможные трудности. Под бдительным оком киспоко хосепкилени призывают всех, кто приходит в излюбленные места, послушать речи ораторов и встать как один.</Text>
     </Replace>
     <Replace Tag="LOC_LOADING_CIV_TIPS_TEXT_SHAWNEE" Language="ru_RU">
-      <Text>Используйте традицию «Какауфе Пафкотавета», чтобы сделать свои поселения неуязвимыми к бурям и получать дополнительно культуру и золото, когда они случаются.</Text>
+      <Text>Уникальная способность «Непекифаки» и традиция «Такэсиякэ Епэпоки» могут давать крупные прибыли от улучшений на реках. Постарайтесь не строить на этих клетках районы, которые убирают эти прибыли.</Text>
     </Replace>
     <Replace Tag="LOC_LOADING_LEADER_INTRO_TEXT_TECUMSEH" Language="ru_RU">
       <Text>Текумсе, перед лицом раздоров ты говоришь о единстве, перед лицом разногласий ты обращаешься к разуму. Великий вождь, собирай людей со всех земель, чтобы они стали сильнее, и готовься пережить грядущие бури.</Text>
@@ -1281,7 +1302,7 @@
       <Text>Ступка и пестик из дерева.</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_TECUMSEH_POTESKWATE_FUNCTIONAL_DESCRIPTION" Language="ru_RU">
-      <Text>+1 к [icon:YIELD_FOOD]пище за эпоху в поселениях за каждый город-государство, сюзереном которого вы являетесь.</Text>
+      <Text>[B]+1 к [icon:YIELD_FOOD][/B] за [TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]эпоху[/TIP] в [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]городках[/TIP] за каждый [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]город-государство[/TIP], [TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]сюзереном[/TIP] которого вы являетесь.</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_TECUMSEH_POTESKWATE_NAME" Language="ru_RU">
       <Text>Потесквате</Text>
@@ -1293,7 +1314,7 @@
       <Text>Символ союза.</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_TECUMSEH_WAMPUM_BELT_FUNCTIONAL_DESCRIPTION" Language="ru_RU">
-      <Text>+1 к [icon:YIELD_PRODUCTION]производству за эпоху в поселениях за каждый город-государство, сюзереном которого вы являетесь.</Text>
+      <Text>[B]+1 к [icon:YIELD_PRODUCTION][/B] за [TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]эпоху[/TIP] в [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]городах[/TIP] за каждый [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]город-государство[/TIP], [TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]сюзереном[/TIP] которого вы являетесь.</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_TECUMSEH_WAMPUM_BELT_NAME" Language="ru_RU">
       <Text>Пояс с вампумом</Text>
@@ -1305,7 +1326,7 @@
       <Text>Больше не спите.</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_TECUMSEH_WARCLUB_FUNCTIONAL_DESCRIPTION" Language="ru_RU">
-      <Text>+1 к боевой мощи всех юнитов за каждый город-государство, сюзереном которого вы являетесь.</Text>
+      <Text>[B]+1 к [icon:NAR_REW_COMBAT][/B] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]боевой мощи[/TIP] [TIP:LOC_PEDIA_CONCEPTS_INFANTRY_UNITS_TOOLTIP]юнитов пехоты[/TIP] за каждый [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]город-государство[/TIP], [TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]сюзереном[/TIP] которого вы являетесь.</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_TECUMSEH_WARCLUB_NAME" Language="ru_RU">
       <Text>Боевая дубинка</Text>
@@ -1313,17 +1334,53 @@
     <Replace Tag="LOC_MEMENTO_TECUMSEH_WARCLUB_UNLOCK_TITLE" Language="ru_RU">
       <Text>Открывается на 5 уровне Текумсе</Text>
     </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_TECUMSEH_QUEST_A_ANTIQUITY_DESC" Language="ru_RU">
+      <Text>Играя за Текумсе в эпоху античности, завершите задание и последуйте за знамением воинов.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_TECUMSEH_QUEST_A_ANTIQUITY_NAME" Language="ru_RU">
+      <Text>Разбросанные угли</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_TECUMSEH_QUEST_A_EXPLORATION_DESC" Language="ru_RU">
+      <Text>Играя за Текумсе в эпоху исследований, завершите задание и разрешите разногласия.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_TECUMSEH_QUEST_A_EXPLORATION_NAME" Language="ru_RU">
+      <Text>Внутренние распри</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_TECUMSEH_QUEST_A_MODERN_DESC" Language="ru_RU">
+      <Text>Играя за Текумсе в современную эпоху, завершите задание и усильте народ на войне.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_TECUMSEH_QUEST_A_MODERN_NAME" Language="ru_RU">
+      <Text>Все как один</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_TECUMSEH_QUEST_B_ANTIQUITY_DESC" Language="ru_RU">
+      <Text>Играя за Текумсе в эпоху античности, завершите задание и передайте трубку-томагавк.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_TECUMSEH_QUEST_B_ANTIQUITY_NAME" Language="ru_RU">
+      <Text>Церемониальная трубка</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_TECUMSEH_QUEST_B_EXPLORATION_DESC" Language="ru_RU">
+      <Text>Играя за Текумсе в эпоху исследований, завершите задание и умилостивите землю молитвами.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_TECUMSEH_QUEST_B_EXPLORATION_NAME" Language="ru_RU">
+      <Text>Дрожит земля</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_TECUMSEH_QUEST_B_MODERN_DESC" Language="ru_RU">
+      <Text>Играя за Текумсе в современную эпоху, завершите задание и укажите миру путь через торговлю.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_TECUMSEH_QUEST_B_MODERN_NAME" Language="ru_RU">
+      <Text>Объединенный народ</Text>
+    </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SHAWNEE_COMPLETE_SERPENT_MOUND_DESC" Language="ru_RU">
       <Text>Отстройте Змеиный курган, играя за шони.</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SHAWNEE_COMPLETE_SERPENT_MOUND_NAME" Language="ru_RU">
       <Text>Змеиный курган</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SHAWNEE_LEGACY_PATH_ECONOMIC_DESC" Language="ru_RU">
-      <Text>Завершите экономическую тропу наследия, играя за шони.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SHAWNEE_FOUR_MAJOR_TRIUMPHS_DESC" Language="ru_RU">
+      <Text>Завершите 4 великих дипломатических или экономических триумфа за одну эпоху зенита, играя за шони.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SHAWNEE_LEGACY_PATH_ECONOMIC_NAME" Language="ru_RU">
-      <Text>Тропа наследия шони</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SHAWNEE_FOUR_MAJOR_TRIUMPHS_NAME" Language="ru_RU">
+      <Text>4 великих триумфа шони</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_AGE_COMPLETED_ANTIQUITY_2_DESC" Language="ru_RU">
       <Text>Завершите эпоху античности дважды, играя за Текумсе.</Text>
@@ -1379,296 +1436,284 @@
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_AGE_COMPLETED_MODERN_NAME" Language="ru_RU">
       <Text>Современная эпоха завершена</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_VICTORY_ANTIQUITY_2_DESC" Language="ru_RU">
-      <Text>Дважды завершите тропу наследия «Чудеса древнего мира», играя за Текумсе.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_TRIUMPH_2_ANTIQUITY_DESC" Language="ru_RU">
+      <Text>Завершите триумф «Орфические тайны», играя за Текумсе.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_VICTORY_ANTIQUITY_2_NAME" Language="ru_RU">
-      <Text>Чудеса древнего мира 2</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_TRIUMPH_2_ANTIQUITY_NAME" Language="ru_RU">
+      <Text>Орфические тайны</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_VICTORY_ANTIQUITY_3_DESC" Language="ru_RU">
-      <Text>Трижды завершите тропу наследия «Чудеса древнего мира», играя за Текумсе.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_TRIUMPH_2_EXPLORATION_DESC" Language="ru_RU">
+      <Text>Завершите триумф «Царство небесное», играя за Текумсе.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_VICTORY_ANTIQUITY_3_NAME" Language="ru_RU">
-      <Text>Чудеса древнего мира 3</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_TRIUMPH_2_EXPLORATION_NAME" Language="ru_RU">
+      <Text>Царство небесное</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_VICTORY_ANTIQUITY_DESC" Language="ru_RU">
-      <Text>Завершите тропу наследия «Чудеса древнего мира», играя за Текумсе.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_TRIUMPH_2_MODERN_DESC" Language="ru_RU">
+      <Text>Завершите триумф «Страна чудес», играя за Текумсе.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_VICTORY_ANTIQUITY_NAME" Language="ru_RU">
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_TRIUMPH_2_MODERN_NAME" Language="ru_RU">
+      <Text>Страна чудес</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_TRIUMPH_ANTIQUITY_DESC" Language="ru_RU">
+      <Text>Завершите триумф «Чудеса древнего мира», играя за Текумсе.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_TRIUMPH_ANTIQUITY_NAME" Language="ru_RU">
       <Text>Чудеса древнего мира</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_VICTORY_EXPLORATION_2_DESC" Language="ru_RU">
-      <Text>Дважды завершите тропу наследия «Тошахана», играя за Текумсе.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_TRIUMPH_EXPLORATION_DESC" Language="ru_RU">
+      <Text>Завершите триумф «Тошахана», играя за Текумсе.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_VICTORY_EXPLORATION_2_NAME" Language="ru_RU">
-      <Text>Тошахана 2</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_VICTORY_EXPLORATION_3_DESC" Language="ru_RU">
-      <Text>Трижды завершите тропу наследия «Тошахана», играя за Текумсе.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_VICTORY_EXPLORATION_3_NAME" Language="ru_RU">
-      <Text>Тошахана 3</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_VICTORY_EXPLORATION_DESC" Language="ru_RU">
-      <Text>Завершите тропу наследия «Тошахана», играя за Текумсе.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_VICTORY_EXPLORATION_NAME" Language="ru_RU">
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_TRIUMPH_EXPLORATION_NAME" Language="ru_RU">
       <Text>Тошахана</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_VICTORY_MODERN_2_DESC" Language="ru_RU">
-      <Text>Дважды завершите тропу наследия «Географическое общество», играя за Текумсе.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_TRIUMPH_MODERN_DESC" Language="ru_RU">
+      <Text>Завершите триумф «Географическое общество», играя за Текумсе.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_VICTORY_MODERN_2_NAME" Language="ru_RU">
-      <Text>Географическое общество 2</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_VICTORY_MODERN_3_DESC" Language="ru_RU">
-      <Text>Трижды завершите тропу наследия «Географическое общество», играя за Текумсе.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_VICTORY_MODERN_3_NAME" Language="ru_RU">
-      <Text>Географическое общество 3</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_VICTORY_MODERN_DESC" Language="ru_RU">
-      <Text>Завершите тропу наследия «Географическое общество», играя за Текумсе.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_VICTORY_MODERN_NAME" Language="ru_RU">
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_TRIUMPH_MODERN_NAME" Language="ru_RU">
       <Text>Географическое общество</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_VICTORY_ANTIQUITY_2_DESC" Language="ru_RU">
-      <Text>Дважды завершите тропу наследия «Шелковые пути», играя за Текумсе.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_VICTORY_DESC" Language="ru_RU">
+      <Text>Одержите культурную победу, играя за Текумсе.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_VICTORY_ANTIQUITY_2_NAME" Language="ru_RU">
-      <Text>Шелковые пути 2</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_VICTORY_NAME" Language="ru_RU">
+      <Text>Культурная победа</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_VICTORY_ANTIQUITY_3_DESC" Language="ru_RU">
-      <Text>Трижды завершите тропу наследия «Шелковые пути», играя за Текумсе.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_DEITY_VICTORY_DESC" Language="ru_RU">
+      <Text>Одержите победу на уровне сложности «Божество», играя за Текумсе.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_VICTORY_ANTIQUITY_3_NAME" Language="ru_RU">
-      <Text>Шелковые пути 3</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_DEITY_VICTORY_NAME" Language="ru_RU">
+      <Text>Победа на уровне «Божество»</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_VICTORY_ANTIQUITY_DESC" Language="ru_RU">
-      <Text>Завершите тропу наследия «Шелковые пути», играя за Текумсе.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_DIPLOMATIC_TRIUMPH_2_ANTIQUITY_DESC" Language="ru_RU">
+      <Text>Завершите триумф «Хлеб и зрелища», играя за Текумсе.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_VICTORY_ANTIQUITY_NAME" Language="ru_RU">
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_DIPLOMATIC_TRIUMPH_2_ANTIQUITY_NAME" Language="ru_RU">
+      <Text>Хлеб и зрелища</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_DIPLOMATIC_TRIUMPH_2_EXPLORATION_DESC" Language="ru_RU">
+      <Text>Завершите триумф «Четверной союз», играя за Текумсе.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_DIPLOMATIC_TRIUMPH_2_EXPLORATION_NAME" Language="ru_RU">
+      <Text>Четверной союз</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_DIPLOMATIC_TRIUMPH_2_MODERN_DESC" Language="ru_RU">
+      <Text>Завершите триумф «Код "Энигмы"», играя за Текумсе.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_DIPLOMATIC_TRIUMPH_2_MODERN_NAME" Language="ru_RU">
+      <Text>Код «Энигмы»</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_DIPLOMATIC_TRIUMPH_ANTIQUITY_DESC" Language="ru_RU">
+      <Text>Завершите триумф «Дергая за ниточки», играя за Текумсе.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_DIPLOMATIC_TRIUMPH_ANTIQUITY_NAME" Language="ru_RU">
+      <Text>Дергая за ниточки</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_DIPLOMATIC_TRIUMPH_EXPLORATION_DESC" Language="ru_RU">
+      <Text>Завершите триумф «Орден ассасинов», играя за Текумсе.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_DIPLOMATIC_TRIUMPH_EXPLORATION_NAME" Language="ru_RU">
+      <Text>Орден ассасинов</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_DIPLOMATIC_TRIUMPH_MODERN_DESC" Language="ru_RU">
+      <Text>Завершите триумф «Лига Наций», играя за Текумсе.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_DIPLOMATIC_TRIUMPH_MODERN_NAME" Language="ru_RU">
+      <Text>Лига Наций</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_TRIUMPH_2_ANTIQUITY_DESC" Language="ru_RU">
+      <Text>Завершите триумф «Жадность — золото», играя за Текумсе.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_TRIUMPH_2_ANTIQUITY_NAME" Language="ru_RU">
+      <Text>Жадность — золото</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_TRIUMPH_2_EXPLORATION_DESC" Language="ru_RU">
+      <Text>Завершите триумф «Каликутская сделка», играя за Текумсе.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_TRIUMPH_2_EXPLORATION_NAME" Language="ru_RU">
+      <Text>Каликутская сделка</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_TRIUMPH_2_MODERN_DESC" Language="ru_RU">
+      <Text>Завершите триумф «Всемирная мастерская», играя за Текумсе.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_TRIUMPH_2_MODERN_NAME" Language="ru_RU">
+      <Text>Всемирная мастерская</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_TRIUMPH_ANTIQUITY_DESC" Language="ru_RU">
+      <Text>Завершите триумф «Шелковые пути», играя за Текумсе.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_TRIUMPH_ANTIQUITY_NAME" Language="ru_RU">
       <Text>Шелковые пути</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_VICTORY_EXPLORATION_2_DESC" Language="ru_RU">
-      <Text>Дважды завершите тропу наследия «Серебряный флот», играя за Текумсе.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_TRIUMPH_EXPLORATION_DESC" Language="ru_RU">
+      <Text>Завершите триумф «Серебряный флот», играя за Текумсе.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_VICTORY_EXPLORATION_2_NAME" Language="ru_RU">
-      <Text>Серебряный флот 2</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_VICTORY_EXPLORATION_3_DESC" Language="ru_RU">
-      <Text>Трижды завершите тропу наследия «Серебряный флот», играя за Текумсе.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_VICTORY_EXPLORATION_3_NAME" Language="ru_RU">
-      <Text>Серебряный флот 3</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_VICTORY_EXPLORATION_DESC" Language="ru_RU">
-      <Text>Завершите тропу наследия «Серебряный флот», играя за Текумсе.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_VICTORY_EXPLORATION_NAME" Language="ru_RU">
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_TRIUMPH_EXPLORATION_NAME" Language="ru_RU">
       <Text>Серебряный флот</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_VICTORY_MODERN_2_DESC" Language="ru_RU">
-      <Text>Дважды завершите тропу наследия «Железнодорожный магнат», играя за Текумсе.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_TRIUMPH_MODERN_DESC" Language="ru_RU">
+      <Text>Завершите триумф «Железнодорожный магнат», играя за Текумсе.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_VICTORY_MODERN_2_NAME" Language="ru_RU">
-      <Text>Железнодорожный магнат 2</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_VICTORY_MODERN_3_DESC" Language="ru_RU">
-      <Text>Трижды завершите тропу наследия «Железнодорожный магнат», играя за Текумсе.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_VICTORY_MODERN_3_NAME" Language="ru_RU">
-      <Text>Железнодорожный магнат 3</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_VICTORY_MODERN_DESC" Language="ru_RU">
-      <Text>Завершите тропу наследия «Железнодорожный магнат», играя за Текумсе.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_VICTORY_MODERN_NAME" Language="ru_RU">
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_TRIUMPH_MODERN_NAME" Language="ru_RU">
       <Text>Железнодорожный магнат</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_FLAWLESS_VICTORY_ANTIQUITY_DESC" Language="ru_RU">
-      <Text>Завершите 2 тропы наследия за одну эпоху античности, играя за Текумсе.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_VICTORY_DESC" Language="ru_RU">
+      <Text>Одержите экономическую победу, играя за Текумсе.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_FLAWLESS_VICTORY_ANTIQUITY_NAME" Language="ru_RU">
-      <Text>Двойное наследие, Эпоха античности</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_VICTORY_NAME" Language="ru_RU">
+      <Text>Экономическая победа</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_FLAWLESS_VICTORY_EXPLORATION_DESC" Language="ru_RU">
-      <Text>Завершите 2 тропы наследия за одну эпоху исследований, играя за Текумсе.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_EXPANSIONIST_TRIUMPH_2_ANTIQUITY_DESC" Language="ru_RU">
+      <Text>Завершите триумф «Вавилонская башня», играя за Текумсе.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_FLAWLESS_VICTORY_EXPLORATION_NAME" Language="ru_RU">
-      <Text>Двойное наследие, Эпоха исследования</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_EXPANSIONIST_TRIUMPH_2_ANTIQUITY_NAME" Language="ru_RU">
+      <Text>Вавилонская башня</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_FLAWLESS_VICTORY_MODERN_DESC" Language="ru_RU">
-      <Text>Завершите 2 тропы наследия за одну современную эпоху, играя за Текумсе.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_EXPANSIONIST_TRIUMPH_2_EXPLORATION_DESC" Language="ru_RU">
+      <Text>Завершите триумф «А у нас Габсбурги», играя за Текумсе.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_FLAWLESS_VICTORY_MODERN_NAME" Language="ru_RU">
-      <Text>Двойное наследие, Современная эпоха</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_EXPANSIONIST_TRIUMPH_2_EXPLORATION_NAME" Language="ru_RU">
+      <Text>А у нас Габсбурги</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_VICTORY_ANTIQUITY_2_DESC" Language="ru_RU">
-      <Text>Дважды завершите тропу наследия «Pax Imperatoria», играя за Текумсе.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_EXPANSIONIST_TRIUMPH_2_MODERN_DESC" Language="ru_RU">
+      <Text>Завершите триумф «Мегаполис», играя за Текумсе.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_VICTORY_ANTIQUITY_2_NAME" Language="ru_RU">
-      <Text>Pax Imperatoria 2</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_EXPANSIONIST_TRIUMPH_2_MODERN_NAME" Language="ru_RU">
+      <Text>Мегаполис</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_VICTORY_ANTIQUITY_3_DESC" Language="ru_RU">
-      <Text>Трижды завершите тропу наследия «Pax Imperatoria», играя за Текумсе.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_EXPANSIONIST_TRIUMPH_ANTIQUITY_DESC" Language="ru_RU">
+      <Text>Завершите триумф «Четыре стороны света», играя за Текумсе.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_VICTORY_ANTIQUITY_3_NAME" Language="ru_RU">
-      <Text>Pax Imperatoria 3</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_EXPANSIONIST_TRIUMPH_ANTIQUITY_NAME" Language="ru_RU">
+      <Text>Четыре стороны света</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_VICTORY_ANTIQUITY_DESC" Language="ru_RU">
-      <Text>Завершите тропу наследия «Pax Imperatoria», играя за Текумсе.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_EXPANSIONIST_TRIUMPH_EXPLORATION_DESC" Language="ru_RU">
+      <Text>Завершите триумф «Здесь обитают драконы», играя за Текумсе.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_VICTORY_ANTIQUITY_NAME" Language="ru_RU">
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_EXPANSIONIST_TRIUMPH_EXPLORATION_NAME" Language="ru_RU">
+      <Text>Здесь обитают драконы</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_EXPANSIONIST_TRIUMPH_MODERN_DESC" Language="ru_RU">
+      <Text>Завершите триумф «Над империей не заходит солнце», играя за Текумсе.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_EXPANSIONIST_TRIUMPH_MODERN_NAME" Language="ru_RU">
+      <Text>Над империей не заходит солнце</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_FOUR_MAJOR_TRIUMPHS_ANTIQUITY_DESC" Language="ru_RU">
+      <Text>Завершите 4 великих триумфа за одну эпоху античности, играя за Текумсе.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_FOUR_MAJOR_TRIUMPHS_ANTIQUITY_NAME" Language="ru_RU">
+      <Text>Триумфы в эпоху античности</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_FOUR_MAJOR_TRIUMPHS_EXPLORATION_DESC" Language="ru_RU">
+      <Text>Завершите 4 великих триумфа за одну эпоху исследований, играя за Текумсе.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_FOUR_MAJOR_TRIUMPHS_EXPLORATION_NAME" Language="ru_RU">
+      <Text>Триумфы в эпоху исследований</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_TRIUMPH_2_ANTIQUITY_DESC" Language="ru_RU">
+      <Text>Завершите триумф «Вот это Гай», играя за Текумсе.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_TRIUMPH_2_ANTIQUITY_NAME" Language="ru_RU">
+      <Text>Вот это Гай</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_TRIUMPH_2_EXPLORATION_DESC" Language="ru_RU">
+      <Text>Завершите триумф Pax Mongolica, играя за Текумсе.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_TRIUMPH_2_EXPLORATION_NAME" Language="ru_RU">
+      <Text>Pax Mongolica</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_TRIUMPH_2_MODERN_DESC" Language="ru_RU">
+      <Text>Завершите триумф «Враг мира», играя за Текумсе.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_TRIUMPH_2_MODERN_NAME" Language="ru_RU">
+      <Text>Враг мира</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_TRIUMPH_ANTIQUITY_DESC" Language="ru_RU">
+      <Text>Завершите триумф Pax Imperatoria, играя за Текумсе.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_TRIUMPH_ANTIQUITY_NAME" Language="ru_RU">
       <Text>Pax Imperatoria</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_VICTORY_EXPLORATION_2_DESC" Language="ru_RU">
-      <Text>Дважды завершите тропу наследия «И целого мира мало», играя за Текумсе.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_TRIUMPH_EXPLORATION_DESC" Language="ru_RU">
+      <Text>Завершите триумф «И целого мира мало», играя за Текумсе.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_VICTORY_EXPLORATION_2_NAME" Language="ru_RU">
-      <Text>И целого мира мало 2</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_VICTORY_EXPLORATION_3_DESC" Language="ru_RU">
-      <Text>Трижды завершите тропу наследия «И целого мира мало», играя за Текумсе.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_VICTORY_EXPLORATION_3_NAME" Language="ru_RU">
-      <Text>И целого мира мало 3</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_VICTORY_EXPLORATION_DESC" Language="ru_RU">
-      <Text>Завершите тропу наследия «И целого мира мало», играя за Текумсе.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_VICTORY_EXPLORATION_NAME" Language="ru_RU">
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_TRIUMPH_EXPLORATION_NAME" Language="ru_RU">
       <Text>И целого мира мало</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_VICTORY_MODERN_2_DESC" Language="ru_RU">
-      <Text>Дважды завершите тропу наследия «Идеология», играя за Текумсе.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_TRIUMPH_MODERN_DESC" Language="ru_RU">
+      <Text>Завершите триумф «Императив нравственности», играя за Текумсе.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_VICTORY_MODERN_2_NAME" Language="ru_RU">
-      <Text>Идеология 2</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_TRIUMPH_MODERN_NAME" Language="ru_RU">
+      <Text>Императив нравственности</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_VICTORY_MODERN_3_DESC" Language="ru_RU">
-      <Text>Трижды завершите тропу наследия «Идеология», играя за Текумсе.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_VICTORY_DESC" Language="ru_RU">
+      <Text>Одержите военную победу, играя за Текумсе.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_VICTORY_MODERN_3_NAME" Language="ru_RU">
-      <Text>Идеология 3</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_VICTORY_MODERN_DESC" Language="ru_RU">
-      <Text>Завершите тропу наследия «Идеология», играя за Текумсе.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_VICTORY_MODERN_NAME" Language="ru_RU">
-      <Text>Идеология</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_VICTORY_NAME" Language="ru_RU">
+      <Text>Военная победа</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_PLAY_GAMES_1_DESC" Language="ru_RU">
-      <Text>Достигните хотя бы 1 вехи на тропе наследия, играя за Текумсе.</Text>
+      <Text>Завершите великий триумф, играя за Текумсе.</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_PLAY_GAMES_1_NAME" Language="ru_RU">
       <Text>Сыграть в игру 1</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_PLAY_GAMES_2_DESC" Language="ru_RU">
-      <Text>Достигните хотя бы 2 вех на тропе наследия, играя за Текумсе.</Text>
+      <Text>Завершите 5 великих триумфов за любое количество эпох, играя за Текумсе.</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_PLAY_GAMES_2_NAME" Language="ru_RU">
       <Text>Сыграть в игру 2</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_PLAY_GAMES_3_DESC" Language="ru_RU">
-      <Text>Достигните хотя бы 3 вех на тропе наследия, играя за Текумсе.</Text>
+      <Text>Завершите 25 великих триумфов за любое количество эпох, играя за Текумсе.</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_PLAY_GAMES_3_NAME" Language="ru_RU">
       <Text>Сыграть в игру 3</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_QUEST_A_ANTIQUITY_DESC" Language="ru_RU">
-      <Text>Играя за Текумсе в эпоху античности, завершите задание и последуйте за знамением воинов.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_TRIUMPH_2_ANTIQUITY_DESC" Language="ru_RU">
+      <Text>Завершите триумф «Круглая Земля», играя за Текумсе.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_QUEST_A_ANTIQUITY_NAME" Language="ru_RU">
-      <Text>Разбросанные угли</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_TRIUMPH_2_ANTIQUITY_NAME" Language="ru_RU">
+      <Text>Круглая Земля</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_QUEST_A_EXPLORATION_DESC" Language="ru_RU">
-      <Text>Играя за Текумсе в эпоху исследований, завершите задание и подготовьте воинов.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_TRIUMPH_2_EXPLORATION_DESC" Language="ru_RU">
+      <Text>Завершите триумф «О вращении небесных сфер», играя за Текумсе.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_QUEST_A_EXPLORATION_NAME" Language="ru_RU">
-      <Text>Перед битвой</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_TRIUMPH_2_EXPLORATION_NAME" Language="ru_RU">
+      <Text>О вращении небесных сфер</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_QUEST_A_MODERN_DESC" Language="ru_RU">
-      <Text>Играя за Текумсе в современную эпоху, завершите задание и усильте народ на войне.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_TRIUMPH_2_MODERN_DESC" Language="ru_RU">
+      <Text>Завершите триумф «Уже не мечом», играя за Текумсе.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_QUEST_A_MODERN_NAME" Language="ru_RU">
-      <Text>Все как один</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_TRIUMPH_2_MODERN_NAME" Language="ru_RU">
+      <Text>Уже не мечом</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_QUEST_B_ANTIQUITY_DESC" Language="ru_RU">
-      <Text>Играя за Текумсе в эпоху античности, завершите задание и передайте трубку-томагавк.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_TRIUMPH_ANTIQUITY_DESC" Language="ru_RU">
+      <Text>Завершите триумф «Библиотека Ашшурбанапала», играя за Текумсе.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_QUEST_B_ANTIQUITY_NAME" Language="ru_RU">
-      <Text>Церемониальная трубка</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_TRIUMPH_ANTIQUITY_NAME" Language="ru_RU">
+      <Text>Библиотека Ашшурбанапала</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_QUEST_B_EXPLORATION_DESC" Language="ru_RU">
-      <Text>Играя за Текумсе в эпоху исследований, завершите задание и объедините соседей.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_TRIUMPH_EXPLORATION_DESC" Language="ru_RU">
+      <Text>Завершите триумф «Просвещение», играя за Текумсе.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_QUEST_B_EXPLORATION_NAME" Language="ru_RU">
-      <Text>По новым землям</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_QUEST_B_MODERN_DESC" Language="ru_RU">
-      <Text>Играя за Текумсе в современную эпоху, завершите задание и укажите миру путь через торговлю.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_QUEST_B_MODERN_NAME" Language="ru_RU">
-      <Text>Объединенный народ</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_VICTORY_ANTIQUITY_2_DESC" Language="ru_RU">
-      <Text>Дважды завершите тропу наследия «Великая библиотека», играя за Текумсе.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_VICTORY_ANTIQUITY_2_NAME" Language="ru_RU">
-      <Text>Великая библиотека 2</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_VICTORY_ANTIQUITY_3_DESC" Language="ru_RU">
-      <Text>Трижды завершите тропу наследия «Великая библиотека», играя за Текумсе.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_VICTORY_ANTIQUITY_3_NAME" Language="ru_RU">
-      <Text>Великая библиотека 3</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_VICTORY_ANTIQUITY_DESC" Language="ru_RU">
-      <Text>Завершите тропу наследия «Великая библиотека», играя за Текумсе.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_VICTORY_ANTIQUITY_NAME" Language="ru_RU">
-      <Text>Великая библиотека</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_VICTORY_EXPLORATION_2_DESC" Language="ru_RU">
-      <Text>Дважды завершите тропу наследия «Просвещение», играя за Текумсе.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_VICTORY_EXPLORATION_2_NAME" Language="ru_RU">
-      <Text>Просвещение 2</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_VICTORY_EXPLORATION_3_DESC" Language="ru_RU">
-      <Text>Трижды завершите тропу наследия «Просвещение», играя за Текумсе.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_VICTORY_EXPLORATION_3_NAME" Language="ru_RU">
-      <Text>Просвещение 3</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_VICTORY_EXPLORATION_DESC" Language="ru_RU">
-      <Text>Завершите тропу наследия «Просвещение», играя за Текумсе.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_VICTORY_EXPLORATION_NAME" Language="ru_RU">
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_TRIUMPH_EXPLORATION_NAME" Language="ru_RU">
       <Text>Просвещение</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_VICTORY_MODERN_2_DESC" Language="ru_RU">
-      <Text>Дважды завершите тропу наследия «Космическая гонка», играя за Текумсе.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_TRIUMPH_MODERN_DESC" Language="ru_RU">
+      <Text>Завершите триумф «Начало космической гонки», играя за Текумсе.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_VICTORY_MODERN_2_NAME" Language="ru_RU">
-      <Text>Космическая гонка 2</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_TRIUMPH_MODERN_NAME" Language="ru_RU">
+      <Text>Начало космической гонки</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_VICTORY_MODERN_3_DESC" Language="ru_RU">
-      <Text>Трижды завершите тропу наследия «Космическая гонка», играя за Текумсе.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_VICTORY_DESC" Language="ru_RU">
+      <Text>Одержите научную победу, играя за Текумсе.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_VICTORY_MODERN_3_NAME" Language="ru_RU">
-      <Text>Космическая гонка 3</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_VICTORY_MODERN_DESC" Language="ru_RU">
-      <Text>Завершите тропу наследия «Космическая гонка», играя за Текумсе.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_VICTORY_MODERN_NAME" Language="ru_RU">
-      <Text>Космическая гонка</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_VICTORY_NAME" Language="ru_RU">
+      <Text>Научная победа</Text>
     </Replace>
     <Replace Tag="LOC_MOD_ATTRIBUTE_DIPLOMATIC_LEGEND_TECUMSEH_L2_DESCRIPTION" Language="ru_RU">
-      <Text>Открывает легенду. +25% к [icon:RELATIONSHIP] отношениям за запуск и поддержку [icon:ENDEAVOR] инициатив. -25% к [icon:RELATIONSHIP] отношениям за запуск [icon:SANCTIONS] санкций и отказ от [icon:ENDEAVOR] инициатив.</Text>
+      <Text>Открывается легендой. +25% к [icon:RELATIONSHIP] отношениям за запуск и поддержку [icon:ENDEAVOR] инициатив. -25% к [icon:RELATIONSHIP] отношениям за запуск [icon:SANCTIONS] санкций и отказ от [icon:ENDEAVOR] инициатив.</Text>
     </Replace>
     <Replace Tag="LOC_MOD_ATTRIBUTE_MILITARISTIC_LEGEND_TECUMSEH_L1_DESCRIPTION" Language="ru_RU">
       <Text>Открывается легендой. +5 к [icon:NAR_REW_COMBAT] боевой мощи всех юнитов против [icon:CITY_FORTIFIED] укрепленных районов.</Text>
@@ -1676,26 +1721,11 @@
     <Replace Tag="LOC_MOD_CIV_WONDER_PRODUCTION_SHAWNEE_DESCRIPTION" Language="ru_RU">
       <Text>+30% [icon:YIELD_PRODUCTION] производства за [icon:WONDER] чудо света, связанное с шони.</Text>
     </Replace>
-    <Replace Tag="LOC_MOD_KISPOKO_NENA_TO_SUPPORT_DESCRIPTION" Language="ru_RU">
-      <Text>+1 к [icon:NAR_REW_COMBAT] боевой мощи [icon:UNIT_KISPOKO_NENA_TO] киспоко нена'то за положительную [icon:WAR_SUPPORT] военную поддержку.</Text>
+    <Replace Tag="LOC_NODE_CIVIC_AQ_SHAWNEE_ORIGINS_NAME" Language="ru_RU">
+      <Text>Происхождение шони</Text>
     </Replace>
-    <Replace Tag="LOC_MOD_MALEKI_KINTAKE_WAREHOUSES_DESCRIPTION" Language="ru_RU">
-      <Text>+2 к [icon:YIELD_FOOD] пище на фермах и в лагерях.</Text>
-    </Replace>
-    <Replace Tag="LOC_MOD_MIYASKA_LATOWEKI_CITY_STATE_RESOURCES_DESCRIPTION" Language="ru_RU">
-      <Text>+1 к [icon:RADIAL_RESOURCES] максимуму ресурсов в вашей [icon:NOTIFICATION_SELECT_CAPITAL] столице за каждый [icon:CITYSTATE] город-государство, сюзереном которого вы являетесь.</Text>
-    </Replace>
-    <Replace Tag="LOC_MOD_MIYASKA_LATOWEKI_ENDEAVOR_TRADE_DESCRIPTION" Language="ru_RU">
-      <Text>+2 к [icon:YIELD_GOLD] золоту за каждый действующий [icon:TRADE_ROUTE] торговый путь, пока у вас активны хотя бы 3 [icon:ENDEAVOR] инициативы.</Text>
-    </Replace>
-    <Replace Tag="LOC_MOD_MOD_TELWATIKI_THIRD_PARTY_DESCRIPTION" Language="ru_RU">
-      <Text>Вы можете добавить [icon:WAR_SUPPORT] военную поддержку для [icon:WAR] войн других игроков 3 раза, а не 1.</Text>
-    </Replace>
-    <Replace Tag="LOC_MOD_TELWATIKI_INFLUENCE_DESCRIPTION" Language="ru_RU">
-      <Text>+2 к [icon:YIELD_DIPLOMACY] влиянию за ход.</Text>
-    </Replace>
-    <Replace Tag="LOC_MOD_WYEHI_SIMEKOFI_MAWASKAWE_SKOTE_DESCRIPTION" Language="ru_RU">
-      <Text>+1 к [icon:YIELD_CULTURE] культуре от [icon:CITY_RURAL] мауаскауэ скоте за каждый [icon:CITYSTATE] город-государство, сюзереном которого вы являетесь.</Text>
+    <Replace Tag="LOC_NODE_CIVIC_MO_SHAWNEE_MODERNIZATION_NAME" Language="ru_RU">
+      <Text>Модернизация шони</Text>
     </Replace>
     <Replace Tag="LOC_PROFILE_TITLE_TECUMSEH" Language="ru_RU">
       <Text>Вождь</Text>
@@ -1707,60 +1737,87 @@
       <Text>Песнь нашего Создателя звучала в ветре и журчании воды, в птичьей трели, в смехе детей. Он научил нас музыке.</Text>
     </Replace>
     <Replace Tag="LOC_STRATEGYCARD_TECUMSEH_EXPLORATION_1_DESCRIPTION" Language="ru_RU">
-      <Text>Играя за Текумсе, получите доступ к новой карте наследия эпохи исследований:[n]
+      <Text>Играя за Текумсе, получите доступ к новому устремлению в эпоху исследований:[n]
 
 				+3 к боевой мощи для ваших морских юнитов, -10% влияния</Text>
     </Replace>
     <Replace Tag="LOC_STRATEGYCARD_TECUMSEH_EXPLORATION_1_NAME" Language="ru_RU">
-      <Text>Карта военного наследия эпохи исследований</Text>
+      <Text>Военное устремление в эпоху исследований</Text>
     </Replace>
     <Replace Tag="LOC_STRATEGYCARD_TECUMSEH_EXPLORATION_2_DESCRIPTION" Language="ru_RU">
-      <Text>Играя за Текумсе, получите доступ к новой карте наследия эпохи исследований:[n]
+      <Text>Играя за Текумсе, получите доступ к новому устремлению в эпоху исследований:[n]
 
 				+15% влияния, -2 к боевой мощи для морских юнитов</Text>
     </Replace>
     <Replace Tag="LOC_STRATEGYCARD_TECUMSEH_EXPLORATION_2_NAME" Language="ru_RU">
-      <Text>Карта дипломатического наследия эпохи исследований</Text>
+      <Text>Дипломатическое устремление в эпоху исследований</Text>
     </Replace>
     <Replace Tag="LOC_STRATEGYCARD_TECUMSEH_MODERN_1_DESCRIPTION" Language="ru_RU">
-      <Text>Играя за Текумсе, получите доступ к новой карте наследия современной эпохи:[n]
+      <Text>Играя за Текумсе, получите доступ к новому устремлению в современную эпоху:[n]
 
 				+3 к боевой мощи для ваших воздушных юнитов, -10% влияния</Text>
     </Replace>
     <Replace Tag="LOC_STRATEGYCARD_TECUMSEH_MODERN_1_NAME" Language="ru_RU">
-      <Text>Карта военного наследия современной эпохи</Text>
+      <Text>Военное устремление в современную эпоху</Text>
     </Replace>
     <Replace Tag="LOC_STRATEGYCARD_TECUMSEH_MODERN_2_DESCRIPTION" Language="ru_RU">
-      <Text>Играя за Текумсе, получите доступ к новой карте наследия современной эпохи:[n]
+      <Text>Играя за Текумсе, получите доступ к новому устремлению в современную эпоху:[n]
 
 				+15% влияния, -2 к боевой мощи для воздушных юнитов</Text>
     </Replace>
     <Replace Tag="LOC_STRATEGYCARD_TECUMSEH_MODERN_2_NAME" Language="ru_RU">
-      <Text>Карта дипломатического наследия современной эпохи</Text>
+      <Text>Дипломатическое устремление в современную эпоху</Text>
     </Replace>
     <Replace Tag="LOC_TITLE_TECUMSEH_NAME" Language="ru_RU">
       <Text>Вождь</Text>
     </Replace>
-    <Replace Tag="LOC_TRADITION_BREAD_DANCE_DESCRIPTION" Language="ru_RU">
-      <Text>+4 к [icon:YIELD_CULTURE] культуре в [icon:YIELD_TOWNS] фермерских городках и +4 к [icon:YIELD_FOOD] пище у [icon:YIELD_TOWNS] рыбацких городков.</Text>
+    <Replace Tag="LOC_TRADITION_BREAD_DANCE_I_DESCRIPTION" Language="ru_RU">
+      <Text>+4 к [icon:YIELD_CULTURE] культуре в [icon:YIELD_TOWNS] фермерских [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]городках[/TIP] и +4 к [icon:YIELD_FOOD] пище у [icon:YIELD_TOWNS] рыбацких [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]городков[/TIP].</Text>
     </Replace>
-    <Replace Tag="LOC_TRADITION_HELIKHILENAWEWIPE_DESCRIPTION" Language="ru_RU">
+    <Replace Tag="LOC_TRADITION_BREAD_DANCE_II_DESCRIPTION" Language="ru_RU">
+      <Text>+8 к [icon:YIELD_CULTURE] культуре в [icon:YIELD_TOWNS] фермерских [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]городках[/TIP] и +8 к [icon:YIELD_FOOD] пище у [icon:YIELD_TOWNS] рыбацких [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]городков[/TIP].</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_HELIKHILENAWEWIPE_I_DESCRIPTION" Language="ru_RU">
+      <Text>+33% [icon:YIELD_DIPLOMACY] влияния для запуска и продвижения проекта [icon:PROJECT] «Подружиться с независимыми».</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_HELIKHILENAWEWIPE_II_DESCRIPTION" Language="ru_RU">
       <Text>+50% [icon:YIELD_DIPLOMACY] влияния для запуска и продвижения проекта [icon:PROJECT] «Подружиться с независимыми».</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_KAKAWFE_PAFKOTAWETA_DESCRIPTION" Language="ru_RU">
-      <Text>+1 к [icon:YIELD_CULTURE] культуре и +2 к [icon:YIELD_GOLD] золоту каждый раз, когда буря, наводнение или извержение вулкана повышают плодородие в эту эпоху. [icon:CITY_RURAL] Улучшения, [icon:CITY_BUILDING_LIST] здания и [icon:CITY_URBAN] районы не получают урон во время бурь.</Text>
+      <Text>+1 к [icon:YIELD_CULTURE] культуре и +2 к [icon:YIELD_GOLD] золоту каждый раз, когда буря, наводнение или извержение вулкана повышают плодородие в эту эпоху. [icon:CITY_RURAL] [TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]Улучшения[/TIP], [icon:CITY_BUILDING_LIST] [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]здания[/TIP] и [icon:CITY_URBAN] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]районы[/TIP] не получают урон во время бурь.</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_NIWIITIKEEMEKONAAKI_DESCRIPTION" Language="ru_RU">
+      <Text>+1 к [icon:YIELD_CULTURE] культуре в [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]городах[/TIP] от [icon:CITY_RURAL] мауаскауэ скоте за каждый [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]город-государство[/TIP], [TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]сюзереном[/TIP] которого вы являетесь.</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_NIWIITIKEEMEKONAAKI_II_DESCRIPTION" Language="ru_RU">
+      <Text>+2 к [icon:YIELD_CULTURE] культуре в [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]городах[/TIP] от [icon:CITY_RURAL] мауаскауэ скоте за каждый [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]город-государство[/TIP], [TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]сюзереном[/TIP] которого вы являетесь.</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_SHAWNEE_SYNCRETISM_ANTIQUITY_DESCRIPTION" Language="ru_RU">
+      <Text>+1 к [icon:YIELD_DIPLOMACY] влиянию в [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]городах[/TIP] по соседству с [TIP:LOC_PEDIA_CONCEPTS_NAVIGABLE_RIVER_TOOLTIP]судоходными реками[/TIP]. +2 к [icon:YIELD_GOLD] золоту за каждый [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]город-государство[/TIP], [TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]сюзереном[/TIP] которого вы являетесь.</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_SHAWNEE_SYNCRETISM_MODERN_DESCRIPTION" Language="ru_RU">
+      <Text>+2 к [icon:YIELD_DIPLOMACY] влиянию в [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]городах[/TIP] по соседству с [TIP:LOC_PEDIA_CONCEPTS_NAVIGABLE_RIVER_TOOLTIP]судоходными реками[/TIP]. +4 к [icon:YIELD_GOLD] золоту за каждый [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]город-государство[/TIP], [TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]сюзереном[/TIP] которого вы являетесь.</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_SHAWNEE_SYNCRETISM_TOOLTIP" Language="ru_RU">
+      <Text>Стратегические дары</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_TAKESIYAKE_YEPEPOKI_DESCRIPTION" Language="ru_RU">
-      <Text>+2 к [icon:YIELD_PRODUCTION] производству на ландшафте [icon:CITY_UNIMPROVED] тундры, пустыни и равнины в [icon:YIELD_CITIES] городах.</Text>
+      <Text>+2 к [icon:YIELD_PRODUCTION] производству от [icon:CITY_RURAL] [TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]улучшений[/TIP] на ландшафте [icon:CITY_UNIMPROVED] тундры, пустыни и равнины в [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]городах[/TIP]. Эти значения удваиваются, если клетка также является ландшафтом [TIP:LOC_PEDIA_CONCEPTS_NAVIGABLE_RIVER_TOOLTIP]судоходной реки[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_LEADER_TECUMSEH_ABILITY_DESCRIPTION" Language="ru_RU">
-      <Text>[BLIST][LI][B]+1 к [icon:YIELD_FOOD] пище [/B]и к [icon:YIELD_PRODUCTION] [B]производству [/B]за эпоху в [B]поселениях [/B]за каждый [icon:CITYSTATE] [B]город-государство[/B], [B]сюзереном[/B] которого вы являетесь.[LI][B]+1 к [icon:NAR_REW_COMBAT] боевой мощи [/B]всем юнитам за каждый [icon:CITYSTATE] [B]город-государство[/B], [B]сюзереном[/B] которого вы являетесь.[/LIST]</Text>
+      <Text>[BLIST][LI][B]+1 [icon:YIELD_FOOD] пищи[/B] за [TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]эпоху[/TIP] в [B][icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]городках[/TIP][/B] и [B]+1 к [icon:YIELD_PRODUCTION] производству[/B] за эпоху в [B][icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]городах[/TIP][/B] за каждый [B][icon:CITYSTATE][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]город-государство[/TIP][/B], [B][TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]сюзереном[/TIP][/B] которого вы являетесь.[LI][B]+1 к [icon:NAR_REW_COMBAT]боевой мощи[/B] всех [B][TIP:LOC_PEDIA_CONCEPTS_INFANTRY_UNITS_TOOLTIP]пехотных[/TIP][/B] и [B][TIP:LOC_PEDIA_CONCEPTS_RANGED_UNITS_TOOLTIP]дальнобойных[/TIP][/B] юнитов за каждый [B][icon:CITYSTATE][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]город-государство[/TIP][/B], [B][TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]сюзереном[/TIP][/B] которого вы являетесь.[LI][B]+2 к [icon:MILITARY_VP] [TIP:LOC_PEDIA_CONCEPTS_DOMINION_TOOLTIP]господству[/TIP][/B] за каждый [B][icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]город-государство[/TIP][/B], [B][TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]сюзереном[/TIP][/B] которого вы являетесь.[LI]Все [B][icon:INDEPENDENT_POWER] [TIP:LOC_PEDIA_CONCEPTS_INDEPENDENT_POWER_TOOLTIP]независимые силы[/TIP][/B] начинают отношения с вами с уровня [B][icon:PLAYER_RELATIONSHIP_FRIENDLY] «Дружелюбие»[/B].[/BLIST]</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_LEADER_TECUMSEH_ABILITY_NAME" Language="ru_RU">
       <Text>Ничаакиякоолаакве</Text>
     </Replace>
-    <Replace Tag="LOC_TRAIT_SHAWNEE_ABILITY_DESCRIPTION" Language="ru_RU">
-      <Text>[BLIST][LI][B]+2 к [icon:YIELD_FOOD] пище[/B] на [icon:CITY_UNIMPROVED] [B]малых и судоходных реках[/B] в поселениях по соседству с [B]судоходными реками[/B]. [B]-10% [icon:YIELD_FOOD] пищи[/B] в [icon:YIELD_CITIES][B]городах[/B], не соседствующих с [B]судоходными реками[/B].[LI][B]+30%[icon:YIELD_PRODUCTION] производства [/B]при строительстве [B]Змеиного кургана[/B].[/LIST]</Text>
+    <Replace Tag="LOC_TRAIT_SHAWNEE_ABILITY_AQ_DESCRIPTION" Language="ru_RU">
+      <Text>[BLIST][LI][B]+1 к [icon:YIELD_FOOD] пище[/B] от [icon:CITY_RURAL] [TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]улучшений[/TIP] и [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]районов[/TIP] на [icon:CITY_UNIMPROVED] [B]ландшафте малых и судоходных рек[/B] в [B][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]поселениях[/TIP][/B] по соседству с [B]судоходными реками[/B].[/BLIST]</Text>
+    </Replace>
+    <Replace Tag="LOC_TRAIT_SHAWNEE_ABILITY_EX_DESCRIPTION" Language="ru_RU">
+      <Text>[BLIST][LI][B]+2 к [icon:YIELD_FOOD] пище[/B] от [icon:CITY_RURAL] [TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]улучшений[/TIP] и [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]районов[/TIP] на [icon:CITY_UNIMPROVED] [B]ландшафте малых и судоходных рек[/B] в [B][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]поселениях[/TIP][/B] по соседству с [B]судоходными реками[/B].[LI][B]+1 к [icon:RADIAL_RESOURCES]максимуму ресурсов[/B] в [B][icon:NOTIFICATION_SELECT_CAPITAL] столице[/B] за каждый [B][icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]город-государство[/TIP][/B], [B][TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]сюзереном[/TIP][/B] которого вы являетесь.[LI][B]+30%[icon:YIELD_PRODUCTION] производства[/B] при строительстве [B]Змеиного кургана[/B].[/BLIST]</Text>
+    </Replace>
+    <Replace Tag="LOC_TRAIT_SHAWNEE_ABILITY_MO_DESCRIPTION" Language="ru_RU">
+      <Text>[BLIST][LI][B]+3 к [icon:YIELD_FOOD] пище[/B] от [icon:CITY_RURAL] [TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]улучшений[/TIP] и [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]районов[/TIP] на [icon:CITY_UNIMPROVED] [B]ландшафте малых и судоходных рек[/B] в [B][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]поселениях[/TIP][/B] по соседству с [B]судоходными реками[/B].[LI][B]+1 к [icon:RADIAL_RESOURCES]максимуму ресурсов[/B] в [B][icon:NOTIFICATION_SELECT_CAPITAL] столице[/B] за каждый [B][icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]город-государство[/TIP][/B], [B][TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]сюзереном[/TIP][/B] которого вы являетесь.[/BLIST]</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_SHAWNEE_ABILITY_NAME" Language="ru_RU">
       <Text>Непекифаки</Text>
@@ -1772,25 +1829,25 @@
       <Text>Уникальный миссионер шони. +1 к [icon:Action_Move] перемещению. Переход через реки не завершает [icon:Action_Move] перемещение этого юнита.</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_KISPOKO_NENA_TO_2_DESCRIPTION" Language="ru_RU">
-      <Text>Уникальный пехотный юнит шони 2 уровня. +1 к [icon:NAR_REW_COMBAT] боевой мощи за каждый уникальный [icon:RADIAL_RESOURCES] ресурс империи.</Text>
+      <Text>Уникальный [TIP:LOC_PEDIA_CONCEPTS_INFANTRY_UNITS_TOOLTIP]пехотный юнит[/TIP] шони 2-го уровня. +1 к [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]боевой мощи[/TIP] за каждый уникальный [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_EMPIRE_RESOURCES_TOOLTIP]ресурс империи[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_KISPOKO_NENA_TO_3_DESCRIPTION" Language="ru_RU">
-      <Text>Уникальный пехотный юнит шони 3 уровня. +1 к [icon:NAR_REW_COMBAT] боевой мощи за каждый уникальный [icon:RADIAL_RESOURCES] ресурс империи.</Text>
+      <Text>Уникальный [TIP:LOC_PEDIA_CONCEPTS_INFANTRY_UNITS_TOOLTIP]пехотный юнит[/TIP] шони 3-го уровня. +1 к [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]боевой мощи[/TIP] за каждый уникальный [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_EMPIRE_RESOURCES_TOOLTIP]ресурс империи[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_KISPOKO_NENA_TO_BASE_DESCRIPTION" Language="ru_RU">
-      <Text>Уникальный пехотный юнит шони. +1 к [icon:NAR_REW_COMBAT] боевой мощи за каждый уникальный [icon:RADIAL_RESOURCES] ресурс империи.</Text>
+      <Text>Уникальный [TIP:LOC_PEDIA_CONCEPTS_INFANTRY_UNITS_TOOLTIP]пехотный юнит[/TIP] шони. +1 к [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]боевой мощи[/TIP] за каждый уникальный [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_EMPIRE_RESOURCES_TOOLTIP]ресурс империи[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_KISPOKO_NENA_TO_DESCRIPTION" Language="ru_RU">
-      <Text>Уникальный пехотный юнит шони 1 уровня. +1 к [icon:NAR_REW_COMBAT] боевой мощи за каждый уникальный [icon:RADIAL_RESOURCES]ресурс империи.</Text>
+      <Text>Уникальный [TIP:LOC_PEDIA_CONCEPTS_INFANTRY_UNITS_TOOLTIP]пехотный юнит[/TIP] шони 1-го уровня. +1 к [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]боевой мощи[/TIP] за каждый уникальный [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_EMPIRE_RESOURCES_TOOLTIP]ресурс империи[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_CITY_STATES_DESCRIPTION" Language="ru_RU">
-      <Text>Станьте [B]сюзереном[/B] 2 [B]городов-государств[/B].</Text>
+      <Text>Станьте [B][TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]сюзереном[/TIP][/B] 2 [B][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]городов-государств[/TIP][/B].</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_CITY_STATES_TOOLTIP" Language="ru_RU">
       <Text>[B]Шони[/B] состояли в дружественных отношениях со многими народами поменьше.</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_CITY_STATES_UNLOCK" Language="ru_RU">
-      <Text>Вы открыли шони, став сюзереном 2 городов-государств.</Text>
+      <Text>Вы открыли шони, став [TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]сюзереном[/TIP] 2 [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]городов-государств[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_HIDES_DESCRIPTION" Language="ru_RU">
       <Text>Улучшите 3 [B]шкуры[/B].</Text>
@@ -1805,13 +1862,16 @@
       <Text>[B]Миссисипцы[/B] были современниками предков [B]шони[/B].</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_PLAY_AS_SHAWNEE_AMERICA_TOOLTIP" Language="ru_RU">
-      <Text>[B]Шони[/B] были на том же континенте, где находилась [B]Мексика[/b].</Text>
+      <Text>[B]Шони[/B] были на том же континенте, где находилась [B]Америка[/b].</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_PLAY_AS_SHAWNEE_DESCRIPTION" Language="ru_RU">
       <Text>Играйте за [B]шони[/B].</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_PLAY_AS_SHAWNEE_MEXICO_TOOLTIP" Language="ru_RU">
       <Text>[B]Шони[/B] были на том же континенте, где находилась [B]Мексика[/b].</Text>
+    </Replace>
+    <Replace Tag="LOC_UNLOCK_PLAY_AS_SHAWNEE_SHAWNEE_TOOLTIP" Language="ru_RU">
+      <Text>[B]Шони[/B] способны выстоять на протяжении эпох.</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_PLAY_AS_TECUMSEH_AMERICA_TOOLTIP" Language="ru_RU">
       <Text>[B]Текумсе[/B] жил в землях, позднее захваченных [B]Америкой[/B].</Text>
@@ -1834,16 +1894,13 @@
       <Text>[B]Текумсе[/B] правил [B]шони[/B].</Text>
     </Replace>
     <Replace Tag="LOC_WONDER_SERPENT_MOUND_DESCRIPTION" Language="ru_RU">
-      <Text>+4 к [icon:YIELD_DIPLOMACY] влиянию. +3 к [icon:YIELD_SCIENCE] науке и +2 к [icon:YIELD_PRODUCTION] производству для всех [icon:CITY_RURAL] уникальных улучшений в этом поселении. Не устаревает. Можно разместить только на лугу.</Text>
+      <Text>+4 к [icon:YIELD_DIPLOMACY] влиянию. +3 к [icon:YIELD_SCIENCE] науке и +2 к [icon:YIELD_PRODUCTION] производству для всех [icon:CITY_RURAL] [TIP:LOC_PEDIA_CONCEPTS_UNIQUE_IMPROVEMENT_TOOLTIP]уникальных улучшений[/TIP] в этом [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]поселении[/TIP]. [TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]Не устаревает[/TIP]. Размещается на лугу.</Text>
     </Replace>
     <Replace Tag="LOC_WONDER_SERPENT_MOUND_TOOLTIP" Language="ru_RU">
-      <Text>+3 к [icon:YIELD_SCIENCE] науке и +2 к [icon:YIELD_PRODUCTION] производству для всех [icon:CITY_RURAL] уникальных улучшений в этом поселении.[N]Размещается только на лугу.</Text>
+      <Text>+3 к [icon:YIELD_SCIENCE] науке и +2 к [icon:YIELD_PRODUCTION] производству для всех [icon:CITY_RURAL] [TIP:LOC_PEDIA_CONCEPTS_UNIQUE_IMPROVEMENT_TOOLTIP]уникальных улучшений[/TIP] в этом [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]поселении[/TIP].[N]Размещается только на лугу.</Text>
     </Replace>
     <Replace Tag="LOC_KISPOKO_NENA_TO_RESOURCE_COMBAT_DESCRIPTION" Language="ru_RU">
-      <Text>+{1_Amount} к уникальным ресурсам империи</Text>
-    </Replace>
-    <Replace Tag="LOC_KISPOKO_NENA_TO_SUPPORT_COMBAT_DESCRIPTION" Language="ru_RU">
-      <Text>Телватики: +{1_Value}</Text>
+      <Text>+{1_Amount} к уникальным [TIP:LOC_PEDIA_CONCEPTS_EMPIRE_RESOURCES_TOOLTIP]ресурсам империи[/TIP]</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_TECUMSEH_WARCLUB_COMBAT_PREVIEW" Language="ru_RU">
       <Text>Памятный предмет «Боевая дубинка»: +{1_Amount}</Text>
@@ -1860,20 +1917,50 @@
     <Replace Tag="LOC_UNLOCK_HIDES_NARRATIVE" Language="ru_RU">
       <Text>Лесные звероловы входят в город на рассвете, сгибаясь под тяжестью выдубленных и растянутых шкур, которые они собираются продать на рынке. Их встречают — иногда даже за воротами — торговцы, жаждущие купить товар, ведь шкуры стали жизненно важными для {1_Civilization_Adj[3]}ой экономики... как и их добытчики. </Text>
     </Replace>
-    <Replace Tag="LOC_TRADITION_BREAD_DANCE_NAME" Language="ru_RU">
-      <Text>Хлебный танец|Хлебного танца|Хлебному танцу|Хлебный танец|Хлебным танецем|Хлебном танце</Text>
+    <Replace Tag="LOC_TRADITION_BREAD_DANCE_I_NAME" Language="ru_RU">
+      <Text>Хлебный танец I|Хлебного танца I|Хлебному танцу I|Хлебный танец I|Хлебным танецем I|Хлебном танце I</Text>
       <Gender>masculine</Gender>
       <Plurality>1</Plurality>
     </Replace>
-    <Replace Tag="LOC_TRADITION_HELIKHILENAWEWIPE_NAME" Language="ru_RU">
-      <Text>Гелихиленаувипе|Гелихиленаувипе|Гелихиленаувипе|Гелихиленаувипе|Гелихиленаувипе|Гелихиленаувипе</Text>
-      <Gender>feminine</Gender>
+    <Replace Tag="LOC_TRADITION_BREAD_DANCE_II_NAME" Language="ru_RU">
+      <Text>Хлебный танец II|Хлебного танца II|Хлебному танцу II|Хлебный танец II|Хлебным танцем II|Хлебном танце II</Text>
+      <Gender>masculine</Gender>
+      <Plurality>1</Plurality>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_HELIKHILENAWEWIPE_I_NAME" Language="ru_RU">
+      <Text>Гелихиленаувипе I</Text>
+      <Gender>neuter</Gender>
+      <Plurality>1</Plurality>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_HELIKHILENAWEWIPE_II_NAME" Language="ru_RU">
+      <Text>Гелихиленаувипе II</Text>
+      <Gender>neuter</Gender>
       <Plurality>1</Plurality>
     </Replace>
     <Replace Tag="LOC_TRADITION_KAKAWFE_PAFKOTAWETA_NAME" Language="ru_RU">
       <Text>Какауфе Пафкотавета|Какауфе Пафкотавета|Какауфе Пафкотавета|Какауфе Пафкотавета|Какауфе Пафкотавета|Какауфе Пафкотавета</Text>
       <Gender>feminine</Gender>
       <Plurality>1</Plurality>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_NIWIITIKEEMEKONAAKI_II_NAME" Language="ru_RU">
+      <Text>Нивиитикимеконааки II</Text>
+      <Gender>neuter</Gender>
+      <Plurality>1</Plurality>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_NIWIITIKEEMEKONAAKI_NAME" Language="ru_RU">
+      <Text>Нивиитикимеконааки I</Text>
+      <Gender>neuter</Gender>
+      <Plurality>1</Plurality>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_SHAWNEE_SYNCRETISM_ANTIQUITY_NAME" Language="ru_RU">
+      <Text>Стратегические дары I|Стратегических даров I|Стратегическим дарам I|Стратегические дары I|Стратегическими дарами I|Стратегических дарах I</Text>
+      <Gender>masculine</Gender>
+      <Plurality>2</Plurality>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_SHAWNEE_SYNCRETISM_MODERN_NAME" Language="ru_RU">
+      <Text>Стратегические дары II|Стратегических даров II|Стратегическим дарам II|Стратегические дары II|Стратегическими дарами II|Стратегических дарах II</Text>
+      <Gender>masculine</Gender>
+      <Plurality>2</Plurality>
     </Replace>
     <Replace Tag="LOC_TRADITION_TAKESIYAKE_YEPEPOKI_NAME" Language="ru_RU">
       <Text>Такэсиякэ Епэпоки|Такэсиякэ Епэпоки|Такэсиякэ Епэпоки|Такэсиякэ Епэпоки|Такэсиякэ Епэпоки|Такэсиякэ Епэпоки</Text>

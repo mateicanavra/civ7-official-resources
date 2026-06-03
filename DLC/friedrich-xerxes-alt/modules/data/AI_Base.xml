@@ -1,44 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Database>
 	<AiListTypes>
-
 		<!-- Leader Yield biases -->
-		<Row ListType="Fredrich Baroque Yield Biases"/>
+		<Row ListType="Friedrich Baroque Yield Biases"/>
+		<Row ListType="Friedrich Baroque Diplomacy Biases"/>
 		<Row ListType="Xerxes Achaemenid Yield Biases"/>
+		<Row ListType="Xerxes Achaemenid Diplomacy Biases"/>
 
 		<!-- Leader Psuedoyield Biases -->
 		<Row ListType="Xerxes Achaemenid Pseudoyield Biases"/>
 
 		<!-- Leader Tag Biases -->
-		<Row ListType="Fredrich Baroque Tag Biases"/>
-
+		<Row ListType="Friedrich Baroque Tag Biases"/>
 	</AiListTypes>
 	<AiLists>
-
 		<!-- Leader Yield Biases -->
-		<Row ListType="Fredrich Baroque Yield Biases" LeaderType="TRAIT_LEADER_FRIEDRICH_ALT_ABILITY" System="YieldBiases"/>
+		<Row ListType="Friedrich Baroque Yield Biases" LeaderType="TRAIT_LEADER_FRIEDRICH_ALT_ABILITY" System="YieldBiases"/>
+		<Row ListType="Friedrich Baroque Diplomacy Biases" LeaderType="TRAIT_LEADER_FRIEDRICH_ALT_ABILITY" System="DiplomaticGroupBiases"/>
 		<Row ListType="Xerxes Achaemenid Yield Biases" LeaderType="TRAIT_LEADER_XERXES_ALT_ABILITY" System="YieldBiases"/>
+		<Row ListType="Xerxes Achaemenid Diplomacy Biases" LeaderType="TRAIT_LEADER_XERXES_ALT_ABILITY" System="DiplomaticGroupBiases"/>
 
 		<!-- Leader Psuedoyield Biases -->
 		<Row ListType="Xerxes Achaemenid Pseudoyield Biases" LeaderType="TRAIT_LEADER_XERXES_ALT_ABILITY" System="PseudoYieldBiases"/>
 
 		<!-- Leader Tag Biases -->
-		<Row ListType="Fredrich Baroque Tag Biases" LeaderType="TRAIT_LEADER_FRIEDRICH_ALT_ABILITY" System="TagBiases"/>
-
+		<Row ListType="Friedrich Baroque Tag Biases" LeaderType="TRAIT_LEADER_FRIEDRICH_ALT_ABILITY" System="TagBiases"/>
 	</AiLists>
 	<AiFavoredItems>
-
 		<!-- Leader Yield Biases -->
-		<Row ListType="Fredrich Baroque Yield Biases" Item="YIELD_HAPPINESS" Value="50"/>
-		<Row ListType="Fredrich Baroque Yield Biases" Item="YIELD_PRODUCTION" Value="25"/>
+		<Row ListType="Friedrich Baroque Yield Biases" Item="YIELD_HAPPINESS" Value="50"/>
+		<Row ListType="Friedrich Baroque Yield Biases" Item="YIELD_PRODUCTION" Value="25"/>
+		<Row ListType="Friedrich Baroque Diplomacy Biases" Item="DIPLOMACY_ACTION_BECOME_SUZERAIN" Value="50"/>
+		<Row ListType="Friedrich Baroque Diplomacy Biases" Item="DIPLOMACY_ACTION_GROUP_ENDEAVOR" Value="25"/>
 		<Row ListType="Xerxes Achaemenid Yield Biases" Item="YIELD_HAPPINESS" Value="50"/>
 		<Row ListType="Xerxes Achaemenid Yield Biases" Item="YIELD_CULTURE" Value="25"/>
+		<Row ListType="Xerxes Achaemenid Diplomacy Biases" Item="DIPLOMACY_ACTION_BECOME_SUZERAIN" Value="50"/>
+		<Row ListType="Xerxes Achaemenid Diplomacy Biases" Item="DIPLOMACY_ACTION_GROUP_ENDEAVOR" Value="25"/>
+		<Row ListType="Xerxes Achaemenid Diplomacy Biases" Item="DIPLOMACY_ACTION_IMPROVE_TRADE_RELATIONS" Value="25"/>
 
 		<!-- Leader Psuedoyield Biases -->
 		<Row ListType="Xerxes Achaemenid Pseudoyield Biases" Item="PSEUDOYIELD_RESOURCE_IMPORT" Value="50"/>
 
 		<!-- Leader Tag Biases -->
-		<Row ListType="Fredrich Baroque Tag Biases" Item="MILITARY" Value="100"/>
-
+		<Row ListType="Friedrich Baroque Tag Biases" Item="MILITARY" Value="100"/>
 	</AiFavoredItems>
 </Database>

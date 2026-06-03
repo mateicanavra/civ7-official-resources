@@ -1,15 +1,7 @@
 import ContextManager from '../context-manager/context-manager.js';
 import ActionHandler from './action-handler.js';
 import Cursor, { CursorUpdatedEventName } from './cursor.js';
-import { V as ViewManager } from '../views/view-manager.chunk.js';
-import '../context-manager/display-queue-manager.js';
-import '../dialog-box/manager-dialog-box.chunk.js';
-import '../framework.chunk.js';
-import './focus-manager.js';
-import '../audio-base/audio-support.chunk.js';
-import '../panel-support.chunk.js';
-import './input-support.chunk.js';
-import '../utilities/utilities-update-gate.chunk.js';
+import ViewManager from '../views/view-manager.js';
 
 const plotCursorModes = [
   {
@@ -307,7 +299,11 @@ class PlotCursorSingleton {
         if (this.miniCursorMarker == null) {
           this.miniCursorMarker = WorldUI.createFixedMarker({ x, y, z: 0 });
           if (this.miniCursorMarker != null) {
-            this.miniCursorModelGroup.addVFX("VFX_3dUI_PlotCursor_Free", { marker: this.miniCursorMarker }, { scale: 1, placement: PlacementMode.WATER });
+            this.miniCursorModelGroup.addVFX(
+              "VFX_3dUI_PlotCursor_Free",
+              { marker: this.miniCursorMarker },
+              { scale: 1, placement: PlacementMode.WATER }
+            );
           }
         } else {
           WorldUI.moveFixedMarkerImmediate(this.miniCursorMarker, { x, y, z: 0 });

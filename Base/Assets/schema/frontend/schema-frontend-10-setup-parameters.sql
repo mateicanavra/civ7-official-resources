@@ -95,6 +95,7 @@ CREATE TABLE 'Parameters'(
 	'SupportsSinglePlayer' BOOLEAN NOT NULL DEFAULT 1,
 	'SupportsLANMultiplayer' BOOLEAN NOT NULL DEFAULT 1,
 	'SupportsInternetMultiplayer' BOOLEAN NOT NULL DEFAULT 1,
+	'SupportsHotseatMultiplayer' BOOLEAN NOT NULL DEFAULT 1,
 	'IsUGC' BOOLEAN NOT NULL DEFAULT 0,
 	'ChangeableAfterGameStart' BOOLEAN NOT NULL DEFAULT 0,
 	'ChangeableAfterAgeTransition' BOOLEAN NOT NULL DEFAULT 1,

@@ -1,35 +1,13 @@
-import { A as Audio } from '../../../core/ui/audio-base/audio-support.chunk.js';
+import { Audio } from '../../../core/ui/audio-base/audio-support.js';
 import { DisplayQueueManager } from '../../../core/ui/context-manager/display-queue-manager.js';
-import FocusManager from '../../../core/ui/input/focus-manager.js';
-import { b as InputEngineEventName } from '../../../core/ui/input/input-support.chunk.js';
-import { N as NavTray } from '../../../core/ui/navigation-tray/model-navigation-tray.chunk.js';
-import { P as Panel } from '../../../core/ui/panel-support.chunk.js';
-import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.chunk.js';
-import { V as VictoryProgress } from './model-victory-progress.chunk.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/input/action-handler.js';
-import '../../../core/ui/input/cursor.js';
-import '../../../core/ui/views/view-manager.chunk.js';
-import '../../../core/ui/utilities/utilities-update-gate.chunk.js';
-import '../../../core/ui/utilities/utilities-image.chunk.js';
-import '../../../core/ui/utilities/utilities-component-id.chunk.js';
-import '../../../core/ui/context-manager/context-manager.js';
-import '../../../core/ui/dialog-box/manager-dialog-box.chunk.js';
-import '../cinematic/cinematic-manager.chunk.js';
-import '../../../core/ui/interface-modes/interface-modes.js';
-import '../endgame/screen-endgame.js';
-import '../../../core/ui/tooltips/tooltip-manager.js';
-import '../../../core/ui/input/plot-cursor.js';
-import '../../../core/ui/utilities/utilities-layout.chunk.js';
-import '../../../core/ui/utilities/utilities-color.chunk.js';
-import '../../../core/ui/graph-layout/utils.chunk.js';
-import '../end-results/end-results.js';
-import '../endgame/model-endgame.js';
-import '../victory-manager/victory-manager.chunk.js';
-
-const content = "<div class=\"victory-bg fixed inset-0 bg-no-repeat bg-cover\"></div>\r\n<fxs-frame\r\n\tclass=\"victory-progress h-full\"\r\n\tid=\"victory-progress-frame\"\r\n\tsubtitle=\"LOC_UI_AGE_SCORES_SUBTITLE\"\r\n\ttitle=\"LOC_UI_AGE_SCORES_TITLE\"\r\n>\r\n\t<div class=\"primary-window flow-column flex-auto items-center\"></div>\r\n</fxs-frame>\r\n";
-
-const styles = "fs://game/base-standard/ui/victory-progress/screen-victory-progress.css";
+import { InputEngineEventName } from '../../../core/ui/input/input-support.js';
+import NavTray from '../../../core/ui/navigation-tray/model-navigation-tray.js';
+import Panel from '../../../core/ui/panel-support.js';
+import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
+import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
+import VictoryProgress from './model-victory-progress.js';
+import content from './screen-victory-progress.html.js';
+import styles from './screen-victory-progress.scss.js';
 
 var VictoryProgressOpenTab = /* @__PURE__ */ ((VictoryProgressOpenTab2) => {
   VictoryProgressOpenTab2[VictoryProgressOpenTab2["None"] = 0] = "None";
@@ -91,6 +69,7 @@ class ScreenVictoryProgress extends Panel {
     this.goToEndGameOnClose = false;
     const closeButton = document.createElement("fxs-close-button");
     closeButton.addEventListener("action-activate", this.closeButtonListener);
+    closeButton.classList.add("top-1", "right-1");
     const uiViewExperience = UI.getViewExperience();
     if (uiViewExperience == UIViewExperience.Mobile) {
       frame.appendChild(closeButton);
@@ -156,10 +135,10 @@ class ScreenVictoryProgress extends Panel {
     if (enabledLegacyPaths && enabledLegacyPaths.length > 0) {
       NavTray.clear();
       this.updateNavTray();
-      FocusManager.setFocus(this.advisorPanels[this.ageRankTabIndex]);
+      FocusManager.get().setFocus(this.advisorPanels[this.ageRankTabIndex]);
     } else {
       NavTray.addOrUpdateGenericBack();
-      FocusManager.setFocus(MustGetElement(".progression_disabled-container", this.Root));
+      FocusManager.get().setFocus(MustGetElement(".progression_disabled-container", this.Root));
     }
   }
   onLoseFocus() {
@@ -401,7 +380,7 @@ class ScreenVictoryProgress extends Panel {
           MustGetElement(".progression_nav", this.Root).setAttribute("selected-tab-index", "1");
           this.topTabIndex = 1;
           this.updateNavTray();
-          FocusManager.setFocus(this.victoryPanels[0]);
+          FocusManager.get().setFocus(this.victoryPanels[0]);
           break;
         default:
           break;
@@ -492,10 +471,10 @@ class ScreenVictoryProgress extends Panel {
         this.updateNavTray();
         this.topTabBar.setAttribute("selected-tab-index", `${this.topTabIndex}`);
         if (this.topTabIndex == 1) {
-          FocusManager.setFocus(this.victoryPanels[this.victoryTabIndex]);
+          FocusManager.get().setFocus(this.victoryPanels[this.victoryTabIndex]);
         }
         if (this.topTabIndex == 0) {
-          FocusManager.setFocus(this.advisorPanels[this.ageRankTabIndex]);
+          FocusManager.get().setFocus(this.advisorPanels[this.ageRankTabIndex]);
         }
         navigationEvent.preventDefault();
         navigationEvent.stopImmediatePropagation();
@@ -527,7 +506,7 @@ class ScreenVictoryProgress extends Panel {
           }
           this.updateNavTray();
           this.victoryTabBar.setAttribute("selected-tab-index", `${this.victoryTabIndex}`);
-          FocusManager.setFocus(this.victoryPanels[this.victoryTabIndex]);
+          FocusManager.get().setFocus(this.victoryPanels[this.victoryTabIndex]);
           navigationEvent.preventDefault();
           navigationEvent.stopImmediatePropagation();
         }

@@ -1,0 +1,46 @@
+/**
+Based on Robert Penner's easing equations
+@url http://robertpenner.com/easing/
+**/
+.screen-tech-tree-chooser {
+  position: absolute;
+  top: 8.7777777778rem;
+  bottom: 1rem;
+  left: 0.8888888889rem;
+  min-width: 24.1666666667rem;
+  pointer-events: auto;
+}
+@media (experience: mobile) {
+  .screen-tech-tree-chooser {
+    top: 3.0555555556rem;
+    bottom: 0;
+    left: -0.8888888889rem;
+    min-width: 35.4444444444rem;
+  }
+}
+
+.tech-tree-currently-studying {
+  position: relative;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.4444444444rem;
+  pointer-events: auto;
+}
+@media (experience: mobile) {
+  .tech-tree-currently-studying {
+    min-width: 27.7777777778rem;
+  }
+}
+
+.tech-tree-list {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+@media (experience: mobile) {
+  .tech-tree-list {
+    min-width: 27.7777777778rem;
+  }
+}

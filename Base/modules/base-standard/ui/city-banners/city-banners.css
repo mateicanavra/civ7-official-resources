@@ -163,7 +163,13 @@
   display: flex;
 }
 .city-banner.city-banner--city .city-banner__capital-star {
-  margin-top: -0.0555555556rem;
+  margin-top: 0.1111111111rem;
+}
+.city-banner.city-banner--city .city-banner__original-capital-curr-star {
+  margin-top: 0.1111111111rem;
+}
+.city-banner.city-banner--city .city-banner__original-capital-star {
+  margin-top: 0.1111111111rem;
 }
 .city-banner.city-banner--city .city-banner__stretch {
   top: 1.3333333333rem;
@@ -535,7 +541,26 @@
 }
 
 .city-banner__capital-star {
-  background-image: url("blp:icon-capital.png");
-  margin-top: 0.2222222222rem;
-  margin-right: -0.3333333333rem;
+  background-image: url("blp:fi_city_capital_icon_curr_64.png");
+  margin-top: 0.4444444444rem;
+  margin-right: -0.2222222222rem;
+  margin-left: 0.2222222222rem;
+}
+
+.city-banner__original-capital-curr-star {
+  background-image: url("blp:fi_city_capital_icon_og_curr_64.png");
+  margin-top: 0.4444444444rem;
+  margin-right: -0.2222222222rem;
+  margin-left: 0.2222222222rem;
+}
+
+.city-banner__original-capital-star {
+  background-image: url("blp:fi_city_capital_icon_og_64.png");
+  margin-top: 0.4444444444rem;
+  margin-right: -0.2222222222rem;
+  margin-left: 0.2222222222rem;
+}
+
+.city-banner__town-original-capital-star {
+  margin-top: 0.0555555556rem;
 }

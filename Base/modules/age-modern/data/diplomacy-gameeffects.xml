@@ -65,4 +65,23 @@
 		<Argument name="MostExpensive">true</Argument>
 		<Argument name="Amount">4</Argument>
 	</Modifier>
+	<Modifier id="PLAYER_DIPLOMACY_WORKER_DISRUPTION_WONDERS" collection="COLLECTION_OWNER" effect="EFFECT_DAE_COOPERATIVE_ATTACH_MODIFIER">
+		<Argument name="InitialPlayerAccept">MOD_WORKER_DISRUPTION_NO_EFFECT</Argument>
+		<Argument name="TargetPlayerAccept">MOD_WORKER_DISRUPTION_WONDERS</Argument>
+		<Argument name="InitialPlayerSupport">MOD_WORKER_DISRUPTION_NO_EFFECT</Argument>
+		<Argument name="TargetPlayerSupport">MOD_WORKER_DISRUPTION_NO_EFFECT</Argument>
+	</Modifier>
+	<Modifier id="PLAYER_DIPLOMACY_WORKER_DISRUPTION_PROJECTS" collection="COLLECTION_OWNER" effect="EFFECT_DAE_COOPERATIVE_ATTACH_MODIFIER">
+		<Argument name="InitialPlayerAccept">MOD_WORKER_DISRUPTION_NO_EFFECT</Argument>
+		<Argument name="TargetPlayerAccept">MOD_WORKER_DISRUPTION_PROJECTS</Argument>
+		<Argument name="InitialPlayerSupport">MOD_WORKER_DISRUPTION_NO_EFFECT</Argument>
+		<Argument name="TargetPlayerSupport">MOD_WORKER_DISRUPTION_NO_EFFECT</Argument>
+	</Modifier>
+		<Modifier id="MOD_WORKER_DISRUPTION_NO_EFFECT" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_DO_NOTHING"/>
+		<Modifier id="MOD_WORKER_DISRUPTION_WONDERS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_WONDER_PRODUCTION">
+		<Argument name="Percent">-50</Argument>
+	</Modifier>
+	<Modifier id="MOD_WORKER_DISRUPTION_PROJECTS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_PROJECT_PRODUCTION">
+		<Argument name="Percent">-50</Argument>
+	</Modifier>
 </GameEffects>

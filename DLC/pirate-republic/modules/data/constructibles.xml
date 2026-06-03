@@ -10,9 +10,9 @@
 	</TypeQuotes>
 	<Constructibles>
 		<!--Civ Unique Improvements-->
-		<Row ConstructibleType="BUILDING_NAVAL_ARSENAL" Name="LOC_BUILDING_NAVAL_ARSENAL_NAME" Description="LOC_BUILDING_NAVAL_ARSENAL_DESCRIPTION" Tooltip="LOC_BUILDING_NAVAL_ARSENAL_TOOLTIP" ConstructibleClass="BUILDING" Cost="240" Population="1" RequiresUnlock="true" Age="AGE_EXPLORATION" CostProgressionModel="COST_PROGRESSION_PREVIOUS_BUILDINGS_CITY"/>
-		<Row ConstructibleType="BUILDING_NAVAL_STATION" Name="LOC_BUILDING_NAVAL_STATION_NAME" Description="LOC_BUILDING_NAVAL_STATION_DESCRIPTION" Tooltip="LOC_BUILDING_NAVAL_STATION_TOOLTIP" ConstructibleClass="BUILDING" Cost="280" Population="1" RequiresUnlock="true" Age="AGE_EXPLORATION" CostProgressionModel="COST_PROGRESSION_PREVIOUS_BUILDINGS_CITY"/>
-		<Row ConstructibleType="WONDER_HAVANA_HARBOR" Name="LOC_WONDER_HAVANA_HARBOR_NAME" Description="LOC_WONDER_HAVANA_HARBOR_DESCRIPTION" Tooltip="LOC_WONDER_HAVANA_HARBOR_TOOLTIP" RequiresDistantLands="true" ConstructibleClass="WONDER" Cost="400" Population="0" ImmuneDamage="true" RequiresUnlock="true" Age="AGE_EXPLORATION"/>
+		<Row ConstructibleType="BUILDING_NAVAL_ARSENAL" Name="LOC_BUILDING_NAVAL_ARSENAL_NAME" Description="LOC_BUILDING_NAVAL_ARSENAL_DESCRIPTION" Tooltip="LOC_BUILDING_NAVAL_ARSENAL_TOOLTIP" ConstructibleClass="BUILDING" Cost="240" Population="1" Age="AGE_EXPLORATION" CostProgressionModel="COST_PROGRESSION_PREVIOUS_BUILDINGS_CITY"/>
+		<Row ConstructibleType="BUILDING_NAVAL_STATION" Name="LOC_BUILDING_NAVAL_STATION_NAME" Description="LOC_BUILDING_NAVAL_STATION_DESCRIPTION" Tooltip="LOC_BUILDING_NAVAL_STATION_TOOLTIP" ConstructibleClass="BUILDING" Cost="280" Population="1" Age="AGE_EXPLORATION" CostProgressionModel="COST_PROGRESSION_PREVIOUS_BUILDINGS_CITY"/>
+		<Row ConstructibleType="WONDER_HAVANA_HARBOR" Name="LOC_WONDER_HAVANA_HARBOR_NAME" Description="LOC_WONDER_HAVANA_HARBOR_DESCRIPTION" Tooltip="LOC_WONDER_HAVANA_HARBOR_TOOLTIP" RequiresDistantLands="true" ConstructibleClass="WONDER" Cost="525" Population="0" ImmuneDamage="true" RequiresUnlock="true" Age="AGE_EXPLORATION"/>
 	</Constructibles>
 	<Buildings>
 		<!--Civ Unique Improvements-->
@@ -75,19 +75,17 @@
 	</Constructible_Plunders>
 	<Constructible_BuildingCostProgressions>
 		<Row ConstructibleType="BUILDING_NAVAL_ARSENAL" Percent="5" />
-		<Row ConstructibleType="BUILDING_NAVAL_STATION" Percent="5" />
+		<Row ConstructibleType="BUILDING_NAVAL_STATION" Percent="0" />
 	</Constructible_BuildingCostProgressions>
 	<UniqueQuarters>
 		<Row UniqueQuarterType="QUARTER_HAVEN" BuildingType1="BUILDING_NAVAL_ARSENAL" BuildingType2="BUILDING_NAVAL_STATION" Name="LOC_QUARTER_HAVEN_NAME" Description="LOC_QUARTER_HAVEN_DESCRIPTION" Tooltip="LOC_QUARTER_HAVEN_TOOLTIP" TraitType="TRAIT_PIRATE_REPUBLIC"/>
 	</UniqueQuarters>
 	<GameModifiers>
 		<!-- Unique Quarter modifiers are game-wide -->
-		<Row ModifierId="MOD_TREASURE_CITY_FLAT_GOLD"/>
 		<Row ModifierId="MOD_HAVEN_HEAL_NAVAL_UNITS"/>
 	</GameModifiers>
 	<!-- These are listed here so the AI can evalutate Unique Quarters. They do not have any effects on the game for human players. -->
 	<UniqueQuarterModifiers>
-		<Row UniqueQuarterType="QUARTER_HAVEN" ModifierId="MOD_TREASURE_CITY_FLAT_GOLD"/>
 		<Row UniqueQuarterType="QUARTER_HAVEN" ModifierId="MOD_HAVEN_HEAL_NAVAL_UNITS"/>
 	</UniqueQuarterModifiers>
 	<ConstructibleModifiers>
@@ -99,4 +97,7 @@
 		<Row ConstructibleType="BUILDING_NAVAL_STATION" AdvisoryClassType="ADVISORY_CLASS_MILITARY"/>
 		<Row ConstructibleType="WONDER_HAVANA_HARBOR" AdvisoryClassType="ADVISORY_CLASS_ECONOMIC"/>
 	</Constructible_Advisories>
+	<MetaprogressionModifiers>
+		<Row ModifierId="METAPROGRESSION_CHALLENGE_PIRATE_REPUBLIC_COMPLETE_HAVANA_HARBOR_ACHIEVED" RequiredCivilizationType="CIVILIZATION_PIRATE_REPUBLIC" />
+	</MetaprogressionModifiers>
 </Database>

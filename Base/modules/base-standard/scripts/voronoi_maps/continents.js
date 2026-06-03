@@ -1,257 +1,65 @@
 import { RandomImpl } from '../random-pcg-32.js';
-import { WrapType, MapDims, VoronoiUtils } from '../kd-tree.js';
-import { GeneratorType } from '../voronoi_generators/map-generator.js';
-import { VoronoiMap } from './map-common.js';
-import '../../../core/scripts/external/TypeScript-Voronoi-master/src/voronoi.js';
-import '../../../core/scripts/external/TypeScript-Voronoi-master/src/rbtree.js';
-import '../../../core/scripts/external/TypeScript-Voronoi-master/src/vertex.js';
-import '../../../core/scripts/external/TypeScript-Voronoi-master/src/edge.js';
-import '../../../core/scripts/external/TypeScript-Voronoi-master/src/cell.js';
-import '../../../core/scripts/external/TypeScript-Voronoi-master/src/diagram.js';
-import '../../../core/scripts/external/TypeScript-Voronoi-master/src/halfedge.js';
-import '../../../core/scripts/MathHelpers.js';
-import '../voronoi-builder.js';
-import '../voronoi-hex.js';
-import '../heap.js';
-import '../voronoi_generators/continent-generator.js';
-import '../quadtree.js';
-import '../voronoi_rules/near-other-region.js';
-import '../../../core/scripts/external/TypeScript-Voronoi-master/src/site.js';
-import '../voronoi_rules/rules-base.js';
-import '../voronoi-region.js';
-import '../voronoi_rules/avoid-edge.js';
-import '../voronoi_rules/avoid-other-regions.js';
-import '../voronoi_rules/cell-area.js';
-import '../voronoi_rules/near-map-center.js';
-import '../voronoi_rules/near-neighbor.js';
-import '../voronoi_rules/near-plate-boundary.js';
-import '../voronoi_rules/near-region-seed.js';
-import '../voronoi_rules/neighbors-in-region.js';
-import '../voronoi_rules/prefer-latitude.js';
+import { VoronoiUtils } from '../voronoi-utils.js';
+import continentSettings from '../voronoi_data/continents.mapconfig.js';
+import { continentGeneratorSchema, ContinentGenerator, continentGeneratorRulesSettings } from '../voronoi_generators/continent-generator.js';
+import { voronoiMapSchema, VoronoiMap } from './map-common.js';
 
-const continentSettings = {
-  "generatorKey": 0,
-  "mapConfig": {
-    "totalLandmassSize": 42,
-    "minLandmassSize": 16
+const continentsSchema = {
+  ...voronoiMapSchema,
+  totalLandmassSize: {
+    label: "Total Landmass Size",
+    description: "The total percentage of land to be taken up by the major landmasses.",
+    default: 32,
+    min: 20,
+    max: 50,
+    step: 0.25
   },
-  "generatorConfig": {
-    "plate": {
-      "plateRotationMultiple": 5
-    },
-    "landmass": [
-      {
-        "variance": 5,
-        "erosionPercent": 4,
-        "coastalIslands": 12
-      },
-      {
-        "variance": 5,
-        "erosionPercent": 4,
-        "coastalIslands": 12
-      }
-    ],
-    "island": {
-      "totalSize": 5.5,
-      "variance": 1,
-      "meridianDistance": 3,
-      "landmassDistance": 5,
-      "erosionPercent": 15
-    },
-    "mountain": {
-      "percent": 12,
-      "randomize": 35
-    }
-  },
-  "rulesConfig": {
-    "Plates": {
-      "Cell Area.weight": 0.15,
-      "Near Neighbor.weight": 0.8,
-      "Near Neighbor.scaleFactor": 0.5,
-      "Near Region Seed.weight": 0.02,
-      "Neighbors In Region.weight": 0.6,
-      "Neighbors In Region.preferredNeighborCount": 6,
-      "Neighbors In Region.deviation": 3
-    },
-    "Landmasses": {
-      "Avoid Edge.weight": 1,
-      "Avoid Edge.poleDistanceFalloff": 2,
-      "Avoid Edge.poleFalloffCurve": 0.2,
-      "Avoid Edge.polePerturbationScale": 3,
-      "Avoid Edge.polePerturbationWavelength": 2,
-      "Avoid Edge.meridianDistanceFalloff": 6,
-      "Avoid Edge.meridianFalloffCurve": 0.5,
-      "Avoid Edge.avoidCorners": 12,
-      "Cell Area.weight": 0.01,
-      "Near Neighbor.weight": 0.75,
-      "Near Region Seed.weight": 0.05,
-      "Near Region Seed.scaleFactor": 8,
-      "Neighbors In Region.weight": 0.25,
-      "Neighbors In Region.preferredNeighborCount": 3.5,
-      "Neighbors In Region.deviation": 1.5,
-      "Near Map Center.weight": 0.05,
-      "Avoid Other Regions.weight": 1,
-      "Avoid Other Regions.minDistance": 5,
-      "Avoid Other Regions.distanceFalloff": 8,
-      "Avoid Other Regions.falloffCurve": 0.2,
-      "Avoid Other Regions.regionType": 2,
-      "Near Plate Boundary.weight": 0.75,
-      "Near Plate Boundary.scaleFactor": 1.5,
-      "Prefer Latitude.weight": 0.76,
-      "Prefer Latitude.overlap": 4,
-      "Prefer Latitude.latitudes": [
-        {
-          "latitude": 25,
-          "weight": 20
-        },
-        {
-          "latitude": 45,
-          "weight": 20
-        },
-        {
-          "latitude": 70,
-          "weight": 20
-        }
-      ]
-    },
-    "Coastal Islands": {
-      "Avoid Edge.weight": 1,
-      "Avoid Edge.poleDistanceFalloff": 2,
-      "Avoid Edge.poleFalloffCurve": 0.2,
-      "Avoid Edge.polePerturbationScale": 3,
-      "Avoid Edge.polePerturbationWavelength": 2,
-      "Avoid Edge.meridianDistanceFalloff": 5,
-      "Avoid Edge.meridianFalloffCurve": 0.2,
-      "Avoid Edge.avoidCorners": 12,
-      "Near Neighbor.weight": 0.5,
-      "Avoid Other Landmass.weight": 1,
-      "Avoid Other Landmass.distanceFalloff": 2,
-      "Avoid Other Landmass.regionType": 2,
-      "Avoid Other Landmass.regionId": 1,
-      "Avoid Own Landmass.weight": 1,
-      "Avoid Own Landmass.minDistance": 1,
-      "Avoid Own Landmass.distanceFalloff": 2,
-      "Avoid Own Landmass.regionType": 2,
-      "Avoid Own Landmass.regionId": 2,
-      "Avoid Islands.weight": 1,
-      "Avoid Islands.distanceFalloff": 2,
-      "Avoid Islands.regionType": 3,
-      "Near Plate Boundary.weight": 0.75,
-      "Near Plate Boundary.scaleFactor": 2,
-      "Near Region Seed.weight": 0.3,
-      "Near Region Seed.scaleFactor": 15,
-      "Near Region Seed.invert": 1
-    },
-    "Islands": {
-      "Avoid Edge.weight": 1,
-      "Avoid Edge.poleDistanceFalloff": 4,
-      "Avoid Edge.poleFalloffCurve": 0.5,
-      "Avoid Edge.meridianDistance": 1,
-      "Avoid Edge.meridianDistanceFalloff": 6,
-      "Avoid Edge.meridianFalloffCurve": 0.5,
-      "Avoid Edge.avoidCorners": 6,
-      "Cell Area.weight": 0.15,
-      "Cell Area.scaleFactor": -0.2,
-      "Near Neighbor.weight": 0.9,
-      "Near Neighbor.scaleFactor": 0.5,
-      "Near Region Seed.weight": 0.03,
-      "Neighbors In Region.weight": 0.6,
-      "Neighbors In Region.preferredNeighborCount": 1.5,
-      "Neighbors In Region.deviation": 0.5,
-      "Near Map Center.weight": 0.04,
-      "Avoid Other Regions.weight": 1,
-      "Avoid Other Regions.falloffCurve": 0.15,
-      "Avoid Other Regions.regionType": 2,
-      "Near Plate Boundary.weight": 0.75,
-      "Near Plate Boundary.scaleFactor": 2,
-      "Near Plate Boundary.directionInfluence": 0.8
-    },
-    "Mountains": {
-      "Cell Area.weight": 0.3,
-      "Cell Area.invert": true,
-      "Near Neighbor.weight": 0.25,
-      "Neighbors In Region.weight": 0.6,
-      "Neighbors In Region.preferredNeighborCount": 6,
-      "Neighbors In Region.deviation": 4,
-      "Near Plate Boundary.weight": 0.75,
-      "Near Plate Boundary.scaleFactor": 1,
-      "Near Plate Boundary.directionInfluence": 0.4
-    },
-    "Volcanoes": {
-      "Cell Area.weight": 0.3,
-      "Cell Area.invert": true,
-      "Neighbors In Region.weight": 0.9,
-      "Neighbors In Region.preferredNeighborCount": 0
-    }
+  minLandmassSize: {
+    label: "Minimum Landmass Size",
+    description: "The minimum size a specific landmass can be.",
+    default: 12,
+    min: 5,
+    max: 30,
+    step: 0.25
   }
 };
-
 class VoronoiContinents extends VoronoiMap {
-  m_schema = {
-    voronoiCellCountMultiple: {
-      label: "Cell Count Multiple",
-      description: "The number of voronoi cells to use relative to hexes.",
-      default: 1,
-      min: 0.5,
-      max: 4,
-      step: 0.1
-    },
-    voronoiRelaxationSteps: {
-      label: "Cell Relaxation Steps",
-      description: "The number times to relax the voronoi diagram from its original random positions.",
-      default: 3,
-      min: 0,
-      max: 10,
-      step: 1
-    },
-    totalLandmassSize: {
-      label: "Total Landmass Size",
-      description: "The total percentage of land to be taken up by the major landmasses.",
-      default: 32,
-      min: 20,
-      max: 50,
-      step: 0.25
-    },
-    minLandmassSize: {
-      label: "Minimum Landmass Size",
-      description: "The minimum size a specific landmass can be.",
-      default: 12,
-      min: 5,
-      max: 30,
-      step: 0.25
-    },
-    wrapX: {
-      label: "Wrap Meridian",
-      description: "Wrap the map around the meridian.",
-      default: 0,
-      min: 0,
-      max: 1,
-      step: 1
-    }
-  };
-  m_settings;
+  applyState;
   constructor() {
-    super();
-    this.m_settings = this.createDefaultSettings();
+    const schema = VoronoiUtils.clone(continentGeneratorSchema);
+    schema.landmass.children.data.size.locked = true;
+    schema.landmass.children.data.variance.locked = true;
+    schema.landmass.children.data.coastalIslands.unified = true;
+    schema.landmass.children.data.coastalIslandsMaxDistance.unified = true;
+    schema.landmass.children.data.coastalIslandsMinDistance.unified = true;
+    schema.landmass.children.data.coastalIslandsSize.unified = true;
+    schema.landmass.children.data.coastalIslandsSizeVariance.unified = true;
+    schema.landmass.children.data.erosionPercent.unified = true;
+    schema.landmass.children.data.erosionRandomness.unified = true;
+    schema.landmass.children.data.erosionTime.unified = true;
+    const generator = new ContinentGenerator(schema, continentGeneratorRulesSettings);
+    super(
+      continentsSchema,
+      generator,
+      generator.getDefaultGeneratorSettings(),
+      generator.getDefaultRuleSettings(),
+      continentSettings
+    );
   }
   static getName() {
     return "Continents";
   }
-  init(mapSize) {
-    this.initInternal(
-      mapSize,
-      GeneratorType.Continent,
-      continentSettings,
-      this.m_settings.voronoiCellCountMultiple,
-      this.m_settings.voronoiRelaxationSteps,
-      this.m_settings.wrapX == 1 ? WrapType.WrapX : WrapType.None
-    );
-    const generator = this.getGenerator();
-    const generatorSettings = generator.getSettings();
+  init(hexDims) {
+    this.applyState = void 0;
+    this.initInternal(hexDims);
+  }
+  applySettings() {
+    const dims = this.m_hexDims;
+    const generatorSettings = this.getGenerator().getTypedSettings();
+    const totalPlayers = this.getSettings().totalPlayers;
     const landmassCount = generatorSettings.landmass.length;
     const totalSize = this.m_settings.totalLandmassSize;
     const minSize = this.m_settings.minLandmassSize;
-    const dims = MapDims[mapSize];
     const tileCount = dims.x * dims.y;
     const avgDim = dims.x + dims.y / 2;
     const landmassSeparationWidth = 4;
@@ -267,6 +75,8 @@ class VoronoiContinents extends VoronoiMap {
       minTotalSize = adjustedTotalSize / landmassCount;
     }
     const remaining = adjustedTotalSize - minTotalSize;
+    if (this.applyState == void 0) this.applyState = RandomImpl.getState();
+    RandomImpl.setState(this.applyState);
     const cuts = Array.from(
       { length: landmassCount - 1 },
       (_value, index) => RandomImpl.fRand(`Landmass ${index + 1} Size Variance`) * remaining
@@ -283,24 +93,35 @@ class VoronoiContinents extends VoronoiMap {
       value.size = landmassSizes[index];
       value.variance = 2;
     });
-    const settingsConfig = generator.getGeneratorSettingsConfig();
-    VoronoiUtils.lockGeneratorSetting("landmass.size", settingsConfig);
-    VoronoiUtils.lockGeneratorSetting("landmass.variance", settingsConfig);
-    generator.logSettings();
+    VoronoiUtils.generateLocationsAroundCircle(2, 0.4, 0.6).forEach((location, index) => {
+      generatorSettings.landmass[index].xPos = location.x;
+      generatorSettings.landmass[index].yPos = location.y;
+    });
+    const finalTotalSize = generatorSettings.landmass.reduce((acc, cur) => acc + cur.size, 0);
+    let remainder = 0;
+    console.log(
+      `Creating ${totalPlayers} player positions for ${generatorSettings.landmass.length} landmasses with ${finalTotalSize} totalSize...`
+    );
+    for (const landmass of generatorSettings.landmass) {
+      const sizeRatio = landmass.size / finalTotalSize;
+      const playerAreas = totalPlayers * sizeRatio + remainder;
+      landmass.playerAreas = Math.round(playerAreas);
+      console.log(
+        `  size ${landmass.size} / ${finalTotalSize} = sizeRatio of ${sizeRatio}. Assigning ${landmass.playerAreas} player areas.`
+      );
+      remainder = playerAreas - landmass.playerAreas;
+    }
   }
-  getSettings() {
-    return this.getTypedSettings();
-  }
-  getTypedSettings() {
-    return this.m_settings;
+  simulateInternal() {
+    this.applySettings();
   }
   getSettingsConfig() {
-    return this.m_schema;
+    return this.m_baseSchema;
   }
   getFilename() {
     return "continents.mapconfig.js";
   }
 }
 
-export { VoronoiContinents };
+export { VoronoiContinents, continentsSchema };
 //# sourceMappingURL=continents.js.map

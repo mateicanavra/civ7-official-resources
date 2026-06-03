@@ -1,15 +1,7 @@
-import { A as Audio } from '../../../core/ui/audio-base/audio-support.chunk.js';
+import { Audio } from '../../../core/ui/audio-base/audio-support.js';
 import ContextManager from '../../../core/ui/context-manager/context-manager.js';
-import { Icon } from '../../../core/ui/utilities/utilities-image.chunk.js';
-import { U as UpdateGate } from '../../../core/ui/utilities/utilities-update-gate.chunk.js';
-import '../../../core/ui/context-manager/display-queue-manager.js';
-import '../../../core/ui/dialog-box/manager-dialog-box.chunk.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/input/cursor.js';
-import '../../../core/ui/input/focus-manager.js';
-import '../../../core/ui/views/view-manager.chunk.js';
-import '../../../core/ui/panel-support.chunk.js';
-import '../../../core/ui/utilities/utilities-component-id.chunk.js';
+import { Icon } from '../../../core/ui/utilities/utilities-image.js';
+import UpdateGate from '../../../core/ui/utilities/utilities-update-gate.js';
 
 class GreatWorksModel {
   onUpdate;
@@ -117,6 +109,8 @@ class GreatWorksModel {
     this.YieldTotals.push({ type: YieldTypes.YIELD_SCIENCE, amount: 0 });
     this.YieldTotals.push({ type: YieldTypes.YIELD_HAPPINESS, amount: 0 });
     const nextGreatWorks = [];
+    const localPlayerID = GameContext.localPlayerID;
+    this.LocalPlayer = Players.get(localPlayerID);
     if (!this.LocalPlayer) {
       console.error("model-great-works: update() - no local player found!");
       return;

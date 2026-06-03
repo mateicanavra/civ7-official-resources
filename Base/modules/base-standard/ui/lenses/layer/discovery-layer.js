@@ -1,16 +1,10 @@
-import { L as LensManager } from '../../../../core/ui/lenses/lens-manager.chunk.js';
-import { O as OVERLAY_PRIORITY } from '../../utilities/utilities-overlay.chunk.js';
+import LensManager from '../../../../core/ui/lenses/lens-manager.js';
+import { HexToFloat4 } from '../../../../core/ui/utilities/utilities-color.js';
+import { OVERLAY_PRIORITY } from '../../utilities/utilities-overlay.js';
 
-const HexToFloat4 = (hex, alpha = 1) => {
-  const r = hex >> 16 & 255;
-  const g = hex >> 8 & 255;
-  const b = hex & 255;
-  return { x: r / 255, y: g / 255, z: b / 255, w: Math.min(1, Math.max(0, alpha)) };
-};
 const DISCOVERY_BORDER = HexToFloat4(16777215, 1);
 const DISCOVERY_FADE = HexToFloat4(3098623, 0.2);
 class DiscoveryLayer {
-  static instance = new DiscoveryLayer();
   overlayGroup = WorldUI.createOverlayGroup("discoveryLens", OVERLAY_PRIORITY.MAX_PRIORITY);
   plotOverlay = this.overlayGroup.addPlotOverlay();
   borderOverlay = this.overlayGroup.addBorderOverlay({

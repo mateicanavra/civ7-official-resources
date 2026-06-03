@@ -1,64 +1,17 @@
-import { A as Audio } from '../../../core/ui/audio-base/audio-support.chunk.js';
-import FocusManager from '../../../core/ui/input/focus-manager.js';
-import { b as InputEngineEventName } from '../../../core/ui/input/input-support.chunk.js';
+import { Audio } from '../../../core/ui/audio-base/audio-support.js';
+import { InputEngineEventName } from '../../../core/ui/input/input-support.js';
 import { InterfaceModeChangedEventName, InterfaceMode } from '../../../core/ui/interface-modes/interface-modes.js';
-import { P as Panel, A as AnchorType } from '../../../core/ui/panel-support.chunk.js';
-import { C as ComponentID } from '../../../core/ui/utilities/utilities-component-id.chunk.js';
-import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.chunk.js';
-import { Icon } from '../../../core/ui/utilities/utilities-image.chunk.js';
-import { V as ViewManager } from '../../../core/ui/views/view-manager.chunk.js';
+import Panel, { AnchorType } from '../../../core/ui/panel-support.js';
+import { ComponentID } from '../../../core/ui/utilities/utilities-component-id.js';
+import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
+import { Icon } from '../../../core/ui/utilities/utilities-image.js';
+import ViewManager from '../../../core/ui/views/view-manager.js';
+import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
 import { BuildingPlacementSelectedPlotChangedEventName, BuildingPlacementManager } from '../building-placement/building-placement-manager.js';
 import { TogglePlacementMinMaxEventName } from '../interface-modes/interface-mode-place-building.js';
 import { PlaceBuildingV2 } from './model-place-building-v2.js';
-import { C as ConstructibleHasTagType } from '../utilities/utilities-tags.chunk.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/dialog-box/manager-dialog-box.chunk.js';
-import '../../../core/ui/context-manager/display-queue-manager.js';
-import '../../../core/ui/input/cursor.js';
-import '../../../core/ui/input/focus-support.chunk.js';
-import '../../../core/ui/components/fxs-slot.chunk.js';
-import '../../../core/ui/spatial/spatial-manager.js';
-import '../../../core/ui/context-manager/context-manager.js';
-import '../../../core/ui/input/plot-cursor.js';
-import '../../../core/ui/input/action-handler.js';
-import '../../../core/ui/utilities/utilities-update-gate.chunk.js';
-import '../../../core/ui/lenses/lens-manager.chunk.js';
-import '../../../core/ui/navigation-tray/model-navigation-tray.chunk.js';
-import '../city-selection/city-selection.js';
-import '../city-zoomer/city-zoomer.chunk.js';
-import '../../../core/ui/graph-layout/utils.chunk.js';
-import '../interface-modes/interface-mode-choose-plot.js';
-import '../utilities/utilities-overlay.chunk.js';
-import '../world-input/world-input.js';
-import '../../../core/ui/utilities/utilities-network.js';
-import '../../../core/ui/shell/mp-legal/mp-legal.js';
-import '../../../core/ui/events/shell-events.chunk.js';
-import '../../../core/ui/utilities/utilities-liveops.js';
-import '../../../core/ui/utilities/utilities-network-constants.chunk.js';
-import '../diplomacy/diplomacy-events.js';
-import '../interface-modes/support-unit-map-decoration.chunk.js';
-import '../production-chooser/panel-production-chooser.js';
-import '../../../core/ui/components/fxs-editable-header.chunk.js';
-import '../../../core/ui/components/fxs-activatable.chunk.js';
-import '../../../core/ui/utilities/utilities-core-databinding.chunk.js';
-import '../../../core/ui/utilities/utilities-layout.chunk.js';
-import '../build-queue/model-build-queue.js';
-import '../city-details/panel-city-details.js';
-import '../production-chooser/production-chooser-helpers.chunk.js';
-import '../../../core/ui/utilities/utilities-core-textprovider.chunk.js';
-import '../tutorial/tutorial-support.chunk.js';
-import '../../../core/ui/components/fxs-nav-help.chunk.js';
-import '../quest-tracker/quest-item.js';
-import '../quest-tracker/quest-tracker.js';
-import '../tutorial/tutorial-item.js';
-import '../tutorial/tutorial-manager.js';
-import '../../../core/ui/input/input-filter.chunk.js';
-import '../tutorial/tutorial-events.chunk.js';
-import '../views/view-city.js';
-import '../../../core/ui/components/fxs-chooser-item.chunk.js';
-import '../yield-bar-base/yield-bar-base.js';
-
-const styles = "fs://game/base-standard/ui/place-building/panel-place-building-v2.css";
+import { ConstructibleHasTagType } from '../utilities/utilities-tags.js';
+import styles from './panel-place-building-v2.scss.js';
 
 class PlaceBuildingPanelV2 extends Panel {
   content = null;
@@ -67,10 +20,11 @@ class PlaceBuildingPanelV2 extends Panel {
   constructibleDetails = document.createElement("constructible-details");
   minimizedDiv = document.createElement("div");
   maximizedDiv = document.createElement("div");
-  footerContainer = document.createElement("div");
+  footerContainer = document.createElement("fxs-activatable");
   hideShowText = document.createElement("div");
   hideShowTouchText = document.createElement("div");
   hideShowHybridText = document.createElement("div");
+  requestCloseListener = this.requestClose.bind(this);
   onTogglePlacementMinMaxListener = this.onTogglePlacementMinMax.bind(this);
   onBuildingPlacementSelectedPlotChangedListener = this.onBuildingPlacementSelectedPlotChanged.bind(this);
   engineInputEventListener = this.onEngineInput.bind(this);
@@ -109,26 +63,26 @@ class PlaceBuildingPanelV2 extends Panel {
       BuildingPlacementSelectedPlotChangedEventName,
       this.onBuildingPlacementSelectedPlotChangedListener
     );
-    this.subsystemFrame.addEventListener("subsystem-frame-close", this.requestClose);
+    this.subsystemFrame.addEventListener("subsystem-frame-close", this.requestCloseListener);
     this.Root.addEventListener(InputEngineEventName, this.engineInputEventListener);
     ViewManager.isWorldZoomAllowed = !PlaceBuildingV2.showExpandedView;
   }
   onDetach() {
     ViewManager.isWorldZoomAllowed = true;
-    this.subsystemFrame.removeEventListener("subsystem-frame-close", this.requestClose);
+    this.subsystemFrame.removeEventListener("subsystem-frame-close", this.requestCloseListener);
     this.Root.removeEventListener(InputEngineEventName, this.engineInputEventListener);
     super.onDetach();
   }
   onReceiveFocus() {
     if (this.content) {
-      FocusManager.setFocus(this.content);
+      FocusManager.get().setFocus(this.content);
     } else {
       waitForLayout(() => {
         this.content = MustGetElement(
           ".subsystem-frame__content",
           this.subsystemFrame
         );
-        FocusManager.setFocus(this.content);
+        FocusManager.get().setFocus(this.content);
       });
     }
   }
@@ -392,6 +346,7 @@ class PlaceBuildingPanelV2 extends Panel {
     this.footerContainer.appendChild(this.hideShowText);
     this.footerContainer.appendChild(this.hideShowTouchText);
     this.footerContainer.appendChild(this.hideShowHybridText);
+    this.footerContainer.addEventListener("action-activate", () => this.toggleMinMax());
     waitForLayout(() => {
       this.content = MustGetElement(
         ".subsystem-frame__content",

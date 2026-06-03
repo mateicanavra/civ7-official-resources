@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Types>
+		<Row Type="NODE_CIVIC_MO_ASSYRIA_MODERNIZATION" Kind="KIND_TREE_NODE"/>
+	</Types>
+	<TypeQuotes>
+		<Row Type="NODE_CIVIC_MO_ASSYRIA_MODERNIZATION" Quote="LOC_CIVIC_MO_MODERNIZATION_QUOTE" QuoteAuthor="LOC_CIVIC_MO_MODERNIZATION_AUTHOR" QuoteAudio="VO_Quote_ToT_MOD_Modernization" />
+	</TypeQuotes>
+	<ProgressionTreeNodes>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_ASSYRIA_MODERNIZATION" ProgressionTree="TREE_CIVICS_MO_TEST_OF_TIME" Cost="2000" Name="LOC_NODE_CIVIC_MO_ASSYRIA_MODERNIZATION_NAME" IconString="cult_assyria" />
+	</ProgressionTreeNodes>
+	<ProgressionTreeNodeUnlocks>		
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_ASSYRIA_MODERNIZATION" TargetKind="KIND_TRADITION" TargetType="TRADITION_DURANI_II" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_ASSYRIA_MODERNIZATION" TargetKind="KIND_MODIFIER" TargetType="MOD_MO_SETTLEMENT_CAP_INCREASE" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_ASSYRIA_MODERNIZATION" TargetKind="KIND_MODIFIER" TargetType="MOD_TOT_TRADITION_SLOT" UnlockDepth="1"/>
+		<!-- Common Trees -->
+		<Delete ProgressionTreeNodeType="NODE_CIVIC_MO_MAIN_NATURAL_HISTORY" TargetKind="KIND_MODIFIER" TargetType="MOD_MO_NATURAL_WONDER_ARCHAEOLOGY" UnlockDepth="2"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_MAIN_NATURAL_HISTORY" TargetKind="KIND_MODIFIER" TargetType="MOD_MO_NATURAL_WONDER_ARCHAEOLOGY_REDUX" UnlockDepth="2" NotTraitType="TRAIT_ASSYRIA"/>
+	</ProgressionTreeNodeUnlocks>
+	<ProgressionTreeNodeTraits>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_ASSYRIA_MODERNIZATION" RequiredTraitType="TRAIT_ASSYRIA" />
+	</ProgressionTreeNodeTraits>
+	<ProgressionTreePrereqs>
+		<Row Node="NODE_CIVIC_MO_ADMINISTRATION" PrereqNode="NODE_CIVIC_MO_ASSYRIA_MODERNIZATION"/>
+		<Row Node="NODE_CIVIC_MO_SYNCRETISM_CHOICE" PrereqNode="NODE_CIVIC_MO_ASSYRIA_MODERNIZATION"/>
+	</ProgressionTreePrereqs>
+	<ProgressionTree_Advisories>
+	</ProgressionTree_Advisories>
+</Database>

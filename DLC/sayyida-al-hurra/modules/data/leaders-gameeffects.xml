@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <GameEffects xmlns="GameEffects">
-	<Modifier id="SAYYIDA_MOD_FREE_NAVAL_UNIT" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_NAVAL_UNIT_WITH_OCEAN_ACCESS"  permanent="true">
+	<Modifier id="SAYYIDA_MOD_FREE_NAVAL_UNIT" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_NAVAL_UNIT_WITH_OCEAN_ACCESS" permanent="true">
 		<SubjectRequirements>
 			<Requirement type="REQUIREMENT_PLAYER_COMPLETED_ESPIONAGE_ACTION">
 				<Argument name="Repeatable">true</Argument>
@@ -17,7 +17,9 @@
 	</Modifier>
 	<Modifier id="SAYYIDA_MOD_STATIONED_ON_DISTRICT_CULTURE" collection="COLLECTION_UNIT_OCCUPIED_CITY" effect="EFFECT_CITY_ADJUST_YIELD">
 		<OwnerRequirements>
-			<Requirement type="REQUIREMENT_UNIT_IS_STATIONED_ON_DISTRICT"/>
+			<Requirement type="REQUIREMENT_UNIT_IS_STATIONED_ON_DISTRICT">
+				<Argument name="DistrictType">DISTRICT_URBAN, DISTRICT_CITY_CENTER</Argument>
+			</Requirement>
 		</OwnerRequirements>
 		<Argument name="Amount" type="ScaleByGameAge" extra="100">2</Argument>
 		<Argument name="YieldType">YIELD_CULTURE</Argument>
@@ -25,7 +27,9 @@
 	</Modifier>
 	<Modifier id="SAYYIDA_MOD_STATIONED_ON_DISTRICT_INFLUENCE" collection="COLLECTION_UNIT_OCCUPIED_CITY" effect="EFFECT_CITY_ADJUST_YIELD">
 		<OwnerRequirements>
-			<Requirement type="REQUIREMENT_UNIT_IS_STATIONED_ON_DISTRICT"/>
+			<Requirement type="REQUIREMENT_UNIT_IS_STATIONED_ON_DISTRICT">
+				<Argument name="DistrictType">DISTRICT_URBAN, DISTRICT_CITY_CENTER</Argument>
+			</Requirement>
 		</OwnerRequirements>
 		<Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
 		<Argument name="YieldType">YIELD_DIPLOMACY</Argument>

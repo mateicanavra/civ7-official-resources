@@ -1,19 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Database>
 	<Civilizations>
-		<Row Domain="ModernAgeCivilizations" CivilizationType="CIVILIZATION_GREAT_BRITAIN" CivilizationName="LOC_CIVILIZATION_GREAT_BRITAIN_NAME" CivilizationFullName="LOC_CIVILIZATION_GREAT_BRITAIN_FULLNAME" CivilizationDescription="LOC_CIVILIZATION_GREAT_BRITAIN_DESCRIPTION" CivilizationIcon="shawnee_icon.png"/>
+		<Row Domain="ModernAgeCivilizations" CivilizationType="CIVILIZATION_GREAT_BRITAIN" CivilizationName="LOC_CIVILIZATION_GREAT_BRITAIN_NAME" CivilizationFullName="LOC_CIVILIZATION_GREAT_BRITAIN_FULLNAME" CivilizationDescription="LOC_CIVILIZATION_GREAT_BRITAIN_DESCRIPTION" CivilizationIcon="shawnee_icon.png" CivilizationIntroText="LOC_LOADING_CIV_INTRO_TEXT_GREAT_BRITAIN"/>
 	</Civilizations>
 	<CivilizationItems>
-		<Row CivilizationDomain="ModernAgeCivilizations" CivilizationType="CIVILIZATION_GREAT_BRITAIN" Type="TRAIT_GREAT_BRITAIN_ABILITY" Kind="KIND_TRAIT" Name="LOC_TRAIT_GREAT_BRITAIN_ABILITY_NAME" Description="LOC_TRAIT_GREAT_BRITAIN_ABILITY_DESCRIPTION"/>
+		<!-- Unique Ability -->
+		<Row CivilizationDomain="AntiquityAgeCivilizations" AgeType="AGE_ANTIQUITY" CivilizationType="CIVILIZATION_GREAT_BRITAIN" Type="TRAIT_GREAT_BRITAIN_ABILITY" Kind="KIND_TRAIT" Name="LOC_TRAIT_GREAT_BRITAIN_ABILITY_NAME" Description="LOC_TRAIT_GREAT_BRITAIN_ABILITY_AQ_DESCRIPTION"/>
+		<Row CivilizationDomain="ExplorationAgeCivilizations" AgeType="AGE_EXPLORATION" CivilizationType="CIVILIZATION_GREAT_BRITAIN" Type="TRAIT_GREAT_BRITAIN_ABILITY" Kind="KIND_TRAIT" Name="LOC_TRAIT_GREAT_BRITAIN_ABILITY_NAME" Description="LOC_TRAIT_GREAT_BRITAIN_ABILITY_EX_DESCRIPTION"/>
+		<Row CivilizationDomain="ModernAgeCivilizations" AgeType="AGE_MODERN" CivilizationType="CIVILIZATION_GREAT_BRITAIN" Type="TRAIT_GREAT_BRITAIN_ABILITY" Kind="KIND_TRAIT" Name="LOC_TRAIT_GREAT_BRITAIN_ABILITY_NAME" Description="LOC_TRAIT_GREAT_BRITAIN_ABILITY_MO_DESCRIPTION"/>
+		<!-- Unique Units -->
 		<Row CivilizationDomain="ModernAgeCivilizations" CivilizationType="CIVILIZATION_GREAT_BRITAIN" Type="UNIT_REVENGE" Kind="KIND_UNIT" Name="LOC_UNIT_REVENGE_NAME" Description="LOC_UNIT_REVENGE_BASE_DESCRIPTION" Icon="unitflag_leiomano.png"/>
 		<Row CivilizationDomain="ModernAgeCivilizations" CivilizationType="CIVILIZATION_GREAT_BRITAIN" Type="UNIT_ANTIQUARIAN" Kind="KIND_UNIT" Name="LOC_UNIT_ANTIQUARIAN_NAME" Description="LOC_UNIT_ANTIQUARIAN_DESCRIPTION" Icon="unitflag_SHERPA.png"/>
+		<!-- Unique Infrastructure -->
 		<Row CivilizationDomain="ModernAgeCivilizations" CivilizationType="CIVILIZATION_GREAT_BRITAIN" Type="QUARTER_FINANCIAL_CENTRE" Kind="KIND_QUARTER" Name="LOC_QUARTER_FINANCIAL_CENTRE_NAME" Description="LOC_QUARTER_FINANCIAL_CENTRE_DESCRIPTION" Icon="city_uniquequarter"/>
 		<Row CivilizationDomain="ModernAgeCivilizations" CivilizationType="CIVILIZATION_GREAT_BRITAIN" Type="BUILDING_ROYAL_EXCHANGE" Kind="KIND_BUILDING" Name="LOC_BUILDING_ROYAL_EXCHANGE_NAME" Description="LOC_BUILDING_ROYAL_EXCHANGE_DESCRIPTION" Icon="buildicon_formalgarden.png"/>
 		<Row CivilizationDomain="ModernAgeCivilizations" CivilizationType="CIVILIZATION_GREAT_BRITAIN" Type="BUILDING_MANUFACTORY" Kind="KIND_BUILDING" Name="LOC_BUILDING_MANUFACTORY_NAME" Description="LOC_BUILDING_MANUFACTORY_DESCRIPTION" Icon="buildicon_salon.png"/>
 	</CivilizationItems>
 	<CivilizationTags>
 		<Row CivilizationDomain="ModernAgeCivilizations" CivilizationType="CIVILIZATION_GREAT_BRITAIN" TagType="TAG_TRAIT_ECONOMIC"/>
-		<Row CivilizationDomain="ModernAgeCivilizations" CivilizationType="CIVILIZATION_GREAT_BRITAIN" TagType="TAG_TRAIT_EXPANSIONIST"/>
+		<Row CivilizationDomain="ModernAgeCivilizations" CivilizationType="CIVILIZATION_GREAT_BRITAIN" TagType="TAG_TRAIT_SCIENTIFIC"/>
+		<!-- ToT -->
+		<Row CivilizationDomain="ModernAgeCivilizations" CivilizationType="CIVILIZATION_GREAT_BRITAIN" TagType="TAG_APEX_AGE_MODERN"/>
 	</CivilizationTags>
 	<LeaderCivilizationBias>
 		<!--This is the table used for UI, the AI uses LeaderCivPriorities in civilizations.xml-->

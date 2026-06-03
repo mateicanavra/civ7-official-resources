@@ -442,6 +442,11 @@
       <Gender>neuter</Gender>
       <Plurality>1</Plurality>
     </Replace>
+    <Replace Tag="LOC_VOLCANO_KARADAG_NAME" Language="pl_PL">
+      <Text>Karadağ</Text>
+      <Gender>neuter</Gender>
+      <Plurality>1</Plurality>
+    </Replace>
     <Replace Tag="LOC_CIVIC_HARBIYE_NEZARETI_NAME" Language="pl_PL">
       <Text>Harbiye nezâreti|Harbiye nezâreti|Harbiye nezâreti|Harbiye nezâreti|Harbiye nezâreti|Harbiye nezâreti|harbiye nezâreti|harbiye nezâreti|harbiye nezâreti|harbiye nezâreti|harbiye nezâreti|harbiye nezâreti</Text>
       <Gender>neuter</Gender>
@@ -666,7 +671,7 @@
       <Text>Bieżący dowódcy: {1_reward}.</Text>
     </Replace>
     <Replace Tag="LOC_11108B_IMPERATIVE" Language="pl_PL">
-      <Text>Przejmij osiedle z külliye.</Text>
+      <Text>Posiadaj osiedle z külliye przejęte w tej epoce.</Text>
     </Replace>
     <Replace Tag="LOC_11108B_NAME" Language="pl_PL">
       <Text>Niech ta potęga się rozprzestrzenia.</Text>
@@ -734,17 +739,35 @@
     <Replace Tag="LOC_12013C_NAME" Language="pl_PL">
       <Text>Ale książki...</Text>
     </Replace>
+    <Replace Tag="LOC_TOT_30041A_COMPLETION" Language="pl_PL">
+      <Text>Oczy każdego osmańskiego przywódcy, każdego wodza i burmistrza, każdego sklepikarza i kupca błyszczą marzeniem, że być może pewnego dnia dojdą do władzy. Taki stan rzeczy sprzyja indywidualnej motywacji, ale nie tworzeniu scentralizowanego państwa.</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30041A_STORYTITLE" Language="pl_PL">
+      <Text>Ghazi i bej</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30041B_DESCRIPTION" Language="pl_PL">
+      <Text>{1_reward}.</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30041B_NAME" Language="pl_PL">
+      <Text>Droga do zjednoczenia będzie trudna. Każdy ghazi i każdy bej musi zostać przekupiony, namówiony, przekonany, a może nawet zastraszony. Niemniej jednak zostanie to zrobione.</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30041C_DESCRIPTION" Language="pl_PL">
+      <Text>{1_reward}.</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30041C_NAME" Language="pl_PL">
+      <Text>To właśnie dzięki temu nastawieniu Turkowie osmańscy zdobędą szczyt.</Text>
+    </Replace>
     <Replace Tag="LOC_BUILDING_CAMII_DESCRIPTION" Language="pl_PL">
-      <Text>Unikalna budowla Osmanów związana z kulturą. +9 do [icon:YIELD_CULTURE] kultury. Premia +1 do [icon:YIELD_HAPPINESS] zadowolenia za sąsiedztwo budowli związanych z nauką i +1 do [icon:YIELD_CULTURE] kultury za sąsiedztwo cudów. Ma 2 miejsca na [icon:NAR_REW_GREATWORK] artefakty. Budowla niezwiązana z żadną epoką.</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_BUILDING_TOOLTIP]Unikalna budowla[/TIP] Osmanów związana z kulturą. +9 do [icon:YIELD_CULTURE] kultury. Premia +1 do [icon:YIELD_HAPPINESS] zadowolenia za sąsiedztwo [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]budowli[/TIP] związanych z nauką i +1 do[icon:YIELD_CULTURE] kultury za sąsiedztwo [TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]cudów[/TIP]. Ma 2 miejsca na [icon:NAR_REW_GREATWORK][TIP:LOC_PEDIA_CONCEPTS_ARTIFACT_TOOLTIP] artefakty[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_BUILDING_CAMII_TOOLTIP" Language="pl_PL">
-      <Text>Unikalna budowla Osmanów. Ma 2 miejsca na [icon:NAR_REW_GREATWORK] artefakty.</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_BUILDING_TOOLTIP]Unikalna budowla[/TIP] Osmanów. Ma 2 miejsca na [icon:NAR_REW_GREATWORK] [TIP:LOC_PEDIA_CONCEPTS_ARTIFACT_TOOLTIP]artefakty[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_BUILDING_HAMMAM_DESCRIPTION" Language="pl_PL">
-      <Text>Unikalna budowla Osmanów związana z kulturą. +9 do [icon:YIELD_HAPPINESS] zadowolenia. Premia +1 do [icon:YIELD_GOLD] złota za sąsiedztwo budowli związanych z kulturą i +1 do [icon:YIELD_HAPPINESS] zadowolenia za sąsiedztwo cudów. Budowla niezwiązana z żadną epoką.</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_BUILDING_TOOLTIP]Unikalna budowla[/TIP] Osmanów związana z zadowoleniem. +9 do [icon:YIELD_HAPPINESS] zadowolenia. Premia +1 do [icon:YIELD_GOLD] złota za sąsiedztwo [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]budowli[/TIP] związanych z kulturą i +1 do [icon:YIELD_HAPPINESS] zadowolenia za sąsiedztwo [TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]cudów[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_BUILDING_HAMMAM_TOOLTIP" Language="pl_PL">
-      <Text>Unikalna budowla Osmanów.</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_BUILDING_TOOLTIP]Unikalna budowla[/TIP] Osmanów.</Text>
     </Replace>
     <Replace Tag="LOC_CIVIC_HARBIYE_NEZARETI_AUTHOR" Language="pl_PL">
       <Text>Mehmed II</Text>
@@ -773,12 +796,6 @@
     <Replace Tag="LOC_CIVILIZATION_OTTOMANS_DESCRIPTION" Language="pl_PL">
       <Text>Gdy któryś przywódca ukończy [B]wykopaliska[/B] i wydobędzie [B]artefakt[/B] na terytorium Imperium Osmańskiego, generowany jest dodatkowy [icon:NAR_REW_GREATWORK] artefakt. +3 do [icon:NAR_REW_COMBAT] siły bojowej jednostek piechoty i jednostek pływających, gdy atakują.</Text>
     </Replace>
-    <Replace Tag="LOC_HARBIYE_NEZARETI_INFANTRY_SIEGE_PRODUCTION_DESCRIPTION" Language="pl_PL">
-      <Text>+15% do [icon:YIELD_PRODUCTION] produkcji przeznaczonej na szkolenie jednostek oblężniczych i piechoty.</Text>
-    </Replace>
-    <Replace Tag="LOC_HARBIYE_NEZARETI_LAND_MAINTENANCE_COST_DESCRIPTION" Language="pl_PL">
-      <Text>Koszt utrzymania jednostek lądowych zmniejszony o -2 [icon:YIELD_GOLD] złota.</Text>
-    </Replace>
     <Replace Tag="LOC_LOADING_CIV_INTRO_TEXT_OTTOMANS" Language="pl_PL">
       <Text>Pośród błyszczących minaretów i jaskrawych tulipanowych ogrodów Turcy osmańscy królują na skrzyżowaniu świata. Działa huczą na lądzie i na morzu, a bazary pękają w szwach od towarów ze wszystkich zakątków świata. Tradycja imperium trzyma się mocno w külliye, podczas gdy świeckie reformy zyskują na popularności w kawiarniach. Chwyć miecz Osmana i zadecyduj o losie imperium.</Text>
     </Replace>
@@ -791,20 +808,26 @@
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_OTTOMANS_COMPLETE_SULTANAHMET_CAMII_NAME" Language="pl_PL">
       <Text>Błękitny Meczet</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_OTTOMANS_LEGACY_PATH_MILITARY_DESC" Language="pl_PL">
-      <Text>Ukończ drogę spuścizny wojskowej, grając Imperium Osmańskim.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_OTTOMANS_FOUR_MAJOR_TRIUMPHS_DESC" Language="pl_PL">
+      <Text>Ukończ 4 wojskowe lub kulturowe pomniejsze triumfy w jednej epoce szczytowej, grając Imperium Osmańskim.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_OTTOMANS_LEGACY_PATH_MILITARY_NAME" Language="pl_PL">
-      <Text>Droga spuścizny Imperium Osmańskiego</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_OTTOMANS_FOUR_MAJOR_TRIUMPHS_NAME" Language="pl_PL">
+      <Text>4 pomniejsze triumfy Imperium Osmańskiego</Text>
     </Replace>
     <Replace Tag="LOC_MOD_CIV_WONDER_PRODUCTION_OTTOMANS_DESCRIPTION" Language="pl_PL">
       <Text>+30% do [icon:YIELD_PRODUCTION] produkcji dzięki byciu [icon:WONDER] cudem związanym z Imperium Osmańskim.</Text>
     </Replace>
+    <Replace Tag="LOC_NODE_CIVIC_AQ_OTTOMANS_ORIGINS_NAME" Language="pl_PL">
+      <Text>Początki Osmanów</Text>
+    </Replace>
+    <Replace Tag="LOC_NODE_CIVIC_EX_OTTOMANS_RENAISSANCE_NAME" Language="pl_PL">
+      <Text>Renesans Osmanów</Text>
+    </Replace>
     <Replace Tag="LOC_QUARTER_KULLIYE_DESCRIPTION" Language="pl_PL">
-      <Text>Unikalna dzielnica Osmanów. Tworzona przez wzniesienie cami i hammamu w tym samym dystrykcie. +3 do [icon:YIELD_CULTURE] kultury i +2 do [icon:YIELD_GOLD] złota na polach ze [icon:SPECIALIST] specjalistami w tym [icon:YIELD_CITIES] mieście.</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_QUARTER_TOOLTIP]Unikalna dzielnica[/TIP] Osmanów. Tworzona przez wzniesienie cami i hammamu w tym samym [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]dystrykcie[/TIP]. +3 do [icon:YIELD_CULTURE] kultury i +2 do [icon:YIELD_GOLD] złota na polach ze [icon:SPECIALIST] [TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_TOOLTIP]specjalistami[/TIP] w tym [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]mieście[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_QUARTER_KULLIYE_TOOLTIP" Language="pl_PL">
-      <Text>+3 do [icon:YIELD_CULTURE] kultury i +2 do [icon:YIELD_GOLD] złota na polach ze [icon:SPECIALIST] specjalistami w tym [icon:YIELD_CITIES] mieście.</Text>
+      <Text>+3 do [icon:YIELD_CULTURE] kultury i +2 do [icon:YIELD_GOLD] złota na polach ze [icon:SPECIALIST] [TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_TOOLTIP]specjalistami[/TIP] w tym [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]mieście[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_QUOTE_AUTHOR_WONDER_SULTANAHMET_CAMII" Language="pl_PL">
       <Text>Koran</Text>
@@ -812,32 +835,41 @@
     <Replace Tag="LOC_QUOTE_WONDER_SULTANAHMET_CAMII" Language="pl_PL">
       <Text>Ja wysłuchuję i odpowiadam na modlitwę błagającego, gdy Mnie wzywa. Niech więc i oni odpowiadają na Moje wezwanie i we Mnie wierzą.</Text>
     </Replace>
-    <Replace Tag="LOC_SAHI_TOPU_MOD_ARMY_COMMANDER_BARRAGE_DESCRIPTION" Language="pl_PL">
-      <Text>[icon:UNIT_ARMY_COMMANDER] Dowódcy armii zyskują darmowy [icon:NAR_REW_PROMOTION] awans „Ogień zaporowy”.</Text>
-    </Replace>
-    <Replace Tag="LOC_SAHI_TOPU_MOD_COMBAT_VS_FORTIFICATION_DESCRIPTION" Language="pl_PL">
-      <Text>+5 do [icon:NAR_REW_COMBAT] siły bojowej jednostek piechoty przeciwko [icon:CITY_FORTIFIED] ufortyfikowanym dystryktom.</Text>
-    </Replace>
-    <Replace Tag="LOC_TANZIMAT_MOD_ARCHAELOGIST_VEGETATED_MOVEMENT_DESCRIPTION" Language="pl_PL">
-      <Text>[icon:UNIT_EXPLORER] Odkrywcy ignorują teren z roślinnością i rzekami podczas [icon:Action_Move] ruchu.</Text>
-    </Replace>
-    <Replace Tag="LOC_TANZIMAT_MOD_MUSEUM_PRODUCTION_DESCRIPTION" Language="pl_PL">
-      <Text>+15% do [icon:YIELD_PRODUCTION] produkcji przeznaczonej na wznoszenie muzeów.</Text>
-    </Replace>
     <Replace Tag="LOC_TRADITION_ERKAN_I_HARBIYE_MEKTEBI_DESCRIPTION" Language="pl_PL">
-      <Text>Lądowe jednostki wojskowe walczą, jakby miały pełną [icon:NAR_REW_COMBAT] siłę bojową, nawet jeśli odniosły obrażenia.</Text>
+      <Text>+25% do [icon:YIELD_PRODUCTION] produkcji przeznaczonej na szkolenie [TIP:LOC_PEDIA_CONCEPTS_SIEGE_UNITS_TOOLTIP]jednostek oblężniczych[/TIP] i [TIP:LOC_PEDIA_CONCEPTS_INFANTRY_UNITS_TOOLTIP]jednostek piechoty[/TIP]. [TIP:LOC_PEDIA_CONCEPTS_MAINTENANCE_TOOLTIP]Koszt utrzymania[/TIP] jednostek lądowych zmniejszony o -2 [icon:YIELD_GOLD] złota.</Text>
     </Replace>
-    <Replace Tag="LOC_TRADITION_OSMANLI_BAROK_DESCRIPTION" Language="pl_PL">
-      <Text>+3 do [icon:YIELD_HAPPINESS] zadowolenia z wystawionych wielkich dzieł.</Text>
+    <Replace Tag="LOC_TRADITION_OSMANLI_BAROK_I_DESCRIPTION" Language="pl_PL">
+      <Text>+2 do [icon:YIELD_HAPPINESS] zadowolenia z wystawionych [TIP:LOC_PEDIA_CONCEPTS_GREAT_WORKS_TOOLTIP]wielkich dzieł[/TIP].</Text>
     </Replace>
-    <Replace Tag="LOC_TRADITION_SEDEF_KAKMA_DESCRIPTION" Language="pl_PL">
-      <Text>+3 do [icon:YIELD_CULTURE] kultury w [icon:CITY_UNIQUE_QUARTER] dzielnicach z przynajmniej 1 budowlą związaną z [icon:YIELD_HAPPINESS] zadowoleniem. +3 do [icon:YIELD_HAPPINESS] zadowolenia w [icon:CITY_UNIQUE_QUARTER] dzielnicach z przynajmniej 1 budowlą związaną z [icon:YIELD_CULTURE] kulturą.</Text>
+    <Replace Tag="LOC_TRADITION_OSMANLI_BAROK_II_DESCRIPTION" Language="pl_PL">
+      <Text>+3 do [icon:YIELD_HAPPINESS] zadowolenia z wystawionych [TIP:LOC_PEDIA_CONCEPTS_GREAT_WORKS_TOOLTIP]wielkich dzieł[/TIP]. +15% do [icon:YIELD_PRODUCTION] produkcji przeznaczonej na wznoszenie muzeów.</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_OTTOMANS_SYNCRETISM_ANTIQUITY_DESCRIPTION" Language="pl_PL">
+      <Text>+5 do [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]siły bojowej[/TIP] [TIP:LOC_PEDIA_CONCEPTS_SIEGE_UNITS_TOOLTIP]jednostek oblężniczych[/TIP]. +1 do [icon:UNIT_MOVEMENT_ICON] ruchu [TIP:LOC_PEDIA_CONCEPTS_SIEGE_UNITS_TOOLTIP]jednostek oblężniczych[/TIP] i [TIP:LOC_PEDIA_CONCEPTS_SUPPORT_UNIT_TOOLTIP]jednostek wsparcia[/TIP].</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_OTTOMANS_SYNCRETISM_EXPLORATION_DESCRIPTION" Language="pl_PL">
+      <Text>+5 do [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]siły bojowej[/TIP] [TIP:LOC_PEDIA_CONCEPTS_SIEGE_UNITS_TOOLTIP]jednostek oblężniczych[/TIP]. +1 do [icon:UNIT_MOVEMENT_ICON] ruchu [TIP:LOC_PEDIA_CONCEPTS_SIEGE_UNITS_TOOLTIP]jednostek oblężniczych[/TIP] i [TIP:LOC_PEDIA_CONCEPTS_SUPPORT_UNIT_TOOLTIP]jednostek wsparcia[/TIP]. Wyszkolenie [TIP:LOC_PEDIA_CONCEPTS_SIEGE_UNITS_TOOLTIP]jednostki oblężniczej[/TIP] zapewnia [icon:YIELD_HAPPINESS] zadowolenie wykorzystywanego do rozpoczęcia [icon:CELEBRATION] [TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]obchodów[/TIP], którego ilość równa się 50% [icon:YIELD_PRODUCTION] produkcji przeznaczonej na stworzenie tej jednostki.</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_OTTOMANS_SYNCRETISM_TOOLTIP" Language="pl_PL">
+      <Text>Mehterân</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_SEDEF_KAKMA_I_DESCRIPTION" Language="pl_PL">
+      <Text>+3 do [icon:YIELD_CULTURE] kultury w [icon:CITY_UNIQUE_QUARTER] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]dzielnicach[/TIP] z przynajmniej 1 [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]budowlą[/TIP] związaną z [icon:YIELD_HAPPINESS] zadowoleniem. +3 do [icon:YIELD_HAPPINESS] zadowolenia w [icon:CITY_UNIQUE_QUARTER] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]dzielnicach[/TIP] z przynajmniej 1 [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]budowlą[/TIP] związaną z [icon:YIELD_CULTURE] kulturą.</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_SEDEF_KAKMA_II_DESCRIPTION" Language="pl_PL">
+      <Text>+5 do [icon:YIELD_CULTURE] kultury w [icon:CITY_UNIQUE_QUARTER] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]dzielnicach[/TIP] z przynajmniej 1 [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]budowlą[/TIP] związaną z [icon:YIELD_HAPPINESS] zadowoleniem. +5 do [icon:YIELD_HAPPINESS] zadowolenia w [icon:CITY_UNIQUE_QUARTER] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]dzielnicach[/TIP] z przynajmniej 1 [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]budowlą[/TIP] związaną z [icon:YIELD_CULTURE] kulturą.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_SIEGE_TRAIN_DESCRIPTION" Language="pl_PL">
-      <Text>Po zniszczeniu przez jednostkę umocnień [icon:CITY_FORTIFIED] ufortyfikowanego dystryktu, przywracane są punkty [icon:Action_Move] ruchu wszystkich innych lądowych jednostek oblężniczych i piechoty.</Text>
+      <Text>Po zniszczeniu przez jednostkę umocnień [icon:CITY_FORTIFIED] [TIP:LOC_PEDIA_CONCEPTS_FORTIFIED_DISTRICTS_TOOLTIP]ufortyfikowanego dystryktu[/TIP], przywracane są punkty [icon:Action_Move] ruchu wszystkich innych [TIP:LOC_PEDIA_CONCEPTS_LAND_UNITS_TOOLTIP]lądowych jednostek[/TIP] [TIP:LOC_PEDIA_CONCEPTS_SIEGE_UNITS_TOOLTIP]oblężniczych[/TIP] i [TIP:LOC_PEDIA_CONCEPTS_INFANTRY_UNITS_TOOLTIP]piechoty[/TIP].</Text>
     </Replace>
-    <Replace Tag="LOC_TRAIT_OTTOMANS_ABILITY_DESCRIPTION" Language="pl_PL">
-      <Text>[BLIST][LI]Gdy któryś przywódca ukończy [B]wykopaliska[/B] i wydobędzie [B]artefakt[/B] na terytorium Imperium Osmańskiego, generowany jest dodatkowy [icon:NAR_REW_GREATWORK] [B]artefakt[/B].[LI][B]+3 do [icon:NAR_REW_COMBAT] siły bojowej[/B] [B]jednostek piechoty i jednostek pływających[/B], gdy atakują.[LI][B]+30% do [icon:YIELD_PRODUCTION] produkcji[/B] przeznaczonej na wzniesienie [B]Błękitnego Meczetu[/B].[/LIST]</Text>
+    <Replace Tag="LOC_TRAIT_OTTOMANS_ABILITY_AQ_DESCRIPTION" Language="pl_PL">
+      <Text>[BLIST][LI]Zyskujesz [B][icon:GREATWORK] [TIP:LOC_PEDIA_CONCEPTS_CODEX_TOOLTIP]kodeks[/TIP][/B], gdy rozpoczniesz [B][icon:CELEBRATION] [TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]obchody[/TIP][/B] lub podbijesz [B][icon:NOTIFICATION_SELECT_CAPITAL] pierwotną stolicę[/B] po raz pierwszy.[LI][B]+3 do [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]siły bojowej[/TIP][/B] dla [B][TIP:LOC_PEDIA_CONCEPTS_INFANTRY_UNITS_TOOLTIP]jednostek piechoty[/TIP][/B] i [B][TIP:LOC_PEDIA_CONCEPTS_SIEGE_UNITS_TOOLTIP]jednostek oblężniczych[/TIP][/B] podczas ataku.[/BLIST]</Text>
+    </Replace>
+    <Replace Tag="LOC_TRAIT_OTTOMANS_ABILITY_EX_DESCRIPTION" Language="pl_PL">
+      <Text>[BLIST][LI]Zyskujesz [B][icon:GREATWORK] [TIP:LOC_PEDIA_CONCEPTS_RELIC_TOOLTIP]relikwię[/TIP][/B], gdy rozpoczniesz [B][icon:CELEBRATION] [TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]obchody[/TIP][/B] lub podbijesz [B][icon:NOTIFICATION_SELECT_CAPITAL] pierwotną stolicę[/B] po raz pierwszy.[LI][B]+3 do [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]siły bojowej[/TIP][/B] dla [B][TIP:LOC_PEDIA_CONCEPTS_INFANTRY_UNITS_TOOLTIP]jednostek piechoty[/TIP][/B] i [B][TIP:LOC_PEDIA_CONCEPTS_SIEGE_UNITS_TOOLTIP]jednostek oblężniczych[/TIP][/B] podczas ataku.[/BLIST]</Text>
+    </Replace>
+    <Replace Tag="LOC_TRAIT_OTTOMANS_ABILITY_MO_DESCRIPTION" Language="pl_PL">
+      <Text>[BLIST][LI]Gdy któryś przywódca ukończy [B]wykopaliska[/B] i wydobędzie [B][icon:GREATWORK] [TIP:LOC_PEDIA_CONCEPTS_ARTIFACT_TOOLTIP]artefakt[/TIP][/B] na terytorium Imperium Osmańskiego, generowany jest dodatkowy [B] [icon:GREATWORK] [TIP:LOC_PEDIA_CONCEPTS_ARTIFACT_TOOLTIP]artefakt[/TIP][/B].[LI][B]+3 do [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]siły bojowej[/TIP][/B] [B][TIP:LOC_PEDIA_CONCEPTS_INFANTRY_UNITS_TOOLTIP]jednostek piechoty[/TIP][/B] i [B][TIP:LOC_PEDIA_CONCEPTS_SIEGE_UNITS_TOOLTIP]jednostek oblężniczych[/TIP][/B], gdy atakują.[LI][B]+30% do [icon:YIELD_PRODUCTION] produkcji[/B] przeznaczonej na wzniesienie [B]Błękitnego Meczetu[/B].[/BLIST]</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_OTTOMANS_ABILITY_NAME" Language="pl_PL">
       <Text>Devlet-i ʿAlīye-i ʿOsmānīye</Text>
@@ -846,34 +878,40 @@
       <Text>Idee Imperium Osmańskiego</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_BARBARY_CORSAIR_2_DESCRIPTION" Language="pl_PL">
-      <Text>Unikalna osmańska lekka jednostka pływająca 2. poziomu. Przeprowadzenie [icon:Action_Pillage] morskiego najazdu nie pociąga za sobą kosztu w punktach [icon:Action_Move] ruchu.</Text>
+      <Text>Unikalna osmańska lekka [TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]jednostka pływająca[/TIP] 2. poziomu. Przeprowadzenie [icon:Action_Pillage] morskiego najazdu nie pociąga za sobą kosztu w punktach [icon:Action_Move] ruchu.</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_BARBARY_CORSAIR_3_DESCRIPTION" Language="pl_PL">
-      <Text>Unikalna osmańska lekka jednostka pływająca 3. poziomu. Przeprowadzenie [icon:Action_Pillage] morskiego najazdu nie pociąga za sobą kosztu w punktach [icon:Action_Move] ruchu.</Text>
+      <Text>Unikalna osmańska lekka [TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]jednostka pływająca[/TIP] 3. poziomu. Przeprowadzenie [icon:Action_Pillage] morskiego najazdu nie pociąga za sobą kosztu w punktach [icon:Action_Move] ruchu.</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_BARBARY_CORSAIR_BASE_DESCRIPTION" Language="pl_PL">
-      <Text>Unikalna osmańska lekka jednostka pływająca. Przeprowadzenie [icon:Action_Pillage] morskiego najazdu nie pociąga za sobą kosztu w punktach [icon:Action_Move] ruchu.</Text>
+      <Text>Unikalna osmańska lekka [TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]jednostka pływająca[/TIP]. Przeprowadzenie [icon:Action_Pillage] morskiego najazdu nie pociąga za sobą kosztu w punktach [icon:Action_Move] ruchu.</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_BARBARY_CORSAIR_DESCRIPTION" Language="pl_PL">
-      <Text>Unikalna osmańska lekka jednostka pływająca 1. poziomu. Przeprowadzenie [icon:Action_Pillage] morskiego najazdu nie pociąga za sobą kosztu w punktach [icon:Action_Move] ruchu.</Text>
+      <Text>Unikalna osmańska lekka [TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]jednostka pływająca[/TIP] 1. poziomu. Przeprowadzenie [icon:Action_Pillage] morskiego najazdu nie pociąga za sobą kosztu w punktach [icon:Action_Move] ruchu.</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_JANISSARY_2_DESCRIPTION" Language="pl_PL">
-      <Text>Osmańska jednostka 2. poziomu zastępująca piechotę. +5 do [icon:NAR_REW_COMBAT] siły bojowej przeciwko innym jednostkom lądowym. Wszystkie osiedla cywilizacji otrzymują karę -2 do [icon:YIELD_HAPPINESS] zadowolenia za każdą jednostkę janczarów stacjonującą w dystrykcie lub okupującą [icon:CITY_URBAN] dystrykt.</Text>
+      <Text>Osmańska jednostka poziomu 2. zastępująca [TIP:LOC_PEDIA_CONCEPTS_INFANTRY_UNITS_TOOLTIP]piechotę[/TIP]. +5 do [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]siły bojowej[/TIP] przeciwko innym [TIP:LOC_PEDIA_CONCEPTS_LAND_UNITS_TOOLTIP]jednostkom lądowym[/TIP]. Wszystkie [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]osiedla[/TIP] cywilizacji otrzymują karę -2 do [icon:YIELD_HAPPINESS] zadowolenia za każdą jednostkę janczarów [TIP:LOC_PEDIA_CONCEPTS_STATIONED_TOOLTIP]stacjonującą[/TIP] w dystrykcie lub okupującą [icon:CITY_URBAN] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]dystrykt[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_JANISSARY_3_DESCRIPTION" Language="pl_PL">
-      <Text>Osmańska jednostka 3. poziomu zastępująca piechotę. +5 do [icon:NAR_REW_COMBAT] siły bojowej przeciwko innym jednostkom lądowym. Wszystkie osiedla cywilizacji otrzymują karę -2 do [icon:YIELD_HAPPINESS] zadowolenia za każdą jednostkę janczarów stacjonującą w dystrykcie lub okupującą [icon:CITY_URBAN] dystrykt.</Text>
+      <Text>Osmańska jednostka poziomu 3. zastępująca [TIP:LOC_PEDIA_CONCEPTS_INFANTRY_UNITS_TOOLTIP]piechotę[/TIP]. +5 do [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]siły bojowej[/TIP] przeciwko innym [TIP:LOC_PEDIA_CONCEPTS_LAND_UNITS_TOOLTIP]jednostkom lądowym[/TIP]. Wszystkie [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]osiedla[/TIP] cywilizacji otrzymują karę -2 do [icon:YIELD_HAPPINESS] zadowolenia za każdą jednostkę janczarów [TIP:LOC_PEDIA_CONCEPTS_STATIONED_TOOLTIP]stacjonującą[/TIP] w dystrykcie lub okupującą [icon:CITY_URBAN] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]dystrykt[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_JANISSARY_BASE_DESCRIPTION" Language="pl_PL">
-      <Text>Osmańska jednostka zastępująca piechotę. +5 do [icon:NAR_REW_COMBAT] siły bojowej przeciwko innym jednostkom lądowym. Wszystkie osiedla cywilizacji otrzymują karę -2 do [icon:YIELD_HAPPINESS] zadowolenia za każdą jednostkę janczarów stacjonującą w dystrykcie lub okupującą [icon:CITY_URBAN] dystrykt.</Text>
+      <Text>Osmańska jednostka zastępująca [TIP:LOC_PEDIA_CONCEPTS_INFANTRY_UNITS_TOOLTIP]piechotę[/TIP]. +5 do [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]siły bojowej[/TIP] przeciwko innym [TIP:LOC_PEDIA_CONCEPTS_LAND_UNITS_TOOLTIP]jednostkom lądowym[/TIP]. Wszystkie [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]osiedla[/TIP] cywilizacji otrzymują karę -2 do [icon:YIELD_HAPPINESS] zadowolenia za każdą jednostkę janczarów [TIP:LOC_PEDIA_CONCEPTS_STATIONED_TOOLTIP]stacjonującą[/TIP] w dystrykcie lub okupującą [icon:CITY_URBAN] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]dystrykt[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_JANISSARY_DESCRIPTION" Language="pl_PL">
-      <Text>Osmańska jednostka 1. poziomu zastępująca piechotę. +5 do [icon:NAR_REW_COMBAT] siły bojowej przeciwko innym jednostkom lądowym. Wszystkie osiedla cywilizacji otrzymują karę -2 do [icon:YIELD_HAPPINESS] zadowolenia za każdą jednostkę janczarów stacjonującą w dystrykcie lub okupującą [icon:CITY_URBAN] dystrykt.</Text>
+      <Text>Osmańska jednostka poziomu 1. zastępująca [TIP:LOC_PEDIA_CONCEPTS_INFANTRY_UNITS_TOOLTIP]piechotę[/TIP]. +5 do [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]siły bojowej[/TIP] przeciwko innym [TIP:LOC_PEDIA_CONCEPTS_LAND_UNITS_TOOLTIP]jednostkom lądowym[/TIP]. Wszystkie [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]osiedla[/TIP] cywilizacji otrzymują karę -2 do [icon:YIELD_HAPPINESS] zadowolenia za każdą jednostkę janczarów [TIP:LOC_PEDIA_CONCEPTS_STATIONED_TOOLTIP]stacjonującą[/TIP] w dystrykcie lub okupującą [icon:CITY_URBAN] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]dystrykt[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_CONQUERED_CAPITAL_DESCRIPTION" Language="pl_PL">
       <Text>[B]Podbij[/B] stolicę.</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_CONQUERED_CAPITAL_OTTOMANS_TOOLTIP" Language="pl_PL">
       <Text>[B]Podbój stolicy[/B] stanowił ważny element [B]osmańskiej[/B] tożsamości.</Text>
+    </Replace>
+    <Replace Tag="LOC_UNLOCK_PLAY_AS_ALEXANDER_OTTOMANS_TOOLTIP" Language="pl_PL">
+      <Text>[B]Aleksander[/B] pochodził z tego samego obszaru geograficznego, na którym znajdowało się [B]Imperium Osmańskie[/B].</Text>
+    </Replace>
+    <Replace Tag="LOC_UNLOCK_PLAY_AS_CARTHAGE_OTTOMANS_TOOLTIP" Language="pl_PL">
+      <Text>[B]Kartagina[/B] i [B]Imperium Osmańskie[/B] były państwami basenu Morza Śródziemnego.</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_PLAY_AS_Egypt_OTTOMANS_TOOLTIP" Language="pl_PL">
       <Text>[B]Egipt[/B] był prekursorem [B]Imperium Osmańskiego[/B].</Text>
@@ -884,6 +922,12 @@
     <Replace Tag="LOC_UNLOCK_PLAY_AS_NORMAN_OTTOMANS_TOOLTIP" Language="pl_PL">
       <Text>[B]Imperium Abbasydzkie[/B] było prekursorem [B]Imperium Osmańskiego[/B].</Text>
     </Replace>
+    <Replace Tag="LOC_UNLOCK_PLAY_AS_OTTOMANS_DESCRIPTION" Language="pl_PL">
+      <Text>Graj [B]Imperium Osmańskim[/B].</Text>
+    </Replace>
+    <Replace Tag="LOC_UNLOCK_PLAY_AS_OTTOMANS_OTTOMANS_TOOLTIP" Language="pl_PL">
+      <Text>[B]Imperium Osmańskie[/B] jest w stanie przetrwać kolejne epoki.</Text>
+    </Replace>
     <Replace Tag="LOC_UNLOCK_PLAY_AS_ROME_OTTOMANS_TOOLTIP" Language="pl_PL">
       <Text>[B]Rzym[/B] był prekursorem [B]Imperium Osmańskiego[/B].</Text>
     </Replace>
@@ -891,16 +935,16 @@
       <Text>[B]Sayyida al Hurra[/B] sprzymierzyła się z [B]osmańskimi[/B] korsarzami.</Text>
     </Replace>
     <Replace Tag="LOC_WONDER_SULTANAHMET_CAMII_DESCRIPTION" Language="pl_PL">
-      <Text>+4 do [icon:YIELD_HAPPINESS] zadowolenia. +2 do [icon:YIELD_CULTURE] kultury i [icon:YIELD_GOLD] złota z [icon:WONDER] cudów w tym osiedlu. Premia ta jest podwajana dla cudów epoki odkryć i potrajana dla cudów epoki antyku. Budowla niezwiązana z żadną epoką. Można umieścić wyłącznie w sąsiedztwie innego cudu.</Text>
+      <Text>+4 do [icon:YIELD_HAPPINESS] zadowolenia. +2 do [icon:YIELD_CULTURE] kultury i [icon:YIELD_GOLD] złota z [icon:WONDER] [TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]cudów[/TIP] w tym [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]osiedlu[/TIP]. Premia ta jest podwajana dla [TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]cudów[/TIP] epoki odkryć i potrajana dla [TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]cudów[/TIP] epoki antyku. Budowla [TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]niezwiązana z żadną epoką[/TIP]. Można umieścić wyłącznie w sąsiedztwie innego [TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]cudu[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_WONDER_SULTANAHMET_CAMII_TOOLTIP" Language="pl_PL">
-      <Text>+2 do [icon:YIELD_CULTURE] kultury i [icon:YIELD_GOLD] złota z [icon:WONDER] cudów w tym osiedlu. Premia ta jest podwajana dla cudów epoki odkryć i potrajana dla cudów epoki antyku.[n]Można umieścić wyłącznie w sąsiedztwie innego cudu.</Text>
+      <Text>+2 do [icon:YIELD_CULTURE] kultury i [icon:YIELD_GOLD] złota z [icon:WONDER] [TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]cudów[/TIP] w tym [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]osiedlu[/TIP]. Premia ta jest podwajana dla [TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]cudów[/TIP] epoki odkryć i potrajana dla [TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]cudów[/TIP] epoki antyku.[n]Można umieścić wyłącznie w sąsiedztwie innego [TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]cudu[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_ABILITY_JANISSARY_PREVIEW" Language="pl_PL">
-      <Text>+{1_Amount} przeciwko jednostkom lądowym</Text>
+      <Text>+{1_Amount} przeciwko [TIP:LOC_PEDIA_CONCEPTS_LAND_UNITS_TOOLTIP]jednostkom lądowym[/TIP]</Text>
     </Replace>
-    <Replace Tag="LOC_SAHI_TOPU_PREVIEW" Language="pl_PL">
-      <Text>+{1_Amount} dzięki şahi topu</Text>
+    <Replace Tag="LOC_TRADITION_OTTOMANS_SYNCRETISM_PREVIEW" Language="pl_PL">
+      <Text>+{1} dzięki {LOC_TRADITION_OTTOMANS_SYNCRETISM_TOOLTIP[9]}</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_OTTOMANS_ABILITY_PREVIEW" Language="pl_PL">
       <Text>+{Amount} dzięki Devlet-i ʿAlīye-i ʿOsmānīye</Text>
@@ -916,13 +960,33 @@
       <Gender>neuter</Gender>
       <Plurality>1</Plurality>
     </Replace>
-    <Replace Tag="LOC_TRADITION_OSMANLI_BAROK_NAME" Language="pl_PL">
-      <Text>Barok osmański|Baroku osmańskiego|Barokowi osmańskiemu|Barok osmański|Barokiem osmańskim|Baroku osmańskim|barok osmański|baroku osmańskiego|barokowi osmańskiemu|barok osmański|barokiem osmańskim|baroku osmańskim</Text>
+    <Replace Tag="LOC_TRADITION_OSMANLI_BAROK_I_NAME" Language="pl_PL">
+      <Text>Barok osmański I|Baroku osmańskiego I|Barokowi osmańskiemu I|Barok osmański I|Barokiem osmańskim I|Baroku osmańskim I|barok osmański I|baroku osmańskiego I|barokowi osmańskiemu I|barok osmański I|barokiem osmańskim I|baroku osmańskim I</Text>
       <Gender>masculine</Gender>
       <Plurality>1</Plurality>
     </Replace>
-    <Replace Tag="LOC_TRADITION_SEDEF_KAKMA_NAME" Language="pl_PL">
-      <Text>Sedef kakma|Sedef kakmy|Sedef kakmie|Sedef kakmę|Sedef kakmą|Sedef kakmie|sedef kakma|sedef kakmy|sedef kakmie|sedef kakmę|sedef kakmą|sedef kakmie</Text>
+    <Replace Tag="LOC_TRADITION_OSMANLI_BAROK_II_NAME" Language="pl_PL">
+      <Text>Barok osmański II|Baroku osmańskiego II|Barokowi osmańskiemu II|Barok osmański II|Barokiem osmańskim II|Baroku osmańskim II|barok osmański II|baroku osmańskiego II|barokowi osmańskiemu II|barok osmański II|barokiem osmańskim II|baroku osmańskim II</Text>
+      <Gender>masculine</Gender>
+      <Plurality>1</Plurality>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_OTTOMANS_SYNCRETISM_ANTIQUITY_NAME" Language="pl_PL">
+      <Text>Mehterân I|Mehterânu I|Mehterânowi I|Mehterân I|Mehterânem I|Mehterânie I|Mehterân I|Mehterânu I|Mehterânowi I|Mehterân I|Mehterânem I|Mehterânie I</Text>
+      <Gender>masculine</Gender>
+      <Plurality>1</Plurality>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_OTTOMANS_SYNCRETISM_EXPLORATION_NAME" Language="pl_PL">
+      <Text>Mehterân II|Mehterânu II|Mehterânowi II|Mehterân II|Mehterânem II|Mehterânie II|Mehterân II|Mehterânu II|Mehterânowi II|Mehterân II|Mehterânem II|Mehterânie II</Text>
+      <Gender>masculine</Gender>
+      <Plurality>1</Plurality>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_SEDEF_KAKMA_I_NAME" Language="pl_PL">
+      <Text>Sedef kakma I|Sedef kakmy I|Sedef kakmie I|Sedef kakmę I|Sedef kakmą I|Sedef kakmie I|sedef kakma I|sedef kakmy I|sedef kakmie I|sedef kakmę I|sedef kakmą I|sedef kakmie I</Text>
+      <Gender>feminine</Gender>
+      <Plurality>1</Plurality>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_SEDEF_KAKMA_II_NAME" Language="pl_PL">
+      <Text>Sedef kakma II|Sedef kakmy II|Sedef kakmie II|Sedef kakmę II|Sedef kakmą II|Sedef kakmie II|sedef kakma II|sedef kakmy II|sedef kakmie II|sedef kakmę II|sedef kakmą II|sedef kakmie II</Text>
       <Gender>feminine</Gender>
       <Plurality>1</Plurality>
     </Replace>

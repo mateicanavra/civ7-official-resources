@@ -15,15 +15,7 @@ class PlotIconArcheology extends Component {
       }
       this.Root.style.backgroundImage = `url(fs://game/${iconName})`;
     }
-    this.Root.classList.add(
-      "size-24",
-      "bg-cover",
-      "bg-no-repeat",
-      "bg-center",
-      "cursor-info",
-      "pointer-events-auto"
-    );
-    this.Root.setAttribute("data-pointer-passthrough", "true");
+    this.Root.classList.add("size-24", "bg-cover", "bg-no-repeat", "bg-center", "cursor-info");
     this.Root.dataset.tooltipStyle = "archeology";
     this.Root.setAttribute("node-id", `${this.location.x},${this.location.y}`);
   }

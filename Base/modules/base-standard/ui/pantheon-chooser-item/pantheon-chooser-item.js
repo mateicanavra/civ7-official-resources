@@ -1,9 +1,5 @@
 import { ChooserItem } from '../chooser-item/chooser-item.js';
-import { c as chooserItemStyles } from '../chooser-item/chooser-item.chunk.js';
-import '../../../core/ui/components/fxs-activatable.chunk.js';
-import '../../../core/ui/audio-base/audio-support.chunk.js';
-import '../../../core/ui/input/focus-manager.js';
-import '../../../core/ui/framework.chunk.js';
+import styles from '../chooser-item/chooser-item.scss.js';
 
 class PantheonChooserItem extends ChooserItem {
   get pantheonChooserNode() {
@@ -40,14 +36,14 @@ class PantheonChooserItem extends ChooserItem {
     primaryIcon.classList.add("pantheon-chooser-item_icon mb-5 relative");
     chooserItem.appendChild(primaryIcon);
     const textContainer = document.createElement("div");
-    textContainer.classList.value = "pantheon-chooser-item_text-container flex flex-col flex-auto relative w-full";
+    textContainer.classList.value = "pantheon-chooser-item_text-container flex flex-col flex-auto relative w-64";
     chooserItem.appendChild(textContainer);
     const title = document.createElement("div");
     title.classList.value = "font-title-sm pantheon-chooser-item_title uppercase text-accent-2 font-fit-shrink";
     title.innerHTML = node.name;
     textContainer.appendChild(title);
     const description = document.createElement("div");
-    description.classList.value = "font-body-sm pantheon-chooser-item_desc mr-2 text-accent-3";
+    description.classList.value = "font-body-sm pantheon-chooser-item_desc w-52 text-accent-3";
     description.innerHTML = node.description;
     textContainer.appendChild(description);
     this.Root.appendChild(chooserItem);
@@ -57,7 +53,7 @@ Controls.define("pantheon-chooser-item", {
   createInstance: PantheonChooserItem,
   description: "A chooser item to be used with the pantheon chooser",
   classNames: ["pantheon-chooser-item", "relative", "group"],
-  styles: [chooserItemStyles],
+  styles: [styles],
   images: [
     "fs://game/hud_sidepanel_list-bg.png",
     "fs://game/hud_list-focus_frame.png",

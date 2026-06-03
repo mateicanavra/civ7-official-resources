@@ -268,6 +268,9 @@
     <Replace Tag="LOC_MAIN_CHAR_SELECT_LEADER_TECUMSEH_ANY" Language="zh_Hans_CN">
       <Text>我的先祖们曾是战士。而他们的后代也成为了战士。我从他们身上获得了生命，再把自己塑造成如今的模样。 </Text>
     </Replace>
+    <Replace Tag="LOC_VICTORY_LEADER_TECUMSEH" Language="zh_Hans_CN">
+      <Text>神灵引领我们至此，丰饶的猎物与土地将使我们兴旺发展。 </Text>
+    </Replace>
     <Replace Tag="LOC_RIVER_K_TEKANI_FIPI_NAME" Language="zh_Hans_CN">
       <Text>科特卡尼-菲皮</Text>
     </Replace>
@@ -1057,8 +1060,26 @@
     <Replace Tag="LOC_LEADER_CHAIN_1209D_STORYTITLE" Language="zh_Hans_CN">
       <Text>人民团结</Text>
     </Replace>
+    <Replace Tag="LOC_TOT_30031A_COMPLETION" Language="zh_Hans_CN">
+      <Text>两位酋长各率随行战士步入议事屋，肖尼代表团在一旁静静注视。在肖尼人的目光之下，积压已久的怨愤被一一道出，气氛紧绷而克制。肖尼外交官随即提出了一个建议：大家团结起来——比起眼前的邻人，有更大的威胁正在等待。</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30031A_STORYTITLE" Language="zh_Hans_CN">
+      <Text>奇利科菲</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30031B_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>{1_reward}。</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30031B_NAME" Language="zh_Hans_CN">
+      <Text>若能设立专职外交部门，此类事务的处理将更为妥善。</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30031C_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>{1_reward}。</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30031C_NAME" Language="zh_Hans_CN">
+      <Text>肖尼外交官可以献策，但仅此而已。</Text>
+    </Replace>
     <Replace Tag="LOC_ABILITY_TECUMSEH_SUZERAIN_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>你作为宗主国每有一个下属城邦，便+1[icon:NAR_REW_COMBAT]战斗力。</Text>
+      <Text>你作为[TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主国[/TIP]每有一个下属[TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP]，便+1[icon:NAR_REW_COMBAT]战斗力。</Text>
     </Replace>
     <Replace Tag="LOC_ATTRIBUTENODE_TECUMSEH_L1_DESCRIPTION" Language="zh_Hans_CN">
       <Text>对抗区块时所有单位+5战斗力。</Text>
@@ -1082,28 +1103,28 @@
       <Text>特库姆塞背景</Text>
     </Replace>
     <Replace Tag="LOC_CARD_AT_EXP_LEGEND_TECUMSEH_1_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>在此时代中，海上单位+3战斗力，但-10%[icon:YIELD_DIPLOMACY]影响力</Text>
+      <Text>在此时代中，海上单位+3战斗力，但-10%[icon:YIELD_DIPLOMACY]影响力。</Text>
     </Replace>
     <Replace Tag="LOC_CARD_AT_EXP_LEGEND_TECUMSEH_1_NAME" Language="zh_Hans_CN">
-      <Text>特库姆塞探索时代传奇军事</Text>
+      <Text>特库姆塞探索时代献礼军事</Text>
     </Replace>
     <Replace Tag="LOC_CARD_AT_EXP_LEGEND_TECUMSEH_2_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>在此时代中，+15%[icon:YIELD_DIPLOMACY]影响力，但海上单位-2战斗力</Text>
+      <Text>在此时代中，+15%[icon:YIELD_DIPLOMACY]影响力，但海上单位-2战斗力。</Text>
     </Replace>
     <Replace Tag="LOC_CARD_AT_EXP_LEGEND_TECUMSEH_2_NAME" Language="zh_Hans_CN">
-      <Text>特库姆塞探索时代传奇外交</Text>
+      <Text>特库姆塞探索时代献礼外交</Text>
     </Replace>
     <Replace Tag="LOC_CARD_AT_MOD_LEGEND_TECUMSEH_1_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>在此时代中，空中单位+3战斗力，但-10%[icon:YIELD_DIPLOMACY]影响力</Text>
+      <Text>在此时代中，空中单位+3战斗力，但-10%[icon:YIELD_DIPLOMACY]影响力。</Text>
     </Replace>
     <Replace Tag="LOC_CARD_AT_MOD_LEGEND_TECUMSEH_1_NAME" Language="zh_Hans_CN">
-      <Text>特库姆塞近世时代传奇军事</Text>
+      <Text>特库姆塞近世时代献礼军事</Text>
     </Replace>
     <Replace Tag="LOC_CARD_AT_MOD_LEGEND_TECUMSEH_2_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>在此时代中，+15%[icon:YIELD_DIPLOMACY]影响力，但空中单位-2战斗力</Text>
+      <Text>在此时代中，+15%[icon:YIELD_DIPLOMACY]影响力，但空中单位-2战斗力。</Text>
     </Replace>
     <Replace Tag="LOC_CARD_AT_MOD_LEGEND_TECUMSEH_2_NAME" Language="zh_Hans_CN">
-      <Text>特库姆塞近世时代传奇外交</Text>
+      <Text>特库姆塞近世时代献礼外交</Text>
     </Replace>
     <Replace Tag="LOC_CIVIC_MALEKI_KINTAKE_QUOTE" Language="zh_Hans_CN">
       <Text>“唯取衣食所需，切莫滥杀生灵。”</Text>
@@ -1118,7 +1139,7 @@
       <Text>科科维佩莱蒂</Text>
     </Replace>
     <Replace Tag="LOC_CIVIC_TELWATIKI_QUOTE" Language="zh_Hans_CN">
-      <Text>若我等不合为一心，共御强敌，只恐大难将至。</Text>
+      <Text>“若我等不合为一心，共御强敌，只恐大难将至。”</Text>
     </Replace>
     <Replace Tag="LOC_CIVIC_TELWATIKI_QUOTE_AUTHOR" Language="zh_Hans_CN">
       <Text>特库姆塞</Text>
@@ -1130,22 +1151,22 @@
       <Text>特库姆塞</Text>
     </Replace>
     <Replace Tag="LOC_CIVILIZATION_SHAWNEE_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>相邻于可航行河流的定居点中的[icon:CITY_UNIMPROVED]小型和可航行河流地形+2[icon:YIELD_FOOD]食物。不相邻于可航行河流的[icon:YIELD_CITIES]城市-10%[icon:YIELD_FOOD]食物。</Text>
+      <Text>相邻于可航行河流的定居点中的[icon:CITY_UNIMPROVED]小型和可航行河流地形+2[icon:YIELD_FOOD]食物。</Text>
     </Replace>
     <Replace Tag="LOC_IMPROVEMENT_MAWASKAWE_SKOTE_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>肖尼族特色改良设施。+4[icon:YIELD_FOOD]食物。每有一处相邻的[icon:RADIAL_RESOURCES]资源，便+1[icon:YIELD_GOLD]金币。无时代限制。不会移除地块上的[icon:YIELD_WAREHOUSE]仓库加成。必须放置在植被地形中现有的[icon:CITY_RURAL]改良设施上，且不能与另一个议事火堆相邻。</Text>
+      <Text>肖尼族[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_IMPROVEMENT_TOOLTIP]特色改良设施[/TIP]。+4[icon:YIELD_FOOD]食物。每有一处相邻的[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]资源[/TIP]，便+1[icon:YIELD_GOLD]金币。必须放置在[TIP:LOC_PEDIA_CONCEPTS_VEGETATED_TERRAIN_TOOLTIP]植被地形[/TIP]上，且不能与另一个议事火堆相邻。</Text>
     </Replace>
     <Replace Tag="LOC_IMPROVEMENT_MAWASKAWE_SKOTE_TOOLTIP" Language="zh_Hans_CN">
-      <Text>不会移除地块上的[icon:YIELD_WAREHOUSE]仓库加成。必须放置在植被地形中现有的[icon:CITY_RURAL]改良设施上，且不能与另一个议事火堆相邻。[n]肖尼族特色改良设施。</Text>
+      <Text>必须放置在[TIP:LOC_PEDIA_CONCEPTS_VEGETATED_TERRAIN_TOOLTIP]植被地形[/TIP]上，且不能与另一个议事火堆相邻。[n]肖尼族[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_IMPROVEMENT_TOOLTIP]特色改良设施[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEADER_TECUMSEH_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>你作为宗主国每拥有一个下属[icon:CITYSTATE]城邦，定居点便+1[icon:YIELD_FOOD]食物和[icon:YIELD_PRODUCTION]生产力，按时代叠加。你作为宗主国每有一个下属[icon:CITYSTATE]城邦，所有单位便+1[icon:NAR_REW_COMBAT]战斗力。</Text>
+      <Text>你作为[TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主国[/TIP]每拥有一个下属[icon:CITYSTATE][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP]，[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP]便+1[icon:YIELD_FOOD]食物和[icon:YIELD_PRODUCTION]生产力，按[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]时代[/TIP]叠加。你作为[TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主国[/TIP]每有一个下属[icon:CITYSTATE][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP]，所有单位便+1[icon:NAR_REW_COMBAT][TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]战斗力[/TIP]。你作为[TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主国[/TIP]每有一个下属[TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP]，便+2[icon:MILITARY_VP]霸业点。</Text>
     </Replace>
     <Replace Tag="LOC_LOADING_CIV_INTRO_TEXT_SHAWNEE" Language="zh_Hans_CN">
       <Text>肖尼族人乃天生的外交使者，纵然面临灭顶之灾，仍徒步跋涉千里，联合四方部族。在基斯波科战士的警觉目光下，首领高声发出召唤：凡有志之士，皆可前来圣地议事，聆听智者箴言。团结如一，共同奋起。</Text>
     </Replace>
     <Replace Tag="LOC_LOADING_CIV_TIPS_TEXT_SHAWNEE" Language="zh_Hans_CN">
-      <Text>使用“天降甘霖”传统使你的定居点免受风暴影响，并在风暴来袭时获得额外的文化值和金币。</Text>
+      <Text>特色能力“河畔之民”与“塔克西亚克-耶佩波基”传统能让河流上的改良设施提供大量产出。尽量避免在这些地块上建造区块，以免产出遭到清除。</Text>
     </Replace>
     <Replace Tag="LOC_LOADING_LEADER_INTRO_TEXT_TECUMSEH" Language="zh_Hans_CN">
       <Text>特库姆塞，分裂之处，你播撒团结种子；纷争之地，你传授以和为贵。伟大的酋长啊，将四方部族召至你的麾下，让他们携手并肩，齐聚力量，抵御即将席卷而来的狂风暴雨。</Text>
@@ -1157,7 +1178,7 @@
       <Text>树木制成的研钵和杵。</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_TECUMSEH_POTESKWATE_FUNCTIONAL_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>你作为宗主国每有一个下属城邦，定居点便+1[icon:YIELD_FOOD]食物，按时代叠加。</Text>
+      <Text>你作为[TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主国[/TIP]每有一个[icon:CITYSTATE][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]下属城邦[/TIP]，[icon:YIELD_TOWNS][TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]城镇[/TIP]便[B]+1[icon:YIELD_FOOD][/B]，按[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]时代[/TIP]叠加。</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_TECUMSEH_POTESKWATE_NAME" Language="zh_Hans_CN">
       <Text>波特茨瓦特</Text>
@@ -1169,7 +1190,7 @@
       <Text>团结的象征。</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_TECUMSEH_WAMPUM_BELT_FUNCTIONAL_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>你作为宗主国每有一个下属城邦，定居点便+1[icon:YIELD_PRODUCTION]生产力，按时代叠加。</Text>
+      <Text>你作为[TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主国[/TIP]每有一个[icon:CITYSTATE][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]下属城邦[/TIP]，[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]便[B]+1[icon:YIELD_PRODUCTION][/B]，按[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]时代[/TIP]叠加。</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_TECUMSEH_WAMPUM_BELT_NAME" Language="zh_Hans_CN">
       <Text>贝壳串带</Text>
@@ -1181,7 +1202,7 @@
       <Text>别再睡了。</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_TECUMSEH_WARCLUB_FUNCTIONAL_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>你作为宗主国每有一个下属城邦，所有单位便+1战斗力。</Text>
+      <Text>你作为[TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主国[/TIP]每有一个[icon:CITYSTATE][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]下属城邦[/TIP]，[TIP:LOC_PEDIA_CONCEPTS_INFANTRY_UNITS_TOOLTIP]步兵单位[/TIP]便[B]+1[icon:NAR_REW_COMBAT][/B][TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]战斗力[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_TECUMSEH_WARCLUB_NAME" Language="zh_Hans_CN">
       <Text>战棍</Text>
@@ -1189,17 +1210,53 @@
     <Replace Tag="LOC_MEMENTO_TECUMSEH_WARCLUB_UNLOCK_TITLE" Language="zh_Hans_CN">
       <Text>在特库姆塞5级时解锁</Text>
     </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_TECUMSEH_QUEST_A_ANTIQUITY_DESC" Language="zh_Hans_CN">
+      <Text>在古典时代中扮演特库姆塞，完成一项任务，追随勇士的预兆。</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_TECUMSEH_QUEST_A_ANTIQUITY_NAME" Language="zh_Hans_CN">
+      <Text>飘散余烬</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_TECUMSEH_QUEST_A_EXPLORATION_DESC" Language="zh_Hans_CN">
+      <Text>在探索时代中扮演特库姆塞，完成一项任务，化解异见。</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_TECUMSEH_QUEST_A_EXPLORATION_NAME" Language="zh_Hans_CN">
+      <Text>内部分歧</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_TECUMSEH_QUEST_A_MODERN_DESC" Language="zh_Hans_CN">
+      <Text>在近世时代中扮演特库姆塞，完成一项任务，在战争中鼓舞人民。</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_TECUMSEH_QUEST_A_MODERN_NAME" Language="zh_Hans_CN">
+      <Text>团结一致</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_TECUMSEH_QUEST_B_ANTIQUITY_DESC" Language="zh_Hans_CN">
+      <Text>在古典时代中扮演特库姆塞，完成一项任务，传递战斧烟斗。</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_TECUMSEH_QUEST_B_ANTIQUITY_NAME" Language="zh_Hans_CN">
+      <Text>仪式烟斗</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_TECUMSEH_QUEST_B_EXPLORATION_DESC" Language="zh_Hans_CN">
+      <Text>在探索时代中扮演特库姆塞，完成一项任务，以祈祷抚慰大地。</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_TECUMSEH_QUEST_B_EXPLORATION_NAME" Language="zh_Hans_CN">
+      <Text>大地颤抖</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_TECUMSEH_QUEST_B_MODERN_DESC" Language="zh_Hans_CN">
+      <Text>在近世时代中扮演特库姆塞，完成一项任务，通过贸易引领世界。</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_TECUMSEH_QUEST_B_MODERN_NAME" Language="zh_Hans_CN">
+      <Text>人民团结</Text>
+    </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SHAWNEE_COMPLETE_SERPENT_MOUND_DESC" Language="zh_Hans_CN">
       <Text>扮演肖尼族，建成巨蟒土丘。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SHAWNEE_COMPLETE_SERPENT_MOUND_NAME" Language="zh_Hans_CN">
       <Text>巨蟒土丘</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SHAWNEE_LEGACY_PATH_ECONOMIC_DESC" Language="zh_Hans_CN">
-      <Text>扮演肖尼族，完成一条经济传承路径。</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SHAWNEE_FOUR_MAJOR_TRIUMPHS_DESC" Language="zh_Hans_CN">
+      <Text>扮演肖尼族，在一次巅峰时代中完成4项外交或经济主要伟业。</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SHAWNEE_LEGACY_PATH_ECONOMIC_NAME" Language="zh_Hans_CN">
-      <Text>肖尼族传承路径</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_SHAWNEE_FOUR_MAJOR_TRIUMPHS_NAME" Language="zh_Hans_CN">
+      <Text>肖尼族4主要伟业</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_AGE_COMPLETED_ANTIQUITY_2_DESC" Language="zh_Hans_CN">
       <Text>扮演特库姆塞，完成古典时代2次。</Text>
@@ -1255,293 +1312,281 @@
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_AGE_COMPLETED_MODERN_NAME" Language="zh_Hans_CN">
       <Text>近世时代完成</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_VICTORY_ANTIQUITY_2_DESC" Language="zh_Hans_CN">
-      <Text>扮演特库姆塞，完成古代世界奇观传承路径2次。</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_TRIUMPH_2_ANTIQUITY_DESC" Language="zh_Hans_CN">
+      <Text>扮演特库姆塞，完成俄耳甫斯秘仪伟业。</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_VICTORY_ANTIQUITY_2_NAME" Language="zh_Hans_CN">
-      <Text>古代世界奇观2</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_TRIUMPH_2_ANTIQUITY_NAME" Language="zh_Hans_CN">
+      <Text>俄耳甫斯秘仪</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_VICTORY_ANTIQUITY_3_DESC" Language="zh_Hans_CN">
-      <Text>扮演特库姆塞，完成古代世界奇观传承路径3次。</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_TRIUMPH_2_EXPLORATION_DESC" Language="zh_Hans_CN">
+      <Text>扮演特库姆塞，完成天堂王国伟业。</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_VICTORY_ANTIQUITY_3_NAME" Language="zh_Hans_CN">
-      <Text>古代世界奇观3</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_TRIUMPH_2_EXPLORATION_NAME" Language="zh_Hans_CN">
+      <Text>天堂王国</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_VICTORY_ANTIQUITY_DESC" Language="zh_Hans_CN">
-      <Text>扮演特库姆塞，完成古代世界奇观传承路径。</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_TRIUMPH_2_MODERN_DESC" Language="zh_Hans_CN">
+      <Text>扮演特库姆塞，完成奇观之地伟业。</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_VICTORY_ANTIQUITY_NAME" Language="zh_Hans_CN">
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_TRIUMPH_2_MODERN_NAME" Language="zh_Hans_CN">
+      <Text>奇观之地</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_TRIUMPH_ANTIQUITY_DESC" Language="zh_Hans_CN">
+      <Text>扮演特库姆塞，完成古代世界奇观伟业。</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_TRIUMPH_ANTIQUITY_NAME" Language="zh_Hans_CN">
       <Text>古代世界奇观</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_VICTORY_EXPLORATION_2_DESC" Language="zh_Hans_CN">
-      <Text>扮演特库姆塞，完成皇家宝库传承路径2次。</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_TRIUMPH_EXPLORATION_DESC" Language="zh_Hans_CN">
+      <Text>扮演特库姆塞，完成皇家宝库伟业。</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_VICTORY_EXPLORATION_2_NAME" Language="zh_Hans_CN">
-      <Text>皇家宝库2</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_VICTORY_EXPLORATION_3_DESC" Language="zh_Hans_CN">
-      <Text>扮演特库姆塞，完成皇家宝库传承路径3次。</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_VICTORY_EXPLORATION_3_NAME" Language="zh_Hans_CN">
-      <Text>皇家宝库3</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_VICTORY_EXPLORATION_DESC" Language="zh_Hans_CN">
-      <Text>扮演特库姆塞，完成皇家宝库传承路径。</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_VICTORY_EXPLORATION_NAME" Language="zh_Hans_CN">
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_TRIUMPH_EXPLORATION_NAME" Language="zh_Hans_CN">
       <Text>皇家宝库</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_VICTORY_MODERN_2_DESC" Language="zh_Hans_CN">
-      <Text>扮演特库姆塞，完成地理学会传承路径2次。</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_TRIUMPH_MODERN_DESC" Language="zh_Hans_CN">
+      <Text>扮演特库姆塞，完成地理学会伟业。</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_VICTORY_MODERN_2_NAME" Language="zh_Hans_CN">
-      <Text>地理学会2</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_VICTORY_MODERN_3_DESC" Language="zh_Hans_CN">
-      <Text>扮演特库姆塞，完成地理学会传承路径3次。</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_VICTORY_MODERN_3_NAME" Language="zh_Hans_CN">
-      <Text>地理学会3</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_VICTORY_MODERN_DESC" Language="zh_Hans_CN">
-      <Text>扮演特库姆塞，完成地理学会传承路径。</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_VICTORY_MODERN_NAME" Language="zh_Hans_CN">
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_TRIUMPH_MODERN_NAME" Language="zh_Hans_CN">
       <Text>地理学会</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_VICTORY_ANTIQUITY_2_DESC" Language="zh_Hans_CN">
-      <Text>扮演特库姆塞，完成丝绸之路传承路径2次。</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_VICTORY_DESC" Language="zh_Hans_CN">
+      <Text>扮演特库姆塞，达成一次文化胜利。</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_VICTORY_ANTIQUITY_2_NAME" Language="zh_Hans_CN">
-      <Text>丝绸之路2</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_CULTURE_VICTORY_NAME" Language="zh_Hans_CN">
+      <Text>文化胜利</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_VICTORY_ANTIQUITY_3_DESC" Language="zh_Hans_CN">
-      <Text>扮演特库姆塞，完成丝绸之路传承路径3次。</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_DEITY_VICTORY_DESC" Language="zh_Hans_CN">
+      <Text>扮演特库姆塞，在神祇难度下达成一次胜利。</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_VICTORY_ANTIQUITY_3_NAME" Language="zh_Hans_CN">
-      <Text>丝绸之路3</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_DEITY_VICTORY_NAME" Language="zh_Hans_CN">
+      <Text>神祇胜利</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_VICTORY_ANTIQUITY_DESC" Language="zh_Hans_CN">
-      <Text>扮演特库姆塞，完成丝绸之路传承路径。</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_DIPLOMATIC_TRIUMPH_2_ANTIQUITY_DESC" Language="zh_Hans_CN">
+      <Text>扮演特库姆塞，完成面包与马戏伟业。</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_VICTORY_ANTIQUITY_NAME" Language="zh_Hans_CN">
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_DIPLOMATIC_TRIUMPH_2_ANTIQUITY_NAME" Language="zh_Hans_CN">
+      <Text>面包与马戏</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_DIPLOMATIC_TRIUMPH_2_EXPLORATION_DESC" Language="zh_Hans_CN">
+      <Text>扮演特库姆塞，完成四国同盟伟业。</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_DIPLOMATIC_TRIUMPH_2_EXPLORATION_NAME" Language="zh_Hans_CN">
+      <Text>四国同盟</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_DIPLOMATIC_TRIUMPH_2_MODERN_DESC" Language="zh_Hans_CN">
+      <Text>扮演特库姆塞，完成恩尼格玛密码伟业。</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_DIPLOMATIC_TRIUMPH_2_MODERN_NAME" Language="zh_Hans_CN">
+      <Text>恩尼格玛密码</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_DIPLOMATIC_TRIUMPH_ANTIQUITY_DESC" Language="zh_Hans_CN">
+      <Text>扮演特库姆塞，完成幕后操纵伟业。</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_DIPLOMATIC_TRIUMPH_ANTIQUITY_NAME" Language="zh_Hans_CN">
+      <Text>幕后操纵</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_DIPLOMATIC_TRIUMPH_EXPLORATION_DESC" Language="zh_Hans_CN">
+      <Text>扮演特库姆塞，完成阿萨辛派伟业。</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_DIPLOMATIC_TRIUMPH_EXPLORATION_NAME" Language="zh_Hans_CN">
+      <Text>阿萨辛派</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_DIPLOMATIC_TRIUMPH_MODERN_DESC" Language="zh_Hans_CN">
+      <Text>扮演特库姆塞，完成万国联盟伟业。</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_DIPLOMATIC_TRIUMPH_MODERN_NAME" Language="zh_Hans_CN">
+      <Text>万国联盟</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_TRIUMPH_2_ANTIQUITY_DESC" Language="zh_Hans_CN">
+      <Text>扮演特库姆塞，完成贪婪是金伟业。</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_TRIUMPH_2_ANTIQUITY_NAME" Language="zh_Hans_CN">
+      <Text>贪婪是金</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_TRIUMPH_2_EXPLORATION_DESC" Language="zh_Hans_CN">
+      <Text>扮演特库姆塞，完成来卡利卡特做买卖伟业。</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_TRIUMPH_2_EXPLORATION_NAME" Language="zh_Hans_CN">
+      <Text>来卡利卡特做买卖</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_TRIUMPH_2_MODERN_DESC" Language="zh_Hans_CN">
+      <Text>扮演特库姆塞，完成世界工厂伟业。</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_TRIUMPH_2_MODERN_NAME" Language="zh_Hans_CN">
+      <Text>世界工厂</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_TRIUMPH_ANTIQUITY_DESC" Language="zh_Hans_CN">
+      <Text>扮演特库姆塞，完成丝绸之路伟业。</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_TRIUMPH_ANTIQUITY_NAME" Language="zh_Hans_CN">
       <Text>丝绸之路</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_VICTORY_EXPLORATION_2_DESC" Language="zh_Hans_CN">
-      <Text>扮演特库姆塞，完成宝藏舰队传承路径2次。</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_TRIUMPH_EXPLORATION_DESC" Language="zh_Hans_CN">
+      <Text>扮演特库姆塞，完成宝藏舰队伟业。</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_VICTORY_EXPLORATION_2_NAME" Language="zh_Hans_CN">
-      <Text>宝藏舰队2</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_VICTORY_EXPLORATION_3_DESC" Language="zh_Hans_CN">
-      <Text>扮演特库姆塞，完成宝藏舰队传承路径3次。</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_VICTORY_EXPLORATION_3_NAME" Language="zh_Hans_CN">
-      <Text>宝藏舰队3</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_VICTORY_EXPLORATION_DESC" Language="zh_Hans_CN">
-      <Text>扮演特库姆塞，完成宝藏舰队传承路径。</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_VICTORY_EXPLORATION_NAME" Language="zh_Hans_CN">
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_TRIUMPH_EXPLORATION_NAME" Language="zh_Hans_CN">
       <Text>宝藏舰队</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_VICTORY_MODERN_2_DESC" Language="zh_Hans_CN">
-      <Text>扮演特库姆塞，完成铁路大亨传承路径2次。</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_TRIUMPH_MODERN_DESC" Language="zh_Hans_CN">
+      <Text>扮演特库姆塞，完成铁路大亨伟业。</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_VICTORY_MODERN_2_NAME" Language="zh_Hans_CN">
-      <Text>铁路大亨2</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_VICTORY_MODERN_3_DESC" Language="zh_Hans_CN">
-      <Text>扮演特库姆塞，完成铁路大亨传承路径3次。</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_VICTORY_MODERN_3_NAME" Language="zh_Hans_CN">
-      <Text>铁路大亨3</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_VICTORY_MODERN_DESC" Language="zh_Hans_CN">
-      <Text>扮演特库姆塞，完成铁路大亨传承路径。</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_VICTORY_MODERN_NAME" Language="zh_Hans_CN">
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_TRIUMPH_MODERN_NAME" Language="zh_Hans_CN">
       <Text>铁路大亨</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_FLAWLESS_VICTORY_ANTIQUITY_DESC" Language="zh_Hans_CN">
-      <Text>扮演特库姆塞，在一次古典时代中完成2条传承路径。</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_VICTORY_DESC" Language="zh_Hans_CN">
+      <Text>扮演特库姆塞，达成一次经济胜利。</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_FLAWLESS_VICTORY_ANTIQUITY_NAME" Language="zh_Hans_CN">
-      <Text>古典时代双传承</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_ECONOMIC_VICTORY_NAME" Language="zh_Hans_CN">
+      <Text>经济胜利</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_FLAWLESS_VICTORY_EXPLORATION_DESC" Language="zh_Hans_CN">
-      <Text>扮演特库姆塞，在一次探索时代中完成2条传承路径。</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_EXPANSIONIST_TRIUMPH_2_ANTIQUITY_DESC" Language="zh_Hans_CN">
+      <Text>扮演特库姆塞，完成巴别塔伟业。</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_FLAWLESS_VICTORY_EXPLORATION_NAME" Language="zh_Hans_CN">
-      <Text>探索时代双传承</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_EXPANSIONIST_TRIUMPH_2_ANTIQUITY_NAME" Language="zh_Hans_CN">
+      <Text>巴别塔</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_FLAWLESS_VICTORY_MODERN_DESC" Language="zh_Hans_CN">
-      <Text>扮演特库姆塞，在一次近世时代中完成2条传承路径。</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_EXPANSIONIST_TRIUMPH_2_EXPLORATION_DESC" Language="zh_Hans_CN">
+      <Text>扮演特库姆塞，完成哈布斯堡就在我家伟业。</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_FLAWLESS_VICTORY_MODERN_NAME" Language="zh_Hans_CN">
-      <Text>近世时代双传承</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_EXPANSIONIST_TRIUMPH_2_EXPLORATION_NAME" Language="zh_Hans_CN">
+      <Text>哈布斯堡就在我家</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_VICTORY_ANTIQUITY_2_DESC" Language="zh_Hans_CN">
-      <Text>扮演特库姆塞，完成帝国和平传承路径2次。</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_EXPANSIONIST_TRIUMPH_2_MODERN_DESC" Language="zh_Hans_CN">
+      <Text>扮演特库姆塞，完成特大都市伟业。</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_VICTORY_ANTIQUITY_2_NAME" Language="zh_Hans_CN">
-      <Text>帝国和平2</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_EXPANSIONIST_TRIUMPH_2_MODERN_NAME" Language="zh_Hans_CN">
+      <Text>特大都市</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_VICTORY_ANTIQUITY_3_DESC" Language="zh_Hans_CN">
-      <Text>扮演特库姆塞，完成帝国和平传承路径3次。</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_EXPANSIONIST_TRIUMPH_ANTIQUITY_DESC" Language="zh_Hans_CN">
+      <Text>扮演特库姆塞，完成世界四方伟业。</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_VICTORY_ANTIQUITY_3_NAME" Language="zh_Hans_CN">
-      <Text>帝国和平3</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_EXPANSIONIST_TRIUMPH_ANTIQUITY_NAME" Language="zh_Hans_CN">
+      <Text>世界四方</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_VICTORY_ANTIQUITY_DESC" Language="zh_Hans_CN">
-      <Text>扮演特库姆塞，完成帝国和平传承路径。</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_EXPANSIONIST_TRIUMPH_EXPLORATION_DESC" Language="zh_Hans_CN">
+      <Text>扮演特库姆塞，完成此处有龙伟业。</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_VICTORY_ANTIQUITY_NAME" Language="zh_Hans_CN">
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_EXPANSIONIST_TRIUMPH_EXPLORATION_NAME" Language="zh_Hans_CN">
+      <Text>此处有龙</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_EXPANSIONIST_TRIUMPH_MODERN_DESC" Language="zh_Hans_CN">
+      <Text>扮演特库姆塞，完成太阳永不落伟业。</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_EXPANSIONIST_TRIUMPH_MODERN_NAME" Language="zh_Hans_CN">
+      <Text>太阳永不落</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_FOUR_MAJOR_TRIUMPHS_ANTIQUITY_DESC" Language="zh_Hans_CN">
+      <Text>扮演特库姆塞，在一次古典时代中完成4项主要伟业。</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_FOUR_MAJOR_TRIUMPHS_ANTIQUITY_NAME" Language="zh_Hans_CN">
+      <Text>古典时代伟业大成</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_FOUR_MAJOR_TRIUMPHS_EXPLORATION_DESC" Language="zh_Hans_CN">
+      <Text>扮演特库姆塞，在一次探索时代中完成4项主要伟业。</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_FOUR_MAJOR_TRIUMPHS_EXPLORATION_NAME" Language="zh_Hans_CN">
+      <Text>探索时代伟业大成</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_TRIUMPH_2_ANTIQUITY_DESC" Language="zh_Hans_CN">
+      <Text>扮演特库姆塞，完成盖乌斯之道伟业。</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_TRIUMPH_2_ANTIQUITY_NAME" Language="zh_Hans_CN">
+      <Text>盖乌斯之道</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_TRIUMPH_2_EXPLORATION_DESC" Language="zh_Hans_CN">
+      <Text>扮演特库姆塞，完成蒙古治世伟业。</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_TRIUMPH_2_EXPLORATION_NAME" Language="zh_Hans_CN">
+      <Text>蒙古治世</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_TRIUMPH_2_MODERN_DESC" Language="zh_Hans_CN">
+      <Text>扮演特库姆塞，完成世界之敌伟业。</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_TRIUMPH_2_MODERN_NAME" Language="zh_Hans_CN">
+      <Text>世界之敌</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_TRIUMPH_ANTIQUITY_DESC" Language="zh_Hans_CN">
+      <Text>扮演特库姆塞，完成帝国和平伟业。</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_TRIUMPH_ANTIQUITY_NAME" Language="zh_Hans_CN">
       <Text>帝国和平</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_VICTORY_EXPLORATION_2_DESC" Language="zh_Hans_CN">
-      <Text>扮演特库姆塞，完成世界不够大传承路径2次。</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_TRIUMPH_EXPLORATION_DESC" Language="zh_Hans_CN">
+      <Text>扮演特库姆塞，完成世界不够大伟业。</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_VICTORY_EXPLORATION_2_NAME" Language="zh_Hans_CN">
-      <Text>世界不够大2</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_VICTORY_EXPLORATION_3_DESC" Language="zh_Hans_CN">
-      <Text>扮演特库姆塞，完成世界不够大传承路径3次。</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_VICTORY_EXPLORATION_3_NAME" Language="zh_Hans_CN">
-      <Text>世界不够大3</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_VICTORY_EXPLORATION_DESC" Language="zh_Hans_CN">
-      <Text>扮演特库姆塞，完成世界不够大传承路径。</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_VICTORY_EXPLORATION_NAME" Language="zh_Hans_CN">
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_TRIUMPH_EXPLORATION_NAME" Language="zh_Hans_CN">
       <Text>世界不够大</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_VICTORY_MODERN_2_DESC" Language="zh_Hans_CN">
-      <Text>扮演特库姆塞，完成意识形态传承路径2次。</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_TRIUMPH_MODERN_DESC" Language="zh_Hans_CN">
+      <Text>扮演特库姆塞，完成道德律令伟业。</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_VICTORY_MODERN_2_NAME" Language="zh_Hans_CN">
-      <Text>意识形态2</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_TRIUMPH_MODERN_NAME" Language="zh_Hans_CN">
+      <Text>道德律令</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_VICTORY_MODERN_3_DESC" Language="zh_Hans_CN">
-      <Text>扮演特库姆塞，完成意识形态传承路径3次。</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_VICTORY_DESC" Language="zh_Hans_CN">
+      <Text>扮演特库姆塞，达成一次军事胜利。</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_VICTORY_MODERN_3_NAME" Language="zh_Hans_CN">
-      <Text>意识形态3</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_VICTORY_MODERN_DESC" Language="zh_Hans_CN">
-      <Text>扮演特库姆塞，完成意识形态传承路径。</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_VICTORY_MODERN_NAME" Language="zh_Hans_CN">
-      <Text>意识形态</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_MILITARY_VICTORY_NAME" Language="zh_Hans_CN">
+      <Text>军事胜利</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_PLAY_GAMES_1_DESC" Language="zh_Hans_CN">
-      <Text>扮演特库姆塞，达到至少1个传承路径里程碑。</Text>
+      <Text>扮演特库姆塞，完成1项主要伟业。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_PLAY_GAMES_1_NAME" Language="zh_Hans_CN">
       <Text>进行游戏1</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_PLAY_GAMES_2_DESC" Language="zh_Hans_CN">
-      <Text>扮演特库姆塞，达到至少2个传承路径里程碑。</Text>
+      <Text>扮演特库姆塞，在任意数量的时代中完成5项主要伟业。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_PLAY_GAMES_2_NAME" Language="zh_Hans_CN">
       <Text>进行游戏2</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_PLAY_GAMES_3_DESC" Language="zh_Hans_CN">
-      <Text>扮演特库姆塞，达到至少3个传承路径里程碑。</Text>
+      <Text>扮演特库姆塞，在任意数量的时代中完成25项主要伟业。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_PLAY_GAMES_3_NAME" Language="zh_Hans_CN">
       <Text>进行游戏3</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_QUEST_A_ANTIQUITY_DESC" Language="zh_Hans_CN">
-      <Text>在古典时代中扮演特库姆塞，完成一项任务，追随勇士的预兆。</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_TRIUMPH_2_ANTIQUITY_DESC" Language="zh_Hans_CN">
+      <Text>扮演特库姆塞，完成地圆论者伟业。</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_QUEST_A_ANTIQUITY_NAME" Language="zh_Hans_CN">
-      <Text>飘散余烬</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_TRIUMPH_2_ANTIQUITY_NAME" Language="zh_Hans_CN">
+      <Text>地圆论者</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_QUEST_A_EXPLORATION_DESC" Language="zh_Hans_CN">
-      <Text>在探索时代中扮演特库姆塞，完成一项任务，整备战士。</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_TRIUMPH_2_EXPLORATION_DESC" Language="zh_Hans_CN">
+      <Text>扮演特库姆塞，完成天体运行论伟业。</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_QUEST_A_EXPLORATION_NAME" Language="zh_Hans_CN">
-      <Text>战斗前夜</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_TRIUMPH_2_EXPLORATION_NAME" Language="zh_Hans_CN">
+      <Text>天体运行论</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_QUEST_A_MODERN_DESC" Language="zh_Hans_CN">
-      <Text>在近世时代中扮演特库姆塞，完成一项任务，在战争中鼓舞人民。</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_TRIUMPH_2_MODERN_DESC" Language="zh_Hans_CN">
+      <Text>扮演特库姆塞，完成超越剑锋伟业。</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_QUEST_A_MODERN_NAME" Language="zh_Hans_CN">
-      <Text>团结一致</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_TRIUMPH_2_MODERN_NAME" Language="zh_Hans_CN">
+      <Text>超越剑锋</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_QUEST_B_ANTIQUITY_DESC" Language="zh_Hans_CN">
-      <Text>在古典时代中扮演特库姆塞，完成一项任务，传递战斧烟斗。</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_TRIUMPH_ANTIQUITY_DESC" Language="zh_Hans_CN">
+      <Text>扮演特库姆塞，完成亚述巴尼拔藏书馆伟业。</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_QUEST_B_ANTIQUITY_NAME" Language="zh_Hans_CN">
-      <Text>仪式烟斗</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_TRIUMPH_ANTIQUITY_NAME" Language="zh_Hans_CN">
+      <Text>亚述巴尼拔藏书馆</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_QUEST_B_EXPLORATION_DESC" Language="zh_Hans_CN">
-      <Text>在探索时代中扮演特库姆塞，完成一项任务，团结邻邦。</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_TRIUMPH_EXPLORATION_DESC" Language="zh_Hans_CN">
+      <Text>扮演特库姆塞，完成启蒙伟业。</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_QUEST_B_EXPLORATION_NAME" Language="zh_Hans_CN">
-      <Text>游览新土地</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_QUEST_B_MODERN_DESC" Language="zh_Hans_CN">
-      <Text>在近世时代中扮演特库姆塞，完成一项任务，通过贸易引领世界。</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_QUEST_B_MODERN_NAME" Language="zh_Hans_CN">
-      <Text>人民团结</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_VICTORY_ANTIQUITY_2_DESC" Language="zh_Hans_CN">
-      <Text>扮演特库姆塞，完成大图书馆传承路径2次。</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_VICTORY_ANTIQUITY_2_NAME" Language="zh_Hans_CN">
-      <Text>大图书馆2</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_VICTORY_ANTIQUITY_3_DESC" Language="zh_Hans_CN">
-      <Text>扮演特库姆塞，完成大图书馆传承路径3次。</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_VICTORY_ANTIQUITY_3_NAME" Language="zh_Hans_CN">
-      <Text>大图书馆3</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_VICTORY_ANTIQUITY_DESC" Language="zh_Hans_CN">
-      <Text>扮演特库姆塞，完成大图书馆传承路径。</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_VICTORY_ANTIQUITY_NAME" Language="zh_Hans_CN">
-      <Text>大图书馆</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_VICTORY_EXPLORATION_2_DESC" Language="zh_Hans_CN">
-      <Text>扮演特库姆塞，完成启蒙传承路径2次。</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_VICTORY_EXPLORATION_2_NAME" Language="zh_Hans_CN">
-      <Text>启蒙2</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_VICTORY_EXPLORATION_3_DESC" Language="zh_Hans_CN">
-      <Text>扮演特库姆塞，完成启蒙传承路径3次。</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_VICTORY_EXPLORATION_3_NAME" Language="zh_Hans_CN">
-      <Text>启蒙3</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_VICTORY_EXPLORATION_DESC" Language="zh_Hans_CN">
-      <Text>扮演特库姆塞，完成启蒙传承路径。</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_VICTORY_EXPLORATION_NAME" Language="zh_Hans_CN">
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_TRIUMPH_EXPLORATION_NAME" Language="zh_Hans_CN">
       <Text>启蒙</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_VICTORY_MODERN_2_DESC" Language="zh_Hans_CN">
-      <Text>扮演特库姆塞，完成太空竞赛传承路径2次。</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_TRIUMPH_MODERN_DESC" Language="zh_Hans_CN">
+      <Text>扮演特库姆塞，完成太空竞赛开幕伟业。</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_VICTORY_MODERN_2_NAME" Language="zh_Hans_CN">
-      <Text>太空竞赛2</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_TRIUMPH_MODERN_NAME" Language="zh_Hans_CN">
+      <Text>太空竞赛开幕</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_VICTORY_MODERN_3_DESC" Language="zh_Hans_CN">
-      <Text>扮演特库姆塞，完成太空竞赛传承路径3次。</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_VICTORY_DESC" Language="zh_Hans_CN">
+      <Text>扮演特库姆塞，达成一次科技胜利。</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_VICTORY_MODERN_3_NAME" Language="zh_Hans_CN">
-      <Text>太空竞赛3</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_VICTORY_MODERN_DESC" Language="zh_Hans_CN">
-      <Text>扮演特库姆塞，完成太空竞赛传承路径。</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_VICTORY_MODERN_NAME" Language="zh_Hans_CN">
-      <Text>太空竞赛</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_TECUMSEH_SCIENCE_VICTORY_NAME" Language="zh_Hans_CN">
+      <Text>科技胜利</Text>
     </Replace>
     <Replace Tag="LOC_MOD_ATTRIBUTE_DIPLOMATIC_LEGEND_TECUMSEH_L2_DESCRIPTION" Language="zh_Hans_CN">
       <Text>传奇解锁。开始或支持[icon:ENDEAVOR]外交努力+25%[icon:RELATIONSHIP]关系。开始[icon:SANCTIONS]制裁或拒绝[icon:ENDEAVOR]外交努力-25%[icon:RELATIONSHIP]关系。</Text>
@@ -1552,26 +1597,11 @@
     <Replace Tag="LOC_MOD_CIV_WONDER_PRODUCTION_SHAWNEE_DESCRIPTION" Language="zh_Hans_CN">
       <Text>作为肖尼族的关联[icon:WONDER]奇观，+30%[icon:YIELD_PRODUCTION]生产力。</Text>
     </Replace>
-    <Replace Tag="LOC_MOD_KISPOKO_NENA_TO_SUPPORT_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>每有1点正数的[icon:WAR_SUPPORT]战争支持，[icon:UNIT_KISPOKO_NENA_TO]基斯波科战士便+1[icon:NAR_REW_COMBAT]战斗力。</Text>
+    <Replace Tag="LOC_NODE_CIVIC_AQ_SHAWNEE_ORIGINS_NAME" Language="zh_Hans_CN">
+      <Text>肖尼族起源</Text>
     </Replace>
-    <Replace Tag="LOC_MOD_MALEKI_KINTAKE_WAREHOUSES_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>农场和营地+2[icon:YIELD_FOOD]食物。</Text>
-    </Replace>
-    <Replace Tag="LOC_MOD_MIYASKA_LATOWEKI_CITY_STATE_RESOURCES_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>你作为宗主国每有一个[icon:CITYSTATE]下属城邦，你的[icon:NOTIFICATION_SELECT_CAPITAL]首都便+1[icon:RADIAL_RESOURCES]资源容量。</Text>
-    </Replace>
-    <Replace Tag="LOC_MOD_MIYASKA_LATOWEKI_ENDEAVOR_TRADE_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>拥有至少3项进行中的[icon:ENDEAVOR]外交努力时，每有1条活跃的[icon:TRADE_ROUTE]贸易路线，便+2[icon:YIELD_GOLD]金币。</Text>
-    </Replace>
-    <Replace Tag="LOC_MOD_MOD_TELWATIKI_THIRD_PARTY_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>你能为其他领袖的[icon:WAR]战争添加3次[icon:WAR_SUPPORT]战争支持，而非1次。</Text>
-    </Replace>
-    <Replace Tag="LOC_MOD_TELWATIKI_INFLUENCE_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>每回合[icon:YIELD_DIPLOMACY]影响力收益+2。</Text>
-    </Replace>
-    <Replace Tag="LOC_MOD_WYEHI_SIMEKOFI_MAWASKAWE_SKOTE_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>你作为宗主国每有一个[icon:CITYSTATE]下属城邦，[icon:CITY_RURAL]议事火堆便+1[icon:YIELD_CULTURE]文化值。</Text>
+    <Replace Tag="LOC_NODE_CIVIC_MO_SHAWNEE_MODERNIZATION_NAME" Language="zh_Hans_CN">
+      <Text>肖尼族现代化</Text>
     </Replace>
     <Replace Tag="LOC_PROFILE_TITLE_TECUMSEH" Language="zh_Hans_CN">
       <Text>首领</Text>
@@ -1583,56 +1613,83 @@
       <Text>风声呼啸、流水潺潺、鸟儿歌唱、孩童欢笑，这是造物主在吟唱，教授我们音乐的奥妙。</Text>
     </Replace>
     <Replace Tag="LOC_STRATEGYCARD_TECUMSEH_EXPLORATION_1_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>扮演特库姆塞，获得一张新的探索时代传承卡：[n]
-				为你的海上单位+3战斗力、-10%影响力</Text>
+      <Text>扮演特库姆塞，获得一项新的探索时代献礼：[n]
+				你的海上单位+3战斗力；-10%影响力</Text>
     </Replace>
     <Replace Tag="LOC_STRATEGYCARD_TECUMSEH_EXPLORATION_1_NAME" Language="zh_Hans_CN">
-      <Text>探索时代军事传承卡</Text>
+      <Text>探索时代军事献礼</Text>
     </Replace>
     <Replace Tag="LOC_STRATEGYCARD_TECUMSEH_EXPLORATION_2_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>扮演特库姆塞，获得一张新的探索时代传承卡：[n]
-				+15%影响力、海上单位-2战斗力</Text>
+      <Text>扮演特库姆塞，获得一项新的探索时代献礼：[n]
+				+15%影响力；海上单位-2战斗力</Text>
     </Replace>
     <Replace Tag="LOC_STRATEGYCARD_TECUMSEH_EXPLORATION_2_NAME" Language="zh_Hans_CN">
-      <Text>探索时代外交传承卡</Text>
+      <Text>探索时代外交献礼</Text>
     </Replace>
     <Replace Tag="LOC_STRATEGYCARD_TECUMSEH_MODERN_1_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>扮演特库姆塞，获得一张新的近世时代传承卡：[n]
-				为你的空中单位+3战斗力、-10%影响力</Text>
+      <Text>扮演特库姆塞，获得一项新的近世时代献礼：[n]
+				你的空中单位+3战斗力；-10%影响力</Text>
     </Replace>
     <Replace Tag="LOC_STRATEGYCARD_TECUMSEH_MODERN_1_NAME" Language="zh_Hans_CN">
-      <Text>近世时代军事传承卡</Text>
+      <Text>近世时代军事献礼</Text>
     </Replace>
     <Replace Tag="LOC_STRATEGYCARD_TECUMSEH_MODERN_2_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>扮演特库姆塞，获得一张新的近世时代传承卡：[n]
-				+15%影响力、空中单位-2战斗力</Text>
+      <Text>扮演特库姆塞，获得一项新的近世时代献礼：[n]
+				+15%影响力；空中单位-2战斗力</Text>
     </Replace>
     <Replace Tag="LOC_STRATEGYCARD_TECUMSEH_MODERN_2_NAME" Language="zh_Hans_CN">
-      <Text>近世时代外交传承卡</Text>
+      <Text>近世时代外交献礼</Text>
     </Replace>
     <Replace Tag="LOC_TITLE_TECUMSEH_NAME" Language="zh_Hans_CN">
       <Text>首领</Text>
     </Replace>
-    <Replace Tag="LOC_TRADITION_BREAD_DANCE_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>[icon:YIELD_TOWNS]农业城镇+4[icon:YIELD_CULTURE]文化值，[icon:YIELD_TOWNS]渔业城镇+4[icon:YIELD_FOOD]食物。</Text>
+    <Replace Tag="LOC_TRADITION_BREAD_DANCE_I_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>[icon:YIELD_TOWNS]农业[TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]城镇[/TIP]+4[icon:YIELD_CULTURE]文化值，[icon:YIELD_TOWNS]渔业[TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]城镇[/TIP]+4[icon:YIELD_FOOD]食物。</Text>
     </Replace>
-    <Replace Tag="LOC_TRADITION_HELIKHILENAWEWIPE_DESCRIPTION" Language="zh_Hans_CN">
+    <Replace Tag="LOC_TRADITION_BREAD_DANCE_II_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>[icon:YIELD_TOWNS]农业[TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]城镇[/TIP]+8[icon:YIELD_CULTURE]文化值，[icon:YIELD_TOWNS]渔业[TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]城镇[/TIP]+8[icon:YIELD_FOOD]食物。</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_HELIKHILENAWEWIPE_I_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>发起并推进[icon:PROJECT]“结交独立势力”项目时+33%[icon:YIELD_DIPLOMACY]影响力效用。</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_HELIKHILENAWEWIPE_II_DESCRIPTION" Language="zh_Hans_CN">
       <Text>发起并推进[icon:PROJECT]“结交独立势力”项目时+50%[icon:YIELD_DIPLOMACY]影响力效用。</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_KAKAWFE_PAFKOTAWETA_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>此时代中每次风暴、洪水或火山喷发带来肥沃度时，+1[icon:YIELD_CULTURE]文化值、+2[icon:YIELD_GOLD]金币。[icon:CITY_RURAL]改良设施、[icon:CITY_BUILDING_LIST]建筑和[icon:CITY_URBAN]区块不会被风暴破坏。</Text>
+      <Text>此时代中每次风暴、洪水或火山喷发带来肥沃度时，+1[icon:YIELD_CULTURE]文化值、+2[icon:YIELD_GOLD]金币。[icon:CITY_RURAL][TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]改良设施[/TIP]、[icon:CITY_BUILDING_LIST][TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建筑[/TIP]和[icon:CITY_URBAN][TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]区块[/TIP]不会被风暴破坏。</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_NIWIITIKEEMEKONAAKI_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>你作为[TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主国[/TIP]每有一个[icon:CITYSTATE][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]下属城邦[/TIP]，[icon:CITY_RURAL]议事火堆上的[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]便+1[icon:YIELD_CULTURE]文化值。</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_NIWIITIKEEMEKONAAKI_II_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>你作为[TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主国[/TIP]每有一个[icon:CITYSTATE][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]下属城邦[/TIP]，[icon:CITY_RURAL]议事火堆上的[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]便+2[icon:YIELD_CULTURE]文化值。</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_SHAWNEE_SYNCRETISM_ANTIQUITY_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>与[TIP:LOC_PEDIA_CONCEPTS_NAVIGABLE_RIVER_TOOLTIP]可航行河流[/TIP]相邻的[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]+1[icon:YIELD_DIPLOMACY]影响力。你作为[TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主国[/TIP]每有一个[icon:CITYSTATE][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]下属城邦[/TIP]，便+2[icon:YIELD_GOLD]金币。</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_SHAWNEE_SYNCRETISM_MODERN_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>与[TIP:LOC_PEDIA_CONCEPTS_NAVIGABLE_RIVER_TOOLTIP]可航行河流[/TIP]相邻的[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]+2[icon:YIELD_DIPLOMACY]影响力。你作为[TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主国[/TIP]每有一个[icon:CITYSTATE][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]下属城邦[/TIP]，便+4[icon:YIELD_GOLD]金币。</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_SHAWNEE_SYNCRETISM_TOOLTIP" Language="zh_Hans_CN">
+      <Text>策略馈赠</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_TAKESIYAKE_YEPEPOKI_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>[icon:YIELD_CITIES]城市中的[icon:CITY_UNIMPROVED]苔原、沙漠和平原地貌+2[icon:YIELD_PRODUCTION]生产力。</Text>
+      <Text>[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]中的[icon:CITY_UNIMPROVED]苔原、沙漠和平原地貌上的[icon:CITY_RURAL][TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]改良设施[/TIP]+2[icon:YIELD_PRODUCTION]生产力。如果地块还是[TIP:LOC_PEDIA_CONCEPTS_NAVIGABLE_RIVER_TOOLTIP]可航行河流[/TIP]地貌，这些加成加倍。</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_LEADER_TECUMSEH_ABILITY_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>[BLIST][LI]你作为[B]宗主国[/B]每拥有一个[icon:CITYSTATE][B]下属城邦[/B]，[B]定居点[/B]便[B]+1[icon:YIELD_FOOD]食物[/B]和[icon:YIELD_PRODUCTION][B]生产力[/B]，按时代叠加。[LI]你作为[B]宗主国[/B]每有一个[icon:CITYSTATE][B]下属城邦[/B]，所有单位便[B]+1[icon:NAR_REW_COMBAT]战斗力[/B]。[/LIST]</Text>
+      <Text>[BLIST][LI]你作为[B][TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主国[/TIP][/B]每有一个[B][icon:CITYSTATE][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]下属城邦[/TIP][/B]，[B][icon:YIELD_TOWNS][TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]城镇[/TIP][/B]便[B]+1[icon:YIELD_FOOD]食物[/B]，按[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]时代[/TIP]叠加；[B][icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP][/B]则为[B]+1[icon:YIELD_PRODUCTION]生产力[/B]，按时代叠加。[LI]你作为[B][TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主国[/TIP][/B]每有一个[B][icon:CITYSTATE][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]下属城邦[/TIP][/B]，所有[B][TIP:LOC_PEDIA_CONCEPTS_INFANTRY_UNITS_TOOLTIP]步兵[/TIP][/B]和[B][TIP:LOC_PEDIA_CONCEPTS_RANGED_UNITS_TOOLTIP]远程单位[/TIP][/B]便[B]+1[icon:NAR_REW_COMBAT]战斗力[/B]。[LI]你作为[B][TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主国[/TIP][/B]每有一个[B][icon:CITYSTATE][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]下属城邦[/TIP][/B]，便[B]+2[icon:MILITARY_VP][TIP:LOC_PEDIA_CONCEPTS_DOMINION_TOOLTIP]霸业点[/TIP][/B]。[LI]所有[B][icon:INDEPENDENT_POWER][TIP:LOC_PEDIA_CONCEPTS_INDEPENDENT_POWER_TOOLTIP]独立势力[/TIP][/B]初始与你便是[B][icon:PLAYER_RELATIONSHIP_FRIENDLY]友好[/B]关系。[/BLIST]</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_LEADER_TECUMSEH_ABILITY_NAME" Language="zh_Hans_CN">
       <Text>友亲血脉</Text>
     </Replace>
-    <Replace Tag="LOC_TRAIT_SHAWNEE_ABILITY_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>[BLIST][LI]与[B]可航行河流[/B]相邻的定居点中的[icon:CITY_UNIMPROVED][B]小型和可航行河流地形[/B][B]+2[icon:YIELD_FOOD]食物[/B]。不与[B]可航行河流[/B]相邻的[icon:YIELD_CITIES][B]城市[/B][B]-10%[icon:YIELD_FOOD]食物[/B]。[LI]建造[B]巨蟒土丘[/B]时[B]+30%[icon:YIELD_PRODUCTION]生产力效用[/B]。[/LIST]</Text>
+    <Replace Tag="LOC_TRAIT_SHAWNEE_ABILITY_AQ_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>[BLIST][LI]与[B]可航行河流[/B]相邻的[B][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP][/B]中的[icon:CITY_UNIMPROVED][B]小型和可航行河流地形[/B]之上的[icon:CITY_RURAL][TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]改良设施[/TIP]和[TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]区块[/TIP][B]+1[icon:YIELD_FOOD]食物[/B]。[/BLIST]</Text>
+    </Replace>
+    <Replace Tag="LOC_TRAIT_SHAWNEE_ABILITY_EX_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>[BLIST][LI]与[B]可航行河流[/B]相邻的[B][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP][/B]中的[icon:CITY_UNIMPROVED][B]小型和可航行河流地形[/B]之上的[icon:CITY_RURAL][TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]改良设施[/TIP]和[TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]区块[/TIP][B]+2[icon:YIELD_FOOD]食物[/B]。[LI]你作为[B][TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主国[/TIP][/B]每有一个[B][icon:CITYSTATE][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]下属城邦[/TIP][/B]，你的[B][icon:NOTIFICATION_SELECT_CAPITAL]首都[/B]便[B]+1[icon:RADIAL_RESOURCES]资源容量[/B]。[LI]建造[B]巨蟒土丘[/B]时[B]+30%[icon:YIELD_PRODUCTION]生产力效用[/B]。[/BLIST]</Text>
+    </Replace>
+    <Replace Tag="LOC_TRAIT_SHAWNEE_ABILITY_MO_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>[BLIST][LI]与[B]可航行河流[/B]相邻的[B][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP][/B]中的[icon:CITY_UNIMPROVED][B]小型和可航行河流地形[/B]之上的[icon:CITY_RURAL][TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]改良设施[/TIP]和[TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]区块[/TIP][B]+3[icon:YIELD_FOOD]食物[/B]。[LI]你作为[B][TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主国[/TIP][/B]每有一个[B][icon:CITYSTATE][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]下属城邦[/TIP][/B]，你的[B][icon:NOTIFICATION_SELECT_CAPITAL]首都[/B]便[B]+1[icon:RADIAL_RESOURCES]资源容量[/B]。[/BLIST]</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_SHAWNEE_ABILITY_NAME" Language="zh_Hans_CN">
       <Text>河畔之民</Text>
@@ -1644,25 +1701,25 @@
       <Text>肖尼族特色传教士。+1[icon:Action_Move]移动力。河流不会耗尽此单位的[icon:Action_Move]移动力。</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_KISPOKO_NENA_TO_2_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>第2阶肖尼族特色步兵单位。每有1特色[icon:RADIAL_RESOURCES]帝国资源，便+1[icon:NAR_REW_COMBAT]战斗力。</Text>
+      <Text>第2阶肖尼族特色[TIP:LOC_PEDIA_CONCEPTS_INFANTRY_UNITS_TOOLTIP]步兵单位[/TIP]。每有一类[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_EMPIRE_RESOURCES_TOOLTIP]帝国资源[/TIP]，便+1[icon:NAR_REW_COMBAT][TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]战斗力[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_KISPOKO_NENA_TO_3_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>第3阶肖尼族特色步兵单位。每有1特色[icon:RADIAL_RESOURCES]帝国资源，便+1[icon:NAR_REW_COMBAT]战斗力。</Text>
+      <Text>第3阶肖尼族特色[TIP:LOC_PEDIA_CONCEPTS_INFANTRY_UNITS_TOOLTIP]步兵单位[/TIP]。每有一类[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_EMPIRE_RESOURCES_TOOLTIP]帝国资源[/TIP]，便+1[icon:NAR_REW_COMBAT][TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]战斗力[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_KISPOKO_NENA_TO_BASE_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>肖尼族特色步兵单位。每有1特色[icon:RADIAL_RESOURCES]帝国资源，便+1[icon:NAR_REW_COMBAT]战斗力。</Text>
+      <Text>肖尼族特色[TIP:LOC_PEDIA_CONCEPTS_INFANTRY_UNITS_TOOLTIP]步兵单位[/TIP]。每有一类[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_EMPIRE_RESOURCES_TOOLTIP]帝国资源[/TIP]，便+1[icon:NAR_REW_COMBAT][TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]战斗力[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_KISPOKO_NENA_TO_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>第1阶肖尼族特色步兵单位。每有1特色[icon:RADIAL_RESOURCES]帝国资源，便+1[icon:NAR_REW_COMBAT]战斗力。</Text>
+      <Text>第1阶肖尼族特色[TIP:LOC_PEDIA_CONCEPTS_INFANTRY_UNITS_TOOLTIP]步兵单位[/TIP]。每有一类[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_EMPIRE_RESOURCES_TOOLTIP]帝国资源[/TIP]，便+1[icon:NAR_REW_COMBAT][TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]战斗力[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_CITY_STATES_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>成为2个[B]城邦[/B]的[B]宗主国[/B]。</Text>
+      <Text>成为2个[B][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP][/B]的[B][TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主国[/TIP][/B]。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_CITY_STATES_TOOLTIP" Language="zh_Hans_CN">
       <Text>[B]肖尼族[/B]与诸多小部落交好。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_CITY_STATES_UNLOCK" Language="zh_Hans_CN">
-      <Text>你成为了2个城邦的宗主国，因此解锁了肖尼族。</Text>
+      <Text>你成为了2个[TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP]的[TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主国[/TIP]，因此解锁了肖尼族。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_HIDES_DESCRIPTION" Language="zh_Hans_CN">
       <Text>改良3处[B]兽皮[/B]。</Text>
@@ -1677,13 +1734,16 @@
       <Text>[B]密西西比[/B]与[B]肖尼族[/B]祖先处于同一时代。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_PLAY_AS_SHAWNEE_AMERICA_TOOLTIP" Language="zh_Hans_CN">
-      <Text>[B]肖尼族[/B]与[B]墨西哥[/B]来自相同的大陆。</Text>
+      <Text>[B]肖尼族[/B]与[B]美国[/b]来自相同的大陆。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_PLAY_AS_SHAWNEE_DESCRIPTION" Language="zh_Hans_CN">
       <Text>扮演[B]肖尼族[/B]。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_PLAY_AS_SHAWNEE_MEXICO_TOOLTIP" Language="zh_Hans_CN">
-      <Text>[B]肖尼族[/B]与[B]墨西哥[/B]来自相同的大陆。</Text>
+      <Text>[B]肖尼族[/B]与[B]墨西哥[/b]来自相同的大陆。</Text>
+    </Replace>
+    <Replace Tag="LOC_UNLOCK_PLAY_AS_SHAWNEE_SHAWNEE_TOOLTIP" Language="zh_Hans_CN">
+      <Text>[B]肖尼族[/B]能够在时代之间得以延续。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_PLAY_AS_TECUMSEH_AMERICA_TOOLTIP" Language="zh_Hans_CN">
       <Text>[B]特库姆塞[/B]曾生活在后世被[B]美国[/B]占据的土地上。</Text>
@@ -1705,16 +1765,13 @@
       <Text>[B]特库姆塞[/B]曾领导[B]肖尼族[/B]。</Text>
     </Replace>
     <Replace Tag="LOC_WONDER_SERPENT_MOUND_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>+4[icon:YIELD_DIPLOMACY]影响力。此定居点中的所有[icon:CITY_RURAL]特色改良设施+3[icon:YIELD_SCIENCE]科技值、+2[icon:YIELD_PRODUCTION]生产力。无时代限制。必须放置在草原上。</Text>
+      <Text>+4[icon:YIELD_DIPLOMACY]影响力。此[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP]中的所有[icon:CITY_RURAL][TIP:LOC_PEDIA_CONCEPTS_UNIQUE_IMPROVEMENT_TOOLTIP]特色改良设施[/TIP]+3[icon:YIELD_SCIENCE]科技值、+2[icon:YIELD_PRODUCTION]生产力。[TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]无时代限制[/TIP]。必须放置在草原上。</Text>
     </Replace>
     <Replace Tag="LOC_WONDER_SERPENT_MOUND_TOOLTIP" Language="zh_Hans_CN">
-      <Text>此定居点中的所有[icon:CITY_RURAL]特色改良设施+3[icon:YIELD_SCIENCE]科技值、+2[icon:YIELD_PRODUCTION]生产力。[N]必须放置在草原上。</Text>
+      <Text>此[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP]中的所有[icon:CITY_RURAL][TIP:LOC_PEDIA_CONCEPTS_UNIQUE_IMPROVEMENT_TOOLTIP]特色改良设施[/TIP]+3[icon:YIELD_SCIENCE]科技值、+2[icon:YIELD_PRODUCTION]生产力。[N]必须放置在草原上。</Text>
     </Replace>
     <Replace Tag="LOC_KISPOKO_NENA_TO_RESOURCE_COMBAT_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>+{1_Amount}特色帝国资源</Text>
-    </Replace>
-    <Replace Tag="LOC_KISPOKO_NENA_TO_SUPPORT_COMBAT_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>+{1_Value}，平衡各方</Text>
+      <Text>+{1_Amount}，来自[TIP:LOC_PEDIA_CONCEPTS_EMPIRE_RESOURCES_TOOLTIP]帝国资源[/TIP]种类</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_TECUMSEH_WARCLUB_COMBAT_PREVIEW" Language="zh_Hans_CN">
       <Text>+{1_Amount}战棍纪念物</Text>
@@ -1731,14 +1788,32 @@
     <Replace Tag="LOC_UNLOCK_HIDES_NARRATIVE" Language="zh_Hans_CN">
       <Text>拂晓时分，猎户们肩担鞣好的兽皮，步履沉重地踏入城中，前往市集交易。商贾们求货若渴，甚至出城相迎——皮货已然成为{1_Civilization_Adj}经济的支柱……而采购之人，也同样举足轻重。 </Text>
     </Replace>
-    <Replace Tag="LOC_TRADITION_BREAD_DANCE_NAME" Language="zh_Hans_CN">
-      <Text>面包舞</Text>
+    <Replace Tag="LOC_TRADITION_BREAD_DANCE_I_NAME" Language="zh_Hans_CN">
+      <Text>面包舞I</Text>
     </Replace>
-    <Replace Tag="LOC_TRADITION_HELIKHILENAWEWIPE_NAME" Language="zh_Hans_CN">
-      <Text>赫利希勒纳韦维佩</Text>
+    <Replace Tag="LOC_TRADITION_BREAD_DANCE_II_NAME" Language="zh_Hans_CN">
+      <Text>面包舞II</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_HELIKHILENAWEWIPE_I_NAME" Language="zh_Hans_CN">
+      <Text>口述传承I</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_HELIKHILENAWEWIPE_II_NAME" Language="zh_Hans_CN">
+      <Text>口述传承II</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_KAKAWFE_PAFKOTAWETA_NAME" Language="zh_Hans_CN">
       <Text>天降甘霖</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_NIWIITIKEEMEKONAAKI_II_NAME" Language="zh_Hans_CN">
+      <Text>扶持互助II</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_NIWIITIKEEMEKONAAKI_NAME" Language="zh_Hans_CN">
+      <Text>扶持互助I</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_SHAWNEE_SYNCRETISM_ANTIQUITY_NAME" Language="zh_Hans_CN">
+      <Text>策略馈赠I</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_SHAWNEE_SYNCRETISM_MODERN_NAME" Language="zh_Hans_CN">
+      <Text>策略馈赠II</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_TAKESIYAKE_YEPEPOKI_NAME" Language="zh_Hans_CN">
       <Text>塔克西亚克-耶佩波基</Text>

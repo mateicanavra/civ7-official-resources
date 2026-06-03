@@ -1,0 +1,84 @@
+.tile {
+  display: flex;
+  width: 70px;
+  height: 70px;
+  align-items: center;
+  justify-content: center;
+  border-width: 4px;
+  border-style: solid;
+  border-color: black;
+  border-radius: 10%;
+  margin: 4px;
+  background-color: pink;
+  background-image: none;
+  color: black;
+  font-size: 40pt;
+  transition-duration: 100ms;
+  transition-property: background-color, border-color;
+}
+
+.tile:hover {
+  background-image: linear-gradient(to bottom, transparent 70%, white);
+}
+
+.dragging {
+  border-style: dashed;
+  border-color: lightgrey;
+  background-color: transparent;
+  opacity: 0.8;
+}
+
+.items {
+  min-height: 100px;
+  flex-wrap: wrap;
+  padding: 30px 10px 10px;
+  border-width: 4px;
+  border-style: solid;
+  border-color: black;
+  border-radius: 15px;
+  margin: 10px;
+}
+
+.items-can-drop {
+  border-color: green;
+}
+
+.items-can-drop-hover {
+  border-color: lightgreen;
+}
+
+.items-no-drop {
+  border-color: red;
+}
+
+.slot {
+  display: flex;
+  width: 70px;
+  height: 70px;
+  align-items: center;
+  justify-content: center;
+  border-width: 4px;
+  border-style: solid;
+  border-color: black;
+  border-color: lightgrey;
+  border-radius: 10%;
+  margin: 4px;
+  background-color: transparent;
+  background-image: none;
+  opacity: 0.8;
+  text-align: center;
+  transition-duration: 100ms;
+  transition-property: background-color, border-color;
+}
+
+.slot-can-drop {
+  border-color: green;
+}
+
+.slot-can-drop-hover {
+  border-color: lightgreen;
+}
+
+.slot-no-drop {
+  border-color: red;
+}

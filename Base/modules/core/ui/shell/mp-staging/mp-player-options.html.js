@@ -1,0 +1,4 @@
+const content = "<fxs-frame class=\"mp-player-options-frame\">\r\n\t<fxs-vslot class=\"main-container\">\r\n\t\t<div class=\"leader-portrait\"></div>\r\n\t\t<fxs-button\r\n\t\t\tclass=\"add-Plat-Friend\"\r\n\t\t\tcaption=\"LOC_UI_MP_PLAYER_OPTIONS_ADD_PLAT_FRIEND\"\r\n\t\t></fxs-button>\r\n\t\t<fxs-button\r\n\t\t\tclass=\"add-2K-Friend\"\r\n\t\t\tcaption=\"LOC_UI_MP_PLAYER_OPTIONS_ADD_T2GP_FRIEND\"\r\n\t\t></fxs-button>\r\n\t\t<fxs-button\r\n\t\t\tclass=\"report\"\r\n\t\t\tcaption=\"LOC_UI_MP_PLAYER_OPTIONS_REPORT\"\r\n\t\t></fxs-button>\r\n\t\t<fxs-button\r\n\t\t\tclass=\"block\"\r\n\t\t\tcaption=\"LOC_UI_MP_PLAYER_OPTIONS_BLOCK\"\r\n\t\t></fxs-button>\r\n\t</fxs-vslot>\r\n\t<fxs-close-button></fxs-close-button>\r\n</fxs-frame>\r\n";
+
+export { content as default };
+//# sourceMappingURL=mp-player-options.html.js.map

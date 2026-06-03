@@ -1,34 +1,12 @@
-import { A as Audio } from '../../../core/ui/audio-base/audio-support.chunk.js';
-import FocusManager from '../../../core/ui/input/focus-manager.js';
-import { b as InputEngineEventName } from '../../../core/ui/input/input-support.chunk.js';
-import { N as Navigation } from '../../../core/ui/views/view-manager.chunk.js';
+import { Audio } from '../../../core/ui/audio-base/audio-support.js';
+import { InputEngineEventName } from '../../../core/ui/input/input-support.js';
+import { Navigation } from '../../../core/ui/input/navigation-support.js';
 import { InterfaceMode } from '../../../core/ui/interface-modes/interface-modes.js';
-import { P as Panel } from '../../../core/ui/panel-support.chunk.js';
-import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.chunk.js';
+import Panel from '../../../core/ui/panel-support.js';
+import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
+import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
 import DiplomacyManager from '../diplomacy/diplomacy-manager.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/context-manager/context-manager.js';
-import '../../../core/ui/context-manager/display-queue-manager.js';
-import '../../../core/ui/dialog-box/manager-dialog-box.chunk.js';
-import '../../../core/ui/input/cursor.js';
-import '../../../core/ui/utilities/utilities-image.chunk.js';
-import '../../../core/ui/utilities/utilities-component-id.chunk.js';
-import '../diplomacy/diplomacy-events.js';
-import '../../../core/ui/utilities/utilities-layout.chunk.js';
-import '../world-input/world-input.js';
-import '../../../core/ui/input/action-handler.js';
-import '../../../core/ui/utilities/utilities-update-gate.chunk.js';
-import '../../../core/ui/input/plot-cursor.js';
-import '../../../core/ui/utilities/utilities-network.js';
-import '../../../core/ui/shell/mp-legal/mp-legal.js';
-import '../../../core/ui/events/shell-events.chunk.js';
-import '../../../core/ui/navigation-tray/model-navigation-tray.chunk.js';
-import '../../../core/ui/utilities/utilities-liveops.js';
-import '../../../core/ui/utilities/utilities-network-constants.chunk.js';
-import '../interface-modes/support-unit-map-decoration.chunk.js';
-import '../utilities/utilities-overlay.chunk.js';
-
-const styles = "fs://game/base-standard/ui/befriend-independent-details/screen-befriend-independent-details.css";
+import styles from './screen-befriend-independent-details.scss.js';
 
 class BefriendIndependentDetailsScreen extends Panel {
   engineInputListener = this.onEngineInput.bind(this);
@@ -102,6 +80,11 @@ class BefriendIndependentDetailsScreen extends Panel {
     removeAllChildren(barContainer);
     const progressBar = document.createElement("fxs-progress-bar");
     progressBar.classList.add("progress-bar", "is-befriend-independent", "flex-auto", "h-2", "mb-8");
+    const navHelpBar = document.createElement("fxs-nav-help");
+    navHelpBar.setAttribute("action-key", "inline-shell-action-1");
+    navHelpBar.classList.remove("relative");
+    navHelpBar.classList.add("tooltip-help", "absolute", "-mt-4");
+    progressBar.appendChild(navHelpBar);
     const barRow = document.createElement("div");
     barRow.classList.value = "flex flex-row items-center mb-7 -ml-1 max-w-full";
     const normalizedProgress = actionHeader.progressScore / actionHeader.completionScore;
@@ -113,6 +96,7 @@ class BefriendIndependentDetailsScreen extends Panel {
       this.addBefriendIndependentProgressSteps(progressBar, actionHeader, completionData);
     });
     if (activeEvents.length > 0) {
+      const index = activeEvents.length - 1;
       const ourConfiguration = Configuration.getPlayer(GameContext.localPlayerID);
       if (ourConfiguration.leaderTypeName) {
         const ourIcon = document.createElement("leader-icon");
@@ -131,14 +115,14 @@ class BefriendIndependentDetailsScreen extends Panel {
       otherProgressBar.classList.add("progress-bar", "flex-auto", "h-2", "mb-8");
       const otherBarRow = document.createElement("div");
       otherBarRow.classList.value = "flex flex-row items-center mb-5 -ml-1 max-w-full";
-      const otherConfiguration = Configuration.getPlayer(activeEvents[0].initialPlayer);
+      const otherConfiguration = Configuration.getPlayer(activeEvents[index].initialPlayer);
       if (otherConfiguration.leaderTypeName) {
         const otherIcon = document.createElement("leader-icon");
         otherIcon.classList.add("mr-2", "w-16", "h-16");
         otherIcon.setAttribute("leader", otherConfiguration.leaderTypeName);
         otherIcon.setAttribute(
           "bg-color",
-          UI.Player.getPrimaryColorValueAsString(activeEvents[0].initialPlayer)
+          UI.Player.getPrimaryColorValueAsString(activeEvents[index].initialPlayer)
         );
         if (otherConfiguration.leaderName) {
           otherIcon.setAttribute("data-tooltip-content", Locale.compose(otherConfiguration.leaderName));
@@ -149,16 +133,16 @@ class BefriendIndependentDetailsScreen extends Panel {
       otherPlaceText.classList.value = "font-body text-xs mr-4";
       otherBarRow.appendChild(otherPlaceText);
       otherBarRow.appendChild(otherProgressBar);
-      const normalizedProgress2 = activeEvents[0].progressScore / activeEvents[0].completionScore;
+      const normalizedProgress2 = activeEvents[index].progressScore / activeEvents[index].completionScore;
       otherProgressBar.setAttribute("value", normalizedProgress2.toString());
       otherProgressBar.setAttribute("caption-color", "gold");
       otherProgressBar.classList.add("other-tracker");
       const otherCompletionData = Game.Diplomacy.getCompletionData(
-        activeEvents[0].uniqueID
+        activeEvents[index].uniqueID
       );
       if (!otherCompletionData) {
         console.error(
-          "screen-befriend-independent-details: Unable to retrieve DiplomacyEventCompletionData for selected action with ID: " + activeEvents[0].uniqueID
+          "screen-befriend-independent-details: Unable to retrieve DiplomacyEventCompletionData for selected action with ID: " + activeEvents[index].uniqueID
         );
         this.close();
         return;
@@ -173,7 +157,7 @@ class BefriendIndependentDetailsScreen extends Panel {
       waitUntilValue(() => {
         return otherProgressBar.maybeComponent;
       }).then(() => {
-        this.addBefriendIndependentProgressSteps(otherProgressBar, activeEvents[0], otherCompletionData);
+        this.addBefriendIndependentProgressSteps(otherProgressBar, activeEvents[index], otherCompletionData);
       });
       if (otherCompletionData.turnsToCompletion < completionData.turnsToCompletion) {
         barContainer.appendChild(otherBarRow);
@@ -234,6 +218,7 @@ class BefriendIndependentDetailsScreen extends Panel {
     supportButton.setAttribute("hover-only-trigger", "false");
     const navHelp = document.createElement("fxs-nav-help");
     navHelp.setAttribute("action-key", "inline-shell-action-2");
+    navHelp.classList.add("support-help");
     supportButton.appendChild(navHelp);
     let supportArgs = {
       ID: DiplomacyManager.selectedActionID,
@@ -309,18 +294,22 @@ class BefriendIndependentDetailsScreen extends Panel {
     if (actionData.actionType == DiplomacyActionTypes.DIPLOMACY_ACTION_GIVE_INFLUENCE_TOKEN) {
       this.populateBefriendIndependentDetails();
     }
-    const befriendingNavHelp = MustGetElement("fxs-nav-help", this.Root);
+    const befriendingNavHelp = MustGetElement(".support-help", this.Root);
     befriendingNavHelp.classList.remove("hidden");
+    const befriendingToolTipNavHelp = MustGetElement(".tooltip-help", this.Root);
+    befriendingToolTipNavHelp.classList.remove("hidden");
   }
   onReceiveFocus() {
     const element = MustGetElement("panel-other-player-diplomacy-actions", document);
     const props = { isDisableFocusAllowed: false, direction: InputNavigationAction.NONE };
     const focusableElement = Navigation.getFirstFocusableElement(element, props);
     if (focusableElement) {
-      FocusManager.setFocus(focusableElement);
+      FocusManager.get().setFocus(focusableElement);
     }
-    const befriendingNavHelp = MustGetElement("fxs-nav-help", this.Root);
+    const befriendingNavHelp = MustGetElement(".support-help", this.Root);
     befriendingNavHelp.classList.remove("hidden");
+    const befriendingToolTipNavHelp = MustGetElement(".tooltip-help", this.Root);
+    befriendingToolTipNavHelp.classList.remove("hidden");
   }
   onEngineInput(inputEvent) {
     if (inputEvent.detail.status != InputActionStatuses.FINISH && !InterfaceMode.isInInterfaceMode("INTERFACEMODE_DIPLOMACY_HUB")) {

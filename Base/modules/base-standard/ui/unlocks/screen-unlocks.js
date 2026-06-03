@@ -1,27 +1,17 @@
-import { A as Audio } from '../../../core/ui/audio-base/audio-support.chunk.js';
-import ActionHandler, { ActiveDeviceTypeChangedEventName } from '../../../core/ui/input/action-handler.js';
-import FocusManager from '../../../core/ui/input/focus-manager.js';
-import { b as InputEngineEventName } from '../../../core/ui/input/input-support.chunk.js';
-import { N as NavTray } from '../../../core/ui/navigation-tray/model-navigation-tray.chunk.js';
-import { P as Panel } from '../../../core/ui/panel-support.chunk.js';
-import { D as Databind } from '../../../core/ui/utilities/utilities-core-databinding.chunk.js';
-import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.chunk.js';
-import { L as Layout } from '../../../core/ui/utilities/utilities-layout.chunk.js';
+import { Audio } from '../../../core/ui/audio-base/audio-support.js';
+import ActionHandler from '../../../core/ui/input/action-handler.js';
+import { ActiveDeviceTypeChangedEventName } from '../../../core/ui/input/input-events.js';
+import { InputEngineEventName } from '../../../core/ui/input/input-support.js';
+import NavTray from '../../../core/ui/navigation-tray/model-navigation-tray.js';
+import Panel from '../../../core/ui/panel-support.js';
+import Databind from '../../../core/ui/utilities/utilities-core-databinding.js';
+import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
+import { Layout } from '../../../core/ui/utilities/utilities-layout.js';
+import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
 import PopupSequencer from '../popup-sequencer/popup-sequencer.js';
 import PlayerUnlocks from './model-unlocks.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/input/cursor.js';
-import '../../../core/ui/views/view-manager.chunk.js';
-import '../../../core/ui/utilities/utilities-update-gate.chunk.js';
-import '../../../core/ui/utilities/utilities-image.chunk.js';
-import '../../../core/ui/utilities/utilities-component-id.chunk.js';
-import '../../../core/ui/context-manager/context-manager.js';
-import '../../../core/ui/context-manager/display-queue-manager.js';
-import '../../../core/ui/dialog-box/manager-dialog-box.chunk.js';
-
-const content = "<div class=\"player-unlocks-background-container fixed inset-0 w-full h-full\">\r\n\t<div class=\"main-background-image fixed w-full h-full bg-cover\"></div>\r\n\t<div class=\"main-background-gradient fixed w-full h-full\"></div>\r\n\t<div class=\"player-unlocks-gradient-overlay fixed w-full h-full opacity-85\"></div>\r\n</div>\r\n<div class=\"ageless-background-container fixed inset-0 w-full h-full hidden\">\r\n\t<div class=\"ageless-background-image fixed w-full h-full bg-cover\"></div>\r\n\t<div class=\"ageless-background-gradient fixed w-full h-full\"></div>\r\n</div>\r\n<fxs-frame\r\n\tclass=\"player-unlock\"\r\n\toverride-styling=\"relative flex max-w-full max-h-full pt-8 px-10\"\r\n>\r\n\t<div class=\"primary-window flow-column flex-auto items-center mx-24\"></div>\r\n</fxs-frame>\r\n";
-
-const styles = "fs://game/base-standard/ui/unlocks/screen-unlocks.css";
+import content from './screen-unlocks.html.js';
+import styles from './screen-unlocks.scss.js';
 
 class ScreenUnlocks extends Panel {
   closeButtonListener = this.askForClose.bind(this);
@@ -127,13 +117,13 @@ class ScreenUnlocks extends Panel {
     const selectedSlot = this.playerUnlockContent.getAttribute("selected-slot");
     switch (selectedSlot) {
       case "civilizations":
-        FocusManager.setFocus(MustGetElement(".screen-unlocks-content-root", this.Root));
+        FocusManager.get().setFocus(MustGetElement(".screen-unlocks-content-root", this.Root));
         break;
       case "rewards":
-        FocusManager.setFocus(MustGetElement("panel-player-rewards", this.Root));
+        FocusManager.get().setFocus(MustGetElement("panel-player-rewards", this.Root));
         break;
       case "ageless":
-        FocusManager.setFocus(MustGetElement(".ageless-scrollable-content", this.Root));
+        FocusManager.get().setFocus(MustGetElement(".ageless-scrollable-content", this.Root));
         break;
       default:
         break;

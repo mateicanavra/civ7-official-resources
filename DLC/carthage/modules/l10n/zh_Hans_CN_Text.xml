@@ -640,29 +640,41 @@
     <Replace Tag="LOC_LEADER_CHAIN_1180_CARTHAGEE_IMPERATIVE" Language="zh_Hans_CN">
       <Text>拥有一座纪念碑，然后进入庆典。</Text>
     </Replace>
+    <Replace Tag="LOC_TOT_30015A_COMPLETION" Language="zh_Hans_CN">
+      <Text>已知世界中几乎每个市场皆有迦太基商贾；迦太基行会为安全通行而展开谈判，关税使利润不断流回本国。迦太基邻邦对此颇为不满，怨言与日俱增。</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30015A_STORYTITLE" Language="zh_Hans_CN">
+      <Text>钱袋之力</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30015B_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>{1_reward}。</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30015B_NAME" Language="zh_Hans_CN">
+      <Text>商业权力即政治权力。该收紧缰绳了。</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30015C_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>{1_reward}。</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30015C_NAME" Language="zh_Hans_CN">
+      <Text>士兵总有办法让交易变得顺畅。</Text>
+    </Replace>
     <Replace Tag="LOC_ABILITY_COLONIST_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>+1[icon:Action_Move]上船移动力，如果创立的定居点与[icon:RADIAL_RESOURCES]资源相邻则+1[icon:YIELD_POPULATION]人口。</Text>
+      <Text>+1[icon:Action_Move][TIP:LOC_PEDIA_CONCEPTS_EMBARK_TOOLTIP]上船[/TIP]移动力；如果在相邻于[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]资源[/TIP]处建立定居点，+1[icon:YIELD_POPULATION]人口。</Text>
     </Replace>
     <Replace Tag="LOC_ABILITY_NUMIDIAN_CAVALRY_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>每有1[icon:RADIAL_RESOURCES]特色城市资源分配给[icon:NOTIFICATION_SELECT_CAPITAL]首都，便+1[icon:NAR_REW_COMBAT]战斗力。</Text>
-    </Replace>
-    <Replace Tag="LOC_ATTR_TOTAL_TRADE_ROUTES" Language="zh_Hans_CN">
-      <Text>贸易路线总数</Text>
-    </Replace>
-    <Replace Tag="LOC_ATTR_YIELDS_FROM_NUM_TRADE_ROUTES" Language="zh_Hans_CN">
-      <Text>贸易路线数量</Text>
+      <Text>每有1[icon:RADIAL_RESOURCES]特色[TIP:LOC_PEDIA_CONCEPTS_CITY_RESOURCES_TOOLTIP]城市资源[/TIP]分配给[icon:NOTIFICATION_SELECT_CAPITAL]首都，便+1[icon:NAR_REW_COMBAT][TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]战斗力[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_BUILDING_COTHON_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>迦太基特色生产力建筑。+2[icon:YIELD_PRODUCTION]生产力。从海岸、可航行河流和奇观获得+1[icon:YIELD_PRODUCTION]生产力相邻加成。无时代限制。可在[icon:YIELD_TOWNS]城镇中购买。必须放置在海岸上。</Text>
+      <Text>迦太基[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_BUILDING_TOOLTIP]特色生产力建筑[/TIP]。+2[icon:YIELD_PRODUCTION]生产力。从水岸、[TIP:LOC_PEDIA_CONCEPTS_NAVIGABLE_RIVER_TOOLTIP]可航行河流[/TIP]和[TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]奇观[/TIP]获得+1[icon:YIELD_PRODUCTION]生产力相邻加成。必须放置在水岸上。</Text>
     </Replace>
     <Replace Tag="LOC_BUILDING_COTHON_TOOLTIP" Language="zh_Hans_CN">
-      <Text>可在[icon:YIELD_TOWNS]城镇中购买。必须放置在海岸上。[n]迦太基特色建筑。</Text>
+      <Text>必须放置在水岸上。[n]迦太基[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_BUILDING_TOOLTIP]特色建筑[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_BUILDING_DOCKYARD_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>迦太基特色金币建筑。+2[icon:YIELD_GOLD]金币。从资源、区块和奇观获得+1[icon:YIELD_FOOD]食物相邻加成。无时代限制。可在[icon:YIELD_TOWNS]城镇中购买。必须放置在海岸上。</Text>
+      <Text>迦太基[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_BUILDING_TOOLTIP]特色金币建筑[/TIP]。+2[icon:YIELD_GOLD]金币。从[TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]资源[/TIP]、[TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]区块[/TIP]和[TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]奇观[/TIP]获得+1[icon:YIELD_FOOD]食物相邻加成。必须放置在水岸上。</Text>
     </Replace>
     <Replace Tag="LOC_BUILDING_DOCKYARD_TOOLTIP" Language="zh_Hans_CN">
-      <Text>可在[icon:YIELD_TOWNS]城镇中购买。必须放置在海岸上。[n]迦太基特色建筑。</Text>
+      <Text>必须放置在水岸上。[n]迦太基[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_BUILDING_TOOLTIP]特色建筑[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_CIVIC_RED_SLIP_AUTHOR" Language="zh_Hans_CN">
       <Text>马戈</Text>
@@ -683,13 +695,13 @@
       <Text>“迦太基人将俘获的舰队公之于众，确保人们不仅可以听到，更能见证他们的胜利。”</Text>
     </Replace>
     <Replace Tag="LOC_CIVILIZATION_CARTHAGE_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>只能拥有1座[icon:YIELD_CITIES]城市。无法将[icon:YIELD_TOWNS]城镇“转换为城市”。每次购买/生产[icon:UNIT_MERCHANT]商人或[icon:UNIT_COLONIST]殖民者时，额外获得一个相同单位。</Text>
+      <Text>只能拥有1座[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]。拥有任何[TIP:LOC_PEDIA_CONCEPTS_TOWN_FOCUS_TOOLTIP]城镇重心[/TIP]的[icon:YIELD_TOWNS][TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]城镇[/TIP]都能购买水上[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建筑[/TIP]，但无法使用“转换为城市”。每次购买/生产[icon:UNIT_MERCHANT]商人或[icon:UNIT_COLONIST]殖民者时，额外获得一个相同单位。</Text>
     </Replace>
     <Replace Tag="LOC_LOADING_CIV_INTRO_TEXT_CARTHAGE" Language="zh_Hans_CN">
       <Text>环形港中，舰船整装待发。有的满载精美瓷器、粮秣货物，远赴异域换取黄金象牙；有的搭载精兵锐卒，意图另辟蹊径获取财富。无论出发点为何，舰船都会回到同一终点——世界之都迦太基。开启港门闸口，任凯旋舰队载誉而归，让财富如甘露洒满全城。</Text>
     </Replace>
     <Replace Tag="LOC_LOADING_CIV_TIPS_TEXT_CARTHAGE" Language="zh_Hans_CN">
-      <Text>特色城区“布匿港”可以在城镇中购买，增加其资源容量。这在未来时代中将持续存在，在之后提供强大的优势！</Text>
+      <Text>迦太基可在所有城镇中购买水上建筑。因此可以同时建造特色城区“布匿港”的两座建筑，从而在整局游戏中持续提升资源容量。</Text>
     </Replace>
     <Replace Tag="LOC_LOADING_INTRO_CARTHAGE" Language="zh_Hans_CN">
       <Text>苏尔的儿女远道而来，宣告自己的命运。他们将在世界中心统御一个无与伦比的帝国。</Text>
@@ -700,44 +712,29 @@
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_CARTHAGE_COMPLETE_BYRSA_NAME" Language="zh_Hans_CN">
       <Text>比尔萨城塞</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_CARTHAGE_LEGACY_PATH_MILITARISTIC_DESC" Language="zh_Hans_CN">
-      <Text>扮演迦太基，完成一条军事传承路径。</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_CARTHAGE_FOUR_MAJOR_TRIUMPHS_DESC" Language="zh_Hans_CN">
+      <Text>扮演迦太基，在一次巅峰时代中完成4项经济或军事主要伟业。</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_CARTHAGE_LEGACY_PATH_MILITARISTIC_NAME" Language="zh_Hans_CN">
-      <Text>迦太基传承路径</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_CARTHAGE_FOUR_MAJOR_TRIUMPHS_NAME" Language="zh_Hans_CN">
+      <Text>迦太基4主要伟业</Text>
     </Replace>
     <Replace Tag="LOC_MOD_CIV_WONDER_PRODUCTION_CARTHAGE_DESCRIPTION" Language="zh_Hans_CN">
       <Text>作为迦太基的关联[icon:WONDER]奇观，+30%[icon:YIELD_PRODUCTION]生产力。</Text>
     </Replace>
-    <Replace Tag="LOC_MOD_RED_SLIP_RESOURCE_CAP_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>[icon:NOTIFICATION_SELECT_CAPITAL]首都+3[icon:RADIAL_RESOURCES]资源容量。</Text>
-    </Replace>
-    <Replace Tag="LOC_MOD_RED_SLIP_TRADE_GOLD_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>+15[icon:TRADE_ROUTE]海上贸易路线范围。每有一条来自首都的[icon:TRADE_ROUTE]贸易路线，[icon:NOTIFICATION_SELECT_CAPITAL]首都便+3[icon:YIELD_GOLD]金币。 </Text>
-    </Replace>
-    <Replace Tag="LOC_MOD_SHIPSHEDS_NAVAL_FIRST_STRIKE_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>满生命值的海上单位+5[icon:NAR_REW_COMBAT]战斗力。</Text>
-    </Replace>
-    <Replace Tag="LOC_MOD_SHIPSHEDS_NAVAL_FIRST_STRIKE_PREVIEW" Language="zh_Hans_CN">
-      <Text>+5船库精通</Text>
-    </Replace>
-    <Replace Tag="LOC_MOD_SHIPSHEDS_NAVAL_MOVEMENT_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>海上单位+1[icon:Action_Move]移动力。</Text>
-    </Replace>
-    <Replace Tag="LOC_MOD_SICILIAN_WARS_MOVEMENT_NUMIDIAN_CAVALRY_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>[icon:UNIT_NUMIDIAN_CAVALRY]努米底亚骑兵+1[icon:Action_Move]移动力和[icon:Action_Showall]视野。</Text>
-    </Replace>
     <Replace Tag="LOC_MOD_SICILIAN_WARS_SETTLEMENT_CAP_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>+2[icon:SETTLEMENT_LIMIT]定居点上限。</Text>
+      <Text>+2[icon:SETTLEMENT_LIMIT][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_LIMIT_TOOLTIP]定居点上限[/TIP]。</Text>
     </Replace>
-    <Replace Tag="LOC_MOD_SICILIAN_WARS_TOWN_PROJECT_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>拥有[icon:TOWN_FOCUS]“贸易前哨”重心的[icon:YIELD_TOWNS]城镇的市政厅+1[icon:NAR_REW_GREATWORK]抄本槽位。</Text>
+    <Replace Tag="LOC_NODE_CIVIC_EX_CARTHAGE_RENAISSANCE_NAME" Language="zh_Hans_CN">
+      <Text>迦太基复兴</Text>
+    </Replace>
+    <Replace Tag="LOC_NODE_CIVIC_MO_CARTHAGE_MODERNIZATION_NAME" Language="zh_Hans_CN">
+      <Text>迦太基现代化</Text>
     </Replace>
     <Replace Tag="LOC_QUARTER_PUNIC_PORT_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>迦太基特色城区。建造方法是将环型港和船坞放置在同一个区块中。此定居点+2[icon:RADIAL_RESOURCES]资源容量。</Text>
+      <Text>迦太基[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_QUARTER_TOOLTIP]特色城区[/TIP]。建造方法是将环型港和船坞放置在同一个[TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]区块[/TIP]中。此[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP]+2[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_RESOURCE_CAPACITY_TOOLTIP]资源容量[/TIP]。放置在[icon:NOTIFICATION_SELECT_CAPITAL]首都中时，额外+3[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_RESOURCE_CAPACITY_TOOLTIP]资源容量[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_QUARTER_PUNIC_PORT_TOOLTIP" Language="zh_Hans_CN">
-      <Text>此定居点+2[icon:RADIAL_RESOURCES]资源容量。</Text>
+      <Text>此[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP]+2[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_RESOURCE_CAPACITY_TOOLTIP]资源容量[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_QUOTE_AUTHOR_WONDER_BYRSA" Language="zh_Hans_CN">
       <Text>利奥·阿非利加努斯</Text>
@@ -745,17 +742,38 @@
     <Replace Tag="LOC_QUOTE_WONDER_BYRSA" Language="zh_Hans_CN">
       <Text>城市断壁残垣至今仍犹可见。</Text>
     </Replace>
-    <Replace Tag="LOC_TRADITION_GAULOS_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>在海岸或可航行河流上购买[icon:CITY_BUILDING_LIST]建筑时+25%[icon:YIELD_GOLD]金币效用。</Text>
+    <Replace Tag="LOC_TRADITION_CARTHAGE_SYNCRETISM_EXPLORATION_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>每为其分配1[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]资源[/TIP]，[icon:NOTIFICATION_SELECT_CAPITAL][TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]首都[/TIP]便+1[icon:YIELD_GOLD]金币和[icon:YIELD_PRODUCTION]生产力。</Text>
     </Replace>
-    <Replace Tag="LOC_TRADITION_QUINQUEREME_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>购买海上单位时+25%[icon:YIELD_GOLD]金币效用。海上单位维护费用-1[icon:YIELD_GOLD]金币。</Text>
+    <Replace Tag="LOC_TRADITION_CARTHAGE_SYNCRETISM_MODERN_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>每为其分配1[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]资源[/TIP]，[icon:NOTIFICATION_SELECT_CAPITAL][TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]首都[/TIP]便+2[icon:YIELD_GOLD]金币和[icon:YIELD_PRODUCTION]生产力。</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_CARTHAGE_SYNCRETISM_TOOLTIP" Language="zh_Hans_CN">
+      <Text>汉诺统治</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_GAULOS_I_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>购买[TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]海上单位[/TIP]和[icon:CITY_BUILDING_LIST]水上[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建筑[/TIP]时+25%[icon:YIELD_GOLD]金币效用。每有一座[TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]城镇[/TIP]，[icon:NOTIFICATION_SELECT_CAPITAL][TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]首都[/TIP]便+1[icon:YIELD_GOLD]金币。</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_GAULOS_II_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>购买[TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]海上单位[/TIP]和[icon:CITY_BUILDING_LIST]水上[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建筑[/TIP]时+25%[icon:YIELD_GOLD]金币效用。每有一座[TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]城镇[/TIP]，[icon:NOTIFICATION_SELECT_CAPITAL][TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]首都[/TIP]便+3[icon:YIELD_GOLD]金币。</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_QUINQUEREME_I_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]重型海上单位[/TIP]+1射程。海上单位[TIP:LOC_PEDIA_CONCEPTS_MAINTENANCE_TOOLTIP]维护费用[/TIP]-1[icon:YIELD_GOLD]金币。</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_QUINQUEREME_II_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]重型海上单位[/TIP]+1射程。海上单位[TIP:LOC_PEDIA_CONCEPTS_MAINTENANCE_TOOLTIP]维护费用[/TIP]-2[icon:YIELD_GOLD]金币。每有1[icon:RADIAL_RESOURCES]特色城市[TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]资源[/TIP]分配给你的[icon:NOTIFICATION_SELECT_CAPITAL][TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]首都[/TIP]，海上单位便+1[icon:NAR_REW_COMBAT][TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]战斗力[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_SUFFETES_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>矿业[icon:YIELD_TOWNS]城镇+20%[icon:YIELD_GOLD]金币。渔业或农业[icon:YIELD_TOWNS]城镇+20%[icon:YIELD_FOOD]食物。</Text>
+      <Text>矿业[icon:YIELD_TOWNS][TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]城镇[/TIP]+20%[icon:YIELD_GOLD]金币。渔业或农业[icon:YIELD_TOWNS][TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]城镇[/TIP]+20%[icon:YIELD_FOOD]食物。每有一个拥有[icon:TOWN_FOCUS]“贸易前哨”重心的[icon:YIELD_TOWNS][TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]城镇[/TIP]，便+1[icon:TRADE_ROUTE]海上贸易路线范围。</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_CARTHAGE_ABILITY_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>[BLIST][LI]只能拥有[B]1座[icon:YIELD_CITIES]城市[/B]。无法将[icon:YIELD_TOWNS]城镇[B]转换为城市[/B]。[LI]每次购买/生产[icon:UNIT_MERCHANT][B]商人[/B]或[icon:UNIT_COLONIST][B]殖民者[/B]时额外获得一个相同单位。[LI]建造[B]比尔萨城塞[/B]时[B]+30%[icon:YIELD_PRODUCTION]生产力效用[/B]。[/LIST]</Text>
+      <Text>[BLIST][LI]只能拥有1座[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]。拥有任何[TIP:LOC_PEDIA_CONCEPTS_TOWN_FOCUS_TOOLTIP]城镇重心[/TIP]的[icon:YIELD_TOWNS][TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]城镇[/TIP]都能购买水上[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建筑[/TIP]，但无法使用[B]“转换为城市”[/B]。[LI]每次购买/生产[icon:UNIT_MERCHANT][B]商人[/B]或[icon:UNIT_COLONIST][B]殖民者[/B]时，额外获得一个相同单位。[LI]建造[B]比尔萨城塞[/B]时[B]+30%[icon:YIELD_PRODUCTION]生产力效用[/B]。[/LIST]</Text>
+    </Replace>
+    <Replace Tag="LOC_TRAIT_CARTHAGE_ABILITY_EX_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>[BLIST][LI]只能拥有1座[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]。拥有任何[TIP:LOC_PEDIA_CONCEPTS_TOWN_FOCUS_TOOLTIP]城镇重心[/TIP]的[icon:YIELD_TOWNS][TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]城镇[/TIP]都能购买水上[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建筑[/TIP]，但无法使用[B]“转换为城市”[/B]。[LI]每次购买/生产[icon:UNIT_MERCHANT][B]商人[/B]或[icon:UNIT_SETTLER][B]开拓者[/B]时，额外获得一个相同单位。[/BLIST]</Text>
+    </Replace>
+    <Replace Tag="LOC_TRAIT_CARTHAGE_ABILITY_MO_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>[BLIST][LI]只能拥有1座[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]。拥有任何[TIP:LOC_PEDIA_CONCEPTS_TOWN_FOCUS_TOOLTIP]城镇重心[/TIP]的[icon:YIELD_TOWNS][TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]城镇[/TIP]都能购买水上[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建筑[/TIP]，但无法使用[B]“转换为城市”[/B]。[LI]每次购买/生产[icon:UNIT_MERCHANT][B]商人[/B]或[icon:UNIT_SETTLER][B]开拓者[/B]时，额外获得一个相同单位。[/BLIST]</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_CARTHAGE_ABILITY_NAME" Language="zh_Hans_CN">
       <Text>腓尼基遗产</Text>
@@ -764,19 +782,22 @@
       <Text>迦太基市政</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_COLONIST_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>迦太基特色开拓者。+1[icon:Action_Move]上船移动力，如果在相邻于[icon:RADIAL_RESOURCES]资源处建立定居点，则+1[icon:YIELD_POPULATION]人口。</Text>
+      <Text>迦太基特色开拓者。+1[icon:Action_Move][TIP:LOC_PEDIA_CONCEPTS_EMBARK_TOOLTIP]上船[/TIP]移动力；如果在相邻于[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]资源[/TIP]处建立定居点，+1[icon:YIELD_POPULATION]人口。</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_NUMIDIAN_CAVALRY_2_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>第3阶迦太基特色骑兵单位。只能被购买，且费用更高。每有1[icon:RADIAL_RESOURCES]特色城市资源分配到[icon:NOTIFICATION_SELECT_CAPITAL]首都，便+1[icon:NAR_REW_COMBAT]战斗力。无视控制区。</Text>
+      <Text>第3阶迦太基特色[TIP:LOC_PEDIA_CONCEPTS_CAVALRY_UNITS_TOOLTIP]骑兵单位[/TIP]。只能被购买，且成本更高。每有1[icon:RADIAL_RESOURCES]特色[TIP:LOC_PEDIA_CONCEPTS_CITY_RESOURCES_TOOLTIP]城市资源[/TIP]分配给[icon:NOTIFICATION_SELECT_CAPITAL]首都，便+1[icon:NAR_REW_COMBAT][TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]战斗力[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_NUMIDIAN_CAVALRY_BASE_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>迦太基特色骑兵单位。只能被购买，且费用更高。每有1[icon:RADIAL_RESOURCES]特色城市资源分配到[icon:NOTIFICATION_SELECT_CAPITAL]首都，便+1[icon:NAR_REW_COMBAT]战斗力。无视控制区。</Text>
+      <Text>迦太基特色[TIP:LOC_PEDIA_CONCEPTS_CAVALRY_UNITS_TOOLTIP]骑兵单位[/TIP]。只能被购买，且成本更高。每有1[icon:RADIAL_RESOURCES]特色[TIP:LOC_PEDIA_CONCEPTS_CITY_RESOURCES_TOOLTIP]城市资源[/TIP]分配给[icon:NOTIFICATION_SELECT_CAPITAL]首都，便+1[icon:NAR_REW_COMBAT][TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]战斗力[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_NUMIDIAN_CAVALRY_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>第2阶迦太基特色骑兵单位。只能被购买，且费用更高。每有1[icon:RADIAL_RESOURCES]特色城市资源分配到[icon:NOTIFICATION_SELECT_CAPITAL]首都，便+1[icon:NAR_REW_COMBAT]战斗力。无视控制区。</Text>
+      <Text>第2阶迦太基特色[TIP:LOC_PEDIA_CONCEPTS_CAVALRY_UNITS_TOOLTIP]骑兵单位[/TIP]。只能被购买，且成本更高。每有1[icon:RADIAL_RESOURCES]特色[TIP:LOC_PEDIA_CONCEPTS_CITY_RESOURCES_TOOLTIP]城市资源[/TIP]分配给[icon:NOTIFICATION_SELECT_CAPITAL]首都，便+1[icon:NAR_REW_COMBAT][TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]战斗力[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_PLAY_AS_AUGUSTUS_CARTHAGE_TOOLTIP" Language="zh_Hans_CN">
       <Text>[B]迦太基[/B]能在策略上助力[B]奥古斯都[/B]。</Text>
+    </Replace>
+    <Replace Tag="LOC_UNLOCK_PLAY_AS_CARTHAGE_CARTHAGE_TOOLTIP" Language="zh_Hans_CN">
+      <Text>[B]迦太基[/B]能够在时代之间得以延续。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_PLAY_AS_CARTHAGE_DESCRIPTION" Language="zh_Hans_CN">
       <Text>扮演[B]迦太基[/B]。</Text>
@@ -794,19 +815,31 @@
       <Text>[B]伊莎贝拉[/B]与[B]迦太基[/B]均来自地中海。</Text>
     </Replace>
     <Replace Tag="LOC_WONDER_BYRSA_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>+2[icon:YIELD_GOLD]金币。[icon:TRADE_ROUTE]贸易路线无法被[icon:Action_Pillage]掠夺。此[icon:YIELD_CITIES]城市中与海岸相邻且能够建造城墙的所有[icon:CITY_URBAN]区块将自动获得城墙。无时代限制。必须放置在海岸旁。</Text>
+      <Text>+2[icon:YIELD_GOLD]金币。[icon:TRADE_ROUTE][TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]贸易路线[/TIP]无法被[icon:Action_Pillage]掠夺。此[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]中与水岸相邻且能够建造城墙的所有[icon:CITY_URBAN][TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]区块[/TIP]将自动获得[TIP:LOC_PEDIA_CONCEPTS_WALL_TOOLTIP]城墙[/TIP]。[TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]无时代限制[/TIP]。必须放置在水岸旁。</Text>
     </Replace>
     <Replace Tag="LOC_WONDER_BYRSA_TOOLTIP" Language="zh_Hans_CN">
-      <Text>[icon:TRADE_ROUTE]贸易路线无法被[icon:Action_Pillage]掠夺。此[icon:YIELD_CITIES]城市中与海岸相邻且能够建造城墙的所有[icon:CITY_URBAN]区块将自动获得城墙。[N]必须放置在海岸旁。</Text>
+      <Text>[icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]贸易路线[/TIP]无法被[icon:Action_Pillage]掠夺。此[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]中与水岸相邻且能够建造城墙的所有[icon:CITY_URBAN][TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]区块[/TIP]将自动获得[TIP:LOC_PEDIA_CONCEPTS_WALL_TOOLTIP]城墙[/TIP]。[N]必须放置在水岸旁。</Text>
     </Replace>
-    <Replace Tag="LOC_COMBAT_PREVIEW_NUMBER_RESOURCES_CAPITAL_BONUS_DESC" Language="zh_Hans_CN">
-      <Text>+{1_Value}战斗力，来自分配给首都的资源。</Text>
+    <Replace Tag="LOC_TRADITION_QUINQUEREME_COMBAT_PREVIEW" Language="zh_Hans_CN">
+      <Text>+{1_Amount}，五桨战船</Text>
     </Replace>
-    <Replace Tag="LOC_TRADITION_GAULOS_NAME" Language="zh_Hans_CN">
-      <Text>圆舟</Text>
+    <Replace Tag="LOC_TRADITION_CARTHAGE_SYNCRETISM_EXPLORATION_NAME" Language="zh_Hans_CN">
+      <Text>汉诺统治I</Text>
     </Replace>
-    <Replace Tag="LOC_TRADITION_QUINQUEREME_NAME" Language="zh_Hans_CN">
-      <Text>五桨战船</Text>
+    <Replace Tag="LOC_TRADITION_CARTHAGE_SYNCRETISM_MODERN_NAME" Language="zh_Hans_CN">
+      <Text>汉诺统治II</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_GAULOS_I_NAME" Language="zh_Hans_CN">
+      <Text>圆舟I</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_GAULOS_II_NAME" Language="zh_Hans_CN">
+      <Text>圆舟II</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_QUINQUEREME_I_NAME" Language="zh_Hans_CN">
+      <Text>五桨战船I</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_QUINQUEREME_II_NAME" Language="zh_Hans_CN">
+      <Text>五桨战船II</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_SUFFETES_NAME" Language="zh_Hans_CN">
       <Text>士师</Text>

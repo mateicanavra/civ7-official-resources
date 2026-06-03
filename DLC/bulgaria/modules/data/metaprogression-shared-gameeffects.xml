@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+	<Modifier id="CHALLENGE_BULGARIA_FOUR_MAJOR_TRIUMPHS_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
+				<Argument name="CivilizationType">CIVILIZATION_BULGARIA</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
+				<Argument name="AgeType">AGE_EXPLORATION</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="MajorOnly">true</Argument>
+				<Argument name="MinCount">4</Argument>
+				<Argument name="TriumphClassTags">EXPANSIONIST,MILITARISTIC</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_BULGARIA_FOUR_MAJOR_TRIUMPHS</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_BULGARIA_MAJOR_TRIUMPH_COMPLETED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
+				<Argument name="CivilizationType">CIVILIZATION_BULGARIA</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="MajorOnly">True</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_BULGARIA_MAJOR_TRIUMPH_COMPLETED</Argument>
+	</Modifier>
+</GameEffects>

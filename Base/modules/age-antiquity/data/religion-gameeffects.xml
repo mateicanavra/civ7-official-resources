@@ -77,8 +77,8 @@
 		<SubjectRequirements>
 			<Requirement type="REQUIREMENT_CITY_IS_CAPITAL">
 			</Requirement>
-			<Requirement type="REQUIREMENT_CITY_BUILT_CONSTRUCTIBLE_TYPE">
-				<Argument name="ConstructibleType">BUILDING_ALTAR</Argument>
+			<Requirement type="REQUIREMENT_CITY_HAS_BUILDING">
+				<Argument name="BuildingType">BUILDING_ALTAR</Argument>
 			</Requirement>
 		</SubjectRequirements>
 		<Argument name="ModifierId">ATTACH_PANTHEON_UNIT_HEALING</Argument>
@@ -207,7 +207,6 @@
 			</Requirement>
 		</SubjectRequirements>
 		<Argument name="ConstructibleClass">BUILDING</Argument>
-		<Argument name="Apply">Rate</Argument>
 		<Argument name="Percent">10</Argument>
 	</Modifier>
 	<!-- Pantheon 9 -->
@@ -264,6 +263,15 @@
 	</Modifier>
 	<Modifier id="ATTACH_PANTHEON_ALTAR_COAST_WAREHOUSE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ACTIVATE_CONSTRUCTIBLE_WAREHOUSE_YIELD">
 		<Argument name="ConstructibleWarehouseYield">PantheonAltarCoastTerrainProduction</Argument>
+	</Modifier>
+	<Modifier id="MOD_PANTHEON_ALTAR_OCEAN_WAREHOUSE" collection="COLLECTION_MAJOR_PLAYERS" effect="EFFECT_ATTACH_MODIFIERS">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_HAS_PANTHEON"/>
+		</SubjectRequirements>
+		<Argument name="ModifierId">ATTACH_PANTHEON_ALTAR_OCEAN_WAREHOUSE</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_PANTHEON_ALTAR_OCEAN_WAREHOUSE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ACTIVATE_CONSTRUCTIBLE_WAREHOUSE_YIELD">
+		<Argument name="ConstructibleWarehouseYield">PantheonAltarOceanTerrainProduction</Argument>
 	</Modifier>
 	<Modifier id="MOD_PANTHEON_ALTAR_NAVIGABLE_RIVER_WAREHOUSE" collection="COLLECTION_MAJOR_PLAYERS" effect="EFFECT_ATTACH_MODIFIERS">
 		<SubjectRequirements>
@@ -449,8 +457,8 @@
 		<SubjectRequirements>
 			<Requirement type="REQUIREMENT_CITY_IS_CAPITAL">
 			</Requirement>
-			<Requirement type="REQUIREMENT_CITY_BUILT_CONSTRUCTIBLE_TYPE">
-				<Argument name="ConstructibleType">BUILDING_ALTAR</Argument>
+			<Requirement type="REQUIREMENT_CITY_HAS_BUILDING">
+				<Argument name="BuildingType">BUILDING_ALTAR</Argument>
 			</Requirement>
 		</SubjectRequirements>
 		<Argument name="ModifierId">ATTACH_PANTHEON_INFLUENCE_EFFICIENCY</Argument>

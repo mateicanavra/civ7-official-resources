@@ -21,8 +21,6 @@
 	  <TableItem Kind="GPU" Context="GPU" Type="Set_Value" Name="gpuDeviceId" Session="Yes" EventData="GpuDeviceId" EventDataType="uint"/>
 	  <TableItem Kind="GPU" Context="GPU" Type="Set_Value" Name="gpuProfile" Session="Yes" EventData="GpuProfile" EventDataType="uint"/>
 	  <TableItem Kind="App" Context="App" Type="Set_Value" Name="platform" Session="Yes" EventData="Platform" EventDataType="string"/>
-	  <TableItem Kind="App" Context="App" Type="Set_Value" Name="applicationType" Session="Yes" EventData="ApplicationType" EventDataType="string"/>
-	  <TableItem Kind="App" Context="App" Type="Set_Value" Name="buildAccessMethod" Session="Yes" EventData="BuildAccessMethod" EventDataType="string"/>
 	  <TableItem Kind="App" Context="App" Type="Set_Value" Name="activeDLC" Session="Yes" EventData="ActiveDLC" EventDataType="string"/>
 	  <TableItem Kind="App" Context="App" Type="Set_Value" Name="hasPreorder" Session="Yes" EventData="HasPreorder" EventDataType="uint"/>
 	  <TableItem Kind="App" Context="App" Type="Set_Value" Name="directXVersion" Session="Yes" EventData="DirectXVersion" EventDataType="uint"/>
@@ -43,6 +41,14 @@
 	  <TableItem Kind="Challenge" Context="ChallengeCompleted" Type="Set_Value" Name="accomplishmentProgress" Session="Yes" EventData="AccomplishmentProgress" EventDataType="int"/>
 	  <TableItem Kind="Challenge" Context="ChallengeCompleted" Type="Set_Value" Name="accomplishmentEvent" Session="Yes" EventData="AccomplishmentStatus" EventDataType="string"/>
     </Table>
+  </Item>
+	<Item Type="Entitlement" Name="EntitlementStatus">
+		<Table Name="Entitlement:EntitlementCached/" EventName="LocalMachineEvent::EntitlementCached">
+			<TableItem Kind="Entititlement" Context="EntitlementCached" Type="Set_Value" Name="entitlementId" Session="Yes" EventData="EntitlementId" EventDataType="string"/>
+			<TableItem Kind="Entititlement" Context="EntitlementCached" Type="Set_Value" Name="entitlementItemId" Session="Yes" EventData="EntitlementItemId" EventDataType="string"/>
+			<TableItem Kind="Entititlement" Context="EntitlementCached" Type="Set_Value" Name="entitlementCustom" Session="Yes" EventData="EntitlementCustom" EventDataType="string"/>
+			<TableItem Kind="Entititlement" Context="EntitlementCached" Type="Set_Value" Name="entitlementItemType" Session="Yes" EventData="entitlementItemType" EventDataType="int"/>
+		</Table>
   </Item>
   <Item Type="Customization" Name="CustomizationStatus">
 	<Table Name="Customization:CustomizationStatus/" EventName="LocalMachineEvent::DNAUserProfileCustomizationSaved">

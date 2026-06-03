@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+	<!-- ==================================================	-->
+	<!--				Civ-Specific Traits					-->
+	<!-- ==================================================	-->
+	<!-- GREAT_BRITAIN -->
+	<Modifier id="TRAIT_MOD_CITY_PROJECT_MORE_EXPENSIVE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_TOWN_UPGRADE_DISCOUNT">
+		<Argument name="Percent">-50</Argument>
+		<String context="Description">LOC_TRAIT_GREAT_BRITAIN_ABILITY_MO_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="TRAIT_GB_MOD_BUILDING_CHEAPER_PURCHASE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_ADJUST_PLAYER_OR_CITY_BUILDING_PURCHASE_EFFICIENCY">
+		<Argument name="Percent">25</Argument>
+		<String context="Description">LOC_TRAIT_GREAT_BRITAIN_ABILITY_MO_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="TRAIT_GB_MOD_BUILDING_PRODUCTION" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_PRODUCTION">
+		<Argument name="Percent">25</Argument>
+		<Argument name="ConstructibleClass">BUILDING</Argument>
+		<String context="Description">LOC_TRAIT_GREAT_BRITAIN_ABILITY_MO_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="TRAIT_GB_MOD_COASTAL_BUILDING_SCIENCE_A" collection="COLLECTION_PLAYER_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_ADJACENT_TO_COAST" />
+			<Requirement type="REQUIREMENT_PLOT_DISTRICT_CLASS">
+				<Argument name="DistrictClass">CITYCENTER, URBAN</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_PLOT_HAS_CONSTRUCTIBLE">
+				<Argument name="CurrentAgeOnly">true</Argument>
+				<Argument name="ExcludeTag">DISTRICT_WALL</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_SCIENCE</Argument>
+		<Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_GREAT_BRITAIN_ABILITY_NAME</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_GB_MOD_COASTAL_BUILDING_SCIENCE_B" collection="COLLECTION_PLAYER_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_ADJACENT_TO_COAST" />
+			<Requirement type="REQUIREMENT_PLOT_DISTRICT_CLASS">
+				<Argument name="DistrictClass">CITYCENTER, URBAN</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_PLOT_HAS_CONSTRUCTIBLE">
+				<Argument name="CurrentAgeOnly">true</Argument>
+				<Argument name="ExcludeTag">DISTRICT_WALL</Argument>
+				<Argument name="Count">2</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_SCIENCE</Argument>
+		<Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_GREAT_BRITAIN_ABILITY_NAME</Argument>
+	</Modifier>
+</GameEffects>

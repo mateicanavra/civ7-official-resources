@@ -1,4 +1,4 @@
-import { C as ChallengeClass } from '../../../core/ui/utilities/utilities-metaprogression.chunk.js';
+import { ChallengeClass } from '../../../core/ui/utilities/utilities-metaprogression.js';
 
 class LegendsManagerImpl {
   getData() {
@@ -22,15 +22,15 @@ class LegendsManagerImpl {
           title: item.legendPathLoc,
           startLevel: item.currentLevel,
           nextLevel: item.currentLevel + 1,
-          previousXP: item.currentXp - gainedXP,
-          gainedXP,
-          previousLevelXP: item.prevLevelXp,
-          nextLevelXP: item.nextLevelXp
+          previousXP: Number(item.currentXp - gainedXP),
+          gainedXP: Number(gainedXP),
+          previousLevelXP: Number(item.prevLevelXp),
+          nextLevelXP: Number(item.nextLevelXp)
         };
         const leveledUp = item.currentXp - gainedXP <= item.prevLevelXp;
         if (leveledUp) {
           item.rewards?.forEach((reward) => {
-            if (reward.level == item.currentLevel) {
+            if (reward.level <= item.currentLevel) {
               const unlockedMemento = {
                 title: reward.title,
                 description: reward.desc,

@@ -910,7 +910,7 @@
         <Argument name="MultiplierType">REWARD_TYPE_MEDIUM_LATE</Argument>
     </Modifier>
     <Modifier id="3556B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ATTRIBUTE" run-once="false" permanent="true">
-        <Argument name="AttributeType">ATTRIBUTE_EXPANSIONIST</Argument>
+        <Argument name="AttributeType">ATTRIBUTE_POLITICAL</Argument>
         <Argument name="Amount">1</Argument>
     </Modifier>
     <Modifier id="3556C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ATTRIBUTE" run-once="false" permanent="true">
@@ -942,7 +942,7 @@
         <Argument name="Amount">1</Argument>
     </Modifier>
     <Modifier id="3565C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ATTRIBUTE" run-once="false" permanent="true">
-        <Argument name="AttributeType">ATTRIBUTE_SCIENTIFIC</Argument>
+        <Argument name="AttributeType">ATTRIBUTE_POLITICAL</Argument>
         <Argument name="Amount">1</Argument>
     </Modifier>
     <Modifier id="3697B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_MODIFY_PLAYER_YIELD_FOR_X_TURNS" run-once="false" permanent="true">
@@ -993,9 +993,9 @@
         <Argument name="YieldType">YIELD_GOLD</Argument>
         <Argument name="MultiplierType">REWARD_TYPE_MINOR_EARLY</Argument>
     </Modifier>
-    <Modifier id="261C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD" run-once="false" permanent="true">
-        <Argument name="YieldType">YIELD_FOOD</Argument>
-        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+    <Modifier id="261C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_NARRATIVE" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+        <Argument name="MultiplierType">REWARD_TYPE_MINOR_EARLY</Argument>
     </Modifier>
     <Modifier id="266B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_NARRATIVE" run-once="false" permanent="true">
         <Argument name="YieldType">YIELD_GOLD</Argument>
@@ -1091,7 +1091,7 @@
         <Argument name="MultiplierType">REWARD_TYPE_MEDIUM_LATE</Argument>
     </Modifier>
     <Modifier id="3559B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ATTRIBUTE" run-once="false" permanent="true">
-        <Argument name="AttributeType">ATTRIBUTE_MILITARISTIC</Argument>
+        <Argument name="AttributeType">ATTRIBUTE_CULTURAL</Argument>
         <Argument name="Amount">1</Argument>
     </Modifier>
     <Modifier id="3559C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ATTRIBUTE" run-once="false" permanent="true">
@@ -1496,6 +1496,7 @@
         <Argument name="Amount">1</Argument>
     </Modifier>
     <Modifier id="1058B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_TRADITION_SLOTS" run-once="false" permanent="true">
+        <Argument name="SlotType">POLICY_CULTURE_SLOT</Argument>
         <Argument name="Amount">1</Argument>
     </Modifier>
     <Modifier id="1059B_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
@@ -1540,13 +1541,9 @@
         <Argument name="YieldType">YIELD_CULTURE</Argument>
         <Argument name="MultiplierType">REWARD_TYPE_MINOR_EARLY</Argument>
     </Modifier>
-    <Modifier id="263B_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_ABILITY" run-once="false" permanent="true">
-        <SubjectRequirements>
-            <Requirement type="REQUIREMENT_UNIT_TYPE_MATCHES">
-                <Argument name="UnitType">UNIT_LINE_INFANTRY</Argument>
-            </Requirement>
-        </SubjectRequirements>
-        <Argument name="AbilityType">ABILITY_NARRATIVE_AGGRESSION</Argument>
+    <Modifier id="263B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_NARRATIVE" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_CULTURE</Argument>
+        <Argument name="MultiplierType">REWARD_TYPE_MINOR_EARLY</Argument>
     </Modifier>
     <Modifier id="263C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_NARRATIVE" run-once="false" permanent="true">
         <Argument name="YieldType">YIELD_DIPLOMACY</Argument>
@@ -1611,6 +1608,7 @@
         <Argument name="Amount">1</Argument>
     </Modifier>
     <Modifier id="1222C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_TRADITION_SLOTS" run-once="false" permanent="true">
+        <Argument name="SlotType">POLICY_CULTURE_SLOT</Argument>
         <Argument name="Amount">1</Argument>
     </Modifier>
     <Modifier id="1136B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ATTRIBUTE" run-once="false" permanent="true">
@@ -1959,9 +1957,9 @@
         <Argument name="ConstructibleType">WONDER_CHENGDE_MOUNTAIN_RESORT</Argument>
         <Argument name="Amount" type="ScaleByGameAge" extra="100">2</Argument>
     </Modifier>
-    <Modifier id="ARCHAEOLOGY_2B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADD_YIELD_DEBT_NARRATIVE" run-once="false" permanent="true">
-        <Argument name="YieldType">YIELD_CULTURE</Argument>
-        <Argument name="MultiplierType">REWARD_TYPE_MEDIUM_EARLY</Argument>
+    <Modifier id="ARCHAEOLOGY_2C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_NARRATIVE" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+        <Argument name="MultiplierType">REWARD_TYPE_MEDIUM_LATE</Argument>
     </Modifier>
     <Modifier id="ARCHAEOLOGY_2D_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_GRANT_GREAT_WORK" run-once="false" permanent="true">
         <Argument name="ObjectType">GREATWORKOBJECT_ARTIFACT</Argument>
@@ -1969,9 +1967,10 @@
         <Argument name="DetermineAge">TRUE</Argument>
         <Argument name="Provenance">GREATWORKSOURCE_MILITARY</Argument>
     </Modifier>
-    <Modifier id="ARCHAEOLOGY_3B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADD_YIELD_DEBT_NARRATIVE" run-once="false" permanent="true">
-        <Argument name="YieldType">YIELD_CULTURE</Argument>
-        <Argument name="MultiplierType">REWARD_TYPE_MEDIUM_EARLY</Argument>
+    <Modifier id="ARCHAEOLOGY_3C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER_CITY_NEAREST_STORY" effect="EFFECT_MODIFY_CITY_YIELD_FOR_X_TURNS" run-once="true" permanent="true">
+        <Argument name="YieldType">YIELD_PRODUCTION</Argument>
+        <Argument name="Amount">100</Argument>
+        <Argument name="Turns">5</Argument>
     </Modifier>
     <Modifier id="ARCHAEOLOGY_3D_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_GRANT_GREAT_WORK" run-once="false" permanent="true">
         <Argument name="ObjectType">GREATWORKOBJECT_ARTIFACT</Argument>
@@ -1979,9 +1978,9 @@
         <Argument name="DetermineAge">TRUE</Argument>
         <Argument name="Provenance">GREATWORKSOURCE_MILITARY</Argument>
     </Modifier>
-    <Modifier id="ARCHAEOLOGY_4B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADD_YIELD_DEBT_NARRATIVE" run-once="false" permanent="true">
+    <Modifier id="ARCHAEOLOGY_4C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_GREAT_WORK" run-once="false" permanent="true">
         <Argument name="YieldType">YIELD_CULTURE</Argument>
-        <Argument name="MultiplierType">REWARD_TYPE_MEDIUM_EARLY</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
     </Modifier>
     <Modifier id="ARCHAEOLOGY_4D_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_GRANT_GREAT_WORK" run-once="false" permanent="true">
         <Argument name="ObjectType">GREATWORKOBJECT_ARTIFACT</Argument>
@@ -1989,9 +1988,9 @@
         <Argument name="DetermineAge">TRUE</Argument>
         <Argument name="Provenance">GREATWORKSOURCE_URBAN</Argument>
     </Modifier>
-    <Modifier id="ARCHAEOLOGY_5B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADD_YIELD_DEBT_NARRATIVE" run-once="false" permanent="true">
-        <Argument name="YieldType">YIELD_CULTURE</Argument>
-        <Argument name="MultiplierType">REWARD_TYPE_MEDIUM_EARLY</Argument>
+    <Modifier id="ARCHAEOLOGY_5C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_GREAT_WORK" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_GOLD</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
     </Modifier>
     <Modifier id="ARCHAEOLOGY_5D_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_GRANT_GREAT_WORK" run-once="false" permanent="true">
         <Argument name="ObjectType">GREATWORKOBJECT_ARTIFACT</Argument>
@@ -1999,9 +1998,9 @@
         <Argument name="DetermineAge">TRUE</Argument>
         <Argument name="Provenance">GREATWORKSOURCE_URBAN</Argument>
     </Modifier>
-    <Modifier id="ARCHAEOLOGY_6B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADD_YIELD_DEBT_NARRATIVE" run-once="false" permanent="true">
-        <Argument name="YieldType">YIELD_CULTURE</Argument>
-        <Argument name="MultiplierType">REWARD_TYPE_MEDIUM_EARLY</Argument>
+    <Modifier id="ARCHAEOLOGY_6C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_NARRATIVE" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_GOLD</Argument>
+        <Argument name="MultiplierType">REWARD_TYPE_MEDIUM_LATE</Argument>
     </Modifier>
     <Modifier id="ARCHAEOLOGY_6D_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_GRANT_GREAT_WORK" run-once="false" permanent="true">
         <Argument name="ObjectType">GREATWORKOBJECT_ARTIFACT</Argument>
@@ -2039,9 +2038,9 @@
         <Argument name="DetermineAge">TRUE</Argument>
         <Argument name="Provenance">GREATWORKSOURCE_URBAN</Argument>
     </Modifier>
-    <Modifier id="ARCHAEOLOGY_12B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADD_YIELD_DEBT_NARRATIVE" run-once="false" permanent="true">
-        <Argument name="YieldType">YIELD_CULTURE</Argument>
-        <Argument name="MultiplierType">REWARD_TYPE_MEDIUM_EARLY</Argument>
+    <Modifier id="ARCHAEOLOGY_12C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_NARRATIVE" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_GOLD</Argument>
+        <Argument name="MultiplierType">REWARD_TYPE_MEDIUM_LATE</Argument>
     </Modifier>
     <Modifier id="ARCHAEOLOGY_12D_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_GRANT_GREAT_WORK" run-once="false" permanent="true">
         <Argument name="ObjectType">GREATWORKOBJECT_ARTIFACT</Argument>
@@ -2057,7 +2056,6 @@
     </Modifier>
     <Modifier id="ARCHAEOLOGY_14A_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_GRANT_EXHIBIT_GREAT_WORK" run-once="false" permanent="true">
         <Argument name="ObjectType">GREATWORKOBJECT_ARTIFACT</Argument>
-        <Argument name="DetermineAge">true</Argument>
         <Argument name="ArchaeologyAge">AGE_EXPLORATION</Argument>
         <Argument name="Provenance">GREATWORKSOURCE_RESEARCH_NATURAL_WONDER</Argument>
         <Argument name="MatchProvenance">true</Argument>
@@ -3267,36 +3265,22 @@
         <Argument name="Amount">1</Argument>
         <Argument name="NarrativeTagType">NARRATIVE_TAG_SYSTEMIC_UNIT_DIES</Argument>
     </Modifier>
-    <Requirement id="REQ_STORY_CIVILIZATION_AMERICA" type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
-        <Argument name="CivilizationType">CIVILIZATION_AMERICA</Argument>
-    </Requirement>
-    <Requirement id="REQ_STORY_CIVILIZATION_BUGANDA" type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
-        <Argument name="CivilizationType">CIVILIZATION_BUGANDA</Argument>
-    </Requirement>
-    <Requirement id="REQ_STORY_CIVILIZATION_FRENCH_EMPIRE" type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
-        <Argument name="CivilizationType">CIVILIZATION_FRENCH_EMPIRE</Argument>
-    </Requirement>
-    <Requirement id="REQ_STORY_CIVILIZATION_MEIJI" type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
-        <Argument name="CivilizationType">CIVILIZATION_MEIJI</Argument>
-    </Requirement>
-    <Requirement id="REQ_STORY_CIVILIZATION_MEXICO" type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
-        <Argument name="CivilizationType">CIVILIZATION_MEXICO</Argument>
-    </Requirement>
-    <Requirement id="REQ_STORY_CIVILIZATION_MUGHAL" type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
-        <Argument name="CivilizationType">CIVILIZATION_MUGHAL</Argument>
-    </Requirement>
-    <Requirement id="REQ_STORY_CIVILIZATION_PRUSSIA" type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
-        <Argument name="CivilizationType">CIVILIZATION_PRUSSIA</Argument>
-    </Requirement>
-    <Requirement id="REQ_STORY_CIVILIZATION_QING" type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
-        <Argument name="CivilizationType">CIVILIZATION_QING</Argument>
-    </Requirement>
-    <Requirement id="REQ_STORY_CIVILIZATION_RUSSIA" type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
-        <Argument name="CivilizationType">CIVILIZATION_RUSSIA</Argument>
-    </Requirement>
-    <Requirement id="REQ_STORY_CIVILIZATION_SIAM" type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
-        <Argument name="CivilizationType">CIVILIZATION_SIAM</Argument>
-    </Requirement>
+    <Modifier id="10171B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_NARRATIVE" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_SCIENCE</Argument>
+        <Argument name="MultiplierType">REWARD_TYPE_MEDIUM_EARLY</Argument>
+    </Modifier>
+    <Modifier id="10171B_NARRATIVE_MODIFIER2" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADD_YIELD_DEBT_NARRATIVE" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_CULTURE</Argument>
+        <Argument name="MultiplierType">REWARD_TYPE_MINOR_EARLY</Argument>
+    </Modifier>
+    <Modifier id="10171C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_NARRATIVE" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_CULTURE</Argument>
+        <Argument name="MultiplierType">REWARD_TYPE_MEDIUM_EARLY</Argument>
+    </Modifier>
+    <Modifier id="10171C_NARRATIVE_MODIFIER2" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADD_YIELD_DEBT_NARRATIVE" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_SCIENCE</Argument>
+        <Argument name="MultiplierType">REWARD_TYPE_MINOR_EARLY</Argument>
+    </Modifier>
     <RequirementSet id="REQSET_1133A_NARRATIVE_REQUISITE">
         <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_NARRATIVE_TAGS">
             <Argument name="NarrativeTagType">NARRATIVE_TAG_BRASS_PLATES</Argument>
@@ -3378,6 +3362,7 @@
         <Requirement type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
             <Argument name="CivilizationType">CIVILIZATION_ROME</Argument>
             <Argument name="IsPastCivilization">True</Argument>
+            <Argument name="OnlyPastCivilization">False</Argument>
         </Requirement>
     </RequirementSet>
     <RequirementSet id="REQSET_ATTRIBUTE_QUEST_1010A_NARRATIVE_REQUISITE">
@@ -3946,6 +3931,7 @@
         <Requirement type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
             <Argument name="CivilizationType">CIVILIZATION_GREECE</Argument>
             <Argument name="IsPastCivilization">True</Argument>
+            <Argument name="OnlyPastCivilization">False</Argument>
         </Requirement>
         <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_NARRATIVE_TAGS">
             <Argument name="NarrativeTagType">NARRATIVE_TAG_GOVERNMENT_CLASSICAL_REPUBLIC</Argument>
@@ -4468,6 +4454,10 @@
     </RequirementSet>
     <RequirementSet id="REQSET_290B_NARRATIVE_REQUISITE">
         <Requirement xref="REQ_STORY_LEADER_JOSE_RIZAL"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_10171A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_MEIJI"/>
+        <Requirement xref="REQ_STORY_LEADER_BENJAMIN_FRANKLIN"/>
     </RequirementSet>
     <RequirementSet id="REQSET_9A_NARRATIVE">
         <Requirement xref="REQ_STORY_CIVILIZATION_MUGHAL"/>
@@ -5331,7 +5321,7 @@
         <Requirement xref="REQ_STORY_CIVILIZATION_AMERICA"/>
         <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
             <Argument name="GossipTypes">GOSSIP_TRADITION_ACTIVATED01</Argument>
-            <Argument name="GOSSIP_TRADITION_ACTIVATED01">Hash,TraditionType,TRADITION_GOLD_RUSH,Hash,CivilizationTrait,TRAIT_AMERICA</Argument>
+            <Argument name="GOSSIP_TRADITION_ACTIVATED01">Hash,TraditionType,TRADITION_GOLD_RUSH_II,Hash,CivilizationTrait,TRAIT_AMERICA</Argument>
         </Requirement>
     </RequirementSet>
     <RequirementSet id="REQSET_3697A_NARRATIVE">
@@ -5542,7 +5532,7 @@
         <Requirement xref="REQ_STORY_CIVILIZATION_RUSSIA"/>
         <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
             <Argument name="GossipTypes">GOSSIP_TRADITION_ACTIVATED01,GOSSIP_UNIT_COMBAT_DEATH02</Argument>
-            <Argument name="GOSSIP_TRADITION_ACTIVATED01">Hash,TraditionType,TRADITION_GENERAL_MOROZ,Hash,CivilizationTrait,TRAIT_RUSSIA</Argument>
+            <Argument name="GOSSIP_TRADITION_ACTIVATED01">Hash,TraditionType,TRADITION_GENERAL_MOROZ_II,Hash,CivilizationTrait,TRAIT_RUSSIA</Argument>
             <Argument name="GOSSIP_UNIT_COMBAT_DEATH02">Hash,OtherPlayer,Self,Hash,BiomeType,BIOME_TUNDRA,Hash,IsKillingUnitPlotOwner,True</Argument>
             <Argument name="Amount">2</Argument>
         </Requirement>
@@ -5975,9 +5965,20 @@
         </Requirement>
     </RequirementSet>
     <RequirementSet id="REQSET_232A_NARRATIVE">
-        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
-            <Argument name="GossipTypes">GOSSIP_CONSTRUCT_BUILDING01</Argument>
-            <Argument name="GOSSIP_CONSTRUCT_BUILDING01">Hash,BiomeType,BIOME_MARINE</Argument>
+        <Requirement type="REQUIREMENT_COLLECTION_ANY_MET">
+            <Argument name="CollectionType">COLLECTION_PLAYER_CITIES</Argument>
+            <Argument name="RequirementSetId">SUBREQSET_232A_NARRATIVE</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="SUBREQSET_232A_NARRATIVE">
+        <Requirement type="REQUIREMENT_BUILDING_IS_ADJACENT_TO_X">
+            <Argument name="BuildingTags">CULTURE</Argument>
+            <Argument name="AdjacentTerrainTypes">TERRAIN_COAST</Argument>
+            <Argument name="BuildingCount">2</Argument>
+        </Requirement>
+        <Requirement type="REQUIREMENT_CITY_HAS_BUILDING">
+            <Argument name="BuildingType">BUILDING_RAIL_STATION</Argument>
+            <Argument name="Amount">1</Argument>
         </Requirement>
     </RequirementSet>
     <RequirementSet id="REQSET_233A_NARRATIVE">
@@ -6755,7 +6756,7 @@
             <Argument name="Percent">66</Argument>
         </Requirement>
         <Requirement type="REQUIREMENT_PLAYER_HAS_ACTIVE_TRADITION">
-            <Argument name="TraditionType">TRADITION_COHONG</Argument>
+            <Argument name="TraditionType">TRADITION_COHONG_II</Argument>
         </Requirement>
     </RequirementSet>
     <RequirementSet id="REQSET_8041A_NARRATIVE">
@@ -7000,7 +7001,7 @@
     </RequirementSet>
     <RequirementSet id="SUBREQSET_279A_NARRATIVE">
         <Requirement type="REQUIREMENT_CITY_HAS_ANY_BUILDING" inverse="true">
-            <Argument name="ConstructibleType">BUILDING_MUSEUM,BUILDING_OPERA_HOUSE</Argument>
+            <Argument name="BuildingType">BUILDING_MUSEUM,BUILDING_OPERA_HOUSE</Argument>
             <Argument name="Amount">1</Argument>
         </Requirement>
     </RequirementSet>
@@ -7087,7 +7088,6 @@
     </RequirementSet>
     <RequirementSet id="REQSET_209A_NARRATIVE">
         <Requirement type="REQUIREMENT_PLAYER_IS_AT_PEACE_WITH_ALL_MAJORS" inverse="true">
-            <Argument name="OtherPlayer">Self</Argument>
         </Requirement>
         <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
             <Argument name="GossipTypes">GOSSIP_GATHER_RESOURCE01,GOSSIP_CONSTRUCTIBLE_DAMAGED02</Argument>
@@ -7257,9 +7257,9 @@
             <Argument name="NarrativeTagType">NARRATIVE_TAG_LEADER_CHAIN_B</Argument>
             <Argument name="Amount">3</Argument>
         </Requirement>
-        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
-            <Argument name="GossipTypes">GOSSIP_CONSTRUCT_BUILDING01</Argument>
-            <Argument name="GOSSIP_CONSTRUCT_BUILDING01">Hash,ConstructibleType,BUILDING_PORT</Argument>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_COMPLETED_PROGRESSION_TREE_NODE">
+            <Argument name="ProgressionTreeNodeType">NODE_CIVIC_MO_MAIN_NATIONALISM</Argument>
+            <Argument name="MinDepth">1</Argument>
         </Requirement>
     </RequirementSet>
     <RequirementSet id="REQSET_LEADER_CHAIN_1029B_NARRATIVE">
@@ -7362,7 +7362,7 @@
         </Requirement>
         <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
             <Argument name="GossipTypes">GOSSIP_COMPLETED_PROGRESSION_TREE_NODE01</Argument>
-            <Argument name="GOSSIP_COMPLETED_PROGRESSION_TREE_NODE01">Hash,ProgressionTreeNodeType,NODE_TECH_MO_ELECTRICTY</Argument>
+            <Argument name="GOSSIP_COMPLETED_PROGRESSION_TREE_NODE01">Hash,ProgressionTreeNodeType,NODE_TECH_MO_ELECTRICITY</Argument>
         </Requirement>
     </RequirementSet>
     <RequirementSet id="REQSET_LEADER_CHAIN_1059B_NARRATIVE">
@@ -8097,6 +8097,17 @@
         </Requirement>
         <Requirement type="REQUIREMENT_PLAYER_HAS_X_RESOURCES">
             <Argument name="ResourceType">RESOURCE_TIN</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_10171A_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_MEIJI"/>
+        <Requirement xref="REQ_STORY_LEADER_BENJAMIN_FRANKLIN"/>
+        <Requirement type="REQUIREMENT_PLAYER_YIELD_PER_TURN_LEAD">
+            <Argument name="YieldType">YIELD_CULTURE</Argument>
+        </Requirement>
+        <Requirement type="REQUIREMENT_PLAYER_YIELD_PER_TURN_LEAD_RATIO" inverse="true">
+            <Argument name="YieldType">YIELD_SCIENCE</Argument>
+            <Argument name="PlayerRatio">51</Argument>
         </Requirement>
     </RequirementSet>
 </GameEffects>

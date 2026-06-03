@@ -7,8 +7,8 @@
 		<Row Type="BUILDING_AMPHITHEATER" Tag="CULTURE"/>
 		<Row Type="BUILDING_ANCIENT_BRIDGE" Tag="WATER"/>
 		<Row Type="BUILDING_ANCIENT_BRIDGE" Tag="BRIDGE"/>
-		<Row Type="BUILDING_ANCIENT_WALLS" Tag="FORTIFICATION"/>
 		<Row Type="BUILDING_ARENA" Tag="HAPPINESS"/>
+		<Row Type="BUILDING_BARRACKS" Tag="PRODUCTION"/>
 		<Row Type="BUILDING_BARRACKS" Tag="MILITARY"/>
 		<Row Type="BUILDING_BARRACKS" Tag="URBANCENTER"/>
 		<Row Type="BUILDING_BATH" Tag="FOOD"/>
@@ -43,18 +43,13 @@
 		<Row ConstructibleType="BUILDING_BLACKSMITH" ModifierId="MOD_BLACKSMITH_PRODUCTION_ON_URBAN_PLOTS"/>
 	</ConstructibleModifiers>
 	<Constructible_Adjacencies>
-		<!-- Civ Abilities -->
-		<Row ConstructibleType="BUILDING_PALACE" YieldChangeId="MayaSkiesOfItzamnaPalaceVegetatedScience" RequiresActivation="true"/>
 	</Constructible_Adjacencies>
 	<Adjacency_YieldChanges>
-		<!-- Civ Abilities -->
-		<Row ID="MayaSkiesOfItzamnaPalaceVegetatedScience" Age="AGE_ANTIQUITY" YieldType="YIELD_SCIENCE" YieldChange=".5" TilesRequired="1" AdjacentFeatureClass="FEATURE_CLASS_VEGETATED"/>
 	</Adjacency_YieldChanges>
 	<Constructible_WarehouseYields>
 	</Constructible_WarehouseYields>
 	<Warehouse_YieldChanges>
 		<!-- Civ Abilities -->
-		<Row ID="AksumKingdomOfNaturalWealthResourceGold" Age="AGE_ANTIQUITY" YieldType="YIELD_GOLD" YieldChange="3" ResourceInCity="true"/>
 		<Row ID="EgyptGiftsOfOsirisNavigableRiverProduction" Age="AGE_ANTIQUITY" YieldType="YIELD_PRODUCTION" YieldChange="1" NavigableRiverInCity="true"/>
 		<Row ID="EgyptGiftsOfOsirisMinorRiverProduction" Age="AGE_ANTIQUITY" YieldType="YIELD_PRODUCTION" YieldChange="1" MinorRiverInCity="true"/>
 		<!-- Tech Unlocks -->
@@ -62,7 +57,7 @@
 		<Row ID="AQQuarryProduction" Age="AGE_ANTIQUITY" YieldType="YIELD_PRODUCTION" YieldChange="1" ConstructibleInCity="IMPROVEMENT_QUARRY"/>
 		<Row ID="AQRoughTerrainProduction" Age="AGE_ANTIQUITY" YieldType="YIELD_PRODUCTION" YieldChange="1" TerrainInCity="TERRAIN_HILL"/>
 		<Row ID="AQWetFeatureProduction" Age="AGE_ANTIQUITY" YieldType="YIELD_PRODUCTION" YieldChange="1" FeatureClassInCity="FEATURE_CLASS_WET"/>
-		<Row ID="AQClayPitResourceProduction" Age="AGE_ANTIQUITY" YieldType="YIELD_PRODUCTION" YieldChange="1" ConstructibleInCity="IMPROVEMENT_CLAY_PIT_RESOURCE"/>
+		<Row ID="AQClayPitResourceProduction" Age="AGE_ANTIQUITY" YieldType="YIELD_PRODUCTION" YieldChange="2" ConstructibleInCity="IMPROVEMENT_CLAY_PIT_RESOURCE"/>
 		<Row ID="AQFishingBoatResourceFood" Age="AGE_ANTIQUITY" YieldType="YIELD_FOOD" YieldChange="1" ConstructibleInCity="IMPROVEMENT_FISHING_BOAT_RESOURCE"/>
 		<Row ID="AQAtollFeatureFood" Age="AGE_ANTIQUITY" YieldType="YIELD_FOOD" YieldChange="1" FeatureInCity="FEATURE_ATOLL"/>
 		<Row ID="AQLotusFeatureFood" Age="AGE_ANTIQUITY" YieldType="YIELD_FOOD" YieldChange="1" FeatureInCity="FEATURE_LOTUS"/>
@@ -86,6 +81,8 @@
 		<Row ID="AQTownQuarryProduction" Age="AGE_ANTIQUITY" YieldType="YIELD_PRODUCTION" YieldChange="2" ConstructibleInCity="IMPROVEMENT_QUARRY"/>
 		<Row ID="AQTownRoughTerrainProduction" Age="AGE_ANTIQUITY" YieldType="YIELD_PRODUCTION" YieldChange="2" TerrainInCity="TERRAIN_HILL"/>
 		<Row ID="AQTownWetFeatureProduction" Age="AGE_ANTIQUITY" YieldType="YIELD_PRODUCTION" YieldChange="2" FeatureClassInCity="FEATURE_CLASS_WET"/>
+		<Row ID="AQTownClayPitResourceProduction" Age="AGE_ANTIQUITY" YieldType="YIELD_PRODUCTION" YieldChange="2" ConstructibleInCity="IMPROVEMENT_CLAY_PIT_RESOURCE"/>
+		<Row ID="AQTownClayPitProduction" Age="AGE_ANTIQUITY" YieldType="YIELD_PRODUCTION" YieldChange="2" ConstructibleInCity="IMPROVEMENT_CLAY_PIT"/>
 		<Row ID="AQTownFishingBoatResourceFood" Age="AGE_ANTIQUITY" YieldType="YIELD_FOOD" YieldChange="1" ConstructibleInCity="IMPROVEMENT_FISHING_BOAT_RESOURCE"/>
 		<Row ID="AQTownAtollFeatureFood" Age="AGE_ANTIQUITY" YieldType="YIELD_FOOD" YieldChange="1" FeatureInCity="FEATURE_ATOLL"/>
 		<Row ID="AQTownLotusFeatureFood" Age="AGE_ANTIQUITY" YieldType="YIELD_FOOD" YieldChange="1" FeatureInCity="FEATURE_LOTUS"/>
@@ -104,12 +101,17 @@
 		<Row ID="AQTownWoodcutterResourceProduction" Age="AGE_ANTIQUITY" YieldType="YIELD_PRODUCTION" YieldChange="2" ConstructibleInCity="IMPROVEMENT_WOODCUTTER_RESOURCE"/>
 		<Row ID="AQTownCampProduction" Age="AGE_ANTIQUITY" YieldType="YIELD_PRODUCTION" YieldChange="2" ConstructibleInCity="IMPROVEMENT_CAMP"/>
 		<Row ID="AQTownVegetatedFeatureProduction" Age="AGE_ANTIQUITY" YieldType="YIELD_PRODUCTION" YieldChange="2" FeatureClassInCity="FEATURE_CLASS_VEGETATED"/>
-		<Row ID="AQHappinessProjectResourceHappiness" YieldType="YIELD_HAPPINESS" YieldChange="2" ResourceInCity="true"/>
+		<Row ID="AQHappinessProjectResourceHappiness" YieldType="YIELD_HAPPINESS" YieldChange="1" ResourceInCity="true"/>
 	</Warehouse_YieldChanges>
+	<!-- Specialist Yields based on constructible type and age relevancy -->
 	<WorkerYields>
-		<Row YieldType="YIELD_FOOD" Amount="-2"/>
-		<Row YieldType="YIELD_HAPPINESS" Amount="-2"/>
-		<Row YieldType="YIELD_SCIENCE" Amount="2"/>
-		<Row YieldType="YIELD_CULTURE" Amount="2"/>
+		<Row YieldType="YIELD_FOOD" Amount="-1"/>
+		<Row YieldType="YIELD_HAPPINESS" Amount="-1"/>
+		<Row YieldType="YIELD_SCIENCE" Amount="0"/>
+		<Row YieldType="YIELD_CULTURE" Amount="0"/>
 	</WorkerYields>
+	<WorkerYields_AgeModifier>
+		<Row YieldType="YIELD_FOOD" Amount="-1"/>
+		<Row YieldType="YIELD_HAPPINESS" Amount="-1"/>
+	</WorkerYields_AgeModifier>
 </Database>

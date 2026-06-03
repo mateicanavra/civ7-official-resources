@@ -49,6 +49,9 @@
     <Replace Tag="LOC_MAIN_CHAR_SELECT_LEADER_LAKSHMIBAI_ANY" Language="de_DE">
       <Text>Waffen besitzen nur die Macht derer, die sie führen, und diese Macht kommt aus dem Herzen. </Text>
     </Replace>
+    <Replace Tag="LOC_VICTORY_LEADER_LAKSHMIBAI" Language="de_DE">
+      <Text>Die Dunkelheit wurde überwunden, unter den Hufen meines Pferdes zertreten.</Text>
+    </Replace>
     <Replace Tag="LOC_LEADER_CHAIN_1240B_NAME" Language="de_DE">
       <Text>Man muss auf Überzeugung und Grazie vertrauen.</Text>
     </Replace>
@@ -250,7 +253,7 @@
       <Text>Die Massen unterhalten.</Text>
     </Replace>
     <Replace Tag="LOC_10022A_COMPLETION" Language="de_DE">
-      <Text>Lakshmibais Blick huscht über die formelle Petition der unabhängigen Macht {1_Independent_CS}. Der Stadtstaat behauptet, dass Lakshmibais Feinde eine unmittelbare Bedrohung darstellen, aber sie weiß, dass jede Hilfeleistung das fragile Wohlergehen des {2_Civilization_adj[2]} Volkes gefährden könnte.</Text>
+      <Text>Lakshmibais Blick huscht über die formelle Petition der unabhängigen Macht {1_Independent_CS}. Der Stadtstaat behauptet, dass Lakshmibais Feinde eine unmittelbare Bedrohung darstellen, aber sie weiß, dass jede Hilfeleistung das fragile Wohlergehen des {2_Civilization_adj[2]}{2: gender *:no_space?; other? ;}Volkes gefährden könnte.</Text>
     </Replace>
     <Replace Tag="LOC_10022A_STORYTITLE" Language="de_DE">
       <Text>Die Pflicht eines Herrschers</Text>
@@ -265,7 +268,7 @@
       <Text>{1_reward}, aber {2_reward}.</Text>
     </Replace>
     <Replace Tag="LOC_10022C_NAME" Language="de_DE">
-      <Text>Das Wohl des {1_Civilization_adj[2]} Volkes hat oberste Priorität.</Text>
+      <Text>Das Wohl des {1_Civilization_adj[2]}{1: gender *:no_space?; other? ;}Volkes hat oberste Priorität.</Text>
     </Replace>
     <Replace Tag="LOC_10023A_COMPLETION" Language="de_DE">
       <Text>Trotz ihres jüngsten Sieges kauern Soldaten mit hohlen Augen in den Trümmern des Schlachtfeldes. Ihr Kommandant drängt sie vorwärts, aber die Apathie bleibt.</Text>
@@ -292,7 +295,7 @@
       <Text>Die Nachricht von ihrem Sieg verbreiten.</Text>
     </Replace>
     <Replace Tag="LOC_10024A_COMPLETION" Language="de_DE">
-      <Text>Mit einem einzigen Federstrich besiegelt Lakshmibai einen teuer erkauften Frieden. Als unerschütterliche Beschützerin des {1_CIVILIZATION_adj[2]} Volkes schwört sie nun, seine standhafte Anführerin und Beschützerin zu sein.</Text>
+      <Text>Mit einem einzigen Federstrich besiegelt Lakshmibai einen teuer erkauften Frieden. Als unerschütterliche Beschützerin des {1_Civilization_adj[2]}{1: gender *:no_space?; other? ;}Volkes schwört sie nun, seine standhafte Anführerin und Beschützerin zu sein.</Text>
     </Replace>
     <Replace Tag="LOC_10024A_STORYTITLE" Language="de_DE">
       <Text>Friedensvertrag</Text>
@@ -310,7 +313,7 @@
       <Text>Die Jungen müssen bereit sein, sich Schwierigkeiten zu stellen.</Text>
     </Replace>
     <Replace Tag="LOC_10025A_COMPLETION" Language="de_DE">
-      <Text>Lakshmibais Agenten kommen im Mondlicht an, gespannt auf ihre nächste verschlüsselte Botschaft. {1_Independent : plural 1?{1_Independent : gender *:no_article?; m?Der ; f?Die ; other?Das ;}; other?Die ;}{1_Independent[5]} {1_Independent : plural 1?war; other?waren;} sowohl Schwert als auch Schild für das {2_Civilization_adj[3]} Volk, doch Lakshmibai weiß, dass der Kampf noch lange nicht vorbei ist.</Text>
+      <Text>Lakshmibais Agenten kommen im Mondlicht an, gespannt auf ihre nächste verschlüsselte Botschaft. {1_Independent : plural 1?{1_Independent : gender *:no_article?; m?Der ; f?Die ; other?Das ;}; other?Die ;}{1_Independent[5]} {1_Independent : plural 1?war; other?waren;} sowohl Schwert als auch Schild für das {2_Civilization_adj[3]}{2: gender *:no_space?; other? ;}Volk, doch Lakshmibai weiß, dass der Kampf noch lange nicht vorbei ist.</Text>
     </Replace>
     <Replace Tag="LOC_10025A_STORYTITLE" Language="de_DE">
       <Text>Agenten des Konflikts</Text>
@@ -346,7 +349,7 @@
       <Text>Öffentliche Unterstützung sammeln.</Text>
     </Replace>
     <Replace Tag="LOC_10027A_COMPLETION" Language="de_DE">
-      <Text>Lakshmibai erwischt ein Kind, das seine Faust gegen ein anderes erhebt. Nachdem sie beide am Handgelenk gepackt hat, erklärt sie ihnen, wie die {1_Civilization_adj[2]} Menschen ihre Streitigkeiten lösen sollten.</Text>
+      <Text>Lakshmibai erwischt ein Kind, das seine Faust gegen ein anderes erhebt. Nachdem sie beide am Handgelenk gepackt hat, erklärt sie ihnen, wie die {1_Civilization_adj[2]}{1: gender *:no_space?; other? ;}Menschen ihre Streitigkeiten lösen sollten.</Text>
     </Replace>
     <Replace Tag="LOC_10027A_STORYTITLE" Language="de_DE">
       <Text>Wissen ist Macht</Text>
@@ -622,13 +625,13 @@
       <Text>+25 % Beziehung für das Starten oder Unterstützen von Unterfangen. -25 % Beziehung für das Initiieren von Sanktionen oder Ablehnen von Unterfangen.</Text>
     </Replace>
     <Replace Tag="LOC_ATTRIBUTENODE_LAKSHMIBAI_L1_NAME" Language="de_DE">
-      <Text>Diplomatieattribut-Knotenpunkt</Text>
+      <Text>Knotenpunkt: Diplomatieattribut</Text>
     </Replace>
     <Replace Tag="LOC_ATTRIBUTENODE_LAKSHMIBAI_L2_DESCRIPTION" Language="de_DE">
       <Text>+5 Kampfstärke für alle Einheiten gegen Bezirke.</Text>
     </Replace>
     <Replace Tag="LOC_ATTRIBUTENODE_LAKSHMIBAI_L2_NAME" Language="de_DE">
-      <Text>Militärattribut-Knotenpunkt</Text>
+      <Text>Knotenpunkt: Militärattribut</Text>
     </Replace>
     <Replace Tag="LOC_BADGE_LAKSHMIBAI_NAME" Language="de_DE">
       <Text>Lakshmibai-Abzeichen 1</Text>
@@ -643,25 +646,25 @@
       <Text>Erhaltet für dieses Zeitalter +15 % [icon:YIELD_DIPLOMACY] Einfluss auf Kosten von -2 Kampfstärke für Eure Marineeinheiten</Text>
     </Replace>
     <Replace Tag="LOC_CARD_AT_EXP_LEGEND_LAKSHMIBAI_1_NAME" Language="de_DE">
-      <Text>Lakshmibai, Legende der Erkundung (diplomatisch)</Text>
+      <Text>Lakshmibai, Widmung der Erkundung (diplomatisch)</Text>
     </Replace>
     <Replace Tag="LOC_CARD_AT_EXP_LEGEND_LAKSHMIBAI_2_DESCRIPTION" Language="de_DE">
       <Text>Erhaltet für dieses Zeitalter +3 Kampfstärke für Eure Marineeinheiten auf Kosten von -10 % [icon:YIELD_DIPLOMACY] Einfluss</Text>
     </Replace>
     <Replace Tag="LOC_CARD_AT_EXP_LEGEND_LAKSHMIBAI_2_NAME" Language="de_DE">
-      <Text>Lakshmibai, Legende der Erkundung (militärisch)</Text>
+      <Text>Lakshmibai, Widmung der Erkundung (militärisch)</Text>
     </Replace>
     <Replace Tag="LOC_CARD_AT_MOD_LEGEND_LAKSHMIBAI_1_DESCRIPTION" Language="de_DE">
       <Text>Erhaltet für dieses Zeitalter +15 % [icon:YIELD_DIPLOMACY] Einfluss auf Kosten von -2 Kampfstärke für Eure Lufteinheiten</Text>
     </Replace>
     <Replace Tag="LOC_CARD_AT_MOD_LEGEND_LAKSHMIBAI_1_NAME" Language="de_DE">
-      <Text>Lakshmibai, Legende der Moderne (diplomatisch)</Text>
+      <Text>Lakshmibai, Widmung der Moderne (diplomatisch)</Text>
     </Replace>
     <Replace Tag="LOC_CARD_AT_MOD_LEGEND_LAKSHMIBAI_2_DESCRIPTION" Language="de_DE">
       <Text>Erhaltet für dieses Zeitalter +3 Kampfstärke für Eure Lufteinheiten auf Kosten von -10 % [icon:YIELD_DIPLOMACY] Einfluss</Text>
     </Replace>
     <Replace Tag="LOC_CARD_AT_MOD_LEGEND_LAKSHMIBAI_2_NAME" Language="de_DE">
-      <Text>Lakshmibai, Legende der Moderne (militärisch)</Text>
+      <Text>Lakshmibai, Widmung der Moderne (militärisch)</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_ETERNAL_GLORY_DESC" Language="de_DE">
       <Text>Mag die Zivilisation mit dem höchsten [icon:YIELD_DIPLOMACY] Einfluss. Mag die mit dem niedrigsten [icon:YIELD_DIPLOMACY] Einfluss nicht.</Text>
@@ -673,7 +676,7 @@
       <Text>Erhaltet Einfluss in Höhe von 25 % der Kampfstärke der besiegten Einheit.</Text>
     </Replace>
     <Replace Tag="LOC_LEADER_LAKSHMIBAI_DESCRIPTION" Language="de_DE">
-      <Text>+50 % [icon:YIELD_DIPLOMACY] Einfluss für das Starten der [icon:PROJECT] Aktion "Stadtstaaten - Eingemeinden". Wenn Ihr einen [icon:CITYSTATE] Stadtstaat eingemeindet, erhaltet Ihr all seine Einheiten. Wenn eine Eurer Land-Militäreinheiten eine gegnerische Einheit besiegt, erhaltet Ihr [icon:YIELD_DIPLOMACY] Einfluss in Höhe von 100 % der [icon:NAR_REW_COMBAT] Kampfstärke der besiegten Einheit.</Text>
+      <Text>+50 % [icon:YIELD_DIPLOMACY] Einfluss für das Starten der [icon:PROJECT] Aktion "Stadtstaaten - Eingemeinden". Wenn Ihr einen [icon:CITYSTATE][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]Stadtstaat[/TIP] eingemeindet, erhaltet Ihr all seine Einheiten. Wenn eine Eurer Land-Militäreinheiten eine gegnerische Einheit besiegt, erhaltet Ihr [icon:YIELD_DIPLOMACY] Einfluss in Höhe von 100 % der [icon:NAR_REW_COMBAT] Kampfstärke der besiegten Einheit.</Text>
     </Replace>
     <Replace Tag="LOC_LOADING_LEADER_INTRO_TEXT_LAKSHMIBAI" Language="de_DE">
       <Text>Lakshmibai, Rani von Jhansi, auf dem Rücken des großen Baadal naht Ihr in einem Donnerschlag von Hufen - und Ihr werdet Euch Euer Geburtsrecht nicht nehmen lassen. Mit erhobenem Säbel ruft Ihr Euer Volk dazu auf, das zu verteidigen, was ihm gehört, und Dieben und Plünderern ihre Beute zu verweigern. Erhebt Euch, Rani, und zeigt, was es heißt, eine Anführerin zu sein.</Text>
@@ -682,7 +685,7 @@
       <Text>Erinnerung an ein treues Pferd.</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_LAKSHMIBAI_BAADALS_REINS_FUNCTIONAL_DESCRIPTION" Language="de_DE">
-      <Text>+1 [icon:YIELD_DIPLOMACY] Einfluss pro Zeitalter pro Weide-Modernisierung.</Text>
+      <Text>[B]+1 [icon:YIELD_DIPLOMACY][/B] pro [TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]Zeitalter[/TIP] pro [icon:CITY_RURAL] [TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]Modernisierung[/TIP] einer Weide.</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_LAKSHMIBAI_BAADALS_REINS_NAME" Language="de_DE">
       <Text>Badals Zügel</Text>
@@ -694,7 +697,7 @@
       <Text>Runder Schutzschild.</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_LAKSHMIBAI_DHAL_FUNCTIONAL_DESCRIPTION" Language="de_DE">
-      <Text>+2 Kampfstärke bei Verteidigung in freundlichem Gebiet.</Text>
+      <Text>[B]+2 [icon:NAR_REW_COMBAT][/B] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Kampfstärke[/TIP] bei Verteidigung in freundlichem Gebiet.</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_LAKSHMIBAI_DHAL_NAME" Language="de_DE">
       <Text>Dhal</Text>
@@ -706,7 +709,7 @@
       <Text>Symbol des Volkes.</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_LAKSHMIBAI_FLAG_OF_JHANSI_FUNCTIONAL_DESCRIPTION" Language="de_DE">
-      <Text>+1 [icon:YIELD_DIPLOMACY] Einfluss pro Zeitalter für jede Kommandantenbeförderung.</Text>
+      <Text>[B]+2 [icon:YIELD_DIPLOMACY][/B] für jede [icon:UNIT_ARMY_COMMANDER] [TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]Heerführer[/TIP]-[TIP:LOC_PEDIA_CONCEPTS_PROMOTION_TOOLTIP]Beförderung[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_LAKSHMIBAI_FLAG_OF_JHANSI_NAME" Language="de_DE">
       <Text>Flagge von Jhansi</Text>
@@ -768,293 +771,317 @@
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_AGE_COMPLETED_MODERN_NAME" Language="de_DE">
       <Text>Moderne abschließen</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_CULTURE_VICTORY_ANTIQUITY_2_DESC" Language="de_DE">
-      <Text>Schließt als Lakshmibai den Vermächtnis-Weg "Weltwunder der Antike" 2-mal ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_CULTURE_TRIUMPH_2_ANTIQUITY_DESC" Language="de_DE">
+      <Text>Schließt als Lakshmibai den Triumph "Orphische Mysterien" ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_CULTURE_VICTORY_ANTIQUITY_2_NAME" Language="de_DE">
-      <Text>Weltwunder der Antike 2</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_CULTURE_TRIUMPH_2_ANTIQUITY_NAME" Language="de_DE">
+      <Text>Orphische Mysterien</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_CULTURE_VICTORY_ANTIQUITY_3_DESC" Language="de_DE">
-      <Text>Schließt als Lakshmibai den Vermächtnis-Weg "Weltwunder der Antike" 3-mal ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_CULTURE_TRIUMPH_2_EXPLORATION_DESC" Language="de_DE">
+      <Text>Schließt als Lakshmibai den Triumph "Himmlisches Königreich" ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_CULTURE_VICTORY_ANTIQUITY_3_NAME" Language="de_DE">
-      <Text>Weltwunder der Antike 3</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_CULTURE_TRIUMPH_2_EXPLORATION_NAME" Language="de_DE">
+      <Text>Himmlisches Königreich</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_CULTURE_VICTORY_ANTIQUITY_DESC" Language="de_DE">
-      <Text>Schließt als Lakshmibai den Vermächtnis-Weg "Weltwunder der Antike" ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_CULTURE_TRIUMPH_2_MODERN_DESC" Language="de_DE">
+      <Text>Schließt als Lakshmibai den Triumph "Wunderland" ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_CULTURE_VICTORY_ANTIQUITY_NAME" Language="de_DE">
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_CULTURE_TRIUMPH_2_MODERN_NAME" Language="de_DE">
+      <Text>Wunderland</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_CULTURE_TRIUMPH_ANTIQUITY_DESC" Language="de_DE">
+      <Text>Schließt als Lakshmibai den Triumph "Weltwunder der Antike" ab.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_CULTURE_TRIUMPH_ANTIQUITY_NAME" Language="de_DE">
       <Text>Weltwunder der Antike</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_CULTURE_VICTORY_EXPLORATION_2_DESC" Language="de_DE">
-      <Text>Schließt als Lakshmibai den Vermächtnis-Weg "Toshakhana" 2-mal ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_CULTURE_TRIUMPH_EXPLORATION_DESC" Language="de_DE">
+      <Text>Schließt als Lakshmibai den Triumph "Toshakhana" ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_CULTURE_VICTORY_EXPLORATION_2_NAME" Language="de_DE">
-      <Text>Toshakhana 2</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_CULTURE_VICTORY_EXPLORATION_3_DESC" Language="de_DE">
-      <Text>Schließt als Lakshmibai den Vermächtnis-Weg "Toshakhana" 3-mal ab.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_CULTURE_VICTORY_EXPLORATION_3_NAME" Language="de_DE">
-      <Text>Toshakhana 3</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_CULTURE_VICTORY_EXPLORATION_DESC" Language="de_DE">
-      <Text>Schließt als Lakshmibai den Vermächtnis-Weg "Toshakhana" ab.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_CULTURE_VICTORY_EXPLORATION_NAME" Language="de_DE">
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_CULTURE_TRIUMPH_EXPLORATION_NAME" Language="de_DE">
       <Text>Toshakhana</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_CULTURE_VICTORY_MODERN_2_DESC" Language="de_DE">
-      <Text>Schließt als Lakshmibai den Vermächtnis-Weg "Geografische Gesellschaft" 2-mal ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_CULTURE_TRIUMPH_MODERN_DESC" Language="de_DE">
+      <Text>Schließt als Lakshmibai den Triumph "Geografische Gesellschaft" ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_CULTURE_VICTORY_MODERN_2_NAME" Language="de_DE">
-      <Text>Geografische Gesellschaft 2</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_CULTURE_VICTORY_MODERN_3_DESC" Language="de_DE">
-      <Text>Schließt als Lakshmibai den Vermächtnis-Weg "Geografische Gesellschaft" 3-mal ab.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_CULTURE_VICTORY_MODERN_3_NAME" Language="de_DE">
-      <Text>Geografische Gesellschaft 3</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_CULTURE_VICTORY_MODERN_DESC" Language="de_DE">
-      <Text>Schließt als Lakshmibai den Vermächtnis-Weg "Geografische Gesellschaft" ab.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_CULTURE_VICTORY_MODERN_NAME" Language="de_DE">
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_CULTURE_TRIUMPH_MODERN_NAME" Language="de_DE">
       <Text>Geografische Gesellschaft</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_ECONOMIC_VICTORY_ANTIQUITY_2_DESC" Language="de_DE">
-      <Text>Schließt als Lakshmibai den Vermächtnis-Weg "Seidenstraßen" 2-mal ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_CULTURE_VICTORY_DESC" Language="de_DE">
+      <Text>Erlangt als Lakshmibai einen Kultursieg.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_ECONOMIC_VICTORY_ANTIQUITY_2_NAME" Language="de_DE">
-      <Text>Seidenstraßen 2</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_CULTURE_VICTORY_NAME" Language="de_DE">
+      <Text>Kultursieg</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_ECONOMIC_VICTORY_ANTIQUITY_3_DESC" Language="de_DE">
-      <Text>Schließt als Lakshmibai den Vermächtnis-Weg "Seidenstraßen" 3-mal ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_DEITY_VICTORY_DESC" Language="de_DE">
+      <Text>Erlangt als Lakshmibai einen Sieg mit dem Schwierigkeitsgrad "Gottheit".</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_ECONOMIC_VICTORY_ANTIQUITY_3_NAME" Language="de_DE">
-      <Text>Seidenstraßen 3</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_DEITY_VICTORY_NAME" Language="de_DE">
+      <Text>Gottheitssieg</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_ECONOMIC_VICTORY_ANTIQUITY_DESC" Language="de_DE">
-      <Text>Schließt als Lakshmibai den Vermächtnis-Weg "Seidenstraßen" ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_DIPLOMATIC_TRIUMPH_2_ANTIQUITY_DESC" Language="de_DE">
+      <Text>Schließt als Lakshmibai den Triumph "Brot und Spiele" ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_ECONOMIC_VICTORY_ANTIQUITY_NAME" Language="de_DE">
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_DIPLOMATIC_TRIUMPH_2_ANTIQUITY_NAME" Language="de_DE">
+      <Text>Brot und Spiele</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_DIPLOMATIC_TRIUMPH_2_EXPLORATION_DESC" Language="de_DE">
+      <Text>Schließt als Lakshmibai den Triumph "Vierfache Allianz" ab.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_DIPLOMATIC_TRIUMPH_2_EXPLORATION_NAME" Language="de_DE">
+      <Text>Vierfache Allianz</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_DIPLOMATIC_TRIUMPH_2_MODERN_DESC" Language="de_DE">
+      <Text>Schließt als Lakshmibai den Triumph "Enigma-Code" ab.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_DIPLOMATIC_TRIUMPH_2_MODERN_NAME" Language="de_DE">
+      <Text>Enigma-Code</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_DIPLOMATIC_TRIUMPH_ANTIQUITY_DESC" Language="de_DE">
+      <Text>Schließt als Lakshmibai den Triumph "Strippenziehen" ab.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_DIPLOMATIC_TRIUMPH_ANTIQUITY_NAME" Language="de_DE">
+      <Text>Strippenziehen</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_DIPLOMATIC_TRIUMPH_EXPLORATION_DESC" Language="de_DE">
+      <Text>Schließt als Lakshmibai den Triumph "Orden der Assassinen" ab.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_DIPLOMATIC_TRIUMPH_EXPLORATION_NAME" Language="de_DE">
+      <Text>Orden der Assassinen</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_DIPLOMATIC_TRIUMPH_MODERN_DESC" Language="de_DE">
+      <Text>Schließt als Lakshmibai den Triumph "Völkerbund" ab.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_DIPLOMATIC_TRIUMPH_MODERN_NAME" Language="de_DE">
+      <Text>Völkerbund</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_ECONOMIC_TRIUMPH_2_ANTIQUITY_DESC" Language="de_DE">
+      <Text>Schließt als Lakshmibai den Triumph "Gier ist Gold" ab.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_ECONOMIC_TRIUMPH_2_ANTIQUITY_NAME" Language="de_DE">
+      <Text>Gier ist Gold</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_ECONOMIC_TRIUMPH_2_EXPLORATION_DESC" Language="de_DE">
+      <Text>Schließt als Lakshmibai den Triumph "Kalikutieren wir ein Geschäft" ab.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_ECONOMIC_TRIUMPH_2_EXPLORATION_NAME" Language="de_DE">
+      <Text>Kalikutieren wir ein Geschäft</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_ECONOMIC_TRIUMPH_2_MODERN_DESC" Language="de_DE">
+      <Text>Schließt als Lakshmibai den Triumph "Werkstatt der Welt" ab.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_ECONOMIC_TRIUMPH_2_MODERN_NAME" Language="de_DE">
+      <Text>Werkstatt der Welt</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_ECONOMIC_TRIUMPH_ANTIQUITY_DESC" Language="de_DE">
+      <Text>Schließt als Lakshmibai den Triumph "Seidenstraßen" ab.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_ECONOMIC_TRIUMPH_ANTIQUITY_NAME" Language="de_DE">
       <Text>Seidenstraßen</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_ECONOMIC_VICTORY_EXPLORATION_2_DESC" Language="de_DE">
-      <Text>Schließt als Lakshmibai den Vermächtnis-Weg "Schatzflotte" 2-mal ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_ECONOMIC_TRIUMPH_EXPLORATION_DESC" Language="de_DE">
+      <Text>Schließt als Lakshmibai den Triumph "Schatzflotte" ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_ECONOMIC_VICTORY_EXPLORATION_2_NAME" Language="de_DE">
-      <Text>Schatzflotte 2</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_ECONOMIC_VICTORY_EXPLORATION_3_DESC" Language="de_DE">
-      <Text>Schließt als Lakshmibai den Vermächtnis-Weg "Schatzflotte" 3-mal ab.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_ECONOMIC_VICTORY_EXPLORATION_3_NAME" Language="de_DE">
-      <Text>Schatzflotte 3</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_ECONOMIC_VICTORY_EXPLORATION_DESC" Language="de_DE">
-      <Text>Schließt als Lakshmibai den Vermächtnis-Weg "Schatzflotte" ab.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_ECONOMIC_VICTORY_EXPLORATION_NAME" Language="de_DE">
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_ECONOMIC_TRIUMPH_EXPLORATION_NAME" Language="de_DE">
       <Text>Schatzflotte</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_ECONOMIC_VICTORY_MODERN_2_DESC" Language="de_DE">
-      <Text>Schließt als Lakshmibai den Vermächtnis-Weg "Eisenbahnmagnat" 2-mal ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_ECONOMIC_TRIUMPH_MODERN_DESC" Language="de_DE">
+      <Text>Schließt als Lakshmibai den Triumph "Eisenbahnmagnat" ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_ECONOMIC_VICTORY_MODERN_2_NAME" Language="de_DE">
-      <Text>Eisenbahnmagnat 2</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_ECONOMIC_VICTORY_MODERN_3_DESC" Language="de_DE">
-      <Text>Schließt als Lakshmibai den Vermächtnis-Weg "Eisenbahnmagnat" 3-mal ab.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_ECONOMIC_VICTORY_MODERN_3_NAME" Language="de_DE">
-      <Text>Eisenbahnmagnat 3</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_ECONOMIC_VICTORY_MODERN_DESC" Language="de_DE">
-      <Text>Schließt als Lakshmibai den Vermächtnis-Weg "Eisenbahnmagnat" ab.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_ECONOMIC_VICTORY_MODERN_NAME" Language="de_DE">
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_ECONOMIC_TRIUMPH_MODERN_NAME" Language="de_DE">
       <Text>Eisenbahnmagnat</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_FLAWLESS_VICTORY_ANTIQUITY_DESC" Language="de_DE">
-      <Text>Schließt als Lakshmibai 2 Vermächtnis-Wege in einem einzigen Zeitalter der Antike ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_ECONOMIC_VICTORY_DESC" Language="de_DE">
+      <Text>Erlangt als Lakshmibai einen Wirtschaftssieg.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_FLAWLESS_VICTORY_ANTIQUITY_NAME" Language="de_DE">
-      <Text>Zwei Vermächtnis-Wege, Antike</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_ECONOMIC_VICTORY_NAME" Language="de_DE">
+      <Text>Wirtschaftssieg</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_FLAWLESS_VICTORY_EXPLORATION_DESC" Language="de_DE">
-      <Text>Schließt als Lakshmibai 2 Vermächtnis-Wege in einem einzigen Zeitalter der Erkundung ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_EXPANSIONIST_TRIUMPH_2_ANTIQUITY_DESC" Language="de_DE">
+      <Text>Schließt als Lakshmibai den Triumph "Turm zu Babel" ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_FLAWLESS_VICTORY_EXPLORATION_NAME" Language="de_DE">
-      <Text>Zwei Vermächtnis-Wege, Erkundung</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_EXPANSIONIST_TRIUMPH_2_ANTIQUITY_NAME" Language="de_DE">
+      <Text>Turm zu Babel</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_FLAWLESS_VICTORY_MODERN_DESC" Language="de_DE">
-      <Text>Schließt als Lakshmibai 2 Vermächtnis-Wege in einem einzigen Zeitalter der Moderne ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_EXPANSIONIST_TRIUMPH_2_EXPLORATION_DESC" Language="de_DE">
+      <Text>Schließt als Lakshmibai den Triumph "Wir haben Habsburger im Haus" ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_FLAWLESS_VICTORY_MODERN_NAME" Language="de_DE">
-      <Text>Zwei Vermächtnis-Wege, Moderne</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_EXPANSIONIST_TRIUMPH_2_EXPLORATION_NAME" Language="de_DE">
+      <Text>Wir haben Habsburger im Haus</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_MILITARY_VICTORY_ANTIQUITY_2_DESC" Language="de_DE">
-      <Text>Schließt als Lakshmibai den Vermächtnis-Weg "Pax Imperatoria" 2-mal ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_EXPANSIONIST_TRIUMPH_2_MODERN_DESC" Language="de_DE">
+      <Text>Schließt als Lakshmibai den Triumph "Megalopolis" ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_MILITARY_VICTORY_ANTIQUITY_2_NAME" Language="de_DE">
-      <Text>Pax Imperatoria 2</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_EXPANSIONIST_TRIUMPH_2_MODERN_NAME" Language="de_DE">
+      <Text>Megalopolis</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_MILITARY_VICTORY_ANTIQUITY_3_DESC" Language="de_DE">
-      <Text>Schließt als Lakshmibai den Vermächtnis-Weg "Pax Imperatoria" 3-mal ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_EXPANSIONIST_TRIUMPH_ANTIQUITY_DESC" Language="de_DE">
+      <Text>Schließt als Lakshmibai den Triumph "Vier Ecken der Welt" ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_MILITARY_VICTORY_ANTIQUITY_3_NAME" Language="de_DE">
-      <Text>Pax Imperatoria 3</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_EXPANSIONIST_TRIUMPH_ANTIQUITY_NAME" Language="de_DE">
+      <Text>Vier Ecken der Welt</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_MILITARY_VICTORY_ANTIQUITY_DESC" Language="de_DE">
-      <Text>Schließt als Lakshmibai den Vermächtnis-Weg "Pax Imperatoria" ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_EXPANSIONIST_TRIUMPH_EXPLORATION_DESC" Language="de_DE">
+      <Text>Schließt als Lakshmibai den Triumph "Hic Sunt Dracones" ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_MILITARY_VICTORY_ANTIQUITY_NAME" Language="de_DE">
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_EXPANSIONIST_TRIUMPH_EXPLORATION_NAME" Language="de_DE">
+      <Text>Hic Sunt Dracones</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_EXPANSIONIST_TRIUMPH_MODERN_DESC" Language="de_DE">
+      <Text>Schließt als Lakshmibai den Triumph "Nie untergehende Sonne" ab.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_EXPANSIONIST_TRIUMPH_MODERN_NAME" Language="de_DE">
+      <Text>Nie untergehende Sonne</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_FOUR_MAJOR_TRIUMPHS_ANTIQUITY_DESC" Language="de_DE">
+      <Text>Schließt als Lakshmibai 4 Große Triumphe in einem einzigen Zeitalter der Antike ab.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_FOUR_MAJOR_TRIUMPHS_ANTIQUITY_NAME" Language="de_DE">
+      <Text>Triumphierend, Antike</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_FOUR_MAJOR_TRIUMPHS_EXPLORATION_DESC" Language="de_DE">
+      <Text>Schließt als Lakshmibai 4 Große Triumphe in einem einzigen Zeitalter der Erkundung ab.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_FOUR_MAJOR_TRIUMPHS_EXPLORATION_NAME" Language="de_DE">
+      <Text>Triumphierend, Erkundung</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_MILITARY_TRIUMPH_2_ANTIQUITY_DESC" Language="de_DE">
+      <Text>Schließt als Lakshmibai den Triumph "Was für ein Gaius" ab.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_MILITARY_TRIUMPH_2_ANTIQUITY_NAME" Language="de_DE">
+      <Text>Was für ein Gaius</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_MILITARY_TRIUMPH_2_EXPLORATION_DESC" Language="de_DE">
+      <Text>Schließt als Lakshmibai den Triumph "Pax Mongolica" ab.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_MILITARY_TRIUMPH_2_EXPLORATION_NAME" Language="de_DE">
+      <Text>Pax Mongolica</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_MILITARY_TRIUMPH_2_MODERN_DESC" Language="de_DE">
+      <Text>Schließt als Lakshmibai den Triumph "Feind der Welt" ab.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_MILITARY_TRIUMPH_2_MODERN_NAME" Language="de_DE">
+      <Text>Feind der Welt</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_MILITARY_TRIUMPH_ANTIQUITY_DESC" Language="de_DE">
+      <Text>Schließt als Lakshmibai den Triumph "Pax Imperatoria" ab.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_MILITARY_TRIUMPH_ANTIQUITY_NAME" Language="de_DE">
       <Text>Pax Imperatoria</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_MILITARY_VICTORY_EXPLORATION_2_DESC" Language="de_DE">
-      <Text>Schließt als Lakshmibai den Vermächtnis-Weg "Non Sufficit Orbis" 2-mal ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_MILITARY_TRIUMPH_EXPLORATION_DESC" Language="de_DE">
+      <Text>Schließt als Lakshmibai den Triumph "Non Sufficit Orbis" ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_MILITARY_VICTORY_EXPLORATION_2_NAME" Language="de_DE">
-      <Text>Non Sufficit Orbis 2</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_MILITARY_VICTORY_EXPLORATION_3_DESC" Language="de_DE">
-      <Text>Schließt als Lakshmibai den Vermächtnis-Weg "Non Sufficit Orbis" 3-mal ab.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_MILITARY_VICTORY_EXPLORATION_3_NAME" Language="de_DE">
-      <Text>Non Sufficit Orbis 3</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_MILITARY_VICTORY_EXPLORATION_DESC" Language="de_DE">
-      <Text>Schließt als Lakshmibai den Vermächtnis-Weg "Non Sufficit Orbis" ab.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_MILITARY_VICTORY_EXPLORATION_NAME" Language="de_DE">
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_MILITARY_TRIUMPH_EXPLORATION_NAME" Language="de_DE">
       <Text>Non Sufficit Orbis</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_MILITARY_VICTORY_MODERN_2_DESC" Language="de_DE">
-      <Text>Schließt als Lakshmibai den Vermächtnis-Weg "Ideologie" 2-mal ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_MILITARY_TRIUMPH_MODERN_DESC" Language="de_DE">
+      <Text>Schließt als Lakshmibai den Triumph "Moralischer Imperativ" ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_MILITARY_VICTORY_MODERN_2_NAME" Language="de_DE">
-      <Text>Ideologie 2</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_MILITARY_TRIUMPH_MODERN_NAME" Language="de_DE">
+      <Text>Moralischer Imperativ</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_MILITARY_VICTORY_MODERN_3_DESC" Language="de_DE">
-      <Text>Schließt als Lakshmibai den Vermächtnis-Weg "Ideologie" 3-mal ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_MILITARY_VICTORY_DESC" Language="de_DE">
+      <Text>Erlangt als Lakshmibai einen Militärsieg.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_MILITARY_VICTORY_MODERN_3_NAME" Language="de_DE">
-      <Text>Ideologie 3</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_MILITARY_VICTORY_MODERN_DESC" Language="de_DE">
-      <Text>Schließt als Lakshmibai den Vermächtnis-Weg "Ideologie" ab.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_MILITARY_VICTORY_MODERN_NAME" Language="de_DE">
-      <Text>Ideologie</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_MILITARY_VICTORY_NAME" Language="de_DE">
+      <Text>Militärsieg</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_PLAY_GAMES_1_DESC" Language="de_DE">
-      <Text>Erreicht als Lakshmibai mindestens 1 Vermächtnis-Weg-Meilenstein.</Text>
+      <Text>Schließt als Lakshmibai 1 Großen Triumph ab.</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_PLAY_GAMES_1_NAME" Language="de_DE">
       <Text>Spiel 1 spielen</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_PLAY_GAMES_2_DESC" Language="de_DE">
-      <Text>Erreicht als Lakshmibai mindestens 2 Vermächtnis-Weg-Meilensteine.</Text>
+      <Text>Schließt als Lakshmibai 5 Große Triumphe über beliebig viele Zeitalter ab.</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_PLAY_GAMES_2_NAME" Language="de_DE">
       <Text>Spiel 2 spielen</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_PLAY_GAMES_3_DESC" Language="de_DE">
-      <Text>Erreicht als Lakshmibai mindestens 3 Vermächtnis-Weg-Meilensteine.</Text>
+      <Text>Schließt als Lakshmibai 25 Große Triumphe über beliebig viele Zeitalter ab.</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_PLAY_GAMES_3_NAME" Language="de_DE">
       <Text>Spiel 3 spielen</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_QUEST_A_ANTIQUITY_DESC" Language="de_DE">
-      <Text>Schließt als Lakshmibai im Zeitalter der Antike eine Quest ab, um einen Attentäter zu beeindrucken.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_SCIENCE_TRIUMPH_2_ANTIQUITY_DESC" Language="de_DE">
+      <Text>Schließt als Lakshmibai den Triumph "Runderdler" ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_QUEST_A_ANTIQUITY_NAME" Language="de_DE">
-      <Text>Eine anspruchsvolle Aussicht</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_SCIENCE_TRIUMPH_2_ANTIQUITY_NAME" Language="de_DE">
+      <Text>Runderdler</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_QUEST_A_EXPLORATION_DESC" Language="de_DE">
-      <Text>Schließt als Lakshmibai im Zeitalter der Erkundung eine Quest ab, um ein weites Netz des Glaubens auszuwerfen.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_SCIENCE_TRIUMPH_2_EXPLORATION_DESC" Language="de_DE">
+      <Text>Schließt als Lakshmibai den Triumph "De revolutionibus orbium coelestium" ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_QUEST_A_EXPLORATION_NAME" Language="de_DE">
-      <Text>Göttliches Recht</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_SCIENCE_TRIUMPH_2_EXPLORATION_NAME" Language="de_DE">
+      <Text>De revolutionibus orbium coelestium</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_QUEST_A_MODERN_DESC" Language="de_DE">
-      <Text>Schließt als Lakshmibai im Zeitalter der Moderne eine Quest ab, in der Ihr Eure Legitimität durch die Geschichte hindurch beweisen müsst.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_SCIENCE_TRIUMPH_2_MODERN_DESC" Language="de_DE">
+      <Text>Schließt als Lakshmibai den Triumph "Jenseits des Schwertes" ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_QUEST_A_MODERN_NAME" Language="de_DE">
-      <Text>Jetzt und immer</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_SCIENCE_TRIUMPH_2_MODERN_NAME" Language="de_DE">
+      <Text>Jenseits des Schwertes</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_QUEST_B_ANTIQUITY_DESC" Language="de_DE">
-      <Text>Schließt als Lakshmibai im Zeitalter der Antike eine Quest ab, um Soldaten in Sättel zu heben.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_SCIENCE_TRIUMPH_ANTIQUITY_DESC" Language="de_DE">
+      <Text>Schließt als Lakshmibai den Triumph "Bibliothek von Assurbanipal" ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_QUEST_B_ANTIQUITY_NAME" Language="de_DE">
-      <Text>Antwort auf den Ruf</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_SCIENCE_TRIUMPH_ANTIQUITY_NAME" Language="de_DE">
+      <Text>Bibliothek von Assurbanipal</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_QUEST_B_EXPLORATION_DESC" Language="de_DE">
-      <Text>Schließt als Lakshmibai im Zeitalter der Erkundung eine Quest ab, um Siedlungen zu befestigen.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_SCIENCE_TRIUMPH_EXPLORATION_DESC" Language="de_DE">
+      <Text>Schließt als Lakshmibai den Triumph "Aufklärung" ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_QUEST_B_EXPLORATION_NAME" Language="de_DE">
-      <Text>Unerwünschte Besucher</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_QUEST_B_MODERN_DESC" Language="de_DE">
-      <Text>Schließt als Lakshmibai im Zeitalter der Moderne eine Quest ab, um unsere Feinde zu erledigen.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_QUEST_B_MODERN_NAME" Language="de_DE">
-      <Text>Eine Linie im Sand</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_SCIENCE_VICTORY_ANTIQUITY_2_DESC" Language="de_DE">
-      <Text>Schließt als Lakshmibai den Vermächtnis-Weg "Große Bibliothek" 2-mal ab.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_SCIENCE_VICTORY_ANTIQUITY_2_NAME" Language="de_DE">
-      <Text>Große Bibliothek 2</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_SCIENCE_VICTORY_ANTIQUITY_3_DESC" Language="de_DE">
-      <Text>Schließt als Lakshmibai den Vermächtnis-Weg "Große Bibliothek" 3-mal ab.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_SCIENCE_VICTORY_ANTIQUITY_3_NAME" Language="de_DE">
-      <Text>Große Bibliothek 3</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_SCIENCE_VICTORY_ANTIQUITY_DESC" Language="de_DE">
-      <Text>Schließt als Lakshmibai den Vermächtnis-Weg "Große Bibliothek" ab.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_SCIENCE_VICTORY_ANTIQUITY_NAME" Language="de_DE">
-      <Text>Große Bibliothek</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_SCIENCE_VICTORY_EXPLORATION_2_DESC" Language="de_DE">
-      <Text>Schließt als Lakshmibai den Vermächtnis-Weg "Aufklärung" 2-mal ab.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_SCIENCE_VICTORY_EXPLORATION_2_NAME" Language="de_DE">
-      <Text>Aufklärung 2</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_SCIENCE_VICTORY_EXPLORATION_3_DESC" Language="de_DE">
-      <Text>Schließt als Lakshmibai den Vermächtnis-Weg "Aufklärung" 3-mal ab.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_SCIENCE_VICTORY_EXPLORATION_3_NAME" Language="de_DE">
-      <Text>Aufklärung 3</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_SCIENCE_VICTORY_EXPLORATION_DESC" Language="de_DE">
-      <Text>Schließt als Lakshmibai den Vermächtnis-Weg "Aufklärung" ab.</Text>
-    </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_SCIENCE_VICTORY_EXPLORATION_NAME" Language="de_DE">
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_SCIENCE_TRIUMPH_EXPLORATION_NAME" Language="de_DE">
       <Text>Aufklärung</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_SCIENCE_VICTORY_MODERN_2_DESC" Language="de_DE">
-      <Text>Schließt als Lakshmibai den Vermächtnis-Weg "Weltraumrennen" 2-mal ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_SCIENCE_TRIUMPH_MODERN_DESC" Language="de_DE">
+      <Text>Schließt als Lakshmibai den Triumph "Weltraumrennen am Horizont" ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_SCIENCE_VICTORY_MODERN_2_NAME" Language="de_DE">
-      <Text>Weltraumrennen 2</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_SCIENCE_TRIUMPH_MODERN_NAME" Language="de_DE">
+      <Text>Weltraumrennen am Horizont</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_SCIENCE_VICTORY_MODERN_3_DESC" Language="de_DE">
-      <Text>Schließt als Lakshmibai den Vermächtnis-Weg "Weltraumrennen" 3-mal ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_SCIENCE_VICTORY_DESC" Language="de_DE">
+      <Text>Erlangt als Lakshmibai einen Wissenschaftssieg.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_SCIENCE_VICTORY_MODERN_3_NAME" Language="de_DE">
-      <Text>Weltraumrennen 3</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_SCIENCE_VICTORY_NAME" Language="de_DE">
+      <Text>Wissenschaftssieg</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_SCIENCE_VICTORY_MODERN_DESC" Language="de_DE">
-      <Text>Schließt als Lakshmibai den Vermächtnis-Weg "Weltraumrennen" ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_LAKSHMIBAI_QUEST_A_ANTIQUITY_DESC" Language="de_DE">
+      <Text>Schließt als Lakshmibai im Zeitalter der Antike eine Quest ab, um einen Attentäter zu beeindrucken.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LAKSHMIBAI_SCIENCE_VICTORY_MODERN_NAME" Language="de_DE">
-      <Text>Weltraumrennen</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_LAKSHMIBAI_QUEST_A_ANTIQUITY_NAME" Language="de_DE">
+      <Text>Anspruchsvolle Aussicht</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_LAKSHMIBAI_QUEST_A_EXPLORATION_DESC" Language="de_DE">
+      <Text>Schließt als Lakshmibai im Zeitalter der Erkundung eine Quest ab, um Bewunderung in Glauben zu verwandeln.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_LAKSHMIBAI_QUEST_A_EXPLORATION_NAME" Language="de_DE">
+      <Text>Die Gläubigen</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_LAKSHMIBAI_QUEST_A_MODERN_DESC" Language="de_DE">
+      <Text>Schließt als Lakshmibai im Zeitalter der Moderne eine Quest ab, in der Ihr Eure Legitimität durch die Geschichte hindurch beweisen müsst.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_LAKSHMIBAI_QUEST_A_MODERN_NAME" Language="de_DE">
+      <Text>Jetzt und immer</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_LAKSHMIBAI_QUEST_B_ANTIQUITY_DESC" Language="de_DE">
+      <Text>Schließt als Lakshmibai im Zeitalter der Antike eine Quest ab, um Soldaten in Sättel zu heben.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_LAKSHMIBAI_QUEST_B_ANTIQUITY_NAME" Language="de_DE">
+      <Text>Dem Ruf folgen</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_LAKSHMIBAI_QUEST_B_EXPLORATION_DESC" Language="de_DE">
+      <Text>Schließt als Lakshmibai im Zeitalter der Erkundung eine Quest ab, um den Kampf zum Feind zu tragen.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_LAKSHMIBAI_QUEST_B_EXPLORATION_NAME" Language="de_DE">
+      <Text>Tod bei der Ankunft</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_LAKSHMIBAI_QUEST_B_MODERN_DESC" Language="de_DE">
+      <Text>Schließt als Lakshmibai im Zeitalter der Moderne eine Quest ab, um unsere Feinde zu erledigen.</Text>
+    </Replace>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_LAKSHMIBAI_QUEST_B_MODERN_NAME" Language="de_DE">
+      <Text>Eine Linie im Sand</Text>
     </Replace>
     <Replace Tag="LOC_MOD_ATTRIBUTE_DIPLOMATIC_LEGEND_LAKSHMIBAI_L1_DESCRIPTION" Language="de_DE">
       <Text>Freigeschaltet durch Legenden-Fortschritt. +25 % [icon:RELATIONSHIP] Beziehung für das Starten oder Unterstützen von [icon:ENDEAVOR] Unterfangen. -25 % [icon:RELATIONSHIP] Beziehung für das Starten von [icon:SANCTIONS] Sanktionen oder Ablehnen von [icon:ENDEAVOR] Unterfangen.</Text>
@@ -1066,38 +1093,38 @@
       <Text>Rani von Jhansi</Text>
     </Replace>
     <Replace Tag="LOC_STRATEGYCARD_LAKSHMIBAI_EXPLORATION_1_DESCRIPTION" Language="de_DE">
-      <Text>Erhaltet als Lakshmibai Zugang zu einer neuen Vermächtniskarte der Erkundung:[n]
+      <Text>Erhaltet als Lakshmibai Zugang zu einer neuen Widmung der Erkundung:[n]
 				+15 % Einfluss, -2 Kampfstärke für Marineeinheiten</Text>
     </Replace>
     <Replace Tag="LOC_STRATEGYCARD_LAKSHMIBAI_EXPLORATION_1_NAME" Language="de_DE">
-      <Text>Diplomatievermächtniskarte der Erkundung</Text>
+      <Text>Diplomatiewidmung der Erkundung</Text>
     </Replace>
     <Replace Tag="LOC_STRATEGYCARD_LAKSHMIBAI_EXPLORATION_2_DESCRIPTION" Language="de_DE">
-      <Text>Erhaltet als Lakshmibai Zugang zu einer neuen Vermächtniskarte der Erkundung:[n]
+      <Text>Erhaltet als Lakshmibai Zugang zu einer neuen Widmung der Erkundung:[n]
 				+3 Kampfstärke für Eure Marineeinheiten, -10 % Einfluss</Text>
     </Replace>
     <Replace Tag="LOC_STRATEGYCARD_LAKSHMIBAI_EXPLORATION_2_NAME" Language="de_DE">
-      <Text>Militärvermächtniskarte der Erkundung</Text>
+      <Text>Militärwidmung der Erkundung</Text>
     </Replace>
     <Replace Tag="LOC_STRATEGYCARD_LAKSHMIBAI_MODERN_1_DESCRIPTION" Language="de_DE">
-      <Text>Erhaltet als Lakshmibai Zugang zu einer neuen Vermächtniskarte der Moderne:[n]
+      <Text>Erhaltet als Lakshmibai Zugang zu einer neuen Widmung der Moderne:[n]
 				+15 % Einfluss, -2 Kampfstärke für Lufteinheiten</Text>
     </Replace>
     <Replace Tag="LOC_STRATEGYCARD_LAKSHMIBAI_MODERN_1_NAME" Language="de_DE">
-      <Text>Diplomatievermächtniskarte der Moderne</Text>
+      <Text>Diplomatiewidmung der Moderne</Text>
     </Replace>
     <Replace Tag="LOC_STRATEGYCARD_LAKSHMIBAI_MODERN_2_DESCRIPTION" Language="de_DE">
-      <Text>Erhaltet als Lakshmibai Zugang zu einer neuen Vermächtniskarte der Moderne:[n]
+      <Text>Erhaltet als Lakshmibai Zugang zu einer neuen Widmung der Moderne:[n]
 			+3 Kampfstärke für Eure Lufteinheiten, -10 % Einfluss</Text>
     </Replace>
     <Replace Tag="LOC_STRATEGYCARD_LAKSHMIBAI_MODERN_2_NAME" Language="de_DE">
-      <Text>Militärvermächtniskarte der Moderne</Text>
+      <Text>Militärwidmung der Moderne</Text>
     </Replace>
     <Replace Tag="LOC_TITLE_LAKSHMIBAI_NAME" Language="de_DE">
       <Text>Rani von Jhansi</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_LEADER_LAKSHMIBAI_ABILITY_DESCRIPTION" Language="de_DE">
-      <Text>[BLIST][LI][B]+50 % [icon:YIELD_DIPLOMACY] Einfluss[/B] für das Starten der Aktion [icon:PROJECT] [B]Stadtstaaten - Eingemeinden[/B]. [LI]Ihr erhaltet alle Einheiten des Stadtstaats, wenn Ihr einen [icon:CITYSTATE] [B]Stadtstaat[/B] eingemeindet.[LI]Wenn eine Eurer [B]Land-Militäreinheiten[/B] eine gegnerische Einheit besiegt, erhaltet Ihr [icon:YIELD_DIPLOMACY] [B]Einfluss[/B] in Höhe von [B]100 %[/B] der [icon:NAR_REW_COMBAT] [B]Kampfstärke[/B] der besiegten Einheit.[/LIST]</Text>
+      <Text>[BLIST][LI][B]+50 % [icon:YIELD_DIPLOMACY] Einfluss[/B] für das Starten der Aktion [icon:PROJECT] [B]Stadtstaaten - Eingemeinden[/B].[LI]Ihr erhaltet alle Einheiten des [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]Stadtstaats[/TIP], wenn Ihr einen [icon:CITYSTATE] [B]Stadtstaat[/B] eingemeindet.[LI]Wenn eine Eurer [B]Land-Militäreinheiten[/B] eine gegnerische Einheit besiegt, erhaltet Ihr [icon:YIELD_DIPLOMACY] [B]Einfluss[/B] in Höhe von [B]100 %[/B] der [icon:NAR_REW_COMBAT] [B]Kampfstärke[/B] der besiegten Einheit.[/LIST]</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_LEADER_LAKSHMIBAI_ABILITY_NAME" Language="de_DE">
       <Text>Rani von Jhansi</Text>

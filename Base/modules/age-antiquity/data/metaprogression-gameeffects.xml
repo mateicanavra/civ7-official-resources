@@ -1,115 +1,165 @@
 <?xml version="1.0" encoding="utf-8"?>
 <GameEffects xmlns="GameEffects">
-	<!-- Victory Challenges -->
-	<Modifier id="METAPROGRESSION_CHALLENGE_AKSUM_LEGACY_PATH_ECONOMIC_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+	<!-- Civ Triumphs Challenges -->
+	<Modifier id="CHALLENGE_AKSUM_FOUR_MAJOR_TRIUMPHS_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
 		<OwnerRequirements>
-			<Requirement type="REQUIREMENT_LEGACY_PATH_COMPLETED">
-				<Argument name="LegacyPathType">LEGACY_PATH_ANTIQUITY_ECONOMIC</Argument>
-			</Requirement>
 			<Requirement type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
 				<Argument name="CivilizationType">CIVILIZATION_AKSUM</Argument>
 			</Requirement>
-		</OwnerRequirements>
-		<Argument name="Challenge">CHALLENGE_AKSUM_LEGACY_PATH_ECONOMIC</Argument>
-	</Modifier>
-	<Modifier id="METAPROGRESSION_CHALLENGE_EGYPT_LEGACY_PATH_CULTURE_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
-		<OwnerRequirements>
-			<Requirement type="REQUIREMENT_LEGACY_PATH_COMPLETED">
-				<Argument name="LegacyPathType">LEGACY_PATH_ANTIQUITY_CULTURE</Argument>
+			<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
+				<Argument name="AgeType">AGE_ANTIQUITY</Argument>
 			</Requirement>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="MajorOnly">true</Argument>
+				<Argument name="MinCount">4</Argument>
+				<Argument name="TriumphClassTags">CULTURAL,ECONOMIC</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_AKSUM_FOUR_MAJOR_TRIUMPHS</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_EGYPT_FOUR_MAJOR_TRIUMPHS_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
 			<Requirement type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
 				<Argument name="CivilizationType">CIVILIZATION_EGYPT</Argument>
 			</Requirement>
-		</OwnerRequirements>
-		<Argument name="Challenge">CHALLENGE_EGYPT_LEGACY_PATH_CULTURE</Argument>
-	</Modifier>
-	<Modifier id="METAPROGRESSION_CHALLENGE_GREECE_LEGACY_PATH_CULTURE_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
-		<OwnerRequirements>
-			<Requirement type="REQUIREMENT_LEGACY_PATH_COMPLETED">
-				<Argument name="LegacyPathType">LEGACY_PATH_ANTIQUITY_CULTURE</Argument>
+			<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
+				<Argument name="AgeType">AGE_ANTIQUITY</Argument>
 			</Requirement>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="MajorOnly">true</Argument>
+				<Argument name="MinCount">4</Argument>
+				<Argument name="TriumphClassTags">CULTURAL,ECONOMIC</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_EGYPT_FOUR_MAJOR_TRIUMPHS</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_GREECE_FOUR_MAJOR_TRIUMPHS_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
 			<Requirement type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
 				<Argument name="CivilizationType">CIVILIZATION_GREECE</Argument>
 			</Requirement>
-		</OwnerRequirements>
-		<Argument name="Challenge">CHALLENGE_GREECE_LEGACY_PATH_CULTURE</Argument>
-	</Modifier>
-	<Modifier id="METAPROGRESSION_CHALLENGE_HAN_LEGACY_PATH_SCIENCE_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
-		<OwnerRequirements>
-			<Requirement type="REQUIREMENT_LEGACY_PATH_COMPLETED">
-				<Argument name="LegacyPathType">LEGACY_PATH_ANTIQUITY_SCIENCE</Argument>
+			<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
+				<Argument name="AgeType">AGE_ANTIQUITY</Argument>
 			</Requirement>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="MajorOnly">true</Argument>
+				<Argument name="MinCount">4</Argument>
+				<Argument name="TriumphClassTags">CULTURAL,DIPLOMATIC</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_GREECE_FOUR_MAJOR_TRIUMPHS</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_HAN_FOUR_MAJOR_TRIUMPHS_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
 			<Requirement type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
 				<Argument name="CivilizationType">CIVILIZATION_HAN</Argument>
 			</Requirement>
-		</OwnerRequirements>
-		<Argument name="Challenge">CHALLENGE_HAN_LEGACY_PATH_SCIENCE</Argument>
-	</Modifier>
-	<Modifier id="METAPROGRESSION_CHALLENGE_KHMER_LEGACY_PATH_ECONOMIC_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
-		<OwnerRequirements>
-			<Requirement type="REQUIREMENT_LEGACY_PATH_COMPLETED">
-				<Argument name="LegacyPathType">LEGACY_PATH_ANTIQUITY_ECONOMIC</Argument>
+			<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
+				<Argument name="AgeType">AGE_ANTIQUITY</Argument>
 			</Requirement>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="MajorOnly">true</Argument>
+				<Argument name="MinCount">4</Argument>
+				<Argument name="TriumphClassTags">DIPLOMATIC,SCIENTIFIC</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_HAN_FOUR_MAJOR_TRIUMPHS</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_KHMER_FOUR_MAJOR_TRIUMPHS_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
 			<Requirement type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
 				<Argument name="CivilizationType">CIVILIZATION_KHMER</Argument>
 			</Requirement>
-		</OwnerRequirements>
-		<Argument name="Challenge">CHALLENGE_KHMER_LEGACY_PATH_ECONOMIC</Argument>
-	</Modifier>
-	<Modifier id="METAPROGRESSION_CHALLENGE_MAURYA_LEGACY_PATH_MILITARY_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
-		<OwnerRequirements>
-			<Requirement type="REQUIREMENT_LEGACY_PATH_COMPLETED">
-				<Argument name="LegacyPathType">LEGACY_PATH_ANTIQUITY_MILITARY</Argument>
+			<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
+				<Argument name="AgeType">AGE_ANTIQUITY</Argument>
 			</Requirement>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="MajorOnly">true</Argument>
+				<Argument name="MinCount">4</Argument>
+				<Argument name="TriumphClassTags">EXPANSIONIST,SCIENTIFIC</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_KHMER_FOUR_MAJOR_TRIUMPHS</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_MAURYA_FOUR_MAJOR_TRIUMPHS_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
 			<Requirement type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
 				<Argument name="CivilizationType">CIVILIZATION_MAURYA</Argument>
 			</Requirement>
-		</OwnerRequirements>
-		<Argument name="Challenge">CHALLENGE_MAURYA_LEGACY_PATH_MILITARY</Argument>
-	</Modifier>
-	<Modifier id="METAPROGRESSION_CHALLENGE_MAYA_LEGACY_PATH_SCIENCE_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
-		<OwnerRequirements>
-			<Requirement type="REQUIREMENT_LEGACY_PATH_COMPLETED">
-				<Argument name="LegacyPathType">LEGACY_PATH_ANTIQUITY_SCIENCE</Argument>
+			<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
+				<Argument name="AgeType">AGE_ANTIQUITY</Argument>
 			</Requirement>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="MajorOnly">true</Argument>
+				<Argument name="MinCount">4</Argument>
+				<Argument name="TriumphClassTags">MILITARISTIC,SCIENTIFIC</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_MAURYA_FOUR_MAJOR_TRIUMPHS</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_MAYA_FOUR_MAJOR_TRIUMPHS_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
 			<Requirement type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
 				<Argument name="CivilizationType">CIVILIZATION_MAYA</Argument>
 			</Requirement>
-		</OwnerRequirements>
-		<Argument name="Challenge">CHALLENGE_MAYA_LEGACY_PATH_SCIENCE</Argument>
-	</Modifier>
-	<Modifier id="METAPROGRESSION_CHALLENGE_MISSISSIPPIAN_LEGACY_PATH_ECONOMIC_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
-		<OwnerRequirements>
-			<Requirement type="REQUIREMENT_LEGACY_PATH_COMPLETED">
-				<Argument name="LegacyPathType">LEGACY_PATH_ANTIQUITY_ECONOMIC</Argument>
+			<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
+				<Argument name="AgeType">AGE_ANTIQUITY</Argument>
 			</Requirement>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="MajorOnly">true</Argument>
+				<Argument name="MinCount">4</Argument>
+				<Argument name="TriumphClassTags">CULTURAL,SCIENTIFIC</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_MAYA_FOUR_MAJOR_TRIUMPHS</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_MISSISSIPPIAN_FOUR_MAJOR_TRIUMPHS_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
 			<Requirement type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
 				<Argument name="CivilizationType">CIVILIZATION_MISSISSIPPIAN</Argument>
 			</Requirement>
-		</OwnerRequirements>
-		<Argument name="Challenge">CHALLENGE_MISSISSIPPIAN_LEGACY_PATH_ECONOMIC</Argument>
-	</Modifier>
-	<Modifier id="METAPROGRESSION_CHALLENGE_PERSIA_LEGACY_PATH_MILITARY_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
-		<OwnerRequirements>
-			<Requirement type="REQUIREMENT_LEGACY_PATH_COMPLETED">
-				<Argument name="LegacyPathType">LEGACY_PATH_ANTIQUITY_MILITARY</Argument>
+			<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
+				<Argument name="AgeType">AGE_ANTIQUITY</Argument>
 			</Requirement>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="MajorOnly">true</Argument>
+				<Argument name="MinCount">4</Argument>
+				<Argument name="TriumphClassTags">ECONOMIC,EXPANSIONIST</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_MISSISSIPPIAN_FOUR_MAJOR_TRIUMPHS</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_PERSIA_FOUR_MAJOR_TRIUMPHS_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
 			<Requirement type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
 				<Argument name="CivilizationType">CIVILIZATION_PERSIA</Argument>
 			</Requirement>
-		</OwnerRequirements>
-		<Argument name="Challenge">CHALLENGE_PERSIA_LEGACY_PATH_MILITARY</Argument>
-	</Modifier>
-	<Modifier id="METAPROGRESSION_CHALLENGE_ROME_LEGACY_PATH_CULTURE_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
-		<OwnerRequirements>
-			<Requirement type="REQUIREMENT_LEGACY_PATH_COMPLETED">
-				<Argument name="LegacyPathType">LEGACY_PATH_ANTIQUITY_CULTURE</Argument>
+			<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
+				<Argument name="AgeType">AGE_ANTIQUITY</Argument>
 			</Requirement>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="MajorOnly">true</Argument>
+				<Argument name="MinCount">4</Argument>
+				<Argument name="TriumphClassTags">ECONOMIC,MILITARISTIC</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_PERSIA_FOUR_MAJOR_TRIUMPHS</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_ROME_FOUR_MAJOR_TRIUMPHS_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
 			<Requirement type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
 				<Argument name="CivilizationType">CIVILIZATION_ROME</Argument>
 			</Requirement>
+			<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
+				<Argument name="AgeType">AGE_ANTIQUITY</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="MajorOnly">true</Argument>
+				<Argument name="MinCount">4</Argument>
+				<Argument name="TriumphClassTags">CULTURAL,MILITARISTIC</Argument>
+			</Requirement>
 		</OwnerRequirements>
-		<Argument name="Challenge">CHALLENGE_ROME_LEGACY_PATH_CULTURE</Argument>
+		<Argument name="Challenge">CHALLENGE_ROME_FOUR_MAJOR_TRIUMPHS</Argument>
 	</Modifier>
 
 	<!-- Wonder Challenges -->
@@ -223,96 +273,381 @@
 		</OwnerRequirements>
 		<Argument name="Challenge">CHALLENGE_ROME_COMPLETE_COLOSSEUM</Argument>
 	</Modifier>
-
-	<!-- Legacy Path Challenges -->
-	<Modifier id="METAPROGRESSION_CHALLENGE_AKSUM_LEGACY_PATH_MILESTONE_COMPLETED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+	<!-- Civ Triumphs Challenges -->
+	<Modifier id="METAPROGRESSION_CHALLENGE_AKSUM_MAJOR_TRIUMPH_COMPLETED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
 		<OwnerRequirements>
 			<Requirement type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
 				<Argument name="CivilizationType">CIVILIZATION_AKSUM</Argument>
 			</Requirement>
-			<Requirement type="REQUIREMENT_LEGACY_PATH_MILESTONE_COMPLETED" />
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="MajorOnly">true</Argument>
+			</Requirement>
 		</OwnerRequirements>
-		<Argument name="Challenge">CHALLENGE_AKSUM_LEGACY_PATH_MILESTONE_COMPLETED</Argument>
+		<Argument name="Challenge">CHALLENGE_AKSUM_MAJOR_TRIUMPH_COMPLETED</Argument>
 	</Modifier>
-	<Modifier id="METAPROGRESSION_CHALLENGE_EGYPT_LEGACY_PATH_MILESTONE_COMPLETED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+	<Modifier id="METAPROGRESSION_CHALLENGE_EGYPT_MAJOR_TRIUMPH_COMPLETED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
 		<OwnerRequirements>
 			<Requirement type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
 				<Argument name="CivilizationType">CIVILIZATION_EGYPT</Argument>
 			</Requirement>
-			<Requirement type="REQUIREMENT_LEGACY_PATH_MILESTONE_COMPLETED" />
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="MajorOnly">true</Argument>
+			</Requirement>
 		</OwnerRequirements>
-		<Argument name="Challenge">CHALLENGE_EGYPT_LEGACY_PATH_MILESTONE_COMPLETED</Argument>
+		<Argument name="Challenge">CHALLENGE_EGYPT_MAJOR_TRIUMPH_COMPLETED</Argument>
 	</Modifier>
-	<Modifier id="METAPROGRESSION_CHALLENGE_GREECE_LEGACY_PATH_MILESTONE_COMPLETED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+	<Modifier id="METAPROGRESSION_CHALLENGE_GREECE_MAJOR_TRIUMPH_COMPLETED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
 		<OwnerRequirements>
 			<Requirement type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
 				<Argument name="CivilizationType">CIVILIZATION_GREECE</Argument>
 			</Requirement>
-			<Requirement type="REQUIREMENT_LEGACY_PATH_MILESTONE_COMPLETED" />
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="MajorOnly">true</Argument>
+			</Requirement>
 		</OwnerRequirements>
-		<Argument name="Challenge">CHALLENGE_GREECE_LEGACY_PATH_MILESTONE_COMPLETED</Argument>
+		<Argument name="Challenge">CHALLENGE_GREECE_MAJOR_TRIUMPH_COMPLETED</Argument>
 	</Modifier>
-	<Modifier id="METAPROGRESSION_CHALLENGE_HAN_LEGACY_PATH_MILESTONE_COMPLETED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+	<Modifier id="METAPROGRESSION_CHALLENGE_HAN_MAJOR_TRIUMPH_COMPLETED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
 		<OwnerRequirements>
 			<Requirement type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
 				<Argument name="CivilizationType">CIVILIZATION_HAN</Argument>
 			</Requirement>
-			<Requirement type="REQUIREMENT_LEGACY_PATH_MILESTONE_COMPLETED" />
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="MajorOnly">true</Argument>
+			</Requirement>
 		</OwnerRequirements>
-		<Argument name="Challenge">CHALLENGE_HAN_LEGACY_PATH_MILESTONE_COMPLETED</Argument>
+		<Argument name="Challenge">CHALLENGE_HAN_MAJOR_TRIUMPH_COMPLETED</Argument>
 	</Modifier>
-	<Modifier id="METAPROGRESSION_CHALLENGE_KHMER_LEGACY_PATH_MILESTONE_COMPLETED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+	<Modifier id="METAPROGRESSION_CHALLENGE_KHMER_MAJOR_TRIUMPH_COMPLETED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
 		<OwnerRequirements>
 			<Requirement type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
 				<Argument name="CivilizationType">CIVILIZATION_KHMER</Argument>
 			</Requirement>
-			<Requirement type="REQUIREMENT_LEGACY_PATH_MILESTONE_COMPLETED" />
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="MajorOnly">true</Argument>
+			</Requirement>
 		</OwnerRequirements>
-		<Argument name="Challenge">CHALLENGE_KHMER_LEGACY_PATH_MILESTONE_COMPLETED</Argument>
+		<Argument name="Challenge">CHALLENGE_KHMER_MAJOR_TRIUMPH_COMPLETED</Argument>
 	</Modifier>
-	<Modifier id="METAPROGRESSION_CHALLENGE_MAURYA_LEGACY_PATH_MILESTONE_COMPLETED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+	<Modifier id="METAPROGRESSION_CHALLENGE_MAURYA_MAJOR_TRIUMPH_COMPLETED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
 		<OwnerRequirements>
 			<Requirement type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
 				<Argument name="CivilizationType">CIVILIZATION_MAURYA</Argument>
 			</Requirement>
-			<Requirement type="REQUIREMENT_LEGACY_PATH_MILESTONE_COMPLETED" />
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="MajorOnly">true</Argument>
+			</Requirement>
 		</OwnerRequirements>
-		<Argument name="Challenge">CHALLENGE_MAURYA_LEGACY_PATH_MILESTONE_COMPLETED</Argument>
+		<Argument name="Challenge">CHALLENGE_MAURYA_MAJOR_TRIUMPH_COMPLETED</Argument>
 	</Modifier>
-	<Modifier id="METAPROGRESSION_CHALLENGE_MAYA_LEGACY_PATH_MILESTONE_COMPLETED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+	<Modifier id="METAPROGRESSION_CHALLENGE_MAYA_MAJOR_TRIUMPH_COMPLETED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
 		<OwnerRequirements>
 			<Requirement type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
 				<Argument name="CivilizationType">CIVILIZATION_MAYA</Argument>
 			</Requirement>
-			<Requirement type="REQUIREMENT_LEGACY_PATH_MILESTONE_COMPLETED" />
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="MajorOnly">true</Argument>
+			</Requirement>
 		</OwnerRequirements>
-		<Argument name="Challenge">CHALLENGE_MAYA_LEGACY_PATH_MILESTONE_COMPLETED</Argument>
+		<Argument name="Challenge">CHALLENGE_MAYA_MAJOR_TRIUMPH_COMPLETED</Argument>
 	</Modifier>
-	<Modifier id="METAPROGRESSION_CHALLENGE_MISSISSIPPIAN_LEGACY_PATH_MILESTONE_COMPLETED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+	<Modifier id="METAPROGRESSION_CHALLENGE_MISSISSIPPIAN_MAJOR_TRIUMPH_COMPLETED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
 		<OwnerRequirements>
 			<Requirement type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
 				<Argument name="CivilizationType">CIVILIZATION_MISSISSIPPIAN</Argument>
 			</Requirement>
-			<Requirement type="REQUIREMENT_LEGACY_PATH_MILESTONE_COMPLETED" />
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="MajorOnly">true</Argument>
+			</Requirement>
 		</OwnerRequirements>
-		<Argument name="Challenge">CHALLENGE_MISSISSIPPIAN_LEGACY_PATH_MILESTONE_COMPLETED</Argument>
+		<Argument name="Challenge">CHALLENGE_MISSISSIPPIAN_MAJOR_TRIUMPH_COMPLETED</Argument>
 	</Modifier>
-	<Modifier id="METAPROGRESSION_CHALLENGE_PERSIA_LEGACY_PATH_MILESTONE_COMPLETED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+	<Modifier id="METAPROGRESSION_CHALLENGE_PERSIA_MAJOR_TRIUMPH_COMPLETED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
 		<OwnerRequirements>
 			<Requirement type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
 				<Argument name="CivilizationType">CIVILIZATION_PERSIA</Argument>
 			</Requirement>
-			<Requirement type="REQUIREMENT_LEGACY_PATH_MILESTONE_COMPLETED" />
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="MajorOnly">true</Argument>
+			</Requirement>
 		</OwnerRequirements>
-		<Argument name="Challenge">CHALLENGE_PERSIA_LEGACY_PATH_MILESTONE_COMPLETED</Argument>
+		<Argument name="Challenge">CHALLENGE_PERSIA_MAJOR_TRIUMPH_COMPLETED</Argument>
 	</Modifier>
-	<Modifier id="METAPROGRESSION_CHALLENGE_ROME_LEGACY_PATH_MILESTONE_COMPLETED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+	<Modifier id="METAPROGRESSION_CHALLENGE_ROME_MAJOR_TRIUMPH_COMPLETED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
 		<OwnerRequirements>
 			<Requirement type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
 				<Argument name="CivilizationType">CIVILIZATION_ROME</Argument>
 			</Requirement>
-			<Requirement type="REQUIREMENT_LEGACY_PATH_MILESTONE_COMPLETED" />
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="MajorOnly">true</Argument>
+			</Requirement>
 		</OwnerRequirements>
-		<Argument name="Challenge">CHALLENGE_ROME_LEGACY_PATH_MILESTONE_COMPLETED</Argument>
+		<Argument name="Challenge">CHALLENGE_ROME_MAJOR_TRIUMPH_COMPLETED</Argument>
+	</Modifier>
+	<!--TRIUMPHS COMPLETION-->
+	<Modifier id="CHALLENGE_ALL_MINOR_TRIUMPHS_COMPLETED_ANTIQUITY_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_METAPROGRESSION_COMPLETED_CHALLENGES">
+				<Argument name="ChallengeTags">ALL_MINOR_TRIUMPHS_ANTIQUITY_PROGRESS</Argument>
+				<Argument name="CompleteAll">true</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_ALL_MINOR_TRIUMPHS_COMPLETED_ANTIQUITY</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_ALL_MAJOR_TRIUMPHS_COMPLETED_ANTIQUITY_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_METAPROGRESSION_COMPLETED_CHALLENGES">
+				<Argument name="ChallengeTags">ALL_MAJOR_TRIUMPHS_ANTIQUITY_PROGRESS</Argument>
+				<Argument name="CompleteAll">true</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_ALL_MAJOR_TRIUMPHS_COMPLETED_ANTIQUITY</Argument>
+	</Modifier>
+
+	<!-- Culture Triumphs Challenges -->
+	<Modifier id="CHALLENGE_CULTURE_MINOR_TRIUMPH_1_COMPLETED_ANTIQUITY_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="TriumphTypes">LEGACY_AQ_CULTURAL_4, LEGACY_AQ_CULTURAL_4_RACE</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_CULTURE_MINOR_TRIUMPH_1_COMPLETED_ANTIQUITY</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_CULTURE_MINOR_TRIUMPH_2_COMPLETED_ANTIQUITY_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="TriumphTypes">LEGACY_AQ_CULTURAL_5, LEGACY_AQ_CULTURAL_5_RACE</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_CULTURE_MINOR_TRIUMPH_2_COMPLETED_ANTIQUITY</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_CULTURE_MAJOR_TRIUMPH_1_COMPLETED_ANTIQUITY_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="TriumphTypes">LEGACY_AQ_CULTURAL_1, LEGACY_AQ_CULTURAL_1_RACE</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_CULTURE_MAJOR_TRIUMPH_1_COMPLETED_ANTIQUITY</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_CULTURE_MAJOR_TRIUMPH_2_COMPLETED_ANTIQUITY_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="TriumphTypes">LEGACY_AQ_CULTURAL_2, LEGACY_AQ_CULTURAL_2_RACE</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_CULTURE_MAJOR_TRIUMPH_2_COMPLETED_ANTIQUITY</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_CULTURE_MAJOR_TRIUMPH_3_COMPLETED_ANTIQUITY_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="TriumphTypes">LEGACY_AQ_CULTURAL_3, LEGACY_AQ_CULTURAL_3_RACE</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_CULTURE_MAJOR_TRIUMPH_3_COMPLETED_ANTIQUITY</Argument>
+	</Modifier>
+	<!-- Diplomatic Triumphs Challenges -->
+	<Modifier id="CHALLENGE_DIPLOMATIC_MINOR_TRIUMPH_1_COMPLETED_ANTIQUITY_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="TriumphTypes">LEGACY_AQ_DIPLOMATIC_4, LEGACY_AQ_DIPLOMATIC_4_RACE</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_DIPLOMATIC_MINOR_TRIUMPH_1_COMPLETED_ANTIQUITY</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_DIPLOMATIC_MINOR_TRIUMPH_2_COMPLETED_ANTIQUITY_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="TriumphTypes">LEGACY_AQ_DIPLOMATIC_5, LEGACY_AQ_DIPLOMATIC_5_RACE</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_DIPLOMATIC_MINOR_TRIUMPH_2_COMPLETED_ANTIQUITY</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_DIPLOMATIC_MAJOR_TRIUMPH_1_COMPLETED_ANTIQUITY_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="TriumphTypes">LEGACY_AQ_DIPLOMATIC_1, LEGACY_AQ_DIPLOMATIC_1_RACE</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_DIPLOMATIC_MAJOR_TRIUMPH_1_COMPLETED_ANTIQUITY</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_DIPLOMATIC_MAJOR_TRIUMPH_2_COMPLETED_ANTIQUITY_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="TriumphTypes">LEGACY_AQ_DIPLOMATIC_2, LEGACY_AQ_DIPLOMATIC_2_RACE</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_DIPLOMATIC_MAJOR_TRIUMPH_2_COMPLETED_ANTIQUITY</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_DIPLOMATIC_MAJOR_TRIUMPH_3_COMPLETED_ANTIQUITY_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="TriumphTypes">LEGACY_AQ_DIPLOMATIC_3, LEGACY_AQ_DIPLOMATIC_3_RACE</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_DIPLOMATIC_MAJOR_TRIUMPH_3_COMPLETED_ANTIQUITY</Argument>
+	</Modifier>
+	<!-- Economic Triumphs Challenges -->
+	<Modifier id="CHALLENGE_ECONOMIC_MINOR_TRIUMPH_1_COMPLETED_ANTIQUITY_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="TriumphTypes">LEGACY_AQ_ECONOMIC_4, LEGACY_AQ_ECONOMIC_4_RACE</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_ECONOMIC_MINOR_TRIUMPH_1_COMPLETED_ANTIQUITY</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_ECONOMIC_MINOR_TRIUMPH_2_COMPLETED_ANTIQUITY_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="TriumphTypes">LEGACY_AQ_ECONOMIC_5, LEGACY_AQ_ECONOMIC_5_RACE</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_ECONOMIC_MINOR_TRIUMPH_2_COMPLETED_ANTIQUITY</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_ECONOMIC_MAJOR_TRIUMPH_1_COMPLETED_ANTIQUITY_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="TriumphTypes">LEGACY_AQ_ECONOMIC_1, LEGACY_AQ_ECONOMIC_1_RACE</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_ECONOMIC_MAJOR_TRIUMPH_1_COMPLETED_ANTIQUITY</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_ECONOMIC_MAJOR_TRIUMPH_2_COMPLETED_ANTIQUITY_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="TriumphTypes">LEGACY_AQ_ECONOMIC_2, LEGACY_AQ_ECONOMIC_2_RACE</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_ECONOMIC_MAJOR_TRIUMPH_2_COMPLETED_ANTIQUITY</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_ECONOMIC_MAJOR_TRIUMPH_3_COMPLETED_ANTIQUITY_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="TriumphTypes">LEGACY_AQ_ECONOMIC_3, LEGACY_AQ_ECONOMIC_3_RACE</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_ECONOMIC_MAJOR_TRIUMPH_3_COMPLETED_ANTIQUITY</Argument>
+	</Modifier>
+	<!-- Expansionist Triumphs Challenges -->
+	<Modifier id="CHALLENGE_EXPANSIONIST_MINOR_TRIUMPH_1_COMPLETED_ANTIQUITY_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="TriumphTypes">LEGACY_AQ_EXPANSIONIST_4, LEGACY_AQ_EXPANSIONIST_4_RACE</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_EXPANSIONIST_MINOR_TRIUMPH_1_COMPLETED_ANTIQUITY</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_EXPANSIONIST_MINOR_TRIUMPH_2_COMPLETED_ANTIQUITY_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="TriumphTypes">LEGACY_AQ_EXPANSIONIST_5, LEGACY_AQ_EXPANSIONIST_5_RACE</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_EXPANSIONIST_MINOR_TRIUMPH_2_COMPLETED_ANTIQUITY</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_EXPANSIONIST_MAJOR_TRIUMPH_1_COMPLETED_ANTIQUITY_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="TriumphTypes">LEGACY_AQ_EXPANSIONIST_1, LEGACY_AQ_EXPANSIONIST_1_RACE</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_EXPANSIONIST_MAJOR_TRIUMPH_1_COMPLETED_ANTIQUITY</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_EXPANSIONIST_MAJOR_TRIUMPH_2_COMPLETED_ANTIQUITY_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="TriumphTypes">LEGACY_AQ_EXPANSIONIST_2, LEGACY_AQ_EXPANSIONIST_2_RACE</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_EXPANSIONIST_MAJOR_TRIUMPH_2_COMPLETED_ANTIQUITY</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_EXPANSIONIST_MAJOR_TRIUMPH_3_COMPLETED_ANTIQUITY_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="TriumphTypes">LEGACY_AQ_EXPANSIONIST_3, LEGACY_AQ_EXPANSIONIST_3_RACE</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_EXPANSIONIST_MAJOR_TRIUMPH_3_COMPLETED_ANTIQUITY</Argument>
+	</Modifier>
+	<!-- Militaristic Triumphs Challenges -->
+	<Modifier id="CHALLENGE_MILITARISTIC_MINOR_TRIUMPH_1_COMPLETED_ANTIQUITY_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="TriumphTypes">LEGACY_AQ_MILITARISTIC_4, LEGACY_AQ_MILITARISTIC_4_RACE</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_MILITARISTIC_MINOR_TRIUMPH_1_COMPLETED_ANTIQUITY</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_MILITARISTIC_MINOR_TRIUMPH_2_COMPLETED_ANTIQUITY_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="TriumphTypes">LEGACY_AQ_MILITARISTIC_5, LEGACY_AQ_MILITARISTIC_5_RACE</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_MILITARISTIC_MINOR_TRIUMPH_2_COMPLETED_ANTIQUITY</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_MILITARISTIC_MAJOR_TRIUMPH_1_COMPLETED_ANTIQUITY_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="TriumphTypes">LEGACY_AQ_MILITARISTIC_1, LEGACY_AQ_MILITARISTIC_1_RACE</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_MILITARISTIC_MAJOR_TRIUMPH_1_COMPLETED_ANTIQUITY</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_MILITARISTIC_MAJOR_TRIUMPH_2_COMPLETED_ANTIQUITY_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="TriumphTypes">LEGACY_AQ_MILITARISTIC_2, LEGACY_AQ_MILITARISTIC_2_RACE</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_MILITARISTIC_MAJOR_TRIUMPH_2_COMPLETED_ANTIQUITY</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_MILITARISTIC_MAJOR_TRIUMPH_3_COMPLETED_ANTIQUITY_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="TriumphTypes">LEGACY_AQ_MILITARISTIC_3, LEGACY_AQ_MILITARISTIC_3_RACE</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_MILITARISTIC_MAJOR_TRIUMPH_3_COMPLETED_ANTIQUITY</Argument>
+	</Modifier>
+	<!-- Scientific Triumphs Challenges -->
+	<Modifier id="CHALLENGE_SCIENTIFIC_MINOR_TRIUMPH_1_COMPLETED_ANTIQUITY_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="TriumphTypes">LEGACY_AQ_SCIENTIFIC_4, LEGACY_AQ_SCIENTIFIC_4_RACE</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_SCIENTIFIC_MINOR_TRIUMPH_1_COMPLETED_ANTIQUITY</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_SCIENTIFIC_MINOR_TRIUMPH_2_COMPLETED_ANTIQUITY_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="TriumphTypes">LEGACY_AQ_SCIENTIFIC_5, LEGACY_AQ_SCIENTIFIC_5_RACE</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_SCIENTIFIC_MINOR_TRIUMPH_2_COMPLETED_ANTIQUITY</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_SCIENTIFIC_MAJOR_TRIUMPH_1_COMPLETED_ANTIQUITY_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="TriumphTypes">LEGACY_AQ_SCIENTIFIC_1, LEGACY_AQ_SCIENTIFIC_1_RACE</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_SCIENTIFIC_MAJOR_TRIUMPH_1_COMPLETED_ANTIQUITY</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_SCIENTIFIC_MAJOR_TRIUMPH_2_COMPLETED_ANTIQUITY_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="TriumphTypes">LEGACY_AQ_SCIENTIFIC_2, LEGACY_AQ_SCIENTIFIC_2_RACE</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_SCIENTIFIC_MAJOR_TRIUMPH_2_COMPLETED_ANTIQUITY</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_SCIENTIFIC_MAJOR_TRIUMPH_3_COMPLETED_ANTIQUITY_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="TriumphTypes">LEGACY_AQ_SCIENTIFIC_3, LEGACY_AQ_SCIENTIFIC_3_RACE</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_SCIENTIFIC_MAJOR_TRIUMPH_3_COMPLETED_ANTIQUITY</Argument>
 	</Modifier>
 </GameEffects>

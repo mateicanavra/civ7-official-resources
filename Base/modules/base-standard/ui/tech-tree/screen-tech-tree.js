@@ -1,36 +1,17 @@
-import { A as Audio } from '../../../core/ui/audio-base/audio-support.chunk.js';
-import ActionHandler, { ActiveDeviceTypeChangedEventName } from '../../../core/ui/input/action-handler.js';
-import { F as Focus } from '../../../core/ui/input/focus-support.chunk.js';
-import { N as NavTray } from '../../../core/ui/navigation-tray/model-navigation-tray.chunk.js';
-import { P as Panel, A as AnchorType } from '../../../core/ui/panel-support.chunk.js';
-import { D as Databind } from '../../../core/ui/utilities/utilities-core-databinding.chunk.js';
-import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.chunk.js';
-import { T as TechTree } from './model-tech-tree.chunk.js';
+import { Audio } from '../../../core/ui/audio-base/audio-support.js';
+import ActionHandler from '../../../core/ui/input/action-handler.js';
+import { Focus } from '../../../core/ui/input/focus-support.js';
+import { ActiveDeviceTypeChangedEventName } from '../../../core/ui/input/input-events.js';
+import NavTray from '../../../core/ui/navigation-tray/model-navigation-tray.js';
+import Panel, { AnchorType } from '../../../core/ui/panel-support.js';
+import Databind from '../../../core/ui/utilities/utilities-core-databinding.js';
+import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
+import TechTree from './model-tech-tree.js';
 import { TreeCardHoveredEventName, TreeCardDehoveredEventName, TreeCardActivatedEventName } from '../tree-grid/tree-card.js';
-import { T as TreeSupport, a as TreeGridDirection } from '../tree-grid/tree-support.chunk.js';
-import { s as styles } from '../tree-grid/tree-components.chunk.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/input/cursor.js';
-import '../../../core/ui/input/focus-manager.js';
-import '../../../core/ui/views/view-manager.chunk.js';
-import '../../../core/ui/input/input-support.chunk.js';
-import '../../../core/ui/utilities/utilities-update-gate.chunk.js';
-import '../../../core/ui/components/fxs-slot.chunk.js';
-import '../../../core/ui/spatial/spatial-manager.js';
-import '../../../core/ui/context-manager/context-manager.js';
-import '../../../core/ui/context-manager/display-queue-manager.js';
-import '../../../core/ui/dialog-box/manager-dialog-box.chunk.js';
-import '../../../core/ui/utilities/utilities-image.chunk.js';
-import '../../../core/ui/utilities/utilities-component-id.chunk.js';
-import '../tree-grid/tree-grid.chunk.js';
-import '../../../core/ui/graph-layout/utils.chunk.js';
-import '../../../core/ui/graph-layout/layout.chunk.js';
-import '../../../core/ui/utilities/utilities-core-textprovider.chunk.js';
-import '../utilities/utilities-textprovider.chunk.js';
-import '../utilities/utilities-tags.chunk.js';
-import '../../../core/ui/utilities/utilities-layout.chunk.js';
-
-const content = "<fxs-subsystem-frame\r\n\tno-scroll=\"true\"\r\n\tclass=\"items-center justify-center flex-auto\"\r\n\tdata-audio-showing=\"data-audio-window-overlay-open\"\r\n\tdata-audio-shown=\"tech-tree-chooser-panel-shown\"\r\n\tdata-audio-hidden=\"tech-tree-chooser-panel-hidden\"\r\n\tdata-audio-close-ref=\"data-audio-tech-tree-progression-close\"\r\n>\r\n\t<div class=\"flex flex-auto flex-col relative\">\r\n\t\t<fxs-header\r\n\t\t\tdata-slot=\"header\"\r\n\t\t\tclass=\"uppercase text-center tracking-100 mb-2 font-title-xl text-secondary\"\r\n\t\t\ttitle=\"LOC_UI_TECH_TREE_TITLE\"\r\n\t\t\tfiligree-style=\"h3\"\r\n\t\t>\r\n\t\t</fxs-header>\r\n\t\t<div\r\n\t\t\tid=\"tech-tree-content-container\"\r\n\t\t\tclass=\"flex flex-col flex-auto pb-5\"\r\n\t\t></div>\r\n\t</div>\r\n</fxs-subsystem-frame>\r\n";
+import '../tree-grid/tree-card-v2.js';
+import { TreeSupport, TreeGridDirection } from '../tree-grid/tree-support.js';
+import content from './screen-tech-tree.html.js';
+import styles from '../tree-grid/tree-components.scss.js';
 
 class ScreenTechTree extends Panel {
   isMobileViewExperience = UI.getViewExperience() == UIViewExperience.Mobile;
@@ -97,7 +78,7 @@ class ScreenTechTree extends Panel {
       return;
     }
     const selectedElement = this.Root.querySelector(
-      `tree-card[type="${this.selectedNode}"]`
+      `tree-card-v2[type="${this.selectedNode}"]`
     );
     if (selectedElement) {
       Focus.setContextAwareFocus(selectedElement, this.Root);
@@ -106,13 +87,13 @@ class ScreenTechTree extends Panel {
     }
   }
   onTechUpdated(data) {
-    if (data.player && data.player != GameContext.localPlayerID) {
+    if (data.player != GameContext.localPlayerID) {
       return;
     }
     TechTree.updateGate.call("onTechUpdated");
   }
   onTechTargetUpdated(data) {
-    if (data.player && data.player != GameContext.localPlayerID) {
+    if (data.player != GameContext.localPlayerID) {
       return;
     }
     TechTree.updateGate.call("onTechTargetUpdated");
@@ -141,7 +122,7 @@ class ScreenTechTree extends Panel {
   cleanPreviousSelectedNode() {
     if (this.previousSelectedNode != void 0) {
       const selectedElement = this.Root.querySelector(
-        `tree-card[type="${this.previousSelectedNode}"]`
+        `tree-card-v2[type="${this.previousSelectedNode}"]`
       );
       if (selectedElement) {
         selectedElement.classList.remove("selected");
@@ -201,7 +182,7 @@ class ScreenTechTree extends Panel {
     container.appendChild(this.cardDetailContainer);
   }
   createCard(container) {
-    const cardElement = document.createElement("tree-card");
+    const cardElement = document.createElement("tree-card-v2");
     Databind.if(cardElement, "card.hasData");
     Databind.attribute(cardElement, "dummy", "card.isDummy");
     Databind.attribute(cardElement, "type", "card.nodeType");
@@ -209,8 +190,12 @@ class ScreenTechTree extends Panel {
     Databind.attribute(cardElement, "progress", "card.progressPercentage");
     Databind.attribute(cardElement, "turns", "card.turns");
     Databind.attribute(cardElement, "queue-order", "card.queueOrder");
+    Databind.attribute(cardElement, "cost", "card.cost");
     Databind.attribute(cardElement, "unlocks-by-depth", "card.unlocksByDepthString");
     cardElement.setAttribute("tooltip-type", "tech-tree");
+    if (TreeSupport.isSmallScreen()) {
+      cardElement.setAttribute("disable-tooltip", "true");
+    }
     cardElement.setAttribute("tree-type", "tech");
     cardElement.setAttribute("data-audio-group-ref", "audio-screen-tech-tree-chooser");
     cardElement.setAttribute("data-audio-activate-ref", "none");
@@ -229,7 +214,7 @@ class ScreenTechTree extends Panel {
     this.cleanPreviousSelectedNode();
     this.updateTreeDetail(nodeId, level);
     const selectedElement = this.Root.querySelector(
-      `tree-card[type="${this.selectedNode}"]`
+      `tree-card-v2[type="${this.selectedNode}"]`
     );
     selectedElement?.classList.add("selected");
     this.refreshNavTray();
@@ -278,6 +263,10 @@ class ScreenTechTree extends Panel {
     this.treeDetail.setAttribute("progress", `${node.progressPercentage}`);
     this.treeDetail.setAttribute("turns", `${node.turns}`);
     this.treeDetail.setAttribute("unlocks-by-depth", node.unlocksByDepthString);
+    if (node.cost && node.cost != 0) {
+      this.treeDetail.setAttribute("cost", node.cost.toString());
+      this.treeDetail.setAttribute("cost-icon", "YIELD_SCIENCE");
+    }
   }
   close() {
     super.close();
@@ -419,7 +408,7 @@ class ScreenTechTree extends Panel {
         Audio.playSound("data-audio-queue-hover", "audio-screen-tech-tree");
         for (let index = 0; index < highlightList.length; index++) {
           const setElement = this.Root.querySelector(
-            `tree-card[type="${highlightList[index]}"]`
+            `tree-card-v2[type="${highlightList[index]}"]`
           );
           setElement?.classList.add("hoverqueued");
         }
@@ -436,7 +425,7 @@ class ScreenTechTree extends Panel {
     if (clearList) {
       for (let index = 0; index < clearList.length; index++) {
         const clearElement = this.Root.querySelector(
-          `tree-card[type="${clearList[index]}"]`
+          `tree-card-v2[type="${clearList[index]}"]`
         );
         clearElement?.classList.remove("hoverqueued");
       }

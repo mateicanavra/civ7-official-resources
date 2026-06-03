@@ -1,32 +1,11 @@
 import ActionHandler from '../../../core/ui/input/action-handler.js';
-import FocusManager from '../../../core/ui/input/focus-manager.js';
-import { q as quickFormatProgressionTreeNodeUnlocks } from '../../../core/ui/utilities/utilities-core-textprovider.chunk.js';
-import { L as Layout } from '../../../core/ui/utilities/utilities-layout.chunk.js';
-import { A as AttributeTrees } from './model-attribute-trees.chunk.js';
+import { quickFormatProgressionTreeNodeUnlocks } from '../../../core/ui/utilities/utilities-core-textprovider.js';
+import { Layout } from '../../../core/ui/utilities/utilities-layout.js';
+import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
+import AttributeTrees from './model-attribute-trees.js';
 import { TreeCardHoveredEvent } from '../tree-grid/tree-card.js';
-import { b as TreeCardBase, T as TreeSupport } from '../tree-grid/tree-support.chunk.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/input/cursor.js';
-import '../../../core/ui/views/view-manager.chunk.js';
-import '../../../core/ui/panel-support.chunk.js';
-import '../../../core/ui/audio-base/audio-support.chunk.js';
-import '../../../core/ui/input/input-support.chunk.js';
-import '../../../core/ui/utilities/utilities-update-gate.chunk.js';
-import '../../../core/ui/context-manager/context-manager.js';
-import '../../../core/ui/context-manager/display-queue-manager.js';
-import '../../../core/ui/dialog-box/manager-dialog-box.chunk.js';
-import '../tree-grid/tree-grid.chunk.js';
-import '../../../core/ui/graph-layout/utils.chunk.js';
-import '../../../core/ui/graph-layout/layout.chunk.js';
-import '../utilities/utilities-textprovider.chunk.js';
-import '../utilities/utilities-tags.chunk.js';
-import '../../../core/ui/utilities/utilities-image.chunk.js';
-import '../../../core/ui/utilities/utilities-component-id.chunk.js';
-import '../../../core/ui/utilities/utilities-dom.chunk.js';
-import '../tree-grid/tree-components.chunk.js';
-import '../../../core/ui/utilities/utilities-core-databinding.chunk.js';
-
-const styles = "fs://game/base-standard/ui/attribute-trees/attribute-card.css";
+import { TreeCardBase, TreeSupport } from '../tree-grid/tree-support.js';
+import styles from './attribute-card.scss.js';
 
 class AttributeCard extends TreeCardBase {
   onCardHoverListener = this.onCardHover.bind(this);
@@ -105,7 +84,7 @@ class AttributeCard extends TreeCardBase {
     if (target instanceof HTMLElement) {
       const hitBoxes = target.querySelector(".hitbox");
       if (hitBoxes) {
-        FocusManager.setFocus(hitBoxes);
+        FocusManager.get().setFocus(hitBoxes);
       }
     }
   }
@@ -223,8 +202,19 @@ class AttributeCard extends TreeCardBase {
         "p-6",
         "text-center"
       );
+      const lockedOverlayHighlight = document.createElement("div");
+      lockedOverlayHighlight.classList.add(
+        "absolute",
+        "inset-0",
+        "group-focus\\:opacity-100",
+        "group-hover\\:opacity-100",
+        "group-pressed\\:opacity-100",
+        "opacity-0",
+        "img-list-focus-frame_highlight"
+      );
       this.lockedOverlayText.innerHTML = Locale.stylize(this.lockedReason || "");
       this.lockedOverlay.appendChild(lockedOverlayBackground);
+      this.lockedOverlay.appendChild(lockedOverlayHighlight);
       this.lockedOverlay.appendChild(this.lockedOverlayText);
       this.checkLockedReasonVisibility();
       const audioGroup = this.Root.getAttribute("data-audio-group-ref");

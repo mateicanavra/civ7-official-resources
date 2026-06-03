@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Database>
+	<!-- ====================================== -->
+	<!-- Standard Unlocks -->
+	<!-- ====================================== -->
 	<Types>
 		<InsertOrIgnore Type="UNLOCK_CIVILIZATION_GREAT_BRITAIN" Kind="KIND_UNLOCK"/>
 	</Types>
@@ -24,10 +27,28 @@
 		<InsertOrIgnore RequirementSetId="REQSET_PLAYER_HAS_2_FLEET_COMMANDERS" RequirementId="REQ_AGE_IS_EXPLORATION"/>
 	</RequirementSetRequirements>
 	<UnlockRequirements>
-		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_GREAT_BRITAIN" RequirementSetId="REQSET_PLAYER_HAS_2_FLEET_COMMANDERS" Description="LOC_UNLOCK_FLEET_COMMANDERS_DESCRIPTION" Tooltip="LOC_UNLOCK_FLEET_COMMANDERS_GREAT_BRITAIN_TOOLTIP" NarrativeText="LOC_UNLOCK_FLEET_COMMANDERS_GREAT_BRITAIN_NARRATIVE"/>
+		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_GREAT_BRITAIN" RequirementSetId="REQSET_PLAYER_HAS_2_FLEET_COMMANDERS" Description="LOC_UNLOCK_FLEET_COMMANDERS_DESCRIPTION" Tooltip="LOC_UNLOCK_FLEET_COMMANDERS_GREAT_BRITAIN_TOOLTIP" GameplayUnlock="True" NarrativeText="LOC_UNLOCK_FLEET_COMMANDERS_GREAT_BRITAIN_NARRATIVE"/>
 		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_GREAT_BRITAIN" RequirementSetId="REQSET_LEADER_IS_BENJAMIN_FRANKLIN" Description="LOC_UNLOCK_PLAY_AS_BENJAMIN_FRANKLIN_DESCRIPTION" Tooltip="LOC_UNLOCK_PLAY_AS_BENJAMIN_FRANKLIN_GREAT_BRITAIN_TOOLTIP"/>
 	</UnlockRequirements>
 	<UnlockConfigurationValues>
 		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_GREAT_BRITAIN" ConfigurationValue="CIVILIZATION_GREAT_BRITAIN"/>
 	</UnlockConfigurationValues>
+	<!-- ====================================== -->
+	<!-- Test of Time Unlocks -->
+	<!-- ====================================== -->
+	<RequirementSets>
+		<InsertOrIgnore RequirementSetId="REQSET_CIV_IS_GREAT_BRITAIN" RequirementSetType="REQUIREMENTSET_TEST_ALL"/>
+	</RequirementSets>
+	<Requirements>
+		<InsertOrIgnore RequirementId="REQ_CIV_IS_GREAT_BRITAIN" RequirementType="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES"/>
+	</Requirements>
+	<RequirementArguments>
+		<InsertOrIgnore RequirementId="REQ_CIV_IS_GREAT_BRITAIN" Name="CivilizationType" Value="CIVILIZATION_GREAT_BRITAIN"/>
+	</RequirementArguments>
+	<RequirementSetRequirements>
+		<InsertOrIgnore RequirementSetId="REQSET_CIV_IS_GREAT_BRITAIN" RequirementId="REQ_CIV_IS_GREAT_BRITAIN"/>
+	</RequirementSetRequirements>
+	<UnlockRequirements>
+		<Row UnlockType="UNLOCK_CIVILIZATION_GREAT_BRITAIN" RequirementSetId="REQSET_CIV_IS_GREAT_BRITAIN" Description="LOC_UNLOCK_PLAY_AS_GREAT_BRITAIN_DESCRIPTION" Tooltip="LOC_UNLOCK_PLAY_AS_GREAT_BRITAIN_GREAT_BRITAIN_TOOLTIP"/>
+	</UnlockRequirements>
 </Database>

@@ -58,7 +58,7 @@
 			<Requirement type="REQUIREMENT_PLOT_IS_OWNER">
 			</Requirement>
 		</SubjectRequirements>
-		<Argument name="Amount">3</Argument>
+		<Argument name="Amount">4</Argument>
 		<String context="Preview">LOC_AT_MOD_COMBAT_FRIENDLY_TERRITORY_PREVIEW</String>
 	</Modifier>
 	<!-- ==================================================	-->
@@ -78,7 +78,7 @@
 	<Modifier id="COSSACK_MOD_COMBAT_STRENGTH_IN_FRIENDLY_TERRITORY" collection="COLLECTION_UNIT_COMBAT" effect="EFFECT_ADJUST_UNIT_STRENGTH_MODIFIER">
 		<SubjectRequirements type="REQUIREMENTSET_TEST_ANY">
 			<Requirement type="REQUIREMENT_PLOT_IS_OWNER"/>
-			<Requirement type="REQUIREMENT_PLOT_IS_SUZERAIN"/>
+			<Requirement type="REQUIREMENT_PLOT_IS_SUZERAIN_BY_OWNER"/>
 		</SubjectRequirements>
 		<Argument name="Amount">4</Argument>
 		<String context="Preview">LOC_ABILITY_COSSACK_PREVIEW</String>
@@ -92,7 +92,7 @@
 		<Argument name="Amount">2</Argument>
 		<String context="Preview">LOC_ABILITY_GARDE_IMPERIALE_PREVIEW</String>
 	</Modifier>
-	<Modifier id="GUSA_MOD_COMBAT_FROM_ADJACENT_GUSA" collection="COLLECTION_UNIT_COMBAT" effect="EFFECT_ADJUST_UNIT_COMBAT_STRENGTH_MULTIPLE_ADJACENT_ENEMIES_MODIFIER">
+	<Modifier id="GUSA_MOD_COMBAT_FROM_ADJACENT_GUSA" collection="COLLECTION_OWNER" effect="EFFECT_ADJUST_UNIT_COMBAT_STRENGTH_MULTIPLE_ADJACENT_ENEMIES_MODIFIER">
 		<SubjectRequirements>
 			<Requirement type="REQUIREMENT_PLOT_ADJACENT_FRIENDLY_UNIT_TAG_MATCHES">
 				<Argument name="Tag">UNIT_CLASS_GUSA</Argument>
@@ -136,14 +136,20 @@
 	<Modifier id="MWAMI_MOD_PILLAGING_YIELD_IMPROVEMENTS" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ADJUST_UNIT_PERCENT_PILLAGE_IMPROVEMENT_MODIFIER">
 		<SubjectRequirements>
 			<Requirement type="REQUIREMENT_PLOT_IN_COMMAND_RADIUS"/>
+			<Requirement type="REQUIREMENT_UNIT_DOMAIN_MATCHES">
+				<Argument name="UnitDomain">DOMAIN_LAND</Argument>
+			</Requirement>
 		</SubjectRequirements>
-		<Argument name="Percent">50</Argument>
+		<Argument name="Percent">100</Argument>
 	</Modifier>
 	<Modifier id="MWAMI_MOD_PILLAGING_YIELD_BUILDINGS" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ADJUST_UNIT_PERCENT_PILLAGE_BUILDING_MODIFIER">
 		<SubjectRequirements>
 			<Requirement type="REQUIREMENT_PLOT_IN_COMMAND_RADIUS"/>
+			<Requirement type="REQUIREMENT_UNIT_DOMAIN_MATCHES">
+				<Argument name="UnitDomain">DOMAIN_LAND</Argument>
+			</Requirement>
 		</SubjectRequirements>
-		<Argument name="Percent">50</Argument>
+		<Argument name="Percent">100</Argument>
 	</Modifier>
 	<Modifier id="PROSPECTOR_MOD_GRANT_ABILITY_CHARGE" collection="COLLECTION_OWNER" effect="EFFECT_GRANT_UNIT_ABILITY_CHARGE" permanent="true">
 		<Argument name="ChargedAbilityType">CHARGED_ABILITY_CLAIM_RESOURCE</Argument>
@@ -198,30 +204,40 @@
 		<Argument name="Amount">3</Argument>
 		<String context="Preview">LOC_MOD_KANTAI_KESSEN_ADJUST_COMBAT_STRENGTH_ON_COAST_PREVIEW</String>
 	</Modifier>
-	<Modifier id="GENERAL_MOROZ_MOD_ADJUST_COMBAT_STRENGTH_IN_TUNDRA" collection="COLLECTION_UNIT_COMBAT" effect="EFFECT_ADJUST_UNIT_STRENGTH_MODIFIER">
+	<Modifier id="GENERAL_MOROZ_II_MOD_ADJUST_COMBAT_STRENGTH_IN_TUNDRA" collection="COLLECTION_UNIT_COMBAT" effect="EFFECT_ADJUST_UNIT_STRENGTH_MODIFIER">
 		<SubjectRequirements>
 			<Requirement type="REQUIREMENT_PLOT_BIOME_TYPE_MATCHES">
 				<Argument name="BiomeType">BIOME_TUNDRA</Argument>
 			</Requirement>
 		</SubjectRequirements>
 		<Argument name="Amount">3</Argument>
-		<String context="Description">LOC_ABILITY_GENERAL_MOROZ_DESCRIPTION</String>
-		<String context="Preview">LOC_ABILITY_GENERAL_MOROZ_PREVIEW</String>
+		<String context="Description">LOC_ABILITY_GENERAL_MOROZ_II_DESCRIPTION</String>
+		<String context="Preview">LOC_ABILITY_GENERAL_MOROZ_II_PREVIEW</String>
 	</Modifier>
-	<Modifier id="MOD_GRANDE_ARMEE_FRIENDLY_ADJACENT" collection="COLLECTION_OWNER" effect="EFFECT_ADJUST_UNIT_NEIGHBOR_COMBAT_MODIFIER">
-		<Argument name="OnlyFriendly">true</Argument>
-		<Argument name="Amount">2</Argument>
+	<Modifier id="MOD_GRANDE_ARMEE_TRADITION_SLOT_COMBAT_STRENGTH" collection="COLLECTION_OWNER" effect="EFFECT_ADJUST_UNIT_CIV_UNIQUE_TRADITION_COMBAT_MODIFIER">
+		<Argument name="Amount">1</Argument>
+		<String context="Preview">LOC_MOD_GRANDE_ARMEE_TRADITION_SLOT_COMBAT_STRENGTH_PREVIEW</String>
 	</Modifier>
 	<Modifier id="IRON_CROSS_COMBAT_STRENGTH" collection="COLLECTION_UNIT_COMBAT" effect="EFFECT_ADJUST_UNIT_STRENGTH_MODIFIER">
 		<Argument name="Amount">3</Argument>
 		<String context="Preview">LOC_ABILITY_IRON_CROSS_PREVIEW</String>
 	</Modifier>
 	<Modifier id="RIVER_RAIDS_MOD_PILLAGE_BUILDINGS_CULTURE" collection="COLLECTION_OWNER" effect="EFFECT_ADJUST_UNIT_BUILDING_PILLAGE_YIELD_MODIFIER">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_DOMAIN_MATCHES">
+				<Argument name="UnitDomain">DOMAIN_LAND</Argument>
+			</Requirement>
+		</SubjectRequirements>
 		<Argument name="Amount">100</Argument>
 		<Argument name="PlunderTypes">PLUNDER_CULTURE</Argument>
 		<String context="WorldText">LOC_WORLD_CULTURE_INCREASE_FLOATER</String>
 	</Modifier>
 	<Modifier id="RIVER_RAIDS_MOD_PILLAGE_IMPROVEMENTS_CULTURE" collection="COLLECTION_OWNER" effect="EFFECT_ADJUST_UNIT_IMPROVEMENT_PILLAGE_YIELD_MODIFIER">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_DOMAIN_MATCHES">
+				<Argument name="UnitDomain">DOMAIN_LAND</Argument>
+			</Requirement>
+		</SubjectRequirements>
 		<Argument name="Amount">100</Argument>
 		<Argument name="PlunderTypes">PLUNDER_CULTURE</Argument>
 		<String context="WorldText">LOC_WORLD_CULTURE_INCREASE_FLOATER</String>
@@ -309,15 +325,4 @@
 		<Argument name="Amount">1</Argument>
 		<String context="Preview">LOC_GREAT_PERSON_INDIVIDUAL_UPARAT_SENANURAK_NAME</String>
 	</Modifier>
-	
-	<Modifier id="WARTIME_MANUFACTURING_COMBAT_STRENGTH" collection="COLLECTION_UNIT_COMBAT" effect="EFFECT_ADJUST_UNIT_STRENGTH_MODIFIER">
-		<SubjectRequirements>
-			<Requirement type="REQUIREMENT_PLOT_ADJACENT_NUM_ENEMY_UNITS">
-				<Argument name="NumUnits">2</Argument>
-			</Requirement>
-		</SubjectRequirements>
-		<Argument name="Amount">3</Argument>
-		<String context="Preview">LOC_MOD_WARTIME_MANUFACTURING_COMBAT_STRENGTH_PREVIEW</String>
-	</Modifier>
-	
 </GameEffects>

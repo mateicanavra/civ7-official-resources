@@ -1,15 +1,7 @@
-import FocusManager from '../../../core/ui/input/focus-manager.js';
-import { P as Panel } from '../../../core/ui/panel-support.chunk.js';
+import Panel from '../../../core/ui/panel-support.js';
+import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
 import { UnlockPopupManager } from './unlocks-manager.js';
-import '../../../core/ui/audio-base/audio-support.chunk.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/context-manager/context-manager.js';
-import '../../../core/ui/context-manager/display-queue-manager.js';
-import '../../../core/ui/dialog-box/manager-dialog-box.chunk.js';
-import '../../../core/ui/input/cursor.js';
-import '../../../core/ui/views/view-manager.chunk.js';
-
-const styles = "fs://game/base-standard/ui/unlocks/screen-reward-unlocked.css";
+import styles from './screen-reward-unlocked.scss.js';
 
 class ScreenRewardUnlocked extends Panel {
   popupData = UnlockPopupManager.currentUnlockedRewardData;
@@ -31,7 +23,7 @@ class ScreenRewardUnlocked extends Panel {
   }
   onReceiveFocus() {
     super.onReceiveFocus();
-    FocusManager.setFocus(this.closeButton);
+    FocusManager.get().setFocus(this.closeButton);
   }
   onLoseFocus() {
     super.onLoseFocus();

@@ -186,6 +186,12 @@
     <Row NodeType="Operation Choose Coastal Target" NodeId="71" ShapeId="1">
       <Description>For operations on a coast, choose how to set the point target.</Description>
     </Row>
+    <Row NodeType="Find Victory Opponent" NodeId="72" ShapeId="2">
+      <Description>For a given victory type, finds the person other than you in first through nth place. Fails if you are not in those places</Description>
+    </Row>
+    <Row NodeType="Add War Bias" NodeId="73" ShapeId="1">
+      <Description>Adds a bias to the specified player to make him your preferred war target</Description>
+    </Row>
   </NodeDefinitions>
   <NodeDataDefinitions>
     <Row DataName="Max Failures" DefnId="0" DataType="int" NodeType="Concurrent" Required="False" UserData="True" />
@@ -213,6 +219,7 @@
     <Row DataName="Location" DefnId="3" DataType="Map Point" NodeType="Decode Input" RequiredGroup="True" Output="True" />
     <Row DataName="Value" DefnId="4" DataType="float" NodeType="Decode Input" RequiredGroup="True" Output="True" />
     <Row DataName="District Types" DefnId="5" DataType="DistrictTypesList" NodeType="Decode Input" RequiredGroup="True" Output="True" />
+    <Row DataName="Victory Type" DefnId="6" DataType="int" NodeType="Decode Input" RequiredGroup="True" Output="True" />
     <Row DataName="Constructible" DefnId="1" DataType="int" NodeType="Construct" />
     <Row DataName="Operation In Progress" DefnId="0" DataType="bool" NodeType="Operation Recruit Units" Required="False" UserData="True" />
     <Row DataName="Range" DefnId="1" DataType="int" NodeType="Operation Recruit Units" Required="False" UserData="True" />
@@ -287,6 +294,11 @@
     <Row DataName="GreatPerson" DefnId="0" DataType="ID List" NodeType="Get Best Great Person Position" />
     <Row DataName="Location" DefnId="1" DataType="Map Point" NodeType="Get Best Great Person Position" Output="True" />
     <Row DataName="GreatPerson" DefnId="0" DataType="ID List" NodeType="Activate Great Person" />
+    <Row DataName="Victory Type" DefnId="0" DataType="int" NodeType="Find Victory Opponent" />
+    <Row DataName="Max Place" DefnId="1" DataType="int" NodeType="Find Victory Opponent" Required="False" UserData="True" />
+    <Row DataName="TargetPlayer" DefnId="2" DataType="int" NodeType="Find Victory Opponent" Output="True" />
+    <Row DataName="TargetPlayer" DefnId="0" DataType="int" NodeType="Add War Bias" />
+    <Row DataName="Bias" DefnId="1" DataType="float" NodeType="Add War Bias" Required="False" />
   </NodeDataDefinitions>
   <DataTypes>
     <Row TypeName="UnitTypesList" DataId="0" />
@@ -322,6 +334,7 @@
     <Row TreeName="Dig for Artifact" />
     <Row TreeName="Research Continent Archaeology" />
     <Row TreeName="Use Great Person" />
+    <Row TreeName="Fight Victory Opponent" />
   </BehaviorTrees>
   <BehaviorTreeNodes>
     <Row NodeType="Sequence" NodeId="0" TreeName="Build Unit-Linked Constructible" JumpTo="4" />
@@ -338,30 +351,29 @@
     <Row NodeType="Get Best Conversion Position" NodeId="7" TreeName="Convert Settlement" />
     <Row NodeType="GoToLocation" NodeId="8" TreeName="Convert Settlement" />
     <Row NodeType="Convert Settlement" NodeId="9" TreeName="Convert Settlement" />
-    <Row NodeType="Sequence" NodeId="0" TreeName="Create Trade Route" JumpTo="11" />
+    <Row NodeType="Sequence" NodeId="0" TreeName="Create Trade Route" JumpTo="8" />
     <Row NodeType="Decode Input" NodeId="1" TreeName="Create Trade Route" />
-    <Row NodeType="Concurrent" NodeId="2" TreeName="Create Trade Route" JumpTo="8" />
-    <Row NodeType="Concurrent" NodeId="3" TreeName="Create Trade Route" JumpTo="6" />
+    <Row NodeType="Priority" NodeId="2" TreeName="Create Trade Route" JumpTo="5" />
+    <Row NodeType="RecruitUnit" NodeId="3" TreeName="Create Trade Route" />
     <Row NodeType="Research Progression Node" NodeId="4" TreeName="Create Trade Route" />
-    <Row NodeType="RecruitUnit" NodeId="5" TreeName="Create Trade Route" />
-    <Row NodeType="Wait Turns" NodeId="6" TreeName="Create Trade Route" JumpTo="8" />
-    <Row NodeType="NoOp" NodeId="7" TreeName="Create Trade Route" />
-    <Row NodeType="Priority" NodeId="8" TreeName="Create Trade Route" JumpTo="11" />
-    <Row NodeType="Make Trade Route" NodeId="9" TreeName="Create Trade Route" />
-    <Row NodeType="GoToLocation" NodeId="10" TreeName="Create Trade Route" />
+    <Row NodeType="Priority" NodeId="5" TreeName="Create Trade Route" JumpTo="8" />
+    <Row NodeType="Make Trade Route" NodeId="6" TreeName="Create Trade Route" />
+    <Row NodeType="GoToLocation" NodeId="7" TreeName="Create Trade Route" />
     <Row NodeType="Sequence" NodeId="0" TreeName="Dig for Artifact" JumpTo="4" />
     <Row NodeType="Decode Input" NodeId="1" TreeName="Dig for Artifact" />
     <Row NodeType="GoToLocation" NodeId="2" TreeName="Dig for Artifact" />
     <Row NodeType="Dig Artifact" NodeId="3" TreeName="Dig for Artifact" />
-    <Row NodeType="Sequence" NodeId="0" TreeName="Explore Distant Lands" JumpTo="9" />
+    <Row NodeType="Sequence" NodeId="0" TreeName="Explore Distant Lands" JumpTo="7" />
     <Row NodeType="Decode Input" NodeId="1" TreeName="Explore Distant Lands" />
     <Row NodeType="Operation Recruit Units" NodeId="2" TreeName="Explore Distant Lands" />
-    <Row NodeType="Priority" NodeId="3" TreeName="Explore Distant Lands" JumpTo="9" />
-    <Row NodeType="Discovered Distant Lands" NodeId="4" TreeName="Explore Distant Lands" />
-    <Row NodeType="Concurrent" NodeId="5" TreeName="Explore Distant Lands" JumpTo="9" />
-    <Row NodeType="Operation Recruit Units" NodeId="6" TreeName="Explore Distant Lands" />
-    <Row NodeType="Operation Defend Units" NodeId="7" TreeName="Explore Distant Lands" />
-    <Row NodeType="Operation Move Army" NodeId="8" TreeName="Explore Distant Lands" />
+    <Row NodeType="Concurrent" NodeId="3" TreeName="Explore Distant Lands" JumpTo="7" />
+    <Row NodeType="Operation Recruit Units" NodeId="4" TreeName="Explore Distant Lands" />
+    <Row NodeType="Operation Defend Units" NodeId="5" TreeName="Explore Distant Lands" />
+    <Row NodeType="Operation Move Army" NodeId="6" TreeName="Explore Distant Lands" />
+    <Row NodeType="Concurrent" NodeId="0" TreeName="Fight Victory Opponent" JumpTo="4" />
+    <Row NodeType="Decode Input" NodeId="1" TreeName="Fight Victory Opponent" />
+    <Row NodeType="Find Victory Opponent" NodeId="2" TreeName="Fight Victory Opponent" />
+    <Row NodeType="Add War Bias" NodeId="3" TreeName="Fight Victory Opponent" />
     <Row NodeType="Sequence" NodeId="0" TreeName="Independent Power Assault" JumpTo="24" />
     <Row NodeType="Concurrent" NodeId="1" TreeName="Independent Power Assault" JumpTo="4" />
     <Row NodeType="Operation Recruit Units" NodeId="2" TreeName="Independent Power Assault" />
@@ -403,16 +415,16 @@
     <Row NodeType="Sequence" NodeId="14" TreeName="Independent Power Raid" JumpTo="17" />
     <Row NodeType="Operation Move Army" NodeId="15" TreeName="Independent Power Raid" />
     <Row NodeType="Notify Owner" NodeId="16" TreeName="Independent Power Raid" />
-    <Row NodeType="Sequence" NodeId="0" TreeName="Minor Power Assault" JumpTo="33" />
+    <Row NodeType="Sequence" NodeId="0" TreeName="Minor Power Assault" JumpTo="34" />
     <Row NodeType="Decode Input" NodeId="1" TreeName="Minor Power Assault" />
-    <Row NodeType="Priority" NodeId="2" TreeName="Minor Power Assault" JumpTo="33" />
+    <Row NodeType="Priority" NodeId="2" TreeName="Minor Power Assault" JumpTo="34" />
     <Row NodeType="Concurrent" NodeId="3" TreeName="Minor Power Assault" JumpTo="7" />
     <Row NodeType="Minor Power Status" NodeId="4" TreeName="Minor Power Assault" />
     <Row NodeType="Reserve Diplomatic Token" NodeId="5" TreeName="Minor Power Assault" JumpTo="7" />
     <Row NodeType="Use Diplomatic Token" NodeId="6" TreeName="Minor Power Assault" />
-    <Row NodeType="Concurrent" NodeId="7" TreeName="Minor Power Assault" JumpTo="33" />
+    <Row NodeType="Concurrent" NodeId="7" TreeName="Minor Power Assault" JumpTo="34" />
     <Row NodeType="Minor Power Status" NodeId="8" TreeName="Minor Power Assault" />
-    <Row NodeType="Sequence" NodeId="9" TreeName="Minor Power Assault" JumpTo="33" />
+    <Row NodeType="Sequence" NodeId="9" TreeName="Minor Power Assault" JumpTo="34" />
     <Row NodeType="Concurrent" NodeId="10" TreeName="Minor Power Assault" JumpTo="14" />
     <Row NodeType="Operation Recruit Units" NodeId="11" TreeName="Minor Power Assault" />
     <Row NodeType="Operation Attack Units" NodeId="12" TreeName="Minor Power Assault" />
@@ -429,13 +441,14 @@
     <Row NodeType="Concurrent" NodeId="23" TreeName="Minor Power Assault" JumpTo="26" />
     <Row NodeType="Operation Defend Units" NodeId="24" TreeName="Minor Power Assault" />
     <Row NodeType="Operation Move Army" NodeId="25" TreeName="Minor Power Assault" />
-    <Row NodeType="Concurrent" NodeId="26" TreeName="Minor Power Assault" JumpTo="33" />
+    <Row NodeType="Concurrent" NodeId="26" TreeName="Minor Power Assault" JumpTo="34" />
     <Row NodeType="Operation Recruit Units" NodeId="27" TreeName="Minor Power Assault" />
     <Row NodeType="Operation Unpack Army" NodeId="28" TreeName="Minor Power Assault" />
-    <Row NodeType="Operation Defend Units" NodeId="29" TreeName="Minor Power Assault" />
-    <Row NodeType="Disperse Minor Power" NodeId="30" TreeName="Minor Power Assault" />
-    <Row NodeType="Operation Attack Units" NodeId="31" TreeName="Minor Power Assault" />
-    <Row NodeType="Operation Move Army" NodeId="32" TreeName="Minor Power Assault" />
+    <Row NodeType="Army Issue Commands" NodeId="29" TreeName="Minor Power Assault" />
+    <Row NodeType="Operation Defend Units" NodeId="30" TreeName="Minor Power Assault" />
+    <Row NodeType="Disperse Minor Power" NodeId="31" TreeName="Minor Power Assault" />
+    <Row NodeType="Operation Attack Units" NodeId="32" TreeName="Minor Power Assault" />
+    <Row NodeType="Operation Move Army" NodeId="33" TreeName="Minor Power Assault" />
     <Row NodeType="Sequence" NodeId="0" TreeName="Minor Power Diplomacy" JumpTo="7" />
     <Row NodeType="Decode Input" NodeId="1" TreeName="Minor Power Diplomacy" />
     <Row NodeType="RecruitUnit" NodeId="2" TreeName="Minor Power Diplomacy" />
@@ -495,8 +508,8 @@
     <Row NodeType="Operation Attack Units" NodeId="24" TreeName="Settle New Town" />
     <Row NodeType="Operation Move Army" NodeId="25" TreeName="Settle New Town" />
     <Row NodeType="DiplomaticActionLandClaim" NodeId="26" TreeName="Settle New Town" />
-    <Row NodeType="Concurrent" NodeId="0" TreeName="Simple City Assault" JumpTo="52" />
-    <Row NodeType="Sequence" NodeId="1" TreeName="Simple City Assault" JumpTo="51" />
+    <Row NodeType="Concurrent" NodeId="0" TreeName="Simple City Assault" JumpTo="53" />
+    <Row NodeType="Sequence" NodeId="1" TreeName="Simple City Assault" JumpTo="52" />
     <Row NodeType="Reserve Diplomatic Token" NodeId="2" TreeName="Simple City Assault" JumpTo="32" />
     <Row NodeType="Sequence" NodeId="3" TreeName="Simple City Assault" JumpTo="32" />
     <Row NodeType="Concurrent" NodeId="4" TreeName="Simple City Assault" JumpTo="14" />
@@ -535,7 +548,7 @@
     <Row NodeType="Army Issue Commands" NodeId="37" TreeName="Simple City Assault" />
     <Row NodeType="Operation Attack Units" NodeId="38" TreeName="Simple City Assault" />
     <Row NodeType="Operation Defend Units" NodeId="39" TreeName="Simple City Assault" />
-    <Row NodeType="Concurrent" NodeId="40" TreeName="Simple City Assault" JumpTo="51" />
+    <Row NodeType="Concurrent" NodeId="40" TreeName="Simple City Assault" JumpTo="52" />
     <Row NodeType="Operation Defend Units" NodeId="41" TreeName="Simple City Assault" />
     <Row NodeType="Operation Unpack Army" NodeId="42" TreeName="Simple City Assault" />
     <Row NodeType="Army Issue Commands" NodeId="43" TreeName="Simple City Assault" />
@@ -544,9 +557,10 @@
     <Row NodeType="Operation Attack Units" NodeId="46" TreeName="Simple City Assault" />
     <Row NodeType="Operation Attack City" NodeId="47" TreeName="Simple City Assault" />
     <Row NodeType="Operation Defend Units" NodeId="48" TreeName="Simple City Assault" />
-    <Row NodeType="Operation Pillage City" NodeId="49" TreeName="Simple City Assault" />
-    <Row NodeType="Operation Move Army" NodeId="50" TreeName="Simple City Assault" />
-    <Row NodeType="Operation Unstack Units" NodeId="51" TreeName="Simple City Assault" />
+    <Row NodeType="Operation Attack City" NodeId="49" TreeName="Simple City Assault" />
+    <Row NodeType="Operation Pillage City" NodeId="50" TreeName="Simple City Assault" />
+    <Row NodeType="Operation Move Army" NodeId="51" TreeName="Simple City Assault" />
+    <Row NodeType="Operation Unstack Units" NodeId="52" TreeName="Simple City Assault" />
     <Row NodeType="Concurrent" NodeId="0" TreeName="Simple City Defense" JumpTo="12" />
     <Row NodeType="Operation Recruit Units" NodeId="1" TreeName="Simple City Defense" />
     <Row NodeType="Operation Unpack Army" NodeId="2" TreeName="Simple City Defense" />
@@ -605,20 +619,18 @@
     <Row DefnId="3" NodeId="1" TreeName="Create Trade Route" Tag="ApproximateLocation" />
     <Row DefnId="4" NodeId="1" TreeName="Create Trade Route" />
     <Row DefnId="5" NodeId="1" TreeName="Create Trade Route" />
-    <Row DefnId="1" NodeId="2" TreeName="Create Trade Route" DefaultData="true" />
+    <Row DefnId="6" NodeId="1" TreeName="Create Trade Route" />
+    <Row DefnId="0" NodeId="3" TreeName="Create Trade Route" />
+    <Row DefnId="1" NodeId="3" TreeName="Create Trade Route" DefaultData="UNIT_CLASS_MAKE_TRADE_ROUTE" />
+    <Row DefnId="2" NodeId="3" TreeName="Create Trade Route" Tag="ApproximateLocation" />
+    <Row DefnId="3" NodeId="3" TreeName="Create Trade Route" Tag="RecruitedUnit" />
     <Row DefnId="0" NodeId="4" TreeName="Create Trade Route" />
     <Row DefnId="1" NodeId="4" TreeName="Create Trade Route" DefaultData="UNIT_CLASS_MAKE_TRADE_ROUTE" />
     <Row DefnId="2" NodeId="4" TreeName="Create Trade Route" DefaultData="15" />
-    <Row DefnId="0" NodeId="5" TreeName="Create Trade Route" />
-    <Row DefnId="1" NodeId="5" TreeName="Create Trade Route" DefaultData="UNIT_CLASS_MAKE_TRADE_ROUTE" />
-    <Row DefnId="2" NodeId="5" TreeName="Create Trade Route" Tag="ApproximateLocation" />
-    <Row DefnId="3" NodeId="5" TreeName="Create Trade Route" Tag="RecruitedUnit" />
-    <Row DefnId="0" NodeId="6" TreeName="Create Trade Route" DefaultData="15" />
-    <Row DefnId="0" NodeId="7" TreeName="Create Trade Route" DefaultData="false" />
-    <Row DefnId="0" NodeId="9" TreeName="Create Trade Route" Tag="RecruitedUnit" />
-    <Row DefnId="1" NodeId="9" TreeName="Create Trade Route" Tag="ApproximateLocation" />
-    <Row DefnId="0" NodeId="10" TreeName="Create Trade Route" Tag="RecruitedUnit" />
-    <Row DefnId="1" NodeId="10" TreeName="Create Trade Route" Tag="ApproximateLocation" />
+    <Row DefnId="0" NodeId="6" TreeName="Create Trade Route" Tag="RecruitedUnit" />
+    <Row DefnId="1" NodeId="6" TreeName="Create Trade Route" Tag="ApproximateLocation" />
+    <Row DefnId="0" NodeId="7" TreeName="Create Trade Route" Tag="RecruitedUnit" />
+    <Row DefnId="1" NodeId="7" TreeName="Create Trade Route" Tag="ApproximateLocation" />
     <Row DefnId="0" NodeId="1" TreeName="Dig for Artifact" Tag="Unit" />
     <Row DefnId="1" NodeId="1" TreeName="Dig for Artifact" />
     <Row DefnId="2" NodeId="1" TreeName="Dig for Artifact" />
@@ -634,10 +646,25 @@
     <Row DefnId="3" NodeId="1" TreeName="Explore Distant Lands" Tag="DISTANT_LOCATION" />
     <Row DefnId="4" NodeId="1" TreeName="Explore Distant Lands" Tag="TREE_VALUE" />
     <Row DefnId="5" NodeId="1" TreeName="Explore Distant Lands" />
+    <Row DefnId="6" NodeId="1" TreeName="Explore Distant Lands" />
     <Row DefnId="3" NodeId="2" TreeName="Explore Distant Lands" DefaultData="-1" />
-    <Row DefnId="0" NodeId="6" TreeName="Explore Distant Lands" DefaultData="true" />
-    <Row DefnId="3" NodeId="6" TreeName="Explore Distant Lands" DefaultData="-1" />
-    <Row DefnId="0" NodeId="8" TreeName="Explore Distant Lands" DefaultData="1" />
+    <Row DefnId="4" NodeId="2" TreeName="Explore Distant Lands" DefaultData="true" />
+    <Row DefnId="0" NodeId="4" TreeName="Explore Distant Lands" DefaultData="true" />
+    <Row DefnId="3" NodeId="4" TreeName="Explore Distant Lands" DefaultData="-1" />
+    <Row DefnId="4" NodeId="4" TreeName="Explore Distant Lands" DefaultData="true" />
+    <Row DefnId="0" NodeId="6" TreeName="Explore Distant Lands" DefaultData="1" />
+    <Row DefnId="0" NodeId="1" TreeName="Fight Victory Opponent" />
+    <Row DefnId="1" NodeId="1" TreeName="Fight Victory Opponent" />
+    <Row DefnId="2" NodeId="1" TreeName="Fight Victory Opponent" />
+    <Row DefnId="3" NodeId="1" TreeName="Fight Victory Opponent" />
+    <Row DefnId="4" NodeId="1" TreeName="Fight Victory Opponent" Tag="BIAS_VALUE" />
+    <Row DefnId="5" NodeId="1" TreeName="Fight Victory Opponent" />
+    <Row DefnId="6" NodeId="1" TreeName="Fight Victory Opponent" Tag="VICTORY" />
+    <Row DefnId="0" NodeId="2" TreeName="Fight Victory Opponent" Tag="VICTORY" />
+    <Row DefnId="1" NodeId="2" TreeName="Fight Victory Opponent" DefaultData="2" />
+    <Row DefnId="2" NodeId="2" TreeName="Fight Victory Opponent" Tag="OPPONENT" />
+    <Row DefnId="0" NodeId="3" TreeName="Fight Victory Opponent" Tag="OPPONENT" />
+    <Row DefnId="1" NodeId="3" TreeName="Fight Victory Opponent" Tag="BIAS_VALUE" DefaultData="BIAS_VALUE" />
     <Row DefnId="3" NodeId="2" TreeName="Independent Power Assault" DefaultData="10" />
     <Row DefnId="0" NodeId="5" TreeName="Independent Power Assault" DefaultData="true" />
     <Row DefnId="2" NodeId="5" TreeName="Independent Power Assault" DefaultData="false" />
@@ -665,6 +692,7 @@
     <Row DefnId="3" NodeId="1" TreeName="Minor Power Assault" Tag="MINOR_LOCATION" />
     <Row DefnId="4" NodeId="1" TreeName="Minor Power Assault" />
     <Row DefnId="5" NodeId="1" TreeName="Minor Power Assault" />
+    <Row DefnId="6" NodeId="1" TreeName="Minor Power Assault" />
     <Row DefnId="0" NodeId="4" TreeName="Minor Power Assault" Tag="MINOR_LOCATION" />
     <Row DefnId="1" NodeId="4" TreeName="Minor Power Assault" DefaultData="false" />
     <Row DefnId="3" NodeId="4" TreeName="Minor Power Assault" DefaultData="false" />
@@ -688,9 +716,9 @@
     <Row DefnId="0" NodeId="25" TreeName="Minor Power Assault" DefaultData="3" />
     <Row DefnId="0" NodeId="27" TreeName="Minor Power Assault" DefaultData="true" />
     <Row DefnId="3" NodeId="27" TreeName="Minor Power Assault" DefaultData="-1" />
-    <Row DefnId="0" NodeId="30" TreeName="Minor Power Assault" Tag="MINOR_LOCATION" />
-    <Row DefnId="1" NodeId="31" TreeName="Minor Power Assault" DefaultData="true" />
-    <Row DefnId="0" NodeId="32" TreeName="Minor Power Assault" DefaultData="0" />
+    <Row DefnId="0" NodeId="31" TreeName="Minor Power Assault" Tag="MINOR_LOCATION" />
+    <Row DefnId="1" NodeId="32" TreeName="Minor Power Assault" DefaultData="true" />
+    <Row DefnId="0" NodeId="33" TreeName="Minor Power Assault" DefaultData="0" />
     <Row DefnId="0" NodeId="1" TreeName="Minor Power Diplomacy" />
     <Row DefnId="1" NodeId="1" TreeName="Minor Power Diplomacy" />
     <Row DefnId="2" NodeId="1" TreeName="Minor Power Diplomacy" />
@@ -809,7 +837,7 @@
     <Row DefnId="0" NodeId="30" TreeName="Simple City Assault" DefaultData="3" />
     <Row DefnId="1" NodeId="31" TreeName="Simple City Assault" Tag="AIR_SUPPORT_LOC" />
     <Row DefnId="0" NodeId="34" TreeName="Simple City Assault" DefaultData="1" />
-    <Row DefnId="0" NodeId="35" TreeName="Simple City Assault" DefaultData="75" />
+    <Row DefnId="0" NodeId="35" TreeName="Simple City Assault" DefaultData="600" />
     <Row DefnId="0" NodeId="38" TreeName="Simple City Assault" DefaultData="true" />
     <Row DefnId="1" NodeId="38" TreeName="Simple City Assault" DefaultData="false" />
     <Row DefnId="0" NodeId="39" TreeName="Simple City Assault" DefaultData="true" />
@@ -819,7 +847,8 @@
     <Row DefnId="0" NodeId="46" TreeName="Simple City Assault" DefaultData="true" />
     <Row DefnId="1" NodeId="46" TreeName="Simple City Assault" DefaultData="true" />
     <Row DefnId="0" NodeId="48" TreeName="Simple City Assault" DefaultData="true" />
-    <Row DefnId="0" NodeId="50" TreeName="Simple City Assault" DefaultData="1" />
+    <Row DefnId="0" NodeId="49" TreeName="Simple City Assault" DefaultData="true" />
+    <Row DefnId="0" NodeId="51" TreeName="Simple City Assault" DefaultData="1" />
     <Row DefnId="0" NodeId="1" TreeName="Simple City Defense" DefaultData="true" />
     <Row DefnId="3" NodeId="1" TreeName="Simple City Defense" DefaultData="-1" />
     <Row DefnId="0" NodeId="4" TreeName="Simple City Defense" DefaultData="true" />

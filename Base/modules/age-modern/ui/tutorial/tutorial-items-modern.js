@@ -1,28 +1,7 @@
 import { InterfaceMode } from '../../../core/ui/interface-modes/interface-modes.js';
 import { TutorialAnchorPosition } from '../../../base-standard/ui/tutorial/tutorial-item.js';
 import TutorialManager from '../../../base-standard/ui/tutorial/tutorial-manager.js';
-import { d as calloutBeginNext$1, e as calloutCloseNext$1, j as didCivicUnlock, i as isUnitOfType, h as didTechUnlock, O as OpenCivilopediaAt } from '../../../base-standard/ui/tutorial/tutorial-support.chunk.js';
-import '../../../core/ui/views/view-manager.chunk.js';
-import '../../../core/ui/input/focus-manager.js';
-import '../../../core/ui/audio-base/audio-support.chunk.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/panel-support.chunk.js';
-import '../../../core/ui/context-manager/context-manager.js';
-import '../../../core/ui/context-manager/display-queue-manager.js';
-import '../../../core/ui/dialog-box/manager-dialog-box.chunk.js';
-import '../../../core/ui/input/cursor.js';
-import '../../../core/ui/input/input-filter.chunk.js';
-import '../../../base-standard/ui/quest-tracker/quest-item.js';
-import '../../../base-standard/ui/quest-tracker/quest-tracker.js';
-import '../../../base-standard/ui/tutorial/tutorial-events.chunk.js';
-import '../../../core/ui/components/fxs-nav-help.chunk.js';
-import '../../../core/ui/input/action-handler.js';
-import '../../../core/ui/input/input-support.chunk.js';
-import '../../../core/ui/utilities/utilities-update-gate.chunk.js';
-import '../../../core/ui/utilities/utilities-image.chunk.js';
-import '../../../core/ui/utilities/utilities-component-id.chunk.js';
-import '../../../core/ui/utilities/utilities-layout.chunk.js';
-import '../../../core/ui/utilities/utilities-core-databinding.chunk.js';
+import { calloutBeginNext as calloutBeginNext$1, calloutCloseNext as calloutCloseNext$1, didCivicUnlock, isUnitOfType, didTechUnlock, OpenCivilopediaAt } from '../../../base-standard/ui/tutorial/tutorial-support.js';
 
 const calloutBegin = {
   callback: () => {
@@ -479,6 +458,108 @@ TutorialManager.add({
     }
     return false;
   }
+});
+TutorialManager.add({
+  ID: "tutorial_victories_modern_advanced_start",
+  filterPlayers: [],
+  callout: {
+    anchorPosition: TutorialAnchorPosition.MiddleCenter,
+    title: "LOC_TUTORIAL_VICTORIES_MODERN_ADVANCED_START_TITLE",
+    body: { text: "LOC_TUTORIAL_VICTORIES_MODERN_ADVANCED_START_BODY" },
+    option1: calloutClose
+  },
+  //do not show if player did not begin in Modern, or thresholds are active.
+  onObsoleteCheck: (_item) => {
+    if (Configuration.getGame().previousAgeCount >= 1 || TutorialManager.isItemCompleted("tutorial_victories_available_advanced_start_callout")) {
+      return true;
+    }
+    return false;
+  },
+  activationCustomEvents: ["OnContextManagerOpen_screen-victory-progress"],
+  completionCustomEvents: ["interface-mode-changed", "OnContextManagerClose_screen-victory-progress"]
+});
+TutorialManager.add({
+  ID: "tutorial_victories_available_callout_advanced_start",
+  filterPlayers: [],
+  callout: {
+    anchorPosition: TutorialAnchorPosition.MiddleCenter,
+    title: "LOC_TUTORIAL_VICTORY_SCREEN_CALLOUT_ADVANCED_START_TITLE",
+    body: {
+      text: "LOC_TUTORIAL_VICTORY_SCREEN_CALLOUT_ADVANCED_START_BODY"
+    },
+    option1: calloutClose
+  },
+  onActivateCheck: (_item) => {
+    const activatingEventName = TutorialManager.activatingEventName;
+    if (activatingEventName != null && activatingEventName == "PlayerAgeTransitionComplete") {
+      if (Configuration.getGame().previousAgeCount == 1) {
+        return true;
+      } else {
+        return false;
+      }
+    } else {
+      return true;
+    }
+  },
+  //do not show if player was not in advanced start.
+  onObsoleteCheck: (_item) => {
+    if (Configuration.getGame().previousAgeCount > 1) {
+      return true;
+    }
+    return false;
+  },
+  highlights: [".ssb__element.tut-age .ssb-button__highlight"],
+  activationEngineEvents: ["VictoryThresholdChanged", "PlayerAgeTransitionComplete"],
+  completionCustomEvents: ["interface-mode-changed", "OnContextManagerOpen_screen-victory-progress"]
+});
+TutorialManager.add({
+  ID: "tutorial_victories_available_for_advanced_start",
+  filterPlayers: [],
+  callout: {
+    anchorPosition: TutorialAnchorPosition.MiddleCenter,
+    title: "LOC_TUTORIAL_VICTORIES_AVAILABLE_ADVANCED_START_TITLE",
+    body: {
+      text: "LOC_TUTORIAL_VICTORIES_AVAILABLE_ADVANCED_START_BODY"
+    },
+    option1: calloutClose
+  },
+  onActivateCheck: (_item) => {
+    if (TutorialManager.isItemCompleted("tutorial_victories_available_callout_advanced_start")) {
+      return true;
+    }
+    return false;
+  },
+  //do not show if player was not in advanced start.
+  onObsoleteCheck: (_item) => {
+    if (Configuration.getGame().previousAgeCount > 1) {
+      return true;
+    }
+    return false;
+  },
+  activationCustomEvents: ["OnContextManagerOpen_screen-victory-progress"],
+  completionCustomEvents: ["interface-mode-changed", "OnContextManagerClose_screen-victory-progress"]
+});
+TutorialManager.add({
+  ID: "tutorial_victories_reminder_modern",
+  filterPlayers: [],
+  callout: {
+    anchorPosition: TutorialAnchorPosition.MiddleCenter,
+    title: "LOC_TUTORIAL_VICTORY_SCREEN_REMINDER_TITLE",
+    body: {
+      text: "LOC_TUTORIAL_VICTORY_SCREEN_REMINDER_BODY"
+    },
+    option1: calloutClose
+  },
+  //only show for full campaign players
+  onObsoleteCheck: (_item) => {
+    if (Configuration.getGame().previousAgeCount <= 1) {
+      return true;
+    }
+    return false;
+  },
+  highlights: [".ssb__element.tut-age .ssb-button__highlight"],
+  activationEngineEvents: ["VictoryThresholdChanged"],
+  completionCustomEvents: ["interface-mode-changed", "OnContextManagerOpen_screen-victory-progress"]
 });
 TutorialManager.process("modern items");
 //# sourceMappingURL=tutorial-items-modern.js.map

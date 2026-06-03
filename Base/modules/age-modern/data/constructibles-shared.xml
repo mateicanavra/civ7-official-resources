@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Adjacency_YieldChanges>
+		<Row ID="InterlacustrineLakeAdjacencyFoodWarehouse" YieldType="YIELD_FOOD" YieldChange="1" TilesRequired="1" ProjectMaxYield="true" AdjacentLake="true"/>
+		<Row ID="InterlacustrineLakeAdjacencyProductionWarehouse" YieldType="YIELD_PRODUCTION" YieldChange="1" TilesRequired="1" ProjectMaxYield="true" AdjacentLake="true"/>
+		<Row ID="InterlacustrineLakeAdjacencyCulture" YieldType="YIELD_CULTURE" YieldChange="1" TilesRequired="1" ProjectMaxYield="true" AdjacentLake="true"/>
+		<Row ID="InterlacustrineLakeAdjacencyFood" YieldType="YIELD_FOOD" YieldChange="1" TilesRequired="1" ProjectMaxYield="true" AdjacentLake="true"/>
+		<Row ID="InterlacustrineLakeAdjacencyGold" YieldType="YIELD_GOLD" YieldChange="1" TilesRequired="1" ProjectMaxYield="true" AdjacentLake="true"/>
+		<Row ID="InterlacustrineLakeAdjacencyHappiness" YieldType="YIELD_HAPPINESS" YieldChange="1" TilesRequired="1" ProjectMaxYield="true" AdjacentLake="true"/>
+		<Row ID="InterlacustrineLakeAdjacencyProduction" YieldType="YIELD_PRODUCTION" YieldChange="1" TilesRequired="1" ProjectMaxYield="true" AdjacentLake="true"/>
+		<Row ID="InterlacustrineLakeAdjacencyScience" YieldType="YIELD_SCIENCE" YieldChange="1" TilesRequired="1" ProjectMaxYield="true" AdjacentLake="true"/>
+		<Row ID="InterlacustrineLakeAdjacencyDiplomacy" YieldType="YIELD_DIPLOMACY" YieldChange="1" TilesRequired="1" ProjectMaxYield="true" AdjacentLake="true"/>
+	</Adjacency_YieldChanges>
+	<Constructible_WildcardAdjacencies>
+		<Row YieldChangeId="InterlacustrineLakeAdjacencyFoodWarehouse" RequiresActivation="true" ConstructibleTag="FOOD_WAREHOUSE"/>
+		<Row YieldChangeId="InterlacustrineLakeAdjacencyProductionWarehouse" RequiresActivation="true" ConstructibleTag="PRODUCTION_WAREHOUSE"/>
+		<Row YieldChangeId="InterlacustrineLakeAdjacencyCulture" RequiresActivation="true" ConstructibleTag="CULTURE"/>
+		<Row YieldChangeId="InterlacustrineLakeAdjacencyFood" RequiresActivation="true" ConstructibleTag="FOOD"/>
+		<Row YieldChangeId="InterlacustrineLakeAdjacencyHappiness" RequiresActivation="true" ConstructibleTag="HAPPINESS"/>
+		<Row YieldChangeId="InterlacustrineLakeAdjacencyGold" RequiresActivation="true" ConstructibleTag="GOLD"/>
+		<Row YieldChangeId="InterlacustrineLakeAdjacencyProduction" RequiresActivation="true" ConstructibleTag="PRODUCTION"/>
+		<Row YieldChangeId="InterlacustrineLakeAdjacencyScience" RequiresActivation="true" ConstructibleTag="SCIENCE"/>
+		<Row YieldChangeId="InterlacustrineLakeAdjacencyDiplomacy" RequiresActivation="true" ConstructibleTag="DIPLOMACY"/>
+	</Constructible_WildcardAdjacencies>
+	<Adjacency_YieldChanges>
+		<Row ID="CivicModExpansionistFoodUrbanFood" YieldType="YIELD_FOOD" YieldChange="1" TilesRequired="1" AdjacentDistrict="DISTRICT_URBAN" />
+		<Row ID="CivicModExpansionistTallWarehouseUrbanProduction" YieldType="YIELD_PRODUCTION" YieldChange="1" TilesRequired="1" AdjacentDistrict="DISTRICT_URBAN" />
+		<Row ID="CivicModExpansionistWideWarehouseRuralProduction" YieldType="YIELD_PRODUCTION" YieldChange="1" TilesRequired="1" AdjacentDistrict="DISTRICT_RURAL" />
+	</Adjacency_YieldChanges>
+	<Constructible_WildcardAdjacencies>
+		<Row YieldChangeId="CivicModExpansionistFoodUrbanFood" RequiresActivation="true" ConstructibleTag="FOOD" />
+		<Row YieldChangeId="CivicModExpansionistTallWarehouseUrbanProduction" RequiresActivation="true" ConstructibleTag="PRODUCTION_WAREHOUSE" />
+		<Row YieldChangeId="CivicModExpansionistWideWarehouseRuralProduction" RequiresActivation="true" ConstructibleTag="PRODUCTION_WAREHOUSE" />
+	</Constructible_WildcardAdjacencies>
+	<Warehouse_YieldChanges>
+		<!-- AmericaSyncretism_II -->
+		<Row ID="AmericaSyncretism_II_MineResourceProduction" YieldType="YIELD_PRODUCTION" YieldChange="1" ConstructibleInCity="IMPROVEMENT_MINE_RESOURCE"/>
+		<Row ID="AmericaSyncretism_II_ClayPitResourceProduction" YieldType="YIELD_PRODUCTION" YieldChange="1" ConstructibleInCity="IMPROVEMENT_CLAY_PIT_RESOURCE"/>
+		<Row ID="AmericaSyncretism_II_RoughTerrainProduction" YieldType="YIELD_PRODUCTION" YieldChange="1" TerrainInCity="TERRAIN_HILL"/>
+		<Row ID="AmericaSyncretism_II_QuarryProduction" YieldType="YIELD_PRODUCTION" YieldChange="1" ConstructibleInCity="IMPROVEMENT_QUARRY"/>
+		<Row ID="AmericaSyncretism_II_WoodcutterResourceProduction" YieldType="YIELD_PRODUCTION" YieldChange="1" ConstructibleInCity="IMPROVEMENT_WOODCUTTER_RESOURCE"/>
+		<Row ID="AmericaSyncretism_II_VegetatedFeatureProduction" YieldType="YIELD_PRODUCTION" YieldChange="1" FeatureClassInCity="FEATURE_CLASS_VEGETATED"/>
+		<Row ID="AmericaSyncretism_II_WetProduction" YieldType="YIELD_PRODUCTION" YieldChange="1" FeatureClassInCity="FEATURE_CLASS_WET"/>
+		<Row ID="AmericaSyncretism_II_OilResourceProduction" YieldType="YIELD_PRODUCTION" YieldChange="1" ConstructibleInCity="IMPROVEMENT_OIL_RIG"/>
+		<!-- MughalSyncretism_I -->
+		<Row ID="MughalSyncretism_I_DesertFloodplainFeatureGold" YieldType="YIELD_GOLD" YieldChange="1" FeatureInCity="FEATURE_DESERT_FLOODPLAIN_MINOR"/>
+		<Row ID="MughalSyncretism_I_GrasslandFloodplainFeatureGold" YieldType="YIELD_GOLD" YieldChange="1" FeatureInCity="FEATURE_GRASSLAND_FLOODPLAIN_MINOR"/>
+		<Row ID="MughalSyncretism_I_PlainsFloodplainFeatureGold" YieldType="YIELD_GOLD" YieldChange="1" FeatureInCity="FEATURE_PLAINS_FLOODPLAIN_MINOR"/>
+		<Row ID="MughalSyncretism_I_TropicalFloodplainFeatureGold" YieldType="YIELD_GOLD" YieldChange="1" FeatureInCity="FEATURE_TROPICAL_FLOODPLAIN_MINOR"/>
+		<Row ID="MughalSyncretism_I_TundraFloodplainFeatureGold" YieldType="YIELD_GOLD" YieldChange="1" FeatureInCity="FEATURE_TUNDRA_FLOODPLAIN_MINOR"/>
+		<Row ID="MughalSyncretism_I_FlatTerrainGold" YieldType="YIELD_GOLD" YieldChange="1" TerrainInCity="TERRAIN_FLAT"/>
+		<!-- MughalSyncretism_II -->
+		<Row ID="MughalSyncretism_II_DesertFloodplainFeatureGold" YieldType="YIELD_GOLD" YieldChange="2" FeatureInCity="FEATURE_DESERT_FLOODPLAIN_MINOR"/>
+		<Row ID="MughalSyncretism_II_GrasslandFloodplainFeatureGold" YieldType="YIELD_GOLD" YieldChange="2" FeatureInCity="FEATURE_GRASSLAND_FLOODPLAIN_MINOR"/>
+		<Row ID="MughalSyncretism_II_PlainsFloodplainFeatureGold" YieldType="YIELD_GOLD" YieldChange="2" FeatureInCity="FEATURE_PLAINS_FLOODPLAIN_MINOR"/>
+		<Row ID="MughalSyncretism_II_TropicalFloodplainFeatureGold" YieldType="YIELD_GOLD" YieldChange="2" FeatureInCity="FEATURE_TROPICAL_FLOODPLAIN_MINOR"/>
+		<Row ID="MughalSyncretism_II_TundraFloodplainFeatureGold" YieldType="YIELD_GOLD" YieldChange="2" FeatureInCity="FEATURE_TUNDRA_FLOODPLAIN_MINOR"/>
+		<Row ID="MughalSyncretism_II_FlatTerrainGold" YieldType="YIELD_GOLD" YieldChange="2" TerrainInCity="TERRAIN_FLAT"/>
+		<!-- Russian UA -->
+		<Row ID="Prosveshchenie_DesertFloodplainFeatureFood" YieldType="YIELD_FOOD" YieldChange="1" FeatureInCity="FEATURE_DESERT_FLOODPLAIN_MINOR"/>
+		<Row ID="Prosveshchenie_GrasslandFloodplainFeatureFood" YieldType="YIELD_FOOD" YieldChange="1" FeatureInCity="FEATURE_GRASSLAND_FLOODPLAIN_MINOR"/>
+		<Row ID="Prosveshchenie_PlainsFloodplainFeatureFood" YieldType="YIELD_FOOD" YieldChange="1" FeatureInCity="FEATURE_PLAINS_FLOODPLAIN_MINOR"/>
+		<Row ID="Prosveshchenie_TropicalFloodplainFeatureFood" YieldType="YIELD_FOOD" YieldChange="1" FeatureInCity="FEATURE_TROPICAL_FLOODPLAIN_MINOR"/>
+		<Row ID="Prosveshchenie_TundraFloodplainFeatureFood" YieldType="YIELD_FOOD" YieldChange="1" FeatureInCity="FEATURE_TUNDRA_FLOODPLAIN_MINOR"/>
+		<Row ID="Prosveshchenie_FlatTerrainFood" YieldType="YIELD_FOOD" YieldChange="1" TerrainInCity="TERRAIN_FLAT"/>
+		<Row ID="Prosveshchenie_DesertFloodplainFeatureProduction" YieldType="YIELD_PRODUCTION" YieldChange="1" FeatureInCity="FEATURE_DESERT_FLOODPLAIN_MINOR"/>
+		<Row ID="Prosveshchenie_GrasslandFloodplainFeatureProduction" YieldType="YIELD_PRODUCTION" YieldChange="1" FeatureInCity="FEATURE_GRASSLAND_FLOODPLAIN_MINOR"/>
+		<Row ID="Prosveshchenie_PlainsFloodplainFeatureProduction" YieldType="YIELD_PRODUCTION" YieldChange="1" FeatureInCity="FEATURE_PLAINS_FLOODPLAIN_MINOR"/>
+		<Row ID="Prosveshchenie_TropicalFloodplainFeatureProduction" YieldType="YIELD_PRODUCTION" YieldChange="1" FeatureInCity="FEATURE_TROPICAL_FLOODPLAIN_MINOR"/>
+		<Row ID="Prosveshchenie_TundraFloodplainFeatureProduction" YieldType="YIELD_PRODUCTION" YieldChange="1" FeatureInCity="FEATURE_TUNDRA_FLOODPLAIN_MINOR"/>
+		<Row ID="Prosveshchenie_FlatTerrainProduction" YieldType="YIELD_PRODUCTION" YieldChange="1" TerrainInCity="TERRAIN_FLAT"/>
+	</Warehouse_YieldChanges>
+</Database>

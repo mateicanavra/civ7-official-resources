@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Types>
+		<!-- ==================================================	-->
+		<!--	Unit Abilities						-->
+		<!-- ==================================================	-->
+		<Row Type="ABILITY_AQ_ATTRIBUTE_MILITARISTIC_01_PACKED_UNIT_GOLD" Kind="KIND_ABILITY" />
+		<Row Type="ABILITY_HAMARANA_COUNCIL" Kind="KIND_ABILITY"/>
+	</Types>
+	<UnitAbilities>
+		<Row UnitAbilityType="ABILITY_AQ_ATTRIBUTE_MILITARISTIC_01_PACKED_UNIT_GOLD" Inactive="true" />
+		<Row UnitAbilityType="ABILITY_ARMY_COMMANDER"/>
+		<Row UnitAbilityType="ABILITY_HAMARANA_COUNCIL" Name="LOC_ABILITY_HAMARANA_COUNCIL_NAME" Description="LOC_ABILITY_HAMARANA_COUNCIL_DESCRIPTION" Inactive="true"/>
+	</UnitAbilities>
+	<UnitAbilityModifiers>
+		<Row UnitAbilityType="ABILITY_AQ_ATTRIBUTE_MILITARISTIC_01_PACKED_UNIT_GOLD" ModifierId="MOD_ABILITY_AQ_ATTRIBUTE_MILITARISTIC_01_PACKED_UNIT_GOLD" />
+		<Row UnitAbilityType="ABILITY_HAMARANA_COUNCIL" ModifierId="HAMARANA_COUNCIL_MOD_COMBAT_ATTACK"/>
+	</UnitAbilityModifiers>
+	<UnitClass_Abilities>
+		<Row UnitAbilityType="ABILITY_ARMY_COMMANDER" UnitClassType="UNIT_CLASS_ARMY_COMMANDER"/>
+		<Row UnitAbilityType="ABILITY_HAMARANA_COUNCIL" UnitClassType="UNIT_CLASS_INFANTRY"/>
+	</UnitClass_Abilities>
+</Database>

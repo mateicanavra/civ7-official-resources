@@ -1,20 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <metaprogression xmlns="Metaprogression">
 	<challenges class="CHALLENGE_CLASS_FOUNDATION" category="CHALLENGE_CATEGORY_FOUNDATION_CIV_VICTORIES" legendPath="LEGEND_PATH_FOUNDATION">
-		<challenge id="CHALLENGE_PIRATE_REPUBLIC_LEGACY_PATH_ECONOMIC_ACHIEVED" scope="Campaign" difficulty="2">
+		<challenge id="CHALLENGE_PIRATE_REPUBLIC_FOUR_MAJOR_TRIUMPHS" scope="Campaign" difficulty="2">
 			<l10n>
-				<name>Republic of Pirates Legacy Path</name>
-				<description>As the Republic of Pirates, complete an Economic Legacy Path.</description>
+				<name>Republic of Pirates 4 Major Triumphs</name>
+				<description>As the Republic of Pirates, complete 4 Economic or Militaristic Major Triumphs in a single Apex Age.</description>
 			</l10n>
 			<sortIndex>115000</sortIndex>
 			<reward type="XP" reward="50" />
 		</challenge>
-		<challenge id="CHALLENGE_PIRATE_REPUBLIC_LEGACY_PATH_MILESTONE_COMPLETED" scope="Campaign" difficulty="2" hidden="true">
+		<challenge id="CHALLENGE_PIRATE_REPUBLIC_MAJOR_TRIUMPH_COMPLETED" scope="Campaign" difficulty="2" hidden="true">
 			<l10n>
-				<name>Republic of Pirates Legacy Path Milestone</name>
-				<description>As the Republic of Pirates, reach at least 1 Legacy Path Milestone.</description>
+				<name>Republic of Pirates Major Triumph</name>
+				<description>As the Republic of Pirates, complete at least 1 Major Triumph.</description>
 			</l10n>
 			<sortIndex>115010</sortIndex>
+			<tags>
+				<tag>CIVS_PLAYED_PROGRESS</tag>
+			</tags>
 		</challenge>
 	</challenges>
 	<challenges class="CHALLENGE_CLASS_FOUNDATION" category="CHALLENGE_CATEGORY_FOUNDATION_WONDERS" legendPath="LEGEND_PATH_FOUNDATION">

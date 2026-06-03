@@ -1,26 +1,7 @@
-import { L as LensManager } from '../../../../core/ui/lenses/lens-manager.chunk.js';
-import { Y as YieldChangeVisualizer } from './yield-change-visualizer.chunk.js';
+import LensManager from '../../../../core/ui/lenses/lens-manager.js';
+import { YieldChangeVisualizer } from './yield-change-visualizer.js';
 import { PlacePopulation } from '../../place-population/model-place-population.js';
 import PlotWorkersManager, { PlotWorkersUpdatedEventName } from '../../plot-workers/plot-workers-manager.js';
-import '../../../../core/ui/input/plot-cursor.js';
-import '../../../../core/ui/context-manager/context-manager.js';
-import '../../../../core/ui/context-manager/display-queue-manager.js';
-import '../../../../core/ui/dialog-box/manager-dialog-box.chunk.js';
-import '../../../../core/ui/framework.chunk.js';
-import '../../../../core/ui/input/cursor.js';
-import '../../../../core/ui/input/focus-manager.js';
-import '../../../../core/ui/audio-base/audio-support.chunk.js';
-import '../../../../core/ui/views/view-manager.chunk.js';
-import '../../../../core/ui/panel-support.chunk.js';
-import '../../../../core/ui/input/action-handler.js';
-import '../../../../core/ui/input/input-support.chunk.js';
-import '../../../../core/ui/utilities/utilities-update-gate.chunk.js';
-import '../../../../core/ui/interface-modes/interface-modes.js';
-import '../../../../core/ui/utilities/utilities-component-id.chunk.js';
-import '../../building-placement/building-placement-manager.js';
-import '../../placement-city-banner/placement-city-banner.js';
-import '../../utilities/utilities-city-yields.chunk.js';
-import '../../yield-bar-base/yield-bar-base.js';
 
 const SPECIALIST_PIP_WRAP_AT = 6;
 const SPECIALIST_PIP_X_OFFSET = 15;
@@ -52,9 +33,10 @@ class WorkerYieldsLensLayer {
   }
   applyLayer() {
     this.realizeGrowthPlots();
-    this.realizeWorkablePlots();
     const cityID = PlotWorkersManager.cityID;
-    if (!cityID || !Cities.get(cityID)?.isTown) {
+    const currentCity = cityID ? Cities.get(cityID) : null;
+    if (currentCity && !currentCity.isTown) {
+      this.realizeWorkablePlots();
       this.realizeBlockedPlots();
     }
     this.yieldVisualizer.setVisible(true);
@@ -124,6 +106,16 @@ class WorkerYieldsLensLayer {
       this.updateSpecialistPlot(plot);
     }
   }
+  addPositiveYield(yieldVisualizer, location, yieldPillData, i, total, yieldSpritePadding) {
+    const groupWidth = (total - 1) * yieldSpritePadding;
+    const offset = { x: i * yieldSpritePadding + groupWidth / 2 - groupWidth, y: 6 };
+    yieldVisualizer.addYieldChange(yieldPillData, location, offset, 4294967295, YIELD_CHANGE_OFFSET);
+  }
+  addNegativeYield(yieldVisualizer, location, yieldPillData, i, total, yieldSpritePadding) {
+    const groupWidth = (total - 1) * yieldSpritePadding;
+    const offset = { x: i * yieldSpritePadding + groupWidth / 2 - groupWidth, y: -10 };
+    yieldVisualizer.addYieldChange(yieldPillData, location, offset, 4294967295, YIELD_CHANGE_OFFSET);
+  }
   updateSpecialistPlot(info) {
     const yieldsToAdd = [];
     const maintenancesToAdd = [];
@@ -142,7 +134,7 @@ class WorkerYieldsLensLayer {
       }
     });
     const currentWorkers = info.NumWorkers;
-    const workerCap = PlotWorkersManager.cityWorkerCap;
+    const workerCap = info.MaxWorkers;
     const location = GameplayMap.getLocationFromIndex(info.PlotIndex);
     if (currentWorkers > 0) {
       for (let i = 0; i < workerCap; i++) {
@@ -189,15 +181,65 @@ class WorkerYieldsLensLayer {
       }
     }
     if (!info.IsBlocked) {
-      yieldsToAdd.forEach((yieldPillData, i) => {
-        const groupWidth = (yieldsToAdd.length - 1) * this.yieldSpritePadding;
-        const offset = { x: i * this.yieldSpritePadding + groupWidth / 2 - groupWidth, y: 6 };
-        this.yieldVisualizer.addYieldChange(yieldPillData, location, offset, 4294967295, YIELD_CHANGE_OFFSET);
+      let positiveTotal = 0;
+      let positiveIndex = 0;
+      let negativeTotal = 0;
+      let negativeIndex = 0;
+      yieldsToAdd.forEach((yieldPillData) => {
+        if (yieldPillData.yieldDelta >= 0) {
+          positiveTotal++;
+        } else {
+          negativeTotal++;
+        }
       });
-      maintenancesToAdd.forEach((yieldPillData, i) => {
-        const groupWidth = (maintenancesToAdd.length - 1) * this.yieldSpritePadding;
-        const offset = { x: i * this.yieldSpritePadding + groupWidth / 2 - groupWidth, y: -10 };
-        this.yieldVisualizer.addYieldChange(yieldPillData, location, offset, 4294967295, YIELD_CHANGE_OFFSET);
+      maintenancesToAdd.forEach((yieldPillData) => {
+        if (yieldPillData.yieldDelta >= 0) {
+          positiveTotal++;
+        } else {
+          negativeTotal++;
+        }
+      });
+      yieldsToAdd.forEach((yieldPillData) => {
+        if (yieldPillData.yieldDelta > 0) {
+          this.addPositiveYield(
+            this.yieldVisualizer,
+            location,
+            yieldPillData,
+            positiveIndex++,
+            positiveTotal,
+            this.yieldSpritePadding
+          );
+        } else if (yieldPillData.yieldDelta < 0) {
+          this.addNegativeYield(
+            this.yieldVisualizer,
+            location,
+            yieldPillData,
+            negativeIndex++,
+            negativeTotal,
+            this.yieldSpritePadding
+          );
+        }
+      });
+      maintenancesToAdd.forEach((yieldPillData) => {
+        if (yieldPillData.yieldDelta > 0) {
+          this.addPositiveYield(
+            this.yieldVisualizer,
+            location,
+            yieldPillData,
+            positiveIndex++,
+            positiveTotal,
+            this.yieldSpritePadding
+          );
+        } else if (yieldPillData.yieldDelta < 0) {
+          this.addNegativeYield(
+            this.yieldVisualizer,
+            location,
+            yieldPillData,
+            negativeIndex++,
+            negativeTotal,
+            this.yieldSpritePadding
+          );
+        }
       });
     }
   }

@@ -1,36 +1,269 @@
 <?xml version="1.0" encoding="utf-8"?>
 <GameEffects xmlns="GameEffects">
+	<Modifier id="MOD_UNLOCK_DAI_VIET_SYNCRETISM_ANTIQUITY" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
+		<Argument name="Tradition">TRADITION_DAI_VIET_SYNCRETISM_ANTIQUITY</Argument>
+	</Modifier>
+	<Modifier id="MOD_UNLOCK_DAI_VIET_SYNCRETISM_MODERN" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
+		<Argument name="Tradition">TRADITION_DAI_VIET_SYNCRETISM_MODERN</Argument>
+	</Modifier>
 	<!-- ==================================================	-->
 	<!--	EXPLORATION							-->
 	<!-- ==================================================	-->
-	<Modifier id="CAM_BINH_MOD_GARRISONED_GOLD" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD">
+	<RequirementSet id="REQSET_TOWN_IN_TROPICAL">
+			<Requirement type="REQUIREMENT_CITY_IS_TOWN"/>
+			<Requirement type="REQUIREMENT_PLOT_BIOME_TYPE_MATCHES">
+				<Argument name="BiomeType">BIOME_TROPICAL</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_PLOT_DISTRICT_CLASS">
+				<Argument name="DistrictClass">CITYCENTER</Argument>
+			</Requirement>
+	</RequirementSet>
+	<Modifier id="CAM_BINH_I_MOD_FORTIFICATION_GOLD" collection="COLLECTION_PLAYER_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
 		<SubjectRequirements>
-			<Requirement type="REQUIREMENT_CITY_HAS_GARRISON_UNIT"/>
+			<Requirement type="REQUIREMENT_PLOT_HAS_CONSTRUCTIBLE">
+				<Argument name="Tag">FORTIFICATION</Argument>
+			</Requirement>
 		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_GOLD</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_CAM_BINH_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="CAM_BINH_I_FORTIFICATION_PRODUCTION_RATE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_PRODUCTION">
 		<Argument name="Tag">FORTIFICATION</Argument>
+		<Argument name="Percent">50</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_CAM_BINH_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="CAM_BINH_II_MOD_FORTIFICATION_GOLD" collection="COLLECTION_PLAYER_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_HAS_CONSTRUCTIBLE">
+				<Argument name="Tag">FORTIFICATION</Argument>
+			</Requirement>
+		</SubjectRequirements>
 		<Argument name="YieldType">YIELD_GOLD</Argument>
 		<Argument name="Amount">2</Argument>
-		<String context="Tooltip">LOC_TRADITION_CAM_BINH_NAME</String>
-		<String context="Description">LOC_TRADITION_CAM_BINH_DESCRIPTION</String>
+		<Argument name="Tooltip">LOC_TRADITION_CAM_BINH_TOOLTIP</Argument>
 	</Modifier>
-	<Modifier id="CON_KENH_MOD_FOOD_BUILDING_CULTURE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD">
-		<Argument name="Tag">FOOD</Argument>
-		<Argument name="YieldType">YIELD_CULTURE</Argument>
-		<Argument name="Amount">2</Argument>
-		<Argument name="Tooltip">LOC_TRADITION_CON_KENH_NAME</Argument>
-		<String context="Description">LOC_TRADITION_CON_KENH_DESCRIPTION</String>
+	<Modifier id="CAM_BINH_II_FORTIFICATION_PURCHASE_RATE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_ADJUST_PLAYER_OR_CITY_BUILDING_PURCHASE_EFFICIENCY">
+		<Argument name="BuildingTag">FORTIFICATION</Argument>
+		<Argument name="Percent">50</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_CAM_BINH_TOOLTIP</Argument>
 	</Modifier>
-	<Modifier id="CON_KENH_MOD_CULTURE_BUILDING_FOOD" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD">
-		<Argument name="Tag">CULTURE</Argument>
+	<Modifier id="CON_KENH_CULTURE_TROPICAL" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ACTIVATE_CONSTRUCTIBLE_ADJACENCY">
+		<Argument name="ConstructibleAdjacency">ConKenhTropicalCulture, ConKenhTropicalFood</Argument>
+	</Modifier>
+	<Modifier id="RUONG_LANG_XA_I_MOD_TOWN_PLANTATION_WAREHOUSE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_GRANT_WAREHOUSE_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+				<Argument name="RequirementSetId">REQSET_TOWN_IN_TROPICAL</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="WarehouseYieldChange">RuongLangXaIPlantationFood</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_RUONG_LANG_XA_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="RUONG_LANG_XA_I_MOD_TOWN_DESERT_FLOODPLAIN_WAREHOUSE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_GRANT_WAREHOUSE_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+				<Argument name="RequirementSetId">REQSET_TOWN_IN_TROPICAL</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="WarehouseYieldChange">RuongLangXaIDesertFloodplainFeatureFood</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_RUONG_LANG_XA_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="RUONG_LANG_XA_I_MOD_TOWN_GRASSLAND_FLOODPLAIN_WAREHOUSE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_GRANT_WAREHOUSE_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+				<Argument name="RequirementSetId">REQSET_TOWN_IN_TROPICAL</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="WarehouseYieldChange">RuongLangXaIGrasslandFloodplainFeatureFood</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_RUONG_LANG_XA_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="RUONG_LANG_XA_I_MOD_TOWN_PLAINS_FLOODPLAIN_WAREHOUSE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_GRANT_WAREHOUSE_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+				<Argument name="RequirementSetId">REQSET_TOWN_IN_TROPICAL</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="WarehouseYieldChange">RuongLangXaIPlainsFloodplainFeatureFood</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_RUONG_LANG_XA_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="RUONG_LANG_XA_I_MOD_TOWN_TROPICAL_FLOODPLAIN_WAREHOUSE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_GRANT_WAREHOUSE_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+				<Argument name="RequirementSetId">REQSET_TOWN_IN_TROPICAL</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="WarehouseYieldChange">RuongLangXaITropicalFloodplainFeatureFood</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_RUONG_LANG_XA_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="RUONG_LANG_XA_I_MOD_TOWN_TUNDRA_FLOODPLAIN_WAREHOUSE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_GRANT_WAREHOUSE_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+				<Argument name="RequirementSetId">REQSET_TOWN_IN_TROPICAL</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="WarehouseYieldChange">RuongLangXaITundraFloodplainFeatureFood</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_RUONG_LANG_XA_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="RUONG_LANG_XA_I_MOD_TOWN_FLAT_WAREHOUSE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_GRANT_WAREHOUSE_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+				<Argument name="RequirementSetId">REQSET_TOWN_IN_TROPICAL</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="WarehouseYieldChange">RuongLangXaIFlatTerrainFood</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_RUONG_LANG_XA_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="RUONG_LANG_XA_I_MOD_FORTIFICATION_FOOD" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_ATTACH_MODIFIERS">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+				<Argument name="RequirementSetId">REQSET_TOWN_IN_TROPICAL</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="ModifierId">ATTACH_RUONG_LANG_XA_I_MOD_FORTIFICATION_FOOD</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_RUONG_LANG_XA_I_MOD_FORTIFICATION_FOOD" collection="COLLECTION_CITY_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_HAS_CONSTRUCTIBLE">
+				<Argument name="Tag">FORTIFICATION</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_FOOD</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_RUONG_LANG_XA_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="RUONG_LANG_XA_I_FORTIFICATION_COMBAT" collection="COLLECTION_PLAYER_COMBAT" effect="EFFECT_ADJUST_UNIT_STRENGTH_MODIFIER">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_DEFENDER_IS_PLAYER_OWNED_DISTRICT"/>
+		</SubjectRequirements>
+		<Argument name="Amount">5</Argument>
+		<String context="Preview">LOC_TRADITION_RUONG_LANG_XA_PREVIEW</String>
+	</Modifier>
+	<Modifier id="RUONG_LANG_XA_I_UNIT_COMBAT" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ATTACH_MODIFIERS">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_DOMAIN_MATCHES">
+				<Argument name="UnitDomain">DOMAIN_LAND</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="ModifierId">ATTACH_RUONG_LANG_XA_I_UNIT_COMBAT</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_RUONG_LANG_XA_I_UNIT_COMBAT" collection="COLLECTION_UNIT_COMBAT" effect="EFFECT_ADJUST_UNIT_STRENGTH_MODIFIER">
+		<SubjectRequirements type="REQUIREMENTSET_TEST_ANY">
+			<Requirement type="REQUIREMENT_PLOT_IS_OWNER"/>
+			<Requirement type="REQUIREMENT_PLOT_IS_SUZERAIN_BY_OWNER"/>
+		</SubjectRequirements>
+		<Argument name="Amount">5</Argument>
+		<String context="Preview">LOC_TRADITION_RUONG_LANG_XA_PREVIEW</String>
+	</Modifier>
+	<Modifier id="RUONG_LANG_XA_II_MOD_TOWN_PLANTATION_WAREHOUSE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_GRANT_WAREHOUSE_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+				<Argument name="RequirementSetId">REQSET_TOWN_IN_TROPICAL</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="WarehouseYieldChange">RuongLangXaIIPlantationFood</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_RUONG_LANG_XA_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="RUONG_LANG_XA_II_MOD_TOWN_DESERT_FLOODPLAIN_WAREHOUSE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_GRANT_WAREHOUSE_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+				<Argument name="RequirementSetId">REQSET_TOWN_IN_TROPICAL</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="WarehouseYieldChange">RuongLangXaIIDesertFloodplainFeatureFood</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_RUONG_LANG_XA_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="RUONG_LANG_XA_II_MOD_TOWN_GRASSLAND_FLOODPLAIN_WAREHOUSE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_GRANT_WAREHOUSE_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+				<Argument name="RequirementSetId">REQSET_TOWN_IN_TROPICAL</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="WarehouseYieldChange">RuongLangXaIIGrasslandFloodplainFeatureFood</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_RUONG_LANG_XA_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="RUONG_LANG_XA_II_MOD_TOWN_PLAINS_FLOODPLAIN_WAREHOUSE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_GRANT_WAREHOUSE_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+				<Argument name="RequirementSetId">REQSET_TOWN_IN_TROPICAL</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="WarehouseYieldChange">RuongLangXaIIPlainsFloodplainFeatureFood</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_RUONG_LANG_XA_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="RUONG_LANG_XA_II_MOD_TOWN_TROPICAL_FLOODPLAIN_WAREHOUSE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_GRANT_WAREHOUSE_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+				<Argument name="RequirementSetId">REQSET_TOWN_IN_TROPICAL</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="WarehouseYieldChange">RuongLangXaIITropicalFloodplainFeatureFood</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_RUONG_LANG_XA_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="RUONG_LANG_XA_II_MOD_TOWN_TUNDRA_FLOODPLAIN_WAREHOUSE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_GRANT_WAREHOUSE_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+				<Argument name="RequirementSetId">REQSET_TOWN_IN_TROPICAL</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="WarehouseYieldChange">RuongLangXaIITundraFloodplainFeatureFood</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_RUONG_LANG_XA_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="RUONG_LANG_XA_II_MOD_TOWN_FLAT_WAREHOUSE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_GRANT_WAREHOUSE_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+				<Argument name="RequirementSetId">REQSET_TOWN_IN_TROPICAL</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="WarehouseYieldChange">RuongLangXaIIFlatTerrainFood</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_RUONG_LANG_XA_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="RUONG_LANG_XA_II_MOD_FORTIFICATION_FOOD" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_ATTACH_MODIFIERS">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+				<Argument name="RequirementSetId">REQSET_TOWN_IN_TROPICAL</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="ModifierId">ATTACH_RUONG_LANG_XA_II_MOD_FORTIFICATION_FOOD</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_RUONG_LANG_XA_II_MOD_FORTIFICATION_FOOD" collection="COLLECTION_CITY_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_HAS_CONSTRUCTIBLE">
+				<Argument name="Tag">FORTIFICATION</Argument>
+			</Requirement>
+		</SubjectRequirements>
 		<Argument name="YieldType">YIELD_FOOD</Argument>
 		<Argument name="Amount">2</Argument>
-		<Argument name="Tooltip">LOC_TRADITION_CON_KENH_NAME</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_RUONG_LANG_XA_TOOLTIP</Argument>
 	</Modifier>
-	<Modifier id="RUONG_LANG_XA_MOD_TOWN_GROWTH" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_GROWTH">
+	<Modifier id="DAI_VIET_SYNCRETISM_ANTIQUITY_VEGETATION_YIELD" collection="COLLECTION_PLAYER_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
 		<SubjectRequirements>
-			<Requirement type="REQUIREMENT_CITY_IS_TOWN"></Requirement>
+			<Requirement type="REQUIREMENT_PLOT_BIOME_TYPE_MATCHES">
+				<Argument name="BiomeType">BIOME_TROPICAL</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_PLOT_FEATURE_TYPE_MATCHES">
+				<Argument name="FeatureClassType">FEATURE_CLASS_VEGETATED</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_PLOT_DISTRICT_CLASS">
+				<Argument name="DistrictClass">CITYCENTER, URBAN, RURAL</Argument>
+			</Requirement>
 		</SubjectRequirements>
-		<Argument name="Percent">10</Argument>
-		<String context="Description">LOC_TRADITION_RUONG_LANG_XA_DESCRIPTION</String>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount">1</Argument>
+	</Modifier>
+	<Modifier id="DAI_VIET_SYNCRETISM_MODERN_VEGETATION_YIELD" collection="COLLECTION_PLAYER_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_BIOME_TYPE_MATCHES">
+				<Argument name="BiomeType">BIOME_TROPICAL</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_PLOT_FEATURE_TYPE_MATCHES">
+				<Argument name="FeatureClassType">FEATURE_CLASS_VEGETATED</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_PLOT_DISTRICT_CLASS">
+				<Argument name="DistrictClass">CITYCENTER, URBAN, RURAL</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_CULTURE, YIELD_FOOD</Argument>
+		<Argument name="Amount">1</Argument>
 	</Modifier>
 </GameEffects>

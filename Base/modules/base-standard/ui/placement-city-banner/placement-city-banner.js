@@ -1,8 +1,6 @@
-import { P as Panel } from '../../../core/ui/panel-support.chunk.js';
-import { C as ComponentID } from '../../../core/ui/utilities/utilities-component-id.chunk.js';
-import '../../../core/ui/framework.chunk.js';
-
-const styles = "fs://game/base-standard/ui/placement-city-banner/placement-city-banner.css";
+import Panel from '../../../core/ui/panel-support.js';
+import { ComponentID } from '../../../core/ui/utilities/utilities-component-id.js';
+import styles from './placement-city-banner.scss.js';
 
 const UpdatePlacementCityBannerEventName = "update-placement-city-banner";
 class UpdatePlacementCityBannerEvent extends CustomEvent {
@@ -32,24 +30,17 @@ class PlacementCityBanner extends Panel {
     super.onDetach();
   }
   render() {
-    const isMobile = UI.getViewExperience() == UIViewExperience.Mobile;
     this.Root.classList.add("flex", "self-center", "mt-7");
     const leftFiligree = document.createElement("div");
-    leftFiligree.className = "img-hud-chal-bk w-10 -scale-100";
-    leftFiligree.classList.toggle("h-14", !isMobile);
-    leftFiligree.classList.toggle("h-16", isMobile);
+    leftFiligree.className = "img-hud-chal-bk w-10 h-16 -scale-100";
     this.Root.appendChild(leftFiligree);
     const innerContainer = document.createElement("div");
     innerContainer.className = "flex -mx-2\\.5 my-1 items-center";
     this.Root.appendChild(innerContainer);
-    this.cityNameDiv.className = "pt-2 px-8 text-lg tracking-100 font-title font-bold uppercase placement-city-banner__name placement-city-banner__name-bg";
-    this.cityNameDiv.classList.toggle("pb-3", !isMobile);
-    this.cityNameDiv.classList.toggle("pb-2", isMobile);
+    this.cityNameDiv.className = "pt-2 pb-2 px-8 text-lg tracking-100 font-title font-bold uppercase placement-city-banner__name placement-city-banner__name-bg";
     innerContainer.appendChild(this.cityNameDiv);
     const rightFiligree = document.createElement("div");
-    rightFiligree.className = "img-hud-chal-bk w-10";
-    rightFiligree.classList.toggle("h-14", !isMobile);
-    rightFiligree.classList.toggle("h-16", isMobile);
+    rightFiligree.className = "img-hud-chal-bk w-10 h-16";
     this.Root.appendChild(rightFiligree);
   }
   updateCityName(cityID) {

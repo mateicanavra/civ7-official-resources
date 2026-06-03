@@ -1,18 +1,5 @@
 import { TutorialAnchorPosition } from '../../../base-standard/ui/tutorial/tutorial-item.js';
 import TutorialManager from '../../../base-standard/ui/tutorial/tutorial-manager.js';
-import '../../../core/ui/context-manager/context-manager.js';
-import '../../../core/ui/context-manager/display-queue-manager.js';
-import '../../../core/ui/dialog-box/manager-dialog-box.chunk.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/input/cursor.js';
-import '../../../core/ui/input/focus-manager.js';
-import '../../../core/ui/audio-base/audio-support.chunk.js';
-import '../../../core/ui/views/view-manager.chunk.js';
-import '../../../core/ui/panel-support.chunk.js';
-import '../../../core/ui/input/input-filter.chunk.js';
-import '../../../base-standard/ui/quest-tracker/quest-item.js';
-import '../../../base-standard/ui/quest-tracker/quest-tracker.js';
-import '../../../base-standard/ui/tutorial/tutorial-events.chunk.js';
 
 const calloutClose = {
   callback: () => {

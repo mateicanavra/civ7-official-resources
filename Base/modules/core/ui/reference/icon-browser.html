@@ -20,14 +20,58 @@
 		<script src="fs://game/game/component-support.js"></script>
 
 		<style>
+			:root {
+				--icon-slot-size: 256px;
+			}
+
+			body {
+				font-size: 8px;
+			}
+
+			.font-body-base {
+				color: #fff;
+			}
+
+			/* The actual icon element (fxs-icon). Size is set inline per icon. */
 			.icon {
-				width: 32px;
-				height: 32px;
-				margin-bottom: 5px;
-				margin-top: 5px;
-				margin-left: 5px;
-				margin-right: 5px;
+				display: block;
 				pointer-events: auto;
+				margin: 0;
+			}
+
+			/* Per-icon wrapper so the label stays under the icon */
+			.icon-item {
+				width: var(--icon-slot-size);
+				margin: 5px;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				box-sizing: border-box;
+				pointer-events: auto;
+			}
+
+			/* Fixed 128x128 area that the icon is centered within */
+			.icon-slot {
+				width: var(--icon-slot-size);
+				height: var(--icon-slot-size);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				box-sizing: border-box;
+			}
+
+			/* The text label under each icon */
+			.icon-name {
+				margin-top: 2px;
+				width: var(--icon-slot-size);
+				text-align: center;
+				font-size: 12px;
+				transform: scale(0.75);
+
+				line-height: 1.1;
+				word-break: break-word; /* helps if ids are long */
+				white-space: normal;
+				pointer-events: none; /* avoid interfering with hover/click on icon */
 			}
 
 			#tooltip-root-content > div {
@@ -35,14 +79,14 @@
 				flex-direction: column;
 			}
 		</style>
-		<script async type="module" crossorigin src="fs://game/core/ui/reference/icon-browser.js"></script>
+		<script async type="module" crossorigin src="fs://game/core/ui/reference/icon-browser.html2.js"></script>
 		<link rel="stylesheet" crossorigin href="fs://game/core/ui/reference/reference.css">
 	</head>
 
 	<body class="text-accent-2">
 		<div
 			class="panel"
-			style="width: 80%; height: 80%"
+			style="width: 95%; height: 90%"
 		>
 			<fxs-scrollable class="panel-content">
 				<div
@@ -52,6 +96,7 @@
 				></div>
 			</fxs-scrollable>
 		</div>
+
 		<div
 			id="tooltip-root"
 			class="new-tooltip--root absolute max-w-96 p-3 img-tooltip-border img-tooltip-bg pointer-events-none"
@@ -64,13 +109,39 @@
 		</div>
 
 		<script type="text/javascript">
+			const outputName = false;
+			const ICON_SLOT_SIZE = 256;
+			const ICON_FALLBACK_SIZE = 128;
+
+			/**
+			 * Returns the "native" icon size from getIconData.
+			 * If multiple entries exist, we take the largest iconSize found.
+			 * Falls back to 64 if nothing is found.
+			 */
+			function resolveIconSize(id, context) {
+				try {
+					const iconDataList = getIconData(id, context);
+					if (Array.isArray(iconDataList) && iconDataList.length > 0) {
+						let best = 0;
+						for (const d of iconDataList) {
+							const s = Number(d && d.iconSize);
+							if (Number.isFinite(s) && s > best) best = s;
+						}
+						if (best > 0) return best;
+					}
+				} catch (e) {
+					// ignore and use fallback
+				}
+				return ICON_FALLBACK_SIZE;
+			}
+
 			function populateIcons(context) {
 				const group = document.createElement("div");
 				group.classList.add("flow-column");
 
 				const label = document.createElement("div");
 				label.classList.add("font-body-base");
-				label.innerHTML = context;
+				label.innerHTML = "<h1>" + context + "</h1>";
 
 				const iconGroup = document.createElement("div");
 				iconGroup.classList.add("flow-row");
@@ -78,21 +149,55 @@
 
 				const icons = UI.getIcons(context);
 				for (const icon of icons) {
+					// ----- outer wrapper (keeps icon + name together) -----
+					const iconItem = document.createElement("div");
+					iconItem.classList.add("icon-item");
+
+					// ----- NxN slot for consistent layout / padding -----
+					const iconSlot = document.createElement("div");
+					iconSlot.classList.add("icon-slot");
+
+					const nativeSize = resolveIconSize(icon.id, context);
+					const renderSize = nativeSize >= ICON_SLOT_SIZE ? ICON_SLOT_SIZE : nativeSize;
+
+					// ----- the actual icon element -----
 					const el = document.createElement("fxs-icon");
 					el.classList.add("icon");
 					el.setAttribute("data-icon-id", icon.id);
 					el.setAttribute("data-icon-context", context);
+					el.setAttribute("data-icon-size", renderSize);
+
+					// Size rules:
+					// - >=N => render at NxN
+					// - <N  => render at native size, centered in the NxN slot
+					el.style.width = `${renderSize}px`;
+					el.style.height = `${renderSize}px`;
 
 					const alias = UI.getIconAlias(icon.id, context);
+					let tip = "";
 					if (alias) {
-						const tt = `${icon.id} [n] (${alias.id} - ${alias.context})`;
-						el.setAttribute("data-tooltip-content", tt);
+						tip = `${icon.id} [n] (${alias.id} - ${alias.context})`;
 					} else {
-						el.setAttribute("data-tooltip-content", icon.id);
+						tip = icon.id;
+					}
+					el.setAttribute("data-tooltip-content", tip);
+
+					if (outputName) {
+						console.log(`${context},${tip}`);
 					}
 
-					iconGroup.appendChild(el);
+					// ----- label under the icon -----
+					const nameEl = document.createElement("div");
+					nameEl.classList.add("font-body-base", "icon-name");
+					nameEl.textContent = icon.id;
+
+					// assemble
+					iconSlot.appendChild(el);
+					iconItem.appendChild(iconSlot);
+					iconItem.appendChild(nameEl);
+					iconGroup.appendChild(iconItem);
 				}
+
 				group.appendChild(label);
 				group.appendChild(iconGroup);
 				return group;
@@ -104,9 +209,9 @@
 					const frag = document.createDocumentFragment();
 
 					let contexts = UI.getIconContexts();
-					contexts.sort((a, b) => {
-						return a.context < b.context;
-					});
+					// (Optional sanity fix: use a real comparator)
+					contexts.sort((a, b) => (a.context || "").localeCompare(b.context || ""));
+
 					for (const c of contexts) {
 						frag.appendChild(populateIcons(c.context));
 					}

@@ -1,43 +1,24 @@
-import { A as Audio } from '../../../core/ui/audio-base/audio-support.chunk.js';
-import { d as displayRequestUniqueId, D as DialogBoxAction, a as DialogBoxManager } from '../../../core/ui/dialog-box/manager-dialog-box.chunk.js';
+import { Audio } from '../../../core/ui/audio-base/audio-support.js';
+import { displayRequestUniqueId } from '../../../core/ui/context-manager/display-handler.js';
+import { DialogBoxManager } from '../../../core/ui/dialog-box/manager-dialog-box.js';
 import ActionHandler from '../../../core/ui/input/action-handler.js';
-import FocusManager from '../../../core/ui/input/focus-manager.js';
-import { F as Focus } from '../../../core/ui/input/focus-support.chunk.js';
-import { b as InputEngineEventName } from '../../../core/ui/input/input-support.chunk.js';
+import { Focus } from '../../../core/ui/input/focus-support.js';
+import { InputEngineEventName } from '../../../core/ui/input/input-support.js';
 import { PlotCursor } from '../../../core/ui/input/plot-cursor.js';
 import { InterfaceMode } from '../../../core/ui/interface-modes/interface-modes.js';
-import { P as Panel, A as AnchorType } from '../../../core/ui/panel-support.chunk.js';
-import { C as ComponentID } from '../../../core/ui/utilities/utilities-component-id.chunk.js';
-import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.chunk.js';
-import { L as Layout } from '../../../core/ui/utilities/utilities-layout.chunk.js';
-import { U as UpdateGate } from '../../../core/ui/utilities/utilities-update-gate.chunk.js';
+import Panel, { AnchorType } from '../../../core/ui/panel-support.js';
+import { ComponentID } from '../../../core/ui/utilities/utilities-component-id.js';
+import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
+import { Layout } from '../../../core/ui/utilities/utilities-layout.js';
+import UpdateGate from '../../../core/ui/utilities/utilities-update-gate.js';
 import { UpdateOperationTargetEvent } from '../lenses/layer/operation-target-layer.js';
 import { UnitActionHandlers } from '../unit-interact/unit-action-handlers.js';
 import { UnitRenameConfirmEventName, UnitRenameHideStatusToggledEventName } from '../unit-rename/unit-rename.js';
 import UnitSelection from '../unit-selection/unit-selection.js';
 import WorldInput from '../world-input/world-input.js';
-import '../../../core/ui/context-manager/display-queue-manager.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/input/cursor.js';
-import '../../../core/ui/views/view-manager.chunk.js';
-import '../../../core/ui/components/fxs-slot.chunk.js';
-import '../../../core/ui/spatial/spatial-manager.js';
-import '../../../core/ui/context-manager/context-manager.js';
-import '../../../core/ui/lenses/lens-manager.chunk.js';
-import '../../../core/ui/components/fxs-textbox.chunk.js';
-import '../../../core/ui/components/fxs-activatable.chunk.js';
-import '../../../core/ui/utilities/utilities-network.js';
-import '../../../core/ui/shell/mp-legal/mp-legal.js';
-import '../../../core/ui/events/shell-events.chunk.js';
-import '../../../core/ui/navigation-tray/model-navigation-tray.chunk.js';
-import '../../../core/ui/utilities/utilities-image.chunk.js';
-import '../../../core/ui/utilities/utilities-liveops.js';
-import '../../../core/ui/utilities/utilities-network-constants.chunk.js';
-import '../diplomacy/diplomacy-events.js';
-import '../interface-modes/support-unit-map-decoration.chunk.js';
-import '../utilities/utilities-overlay.chunk.js';
-
-const styles = "fs://game/base-standard/ui/unit-actions/unit-actions.css";
+import styles from './unit-actions.scss.js';
+import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
+import { DialogBoxAction } from '../../../core/ui/dialog-box/model-dialog-box.js';
 
 var UnitActionPanelState = /* @__PURE__ */ ((UnitActionPanelState2) => {
   UnitActionPanelState2[UnitActionPanelState2["HIDDEN"] = 0] = "HIDDEN";
@@ -470,13 +451,22 @@ class UnitActions extends Panel {
    */
   onUnitOperationSegmentComplete({ unit, data1 }) {
     const headUnit = UI.Player.getHeadSelectedUnit();
-    if (!data1 && unit.owner == headUnit?.owner && unit.id == headUnit.id) {
+    if (!data1 && unit.owner === headUnit?.owner && unit.id == headUnit.id) {
       this.switchToDefault();
     }
   }
   switchToDefault() {
     this.currentState = 2 /* ANIMATEOUT */;
     InterfaceMode.switchToDefault();
+  }
+  shouldSwitchToDefaultAfterOperation(unit) {
+    if (Configuration.getUser().isAutoUnitCycle) {
+      const headUnit = UI.Player.getHeadSelectedUnit();
+      if (headUnit && ComponentID.isMatch(unit, headUnit)) {
+        return false;
+      }
+    }
+    return true;
   }
   /**
    * Conforms to UnitSelectionListener
@@ -561,8 +551,8 @@ class UnitActions extends Panel {
       }
       this.updateUnitCycleNavHelp();
       this.unitId = null;
-      if (this.Root.contains(FocusManager.getFocus())) {
-        FocusManager.setFocus(document.body);
+      if (this.Root.contains(FocusManager.get().currentFocus())) {
+        FocusManager.get().setFocus(document.body);
       }
     } else {
       if (this.currentState != 0 /* HIDDEN */) {
@@ -623,7 +613,9 @@ class UnitActions extends Panel {
   }
   onViewReceiveFocus() {
     if (this.currentState == 3 /* VISIBLE */) {
-      this.realizeFocus();
+      delayByFrame(() => {
+        this.realizeFocus();
+      }, 2);
     }
   }
   realizeFocus() {
@@ -632,9 +624,9 @@ class UnitActions extends Panel {
     });
     const moveButton = moveButtonIndex != -1 ? this.standardActionElements[moveButtonIndex] : null;
     if (this.currentState == 3 /* VISIBLE */ && moveButton && moveButton.hasAttribute("tabindex")) {
-      FocusManager.setFocus(moveButton);
+      FocusManager.get().setFocus(moveButton);
     } else if (this.currentState == 3 /* VISIBLE */ && this.standardActionElements.length > 0) {
-      FocusManager.setFocus(this.standardActionElements[0]);
+      FocusManager.get().setFocus(this.standardActionElements[0]);
     } else {
       console.error(`Focus was not set on unit-actions!`);
     }
@@ -681,7 +673,7 @@ class UnitActions extends Panel {
     if (this.commanderNameDiv && this.commanderNameDiv.textContent != unitName) {
       this.commanderNameDiv.textContent = unitName;
     }
-    const treasureFleetPoints = unit.getDisbandVictoryPoints();
+    const treasureFleetPoints = unit.getDisbandBaseAmount();
     if (treasureFleetPoints) {
       const disbandCityId = unit.getAssociatedDisbandCityId();
       const originCity = disbandCityId != null && ComponentID.isValid(disbandCityId) ? Cities.get(disbandCityId) : null;
@@ -713,6 +705,10 @@ class UnitActions extends Panel {
         if (combat.rangedStrength > 0) {
           this.addStatDivider();
           this.addStat(combat.rangedStrength, "LOC_UNIT_INFO_RANGED_STRENGTH");
+        }
+        if (combat.bombardStrength > 0) {
+          this.addStatDivider();
+          this.addStat(combat.bombardStrength, "LOC_UNIT_INFO_BOMBARD");
         }
         if (combat?.attackRange > 1) {
           this.addStatDivider();
@@ -811,6 +807,9 @@ class UnitActions extends Panel {
         break;
       case "LOC_UNIT_INFO_RANGED_STRENGTH":
         statIcon = "Action_Ranged";
+        break;
+      case "LOC_UNIT_INFO_BOMBARD":
+        statIcon = "action_bombard";
         break;
       case "LOC_UNIT_INFO_BUILD_CHARGES":
         statIcon = "Action_Construct";
@@ -1016,7 +1015,8 @@ class UnitActions extends Panel {
                 );
               }
             },
-            chargesLeft: enabled.ChargesRemaining
+            chargesLeft: enabled.ChargesRemaining,
+            hotkeyId: operation.HotkeyId
           };
           if (UnitActionHandlers.doesActionHaveHandler(operation.OperationType) && (!ActionHandler.isGamepadActive || UnitActionHandlers.useHandlerWithGamepad(operation.OperationType))) {
             unitAction.callback = (_location) => {
@@ -1047,10 +1047,13 @@ class UnitActions extends Panel {
                   parameters.Y = location.y;
                 }
                 Game.UnitOperations?.sendRequest(unit.id, operation.OperationType, parameters);
-                this.switchToDefault();
+                if (this.shouldSwitchToDefaultAfterOperation(unit.id)) {
+                  this.switchToDefault();
+                }
               }
             },
-            chargesLeft: enabled.ChargesRemaining
+            chargesLeft: enabled.ChargesRemaining,
+            hotkeyId: operation.HotkeyId
           });
         }
       }
@@ -1142,6 +1145,7 @@ class UnitActions extends Panel {
             confirmBody: enabled.ConfirmDialogBody,
             UICategory: this.getUnitActionCategory(command.CategoryInUI),
             priority: command.PriorityInUI ? command.PriorityInUI : 0,
+            hotkeyId: command.HotkeyId,
             callback: (location) => {
               if (enabled.Success) {
                 parameters.X = location.x;
@@ -1178,6 +1182,7 @@ class UnitActions extends Panel {
               confirmBody: enabled.ConfirmDialogBody,
               UICategory: this.getUnitActionCategory(command.CategoryInUI),
               priority: command.PriorityInUI ? command.PriorityInUI : 0,
+              hotkeyId: command.HotkeyId,
               callback: (_location) => {
                 if (enabled.Success) {
                   UnitActionHandlers.switchToActionInterfaceMode(command.CommandType, {
@@ -1204,6 +1209,7 @@ class UnitActions extends Panel {
             confirmBody: enabled.ConfirmDialogBody,
             UICategory: this.getUnitActionCategory(command.CategoryInUI),
             priority: command.PriorityInUI ? command.PriorityInUI : 0,
+            hotkeyId: command.HotkeyId,
             callback: (location) => {
               if (enabled.Success) {
                 if (location) {
@@ -1321,9 +1327,11 @@ class UnitActions extends Panel {
       return;
     }
     switch (hotkey.detail.name) {
-      case "unit-ranged-attack":
-        actionType = "UNITOPERATION_RANGE_ATTACK";
+      case "unit-ranged-attack": {
+        const action = this.actions.find((a) => a.hotkeyId == "RangedAttack");
+        actionType = action ? action.type : "UNITOPERATION_RANGE_ATTACK";
         break;
+      }
       case "unit-move":
         actionType = "UNITOPERATION_MOVE_TO";
         break;

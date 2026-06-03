@@ -5,7 +5,10 @@ PRAGMA schema_version = 1000;
 CREATE TABLE 'Adjacency_YieldChanges' (
 	'ID' TEXT NOT NULL,
 	'AdjacentBiome' TEXT,
+	'AdjacentBreathtakingAppeal' BOOLEAN DEFAULT 0,
+	'AdjacentCharmingAppeal' BOOLEAN DEFAULT 0,
 	'AdjacentConstructible' TEXT,
+	'AdjacentConstructibleClass' TEXT,
 	'AdjacentConstructibleTag' TEXT,
 	'AdjacentDistrict' TEXT,
 	'AdjacentFeature' TEXT,
@@ -17,7 +20,8 @@ CREATE TABLE 'Adjacency_YieldChanges' (
 	'AdjacentResource' BOOLEAN NOT NULL DEFAULT 0,
 	'AdjacentResourceClass' TEXT NOT NULL DEFAULT "NO_RESOURCECLASS",
 	'AdjacentRiver' BOOLEAN NOT NULL DEFAULT 0,
-	'AdjacentSeaResource' BOOLEAN NOT NULL DEFAULT 0,
+	'AdjacentSeaResource' BOOLEAN,
+	'AdjacentSpecificResource' TEXT,
 	'AdjacentTerrain' TEXT,
 	'AdjacentUniqueQuarter' BOOLEAN NOT NULL DEFAULT 0,
 	'AdjacentUniqueQuarterType' TEXT,
@@ -33,7 +37,8 @@ CREATE TABLE 'Adjacency_YieldChanges' (
 	FOREIGN KEY ("AdjacentTerrain") REFERENCES "Terrains"("TerrainType") ON DELETE CASCADE ON UPDATE CASCADE,
 	FOREIGN KEY ("AdjacentFeature") REFERENCES "Features"("FeatureType") ON DELETE CASCADE ON UPDATE CASCADE,
 	FOREIGN KEY ("AdjacentConstructible") REFERENCES "Constructibles"("ConstructibleType") ON DELETE CASCADE ON UPDATE CASCADE,
-	FOREIGN KEY ("AdjacentDistrict") REFERENCES "Districts"("DistrictType") ON DELETE CASCADE ON UPDATE CASCADE
+	FOREIGN KEY ("AdjacentDistrict") REFERENCES "Districts"("DistrictType") ON DELETE CASCADE ON UPDATE CASCADE,
+	FOREIGN KEY ("AdjacentSpecificResource") REFERENCES "Resources"("ResourceType") ON DELETE CASCADE ON UPDATE CASCADE
 );
 CREATE TABLE 'AdvancedStartAges' (
 	'AgeType' TEXT NOT NULL,
@@ -69,6 +74,7 @@ CREATE TABLE 'AdvancedStartCards' (
 	'CardEffectType2' TEXT,
 	'CardEffectType3' TEXT,
 	'CardEffectType4' TEXT,
+	'CardEffectType5' TEXT,
 	'CardSet' TEXT NOT NULL,
 	'CategorySortOrder' INTEGER NOT NULL DEFAULT 0,
 	'CultureCost' INTEGER NOT NULL DEFAULT 0,
@@ -167,6 +173,18 @@ CREATE TABLE 'AdvancedStartUnits' (
 	FOREIGN KEY ("MinDifficulty") REFERENCES "Difficulties"("DifficultyType") ON DELETE CASCADE ON UPDATE CASCADE,
 	FOREIGN KEY ("District") REFERENCES "Districts"("DistrictType") ON DELETE CASCADE ON UPDATE CASCADE
 );
+CREATE TABLE 'AdviceInstances' (
+	'AdviceID' TEXT NOT NULL,
+	'AdvisorType' TEXT NOT NULL,
+	'IsWarning' BOOLEAN NOT NULL DEFAULT 0,
+	'Message' TEXT,
+	'NoteDescription' TEXT,
+	'NoteTitle' TEXT,
+	'Quote' TEXT,
+	'Title' TEXT,
+	PRIMARY KEY("AdviceID"),
+	FOREIGN KEY ("AdvisorType") REFERENCES "Advisors"("AdvisorType") ON DELETE CASCADE ON UPDATE CASCADE
+);
 CREATE TABLE 'Advisors' (
 	'AdvisorType' TEXT NOT NULL,
 	'Description' TEXT,
@@ -184,6 +202,7 @@ CREATE TABLE 'AdvisorSubjects' (
 );
 CREATE TABLE 'AdvisorWarnings' (
 	'AdvisorWarningType' TEXT NOT NULL,
+	'AdviceID' TEXT,
 	'AdvisorType' TEXT NOT NULL,
 	'CooldownTurns' INTEGER NOT NULL DEFAULT 0,
 	'Description' TEXT,
@@ -195,8 +214,10 @@ CREATE TABLE 'AdvisorWarnings' (
 	'NotificationType' TEXT NOT NULL,
 	'Repeatable' BOOLEAN NOT NULL DEFAULT 0,
 	'SpecificItemCooldownTurns' INTEGER NOT NULL DEFAULT 0,
+	'TrackedOnly' BOOLEAN NOT NULL DEFAULT 0,
 	PRIMARY KEY("AdvisorWarningType"),
-	FOREIGN KEY ("MaxDifficulty") REFERENCES "Difficulties"("DifficultyType") ON DELETE CASCADE ON UPDATE CASCADE
+	FOREIGN KEY ("MaxDifficulty") REFERENCES "Difficulties"("DifficultyType") ON DELETE CASCADE ON UPDATE CASCADE,
+	FOREIGN KEY ("AdviceID") REFERENCES "AdviceInstances"("AdviceID") ON DELETE CASCADE ON UPDATE CASCADE
 );
 CREATE TABLE 'AdvisoryClasses' (
 	'AdvisoryClassType' TEXT NOT NULL,
@@ -218,6 +239,7 @@ CREATE TABLE 'Affinities' (
 );
 CREATE TABLE 'Ages' (
 	'AgeType' TEXT NOT NULL,
+	'Active' INTEGER NOT NULL DEFAULT 0,
 	'AgeTechBackgroundTexture' TEXT,
 	'AgeTechBackgroundTextureOffsetX' INTEGER NOT NULL DEFAULT 0,
 	'ChronologyIndex' INTEGER NOT NULL UNIQUE,
@@ -360,6 +382,16 @@ CREATE TABLE 'AgeProgressionTurns' (
 	'Points' INTEGER NOT NULL DEFAULT 0,
 	PRIMARY KEY("AgeProgressionTurnType"),
 	FOREIGN KEY ("AgeProgressionType") REFERENCES "AgeProgressions"("AgeProgressionType") ON DELETE CASCADE ON UPDATE CASCADE
+);
+CREATE TABLE 'AgeSuccessors' (
+	'AgeType' TEXT NOT NULL,
+	'SuccessorAgeType' TEXT NOT NULL,
+	'Priority' INTEGER NOT NULL DEFAULT 0,
+	'UnlockType' TEXT,
+	'Weight' INTEGER NOT NULL DEFAULT 1,
+	PRIMARY KEY("AgeType", "SuccessorAgeType"),
+	FOREIGN KEY ("AgeType") REFERENCES "Ages"("AgeType") ON DELETE CASCADE ON UPDATE CASCADE,
+	FOREIGN KEY ("SuccessorAgeType") REFERENCES "Ages"("AgeType") ON DELETE CASCADE ON UPDATE CASCADE
 );
 CREATE TABLE 'AgeTransitionArmyUnits' (
 	'Age' TEXT NOT NULL,
@@ -577,6 +609,13 @@ CREATE TABLE 'AIUnitPrioritizedActions' (
 	FOREIGN KEY ("OperationType") REFERENCES "UnitOperations"("OperationType") ON DELETE CASCADE ON UPDATE CASCADE,
 	FOREIGN KEY ("ChargedUnitAbilityType") REFERENCES "ChargedUnitAbilities"("UnitAbilityType") ON DELETE CASCADE ON UPDATE CASCADE
 );
+CREATE TABLE 'AllowedFreeUnits' (
+	'Age' TEXT NOT NULL,
+	'Unit' TEXT NOT NULL,
+	PRIMARY KEY("Age", "Unit"),
+	FOREIGN KEY ("Age") REFERENCES "Ages"("AgeType") ON DELETE CASCADE ON UPDATE CASCADE,
+	FOREIGN KEY ("Unit") REFERENCES "Units"("UnitType") ON DELETE CASCADE ON UPDATE CASCADE
+);
 CREATE TABLE 'AllowedOperations' (
 	'ListType' TEXT NOT NULL,
 	'OperationDef' TEXT NOT NULL,
@@ -772,6 +811,7 @@ CREATE TABLE 'Buildings' (
 	'ArchaeologyResearch' BOOLEAN NOT NULL DEFAULT 0,
 	'BuildQueue' BOOLEAN NOT NULL DEFAULT 0,
 	'Capital' BOOLEAN NOT NULL DEFAULT 0,
+	'CapitalForbidden' BOOLEAN NOT NULL DEFAULT 0,
 	'CitizenSlots' INTEGER,
 	'CityCenterPriority' INTEGER NOT NULL DEFAULT 0,
 	'DefenseModifier' INTEGER NOT NULL DEFAULT 0,
@@ -860,6 +900,7 @@ CREATE TABLE 'Civilizations' (
 	'CivilizationType' TEXT NOT NULL,
 	'Adjective' TEXT NOT NULL,
 	'AITargetCityPercentage' INTEGER NOT NULL DEFAULT 50,
+	'ApexAge' TEXT,
 	'CapitalName' TEXT NOT NULL,
 	'Description' TEXT,
 	'FullName' TEXT NOT NULL,
@@ -868,8 +909,9 @@ CREATE TABLE 'Civilizations' (
 	'StartingCivilizationLevelType' TEXT NOT NULL,
 	'UniqueCultureProgressionTree' TEXT,
 	PRIMARY KEY("CivilizationType"),
-	FOREIGN KEY ("StartingCivilizationLevelType") REFERENCES "CivilizationLevels"("CivilizationLevelType") ON DELETE SET DEFAULT ON UPDATE CASCADE,
-	FOREIGN KEY ("UniqueCultureProgressionTree") REFERENCES "ProgressionTrees"("ProgressionTreeType") ON DELETE SET DEFAULT ON UPDATE CASCADE,
+	FOREIGN KEY ("ApexAge") REFERENCES "Ages"("AgeType") ON DELETE CASCADE ON UPDATE CASCADE,
+	FOREIGN KEY ("StartingCivilizationLevelType") REFERENCES "CivilizationLevels"("CivilizationLevelType") ON DELETE CASCADE ON UPDATE CASCADE,
+	FOREIGN KEY ("UniqueCultureProgressionTree") REFERENCES "ProgressionTrees"("ProgressionTreeType") ON DELETE CASCADE ON UPDATE CASCADE,
 	FOREIGN KEY ("CivilizationType") REFERENCES "Types"("Type") ON DELETE CASCADE ON UPDATE CASCADE
 );
 CREATE TABLE 'CivilizationCitizenNames' (
@@ -904,6 +946,11 @@ CREATE TABLE 'CivilizationLevels' (
 	'CanReceiveInfluence' BOOLEAN NOT NULL,
 	'IgnoresUnitStrategicResourceRequirements' BOOLEAN NOT NULL DEFAULT 0,
 	PRIMARY KEY("CivilizationLevelType")
+);
+CREATE TABLE 'CivilizationSyncretismUnlocks' (
+	'CivilizationType' TEXT NOT NULL,
+	'UnlockCivilizationType' TEXT NOT NULL,
+	PRIMARY KEY("CivilizationType", "UnlockCivilizationType")
 );
 CREATE TABLE 'CivilizationTraits' (
 	'CivilizationType' TEXT NOT NULL,
@@ -1016,6 +1063,15 @@ CREATE TABLE 'CivilopediaUnitsUniqueUpgrades' (
 	FOREIGN KEY ("BaseUnitType") REFERENCES "Units"("UnitType") ON DELETE CASCADE ON UPDATE CASCADE,
 	FOREIGN KEY ("UpgradeUnitType") REFERENCES "Units"("UnitType") ON DELETE CASCADE ON UPDATE CASCADE
 );
+CREATE TABLE 'CivSelfSyncretismUnlocks' (
+	'Age' TEXT NOT NULL,
+	'CivilizationType' TEXT NOT NULL,
+	'UnlockType' TEXT NOT NULL,
+	'Kind' TEXT NOT NULL,
+	'ModifierID' TEXT NOT NULL,
+	PRIMARY KEY("Age", "CivilizationType", "UnlockType"),
+	FOREIGN KEY ("CivilizationType") REFERENCES "Civilizations"("CivilizationType") ON DELETE CASCADE ON UPDATE CASCADE
+);
 CREATE TABLE 'Constructibles' (
 	'ConstructibleType' TEXT NOT NULL,
 	'AdjacentDistrict' TEXT,
@@ -1054,7 +1110,8 @@ CREATE TABLE 'Constructibles' (
 	PRIMARY KEY("ConstructibleType"),
 	FOREIGN KEY ("Age") REFERENCES "Ages"("AgeType") ON DELETE CASCADE ON UPDATE CASCADE,
 	FOREIGN KEY ("AdjacentDistrict") REFERENCES "Districts"("DistrictType") ON DELETE CASCADE ON UPDATE CASCADE,
-	FOREIGN KEY ("AdjacentTerrain") REFERENCES "Terrains"("TerrainType") ON DELETE SET DEFAULT ON UPDATE SET DEFAULT
+	FOREIGN KEY ("AdjacentTerrain") REFERENCES "Terrains"("TerrainType") ON DELETE SET DEFAULT ON UPDATE SET DEFAULT,
+	FOREIGN KEY ("ConstructibleClass") REFERENCES "ConstructibleClasses"("ConstructibleClassType") ON DELETE CASCADE ON UPDATE CASCADE
 );
 CREATE TABLE 'Constructible_Adjacencies' (
 	'ConstructibleType' TEXT NOT NULL,
@@ -1093,6 +1150,11 @@ CREATE TABLE 'Constructible_CitizenYieldChanges' (
 	PRIMARY KEY("ConstructibleType", "YieldType"),
 	FOREIGN KEY ("ConstructibleType") REFERENCES "Constructibles"("ConstructibleType") ON DELETE CASCADE ON UPDATE CASCADE,
 	FOREIGN KEY ("YieldType") REFERENCES "Yields"("YieldType") ON DELETE CASCADE ON UPDATE CASCADE
+);
+CREATE TABLE 'Constructible_FreeRoads' (
+	'ConstructibleType' TEXT NOT NULL,
+	PRIMARY KEY("ConstructibleType"),
+	FOREIGN KEY ("ConstructibleType") REFERENCES "Constructibles"("ConstructibleType") ON DELETE CASCADE ON UPDATE CASCADE
 );
 CREATE TABLE 'Constructible_GreatPersonPoints' (
 	'ConstructibleType' TEXT NOT NULL,
@@ -1155,7 +1217,8 @@ CREATE TABLE 'Constructible_PillageRandomEvents' (
 	'EventClass' TEXT NOT NULL,
 	'PercentChance' INTEGER NOT NULL DEFAULT 0,
 	PRIMARY KEY("ConstructibleType", "EventClass"),
-	FOREIGN KEY ("ConstructibleType") REFERENCES "Constructibles"("ConstructibleType") ON DELETE CASCADE ON UPDATE CASCADE
+	FOREIGN KEY ("ConstructibleType") REFERENCES "Constructibles"("ConstructibleType") ON DELETE CASCADE ON UPDATE CASCADE,
+	FOREIGN KEY ("EventClass") REFERENCES "EventClasses"("EventClass") ON DELETE CASCADE ON UPDATE CASCADE
 );
 CREATE TABLE 'Constructible_Plunders' (
 	'ConstructibleType' TEXT NOT NULL,
@@ -1278,6 +1341,19 @@ CREATE TABLE 'Continents' (
 	'Description' TEXT,
 	PRIMARY KEY("ContinentType")
 );
+CREATE TABLE 'CultureSlots' (
+	'CultureSlotType' TEXT NOT NULL,
+	'CelebrationReward' BOOLEAN NOT NULL DEFAULT 0,
+	'Name' TEXT NOT NULL,
+	PRIMARY KEY("CultureSlotType")
+);
+CREATE TABLE 'CultureSlotAllowances' (
+	'CultureSlotType' TEXT NOT NULL,
+	'CultureSlotTypeAllowed' TEXT NOT NULL,
+	PRIMARY KEY("CultureSlotType", "CultureSlotTypeAllowed"),
+	FOREIGN KEY ("CultureSlotTypeAllowed") REFERENCES "CultureSlots"("CultureSlotType") ON DELETE CASCADE ON UPDATE CASCADE,
+	FOREIGN KEY ("CultureSlotTypeAllowed") REFERENCES "Traditions"("CultureSlotType") ON DELETE CASCADE ON UPDATE CASCADE
+);
 CREATE TABLE 'DataTypes' (
 	'DataId' INTEGER NOT NULL UNIQUE,
 	'TypeName' TEXT NOT NULL UNIQUE,
@@ -1322,8 +1398,10 @@ CREATE TABLE 'DiplomacyActions' (
 	'BlocksTargetProject' BOOLEAN NOT NULL DEFAULT 0,
 	'CancelPenalty' INTEGER NOT NULL DEFAULT 0,
 	'ChangeSupportMsg' LOC_TEXT,
+	'CostProgressionParam1' INTEGER NOT NULL DEFAULT 0,
 	'Description' LOC_TEXT NOT NULL,
 	'DiplomacyActionTag' TEXT,
+	'DiplomacyCostProgressionModel' TEXT NOT NULL DEFAULT "NO_DIPLOMACY_COST_PROGRESSION",
 	'EnvoysInfluenceProgress' BOOLEAN NOT NULL DEFAULT 0,
 	'IsMutualSupport' BOOLEAN NOT NULL DEFAULT 0,
 	'MaxThirdPartySupport' INTEGER NOT NULL DEFAULT 0,
@@ -1773,6 +1851,7 @@ CREATE TABLE 'Features' (
 	'AllowSettlement' BOOLEAN NOT NULL DEFAULT 1,
 	'AntiquityPriority' INTEGER NOT NULL DEFAULT 0,
 	'Appeal' INTEGER NOT NULL DEFAULT 0,
+	'AvoidWhenPathfinding' BOOLEAN DEFAULT 0,
 	'DefenseModifier' INTEGER NOT NULL DEFAULT 0,
 	'Description' TEXT UNIQUE,
 	'FeatureClassType' TEXT,
@@ -2045,6 +2124,7 @@ CREATE TABLE 'GreatPersonClasses' (
 	'ActionIcon' TEXT NOT NULL,
 	'AvailableInTimeline' BOOLEAN NOT NULL DEFAULT 1,
 	'CityStatesSuzerained' INTEGER NOT NULL DEFAULT 0,
+	'ConstructibleTag' TEXT,
 	'ConstructibleType' TEXT,
 	'GenerateDuplicateIndividuals' BOOLEAN NOT NULL DEFAULT 0,
 	'IconString' TEXT NOT NULL,
@@ -2117,6 +2197,7 @@ CREATE TABLE 'GreatPersonIndividuals' (
 	'Name' TEXT NOT NULL,
 	'PercentCostReductionPerLegacyPoint' INTEGER NOT NULL DEFAULT 0,
 	'ScaleCostsByLegacyPointCardType' TEXT,
+	'ScaleGoldCostByActivation' BOOLEAN NOT NULL DEFAULT 0,
 	'ScaleGoldCostByRelationship' BOOLEAN NOT NULL DEFAULT 0,
 	'ScaleInfluenceCostByRelationship' BOOLEAN NOT NULL DEFAULT 0,
 	'Settler' BOOLEAN NOT NULL DEFAULT 0,
@@ -2373,6 +2454,11 @@ CREATE TABLE 'LeaderInfo' (
 	PRIMARY KEY("Header", "LeaderType"),
 	FOREIGN KEY ("LeaderType") REFERENCES "Leaders"("LeaderType") ON DELETE CASCADE ON UPDATE CASCADE
 );
+CREATE TABLE 'LeaderSyncretismUnlocks' (
+	'LeaderType' TEXT NOT NULL,
+	'UnlockCivilizationType' TEXT NOT NULL,
+	PRIMARY KEY("LeaderType", "UnlockCivilizationType")
+);
 CREATE TABLE 'LeaderTraits' (
 	'LeaderType' TEXT NOT NULL,
 	'TraitType' TEXT NOT NULL,
@@ -2385,6 +2471,9 @@ CREATE TABLE 'Legacies' (
 	'Age' TEXT NOT NULL,
 	'Description' TEXT NOT NULL,
 	'FirstPlayerOnly' BOOLEAN NOT NULL DEFAULT 0,
+	'Inactive' BOOLEAN NOT NULL DEFAULT 0,
+	'LegacySubtype' TEXT NOT NULL,
+	'MajorLegacy' BOOLEAN NOT NULL DEFAULT 1,
 	'Name' TEXT NOT NULL,
 	'ProgressString' TEXT,
 	'TraitType' TEXT,
@@ -2457,6 +2546,10 @@ CREATE TABLE 'LegacySets' (
 	'Description' TEXT,
 	'Name' TEXT NOT NULL,
 	PRIMARY KEY("LegacySetType")
+);
+CREATE TABLE 'LegacySubtypes' (
+	'LegacySubtype' TEXT NOT NULL,
+	PRIMARY KEY("LegacySubtype")
 );
 CREATE TABLE 'LoadingInfo_Ages' (
 	'AgeType' TEXT NOT NULL,
@@ -2770,6 +2863,7 @@ CREATE TABLE 'NarrativeStory_Activations' (
 CREATE TABLE 'NarrativeStory_Links' (
 	'FromNarrativeStoryType' TEXT NOT NULL,
 	'ToNarrativeStoryType' TEXT NOT NULL,
+	'AIPriority' BOOLEAN NOT NULL DEFAULT 0,
 	'Description' LOC_TEXT NOT NULL,
 	'Imperative' LOC_TEXT,
 	'Name' LOC_TEXT NOT NULL,
@@ -2788,6 +2882,7 @@ CREATE TABLE 'NarrativeStory_Rewards' (
 	'NarrativeStoryType' TEXT NOT NULL,
 	'Activation' TEXT NOT NULL,
 	'BonusEligible' BOOLEAN NOT NULL DEFAULT 1,
+	'Temporary' BOOLEAN NOT NULL DEFAULT 0,
 	PRIMARY KEY("NarrativeRewardType", "NarrativeStoryType"),
 	FOREIGN KEY ("NarrativeStoryType") REFERENCES "NarrativeStories"("NarrativeStoryType") ON DELETE CASCADE ON UPDATE CASCADE,
 	FOREIGN KEY ("NarrativeRewardType") REFERENCES "NarrativeRewards"("NarrativeRewardType") ON DELETE CASCADE ON UPDATE CASCADE,
@@ -2806,6 +2901,7 @@ CREATE TABLE 'NarrativeStory_TextReplacements' (
 	'NarrativeStoryTextType' TEXT NOT NULL,
 	'NarrativeStoryType' TEXT NOT NULL,
 	'Priority' INTEGER NOT NULL DEFAULT 0,
+	'Amount' INTEGER,
 	'NarrativeTextReplacementType' TEXT NOT NULL,
 	PRIMARY KEY("NarrativeStoryTextType", "NarrativeStoryType", "Priority"),
 	FOREIGN KEY ("NarrativeStoryType") REFERENCES "NarrativeStories"("NarrativeStoryType") ON DELETE CASCADE ON UPDATE CASCADE
@@ -2941,6 +3037,7 @@ CREATE TABLE 'PlotEvalConditions' (
 CREATE TABLE 'Plunders' (
 	'PlunderType' TEXT NOT NULL,
 	'Name' TEXT NOT NULL,
+	'ScaleByGameSpeed' BOOLEAN NOT NULL,
 	PRIMARY KEY("PlunderType")
 );
 CREATE TABLE 'PrevailingWinds' (
@@ -2952,6 +3049,7 @@ CREATE TABLE 'PrevailingWinds' (
 CREATE TABLE 'ProgressionTrees' (
 	'ProgressionTreeType' TEXT NOT NULL,
 	'AgeType' TEXT,
+	'CivInjectedName' TEXT,
 	'CostProgressionModel' TEXT NOT NULL DEFAULT "NO_COST_PROGRESSION",
 	'CostProgressionParam1' INTEGER NOT NULL DEFAULT 0,
 	'IconString' TEXT,
@@ -2974,6 +3072,8 @@ CREATE TABLE 'ProgressionTreeNodes' (
 	'ProgressionTreeNodeType' TEXT NOT NULL,
 	'CanBoost' BOOLEAN NOT NULL DEFAULT 1,
 	'CanSteal' BOOLEAN NOT NULL DEFAULT 1,
+	'CivInjectedIcon' BOOLEAN NOT NULL DEFAULT 0,
+	'CivInjectedName' TEXT,
 	'Cost' INTEGER NOT NULL,
 	'Description' TEXT,
 	'IconString' TEXT,
@@ -3029,6 +3129,7 @@ CREATE TABLE 'Projects' (
 	'ExclusiveSpecialization' BOOLEAN NOT NULL DEFAULT 0,
 	'Food' BOOLEAN NOT NULL DEFAULT 0,
 	'MaxPlayerInstances' INTEGER,
+	'MaxSpecializationInstancesOnContinent' INTEGER,
 	'Name' TEXT NOT NULL,
 	'OuterDefenseRepair' BOOLEAN NOT NULL DEFAULT 0,
 	'PopupText' TEXT,
@@ -3125,6 +3226,7 @@ CREATE TABLE 'RandomEvents' (
 	'Severity' INTEGER NOT NULL,
 	'Spacing' INTEGER,
 	PRIMARY KEY("RandomEventType"),
+	FOREIGN KEY ("EventClass") REFERENCES "EventClasses"("EventClass") ON DELETE CASCADE ON UPDATE CASCADE,
 	FOREIGN KEY ("NaturalWonder") REFERENCES "Features"("FeatureType") ON DELETE CASCADE ON UPDATE CASCADE,
 	FOREIGN KEY ("BiomeType") REFERENCES "Biomes"("BiomeType") ON DELETE CASCADE ON UPDATE CASCADE
 );
@@ -3154,6 +3256,7 @@ CREATE TABLE 'RandomEventPlotEffects' (
 );
 CREATE TABLE 'RandomEventUI' (
 	'EventClass' TEXT NOT NULL UNIQUE,
+	'AlertTooltip' TEXT,
 	'Tooltip' TEXT NOT NULL,
 	PRIMARY KEY("EventClass"),
 	FOREIGN KEY ("EventClass") REFERENCES "EventClasses"("EventClass") ON DELETE CASCADE ON UPDATE CASCADE
@@ -3337,6 +3440,12 @@ CREATE TABLE 'ResourceClassApplicableLegacyPaths' (
 	FOREIGN KEY ("ResourceClassType") REFERENCES "ResourceClasses"("ResourceClassType") ON DELETE CASCADE ON UPDATE CASCADE,
 	FOREIGN KEY ("LegacyPathType") REFERENCES "LegacyPaths"("LegacyPathType") ON DELETE CASCADE ON UPDATE CASCADE
 );
+CREATE TABLE 'RestrictedAdvancedStartCards' (
+	'CardID' TEXT NOT NULL UNIQUE,
+	'Civilization' TEXT,
+	PRIMARY KEY("CardID", "Civilization"),
+	FOREIGN KEY ("CardID") REFERENCES "AdvancedStartCards"("CardID") ON DELETE CASCADE ON UPDATE CASCADE
+);
 CREATE TABLE 'Routes' (
 	'RouteType' TEXT NOT NULL,
 	'Description' TEXT NOT NULL,
@@ -3499,12 +3608,18 @@ CREATE TABLE 'StartingGovernments' (
 	FOREIGN KEY ("AgeType") REFERENCES "Ages"("AgeType") ON DELETE CASCADE ON UPDATE CASCADE,
 	FOREIGN KEY ("GovernmentType") REFERENCES "Governments"("GovernmentType") ON DELETE CASCADE ON UPDATE CASCADE
 );
+CREATE TABLE 'StartingPolicies' (
+	'AgeType' TEXT,
+	'TraditionType' TEXT NOT NULL,
+	PRIMARY KEY("AgeType", "TraditionType"),
+	FOREIGN KEY ("TraditionType") REFERENCES "Traditions"("TraditionType") ON DELETE CASCADE ON UPDATE CASCADE,
+	FOREIGN KEY ("AgeType") REFERENCES "Ages"("AgeType") ON DELETE CASCADE ON UPDATE CASCADE
+);
 CREATE TABLE 'Strategies' (
 	'StrategyType' TEXT NOT NULL,
 	'BehaviorTree' TEXT,
 	'CityStrategy' BOOLEAN NOT NULL DEFAULT 0,
 	'CountdownVictoryType' TEXT,
-	'LegacyPathType' TEXT,
 	'MaxNumConditionsNeeded' INTEGER NOT NULL DEFAULT 1,
 	'MinConditionPercentage' INTEGER NOT NULL DEFAULT 25,
 	'MinNumConditionsNeeded' INTEGER NOT NULL DEFAULT 1,
@@ -3512,8 +3627,14 @@ CREATE TABLE 'Strategies' (
 	'SaveInfluenceForVictory' TEXT,
 	PRIMARY KEY("StrategyType"),
 	FOREIGN KEY ("BehaviorTree") REFERENCES "BehaviorTrees"("TreeName") ON DELETE CASCADE ON UPDATE CASCADE,
-	FOREIGN KEY ("LegacyPathType") REFERENCES "LegacyPaths"("LegacyPathType") ON DELETE CASCADE ON UPDATE CASCADE,
-	FOREIGN KEY ("CountdownVictoryType") REFERENCES "VictoryTypes"("VictoryType") ON DELETE CASCADE ON UPDATE CASCADE
+	FOREIGN KEY ("CountdownVictoryType") REFERENCES "Victories"("VictoryType") ON DELETE CASCADE ON UPDATE CASCADE
+);
+CREATE TABLE 'Strategy_Legacies' (
+	'LegacyType' TEXT NOT NULL,
+	'StrategyType' TEXT NOT NULL,
+	PRIMARY KEY("LegacyType", "StrategyType"),
+	FOREIGN KEY ("StrategyType") REFERENCES "Strategies"("StrategyType") ON DELETE CASCADE ON UPDATE CASCADE,
+	FOREIGN KEY ("LegacyType") REFERENCES "Legacies"("LegacyType") ON DELETE CASCADE ON UPDATE CASCADE
 );
 CREATE TABLE 'Strategy_Priorities' (
 	'ListType' TEXT NOT NULL,
@@ -3542,6 +3663,13 @@ CREATE TABLE 'StrategyConditions' (
 	'ThresholdValue' INTEGER NOT NULL DEFAULT 0,
 	PRIMARY KEY("ConditionFunction", "Exclusive", "StrategyType", "StringValue"),
 	FOREIGN KEY ("StrategyType") REFERENCES "Strategies"("StrategyType") ON DELETE CASCADE ON UPDATE CASCADE
+);
+CREATE TABLE 'SyncretismExceptions' (
+	'Type' TEXT NOT NULL,
+	'IncludeAsInfrastructureUpgrade' BOOLEAN NOT NULL,
+	'IncludeAsUnitUpgrade' BOOLEAN NOT NULL,
+	'Kind' TEXT NOT NULL,
+	PRIMARY KEY("Type")
 );
 CREATE TABLE 'Tags' (
 	'Tag' TEXT NOT NULL,
@@ -3605,16 +3733,18 @@ CREATE TABLE 'TradeYields' (
 CREATE TABLE 'Traditions' (
 	'TraditionType' TEXT NOT NULL,
 	'AgeType' TEXT,
+	'AllowInitializeAdvancedStart' BOOLEAN NOT NULL DEFAULT 0,
+	'CultureSlotType' TEXT NOT NULL,
 	'Description' TEXT,
+	'IgnoreInitializeUnlock' BOOLEAN NOT NULL DEFAULT 0,
 	'IsCrisis' BOOLEAN NOT NULL DEFAULT 0,
 	'Name' TEXT NOT NULL,
 	'ObsoletesTraditionType' TEXT,
-	'OnlyLegacyCivTrait' BOOLEAN NOT NULL DEFAULT 0,
 	'TraitType' TEXT,
-	'UseLegacyTraits' BOOLEAN NOT NULL DEFAULT 1,
 	PRIMARY KEY("TraditionType"),
 	FOREIGN KEY ("TraitType") REFERENCES "Traits"("TraitType") ON DELETE SET DEFAULT ON UPDATE SET DEFAULT,
-	FOREIGN KEY ("AgeType") REFERENCES "Ages"("AgeType") ON DELETE CASCADE ON UPDATE CASCADE
+	FOREIGN KEY ("AgeType") REFERENCES "Ages"("AgeType") ON DELETE CASCADE ON UPDATE CASCADE,
+	FOREIGN KEY ("CultureSlotType") REFERENCES "CultureSlots"("CultureSlotType") ON DELETE CASCADE ON UPDATE CASCADE
 );
 CREATE TABLE 'TraditionAttributes' (
 	'AttributeType' TEXT NOT NULL,
@@ -3629,6 +3759,10 @@ CREATE TABLE 'TraditionModifiers' (
 	PRIMARY KEY("ModifierId", "TraditionType"),
 	FOREIGN KEY ("TraditionType") REFERENCES "Traditions"("TraditionType") ON DELETE CASCADE ON UPDATE CASCADE,
 	FOREIGN KEY ("ModifierId") REFERENCES "Modifiers"("ModifierId") ON DELETE CASCADE ON UPDATE CASCADE
+);
+CREATE TABLE 'TraditionUnlockNotifications' (
+	'TraditionType' TEXT NOT NULL,
+	PRIMARY KEY("TraditionType")
 );
 CREATE TABLE 'Traits' (
 	'TraitType' TEXT NOT NULL,
@@ -3724,9 +3858,12 @@ CREATE TABLE 'TurnPhases' (
 );
 CREATE TABLE 'TurnSegments' (
 	'TurnSegmentType' TEXT NOT NULL,
+	'AllowAgeTransitionCommands' BOOLEAN NOT NULL DEFAULT 0,
 	'AllowStrategicCommands' BOOLEAN NOT NULL DEFAULT 0,
 	'AllowTacticalCommands' BOOLEAN NOT NULL DEFAULT 0,
 	'AllowTurnUnready' BOOLEAN NOT NULL DEFAULT 1,
+	'CancelRemainingActions' BOOLEAN NOT NULL DEFAULT 1,
+	'ExplicitActivation' BOOLEAN NOT NULL DEFAULT 0,
 	'Name' TEXT,
 	'Sound' TEXT,
 	'TimeLimit_Base' INTEGER NOT NULL DEFAULT 0,
@@ -3773,7 +3910,6 @@ CREATE TABLE 'TypeQuotes' (
 CREATE TABLE 'TypeTags' (
 	'Tag' TEXT NOT NULL,
 	'Type' TEXT NOT NULL,
-	'ShowActivationPlots' BOOLEAN NOT NULL DEFAULT 0,
 	PRIMARY KEY("Tag", "Type"),
 	FOREIGN KEY ("Type") REFERENCES "Types"("Type") ON DELETE CASCADE ON UPDATE CASCADE,
 	FOREIGN KEY ("Tag") REFERENCES "Tags"("Tag") ON DELETE CASCADE ON UPDATE CASCADE
@@ -4174,6 +4310,12 @@ CREATE TABLE 'UnitUpgrades' (
 	FOREIGN KEY ("UpgradeUnit") REFERENCES "Units"("UnitType") ON DELETE CASCADE ON UPDATE CASCADE,
 	FOREIGN KEY ("Unit") REFERENCES "Units"("UnitType") ON DELETE CASCADE ON UPDATE CASCADE
 );
+CREATE TABLE 'UnitUpgradeKills' (
+	'UnitType' TEXT NOT NULL,
+	'KillCount' INTEGER NOT NULL DEFAULT 0,
+	PRIMARY KEY("UnitType"),
+	FOREIGN KEY ("UnitType") REFERENCES "Units"("UnitType") ON DELETE CASCADE ON UPDATE CASCADE
+);
 CREATE TABLE 'Unlocks' (
 	'UnlockType' TEXT NOT NULL,
 	PRIMARY KEY("UnlockType"),
@@ -4189,6 +4331,7 @@ CREATE TABLE 'UnlockRequirements' (
 	'RequirementSetId' TEXT NOT NULL,
 	'UnlockType' TEXT NOT NULL,
 	'Description' LOC_TEXT,
+	'GameplayUnlock' BOOLEAN NOT NULL DEFAULT 0,
 	'NarrativeText' LOC_TEXT,
 	'ToolTip' LOC_TEXT,
 	PRIMARY KEY("RequirementSetId", "UnlockType"),
@@ -4213,6 +4356,7 @@ CREATE TABLE 'Victories' (
 	'RequirementSetId' TEXT NOT NULL,
 	'RequiresMultipleTeams' BOOLEAN NOT NULL DEFAULT 0,
 	'VictoryClassType' TEXT NOT NULL,
+	'VictorySound' TEXT,
 	PRIMARY KEY("VictoryType"),
 	FOREIGN KEY ("VictoryClassType") REFERENCES "VictoryClasses"("VictoryClassType") ON DELETE CASCADE ON UPDATE CASCADE,
 	FOREIGN KEY ("RequirementSetId") REFERENCES "RequirementSets"("RequirementSetId") ON DELETE CASCADE ON UPDATE CASCADE
@@ -4229,26 +4373,53 @@ CREATE TABLE 'VictoryClasses' (
 	'Name' TEXT NOT NULL,
 	PRIMARY KEY("VictoryClassType")
 );
+CREATE TABLE 'VictoryDataUIs' (
+	'Key' TEXT NOT NULL,
+	'IconOverride' TEXT,
+	'Name' TEXT NOT NULL,
+	'SortOrder' INTEGER DEFAULT 0,
+	PRIMARY KEY("Key")
+);
+CREATE TABLE 'VictoryDominationPercents' (
+	'MinAgeProgressPercent' INTEGER NOT NULL DEFAULT -1,
+	'PreviousAgeCount' INTEGER NOT NULL DEFAULT -1,
+	'StartingAge' TEXT NOT NULL,
+	'VictoryType' TEXT NOT NULL,
+	'DominationPercent' INTEGER NOT NULL DEFAULT -1,
+	'Name' TEXT NOT NULL,
+	PRIMARY KEY("MinAgeProgressPercent", "PreviousAgeCount", "StartingAge", "VictoryType"),
+	FOREIGN KEY ("StartingAge") REFERENCES "Ages"("AgeType") ON DELETE CASCADE ON UPDATE CASCADE
+);
 CREATE TABLE 'VictoryScorings' (
 	'ScoringId' TEXT NOT NULL,
 	'Data' TEXT,
 	'Name' TEXT NOT NULL,
 	'Points' INTEGER NOT NULL DEFAULT 0,
-	'ScoringType' TEXT NOT NULL,
+	'RequiresActivation' BOOLEAN NOT NULL DEFAULT 0,
 	'StaticCarryover' BOOLEAN NOT NULL DEFAULT 0,
+	'TrackerType' TEXT NOT NULL,
 	'VictoryType' TEXT NOT NULL,
 	PRIMARY KEY("ScoringId")
+);
+CREATE TABLE 'VictoryScoringArgs' (
+	'Key' TEXT,
+	'ScoringId' TEXT NOT NULL,
+	'ValueAsInt' INTEGER NOT NULL DEFAULT 0,
+	'ValueAsText' TEXT,
+	PRIMARY KEY("Key", "ScoringId"),
+	FOREIGN KEY ("ScoringId") REFERENCES "VictoryScorings"("ScoringId") ON DELETE CASCADE ON UPDATE CASCADE
 );
 CREATE TABLE 'VictoryTypes' (
 	'VictoryType' TEXT NOT NULL,
 	'CountdownDuration' INTEGER NOT NULL DEFAULT -1,
 	'Description' TEXT NOT NULL,
-	'DominationAmount' INTEGER NOT NULL DEFAULT -1,
-	'DominationPercent' INTEGER NOT NULL DEFAULT -1,
 	'FinalAge' TEXT NOT NULL,
+	'MinimumPoints' INTEGER NOT NULL DEFAULT 0,
 	'Name' TEXT NOT NULL,
 	'PrereqRequirementSetId' TEXT,
-	PRIMARY KEY("VictoryType")
+	'ScoringType' TEXT NOT NULL,
+	PRIMARY KEY("VictoryType"),
+	FOREIGN KEY ("VictoryType") REFERENCES "Victories"("VictoryType") ON DELETE CASCADE ON UPDATE CASCADE
 );
 CREATE TABLE 'VisArt_CivilizationBuildingCultures' (
 	'BuildingCulture' TEXT NOT NULL,
@@ -4362,6 +4533,12 @@ CREATE TABLE 'WorkerYields' (
 	PRIMARY KEY("YieldType"),
 	FOREIGN KEY ("YieldType") REFERENCES "Yields"("YieldType") ON DELETE CASCADE ON UPDATE CASCADE
 );
+CREATE TABLE 'WorkerYields_AgeModifier' (
+	'YieldType' TEXT NOT NULL,
+	'Amount' INTEGER NOT NULL,
+	PRIMARY KEY("YieldType"),
+	FOREIGN KEY ("YieldType") REFERENCES "Yields"("YieldType") ON DELETE CASCADE ON UPDATE CASCADE
+);
 CREATE TABLE 'Yields' (
 	'YieldType' TEXT NOT NULL,
 	'DefaultValue' REAL NOT NULL DEFAULT 1,
@@ -4385,6 +4562,7 @@ CREATE TRIGGER OnDelete_Terrains_Cascade_Adjacency_YieldChangesAdjacentTerrain A
 CREATE TRIGGER OnDelete_Features_Cascade_Adjacency_YieldChangesAdjacentFeature AFTER DELETE ON Features FOR EACH ROW BEGIN DELETE FROM Adjacency_YieldChanges WHERE AdjacentFeature = OLD.FeatureType; END;
 CREATE TRIGGER OnDelete_Constructibles_Cascade_Adjacency_YieldChangesAdjacentConstructible AFTER DELETE ON Constructibles FOR EACH ROW BEGIN DELETE FROM Adjacency_YieldChanges WHERE AdjacentConstructible = OLD.ConstructibleType; END;
 CREATE TRIGGER OnDelete_Districts_Cascade_Adjacency_YieldChangesAdjacentDistrict AFTER DELETE ON Districts FOR EACH ROW BEGIN DELETE FROM Adjacency_YieldChanges WHERE AdjacentDistrict = OLD.DistrictType; END;
+CREATE TRIGGER OnDelete_Resources_Cascade_Adjacency_YieldChangesAdjacentSpecificResource AFTER DELETE ON Resources FOR EACH ROW BEGIN DELETE FROM Adjacency_YieldChanges WHERE AdjacentSpecificResource = OLD.ResourceType; END;
 CREATE TRIGGER OnDelete_Ages_Cascade_AdvancedStartAgesAgeType AFTER DELETE ON Ages FOR EACH ROW BEGIN DELETE FROM AdvancedStartAges WHERE AgeType = OLD.AgeType; END;
 CREATE TRIGGER OnDelete_Ages_Cascade_AdvancedStartCardsAge AFTER DELETE ON Ages FOR EACH ROW BEGIN DELETE FROM AdvancedStartCards WHERE Age = OLD.AgeType; END;
 CREATE TRIGGER OnDelete_AdvancedStartCards_Cascade_AdvancedStartAIModifiersCardID AFTER DELETE ON AdvancedStartCards FOR EACH ROW BEGIN DELETE FROM AdvancedStartAIModifiers WHERE CardID = OLD.CardID; END;
@@ -4398,10 +4576,12 @@ CREATE TRIGGER OnDelete_Ages_Cascade_AdvancedStartUnitsAge AFTER DELETE ON Ages 
 CREATE TRIGGER OnDelete_Units_Cascade_AdvancedStartUnitsUnit AFTER DELETE ON Units FOR EACH ROW BEGIN DELETE FROM AdvancedStartUnits WHERE Unit = OLD.UnitType; END;
 CREATE TRIGGER OnDelete_Difficulties_Cascade_AdvancedStartUnitsMinDifficulty AFTER DELETE ON Difficulties FOR EACH ROW BEGIN DELETE FROM AdvancedStartUnits WHERE MinDifficulty = OLD.DifficultyType; END;
 CREATE TRIGGER OnDelete_Districts_Cascade_AdvancedStartUnitsDistrict AFTER DELETE ON Districts FOR EACH ROW BEGIN DELETE FROM AdvancedStartUnits WHERE District = OLD.DistrictType; END;
+CREATE TRIGGER OnDelete_Advisors_Cascade_AdviceInstancesAdvisorType AFTER DELETE ON Advisors FOR EACH ROW BEGIN DELETE FROM AdviceInstances WHERE AdvisorType = OLD.AdvisorType; END;
 CREATE TRIGGER OnDelete_Advisors_Cascade_AdvisorSubjectsAdvisorType AFTER DELETE ON Advisors FOR EACH ROW BEGIN DELETE FROM AdvisorSubjects WHERE AdvisorType = OLD.AdvisorType; END;
 CREATE TRIGGER OnDelete_AdvisorySubjects_Cascade_AdvisorSubjectsAdvisorySubjectType AFTER DELETE ON AdvisorySubjects FOR EACH ROW BEGIN DELETE FROM AdvisorSubjects WHERE AdvisorySubjectType = OLD.AdvisorySubjectType; END;
 CREATE TRIGGER OnDelete_AdvisoryClasses_Cascade_AdvisorSubjectsAdvisoryClassType AFTER DELETE ON AdvisoryClasses FOR EACH ROW BEGIN DELETE FROM AdvisorSubjects WHERE AdvisoryClassType = OLD.AdvisoryClassType; END;
 CREATE TRIGGER OnDelete_Difficulties_Cascade_AdvisorWarningsMaxDifficulty AFTER DELETE ON Difficulties FOR EACH ROW BEGIN DELETE FROM AdvisorWarnings WHERE MaxDifficulty = OLD.DifficultyType; END;
+CREATE TRIGGER OnDelete_AdviceInstances_Cascade_AdvisorWarningsAdviceID AFTER DELETE ON AdviceInstances FOR EACH ROW BEGIN DELETE FROM AdvisorWarnings WHERE AdviceID = OLD.AdviceID; END;
 CREATE TRIGGER OnDelete_Types_Cascade_AgesAgeType AFTER DELETE ON Types FOR EACH ROW BEGIN DELETE FROM Ages WHERE AgeType = OLD.Type; END;
 CREATE TRIGGER OnDelete_ProgressionTrees_Cascade_AgesMainCultureProgressionTreeType AFTER DELETE ON ProgressionTrees FOR EACH ROW BEGIN DELETE FROM Ages WHERE MainCultureProgressionTreeType = OLD.ProgressionTreeType; END;
 CREATE TRIGGER OnDelete_ProgressionTrees_Cascade_AgesMainTechProgressionTreeType AFTER DELETE ON ProgressionTrees FOR EACH ROW BEGIN DELETE FROM Ages WHERE MainTechProgressionTreeType = OLD.ProgressionTreeType; END;
@@ -4424,6 +4604,8 @@ CREATE TRIGGER OnDelete_AgeProgressionMilestones_Cascade_AgeProgressionMilestone
 CREATE TRIGGER OnDelete_AgeProgressionRewards_Cascade_AgeProgressionMilestoneRewardsAgeProgressionRewardType AFTER DELETE ON AgeProgressionRewards FOR EACH ROW BEGIN DELETE FROM AgeProgressionMilestoneRewards WHERE AgeProgressionRewardType = OLD.AgeProgressionRewardType; END;
 CREATE TRIGGER OnDelete_Notifications_Cascade_AgeProgressionNotificationsNotificationType AFTER DELETE ON Notifications FOR EACH ROW BEGIN DELETE FROM AgeProgressionNotifications WHERE NotificationType = OLD.NotificationType; END;
 CREATE TRIGGER OnDelete_AgeProgressions_Cascade_AgeProgressionTurnsAgeProgressionType AFTER DELETE ON AgeProgressions FOR EACH ROW BEGIN DELETE FROM AgeProgressionTurns WHERE AgeProgressionType = OLD.AgeProgressionType; END;
+CREATE TRIGGER OnDelete_Ages_Cascade_AgeSuccessorsAgeType AFTER DELETE ON Ages FOR EACH ROW BEGIN DELETE FROM AgeSuccessors WHERE AgeType = OLD.AgeType; END;
+CREATE TRIGGER OnDelete_Ages_Cascade_AgeSuccessorsSuccessorAgeType AFTER DELETE ON Ages FOR EACH ROW BEGIN DELETE FROM AgeSuccessors WHERE SuccessorAgeType = OLD.AgeType; END;
 CREATE TRIGGER OnDelete_Ages_Cascade_AgeTransitionBoostableNodesAge AFTER DELETE ON Ages FOR EACH ROW BEGIN DELETE FROM AgeTransitionBoostableNodes WHERE Age = OLD.AgeType; END;
 CREATE TRIGGER OnDelete_Ages_Cascade_AgeTransitionCardSetsAge AFTER DELETE ON Ages FOR EACH ROW BEGIN DELETE FROM AgeTransitionCardSets WHERE Age = OLD.AgeType; END;
 CREATE TRIGGER OnDelete_Ages_Cascade_AgeTransitionLegacyPointsAge AFTER DELETE ON Ages FOR EACH ROW BEGIN DELETE FROM AgeTransitionLegacyPoints WHERE Age = OLD.AgeType; END;
@@ -4455,6 +4637,8 @@ CREATE TRIGGER OnDelete_Units_Cascade_AIUnitPrioritizedActionsUnitType AFTER DEL
 CREATE TRIGGER OnDelete_UnitCommands_Cascade_AIUnitPrioritizedActionsCommandType AFTER DELETE ON UnitCommands FOR EACH ROW BEGIN DELETE FROM AIUnitPrioritizedActions WHERE CommandType = OLD.CommandType; END;
 CREATE TRIGGER OnDelete_UnitOperations_Cascade_AIUnitPrioritizedActionsOperationType AFTER DELETE ON UnitOperations FOR EACH ROW BEGIN DELETE FROM AIUnitPrioritizedActions WHERE OperationType = OLD.OperationType; END;
 CREATE TRIGGER OnDelete_ChargedUnitAbilities_Cascade_AIUnitPrioritizedActionsChargedUnitAbilityType AFTER DELETE ON ChargedUnitAbilities FOR EACH ROW BEGIN DELETE FROM AIUnitPrioritizedActions WHERE ChargedUnitAbilityType = OLD.UnitAbilityType; END;
+CREATE TRIGGER OnDelete_Ages_Cascade_AllowedFreeUnitsAge AFTER DELETE ON Ages FOR EACH ROW BEGIN DELETE FROM AllowedFreeUnits WHERE Age = OLD.AgeType; END;
+CREATE TRIGGER OnDelete_Units_Cascade_AllowedFreeUnitsUnit AFTER DELETE ON Units FOR EACH ROW BEGIN DELETE FROM AllowedFreeUnits WHERE Unit = OLD.UnitType; END;
 CREATE TRIGGER OnDelete_AiOperationLists_Cascade_AllowedOperationsListType AFTER DELETE ON AiOperationLists FOR EACH ROW BEGIN DELETE FROM AllowedOperations WHERE ListType = OLD.ListType; END;
 CREATE TRIGGER OnDelete_AiOperationDefs_Cascade_AllowedOperationsOperationDef AFTER DELETE ON AiOperationDefs FOR EACH ROW BEGIN DELETE FROM AllowedOperations WHERE OperationDef = OLD.OperationName; END;
 CREATE TRIGGER OnDelete_ProgressionTrees_Cascade_AttributesProgressionTreeType AFTER DELETE ON ProgressionTrees FOR EACH ROW BEGIN DELETE FROM Attributes WHERE ProgressionTreeType = OLD.ProgressionTreeType; END;
@@ -4496,6 +4680,7 @@ CREATE TRIGGER OnDelete_Leaders_Cascade_CityNamesLeaderType AFTER DELETE ON Lead
 CREATE TRIGGER OnDelete_Continents_Cascade_CityNamesContinentType AFTER DELETE ON Continents FOR EACH ROW BEGIN DELETE FROM CityNames WHERE ContinentType = OLD.ContinentType; END;
 CREATE TRIGGER OnDelete_CityStateTypes_Cascade_CityStateBonusesCityStateType AFTER DELETE ON CityStateTypes FOR EACH ROW BEGIN DELETE FROM CityStateBonuses WHERE CityStateType = OLD.CityStateType; END;
 CREATE TRIGGER OnDelete_CityStateBonuses_Cascade_CityStateBonusModifiersCityStateBonusType AFTER DELETE ON CityStateBonuses FOR EACH ROW BEGIN DELETE FROM CityStateBonusModifiers WHERE CityStateBonusType = OLD.CityStateBonusType; END;
+CREATE TRIGGER OnDelete_Ages_Cascade_CivilizationsApexAge AFTER DELETE ON Ages FOR EACH ROW BEGIN DELETE FROM Civilizations WHERE ApexAge = OLD.AgeType; END;
 CREATE TRIGGER OnDelete_CivilizationLevels_Cascade_CivilizationsStartingCivilizationLevelType AFTER DELETE ON CivilizationLevels FOR EACH ROW BEGIN DELETE FROM Civilizations WHERE StartingCivilizationLevelType = OLD.CivilizationLevelType; END;
 CREATE TRIGGER OnDelete_ProgressionTrees_Cascade_CivilizationsUniqueCultureProgressionTree AFTER DELETE ON ProgressionTrees FOR EACH ROW BEGIN DELETE FROM Civilizations WHERE UniqueCultureProgressionTree = OLD.ProgressionTreeType; END;
 CREATE TRIGGER OnDelete_Types_Cascade_CivilizationsCivilizationType AFTER DELETE ON Types FOR EACH ROW BEGIN DELETE FROM Civilizations WHERE CivilizationType = OLD.Type; END;
@@ -4508,9 +4693,11 @@ CREATE TRIGGER OnDelete_CivilopediaPageLayouts_Cascade_CivilopediaPagesPageLayou
 CREATE TRIGGER OnDelete_CivilopediaPageLayouts_Cascade_CivilopediaPageLayoutChaptersPageLayoutID AFTER DELETE ON CivilopediaPageLayouts FOR EACH ROW BEGIN DELETE FROM CivilopediaPageLayoutChapters WHERE PageLayoutID = OLD.PageLayoutID; END;
 CREATE TRIGGER OnDelete_Units_Cascade_CivilopediaUnitsUniqueUpgradesBaseUnitType AFTER DELETE ON Units FOR EACH ROW BEGIN DELETE FROM CivilopediaUnitsUniqueUpgrades WHERE BaseUnitType = OLD.UnitType; END;
 CREATE TRIGGER OnDelete_Units_Cascade_CivilopediaUnitsUniqueUpgradesUpgradeUnitType AFTER DELETE ON Units FOR EACH ROW BEGIN DELETE FROM CivilopediaUnitsUniqueUpgrades WHERE UpgradeUnitType = OLD.UnitType; END;
+CREATE TRIGGER OnDelete_Civilizations_Cascade_CivSelfSyncretismUnlocksCivilizationType AFTER DELETE ON Civilizations FOR EACH ROW BEGIN DELETE FROM CivSelfSyncretismUnlocks WHERE CivilizationType = OLD.CivilizationType; END;
 CREATE TRIGGER OnDelete_Ages_Cascade_ConstructiblesAge AFTER DELETE ON Ages FOR EACH ROW BEGIN DELETE FROM Constructibles WHERE Age = OLD.AgeType; END;
 CREATE TRIGGER OnDelete_Districts_Cascade_ConstructiblesAdjacentDistrict AFTER DELETE ON Districts FOR EACH ROW BEGIN DELETE FROM Constructibles WHERE AdjacentDistrict = OLD.DistrictType; END;
 CREATE TRIGGER OnDelete_Terrains_SetNULL_ConstructiblesAdjacentTerrain AFTER DELETE ON Terrains FOR EACH ROW BEGIN UPDATE Constructibles SET AdjacentTerrain = NULL WHERE AdjacentTerrain = OLD.TerrainType; END;
+CREATE TRIGGER OnDelete_ConstructibleClasses_Cascade_ConstructiblesConstructibleClass AFTER DELETE ON ConstructibleClasses FOR EACH ROW BEGIN DELETE FROM Constructibles WHERE ConstructibleClass = OLD.ConstructibleClassType; END;
 CREATE TRIGGER OnDelete_Constructibles_Cascade_Constructible_AdjacenciesConstructibleType AFTER DELETE ON Constructibles FOR EACH ROW BEGIN DELETE FROM Constructible_Adjacencies WHERE ConstructibleType = OLD.ConstructibleType; END;
 CREATE TRIGGER OnDelete_Adjacency_YieldChanges_Cascade_Constructible_AdjacenciesYieldChangeId AFTER DELETE ON Adjacency_YieldChanges FOR EACH ROW BEGIN DELETE FROM Constructible_Adjacencies WHERE YieldChangeId = OLD.ID; END;
 CREATE TRIGGER OnDelete_Constructibles_Cascade_Constructible_AdvisoriesConstructibleType AFTER DELETE ON Constructibles FOR EACH ROW BEGIN DELETE FROM Constructible_Advisories WHERE ConstructibleType = OLD.ConstructibleType; END;
@@ -4520,6 +4707,7 @@ CREATE TRIGGER OnDelete_Attributes_Cascade_Constructible_AttributePointsAttribut
 CREATE TRIGGER OnDelete_Constructibles_Cascade_Constructible_BuildingCostProgressionsConstructibleType AFTER DELETE ON Constructibles FOR EACH ROW BEGIN DELETE FROM Constructible_BuildingCostProgressions WHERE ConstructibleType = OLD.ConstructibleType; END;
 CREATE TRIGGER OnDelete_Constructibles_Cascade_Constructible_CitizenYieldChangesConstructibleType AFTER DELETE ON Constructibles FOR EACH ROW BEGIN DELETE FROM Constructible_CitizenYieldChanges WHERE ConstructibleType = OLD.ConstructibleType; END;
 CREATE TRIGGER OnDelete_Yields_Cascade_Constructible_CitizenYieldChangesYieldType AFTER DELETE ON Yields FOR EACH ROW BEGIN DELETE FROM Constructible_CitizenYieldChanges WHERE YieldType = OLD.YieldType; END;
+CREATE TRIGGER OnDelete_Constructibles_Cascade_Constructible_FreeRoadsConstructibleType AFTER DELETE ON Constructibles FOR EACH ROW BEGIN DELETE FROM Constructible_FreeRoads WHERE ConstructibleType = OLD.ConstructibleType; END;
 CREATE TRIGGER OnDelete_Constructibles_Cascade_Constructible_GreatPersonPointsConstructibleType AFTER DELETE ON Constructibles FOR EACH ROW BEGIN DELETE FROM Constructible_GreatPersonPoints WHERE ConstructibleType = OLD.ConstructibleType; END;
 CREATE TRIGGER OnDelete_GreatPersonClasses_Cascade_Constructible_GreatPersonPointsGreatPersonClassType AFTER DELETE ON GreatPersonClasses FOR EACH ROW BEGIN DELETE FROM Constructible_GreatPersonPoints WHERE GreatPersonClassType = OLD.GreatPersonClassType; END;
 CREATE TRIGGER OnDelete_Constructibles_Cascade_Constructible_GreatWorksConstructibleType AFTER DELETE ON Constructibles FOR EACH ROW BEGIN DELETE FROM Constructible_GreatWorks WHERE ConstructibleType = OLD.ConstructibleType; END;
@@ -4532,6 +4720,7 @@ CREATE TRIGGER OnDelete_Constructibles_Cascade_Constructible_LogisticsConstructi
 CREATE TRIGGER OnDelete_Constructibles_Cascade_Constructible_MaintenancesConstructibleType AFTER DELETE ON Constructibles FOR EACH ROW BEGIN DELETE FROM Constructible_Maintenances WHERE ConstructibleType = OLD.ConstructibleType; END;
 CREATE TRIGGER OnDelete_Yields_Cascade_Constructible_MaintenancesYieldType AFTER DELETE ON Yields FOR EACH ROW BEGIN DELETE FROM Constructible_Maintenances WHERE YieldType = OLD.YieldType; END;
 CREATE TRIGGER OnDelete_Constructibles_Cascade_Constructible_PillageRandomEventsConstructibleType AFTER DELETE ON Constructibles FOR EACH ROW BEGIN DELETE FROM Constructible_PillageRandomEvents WHERE ConstructibleType = OLD.ConstructibleType; END;
+CREATE TRIGGER OnDelete_EventClasses_Cascade_Constructible_PillageRandomEventsEventClass AFTER DELETE ON EventClasses FOR EACH ROW BEGIN DELETE FROM Constructible_PillageRandomEvents WHERE EventClass = OLD.EventClass; END;
 CREATE TRIGGER OnDelete_Constructibles_Cascade_Constructible_PlundersConstructibleType AFTER DELETE ON Constructibles FOR EACH ROW BEGIN DELETE FROM Constructible_Plunders WHERE ConstructibleType = OLD.ConstructibleType; END;
 CREATE TRIGGER OnDelete_Plunders_Cascade_Constructible_PlundersPlunderType AFTER DELETE ON Plunders FOR EACH ROW BEGIN DELETE FROM Constructible_Plunders WHERE PlunderType = OLD.PlunderType; END;
 CREATE TRIGGER OnDelete_Constructibles_Cascade_Constructible_RequiredFeaturesConstructibleType AFTER DELETE ON Constructibles FOR EACH ROW BEGIN DELETE FROM Constructible_RequiredFeatures WHERE ConstructibleType = OLD.ConstructibleType; END;
@@ -4555,6 +4744,8 @@ CREATE TRIGGER OnDelete_Adjacency_YieldChanges_Cascade_Constructible_WildcardAdj
 CREATE TRIGGER OnDelete_Warehouse_YieldChanges_Cascade_Constructible_WildcardWarehouseYieldsYieldChangeId AFTER DELETE ON Warehouse_YieldChanges FOR EACH ROW BEGIN DELETE FROM Constructible_WildcardWarehouseYields WHERE YieldChangeId = OLD.ID; END;
 CREATE TRIGGER OnDelete_Constructibles_Cascade_Constructible_YieldChangesConstructibleType AFTER DELETE ON Constructibles FOR EACH ROW BEGIN DELETE FROM Constructible_YieldChanges WHERE ConstructibleType = OLD.ConstructibleType; END;
 CREATE TRIGGER OnDelete_Yields_Cascade_Constructible_YieldChangesYieldType AFTER DELETE ON Yields FOR EACH ROW BEGIN DELETE FROM Constructible_YieldChanges WHERE YieldType = OLD.YieldType; END;
+CREATE TRIGGER OnDelete_CultureSlots_Cascade_CultureSlotAllowancesCultureSlotTypeAllowed AFTER DELETE ON CultureSlots FOR EACH ROW BEGIN DELETE FROM CultureSlotAllowances WHERE CultureSlotTypeAllowed = OLD.CultureSlotType; END;
+CREATE TRIGGER OnDelete_Traditions_Cascade_CultureSlotAllowancesCultureSlotTypeAllowed AFTER DELETE ON Traditions FOR EACH ROW BEGIN DELETE FROM CultureSlotAllowances WHERE CultureSlotTypeAllowed = OLD.CultureSlotType; END;
 CREATE TRIGGER OnDelete_Types_Cascade_DefeatsDefeatType AFTER DELETE ON Types FOR EACH ROW BEGIN DELETE FROM Defeats WHERE DefeatType = OLD.Type; END;
 CREATE TRIGGER OnDelete_RequirementSets_Cascade_DefeatsRequirementSetId AFTER DELETE ON RequirementSets FOR EACH ROW BEGIN DELETE FROM Defeats WHERE RequirementSetId = OLD.RequirementSetId; END;
 CREATE TRIGGER OnDelete_Types_Cascade_DiplomacyActionsDiplomacyActionType AFTER DELETE ON Types FOR EACH ROW BEGIN DELETE FROM DiplomacyActions WHERE DiplomacyActionType = OLD.Type; END;
@@ -4792,6 +4983,7 @@ CREATE TRIGGER OnDelete_Projects_Cascade_ProjectModifiersProjectType AFTER DELET
 CREATE TRIGGER OnDelete_Projects_Cascade_ProjectPrereqsProjectType AFTER DELETE ON Projects FOR EACH ROW BEGIN DELETE FROM ProjectPrereqs WHERE ProjectType = OLD.ProjectType; END;
 CREATE TRIGGER OnDelete_Projects_Cascade_ProjectPrereqsPrereqProjectType AFTER DELETE ON Projects FOR EACH ROW BEGIN DELETE FROM ProjectPrereqs WHERE PrereqProjectType = OLD.ProjectType; END;
 CREATE TRIGGER OnDelete_Types_Cascade_QuestsQuestType AFTER DELETE ON Types FOR EACH ROW BEGIN DELETE FROM Quests WHERE QuestType = OLD.Type; END;
+CREATE TRIGGER OnDelete_EventClasses_Cascade_RandomEventsEventClass AFTER DELETE ON EventClasses FOR EACH ROW BEGIN DELETE FROM RandomEvents WHERE EventClass = OLD.EventClass; END;
 CREATE TRIGGER OnDelete_Features_Cascade_RandomEventsNaturalWonder AFTER DELETE ON Features FOR EACH ROW BEGIN DELETE FROM RandomEvents WHERE NaturalWonder = OLD.FeatureType; END;
 CREATE TRIGGER OnDelete_Biomes_Cascade_RandomEventsBiomeType AFTER DELETE ON Biomes FOR EACH ROW BEGIN DELETE FROM RandomEvents WHERE BiomeType = OLD.BiomeType; END;
 CREATE TRIGGER OnDelete_RandomEvents_Cascade_RandomEventDamagesRandomEventType AFTER DELETE ON RandomEvents FOR EACH ROW BEGIN DELETE FROM RandomEventDamages WHERE RandomEventType = OLD.RandomEventType; END;
@@ -4827,6 +5019,7 @@ CREATE TRIGGER OnDelete_Yields_Cascade_Resource_YieldChangesYieldType AFTER DELE
 CREATE TRIGGER OnDelete_Types_Cascade_ResourceClassesResourceClassType AFTER DELETE ON Types FOR EACH ROW BEGIN DELETE FROM ResourceClasses WHERE ResourceClassType = OLD.Type; END;
 CREATE TRIGGER OnDelete_ResourceClasses_Cascade_ResourceClassApplicableLegacyPathsResourceClassType AFTER DELETE ON ResourceClasses FOR EACH ROW BEGIN DELETE FROM ResourceClassApplicableLegacyPaths WHERE ResourceClassType = OLD.ResourceClassType; END;
 CREATE TRIGGER OnDelete_LegacyPaths_Cascade_ResourceClassApplicableLegacyPathsLegacyPathType AFTER DELETE ON LegacyPaths FOR EACH ROW BEGIN DELETE FROM ResourceClassApplicableLegacyPaths WHERE LegacyPathType = OLD.LegacyPathType; END;
+CREATE TRIGGER OnDelete_AdvancedStartCards_Cascade_RestrictedAdvancedStartCardsCardID AFTER DELETE ON AdvancedStartCards FOR EACH ROW BEGIN DELETE FROM RestrictedAdvancedStartCards WHERE CardID = OLD.CardID; END;
 CREATE TRIGGER OnDelete_Ages_SetNULL_RoutesPrereqAge AFTER DELETE ON Ages FOR EACH ROW BEGIN UPDATE Routes SET PrereqAge = NULL WHERE PrereqAge = OLD.AgeType; END;
 CREATE TRIGGER OnDelete_Types_Cascade_RoutesRouteType AFTER DELETE ON Types FOR EACH ROW BEGIN DELETE FROM Routes WHERE RouteType = OLD.Type; END;
 CREATE TRIGGER OnDelete_Traits_SetNULL_RoutesTraitType AFTER DELETE ON Traits FOR EACH ROW BEGIN UPDATE Routes SET TraitType = NULL WHERE TraitType = OLD.TraitType; END;
@@ -4858,9 +5051,12 @@ CREATE TRIGGER OnDelete_Leaders_Cascade_StartBiasTerrainsLeaderType AFTER DELETE
 CREATE TRIGGER OnDelete_Terrains_Cascade_StartBiasTerrainsTerrainType AFTER DELETE ON Terrains FOR EACH ROW BEGIN DELETE FROM StartBiasTerrains WHERE TerrainType = OLD.TerrainType; END;
 CREATE TRIGGER OnDelete_Ages_Cascade_StartingGovernmentsAgeType AFTER DELETE ON Ages FOR EACH ROW BEGIN DELETE FROM StartingGovernments WHERE AgeType = OLD.AgeType; END;
 CREATE TRIGGER OnDelete_Governments_Cascade_StartingGovernmentsGovernmentType AFTER DELETE ON Governments FOR EACH ROW BEGIN DELETE FROM StartingGovernments WHERE GovernmentType = OLD.GovernmentType; END;
+CREATE TRIGGER OnDelete_Traditions_Cascade_StartingPoliciesTraditionType AFTER DELETE ON Traditions FOR EACH ROW BEGIN DELETE FROM StartingPolicies WHERE TraditionType = OLD.TraditionType; END;
+CREATE TRIGGER OnDelete_Ages_Cascade_StartingPoliciesAgeType AFTER DELETE ON Ages FOR EACH ROW BEGIN DELETE FROM StartingPolicies WHERE AgeType = OLD.AgeType; END;
 CREATE TRIGGER OnDelete_BehaviorTrees_Cascade_StrategiesBehaviorTree AFTER DELETE ON BehaviorTrees FOR EACH ROW BEGIN DELETE FROM Strategies WHERE BehaviorTree = OLD.TreeName; END;
-CREATE TRIGGER OnDelete_LegacyPaths_Cascade_StrategiesLegacyPathType AFTER DELETE ON LegacyPaths FOR EACH ROW BEGIN DELETE FROM Strategies WHERE LegacyPathType = OLD.LegacyPathType; END;
-CREATE TRIGGER OnDelete_VictoryTypes_Cascade_StrategiesCountdownVictoryType AFTER DELETE ON VictoryTypes FOR EACH ROW BEGIN DELETE FROM Strategies WHERE CountdownVictoryType = OLD.VictoryType; END;
+CREATE TRIGGER OnDelete_Victories_Cascade_StrategiesCountdownVictoryType AFTER DELETE ON Victories FOR EACH ROW BEGIN DELETE FROM Strategies WHERE CountdownVictoryType = OLD.VictoryType; END;
+CREATE TRIGGER OnDelete_Strategies_Cascade_Strategy_LegaciesStrategyType AFTER DELETE ON Strategies FOR EACH ROW BEGIN DELETE FROM Strategy_Legacies WHERE StrategyType = OLD.StrategyType; END;
+CREATE TRIGGER OnDelete_Legacies_Cascade_Strategy_LegaciesLegacyType AFTER DELETE ON Legacies FOR EACH ROW BEGIN DELETE FROM Strategy_Legacies WHERE LegacyType = OLD.LegacyType; END;
 CREATE TRIGGER OnDelete_Strategies_Cascade_Strategy_PrioritiesStrategyType AFTER DELETE ON Strategies FOR EACH ROW BEGIN DELETE FROM Strategy_Priorities WHERE StrategyType = OLD.StrategyType; END;
 CREATE TRIGGER OnDelete_AiListTypes_Cascade_Strategy_PrioritiesListType AFTER DELETE ON AiListTypes FOR EACH ROW BEGIN DELETE FROM Strategy_Priorities WHERE ListType = OLD.ListType; END;
 CREATE TRIGGER OnDelete_Strategies_Cascade_Strategy_YieldPrioritiesStrategyType AFTER DELETE ON Strategies FOR EACH ROW BEGIN DELETE FROM Strategy_YieldPriorities WHERE StrategyType = OLD.StrategyType; END;
@@ -4875,6 +5071,7 @@ CREATE TRIGGER OnDelete_Yields_Cascade_TerrainBiomeFeature_YieldChangesYieldType
 CREATE TRIGGER OnDelete_Yields_Cascade_TradeYieldsYieldType AFTER DELETE ON Yields FOR EACH ROW BEGIN DELETE FROM TradeYields WHERE YieldType = OLD.YieldType; END;
 CREATE TRIGGER OnDelete_Traits_SetNULL_TraditionsTraitType AFTER DELETE ON Traits FOR EACH ROW BEGIN UPDATE Traditions SET TraitType = NULL WHERE TraitType = OLD.TraitType; END;
 CREATE TRIGGER OnDelete_Ages_Cascade_TraditionsAgeType AFTER DELETE ON Ages FOR EACH ROW BEGIN DELETE FROM Traditions WHERE AgeType = OLD.AgeType; END;
+CREATE TRIGGER OnDelete_CultureSlots_Cascade_TraditionsCultureSlotType AFTER DELETE ON CultureSlots FOR EACH ROW BEGIN DELETE FROM Traditions WHERE CultureSlotType = OLD.CultureSlotType; END;
 CREATE TRIGGER OnDelete_Traditions_Cascade_TraditionAttributesTraditionType AFTER DELETE ON Traditions FOR EACH ROW BEGIN DELETE FROM TraditionAttributes WHERE TraditionType = OLD.TraditionType; END;
 CREATE TRIGGER OnDelete_Attributes_Cascade_TraditionAttributesAttributeType AFTER DELETE ON Attributes FOR EACH ROW BEGIN DELETE FROM TraditionAttributes WHERE AttributeType = OLD.AttributeType; END;
 CREATE TRIGGER OnDelete_Traditions_Cascade_TraditionModifiersTraditionType AFTER DELETE ON Traditions FOR EACH ROW BEGIN DELETE FROM TraditionModifiers WHERE TraditionType = OLD.TraditionType; END;
@@ -4964,6 +5161,7 @@ CREATE TRIGGER OnDelete_Units_Cascade_UnitReplacesReplacesUnitType AFTER DELETE 
 CREATE TRIGGER OnDelete_Units_Cascade_UnitReplacesCivUniqueUnitType AFTER DELETE ON Units FOR EACH ROW BEGIN DELETE FROM UnitReplaces WHERE CivUniqueUnitType = OLD.UnitType; END;
 CREATE TRIGGER OnDelete_Units_Cascade_UnitUpgradesUpgradeUnit AFTER DELETE ON Units FOR EACH ROW BEGIN DELETE FROM UnitUpgrades WHERE UpgradeUnit = OLD.UnitType; END;
 CREATE TRIGGER OnDelete_Units_Cascade_UnitUpgradesUnit AFTER DELETE ON Units FOR EACH ROW BEGIN DELETE FROM UnitUpgrades WHERE Unit = OLD.UnitType; END;
+CREATE TRIGGER OnDelete_Units_Cascade_UnitUpgradeKillsUnitType AFTER DELETE ON Units FOR EACH ROW BEGIN DELETE FROM UnitUpgradeKills WHERE UnitType = OLD.UnitType; END;
 CREATE TRIGGER OnDelete_Types_Cascade_UnlocksUnlockType AFTER DELETE ON Types FOR EACH ROW BEGIN DELETE FROM Unlocks WHERE UnlockType = OLD.Type; END;
 CREATE TRIGGER OnDelete_Unlocks_Cascade_UnlockConfigurationValuesUnlockType AFTER DELETE ON Unlocks FOR EACH ROW BEGIN DELETE FROM UnlockConfigurationValues WHERE UnlockType = OLD.UnlockType; END;
 CREATE TRIGGER OnDelete_Unlocks_Cascade_UnlockRequirementsUnlockType AFTER DELETE ON Unlocks FOR EACH ROW BEGIN DELETE FROM UnlockRequirements WHERE UnlockType = OLD.UnlockType; END;
@@ -4971,6 +5169,9 @@ CREATE TRIGGER OnDelete_RequirementSets_Cascade_UnlockRequirementsRequirementSet
 CREATE TRIGGER OnDelete_VictoryClasses_Cascade_VictoriesVictoryClassType AFTER DELETE ON VictoryClasses FOR EACH ROW BEGIN DELETE FROM Victories WHERE VictoryClassType = OLD.VictoryClassType; END;
 CREATE TRIGGER OnDelete_RequirementSets_Cascade_VictoriesRequirementSetId AFTER DELETE ON RequirementSets FOR EACH ROW BEGIN DELETE FROM Victories WHERE RequirementSetId = OLD.RequirementSetId; END;
 CREATE TRIGGER OnDelete_Victories_Cascade_VictoryCinematicsVictoryType AFTER DELETE ON Victories FOR EACH ROW BEGIN DELETE FROM VictoryCinematics WHERE VictoryType = OLD.VictoryType; END;
+CREATE TRIGGER OnDelete_Ages_Cascade_VictoryDominationPercentsStartingAge AFTER DELETE ON Ages FOR EACH ROW BEGIN DELETE FROM VictoryDominationPercents WHERE StartingAge = OLD.AgeType; END;
+CREATE TRIGGER OnDelete_VictoryScorings_Cascade_VictoryScoringArgsScoringId AFTER DELETE ON VictoryScorings FOR EACH ROW BEGIN DELETE FROM VictoryScoringArgs WHERE ScoringId = OLD.ScoringId; END;
+CREATE TRIGGER OnDelete_Victories_Cascade_VictoryTypesVictoryType AFTER DELETE ON Victories FOR EACH ROW BEGIN DELETE FROM VictoryTypes WHERE VictoryType = OLD.VictoryType; END;
 CREATE TRIGGER OnDelete_Civilizations_Cascade_VisArt_CivilizationBuildingCulturesCivilizationType AFTER DELETE ON Civilizations FOR EACH ROW BEGIN DELETE FROM VisArt_CivilizationBuildingCultures WHERE CivilizationType = OLD.CivilizationType; END;
 CREATE TRIGGER OnDelete_Civilizations_Cascade_VisArt_CivilizationUnitCulturesCivilizationType AFTER DELETE ON Civilizations FOR EACH ROW BEGIN DELETE FROM VisArt_CivilizationUnitCultures WHERE CivilizationType = OLD.CivilizationType; END;
 CREATE TRIGGER OnDelete_Independents_Cascade_VisArt_IndependentBuildingCulturesIndependentType AFTER DELETE ON Independents FOR EACH ROW BEGIN DELETE FROM VisArt_IndependentBuildingCultures WHERE IndependentType = OLD.IndependentType; END;
@@ -4988,3 +5189,4 @@ CREATE TRIGGER OnDelete_Constructibles_Cascade_WondersRequiredConstructibleInSet
 CREATE TRIGGER OnDelete_Resources_SetNULL_WondersAdjacentResource AFTER DELETE ON Resources FOR EACH ROW BEGIN UPDATE Wonders SET AdjacentResource = NULL WHERE AdjacentResource = OLD.ResourceType; END;
 CREATE TRIGGER OnDelete_Constructibles_Cascade_WondersConstructibleType AFTER DELETE ON Constructibles FOR EACH ROW BEGIN DELETE FROM Wonders WHERE ConstructibleType = OLD.ConstructibleType; END;
 CREATE TRIGGER OnDelete_Yields_Cascade_WorkerYieldsYieldType AFTER DELETE ON Yields FOR EACH ROW BEGIN DELETE FROM WorkerYields WHERE YieldType = OLD.YieldType; END;
+CREATE TRIGGER OnDelete_Yields_Cascade_WorkerYields_AgeModifierYieldType AFTER DELETE ON Yields FOR EACH ROW BEGIN DELETE FROM WorkerYields_AgeModifier WHERE YieldType = OLD.YieldType; END;

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Civilizations>
+		<Update>
+			<Where CivilizationType="CIVILIZATION_GREAT_BRITAIN" />
+			<Set UniqueCultureProgressionTree="TREE_CIVICS_EX_TEST_OF_TIME" />
+		</Update>
+	</Civilizations>
+	<TraitModifiers>
+		<Delete TraitType="TRAIT_GREAT_BRITAIN_ABILITY"/>
+		<Row TraitType="TRAIT_GREAT_BRITAIN_ABILITY" ModifierId="TRAIT_MOD_CITY_PROJECT_MORE_EXPENSIVE" />
+		<Row TraitType="TRAIT_GREAT_BRITAIN_ABILITY" ModifierId="TRAIT_GB_MOD_BUILDING_CHEAPER_PURCHASE" />
+		<Row TraitType="TRAIT_GREAT_BRITAIN_ABILITY" ModifierId="TRAIT_GB_MOD_BUILDING_PRODUCTION" />
+		<Row TraitType="TRAIT_GREAT_BRITAIN_ABILITY" ModifierId="TRAIT_GB_MOD_COASTAL_BUILDING_SCIENCE_A" />
+		<Row TraitType="TRAIT_GREAT_BRITAIN_ABILITY" ModifierId="TRAIT_GB_MOD_COASTAL_BUILDING_SCIENCE_B" />
+	</TraitModifiers>
+	<CivilizationTraits>
+		<Row CivilizationType="CIVILIZATION_GREAT_BRITAIN" TraitType="TRAIT_ANACHRONISTIC_CIV" />
+	</CivilizationTraits>
+</Database>

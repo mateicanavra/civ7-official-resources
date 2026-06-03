@@ -168,7 +168,8 @@
 		"data-audio-spare2": "mp-browser-create-game",
 		"data-audio-spare3": "mp-browser-load",
 		"data-audio-spare4": "mp-browser-back",
-		"data-audio-start-query": "mp-browser-start-query"
+		"data-audio-start-query": "mp-browser-start-query",
+		"data-audio-hiding": "mp-browser-back"
 	},
 	"audio-mp-friends": {
 		"data-audio-hiding": "friends-close-selected",
@@ -663,9 +664,43 @@
 	},
 	"leader-select": {
 		"data-audio-focus": "leader-select-focus",
+		"data-audio-leader-select-focus": "leader-select-focus",
 		"data-audio-leader-select": "leader-select-selected",
 		"data-audio-leader-shuffle-select": "leader-select-shuffle-selected",
-		"data-audio-press": "leader-select-press"
+		"data-audio-leader-select-press": "leader-select-press",
+		"data-audio-leader-select-random": "leader-select-random",
+		"data-audio-leader-select-ada": "leader-select-ada",
+		"data-audio-leader-select-alexander": "leader-select-alexander",
+		"data-audio-leader-select-amina": "leader-select-amina",
+		"data-audio-leader-select-ashoka": "leader-select-ashoka",
+		"data-audio-leader-select-augustus": "leader-select-augustus",
+		"data-audio-leader-select-benjamin": "leader-select-benjamin",
+		"data-audio-leader-select-catherine": "leader-select-catherine",
+		"data-audio-leader-select-charlemagne": "leader-select-charlemagne",
+		"data-audio-leader-select-confucius": "leader-select-confucius",
+		"data-audio-leader-select-edward": "leader-select-edward",
+		"data-audio-leader-select-elizabeth": "leader-select-elizabeth",
+		"data-audio-leader-select-friedrich": "leader-select-friedrich",
+		"data-audio-leader-select-genghis": "leader-select-genghis",
+		"data-audio-leader-select-gilgamesh": "leader-select-gilgamesh",
+		"data-audio-leader-select-harriet": "leader-select-harriet",
+		"data-audio-leader-select-hatshepsut": "leader-select-hatshepsut",
+		"data-audio-leader-select-himiko": "leader-select-himiko",
+		"data-audio-leader-select-ibn": "leader-select-ibn",
+		"data-audio-leader-select-isabella": "leader-select-isabella",
+		"data-audio-leader-select-jose": "leader-select-jose",
+		"data-audio-leader-select-lafayette": "leader-select-lafayette",
+		"data-audio-leader-select-lakshmibai": "leader-select-lakshmibai",
+		"data-audio-leader-select-machiavelli": "leader-select-machiavelli",
+		"data-audio-leader-select-napoleon": "leader-select-napoleon",
+		"data-audio-leader-select-pachacuti": "leader-select-pachacuti",
+		"data-audio-leader-select-sayyida": "leader-select-sayyida",
+		"data-audio-leader-select-simon": "leader-select-simon",
+		"data-audio-leader-select-tecumseh": "leader-select-tecumseh",
+		"data-audio-leader-select-toyotomi": "leader-select-toyotomi",
+		"data-audio-leader-select-trung": "leader-select-trung",
+		"data-audio-leader-select-xerxes": "leader-select-xerxes",
+		"data-audio-leader-select-yi": "leader-select-yi"
 	},
 	"main-menu-audio": {
 		"data-audio-clicked-age-transition": "main-menu-age-transition",
@@ -706,9 +741,12 @@
 		"data-audio-showing": "options-showing",
 		"data-audio-checkbox-disable": "options-checkbox-activate",
 		"data-audio-checkbox-enable": "options-checkbox-activate",
-		"data-audio-dropdown-close": "options-dropdown-deactivate",
-		"data-audio-dropdown-open": "options-dropdown-activate",
-		"data-audio-dropdown-select": "options-dropdown-select",
+		"data-audio-checkbox-focus": "select-focus",
+		"data-audio-dropdown-close": "generic-dropdown-close",
+		"data-audio-dropdown-open": "generic-dropdown-open",
+		"data-audio-dropdown-select": "generic-dropdown-select",
+		"data-audio-dropdown-focus": "generic-pager-focus",
+		"data-audio-dropdown-press": "generic-dropdown-select",
 		"data-audio-focus": "options-focus",
 		"data-audio-language-radiobutton": "options-language-selected",
 		"data-audio-options-cancel": "options-cancel-selected",
@@ -722,6 +760,11 @@
 		"data-audio-spare4": "options-default-selected",
 		"data-audio-tab-selected": "options-tab-activate",
 		"data-audio-hiding": "overlay-window-close"
+	},
+	"options-dropdown-item": {
+		"data-audio-focus": "select-focus",
+		"data-audio-press": "generic-dropdown-select",
+		"data-audio-activate": "none"
 	},
 	"panel-notification-train": {
 		"data-audio-notification-can-buy-attribute-skill": "notification-can-buy-attribute-skill",
@@ -760,7 +803,9 @@
 		"data-audio-load-activated": "save-load-load-selected",
 		"data-audio-overwrite-activated": "save-load-overwrite-selected",
 		"data-audio-save-activated": "save-load-save-selected",
-		"data-audio-showing": "main-menu-load-game"
+		"data-audio-showing": "main-menu-load-game",
+		"data-audio-select-press": "generic-dropdown-select",
+		"data-audio-focus": "large-gold-focus"
 	},
 	"store-launcher": {
 		"data-audio-clicked-addcontent": "addcontent-activate",
@@ -810,12 +855,18 @@
 	"tutorial-intro": {
 		"data-audio-showing": "tutorial-intro-enter",
 		"data-audio-activate": "tutorial-button-release",
+		"data-audio-press": "primary-button-press",
+		"data-audio-focus": "hero-focus",
 		"data-audio-hiding": "overlay-window-close"
 	},
 	"tutorial-popup": {
 		"data-audio-popup-open": "tutorial-popup-open",
-		"data-audio-close-selected": "tutorial-popup-closed",
-		"data-audio-minus-press": "journal-press"
+		"data-audio-popup-close": "tutorial-popup-closed",
+		"data-audio-press": "primary-button-press",
+		"data-audio-focus": "hero-focus",
+		"data-audio-minimize": "journal-press",
+		"data-audio-min-plus-button-press": "none",
+		"data-audio-min-plus-button-focus": "none"
 	},
 	"civilopedia": {
 		"data-audio-showing": "overlay-window-open",
@@ -829,7 +880,53 @@
 	"narrative-event": {
 		"data-audio-focus": "narrative-focus",
 		"data-audio-activate": "narrative-release",
-		"data-audio-showing": "narrative-event-opening"
+		"data-audio-showing": "narrative-event-opening",
+		"data-audio-hiding": "narrative-event-trial-end"
+	},
+	"narrative-event-trial": {
+		"CIVILIZATION_ABBASID": "narrative-event-trial-abbasid",
+		"CIVILIZATION_AKSUM": "narrative-event-trial-aksum",
+		"CIVILIZATION_AMERICA": "narrative-event-trial-america",
+		"CIVILIZATION_ASSYRIA": "narrative-event-trial-assyria",
+		"CIVILIZATION_BUGANDA": "narrative-event-trial-buganda",
+		"CIVILIZATION_BULGARIA": "narrative-event-trial-bulgaria",
+		"CIVILIZATION_CARTHAGE": "narrative-event-trial-carthage",
+		"CIVILIZATION_CHOLA": "narrative-event-trial-chola",
+		"CIVILIZATION_DAI_VIET": "narrative-event-trial-dai-viet",
+		"CIVILIZATION_EGYPT": "narrative-event-trial-egypt",
+		"CIVILIZATION_FRENCH_EMPIRE": "narrative-event-trial-french-empire",
+		"CIVILIZATION_GREAT_BRITAIN": "narrative-event-trial-great-britain",
+		"CIVILIZATION_GREECE": "narrative-event-trial-greece",
+		"CIVILIZATION_HAN": "narrative-event-trial-han",
+		"CIVILIZATION_HAWAII": "narrative-event-trial-hawaii",
+		"CIVILIZATION_ICELAND": "narrative-event-trial-iceland",
+		"CIVILIZATION_INCA": "narrative-event-trial-inca",
+		"CIVILIZATION_KHMER": "narrative-event-trial-khmer",
+		"CIVILIZATION_MAJAPAHIT": "narrative-event-trial-majapahit",
+		"CIVILIZATION_MAURYA": "narrative-event-trial-maurya",
+		"CIVILIZATION_MAYA": "narrative-event-trial-maya",
+		"CIVILIZATION_MEIJI": "narrative-event-trial-meiji",
+		"CIVILIZATION_MEXICO": "narrative-event-trial-mexico",
+		"CIVILIZATION_MING": "narrative-event-trial-ming",
+		"CIVILIZATION_MISSISSIPPIAN": "narrative-event-trial-mississippian",
+		"CIVILIZATION_MONGOLIA": "narrative-event-trial-mongolia",
+		"CIVILIZATION_MUGHAL": "narrative-event-trial-mughal",
+		"CIVILIZATION_NEPAL": "narrative-event-trial-nepal",
+		"CIVILIZATION_NORMAN": "narrative-event-trial-norman",
+		"CIVILIZATION_OTTOMANS": "narrative-event-trial-ottomans",
+		"CIVILIZATION_PERSIA": "narrative-event-trial-persia",
+		"CIVILIZATION_PRUSSIA": "narrative-event-trial-pussia",
+		"CIVILIZATION_QAJAR": "narrative-event-trial-qajar",
+		"CIVILIZATION_QING": "narrative-event-trial-qing",
+		"CIVILIZATION_PIRATE_REPUBLIC": "narrative-event-trial-pirate",
+		"CIVILIZATION_ROME": "narrative-event-trial-rome",
+		"CIVILIZATION_RUSSIA": "narrative-event-trial-russia",
+		"CIVILIZATION_SHAWNEE": "narrative-event-trial-shawnee",
+		"CIVILIZATION_SIAM": "narrative-event-trial-siam",
+		"CIVILIZATION_SILLA": "narrative-event-trial-silla",
+		"CIVILIZATION_SONGHAI": "narrative-event-trial-songhai",
+		"CIVILIZATION_SPAIN": "narrative-event-trial-spain",
+		"CIVILIZATION_TONGA": "narrative-event-trial-tonga"
 	},
 	"small-narrative-event": {
 		"data-audio-showing": "small-narrative-event-opening",
@@ -873,7 +970,8 @@
 		"data-audio-press": "journal-press",
 		"data-audio-journal-open": "journal-open",
 		"data-audio-journal-close": "journal-close",
-		"data-audio-focus": "journal-focus"
+		"data-audio-focus": "journal-focus",
+		"data-audio-quest-item-focus": "options-focus"
 	},
 	"controller-radial": {
 		"data-audio-showing": "controller-radial-open",
@@ -960,7 +1058,13 @@
 		"data-audio-activate": "other-war-support"
 	},
 	"peace-deal-item": {
-		"data-audio-activate": "peace-item-selected"
+		"data-audio-activate": "peace-item-selected",
+		"data-audio-close": "peace-deal-close"
+	},
+	"syncretism-preview-button": {
+		"data-audio-activate": "syncretism-panel-show",
+		"data-audio-press": "hero-press",
+		"data-audio-focus": "select-focus"
 	},
 	"-1": {
 		"data-audio-activate": "growth-town-confirm"
@@ -1017,5 +1121,11 @@
 	"war-support-panel": {
 		"data-audio-showing": "war-support-panel-showing",
 		"data-audio-hiding": "war-support-panel-hiding"
+	},
+	"tooltip-nested": {
+		"data-audio-activate": "tooltip-nested-activate"
+	},
+	"independent-power": {
+		"data-audio-activate": "begin-hostilities"
 	}
 }

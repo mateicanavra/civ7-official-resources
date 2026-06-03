@@ -1,4 +1,4 @@
-import { p as parseConstructibleAdjacency, g as getModifierTextByContext } from '../../../core/ui/utilities/utilities-core-textprovider.chunk.js';
+import { parseConstructibleAdjacency, getModifierTextByContext } from '../../../core/ui/utilities/utilities-core-textprovider.js';
 
 class PediaSidebarPanel extends Component {
   boundRefresh = this.doRefresh.bind(this);
@@ -282,7 +282,7 @@ class PediaSidebarUnitStats extends PediaSidebarPanel {
           unitStats.push({
             amount: stats.Bombard,
             name: Locale.compose("LOC_COMBAT_PREVIEW_BOMBARD_STRENGTH"),
-            icon: 'url("fs://game/cPromo_bombardment.png")'
+            icon: 'url("fs://game/action_bombard.png")'
           });
         }
       }

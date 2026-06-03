@@ -1,1097 +1,39 @@
-import { A as Audio } from '../../../core/ui/audio-base/audio-support.chunk.js';
-import { b as FxsFrame, E as EditableHeaderTextChangedEventName, e as EditableHeaderExitEditEventName } from '../../../core/ui/components/fxs-editable-header.chunk.js';
-import { a as DialogBoxManager, D as DialogBoxAction } from '../../../core/ui/dialog-box/manager-dialog-box.chunk.js';
+import { Audio } from '../../../core/ui/audio-base/audio-support.js';
+import { EditableHeaderTextChangedEventName, EditableHeaderExitEditEventName } from '../../../core/ui/components/fxs-editable-header.js';
+import ContextManager from '../../../core/ui/context-manager/context-manager.js';
+import { DialogBoxManager } from '../../../core/ui/dialog-box/manager-dialog-box.js';
 import ActionHandler from '../../../core/ui/input/action-handler.js';
-import FocusManager from '../../../core/ui/input/focus-manager.js';
-import { b as InputEngineEventName } from '../../../core/ui/input/input-support.chunk.js';
+import { Focus } from '../../../core/ui/input/focus-support.js';
+import { InputEngineEventName } from '../../../core/ui/input/input-support.js';
 import { PlotCursor } from '../../../core/ui/input/plot-cursor.js';
 import { InterfaceModeChangedEventName, InterfaceMode } from '../../../core/ui/interface-modes/interface-modes.js';
-import { N as NavTray } from '../../../core/ui/navigation-tray/model-navigation-tray.chunk.js';
-import { P as Panel, A as AnchorType } from '../../../core/ui/panel-support.chunk.js';
-import { C as ComponentID } from '../../../core/ui/utilities/utilities-component-id.chunk.js';
-import { D as Databind } from '../../../core/ui/utilities/utilities-core-databinding.chunk.js';
-import { MustGetElement, IsElement } from '../../../core/ui/utilities/utilities-dom.chunk.js';
-import { L as Layout } from '../../../core/ui/utilities/utilities-layout.chunk.js';
-import { U as UpdateGate } from '../../../core/ui/utilities/utilities-update-gate.chunk.js';
-import { V as ViewManager } from '../../../core/ui/views/view-manager.chunk.js';
+import NavTray from '../../../core/ui/navigation-tray/model-navigation-tray.js';
+import Panel, { AnchorType } from '../../../core/ui/panel-support.js';
+import { ComponentID } from '../../../core/ui/utilities/utilities-component-id.js';
+import Databind from '../../../core/ui/utilities/utilities-core-databinding.js';
+import { MustGetElement, IsElement } from '../../../core/ui/utilities/utilities-dom.js';
+import { Layout } from '../../../core/ui/utilities/utilities-layout.js';
+import UpdateGate from '../../../core/ui/utilities/utilities-update-gate.js';
+import ViewManager from '../../../core/ui/views/view-manager.js';
+import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
 import { BuildQueue } from '../build-queue/model-build-queue.js';
 import { BuildingPlacementManager } from '../building-placement/building-placement-manager.js';
 import { CityDetailsClosedEventName } from '../city-details/panel-city-details.js';
-import { b as GetTownFocusItems, P as ProductionPanelCategory, c as GetTownFocusBlp, U as UpdateCityDetailsEventName, d as GetLastProductionData, e as GetCityBuildReccomendations, f as GetUniqueQuarterForPlayer, g as GetProductionItems, R as RepairConstruct, S as SetTownFocus, G as GetPrevCityID, a as GetNextCityID, h as Construct, i as CreateProductionChooserItem, j as GetNumUniqueQuarterBuildingsCompleted, k as GetCurrentTownFocus } from './production-chooser-helpers.chunk.js';
+import { ProductionPanelCategory, GetCityBuildReccomendations, GetUniqueQuartersForPlayer, GetProductionItems, RepairConstruct, SetTownFocus, GetPrevCityID, GetNextCityID, Construct, CreateProductionChooserItem, GetNumUniqueQuarterBuildingsCompleted, GetCurrentTownFocus } from './production-chooser-helpers.js';
+import { ConvertToCity, CanConvertToCity } from './production-chooser-operations.js';
+import { UniqueQuarter } from './production-chooser-unique-quarter.js';
+import { composeTagString } from '../utilities/utilities-tags.js';
 import { FocusCityViewEventName } from '../views/view-city.js';
-import { F as Framework } from '../../../core/ui/framework.chunk.js';
-import { F as FxsChooserItem } from '../../../core/ui/components/fxs-chooser-item.chunk.js';
-import { A as AdvisorUtilities } from '../tutorial/tutorial-support.chunk.js';
-import { c as composeTagString } from '../utilities/utilities-tags.chunk.js';
+import styles from './panel-production-chooser.scss.js';
+import '../../ui-next/components/production-chooser-item.js';
+import '../../ui-next/components/production-chooser-unique-quarter-item.js';
+import { TownFocusRefreshEvent } from './panel-town-focus.js';
+import { ProductionChooserAccordionSection, ProductionChooserAccordionSectionToggleEventName } from './production-chooser-accordion.js';
 import '../yield-bar-base/yield-bar-base.js';
-import { a as FxsVSlot } from '../../../core/ui/components/fxs-slot.chunk.js';
-import '../../../core/ui/components/fxs-activatable.chunk.js';
-import '../../../core/ui/context-manager/display-queue-manager.js';
-import '../../../core/ui/input/cursor.js';
-import '../../../core/ui/context-manager/context-manager.js';
-import '../../../core/ui/utilities/utilities-image.chunk.js';
-import '../utilities/utilities-overlay.chunk.js';
-import '../../../core/ui/utilities/utilities-core-textprovider.chunk.js';
-import '../../../core/ui/components/fxs-nav-help.chunk.js';
-import '../quest-tracker/quest-item.js';
-import '../quest-tracker/quest-tracker.js';
-import '../tutorial/tutorial-item.js';
-import '../tutorial/tutorial-manager.js';
-import '../../../core/ui/input/input-filter.chunk.js';
-import '../tutorial/tutorial-events.chunk.js';
-import '../../../core/ui/spatial/spatial-manager.js';
-
-const CanUpgradeToCity = (townID) => {
-  const result = Game.CityCommands.canStart(
-    townID,
-    CityCommandTypes.PURCHASE,
-    { Directive: OrderTypes.ORDER_TOWN_UPGRADE },
-    false
-  );
-  return result.Success;
-};
-const CanCityConstruct = (cityID, constructible, isPurchase) => {
-  if (isPurchase) {
-    return Game.CityCommands.canStart(
-      cityID,
-      CityCommandTypes.PURCHASE,
-      { ConstructibleType: constructible.$index },
-      false
-    );
-  } else {
-    return Game.CityOperations.canStart(
-      cityID,
-      CityOperationTypes.BUILD,
-      { ConstructibleType: constructible.$index },
-      false
-    );
-  }
-};
-const CanConvertToCity = (townID) => {
-  return Game.CityCommands.canStart(
-    townID,
-    CityCommandTypes.PURCHASE,
-    { Directive: OrderTypes.ORDER_TOWN_UPGRADE },
-    false
-  );
-};
-const ConvertToCity = (townID) => {
-  const result = CanConvertToCity(townID);
-  if (result.Success) {
-    Game.CityCommands.sendRequest(townID, CityCommandTypes.PURCHASE, { Directive: OrderTypes.ORDER_TOWN_UPGRADE });
-    UI.sendAudioEvent("city-upgrade-confirm");
-    return true;
-  }
-  return false;
-};
-
-class UniqueQuarter {
-  root = document.createElement("div");
-  uqInfoCols = document.createElement("div");
-  nameElement = document.createElement("div");
-  completionStatusText = document.createElement("div");
-  buildingContainer = document.createElement("div");
-  buildingElementOne = void 0;
-  buildingElementTwo = void 0;
-  set definition(value) {
-    this.nameElement.setAttribute("data-l10n-id", value.Name);
-    this.uqInfoCols.setAttribute("data-tooltip-content", value.Description);
-  }
-  set numCompleted(value) {
-    this.completionStatusText.textContent = Locale.compose("LOC_UI_PRODUCTION_QUARTER_BUILDINGS_COMPLETED", value);
-  }
-  constructor() {
-    this.root.className = "production-chooser__unique-quarter relative flex flex-col pointer-events-auto";
-    this.uqInfoCols.className = "production-chooser-item flex items-stretch mb-2 ml-2 hover\\:text-accent-1 focus\\:text-accent-1";
-    this.uqInfoCols.setAttribute("data-tooltip-anchor-offset", "20");
-    this.uqInfoCols.setAttribute("tabindex", "-1");
-    const uqCol1 = document.createElement("fxs-icon");
-    uqCol1.className = "size-10 mr-2";
-    uqCol1.setAttribute("data-icon-id", "CITY_UNIQUE_QUARTER");
-    uqCol1.setAttribute("data-icon-context", "DEFAULT");
-    const uqNameLabelContainer = document.createElement("div");
-    uqNameLabelContainer.className = "flex-auto flex flex-col";
-    this.nameElement.className = "font-title text-base tracking-100 uppercase transition-color";
-    const labelElement = document.createElement("div");
-    labelElement.className = "font-body text-sm transition-color";
-    labelElement.setAttribute("data-l10n-id", "LOC_UI_PRODUCTION_UNIQUE_QUARTER");
-    uqNameLabelContainer.append(this.nameElement, labelElement);
-    this.completionStatusText.className = "font-body text-sm self-end transition-color";
-    this.uqInfoCols.append(uqCol1, uqNameLabelContainer, this.completionStatusText);
-    this.buildingContainer.className = "flex flex-col";
-    const uqBarDecor = document.createElement("div");
-    uqBarDecor.className = "absolute -left-px h-full w-1\\.5 img-city-tab-line-vert";
-    const uqDivider = document.createElement("div");
-    uqDivider.className = "production-chooser__unique-quarter-divider";
-    this.root.append(this.uqInfoCols, this.buildingContainer, uqBarDecor, uqDivider);
-  }
-  setBuildings(chooserItemOne, chooserItemTwo) {
-    if (this.buildingElementOne == chooserItemOne && this.buildingElementTwo == chooserItemTwo) {
-      return;
-    }
-    this.buildingContainer.innerHTML = "";
-    this.buildingElementOne = chooserItemOne;
-    this.buildingElementTwo = chooserItemTwo;
-    this.buildingContainer.append(this.buildingElementOne, this.buildingElementTwo);
-  }
-  containsBuilding(item) {
-    return this.buildingElementOne == item || this.buildingElementTwo == item;
-  }
-}
-
-const styles = "fs://game/base-standard/ui/production-chooser/panel-production-chooser.css";
-
-const TownFocusRefreshEventName = "panel-town-focus-refresh";
-class TownFocusRefreshEvent extends CustomEvent {
-  constructor() {
-    super(TownFocusRefreshEventName, { bubbles: false, cancelable: true });
-  }
-}
-class PanelTownFocus extends FxsFrame {
-  _cityID = null;
-  get cityID() {
-    return this._cityID;
-  }
-  set cityID(value) {
-    if (ComponentID.isMatch(value, this._cityID)) {
-      return;
-    }
-    if (value === null) {
-      this.focusItems = [];
-      this._cityID = null;
-      return;
-    }
-    const city = Cities.get(value);
-    if (!city) {
-      this.focusItems = [];
-      console.error(`panel-production-chooser: Failed to get city with ID: ${ComponentID.toLogString(value)}`);
-      return;
-    }
-    this.focusItems = GetTownFocusItems(city.id);
-    this._cityID = value;
-  }
-  set focusItems(items) {
-    this.focusItemListElement.innerHTML = "";
-    for (let i = 0; i < items.length; i++) {
-      const { name, description, tooltipDescription, growthType, projectType } = items[i];
-      const itemElement = document.createElement("town-focus-chooser-item");
-      itemElement.classList.add("w-full");
-      itemElement.dataset.name = name;
-      itemElement.dataset.description = description;
-      if (tooltipDescription) {
-        itemElement.dataset.tooltipDescription = tooltipDescription;
-      } else {
-        itemElement.removeAttribute("data-tooltip-description");
-      }
-      itemElement.dataset.growthType = growthType.toString();
-      itemElement.dataset.projectType = projectType.toString();
-      this.focusItemListElement.appendChild(itemElement);
-    }
-  }
-  // #region Element References
-  headerElement = document.createElement("fxs-header");
-  focusItemListElement = document.createElement("fxs-vslot");
-  // #endregion
-  onInitialize() {
-    this.Root.setAttribute(
-      "override-styling",
-      "relative flex max-w-full max-h-full pt-3\\.5 px-3\\.5 pb-6 pointer-events-auto"
-    );
-    this.Root.setAttribute("frame-style", "simple");
-    super.onInitialize();
-    this.render();
-  }
-  onAttach() {
-    super.onAttach();
-    this.Root.addEventListener("focus", this.onFocus);
-    engine.on("CitySelectionChanged", this.onCitySelectionChanged);
-    engine.on("CityGrowthModeChanged", this.onCityGrowthModeChanged);
-    this.Root.addEventListener(TownFocusRefreshEventName, this.onRefreshFocusList);
-    this.cityID = UI.Player.getHeadSelectedCity();
-  }
-  onDetach() {
-    this.Root.removeEventListener(TownFocusRefreshEventName, this.onRefreshFocusList);
-    engine.off("CityGrowthModeChanged", this.onCityGrowthModeChanged);
-    engine.off("CitySelectionChanged", this.onCitySelectionChanged);
-    this.Root.removeEventListener("focus", this.onFocus);
-    super.onDetach();
-  }
-  onCitySelectionChanged = ({ selected, cityID }) => {
-    if (selected) {
-      this.cityID = cityID;
-    }
-  };
-  onCityGrowthModeChanged = ({ cityID }) => {
-    if (this._cityID && ComponentID.isMatch(this._cityID, cityID)) {
-      this.cityID = cityID;
-    }
-  };
-  onRefreshFocusList = () => {
-    const oldCityID = this._cityID;
-    this.cityID = null;
-    this.cityID = oldCityID;
-  };
-  onFocus = () => {
-    if (this.cityID) {
-      Game.CityOperations.sendRequest(this.cityID, CityOperationTypes.CONSIDER_TOWN_PROJECT, {});
-    }
-    Framework.FocusManager.setFocus(this.focusItemListElement);
-  };
-  render() {
-    this.content.classList.add("flex", "flex-col");
-    this.headerElement.classList.add("uppercase", "tracking-100");
-    this.headerElement.setAttribute("title", "LOC_UI_TOWN_FOCUS");
-    this.content.appendChild(this.headerElement);
-    this.content.insertAdjacentHTML(
-      "beforeend",
-      `<div class="flex flex-col items-center justify-center mb-2 font-body text-xs text-accent-2" data-l10n-id="LOC_UI_TOWN_FOCUS_CTA"></div>`
-    );
-    const scrollable = document.createElement("fxs-scrollable");
-    scrollable.classList.add("flex-auto", "px-3\\.5", "mr-1");
-    this.focusItemListElement.setAttribute("data-navrule-up", "stop");
-    this.focusItemListElement.setAttribute("data-navrule-down", "stop");
-    this.focusItemListElement.setAttribute("data-navrule-left", "stop");
-    this.focusItemListElement.setAttribute("data-navrule-right", "stop");
-    scrollable.appendChild(this.focusItemListElement);
-    this.content.appendChild(scrollable);
-  }
-}
-Controls.define("panel-town-focus", {
-  createInstance: PanelTownFocus,
-  tabIndex: -1
-});
-
-const ProductionChooserAccordionSectionToggleEventName = "production-chooser-accordion-section-toggle";
-class ProductionChooserAccordionSectionToggleEvent extends CustomEvent {
-  constructor(detail) {
-    super(ProductionChooserAccordionSectionToggleEventName, { detail, bubbles: true });
-  }
-}
-class ProductionChooserAccordionSection {
-  constructor(id, title, isOpen) {
-    this.id = id;
-    this.title = title;
-    this.root = document.createElement("div");
-    this.root.id = id;
-    this.root.classList.add("production-category", "mb-2", "ml-4");
-    this.header = document.createElement("fxs-activatable");
-    this.header.classList.value = "relative flex items-center group h-10 mb-2 hud_sidepanel_list-bg cursor-pointer";
-    this.header.setAttribute("tabindex", "-1");
-    this.sectionHeaderFocus = document.createElement("div");
-    this.sectionHeaderFocus.classList.value = "absolute inset-0 img-list-focus-frame opacity-0 group-hover\\:opacity-100 group-focus\\:opacity-100 group-pressed\\:opacity-100 transition-opacity";
-    this.header.appendChild(this.sectionHeaderFocus);
-    const sectionTitleWrapper = document.createElement("div");
-    sectionTitleWrapper.classList.value = "relative flex-auto flex items-center justify-center";
-    const sectionTitle = document.createElement("div");
-    sectionTitle.classList.value = "font-title uppercase text-xs text-accent-2 tracking-100";
-    sectionTitle.setAttribute("data-l10n-id", title);
-    sectionTitleWrapper.appendChild(sectionTitle);
-    this.header.appendChild(sectionTitleWrapper);
-    this.arrowIcon = document.createElement("div");
-    this.arrowIcon.classList.value = "w-12 h-8 img-arrow bg-center bg-no-repeat bg-contain transition-transform";
-    this.header.appendChild(this.arrowIcon);
-    this.root.appendChild(this.header);
-    this.slot = document.createElement("div");
-    this.slot.classList.add("flex", "flex-col", "shrink-0");
-    this.slotWrapper = document.createElement("div");
-    this.slotWrapper.classList.add("flex", "flex-col", "overflow-hidden", "transition-height", "ease-out");
-    this.slotWrapper.append(this.slot);
-    this.root.appendChild(this.slotWrapper);
-    this.resizeObserver = new ResizeObserver((_entries) => {
-      this.updateHeight(this.slot.clientHeight);
-    });
-    this.mutationObserver = new MutationObserver((mutations) => {
-      for (const mutation of mutations) {
-        if (mutation.type !== "childList") continue;
-        for (const node of mutation.addedNodes) {
-          this.applyTabIndexPolicyForNode(node);
-        }
-      }
-    });
-    this.mutationObserver.observe(this.slot, { childList: true, subtree: false });
-    this.header.addEventListener("action-activate", () => {
-      this.toggle();
-      this.root.dispatchEvent(new ProductionChooserAccordionSectionToggleEvent({ isOpen: this.isOpen }));
-    });
-    this.isOpen = isOpen;
-    this.toggle(isOpen);
-  }
-  root;
-  slot;
-  slotWrapper;
-  header;
-  arrowIcon;
-  sectionHeaderFocus;
-  resizeObserver;
-  mutationObserver;
-  #isOpen;
-  get isOpen() {
-    return this.#isOpen;
-  }
-  set isOpen(_) {
-    this.#isOpen = _;
-  }
-  /** Track changes to the size while open */
-  observe() {
-    this.resizeObserver.observe(this.slot, { box: "border-box" });
-  }
-  /**
-   * Stop tracking size changes
-   *
-   * We do this because Gameface needs to check all elements that changed size to see if a particular resize observer matches,
-   * so even if the element is not changing size, there is a performance cost
-   *
-   * NOTE: The mutation observer is not here because we need to always watch for new items to apply focus policy
-   */
-  unobserve() {
-    this.resizeObserver.unobserve(this.slot);
-  }
-  /**
-   * Completely stop observing changes for cleanup
-   */
-  disconnect() {
-    this.resizeObserver.disconnect();
-    this.mutationObserver.disconnect();
-  }
-  updateHeight(height) {
-    const currentHeight = this.slotWrapper.clientHeight;
-    const heightDiffAbs = Math.abs(height - currentHeight);
-    const shouldAnimate = this.slotWrapper.attributeStyleMap.has("height");
-    if (shouldAnimate) {
-      const transitionDurationSeconds = Math.max(0.15, Math.min(1, heightDiffAbs / (2 * screen.height)));
-      this.slotWrapper.style.transitionDuration = `${transitionDurationSeconds}s`;
-    } else {
-      this.slotWrapper.style.transitionDuration = "";
-    }
-    this.slotWrapper.attributeStyleMap.set("height", CSS.px(height));
-  }
-  // Ensure any newly added elements respect the current open/closed focus policy
-  applyTabIndexPolicyForNode(node) {
-    if (!(node instanceof Element)) return;
-    const affected = [];
-    if (node instanceof HTMLElement && node.matches(".production-chooser-item")) {
-      affected.push(node);
-    } else {
-      node.querySelectorAll(".production-chooser-item").forEach((el) => affected.push(el));
-    }
-    if (affected.length === 0) return;
-    if (!this.isOpen) {
-      for (const el of affected) {
-        el.removeAttribute("tabindex");
-      }
-    } else {
-      for (const el of affected) {
-        el.setAttribute("tabindex", "-1");
-      }
-    }
-  }
-  toggle(force = void 0) {
-    const shouldOpen = force ?? !this.isOpen;
-    if (shouldOpen) {
-      this.open();
-      this.header.setAttribute("data-audio-activate-ref", "data-audio-dropdown-close");
-    } else {
-      this.close();
-      this.header.setAttribute("data-audio-activate-ref", "data-audio-dropdown-open");
-    }
-  }
-  open() {
-    this.arrowIcon.classList.add("-rotate-90");
-    this.isOpen = true;
-    this.slot.classList.remove("disabled");
-    const selectableChildren = this.slot.querySelectorAll(".production-chooser-item");
-    for (const child of selectableChildren) {
-      child.setAttribute("tabindex", "-1");
-    }
-    this.observe();
-  }
-  close() {
-    this.arrowIcon.classList.remove("-rotate-90");
-    this.isOpen = false;
-    const selectableChildren = this.slot.querySelectorAll(".production-chooser-item");
-    for (const child of selectableChildren) {
-      child.removeAttribute("tabindex");
-    }
-    this.updateHeight(0);
-    this.unobserve();
-  }
-}
-
-const categoryTooltipStyleMap = {
-  [ProductionPanelCategory.BUILDINGS]: "production-constructible-tooltip",
-  [ProductionPanelCategory.UNITS]: "production-unit-tooltip",
-  [ProductionPanelCategory.WONDERS]: "production-constructible-tooltip",
-  [ProductionPanelCategory.PROJECTS]: "production-project-tooltip"
-};
-const UpdateProductionChooserItem = (element, data, isPurchase) => {
-  element.dataset.name = data.name;
-  element.dataset.type = data.type;
-  element.dataset.category = data.category;
-  element.dataset.isPurchase = isPurchase.toString();
-  element.dataset.isAgeless = data.ageless ? "true" : "false";
-  element.dataset.infoDisplayType = data.infoDisplayType;
-  if (data.secondaryDetails && (!data.infoDisplayType || data.infoDisplayType == "yield-preview")) {
-    element.dataset.secondaryDetails = data.secondaryDetails;
-  } else {
-    element.removeAttribute("data-secondary-details");
-  }
-  if (data.tags && (!data.infoDisplayType || data.infoDisplayType == "base-yield")) {
-    element.dataset.tags = composeTagString(data.tags);
-  } else {
-    element.removeAttribute("data-tags");
-  }
-  if (data.baseYields && data.baseYields.length && (!data.infoDisplayType || data.infoDisplayType == "base-yield")) {
-    element.dataset.baseYields = JSON.stringify(data.baseYields);
-  } else {
-    element.removeAttribute("data-base-yields");
-  }
-  const cost = isPurchase ? data.cost : data.turns;
-  element.dataset.cost = cost.toString();
-  element.setAttribute("disabled", (!!data.disabled).toString());
-  if (data.error) {
-    element.dataset.error = data.error;
-  } else {
-    element.removeAttribute("data-error");
-  }
-  if (data.description) {
-    element.dataset.description = data.description;
-  } else {
-    element.removeAttribute("data-description");
-  }
-  if (data.canGetWarehouseBonuses) {
-    element.dataset.canGetWarehouse = "true";
-    element.dataset.warehouseCount = data.warehouseCount ? data.warehouseCount.toString() : "0";
-  } else {
-    element.removeAttribute("data-can-get-warehouse");
-    element.removeAttribute("data-warehouse-count");
-  }
-  if (data.canGetAdjacencyBonuses) {
-    element.dataset.canGetAdjacency = "true";
-    element.dataset.highestAdjacency = data.highestAdjacency ? data.highestAdjacency.toString() : "0";
-  } else {
-    element.removeAttribute("data-can-get-adjacency");
-    element.removeAttribute("data-highest-adjacency");
-  }
-  if (data.recommendations && data.recommendations.length > 0) {
-    element.dataset.recommendations = JSON.stringify(data.recommendations);
-  } else {
-    element.removeAttribute("data-recommendations");
-  }
-  if (data.type == "IMPROVEMENT_REPAIR_ALL") {
-    element.setAttribute("data-repair-all", "true");
-  }
-  if (isPurchase) {
-    element.setAttribute("data-audio-activate-ref", "data-audio-city-purchase-activate");
-  } else {
-    element.setAttribute("data-audio-activate-ref", "none");
-  }
-  element.setAttribute("data-tooltip-style", categoryTooltipStyleMap[data.category]);
-};
-class ProductionChooserItem extends FxsChooserItem {
-  // #region Element References
-  iconElement = document.createElement("fxs-icon");
-  itemNameElement = document.createElement("span");
-  itemBaseYieldsElement = document.createElement("div");
-  secondaryDetailsElement = document.createElement("div");
-  alternateYieldElement = document.createElement("div");
-  errorTextElement = document.createElement("span");
-  costContainer = document.createElement("div");
-  costIconElement = document.createElement("span");
-  recommendationsContainer = document.createElement("div");
-  alternateRecommendationsContainer = document.createElement("div");
-  costAmountElement = document.createElement("span");
-  agelessContainer = document.createElement("div");
-  warehouseCountContainer = document.createElement("div");
-  warehouseCountValue = document.createElement("div");
-  adjacencyBonusContainer = document.createElement("div");
-  adjacencyBonusValue = document.createElement("div");
-  // #endregion
-  get isPurchase() {
-    return this.Root.getAttribute("data-is-purchase") === "true";
-  }
-  onInitialize() {
-    super.onInitialize();
-    this.selectOnActivate = true;
-    this.render();
-  }
-  render() {
-    this.Root.classList.add("text-base", "production-chooser-item");
-    this.container.classList.add("p-2", "tracking-100");
-    this.iconElement.classList.add("size-16", "bg-contain", "bg-center", "bg-no-repeat", "mr-2");
-    this.container.appendChild(this.iconElement);
-    const infoContainer = document.createElement("div");
-    infoContainer.classList.value = "relative flex flex-col flex-auto justify-between pt-2 pb-1\\.5";
-    this.itemNameElement.classList.value = "font-title text-accent-2 uppercase";
-    infoContainer.appendChild(this.itemNameElement);
-    this.errorTextElement.classList.value = "font-body text-negative-light z-1 pointer-events-none";
-    infoContainer.appendChild(this.errorTextElement);
-    this.secondaryDetailsElement.classList.value = "hidden flex text-sm";
-    infoContainer.appendChild(this.secondaryDetailsElement);
-    this.alternateYieldElement.classList.value = "hidden flex items-center text-sm production-chooser__font-icon-positioning";
-    infoContainer.appendChild(this.alternateYieldElement);
-    this.itemBaseYieldsElement.classList.value = "flex items-center";
-    this.alternateYieldElement.appendChild(this.itemBaseYieldsElement);
-    this.warehouseCountContainer.classList.add("hidden", "flex", "items-end");
-    this.alternateYieldElement.appendChild(this.warehouseCountContainer);
-    const warehouseDivider = document.createElement("div");
-    warehouseDivider.classList.add("mx-2");
-    warehouseDivider.textContent = "|";
-    this.warehouseCountContainer.appendChild(warehouseDivider);
-    this.warehouseCountValue.className = "mx-1";
-    this.warehouseCountContainer.appendChild(this.warehouseCountValue);
-    const warehouseIcon = document.createElement("fxs-font-icon");
-    warehouseIcon.setAttribute("data-icon-id", "YIELD_WAREHOUSE");
-    this.warehouseCountContainer.appendChild(warehouseIcon);
-    this.adjacencyBonusContainer.classList.add("hidden", "flex", "items-end");
-    this.alternateYieldElement.appendChild(this.adjacencyBonusContainer);
-    const adjacencyDivider = document.createElement("div");
-    adjacencyDivider.classList.add("mx-2");
-    adjacencyDivider.textContent = "|";
-    this.adjacencyBonusContainer.appendChild(adjacencyDivider);
-    this.adjacencyBonusValue.className = "mx-1";
-    this.adjacencyBonusContainer.appendChild(this.adjacencyBonusValue);
-    const adjacencyIcon = document.createElement("fxs-font-icon");
-    adjacencyIcon.setAttribute("data-icon-id", "YIELD_ADJACENCY");
-    this.adjacencyBonusContainer.appendChild(adjacencyIcon);
-    this.container.appendChild(infoContainer);
-    const rightColumn = document.createElement("div");
-    rightColumn.classList.value = "flex flex-col justify-end";
-    const rightColumnTop = document.createElement("div");
-    rightColumnTop.classList.value = "self-end";
-    rightColumn.appendChild(rightColumnTop);
-    const rightColumnBottom = document.createElement("div");
-    rightColumnBottom.classList.value = "flex flex-auto self-end";
-    rightColumn.appendChild(rightColumnBottom);
-    this.agelessContainer.classList.value = "hidden flex items-center";
-    this.agelessContainer.innerHTML = `
-			<div class="img-hud-production-pill flex text-sm items-center">
-                <div class="px-2 uppercase leading-none" data-l10n-id="LOC_UI_PRODUCTION_AGELESS"></div>
-            </div>
-		`;
-    rightColumnTop.appendChild(this.agelessContainer);
-    this.recommendationsContainer.classList.value = "flex items-center justify-center mr-2";
-    this.costContainer.appendChild(this.recommendationsContainer);
-    this.costContainer.classList.value = "flex flex-row items-center self-end";
-    this.costContainer.appendChild(this.costAmountElement);
-    this.costIconElement.classList.value = "size-8 bg-contain bg-center bg-no-repeat mr-1";
-    this.costContainer.appendChild(this.costIconElement);
-    this.alternateRecommendationsContainer.classList.value = "flex items-center justify-center mr-2";
-    rightColumnTop.appendChild(this.alternateRecommendationsContainer);
-    rightColumnBottom.appendChild(this.costContainer);
-    this.container.appendChild(rightColumn);
-  }
-  updateCostIconElement() {
-    const costIcon = this.isPurchase ? "Yield_Gold" : "hud_turn-timer";
-    this.costIconElement.style.setProperty("background-image", `url(${costIcon})`);
-    const altText = Locale.compose(this.isPurchase ? "LOC_YIELD_GOLD" : "LOC_UI_CITY_INSPECTOR_TURNS");
-    this.costIconElement.ariaLabel = altText;
-  }
-  updateRecommendation() {
-    if (this.Root.dataset.recommendations) {
-      this.createRecommendationElements(this.Root.dataset.recommendations);
-      this.recommendationsContainer.classList.remove("hidden");
-      this.alternateRecommendationsContainer.classList.add("hidden");
-    } else {
-      this.alternateRecommendationsContainer.classList.add("hidden");
-      this.recommendationsContainer.classList.add("hidden");
-    }
-  }
-  createRecommendationElements(recommendationList) {
-    this.recommendationsContainer.innerHTML = "";
-    const recommendations = JSON.parse(recommendationList);
-    const advisorList = recommendations.map((rec) => rec.class);
-    const advisorRecommendations = AdvisorUtilities.createAdvisorRecommendation(advisorList);
-    this.recommendationsContainer.appendChild(advisorRecommendations);
-  }
-  createAlternateRecommendationElements(recommendationList) {
-    this.alternateRecommendationsContainer.innerHTML = "";
-    const recommendations = JSON.parse(recommendationList);
-    const advisorList = recommendations.map((rec) => rec.class);
-    const advisorRecommendations = AdvisorUtilities.createAdvisorRecommendation(advisorList);
-    this.alternateRecommendationsContainer.appendChild(advisorRecommendations);
-  }
-  onAttributeChanged(name, _oldValue, newValue) {
-    switch (name) {
-      case "data-name":
-        if (newValue) {
-          this.itemNameElement.dataset.l10nId = newValue;
-        }
-        break;
-      case "data-type": {
-        if (newValue) {
-          this.iconElement.setAttribute("data-icon-id", newValue);
-        } else {
-          this.iconElement.removeAttribute("data-icon-id");
-        }
-        const isUnit = !!newValue && GameInfo.Units.lookup(newValue) != void 0;
-        this.secondaryDetailsElement.classList.toggle("-ml-1\\.5", isUnit);
-        break;
-      }
-      case "data-is-purchase":
-        this.updateCostIconElement();
-        break;
-      case "data-cost":
-        {
-          const cost = newValue ? parseInt(newValue) : 0;
-          const showCost = isNaN(cost) || cost < 0;
-          this.costContainer.classList.toggle("hidden", showCost);
-          this.costAmountElement.textContent = newValue;
-        }
-        break;
-      case "data-error":
-        if (newValue) {
-          this.errorTextElement.setAttribute("data-l10n-id", newValue);
-          this.errorTextElement.classList.remove("hidden");
-        } else {
-          this.errorTextElement.removeAttribute("data-l10n-id");
-          this.errorTextElement.classList.add("hidden");
-        }
-        break;
-      case "data-is-ageless": {
-        const isAgeless = newValue === "true";
-        this.agelessContainer.classList.toggle("hidden", !isAgeless);
-        break;
-      }
-      case "data-secondary-details": {
-        if (newValue) {
-          this.secondaryDetailsElement.innerHTML = newValue;
-          this.secondaryDetailsElement.classList.remove("hidden");
-        } else {
-          this.secondaryDetailsElement.classList.add("hidden");
-        }
-        break;
-      }
-      case "data-recommendations": {
-        this.updateRecommendation();
-        break;
-      }
-      case "data-warehouse-count": {
-        if (newValue) {
-          this.warehouseCountValue.textContent = newValue;
-          this.warehouseCountContainer.classList.remove("hidden");
-        } else {
-          this.warehouseCountContainer.classList.add("hidden");
-        }
-        break;
-      }
-      case "data-highest-adjacency": {
-        if (newValue) {
-          this.adjacencyBonusValue.textContent = newValue;
-          this.adjacencyBonusContainer.classList.remove("hidden");
-        } else {
-          this.adjacencyBonusContainer.classList.add("hidden");
-        }
-        break;
-      }
-      case "data-base-yields": {
-        if (newValue) {
-          this.itemBaseYieldsElement.innerHTML = "";
-          const baseYields = JSON.parse(newValue);
-          for (let i = 0; i < baseYields.length; i++) {
-            const yieldData = baseYields[i];
-            const baseYield = document.createElement("div");
-            baseYield.className = "flex items-center";
-            if (i > 0) {
-              baseYield.classList.add("ml-1");
-            }
-            baseYield.innerHTML = Locale.stylize(
-              "LOC_BUILDING_PLACEMENT_YIELD_ICON_ONLY",
-              yieldData.value,
-              yieldData.yieldType
-            );
-            this.itemBaseYieldsElement.appendChild(baseYield);
-          }
-          this.itemBaseYieldsElement.classList.remove("hidden");
-        } else {
-          this.itemBaseYieldsElement.classList.add("hidden");
-        }
-        break;
-      }
-      case "data-info-display-type": {
-        this.updateRecommendation();
-        if (newValue === "base-yield") {
-          this.alternateYieldElement.classList.remove("hidden");
-        } else {
-          this.alternateYieldElement.classList.add("hidden");
-        }
-        break;
-      }
-      default:
-        super.onAttributeChanged(name, _oldValue, newValue);
-        break;
-    }
-  }
-}
-Controls.define("production-chooser-item", {
-  createInstance: ProductionChooserItem,
-  attributes: [
-    { name: "disabled" },
-    { name: "data-category" },
-    { name: "data-name" },
-    { name: "data-type" },
-    { name: "data-cost" },
-    { name: "data-prereq" },
-    { name: "data-description" },
-    { name: "data-error" },
-    { name: "data-is-purchase" },
-    { name: "data-is-ageless" },
-    { name: "data-secondary-details" },
-    { name: "data-recommendations" },
-    { name: "data-tags" },
-    { name: "data-base-yields" },
-    { name: "data-can-get-warehouse" },
-    { name: "data-info-display-type" },
-    { name: "data-warehouse-count" },
-    { name: "data-can-get-adjacency" },
-    { name: "data-highest-adjacency" }
-  ]
-});
-
-class TownFocusChooserItem extends FxsChooserItem {
-  // #region Element References
-  nameElement = document.createElement("div");
-  descriptionElement = document.createElement("div");
-  projectIconElement = document.createElement("div");
-  // #endregion
-  onInitialize() {
-    super.onInitialize();
-    this.render();
-    this.selectOnActivate = true;
-  }
-  updateIcon() {
-    const projectTypeAttr = this.Root.getAttribute("data-project-type");
-    const growthTypeAttr = this.Root.getAttribute("data-growth-type");
-    const projectType = projectTypeAttr ? parseInt(projectTypeAttr) : null;
-    const growthType = growthTypeAttr ? parseInt(growthTypeAttr) : null;
-    const iconBlp = GetTownFocusBlp(growthType, projectType);
-    this.projectIconElement.style.backgroundImage = `url(${iconBlp})`;
-  }
-  onAttributeChanged(name, oldValue, newValue) {
-    switch (name) {
-      case "data-project-type":
-      case "data-growth-type":
-        this.updateIcon();
-        break;
-      case "data-name":
-        if (newValue) {
-          this.nameElement.setAttribute("data-l10n-id", newValue);
-        }
-        break;
-      case "data-description":
-        if (newValue) {
-          this.descriptionElement.setAttribute("data-l10n-id", newValue);
-        }
-        this.container.classList.toggle("p-3", !!newValue);
-        break;
-      default:
-        super.onAttributeChanged(name, oldValue, newValue);
-        break;
-    }
-  }
-  render() {
-    this.Root.dataset.tooltipStyle = "production-project-tooltip";
-    this.container.classList.add("flex", "flex-row", "flex-auto");
-    this.projectIconElement.classList.add("size-16", "bg-contain", "bg-center", "bg-no-repeat", "mr-2");
-    this.container.appendChild(this.projectIconElement);
-    const infoContainer = document.createElement("div");
-    infoContainer.classList.add("flex", "flex-col", "flex-initial", "justify-center");
-    this.nameElement.classList.add("mb-1", "font-title", "uppercase", "text-xs", "tracking-100");
-    this.descriptionElement.classList.add("font-body", "text-sm");
-    infoContainer.append(this.nameElement, this.descriptionElement);
-    this.container.appendChild(infoContainer);
-  }
-}
-Controls.define("town-focus-chooser-item", {
-  createInstance: TownFocusChooserItem,
-  attributes: [
-    { name: "disabled" },
-    { name: "selected", description: "Is this chooser item selected? (Default: false)" },
-    { name: "show-frame-on-hover", description: "Shows the selection frame on hover" },
-    {
-      name: "data-project-type"
-    },
-    {
-      name: "data-growth-type"
-    },
-    {
-      name: "data-name"
-    },
-    {
-      name: "data-description"
-    },
-    {
-      name: "selected"
-    }
-  ]
-});
-class TownFocusSection extends FxsVSlot {
-  // #region Element References
-  townFocusItem = document.createElement("town-focus-chooser-item");
-  defaultLabelElement = document.createElement("div");
-  // #endregion
-  // #region Lifecycle
-  onInitialize() {
-    super.onInitialize();
-    this.render();
-  }
-  onAttributeChanged(name, oldValue, newValue) {
-    switch (name) {
-      case "data-disabled":
-        if (newValue !== null) {
-          this.townFocusItem.setAttribute("disabled", newValue);
-        } else {
-          this.townFocusItem.removeAttribute("disabled");
-        }
-        break;
-      case "data-growth-type":
-      case "data-project-type":
-      case "data-name":
-      case "data-description":
-      case "data-tooltip-name":
-      case "data-tooltip-description":
-        if (newValue) {
-          this.townFocusItem.setAttribute(name, newValue);
-        } else {
-          this.townFocusItem.removeAttribute(name);
-        }
-        break;
-      default:
-        super.onAttributeChanged(name, oldValue, newValue);
-        break;
-    }
-  }
-  // #endregion
-  render() {
-    this.Root.classList.add(
-      "flex",
-      "flex-col",
-      "items-center",
-      "justify-center",
-      "px-14",
-      "py-2",
-      "production-chooser__town-focus-gradient"
-    );
-    this.Root.insertAdjacentHTML(
-      "beforeend",
-      '<div class="font-title uppercase text-xs text-secondary-2 text-gradient-secondary" data-l10n-id="LOC_UI_TOWN_FOCUS"></div>'
-    );
-    this.townFocusItem.classList.add("flex-auto", "mx-5", "my-2");
-    this.Root.appendChild(this.townFocusItem);
-    this.defaultLabelElement.classList.value = "production-chooser__town-focus__default-label font-body text-xs text-accent-2";
-    this.defaultLabelElement.setAttribute("data-l10n-id", "LOC_UI_TOWN_FOCUS_DEFAULT_LABEL");
-    this.Root.appendChild(this.defaultLabelElement);
-  }
-}
-Controls.define("town-focus-section", {
-  createInstance: TownFocusSection,
-  attributes: [
-    {
-      name: "data-type"
-    },
-    {
-      name: "data-growth-type"
-    },
-    {
-      name: "data-project-type"
-    },
-    {
-      name: "data-disabled"
-    },
-    {
-      name: "data-name"
-    },
-    {
-      name: "data-description"
-    },
-    {
-      name: "data-tooltip-name"
-    },
-    {
-      name: "data-tooltip-description"
-    },
-    {
-      name: "data-show-default-label"
-    }
-  ],
-  tabIndex: -1
-});
-
-class TownUnrestDisplay extends Component {
-  // #region Component State
-  get highestActiveUnrestDuration() {
-    const attr = this.Root.getAttribute("data-highest-active-unrest-duration");
-    return attr ? parseInt(attr) : 0;
-  }
-  get turnsOfUnrest() {
-    const attr = this.Root.getAttribute("data-turns-of-unrest");
-    return attr ? parseInt(attr) : 0;
-  }
-  // #endregion
-  // #region Element References
-  sliderFillElement = document.createElement("div");
-  remainingTurnsElement = document.createElement("div");
-  // #endregion
-  onInitialize() {
-    super.onInitialize();
-    this.render();
-  }
-  onAttributeChanged(name, _oldValue, _newValue) {
-    switch (name) {
-      case "data-turns-of-unrest":
-      case "data-highest-active-unrest-duration":
-        this.updateUnrestDisplay(this.turnsOfUnrest, this.highestActiveUnrestDuration);
-        break;
-      default:
-        break;
-    }
-  }
-  updateUnrestDisplay(turnsOfUnrest, highestActiveUnrestDuration) {
-    if (highestActiveUnrestDuration != 0) {
-      const pct = Math.max(0, Math.min(1, turnsOfUnrest / highestActiveUnrestDuration));
-      this.sliderFillElement.style.transform = `scaleX(${pct})`;
-    } else {
-      this.sliderFillElement.style.transform = `none`;
-    }
-    const turnsRemaining = Math.max(0, turnsOfUnrest);
-    this.remainingTurnsElement.textContent = Locale.compose(
-      "LOC_UI_PRODUCTION_UNREST_TURNS_REMAINING",
-      turnsRemaining
-    );
-  }
-  render() {
-    this.Root.classList.add("flex", "flex-col", "items-center", "justify-center", "px-2");
-    this.Root.innerHTML = `
-			<div class="font-title font-bold text-lg mt-2 uppercase pulse-warn" data-l10n-id="LOC_UI_PRODUCTION_UNREST"></div>
-		`;
-    const slider = document.createElement("div");
-    slider.classList.add("w-full", "h-1\\.5", "mb-2", "mt-2", "town-unrest-bg");
-    this.sliderFillElement.classList.add("size-full", "origin-left", "town-unrest-fill", "transition-transform");
-    slider.appendChild(this.sliderFillElement);
-    this.Root.append(slider, this.remainingTurnsElement);
-  }
-}
-Controls.define("town-unrest-display", {
-  createInstance: TownUnrestDisplay,
-  attributes: [{ name: "data-turns-of-unrest" }, { name: "data-highest-active-unrest-duration" }]
-});
-
-class LastProductionSection extends Component {
-  cityID = null;
-  updateCityDetailsListener = this.onUpdateCityDetails.bind(this);
-  nameElement = document.createElement("div");
-  iconElement = document.createElement("fxs-icon");
-  yieldDiv = document.createElement("div");
-  onInitialize() {
-    super.onInitialize();
-    this.render();
-  }
-  onAttach() {
-    super.onAttach();
-    window.addEventListener(UpdateCityDetailsEventName, this.updateCityDetailsListener);
-  }
-  onDetach() {
-    this.cityID = null;
-    window.removeEventListener(UpdateCityDetailsEventName, this.updateCityDetailsListener);
-    super.onDetach();
-  }
-  render() {
-    this.Root.classList.add(
-      "flex",
-      "flex-col",
-      "items-center",
-      "justify-center",
-      "px-14",
-      "py-2",
-      "pointer-events-auto"
-    );
-    this.Root.insertAdjacentHTML(
-      "beforeend",
-      '<div class="font-title uppercase text-sm text-secondary-2 text-gradient-secondary mb-1" data-l10n-id="LOC_UI_JUST_COMPLETED"></div>'
-    );
-    const frame = document.createElement("fxs-inner-frame");
-    frame.classList.add("min-w-96", "items-start", "last-production-frame");
-    const container = document.createElement("div");
-    container.classList.add("flex", "items-center", "my-4", "ml-8");
-    this.iconElement.classList.add("size-16");
-    container.appendChild(this.iconElement);
-    const details = document.createElement("div");
-    details.classList.add("flex-col", "ml-4");
-    this.nameElement.classList.add("font-title", "text-xs", "text-accent-2", "uppercase");
-    details.appendChild(this.nameElement);
-    this.yieldDiv.classList.add("flex");
-    details.appendChild(this.yieldDiv);
-    container.appendChild(details);
-    const checkmarkBG = document.createElement("div");
-    checkmarkBG.style.backgroundImage = 'url("fs://game/techtree-icon-empty")';
-    checkmarkBG.classList.value = "check-icon flex absolute size-6 bg-no-repeat bg-center bg-contain -right-2 -top-2 justify-center items-center";
-    frame.appendChild(checkmarkBG);
-    const checkmark = document.createElement("div");
-    checkmark.classList.value = "size-4 bg-center bg-contain bg-no-repeat";
-    checkmark.style.backgroundImage = 'url("fs://game/techtree_icon-checkmark")';
-    checkmarkBG.appendChild(checkmark);
-    frame.appendChild(container);
-    this.Root.appendChild(frame);
-  }
-  updateGate = new UpdateGate(() => {
-    if (!this.cityID || ComponentID.isInvalid(this.cityID)) {
-      return;
-    }
-    const lastProductionData = GetLastProductionData(this.cityID);
-    if (!lastProductionData) {
-      this.Root.classList.add("hidden");
-      return;
-    }
-    this.nameElement.setAttribute("data-l10n-id", lastProductionData.name);
-    this.iconElement.setAttribute("data-icon-id", lastProductionData.type);
-    this.yieldDiv.innerHTML = "";
-    for (const detailData of lastProductionData.details) {
-      const yieldEntry = document.createElement("div");
-      yieldEntry.classList.add("flex", "items-center", "pr-4");
-      const yieldIcon = document.createElement("fxs-icon");
-      yieldIcon.classList.add("size-8");
-      if (lastProductionData.isUnit) {
-        yieldIcon.style.backgroundImage = `url('blp:${detailData.icon}')`;
-      } else {
-        yieldIcon.setAttribute("data-icon-id", detailData.icon);
-      }
-      yieldEntry.appendChild(yieldIcon);
-      const yieldValue = document.createElement("div");
-      yieldValue.textContent = detailData.value;
-      yieldEntry.appendChild(yieldValue);
-      this.yieldDiv.appendChild(yieldEntry);
-    }
-    this.Root.setAttribute("data-type", lastProductionData.type);
-    if (lastProductionData.isUnit) {
-      this.Root.setAttribute("data-tooltip-style", "production-unit-tooltip");
-    } else {
-      this.Root.setAttribute("data-tooltip-style", "production-constructible-tooltip");
-    }
-    this.Root.classList.remove("hidden");
-  });
-  onAttributeChanged(name, oldValue, newValue) {
-    switch (name) {
-      case "data-cityid":
-        this.cityID = JSON.parse(newValue);
-        this.updateGate.call("onAttributeChanged");
-        break;
-      default:
-        super.onAttributeChanged(name, oldValue, newValue);
-        break;
-    }
-  }
-  onUpdateCityDetails() {
-    this.updateGate.call("onUpdateCityDetails");
-  }
-}
-Controls.define("last-production-section", {
-  createInstance: LastProductionSection,
-  tabIndex: -1,
-  attributes: [
-    {
-      name: "data-cityid"
-    }
-  ]
-});
+import './town-focus-section.js';
+import './town-unrest-display.js';
+import './last-production-section.js';
+import { DialogBoxAction } from '../../../core/ui/dialog-box/model-dialog-box.js';
 
 const categoryLocalizationMap = {
   [ProductionPanelCategory.BUILDINGS]: "LOC_UI_PRODUCTION_BUILDINGS",
@@ -1104,6 +46,72 @@ const productionAccordionCategoryStates = {
   "production-category-units": true,
   "production-category-wonders": true,
   "production-category-projects": true
+};
+const updateProductionChooserItemElement = (element, data, isPurchase) => {
+  const infoDisplayType = data.infoDisplayType ?? null;
+  element.setAttribute("data-name", data.name);
+  element.setAttribute("data-type", data.type);
+  element.setAttribute("data-category", data.category);
+  element.setAttribute("data-is-purchase", isPurchase ? "true" : "false");
+  element.setAttribute("data-is-ageless", data.ageless ? "true" : "false");
+  element.setAttribute("data-disabled", (!!data.disabled).toString());
+  if (infoDisplayType) {
+    element.setAttribute("data-info-display-type", infoDisplayType);
+  } else {
+    element.removeAttribute("data-info-display-type");
+  }
+  if (data.description) {
+    element.setAttribute("data-description", data.description);
+  } else {
+    element.removeAttribute("data-description");
+  }
+  if (data.error) {
+    element.setAttribute("data-error", data.error);
+  } else {
+    element.removeAttribute("data-error");
+  }
+  if (data.secondaryDetails && (!infoDisplayType || infoDisplayType === "yield-preview")) {
+    element.setAttribute("data-secondary-details", data.secondaryDetails);
+  } else {
+    element.removeAttribute("data-secondary-details");
+  }
+  if (data.tags && data.tags.length && (!infoDisplayType || infoDisplayType === "base-yield")) {
+    element.setAttribute("data-tags", composeTagString(data.tags));
+  } else {
+    element.removeAttribute("data-tags");
+  }
+  if (data.baseYields?.length && (!infoDisplayType || infoDisplayType === "base-yield")) {
+    element.setAttribute("data-base-yields", JSON.stringify(data.baseYields));
+  } else {
+    element.removeAttribute("data-base-yields");
+  }
+  const cost = isPurchase ? data.cost : data.turns;
+  element.setAttribute("data-cost", cost.toString());
+  if (data.canGetWarehouseBonuses) {
+    element.setAttribute("data-can-get-warehouse", "true");
+    element.setAttribute("data-warehouse-count", (data.warehouseCount ?? 0).toString());
+  } else {
+    element.removeAttribute("data-can-get-warehouse");
+    element.removeAttribute("data-warehouse-count");
+  }
+  if (data.canGetAdjacencyBonuses) {
+    element.setAttribute("data-can-get-adjacency", "true");
+    element.setAttribute("data-highest-adjacency", (data.highestAdjacency ?? 0).toString());
+  } else {
+    element.removeAttribute("data-can-get-adjacency");
+    element.removeAttribute("data-highest-adjacency");
+  }
+  if (data.recommendations?.length) {
+    element.setAttribute("data-recommendations", JSON.stringify(data.recommendations));
+  } else {
+    element.removeAttribute("data-recommendations");
+  }
+  if (data.type === "IMPROVEMENT_REPAIR_ALL") {
+    element.setAttribute("data-repair-all", "true");
+  } else {
+    element.removeAttribute("data-repair-all");
+  }
+  element.setAttribute("data-audio-activate-ref", isPurchase ? "data-audio-city-purchase-activate" : "none");
 };
 class ProductionChooserScreen extends Panel {
   SMALL_SCREEN_MODE_MAX_HEIGHT = 900;
@@ -1183,7 +191,7 @@ class ProductionChooserScreen extends Panel {
     const canPurchaseDuringUnrest = city.Gold?.canPurchaseWhileInUnrest ?? true;
     this._cityID = value;
     this._recommendations = GetCityBuildReccomendations(city);
-    this.uqInfo = GetUniqueQuarterForPlayer(city.owner);
+    this.uniqueQuarterInfos = GetUniqueQuartersForPlayer(city.owner);
     this._isPurchase = city.isTown || ProductionChooserScreen.shouldReturnToPurchase;
     ProductionChooserScreen.shouldReturnToPurchase = false;
     this.productionPurchaseTabBar.setAttribute("selected-tab-index", this._isPurchase ? "1" : "0");
@@ -1252,7 +260,7 @@ class ProductionChooserScreen extends Panel {
       this.playerGoldBalance,
       this.isPurchase,
       this.viewHidden,
-      this.uqInfo
+      this.uniqueQuarterInfos
     );
     return this._items;
   }
@@ -1271,7 +279,7 @@ class ProductionChooserScreen extends Panel {
     this._viewHidden = value;
     this.updateItems.call("viewHidden");
   }
-  uqInfo = null;
+  uniqueQuarterInfos = [];
   // #endregion
   // #region Element References
   frame = document.createElement("fxs-subsystem-frame");
@@ -1310,7 +318,7 @@ class ProductionChooserScreen extends Panel {
   upgradeToCityButtonCostElement;
   cityDetailsSlot;
   panelProductionSlot;
-  uniqueQuarter = null;
+  uniqueQuarters = [];
   // #endregion
   // #region Component Lifecycle
   constructor(root) {
@@ -1321,6 +329,7 @@ class ProductionChooserScreen extends Panel {
     this.upgradeToCityButtonCostElement = costElement;
     this.enableOpenSound = true;
     this.enableCloseSound = true;
+    this.inputContext = InputContext.Dual;
   }
   onInitialize() {
     super.onInitialize();
@@ -1342,6 +351,7 @@ class ProductionChooserScreen extends Panel {
     super.onAttach();
     this.cityDetailsSlot = MustGetElement(".panel-city-details-slot", document);
     this.panelProductionSlot = MustGetElement(".panel-production-slot", document);
+    ContextManager.pushElement(this.Root);
     for (const [, section] of Object.entries(this.productionCategorySlots)) {
       const isOpen = productionAccordionCategoryStates[section.id];
       section.toggle(isOpen);
@@ -1432,6 +442,7 @@ class ProductionChooserScreen extends Panel {
     if (ActionHandler.deviceType == InputDeviceType.Mouse) {
       ActionHandler.forceCursorCheck();
     }
+    ContextManager.pop(this.Root);
     super.onDetach();
   }
   // #endregion
@@ -1498,7 +509,10 @@ class ProductionChooserScreen extends Panel {
     }
   };
   onChooserItemSelected = (event) => {
-    if (IsElement(event.target, "production-chooser-item") && event.target.hasAttribute("data-repair-all")) {
+    if (!(event.target instanceof HTMLElement)) {
+      return;
+    }
+    if (event.target.classList.contains("fxs-chooser-item") && event.target.hasAttribute("data-repair-all")) {
       Audio.playSound("data-audio-repair-all", "audio-production-chooser");
       this.items.buildings.forEach((item) => {
         item.interfaceMode = "";
@@ -1506,7 +520,7 @@ class ProductionChooserScreen extends Panel {
           RepairConstruct(this.city, item, this.isPurchase);
         }
       });
-    } else if (!InterfaceMode.isInInterfaceMode("INTERFACEMODE_PLACE_BUILDING") && IsElement(event.target, "production-chooser-item")) {
+    } else if (!InterfaceMode.isInInterfaceMode("INTERFACEMODE_PLACE_BUILDING") && event.target.classList.contains("fxs-chooser-item")) {
       const category = event.target.dataset.category;
       const type = event.target.dataset.type;
       if (category && type) {
@@ -1528,7 +542,7 @@ class ProductionChooserScreen extends Panel {
                 SetTownFocus(this.cityID, growthType, projectType);
                 return;
               }
-              FocusManager.setFocus(this.townFocusPanel);
+              Focus.setContextAwareFocus(this.townFocusPanel, this.Root);
             }
           });
         } else {
@@ -1592,7 +606,7 @@ class ProductionChooserScreen extends Panel {
         city.Growth?.projectType
       );
       this.Root.dataset.showTownFocus = "false";
-      FocusManager.setFocus(this.townFocusSection);
+      Focus.setContextAwareFocus(this.townFocusSection, this.Root);
       this.updateItems.call("townFocus");
       this.townFocusPanel.dispatchEvent(new TownFocusRefreshEvent());
     }
@@ -1649,7 +663,7 @@ class ProductionChooserScreen extends Panel {
     this.panelProductionSlot.classList.remove("hidden");
     this.frame.classList.add("trigger-nav-help");
     this.cityNameElement.classList.add("trigger-nav-help");
-    FocusManager.setFocus(this.productionAccordion);
+    Focus.setContextAwareFocus(this.productionAccordion, this.Root);
   }
   onNextCityButton() {
     const nextCityId = GetNextCityID(this.cityID);
@@ -1706,7 +720,7 @@ class ProductionChooserScreen extends Panel {
     if (event.detail.destination != "left") {
       return;
     }
-    FocusManager.setFocus(this.productionAccordion);
+    Focus.setContextAwareFocus(this.productionAccordion, this.Root);
   };
   // #endregion
   showCityDetails() {
@@ -1715,7 +729,7 @@ class ProductionChooserScreen extends Panel {
       cityDetailsPanel.maybeComponent?.update();
       cityDetailsPanel.classList.toggle("hidden");
       if (!cityDetailsPanel.classList.contains("hidden")) {
-        FocusManager.setFocus(cityDetailsPanel);
+        FocusManager.get().setFocus(cityDetailsPanel);
         Audio.playSound("data-audio-city-details-enter", "city-actions");
       } else {
         Audio.playSound("data-audio-city-details-exit", "city-actions");
@@ -1723,7 +737,7 @@ class ProductionChooserScreen extends Panel {
     } else {
       const newCityDetailsPanel = document.createElement("panel-city-details");
       this.cityDetailsSlot.appendChild(newCityDetailsPanel);
-      FocusManager.setFocus(newCityDetailsPanel);
+      FocusManager.get().setFocus(newCityDetailsPanel);
       Audio.playSound("data-audio-city-details-enter", "city-actions");
     }
     this.cityNameElement.classList.remove("trigger-nav-help");
@@ -1802,7 +816,7 @@ class ProductionChooserScreen extends Panel {
         chooserItem = CreateProductionChooserItem();
         this.itemElementMap.set(item.type, chooserItem);
       }
-      UpdateProductionChooserItem(chooserItem, item, this.isPurchase);
+      updateProductionChooserItemElement(chooserItem, item, this.isPurchase);
     }
   }
   realizeCategory(category, items) {
@@ -1812,36 +826,87 @@ class ProductionChooserScreen extends Panel {
       if (!element) {
         element = CreateProductionChooserItem();
         this.itemElementMap.set(item.type, element);
-        UpdateProductionChooserItem(element, item, this.isPurchase);
       }
-      if (!this.uniqueQuarter?.containsBuilding(element)) {
-        slot.appendChild(element);
+      updateProductionChooserItemElement(element, item, this.isPurchase);
+      let bFoundInUniqueQuarter = false;
+      for (const uniqueQuarter of this.uniqueQuarters) {
+        if (uniqueQuarter.containsBuilding(element)) {
+          bFoundInUniqueQuarter = true;
+          break;
+        }
       }
+      if (!bFoundInUniqueQuarter) slot.appendChild(element);
     }
   }
   updateCategories(items) {
+    const initialFocus = FocusManager.get().currentFocus();
+    let initialFocusParent = null;
+    for (const parent of this.itemElementMap.values()) {
+      if (parent.contains(initialFocus)) {
+        initialFocusParent = parent;
+        break;
+      }
+    }
     for (const category of Object.values(ProductionPanelCategory)) {
       this.updateItemElementMap(items[category]);
     }
     const city = this.city;
-    const uq = GetUniqueQuarterForPlayer(city.owner);
+    this.uniqueQuarterInfos = GetUniqueQuartersForPlayer(city.owner);
     const buildingSlot = this.productionCategorySlots[ProductionPanelCategory.BUILDINGS].slot;
-    if (uq) {
-      const buildingOneChooserItem = this.itemElementMap.get(uq.uniqueQuarterDef.BuildingType1);
-      const buildingTwoChooserItem = this.itemElementMap.get(uq.uniqueQuarterDef.BuildingType2);
-      if (buildingOneChooserItem && buildingTwoChooserItem) {
-        this.uniqueQuarter ??= new UniqueQuarter();
-        this.uniqueQuarter.definition = uq.uniqueQuarterDef;
-        this.uniqueQuarter.numCompleted = GetNumUniqueQuarterBuildingsCompleted(city, uq.uniqueQuarterDef);
-        this.uniqueQuarter.setBuildings(buildingOneChooserItem, buildingTwoChooserItem);
-        buildingSlot.insertAdjacentElement("afterbegin", this.uniqueQuarter.root);
-      } else {
-        this.uniqueQuarter?.root.remove();
-        this.uniqueQuarter = null;
+    for (const uniqueQuarter of this.uniqueQuarters) {
+      uniqueQuarter.root.remove();
+    }
+    this.uniqueQuarters = [];
+    const hiddenItems = !this.viewHidden && this.uniqueQuarterInfos.length > 0 ? GetProductionItems(
+      city,
+      this.recommendations,
+      this.playerGoldBalance,
+      this.isPurchase,
+      true,
+      this.uniqueQuarterInfos
+    ) : void 0;
+    for (const uniqueQuarterInfo of this.uniqueQuarterInfos) {
+      let buildingOneChooserItem = this.itemElementMap.get(uniqueQuarterInfo.uniqueQuarterDef.BuildingType1);
+      let buildingTwoChooserItem = this.itemElementMap.get(uniqueQuarterInfo.uniqueQuarterDef.BuildingType2);
+      if (buildingOneChooserItem || buildingTwoChooserItem) {
+        const newQuarter = new UniqueQuarter();
+        newQuarter.definition = uniqueQuarterInfo.uniqueQuarterDef;
+        newQuarter.numCompleted = GetNumUniqueQuarterBuildingsCompleted(
+          city,
+          uniqueQuarterInfo.uniqueQuarterDef
+        );
+        if (hiddenItems && !(buildingOneChooserItem && buildingTwoChooserItem)) {
+          if (!buildingOneChooserItem) {
+            const item = hiddenItems.buildings.filter(
+              (r) => r.type == uniqueQuarterInfo.uniqueQuarterDef.BuildingType1
+            )[0];
+            if (item) {
+              buildingOneChooserItem = CreateProductionChooserItem();
+              updateProductionChooserItemElement(buildingOneChooserItem, item, this.isPurchase);
+            }
+          }
+          if (!buildingTwoChooserItem) {
+            const item = hiddenItems.buildings.filter(
+              (r) => r.type == uniqueQuarterInfo.uniqueQuarterDef.BuildingType2
+            )[0];
+            if (item) {
+              buildingTwoChooserItem = CreateProductionChooserItem();
+              updateProductionChooserItemElement(buildingTwoChooserItem, item, this.isPurchase);
+            }
+          }
+        }
+        if (buildingOneChooserItem && buildingTwoChooserItem) {
+          newQuarter.setBuildings(buildingOneChooserItem, buildingTwoChooserItem);
+          buildingSlot.insertAdjacentElement("afterbegin", newQuarter.root);
+          this.uniqueQuarters.push(newQuarter);
+        }
       }
     }
     for (const category of Object.values(ProductionPanelCategory)) {
       this.realizeCategory(category, items[category]);
+    }
+    if (!initialFocus.isConnected && initialFocusParent) {
+      Focus.setContextAwareFocus(initialFocusParent, this.Root);
     }
   }
   updateItems = new UpdateGate(() => {
@@ -1855,14 +920,14 @@ class ProductionChooserScreen extends Panel {
       this.playerGoldBalance,
       this.isPurchase,
       this.viewHidden,
-      this.uqInfo
+      this.uniqueQuarterInfos
     );
     const newItems = Object.values(ProductionPanelCategory).flatMap(
       (category) => items[category].map((item) => item.type)
     );
     const newItemsSet = new Set(newItems);
     let resetFocus = false;
-    const currentFocus = FocusManager.getFocus();
+    const currentFocus = FocusManager.get().currentFocus();
     for (const [type, item] of this.itemElementMap) {
       if (!newItemsSet.has(type)) {
         resetFocus ||= currentFocus === item;
@@ -1872,7 +937,7 @@ class ProductionChooserScreen extends Panel {
     }
     this.items = items;
     if (resetFocus || this.Root.contains(currentFocus) && !this.buildQueue.contains(currentFocus)) {
-      FocusManager.setFocus(this.productionAccordion);
+      Focus.setContextAwareFocus(this.productionAccordion, this.Root);
     }
   });
   updateCityName(city) {
@@ -1882,7 +947,7 @@ class ProductionChooserScreen extends Panel {
     const result = CanConvertToCity(cityID);
     this.upgradeToCityButton.setAttribute("disabled", result.Success ? "false" : "true");
     this.upgradeToCityButton.classList.toggle("hidden", !isTown);
-    this.upgradeToCityButtonCostElement.textContent = upgradeCost.toString();
+    this.upgradeToCityButtonCostElement.innerHTML = upgradeCost.toString();
     if (result.FailureReasons) {
       const failureTooltip = result.FailureReasons.join("\n");
       this.upgradeToCityButton.setAttribute("data-tooltip-content", failureTooltip);
@@ -1957,16 +1022,18 @@ class ProductionChooserScreen extends Panel {
     if (status != InputActionStatuses.FINISH) {
       return !(name === "camera-zoom-in" || name === "camera-zoom-out" || name == "accept");
     }
+    if (inputEvent.isCancelInput()) {
+      if (this.Root.dataset.showTownFocus === "true") {
+        this.Root.dataset.showTownFocus = "false";
+        Focus.setContextAwareFocus(this.townFocusSection, this.Root);
+        this.updateNavTray();
+      } else {
+        this.requestClose();
+      }
+      return false;
+    }
     let live = false;
     switch (name) {
-      case "cancel":
-        if (this.Root.dataset.showTownFocus === "true") {
-          this.Root.dataset.showTownFocus = "false";
-          FocusManager.setFocus(this.townFocusSection);
-        } else {
-          live = true;
-        }
-        break;
       case "accept":
         live = false;
         break;
@@ -1982,7 +1049,7 @@ class ProductionChooserScreen extends Panel {
   updateNavTray() {
     NavTray.clear();
     NavTray.addOrUpdateGenericBack();
-    const currentFocus = FocusManager.getFocus();
+    const currentFocus = FocusManager.get().currentFocus();
     if (currentFocus?.closest("panel-build-queue") || currentFocus?.closest("panel-town-focus")) {
       return;
     }
@@ -1992,7 +1059,7 @@ class ProductionChooserScreen extends Panel {
     switch (InterfaceMode.getCurrent()) {
       case "INTERFACEMODE_CITY_PRODUCTION":
         if (!this.city.isJustConqueredFrom) {
-          FocusManager.setFocus(this.productionAccordion);
+          Focus.setContextAwareFocus(this.productionAccordion, this.Root);
           this.updateNavTray();
           this.setHidden(false);
         } else {
@@ -2011,6 +1078,10 @@ class ProductionChooserScreen extends Panel {
   /**
    * City View receives focus
    */
+  onReceiveFocus() {
+    super.onReceiveFocus();
+    this.realizeProductionFocus();
+  }
   onViewReceiveFocus() {
     this.realizeProductionFocus();
   }
@@ -2022,7 +1093,7 @@ class ProductionChooserScreen extends Panel {
     if (this.Root.dataset.showTownFocus === "true" || cityDetailsPanel && !cityDetailsPanel.classList.contains("hidden")) {
       return;
     }
-    FocusManager.setFocus(this.productionAccordion);
+    Focus.setContextAwareFocus(this.productionAccordion, this.Root);
     this.updateNavTray();
     if (this.city?.isTown) {
       Game.CityOperations.sendRequest(this.cityID, CityOperationTypes.CONSIDER_TOWN_PROJECT, {});
@@ -2095,11 +1166,11 @@ class ProductionChooserScreen extends Panel {
       case "data-show-town-focus":
         this.townFocusPanel.classList.toggle("hidden", newValue !== "true");
         if (oldValue === "false" && newValue === "true") {
+          Focus.setContextAwareFocus(this.townFocusPanel, this.Root);
           Audio.playSound("data-audio-showing", "town-specialization-panel");
         } else if (oldValue === "true" && newValue === "false") {
           Audio.playSound("data-audio-hiding", "town-specialization-panel");
         }
-        FocusManager.setFocus(this.townFocusPanel);
         this.updateNavTray();
         break;
     }
@@ -2200,12 +1271,13 @@ class ProductionChooserScreen extends Panel {
     this.frame.appendChild(cityNameWrapper);
     this.frame.classList.add("shrink", "pointer-events-auto", "panel-production__frame");
     Databind.classToggle(this.frame, "mb-16", "{{g_NavTray.isTrayRequired}}");
-    this.frame.dataset.headerClass = "flex flex-col flex-initial px-3 mx-0\\.5";
+    this.frame.dataset.headerClass = "flex flex-col px-3 mx-0\\.5";
     this.frame.dataset.footerClass = "px-5 pb-2 mx-0\\.5";
     const yieldBarRow = document.createElement("div");
     yieldBarRow.classList.value = "flex self-center justify-center items-center";
     yieldBarRow.dataset.slot = "header";
     this.frame.appendChild(yieldBarRow);
+    this.showCityDetailsButton.setAttribute("data-tooltip-content", "LOC_UI_SHOW_CITY_DETAILS");
     this.showCityDetailsButton.classList.value = "relative flex items-center justify-center production-chooser__city-details-button mr-2";
     this.showCityDetailsButton.setAttribute("tabindex", "-1");
     const buttonHighlight = document.createElement("div");

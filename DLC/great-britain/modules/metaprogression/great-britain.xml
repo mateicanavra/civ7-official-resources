@@ -1,20 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <metaprogression xmlns="Metaprogression">
 	<challenges class="CHALLENGE_CLASS_FOUNDATION" category="CHALLENGE_CATEGORY_FOUNDATION_CIV_VICTORIES" legendPath="LEGEND_PATH_FOUNDATION">
-		<challenge id="CHALLENGE_GREAT_BRITAIN_LEGACY_PATH_ECONOMIC" scope="Campaign" difficulty="2">
+		<!--Keep the IDs as MAJOR triumphs, since we will move them back to being Major triumph challenges in the future and this way we don't have to sync them again-->
+		<challenge id="CHALLENGE_GREAT_BRITAIN_FOUR_MAJOR_TRIUMPHS" scope="Campaign" difficulty="2">
 			<l10n>
-				<name>Great Britain Legacy Path</name>
-				<description>As Great Britain, complete an Economic Legacy Path.</description>
+				<name>Great Britain 4 Minor Triumphs</name>
+				<description>As Great Britain, complete 4 Economic or Scientific Minor Triumphs in a single Apex Age.</description>
 			</l10n>
 			<sortIndex>105000</sortIndex>
 			<reward type="XP" reward="50" />
 		</challenge>
-		<challenge id="CHALLENGE_GREAT_BRITAIN_LEGACY_PATH_MILESTONE_COMPLETED" scope="Campaign" difficulty="2" hidden="true">
+		<challenge id="CHALLENGE_GREAT_BRITAIN_MAJOR_TRIUMPH_COMPLETED" scope="Campaign" difficulty="2" hidden="true">
 			<l10n>
-				<name>Great Britain Legacy Path Milestone</name>
-				<description>As Great Britain, reach at least 1 Legacy Path Milestone.</description>
+				<name>Great Britain Minor Triumph</name>
+				<description>As Great Britain, complete at least 1 Minor Triumph.</description>
 			</l10n>
 			<sortIndex>105010</sortIndex>
+			<tags>
+				<tag>CIVS_PLAYED_PROGRESS</tag>
+			</tags>
 		</challenge>
 	</challenges>
 	<challenges class="CHALLENGE_CLASS_FOUNDATION" category="CHALLENGE_CATEGORY_FOUNDATION_WONDERS" legendPath="LEGEND_PATH_FOUNDATION">

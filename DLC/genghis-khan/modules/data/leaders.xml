@@ -2,32 +2,37 @@
 <Database>
 	<Kinds>
 		<InsertOrIgnore Kind="KIND_TRAIT"/>
+		<InsertOrIgnore Kind="KIND_VICTORY"/>
 	</Kinds>
 	<Types>
 		<Row Type="LEADER_GENGHIS_KHAN" Kind="KIND_LEADER"/>
 		<Row Type="TRAIT_LEADER_GENGHIS_KHAN_ABILITY" Kind="KIND_TRAIT"/>
-		
+
 		<Row Type="ABILITY_GENGHIS_KHAN_ARMY_COMMANDER" Kind="KIND_ABILITY"/>
 		<Row Type="ABILITY_GENGHIS_KHAN_COMMAND_RADIUS_COMBAT" Kind="KIND_ABILITY"/>
 		<Row Type="ABILITY_GENGHIS_KHAN_NO_COMMAND_RADIUS_COMBAT" Kind="KIND_ABILITY"/>
+		<Row Type="VICTORY_LEADER_GENGHIS_KHAN" Kind="KIND_VICTORY"/>
 	</Types>
 	<Leaders>
 		<Row LeaderType="LEADER_GENGHIS_KHAN" Name="LOC_LEADER_GENGHIS_KHAN_NAME" IsMajorLeader="true" InheritFrom="LEADER_DEFAULT" />
 	</Leaders>
 	<TypeQuotes>
 		<Row Type="LEADER_GENGHIS_KHAN" Quote="LOC_MAIN_CHAR_SELECT_LEADER_GENGHIS_KHAN_ANY"/>
+		<Row Type="VICTORY_LEADER_GENGHIS_KHAN" Quote="LOC_VICTORY_LEADER_GENGHIS_KHAN" QuoteAudio="play_victory_genghis"/>
 	</TypeQuotes>
 	<AiListTypes>
 		<!-- Leader Psuedoyield Biases -->
 		<Row ListType="Genghis Yield Biases"/>
 		<Row ListType="Genghis Budget Biases"/>
 		<Row ListType="Genghis Tag Biases"/>
+		<Row ListType="Genghis Diplomacy Biases"/>
 	</AiListTypes>
 	<AiLists>
 		<!-- Leader Psuedoyield Biases -->
 		<Row ListType="Genghis Yield Biases" LeaderType="TRAIT_LEADER_GENGHIS_KHAN_ABILITY" System="YieldBiases"/>
 		<Row ListType="Genghis Budget Biases" LeaderType="TRAIT_LEADER_GENGHIS_KHAN_ABILITY" System="AiBudgetBiases"/>
 		<Row ListType="Genghis Tag Biases" LeaderType="TRAIT_LEADER_GENGHIS_KHAN_ABILITY" System="TagBiases"/>
+		<Row ListType="Genghis Diplomacy Biases" LeaderType="TRAIT_LEADER_GENGHIS_KHAN_ABILITY" System="DiplomaticGroupBiases"/>
 	</AiLists>
 	<AiFavoredItems>
 		<Row ListType="Genghis Yield Biases" Item="YIELD_PRODUCTION" Value="50"/>
@@ -36,6 +41,7 @@
 		<Row ListType="Genghis Tag Biases" Item="UNIT_CLASS_MOUNTED" Value="25"/>
 		<Row ListType="Genghis Tag Biases" Item="UNIT_CLASS_CAVALRY" Value="25"/>
 		<Row ListType="Genghis Tag Biases" Item="UNIT_CLASS_ARMY_COMMANDER" Value="25"/>
+		<Row ListType="Genghis Diplomacy Biases" Item="DIPLOMACY_ACTION_BECOME_SUZERAIN" Value="25"/>
 	</AiFavoredItems>
 	<Traits>
 		<Row TraitType="TRAIT_LEADER_GENGHIS_KHAN_ABILITY" InternalOnly="true" Name="LOC_TRAIT_LEADER_GENGHIS_KHAN_ABILITY_NAME" Description="LOC_TRAIT_LEADER_GENGHIS_KHAN_ABILITY_DESCRIPTION"/>

@@ -14,6 +14,7 @@
 	<References>
 		<Mod id="friedrich-xerxes-alt" title="LOC_MODULE_FRIEDRICH_XERXES_ALT_NAME" />
 		<Mod id="assyria" title="LOC_MODULE_ASSYRIA_NAME" />
+		<Mod id="gilgamesh" title="LOC_MODULE_GILGAMESH_NAME" />
 	</References>
 	<ActionCriteria>
 		<Criteria id="antiquity-age-current">
@@ -38,9 +39,22 @@
 		<Criteria id="xerxes-alt-current-shell">
 			<ModIsEnabled>friedrich-xerxes-alt</ModIsEnabled>
 		</Criteria>
-		<Criteria id="assyria-current">
+		<Criteria id="modern-age-gilgamesh">
+			<ModInUse>gilgamesh</ModInUse>
+			<AgeInUse>AGE_MODERN</AgeInUse>
+		</Criteria>
+		<Criteria id="gilgamesh-current">
+			<ModInUse>gilgamesh</ModInUse>
+		</Criteria>
+		<Criteria id="gilgamesh-current-shell">
+			<ModIsEnabled>gilgamesh</ModIsEnabled>
+		</Criteria>
+		<Criteria id="antiquity-age-assyria">
 			<ModInUse>assyria</ModInUse>
 			<AgeInUse>AGE_ANTIQUITY</AgeInUse>
+		</Criteria>
+		<Criteria id="assyria-current-shell">
+			<ModIsEnabled>assyria</ModIsEnabled>
 		</Criteria>
 		<Criteria id="always">
 			<AlwaysMet></AlwaysMet>
@@ -174,6 +188,7 @@
 					<Item>text/MoveLaterText.xml</Item>
 					<Item>text/NamedPlacesText.xml</Item>
 					<Item>text/NarrativeStoriesText.xml</Item>
+					<Item>text/en_us/tot-NarrativeStoriesText.xml</Item>
 					<Item>text/UnlockText.xml</Item>
 					<Item>text/CityNamesText.xml</Item>
 					<Item>text/ConstructibleText.xml</Item>
@@ -198,7 +213,7 @@
 				</UpdateText>
 			</Actions>
 		</ActionGroup>
-		<ActionGroup id="base-game-main-qajar" scope="game" criteria="always">
+		<ActionGroup id="qajar-gameplay" scope="game" criteria="always">
 			<Actions>
 				<UpdateDatabase>
 					<Item>data/civilizations-legacy.xml</Item>
@@ -206,6 +221,49 @@
 					<Item>data/traditions.xml</Item>
 					<Item>data/traditions-gameeffects.xml</Item>
 					<Item>data/unlocks-base-standard.xml</Item>
+					<Item>data/unlocks-syncretism.xml</Item>
+					<Item>data/citizen-names.xml</Item>
+					<Item>data/civilizations-shared.xml</Item>
+					<Item>data/civilizations-shared-gameeffects.xml</Item>
+					<Item>data/loading-info-modern.xml</Item>
+					<Item>data/metaprogression-shared.xml</Item>
+					<Item>data/metaprogression-shared-gameeffects.xml</Item>
+					<Item>data/tot-base-narrative-stories-gameeffects.xml</Item>
+					<Item>data/tot-base-narrative-stories.xml</Item>
+					<Item>data/narrative-stories-common-gameeffects.xml</Item>
+				</UpdateDatabase>
+			</Actions>
+		</ActionGroup>
+		<ActionGroup id="qajar-gameplay-antiquity" scope="game" criteria="antiquity-age-current">
+			<Actions>
+				<UpdateDatabase>
+					<Item>data/civilizations-antiquity.xml</Item>
+					<Item>data/progression-trees-culture-unique-aq.xml</Item>
+				</UpdateDatabase>
+			</Actions>
+		</ActionGroup>
+		<ActionGroup id="qajar-gameplay-exploration" scope="game" criteria="exploration-age-current">
+			<Actions>
+				<UpdateDatabase>
+					<Item>data/civilizations-exploration.xml</Item>
+					<Item>data/progression-trees-culture-unique-ex.xml</Item>
+				</UpdateDatabase>
+			</Actions>
+		</ActionGroup>
+		<ActionGroup id="qajar-gameplay-modern" scope="game" criteria="modern-age-current">
+			<Actions>
+				<UpdateDatabase>
+					<Item>data/civilizations-modern.xml</Item>
+					<Item>data/civilizations-gameeffects.xml</Item>
+					<Item>data/narrative-display.xml</Item>
+					<Item>data/narrative-stories-gameeffects-modern.xml</Item>
+					<Item>data/narrative-stories-modern.xml</Item>
+					<Item>data/units.xml</Item>
+					<Item>data/units-gameeffects.xml</Item>
+					<Item>data/progression-trees-culture-unique.xml</Item>
+					<Item>data/progression-trees-tech.xml</Item>
+					<Item>data/metaprogression.xml</Item>
+					<Item>data/metaprogression-gameeffects.xml</Item>
 				</UpdateDatabase>
 			</Actions>
 		</ActionGroup>
@@ -216,6 +274,13 @@
 				</UpdateDatabase>
 			</Actions>
 		</ActionGroup>
+		<ActionGroup id="base-game-main-qajar-gilgamesh" scope="game" criteria="gilgamesh-current">
+			<Actions>
+				<UpdateDatabase>
+					<Item>data/unlocks-gilgamesh.xml</Item>
+				</UpdateDatabase>
+			</Actions>
+		</ActionGroup>
 		<ActionGroup id="age-antiquity-main-qajar" scope="game" criteria="antiquity-age-current">
 			<Actions>
 				<UpdateDatabase>
@@ -223,9 +288,11 @@
 				</UpdateDatabase>
 			</Actions>
 		</ActionGroup>
-		<ActionGroup id="age-antiquity-assyria-qajar" scope="game" criteria="assyria-current">
+		<ActionGroup id="age-antiquity-assyria-qajar" scope="game" criteria="antiquity-age-assyria">
 			<Actions>
 				<UpdateDatabase>
+					<Item>data/tot-narrative-stories-gameeffects.xml</Item>
+					<Item>data/tot-narrative-stories.xml</Item>
 					<Item>data/unlocks-antiquity-assyria.xml</Item>
 				</UpdateDatabase>
 			</Actions>
@@ -252,23 +319,10 @@
 				</UpdateDatabase>
 			</Actions>
 		</ActionGroup>
-		<ActionGroup id="age-modern-main-qajar" scope="game" criteria="modern-age-current">
+		<ActionGroup id="age-modern-gilgamesh-current" scope="game" criteria="modern-age-gilgamesh">
 			<Actions>
 				<UpdateDatabase>
-					<Item>data/citizen-names.xml</Item>
-					<Item>data/civilizations-modern.xml</Item>
-					<Item>data/civilizations-gameeffects.xml</Item>
-					<Item>data/loading-info-modern.xml</Item>
-					<Item>data/metaprogression.xml</Item>
-					<Item>data/metaprogression-gameeffects.xml</Item>
-					<Item>data/narrative-display.xml</Item>
-					<Item>data/narrative-stories-gameeffects-modern.xml</Item>
-					<Item>data/narrative-stories-modern.xml</Item>
-					<Item>data/progression-trees-culture-unique.xml</Item>
-					<Item>data/progression-trees-culture-unique-gameeffects.xml</Item>
-					<Item>data/progression-trees-tech.xml</Item>
-					<Item>data/units.xml</Item>
-					<Item>data/units-gameeffects.xml</Item>
+					<Item>data/civilizations-modern-gilgamesh.xml</Item>
 				</UpdateDatabase>
 			</Actions>
 		</ActionGroup>
@@ -276,6 +330,20 @@
 			<Actions>
 				<UpdateDatabase>
 					<Item>config/config-xerxes-alt.xml</Item>
+				</UpdateDatabase>
+			</Actions>
+		</ActionGroup>
+		<ActionGroup id="shell-qajar-gilgamesh" scope="shell" criteria="gilgamesh-current-shell">
+			<Actions>
+				<UpdateDatabase>
+					<Item>config/config-gilgamesh.xml</Item>
+				</UpdateDatabase>
+			</Actions>
+		</ActionGroup>
+		<ActionGroup id="shell-qajar-assyria" scope="shell" criteria="assyria-current-shell">
+			<Actions>
+				<UpdateDatabase>
+					<Item>config/config-assyria.xml</Item>
 				</UpdateDatabase>
 			</Actions>
 		</ActionGroup>
@@ -289,12 +357,14 @@
 				</UpdateIcons>
 				<UpdateDatabase>
 					<Item>config/config.xml</Item>
-					<Item>config/config-assyria.xml</Item>
+					<Item>config/config-traditions.xml</Item>
 					<Item>config/metaprogression.xml</Item>
+					<Item>data/unlocks-syncretism.xml</Item>
 				</UpdateDatabase>
 				<UpdateText>
 					<Item>text/CivilizationLegacyText.xml</Item>
 					<Item>text/CivilizationText.xml</Item>
+					<Item>text/CultureText.xml</Item>
 					<Item>text/ConstructibleText.xml</Item>
 					<Item>text/LoadingText.xml</Item>
 					<Item>text/ModuleText.xml</Item>

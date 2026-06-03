@@ -2,11 +2,22 @@
 <GameEffects xmlns="GameEffects">
 	<Modifier id="MOD_EX_TRADITION_SLOT" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_TRADITION_SLOTS" permanent="true">
 		<Argument name="Amount">1</Argument>
+		<Argument name="SlotType">POLICY_CULTURE_SLOT</Argument>
 		<String context="Description">LOC_MOD_EXPLORATION_TRADITION_SLOT_DESCRIPTION</String>
 	</Modifier>
 	<Modifier id="MOD_REFORMATION_BELIEF" collection="COLLECTION_OWNER" effect="EFFECT_ADD_BELIEF" run-once="true" permanent="true">
 		<Argument name="Amount">1</Argument>
 		<String context="Description">LOC_MOD_REFORMATION_BELIEF_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="MOD_EX_SOCIAL_CLASS_SCIENCE_VP" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_VICTORY_TRACKER_POINTS">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_IS_MAJOR"/>
+		</SubjectRequirements>
+		<Argument name="VictoryType">VICTORY_SCIENCE_MODERN</Argument>
+		<Argument name="Points">2</Argument>
+		<Argument name="ItemName">LOC_INNOVATION_SOCIAL_CLASS_NAME</Argument>
+		<Argument name="TypeData">CIVIC</Argument>
+		<String context="Description">LOC_SCIENCE_VP_2_DESCRIPTION</String>
 	</Modifier>
 	<Modifier id="MOD_EX_FUTURE_CIVIC_ATTRIBUTE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ATTRIBUTE" permanent="true" run-once="true">
 		<Argument name="Amount">1</Argument>
@@ -19,9 +30,48 @@
 		<String context="Description">LOC_MOD_EX_FUTURE_CIVIC_BOOST_EX_DESCRIPTION</String>
 	</Modifier>
 	<Modifier id="MOD_EX_FUTURE_CIVIC_AGE_PROGRESS" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_AGE_PROGRESS" permanent="true" run-once="true">
-		<Argument name="Amount">10</Argument>
 		<Argument name="eventType">AGE_PROGRESSION_FUTURE_CIVIC</Argument>
 		<Argument name="HumanOnly">true</Argument>
 		<String context="Description">LOC_MOD_EXP_FUTURE_CIVIC_AGE_PROGRESS_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="MOD_EX_FUTURE_CIVIC_CULTURE_VP" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_VICTORY_TRACKER_POINTS" permanent="true">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_IS_MAJOR"/>
+		</SubjectRequirements>
+		<Argument name="VictoryType">VICTORY_CULTURE_MODERN</Argument>
+		<Argument name="Points">7</Argument>
+		<Argument name="ItemName">LOC_EX_FUTURE_CIVIC_NAME</Argument>
+		<Argument name="TypeData">FUTURE_CIVIC</Argument>
+		<String context="Description">LOC_FUTURE_CIVIC_EX_VP</String>
+	</Modifier>
+	<Modifier id="MOD_EX_RESOURCE_INSTANCE_COUNT_IMPERIALISM" collection="COLLECTION_OWNER" effect="EFFECT_ATTACH_MODIFIERS" permanent="true">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_IS_MAJOR"/>
+		</SubjectRequirements>
+		<Argument name="ModifierId">ATTACH_MOD_EX_RESOURCE_INSTANCE_COUNT_TEA, ATTACH_MOD_EX_RESOURCE_INSTANCE_COUNT_SPICES</Argument>
+		<String context="Description">LOC_MOD_EXPLORATION_IMPERIALISM_RESOURCE_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="ATTACH_MOD_EX_RESOURCE_INSTANCE_COUNT_TEA" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_RESOURCE_COUNT_PER_INSTANCE" run-once="true" permanent="true">
+		<Argument name="Amount">1</Argument>
+		<Argument name="ResourceType">RESOURCE_TEA</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_MOD_EX_RESOURCE_INSTANCE_COUNT_SPICES" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_RESOURCE_COUNT_PER_INSTANCE" run-once="true" permanent="true">
+		<Argument name="Amount">1</Argument>
+		<Argument name="ResourceType">RESOURCE_SPICES</Argument>
+	</Modifier>
+	<Modifier id="MOD_EX_RESOURCE_INSTANCE_COUNT_SOCIAL_CLASS" collection="COLLECTION_OWNER" effect="EFFECT_ATTACH_MODIFIERS" permanent="true">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_IS_MAJOR"/>
+		</SubjectRequirements>
+		<Argument name="ModifierId">ATTACH_MOD_EX_RESOURCE_INSTANCE_COUNT_FURS, ATTACH_MOD_EX_RESOURCE_INSTANCE_COUNT_COCOA</Argument>
+		<String context="Description">LOC_MOD_EXPLORATION_SOCIAL_CLASS_RESOURCE_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="ATTACH_MOD_EX_RESOURCE_INSTANCE_COUNT_FURS" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_RESOURCE_COUNT_PER_INSTANCE" run-once="true" permanent="true">
+		<Argument name="Amount">1</Argument>
+		<Argument name="ResourceType">RESOURCE_FURS</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_MOD_EX_RESOURCE_INSTANCE_COUNT_COCOA" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_RESOURCE_COUNT_PER_INSTANCE" run-once="true" permanent="true">
+		<Argument name="Amount">1</Argument>
+		<Argument name="ResourceType">RESOURCE_COCOA</Argument>
 	</Modifier>
 </GameEffects>

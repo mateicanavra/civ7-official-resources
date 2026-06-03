@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+	<!-- +2 War Support when you have exactly one Ally. -->
+	<Modifier id="GILGAMESH_SINGLE_ALLY_WAR_SUPPORT" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_ADJUST_DIPLOMATIC_ACTION_TOKEN_BONUS">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_HAS_X_ALLIANCES">
+				<Argument name="Amount">1</Argument>
+				<Argument name="IsExactAmount">true</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="ActionType">DIPLOMACY_ACTION_DECLARE_WAR</Argument>
+		<Argument name="Amount">2</Argument>
+	</Modifier>
+	<!-- When you defeat an enemy unit, gain Influence equal to its Combat Strength. -->
+	<Modifier id="GILGAMESH_INFLUENCE" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ATTACH_MODIFIERS">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+				<Argument name="Tag">UNIT_CLASS_COMBAT</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="ModifierId">GILGAMESH_INFLUENCE_MODIFIER</Argument>
+	</Modifier>
+	<Modifier id="GILGAMESH_INFLUENCE_MODIFIER" collection="COLLECTION_UNIT_COMBAT" effect="EFFECT_ADJUST_UNIT_POST_COMBAT_YIELD">
+		<Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+		<Argument name="PercentDefeatedStrength">50</Argument>
+	</Modifier>
+	<!--  Endeavors with Allies don’t count against the limit of having one Endeavor of a given type active at a time.  -->
+	<Modifier id="GILGAMESH_ENDEAVORS_WITH_ALLIES_HAVE_NO_LIMIT_PER_TYPE" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_SET_NO_LIMIT_FOR_ENDEAVOR_TYPES_WITH_ALLIES">
+		<Argument name="Value">true</Argument>
+	</Modifier>
+	<!-- Allies can support your Endeavors for free. -->
+	<Modifier id="GILGAMESH_ALLIES_CAN_SUPPORT_ENDEAVORS_FOR_FREE" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_ADJUST_DIPLOMATIC_RESPONSE_EFFICIENCY">
+		<Argument name="ResponseType">DIPLOMACY_RESPONSE_SUPPORT</Argument>
+		<Argument name="Percent">100</Argument>
+		<Argument name="ApplyToAlliesOnly">true</Argument>
+	</Modifier>
+	<!-- Gilgamesh unlocks all Endeavors by default -->
+	 <Modifier id="GILGAMESH_MOD_ULOCK_ALL_ENDEAVORS" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_GRANT_DIPLOMATIC_ACTION">
+		<Argument name="ActionType">DIPLOMACY_ACTION_RESEARCH_COLLABORATION, DIPLOMACY_ACTION_CULTURAL_EXCHANGE, DIPLOMACY_ACTION_MINOR_TRADE, DIPLOMACY_ACTION_LOCAL_FESTIVALS, DIPLOMACY_ACTION_FARMERS_MARKET, DIPLOMACY_ACTION_MILITARY_AID</Argument>
+	</Modifier>
+	<Modifier id="GILGAMESH_MOD_AGENDA_ALLY_OF_ENKIDU" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_AGENDA_TIMED_UPDATE">
+		<String context="Name">LOC_DIPLOMACY_AGENDA_ALLY_OF_ENKIDU_NAME</String>
+		<Argument name="ModName">LOC_DIPLOMACY_AGENDA_ALLY_OF_ENKIDU_NAME</Argument>
+		<Argument name="Tooltip">LOC_DIPLOMACY_AGENDA_ALLY_OF_ENKIDU_DESC</Argument>
+		<Argument name="WeightType">DIPLOMACY_AGENDA_COMPARE_NUM_STARTED_OR_SUPPORTED_ENDEAVORS_AND_ACTIVE_ALLIANCES</Argument>
+		<Argument name="Arg1">DIPLOMACY_ACTION_GROUP_ENDEAVOR</Argument>
+		<Argument name="AwardTo1">DIPLOMACY_AGENDA_AWARD_HIGHEST</Argument>
+		<Argument name="AwardAmtType1">DIPLOMACY_AGENDA_AMT_MEDIUM</Argument>
+		<Argument name="AwardTo2">DIPLOMACY_AGENDA_AWARD_FOR_EACH</Argument>
+		<Argument name="AwardAmtType2">DIPLOMACY_AGENDA_NEG_AMT_SMALL</Argument>
+		<Argument name="FirstMeetDelay">1</Argument>
+		<Argument name="UpdateFreq">10</Argument>
+		<Argument name="NotifyMessage">LOC_NOTIFICATION_DIPLOMATIC_AGENDA_DEFAULT_MESSAGE</Argument>
+		<Argument name="NotifySummary">LOC_NOTIFICATION_DIPLOMATIC_AGENDA_DEFAULT_SUMMARY</Argument>
+	</Modifier>
+</GameEffects>

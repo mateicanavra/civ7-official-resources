@@ -1,5 +1,4 @@
 import YieldBar from './model-yield-bar.js';
-import '../../../core/ui/utilities/utilities-update-gate.chunk.js';
 
 class YieldBarComponent extends Component {
   yieldBarUpdateListener = this.render.bind(this);

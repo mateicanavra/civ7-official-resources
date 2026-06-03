@@ -1,21 +1,6 @@
 import TooltipManager from '../../../core/ui/tooltips/tooltip-manager.js';
-import { RecursiveGetAttribute } from '../../../core/ui/utilities/utilities-dom.chunk.js';
+import { RecursiveGetAttribute } from '../../../core/ui/utilities/utilities-dom.js';
 import { TradeRoutesModel } from './trade-routes-model.js';
-import '../../../core/ui/input/action-handler.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/input/cursor.js';
-import '../../../core/ui/input/focus-manager.js';
-import '../../../core/ui/audio-base/audio-support.chunk.js';
-import '../../../core/ui/views/view-manager.chunk.js';
-import '../../../core/ui/panel-support.chunk.js';
-import '../../../core/ui/input/input-support.chunk.js';
-import '../../../core/ui/utilities/utilities-update-gate.chunk.js';
-import '../../../core/ui/input/plot-cursor.js';
-import '../../../core/ui/context-manager/context-manager.js';
-import '../../../core/ui/context-manager/display-queue-manager.js';
-import '../../../core/ui/dialog-box/manager-dialog-box.chunk.js';
-import '../../../core/ui/utilities/utilities-layout.chunk.js';
-import '../../../core/ui/utilities/utilities-component-id.chunk.js';
 
 class TradeRouteTooltip {
   tooltip = document.createElement("fxs-tooltip");

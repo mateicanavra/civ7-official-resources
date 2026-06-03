@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+	<Modifier id="CHALLENGE_QAJAR_FOUR_MAJOR_TRIUMPHS_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
+				<Argument name="CivilizationType">CIVILIZATION_QAJAR</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
+				<Argument name="AgeType">AGE_MODERN</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="MinorOnly">true</Argument>
+				<Argument name="MinCount">4</Argument>
+				<Argument name="TriumphClassTags">DIPLOMATIC,EXPANSIONIST</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_QAJAR_FOUR_MAJOR_TRIUMPHS</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_QAJAR_MAJOR_TRIUMPH_COMPLETED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
+				<Argument name="CivilizationType">CIVILIZATION_QAJAR</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+				<Argument name="MinorOnly">True</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Challenge">CHALLENGE_QAJAR_MAJOR_TRIUMPH_COMPLETED</Argument>
+	</Modifier>
+</GameEffects>

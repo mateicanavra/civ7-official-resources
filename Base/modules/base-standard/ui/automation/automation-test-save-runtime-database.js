@@ -1,4 +1,4 @@
-import { S as Shared_OnAutomationEvent, A as ApplyCommonNewGameParametersToConfiguration, R as ReadUserConfigOptions, b as RestoreUserConfigOptions } from './automation-test-support.chunk.js';
+import { Shared_OnAutomationEvent, ApplyCommonNewGameParametersToConfiguration, ReadUserConfigOptions, RestoreUserConfigOptions } from './automation-test-support.js';
 
 console.log("loading automation-test-save-runtime-database.ts");
 class AutomationTestSaveRuntimeDatabase {

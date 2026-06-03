@@ -1,0 +1,24 @@
+<Database>
+	<!-- Modern -->
+	<Types>
+		<Row Type="NODE_CIVIC_MO_PIRATE_REPUBLIC_MODERNIZATION" Kind="KIND_TREE_NODE" />
+	</Types>
+	<TypeQuotes>
+		<Row Type="NODE_CIVIC_MO_PIRATE_REPUBLIC_MODERNIZATION" Quote="LOC_CIVIC_MO_MODERNIZATION_QUOTE" QuoteAuthor="LOC_CIVIC_MO_MODERNIZATION_AUTHOR" QuoteAudio="VO_Quote_ToT_MOD_Modernization" />
+	</TypeQuotes>
+	<ProgressionTreeNodes>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_PIRATE_REPUBLIC_MODERNIZATION" ProgressionTree="TREE_CIVICS_MO_TEST_OF_TIME" Cost="2000" Name="LOC_NODE_CIVIC_MO_PIRATE_REPUBLIC_MODERNIZATION_NAME" IconString="cult_pirate_republic" CanSteal="false" />
+	</ProgressionTreeNodes>
+	<ProgressionTreeNodeUnlocks>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_PIRATE_REPUBLIC_MODERNIZATION" TargetKind="KIND_TRADITION" TargetType="TRADITION_PRESS_GANGS_II" />
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_PIRATE_REPUBLIC_MODERNIZATION" TargetKind="KIND_MODIFIER" TargetType="MOD_TOT_TRADITION_SLOT" />
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_PIRATE_REPUBLIC_MODERNIZATION" TargetKind="KIND_MODIFIER" TargetType="MOD_MO_SETTLEMENT_CAP_INCREASE" />
+	</ProgressionTreeNodeUnlocks>
+	<ProgressionTreeNodeTraits>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_PIRATE_REPUBLIC_MODERNIZATION" RequiredTraitType="TRAIT_PIRATE_REPUBLIC" />
+	</ProgressionTreeNodeTraits>
+	<ProgressionTreePrereqs>
+		<Row Node="NODE_CIVIC_MO_ADMINISTRATION" PrereqNode="NODE_CIVIC_MO_PIRATE_REPUBLIC_MODERNIZATION" />
+		<Row Node="NODE_CIVIC_MO_SYNCRETISM_CHOICE" PrereqNode="NODE_CIVIC_MO_PIRATE_REPUBLIC_MODERNIZATION" />
+	</ProgressionTreePrereqs>
+</Database>

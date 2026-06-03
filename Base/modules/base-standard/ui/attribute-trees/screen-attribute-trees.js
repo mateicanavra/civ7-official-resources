@@ -1,35 +1,17 @@
-import ActionHandler, { ActiveDeviceTypeChangedEventName } from '../../../core/ui/input/action-handler.js';
-import FocusManager from '../../../core/ui/input/focus-manager.js';
-import { b as InputEngineEventName } from '../../../core/ui/input/input-support.chunk.js';
-import { N as NavTray } from '../../../core/ui/navigation-tray/model-navigation-tray.chunk.js';
-import { P as Panel } from '../../../core/ui/panel-support.chunk.js';
-import { D as Databind } from '../../../core/ui/utilities/utilities-core-databinding.chunk.js';
-import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.chunk.js';
-import { L as Layout } from '../../../core/ui/utilities/utilities-layout.chunk.js';
-import { A as AttributeTrees } from './model-attribute-trees.chunk.js';
+import ActionHandler from '../../../core/ui/input/action-handler.js';
+import { ActiveDeviceTypeChangedEventName } from '../../../core/ui/input/input-events.js';
+import { InputEngineEventName } from '../../../core/ui/input/input-support.js';
+import NavTray from '../../../core/ui/navigation-tray/model-navigation-tray.js';
+import Panel from '../../../core/ui/panel-support.js';
+import Databind from '../../../core/ui/utilities/utilities-core-databinding.js';
+import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
+import { Layout } from '../../../core/ui/utilities/utilities-layout.js';
+import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
+import AttributeTrees from './model-attribute-trees.js';
 import { TreeCardHoveredEventName } from '../tree-grid/tree-card.js';
-import { T as TreeSupport, U as UpdateLinesEvent, a as TreeGridDirection } from '../tree-grid/tree-support.chunk.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/input/cursor.js';
-import '../../../core/ui/views/view-manager.chunk.js';
-import '../../../core/ui/audio-base/audio-support.chunk.js';
-import '../../../core/ui/utilities/utilities-update-gate.chunk.js';
-import '../../../core/ui/utilities/utilities-image.chunk.js';
-import '../../../core/ui/utilities/utilities-component-id.chunk.js';
-import '../../../core/ui/context-manager/context-manager.js';
-import '../../../core/ui/context-manager/display-queue-manager.js';
-import '../../../core/ui/dialog-box/manager-dialog-box.chunk.js';
-import '../../../core/ui/utilities/utilities-core-textprovider.chunk.js';
-import '../tree-grid/tree-grid.chunk.js';
-import '../../../core/ui/graph-layout/utils.chunk.js';
-import '../../../core/ui/graph-layout/layout.chunk.js';
-import '../utilities/utilities-textprovider.chunk.js';
-import '../utilities/utilities-tags.chunk.js';
-import '../tree-grid/tree-components.chunk.js';
-
-const content = "<fxs-subsystem-frame\r\n\tno-scroll=\"true\"\r\n\tid=\"attribute-trees-frame\"\r\n\tclass=\"items-center justify-center flex-auto\"\r\n\tdata-audio-close-group-ref=\"audio-diplo-project-reaction\"\r\n\tdata-audio-close-ref=\"data-audio-attr-card-close\"\r\n>\r\n\t<fxs-vslot class=\"primary-window max-h-full flex flex-col flex-auto\">\r\n\t\t<fxs-header\r\n\t\t\tdata-slot=\"header\"\r\n\t\t\tclass=\"attribute-trees__header uppercase text-center tracking-100 mb-2 font-title-xl text-secondary\"\r\n\t\t\ttitle=\"LOC_UI_ATTRIBUTE_TREES_TITLE\"\r\n\t\t\tfiligree-style=\"h3\"\r\n\t\t>\r\n\t\t</fxs-header>\r\n\t\t<div\r\n\t\t\tid=\"attribute-tab-container\"\r\n\t\t\tclass=\"flex-auto flex flex-col items-center\"\r\n\t\t></div>\r\n\t</fxs-vslot>\r\n</fxs-subsystem-frame>\r\n";
-
-const styles = "fs://game/base-standard/ui/attribute-trees/screen-attribute-trees.css";
+import { TreeSupport, UpdateLinesEvent, TreeGridDirection } from '../tree-grid/tree-support.js';
+import content from './screen-attribute-trees.html.js';
+import styles from './screen-attribute-trees.scss.js';
 
 class ScreenIdentity extends Panel {
   selectedNode;
@@ -55,7 +37,8 @@ class ScreenIdentity extends Panel {
   isMobileViewExperience = UI.getViewExperience() == UIViewExperience.Mobile;
   _treeDetail;
   get treeDetail() {
-    return this._treeDetail ??= document.createElement("tree-detail");
+    this._treeDetail ??= document.createElement("tree-detail");
+    return this._treeDetail;
   }
   panelContentElements = /* @__PURE__ */ new Map();
   onInitialize() {
@@ -95,7 +78,7 @@ class ScreenIdentity extends Panel {
   }
   onReceiveFocus() {
     super.onReceiveFocus();
-    waitForLayout(() => FocusManager.setFocus(this.attributeSlotGroup));
+    waitForLayout(() => FocusManager.get().setFocus(this.attributeSlotGroup));
     NavTray.clear();
     NavTray.addOrUpdateGenericBack();
   }

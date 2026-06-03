@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Types>
+		<!-- ==================================================	-->
+		<!--	Attribute Civic Trees						-->
+		<!-- ==================================================	-->
+		<!-- Civic Trees -->
+		<Row Type="TREE_CIVICS_MO_TEST_OF_TIME" Kind="KIND_TREE" />
+		<!-- Civic Tree Nodes -->
+		<Row Type="NODE_CIVIC_MO_ADMINISTRATION" Kind="KIND_TREE_NODE" />
+		<Row Type="NODE_CIVIC_MO_SYNCRETISM_CHOICE" Kind="KIND_TREE_NODE"/>
+	</Types>
+	<TypeQuotes>
+		<Row Type="NODE_CIVIC_MO_ADMINISTRATION" Quote="LOC_CIVIC_MO_ADMINISTRATION_QUOTE" QuoteAuthor="LOC_CIVIC_MO_ADMINISTRATION_AUTHOR" QuoteAudio="VO_Quote_ToT_MOD_Administration"/>
+		<Row Type="NODE_CIVIC_MO_SYNCRETISM_CHOICE" Quote="LOC_CIVIC_MO_ATTRIBUTE_SYNCRETISM_CHOICE_QUOTE" QuoteAuthor="LOC_CIVIC_MO_ATTRIBUTE_SYNCRETISM_CHOICE_AUTHOR" QuoteAudio="VO_Quote_ToT_MOD_Syncretism"/>
+	</TypeQuotes>
+	<ProgressionTrees>
+		<!-- ==================================================	-->
+		<!--	Attribute Civic Trees						-->
+		<!-- ==================================================	-->
+		<Row ProgressionTreeType="TREE_CIVICS_MO_TEST_OF_TIME" AgeType="AGE_MODERN" SystemType="SYSTEM_CULTURE" Name="LOC_TREE_CIVICS_MO_NAME" CivInjectedName="LOC_TREE_CIVICS_MO_CIV_NAME" PrereqFormat="OR"/>
+	</ProgressionTrees>
+	<ProgressionTreeNodes>
+		<!-- ==================================================	-->
+		<!--	Attribute Civic Nodes						-->
+		<!-- ==================================================	-->
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_ADMINISTRATION" ProgressionTree="TREE_CIVICS_MO_TEST_OF_TIME" Cost="3000" Name="LOC_CIVIC_MO_ADMINISTRATION_NAME" CivInjectedIcon="true"  CivInjectedName="LOC_CIVIC_MO_CIV_ADMINISTRATION_NAME" IconString="cult_politicaltheory" CanSteal="false"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_SYNCRETISM_CHOICE" ProgressionTree="TREE_CIVICS_MO_TEST_OF_TIME" Cost="3000" Name="LOC_CIVIC_MO_SYNCRETISM_CHOICE_NAME" IconString="cult_syncretism" CanSteal="false"/>
+	</ProgressionTreeNodes>
+	<ProgressionTreeNodeUnlocks>
+		<!-- ==================================================	-->
+		<!--	Attribute Civic Node Unlocks				-->
+		<!-- ==================================================	-->
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_SYNCRETISM_CHOICE" TargetKind="KIND_MODIFIER" TargetType="MOD_SYNCRETISM" UnlockDepth="1"/>
+		<!-- ========== Cultural ========== -->
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_ADMINISTRATION" TargetKind="KIND_TRADITION" TargetType="TRADITION_MO_ATTRIBUTE_CULTURAL_01" UnlockDepth="1" RequiredTraitType="TRAIT_ATTRIBUTE_CULTURAL_TOT_MO"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_ADMINISTRATION" TargetKind="KIND_CONSTRUCTIBLE" TargetType="WONDER_TAJ_MAHAL" UnlockDepth="1" AIIgnoreUnlockValue="true" RequiredTraitType="TRAIT_ATTRIBUTE_CULTURAL_TOT_MO"/>
+		<!-- ========== Diplomatic ========== -->
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_ADMINISTRATION" TargetKind="KIND_TRADITION" TargetType="TRADITION_MO_ATTRIBUTE_DIPLOMATIC_01_HAPPINESS" UnlockDepth="1" RequiredTraitType="TRAIT_ATTRIBUTE_POLITICAL_TOT_MO_HAPPINESS"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_ADMINISTRATION" TargetKind="KIND_TRADITION" TargetType="TRADITION_MO_ATTRIBUTE_DIPLOMATIC_01_INFLUENCE" UnlockDepth="1" RequiredTraitType="TRAIT_ATTRIBUTE_POLITICAL_TOT_MO_INFLUENCE"/>
+		<!-- ========== Economic ========== -->
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_ADMINISTRATION" TargetKind="KIND_TRADITION" TargetType="TRADITION_MO_ATTRIBUTE_ECONOMIC_01" UnlockDepth="1" RequiredTraitType="TRAIT_ATTRIBUTE_ECONOMIC_TOT_MO"/>
+		<!-- ========== Expansionist ========== -->
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_ADMINISTRATION" TargetKind="KIND_TRADITION" TargetType="TRADITION_MO_ATTRIBUTE_EXPANSIONIST_01_TALL" UnlockDepth="1" RequiredTraitType="TRAIT_ATTRIBUTE_EXPANSIONIST_TOT_MO_TALL"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_ADMINISTRATION" TargetKind="KIND_MODIFIER" TargetType="MOD_CIVIC_MO_ATTRIBUTE_EXPANSIONIST_SPECIALIST_CAP_INCREASE" UnlockDepth="1" RequiredTraitType="TRAIT_ATTRIBUTE_EXPANSIONIST_TOT_MO_TALL"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_ADMINISTRATION" TargetKind="KIND_TRADITION" TargetType="TRADITION_MO_ATTRIBUTE_EXPANSIONIST_01_WIDE" UnlockDepth="1" RequiredTraitType="TRAIT_ATTRIBUTE_EXPANSIONIST_TOT_MO_WIDE"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_ADMINISTRATION" TargetKind="KIND_MODIFIER" TargetType="MOD_CIVIC_MO_ATTRIBUTE_EXPANSIONIST_SETTLEMENT_CAP_INCREASE" UnlockDepth="1" RequiredTraitType="TRAIT_ATTRIBUTE_EXPANSIONIST_TOT_MO_WIDE" NotTraitType="TRAIT_ATTRIBUTE_MILITARISTIC_EXPANSIONIST"/>
+		<!-- ========== Militaristic ========== -->
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_ADMINISTRATION" TargetKind="KIND_TRADITION" TargetType="TRADITION_MO_ATTRIBUTE_MILITARISTIC_01" UnlockDepth="1" RequiredTraitType="TRAIT_ATTRIBUTE_MILITARISTIC_TOT_MO"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_ADMINISTRATION" TargetKind="KIND_MODIFIER" TargetType="MOD_MO_SETTLEMENT_CAP_INCREASE" UnlockDepth="1" RequiredTraitType="TRAIT_ATTRIBUTE_MILITARISTIC_TOT_MO" NotTraitType="TRAIT_ATTRIBUTE_MILITARISTIC_EXPANSIONIST"/>
+		<!-- ========== Scientific ========== -->
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_ADMINISTRATION" TargetKind="KIND_TRADITION" TargetType="TRADITION_MO_ATTRIBUTE_SCIENTIFIC_01" UnlockDepth="1" RequiredTraitType="TRAIT_ATTRIBUTE_SCIENTIFIC_TOT_MO"/>
+		<!-- ========== Other ========== -->
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_ADMINISTRATION" TargetKind="KIND_MODIFIER" TargetType="MOD_CIVIC_MO_ATTRIBUTE_MILITARISTIC_EXPANSIONIST_SETTLEMENT_CAP_INCREASE" UnlockDepth="1" RequiredTraitType="TRAIT_ATTRIBUTE_MILITARISTIC_EXPANSIONIST"/>
+		<!-- ==================================================	-->
+		<!--	Civ Unique Civic Node Unlocks				-->
+		<!-- ==================================================	-->
+		<!-- ========== Modern Apex ========== -->
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_AMERICA_YANKEE_INGENUITY" TargetKind="KIND_MODIFIER" TargetType="MOD_TOT_TRADITION_SLOT" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_AMERICA_CAPTAINS_OF_INDUSTRY" TargetKind="KIND_MODIFIER" TargetType="MOD_TOT_TRADITION_SLOT" UnlockDepth="1"/>
+	</ProgressionTreeNodeUnlocks>
+	<ProgressionTreeNodeTraits>
+	</ProgressionTreeNodeTraits>
+	<ProgressionTreePrereqs>
+	</ProgressionTreePrereqs>
+	<ProgressionTree_Advisories>
+	</ProgressionTree_Advisories>
+</Database>

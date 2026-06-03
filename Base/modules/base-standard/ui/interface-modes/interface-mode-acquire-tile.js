@@ -1,43 +1,18 @@
-import { A as Audio } from '../../../core/ui/audio-base/audio-support.chunk.js';
-import { F as Focus } from '../../../core/ui/input/focus-support.chunk.js';
+import { Audio } from '../../../core/ui/audio-base/audio-support.js';
+import { CursorUpdatedEventName } from '../../../core/ui/input/cursor.js';
+import { Focus } from '../../../core/ui/input/focus-support.js';
 import { PlotCursor } from '../../../core/ui/input/plot-cursor.js';
 import { InterfaceMode } from '../../../core/ui/interface-modes/interface-modes.js';
-import { L as LensManager } from '../../../core/ui/lenses/lens-manager.chunk.js';
-import { N as NavTray } from '../../../core/ui/navigation-tray/model-navigation-tray.chunk.js';
-import { C as ComponentID } from '../../../core/ui/utilities/utilities-component-id.chunk.js';
-import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.chunk.js';
+import LensManager from '../../../core/ui/lenses/lens-manager.js';
+import NavTray from '../../../core/ui/navigation-tray/model-navigation-tray.js';
+import { ComponentID } from '../../../core/ui/utilities/utilities-component-id.js';
+import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
+import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
 import { BuildingPlacementManager } from '../building-placement/building-placement-manager.js';
-import { C as CityZoomer } from '../city-zoomer/city-zoomer.chunk.js';
+import { CityZoomer } from '../city-zoomer/city-zoomer.js';
 import ChoosePlotInterfaceMode from './interface-mode-choose-plot.js';
 import { PlacePopulation } from '../place-population/model-place-population.js';
 import PlotWorkersManager, { PlotWorkersUpdatedEventName } from '../plot-workers/plot-workers-manager.js';
-import '../../../core/ui/components/fxs-slot.chunk.js';
-import '../../../core/ui/input/focus-manager.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/views/view-manager.chunk.js';
-import '../../../core/ui/panel-support.chunk.js';
-import '../../../core/ui/spatial/spatial-manager.js';
-import '../../../core/ui/context-manager/context-manager.js';
-import '../../../core/ui/context-manager/display-queue-manager.js';
-import '../../../core/ui/dialog-box/manager-dialog-box.chunk.js';
-import '../../../core/ui/input/cursor.js';
-import '../../../core/ui/input/action-handler.js';
-import '../../../core/ui/input/input-support.chunk.js';
-import '../../../core/ui/utilities/utilities-update-gate.chunk.js';
-import '../../../core/ui/utilities/utilities-image.chunk.js';
-import '../../../core/ui/graph-layout/utils.chunk.js';
-import '../utilities/utilities-overlay.chunk.js';
-import '../world-input/world-input.js';
-import '../../../core/ui/utilities/utilities-network.js';
-import '../../../core/ui/shell/mp-legal/mp-legal.js';
-import '../../../core/ui/events/shell-events.chunk.js';
-import '../../../core/ui/utilities/utilities-liveops.js';
-import '../../../core/ui/utilities/utilities-network-constants.chunk.js';
-import '../diplomacy/diplomacy-events.js';
-import './support-unit-map-decoration.chunk.js';
-import '../placement-city-banner/placement-city-banner.js';
-import '../utilities/utilities-city-yields.chunk.js';
-import '../yield-bar-base/yield-bar-base.js';
 
 const ToggleGrowthMinMaxEventName = "toggle-growth-min-max";
 class ToggleGrowthMinMaxEvent extends CustomEvent {
@@ -47,6 +22,7 @@ class ToggleGrowthMinMaxEvent extends CustomEvent {
 }
 class AcquireTileInterfaceMode extends ChoosePlotInterfaceMode {
   validPlots = [];
+  validNeighborPlots = [];
   previousLens = "fxs-default-lens";
   plotOverlay = null;
   cityID = ComponentID.getInvalidID();
@@ -55,6 +31,7 @@ class AcquireTileInterfaceMode extends ChoosePlotInterfaceMode {
   OUTER_REGION_OVERLAY_FILTER = { saturation: 0.1, brightness: 0.3 };
   //Semi-opaque dark grey to darken plots outside of the city
   districtAddedToMapHandle;
+  cursorUpdateListener = this.onCursorUpdated.bind(this);
   plotWorkerUpdatedListener = this.onPlotWorkerUpdate.bind(this);
   /**
    * Initializes the interface mode.
@@ -85,6 +62,7 @@ class AcquireTileInterfaceMode extends ChoosePlotInterfaceMode {
   }
   updateValidPlotsFromUnitID(id) {
     this.validPlots = [];
+    this.validNeighborPlots = [];
     this.cityID = this.getUnitCityID(id);
     PlacePopulation.updateExpandPlotsForResettle(id);
     this.validPlots = PlacePopulation.getExpandPlotsIndexes();
@@ -95,7 +73,22 @@ class AcquireTileInterfaceMode extends ChoosePlotInterfaceMode {
     this.cityID = id;
     PlacePopulation.updateExpandPlots(id);
     this.validPlots = PlacePopulation.getExpandPlotsIndexes();
-    PlotWorkersManager.initializeWorkersData(this.cityID);
+    const city = Cities.get(this.cityID);
+    if (city?.isTown) {
+      PlotWorkersManager.reset();
+    } else {
+      PlotWorkersManager.initializeWorkersData(this.cityID);
+    }
+    this.validNeighborPlots = [];
+    for (const plot of this.validPlots) {
+      const plotLocation = GameplayMap.getLocationFromIndex(plot);
+      const plotOwner = GameplayMap.getOwningCityFromXY(plotLocation.x, plotLocation.y);
+      if (plotOwner) {
+        if (plotOwner.id != this.cityID.id) {
+          this.validNeighborPlots.push(plot);
+        }
+      }
+    }
   }
   /**
    * @override
@@ -110,7 +103,9 @@ class AcquireTileInterfaceMode extends ChoosePlotInterfaceMode {
       () => {
         this.commitPlot(plot);
       },
-      () => this.isPlotProposed = false
+      () => {
+        this.isPlotProposed = false;
+      }
     );
     return false;
   }
@@ -133,6 +128,7 @@ class AcquireTileInterfaceMode extends ChoosePlotInterfaceMode {
     if (PlotCursor?.plotCursorCoords) {
       this.hoverNewPlot(PlotCursor.plotCursorCoords.x, PlotCursor.plotCursorCoords.y);
     }
+    window.addEventListener(CursorUpdatedEventName, this.cursorUpdateListener);
     WorldUI.setUnitVisibility(false);
     waitForLayout(() => this.setMapFocused(true));
   }
@@ -140,10 +136,13 @@ class AcquireTileInterfaceMode extends ChoosePlotInterfaceMode {
     this.mapFocused = isMapFocused;
     this.updateNavTray();
     if (this.mapFocused) {
+      FocusManager.get().clearFocus();
       Input.setActiveContext(InputContext.World);
+      Audio.playSound("data-audio-hero-press");
     } else {
       Input.setActiveContext(InputContext.Shell);
       const placePopulationPanel = MustGetElement("panel-place-population", document);
+      Audio.playSound("data-audio-hero-press");
       if (placePopulationPanel) {
         Focus.setContextAwareFocus(placePopulationPanel, placePopulationPanel);
       }
@@ -155,6 +154,7 @@ class AcquireTileInterfaceMode extends ChoosePlotInterfaceMode {
    */
   transitionFrom(oldMode, newMode) {
     UI.sendAudioEvent(Audio.getSoundTag("data-audio-city-growth-exit", "city-growth"));
+    window.removeEventListener(CursorUpdatedEventName, this.cursorUpdateListener);
     this.plotOverlay?.clear();
     WorldUI.popFilter();
     CityZoomer.resetZoom();
@@ -199,6 +199,9 @@ class AcquireTileInterfaceMode extends ChoosePlotInterfaceMode {
    */
   reset() {
     this.validPlots = [];
+    this.validNeighborPlots = [];
+    BuildingPlacementManager.reset();
+    PlotWorkersManager.reset();
     this.districtAddedToMapHandle?.clear();
     window.removeEventListener(PlotWorkersUpdatedEventName, this.plotWorkerUpdatedListener);
   }
@@ -221,16 +224,26 @@ class AcquireTileInterfaceMode extends ChoosePlotInterfaceMode {
     const EXPAND_CITY_BORDER_COLOR_LINEAR = { x: 0.2, y: 0.3, z: 0, w: 1 };
     const ADD_SPECIALIST_COLOR = { x: 0.05, y: 0, z: 0.4, w: 0.9 };
     const ADD_SPECIALIST_BORDER_COLOR = { x: 0.1, y: 0, z: 0.1, w: 1 };
+    const ACQUIRE_NEIGHBOR_CITY_COLOR_LINEAR = { x: 1, y: 0.1, z: 0, w: 0.6 };
+    const ACQUIRE_NEIGHBOR_CITY_BORDER_COLOR = { x: 0.2, y: 0.3, z: 0, w: 1 };
     this.plotOverlay = overlay.addPlotOverlay();
     this.plotOverlay.addPlots([...validPlots], { fillColor: CITY_TILE_GRAY_COLOR });
     this.plotOverlay.addPlots(this.validPlots, {
       fillColor: EXPAND_CITY_COLOR_LINEAR,
       edgeColor: EXPAND_CITY_BORDER_COLOR_LINEAR
     });
-    this.plotOverlay.addPlots(PlotWorkersManager.workablePlotIndexes, {
-      fillColor: ADD_SPECIALIST_COLOR,
-      edgeColor: ADD_SPECIALIST_BORDER_COLOR
-    });
+    if (!selectedCity.isTown) {
+      this.plotOverlay.addPlots(PlotWorkersManager.workablePlotIndexes, {
+        fillColor: ADD_SPECIALIST_COLOR,
+        edgeColor: ADD_SPECIALIST_BORDER_COLOR
+      });
+    }
+    if (this.validNeighborPlots.length > 0) {
+      this.plotOverlay.addPlots(this.validNeighborPlots, {
+        fillColor: ACQUIRE_NEIGHBOR_CITY_COLOR_LINEAR,
+        edgeColor: ACQUIRE_NEIGHBOR_CITY_BORDER_COLOR
+      });
+    }
     WorldUI.setUnitVisibility(false);
   }
   /**
@@ -251,6 +264,14 @@ class AcquireTileInterfaceMode extends ChoosePlotInterfaceMode {
     super.onPlotCursorCoordsUpdated(event);
     if (event.detail.plotCoords) {
       this.hoverNewPlot(event.detail.plotCoords.x, event.detail.plotCoords.y);
+    }
+  }
+  onCursorUpdated(event) {
+    if (!event.detail.plot) {
+      if (UI.getCursorType() != UIHTMLCursorTypes.Default) {
+        UI.setCursorByType(UIHTMLCursorTypes.Default);
+      }
+      PlotWorkersManager.hoveredPlotIndex = null;
     }
   }
   hoverNewPlot(x, y) {
@@ -322,10 +343,10 @@ class AcquireTileInterfaceMode extends ChoosePlotInterfaceMode {
     }
   }
   updatePlotOverlay = () => {
-    this.updateValidPlotsFromCityID(this.cityID);
     const city = Cities.get(this.cityID);
     const context = this.Context;
     if (city?.Growth?.isReadyToPlacePopulation && context.CityID) {
+      this.updateValidPlotsFromCityID(this.cityID);
       this.placementOverlayGroup?.clearAll();
       WorldUI.popFilter();
       this.decorate(this.placementOverlayGroup);
@@ -377,9 +398,9 @@ class AcquireTileInterfaceMode extends ChoosePlotInterfaceMode {
       } else {
         NavTray.addOrUpdateNotification("LOC_BUILDING_PLACEMENT_PRESS_SPACE_SHOW_DETAILS");
       }
-      NavTray.addOrUpdateNextAction("LOC_UI_FOCUS_PLACEMENT_INFO");
+      NavTray.addOrUpdateNextAction("LOC_UI_FOCUS_WORLD");
     } else {
-      NavTray.addOrUpdateShellAction2("LOC_UI_FOCUS_WORLD");
+      NavTray.addOrUpdateShellAction2("LOC_UI_FOCUS_PLACEMENT_INFO");
     }
     NavTray.addOrUpdateGenericCancel();
   }

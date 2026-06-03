@@ -1,20 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <metaprogression xmlns="Metaprogression">
 	<challenges class="CHALLENGE_CLASS_FOUNDATION" category="CHALLENGE_CATEGORY_FOUNDATION_CIV_VICTORIES" legendPath="LEGEND_PATH_FOUNDATION">
-		<challenge id="CHALLENGE_ASSYRIA_LEGACY_PATH_SCIENTIFIC" scope="Campaign" difficulty="2">
+		<challenge id="CHALLENGE_ASSYRIA_FOUR_MAJOR_TRIUMPHS" scope="Campaign" difficulty="2">
 			<l10n>
-				<name>Assyria Legacy Path</name>
-				<description>As Assyria, complete a Scientific Legacy Path.</description>
+				<name>Assyria 4 Major Triumphs</name>
+				<description>As Assyria, complete 4 Militaristic or Scientific Major Triumphs in a single Apex Age.</description>
 			</l10n>
 			<sortIndex>105000</sortIndex>
 			<reward type="XP" reward="50" />
 		</challenge>
-		<challenge id="CHALLENGE_ASSYRIA_LEGACY_PATH_MILESTONE_COMPLETED" scope="Campaign" difficulty="2" hidden="true">
+		<challenge id="CHALLENGE_ASSYRIA_MAJOR_TRIUMPH_COMPLETED" scope="Campaign" difficulty="2" hidden="true">
 			<l10n>
-				<name>Assyria Legacy Path Milestone</name>
-				<description>As Assyria, reach at least 1 Legacy Path Milestone.</description>
+				<name>Assyria Major Triumph</name>
+				<description>As Assyria, complete at least 1 Major Triumph.</description>
 			</l10n>
 			<sortIndex>105010</sortIndex>
+			<tags>
+				<tag>CIVS_PLAYED_PROGRESS</tag>
+			</tags>
 		</challenge>
 	</challenges>
 	<challenges class="CHALLENGE_CLASS_FOUNDATION" category="CHALLENGE_CATEGORY_FOUNDATION_WONDERS" legendPath="LEGEND_PATH_FOUNDATION">

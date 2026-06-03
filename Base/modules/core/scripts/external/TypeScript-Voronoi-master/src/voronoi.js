@@ -5,6 +5,7 @@ import { Cell } from './cell.js';
 import { Diagram } from './diagram.js';
 import { Halfedge } from './halfedge.js';
 
+const EPSILON = 1e-9;
 class Voronoi {
   constructor() {
     this.vertices = null;
@@ -27,22 +28,16 @@ class Voronoi {
   //   user to freely modify content. At compute time,
   //   *references* to sites are copied locally.
   compute(sites, bbox) {
-    let startTime = /* @__PURE__ */ new Date();
+    let startTime = Date.now();
     this.reset();
     if (this.toRecycle) {
-      this.vertexJunkyard = this.vertexJunkyard.concat(this.toRecycle.vertices);
-      this.edgeJunkyard = this.edgeJunkyard.concat(this.toRecycle.edges);
-      this.cellJunkyard = this.cellJunkyard.concat(this.toRecycle.cells);
+      this.vertexJunkyard.push(...this.toRecycle.vertices);
+      this.edgeJunkyard.push(...this.toRecycle.edges);
+      this.cellJunkyard.push(...this.toRecycle.cells);
       this.toRecycle = null;
     }
     let siteEvents = sites.slice(0);
-    siteEvents.sort(function(a, b) {
-      let r = b.y - a.y;
-      if (r) {
-        return r;
-      }
-      return b.x - a.x;
-    });
+    siteEvents.sort((a, b) => b.y - a.y || b.x - a.x);
     let site = siteEvents.pop(), siteid = 0, xsitex, xsitey, cells = this.cells, circle;
     for (; ; ) {
       circle = this.firstCircleEvent;
@@ -63,44 +58,32 @@ class Voronoi {
     }
     this.clipEdges(bbox);
     this.closeCells(bbox);
-    let stopTime = /* @__PURE__ */ new Date();
+    let stopTime = Date.now();
     let diagram = new Diagram();
     diagram.cells = this.cells;
     diagram.edges = this.edges;
     diagram.vertices = this.vertices;
-    diagram.execTime = stopTime.getTime() - startTime.getTime();
+    diagram.execTime = stopTime - startTime;
     this.reset();
     return diagram;
   }
   //
   // private methods
   //
-  sqrt(x) {
-    return Math.sqrt(x);
-  }
-  abs(x) {
-    return Math.abs(x);
-  }
-  eps() {
-    return 1e-9;
-  }
-  inveps() {
-    return 1 / this.eps();
-  }
   equalWithEpsilon(a, b) {
-    return this.abs(a - b) < this.eps();
+    return Math.abs(a - b) < EPSILON;
   }
   greaterThanWithEpsilon(a, b) {
-    return a - b > this.eps();
+    return a - b > EPSILON;
   }
   greaterThanOrEqualWithEpsilon(a, b) {
-    return b - a < this.eps();
+    return b - a < EPSILON;
   }
   lessThanWithEpsilon(a, b) {
-    return b - a > this.eps();
+    return b - a > EPSILON;
   }
   lessThanOrEqualWithEpsilon(a, b) {
-    return a - b < this.eps();
+    return a - b < EPSILON;
   }
   // ---------------------------------------------------------------------------
   // Helper: Quantize sites
@@ -112,7 +95,7 @@ class Voronoi {
   // those users who uses coord values which are known to be fine, no overhead is
   // added.
   quantizeSites(sites) {
-    let eps = this.eps(), n = sites.length, site;
+    let eps = EPSILON, n = sites.length, site;
     while (n--) {
       site = sites[n];
       site.x = Math.floor(site.x / eps) * eps;
@@ -156,7 +139,6 @@ class Voronoi {
   createCell(site) {
     let cell = this.cellJunkyard.pop();
     if (cell) {
-      cell.init(site);
       return cell.init(site);
     }
     return new Cell(site);
@@ -259,7 +241,7 @@ class Voronoi {
     }
     let hl = lfocx - rfocx, aby2 = 1 / pby2 - 1 / plby2, b = hl / plby2;
     if (aby2) {
-      return (-b + this.sqrt(b * b - 2 * aby2 * (hl * hl / (-2 * plby2) - lfocy + plby2 / 2 + rfocy - pby2 / 2))) / aby2 + rfocx;
+      return (-b + Math.sqrt(b * b - 2 * aby2 * (hl * hl / (-2 * plby2) - lfocy + plby2 / 2 + rfocy - pby2 / 2))) / aby2 + rfocx;
     }
     return (rfocx + lfocx) / 2;
   }
@@ -282,7 +264,7 @@ class Voronoi {
     let circle = beachsection.circleEvent, x = circle.x, y = circle.ycenter, vertex = this.createVertex(x, y), previous = beachsection.prev, next = beachsection.next, disappearingTransitions = [beachsection], abs_fn = Math.abs;
     this.detachBeachsection(beachsection);
     let lArc = previous;
-    while (lArc.circleEvent && abs_fn(x - lArc.circleEvent.x) < this.eps() && abs_fn(y - lArc.circleEvent.ycenter) < this.eps()) {
+    while (lArc.circleEvent && abs_fn(x - lArc.circleEvent.x) < EPSILON && abs_fn(y - lArc.circleEvent.ycenter) < EPSILON) {
       previous = lArc.prev;
       disappearingTransitions.unshift(lArc);
       this.detachBeachsection(lArc);
@@ -291,7 +273,7 @@ class Voronoi {
     disappearingTransitions.unshift(lArc);
     this.detachCircleEvent(lArc);
     let rArc = next;
-    while (rArc.circleEvent && abs_fn(x - rArc.circleEvent.x) < this.eps() && abs_fn(y - rArc.circleEvent.ycenter) < this.eps()) {
+    while (rArc.circleEvent && abs_fn(x - rArc.circleEvent.x) < EPSILON && abs_fn(y - rArc.circleEvent.ycenter) < EPSILON) {
       next = rArc.next;
       disappearingTransitions.push(rArc);
       this.detachBeachsection(rArc);
@@ -316,21 +298,21 @@ class Voronoi {
     let lArc, rArc, dxl, dxr, node = this.beachline.root;
     while (node) {
       dxl = this.leftBreakPoint(node, directrix) - x;
-      if (dxl > this.eps()) {
+      if (dxl > EPSILON) {
         node = node.left;
       } else {
         dxr = x - this.rightBreakPoint(node, directrix);
-        if (dxr > this.eps()) {
+        if (dxr > EPSILON) {
           if (!node.right) {
             lArc = node;
             break;
           }
           node = node.right;
         } else {
-          if (dxl > -this.eps()) {
+          if (dxl > -EPSILON) {
             lArc = node.prev;
             rArc = node;
-          } else if (dxr > -this.eps()) {
+          } else if (dxr > -EPSILON) {
             lArc = node;
             rArc = node.next;
           } else {
@@ -392,7 +374,7 @@ class Voronoi {
     circleEvent.arc = arc;
     circleEvent.site = cSite;
     circleEvent.x = x + bx;
-    circleEvent.y = ycenter + this.sqrt(x * x + y * y);
+    circleEvent.y = ycenter + Math.sqrt(x * x + y * y);
     circleEvent.ycenter = ycenter;
     arc.circleEvent = circleEvent;
     let predecessor = null, node = this.circleEvents.root;
@@ -436,7 +418,7 @@ class Voronoi {
   //   true: the dangling endpoint could be connected
   connectEdge(edge, bbox) {
     let vb = edge.vb;
-    if (!!vb) {
+    if (vb) {
       return true;
     }
     let va = edge.va, xl = bbox.xl, xr = bbox.xr, yt = bbox.yt, yb = bbox.yb, lSite = edge.lSite, rSite = edge.rSite, lx = lSite.x, ly = lSite.y, rx = rSite.x, ry = rSite.y, fx = (lx + rx) / 2, fy = (ly + ry) / 2, fm, fb;
@@ -606,7 +588,7 @@ class Voronoi {
     let edges = this.edges, iEdge = edges.length, edge, abs_fn = Math.abs;
     while (iEdge--) {
       edge = edges[iEdge];
-      if (!this.connectEdge(edge, bbox) || !this.clipEdge(edge, bbox) || abs_fn(edge.va.x - edge.vb.x) < this.eps() && abs_fn(edge.va.y - edge.vb.y) < this.eps()) {
+      if (!this.connectEdge(edge, bbox) || !this.clipEdge(edge, bbox) || abs_fn(edge.va.x - edge.vb.x) < EPSILON && abs_fn(edge.va.y - edge.vb.y) < EPSILON) {
         edge.va = edge.vb = null;
         edges.splice(iEdge, 1);
       }
@@ -632,7 +614,7 @@ class Voronoi {
       while (iLeft < nHalfedges) {
         va = halfedges[iLeft].getEndpoint();
         vz = halfedges[(iLeft + 1) % nHalfedges].getStartpoint();
-        if (abs_fn(va.x - vz.x) >= this.eps() || abs_fn(va.y - vz.y) >= this.eps()) {
+        if (abs_fn(va.x - vz.x) >= EPSILON || abs_fn(va.y - vz.y) >= EPSILON) {
           switch (true) {
             // walk downward along left side
             case (this.equalWithEpsilon(va.x, xl) && this.lessThanWithEpsilon(va.y, yb)):

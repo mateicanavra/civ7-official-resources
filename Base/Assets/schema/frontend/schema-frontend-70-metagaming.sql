@@ -27,6 +27,17 @@ CREATE TABLE 'ChallengeEventChallengeStatEffects'(
 	FOREIGN KEY('ChallengeType') REFERENCES 'Challenges'('ChallengeType')
 );
 
+-- This table stores challenge statistics data for use in game core side metparogression systems.
+CREATE TABLE 'ChallengeStatisticsData'(
+	'ChallengeType' TEXT NOT NULL,
+	'StatisticType' TEXT NOT NULL,
+	'ChallengeThreshold' TEXT NOT NULL,
+	'StatisticRuleType' TEXT,
+	'StatisticRuleValue' TEXT,
+	PRIMARY KEY('ChallengeType', 'StatisticType'),
+	FOREIGN KEY ('ChallengeType') REFERENCES 'Challenges'('ChallengeType')
+);
+
 -- This table configures in-game Challenges.
 CREATE TABLE 'Challenges'(
 	'ChallengeType' TEXT NOT NULL,
@@ -39,6 +50,7 @@ CREATE TABLE 'Challenges'(
 	'Hidden' BOOLEAN NOT NULL DEFAULT 0,
 	'MaxCompletions' INTEGER DEFAULT 1,
 	'AllowRewardWhenHidden' BOOLEAN NOT NULL DEFAULT 0,
+	'Tags' TEXT,
 	PRIMARY KEY ('ChallengeType')
 );
 

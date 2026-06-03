@@ -1,31 +1,18 @@
-import { A as Audio } from '../../audio-base/audio-support.chunk.js';
+import { Audio } from '../../audio-base/audio-support.js';
 import ContextManager from '../../context-manager/context-manager.js';
-import { a as DialogBoxManager } from '../../dialog-box/manager-dialog-box.chunk.js';
-import FocusManager from '../../input/focus-manager.js';
-import { N as NavTray } from '../../navigation-tray/model-navigation-tray.chunk.js';
-import { P as Panel, A as AnchorType } from '../../panel-support.chunk.js';
-import { M as MPRefreshDataFlags, a as MPFriendsModel, b as MPFriendsPlayerData } from './model-mp-friends.chunk.js';
+import { DialogBoxManager } from '../../dialog-box/manager-dialog-box.js';
+import NavTray from '../../navigation-tray/model-navigation-tray.js';
+import Panel, { AnchorType } from '../../panel-support.js';
+import MPFriendsModel, { MPRefreshDataFlags, MPFriendsPlayerData } from './model-mp-friends.js';
 import SocialNotificationsManager, { SocialNotificationIndicatorType } from '../../social-notifications/social-notifications-manager.js';
-import { MustGetElement } from '../../utilities/utilities-dom.chunk.js';
+import { MustGetElement } from '../../utilities/utilities-dom.js';
+import { stringifyJSON } from '../../utilities/utilities-json.js';
 import { getPlayerCardInfo } from '../../utilities/utilities-liveops.js';
 import { NetworkUtilities } from '../../utilities/utilities-network.js';
-import { U as UpdateGate } from '../../utilities/utilities-update-gate.chunk.js';
-import '../../context-manager/display-queue-manager.js';
-import '../../framework.chunk.js';
-import '../../input/cursor.js';
-import '../../views/view-manager.chunk.js';
-import '../../input/action-handler.js';
-import '../../input/input-support.chunk.js';
-import '../../utilities/utilities-image.chunk.js';
-import '../../utilities/utilities-component-id.chunk.js';
-import '../../utilities/utilities-layout.chunk.js';
-import '../mp-legal/mp-legal.js';
-import '../../events/shell-events.chunk.js';
-import '../../utilities/utilities-network-constants.chunk.js';
-
-const content = "<fxs-div class=\"mp-friends-frame w-200 h-full self-center\">\r\n\t<div class=\"main-container flex-auto\">\r\n\t\t<fxs-hslot class=\"w-full -mt-6\">\r\n\t\t\t<div class=\"filigree-panel-top-left w-1\\/2\"></div>\r\n\t\t\t<div class=\"filigree-panel-top-right w-1\\/2\"></div>\r\n\t\t</fxs-hslot>\r\n\t\t<div class=\"flex flex-col items-center\">\r\n\t\t\t<div\r\n\t\t\t\tclass=\"font-title-2xl text-secondary\"\r\n\t\t\t\tdata-l10n-id=\"LOC_UI_SOCIAL_TITLE\"\r\n\t\t\t></div>\r\n\t\t\t<div class=\"filigree-divider-h3 w-64\"></div>\r\n\t\t</div>\r\n\t\t<fxs-inner-frame class=\"mx-6 my-2\\.5 mt-12\">\r\n\t\t\t<fxs-hslot class=\"w-full justify-center\">\r\n\t\t\t\t<fxs-vslot class=\"h-24 mt-4 w-1\\/2\">\r\n\t\t\t\t\t<div\r\n\t\t\t\t\t\tclass=\"mp-friends-platform-icon w-12 h-12 bg-center bg-contain bg-no-repeat align-center self-center mb-2\"\r\n\t\t\t\t\t></div>\r\n\t\t\t\t\t<div\r\n\t\t\t\t\t\tclass=\"mp-friends-platform-name text-body font-title-lg font-fit-shrink whitespace-nowrap self-center\"\r\n\t\t\t\t\t></div>\r\n\t\t\t\t</fxs-vslot>\r\n\t\t\t\t<fxs-vslot class=\"h-24 ml-3 mt-4 w-1\\/2\">\r\n\t\t\t\t\t<div\r\n\t\t\t\t\t\tclass=\"mp-friends-2k-icon w-12 h-12 bg-contain bg-auto bg-no-repeat align-center self-center mb-2\"\r\n\t\t\t\t\t></div>\r\n\t\t\t\t\t<div\r\n\t\t\t\t\t\tclass=\"mp-friends-2k-name text-body font-title-lg font-fit-shrink whitespace-nowrap self-center\"\r\n\t\t\t\t\t></div>\r\n\t\t\t\t</fxs-vslot>\r\n\t\t\t</fxs-hslot>\r\n\t\t</fxs-inner-frame>\r\n\t\t<fxs-tab-bar\r\n\t\t\tclass=\"mp-friends-tab-bar self-center\"\r\n\t\t\tselected-tab-index=\"2\"\r\n\t\t\ttab-for=\".mp-friends-frame\"\r\n\t\t\ttab-items='[{\"id\":\"lobby-list-tab\",\"icon\":\"fs://game/soc_lobby.png\",\"label\":\"\",\"iconClass\":\"grow-0 w-8 h-8 p-0 m-0\"},\r\n\t\t\t\t\t\t\t\t {\"id\":\"search-results-list-tab\",\"icon\":\"fs://game/soc_search.png\",\"label\":\"\",\"iconClass\":\"grow-0 w-8 h-8 p-0 m-0\"},\r\n\t\t\t\t\t\t\t\t {\"id\":\"friends-list-tab\",\"icon\":\"fs://game/soc_friends.png\",\"label\":\"\",\"iconClass\":\"grow-0 w-8 h-8 p-0 m-0\"},\r\n\t\t\t\t\t\t\t\t {\"id\":\"notifications-list-tab\",\"icon\":\"fs://game/soc_notifications.png\",\"label\":\"\",\"iconClass\":\"grow-0 w-8 h-8 p-0 m-0\"},\r\n\t\t\t\t\t\t\t\t {\"id\":\"recently-met-players-list-tab\",\"icon\":\"fs://game/soc_recent.png\",\"label\":\"\",\"iconClass\":\"grow-0 w-8 h-8 p-0 m-0\"},\r\n\t\t\t\t\t\t\t\t {\"id\":\"blocked-players-list-tab\",\"icon\":\"fs://game/soc_blocked.png\",\"label\":\"\",\"iconClass\":\"grow-0 w-8 h-8 p-0 m-0\"}]'\r\n\t\t\tdata-audio-group-ref=\"audio-mp-friends\"\r\n\t\t></fxs-tab-bar>\r\n\t\t<fxs-header\r\n\t\t\tclass=\"self-center\"\r\n\t\t\tfiligree-style=\"none\"\r\n\t\t\tstyle=\"margin-left: -1rem\"\r\n\t\t></fxs-header>\r\n\t\t<fxs-slot-group class=\"mp-friends-slot-group flex flex-auto w-194 self-center\">\r\n\t\t\t<fxs-vslot\r\n\t\t\t\tid=\"lobby-list-tab\"\r\n\t\t\t\tclass=\"lobby-list-tab flex flow-column flex-auto\"\r\n\t\t\t>\r\n\t\t\t\t<fxs-scrollable\r\n\t\t\t\t\tclass=\"lobby-list-scrollable w-187 self-center flex-auto\"\r\n\t\t\t\t\thandle-gamepad-pan=\"true\"\r\n\t\t\t\t>\r\n\t\t\t\t\t<div class=\"lobby-list\">\r\n\t\t\t\t\t\t<!-- Data driven 'player-row' items -->\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</fxs-scrollable>\r\n\t\t\t</fxs-vslot>\r\n\t\t\t<fxs-vslot\r\n\t\t\t\tid=\"search-results-list-tab\"\r\n\t\t\t\tclass=\"search-results-list-tab flex flow-column flex-auto\"\r\n\t\t\t>\r\n\t\t\t\t<fxs-scrollable\r\n\t\t\t\t\tclass=\"search-results-list-scrollable w-187 self-center flex-auto\"\r\n\t\t\t\t\thandle-gamepad-pan=\"true\"\r\n\t\t\t\t>\r\n\t\t\t\t\t<div class=\"search-results-list\">\r\n\t\t\t\t\t\t<!-- Data driven 'player-row' items -->\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</fxs-scrollable>\r\n\t\t\t</fxs-vslot>\r\n\t\t\t<fxs-vslot\r\n\t\t\t\tid=\"friends-list-tab\"\r\n\t\t\t\tclass=\"friends-list-tab flex flow-column flex-auto\"\r\n\t\t\t>\r\n\t\t\t\t<fxs-scrollable\r\n\t\t\t\t\tclass=\"friends-list-scrollable w-187 self-center flex-auto\"\r\n\t\t\t\t\thandle-gamepad-pan=\"true\"\r\n\t\t\t\t>\r\n\t\t\t\t\t<div class=\"friends-list\">\r\n\t\t\t\t\t\t<!-- Data driven 'player-row' items -->\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</fxs-scrollable>\r\n\t\t\t</fxs-vslot>\r\n\t\t\t<fxs-vslot\r\n\t\t\t\tid=\"notifications-list-tab\"\r\n\t\t\t\tclass=\"notifications-list-tab flex flow-column flex-auto\"\r\n\t\t\t>\r\n\t\t\t\t<fxs-scrollable\r\n\t\t\t\t\tclass=\"notifications-list-scrollable w-187 self-center flex-auto\"\r\n\t\t\t\t\thandle-gamepad-pan=\"true\"\r\n\t\t\t\t>\r\n\t\t\t\t\t<div class=\"notifications-list\">\r\n\t\t\t\t\t\t<!-- Data driven 'player-row' items -->\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</fxs-scrollable>\r\n\t\t\t</fxs-vslot>\r\n\t\t\t<fxs-vslot\r\n\t\t\t\tid=\"recently-met-players-list-tab\"\r\n\t\t\t\tclass=\"recently-met-players-list-tab flex flow-column flex-auto\"\r\n\t\t\t>\r\n\t\t\t\t<fxs-scrollable\r\n\t\t\t\t\tclass=\"recently-met-players-list-scrollable w-187 self-center flex-auto\"\r\n\t\t\t\t\thandle-gamepad-pan=\"true\"\r\n\t\t\t\t>\r\n\t\t\t\t\t<div class=\"recently-met-players-list\">\r\n\t\t\t\t\t\t<!-- Data driven 'player-row' items -->\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</fxs-scrollable>\r\n\t\t\t</fxs-vslot>\r\n\t\t\t<fxs-vslot\r\n\t\t\t\tid=\"blocked-players-list-tab\"\r\n\t\t\t\tclass=\"blocked-players-list-tab flex flow-column flex-auto\"\r\n\t\t\t>\r\n\t\t\t\t<fxs-scrollable\r\n\t\t\t\t\tclass=\"blocked-players-list-scrollable w-187 self-center\"\r\n\t\t\t\t\thandle-gamepad-pan=\"true\"\r\n\t\t\t\t>\r\n\t\t\t\t\t<div class=\"blocked-players-list\">\r\n\t\t\t\t\t\t<!-- Data driven 'player-row' items -->\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</fxs-scrollable>\r\n\t\t\t</fxs-vslot>\r\n\t\t</fxs-slot-group>\r\n\t\t<div\r\n\t\t\tclass=\"button-container flex flow-row justify-center mt-8\"\r\n\t\t\tdata-bind-class-toggle=\"hidden:{{g_NavTray.isTrayRequired}}\"\r\n\t\t>\r\n\t\t\t<fxs-button\r\n\t\t\t\tclass=\"open-search-button\"\r\n\t\t\t\tcaption=\"LOC_UI_FRIENDS_OPEN_SEARCH\"\r\n\t\t\t\taction-key=\"inline-sys-menu\"\r\n\t\t\t></fxs-button>\r\n\t\t</div>\r\n\t</div>\r\n\t<div class=\"mp-friends-close-div relative left-192\">\r\n\t\t<fxs-close-button\r\n\t\t\tclass=\"mp-friends-close\"\r\n\t\t\tdata-audio-group-ref=\"audio-mp-friends\"\r\n\t\t\tdata-audio-close-selected=\"friends-close-selected\"\r\n\t\t></fxs-close-button>\r\n\t</div>\r\n</fxs-div>\r\n";
-
-const styles = "fs://game/core/ui/shell/mp-staging/mp-friends.css";
+import UpdateGate from '../../utilities/utilities-update-gate.js';
+import { FocusManager } from '../../../ui-next/services/focus-manager.js';
+import content from './mp-friends.html.js';
+import styles from './mp-friends.scss.js';
 
 var TabNameTypes = /* @__PURE__ */ ((TabNameTypes2) => {
   TabNameTypes2[TabNameTypes2["LobbyTab"] = 0] = "LobbyTab";
@@ -65,7 +52,7 @@ class PanelMPPlayerOptions extends Panel {
   searchingStatusListener = this.onSearchingStatusUpdate.bind(this);
   updateLobbyTabListener = this.updateLobbyTab.bind(this);
   userInfoUpdatedListener = this.onUserInfoUpdated.bind(this);
-  searchingCancelDialogBoxId = 0;
+  searchingCancelDialogBoxId = null;
   tabInitialized = false;
   defaultTab = 2 /* FriendsListTab */;
   updateGate = new UpdateGate(this.onUpdate.bind(this));
@@ -75,6 +62,7 @@ class PanelMPPlayerOptions extends Panel {
   header;
   slotGroup;
   currentTab = "";
+  currentTabIndex = -1;
   pendingAdds = /* @__PURE__ */ new Map();
   pendingUpdates = /* @__PURE__ */ new Map();
   constructor(root) {
@@ -109,6 +97,8 @@ class PanelMPPlayerOptions extends Panel {
     closeButton.classList.add("-ml-4");
     closeButton.addEventListener("action-activate", this.closeButtonListener);
     this.tabBar.addEventListener("tab-selected", this.onTabBarSelected.bind(this));
+    this.tabBar.setAttribute("tab-style", "flat");
+    this.selectTab(2 /* FriendsListTab */);
     const openSearchButton = this.Root.querySelector(".open-search-button");
     if (openSearchButton) {
       openSearchButton.setAttribute("data-audio-group-ref", "audio-mp-friends");
@@ -228,7 +218,7 @@ class PanelMPPlayerOptions extends Panel {
     }
     this.updateFlags = MPRefreshDataFlags.None;
     if (ContextManager.isCurrentClass("screen-mp-friends")) {
-      FocusManager.setFocus(this.slotGroup);
+      FocusManager.get().setFocus(this.slotGroup);
     }
   }
   onSearchingStatusUpdate(isSearching) {
@@ -247,7 +237,10 @@ class PanelMPPlayerOptions extends Panel {
         displayHourGlass: true
       });
     } else {
-      DialogBoxManager.closeDialogBox(this.searchingCancelDialogBoxId);
+      if (this.searchingCancelDialogBoxId !== null) {
+        DialogBoxManager.closeDialogBox(this.searchingCancelDialogBoxId);
+        this.searchingCancelDialogBoxId = null;
+      }
     }
   }
   onUserInfoUpdated() {
@@ -480,7 +473,7 @@ class PanelMPPlayerOptions extends Panel {
     friendItem.setAttribute("player-platform", playerInfo.firstPartyType.toString());
     friendItem.setAttribute("player-game-invite", playerData.isGameInvite.toString());
     friendItem.setAttribute("caption", playerData.actionButtonLabel);
-    friendItem.setAttribute("data-player-info", JSON.stringify(playerInfo));
+    friendItem.setAttribute("data-player-info", stringifyJSON(playerInfo));
   }
   cancelPendingUpdate(itemList) {
     const cancelToken = this.pendingUpdates.get(itemList);
@@ -525,7 +518,7 @@ class PanelMPPlayerOptions extends Panel {
       this.tabBar?.setAttribute("selected-tab-index", 1 /* SearchResutsTab */.toString());
       MPFriendsModel.searched(false);
     } else {
-      FocusManager.setFocus(this.slotGroup);
+      FocusManager.get().setFocus(this.slotGroup);
     }
   }
   onLoseFocus() {
@@ -569,6 +562,9 @@ class PanelMPPlayerOptions extends Panel {
   onTabBarSelected(event) {
     event.stopPropagation();
     const { index } = event.detail;
+    this.selectTab(index);
+  }
+  selectTab(index) {
     let tabName = "";
     let label = "";
     switch (index) {
@@ -599,6 +595,7 @@ class PanelMPPlayerOptions extends Panel {
         break;
     }
     this.currentTab = tabName;
+    this.currentTabIndex = index;
     if (!this.tabInitialized) {
       const gameConfig = Configuration.getGame();
       const screenCheck = !ContextManager.hasInstanceOf("main-menu");
@@ -610,14 +607,17 @@ class PanelMPPlayerOptions extends Panel {
       }
       this.tabInitialized = true;
     } else {
-      this.tabBar?.setAttribute("selected-tab-index", index.toString());
+      const selectedTabIndex = this.tabBar?.getAttribute("selected-tab-index");
+      if (index != this.currentTabIndex && selectedTabIndex != index.toString()) {
+        this.tabBar?.setAttribute("selected-tab-index", index.toString());
+      }
     }
     if (tabName == TabNames[3 /* NotificationsTab */] && SocialNotificationsManager.isNotificationVisible(SocialNotificationIndicatorType.SOCIALTAB_BADGE)) {
       SocialNotificationsManager.setNotificationVisibility(SocialNotificationIndicatorType.ALL_INDICATORS, false);
     }
     this.slotGroup.setAttribute("selected-slot", tabName);
     this.header.setAttribute("title", label);
-    FocusManager.setFocus(this.slotGroup);
+    FocusManager.get().setFocus(this.slotGroup);
   }
   getFriendID1PFromElement(target) {
     if (target == null) {

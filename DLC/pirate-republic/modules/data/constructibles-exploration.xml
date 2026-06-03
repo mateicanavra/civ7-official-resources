@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Database>
+	<GameModifiers>
+		<!-- Unique Quarter modifiers are game-wide -->
+		<Row ModifierId="MOD_TREASURE_CITY_FLAT_GOLD"/>
+	</GameModifiers>
+	<!-- These are listed here so the AI can evalutate Unique Quarters. They do not have any effects on the game for human players. -->
+	<UniqueQuarterModifiers>
+		<Row UniqueQuarterType="QUARTER_HAVEN" ModifierId="MOD_TREASURE_CITY_FLAT_GOLD"/>
+	</UniqueQuarterModifiers>
 	<ConstructibleModifiers>
 		<!--Wonders-->
 		<Row ConstructibleType="WONDER_HAVANA_HARBOR" ModifierId="MOD_HAVANA_HARBOR_AUTO_TREASURE_FLEET"/>

@@ -1,15 +1,6 @@
-import { I as InputEngineEvent } from '../../../core/ui/input/input-support.chunk.js';
+import { InputEngineEvent } from '../../../core/ui/input/input-support.js';
 import { InterfaceMode } from '../../../core/ui/interface-modes/interface-modes.js';
-import { U as UnitPromotion } from '../unit-promotion/model-unit-promotion.chunk.js';
-import '../../../core/ui/views/view-manager.chunk.js';
-import '../../../core/ui/input/focus-manager.js';
-import '../../../core/ui/audio-base/audio-support.chunk.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/panel-support.chunk.js';
-import '../../../core/ui/graph-layout/utils.chunk.js';
-import '../../../core/ui/graph-layout/layout.chunk.js';
-import '../../../core/ui/utilities/utilities-component-id.chunk.js';
-import '../../../core/ui/utilities/utilities-update-gate.chunk.js';
+import UnitPromotion from '../unit-promotion/model-unit-promotion.js';
 
 class UnitPromotionInterfaceMode {
   canLeaveMode() {

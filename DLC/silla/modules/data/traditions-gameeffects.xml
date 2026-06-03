@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <GameEffects xmlns="GameEffects">
 	<!-- ==================================================	-->
+	<!--	SYNCRETISM UNLOCKS							-->
+	<!-- ==================================================	-->
+		<Modifier id="MOD_UNLOCK_SILLA_SYNCRETISM_EXPLORATION" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
+			<Argument name="Tradition">TRADITION_SILLA_SYNCRETISM_EXPLORATION</Argument>
+		</Modifier>
+		<Modifier id="MOD_UNLOCK_SILLA_SYNCRETISM_MODERN" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
+			<Argument name="Tradition">TRADITION_SILLA_SYNCRETISM_MODERN</Argument>
+		</Modifier>
+	<!-- ==================================================	-->
 	<!--	ANTIQUITY							-->
 	<!-- ==================================================	-->
 	<!-- Silla -->
@@ -12,7 +21,12 @@
 			</Requirement>
 		</SubjectRequirements>
 		<Argument name="ModifierId">BEOPSEONG_MOD_RESOURCE_HAPPINESS_EFFECT</Argument>
-		<String context="Description">LOC_TRADITION_BEOPSEONG_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="BEOPSEONG_II_MOD_RESOURCE_HAPPINESS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_ATTACH_MODIFIERS">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_TOWN"/>
+		</SubjectRequirements>
+		<Argument name="ModifierId">BEOPSEONG_MOD_RESOURCE_HAPPINESS_EFFECT</Argument>
 	</Modifier>
 	<Modifier id="BEOPSEONG_MOD_RESOURCE_HAPPINESS_EFFECT" collection="COLLECTION_CITY_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
 		<SubjectRequirements>
@@ -21,20 +35,26 @@
 		<Argument name="YieldType">YIELD_HAPPINESS</Argument>
 		<Argument name="Amount">2</Argument>
 	</Modifier>
-  <Modifier id="STRATEGIC_ALLIES_MOD_ALLIANCE_ROUTE_YIELDS" collection="COLLECTION_OWNER" effect="EFFECT_ADJUST_PLAYER_ALLIANCE_TRADE">
-    <Argument name="YieldTypeSelf">YIELD_FOOD,YIELD_PRODUCTION</Argument>
-    <Argument name="SelfPercent">100</Argument>
-    <Argument name="YieldTypeOther">YIELD_FOOD,YIELD_PRODUCTION</Argument>
-    <Argument name="OtherPercent">100</Argument>
-    <Argument name="Tooltip">LOC_TRADITION_STRATEGIC_ALLIES_NAME</Argument>
-    <String context="Description">LOC_TRADITION_STRATEGIC_ALLIES_DESCRIPTION</String>
-  </Modifier>
-  <Modifier id="GOLDEN_ROAD_MOD_IMPORTED_RESOURCE_SCIENCE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD_PER_RESOURCE">
-		<Argument name="YieldType">YIELD_SCIENCE</Argument>
-		<Argument name="Amount">1</Argument>
-		<Argument name="Imported">true</Argument>
-		<Argument name="Tooltip">LOC_TRADITION_THE_GOLDEN_ROAD_NAME</Argument>
-		<String context="Description">LOC_TRADITION_THE_GOLDEN_ROAD_DESCRIPTION</String>
+	<Modifier id="STRATEGIC_ALLIES_MOD_ALLIANCE_ROUTE_YIELDS" collection="COLLECTION_OWNER" effect="EFFECT_ADJUST_PLAYER_ALLIANCE_TRADE">
+		<Argument name="YieldTypeSelf">YIELD_FOOD,YIELD_PRODUCTION</Argument>
+		<Argument name="SelfPercent">100</Argument>
+		<Argument name="YieldTypeOther">YIELD_FOOD,YIELD_PRODUCTION</Argument>
+		<Argument name="OtherPercent">100</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_STRATEGIC_ALLIES_NAME</Argument>
+	</Modifier>
+	<Modifier id="THE_GOLDEN_ROAD_MOD_ALLIANCE_ROUTE_YIELDS" collection="COLLECTION_OWNER" effect="EFFECT_ADJUST_PLAYER_ALLIANCE_TRADE">
+		<Argument name="YieldTypeSelf">YIELD_SCIENCE,YIELD_CULTURE</Argument>
+		<Argument name="SelfPercent">50</Argument>
+		<Argument name="YieldTypeOther">YIELD_SCIENCE,YIELD_CULTURE</Argument>
+		<Argument name="OtherPercent">50</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_THE_GOLDEN_ROAD_I_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="THE_GOLDEN_ROAD_II_MOD_ALLIANCE_ROUTE_YIELDS" collection="COLLECTION_OWNER" effect="EFFECT_ADJUST_PLAYER_ALLIANCE_TRADE">
+		<Argument name="YieldTypeSelf">YIELD_SCIENCE,YIELD_CULTURE</Argument>
+		<Argument name="SelfPercent">100</Argument>
+		<Argument name="YieldTypeOther">YIELD_SCIENCE,YIELD_CULTURE</Argument>
+		<Argument name="OtherPercent">100</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_THE_GOLDEN_ROAD_I_TOOLTIP</Argument>
 	</Modifier>
 	<Modifier id="SEORABEOL_MOD_TRADING_POST_GOLD" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_RESOURCE">
 		<SubjectRequirements>
@@ -45,8 +65,7 @@
 		<Argument name="YieldType">YIELD_GOLD</Argument>
 		<Argument name="Amount">1</Argument>
 		<Argument name="PercentMultiplier">false</Argument>
-		<Argument name="Tooltip">LOC_TRADITION_SEORABEOL_NAME</Argument>
-		<String context="Description">LOC_TRADITION_SEORABEOL_DESCRIPTION</String>
+		<Argument name="Tooltip">LOC_TRADITION_SEORABEOL_I_NAME</Argument>
 	</Modifier>
 	<Modifier id="SEORABEOL_MOD_TRADING_POST_INFLUENCE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_RESOURCE">
 		<SubjectRequirements>
@@ -57,6 +76,52 @@
 		<Argument name="YieldType">YIELD_DIPLOMACY</Argument>
 		<Argument name="PercentMultiplier">false</Argument>
 		<Argument name="Amount">1</Argument>
-		<Argument name="Tooltip">LOC_TRADITION_SEORABEOL_NAME</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_SEORABEOL_I_NAME</Argument>
+	</Modifier>
+	<Modifier id="SEORABEOL_II_MOD_TRADING_POST_GOLD" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_RESOURCE">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_HAS_PROJECT">
+				<Argument name="ProjectType">PROJECT_TOWN_TRADE</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_GOLD</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="PercentMultiplier">false</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_SEORABEOL_II_NAME</Argument>
+	</Modifier>
+	<Modifier id="SEORABEOL_II_MOD_TRADING_POST_INFLUENCE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_RESOURCE">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_HAS_PROJECT">
+				<Argument name="ProjectType">PROJECT_TOWN_TRADE</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+		<Argument name="PercentMultiplier">false</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_SEORABEOL_II_NAME</Argument>
+	</Modifier>
+	<Modifier id="SILLA_SYNCRETISM_EXPLORATION_IMPORTED_RESOURCE_SCIENCE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD_PER_RESOURCE">
+		<Argument name="YieldType">YIELD_SCIENCE</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Imported">true</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_SILLA_SYNCRETISM_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="SILLA_SYNCRETISM_EXPLORATION_IMPORTED_RESOURCE_CULTURE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD_PER_RESOURCE">
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Imported">true</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_SILLA_SYNCRETISM_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="SILLA_SYNCRETISM_MODERN_IMPORTED_RESOURCE_SCIENCE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD_PER_RESOURCE">
+		<Argument name="YieldType">YIELD_SCIENCE</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="Imported">true</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_SILLA_SYNCRETISM_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="SILLA_SYNCRETISM_MODERN_IMPORTED_RESOURCE_CULTURE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD_PER_RESOURCE">
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="Imported">true</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_SILLA_SYNCRETISM_TOOLTIP</Argument>
 	</Modifier>
 </GameEffects>

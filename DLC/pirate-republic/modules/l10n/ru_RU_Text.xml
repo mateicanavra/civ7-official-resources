@@ -719,23 +719,41 @@
     <Replace Tag="LOC_12012C_NAME" Language="ru_RU">
       <Text>Редкий шанс увидеть их в действии!</Text>
     </Replace>
+    <Replace Tag="LOC_TOT_30030A_COMPLETION" Language="ru_RU">
+      <Text>Пасти кошек. Ловить дождь. Учить козу играть на тромбоне. Командовать пиратами. Все это непросто. Бродяги, встающие под черный флаг, приходят такие, какие они есть: потрепанные, изнуренные, сломанные... но с жаждой грабежа.</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30030A_STORYTITLE" Language="ru_RU">
+      <Text>Злодейская банда</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30030B_DESCRIPTION" Language="ru_RU">
+      <Text>{1_reward}.</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30030B_NAME" Language="ru_RU">
+      <Text>Принимайте всех желающих и заставляйте их учить кодекс — пиратам нужно не их снаряжение, а жажда наживы.</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30030C_DESCRIPTION" Language="ru_RU">
+      <Text>{1_reward}.</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30030C_NAME" Language="ru_RU">
+      <Text>Отказывайте наименее подходящим. У Республики должны быть стандарты.</Text>
+    </Replace>
     <Replace Tag="LOC_ABILITY_SLOOP_DESCRIPTION" Language="ru_RU">
       <Text>Может перемещаться после атаки.</Text>
     </Replace>
-    <Replace Tag="LOC_ARTICLES_OF_AGREEMENTS_MOD_BUCCANEER_LOOTING_DESCRIPTION" Language="ru_RU">
-      <Text>[icon:UNIT_BUCCANEER] Буканьеры получают [icon:NAR_REW_PROMOTION] повышение за мародерство бесплатно.</Text>
+    <Replace Tag="LOC_BLACK_FLAG_STEALTH_PREVIEW" Language="ru_RU">
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_STEALTH_TOOLTIP]Скрытность[/TIP] от «Черного флага».</Text>
     </Replace>
     <Replace Tag="LOC_BUILDING_NAVAL_ARSENAL_DESCRIPTION" Language="ru_RU">
-      <Text>Уникальное здание золота Республики Пиратов. +4 к [icon:YIELD_GOLD] золоту. Бонус за соседство +1 к [icon:YIELD_GOLD] золоту от ресурсов и чудес. Не устаревает. Размещается только на побережье.</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_BUILDING_TOOLTIP]Уникальное здание золота[/TIP] Республики Пиратов. +4 к [icon:YIELD_GOLD] золоту. Бонус за соседство +1 к [icon:YIELD_GOLD] золоту от [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]ресурсов[/TIP] и [TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]чудес[/TIP]. Размещается только на побережье.</Text>
     </Replace>
     <Replace Tag="LOC_BUILDING_NAVAL_ARSENAL_TOOLTIP" Language="ru_RU">
-      <Text>Размещается только на побережье.[n]Уникальное здание Республики Пиратов.</Text>
+      <Text>Размещается только на побережье.[n][TIP:LOC_PEDIA_CONCEPTS_UNIQUE_BUILDING_TOOLTIP]Уникальное здание[/TIP] Республики Пиратов.</Text>
     </Replace>
     <Replace Tag="LOC_BUILDING_NAVAL_STATION_DESCRIPTION" Language="ru_RU">
-      <Text>Уникальное производственное здание Республики Пиратов. +5 к [icon:YIELD_PRODUCTION] производству. Бонус за соседство +1 к [icon:YIELD_PRODUCTION] производству от военных зданий, зданий золота и чудес. Не устаревает. Размещается только на побережье. Не требует [icon:YIELD_GOLD] золота на содержание.</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_BUILDING_TOOLTIP]Уникальное производственное здание[/TIP] Республики Пиратов. +5 к [icon:YIELD_PRODUCTION] производству. Бонус за соседство +1 к [icon:YIELD_PRODUCTION] производству от военных [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]зданий[/TIP], [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]зданий[/TIP] золота и [TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]чудес[/TIP]. Размещается только на побережье. Не требует [icon:YIELD_GOLD] золота на [TIP:LOC_PEDIA_CONCEPTS_MAINTENANCE_TOOLTIP]содержание[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_BUILDING_NAVAL_STATION_TOOLTIP" Language="ru_RU">
-      <Text>Размещается только на побережье.[n]Уникальное здание Республики Пиратов.</Text>
+      <Text>Размещается только на побережье.[n][TIP:LOC_PEDIA_CONCEPTS_UNIQUE_BUILDING_TOOLTIP]Уникальное здание[/TIP] Республики Пиратов.</Text>
     </Replace>
     <Replace Tag="LOC_CIVIC_ARTICLES_OF_AGREEMENT_AUTHOR" Language="ru_RU">
       <Text>Неизвестный пират</Text>
@@ -756,13 +774,16 @@
       <Text>«Небеса, глупец? Тебе известно, чтобы туда попал хоть один пират? Отправьте меня ад, там хоть веселее».</Text>
     </Replace>
     <Replace Tag="LOC_CIVILIZATION_PIRATE_REPUBLIC_DESCRIPTION" Language="ru_RU">
-      <Text>[B]+100% к прибыли[/B] от [icon:Action_Pillage] [B]разграбления[/B] и [B]береговых рейдов[/B] для морских юнитов. [icon:UNIT_SETTLER] Поселенцев нельзя создать или купить, но вы можете захватывать [icon:UNIT_SETTLER] поселенцев других цивилизаций. Морские юниты, буканьеры и серебряные караваны могут пересекать границы других цивилизаций без объявления [icon:WAR] войны или права прохода. </Text>
+      <Text>Морские юниты получают [B] +100% к прибыли от [icon:Action_Pillage] разграбления и [icon:Action_Heal] лечению[/B]. [icon:UNIT_SETTLER]Поселенцев нельзя создать или купить, но вы можете захватывать [icon:UNIT_SETTLER] поселенцев других цивилизаций. Морские юниты, серебряные караваны и буканьеры могут пересекать границы других цивилизаций без объявления [icon:WAR] войны или права прохода. +5% к [icon:ECONOMIC_VP] [TIP:LOC_PEDIA_CONCEPTS_GDP_TOOLTIP]ВВП[/TIP] за победу ваших [TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]морских юнитов[/TIP] над другими [B]юнитами[/B].</Text>
     </Replace>
     <Replace Tag="LOC_ENEMY_OF_ALL_NATIONS_MOD_TREASURE_FLEET_CS_DESCRIPTION" Language="ru_RU">
-      <Text>+15 к [icon:NAR_REW_COMBAT] боевой мощи всех военных юнитов против [icon:UNIT_TREASURE_FLEET] серебряных караванов.</Text>
+      <Text>+15 к [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]боевой мощи[/TIP] всех [TIP:LOC_PEDIA_CONCEPTS_MILITARY_UNIT_TOOLTIP]военных юнитов[/TIP] против [icon:UNIT_TREASURE_FLEET] [TIP:LOC_PEDIA_CONCEPTS_TREASURE_CONVOY_TOOLTIP]серебряных караванов[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_ENEMY_OF_ALL_NATIONS_MOD_TREASURE_FLEET_EXTRA_VP_DESCRIPTION" Language="ru_RU">
-      <Text>При захвате [icon:UNIT_TREASURE_FLEET] серебряного каравана тот приносит дополнительное очко серебряного флота.</Text>
+      <Text>+2 ед. груза от захваченных [icon:UNIT_TREASURE_FLEET] [TIP:LOC_PEDIA_CONCEPTS_TREASURE_CONVOY_TOOLTIP]серебряных караванов[/TIP].</Text>
+    </Replace>
+    <Replace Tag="LOC_ENEMY_OF_ALL_NATIONS_MOD_TREASURE_FLEET_EXTRA_VP_DESCRIPTION_ALT" Language="ru_RU">
+      <Text>+100% к грузу от захваченных [icon:UNIT_TREASURE_FLEET] [TIP:LOC_PEDIA_CONCEPTS_TREASURE_CONVOY_TOOLTIP]серебряных караванов[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_LOADING_CIV_INTRO_TEXT_PIRATE_REPUBLIC" Language="ru_RU">
       <Text>Ахой, дружище! Ты встретил тех, кто не признает ничьей власти, кроме моря и соли. Поднимай якорь и узнай, что ждет тебя в конце плавания: золото или виселица. Приказ подписан, а дьявол идет по пятам.</Text>
@@ -776,23 +797,29 @@
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_PIRATE_REPUBLIC_COMPLETE_HAVANA_HARBOR_NAME" Language="ru_RU">
       <Text>Порт Гаваны</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_PIRATE_REPUBLIC_LEGACY_PATH_ECONOMIC_ACHIEVED_DESC" Language="ru_RU">
-      <Text>Завершите экономическую тропу наследия, играя за Республику Пиратов.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_PIRATE_REPUBLIC_FOUR_MAJOR_TRIUMPHS_DESC" Language="ru_RU">
+      <Text>Завершите 4 великих экономических или военных триумфа за одну эпоху зенита, играя за Республику Пиратов.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_PIRATE_REPUBLIC_LEGACY_PATH_ECONOMIC_ACHIEVED_NAME" Language="ru_RU">
-      <Text>Тропа наследия Республики Пиратов</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_PIRATE_REPUBLIC_FOUR_MAJOR_TRIUMPHS_NAME" Language="ru_RU">
+      <Text>4 великих триумфа Республики Пиратов</Text>
     </Replace>
     <Replace Tag="LOC_MOD_CIV_WONDER_PRODUCTION_PIRATE_REPUBLIC_DESCRIPTION" Language="ru_RU">
       <Text>+30% [icon:YIELD_PRODUCTION] производства за [icon:WONDER] чудо света, связанное с Республикой Пиратов.</Text>
     </Replace>
-    <Replace Tag="LOC_PORTS_OF_CALL_BUCCANEER_SETTLER_CHARGE_DESCRIPTION" Language="ru_RU">
-      <Text>[icon:UNIT_BUCCANEER] Буканьеры получают 1 заряд способности для создания нового [icon:YIELD_TOWNS] городка.</Text>
+    <Replace Tag="LOC_NODE_CIVIC_AQ_PIRATE_REPUBLIC_ORIGINS_NAME" Language="ru_RU">
+      <Text>Происхождение пиратов</Text>
+    </Replace>
+    <Replace Tag="LOC_NODE_CIVIC_MO_PIRATE_REPUBLIC_MODERNIZATION_NAME" Language="ru_RU">
+      <Text>Модернизация пиратов</Text>
+    </Replace>
+    <Replace Tag="LOC_PIRATE_AQ_MOD_FREE_SETTLER_DESCRIPTION" Language="ru_RU">
+      <Text>Получите 1 [icon:UNIT_SETTLER] поселенца бесплатно.</Text>
     </Replace>
     <Replace Tag="LOC_QUARTER_HAVEN_DESCRIPTION" Language="ru_RU">
-      <Text>Уникальный квартал Республики Пиратов. Чтобы создать его, постройте морскую базу и морской арсенал в одном районе. +1 к [icon:YIELD_GOLD] золоту за каждое [icon:TREASURE_FLEET] сокровище у вас в активе. Дружественные морские юниты получают +50 к [icon:Action_Heal] лечению на этой клетке.</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_QUARTER_TOOLTIP]Уникальный квартал[/TIP] Республики Пиратов. Чтобы создать его, постройте морскую базу и морской арсенал в одном [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]районе[/TIP]. +1 к [icon:YIELD_GOLD] золоту за каждое [icon:TREASURE_FLEET] [TIP:LOC_PEDIA_CONCEPTS_TREASURE_RESOURCES_TOOLTIP]сокровище[/TIP] у вас в активе. Дружественные [TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]морские юниты[/TIP] получают +50 к [icon:Action_Heal] лечению на этой клетке.</Text>
     </Replace>
     <Replace Tag="LOC_QUARTER_HAVEN_TOOLTIP" Language="ru_RU">
-      <Text>+1 к [icon:YIELD_GOLD] золоту за каждое [icon:TREASURE_FLEET] сокровище у вас в активе. Дружественные морские юниты получают +50 к [icon:Action_Heal] лечению на этой клетке.</Text>
+      <Text>+1 к [icon:YIELD_GOLD] золоту за каждое [icon:TREASURE_FLEET] [TIP:LOC_PEDIA_CONCEPTS_TREASURE_RESOURCES_TOOLTIP]сокровище[/TIP] у вас в активе. Дружественные [TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]морские юниты[/TIP] получают +50 к [icon:Action_Heal] лечению на этой клетке.</Text>
     </Replace>
     <Replace Tag="LOC_QUOTE_AUTHOR_WONDER_HAVANA_HARBOR" Language="ru_RU">
       <Text>Роберт Льюис Стивенсон</Text>
@@ -800,17 +827,38 @@
     <Replace Tag="LOC_QUOTE_WONDER_HAVANA_HARBOR" Language="ru_RU">
       <Text>В непосредственной близости от золота все остальное было забыто.</Text>
     </Replace>
-    <Replace Tag="LOC_TRADITION_BLACK_FLAG_DESCRIPTION" Language="ru_RU">
-      <Text>+100% [icon:YIELD_GOLD] золота от [icon:Action_Pillage] разграбления торговых путей. </Text>
+    <Replace Tag="LOC_TRADITION_BLACK_FLAG_I_DESCRIPTION" Language="ru_RU">
+      <Text>+50 к [icon:YIELD_GOLD] золоту (изменяется в соответствии со скоростью игры) от [icon:Action_Pillage] разграбления [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]торговых путей[/TIP]. +50% прибыли и [icon:Action_Heal] лечения от [icon:Action_Pillage] береговых рейдов с морскими юнитами.</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_BLACK_FLAG_II_DESCRIPTION" Language="ru_RU">
+      <Text>+100 к [icon:YIELD_GOLD] золоту (изменяется в соответствии со скоростью игры) от [icon:Action_Pillage] разграбления [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]торговых путей[/TIP]. +100% прибыли и [icon:Action_Heal] лечения от [icon:Action_Pillage] береговых рейдов с морскими юнитами. [icon:UNIT_FLEET_COMMANDER] [TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]Командиры флота[/TIP] и [TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]морские юниты[/TIP] получают [TIP:LOC_PEDIA_CONCEPTS_STEALTH_TOOLTIP]скрытность[/TIP] от атоллов.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_MERRY_LIFE_AND_A_SHORT_ONE_DESCRIPTION" Language="ru_RU">
-      <Text>При каждой победе над юнитом поддержки получите [icon:YIELD_GOLD] золото в размере стоимости [icon:YIELD_PRODUCTION] производства юнита. При каждой победе над морским юнитом получите [icon:YIELD_GOLD] золото в размере 25% стоимости [icon:YIELD_PRODUCTION] производства юнита.</Text>
+      <Text>При каждой победе над [TIP:LOC_PEDIA_CONCEPTS_SUPPORT_UNIT_TOOLTIP]юнитом поддержки[/TIP] получите [icon:YIELD_GOLD] золото в размере стоимости [icon:YIELD_PRODUCTION] производства юнита. При каждой победе над [TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]морским юнитом[/TIP] получите [icon:YIELD_GOLD] золото в размере 25% стоимости [icon:YIELD_PRODUCTION] производства юнита.</Text>
     </Replace>
-    <Replace Tag="LOC_TRADITION_PRESS_GANGS_DESCRIPTION" Language="ru_RU">
-      <Text>+50% [icon:YIELD_PRODUCTION] производства при создании морских юнитов за каждого имеющегося у вас [icon:UNIT_FLEET_COMMANDER] командира флота.</Text>
+    <Replace Tag="LOC_TRADITION_PIRATE_REPUBLIC_SYNCRETISM_ANTIQUITY_DESCRIPTION" Language="ru_RU">
+      <Text>+2 к [icon:YIELD_PRODUCTION] производству от [icon:CITY_URBAN] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]районов[/TIP] на побережье или по соседству с ним. -1 от [icon:YIELD_HAPPINESS] довольства от [icon:CITY_URBAN] районов на побережье или по соседству с ним.</Text>
     </Replace>
-    <Replace Tag="LOC_TRAIT_PIRATE_REPUBLIC_ABILITY_DESCRIPTION" Language="ru_RU">
-      <Text>[BLIST][LI][B]+100% к прибыли[/B] от [icon:Action_Pillage] [B]разграбления[/B] и [B]береговых рейдов[/B] для морских юнитов. [LI][icon:UNIT_SETTLER] [B]Поселенцев[/B] нельзя создать или купить, но вы можете захватывать [icon:UNIT_SETTLER] [B]поселенцев[/B] других цивилизаций.[LI][B]Морские юниты, буканьеры и серебряные караваны[/B] могут пересекать границы других [B]цивилизаций[/B] без объявления [icon:WAR] [B]войны[/B] или [B]права прохода[/B].[LI][B]+30% к [icon:YIELD_PRODUCTION] производству [/B]для строительства [B]порта Гаваны[/B].[/LIST]</Text>
+    <Replace Tag="LOC_TRADITION_PIRATE_REPUBLIC_SYNCRETISM_MODERN_DESCRIPTION" Language="ru_RU">
+      <Text>+3 к [icon:YIELD_PRODUCTION] производству от [icon:CITY_URBAN] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]районов[/TIP] на побережье или по соседству с ним. -2 от [icon:YIELD_HAPPINESS] довольства от [icon:CITY_URBAN] районов на побережье или по соседству с ним.</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_PIRATE_REPUBLIC_SYNCRETISM_TOOLTIP" Language="ru_RU">
+      <Text>Береговое братство</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_PRESS_GANGS_I_DESCRIPTION" Language="ru_RU">
+      <Text>+100% [icon:YIELD_PRODUCTION] производства и [icon:YIELD_GOLD] золота при подготовке легких морских юнитов. [icon:UNIT_FLEET_COMMANDER] [TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]Командиры флота[/TIP] получают [icon:NAR_REW_PROMOTION] [TIP:LOC_PROMOTION_FLEET_LOOTING_DESCRIPTION]повышение за мародерство[/TIP] бесплатно.</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_PRESS_GANGS_II_DESCRIPTION" Language="ru_RU">
+      <Text>+150% [icon:YIELD_PRODUCTION] производства и [icon:YIELD_GOLD] золота при подготовке легких морских юнитов. [icon:UNIT_FLEET_COMMANDER] [TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]Командиры флота[/TIP] получают [icon:NAR_REW_PROMOTION] [TIP:LOC_PROMOTION_FLEET_LOOTING_DESCRIPTION]повышение за мародерство[/TIP] бесплатно.</Text>
+    </Replace>
+    <Replace Tag="LOC_TRAIT_PIRATE_REPUBLIC_ABILITY_AQ_DESCRIPTION" Language="ru_RU">
+      <Text>[BLIST][LI][B]Морские юниты[/B] могут пересекать границы других [B]цивилизаций[/B] без объявления [icon:WAR] [B]войны[/B] и без [B]права прохода[/B].[LI][icon:UNIT_SETTLER] [B]Поселенцев[/B] нельзя создать или купить, но можно захватывать [icon:UNIT_SETTLER] [B]поселенцев[/B] других цивилизаций. Вы получаете бесплатного [icon:UNIT_SETTLER] [B]поселенца[/B] за завершение технологий[icon:RADIAL_TECH] «Мореходство» и «Навигация», а также социального института [icon:RADIAL_CIVICS] «Происхождение пиратов».[LI]+5% к [icon:ECONOMIC_VP] [TIP:LOC_PEDIA_CONCEPTS_GDP_TOOLTIP]ВВП[/TIP] за победу ваших [TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]морских юнитов[/TIP] над другими [B]юнитами[/B].[/BLIST]</Text>
+    </Replace>
+    <Replace Tag="LOC_TRAIT_PIRATE_REPUBLIC_ABILITY_EX_DESCRIPTION" Language="ru_RU">
+      <Text>[BLIST][LI][B]Морские юниты, [icon:UNIT_TREASURE_FLEET] серебряные караваны и [icon:UNIT_BUCCANEER] буканьеры[/B] могут пересекать границы других [B]цивилизаций[/B] без объявления [icon:WAR] [B]войны[/B] или [B]права прохода[/B].[LI][B][icon:UNIT_BUCCANEER]Буканьеры[/B] получают [B]1 заряд для создания нового [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]поселения[/TIP][/B] после получения своего [B]первого [icon:NAR_REW_PROMOTION] [TIP:LOC_PEDIA_CONCEPTS_PROMOTION_TOOLTIP]повышения[/TIP][/B].[LI][icon:UNIT_SETTLER] [B]Поселенцев[/B] нельзя подготовить или купить, но вы можете захватывать [icon:UNIT_SETTLER] [B]поселенцев[/B] других цивилизаций.[LI]+5 к [icon:ECONOMIC_VP][TIP:LOC_PEDIA_CONCEPTS_GDP_TOOLTIP]ВВП[/TIP] за победу ваших [TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]морских юнитов[/TIP] над другими [B]юнитами[/B].[LI][B]+30%[icon:YIELD_PRODUCTION] производства[/B] при строительстве [B]порта Гавана[/B].[/BLIST]</Text>
+    </Replace>
+    <Replace Tag="LOC_TRAIT_PIRATE_REPUBLIC_ABILITY_MO_DESCRIPTION" Language="ru_RU">
+      <Text>[BLIST][LI][B]Морские юниты и [icon:UNIT_FLEET_COMMANDER] [TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]командиры флота[/TIP][/B] могут пересекать границы других [B]цивилизаций[/B] без объявления [icon:WAR] [B]войны[/B] или [B]права прохода[/B].[LI][B][icon:UNIT_FLEET_COMMANDER] [TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]Командиры флота[/TIP][/B] получают [B]1 заряд для создания нового [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]поселения[/TIP][/B] после получения своего [B]первого [icon:NAR_REW_PROMOTION] [TIP:LOC_PEDIA_CONCEPTS_PROMOTION_TOOLTIP]повышения[/TIP][/B].[LI][icon:UNIT_SETTLER] [B]Поселенцев[/B] нельзя подготовить или купить, но вы можете захватывать [icon:UNIT_SETTLER] [B]поселенцев[/B] других цивилизаций.[LI]+5 к [icon:ECONOMIC_VP][TIP:LOC_PEDIA_CONCEPTS_GDP_TOOLTIP]ВВП[/TIP] за победу ваших [TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]морских юнитов[/TIP] над другими [B]юнитами[/B].[/BLIST]</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_PIRATE_REPUBLIC_ABILITY_NAME" Language="ru_RU">
       <Text>Летающие бандиты</Text>
@@ -819,19 +867,19 @@
       <Text>Социальные институты пиратов</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_BUCCANEER_DESCRIPTION" Language="ru_RU">
-      <Text>Уникальный командир флота Республики Пиратов. Получает 1 заряд способности для использования действия «Рейдовый отряд» за каждые 2 [icon:NAR_REW_PROMOTION] своих уровня. Рейдовый отряд: выбирает целью [icon:TREASURE_FLEET] ресурс-сокровище по соседству, принадлежащий другой цивилизации в далеких землях. Это поселение мгновенно создает [icon:UNIT_TREASURE_FLEET] серебряный караван под вашим контролем, и ходы не сбрасываются до создания следующего [icon:UNIT_TREASURE_FLEET] серебряного каравана.</Text>
+      <Text>Уникальный командир флота Республики Пиратов. Получает 1 заряд способности для использования действия «Рейдовый отряд» за каждые 2 [icon:NAR_REW_PROMOTION] своих повышения. Рейдовый отряд: выбирает целью [icon:TREASURE_FLEET] [TIP:LOC_PEDIA_CONCEPTS_TREASURE_RESOURCES_TOOLTIP]ресурс-сокровище[/TIP] по соседству, принадлежащий другой цивилизации в [TIP:LOC_PEDIA_CONCEPTS_DISTANT_LANDS_TOOLTIP]далеких землях[/TIP]. Это [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]поселение[/TIP] мгновенно создает [icon:UNIT_TREASURE_FLEET] [TIP:LOC_PEDIA_CONCEPTS_TREASURE_CONVOY_TOOLTIP]серебряный караван[/TIP] под вашим контролем, и ходы не сбрасываются до создания следующего [icon:UNIT_TREASURE_FLEET] [TIP:LOC_PEDIA_CONCEPTS_TREASURE_CONVOY_TOOLTIP]серебряного каравана[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_SLOOP_2_DESCRIPTION" Language="ru_RU">
-      <Text>Легкий морской юнит Республики Пиратов 2 уровня. Имеет способность [icon:UNIT_CAUTION] «Пиратство». Может пересекать границы других цивилизаций, а также [icon:Action_Pillage] грабить торговые пути и атаковать юнитов цивилизаций не в союзе с вами без объявления [icon:WAR] войны. Когда капер одерживает победу над юнитом, он получает [icon:YIELD_GOLD] золото в объеме 100% от [icon:NAR_REW_COMBAT] боевой мощи этого юнита. Может перемещаться после атаки и имеет 5 [icon:Action_Move] ОП.</Text>
+      <Text>Уникальный легкий [TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]морской юнит[/TIP] Республики Пиратов 2 уровня. Обладает способностью [icon:UNIT_CAUTION] [TIP:LOC_PEDIA_CONCEPTS_PIRATE_TOOLTIP]«Пиратство»[/TIP]. Когда шлюп побеждает кого-либо, он получает [icon:YIELD_GOLD] золото в размере 100% [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]боевой мощи[/TIP] этого юнита. Может двигаться после атаки, имеет 5 [icon:Action_Move] ОП.</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_SLOOP_3_DESCRIPTION" Language="ru_RU">
-      <Text>Легкий морской юнит Республики Пиратов 3 уровня. Имеет способность [icon:UNIT_CAUTION] «Пиратство». Может пересекать границы других цивилизаций, а также грабить [icon:Action_Pillage] торговые пути и атаковать юнитов цивилизаций не в союзе с вами без объявления [icon:WAR] войны. Победа над юнитом с помощью шлюпа дает [icon:YIELD_GOLD] золото в объеме 100% от [icon:NAR_REW_COMBAT] боевой мощи этого юнита. Может перемещаться после атаки и имеет 5 [icon:Action_Move] ОП.</Text>
+      <Text>Уникальный легкий [TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]морской юнит[/TIP] Республики Пиратов 3 уровня. Обладает способностью [icon:UNIT_CAUTION] [TIP:LOC_PEDIA_CONCEPTS_PIRATE_TOOLTIP]«Пиратство»[/TIP]. Когда шлюп побеждает кого-либо, он получает [icon:YIELD_GOLD] золото в размере 100% [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]боевой мощи[/TIP] этого юнита. Может двигаться после атаки, имеет 5 [icon:Action_Move] ОП.</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_SLOOP_BASE_DESCRIPTION" Language="ru_RU">
-      <Text>Уникальный легкий морской юнит Республики Пиратов. Имеет способность [icon:UNIT_CAUTION] «Пиратство». Может пересекать границы других цивилизаций, а также [icon:Action_Pillage] грабить торговые пути и атаковать юнитов цивилизаций не в союзе с вами без объявления [icon:WAR] войны. Когда капер одерживает победу над юнитом, он получает [icon:YIELD_GOLD] золото в объеме 100% от [icon:NAR_REW_COMBAT] боевой мощи этого юнита. Может перемещаться после атаки и имеет 5 [icon:Action_Move] ОП.</Text>
+      <Text>Уникальный легкий [TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]морской юнит[/TIP] Республики Пиратов. Обладает способностью [icon:UNIT_CAUTION] [TIP:LOC_PEDIA_CONCEPTS_PIRATE_TOOLTIP]«Пиратство»[/TIP]. Когда шлюп побеждает кого-либо, он получает [icon:YIELD_GOLD] золото в размере 100% [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]боевой мощи[/TIP] этого юнита. Может двигаться после атаки, имеет 5 [icon:Action_Move] ОП.</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_SLOOP_DESCRIPTION" Language="ru_RU">
-      <Text>Легкий морской юнит Республики Пиратов 1 уровня. Имеет способность [icon:UNIT_CAUTION] «Пиратство». Может пересекать границы других цивилизаций, а также [icon:Action_Pillage] грабить торговые пути и атаковать юнитов цивилизаций не в союзе с вами без объявления [icon:WAR] войны. Когда капер одерживает победу над юнитом, он получает [icon:YIELD_GOLD] золото в объеме 100% от [icon:NAR_REW_COMBAT] боевой мощи этого юнита. Может перемещаться после атаки и имеет 5 [icon:Action_Move] ОП.</Text>
+      <Text>Уникальный легкий [TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]морской юнит[/TIP] Республики Пиратов 1 уровня. Обладает способностью [icon:UNIT_CAUTION] [TIP:LOC_PEDIA_CONCEPTS_PIRATE_TOOLTIP]«Пиратство»[/TIP]. Когда шлюп побеждает кого-либо, он получает [icon:YIELD_GOLD] золото в размере 100% [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]боевой мощи[/TIP] этого юнита. Может двигаться после атаки, имеет 5 [icon:Action_Move] ОП.</Text>
     </Replace>
     <Replace Tag="LOC_UNITOPERATION_RAIDING_PARTY_DESCRIPTION" Language="ru_RU">
       <Text>Активируйте на незанятой клетке по соседству с ресурсом-сокровищем, принадлежащим другой цивилизации в далеких землях. Это поселение мгновенно создает серебряный караван под вашим контролем, и при этом не сбрасываются ходы до появления следующего серебряного каравана.</Text>
@@ -851,6 +899,9 @@
     <Replace Tag="LOC_UNLOCK_PLAY_AS_PIRATE_REPUBLIC_DESCRIPTION" Language="ru_RU">
       <Text>Играйте за [B]Республику Пиратов[/B].</Text>
     </Replace>
+    <Replace Tag="LOC_UNLOCK_PLAY_AS_PIRATE_REPUBLIC_PIRATE_REPUBLIC_TOOLTIP" Language="ru_RU">
+      <Text>[B]Республика Пиратов[/B] способна выстоять на протяжении эпох.</Text>
+    </Replace>
     <Replace Tag="LOC_UNLOCK_PLUNDERS_DESCRIPTION" Language="ru_RU">
       <Text>Разграбьте два [B]торговых пути[/B]</Text>
     </Replace>
@@ -861,16 +912,21 @@
       <Text>[B]Грабеж[/B] был важной частью идентичности [B]Республики Пиратов[/B].</Text>
     </Replace>
     <Replace Tag="LOC_WONDER_HAVANA_HARBOR_DESCRIPTION" Language="ru_RU">
-      <Text>+3 к [icon:YIELD_GOLD] золоту. В эпоху исследований это поселение создает [icon:UNIT_TREASURE_FLEET] серебряные караваны, дающие 3 очка серебряного флота. +1 [icon:ATTRIBUTE_ECONOMIC] очко характеристик в области экономики. Не устаревает. Можно построить только на побережье в далеких землях по соседству с поверхностью, которая не является озером.</Text>
+      <Text>+3 к [icon:YIELD_GOLD] золоту. Это [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]поселение[/TIP] создает [icon:UNIT_TREASURE_FLEET] [TIP:LOC_PEDIA_CONCEPTS_TREASURE_CONVOY_TOOLTIP]серебряные караваны[/TIP], дающие 3 единицы груза, в [TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]эпоху исследований[/TIP]. +1 очко [TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]характеристик[/TIP] в области [icon:ATTRIBUTE_ECONOMIC] экономики. [TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]Не устаревает[/TIP]. Можно построить только на побережье в [TIP:LOC_PEDIA_CONCEPTS_DISTANT_LANDS_TOOLTIP]далеких землях[/TIP] по соседству с поверхностью, которая не является озером.</Text>
     </Replace>
     <Replace Tag="LOC_WONDER_HAVANA_HARBOR_TOOLTIP" Language="ru_RU">
-      <Text>В эпоху исследований это поселение создает [icon:UNIT_TREASURE_FLEET] серебряные караваны, дающие 3 очка серебряного флота. +1 [icon:ATTRIBUTE_ECONOMIC] очко характеристик в области экономики.[N]Можно построить только на побережье в далеких землях по соседству с поверхностью, которая не является озером.</Text>
+      <Text>Это [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]поселение[/TIP] создает [icon:UNIT_TREASURE_FLEET] [TIP:LOC_PEDIA_CONCEPTS_TREASURE_CONVOY_TOOLTIP]серебряные караваны[/TIP], дающие 3 единицы груза, в [TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]эпоху исследований[/TIP]. +1 очко [TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]характеристик[/TIP] в области [icon:ATTRIBUTE_ECONOMIC] экономики.[N]Можно построить только на побережье в [TIP:LOC_PEDIA_CONCEPTS_DISTANT_LANDS_TOOLTIP]далеких землях[/TIP] по соседству с поверхностью, которая не является озером.</Text>
     </Replace>
     <Replace Tag="LOC_ENEMY_OF_ALL_NATIONS_MOD_TREASURE_FLEET_CS_PREVIEW" Language="ru_RU">
       <Text>Враг всех народов: +{1_Amount}</Text>
     </Replace>
-    <Replace Tag="LOC_TRADITION_BLACK_FLAG_NAME" Language="ru_RU">
-      <Text>Черный флаг|черного флага|черному флагу|черный флаг|черным флагом|черном флаге</Text>
+    <Replace Tag="LOC_TRADITION_BLACK_FLAG_I_NAME" Language="ru_RU">
+      <Text>Черный флаг I|Черного флага I|Черному флагу I|Черный флаг I|Черным флагом I|Черном флаге I</Text>
+      <Gender>masculine</Gender>
+      <Plurality>1</Plurality>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_BLACK_FLAG_II_NAME" Language="ru_RU">
+      <Text>Черный флаг II|Черного флага II|Черному флагу II|Черный флаг II|Черным флагом II|Черном флаге II</Text>
       <Gender>masculine</Gender>
       <Plurality>1</Plurality>
     </Replace>
@@ -879,8 +935,23 @@
       <Gender>feminine</Gender>
       <Plurality>1</Plurality>
     </Replace>
-    <Replace Tag="LOC_TRADITION_PRESS_GANGS_NAME" Language="ru_RU">
-      <Text>Принудительная вербовка|принудительной вербовки|принудительной вербовке|принудительную вербовку|принудительной вербовкой|принудительной вербовке</Text>
+    <Replace Tag="LOC_TRADITION_PIRATE_REPUBLIC_SYNCRETISM_ANTIQUITY_NAME" Language="ru_RU">
+      <Text>Береговое братство I|Берегового братства I|Береговому братству I|Береговое братство I|Береговым братством I|Береговом братстве I</Text>
+      <Gender>neuter</Gender>
+      <Plurality>1</Plurality>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_PIRATE_REPUBLIC_SYNCRETISM_MODERN_NAME" Language="ru_RU">
+      <Text>Береговое братство II|Берегового братства II|Береговому братству II|Береговое братство II|Береговым братством II|Береговом братстве II</Text>
+      <Gender>neuter</Gender>
+      <Plurality>1</Plurality>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_PRESS_GANGS_I_NAME" Language="ru_RU">
+      <Text>Принудительная вербовка I|Принудительной вербовки I|Принудительной вербовке I|Принудительную вербовку I|Принудительной вербовкой I|Принудительной вербовке I</Text>
+      <Gender>feminine</Gender>
+      <Plurality>1</Plurality>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_PRESS_GANGS_II_NAME" Language="ru_RU">
+      <Text>Принудительная вербовка II|Принудительной вербовки II|Принудительной вербовке II|Принудительную вербовку II|Принудительной вербовкой II|Принудительной вербовке II</Text>
       <Gender>feminine</Gender>
       <Plurality>1</Plurality>
     </Replace>

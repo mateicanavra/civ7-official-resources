@@ -28,22 +28,20 @@
 	</ProgressionTreeNodes>
 	<ProgressionTreeNodeUnlocks>
 		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_MAIN_SOCIETY" TargetKind="KIND_CONSTRUCTIBLE" TargetType="WONDER_REYKHOLT" UnlockDepth="2"/>
-		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_ICELAND_LANDNAMABOK" TargetKind="KIND_MODIFIER" TargetType="MOD_LANDNAMBOK_RELIC_CIVIC_MASTERY" UnlockDepth="1"/>
+
 		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_ICELAND_LANDNAMABOK" TargetKind="KIND_CONSTRUCTIBLE" TargetType="IMPROVEMENT_THING" UnlockDepth="1"/>
-		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_ICELAND_LANDNAMABOK" TargetKind="KIND_TRADITION" TargetType="TRADITION_DREKAHOFUD" UnlockDepth="1"/>
-		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_ICELAND_LANDNAMABOK" TargetKind="KIND_MODIFIER" TargetType="MOD_LANDNAMBOK_KILN_WAREHOUSE_THING" UnlockDepth="2"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_ICELAND_LANDNAMABOK" TargetKind="KIND_TRADITION" TargetType="TRADITION_DROTTKVAETT_II" UnlockDepth="1"/>
 		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_ICELAND_LANDNAMABOK" TargetKind="KIND_TRADITION" TargetType="TRADITION_REIDI_GUDANNA" UnlockDepth="2"/>
-		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_ICELAND_HUGINS_DREKKA" TargetKind="KIND_MODIFIER" TargetType="MOD_HUGINS_DREKKA_RANGE_PILLAGE" UnlockDepth="1"/>
-		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_ICELAND_HUGINS_DREKKA" TargetKind="KIND_TRADITION" TargetType="TRADITION_DROTTKVAETT" UnlockDepth="1"/>
-		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_ICELAND_HUGINS_DREKKA" TargetKind="KIND_MODIFIER" TargetType="MOD_HUGINS_DREKKA_PILLAGE_ONE_MOVE" UnlockDepth="2"/>
-		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_ICELAND_VAERINGJAR" TargetKind="KIND_MODIFIER" TargetType="MOD_VAERINGJAR_EMBARKED_MOVEMENT" UnlockDepth="1"/>
-		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_ICELAND_VAERINGJAR" TargetKind="KIND_MODIFIER" TargetType="MOD_VAERINGJAR_NAVAL_MOVEMENT" Hidden="true" UnlockDepth="1"/>
-		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_ICELAND_VAERINGJAR" TargetKind="KIND_MODIFIER" TargetType="MOD_VAERINGJAR_NAVAL_COMBAT" Hidden="true" UnlockDepth="1"/>
-		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_ICELAND_VAERINGJAR" TargetKind="KIND_MODIFIER" TargetType="MOD_VAERINGJAR_EMBARKED_COMBAT" Hidden="true" UnlockDepth="1"/>
-		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_ICELAND_VAERINGJAR" TargetKind="KIND_TRADITION" TargetType="TRADITION_LYFSTEINN" UnlockDepth="2"/>
-		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_ICELAND_VAERINGJAR" TargetKind="KIND_MODIFIER" TargetType="MOD_EX_SETTLEMENT_CAP_INCREASE" UnlockDepth="2"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_ICELAND_LANDNAMABOK" TargetKind="KIND_MODIFIER" TargetType="MOD_TOT_TRADITION_SLOT" UnlockDepth="2"/>
+
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_ICELAND_HUGINS_DREKKA" TargetKind="KIND_TRADITION" TargetType="TRADITION_STRANDHOGG" UnlockDepth="1"/>
+
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_ICELAND_VAERINGJAR" TargetKind="KIND_TRADITION" TargetType="TRADITION_LYFSTEINN_I" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_ICELAND_VAERINGJAR" TargetKind="KIND_MODIFIER" TargetType="MOD_EX_SETTLEMENT_CAP_INCREASE" UnlockDepth="1"/>
+
 		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_ICELAND_THJODVELDID" TargetKind="KIND_MODIFIER" TargetType="MOD_THJODVELDID_RELIC" UnlockDepth="1"/>
 		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_ICELAND_THJODVELDID" TargetKind="KIND_CONSTRUCTIBLE" TargetType="WONDER_REYKHOLT" UnlockDepth="1" AIIgnoreUnlockValue="true"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_ICELAND_THJODVELDID" TargetKind="KIND_MODIFIER" TargetType="MOD_TOT_TRADITION_SLOT" UnlockDepth="1"/>
 	</ProgressionTreeNodeUnlocks>
 	<ProgressionTreePrereqs>
 		<!--ICELAND-->
@@ -52,4 +50,7 @@
 		<Row Node="NODE_CIVIC_EX_ICELAND_THJODVELDID" PrereqNode="NODE_CIVIC_EX_ICELAND_HUGINS_DREKKA"/>
 		<Row Node="NODE_CIVIC_EX_ICELAND_THJODVELDID" PrereqNode="NODE_CIVIC_EX_ICELAND_VAERINGJAR"/>
 	</ProgressionTreePrereqs>
+	<CivilopediaPageGroupExcludes>
+		<Row SectionID="CULTURE" PageGroupID="TREE_CIVICS_EX_TEST_OF_TIME" />
+	</CivilopediaPageGroupExcludes>
 </Database>

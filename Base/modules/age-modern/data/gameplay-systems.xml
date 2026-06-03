@@ -15,12 +15,28 @@
 		<Replace name="GOLDEN_AGE_HAPPINESS_CURVE_C" value="-54.6" />
 		<Replace name="GOLDEN_AGE_HAPPINESS_CURVE_D" value="569.33" />
 
-		<Replace name="TOWN_UPGRADE_MAXIMUM_COST" value="3000" />
-		<Replace name="TOWN_UPGRADE_PER_CITY_COST" value="500" />
-		<Replace name="TOWN_UPGRADE_BASE_COST" value="600" />
+		<Replace name="TOWN_UPGRADE_MAXIMUM_COST" value="5000" />
+		<Replace name="TOWN_UPGRADE_PER_CITY_COST" value="1000" />
+		<Replace name="TOWN_UPGRADE_BASE_COST" value="800" />
 
 		<Replace name="CITY_WORKER_STARTING_CAP" value="3" />
 
 		<Replace name="UNIT_HEAL_NAVAL_SHALLOW_NEUTRAL" value="15" />
+
+		<Replace name="CITY_RAZE_DISTRICTS_PER_TURN" value="3" />
 	</GlobalParameters>
+	<WarWearinessEffects> <!-- changed here instead of happiness-identity because we don't use that in age modules -->
+		<Update>
+			<Where WarWearinessType="WAR_WEARINESS_FOUNDED_SELF"/>
+			<Set YieldReductionPerLevel="7"/>
+		</Update>
+		<Update>
+			<Where WarWearinessType="WAR_WEARINESS_FOUNDED_OTHER"/>
+			<Set YieldReductionPerLevel="9"/>
+		</Update>
+		<Update>
+			<Where WarWearinessType="WAR_WEARINESS_FOUNDED_WAR_OPPONENT"/>
+			<Set YieldReductionPerLevel="11"/>
+		</Update>
+	</WarWearinessEffects>
 </Database>

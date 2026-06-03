@@ -1,7 +1,6 @@
-import { P as Panel } from '../panel-support.chunk.js';
-import { MustGetElement } from '../utilities/utilities-dom.chunk.js';
-import { L as Layout } from '../utilities/utilities-layout.chunk.js';
-import '../framework.chunk.js';
+import Panel from '../panel-support.js';
+import { MustGetElement } from '../utilities/utilities-dom.js';
+import { Layout } from '../utilities/utilities-layout.js';
 
 class PanelRadialDock extends Panel {
   SMALL_SCREEN_MODE_MAX_HEIGHT = 768;

@@ -1,54 +1,23 @@
-import { A as Audio } from '../../../core/ui/audio-base/audio-support.chunk.js';
-import FocusManager from '../../../core/ui/input/focus-manager.js';
-import { N as NavTray } from '../../../core/ui/navigation-tray/model-navigation-tray.chunk.js';
-import { a as realizePlayerColors } from '../../../core/ui/utilities/utilities-color.chunk.js';
-import { D as Databind } from '../../../core/ui/utilities/utilities-core-databinding.chunk.js';
-import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.chunk.js';
+import { Audio } from '../../../core/ui/audio-base/audio-support.js';
+import NavTray from '../../../core/ui/navigation-tray/model-navigation-tray.js';
+import { applyPlayerColorsToElement } from '../../../core/ui/utilities/utilities-color.js';
+import Databind from '../../../core/ui/utilities/utilities-core-databinding.js';
+import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
+import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
 import { ScreenGeneralChooser } from '../general-chooser/screen-general-chooser.js';
 import { HideMiniMapEvent } from '../mini-map/panel-mini-map.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/input/action-handler.js';
-import '../../../core/ui/input/cursor.js';
-import '../../../core/ui/views/view-manager.chunk.js';
-import '../../../core/ui/panel-support.chunk.js';
-import '../../../core/ui/input/input-support.chunk.js';
-import '../../../core/ui/utilities/utilities-update-gate.chunk.js';
-import '../../../core/ui/utilities/utilities-image.chunk.js';
-import '../../../core/ui/utilities/utilities-component-id.chunk.js';
-import '../../../core/ui/graph-layout/utils.chunk.js';
-import '../../../core/ui/context-manager/context-manager.js';
-import '../../../core/ui/context-manager/display-queue-manager.js';
-import '../../../core/ui/dialog-box/manager-dialog-box.chunk.js';
-import '../../../core/ui/input/focus-support.chunk.js';
-import '../../../core/ui/components/fxs-slot.chunk.js';
-import '../../../core/ui/spatial/spatial-manager.js';
-import '../../../core/ui/lenses/lens-manager.chunk.js';
-import '../../../core/ui/shell/mp-staging/mp-friends.js';
-import '../../../core/ui/shell/mp-staging/model-mp-friends.chunk.js';
-import '../../../core/ui/social-notifications/social-notifications-manager.js';
-import '../../../core/ui/utilities/utilities-layout.chunk.js';
-import '../../../core/ui/utilities/utilities-liveops.js';
-import '../../../core/ui/utilities/utilities-network.js';
-import '../../../core/ui/shell/mp-legal/mp-legal.js';
-import '../../../core/ui/events/shell-events.chunk.js';
-import '../../../core/ui/utilities/utilities-network-constants.chunk.js';
-
-const content = "<fxs-subsystem-frame\r\n\tclass=\"pantheon-frame items-center shrink pointer-events-auto\"\r\n\tbackDrop=\"fs://game/rel_starrybg.png\"\r\n>\r\n\t<div\r\n\t\tclass=\"flex flex-col items-center\"\r\n\t\tdata-slot=\"header\"\r\n\t>\r\n\t\t<fxs-header\r\n\t\t\tclass=\"tracking-150 flex justify-center w-96\"\r\n\t\t\ttitle=\"LOC_BELIEF_CLASS_PANTHEON_NAME\"\r\n\t\t\tdata-slot=\"header\"\r\n\t\t></fxs-header>\r\n\t\t<div\r\n\t\t\tclass=\"pantheon-chooser_choose-x-pantheons text-accent-2 max-w-96 mt-8 mb-3 text-center font-body-base\"\r\n\t\t\tdata-slot=\"header\"\r\n\t\t></div>\r\n\t</div>\r\n\t<fxs-vslot\r\n\t\tdisable-focus-allowed=\"true\"\r\n\t\tclass=\"pantheon-chooser_pantheon-container w-96 flex items-center pl-2 pr-3 flex-col flex-auto relative\"\r\n\t>\r\n\t</fxs-vslot>\r\n\t<fxs-hero-button\r\n\t\tclass=\"pantheon-chooser_confirm self-center h-12 w-80 bottom-5 mt-12\"\r\n\t\tdisabled=\"true\"\r\n\t\tcaption=\"LOC_UI_RESOURCE_ALLOCATION_CONFIRM\"\r\n\t\tdata-slot=\"footer\"\r\n\t></fxs-hero-button>\r\n</fxs-subsystem-frame>\r\n";
-
-const styles = "fs://game/base-standard/ui/pantheon-chooser/screen-pantheon-chooser.css";
+import content from './screen-pantheon-chooser.html.js';
+import styles from './screen-pantheon-chooser.scss.js';
 
 class ScreenPantheonChooser extends ScreenGeneralChooser {
   confirmButtonListener = this.onConfirm.bind(this);
-  pantheonContainer;
   pantheonSubtitle;
   confirmButton;
   pantheonFrame;
   numPantheonsToAdd = -1;
   pantheonsToAdd = [];
   pantheonButtonsMap = /* @__PURE__ */ new Map();
-  mustAddPantheons = false;
   onInitialize() {
-    this.pantheonContainer = MustGetElement(".pantheon-chooser_pantheon-container", this.Root);
     this.pantheonSubtitle = MustGetElement(".pantheon-chooser_choose-x-pantheons", this.Root);
     this.confirmButton = MustGetElement(".pantheon-chooser_confirm", this.Root);
     this.pantheonFrame = MustGetElement(".pantheon-frame", this.Root);
@@ -83,10 +52,6 @@ class ScreenPantheonChooser extends ScreenGeneralChooser {
     }
     this.numPantheonsToAdd = playerReligion.getNumPantheonsUnlocked();
     this.pantheonSubtitle.innerHTML = Locale.compose("LOC_UI_PANTHEON_SUBTITLE", this.numPantheonsToAdd);
-    this.mustAddPantheons = playerCulture.isNodeUnlocked("NODE_CIVIC_AQ_MAIN_MYSTICISM") && this.numPantheonsToAdd > 0;
-    if (this.mustAddPantheons) {
-      this.createEntries(this.pantheonContainer);
-    }
     window.dispatchEvent(new HideMiniMapEvent(true));
     Databind.classToggle(this.confirmButton, "hidden", `g_NavTray.isTrayRequired`);
   }
@@ -98,27 +63,36 @@ class ScreenPantheonChooser extends ScreenGeneralChooser {
   createEntries(_entryContainer) {
     const player = GameContext.localPlayerID;
     if (Players.isValid(player)) {
-      realizePlayerColors(this.Root, player);
+      applyPlayerColorsToElement(this.Root, player);
     } else {
       console.error(
         `screen-pantheon-chooser: createEntries() - player ${GameContext.localPlayerID} was invalid!`
       );
     }
     for (const pantheon of GameInfo.Beliefs) {
-      const pantheonLocked = !Game.Religion.isBeliefClaimable(pantheon.$index);
+      const args = {
+        BeliefType: pantheon.$hash
+      };
+      const result = Game.PlayerOperations.canStart(
+        GameContext.localPlayerID,
+        PlayerOperationTypes.FOUND_PANTHEON,
+        args,
+        false
+      );
+      const pantheonLocked = !result.Success;
       if (pantheon.BeliefClassType == "BELIEF_CLASS_PANTHEON") {
         const pantheonItem = document.createElement(
           "pantheon-chooser-item"
         );
         pantheonItem.classList.value = "pantheon-item bg-primary-4";
         pantheonItem.whenComponentCreated((chooser) => {
-          chooser.pantheonChooserNode = this.createPantheonNode(pantheon);
+          chooser.pantheonChooserNode = this.createPantheonNode(pantheon, pantheonLocked);
         });
         pantheonItem.setAttribute("beliefType", pantheon.BeliefType);
         if (!pantheonLocked) {
           this.tagEntry(pantheonItem);
         } else {
-          pantheonItem.setAttribute("data-tooltip-content", Locale.compose("LOC_UI_PANTHEON_ALREADY_TAKEN"));
+          pantheonItem.setAttribute("data-tooltip-content", result.AdditionalDescription?.[0] ?? "");
         }
         this.pantheonButtonsMap.set(pantheon.BeliefType, pantheonItem);
         pantheonItem.setAttribute("data-audio-group-ref", "audio-panel-pantheon-picker");
@@ -126,15 +100,17 @@ class ScreenPantheonChooser extends ScreenGeneralChooser {
         _entryContainer.appendChild(pantheonItem);
       }
     }
-    FocusManager.setFocus(_entryContainer);
+    waitForLayout(() => {
+      FocusManager.get().setFocus(_entryContainer);
+    });
   }
-  createPantheonNode(pantheon) {
+  createPantheonNode(pantheon, pantheonLocked) {
     const primaryIcon = UI.getIconURL(pantheon.BeliefType, "PANTHEONS");
     return {
       name: Locale.compose(pantheon.Name),
       primaryIcon,
       description: Locale.stylize(pantheon.Description),
-      isLocked: !Game.Religion.isBeliefClaimable(pantheon.$index)
+      isLocked: pantheonLocked
     };
   }
   /**

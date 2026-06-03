@@ -1,19 +1,9 @@
-import { a as TextBoxTextChangedEventName, c as TextBoxTextEditStopEventName } from '../../../core/ui/components/fxs-textbox.chunk.js';
-import { b as InputEngineEventName } from '../../../core/ui/input/input-support.chunk.js';
-import { P as Panel } from '../../../core/ui/panel-support.chunk.js';
-import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.chunk.js';
-import '../../../core/ui/components/fxs-activatable.chunk.js';
-import '../../../core/ui/audio-base/audio-support.chunk.js';
-import '../../../core/ui/input/focus-manager.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/input/action-handler.js';
-import '../../../core/ui/input/cursor.js';
-import '../../../core/ui/views/view-manager.chunk.js';
-import '../../../core/ui/utilities/utilities-update-gate.chunk.js';
-
-const content = "<div\r\n\tclass=\"unit-rename__container flex flex-col items-center size-full justify-around\"\r\n\tframe-style=\"simple\"\r\n\toverride-styling=\"relative flex flex-col p-1\"\r\n>\r\n\t<fxs-nav-help\r\n\t\taction-key=\"inline-cancel\"\r\n\t\tclass=\"absolute -top-3 -right-3\"\r\n\t></fxs-nav-help>\r\n\t<fxs-close-button></fxs-close-button>\r\n\t<fxs-header\r\n\t\tclass=\"mt-1\"\r\n\t\ttitle=\"LOC_UNIT_RENAME_UNIT\"\r\n\t\tfiligree-style=\"none\"\r\n\t></fxs-header>\r\n\t<div class=\"h-10 w-96\">\r\n\t\t<fxs-textbox\r\n\t\t\tclass=\"unit-rename__textbox\"\r\n\t\t\thas-background=\"false\"\r\n\t\t></fxs-textbox>\r\n\t</div>\r\n\t<div class=\"relative\">\r\n\t\t<fxs-button\r\n\t\t\tclass=\"unit-rename__confirm mb-1\"\r\n\t\t\tcaption=\"LOC_UI_RESOURCE_ALLOCATION_CONFIRM\"\r\n\t\t\tdisabled=\"true\"\r\n\t\t></fxs-button>\r\n\t</div>\r\n</div>\r\n";
-
-const styles = "fs://game/base-standard/ui/unit-rename/unit-rename.css";
+import { TextBoxTextChangedEventName, TextBoxTextEditStopEventName } from '../../../core/ui/components/fxs-textbox.js';
+import { InputEngineEventName } from '../../../core/ui/input/input-support.js';
+import Panel from '../../../core/ui/panel-support.js';
+import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
+import content from './unit-rename.html.js';
+import styles from './unit-rename.scss.js';
 
 const UnitRenameConfirmEventName = "unit-rename-confirm";
 class UnitRenameConfirmEvent extends CustomEvent {

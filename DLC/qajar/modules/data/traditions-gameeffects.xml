@@ -1,22 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <GameEffects xmlns="GameEffects">
+	<Modifier id="MOD_UNLOCK_QAJAR_SYNCRETISM_ANTIQUITY" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
+		<Argument name="Tradition">TRADITION_QAJAR_SYNCRETISM_ANTIQUITY</Argument>
+	</Modifier>
+	<Modifier id="MOD_UNLOCK_QAJAR_SYNCRETISM_EXPLORATION" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
+		<Argument name="Tradition">TRADITION_QAJAR_SYNCRETISM_EXPLORATION</Argument>
+	</Modifier>
 	<!-- ==================================================	-->
 	<!--	MODERN							-->
 	<!-- ==================================================	-->
-	<Modifier id="WAQAYE_E_ETTEFAQIYA_YIELD_UNDER_CAP" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_ADJUST_YIELD_PER_UNDER_SETTLEMENT_CAP">
+	<Modifier id="DAR_AL_FONUN_I_YIELD_UNDER_CAP" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_ADJUST_YIELD_PER_UNDER_SETTLEMENT_CAP">
+		<Argument name="Amount">3</Argument>
+		<Argument name="YieldType">YIELD_SCIENCE, YIELD_CULTURE</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_DAR_AL_FONUN_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="DAR_AL_FONUN_YIELD_UNDER_CAP" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_ADJUST_YIELD_PER_UNDER_SETTLEMENT_CAP">
 		<Argument name="Amount">10</Argument>
 		<Argument name="YieldType">YIELD_SCIENCE, YIELD_CULTURE</Argument>
-		<String context="Description">LOC_TRADITION_WAQAYE_E_ETTEFAQIYA_DESCRIPTION</String>
+		<Argument name="Tooltip">LOC_TRADITION_DAR_AL_FONUN_TOOLTIP</Argument>
+	</Modifier>
+	<Modifier id="SOLEYMANIYEH_PALACE_I_YIELD_CAPITAL_POP" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_ADJUST_YIELD_PER_POPULATION">
+		<Argument name="Amount">1</Argument>
+		<Argument name="Divisor">4</Argument>
+		<Argument name="All">true</Argument>
+		<Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_SOLEYMANIYEH_PALACE_II_NAME</Argument>
 	</Modifier>
 	<Modifier id="SOLEYMANIYEH_PALACE_YIELD_CAPITAL_POP" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_ADJUST_YIELD_PER_POPULATION">
 		<Argument name="Amount">1</Argument>
 		<Argument name="Divisor">2</Argument>
 		<Argument name="All">true</Argument>
 		<Argument name="YieldType">YIELD_DIPLOMACY</Argument>
-		<Argument name="Tooltip">LOC_TRADITION_SOLEYMANIYEH_PALACE_NAME</Argument>
-		<String context="Description">LOC_TRADITION_SOLEYMANIYEH_PALACE_DESCRIPTION</String>
+		<Argument name="Tooltip">LOC_TRADITION_SOLEYMANIYEH_PALACE_II_NAME</Argument>
+		<String context="Description">LOC_TRADITION_SOLEYMANIYEH_PALACE_II_DESCRIPTION</String>
 	</Modifier>
-	<Modifier id="QULLARAQASI_COMMANDER_HAPPINESS" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ATTACH_MODIFIERS">
+	<Modifier id="QULLARAQASI_UNDER_CAP_COMBAT" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ADJUST_UNIT_UNDER_SETTLEMENT_CAP_COMBAT_MODIFIER">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+				<Argument name="Tag">UNIT_CLASS_COMBAT</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_UNIT_DOMAIN_MATCHES">
+				<Argument name="UnitDomain">DOMAIN_LAND</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">0.5</Argument>
+	</Modifier>
+	<Modifier id="QAJAR_SYNCRETISM_INLFLUENCE_UNDER_CAP" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_ADJUST_YIELD_PER_UNDER_SETTLEMENT_CAP">
+		<Argument name="Amount">1</Argument>
+		<Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+		<String context="Description">LOC_TRADITION_QAJAR_SYNCRETISM_TOOLTIP</String>
+	</Modifier>
+	<Modifier id="QAJAR_SYNCRETISM_HAPPINESS_UNDER_CAP" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_ADJUST_YIELD_PER_UNDER_SETTLEMENT_CAP">
+		<Argument name="Amount">1</Argument>
+		<Argument name="YieldType">YIELD_HAPPINESS</Argument>
+		<String context="Description">LOC_TRADITION_QAJAR_SYNCRETISM_TOOLTIP</String>
+	</Modifier>
+
+	<!-- <Modifier id="QULLARAQASI_COMMANDER_HAPPINESS" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ATTACH_MODIFIERS">
 		<SubjectRequirements>
 			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
 				<Argument name="Tag">UNIT_CLASS_COMMAND</Argument>
@@ -24,13 +64,53 @@
 		</SubjectRequirements>
 		<Argument name="ModifierId">QULLARAQASI_COMMANDER_HAPPINESS_MOD</Argument>
 		<String context="Description">LOC_TRADITION_QULLARAQASI_DESCRIPTION</String>
-	</Modifier>
-	<Modifier id="QULLARAQASI_COMMANDER_HAPPINESS_MOD" collection="COLLECTION_UNIT_OCCUPIED_CITY" effect="EFFECT_CITY_ADJUST_YIELD">
+	</Modifier> -->
+	<!-- <Modifier id="QULLARAQASI_COMMANDER_HAPPINESS_MOD" collection="COLLECTION_UNIT_OCCUPIED_CITY" effect="EFFECT_CITY_ADJUST_YIELD">
 		<OwnerRequirements>
-			<Requirement type="REQUIREMENT_UNIT_IS_STATIONED_ON_DISTRICT"/>
+			<Requirement type="REQUIREMENT_UNIT_IS_STATIONED_ON_DISTRICT">
+				<Argument name="DistrictType">DISTRICT_URBAN, DISTRICT_CITY_CENTER</Argument>
+			</Requirement>
 		</OwnerRequirements>
 		<Argument name="YieldType">YIELD_HAPPINESS</Argument>
 		<Argument name="Amount">15</Argument>
 		<Argument name="Tooltip">LOC_TRADITION_QULLARAQASI_NAME</Argument>
+	</Modifier> -->
+	<!-- <Modifier id="QAJAR_ORIGINS_CAPITAL_FOOD" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_CAPITAL"/>
+			<Requirement type="REQUIREMENT_PLAYER_IS_IN_GOLDEN_AGE" inverse="true"/>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_FOOD</Argument>
+		<Argument name="Amount">4</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_QAJAR_ORIGINS_NAME</Argument>
+		<String context="Description">LOC_TRADITION_QAJAR_ORIGINS_DESCRIPTION</String>
 	</Modifier>
+	<Modifier id="QAJAR_ORIGINS_CELEBRATION_CAPITAL_FOOD" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_CAPITAL"/>
+			<Requirement type="REQUIREMENT_PLAYER_IS_IN_GOLDEN_AGE"/>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_FOOD</Argument>
+		<Argument name="Amount">8</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_QAJAR_ORIGINS_NAME</Argument>
+	</Modifier>
+	<Modifier id="QAJAR_ORIGINS_I_CAPITAL_FOOD" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_CAPITAL"/>
+			<Requirement type="REQUIREMENT_PLAYER_IS_IN_GOLDEN_AGE" inverse="true"/>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_FOOD</Argument>
+		<Argument name="Amount">8</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_QAJAR_ORIGINS_NAME</Argument>
+		<String context="Description">LOC_TRADITION_QAJAR_ORIGINS_II_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="QAJAR_ORIGINS_I_CELEBRATION_CAPITAL_FOOD" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_CAPITAL"/>
+			<Requirement type="REQUIREMENT_PLAYER_IS_IN_GOLDEN_AGE"/>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_FOOD</Argument>
+		<Argument name="Amount">16</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_QAJAR_ORIGINS_NAME</Argument>
+	</Modifier> -->
 </GameEffects>

@@ -1,167 +1,16 @@
-import { A as Audio } from '../../../core/ui/audio-base/audio-support.chunk.js';
-import FocusManager from '../../../core/ui/input/focus-manager.js';
-import { b as InputEngineEventName, a as NavigateInputEventName } from '../../../core/ui/input/input-support.chunk.js';
+import { Audio } from '../../../core/ui/audio-base/audio-support.js';
+import { InputEngineEventName, NavigateInputEventName } from '../../../core/ui/input/input-support.js';
 import { InterfaceModeChangedEventName, InterfaceMode } from '../../../core/ui/interface-modes/interface-modes.js';
-import { N as NavTray } from '../../../core/ui/navigation-tray/model-navigation-tray.chunk.js';
-import { P as Panel, A as AnchorType } from '../../../core/ui/panel-support.chunk.js';
-import { C as ComponentID } from '../../../core/ui/utilities/utilities-component-id.chunk.js';
-import { D as Databind } from '../../../core/ui/utilities/utilities-core-databinding.chunk.js';
-import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.chunk.js';
-import { U as UpdateGate } from '../../../core/ui/utilities/utilities-update-gate.chunk.js';
-import { G as GetPrevCityID, a as GetNextCityID } from '../production-chooser/production-chooser-helpers.chunk.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/views/view-manager.chunk.js';
-import '../../../core/ui/input/action-handler.js';
-import '../../../core/ui/input/cursor.js';
-import '../../../core/ui/utilities/utilities-image.chunk.js';
-import '../building-placement/building-placement-manager.js';
-import '../../../core/ui/utilities/utilities-core-textprovider.chunk.js';
-import '../tutorial/tutorial-support.chunk.js';
-import '../../../core/ui/components/fxs-nav-help.chunk.js';
-import '../../../core/ui/utilities/utilities-layout.chunk.js';
-import '../quest-tracker/quest-item.js';
-import '../quest-tracker/quest-tracker.js';
-import '../tutorial/tutorial-item.js';
-import '../tutorial/tutorial-manager.js';
-import '../../../core/ui/context-manager/context-manager.js';
-import '../../../core/ui/context-manager/display-queue-manager.js';
-import '../../../core/ui/dialog-box/manager-dialog-box.chunk.js';
-import '../../../core/ui/input/input-filter.chunk.js';
-import '../tutorial/tutorial-events.chunk.js';
-import '../utilities/utilities-tags.chunk.js';
-
-var DirectiveTypes = /* @__PURE__ */ ((DirectiveTypes2) => {
-  DirectiveTypes2[DirectiveTypes2["LIBERATE_FOUNDER"] = 0] = "LIBERATE_FOUNDER";
-  DirectiveTypes2[DirectiveTypes2["LIBERATE_PREVIOUS_OWNER"] = 1] = "LIBERATE_PREVIOUS_OWNER";
-  DirectiveTypes2[DirectiveTypes2["KEEP"] = 2] = "KEEP";
-  DirectiveTypes2[DirectiveTypes2["RAZE"] = 3] = "RAZE";
-  return DirectiveTypes2;
-})(DirectiveTypes || {});
-class CityCaptureChooserModel {
-  _cityID = null;
-  _OnUpdate;
-  _isJustConqueredFrom = false;
-  _isBeingRazed = false;
-  _numWonders = 0;
-  constructor() {
-    engine.whenReady.then(() => {
-      engine.on("CitySelectionChanged", () => {
-        const localPlayer = GameContext.localPlayerID;
-        let selectedCityID = UI.Player.getHeadSelectedCity();
-        if (selectedCityID) {
-          const c = Cities.get(selectedCityID);
-          if (!c || c.owner != localPlayer) {
-            selectedCityID = null;
-          } else if (c) {
-            this._isJustConqueredFrom = c.isJustConqueredFrom;
-            this._isBeingRazed = c.isBeingRazed;
-            if (c.Constructibles) {
-              this._numWonders = c.Constructibles.getNumWonders();
-            }
-          }
-        }
-        this.cityID = selectedCityID;
-      });
-      this.updateGate.call("init");
-    });
-  }
-  set updateCallback(callback) {
-    this._OnUpdate = callback;
-  }
-  updateGate = new UpdateGate(() => {
-    const player = Players.get(GameContext.localPlayerID);
-    const cityID = this.cityID;
-    if (player && cityID && !ComponentID.isInvalid(cityID)) {
-      const city = Cities.get(cityID);
-      if (!city) {
-        console.error("model-city-capture: updateGate - no city found for cityID " + cityID);
-        return;
-      }
-      this._isJustConqueredFrom = city.isJustConqueredFrom;
-      this._isBeingRazed = city.isBeingRazed;
-      if (!city.Constructibles) {
-        console.error("model-city-capture: updateGate - no city constructibles found for cityID " + cityID);
-        return;
-      }
-      this._numWonders = city.Constructibles.getNumWonders();
-    }
-    if (this._OnUpdate) {
-      this._OnUpdate(this);
-    }
-  });
-  set cityID(id) {
-    this._cityID = id;
-    if (id != null) {
-      this.updateGate.call("cityID");
-    }
-  }
-  get cityID() {
-    return this._cityID;
-  }
-  get canDisplayPanel() {
-    return this._isJustConqueredFrom;
-  }
-  get isBeingRazed() {
-    return this._isBeingRazed;
-  }
-  get isNotBeingRazed() {
-    return !this._isBeingRazed;
-  }
-  get containsWonder() {
-    return this._numWonders > 0;
-  }
-  get numWonders() {
-    return this._numWonders;
-  }
-  sendLiberateFounderRequest() {
-    this.sendChoiceRequest(0 /* LIBERATE_FOUNDER */);
-  }
-  sendKeepRequest() {
-    this.sendChoiceRequest(2 /* KEEP */);
-  }
-  sendRazeRequest() {
-    this.sendChoiceRequest(3 /* RAZE */);
-  }
-  sendChoiceRequest(choice) {
-    const args = { Directive: choice };
-    if (this._cityID) {
-      const result = Game.CityCommands.canStart(this._cityID, CityCommandTypes.DESTROY, args, false);
-      if (result.Success) {
-        Game.CityCommands.sendRequest(this._cityID, CityCommandTypes.DESTROY, args);
-      } else {
-        console.error("model-city-capture: sendChoiceRequest() - failed to start DESTROY operation");
-      }
-    }
-  }
-  getKeepCanStartResult() {
-    const args = { Directive: 2 /* KEEP */ };
-    if (this._cityID) {
-      const result = Game.CityCommands.canStart(this._cityID, CityCommandTypes.DESTROY, args, false);
-      return result;
-    }
-    return void 0;
-  }
-  getRazeCanStartResult() {
-    const args = { Directive: 3 /* RAZE */ };
-    if (this._cityID) {
-      const result = Game.CityCommands.canStart(this._cityID, CityCommandTypes.DESTROY, args, false);
-      return result;
-    }
-    return void 0;
-  }
-}
-const CityCaptureChooser = new CityCaptureChooserModel();
-engine.whenReady.then(() => {
-  const updateModel = () => {
-    engine.updateWholeModel(CityCaptureChooser);
-  };
-  engine.createJSModel("g_CityCaptureChooser", CityCaptureChooser);
-  CityCaptureChooser.updateCallback = updateModel;
-});
-
-const content = "<div class=\"city-capture__frame-container flex-auto mt-32 mb-4\">\r\n\t<fxs-subsystem-frame\r\n\t\tclass=\"city-capture-subsystem-frame flex items-center grow pointer-events-auto\"\r\n\t\tbox-style=\"b1\"\r\n\t>\r\n\t\t<div\r\n\t\t\tdata-slot=\"header\"\r\n\t\t\tclass=\"flex justify-around items-center relative\"\r\n\t\t>\r\n\t\t\t<fxs-nav-help\r\n\t\t\t\taction-key=\"inline-cycle-prev\"\r\n\t\t\t\tclass=\"absolute left-12 flex\"\r\n\t\t\t></fxs-nav-help>\r\n\t\t\t<fxs-activatable class=\"img-arrow cap-chooser__prev-arrow\"></fxs-activatable>\r\n\t\t\t<fxs-header\r\n\t\t\t\tclass=\"cap-chooser__city-name mt-5 tracking-150 mb-3 max-w-96 text-center self-center font-title text-2xl text-gradient-secondary\"\r\n\t\t\t></fxs-header>\r\n\t\t\t<fxs-activatable class=\"img-arrow cap-chooser__next-arrow -scale-x-100\"></fxs-activatable>\r\n\t\t\t<fxs-nav-help\r\n\t\t\t\taction-key=\"inline-cycle-next\"\r\n\t\t\t\tclass=\"absolute right-12 flex\"\r\n\t\t\t></fxs-nav-help>\r\n\t\t</div>\r\n\t\t<div\r\n\t\t\tdata-slot=\"header\"\r\n\t\t\tclass=\"cap-chooser__city-yield-container flex items-center justify-center my-1\"\r\n\t\t></div>\r\n\t\t<div\r\n\t\t\tdata-l10n-id=\"LOC_UI_CITY_CAPTURE_SUBTITLE\"\r\n\t\t\tclass=\"city-capture__subtitle font-title text-lg text-center text-secondary self-center my-2 max-w-96\"\r\n\t\t\tdata-slot=\"header\"\r\n\t\t></div>\r\n\t\t<fxs-vslot class=\"cap-chooser__choice-container mx-8 flex-auto flex flex-col items-center\">\r\n\t\t\t<fxs-chooser-item\r\n\t\t\t\tclass=\"keep-button w-128 flex my-1 items-center\"\r\n\t\t\t\ttabindex=\"-1\"\r\n\t\t\t>\r\n\t\t\t\t<div\r\n\t\t\t\t\tclass=\"relative size-18 keep-icon-image bg-cover flex self-center mx-3 items-center justify-center pointer-events-none\"\r\n\t\t\t\t></div>\r\n\t\t\t\t<div class=\"flex flex-col relative shrink max-w-96 px-1 py-3\">\r\n\t\t\t\t\t<div\r\n\t\t\t\t\t\tclass=\"font-title text-sm mb-1\"\r\n\t\t\t\t\t\tdata-l10n-id=\"LOC_UI_CITY_CAPTURE_KEEP_SETTLEMENT\"\r\n\t\t\t\t\t></div>\r\n\t\t\t\t\t<div class=\"cap-chooser__keep-text font-body text-sm\"></div>\r\n\t\t\t\t</div>\r\n\t\t\t</fxs-chooser-item>\r\n\t\t\t<fxs-chooser-item\r\n\t\t\t\tclass=\"raze-button w-128 flex my-1 items-center\"\r\n\t\t\t\ttabindex=\"-1\"\r\n\t\t\t>\r\n\t\t\t\t<div\r\n\t\t\t\t\tclass=\"relative size-18 raze-icon-image bg-cover flex self-center mx-3 items-center justify-center pointer-events-none\"\r\n\t\t\t\t></div>\r\n\t\t\t\t<div class=\"flex flex-col relative shrink max-w-96 px-1 py-3\">\r\n\t\t\t\t\t<div\r\n\t\t\t\t\t\tclass=\"font-title text-sm mb-1\"\r\n\t\t\t\t\t\tdata-l10n-id=\"LOC_UI_CITY_CAPTURE_RAZE_SETTLEMENT\"\r\n\t\t\t\t\t></div>\r\n\t\t\t\t\t<div class=\"cap-chooser__raze-text font-body text-sm\"></div>\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"relative mx-3 flex items-center self-start mt-1\">\r\n\t\t\t\t\t<div class=\"size-8 img-turn-icon\"></div>\r\n\t\t\t\t\t<div class=\"cap-chooser__turns-to-raze font-body text-sm\"></div>\r\n\t\t\t\t</div>\r\n\t\t\t</fxs-chooser-item>\r\n\t\t</fxs-vslot>\r\n\t\t<div\r\n\t\t\tclass=\"mt-1 mb-2\"\r\n\t\t\tdata-slot=\"footer\"\r\n\t\t>\r\n\t\t\t<fxs-hero-button\r\n\t\t\t\tclass=\"city-capture__confirm relative my-5 self-center\"\r\n\t\t\t\tcaption=\"LOC_UI_RESOURCE_ALLOCATION_CONFIRM\"\r\n\t\t\t\tdisabled=\"true\"\r\n\t\t\t></fxs-hero-button>\r\n\t\t</div>\r\n\t</fxs-subsystem-frame>\r\n</div>\r\n";
-
-const styles = "fs://game/base-standard/ui/city-capture-chooser/panel-city-capture-chooser.css";
+import NavTray from '../../../core/ui/navigation-tray/model-navigation-tray.js';
+import Panel, { AnchorType } from '../../../core/ui/panel-support.js';
+import { ComponentID } from '../../../core/ui/utilities/utilities-component-id.js';
+import Databind from '../../../core/ui/utilities/utilities-core-databinding.js';
+import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
+import CityCaptureChooser from './model-city-capture-chooser.js';
+import { GetPrevCityID, GetNextCityID } from '../production-chooser/production-chooser-helpers.js';
+import content from './panel-city-capture-chooser.html.js';
+import styles from './panel-city-capture-chooser.scss.js';
+import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
 
 class CityCaptureChooserScreen extends Panel {
   confirmButton;
@@ -227,11 +76,11 @@ class CityCaptureChooserScreen extends Panel {
     super.onDetach();
   }
   onViewReceiveFocus() {
-    this.setFocus();
+    waitForLayout(() => this.setFocus());
   }
   setFocus() {
     const focusElement = MustGetElement(".cap-chooser__choice-container", this.Root);
-    FocusManager.setFocus(focusElement);
+    FocusManager.get().setFocus(focusElement);
   }
   keepSettlementSelected() {
     if (this.selectedButton) {
@@ -332,7 +181,7 @@ class CityCaptureChooserScreen extends Panel {
   onInterfaceModeChanged = () => {
     if (InterfaceMode.getCurrent() == "INTERFACEMODE_CITY_PRODUCTION" && CityCaptureChooser.canDisplayPanel) {
       this.setHidden(false);
-      this.setFocus();
+      waitForLayout(() => this.setFocus());
       NavTray.clear();
       NavTray.addOrUpdateGenericBack();
     } else {

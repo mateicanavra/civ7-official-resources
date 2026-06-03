@@ -1,13 +1,4 @@
-class RuleSetting {
-  isActive = false;
-  weight = 0;
-  record = {};
-  nameOverride;
-  internalConfig = {};
-  key;
-}
 class Rule {
-  key;
   description;
   isActive = false;
   weight = 1;
@@ -16,27 +7,32 @@ class Rule {
   initialize(config) {
     this.isActive = config.isActive;
     this.weight = config.weight;
-    this.name = config.nameOverride ?? this.name;
-    this.key = config.key ?? this.name;
-    for (const [recordName, recordValue] of Object.entries(config.record)) {
-      if (recordName in this.configValues) {
-        this.configValues[recordName] = recordValue;
-      }
-    }
-    if (config.internalConfig) {
-      for (const [recordName, recordValue] of Object.entries(config.internalConfig)) {
-        if (recordName in this) {
-          this[recordName] = recordValue;
-        } else {
-          console.log("Unable to find " + recordName + " in " + this.name);
+    if (config.config) {
+      for (const [recordName, recordValue] of Object.entries(config.config)) {
+        if (recordName in this.configValues) {
+          this.configValues[recordName] = recordValue;
         }
       }
     }
   }
+  static createDefaultsFromSpecs(specs) {
+    const result = {};
+    for (const key in specs) {
+      if (!Object.prototype.hasOwnProperty.call(specs, key)) continue;
+      const node = specs[key];
+      if ("children" in node) {
+        result[key] = [];
+      } else {
+        result[key] = node.default;
+      }
+    }
+    return result;
+  }
   prepare() {
   }
   // Optionally overridden
-  scoreAllCells(filter, ctx, regionIdGetter, weight = 1) {
+  scoreAllCells(filter, ctx, regionIdGetter, weight = this.weight) {
+    this.prepare();
     for (const cell of ctx.cells) {
       if (filter(cell)) {
         ctx.region = regionIdGetter(cell);
@@ -44,7 +40,8 @@ class Rule {
       }
     }
   }
-  scoreCells(cells, ctx, regionIdGetter, weight = 1) {
+  scoreCells(cells, ctx, regionIdGetter, weight = this.weight) {
+    this.prepare();
     for (const cell of cells) {
       ctx.region = regionIdGetter(cell);
       cell.currentScore += this.score(cell, ctx) * weight;
@@ -52,5 +49,5 @@ class Rule {
   }
 }
 
-export { Rule, RuleSetting };
+export { Rule };
 //# sourceMappingURL=rules-base.js.map

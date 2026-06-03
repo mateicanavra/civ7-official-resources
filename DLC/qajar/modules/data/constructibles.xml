@@ -16,7 +16,7 @@
 		<Row ConstructibleType="BUILDING_GHAHVE_KHANE" Name="LOC_BUILDING_GHAHVE_KHANE_NAME" Description="LOC_BUILDING_GHAHVE_KHANE_DESCRIPTION" Tooltip="LOC_BUILDING_GHAHVE_KHANE_TOOLTIP" ConstructibleClass="BUILDING" Cost="600" Population="1" Age="AGE_MODERN" CostProgressionModel="COST_PROGRESSION_PREVIOUS_BUILDINGS_CITY"/>
 		<Row ConstructibleType="BUILDING_TAKYEH" Name="LOC_BUILDING_TAKYEH_NAME" Description="LOC_BUILDING_TAKYEH_DESCRIPTION" Tooltip="LOC_BUILDING_TAKYEH_TOOLTIP" ConstructibleClass="BUILDING" Cost="600" Population="1" Age="AGE_MODERN" CostProgressionModel="COST_PROGRESSION_PREVIOUS_BUILDINGS_CITY"/>
 		<!--Wonders-->
-		<Row ConstructibleType="WONDER_ERAM_GARDEN" Name="LOC_WONDER_ERAM_GARDEN_NAME" Description="LOC_WONDER_ERAM_GARDEN_DESCRIPTION" Tooltip="LOC_WONDER_ERAM_GARDEN_TOOLTIP" ConstructibleClass="WONDER" Cost="1000" Population="0" ImmuneDamage="true" Age="AGE_MODERN" RequiresUnlock="true" />
+		<Row ConstructibleType="WONDER_ERAM_GARDEN" Name="LOC_WONDER_ERAM_GARDEN_NAME" Description="LOC_WONDER_ERAM_GARDEN_DESCRIPTION" Tooltip="LOC_WONDER_ERAM_GARDEN_TOOLTIP" ConstructibleClass="WONDER" Cost="1500" Population="0" ImmuneDamage="true" Age="AGE_MODERN" RequiresUnlock="true" />
 	</Constructibles>
 	<Buildings>
 		<!-- Civ Unique Buildings -->
@@ -67,7 +67,7 @@
 		<Row ID="TakyehDiplomacyCulture" YieldType="YIELD_DIPLOMACY" YieldChange="1" TilesRequired="1" ProjectMaxYield="true" AdjacentConstructibleTag="CULTURE"/>
 	</Adjacency_YieldChanges>
 	<Constructible_Plunders>
-		<Row ConstructibleType="BUILDING_GHAHVE_KHANE" PlunderType="PLUNDER_CULTURE" Amount="120"/>
+		<Row ConstructibleType="BUILDING_GHAHVE_KHANE" PlunderType="PLUNDER_GOLD" Amount="120"/>
 		<Row ConstructibleType="BUILDING_TAKYEH" PlunderType="PLUNDER_GOLD" Amount="120"/>
 	</Constructible_Plunders>
 	<Constructible_BuildingCostProgressions>

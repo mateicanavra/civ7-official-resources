@@ -1,32 +1,7 @@
-import { F as FxsChooserItem } from '../../../core/ui/components/fxs-chooser-item.chunk.js';
-import { A as AdvisorUtilities } from '../tutorial/tutorial-support.chunk.js';
-import { c as chooserItemStyles } from '../chooser-item/chooser-item.chunk.js';
-import '../../../core/ui/components/fxs-activatable.chunk.js';
-import '../../../core/ui/audio-base/audio-support.chunk.js';
-import '../../../core/ui/input/focus-manager.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/components/fxs-nav-help.chunk.js';
-import '../../../core/ui/input/action-handler.js';
-import '../../../core/ui/input/cursor.js';
-import '../../../core/ui/views/view-manager.chunk.js';
-import '../../../core/ui/panel-support.chunk.js';
-import '../../../core/ui/input/input-support.chunk.js';
-import '../../../core/ui/utilities/utilities-update-gate.chunk.js';
-import '../../../core/ui/utilities/utilities-image.chunk.js';
-import '../../../core/ui/utilities/utilities-component-id.chunk.js';
-import '../../../core/ui/utilities/utilities-layout.chunk.js';
-import '../../../core/ui/utilities/utilities-core-databinding.chunk.js';
-import '../quest-tracker/quest-item.js';
-import '../quest-tracker/quest-tracker.js';
-import '../tutorial/tutorial-item.js';
-import '../tutorial/tutorial-manager.js';
-import '../../../core/ui/context-manager/context-manager.js';
-import '../../../core/ui/context-manager/display-queue-manager.js';
-import '../../../core/ui/dialog-box/manager-dialog-box.chunk.js';
-import '../../../core/ui/input/input-filter.chunk.js';
-import '../tutorial/tutorial-events.chunk.js';
-
-const treeChooserItemStyles = "fs://game/base-standard/ui/tree-chooser-item/tree-chooser-item.css";
+import { FxsChooserItem } from '../../../core/ui/components/fxs-chooser-item.js';
+import { AdvisorUtilities } from '../tutorial/advisor-utilities.js';
+import styles from '../chooser-item/chooser-item.scss.js';
+import treeChooserItemStyles from './tree-chooser-item.scss.js';
 
 class TreeChooserItem extends FxsChooserItem {
   _treeChooserNode = null;
@@ -173,7 +148,7 @@ Controls.define("tree-chooser-item", {
   createInstance: TreeChooserItem,
   description: "A chooser item to be used with the tech or civic choosers",
   classNames: ["tree-chooser-item", "relative", "group"],
-  styles: [treeChooserItemStyles, chooserItemStyles],
+  styles: [treeChooserItemStyles, styles],
   images: [
     "fs://game/hud_sidepanel_list-bg.png",
     "fs://game/hud_list-focus_frame.png",

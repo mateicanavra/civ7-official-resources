@@ -86,11 +86,14 @@
 		<Row Tag="LOC_ATTR_YIELD_FROM_TRADE">
 			<Text>From Trade</Text>
 		</Row>
+		<Row Tag="LOC_ATTR_YIELD_FROM_CONNECTED_TOWNS">
+			<Text>From Connected Towns</Text>
+		</Row>
 		<Row Tag="LOC_ATTR_YIELD_FROM_CITY_STATE">
 			<Text>From City-States</Text>
 		</Row>
 		<Row Tag="LOC_ATTR_PLOT_YIELD_CHANGES">
-			<Text>Plot Yield Changes</Text>
+			<Text>Additions</Text>
 		</Row>
 		<Row Tag="LOC_ATTR_PLOT_PERCENT_YIELD_CHANGES">
 			<Text>Plot Yield Percent Change</Text>
@@ -115,6 +118,9 @@
 		</Row>
 		<Row Tag="LOC_ATTR_YIELD_FROM_APPEAL">
 			<Text>Appeal Bonus</Text>
+		</Row>
+		<Row Tag="LOC_ATTR_PLAYER_YIELD_ADJUSTMENT">
+			<Text>Player Bonus</Text>
 		</Row>
 		<Row Tag="LOC_ATTR_YIELD_FROM_DISASTERS">
 			<Text>Environment Effects Bonus</Text>
@@ -339,6 +345,12 @@
 		<Row Tag="LOC_ATTR_UNIT_ADJUST_PLAYER_YIELD_PER_COMMANDER_LEVEL">
 			<Text>Yield per Commander Level</Text>
 		</Row>
+		<Row Tag="LOC_ATTR_UNIT_ADJUST_PLAYER_YIELD_PER_PROMOTION_LEVEL">
+			<Text>Yield per Commander Promotions</Text>
+		</Row>
+		<Row Tag="LOC_ATTR_UNIT_ADJUST_PLAYER_YIELD_PER_COMMENDATION_LEVEL">
+			<Text>Yield per Commander Commendations</Text>
+		</Row>
 		<Row Tag="LOC_ATTR_BIOME_WAREHOUSE">
 			<Text>From Biome Warehouses</Text>
 		</Row>
@@ -402,6 +414,15 @@
 		<Row Tag="ATTR_NUM_RECONQUERED_SETTLEMENTS">
 			<Text>Number of Reconquered Settlements</Text>
 		</Row>
+		<Row Tag="ATTR_NUM_UNIQUE_NATURAL_WONDER_IMPROVEMENTS">
+			<Text>Number of Unique Natural Wonders</Text>
+		</Row>
+		<Row Tag="ATTR_NUM_CITY_STATES_SUZERAINED_DISTANT_LANDS">
+			<Text>Number of Suzerained City-States in Distant Lands</Text>
+		</Row>
+		<Row Tag="ATTR_NUM_CITY_STATES_SUZERAINED_HOME_LANDS">
+			<Text>Number of Suzerained City-States in Homelands</Text>
+		</Row>
 		<Row Tag="LOC_ATTR_YIELDS_FROM_SUZERAINS">
 			<Text>Yield from being Suzerain of City-States</Text>
 		</Row>
@@ -416,6 +437,21 @@
 		</Row>
 		<Row Tag="LOC_ATTR_CITY_YIELD_PER_RELATIONSHIP_TOTAL">
 			<Text>Yield from Diplomatic Relationships</Text>
+		</Row>
+		<Row Tag="LOC_ATTR_BASE_RELATIONSHIP_HOSTILE">
+			<Text>Yield from Hostile Relationships</Text>
+		</Row>
+		<Row Tag="LOC_ATTR_BASE_RELATIONSHIP_UNFRIENDLY">
+			<Text>Yield from Unfriendly Relationships</Text>
+		</Row>
+		<Row Tag="LOC_ATTR_BASE_RELATIONSHIP_NEUTRAL">
+			<Text>Yield from Neutral Relationships</Text>
+		</Row>
+		<Row Tag="LOC_ATTR_BASE_RELATIONSHIP_FRIENDLY">
+			<Text>Yield from Friendly Relationships</Text>
+		</Row>
+		<Row Tag="LOC_ATTR_BASE_RELATIONSHIP_HELPFUL">
+			<Text>Yield from Helpful Relationships</Text>
 		</Row>
 		<Row Tag="LOC_ATTR_NUM_ALLIANCES">
 			<Text>Yield from Diplomatic Alliances</Text>
@@ -454,10 +490,13 @@
 			<Text>Yield Penalty from Commander Promotions</Text>
 		</Row>
 		<Row Tag="LOC_ATTR_UNIT_ADJUST_CITY_YIELD_PER_COMMANDER_LEVEL">
-			<Text>Yield from Commander Levels</Text>
+			<Text>Yield from Commander Promotions</Text>
 		</Row>
 		<Row Tag="LOC_ATTR_UNIT_ADJUST_CITY_YIELD_PER_COMMANDER_APPLIED_PROMOTIONS">
 			<Text>Yield from Commander Promotions</Text>
+		</Row>
+		<Row Tag="LOC_ATTR_CITY_EFFECTS_YIELDS">
+			<Text>Additions</Text>
 		</Row>
 		<!--Buffs from resources-->
 		<Row Tag="LOC_ATTR_CITY_YIELD_RESOURCE_ALLOCATED">
@@ -467,7 +506,7 @@
 			<Text>Resources in Supply</Text>
 		</Row>
 		<Row Tag="LOC_ATTR_PLAYER_YIELD_PER_GREATWORK">
-			<Text>GreatWorks in Supply</Text>
+			<Text>Great Works in Supply</Text>
 		</Row>
 		<!--War weariness-->
 		<Row Tag="LOC_ATTR_CITY_YIELD_WAR_WEARINESS">
@@ -561,6 +600,12 @@
 		<Row Tag="LOC_ATTR_BASE_COST">
 			<Text>Base</Text>
 		</Row>
+		<Row Tag="LOC_ATTR_MAINTENANCE_EFFICIENCY">
+			<Text>Efficiency</Text>
+		</Row>
+		<Row Tag="LOC_ATTR_MAINTENANCE_EFFICIENCY_TOOLTIP">
+			<Text>Efficiency represents your purchasing power: for each 1% of Efficiency, your yield goes 1% further when spent. This means the amount you actually pay is reduced.[NN]Your Leader, Civilization, Attributes, Wonders, and other effects can apply different Efficiencies to different costs in the game.[NN]For example, if your total Gold Efficiency is +50% on Building maintenance, a Building that normally costs -6 Gold per turn to maintain only costs you -4 Gold per turn.</Text>
+		</Row>
 		<!--Workers-->
 		<Row Tag="LOC_ATTR_BASE_WORKER_YIELD">
 			<Text>Yield per Specialist</Text>
@@ -607,7 +652,7 @@
 			<Text>Settlements</Text>
 		</Row>
 		<Row Tag="LOC_UI_VIEW_RESOURCE_ALLOCATION">
-			<Text>View Resource Allocation</Text>
+			<Text>View Resources &amp; Trade</Text>
 		</Row>
 		<Row Tag="LOC_UI_RESOURCE_ALLOCATION_CONFIRM">
 			<Text>Confirm</Text>
@@ -676,10 +721,10 @@
 			<Text>You must wait until a new Resource is acquired.</Text>
 		</Row>
 		<Row Tag="LOC_UI_RESOURCE_ALLOCATION_RESOURCE_SLOT_REQUIRED">
-			<Text>New slottable resource or additional slot required.</Text>
+			<Text>Resource assignment unlocks upon gaining a new assignable Resource or Resource Slot.</Text>
 		</Row>
 		<Row Tag="LOC_UI_RESOURCE_ALLOCATION_UNAVAILABLE">
-			<Text>Resource Allocation unavailable</Text>
+			<Text>Resource Assignment Locked</Text>
 		</Row>
 		<!--Settlement Tab Bar-->
 		<Row Tag="LOC_UI_SETTLEMENT_TAB_BAR_CITIES">
@@ -747,6 +792,42 @@
 		</Row>
 		<Row Tag="LOC_UI_PLAYER_UNLOCKS_BUILDING_AND_IMPROVEMENTS">
 			<Text>Building and Improvements</Text>
+		</Row>
+		<Row Tag="LOC_COMBAT_PREVIEW_NUMBER_RESOURCES_CAPITAL_BONUS_DESC">
+			<Text>+{1_Value} Combat Strength from Resources assigned to the Capital.</Text>
+		</Row>
+		<Row Tag="LOC_ATTR_YIELDS_FROM_NUM_TRADE_ROUTES">
+			<Text>Number of Trade Routes</Text>
+		</Row>
+		<Row Tag="LOC_ATTR_TOTAL_TRADE_ROUTES">
+			<Text>Total Trade Routes</Text>
+		</Row>
+		<Row Tag="LOC_ATTR_YIELDS_FROM_COMPLETED_MAJOR_TRIUMPHS">
+			<Text>Number of completed Major Triumphs</Text>
+		</Row>
+		<Row Tag="LOC_ATTR_YIELDS_FROM_COMPLETED_MINOR_TRIUMPHS">
+			<Text>Number of completed Minor Triumphs</Text>
+		</Row>
+		<Row Tag="LOC_ATTR_PRODUCTION_MOD_PER_NUM_ACTIVE_PROJECTS">
+			<Text>From number of active Projects</Text>
+		</Row>
+		<Row Tag="LOC_ATTR_PRODUCTION_MOD_PER_NUM_ACTIVE_ENDEAVORS">
+			<Text>From number of active Endeavors</Text>
+		</Row>
+		<Row Tag="LOC_ATTR_PRODUCTION_MOD_PER_NUM_ACTIVE_STARTED_ENDEAVORS">
+			<Text>From number of active Endeavors started</Text>
+		</Row>
+		<Row Tag="LOC_ATTR_PRODUCTION_MOD_PER_NUM_ACTIVE_SUPPORTED_ENDEAVORS">
+			<Text>From number of active Endeavors supported</Text>
+		</Row>
+		<Row Tag="LOC_ATTR_PRODUCTION_MOD_PER_NUM_ACTIVE_SANCTIONS">
+			<Text>From number of active Sanctions</Text>
+		</Row>
+		<Row Tag="LOC_ATTR_PRODUCTION_MOD_PER_NUM_ACTIVE_ESPIONAGE_ACTIONS">
+			<Text>From number of active Espionage Actions</Text>
+		</Row>
+		<Row Tag="LOC_ATTR_PRODUCTION_MOD_PER_NUM_ACTIVE_TREATIES">
+			<Text>From number of active Treaties</Text>
 		</Row>
 	</EnglishText>
 </Database>

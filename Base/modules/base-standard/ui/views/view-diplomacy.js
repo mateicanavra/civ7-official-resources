@@ -1,34 +1,13 @@
-import { A as Audio } from '../../../core/ui/audio-base/audio-support.chunk.js';
-import { b as InputEngineEventName } from '../../../core/ui/input/input-support.chunk.js';
+import { Audio } from '../../../core/ui/audio-base/audio-support.js';
+import { InputEngineEventName } from '../../../core/ui/input/input-support.js';
 import { InterfaceMode } from '../../../core/ui/interface-modes/interface-modes.js';
-import { N as NavTray } from '../../../core/ui/navigation-tray/model-navigation-tray.chunk.js';
-import { U as UISystem, V as ViewManager } from '../../../core/ui/views/view-manager.chunk.js';
+import NavTray from '../../../core/ui/navigation-tray/model-navigation-tray.js';
+import ViewManager, { UISystem } from '../../../core/ui/views/view-manager.js';
 import DiplomacyManager, { DiplomacyInputPanel } from '../diplomacy/diplomacy-manager.js';
-import '../../../core/ui/input/focus-manager.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/panel-support.chunk.js';
-import '../../../core/ui/input/action-handler.js';
-import '../../../core/ui/input/cursor.js';
-import '../../../core/ui/utilities/utilities-update-gate.chunk.js';
-import '../../../core/ui/utilities/utilities-image.chunk.js';
-import '../../../core/ui/utilities/utilities-component-id.chunk.js';
-import '../../../core/ui/context-manager/context-manager.js';
-import '../../../core/ui/context-manager/display-queue-manager.js';
-import '../../../core/ui/dialog-box/manager-dialog-box.chunk.js';
-import '../diplomacy/diplomacy-events.js';
-import '../../../core/ui/utilities/utilities-layout.chunk.js';
-import '../world-input/world-input.js';
-import '../../../core/ui/input/plot-cursor.js';
-import '../../../core/ui/utilities/utilities-network.js';
-import '../../../core/ui/shell/mp-legal/mp-legal.js';
-import '../../../core/ui/events/shell-events.chunk.js';
-import '../../../core/ui/utilities/utilities-dom.chunk.js';
-import '../../../core/ui/utilities/utilities-liveops.js';
-import '../../../core/ui/utilities/utilities-network-constants.chunk.js';
-import '../interface-modes/support-unit-map-decoration.chunk.js';
-import '../utilities/utilities-overlay.chunk.js';
+import { SetIsPlotTooltipVisible } from '../../ui-next/tooltips/plot-tooltip/plot-tooltip.js';
 
 class DiplomacyView {
+  canPlayExitSound = true;
   getName() {
     return "Diplomacy";
   }
@@ -39,10 +18,12 @@ class DiplomacyView {
     return "diplomacy";
   }
   enterView() {
+    this.canPlayExitSound = true;
     Audio.playSound("data-audio-showing", "leader-panel");
+    SetIsPlotTooltipVisible(false);
   }
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
   exitView() {
+    SetIsPlotTooltipVisible(true);
   }
   addEnterCallback(_func) {
   }
@@ -56,7 +37,10 @@ class DiplomacyView {
       return true;
     }
     if (inputEvent.detail.name == "cancel" || inputEvent.detail.name == "keyboard-escape" || inputEvent.detail.name == "mousebutton-right") {
-      Audio.playSound("data-audio-hiding", "leader-panel");
+      if (this.canPlayExitSound) {
+        Audio.playSound("data-audio-hiding", "leader-panel");
+        this.canPlayExitSound = false;
+      }
     }
     if (inputEvent.type != InputEngineEventName) {
       console.warn(
@@ -121,7 +105,6 @@ class DiplomacyView {
       { name: "city-banners", type: UISystem.World, visible: "false" },
       { name: "unit-info-panel", type: UISystem.World, visible: "false" },
       { name: "plot-icons", type: UISystem.World, visible: "false" },
-      { name: "plot-tooltips", type: UISystem.World, visible: "false" },
       { name: "plot-vfx", type: UISystem.World, visible: "false" },
       { name: "units", type: UISystem.Events, selectable: false },
       { name: "unit-flags", type: UISystem.World, visible: "false" },

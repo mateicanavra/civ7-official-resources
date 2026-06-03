@@ -1,4 +1,4 @@
-import { L as LensManager } from '../../../../core/ui/lenses/lens-manager.chunk.js';
+import LensManager from '../../../../core/ui/lenses/lens-manager.js';
 
 var ConstructibleYieldState = /* @__PURE__ */ ((ConstructibleYieldState2) => {
   ConstructibleYieldState2[ConstructibleYieldState2["NOT_PRODUCING"] = 0] = "NOT_PRODUCING";
@@ -168,7 +168,7 @@ class YieldsLensLayer {
   }
   onLayerHotkey(hotkey) {
     if (hotkey.detail.name == "toggle-yields-layer") {
-      LensManager.toggleLayer("fxs-yields-layer");
+      LensManager.toggleLayer("fxs-yields-layer", { serialize: true });
     }
   }
 }

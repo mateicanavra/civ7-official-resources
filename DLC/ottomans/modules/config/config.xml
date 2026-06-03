@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Database>
 	<Civilizations>
-		<Row Domain="ModernAgeCivilizations" CivilizationType="CIVILIZATION_OTTOMANS" CivilizationName="LOC_CIVILIZATION_OTTOMANS_NAME" CivilizationFullName="LOC_CIVILIZATION_OTTOMANS_FULLNAME" CivilizationDescription="LOC_CIVILIZATION_OTTOMANS_DESCRIPTION" CivilizationIcon="shawnee_icon.png"/>
+		<Row Domain="ModernAgeCivilizations" CivilizationType="CIVILIZATION_OTTOMANS" CivilizationName="LOC_CIVILIZATION_OTTOMANS_NAME" CivilizationFullName="LOC_CIVILIZATION_OTTOMANS_FULLNAME" CivilizationDescription="LOC_CIVILIZATION_OTTOMANS_DESCRIPTION" CivilizationIcon="shawnee_icon.png" CivilizationIntroText="LOC_LOADING_CIV_INTRO_TEXT_OTTOMANS"/>
 	</Civilizations>
 	<CivilizationItems>
-		<Row CivilizationDomain="ModernAgeCivilizations" CivilizationType="CIVILIZATION_OTTOMANS" Type="TRAIT_OTTOMANS_ABILITY" Kind="KIND_TRAIT" Name="LOC_TRAIT_OTTOMANS_ABILITY_NAME" Description="LOC_TRAIT_OTTOMANS_ABILITY_DESCRIPTION"/>
+		<!-- Unique Ability -->
+		<Row CivilizationDomain="AntiquityAgeCivilizations" AgeType="AGE_ANTIQUITY" CivilizationType="CIVILIZATION_OTTOMANS" Type="TRAIT_OTTOMANS_ABILITY" Kind="KIND_TRAIT" Name="LOC_TRAIT_OTTOMANS_ABILITY_NAME" Description="LOC_TRAIT_OTTOMANS_ABILITY_AQ_DESCRIPTION"/>
+		<Row CivilizationDomain="ExplorationAgeCivilizations" AgeType="AGE_EXPLORATION" CivilizationType="CIVILIZATION_OTTOMANS" Type="TRAIT_OTTOMANS_ABILITY" Kind="KIND_TRAIT" Name="LOC_TRAIT_OTTOMANS_ABILITY_NAME" Description="LOC_TRAIT_OTTOMANS_ABILITY_EX_DESCRIPTION"/>
+		<Row CivilizationDomain="ModernAgeCivilizations" AgeType="AGE_MODERN" CivilizationType="CIVILIZATION_OTTOMANS" Type="TRAIT_OTTOMANS_ABILITY" Kind="KIND_TRAIT" Name="LOC_TRAIT_OTTOMANS_ABILITY_NAME" Description="LOC_TRAIT_OTTOMANS_ABILITY_MO_DESCRIPTION"/>
+		<!-- Unique Units -->
 		<Row CivilizationDomain="ModernAgeCivilizations" CivilizationType="CIVILIZATION_OTTOMANS" Type="UNIT_JANISSARY" Kind="KIND_UNIT" Name="LOC_UNIT_JANISSARY_NAME" Description="LOC_UNIT_JANISSARY_BASE_DESCRIPTION" Icon="unitflag_leiomano.png"/>
 		<Row CivilizationDomain="ModernAgeCivilizations" CivilizationType="CIVILIZATION_OTTOMANS" Type="UNIT_BARBARY_CORSAIR" Kind="KIND_UNIT" Name="LOC_UNIT_BARBARY_CORSAIR_NAME" Description="LOC_UNIT_BARBARY_CORSAIR_BASE_DESCRIPTION" Icon="unitflag_SHERPA.png"/>
 		<Row CivilizationDomain="ModernAgeCivilizations" CivilizationType="CIVILIZATION_OTTOMANS" Type="QUARTER_KULLIYE" Kind="KIND_QUARTER" Name="LOC_QUARTER_KULLIYE_NAME" Description="LOC_QUARTER_KULLIYE_DESCRIPTION" Icon="city_uniquequarter"/>
@@ -14,6 +18,7 @@
 	<CivilizationTags>
 		<Row CivilizationDomain="ModernAgeCivilizations" CivilizationType="CIVILIZATION_OTTOMANS" TagType="TAG_TRAIT_CULTURAL"/>
 		<Row CivilizationDomain="ModernAgeCivilizations" CivilizationType="CIVILIZATION_OTTOMANS" TagType="TAG_TRAIT_MILITARISTIC"/>
+		<Row CivilizationDomain="ModernAgeCivilizations" CivilizationType="CIVILIZATION_OTTOMANS" TagType="TAG_APEX_AGE_MODERN"/>
 	</CivilizationTags>
 	<LeaderCivilizationBias>
 		<!--This is the table used for UI, the AI uses LeaderCivPriorities in civilizations.xml-->

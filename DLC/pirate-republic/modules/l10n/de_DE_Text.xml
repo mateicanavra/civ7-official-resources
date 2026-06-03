@@ -329,9 +329,11 @@
     </Replace>
     <Replace Tag="LOC_GREATWORK_ARTIFACT_ILLGOTTEN_BOOTY_NAME" Language="de_DE">
       <Text>Diebesgut</Text>
+      <Gender>neuter</Gender>
     </Replace>
     <Replace Tag="LOC_GREATWORK_ARTIFACT_PIRATE_BOOTY_NAME" Language="de_DE">
       <Text>Piratenbeute</Text>
+      <Gender>feminine</Gender>
     </Replace>
     <Replace Tag="LOC_11111A_COMPLETION" Language="de_DE">
       <Text>Ein Verhaltenskodex für Piraten scheint ein Widerspruch zu sein, aber hier steht er, ausgearbeitet und bereit zur Ratifizierung durch einen Piratenrat. "Etwas dünn", bemerkt ein hagerer alter Seemann. "Wir könnten noch ein paar Notizen gebrauchen", sagt ein anderer.</Text>
@@ -505,7 +507,7 @@
       <Text>… "hat etwas gelernt!" Einen anderen gefangen nehmen.</Text>
     </Replace>
     <Replace Tag="LOC_11119A_COMPLETION" Language="de_DE">
-      <Text>Unter einem alten Kai finden Bauarbeiter ein riesiges Goldlager - ein Schatz, der aus der alten Piratenrepublik gestohlen wurde. Die Beute ist von historischer Bedeutung, aber eingeschmolzene Barren könnten auch die {1_Civilization_Adj[2]} Kassen füllen.</Text>
+      <Text>Unter einem alten Kai finden Bauarbeiter ein riesiges Goldlager - ein Schatz, der aus der alten Piratenrepublik gestohlen wurde. Die Beute ist von historischer Bedeutung, aber eingeschmolzene Barren könnten auch die {1_Civilization_adj[2]}{1: gender *:no_space?; other? ;}Kassen füllen.</Text>
     </Replace>
     <Replace Tag="LOC_11119A_STORYTITLE" Language="de_DE">
       <Text>Piratische Piraten</Text>
@@ -612,23 +614,41 @@
     <Replace Tag="LOC_12012C_NAME" Language="de_DE">
       <Text>Eine seltene Gelegenheit, sie in Aktion zu erleben!</Text>
     </Replace>
+    <Replace Tag="LOC_TOT_30030A_COMPLETION" Language="de_DE">
+      <Text>Katzen hüten. Regen anbauen. Einer Ziege das Posaunespielen beibringen. Piraten organisieren. All das ist schwierig. Die Vagabunden, die der schwarzen Flagge angehören, kommen so, wie sie sind: zerlumpt, abgenutzt, gebrochen ... aber mit dem Drang zu plündern.</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30030A_STORYTITLE" Language="de_DE">
+      <Text>Eine ruchlose Bande</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30030B_DESCRIPTION" Language="de_DE">
+      <Text>{1_reward}.</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30030B_NAME" Language="de_DE">
+      <Text>Alle aufnehmen und mit dem Kodex vertraut machen - es ist ihre Gier, nicht ihre Ausrüstung, die die Piraten brauchen.</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30030C_DESCRIPTION" Language="de_DE">
+      <Text>{1_reward}.</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30030C_NAME" Language="de_DE">
+      <Text>Die Schlechtesten wegschicken. Die Republik braucht Standards.</Text>
+    </Replace>
     <Replace Tag="LOC_ABILITY_SLOOP_DESCRIPTION" Language="de_DE">
       <Text>Nach Angriff bewegungsfähig.</Text>
     </Replace>
-    <Replace Tag="LOC_ARTICLES_OF_AGREEMENTS_MOD_BUCCANEER_LOOTING_DESCRIPTION" Language="de_DE">
-      <Text>[icon:UNIT_BUCCANEER] Bukaniere erhalten kostenlos die [icon:NAR_REW_PROMOTION] Beförderung "Plündern".</Text>
+    <Replace Tag="LOC_BLACK_FLAG_STEALTH_PREVIEW" Language="de_DE">
+      <Text>[TIPP:LOC_PEDIA_CONCEPTS_STEALTH_TOOLTIP]Tarnung[/TIP] durch Schwarze Flagge.</Text>
     </Replace>
     <Replace Tag="LOC_BUILDING_NAVAL_ARSENAL_DESCRIPTION" Language="de_DE">
-      <Text>Einzigartiges Goldgebäude der Piratenrepublik. +4 [icon:YIELD_GOLD] Gold. +1 [icon:YIELD_GOLD] Goldnachbarschaft für Ressourcen und Wunder. Zeitlos. Muss auf Küste platziert werden.</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_BUILDING_TOOLTIP]Einzigartiges Goldgebäude[/TIP] der Piratenrepublik. +4 [icon:YIELD_GOLD] Gold. +1 [icon:YIELD_GOLD] Goldnachbarschaft für [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]Ressourcen[/TIP] und [TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]Wunder[/TIP]. Muss auf Küste platziert werden.</Text>
     </Replace>
     <Replace Tag="LOC_BUILDING_NAVAL_ARSENAL_TOOLTIP" Language="de_DE">
-      <Text>Muss auf Küste platziert werden.[n]Einzigartiges Gebäude der Piratenrepublik.</Text>
+      <Text>Muss auf Küste platziert werden.[n][TIP:LOC_PEDIA_CONCEPTS_UNIQUE_BUILDING_TOOLTIP]Einzigartiges Gebäude[/TIP] der Piratenrepublik.</Text>
     </Replace>
     <Replace Tag="LOC_BUILDING_NAVAL_STATION_DESCRIPTION" Language="de_DE">
-      <Text>Einzigartiges Produktionsgebäude der Piratenrepublik. +5 [icon:YIELD_PRODUCTION] Produktion. +1 [icon:YIELD_PRODUCTION] Produktionsnachbarschaft für Militärgebäude, Goldgebäude und Wunder. Zeitlos. Hat keine [icon:YIELD_GOLD] Gold-Unterhaltskosten.</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_BUILDING_TOOLTIP]Einzigartiges Produktionsgebäude[/TIP] der Piratenrepublik. +5 [icon:YIELD_PRODUCTION] Produktion. +1 [icon:YIELD_PRODUCTION] Produktionsnachbarschaft für Militär[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]gebäude[/TIP], Gold[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]gebäude[/TIP] und [TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]Wunder[/TIP]. Hat keine [icon:YIELD_GOLD] Gold-[TIP:LOC_PEDIA_CONCEPTS_MAINTENANCE_TOOLTIP]Unterhaltskosten[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_BUILDING_NAVAL_STATION_TOOLTIP" Language="de_DE">
-      <Text>Muss auf Küste platziert werden.[n]Einzigartiges Gebäude der Piratenrepublik.</Text>
+      <Text>Muss auf Küste platziert werden.[n][TIP:LOC_PEDIA_CONCEPTS_UNIQUE_BUILDING_TOOLTIP]Einzigartiges Gebäude[/TIP] der Piratenrepublik.</Text>
     </Replace>
     <Replace Tag="LOC_CIVIC_ARTICLES_OF_AGREEMENT_AUTHOR" Language="de_DE">
       <Text>Anonymer Pirat</Text>
@@ -640,22 +660,25 @@
       <Text>Henry Avery</Text>
     </Replace>
     <Replace Tag="LOC_CIVIC_ENEMY_OF_ALL_NATIONS_QUOTE" Language="de_DE">
-      <Text>Ich bin ein Liebling der Götter und muss mein Glück suchen. </Text>
+      <Text>"Ich bin ein Liebling der Götter und muss mein Glück suchen."</Text>
     </Replace>
     <Replace Tag="LOC_CIVIC_PORTS_OF_CALL_AUTHOR" Language="de_DE">
       <Text>Pirat, Blackbeards Besatzung</Text>
     </Replace>
     <Replace Tag="LOC_CIVIC_PORTS_OF_CALL_QUOTE" Language="de_DE">
-      <Text>Himmel, Ihr Narr? Habt Ihr je von einem Piraten gehört, der dorthin wollte? Gebt mir die Hölle, dort ist es witziger. </Text>
+      <Text>"Himmel, Ihr Narr? Habt Ihr je von einem Piraten gehört, der dorthin wollte? Gebt mir die Hölle, dort ist es witziger."</Text>
     </Replace>
     <Replace Tag="LOC_CIVILIZATION_PIRATE_REPUBLIC_DESCRIPTION" Language="de_DE">
-      <Text>+100 % Erträge durch [icon:Action_Pillage] Plündern und Küstenraubzüge mit Marineeinheiten. Es können keine [icon:UNIT_SETTLER] Siedler ausgebildet oder erworben werden, aber Ihr könnt die [icon:UNIT_SETTLER] Siedler anderer Zivilisationen erobern. Marineeinheiten, Schatzkonvois und Bukaniere können in die Grenzen anderer Zivilisationen eindringen, ohne dass [icon:WAR] Krieg herrscht oder offene Grenzen bestehen.</Text>
+      <Text>Marineeinheiten erhalten [B]+100 % [icon:Action_Pillage] Plünderungserträge und [icon:Action_Heal] Heilung[/B]. Es können keine [icon:UNIT_SETTLER] Siedler ausgebildet oder erworben werden, aber Ihr könnt die [icon:UNIT_SETTLER] Siedler anderer Zivilisationen erobern. Marineeinheiten, Schatzkonvois und Bukaniere können in die Grenzen anderer Zivilisationen eindringen, ohne dass [icon:WAR] Krieg herrscht oder offene Grenzen bestehen. +5 [icon:ECONOMIC_VP] [TIP:LOC_PEDIA_CONCEPTS_GDP_TOOLTIP]BIP[/TIP] durch Eure [TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]Marineeinheiten[/TIP], wenn sie andere [B]Einheiten[/B] besiegen.</Text>
     </Replace>
     <Replace Tag="LOC_ENEMY_OF_ALL_NATIONS_MOD_TREASURE_FLEET_CS_DESCRIPTION" Language="de_DE">
-      <Text>+15 [icon:NAR_REW_COMBAT] Kampfstärke für alle Militäreinheiten gegen [icon:UNIT_TREASURE_FLEET] Schatzkonvois.</Text>
+      <Text>+15 [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Kampfstärke[/TIP] für alle [TIP:LOC_PEDIA_CONCEPTS_MILITARY_UNIT_TOOLTIP]Militäreinheiten[/TIP] gegen [icon:UNIT_TREASURE_FLEET] [TIP:LOC_PEDIA_CONCEPTS_TREASURE_CONVOY_TOOLTIP]Schatzkonvois[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_ENEMY_OF_ALL_NATIONS_MOD_TREASURE_FLEET_EXTRA_VP_DESCRIPTION" Language="de_DE">
-      <Text>Wenn Ihr eine [icon:UNIT_TREASURE_FLEET] Schatzkonvoi-Einheit erobert, ist sie einen zusätzlichen Schatzflotten-Punkt wert.</Text>
+      <Text>+2 Fracht durch eroberte [icon:UNIT_TREASURE_FLEET] [TIP:LOC_PEDIA_CONCEPTS_TREASURE_CONVOY_TOOLTIP]Schatzkonvois[/TIP].</Text>
+    </Replace>
+    <Replace Tag="LOC_ENEMY_OF_ALL_NATIONS_MOD_TREASURE_FLEET_EXTRA_VP_DESCRIPTION_ALT" Language="de_DE">
+      <Text>+100 % Fracht von erbeuteten [icon:UNIT_TREASURE_FLEET] [TIP:LOC_PEDIA_CONCEPTS_TREASURE_CONVOY_TOOLTIP]Schatzkonvois[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_LOADING_CIV_INTRO_TEXT_PIRATE_REPUBLIC" Language="de_DE">
       <Text>Ahoi, Matrose! Ihr seid mit jenen unterwegs, die keinen anderen Herrn kennen als das Meer und das Salz. Hebt den Anker und schaut, ob am Ende Eurer Gangway Gold oder der Henker auf Euch wartet. Der Befehl ist erteilt und der Teufel ist los.</Text>
@@ -669,23 +692,29 @@
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_PIRATE_REPUBLIC_COMPLETE_HAVANA_HARBOR_NAME" Language="de_DE">
       <Text>Hafen von Havanna</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_PIRATE_REPUBLIC_LEGACY_PATH_ECONOMIC_ACHIEVED_DESC" Language="de_DE">
-      <Text>Schließt als Republik der Piraten einen Wirtschaftsvermächtnis-Weg ab.</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_PIRATE_REPUBLIC_FOUR_MAJOR_TRIUMPHS_DESC" Language="de_DE">
+      <Text>Schließt als Piratenrepublik 4 wirtschaftliche oder militärische Große Triumphe in einem einzigen Höhepunkt-Zeitalter ab.</Text>
     </Replace>
-    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_PIRATE_REPUBLIC_LEGACY_PATH_ECONOMIC_ACHIEVED_NAME" Language="de_DE">
-      <Text>Piratenrepublik-Vermächtnis-Weg</Text>
+    <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_PIRATE_REPUBLIC_FOUR_MAJOR_TRIUMPHS_NAME" Language="de_DE">
+      <Text>4 Große Triumphe der Piratenrepublik</Text>
     </Replace>
     <Replace Tag="LOC_MOD_CIV_WONDER_PRODUCTION_PIRATE_REPUBLIC_DESCRIPTION" Language="de_DE">
       <Text>+30 % [icon:YIELD_PRODUCTION] Produktion als zugehöriges [icon:WONDER] Wunder der Republik der Piraten.</Text>
     </Replace>
-    <Replace Tag="LOC_PORTS_OF_CALL_BUCCANEER_SETTLER_CHARGE_DESCRIPTION" Language="de_DE">
-      <Text>[icon:UNIT_BUCCANEER] Bukaniere erhalten 1 Ladung, um eine neue [icon:YIELD_TOWNS] Gemeinde zu erstellen.</Text>
+    <Replace Tag="LOC_NODE_CIVIC_AQ_PIRATE_REPUBLIC_ORIGINS_NAME" Language="de_DE">
+      <Text>Piraten-Ursprünge</Text>
+    </Replace>
+    <Replace Tag="LOC_NODE_CIVIC_MO_PIRATE_REPUBLIC_MODERNIZATION_NAME" Language="de_DE">
+      <Text>Piraten-Modernisierung</Text>
+    </Replace>
+    <Replace Tag="LOC_PIRATE_AQ_MOD_FREE_SETTLER_DESCRIPTION" Language="de_DE">
+      <Text>Erhaltet 1 [icon:UNIT_SETTLER] Siedler kostenlos.</Text>
     </Replace>
     <Replace Tag="LOC_QUARTER_HAVEN_DESCRIPTION" Language="de_DE">
-      <Text>Republik der Piraten-Spezialviertel. Wird erschaffen, wenn die Marinebasis und das Marine-Arsenal im selben Bezirk gebaut werden. +1 [icon:YIELD_GOLD] Gold für jede [icon:TREASURE_FLEET] Schatzressource in Eurem Vorrat. Freundliche Marineeinheiten erhalten +50 [icon:Action_Heal] Heilung auf diesem Geländefeld.</Text>
+      <Text>Republik der Piraten-[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_QUARTER_TOOLTIP]Spezialviertel[/TIP]. Wird erschaffen, wenn die Marinebasis und das Marine-Arsenal im selben [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]Bezirk[/TIP] gebaut werden. +1 [icon:YIELD_GOLD] Gold für jede [icon:TREASURE_FLEET] [TIP:LOC_PEDIA_CONCEPTS_TREASURE_RESOURCES_TOOLTIP]Schatzressource[/TIP] in Eurem Vorrat. Freundliche [TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]Marineeinheiten[/TIP] erhalten +50 [icon:Action_Heal] Heilung auf diesem Geländefeld.</Text>
     </Replace>
     <Replace Tag="LOC_QUARTER_HAVEN_TOOLTIP" Language="de_DE">
-      <Text>+1 [icon:YIELD_GOLD] Gold für jede [icon:TREASURE_FLEET] Schatzressource in Eurem Vorrat. Freundliche Marineeinheiten erhalten +50 [icon:Action_Heal] Heilung auf diesem Geländefeld.</Text>
+      <Text>+1 [icon:YIELD_GOLD] Gold für jede [icon:TREASURE_FLEET] [TIP:LOC_PEDIA_CONCEPTS_TREASURE_RESOURCES_TOOLTIP]Schatzressource[/TIP] in Eurem Vorrat. Freundliche [TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]Marineeinheiten[/TIP] erhalten +50 [icon:Action_Heal] Heilung auf diesem Geländefeld.</Text>
     </Replace>
     <Replace Tag="LOC_QUOTE_AUTHOR_WONDER_HAVANA_HARBOR" Language="de_DE">
       <Text>Robert Louis Stevenson</Text>
@@ -693,17 +722,38 @@
     <Replace Tag="LOC_QUOTE_WONDER_HAVANA_HARBOR" Language="de_DE">
       <Text>In der unmittelbaren Nähe des Goldes war alles andere vergessen worden.</Text>
     </Replace>
-    <Replace Tag="LOC_TRADITION_BLACK_FLAG_DESCRIPTION" Language="de_DE">
-      <Text>+100 % [icon:YIELD_GOLD] Gold durch [icon:Action_Pillage] Plünderung von Handelswegen.</Text>
+    <Replace Tag="LOC_TRADITION_BLACK_FLAG_I_DESCRIPTION" Language="de_DE">
+      <Text>+50 [icon:YIELD_GOLD] Gold (je nach Spieltempo) für das [icon:Action_Pillage] Plündern von [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]Handelswegen[/TIP]. +50 % Erträge und [icon:Action_Heal] Heilung durch [icon:Action_Pillage] Küstenraubzüge mit Marineeinheiten.</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_BLACK_FLAG_II_DESCRIPTION" Language="de_DE">
+      <Text>+100 [icon:YIELD_GOLD] Gold (je nach Spieltempo) für das [icon:Action_Pillage] Plündern von [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]Handelswegen[/TIP]. +50 % Erträge und [icon:Action_Heal] Heilung durch [icon:Action_Pillage] Küstenraubzüge mit Marineeinheiten. [icon:UNIT_FLEET_COMMANDER] [TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]Flottenkommandeure[/TIP] und [TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]Marineeinheiten[/TIP] erhalten [TIP:LOC_PEDIA_CONCEPTS_STEALTH_TOOLTIP]Tarnung[/TIP] auf Atollen.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_MERRY_LIFE_AND_A_SHORT_ONE_DESCRIPTION" Language="de_DE">
-      <Text>Wenn Ihr eine Unterstützungseinheit besiegt, erhaltet Ihr [icon:YIELD_GOLD] Gold in Höhe der [icon:YIELD_PRODUCTION] Produktionskosten dieser Einheit. Wenn Ihr eine Marineeinheit besiegt, erhaltet Ihr [icon:YIELD_GOLD] Gold in Höhe von 25 % der [icon:YIELD_PRODUCTION] Produktionskosten der Einheit.</Text>
+      <Text>Wenn Ihr eine [TIP:LOC_PEDIA_CONCEPTS_SUPPORT_UNIT_TOOLTIP]Unterstützungseinheit[/TIP] besiegt, erhaltet Ihr [icon:YIELD_GOLD] Gold in Höhe der [icon:YIELD_PRODUCTION] Produktionskosten dieser Einheit. Wenn Ihr eine [TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]Marineeinheit[/TIP] besiegt, erhaltet Ihr [icon:YIELD_GOLD] Gold in Höhe von 25 % der [icon:YIELD_PRODUCTION] Produktionskosten der Einheit.</Text>
     </Replace>
-    <Replace Tag="LOC_TRADITION_PRESS_GANGS_DESCRIPTION" Language="de_DE">
-      <Text>+50 % [icon:YIELD_PRODUCTION] Produktion für Marineeinheiten für jeden [icon:UNIT_FLEET_COMMANDER] Flottenkommandeur, über den Ihr verfügt.</Text>
+    <Replace Tag="LOC_TRADITION_PIRATE_REPUBLIC_SYNCRETISM_ANTIQUITY_DESCRIPTION" Language="de_DE">
+      <Text>+2 [icon:YIELD_PRODUCTION] Produktion für [icon:CITY_URBAN] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]Bezirke[/TIP] an der Küste. -1 [icon:YIELD_HAPPINESS] Zufriedenheit in [icon:CITY_URBAN] Bezirken, die nicht an der Küste liegen .</Text>
     </Replace>
-    <Replace Tag="LOC_TRAIT_PIRATE_REPUBLIC_ABILITY_DESCRIPTION" Language="de_DE">
-      <Text>[BLIST][LI][B]+100 % Erträge[/B] durch [icon:Action_Pillage] [B]Plündern[/B] und [B]Küstenraubzüge[/B] mit Marineeinheiten.[LI]Es können keine [icon:UNIT_SETTLER] [B]Siedler[/B] ausgebildet oder erworben werden, aber Ihr könnt die [icon:UNIT_SETTLER] [B]Siedler[/B] anderer Zivilisationen erobern.[LI][B]Marineeinheiten, Schatzkonvois und Bukaniere[/B] können in die Grenzen anderer [B]Zivilisationen[/B] eindringen, ohne dass [icon:WAR] [B]Krieg[/B] herrscht oder [B]offene Grenzen[/B] bestehen.[LI][B]+30 %[icon:YIELD_PRODUCTION] Produktion [/B]für den Bau des [B]Hafens von Havanna[/B].[/LIST]</Text>
+    <Replace Tag="LOC_TRADITION_PIRATE_REPUBLIC_SYNCRETISM_MODERN_DESCRIPTION" Language="de_DE">
+      <Text>+3 [icon:YIELD_PRODUCTION] Produktion für [icon:CITY_URBAN] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]Bezirke[/TIP] an der Küste. -2 [icon:YIELD_HAPPINESS] Zufriedenheit in [icon:CITY_URBAN] Bezirken, die nicht an der Küste liegen.</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_PIRATE_REPUBLIC_SYNCRETISM_TOOLTIP" Language="de_DE">
+      <Text>Brüder der Küste</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_PRESS_GANGS_I_DESCRIPTION" Language="de_DE">
+      <Text>+100 % [icon:YIELD_PRODUCTION] Produktion und [icon:YIELD_GOLD] Gold für die Ausbildung von leichten Marineeinheiten. [icon:UNIT_FLEET_COMMANDER] [TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]Flottenkommandeure[/TIP] erhalten die [icon:NAR_REW_PROMOTION] [TIP:LOC_PROMOTION_FLEET_LOOTING_DESCRIPTION]Beförderung "Plündern"[/TIP] kostenlos.</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_PRESS_GANGS_II_DESCRIPTION" Language="de_DE">
+      <Text>+150 % [icon:YIELD_PRODUCTION] Produktion und [icon:YIELD_GOLD] Gold für die Ausbildung von leichten Marineeinheiten. [icon:UNIT_FLEET_COMMANDER] [TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]Flottenkommandeure[/TIP] erhalten die [icon:NAR_REW_PROMOTION] [TIP:LOC_PROMOTION_FLEET_LOOTING_DESCRIPTION]Beförderung "Plündern"[/TIP] kostenlos.</Text>
+    </Replace>
+    <Replace Tag="LOC_TRAIT_PIRATE_REPUBLIC_ABILITY_AQ_DESCRIPTION" Language="de_DE">
+      <Text>[BLIST][LI][B]Marineeinheiten[/B] können sich in die Grenzgebiete anderer [B]Zivilisationen[/B] bewegen, ohne sich im [icon:WAR] [B]Krieg[/B] mit ihnen zu befinden oder [B]offene Grenzen[/B] zu haben.[LI][icon:UNIT_SETTLER] [B]Siedler[/B] können nicht ausgebildet oder gekauft werden, aber Ihr könnt die [icon:UNIT_SETTLER] [B]Siedler[/B] anderer Zivilisationen gefangen nehmen. Ihr erlangt einen kostenlosen [icon:UNIT_SETTLER] [B]Siedler[/B], wenn Ihr die [icon:RADIAL_TECH] Technologien "Segeln" und "Navigation" sowie die [icon:RADIAL_CIVICS] Ausrichtung "Piraten-Ursprünge" abgeschlossen habt.[LI]+5 [icon:ECONOMIC_VP] [TIP:LOC_PEDIA_CONCEPTS_GDP_TOOLTIP]BIP[/TIP] durch Eure [TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]Marineeinheiten[/TIP], wenn sie andere [B]Einheiten[/B] besiegen.[/BLIST]</Text>
+    </Replace>
+    <Replace Tag="LOC_TRAIT_PIRATE_REPUBLIC_ABILITY_EX_DESCRIPTION" Language="de_DE">
+      <Text>[BLIST][LI][B]Marineeinheiten, [icon:UNIT_TREASURE_FLEET] Schatzkonvois und [icon:UNIT_BUCCANEER] Bukaniere[/B] können sich in die Grenzgebiete anderer [B]Zivilisationen[/B] bewegen, ohne sich im [icon:WAR] [B]Krieg[/B] mit ihnen zu befinden oder [B]offene Grenzen[/B] zu haben. [LI][icon:UNIT_BUCCANEER] [B]Bukaniere[/B] erhalten nach ihrer [B]ersten [icon:NAR_REW_PROMOTION] [TIP:LOC_PEDIA_CONCEPTS_PROMOTION_TOOLTIP]Beförderung[/TIP][/B] [B]1 Ladung für die Gründung einer neuen [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]Siedlung[/TIP][/B].[LI][icon:UNIT_SETTLER] [B]Siedler[/B] können nicht ausgebildet oder gekauft werden, aber Ihr könnt die [icon:UNIT_SETTLER] [B]Siedler[/B] anderer Zivilisationen gefangen nehmen.[LI]+5 [icon:ECONOMIC_VP] [TIP:LOC_PEDIA_CONCEPTS_GDP_TOOLTIP]BIP[/TIP] durch Eure [TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]Marineeinheiten[/TIP], wenn sie andere [B]Einheiten[/B] besiegen.[LI][B]+30 % [icon:YIELD_PRODUCTION] Produktion[/B] für den Bau des [B]Hafens von Havanna[/B].[/BLIST]</Text>
+    </Replace>
+    <Replace Tag="LOC_TRAIT_PIRATE_REPUBLIC_ABILITY_MO_DESCRIPTION" Language="de_DE">
+      <Text>[BLIST][LI][B]Marineeinheiten und [icon:UNIT_FLEET_COMMANDER] [TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]Flottenkommandeure[/TIP][/B] können sich in die Grenzgebiete anderer [B]Zivilisationen[/B] bewegen, ohne sich im [icon:WAR] [B]Krieg[/B] mit ihnen zu befinden oder [B]offene Grenzen[/B] zu haben. [LI][B][icon:UNIT_FLEET_COMMANDER] [TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]Flottenkommandeure[/TIP][/B] erhalten nach ihrer [B]ersten [icon:NAR_REW_PROMOTION] [TIP:LOC_PEDIA_CONCEPTS_PROMOTION_TOOLTIP]Beförderung[/TIP][/B] [B]1 Ladung für die Gründung einer neuen [TIP: LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]Siedlung[/TIP][/B]. [LI][icon:UNIT_SETTLER] [B]Siedler[/B] können nicht ausgebildet oder gekauft werden, aber Ihr könnt die [icon:UNIT_SETTLER] [B]Siedler[/B] anderer Zivilisationen gefangen nehmen.[LI]+5 [icon:ECONOMIC_VP] [TIP:LOC_PEDIA_CONCEPTS_GDP_TOOLTIP]BIP[/TIP] durch Eure [TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]Marineeinheiten[/TIP], wenn sie andere [B]Einheiten[/B] besiegen.[/BLIST]</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_PIRATE_REPUBLIC_ABILITY_NAME" Language="de_DE">
       <Text>Flying Gang</Text>
@@ -712,19 +762,19 @@
       <Text>Piraten-Ausrichtungen</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_BUCCANEER_DESCRIPTION" Language="de_DE">
-      <Text>Einzigartiger Flottenkommandeur der Republik der Piraten. Erhält pro 2 [icon:NAR_REW_PROMOTION] Stufen 1 Ladung für die Aktion "Überfallkommando". Überfallkommando: Zielt auf eine benachbarte [icon:TREASURE_FLEET] Schatzressource in fernen Ländern ab, die einer anderen Zivilisation gehört. Diese Siedlung produziert sofort einen [icon:UNIT_TREASURE_FLEET] Schatzkonvoi unter Eurer Kontrolle. Runden werden nicht zurückgesetzt, bis ein weiterer [icon:UNIT_TREASURE_FLEET] Schatzkonvoi erscheint.</Text>
+      <Text>Einzigartiger Flottenkommandeur der Republik der Piraten. Erhält pro 2 [icon:NAR_REW_PROMOTION] Beförderungen 1 Ladung für die Aktion "Überfallkommando". Überfallkommando: Zielt auf eine benachbarte [icon:TREASURE_FLEET] [TIP:LOC_PEDIA_CONCEPTS_TREASURE_RESOURCES_TOOLTIP]Schatzressource[/TIP] in [TIP:LOC_PEDIA_CONCEPTS_DISTANT_LANDS_TOOLTIP]fernen Ländern[/TIP] ab, die einer anderen Zivilisation gehört. Diese [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]Siedlung[/TIP] produziert sofort einen [icon:UNIT_TREASURE_FLEET] [TIP:LOC_PEDIA_CONCEPTS_TREASURE_CONVOY_TOOLTIP]Schatzkonvoi[/TIP] unter Eurer Kontrolle. Runden werden nicht zurückgesetzt, bis ein weiterer [icon:UNIT_TREASURE_FLEET] [TIP:LOC_PEDIA_CONCEPTS_TREASURE_CONVOY_TOOLTIP]Schatzkonvoi[/TIP] erscheint.</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_SLOOP_2_DESCRIPTION" Language="de_DE">
-      <Text>Leichte Marineeinheit der Republik der Piraten der Stufe 2. Hat die [icon:UNIT_CAUTION] Piraten-Fähigkeit. Kann die Grenzen anderer Zivilisationen übertreten, Handelswege nicht verbündeter Zivilisationen [icon:Action_Pillage] plündern und die Einheiten nicht verbündeter Zivilisationen angreifen, ohne [icon:WAR] Krieg zu führen. Eine Einheit mit der Schaluppe zu besiegen, liefert [icon:YIELD_GOLD] Gold in Höhe von 100 % der [icon:NAR_REW_COMBAT] Kampfstärke dieser Einheit. Kann sich nach dem Angriff bewegen und hat 5 [icon:Action_Move] Fortbewegung.</Text>
+      <Text>Leichte [TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]Marine[/TIP]-Spezialeinheit der Republik der Piraten der Stufe 2. Hat die [icon:UNIT_CAUTION] [TIP:LOC_PEDIA_CONCEPTS_PIRATE_TOOLTIP]Piraten[/TIP]-Fähigkeit. Eine Einheit mit der Schaluppe zu besiegen liefert [icon:YIELD_GOLD] Gold in Höhe von 100 % der [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Kampfstärke[/TIP] dieser Einheit. Kann sich nach dem Angriff bewegen und hat 5 [icon:Action_Move] Fortbewegung.</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_SLOOP_3_DESCRIPTION" Language="de_DE">
-      <Text>Leichte Marineeinheit der Republik der Piraten der Stufe 3. Hat die [icon:UNIT_CAUTION] Piraten-Fähigkeit. Kann die Grenzen anderer Zivilisationen übertreten, Handelswege nicht verbündeter Zivilisationen [icon:Action_Pillage] plündern und die Einheiten nicht verbündeter Zivilisationen angreifen, ohne [icon:WAR] Krieg zu führen. Eine Einheit mit der Schaluppe zu besiegen, liefert [icon:YIELD_GOLD] Gold in Höhe von 100 % der [icon:NAR_REW_COMBAT] Kampfstärke dieser Einheit. Kann sich nach dem Angriff bewegen und hat 5 [icon:Action_Move] Fortbewegung.</Text>
+      <Text>Leichte [TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]Marine[/TIP]-Spezialeinheit der Republik der Piraten der Stufe 3. Hat die [icon:UNIT_CAUTION] [TIP:LOC_PEDIA_CONCEPTS_PIRATE_TOOLTIP]Piraten[/TIP]-Fähigkeit. Eine Einheit mit der Schaluppe zu besiegen liefert [icon:YIELD_GOLD] Gold in Höhe von 100 % der [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Kampfstärke[/TIP] dieser Einheit. Kann sich nach dem Angriff bewegen und hat 5 [icon:Action_Move] Fortbewegung.</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_SLOOP_BASE_DESCRIPTION" Language="de_DE">
-      <Text>Einzigartige leichte Marineeinheit der Republik der Piraten. Hat die [icon:UNIT_CAUTION] Piraten-Fähigkeit. Kann die Grenzen anderer Zivilisationen übertreten, Handelswege nicht verbündeter Zivilisationen [icon:Action_Pillage] plündern und die Einheiten nicht verbündeter Zivilisationen angreifen, ohne [icon:WAR] Krieg zu führen. Eine Einheit mit der Schaluppe zu besiegen, liefert [icon:YIELD_GOLD] Gold in Höhe von 100 % der [icon:NAR_REW_COMBAT] Kampfstärke dieser Einheit. Kann sich nach dem Angriff bewegen und hat 5 [icon:Action_Move] Fortbewegung.</Text>
+      <Text>Einzigartige leichte [TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]Marineeinheit[/TIP] der Republik der Piraten. Hat die [icon:UNIT_CAUTION] [TIP:LOC_PEDIA_CONCEPTS_PIRATE_TOOLTIP]Piraten[/TIP]-Fähigkeit. Eine Einheit mit der Schaluppe zu besiegen liefert [icon:YIELD_GOLD] Gold in Höhe von 100 % der [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Kampfstärke[/TIP] dieser Einheit. Kann sich nach dem Angriff bewegen und hat 5 [icon:Action_Move] Fortbewegung.</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_SLOOP_DESCRIPTION" Language="de_DE">
-      <Text>Leichte Marineeinheit der Republik der Piraten der Stufe 1. Hat die [icon:UNIT_CAUTION] Piraten-Fähigkeit. Kann die Grenzen anderer Zivilisationen übertreten, Handelswege nicht verbündeter Zivilisationen [icon:Action_Pillage] plündern und die Einheiten nicht verbündeter Zivilisationen angreifen, ohne [icon:WAR] Krieg zu führen. Eine Einheit mit der Schaluppe zu besiegen, liefert [icon:YIELD_GOLD] Gold in Höhe von 100 % der [icon:NAR_REW_COMBAT] Kampfstärke dieser Einheit. Kann sich nach dem Angriff bewegen und hat 5 [icon:Action_Move] Fortbewegung.</Text>
+      <Text>Leichte [TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]Marine[/TIP]-Spezialeinheit der Republik der Piraten der Stufe 1. Hat die [icon:UNIT_CAUTION] [TIP:LOC_PEDIA_CONCEPTS_PIRATE_TOOLTIP]Piraten[/TIP]-Fähigkeit. Eine Einheit mit der Schaluppe zu besiegen liefert [icon:YIELD_GOLD] Gold in Höhe von 100 % der [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Kampfstärke[/TIP] dieser Einheit. Kann sich nach dem Angriff bewegen und hat 5 [icon:Action_Move] Fortbewegung.</Text>
     </Replace>
     <Replace Tag="LOC_UNITOPERATION_RAIDING_PARTY_DESCRIPTION" Language="de_DE">
       <Text>Wird aktiviert auf einem unbesetzten Geländefeld neben einer Schatzressource in fernen Ländern, die einer anderen Zivilisation gehört. Diese Siedlung produziert sofort einen Schatzkonvoi unter Eurer Kontrolle. Runden werden nicht zurückgesetzt, bis ein weiterer Schatzkonvoi erscheint.</Text>
@@ -744,6 +794,9 @@
     <Replace Tag="LOC_UNLOCK_PLAY_AS_PIRATE_REPUBLIC_DESCRIPTION" Language="de_DE">
       <Text>Spielt als [B]Republik der Piraten[/B].</Text>
     </Replace>
+    <Replace Tag="LOC_UNLOCK_PLAY_AS_PIRATE_REPUBLIC_PIRATE_REPUBLIC_TOOLTIP" Language="de_DE">
+      <Text>Die [B]Piratenrepublik[/B] ist in der Lage, die Zeitalter zu überdauern.</Text>
+    </Replace>
     <Replace Tag="LOC_UNLOCK_PLUNDERS_DESCRIPTION" Language="de_DE">
       <Text>Plündert zwei [B]Handelswege[/B] </Text>
     </Replace>
@@ -754,16 +807,21 @@
       <Text>[B]Plündern[/B] war ein wichtiger Bestandteil der Identität der [B]Piratenrepublik[/B] .</Text>
     </Replace>
     <Replace Tag="LOC_WONDER_HAVANA_HARBOR_DESCRIPTION" Language="de_DE">
-      <Text>+3 [icon:YIELD_GOLD] Gold. Diese Siedlung generiert [icon:UNIT_TREASURE_FLEET] Schatzkonvois im Wert von 3 Schatzflotten-Punkten im Zeitalter der Erkundung. +1 [icon:ATTRIBUTE_ECONOMIC] Wirtschaftsattribut-Punkt. Zeitlos. Muss in fernen Ländern an einer Küste angrenzend an Land, jedoch nicht an einen See gebaut werden.</Text>
+      <Text>+3 [icon:YIELD_GOLD] Gold. Diese [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]Siedlung[/TIP] generiert [icon:UNIT_TREASURE_FLEET] [TIP:LOC_PEDIA_CONCEPTS_TREASURE_CONVOY_TOOLTIP]Schatzkonvois[/TIP] mit einem Frachtwert von 3 im [TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]Zeitalter[/TIP] der Erkundung. +1 [icon:ATTRIBUTE_ECONOMIC] Wirtschafts[TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]attribut[/TIP]-Punkt. [TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]Zeitlos[/TIP]. Muss in [TIP:LOC_PEDIA_CONCEPTS_DISTANT_LANDS_TOOLTIP]fernen Ländern[/TIP] an einer Küste angrenzend an Land, jedoch nicht an einen See gebaut werden.</Text>
     </Replace>
     <Replace Tag="LOC_WONDER_HAVANA_HARBOR_TOOLTIP" Language="de_DE">
-      <Text>Diese Siedlung generiert [icon:UNIT_TREASURE_FLEET] Schatzkonvois im Wert von 3 Schatzflotten-Punkten im Zeitalter der Erkundung. +1 [icon:ATTRIBUTE_ECONOMIC] Wirtschaftsattribut-Punkt.[N]Muss in fernen Ländern an einer Küste angrenzend an Land, jedoch nicht an einen See gebaut werden.</Text>
+      <Text>Diese [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]Siedlung[/TIP] generiert [icon:UNIT_TREASURE_FLEET] [TIP:LOC_PEDIA_CONCEPTS_TREASURE_CONVOY_TOOLTIP]Schatzkonvois[/TIP] mit einem Frachtwert von 3 im [TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]Zeitalter[/TIP] der Erkundung. +1 [icon:ATTRIBUTE_ECONOMIC] Wirtschafts[TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]attribut[/TIP]-Punkt.[N]Muss in [TIP:LOC_PEDIA_CONCEPTS_DISTANT_LANDS_TOOLTIP]fernen Ländern[/TIP] an einer Küste angrenzend an Land, jedoch nicht an einen See gebaut werden.</Text>
     </Replace>
     <Replace Tag="LOC_ENEMY_OF_ALL_NATIONS_MOD_TREASURE_FLEET_CS_PREVIEW" Language="de_DE">
       <Text>+{1_Amount} Feind aller Nationen</Text>
     </Replace>
-    <Replace Tag="LOC_TRADITION_BLACK_FLAG_NAME" Language="de_DE">
-      <Text>Schwarze Flagge|Schwarze Flagge|Schwarzen Flagge|Schwarzen Flagge|Schwarze Flagge</Text>
+    <Replace Tag="LOC_TRADITION_BLACK_FLAG_I_NAME" Language="de_DE">
+      <Text>Schwarze Flagge I|Schwarze Flagge I|Schwarzen Flagge I|Schwarzen Flagge I|Schwarze Flagge I</Text>
+      <Gender>feminine</Gender>
+      <Plurality>1</Plurality>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_BLACK_FLAG_II_NAME" Language="de_DE">
+      <Text>Schwarze Flagge II|Schwarze Flagge II|Schwarzen Flagge II|Schwarzen Flagge II|Schwarze Flagge II</Text>
       <Gender>feminine</Gender>
       <Plurality>1</Plurality>
     </Replace>
@@ -772,8 +830,23 @@
       <Gender>neuter:no_article</Gender>
       <Plurality>1</Plurality>
     </Replace>
-    <Replace Tag="LOC_TRADITION_PRESS_GANGS_NAME" Language="de_DE">
-      <Text>Zwangsrekrutierung|Zwangsrekrutierung|Zwangsrekrutierung|Zwangsrekrutierung|Zwangsrekrutierung</Text>
+    <Replace Tag="LOC_TRADITION_PIRATE_REPUBLIC_SYNCRETISM_ANTIQUITY_NAME" Language="de_DE">
+      <Text>Brüder der Küste I|Brüder der Küste I|Brüdern der Küste I|Brüder der Küste I|Brüder der Küste I</Text>
+      <Gender>masculine</Gender>
+      <Plurality>2</Plurality>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_PIRATE_REPUBLIC_SYNCRETISM_MODERN_NAME" Language="de_DE">
+      <Text>Brüder der Küste II|Brüder der Küste II|Brüdern der Küste II|Brüder der Küste II|Brüder der Küste II</Text>
+      <Gender>masculine</Gender>
+      <Plurality>2</Plurality>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_PRESS_GANGS_I_NAME" Language="de_DE">
+      <Text>Zwangsrekrutierung I|Zwangsrekrutierung I|Zwangsrekrutierung I|Zwangsrekrutierung I|Zwangsrekrutierung I</Text>
+      <Gender>feminine</Gender>
+      <Plurality>1</Plurality>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_PRESS_GANGS_II_NAME" Language="de_DE">
+      <Text>Zwangsrekrutierung II|Zwangsrekrutierung II|Zwangsrekrutierung II|Zwangsrekrutierung II|Zwangsrekrutierung II</Text>
       <Gender>feminine</Gender>
       <Plurality>1</Plurality>
     </Replace>

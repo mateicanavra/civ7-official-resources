@@ -62,4 +62,9 @@
 		<Argument name="Amount">2, 2</Argument>
 		<Argument name="Tooltip">LOC_WONDER_SULTANAHMET_CAMII_NAME</Argument>
 	</Modifier>
+	<!-- This tradition modifier targets the museum, so placing the modifier here -->
+	<Modifier id="OSMANLI_BAROK_MUSEUM_PRODUCTION_EFFICIENCY" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_PRODUCTION" run-once="false" permanent="true">
+		<Argument name="Percent">15</Argument>
+		<Argument name="ConstructibleType">BUILDING_MUSEUM</Argument>
+	</Modifier>
 </GameEffects>

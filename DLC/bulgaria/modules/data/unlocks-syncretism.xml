@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<LeaderSyncretismUnlocks>
+		<Row LeaderType="LEADER_GENGHIS_KHAN" UnlockCivilizationType="CIVILIZATION_BULGARIA" />
+		<Row LeaderType="LEADER_CATHERINE" UnlockCivilizationType="CIVILIZATION_BULGARIA" />
+		<Row LeaderType="LEADER_AUGUSTUS" UnlockCivilizationType="CIVILIZATION_BULGARIA" />
+		<Row LeaderType="LEADER_CHARLEMAGNE" UnlockCivilizationType="CIVILIZATION_BULGARIA" />
+	</LeaderSyncretismUnlocks>
+	<CivilizationSyncretismUnlocks>
+		<!--Changed Syncretism Unlock from Persia to Assyria, it has better gameplay synergy. Might want to change their normal unlock as well.-->
+		<Row CivilizationType="CIVILIZATION_GREECE" UnlockCivilizationType="CIVILIZATION_BULGARIA" />
+		<Row CivilizationType="CIVILIZATION_BULGARIA" UnlockCivilizationType="CIVILIZATION_RUSSIA" />
+	</CivilizationSyncretismUnlocks>
+	<CivSelfSyncretismUnlocks>
+		<Row CivilizationType="CIVILIZATION_BULGARIA" UnlockType="TRADITION_BULGARIA_SYNCRETISM_ANTIQUITY" Kind="KIND_TRADITION" Age="AGE_ANTIQUITY" ModifierID="MOD_UNLOCK_BULGARIA_SYNCRETISM_ANTIQUITY" />
+		<Row CivilizationType="CIVILIZATION_BULGARIA" UnlockType="TRADITION_CULTURE_SLOT" Kind="KIND_CULTURE_SLOT" Age="AGE_ANTIQUITY" ModifierID="MOD_SELF_SYNCRETISM_GRANT_TRADITION_SLOT" />
+		<Row CivilizationType="CIVILIZATION_BULGARIA" UnlockType="TRADITION_BULGARIA_SYNCRETISM_MODERN" Kind="KIND_TRADITION" Age="AGE_MODERN" ModifierID="MOD_UNLOCK_BULGARIA_SYNCRETISM_MODERN" />
+		<Row CivilizationType="CIVILIZATION_BULGARIA" UnlockType="TRADITION_CULTURE_SLOT" Kind="KIND_CULTURE_SLOT" Age="AGE_MODERN" ModifierID="MOD_SELF_SYNCRETISM_GRANT_TRADITION_SLOT" />
+	</CivSelfSyncretismUnlocks>
+</Database>

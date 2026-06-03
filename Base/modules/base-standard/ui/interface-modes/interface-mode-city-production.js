@@ -1,12 +1,6 @@
 import { InterfaceMode } from '../../../core/ui/interface-modes/interface-modes.js';
-import { C as ComponentID } from '../../../core/ui/utilities/utilities-component-id.chunk.js';
-import { C as CityDecorationSupport } from './support-city-decoration.chunk.js';
-import '../../../core/ui/views/view-manager.chunk.js';
-import '../../../core/ui/input/focus-manager.js';
-import '../../../core/ui/audio-base/audio-support.chunk.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/panel-support.chunk.js';
-import '../utilities/utilities-overlay.chunk.js';
+import { ComponentID } from '../../../core/ui/utilities/utilities-component-id.js';
+import { CityDecorationSupport } from './support-city-decoration.js';
 
 class CityProductionInterfaceMode {
   requestedCityID = null;

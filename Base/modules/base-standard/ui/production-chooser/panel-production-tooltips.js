@@ -1,35 +1,6 @@
-import TooltipManager from '../../../core/ui/tooltips/tooltip-manager.js';
-import { IsElement } from '../../../core/ui/utilities/utilities-dom.chunk.js';
-import { c as GetTownFocusBlp } from './production-chooser-helpers.chunk.js';
-import { A as AdvisorUtilities } from '../tutorial/tutorial-support.chunk.js';
-import '../../../core/ui/input/action-handler.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/input/cursor.js';
-import '../../../core/ui/input/focus-manager.js';
-import '../../../core/ui/audio-base/audio-support.chunk.js';
-import '../../../core/ui/views/view-manager.chunk.js';
-import '../../../core/ui/panel-support.chunk.js';
-import '../../../core/ui/input/input-support.chunk.js';
-import '../../../core/ui/utilities/utilities-update-gate.chunk.js';
-import '../../../core/ui/input/plot-cursor.js';
-import '../../../core/ui/context-manager/context-manager.js';
-import '../../../core/ui/context-manager/display-queue-manager.js';
-import '../../../core/ui/dialog-box/manager-dialog-box.chunk.js';
-import '../../../core/ui/utilities/utilities-layout.chunk.js';
-import '../../../core/ui/interface-modes/interface-modes.js';
-import '../../../core/ui/utilities/utilities-component-id.chunk.js';
-import '../../../core/ui/utilities/utilities-image.chunk.js';
-import '../building-placement/building-placement-manager.js';
-import '../../../core/ui/utilities/utilities-core-textprovider.chunk.js';
-import '../utilities/utilities-tags.chunk.js';
-import '../../../core/ui/components/fxs-nav-help.chunk.js';
-import '../../../core/ui/utilities/utilities-core-databinding.chunk.js';
-import '../quest-tracker/quest-item.js';
-import '../quest-tracker/quest-tracker.js';
-import '../tutorial/tutorial-item.js';
-import '../tutorial/tutorial-manager.js';
-import '../../../core/ui/input/input-filter.chunk.js';
-import '../tutorial/tutorial-events.chunk.js';
+import { IsElement } from '../../../core/ui/utilities/utilities-dom.js';
+import { GetTownFocusBlp } from './production-chooser-helpers.js';
+import { AdvisorUtilities } from '../tutorial/advisor-utilities.js';
 
 const bulletChar = String.fromCodePoint(8226);
 class ProductionConstructibleTooltipType {
@@ -100,7 +71,8 @@ class ProductionConstructibleTooltipType {
       return;
     }
     console.log("production-constructible-tooltip: updating tooltip");
-    this.header.setAttribute("title", definition.Name);
+    const displayName = this.target.dataset.name ?? definition.Name;
+    this.header.setAttribute("title", displayName);
     const recommendations = this.target.dataset.recommendations;
     if (recommendations) {
       const parsedRecommendations = JSON.parse(recommendations);
@@ -138,7 +110,6 @@ class ProductionConstructibleTooltipType {
     return this.data.canGetWarehouseBonuses != this.target.dataset.canGetWarehouse || this.data.warehouseCount != this.target.dataset.warehouseCount || this.data.canGetAdjacencyBonuses != this.target.dataset.canGetAdjacency || this.data.highestAdjacency != this.target.dataset.highestAdjacency;
   }
 }
-TooltipManager.registerType("production-constructible-tooltip", new ProductionConstructibleTooltipType());
 class ProductionUnitTooltipType {
   definition;
   _target = null;
@@ -262,7 +233,6 @@ class ProductionUnitTooltipType {
     return !this.definition;
   }
 }
-TooltipManager.registerType("production-unit-tooltip", new ProductionUnitTooltipType());
 class ProductionProjectTooltipType {
   _target = null;
   get target() {
@@ -435,5 +405,4 @@ class ProductionProjectTooltipType {
     return !this.target;
   }
 }
-TooltipManager.registerType("production-project-tooltip", new ProductionProjectTooltipType());
 //# sourceMappingURL=panel-production-tooltips.js.map

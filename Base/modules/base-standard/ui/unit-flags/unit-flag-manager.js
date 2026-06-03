@@ -1,7 +1,6 @@
-import { C as ComponentID } from '../../../core/ui/utilities/utilities-component-id.chunk.js';
-import { U as UpdateGate } from '../../../core/ui/utilities/utilities-update-gate.chunk.js';
-
-const styles = "fs://game/base-standard/ui/unit-flags/unit-flags.css";
+import { ComponentID } from '../../../core/ui/utilities/utilities-component-id.js';
+import UpdateGate from '../../../core/ui/utilities/utilities-update-gate.js';
+import styles from './unit-flags.scss.js';
 
 function instanceOfUnitFlagType(object) {
   return object != null && "componentID" in object && // TODO: Fix, doesn't match!
@@ -161,6 +160,8 @@ class UnitFlagManager extends Component {
     engine.on("UnitMovementPointsChanged", this.onUnitMovementPointsChanged, this);
     engine.on("UnitRemovedFromMap", this.onUnitRemovedFromMap, this);
     engine.on("UnitVisibilityChanged", this.onUnitVisibilityChanged, this);
+    engine.on("DiplomacyDeclareWar", this.requestFlagsRebuild, this);
+    engine.on("DiplomacyMakePeace", this.requestFlagsRebuild, this);
     this.setZoomLevel(Camera.getState().zoomLevel ?? 1);
     window.requestAnimationFrame(() => {
       this.requestFlagsRebuild();
@@ -177,6 +178,8 @@ class UnitFlagManager extends Component {
     engine.off("UnitMovementPointsChanged", this.onUnitMovementPointsChanged, this);
     engine.off("UnitRemovedFromMap", this.onUnitRemovedFromMap, this);
     engine.off("UnitVisibilityChanged", this.onUnitVisibilityChanged, this);
+    engine.off("DiplomacyDeclareWar", this.requestFlagsRebuild, this);
+    engine.off("DiplomacyMakePeace", this.requestFlagsRebuild, this);
     this.removeAllFlags();
     super.onDetach();
   }
@@ -517,5 +520,5 @@ Controls.define("unit-flags", {
   styles: [styles]
 });
 
-export { UnitFlagFactory, UnitFlagManager, instanceOfUnitFlagType, styles as s };
+export { UnitFlagFactory, UnitFlagManager, instanceOfUnitFlagType };
 //# sourceMappingURL=unit-flag-manager.js.map

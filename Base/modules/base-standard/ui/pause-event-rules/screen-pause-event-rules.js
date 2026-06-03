@@ -1,18 +1,9 @@
-import FocusManager from '../../../core/ui/input/focus-manager.js';
-import { b as InputEngineEventName } from '../../../core/ui/input/input-support.chunk.js';
-import { N as NavTray } from '../../../core/ui/navigation-tray/model-navigation-tray.chunk.js';
-import { P as Panel } from '../../../core/ui/panel-support.chunk.js';
-import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.chunk.js';
-import '../../../core/ui/audio-base/audio-support.chunk.js';
-import '../../../core/ui/framework.chunk.js';
-import '../../../core/ui/input/action-handler.js';
-import '../../../core/ui/input/cursor.js';
-import '../../../core/ui/views/view-manager.chunk.js';
-import '../../../core/ui/utilities/utilities-update-gate.chunk.js';
-import '../../../core/ui/utilities/utilities-image.chunk.js';
-import '../../../core/ui/utilities/utilities-component-id.chunk.js';
-
-const styles = "fs://game/base-standard/ui/pause-event-rules/screen-pause-event-rules.css";
+import { InputEngineEventName } from '../../../core/ui/input/input-support.js';
+import NavTray from '../../../core/ui/navigation-tray/model-navigation-tray.js';
+import Panel from '../../../core/ui/panel-support.js';
+import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
+import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
+import styles from './screen-pause-event-rules.scss.js';
 
 class ScreenPauseEventRules extends Panel {
   closeButtonListener = () => {
@@ -52,7 +43,7 @@ class ScreenPauseEventRules extends Panel {
     NavTray.clear();
     NavTray.addOrUpdateGenericBack();
     if (this.dismissButton) {
-      FocusManager.setFocus(this.dismissButton);
+      FocusManager.get().setFocus(this.dismissButton);
     }
   }
   onLoseFocus() {

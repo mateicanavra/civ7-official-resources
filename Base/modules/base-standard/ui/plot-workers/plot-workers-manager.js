@@ -1,4 +1,4 @@
-import { C as ComponentID } from '../../../core/ui/utilities/utilities-component-id.chunk.js';
+import { ComponentID } from '../../../core/ui/utilities/utilities-component-id.js';
 
 const PlotWorkersHoveredPlotChangedEventName = "population-placement-hovered-plot-changed";
 class PlotWorkersHoveredPlotChangedEvent extends CustomEvent {
@@ -78,14 +78,11 @@ class PlotWorkersManagerClass {
     this._workablePlotIndexes = [];
     this._blockedPlots = [];
     this._blockedPlotIndexes = [];
+    this._hoveredPlotIndex = null;
+    this._cityWorkerCap = 0;
   }
   initializeWorkersData(cityID) {
-    this._allWorkerPlots = [];
-    this._allWorkerPlotIndexes = [];
-    this._workablePlots = [];
-    this._workablePlotIndexes = [];
-    this._blockedPlots = [];
-    this._blockedPlotIndexes = [];
+    this.reset();
     const city = Cities.get(cityID);
     if (!city?.Workers) {
       console.error(
@@ -107,6 +104,11 @@ class PlotWorkersManagerClass {
       );
       return;
     }
+    this._allWorkerPlotIndexes = [];
+    this._workablePlots = [];
+    this._workablePlotIndexes = [];
+    this._blockedPlots = [];
+    this._blockedPlotIndexes = [];
     this._allWorkerPlots = city.Workers.GetAllPlacementInfo();
     this._allWorkerPlots.forEach((info) => {
       this._allWorkerPlotIndexes.push(info.PlotIndex);

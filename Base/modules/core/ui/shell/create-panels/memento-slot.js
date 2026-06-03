@@ -1,14 +1,6 @@
-import { F as FxsActivatable } from '../../components/fxs-activatable.chunk.js';
-import { M as MementoSlotType } from './leader-select-model.chunk.js';
-import '../../audio-base/audio-support.chunk.js';
-import '../../input/focus-manager.js';
-import '../../framework.chunk.js';
-import './age-civ-select-model.chunk.js';
-import '../live-event-logic/live-event-logic.chunk.js';
-import '../../utilities/utilities-data.chunk.js';
-import '../../utilities/utilities-component-id.chunk.js';
-
-const styles = "fs://game/core/ui/shell/create-panels/memento-slot.css";
+import { FxsActivatable } from '../../components/fxs-activatable.js';
+import { MementoSlotType } from './leader-select-model.js';
+import styles from './memento-slot.scss.js';
 
 const MementoSlotSelectedEventName = "memento-slot-selected";
 class MementoSlot extends FxsActivatable {
@@ -99,7 +91,7 @@ class MementoSlot extends FxsActivatable {
       }
     }
     const name = Locale.stylize(this._slotData.currentMemento.name);
-    const desc = Locale.stylize(this._slotData.currentMemento.functionalDescription);
+    const desc = Locale.compose(this._slotData.currentMemento.functionalDescription);
     const flavor = Locale.stylize(this._slotData.currentMemento.description);
     return `[n][style:font-title-lg]${name}[/style][n][style:font-body-base]${desc}[/style][n][style:font-body-sm]${flavor}[/style]`;
   }
