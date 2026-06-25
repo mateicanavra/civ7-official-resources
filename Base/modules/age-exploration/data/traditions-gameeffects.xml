@@ -305,6 +305,100 @@
 		<String context="Preview">LOC_TRADITION_YEOMANRY_NAME</String>
 		<String context="Description">LOC_TRADITION_YEOMANRY_DESCRIPTION</String>
 	</Modifier>
+	<!-- Government Traditions -->
+	<!-- Feudal Monarchy -->
+	<!-- Marcher Lords: +2 Culture in Towns without a Growing Focus, or +4 in Joyous Towns without a Growing Focus. -->
+	<Modifier id="MARCHER_LORDS_MOD_NON_GROWING_TOWN_CULTURE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_TOWN" />
+			<Requirement type="REQUIREMENT_CITY_HAS_PROJECT">
+				<Argument name="HasAnyProject">true</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_MARCHER_LORDS_NAME</Argument>
+	</Modifier>
+	<Modifier id="MARCHER_LORDS_MOD_NON_GROWING_TOWN_CULTURE_JOYOUS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_TOWN" />
+			<Requirement type="REQUIREMENT_CITY_HAS_PROJECT">
+				<Argument name="HasAnyProject">true</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_SETTLEMENT_HAPPINESS_STAGE_MATCHES">
+				<Argument name="IsGreaterThanOrEquals">true</Argument>
+				<Argument name="HappinessStage">HAPPINESS_STAGE_JOYOUS</Argument>
+       		</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_MARCHER_LORDS_NAME</Argument>
+	</Modifier>
+	<!-- Mahakrung: Your Capital gets +5 Culture, Production, and Gold, or +15 Culture, Production, and Gold if it's Ecstatic. -->
+	<Modifier id="MAHAKRUNG_MOD_CAPITAL_YIELDS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_CAPITAL" />
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_CULTURE, YIELD_PRODUCTION, YIELD_GOLD</Argument>
+		<Argument name="Amount">5</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_MAHAKRUNG_NAME</Argument>
+	</Modifier>
+	<Modifier id="MAHAKRUNG_MOD_CAPITAL_YIELDS_ECSTATIC" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_CAPITAL" />
+			<Requirement type="REQUIREMENT_SETTLEMENT_HAPPINESS_STAGE_MATCHES">
+				<Argument name="IsGreaterThanOrEquals">true</Argument>
+				<Argument name="HappinessStage">HAPPINESS_STAGE_ECSTATIC</Argument>
+       		</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_CULTURE, YIELD_PRODUCTION, YIELD_GOLD</Argument>
+		<Argument name="Amount">10</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_MAHAKRUNG_NAME</Argument>
+	</Modifier>
+	<!-- Plutocracy -->
+	<!-- Primitive Accumulation: +2 Science on Gold Buildings. +20% Production towards constructing Gold Buildings. -->
+	<Modifier id="PRIMITIVE_ACCUMULATION_MOD_GOLD_BUILDING_SCIENCE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_CONSTRUCTIBLE_YIELD">
+		<Argument name="Tag">GOLD</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="YieldType">YIELD_SCIENCE</Argument>
+	</Modifier>
+	<Modifier id="PRIMITIVE_ACCUMULATION_MOD_GOLD_BUILDING_RATE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_PRODUCTION">
+		<Argument name="Tag">GOLD</Argument>
+		<Argument name="Percent">20</Argument>
+		<String context="Description">LOC_TRADITION_PRIMITIVE_ACCUMULATION_DESCRIPTION</String>
+	</Modifier>
+	<!-- Tequitl: +10 Trade Range. +2 Science on Trade Routes you start. -->
+	<Modifier id="TEQUITL_MOD_TRADE_ROUTE_RANGE_LAND" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_TRADE_ROUTE_RANGE">
+		<Argument name="DomainType">DOMAIN_LAND</Argument>
+		<Argument name="Amount">10</Argument>
+	</Modifier>
+	<Modifier id="TEQUITL_MOD_TRADE_ROUTE_RANGE_SEA" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_TRADE_ROUTE_RANGE">
+		<Argument name="DomainType">DOMAIN_SEA</Argument>
+		<Argument name="Amount">10</Argument>
+	</Modifier>
+	<Modifier id="TEQUITL_MOD_TRADE_ROUTE_SCIENCE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD_PER_NUM_TRADE_ROUTES">
+		<Argument name="YieldType">YIELD_SCIENCE</Argument>
+		<Argument name="Amount">2</Argument>
+	</Modifier>
+	<!-- Plutocracy -->
+	<!-- Dargah: Towns following your Religion get +2 Food and Happiness. -->
+	<Modifier id="DARGAH_MOD_RELIGION_TOWN_YIELDS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_TOWN"/>
+			<Requirement type="REQUIREMENT_CITY_FOLLOWS_RELIGION"/>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_FOOD, YIELD_HAPPINESS</Argument>
+		<Argument name="Amount">2</Argument>
+	</Modifier>
+	<!-- Vinaya: Cities following your Religion get +2 Gold and Influence. -->
+	<Modifier id="VINAYA_MOD_RELIGION_TOWN_YIELDS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_CITY"/>
+			<Requirement type="REQUIREMENT_CITY_FOLLOWS_RELIGION"/>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_GOLD, YIELD_DIPLOMACY</Argument>
+		<Argument name="Amount">2</Argument>
+	</Modifier>
 
 	<!-- Revolution Crisis Policies -->
 	<Modifier id="CONSCRIPTION_RIOTS_MOD_HAPPINESS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">

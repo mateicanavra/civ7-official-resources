@@ -30,6 +30,7 @@ import { ResourceTooltip } from '../../tooltips/resource-tooltip.js';
 import style from './commerce-screen.scss.js';
 
 var _tmpl$ = /* @__PURE__ */ template(`<div></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div><div tabindex=1 data-name=available-resources-container class="flex flex-col h-full w-full relative pb-4"></div></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div data-name=commerce-unassigned-resources class=flex-auto></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div class="text-accent-2 m-2"></div>`), _tmpl$5 = /* @__PURE__ */ template(`<div class="flex flex-row mb-1 relative"><div class=text-secondary></div></div>`), _tmpl$6 = /* @__PURE__ */ template(`<div class="w-full h-0\\.5 mt-1 mb-2 opacity-50"></div>`), _tmpl$7 = /* @__PURE__ */ template(`<div class="flex flex-row flex-wrap relative"></div>`), _tmpl$8 = /* @__PURE__ */ template(`<div class="flex flex-row items-center justify-center self-end pr-4"></div>`), _tmpl$9 = /* @__PURE__ */ template(`<div tabindex=2 data-name=slotted-resource-container class="flex flex-col flex-auto pb-4 relative"></div>`), _tmpl$10 = /* @__PURE__ */ template(`<div class="w-full flex flex-col"></div>`), _tmpl$11 = /* @__PURE__ */ template(`<div class="city-type-pill rounded-full min-w-7 flex flex-row justify-center items-center px-2 ml-2"><span></span></div>`), _tmpl$12 = /* @__PURE__ */ template(`<div class="city-type-pill rounded-full min-w-7 flex flex-row justify-center items-center px-2 ml-2"></div>`), _tmpl$13 = /* @__PURE__ */ template(`<div class="flex flex-row items-center"><div class="mr-2 size-9 bg-center bg-cover bg-no-repeat relative"></div><div class="text-secondary font-title uppercase text-lg"></div><div class="settlement-pill-row flex-row items-center text-xs text-accent-1"></div></div>`), _tmpl$14 = /* @__PURE__ */ template(`<div class="flex flex-row flex-wrap relative w-full justify-between"></div>`), _tmpl$15 = /* @__PURE__ */ template(`<div class="flex flex-row items-center"><div class="flex flex-row max-h-full items-end"></div><div class="flex-auto flex flex-row"><div class=flex-auto><div class="flex flex-row flex-wrap mt-4 flex-auto"></div></div></div></div>`), _tmpl$16 = /* @__PURE__ */ template(`<div class="flex items-center flex-col relative"></div>`), _tmpl$17 = /* @__PURE__ */ template(`<div class=hidden></div>`), _tmpl$18 = /* @__PURE__ */ template(`<div class="size-16 mr-3 relative flex flex-row justify-center"></div>`), _tmpl$19 = /* @__PURE__ */ template(`<div class="w-full p-2 mb-2 relative"><div class="bg-center bg-no-repeat absolute inset-0 bg-cover opacity-20"></div><div class="absolute top-1 left-1 rotate-180 size-4 bg-contain opacity-30"></div><div class="absolute top-1 right-1 -rotate-90 size-4 bg-contain opacity-30"></div><div class="absolute bottom-1 left-1 rotate-90 size-4 bg-contain opacity-30"></div><div class="absolute bottom-1 right-1 size-4 bg-contain opacity-30"></div><div class="flex flex-row"><div class="flex flex-col relative items-start justify-center ml-3"><div class="uppercase mr-2 text-secondary font-title"></div><div class=text-accent-2></div></div></div></div>`), _tmpl$20 = /* @__PURE__ */ template(`<div class="text-secondary w-full text-center -top-9 left-0"></div>`), _tmpl$21 = /* @__PURE__ */ template(`<div class="flex flex-row flex-auto relative"></div>`), _tmpl$22 = /* @__PURE__ */ template(`<div class="font-title uppercase text-secondary"></div>`), _tmpl$23 = /* @__PURE__ */ template(`<div class="flex flex-row w-full items-center"><div class="flex flex-row items-center"><div class="text-secondary uppercase font-title flex-auto"></div><div class="flex flex-row"></div></div><div class="text-secondary uppercase font-title ml-5 pointer-events-none"></div></div>`), _tmpl$24 = /* @__PURE__ */ template(`<div class="ml-2 flex flex-row"><div class="size-6 mr-1 bg-cover bg-center"></div></div>`), _tmpl$25 = /* @__PURE__ */ template(`<div class=ml-2></div>`);
+const DEBUG_DRAG_AND_DROP = false;
 const [DragAndDrop, Draggable, Dropzone] = createTypedDragAndDrop();
 const DraggableResource = (props) => {
   const model = useCommerceScreenContext();
@@ -74,10 +75,18 @@ const DraggableResource = (props) => {
       }
     }
   }));
+  const resourceName = createMemo(() => getResourceName({
+    cityID: props.resourceData.cityID,
+    resourceValue: props.resourceData.resourceValue
+  }));
   return createComponent(Draggable, {
     get data() {
       return props.resourceData;
     },
+    get debugId() {
+      return "draggable-" + resourceName();
+    },
+    debugTrace: DEBUG_DRAG_AND_DROP,
     get children() {
       return (() => {
         const draggableContext = useDraggableContext();
@@ -128,6 +137,13 @@ const DraggableResource = (props) => {
         const unsetSwapTarget = () => {
           model.setResourceSwapTarget(-1);
         };
+        createEffect(() => {
+          if (props.isActiveDropzone) {
+            setSwapTargetIfAppropriate();
+          } else {
+            unsetSwapTarget();
+          }
+        });
         return createComponent(Show, {
           get when() {
             return createMemo(() => !!enabled())() && !model.isInSortAndFilterMode();
@@ -136,8 +152,6 @@ const DraggableResource = (props) => {
             return createComponent(ResourceTooltip, mergeProps(() => props.resourceData.resourceProps, {
               get children() {
                 var _el$ = _tmpl$();
-                _el$.addEventListener("mouseleave", unsetSwapTarget);
-                _el$.addEventListener("mouseenter", setSwapTargetIfAppropriate);
                 _el$.addEventListener("blur", unsetSwapTarget);
                 _el$.addEventListener("focus", setSwapTargetIfAppropriate);
                 _el$.addEventListener("animationend", onAnimEnd);
@@ -251,11 +265,15 @@ const ResourceSlot = (props) => {
   }));
 };
 const AvailableResourcesContainer = (props) => {
+  const model = useCommerceScreenContext();
   return (() => {
     var _el$2 = _tmpl$2(), _el$3 = _el$2.firstChild;
     _el$2.style.setProperty("width", "28%");
     insert(_el$3, createComponent(ScrollArea, {
       "class": "flex-auto",
+      get allowGamepadPan() {
+        return createMemo(() => model.focusedResource().resourceValue !== -1)() && model.focusedResource().cityID === void 0;
+      },
       get children() {
         return createComponent(For, {
           get each() {
@@ -332,7 +350,7 @@ const AvailableResourcesSection = (props) => {
 const AvailableResourcesSectionInternalSymbol = Symbol();
 const AvailableResourcesSectionInternal = (props) => {
   const model = useCommerceScreenContext();
-  const [mouseIsOverSection, setMouseIsOverSection] = createSignal(false);
+  const [sectionIsActiveDropzone, setSectionIsActiveDropzone] = createSignal(false);
   const images = {
     ticketPositiveCSS: "url(blp:base_ticket-positive_bg)",
     ticketNegativeCSS: "url(blp:base_ticket-negative_bg)",
@@ -351,19 +369,25 @@ const AvailableResourcesSectionInternal = (props) => {
     });
     return result;
   };
+  function isFirstVisibleSubsection(subsectionIndex) {
+    const firstPopulatedSubsectionIndex = props.section.subSections.findIndex((subSection) => subSection.resourceSlotData.length > 0);
+    return subsectionIndex === firstPopulatedSubsectionIndex;
+  }
   return createComponent(Dropzone, {
     debugId: "Available",
     data: {
       cityID: void 0
     },
     canDrop,
+    onDragOver: () => setSectionIsActiveDropzone(true),
+    onDragLeave: () => setSectionIsActiveDropzone(false),
+    onDragDrop: () => setSectionIsActiveDropzone(false),
+    debugTrace: DEBUG_DRAG_AND_DROP,
     get children() {
       return createComponent(CardFrame, {
         "class": "w-full my-2 py-2 pl-2 pr-1 flex flex-col",
-        onMouseOver: () => setMouseIsOverSection(true),
-        onMouseLeave: () => setMouseIsOverSection(false),
         get style() {
-          return createMemo(() => !!isResourceSelected())() ? createMemo(() => props.section.isConnectedToTradeNetwork === model.resourceIsConnectedToTradeNetwork(model.selectedResource().resourceValue))() ? mouseIsOverSection() || props.isParentFocused() ? {
+          return createMemo(() => !!isResourceSelected())() ? createMemo(() => props.section.isConnectedToTradeNetwork === model.resourceIsConnectedToTradeNetwork(model.selectedResource().resourceValue))() ? sectionIsActiveDropzone() || props.isParentFocused() ? {
             "border-image-source": images.ticketSelectedCSS
           } : {
             "border-image-source": images.ticketPositiveCSS
@@ -416,22 +440,38 @@ const AvailableResourcesSectionInternal = (props) => {
                         get each() {
                           return subSection.resourceSlotData;
                         },
-                        children: (resourceSlot, resourceIndex) => createComponent(Dropzone, {
-                          "class": "size-19 mb-1",
-                          get data() {
-                            return {
-                              resourceValue: resourceSlot.resourceValue
-                            };
-                          },
-                          get children() {
-                            return createComponent(DraggableResource, {
-                              resourceData: resourceSlot,
-                              get isFirstResourceInSection() {
-                                return createMemo(() => subsectionIndex() === 0)() && resourceIndex() === 0;
-                              }
-                            });
-                          }
-                        })
+                        children: (resourceSlot, resourceIndex) => {
+                          const [resourceIsActiveDropzone, setResourceIsActiveDropzone] = createSignal(false);
+                          const resourceName = createMemo(() => getResourceName({
+                            resourceValue: resourceSlot.resourceValue
+                          }));
+                          return createComponent(Dropzone, {
+                            "class": "size-19 mb-1",
+                            get data() {
+                              return {
+                                resourceValue: resourceSlot.resourceValue
+                              };
+                            },
+                            get debugId() {
+                              return "dropzone-" + resourceName();
+                            },
+                            debugTrace: DEBUG_DRAG_AND_DROP,
+                            onDragOver: () => setResourceIsActiveDropzone(true),
+                            onDragLeave: () => setResourceIsActiveDropzone(false),
+                            onDragDrop: () => setResourceIsActiveDropzone(false),
+                            get children() {
+                              return createComponent(DraggableResource, {
+                                resourceData: resourceSlot,
+                                get isFirstResourceInSection() {
+                                  return createMemo(() => !!isFirstVisibleSubsection(subsectionIndex()))() && resourceIndex() === 0;
+                                },
+                                get isActiveDropzone() {
+                                  return resourceIsActiveDropzone();
+                                }
+                              });
+                            }
+                          });
+                        }
                       }));
                       return _el$9;
                     })()];
@@ -453,6 +493,9 @@ const SlottedResourcesContainer = (props) => {
     var _el$10 = _tmpl$9();
     insert(_el$10, createComponent(ScrollArea, {
       "class": "flex-auto pl-4",
+      get allowGamepadPan() {
+        return model.focusedSettlementId() !== void 0 || model.selectedSettlementId() !== void 0;
+      },
       get children() {
         return [createComponent(For, {
           get each() {
@@ -492,8 +535,8 @@ const SlottedResourcesContainer = (props) => {
                     },
                     children: (subSection, index) => {
                       return createComponent(CityResourceContainer, mergeProps({
-                        get tabIndex() {
-                          return index() + 1;
+                        get cityIndex() {
+                          return index();
                         }
                       }, subSection));
                     }
@@ -790,19 +833,13 @@ const CityResourceContainerInternal = (props) => {
     var _el$25 = _tmpl$16();
     insert(_el$25, createComponent(CardFrame, {
       tabIndex: -1,
-      onMouseOver: (e) => {
-        const target = e.target;
-        const closestDraggableResource = target.closest(".draggable-resource");
-        setMouseIsOverCity(closestDraggableResource === null);
-      },
-      onMouseOut: () => setMouseIsOverCity(false),
       onFocus: () => setMouseIsOverCity(true),
       onBlur: () => setMouseIsOverCity(false),
       get ["class"]() {
         return `w-full mt-3 mb-2 px-4 pb-4 ${selectionState() === ResourceContainerSelectionState.CanSelect || selectionState() === ResourceContainerSelectionState.CanNotSelect ? "pt-5" : "pt-4"} flex flex-col relative`;
       },
       get style() {
-        return createMemo(() => !!(IsControllerActive() && props.parentIsFocused()))() ? {
+        return createMemo(() => !!(IsControllerActive() && props.parentIsFocusedOrSelected()))() ? {
           "border-image-source": images.ticketHighlightedCSS
         } : createMemo(() => selectionState() === ResourceContainerSelectionState.CanSelect)() ? mouseIsOverCity() ? {
           "border-image-source": images.ticketHighlightedCSS
@@ -814,13 +851,19 @@ const CityResourceContainerInternal = (props) => {
       },
       get children() {
         return createComponent(Dropzone, {
-          debugId: "City",
+          get debugId() {
+            return "City-" + getCityName(props.cityID);
+          },
           get data() {
             return {
               cityID: props.cityID
             };
           },
           canDrop,
+          onDragOver: () => setMouseIsOverCity(true),
+          onDragLeave: () => setMouseIsOverCity(false),
+          onDragDrop: () => setMouseIsOverCity(false),
+          debugTrace: DEBUG_DRAG_AND_DROP,
           get children() {
             return [(() => {
               var _el$26 = _tmpl$14();
@@ -896,11 +939,18 @@ const CityResourceContainerInternal = (props) => {
                       return props.slottedResources;
                     },
                     children: (slottedResource, slotIndex) => {
+                      const [resourceIsActiveDropzone, setResourceIsActiveDropzone] = createSignal(false);
+                      const resourceName = createMemo(() => getResourceName({
+                        cityID: slottedResource.cityID,
+                        resourceValue: slottedResource.resourceValue
+                      }));
                       return createComponent(
                         Dropzone,
                         {
                           "class": "size-19 mb-1",
-                          debugId: "Resource",
+                          get debugId() {
+                            return "Resource Dropzone-" + resourceName();
+                          },
                           get data() {
                             return {
                               cityID: props.cityID,
@@ -908,11 +958,18 @@ const CityResourceContainerInternal = (props) => {
                             };
                           },
                           canDrop,
+                          debugTrace: DEBUG_DRAG_AND_DROP,
+                          onDragOver: () => setResourceIsActiveDropzone(true),
+                          onDragLeave: () => setResourceIsActiveDropzone(false),
+                          onDragDrop: () => setResourceIsActiveDropzone(false),
                           get children() {
                             return createComponent(DraggableResource, {
                               resourceData: slottedResource,
                               get isFirstResourceInSection() {
                                 return slotIndex() === 0;
+                              },
+                              get isActiveDropzone() {
+                                return resourceIsActiveDropzone();
                               }
                             });
                           }
@@ -1121,26 +1178,30 @@ const CityResourceContainer = (props) => {
   const playerHasUnassignedResources = createMemo(() => model.data.resourceTabData.availableResourceSectionData.some((section) => {
     return section.subSections.some((subSection) => subSection.resourceSlotData.length > 0);
   }));
-  const autoFocusSettlement = createMemo(() => {
+  const [autoFocusSettlement, setAutoFocusSettlement] = createSignal(false);
+  createEffect(() => {
     if (!IsControllerActive()) {
-      return false;
+      setAutoFocusSettlement(false);
+      return;
     }
     if (model.isInSortAndFilterMode()) {
-      return false;
+      setAutoFocusSettlement(false);
+      return;
     }
     const focusSettlementOnSettlementDeselectedWithNoResourceSelected = model.selectedResource().resourceValue === -1 && model.prevSelectedSettlementId() && ComponentID.isMatch(props.cityID, model.prevSelectedSettlementId());
     const focusSettlementOnResourceSelected = model.isFirstAssignableCity(props.cityID) && model.selectedResource().resourceValue !== -1;
     const focusSettlementOnResourceDeselectedAndNoUnassignedResources = model.prevSelectedResource().resourceValue !== -1 && ComponentID.isMatch(model.prevSelectedResource().cityID ?? null, props.cityID) && !playerHasUnassignedResources();
-    const shouldAutoFocus = !model.selectedSettlementId() && (focusSettlementOnSettlementDeselectedWithNoResourceSelected || focusSettlementOnResourceSelected || focusSettlementOnResourceDeselectedAndNoUnassignedResources);
+    const focusInitialSettlementWhenNoAvailableResources = !model.hasUnassignedResources() && props.cityIndex === 0;
+    const shouldAutoFocus = !model.selectedSettlementId() && (focusSettlementOnSettlementDeselectedWithNoResourceSelected || focusSettlementOnResourceSelected || focusSettlementOnResourceDeselectedAndNoUnassignedResources) || focusInitialSettlementWhenNoAvailableResources;
     if (shouldAutoFocus) {
       gamepadLog("AUTO-FOCUS " + getCityName(props.cityID), "( focusSettlementOnSettlementDeselectedWithNoResourceSelected:", focusSettlementOnSettlementDeselectedWithNoResourceSelected, ",focusSettlementOnResourceSelected:", focusSettlementOnResourceSelected, ",focusSettlementOnResourceDeselectedAndNoUnassignedResources:", focusSettlementOnResourceDeselectedAndNoUnassignedResources, ")");
     }
-    return shouldAutoFocus;
+    setAutoFocusSettlement(shouldAutoFocus);
   });
   return createComponent(Activatable, {
     "class": "relative",
     get tabIndex() {
-      return props.tabIndex;
+      return props.cityIndex + 1;
     },
     get autoFocus() {
       return autoFocusSettlement();
@@ -1168,7 +1229,7 @@ const CityResourceContainer = (props) => {
     },
     get children() {
       return createComponent(CityResourceContainerInternal, mergeProps(props, {
-        parentIsFocused: isFocused
+        parentIsFocusedOrSelected: () => isFocused() || ComponentID.isMatch(props.cityID, model.selectedSettlementId() ?? null)
       }));
     }
   });
@@ -1476,6 +1537,7 @@ const CommerceResourcesContainerComponent = (props) => {
             get disabled() {
               return disableDND();
             },
+            debugTrace: DEBUG_DRAG_AND_DROP,
             get children() {
               return createComponent(SpatialSlot, {
                 name: "commerce-resources-container",

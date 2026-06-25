@@ -1,4 +1,5 @@
 import { g_OceanTerrain, g_MountainTerrain, g_CoastTerrain, g_FlatTerrain, g_HillTerrain } from './map-globals.js';
+import { profileScope } from '../scripts/profiling.js';
 
 const g_StartingScore = 20;
 const g_BadTerrainScore = 1;
@@ -17,6 +18,7 @@ class AdvancedStartRegion {
   }
 }
 function assignAdvancedStartRegions() {
+  const perfScope = new profileScope("Assign Start Regions");
   const playerIds = Players.getAliveIds();
   const playerRegions = [];
   const playerStartPositions = [];
@@ -56,6 +58,7 @@ function assignAdvancedStartRegions() {
     StartPositioner.setAdvancedStartRegion(playerRegions[i].player, playerRegions[i].claimedPlots);
   }
   dumpAdvancedStartRegions(playerRegions);
+  perfScope.end();
 }
 function initializeRegion(region) {
   const startPosition = StartPositioner.getStartPosition(region.player);

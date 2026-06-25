@@ -154,17 +154,26 @@ const LineGraph = (props) => {
         graphConfig.options.scales.y.grid.color = props.gridColorX ? props.gridColorX : "transparent";
         graphConfig.options.scales.y.title.display = props.axisLabelY != void 0;
         graphConfig.options.scales.y.text = props.axisLabelY;
+        graphConfig.options.scales.y.max = props.maxY;
         graphConfig.options.scales.x.grid.color = props.gridColorY ? props.gridColorY : "transparent";
         graphConfig.options.scales.x.title.display = props.axisLabelX != void 0;
         graphConfig.options.scales.x.text = props.axisLabelX;
+        graphConfig.options.scales.x.max = props.maxX;
         graphConfig.options.elements.radius = props.pointRadius != void 0 ? props.pointRadius : 0;
         const l = JSON.parse(JSON.stringify(props.lines));
-        l.forEach((line, index) => {
-          const dataset = graphConfig.data.datasets[index];
-          dataset.backgroundColor = line.color;
-          dataset.order = line.order;
-          dataset.borderColor = props.dashed ? "rgba(0, 0, 0, 0)" : line.color;
-          dataset.borderWidth = props.width;
+        graphConfig.data.datasets = [];
+        l.forEach((line) => {
+          graphConfig.data.datasets.push({
+            data: line.points,
+            order: line.order,
+            fill: false,
+            backgroundColor: "#008000",
+            borderColor: props.dashed ? "rgba(0, 0, 0, 0)" : line.color,
+            borderWidth: props.width,
+            tension: 0,
+            spanGaps: true,
+            scaleHack: false
+          });
         });
         graph.update();
       }

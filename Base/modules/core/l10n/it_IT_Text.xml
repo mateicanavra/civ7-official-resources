@@ -1071,7 +1071,7 @@
       <Text>Ritardo movimento clic/tocco</Text>
     </Replace>
     <Replace Tag="LOC_OPTIONS_ACCESSIBILITY_LONG_PRESS_DESCRIPTION" Language="it_IT">
-      <Text>Imposta quanto può essere tenuto premuto un clic del mouse o un tocco dello schermo prima che venga calcolato il movimento. Alza il valore se il gioco non riesce a gestire correttamente clic o tocchi.</Text>
+      <Text>Imposta quanto può essere tenuto premuto un clic del mouse o un tocco dello schermo prima che venga calcolato il movimento. Se trovi difficoltoso tenere ferme le mani, oppure il tuo mouse è particolarmente sensibile, alza il valore per evitare che il gioco confonda clic o tocchi con movimenti prolungati.</Text>
     </Replace>
     <Replace Tag="LOC_OPTIONS_ADAPTIVE_TRIGGERS_ENABLED" Language="it_IT">
       <Text>Grilletti adattivi attivati</Text>
@@ -1203,7 +1203,8 @@
       <Text>Ciclo automatico sulle unità</Text>
     </Replace>
     <Replace Tag="LOC_OPTIONS_AUTOUNITYCYCLE_DESCRIPTION" Language="it_IT">
-      <Text>Dopo aver speso tutti i punti di movimento per l'unità selezionata, passa automaticamente alle altre unità che hanno punti movimento rimanenti.</Text>
+      <Text>Dopo aver speso tutti i punti di movimento per l'unità selezionata, passa automaticamente alle altre unità
+					che hanno punti movimento rimanenti.</Text>
     </Replace>
     <Replace Tag="LOC_OPTIONS_BRIGHTNESS" Language="it_IT">
       <Text>Luminosità</Text>
@@ -1892,6 +1893,12 @@
     <Replace Tag="LOC_OPTIONS_GFX_XEFG_DESCRIPTION" Language="it_IT">
       <Text>Fotogrammi generati dall'IA sono interpolati nell'output della scheda grafica, aumentando notevolmente il numero di frame al secondo (FPS) e migliorando così le prestazioni.</Text>
     </Replace>
+    <Replace Tag="LOC_OPTIONS_GFX_XEFG_FRAME_COUNT" Language="it_IT">
+      <Text>Frame interpolati</Text>
+    </Replace>
+    <Replace Tag="LOC_OPTIONS_GFX_XEFG_FRAME_COUNT_DESCRIPTION" Language="it_IT">
+      <Text>Imposta il numero di frame che vengono generati tra un frame renderizzato e l'altro.</Text>
+    </Replace>
     <Replace Tag="LOC_OPTIONS_GFX_XELL" Language="it_IT">
       <Text>Intel Xe Low Latency</Text>
     </Replace>
@@ -2029,6 +2036,9 @@
     </Replace>
     <Replace Tag="LOC_OPTIONS_HELP_TYPES_DESCRIPTION" Language="it_IT">
       <Text>Scegli il tipo di aiuto da mostrare mentre giochi.</Text>
+    </Replace>
+    <Replace Tag="LOC_OPTIONS_HOTSEAT_NOT_VALID" Language="it_IT">
+      <Text>Non disponibile in modalità Hotseat.</Text>
     </Replace>
     <Replace Tag="LOC_OPTIONS_INPUT_DEVICE" Language="it_IT">
       <Text>Dispositivo di input</Text>
@@ -2991,7 +3001,7 @@
       <Text>Vai a Filtro difficoltà</Text>
     </Replace>
     <Replace Tag="LOC_PROFILE_HOF_SPEED_HELP" Language="it_IT">
-      <Text>Vai a Filtro velocità di gioco</Text>
+      <Text>Vai a Filtro velocità del gioco</Text>
     </Replace>
     <Replace Tag="LOC_PROFILE_LEGEND_PROGRESS" Language="it_IT">
       <Text>Progressi nelle Leggende</Text>
@@ -3142,6 +3152,9 @@
     </Replace>
     <Replace Tag="LOC_PROFILE_TITLE_DLC_SEASONPASS_3" Language="it_IT">
       <Text>Capitano pirata</Text>
+    </Replace>
+    <Replace Tag="LOC_PROFILE_TITLE_DLC_SEASONPASS_4" Language="it_IT">
+      <Text>Poeta guerriero</Text>
     </Replace>
     <Replace Tag="LOC_PROFILE_TITLE_FOUNDATION_1" Language="it_IT">
       <Text>Scriba scarabocchiante</Text>
@@ -3369,7 +3382,7 @@
       <Text>Salvataggi per versione:</Text>
     </Replace>
     <Replace Tag="LOC_SAVE_LOAD_DETAILS_SPEED" Language="it_IT">
-      <Text>Velocità di gioco:</Text>
+      <Text>Velocità del gioco:</Text>
     </Replace>
     <Replace Tag="LOC_SAVE_LOAD_FILTER_BUTTON" Language="it_IT">
       <Text>Filtri</Text>
@@ -4308,7 +4321,7 @@
       <Text>Attiva/Disattiva la lente Commercio</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_RANKINGS_SCREEN" Language="it_IT">
-      <Text>Schermata Classifiche</Text>
+      <Text>Mostra/Nascondi schermata Vittorie</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_RELIGION" Language="it_IT">
       <Text>Mostra/Nascondi Pannello religione</Text>
@@ -4458,7 +4471,7 @@
       <Text>Nome partita</Text>
     </Replace>
     <Replace Tag="LOC_UI_MP_BROWSER_FILTER_GAME_SPEED" Language="it_IT">
-      <Text>Velocità di gioco</Text>
+      <Text>Velocità del gioco:</Text>
     </Replace>
     <Replace Tag="LOC_UI_MP_BROWSER_FILTER_MAP_TYPE" Language="it_IT">
       <Text>Tipo di mappa</Text>
@@ -4839,7 +4852,7 @@
       <Text>Opzioni di gioco</Text>
     </Replace>
     <Replace Tag="LOC_UI_MP_LOBBY_GAME_SPEED" Language="it_IT">
-      <Text>Velocità di gioco:</Text>
+      <Text>Velocità del gioco:</Text>
     </Replace>
     <Replace Tag="LOC_UI_MP_LOBBY_MAP_SIZE" Language="it_IT">
       <Text>Dimensioni mappa:</Text>
@@ -4977,7 +4990,7 @@
       <Text>Insieme di regole</Text>
     </Replace>
     <Replace Tag="LOC_UI_MP_QUICK_JOIN_RULE_SPEED" Language="it_IT">
-      <Text>Velocità di gioco</Text>
+      <Text>Velocità del gioco</Text>
     </Replace>
     <Replace Tag="LOC_UI_MP_QUICK_JOIN_SUBTITLE" Language="it_IT">
       <Text>Regole Partita rapida</Text>
@@ -5157,10 +5170,10 @@
       <Text>Sblocca i seguenti elementi: [BLIST]{1_Items}[/LIST]</Text>
     </Replace>
     <Replace Tag="LOC_CREATE_GAME_UNLOCKS_LIST_ITEM" Language="it_IT">
-      <Text>[LI] [B]{1_UnlockName}[/B].</Text>
+      <Text>[B]{1_UnlockName}.[/B]</Text>
     </Replace>
     <Replace Tag="LOC_CREATE_GAME_UNLOCKS_LIST_ITEM_IN_AGE" Language="it_IT">
-      <Text>[LI] [B]{1_UnlockName} [/B]nell'[B]{2_AgeName}[/B].</Text>
+      <Text>[B]{1_UnlockName}[/B] nell'[B]{2_AgeName}.[/B]</Text>
     </Replace>
     <Replace Tag="LOC_CROSSPLAY_CHOICE_1_CONTEXT_CONFLICT_RESOLUTION" Language="it_IT">
       <Text>Salvataggio cross-play locale {1_CrossplayType}</Text>
@@ -5244,7 +5257,7 @@
       <Text>Difficoltà: {1_Difficulty}</Text>
     </Replace>
     <Replace Tag="LOC_PROFILE_GAME_SPEED" Language="it_IT">
-      <Text>Velocità di gioco: {1_Speed}</Text>
+      <Text>Velocità del gioco: {1_Speed}</Text>
     </Replace>
     <Replace Tag="LOC_PROFILE_NUMBER_COMPLETE" Language="it_IT">
       <Text>Tutte le Sfide {1_NumCompleted}/{2_Total}</Text>
@@ -5373,7 +5386,7 @@
       <Text>Comandi stile mouse {1_type}</Text>
     </Replace>
     <Replace Tag="LOC_UI_CREATE_GAME_AVAILABLE_IN_THE_AGE" Language="it_IT">
-      <Text>Disponibile nell'epoca {1_AgeName}</Text>
+      <Text>Disponibile all'{1_AgeName}</Text>
     </Replace>
     <Replace Tag="LOC_UI_CREATE_GAME_CHOSING_A_CIVILIZATION" Language="it_IT">
       <Text>Scegliere una civiltà dell'epoca {1_AgeName} attiverà la Prova del tempo.</Text>

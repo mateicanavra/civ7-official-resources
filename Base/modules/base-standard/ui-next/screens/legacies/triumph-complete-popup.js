@@ -8,7 +8,7 @@ import { ComponentRegistry } from '../../../../core/ui-next/services/component-r
 import { OrnatePopupFrame } from '../../components/ornate-popup.js';
 import { createLegaciesScreenModel } from './legacies-model.js';
 import { TriumphCard } from './triumph-card.js';
-import { TriumphCompleteQueueManager } from './triumph-tracking-manager.js';
+import { TriumphCompleteQueueManager } from './triumph-complete-queue-manager.js';
 
 var _tmpl$ = /* @__PURE__ */ template(`<div class="absolute top-0 bottom-0 left-3 right-3 bg-black"></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="font-body w-96 text-center mb-3 -mt-3 text-sm"> </div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="flex flex-col items-center"></div>`);
 const TriumphCompletePopupComponent = () => {

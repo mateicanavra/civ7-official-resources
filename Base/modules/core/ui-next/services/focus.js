@@ -386,9 +386,13 @@ function isFocusable(element, isFocusable2) {
       () => isFocusable2(),
       ([isFocusable3, autoFocus]) => {
         if (element.isConnected && isFocusable3) {
+          if (!element.hasAttribute("tabindex")) {
+            element.setAttribute("tabindex", "-1");
+          }
           focusContext.register(element);
         } else {
           focusContext.unregister(element);
+          element.removeAttribute("tabindex");
         }
         if (autoFocus && isFocusable3 && focusContext.hasChildren()) {
           focusContext.focusDescendant(element, true);

@@ -281,13 +281,15 @@ class WorkerYieldsLensLayer {
     }
     this.yieldVisualizer.clearPlot(location);
     const yields = PlotWorkersManager.cityID ? GameplayMap.getYieldsWithCity(location, PlotWorkersManager.cityID) : GameplayMap.getYields(location, GameContext.localPlayerID);
-    for (const [yieldType, amount] of yields) {
-      const yieldDef = GameInfo.Yields.lookup(yieldType);
-      if (yieldDef) {
-        if (amount >= 5) {
-          yieldsToAdd.push({ yieldType: yieldDef.YieldType, yieldDelta: amount });
-        } else {
-          yieldsToAdd.push({ yieldType: yieldDef.YieldType, yieldDelta: amount });
+    if (yields) {
+      for (const [yieldType, amount] of yields) {
+        const yieldDef = GameInfo.Yields.lookup(yieldType);
+        if (yieldDef) {
+          if (amount >= 5) {
+            yieldsToAdd.push({ yieldType: yieldDef.YieldType, yieldDelta: amount });
+          } else {
+            yieldsToAdd.push({ yieldType: yieldDef.YieldType, yieldDelta: amount });
+          }
         }
       }
     }

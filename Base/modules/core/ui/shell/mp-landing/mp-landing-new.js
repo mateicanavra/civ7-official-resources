@@ -45,19 +45,7 @@ class PanelMPLanding extends Panel {
       this.hotseatButton.classList.remove("hidden");
       const hotseatButtonBgImg = document.createElement("div");
       hotseatButtonBgImg.classList.add("absolute", "inset-0\\.5", "img-bg-card-america");
-      const wipLabel = document.createElement("img");
-      wipLabel.src = "wip_label2.png";
-      Object.assign(wipLabel.style, {
-        position: "absolute",
-        left: "4px",
-        bottom: "4px",
-        width: "90%",
-        height: "auto",
-        zIndex: "10",
-        pointerEvents: "none"
-      });
       waitForLayout(() => {
-        this.hotseatButton.insertAdjacentElement("afterbegin", wipLabel);
         this.hotseatButton.insertAdjacentElement("afterbegin", hotseatButtonBgImg);
       });
     }
@@ -100,9 +88,6 @@ class PanelMPLanding extends Panel {
       Network.connectToMultiplayerService(ServerType.SERVER_TYPE_INTERNET);
     }
     if (MultiplayerShellManager.skipToGameCreator) {
-      this.onInternet();
-    }
-    if (!isLANServerTypeSupported && !isWirelessServerTypeSupported) {
       this.onInternet();
     }
   }

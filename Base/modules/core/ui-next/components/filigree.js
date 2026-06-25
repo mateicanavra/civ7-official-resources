@@ -88,7 +88,7 @@ const FiligreeTitleAccent = (props) => {
     }), false, true);
     insert(_el$8, () => props.children, _el$10);
     createRenderEffect((_p$) => {
-      var _v$3 = `filigree-title-accent-left mr-6 mt-1 ${props.filigreeClass ?? ""}`, _v$4 = `filigree-title-accent-right ml-6 mt-1${props.filigreeClass ?? ""}`;
+      var _v$3 = `filigree-title-accent-left mr-6 mt-1 ${props.filigreeClass ?? ""}`, _v$4 = `filigree-title-accent-right ml-6 mt-1 ${props.filigreeClass ?? ""}`;
       _v$3 !== _p$.e && className(_el$9, _p$.e = _v$3);
       _v$4 !== _p$.t && className(_el$10, _p$.t = _v$4);
       return _p$;

@@ -3,6 +3,7 @@ import { createMutable } from '../../../../core/vendor/solid-js/store/dist/store
 import { Audio } from '../../../../core/ui/audio-base/audio-support.js';
 import ContextManager from '../../../../core/ui/context-manager/context-manager.js';
 import { displayRequestUniqueId } from '../../../../core/ui/context-manager/display-handler.js';
+import { DisplayQueueManager } from '../../../../core/ui/context-manager/display-queue-manager.js';
 import { DialogBoxManager } from '../../../../core/ui/dialog-box/manager-dialog-box.js';
 import { InterfaceMode } from '../../../../core/ui/interface-modes/interface-modes.js';
 import SaveLoadData from '../../../../core/ui/save-load/model-save-load.js';
@@ -92,13 +93,23 @@ function createPauseMenuModel() {
           callback: (eAction) => {
             if (eAction == DialogBoxAction.Confirm) {
               InterfaceMode.switchToDefault();
-              ContextManager.push("screen-endgame", { singleton: true, createMouseGuard: true });
+              ContextManager.push("endgame-screen", {
+                singleton: true,
+                createMouseGuard: true,
+                attributes: { shouldDarken: false }
+              });
+              DisplayQueueManager.add({ category: "EndgameScreen" });
             }
           }
         });
       } else {
         InterfaceMode.switchToDefault();
-        ContextManager.push("screen-endgame", { singleton: true, createMouseGuard: true });
+        ContextManager.push("endgame-screen", {
+          singleton: true,
+          createMouseGuard: true,
+          attributes: { shouldDarken: false }
+        });
+        DisplayQueueManager.add({ category: "EndgameScreen" });
       }
     } else {
       DialogBoxManager.createDialog_ConfirmCancel({

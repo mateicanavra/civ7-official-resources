@@ -30,6 +30,7 @@ class DistrictHealthManager extends Component {
     engine.on("CityTransfered", this.onCityTransfered, this);
     engine.on("DistrictControlChanged", this.onDistrictControlChanged, this);
     engine.on("PlotVisibilityChanged", this.onPlotVisibilityChanged, this);
+    engine.on("LocalPlayerChanged", this.onLocalPlayerChanged, this);
     window.addEventListener("ui-hide-district-health-bars", this.globalHideListener);
     window.addEventListener("ui-show-district-health-bars", this.globalShowListener);
   }
@@ -40,6 +41,7 @@ class DistrictHealthManager extends Component {
     engine.off("CityTransfered", this.onCityTransfered, this);
     engine.off("DistrictControlChanged", this.onDistrictControlChanged, this);
     engine.off("PlotVisibilityChanged", this.onPlotVisibilityChanged, this);
+    engine.off("LocalPlayerChanged", this.onLocalPlayerChanged, this);
     window.removeEventListener("ui-hide-district-health-bars", this.globalHideListener);
     window.removeEventListener("ui-show-district-health-bars", this.globalShowListener);
     super.onDetach();
@@ -110,6 +112,12 @@ class DistrictHealthManager extends Component {
     districtHealth.setAttribute("data-district-fow", (revealedState == RevealedStates.REVEALED).toString());
     this.Root.appendChild(districtHealth);
     return districtHealth;
+  }
+  destroyAllDistrictHealth() {
+    this.children.forEach((districtHealth, id) => {
+      const componentID = ComponentID.fromBitfield(id);
+      this.removeDistrictHealth(districtHealth, ComponentID.getInvalidID(), componentID);
+    });
   }
   /**
    * Called by an instance of DistrictHealth to register it with the manager
@@ -189,6 +197,10 @@ class DistrictHealthManager extends Component {
   }
   onCityTransfered(data) {
     this.updateCity(data.cityID, true);
+  }
+  onLocalPlayerChanged(_data) {
+    this.destroyAllDistrictHealth();
+    this.createAllDistrictHealth();
   }
   updateCity(cityID, isTransfer) {
     const city = Cities.get(cityID);

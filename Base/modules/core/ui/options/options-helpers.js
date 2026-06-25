@@ -135,6 +135,7 @@ const ShowReloadUIPrompt = (closeCallback, restoreCategory) => {
   const acceptCallback = () => {
     Options.commitOptions();
     closeCallback?.();
+    UI.panelDefault();
   };
   const acceptOption = {
     actions: ["accept"],

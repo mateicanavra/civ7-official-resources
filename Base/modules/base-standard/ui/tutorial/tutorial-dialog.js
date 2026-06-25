@@ -6,6 +6,7 @@ import NavTray from '../../../core/ui/navigation-tray/model-navigation-tray.js';
 import Panel from '../../../core/ui/panel-support.js';
 import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
 import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
+import { LoadCurtainClosedEventName } from '../../ui-next/screens/load-screen/load-screen-model.js';
 import content from './tutorial-dialog.html.js';
 import styles from './tutorial-dialog.scss.js';
 
@@ -56,6 +57,7 @@ class TutorialDialogPanel extends Panel {
     }
     window.addEventListener("tutorial-dialog-page-ready", this.tutorialDialogPageReadyListener);
     window.addEventListener(ActiveDeviceTypeChangedEventName, this.activeDeviceTypeListener, true);
+    window.addEventListener(LoadCurtainClosedEventName, this.updateInteract);
     this.Root.addEventListener("navigate-input", this.navigateInputListener);
     this.Root.addEventListener("engine-input", this.engineInputListener);
     this.pagesReady = 0;
@@ -118,16 +120,22 @@ class TutorialDialogPanel extends Panel {
   onDetach() {
     window.removeEventListener(ActiveDeviceTypeChangedEventName, this.activeDeviceTypeListener, true);
     window.removeEventListener("tutorial-dialog-page-ready", this.tutorialDialogPageReadyListener);
+    window.removeEventListener(LoadCurtainClosedEventName, this.updateInteract);
     this.Root.removeEventListener("navigate-input", this.navigateInputListener);
     this.Root.removeEventListener("engine-input", this.engineInputListener);
+    Input.setActiveContext(InputContext.World);
     super.onDetach();
   }
   onReceiveFocus() {
     super.onReceiveFocus();
+    this.updateInteract();
+  }
+  updateInteract() {
     NavTray.clear();
     NavTray.addOrUpdateAccept("LOC_TUTORIAL_NEXT_PAGE");
     NavTray.addOrUpdateCancel("LOC_TUTORIAL_PREVIOUS_PAGE");
     NavTray.addOrUpdateNavNext("LOC_TUTORIAL_SKIP");
+    Input.setActiveContext(InputContext.Shell);
   }
   onLoseFocus() {
     NavTray.clear();

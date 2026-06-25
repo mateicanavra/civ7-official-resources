@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Database>
 	<Ages>
-		<Row AgeType="AGE_EXPLORATION" Name="LOC_AGE_EXPLORATION_NAME" Description="LOC_AGE_EXPLORATION_DESCRIPTION" PlayerCivilizationDomain="ExplorationAgeCivilizations" DefeatDomain="ExplorationDefeats" VictoryDomain="ExplorationVictories" MapSizeDomain="DistantLandsMapSizes" Banner="age-sel_exploration_full" SortIndex="20"/>
+		<Row AgeType="AGE_EXPLORATION" Name="LOC_AGE_EXPLORATION_NAME" Description="LOC_AGE_EXPLORATION_DESCRIPTION" PlayerCivilizationDomain="ExplorationAgeCivilizations" DefeatDomain="ExplorationDefeats" VictoryDomain="ExplorationVictories" MapSizeDomain="DistantLandsMapSizes" Banner="age-sel_exploration_full" ChronologyIndex="20" SortIndex="20"/>
 	</Ages>
 	<Civilizations>
 		<Row Domain="ExplorationAgeCivilizations" CivilizationType="CIVILIZATION_ABBASID" CivilizationName="LOC_CIVILIZATION_ABBASID_NAME" CivilizationFullName="LOC_CIVILIZATION_ABBASID_FULLNAME" CivilizationDescription="LOC_CIVILIZATION_ABBASID_DESCRIPTION" CivilizationIcon="civ_sym_abbasid.png" CivilizationIntroText="LOC_LOADING_CIV_INTRO_TEXT_ABBASID"/>
@@ -237,7 +237,8 @@
 	</LegacyPaths>
 	<!-- Crises -->
 	<Crises>
-		<Row AgeCrisisEventType="EXPLORATION_CRISIS_REVOLUTION" AgeType="AGE_EXPLORATION" Category="LOC_CRISIS_TITLE_AGE_EXPLORATION" Name="LOC_EXPLORATION_REVOLUTIONS_CRISIS_NAME" Description="LOC_EXPLORATION_REVOLUTIONS_CRISIS_DESCRIPTION" />
+		<!-- To Review after 1.4.1: Disabling the Revolution Crisis for now as it involves additional government changes -->
+		<!--<Row AgeCrisisEventType="EXPLORATION_CRISIS_REVOLUTION" AgeType="AGE_EXPLORATION" Category="LOC_CRISIS_TITLE_AGE_EXPLORATION" Name="LOC_EXPLORATION_REVOLUTIONS_CRISIS_NAME" Description="LOC_EXPLORATION_REVOLUTIONS_CRISIS_DESCRIPTION" />-->
 		<Row AgeCrisisEventType="EXPLORATION_CRISIS_PLAGUE" AgeType="AGE_EXPLORATION" Category="LOC_CRISIS_TITLE_AGE_EXPLORATION" Name="LOC_EXPLORATION_PLAGUE_CRISIS_NAME" Description="LOC_EXPLORATION_PLAGUE_CRISIS_DESCRIPTION" />
 		<Row AgeCrisisEventType="EXPLORATION_CRISIS_RELIGION" AgeType="AGE_EXPLORATION" Category="LOC_CRISIS_TITLE_AGE_EXPLORATION" Name="LOC_EXPLORATION_RELIGIOUS_REVOLTS_CRISIS_NAME" Description="LOC_EXPLORATION_RELIGIOUS_REVOLTS_CRISIS_DESCRIPTION" />
 	</Crises>

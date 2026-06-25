@@ -298,6 +298,7 @@ class PanelMPLobby extends Panel {
         teamDropdown.classList.add("mp-staging__focusable-slot", "my-1", "mx-0\\.5", "flex", "flex-auto");
         teamDropdown.setAttribute("index", "1");
         teamDropdown.setAttribute("no-selection-caption", " ");
+        teamDropdown.setAttribute("label-class", "absolute font-body-xl text-white text-shadow");
         Databind.attribute(teamDropdown, "optionID", "player.teamDropdown.id");
         Databind.attribute(teamDropdown, "dropdown-items", "player.teamDropdown.serializedItemList");
         Databind.attribute(teamDropdown, "selected-item-index", "player.teamDropdown.selectedItemIndex");
@@ -406,6 +407,9 @@ class PanelMPLobby extends Panel {
         leaderDropdown.setAttribute("has-border", "false");
         leaderDropdown.setAttribute("has-background", "false");
         leaderDropdown.classList.add("mp-staging__focusable-slot", "my-1", "mx-0\\.5", "flex", "flex-auto");
+        if (Configuration.getGame().isHotseat) {
+          leaderDropdown.classList.add("mp-leader-dropdown-hotseat");
+        }
         leaderDropdown.setAttribute("index", "2");
         leaderDropdown.setAttribute(
           "icon-container-innerhtml",
@@ -677,7 +681,7 @@ class PanelMPLobby extends Panel {
         this.viewAllRules(inputEvent);
         break;
       case "shell-action-3":
-        if (Network.hasCommunicationsPrivilege(false)) {
+        if (Network.hasCommunicationsPrivilege(false) && !Configuration.getGame().isHotseat) {
           if (this.isSmallScreen()) {
             this.openChat();
             inputEvent.stopPropagation();
@@ -922,6 +926,9 @@ class PanelMPLobby extends Panel {
     );
   }
   updateChatNavHelp() {
+    if (Configuration.getGame().isHotseat) {
+      return;
+    }
     const currentFocus = FocusManager.get().currentFocus();
     this.chatNavHelp?.setAttribute(
       "action-key",
@@ -972,7 +979,7 @@ class PanelMPLobby extends Panel {
     }
     if (this.isSmallScreen()) {
       NavTray.addOrUpdateShellAction2("LOC_UI_MP_LOBBY_RULES");
-      if (Network.hasCommunicationsPrivilege(false)) {
+      if (Network.hasCommunicationsPrivilege(false) && !Configuration.getGame().isHotseat) {
         NavTray.addOrUpdateShellAction3("LOC_UI_MP_CHAT");
       }
       if (this.isMobileViewExperience) {

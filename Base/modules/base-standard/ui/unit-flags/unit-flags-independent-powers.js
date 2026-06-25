@@ -249,7 +249,6 @@ class IndependentPowersUnitFlag extends Component {
     );
     unitFlagContainer.appendChild(unitFlagArmyStats);
     this.Root.appendChild(unitFlagContainer);
-    engine.on("AffinityLevelChanged", this.onAffinityLevelChanged, this);
     engine.on("BeforeUnload", this.onUnload, this);
     const manager = UnitFlagManager.instance;
     manager.addChildForTracking(this);
@@ -297,7 +296,6 @@ class IndependentPowersUnitFlag extends Component {
     IndependentPowersFlagMaker.removeChildFromTracking(this.independentID, this);
     manager.removeChildFromTracking(this);
     engine.off("UnitPromoted", this.realizePromotions, this);
-    engine.off("AffinityLevelChanged", this.onAffinityLevelChanged, this);
     engine.off("BeforeUnload", this.onUnload, this);
     this.destroyWorldAnchor();
     this.Root.removeEventListener("engine-input", this.engineInputListener);
@@ -345,15 +343,6 @@ class IndependentPowersUnitFlag extends Component {
   }
   enable() {
     this.unitContainer?.classList.remove("disabled");
-  }
-  /**
-   * @description An independent power's affinity level with a player changed.  Update flags if it's the local player.
-   * @param {AffinityLevelChanged_EventData} data
-   */
-  onAffinityLevelChanged(data) {
-    if (data.player == GameContext.localObserverID) {
-      this.updateAffinity();
-    }
   }
   /**
    * Helper to get the Indy object related to this flag.
@@ -563,6 +552,12 @@ class IndependentPowersUnitFlag extends Component {
   updateAffinity() {
     this.realizeAffinity();
     this.realizeTooltip();
+  }
+  /**
+   * Hotseat
+   */
+  localPlayerUpdate() {
+    this.updateAffinity();
   }
   /**
    * Helper to get the affinity relationship between the player and independent power.

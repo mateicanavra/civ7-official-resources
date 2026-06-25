@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+	<Modifier id="MEMENTO_TOYOTOMI_HIDEYOSHI_KABUTO_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD">
+		<Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+		<Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+		<String context="Description">LOC_MEMENTO_TOYOTOMI_HIDEYOSHI_KABUTO_FUNCTIONAL_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="MEMENTO_TOYOTOMI_HIDEYOSHI_HONEBAMI_MODIFIER" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_MOVEMENT">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_TIER_MATCHES">
+				<Argument name="Exact">true</Argument>
+				<Argument name="Tier">3</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">1</Argument>
+		<String context="Description">LOC_MEMENTO_TOYOTOMI_HIDEYOSHI_HONEBAMI_FUNCTIONAL_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="MEMENTO_TOYOTOMI_HIDEYOSHI_TEA_CEREMONY_KIT_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_PRODUCTION">
+		<Argument name="ConstructibleType">BUILDING_ALTAR, BUILDING_TEMPLE, BUILDING_MUSEUM</Argument>
+		<Argument name="Percent">20</Argument>
+		<String context="Description">LOC_MEMENTO_TOYOTOMI_HIDEYOSHI_TEA_CEREMONY_KIT_FUNCTIONAL_DESCRIPTION</String>
+	</Modifier>
+</GameEffects>

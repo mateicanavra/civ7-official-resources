@@ -137,51 +137,26 @@ class SmallNarrativeEvent extends Panel {
           (def) => def.FromNarrativeStoryType == storyDef.NarrativeStoryType
         );
         let links = 0;
-        if (storyLinks && storyLinks.length > 0) {
-          storyLinks.forEach((link) => {
-            const linkDef = GameInfo.NarrativeStories.lookup(
-              link.ToNarrativeStoryType
-            );
-            if (linkDef) {
-              if (linkDef?.Activation.toUpperCase() === "LINKED" || (linkDef?.Activation.toUpperCase() === "LINKED_REQUISITE" || linkDef?.Activation.toUpperCase() === "LINKED_SUBJECT_REQUISITE") && playerStories.determineRequisiteLink(linkDef.NarrativeStoryType, targetStoryId)) {
+        if (storyDef.VariableLinks) {
+          let storyLinks2 = playerStories.getOrderedLinks(targetStoryId);
+          if (storyLinks2 && storyLinks2.length > 0) {
+            storyLinks2.forEach((link) => {
+              if (this.populateLinkEntry(link, targetStoryId, entryContainer, playerStories)) {
                 links = links + 1;
-                const icons = GameInfo.NarrativeRewardIcons.filter(
-                  (item) => {
-                    return item.NarrativeStoryType === link.ToNarrativeStoryType;
-                  }
-                );
-                const toLinkDef = GameInfo.NarrativeStories.lookup(
-                  linkDef.NarrativeStoryType
-                );
-                const action = playerStories.determineNarrativeInjection(
-                  targetStoryId,
-                  toLinkDef?.$hash ?? -1,
-                  StoryTextTypes.IMPERATIVE
-                );
-                const reward = playerStories.determineNarrativeInjection(
-                  targetStoryId,
-                  toLinkDef?.$hash ?? -1,
-                  StoryTextTypes.REWARD
-                );
-                const canAfford = linkDef?.Cost === 0 || playerStories.canAfford(linkDef.NarrativeStoryType);
-                this.addEntry(
-                  entryContainer,
-                  Locale.stylize(
-                    playerStories.determineNarrativeInjection(
-                      targetStoryId,
-                      toLinkDef?.$hash ?? -1,
-                      StoryTextTypes.OPTION
-                    )
-                  ),
-                  Locale.stylize(reward),
-                  Locale.stylize(action),
-                  link.ToNarrativeStoryType,
-                  icons,
-                  canAfford
-                );
               }
-            }
-          });
+            });
+          }
+        } else {
+          const storyLinks2 = GameInfo.NarrativeStory_Links.filter(
+            (def) => def.FromNarrativeStoryType == storyDef.NarrativeStoryType
+          );
+          if (storyLinks2 && storyLinks2.length > 0) {
+            storyLinks2.forEach((link) => {
+              if (this.populateLinkEntry(link.ToNarrativeStoryType, targetStoryId, entryContainer, playerStories)) {
+                links = links + 1;
+              }
+            });
+          }
         }
         if (links == 0) {
           const icons = GameInfo.NarrativeRewardIcons.filter((item) => {
@@ -207,6 +182,49 @@ class SmallNarrativeEvent extends Panel {
         }
       }
     }
+  }
+  populateLinkEntry(link, targetStoryId, entryContainer, playerStories) {
+    const linkDef = GameInfo.NarrativeStories.lookup(link);
+    if (linkDef) {
+      if (linkDef?.Activation.toUpperCase() === "LINKED" || (linkDef?.Activation.toUpperCase() === "LINKED_REQUISITE" || linkDef?.Activation.toUpperCase() === "LINKED_SUBJECT_REQUISITE") && playerStories.determineRequisiteLink(linkDef.NarrativeStoryType, targetStoryId)) {
+        const icons = GameInfo.NarrativeRewardIcons.filter(
+          (item) => {
+            return item.NarrativeStoryType === linkDef.NarrativeStoryType;
+          }
+        );
+        const toLinkDef = GameInfo.NarrativeStories.lookup(
+          linkDef.NarrativeStoryType
+        );
+        const action = playerStories.determineNarrativeInjection(
+          targetStoryId,
+          toLinkDef?.$hash ?? -1,
+          StoryTextTypes.IMPERATIVE
+        );
+        const reward = playerStories.determineNarrativeInjection(
+          targetStoryId,
+          toLinkDef?.$hash ?? -1,
+          StoryTextTypes.REWARD
+        );
+        const canAfford = linkDef?.Cost === 0 || playerStories.canAfford(linkDef.NarrativeStoryType);
+        this.addEntry(
+          entryContainer,
+          Locale.stylize(
+            playerStories.determineNarrativeInjection(
+              targetStoryId,
+              toLinkDef?.$hash ?? -1,
+              StoryTextTypes.OPTION
+            )
+          ),
+          Locale.stylize(reward),
+          Locale.stylize(action),
+          linkDef.NarrativeStoryType,
+          icons,
+          canAfford
+        );
+        return true;
+      }
+    }
+    return false;
   }
   addEntry(container, descriptiveText, reward, action, key, icons, canAfford) {
     const buttonFXS = document.createElement("fxs-reward-button");

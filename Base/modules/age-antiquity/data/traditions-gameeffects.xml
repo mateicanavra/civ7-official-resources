@@ -167,6 +167,98 @@
 		<Argument name="Amount">1</Argument>
 		<Argument name="ConstructibleType">BUILDING_PALACE</Argument>
 	</Modifier>
+
+	<!-- Government Traditions -->
+	<!-- Classical Republic -->
+	<!-- Yaxche: +2 Happiness on Wonders. -->
+	<Modifier id="YAXCHE_MOD_WONDER_HAPPINESS" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_CONSTRUCTIBLE_YIELD">
+		<Argument name="YieldType">YIELD_HAPPINESS</Argument>
+		<Argument name="ConstructibleClass">WONDER</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_YAXCHE_NAME</Argument>
+		<String context="Description">LOC_TRADITION_YAXCHE_DESCRIPTION</String>
+	</Modifier>
+	<!-- Poieisis: +1 Culture on displayed Great Works in Joyous Settlements, or +2 in Ecstatic Settlements. -->
+	<Modifier id="POIEISIS_MOD_GREAT_WORKS_CULTURE_JOYOUS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_GREAT_WORK">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_SETTLEMENT_HAPPINESS_STAGE_MATCHES">
+				<Argument name="IsGreaterThanOrEquals">true</Argument>
+				<Argument name="HappinessStage">HAPPINESS_STAGE_JOYOUS</Argument>
+       		</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">1</Argument>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+	</Modifier>
+	<Modifier id="POIEISIS_MOD_GREAT_WORKS_CULTURE_ECSTATIC" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_GREAT_WORK">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_SETTLEMENT_HAPPINESS_STAGE_MATCHES">
+				<Argument name="IsGreaterThanOrEquals">true</Argument>
+				<Argument name="HappinessStage">HAPPINESS_STAGE_ECSTATIC</Argument>
+       		</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">1</Argument>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+	</Modifier>
+	<!-- Despotism -->
+	<!-- Commanderies: +20% Gold towards upgrading units. -->
+	<Modifier id="COMMANDERIES_MOD_UPGRADE_DISCOUNT" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_PROPERTY">
+		<Argument name="Key">UpgradeDiscount</Argument>
+		<Argument name="Value">20</Argument>
+		<Argument name="Operation">SET</Argument>
+	</Modifier>
+	<!-- Fajia: +1 War Support on Wars you Declare. -->
+	<Modifier id="FAJIA_MOD_WAR_SUPPORT_AGGRO" collection="COLLECTION_OWNER" effect="EFFECT_ADJUST_WAR_SUPPORT_BONUS">
+		<Argument name="Amount">1</Argument>
+		<Argument name="IsAggressor">true</Argument>
+	</Modifier>
+
+	<!-- Oligarchy -->
+	<!-- Annona: +1 Food on Food Warehouse Buildings in Happy Settlements, or +2 in Joyous Settlements. -->
+	<Modifier id="ANNONA_MOD_FOOD_WAREHOUSE_BUILDING_FOOD_HAPPY" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_SETTLEMENT_HAPPINESS_STAGE_MATCHES">
+				<Argument name="IsGreaterThanOrEquals">true</Argument>
+				<Argument name="HappinessStage">HAPPINESS_STAGE_HAPPY</Argument>
+       		</Requirement>
+		</SubjectRequirements>
+		<Argument name="Tag">FOOD_WAREHOUSE</Argument>
+		<Argument name="YieldType">YIELD_FOOD</Argument>
+		<Argument name="Amount">1</Argument>
+	</Modifier>
+	<Modifier id="ANNONA_MOD_FOOD_WAREHOUSE_BUILDING_FOOD_JOYOUS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_SETTLEMENT_HAPPINESS_STAGE_MATCHES">
+				<Argument name="IsGreaterThanOrEquals">true</Argument>
+				<Argument name="HappinessStage">HAPPINESS_STAGE_JOYOUS</Argument>
+       		</Requirement>
+		</SubjectRequirements>
+		<Argument name="Tag">FOOD_WAREHOUSE</Argument>
+		<Argument name="YieldType">YIELD_FOOD</Argument>
+		<Argument name="Amount">1</Argument>
+	</Modifier>
+	<!-- Hangjiao: +1 Production on Production Warehouse Buildings in Happy Settlements, or +2 in Joyous Settlements. -->
+	<Modifier id="HANGJIAO_MOD_PRODUCTION_WAREHOUSE_BUILDING_PRODUCTION_HAPPY" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_SETTLEMENT_HAPPINESS_STAGE_MATCHES">
+				<Argument name="IsGreaterThanOrEquals">true</Argument>
+				<Argument name="HappinessStage">HAPPINESS_STAGE_HAPPY</Argument>
+       		</Requirement>
+		</SubjectRequirements>
+		<Argument name="Tag">PRODUCTION_WAREHOUSE</Argument>
+		<Argument name="YieldType">YIELD_PRODUCTION</Argument>
+		<Argument name="Amount">1</Argument>
+	</Modifier>
+	<Modifier id="HANGJIAO_MOD_PRODUCTION_WAREHOUSE_BUILDING_PRODUCTION_JOYOUS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_SETTLEMENT_HAPPINESS_STAGE_MATCHES">
+				<Argument name="IsGreaterThanOrEquals">true</Argument>
+				<Argument name="HappinessStage">HAPPINESS_STAGE_JOYOUS</Argument>
+       		</Requirement>
+		</SubjectRequirements>
+		<Argument name="Tag">PRODUCTION_WAREHOUSE</Argument>
+		<Argument name="YieldType">YIELD_PRODUCTION</Argument>
+		<Argument name="Amount">1</Argument>
+	</Modifier>
 	<!-- Invasion Crisis Policies -->
 	<Modifier id="BANDITRY_MOD_GOLD" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD_PER_RESOURCE">
 		<Argument name="YieldType">YIELD_GOLD</Argument>

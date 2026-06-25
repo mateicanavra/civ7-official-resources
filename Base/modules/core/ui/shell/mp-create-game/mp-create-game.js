@@ -218,6 +218,7 @@ class PanelMPCreateGame extends AdvancedOptionsBase {
     } else {
       super.setupNavTray();
       NavTray.addOrUpdateShellAction1("LOC_UI_MP_HOST_LOBBY");
+      NavTray.addOrUpdateShellAction3("LOC_UI_MP_BROWSER_LOAD_NAVTRAY");
     }
   }
   onEngineInput(event) {
@@ -228,6 +229,11 @@ class PanelMPCreateGame extends AdvancedOptionsBase {
     if (event.isCancelInput()) {
       CreateGameModel.showPreviousPanel();
       this.close();
+      event.stopPropagation();
+      event.preventDefault();
+    }
+    if (event.detail.name === "shell-action-3") {
+      this.onLoadPressed();
       event.stopPropagation();
       event.preventDefault();
     }

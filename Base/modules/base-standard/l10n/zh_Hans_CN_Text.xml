@@ -836,13 +836,13 @@
       <Text>骑兵单位拥有强大的近战攻击力和高移动力，无视[TIP:LOC_PEDIA_CONCEPTS_ZONE_OF_CONTROL_TOOLTIP]控制区[/TIP]，但所需要的[TIP:LOC_PEDIA_CONCEPTS_MAINTENANCE_TOOLTIP]维护费用[/TIP]更高。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP" Language="zh_Hans_CN">
-      <Text>当你的帝国累积足够的多余[icon:YIELD_HAPPINESS][b]幸福值[/b]时，就将进入庆典。[NN]庆典会为你的[TIP:LOC_PEDIA_CONCEPTS_GOVERNMENT_TOOLTIP]政体[/TIP]提供一个额外的政策槽位，并能让你根据所选政体选择一个强大的临时加成。</Text>
+      <Text>当你的帝国累积足够的多余[icon:YIELD_HAPPINESS][b]幸福值[/b]时，就将进入庆典。[NN]庆典会为你的[TIP:LOC_PEDIA_CONCEPTS_GOVERNMENT_TOOLTIP]政体[/TIP]提供一个额外的政策槽位，并能让你根据所选政体选择一项强大的加成。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP" Language="zh_Hans_CN">
       <Text>城市是从[TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]城镇[/TIP]升级而来的[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP]。城市可以使用[icon:YIELD_PRODUCTION][b]生产力[/b]生产单位、建造[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建筑[/TIP]、[TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]奇观[/TIP]和[TIP:LOC_PEDIA_CONCEPTS_PROJECTS_TOOLTIP]项目[/TIP]。建造帝国中所有建筑的[icon:YIELD_PRODUCTION][b]生产力[/b]花费会根据帝国城市的数量而逐渐递增。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_CITY_RESOURCES_TOOLTIP" Language="zh_Hans_CN">
-      <Text>城市资源必须分配给有可用[TIP:LOC_PEDIA_CONCEPTS_RESOURCE_CAPACITY_TOOLTIP]资源容量[/TIP]的城市才能获得其加成效果。[NN]未分配时，城市资源只提供[icon:YIELD_GOLD][b]金币[/b]和[icon:YIELD_HAPPINESS][b]幸福值[/b]，而不提供其加成。</Text>
+      <Text>城市资源必须分配给有可用[TIP:LOC_PEDIA_CONCEPTS_RESOURCE_CAPACITY_TOOLTIP]资源容量[/TIP]的[TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]才能获得其加成效果。[NN]未分配时，城市资源只提供[icon:YIELD_GOLD][b]金币[/b]和[icon:YIELD_HAPPINESS][b]幸福值[/b]，而不提供其加成。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP" Language="zh_Hans_CN">
       <Text>当小型独立势力通过“结交独立势力”外交行动获得提升时，便会形成城邦。城邦将获得一个城市地块、市政厅与更坚固的防御，并为促成其提升的文明提供特色加成，同时在本时代结束前共享该文明的战争与和平状态。</Text>
@@ -862,8 +862,11 @@
     <Replace Tag="LOC_PEDIA_CONCEPTS_COMMAND_RADIUS_TOOLTIP" Language="zh_Hans_CN">
       <Text>指挥半径是受[TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]指挥官[/TIP][TIP:LOC_PEDIA_CONCEPTS_PROMOTION_TOOLTIP]晋升[/TIP]和[TIP:LOC_PEDIA_CONCEPTS_COMMENDATION_TOOLTIP]奖章[/TIP]加成效果影响的周边地块格数。</Text>
     </Replace>
+    <Replace Tag="LOC_PEDIA_CONCEPTS_COMMANDER_EXPERIENCE_TOOLTIP" Language="zh_Hans_CN">
+      <Text>当单位在[TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]指挥官[/TIP]的[TIP:LOC_PEDIA_CONCEPTS_COMMAND_RADIUS_TOOLTIP]指挥半径[/TIP]内参与战斗时，该指挥官便会获得经验值。[NN]当指挥官获得足够经验值时，即可获得[TIP:LOC_PEDIA_CONCEPTS_PROMOTION_TOOLTIP]晋升[/TIP]。</Text>
+    </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP" Language="zh_Hans_CN">
-      <Text>指挥官是一种特殊的[TIP:LOC_PEDIA_CONCEPTS_SUPPORT_UNIT_TOOLTIP]支援单位[/TIP]，其可以获得[TIP:LOC_PEDIA_CONCEPTS_EXPERIENCE_TOOLTIP]经验值[/TIP]，并能集结同军种的其他单位组成军队、舰队或空军飞行队，使其与自身一同移动。[NN]集结的单位处于脆弱状态，必须部署到与指挥官相邻的地块后才能发动攻击。[NN]战败的指挥官一段时间后会在你的[TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]首都[/TIP]重生。</Text>
+      <Text>指挥官是一种特殊的[TIP:LOC_PEDIA_CONCEPTS_SUPPORT_UNIT_TOOLTIP]支援单位[/TIP]，其可以获得[TIP:LOC_PEDIA_CONCEPTS_COMMANDER_EXPERIENCE_TOOLTIP]经验值[/TIP]，并能集结同军种的其他单位组成军队、舰队或空军飞行队，使其与自身一同移动。[NN]集结的单位处于脆弱状态，必须部署到与指挥官相邻的地块后才能发动攻击。[NN]战败的指挥官一段时间后会在你的[TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]首都[/TIP]重生。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_COMMENDATION_TOOLTIP" Language="zh_Hans_CN">
       <Text>奖章是极其强大的加成，可以在[TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]指挥官[/TIP]每次达到[TIP:LOC_PEDIA_CONCEPTS_PROMOTION_TOOLTIP]晋升[/TIP]树顶端时选择。</Text>
@@ -915,9 +918,6 @@
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_ESPIONAGE_TOOLTIP" Language="zh_Hans_CN">
       <Text>谍报任务是秘密的外交行动，只有在暴露时才会降低与目标文明之间的[TIP:LOC_PEDIA_CONCEPTS_RELATIONSHIP_TOOLTIP]关系[/TIP]。</Text>
-    </Replace>
-    <Replace Tag="LOC_PEDIA_CONCEPTS_EXPERIENCE_TOOLTIP" Language="zh_Hans_CN">
-      <Text>单位在[TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]指挥官[/TIP]的[TIP:LOC_PEDIA_CONCEPTS_COMMAND_RADIUS_TOOLTIP]指挥半径[/TIP]中参与战斗时，指挥官将获得经验值。[NN]指挥官获得足够的经验值后将获得[TIP:LOC_PEDIA_CONCEPTS_PROMOTION_TOOLTIP]晋升[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_EXPLORATION_AGE_TOOLTIP" Language="zh_Hans_CN">
       <Text>游戏三个时代中的第二个。</Text>
@@ -1358,10 +1358,10 @@
       <Text>定居点上限</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_CELEBRATION_1_CHAPTER_CONTENT_PARA_1" Language="zh_Hans_CN">
-      <Text>庆典将解锁一个政策槽位并提供观光值。此外，处于庆典期间的文明可以从政体专属效果2个有持续时间的加成中选择其一。举例而言，在庆典期间，一个古典共和文明解锁了一个传统槽位，然后即可选择+20%文化值（持续10回合）或建造奇观时+15%生产力效用（持续10回合）。</Text>
+      <Text>当帝国累积了足够的溢出幸福值后，便会迎来庆典。庆典将解锁一个政策槽位；研习“娱乐”后，庆典还会提供观光值。此外，处于庆典中的文明还能从政体专属效果的两项加成中选择其一。查看政体界面，了解可以选择的加成。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_CELEBRATION_1_CHAPTER_CONTENT_PARA_2" Language="zh_Hans_CN">
-      <Text>后续庆典所需的幸福值均高于之前的庆典。庆典期间不会停止积累幸福值，因此可能引发连锁庆典。[/LIST] </Text>
+      <Text>每次庆典所需的幸福值都会高于上一次。庆典期间，幸福值仍会持续累积，因此可能接连触发新的庆典。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_CELEBRATION_1_CHAPTER_CONTENT_PARA_3" Language="zh_Hans_CN">
       <Text>提示：关注进入下次庆典之前剩余的回合数，策略性地进行规划，将庆典效果的益处发挥到最大。</Text>
@@ -1421,7 +1421,7 @@
       <Text>城墙防御无法通过金币购买，市中心除外。而市区区块中的城墙可以在城市建造队列中使用生产力进行建造，一次建造一个地块。城墙无法建在可航行河流地块上，且建造时必须与同一定居点的其他城墙防御相邻，从市中心开始延展。城墙无法建造在其他定居点拥有的城墙旁，市中心除外（其为始终允许）。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_CITYCAPTURE_1_CHAPTER_WALL_PARA_3" Language="zh_Hans_CN">
-      <Text>单位攻击有防御能力的区块时，战斗结果的判定方法是将发起进攻单位的战斗力与区块的防御力数值进行对比，而区块防御力的计算方式是以此区块生产的最强近战单位的战斗力减去设定值（10）。城墙和所有城市/城镇中心会对近战攻击者造成反向伤害。</Text>
+      <Text>单位攻击有防御能力的区块时，战斗结果的判定方法是将发起进攻单位的战斗力与区块的防御力数值进行对比，而区块防御力的计算方式是以此区块拥有者所生产的最强近战单位的战斗力减去固定值（10）。城墙和所有城市/城镇中心会对近战攻击者造成反向伤害，且由防守方先造成伤害。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_CITYCAPTURE_1_CHAPTER_WALL_TITLE" Language="zh_Hans_CN">
       <Text>城墙防御</Text>
@@ -1430,7 +1430,7 @@
       <Text>占领城市</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_CIVIC_1_CHAPTER_CONTENT_PARA_1" Language="zh_Hans_CN">
-      <Text>市政与科技类似，也需要通过研究解锁；然而它们是通过文化值产量来推动。市政可以解锁奇观、单位和建筑。与科技不同，市政通常会提供政策，而后者可以放置到政体的槽位中。</Text>
+      <Text>市政与科技类似，同样需要研习，但其进度由文化值推动。市政可以解锁奇观、单位和建筑。与科技不同，市政通常还会提供可放入政体槽位的政策。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_CIVIC_1_CHAPTER_CONTENT_PARA_2" Language="zh_Hans_CN">
       <Text>选择科技树或市政树中更深层的科技或市政时，系统会自动将前置节点加入研究队列中。</Text>
@@ -1568,7 +1568,7 @@
       <Text>在战斗中，不同地貌可能成为你单位的助力或阻碍。每种地形特征都会对单位的防御力产生正面或负面影响。以下是一份简明指南：</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_COMBAT_3_CHAPTER_CONTENT_PARA_2" Language="zh_Hans_CN">
-      <Text>[BLIST][LI]植被环境：森林、林地等茂密地貌为处于其中单位提供+2防御力加成。[LI]湿地环境：沼泽、绿洲等潮湿地貌会使你单位的防御力-2。[LI]丘陵：位于丘陵地块的单位可获得显著防御力加成，当前为+3。[LI]可通行河流：海上单位可在此自由航行。而陆地单位则需要上船（进入船载状态）才能安全渡河。[LI]小型河流：这类地形会影响战斗机动性。在小型河流地块上发起进攻会蒙受战斗力减益，同样，在其上进行防守也会降低单位的战斗力。[/LIST]</Text>
+      <Text>[BLIST][LI]植被环境：森林、林地等茂密地貌为处于其中单位提供+2防御力加成。[LI]湿地环境：沼泽、绿洲等潮湿地貌会使你单位的防御力-2。[LI]崎岖：位于崎岖地块的单位可获得显著防御力加成，当前为+3。[LI]可通行河流：海上单位可在此自由航行。而陆地单位则需要上船（进入船载状态）才能安全渡河。[LI]小型河流：这类地形会影响战斗机动性。在小型河流地块上发起进攻会蒙受战斗力减益，同样，在其上进行防守也会降低单位的战斗力。[/LIST]</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_COMBAT_3_CHAPTER_CONTENT_PARA_3" Language="zh_Hans_CN">
       <Text>提示：通常而言，应尽量避免在水域地块上进行防御，而应选择停留在植被地块或丘陵上，以充分利用地形提供的防御加成。 </Text>
@@ -1820,7 +1820,7 @@
       <Text>文明受到两种议程的影响：领袖议程和AI倾向。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_DIPLOMACY_6_CHAPTER_LEADERAGENDA_PARA_1" Language="zh_Hans_CN">
-      <Text>领袖议程会对两个文明之间的关系产生特定影响。举例而言，哈特谢普苏特的议程是“尼罗河奇观”：如果你拥有的奇观比她多，双方文明之间的关系将小幅下降；但如果你拥有的奇观比她少，双方文明之间的关系将得到中等程度的提升。</Text>
+      <Text>领袖议程会对两个文明之间的关系产生特定影响。举例而言，哈特谢普苏特的议程是“尼罗河奇观”：如果你拥有的奇观比她多，双方文明之间的关系将小幅下降；但如果你拥有的奇观比她少，双方文明之间的关系将得到中等程度的提升。不过，当人类玩家选择某位领袖进行游戏时，不会获得该领袖议程带来的效果。议程仅供AI使用。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_DIPLOMACY_6_CHAPTER_LEADERAGENDA_TITLE" Language="zh_Hans_CN">
       <Text>领袖议程</Text>
@@ -1862,7 +1862,7 @@
       <Text>发现取代了《文明》旧作中传统的“奖励小屋”。地图初始生成时将放置这些特殊的兴趣点，其中一些甚至可能在探索过程中再次出现。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_DISCOVERIES_1_CHAPTER_CONTENT_PARA_2" Language="zh_Hans_CN">
-      <Text>发现有三种类型，每种的复杂性、奖励和稀有度呈递增：[BLIST][LI][B]基础发现[/B]功能类似于经典的奖励小屋。当单位进入该地块时，发现会提供即时的小额奖励，然后消失。[LI][B]调查[/B]需要更多投入，例如对此位置的单位造成伤害，或者支付资源产出（如金币、科技值、生产力、幸福值或文化值），亦或是两者兼而有之。完成调查将获得中等规模的奖励。</Text>
+      <Text>发现有两种类型，它们的复杂性、奖励和稀有度不同：[BLIST][LI][B]基础发现[/B]功能类似于经典的奖励小屋。当单位进入该地块时，发现会提供即时的小额奖励，然后消失。[LI][B]调查[/B]需要更多投入，例如对此位置的单位造成伤害，或者支付资源产出（如金币、科技值、生产力、幸福值或文化值），亦或是两者兼而有之。完成调查将获得中等规模的奖励。[/BLIST]</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_DISCOVERIES_1_CHAPTER_CONTENT_PARA_3" Language="zh_Hans_CN">
       <Text>提示：应该优先派遣探路者或闲置单位尽早探索发现。基础发现能提供快速提升，而策略性地投入调查和神话任务能极大加快你文明的发展进程。</Text>
@@ -1919,13 +1919,13 @@
       <Text>金币收入</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_GOVERNMENT_1_CHAPTER_CONTENT_PARA_1" Language="zh_Hans_CN">
-      <Text>政体是文化系统的一部分，也是每个时代中的关键决定因素。</Text>
+      <Text>政体是每个时代幸福值机制的重要组成部分，并为你的文明提供时代中不同的发展方向。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_GOVERNMENT_1_CHAPTER_CONTENT_PARA_2" Language="zh_Hans_CN">
-      <Text>在每个时代至少能从3种不同政体中进行选择。在时代中选择政体之后便会锁定，无法更改。</Text>
+      <Text>每个时代可从三种不同政体中进行选择。一旦选定政体，该选择将在整个时代内锁定，无法更改。部分文明还拥有其专属的特色政体。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_GOVERNMENT_1_CHAPTER_CONTENT_PARA_3" Language="zh_Hans_CN">
-      <Text>每次玩家获得庆典时刻时，每种政体都将提供2种庆典效果以供选择。这些效果持续10回合，鼓励玩家在这个时期专注于特定的方面；每种政体带来的效果都有所不同。此外，每次庆典将提供一个新的政策槽位。</Text>
+      <Text>每种政体都会为玩家提供一个被动效果、两项可在庆典期间选择的加成，以及市政树中的新传统。虽然在时代过渡时政体会发生变化，但已解锁的传统将得以保留。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_GOVERNMENT_1_CHAPTER_CONTENT_TITLE" Language="zh_Hans_CN">
       <Text>基础</Text>
@@ -1955,7 +1955,7 @@
       <Text>在达到一定阈值之前，定居点通过累积食物就能获得新的地块。超过此阈值后，定居点将获得1人口，可分配到地块中促进发展。 </Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_GROWTH_1_CHAPTER_POP_PARA_1" Language="zh_Hans_CN">
-      <Text>[BLIST][LI]食物累积：来自每个定居点的食物每回合都将汇集起来。超过发展阈值后，定居点将获得1人口。[LI]人口分配：玩家可以选择将新人口放置在空地块上建造改良设施，或将其添加到市区地块上获得专家。[/LIST]</Text>
+      <Text>[BLIST][LI]食物累积：来自每个定居点的食物每回合都将汇集起来。超过发展阈值后，定居点将获得1人口。[LI]人口分配：玩家可以选择将新人口放置在空地块上建造改良设施，或将其添加到市区地块上获得专家。[LI]发展率：带有此术语的调节器会减少定居点增长1人口所需的食物数量。[/LIST]</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_GROWTH_1_CHAPTER_POP_PARA_2" Language="zh_Hans_CN">
       <Text>提示：食物是人口增长的主要驱动力。为与城市相连的城镇设置发展重心，将其食物送往城市，以提高城市的食物供应。</Text>
@@ -2231,10 +2231,10 @@
       <Text>沿岸扫荡</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_PIRATING_1_CHAPTER_CONTENT_PARA_1" Language="zh_Hans_CN">
-      <Text>某些单位拥有[icon:UNIT_CAUTION]“海盗”能力，或者能从文明或领袖处获得此能力。拥有[icon:UNIT_CAUTION]“海盗”能力的单位能够跨越其他文明的边界，掠夺非结盟文明的贸易路线，并在不宣战的情况下攻击非结盟文明的单位。非结盟文明亦能攻击此类单位，宣战后其将停留在敌方边界内。私掠同样被视为海盗，因此私掠船均依循海盗玩法规则。</Text>
+      <Text>某些单位拥有[icon:UNIT_CAUTION]“海盗”能力，或者能从文明或领袖处获得此能力。拥有[icon:UNIT_CAUTION]“海盗”能力的单位能够跨越其他文明的边界，掠夺非结盟文明的贸易路线，并在不宣战的情况下攻击非结盟文明的单位。如果击杀单位，会降低你与对应文明或独立势力的关系。非结盟文明亦能攻击此类单位，宣战后其将停留在敌方边界内。而击杀海盗单位不会降低你与其所属文明的关系。私掠同样被视为海盗，因此私掠船均依循海盗玩法规则。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_PIRATING_1_CHAPTER_CONTENT_PARA_2" Language="zh_Hans_CN">
-      <Text>提示：海盗能力虽能带来收益，但会削弱与目标文明或独立势力之间的关系。当心，别乱惹祸端！ </Text>
+      <Text>提示：应尽量将单位驻扎在驻防区块中。这样既可以攻击海盗，又能依靠区块防御避免受到攻击。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_PIRATING_1_TITLE" Language="zh_Hans_CN">
       <Text>海盗</Text>
@@ -2495,7 +2495,7 @@
       <Text>科技</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_TILES_1_CHAPTER_CONTENT_PARA_1" Language="zh_Hans_CN">
-      <Text>定居点中有两类地块：市区和乡村。乡村地块通过边界扩张获得，在乡村地块上放置建筑将创建市区地块。</Text>
+      <Text>定居点中有两类地块：市区和乡村。乡村地块通过边界扩张来获得，并用于建造改良设施；而市区地块则通过放置建筑形成区块来获得。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_TILES_1_CHAPTER_CONTENT_PARA_2" Language="zh_Hans_CN">
       <Text>在发展事件期间，将人口分配至乡村地块可以建立改良设施。基本改良设施包括农场、矿井、伐木场、黏土坑、渔船、营地、牧场、种植园、采石场和钻油平台。而将人口分配至市区地块将获得专家。专家根据其所放置建筑的相邻加成提供额外产出，但也会消耗城市的食物和幸福值（每个时代-2食物、-2幸福值）。</Text>
@@ -2705,7 +2705,7 @@
       <Text>城墙防御无法通过金币购买（除非位于市中心）。而区块中的城墙可以在城市建造队列中使用生产力进行建造，一次建造一个地块。城墙无法建在可航行河流地块上，且建造时必须与同一定居点的其他城墙相邻，从市中心开始延展。城墙无法建造在其他定居点拥有的城墙旁，市中心除外（其为始终允许）。无法在乡村地块上建造城墙。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_WALLS_1_CHAPTER_CONTENT_PARA_4" Language="zh_Hans_CN">
-      <Text>单位攻击有防御能力的区块时，战斗结果的判定方法是将发起进攻单位的战斗力与区块的防御力数值进行对比，而区块防御力的计算方式是以此区块生产的最强近战单位的战斗力减去设定值（10）。城墙和所有城市/城镇中心会对近战攻击者造成反向伤害。</Text>
+      <Text>单位攻击有防御能力的区块时，战斗结果的判定方法是将发起进攻单位的战斗力与区块的防御力数值进行对比，而区块防御力的计算方式是以此区块拥有者所生产的最强近战单位的战斗力减去固定值（10）。城墙和所有城市/城镇中心会对近战攻击者造成反向伤害，且由防守方先造成伤害。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_WALLS_1_CHAPTER_CONTENT_PARA_5" Language="zh_Hans_CN">
       <Text>提示：要占领定居点，进攻方必须控制城市/城镇中心以及拥有城墙防御的所有区块。</Text>
@@ -2774,7 +2774,7 @@
       <Text>项目是[TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]中的特殊[icon:YIELD_PRODUCTION][b]生产[/b]选项，完成后将应用效果。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PROMOTION_TOOLTIP" Language="zh_Hans_CN">
-      <Text>晋升是[TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]指挥官[/TIP]通过[TIP:LOC_PEDIA_CONCEPTS_EXPERIENCE_TOOLTIP]经验值[/TIP]获得的加成。[NN]达到晋升树的顶端会解锁[TIP:LOC_PEDIA_CONCEPTS_COMMENDATION_TOOLTIP]奖章[/TIP]。</Text>
+      <Text>晋升是[TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]指挥官[/TIP]通过[TIP:LOC_PEDIA_CONCEPTS_COMMANDER_EXPERIENCE_TOOLTIP]经验值[/TIP]获得的加成。[NN]达到晋升树的顶端会解锁[TIP:LOC_PEDIA_CONCEPTS_COMMENDATION_TOOLTIP]奖章[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_RANGED_ATTACK_TOOLTIP" Language="zh_Hans_CN">
       <Text>远程攻击可以打击1格或更远距离的目标并避免[TIP:LOC_PEDIA_CONCEPTS_RECIPROCAL_DAMAGE_TOOLTIP]反向伤害[/TIP]，但需要[TIP:LOC_PEDIA_CONCEPTS_SIGHT_TOOLTIP]视野[/TIP]。[NN]对非驻防单位发动远程攻击时，将使用攻击单位的远程攻击力结算；而对驻防单位和[TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]区块[/TIP]发动远程攻击时，则使用攻击单位的轰击力结算。</Text>
@@ -3986,7 +3986,7 @@
       <Text>单时代游戏</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_PAGE_AGES_40_CHAPTER_CONTENT_PARA_1" Language="zh_Hans_CN">
-      <Text>当一个时代结束时，独立势力和城邦将消失，并作为新的独立势力重新出现。你将保留改良设施和资源，但失去宗主国加成。能在时代过渡后携带到下一个时代的金币和影响力有限，而所有数值都会随着游戏速度而增减。如果在“时代过渡影响”选项中选择了“延续”，你最多可携带3000金币和400影响力，按时代叠加（举例而言，从古典时代进入探索时代时可携带6000金币）。而如果选择的是“重组”，无论处于哪个时代，携带量都固定为3000金币和500影响力。旧时代建筑的效率将降低，失去相邻加成，仅保留基础产量。只有首都保留为城市，其他所有城市都将恢复为城镇，但你可以通过搬迁首都来立即获得第二座城市。多数科技和市政都将被重置，平民单位也会重置，旧的文明能力也将失效（特色建筑和改良设施得到保留）。</Text>
+      <Text>当一个时代结束时，独立势力和城邦将消失，并作为新的独立势力重新出现，其类型取决于上一时代与主要文明的关系状态。你将保留所有改良设施，但会失去资源和宗主国加成。能在时代过渡后携带到下一个时代的金币和影响力有限，而所有数值都会随着游戏速度而增减。如果在“时代过渡影响”选项中选择了“延续”，你最多可携带3000金币和400影响力，按时代叠加（举例而言，从古典时代进入探索时代时可携带6000金币）。而如果选择的是“重组”，无论处于哪个时代，携带量都固定为3000金币和500影响力。旧时代建筑的效率将降低，失去相邻加成，仅保留基础产量。只有首都保留为城市，其他所有城市都将恢复为城镇，但你可以通过搬迁首都来立即获得第二座城市。多数科技和市政都将被重置，平民单位也会重置，旧的文明能力也将失效（特色建筑和改良设施得到保留）。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_PAGE_AGES_40_CHAPTER_CONTENT_PARA_2" Language="zh_Hans_CN">
       <Text>进入新时代后，在上一个时代中征服的定居点将被视为由时代过渡后其归属的玩家所创建。</Text>
@@ -4226,7 +4226,7 @@
       <Text>站立在大峡谷的北缘，你可以远眺穿越地球二十亿年的厚重历史。这里，曾经葱郁的针叶林逐渐沦为干燥的沙漠，而科罗拉多河流经此地七千万年，侵蚀出一条深邃的峡谷。这个深1.6千米的自然奇观讲述了昔日浅海的波澜、沉积层的堆积以及地下水通过岩石裂缝涌出的史诗。同样，这片土地也见证了人类历史的变迁，从普韦布洛人到霍皮人，从派尤特人到纳瓦霍人，以及阿帕奇人、亚瓦派人、哈瓦苏派人和瓦拉帕伊人的祖先，都曾在这里生息繁衍，留下了属于他们的故事。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_PAGE_FEATURE_GRAND_CANYON_CHAPTER_HISTORY_PARA_2" Language="zh_Hans_CN">
-      <Text>大峡谷是西奥多·洛克菲勒最喜爱的胜地，其在1919年被定为国家公园。它也曾给早期西班牙探险家留下深刻印象。在风雨侵蚀下长久屹立的大峡谷，见证了岩石和水的关系：互相冲突又相辅相成。</Text>
+      <Text>大峡谷是西奥多·罗斯福最钟爱的地方，1919年被列为国家公园，然而早在西班牙探险家初抵此地时，它便已令人叹为观止。时至今日，它依然是岩石与水、侵蚀与永恒之间交融与对抗的见证。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_PAGE_FEATURE_GULLFOSS_CHAPTER_HISTORY_PARA_1" Language="zh_Hans_CN">
       <Text>在宁静的景致中，突然响起一阵低沉而有力的轰鸣，仿佛是某个不安分的巨人在地下踽踽独行。这便是位于冰岛赫维塔河上的居德瀑布，亦称为“黄金瀑布”。其声音似乎从地底传来，原因在于，在真正置身于其上之前，它几乎是不可见的。瀑布的水从冰川汇聚而下，接连跨越两段斜坡，然后陡然落入一个隐秘的地缝，接着蜿蜒向大海流去。</Text>
@@ -4625,7 +4625,7 @@
       <Text>要赢得经济胜利，你的GDP必须显著超过所有其他玩家。此点数要求在探索时代开始时较高，但将随游戏推进而递减（详见下方）。一旦达到或超过所需点数，倒计时便会开始。保持领先5回合即可获胜！</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_PAGE_VICTORY_ECONOMIC_MODERN_CHAPTER_CONTENT_PARA_2" Language="zh_Hans_CN">
-      <Text>每回合贡献GDP的来源如下：[BLIST][LI]城市（非城镇）中放置的城市资源和加成资源：研究完“车轮”后，每回合提供1点[LI] 城市（非城镇）中放置的进口资源：研究“技工行业”后，每回合提供1点[LI] 运回的宝藏护送队：每计1货物点，其便提供20点（按游戏速度调整）[LI] 定居点（城市和城镇）中放置的工厂资源：研究完“大量生产”后，每回合提供2点[LI] 当前时代的金币建筑：研究完“货币”后，每回合提供2点[/BLIST]</Text>
+      <Text>每回合贡献GDP的来源如下：[BLIST][LI]城市（非城镇）中放置的城市资源和加成资源：研究完“车轮”后，每回合提供1点[LI] 城市（非城镇）中放置的进口资源：研究“熟练技工”后，每回合提供1点[LI] 运回的宝藏护送队：每计1货物点，其便提供20点（按游戏速度调整）[LI] 定居点（城市和城镇）中放置的工厂资源：研究完“大量生产”后，每回合提供2点[LI] 当前时代的金币建筑：研究完“货币”后，每回合提供2点[/BLIST]</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_PAGE_VICTORY_ECONOMIC_MODERN_CHAPTER_CONTENT_PARA_3" Language="zh_Hans_CN">
       <Text>要触发胜利倒计时，你拥有的点数需要达到排名第二领袖的一定倍数。该倍数由游戏进度决定。[BLIST][LI] 古典时代：无法获胜[LI] 卓越胜利：探索时代50%至79%时代进度需6倍点数[LI] 压倒胜利：探索时代80%至近世时代20%时代进度需4倍点数[LI] 决定胜利：近世时代20%至39%时代进度需3倍点数[LI] 重大胜利：近世时代40%至59%时代进度需2倍点数[LI] 实质胜利：近世时代60%至79%时代进度需1.5倍点数[LI] 惊险胜利：近世时代80%至100%时代进度需1.25倍点数[/BLIST]</Text>
@@ -5906,6 +5906,9 @@
       <Text>张家界</Text>
     </Replace>
     <Replace Tag="LOC_MAP_ARCHIPELAGO_NAME" Language="zh_Hans_CN">
+      <Text>群岛半球</Text>
+    </Replace>
+    <Replace Tag="LOC_MAP_ARCHIPELAGO_VORONOI_NAME" Language="zh_Hans_CN">
       <Text>群岛</Text>
     </Replace>
     <Replace Tag="LOC_MAP_CONTINENTS_NAME" Language="zh_Hans_CN">
@@ -7142,7 +7145,7 @@
       <Text>可以选择此选项，但需要研究完相应科技后方能建造或生产。</Text>
     </Replace>
     <Replace Tag="LOC_UI_SYNCRETISM_SELF" Language="zh_Hans_CN">
-      <Text>确立</Text>
+      <Text>自我肯定</Text>
     </Replace>
     <Replace Tag="LOC_UI_SYNCRETISM_TITLE" Language="zh_Hans_CN">
       <Text>融合</Text>
@@ -9893,8 +9896,8 @@
     </Replace>
     <Replace Tag="LOC_ADVICE_ANTIQUITY_MILITARY_ARMY_COMMANDERS_MESSAGE" Language="zh_Hans_CN">
       <Text>
-				[b]军队[/b][TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]指挥官[/TIP]是[TIP:LOC_PEDIA_CONCEPTS_SUPPORT_UNIT_TOOLTIP]支援单位[/TIP]，其拥有特殊能力并能为附近的[TIP:LOC_PEDIA_CONCEPTS_MILITARY_UNIT_TOOLTIP]军事单位[/TIP]提供加成。指挥官还能[b]集结军事单位[/b]和[TIP:LOC_PEDIA_CONCEPTS_CIVILIAN_UNIT_TOOLTIP]平民单位[/TIP]，实现地图上的快速移动。
-				[nn]在其[b][TIP:LOC_PEDIA_CONCEPTS_COMMAND_RADIUS_TOOLTIP]指挥半径[/TIP][/b]内发生战斗时，指挥官将获得[b]经验值[/b]。其升级后将获得[TIP:LOC_PEDIA_CONCEPTS_PROMOTION_TOOLTIP]晋升[/TIP]，解锁更多加成和能力。每当指挥官获得晋升路径中的终极晋升时，将会获得[TIP:LOC_PEDIA_CONCEPTS_COMMENDATION_TOOLTIP]奖章[/TIP]。等级较高的指挥官能极大程度上影响战争走势，因此务必将其部署在战斗激烈的前线。
+				[B]军队[/B][TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]指挥官[/TIP]是[TIP:LOC_PEDIA_CONCEPTS_SUPPORT_UNIT_TOOLTIP]支援单位[/TIP]，其拥有特殊能力并能为附近的[TIP:LOC_PEDIA_CONCEPTS_MILITARY_UNIT_TOOLTIP]军事单位[/TIP]提供加成。指挥官还能[b]集结军事单位[/b]和[TIP:LOC_PEDIA_CONCEPTS_CIVILIAN_UNIT_TOOLTIP]平民单位[/TIP]，实现地图上的快速移动。
+				[nn]在其[TIP:LOC_PEDIA_CONCEPTS_COMMAND_RADIUS_TOOLTIP]指挥半径[/TIP]内发生战斗时，指挥官将获得[b]经验值[/b]。其升级后将获得[TIP:LOC_PEDIA_CONCEPTS_PROMOTION_TOOLTIP]晋升[/TIP]，解锁更多加成和能力。每当指挥官获得晋升路径中的终极晋升时，将会获得[TIP:LOC_PEDIA_CONCEPTS_COMMENDATION_TOOLTIP]奖章[/TIP]。等级较高的指挥官能极大程度上影响战争走势，因此务必将其部署在战斗激烈的前线。
 				[nn]当单位与指挥官相邻时，可以使用[b]“加入军队”[/b]（单位命令）或[b]“集结军队”[/b]（指挥官命令）将其划归到指挥官麾下。指挥官一次最多能集结4个单位，通过晋升可以解锁更高容量。集结后，单位将随指挥官移动，可整体或单个[b]部署[/b]重返战场。
 				[nn]最后，如果指挥官战败，数回合后将自动在[TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]首都[/TIP]中重生。
 			</Text>
@@ -12603,6 +12606,9 @@
     <Replace Tag="LOC_BADGE_DLC_SEASONPASS_3_NAME" Language="zh_Hans_CN">
       <Text>权海沉浮的徽章</Text>
     </Replace>
+    <Replace Tag="LOC_BADGE_DLC_SEASONPASS_4_NAME" Language="zh_Hans_CN">
+      <Text>笔毫与刀锋的徽章</Text>
+    </Replace>
     <Replace Tag="LOC_BADGE_EVENT_PARTICIPATION_LEADERMIXNMATCH_NAME" Language="zh_Hans_CN">
       <Text>首个活动参与徽章</Text>
     </Replace>
@@ -12834,6 +12840,9 @@
     <Replace Tag="LOC_BANNER_DLC_SEASONPASS_3_NAME" Language="zh_Hans_CN">
       <Text>《权海沉浮》的背景</Text>
     </Replace>
+    <Replace Tag="LOC_BANNER_DLC_SEASONPASS_4_NAME" Language="zh_Hans_CN">
+      <Text>《笔毫与刀锋》的背景</Text>
+    </Replace>
     <Replace Tag="LOC_BANNER_FOUNDATION_1_NAME" Language="zh_Hans_CN">
       <Text>启迪</Text>
     </Replace>
@@ -12954,6 +12963,9 @@
     <Replace Tag="LOC_BORDER_DLC_SEASONPASS_3_NAME" Language="zh_Hans_CN">
       <Text>权海沉浮的边框</Text>
     </Replace>
+    <Replace Tag="LOC_BORDER_DLC_SEASONPASS_4_NAME" Language="zh_Hans_CN">
+      <Text>笔毫与刀锋边框</Text>
+    </Replace>
     <Replace Tag="LOC_BORDER_INTERMEDIATE_NAME" Language="zh_Hans_CN">
       <Text>边框2</Text>
     </Replace>
@@ -13025,6 +13037,9 @@
     </Replace>
     <Replace Tag="LOC_BUILDING_PLACEMENT_HIGHEST_ADJACENCIES" Language="zh_Hans_CN">
       <Text>最高相邻加成地块：</Text>
+    </Replace>
+    <Replace Tag="LOC_BUILDING_PLACEMENT_IMPROVED_TO_UNIQUE_IMPROVED" Language="zh_Hans_CN">
+      <Text>此改良设施将变为一个特色改良设施</Text>
     </Replace>
     <Replace Tag="LOC_BUILDING_PLACEMENT_IMPROVEMENT" Language="zh_Hans_CN">
       <Text>改良设施</Text>
@@ -13198,13 +13213,13 @@
       <Text>变更首都</Text>
     </Replace>
     <Replace Tag="LOC_CARD_AT_EXP_INVASION_ACTIVE_DEFENSE_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>对抗[icon:INDEPENDENT_POWER][TIP:LOC_PEDIA_CONCEPTS_INDEPENDENT_POWER_TOOLTIP]独立势力[/TIP]时[B]+4[icon:NAR_REW_COMBAT][TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]战斗力[/TIP][/B]。</Text>
+      <Text>对抗[icon:INDEPENDENT_POWER][TIP:LOC_PEDIA_CONCEPTS_INDEPENDENT_POWER_TOOLTIP]独立势力[/TIP]时[B]+4[icon:NAR_REW_COMBAT][/B][TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]战斗力[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_CARD_AT_EXP_INVASION_NOBLES_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>指挥官每有一个[icon:NAR_REW_PROMOTION][TIP:LOC_PEDIA_CONCEPTS_PROMOTION_TOOLTIP]晋升[/TIP]，便[B]+1[icon:YIELD_PRODUCTION][/B]、[B]+1[icon:YIELD_CULTURE][/B]，但[icon:NOTIFICATION_SELECT_CAPITAL][TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]首都[/TIP][B]-1[icon:YIELD_GOLD][/B]。</Text>
+      <Text>[icon:UNIT_ARMY_COMMANDER][TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]指挥官[/TIP]每有一个[TIP:LOC_PEDIA_CONCEPTS_PROMOTION_TOOLTIP]晋升[/TIP]，便[B]+1[icon:YIELD_PRODUCTION][/B]、[B]+1[icon:YIELD_CULTURE][/B]，但[icon:NOTIFICATION_SELECT_CAPITAL][TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]首都[/TIP][B]-1[icon:YIELD_GOLD][/B]。</Text>
     </Replace>
     <Replace Tag="LOC_CARD_AT_EXP_INVASION_WALLS_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>[icon:CITY_FORTIFIED][TIP:LOC_PEDIA_CONCEPTS_FORTIFIED_DISTRICTS_TOOLTIP]驻防区块[/TIP][B]+3[icon:NAR_REW_COMBAT][TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]战斗力[/TIP][/B]、[B]+50[icon:Action_Heal]生命值[/B]。</Text>
+      <Text>[icon:CITY_FORTIFIED][TIP:LOC_PEDIA_CONCEPTS_FORTIFIED_DISTRICTS_TOOLTIP]驻防区块[/TIP][B]+3[/B][icon:NAR_REW_COMBAT][TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]战斗力[/TIP]、[B]+50[icon:Action_Heal]生命值[/B]。</Text>
     </Replace>
     <Replace Tag="LOC_CARD_AT_MOD_CRISIS_HERBAL_REMEDIES_DESCRIPTION" Language="zh_Hans_CN">
       <Text>免费购买[B]2座医院[/B]。</Text>
@@ -14485,7 +14500,7 @@
       <Text>思想反叛</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ESPIONAGE_INFILTRATE_ENEMY_POSITIONS_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>你的[TIP:LOC_PEDIA_CONCEPTS_SIEGE_UNITS_TOOLTIP]攻城[/TIP]单位将使用其轰击[TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]战斗力[/TIP]对抗属于目标的所有单位。</Text>
+      <Text>你的[TIP:LOC_PEDIA_CONCEPTS_SIEGE_UNITS_TOOLTIP]攻城[/TIP]单位将使用其轰击战斗力对抗属于目标的所有单位。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ESPIONAGE_INFILTRATE_ENEMY_POSITIONS_NAME" Language="zh_Hans_CN">
       <Text>渗透敌方位置</Text>
@@ -15351,6 +15366,9 @@
     <Replace Tag="LOC_DLC_SEASONPASS_3_UNLOCK_CONDITION" Language="zh_Hans_CN">
       <Text>解锁条件：购买权海沉浮。</Text>
     </Replace>
+    <Replace Tag="LOC_DLC_SEASONPASS_4_UNLOCK_CONDITION" Language="zh_Hans_CN">
+      <Text>解锁条件：购买笔毫与刀锋。</Text>
+    </Replace>
     <Replace Tag="LOC_DOMINION_POINTS_NEEDED_TO_WIN" Language="zh_Hans_CN">
       <Text>获胜所需的霸业点</Text>
     </Replace>
@@ -15776,6 +15794,9 @@
     </Replace>
     <Replace Tag="LOC_GOODYHUT_SURVIVORS_GRANT_SCOUT_DESCRIPTION" Language="zh_Hans_CN">
       <Text>最近定居点出现免费探路者</Text>
+    </Replace>
+    <Replace Tag="LOC_GOVERNMENT_HAPPINESS_REMINDER_TEXT" Language="zh_Hans_CN">
+      <Text>正向本地幸福值会汇总至帝国层面，用于推动庆典的到来。负向本地幸福值则来源于超出定居点上限、负战争支持，以及建筑和专家的维护费用。</Text>
     </Replace>
     <Replace Tag="LOC_GREAT_PEOPLE_CANNOT_EARN_PERSON_NO_VALID_LOCATION" Language="zh_Hans_CN">
       <Text>此单位没有有效位置。</Text>
@@ -16600,7 +16621,7 @@
       <Text>插上旗帜，获得此位置的视野。</Text>
     </Replace>
     <Replace Tag="LOC_LEADER_AMINA_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]+1[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_RESOURCE_CAPACITY_TOOLTIP]资源容量[/TIP]。每分配1[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]资源[/TIP]到[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]，便+1[icon:YIELD_GOLD]金币，按[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]时代[/TIP]叠加。所有单位在平原和沙漠中+5[icon:NAR_REW_COMBAT][TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]战斗力[/TIP]。</Text>
+      <Text>[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]+1[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_RESOURCE_CAPACITY_TOOLTIP]资源容量[/TIP]。每分配1[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]资源[/TIP]到[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]，便+1[icon:YIELD_GOLD]金币，按[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]时代[/TIP]叠加。处于平原和沙漠上的[TIP:LOC_PEDIA_CONCEPTS_LAND_UNITS_TOOLTIP]陆地单位[/TIP]+5[icon:NAR_REW_COMBAT][TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]战斗力[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEADER_ASHOKA_DESCRIPTION" Language="zh_Hans_CN">
       <Text>[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]中每有5溢出的[icon:YIELD_HAPPINESS]幸福值，便+1[icon:YIELD_FOOD]食物。[icon:CELEBRATION][TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]庆典[/TIP]期间所有[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP]+10%[icon:YIELD_FOOD]食物。[icon:CITY_BUILDING_LIST]特色[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建筑[/TIP]从所有[icon:CITY_RURAL]改良设施获得+1[icon:YIELD_HAPPINESS]幸福值相邻加成。</Text>
@@ -16609,10 +16630,10 @@
       <Text>时代过渡时AI如何选择文明。</Text>
     </Replace>
     <Replace Tag="LOC_LEADER_ASSOCIATED_CIV_SELECTION_MODE_HISTORICAL_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>将尽可能从与特定领袖关联的小型池中选择随机文明。[nn]若会导致文明重复，则可能避开历史文明选择。</Text>
+      <Text>将尽可能从与特定领袖关联的小型池中选择随机文明。[nn]此规则同时适用于选择随机文明的AI玩家和真人玩家。[nn]若会产生重复文明，则可能不会选择历史关联文明。</Text>
     </Replace>
     <Replace Tag="LOC_LEADER_ASSOCIATED_CIV_SELECTION_MODE_RANDOM_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>随机文明将完全随机选择，无论其关联性如何。</Text>
+      <Text>随机文明将完全随机选择，不考虑其与领袖之间的关联性。[nn]此规则同时适用于选择随机文明的AI玩家和真人玩家。</Text>
     </Replace>
     <Replace Tag="LOC_LEADER_AUGUSTUS_DESCRIPTION" Language="zh_Hans_CN">
       <Text>每有一座[icon:YIELD_TOWNS][TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]城镇[/TIP]，[icon:NOTIFICATION_SELECT_CAPITAL]首都便+2[icon:YIELD_PRODUCTION]生产力。可以在拥有任何重心的[icon:YIELD_TOWNS][TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]城镇[/TIP]中购买[icon:YIELD_CULTURE]文化值[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建筑[/TIP]。在[icon:YIELD_TOWNS][TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]城镇[/TIP]中购买[icon:CITY_BUILDING_LIST][TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建筑[/TIP]时+50%[icon:YIELD_GOLD]金币效用。</Text>
@@ -16630,7 +16651,7 @@
       <Text>[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]+25%[icon:GROWTH_RATE][TIP:LOC_PEDIA_CONCEPTS_GROWTH_RATE_TOOLTIP]发展率[/TIP]。[icon:SPECIALIST][TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_TOOLTIP]专家[/TIP]提供+2[icon:YIELD_SCIENCE]科技值。</Text>
     </Replace>
     <Replace Tag="LOC_LEADER_FRIEDRICH_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>[icon:UNIT_ARMY_COMMANDER] [TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]军队指挥官[/TIP]初始拥有“品格”[TIP:LOC_PEDIA_CONCEPTS_COMMENDATION_TOOLTIP]奖章[/TIP]，为其+1[icon:COMMANDER_RADIUS][TIP:LOC_PEDIA_CONCEPTS_COMMAND_RADIUS_TOOLTIP]指挥半径[/TIP]。达成一项[icon:RADIAL_TECH][TIP:LOC_PEDIA_CONCEPTS_TECH_TOOLTIP]科技精通[/TIP]或建成一座[icon:YIELD_SCIENCE]科技值[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建筑[/TIP]时获得一个[TIP:LOC_PEDIA_CONCEPTS_INFANTRY_UNITS_TOOLTIP]步兵单位[/TIP]。你的[TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]指挥官[/TIP]每获得一枚[TIP:LOC_PEDIA_CONCEPTS_COMMENDATION_TOOLTIP]奖章[/TIP]，便+2[icon:YIELD_SCIENCE]科技值，按[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]时代[/TIP]叠加。</Text>
+      <Text>[icon:UNIT_ARMY_COMMANDER] [TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]军队指挥官[/TIP]初始拥有“品格”[TIP:LOC_PEDIA_CONCEPTS_COMMENDATION_TOOLTIP]奖章[/TIP]，为其+1[icon:COMMANDER_RADIUS][TIP:LOC_PEDIA_CONCEPTS_COMMAND_RADIUS_TOOLTIP]指挥半径[/TIP]。完成一项[icon:RADIAL_TECH][TIP:LOC_PEDIA_CONCEPTS_TECH_TOOLTIP]科技精通[/TIP]时，在你的[icon:NOTIFICATION_SELECT_CAPITAL][TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]首都[/TIP]中获得一个[TIP:LOC_PEDIA_CONCEPTS_INFANTRY_UNITS_TOOLTIP]步兵单位[/TIP]；你建造有[icon:YIELD_SCIENCE][TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]科技值建筑[/TIP]的[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP]中也获得一个步兵单位。你的[TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]指挥官[/TIP]每获得一枚[TIP:LOC_PEDIA_CONCEPTS_COMMENDATION_TOOLTIP]奖章[/TIP]，便+2[icon:YIELD_SCIENCE]科技值，按[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]时代[/TIP]叠加。</Text>
     </Replace>
     <Replace Tag="LOC_LEADER_HARRIET_TUBMAN_DESCRIPTION" Language="zh_Hans_CN">
       <Text>发起[icon:ESPIONAGE][TIP:LOC_PEDIA_CONCEPTS_ESPIONAGE_TOOLTIP]谍报[/TIP]行动时+100%[icon:YIELD_DIPLOMACY]影响力效用。如果完成[TIP:LOC_PEDIA_CONCEPTS_ESPIONAGE_TOOLTIP]谍报[/TIP]行动而不被发现，就会在首都中获得一名移民。在针对你发起的所有[icon:WAR]战争中获得5[icon:WAR_SUPPORT][TIP:LOC_PEDIA_CONCEPTS_WAR_SUPPORT_TOOLTIP]战争支持[/TIP]。[icon:CITY_UNIMPROVED][TIP:LOC_PEDIA_CONCEPTS_VEGETATED_TERRAIN_TOOLTIP]植被地形[/TIP]不会耗尽单位的[icon:Action_Move]移动力。</Text>
@@ -16672,7 +16693,7 @@
       <Text>选择领袖</Text>
     </Replace>
     <Replace Tag="LOC_LEADER_TRUNG_TRAC_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>获得本[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]时代[/TIP]的首个陆地[TIP:LOC_PEDIA_CONCEPTS_MILITARY_UNIT_TOOLTIP]军事单位[/TIP]后，得到特色[icon:UNIT_ARMY_COMMANDER][TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]军队指挥官[/TIP]征贰。[icon:UNIT_ARMY_COMMANDER]征贰能度过[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]时代[/TIP]过渡，在探索时代高级开局中初始拥有2[icon:NAR_REW_PROMOTION]晋升，在近世时代高级开局中初始拥有3[icon:NAR_REW_PROMOTION]晋升，拥有一颗特色[TIP:LOC_PEDIA_CONCEPTS_PROMOTION_TOOLTIP]晋升[/TIP]树。+20%[icon:UNIT_ARMY_COMMANDER][TIP:LOC_PEDIA_CONCEPTS_EXPERIENCE_TOOLTIP]指挥官经验值[/TIP]。热带中的[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]+10%[icon:YIELD_SCIENCE]科技值。此加成在你宣布的[icon:WAR]正式战争期间加倍。</Text>
+      <Text>获得本[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]时代[/TIP]的首个陆地[TIP:LOC_PEDIA_CONCEPTS_MILITARY_UNIT_TOOLTIP]军事单位[/TIP]后，得到特色[icon:UNIT_ARMY_COMMANDER][TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]军队指挥官[/TIP]征贰。[icon:UNIT_ARMY_COMMANDER]征贰能度过[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]时代[/TIP]过渡，在探索时代高级开局中初始拥有2[icon:NAR_REW_PROMOTION]晋升，在近世时代高级开局中初始拥有3[icon:NAR_REW_PROMOTION]晋升，拥有一颗特色[TIP:LOC_PEDIA_CONCEPTS_PROMOTION_TOOLTIP]晋升[/TIP]树。+20%[icon:UNIT_ARMY_COMMANDER][TIP:LOC_PEDIA_CONCEPTS_COMMANDER_EXPERIENCE_TOOLTIP]指挥官经验值[/TIP]。热带中的[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]+10%[icon:YIELD_SCIENCE]科技值。此加成在你宣布的[icon:WAR]正式战争期间加倍。</Text>
     </Replace>
     <Replace Tag="LOC_LEADER_UNIQUE_ABILITY" Language="zh_Hans_CN">
       <Text>领袖特色能力</Text>
@@ -16795,13 +16816,13 @@
       <Text>即将到来的时代</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_CONQUEROR_1_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>[TIP:LOC_PEDIA_CONCEPTS_SIEGE_UNITS_TOOLTIP]攻城单位[/TIP][B]+4[icon:NAR_REW_COMBAT]轰击力[/B]。</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_SIEGE_UNITS_TOOLTIP]攻城单位[/TIP][B]+4[icon:NAR_REW_COMBAT][/B][TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]轰击力[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_CONQUEROR_1_NAME" Language="zh_Hans_CN">
       <Text>泰勒耶利哥</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_CONQUEROR_1_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>征服一座拥有[B]4个[icon:CITY_FORTIFIED][TIP:LOC_PEDIA_CONCEPTS_FORTIFIED_DISTRICTS_TOOLTIP]驻防区块[/TIP][/B]的[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP]。</Text>
+      <Text>征服一座拥有[B]4个[icon:CITY_FORTIFIED][/B][TIP:LOC_PEDIA_CONCEPTS_FORTIFIED_DISTRICTS_TOOLTIP]驻防区块[/TIP]的[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_CONQUEROR_2_DESCRIPTION" Language="zh_Hans_CN">
       <Text>从[icon:CITYSTATE][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP]征集单位时[B]+100%[icon:YIELD_DIPLOMACY]效用[/B]。</Text>
@@ -16819,16 +16840,16 @@
       <Text>阿利亚劫掠日</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_CONQUEROR_3_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>在征服的[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP]中拥有[B]4座[TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]奇观[/TIP][/B]。</Text>
+      <Text>在征服的[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP]中拥有[B]4座[icon:WONDER][/B][TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]奇观[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_CONQUEROR_4_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>对抗[icon:INDEPENDENT_POWER][TIP:LOC_PEDIA_CONCEPTS_INDEPENDENT_POWER_TOOLTIP]独立势力[/TIP]时[B]+4[icon:NAR_REW_COMBAT][TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]战斗力[/TIP][/B]。</Text>
+      <Text>对抗[icon:INDEPENDENT_POWER][TIP:LOC_PEDIA_CONCEPTS_INDEPENDENT_POWER_TOOLTIP]独立势力[/TIP]时[B]+4[icon:NAR_REW_COMBAT][/B][TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]战斗力[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_CONQUEROR_4_NAME" Language="zh_Hans_CN">
       <Text>卢卡地区</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_CONQUEROR_4_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>驱散[B]4个[icon:INDEPENDENT_POWER][TIP:LOC_PEDIA_CONCEPTS_INDEPENDENT_POWER_TOOLTIP]独立势力[/TIP][/B]。</Text>
+      <Text>驱散[B]4个[icon:INDEPENDENT_POWER][/B][TIP:LOC_PEDIA_CONCEPTS_INDEPENDENT_POWER_TOOLTIP]独立势力[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_CULTURAL_1_DESCRIPTION" Language="zh_Hans_CN">
       <Text>[icon:WONDER][TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]奇观[/TIP][B]+2[icon:YIELD_CULTURE][/B]和[icon:YIELD_PRODUCTION]。</Text>
@@ -16837,13 +16858,13 @@
       <Text>古代世界奇观</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_CULTURAL_1_RACE_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先建成[B]7座[icon:WONDER][TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]奇观[/TIP][/B]。</Text>
+      <Text>率先建成[B]7座[icon:WONDER][/B][TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]奇观[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_CULTURAL_1_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>建造[B]7座[icon:WONDER][TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]奇观[/TIP][/B]。</Text>
+      <Text>建成[B]7座[icon:WONDER][/B][TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]奇观[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_CULTURAL_2_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>解锁[icon:RADIAL_CIVICS]虔诚。建造寺庙时[B]+25%[icon:YIELD_PRODUCTION][/B]效用。</Text>
+      <Text>解锁虔诚。建造寺庙时[B]+25%[icon:YIELD_PRODUCTION]效用[/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_CULTURAL_2_NAME" Language="zh_Hans_CN">
       <Text>俄耳甫斯秘仪</Text>
@@ -16852,40 +16873,40 @@
       <Text>率先拥有[B]6座祭坛[/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_CULTURAL_2_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先拥有6座祭坛。</Text>
+      <Text>率先拥有[B]6座祭坛[/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_CULTURAL_3_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>[B]+1[icon:NAR_REW_TRADITION_SLOT][TIP:LOC_PEDIA_CONCEPTS_TRADITION_TOOLTIP]传统槽位[/TIP][/B]。槽位中每放置一项[icon:SOCIAL_POLICY][TIP:LOC_PEDIA_CONCEPTS_SOCIAL_POLICY_TOOLTIP]社会政策[/TIP]或[icon:TRADITION][TIP:LOC_PEDIA_CONCEPTS_TRADITION_TOOLTIP]传统[/TIP]，便[B]+2[icon:YIELD_CULTURE][/B]。</Text>
+      <Text>[B]+1[icon:NAR_REW_TRADITION_SLOT]传统槽位[/B]。槽位中每放置一项[icon:SOCIAL_POLICY][TIP:LOC_PEDIA_CONCEPTS_SOCIAL_POLICY_TOOLTIP]社会政策[/TIP]或[icon:TRADITION][TIP:LOC_PEDIA_CONCEPTS_TRADITION_TOOLTIP]传统[/TIP]，便[B]+2[icon:YIELD_CULTURE][/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_CULTURAL_3_NAME" Language="zh_Hans_CN">
       <Text>《汉谟拉比法典》</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_CULTURAL_3_RACE_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先在槽位中放置[B]9项[icon:SOCIAL_POLICY]政策[/B]或[icon:TRADITION][TIP:LOC_PEDIA_CONCEPTS_TRADITION_TOOLTIP]传统[/TIP]。</Text>
+      <Text>率先在槽位中放置[B]9项[icon:SOCIAL_POLICY][/B][TIP:LOC_PEDIA_CONCEPTS_SOCIAL_POLICY_TOOLTIP]政策[/TIP]或[icon:TRADITION][TIP:LOC_PEDIA_CONCEPTS_TRADITION_TOOLTIP]传统[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_CULTURAL_3_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先在槽位中放置[B]9项[icon:SOCIAL_POLICY][TIP:LOC_PEDIA_CONCEPTS_SOCIAL_POLICY_TOOLTIP]社会政策[/TIP][/B]或[icon:TRADITION][TIP:LOC_PEDIA_CONCEPTS_TRADITION_TOOLTIP]传统[/TIP]。</Text>
+      <Text>率先在槽位中放置[B]9项[icon:SOCIAL_POLICY][/B][TIP:LOC_PEDIA_CONCEPTS_SOCIAL_POLICY_TOOLTIP]社会政策[/TIP]或[icon:TRADITION][TIP:LOC_PEDIA_CONCEPTS_TRADITION_TOOLTIP]传统[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_CULTURAL_4_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>[icon:YIELD_CULTURE]文化值[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建筑[/TIP][B]+1[icon:YIELD_HAPPINESS][/B]。</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]文化值建筑[/TIP][B]+1[icon:YIELD_HAPPINESS][/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_CULTURAL_4_NAME" Language="zh_Hans_CN">
       <Text>我深知自己一无所知</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_CULTURAL_4_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先研习完[icon:RADIAL_CIVICS]哲学。</Text>
+      <Text>率先研习完哲学。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_CULTURAL_5_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>[icon:YIELD_TOWNS][TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]城镇[/TIP][B]+1[icon:YIELD_POPULATION][TIP:LOC_PEDIA_CONCEPTS_POPULATION_TOOLTIP]人口[/TIP][/B]。</Text>
+      <Text>[icon:YIELD_TOWNS][TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]城镇[/TIP][B]+1[icon:YIELD_POPULATION][/B][TIP:LOC_PEDIA_CONCEPTS_POPULATION_TOOLTIP]人口[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_CULTURAL_5_NAME" Language="zh_Hans_CN">
       <Text>百家争鸣</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_CULTURAL_5_RACE_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先研习完所有普通[TIP:LOC_PEDIA_CONCEPTS_CIVIC_TOOLTIP]市政[/TIP]和[TIP:LOC_PEDIA_CONCEPTS_MASTERY_TOOLTIP]精通[/TIP]。</Text>
+      <Text>率先研习完所有普通[TIP:LOC_PEDIA_CONCEPTS_CIVIC_TOOLTIP]市政[/TIP]和精通。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_CULTURAL_5_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>研习完所有普通[TIP:LOC_PEDIA_CONCEPTS_CIVIC_TOOLTIP]市政[/TIP]和[TIP:LOC_PEDIA_CONCEPTS_MASTERY_TOOLTIP]精通[/TIP]。</Text>
+      <Text>研习完所有普通[TIP:LOC_PEDIA_CONCEPTS_CIVIC_TOOLTIP]市政[/TIP]和精通。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_DIPLOMATIC_1_DESCRIPTION" Language="zh_Hans_CN">
       <Text>你作为[TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主国[/TIP]每有一个[icon:CITYSTATE][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]下属城邦[/TIP]，[TIP:LOC_PEDIA_CONCEPTS_PALACE_TOOLTIP]宫殿[/TIP]便[B]+2[icon:YIELD_DIPLOMACY][/B]和[icon:YIELD_HAPPINESS]。</Text>
@@ -16894,10 +16915,10 @@
       <Text>幕后操纵</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_DIPLOMATIC_1_RACE_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先成为[B]4个[icon:CITYSTATE][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP][/B]的[TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主国[/TIP]。</Text>
+      <Text>率先成为[B]4个[icon:CITYSTATE][/B][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP]的[TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主国[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_DIPLOMATIC_1_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>成为[B]4个[icon:CITYSTATE][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP][/B]的[TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主国[/TIP]。</Text>
+      <Text>成为[B]4个[icon:CITYSTATE][/B][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP]的[TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主国[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_DIPLOMATIC_2_DESCRIPTION" Language="zh_Hans_CN">
       <Text>执行[icon:ESPIONAGE][TIP:LOC_PEDIA_CONCEPTS_ESPIONAGE_TOOLTIP]谍报行动[/TIP]时[B]+25%[icon:YIELD_DIPLOMACY]效用[/B]，使其完成速度加快25%。</Text>
@@ -16906,10 +16927,10 @@
       <Text>政事论</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_DIPLOMATIC_2_RACE_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先成功完成[icon:ESPIONAGE][TIP:LOC_PEDIA_CONCEPTS_ESPIONAGE_TOOLTIP]谍报行动[/TIP]5次。</Text>
+      <Text>率先成功完成[B]5次[icon:ESPIONAGE][/B][TIP:LOC_PEDIA_CONCEPTS_ESPIONAGE_TOOLTIP]谍报行动[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_DIPLOMATIC_2_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>成功完成[icon:ESPIONAGE][TIP:LOC_PEDIA_CONCEPTS_ESPIONAGE_TOOLTIP]谍报行动[/TIP]5次。</Text>
+      <Text>成功完成[B]5次[icon:ESPIONAGE][/B][TIP:LOC_PEDIA_CONCEPTS_ESPIONAGE_TOOLTIP]谍报行动[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_DIPLOMATIC_3_DESCRIPTION" Language="zh_Hans_CN">
       <Text>每有一个[icon:PLAYER_RELATIONSHIP_ALLIANCE][TIP:LOC_PEDIA_CONCEPTS_ALLIANCE_TOOLTIP]同盟[/TIP]，所有[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP]便[B]+5[icon:YIELD_HAPPINESS][/B]。[icon:SANCTIONS][TIP:LOC_PEDIA_CONCEPTS_SANCTION_TOOLTIP]谴责[/TIP][B]所花费的[icon:YIELD_DIPLOMACY]+200%[/B]。</Text>
@@ -16918,70 +16939,70 @@
       <Text>传奇之友联盟</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_DIPLOMATIC_3_RACE_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先与2位领袖[icon:PLAYER_RELATIONSHIP_ALLIANCE][TIP:LOC_PEDIA_CONCEPTS_ALLIANCE_TOOLTIP]结盟[/TIP]。</Text>
+      <Text>率先拥有[B]2个[/B][icon:PLAYER_RELATIONSHIP_ALLIANCE][TIP:LOC_PEDIA_CONCEPTS_ALLIANCE_TOOLTIP]同盟[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_DIPLOMATIC_3_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>[icon:PLAYER_RELATIONSHIP_ALLIANCE] 与2位领袖[TIP:LOC_PEDIA_CONCEPTS_ALLIANCE_TOOLTIP]结盟[/TIP]。</Text>
+      <Text>拥有[B]2个[/B][icon:PLAYER_RELATIONSHIP_ALLIANCE][TIP:LOC_PEDIA_CONCEPTS_ALLIANCE_TOOLTIP]同盟[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_DIPLOMATIC_4_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>与领袖之间的[icon:ENDEAVOR][TIP:LOC_PEDIA_CONCEPTS_ENDEAVOR_TOOLTIP]外交努力[/TIP]造成的[B][icon:RELATIONSHIP][TIP:LOC_PEDIA_CONCEPTS_RELATIONSHIP_TOOLTIP]关系[/TIP]变化+25%[/B]。</Text>
+      <Text>与领袖之间的[icon:ENDEAVOR][TIP:LOC_PEDIA_CONCEPTS_ENDEAVOR_TOOLTIP]外交努力[/TIP]造成的[TIP:LOC_PEDIA_CONCEPTS_RELATIONSHIP_TOOLTIP]关系[/TIP]变化[B]+25%[icon:RELATIONSHIP][/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_DIPLOMATIC_4_NAME" Language="zh_Hans_CN">
       <Text>希罗多德的问好</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_DIPLOMATIC_4_RACE_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先完成[B]10项你发起的[icon:ENDEAVOR][TIP:LOC_PEDIA_CONCEPTS_ENDEAVOR_TOOLTIP]外交努力[/TIP][/B]。</Text>
+      <Text>率先完成[B]10项[icon:ENDEAVOR][/B]你发起的[TIP:LOC_PEDIA_CONCEPTS_ENDEAVOR_TOOLTIP]外交努力[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_DIPLOMATIC_4_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>完成[B]10项你发起的[icon:ENDEAVOR][TIP:LOC_PEDIA_CONCEPTS_ENDEAVOR_TOOLTIP]外交努力[/TIP][/B]。</Text>
+      <Text>完成[B]10项[icon:ENDEAVOR][/B]你发起的[TIP:LOC_PEDIA_CONCEPTS_ENDEAVOR_TOOLTIP]外交努力[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_DIPLOMATIC_5_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>[B]+1[icon:NAR_REW_TRADITION_SLOT][TIP:LOC_PEDIA_CONCEPTS_TRADITION_TOOLTIP]传统槽位[/TIP][/B]。</Text>
+      <Text>[B]+1[icon:NAR_REW_TRADITION_SLOT]传统槽位[/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_DIPLOMATIC_5_NAME" Language="zh_Hans_CN">
       <Text>面包与马戏</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_DIPLOMATIC_5_RACE_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先在一个[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP]中拥有50溢出的[icon:YIELD_HAPPINESS]幸福值。</Text>
+      <Text>率先在一个[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP]中拥有[B]50溢出的[icon:YIELD_HAPPINESS][/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_DIPLOMATIC_5_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>在一个[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP]中拥有50溢出的[icon:YIELD_HAPPINESS]幸福值。</Text>
+      <Text>在一个[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP]中拥有[B]50溢出的[icon:YIELD_HAPPINESS][/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_ECONOMIC_1_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>所有[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP][B]+1[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_RESOURCE_CAPACITY_TOOLTIP]资源容量[/TIP][/B]。</Text>
+      <Text>所有[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP][B]+1[icon:RADIAL_RESOURCES][/B][TIP:LOC_PEDIA_CONCEPTS_RESOURCE_CAPACITY_TOOLTIP]资源容量[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_ECONOMIC_1_NAME" Language="zh_Hans_CN">
       <Text>丰裕</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_ECONOMIC_1_RACE_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先分配[B]26[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]资源[/TIP][/B]。</Text>
+      <Text>率先分配[B]26[icon:RADIAL_RESOURCES][/B][TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]资源[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_ECONOMIC_1_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>分配[B]26[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]资源[/TIP][/B]。</Text>
+      <Text>分配[B]26[icon:RADIAL_RESOURCES][/B][TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]资源[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_ECONOMIC_2_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>免费获得[B]2个[icon:UNIT_MERCHANT]商人[/B]。与所有文明的[B][icon:TRADE_ROUTE][TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]贸易路线容量[/TIP]+1[/B]。</Text>
+      <Text>免费获得[B]2个[icon:UNIT_MERCHANT]商人[/B]。与所有文明的[TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]贸易路线容量[/TIP][B][icon:TRADE_ROUTE]+1[/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_ECONOMIC_2_NAME" Language="zh_Hans_CN">
       <Text>丝绸之路</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_ECONOMIC_2_RACE_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先拥有[B]7条[icon:TRADE_ROUTE][TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]贸易路线[/TIP][/B]。</Text>
+      <Text>率先拥有[B]7条[icon:TRADE_ROUTE][/B][TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]贸易路线[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_ECONOMIC_2_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>拥有[B]7条[icon:TRADE_ROUTE][TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]贸易路线[/TIP][/B]。</Text>
+      <Text>拥有[B]7条[icon:TRADE_ROUTE][/B][TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]贸易路线[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_ECONOMIC_3_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>购买[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建筑[/TIP]时[B]+5%[/B][icon:YIELD_GOLD]效用，购买[icon:YIELD_GOLD]金币建筑时此加成加倍。</Text>
+      <Text>购买[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建筑[/TIP]时[B]+5%[icon:YIELD_GOLD]效用[/B]，购买[icon:YIELD_GOLD]金币建筑时此加成加倍。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_ECONOMIC_3_NAME" Language="zh_Hans_CN">
       <Text>点石成金</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_ECONOMIC_3_RACE_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先拥有[B]8座[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]金币建筑[/TIP][/B]。</Text>
+      <Text>率先拥有[B]8座[/B][TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]金币建筑[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_ECONOMIC_3_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>拥有[B]8座[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]金币建筑[/TIP][/B]。</Text>
+      <Text>拥有[B]8座[/B][TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]金币建筑[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_ECONOMIC_4_DESCRIPTION" Language="zh_Hans_CN">
       <Text>免费获得[B]2个[icon:UNIT_MERCHANT]商人[/B]。</Text>
@@ -16993,7 +17014,7 @@
       <Text>在本[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]时代[/TIP]率先达成10000[icon:YIELD_GOLD]等值的购买。[TIP:LOC_PEDIA_CONCEPTS_MAINTENANCE_TOOLTIP]维护费用[/TIP]不计入在内。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_ECONOMIC_4_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>在本[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]时代[/TIP]达成10000[icon:YIELD_GOLD]等值的购买。[TIP:LOC_PEDIA_CONCEPTS_MAINTENANCE_TOOLTIP]维护费用[/TIP]不计入在内。</Text>
+      <Text>在本[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]时代[/TIP]达成[B]10000[icon:YIELD_GOLD][/B]等值的购买。[TIP:LOC_PEDIA_CONCEPTS_MAINTENANCE_TOOLTIP]维护费用[/TIP]不计入在内。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_ECONOMIC_5_DESCRIPTION" Language="zh_Hans_CN">
       <Text>每有1[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_EMPIRE_RESOURCES_TOOLTIP]帝国资源[/TIP]，便[B]+1[icon:YIELD_GOLD][/B]。</Text>
@@ -17002,22 +17023,22 @@
       <Text>图拉真市集</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_ECONOMIC_5_RACE_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先拥有[B]18[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_EMPIRE_RESOURCES_TOOLTIP]帝国资源[/TIP][/B]。</Text>
+      <Text>率先拥有[B]18[icon:RADIAL_RESOURCES][/B][TIP:LOC_PEDIA_CONCEPTS_EMPIRE_RESOURCES_TOOLTIP]帝国资源[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_ECONOMIC_5_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>拥有[B]18[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_EMPIRE_RESOURCES_TOOLTIP]帝国资源[/TIP][/B]。</Text>
+      <Text>拥有[B]18[icon:RADIAL_RESOURCES][/B][TIP:LOC_PEDIA_CONCEPTS_EMPIRE_RESOURCES_TOOLTIP]帝国资源[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_EXPANSIONIST_1_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>[icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]城镇[/TIP]在首次[icon:YIELD_POPULATION]发展事件时获得额外的[B]2[icon:YIELD_POPULATION][TIP:LOC_PEDIA_CONCEPTS_POPULATION_TOOLTIP]人口[/TIP][/B]。</Text>
+      <Text>[icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]城镇[/TIP]在首次发展事件时获得额外的[B]2[icon:YIELD_POPULATION][/B][TIP:LOC_PEDIA_CONCEPTS_POPULATION_TOOLTIP]人口[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_EXPANSIONIST_1_NAME" Language="zh_Hans_CN">
       <Text>世界四方</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_EXPANSIONIST_1_RACE_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先创建[B]8个[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP][/B]。</Text>
+      <Text>率先创建[B]8个[/B][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_EXPANSIONIST_1_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>创建[B]8个[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP][/B]。</Text>
+      <Text>创建[B]8个[/B][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_EXPANSIONIST_2_DESCRIPTION" Language="zh_Hans_CN">
       <Text>[icon:SPECIALIST][TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_TOOLTIP]专家[/TIP][TIP:LOC_PEDIA_CONCEPTS_MAINTENANCE_TOOLTIP]维护费用[/TIP][B]-1[icon:YIELD_FOOD][/B]和[icon:YIELD_HAPPINESS]。</Text>
@@ -17026,22 +17047,22 @@
       <Text>我们需要更多圣道</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_EXPANSIONIST_2_RACE_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先拥有[B]10名[icon:SPECIALIST][TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_TOOLTIP]专家[/TIP][/B]。</Text>
+      <Text>率先拥有[B]10名[icon:SPECIALIST][/B][TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_TOOLTIP]专家[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_EXPANSIONIST_2_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>拥有[B]10名[icon:SPECIALIST][TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_TOOLTIP]专家[/TIP][/B]。</Text>
+      <Text>拥有[B]10名[icon:SPECIALIST][/B][TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_TOOLTIP]专家[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_EXPANSIONIST_3_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>[icon:YIELD_WAREHOUSE][TIP:LOC_PEDIA_CONCEPTS_WAREHOUSE_TOOLTIP]食物仓库[/TIP][B]+1[icon:YIELD_FOOD][/B]。[icon:YIELD_FOOD][TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]食物建筑[/TIP][B]+2[icon:YIELD_FOOD][/B]。</Text>
+      <Text>[icon:YIELD_FOOD][icon:YIELD_WAREHOUSE][TIP:LOC_PEDIA_CONCEPTS_WAREHOUSE_TOOLTIP]食物仓库[/TIP][B]+1[icon:YIELD_FOOD][/B]。[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]食物建筑[/TIP][B]+2[icon:YIELD_FOOD][/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_EXPANSIONIST_3_NAME" Language="zh_Hans_CN">
       <Text>巴别塔</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_EXPANSIONIST_3_RACE_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先拥有[B]150[icon:YIELD_POPULATION][TIP:LOC_PEDIA_CONCEPTS_POPULATION_TOOLTIP]人口[/TIP][/B]。</Text>
+      <Text>率先拥有[B]150[icon:YIELD_POPULATION][/B][TIP:LOC_PEDIA_CONCEPTS_POPULATION_TOOLTIP]人口[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_EXPANSIONIST_3_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>拥有[B]150[icon:YIELD_POPULATION][TIP:LOC_PEDIA_CONCEPTS_POPULATION_TOOLTIP]人口[/TIP][/B]。</Text>
+      <Text>拥有[B]150[icon:YIELD_POPULATION][/B][TIP:LOC_PEDIA_CONCEPTS_POPULATION_TOOLTIP]人口[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_EXPANSIONIST_4_DESCRIPTION" Language="zh_Hans_CN">
       <Text>免费获得[B]1个[icon:UNIT_SETTLER]开拓者[/B]。</Text>
@@ -17053,10 +17074,10 @@
       <Text>率先探明33%的地图。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_EXPANSIONIST_4_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>探明33%的地图。</Text>
+      <Text>探明[B]33%[/B]的地图。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_EXPANSIONIST_5_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>[TIP:LOC_PEDIA_CONCEPTS_APPEAL_TOOLTIP]惊艳[/TIP]地块[B]+1[icon:YIELD_FOOD][/B]。</Text>
+      <Text>惊艳地块[B]+1[icon:YIELD_FOOD][/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_EXPANSIONIST_5_NAME" Language="zh_Hans_CN">
       <Text>淌蜜大地</Text>
@@ -17068,16 +17089,16 @@
       <Text>改良[TIP:LOC_PEDIA_CONCEPTS_HOMELANDS_TOOLTIP]本土[/TIP]中所有[icon:NOTIFICATION_DISCOVER_NATURAL_WONDER][TIP:LOC_PEDIA_CONCEPTS_NATURAL_WONDER_TOOLTIP]自然奇观[/TIP]的至少1个地块。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_EXPLORER_1_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>[TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]海上单位[/TIP][B]+1[icon:Action_Showall][TIP:LOC_PEDIA_CONCEPTS_SIGHT_TOOLTIP]视野[/TIP][/B]。</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]海上单位[/TIP][B]+1[icon:Action_Showall][/B][TIP:LOC_PEDIA_CONCEPTS_SIGHT_TOOLTIP]视野[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_EXPLORER_1_NAME" Language="zh_Hans_CN">
       <Text>南岛民族扩张</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_EXPLORER_1_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>拥有[B]4个[TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]海上单位[/TIP][/B]。</Text>
+      <Text>拥有[B]4个[/B][TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]海上单位[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_EXPLORER_2_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>结交[icon:INDEPENDENT_POWER][TIP:LOC_PEDIA_CONCEPTS_INDEPENDENT_POWER_TOOLTIP]独立势力[/TIP]时[B]+50%[icon:YIELD_DIPLOMACY]效用。</Text>
+      <Text>结交[icon:INDEPENDENT_POWER][TIP:LOC_PEDIA_CONCEPTS_INDEPENDENT_POWER_TOOLTIP]独立势力[/TIP]时[B]+50%[icon:YIELD_DIPLOMACY]效用[/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_EXPLORER_2_NAME" Language="zh_Hans_CN">
       <Text>提洛同盟</Text>
@@ -17095,43 +17116,43 @@
       <Text>抵达南北两极。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_MILITARISTIC_1_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>[B]+2[icon:SETTLEMENT_LIMIT][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_LIMIT_TOOLTIP]定居点上限[/TIP][/B]。</Text>
+      <Text>[B]+2[icon:SETTLEMENT_LIMIT][/B][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_LIMIT_TOOLTIP]定居点上限[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_MILITARISTIC_1_NAME" Language="zh_Hans_CN">
       <Text>帝国和平</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_MILITARISTIC_1_RACE_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先征服并保留[B]6座[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP][/B]。</Text>
+      <Text>率先征服并保留[B]6座[/B][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_MILITARISTIC_1_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>征服并保留[B]6座[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP][/B]。</Text>
+      <Text>征服并保留[B]6座[/B][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_MILITARISTIC_2_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>所有[icon:WAR]战争[B]+1[icon:WAR_SUPPORT][TIP:LOC_PEDIA_CONCEPTS_WAR_SUPPORT_TOOLTIP]战争支持[/TIP][/B]。使用[icon:WAR_SUPPORT]战争支持时[B]+50%[icon:YIELD_DIPLOMACY][/B]效用。</Text>
+      <Text>所有战争[B]+1[icon:WAR_SUPPORT][/B][TIP:LOC_PEDIA_CONCEPTS_WAR_SUPPORT_TOOLTIP]战争支持[/TIP]。使用[icon:WAR_SUPPORT]战争支持时[B]+50%[icon:YIELD_DIPLOMACY]效用[/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_MILITARISTIC_2_NAME" Language="zh_Hans_CN">
       <Text>击倒巨人</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_MILITARISTIC_2_RACE_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先在一次[icon:WAR]战争中蒙受[B]-5[icon:WAR][TIP:LOC_PEDIA_CONCEPTS_WAR_WEARINESS_TOOLTIP]厌战情绪[/TIP][/B]。</Text>
+      <Text>率先在一次战争中蒙受[B]-5[/B][TIP:LOC_PEDIA_CONCEPTS_WAR_WEARINESS_TOOLTIP]厌战情绪[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_MILITARISTIC_2_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>在一次[icon:WAR]战争中蒙受[B]-5[TIP:LOC_PEDIA_CONCEPTS_WAR_WEARINESS_TOOLTIP]厌战情绪[/TIP][/B]。</Text>
+      <Text>在一次战争中蒙受[B]-5[/B][TIP:LOC_PEDIA_CONCEPTS_WAR_WEARINESS_TOOLTIP]厌战情绪[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_MILITARISTIC_3_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>获得一位拥有[B]3次[icon:NAR_REW_PROMOTION][TIP:LOC_PEDIA_CONCEPTS_PROMOTION_TOOLTIP]晋升[/TIP][/B]的[icon:UNIT_ARMY_COMMANDER][TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]军队指挥官[/TIP]。</Text>
+      <Text>获得一位拥有[B]3次[/B][TIP:LOC_PEDIA_CONCEPTS_PROMOTION_TOOLTIP]晋升[/TIP]的[icon:UNIT_ARMY_COMMANDER][TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]军队指挥官[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_MILITARISTIC_3_NAME" Language="zh_Hans_CN">
       <Text>盖乌斯之道</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_MILITARISTIC_3_RACE_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先拥有一位[B]8级的[icon:UNIT_ARMY_COMMANDER][TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]军队指挥官[/TIP][/B]。</Text>
+      <Text>率先拥有一位[B]8级[icon:UNIT_ARMY_COMMANDER][/B]的[TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]军队指挥官[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_MILITARISTIC_3_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>拥有一位[B]8级的[TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]军队指挥官[/TIP][/B]。</Text>
+      <Text>拥有一位[B]8级[icon:UNIT_ARMY_COMMANDER][/B]的[TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]指挥官[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_MILITARISTIC_4_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>所有[TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]指挥官[/TIP]免费获得[B]1次[icon:NAR_REW_PROMOTION][TIP:LOC_PEDIA_CONCEPTS_PROMOTION_TOOLTIP]晋升[/TIP][/B]，未来的指挥官同样如此。</Text>
+      <Text>所有[icon:UNIT_ARMY_COMMANDER][TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]指挥官[/TIP]免费获得[B]1次[/B][TIP:LOC_PEDIA_CONCEPTS_PROMOTION_TOOLTIP]晋升[/TIP]，未来的[icon:UNIT_ARMY_COMMANDER]指挥官同样如此。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_MILITARISTIC_4_NAME" Language="zh_Hans_CN">
       <Text>第一滴血</Text>
@@ -17140,82 +17161,82 @@
       <Text>率先征服一座[icon:NOTIFICATION_SELECT_CAPITAL][TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]首都[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_MILITARISTIC_5_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>此[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]时代[/TIP]的所有[icon:WAR]战争[B]+1[icon:WAR_SUPPORT][TIP:LOC_PEDIA_CONCEPTS_WAR_SUPPORT_TOOLTIP]战争支持[/TIP][/B]。</Text>
+      <Text>此[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]时代[/TIP]的所有战争[B]+1[icon:WAR_SUPPORT][/B][TIP:LOC_PEDIA_CONCEPTS_WAR_SUPPORT_TOOLTIP]战争支持[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_MILITARISTIC_5_NAME" Language="zh_Hans_CN">
       <Text>同伴之山</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_MILITARISTIC_5_RACE_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先与[TIP:LOC_PEDIA_CONCEPTS_HOMELANDS_TOOLTIP]本土[/TIP]中的所有文明[icon:WAR]交战。</Text>
+      <Text>率先与[TIP:LOC_PEDIA_CONCEPTS_HOMELANDS_TOOLTIP]本土[/TIP]中的所有文明交战。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_MILITARISTIC_5_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>与[TIP:LOC_PEDIA_CONCEPTS_HOMELANDS_TOOLTIP]本土[/TIP]中的所有文明[icon:WAR]交战。</Text>
+      <Text>与[TIP:LOC_PEDIA_CONCEPTS_HOMELANDS_TOOLTIP]本土[/TIP]中的所有文明交战。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_SCIENTIFIC_1_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>解锁[icon:RADIAL_TECH]天文学。推进[icon:PROJECT][TIP:LOC_PEDIA_CONCEPTS_PROJECTS_TOOLTIP]项目[/TIP]时[B]+25%[icon:YIELD_PRODUCTION]效用[/B]。</Text>
+      <Text>解锁天文学。推进[icon:DEFAULT_PROJECT][TIP:LOC_PEDIA_CONCEPTS_PROJECTS_TOOLTIP]项目[/TIP]时[B]+25%[icon:YIELD_PRODUCTION]效用[/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_SCIENTIFIC_1_NAME" Language="zh_Hans_CN">
       <Text>地圆论者</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_SCIENTIFIC_1_RACE_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先完成[icon:DEFAULT_PROJECT]绘制星图和[icon:DEFAULT_PROJECT]地圆说[icon:PROJECT][TIP:LOC_PEDIA_CONCEPTS_PROJECTS_TOOLTIP]项目[/TIP]。</Text>
+      <Text>率先完成[B]“绘制星图”[/B]和[B]“地圆说”[/B][icon:DEFAULT_PROJECT][TIP:LOC_PEDIA_CONCEPTS_PROJECTS_TOOLTIP]项目[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_SCIENTIFIC_1_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>完成[icon:DEFAULT_PROJECT]绘制星图和[icon:DEFAULT_PROJECT]地圆说[icon:PROJECT][TIP:LOC_PEDIA_CONCEPTS_PROJECTS_TOOLTIP]项目[/TIP]。</Text>
+      <Text>完成[B]“绘制星图”[/B]和[B]“地圆说”[/B][icon:DEFAULT_PROJECT][TIP:LOC_PEDIA_CONCEPTS_PROJECTS_TOOLTIP]项目[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_SCIENTIFIC_2_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>所有[TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP][B]+1[icon:SPECIALIST][TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_LIMIT_TOOLTIP]专家上限[/TIP][/B]。</Text>
+      <Text>所有[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP][B]+1[icon:SPECIALIST][/B][TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_LIMIT_TOOLTIP]专家上限[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_SCIENTIFIC_2_NAME" Language="zh_Hans_CN">
       <Text>考工记</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_SCIENTIFIC_2_RACE_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先拥有[B]5个产量30+的非市中心[TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]区块[/TIP][/B]。</Text>
+      <Text>率先拥有[B]5个[icon:CITY_URBAN][/B][B]产量30+[/B]的[TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]非市中心区块[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_SCIENTIFIC_2_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>拥有[B]5个产量30+的非市中心[TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]区块[/TIP][/B]。</Text>
+      <Text>拥有[B]5个[icon:CITY_URBAN][/B][B]产量30+[/B]的[TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]非市中心区块[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_SCIENTIFIC_3_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]科技值建筑[/TIP][B]+1[icon:NAR_REW_GREATWORK][TIP:LOC_PEDIA_CONCEPTS_GREAT_WORKS_TOOLTIP]巨作槽位[/TIP][/B]。展示的[icon:NAR_REW_GREATWORK]巨作[B]+2[icon:YIELD_SCIENCE][/B]。</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]科技值建筑[/TIP][B]+1[icon:NAR_REW_GREATWORK][/B][TIP:LOC_PEDIA_CONCEPTS_GREAT_WORKS_TOOLTIP]巨作槽位[/TIP]。展示的[icon:NAR_REW_GREATWORK]巨作[B]+2[icon:YIELD_SCIENCE][/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_SCIENTIFIC_3_NAME" Language="zh_Hans_CN">
       <Text>亚述巴尼拔藏书馆</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_SCIENTIFIC_3_RACE_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先展示[B]12部[icon:NAR_REW_GREATWORK][TIP:LOC_PEDIA_CONCEPTS_CODEX_TOOLTIP]抄本[/TIP][/B]。</Text>
+      <Text>率先展示[B]12部[icon:NAR_REW_GREATWORK][/B][TIP:LOC_PEDIA_CONCEPTS_CODEX_TOOLTIP]抄本[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_SCIENTIFIC_3_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>展示[B]12部[icon:NAR_REW_GREATWORK][TIP:LOC_PEDIA_CONCEPTS_CODEX_TOOLTIP]抄本[/TIP][/B]。</Text>
+      <Text>展示[B]12部[icon:NAR_REW_GREATWORK][/B][TIP:LOC_PEDIA_CONCEPTS_CODEX_TOOLTIP]抄本[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_SCIENTIFIC_4_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>在[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]时代[/TIP]中进行[icon:PROJECT][TIP:LOC_PEDIA_CONCEPTS_PROJECTS_TOOLTIP]项目[/TIP]时[B]+25%[icon:YIELD_PRODUCTION][/B]。</Text>
+      <Text>在此[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]时代[/TIP]中进行[icon:DEFAULT_PROJECT][TIP:LOC_PEDIA_CONCEPTS_PROJECTS_TOOLTIP]项目[/TIP]时[B]+25%[icon:YIELD_PRODUCTION]效用[/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_SCIENTIFIC_4_NAME" Language="zh_Hans_CN">
       <Text>魔法算盘</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_SCIENTIFIC_4_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先研究[icon:RADIAL_TECH]数学。</Text>
+      <Text>率先研究完[B]数学[/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_SCIENTIFIC_5_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>[TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP][B]+1[icon:YIELD_POPULATION][TIP:LOC_PEDIA_CONCEPTS_POPULATION_TOOLTIP]人口[/TIP][/B]。</Text>
+      <Text>[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP][B]+1[icon:YIELD_POPULATION][/B][TIP:LOC_PEDIA_CONCEPTS_POPULATION_TOOLTIP]人口[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_SCIENTIFIC_5_NAME" Language="zh_Hans_CN">
       <Text>a²+b²=c²</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_SCIENTIFIC_5_RACE_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先研究完所有[icon:RADIAL_TECH][TIP:LOC_PEDIA_CONCEPTS_TECH_TOOLTIP]科技[/TIP]和[TIP:LOC_PEDIA_CONCEPTS_MASTERY_TOOLTIP]精通[/TIP]。</Text>
+      <Text>率先研究完所有[icon:RADIAL_TECH][TIP:LOC_PEDIA_CONCEPTS_TECH_TOOLTIP]科技[/TIP]和精通。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_SCIENTIFIC_5_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先研究完所有[icon:RADIAL_TECH][TIP:LOC_PEDIA_CONCEPTS_TECH_TOOLTIP]科技[/TIP]和[TIP:LOC_PEDIA_CONCEPTS_MASTERY_TOOLTIP]精通[/TIP]。</Text>
+      <Text>率先研究完所有[icon:RADIAL_TECH][TIP:LOC_PEDIA_CONCEPTS_TECH_TOOLTIP]科技[/TIP]和精通。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_CONQUEROR_1_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>[B]300[icon:ECONOMIC_VP][TIP:LOC_PEDIA_CONCEPTS_GDP_TOOLTIP]GDP[/TIP][/B]。</Text>
+      <Text>[B]300[icon:ECONOMIC_VP][/B][TIP:LOC_PEDIA_CONCEPTS_GDP_TOOLTIP]GDP[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_CONQUEROR_1_NAME" Language="zh_Hans_CN">
       <Text>冈依沙瓦号</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_CONQUEROR_1_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>俘获[B]5支[icon:UNIT_TREASURE_FLEET][TIP:LOC_PEDIA_CONCEPTS_TREASURE_CONVOY_TOOLTIP]宝藏护送队[/TIP][/B]。</Text>
+      <Text>俘获[B]5支[icon:UNIT_TREASURE_FLEET][/B][TIP:LOC_PEDIA_CONCEPTS_TREASURE_CONVOY_TOOLTIP]宝藏护送队[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_CONQUEROR_2_DESCRIPTION" Language="zh_Hans_CN">
       <Text>从[icon:CITYSTATE][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP]征集单位时[B]+100%[icon:YIELD_DIPLOMACY]效用[/B]。</Text>
@@ -17233,28 +17254,28 @@
       <Text>正统哈里发</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_CONQUEROR_3_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>拥有一座征服的[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]圣城[/TIP]。</Text>
+      <Text>拥有一座征服而来的[TIP:LOC_PEDIA_CONCEPTS_HOLY_CITY_TOOLTIP]圣城[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_CONQUEROR_4_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>[TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]海军单位[/TIP][B]+4[icon:NAR_REW_COMBAT]轰击力[/B]。</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]海军单位[/TIP][B]+4[icon:NAR_REW_COMBAT][/B][TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]轰击力[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_CONQUEROR_4_NAME" Language="zh_Hans_CN">
       <Text>异教徒大军</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_CONQUEROR_4_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>征服[B]4座[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]沿岸定居点[/TIP][/B]。</Text>
+      <Text>征服4座沿岸[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_CULTURAL_1_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>在[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]时代过渡[/TIP]时保留你的[icon:NAR_REW_RELIGION][TIP:LOC_PEDIA_CONCEPTS_RELIGION_TOOLTIP]初始信仰[/TIP]。</Text>
+      <Text>在[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]时代过渡[/TIP]时保留你的[TIP:LOC_PEDIA_CONCEPTS_RELIGION_TOOLTIP]初始信仰[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_CULTURAL_1_NAME" Language="zh_Hans_CN">
       <Text>皇家宝库</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_CULTURAL_1_RACE_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先展示[B]20件[icon:NAR_REW_GREATWORK][TIP:LOC_PEDIA_CONCEPTS_RELIC_TOOLTIP]遗物[/TIP][/B]。</Text>
+      <Text>率先展示[B]20件[icon:NAR_REW_GREATWORK][/B][TIP:LOC_PEDIA_CONCEPTS_RELIC_TOOLTIP]遗物[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_CULTURAL_1_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>展示[B]20件[icon:NAR_REW_GREATWORK][TIP:LOC_PEDIA_CONCEPTS_RELIC_TOOLTIP]遗物[/TIP][/B]。</Text>
+      <Text>展示[B]20件[icon:NAR_REW_GREATWORK][/B][TIP:LOC_PEDIA_CONCEPTS_RELIC_TOOLTIP]遗物[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_CULTURAL_2_DESCRIPTION" Language="zh_Hans_CN">
       <Text>[icon:WONDER][TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]奇观[/TIP][B]+4[icon:YIELD_CULTURE][/B]和[icon:YIELD_PRODUCTION]。</Text>
@@ -17263,13 +17284,13 @@
       <Text>复兴世界奇观</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_CULTURAL_2_RACE_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先建成[B]6座[TIP:LOC_PEDIA_CONCEPTS_EXPLORATION_AGE_TOOLTIP]探索时代[/TIP][/B][icon:WONDER][TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]奇观[/TIP]。</Text>
+      <Text>率先建成[B]6座[/B][TIP:LOC_PEDIA_CONCEPTS_EXPLORATION_AGE_TOOLTIP]探索时代[/TIP][icon:WONDER][TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]奇观[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_CULTURAL_2_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>建成[B]6座[TIP:LOC_PEDIA_CONCEPTS_EXPLORATION_AGE_TOOLTIP]探索时代[/TIP][/B][icon:WONDER][TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]奇观[/TIP]。</Text>
+      <Text>建成[B]6座[/B][TIP:LOC_PEDIA_CONCEPTS_EXPLORATION_AGE_TOOLTIP]探索时代[/TIP][icon:WONDER][TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]奇观[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_CULTURAL_3_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>解锁[icon:RADIAL_CIVICS]自然历史。[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]幸福值建筑[/TIP][B]+1[icon:NAR_REW_GREATWORK][TIP:LOC_PEDIA_CONCEPTS_GREAT_WORKS_TOOLTIP]巨作[/TIP][/B]槽位。</Text>
+      <Text>解锁自然历史。[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]幸福值建筑[/TIP][B]+1[icon:NAR_REW_GREATWORK][/B][TIP:LOC_PEDIA_CONCEPTS_GREAT_WORKS_TOOLTIP]巨作[/TIP]槽位。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_CULTURAL_3_NAME" Language="zh_Hans_CN">
       <Text>八正道</Text>
@@ -17278,31 +17299,31 @@
       <Text>率先拥有[B]8个寺庙[/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_CULTURAL_3_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先拥有8个寺庙。</Text>
+      <Text>率先拥有[B]8座寺庙[/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_CULTURAL_4_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>从你建造的每座[TIP:LOC_PEDIA_CONCEPTS_MODERN_AGE_TOOLTIP]近世时代[/TIP][icon:WONDER][TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]奇观[/TIP]获得[B]+2[icon:SCIENCE_VP][TIP:LOC_PEDIA_CONCEPTS_INNOVATION_TOOLTIP]创新点[/TIP][/B]。</Text>
+      <Text>从你建造的每座[TIP:LOC_PEDIA_CONCEPTS_MODERN_AGE_TOOLTIP]近世时代[/TIP][icon:WONDER][TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]奇观[/TIP]获得[B]+2[icon:SCIENCE_VP][/B][TIP:LOC_PEDIA_CONCEPTS_INNOVATION_TOOLTIP]创新点[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_CULTURAL_4_NAME" Language="zh_Hans_CN">
       <Text>巧匠加扎利</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_CULTURAL_4_RACE_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先建造出[B]2座提供[icon:SCIENCE_VP][TIP:LOC_PEDIA_CONCEPTS_INNOVATION_TOOLTIP]创新点[/TIP]的[icon:WONDER][TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]奇观[/TIP][/B]。</Text>
+      <Text>率先建造出[B]2座[icon:WONDER][/B]提供[icon:SCIENCE_VP][TIP:LOC_PEDIA_CONCEPTS_INNOVATION_TOOLTIP]创新点[/TIP]的[TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]奇观[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_CULTURAL_4_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>拥有[B]2座提供[icon:SCIENCE_VP][TIP:LOC_PEDIA_CONCEPTS_INNOVATION_TOOLTIP]创新点[/TIP]的[icon:WONDER][TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]奇观[/TIP][/B]。</Text>
+      <Text>拥有[B]2座[icon:WONDER][/B]属于任意[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]时代[/TIP]、提供[icon:SCIENCE_VP][TIP:LOC_PEDIA_CONCEPTS_INNOVATION_TOOLTIP]创新点[/TIP]的[TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]奇观[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_CULTURAL_5_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>获得[B]36[icon:CULTURE_VP][TIP:LOC_PEDIA_CONCEPTS_TOURISTS_TOOLTIP]观光值[/TIP][/B]。</Text>
+      <Text>获得[B]36[icon:CULTURE_VP][/B][TIP:LOC_PEDIA_CONCEPTS_TOURISTS_TOOLTIP]观光值[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_CULTURAL_5_NAME" Language="zh_Hans_CN">
       <Text>天堂王国</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_CULTURAL_5_RACE_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先让[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP]皈依你的[icon:NAR_REW_RELIGION][TIP:LOC_PEDIA_CONCEPTS_RELIGION_TOOLTIP]宗教[/TIP]25次。</Text>
+      <Text>率先让[B]25个[/B][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP]皈依你的[icon:NAR_REW_RELIGION][TIP:LOC_PEDIA_CONCEPTS_RELIGION_TOOLTIP]宗教[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_CULTURAL_5_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>让[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP]皈依你的[icon:NAR_REW_RELIGION][TIP:LOC_PEDIA_CONCEPTS_RELIGION_TOOLTIP]宗教[/TIP]25次。</Text>
+      <Text>让[B]25个[/B][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP]皈依你的[icon:NAR_REW_RELIGION][TIP:LOC_PEDIA_CONCEPTS_RELIGION_TOOLTIP]宗教[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_DIPLOMATIC_1_DESCRIPTION" Language="zh_Hans_CN">
       <Text>你作为[TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主国[/TIP]每有一个[icon:CITYSTATE][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]下属城邦[/TIP]，[TIP:LOC_PEDIA_CONCEPTS_PALACE_TOOLTIP]宫殿[/TIP]便[B]+4[icon:YIELD_DIPLOMACY][/B]和[icon:YIELD_HAPPINESS]。</Text>
@@ -17311,10 +17332,10 @@
       <Text>傀儡师</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_DIPLOMATIC_1_RACE_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先成为[B]5个[icon:CITYSTATE][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP][/B]的[TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主国[/TIP]。</Text>
+      <Text>率先成为[B]5个[icon:CITYSTATE][/B][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP]的[TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主国[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_DIPLOMATIC_1_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>成为[B]5个[icon:CITYSTATE][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP][/B]的[TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主国[/TIP]。</Text>
+      <Text>成为[B]5个[icon:CITYSTATE][/B][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP]的[TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主国[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_DIPLOMATIC_2_DESCRIPTION" Language="zh_Hans_CN">
       <Text>执行[icon:ESPIONAGE][TIP:LOC_PEDIA_CONCEPTS_ESPIONAGE_TOOLTIP]谍报行动[/TIP]时[B]+25%[icon:YIELD_DIPLOMACY]效用[/B]，使其完成速度加快25%。</Text>
@@ -17323,10 +17344,10 @@
       <Text>阿萨辛派</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_DIPLOMATIC_2_RACE_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先成功完成[icon:ESPIONAGE][TIP:LOC_PEDIA_CONCEPTS_ESPIONAGE_TOOLTIP]谍报行动[/TIP]10次。</Text>
+      <Text>率先成功完成[B]10次[icon:ESPIONAGE][/B][TIP:LOC_PEDIA_CONCEPTS_ESPIONAGE_TOOLTIP]谍报行动[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_DIPLOMATIC_2_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>成功完成[icon:ESPIONAGE][TIP:LOC_PEDIA_CONCEPTS_ESPIONAGE_TOOLTIP]谍报行动[/TIP]10次。</Text>
+      <Text>成功完成[B]10次[icon:ESPIONAGE][/B][TIP:LOC_PEDIA_CONCEPTS_ESPIONAGE_TOOLTIP]谍报行动[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_DIPLOMATIC_3_DESCRIPTION" Language="zh_Hans_CN">
       <Text>每有一个[icon:PLAYER_RELATIONSHIP_ALLIANCE][TIP:LOC_PEDIA_CONCEPTS_ALLIANCE_TOOLTIP]同盟[/TIP]，所有[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP]便[B]+10[icon:YIELD_HAPPINESS][/B]。[icon:SANCTIONS][TIP:LOC_PEDIA_CONCEPTS_SANCTION_TOOLTIP]谴责[/TIP][B]所花费的[icon:YIELD_DIPLOMACY]+200%[/B]。</Text>
@@ -17335,34 +17356,34 @@
       <Text>四国同盟</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_DIPLOMATIC_3_RACE_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先与3位领袖[icon:PLAYER_RELATIONSHIP_ALLIANCE][TIP:LOC_PEDIA_CONCEPTS_ALLIANCE_TOOLTIP]结盟[/TIP]。</Text>
+      <Text>率先拥有[B]3个[/B][icon:PLAYER_RELATIONSHIP_ALLIANCE][TIP:LOC_PEDIA_CONCEPTS_ALLIANCE_TOOLTIP]同盟[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_DIPLOMATIC_3_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>[icon:PLAYER_RELATIONSHIP_ALLIANCE] 与3位领袖[TIP:LOC_PEDIA_CONCEPTS_ALLIANCE_TOOLTIP]结盟[/TIP]。</Text>
+      <Text>拥有[B]3个[/B][icon:PLAYER_RELATIONSHIP_ALLIANCE][TIP:LOC_PEDIA_CONCEPTS_ALLIANCE_TOOLTIP]同盟[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_DIPLOMATIC_4_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>[B]+1[icon:NAR_REW_TRADITION_SLOT][TIP:LOC_PEDIA_CONCEPTS_SOCIAL_POLICY_TOOLTIP]社会政策槽位[/TIP][/B]。</Text>
+      <Text>[B]+1[icon:NAR_REW_TRADITION_SLOT]社会政策槽位[/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_DIPLOMATIC_4_NAME" Language="zh_Hans_CN">
       <Text>群居动物</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_DIPLOMATIC_4_RACE_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先与所有领袖开始一项[icon:DIPLOMATIC_ACTION]外交行动。</Text>
+      <Text>率先与所有领袖开始一项外交行动。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_DIPLOMATIC_4_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>与所有领袖开始一项[icon:DIPLOMATIC_ACTION]外交行动。</Text>
+      <Text>与所有领袖开始一项外交行动。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_DIPLOMATIC_5_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>[B]+1[icon:NAR_REW_TRADITION_SLOT][TIP:LOC_PEDIA_CONCEPTS_TRADITION_TOOLTIP]传统槽位[/TIP][/B]。</Text>
+      <Text>[B]+1[icon:NAR_REW_TRADITION_SLOT]传统槽位[/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_DIPLOMATIC_5_NAME" Language="zh_Hans_CN">
       <Text>世宗遗泽</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_DIPLOMATIC_5_RACE_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先在一个[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP]中拥有150溢出的[icon:YIELD_HAPPINESS]幸福值。</Text>
+      <Text>率先在一个[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP]中拥有[B]150溢出的[icon:YIELD_HAPPINESS][/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_DIPLOMATIC_5_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>在一个[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP]中拥有150溢出的[icon:YIELD_HAPPINESS]幸福值。</Text>
+      <Text>在一个[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP]中拥有[B]150溢出的[icon:YIELD_HAPPINESS][/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_ECONOMIC_1_DESCRIPTION" Language="zh_Hans_CN">
       <Text>每分配1[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]资源[/TIP]，便[B]+2[icon:YIELD_GOLD][/B]。</Text>
@@ -17371,25 +17392,25 @@
       <Text>哈利利汗市集</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_ECONOMIC_1_RACE_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先分配[B]45[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]资源[/TIP][/B]。</Text>
+      <Text>率先分配[B]45[icon:RADIAL_RESOURCES][/B][TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]资源[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_ECONOMIC_1_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>分配[B]45[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]资源[/TIP][/B]。</Text>
+      <Text>分配[B]45[icon:RADIAL_RESOURCES][/B][TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]资源[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_ECONOMIC_2_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>购买火车站时[B]+25%[icon:YIELD_GOLD]效用[/B]。[TIP:LOC_PEDIA_CONCEPTS_CONNECTED_TOOLTIP]铁路相连的定居点[/TIP][B]+1[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_RESOURCE_CAPACITY_TOOLTIP]资源容量[/TIP][/B]。</Text>
+      <Text>购买火车站时[B]+25%[icon:YIELD_GOLD]效用[/B]。[TIP:LOC_PEDIA_CONCEPTS_CONNECTED_TOOLTIP]铁路相连的定居点[/TIP][B]+1[icon:RADIAL_RESOURCES][/B][TIP:LOC_PEDIA_CONCEPTS_RESOURCE_CAPACITY_TOOLTIP]资源容量[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_ECONOMIC_2_NAME" Language="zh_Hans_CN">
       <Text>宝藏舰队</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_ECONOMIC_2_RACE_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先通过卸载[icon:UNIT_TREASURE_FLEET][TIP:LOC_PEDIA_CONCEPTS_TREASURE_CONVOY_TOOLTIP]宝藏护送队[/TIP]得到[B]800[icon:ECONOMIC_VP][TIP:LOC_PEDIA_CONCEPTS_GDP_TOOLTIP]GDP[/TIP][/B]。</Text>
+      <Text>率先通过卸载[icon:UNIT_TREASURE_FLEET][TIP:LOC_PEDIA_CONCEPTS_TREASURE_CONVOY_TOOLTIP]宝藏护送队[/TIP]得到[B]800[icon:ECONOMIC_VP][/B][TIP:LOC_PEDIA_CONCEPTS_GDP_TOOLTIP]GDP[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_ECONOMIC_2_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>通过卸载[icon:UNIT_TREASURE_FLEET][TIP:LOC_PEDIA_CONCEPTS_TREASURE_CONVOY_TOOLTIP]宝藏护送队[/TIP]得到[B]800[icon:ECONOMIC_VP][TIP:LOC_PEDIA_CONCEPTS_GDP_TOOLTIP]GDP[/TIP][/B]。</Text>
+      <Text>通过卸载[icon:UNIT_TREASURE_FLEET][TIP:LOC_PEDIA_CONCEPTS_TREASURE_CONVOY_TOOLTIP]宝藏护送队[/TIP]得到[B]800[icon:ECONOMIC_VP][/B][TIP:LOC_PEDIA_CONCEPTS_GDP_TOOLTIP]GDP[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_ECONOMIC_3_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>免费获得[B]2个[icon:UNIT_MERCHANT]商人[/B]。与所有领袖的[B][icon:TRADE_ROUTE][TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]贸易路线容量[/TIP]+1[/B]。</Text>
+      <Text>免费获得[B]2个[icon:UNIT_MERCHANT]商人[/B]。与所有领袖的[TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]贸易路线容量[/TIP][B]+1[icon:TRADE_ROUTE][/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_ECONOMIC_3_NAME" Language="zh_Hans_CN">
       <Text>来卡利卡特做买卖</Text>
@@ -17410,58 +17431,58 @@
       <Text>在本[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]时代[/TIP]率先达成50000[icon:YIELD_GOLD]等值的购买。[TIP:LOC_PEDIA_CONCEPTS_MAINTENANCE_TOOLTIP]维护费用[/TIP]不计入在内。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_ECONOMIC_4_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>在本[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]时代[/TIP]达成[B]50000[icon:YIELD_GOLD][/B]等值的购买。[TIP:LOC_PEDIA_CONCEPTS_MAINTENANCE_TOOLTIP]维护费用[/TIP]不计入在内。</Text>
+      <Text>在本[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]时代[/TIP]达成50000[icon:YIELD_GOLD]等值的购买。[TIP:LOC_PEDIA_CONCEPTS_MAINTENANCE_TOOLTIP]维护费用[/TIP]不计入在内。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_ECONOMIC_5_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>来自[TIP:LOC_PEDIA_CONCEPTS_DISTANT_LANDS_TOOLTIP]遥远土地[/TIP][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP]的[B][icon:MILITARY_VP][TIP:LOC_PEDIA_CONCEPTS_DOMINION_TOOLTIP]霸业点[/TIP]+1[/B]。</Text>
+      <Text>来自[TIP:LOC_PEDIA_CONCEPTS_DISTANT_LANDS_TOOLTIP]遥远土地[/TIP][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP]的[TIP:LOC_PEDIA_CONCEPTS_DOMINION_TOOLTIP]霸业点[/TIP][B]+1[icon:MILITARY_VP][/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_ECONOMIC_5_NAME" Language="zh_Hans_CN">
       <Text>阿托查圣母号</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_ECONOMIC_5_RACE_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先卸载一支计拥有至少[B]10[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]资源[/TIP][/B]的[icon:UNIT_TREASURE_FLEET][TIP:LOC_PEDIA_CONCEPTS_TREASURE_CONVOY_TOOLTIP]宝藏护送队[/TIP]。</Text>
+      <Text>率先卸载一支计拥有至少[B]10[icon:RADIAL_RESOURCES][/B][TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]资源[/TIP]的[icon:UNIT_TREASURE_FLEET][TIP:LOC_PEDIA_CONCEPTS_TREASURE_CONVOY_TOOLTIP]宝藏护送队[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_ECONOMIC_5_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>卸载一支计至少[B]10[icon:RADIAL_RESOURCES][/B]货物点的[icon:UNIT_TREASURE_FLEET][TIP:LOC_PEDIA_CONCEPTS_TREASURE_CONVOY_TOOLTIP]宝藏护送队[/TIP]。</Text>
+      <Text>卸载一支计至少[B]10货物点[/B]的[icon:UNIT_TREASURE_FLEET][TIP:LOC_PEDIA_CONCEPTS_TREASURE_CONVOY_TOOLTIP]宝藏护送队[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_EXPANSIONIST_1_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>为[TIP:LOC_PEDIA_CONCEPTS_DISTANT_LANDS_TOOLTIP]遥远土地[/TIP][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP]中的单位[B]+5[icon:NAR_REW_COMBAT][TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]战斗力[/TIP][/B]。</Text>
+      <Text>为[TIP:LOC_PEDIA_CONCEPTS_DISTANT_LANDS_TOOLTIP]遥远土地[/TIP][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP]中的单位[B]+5[icon:NAR_REW_COMBAT][/B][TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]战斗力[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_EXPANSIONIST_1_NAME" Language="zh_Hans_CN">
       <Text>此处有龙</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_EXPANSIONIST_1_RACE_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先在[TIP:LOC_PEDIA_CONCEPTS_DISTANT_LANDS_TOOLTIP]遥远土地[/TIP]上建立[B]6个[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP][/B]。</Text>
+      <Text>率先在[TIP:LOC_PEDIA_CONCEPTS_DISTANT_LANDS_TOOLTIP]遥远土地[/TIP]上建立[B]6个[/B][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_EXPANSIONIST_1_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先在[TIP:LOC_PEDIA_CONCEPTS_DISTANT_LANDS_TOOLTIP]遥远土地[/TIP]上建立[B]6个[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP][/B]。</Text>
+      <Text>率先在[TIP:LOC_PEDIA_CONCEPTS_DISTANT_LANDS_TOOLTIP]遥远土地[/TIP]上建立[B]6个[/B][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_EXPANSIONIST_2_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>[B]+2[icon:SETTLEMENT_LIMIT][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_LIMIT_TOOLTIP]定居点上限[/TIP][/B]。</Text>
+      <Text>[B]+2[icon:SETTLEMENT_LIMIT][/B][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_LIMIT_TOOLTIP]定居点上限[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_EXPANSIONIST_2_NAME" Language="zh_Hans_CN">
       <Text>哈布斯堡就在我家</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_EXPANSIONIST_2_RACE_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先在[TIP:LOC_PEDIA_CONCEPTS_HOMELANDS_TOOLTIP]本土[/TIP]建立[B]16个[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP][/B]。之前[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]时代[/TIP]的定居点视为由你建立。</Text>
+      <Text>率先在[TIP:LOC_PEDIA_CONCEPTS_HOMELANDS_TOOLTIP]本土[/TIP]建立[B]16个[/B][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP]。之前[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]时代[/TIP]的定居点视为由你建立。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_EXPANSIONIST_2_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>在[TIP:LOC_PEDIA_CONCEPTS_HOMELANDS_TOOLTIP]本土[/TIP]建立[B]16个[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP][/B]。之前[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]时代[/TIP]的定居点视为由你建立。</Text>
+      <Text>在[TIP:LOC_PEDIA_CONCEPTS_HOMELANDS_TOOLTIP]本土[/TIP]建立[B]16个[/B][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP]。之前[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]时代[/TIP]的定居点视为由你建立。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_EXPANSIONIST_3_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>[icon:YIELD_WAREHOUSE][TIP:LOC_PEDIA_CONCEPTS_WAREHOUSE_TOOLTIP]食物仓库[/TIP][B]+1[icon:YIELD_FOOD][/B]。[icon:YIELD_FOOD][TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]食物建筑[/TIP][B]+2[icon:YIELD_FOOD][/B]。</Text>
+      <Text>[icon:YIELD_FOOD][icon:YIELD_WAREHOUSE][TIP:LOC_PEDIA_CONCEPTS_WAREHOUSE_TOOLTIP]食物仓库[/TIP][B]+1[icon:YIELD_FOOD][/B]。[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]食物建筑[/TIP][B]+2[icon:YIELD_FOOD][/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_EXPANSIONIST_3_NAME" Language="zh_Hans_CN">
       <Text>三圃制</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_EXPANSIONIST_3_RACE_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先拥有[B]350[icon:YIELD_POPULATION][TIP:LOC_PEDIA_CONCEPTS_POPULATION_TOOLTIP]人口[/TIP][/B]。</Text>
+      <Text>率先拥有[B]350[icon:YIELD_POPULATION][/B][TIP:LOC_PEDIA_CONCEPTS_POPULATION_TOOLTIP]人口[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_EXPANSIONIST_3_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>拥有[B]350[icon:YIELD_POPULATION][TIP:LOC_PEDIA_CONCEPTS_POPULATION_TOOLTIP]人口[/TIP][/B]。</Text>
+      <Text>拥有[B]350[icon:YIELD_POPULATION][/B][TIP:LOC_PEDIA_CONCEPTS_POPULATION_TOOLTIP]人口[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_EXPANSIONIST_4_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>[TIP:LOC_PEDIA_CONCEPTS_APPEAL_TOOLTIP]惊艳[/TIP]地块[B]+1[icon:YIELD_FOOD][/B]。</Text>
+      <Text>惊艳地块[B]+1[icon:YIELD_FOOD][/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_EXPANSIONIST_4_NAME" Language="zh_Hans_CN">
       <Text>探索癖</Text>
@@ -17482,7 +17503,7 @@
       <Text>率先完成环球航行。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_EXPLORER_1_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>[TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]海上单位[/TIP][B]+10[icon:Action_Heal][/B]治疗。</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]海上单位[/TIP]+10治疗。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_EXPLORER_1_NAME" Language="zh_Hans_CN">
       <Text>海岸军</Text>
@@ -17506,46 +17527,46 @@
       <Text>扬帆起航</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_EXPLORER_3_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先研究完[icon:RADIAL_TECH]造船术。</Text>
+      <Text>率先研究完[B]造船术[/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_MILITARISTIC_1_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>对抗[icon:CITY_FORTIFIED][TIP:LOC_PEDIA_CONCEPTS_FORTIFIED_DISTRICTS_TOOLTIP]驻防区块[/TIP]时[B]+3[icon:NAR_REW_COMBAT][TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]战斗力[/TIP][/B]。</Text>
+      <Text>对抗[icon:CITY_FORTIFIED][TIP:LOC_PEDIA_CONCEPTS_FORTIFIED_DISTRICTS_TOOLTIP]驻防区块[/TIP]时[B]+3[icon:NAR_REW_COMBAT][/B][TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]战斗力[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_MILITARISTIC_1_NAME" Language="zh_Hans_CN">
       <Text>世界不够大</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_MILITARISTIC_1_RACE_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先在[TIP:LOC_PEDIA_CONCEPTS_DISTANT_LANDS_TOOLTIP]遥远土地[/TIP]上征服并保留[B]6座[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP][/B]。</Text>
+      <Text>率先在[TIP:LOC_PEDIA_CONCEPTS_DISTANT_LANDS_TOOLTIP]遥远土地[/TIP]上征服并保留[B]6座[/B][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_MILITARISTIC_1_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>在[TIP:LOC_PEDIA_CONCEPTS_DISTANT_LANDS_TOOLTIP]遥远土地[/TIP]上征服并保留[B]6座[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP][/B]。</Text>
+      <Text>在[TIP:LOC_PEDIA_CONCEPTS_DISTANT_LANDS_TOOLTIP]遥远土地[/TIP]上征服并保留[B]6[/B]座[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_MILITARISTIC_2_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>获得一名[icon:UNIT_ARMY_COMMANDER][TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]军队指挥官[/TIP]，其附带4个[TIP:LOC_PEDIA_CONCEPTS_MILITARY_UNIT_TOOLTIP]军事单位[/TIP]，每种类型各一个。</Text>
+      <Text>获得一名[icon:UNIT_ARMY_COMMANDER][TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]军队指挥官[/TIP]，其附带[B]4[/B]个[TIP:LOC_PEDIA_CONCEPTS_MILITARY_UNIT_TOOLTIP]军事单位[/TIP]，每种类型各一个。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_MILITARISTIC_2_NAME" Language="zh_Hans_CN">
       <Text>蒙古治世</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_MILITARISTIC_2_RACE_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先在[TIP:LOC_PEDIA_CONCEPTS_HOMELANDS_TOOLTIP]本土[/TIP]上征服并保留[B]8座[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP][/B]。</Text>
+      <Text>率先在[TIP:LOC_PEDIA_CONCEPTS_HOMELANDS_TOOLTIP]本土[/TIP]上征服并保留[B]8[/B]座[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_MILITARISTIC_2_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>在[TIP:LOC_PEDIA_CONCEPTS_HOMELANDS_TOOLTIP]本土[/TIP]上征服并保留[B]8座[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP][/B]。</Text>
+      <Text>在[TIP:LOC_PEDIA_CONCEPTS_HOMELANDS_TOOLTIP]本土[/TIP]上征服并保留[B]8[/B]座[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_MILITARISTIC_3_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>所有[TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]指挥官[/TIP]+1[B][icon:NAR_REW_PROMOTION][TIP:LOC_PEDIA_CONCEPTS_PROMOTION_TOOLTIP]晋升[/TIP][/B]，包括未来的指挥官。</Text>
+      <Text>所有[icon:UNIT_ARMY_COMMANDER][TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]指挥官[/TIP][B]+1[/B][TIP:LOC_PEDIA_CONCEPTS_PROMOTION_TOOLTIP]晋升[/TIP]，包括未来的[icon:UNIT_ARMY_COMMANDER]指挥官。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_MILITARISTIC_3_NAME" Language="zh_Hans_CN">
       <Text>怒海称雄</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_MILITARISTIC_3_RACE_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先拥有一位[B]8级的[icon:UNIT_FLEET_COMMANDER][TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]舰队指挥官[/TIP][/B]。</Text>
+      <Text>率先拥有一位[B]8级[icon:UNIT_FLEET_COMMANDER][/B]的[TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]舰队指挥官[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_MILITARISTIC_3_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>拥有一位[B]8级的[icon:UNIT_FLEET_COMMANDER][TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]舰队指挥官[/TIP][/B]。</Text>
+      <Text>拥有一位[B]8级[icon:UNIT_FLEET_COMMANDER][/B]的[TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]舰队指挥官[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_MILITARISTIC_4_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>获得[B]4[icon:MILITARY_VP][TIP:LOC_PEDIA_CONCEPTS_DOMINION_TOOLTIP]霸业点[/TIP][/B]。</Text>
+      <Text>获得[B]4[icon:MILITARY_VP][/B][TIP:LOC_PEDIA_CONCEPTS_DOMINION_TOOLTIP]霸业点[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_MILITARISTIC_4_NAME" Language="zh_Hans_CN">
       <Text>大劫掠！</Text>
@@ -17554,7 +17575,7 @@
       <Text>率先征服一座[icon:NOTIFICATION_SELECT_CAPITAL][TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]首都[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_MILITARISTIC_5_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>从所有[icon:CITY_FORTIFIED]防御工事获得[B]+2[icon:CULTURE_VP][TIP:LOC_PEDIA_CONCEPTS_TOURISTS_TOOLTIP]观光值[/TIP][/B]。</Text>
+      <Text>从所有防御工事获得[B]+2[icon:CULTURE_VP][/B][TIP:LOC_PEDIA_CONCEPTS_TOURISTS_TOOLTIP]观光值[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_MILITARISTIC_5_NAME" Language="zh_Hans_CN">
       <Text>城堡之地</Text>
@@ -17563,46 +17584,46 @@
       <Text>防御工事</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_MILITARISTIC_5_RACE_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先拥有[B]30个[icon:CITY_FORTIFIED]防御工事[/B]。</Text>
+      <Text>率先拥有[B]30个防御工事[/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_MILITARISTIC_5_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>拥有[B]30个[icon:CITY_FORTIFIED]防御工事[/B]。</Text>
+      <Text>拥有[B]30个防御工事[/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_SCIENTIFIC_1_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>所有[TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP][B]+1[icon:SPECIALIST][TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_LIMIT_TOOLTIP]专家上限[/TIP][/B]。</Text>
+      <Text>所有[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP][B]+1[icon:SPECIALIST][/B][TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_LIMIT_TOOLTIP]专家上限[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_SCIENTIFIC_1_NAME" Language="zh_Hans_CN">
       <Text>启蒙</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_SCIENTIFIC_1_RACE_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先拥有[B]5个产出75+的非市中心[TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]区块[/TIP][/B]。</Text>
+      <Text>率先拥有[B]5个[icon:CITY_URBAN][/B][B]产量75+[/B]的[TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]非市中心区块[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_SCIENTIFIC_1_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>拥有[B]5个产出75+的非市中心[TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]区块[/TIP][/B]。</Text>
+      <Text>拥有[B]5个[icon:CITY_URBAN][/B][B]产量75+[/B]的[TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]非市中心区块[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_SCIENTIFIC_2_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>解锁[icon:RADIAL_TECH]学术。推进[icon:PROJECT][TIP:LOC_PEDIA_CONCEPTS_PROJECTS_TOOLTIP]项目[/TIP]时[B]+25%[icon:YIELD_PRODUCTION]效用[/B]。</Text>
+      <Text>解锁学术。推进[icon:DEFAULT_PROJECT][TIP:LOC_PEDIA_CONCEPTS_PROJECTS_TOOLTIP]项目[/TIP]时[B]+25%[icon:YIELD_PRODUCTION]效用[/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_SCIENTIFIC_2_NAME" Language="zh_Hans_CN">
       <Text>天体运行论</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_SCIENTIFIC_2_RACE_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先完成[icon:DEFAULT_PROJECT]日心模型和[icon:DEFAULT_PROJECT]发现微积分[icon:PROJECT][TIP:LOC_PEDIA_CONCEPTS_PROJECTS_TOOLTIP]项目[/TIP]。</Text>
+      <Text>率先完成[B]“日心模型”[/B]和[B]“发现微积分”[/B][icon:DEFAULT_PROJECT][TIP:LOC_PEDIA_CONCEPTS_PROJECTS_TOOLTIP]项目[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_SCIENTIFIC_2_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>完成[icon:DEFAULT_PROJECT]日心模型和[icon:DEFAULT_PROJECT]发现微积分[icon:PROJECT][TIP:LOC_PEDIA_CONCEPTS_PROJECTS_TOOLTIP]项目[/TIP]。</Text>
+      <Text>完成[B]“日心模型”[/B]和[B]“发现微积分”[/B][icon:DEFAULT_PROJECT][TIP:LOC_PEDIA_CONCEPTS_PROJECTS_TOOLTIP]项目[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_SCIENTIFIC_3_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>[TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]海上单位[/TIP][B]+1[icon:UNIT_MOVEMENT_ICON]移动力[/B]。</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]海上单位[/TIP][B]+1[icon:Action_Move]移动力[/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_SCIENTIFIC_3_NAME" Language="zh_Hans_CN">
       <Text>突火枪</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_SCIENTIFIC_3_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先研究[icon:RADIAL_TECH]火药。</Text>
+      <Text>率先研究完[B]火药[/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_SCIENTIFIC_4_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>首次完成一项奖励[icon:SCIENCE_VP][TIP:LOC_PEDIA_CONCEPTS_INNOVATION_TOOLTIP]创新点[/TIP]的[icon:PROJECT][TIP:LOC_PEDIA_CONCEPTS_PROJECTS_TOOLTIP]项目[/TIP]时，[B]+1000[icon:ECONOMIC_VP][TIP:LOC_PEDIA_CONCEPTS_GDP_TOOLTIP]GDP[/TIP][/B]（根据游戏速度进行调整）。</Text>
+      <Text>首次完成一项奖励[icon:SCIENCE_VP][TIP:LOC_PEDIA_CONCEPTS_INNOVATION_TOOLTIP]创新点[/TIP]的[icon:DEFAULT_PROJECT][TIP:LOC_PEDIA_CONCEPTS_PROJECTS_TOOLTIP]项目[/TIP]时，[B]+1000[icon:ECONOMIC_VP][/B][TIP:LOC_PEDIA_CONCEPTS_GDP_TOOLTIP]GDP[/TIP]（根据游戏速度进行调整）。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_SCIENTIFIC_4_NAME" Language="zh_Hans_CN">
       <Text>帖木儿文艺复兴</Text>
@@ -17614,25 +17635,25 @@
       <Text>在帝国中拥有[B]7所大学[/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_SCIENTIFIC_5_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>[TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP][B]+1[icon:YIELD_POPULATION][TIP:LOC_PEDIA_CONCEPTS_POPULATION_TOOLTIP]人口[/TIP][/B]，未来的城市同样如此。</Text>
+      <Text>[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP][B]+1[icon:YIELD_POPULATION][/B][TIP:LOC_PEDIA_CONCEPTS_POPULATION_TOOLTIP]人口[/TIP]，未来的[icon:YIELD_CITIES]城市同样如此。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_SCIENTIFIC_5_NAME" Language="zh_Hans_CN">
       <Text>F=ma</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_SCIENTIFIC_5_RACE_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先研究完所有[icon:RADIAL_TECH][TIP:LOC_PEDIA_CONCEPTS_TECH_TOOLTIP]科技[/TIP]和[TIP:LOC_PEDIA_CONCEPTS_MASTERY_TOOLTIP]精通[/TIP]。</Text>
+      <Text>率先研究完所有[icon:RADIAL_TECH][TIP:LOC_PEDIA_CONCEPTS_TECH_TOOLTIP]科技[/TIP]和精通。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_SCIENTIFIC_5_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先研究完所有[icon:RADIAL_TECH][TIP:LOC_PEDIA_CONCEPTS_TECH_TOOLTIP]科技[/TIP]和[TIP:LOC_PEDIA_CONCEPTS_MASTERY_TOOLTIP]精通[/TIP]。</Text>
+      <Text>率先研究完所有[icon:RADIAL_TECH][TIP:LOC_PEDIA_CONCEPTS_TECH_TOOLTIP]科技[/TIP]和精通。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_CONQUEROR_1_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>[TIP:LOC_PEDIA_CONCEPTS_SIEGE_UNITS_TOOLTIP]攻城单位[/TIP][B]+4[icon:NAR_REW_COMBAT]轰击力[/B]。</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_SIEGE_UNITS_TOOLTIP]攻城单位[/TIP][B]+4[icon:NAR_REW_COMBAT][/B][TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]轰击力[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_CONQUEROR_1_NAME" Language="zh_Hans_CN">
       <Text>列日攻略</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_CONQUEROR_1_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>征服一座拥有[B]6个[TIP:LOC_PEDIA_CONCEPTS_DEFENSIVE_FORTIFICATION_TOOLTIP]防御工事[/TIP][/B]的[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]。</Text>
+      <Text>征服一座拥有[B]6个[/B][TIP:LOC_PEDIA_CONCEPTS_DEFENSIVE_FORTIFICATION_TOOLTIP]防御工事[/TIP]的[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_CONQUEROR_2_DESCRIPTION" Language="zh_Hans_CN">
       <Text>从[icon:CITYSTATE][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP]征集单位时[B]+100%[icon:YIELD_DIPLOMACY]效用[/B]。</Text>
@@ -17644,73 +17665,73 @@
       <Text>成为2个军事[icon:CITYSTATE][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP]的[TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主国[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_CONQUEROR_3_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>[TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]军队和舰队指挥官[/TIP][B]+1[icon:Action_Move]移动力[/B]。</Text>
+      <Text>军队和[icon:UNIT_FLEET_COMMANDER][TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]舰队指挥官[/TIP][B]+1[icon:Action_Move]移动力[/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_CONQUEROR_3_NAME" Language="zh_Hans_CN">
       <Text>统一复兴运动</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_CONQUEROR_3_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>在此[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]时代[/TIP]期间征服[B]2座[icon:NOTIFICATION_SELECT_CAPITAL][TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]首都[/TIP][/B]。</Text>
+      <Text>在此[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]时代[/TIP]期间征服[B]2座[icon:NOTIFICATION_SELECT_CAPITAL][/B][TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]首都[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_CONQUEROR_4_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>[TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]航空母舰[/TIP][B]+1[icon:Action_Move]移动力[/B]。</Text>
+      <Text>航空母舰[B]+1[icon:Action_Move]移动力[/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_CONQUEROR_4_NAME" Language="zh_Hans_CN">
       <Text>企业号</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_CONQUEROR_4_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>拥有一艘获得[B]4次[TIP:LOC_PEDIA_CONCEPTS_PROMOTION_TOOLTIP]晋升[/TIP][/B]的[TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]航空母舰[/TIP]。</Text>
+      <Text>拥有一艘获得[B]4次[/B][TIP:LOC_PEDIA_CONCEPTS_PROMOTION_TOOLTIP]晋升[/TIP]的航空母舰。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_CULTURAL_1_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>从每件展示的[icon:NAR_REW_GREATWORK][TIP:LOC_PEDIA_CONCEPTS_ARTIFACT_TOOLTIP]文物[/TIP]获得[B]+3[icon:CULTURE_VP][TIP:LOC_PEDIA_CONCEPTS_TOURISTS_TOOLTIP]观光值[/TIP][/B]。</Text>
+      <Text>从每件展示的[icon:NAR_REW_GREATWORK][TIP:LOC_PEDIA_CONCEPTS_ARTIFACT_TOOLTIP]文物[/TIP]获得[B]+3[icon:CULTURE_VP][/B][TIP:LOC_PEDIA_CONCEPTS_TOURISTS_TOOLTIP]观光值[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_CULTURAL_1_NAME" Language="zh_Hans_CN">
       <Text>地理学会</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_CULTURAL_1_RACE_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先展示[B]15件[icon:NAR_REW_GREATWORK][TIP:LOC_PEDIA_CONCEPTS_ARTIFACT_TOOLTIP]文物[/TIP][/B]。</Text>
+      <Text>率先展示[B]15件[icon:NAR_REW_GREATWORK][/B][TIP:LOC_PEDIA_CONCEPTS_ARTIFACT_TOOLTIP]文物[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_CULTURAL_1_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>展示[B]15件[icon:NAR_REW_GREATWORK][TIP:LOC_PEDIA_CONCEPTS_ARTIFACT_TOOLTIP]文物[/TIP][/B]。</Text>
+      <Text>展示[B]15件[icon:NAR_REW_GREATWORK][/B][TIP:LOC_PEDIA_CONCEPTS_ARTIFACT_TOOLTIP]文物[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_CULTURAL_2_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>获得[B]36[icon:CULTURE_VP][TIP:LOC_PEDIA_CONCEPTS_TOURISTS_TOOLTIP]观光值[/TIP][/B]。</Text>
+      <Text>获得[B]36[icon:CULTURE_VP][/B][TIP:LOC_PEDIA_CONCEPTS_TOURISTS_TOOLTIP]观光值[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_CULTURAL_2_NAME" Language="zh_Hans_CN">
       <Text>近代世界奇观</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_CULTURAL_2_RACE_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先建成[B]6座[TIP:LOC_PEDIA_CONCEPTS_MODERN_AGE_TOOLTIP]近世时代[/TIP][/B][icon:WONDER][TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]奇观[/TIP]。</Text>
+      <Text>率先建成[B]6座[/B][TIP:LOC_PEDIA_CONCEPTS_MODERN_AGE_TOOLTIP]近世时代[/TIP][icon:WONDER][TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]奇观[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_CULTURAL_2_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>建成[B]6座[TIP:LOC_PEDIA_CONCEPTS_MODERN_AGE_TOOLTIP]近世时代[/TIP][/B][icon:WONDER][TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]奇观[/TIP]。</Text>
+      <Text>建成[B]6座[/B][TIP:LOC_PEDIA_CONCEPTS_MODERN_AGE_TOOLTIP]近世时代[/TIP][icon:WONDER][TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]奇观[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_CULTURAL_3_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>从未来[icon:CELEBRATION][TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]庆典[/TIP]中获得[B]+4[icon:CULTURE_VP][TIP:LOC_PEDIA_CONCEPTS_TOURISTS_TOOLTIP]观光值[/TIP][/B]。</Text>
+      <Text>从未来[icon:CELEBRATION][TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]庆典[/TIP]中获得[B]+4[icon:CULTURE_VP][/B][TIP:LOC_PEDIA_CONCEPTS_TOURISTS_TOOLTIP]观光值[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_CULTURAL_3_NAME" Language="zh_Hans_CN">
       <Text>宣言</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_CULTURAL_3_RACE_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先在槽位中放置[B]10项[icon:SOCIAL_POLICY][TIP:LOC_PEDIA_CONCEPTS_SOCIAL_POLICY_TOOLTIP]社会政策[/TIP][/B]或[icon:TRADITION][TIP:LOC_PEDIA_CONCEPTS_TRADITION_TOOLTIP]传统[/TIP]。</Text>
+      <Text>率先在槽位中放置[B]10项[icon:SOCIAL_POLICY][/B][TIP:LOC_PEDIA_CONCEPTS_SOCIAL_POLICY_TOOLTIP]社会政策[/TIP]或[icon:TRADITION][TIP:LOC_PEDIA_CONCEPTS_TRADITION_TOOLTIP]传统[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_CULTURAL_3_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先在槽位中放置[B]10项[icon:SOCIAL_POLICY][/B]政策或[icon:TRADITION][TIP:LOC_PEDIA_CONCEPTS_TRADITION_TOOLTIP]传统[/TIP]。</Text>
+      <Text>率先在槽位中放置[B]10项[icon:SOCIAL_POLICY][/B][TIP:LOC_PEDIA_CONCEPTS_SOCIAL_POLICY_TOOLTIP]政策[/TIP]或[icon:TRADITION][TIP:LOC_PEDIA_CONCEPTS_TRADITION_TOOLTIP]传统[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_CULTURAL_4_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>所有[icon:WONDER][TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]奇观[/TIP][B]+3[icon:CULTURE_VP][TIP:LOC_PEDIA_CONCEPTS_TOURISTS_TOOLTIP]观光值[/TIP][/B]。</Text>
+      <Text>所有[icon:WONDER][TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]奇观[/TIP][B]+3[icon:CULTURE_VP][/B][TIP:LOC_PEDIA_CONCEPTS_TOURISTS_TOOLTIP]观光值[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_CULTURAL_4_NAME" Language="zh_Hans_CN">
       <Text>奇观之地</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_CULTURAL_4_RACE_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先建成[B]20座[icon:WONDER][TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]奇观[/TIP][/B]。</Text>
+      <Text>率先建成[B]20座[icon:WONDER][/B][TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]奇观[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_CULTURAL_4_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>建成[B]20座[icon:WONDER][TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]奇观[/TIP][/B]。</Text>
+      <Text>建成[B]20座[icon:WONDER][/B][TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]奇观[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_CULTURAL_5_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>来自[icon:CITY_BUILDING_LIST][TIP:LOC_PEDIA_CONCEPTS_UNIQUE_BUILDING_TOOLTIP]特色建筑[/TIP]的[B][icon:CULTURE_VP][TIP:LOC_PEDIA_CONCEPTS_TOURISTS_TOOLTIP]观光值[/TIP]+2[/B]，来自[icon:CITY_RURAL][TIP:LOC_PEDIA_CONCEPTS_UNIQUE_IMPROVEMENT_TOOLTIP]特色改良设施[/TIP]的[B][icon:CULTURE_VP]观光值+1[/B]。</Text>
+      <Text>来自[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_BUILDING_TOOLTIP]特色建筑[/TIP]的[TIP:LOC_PEDIA_CONCEPTS_TOURISTS_TOOLTIP]观光值[/TIP][B]+2[icon:CULTURE_VP][/B]，来自[icon:CITY_RURAL][TIP:LOC_PEDIA_CONCEPTS_UNIQUE_IMPROVEMENT_TOOLTIP]特色改良设施[/TIP]的[B][icon:CULTURE_VP]观光值+1[/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_CULTURAL_5_NAME" Language="zh_Hans_CN">
       <Text>时代精神</Text>
@@ -17722,67 +17743,67 @@
       <Text>时代精神：城区</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_CULTURAL_5_RACE_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先研习完所有普通[TIP:LOC_PEDIA_CONCEPTS_CIVIC_TOOLTIP]市政[/TIP]和[TIP:LOC_PEDIA_CONCEPTS_MASTERY_TOOLTIP]精通[/TIP]。</Text>
+      <Text>率先研习完所有普通[TIP:LOC_PEDIA_CONCEPTS_CIVIC_TOOLTIP]市政[/TIP]和精通。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_CULTURAL_5_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先研习完所有普通[TIP:LOC_PEDIA_CONCEPTS_CIVIC_TOOLTIP]市政[/TIP]和[TIP:LOC_PEDIA_CONCEPTS_MASTERY_TOOLTIP]精通[/TIP]。</Text>
+      <Text>率先研习完所有普通[TIP:LOC_PEDIA_CONCEPTS_CIVIC_TOOLTIP]市政[/TIP]和精通。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_DIPLOMATIC_1_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>发起与领袖之间的[icon:DIPLOMATIC_ACTION]外交行动时[B]+20%[icon:YIELD_DIPLOMACY]效用[/B]。</Text>
+      <Text>发起与领袖之间的外交行动时[B]+20%[icon:YIELD_DIPLOMACY]效用[/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_DIPLOMATIC_1_NAME" Language="zh_Hans_CN">
       <Text>探寻新世界</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_DIPLOMATIC_1_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先采纳一个[icon:NOTIFICATION_IDEOLOGY_CHOSEN]意识形态。</Text>
+      <Text>率先采纳一个[icon:NOTIFICATION_IDEOLOGY_CHOSEN][B]意识形态[/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_DIPLOMATIC_2_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>获得[B]500[icon:YIELD_DIPLOMACY]影响力[/B]。</Text>
+      <Text>获得[B]500[icon:YIELD_DIPLOMACY][/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_DIPLOMATIC_2_NAME" Language="zh_Hans_CN">
       <Text>万国联盟</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_DIPLOMATIC_2_RACE_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先与世界上一半的领袖[icon:PLAYER_RELATIONSHIP_ALLIANCE][TIP:LOC_PEDIA_CONCEPTS_ALLIANCE_TOOLTIP]结盟[/TIP]。</Text>
+      <Text>率先与世界上[B]一半[/B]的领袖[icon:PLAYER_RELATIONSHIP_ALLIANCE][TIP:LOC_PEDIA_CONCEPTS_ALLIANCE_TOOLTIP]结盟[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_DIPLOMATIC_2_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>[icon:PLAYER_RELATIONSHIP_ALLIANCE] 与世界上一半的领袖[TIP:LOC_PEDIA_CONCEPTS_ALLIANCE_TOOLTIP]结盟[/TIP]。</Text>
+      <Text>与世界上[B]一半[/B]的领袖[icon:PLAYER_RELATIONSHIP_ALLIANCE][TIP:LOC_PEDIA_CONCEPTS_ALLIANCE_TOOLTIP]结盟[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_DIPLOMATIC_3_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>发起对[icon:CITYSTATE][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP]的[icon:DIPLOMATIC_ACTION]外交行动时[B]+50%[icon:YIELD_DIPLOMACY]效用[/B]。</Text>
+      <Text>发起对[icon:CITYSTATE][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP]的外交行动时[B]+50%[icon:YIELD_DIPLOMACY]效用[/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_DIPLOMATIC_3_NAME" Language="zh_Hans_CN">
       <Text>操盘大师</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_DIPLOMATIC_3_RACE_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先成为[B]7个[icon:CITYSTATE][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP][/B]的[TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主国[/TIP]。</Text>
+      <Text>率先成为[B]7个[icon:CITYSTATE][/B][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP]的[TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主国[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_DIPLOMATIC_3_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>成为[B]7个[icon:CITYSTATE][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP][/B]的[TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主国[/TIP]。</Text>
+      <Text>成为[B]7个[icon:CITYSTATE][/B][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP]的[TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主国[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_DIPLOMATIC_4_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>获得[B]500[icon:YIELD_DIPLOMACY]影响力。</Text>
+      <Text>获得[B]500[icon:YIELD_DIPLOMACY][/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_DIPLOMATIC_4_NAME" Language="zh_Hans_CN">
       <Text>恩尼格玛密码</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_DIPLOMATIC_4_RACE_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先成功完成[icon:ESPIONAGE][TIP:LOC_PEDIA_CONCEPTS_ESPIONAGE_TOOLTIP]谍报行动[/TIP]15次。</Text>
+      <Text>率先成功完成[B]15次[icon:ESPIONAGE][/B][TIP:LOC_PEDIA_CONCEPTS_ESPIONAGE_TOOLTIP]谍报行动[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_DIPLOMATIC_4_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>成功完成[icon:ESPIONAGE][TIP:LOC_PEDIA_CONCEPTS_ESPIONAGE_TOOLTIP]谍报行动[/TIP]15次。</Text>
+      <Text>成功完成[B]15次[icon:ESPIONAGE][/B][TIP:LOC_PEDIA_CONCEPTS_ESPIONAGE_TOOLTIP]谍报行动[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_DIPLOMATIC_5_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>[B]+1[icon:NAR_REW_TRADITION_SLOT][TIP:LOC_PEDIA_CONCEPTS_TRADITION_TOOLTIP]传统槽位[/TIP][/B]。</Text>
+      <Text>[B]+1[icon:NAR_REW_TRADITION_SLOT]传统槽位[/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_DIPLOMATIC_5_NAME" Language="zh_Hans_CN">
       <Text>美丽新世界</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_DIPLOMATIC_5_RACE_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先在一个[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP]中拥有250溢出的[icon:YIELD_HAPPINESS]幸福值。</Text>
+      <Text>率先在一个[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP]中拥有[B]250溢出的[icon:YIELD_HAPPINESS][/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_DIPLOMATIC_5_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>在一个[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP]中拥有250溢出的[icon:YIELD_HAPPINESS]幸福值。</Text>
+      <Text>在一个[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP]中拥有[B]250溢出的[icon:YIELD_HAPPINESS][/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_ECONOMIC_1_DESCRIPTION" Language="zh_Hans_CN">
       <Text>在你的[icon:NOTIFICATION_SELECT_CAPITAL][TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]首都[/TIP]生成一个大银行家单位。</Text>
@@ -17791,46 +17812,46 @@
       <Text>铁路大亨</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_ECONOMIC_1_RACE_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先通过分配[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_FACTORY_RESOURCES_TOOLTIP]工厂资源[/TIP]得到[B]500[icon:ECONOMIC_VP][TIP:LOC_PEDIA_CONCEPTS_GDP_TOOLTIP]GDP[/TIP][/B]。</Text>
+      <Text>率先通过分配[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_FACTORY_RESOURCES_TOOLTIP]工厂资源[/TIP]得到[B]500[icon:ECONOMIC_VP][/B][TIP:LOC_PEDIA_CONCEPTS_GDP_TOOLTIP]GDP[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_ECONOMIC_1_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>通过分配[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_FACTORY_RESOURCES_TOOLTIP]工厂资源[/TIP]得到[B]500[icon:ECONOMIC_VP][TIP:LOC_PEDIA_CONCEPTS_GDP_TOOLTIP]GDP[/TIP][/B]。</Text>
+      <Text>通过分配[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_FACTORY_RESOURCES_TOOLTIP]工厂资源[/TIP]得到[B]500[icon:ECONOMIC_VP][/B][TIP:LOC_PEDIA_CONCEPTS_GDP_TOOLTIP]GDP[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_ECONOMIC_2_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>每回合从[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]中分配的[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_CITY_RESOURCES_TOOLTIP]城市资源[/TIP]获得[B]+2[icon:ECONOMIC_VP][TIP:LOC_PEDIA_CONCEPTS_GDP_TOOLTIP]GDP[/TIP][/B]。</Text>
+      <Text>每回合从[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]中分配的[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_CITY_RESOURCES_TOOLTIP]城市资源[/TIP]获得[B]+2[icon:ECONOMIC_VP][/B][TIP:LOC_PEDIA_CONCEPTS_GDP_TOOLTIP]GDP[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_ECONOMIC_2_NAME" Language="zh_Hans_CN">
       <Text>国富论</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_ECONOMIC_2_RACE_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先开辟[B]12条[icon:TRADE_ROUTE][TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]贸易路线[/TIP][/B]。</Text>
+      <Text>率先开辟[B]12条[icon:TRADE_ROUTE][/B][TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]贸易路线[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_ECONOMIC_2_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>开辟[B]12条[icon:TRADE_ROUTE][TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]贸易路线[/TIP][/B]。</Text>
+      <Text>开辟[B]12条[icon:TRADE_ROUTE][/B][TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]贸易路线[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_ECONOMIC_3_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]金币建筑[/TIP]每回合[B]+3[icon:ECONOMIC_VP][TIP:LOC_PEDIA_CONCEPTS_GDP_TOOLTIP]GDP[/TIP][/B]。</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]金币建筑[/TIP]每回合[B]+3[icon:ECONOMIC_VP][/B][TIP:LOC_PEDIA_CONCEPTS_GDP_TOOLTIP]GDP[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_ECONOMIC_3_NAME" Language="zh_Hans_CN">
       <Text>铁路大亨</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_ECONOMIC_3_RACE_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先拥有12座火车站。</Text>
+      <Text>率先拥有[B]12座火车站[/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_ECONOMIC_3_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>拥有12座火车站。</Text>
+      <Text>拥有[B]12座火车站[/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_ECONOMIC_4_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>每回合从[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]中分配的[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_BONUS_RESOURCES_TOOLTIP]加成资源[/TIP]获得[B]+2[icon:ECONOMIC_VP][TIP:LOC_PEDIA_CONCEPTS_GDP_TOOLTIP]GDP[/TIP][/B]。</Text>
+      <Text>每回合从[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]中分配的[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_BONUS_RESOURCES_TOOLTIP]加成资源[/TIP]获得[B]+2[icon:ECONOMIC_VP][/B][TIP:LOC_PEDIA_CONCEPTS_GDP_TOOLTIP]GDP[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_ECONOMIC_4_NAME" Language="zh_Hans_CN">
       <Text>堂岛米会所</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_ECONOMIC_4_RACE_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先分配[B]60[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]资源[/TIP][/B]。</Text>
+      <Text>率先分配[B]60[icon:RADIAL_RESOURCES][/B][TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]资源[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_ECONOMIC_4_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>分配[B]60[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]资源[/TIP][/B]。</Text>
+      <Text>分配[B]60[icon:RADIAL_RESOURCES][/B][TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]资源[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_ECONOMIC_5_DESCRIPTION" Language="zh_Hans_CN">
       <Text>获得[B]1000[icon:ECONOMIC_VP][/B][TIP:LOC_PEDIA_CONCEPTS_GDP_TOOLTIP]GDP[/TIP]。</Text>
@@ -17839,10 +17860,10 @@
       <Text>世界工厂</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_ECONOMIC_5_RACE_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先分配[B]30[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_FACTORY_RESOURCES_TOOLTIP]工厂资源[/TIP][/B]。</Text>
+      <Text>率先分配[B]30[icon:RADIAL_RESOURCES][/B][TIP:LOC_PEDIA_CONCEPTS_FACTORY_RESOURCES_TOOLTIP]工厂资源[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_ECONOMIC_5_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>分配[B]30[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_FACTORY_RESOURCES_TOOLTIP]工厂资源[/TIP][/B]。</Text>
+      <Text>分配[B]30[icon:RADIAL_RESOURCES][/B][TIP:LOC_PEDIA_CONCEPTS_FACTORY_RESOURCES_TOOLTIP]工厂资源[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_EXPANSIONIST_1_DESCRIPTION" Language="zh_Hans_CN">
       <Text>[TIP:LOC_PEDIA_CONCEPTS_APPEAL_TOOLTIP]惊艳[/TIP]地块[B]+6[icon:YIELD_FOOD][/B]。</Text>
@@ -17857,16 +17878,16 @@
       <Text>改良所有[icon:NOTIFICATION_DISCOVER_NATURAL_WONDER][TIP:LOC_PEDIA_CONCEPTS_NATURAL_WONDER_TOOLTIP]自然奇观[/TIP]的至少1个地块。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_EXPANSIONIST_2_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>[icon:CITY_FORTIFIED]防御工事[B]+1[icon:YIELD_PRODUCTION][/B]。</Text>
+      <Text>防御工事[B]+1[icon:YIELD_PRODUCTION][/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_EXPANSIONIST_2_NAME" Language="zh_Hans_CN">
       <Text>太阳永不落</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_EXPANSIONIST_2_RACE_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先拥有[B]27个[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP][/B]。</Text>
+      <Text>率先拥有[B]27个[/B][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_EXPANSIONIST_2_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>拥有[B]27个[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP][/B]。</Text>
+      <Text>拥有[B]27个[/B][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_EXPANSIONIST_3_DESCRIPTION" Language="zh_Hans_CN">
       <Text>杂货店[B]+4[icon:YIELD_FOOD][/B]。</Text>
@@ -17875,10 +17896,10 @@
       <Text>震撼城市</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_EXPANSIONIST_3_RACE_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先拥有[B]450[icon:YIELD_POPULATION][TIP:LOC_PEDIA_CONCEPTS_POPULATION_TOOLTIP]人口[/TIP][/B]。</Text>
+      <Text>率先拥有[B]450[icon:YIELD_POPULATION][/B][TIP:LOC_PEDIA_CONCEPTS_POPULATION_TOOLTIP]人口[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_EXPANSIONIST_3_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>拥有[B]450[icon:YIELD_POPULATION][TIP:LOC_PEDIA_CONCEPTS_POPULATION_TOOLTIP]人口[/TIP][/B]。</Text>
+      <Text>拥有[B]450[icon:YIELD_POPULATION][/B][TIP:LOC_PEDIA_CONCEPTS_POPULATION_TOOLTIP]人口[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_EXPANSIONIST_4_DESCRIPTION" Language="zh_Hans_CN">
       <Text>开启一场[icon:CELEBRATION][TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]庆典[/TIP]。</Text>
@@ -17887,7 +17908,7 @@
       <Text>哔哔声</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_EXPANSIONIST_4_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先探明100%的地图。</Text>
+      <Text>率先探明[B]100%[/B]的地图。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_EXPANSIONIST_5_DESCRIPTION" Language="zh_Hans_CN">
       <Text>[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP][B]+20[icon:YIELD_HAPPINESS][/B]。</Text>
@@ -17896,13 +17917,13 @@
       <Text>特大都市</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_EXPANSIONIST_5_RACE_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先拥有[B]60名[icon:SPECIALIST][TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_TOOLTIP]专家[/TIP][/B]。</Text>
+      <Text>率先拥有[B]60名[icon:SPECIALIST][/B][TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_TOOLTIP]专家[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_EXPANSIONIST_5_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>拥有[B]60名[icon:SPECIALIST][TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_TOOLTIP]专家[/TIP][/B]。</Text>
+      <Text>拥有[B]60名[icon:SPECIALIST][/B][TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_TOOLTIP]专家[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_EXPLORER_1_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>博物馆[B]+2[icon:CULTURE_VP][TIP:LOC_PEDIA_CONCEPTS_TOURISTS_TOOLTIP]观光值[/TIP][/B]。</Text>
+      <Text>博物馆[B]+2[icon:CULTURE_VP][/B][TIP:LOC_PEDIA_CONCEPTS_TOURISTS_TOOLTIP]观光值[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_EXPLORER_1_NAME" Language="zh_Hans_CN">
       <Text>菲尔德博物馆</Text>
@@ -17911,7 +17932,7 @@
       <Text>展示来自所有[icon:NOTIFICATION_DISCOVER_NATURAL_WONDER][TIP:LOC_PEDIA_CONCEPTS_NATURAL_WONDER_TOOLTIP]自然奇观[/TIP]的[icon:NAR_REW_GREATWORK][TIP:LOC_PEDIA_CONCEPTS_ARTIFACT_TOOLTIP]文物[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_EXPLORER_2_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>进行“增强军事”行动时[B]+100%[icon:YIELD_DIPLOMACY]效用。</Text>
+      <Text>进行“增强军事”行动时[B]+100%[icon:YIELD_DIPLOMACY]效用[/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_EXPLORER_2_NAME" Language="zh_Hans_CN">
       <Text>永久和平</Text>
@@ -17920,52 +17941,52 @@
       <Text>成为2个外交[icon:CITYSTATE][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP]的[TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主国[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_EXPLORER_3_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>[TIP:LOC_PEDIA_CONCEPTS_AIR_UNITS_TOOLTIP]空中单位[/TIP][B]+1射程[/B]。</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_AIR_UNITS_TOOLTIP]空中单位[/TIP]+1射程。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_EXPLORER_3_NAME" Language="zh_Hans_CN">
       <Text>三鹰集结</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_EXPLORER_3_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>拥有[B]3位[icon:UNIT_SQUADRON_COMMANDER][TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]飞行队指挥官[/TIP][/B]。</Text>
+      <Text>拥有[B]3位[icon:UNIT_SQUADRON_COMMANDER][/B][TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]飞行队指挥官[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_MILITARISTIC_1_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>获得[B]3[icon:MILITARY_VP][TIP:LOC_PEDIA_CONCEPTS_DOMINION_TOOLTIP]霸业点[/TIP][/B]。</Text>
+      <Text>获得[B]3[icon:MILITARY_VP][/B][TIP:LOC_PEDIA_CONCEPTS_DOMINION_TOOLTIP]霸业点[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_MILITARISTIC_1_NAME" Language="zh_Hans_CN">
       <Text>道德律令</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_MILITARISTIC_1_RACE_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先从[icon:NOTIFICATION_IDEOLOGY_CHOSEN]意识形态对立的文明手中征服并保留[B]5座[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP][/B]。</Text>
+      <Text>率先从[icon:NOTIFICATION_IDEOLOGY_CHOSEN][B]意识形态[/B]对立的文明手中征服并保留[B]5座[/B][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_MILITARISTIC_1_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>从[icon:NOTIFICATION_IDEOLOGY_CHOSEN]意识形态对立的文明手中征服并保留[B]5座[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP][/B]。</Text>
+      <Text>从[icon:NOTIFICATION_IDEOLOGY_CHOSEN][B]意识形态[/B]对立的文明手中征服并保留[B]5座[/B][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_MILITARISTIC_2_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>[TIP:LOC_PEDIA_CONCEPTS_AIR_UNITS_TOOLTIP]空中单位[/TIP][B]+3射程[/B]。</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_AIR_UNITS_TOOLTIP]空中单位[/TIP]+3射程。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_MILITARISTIC_2_NAME" Language="zh_Hans_CN">
       <Text>空中威慑</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_MILITARISTIC_2_RACE_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先拥有一位[B]6级的[icon:UNIT_SQUADRON_COMMANDER][TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]飞行队指挥官[/TIP][/B]。</Text>
+      <Text>率先拥有一位[B]6级[icon:UNIT_SQUADRON_COMMANDER][/B]的[TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]飞行队指挥官[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_MILITARISTIC_2_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>拥有一位[B]6级的[icon:UNIT_SQUADRON_COMMANDER][/B]飞行队或[icon:UNIT_AERODROME_COMMANDER]航空港[TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]指挥官[/TIP]。</Text>
+      <Text>拥有一位6级的飞行队或航空港[icon:UNIT_ARMY_COMMANDER][TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]指挥官[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_MILITARISTIC_3_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>[B][icon:YIELD_TOWNS][TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]城镇[/TIP]+2[icon:YIELD_HAPPINESS]。</Text>
+      <Text>[icon:YIELD_TOWNS][TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]城镇[/TIP][B]+2[icon:YIELD_HAPPINESS][/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_MILITARISTIC_3_NAME" Language="zh_Hans_CN">
       <Text>自相残杀</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_MILITARISTIC_3_RACE_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先从[icon:NOTIFICATION_IDEOLOGY_CHOSEN]意识形态相同的领袖手中征服[B]5座[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP][/B]。</Text>
+      <Text>率先从[icon:NOTIFICATION_IDEOLOGY_CHOSEN][B]意识形态[/B]相同的领袖手中征服[B]5座[/B][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_MILITARISTIC_3_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>从[icon:NOTIFICATION_IDEOLOGY_CHOSEN]意识形态相同的领袖手中征服[B]5座[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP][/B]。</Text>
+      <Text>从[icon:NOTIFICATION_IDEOLOGY_CHOSEN][B]意识形态[/B]相同的文明手中征服[B]5座[/B][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_MILITARISTIC_4_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>获得[B]4[icon:MILITARY_VP][TIP:LOC_PEDIA_CONCEPTS_DOMINION_TOOLTIP]霸业点[/TIP][/B]。</Text>
+      <Text>获得[B]4[icon:MILITARY_VP][/B][TIP:LOC_PEDIA_CONCEPTS_DOMINION_TOOLTIP]霸业点[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_MILITARISTIC_4_NAME" Language="zh_Hans_CN">
       <Text>闪电战</Text>
@@ -17974,16 +17995,16 @@
       <Text>率先征服一座[icon:NOTIFICATION_SELECT_CAPITAL][TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]首都[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_MILITARISTIC_5_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>此[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]时代[/TIP]的所有[icon:WAR]战争[B]+1[icon:WAR_SUPPORT][TIP:LOC_PEDIA_CONCEPTS_WAR_SUPPORT_TOOLTIP]战争支持[/TIP][/B]。</Text>
+      <Text>此[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]时代[/TIP]的所有战争[B]+1[icon:WAR_SUPPORT][/B][TIP:LOC_PEDIA_CONCEPTS_WAR_SUPPORT_TOOLTIP]战争支持[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_MILITARISTIC_5_NAME" Language="zh_Hans_CN">
       <Text>世界之敌</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_MILITARISTIC_5_RACE_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先与所有文明[icon:WAR]交战。</Text>
+      <Text>率先与所有文明交战。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_MILITARISTIC_5_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>与所有文明[icon:WAR]交战。</Text>
+      <Text>与所有文明交战。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_SCIENTIFIC_1_DESCRIPTION" Language="zh_Hans_CN">
       <Text>航空港[B]+10[icon:YIELD_SCIENCE][/B]。</Text>
@@ -17992,7 +18013,7 @@
       <Text>太空竞赛开幕</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_SCIENTIFIC_1_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先研究[icon:RADIAL_TECH]飞行。</Text>
+      <Text>率先研究完[B]飞行[/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_SCIENTIFIC_2_DESCRIPTION" Language="zh_Hans_CN">
       <Text>航空港[B]+10[icon:YIELD_PRODUCTION][/B]。</Text>
@@ -18001,28 +18022,28 @@
       <Text>莫哈韦奇迹</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_SCIENTIFIC_2_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先完成[icon:DEFAULT_PROJECT]打破音障[TIP:LOC_PEDIA_CONCEPTS_PROJECTS_TOOLTIP]项目[/TIP]。</Text>
+      <Text>率先完成[B]“打破音障”[/B][icon:DEFAULT_PROJECT][TIP:LOC_PEDIA_CONCEPTS_PROJECTS_TOOLTIP]项目[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_SCIENTIFIC_3_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>获得[B]25[icon:MILITARY_VP][TIP:LOC_PEDIA_CONCEPTS_DOMINION_TOOLTIP]霸业点[/TIP][/B]。</Text>
+      <Text>获得[B]25[icon:MILITARY_VP][/B][TIP:LOC_PEDIA_CONCEPTS_DOMINION_TOOLTIP]霸业点[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_SCIENTIFIC_3_NAME" Language="zh_Hans_CN">
       <Text>超越剑锋</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_SCIENTIFIC_3_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先完成[icon:PROJECT]常春藤行动[TIP:LOC_PEDIA_CONCEPTS_PROJECTS_TOOLTIP]项目[/TIP]。</Text>
+      <Text>率先完成[B]常春藤行动[/B][icon:DEFAULT_PROJECT][TIP:LOC_PEDIA_CONCEPTS_PROJECTS_TOOLTIP]项目[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_SCIENTIFIC_4_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>进行[icon:PROJECT][TIP:LOC_PEDIA_CONCEPTS_PROJECTS_TOOLTIP]项目[/TIP]时[B]+50%[icon:YIELD_PRODUCTION]效用[/B]。</Text>
+      <Text>进行[icon:DEFAULT_PROJECT][TIP:LOC_PEDIA_CONCEPTS_PROJECTS_TOOLTIP]项目[/TIP]时[B]+50%[icon:YIELD_PRODUCTION]效用[/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_SCIENTIFIC_4_NAME" Language="zh_Hans_CN">
       <Text>复合产出</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_SCIENTIFIC_4_RACE_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先拥有[B]5个产出120+的非市中心[TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]区块[/TIP][/B]。</Text>
+      <Text>率先拥有[B]5个[icon:CITY_URBAN][/B][B]产量120+[/B]的[TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]非市中心区块[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_SCIENTIFIC_4_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>拥有[B]5个产出120+的非市中心[TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]区块[/TIP][/B]。</Text>
+      <Text>拥有[B]5个[icon:CITY_URBAN][/B][B]产量120+[/B]的[TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]非市中心区块[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_SCIENTIFIC_5_DESCRIPTION" Language="zh_Hans_CN">
       <Text>实验室[B]+4[icon:YIELD_PRODUCTION][/B]。</Text>
@@ -18031,10 +18052,10 @@
       <Text>E=mc²</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_SCIENTIFIC_5_RACE_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先研究完所有[icon:RADIAL_TECH][TIP:LOC_PEDIA_CONCEPTS_TECH_TOOLTIP]科技[/TIP]和[TIP:LOC_PEDIA_CONCEPTS_MASTERY_TOOLTIP]精通[/TIP]。</Text>
+      <Text>率先研究完所有[icon:RADIAL_TECH][TIP:LOC_PEDIA_CONCEPTS_TECH_TOOLTIP]科技[/TIP]和精通。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_SCIENTIFIC_5_TRIGGER_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>率先研究完所有[icon:RADIAL_TECH][TIP:LOC_PEDIA_CONCEPTS_TECH_TOOLTIP]科技[/TIP]和[TIP:LOC_PEDIA_CONCEPTS_MASTERY_TOOLTIP]精通[/TIP]。</Text>
+      <Text>率先研究完所有[TIP:LOC_PEDIA_CONCEPTS_TECH_TOOLTIP]科技[/TIP]和精通。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_OPTION" Language="zh_Hans_CN">
       <Text>下个时代的传承选项</Text>
@@ -18643,7 +18664,10 @@
       <Text>垂直切片</Text>
     </Replace>
     <Replace Tag="LOC_MAP_ARCHIPELAGO_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>延绵不断的岛屿，提供多样的地形和水域挑战。</Text>
+      <Text>经典群岛布局，东西两侧岛群位置固定，带来更具结构性的游戏体验。</Text>
+    </Replace>
+    <Replace Tag="LOC_MAP_ARCHIPELAGO_VORONOI_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>由两大主要群岛构成的地图，岛屿形态与规模各不相同，海洋间散布着众多小岛与群岛链。</Text>
     </Replace>
     <Replace Tag="LOC_MAP_CONTINENTS_DESCRIPTION" Language="zh_Hans_CN">
       <Text>大片连续陆地，提供均衡的游戏体验。</Text>
@@ -18790,7 +18814,7 @@
       <Text>在王座下绽放。</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_ASHOKA_RENOUNCER_GOLD_SAPPHIRE_FLOWERS_FUNCTIONAL_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>在[icon:ATTRIBUTE_EXPANSIONIST][TIP:LOC_PEDIA_CONCEPTS_EXPANSIONIST_ATTRIBUTE_TOOLTIP]扩张属性[/TIP]树中花费1[icon:ATTRIBUTE][TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]属性[/TIP]点，[icon:NOTIFICATION_SELECT_CAPITAL][TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]首都[/TIP]将获得[B]100[icon:YIELD_FOOD][/B]。</Text>
+      <Text>在[icon:ATTRIBUTE_EXPANSIONIST][TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]扩张属性[/TIP]树中花费1[icon:ATTRIBUTE][TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]属性[/TIP]点，[icon:NOTIFICATION_SELECT_CAPITAL][TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]首都[/TIP]将获得[B]100[icon:YIELD_FOOD][/B]。</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_ASHOKA_RENOUNCER_GOLD_SAPPHIRE_FLOWERS_NAME" Language="zh_Hans_CN">
       <Text>黄金与蓝宝石花</Text>
@@ -18946,7 +18970,7 @@
       <Text>世界在你手中。</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_CHARLEMAGNE_GLOBUS_CRUCIGER_FUNCTIONAL_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>在[icon:ATTRIBUTE_POLITICAL][TIP:LOC_PEDIA_CONCEPTS_DIPLOMATIC_ATTRIBUTE_TOOLTIP]外交属性[/TIP]树中花费1[icon:ATTRIBUTE][TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]属性[/TIP]点时，[B]+50[icon:YIELD_DIPLOMACY][/B]。</Text>
+      <Text>在[icon:ATTRIBUTE_POLITICAL][TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]外交属性[/TIP]树中花费1[icon:ATTRIBUTE][TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]属性[/TIP]点时，[B]+50[icon:YIELD_DIPLOMACY][/B]。</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_CHARLEMAGNE_GLOBUS_CRUCIGER_NAME" Language="zh_Hans_CN">
       <Text>十字圣球</Text>
@@ -19030,7 +19054,7 @@
       <Text>它能计算出天文数字。</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_FOUNDATION_ANTIKYTHERA_MECHANISM_FUNCTIONAL_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>[B]+1[icon:ATTRIBUTE_SCIENTIFIC][/B][TIP:LOC_PEDIA_CONCEPTS_SCIENTIFIC_ATTRIBUTE_TOOLTIP]科技属性[/TIP]点。</Text>
+      <Text>[B]+1[icon:ATTRIBUTE_SCIENTIFIC][/B][TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]科技属性[/TIP]点。</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_FOUNDATION_ANTIKYTHERA_MECHANISM_NAME" Language="zh_Hans_CN">
       <Text>安提基特拉机械</Text>
@@ -19078,7 +19102,7 @@
       <Text>无法接受劣质的铜。</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_FOUNDATION_EA_NASIR_FUNCTIONAL_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>[B]+1[icon:ATTRIBUTE_ECONOMIC][/B][TIP:LOC_PEDIA_CONCEPTS_ECONOMIC_ATTRIBUTE_TOOLTIP]经济属性[/TIP]点。</Text>
+      <Text>[B]+1[icon:ATTRIBUTE_ECONOMIC][/B][TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]经济属性[/TIP]点。</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_FOUNDATION_EA_NASIR_NAME" Language="zh_Hans_CN">
       <Text>致埃阿纳齐尔的投诉泥板</Text>
@@ -19126,7 +19150,7 @@
       <Text>进行网格式土地测量。</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_FOUNDATION_GROMA_FUNCTIONAL_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>[B]+1[icon:ATTRIBUTE_EXPANSIONIST][/B][TIP:LOC_PEDIA_CONCEPTS_EXPANSIONIST_ATTRIBUTE_TOOLTIP]扩张属性[/TIP]点。</Text>
+      <Text>[B]+1[icon:ATTRIBUTE_EXPANSIONIST][/B][TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]扩张属性[/TIP]点。</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_FOUNDATION_GROMA_NAME" Language="zh_Hans_CN">
       <Text>标准测量</Text>
@@ -19174,7 +19198,7 @@
       <Text>土制雕像。</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_FOUNDATION_SHAKOKIDOGU_FUNCTIONAL_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>[B]+1[icon:ATTRIBUTE_CULTURAL][/B][TIP:LOC_PEDIA_CONCEPTS_CULTURAL_ATTRIBUTE_TOOLTIP]文化属性[/TIP]点。</Text>
+      <Text>[B]+1[icon:ATTRIBUTE_CULTURAL][/B][TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]文化属性[/TIP]点。</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_FOUNDATION_SHAKOKIDOGU_NAME" Language="zh_Hans_CN">
       <Text>遮光器土偶</Text>
@@ -19198,7 +19222,7 @@
       <Text>上面写着：“中！”</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_FOUNDATION_SLING_BULLET_FUNCTIONAL_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>[B]+1[icon:ATTRIBUTE_MILITARISTIC][/B][TIP:LOC_PEDIA_CONCEPTS_MILITARISTIC_ATTRIBUTE_TOOLTIP]军事属性[/TIP]点。</Text>
+      <Text>[B]+1[icon:ATTRIBUTE_MILITARISTIC][/B][TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]军事属性[/TIP]点。</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_FOUNDATION_SLING_BULLET_NAME" Language="zh_Hans_CN">
       <Text>刻有铭文的投石弹</Text>
@@ -19234,7 +19258,7 @@
       <Text>和平的碎片。</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_FOUNDATION_TREATY_OF_KADESH_FUNCTIONAL_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>[B]+1[icon:ATTRIBUTE_POLITICAL][/B][TIP:LOC_PEDIA_CONCEPTS_DIPLOMATIC_ATTRIBUTE_TOOLTIP]外交属性[/TIP]点。</Text>
+      <Text>[B]+1[icon:ATTRIBUTE_POLITICAL][/B][TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]外交属性[/TIP]点。</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_FOUNDATION_TREATY_OF_KADESH_NAME" Language="zh_Hans_CN">
       <Text>《卡迭石条约》</Text>
@@ -19261,7 +19285,7 @@
       <Text>象征骑士的最高等级。</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_FRIEDRICH_OBLIQUE_ORDER_BLACK_EAGLE_FUNCTIONAL_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>在[icon:ATTRIBUTE_MILITARISTIC][TIP:LOC_PEDIA_CONCEPTS_MILITARISTIC_ATTRIBUTE_TOOLTIP]军事属性[/TIP]树中花费1[icon:ATTRIBUTE][TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]属性[/TIP]点时，[B]+50[icon:YIELD_PRODUCTION][/B]。</Text>
+      <Text>在[icon:ATTRIBUTE_MILITARISTIC][TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]军事属性[/TIP]树中花费1[icon:ATTRIBUTE][TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]属性[/TIP]点时，[B]+50[icon:YIELD_PRODUCTION][/B]。</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_FRIEDRICH_OBLIQUE_ORDER_BLACK_EAGLE_NAME" Language="zh_Hans_CN">
       <Text>黑鹰勋章</Text>
@@ -19324,7 +19348,7 @@
       <Text>丰收之友。</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_HIMIKO_QUEEN_DOTAKU_FUNCTIONAL_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>在[icon:ATTRIBUTE_SCIENTIFIC][TIP:LOC_PEDIA_CONCEPTS_SCIENTIFIC_ATTRIBUTE_TOOLTIP]科技属性[/TIP]树中花费1[icon:ATTRIBUTE][TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]属性[/TIP]点时，获得[B]50[icon:YIELD_SCIENCE][/B]。</Text>
+      <Text>在[icon:ATTRIBUTE_SCIENTIFIC][TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]科技属性[/TIP]树中花费1[icon:ATTRIBUTE][TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]属性[/TIP]点时，获得[B]50[icon:YIELD_SCIENCE][/B]。</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_HIMIKO_QUEEN_DOTAKU_NAME" Language="zh_Hans_CN">
       <Text>铜铎</Text>
@@ -28762,10 +28786,10 @@
       <Text>选择关联文明的一个单位或基础设施，或确立本文明的传统。</Text>
     </Replace>
     <Replace Tag="LOC_MOD_TOT_TRADITION_SLOT_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>+1[icon:NAR_REW_TRADITION_SLOT]传统槽位。</Text>
+      <Text>+1传统槽位。</Text>
     </Replace>
     <Replace Tag="LOC_MOD_TOT_TRADITION_SLOT_TWO_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>+2[icon:NAR_REW_TRADITION_SLOT]传统槽位。</Text>
+      <Text>+2传统槽位。</Text>
     </Replace>
     <Replace Tag="LOC_MP_PAUSE_POPUP_TITLE" Language="zh_Hans_CN">
       <Text>游戏暂停</Text>
@@ -28784,6 +28808,15 @@
     </Replace>
     <Replace Tag="LOC_NO_REWARDS_AVAILABLE" Language="zh_Hans_CN">
       <Text>无新奖励</Text>
+    </Replace>
+    <Replace Tag="LOC_NOTIFICATION_ADDONS_RESET_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>由于近期游戏更新，你的模组设置已被重置。可在“附加内容”菜单中启用模组。</Text>
+    </Replace>
+    <Replace Tag="LOC_NOTIFICATION_ADDONS_RESET_OPEN_ADDONS" Language="zh_Hans_CN">
+      <Text>打开附加内容</Text>
+    </Replace>
+    <Replace Tag="LOC_NOTIFICATION_ADDONS_RESET_TITLE" Language="zh_Hans_CN">
+      <Text>模组设置重置</Text>
     </Replace>
     <Replace Tag="LOC_NOTIFICATION_ADVANCED_START_MESSAGE" Language="zh_Hans_CN">
       <Text>创建高级开局</Text>
@@ -30432,10 +30465,10 @@
       <Text>科技胜利增强</Text>
     </Replace>
     <Replace Tag="LOC_SCIENCE_VP_2_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>提供[B]2[icon:SCIENCE_VP][TIP:LOC_PEDIA_CONCEPTS_INNOVATION_TOOLTIP]创新点[/TIP][/B]。</Text>
+      <Text>提供[B]2[icon:SCIENCE_VP][/B][TIP:LOC_PEDIA_CONCEPTS_INNOVATION_TOOLTIP]创新点[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_SCIENCE_VP_5_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>提供[B]5[icon:SCIENCE_VP][TIP:LOC_PEDIA_CONCEPTS_INNOVATION_TOOLTIP]创新点[/TIP][/B]。</Text>
+      <Text>提供[B]5[icon:SCIENCE_VP][/B][TIP:LOC_PEDIA_CONCEPTS_INNOVATION_TOOLTIP]创新点[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_SCIENCE_VP_FROM_CIVICS_NAME" Language="zh_Hans_CN">
       <Text>市政</Text>
@@ -31350,6 +31383,9 @@
     <Replace Tag="LOC_TITLE_DLC_SEASONPASS_3_NAME" Language="zh_Hans_CN">
       <Text>权海沉浮的头衔</Text>
     </Replace>
+    <Replace Tag="LOC_TITLE_DLC_SEASONPASS_4_NAME" Language="zh_Hans_CN">
+      <Text>笔毫与刀锋的头衔</Text>
+    </Replace>
     <Replace Tag="LOC_TITLE_FOUNDATION_1_NAME" Language="zh_Hans_CN">
       <Text>疾书小吏</Text>
     </Replace>
@@ -31488,11 +31524,8 @@
     <Replace Tag="LOC_TRADE_LENS_TITLE_ALT" Language="zh_Hans_CN">
       <Text>添加贸易路线</Text>
     </Replace>
-    <Replace Tag="LOC_TRADITION_TRIAL_OF_TIME_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>所有定居点-1[icon:YIELD_SCIENCE]科技值、[icon:YIELD_CULTURE]文化值、[icon:YIELD_GOLD]金币、[icon:YIELD_FOOD]食物、[icon:YIELD_PRODUCTION]生产力、[icon:YIELD_DIPLOMACY]影响力和[icon:YIELD_HAPPINESS]幸福值，按时代叠加。所有单位-2[icon:NAR_REW_COMBAT]战斗力。</Text>
-    </Replace>
     <Replace Tag="LOC_TRAIT_LEADER_AMINA_ABILITY_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>[BLIST][LI][icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]+1[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_RESOURCE_CAPACITY_TOOLTIP]资源容量[/TIP]。[LI]每分配1[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]资源[/TIP]到[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]，便+1[icon:YIELD_GOLD]金币，按[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]时代[/TIP]叠加。[LI]处于平原和沙漠中的所有单位+5[icon:NAR_REW_COMBAT][TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]战斗力[/TIP]。[/BLIST]</Text>
+      <Text>[BLIST][LI][icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]+1[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_RESOURCE_CAPACITY_TOOLTIP]资源容量[/TIP]。[LI]每分配1[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]资源[/TIP]到[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]，便+1[icon:YIELD_GOLD]金币，按[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]时代[/TIP]叠加。[LI]处于平原和沙漠上的[TIP:LOC_PEDIA_CONCEPTS_LAND_UNITS_TOOLTIP]陆地单位[/TIP]+5[icon:NAR_REW_COMBAT][TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]战斗力[/TIP]。[/BLIST]</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_LEADER_AMINA_ABILITY_NAME" Language="zh_Hans_CN">
       <Text>扎造战士女王</Text>
@@ -31534,7 +31567,7 @@
       <Text>科举</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_LEADER_FRIEDRICH_ABILITY_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>[BLIST][LI][icon:UNIT_ARMY_COMMANDER] [TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]军队指挥官[/TIP]初始拥有“品格”[TIP:LOC_PEDIA_CONCEPTS_COMMENDATION_TOOLTIP]奖章[/TIP]，为其+1[icon:COMMANDER_RADIUS][TIP:LOC_PEDIA_CONCEPTS_COMMAND_RADIUS_TOOLTIP]指挥半径[/TIP]。[LI]达成一项[icon:RADIAL_TECH][TIP:LOC_PEDIA_CONCEPTS_TECH_TOOLTIP]科技精通[/TIP]或建成一座[icon:YIELD_SCIENCE]科技值[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建筑[/TIP]时获得一个[TIP:LOC_PEDIA_CONCEPTS_INFANTRY_UNITS_TOOLTIP]步兵单位[/TIP]。[LI]你的[TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]指挥官[/TIP]每获得一枚[TIP:LOC_PEDIA_CONCEPTS_COMMENDATION_TOOLTIP]奖章[/TIP]，便+2[icon:YIELD_SCIENCE]科技值，按[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]时代[/TIP]叠加。[/BLIST]</Text>
+      <Text>[BLIST][LI][icon:UNIT_ARMY_COMMANDER] [TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]军队指挥官[/TIP]初始拥有“品格”[TIP:LOC_PEDIA_CONCEPTS_COMMENDATION_TOOLTIP]奖章[/TIP]，为其+1[icon:COMMANDER_RADIUS][TIP:LOC_PEDIA_CONCEPTS_COMMAND_RADIUS_TOOLTIP]指挥半径[/TIP]。[LI]完成一项[icon:RADIAL_TECH][TIP:LOC_PEDIA_CONCEPTS_TECH_TOOLTIP]科技精通[/TIP]时，在你的[icon:NOTIFICATION_SELECT_CAPITAL][TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]首都[/TIP]中获得一个[TIP:LOC_PEDIA_CONCEPTS_INFANTRY_UNITS_TOOLTIP]步兵单位[/TIP]；你建造有[icon:YIELD_SCIENCE][TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]科技值建筑[/TIP]的[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP]中也获得一个步兵单位。[LI]你的[TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]指挥官[/TIP]每获得一枚[TIP:LOC_PEDIA_CONCEPTS_COMMENDATION_TOOLTIP]奖章[/TIP]，便+2[icon:YIELD_SCIENCE]科技值，按[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]时代[/TIP]叠加。[/BLIST]</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_LEADER_FRIEDRICH_ABILITY_NAME" Language="zh_Hans_CN">
       <Text>柏林学院</Text>
@@ -31594,7 +31627,7 @@
       <Text>撼地者</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_LEADER_TRUNG_TRAC_ABILITY_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>[BLIST][LI]获得本[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]时代[/TIP]的首个陆地[TIP:LOC_PEDIA_CONCEPTS_MILITARY_UNIT_TOOLTIP]军事单位[/TIP]后，得到特色[icon:UNIT_ARMY_COMMANDER][TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]军队指挥官[/TIP]征贰。[icon:UNIT_ARMY_COMMANDER]征贰能度过[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]时代[/TIP]过渡，在探索时代高级开局中初始拥有2[icon:NAR_REW_PROMOTION]晋升，在近世时代高级开局中初始拥有3[icon:NAR_REW_PROMOTION]晋升，拥有一颗特色[TIP:LOC_PEDIA_CONCEPTS_PROMOTION_TOOLTIP]晋升[/TIP]树。[LI]+20%[icon:UNIT_ARMY_COMMANDER][TIP:LOC_PEDIA_CONCEPTS_EXPERIENCE_TOOLTIP]指挥官经验值[/TIP]。[LI]热带中的[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]+10%[icon:YIELD_SCIENCE]科技值。此加成在你宣布的[icon:WAR]正式战争期间加倍。[/BLIST]</Text>
+      <Text>[BLIST][LI]获得本[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]时代[/TIP]的首个陆地[TIP:LOC_PEDIA_CONCEPTS_MILITARY_UNIT_TOOLTIP]军事单位[/TIP]后，得到特色[icon:UNIT_ARMY_COMMANDER][TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]军队指挥官[/TIP]征贰。[icon:UNIT_ARMY_COMMANDER]征贰能度过[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]时代[/TIP]过渡，在探索时代高级开局中初始拥有2[icon:NAR_REW_PROMOTION]晋升，在近世时代高级开局中初始拥有3[icon:NAR_REW_PROMOTION]晋升，拥有一颗特色[TIP:LOC_PEDIA_CONCEPTS_PROMOTION_TOOLTIP]晋升[/TIP]树。[LI]+20%[icon:UNIT_ARMY_COMMANDER][TIP:LOC_PEDIA_CONCEPTS_COMMANDER_EXPERIENCE_TOOLTIP]指挥官经验值[/TIP]。[LI]热带中的[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]+10%[icon:YIELD_SCIENCE]科技值。此加成在你宣布的[icon:WAR]正式战争期间加倍。[/BLIST]</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_LEADER_TRUNG_TRAC_ABILITY_NAME" Language="zh_Hans_CN">
       <Text>二征夫人</Text>
@@ -31863,6 +31896,9 @@
     <Replace Tag="LOC_UI_CELEBRATION_DESC_1" Language="zh_Hans_CN">
       <Text>在庆典期间，此政体将为你提供在这些效果之间进行选择的机会。</Text>
     </Replace>
+    <Replace Tag="LOC_UI_CELEBRATION_OPTIONS" Language="zh_Hans_CN">
+      <Text>庆典选项</Text>
+    </Replace>
     <Replace Tag="LOC_UI_CHARMING_APPEAL" Language="zh_Hans_CN">
       <Text>迷人吸引力</Text>
     </Replace>
@@ -31889,6 +31925,9 @@
     </Replace>
     <Replace Tag="LOC_UI_CITY_BANNER_PRODUCTION" Language="zh_Hans_CN">
       <Text>当前生产：</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_CITY_CAP_REACHED" Language="zh_Hans_CN">
+      <Text>已达城市容量上限</Text>
     </Replace>
     <Replace Tag="LOC_UI_CITY_CAPITAL_CURR_DESC" Language="zh_Hans_CN">
       <Text>新首都</Text>
@@ -31938,6 +31977,12 @@
     <Replace Tag="LOC_UI_CITY_DETAILS_CITY_BEING_RAZED" Language="zh_Hans_CN">
       <Text>定居点正在被夷平！</Text>
     </Replace>
+    <Replace Tag="LOC_UI_CITY_DETAILS_CONNECTIONS" Language="zh_Hans_CN">
+      <Text>连接</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_CITY_DETAILS_ECSTATIC" Language="zh_Hans_CN">
+      <Text>狂喜</Text>
+    </Replace>
     <Replace Tag="LOC_UI_CITY_DETAILS_FOOD" Language="zh_Hans_CN">
       <Text>食物</Text>
     </Replace>
@@ -31968,8 +32013,26 @@
     <Replace Tag="LOC_UI_CITY_DETAILS_INFECTED" Language="zh_Hans_CN">
       <Text>被感染</Text>
     </Replace>
+    <Replace Tag="LOC_UI_CITY_DETAILS_JOYOUS" Language="zh_Hans_CN">
+      <Text>欢悦</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_CITY_DETAILS_NO_CONNECTIONS" Language="zh_Hans_CN">
+      <Text>此定居点无连接。</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_CITY_DETAILS_NO_EXPORTING_FOOD_POTENTIAL" Language="zh_Hans_CN">
+      <Text>此[icon:TOWN_FOCUS][TIP:LOC_PEDIA_CONCEPTS_TOWN_FOCUS_TOOLTIP]城镇重心[/TIP]不会将[icon:YIELD_FOOD]食物输送至相连的[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]。</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_CITY_DETAILS_RURAL_POPULATION_TOOLTIP" Language="zh_Hans_CN">
+      <Text>乡村人口是指在[icon:CITY_RURAL][TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]改良设施[/TIP]上劳作的公民。在发展事件中扩张至新的乡村地块时，你将获得1乡村人口。</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_CITY_DETAILS_SPECIALIST_POPULATION_TOOLTIP" Language="zh_Hans_CN">
+      <Text>[icon:SPECIALIST] [TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_TOOLTIP]专家[/TIP]是能够提升[icon:CITY_BUILDING_LIST][TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建筑[/TIP]价值的公民。在发展事件中将公民安置到现有[icon:CITY_BUILDING_LIST]建筑上时，你将获得1[icon:SPECIALIST]专家。[icon:SPECIALIST]专家不计入城市人口。</Text>
+    </Replace>
     <Replace Tag="LOC_UI_CITY_DETAILS_STARVATION" Language="zh_Hans_CN">
       <Text>你的定居点因饥荒而无法发展。</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_CITY_DETAILS_TOWN_NO_GROWTH" Language="zh_Hans_CN">
+      <Text>[icon:YIELD_TOWNS] 设置了[icon:TOWN_FOCUS][TIP:LOC_PEDIA_CONCEPTS_TOWN_FOCUS_TOOLTIP]城镇重心[/TIP]的[TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]城镇[/TIP]不会发展。</Text>
     </Replace>
     <Replace Tag="LOC_UI_CITY_DETAILS_TREASURE_FLEET" Language="zh_Hans_CN">
       <Text>宝藏护送队</Text>
@@ -31979,6 +32042,9 @@
     </Replace>
     <Replace Tag="LOC_UI_CITY_DETAILS_UNHAPPY" Language="zh_Hans_CN">
       <Text>不满</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_CITY_DETAILS_URBAN_POPULATION_TOOLTIP" Language="zh_Hans_CN">
+      <Text>城市人口是指[icon:CITY_BUILDING_LIST][TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建筑[/TIP]中的公民。[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP]中每有一座[icon:CITY_BUILDING_LIST]建筑（[TIP:LOC_PEDIA_CONCEPTS_WALL_TOOLTIP]城墙[/TIP]除外），你便拥有1城市人口。</Text>
     </Replace>
     <Replace Tag="LOC_UI_CITY_DETAILS_WONDERS" Language="zh_Hans_CN">
       <Text>奇观</Text>
@@ -32392,7 +32458,7 @@
       <Text>特色能力</Text>
     </Replace>
     <Replace Tag="LOC_UI_DIPLOMACY_ALL_ACTIONS_EMPTY" Language="zh_Hans_CN">
-      <Text>探索地图，遇见其他领袖。</Text>
+      <Text>无可用外交行动。</Text>
     </Replace>
     <Replace Tag="LOC_UI_DIPLOMACY_ALL_ACTIONS_TOOLTIP" Language="zh_Hans_CN">
       <Text>外交行动</Text>
@@ -32571,11 +32637,17 @@
     <Replace Tag="LOC_UI_GLOBAL_CRISIS_QUOTE_AUTHOR" Language="zh_Hans_CN">
       <Text>艾萨克·牛顿</Text>
     </Replace>
+    <Replace Tag="LOC_UI_GOVERNMENT_ABILITY" Language="zh_Hans_CN">
+      <Text>政体能力</Text>
+    </Replace>
     <Replace Tag="LOC_UI_GOVERNMENT_OPTIONS_DESC" Language="zh_Hans_CN">
       <Text>每种政体在庆典期间都将提供一系列选择。</Text>
     </Replace>
     <Replace Tag="LOC_UI_GOVERNMENT_PICKER_TITLE" Language="zh_Hans_CN">
       <Text>选择政体</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_GOVERNMENT_TRADITIONS" Language="zh_Hans_CN">
+      <Text>政体传统</Text>
     </Replace>
     <Replace Tag="LOC_UI_GREAT_WORKS_AGE_TYPE_PLURAL_0" Language="zh_Hans_CN">
       <Text>抄本</Text>
@@ -32651,6 +32723,24 @@
     </Replace>
     <Replace Tag="LOC_UI_GREAT_WORKS_YIELDS" Language="zh_Hans_CN">
       <Text>产量</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_HAPPINESS_ANGRY" Language="zh_Hans_CN">
+      <Text>愤怒</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_HAPPINESS_ECSTATIC" Language="zh_Hans_CN">
+      <Text>狂喜</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_HAPPINESS_HAPPY" Language="zh_Hans_CN">
+      <Text>愉快</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_HAPPINESS_JOYOUS" Language="zh_Hans_CN">
+      <Text>欢悦</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_HAPPINESS_NEEDED" Language="zh_Hans_CN">
+      <Text>需要幸福值</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_HAPPINESS_UNHAPPY" Language="zh_Hans_CN">
+      <Text>不满</Text>
     </Replace>
     <Replace Tag="LOC_UI_HEX_SUBTITLE" Language="zh_Hans_CN">
       <Text>发展树</Text>
@@ -32944,6 +33034,9 @@
     </Replace>
     <Replace Tag="LOC_UI_NO_CURRENT_RESEARCH" Language="zh_Hans_CN">
       <Text>当前未选择科技</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_NO_GOVERNMENT_CHOSEN" Language="zh_Hans_CN">
+      <Text>尚未选择政体。</Text>
     </Replace>
     <Replace Tag="LOC_UI_NO_GREAT_WORKS" Language="zh_Hans_CN">
       <Text>你尚未产出巨作。</Text>
@@ -33602,6 +33695,9 @@
     <Replace Tag="LOC_UI_SELECT_TECH_TO_BEGIN" Language="zh_Hans_CN">
       <Text>选择一项科技开始研究。</Text>
     </Replace>
+    <Replace Tag="LOC_UI_SETTLEMENT_HAPPINESS" Language="zh_Hans_CN">
+      <Text>定居点幸福值</Text>
+    </Replace>
     <Replace Tag="LOC_UI_SETTLEMENT_TAB_BAR_ALL" Language="zh_Hans_CN">
       <Text>所有</Text>
     </Replace>
@@ -33912,7 +34008,7 @@
       <Text>正在等待2K服务器……</Text>
     </Replace>
     <Replace Tag="LOC_UI_WIRELESS_DISABLED" Language="zh_Hans_CN">
-      <Text>Wi-Fi未启用，请检查你的网络设置。</Text>
+      <Text>无法建立本地网络连接。请检查网络设置，并确认Wi-Fi已启用。</Text>
     </Replace>
     <Replace Tag="LOC_UNHAPPINESS_EFFECT_CITY_LOST_RESOURCE_CATEGORY" Language="zh_Hans_CN">
       <Text>城市失去资源</Text>
@@ -34211,6 +34307,12 @@
     <Replace Tag="LOC_UNITCOMMAND_DELETE_NAME" Language="zh_Hans_CN">
       <Text>删除</Text>
     </Replace>
+    <Replace Tag="LOC_UNITCOMMAND_DESELECT_DESCRIPTION" Language="zh_Hans_CN">
+      <Text>取消选择此单位。</Text>
+    </Replace>
+    <Replace Tag="LOC_UNITCOMMAND_DESELECT_NAME" Language="zh_Hans_CN">
+      <Text>取消选择</Text>
+    </Replace>
     <Replace Tag="LOC_UNITCOMMAND_DISBAND_DESCRIPTION" Language="zh_Hans_CN">
       <Text>得到GDP、获得金币，并将单位移出游戏。</Text>
     </Replace>
@@ -34224,7 +34326,7 @@
       <Text>击杀此忍者。</Text>
     </Replace>
     <Replace Tag="LOC_UNITCOMMAND_DISPERSE_CLAN_NAME" Language="zh_Hans_CN">
-      <Text>驱散忍者家族</Text>
+      <Text>驱散忍者</Text>
     </Replace>
     <Replace Tag="LOC_UNITCOMMAND_FOCUSED_ATTACK_AIR_BOMB_DESCRIPTION" Language="zh_Hans_CN">
       <Text>命令轰炸机将装载的弹药投掷到指定目标上。</Text>
@@ -34378,6 +34480,9 @@
     </Replace>
     <Replace Tag="LOC_UNITCOMMAND_REQUIRES_ABILITY_CHARGE" Language="zh_Hans_CN">
       <Text>能力正在冷却</Text>
+    </Replace>
+    <Replace Tag="LOC_UNITCOMMAND_REQUIRES_ABILITY_NEED_MORE_CHARGE" Language="zh_Hans_CN">
+      <Text>需要更多使用次数</Text>
     </Replace>
     <Replace Tag="LOC_UNITCOMMAND_REQUIRES_FULL_MOVEMENT" Language="zh_Hans_CN">
       <Text>需要满移动力</Text>
@@ -34692,7 +34797,7 @@
       <Text>远程攻击</Text>
     </Replace>
     <Replace Tag="LOC_UNITOPERATION_REBASE_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>将飞机部署至一个新的空军基地。</Text>
+      <Text>将飞机部署至空中单位移动范围两倍内的一个新空军基地。</Text>
     </Replace>
     <Replace Tag="LOC_UNITOPERATION_REBASE_NAME" Language="zh_Hans_CN">
       <Text>部署飞机</Text>
@@ -34743,7 +34848,7 @@
       <Text>必须处于水路地块上（沿岸或海洋）。</Text>
     </Replace>
     <Replace Tag="LOC_UNITOPERATION_REQUIRES_ELIGIBLE_UNIT" Language="zh_Hans_CN">
-      <Text>范围中没有可用单位。</Text>
+      <Text>范围中没有可用的解散单位。</Text>
     </Replace>
     <Replace Tag="LOC_UNITOPERATION_REQUIRES_MOVEMENT" Language="zh_Hans_CN">
       <Text>需要移动力。</Text>
@@ -34776,7 +34881,7 @@
       <Text>路线至</Text>
     </Replace>
     <Replace Tag="LOC_UNITOPERATION_SABOTAGE_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>激活后强制一名指挥官重生。必须处于敌方指挥官的领土中。</Text>
+      <Text>激活后强制使一名军队指挥官重生。</Text>
     </Replace>
     <Replace Tag="LOC_UNITOPERATION_SABOTAGE_NAME" Language="zh_Hans_CN">
       <Text>破坏</Text>
@@ -34785,7 +34890,7 @@
       <Text>需要1名军队指挥官。</Text>
     </Replace>
     <Replace Tag="LOC_UNITOPERATION_SABOTAGE_REQUIRES_FOREIGN" Language="zh_Hans_CN">
-      <Text>需要一个对方文明的地块。</Text>
+      <Text>需要一个外国文明的地块。</Text>
     </Replace>
     <Replace Tag="LOC_UNITOPERATION_SEARCH_DESCRIPTION" Language="zh_Hans_CN">
       <Text>视野范围+1，持续1回合。探明此范围两倍区域中的所有发现的所在地点。</Text>
@@ -34920,13 +35025,13 @@
       <Text>古代世界奇观</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_AQ_CULTURAL_2_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>解锁[icon:RADIAL_CIVICS]虔诚。建造寺庙时[B]+25%[icon:YIELD_PRODUCTION][/B]效用。</Text>
+      <Text>解锁虔诚。建造寺庙时[B]+25%[icon:YIELD_PRODUCTION][/B]效用。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_AQ_CULTURAL_2_NAME" Language="zh_Hans_CN">
       <Text>俄耳甫斯秘仪</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_AQ_CULTURAL_3_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>[B]+1[icon:NAR_REW_TRADITION_SLOT][TIP:LOC_PEDIA_CONCEPTS_TRADITION_TOOLTIP]传统槽位[/TIP][/B]。槽位中每放置了一项[icon:SOCIAL_POLICY][TIP:LOC_PEDIA_CONCEPTS_SOCIAL_POLICY_TOOLTIP]社会政策[/TIP]或[icon:TRADITION][TIP:LOC_PEDIA_CONCEPTS_TRADITION_TOOLTIP]传统[/TIP]，便[B]+2[icon:YIELD_CULTURE][/B]。</Text>
+      <Text>[B]+1[icon:NAR_REW_TRADITION_SLOT]传统槽位[/B]。槽位中每放置一项[icon:SOCIAL_POLICY][TIP:LOC_PEDIA_CONCEPTS_SOCIAL_POLICY_TOOLTIP]社会政策[/TIP]或[icon:TRADITION][TIP:LOC_PEDIA_CONCEPTS_TRADITION_TOOLTIP]传统[/TIP]，便[B]+2[icon:YIELD_CULTURE][/B]。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_AQ_CULTURAL_3_NAME" Language="zh_Hans_CN">
       <Text>汉谟拉比法典</Text>
@@ -34950,13 +35055,13 @@
       <Text>鸿胪馆</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_AQ_DEFAULT_4_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>初始即拥有一个额外的[icon:NAR_REW_TRADITION_SLOT][TIP:LOC_PEDIA_CONCEPTS_SOCIAL_POLICY_TOOLTIP]社会政策[/TIP]槽位。</Text>
+      <Text>初始即拥有一个额外的[icon:NAR_REW_TRADITION_SLOT]社会政策槽位。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_AQ_DEFAULT_4_NAME" Language="zh_Hans_CN">
       <Text>《赫尔摩根尼安努斯法典》</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_AQ_DEFAULT_5_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>上个[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]时代[/TIP]的所有[TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]仍将保留为城市。</Text>
+      <Text>上个[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]时代[/TIP]的所有[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]仍将保留为[icon:YIELD_CITIES]城市。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_AQ_DEFAULT_5_NAME" Language="zh_Hans_CN">
       <Text>有备无患</Text>
@@ -34980,25 +35085,25 @@
       <Text>传奇之友联盟</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_AQ_ECONOMIC_1_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>所有[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP][B]+1[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_RESOURCE_CAPACITY_TOOLTIP]资源容量[/TIP][/B]。</Text>
+      <Text>所有[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP][B]+1[icon:RADIAL_RESOURCES][/B][TIP:LOC_PEDIA_CONCEPTS_RESOURCE_CAPACITY_TOOLTIP]资源容量[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_AQ_ECONOMIC_1_NAME" Language="zh_Hans_CN">
       <Text>丰裕</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_AQ_ECONOMIC_2_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>免费获得[B]2个[icon:UNIT_MERCHANT]商人[/B]。与所有文明的[B][icon:TRADE_ROUTE][TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]贸易路线容量[/TIP]+1[/B]。</Text>
+      <Text>免费获得[B]2个[icon:UNIT_MERCHANT]商人[/B]。与所有文明的[TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]贸易路线容量[/TIP][B][icon:TRADE_ROUTE]+1[/B]。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_AQ_ECONOMIC_2_NAME" Language="zh_Hans_CN">
       <Text>丝绸之路</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_AQ_ECONOMIC_3_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>购买[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建筑[/TIP]时[B]+5%金币效用[/B]，购买金币建筑时此加成加倍。</Text>
+      <Text>购买[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建筑[/TIP]时+5%金币效用，购买金币建筑时此加成加倍。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_AQ_ECONOMIC_3_NAME" Language="zh_Hans_CN">
       <Text>点石成金</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_AQ_EXPANSIONIST_1_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>[icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]城镇[/TIP]在首次[icon:YIELD_POPULATION]发展事件时获得额外的[B]2[icon:YIELD_POPULATION][TIP:LOC_PEDIA_CONCEPTS_POPULATION_TOOLTIP]人口[/TIP][/B]。</Text>
+      <Text>[icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]城镇[/TIP]在首次发展事件时获得额外的[B]2[icon:YIELD_POPULATION][/B][TIP:LOC_PEDIA_CONCEPTS_POPULATION_TOOLTIP]人口[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_AQ_EXPANSIONIST_1_NAME" Language="zh_Hans_CN">
       <Text>世界四方</Text>
@@ -35010,25 +35115,25 @@
       <Text>我们需要更多圣道</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_AQ_EXPANSIONIST_3_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>[icon:YIELD_WAREHOUSE][TIP:LOC_PEDIA_CONCEPTS_WAREHOUSE_TOOLTIP]食物仓库[/TIP][B]+1[icon:YIELD_FOOD][/B]。[icon:YIELD_FOOD][TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]食物建筑[/TIP][B]+2[icon:YIELD_FOOD][/B]。</Text>
+      <Text>[icon:YIELD_FOOD][icon:YIELD_WAREHOUSE][TIP:LOC_PEDIA_CONCEPTS_WAREHOUSE_TOOLTIP]食物仓库[/TIP][B]+1[icon:YIELD_FOOD][/B]。[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]食物建筑[/TIP][B]+2[icon:YIELD_FOOD][/B]。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_AQ_EXPANSIONIST_3_NAME" Language="zh_Hans_CN">
       <Text>巴别塔</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_AQ_MILITARISTIC_1_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>[B]+2[icon:SETTLEMENT_LIMIT][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_LIMIT_TOOLTIP]定居点上限[/TIP][/B]。</Text>
+      <Text>[B]+2[icon:SETTLEMENT_LIMIT][/B][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_LIMIT_TOOLTIP]定居点上限[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_AQ_MILITARISTIC_1_NAME" Language="zh_Hans_CN">
       <Text>帝国和平</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_AQ_MILITARISTIC_2_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>所有[icon:WAR]战争[B]+1[icon:WAR_SUPPORT][TIP:LOC_PEDIA_CONCEPTS_WAR_SUPPORT_TOOLTIP]战争支持[/TIP][/B]。使用[icon:WAR_SUPPORT]战争支持时[B]+50%[icon:YIELD_DIPLOMACY][/B]效用。</Text>
+      <Text>所有战争[B]+1[icon:WAR_SUPPORT][/B][TIP:LOC_PEDIA_CONCEPTS_WAR_SUPPORT_TOOLTIP]战争支持[/TIP]。使用[icon:WAR_SUPPORT]战争支持时[B]+50%[icon:YIELD_DIPLOMACY]效用[/B]。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_AQ_MILITARISTIC_2_NAME" Language="zh_Hans_CN">
       <Text>击倒巨人</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_AQ_MILITARISTIC_3_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>获得一位拥有[B]3次[icon:NAR_REW_PROMOTION][TIP:LOC_PEDIA_CONCEPTS_PROMOTION_TOOLTIP]晋升[/TIP][/B]的[icon:UNIT_ARMY_COMMANDER][TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]军队指挥官[/TIP]。</Text>
+      <Text>获得一位拥有[B]3次[/B][TIP:LOC_PEDIA_CONCEPTS_PROMOTION_TOOLTIP]晋升[/TIP]的[icon:UNIT_ARMY_COMMANDER][TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]军队指挥官[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_AQ_MILITARISTIC_3_NAME" Language="zh_Hans_CN">
       <Text>盖乌斯之道</Text>
@@ -35052,19 +35157,19 @@
       <Text>你的文明寻求神的庇护。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_AQ_SCIENTIFIC_1_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>解锁[icon:RADIAL_TECH]天文学。推进[icon:PROJECT][TIP:LOC_PEDIA_CONCEPTS_PROJECTS_TOOLTIP]项目[/TIP]时[B]+25%[icon:YIELD_PRODUCTION]效用[/B]。</Text>
+      <Text>解锁天文学。推进[icon:DEFAULT_PROJECT][TIP:LOC_PEDIA_CONCEPTS_PROJECTS_TOOLTIP]项目[/TIP]时[B]+25%[icon:YIELD_PRODUCTION]效用[/B]。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_AQ_SCIENTIFIC_1_NAME" Language="zh_Hans_CN">
       <Text>地圆论者</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_AQ_SCIENTIFIC_2_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>所有[TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP][B]+1[icon:SPECIALIST][TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_LIMIT_TOOLTIP]专家上限[/TIP][/B]。</Text>
+      <Text>所有[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP][B]+1[icon:SPECIALIST][/B][TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_LIMIT_TOOLTIP]专家上限[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_AQ_SCIENTIFIC_2_NAME" Language="zh_Hans_CN">
       <Text>考工记</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_AQ_SCIENTIFIC_3_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]科技值建筑[/TIP][B]+1[icon:NAR_REW_GREATWORK][TIP:LOC_PEDIA_CONCEPTS_GREAT_WORKS_TOOLTIP]巨作槽位[/TIP][/B]。展示的[icon:NAR_REW_GREATWORK]巨作[B]+2[icon:YIELD_SCIENCE][/B]。</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]科技值建筑[/TIP][B]+1[icon:NAR_REW_GREATWORK][/B][TIP:LOC_PEDIA_CONCEPTS_GREAT_WORKS_TOOLTIP]巨作槽位[/TIP]。展示的[icon:NAR_REW_GREATWORK]巨作[B]+2[icon:YIELD_SCIENCE][/B]。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_AQ_SCIENTIFIC_3_NAME" Language="zh_Hans_CN">
       <Text>亚述巴尼拔藏书馆</Text>
@@ -35094,7 +35199,7 @@
       <Text>[B]征服[/B]是[B]西班牙[/B]身份认同的重要组成部分。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_EX_CULTURAL_1_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>在[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]时代过渡[/TIP]时保留你的[icon:NAR_REW_RELIGION][TIP:LOC_PEDIA_CONCEPTS_RELIGION_TOOLTIP]初始信仰[/TIP]。</Text>
+      <Text>在[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]时代过渡[/TIP]时保留你的[TIP:LOC_PEDIA_CONCEPTS_RELIGION_TOOLTIP]初始信仰[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_EX_CULTURAL_1_NAME" Language="zh_Hans_CN">
       <Text>皇家宝库</Text>
@@ -35106,13 +35211,13 @@
       <Text>复兴世界奇观</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_EX_CULTURAL_3_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>解锁[icon:RADIAL_CIVICS]自然历史。[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]幸福值建筑[/TIP][B]+1[icon:NAR_REW_GREATWORK][TIP:LOC_PEDIA_CONCEPTS_GREAT_WORKS_TOOLTIP]巨作[/TIP][/B]槽位。</Text>
+      <Text>解锁自然历史。[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]幸福值建筑[/TIP][B]+1[icon:NAR_REW_GREATWORK][/B][TIP:LOC_PEDIA_CONCEPTS_GREAT_WORKS_TOOLTIP]巨作[/TIP]槽位。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_EX_CULTURAL_3_NAME" Language="zh_Hans_CN">
       <Text>八正道</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_EX_CULTURAL_4_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>你每建造一座[TIP:LOC_PEDIA_CONCEPTS_MODERN_AGE_TOOLTIP]近世时代[/TIP][icon:WONDER][TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]奇观[/TIP]，便[B]+2[icon:SCIENCE_VP][TIP:LOC_PEDIA_CONCEPTS_INNOVATION_TOOLTIP]创新点[/TIP][/B]。</Text>
+      <Text>你每建造一座[TIP:LOC_PEDIA_CONCEPTS_MODERN_AGE_TOOLTIP]近世时代[/TIP][icon:WONDER][TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]奇观[/TIP]，便[B]+2[icon:SCIENCE_VP][/B][TIP:LOC_PEDIA_CONCEPTS_INNOVATION_TOOLTIP]创新点[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_EX_CULTURAL_4_NAME" Language="zh_Hans_CN">
       <Text>巧匠加扎利</Text>
@@ -35130,19 +35235,19 @@
       <Text>罗阿诺克</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_EX_DEFAULT_3_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>获得[B]500[icon:YIELD_DIPLOMACY]（根据游戏速度进行调整）。</Text>
+      <Text>获得[B]500[icon:YIELD_DIPLOMACY][/B]（根据游戏速度进行调整）。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_EX_DEFAULT_3_NAME" Language="zh_Hans_CN">
       <Text>《廷臣论》</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_EX_DEFAULT_4_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>初始即拥有一个额外的[icon:NAR_REW_TRADITION_SLOT][TIP:LOC_PEDIA_CONCEPTS_SOCIAL_POLICY_TOOLTIP]社会政策[/TIP]槽位。</Text>
+      <Text>初始即拥有一个额外的[icon:NAR_REW_TRADITION_SLOT]社会政策槽位。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_EX_DEFAULT_4_NAME" Language="zh_Hans_CN">
       <Text>《大明律》</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_EX_DEFAULT_5_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>上个[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]时代[/TIP]的所有[TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]仍将保留为城市。</Text>
+      <Text>上个[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]时代[/TIP]的所有[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]仍将保留为[icon:YIELD_CITIES]城市。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_EX_DEFAULT_5_NAME" Language="zh_Hans_CN">
       <Text>韧性城市</Text>
@@ -35172,61 +35277,61 @@
       <Text>哈利利汗市集</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_EX_ECONOMIC_2_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>购买火车站时[B]+25%[icon:YIELD_GOLD]效用[/B]。[TIP:LOC_PEDIA_CONCEPTS_CONNECTED_TOOLTIP]铁路相连的定居点[/TIP][B]+1[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_RESOURCE_CAPACITY_TOOLTIP]资源容量[/TIP][/B]。</Text>
+      <Text>购买火车站时[B]+25%[icon:YIELD_GOLD]效用[/B]。[TIP:LOC_PEDIA_CONCEPTS_CONNECTED_TOOLTIP]铁路相连的定居点[/TIP][B]+1[icon:RADIAL_RESOURCES][/B][TIP:LOC_PEDIA_CONCEPTS_RESOURCE_CAPACITY_TOOLTIP]资源容量[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_EX_ECONOMIC_2_NAME" Language="zh_Hans_CN">
       <Text>宝藏舰队</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_EX_ECONOMIC_3_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>免费获得[B]2个[icon:UNIT_MERCHANT]商人[/B]。与所有领袖的[B][icon:TRADE_ROUTE][TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]贸易路线容量[/TIP]+1[/B]。</Text>
+      <Text>免费获得[B]2个[icon:UNIT_MERCHANT]商人[/B]。与所有领袖的[TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]贸易路线容量[/TIP][B]+1[icon:TRADE_ROUTE][/B]。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_EX_ECONOMIC_3_NAME" Language="zh_Hans_CN">
       <Text>来卡利卡特做买卖</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_EX_ECONOMIC_5_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>[TIP:LOC_PEDIA_CONCEPTS_DISTANT_LANDS_TOOLTIP]遥远土地[/TIP][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP][B]+1[icon:MILITARY_VP][TIP:LOC_PEDIA_CONCEPTS_DOMINION_TOOLTIP]霸业点[/TIP][/B]。</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_DISTANT_LANDS_TOOLTIP]遥远土地[/TIP][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP][B]+1[icon:MILITARY_VP][/B][TIP:LOC_PEDIA_CONCEPTS_DOMINION_TOOLTIP]霸业点[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_EX_ECONOMIC_5_NAME" Language="zh_Hans_CN">
       <Text>阿托查圣母号</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_EX_EXPANSIONIST_1_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>为[TIP:LOC_PEDIA_CONCEPTS_DISTANT_LANDS_TOOLTIP]遥远土地[/TIP][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP]中的单位[B]+5[icon:NAR_REW_COMBAT][TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]战斗力[/TIP][/B]。</Text>
+      <Text>为[TIP:LOC_PEDIA_CONCEPTS_DISTANT_LANDS_TOOLTIP]遥远土地[/TIP][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]定居点[/TIP]中的单位[B]+5[icon:NAR_REW_COMBAT][/B][TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]战斗力[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_EX_EXPANSIONIST_1_NAME" Language="zh_Hans_CN">
       <Text>此处有龙</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_EX_EXPANSIONIST_2_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>[B]+2[icon:SETTLEMENT_LIMIT][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_LIMIT_TOOLTIP]定居点上限[/TIP][/B]。</Text>
+      <Text>[B]+2[icon:SETTLEMENT_LIMIT][/B][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_LIMIT_TOOLTIP]定居点上限[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_EX_EXPANSIONIST_2_NAME" Language="zh_Hans_CN">
       <Text>哈布斯堡就在我家</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_EX_EXPANSIONIST_3_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>[icon:YIELD_WAREHOUSE][TIP:LOC_PEDIA_CONCEPTS_WAREHOUSE_TOOLTIP]食物仓库[/TIP][B]+1[icon:YIELD_FOOD][/B]。[icon:YIELD_FOOD][TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]食物建筑[/TIP][B]+2[icon:YIELD_FOOD][/B]。</Text>
+      <Text>[icon:YIELD_FOOD][icon:YIELD_WAREHOUSE][TIP:LOC_PEDIA_CONCEPTS_WAREHOUSE_TOOLTIP]食物仓库[/TIP][B]+1[icon:YIELD_FOOD][/B]。[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]食物建筑[/TIP][B]+2[icon:YIELD_FOOD][/B]。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_EX_EXPANSIONIST_3_NAME" Language="zh_Hans_CN">
       <Text>三圃制</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_EX_MILITARISTIC_1_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>对抗[icon:CITY_FORTIFIED][TIP:LOC_PEDIA_CONCEPTS_FORTIFIED_DISTRICTS_TOOLTIP]驻防区块[/TIP]时[B]+3[icon:NAR_REW_COMBAT][TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]战斗力[/TIP][/B]。</Text>
+      <Text>对抗[icon:CITY_FORTIFIED][TIP:LOC_PEDIA_CONCEPTS_FORTIFIED_DISTRICTS_TOOLTIP]驻防区块[/TIP]时[B]+3[icon:NAR_REW_COMBAT][/B][TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]战斗力[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_EX_MILITARISTIC_1_NAME" Language="zh_Hans_CN">
       <Text>世界不够大</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_EX_MILITARISTIC_2_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>获得一名[icon:UNIT_ARMY_COMMANDER][TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]军队指挥官[/TIP]，其附带[B]4个[TIP:LOC_PEDIA_CONCEPTS_MILITARY_UNIT_TOOLTIP]军事单位[/TIP][/B]，每种类型各一个。</Text>
+      <Text>获得一名[icon:UNIT_ARMY_COMMANDER][TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]军队指挥官[/TIP]，其附带[B]4[/B]个[TIP:LOC_PEDIA_CONCEPTS_MILITARY_UNIT_TOOLTIP]军事单位[/TIP]，每种类型各一个。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_EX_MILITARISTIC_2_NAME" Language="zh_Hans_CN">
       <Text>蒙古治世</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_EX_MILITARISTIC_3_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>所有[TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]指挥官[/TIP]免费获得[B]1次[icon:NAR_REW_PROMOTION][TIP:LOC_PEDIA_CONCEPTS_PROMOTION_TOOLTIP]晋升[/TIP][/B]，未来的指挥官同样如此。</Text>
+      <Text>所有[icon:UNIT_ARMY_COMMANDER][TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]指挥官[/TIP]免费获得[B]1次[/B][TIP:LOC_PEDIA_CONCEPTS_PROMOTION_TOOLTIP]晋升[/TIP]，未来的[icon:UNIT_ARMY_COMMANDER]指挥官同样如此。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_EX_MILITARISTIC_3_NAME" Language="zh_Hans_CN">
       <Text>怒海称雄</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_EX_MILITARISTIC_5_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>从所有[icon:CITY_FORTIFIED]防御工事获得[B]+2[icon:CULTURE_VP][TIP:LOC_PEDIA_CONCEPTS_TOURISTS_TOOLTIP]观光值[/TIP][/B]。</Text>
+      <Text>从所有防御工事获得[B]+2[icon:CULTURE_VP][/B][TIP:LOC_PEDIA_CONCEPTS_TOURISTS_TOOLTIP]观光值[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_EX_MILITARISTIC_5_NAME" Language="zh_Hans_CN">
       <Text>城堡之地</Text>
@@ -35250,25 +35355,25 @@
       <Text>在劳动力短缺的地方，你的人民选择使用机器。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_EX_SCIENTIFIC_1_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>所有[TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP][B]+1[icon:SPECIALIST][TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_LIMIT_TOOLTIP]专家上限[/TIP][/B]。</Text>
+      <Text>所有[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP][B]+1[icon:SPECIALIST][/B][TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_LIMIT_TOOLTIP]专家上限[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_EX_SCIENTIFIC_1_NAME" Language="zh_Hans_CN">
       <Text>启蒙</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_EX_SCIENTIFIC_2_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>解锁[icon:RADIAL_TECH]学术。推进[icon:PROJECT][TIP:LOC_PEDIA_CONCEPTS_PROJECTS_TOOLTIP]项目[/TIP]时[B]+25%[icon:YIELD_PRODUCTION]效用[/B]。</Text>
+      <Text>解锁学术。推进[icon:DEFAULT_PROJECT][TIP:LOC_PEDIA_CONCEPTS_PROJECTS_TOOLTIP]项目[/TIP]时[B]+25%[icon:YIELD_PRODUCTION]效用[/B]。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_EX_SCIENTIFIC_2_NAME" Language="zh_Hans_CN">
       <Text>天体运行论</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_EX_SCIENTIFIC_4_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>首次完成一项奖励[icon:SCIENCE_VP][TIP:LOC_PEDIA_CONCEPTS_INNOVATION_TOOLTIP]创新点[/TIP]的[icon:PROJECT][TIP:LOC_PEDIA_CONCEPTS_PROJECTS_TOOLTIP]项目[/TIP]时，[B]+1000 [icon:ECONOMIC_VP][TIP:LOC_PEDIA_CONCEPTS_GDP_TOOLTIP]GDP[/TIP][/B]（根据游戏速度进行调整）。</Text>
+      <Text>首次完成一项奖励[icon:SCIENCE_VP][TIP:LOC_PEDIA_CONCEPTS_INNOVATION_TOOLTIP]创新点[/TIP]的[icon:DEFAULT_PROJECT][TIP:LOC_PEDIA_CONCEPTS_PROJECTS_TOOLTIP]项目[/TIP]时，[B]+1000[icon:ECONOMIC_VP][/B][TIP:LOC_PEDIA_CONCEPTS_GDP_TOOLTIP]GDP[/TIP]（根据游戏速度进行调整）。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_EX_SCIENTIFIC_4_NAME" Language="zh_Hans_CN">
       <Text>帖木儿文艺复兴</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_EXPLORATION_CIV_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>在[B]探索[/B]时代解锁此文明。</Text>
+      <Text>在[TIP:LOC_PEDIA_CONCEPTS_EXPLORATION_AGE_TOOLTIP]探索时代[/TIP]解锁此文明。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_FURS_DESCRIPTION" Language="zh_Hans_CN">
       <Text>改良3处[B]皮草[/B]。</Text>
@@ -36316,10 +36421,10 @@
 				[NN]部分基于科学的奇观提供3点；在古典时代，[B]巨作槽位[/B]中每展示有一部[B]抄本[/B]，便可额外获得+1点。近世时代的部分伟业也会提供创新点。</Text>
     </Replace>
     <Replace Tag="LOC_VICTORIES_RULES_SCORE_BODY_1" Language="zh_Hans_CN">
-      <Text>[B]以下主要要素按此顺序计算：[B][NN][NLIST][LI]在所有胜利路线中，你进入胜利倒计时的总回合数。[LI]你在所有活跃胜利类别中的排名。[LI]你在整局游戏中完成的主要伟业数量。[/LIST]</Text>
+      <Text>[B]以下主要要素按此顺序计算：[/B][B][NN][NLIST][LI]在所有胜利路线中，你进入胜利倒计时的总回合数。[LI]你在所有活跃胜利类别中的排名。[LI]你在整局游戏中完成的主要伟业数量。[/LIST]</Text>
     </Replace>
     <Replace Tag="LOC_VICTORIES_RULES_SCORE_BODY_2" Language="zh_Hans_CN">
-      <Text>[B]各要素相加得出最终分数：[B][NN][NLIST][LI]胜利倒计时回合数乘以1000。[LI]每项胜利中的排名乘以10，再用1000点减去乘法得出的值。[LI]完成的所有主要伟业的总数。[/LIST]</Text>
+      <Text>[B]各要素相加得出最终分数：[/B][B][NN][NLIST][LI]胜利倒计时回合数乘以1000。[LI]每项胜利中的排名乘以10，再用1000点减去乘法得出的值。[LI]完成的所有主要伟业的总数。[/LIST]</Text>
     </Replace>
     <Replace Tag="LOC_VICTORIES_RULES_SCORE_HEADER_1" Language="zh_Hans_CN">
       <Text>分数计算方式</Text>
@@ -36828,7 +36933,7 @@
     </Replace>
     <Replace Tag="LOC_WARNING_ADVICE_ANTIQUITY_CULTURE_BEHIND_02_MESSAGE" Language="zh_Hans_CN">
       <Text>
-				[TIP:LOC_PEDIA_CONCEPTS_ANTIQUITY_AGE_TOOLTIP]古典时代[/TIP]即将结束，而你的[TIP:LOC_PEDIA_CONCEPTS_TOURISTS_TOOLTIP]观光值[/TIP]目前落后。x000D_
+				[TIP:LOC_PEDIA_CONCEPTS_ANTIQUITY_AGE_TOOLTIP]古典时代[/TIP]即将结束，而你的[TIP:LOC_PEDIA_CONCEPTS_TOURISTS_TOOLTIP]观光值[/TIP]目前落后。
 				[nn]请注意，观光值可以从多个来源获得，其中包括建造[TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]奇观[/TIP]和你文明的[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_BUILDING_TOOLTIP]特色建筑[/TIP]/[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_IMPROVEMENT_TOOLTIP]特色改良设施[/TIP]、在你的边界内拥有[TIP:LOC_PEDIA_CONCEPTS_NATURAL_WONDER_TOOLTIP]自然奇观[/TIP]，以及在此时代中研究完“娱乐”进入[TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]庆典[/TIP]。
 				[nn]别担心，还有足够时间赶上！随着本时代结束，下个时代开始，请多专注于产出观光值的活动。
 				[nn]如果一切方法都不奏效，还可以尝试拖慢其他领袖的前进步伐。如果你想采取更直接的干预措施，可以咨询[TIP:LOC_PEDIA_CONCEPTS_ADVISOR_TOOLTIP]军事顾问[/TIP]。
@@ -37561,7 +37666,7 @@
       <Text>人口{1_Pop}</Text>
     </Replace>
     <Replace Tag="LOC_CARD_AT_CHANGE_CAPITAL_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>{1_name}升级为[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]，成为[icon:NOTIFICATION_SELECT_CAPITAL][TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]首都[/TIP]，获得[B]3[icon:YIELD_POPULATION][TIP:LOC_PEDIA_CONCEPTS_POPULATION_TOOLTIP]人口[/TIP][/B]，并被重命名为{2_capital_name}。{3_capital_results}。</Text>
+      <Text>{1_name}升级为[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]，成为[icon:NOTIFICATION_SELECT_CAPITAL][TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]首都[/TIP]，获得[B]3[icon:YIELD_POPULATION][/B][TIP:LOC_PEDIA_CONCEPTS_POPULATION_TOOLTIP]人口[/TIP]，并被重命名为{2_capital_name}。{3_capital_results}。</Text>
     </Replace>
     <Replace Tag="LOC_CARD_AT_CHANGE_CAPITAL_RESULTS_BECOMES_TOWN" Language="zh_Hans_CN">
       <Text>{1_current_capital_name}成为城镇</Text>
@@ -37570,7 +37675,7 @@
       <Text>{1_current_capital_name}仍然为城市</Text>
     </Replace>
     <Replace Tag="LOC_CARD_AT_CHANGE_CAPITAL_TOT_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>{1_name}升级为[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]，成为[icon:NOTIFICATION_SELECT_CAPITAL][TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]首都[/TIP]，并获得[B]3[icon:YIELD_POPULATION][TIP:LOC_PEDIA_CONCEPTS_POPULATION_TOOLTIP]人口[/TIP][/B]。{2_capital_results}。</Text>
+      <Text>{1_name}升级为[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]，成为[icon:NOTIFICATION_SELECT_CAPITAL][TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]首都[/TIP]，并获得[B]3[icon:YIELD_POPULATION][/B][TIP:LOC_PEDIA_CONCEPTS_POPULATION_TOOLTIP]人口[/TIP]。{2_capital_results}。</Text>
     </Replace>
     <Replace Tag="LOC_CARD_CATEGORY_SHORT_CULTURAL" Language="zh_Hans_CN">
       <Text>{1_Amount}文</Text>
@@ -37678,7 +37783,7 @@
       <Text>+{1_Value}来自传统</Text>
     </Replace>
     <Replace Tag="LOC_COMBAT_PREVIEW_NUMBER_CIVS_TRADING_BONUS_DESC" Language="zh_Hans_CN">
-      <Text>+{1_Value}，来自每一个与你之间拥有贸易路线的其他文明</Text>
+      <Text>+{1_Value}来自贸易伙伴数量</Text>
     </Replace>
     <Replace Tag="LOC_COMBAT_PREVIEW_NUMBER_NATURAL_WONDERS_BONUS_DESC" Language="zh_Hans_CN">
       <Text>+{1_Value}自然奇观</Text>
@@ -37690,7 +37795,7 @@
       <Text>+{1_Value}城邦宗主国</Text>
     </Replace>
     <Replace Tag="LOC_COMBAT_PREVIEW_NUMBER_URBAN_POP_BONUS_DESC" Language="zh_Hans_CN">
-      <Text>+{1_Value}，来自市区人口</Text>
+      <Text>+{1_Value}来自市区人口</Text>
     </Replace>
     <Replace Tag="LOC_COMBAT_PREVIEW_RELATIONSHIP_DESC" Language="zh_Hans_CN">
       <Text>+{1_Value}玩家关系</Text>
@@ -38521,7 +38626,7 @@
       <Text>文明（{1_numCivs}）</Text>
     </Replace>
     <Replace Tag="LOC_LEGACIES_UNLOCKS_PRIMARY_UNLOCK_EXPLANATION" Language="zh_Hans_CN">
-      <Text>完成目标后，将在[B]{2_ageName}[/B]解锁[B]{1_civName}[/B]。</Text>
+      <Text>完成目标后，将在[B]{2_ageName}时代[/B]解锁[B]{1_civName}[/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACIES_UNLOCKS_TOOLTIP_TITLE" Language="zh_Hans_CN">
       <Text>{1_civName}解锁</Text>
@@ -39606,9 +39711,6 @@
     <Replace Tag="LOC_TRADE_YIELD_STRING" Language="zh_Hans_CN">
       <Text>{1_Amount}{2_YieldName}</Text>
     </Replace>
-    <Replace Tag="LOC_TRADITION_TRIAL_OF_TIME_COMBAT_PREVIEW" Language="zh_Hans_CN">
-      <Text>{1_amount}勇气考验</Text>
-    </Replace>
     <Replace Tag="LOC_TRIUMPH_ALREADY_EARNED" Language="zh_Hans_CN">
       <Text>伟业已被{1_playerName}达成</Text>
     </Replace>
@@ -39720,14 +39822,47 @@
     <Replace Tag="LOC_UI_CITY_DETAILS_CITY_TURNS_TILL_RAZED" Language="zh_Hans_CN">
       <Text>{1_Turns}回合后将永久失去此定居点</Text>
     </Replace>
+    <Replace Tag="LOC_UI_CITY_DETAILS_CONNECTED" Language="zh_Hans_CN">
+      <Text>此{4_IsTown: plural 1?[icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]城镇[/TIP]; other?[icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP];}与{1_Settlement}之间存在连接（{2_Icon}{3_Project}）。</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_CITY_DETAILS_EXPORTING_FOOD_POTENTIAL" Language="zh_Hans_CN">
+      <Text>如果{1_Settlement}拥有[icon:TOWN_FOCUS][TIP:LOC_PEDIA_CONCEPTS_TOWN_FOCUS_TOOLTIP]城镇重心[/TIP]，它每回合会将{2_Amount: number #.#;-#.#}[icon:YIELD_FOOD]食物输送至所有相连的[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]。</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_CITY_DETAILS_EXPORTING_FOOD_TO" Language="zh_Hans_CN">
+      <Text>此[icon:YIELD_TOWNS][TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]城镇[/TIP]与{2_Settlement}（[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]）之间存在连接。[nn]它每回合正将{1_Amount: number #.#;-#.#}[icon:YIELD_FOOD]食物输送至{2_Settlement}。</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_CITY_DETAILS_GROWTH_BREAKDOWN" Language="zh_Hans_CN">
+      <Text>{1_Current: number #.#;-#.#}/{2_Threshold: number #.#;-#.#}[icon:YIELD_FOOD]（{3_PerTurn: number +#.#;-#.#}[icon:YIELD_FOOD]）</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_CITY_DETAILS_HAPPINESS_STAGE_DETAIL" Language="zh_Hans_CN">
+      <Text>（{1_Minimum}[icon:YIELD_HAPPINESS]到{2_Maximum}[icon:YIELD_HAPPINESS]）</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_CITY_DETAILS_HAPPINESS_STAGE_DETAIL_NO_MAX" Language="zh_Hans_CN">
+      <Text>（{1_Amount}[icon:YIELD_HAPPINESS]或更多）</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_CITY_DETAILS_HAPPINESS_STAGE_DETAIL_NO_MIN" Language="zh_Hans_CN">
+      <Text>（{1_Amount}[icon:YIELD_HAPPINESS]或更少）</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_CITY_DETAILS_IMPORTING_FOOD_FROM" Language="zh_Hans_CN">
+      <Text>此[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]与{2_Settlement}之间存在连接（{3_Icon}{4_Project}）。[nn]它每回合正从{2_Settlement}接收{1_Amount: number #.#;-#.#}[icon:YIELD_FOOD]食物。</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_CITY_DETAILS_IMPORTING_FOOD_POTENTIAL" Language="zh_Hans_CN">
+      <Text>此[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]与{2_Settlement}之间存在连接（{3_Icon}{4_Project}）。[nn]它每回合将从{2_Settlement}接收{1_Amount: number #.#;-#.#}[icon:YIELD_FOOD]食物（前提是后者拥有能输送[icon:YIELD_FOOD]食物的[icon:TOWN_FOCUS][TIP:LOC_PEDIA_CONCEPTS_TOWN_FOCUS_TOOLTIP]城镇重心[/TIP]）。</Text>
+    </Replace>
     <Replace Tag="LOC_UI_CITY_DETAILS_NEW_CITIZEN_IN_TURNS" Language="zh_Hans_CN">
       <Text>{1_Turns}回合后出现新市民</Text>
     </Replace>
     <Replace Tag="LOC_UI_CITY_DETAILS_NEXT_TREASURE_FLEET_TURNS" Language="zh_Hans_CN">
       <Text>下一支宝藏护送队将在{1_Turns}回合后生成</Text>
     </Replace>
+    <Replace Tag="LOC_UI_CITY_DETAILS_NO_IMPORTING_FOOD_POTENTIAL" Language="zh_Hans_CN">
+      <Text>此[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]与{1_Settlement}之间存在连接（{2_Icon}{3_Project}）。[nn]这座相连城镇的[TIP:LOC_PEDIA_CONCEPTS_TOWN_FOCUS_TOOLTIP]重心[/TIP]不会将[icon:YIELD_FOOD]食物输送至相连的[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]。</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_CITY_DETAILS_NUMBER_OF_CONNECTIONS" Language="zh_Hans_CN">
+      <Text>[B]{1_City}[/B]拥有[B]{2_Connections}[/B]条连接。</Text>
+    </Replace>
     <Replace Tag="LOC_UI_CITY_DETAILS_SPECIALIST_PER_TILE" Language="zh_Hans_CN">
-      <Text>此城市当前允许每个地块拥有{1_Specialist}名专家</Text>
+      <Text>此[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]当前允许每个地块拥有{1_Specialist}名[icon:SPECIALIST][TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_TOOLTIP]专家[/TIP]</Text>
     </Replace>
     <Replace Tag="LOC_UI_CITY_DETAILS_TREASURE_FLEET_CONSTRUCT_PREREQ_NEEDED" Language="zh_Hans_CN">
       <Text>生成宝藏护送队需要{1_ConstructName}建筑</Text>
@@ -39951,7 +40086,7 @@
       <Text>你的万神殿</Text>
     </Replace>
     <Replace Tag="LOC_UI_POLICIES_HAPPINESS_PER_TURN" Language="zh_Hans_CN">
-      <Text>每回合[icon:YIELD_HAPPINESS]幸福值收益{1_Amount}</Text>
+      <Text>每回合[icon:YIELD_HAPPINESS]收益{1_Amount}</Text>
     </Replace>
     <Replace Tag="LOC_UI_POLICIES_NO_SLOTS_SUBHEADER" Language="zh_Hans_CN">
       <Text>研究市政或进入庆典来解锁一个政策槽位。下次庆典在{1_turns}回合后出现</Text>
@@ -40104,7 +40239,10 @@
       <Text>解锁等级{1_Level}</Text>
     </Replace>
     <Replace Tag="LOC_UI_TOWN_DETAILS_SPECIALIST_PER_TILE" Language="zh_Hans_CN">
-      <Text>此城镇当前允许每个地块拥有{1_Specialist}名专家</Text>
+      <Text>此[icon:YIELD_TOWNS][TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]城镇[/TIP]当前允许每个地块拥有{1_Specialist}名[icon:SPECIALIST][TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_TOOLTIP]专家[/TIP]</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_TOWN_FOCUS_CONNECTION_INFO" Language="zh_Hans_CN">
+      <Text>{1_Settlement}与{2_Cities}座[icon:YIELD_CITIES]城市和{3_Towns}座[icon:YIELD_TOWNS]城镇相连。</Text>
     </Replace>
     <Replace Tag="LOC_UI_TURN_YEAR_NUMBERS" Language="zh_Hans_CN">
       <Text>{1_TurnNum} \| {2_TurnYear}回合</Text>
@@ -40188,7 +40326,7 @@
       <Text>经验值：{1_currentXP}/{2_nextLevelXP}</Text>
     </Replace>
     <Replace Tag="LOC_UNITCOMMAND_ACTIVATE_GREAT_PERSON_APPEND_CITY_LIST" Language="zh_Hans_CN">
-      <Text>[LI]{1_CityName}</Text>
+      <Text>{1_CityName}</Text>
     </Replace>
     <Replace Tag="LOC_UNITCOMMAND_ACTIVATE_GREAT_PERSON_INSUFFICIENT_GOLD" Language="zh_Hans_CN">
       <Text>需要额外{1_gold}金币。</Text>
@@ -40622,9 +40760,6 @@
     <Replace Tag="LOC_TRADITION_SLOT_NAME" Language="zh_Hans_CN">
       <Text>传统槽位</Text>
     </Replace>
-    <Replace Tag="LOC_TRADITION_TRIAL_OF_TIME_NAME" Language="zh_Hans_CN">
-      <Text>勇气考验</Text>
-    </Replace>
     <Replace Tag="LOC_TUTORIAL_APEX_AGE_BODY" Language="zh_Hans_CN">
       <Text>你的文明目前正处于[TIP:LOC_PEDIA_CONCEPTS_APEX_AGE_TOOLTIP]巅峰时代[/TIP]——这是民族身份认同的关键时期。
 				[n]处于巅峰时代的文明可以生产[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_UNITS_TOOLTIP]特色单位[/TIP]、建造特色基础设施，以及研习特色[TIP:LOC_PEDIA_CONCEPTS_CIVIC_TOOLTIP]市政[/TIP]。
@@ -40801,6 +40936,9 @@
     </Replace>
     <Replace Tag="LOC_YIELD_BONUS_NAME" Language="zh_Hans_CN">
       <Text>加成</Text>
+    </Replace>
+    <Replace Tag="LOC_YIELD_CITY_CAP" Language="zh_Hans_CN">
+      <Text>[icon:YIELD_CITY_CAP]城市容量</Text>
     </Replace>
     <Replace Tag="LOC_YIELD_CULTURE" Language="zh_Hans_CN">
       <Text>[icon:YIELD_CULTURE]文化值</Text>

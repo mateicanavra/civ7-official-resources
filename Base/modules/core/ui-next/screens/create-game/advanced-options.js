@@ -297,6 +297,7 @@ const AdvancedOptionsPlayerSetup = () => {
   function closeSlot(slot) {
     if (slots.activeSlots().length <= 2) return;
     slot.setSlotStatus(SlotStatus.SS_CLOSED);
+    slots.reload();
   }
   function openSlot() {
     if (hasOpenSlots()) {
@@ -305,10 +306,10 @@ const AdvancedOptionsPlayerSetup = () => {
     }
   }
   function getCiv(slot) {
-    return playerOptions[slot.playerId].PlayerCivilization;
+    return playerOptions[slot.playerId]?.PlayerCivilization;
   }
   function getLeader(slot) {
-    return playerOptions[slot.playerId].PlayerLeader;
+    return playerOptions[slot.playerId]?.PlayerLeader;
   }
   function sortPossibleValues(possibleValues) {
     if (!possibleValues) return;
@@ -519,11 +520,11 @@ const AdvancedOptionMultiselectField = (props) => {
   const valueItems = createMemo(() => [{
     name: "LOC_UI_ENABLED",
     value: !isInverted(),
-    description: "LOC_UI_ENABLED"
+    description: `{${stringCache.resolve(props.parameter.description)}}[N] [N]{LOC_UI_ENABLED}`
   }, {
     name: "LOC_UI_DISABLED",
     value: isInverted(),
-    description: "LOC_UI_DISABLED"
+    description: `{${stringCache.resolve(props.parameter.description)}}[N] [N]{LOC_UI_DISABLED}`
   }]);
   function hasValue(value) {
     return !!props.parameter.values.find((v) => v.value == value);
@@ -582,14 +583,15 @@ const AdvancedOptionMultiselectField = (props) => {
 };
 const AdvancedOptionBooleanField = (props) => {
   const isInverted = createMemo(() => props.parameter.uxHint == strInvertSelection);
+  const stringCache = useGameSetupStringCacheContext();
   const valueItems = createMemo(() => [{
     name: "LOC_UI_ENABLED",
     value: !isInverted(),
-    description: "LOC_UI_ENABLED"
+    description: `{${stringCache.resolve(props.parameter.description)}}[N] [N]{LOC_UI_ENABLED}`
   }, {
     name: "LOC_UI_DISABLED",
     value: isInverted(),
-    description: "LOC_UI_DISABLED"
+    description: `{${stringCache.resolve(props.parameter.description)}}[N] [N]{LOC_UI_DISABLED}`
   }]);
   return createComponent(SelectorSmall, {
     "class": "m-1",
@@ -608,7 +610,7 @@ const AdvancedOptionSelectorField = (props) => {
     return values.map((v) => ({
       name: stringCache.resolve(v.name),
       value: v.value,
-      description: stringCache.resolve(v.description)
+      description: `{${stringCache.resolve(props.parameter.description)}}[N] [N]{${stringCache.resolve(v.description)}}`
     }));
   }
   function isParameterValid(param) {
@@ -648,6 +650,7 @@ const AdvancedOptionTextField = (props) => {
     "class": "w-72 m-1",
     setValue,
     value,
+    enableVirtualKeyboard: true,
     tabIndex: -1
   });
 };

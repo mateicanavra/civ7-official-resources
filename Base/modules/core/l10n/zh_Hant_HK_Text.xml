@@ -1043,7 +1043,7 @@
       <Text>點按/觸控移動延遲</Text>
     </Replace>
     <Replace Tag="LOC_OPTIONS_ACCESSIBILITY_LONG_PRESS_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>調整滑鼠點按或螢幕觸控的持續時間長度，超過此時間後才會偵測移動操作。若遊戲無法穩定識別點按/觸控動作，可嘗試提高此數值來改善。</Text>
+      <Text>調整滑鼠點按或螢幕觸控在被判定為移動操作前，可持續按住的時間。若你難以保持手部穩定，或滑鼠靈敏度過高，設定為較高的值可避免點按或輕觸被誤判為拖曳。</Text>
     </Replace>
     <Replace Tag="LOC_OPTIONS_ADAPTIVE_TRIGGERS_ENABLED" Language="zh_Hant_HK">
       <Text>自適應扳機已啟用</Text>
@@ -1175,7 +1175,8 @@
       <Text>自動單位循環</Text>
     </Replace>
     <Replace Tag="LOC_OPTIONS_AUTOUNITYCYCLE_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>花掉所選單位的所有移動力點數後，循環至還有剩餘移動力點數的單位。</Text>
+      <Text>花掉所選單位的所有移動力點數後，循環至還有
+					剩餘移動力點數的單位。</Text>
     </Replace>
     <Replace Tag="LOC_OPTIONS_BRIGHTNESS" Language="zh_Hant_HK">
       <Text>亮度</Text>
@@ -1864,6 +1865,12 @@
     <Replace Tag="LOC_OPTIONS_GFX_XEFG_DESCRIPTION" Language="zh_Hant_HK">
       <Text>AI產生的影格交錯放置在現有的圖形輸出之間，以顯著增加每秒的影格數（FPS）並提高效能。</Text>
     </Replace>
+    <Replace Tag="LOC_OPTIONS_GFX_XEFG_FRAME_COUNT" Language="zh_Hant_HK">
+      <Text>插值影格</Text>
+    </Replace>
+    <Replace Tag="LOC_OPTIONS_GFX_XEFG_FRAME_COUNT_DESCRIPTION" Language="zh_Hant_HK">
+      <Text>在兩個實際渲染影格之間額外生成的影格數量。</Text>
+    </Replace>
     <Replace Tag="LOC_OPTIONS_GFX_XELL" Language="zh_Hant_HK">
       <Text>Intel Xe低延遲</Text>
     </Replace>
@@ -2001,6 +2008,9 @@
     </Replace>
     <Replace Tag="LOC_OPTIONS_HELP_TYPES_DESCRIPTION" Language="zh_Hant_HK">
       <Text>在遊戲過程中要顯示哪種類型的說明。</Text>
+    </Replace>
+    <Replace Tag="LOC_OPTIONS_HOTSEAT_NOT_VALID" Language="zh_Hant_HK">
+      <Text>不適用於熱座遊戲模式。</Text>
     </Replace>
     <Replace Tag="LOC_OPTIONS_INPUT_DEVICE" Language="zh_Hant_HK">
       <Text>輸入裝置</Text>
@@ -3114,6 +3124,9 @@
     </Replace>
     <Replace Tag="LOC_PROFILE_TITLE_DLC_SEASONPASS_3" Language="zh_Hant_HK">
       <Text>海盜船長</Text>
+    </Replace>
+    <Replace Tag="LOC_PROFILE_TITLE_DLC_SEASONPASS_4" Language="zh_Hant_HK">
+      <Text>武人詩客</Text>
     </Replace>
     <Replace Tag="LOC_PROFILE_TITLE_FOUNDATION_1" Language="zh_Hant_HK">
       <Text>記錄官</Text>
@@ -4280,7 +4293,7 @@
       <Text>開啟/關閉貿易濾鏡</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_RANKINGS_SCREEN" Language="zh_Hant_HK">
-      <Text>開啟/關閉排名畫面</Text>
+      <Text>開啟/關閉勝利畫面</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_RELIGION" Language="zh_Hant_HK">
       <Text>開啟/關閉宗教面板</Text>
@@ -5129,10 +5142,10 @@
       <Text>解鎖以下內容：[BLIST]{1_Items}[/LIST]</Text>
     </Replace>
     <Replace Tag="LOC_CREATE_GAME_UNLOCKS_LIST_ITEM" Language="zh_Hant_HK">
-      <Text>[LI] [B]{1_UnlockName}[/B]。</Text>
+      <Text>[B]{1_UnlockName}[/B]。</Text>
     </Replace>
     <Replace Tag="LOC_CREATE_GAME_UNLOCKS_LIST_ITEM_IN_AGE" Language="zh_Hant_HK">
-      <Text>[LI] [B]{2_Age}[/B]時代中的[B]{1_Item}[/B]。</Text>
+      <Text>[B]{2_AgeName}[/B]時代中的[B]{1_UnlockName}[/B]。</Text>
     </Replace>
     <Replace Tag="LOC_CROSSPLAY_CHOICE_1_CONTEXT_CONFLICT_RESOLUTION" Language="zh_Hant_HK">
       <Text>本機跨平台遊玩存檔{1_CrossplayType}</Text>

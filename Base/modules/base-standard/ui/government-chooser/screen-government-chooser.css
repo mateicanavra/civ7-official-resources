@@ -1,0 +1,75 @@
+/**
+Based on Robert Penner's easing equations
+@url http://robertpenner.com/easing/
+**/
+screen-government-chooser {
+  width: 93.3333333333rem;
+}
+@media (max-height: 55.5555555556rem), (max-aspect-ratio: 4/3) {
+  screen-government-chooser {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+@media (experience: mobile) {
+  .gov-chooser-header {
+    margin-top: 1.7777777778rem;
+  }
+}
+
+@media (experience: mobile) {
+  .gov-chooser-desc {
+    text-align: center;
+    margin-top: 0.2222222222rem;
+    margin-bottom: 0.4444444444rem;
+  }
+}
+
+.gov-chooser-item:hover .gov-chooser-hover, .gov-chooser-item:focus .gov-chooser-hover, .gov-chooser-item.focused .gov-chooser-hover, .gov-chooser-item.pressed .gov-chooser-hover {
+  opacity: 0.95;
+}
+@media (experience: mobile) {
+  .gov-chooser-item {
+    margin-bottom: 0.8888888889rem;
+  }
+}
+
+.gov-chooser-hover {
+  opacity: 0;
+  border-image-slice: 22 fill;
+  border-image-source: url("blp:base_ticket-metal2_frame");
+  border-image-width: 0.7777777778rem;
+}
+
+.gov-chooser-selected {
+  border-image-slice: 22 fill;
+  border-image-source: url("blp:base_ticket-metal2_frame_hover");
+  border-image-width: 1.3333333333rem;
+}
+
+.government-screen-bg {
+  opacity: 0.14;
+  background-image: url("blp:government_bg");
+}
+
+.government-frame-bg {
+  border-image-source: url("blp:tutorial_bg_update");
+  border-image-slice: 30 20 30 20 fill;
+  border-image-width: auto;
+}
+
+.government-fade-divider {
+  width: 90%;
+  height: 0.0833333333rem;
+  background: linear-gradient(270deg, rgba(80, 74, 63, 0) 7.01%, #504a3f 78.85%);
+  opacity: 0.9;
+}
+
+.overview-happiness-row-1 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.overview-happiness-row-2 {
+  background-color: rgba(0, 0, 0, 0.4);
+}

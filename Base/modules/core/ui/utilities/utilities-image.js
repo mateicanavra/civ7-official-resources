@@ -254,7 +254,6 @@ var Icon;
         return actionIconsName[0];
       }
     }
-    console.warn(`Icon: Cannot find icon for action id "${actionID}"`);
     return null;
   }
   Icon2.getIconFromActionID = getIconFromActionID;

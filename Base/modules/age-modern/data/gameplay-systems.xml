@@ -10,10 +10,11 @@
 		<!--Happiness Threshold curve is represented by the polynomial (ax^3 + bx^2 + cx + d)-->
 		<!--where x is the Golden Age count whose threshold we are looking for.-->
 		<!--I.E. x would be 4 if we were looking for the threshold for the fourth Golden Age.-->
-		<Replace name="GOLDEN_AGE_HAPPINESS_CURVE_A" value="-16.87" />
-		<Replace name="GOLDEN_AGE_HAPPINESS_CURVE_B" value="833.33" />
-		<Replace name="GOLDEN_AGE_HAPPINESS_CURVE_C" value="-54.6" />
-		<Replace name="GOLDEN_AGE_HAPPINESS_CURVE_D" value="569.33" />
+		<!-- new numbers for Governments reowkr in 1.4.1, but would like to move off the trinomial model soon. -->
+		<Replace name="GOLDEN_AGE_HAPPINESS_CURVE_A" value="3" />
+		<Replace name="GOLDEN_AGE_HAPPINESS_CURVE_B" value="1260" />
+		<Replace name="GOLDEN_AGE_HAPPINESS_CURVE_C" value="630" />
+		<Replace name="GOLDEN_AGE_HAPPINESS_CURVE_D" value="315" />
 
 		<Replace name="TOWN_UPGRADE_MAXIMUM_COST" value="5000" />
 		<Replace name="TOWN_UPGRADE_PER_CITY_COST" value="1000" />
@@ -39,4 +40,11 @@
 			<Set YieldReductionPerLevel="11"/>
 		</Update>
 	</WarWearinessEffects>
+	<HappinessStages>
+		<Row HappinessStageType="HAPPINESS_STAGE_ECSTATIC" StageMinThreshold="120" Age="AGE_MODERN"/>
+		<Row HappinessStageType="HAPPINESS_STAGE_JOYOUS" StageMinThreshold="60" StageMaxThreshold="120" Age="AGE_MODERN"/>
+		<Row HappinessStageType="HAPPINESS_STAGE_HAPPY" StageMinThreshold="0" StageMaxThreshold="60" Age="AGE_MODERN"/>
+		<Row HappinessStageType="HAPPINESS_STAGE_UNHAPPY" StageMinThreshold="-20" StageMaxThreshold="0" Age="AGE_MODERN"/>
+		<Row HappinessStageType="HAPPINESS_STAGE_ANGRY" StageMaxThreshold="-20" Age="AGE_MODERN"/>
+	</HappinessStages>
 </Database>

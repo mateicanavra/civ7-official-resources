@@ -3,7 +3,6 @@ import { createMutable } from '../../../../core/vendor/solid-js/store/dist/store
 import ContextManager from '../../../../core/ui/context-manager/context-manager.js';
 import { utils } from '../../../../core/ui/graph-layout/utils.js';
 import ActionHandler from '../../../../core/ui/input/action-handler.js';
-import NavTray from '../../../../core/ui/navigation-tray/model-navigation-tray.js';
 import { ObjectToRgbaString } from '../../../../core/ui/utilities/utilities-color.js';
 import { ComponentID } from '../../../../core/ui/utilities/utilities-component-id.js';
 import { Layout } from '../../../../core/ui/utilities/utilities-layout.js';
@@ -89,7 +88,7 @@ function calcPlayerColors() {
   });
   return colorMap;
 }
-function createVictoriesScreenModel(isEndGame) {
+function createVictoriesScreenModel(isEndGame, allowOneMoreTurn, showNextTurnButton) {
   const playerUiStateById = /* @__PURE__ */ new Map();
   function getOrCreatePlayerRowState(playerId) {
     let state = playerUiStateById.get(playerId);
@@ -118,6 +117,18 @@ function createVictoriesScreenModel(isEndGame) {
         model.data = populateData();
       }
     });
+    createEffect(() => {
+      const chart = model.data.economicDetails.ageCharts.get(
+        model.data.economicDetails.ageOptions.selectedValue()
+      );
+      if (chart) {
+        model.data.economicDetails.currentChart = chart;
+      } else {
+        console.error(
+          `victories-screen-model: Could not find chart for age ${model.data.economicDetails.ageOptions.selectedValue()}`
+        );
+      }
+    });
   });
   function handleClickClose() {
     ContextManager.pop("screen-victory-progress");
@@ -142,6 +153,27 @@ function createVictoriesScreenModel(isEndGame) {
       model.focusPlayer(PlayerIds.NO_PLAYER, lastTab);
     }
   }
+  function handleTabNavStartup(hotkeyContext) {
+    if (model.data.isEndGame) {
+      hotkeyContext.unregisterNavtray("cancel");
+      if (model.data.showNextTurnButton) {
+        hotkeyContext.registerNavtray("nav-shell-next", "LOC_NEXT_TURN");
+      } else {
+        hotkeyContext.registerNavtray("nav-shell-next", "LOC_END_GAME_EXIT");
+      }
+      if (model.data.allowOneMoreTurn) {
+        hotkeyContext.registerNavtray("nav-shell-previous", "LOC_END_GAME_CONTINUE");
+      }
+    }
+  }
+  function handleTabNavShutdown(hotkeyContext) {
+    if (model.data.isEndGame) {
+      hotkeyContext.unregisterNavtray("nav-shell-next");
+      if (model.data.allowOneMoreTurn) {
+        hotkeyContext.unregisterNavtray("nav-shell-previous");
+      }
+    }
+  }
   function handleTabChanged(tabId) {
     if (tabId == model.data.currentTab()) {
       return;
@@ -152,22 +184,6 @@ function createVictoriesScreenModel(isEndGame) {
     model.data.isInspecting = false;
     model.data.setCurrentTab(tabId);
     handleUnFocusAllPlayers(tabId);
-    NavTray.clear();
-    if (!model.data.isEndGame) {
-      NavTray.addOrUpdateGenericBack();
-    }
-    if (tabId != "summary") {
-      if (tabId != "cultural" && tabId != "scientific" && tabId != "score") {
-        NavTray.addOrUpdateShellAction1("LOC_VICTORY_NAV_HELP_INSPECT");
-      }
-    }
-    if (model.data.isEndGame) {
-      NavTray.addOrUpdateNavShellNext("LOC_END_GAME_EXIT");
-      NavTray.addOrUpdateNavShellPrevious("LOC_END_GAME_CONTINUE");
-    }
-    if (tabId != "score" && tabId != "cultural") {
-      NavTray.addOrUpdateToggleTooltip("LOC_VICTORY_NAV_HELP_RULES");
-    }
   }
   function handleGamepadInfoButton() {
     model.tooltipToggle = !model.tooltipToggle;
@@ -229,6 +245,13 @@ function createVictoriesScreenModel(isEndGame) {
         model.data.isInspecting = true;
       }
       model.data.lastInspectedPlayer = model.data.lastFocusedPlayer;
+    } else if (model.data.currentTab() == "summary") {
+      if (model.data.isInspecting) {
+        model.data.isInspecting = false;
+      } else {
+        model.data.isInspecting = true;
+      }
+      model.data.lastFocusedPlayer = PlayerIds.NO_PLAYER;
     }
   }
   function handleHighlightPlayer(playerId, tabType) {
@@ -385,7 +408,7 @@ function createVictoriesScreenModel(isEndGame) {
         break;
     }
   }
-  function populateData(isEndGame2) {
+  function populateData(isEndGame2, allowOneMoreTurn2, showNextTurnButton2) {
     playerUiStateById.forEach((state) => {
       state.setIsHighlighted(false);
       state.setShouldDimScore(false);
@@ -543,7 +566,9 @@ function createVictoriesScreenModel(isEndGame) {
       lastFocusedPlayer: PlayerIds.NO_PLAYER,
       lastInspectedPlayer: PlayerIds.NO_PLAYER,
       isInspecting: false,
-      isEndGame: isEndGame2
+      isEndGame: isEndGame2,
+      allowOneMoreTurn: allowOneMoreTurn2,
+      showNextTurnButton: showNextTurnButton2
     };
     return victoriesScreenData;
   }
@@ -1025,7 +1050,7 @@ function createVictoriesScreenModel(isEndGame) {
     return militaryDetail;
   }
   function highlightEconPlayer(playerId) {
-    model.data.economicDetails.graphLines.forEach((line) => {
+    model.data.economicDetails.currentChart.graphLines.forEach((line) => {
       const detail = model.data.economicDetails.playerDetails.find((a) => a.playerInfo.playerId == line.refCon);
       if (detail) {
         if (line.refCon == playerId) {
@@ -1039,13 +1064,84 @@ function createVictoriesScreenModel(isEndGame) {
     });
   }
   function highlightAllEconPlayers() {
-    model.data.economicDetails.graphLines.forEach((line) => {
+    model.data.economicDetails.currentChart.graphLines.forEach((line) => {
       const detail = model.data.economicDetails.playerDetails.find((a) => a.playerInfo.playerId == line.refCon);
       if (detail) {
         line.color = detail.playerColor;
         line.order = 1;
       }
     });
+  }
+  function calcEconomicChartForAge(age, ageData, playerEcoDetail) {
+    const chart = {
+      graphTarget: 0,
+      graphLines: [],
+      maxTurn: 0
+    };
+    const ageDefinition = GameInfo.Ages.lookup(age);
+    if (ageDefinition) {
+      const PlayerList = Players.getAlive();
+      PlayerList.forEach((player) => {
+        if (player && player.Victories && player.isMajor) {
+          const playerGraphLine = {};
+          playerGraphLine.points = [];
+          playerGraphLine.refCon = player.id;
+          playerGraphLine.order = 1;
+          const playerDetail = playerEcoDetail.find((a) => a.playerInfo.playerId == player.id);
+          if (playerDetail) {
+            playerGraphLine.color = playerDetail.playerColor;
+          } else {
+            playerGraphLine.color = "#ffffff";
+          }
+          const thisPlayersData = ageData.find((a) => a.playerId == player.id);
+          let turn = 0;
+          if (thisPlayersData) {
+            thisPlayersData.history.forEach((point) => {
+              playerGraphLine.points.push({ x: turn, y: point });
+              turn++;
+            });
+          }
+          if (player.id === GameContext.localPlayerID) {
+            playerGraphLine.points.pop();
+          }
+          chart.maxTurn = turn;
+          chart.graphLines.push(playerGraphLine);
+        }
+      });
+      const numTurns = chart.graphLines[1] ? chart.graphLines[1].points.length : chart.graphLines[0].points.length;
+      const gdpPerTurn = [];
+      let highestGDP = 0;
+      for (let turn = 0; turn < numTurns; turn++) {
+        let gdpThisTurn = 0;
+        PlayerList.forEach((player) => {
+          if (player && player.Victories && player.isMajor) {
+            const playerPoints = chart.graphLines.find((a) => a.refCon == player.id);
+            if (playerPoints && playerPoints.points.length > turn) {
+              gdpThisTurn += playerPoints.points[turn].y;
+            }
+          }
+        });
+        gdpPerTurn.push(gdpThisTurn);
+        if (gdpThisTurn > highestGDP) {
+          highestGDP = gdpThisTurn;
+        }
+      }
+      let highestPercentage = 0;
+      chart.graphLines.forEach((graphLine) => {
+        for (let turn = 0; turn < numTurns; turn++) {
+          if (graphLine.points[turn]) {
+            const divisor = gdpPerTurn[turn] > 0 ? gdpPerTurn[turn] : 1;
+            const percent = graphLine.points[turn].y / divisor * 100;
+            graphLine.points[turn].y = percent;
+            if (percent > highestPercentage) {
+              highestPercentage = percent;
+            }
+          }
+        }
+      });
+      chart.graphTarget = Math.floor((highestPercentage / 2 + 1) * 2);
+    }
+    return chart;
   }
   function calcEconomicDetails(economicVictoryHash, spreadsheet) {
     const ageDefinition = GameInfo.Ages.lookup(Game.age);
@@ -1062,36 +1158,22 @@ function createVictoriesScreenModel(isEndGame) {
       targetScore: Game.VictoryManager.getCountdownVictoryDominanceScore(economicVictoryHash),
       playerDetails: [],
       ageOptions: {},
-      graphTarget: 0,
-      graphLines: [],
+      ageCharts: /* @__PURE__ */ new Map(),
       currentGDP: 0,
-      maxTurn: Game.AgeProgressManager.getMaxAgeProgressionPoints(),
       infoToggle: econInfoToggle,
-      setInfoToggle: setEconInfoToggle
+      setInfoToggle: setEconInfoToggle,
+      currentChart: {}
     };
+    const thisAge = ageDefinition?.ChronologyIndex != void 0 ? ageDefinition?.ChronologyIndex : 99;
     economicDetail.ageOptions.selectedValue = selectedAge;
     economicDetail.ageOptions.setSelectedValue = setSelectedAge;
     economicDetail.ageOptions.items = /* @__PURE__ */ new Map();
-    if (Game.turn > economicDetail.maxTurn) {
-      economicDetail.maxTurn = Game.turn;
-    }
-    const thisAge = ageDefinition?.ChronologyIndex != void 0 ? ageDefinition?.ChronologyIndex : 99;
-    GameInfo.Ages.forEach((age) => {
-      if (age.ChronologyIndex <= thisAge) {
-        const name = Locale.compose("LOC_VICTORY_AGE_NAME", age.Name);
-        economicDetail.ageOptions.items.set(age.$hash, {
-          name,
-          description: age.Description ? Locale.compose(age.Description) : ""
-        });
-      }
-    });
+    const currentAgeData = [];
     const PlayerList = Players.getAlive();
     let highestPlayerScore = 0;
     PlayerList.forEach((player) => {
       if (player && player.Victories && player.isMajor) {
         const playerEcoDetail = {};
-        const playerGraphLine = {};
-        playerGraphLine.points = [];
         playerEcoDetail.playerInfo = calcPlayerInfo(player);
         playerEcoDetail.playerInfo.score = player.Victories.getPointsForVictoryType(economicVictoryHash);
         playerEcoDetail.playerColor = "#ffffff";
@@ -1131,65 +1213,66 @@ function createVictoriesScreenModel(isEndGame) {
           }
         }
         playerEcoDetail.playerInfo.scoreColor = playerEcoDetail.playerColor;
-        playerGraphLine.color = playerEcoDetail.playerColor;
-        playerGraphLine.order = 1;
-        playerGraphLine.refCon = player.id;
-        const history = player.Victories.getHistoryForVictoryType(economicVictoryHash);
-        let turn = 0;
-        history.forEach((point) => {
-          playerGraphLine.points.push({ x: turn, y: point });
-          turn++;
-        });
-        if (playerEcoDetail.playerInfo.playerId === GameContext.localPlayerID) {
-          playerGraphLine.points.pop();
-        }
         economicDetail.playerDetails.push(playerEcoDetail);
-        economicDetail.graphLines.push(playerGraphLine);
+        const playerAgeData = {
+          playerId: player.id,
+          history: player.Victories.getHistoryForVictoryType(economicVictoryHash)
+        };
+        currentAgeData.push(playerAgeData);
       }
     });
-    const numTurns = economicDetail.graphLines[1] ? economicDetail.graphLines[1].points.length : economicDetail.graphLines[0].points.length;
-    const gdpPerTurn = [];
-    let highestGDP = 0;
+    const numTurns = currentAgeData.length > 1 && currentAgeData[1].history ? currentAgeData[1].history.length : currentAgeData[0].history.length;
     for (let turn = 0; turn < numTurns; turn++) {
-      let gdpThisTurn = 0;
       PlayerList.forEach((player) => {
         if (player && player.Victories && player.isMajor) {
-          const playerPoints = economicDetail.graphLines.find((a) => a.refCon == player.id);
+          const playerPoints = currentAgeData.find((a) => a.playerId == player.id);
           const playerSheet = spreadsheet.find((a) => a.playerId == player.id);
           if (playerPoints && playerSheet) {
-            const lastItem = playerPoints.points?.length ? playerPoints.points?.length - 1 : 0;
+            const lastItem = playerPoints.history?.length ? playerPoints.history?.length - 1 : 0;
             if (lastItem > 0) {
-              playerSheet.lastTurnDelta = playerPoints.points[lastItem].y - playerPoints.points[lastItem - 1].y;
+              playerSheet.lastTurnDelta = playerPoints.history[lastItem] - playerPoints.history[lastItem - 1];
             } else {
               playerSheet.lastTurnDelta = 0;
             }
           }
-          if (playerPoints && playerPoints.points.length > turn) {
-            gdpThisTurn += playerPoints.points[turn].y;
-          }
         }
       });
-      gdpPerTurn.push(gdpThisTurn);
-      if (gdpThisTurn > highestGDP) {
-        highestGDP = gdpThisTurn;
-      }
     }
-    let highestPercentage = 0;
-    economicDetail.playerDetails.forEach((playerDetail) => {
-      const graphLine = economicDetail.graphLines.find((a) => a.refCon == playerDetail.playerInfo.playerId);
-      if (graphLine) {
-        for (let turn = 0; turn < graphLine.points.length; turn++) {
-          const divisor = gdpPerTurn[turn] > 0 ? gdpPerTurn[turn] : 1;
-          const percent = graphLine.points[turn].y / divisor * 100;
-          graphLine.points[turn].y = percent;
-          if (percent > highestPercentage) {
-            highestPercentage = percent;
-          }
+    GameInfo.Ages.forEach((age) => {
+      if (age.ChronologyIndex <= thisAge) {
+        const name = Locale.compose("LOC_VICTORY_AGE_NAME", age.Name);
+        economicDetail.ageOptions.items.set(age.$hash, {
+          name,
+          description: age.Description ? Locale.compose(age.Description) : ""
+        });
+        if (age.$hash != Game.age) {
+          const agesData = [];
+          PlayerList.forEach((player) => {
+            if (player && player.Victories && player.isMajor) {
+              const thisAgeData = {
+                playerId: PlayerIds.NO_PLAYER,
+                history: []
+              };
+              thisAgeData.playerId = player.id;
+              thisAgeData.history = player.Victories.getPastAgeHistoryForVictoryType(
+                economicVictoryHash,
+                age.$hash
+              );
+              agesData.push(thisAgeData);
+            }
+          });
+          economicDetail.ageCharts.set(
+            age.$hash,
+            calcEconomicChartForAge(age.AgeType, agesData, economicDetail.playerDetails)
+          );
+        } else {
+          economicDetail.ageCharts.set(
+            age.$hash,
+            calcEconomicChartForAge(age.AgeType, currentAgeData, economicDetail.playerDetails)
+          );
         }
       }
     });
-    economicDetail.graphTarget = Math.floor((highestPercentage / 2 + 1) * 2);
-    economicDetail.currentGDP = highestGDP;
     economicDetail.playerDetails.sort((a, b) => b.playerInfo.score - a.playerInfo.score);
     return economicDetail;
   }
@@ -1428,11 +1511,20 @@ function createVictoriesScreenModel(isEndGame) {
           const pointSource = {};
           pointSource.sourceName = void 0;
           pointSource.typeName = "";
+          const scoreData = GameInfo.VictoryDataUIs.find((a) => a.$hash == point.id);
+          let iconOverride = false;
+          if (scoreData && scoreData.IconOverride) {
+            pointSource.iconSrc = "url(" + scoreData.IconOverride + ")";
+            pointSource.typeName = Locale.compose(scoreData.Name);
+            iconOverride = true;
+          }
           switch (point.trackerType) {
             case VictoryTrackerTypes.VICTORY_TRACKER_NATURAL_WONDER: {
               pointSource.isBig = true;
-              pointSource.iconSrc = "url(generic_natural_wonder)";
-              pointSource.typeName = Locale.compose("LOC_PLOT_TOOLTIP_NATURAL_WONDER");
+              if (!iconOverride) {
+                pointSource.iconSrc = "url(generic_natural_wonder)";
+                pointSource.typeName = Locale.compose("LOC_PLOT_TOOLTIP_NATURAL_WONDER");
+              }
               const wonderDef = GameInfo.Feature_NaturalWonders.lookup(point.id);
               if (wonderDef) {
                 pointSource.sourceName = Locale.compose("LOC_" + wonderDef.FeatureType + "_NAME");
@@ -1446,7 +1538,7 @@ function createVictoriesScreenModel(isEndGame) {
               const constructible = player.Constructibles.getConstructibles().find((c) => {
                 return c.id.id == point.id;
               });
-              if (constructible) {
+              if (constructible && !iconOverride) {
                 const constructibleDef = GameInfo.Constructibles.lookup(constructible.type);
                 if (constructibleDef) {
                   pointSource.iconSrc = UI.getIconCSS(constructibleDef.ConstructibleType);
@@ -1460,7 +1552,7 @@ function createVictoriesScreenModel(isEndGame) {
               const constructible = player.Constructibles.getConstructibles().find((c) => {
                 return c.typeHash == point.id;
               });
-              if (constructible) {
+              if (constructible && !iconOverride) {
                 const constructibleDef = GameInfo.Constructibles.lookup(constructible.type);
                 if (constructibleDef) {
                   pointSource.iconSrc = UI.getIconCSS(constructibleDef.ConstructibleType);
@@ -1470,55 +1562,67 @@ function createVictoriesScreenModel(isEndGame) {
               break;
             }
             case VictoryTrackerTypes.VICTORY_TRACKER_RESORT_TOWN_TOURISM: {
-              pointSource.iconSrc = "url(blp:focus_resort)";
-              pointSource.typeName = Locale.compose("LOC_PROJECT_TOWN_RESORT_NAME");
+              const scoreData2 = GameInfo.VictoryDataUIs.find((a) => a.$hash == point.id);
+              if (!iconOverride) {
+                pointSource.iconSrc = "url(blp:focus_resort)";
+                pointSource.typeName = Locale.compose("LOC_PROJECT_TOWN_RESORT_NAME");
+              }
               break;
             }
             case VictoryTrackerTypes.VICTORY_TRACKER_CELEBRATIONS: {
-              pointSource.typeName = Locale.compose("LOC_POLICIES_HAPPINESS_NEXT_SLOT_TITLE");
               pointSource.sourceName = Locale.compose(point.name);
-              const celebrationItemDef = GameInfo.GoldenAges.lookup(point.id);
-              if (celebrationItemDef) {
-                pointSource.iconSrc = `url(blp:fonticon_celebration)`;
+              if (!iconOverride) {
+                const celebrationItemDef = GameInfo.GoldenAges.lookup(point.id);
+                if (celebrationItemDef) {
+                  pointSource.iconSrc = `url(blp:fonticon_celebration)`;
+                  pointSource.typeName = Locale.compose("LOC_POLICIES_HAPPINESS_NEXT_SLOT_TITLE");
+                }
               }
               break;
             }
             case VictoryTrackerTypes.VICTORY_TRACKER_SUZERAIN: {
-              pointSource.typeName = Locale.compose(point.name);
-              pointSource.iconSrc = "url('blp:fi_citystate_128')";
+              if (!iconOverride) {
+                pointSource.typeName = Locale.compose(point.name);
+                pointSource.iconSrc = "url('blp:fi_citystate_128')";
+              }
               break;
             }
             case VictoryTrackerTypes.VICTORY_TRACKER_UNIQUE_IMPROVEMENT: {
-              pointSource.typeName = Locale.compose("LOC_VICTORIES_UNIQUE_IMPROVEMENT");
               pointSource.sourceName = Locale.compose(point.name);
               const constructible = player.Constructibles.getConstructibles().find((c) => {
                 return c.typeHash == point.id;
               });
-              const improvementDef = GameInfo.Constructibles.lookup(constructible?.type ?? 0);
-              if (improvementDef) {
-                pointSource.iconSrc = UI.getIconCSS(improvementDef.ConstructibleType);
+              if (!iconOverride) {
+                pointSource.typeName = Locale.compose("LOC_VICTORIES_UNIQUE_IMPROVEMENT");
+                const improvementDef = GameInfo.Constructibles.lookup(constructible?.type ?? 0);
+                if (improvementDef) {
+                  pointSource.iconSrc = UI.getIconCSS(improvementDef.ConstructibleType);
+                }
               }
               break;
             }
             case VictoryTrackerTypes.VICTORY_TRACKER_GAME_EFFECTS: {
-              pointSource.typeName = Locale.compose(point.name);
-              pointSource.iconSrc = "url(blp:victory_cultural)";
+              if (!iconOverride) {
+                pointSource.typeName = Locale.compose(point.name);
+                pointSource.iconSrc = "url(blp:victory_cultural)";
+              }
               break;
             }
             case VictoryTrackerTypes.VICTORY_TRACKER_TRADE_ROUTE: {
-              pointSource.typeName = Locale.compose(point.name);
-              pointSource.iconSrc = "url(blp:fi_trade_route_128)";
+              if (!iconOverride) {
+                pointSource.typeName = Locale.compose(point.name);
+                pointSource.iconSrc = "url(blp:fi_trade_route_128)";
+              }
               break;
             }
             case VictoryTrackerTypes.VICTORY_TRACKER_BUILDING_TAG: {
-              pointSource.typeName = Locale.compose(point.name) + " " + Locale.compose("LOC_VICTORY_TOURISM_NAME");
               pointSource.sourceName = Locale.compose(point.name);
-              const scoreData = GameInfo.VictoryDataUIs.find((a) => a.$hash == point.id);
-              if (scoreData && scoreData.IconOverride) {
-                pointSource.iconSrc = "url(" + scoreData.IconOverride + ")";
-                pointSource.typeName = Locale.compose(scoreData.Name) + " " + Locale.compose("LOC_VICTORY_TOURISM_NAME");
-              } else {
+              const scoreData2 = GameInfo.VictoryDataUIs.find((a) => a.$hash == point.id);
+              if (!iconOverride) {
                 pointSource.iconSrc = "url(blp:victory_cultural)";
+                pointSource.typeName = Locale.compose(point.name) + " " + Locale.compose("LOC_VICTORY_TOURISM_NAME");
+              } else {
+                pointSource.typeName = Locale.compose(pointSource.typeName) + " " + Locale.compose("LOC_VICTORY_TOURISM_NAME");
               }
               break;
             }
@@ -1622,7 +1726,7 @@ function createVictoriesScreenModel(isEndGame) {
     return cultureDetail;
   }
   const model = createMutable({
-    data: populateData(isEndGame),
+    data: populateData(isEndGame, allowOneMoreTurn, showNextTurnButton),
     tooltipToggle: false,
     clickCloseButton: handleClickClose,
     onGamepadInfoButton: handleGamepadInfoButton,
@@ -1632,7 +1736,9 @@ function createVictoriesScreenModel(isEndGame) {
     focusPlayer: handleFocusPlayer,
     unFocusPlayer: handleUnFocusPlayer,
     unFocusAllPlayers: handleUnFocusAllPlayers,
-    tabChanged: handleTabChanged
+    tabChanged: handleTabChanged,
+    tabNavStartup: handleTabNavStartup,
+    tabNavShutdown: handleTabNavShutdown
   });
   return model;
 }

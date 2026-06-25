@@ -1,3 +1,4 @@
+import { render } from '../../../core/vendor/solid-js/web/dist/web.js';
 import { Audio } from '../../../core/ui/audio-base/audio-support.js';
 import ActionHandler from '../../../core/ui/input/action-handler.js';
 import NavTray from '../../../core/ui/navigation-tray/model-navigation-tray.js';
@@ -5,10 +6,13 @@ import Panel from '../../../core/ui/panel-support.js';
 import { ComponentID } from '../../../core/ui/utilities/utilities-component-id.js';
 import Databind from '../../../core/ui/utilities/utilities-core-databinding.js';
 import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
+import { Layout } from '../../../core/ui/utilities/utilities-layout.js';
+import { TooltipVerticalPosition, TooltipHorizontalPosition } from '../../../core/ui-next/components/tooltip.js';
 import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
 import CityDetails, { UpdateCityDetailsEventName } from './model-city-details.js';
 import { GetPrevCityID, GetNextCityID } from '../production-chooser/production-chooser-helpers.js';
 import { OVERLAY_PRIORITY } from '../utilities/utilities-overlay.js';
+import { ProductionTooltip } from '../../ui-next/tooltips/production-tooltip.js';
 import styles from './panel-city-details.scss.js';
 
 const ShowCityDetailsEventName = "show-city-details";
@@ -29,6 +33,17 @@ var cityDetailTabID = /* @__PURE__ */ ((cityDetailTabID2) => {
   cityDetailTabID2["yields"] = "city-details-tab-yields";
   return cityDetailTabID2;
 })(cityDetailTabID || {});
+const happinessStages = [];
+GameInfo.HappinessStages.forEach((row) => {
+  happinessStages.push({
+    happinessStage: row.HappinessStageType,
+    name: row.HappinessStageType.replace("HAPPINESS_STAGE_", "LOC_UI_CITY_DETAILS_"),
+    icon: row.HappinessStageType.replace("HAPPINESS_STAGE_", "YIELD_"),
+    textColor: row.HappinessStageType.replace("HAPPINESS_STAGE_", "").toLowerCase() + "-text",
+    min: row.StageMinThreshold ?? -Infinity,
+    max: row.StageMaxThreshold ?? Infinity
+  });
+});
 const cityDetailTabItems = [
   {
     id: "city-details-tab-growth" /* growth */,
@@ -74,16 +89,27 @@ class PanelCityDetails extends Panel {
   prevCityButton = document.createElement("fxs-activatable");
   nextCityButton = document.createElement("fxs-activatable");
   growthSlot;
+  growthBarContainer;
+  growthBarNext;
+  growthBarCurrent;
+  growthTurnsText;
+  growthBreakdown;
+  urbanPopCount;
+  ruralPopCount;
+  specialistCount;
   specialistContainer;
   specialistText;
   currentCitizenCount;
-  turnToNextCitizenText;
   happinessStatusText;
+  happinessBoundaryText;
   happinessIcon;
   happinessPerTurn;
   foodPerTurn;
   foodNeededToGrow;
   connectedToContainer;
+  connectionsSubtitle;
+  connectionsExport;
+  connectionsList;
   constructibleSlot;
   buildingsCategory;
   buildingsList;
@@ -132,16 +158,27 @@ class PanelCityDetails extends Panel {
     this.nextCityButton.addEventListener("action-activate", this.onNextCityButtonListener);
     this.prevCityButton.addEventListener("action-activate", this.onPrevCityButtonListener);
     this.growthSlot = MustGetElement(`#${"city-details-tab-growth" /* growth */}`, this.Root);
+    this.growthBarContainer = MustGetElement(".growth-bar-container", this.Root);
+    this.growthBarNext = MustGetElement(".growth-bar-next", this.Root);
+    this.growthBarCurrent = MustGetElement(".growth-bar-cur", this.Root);
+    this.growthTurnsText = MustGetElement(".growth-turns", this.Root);
+    this.growthBreakdown = MustGetElement(".growth-breakdown", this.Root);
+    this.urbanPopCount = MustGetElement(".urban-count", this.Root);
+    this.ruralPopCount = MustGetElement(".rural-count", this.Root);
+    this.specialistCount = MustGetElement(".specialist-count", this.Root);
     this.specialistContainer = MustGetElement(".specialist-container", this.Root);
     this.specialistText = MustGetElement(".specialist-text", this.Root);
     this.currentCitizenCount = MustGetElement(".current-citizens-count", this.Root);
-    this.turnToNextCitizenText = MustGetElement(".new-citizen-text", this.Root);
     this.happinessStatusText = MustGetElement(".happiness-status-text", this.Root);
+    this.happinessBoundaryText = MustGetElement(".happiness-boundary-text", this.Root);
     this.happinessIcon = MustGetElement(".happiness-icon", this.Root);
     this.happinessPerTurn = MustGetElement(".happiness-per-turn", this.Root);
     this.foodPerTurn = MustGetElement(".food-per-turn", this.Root);
     this.foodNeededToGrow = MustGetElement(".food-needed-to-grow", this.Root);
     this.connectedToContainer = MustGetElement(".connected-to-container", this.Root);
+    this.connectionsSubtitle = MustGetElement(".connections-subtitle", this.Root);
+    this.connectionsExport = MustGetElement(".connections-export", this.Root);
+    this.connectionsList = MustGetElement(".connections-list", this.Root);
     this.constructibleSlot = MustGetElement(`#${"city-details-tab-buildings" /* buildings */}`, this.Root);
     this.buildingsCategory = MustGetElement(".buildings-category", this.Root);
     this.buildingsList = MustGetElement(".buildings-list", this.Root);
@@ -155,6 +192,8 @@ class PanelCityDetails extends Panel {
     this.razedTurnsText = MustGetElement(".razed-turns-text", this.Root);
     this.treasureFleetContainer = MustGetElement(".treasure-fleet-container", this.Root);
     this.treasureFleetText = MustGetElement(".treasure-fleet-text", this.Root);
+    this.disposeTooltips.forEach((dispose) => dispose());
+    this.disposeTooltips = [];
     this.update();
   }
   onDetach() {
@@ -168,6 +207,8 @@ class PanelCityDetails extends Panel {
     this.nextCityButton.removeEventListener("action-activate", this.onNextCityButtonListener);
     this.prevCityButton.removeEventListener("action-activate", this.onPrevCityButtonListener);
     this.removeBuildingHighlight();
+    this.disposeTooltips.forEach((dispose) => dispose());
+    this.disposeTooltips = [];
     super.onDetach();
   }
   onPrevCityButton() {
@@ -301,6 +342,7 @@ class PanelCityDetails extends Panel {
     this.tabHeaderElement.classList.add("px-3", "uppercase", "tracking-100");
     this.tabHeaderElement.setAttribute("filigree-style", "none");
     this.tabHeaderElement.setAttribute("font-fit-mode", "shrink");
+    this.tabHeaderElement.setAttribute("title", cityDetailTabItems[0].headerText);
     tabHeaderWrapper.appendChild(this.tabHeaderElement);
     this.tabBar.classList.add("px-2");
     this.tabBar.setAttribute("tab-for", "fxs-subsystem-frame");
@@ -349,11 +391,7 @@ class PanelCityDetails extends Panel {
 				</div>
 			</div>
 			<div class="specialist-container flex flex-col m-1">
-				<p class="specialist-text self-center mt-1 mb-1 ml-8 mr-8"></p>
-				<div class="flex w-96 self-center">
-					<div class="w-1\\/2 h-5 bg-cover bg-no-repeat city-details-half-divider"></div>
-					<div class="w-1\\/2 h-5 bg-cover bg-no-repeat city-details-half-divider -scale-x-100"></div>
-				</div>
+				<p class="specialist-text self-center mt-1 mb-1 ml-8 mr-8 text-accent-4 text-sm"></p>
 			</div>
 			<div class="growth-entry flex justify-between m-1" tabindex="-1">
 				<div class="flex">
@@ -363,7 +401,50 @@ class PanelCityDetails extends Panel {
 						<div class="font-title text-gradient-secondary uppercase" data-l10n-id="LOC_UI_CITY_DETAILS_CITIZENS"></div>
 					</div>
 				</div>
-				<p class="new-citizen-text self-end mr-4 max-w-48"></p>
+			</div>
+			<div class="growth-bar-container self-center w-80 flex flex-col mb-2">
+				<div class="progress-bar-background w-full h-4 relative">
+					<div class="growth-bar-next growth-bar-animation absolute progress-bar-tracker h-full"></div>
+					<div class="growth-bar-cur absolute progress-bar-tracker h-full"></div>
+					<div class="absolute progress-bar-border w-full h-full"></div>
+				</div>
+				<div class="w-full relative mt-2 flex flex-row flex-wrap items-center justify-between">
+					<div class="growth-breakdown text-xs text-accent-4"></div>
+					<div class="flex flex-row gap-1 items-center">
+						<div class="growth-turns text-xs text-accent-4"></div>
+						<div class="growth-timer size-4"></div>
+					</div>
+				</div>
+			</div>
+			<div class="flex flex-row ml-4 mr-1">
+				<div class="grow h-px" style="background: rgba(77, 83, 102, 0.30);"></div>
+			</div>
+			<div role="paragraph" class="growth-entry items-center flex justify-between py-0\\.5 ml-4 mr-1 pointer-events-auto" tabindex="-1" data-tooltip-content="LOC_UI_CITY_DETAILS_URBAN_POPULATION_TOOLTIP" data-tooltip-anchor="left" >
+				<div class="flex flex-row gap-1 items-center indented-growth-item">
+					<fxs-icon class="size-4 mx-1" data-icon-id="CITY_URBAN"></fxs-icon>
+					<div data-l10n-id="LOC_UI_CITY_STATUS_URBAN_POPULATION"></div>
+				</div>
+				<div class="urban-count mr-4">0</div>
+			</div>
+			<div class="flex flex-row ml-4 mr-1">
+				<div class="grow h-px" style="background: rgba(77, 83, 102, 0.30);"></div>
+			</div>
+			<div role="paragraph" class="growth-entry items-center flex justify-between py-0\\.5 ml-4 mr-1 pointer-events-auto" tabindex="-1" data-tooltip-content="LOC_UI_CITY_DETAILS_RURAL_POPULATION_TOOLTIP" data-tooltip-anchor="left" >
+				<div class="flex flex-row gap-1 items-center indented-growth-item">
+					<fxs-icon class="size-4 mx-1" data-icon-id="CITY_RURAL"></fxs-icon>
+					<div data-l10n-id="LOC_UI_CITY_STATUS_RURAL_POPULATION"></div>
+				</div>
+				<div class="rural-count mr-4">0</div>
+			</div>
+			<div class="flex flex-row ml-4 mr-1">
+				<div class="grow h-px" style="background: rgba(77, 83, 102, 0.30);"></div>
+			</div>
+			<div role="paragraph" class="growth-entry items-center flex justify-between py-0\\.5 ml-4 mr-1 pointer-events-auto" tabindex="-1" data-tooltip-content="LOC_UI_CITY_DETAILS_SPECIALIST_POPULATION_TOOLTIP" data-tooltip-anchor="left" >
+				<div class="flex flex-row gap-1 items-center indented-growth-item">
+					<fxs-icon class="size-6" data-icon-id="SPECIALIST"></fxs-icon>
+					<div data-l10n-id="LOC_WORKERS_TITLE"></div>
+				</div>
+				<div class="specialist-count mr-4">0</div>
 			</div>
 			<div class="flex w-96 self-center">
 				<div class="w-1\\/2 h-5 bg-cover bg-no-repeat city-details-half-divider"></div>
@@ -372,7 +453,10 @@ class PanelCityDetails extends Panel {
 			<div class="flex m-1">
 				<fxs-icon class="happiness-icon size-12 m-1" data-icon-context="YIELD" data-icon-id="YIELD_HAPPINESS"></fxs-icon>
 				<div class="flex-col self-center">
-					<p class="happiness-status-text font-title ml-2 uppercase"></p>
+					<div class="flex flex-row">
+						<div class="happiness-status-text font-title ml-2 uppercase"></div>
+						<div class="happiness-boundary-text font-body text-sm text-accent-4 ml-2"></div>
+					</div>
 					<p class="font-title ml-2 uppercase text-gradient-secondary" data-l10n-id="LOC_UI_CITY_DETAILS_HAPPINESS_STATUS"></p>
 				</div>
 			</div>
@@ -397,6 +481,16 @@ class PanelCityDetails extends Panel {
 			<div role="paragraph" class="growth-entry flex justify-between m-1 pointer-events-auto" tabindex="-1">
 				<div class="ml-4 indented-growth-item" data-l10n-id="LOC_UI_CITY_DETAILS_FOOD_NEEDED_TO_GROW"></div>
 				<div class="food-needed-to-grow mr-4"></div>
+			</div>
+			<div class="flex w-96 self-center">
+				<div class="w-1\\/2 h-5 bg-cover bg-no-repeat city-details-half-divider"></div>
+				<div class="w-1\\/2 h-5 bg-cover bg-no-repeat city-details-half-divider -scale-x-100"></div>
+			</div>
+			<div class="connections-container flex flex-col m-1">
+				<p class="font-title ml-4 uppercase text-gradient-secondary" data-l10n-id="LOC_UI_CITY_DETAILS_CONNECTIONS"></p>
+				<div role="paragraph" class="connections-subtitle ml-4 mr-4 mb-2 pointer-events-auto text-sm"></div>
+				<div role="paragraph" class="connections-export ml-4 mr-4 mb-3 hidden pointer-events-auto text-accent-4 text-sm"></div>
+				<div class="connections-list flex flex-col ml-4 mr-4"></div>
 			</div>
 			<div class="flex w-96 self-center">
 				<div class="w-1\\/2 h-5 bg-cover bg-no-repeat city-details-half-divider"></div>
@@ -464,24 +558,39 @@ class PanelCityDetails extends Panel {
     }
     const growthHasFocus = this.growthSlot.contains(FocusManager.get().currentFocus());
     if (CityDetails.isTown) {
-      this.specialistContainer.classList.add("hidden");
+      if (CityDetails.hasTownFocus) {
+        this.specialistContainer.classList.remove("hidden");
+        this.specialistText.innerHTML = Locale.stylize("LOC_UI_CITY_DETAILS_TOWN_NO_GROWTH");
+      } else {
+        this.specialistContainer.classList.add("hidden");
+      }
     } else {
       this.specialistContainer.classList.remove("hidden");
-      this.specialistText.textContent = Locale.compose(
+      this.specialistText.innerHTML = Locale.stylize(
         "LOC_UI_CITY_DETAILS_SPECIALIST_PER_TILE",
         CityDetails.specialistPerTile
       );
     }
     this.currentCitizenCount.textContent = CityDetails.currentCitizens.toString();
-    if (CityDetails.hasTownFocus) {
-      this.turnToNextCitizenText.textContent = "";
-    } else if (CityDetails.turnsToNextCitizen >= 0) {
-      this.turnToNextCitizenText.textContent = Locale.compose(
-        "LOC_UI_CITY_DETAILS_NEW_CITIZEN_IN_TURNS",
-        CityDetails.turnsToNextCitizen
+    this.urbanPopCount.textContent = CityDetails.urbanPopulation.toString();
+    this.ruralPopCount.textContent = CityDetails.ruralPopulation.toString();
+    this.specialistCount.textContent = CityDetails.specialistCount.toString();
+    if (CityDetails.foodToGrow > 0) {
+      this.growthBarContainer.classList.toggle("hidden", false);
+      this.growthBarCurrent.style.width = CityDetails.foodCurrent / CityDetails.foodToGrow * 100 + "%";
+      this.growthBarNext.style.width = Math.min(1, (CityDetails.foodCurrent + CityDetails.foodPerTurn) / CityDetails.foodToGrow) * 100 + "%";
+      const isGrowing = CityDetails.foodPerTurn > 0;
+      this.growthTurnsText.textContent = isGrowing ? CityDetails.turnsToNextCitizen.toString() : Locale.compose("LOC_OPTIONS_SYMBOL_INFINITY");
+      this.growthTurnsText.classList.toggle("text-xs", isGrowing);
+      this.growthTurnsText.classList.toggle("text-base", !isGrowing);
+      this.growthBreakdown.innerHTML = Locale.stylize(
+        "LOC_UI_CITY_DETAILS_GROWTH_BREAKDOWN",
+        CityDetails.foodCurrent,
+        CityDetails.foodToGrow,
+        CityDetails.foodPerTurn
       );
     } else {
-      this.turnToNextCitizenText.textContent = Locale.compose("LOC_UI_CITY_DETAILS_STARVATION");
+      this.growthBarContainer.classList.toggle("hidden", true);
     }
     this.foodPerTurn.textContent = Locale.compose("LOC_UI_CITY_DETAILS_YIELD_ONE_DECIMAL", CityDetails.foodPerTurn);
     this.foodNeededToGrow.textContent = Locale.compose("LOC_UI_YIELD_ONE_DECIMAL_NO_PLUS", CityDetails.foodToGrow);
@@ -489,26 +598,42 @@ class PanelCityDetails extends Panel {
     for (const settlementData of CityDetails.connectedSettlementFood) {
       this.addConnectedToEntry(settlementData.name, settlementData.amount);
     }
+    for (const stage of happinessStages) {
+      this.happinessStatusText.classList.remove(stage.textColor);
+      this.happinessStatusText.classList.remove("text-negative");
+    }
     if (CityDetails.hasUnrest) {
       this.happinessStatusText.textContent = Locale.compose("LOC_CITY_UNREST");
       this.happinessStatusText.classList.add("text-negative");
-      this.happinessStatusText.classList.remove("text-positive");
       this.happinessIcon.setAttribute("data-icon-id", "YIELD_ANGRY");
-    } else if (CityDetails.happinessPerTurn < -10) {
-      this.happinessStatusText.textContent = Locale.compose("LOC_UI_CITY_DETAILS_ANGRY");
-      this.happinessStatusText.classList.add("text-negative");
-      this.happinessStatusText.classList.remove("text-positive");
-      this.happinessIcon.setAttribute("data-icon-id", "YIELD_ANGRY");
-    } else if (CityDetails.happinessPerTurn <= 0) {
-      this.happinessStatusText.textContent = Locale.compose("LOC_UI_CITY_DETAILS_UNHAPPY");
-      this.happinessStatusText.classList.add("text-negative");
-      this.happinessStatusText.classList.remove("text-positive");
-      this.happinessIcon.setAttribute("data-icon-id", "YIELD_UNHAPPINESS");
+      this.happinessBoundaryText.classList.toggle("hidden", true);
     } else {
-      this.happinessStatusText.textContent = Locale.compose("LOC_UI_CITY_DETAILS_HAPPY");
-      this.happinessStatusText.classList.remove("text-negative");
-      this.happinessStatusText.classList.add("text-positive");
-      this.happinessIcon.setAttribute("data-icon-id", "YIELD_HAPPINESS");
+      for (const stage of happinessStages) {
+        if (CityDetails.happinessPerTurn >= stage.min && CityDetails.happinessPerTurn < stage.max) {
+          this.happinessStatusText.textContent = Locale.compose(stage.name);
+          this.happinessStatusText.classList.add(stage.textColor);
+          this.happinessIcon.setAttribute("data-icon-id", stage.icon);
+          this.happinessBoundaryText.classList.toggle("hidden", false);
+          if (stage.min == -Infinity) {
+            this.happinessBoundaryText.innerHTML = Locale.stylize(
+              "LOC_UI_CITY_DETAILS_HAPPINESS_STAGE_DETAIL_NO_MIN",
+              stage.max
+            );
+          } else if (stage.max == Infinity) {
+            this.happinessBoundaryText.innerHTML = Locale.stylize(
+              "LOC_UI_CITY_DETAILS_HAPPINESS_STAGE_DETAIL_NO_MAX",
+              stage.min
+            );
+          } else {
+            this.happinessBoundaryText.innerHTML = Locale.stylize(
+              "LOC_UI_CITY_DETAILS_HAPPINESS_STAGE_DETAIL",
+              stage.min,
+              stage.max
+            );
+          }
+          break;
+        }
+      }
     }
     this.happinessPerTurn.textContent = Locale.compose(
       "LOC_UI_CITY_DETAILS_YIELD_ONE_DECIMAL",
@@ -517,6 +642,156 @@ class PanelCityDetails extends Panel {
     if (growthHasFocus) {
       FocusManager.get().setFocus(this.growthSlot);
     }
+    const numConnections = CityDetails.connectedSettlements.length;
+    const hasConnections = numConnections > 0;
+    this.connectionsSubtitle.innerHTML = hasConnections ? Locale.stylize("LOC_UI_CITY_DETAILS_NUMBER_OF_CONNECTIONS", CityDetails.name, numConnections) : Locale.stylize("LOC_UI_CITY_DETAILS_NO_CONNECTIONS");
+    this.connectionsList.innerHTML = "";
+    if (hasConnections) {
+      const noExportProject = CityDetails.nonExportingProjects.includes(CityDetails.currentTownFocus);
+      for (const settlement of CityDetails.connectedSettlements) {
+        const projectIcon = settlement.isTown ? settlement.projectType || "PROJECT_GROWTH" : "YIELD_CITIES";
+        const projectName = settlement.isTown ? settlement.projectName || "LOC_UI_FOOD_CHOOSER_FOCUS_GROWTH" : "LOC_CAPITAL_SELECT_PROMOTION_CITY";
+        const dividerCont = document.createElement("div");
+        const divider = document.createElement("div");
+        dividerCont.setAttribute("class", "flex flex-row");
+        divider.setAttribute("class", "grow h-px");
+        divider.style.background = "rgba(77, 83, 102, 0.30)";
+        dividerCont.appendChild(divider);
+        this.connectionsList.appendChild(dividerCont);
+        const connectedToEntry = document.createElement("div");
+        connectedToEntry.classList.add(
+          "growth-entry",
+          "pointer-events-auto",
+          "flex",
+          "flex-row",
+          "flex-nowrap",
+          "items-center",
+          "gap-1",
+          "py-0//.5"
+        );
+        connectedToEntry.setAttribute("tabindex", "-1");
+        connectedToEntry.setAttribute("role", "paragraph");
+        connectedToEntry.setAttribute("data-tooltip-anchor", "right");
+        const connectedIcon = document.createElement("fxs-icon");
+        connectedIcon.classList.value = "size-6";
+        if (!settlement.isTown) {
+          connectedIcon.setAttribute("data-icon-id", "YIELD_CITIES");
+        } else {
+          if (settlement.projectType) {
+            connectedIcon.setAttribute("data-icon-id", settlement.projectType);
+          } else {
+            connectedIcon.setAttribute("data-icon-id", "PROJECT_GROWTH");
+          }
+        }
+        connectedToEntry.appendChild(connectedIcon);
+        const connectedName = document.createElement("div");
+        connectedName.innerHTML = Locale.stylize(settlement.name);
+        connectedToEntry.appendChild(connectedName);
+        const spacer = document.createElement("div");
+        spacer.classList.value = "grow";
+        connectedToEntry.append(spacer);
+        if (CityDetails.isTown && CityDetails.foodExported <= 0 && CityDetails.foodExportPotential > 0) {
+          this.connectionsExport.classList.toggle("hidden", false);
+          if (CityDetails.nonExportingProjects.includes(CityDetails.currentTownFocus)) {
+            this.connectionsExport.innerHTML = Locale.stylize(
+              "LOC_UI_CITY_DETAILS_NO_EXPORTING_FOOD_POTENTIAL"
+            );
+          } else {
+            this.connectionsExport.innerHTML = Locale.stylize(
+              "LOC_UI_CITY_DETAILS_EXPORTING_FOOD_POTENTIAL",
+              CityDetails.name,
+              CityDetails.foodExportPotential
+            );
+          }
+        } else {
+          this.connectionsExport.classList.toggle("hidden", true);
+        }
+        if (CityDetails.foodExported > 0 && CityDetails.isTown != settlement.isTown) {
+          const foodIcon = document.createElement("fxs-icon");
+          foodIcon.classList.value = "size-6";
+          foodIcon.setAttribute("data-icon-id", "YIELD_FOOD");
+          connectedToEntry.append(foodIcon);
+          const arrowIcon = document.createElement("div");
+          arrowIcon.classList.value = "size-4 bg-contain bg-center bg-no-repeat";
+          arrowIcon.style.backgroundImage = `url('blp:reinforcementArrow')`;
+          connectedToEntry.append(arrowIcon);
+          connectedToEntry.setAttribute(
+            "data-tooltip-content",
+            Locale.stylize(
+              "LOC_UI_CITY_DETAILS_EXPORTING_FOOD_TO",
+              CityDetails.foodExported,
+              settlement.name
+            )
+          );
+        } else if (!CityDetails.isTown && settlement.foodExport > 0) {
+          const arrowIcon = document.createElement("div");
+          arrowIcon.classList.value = "size-4 bg-contain bg-center bg-no-repeat rotate-180";
+          arrowIcon.style.backgroundImage = `url('blp:reinforcementArrow')`;
+          connectedToEntry.append(arrowIcon);
+          const foodIcon = document.createElement("fxs-icon");
+          foodIcon.classList.value = "size-6";
+          foodIcon.setAttribute("data-icon-id", "YIELD_FOOD");
+          connectedToEntry.append(foodIcon);
+          connectedToEntry.setAttribute(
+            "data-tooltip-content",
+            Locale.stylize(
+              "LOC_UI_CITY_DETAILS_IMPORTING_FOOD_FROM",
+              settlement.foodExport,
+              settlement.name,
+              `[icon:${settlement.projectType ?? ""}]`,
+              settlement.projectName ?? ""
+            )
+          );
+        } else if (!CityDetails.isTown && settlement.isTown) {
+          const foodIcon = document.createElement("fxs-icon");
+          foodIcon.classList.value = "size-6 opacity-40";
+          foodIcon.setAttribute("data-icon-id", "YIELD_FOOD");
+          connectedToEntry.append(foodIcon);
+          if (CityDetails.nonExportingProjects.includes(settlement.projectType ?? "")) {
+            connectedToEntry.setAttribute(
+              "data-tooltip-content",
+              Locale.stylize(
+                "LOC_UI_CITY_DETAILS_NO_IMPORTING_FOOD_POTENTIAL",
+                settlement.name,
+                `[icon:${projectIcon ?? ""}]`,
+                projectName
+              )
+            );
+          } else {
+            connectedToEntry.setAttribute(
+              "data-tooltip-content",
+              Locale.stylize(
+                "LOC_UI_CITY_DETAILS_IMPORTING_FOOD_POTENTIAL",
+                settlement.foodExportPotential,
+                settlement.name,
+                `[icon:${projectIcon ?? ""}]`,
+                projectName
+              )
+            );
+          }
+        } else {
+          if (CityDetails.isTown && !noExportProject && !settlement.isTown) {
+            const foodIcon = document.createElement("fxs-icon");
+            foodIcon.classList.value = "size-6 opacity-40";
+            foodIcon.setAttribute("data-icon-id", "YIELD_FOOD");
+            connectedToEntry.append(foodIcon);
+          }
+          connectedToEntry.setAttribute(
+            "data-tooltip-content",
+            Locale.stylize(
+              "LOC_UI_CITY_DETAILS_CONNECTED",
+              settlement.name,
+              `[icon:${projectIcon ?? ""}]`,
+              projectName,
+              CityDetails.isTown ? 1 : 0
+            )
+          );
+        }
+        this.connectionsList.appendChild(connectedToEntry);
+      }
+    }
+    this.connectionsSubtitle.classList.toggle("mb-2", hasConnections);
+    this.connectionsSubtitle.classList.toggle("mt-2", !hasConnections);
     const constructiblesHaveFocus = this.constructibleSlot.contains(FocusManager.get().currentFocus());
     const shouldShowBuildings = CityDetails.buildings.length > 0;
     this.buildingsCategory.classList.toggle("hidden", !shouldShowBuildings);
@@ -529,14 +804,21 @@ class PanelCityDetails extends Panel {
     this.improvementsCategory.classList.toggle("hidden", !shouldShowImprovements);
     this.improvementsList.innerHTML = "";
     for (const improvement of CityDetails.improvements) {
-      this.improvementsList.appendChild(this.addConstructibleData(improvement));
+      const improvementEntry = this.addConstructibleData(improvement);
+      const improvementDef = GameInfo.Constructibles.lookup(improvement.type);
+      if (improvementDef && improvementDef.Tooltip) {
+        this.addProductionTooltip(this.improvementsList, improvementEntry, improvement);
+      } else {
+        this.improvementsList.appendChild(improvementEntry);
+      }
       this.improvementsList.appendChild(this.createDivider());
     }
     const shouldShowWonders = CityDetails.wonders.length > 0;
     this.wondersCategory.classList.toggle("hidden", !shouldShowWonders);
     this.wondersList.innerHTML = "";
     for (const wonder of CityDetails.wonders) {
-      this.wondersList.appendChild(this.addConstructibleData(wonder));
+      const wonderEntry = this.addConstructibleData(wonder);
+      this.addProductionTooltip(this.wondersList, wonderEntry, wonder);
       this.wondersList.appendChild(this.createDivider());
     }
     if (constructiblesHaveFocus) {
@@ -727,6 +1009,22 @@ class PanelCityDetails extends Panel {
       parent.appendChild(childrenContainer);
     }
   }
+  disposeTooltips = [];
+  addProductionTooltip(parent, child, data) {
+    const isSmallScreen = window.innerHeight <= Layout.pixelsToScreenPixels(900) || window.innerWidth <= Layout.pixelsToScreenPixels(1700);
+    const dispose = render(
+      () => ProductionTooltip({
+        children: child,
+        name: data.name,
+        type: data.type,
+        initialHPosition: isSmallScreen ? TooltipHorizontalPosition.RIGHT : TooltipHorizontalPosition.LEFT,
+        initialVPosition: TooltipVerticalPosition.CENTER
+      }),
+      parent
+    );
+    this.disposeTooltips.push(dispose);
+    return dispose;
+  }
   addDistrictData(districtData) {
     const mainDiv = document.createElement("div");
     mainDiv.classList.add("flex", "flex-col", "ml-4");
@@ -752,7 +1050,8 @@ class PanelCityDetails extends Panel {
       uniqueQuarterTextContainer.appendChild(districtDescription);
     }
     for (const constructibleData of districtData.constructibleData) {
-      mainDiv.appendChild(this.addConstructibleData(constructibleData));
+      const constructibleEntry = this.addConstructibleData(constructibleData);
+      this.addProductionTooltip(mainDiv, constructibleEntry, constructibleData);
     }
     return mainDiv;
   }

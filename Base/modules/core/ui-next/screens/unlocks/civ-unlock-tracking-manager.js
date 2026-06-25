@@ -9,12 +9,13 @@ const QUEST_TRACKER_SYSTEM_NAME = "civ-unlock";
 const REQUIREMENT_QUEST_ID_SEPARATOR = "::";
 class CivUnlockTrackingManager {
   catalog;
-  constructor() {
-    const localPlayerId = GameContext.localObserverID;
+  playerId;
+  constructor(playerId) {
+    this.playerId = playerId;
     this.catalog = new Catalog({
       name: CIV_UNLOCK_CATALOG_NAME,
       version: VERSION,
-      player: Players.get(localPlayerId)
+      player: Players.get(playerId)
     });
     if (!this.catalog.justCreated) {
       this.readTrackedCivUnlocks();
@@ -35,7 +36,7 @@ class CivUnlockTrackingManager {
     this.refreshTrackedCivUnlocks(event.player, event.unlock);
   }
   refreshTrackedCivUnlocks(playerId, _unlockType) {
-    if (playerId != GameContext.localPlayerID) {
+    if (playerId != this.playerId) {
       return;
     }
     const trackedCivTypes = this.getTrackedCivTypes();
@@ -89,7 +90,7 @@ class CivUnlockTrackingManager {
     if (!reward) {
       return { current: 0, total: 0 };
     }
-    const progress = Game.Unlocks.getProgressForPlayer(reward.UnlockType, GameContext.localPlayerID);
+    const progress = Game.Unlocks.getProgressForPlayer(reward.UnlockType, this.playerId);
     const progressEntry = progress?.progress.find((entry) => entry.requirementSetId == requirementSetId);
     return {
       current: progressEntry?.current ?? 0,
@@ -104,7 +105,7 @@ class CivUnlockTrackingManager {
     }
     const requirements = this.getGameplayUnlockRequirements(reward.UnlockType);
     const progressByRequirementSetId = /* @__PURE__ */ new Map();
-    const progress = Game.Unlocks.getProgressForPlayer(reward.UnlockType, GameContext.localPlayerID);
+    const progress = Game.Unlocks.getProgressForPlayer(reward.UnlockType, this.playerId);
     progress?.progress.forEach((entry) => {
       progressByRequirementSetId.set(entry.requirementSetId, {
         state: entry.state,
@@ -178,7 +179,7 @@ class CivUnlockTrackingManager {
     if (!reward) {
       return false;
     }
-    if (Game.Unlocks.isUnlockedForPlayer(reward.UnlockType, GameContext.localPlayerID)) {
+    if (Game.Unlocks.isUnlockedForPlayer(reward.UnlockType, this.playerId)) {
       return false;
     }
     return this.getGameplayUnlockRequirements(reward.UnlockType).length > 0;
@@ -199,16 +200,17 @@ class CivUnlockTrackingManager {
     this.catalog.getObject(TRACKED_CIV_UNLOCK_OBJECT_NAME).write(TRACKED_CIV_UNLOCK_KEY_NAME, serializedCivIDs);
   }
 }
-let instance = null;
+const instances = [];
 function getCivUnlockTrackingManager() {
-  if (!instance) {
-    if (!UI.isInGame()) {
-      throw new Error("CivUnlockTrackingManager should only be accessed in-game.");
-    }
-    instance = new CivUnlockTrackingManager();
+  const playerId = GameContext.localObserverID;
+  if (playerId > 999) {
+    throw new Error(`CivUnlockTrackingManager: Player ID of "${playerId}" exceeds maximum supported value of 999.`);
   }
-  return instance;
+  if (!instances[playerId]) {
+    instances[playerId] = new CivUnlockTrackingManager(playerId);
+  }
+  return instances[playerId];
 }
 
-export { getCivUnlockTrackingManager };
+export { CivUnlockTrackingManager, getCivUnlockTrackingManager };
 //# sourceMappingURL=civ-unlock-tracking-manager.js.map

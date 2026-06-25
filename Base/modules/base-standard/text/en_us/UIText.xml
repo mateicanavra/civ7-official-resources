@@ -740,16 +740,31 @@
 			<Text>Build {1_Name} to complete Unique Quarter</Text>
 		</Row>
 		<Row Tag="LOC_UI_CITY_DETAILS_SPECIALIST_PER_TILE">
-			<Text>This City currently allows {1_Specialist} {1_Specialist: plural 1?Specialist; other?Specialists;} per Tile</Text>
+			<Text>This [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]City[/TIP] currently allows {1_Specialist} [icon:SPECIALIST] [TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_TOOLTIP]{1_Specialist: plural 1?Specialist; other?Specialists;}[/TIP] per Tile</Text>
 		</Row>
 		<Row Tag="LOC_UI_TOWN_DETAILS_SPECIALIST_PER_TILE">
-			<Text>This Town currently allows {1_Specialist} {1_Specialist: plural 1?Specialist; other?Specialists;} per Tile</Text>
+			<Text>This [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]Town[/TIP] currently allows {1_Specialist} [icon:SPECIALIST] [TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_TOOLTIP]{1_Specialist: plural 1?Specialist; other?Specialists;}[/TIP] per Tile</Text>
+		</Row>
+		<Row Tag="LOC_UI_CITY_DETAILS_TOWN_NO_GROWTH">
+			<Text>[icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]Towns[/TIP] with a [icon:TOWN_FOCUS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_FOCUS_TOOLTIP]Town Focus[/TIP] do not grow.</Text>
+		</Row>
+		<Row Tag="LOC_UI_CITY_DETAILS_GROWTH_BREAKDOWN">
+			<Text>{1_Current: number #.#;-#.#}/{2_Threshold: number #.#;-#.#} [icon:YIELD_FOOD] ({3_PerTurn: number +#.#;-#.#} [icon:YIELD_FOOD])</Text>
 		</Row>
 		<Row Tag="LOC_UI_CITY_DETAILS_CITIZENS">
 			<Text>Citizens</Text>
 		</Row>
 		<Row Tag="LOC_UI_CITY_DETAILS_NEW_CITIZEN_IN_TURNS">
 			<Text>New Citizen in {1_Turns} {1_Turns: plural 1?Turn; other?Turns;}</Text>
+		</Row>
+		<Row Tag="LOC_UI_CITY_DETAILS_URBAN_POPULATION_TOOLTIP">
+			<Text>Urban Population counts the citizens in your [icon:CITY_BUILDING_LIST] [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]Buildings[/TIP]. You get one Urban Population for each [icon:CITY_BUILDING_LIST] Building in a [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]Settlement[/TIP]. [TIP:LOC_PEDIA_CONCEPTS_WALL_TOOLTIP]Walls[/TIP] don't count.</Text>
+		</Row>
+		<Row Tag="LOC_UI_CITY_DETAILS_RURAL_POPULATION_TOOLTIP">
+			<Text>Rural Population counts the citizens working your [icon:CITY_RURAL] [TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]Improvements[/TIP]. You get one Rural Population when you grow into a new Rural tile during a Growth Event.</Text>
+		</Row>
+		<Row Tag="LOC_UI_CITY_DETAILS_SPECIALIST_POPULATION_TOOLTIP">
+			<Text>[icon:SPECIALIST] [TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_TOOLTIP]Specialists[/TIP] are the citizens that increase the value of your [icon:CITY_BUILDING_LIST] [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]Buildings[/TIP]. You get one [icon:SPECIALIST] Specialist when you place a citizen on an existing [icon:CITY_BUILDING_LIST] Building during a Growth Event. [icon:SPECIALIST] Specialists are not considered Urban Population.</Text>
 		</Row>
 		<Row Tag="LOC_UI_CITY_DETAILS_HAPPINESS_STATUS">
 			<Text>Happiness Status</Text>
@@ -766,6 +781,21 @@
 		<Row Tag="LOC_UI_CITY_DETAILS_FOOD_NEEDED_TO_GROW">
 			<Text>Food Needed to Grow Population</Text>
 		</Row>
+		<Row Tag="LOC_UI_CITY_DETAILS_HAPPINESS_STAGE_DETAIL">
+			<Text>({1_Minimum} [icon:YIELD_HAPPINESS] to {2_Maximum} [icon:YIELD_HAPPINESS])</Text>
+		</Row>
+		<Row Tag="LOC_UI_CITY_DETAILS_HAPPINESS_STAGE_DETAIL_NO_MAX">
+			<Text>({1_Amount} [icon:YIELD_HAPPINESS] or more)</Text>
+		</Row>
+		<Row Tag="LOC_UI_CITY_DETAILS_HAPPINESS_STAGE_DETAIL_NO_MIN">
+			<Text>({1_Amount} [icon:YIELD_HAPPINESS] or less)</Text>
+		</Row>
+		<Row Tag="LOC_UI_CITY_DETAILS_ECSTATIC">
+			<Text>Ecstatic</Text>
+		</Row>
+		<Row Tag="LOC_UI_CITY_DETAILS_JOYOUS">
+			<Text>Joyous</Text>
+		</Row>
 		<Row Tag="LOC_UI_CITY_DETAILS_HAPPY">
 			<Text>Happy</Text>
 		</Row>
@@ -774,6 +804,36 @@
 		</Row>
 		<Row Tag="LOC_UI_CITY_DETAILS_ANGRY">
 			<Text>Angry</Text>
+		</Row>
+		<Row Tag="LOC_UI_CITY_DETAILS_CONNECTIONS">
+			<Text>Connections</Text>
+		</Row>
+		<Row Tag="LOC_UI_CITY_DETAILS_NUMBER_OF_CONNECTIONS">
+			<Text>[B]{1_City}[/B] has [B]{2_Connections}[/B] {2_Connections: plural 1?Connection; other?Connections;}</Text>
+		</Row>
+		<Row Tag="LOC_UI_CITY_DETAILS_NO_CONNECTIONS">
+			<Text>This Settlement has no Connections.</Text>
+		</Row>
+		<Row Tag="LOC_UI_CITY_DETAILS_CONNECTED">
+			<Text>This {4_IsTown: plural 1?[icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]Town[/TIP]; other?[icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]City[/TIP];} has a Connection with {1_Settlement} ({2_Icon} {3_Project}).</Text>
+		</Row>
+		<Row Tag="LOC_UI_CITY_DETAILS_IMPORTING_FOOD_FROM">
+			<Text>This [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]City[/TIP] has a Connection with {2_Settlement} ({3_Icon} {4_Project}).[nn]It is receiving {1_Amount: number #.#;-#.#} [icon:YIELD_FOOD] Food per Turn from {2_Settlement}.</Text>
+		</Row>
+		<Row Tag="LOC_UI_CITY_DETAILS_IMPORTING_FOOD_POTENTIAL">
+			<Text>This [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]City[/TIP] has a Connection with {2_Settlement} ({3_Icon} {4_Project}).[nn]It would be receiving {1_Amount: number #.#;-#.#} [icon:YIELD_FOOD] Food per Turn from {2_Settlement} if it had a [icon:TOWN_FOCUS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_FOCUS_TOOLTIP]Town Focus[/TIP] that sends [icon:YIELD_FOOD] Food.</Text>
+		</Row>
+		<Row Tag="LOC_UI_CITY_DETAILS_NO_IMPORTING_FOOD_POTENTIAL">
+			<Text>This [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]City[/TIP] has a Connection with {1_Settlement} ({2_Icon} {3_Project}).[nn]This Connected [TIP:LOC_PEDIA_CONCEPTS_TOWN_FOCUS_TOOLTIP]Town's Focus[/TIP] doesn't send [icon:YIELD_FOOD] Food to Connected [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]Cities[/TIP].</Text>
+		</Row>
+		<Row Tag="LOC_UI_CITY_DETAILS_EXPORTING_FOOD_TO">
+			<Text>This [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]Town[/TIP] has a Connection with {2_Settlement} ([icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]City[/TIP]).[nn]It is sending {1_Amount: number #.#;-#.#} [icon:YIELD_FOOD] Food per Turn to {2_Settlement}.</Text>
+		</Row>
+		<Row Tag="LOC_UI_CITY_DETAILS_EXPORTING_FOOD_POTENTIAL">
+			<Text>If {1_Settlement} had a [icon:TOWN_FOCUS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_FOCUS_TOOLTIP]Town Focus[/TIP], it would send {2_Amount: number #.#;-#.#} [icon:YIELD_FOOD] Food per Turn to all connected [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]Cities[/TIP].</Text>
+		</Row>
+		<Row Tag="LOC_UI_CITY_DETAILS_NO_EXPORTING_FOOD_POTENTIAL">
+			<Text>This [icon:TOWN_FOCUS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_FOCUS_TOOLTIP]Town Focus[/TIP] does not send [icon:YIELD_FOOD] Food to connected [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]Cities[/TIP].</Text>
 		</Row>
 		<Row Tag="LOC_UI_CITY_DETAILS_BUILDINGS">
 			<Text>Buildings</Text>
@@ -1163,6 +1223,9 @@
 		</Row>
 		<Row Tag="LOC_UI_CONVERT_TO_CITY">
 			<Text>Convert to City</Text>
+		</Row>
+		<Row Tag="LOC_UI_CITY_CAP_REACHED">
+			<Text>City Cap Reached</Text>
 		</Row>
 		<Row Tag="LOC_UI_CITY_PURCHASE_TOGGLE">
 			<Text>Toggle Purchase Mode</Text>
@@ -2216,7 +2279,7 @@
 			<Text>Diplomatic Actions</Text>
 		</Row>
 		<Row Tag="LOC_UI_DIPLOMACY_ALL_ACTIONS_EMPTY">
-			<Text>Explore to meet other Leaders.</Text>
+			<Text>No Diplomatic Actions available.</Text>
 		</Row>
 		<Row Tag="LOC_UI_DIPLOMACY_MINOR_POWERS_TOOLTIP">
 			<Text>Minor Powers</Text>
@@ -2351,13 +2414,13 @@
 			<Text>Historical</Text>
 		</Row>
 		<Row Tag="LOC_LEADER_ASSOCIATED_CIV_SELECTION_MODE_HISTORICAL_DESCRIPTION">
-			<Text>Randomized Civs will be selected from a smaller pool associated with a given Leader, if possible.[nn]Historical Civ selections may be avoided if duplicate Civs would result.</Text>
+			<Text>Randomized Civs will be selected from a smaller pool associated with a given Leader, if possible.[nn]This applies to both AI and human players selecting Randomized Civs.[nn]Historical Civ selections may be avoided if duplicate Civs would result.</Text>
 		</Row>
 		<Row Tag="LOC_LEADER_ASSOCIATED_CIV_SELECTION_MODE_RANDOM_NAME">
 			<Text>Random</Text>
 		</Row>
 		<Row Tag="LOC_LEADER_ASSOCIATED_CIV_SELECTION_MODE_RANDOM_DESCRIPTION">
-			<Text>Randomized Civs will be selected truly randomly, regardless of their associations.</Text>
+			<Text>Randomized Civs will be selected truly randomly, regardless of their associations.[nn]This applies to both AI and human players selecting Randomized Civs.</Text>
 		</Row>
 		<Row Tag="LOC_UI_CITY_CAPITAL_CURR_DESC">
 			<Text>New Capital</Text>

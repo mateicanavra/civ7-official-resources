@@ -55,11 +55,11 @@
         <Argument name="Percent">25</Argument>
     </Modifier>
     <Modifier id="10075B_NARRATIVE_MODIFIER3" collection="COLLECTION_OWNER" effect="EFFECT_ADD_PLAYER_UNITS_PILLAGE_BUILDING_PLUNDER" run-once="false" permanent="true">
-        <Argument name="Amount">-25</Argument>
+        <Argument name="Amount">-10</Argument>
         <Argument name="PlunderType">PLUNDER_DIPLOMACY</Argument>
     </Modifier>
     <Modifier id="10075B_NARRATIVE_MODIFIER4" collection="COLLECTION_OWNER" effect="EFFECT_ADD_PLAYER_UNITS_PILLAGE_IMPROVEMENT_PLUNDER" run-once="false" permanent="true">
-        <Argument name="Amount">-25</Argument>
+        <Argument name="Amount">-10</Argument>
         <Argument name="PlunderType">PLUNDER_DIPLOMACY</Argument>
     </Modifier>
     <Modifier id="10075C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD" run-once="false" permanent="true">
@@ -159,9 +159,6 @@
     <RequirementSet id="REQSET_10075A_NARRATIVE_REQUISITE">
         <Requirement xref="REQ_STORY_LEADER_SAYYIDA_AL_HURRA"/>
     </RequirementSet>
-    <RequirementSet id="REQSET_10075D_NARRATIVE_REQUISITE">
-        <Requirement xref="REQ_STORY_LEADER_SAYYIDA_AL_HURRA"/>
-    </RequirementSet>
     <RequirementSet id="REQSET_10076A_NARRATIVE_REQUISITE">
         <Requirement xref="REQ_STORY_LEADER_SAYYIDA_AL_HURRA"/>
     </RequirementSet>
@@ -233,12 +230,6 @@
             <Argument name="GOSSIP_UNIT_COMBAT_DEATH01">Hash,OtherPlayer,Other,Hash,DomainType,DOMAIN_SEA,Numeric,DyingUnitLevel,5</Argument>
         </Requirement>
     </RequirementSet>
-    <RequirementSet id="REQSET_10075D_NARRATIVE">
-        <Requirement xref="REQ_STORY_LEADER_SAYYIDA_AL_HURRA"/>
-        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
-            <Argument name="GossipTypes">GOSSIP_MAKE_DOW01</Argument>
-        </Requirement>
-    </RequirementSet>
     <RequirementSet id="REQSET_10075A_NARRATIVE">
         <Requirement xref="REQ_STORY_LEADER_SAYYIDA_AL_HURRA"/>
         <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
@@ -263,9 +254,9 @@
     </RequirementSet>
     <RequirementSet id="REQSET_10078A_NARRATIVE">
         <Requirement xref="REQ_STORY_LEADER_SAYYIDA_AL_HURRA"/>
-        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
-            <Argument name="GossipTypes">GOSSIP_ALLIED01</Argument>
-            <Argument name="GOSSIP_ALLIED01">Numeric,NavalStrengthRatio,133,Hash,OtherPlayer,Other</Argument>
+        <Requirement type="REQUIREMENT_PLAYER_MET_IMMEDIATE_GOSSIP">
+            <Argument name="GossipTypes">GOSSIP_ALLIED</Argument>
+            <Argument name="GOSSIP_ALLIED">Numeric,NavalStrengthRatio,133,Hash,OtherPlayer,Other</Argument>
         </Requirement>
     </RequirementSet>
     <RequirementSet id="REQSET_LEADER_CHAIN_1253A_NARRATIVE">

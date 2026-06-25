@@ -9,15 +9,23 @@ class UpdateCityDetailsEvent extends CustomEvent {
   }
 }
 class CityDetailsModel {
+  name = "";
   isTown = false;
   specialistPerTile = 0;
   currentCitizens = 0;
+  urbanPopulation = 0;
+  ruralPopulation = 0;
+  specialistCount = 0;
   turnsToNextCitizen = 0;
+  currentTownFocus = "";
   hasTownFocus = false;
   happinessPerTurn = 0;
   hasUnrest = false;
   foodPerTurn = 0;
   foodToGrow = 0;
+  foodCurrent = 0;
+  foodExported = 0;
+  foodExportPotential = 0;
   buildings = [];
   improvements = [];
   wonders = [];
@@ -25,7 +33,9 @@ class CityDetailsModel {
   isBeingRazed = false;
   getTurnsUntilRazed = -1;
   treasureFleetText = "";
+  connectedSettlements = [];
   connectedSettlementFood = [];
+  nonExportingProjects = [];
   onUpdate;
   set updateCallback(callback) {
     this.onUpdate = callback;
@@ -48,13 +58,20 @@ class CityDetailsModel {
   reset() {
     this.specialistPerTile = 0;
     this.currentCitizens = 0;
+    this.urbanPopulation = 0;
+    this.ruralPopulation = 0;
+    this.specialistCount = 0;
     this.turnsToNextCitizen = 0;
     this.happinessPerTurn = 0;
     this.foodPerTurn = 0;
     this.foodToGrow = 0;
+    this.foodCurrent = 0;
+    this.foodExported = 0;
+    this.foodExportPotential = 0;
     this.buildings = [];
     this.improvements = [];
     this.wonders = [];
+    this.connectedSettlements = [];
     this.connectedSettlementFood = [];
     if (this.onUpdate) {
       this.onUpdate(this);
@@ -229,8 +246,12 @@ class CityDetailsModel {
       console.error(`model-city-details: Failed to get city.Resources for ID ${selectedCityID}`);
       return;
     }
+    this.name = city.name;
     this.isTown = city.isTown;
     this.currentCitizens = city.population;
+    this.urbanPopulation = city.urbanPopulation;
+    this.ruralPopulation = city.ruralPopulation;
+    this.specialistCount = city.Workers ? city.Workers.getNumWorkers(false) : 0;
     const cityYields = city.Yields;
     if (!cityYields) {
       console.error(`model-city-details: Failed to get city.Yields for ID ${selectedCityID}`);
@@ -241,7 +262,11 @@ class CityDetailsModel {
     if (cityGrowth) {
       this.turnsToNextCitizen = cityGrowth.turnsUntilGrowth;
       this.foodToGrow = cityGrowth.getNextGrowthFoodThreshold().value;
+      this.foodCurrent = cityGrowth.currentFood;
       if (this.isTown && cityGrowth.growthType != GrowthTypes.EXPAND) {
+        const projectType = cityGrowth.projectType;
+        const projectInfo = GameInfo.Projects.lookup(projectType);
+        this.currentTownFocus = projectInfo?.ProjectType ?? "";
         this.hasTownFocus = true;
       } else {
         this.hasTownFocus = false;
@@ -363,6 +388,13 @@ class CityDetailsModel {
         );
       }
     }
+    this.nonExportingProjects = [];
+    GameInfo.Project_Units.forEach((row) => {
+      if (!this.nonExportingProjects.includes(row.ProjectType)) {
+        this.nonExportingProjects.push(row.ProjectType);
+      }
+    });
+    this.buildConnectionData(city);
     this.connectedSettlementFood = [];
     const sendingFoodData = this.buildSendingFoodData(city);
     if (sendingFoodData) {
@@ -395,6 +427,46 @@ class CityDetailsModel {
     this.onUpdate?.(this);
     window.dispatchEvent(new UpdateCityDetailsEvent());
   });
+  buildConnectionData(selectedSettlement) {
+    this.connectedSettlements = [];
+    this.foodExported = selectedSettlement.isTown && selectedSettlement.Growth?.growthType === GrowthTypes.PROJECT && !this.nonExportingProjects.includes(this.currentTownFocus) ? selectedSettlement.getSentFoodPerCity() : 0;
+    this.foodExportPotential = selectedSettlement.getSentFoodPerCity();
+    const ownerSettlements = Players.get(selectedSettlement.owner)?.Cities?.getCities();
+    if (!ownerSettlements) {
+      console.error("model-city-details: buildConnectionData() - Failed to get ownerSettlements");
+      return;
+    }
+    const connectedSettlements = selectedSettlement.getConnectedCities();
+    for (const settlementID of connectedSettlements) {
+      const settlement = Cities.get(settlementID);
+      if (!settlement) continue;
+      const settlementGrowth = settlement.Growth;
+      if (!settlementGrowth) continue;
+      const growthType = settlementGrowth.growthType;
+      const projectType = settlementGrowth.projectType;
+      const projectInfo = GameInfo.Projects.lookup(projectType);
+      const isSendingFood = settlement.isTown && growthType === GrowthTypes.PROJECT && projectInfo && !this.nonExportingProjects.includes(projectInfo.ProjectType);
+      const connectionData = {
+        id: settlementID,
+        name: settlement.name,
+        isTown: settlement.isTown,
+        projectName: projectInfo?.Name,
+        projectType: projectInfo?.ProjectType,
+        projectSendsFood: !this.nonExportingProjects.includes(projectInfo?.ProjectType ?? ""),
+        foodExport: isSendingFood ? settlement.getSentFoodPerCity() : 0,
+        foodExportPotential: settlement.getSentFoodPerCity()
+      };
+      this.connectedSettlements.push(connectionData);
+    }
+    this.connectedSettlements.sort((a, b) => {
+      if (a.isTown !== b.isTown) {
+        const aMatch = a.isTown === selectedSettlement.isTown ? 1 : 0;
+        const bMatch = b.isTown === selectedSettlement.isTown ? 1 : 0;
+        return aMatch - bMatch;
+      }
+      return b.foodExport - a.foodExport;
+    });
+  }
   buildSendingFoodData(selectedSettlement) {
     const sendingFoodData = [];
     const ownerSettlements = Players.get(selectedSettlement.owner)?.Cities?.getCities();
@@ -403,7 +475,9 @@ class CityDetailsModel {
       return;
     }
     for (const town of ownerSettlements) {
-      if (town.isTown && town.Growth?.growthType == GrowthTypes.PROJECT) {
+      const projectType = town?.Growth?.projectType ?? "";
+      const projectInfo = GameInfo.Projects.lookup(projectType);
+      if (town.isTown && town.Growth?.growthType == GrowthTypes.PROJECT && !this.nonExportingProjects.includes(projectInfo?.ProjectType ?? "")) {
         const connectedToTown = town.getConnectedCities();
         const foodForEachCity = town.getSentFoodPerCity();
         for (const connectedSettlement of connectedToTown) {

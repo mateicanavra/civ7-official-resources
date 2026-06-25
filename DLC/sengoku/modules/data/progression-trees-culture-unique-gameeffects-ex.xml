@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+	<Modifier id="RAKUICH_RAKUZA_MOD_SAMURAI_2" collection="COLLECTION_OWNER" effect="EFFECT_ADJUST_PLAYER_VALID_UNIT_BUILD">
+		<Argument name="UnitType">UNIT_SAMURAI_2</Argument>
+		<String context="Description">LOC_RAKUICH_RAKUZA_MOD_SAMURAI_2_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="MOD_CIV_SENGOKU_NO_MAN" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_DISABLE_BUILD_UNIT" permanent="true"> 
+		<Argument name="UnitType">UNIT_MAN_AT_ARMS</Argument>
+		<Argument name="PermanentlyDisabled">true</Argument>
+	</Modifier>
+</GameEffects>

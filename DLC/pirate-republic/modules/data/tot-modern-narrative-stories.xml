@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database>
+    <Types>
+        <Row Type="TOT_30073A" Kind="KIND_NARRATIVE_STORY"/>
+        <Row Type="TOT_30073B" Kind="KIND_NARRATIVE_STORY"/>
+        <Row Type="TOT_30073C" Kind="KIND_NARRATIVE_STORY"/>
+    </Types>
+    <NarrativeStories>
+        <Row NarrativeStoryType="TOT_30073A" Name="LOC_TOT_30073A_NAME" Description="LOC_TOT_30073A_DESCRIPTION" Completion="LOC_TOT_30073A_COMPLETION" StoryTitle="LOC_TOT_30073A_STORYTITLE" Age="AGE_MODERN" Activation="REQUISITE" RequirementSetId="REQSET_TOT_30073A_NARRATIVE" ActivationRequirementSetId="REQSET_TOT_30073A_NARRATIVE_REQUISITE" UIActivation="STANDARD"/>
+        <Row NarrativeStoryType="TOT_30073B" Name="LOC_TOT_30073B_NAME" Description="LOC_TOT_30073B_DESCRIPTION" Completion="LOC_TOT_30073B_COMPLETION" Age="AGE_MODERN" Activation="LINKED" Hidden="TRUE" RequirementSetId="Met" UIActivation="STANDARD"/>
+        <Row NarrativeStoryType="TOT_30073C" Name="LOC_TOT_30073C_NAME" Description="LOC_TOT_30073C_DESCRIPTION" Completion="LOC_TOT_30073C_COMPLETION" Age="AGE_MODERN" Activation="LINKED" Hidden="TRUE" RequirementSetId="Met" UIActivation="STANDARD"/>
+    </NarrativeStories>
+    <NarrativeRewards>
+        <Row NarrativeRewardType="TOT_30073B_REWARD" ModifierID="TOT_30073B_NARRATIVE_MODIFIER"/>
+        <Row NarrativeRewardType="TOT_30073C_REWARD" ModifierID="TOT_30073C_NARRATIVE_MODIFIER"/>
+    </NarrativeRewards>
+    <NarrativeStory_Rewards>
+        <Row NarrativeStoryType="TOT_30073B" NarrativeRewardType="TOT_30073B_REWARD" Activation="START"/>
+        <Row NarrativeStoryType="TOT_30073C" NarrativeRewardType="TOT_30073C_REWARD" Activation="START"/>
+    </NarrativeStory_Rewards>
+    <NarrativeStoryOverrides>
+    </NarrativeStoryOverrides>
+    <NarrativeVariations>
+    </NarrativeVariations>
+    <NarrativeRewardIcons>
+        <Row NarrativeStoryType="TOT_30073B" RewardIconType="ATTRIBUTE_ECONOMIC"/>
+        <Row NarrativeStoryType="TOT_30073C" RewardIconType="ATTRIBUTE_MILITARISTIC"/>
+    </NarrativeRewardIcons>
+    <NarrativeStory_TextReplacements>
+        <Row NarrativeStoryType="TOT_30073B" NarrativeStoryTextType="REWARD" NarrativeTextReplacementType="REWARD" Priority="1"/>
+        <Row NarrativeStoryType="TOT_30073C" NarrativeStoryTextType="REWARD" NarrativeTextReplacementType="REWARD" Priority="1"/>
+    </NarrativeStory_TextReplacements>
+    <NarrativeStory_Links>
+        <Row FromNarrativeStoryType="TOT_30073A" ToNarrativeStoryType="TOT_30073B" Priority="0" Name="LOC_TOT_30073B_NAME" Description="LOC_TOT_30073B_DESCRIPTION"/>
+        <Row FromNarrativeStoryType="TOT_30073A" ToNarrativeStoryType="TOT_30073C" Priority="1" Name="LOC_TOT_30073C_NAME" Description="LOC_TOT_30073C_DESCRIPTION"/>
+    </NarrativeStory_Links>
+</Database>

@@ -1,0 +1,875 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+    <Modifier id="12016B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_NARRATIVE" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_CULTURE</Argument>
+        <Argument name="MultiplierType">REWARD_TYPE_MINOR_EARLY</Argument>
+    </Modifier>
+    <Modifier id="12016C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_NARRATIVE" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+        <Argument name="MultiplierType">REWARD_TYPE_MINOR_EARLY</Argument>
+    </Modifier>
+    <Modifier id="11124B_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD" run-once="false">
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_CITY_IS_CITY">
+            </Requirement>
+        </SubjectRequirements>
+        <Argument name="YieldType">YIELD_CULTURE</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">3</Argument>
+    </Modifier>
+    <Modifier id="11124C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD" run-once="false">
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_CITY_IS_CITY" inverse="true">
+            </Requirement>
+        </SubjectRequirements>
+        <Argument name="YieldType">YIELD_CULTURE</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+    </Modifier>
+    <Modifier id="11125B_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+        <Argument name="Amount">1</Argument>
+        <Argument name="ConstructibleType">BUILDING_BARRACKS</Argument>
+    </Modifier>
+    <Modifier id="11125C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_HAPPINESS</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+        <Argument name="ConstructibleType">BUILDING_BARRACKS</Argument>
+    </Modifier>
+    <Modifier id="11126B_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_ADJUST_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+        <Argument name="Amount">1</Argument>
+    </Modifier>
+    <Modifier id="11126C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_ADJUST_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_HAPPINESS</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+    </Modifier>
+    <Modifier id="11127B_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD" run-once="false">
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_CITY_IS_CITY" inverse="true">
+            </Requirement>
+        </SubjectRequirements>
+        <Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+        <Argument name="Amount">1</Argument>
+    </Modifier>
+    <Modifier id="11127C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_NARRATIVE" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_CULTURE</Argument>
+        <Argument name="MultiplierType">REWARD_TYPE_MEDIUM_LATE</Argument>
+    </Modifier>
+    <Modifier id="11127C_NARRATIVE_MODIFIER2" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADD_YIELD_DEBT_NARRATIVE" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_HAPPINESS</Argument>
+        <Argument name="MultiplierType">REWARD_TYPE_MINOR_LATE</Argument>
+    </Modifier>
+    <Modifier id="11128B_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_ABILITY" run-once="false" permanent="true">
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+                <Argument name="Tag">UNIT_CLASS_YUMI</Argument>
+            </Requirement>
+        </SubjectRequirements>
+        <Argument name="AbilityType">ABILITY_NARRATIVE_STRENGTH</Argument>
+    </Modifier>
+    <Modifier id="11128C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_NARRATIVE" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+        <Argument name="MultiplierType">REWARD_TYPE_MINOR_LATE</Argument>
+    </Modifier>
+    <Modifier id="11129B_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_GOLD</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+        <Argument name="ConstructibleType">BUILDING_ALTAR</Argument>
+    </Modifier>
+    <Modifier id="11129C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_ADJUST_PLAYER_OR_CITY_BUILDING_PURCHASE_EFFICIENCY" run-once="false" permanent="true">
+        <Argument name="Percent">10</Argument>
+        <Argument name="ConstructibleClass">BUILDING</Argument>
+    </Modifier>
+    <Modifier id="11130B_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_CULTURE</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+        <Argument name="ConstructibleType">BUILDING_ALTAR</Argument>
+    </Modifier>
+    <Modifier id="11130C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_SCIENCE</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+        <Argument name="ConstructibleType">BUILDING_ALTAR</Argument>
+    </Modifier>
+    <Modifier id="11131B_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_WONDER_PRODUCTION" run-once="false" permanent="true">
+        <Argument name="Percent">10</Argument>
+    </Modifier>
+    <Modifier id="11131C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+        <Argument name="Amount">3</Argument>
+        <Argument name="ConstructibleClass">WONDER</Argument>
+    </Modifier>
+    <Modifier id="11132B_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_CULTURE</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+        <Argument name="ConstructibleType">BUILDING_GARDEN</Argument>
+    </Modifier>
+    <Modifier id="11132B_NARRATIVE_MODIFIER2" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_GOLD</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">-1</Argument>
+        <Argument name="ConstructibleType">BUILDING_GARDEN</Argument>
+    </Modifier>
+    <Modifier id="11132C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_NARRATIVE" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_HAPPINESS</Argument>
+        <Argument name="MultiplierType">REWARD_TYPE_MINOR_LATE</Argument>
+    </Modifier>
+    <Modifier id="11132C_NARRATIVE_MODIFIER2" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADD_YIELD_DEBT_NARRATIVE" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+        <Argument name="MultiplierType">REWARD_TYPE_MINOR_LATE</Argument>
+    </Modifier>
+    <Modifier id="11133B_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD" run-once="false" permanent="true">
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_CITY_IS_CITY">
+            </Requirement>
+        </SubjectRequirements>
+        <Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+        <Argument name="Amount">1</Argument>
+    </Modifier>
+    <Modifier id="11133B_NARRATIVE_MODIFIER2" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD" run-once="false" permanent="true">
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_CITY_IS_CITY">
+            </Requirement>
+        </SubjectRequirements>
+        <Argument name="YieldType">YIELD_GOLD</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">-1</Argument>
+    </Modifier>
+    <Modifier id="11133C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_GRANT_UNIT" run-once="false" permanent="true">
+        <Argument name="UnitType">UNIT_MIGRANT</Argument>
+        <Argument name="Amount">2</Argument>
+    </Modifier>
+    <Modifier id="11133C_NARRATIVE_MODIFIER2" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD" run-once="false" permanent="true">
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_CITY_IS_CITY">
+            </Requirement>
+        </SubjectRequirements>
+        <Argument name="YieldType">YIELD_HAPPINESS</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">-1</Argument>
+    </Modifier>
+    <Modifier id="11206B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ATTRIBUTE" run-once="false" permanent="true">
+        <Argument name="AttributeType">ATTRIBUTE_CULTURAL</Argument>
+        <Argument name="Amount">1</Argument>
+    </Modifier>
+    <Modifier id="11206C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ATTRIBUTE" run-once="false" permanent="true">
+        <Argument name="AttributeType">ATTRIBUTE_POLITICAL</Argument>
+        <Argument name="Amount">1</Argument>
+    </Modifier>
+    <Modifier id="11207B_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+        <Argument name="Amount">1</Argument>
+        <Argument name="Tag">CULTURE</Argument>
+    </Modifier>
+    <Modifier id="11207B_NARRATIVE_MODIFIER2" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_GOLD</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">-1</Argument>
+        <Argument name="Tag">CULTURE</Argument>
+    </Modifier>
+    <Modifier id="11207C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_CULTURE</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+        <Argument name="ConstructibleType">BUILDING_VILLA</Argument>
+    </Modifier>
+    <Modifier id="11208C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_CULTURE</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">2</Argument>
+        <Argument name="ConstructibleType">BUILDING_ACADEMY</Argument>
+    </Modifier>
+    <Modifier id="11209B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD_PER_ACTIVE_TRADITION" run-once="false" permanent="true">
+        <Argument name="Amount">1</Argument>
+        <Argument name="YieldType">YIELD_GOLD</Argument>
+        <Argument name="CivUnique">true</Argument>
+    </Modifier>
+    <Modifier id="11209C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD_PER_ACTIVE_TRADITION" run-once="false" permanent="true">
+        <Argument name="Amount">1</Argument>
+        <Argument name="YieldType">YIELD_CULTURE</Argument>
+        <Argument name="CivUnique">true</Argument>
+    </Modifier>
+    <Modifier id="11209D_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_GREAT_WORK" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_CULTURE</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+    </Modifier>
+    <Modifier id="11210C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_HAPPINESS</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+        <Argument name="ConstructibleType">BUILDING_VILLA</Argument>
+    </Modifier>
+    <Modifier id="11211B_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_CULTURE</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+        <Argument name="Tag">CULTURE</Argument>
+    </Modifier>
+    <Modifier id="11211C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_HAPPINESS</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+        <Argument name="Tag">CULTURE</Argument>
+    </Modifier>
+    <Modifier id="11211D_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_GREAT_WORK" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_CULTURE</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+    </Modifier>
+    <Modifier id="11212E_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_ADJUST_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+        <Argument name="Amount">2</Argument>
+    </Modifier>
+    <Modifier id="11213B_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_HAPPINESS</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">2</Argument>
+        <Argument name="ConstructibleType">BUILDING_VILLA</Argument>
+    </Modifier>
+    <Modifier id="11213B_NARRATIVE_MODIFIER2" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_CULTURE</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">-1</Argument>
+        <Argument name="ConstructibleType">BUILDING_VILLA</Argument>
+    </Modifier>
+    <Modifier id="11213C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_CULTURE</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">2</Argument>
+        <Argument name="ConstructibleType">BUILDING_VILLA</Argument>
+    </Modifier>
+    <Modifier id="11213C_NARRATIVE_MODIFIER2" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_HAPPINESS</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">-1</Argument>
+        <Argument name="ConstructibleType">BUILDING_VILLA</Argument>
+    </Modifier>
+    <Modifier id="11214C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_CULTURE</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">2</Argument>
+        <Argument name="ConstructibleType">BUILDING_ALTAR</Argument>
+    </Modifier>
+    <Modifier id="11215B_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_CULTURE</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+        <Argument name="ConstructibleType">IMPROVEMENT_JINJA_LAND</Argument>
+    </Modifier>
+    <Modifier id="11215B_NARRATIVE_MODIFIER2" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_CULTURE</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+        <Argument name="ConstructibleType">IMPROVEMENT_JINJA_SEA</Argument>
+    </Modifier>
+    <Modifier id="11215C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_SCIENCE</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+        <Argument name="ConstructibleType">IMPROVEMENT_JINJA_LAND</Argument>
+    </Modifier>
+    <Modifier id="11215C_NARRATIVE_MODIFIER2" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_SCIENCE</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+        <Argument name="ConstructibleType">IMPROVEMENT_JINJA_SEA</Argument>
+    </Modifier>
+    <Modifier id="11216E_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_NARRATIVE" run-once="false" permanent="true">
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_PLAYER_MET_IMMEDIATE_GOSSIP">
+                <Argument name="GossipTypes">GOSSIP_DIPLOMACY_ACTION_STARTED</Argument>
+                <Argument name="GOSSIP_DIPLOMACY_ACTION_STARTED">Hash,DiplomacyActionGroup,DIPLOMACY_ACTION_GROUP_SANCTION,Hash,OtherPlayer,Self</Argument>                
+            </Requirement>
+        </SubjectRequirements>
+        <Argument name="YieldType">YIELD_CULTURE</Argument>
+        <Argument name="MultiplierType">REWARD_TYPE_MINOR_EARLY</Argument>
+    </Modifier>
+    <Modifier id="11217B_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_GOLD</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">-3</Argument>
+        <Argument name="ConstructibleType">BUILDING_LIBRARY</Argument>
+    </Modifier>
+    <Modifier id="11217B_NARRATIVE_MODIFIER2" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_GREAT_WORK_SLOTS" run-once="false" permanent="true">
+        <Argument name="Amount">1</Argument>
+        <Argument name="ConstructibleType">BUILDING_LIBRARY</Argument>
+        <Argument name="SlotType">GREATWORKSLOT_RELIC</Argument>
+    </Modifier>
+    <Modifier id="11217C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_GREAT_WORK" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_GOLD</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+    </Modifier>
+    <Modifier id="11218C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_CULTURE</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+        <Argument name="ConstructibleType">BUILDING_PALACE</Argument>
+    </Modifier>
+    <Modifier id="11218F_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_CULTURE</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+        <Argument name="ConstructibleType">BUILDING_PALACE</Argument>
+    </Modifier>
+    <Modifier id="11218G_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_CULTURE</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+        <Argument name="ConstructibleType">BUILDING_PALACE</Argument>
+    </Modifier>
+    <Modifier id="11218H_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_CULTURE</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+        <Argument name="ConstructibleType">BUILDING_PALACE</Argument>
+    </Modifier>
+    <Modifier id="11218I_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_CULTURE</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+        <Argument name="ConstructibleType">BUILDING_PALACE</Argument>
+    </Modifier>
+    <Modifier id="11219B_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_GOLD</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+        <Argument name="ConstructibleType">BUILDING_MARKET</Argument>
+    </Modifier>
+    <Modifier id="11219C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_CULTURE</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">2</Argument>
+        <Argument name="ConstructibleType">BUILDING_LIBRARY</Argument>
+    </Modifier>
+    <Modifier id="11219C_NARRATIVE_MODIFIER2" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+        <Argument name="Amount">-1</Argument>
+        <Argument name="ConstructibleType">BUILDING_LIBRARY</Argument>
+    </Modifier>
+    <Modifier id="11220C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD" run-once="false">
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_CITY_IS_CITY" inverse="true">
+            </Requirement>
+        </SubjectRequirements>
+        <Argument name="YieldType">YIELD_CULTURE</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+    </Modifier>
+    <Modifier id="11221B_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_CULTURE</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+        <Argument name="ConstructibleType">BUILDING_LIBRARY</Argument>
+    </Modifier>
+    <Modifier id="11221C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_SCIENCE</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+        <Argument name="ConstructibleType">BUILDING_LIBRARY</Argument>
+    </Modifier>
+    <Modifier id="11222E_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD" run-once="false" permanent="true">
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_PLOT_IS_NATURAL_WONDER">
+            </Requirement>
+        </SubjectRequirements>
+        <Argument name="YieldType">YIELD_CULTURE</Argument>
+        <Argument name="Amount">1</Argument>
+    </Modifier>
+    <Modifier id="11223B_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_SCIENCE</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">2</Argument>
+        <Argument name="ConstructibleType">BUILDING_AMPHITHEATER</Argument>
+    </Modifier>
+    <Modifier id="11223C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_HAPPINESS</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">2</Argument>
+        <Argument name="ConstructibleType">BUILDING_AMPHITHEATER</Argument>
+    </Modifier>
+    <Modifier id="11224C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD" run-once="false">
+        <SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_HAS_PROJECT">
+				<Argument name="ProjectType">PROJECT_TOWN_PRODUCTION</Argument>
+			</Requirement>
+        </SubjectRequirements>
+        <Argument name="YieldType">YIELD_CULTURE</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+    </Modifier>
+    <Modifier id="11225B_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_MODIFY_CITY_YIELD_FOR_X_TURNS" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_PRODUCTION</Argument>
+        <Argument name="ReductionPercent">50</Argument>
+        <Argument name="Turns">2</Argument>
+    </Modifier>
+    <Modifier id="11225B_NARRATIVE_MODIFIER2" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_GRANT_UNIT_YIELD_PROMOTION" run-once="true" permanent="true">
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+                <Argument name="Tag">UNIT_CLASS_COMMAND</Argument>
+            </Requirement>
+        </SubjectRequirements>
+        <Argument name="YieldType">YIELD_CULTURE</Argument>
+        <Argument name="Amount">10</Argument>
+    </Modifier>
+    <Modifier id="11225C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_WONDER_PRODUCTION" run-once="false" permanent="true">
+        <Argument name="Percent">10</Argument>
+    </Modifier>
+    <Modifier id="11226C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_GRANT_YIELD_PER_XP_EARNED" run-once="false" permanent="true">
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+                <Argument name="Tag">UNIT_CLASS_COMMAND</Argument>
+            </Requirement>
+        </SubjectRequirements>
+        <Argument name="YieldType">YIELD_CULTURE</Argument>
+        <Argument name="Amount">1</Argument>
+    </Modifier>
+    <Modifier id="11227C_COMPLETE_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+        <Argument name="Amount">1</Argument>
+        <Argument name="Tag">CULTURE</Argument>
+    </Modifier>
+    <Modifier id="11227D_COMPLETE_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ATTRIBUTE" run-once="false" permanent="true">
+        <Argument name="AttributeType">ATTRIBUTE_CULTURAL</Argument>
+        <Argument name="Amount">1</Argument>
+    </Modifier>
+    <Modifier id="11227D_COMPLETE_NARRATIVE_MODIFIER2" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_TRADITION_SLOTS" run-once="false" permanent="true">
+        <Argument name="SlotType">TRADITION_CULTURE_SLOT</Argument>
+        <Argument name="Amount">1</Argument>
+    </Modifier>
+    <Modifier id="11227E_COMPLETE_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+        <Argument name="Amount">1</Argument>
+        <Argument name="Tag">CULTURE</Argument>
+    </Modifier>
+    <Modifier id="11227F_COMPLETE_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ATTRIBUTE" run-once="false" permanent="true">
+        <Argument name="AttributeType">ATTRIBUTE_CULTURAL</Argument>
+        <Argument name="Amount">1</Argument>
+    </Modifier>
+    <Modifier id="11227F_COMPLETE_NARRATIVE_MODIFIER2" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_TRADITION_SLOTS" run-once="false" permanent="true">
+        <Argument name="SlotType">TRADITION_CULTURE_SLOT</Argument>
+        <Argument name="Amount">1</Argument>
+    </Modifier>
+    <Modifier id="11227H_COMPLETE_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ATTRIBUTE" run-once="false" permanent="true">
+        <Argument name="AttributeType">ATTRIBUTE_CULTURAL</Argument>
+        <Argument name="Amount">1</Argument>
+    </Modifier>
+    <Modifier id="11227H_COMPLETE_NARRATIVE_MODIFIER2" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_TRADITION_SLOTS" run-once="false" permanent="true">
+        <Argument name="SlotType">TRADITION_CULTURE_SLOT</Argument>
+        <Argument name="Amount">1</Argument>
+    </Modifier>
+    <Modifier id="11227J_COMPLETE_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+        <Argument name="Amount">1</Argument>
+        <Argument name="Tag">CULTURE</Argument>
+    </Modifier>
+    <Modifier id="11227K_COMPLETE_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ATTRIBUTE" run-once="false" permanent="true">
+        <Argument name="AttributeType">ATTRIBUTE_CULTURAL</Argument>
+        <Argument name="Amount">1</Argument>
+    </Modifier>
+    <Modifier id="11227K_COMPLETE_NARRATIVE_MODIFIER2" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_TRADITION_SLOTS" run-once="false" permanent="true">
+        <Argument name="SlotType">TRADITION_CULTURE_SLOT</Argument>
+        <Argument name="Amount">1</Argument>
+    </Modifier>
+    <Modifier id="11227L_COMPLETE_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+        <Argument name="Amount">1</Argument>
+        <Argument name="Tag">CULTURE</Argument>
+    </Modifier>
+    <Modifier id="11227M_COMPLETE_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ATTRIBUTE" run-once="false" permanent="true">
+        <Argument name="AttributeType">ATTRIBUTE_CULTURAL</Argument>
+        <Argument name="Amount">1</Argument>
+    </Modifier>
+    <Modifier id="11227M_COMPLETE_NARRATIVE_MODIFIER2" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_TRADITION_SLOTS" run-once="false" permanent="true">
+        <Argument name="SlotType">TRADITION_CULTURE_SLOT</Argument>
+        <Argument name="Amount">1</Argument>
+    </Modifier>
+    <Modifier id="11227N_COMPLETE_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ATTRIBUTE" run-once="false" permanent="true">
+        <Argument name="AttributeType">ATTRIBUTE_MILITARISTIC</Argument>
+        <Argument name="Amount">1</Argument>
+    </Modifier>
+    <Modifier id="11208C_NARRATIVE_MODIFIER2" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_NARRATIVE_TAG" run-once="false" permanent="true">
+        <Argument name="Amount">1</Argument>
+        <Argument name="NarrativeTagType">NARRATIVE_TAG_HEIAN_POETRY</Argument>
+    </Modifier>
+    <Modifier id="11210C_NARRATIVE_MODIFIER2" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_NARRATIVE_TAG" run-once="false" permanent="true">
+        <Argument name="Amount">1</Argument>
+        <Argument name="NarrativeTagType">NARRATIVE_TAG_HEIAN_POETRY</Argument>
+    </Modifier>
+    <Modifier id="11212E_NARRATIVE_MODIFIER2" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_NARRATIVE_TAG" run-once="false" permanent="true">
+        <Argument name="Amount">1</Argument>
+        <Argument name="NarrativeTagType">NARRATIVE_TAG_HEIAN_POETRY</Argument>
+    </Modifier>
+    <Modifier id="11214C_NARRATIVE_MODIFIER2" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_NARRATIVE_TAG" run-once="false" permanent="true">
+        <Argument name="Amount">1</Argument>
+        <Argument name="NarrativeTagType">NARRATIVE_TAG_HEIAN_POETRY</Argument>
+    </Modifier>
+    <Modifier id="11216E_NARRATIVE_MODIFIER2" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_NARRATIVE_TAG" run-once="false" permanent="true">
+        <Argument name="Amount">1</Argument>
+        <Argument name="NarrativeTagType">NARRATIVE_TAG_HEIAN_POETRY</Argument>
+    </Modifier>
+    <Modifier id="11218C_NARRATIVE_MODIFIER2" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_NARRATIVE_TAG" run-once="false" permanent="true">
+        <Argument name="Amount">1</Argument>
+        <Argument name="NarrativeTagType">NARRATIVE_TAG_HEIAN_POETRY</Argument>
+    </Modifier>
+    <Modifier id="11220C_NARRATIVE_MODIFIER2" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_NARRATIVE_TAG" run-once="false" permanent="true">
+        <Argument name="Amount">1</Argument>
+        <Argument name="NarrativeTagType">NARRATIVE_TAG_HEIAN_POETRY</Argument>
+    </Modifier>
+    <Modifier id="11222E_NARRATIVE_MODIFIER2" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_NARRATIVE_TAG" run-once="false" permanent="true">
+        <Argument name="Amount">1</Argument>
+        <Argument name="NarrativeTagType">NARRATIVE_TAG_HEIAN_POETRY</Argument>
+    </Modifier>
+    <Modifier id="11224C_NARRATIVE_MODIFIER2" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_NARRATIVE_TAG" run-once="false" permanent="true">
+        <Argument name="Amount">1</Argument>
+        <Argument name="NarrativeTagType">NARRATIVE_TAG_HEIAN_POETRY</Argument>
+    </Modifier>
+    <Modifier id="11226C_NARRATIVE_MODIFIER2" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_NARRATIVE_TAG" run-once="false" permanent="true">
+        <Argument name="Amount">1</Argument>
+        <Argument name="NarrativeTagType">NARRATIVE_TAG_HEIAN_POETRY</Argument>
+    </Modifier>
+    <RequirementSet id="REQSET_11209D_NARRATIVE_REQUISITE">
+        <Requirement type="REQUIREMENT_PLAYER_HAS_GREAT_WORK_ACTIVE">
+            <Argument name="GreatWorkType">GREATWORK_SHIKIBU_GENJI</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11211D_NARRATIVE_REQUISITE">
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
+            <Argument name="GossipTypes">GOSSIP_CREATE_GREAT_PERSON01</Argument>
+            <Argument name="GOSSIP_CREATE_GREAT_PERSON01">Hash,GreatPersonIndividualType,GREAT_PERSON_INDIVIDUAL_SHIJIN_MURASAKI_SHIKIBU</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11227K_NARRATIVE_REQUISITE">
+        <Requirement type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
+            <Argument name="LeaderType">LEADER_TOYOTOMI_HIDEYOSHI</Argument>
+            <Argument name="AcceptVariation">True</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11227L_NARRATIVE_REQUISITE">
+        <Requirement type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
+            <Argument name="LeaderType">LEADER_ADA_LOVELACE</Argument>
+            <Argument name="AcceptVariation">True</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11227M_NARRATIVE_REQUISITE">
+        <Requirement type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
+            <Argument name="LeaderType">LEADER_JOSE_RIZAL</Argument>
+            <Argument name="AcceptVariation">True</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11227N_NARRATIVE_REQUISITE">
+        <Requirement type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
+            <Argument name="LeaderType">LEADER_ALEXANDER</Argument>
+            <Argument name="AcceptVariation">True</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11124A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_HEIAN"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11125A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_HEIAN"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11126A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_HEIAN"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11128A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_HEIAN"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11129A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_HEIAN"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11130A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_HEIAN"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11131A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_HEIAN"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11132A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_HEIAN"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11133A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_HEIAN"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11206A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_HEIAN"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11207A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_HEIAN"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11209A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_HEIAN"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11211A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_HEIAN"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11213A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_HEIAN"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11215A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_HEIAN"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11217A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_HEIAN"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11219A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_HEIAN"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11221A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_HEIAN"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11223A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_HEIAN"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11225A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_HEIAN"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11227A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_HEIAN"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_12016A_NARRATIVE">
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
+            <Argument name="GossipTypes">GOSSIP_PLAYERS_MEET01</Argument>
+            <Argument name="GOSSIP_PLAYERS_MEET01">Hash,OtherPlayer,Other,Hash,Civilization,CIVILIZATION_HEIAN</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11124A_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_HEIAN"/>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_ACTIVE_TRADITION">
+            <Argument name="TraditionType">TRADITION_DRAMA_AND_POETRY</Argument>
+        </Requirement>
+        <Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+			<Argument name="RequirementSetId">SUBREQSET_11124A_NARRATIVE</Argument>
+		</Requirement>
+    </RequirementSet>
+    <RequirementSet id="SUBREQSET_11124A_NARRATIVE" type="REQUIREMENTSET_TEST_ANY">
+        <Requirement type="REQUIREMENT_PLAYER_MET_IMMEDIATE_GOSSIP">
+            <Argument name="GossipTypes">GOSSIP_PLACED_WORKER</Argument>
+            <Argument name="GOSSIP_PLACED_WORKER">Hash,ConstructibleType,BUILDING_VILLA</Argument>
+        </Requirement>
+        <Requirement type="REQUIREMENT_PLAYER_MET_IMMEDIATE_GOSSIP">
+            <Argument name="GossipTypes">GOSSIP_PLACED_WORKER</Argument>
+            <Argument name="GOSSIP_PLACED_WORKER">Hash,ConstructibleType2,BUILDING_VILLA</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11125A_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_HEIAN"/>
+        <Requirement type="REQUIREMENT_COLLECTION_ANY_MET">
+            <Argument name="CollectionType">COLLECTION_PLAYER_UNITS</Argument>
+            <Argument name="RequirementSetId">SUBREQSET_11125A_NARRATIVE</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="SUBREQSET_11125A_NARRATIVE">
+        <Requirement type="REQUIREMENT_COMMANDER_HAS_X_PROMOTIONS">
+            <Argument name="Amount">1</Argument>
+            <Argument name="CommendationsOnly">True</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11126A_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_HEIAN"/>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
+            <Argument name="GossipTypes">GOSSIP_PLACED_WORKER01,GOSSIP_PLACED_WORKER02</Argument>
+            <Argument name="GOSSIP_PLACED_WORKER01">Hash,ConstructibleType,BUILDING_PALACE</Argument>
+            <Argument name="GOSSIP_PLACED_WORKER02">Hash,ConstructibleType2,BUILDING_PALACE</Argument>
+            <Argument name="Amount">1</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11127A_NARRATIVE">
+        <Requirement type="REQUIREMENT_GAME_TURN_IS_X_NARRATIVE">
+            <Argument name="AfterTurn">5</Argument>
+        </Requirement>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS" inverse="true">
+            <Argument name="GossipTypes">GOSSIP_CONSTRUCTIBLE_REPAIRED01</Argument>
+            <Argument name="AfterInit">True</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11127D_NARRATIVE">
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
+            <Argument name="GossipTypes">GOSSIP_RANDOM_EVENT_DAMAGED_CONSTRUCTIBLE01</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11128A_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_HEIAN"/>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
+            <Argument name="GossipTypes">GOSSIP_UNIT_COMBAT_DEATH01,GOSSIP_UNIT_COMBAT_DEATH02</Argument>
+            <Argument name="GOSSIP_UNIT_COMBAT_DEATH01">Hash,OtherPlayer,Self,Hash,KillingUnitType,UNIT_YUMI,Hash,DomainType,DOMAIN_SEA</Argument>
+            <Argument name="GOSSIP_UNIT_COMBAT_DEATH02">Hash,OtherPlayer,Self,Hash,KillingUnitType,UNIT_YUMI_2,Hash,DomainType,DOMAIN_SEA</Argument>
+            <Argument name="Amount">1</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11129A_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_HEIAN"/>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
+            <Argument name="GossipTypes">GOSSIP_RANDOM_EVENT_DAMAGED_CONSTRUCTIBLE01</Argument>
+            <Argument name="GOSSIP_RANDOM_EVENT_DAMAGED_CONSTRUCTIBLE01">Hash,IsCapital,True,Hash,EventClass,CLASS_HURRICANE</Argument>
+            <Argument name="TurnWindow">5</Argument>
+            <Argument name="DuplicateCount">2</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11130A_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_HEIAN"/>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_X_CITIES_WITH_BUILDING_SET">
+            <Argument name="Count">2</Argument>
+            <Argument name="ConstructibleType">IMPROVEMENT_JINJA_LAND,IMPROVEMENT_JINJA_SEA</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11131A_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_HEIAN"/>
+        <Requirement type="REQUIREMENT_COLLECTION_ANY_MET">
+            <Argument name="CollectionType">COLLECTION_PLAYER_CITIES</Argument>
+            <Argument name="RequirementSetId">SUBREQSET_11131A_NARRATIVE</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="SUBREQSET_11131A_NARRATIVE">
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_BUILDINGS">
+            <Argument name="BuildingType">WONDER_HOO_DO_HALL</Argument>
+            <Argument name="Amount">1</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11132A_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_HEIAN"/>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_BUILDINGS">
+            <Argument name="BuildingType">BUILDING_GARDEN</Argument>
+            <Argument name="Amount">3</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11133A_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_HEIAN"/>
+        <Requirement type="REQUIREMENT_COLLECTION_COUNT_ATLEAST">
+            <Argument name="Count">3</Argument>
+            <Argument name="CollectionType">COLLECTION_PLAYER_CITIES</Argument>
+            <Argument name="RequirementSetId">SUBREQSET_11133A_NARRATIVE</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="SUBREQSET_11133A_NARRATIVE">
+        <Requirement type="REQUIREMENT_CITY_IS_CITY">
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11206A_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_HEIAN"/>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_COMPLETED_PROGRESSION_TREE_NODE">
+            <Argument name="ProgressionTreeNodeType">NODE_CIVIC_AQ_HEIAN_MONO_NO_AWARE</Argument>
+            <Argument name="MinDepth">1</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11207A_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_HEIAN"/>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
+            <Argument name="GossipTypes">GOSSIP_CREATE_GREAT_PERSON01</Argument>
+            <Argument name="GOSSIP_CREATE_GREAT_PERSON01">Hash,GreatPersonIndividualType,GREAT_PERSON_INDIVIDUAL_SHIJIN_MURASAKI_SHIKIBU</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11208A_NARRATIVE">
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
+            <Argument name="GossipTypes">GOSSIP_ACTIVATE_GREAT_PERSON01</Argument>
+            <Argument name="GOSSIP_ACTIVATE_GREAT_PERSON01">Hash,GreatPersonIndividualType,GREAT_PERSON_INDIVIDUAL_SHIJIN_MURASAKI_SHIKIBU</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11209A_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_HEIAN"/>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
+            <Argument name="GossipTypes">GOSSIP_CREATE_GREAT_PERSON01</Argument>
+            <Argument name="GOSSIP_CREATE_GREAT_PERSON01">Hash,GreatPersonIndividualType,GREAT_PERSON_INDIVIDUAL_SHIJIN_LADY_SARASHINA</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11210A_NARRATIVE">
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
+            <Argument name="GossipTypes">GOSSIP_ACTIVATE_GREAT_PERSON01</Argument>
+            <Argument name="GOSSIP_ACTIVATE_GREAT_PERSON01">Hash,GreatPersonIndividualType,GREAT_PERSON_INDIVIDUAL_SHIJIN_LADY_SARASHINA</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11211A_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_HEIAN"/>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
+            <Argument name="GossipTypes">GOSSIP_CREATE_GREAT_PERSON01</Argument>
+            <Argument name="GOSSIP_CREATE_GREAT_PERSON01">Hash,GreatPersonIndividualType,GREAT_PERSON_INDIVIDUAL_SHIJIN_SEI_SHONAGON</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11212A_NARRATIVE">
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
+            <Argument name="GossipTypes">GOSSIP_ACTIVATE_GREAT_PERSON01</Argument>
+            <Argument name="GOSSIP_ACTIVATE_GREAT_PERSON01">Hash,GreatPersonIndividualType,GREAT_PERSON_INDIVIDUAL_SHIJIN_SEI_SHONAGON</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11213A_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_HEIAN"/>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
+            <Argument name="GossipTypes">GOSSIP_CREATE_GREAT_PERSON01</Argument>
+            <Argument name="GOSSIP_CREATE_GREAT_PERSON01">Hash,GreatPersonIndividualType,GREAT_PERSON_INDIVIDUAL_SHIJIN_IZUMI_SHIKIBUTIR</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11214A_NARRATIVE">
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
+            <Argument name="GossipTypes">GOSSIP_ACTIVATE_GREAT_PERSON01</Argument>
+            <Argument name="GOSSIP_ACTIVATE_GREAT_PERSON01">Hash,GreatPersonIndividualType,GREAT_PERSON_INDIVIDUAL_SHIJIN_IZUMI_SHIKIBUTIR</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11215A_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_HEIAN"/>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
+            <Argument name="GossipTypes">GOSSIP_CREATE_GREAT_PERSON01</Argument>
+            <Argument name="GOSSIP_CREATE_GREAT_PERSON01">Hash,GreatPersonIndividualType,GREAT_PERSON_INDIVIDUAL_SHIJIN_MICHITSUNA_S_MOTHER</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11216A_NARRATIVE">
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
+            <Argument name="GossipTypes">GOSSIP_ACTIVATE_GREAT_PERSON01</Argument>
+            <Argument name="GOSSIP_ACTIVATE_GREAT_PERSON01">Hash,GreatPersonIndividualType,GREAT_PERSON_INDIVIDUAL_SHIJIN_MICHITSUNA_S_MOTHER</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11217A_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_HEIAN"/>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
+            <Argument name="GossipTypes">GOSSIP_CREATE_GREAT_PERSON01</Argument>
+            <Argument name="GOSSIP_CREATE_GREAT_PERSON01">Hash,GreatPersonIndividualType,GREAT_PERSON_INDIVIDUAL_SHIJIN_OSHIKOCHI_NO_MITSUNE</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11218A_NARRATIVE">
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
+            <Argument name="GossipTypes">GOSSIP_ACTIVATE_GREAT_PERSON01</Argument>
+            <Argument name="GOSSIP_ACTIVATE_GREAT_PERSON01">Hash,GreatPersonIndividualType,GREAT_PERSON_INDIVIDUAL_SHIJIN_OSHIKOCHI_NO_MITSUNE</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11218F_NARRATIVE">
+        <Requirement type="REQUIREMENT_GAME_TURN_IS_X_NARRATIVE">
+            <Argument name="AfterTurn">5</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11218G_NARRATIVE">
+        <Requirement type="REQUIREMENT_GAME_TURN_IS_X_NARRATIVE">
+            <Argument name="AfterTurn">5</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11218H_NARRATIVE">
+        <Requirement type="REQUIREMENT_GAME_TURN_IS_X_NARRATIVE">
+            <Argument name="AfterTurn">5</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11218I_NARRATIVE">
+        <Requirement type="REQUIREMENT_GAME_TURN_IS_X_NARRATIVE">
+            <Argument name="AfterTurn">5</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11219A_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_HEIAN"/>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
+            <Argument name="GossipTypes">GOSSIP_CREATE_GREAT_PERSON01</Argument>
+            <Argument name="GOSSIP_CREATE_GREAT_PERSON01">Hash,GreatPersonIndividualType,GREAT_PERSON_INDIVIDUAL_SHIJIN_KI_NO_TOMONORI</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11220A_NARRATIVE">
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
+            <Argument name="GossipTypes">GOSSIP_ACTIVATE_GREAT_PERSON01</Argument>
+            <Argument name="GOSSIP_ACTIVATE_GREAT_PERSON01">Hash,GreatPersonIndividualType,GREAT_PERSON_INDIVIDUAL_SHIJIN_KI_NO_TOMONORI</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11221A_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_HEIAN"/>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
+            <Argument name="GossipTypes">GOSSIP_CREATE_GREAT_PERSON01</Argument>
+            <Argument name="GOSSIP_CREATE_GREAT_PERSON01">Hash,GreatPersonIndividualType,GREAT_PERSON_INDIVIDUAL_SHIJIN_KI_NO_TSURAYUKI</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11222A_NARRATIVE">
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
+            <Argument name="GossipTypes">GOSSIP_ACTIVATE_GREAT_PERSON01</Argument>
+            <Argument name="GOSSIP_ACTIVATE_GREAT_PERSON01">Hash,GreatPersonIndividualType,GREAT_PERSON_INDIVIDUAL_SHIJIN_KI_NO_TSURAYUKI</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11223A_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_HEIAN"/>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
+            <Argument name="GossipTypes">GOSSIP_CREATE_GREAT_PERSON01</Argument>
+            <Argument name="GOSSIP_CREATE_GREAT_PERSON01">Hash,GreatPersonIndividualType,GREAT_PERSON_INDIVIDUAL_SHIJIN_MIBU_NO_TADAMINE</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11224A_NARRATIVE">
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
+            <Argument name="GossipTypes">GOSSIP_ACTIVATE_GREAT_PERSON01</Argument>
+            <Argument name="GOSSIP_ACTIVATE_GREAT_PERSON01">Hash,GreatPersonIndividualType,GREAT_PERSON_INDIVIDUAL_SHIJIN_MIBU_NO_TADAMINE</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11225A_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_HEIAN"/>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
+            <Argument name="GossipTypes">GOSSIP_CREATE_GREAT_PERSON01</Argument>
+            <Argument name="GOSSIP_CREATE_GREAT_PERSON01">Hash,GreatPersonIndividualType,GREAT_PERSON_INDIVIDUAL_SHIJIN_NAKAYAMA_TADACHIKA</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11226A_NARRATIVE">
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
+            <Argument name="GossipTypes">GOSSIP_ACTIVATE_GREAT_PERSON01</Argument>
+            <Argument name="GOSSIP_ACTIVATE_GREAT_PERSON01">Hash,GreatPersonIndividualType,GREAT_PERSON_INDIVIDUAL_SHIJIN_NAKAYAMA_TADACHIKA</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11227A_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_HEIAN"/>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_NARRATIVE_TAGS">
+            <Argument name="NarrativeTagType">NARRATIVE_TAG_HEIAN_POETRY</Argument>
+            <Argument name="Amount">3</Argument>
+        </Requirement>
+    </RequirementSet>
+</GameEffects>

@@ -286,6 +286,8 @@ class DiplomacyProjectReactionPanel extends DiplomacyInputPanel {
     );
     const relationshipIcon = document.createElement("div");
     relationshipIcon.classList.add("relative", "flex", "flex-row");
+    const actionData = Game.Diplomacy.getDiplomaticEventData(actionID);
+    const isSanction = actionData.actionGroup == DiplomacyActionGroups.DIPLOMACY_ACTION_GROUP_SANCTION;
     if (responseData.responseName == Locale.compose("LOC_DIPLOMACY_RESPONSE_SUPPORT")) {
       relationshipIcon.classList.add(
         "panel-diplomacy-project-reaction__pos-influence",
@@ -295,20 +297,38 @@ class DiplomacyProjectReactionPanel extends DiplomacyInputPanel {
       );
       responseButton.setAttribute("data-audio-activate-ref", "data-audio-leader-response-positive");
     } else if (responseData.responseName == Locale.compose("LOC_DIPLOMACY_RESPONSE_ACCEPT")) {
-      relationshipIcon.classList.add(
-        "panel-diplomacy-project-reaction__accept-influence",
-        "-mt-2",
-        "size-13",
-        "bg-cover"
-      );
+      if (isSanction) {
+        relationshipIcon.classList.add(
+          "panel-diplomacy-project-reaction__neg-influence",
+          "panel-diplomacy-project-reaction__influence",
+          "-mt-3",
+          "bg-cover"
+        );
+      } else {
+        relationshipIcon.classList.add(
+          "panel-diplomacy-project-reaction__accept-influence",
+          "-mt-2",
+          "size-13",
+          "bg-cover"
+        );
+      }
       responseButton.setAttribute("data-audio-activate-ref", "data-audio-leader-response-neutral");
     } else {
-      relationshipIcon.classList.add(
-        "panel-diplomacy-project-reaction__neg-influence",
-        "panel-diplomacy-project-reaction__influence",
-        "-mt-3",
-        "bg-cover"
-      );
+      if (isSanction) {
+        relationshipIcon.classList.add(
+          "panel-diplomacy-project-reaction__accept-influence",
+          "-mt-2",
+          "size-13",
+          "bg-cover"
+        );
+      } else {
+        relationshipIcon.classList.add(
+          "panel-diplomacy-project-reaction__neg-influence",
+          "panel-diplomacy-project-reaction__influence",
+          "-mt-3",
+          "bg-cover"
+        );
+      }
       responseButton.setAttribute("data-audio-activate-ref", "data-audio-leader-response-negative");
     }
     cardTopWrapper.appendChild(relationshipIcon);
@@ -375,8 +395,8 @@ class DiplomacyProjectReactionPanel extends DiplomacyInputPanel {
       }
     } else {
       responseButton.addEventListener("action-activate", () => {
-        const actionData = Game.Diplomacy.getDiplomaticEventData(actionID);
-        if (actionData.actionType == DiplomacyActionTypes.DIPLOMACY_ACTION_DENOUNCE_MILITARY_PRESENCE && responseData.responseType == DiplomaticResponseTypes.DIPLOMACY_RESPONSE_REJECT) {
+        const actionData2 = Game.Diplomacy.getDiplomaticEventData(actionID);
+        if (actionData2.actionType == DiplomacyActionTypes.DIPLOMACY_ACTION_DENOUNCE_MILITARY_PRESENCE && responseData.responseType == DiplomaticResponseTypes.DIPLOMACY_RESPONSE_REJECT) {
           const playerDiplomacy = Players.get(
             GameContext.localPlayerID
           )?.Diplomacy;
@@ -394,7 +414,7 @@ class DiplomacyProjectReactionPanel extends DiplomacyInputPanel {
                 args
               );
               DiplomacyManager.confirmDeclareWar(
-                actionData.initialPlayer,
+                actionData2.initialPlayer,
                 DiplomacyActionTypes.DIPLOMACY_ACTION_DECLARE_WAR
               );
               this.close();
@@ -408,29 +428,29 @@ class DiplomacyProjectReactionPanel extends DiplomacyInputPanel {
                 args
               );
               DiplomacyManager.confirmDeclareWar(
-                actionData.initialPlayer,
+                actionData2.initialPlayer,
                 DiplomacyActionTypes.DIPLOMACY_ACTION_DECLARE_FORMAL_WAR
               );
               this.close();
             }
           };
           const surpriseWarResults = playerDiplomacy.canDeclareWarOn(
-            actionData.initialPlayer
+            actionData2.initialPlayer
           );
           const formalWarResults = playerDiplomacy.canDeclareWarOn(
-            actionData.initialPlayer,
+            actionData2.initialPlayer,
             WarTypes.FORMAL_WAR
           );
           const ourWarSupport = playerDiplomacy.getTotalWarSupportBonusForPlayer(
-            actionData.initialPlayer,
+            actionData2.initialPlayer,
             formalWarResults.Success
           );
           const theirWarSupport = playerDiplomacy.getTotalWarSupportBonusForTarget(
-            actionData.initialPlayer,
+            actionData2.initialPlayer,
             formalWarResults.Success
           );
           const theirInfluenceBonus = playerDiplomacy.getWarInfluenceBonusTarget(
-            actionData.initialPlayer,
+            actionData2.initialPlayer,
             formalWarResults.Success
           );
           const declareWarWrapper = document.createElement("fxs-vslot");

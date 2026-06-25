@@ -1,5 +1,5 @@
 import { template, insert, className } from '../../../vendor/solid-js/web/dist/web.js';
-import { createComponent, Show, createRenderEffect, mergeProps, createSignal, createMemo, For } from '../../../vendor/solid-js/dist/solid.js';
+import { createComponent, Show, createRenderEffect, mergeProps, createSignal, createMemo, onMount, For } from '../../../vendor/solid-js/dist/solid.js';
 import { Layout } from '../../../ui/utilities/utilities-layout.js';
 import { Activatable } from '../../components/activatable.js';
 import { AudioContextProvider } from '../../components/audio-context-provider.js';
@@ -214,6 +214,13 @@ const MementoSelectComponent = () => {
       model.equipMemento(memento);
     }
   }
+  onMount(() => {
+    waitForLayout(() => {
+      if (Configuration.getGame().isHotseat) {
+        flowContext.activateNext();
+      }
+    });
+  });
   return createComponent(CreateGameStage, {
     get header() {
       return createComponent(CreateGameStageHeader, {

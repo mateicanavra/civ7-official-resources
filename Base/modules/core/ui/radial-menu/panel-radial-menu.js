@@ -479,6 +479,7 @@ class PanelRadialMenu extends Panel {
   // To keep the precision on the arrow rotation to the 2nd decimal
   menus = [];
   currentMenuIndex = 0;
+  currentMenuFocusItemIndex = 0;
   rotation = 0;
   focusDeg = 0;
   tabBarElement;
@@ -669,9 +670,12 @@ class PanelRadialMenu extends Panel {
         (item) => this.findNormalisedAngleDifference(item.positionDeg ?? 0, focusDeg)
       ) ?? []
     );
-    const focusElement = this.selectedMenuItemElements?.[focusItemIndex];
-    FocusManager.get().setFocus(focusElement ?? this.Root);
-    return this.menus[this.currentMenuIndex]?.items?.[focusItemIndex];
+    if (focusItemIndex != this.currentMenuFocusItemIndex) {
+      const focusElement = this.selectedMenuItemElements?.[focusItemIndex];
+      FocusManager.get().setFocus(focusElement ?? this.Root);
+      this.currentMenuFocusItemIndex = focusItemIndex;
+    }
+    return this.menus[this.currentMenuIndex]?.items?.[this.currentMenuFocusItemIndex];
   };
   handleNavigation = (navigationEvent) => {
     if (![InputActionStatuses.FINISH, InputActionStatuses.UPDATE].includes(navigationEvent.detail.status)) {

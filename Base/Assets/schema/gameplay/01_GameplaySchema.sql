@@ -2307,6 +2307,13 @@ CREATE TABLE 'HandicapSystems' (
 	'NumLevels' INTEGER NOT NULL DEFAULT 2,
 	PRIMARY KEY("HandicapSystemType")
 );
+CREATE TABLE 'HappinessStages' (
+	'HappinessStageType' TEXT NOT NULL,
+	'Age' TEXT NOT NULL,
+	'StageMaxThreshold' INTEGER,
+	'StageMinThreshold' INTEGER,
+	PRIMARY KEY("HappinessStageType")
+);
 CREATE TABLE 'HistoricRankings' (
 	'HistoricLeader' TEXT,
 	'Quote' TEXT,
@@ -2339,6 +2346,7 @@ CREATE TABLE 'IdeologyPriorities' (
 );
 CREATE TABLE 'Improvements' (
 	'ConstructibleType' TEXT NOT NULL,
+	'AdjacentLandTiles' INTEGER NOT NULL DEFAULT 0,
 	'AdjacentSeaResource' BOOLEAN NOT NULL DEFAULT 0,
 	'AirSlots' INTEGER NOT NULL DEFAULT 0,
 	'BarbarianCamp' BOOLEAN NOT NULL DEFAULT 0,
@@ -2426,6 +2434,7 @@ CREATE TABLE 'Leaders' (
 	'LeaderType' TEXT NOT NULL,
 	'AITargetCityPercentage' INTEGER NOT NULL DEFAULT 50,
 	'BasePersonaType' TEXT,
+	'DesiredNumAlliances' INTEGER NOT NULL DEFAULT -1,
 	'DiscountRate' INTEGER NOT NULL DEFAULT 0,
 	'InheritFrom' TEXT,
 	'IsBarbarianLeader' BOOLEAN NOT NULL DEFAULT 0,
@@ -2849,6 +2858,7 @@ CREATE TABLE 'NarrativeStories' (
 	'StoryTitle' LOC_TEXT,
 	'Timeout' INTEGER,
 	'UIActivation' TEXT,
+	'VariableLinks' BOOLEAN NOT NULL DEFAULT 0,
 	PRIMARY KEY("NarrativeStoryType"),
 	FOREIGN KEY ("NarrativeStoryType") REFERENCES "Types"("Type") ON DELETE CASCADE ON UPDATE CASCADE,
 	FOREIGN KEY ("Activation") REFERENCES "NarrativeStory_Activations"("Type") ON DELETE CASCADE ON UPDATE CASCADE,
@@ -3102,13 +3112,15 @@ CREATE TABLE 'ProgressionTreeNodeUnlocks' (
 	'Hidden' BOOLEAN,
 	'IconString' TEXT,
 	'NotTraitType' TEXT,
+	'RequiredGovernmentType' TEXT,
 	'RequiredTraitType' TEXT,
 	'TargetKind' TEXT NOT NULL,
 	'UnlockDepth' INTEGER NOT NULL DEFAULT 1,
 	PRIMARY KEY("ProgressionTreeNodeType", "TargetType"),
 	FOREIGN KEY ("ProgressionTreeNodeType") REFERENCES "ProgressionTreeNodes"("ProgressionTreeNodeType") ON DELETE CASCADE ON UPDATE CASCADE,
 	FOREIGN KEY ("RequiredTraitType") REFERENCES "Traits"("TraitType") ON DELETE SET DEFAULT ON UPDATE SET DEFAULT,
-	FOREIGN KEY ("NotTraitType") REFERENCES "Traits"("TraitType") ON DELETE SET DEFAULT ON UPDATE SET DEFAULT
+	FOREIGN KEY ("NotTraitType") REFERENCES "Traits"("TraitType") ON DELETE SET DEFAULT ON UPDATE SET DEFAULT,
+	FOREIGN KEY ("RequiredGovernmentType") REFERENCES "Governments"("GovernmentType") ON DELETE SET DEFAULT ON UPDATE SET DEFAULT
 );
 CREATE TABLE 'ProgressionTreePrereqs' (
 	'Node' TEXT NOT NULL,
@@ -3166,6 +3178,14 @@ CREATE TABLE 'Project_GreatPersonPoints' (
 	PRIMARY KEY("GreatPersonClassType", "ProjectType"),
 	FOREIGN KEY ("ProjectType") REFERENCES "Projects"("ProjectType") ON DELETE CASCADE ON UPDATE CASCADE,
 	FOREIGN KEY ("GreatPersonClassType") REFERENCES "GreatPersonClasses"("GreatPersonClassType") ON DELETE CASCADE ON UPDATE CASCADE
+);
+CREATE TABLE 'Project_Units' (
+	'ProjectType' TEXT NOT NULL,
+	'Tag' TEXT NOT NULL,
+	'Amount' INTEGER NOT NULL DEFAULT 0,
+	'Domain' TEXT NOT NULL,
+	PRIMARY KEY("ProjectType", "Tag"),
+	FOREIGN KEY ("ProjectType") REFERENCES "Projects"("ProjectType") ON DELETE CASCADE ON UPDATE CASCADE
 );
 CREATE TABLE 'Project_YieldConversions' (
 	'ProjectType' TEXT NOT NULL,
@@ -4132,6 +4152,16 @@ CREATE TABLE 'UnitAbilityModifiers' (
 	FOREIGN KEY ("UnitAbilityType") REFERENCES "UnitAbilities"("UnitAbilityType") ON DELETE CASCADE ON UPDATE CASCADE,
 	FOREIGN KEY ("ModifierId") REFERENCES "Modifiers"("ModifierId") ON DELETE CASCADE ON UPDATE CASCADE
 );
+CREATE TABLE 'UnitAbilityYields' (
+	'UnitAbilityType' TEXT NOT NULL,
+	'YieldType' TEXT NOT NULL,
+	'Amount' INTEGER NOT NULL,
+	'ScaleByGameAge' BOOLEAN NOT NULL DEFAULT 0,
+	'ScaleByGameSpeed' BOOLEAN NOT NULL DEFAULT 0,
+	PRIMARY KEY("UnitAbilityType", "YieldType"),
+	FOREIGN KEY ("UnitAbilityType") REFERENCES "UnitAbilities"("UnitAbilityType") ON DELETE CASCADE ON UPDATE CASCADE,
+	FOREIGN KEY ("YieldType") REFERENCES "Yields"("YieldType") ON DELETE CASCADE ON UPDATE CASCADE
+);
 CREATE TABLE 'UnitAiInfos' (
 	'AiType' TEXT NOT NULL,
 	'UnitType' TEXT NOT NULL,
@@ -4969,6 +4999,7 @@ CREATE TRIGGER OnDelete_Traits_SetNULL_ProgressionTreeNodeTraitsRequiredTraitTyp
 CREATE TRIGGER OnDelete_ProgressionTreeNodes_Cascade_ProgressionTreeNodeUnlocksProgressionTreeNodeType AFTER DELETE ON ProgressionTreeNodes FOR EACH ROW BEGIN DELETE FROM ProgressionTreeNodeUnlocks WHERE ProgressionTreeNodeType = OLD.ProgressionTreeNodeType; END;
 CREATE TRIGGER OnDelete_Traits_SetNULL_ProgressionTreeNodeUnlocksRequiredTraitType AFTER DELETE ON Traits FOR EACH ROW BEGIN UPDATE ProgressionTreeNodeUnlocks SET RequiredTraitType = NULL WHERE RequiredTraitType = OLD.TraitType; END;
 CREATE TRIGGER OnDelete_Traits_SetNULL_ProgressionTreeNodeUnlocksNotTraitType AFTER DELETE ON Traits FOR EACH ROW BEGIN UPDATE ProgressionTreeNodeUnlocks SET NotTraitType = NULL WHERE NotTraitType = OLD.TraitType; END;
+CREATE TRIGGER OnDelete_Governments_SetNULL_ProgressionTreeNodeUnlocksRequiredGovernmentType AFTER DELETE ON Governments FOR EACH ROW BEGIN UPDATE ProgressionTreeNodeUnlocks SET RequiredGovernmentType = NULL WHERE RequiredGovernmentType = OLD.GovernmentType; END;
 CREATE TRIGGER OnDelete_ProgressionTreeNodes_Cascade_ProgressionTreePrereqsNode AFTER DELETE ON ProgressionTreeNodes FOR EACH ROW BEGIN DELETE FROM ProgressionTreePrereqs WHERE Node = OLD.ProgressionTreeNodeType; END;
 CREATE TRIGGER OnDelete_ProgressionTreeNodes_Cascade_ProgressionTreePrereqsPrereqNode AFTER DELETE ON ProgressionTreeNodes FOR EACH ROW BEGIN DELETE FROM ProgressionTreePrereqs WHERE PrereqNode = OLD.ProgressionTreeNodeType; END;
 CREATE TRIGGER OnDelete_Constructibles_SetNULL_ProjectsPrereqConstructible AFTER DELETE ON Constructibles FOR EACH ROW BEGIN UPDATE Projects SET PrereqConstructible = NULL WHERE PrereqConstructible = OLD.ConstructibleType; END;
@@ -4976,6 +5007,7 @@ CREATE TRIGGER OnDelete_Resources_SetNULL_ProjectsPrereqResource AFTER DELETE ON
 CREATE TRIGGER OnDelete_Types_Cascade_ProjectsProjectType AFTER DELETE ON Types FOR EACH ROW BEGIN DELETE FROM Projects WHERE ProjectType = OLD.Type; END;
 CREATE TRIGGER OnDelete_Projects_Cascade_Project_GreatPersonPointsProjectType AFTER DELETE ON Projects FOR EACH ROW BEGIN DELETE FROM Project_GreatPersonPoints WHERE ProjectType = OLD.ProjectType; END;
 CREATE TRIGGER OnDelete_GreatPersonClasses_Cascade_Project_GreatPersonPointsGreatPersonClassType AFTER DELETE ON GreatPersonClasses FOR EACH ROW BEGIN DELETE FROM Project_GreatPersonPoints WHERE GreatPersonClassType = OLD.GreatPersonClassType; END;
+CREATE TRIGGER OnDelete_Projects_Cascade_Project_UnitsProjectType AFTER DELETE ON Projects FOR EACH ROW BEGIN DELETE FROM Project_Units WHERE ProjectType = OLD.ProjectType; END;
 CREATE TRIGGER OnDelete_Projects_Cascade_Project_YieldConversionsProjectType AFTER DELETE ON Projects FOR EACH ROW BEGIN DELETE FROM Project_YieldConversions WHERE ProjectType = OLD.ProjectType; END;
 CREATE TRIGGER OnDelete_Yields_Cascade_Project_YieldConversionsYieldType AFTER DELETE ON Yields FOR EACH ROW BEGIN DELETE FROM Project_YieldConversions WHERE YieldType = OLD.YieldType; END;
 CREATE TRIGGER OnDelete_Projects_Cascade_ProjectCompletionModifiersProjectType AFTER DELETE ON Projects FOR EACH ROW BEGIN DELETE FROM ProjectCompletionModifiers WHERE ProjectType = OLD.ProjectType; END;
@@ -5132,6 +5164,8 @@ CREATE TRIGGER OnDelete_UnitAbilities_Cascade_UnitAbility_TimedAbilitiesUnitAbil
 CREATE TRIGGER OnDelete_UnitAbilities_Cascade_UnitAbility_TimedAbilitiesTimedUnitAbilityType AFTER DELETE ON UnitAbilities FOR EACH ROW BEGIN DELETE FROM UnitAbility_TimedAbilities WHERE TimedUnitAbilityType = OLD.UnitAbilityType; END;
 CREATE TRIGGER OnDelete_UnitAbilities_Cascade_UnitAbilityModifiersUnitAbilityType AFTER DELETE ON UnitAbilities FOR EACH ROW BEGIN DELETE FROM UnitAbilityModifiers WHERE UnitAbilityType = OLD.UnitAbilityType; END;
 CREATE TRIGGER OnDelete_Modifiers_Cascade_UnitAbilityModifiersModifierId AFTER DELETE ON Modifiers FOR EACH ROW BEGIN DELETE FROM UnitAbilityModifiers WHERE ModifierId = OLD.ModifierId; END;
+CREATE TRIGGER OnDelete_UnitAbilities_Cascade_UnitAbilityYieldsUnitAbilityType AFTER DELETE ON UnitAbilities FOR EACH ROW BEGIN DELETE FROM UnitAbilityYields WHERE UnitAbilityType = OLD.UnitAbilityType; END;
+CREATE TRIGGER OnDelete_Yields_Cascade_UnitAbilityYieldsYieldType AFTER DELETE ON Yields FOR EACH ROW BEGIN DELETE FROM UnitAbilityYields WHERE YieldType = OLD.YieldType; END;
 CREATE TRIGGER OnDelete_Units_Cascade_UnitAiInfosUnitType AFTER DELETE ON Units FOR EACH ROW BEGIN DELETE FROM UnitAiInfos WHERE UnitType = OLD.UnitType; END;
 CREATE TRIGGER OnDelete_UnitAiTypes_Cascade_UnitAiInfosAiType AFTER DELETE ON UnitAiTypes FOR EACH ROW BEGIN DELETE FROM UnitAiInfos WHERE AiType = OLD.AiType; END;
 CREATE TRIGGER OnDelete_Units_Cascade_UnitCapturesCapturedUnitType AFTER DELETE ON Units FOR EACH ROW BEGIN DELETE FROM UnitCaptures WHERE CapturedUnitType = OLD.UnitType; END;

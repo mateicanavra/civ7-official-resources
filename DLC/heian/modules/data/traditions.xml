@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Types>
+		<Row Type="TRADITION_INSEI" Kind="KIND_TRADITION"/>
+		<Row Type="TRADITION_UTSUROU" Kind="KIND_TRADITION"/>
+		<Row Type="TRADITION_JO_BO_SYSTEM" Kind="KIND_TRADITION"/>
+		<Row Type="TRADITION_MONOGATARI" Kind="KIND_TRADITION"/>
+		
+		<Row Type="TRADITION_JO_BO_SYSTEM_II" Kind="KIND_TRADITION"/>
+		<Row Type="TRADITION_INSEI_II" Kind="KIND_TRADITION"/>
+		
+		<Row Type="TRADITION_HEIAN_SYNCRETISM_EXPLORATION" Kind="KIND_TRADITION" />
+		<Row Type="TRADITION_HEIAN_SYNCRETISM_MODERN" Kind="KIND_TRADITION" />
+	</Types>
+	<Traditions>
+		<Row TraditionType="TRADITION_INSEI" Name="LOC_TRADITION_INSEI_NAME" Description="LOC_TRADITION_INSEI_DESCRIPTION" TraitType="TRAIT_HEIAN" AgeType="AGE_ANTIQUITY" CultureSlotType="TRADITION_CULTURE_SLOT"/>
+		<Row TraditionType="TRADITION_UTSUROU" Name="LOC_TRADITION_UTSUROU_NAME" Description="LOC_TRADITION_UTSUROU_DESCRIPTION" TraitType="TRAIT_HEIAN" AgeType="AGE_ANTIQUITY" CultureSlotType="TRADITION_CULTURE_SLOT"/>
+		<Row TraditionType="TRADITION_JO_BO_SYSTEM" Name="LOC_TRADITION_JO_BO_SYSTEM_NAME" Description="LOC_TRADITION_JO_BO_SYSTEM_DESCRIPTION" TraitType="TRAIT_HEIAN" AgeType="AGE_ANTIQUITY" CultureSlotType="TRADITION_CULTURE_SLOT"/>
+		<Row TraditionType="TRADITION_MONOGATARI" Name="LOC_TRADITION_MONOGATARI_NAME" Description="LOC_TRADITION_MONOGATARI_DESCRIPTION" TraitType="TRAIT_HEIAN" AgeType="AGE_ANTIQUITY" CultureSlotType="TRADITION_CULTURE_SLOT"/>
+	
+		<Row TraditionType="TRADITION_JO_BO_SYSTEM_II" Name="LOC_TRADITION_JO_BO_SYSTEM_II_NAME" Description="LOC_TRADITION_JO_BO_SYSTEM_II_DESCRIPTION" TraitType="TRAIT_HEIAN" AgeType="AGE_EXPLORATION" CultureSlotType="TRADITION_CULTURE_SLOT" ObsoletesTraditionType="TRADITION_JO_BO_SYSTEM"/>
+		<Row TraditionType="TRADITION_INSEI_II" Name="LOC_TRADITION_INSEI_II_NAME" Description="LOC_TRADITION_INSEI_II_DESCRIPTION" TraitType="TRAIT_HEIAN" AgeType="AGE_MODERN" CultureSlotType="TRADITION_CULTURE_SLOT" ObsoletesTraditionType="TRADITION_INSEI"/>
+	
+		<Row TraditionType="TRADITION_HEIAN_SYNCRETISM_EXPLORATION" Name="LOC_TRADITION_HEIAN_SYNCRETISM_EXPLORATION_NAME" Description="LOC_TRADITION_HEIAN_SYNCRETISM_EXPLORATION_DESCRIPTION" AgeType="AGE_EXPLORATION" CultureSlotType="TRADITION_CULTURE_SLOT" TraitType="TRAIT_HEIAN" IgnoreInitializeUnlock="true"  AllowInitializeAdvancedStart="true"/>
+		<Row TraditionType="TRADITION_HEIAN_SYNCRETISM_MODERN" Name="LOC_TRADITION_HEIAN_SYNCRETISM_MODERN_NAME" Description="LOC_TRADITION_HEIAN_SYNCRETISM_MODERN_DESCRIPTION" AgeType="AGE_MODERN" CultureSlotType="TRADITION_CULTURE_SLOT" TraitType="TRAIT_HEIAN" IgnoreInitializeUnlock="true" ObsoletesTraditionType="TRADITION_HEIAN_SYNCRETISM_EXPLORATION"  AllowInitializeAdvancedStart="true"/>
+	</Traditions>
+	<TraditionModifiers>
+		<Row TraditionType="TRADITION_INSEI" ModifierId="INSEI_MOD_HAPPINESS_CULTURE_BUILDING"/>
+		<Row TraditionType="TRADITION_INSEI" ModifierId="INSEI_MOD_CULTURE_HAPPINESS_BUILDING"/>
+		<Row TraditionType="TRADITION_UTSUROU" ModifierId="UTSUROU_MOD_COMMANDERS_CULTURE_ATTACH"/>
+		<Row TraditionType="TRADITION_UTSUROU" ModifierId="UTSUROU_MOD_COMMANDERS_LESS_XP"/>
+		<Row TraditionType="TRADITION_JO_BO_SYSTEM" ModifierId="JO_BO_SYSTEM_MOD_CULTURE_BREATHTAKING"/>
+		<Row TraditionType="TRADITION_MONOGATARI" ModifierId="MONOGATARI_MOD_YIELDS_BREATHTAKING"/>
+		
+		<Row TraditionType="TRADITION_JO_BO_SYSTEM_II" ModifierId="JO_BO_SYSTEM_II_MOD_CULTURE_BREATHTAKING"/>
+		<Row TraditionType="TRADITION_INSEI_II" ModifierId="INSEI_II_MOD_HAPPINESS_CULTURE_BUILDING"/>
+		<Row TraditionType="TRADITION_INSEI_II" ModifierId="INSEI_II_MOD_CULTURE_HAPPINESS_BUILDING"/>
+		
+		<Row TraditionType="TRADITION_HEIAN_SYNCRETISM_EXPLORATION" ModifierId="HEIAN_SYNCRETISM_EXPLORATION_MOD_APPEALING_CULTURE"/>
+		<Row TraditionType="TRADITION_HEIAN_SYNCRETISM_MODERN" ModifierId="HEIAN_SYNCRETISM_MODERN_MOD_MORE_APPEALING_CULTURE"/>
+	</TraditionModifiers>
+	<Adjacency_YieldChanges>
+		<Row ID="JoboSystemBreathtakingAdjacencyCulture" YieldType="YIELD_CULTURE" YieldChange="1" TilesRequired="2" ProjectMaxYield="true" AdjacentBreathtakingAppeal="True"/>
+		<Row ID="JoboSystemBreathtakingIIAdjacencyCulture" YieldType="YIELD_CULTURE" YieldChange="1" TilesRequired="1" ProjectMaxYield="true" AdjacentBreathtakingAppeal="True"/>
+		<Row ID="MongatariBreathtakingAdjacencyHappiness" YieldType="YIELD_HAPPINESS" YieldChange="1" TilesRequired="1" ProjectMaxYield="true" AdjacentCharmingAppeal="True"/>
+		<Row ID="MongatariBreathtakingAdjacencyFood" YieldType="YIELD_FOOD" YieldChange="2" TilesRequired="1" ProjectMaxYield="true" AdjacentBreathtakingAppeal="True"/>
+	</Adjacency_YieldChanges>
+	<Constructible_WildcardAdjacencies>
+		<Row YieldChangeId="JoboSystemBreathtakingAdjacencyCulture" RequiresActivation="true" CurrentAgeConstructiblesOnly="true" ConstructibleClass="BUILDING"/>
+		<Row YieldChangeId="JoboSystemBreathtakingIIAdjacencyCulture" RequiresActivation="true" CurrentAgeConstructiblesOnly="true" ConstructibleClass="BUILDING"/>
+		<Row YieldChangeId="MongatariBreathtakingAdjacencyHappiness" RequiresActivation="true" CurrentAgeConstructiblesOnly="true" ConstructibleTag="GREATWORK"/>
+		<Row YieldChangeId="MongatariBreathtakingAdjacencyFood" RequiresActivation="true" CurrentAgeConstructiblesOnly="true" ConstructibleTag="GREATWORK"/>
+	</Constructible_WildcardAdjacencies>
+</Database>

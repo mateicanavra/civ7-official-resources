@@ -296,8 +296,11 @@ const CivChoiceChangeCivCardComponent = () => {
   const numUnlockedCivs = createMemo(() => model.civs.filter((c) => !c.isLocked).length);
   const civRecommendations = createMemo(() => [...choiceModel.historicalCivs(), ...choiceModel.recommendedCivs()].filter((c) => c.apexAge == ageModel.nextAge.type && !c.isLocked));
   function selectCiv(civ) {
+    if (!civ.isLocked) {
+      model.setSelectedCiv(civ);
+    }
+    model.setViewCiv(civ);
     flowContext.activate("civ-select");
-    model.setSelectedCiv(civ);
   }
   const leaderIcon = createMemo(() => leaderModel.selectedLeader().icon);
   return createComponent(VSlot, {

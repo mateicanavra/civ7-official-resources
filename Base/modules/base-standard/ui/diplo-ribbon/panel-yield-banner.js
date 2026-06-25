@@ -14,7 +14,8 @@ const yieldBarEntryClassMap = {
   YIELD_SCIENCE: "text-yield-science",
   YIELD_DIPLOMACY: "text-yield-influence",
   YIELD_HAPPINESS: "text-yield-happiness",
-  YIELD_CITIES: "text-secondary"
+  YIELD_CITIES: "text-secondary",
+  YIELD_CITY_CAP: "fxs-header"
 };
 class YieldBarEntry extends FxsActivatable {
   type = null;
@@ -110,6 +111,7 @@ class PanelYieldBanner extends Panel {
     [YieldTypes.YIELD_DIPLOMACY]: document.createElement("yield-bar-entry")
   };
   settlementCapElement = document.createElement("yield-bar-entry");
+  cityCapElement = document.createElement("yield-bar-entry");
   navHelpContainer = document.createElement("div");
   constructor(root) {
     super(root);
@@ -146,6 +148,7 @@ class PanelYieldBanner extends Panel {
     this.Root.listenForEngineEvent("GreatWorkArchived", this.updateAll, this);
     this.Root.listenForEngineEvent("TradeRouteAddedToMap", this.updateAll, this);
     this.Root.listenForEngineEvent("TradeRouteRemovedFromMap", this.updateAll, this);
+    this.Root.listenForEngineEvent("NarrativeChoiceMade", this.onNarrativeChoiceMade, this);
     this.Root.addEventListener(InputEngineEventName, this.engineInputListener);
     window.addEventListener("interface-mode-changed", this.interfaceModeChangedListener);
     engine.on("InputContextChanged", this.inputContextChangedListener);
@@ -235,6 +238,12 @@ class PanelYieldBanner extends Panel {
     }
     this.updateAll();
   }
+  onNarrativeChoiceMade(data) {
+    if (data.player !== GameContext.localObserverID) {
+      return;
+    }
+    this.updateAll();
+  }
   updateAll() {
     const player = Players.get(GameContext.localObserverID);
     if (!player) {
@@ -265,6 +274,8 @@ class PanelYieldBanner extends Panel {
     this.yieldElementMap[YieldTypes.YIELD_SCIENCE].dataset.value = playerStats.getNetYield(YieldTypes.YIELD_SCIENCE).toString();
     this.settlementCapElement.dataset.value = playerStats.numSettlements.toString();
     this.settlementCapElement.dataset.max = playerStats.settlementCap.toString();
+    this.cityCapElement.dataset.value = player.Cities?.getCountOfCities().toString();
+    this.cityCapElement.dataset.max = player.Cities?.getCityLimit().toString();
   }
   onEngineInput(event) {
     let live = true;
@@ -360,6 +371,15 @@ class PanelYieldBanner extends Panel {
     this.settlementCapElement.dataset.tooltipContent = "LOC_YIELD_MAX_CITIES";
     this.settlementCapElement.dataset.icon = "YIELD_CITIES";
     hSlot.appendChild(this.settlementCapElement);
+    const cityLimit = player.Cities?.getCityLimit();
+    if (cityLimit && cityLimit != 0) {
+      this.cityCapElement.addEventListener("action-activate", onYieldElementActivated);
+      this.cityCapElement.dataset.value = player?.Stats?.numCities.toString();
+      this.cityCapElement.dataset.max = cityLimit.toString();
+      this.cityCapElement.dataset.tooltipContent = "LOC_YIELD_CITY_CAP";
+      this.cityCapElement.dataset.icon = "YIELD_CITY_CAP";
+      hSlot.appendChild(this.cityCapElement);
+    }
   }
   onInputContextChanged(contextData) {
     if (contextData.newContext == InputContext.World && ActionHandler.isGamepadActive) {

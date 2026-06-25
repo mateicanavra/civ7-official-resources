@@ -16,10 +16,19 @@ class NarrativeQuestManagerClass {
       this.initializeListeners();
       this.initializeActiveNarrativeQuests();
     }
+    if (Configuration.getGame().isHotseat) {
+      engine.on("LocalPlayerChanged", this.onLocalPlayerChanged, this);
+    }
   }
   initializeListeners() {
     engine.on("NarrativeQuestUpdated", this.narrativeQuestUpdateListener);
     engine.on("NarrativeStoryRemoved", this.narrativeStoryRemovedListener);
+  }
+  /**
+   * Hotseat, new player.
+   */
+  onLocalPlayerChanged() {
+    this.initializeActiveNarrativeQuests();
   }
   //Query any quests already active (loading a game, hotloading)
   initializeActiveNarrativeQuests() {

@@ -378,6 +378,10 @@ class AdvancedOptionsBase extends GameCreationPanelBase {
             param.readOnly = true;
           }
         }
+        if (Configuration.getGame().isHotseat && param.ID == GameSetup.makeString("MementosEnabled")) {
+          param.value.value = false;
+          continue;
+        }
         const option = this.getOptionFromParam(param);
         let options = this.activeGameParameters.get(param.ID);
         if (options == null) {

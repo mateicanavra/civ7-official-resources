@@ -165,6 +165,7 @@ class PanelSubSystemDock extends Panel {
     this.Root.listenForEngineEvent("CultureNodeCompleted", this.onCultureUpdated, this);
     this.Root.listenForEngineEvent("AgeProgressionChanged", this.updateAgeProgression, this);
     this.Root.listenForEngineEvent("PlayerGoldenAgeChanged", this.onGoldenAgeChanged, this);
+    this.Root.listenForEngineEvent("NarrativeChoiceMade", this.onNarrativeChoiceMade, this);
     this.Root.listenForEngineEvent("ResourceAssigned", this.updateResourcesButton, this);
     this.Root.listenForEngineEvent("PlotOwnershipChanged", this.updateResourcesButton, this);
     this.Root.listenForEngineEvent("GameExtended", this.onGameExtended, this);
@@ -699,6 +700,12 @@ class PanelSubSystemDock extends Panel {
     }
   }
   onPlayerTurnBegin(data) {
+    if (data.player != GameContext.localPlayerID) {
+      return;
+    }
+    this.updateButtonTimers();
+  }
+  onNarrativeChoiceMade(data) {
     if (data.player != GameContext.localPlayerID) {
       return;
     }

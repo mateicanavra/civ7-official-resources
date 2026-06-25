@@ -24,6 +24,7 @@ const LegaciesTriumphTab = () => {
   const windowSize = useWindowSize();
   const [triumphCardHeight, setTriumphCardHeight] = createSignal(void 0);
   const [hasInitialCardHeight, setHasInitialCardHeight] = createSignal(false);
+  const [needsTriumphCardHeightUpdate, setNeedsTriumphCardHeightUpdate] = createSignal(false);
   const calculateTriumphCardHeights = () => {
     if (!root) {
       return;
@@ -54,8 +55,12 @@ const LegaciesTriumphTab = () => {
     hotkeyContext.registerNavtray("accept", "LOC_LEGACIES_TRACK_UNTRACK");
     hotkeyContext.registerNavtray("shell-action-2", "LOC_ADVANCED_START_FILTER");
     createEffect(on([layoutComplete, model.selectedTriumphFilter, windowSize], () => {
-      if (layoutComplete()) {
-        calculateTriumphCardHeights();
+      if (layoutComplete() && !needsTriumphCardHeightUpdate()) {
+        setNeedsTriumphCardHeightUpdate(true);
+        delayByFrame(() => {
+          calculateTriumphCardHeights();
+          setNeedsTriumphCardHeightUpdate(false);
+        });
       }
     }));
   });
@@ -161,7 +166,7 @@ const LegaciesTriumphTab = () => {
                             };
                           },
                           get ["class"]() {
-                            return `${hasInitialCardHeight() ? "opacity-100" : "opacity-0"}`;
+                            return `${hasInitialCardHeight() && !needsTriumphCardHeightUpdate() ? "opacity-100" : "opacity-0"}`;
                           }
                         });
                       }

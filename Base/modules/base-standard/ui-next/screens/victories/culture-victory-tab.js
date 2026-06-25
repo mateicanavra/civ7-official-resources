@@ -328,11 +328,13 @@ const CultureVictoryTabComponent = (props) => {
   const hotkeyContext = useContext(HotkeyContext);
   onMount(() => {
     hotkeyContext.registerNavtray("shell-action-2", "LOC_VICTORY_NAV_HELP_AGE_TOOLTIP");
-    hotkeyContext.registerNavtray("toggle-tooltip", "LOC_VICTORY_NAV_HELP_RULES");
+    hotkeyContext.registerNavtray("shell-action-3", "LOC_VICTORY_NAV_HELP_RULES");
+    model.tabNavStartup(hotkeyContext);
   });
   onCleanup(() => {
     hotkeyContext.unregisterNavtray("shell-action-2");
-    hotkeyContext.unregisterNavtray("toggle-tooltip");
+    hotkeyContext.unregisterNavtray("shell-action-3");
+    model.tabNavShutdown(hotkeyContext);
   });
   createEffect(() => {
     setIsCurrentAge(model.data.cultureDetails.ageOptions.selectedValue() == Game.age);

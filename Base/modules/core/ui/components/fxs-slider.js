@@ -356,7 +356,11 @@ class FxsSlider extends ChangeNotificationComponent {
     } else if (value > this.max) {
       value = this.max;
     }
-    this._percent = (value - this.min) / this.range;
+    const percent = (value - this.min) / this.range;
+    if (percent === this._percent) {
+      return;
+    }
+    this._percent = percent;
     this.sendValueChange(
       new ComponentValueChangeEvent({
         percent: this._percent,

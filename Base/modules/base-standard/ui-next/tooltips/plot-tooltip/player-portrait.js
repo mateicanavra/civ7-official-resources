@@ -57,7 +57,7 @@ const PlotTooltipPlayerPortrait = (props) => {
       },
       get children() {
         return createComponent(Tooltip.Text, {
-          header: "LOC_COMMERCE_TRADE_ROUTE_CITY_STATE_TOOLTIP_TITLE",
+          header: "LOC_CIVILIZATION_CITY_STATE_NAME",
           text: "LOC_COMMERCE_TRADE_ROUTE_CITY_STATE_TOOLTIP",
           get args() {
             return [settlementName(), playerName()];

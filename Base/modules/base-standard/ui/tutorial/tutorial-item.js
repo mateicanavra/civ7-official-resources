@@ -26,6 +26,7 @@ var TutorialAnchorPosition = /* @__PURE__ */ ((TutorialAnchorPosition2) => {
   TutorialAnchorPosition2["TopRight"] = "top-right";
   TutorialAnchorPosition2["MiddleLeft"] = "middle-left";
   TutorialAnchorPosition2["MiddleCenter"] = "middle-center";
+  TutorialAnchorPosition2["MiddleCenterWide"] = "middle-center-wide";
   TutorialAnchorPosition2["MiddleRight"] = "middle-right";
   TutorialAnchorPosition2["BottomLeft"] = "bottom-left";
   TutorialAnchorPosition2["BottomCenter"] = "bottom-center";

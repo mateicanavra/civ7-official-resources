@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+    <Modifier id="11195B_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_GOLD</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+        <Argument name="Tag">UNIQUE</Argument>
+    </Modifier>
+    <Modifier id="11195B_NARRATIVE_MODIFIER2" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_GOLD</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+        <Argument name="Tag">UNIQUE_IMPROVEMENT</Argument>
+    </Modifier>
+    <Modifier id="11195C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_HAPPINESS</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+        <Argument name="Tag">UNIQUE</Argument>
+    </Modifier>
+    <Modifier id="11195C_NARRATIVE_MODIFIER2" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_HAPPINESS</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+        <Argument name="Tag">UNIQUE_IMPROVEMENT</Argument>
+    </Modifier>
+    <Modifier id="11231B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ATTRIBUTE" run-once="false" permanent="true">
+        <Argument name="AttributeType">ATTRIBUTE_MILITARISTIC</Argument>
+        <Argument name="Amount">1</Argument>
+    </Modifier>
+    <Modifier id="11231C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ATTRIBUTE" run-once="false" permanent="true">
+        <Argument name="AttributeType">ATTRIBUTE_POLITICAL</Argument>
+        <Argument name="Amount">1</Argument>
+    </Modifier>
+    <RequirementSet id="REQSET_11195A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_MEIJI"/>
+        <Requirement type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
+            <Argument name="CivilizationType">CIVILIZATION_HEIAN</Argument>
+            <Argument name="IsPastCivilization">True</Argument>
+        </Requirement>
+        <Requirement type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
+            <Argument name="CivilizationType">CIVILIZATION_SENGOKU</Argument>
+            <Argument name="IsPastCivilization">True</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11231A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_SENGOKU"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11195A_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_MEIJI"/>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_BUILDINGS">
+            <Argument name="Amount">1</Argument>
+            <Argument name="BuildingType">IMPROVEMENT_TEA_HOUSE</Argument>
+        </Requirement>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_BUILDINGS">
+            <Argument name="Amount">1</Argument>
+            <Argument name="BuildingTag">JINJA</Argument>
+        </Requirement>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_UNIQUE_QUARTER">
+            <Argument name="UniqueQuarterType">QUARTER_ZAIBATSU</Argument>
+        </Requirement>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_BUILDINGS">
+            <Argument name="Amount">5</Argument>
+            <Argument name="BuildingType">BUILDING_RAIL_STATION</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11231A_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_SENGOKU"/>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_COMPLETED_PROGRESSION_TREE_NODE">
+            <Argument name="ProgressionTreeNodeType">NODE_CIVIC_MO_ADMINISTRATION</Argument>
+            <Argument name="MinDepth">1</Argument>
+        </Requirement>
+    </RequirementSet>
+</GameEffects>

@@ -16,7 +16,7 @@ class CollectionContent extends Panel {
   mainSlot;
   selectedCard = null;
   pendingContentSelection = null;
-  // Leader or civilizaiton type -> card + item
+  // Leader or civilization type -> card + item
   contentToCardLookup = /* @__PURE__ */ new Map();
   constructor(root) {
     super(root);
@@ -30,15 +30,16 @@ class CollectionContent extends Panel {
   }
   getContent() {
     return `
-			<fxs-scrollable-horizontal class="scrollable-frame store-launcher-scrollable flex-auto" flex="auto" attached-scrollbar="true">
-				<fxs-hslot class="store-launcher-content flex-auto p-6">
-				</fxs-hslot>
-			</fxs-scrollable-horizontal>
+			<fxs-scrollable-horizontal class="scrollable-frame store-launcher-scrollable flex-auto" flex="auto" attached-scrollbar="true" />
 		`;
   }
   onAttach() {
     super.onAttach();
-    this.mainSlot = MustGetElement(".store-launcher-content", this.Root);
+    const scrollableContent = MustGetElement(".fxs-scrollable-content", this.Root);
+    scrollableContent.classList.add("-mt-11");
+    this.mainSlot = document.createElement("fxs-hslot");
+    this.mainSlot.classList.add("flow-row", "p-6");
+    scrollableContent.appendChild(this.mainSlot);
     this.Root.addEventListener("focus", this.focusListener);
     engine.on("PromosRetrievalCompleted", this.promosRetrievalCompleteListener);
     this.Root.addEventListener("engine-input", this.engineInputListener);

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Kinds>
+		<InsertOrIgnore Kind="KIND_CONSTRUCTIBLE"/>
+	</Kinds>
+	<Types>
+		<Row Type="WONDER_MIREUKSA" Kind="KIND_CONSTRUCTIBLE"/>
+	</Types>
+	<TypeQuotes>
+		<Row Type="WONDER_MIREUKSA" Quote="LOC_QUOTE_WONDER_MIREUKSA" QuoteAuthor="LOC_QUOTE_AUTHOR_WONDER_MIREUKSA" QuoteAudio="VO_Quote_Mireuksa"/>
+	</TypeQuotes>        
+	<Constructibles>
+		<Row ConstructibleType="WONDER_MIREUKSA" Name="LOC_WONDER_MIREUKSA_NAME" Description="LOC_WONDER_MIREUKSA_DESCRIPTION" Tooltip="LOC_WONDER_MIREUKSA_TOOLTIP" AdjacentTerrain="TERRAIN_MOUNTAIN" ConstructibleClass="WONDER" Cost="375" Population="0" ImmuneDamage="true" Age="AGE_ANTIQUITY" RequiresUnlock="true"/>
+	</Constructibles>
+	<TypeTags>
+		<Row Type="WONDER_MIREUKSA" Tag="AGELESS"/>
+	</TypeTags>
+	<Wonders>
+		<Row ConstructibleType="WONDER_MIREUKSA" MaxWorldInstances="1"/>
+	</Wonders>
+	<Constructible_ValidDistricts>
+		<Row ConstructibleType="WONDER_MIREUKSA" DistrictType="DISTRICT_WONDER"/>
+	</Constructible_ValidDistricts>
+	<Constructible_YieldChanges>
+		<Row ConstructibleType="WONDER_MIREUKSA" YieldType="YIELD_HAPPINESS" YieldChange="2"/>
+	</Constructible_YieldChanges>
+	<ConstructibleModifiers>
+		<Row ConstructibleType="WONDER_MIREUKSA" ModifierId="MOD_MIREUKSA_DISTRICT_HAPPINESS_ANTIQUITY_CULTURE"/>
+		<Row ConstructibleType="WONDER_MIREUKSA" ModifierId="MOD_MIREUKSA_DISTRICT_HAPPINESS_ANTIQUITY_PRODUCTION"/>
+	</ConstructibleModifiers>
+	<Constructible_Advisories>
+		<Row ConstructibleType="WONDER_MIREUKSA" AdvisoryClassType="ADVISORY_CLASS_HAPPINESS"/>
+		<Row ConstructibleType="WONDER_MIREUKSA" AdvisoryClassType="ADVISORY_CLASS_CULTURE"/>
+	</Constructible_Advisories>
+</Database>

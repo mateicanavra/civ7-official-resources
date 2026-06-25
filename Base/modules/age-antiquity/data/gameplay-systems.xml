@@ -4,4 +4,11 @@
 		<Replace name="MOVEMENT_WHILE_EMBARKED_BASE" value="2"/>
 		<Replace name="UNIT_HEAL_NAVAL_SHALLOW_NEUTRAL" value="15"/>
 	</GlobalParameters>
+	<HappinessStages>
+		<Row HappinessStageType="HAPPINESS_STAGE_ECSTATIC" StageMinThreshold="40" Age="AGE_ANTIQUITY"/>
+		<Row HappinessStageType="HAPPINESS_STAGE_JOYOUS" StageMinThreshold="20" StageMaxThreshold="40" Age="AGE_ANTIQUITY"/>
+		<Row HappinessStageType="HAPPINESS_STAGE_HAPPY" StageMinThreshold="0" StageMaxThreshold="20" Age="AGE_ANTIQUITY"/>
+		<Row HappinessStageType="HAPPINESS_STAGE_UNHAPPY"  StageMinThreshold="-20" StageMaxThreshold="0" Age="AGE_ANTIQUITY"/>
+		<Row HappinessStageType="HAPPINESS_STAGE_ANGRY" StageMaxThreshold="-20" Age="AGE_ANTIQUITY"/>
+	</HappinessStages>
 </Database>

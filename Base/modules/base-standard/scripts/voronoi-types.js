@@ -14,11 +14,22 @@ var TerrainType = /* @__PURE__ */ ((TerrainType2) => {
   TerrainType2[TerrainType2["Flat"] = 3] = "Flat";
   TerrainType2[TerrainType2["Rough"] = 4] = "Rough";
   TerrainType2[TerrainType2["Mountainous"] = 5] = "Mountainous";
-  TerrainType2[TerrainType2["Volcano"] = 6] = "Volcano";
-  TerrainType2[TerrainType2["NavRiver"] = 7] = "NavRiver";
-  TerrainType2[TerrainType2["_Length"] = 8] = "_Length";
+  TerrainType2[TerrainType2["NavRiver"] = 6] = "NavRiver";
+  TerrainType2[TerrainType2["_Length"] = 7] = "_Length";
   return TerrainType2;
 })(TerrainType || {});
+var FeatureType = /* @__PURE__ */ ((FeatureType2) => {
+  FeatureType2[FeatureType2["None"] = 0] = "None";
+  FeatureType2[FeatureType2["Volcano"] = 1] = "Volcano";
+  FeatureType2[FeatureType2["_Length"] = 2] = "_Length";
+  return FeatureType2;
+})(FeatureType || {});
+function isLand(terrainType) {
+  return terrainType === 3 /* Flat */ || terrainType === 4 /* Rough */ || terrainType === 5 /* Mountainous */;
+}
+function isWater(terrainType) {
+  return terrainType === 1 /* Ocean */ || terrainType === 2 /* Coast */ || terrainType === 6 /* NavRiver */;
+}
 var BiomeType = /* @__PURE__ */ ((BiomeType2) => {
   BiomeType2[BiomeType2["Unknown"] = 0] = "Unknown";
   BiomeType2[BiomeType2["Ocean"] = 1] = "Ocean";
@@ -62,5 +73,5 @@ const MapDims = {
   [4 /* Huge */]: { x: 106, y: 66 }
 };
 
-export { BiomeType, DetailsType, MapDims, MapSize, RegionType, TerrainType, VariantOverrideType };
+export { BiomeType, DetailsType, FeatureType, MapDims, MapSize, RegionType, TerrainType, VariantOverrideType, isLand, isWater };
 //# sourceMappingURL=voronoi-types.js.map

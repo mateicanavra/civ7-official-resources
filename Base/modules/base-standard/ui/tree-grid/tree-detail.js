@@ -301,7 +301,7 @@ class TreeDetail extends Component {
       }
       const unlockDescription = document.createElement("div");
       if (this.detailed) {
-        unlockDescription.classList.add("text-accent-1", "text-center", "flex");
+        unlockDescription.classList.add("text-accent-1", "text-center", "flex", "flex-col");
       } else {
         unlockDescription.classList.add("text-primary-1");
       }

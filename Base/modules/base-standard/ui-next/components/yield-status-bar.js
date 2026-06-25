@@ -14,7 +14,8 @@ const yieldBarEntryClassMap = {
   YIELD_SCIENCE: "text-yield-science",
   YIELD_DIPLOMACY: "text-yield-influence",
   YIELD_HAPPINESS: "text-yield-happiness",
-  YIELD_CITIES: "text-secondary"
+  YIELD_CITIES: "text-secondary",
+  YIELD_CITY_CAP: "fxs-header"
 };
 const YieldBarEntryComponent = (props) => {
   const [isMobileViewExperience, setIsMobileViewExperience] = createSignal(false);
@@ -95,12 +96,17 @@ const YieldStatusBarComponent = () => {
       type: "YIELD_CITIES",
       yield: 0,
       tooltip: "LOC_YIELD_MAX_CITIES"
+    },
+    YIELD_CITY_CAP: {
+      type: "YIELD_CITY_CAP",
+      yield: 0,
+      tooltip: "LOC_YIELD_CITY_CAP"
     }
   });
   const ResourceAssignedEvent = createEngineEvent("ResourceAssigned");
   const ResourceUnassignedEvent = createEngineEvent("ResourceUnassigned");
+  const player = Players.get(GameContext.localObserverID);
   const updateYield = (type) => {
-    const player = Players.get(GameContext.localObserverID);
     if (!player?.Stats || !player?.Treasury || !player?.DiplomacyTreasury) {
       console.error("yield-bar.tsx::updateYield: Required player libraries were missing");
       return;
@@ -169,6 +175,17 @@ const YieldStatusBarComponent = () => {
         });
         break;
       }
+      case "YIELD_CITY_CAP": {
+        yieldObject.yield = number({
+          value: player?.Stats?.numCities.toString(),
+          defaultValue: 0
+        });
+        yieldObject.max = number({
+          value: player.Cities?.getCityLimit().toString(),
+          defaultValue: 0
+        });
+        break;
+      }
     }
     setYieldBarEntries(type, yieldObject);
   };
@@ -207,7 +224,10 @@ const YieldStatusBarComponent = () => {
       get each() {
         return Object.entries(yieldBarEntries);
       },
-      children: ([_, value]) => {
+      children: ([key, value]) => {
+        if (key == "YIELD_CITY_CAP" && player?.Cities?.getCityLimit() == 0) {
+          return null;
+        }
         return createComponent(Show, {
           when: value,
           children: (entry) => createComponent(YieldBarEntryComponent, mergeProps(entry))

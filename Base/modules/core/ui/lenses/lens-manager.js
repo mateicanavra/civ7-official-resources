@@ -1,4 +1,5 @@
 import { createSignal } from '../../vendor/solid-js/dist/solid.js';
+import { Catalog } from '../utilities/utility-serialize.js';
 
 const LensLayerEnabledEventName = "lens-event-layer-enabled";
 const LensLayerDisabledEventName = "lens-event-layer-disabled";
@@ -23,7 +24,14 @@ class LensActivationEvent extends CustomEvent {
     });
   }
 }
+const LENS_CATALOG_VERSION = 1;
+const LENS_CATALOG_NAME = "LensManagerCatalog";
+const LENS_CATALOG_OBJECT_NAME = "tracked-lens";
+const ENABLED_LAYERS_CATALOG_OBJECT_ID = "enabled";
 class LensManagerSingleton {
+  catalogs = [];
+  currentCatalog;
+  playerID;
   showDebugInfo = false;
   lenses = /* @__PURE__ */ new Map();
   layers = /* @__PURE__ */ new Map();
@@ -39,6 +47,16 @@ class LensManagerSingleton {
     const [activeLensGetter, activeLensSetter] = createSignal(void 0);
     this.activeLensGetter = activeLensGetter;
     this.activeLensSetter = activeLensSetter;
+    this.playerID = GameContext.localPlayerID;
+    this.currentCatalog = new Catalog({
+      name: LENS_CATALOG_NAME,
+      version: LENS_CATALOG_VERSION,
+      player: Configuration.getGame().isHotseat ? Players.get(this.playerID) : null
+    });
+    this.catalogs[this.playerID] = this.currentCatalog;
+    if (Configuration.getGame().isHotseat) {
+      engine.on("LocalPlayerChanged", this.onLocalPlayerChanged, this);
+    }
   }
   enabledLayers = /* @__PURE__ */ new Set();
   registerLens(lensType, lens) {
@@ -64,7 +82,7 @@ class LensManagerSingleton {
       console.log(`lens-manager: Failed to find '${this.activeLens}' during registerLensLayer.`);
     }
     if (this.getLayerOption(layerType) != layerType) {
-      const enable = UI.getOption("user", "Gameplay", LensManager.getLayerOption(layerType)) == 1;
+      const enable = this.readTrackedLayer(layerType);
       const hasLayer = lens?.activeLayers.has(layerType);
       if (enable && !hasLayer) {
         this.enableLayer(layerType);
@@ -93,18 +111,12 @@ class LensManagerSingleton {
       const prevLens = this.lenses.get(this.activeLens);
       if (prevLens != void 0) {
         if (!prevLens.skipCachingEnabledLayers) {
-          prevLens.lastEnabledLayers = new Set(this.enabledLayers);
+          prevLens.lastEnabledLayers = this.getEnabledLayers();
+          prevLens.lastEnabledLayersPlayerID = this.playerID;
         }
       }
     } else {
-      this.layers.forEach((_layer, layerType) => {
-        const isLayerEnabled = LensManager.getSerializedState(layerType) === true;
-        if (isLayerEnabled) {
-          this.enableLayer(layerType);
-        } else {
-          this.disableLayer(layerType);
-        }
-      });
+      this.resetLayersFromSerialize();
     }
     const prevLensString = this.activeLens;
     this.activeLens = type;
@@ -112,7 +124,7 @@ class LensManagerSingleton {
       console.info(`lens-manager: Leaving '${prevLensString}' lens.`);
       console.info(`lens-manager: Entering '${this.activeLens}' lens.`);
     }
-    const nextLensLayers = lens.lastEnabledLayers ?? lens.activeLayers;
+    const nextLensLayers = (lens.lastEnabledLayers && lens.lastEnabledLayersPlayerID == this.playerID ? lens.lastEnabledLayers : void 0) ?? this.getActiveLayers(lens);
     const nextAllowedLayers = lens.allowedLayers;
     const canBlend = lens.blendEnabledLayersOnTransition !== false || lens.lastEnabledLayers == null;
     for (const layerType of this.enabledLayers) {
@@ -129,6 +141,24 @@ class LensManagerSingleton {
     const hasLegend = lens?.hasLegend ?? false;
     window.dispatchEvent(new LensActivationEvent(prevLensString, this.activeLens, hasLegend));
     return true;
+  }
+  getActiveLayers(lens) {
+    const activeLayers = lens.activeLayers;
+    if (lens.useUserConfig) {
+      for (const layer of this.layers) {
+        const layerName = layer[0];
+        const optionID = this.getLayerOption(layerName);
+        if (optionID != layerName) {
+          const shouldEnable = UI.getOption("user", "GamePlay", optionID) == 1;
+          if (shouldEnable && !activeLayers.has(layerName)) {
+            activeLayers.add(layerName);
+          } else if (!shouldEnable && activeLayers.has(layerName)) {
+            activeLayers.delete(layerName);
+          }
+        }
+      }
+    }
+    return activeLayers;
   }
   enableLayers(layerTypes) {
     for (const layerType of layerTypes) {
@@ -152,6 +182,7 @@ class LensManagerSingleton {
     }
     this.enabledLayers.add(layerType);
     layer.applyLayer();
+    this.writeEnabledLayers();
     window.dispatchEvent(new LensLayerEvent(LensLayerEnabledEventName, layerType));
     return true;
   }
@@ -172,6 +203,7 @@ class LensManagerSingleton {
     }
     this.enabledLayers.delete(layerType);
     layer.removeLayer();
+    this.writeEnabledLayers();
     window.dispatchEvent(new LensLayerEvent(LensLayerDisabledEventName, layerType));
     return true;
   }
@@ -213,7 +245,7 @@ class LensManagerSingleton {
     if (successful && serialize === true) {
       const id = LensManager.getLayerOption(layerType);
       if (id != layerType) {
-        UI.setOption("user", "GamePlay", id, enable ? 1 : 0);
+        this.writeTrackedLayer(id, enable);
       }
     }
     return successful;
@@ -234,9 +266,76 @@ class LensManagerSingleton {
   getSerializedState(layerType) {
     const id = LensManager.getLayerOption(layerType);
     if (id != layerType) {
-      return UI.getOption("user", "GamePlay", id) == 1;
+      return this.readTrackedLayer(id);
     }
     return void 0;
+  }
+  readTrackedLayer(layerID) {
+    if (Configuration.getGame().isHotseat) {
+      const obj = this.currentCatalog.getObject(LENS_CATALOG_OBJECT_NAME);
+      const value = !!obj.read(layerID);
+      return value;
+    }
+    return UI.getOption("user", "GamePlay", layerID) == 1;
+  }
+  writeTrackedLayer(layerID, enable) {
+    if (Configuration.getGame().isHotseat) {
+      const obj = this.currentCatalog.getObject(LENS_CATALOG_OBJECT_NAME);
+      obj.write(layerID, enable);
+    } else {
+      UI.setOption("user", "GamePlay", layerID, enable ? 1 : 0);
+      Configuration.getUser().saveCheckpoint();
+    }
+  }
+  writeEnabledLayers() {
+    if (!this.activeLens) {
+      return;
+    }
+    const obj = this.currentCatalog.getObject(this.activeLens);
+    const enabledLayers = Array.from(this.enabledLayers);
+    if (enabledLayers && enabledLayers.length > 0) {
+      obj.write(ENABLED_LAYERS_CATALOG_OBJECT_ID, enabledLayers.join(":"));
+    } else {
+      obj.write(ENABLED_LAYERS_CATALOG_OBJECT_ID, "");
+    }
+  }
+  getEnabledLayers() {
+    if (!this.activeLens) {
+      return;
+    }
+    const obj = this.currentCatalog.getObject(this.activeLens);
+    const enabledLayers = obj.read(ENABLED_LAYERS_CATALOG_OBJECT_ID);
+    const enabledLayersString = String(enabledLayers);
+    if (enabledLayers && enabledLayersString.length > 0) {
+      const array = enabledLayersString.split(":");
+      return new Set(array);
+    } else {
+      return void 0;
+    }
+  }
+  resetLayersFromSerialize() {
+    this.layers.forEach((_layer, layerType) => {
+      const isLayerEnabled = LensManager.getSerializedState(layerType) === true;
+      if (isLayerEnabled) {
+        this.enableLayer(layerType);
+      } else {
+        this.disableLayer(layerType);
+      }
+    });
+  }
+  onLocalPlayerChanged() {
+    this.playerID = GameContext.localPlayerID;
+    if (this.catalogs[this.playerID] == void 0) {
+      this.currentCatalog = new Catalog({
+        name: LENS_CATALOG_NAME,
+        version: LENS_CATALOG_VERSION,
+        player: Players.get(this.playerID)
+      });
+      this.catalogs[this.playerID] = this.currentCatalog;
+    } else {
+      this.currentCatalog = this.catalogs[this.playerID];
+    }
+    this.resetLayersFromSerialize();
   }
 }
 const LensManager = new LensManagerSingleton();

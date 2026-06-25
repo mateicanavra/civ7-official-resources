@@ -14,8 +14,8 @@ const DEFAULT_ASPECT_H = 9;
 function getScalingResolutions() {
   const SCALING_RES_W = [3840, 2560];
   const SCALING_RES_H = [2160, 1440];
-  const SCALING_RES_W_DESKTOP = [3840];
-  const SCALING_RES_H_DESKTOP = [2160];
+  const SCALING_RES_W_DESKTOP = [3840, 2880];
+  const SCALING_RES_H_DESKTOP = [2160, 1620];
   if (UI.getViewExperience() == UIViewExperience.Desktop) {
     return [SCALING_RES_W_DESKTOP, SCALING_RES_H_DESKTOP];
   } else {
@@ -60,7 +60,7 @@ class GlobalScalingImpl {
   mediaFontSizesCssRulesList;
   fontScale = Configuration.getUser().uiFontScale;
   autoScale = Configuration.getUser().uiAutoScale;
-  autoScaleAdjustment = Configuration.getUser().uiAutoScaleAdjustment;
+  autoScaleAdjustment = this.getAutoScaleAdjustmentFactor();
   currentScalePx = BASE_FONT_SIZE;
   currentBasis = 0;
   readyResolve = null;
@@ -188,16 +188,28 @@ class GlobalScalingImpl {
       this.globalScale = newScale;
       requiresUpdate = true;
     }
-    if (UI.supports(UISupportedFeature.AutoScaleAdjustment)) {
-      const newAdjustment = Configuration.getUser().uiAutoScaleAdjustment;
-      if (newAdjustment != this.autoScaleAdjustment) {
-        this.autoScaleAdjustment = newAdjustment;
-        requiresUpdate = true;
-      }
+    const newAdjustment = this.getAutoScaleAdjustmentFactor();
+    if (newAdjustment != this.autoScaleAdjustment) {
+      this.autoScaleAdjustment = newAdjustment;
+      requiresUpdate = true;
     }
     if (requiresUpdate) {
       this.updateScales(true);
     }
+  }
+  getAutoScaleAdjustmentFactor() {
+    let adjustmentFactor = 1;
+    if (window.innerHeight >= MEDIA_RES_H) {
+      if (UI.supports(UISupportedFeature.AutoScaleAdjustment)) {
+        let configValue = Configuration.getUser().uiAutoScaleAdjustment;
+        if (typeof configValue !== "number" || configValue < 50 || configValue > 150) {
+          configValue = 100;
+        }
+        adjustmentFactor = configValue / 100;
+        adjustmentFactor = Math.max(0.5, Math.min(1.5, adjustmentFactor));
+      }
+    }
+    return adjustmentFactor;
   }
   pixelsToRem(value) {
     return value / BASE_FONT_SIZE;
@@ -258,7 +270,7 @@ class GlobalScalingImpl {
     }
   }
   getCurrentScale() {
-    return this.autoScale ? this.currentBasis * 100 : this.globalScale;
+    return this.autoScale ? this.currentBasis * this.autoScaleAdjustment * 100 : this.globalScale;
   }
   getCurrentScalePx() {
     return this.currentScalePx;
@@ -295,18 +307,8 @@ class GlobalScalingImpl {
       const hRatio = height / DEFAULT_ASPECT_H;
       const [SCALING_RES_W, SCALING_RES_H] = getScalingResolutions();
       this.currentBasis = hRatio <= wRatio ? this.calculateBasis(height, DEFAULT_H, MEDIA_RES_H, SCALING_RES_H) : this.calculateBasis(width, DEFAULT_W, MEDIA_RES_W, SCALING_RES_W);
-      let adjustmentFactor = 1;
-      if (height >= 1e3) {
-        if (UI.supports(UISupportedFeature.AutoScaleAdjustment)) {
-          let configValue = Configuration.getUser().uiAutoScaleAdjustment;
-          if (typeof configValue !== "number" || configValue < 50 || configValue > 150) {
-            configValue = 100;
-          }
-          adjustmentFactor = configValue / 100;
-          adjustmentFactor = Math.max(0.5, Math.min(1.5, adjustmentFactor));
-        }
-      }
-      newScalePx = this.currentBasis * BASE_FONT_SIZE * adjustmentFactor;
+      this.autoScaleAdjustment = this.getAutoScaleAdjustmentFactor();
+      newScalePx = this.currentBasis * BASE_FONT_SIZE * this.autoScaleAdjustment;
       newCursorScalePx = this.currentBasis * BASE_CURSOR_SIZE;
     } else {
       newScalePx = this.globalScale / 100 * BASE_FONT_SIZE;

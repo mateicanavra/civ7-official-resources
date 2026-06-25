@@ -50,9 +50,6 @@ class PanelDownloadAssets extends Panel {
 				</div>
 				<div class="relative flex-auto w-full odr-download_banner-middle">
 					<div class="absolute img-lsl_loading w-full h-full"></div>
-					<div class="absolute w-full bottom-8 flow-row justify-center">
-						<div class="text-lg font-body text-accent-2 text-shadow" data-l10n-id="LOC_UI_ODR_DOWNLOAD_DESCRIPTION"></div>
-					</div>
 				</div>
 				<div class="relative odr-download_banner-bot w-full flow-column items-center">
 					<div class="absolute fullscreen-outside-safezone-x fullscreen-outside-safezone-bot top-0">

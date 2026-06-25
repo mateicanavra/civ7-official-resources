@@ -1,5 +1,6 @@
 import { g_OceanWaterColumns, g_RequiredDistanceFromMajorForDiscoveries, g_CoastTerrain, g_OceanTerrain } from './map-globals.js';
 import { getDistanceToClosestStart } from './map-utilities.js';
+import { profileScope } from '../scripts/profiling.js';
 
 function generateDiscoveries(iWidth, iHeight, startingPositions, polarMargin) {
   if (GameInfo.Ages.lookup(Game.age).GenerateDiscoveries == false) {
@@ -27,6 +28,7 @@ function generateDiscoveries(iWidth, iHeight, startingPositions, polarMargin) {
     console.log("Skipping discoveries.  No mapInfo for map of size ", uiMapSize);
     return;
   }
+  const perfScope = new profileScope("Generate Discoveries");
   const iOceanWaterColumns = (g_OceanWaterColumns + mapInfo.OceanWidth) * 1.75;
   const westContinent = {
     west: iOceanWaterColumns / 2,
@@ -317,6 +319,7 @@ function generateDiscoveries(iWidth, iHeight, startingPositions, polarMargin) {
       }
     }
   }
+  perfScope.end();
   console.log("Basics: ");
   for (const [key, value] of basicsMap) {
     console.log(key, "->", value);

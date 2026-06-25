@@ -22,8 +22,6 @@
         <Row Type="10075A" Kind="KIND_NARRATIVE_STORY"/>
         <Row Type="10075B" Kind="KIND_NARRATIVE_STORY"/>
         <Row Type="10075C" Kind="KIND_NARRATIVE_STORY"/>
-        <Row Type="10075D" Kind="KIND_NARRATIVE_STORY"/>
-        <Row Type="10075E" Kind="KIND_NARRATIVE_STORY"/>
         <Row Type="10076A" Kind="KIND_NARRATIVE_STORY"/>
         <Row Type="10076B" Kind="KIND_NARRATIVE_STORY"/>
         <Row Type="10076C" Kind="KIND_NARRATIVE_STORY"/>
@@ -69,8 +67,6 @@
         <Row NarrativeStoryType="10075A" Name="LOC_10075A_NAME" Description="LOC_10075A_DESCRIPTION" Completion="LOC_10075A_COMPLETION" StoryTitle="LOC_10075A_STORYTITLE" Age="AGE_EXPLORATION" Activation="REQUISITE" RequirementSetId="REQSET_10075A_NARRATIVE" ActivationRequirementSetId="REQSET_10075A_NARRATIVE_REQUISITE" UIActivation="STANDARD"/>
         <Row NarrativeStoryType="10075B" Name="LOC_10075B_NAME" Description="LOC_10075B_DESCRIPTION" Completion="LOC_10075B_COMPLETION" Age="AGE_EXPLORATION" Activation="LINKED" Hidden="TRUE" RequirementSetId="Met" UIActivation="STANDARD"/>
         <Row NarrativeStoryType="10075C" Name="LOC_10075C_NAME" Description="LOC_10075C_DESCRIPTION" Completion="LOC_10075C_COMPLETION" Age="AGE_EXPLORATION" Activation="LINKED" Hidden="TRUE" RequirementSetId="Met" UIActivation="STANDARD"/>
-        <Row NarrativeStoryType="10075D" Name="LOC_10075D_NAME" Description="LOC_10075D_DESCRIPTION" Completion="LOC_10075D_COMPLETION" Age="AGE_EXPLORATION" Activation="REQUISITE" Hidden="TRUE" RequirementSetId="REQSET_10075D_NARRATIVE" ActivationRequirementSetId="REQSET_10075D_NARRATIVE_REQUISITE" UIActivation="STANDARD"/>
-        <Row NarrativeStoryType="10075E" Name="LOC_10075E_NAME" Description="LOC_10075E_DESCRIPTION" Completion="LOC_10075E_COMPLETION" Age="AGE_EXPLORATION" Activation="UNLOCKED" Hidden="TRUE" RequirementSetId="Met" UIActivation="STANDARD"/>
         <Row NarrativeStoryType="10076A" Name="LOC_10076A_NAME" Description="LOC_10076A_DESCRIPTION" Completion="LOC_10076A_COMPLETION" StoryTitle="LOC_10076A_STORYTITLE" Age="AGE_EXPLORATION" Activation="REQUISITE" RequirementSetId="REQSET_10076A_NARRATIVE" ActivationRequirementSetId="REQSET_10076A_NARRATIVE_REQUISITE" UIActivation="STANDARD"/>
         <Row NarrativeStoryType="10076B" Name="LOC_10076B_NAME" Description="LOC_10076B_DESCRIPTION" Completion="LOC_10076B_COMPLETION" Age="AGE_EXPLORATION" Activation="LINKED" Hidden="TRUE" RequirementSetId="Met" UIActivation="STANDARD"/>
         <Row NarrativeStoryType="10076C" Name="LOC_10076C_NAME" Description="LOC_10076C_DESCRIPTION" Completion="LOC_10076C_COMPLETION" Age="AGE_EXPLORATION" Activation="LINKED" Hidden="TRUE" RequirementSetId="Met" UIActivation="STANDARD"/>
@@ -169,7 +165,6 @@
         <Row NarrativeStoryType="LEADER_CHAIN_1257B" NarrativeRewardType="LEADER_CHAIN_1257B_REWARD2" Activation="COMPLETE" BonusEligible="FALSE"/>
     </NarrativeStory_Rewards>
     <NarrativeStoryOverrides>
-        <Row NarrativeStoryType="10075E" OverriddenStoryType="10075A"/>
     </NarrativeStoryOverrides>
     <NarrativeVariations>
     </NarrativeVariations>
@@ -250,7 +245,6 @@
         <Row FromNarrativeStoryType="10074A" ToNarrativeStoryType="10074C" Priority="1" Name="LOC_10074C_NAME" Description="LOC_10074C_DESCRIPTION"/>
         <Row FromNarrativeStoryType="10075A" ToNarrativeStoryType="10075B" Priority="0" Name="LOC_10075B_NAME" Description="LOC_10075B_DESCRIPTION"/>
         <Row FromNarrativeStoryType="10075A" ToNarrativeStoryType="10075C" Priority="1" Name="LOC_10075C_NAME" Description="LOC_10075C_DESCRIPTION"/>
-        <Row FromNarrativeStoryType="10075D" ToNarrativeStoryType="10075E" Priority="0" Name="LOC_10075E_NAME" Description="LOC_10075E_DESCRIPTION"/>
         <Row FromNarrativeStoryType="10076A" ToNarrativeStoryType="10076B" Priority="0" Name="LOC_10076B_NAME" Description="LOC_10076B_DESCRIPTION"/>
         <Row FromNarrativeStoryType="10076A" ToNarrativeStoryType="10076C" Priority="1" Name="LOC_10076C_NAME" Description="LOC_10076C_DESCRIPTION"/>
         <Row FromNarrativeStoryType="10077A" ToNarrativeStoryType="10077B" Priority="0" Name="LOC_10077B_NAME" Description="LOC_10077B_DESCRIPTION"/>

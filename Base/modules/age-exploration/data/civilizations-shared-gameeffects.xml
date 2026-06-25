@@ -251,7 +251,7 @@
 	</Modifier>
 	<Modifier id="MANDARIN_MOD_NAVAL_TRADE_TARGET_CULTURE" collection="COLLECTION_TRADE_ROUTE_TARGET_CITY" effect="EFFECT_CITY_GRANT_YIELD" run-once="true" permanent="true">
 		<Argument name="YieldType">YIELD_CULTURE</Argument>
-		<Argument name="Amount">100</Argument>
+		<Argument name="Amount" type="ScaleByGameSpeed">100</Argument>
 	</Modifier>
 	<Modifier id="MANDARIN_MOD_NAVAL_TRADE_TREASURE_FLEET_HOMELANDS" collection="COLLECTION_TRADE_ROUTE_TARGET_CITY" effect="EFFECT_PLAYER_GRANT_UNIT_AT_PLOT" run-once="true" permanent="true">
 		<Argument name="GrantToOwnerPlayer">true</Argument>

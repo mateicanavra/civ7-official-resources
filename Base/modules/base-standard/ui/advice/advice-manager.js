@@ -30,10 +30,10 @@ class AdviceManagerClass {
     const localPlayerId = GameContext.localObserverID;
     this.catalog = new Catalog({ name: adviceCatalogName, version: VERSION, player: Players.get(localPlayerId) });
     if (!this.catalog.justCreated) {
-      this.readFromDisk(this.advisorMinds.get(AdvisorTypes.CULTURE));
-      this.readFromDisk(this.advisorMinds.get(AdvisorTypes.MILITARY));
-      this.readFromDisk(this.advisorMinds.get(AdvisorTypes.ECONOMIC));
-      this.readFromDisk(this.advisorMinds.get(AdvisorTypes.SCIENCE));
+      this.readFromDisk(this.advisorMinds.get(AdvisorTypes.CULTURE), AdvisorTypes.CULTURE);
+      this.readFromDisk(this.advisorMinds.get(AdvisorTypes.MILITARY), AdvisorTypes.MILITARY);
+      this.readFromDisk(this.advisorMinds.get(AdvisorTypes.ECONOMIC), AdvisorTypes.ECONOMIC);
+      this.readFromDisk(this.advisorMinds.get(AdvisorTypes.SCIENCE), AdvisorTypes.SCIENCE);
     }
     engine.on("PlayerTurnActivated", this.onPlayerTurnActivated, this);
   }
@@ -279,12 +279,13 @@ class AdviceManagerClass {
    * Bundle based information will be overlayed as bundles are added back.
    * @param mind The advisor's "mind".
    */
-  readFromDisk(mind) {
+  readFromDisk(mind, advisorType) {
     const obj = this.catalog.getObject(mind.diskName);
     if (!obj) {
       return;
     }
-    mind.followed = obj.read("followed");
+    mind.followed = obj.read("followed") ?? false;
+    this.reportAdvisorStatusEvent(advisorType, mind.followed, false);
     if (mind.pages.length > 0) {
       console.warn(
         `AdvisorMgr: Mind '${mind.diskName}' is about to read pages from disk but already has ${mind.pages.length} existing!`
@@ -700,9 +701,17 @@ class AdviceManagerClass {
     }
     mind.followed = isFollowed;
     this.writeToDisk(mind);
+    this.reportAdvisorStatusEvent(advisorType, isFollowed, true);
+  }
+  /**
+   * Internal helper to report an advisor changed
+   * @param advisorType Which advisor to report
+   * @param isFollowed Whether or not the advisor is followed.
+   */
+  reportAdvisorStatusEvent(advisorType, isFollowed, isNewChoice) {
     const player = Players.get(GameContext.localObserverID);
     const playerAdvisory = player?.Advisory;
-    playerAdvisory?.reportAdvisorSelected(GameContext.localObserverID, advisorType, isFollowed);
+    playerAdvisory?.reportAdvisorSelected(GameContext.localObserverID, advisorType, isFollowed, isNewChoice);
   }
   setCultureFollowed(isFollowed) {
     this.setFollowedInternal(AdvisorTypes.CULTURE, isFollowed);

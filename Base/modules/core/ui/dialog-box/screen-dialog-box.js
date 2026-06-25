@@ -600,7 +600,8 @@ class ScreenDialogBox extends Panel {
     }
   }
   onTextboxEditStop({ detail }) {
-    if (!detail.confirmed && UI.getVirtualKeyboardType() != UIVirtualKeyboardType.Inline) this.close();
+    const isInlineEditStop = UI.getVirtualKeyboardType() == UIVirtualKeyboardType.Inline && detail.inputEventName != "cancel";
+    if (!detail.confirmed && !isInlineEditStop) this.close();
   }
   //TODO: do we need to update data and refresh visuals on attributes changed?
   onAttributeChanged(name, _oldValue, newValue) {

@@ -1,13 +1,11 @@
 import { MPStagingDropdown } from './mp-staging-dropdown.js';
-import { MustGetElement } from '../../utilities/utilities-dom.js';
 import { multiplayerTeamColors } from '../../utilities/utilities-network-constants.js';
 
 class MPStagingTeamDropdown extends MPStagingDropdown {
   render() {
     super.render();
-    const dropdownLabel = MustGetElement(".dropdown__label", this.Root);
-    dropdownLabel.classList.remove("flex-auto");
-    dropdownLabel.classList.add("w-auto", "-ml-24", "font-body-xl", "text-white", "text-shadow");
+    this.Root.removeChild(this.labelElement);
+    this.iconContainer.appendChild(this.labelElement);
   }
   onAttributeChanged(name, oldValue, newValue) {
     super.onAttributeChanged(name, oldValue, newValue);

@@ -836,13 +836,13 @@
       <Text>騎兵單位擁有強大的近戰攻擊與高移動力，且能忽視[TIP:LOC_PEDIA_CONCEPTS_ZONE_OF_CONTROL_TOOLTIP]控制區[/TIP]，但其[TIP:LOC_PEDIA_CONCEPTS_MAINTENANCE_TOOLTIP]維護[/TIP]成本較高。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP" Language="zh_Hant_HK">
-      <Text>當你的帝國累積足夠的多餘[icon:YIELD_HAPPINESS][b]幸福感[/b]時，便會觸發慶典。[NN]慶典會為你的[TIP:LOC_PEDIA_CONCEPTS_GOVERNMENT_TOOLTIP]政體[/TIP]提供一個額外的政策槽位，並讓你依據所選政體，選擇一項強大的暫時性加成。</Text>
+      <Text>當你的帝國累積足夠的多餘[icon:YIELD_HAPPINESS][b]幸福感[/b]時，便會觸發慶典。[NN]慶典會為你的[TIP:LOC_PEDIA_CONCEPTS_GOVERNMENT_TOOLTIP]政體[/TIP]提供一個額外的政策槽位，並讓你依據所選政體，選擇一項強大的加成。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP" Language="zh_Hant_HK">
       <Text>城市是由[TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]城鎮[/TIP]升級而成的[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]。城市可使用[icon:YIELD_PRODUCTION][b]生產力[/b]訓練單位，並建造[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建築[/TIP]、[TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]奇觀[/TIP]與[TIP:LOC_PEDIA_CONCEPTS_PROJECTS_TOOLTIP]專案[/TIP]。你的帝國中每增加一座城市，所有建築的[icon:YIELD_PRODUCTION][b]生產力[/b]花費都會有所提高。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_CITY_RESOURCES_TOOLTIP" Language="zh_Hant_HK">
-      <Text>城市資源必須指派至擁有可用[TIP:LOC_PEDIA_CONCEPTS_RESOURCE_CAPACITY_TOOLTIP]資源容量[/TIP]的城市，才能獲得其加成效果。[NN]若未指派，城市資源將改為提供[icon:YIELD_GOLD][b]金幣[/b]與[icon:YIELD_HAPPINESS][b]幸福感[/b]，而不提供其加成。</Text>
+      <Text>城市資源必須指派至擁有可用[TIP:LOC_PEDIA_CONCEPTS_RESOURCE_CAPACITY_TOOLTIP]資源容量[/TIP]的[TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]，才能獲得其加成效果。[NN]若未指派，城市資源將改為提供[icon:YIELD_GOLD][b]金幣[/b]與[icon:YIELD_HAPPINESS][b]幸福感[/b]，而不提供其加成。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP" Language="zh_Hant_HK">
       <Text>城邦會在小型獨立軍勢力透過「和獨立軍交好」外交行動獲得提升時出現。它們將獲得一個都會格位、市政廳與更強的防禦，並為促成其提升的文明提供特色加成；同時在本時代結束前，會跟隨該文明的戰爭與和平狀態。</Text>
@@ -862,8 +862,11 @@
     <Replace Tag="LOC_PEDIA_CONCEPTS_COMMAND_RADIUS_TOOLTIP" Language="zh_Hant_HK">
       <Text>指揮範圍是[TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]指揮官[/TIP]周圍能夠獲得其[TIP:LOC_PEDIA_CONCEPTS_PROMOTION_TOOLTIP]強化[/TIP]與[TIP:LOC_PEDIA_CONCEPTS_COMMENDATION_TOOLTIP]嘉獎[/TIP]效果加成的格位數量。</Text>
     </Replace>
+    <Replace Tag="LOC_PEDIA_CONCEPTS_COMMANDER_EXPERIENCE_TOOLTIP" Language="zh_Hant_HK">
+      <Text>當單位在[TIP:LOC_PEDIA_CONCEPTS_COMMAND_RADIUS_TOOLTIP]指揮範圍[/TIP]內參與戰鬥時，[TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]指揮官[/TIP]便能獲得經驗值。[NN]當指揮官累積足夠的經驗值後，即可獲得[TIP:LOC_PEDIA_CONCEPTS_PROMOTION_TOOLTIP]強化[/TIP]。</Text>
+    </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP" Language="zh_Hant_HK">
-      <Text>指揮官是一類特殊的[TIP:LOC_PEDIA_CONCEPTS_SUPPORT_UNIT_TOOLTIP]支援單位[/TIP]，能夠獲得[TIP:LOC_PEDIA_CONCEPTS_EXPERIENCE_TOOLTIP]經驗值[/TIP]，並集結同一領域的其他單位，組成軍隊、艦隊或空軍飛行中隊，隨指揮官一同移動。[NN]集結狀態下的單位相當脆弱，必須先部署至指揮官相鄰的格位後，才能發動攻擊。[NN]若指揮官被擊敗，將在一段時間後於你的[TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]首都[/TIP]重生。</Text>
+      <Text>指揮官是一類特殊的[TIP:LOC_PEDIA_CONCEPTS_SUPPORT_UNIT_TOOLTIP]支援單位[/TIP]，能夠獲得[TIP:LOC_PEDIA_CONCEPTS_COMMANDER_EXPERIENCE_TOOLTIP]經驗值[/TIP]，並集結同一領域的其他單位，組成軍隊、艦隊或空軍飛行中隊，隨指揮官一同移動。[NN]集結狀態下的單位相當脆弱，必須先部署至指揮官相鄰的格位後，才能發動攻擊。[NN]若指揮官被擊敗，將在一段時間後於你的[TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]首都[/TIP]重生。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_COMMENDATION_TOOLTIP" Language="zh_Hant_HK">
       <Text>嘉獎是極為強大的加成，每當[TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]指揮官[/TIP]在某一[TIP:LOC_PEDIA_CONCEPTS_PROMOTION_TOOLTIP]升級[/TIP]樹中達到最終強化時，便可選擇一項嘉獎。</Text>
@@ -915,9 +918,6 @@
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_ESPIONAGE_TOOLTIP" Language="zh_Hant_HK">
       <Text>諜報任務是祕密進行的外交行為，只有在被揭露時，才會降低與目標文明的[TIP:LOC_PEDIA_CONCEPTS_RELATIONSHIP_TOOLTIP]關係[/TIP]。</Text>
-    </Replace>
-    <Replace Tag="LOC_PEDIA_CONCEPTS_EXPERIENCE_TOOLTIP" Language="zh_Hant_HK">
-      <Text>當單位在[TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]指揮官[/TIP]的[TIP:LOC_PEDIA_CONCEPTS_COMMAND_RADIUS_TOOLTIP]指揮範圍[/TIP]內參與戰鬥時，指揮官便會獲得經驗值。[NN]當指揮官累積足夠的經驗值後，將獲得一次[TIP:LOC_PEDIA_CONCEPTS_PROMOTION_TOOLTIP]強化[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_EXPLORATION_AGE_TOOLTIP" Language="zh_Hant_HK">
       <Text>這是遊戲中三個時代的第二個。</Text>
@@ -1358,10 +1358,10 @@
       <Text>聚落限制</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_CELEBRATION_1_CHAPTER_CONTENT_PARA_1" Language="zh_Hant_HK">
-      <Text>慶典能解鎖一個政策槽位，並提供觀光值。除此之外，正在經歷慶典的文明可從兩個政體特定的效果中，選擇一種有存續時間的增益。舉例而言，在慶典期間，某個古典共和文明解鎖了一個傳統槽位，然後必須在10回合間+20%文化值或10回合間建造奇觀時+15%生產力效益之間挑選其一。</Text>
+      <Text>當你的帝國累積足夠的多餘幸福感時，便會觸發一次慶典。慶典會解鎖1個政策槽位；在研習「娛樂」後，慶典還會提供觀光值。此外，處於慶典中的文明可從其政體專屬效果中選擇兩項加成之一。請前往政體畫面查看可選擇的加成。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_CELEBRATION_1_CHAPTER_CONTENT_PARA_2" Language="zh_Hant_HK">
-      <Text>每次接連的慶典，所需的幸福感都會高於前一次；而在慶典進行期間，幸福感仍會持續累積，甚至可能接連觸發多場慶典。[/LIST] </Text>
+      <Text>每次接連的慶典，所需的幸福感都會高於前一次；而在慶典進行期間，幸福感仍會持續累積，甚至可能接連觸發慶典。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_CELEBRATION_1_CHAPTER_CONTENT_PARA_3" Language="zh_Hant_HK">
       <Text>小訣竅：時時監控距離下一次慶典還剩多少回合，藉此策略性地進行規劃，將慶典效果帶來的好處最大化。</Text>
@@ -1421,7 +1421,7 @@
       <Text>除了在城市中心以外，城牆防禦不得透過金幣購買。都會區域中的城牆可以使用生產力，從城市建造佇列中一格格地建造。城牆不能建造在可航行河流格位上，並且從城市中心開始後，就必須建造位於同個聚落且相鄰於其他城牆防禦處。城牆不得建造在不同聚落所擁有之城牆旁，但城市中心除外，玩家永遠可以在城市中心建造城牆。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_CITYCAPTURE_1_CHAPTER_WALL_PARA_3" Language="zh_Hant_HK">
-      <Text>當有單位攻擊可防禦的區域時，戰鬥判定會以進攻單位的戰鬥力與該區域的防禦力比對，該區域的防禦力是根據該區域擁有者訓練過最強大的近戰單位減去固定數值（10）後得出的結果。城牆和所有城市或城鎮中心都會對攻擊方的近戰單位造成反擊傷害。</Text>
+      <Text>當有單位攻擊可防禦的區域時，戰鬥判定會以進攻單位的戰鬥力與該區域的防禦力比對，該區域的防禦力是根據該區域擁有者訓練過最強大的近戰單位戰鬥力減去固定數值（10）後得出的結果。城牆和所有城市或城鎮中心都會對攻擊方的近戰單位造成反擊傷害，且由防守方先行造成傷害。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_CITYCAPTURE_1_CHAPTER_WALL_TITLE" Language="zh_Hant_HK">
       <Text>城牆防禦</Text>
@@ -1430,7 +1430,7 @@
       <Text>佔領城市</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_CIVIC_1_CHAPTER_CONTENT_PARA_1" Language="zh_Hant_HK">
-      <Text>市政與科技相似之處在於市政同時也必須經過研究，然而市政是使用文化值收益來獲得研究進度。市政可解鎖奇觀、單位與建築。與科技不同的是，市政通常會提供可放入政體槽位的政策。</Text>
+      <Text>市政與科技類似，同樣需要經過研究；不過，市政是透過文化值來推進研究進度。市政可解鎖奇觀、單位與建築。與科技不同的是，市政通常還會提供可放入政體槽位的政策。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_CIVIC_1_CHAPTER_CONTENT_PARA_2" Language="zh_Hant_HK">
       <Text>選擇科技或市政樹中更深層的科技或市政將自動為你將先決條件節點加入佇列。</Text>
@@ -1568,7 +1568,7 @@
       <Text>在戰鬥中，地形的類型可能會對單位有所助益或掣肘。每種天然地貌會為單位的防禦戰鬥力增添或扣除一定加成。以下是簡易的指南：</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_COMBAT_3_CHAPTER_CONTENT_PARA_2" Language="zh_Hant_HK">
-      <Text>[BLIST][LI]有植被的區域：森林、林地以及相似的地貌會賦予防守中的單位+2戰鬥力加成。[LI]潮濕區域：酸沼、綠洲等其他潮濕地貌會降低2點防禦戰鬥力。[LI]丘陵：若該格位為丘陵，則能提供額外防禦力——目前為+3防禦戰鬥力加成。[LI]可航行河流：海上單位可輕鬆在這些格位上航行。然而，陸地單位必須上船（登上船隻）才能安全渡河。[LI]小型河流：這些河流會在戰鬥中減緩你的腳步。從小型河流發動攻擊將賦予你的單位減益，而在這種格位中防禦也會讓單位更沒有效率。[/LIST]</Text>
+      <Text>[BLIST][LI]有植被的區域：森林、林地以及相似的地貌會賦予防守中的單位+2戰鬥力加成。[LI]潮濕區域：酸沼、綠洲等其他潮濕地貌會降低2點防禦戰鬥力。[LI]崎嶇：若該格位為崎嶇格位，則能提供額外防禦力——目前為+3防禦戰鬥力加成。[LI]可航行河流：海上單位可輕鬆在這些格位上航行。然而，陸地單位必須上船（登上船隻）才能安全渡河。[LI]小型河流：這些河流會在戰鬥中減緩你的腳步。從小型河流發動攻擊將賦予你的單位減益，而在這種格位中防禦也會讓單位更沒有效率。[/LIST]</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_COMBAT_3_CHAPTER_CONTENT_PARA_3" Language="zh_Hant_HK">
       <Text>小訣竅：一般而言，你不會想要在水路格位上防禦，同時你能因位處有植被的格位與丘陵而獲得更多保護。</Text>
@@ -1820,7 +1820,7 @@
       <Text>文明會受到兩種類型的議程影響：領袖議程與AI傾向。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_DIPLOMACY_6_CHAPTER_LEADERAGENDA_PARA_1" Language="zh_Hant_HK">
-      <Text>領袖議程會特別影響兩個文明間的關係。舉例而言，哈特謝普蘇特的議程「古尼羅河的奇觀」就會在你擁有比她還多的奇觀時少量減少你和其文明間的關係；但倘若你擁有的奇觀較少，也將會適中地增加你與其之間的關係。</Text>
+      <Text>領袖議程會特別影響兩個文明間的關係。舉例而言，哈特謝普蘇特的議程「古尼羅河的奇觀」就會在你擁有比她還多的奇觀時少量減少你和其文明間的關係；但倘若你擁有的奇觀較少，也將會適中地增加你與其之間的關係。然而，當人類玩家選擇特定領袖進行遊戲時，並不會獲得該領袖議程帶來的效果。議程機制僅適用於AI領袖。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_DIPLOMACY_6_CHAPTER_LEADERAGENDA_TITLE" Language="zh_Hant_HK">
       <Text>領袖議程</Text>
@@ -1862,7 +1862,7 @@
       <Text>發現取代了過往《文明帝國》遊戲中傳統的「好物小屋」（Goody Huts）。這些特殊的興趣點會在地圖一開始產生時放置在地圖上，而有些甚至會隨著探索的進展再次出現。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_DISCOVERIES_1_CHAPTER_CONTENT_PARA_2" Language="zh_Hant_HK">
-      <Text>遊戲中有三種類型的發現，每種的複雜度、獎勵和稀有度都逐漸攀升：[BLIST][LI][B]基礎發現[/B]作用的方式和經典的好物小屋相似。當有單位進入該格位時，發現會提供立即的少量獎勵，然後消失。[LI][B]調查[/B]需要更多投入，有時會是在某位置傷害單位，或者支付如金幣、科技值、生產力、幸福感或文化值等資源收益——或者同時需要投入這兩者。完成調查將提供中量的獎勵。</Text>
+      <Text>遊戲中有兩種類型的發現，每種的複雜度、獎勵和稀有度都逐漸攀升：[BLIST][LI][B]基礎發現[/B]作用的方式和經典的好物小屋相似。當有單位進入該格位時，發現會提供立即的少量獎勵，然後消失。[LI][B]調查[/B]需要更多投入，有時會是在某位置傷害單位，或者支付如金幣、科技值、生產力、幸福感或文化值等資源收益——或者同時需要投入這兩者。完成調查將提供中量的獎勵。[/BLIST]</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_DISCOVERIES_1_CHAPTER_CONTENT_PARA_3" Language="zh_Hant_HK">
       <Text>小訣竅：在遊戲早期，要將派出偵察兵和閒置單位探索發現視為優先要務。基礎發現能賦予快速的提升，而在調查和神話任務方面的策略性投入則可顯著地加速文明的進展。</Text>
@@ -1919,13 +1919,13 @@
       <Text>金幣收入</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_GOVERNMENT_1_CHAPTER_CONTENT_PARA_1" Language="zh_Hant_HK">
-      <Text>政體是文化系統的一部分，並且也是每個時代的關鍵決策元素。</Text>
+      <Text>政體是每個時代幸福感機制的一部分，能為你的文明在該時代提供不同的發展方向。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_GOVERNMENT_1_CHAPTER_CONTENT_PARA_2" Language="zh_Hant_HK">
-      <Text>每個時代都至少有三個不同的政體可供選取。選完政體後，該選擇將會在整個時代間鎖定，無法更改。</Text>
+      <Text>便會在整個時代內鎖定，無法更改。部分文明還擁有完全專屬的特色政體。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_GOVERNMENT_1_CHAPTER_CONTENT_PARA_3" Language="zh_Hant_HK">
-      <Text>每個政體類型都會在玩家每次獲得慶典時刻時，提供玩家2個可供選擇的慶典效果。這些效果專屬於不同的政體類型，並且持續10個回合，鼓勵玩家在其存續期間專注在特定的遊戲操作上。除此之外，每次慶典都會提供新的政策槽位。</Text>
+      <Text>每種政體都會提供一項被動效果、兩項可於慶典中選擇的加成，以及市政樹中的新傳統。雖然政體會在時代轉場時更替，但已解鎖的傳統將會保留。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_GOVERNMENT_1_CHAPTER_CONTENT_TITLE" Language="zh_Hant_HK">
       <Text>基礎</Text>
@@ -1955,7 +1955,7 @@
       <Text>聚落能透過累積食物直到食物到達某個門檻來掌控新的格位。超過這個門檻後，該聚落便能獲得一個能分配至格位讓邊境增長的人口。 </Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_GROWTH_1_CHAPTER_POP_PARA_1" Language="zh_Hant_HK">
-      <Text>[BLIST][LI]食物累積：每回合來自每個聚落的食物都會聚在一處。超過增長門檻時，該聚落就會獲得1人口。[LI]人口分配：玩家可以選擇將新的人口放在空的格位上來創造某個改良設施，或將其添加到都會格位來獲得一位專家。[/LIST]</Text>
+      <Text>[BLIST][LI]食物累積：每回合來自每個聚落的食物都會聚在一處。超過增長門檻時，該聚落就會獲得1人口。[LI]人口分配：玩家可以選擇將新的人口放在空的格位上來創造某個改良設施，或將其添加到都會格位來獲得一位專家。[LI]成長速率：使用此術語的修正值，會降低聚落增加1人口所需的食物量。[/LIST]</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_GROWTH_1_CHAPTER_POP_PARA_2" Language="zh_Hant_HK">
       <Text>小訣竅：食物是人口增長主要的驅動元素。透過將相連城鎮的重心設定為把額外食物派送到城市，來提升城市的食物供應。</Text>
@@ -2231,10 +2231,10 @@
       <Text>沿岸掃蕩</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_PIRATING_1_CHAPTER_CONTENT_PARA_1" Language="zh_Hant_HK">
-      <Text>某些單位擁有[icon:UNIT_CAUTION]海盜能力，或從某文明或領袖能力處獲得此能力。擁有[icon:UNIT_CAUTION]海盜能力的單位能跨越其他文明的邊境，掠奪非結盟文明的貿易路線，在不宣戰的情況下攻擊非結盟文明的單位。非結盟的文明也能攻擊這些單位，在宣戰後其仍會停留在敵方邊界內。私掠在規則上等同於海盜行為，任何私掠船都必須遵循海盜的相關規則。</Text>
+      <Text>某些單位擁有[icon:UNIT_CAUTION]海盜能力，或從某文明或領袖能力處獲得此能力。擁有[icon:UNIT_CAUTION]海盜能力的單位能跨越其他文明的邊境，掠奪非結盟文明的貿易路線，在不宣戰的情況下攻擊非結盟文明的單位。擊敗單位會降低你與該文明或獨立勢力的關係。非結盟的文明也能攻擊這些單位，在宣戰後其仍會停留在敵方邊界內。擊敗海盜單位不會降低與其所屬文明的關係。私掠在規則上等同於海盜行為，任何私掠船都必須遵循海盜的相關規則。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_PIRATING_1_CHAPTER_CONTENT_PARA_2" Language="zh_Hant_HK">
-      <Text>小訣竅：海盜行為雖然能帶來可觀收益，但仍會降低與目標文明或獨立軍勢力的關係。別輕易惹麻煩！ </Text>
+      <Text>小訣竅：試著讓你的單位處於有防禦工事的區域內。如此一來，你可以主動攻擊海盜單位，同時又能受到區域防禦的保護，避免遭到敵方攻擊。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_PIRATING_1_TITLE" Language="zh_Hant_HK">
       <Text>海盜</Text>
@@ -2495,7 +2495,7 @@
       <Text>科技</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_TILES_1_CHAPTER_CONTENT_PARA_1" Language="zh_Hant_HK">
-      <Text>在聚落中有兩種類型的格位：都會與鄉村。鄉村格位是透過邊境擴張來取得，而都會格位則是透過在鄉村格位放置建築來創造。</Text>
+      <Text>在聚落中有兩種類型的格位：都會與鄉村。鄉村格位是透過邊境擴張來取得，並可建造改良設施；都會格位則是透過放置建築形成區域後所產生。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_TILES_1_CHAPTER_CONTENT_PARA_2" Language="zh_Hant_HK">
       <Text>在成長事件期間，將人口放置到鄉村格位上，就會導致該處建成改良設施。基礎的改良設施包括農場、礦場、伐木場、黏土坑、漁船、營地、牧場、種植園、採石場與海上石油鑽機。與其相反，若將人口放置在都會格位，就會賦予一名專家。專家能依據其所放置的建築的相鄰加成提供更高的產量，但他們同時也會減少城市的食物與幸福感（每個時代-2食物、-2幸福感）。</Text>
@@ -2705,7 +2705,7 @@
       <Text>除了在城市中心以外，城牆防禦不得透過金幣購買。區域中的城牆可以使用生產力，從城市建造佇列中一格格地建造。城牆不能建造在可航行河流格位上，並且從城市中心開始後，就必須建造位於同個聚落且相鄰於其他城牆處。城牆不得建造在不同聚落所擁有之城牆旁，但城市中心除外，玩家永遠可以在城市中心建造城牆。城墻不能建造在鄉村格位上。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_WALLS_1_CHAPTER_CONTENT_PARA_4" Language="zh_Hant_HK">
-      <Text>當有單位攻擊可防禦的區域時，戰鬥判定會以進攻單位的戰鬥力與該區域的防禦力比對，該區域的防禦力是根據該區域擁有者訓練過最強大的近戰單位減去固定數值（10）後得出的結果。城牆和所有城市或城鎮中心都會對攻擊方的近戰單位造成反擊傷害。</Text>
+      <Text>當有單位攻擊可防禦的區域時，戰鬥判定會以進攻單位的戰鬥力與該區域的防禦力比對，該區域的防禦力是根據該區域擁有者訓練過最強大的近戰單位戰鬥力減去固定數值（10）後得出的結果。城牆和所有城市或城鎮中心都會對攻擊方的近戰單位造成反擊傷害，且由防守方先行造成傷害。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_WALLS_1_CHAPTER_CONTENT_PARA_5" Language="zh_Hant_HK">
       <Text>小訣竅：若要佔領某個聚落，進攻方必須掌控住城市/城鎮中心，以及任何擁有城牆防禦的區域。</Text>
@@ -2774,7 +2774,7 @@
       <Text>專案是[TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]中的一類特殊[icon:YIELD_PRODUCTION][b]生產[/b]選項，完成後會立即套用其效果。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PROMOTION_TOOLTIP" Language="zh_Hant_HK">
-      <Text>強化是[TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]指揮官[/TIP]透過累積[TIP:LOC_PEDIA_CONCEPTS_EXPERIENCE_TOOLTIP]經驗值[/TIP]所獲得的加成。[NN]當在某一升級樹中達到最終強化時，將解鎖一項[TIP:LOC_PEDIA_CONCEPTS_COMMENDATION_TOOLTIP]嘉獎[/TIP]。</Text>
+      <Text>強化是[TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]指揮官[/TIP]透過累積[TIP:LOC_PEDIA_CONCEPTS_COMMANDER_EXPERIENCE_TOOLTIP]經驗值[/TIP]所獲得的加成。[NN]當在某一升級樹中達到最終強化時，將解鎖一項[TIP:LOC_PEDIA_CONCEPTS_COMMENDATION_TOOLTIP]嘉獎[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_RANGED_ATTACK_TOOLTIP" Language="zh_Hant_HK">
       <Text>遠程攻擊可打擊一格或多格之外的目標，且不會承受[TIP:LOC_PEDIA_CONCEPTS_RECIPROCAL_DAMAGE_TOOLTIP]反擊傷害[/TIP]，但需要[TIP:LOC_PEDIA_CONCEPTS_SIGHT_TOOLTIP]視野[/TIP]。[NN]對無防禦工事的單位，遠程攻擊會使用單位的遠程戰鬥力；對有防禦工事的單位與[TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]區域[/TIP]，則會使用單位的轟擊戰鬥力。</Text>
@@ -3986,7 +3986,7 @@
       <Text>單一時代遊戲</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_PAGE_AGES_40_CHAPTER_CONTENT_PARA_1" Language="zh_Hant_HK">
-      <Text>一個時代結束時，獨立軍和城邦都會消失，並作為新的獨立軍再次出現。你能保留改良設施與資源，但會失去宗主國的好處。能在時代轉場後帶至下個時代的黃金和影響力有限，而所有數值皆會隨遊戲速度而增減。使用「時代轉場影響：持續」設定，你最初可將最高3000金幣和400影響力帶到下個時代，而此數字依照時代疊加（亦即從古典時代進入探索時代後會變為6000金幣）。與其相對，採用「重組」設定時，無論時代，都僅會賦予最高3000金幣和400影響力的固定上限。來自舊時代的建築效率將減少，失去相鄰加成，僅保留基礎收益。僅有首都能維持城市地位，其他城市將恢復為城鎮，但你可以遷移首都來立即生成第二座城市。大多數的科技與市政都會重設，平民單位也是一樣，同時舊的文明能力也會失效（特色建築與改良設施皆會保留）。</Text>
+      <Text>當一個時代結束時，獨立民族與城邦都會消失，並在新時代以新的獨立軍勢力形式重新出現。其在上一個時代與各主要文明之間的互動狀況，將反映這些新勢力的關係傾向。你能保留改良設施，但會失去資源與宗主國身分所獲得的各項加成。能在時代轉場後帶至下個時代的黃金和影響力有限，而所有數值皆會隨遊戲速度而增減。使用「時代轉場影響：持續」設定，你最初可將最高3000金幣和400影響力帶到下個時代，而此數字依照時代疊加（亦即從古典時代進入探索時代後會變為6000金幣）。與其相對，採用「重組」設定時，無論時代，都僅會賦予最高3000金幣和500影響力的固定上限。來自舊時代的建築效率將減少，失去相鄰加成，僅保留基礎收益。僅有首都能維持城市地位，其他城市將恢復為城鎮，但你可以遷移首都來立即生成第二座城市。大多數的科技與市政都會重設，平民單位也是一樣，同時舊的文明能力也會失效（特色建築與改良設施皆會保留）。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_PAGE_AGES_40_CHAPTER_CONTENT_PARA_2" Language="zh_Hant_HK">
       <Text>當新時代開始時，在先前時代被征服的聚落，會在時代轉場後被視為由當前的擁有者所建立。</Text>
@@ -4226,7 +4226,7 @@
       <Text>從大峽谷北緣，我們可以將地球這二十億年的歷史盡收眼底。針葉林逐漸被沙漠取代，向下延伸穿過科羅拉多河在過去 7000 萬年間雕刻出的岩石層。這道深達一英里的峽谷揭示了淺海層、持續堆積的沉積岩層、以及湧入峽谷地下的含水層通道。這裡同樣也見證了人類的故事，普韋布洛族、霍皮族、派尤特族、納瓦霍族、阿帕契族、亞瓦派族、哈瓦蘇派族和瓦拉派族等原住民族的祖先，便曾經依賴著這道巨大的峽谷維生。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_PAGE_FEATURE_GRAND_CANYON_CHAPTER_HISTORY_PARA_2" Language="zh_Hant_HK">
-      <Text>大峽谷是西奧多‧洛克菲勒最喜愛的地點之一，在1919年時，此處更受封為國家公園，但對於闖蕩此區域的早期西班牙探索者，大峽谷也令他們印象深刻。至今大峽谷仍可視為萬物合一的鐵證，換句話說也是矛盾的對決，不僅流水與岩石並存，衰敗（即侵蝕）與永恆也一覽無遺。</Text>
+      <Text>大峽谷深受西奧多‧羅斯福喜愛，並於1919年被劃設為國家公園，但早在此之前，它便已給最早來到此地的西班牙探險者留下深刻印象。直到今日，它依然見證著岩石與流水之間的交會或對抗，也見證著侵蝕與恆久、變遷與永存之間的並存。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_PAGE_FEATURE_GULLFOSS_CHAPTER_HISTORY_PARA_1" Language="zh_Hant_HK">
       <Text>在看似靜止的景色中，傳出了一聲悶吼，彷彿是潛藏在地底深處的巨人輾轉難眠。這便是位於冰島維塔河的古佛斯（Gullfoss）瀑布，人稱「黃金瀑布」，而它之所以會傳出猶如地底深處的聲響，是因為除非置身於瀑布之上，否則瀑布本身其實不容易直接看見。水流會分成兩階段衝下超過30.5公尺高的距離並傾瀉到某個隱藏的地表裂縫中，將來自冰川的水送往大海。</Text>
@@ -5906,6 +5906,9 @@
       <Text>張家界</Text>
     </Replace>
     <Replace Tag="LOC_MAP_ARCHIPELAGO_NAME" Language="zh_Hant_HK">
+      <Text>群島半球</Text>
+    </Replace>
+    <Replace Tag="LOC_MAP_ARCHIPELAGO_VORONOI_NAME" Language="zh_Hant_HK">
       <Text>群島</Text>
     </Replace>
     <Replace Tag="LOC_MAP_CONTINENTS_NAME" Language="zh_Hant_HK">
@@ -9893,8 +9896,8 @@
     </Replace>
     <Replace Tag="LOC_ADVICE_ANTIQUITY_MILITARY_ARMY_COMMANDERS_MESSAGE" Language="zh_Hant_HK">
       <Text>
-				[b]軍隊[/b][TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]指揮官[/TIP]是一類[TIP:LOC_PEDIA_CONCEPTS_SUPPORT_UNIT_TOOLTIP]支援單位[/TIP]，擁有特殊能力，並能為附近的[TIP:LOC_PEDIA_CONCEPTS_MILITARY_UNIT_TOOLTIP]軍事單位[/TIP]提供加成。軍隊指揮官也可以[b]集結軍事單位[/b]與[TIP:LOC_PEDIA_CONCEPTS_CIVILIAN_UNIT_TOOLTIP]平民單位[/TIP]，使其能夠快速在地圖上移動。
-				[nn]只要戰鬥發生在其[b][TIP:LOC_PEDIA_CONCEPTS_COMMAND_RADIUS_TOOLTIP]指揮範圍[/TIP][/b]內，軍隊指揮官就會獲得[b]經驗值[/b]。隨著等級提升，他們將獲得[TIP:LOC_PEDIA_CONCEPTS_PROMOTION_TOOLTIP]強化[/TIP]，解鎖更多加成與能力。當軍隊指揮官在某一強化路線中取得最終的強化時，便可獲得一項[TIP:LOC_PEDIA_CONCEPTS_COMMENDATION_TOOLTIP]嘉獎[/TIP]。高等級的軍隊指揮官往往能對戰爭結果產生巨大影響，因此務必讓他們待在前線、置身戰火之中。
+				[B]軍隊[/B][TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]指揮官[/TIP]是一類[TIP:LOC_PEDIA_CONCEPTS_SUPPORT_UNIT_TOOLTIP]支援單位[/TIP]，擁有特殊能力，並能為附近的[TIP:LOC_PEDIA_CONCEPTS_MILITARY_UNIT_TOOLTIP]軍事單位[/TIP]提供加成。軍隊指揮官也可以[b]集結軍事單位[/b]與[TIP:LOC_PEDIA_CONCEPTS_CIVILIAN_UNIT_TOOLTIP]平民單位[/TIP]，使其能夠快速在地圖上移動。
+				[nn]只要戰鬥發生在其[TIP:LOC_PEDIA_CONCEPTS_COMMAND_RADIUS_TOOLTIP]指揮範圍[/TIP]內，軍隊指揮官就會獲得[b]經驗值[/b]。隨著等級提升，他們將獲得[TIP:LOC_PEDIA_CONCEPTS_PROMOTION_TOOLTIP]強化[/TIP]，解鎖更多加成與能力。當軍隊指揮官在某一強化路線中取得最終的強化時，便可獲得一項[TIP:LOC_PEDIA_CONCEPTS_COMMENDATION_TOOLTIP]嘉獎[/TIP]。高等級的軍隊指揮官往往能對戰爭結果產生巨大影響，因此務必讓他們待在前線、置身戰火之中。
 				[nn]當某個單位與軍隊指揮官相鄰時，可以透過[b]「增添至軍隊」[/b]（單位指令）或[b]「集結軍隊」[/b]（指揮官指令）將其集結至指揮官麾下。每位指揮官最多可同時集結4個單位，並可透過強化解鎖額外容量。集結後，單位將隨指揮官一同行動，並可一起或逐一[b]部署[/b]，重新投入戰場。
 				[nn]最後，若你的軍隊指揮官在戰鬥中被擊敗，將在數回合後自動於你的[TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]首都[/TIP]重生。
 			</Text>
@@ -12604,6 +12607,9 @@
     <Replace Tag="LOC_BADGE_DLC_SEASONPASS_3_NAME" Language="zh_Hant_HK">
       <Text>權力浪潮的徽章</Text>
     </Replace>
+    <Replace Tag="LOC_BADGE_DLC_SEASONPASS_4_NAME" Language="zh_Hant_HK">
+      <Text>筆墨與刀鋒的徽章</Text>
+    </Replace>
     <Replace Tag="LOC_BADGE_EVENT_PARTICIPATION_LEADERMIXNMATCH_NAME" Language="zh_Hant_HK">
       <Text>首次活動參與徽章</Text>
     </Replace>
@@ -12835,6 +12841,9 @@
     <Replace Tag="LOC_BANNER_DLC_SEASONPASS_3_NAME" Language="zh_Hant_HK">
       <Text>權力浪潮的旗幟</Text>
     </Replace>
+    <Replace Tag="LOC_BANNER_DLC_SEASONPASS_4_NAME" Language="zh_Hant_HK">
+      <Text>筆墨與刀鋒的旗幟</Text>
+    </Replace>
     <Replace Tag="LOC_BANNER_FOUNDATION_1_NAME" Language="zh_Hant_HK">
       <Text>天啟</Text>
     </Replace>
@@ -12955,6 +12964,9 @@
     <Replace Tag="LOC_BORDER_DLC_SEASONPASS_3_NAME" Language="zh_Hant_HK">
       <Text>權力浪潮的邊框</Text>
     </Replace>
+    <Replace Tag="LOC_BORDER_DLC_SEASONPASS_4_NAME" Language="zh_Hant_HK">
+      <Text>筆墨與刀鋒的邊框</Text>
+    </Replace>
     <Replace Tag="LOC_BORDER_INTERMEDIATE_NAME" Language="zh_Hant_HK">
       <Text>邊框2</Text>
     </Replace>
@@ -13026,6 +13038,9 @@
     </Replace>
     <Replace Tag="LOC_BUILDING_PLACEMENT_HIGHEST_ADJACENCIES" Language="zh_Hant_HK">
       <Text>最高相鄰加成的格位：</Text>
+    </Replace>
+    <Replace Tag="LOC_BUILDING_PLACEMENT_IMPROVED_TO_UNIQUE_IMPROVED" Language="zh_Hant_HK">
+      <Text>此改良設施將變為一個特色改良設施</Text>
     </Replace>
     <Replace Tag="LOC_BUILDING_PLACEMENT_IMPROVEMENT" Language="zh_Hant_HK">
       <Text>改良設施</Text>
@@ -13199,13 +13214,13 @@
       <Text>變更首都</Text>
     </Replace>
     <Replace Tag="LOC_CARD_AT_EXP_INVASION_ACTIVE_DEFENSE_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>對抗[icon:INDEPENDENT_POWER][TIP:LOC_PEDIA_CONCEPTS_INDEPENDENT_POWER_TOOLTIP]獨立軍勢力[/TIP]時[B]+4[icon:NAR_REW_COMBAT][TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]戰鬥力[/TIP][/B]。</Text>
+      <Text>對抗[icon:INDEPENDENT_POWER][TIP:LOC_PEDIA_CONCEPTS_INDEPENDENT_POWER_TOOLTIP]獨立軍勢力[/TIP]時[B]+4[icon:NAR_REW_COMBAT][/B][TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]戰鬥力[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_CARD_AT_EXP_INVASION_NOBLES_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>指揮官每擁有一個[icon:NAR_REW_PROMOTION][TIP:LOC_PEDIA_CONCEPTS_PROMOTION_TOOLTIP]強化[/TIP]，[icon:NOTIFICATION_SELECT_CAPITAL][TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]首都[/TIP]便[B]+1[icon:YIELD_PRODUCTION][/B]、[B]+1[icon:YIELD_CULTURE][/B]，但[B]-1[icon:YIELD_GOLD][/B]。</Text>
+      <Text>[icon:UNIT_ARMY_COMMANDER] [TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]指揮官[/TIP]每擁有一個[TIP:LOC_PEDIA_CONCEPTS_PROMOTION_TOOLTIP]強化[/TIP]，[icon:NOTIFICATION_SELECT_CAPITAL][TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]首都[/TIP]便[B]+1[icon:YIELD_PRODUCTION][/B]、[B]+1[icon:YIELD_CULTURE][/B]，但[B]-1[icon:YIELD_GOLD][/B]。</Text>
     </Replace>
     <Replace Tag="LOC_CARD_AT_EXP_INVASION_WALLS_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>有[icon:CITY_FORTIFIED][TIP:LOC_PEDIA_CONCEPTS_FORTIFIED_DISTRICTS_TOOLTIP]防禦工事的區域[/TIP][B]+3[icon:NAR_REW_COMBAT][TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]戰鬥力[/TIP][/B]、[B]+50[icon:Action_Heal]生命值[/B]。</Text>
+      <Text>有[icon:CITY_FORTIFIED][TIP:LOC_PEDIA_CONCEPTS_FORTIFIED_DISTRICTS_TOOLTIP]防禦工事的區域[/TIP][B]+3[icon:NAR_REW_COMBAT][/B][TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]戰鬥力[/TIP]、[B]+50[icon:Action_Heal]生命值[/B]。</Text>
     </Replace>
     <Replace Tag="LOC_CARD_AT_MOD_CRISIS_HERBAL_REMEDIES_DESCRIPTION" Language="zh_Hant_HK">
       <Text>免費購買[B]2座醫院[/B]。</Text>
@@ -14486,7 +14501,7 @@
       <Text>意識形態反叛</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ESPIONAGE_INFILTRATE_ENEMY_POSITIONS_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>你的[TIP:LOC_PEDIA_CONCEPTS_SIEGE_UNITS_TOOLTIP]攻城[/TIP]單位將會使用其[TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]轟擊戰鬥力[/TIP]來對付屬於該目標的所有單位。</Text>
+      <Text>你的[TIP:LOC_PEDIA_CONCEPTS_SIEGE_UNITS_TOOLTIP]攻城[/TIP]單位將會使用其轟擊戰鬥力來對付屬於該目標的所有單位。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ESPIONAGE_INFILTRATE_ENEMY_POSITIONS_NAME" Language="zh_Hant_HK">
       <Text>滲透敵方陣地</Text>
@@ -15352,6 +15367,9 @@
     <Replace Tag="LOC_DLC_SEASONPASS_3_UNLOCK_CONDITION" Language="zh_Hant_HK">
       <Text>解鎖條件：購買權力浪潮。</Text>
     </Replace>
+    <Replace Tag="LOC_DLC_SEASONPASS_4_UNLOCK_CONDITION" Language="zh_Hant_HK">
+      <Text>解鎖條件：購買筆墨與刀鋒。</Text>
+    </Replace>
     <Replace Tag="LOC_DOMINION_POINTS_NEEDED_TO_WIN" Language="zh_Hant_HK">
       <Text>獲勝所需的霸權值</Text>
     </Replace>
@@ -15777,6 +15795,9 @@
     </Replace>
     <Replace Tag="LOC_GOODYHUT_SURVIVORS_GRANT_SCOUT_DESCRIPTION" Language="zh_Hant_HK">
       <Text>最近的聚落獲得免費偵察兵</Text>
+    </Replace>
+    <Replace Tag="LOC_GOVERNMENT_HAPPINESS_REMINDER_TEXT" Language="zh_Hant_HK">
+      <Text>正的當地幸福感會在帝國層級累積，用於推動進入慶典。負的當地幸福感則來自超出聚落限制、負的戰爭支援，以及建築與專家的維護費用。</Text>
     </Replace>
     <Replace Tag="LOC_GREAT_PEOPLE_CANNOT_EARN_PERSON_NO_VALID_LOCATION" Language="zh_Hant_HK">
       <Text>此單位沒有有效的地點。</Text>
@@ -16601,7 +16622,7 @@
       <Text>插根旗子，獲得該地點的能見度。</Text>
     </Replace>
     <Replace Tag="LOC_LEADER_AMINA_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>[icon:YIELD_CITIES]各[TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]+1[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_RESOURCE_CAPACITY_TOOLTIP]資源容量[/TIP]。每有一個指派至[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]的[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]資源[/TIP]，便+1[icon:YIELD_GOLD]金幣，依照[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]時代[/TIP]疊加。所有單位在平原與沙漠獲得+5[icon:NAR_REW_COMBAT][TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]戰鬥力[/TIP]。</Text>
+      <Text>各[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]+1[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_RESOURCE_CAPACITY_TOOLTIP]資源容量[/TIP]。每有一個指派至[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]的[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]資源[/TIP]，便+1[icon:YIELD_GOLD]金幣，依照[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]時代[/TIP]疊加。在平原與沙漠上的[TIP:LOC_PEDIA_CONCEPTS_LAND_UNITS_TOOLTIP]陸地單位[/TIP]+5[icon:NAR_REW_COMBAT][TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]戰鬥力[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEADER_ASHOKA_DESCRIPTION" Language="zh_Hant_HK">
       <Text>[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]中每多出5[icon:YIELD_HAPPINESS]幸福感，便+1[icon:YIELD_FOOD]食物。在[icon:CELEBRATION][TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]慶典[/TIP]期間所有[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]+10%[icon:YIELD_FOOD]食物。[icon:CITY_BUILDING_LIST]特色[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建築[/TIP]都會從所有[icon:CITY_RURAL]改良設施獲得+1[icon:YIELD_HAPPINESS]幸福感相鄰加成。</Text>
@@ -16610,10 +16631,10 @@
       <Text>時代轉場時AI如何選擇文明</Text>
     </Replace>
     <Replace Tag="LOC_LEADER_ASSOCIATED_CIV_SELECTION_MODE_HISTORICAL_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>若可能，將從與該領袖相關的較小文明集區中選擇隨機文明。[nn]若會導致出現重複文明，則可能避開歷史關聯的文明選項。</Text>
+      <Text>若可能，將從與該領袖相關的較小文明集區中選擇隨機文明。[nn]此規則同時適用於AI與人類玩家選擇隨機文明的情形。[nn]若會導致出現重複文明，則可能避開歷史關聯的文明選項。</Text>
     </Replace>
     <Replace Tag="LOC_LEADER_ASSOCIATED_CIV_SELECTION_MODE_RANDOM_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>隨機文明將完全隨機選擇，忽略其關聯性。</Text>
+      <Text>隨機文明將完全隨機選擇，忽略其關聯性。[nn]此規則同時適用於AI與人類玩家選擇隨機文明的情形。</Text>
     </Replace>
     <Replace Tag="LOC_LEADER_AUGUSTUS_DESCRIPTION" Language="zh_Hant_HK">
       <Text>每擁有一座[icon:YIELD_TOWNS][TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]城鎮[/TIP]，[icon:NOTIFICATION_SELECT_CAPITAL]首都便+2[icon:YIELD_PRODUCTION]生產力。可在擁有任何重心的[icon:YIELD_TOWNS][TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]城鎮[/TIP]中購買[icon:YIELD_CULTURE]文化值[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建築[/TIP]。購買[icon:YIELD_TOWNS][TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]城鎮[/TIP]中的[icon:CITY_BUILDING_LIST][TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建築[/TIP]時+50%[icon:YIELD_GOLD]金幣效益。</Text>
@@ -16631,7 +16652,7 @@
       <Text>[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]+25%[icon:GROWTH_RATE][TIP:LOC_PEDIA_CONCEPTS_GROWTH_RATE_TOOLTIP]成長速率[/TIP]。從[icon:SPECIALIST][TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_TOOLTIP]專家[/TIP]處獲得+2[icon:YIELD_SCIENCE]科技值。</Text>
     </Replace>
     <Replace Tag="LOC_LEADER_FRIEDRICH_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>[icon:UNIT_ARMY_COMMANDER] [TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]軍隊指揮官[/TIP]開始即有「功勳」[TIP:LOC_PEDIA_CONCEPTS_COMMENDATION_TOOLTIP]嘉獎[/TIP]，賦予其+1[icon:COMMANDER_RADIUS][TIP:LOC_PEDIA_CONCEPTS_COMMAND_RADIUS_TOOLTIP]指揮範圍[/TIP]。當你完成一項[icon:RADIAL_TECH][TIP:LOC_PEDIA_CONCEPTS_TECH_TOOLTIP]科技[/TIP]精通或建造一個[icon:YIELD_SCIENCE]科技值[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建築[/TIP]時，獲得一個[TIP:LOC_PEDIA_CONCEPTS_INFANTRY_UNITS_TOOLTIP]步兵單位[/TIP]。你的[TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]指揮官[/TIP]每獲得一項[TIP:LOC_PEDIA_CONCEPTS_COMMENDATION_TOOLTIP]嘉獎[/TIP]，便+2[icon:YIELD_SCIENCE]科技值，依照[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]時代[/TIP]疊加。</Text>
+      <Text>[icon:UNIT_ARMY_COMMANDER] [TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]軍隊指揮官[/TIP]開始即有「功勳」[TIP:LOC_PEDIA_CONCEPTS_COMMENDATION_TOOLTIP]嘉獎[/TIP]，賦予其+1[icon:COMMANDER_RADIUS][TIP:LOC_PEDIA_CONCEPTS_COMMAND_RADIUS_TOOLTIP]指揮範圍[/TIP]。完成一項[icon:RADIAL_TECH][TIP:LOC_PEDIA_CONCEPTS_TECH_TOOLTIP]科技精通[/TIP]時，在你的[icon:NOTIFICATION_SELECT_CAPITAL][TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]首都[/TIP]中獲得1個[TIP:LOC_PEDIA_CONCEPTS_INFANTRY_UNITS_TOOLTIP]步兵單位[/TIP]；在建造有[icon:YIELD_SCIENCE][TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]科技值建築[/TIP]的[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]中，也會獲得1個步兵單位。你的[TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]指揮官[/TIP]每獲得一項[TIP:LOC_PEDIA_CONCEPTS_COMMENDATION_TOOLTIP]嘉獎[/TIP]，便+2[icon:YIELD_SCIENCE]科技值，依照[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]時代[/TIP]疊加。</Text>
     </Replace>
     <Replace Tag="LOC_LEADER_HARRIET_TUBMAN_DESCRIPTION" Language="zh_Hant_HK">
       <Text>發動[icon:ESPIONAGE][TIP:LOC_PEDIA_CONCEPTS_ESPIONAGE_TOOLTIP]諜報[/TIP]行動時+100%[icon:YIELD_DIPLOMACY]影響力效益。只要你在未被偵測到的情況下完成[TIP:LOC_PEDIA_CONCEPTS_ESPIONAGE_TOOLTIP]諜報[/TIP]行動，首都中便獲得一個移民。在所有對你宣戰之[icon:WAR]戰爭中獲得5[icon:WAR_SUPPORT][TIP:LOC_PEDIA_CONCEPTS_WAR_SUPPORT_TOOLTIP]戰爭支援[/TIP]。[icon:CITY_UNIMPROVED][TIP:LOC_PEDIA_CONCEPTS_VEGETATED_TERRAIN_TOOLTIP]有植被的地形[/TIP]不會終止單位[icon:Action_Move]移動。</Text>
@@ -16673,7 +16694,7 @@
       <Text>選擇領袖</Text>
     </Replace>
     <Replace Tag="LOC_LEADER_TRUNG_TRAC_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>在得到你本[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]時代[/TIP]的第一個陸地[TIP:LOC_PEDIA_CONCEPTS_MILITARY_UNIT_TOOLTIP]軍事單位[/TIP]後，獲得特色[icon:UNIT_ARMY_COMMANDER][TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]軍隊指揮官[/TIP]徵貳。[icon:UNIT_ARMY_COMMANDER]徵貳能在[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]時代[/TIP]轉場後存活，且在探索時代進階開局下開場便擁有2[icon:NAR_REW_PROMOTION]強化，在近代進階開局下開場便擁有3[icon:NAR_REW_PROMOTION]強化，並且擁有特色[TIP:LOC_PEDIA_CONCEPTS_PROMOTION_TOOLTIP]強化[/TIP]樹。+20%[icon:UNIT_ARMY_COMMANDER][TIP:LOC_PEDIA_CONCEPTS_EXPERIENCE_TOOLTIP]指揮官經驗值[/TIP]。在熱帶中的[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]+10%[icon:YIELD_SCIENCE]科技值。在你宣佈的[icon:WAR]正式戰爭中，此加成將加倍。</Text>
+      <Text>在得到你本[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]時代[/TIP]的第一個陸地[TIP:LOC_PEDIA_CONCEPTS_MILITARY_UNIT_TOOLTIP]軍事單位[/TIP]後，獲得特色[icon:UNIT_ARMY_COMMANDER][TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]軍隊指揮官[/TIP]徵貳。[icon:UNIT_ARMY_COMMANDER]徵貳能在[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]時代[/TIP]轉場後存活，且在探索時代進階開局下開場便擁有2[icon:NAR_REW_PROMOTION]強化，在近代進階開局下開場便擁有3[icon:NAR_REW_PROMOTION]強化，並且擁有特色[TIP:LOC_PEDIA_CONCEPTS_PROMOTION_TOOLTIP]強化[/TIP]樹。+20%[icon:UNIT_ARMY_COMMANDER][TIP:LOC_PEDIA_CONCEPTS_COMMANDER_EXPERIENCE_TOOLTIP]指揮官經驗值[/TIP]。在熱帶中的[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]+10%[icon:YIELD_SCIENCE]科技值。在你宣佈的[icon:WAR]正式戰爭中，此加成將加倍。</Text>
     </Replace>
     <Replace Tag="LOC_LEADER_UNIQUE_ABILITY" Language="zh_Hant_HK">
       <Text>領袖特色能力</Text>
@@ -16796,13 +16817,13 @@
       <Text>下一時代</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_CONQUEROR_1_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>[TIP:LOC_PEDIA_CONCEPTS_SIEGE_UNITS_TOOLTIP]攻城單位[/TIP][B]+4[icon:NAR_REW_COMBAT]轟擊戰鬥力[/B]。</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_SIEGE_UNITS_TOOLTIP]攻城單位[/TIP][B]+4[icon:NAR_REW_COMBAT][/B][TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]轟擊戰鬥力[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_CONQUEROR_1_NAME" Language="zh_Hant_HK">
       <Text>耶利哥丘</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_CONQUEROR_1_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>征服一座有[B]4個[icon:CITY_FORTIFIED][TIP:LOC_PEDIA_CONCEPTS_FORTIFIED_DISTRICTS_TOOLTIP]有防禦工事的區域[/TIP][/B]之[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]。</Text>
+      <Text>征服一座有[B]4個[icon:CITY_FORTIFIED][/B][TIP:LOC_PEDIA_CONCEPTS_FORTIFIED_DISTRICTS_TOOLTIP]有防禦工事的區域[/TIP]之[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_CONQUEROR_2_DESCRIPTION" Language="zh_Hant_HK">
       <Text>從[icon:CITYSTATE][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP]徵集單位時[B]+100%[icon:YIELD_DIPLOMACY]效益[/B]。</Text>
@@ -16820,16 +16841,16 @@
       <Text>阿利亞擄掠日</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_CONQUEROR_3_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>在征服的[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]中擁有[B]4個[TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]奇觀[/TIP][/B]。</Text>
+      <Text>在征服的[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]中擁有[B]4個[icon:WONDER][/B][TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]奇觀[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_CONQUEROR_4_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>對抗[icon:INDEPENDENT_POWER][TIP:LOC_PEDIA_CONCEPTS_INDEPENDENT_POWER_TOOLTIP]獨立軍勢力[/TIP]時[B]+4[icon:NAR_REW_COMBAT][TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]戰鬥力[/TIP][/B]。</Text>
+      <Text>對抗[icon:INDEPENDENT_POWER][TIP:LOC_PEDIA_CONCEPTS_INDEPENDENT_POWER_TOOLTIP]獨立軍勢力[/TIP]時[B]+4[icon:NAR_REW_COMBAT][/B][TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]戰鬥力[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_CONQUEROR_4_NAME" Language="zh_Hant_HK">
       <Text>盧卡之地</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_CONQUEROR_4_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>驅散[B]4個[icon:INDEPENDENT_POWER][TIP:LOC_PEDIA_CONCEPTS_INDEPENDENT_POWER_TOOLTIP]獨立軍勢力[/TIP][/B]。</Text>
+      <Text>驅散[B]4個[icon:INDEPENDENT_POWER][/B][TIP:LOC_PEDIA_CONCEPTS_INDEPENDENT_POWER_TOOLTIP]獨立軍勢力[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_CULTURAL_1_DESCRIPTION" Language="zh_Hant_HK">
       <Text>[icon:WONDER][TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]奇觀[/TIP][B]+2[icon:YIELD_CULTURE][/B]和[icon:YIELD_PRODUCTION]。</Text>
@@ -16838,13 +16859,13 @@
       <Text>遠古世界的奇觀</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_CULTURAL_1_RACE_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先建造[B]7座[icon:WONDER][TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]奇觀[/TIP][/B]。</Text>
+      <Text>最先建造[B]7座[icon:WONDER][/B][TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]奇觀[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_CULTURAL_1_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>建造[B]7座[icon:WONDER][TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]奇觀[/TIP][/B]。</Text>
+      <Text>建造[B]7座[icon:WONDER][/B][TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]奇觀[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_CULTURAL_2_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>解鎖[icon:RADIAL_CIVICS]虔誠。建造寺廟時[B]+25%[icon:YIELD_PRODUCTION]效益[/B]。</Text>
+      <Text>解鎖虔誠。建造寺廟時[B]+25%[icon:YIELD_PRODUCTION]效益[/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_CULTURAL_2_NAME" Language="zh_Hant_HK">
       <Text>奧耳菲祕儀</Text>
@@ -16853,40 +16874,40 @@
       <Text>最先擁有[B]6座祭壇[/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_CULTURAL_2_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先擁有6座祭壇。</Text>
+      <Text>最先擁有[B]6座祭壇[/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_CULTURAL_3_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>[B]+1[icon:NAR_REW_TRADITION_SLOT][TIP:LOC_PEDIA_CONCEPTS_TRADITION_TOOLTIP]傳統槽位[/TIP][/B]。每有一個[icon:SOCIAL_POLICY][TIP:LOC_PEDIA_CONCEPTS_SOCIAL_POLICY_TOOLTIP]社會政策[/TIP]或[icon:TRADITION][TIP:LOC_PEDIA_CONCEPTS_TRADITION_TOOLTIP]傳統[/TIP]放置在槽位中，便[B]+2[icon:YIELD_CULTURE][/B]。</Text>
+      <Text>[B]+1[icon:NAR_REW_TRADITION_SLOT]傳統槽位[/B]。每有一個[icon:SOCIAL_POLICY][TIP:LOC_PEDIA_CONCEPTS_SOCIAL_POLICY_TOOLTIP]社會政策[/TIP]或[icon:TRADITION][TIP:LOC_PEDIA_CONCEPTS_TRADITION_TOOLTIP]傳統[/TIP]放置在槽位中，便[B]+2[icon:YIELD_CULTURE][/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_CULTURAL_3_NAME" Language="zh_Hant_HK">
       <Text>漢摩拉比法典</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_CULTURAL_3_RACE_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先在槽位中放入[B]9個[icon:SOCIAL_POLICY]政策[/B]或[icon:TRADITION][TIP:LOC_PEDIA_CONCEPTS_TRADITION_TOOLTIP]傳統[/TIP]。</Text>
+      <Text>最先在槽位中放入[B]9個[icon:SOCIAL_POLICY][/B][TIP:LOC_PEDIA_CONCEPTS_SOCIAL_POLICY_TOOLTIP]政策[/TIP]或[icon:TRADITION][TIP:LOC_PEDIA_CONCEPTS_TRADITION_TOOLTIP]傳統[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_CULTURAL_3_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先在槽位中放入[B]9個[icon:SOCIAL_POLICY][TIP:LOC_PEDIA_CONCEPTS_SOCIAL_POLICY_TOOLTIP]政策[/TIP][/B]或[icon:TRADITION][TIP:LOC_PEDIA_CONCEPTS_TRADITION_TOOLTIP]傳統[/TIP]。</Text>
+      <Text>最先在槽位中放入[B]9個[icon:SOCIAL_POLICY][/B][TIP:LOC_PEDIA_CONCEPTS_SOCIAL_POLICY_TOOLTIP]政策[/TIP]或[icon:TRADITION][TIP:LOC_PEDIA_CONCEPTS_TRADITION_TOOLTIP]傳統[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_CULTURAL_4_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>[icon:YIELD_CULTURE][TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]文化值建築[/TIP][B]+1[icon:YIELD_HAPPINESS][/B]。</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]文化值建築[/TIP][B]+1[icon:YIELD_HAPPINESS][/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_CULTURAL_4_NAME" Language="zh_Hant_HK">
       <Text>我知道自己一無所知</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_CULTURAL_4_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先研究完[icon:RADIAL_CIVICS]哲學。</Text>
+      <Text>最先研究完哲學。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_CULTURAL_5_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>[icon:YIELD_TOWNS][TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]城鎮[/TIP][B]+1[icon:YIELD_POPULATION][TIP:LOC_PEDIA_CONCEPTS_POPULATION_TOOLTIP]人口[/TIP][/B]。</Text>
+      <Text>[icon:YIELD_TOWNS][TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]城鎮[/TIP][B]+1[icon:YIELD_POPULATION][/B][TIP:LOC_PEDIA_CONCEPTS_POPULATION_TOOLTIP]人口[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_CULTURAL_5_NAME" Language="zh_Hant_HK">
       <Text>百家思想</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_CULTURAL_5_RACE_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先研究完所有一般[TIP:LOC_PEDIA_CONCEPTS_CIVIC_TOOLTIP]市政[/TIP]和[TIP:LOC_PEDIA_CONCEPTS_MASTERY_TOOLTIP]精通[/TIP]。</Text>
+      <Text>最先研究完所有一般[TIP:LOC_PEDIA_CONCEPTS_CIVIC_TOOLTIP]市政[/TIP]和精通。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_CULTURAL_5_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>研究完所有一般[TIP:LOC_PEDIA_CONCEPTS_CIVIC_TOOLTIP]市政[/TIP]和[TIP:LOC_PEDIA_CONCEPTS_MASTERY_TOOLTIP]精通[/TIP]。</Text>
+      <Text>研究完所有一般[TIP:LOC_PEDIA_CONCEPTS_CIVIC_TOOLTIP]市政[/TIP]和精通。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_DIPLOMATIC_1_DESCRIPTION" Language="zh_Hant_HK">
       <Text>每成為一個[icon:CITYSTATE][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP]的[TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主國[/TIP]，[TIP:LOC_PEDIA_CONCEPTS_PALACE_TOOLTIP]宮殿[/TIP]便[B]+2[icon:YIELD_DIPLOMACY][/B]和[icon:YIELD_HAPPINESS]。</Text>
@@ -16895,10 +16916,10 @@
       <Text>幕後操縱</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_DIPLOMATIC_1_RACE_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先成為[B]4個[icon:CITYSTATE][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP][/B]的[TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主國[/TIP]。</Text>
+      <Text>最先成為[B]4個[icon:CITYSTATE][/B][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP]的[TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主國[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_DIPLOMATIC_1_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>成為[B]4個[icon:CITYSTATE][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP][/B]的[TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主國[/TIP]。</Text>
+      <Text>成為[B]4個[icon:CITYSTATE][/B][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP]的[TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主國[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_DIPLOMATIC_2_DESCRIPTION" Language="zh_Hant_HK">
       <Text>進行[icon:ESPIONAGE][TIP:LOC_PEDIA_CONCEPTS_ESPIONAGE_TOOLTIP]諜報行動[/TIP]時[B]+25%[icon:YIELD_DIPLOMACY]效益[/B]，使其完成速度加快25%。</Text>
@@ -16907,10 +16928,10 @@
       <Text>政事論</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_DIPLOMATIC_2_RACE_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先成功完成一項[icon:ESPIONAGE][TIP:LOC_PEDIA_CONCEPTS_ESPIONAGE_TOOLTIP]諜報行動[/TIP]5次。</Text>
+      <Text>最先成功完成[B]5項[icon:ESPIONAGE][/B][TIP:LOC_PEDIA_CONCEPTS_ESPIONAGE_TOOLTIP]諜報行動[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_DIPLOMATIC_2_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>成功完成一項[icon:ESPIONAGE][TIP:LOC_PEDIA_CONCEPTS_ESPIONAGE_TOOLTIP]諜報行動[/TIP]5次。</Text>
+      <Text>成功完成[B]5項[icon:ESPIONAGE][/B][TIP:LOC_PEDIA_CONCEPTS_ESPIONAGE_TOOLTIP]諜報行動[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_DIPLOMATIC_3_DESCRIPTION" Language="zh_Hant_HK">
       <Text>每有一個[icon:PLAYER_RELATIONSHIP_ALLIANCE][TIP:LOC_PEDIA_CONCEPTS_ALLIANCE_TOOLTIP]同盟[/TIP]，所有[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]便[B]+5[icon:YIELD_HAPPINESS][/B]。[icon:SANCTIONS][TIP:LOC_PEDIA_CONCEPTS_SANCTION_TOOLTIP]譴責[/TIP]花費的[B][icon:YIELD_DIPLOMACY]+200%[/B]。</Text>
@@ -16919,70 +16940,70 @@
       <Text>傳奇盟友聯盟</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_DIPLOMATIC_3_RACE_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先與2位領袖[icon:PLAYER_RELATIONSHIP_ALLIANCE][TIP:LOC_PEDIA_CONCEPTS_ALLIANCE_TOOLTIP]結盟[/TIP]。</Text>
+      <Text>最先擁有[B]2個[/B][icon:PLAYER_RELATIONSHIP_ALLIANCE][TIP:LOC_PEDIA_CONCEPTS_ALLIANCE_TOOLTIP]同盟關係[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_DIPLOMATIC_3_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>[icon:PLAYER_RELATIONSHIP_ALLIANCE] 與2位領袖[TIP:LOC_PEDIA_CONCEPTS_ALLIANCE_TOOLTIP]結盟[/TIP]。</Text>
+      <Text>擁有[B]2個[/B][icon:PLAYER_RELATIONSHIP_ALLIANCE][TIP:LOC_PEDIA_CONCEPTS_ALLIANCE_TOOLTIP]同盟關係[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_DIPLOMATIC_4_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>從與領袖間的[icon:ENDEAVOR][TIP:LOC_PEDIA_CONCEPTS_ENDEAVOR_TOOLTIP]外交行動[/TIP]獲得[B]+25%[icon:RELATIONSHIP][TIP:LOC_PEDIA_CONCEPTS_RELATIONSHIP_TOOLTIP]關係[/TIP][/B]變化。</Text>
+      <Text>從與領袖間的[icon:ENDEAVOR][TIP:LOC_PEDIA_CONCEPTS_ENDEAVOR_TOOLTIP]外交行動[/TIP]獲得[B]+25%[icon:RELATIONSHIP][/B][TIP:LOC_PEDIA_CONCEPTS_RELATIONSHIP_TOOLTIP]關係[/TIP]變化。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_DIPLOMATIC_4_NAME" Language="zh_Hant_HK">
       <Text>希羅多德向你問好</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_DIPLOMATIC_4_RACE_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先完成你發動的[B]10項[icon:ENDEAVOR][TIP:LOC_PEDIA_CONCEPTS_ENDEAVOR_TOOLTIP]外交手段[/TIP][/B]。</Text>
+      <Text>最先完成你發動的[B]10項[icon:ENDEAVOR][/B][TIP:LOC_PEDIA_CONCEPTS_ENDEAVOR_TOOLTIP]外交手段[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_DIPLOMATIC_4_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>完成你發動的[B]10項[icon:ENDEAVOR][TIP:LOC_PEDIA_CONCEPTS_ENDEAVOR_TOOLTIP]外交手段[/TIP][/B]。</Text>
+      <Text>完成你發動的[B]10項[icon:ENDEAVOR][/B][TIP:LOC_PEDIA_CONCEPTS_ENDEAVOR_TOOLTIP]外交手段[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_DIPLOMATIC_5_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>[B]+1[icon:NAR_REW_TRADITION_SLOT][TIP:LOC_PEDIA_CONCEPTS_TRADITION_TOOLTIP]傳統槽位[/TIP][/B]。</Text>
+      <Text>[B]+1[icon:NAR_REW_TRADITION_SLOT]傳統槽位[/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_DIPLOMATIC_5_NAME" Language="zh_Hant_HK">
       <Text>麵包和馬戲</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_DIPLOMATIC_5_RACE_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先在一個[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]中擁有50多餘的[icon:YIELD_HAPPINESS]。</Text>
+      <Text>最先在一個[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]中擁有[B]50多餘的[icon:YIELD_HAPPINESS][/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_DIPLOMATIC_5_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>在一個[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]中擁有50多餘的[icon:YIELD_HAPPINESS]。</Text>
+      <Text>在一個[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]中擁有[B]50多餘的[icon:YIELD_HAPPINESS][/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_ECONOMIC_1_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>所有[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP][B]+1[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_RESOURCE_CAPACITY_TOOLTIP]資源容量[/TIP][/B]。</Text>
+      <Text>所有[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP][B]+1[icon:RADIAL_RESOURCES][/B][TIP:LOC_PEDIA_CONCEPTS_RESOURCE_CAPACITY_TOOLTIP]資源容量[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_ECONOMIC_1_NAME" Language="zh_Hant_HK">
       <Text>富饒</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_ECONOMIC_1_RACE_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先指派[B]26[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]資源[/TIP][/B]。</Text>
+      <Text>最先指派[B]26[icon:RADIAL_RESOURCES][/B][TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]資源[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_ECONOMIC_1_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>指派[B]26[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]資源[/TIP][/B]。</Text>
+      <Text>指派[B]26[icon:RADIAL_RESOURCES][/B][TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]資源[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_ECONOMIC_2_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>免費獲得[B]2個[icon:UNIT_MERCHANT]商人[/B]。和所有文明的[B][icon:TRADE_ROUTE][TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]貿易路線容量[/TIP]+1[/B]。</Text>
+      <Text>免費獲得[B]2個[icon:UNIT_MERCHANT]商人[/B]。和所有文明的[TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]貿易路線容量[/TIP][B]+1[icon:TRADE_ROUTE][/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_ECONOMIC_2_NAME" Language="zh_Hant_HK">
       <Text>絲路</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_ECONOMIC_2_RACE_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先擁有[B]7條[icon:TRADE_ROUTE][TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]貿易路線[/TIP][/B]。</Text>
+      <Text>最先擁有[B]7條[icon:TRADE_ROUTE][/B][TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]貿易路線[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_ECONOMIC_2_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>擁有[B]7條[icon:TRADE_ROUTE][TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]貿易路線[/TIP][/B]。</Text>
+      <Text>擁有[B]7條[icon:TRADE_ROUTE][/B][TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]貿易路線[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_ECONOMIC_3_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>購買[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建築[/TIP]時[B]+5%[/B][icon:YIELD_GOLD]效益；若購買[icon:YIELD_GOLD]金幣建築，此加成加倍。</Text>
+      <Text>購買[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建築[/TIP]時[B]+5%[icon:YIELD_GOLD]效益[/B]；若購買[icon:YIELD_GOLD]金幣建築，此加成加倍。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_ECONOMIC_3_NAME" Language="zh_Hant_HK">
       <Text>邁達斯之觸</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_ECONOMIC_3_RACE_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先擁有[B]8座[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]金幣建築[/TIP][/B]。</Text>
+      <Text>最先擁有[B]8座[/B][TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]金幣建築[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_ECONOMIC_3_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>擁有[B]8座[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]金幣建築[/TIP][/B]。</Text>
+      <Text>擁有[B]8座[/B][TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]金幣建築[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_ECONOMIC_4_DESCRIPTION" Language="zh_Hant_HK">
       <Text>免費獲得[B]2個[icon:UNIT_MERCHANT]商人[/B]。</Text>
@@ -16994,7 +17015,7 @@
       <Text>在本[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]時代[/TIP]中，最先完成總價值10000[icon:YIELD_GOLD]的購買。[TIP:LOC_PEDIA_CONCEPTS_MAINTENANCE_TOOLTIP]維護費用[/TIP]不計入其中。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_ECONOMIC_4_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>在本[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]時代[/TIP]中，完成總價值10000[icon:YIELD_GOLD]的購買。[TIP:LOC_PEDIA_CONCEPTS_MAINTENANCE_TOOLTIP]維護費用[/TIP]不計入其中。</Text>
+      <Text>在本[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]時代[/TIP]中，完成總價值[B]10000[icon:YIELD_GOLD][/B]的購買。[TIP:LOC_PEDIA_CONCEPTS_MAINTENANCE_TOOLTIP]維護費用[/TIP]不計入其中。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_ECONOMIC_5_DESCRIPTION" Language="zh_Hant_HK">
       <Text>每有1[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_EMPIRE_RESOURCES_TOOLTIP]帝國資源[/TIP]，便[B]+1[icon:YIELD_GOLD][/B]。</Text>
@@ -17003,22 +17024,22 @@
       <Text>圖拉真的市集</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_ECONOMIC_5_RACE_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先擁有[B]18[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_EMPIRE_RESOURCES_TOOLTIP]帝國資源[/TIP][/B]。</Text>
+      <Text>最先擁有[B]18[icon:RADIAL_RESOURCES][/B][TIP:LOC_PEDIA_CONCEPTS_EMPIRE_RESOURCES_TOOLTIP]帝國資源[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_ECONOMIC_5_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>擁有[B]18[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_EMPIRE_RESOURCES_TOOLTIP]帝國資源[/TIP][/B]。</Text>
+      <Text>擁有[B]18[icon:RADIAL_RESOURCES][/B][TIP:LOC_PEDIA_CONCEPTS_EMPIRE_RESOURCES_TOOLTIP]帝國資源[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_EXPANSIONIST_1_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>[icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]城鎮[/TIP]會隨著首次[icon:YIELD_POPULATION]成長事件獲得額外的[B]2[icon:YIELD_POPULATION][TIP:LOC_PEDIA_CONCEPTS_POPULATION_TOOLTIP]人口[/TIP][/B]。</Text>
+      <Text>[icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]城鎮[/TIP]會隨著首次成長事件獲得額外的[B]2[icon:YIELD_POPULATION][/B][TIP:LOC_PEDIA_CONCEPTS_POPULATION_TOOLTIP]人口[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_EXPANSIONIST_1_NAME" Language="zh_Hant_HK">
       <Text>世界四極</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_EXPANSIONIST_1_RACE_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先建立[B]8個[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP][/B]。</Text>
+      <Text>最先創立[B]8個[/B][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_EXPANSIONIST_1_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>建立[B]8個[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP][/B]。</Text>
+      <Text>創立[B]8個[/B][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_EXPANSIONIST_2_DESCRIPTION" Language="zh_Hant_HK">
       <Text>[icon:SPECIALIST][TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_TOOLTIP]專家[/TIP]的[TIP:LOC_PEDIA_CONCEPTS_MAINTENANCE_TOOLTIP]維護費用[/TIP][B]-1[icon:YIELD_FOOD][/B]和[icon:YIELD_HAPPINESS]。</Text>
@@ -17027,22 +17048,22 @@
       <Text>我們需要更多薩克貝道路</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_EXPANSIONIST_2_RACE_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先擁有[B]10名[icon:SPECIALIST][TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_TOOLTIP]專家[/TIP][/B]。</Text>
+      <Text>最先擁有[B]10名[icon:SPECIALIST][/B][TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_TOOLTIP]專家[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_EXPANSIONIST_2_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>擁有[B]10名[icon:SPECIALIST][TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_TOOLTIP]專家[/TIP][/B]。</Text>
+      <Text>擁有[B]10名[icon:SPECIALIST][/B][TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_TOOLTIP]專家[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_EXPANSIONIST_3_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>[icon:YIELD_WAREHOUSE][TIP:LOC_PEDIA_CONCEPTS_WAREHOUSE_TOOLTIP]食物倉庫[/TIP][B]+1[icon:YIELD_FOOD][/B]。[icon:YIELD_FOOD][TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]食物建築[/TIP][B]+2[icon:YIELD_FOOD][/B]。</Text>
+      <Text>[icon:YIELD_FOOD][icon:YIELD_WAREHOUSE][TIP:LOC_PEDIA_CONCEPTS_WAREHOUSE_TOOLTIP]食物倉庫[/TIP][B]+1[icon:YIELD_FOOD][/B]。[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]食物建築[/TIP][B]+2[icon:YIELD_FOOD][/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_EXPANSIONIST_3_NAME" Language="zh_Hant_HK">
       <Text>巴別塔</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_EXPANSIONIST_3_RACE_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先擁有[B]150[icon:YIELD_POPULATION][TIP:LOC_PEDIA_CONCEPTS_POPULATION_TOOLTIP]人口[/TIP][/B]。</Text>
+      <Text>最先擁有[B]150[icon:YIELD_POPULATION][/B][TIP:LOC_PEDIA_CONCEPTS_POPULATION_TOOLTIP]人口[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_EXPANSIONIST_3_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>擁有[B]150[icon:YIELD_POPULATION][TIP:LOC_PEDIA_CONCEPTS_POPULATION_TOOLTIP]人口[/TIP][/B]。</Text>
+      <Text>擁有[B]150[icon:YIELD_POPULATION][/B][TIP:LOC_PEDIA_CONCEPTS_POPULATION_TOOLTIP]人口[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_EXPANSIONIST_4_DESCRIPTION" Language="zh_Hant_HK">
       <Text>免費獲得[B]1個[icon:UNIT_SETTLER]開拓者[/B]。</Text>
@@ -17054,10 +17075,10 @@
       <Text>最先揭露33%的地圖。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_EXPANSIONIST_4_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>揭露33%的地圖。</Text>
+      <Text>揭露[B]33%[/B]的地圖。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_EXPANSIONIST_5_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>[TIP:LOC_PEDIA_CONCEPTS_APPEAL_TOOLTIP]壯麗[/TIP]格位[B]+1[icon:YIELD_FOOD][/B]。</Text>
+      <Text>壯麗格位[B]+1[icon:YIELD_FOOD][/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_EXPANSIONIST_5_NAME" Language="zh_Hant_HK">
       <Text>地上世界</Text>
@@ -17069,16 +17090,16 @@
       <Text>改良你[TIP:LOC_PEDIA_CONCEPTS_HOMELANDS_TOOLTIP]家鄉土地[/TIP]中所有[icon:NOTIFICATION_DISCOVER_NATURAL_WONDER][TIP:LOC_PEDIA_CONCEPTS_NATURAL_WONDER_TOOLTIP]自然奇觀[/TIP]的至少1個格位。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_EXPLORER_1_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>[TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]海上單位[/TIP][B]+1[icon:Action_Showall][TIP:LOC_PEDIA_CONCEPTS_SIGHT_TOOLTIP]視野[/TIP][/B]。</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]海上單位[/TIP]+1[B]+1[icon:Action_Showall][/B][TIP:LOC_PEDIA_CONCEPTS_SIGHT_TOOLTIP]視野[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_EXPLORER_1_NAME" Language="zh_Hant_HK">
       <Text>南島擴張</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_EXPLORER_1_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>擁有[B]4個[TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]海上單位[/TIP][/B]。</Text>
+      <Text>擁有[B]4個[/B][TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]海上單位[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_EXPLORER_2_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>和[icon:INDEPENDENT_POWER][TIP:LOC_PEDIA_CONCEPTS_INDEPENDENT_POWER_TOOLTIP]獨立軍勢力[/TIP]交好時[B]+50%[icon:YIELD_DIPLOMACY]效益。</Text>
+      <Text>和[icon:INDEPENDENT_POWER][TIP:LOC_PEDIA_CONCEPTS_INDEPENDENT_POWER_TOOLTIP]獨立軍勢力[/TIP]交好時[B]+50%[icon:YIELD_DIPLOMACY]效益[/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_EXPLORER_2_NAME" Language="zh_Hant_HK">
       <Text>提洛同盟</Text>
@@ -17096,43 +17117,43 @@
       <Text>抵達兩極。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_MILITARISTIC_1_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>[B]+2[icon:SETTLEMENT_LIMIT][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_LIMIT_TOOLTIP]聚落限制[/TIP][/B]。</Text>
+      <Text>[B]+2[icon:SETTLEMENT_LIMIT][/B][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_LIMIT_TOOLTIP]聚落限制[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_MILITARISTIC_1_NAME" Language="zh_Hant_HK">
       <Text>和平帝國</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_MILITARISTIC_1_RACE_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先征服並保留[B]6個[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP][/B]。</Text>
+      <Text>最先征服並保留[B]6個[/B][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_MILITARISTIC_1_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>征服並保留[B]6個[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP][/B]。</Text>
+      <Text>征服並保留[B]6個[/B][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_MILITARISTIC_2_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>所有[icon:WAR]戰爭[B]+1[icon:WAR_SUPPORT][TIP:LOC_PEDIA_CONCEPTS_WAR_SUPPORT_TOOLTIP]戰爭支援[/TIP][/B]。使用[icon:WAR_SUPPORT]戰爭支援時[B]+50%[icon:YIELD_DIPLOMACY]效益[/B]。</Text>
+      <Text>所有戰爭[B]+1[icon:WAR_SUPPORT][/B][TIP:LOC_PEDIA_CONCEPTS_WAR_SUPPORT_TOOLTIP]戰爭支援[/TIP]。使用[icon:WAR_SUPPORT]戰爭支援時[B]+50%[icon:YIELD_DIPLOMACY]效益[/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_MILITARISTIC_2_NAME" Language="zh_Hant_HK">
       <Text>砍倒巨人</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_MILITARISTIC_2_RACE_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先在一場[icon:WAR]戰爭中承受[B]-5[icon:WAR][TIP:LOC_PEDIA_CONCEPTS_WAR_WEARINESS_TOOLTIP]厭戰情緒[/TIP][/B]。</Text>
+      <Text>最先在一場戰爭中承受[B]-5[/B][TIP:LOC_PEDIA_CONCEPTS_WAR_WEARINESS_TOOLTIP]厭戰情緒[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_MILITARISTIC_2_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>在一場[icon:WAR]戰爭中承受[B]-5[TIP:LOC_PEDIA_CONCEPTS_WAR_WEARINESS_TOOLTIP]厭戰情緒[/TIP][/B]。</Text>
+      <Text>在一場戰爭中承受[B]-5[/B][TIP:LOC_PEDIA_CONCEPTS_WAR_WEARINESS_TOOLTIP]厭戰情緒[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_MILITARISTIC_3_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>獲得一位擁有[B]3次[icon:NAR_REW_PROMOTION][TIP:LOC_PEDIA_CONCEPTS_PROMOTION_TOOLTIP]強化[/TIP][/B]的[icon:UNIT_ARMY_COMMANDER][TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]軍隊指揮官[/TIP]。</Text>
+      <Text>獲得一位擁有[B]3次[/B][TIP:LOC_PEDIA_CONCEPTS_PROMOTION_TOOLTIP]強化[/TIP]的[icon:UNIT_ARMY_COMMANDER][TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]軍隊指揮官[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_MILITARISTIC_3_NAME" Language="zh_Hant_HK">
       <Text>好一個蓋烏斯</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_MILITARISTIC_3_RACE_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先擁有一個[B]8級的[icon:UNIT_ARMY_COMMANDER][TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]軍隊指揮官[/TIP][/B]。</Text>
+      <Text>最先擁有一個[B]8級[icon:UNIT_ARMY_COMMANDER][/B]的[TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]軍隊指揮官[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_MILITARISTIC_3_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>擁有一個[B]8級的[TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]軍隊指揮官[/TIP][/B]。</Text>
+      <Text>擁有一個[B]8級[icon:UNIT_ARMY_COMMANDER][/B]的[TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]指揮官[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_MILITARISTIC_4_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>所有[TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]指揮官[/TIP]，包括未來的指揮官獲得[B]1免費的[icon:NAR_REW_PROMOTION][TIP:LOC_PEDIA_CONCEPTS_PROMOTION_TOOLTIP]強化[/TIP][/B]。</Text>
+      <Text>所有[icon:UNIT_ARMY_COMMANDER][TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]指揮官[/TIP]，包括未來的[icon:UNIT_ARMY_COMMANDER]指揮官免費獲得[B]1[/B][TIP:LOC_PEDIA_CONCEPTS_PROMOTION_TOOLTIP]強化[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_MILITARISTIC_4_NAME" Language="zh_Hant_HK">
       <Text>第一滴血</Text>
@@ -17141,82 +17162,82 @@
       <Text>最先征服一個[icon:NOTIFICATION_SELECT_CAPITAL][TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]首都[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_MILITARISTIC_5_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>此[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]時代[/TIP]的所有[icon:WAR]戰爭[B]+1[icon:WAR_SUPPORT][TIP:LOC_PEDIA_CONCEPTS_WAR_SUPPORT_TOOLTIP]戰爭支援[/TIP][/B]。</Text>
+      <Text>此[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]時代[/TIP]的所有戰爭[B]+1[icon:WAR_SUPPORT][/B][TIP:LOC_PEDIA_CONCEPTS_WAR_SUPPORT_TOOLTIP]戰爭支援[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_MILITARISTIC_5_NAME" Language="zh_Hant_HK">
       <Text>賽赫巴山</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_MILITARISTIC_5_RACE_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先在[TIP:LOC_PEDIA_CONCEPTS_HOMELANDS_TOOLTIP]家鄉土地[/TIP]中與所有文明[icon:WAR]交戰。</Text>
+      <Text>最先在[TIP:LOC_PEDIA_CONCEPTS_HOMELANDS_TOOLTIP]家鄉土地[/TIP]中與所有文明交戰。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_MILITARISTIC_5_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>在[TIP:LOC_PEDIA_CONCEPTS_HOMELANDS_TOOLTIP]家鄉土地[/TIP]中與所有文明[icon:WAR]交戰。</Text>
+      <Text>在[TIP:LOC_PEDIA_CONCEPTS_HOMELANDS_TOOLTIP]家鄉土地[/TIP]中與所有文明交戰。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_SCIENTIFIC_1_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>解鎖[icon:RADIAL_TECH]天文學。推進[icon:PROJECT][TIP:LOC_PEDIA_CONCEPTS_PROJECTS_TOOLTIP]專案[/TIP]時[B]+25%[icon:YIELD_PRODUCTION]效益[/B]。</Text>
+      <Text>解鎖天文學。推進[icon:DEFAULT_PROJECT][TIP:LOC_PEDIA_CONCEPTS_PROJECTS_TOOLTIP]專案[/TIP]時[B]+25%[icon:YIELD_PRODUCTION]效益[/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_SCIENTIFIC_1_NAME" Language="zh_Hant_HK">
       <Text>地圓論者</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_SCIENTIFIC_1_RACE_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先完成[icon:DEFAULT_PROJECT]繪製星圖和[icon:DEFAULT_PROJECT]地圓說[icon:PROJECT][TIP:LOC_PEDIA_CONCEPTS_PROJECTS_TOOLTIP]專案[/TIP]。</Text>
+      <Text>最先完成[B]「繪製星圖」[/B]和[B]「地圓說」[/B][icon:DEFAULT_PROJECT][TIP:LOC_PEDIA_CONCEPTS_PROJECTS_TOOLTIP]專案[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_SCIENTIFIC_1_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>完成[icon:DEFAULT_PROJECT]繪製星圖和[icon:DEFAULT_PROJECT]地圓說[icon:PROJECT][TIP:LOC_PEDIA_CONCEPTS_PROJECTS_TOOLTIP]專案[/TIP]。</Text>
+      <Text>完成[B]「繪製星圖」[/B]和[B]「地圓說」[/B][icon:DEFAULT_PROJECT][TIP:LOC_PEDIA_CONCEPTS_PROJECTS_TOOLTIP]專案[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_SCIENTIFIC_2_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>所有[TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP][B]+1[icon:SPECIALIST][TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_LIMIT_TOOLTIP]專家限制[/TIP][/B]。</Text>
+      <Text>所有[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP][B]+1[icon:SPECIALIST][/B][TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_LIMIT_TOOLTIP]專家限制[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_SCIENTIFIC_2_NAME" Language="zh_Hant_HK">
       <Text>考工記</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_SCIENTIFIC_2_RACE_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先擁有[B]5個產量30+的非城市中心[TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]區域[/TIP][/B]。</Text>
+      <Text>最先擁有[B]5個[icon:CITY_URBAN][/B][B]產量30+[/B]的[TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]非城市中心區域[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_SCIENTIFIC_2_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>擁有[B]5個產量30+的非城市中心[TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]區域[/TIP][/B]。</Text>
+      <Text>擁有[B]5個[icon:CITY_URBAN][/B][B]產量30+[/B]的[TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]非城市中心區域[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_SCIENTIFIC_3_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]科技值建築[/TIP][B]+1[icon:NAR_REW_GREATWORK][TIP:LOC_PEDIA_CONCEPTS_GREAT_WORKS_TOOLTIP]巨作[/TIP][/B]槽位。從展示的[icon:NAR_REW_GREATWORK]巨作獲得[B]+2[icon:YIELD_SCIENCE][/B]。</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]科技值建築[/TIP][B]+1[icon:NAR_REW_GREATWORK][/B][TIP:LOC_PEDIA_CONCEPTS_GREAT_WORKS_TOOLTIP]巨作[/TIP]槽位。從展示的[icon:NAR_REW_GREATWORK]巨作獲得[B]+2[icon:YIELD_SCIENCE][/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_SCIENTIFIC_3_NAME" Language="zh_Hant_HK">
       <Text>亞述巴尼拔的藏書館</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_SCIENTIFIC_3_RACE_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先展示[B]12本[icon:NAR_REW_GREATWORK][TIP:LOC_PEDIA_CONCEPTS_CODEX_TOOLTIP]抄本[/TIP][/B]。</Text>
+      <Text>最先展示[B]12本[icon:NAR_REW_GREATWORK][/B][TIP:LOC_PEDIA_CONCEPTS_CODEX_TOOLTIP]抄本[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_SCIENTIFIC_3_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>展示[B]12本[icon:NAR_REW_GREATWORK][TIP:LOC_PEDIA_CONCEPTS_CODEX_TOOLTIP]抄本[/TIP][/B]。</Text>
+      <Text>展示[B]12本[icon:NAR_REW_GREATWORK][/B][TIP:LOC_PEDIA_CONCEPTS_CODEX_TOOLTIP]抄本[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_SCIENTIFIC_4_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>推進此[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]時代[/TIP]中的[icon:PROJECT][TIP:LOC_PEDIA_CONCEPTS_PROJECTS_TOOLTIP]專案[/TIP][B]+25%[icon:YIELD_PRODUCTION]效益[/B]。</Text>
+      <Text>推進此[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]時代[/TIP]中的[icon:DEFAULT_PROJECT][TIP:LOC_PEDIA_CONCEPTS_PROJECTS_TOOLTIP]專案[/TIP][B]+25%[icon:YIELD_PRODUCTION]效益[/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_SCIENTIFIC_4_NAME" Language="zh_Hant_HK">
       <Text>魔法算盤</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_SCIENTIFIC_4_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先研發完[icon:RADIAL_TECH]數學。</Text>
+      <Text>最先研發完[B]數學[/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_SCIENTIFIC_5_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>[TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP][B]+1[icon:YIELD_POPULATION][TIP:LOC_PEDIA_CONCEPTS_POPULATION_TOOLTIP]人口[/TIP][/B]。</Text>
+      <Text>[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP][B]+1[icon:YIELD_POPULATION][/B][TIP:LOC_PEDIA_CONCEPTS_POPULATION_TOOLTIP]人口[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_SCIENTIFIC_5_NAME" Language="zh_Hant_HK">
       <Text>a²+b²=c²</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_SCIENTIFIC_5_RACE_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先研究完所有[icon:RADIAL_TECH][TIP:LOC_PEDIA_CONCEPTS_TECH_TOOLTIP]科技[/TIP]和[TIP:LOC_PEDIA_CONCEPTS_MASTERY_TOOLTIP]精通[/TIP]。</Text>
+      <Text>最先研究完所有[icon:RADIAL_TECH][TIP:LOC_PEDIA_CONCEPTS_TECH_TOOLTIP]科技[/TIP]和精通。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_SCIENTIFIC_5_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先研究完所有[icon:RADIAL_TECH][TIP:LOC_PEDIA_CONCEPTS_TECH_TOOLTIP]科技[/TIP]和[TIP:LOC_PEDIA_CONCEPTS_MASTERY_TOOLTIP]精通[/TIP]。</Text>
+      <Text>最先研究完所有[icon:RADIAL_TECH][TIP:LOC_PEDIA_CONCEPTS_TECH_TOOLTIP]科技[/TIP]和精通。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_CONQUEROR_1_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>[B]300[icon:ECONOMIC_VP][TIP:LOC_PEDIA_CONCEPTS_GDP_TOOLTIP]GDP[/TIP][/B]。</Text>
+      <Text>[B]300[icon:ECONOMIC_VP][/B] [TIP:LOC_PEDIA_CONCEPTS_GDP_TOOLTIP]GDP[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_CONQUEROR_1_NAME" Language="zh_Hant_HK">
       <Text>岡依沙瓦號</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_CONQUEROR_1_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>俘虜[B]5支[icon:UNIT_TREASURE_FLEET][TIP:LOC_PEDIA_CONCEPTS_TREASURE_CONVOY_TOOLTIP]寶藏護衛隊[/TIP][/B]。</Text>
+      <Text>俘虜[B]5支[icon:UNIT_TREASURE_FLEET][/B][TIP:LOC_PEDIA_CONCEPTS_TREASURE_CONVOY_TOOLTIP]寶藏護衛隊[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_CONQUEROR_2_DESCRIPTION" Language="zh_Hant_HK">
       <Text>從[icon:CITYSTATE][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP]徵集單位時[B]+100%[icon:YIELD_DIPLOMACY]效益[/B]。</Text>
@@ -17234,28 +17255,28 @@
       <Text>正統哈里發</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_CONQUEROR_3_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>擁有一座征服的[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]聖城[/TIP]。</Text>
+      <Text>擁有一座征服的[TIP:LOC_PEDIA_CONCEPTS_HOLY_CITY_TOOLTIP]聖城[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_CONQUEROR_4_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>[TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]海上單位[/TIP][B]+4[icon:NAR_REW_COMBAT]轟擊戰鬥力[/B]。</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]海上單位[/TIP][B]+4[icon:NAR_REW_COMBAT][/B][TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]轟擊戰鬥力[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_CONQUEROR_4_NAME" Language="zh_Hant_HK">
       <Text>異教徒大軍</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_CONQUEROR_4_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>征服[B]4個[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]沿岸聚落[/TIP][/B]。</Text>
+      <Text>征服4個沿岸[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_CULTURAL_1_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>在[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]時代轉場[/TIP]時保留你的[icon:NAR_REW_RELIGION][TIP:LOC_PEDIA_CONCEPTS_RELIGION_TOOLTIP]創立者信仰[/TIP]。</Text>
+      <Text>在[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]時代轉場[/TIP]時保留你的[TIP:LOC_PEDIA_CONCEPTS_RELIGION_TOOLTIP]創立者信仰[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_CULTURAL_1_NAME" Language="zh_Hant_HK">
       <Text>藏寶庫</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_CULTURAL_1_RACE_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先展示[B]20個[icon:NAR_REW_GREATWORK][TIP:LOC_PEDIA_CONCEPTS_RELIC_TOOLTIP]遺物[/TIP][/B]。</Text>
+      <Text>最先展示[B]20個[icon:NAR_REW_GREATWORK][/B][TIP:LOC_PEDIA_CONCEPTS_RELIC_TOOLTIP]遺物[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_CULTURAL_1_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>展示[B]20個[icon:NAR_REW_GREATWORK][TIP:LOC_PEDIA_CONCEPTS_RELIC_TOOLTIP]遺物[/TIP][/B]。</Text>
+      <Text>展示[B]20個[icon:NAR_REW_GREATWORK][/B][TIP:LOC_PEDIA_CONCEPTS_RELIC_TOOLTIP]遺物[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_CULTURAL_2_DESCRIPTION" Language="zh_Hant_HK">
       <Text>[icon:WONDER][TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]奇觀[/TIP][B]+4[icon:YIELD_CULTURE][/B]和[icon:YIELD_PRODUCTION]。</Text>
@@ -17264,13 +17285,13 @@
       <Text>復興世界的奇觀</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_CULTURAL_2_RACE_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先建造[B]6座[TIP:LOC_PEDIA_CONCEPTS_EXPLORATION_AGE_TOOLTIP]探索時代[/TIP][/B][icon:WONDER][TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]奇觀[/TIP]。</Text>
+      <Text>最先建造[B]6座[/B][TIP:LOC_PEDIA_CONCEPTS_EXPLORATION_AGE_TOOLTIP]探索時代[/TIP][icon:WONDER][TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]奇觀[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_CULTURAL_2_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>建造[B]6座[TIP:LOC_PEDIA_CONCEPTS_EXPLORATION_AGE_TOOLTIP]探索時代[/TIP][/B][icon:WONDER][TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]奇觀[/TIP]。</Text>
+      <Text>建造[B]6座[/B][TIP:LOC_PEDIA_CONCEPTS_EXPLORATION_AGE_TOOLTIP]探索時代[/TIP][icon:WONDER][TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]奇觀[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_CULTURAL_3_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>解鎖[icon:RADIAL_CIVICS]自然歷史。[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]幸福值建築[/TIP][B]+1[icon:NAR_REW_GREATWORK][TIP:LOC_PEDIA_CONCEPTS_GREAT_WORKS_TOOLTIP]巨作[/TIP][/B]槽位。</Text>
+      <Text>解鎖自然歷史。[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]幸福值建築[/TIP][B]+1[icon:NAR_REW_GREATWORK][/B][TIP:LOC_PEDIA_CONCEPTS_GREAT_WORKS_TOOLTIP]巨作[/TIP]槽位。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_CULTURAL_3_NAME" Language="zh_Hant_HK">
       <Text>八聖道分</Text>
@@ -17279,31 +17300,31 @@
       <Text>最先擁有[B]8座寺廟[/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_CULTURAL_3_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先擁有8座寺廟。</Text>
+      <Text>最先擁有[B]8座寺廟[/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_CULTURAL_4_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>從你每建造一個[TIP:LOC_PEDIA_CONCEPTS_MODERN_AGE_TOOLTIP]近代[/TIP][icon:WONDER][TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]奇觀[/TIP]獲得[B]+2[icon:SCIENCE_VP][TIP:LOC_PEDIA_CONCEPTS_INNOVATION_TOOLTIP]創新值[/TIP][/B]。</Text>
+      <Text>從你建造的每一個[TIP:LOC_PEDIA_CONCEPTS_MODERN_AGE_TOOLTIP]近代[/TIP][icon:WONDER][TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]奇觀[/TIP]獲得[B]+2[icon:SCIENCE_VP][/B][TIP:LOC_PEDIA_CONCEPTS_INNOVATION_TOOLTIP]創新值[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_CULTURAL_4_NAME" Language="zh_Hant_HK">
       <Text>能工巧匠加扎利</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_CULTURAL_4_RACE_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先建造[B]2個提供[icon:SCIENCE_VP][TIP:LOC_PEDIA_CONCEPTS_INNOVATION_TOOLTIP]創新值[/TIP]的[icon:WONDER][TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]奇觀[/TIP][/B]。</Text>
+      <Text>最先建造[B]2個[/B]提供[icon:SCIENCE_VP][TIP:LOC_PEDIA_CONCEPTS_INNOVATION_TOOLTIP]創新值[/TIP]的[icon:WONDER][TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]奇觀[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_CULTURAL_4_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>建造[B]2個提供[icon:SCIENCE_VP][TIP:LOC_PEDIA_CONCEPTS_INNOVATION_TOOLTIP]創新值[/TIP]的[icon:WONDER][TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]奇觀[/TIP][/B]。</Text>
+      <Text>擁有[B]2個[icon:WONDER][/B]提供[icon:SCIENCE_VP][TIP:LOC_PEDIA_CONCEPTS_INNOVATION_TOOLTIP]創新值[/TIP]的任意[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]時代[/TIP]的[TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]奇觀[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_CULTURAL_5_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>獲得[B]36[icon:CULTURE_VP][TIP:LOC_PEDIA_CONCEPTS_TOURISTS_TOOLTIP]觀光值[/TIP][/B]。</Text>
+      <Text>獲得[B]36[icon:CULTURE_VP][/B][TIP:LOC_PEDIA_CONCEPTS_TOURISTS_TOOLTIP]觀光值[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_CULTURAL_5_NAME" Language="zh_Hant_HK">
       <Text>天堂王國</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_CULTURAL_5_RACE_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先讓[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]皈依你的[icon:NAR_REW_RELIGION][TIP:LOC_PEDIA_CONCEPTS_RELIGION_TOOLTIP]宗教[/TIP]25次。</Text>
+      <Text>最先讓[B]25個[/B][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]皈依你的[icon:NAR_REW_RELIGION][TIP:LOC_PEDIA_CONCEPTS_RELIGION_TOOLTIP]宗教[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_CULTURAL_5_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>讓[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]皈依你的[icon:NAR_REW_RELIGION][TIP:LOC_PEDIA_CONCEPTS_RELIGION_TOOLTIP]宗教[/TIP]25次。</Text>
+      <Text>讓[B]25個[/B][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]皈依你的[icon:NAR_REW_RELIGION][TIP:LOC_PEDIA_CONCEPTS_RELIGION_TOOLTIP]宗教[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_DIPLOMATIC_1_DESCRIPTION" Language="zh_Hant_HK">
       <Text>每成為一個[icon:CITYSTATE][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP]的[TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主國[/TIP]，[TIP:LOC_PEDIA_CONCEPTS_PALACE_TOOLTIP]宮殿[/TIP]便[B]+4[icon:YIELD_DIPLOMACY][/B]和[icon:YIELD_HAPPINESS]。</Text>
@@ -17312,10 +17333,10 @@
       <Text>操偶師</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_DIPLOMATIC_1_RACE_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先成為[B]5個[icon:CITYSTATE][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP][/B]的[TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主國[/TIP]。</Text>
+      <Text>最先成為[B]5個[icon:CITYSTATE][/B][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP]的[TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主國[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_DIPLOMATIC_1_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>成為[B]5個[icon:CITYSTATE][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP][/B]的[TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主國[/TIP]。</Text>
+      <Text>成為[B]5個[icon:CITYSTATE][/B][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP]的[TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主國[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_DIPLOMATIC_2_DESCRIPTION" Language="zh_Hant_HK">
       <Text>進行[icon:ESPIONAGE][TIP:LOC_PEDIA_CONCEPTS_ESPIONAGE_TOOLTIP]諜報行動[/TIP]時[B]+25%[icon:YIELD_DIPLOMACY]效益[/B]，使其完成速度加快25%。</Text>
@@ -17324,10 +17345,10 @@
       <Text>阿薩辛派</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_DIPLOMATIC_2_RACE_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先成功完成一項[icon:ESPIONAGE][TIP:LOC_PEDIA_CONCEPTS_ESPIONAGE_TOOLTIP]諜報行動[/TIP]10次。</Text>
+      <Text>最先成功完成[B]10項[icon:ESPIONAGE][/B][TIP:LOC_PEDIA_CONCEPTS_ESPIONAGE_TOOLTIP]諜報行動[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_DIPLOMATIC_2_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>成功完成一項[icon:ESPIONAGE][TIP:LOC_PEDIA_CONCEPTS_ESPIONAGE_TOOLTIP]諜報行動[/TIP]10次。</Text>
+      <Text>成功完成[B]10項[icon:ESPIONAGE][/B][TIP:LOC_PEDIA_CONCEPTS_ESPIONAGE_TOOLTIP]諜報行動[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_DIPLOMATIC_3_DESCRIPTION" Language="zh_Hant_HK">
       <Text>每有一個[icon:PLAYER_RELATIONSHIP_ALLIANCE][TIP:LOC_PEDIA_CONCEPTS_ALLIANCE_TOOLTIP]同盟[/TIP]，所有[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]便[B]+10[icon:YIELD_HAPPINESS][/B]。[icon:SANCTIONS][TIP:LOC_PEDIA_CONCEPTS_SANCTION_TOOLTIP]譴責[/TIP]花費的[B][icon:YIELD_DIPLOMACY]+200%[/B]。</Text>
@@ -17336,34 +17357,34 @@
       <Text>四國同盟</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_DIPLOMATIC_3_RACE_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先與3位領袖[icon:PLAYER_RELATIONSHIP_ALLIANCE][TIP:LOC_PEDIA_CONCEPTS_ALLIANCE_TOOLTIP]結盟[/TIP]。</Text>
+      <Text>最先擁有[B]3個[/B][icon:PLAYER_RELATIONSHIP_ALLIANCE][TIP:LOC_PEDIA_CONCEPTS_ALLIANCE_TOOLTIP]同盟關係[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_DIPLOMATIC_3_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>[icon:PLAYER_RELATIONSHIP_ALLIANCE] 與3位領袖[TIP:LOC_PEDIA_CONCEPTS_ALLIANCE_TOOLTIP]結盟[/TIP]。</Text>
+      <Text>擁有[B]3個[/B][icon:PLAYER_RELATIONSHIP_ALLIANCE][TIP:LOC_PEDIA_CONCEPTS_ALLIANCE_TOOLTIP]同盟關係[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_DIPLOMATIC_4_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>[B]+1[icon:NAR_REW_TRADITION_SLOT][TIP:LOC_PEDIA_CONCEPTS_SOCIAL_POLICY_TOOLTIP]社會政策槽位[/TIP][/B]。</Text>
+      <Text>[B]+1[icon:NAR_REW_TRADITION_SLOT]社會政策槽位[/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_DIPLOMATIC_4_NAME" Language="zh_Hant_HK">
       <Text>群居動物</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_DIPLOMATIC_4_RACE_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先與所有領袖展開一項[icon:DIPLOMATIC_ACTION]外交行動。</Text>
+      <Text>最先與所有領袖展開一項外交行動。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_DIPLOMATIC_4_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>與所有領袖展開一項[icon:DIPLOMATIC_ACTION]外交行動。</Text>
+      <Text>與所有領袖展開一項外交行動。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_DIPLOMATIC_5_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>[B]+1[icon:NAR_REW_TRADITION_SLOT][TIP:LOC_PEDIA_CONCEPTS_TRADITION_TOOLTIP]傳統槽位[/TIP][/B]。</Text>
+      <Text>[B]+1[icon:NAR_REW_TRADITION_SLOT]傳統槽位[/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_DIPLOMATIC_5_NAME" Language="zh_Hant_HK">
       <Text>世宗大王的遺產</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_DIPLOMATIC_5_RACE_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先在一個[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]中擁有150多餘的[icon:YIELD_HAPPINESS]。</Text>
+      <Text>最先在一個[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]中擁有[B]150多餘的[icon:YIELD_HAPPINESS][/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_DIPLOMATIC_5_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>在一個[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]中擁有150多餘的[icon:YIELD_HAPPINESS]。</Text>
+      <Text>在一個[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]中擁有[B]150多餘的[icon:YIELD_HAPPINESS][/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_ECONOMIC_1_DESCRIPTION" Language="zh_Hant_HK">
       <Text>每有1指派的[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]資源[/TIP]，便[B]+2[icon:YIELD_GOLD][/B]。</Text>
@@ -17372,34 +17393,34 @@
       <Text>汗·哈利利市集</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_ECONOMIC_1_RACE_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先指派[B]45[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]資源[/TIP][/B]。</Text>
+      <Text>最先指派[B]45[icon:RADIAL_RESOURCES][/B][TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]資源[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_ECONOMIC_1_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>指派[B]45[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]資源[/TIP][/B]。</Text>
+      <Text>指派[B]45[icon:RADIAL_RESOURCES][/B][TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]資源[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_ECONOMIC_2_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>購買火車站時[B]+25%[icon:YIELD_GOLD]效益[/B]。由[TIP:LOC_PEDIA_CONCEPTS_CONNECTED_TOOLTIP]鐵路相連的聚落[/TIP][B]+1[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_RESOURCE_CAPACITY_TOOLTIP]資源容量[/TIP][/B]。</Text>
+      <Text>購買火車站時[B]+25%[icon:YIELD_GOLD]效益[/B]。由[TIP:LOC_PEDIA_CONCEPTS_CONNECTED_TOOLTIP]鐵路相連的聚落[/TIP][B]+1[icon:RADIAL_RESOURCES][/B][TIP:LOC_PEDIA_CONCEPTS_RESOURCE_CAPACITY_TOOLTIP]資源容量[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_ECONOMIC_2_NAME" Language="zh_Hant_HK">
       <Text>寶藏艦隊</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_ECONOMIC_2_RACE_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先透過卸下[icon:UNIT_TREASURE_FLEET][TIP:LOC_PEDIA_CONCEPTS_TREASURE_CONVOY_TOOLTIP]寶藏護衛隊[/TIP]來得到[B]800[icon:ECONOMIC_VP][TIP:LOC_PEDIA_CONCEPTS_GDP_TOOLTIP]GDP[/TIP][/B]。</Text>
+      <Text>最先透過卸下[icon:UNIT_TREASURE_FLEET][TIP:LOC_PEDIA_CONCEPTS_TREASURE_CONVOY_TOOLTIP]寶藏護衛隊[/TIP]來得到[B]800[icon:ECONOMIC_VP][/B] [TIP:LOC_PEDIA_CONCEPTS_GDP_TOOLTIP]GDP[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_ECONOMIC_2_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>透過卸下[icon:UNIT_TREASURE_FLEET][TIP:LOC_PEDIA_CONCEPTS_TREASURE_CONVOY_TOOLTIP]寶藏護衛隊[/TIP]來得到[B]800[icon:ECONOMIC_VP][TIP:LOC_PEDIA_CONCEPTS_GDP_TOOLTIP]GDP[/TIP][/B]。</Text>
+      <Text>透過卸下[icon:UNIT_TREASURE_FLEET][TIP:LOC_PEDIA_CONCEPTS_TREASURE_CONVOY_TOOLTIP]寶藏護衛隊[/TIP]來得到[B]800[icon:ECONOMIC_VP][/B] [TIP:LOC_PEDIA_CONCEPTS_GDP_TOOLTIP]GDP[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_ECONOMIC_3_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>免費獲得[B]2個[icon:UNIT_MERCHANT]商人[/B]。和所有領袖的[B][icon:TRADE_ROUTE][TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]貿易路線容量[/TIP]+1[/B]。</Text>
+      <Text>免費獲得[B]2個[icon:UNIT_MERCHANT]商人[/B]。和所有領袖的[TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]貿易路線容量[/TIP][B]+1[icon:TRADE_ROUTE][/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_ECONOMIC_3_NAME" Language="zh_Hant_HK">
       <Text>讓我們來卡利卡特談一筆交易</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_ECONOMIC_3_RACE_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先與每位領袖開始[icon:TRADE_ROUTE][TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]貿易路線[/TIP]。</Text>
+      <Text>最先與每位領袖建立[icon:TRADE_ROUTE][TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]貿易路線[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_ECONOMIC_3_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先與每位領袖開始[icon:TRADE_ROUTE][TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]貿易路線[/TIP]。</Text>
+      <Text>最先與每位領袖建立[icon:TRADE_ROUTE][TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]貿易路線[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_ECONOMIC_4_DESCRIPTION" Language="zh_Hant_HK">
       <Text>獲得[B]500[icon:ECONOMIC_VP][/B][TIP:LOC_PEDIA_CONCEPTS_GDP_TOOLTIP]GDP[/TIP]。</Text>
@@ -17411,58 +17432,58 @@
       <Text>在本[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]時代[/TIP]中，最先完成總價值50000[icon:YIELD_GOLD]的購買。[TIP:LOC_PEDIA_CONCEPTS_MAINTENANCE_TOOLTIP]維護費用[/TIP]不計入其中。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_ECONOMIC_4_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>在本[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]時代[/TIP]中，完成總價值[B]50000[icon:YIELD_GOLD][/B]的購買。[TIP:LOC_PEDIA_CONCEPTS_MAINTENANCE_TOOLTIP]維護費用[/TIP]不計入其中。</Text>
+      <Text>在本[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]時代[/TIP]中，完成總價值50000[icon:YIELD_GOLD]的購買。[TIP:LOC_PEDIA_CONCEPTS_MAINTENANCE_TOOLTIP]維護費用[/TIP]不計入其中。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_ECONOMIC_5_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>從[TIP:LOC_PEDIA_CONCEPTS_DISTANT_LANDS_TOOLTIP]遙遠土地[/TIP]中的[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]獲得[B]+1[icon:MILITARY_VP][TIP:LOC_PEDIA_CONCEPTS_DOMINION_TOOLTIP]霸權值[/TIP][/B]。</Text>
+      <Text>從[TIP:LOC_PEDIA_CONCEPTS_DISTANT_LANDS_TOOLTIP]遙遠土地[/TIP]中的[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]獲得[B]+1[icon:MILITARY_VP][/B][TIP:LOC_PEDIA_CONCEPTS_DOMINION_TOOLTIP]霸權值[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_ECONOMIC_5_NAME" Language="zh_Hant_HK">
       <Text>阿托查聖母號</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_ECONOMIC_5_RACE_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先卸下一支擁有至少[B]10[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]資源[/TIP][/B]的[icon:UNIT_TREASURE_FLEET][TIP:LOC_PEDIA_CONCEPTS_TREASURE_CONVOY_TOOLTIP]寶藏護衛隊[/TIP]。</Text>
+      <Text>最先卸下一支擁有至少[B]10[icon:RADIAL_RESOURCES][/B][TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]資源[/TIP]的[icon:UNIT_TREASURE_FLEET][TIP:LOC_PEDIA_CONCEPTS_TREASURE_CONVOY_TOOLTIP]寶藏護衛隊[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_ECONOMIC_5_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>卸下一支擁有至少[B]10貨物值[icon:RADIAL_RESOURCES][/B]的[icon:UNIT_TREASURE_FLEET][TIP:LOC_PEDIA_CONCEPTS_TREASURE_CONVOY_TOOLTIP]寶藏護衛隊[/TIP]。</Text>
+      <Text>卸下一支擁有至少[B]10貨物值[/B]的[icon:UNIT_TREASURE_FLEET][TIP:LOC_PEDIA_CONCEPTS_TREASURE_CONVOY_TOOLTIP]寶藏護衛隊[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_EXPANSIONIST_1_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>[TIP:LOC_PEDIA_CONCEPTS_DISTANT_LANDS_TOOLTIP]遙遠土地[/TIP][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]中的單位[B]+5[icon:NAR_REW_COMBAT][TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]戰鬥力[/TIP][/B]。</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_DISTANT_LANDS_TOOLTIP]遙遠土地[/TIP][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]中的單位[B]+5[icon:NAR_REW_COMBAT][/B][TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]戰鬥力[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_EXPANSIONIST_1_NAME" Language="zh_Hant_HK">
       <Text>未知危險之地</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_EXPANSIONIST_1_RACE_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先在[TIP:LOC_PEDIA_CONCEPTS_DISTANT_LANDS_TOOLTIP]遙遠土地[/TIP]中建立[B]6個[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP][/B]。</Text>
+      <Text>最先在[TIP:LOC_PEDIA_CONCEPTS_DISTANT_LANDS_TOOLTIP]遙遠土地[/TIP]中建立[B]6個[/B][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_EXPANSIONIST_1_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先在[TIP:LOC_PEDIA_CONCEPTS_DISTANT_LANDS_TOOLTIP]遙遠土地[/TIP]中建立[B]6個[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP][/B]。</Text>
+      <Text>最先在[TIP:LOC_PEDIA_CONCEPTS_DISTANT_LANDS_TOOLTIP]遙遠土地[/TIP]中建立[B]6個[/B][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_EXPANSIONIST_2_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>[B]+2[icon:SETTLEMENT_LIMIT][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_LIMIT_TOOLTIP]聚落限制[/TIP][/B]。</Text>
+      <Text>[B]+2[icon:SETTLEMENT_LIMIT][/B][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_LIMIT_TOOLTIP]聚落限制[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_EXPANSIONIST_2_NAME" Language="zh_Hant_HK">
       <Text>自家也有哈布斯堡</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_EXPANSIONIST_2_RACE_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先在[TIP:LOC_PEDIA_CONCEPTS_HOMELANDS_TOOLTIP]家鄉土地[/TIP]中建立[B]16個[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP][/B]。前一個[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]時代[/TIP]的聚落也視為由你建立。</Text>
+      <Text>最先在[TIP:LOC_PEDIA_CONCEPTS_HOMELANDS_TOOLTIP]家鄉土地[/TIP]中建立[B]16個[/B][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]。前一個[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]時代[/TIP]的聚落也視為由你建立。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_EXPANSIONIST_2_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>在[TIP:LOC_PEDIA_CONCEPTS_HOMELANDS_TOOLTIP]家鄉土地[/TIP]中建立[B]16個[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP][/B]。前一個[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]時代[/TIP]的聚落也視為由你建立。</Text>
+      <Text>在[TIP:LOC_PEDIA_CONCEPTS_HOMELANDS_TOOLTIP]家鄉土地[/TIP]中建立[B]16個[/B][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]。前一個[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]時代[/TIP]的聚落也視為由你建立。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_EXPANSIONIST_3_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>[icon:YIELD_WAREHOUSE][TIP:LOC_PEDIA_CONCEPTS_WAREHOUSE_TOOLTIP]食物倉庫[/TIP][B]+1[icon:YIELD_FOOD][/B]。[icon:YIELD_FOOD][TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]食物建築[/TIP][B]+2[icon:YIELD_FOOD][/B]。</Text>
+      <Text>[icon:YIELD_FOOD][icon:YIELD_WAREHOUSE][TIP:LOC_PEDIA_CONCEPTS_WAREHOUSE_TOOLTIP]食物倉庫[/TIP][B]+1[icon:YIELD_FOOD][/B]。[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]食物建築[/TIP][B]+2[icon:YIELD_FOOD][/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_EXPANSIONIST_3_NAME" Language="zh_Hant_HK">
       <Text>三圃制</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_EXPANSIONIST_3_RACE_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先擁有[B]350[icon:YIELD_POPULATION][TIP:LOC_PEDIA_CONCEPTS_POPULATION_TOOLTIP]人口[/TIP][/B]。</Text>
+      <Text>最先擁有[B]350[icon:YIELD_POPULATION][/B][TIP:LOC_PEDIA_CONCEPTS_POPULATION_TOOLTIP]人口[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_EXPANSIONIST_3_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>擁有[B]350[icon:YIELD_POPULATION][TIP:LOC_PEDIA_CONCEPTS_POPULATION_TOOLTIP]人口[/TIP][/B]。</Text>
+      <Text>擁有[B]350[icon:YIELD_POPULATION][/B][TIP:LOC_PEDIA_CONCEPTS_POPULATION_TOOLTIP]人口[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_EXPANSIONIST_4_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>[TIP:LOC_PEDIA_CONCEPTS_APPEAL_TOOLTIP]壯麗[/TIP]格位[B]+1[icon:YIELD_FOOD][/B]。</Text>
+      <Text>壯麗格位[B]+1[icon:YIELD_FOOD][/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_EXPANSIONIST_4_NAME" Language="zh_Hant_HK">
       <Text>流浪癖</Text>
@@ -17483,7 +17504,7 @@
       <Text>最先完成環球航行。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_EXPLORER_1_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>[TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]海上單位[/TIP][B]+10[icon:Action_Heal][/B]。</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]海上單位[/TIP]+10治癒。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_EXPLORER_1_NAME" Language="zh_Hant_HK">
       <Text>海岸水勇</Text>
@@ -17507,46 +17528,46 @@
       <Text>揚帆起航</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_EXPLORER_3_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先研發完[icon:RADIAL_TECH]造船術。</Text>
+      <Text>最先研發完[B]造船術[/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_MILITARISTIC_1_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>對抗[icon:CITY_FORTIFIED][TIP:LOC_PEDIA_CONCEPTS_FORTIFIED_DISTRICTS_TOOLTIP]有防禦工事的區域[/TIP]時[B]+3[icon:NAR_REW_COMBAT][TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]戰鬥力[/TIP][/B]。</Text>
+      <Text>對抗[icon:CITY_FORTIFIED][TIP:LOC_PEDIA_CONCEPTS_FORTIFIED_DISTRICTS_TOOLTIP]有防禦工事的區域[/TIP]時[B]+3[icon:NAR_REW_COMBAT][/B][TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]戰鬥力[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_MILITARISTIC_1_NAME" Language="zh_Hant_HK">
       <Text>世界不夠大</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_MILITARISTIC_1_RACE_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先征服並保留[TIP:LOC_PEDIA_CONCEPTS_DISTANT_LANDS_TOOLTIP]遙遠土地[/TIP]中的[B]6個[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP][/B]。</Text>
+      <Text>最先征服並保留[TIP:LOC_PEDIA_CONCEPTS_DISTANT_LANDS_TOOLTIP]遙遠土地[/TIP]中的[B]6個[/B][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_MILITARISTIC_1_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>征服並保留[TIP:LOC_PEDIA_CONCEPTS_DISTANT_LANDS_TOOLTIP]遙遠土地[/TIP]中的[B]6個[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP][/B]。</Text>
+      <Text>征服並保留[TIP:LOC_PEDIA_CONCEPTS_DISTANT_LANDS_TOOLTIP]遙遠土地[/TIP]中的[B]6個[/B][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_MILITARISTIC_2_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>獲得一位[icon:UNIT_ARMY_COMMANDER][TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]軍隊指揮官[/TIP]，其配備4個[TIP:LOC_PEDIA_CONCEPTS_MILITARY_UNIT_TOOLTIP]軍事單位[/TIP]，每種類型各1個。</Text>
+      <Text>獲得一位[icon:UNIT_ARMY_COMMANDER][TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]軍隊指揮官[/TIP]，其配備[B]4個[/B][TIP:LOC_PEDIA_CONCEPTS_MILITARY_UNIT_TOOLTIP]軍事單位[/TIP]，每種類型各1個。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_MILITARISTIC_2_NAME" Language="zh_Hant_HK">
       <Text>蒙古治世</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_MILITARISTIC_2_RACE_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先征服並保留[TIP:LOC_PEDIA_CONCEPTS_HOMELANDS_TOOLTIP]家鄉土地[/TIP]上的[B]8個[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP][/B]。</Text>
+      <Text>最先征服並保留[TIP:LOC_PEDIA_CONCEPTS_HOMELANDS_TOOLTIP]家鄉土地[/TIP]上的[B]8個[/B][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_MILITARISTIC_2_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>征服並保留[TIP:LOC_PEDIA_CONCEPTS_HOMELANDS_TOOLTIP]家鄉土地[/TIP]上的[B]8個[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP][/B]。</Text>
+      <Text>征服並保留[TIP:LOC_PEDIA_CONCEPTS_HOMELANDS_TOOLTIP]家鄉土地[/TIP]上的[B]8個[/B][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_MILITARISTIC_3_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>所有[TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]指揮官[/TIP]，包括未來的指揮官獲得[B]+1[icon:NAR_REW_PROMOTION][TIP:LOC_PEDIA_CONCEPTS_PROMOTION_TOOLTIP]強化[/TIP][/B]。</Text>
+      <Text>所有[icon:UNIT_ARMY_COMMANDER][TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]指揮官[/TIP]，包括未來的[icon:UNIT_ARMY_COMMANDER]指揮官獲得[B]+1[/B][TIP:LOC_PEDIA_CONCEPTS_PROMOTION_TOOLTIP]強化[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_MILITARISTIC_3_NAME" Language="zh_Hant_HK">
       <Text>大師與指揮官</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_MILITARISTIC_3_RACE_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先擁有一個[B]8級的[icon:UNIT_FLEET_COMMANDER][TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]艦隊指揮官[/TIP][/B]。</Text>
+      <Text>最先擁有一個[B]8級[icon:UNIT_FLEET_COMMANDER][/B]的[TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]艦隊指揮官[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_MILITARISTIC_3_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>擁有一個[B]8級的[icon:UNIT_FLEET_COMMANDER][TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]艦隊指揮官[/TIP][/B]。</Text>
+      <Text>擁有一個[B]8級[icon:UNIT_FLEET_COMMANDER][/B]的[TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]艦隊指揮官[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_MILITARISTIC_4_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>獲得[B]4[icon:MILITARY_VP][TIP:LOC_PEDIA_CONCEPTS_DOMINION_TOOLTIP]霸權值[/TIP][/B]。</Text>
+      <Text>獲得[B]4[icon:MILITARY_VP][/B][TIP:LOC_PEDIA_CONCEPTS_DOMINION_TOOLTIP]霸權值[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_MILITARISTIC_4_NAME" Language="zh_Hant_HK">
       <Text>打劫！</Text>
@@ -17555,7 +17576,7 @@
       <Text>最先征服一個[icon:NOTIFICATION_SELECT_CAPITAL][TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]首都[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_MILITARISTIC_5_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>從所有[icon:CITY_FORTIFIED]防禦工事獲得[B]+2[icon:CULTURE_VP][TIP:LOC_PEDIA_CONCEPTS_TOURISTS_TOOLTIP]觀光值[/TIP][/B]。</Text>
+      <Text>從所有防禦工事獲得[B]+2[icon:CULTURE_VP][/B][TIP:LOC_PEDIA_CONCEPTS_TOURISTS_TOOLTIP]觀光值[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_MILITARISTIC_5_NAME" Language="zh_Hant_HK">
       <Text>城堡之地</Text>
@@ -17564,46 +17585,46 @@
       <Text>防禦工事</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_MILITARISTIC_5_RACE_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先擁有[B]30個[icon:CITY_FORTIFIED]防禦工事[/B]。</Text>
+      <Text>最先擁有[B]30個防禦工事[/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_MILITARISTIC_5_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>擁有[B]30個[icon:CITY_FORTIFIED]防禦工事[/B]。</Text>
+      <Text>擁有[B]30個防禦工事[/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_SCIENTIFIC_1_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>所有[TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP][B]+1[icon:SPECIALIST][TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_LIMIT_TOOLTIP]專家限制[/TIP][/B]。</Text>
+      <Text>所有[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP][B]+1[icon:SPECIALIST][/B][TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_LIMIT_TOOLTIP]專家限制[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_SCIENTIFIC_1_NAME" Language="zh_Hant_HK">
       <Text>啟蒙</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_SCIENTIFIC_1_RACE_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先擁有[B]5個產量75+的非城市中心[TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]區域[/TIP][/B]。</Text>
+      <Text>最先擁有[B]5個[icon:CITY_URBAN][/B][B]產量75+[/B]的[TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]非城市中心區域[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_SCIENTIFIC_1_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>擁有[B]5個產量75+的非城市中心[TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]區域[/TIP][/B]。</Text>
+      <Text>擁有[B]5個[icon:CITY_URBAN][/B][B]產量75+[/B]的[TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]非城市中心區域[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_SCIENTIFIC_2_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>解鎖[icon:RADIAL_TECH]「學術」。推進[icon:PROJECT][TIP:LOC_PEDIA_CONCEPTS_PROJECTS_TOOLTIP]專案[/TIP]時[B]+25%[icon:YIELD_PRODUCTION]效益[/B]。</Text>
+      <Text>解鎖「學術」。推進[icon:DEFAULT_PROJECT][TIP:LOC_PEDIA_CONCEPTS_PROJECTS_TOOLTIP]專案[/TIP]時[B]+25%[icon:YIELD_PRODUCTION]效益[/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_SCIENTIFIC_2_NAME" Language="zh_Hant_HK">
       <Text>天體運行論</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_SCIENTIFIC_2_RACE_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先完成[icon:DEFAULT_PROJECT]日心模型和[icon:DEFAULT_PROJECT]發現微積分[icon:PROJECT][TIP:LOC_PEDIA_CONCEPTS_PROJECTS_TOOLTIP]專案[/TIP]。</Text>
+      <Text>最先完成[B]「日心模型」[/B]和[B]「發現微積分」[/B][icon:DEFAULT_PROJECT][TIP:LOC_PEDIA_CONCEPTS_PROJECTS_TOOLTIP]專案[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_SCIENTIFIC_2_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>完成[icon:DEFAULT_PROJECT]日心模型和[icon:DEFAULT_PROJECT]發現微積分[icon:PROJECT][TIP:LOC_PEDIA_CONCEPTS_PROJECTS_TOOLTIP]專案[/TIP]。</Text>
+      <Text>完成[B]「日心模型」[/B]和[B]「發現微積分」[/B][icon:DEFAULT_PROJECT][TIP:LOC_PEDIA_CONCEPTS_PROJECTS_TOOLTIP]專案[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_SCIENTIFIC_3_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>[TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]海上單位[/TIP][B]+1[icon:UNIT_MOVEMENT_ICON]移動力[/B]。</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]海上單位[/TIP][B]+1[icon:Action_Move]移動力[/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_SCIENTIFIC_3_NAME" Language="zh_Hant_HK">
       <Text>突火槍</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_SCIENTIFIC_3_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先研發完[icon:RADIAL_TECH]火藥。</Text>
+      <Text>最先研發完[B]火藥[/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_SCIENTIFIC_4_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>第一次完成一項獎勵[icon:SCIENCE_VP][TIP:LOC_PEDIA_CONCEPTS_INNOVATION_TOOLTIP]創新值[/TIP]的[icon:PROJECT][TIP:LOC_PEDIA_CONCEPTS_PROJECTS_TOOLTIP]專案[/TIP]時，[B]+1000[icon:ECONOMIC_VP][TIP:LOC_PEDIA_CONCEPTS_GDP_TOOLTIP]GDP[/TIP][/B]（隨遊戲速度調整）。</Text>
+      <Text>第一次完成一項獎勵[icon:SCIENCE_VP][TIP:LOC_PEDIA_CONCEPTS_INNOVATION_TOOLTIP]創新值[/TIP]的[icon:DEFAULT_PROJECT][TIP:LOC_PEDIA_CONCEPTS_PROJECTS_TOOLTIP]專案[/TIP]時，[B]+1000[icon:ECONOMIC_VP][/B][TIP:LOC_PEDIA_CONCEPTS_GDP_TOOLTIP]GDP[/TIP]（隨遊戲速度調整）。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_SCIENTIFIC_4_NAME" Language="zh_Hant_HK">
       <Text>帖木兒文藝復興</Text>
@@ -17615,25 +17636,25 @@
       <Text>在帝國中擁有[B]7所大學[/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_SCIENTIFIC_5_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>各[TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]，包括未來的城市[B]+1[icon:YIELD_POPULATION][TIP:LOC_PEDIA_CONCEPTS_POPULATION_TOOLTIP]人口[/TIP][/B]。</Text>
+      <Text>各[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]，包括未來的[icon:YIELD_CITIES]城市[B]+1[icon:YIELD_POPULATION][/B][TIP:LOC_PEDIA_CONCEPTS_POPULATION_TOOLTIP]人口[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_SCIENTIFIC_5_NAME" Language="zh_Hant_HK">
       <Text>F=ma</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_SCIENTIFIC_5_RACE_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先研究完所有[icon:RADIAL_TECH][TIP:LOC_PEDIA_CONCEPTS_TECH_TOOLTIP]科技[/TIP]和[TIP:LOC_PEDIA_CONCEPTS_MASTERY_TOOLTIP]精通[/TIP]。</Text>
+      <Text>最先研究完所有[icon:RADIAL_TECH][TIP:LOC_PEDIA_CONCEPTS_TECH_TOOLTIP]科技[/TIP]和精通。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_SCIENTIFIC_5_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先研究完所有[icon:RADIAL_TECH][TIP:LOC_PEDIA_CONCEPTS_TECH_TOOLTIP]科技[/TIP]和[TIP:LOC_PEDIA_CONCEPTS_MASTERY_TOOLTIP]精通[/TIP]。</Text>
+      <Text>最先研究完所有[icon:RADIAL_TECH][TIP:LOC_PEDIA_CONCEPTS_TECH_TOOLTIP]科技[/TIP]和精通。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_CONQUEROR_1_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>[TIP:LOC_PEDIA_CONCEPTS_SIEGE_UNITS_TOOLTIP]攻城單位[/TIP][B]+4[icon:NAR_REW_COMBAT]轟擊戰鬥力[/B]。</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_SIEGE_UNITS_TOOLTIP]攻城單位[/TIP][B]+4[icon:NAR_REW_COMBAT][/B][TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]轟擊戰鬥力[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_CONQUEROR_1_NAME" Language="zh_Hant_HK">
       <Text>熱烈之城</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_CONQUEROR_1_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>征服一座有[B]6個[TIP:LOC_PEDIA_CONCEPTS_DEFENSIVE_FORTIFICATION_TOOLTIP]防禦工事[/TIP][/B]的[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]。</Text>
+      <Text>征服一座有[B]6個[/B][TIP:LOC_PEDIA_CONCEPTS_DEFENSIVE_FORTIFICATION_TOOLTIP]防禦工事[/TIP]的[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_CONQUEROR_2_DESCRIPTION" Language="zh_Hant_HK">
       <Text>從[icon:CITYSTATE][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP]徵集單位時[B]+100%[icon:YIELD_DIPLOMACY]效益[/B]。</Text>
@@ -17645,73 +17666,73 @@
       <Text>成為2個軍事[icon:CITYSTATE][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP]的[TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主國[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_CONQUEROR_3_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>[TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]軍隊和艦隊指揮官[/TIP][B]+1[icon:Action_Move]移動力[/B]。</Text>
+      <Text>軍隊和[icon:UNIT_FLEET_COMMANDER][TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]艦隊指揮官[/TIP][B]+1[icon:Action_Move]移動力[/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_CONQUEROR_3_NAME" Language="zh_Hant_HK">
       <Text>義大利復興運動</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_CONQUEROR_3_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>在此[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]時代[/TIP]中征服[B]2個[icon:NOTIFICATION_SELECT_CAPITAL][TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]首都[/TIP][/B]。</Text>
+      <Text>在此[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]時代[/TIP]中征服[B]2個[icon:NOTIFICATION_SELECT_CAPITAL][/B][TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]首都[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_CONQUEROR_4_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>[TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]航空母艦[/TIP][B]+1[icon:Action_Move]移動力[/B]。</Text>
+      <Text>航空母艦[B]+1[icon:Action_Move]移動力[/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_CONQUEROR_4_NAME" Language="zh_Hant_HK">
       <Text>企業號航空母艦</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_CONQUEROR_4_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>擁有一個有[B]4次[TIP:LOC_PEDIA_CONCEPTS_PROMOTION_TOOLTIP]強化[/TIP][/B]的[TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]航空母艦[/TIP]。</Text>
+      <Text>擁有一個有[B]4次[/B][TIP:LOC_PEDIA_CONCEPTS_PROMOTION_TOOLTIP]強化[/TIP]的航空母艦。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_CULTURAL_1_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>每有一個展示的[icon:NAR_REW_GREATWORK][TIP:LOC_PEDIA_CONCEPTS_ARTIFACT_TOOLTIP]文物[/TIP]，便[B]+3[icon:CULTURE_VP][TIP:LOC_PEDIA_CONCEPTS_TOURISTS_TOOLTIP]觀光值[/TIP][/B]。</Text>
+      <Text>每有一個展示的[icon:NAR_REW_GREATWORK][TIP:LOC_PEDIA_CONCEPTS_ARTIFACT_TOOLTIP]文物[/TIP]，便[B]+3[icon:CULTURE_VP][/B][TIP:LOC_PEDIA_CONCEPTS_TOURISTS_TOOLTIP]觀光值[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_CULTURAL_1_NAME" Language="zh_Hant_HK">
       <Text>地理學會</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_CULTURAL_1_RACE_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先展示[B]15個[icon:NAR_REW_GREATWORK][TIP:LOC_PEDIA_CONCEPTS_ARTIFACT_TOOLTIP]文物[/TIP][/B]。</Text>
+      <Text>最先展示[B]15個[icon:NAR_REW_GREATWORK][/B][TIP:LOC_PEDIA_CONCEPTS_ARTIFACT_TOOLTIP]文物[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_CULTURAL_1_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>展示[B]15個[icon:NAR_REW_GREATWORK][TIP:LOC_PEDIA_CONCEPTS_ARTIFACT_TOOLTIP]文物[/TIP][/B]。</Text>
+      <Text>展示[B]15個[icon:NAR_REW_GREATWORK][/B][TIP:LOC_PEDIA_CONCEPTS_ARTIFACT_TOOLTIP]文物[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_CULTURAL_2_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>獲得[B]36[icon:CULTURE_VP][TIP:LOC_PEDIA_CONCEPTS_TOURISTS_TOOLTIP]觀光值[/TIP][/B]。</Text>
+      <Text>獲得[B]36[icon:CULTURE_VP][/B][TIP:LOC_PEDIA_CONCEPTS_TOURISTS_TOOLTIP]觀光值[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_CULTURAL_2_NAME" Language="zh_Hant_HK">
       <Text>近代世界的奇觀</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_CULTURAL_2_RACE_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先建造[B]6座[TIP:LOC_PEDIA_CONCEPTS_MODERN_AGE_TOOLTIP]近代[/TIP][/B][icon:WONDER][TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]奇觀[/TIP]。</Text>
+      <Text>最先建造[B]6座[/B][TIP:LOC_PEDIA_CONCEPTS_MODERN_AGE_TOOLTIP]近代[/TIP][icon:WONDER][TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]奇觀[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_CULTURAL_2_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>建造[B]6座[TIP:LOC_PEDIA_CONCEPTS_MODERN_AGE_TOOLTIP]近代[/TIP][/B][icon:WONDER][TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]奇觀[/TIP]。</Text>
+      <Text>建造[B]6座[/B][TIP:LOC_PEDIA_CONCEPTS_MODERN_AGE_TOOLTIP]近代[/TIP][icon:WONDER][TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]奇觀[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_CULTURAL_3_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>從未來的[icon:CELEBRATION][TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]慶典[/TIP]獲得[B]+4[icon:CULTURE_VP][TIP:LOC_PEDIA_CONCEPTS_TOURISTS_TOOLTIP]觀光值[/TIP][/B]。</Text>
+      <Text>從未來的[icon:CELEBRATION][TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]慶典[/TIP]獲得[B]+4[icon:CULTURE_VP][/B][TIP:LOC_PEDIA_CONCEPTS_TOURISTS_TOOLTIP]觀光值[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_CULTURAL_3_NAME" Language="zh_Hant_HK">
       <Text>宣言</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_CULTURAL_3_RACE_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先在槽位中放入[B]10個[icon:SOCIAL_POLICY][TIP:LOC_PEDIA_CONCEPTS_SOCIAL_POLICY_TOOLTIP]政策[/TIP][/B]或[icon:TRADITION][TIP:LOC_PEDIA_CONCEPTS_TRADITION_TOOLTIP]傳統[/TIP]。</Text>
+      <Text>最先在槽位中放入[B]10個[icon:SOCIAL_POLICY][/B][TIP:LOC_PEDIA_CONCEPTS_SOCIAL_POLICY_TOOLTIP]政策[/TIP]或[icon:TRADITION][TIP:LOC_PEDIA_CONCEPTS_TRADITION_TOOLTIP]傳統[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_CULTURAL_3_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先在槽位中放入[B]10個[icon:SOCIAL_POLICY]政策[/B]或[icon:TRADITION][TIP:LOC_PEDIA_CONCEPTS_TRADITION_TOOLTIP]傳統[/TIP]。</Text>
+      <Text>最先在槽位中放入[B]10個[icon:SOCIAL_POLICY][/B][TIP:LOC_PEDIA_CONCEPTS_SOCIAL_POLICY_TOOLTIP]政策[/TIP]或[icon:TRADITION][TIP:LOC_PEDIA_CONCEPTS_TRADITION_TOOLTIP]傳統[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_CULTURAL_4_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>所有[icon:WONDER][TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]奇觀[/TIP][B]+3[icon:CULTURE_VP][TIP:LOC_PEDIA_CONCEPTS_TOURISTS_TOOLTIP]觀光值[/TIP][/B]。</Text>
+      <Text>所有[icon:WONDER][TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]奇觀[/TIP][B]+3[icon:CULTURE_VP][/B][TIP:LOC_PEDIA_CONCEPTS_TOURISTS_TOOLTIP]觀光值[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_CULTURAL_4_NAME" Language="zh_Hant_HK">
       <Text>奇境</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_CULTURAL_4_RACE_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先建造[B]20座[icon:WONDER][TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]奇觀[/TIP][/B]。</Text>
+      <Text>最先建造[B]20座[icon:WONDER][/B][TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]奇觀[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_CULTURAL_4_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>建造[B]20座[icon:WONDER][TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]奇觀[/TIP][/B]。</Text>
+      <Text>建造[B]20座[icon:WONDER][/B][TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]奇觀[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_CULTURAL_5_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>從[icon:CITY_BUILDING_LIST][TIP:LOC_PEDIA_CONCEPTS_UNIQUE_BUILDING_TOOLTIP]特色建築[/TIP]獲得[B]+2[icon:CULTURE_VP][TIP:LOC_PEDIA_CONCEPTS_TOURISTS_TOOLTIP]觀光值[/TIP][/B]，從[icon:CITY_RURAL][TIP:LOC_PEDIA_CONCEPTS_UNIQUE_IMPROVEMENT_TOOLTIP]特色改良設施[/TIP]獲得[B]+1[icon:CULTURE_VP]觀光值[/B]。</Text>
+      <Text>從[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_BUILDING_TOOLTIP]特色建築[/TIP]獲得[B]+2[icon:CULTURE_VP][/B][TIP:LOC_PEDIA_CONCEPTS_TOURISTS_TOOLTIP]觀光值[/TIP]，從[icon:CITY_RURAL][TIP:LOC_PEDIA_CONCEPTS_UNIQUE_IMPROVEMENT_TOOLTIP]特色改良設施[/TIP]獲得[B]+1[icon:CULTURE_VP]觀光值[/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_CULTURAL_5_NAME" Language="zh_Hant_HK">
       <Text>時代精神</Text>
@@ -17723,67 +17744,67 @@
       <Text>時代精神：城區</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_CULTURAL_5_RACE_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先研究完所有一般[TIP:LOC_PEDIA_CONCEPTS_CIVIC_TOOLTIP]市政[/TIP]和[TIP:LOC_PEDIA_CONCEPTS_MASTERY_TOOLTIP]精通[/TIP]。</Text>
+      <Text>最先研究完所有一般[TIP:LOC_PEDIA_CONCEPTS_CIVIC_TOOLTIP]市政[/TIP]和精通。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_CULTURAL_5_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先研究完所有一般[TIP:LOC_PEDIA_CONCEPTS_CIVIC_TOOLTIP]市政[/TIP]和[TIP:LOC_PEDIA_CONCEPTS_MASTERY_TOOLTIP]精通[/TIP]。</Text>
+      <Text>最先研究完所有一般[TIP:LOC_PEDIA_CONCEPTS_CIVIC_TOOLTIP]市政[/TIP]和精通。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_DIPLOMATIC_1_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>發動與領袖的[icon:DIPLOMATIC_ACTION]外交行動時[B]+20%[icon:YIELD_DIPLOMACY]效益[/B]。</Text>
+      <Text>發動與領袖的外交行動時[B]+20%[icon:YIELD_DIPLOMACY]效益[/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_DIPLOMATIC_1_NAME" Language="zh_Hant_HK">
       <Text>尋求更新的世界</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_DIPLOMATIC_1_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先採用一個[icon:NOTIFICATION_IDEOLOGY_CHOSEN]意識形態。</Text>
+      <Text>最先採用一個[icon:NOTIFICATION_IDEOLOGY_CHOSEN][B]意識形態[/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_DIPLOMATIC_2_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>獲得[B]500[icon:YIELD_DIPLOMACY]影響力[/B]。</Text>
+      <Text>獲得[B]500[icon:YIELD_DIPLOMACY][/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_DIPLOMATIC_2_NAME" Language="zh_Hant_HK">
       <Text>萬國聯盟</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_DIPLOMATIC_2_RACE_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先與世界上一半的領袖[icon:PLAYER_RELATIONSHIP_ALLIANCE][TIP:LOC_PEDIA_CONCEPTS_ALLIANCE_TOOLTIP]結盟[/TIP]。</Text>
+      <Text>最先與世界上[B]一半[/B]的領袖締結[icon:PLAYER_RELATIONSHIP_ALLIANCE][TIP:LOC_PEDIA_CONCEPTS_ALLIANCE_TOOLTIP]同盟關係[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_DIPLOMATIC_2_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>[icon:PLAYER_RELATIONSHIP_ALLIANCE] 與世界上一半的領袖[TIP:LOC_PEDIA_CONCEPTS_ALLIANCE_TOOLTIP]結盟[/TIP]。</Text>
+      <Text>與世界上[B]一半[/B]的領袖締結[icon:PLAYER_RELATIONSHIP_ALLIANCE][TIP:LOC_PEDIA_CONCEPTS_ALLIANCE_TOOLTIP]同盟關係[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_DIPLOMATIC_3_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>發動與[icon:CITYSTATE][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP]的[icon:DIPLOMATIC_ACTION]外交行動時[B]+50%[icon:YIELD_DIPLOMACY]效益[/B]。</Text>
+      <Text>發動與[icon:CITYSTATE][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP]的外交行動時[B]+50%[icon:YIELD_DIPLOMACY]效益[/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_DIPLOMATIC_3_NAME" Language="zh_Hant_HK">
       <Text>操偶大師</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_DIPLOMATIC_3_RACE_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先成為[B]7個[icon:CITYSTATE][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP][/B]的[TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主國[/TIP]。</Text>
+      <Text>最先成為[B]7個[icon:CITYSTATE][/B][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP]的[TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主國[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_DIPLOMATIC_3_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>成為[B]7個[icon:CITYSTATE][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP][/B]的[TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主國[/TIP]。</Text>
+      <Text>成為[B]7個[icon:CITYSTATE][/B][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP]的[TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主國[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_DIPLOMATIC_4_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>獲得[B]500[icon:YIELD_DIPLOMACY]影響力。</Text>
+      <Text>獲得[B]500[icon:YIELD_DIPLOMACY][/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_DIPLOMATIC_4_NAME" Language="zh_Hant_HK">
       <Text>恩尼格瑪密碼</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_DIPLOMATIC_4_RACE_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先成功完成一項[icon:ESPIONAGE][TIP:LOC_PEDIA_CONCEPTS_ESPIONAGE_TOOLTIP]諜報行動[/TIP]15次。</Text>
+      <Text>最先成功完成[B]15項[icon:ESPIONAGE][/B][TIP:LOC_PEDIA_CONCEPTS_ESPIONAGE_TOOLTIP]諜報行動[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_DIPLOMATIC_4_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>成功完成一項[icon:ESPIONAGE][TIP:LOC_PEDIA_CONCEPTS_ESPIONAGE_TOOLTIP]諜報行動[/TIP]15次。</Text>
+      <Text>成功完成[B]15項[icon:ESPIONAGE][/B][TIP:LOC_PEDIA_CONCEPTS_ESPIONAGE_TOOLTIP]諜報行動[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_DIPLOMATIC_5_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>[B]+1[icon:NAR_REW_TRADITION_SLOT][TIP:LOC_PEDIA_CONCEPTS_TRADITION_TOOLTIP]傳統槽位[/TIP][/B]。</Text>
+      <Text>[B]+1[icon:NAR_REW_TRADITION_SLOT]傳統槽位[/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_DIPLOMATIC_5_NAME" Language="zh_Hant_HK">
       <Text>美麗新世界</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_DIPLOMATIC_5_RACE_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先在一個[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]中擁有250多餘的[icon:YIELD_HAPPINESS]。</Text>
+      <Text>最先在一個[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]中擁有[B]250多餘的[icon:YIELD_HAPPINESS][/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_DIPLOMATIC_5_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>在一個[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]中擁有250多餘的[icon:YIELD_HAPPINESS]。</Text>
+      <Text>在一個[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]中擁有[B]250多餘的[icon:YIELD_HAPPINESS][/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_ECONOMIC_1_DESCRIPTION" Language="zh_Hant_HK">
       <Text>在你的[icon:NOTIFICATION_SELECT_CAPITAL][TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]首都[/TIP]中生成一個大銀行家。</Text>
@@ -17792,46 +17813,46 @@
       <Text>鐵路大亨</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_ECONOMIC_1_RACE_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先透過指派[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_FACTORY_RESOURCES_TOOLTIP]工廠資源[/TIP]來得到[B]500[icon:ECONOMIC_VP][TIP:LOC_PEDIA_CONCEPTS_GDP_TOOLTIP]GDP[/TIP][/B]。</Text>
+      <Text>最先透過指派[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_FACTORY_RESOURCES_TOOLTIP]工廠資源[/TIP]來得到[B]500[icon:ECONOMIC_VP][/B][TIP:LOC_PEDIA_CONCEPTS_GDP_TOOLTIP]GDP[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_ECONOMIC_1_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>透過指派[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_FACTORY_RESOURCES_TOOLTIP]工廠資源[/TIP]來得到[B]500[icon:ECONOMIC_VP][TIP:LOC_PEDIA_CONCEPTS_GDP_TOOLTIP]GDP[/TIP][/B]。</Text>
+      <Text>透過指派[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_FACTORY_RESOURCES_TOOLTIP]工廠資源[/TIP]來得到[B]500[icon:ECONOMIC_VP][/B][TIP:LOC_PEDIA_CONCEPTS_GDP_TOOLTIP]GDP[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_ECONOMIC_2_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]中指派的[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_CITY_RESOURCES_TOOLTIP]城市資源[/TIP]每回合提供[B]+2[icon:ECONOMIC_VP][TIP:LOC_PEDIA_CONCEPTS_GDP_TOOLTIP]GDP[/TIP][/B]。</Text>
+      <Text>[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]中指派的[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_CITY_RESOURCES_TOOLTIP]城市資源[/TIP]每回合提供[B]+2[icon:ECONOMIC_VP][/B][TIP:LOC_PEDIA_CONCEPTS_GDP_TOOLTIP]GDP[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_ECONOMIC_2_NAME" Language="zh_Hant_HK">
       <Text>國富論</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_ECONOMIC_2_RACE_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先開始[B]12條[icon:TRADE_ROUTE][TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]貿易路線[/TIP][/B]。</Text>
+      <Text>最先開始[B]12條[icon:TRADE_ROUTE][/B][TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]貿易路線[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_ECONOMIC_2_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>開始[B]12條[icon:TRADE_ROUTE][TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]貿易路線[/TIP][/B]。</Text>
+      <Text>開始[B]12條[icon:TRADE_ROUTE][/B][TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]貿易路線[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_ECONOMIC_3_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]金幣建築[/TIP]每回合提供[B]+3[icon:ECONOMIC_VP][TIP:LOC_PEDIA_CONCEPTS_GDP_TOOLTIP]GDP[/TIP][/B]。</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]金幣建築[/TIP]每回合提供[B]+3[icon:ECONOMIC_VP][/B][TIP:LOC_PEDIA_CONCEPTS_GDP_TOOLTIP]GDP[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_ECONOMIC_3_NAME" Language="zh_Hant_HK">
       <Text>鐵路大亨</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_ECONOMIC_3_RACE_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先擁有12座火車站。</Text>
+      <Text>最先擁有[B]12座火車站[/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_ECONOMIC_3_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>擁有12座火車站。</Text>
+      <Text>擁有[B]12座火車站[/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_ECONOMIC_4_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]中指派的[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_BONUS_RESOURCES_TOOLTIP]加成資源[/TIP]每回合提供[B]+2[icon:ECONOMIC_VP][TIP:LOC_PEDIA_CONCEPTS_GDP_TOOLTIP]GDP[/TIP][/B]。</Text>
+      <Text>[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]中指派的[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_BONUS_RESOURCES_TOOLTIP]加成資源[/TIP]每回合提供[B]+2[icon:ECONOMIC_VP][/B][TIP:LOC_PEDIA_CONCEPTS_GDP_TOOLTIP]GDP[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_ECONOMIC_4_NAME" Language="zh_Hant_HK">
       <Text>堂島米會所</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_ECONOMIC_4_RACE_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先指派[B]60[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]資源[/TIP][/B]。</Text>
+      <Text>最先指派[B]60[icon:RADIAL_RESOURCES][/B][TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]資源[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_ECONOMIC_4_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>指派[B]60[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]資源[/TIP][/B]。</Text>
+      <Text>指派[B]60[icon:RADIAL_RESOURCES][/B][TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]資源[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_ECONOMIC_5_DESCRIPTION" Language="zh_Hant_HK">
       <Text>獲得[B]1000[icon:ECONOMIC_VP][/B][TIP:LOC_PEDIA_CONCEPTS_GDP_TOOLTIP]GDP[/TIP]。</Text>
@@ -17840,10 +17861,10 @@
       <Text>世界的工坊</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_ECONOMIC_5_RACE_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先指派[B]30[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_FACTORY_RESOURCES_TOOLTIP]工廠資源[/TIP][/B]。</Text>
+      <Text>最先指派[B]30[icon:RADIAL_RESOURCES][/B][TIP:LOC_PEDIA_CONCEPTS_FACTORY_RESOURCES_TOOLTIP]工廠資源[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_ECONOMIC_5_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>指派[B]30[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_FACTORY_RESOURCES_TOOLTIP]工廠資源[/TIP][/B]。</Text>
+      <Text>指派[B]30[icon:RADIAL_RESOURCES][/B][TIP:LOC_PEDIA_CONCEPTS_FACTORY_RESOURCES_TOOLTIP]工廠資源[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_EXPANSIONIST_1_DESCRIPTION" Language="zh_Hant_HK">
       <Text>[TIP:LOC_PEDIA_CONCEPTS_APPEAL_TOOLTIP]壯麗[/TIP]格位[B]+6[icon:YIELD_FOOD][/B]。</Text>
@@ -17858,16 +17879,16 @@
       <Text>改良所有[icon:NOTIFICATION_DISCOVER_NATURAL_WONDER][TIP:LOC_PEDIA_CONCEPTS_NATURAL_WONDER_TOOLTIP]自然奇觀[/TIP]的至少1個格位。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_EXPANSIONIST_2_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>[icon:CITY_FORTIFIED]防禦工事[B]+1[icon:YIELD_PRODUCTION][/B]。</Text>
+      <Text>防禦工事[B]+1[icon:YIELD_PRODUCTION][/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_EXPANSIONIST_2_NAME" Language="zh_Hant_HK">
       <Text>日不落</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_EXPANSIONIST_2_RACE_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先擁有[B]27個[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP][/B]。</Text>
+      <Text>最先擁有[B]27個[/B][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_EXPANSIONIST_2_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>擁有[B]27個[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP][/B]。</Text>
+      <Text>擁有[B]27個[/B][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_EXPANSIONIST_3_DESCRIPTION" Language="zh_Hant_HK">
       <Text>雜貨店[B]+4[icon:YIELD_FOOD][/B]。</Text>
@@ -17876,10 +17897,10 @@
       <Text>震撼之城</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_EXPANSIONIST_3_RACE_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先擁有[B]450[icon:YIELD_POPULATION][TIP:LOC_PEDIA_CONCEPTS_POPULATION_TOOLTIP]人口[/TIP][/B]。</Text>
+      <Text>最先擁有[B]450[icon:YIELD_POPULATION][/B][TIP:LOC_PEDIA_CONCEPTS_POPULATION_TOOLTIP]人口[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_EXPANSIONIST_3_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>擁有[B]450[icon:YIELD_POPULATION][TIP:LOC_PEDIA_CONCEPTS_POPULATION_TOOLTIP]人口[/TIP][/B]。</Text>
+      <Text>擁有[B]450[icon:YIELD_POPULATION][/B][TIP:LOC_PEDIA_CONCEPTS_POPULATION_TOOLTIP]人口[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_EXPANSIONIST_4_DESCRIPTION" Language="zh_Hant_HK">
       <Text>開始一次[icon:CELEBRATION][TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]慶典[/TIP]。</Text>
@@ -17888,7 +17909,7 @@
       <Text>嗶嗶嗶</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_EXPANSIONIST_4_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先揭露100%的地圖。</Text>
+      <Text>最先揭露[B]100%[/B]的地圖。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_EXPANSIONIST_5_DESCRIPTION" Language="zh_Hant_HK">
       <Text>[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP][B]+20[icon:YIELD_HAPPINESS][/B]。</Text>
@@ -17897,13 +17918,13 @@
       <Text>巨型都會</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_EXPANSIONIST_5_RACE_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先擁有[B]60名[icon:SPECIALIST][TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_TOOLTIP]專家[/TIP][/B]。</Text>
+      <Text>最先擁有[B]60名[icon:SPECIALIST][/B][TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_TOOLTIP]專家[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_EXPANSIONIST_5_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>擁有[B]60名[icon:SPECIALIST][TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_TOOLTIP]專家[/TIP][/B]。</Text>
+      <Text>擁有[B]60名[icon:SPECIALIST][/B][TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_TOOLTIP]專家[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_EXPLORER_1_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>從博物館獲得[B]+2[icon:CULTURE_VP][TIP:LOC_PEDIA_CONCEPTS_TOURISTS_TOOLTIP]觀光值[/TIP][/B]。</Text>
+      <Text>從博物館獲得[B]+2[icon:CULTURE_VP][/B][TIP:LOC_PEDIA_CONCEPTS_TOURISTS_TOOLTIP]觀光值[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_EXPLORER_1_NAME" Language="zh_Hant_HK">
       <Text>菲爾德博物館</Text>
@@ -17912,7 +17933,7 @@
       <Text>展示來自所有[icon:NOTIFICATION_DISCOVER_NATURAL_WONDER][TIP:LOC_PEDIA_CONCEPTS_NATURAL_WONDER_TOOLTIP]自然奇觀[/TIP]的[icon:NAR_REW_GREATWORK][TIP:LOC_PEDIA_CONCEPTS_ARTIFACT_TOOLTIP]文物[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_EXPLORER_2_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>發動「增兵」行動時[B]+100%[icon:YIELD_DIPLOMACY]效益。</Text>
+      <Text>發動「增兵」行動時[B]+100%[icon:YIELD_DIPLOMACY]效益[/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_EXPLORER_2_NAME" Language="zh_Hant_HK">
       <Text>永久和平</Text>
@@ -17921,52 +17942,52 @@
       <Text>成為2個外交[icon:CITYSTATE][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP]的[TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主國[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_EXPLORER_3_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>[TIP:LOC_PEDIA_CONCEPTS_AIR_UNITS_TOOLTIP]空中單位[/TIP][B]+1射程[/B]。</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_AIR_UNITS_TOOLTIP]空中單位[/TIP]+1射程。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_EXPLORER_3_NAME" Language="zh_Hant_HK">
       <Text>三鷹</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_EXPLORER_3_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>擁有[B]3名[icon:UNIT_SQUADRON_COMMANDER][TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]飛行中隊指揮官[/TIP][/B]。</Text>
+      <Text>擁有[B]3名[icon:UNIT_SQUADRON_COMMANDER][/B][TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]飛行中隊指揮官[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_MILITARISTIC_1_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>獲得[B]3[icon:MILITARY_VP][TIP:LOC_PEDIA_CONCEPTS_DOMINION_TOOLTIP]霸權值[/TIP][/B]。</Text>
+      <Text>獲得[B]3[icon:MILITARY_VP][/B][TIP:LOC_PEDIA_CONCEPTS_DOMINION_TOOLTIP]霸權值[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_MILITARISTIC_1_NAME" Language="zh_Hant_HK">
       <Text>道德責任</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_MILITARISTIC_1_RACE_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先征服並保留敵對[icon:NOTIFICATION_IDEOLOGY_CHOSEN]意識形態的[B]5個[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP][/B]。</Text>
+      <Text>最先征服並保留敵對[icon:NOTIFICATION_IDEOLOGY_CHOSEN][B]意識形態[/B]的[B]5個[/B][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_MILITARISTIC_1_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>征服並保留敵對[icon:NOTIFICATION_IDEOLOGY_CHOSEN]意識形態的[B]5個[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP][/B]。</Text>
+      <Text>征服並保留敵對[icon:NOTIFICATION_IDEOLOGY_CHOSEN][B]意識形態[/B]的[B]5個[/B][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_MILITARISTIC_2_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>[TIP:LOC_PEDIA_CONCEPTS_AIR_UNITS_TOOLTIP]空中單位[/TIP][B]+3射程[/B]。</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_AIR_UNITS_TOOLTIP]空中單位[/TIP]+3射程。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_MILITARISTIC_2_NAME" Language="zh_Hant_HK">
       <Text>天降恐懼</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_MILITARISTIC_2_RACE_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先擁有一個[B]6級的[icon:UNIT_SQUADRON_COMMANDER][TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]飛行中隊指揮官[/TIP][/B]。</Text>
+      <Text>最先擁有一個[B]6級[icon:UNIT_SQUADRON_COMMANDER][/B]的[TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]飛行中隊指揮官[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_MILITARISTIC_2_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>擁有一個[B]6級的[icon:UNIT_SQUADRON_COMMANDER][/B]飛行中隊或[icon:UNIT_AERODROME_COMMANDER]航空港[TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]指揮官[/TIP]。</Text>
+      <Text>擁有一個6級的飛行中隊或航空港[icon:UNIT_ARMY_COMMANDER][TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]指揮官[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_MILITARISTIC_3_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>[icon:YIELD_TOWNS][TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]城鎮[/TIP][B]+2[icon:YIELD_HAPPINESS]。</Text>
+      <Text>[icon:YIELD_TOWNS][TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]城鎮[/TIP][B]+2[icon:YIELD_HAPPINESS][/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_MILITARISTIC_3_NAME" Language="zh_Hant_HK">
       <Text>誤傷友軍</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_MILITARISTIC_3_RACE_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先征服與你分享[icon:NOTIFICATION_IDEOLOGY_CHOSEN]意識形態的領袖的[B]5個[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP][/B]。</Text>
+      <Text>最先征服與你分享[icon:NOTIFICATION_IDEOLOGY_CHOSEN][B]意識形態[/B]的領袖的[B]5個[/B][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_MILITARISTIC_3_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>征服與你分享[icon:NOTIFICATION_IDEOLOGY_CHOSEN]意識形態的領袖的[B]5個[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP][/B]。</Text>
+      <Text>征服與你分享[icon:NOTIFICATION_IDEOLOGY_CHOSEN][B]意識形態[/B]的文明的[B]5個[/B][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_MILITARISTIC_4_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>獲得[B]4[icon:MILITARY_VP][TIP:LOC_PEDIA_CONCEPTS_DOMINION_TOOLTIP]霸權值[/TIP][/B]。</Text>
+      <Text>獲得[B]4[icon:MILITARY_VP][/B][TIP:LOC_PEDIA_CONCEPTS_DOMINION_TOOLTIP]霸權值[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_MILITARISTIC_4_NAME" Language="zh_Hant_HK">
       <Text>閃擊戰</Text>
@@ -17975,16 +17996,16 @@
       <Text>最先征服一個[icon:NOTIFICATION_SELECT_CAPITAL][TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]首都[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_MILITARISTIC_5_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>此[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]時代[/TIP]的所有[icon:WAR]戰爭[B]+1[icon:WAR_SUPPORT][TIP:LOC_PEDIA_CONCEPTS_WAR_SUPPORT_TOOLTIP]戰爭支援[/TIP][/B]。</Text>
+      <Text>此[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]時代[/TIP]的所有戰爭[B]+1[icon:WAR_SUPPORT][/B][TIP:LOC_PEDIA_CONCEPTS_WAR_SUPPORT_TOOLTIP]戰爭支援[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_MILITARISTIC_5_NAME" Language="zh_Hant_HK">
       <Text>世界公敵</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_MILITARISTIC_5_RACE_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先與所有文明[icon:WAR]交戰。</Text>
+      <Text>最先與所有文明交戰。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_MILITARISTIC_5_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>與所有文明[icon:WAR]交戰。</Text>
+      <Text>與所有文明交戰。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_SCIENTIFIC_1_DESCRIPTION" Language="zh_Hant_HK">
       <Text>航空港[B]+10[icon:YIELD_SCIENCE][/B]。</Text>
@@ -17993,7 +18014,7 @@
       <Text>太空競賽的黎明</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_SCIENTIFIC_1_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先研發完[icon:RADIAL_TECH]飛行。</Text>
+      <Text>最先研發完[B]飛行[/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_SCIENTIFIC_2_DESCRIPTION" Language="zh_Hant_HK">
       <Text>航空港[B]+10[icon:YIELD_PRODUCTION][/B]。</Text>
@@ -18002,28 +18023,28 @@
       <Text>莫哈維奇蹟</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_SCIENTIFIC_2_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先完成[icon:DEFAULT_PROJECT]「突破音障」[TIP:LOC_PEDIA_CONCEPTS_PROJECTS_TOOLTIP]專案[/TIP]。</Text>
+      <Text>最先完成[B]「突破音障」[/B][icon:DEFAULT_PROJECT] [TIP:LOC_PEDIA_CONCEPTS_PROJECTS_TOOLTIP]專案[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_SCIENTIFIC_3_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>獲得[B]25[icon:MILITARY_VP][TIP:LOC_PEDIA_CONCEPTS_DOMINION_TOOLTIP]霸權值[/TIP][/B]。</Text>
+      <Text>獲得[B]25[icon:MILITARY_VP][/B][TIP:LOC_PEDIA_CONCEPTS_DOMINION_TOOLTIP]霸權值[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_SCIENTIFIC_3_NAME" Language="zh_Hant_HK">
       <Text>超越刀劍</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_SCIENTIFIC_3_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先完成[icon:PROJECT]「長春藤行動」[TIP:LOC_PEDIA_CONCEPTS_PROJECTS_TOOLTIP]專案[/TIP]。</Text>
+      <Text>最先完成[B]「長春藤行動」[/B][icon:DEFAULT_PROJECT][TIP:LOC_PEDIA_CONCEPTS_PROJECTS_TOOLTIP]專案[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_SCIENTIFIC_4_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>[icon:PROJECT][TIP:LOC_PEDIA_CONCEPTS_PROJECTS_TOOLTIP]專案[/TIP][B]+50%[icon:YIELD_PRODUCTION][/B]。</Text>
+      <Text>[icon:DEFAULT_PROJECT][TIP:LOC_PEDIA_CONCEPTS_PROJECTS_TOOLTIP]專案[/TIP][B]+50%[icon:YIELD_PRODUCTION][/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_SCIENTIFIC_4_NAME" Language="zh_Hant_HK">
       <Text>複合產出</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_SCIENTIFIC_4_RACE_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先擁有[B]5個產量120+的非城市中心[TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]區域[/TIP][/B]。</Text>
+      <Text>最先擁有[B]5個[icon:CITY_URBAN][/B][B]產量120+[/B]的[TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]非城市中心區域[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_SCIENTIFIC_4_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>擁有[B]5個產量120+的非城市中心[TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]區域[/TIP][/B]。</Text>
+      <Text>擁有[B]5個[icon:CITY_URBAN][/B][B]產量120+[/B]的[TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]非城市中心區域[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_SCIENTIFIC_5_DESCRIPTION" Language="zh_Hant_HK">
       <Text>實驗室[B]+4[icon:YIELD_PRODUCTION][/B]。</Text>
@@ -18032,10 +18053,10 @@
       <Text>E=mc²</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_SCIENTIFIC_5_RACE_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先研究完所有[icon:RADIAL_TECH][TIP:LOC_PEDIA_CONCEPTS_TECH_TOOLTIP]科技[/TIP]和[TIP:LOC_PEDIA_CONCEPTS_MASTERY_TOOLTIP]精通[/TIP]。</Text>
+      <Text>最先研究完所有[icon:RADIAL_TECH][TIP:LOC_PEDIA_CONCEPTS_TECH_TOOLTIP]科技[/TIP]和精通。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_SCIENTIFIC_5_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先研究完所有[icon:RADIAL_TECH][TIP:LOC_PEDIA_CONCEPTS_TECH_TOOLTIP]科技[/TIP]和[TIP:LOC_PEDIA_CONCEPTS_MASTERY_TOOLTIP]精通[/TIP]。</Text>
+      <Text>最先研究完所有[TIP:LOC_PEDIA_CONCEPTS_TECH_TOOLTIP]科技[/TIP]和精通。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_OPTION" Language="zh_Hant_HK">
       <Text>下個時代的傳承選項</Text>
@@ -18644,7 +18665,10 @@
       <Text>垂直切片</Text>
     </Replace>
     <Replace Tag="LOC_MAP_ARCHIPELAGO_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>一系列的島嶼，提供多樣的地形以及水域挑戰。</Text>
+      <Text>經典群島布局，東西兩側設有固定群島，提供更具結構性的遊戲體驗。</Text>
+    </Replace>
+    <Replace Tag="LOC_MAP_ARCHIPELAGO_VORONOI_DESCRIPTION" Language="zh_Hant_HK">
+      <Text>由兩大主要群島構成的地圖，群島形狀與規模各異，海洋間散布著諸多的小島與島鏈。</Text>
     </Replace>
     <Replace Tag="LOC_MAP_CONTINENTS_DESCRIPTION" Language="zh_Hant_HK">
       <Text>大塊且連續的土地面積，提供較為平衡的遊戲表現。</Text>
@@ -18791,7 +18815,7 @@
       <Text>王座下面的鮮花。</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_ASHOKA_RENOUNCER_GOLD_SAPPHIRE_FLOWERS_FUNCTIONAL_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>當你在[icon:ATTRIBUTE_EXPANSIONIST][TIP:LOC_PEDIA_CONCEPTS_EXPANSIONIST_ATTRIBUTE_TOOLTIP]擴張屬性[/TIP]樹上花用[icon:ATTRIBUTE][TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]屬性[/TIP]點數時，[icon:NOTIFICATION_SELECT_CAPITAL][TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]首都[/TIP]獲得[B]100[icon:YIELD_FOOD][/B]。</Text>
+      <Text>當你在[icon:ATTRIBUTE_EXPANSIONIST][TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]擴張屬性[/TIP]樹上花用[icon:ATTRIBUTE][TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]屬性[/TIP]點數時，[icon:NOTIFICATION_SELECT_CAPITAL][TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]首都[/TIP]獲得[B]100[icon:YIELD_FOOD][/B]。</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_ASHOKA_RENOUNCER_GOLD_SAPPHIRE_FLOWERS_NAME" Language="zh_Hant_HK">
       <Text>金色與寶藍色花朵</Text>
@@ -18947,7 +18971,7 @@
       <Text>世界就在你手中。</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_CHARLEMAGNE_GLOBUS_CRUCIGER_FUNCTIONAL_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>當你在[icon:ATTRIBUTE_POLITICAL][TIP:LOC_PEDIA_CONCEPTS_DIPLOMATIC_ATTRIBUTE_TOOLTIP]外交屬性[/TIP]樹上花用[icon:ATTRIBUTE][TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]屬性[/TIP]點數時，[B]+50[icon:YIELD_DIPLOMACY][/B]。</Text>
+      <Text>當你在[icon:ATTRIBUTE_POLITICAL][TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]外交屬性[/TIP]樹上花用[icon:ATTRIBUTE][TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]屬性[/TIP]點數時，[B]+50[icon:YIELD_DIPLOMACY][/B]。</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_CHARLEMAGNE_GLOBUS_CRUCIGER_NAME" Language="zh_Hant_HK">
       <Text>十字聖球</Text>
@@ -19031,7 +19055,7 @@
       <Text>專門拿來計算天文數字。</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_FOUNDATION_ANTIKYTHERA_MECHANISM_FUNCTIONAL_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>[B]+1[icon:ATTRIBUTE_SCIENTIFIC][/B][TIP:LOC_PEDIA_CONCEPTS_SCIENTIFIC_ATTRIBUTE_TOOLTIP]科技屬性[/TIP]點數。</Text>
+      <Text>[B]+1[icon:ATTRIBUTE_SCIENTIFIC][/B][TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]科技屬性[/TIP]點數。</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_FOUNDATION_ANTIKYTHERA_MECHANISM_NAME" Language="zh_Hant_HK">
       <Text>安提基特拉機械</Text>
@@ -19079,7 +19103,7 @@
       <Text>不合格的銅我們不收。</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_FOUNDATION_EA_NASIR_FUNCTIONAL_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>[B]+1[icon:ATTRIBUTE_ECONOMIC][/B][TIP:LOC_PEDIA_CONCEPTS_ECONOMIC_ATTRIBUTE_TOOLTIP]經濟屬性[/TIP]點數。</Text>
+      <Text>[B]+1[icon:ATTRIBUTE_ECONOMIC][/B][TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]經濟屬性[/TIP]點數。</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_FOUNDATION_EA_NASIR_NAME" Language="zh_Hant_HK">
       <Text>致埃阿納齊爾投訴泥板</Text>
@@ -19127,7 +19151,7 @@
       <Text>測量了數百年的工具。</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_FOUNDATION_GROMA_FUNCTIONAL_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>[B]+1[icon:ATTRIBUTE_EXPANSIONIST][/B][TIP:LOC_PEDIA_CONCEPTS_EXPANSIONIST_ATTRIBUTE_TOOLTIP]擴張屬性[/TIP]點數。</Text>
+      <Text>[B]+1[icon:ATTRIBUTE_EXPANSIONIST][/B][TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]擴張屬性[/TIP]點數。</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_FOUNDATION_GROMA_NAME" Language="zh_Hant_HK">
       <Text>格羅瑪儀</Text>
@@ -19175,7 +19199,7 @@
       <Text>土偶。</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_FOUNDATION_SHAKOKIDOGU_FUNCTIONAL_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>[B]+1[icon:ATTRIBUTE_CULTURAL][/B][TIP:LOC_PEDIA_CONCEPTS_CULTURAL_ATTRIBUTE_TOOLTIP]文化屬性[/TIP]點數。</Text>
+      <Text>[B]+1[icon:ATTRIBUTE_CULTURAL][/B][TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]文化屬性[/TIP]點數。</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_FOUNDATION_SHAKOKIDOGU_NAME" Language="zh_Hant_HK">
       <Text>遮光器土偶</Text>
@@ -19199,7 +19223,7 @@
       <Text>上面寫著「接住！」</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_FOUNDATION_SLING_BULLET_FUNCTIONAL_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>[B]+1[icon:ATTRIBUTE_MILITARISTIC][/B][TIP:LOC_PEDIA_CONCEPTS_MILITARISTIC_ATTRIBUTE_TOOLTIP]軍事屬性[/TIP]點數。</Text>
+      <Text>[B]+1[icon:ATTRIBUTE_MILITARISTIC][/B][TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]軍事屬性[/TIP]點數。</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_FOUNDATION_SLING_BULLET_NAME" Language="zh_Hant_HK">
       <Text>刻字的投石索彈藥</Text>
@@ -19235,7 +19259,7 @@
       <Text>拼湊和平。</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_FOUNDATION_TREATY_OF_KADESH_FUNCTIONAL_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>[B]+1[icon:ATTRIBUTE_POLITICAL][/B][TIP:LOC_PEDIA_CONCEPTS_DIPLOMATIC_ATTRIBUTE_TOOLTIP]外交屬性[/TIP]點數。</Text>
+      <Text>[B]+1[icon:ATTRIBUTE_POLITICAL][/B][TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]外交屬性[/TIP]點數。</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_FOUNDATION_TREATY_OF_KADESH_NAME" Language="zh_Hant_HK">
       <Text>卡迭石和約</Text>
@@ -19262,7 +19286,7 @@
       <Text>騎士精神的最高榮譽勳章。</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_FRIEDRICH_OBLIQUE_ORDER_BLACK_EAGLE_FUNCTIONAL_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>當你在[icon:ATTRIBUTE_MILITARISTIC][TIP:LOC_PEDIA_CONCEPTS_MILITARISTIC_ATTRIBUTE_TOOLTIP]軍事屬性[/TIP]樹上花用[icon:ATTRIBUTE][TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]屬性[/TIP]點數時，獲得[B]50[icon:YIELD_PRODUCTION][/B]。</Text>
+      <Text>當你在[icon:ATTRIBUTE_MILITARISTIC][TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]軍事屬性[/TIP]樹上花用[icon:ATTRIBUTE][TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]屬性[/TIP]點數時，獲得[B]50[icon:YIELD_PRODUCTION][/B]。</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_FRIEDRICH_OBLIQUE_ORDER_BLACK_EAGLE_NAME" Language="zh_Hant_HK">
       <Text>黑鷹勳章</Text>
@@ -19325,7 +19349,7 @@
       <Text>豐收之友。</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_HIMIKO_QUEEN_DOTAKU_FUNCTIONAL_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>當你在[icon:ATTRIBUTE_SCIENTIFIC][TIP:LOC_PEDIA_CONCEPTS_SCIENTIFIC_ATTRIBUTE_TOOLTIP]科技屬性[/TIP]樹上花用[icon:ATTRIBUTE][TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]屬性[/TIP]點數時，獲得[B]50[icon:YIELD_SCIENCE][/B]。</Text>
+      <Text>當你在[icon:ATTRIBUTE_SCIENTIFIC][TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]科技屬性[/TIP]樹上花用[icon:ATTRIBUTE][TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]屬性[/TIP]點數時，獲得[B]50[icon:YIELD_SCIENCE][/B]。</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_HIMIKO_QUEEN_DOTAKU_NAME" Language="zh_Hant_HK">
       <Text>銅鐸</Text>
@@ -28763,10 +28787,10 @@
       <Text>選擇關聯文明的單位或基礎設施，或確立自身的傳統。</Text>
     </Replace>
     <Replace Tag="LOC_MOD_TOT_TRADITION_SLOT_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>+1[icon:NAR_REW_TRADITION_SLOT]傳統槽位。</Text>
+      <Text>+1傳統槽位。</Text>
     </Replace>
     <Replace Tag="LOC_MOD_TOT_TRADITION_SLOT_TWO_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>+2[icon:NAR_REW_TRADITION_SLOT]傳統槽位。</Text>
+      <Text>+2傳統槽位。</Text>
     </Replace>
     <Replace Tag="LOC_MP_PAUSE_POPUP_TITLE" Language="zh_Hant_HK">
       <Text>遊戲已暫停</Text>
@@ -28781,10 +28805,19 @@
       <Text>可航行河流</Text>
     </Replace>
     <Replace Tag="LOC_NEED_MORE_CITY_LIMIT" Language="zh_Hant_HK">
-      <Text>需要更多城市限制才能轉變為城市</Text>
+      <Text>獲得更多城市限制才能轉變為城市</Text>
     </Replace>
     <Replace Tag="LOC_NO_REWARDS_AVAILABLE" Language="zh_Hant_HK">
       <Text>沒有新的獎勵</Text>
+    </Replace>
+    <Replace Tag="LOC_NOTIFICATION_ADDONS_RESET_DESCRIPTION" Language="zh_Hant_HK">
+      <Text>由於近期的遊戲更新，你的模組設定已被重設。你可以在附加內容選單中重新啟用模組。</Text>
+    </Replace>
+    <Replace Tag="LOC_NOTIFICATION_ADDONS_RESET_OPEN_ADDONS" Language="zh_Hant_HK">
+      <Text>開啟附加內容</Text>
+    </Replace>
+    <Replace Tag="LOC_NOTIFICATION_ADDONS_RESET_TITLE" Language="zh_Hant_HK">
+      <Text>模組設定已重設</Text>
     </Replace>
     <Replace Tag="LOC_NOTIFICATION_ADVANCED_START_MESSAGE" Language="zh_Hant_HK">
       <Text>建立進階開局</Text>
@@ -30431,10 +30464,10 @@
       <Text>科技勝利提升</Text>
     </Replace>
     <Replace Tag="LOC_SCIENCE_VP_2_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>賦予[B]2[icon:SCIENCE_VP][TIP:LOC_PEDIA_CONCEPTS_INNOVATION_TOOLTIP]創新值[/TIP][/B]。</Text>
+      <Text>賦予[B]2[icon:SCIENCE_VP][/B][TIP:LOC_PEDIA_CONCEPTS_INNOVATION_TOOLTIP]創新值[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_SCIENCE_VP_5_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>賦予[B]5[icon:SCIENCE_VP][TIP:LOC_PEDIA_CONCEPTS_INNOVATION_TOOLTIP]創新值[/TIP][/B]。</Text>
+      <Text>賦予[B]5[icon:SCIENCE_VP][/B][TIP:LOC_PEDIA_CONCEPTS_INNOVATION_TOOLTIP]創新值[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_SCIENCE_VP_FROM_CIVICS_NAME" Language="zh_Hant_HK">
       <Text>市政</Text>
@@ -31349,6 +31382,9 @@
     <Replace Tag="LOC_TITLE_DLC_SEASONPASS_3_NAME" Language="zh_Hant_HK">
       <Text>權力浪潮的稱號</Text>
     </Replace>
+    <Replace Tag="LOC_TITLE_DLC_SEASONPASS_4_NAME" Language="zh_Hant_HK">
+      <Text>筆墨與刀鋒的標題</Text>
+    </Replace>
     <Replace Tag="LOC_TITLE_FOUNDATION_1_NAME" Language="zh_Hant_HK">
       <Text>記錄官</Text>
     </Replace>
@@ -31487,11 +31523,8 @@
     <Replace Tag="LOC_TRADE_LENS_TITLE_ALT" Language="zh_Hant_HK">
       <Text>新增貿易路線</Text>
     </Replace>
-    <Replace Tag="LOC_TRADITION_TRIAL_OF_TIME_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>所有聚落-1[icon:YIELD_SCIENCE]科技值、[icon:YIELD_CULTURE]文化值、[icon:YIELD_GOLD]金幣、[icon:YIELD_FOOD]食物、[icon:YIELD_PRODUCTION]生產力、[icon:YIELD_DIPLOMACY]影響力，以及[icon:YIELD_HAPPINESS]幸福感，依照時代疊加。所有單位-2[icon:NAR_REW_COMBAT]戰鬥力。</Text>
-    </Replace>
     <Replace Tag="LOC_TRAIT_LEADER_AMINA_ABILITY_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>[BLIST][LI]各[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]+1[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_RESOURCE_CAPACITY_TOOLTIP]資源容量[/TIP]。[LI]每有一個指派至[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]的[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]資源[/TIP]，便+1[icon:YIELD_GOLD]金幣，依照[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]時代[/TIP]疊加。[LI]所有單位在平原與沙漠上獲得+5[icon:NAR_REW_COMBAT][TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]戰鬥力[/TIP]。[/BLIST]</Text>
+      <Text>[BLIST][LI][icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]+1[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_RESOURCE_CAPACITY_TOOLTIP]資源容量[/TIP]。[LI]每有1[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]資源[/TIP]指派至[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]，便+1[icon:YIELD_GOLD]金幣，依照[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]時代[/TIP]疊加。[LI]在平原與沙漠上的[TIP:LOC_PEDIA_CONCEPTS_LAND_UNITS_TOOLTIP]陸地單位[/TIP]+5[icon:NAR_REW_COMBAT][TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]戰鬥力[/TIP]。[/BLIST]</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_LEADER_AMINA_ABILITY_NAME" Language="zh_Hant_HK">
       <Text>扎造的戰士女王</Text>
@@ -31533,7 +31566,7 @@
       <Text>科舉</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_LEADER_FRIEDRICH_ABILITY_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>[BLIST][LI][icon:UNIT_ARMY_COMMANDER] [TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]軍隊指揮官[/TIP]開始即有「功勳」[TIP:LOC_PEDIA_CONCEPTS_COMMENDATION_TOOLTIP]嘉獎[/TIP]，賦予其+1[icon:COMMANDER_RADIUS][TIP:LOC_PEDIA_CONCEPTS_COMMAND_RADIUS_TOOLTIP]指揮範圍[/TIP]。[LI]當你完成一項[icon:RADIAL_TECH][TIP:LOC_PEDIA_CONCEPTS_TECH_TOOLTIP]科技[/TIP]精通或建造一個[icon:YIELD_SCIENCE]科技值[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建築[/TIP]時，獲得一個[TIP:LOC_PEDIA_CONCEPTS_INFANTRY_UNITS_TOOLTIP]步兵單位[/TIP]。[LI]你的[TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]指揮官[/TIP]每獲得一項[TIP:LOC_PEDIA_CONCEPTS_COMMENDATION_TOOLTIP]嘉獎[/TIP]，便+2[icon:YIELD_SCIENCE]科技值，依照[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]時代[/TIP]疊加。[/BLIST]</Text>
+      <Text>[BLIST][LI][icon:UNIT_ARMY_COMMANDER] [TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]軍隊指揮官[/TIP]開始即有「功勳」[TIP:LOC_PEDIA_CONCEPTS_COMMENDATION_TOOLTIP]嘉獎[/TIP]，賦予其+1[icon:COMMANDER_RADIUS][TIP:LOC_PEDIA_CONCEPTS_COMMAND_RADIUS_TOOLTIP]指揮範圍[/TIP]。[LI]完成一項[icon:RADIAL_TECH][TIP:LOC_PEDIA_CONCEPTS_TECH_TOOLTIP]科技精通[/TIP]時，在你的[icon:NOTIFICATION_SELECT_CAPITAL][TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]首都[/TIP]中獲得1個[TIP:LOC_PEDIA_CONCEPTS_INFANTRY_UNITS_TOOLTIP]步兵單位[/TIP]；在建造有[icon:YIELD_SCIENCE][TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]科技值建築[/TIP]的[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]中，也會獲得1個步兵單位。[LI]你的[TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]指揮官[/TIP]每獲得一項[TIP:LOC_PEDIA_CONCEPTS_COMMENDATION_TOOLTIP]嘉獎[/TIP]，便+2[icon:YIELD_SCIENCE]科技值，依照[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]時代[/TIP]疊加。[/BLIST]</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_LEADER_FRIEDRICH_ABILITY_NAME" Language="zh_Hant_HK">
       <Text>柏林學院</Text>
@@ -31593,7 +31626,7 @@
       <Text>震撼大地</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_LEADER_TRUNG_TRAC_ABILITY_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>[BLIST][LI]在得到你本[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]時代[/TIP]的第一個陸地[TIP:LOC_PEDIA_CONCEPTS_MILITARY_UNIT_TOOLTIP]軍事單位[/TIP]後，獲得特色[icon:UNIT_ARMY_COMMANDER][TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]軍隊指揮官[/TIP]徵貳。[icon:UNIT_ARMY_COMMANDER]徵貳能在[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]時代[/TIP]轉場後存活，且在探索時代進階開局下開場便擁有2[icon:NAR_REW_PROMOTION]強化，在近代進階開局下開場便擁有3[icon:NAR_REW_PROMOTION]強化，並且擁有特色[TIP:LOC_PEDIA_CONCEPTS_PROMOTION_TOOLTIP]強化[/TIP]樹。[LI]+20%[icon:UNIT_ARMY_COMMANDER][TIP:LOC_PEDIA_CONCEPTS_EXPERIENCE_TOOLTIP]指揮官經驗值[/TIP]。[LI]在熱帶中的[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]+10%[icon:YIELD_SCIENCE]科技值。在你宣佈的[icon:WAR]正式戰爭中，此加成將加倍。[/BLIST]</Text>
+      <Text>[BLIST][LI]在得到你本[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]時代[/TIP]的第一個陸地[TIP:LOC_PEDIA_CONCEPTS_MILITARY_UNIT_TOOLTIP]軍事單位[/TIP]後，獲得特色[icon:UNIT_ARMY_COMMANDER][TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]軍隊指揮官[/TIP]徵貳。[icon:UNIT_ARMY_COMMANDER]徵貳能在[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]時代[/TIP]轉場後存活，且在探索時代進階開局下開場便擁有2[icon:NAR_REW_PROMOTION]強化，在近代進階開局下開場便擁有3[icon:NAR_REW_PROMOTION]強化，並且擁有特色[TIP:LOC_PEDIA_CONCEPTS_PROMOTION_TOOLTIP]強化[/TIP]樹。[LI]+20%[icon:UNIT_ARMY_COMMANDER][TIP:LOC_PEDIA_CONCEPTS_COMMANDER_EXPERIENCE_TOOLTIP]指揮官經驗值[/TIP]。[LI]在熱帶中的[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]+10%[icon:YIELD_SCIENCE]科技值。在你宣佈的[icon:WAR]正式戰爭中，此加成將加倍。[/BLIST]</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_LEADER_TRUNG_TRAC_ABILITY_NAME" Language="zh_Hant_HK">
       <Text>徵氏姐妹</Text>
@@ -31862,6 +31895,9 @@
     <Replace Tag="LOC_UI_CELEBRATION_DESC_1" Language="zh_Hant_HK">
       <Text>在慶典期間，此政體可讓你從以下效果中挑選一個。</Text>
     </Replace>
+    <Replace Tag="LOC_UI_CELEBRATION_OPTIONS" Language="zh_Hant_HK">
+      <Text>慶典選項</Text>
+    </Replace>
     <Replace Tag="LOC_UI_CHARMING_APPEAL" Language="zh_Hant_HK">
       <Text>迷人魅力</Text>
     </Replace>
@@ -31888,6 +31924,9 @@
     </Replace>
     <Replace Tag="LOC_UI_CITY_BANNER_PRODUCTION" Language="zh_Hant_HK">
       <Text>目前正在生產：</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_CITY_CAP_REACHED" Language="zh_Hant_HK">
+      <Text>已達城市上限</Text>
     </Replace>
     <Replace Tag="LOC_UI_CITY_CAPITAL_CURR_DESC" Language="zh_Hant_HK">
       <Text>新首都</Text>
@@ -31937,6 +31976,12 @@
     <Replace Tag="LOC_UI_CITY_DETAILS_CITY_BEING_RAZED" Language="zh_Hant_HK">
       <Text>聚落正被夷為平地！</Text>
     </Replace>
+    <Replace Tag="LOC_UI_CITY_DETAILS_CONNECTIONS" Language="zh_Hant_HK">
+      <Text>連結</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_CITY_DETAILS_ECSTATIC" Language="zh_Hant_HK">
+      <Text>狂喜</Text>
+    </Replace>
     <Replace Tag="LOC_UI_CITY_DETAILS_FOOD" Language="zh_Hant_HK">
       <Text>食物</Text>
     </Replace>
@@ -31967,8 +32012,26 @@
     <Replace Tag="LOC_UI_CITY_DETAILS_INFECTED" Language="zh_Hant_HK">
       <Text>已感染</Text>
     </Replace>
+    <Replace Tag="LOC_UI_CITY_DETAILS_JOYOUS" Language="zh_Hant_HK">
+      <Text>歡欣</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_CITY_DETAILS_NO_CONNECTIONS" Language="zh_Hant_HK">
+      <Text>此聚落尚未無連結。</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_CITY_DETAILS_NO_EXPORTING_FOOD_POTENTIAL" Language="zh_Hant_HK">
+      <Text>此[icon:TOWN_FOCUS][TIP:LOC_PEDIA_CONCEPTS_TOWN_FOCUS_TOOLTIP]城鎮重心[/TIP]不會將[icon:YIELD_FOOD]食物輸送至相連的[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]。</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_CITY_DETAILS_RURAL_POPULATION_TOOLTIP" Language="zh_Hant_HK">
+      <Text>鄉村人口代表在你的[icon:CITY_RURAL][TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]改良設施[/TIP]中工作的公民。在成長事件期間擴張至新的鄉村格位時，你將獲得1鄉村人口。</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_CITY_DETAILS_SPECIALIST_POPULATION_TOOLTIP" Language="zh_Hant_HK">
+      <Text>[icon:SPECIALIST] [TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_TOOLTIP]專家[/TIP]是能提升你的[icon:CITY_BUILDING_LIST][TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建築[/TIP]價值的公民。在成長事件期間，當你將一位公民放置到現有[icon:CITY_BUILDING_LIST]建築時，便會獲得1位[icon:SPECIALIST]專家。[icon:SPECIALIST]專家不視為都會人口。</Text>
+    </Replace>
     <Replace Tag="LOC_UI_CITY_DETAILS_STARVATION" Language="zh_Hant_HK">
       <Text>由於饑荒，你的聚落將不會增長。</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_CITY_DETAILS_TOWN_NO_GROWTH" Language="zh_Hant_HK">
+      <Text>[icon:YIELD_TOWNS] 擁有[icon:TOWN_FOCUS][TIP:LOC_PEDIA_CONCEPTS_TOWN_FOCUS_TOOLTIP]城鎮重心[/TIP]的[TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]城鎮[/TIP]不會成長。</Text>
     </Replace>
     <Replace Tag="LOC_UI_CITY_DETAILS_TREASURE_FLEET" Language="zh_Hant_HK">
       <Text>寶藏護衛隊</Text>
@@ -31978,6 +32041,9 @@
     </Replace>
     <Replace Tag="LOC_UI_CITY_DETAILS_UNHAPPY" Language="zh_Hant_HK">
       <Text>不滿</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_CITY_DETAILS_URBAN_POPULATION_TOOLTIP" Language="zh_Hant_HK">
+      <Text>都會人口代表位於你的[icon:CITY_BUILDING_LIST][TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建築[/TIP]中的公民。[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]中每有1座[icon:CITY_BUILDING_LIST]建築（[TIP:LOC_PEDIA_CONCEPTS_WALL_TOOLTIP]城牆[/TIP]不計入其中），你便會獲得1都會人口。</Text>
     </Replace>
     <Replace Tag="LOC_UI_CITY_DETAILS_WONDERS" Language="zh_Hant_HK">
       <Text>奇觀</Text>
@@ -32391,7 +32457,7 @@
       <Text>特色能力</Text>
     </Replace>
     <Replace Tag="LOC_UI_DIPLOMACY_ALL_ACTIONS_EMPTY" Language="zh_Hant_HK">
-      <Text>探索地圖來遇見其他領袖。</Text>
+      <Text>無外交行動可用。</Text>
     </Replace>
     <Replace Tag="LOC_UI_DIPLOMACY_ALL_ACTIONS_TOOLTIP" Language="zh_Hant_HK">
       <Text>外交行動</Text>
@@ -32570,11 +32636,17 @@
     <Replace Tag="LOC_UI_GLOBAL_CRISIS_QUOTE_AUTHOR" Language="zh_Hant_HK">
       <Text>艾薩克‧牛頓</Text>
     </Replace>
+    <Replace Tag="LOC_UI_GOVERNMENT_ABILITY" Language="zh_Hant_HK">
+      <Text>政體能力</Text>
+    </Replace>
     <Replace Tag="LOC_UI_GOVERNMENT_OPTIONS_DESC" Language="zh_Hant_HK">
       <Text>每個政體會在慶典期間給予一系列的選擇。</Text>
     </Replace>
     <Replace Tag="LOC_UI_GOVERNMENT_PICKER_TITLE" Language="zh_Hant_HK">
       <Text>選擇一個政體</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_GOVERNMENT_TRADITIONS" Language="zh_Hant_HK">
+      <Text>政體傳統</Text>
     </Replace>
     <Replace Tag="LOC_UI_GREAT_WORKS_AGE_TYPE_PLURAL_0" Language="zh_Hant_HK">
       <Text>抄本</Text>
@@ -32650,6 +32722,24 @@
     </Replace>
     <Replace Tag="LOC_UI_GREAT_WORKS_YIELDS" Language="zh_Hant_HK">
       <Text>收益</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_HAPPINESS_ANGRY" Language="zh_Hant_HK">
+      <Text>憤怒</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_HAPPINESS_ECSTATIC" Language="zh_Hant_HK">
+      <Text>狂喜</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_HAPPINESS_HAPPY" Language="zh_Hant_HK">
+      <Text>開心</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_HAPPINESS_JOYOUS" Language="zh_Hant_HK">
+      <Text>歡欣</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_HAPPINESS_NEEDED" Language="zh_Hant_HK">
+      <Text>需要幸福感</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_HAPPINESS_UNHAPPY" Language="zh_Hant_HK">
+      <Text>不滿</Text>
     </Replace>
     <Replace Tag="LOC_UI_HEX_SUBTITLE" Language="zh_Hant_HK">
       <Text>進度樹</Text>
@@ -32943,6 +33033,9 @@
     </Replace>
     <Replace Tag="LOC_UI_NO_CURRENT_RESEARCH" Language="zh_Hant_HK">
       <Text>目前未選取任何科技</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_NO_GOVERNMENT_CHOSEN" Language="zh_Hant_HK">
+      <Text>尚未選擇政體。</Text>
     </Replace>
     <Replace Tag="LOC_UI_NO_GREAT_WORKS" Language="zh_Hant_HK">
       <Text>你尚未產出任何巨作。</Text>
@@ -33601,6 +33694,9 @@
     <Replace Tag="LOC_UI_SELECT_TECH_TO_BEGIN" Language="zh_Hant_HK">
       <Text>選擇某個科技來開始研發。</Text>
     </Replace>
+    <Replace Tag="LOC_UI_SETTLEMENT_HAPPINESS" Language="zh_Hant_HK">
+      <Text>聚落幸福感</Text>
+    </Replace>
     <Replace Tag="LOC_UI_SETTLEMENT_TAB_BAR_ALL" Language="zh_Hant_HK">
       <Text>全部</Text>
     </Replace>
@@ -33911,7 +34007,7 @@
       <Text>正在等待2K伺服器……</Text>
     </Replace>
     <Replace Tag="LOC_UI_WIRELESS_DISABLED" Language="zh_Hant_HK">
-      <Text>未啟用Wi-Fi，請重新檢查你的網路設定。</Text>
+      <Text>無法建立區域網路連線。請重新檢查你的網路設定，並確認Wi-Fi未被停用。</Text>
     </Replace>
     <Replace Tag="LOC_UNHAPPINESS_EFFECT_CITY_LOST_RESOURCE_CATEGORY" Language="zh_Hant_HK">
       <Text>城市失去資源</Text>
@@ -34210,6 +34306,12 @@
     <Replace Tag="LOC_UNITCOMMAND_DELETE_NAME" Language="zh_Hant_HK">
       <Text>刪除</Text>
     </Replace>
+    <Replace Tag="LOC_UNITCOMMAND_DESELECT_DESCRIPTION" Language="zh_Hant_HK">
+      <Text>取消選取此單位。</Text>
+    </Replace>
+    <Replace Tag="LOC_UNITCOMMAND_DESELECT_NAME" Language="zh_Hant_HK">
+      <Text>取消選取</Text>
+    </Replace>
     <Replace Tag="LOC_UNITCOMMAND_DISBAND_DESCRIPTION" Language="zh_Hant_HK">
       <Text>獲得GDP、金幣獎勵，並且從遊戲中移除該單位。</Text>
     </Replace>
@@ -34377,6 +34479,9 @@
     </Replace>
     <Replace Tag="LOC_UNITCOMMAND_REQUIRES_ABILITY_CHARGE" Language="zh_Hant_HK">
       <Text>能力正在重新充能</Text>
+    </Replace>
+    <Replace Tag="LOC_UNITCOMMAND_REQUIRES_ABILITY_NEED_MORE_CHARGE" Language="zh_Hant_HK">
+      <Text>需要更多使用次數</Text>
     </Replace>
     <Replace Tag="LOC_UNITCOMMAND_REQUIRES_FULL_MOVEMENT" Language="zh_Hant_HK">
       <Text>需要完整移動力</Text>
@@ -34691,7 +34796,7 @@
       <Text>遠程攻擊</Text>
     </Replace>
     <Replace Tag="LOC_UNITOPERATION_REBASE_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>將飛機移動到新的空軍基地。</Text>
+      <Text>將飛機移動至該空中單位移動範圍兩倍內的新空軍基地。</Text>
     </Replace>
     <Replace Tag="LOC_UNITOPERATION_REBASE_NAME" Language="zh_Hant_HK">
       <Text>飛機改變基地</Text>
@@ -34742,7 +34847,7 @@
       <Text>必須位於水路地形（水岸或海洋）上。</Text>
     </Replace>
     <Replace Tag="LOC_UNITOPERATION_REQUIRES_ELIGIBLE_UNIT" Language="zh_Hant_HK">
-      <Text>範圍內沒有符合資格的單位。</Text>
+      <Text>範圍內沒有符合資格且解除集結的單位。</Text>
     </Replace>
     <Replace Tag="LOC_UNITOPERATION_REQUIRES_MOVEMENT" Language="zh_Hant_HK">
       <Text>需要移動力。</Text>
@@ -34775,7 +34880,7 @@
       <Text>路線至</Text>
     </Replace>
     <Replace Tag="LOC_UNITOPERATION_SABOTAGE_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>發動來強制一名指揮官重生。必須位於敵對指揮官的領土中。</Text>
+      <Text>發動來強制一名軍隊指揮官重生。</Text>
     </Replace>
     <Replace Tag="LOC_UNITOPERATION_SABOTAGE_NAME" Language="zh_Hant_HK">
       <Text>破壞</Text>
@@ -34784,7 +34889,7 @@
       <Text>需要一名軍隊指揮官。</Text>
     </Replace>
     <Replace Tag="LOC_UNITOPERATION_SABOTAGE_REQUIRES_FOREIGN" Language="zh_Hant_HK">
-      <Text>需要一個敵對文明的格位。</Text>
+      <Text>需要一個外國文明的格位。</Text>
     </Replace>
     <Replace Tag="LOC_UNITOPERATION_SEARCH_DESCRIPTION" Language="zh_Hant_HK">
       <Text>視野範圍提升+1，持續1回合。揭露所有雙倍於此範圍的發現。</Text>
@@ -34919,13 +35024,13 @@
       <Text>遠古世界的奇觀</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_AQ_CULTURAL_2_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>解鎖[icon:RADIAL_CIVICS]虔誠。建造寺廟時[B]+25%[icon:YIELD_PRODUCTION]效益[/B]。</Text>
+      <Text>解鎖虔誠。建造寺廟時[B]+25%[icon:YIELD_PRODUCTION]效益[/B]。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_AQ_CULTURAL_2_NAME" Language="zh_Hant_HK">
       <Text>奧耳菲祕儀</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_AQ_CULTURAL_3_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>[B]+1[icon:NAR_REW_TRADITION_SLOT][TIP:LOC_PEDIA_CONCEPTS_TRADITION_TOOLTIP]傳統槽位[/TIP][/B]。每有一個[icon:SOCIAL_POLICY][TIP:LOC_PEDIA_CONCEPTS_SOCIAL_POLICY_TOOLTIP]社會政策[/TIP]或[icon:TRADITION][TIP:LOC_PEDIA_CONCEPTS_TRADITION_TOOLTIP]傳統[/TIP]放置在槽位中，便[B]+2[icon:YIELD_CULTURE][/B]。</Text>
+      <Text>[B]+1[icon:NAR_REW_TRADITION_SLOT]傳統槽位[/B]。每有一個[icon:SOCIAL_POLICY][TIP:LOC_PEDIA_CONCEPTS_SOCIAL_POLICY_TOOLTIP]社會政策[/TIP]或[icon:TRADITION][TIP:LOC_PEDIA_CONCEPTS_TRADITION_TOOLTIP]傳統[/TIP]放置在槽位中，便[B]+2[icon:YIELD_CULTURE][/B]。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_AQ_CULTURAL_3_NAME" Language="zh_Hant_HK">
       <Text>漢摩拉比法典</Text>
@@ -34949,13 +35054,13 @@
       <Text>鴻臚館</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_AQ_DEFAULT_4_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>開場即有一個額外的[icon:NAR_REW_TRADITION_SLOT][TIP:LOC_PEDIA_CONCEPTS_SOCIAL_POLICY_TOOLTIP]社會政策[/TIP]槽位。</Text>
+      <Text>開場即有一個額外的[icon:NAR_REW_TRADITION_SLOT]社會政策槽位。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_AQ_DEFAULT_4_NAME" Language="zh_Hant_HK">
       <Text>《赫爾莫革尼安努斯法典》</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_AQ_DEFAULT_5_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>你上個[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]時代[/TIP]的所有[TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]依然維持為城市。</Text>
+      <Text>你上個[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]時代[/TIP]的所有[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]依然維持為[icon:YIELD_CITIES]城市。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_AQ_DEFAULT_5_NAME" Language="zh_Hant_HK">
       <Text>有備無患</Text>
@@ -34979,25 +35084,25 @@
       <Text>傳奇盟友聯盟</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_AQ_ECONOMIC_1_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>所有[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP][B]+1[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_RESOURCE_CAPACITY_TOOLTIP]資源容量[/TIP][/B]。</Text>
+      <Text>所有[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP][B]+1[icon:RADIAL_RESOURCES][/B][TIP:LOC_PEDIA_CONCEPTS_RESOURCE_CAPACITY_TOOLTIP]資源容量[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_AQ_ECONOMIC_1_NAME" Language="zh_Hant_HK">
       <Text>富饒</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_AQ_ECONOMIC_2_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>免費獲得[B]2個[icon:UNIT_MERCHANT]商人[/B]。和所有文明的[B][icon:TRADE_ROUTE][TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]貿易路線容量[/TIP]+1[/B]。</Text>
+      <Text>免費獲得[B]2個[icon:UNIT_MERCHANT]商人[/B]。和所有文明的[TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]貿易路線容量[/TIP][B]+1[icon:TRADE_ROUTE][/B]。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_AQ_ECONOMIC_2_NAME" Language="zh_Hant_HK">
       <Text>絲路</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_AQ_ECONOMIC_3_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>購買[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建築[/TIP]時[B]+5%金幣效益[/B]；若購買金幣建築，此加成加倍。</Text>
+      <Text>購買[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建築[/TIP]時+5%金幣效益；若購買金幣建築，此加成加倍。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_AQ_ECONOMIC_3_NAME" Language="zh_Hant_HK">
       <Text>邁達斯之觸</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_AQ_EXPANSIONIST_1_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>[icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]城鎮[/TIP]會隨著首次[icon:YIELD_POPULATION]成長事件獲得額外的[B]2[icon:YIELD_POPULATION][TIP:LOC_PEDIA_CONCEPTS_POPULATION_TOOLTIP]人口[/TIP][/B]。</Text>
+      <Text>[icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]城鎮[/TIP]會隨著首次成長事件獲得額外的[B]2[icon:YIELD_POPULATION][/B][TIP:LOC_PEDIA_CONCEPTS_POPULATION_TOOLTIP]人口[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_AQ_EXPANSIONIST_1_NAME" Language="zh_Hant_HK">
       <Text>世界四極</Text>
@@ -35009,25 +35114,25 @@
       <Text>我們需要更多薩克貝道路</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_AQ_EXPANSIONIST_3_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>[icon:YIELD_WAREHOUSE][TIP:LOC_PEDIA_CONCEPTS_WAREHOUSE_TOOLTIP]食物倉庫[/TIP][B]+1[icon:YIELD_FOOD][/B]。[icon:YIELD_FOOD][TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]食物建築[/TIP][B]+2[icon:YIELD_FOOD][/B]。</Text>
+      <Text>[icon:YIELD_FOOD][icon:YIELD_WAREHOUSE][TIP:LOC_PEDIA_CONCEPTS_WAREHOUSE_TOOLTIP]食物倉庫[/TIP][B]+1[icon:YIELD_FOOD][/B]。[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]食物建築[/TIP][B]+2[icon:YIELD_FOOD][/B]。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_AQ_EXPANSIONIST_3_NAME" Language="zh_Hant_HK">
       <Text>巴別塔</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_AQ_MILITARISTIC_1_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>[B]+2[icon:SETTLEMENT_LIMIT][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_LIMIT_TOOLTIP]聚落限制[/TIP][/B]。</Text>
+      <Text>[B]+2[icon:SETTLEMENT_LIMIT][/B][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_LIMIT_TOOLTIP]聚落限制[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_AQ_MILITARISTIC_1_NAME" Language="zh_Hant_HK">
       <Text>和平帝國</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_AQ_MILITARISTIC_2_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>所有[icon:WAR]戰爭[B]+1[icon:WAR_SUPPORT][TIP:LOC_PEDIA_CONCEPTS_WAR_SUPPORT_TOOLTIP]戰爭支援[/TIP][/B]。使用[icon:WAR_SUPPORT]戰爭支援時[B]+50%[icon:YIELD_DIPLOMACY]效益[/B]。</Text>
+      <Text>所有戰爭[B]+1[icon:WAR_SUPPORT][/B][TIP:LOC_PEDIA_CONCEPTS_WAR_SUPPORT_TOOLTIP]戰爭支援[/TIP]。使用[icon:WAR_SUPPORT]戰爭支援時[B]+50%[icon:YIELD_DIPLOMACY]效益[/B]。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_AQ_MILITARISTIC_2_NAME" Language="zh_Hant_HK">
       <Text>砍倒巨人</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_AQ_MILITARISTIC_3_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>獲得一位擁有[B]3次[icon:NAR_REW_PROMOTION][TIP:LOC_PEDIA_CONCEPTS_PROMOTION_TOOLTIP]強化[/TIP][/B]的[icon:UNIT_ARMY_COMMANDER][TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]軍隊指揮官[/TIP]。</Text>
+      <Text>獲得一位擁有[B]3次[/B][TIP:LOC_PEDIA_CONCEPTS_PROMOTION_TOOLTIP]強化[/TIP]的[icon:UNIT_ARMY_COMMANDER][TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]軍隊指揮官[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_AQ_MILITARISTIC_3_NAME" Language="zh_Hant_HK">
       <Text>好一個蓋烏斯</Text>
@@ -35051,19 +35156,19 @@
       <Text>你的文明向神靈尋求庇護。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_AQ_SCIENTIFIC_1_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>解鎖[icon:RADIAL_TECH]天文學。推進[icon:PROJECT][TIP:LOC_PEDIA_CONCEPTS_PROJECTS_TOOLTIP]專案[/TIP]時[B]+25%[icon:YIELD_PRODUCTION]效益[/B]。</Text>
+      <Text>解鎖天文學。推進[icon:DEFAULT_PROJECT][TIP:LOC_PEDIA_CONCEPTS_PROJECTS_TOOLTIP]專案[/TIP]時[B]+25%[icon:YIELD_PRODUCTION]效益[/B]。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_AQ_SCIENTIFIC_1_NAME" Language="zh_Hant_HK">
       <Text>地圓論者</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_AQ_SCIENTIFIC_2_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>所有[TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP][B]+1[icon:SPECIALIST][TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_LIMIT_TOOLTIP]專家限制[/TIP][/B]。</Text>
+      <Text>所有[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP][B]+1[icon:SPECIALIST][/B][TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_LIMIT_TOOLTIP]專家限制[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_AQ_SCIENTIFIC_2_NAME" Language="zh_Hant_HK">
       <Text>考工記</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_AQ_SCIENTIFIC_3_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]科技值建築[/TIP][B]+1[icon:NAR_REW_GREATWORK][TIP:LOC_PEDIA_CONCEPTS_GREAT_WORKS_TOOLTIP]巨作[/TIP][/B]槽位。從展示的[icon:NAR_REW_GREATWORK]巨作獲得[B]+2[icon:YIELD_SCIENCE][/B]。</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]科技值建築[/TIP][B]+1[icon:NAR_REW_GREATWORK][/B][TIP:LOC_PEDIA_CONCEPTS_GREAT_WORKS_TOOLTIP]巨作[/TIP]槽位。從展示的[icon:NAR_REW_GREATWORK]巨作獲得[B]+2[icon:YIELD_SCIENCE][/B]。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_AQ_SCIENTIFIC_3_NAME" Language="zh_Hant_HK">
       <Text>亞述巴尼拔的藏書館</Text>
@@ -35093,7 +35198,7 @@
       <Text>[B]征服[/B]曾是[B]西班牙[/B]國家認同的重要組成。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_EX_CULTURAL_1_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>在[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]時代轉場[/TIP]時保留你的[icon:NAR_REW_RELIGION][TIP:LOC_PEDIA_CONCEPTS_RELIGION_TOOLTIP]創立者信仰[/TIP]。</Text>
+      <Text>在[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]時代轉場[/TIP]時保留你的[TIP:LOC_PEDIA_CONCEPTS_RELIGION_TOOLTIP]創立者信仰[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_EX_CULTURAL_1_NAME" Language="zh_Hant_HK">
       <Text>藏寶庫</Text>
@@ -35105,13 +35210,13 @@
       <Text>復興世界的奇觀</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_EX_CULTURAL_3_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>解鎖[icon:RADIAL_CIVICS]自然歷史。[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]幸福值建築[/TIP][B]+1[icon:NAR_REW_GREATWORK][TIP:LOC_PEDIA_CONCEPTS_GREAT_WORKS_TOOLTIP]巨作[/TIP][/B]槽位。</Text>
+      <Text>解鎖自然歷史。[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]幸福值建築[/TIP][B]+1[icon:NAR_REW_GREATWORK][/B][TIP:LOC_PEDIA_CONCEPTS_GREAT_WORKS_TOOLTIP]巨作[/TIP]槽位。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_EX_CULTURAL_3_NAME" Language="zh_Hant_HK">
       <Text>八聖道分</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_EX_CULTURAL_4_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>你每建造一個[TIP:LOC_PEDIA_CONCEPTS_MODERN_AGE_TOOLTIP]近代[/TIP][icon:WONDER][TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]奇觀[/TIP]，便[B]+2[icon:SCIENCE_VP][TIP:LOC_PEDIA_CONCEPTS_INNOVATION_TOOLTIP]創新值[/TIP][/B]。</Text>
+      <Text>你每建造一個[TIP:LOC_PEDIA_CONCEPTS_MODERN_AGE_TOOLTIP]近代[/TIP][icon:WONDER][TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]奇觀[/TIP]，便[B]+2[icon:SCIENCE_VP][/B][TIP:LOC_PEDIA_CONCEPTS_INNOVATION_TOOLTIP]創新值[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_EX_CULTURAL_4_NAME" Language="zh_Hant_HK">
       <Text>能工巧匠加扎利</Text>
@@ -35129,19 +35234,19 @@
       <Text>羅阿諾克</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_EX_DEFAULT_3_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>獲得[B]500[icon:YIELD_DIPLOMACY]（隨遊戲速度調整）。</Text>
+      <Text>獲得[B]500[icon:YIELD_DIPLOMACY][/B]（隨遊戲速度調整）。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_EX_DEFAULT_3_NAME" Language="zh_Hant_HK">
       <Text>《廷臣論》</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_EX_DEFAULT_4_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>開場即有一個額外的[icon:NAR_REW_TRADITION_SLOT][TIP:LOC_PEDIA_CONCEPTS_SOCIAL_POLICY_TOOLTIP]社會政策[/TIP]槽位。</Text>
+      <Text>開場即有一個額外的[icon:NAR_REW_TRADITION_SLOT]社會政策槽位。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_EX_DEFAULT_4_NAME" Language="zh_Hant_HK">
       <Text>《大明律》</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_EX_DEFAULT_5_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>你上個[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]時代[/TIP]的所有[TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]依然維持為城市。</Text>
+      <Text>你上個[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]時代[/TIP]的所有[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]依然維持為[icon:YIELD_CITIES]城市。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_EX_DEFAULT_5_NAME" Language="zh_Hant_HK">
       <Text>都市韌性</Text>
@@ -35171,61 +35276,61 @@
       <Text>汗·哈利利市集</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_EX_ECONOMIC_2_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>購買火車站時[B]+25%[icon:YIELD_GOLD]效益[/B]。由[TIP:LOC_PEDIA_CONCEPTS_CONNECTED_TOOLTIP]鐵路相連的聚落[/TIP][B]+1[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_RESOURCE_CAPACITY_TOOLTIP]資源容量[/TIP][/B]。</Text>
+      <Text>購買火車站時[B]+25%[icon:YIELD_GOLD]效益[/B]。由[TIP:LOC_PEDIA_CONCEPTS_CONNECTED_TOOLTIP]鐵路相連的聚落[/TIP][B]+1[icon:RADIAL_RESOURCES][/B][TIP:LOC_PEDIA_CONCEPTS_RESOURCE_CAPACITY_TOOLTIP]資源容量[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_EX_ECONOMIC_2_NAME" Language="zh_Hant_HK">
       <Text>寶藏艦隊</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_EX_ECONOMIC_3_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>免費獲得[B]2個[icon:UNIT_MERCHANT]商人[/B]。和所有領袖的[B][icon:TRADE_ROUTE][TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]貿易路線容量[/TIP]+1[/B]。</Text>
+      <Text>免費獲得[B]2個[icon:UNIT_MERCHANT]商人[/B]。和所有領袖的[TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]貿易路線容量[/TIP][B]+1[icon:TRADE_ROUTE][/B]。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_EX_ECONOMIC_3_NAME" Language="zh_Hant_HK">
       <Text>讓我們來卡利卡特談一筆交易</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_EX_ECONOMIC_5_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>從[TIP:LOC_PEDIA_CONCEPTS_DISTANT_LANDS_TOOLTIP]遙遠土地[/TIP]中的[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]獲得[B]+1[icon:MILITARY_VP][TIP:LOC_PEDIA_CONCEPTS_DOMINION_TOOLTIP]霸權值[/TIP][/B]。</Text>
+      <Text>從[TIP:LOC_PEDIA_CONCEPTS_DISTANT_LANDS_TOOLTIP]遙遠土地[/TIP]中的[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]獲得[B]+1[icon:MILITARY_VP][/B][TIP:LOC_PEDIA_CONCEPTS_DOMINION_TOOLTIP]霸權值[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_EX_ECONOMIC_5_NAME" Language="zh_Hant_HK">
       <Text>阿托查聖母號</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_EX_EXPANSIONIST_1_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>[TIP:LOC_PEDIA_CONCEPTS_DISTANT_LANDS_TOOLTIP]遙遠土地[/TIP][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]中的單位[B]+5[icon:NAR_REW_COMBAT][TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]戰鬥力[/TIP][/B]。</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_DISTANT_LANDS_TOOLTIP]遙遠土地[/TIP][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]中的單位[B]+5[icon:NAR_REW_COMBAT][/B][TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]戰鬥力[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_EX_EXPANSIONIST_1_NAME" Language="zh_Hant_HK">
       <Text>未知危險之地</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_EX_EXPANSIONIST_2_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>[B]+2[icon:SETTLEMENT_LIMIT][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_LIMIT_TOOLTIP]聚落限制[/TIP][/B]。</Text>
+      <Text>[B]+2[icon:SETTLEMENT_LIMIT][/B][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_LIMIT_TOOLTIP]聚落限制[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_EX_EXPANSIONIST_2_NAME" Language="zh_Hant_HK">
       <Text>自家也有哈布斯堡</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_EX_EXPANSIONIST_3_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>[icon:YIELD_WAREHOUSE][TIP:LOC_PEDIA_CONCEPTS_WAREHOUSE_TOOLTIP]食物倉庫[/TIP][B]+1[icon:YIELD_FOOD][/B]。[icon:YIELD_FOOD][TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]食物建築[/TIP][B]+2[icon:YIELD_FOOD][/B]。</Text>
+      <Text>[icon:YIELD_FOOD][icon:YIELD_WAREHOUSE][TIP:LOC_PEDIA_CONCEPTS_WAREHOUSE_TOOLTIP]食物倉庫[/TIP][B]+1[icon:YIELD_FOOD][/B]。[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]食物建築[/TIP][B]+2[icon:YIELD_FOOD][/B]。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_EX_EXPANSIONIST_3_NAME" Language="zh_Hant_HK">
       <Text>三圃制</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_EX_MILITARISTIC_1_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>對抗[icon:CITY_FORTIFIED][TIP:LOC_PEDIA_CONCEPTS_FORTIFIED_DISTRICTS_TOOLTIP]有防禦工事的區域[/TIP]時[B]+3[icon:NAR_REW_COMBAT][TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]戰鬥力[/TIP][/B]。</Text>
+      <Text>對抗[icon:CITY_FORTIFIED][TIP:LOC_PEDIA_CONCEPTS_FORTIFIED_DISTRICTS_TOOLTIP]有防禦工事的區域[/TIP]時[B]+3[icon:NAR_REW_COMBAT][/B][TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]戰鬥力[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_EX_MILITARISTIC_1_NAME" Language="zh_Hant_HK">
       <Text>世界不夠大</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_EX_MILITARISTIC_2_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>獲得一位[icon:UNIT_ARMY_COMMANDER][TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]軍隊指揮官[/TIP]，其配備[B]4個[TIP:LOC_PEDIA_CONCEPTS_MILITARY_UNIT_TOOLTIP]軍事單位[/TIP][/B]，每種類型各1個。</Text>
+      <Text>獲得一位[icon:UNIT_ARMY_COMMANDER][TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]軍隊指揮官[/TIP]，其配備[B]4個[/B][TIP:LOC_PEDIA_CONCEPTS_MILITARY_UNIT_TOOLTIP]軍事單位[/TIP]，每種類型各1個。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_EX_MILITARISTIC_2_NAME" Language="zh_Hant_HK">
       <Text>蒙古治世</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_EX_MILITARISTIC_3_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>所有[TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]指揮官[/TIP]，包括未來的指揮官獲得[B]1免費的[icon:NAR_REW_PROMOTION][TIP:LOC_PEDIA_CONCEPTS_PROMOTION_TOOLTIP]強化[/TIP][/B]。</Text>
+      <Text>所有[icon:UNIT_ARMY_COMMANDER][TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]指揮官[/TIP]，包括未來的[icon:UNIT_ARMY_COMMANDER]指揮官免費獲得[B]1[/B][TIP:LOC_PEDIA_CONCEPTS_PROMOTION_TOOLTIP]強化[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_EX_MILITARISTIC_3_NAME" Language="zh_Hant_HK">
       <Text>大師與指揮官</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_EX_MILITARISTIC_5_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>從所有[icon:CITY_FORTIFIED]防禦工事獲得[B]+2[icon:CULTURE_VP][TIP:LOC_PEDIA_CONCEPTS_TOURISTS_TOOLTIP]觀光值[/TIP][/B]。</Text>
+      <Text>從所有防禦工事獲得[B]+2[icon:CULTURE_VP][/B][TIP:LOC_PEDIA_CONCEPTS_TOURISTS_TOOLTIP]觀光值[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_EX_MILITARISTIC_5_NAME" Language="zh_Hant_HK">
       <Text>城堡之地</Text>
@@ -35249,25 +35354,25 @@
       <Text>在勞動力不足的地方，你的人民改為擁護機器。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_EX_SCIENTIFIC_1_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>所有[TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP][B]+1[icon:SPECIALIST][TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_LIMIT_TOOLTIP]專家限制[/TIP][/B]。</Text>
+      <Text>所有[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP][B]+1[icon:SPECIALIST][/B][TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_LIMIT_TOOLTIP]專家限制[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_EX_SCIENTIFIC_1_NAME" Language="zh_Hant_HK">
       <Text>啟蒙</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_EX_SCIENTIFIC_2_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>解鎖[icon:RADIAL_TECH]「學術」。推進[icon:PROJECT][TIP:LOC_PEDIA_CONCEPTS_PROJECTS_TOOLTIP]專案[/TIP]時[B]+25%[icon:YIELD_PRODUCTION]效益[/B]。</Text>
+      <Text>解鎖「學術」。推進[icon:DEFAULT_PROJECT][TIP:LOC_PEDIA_CONCEPTS_PROJECTS_TOOLTIP]專案[/TIP]時[B]+25%[icon:YIELD_PRODUCTION]效益[/B]。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_EX_SCIENTIFIC_2_NAME" Language="zh_Hant_HK">
       <Text>天體運行論</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_EX_SCIENTIFIC_4_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>第一次完成一項獎勵[icon:SCIENCE_VP][TIP:LOC_PEDIA_CONCEPTS_INNOVATION_TOOLTIP]創新值[/TIP]的[icon:PROJECT][TIP:LOC_PEDIA_CONCEPTS_PROJECTS_TOOLTIP]專案[/TIP]時，[B]+1000[icon:ECONOMIC_VP][TIP:LOC_PEDIA_CONCEPTS_GDP_TOOLTIP]GDP[/TIP][/B]（隨遊戲速度調整）。</Text>
+      <Text>第一次完成一項獎勵[icon:SCIENCE_VP][TIP:LOC_PEDIA_CONCEPTS_INNOVATION_TOOLTIP]創新值[/TIP]的[icon:DEFAULT_PROJECT][TIP:LOC_PEDIA_CONCEPTS_PROJECTS_TOOLTIP]專案[/TIP]時，[B]+1000[icon:ECONOMIC_VP][/B][TIP:LOC_PEDIA_CONCEPTS_GDP_TOOLTIP]GDP[/TIP]（隨遊戲速度調整）。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_EX_SCIENTIFIC_4_NAME" Language="zh_Hant_HK">
       <Text>帖木兒文藝復興</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_EXPLORATION_CIV_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>在[B]探索[/B]時代解鎖此文明。</Text>
+      <Text>在[TIP:LOC_PEDIA_CONCEPTS_EXPLORATION_AGE_TOOLTIP]探索時代[/TIP]解鎖此文明。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_FURS_DESCRIPTION" Language="zh_Hant_HK">
       <Text>改良三份[B]皮毛[/B]。</Text>
@@ -36315,10 +36420,10 @@
 				[NN]某些以科學為主題的奇觀提供3點；在古典時代，[B]巨作槽位[/B]中每展示了一本[B]抄本[/B]，你還能額外獲得+1點。近代中的某些凱旋挑戰也會提供創新值。</Text>
     </Replace>
     <Replace Tag="LOC_VICTORIES_RULES_SCORE_BODY_1" Language="zh_Hant_HK">
-      <Text>[B]以下主要要素將依序納入計算：[B][NN][NLIST][LI]在所有勝利中的勝利倒數回合數。[LI]在所有啟用中的勝利類型中的名次。[LI]整場遊戲中完成的大型凱旋挑戰的數量。[/LIST]</Text>
+      <Text>[B]以下主要要素將依序納入計算：[/B][B][NN][NLIST][LI]在所有勝利中的勝利倒數回合數。[LI]在所有啟用中的勝利類型中的名次。[LI]整場遊戲中完成的大型凱旋挑戰的數量。[/LIST]</Text>
     </Replace>
     <Replace Tag="LOC_VICTORIES_RULES_SCORE_BODY_2" Language="zh_Hant_HK">
-      <Text>[B]各要素將加總計算為你的分數。[B][NN][NLIST][LI]勝利倒數回合數乘以1000。[LI]1000減去你在所有勝利類型中的當前名次乘以10的數值。[LI]你於整場遊戲中完成的大型凱旋挑戰的總數。[/LIST]</Text>
+      <Text>[B]各要素將加總計算為你的分數。[/B][B][NN][NLIST][LI]勝利倒數回合數乘以1000。[LI]1000減去你在所有勝利類型中的當前名次乘以10的數值。[LI]你於整場遊戲中完成的大型凱旋挑戰的總數。[/LIST]</Text>
     </Replace>
     <Replace Tag="LOC_VICTORIES_RULES_SCORE_HEADER_1" Language="zh_Hant_HK">
       <Text>分數計算方式</Text>
@@ -37560,7 +37665,7 @@
       <Text>人口{1_Pop}</Text>
     </Replace>
     <Replace Tag="LOC_CARD_AT_CHANGE_CAPITAL_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>{1_name}升級為[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]，變成[icon:NOTIFICATION_SELECT_CAPITAL][TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]首都[/TIP]，並且獲得[B]3[icon:YIELD_POPULATION][TIP:LOC_PEDIA_CONCEPTS_POPULATION_TOOLTIP]人口[/TIP][/B]，並且重新命名為{2_capital_name}。{3_capital_results}。</Text>
+      <Text>{1_name}升級為[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]，變成[icon:NOTIFICATION_SELECT_CAPITAL][TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]首都[/TIP]，並且獲得[B]3[icon:YIELD_POPULATION][/B][TIP:LOC_PEDIA_CONCEPTS_POPULATION_TOOLTIP]人口[/TIP]，並且重新命名為{2_capital_name}。{3_capital_results}。</Text>
     </Replace>
     <Replace Tag="LOC_CARD_AT_CHANGE_CAPITAL_RESULTS_BECOMES_TOWN" Language="zh_Hant_HK">
       <Text>{1_current_capital_name}變為城鎮</Text>
@@ -37569,7 +37674,7 @@
       <Text>{1_current_capital_name}仍然為城市</Text>
     </Replace>
     <Replace Tag="LOC_CARD_AT_CHANGE_CAPITAL_TOT_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>{1_name}升級為[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]，變成[icon:NOTIFICATION_SELECT_CAPITAL][TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]首都[/TIP]，並且獲得[B]3[icon:YIELD_POPULATION][TIP:LOC_PEDIA_CONCEPTS_POPULATION_TOOLTIP]人口[/TIP][/B]。{2_capital_results}。</Text>
+      <Text>{1_name}升級為[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]，變成[icon:NOTIFICATION_SELECT_CAPITAL][TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]首都[/TIP]，並且獲得[B]3[icon:YIELD_POPULATION][/B][TIP:LOC_PEDIA_CONCEPTS_POPULATION_TOOLTIP]人口[/TIP]。{2_capital_results}。</Text>
     </Replace>
     <Replace Tag="LOC_CARD_CATEGORY_SHORT_CULTURAL" Language="zh_Hant_HK">
       <Text>{1_Amount}文</Text>
@@ -37809,7 +37914,7 @@
       <Text>{1_current} / {2_total}</Text>
     </Replace>
     <Replace Tag="LOC_COMMERCE_TREASURE_FLEET_SUMMARY" Language="zh_Hant_HK">
-      <Text>在家鄉土地卸下時，每有一支寶藏護衛隊，便{1_Amount: number +#.##;-#.##}[icon:YIELD_GOLD]金幣，{3_Amount} GDP</Text>
+      <Text>在家鄉土地卸下時，每有一支寶藏護衛隊，便{1_Amount: number +#.##;-#.##}[icon:YIELD_GOLD]{2_GoldName}，{3_Amount} GDP</Text>
     </Replace>
     <Replace Tag="LOC_COMMERCE_UNASSIGN_FACTORY_RESOURCES" Language="zh_Hant_HK">
       <Text>取消將{1_resourceType}指派到{2_cityName}</Text>
@@ -38520,7 +38625,7 @@
       <Text>文明（{1_numCivs}）</Text>
     </Replace>
     <Replace Tag="LOC_LEGACIES_UNLOCKS_PRIMARY_UNLOCK_EXPLANATION" Language="zh_Hant_HK">
-      <Text>完成目標將解鎖[B]{1_civName}[/B]，用於[B]{2_ageName}[/B]。</Text>
+      <Text>完成目標後將於[B]{2_ageName}時代[/B]解鎖[B]{1_civName}[/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACIES_UNLOCKS_TOOLTIP_TITLE" Language="zh_Hant_HK">
       <Text>{1_civName}解鎖</Text>
@@ -38928,7 +39033,7 @@
       <Text>{1_Contructible}遭到掠奪！</Text>
     </Replace>
     <Replace Tag="LOC_NOTIFICATION_BUILDING_PILLAGED_EFFECT_DEFAULT_SUMMARY" Language="zh_Hant_HK">
-      <Text>{2_CityName}中的{1_Contructible}遭到掠奪！</Text>
+      <Text>{2_CityName}中的{1_Constructible}遭到掠奪！</Text>
     </Replace>
     <Replace Tag="LOC_NOTIFICATION_BUILDING_PILLAGED_MESSAGE" Language="zh_Hant_HK">
       <Text>{1_Contructible}遭到掠奪！</Text>
@@ -39605,9 +39710,6 @@
     <Replace Tag="LOC_TRADE_YIELD_STRING" Language="zh_Hant_HK">
       <Text>{1_Amount}{2_YieldName}</Text>
     </Replace>
-    <Replace Tag="LOC_TRADITION_TRIAL_OF_TIME_COMBAT_PREVIEW" Language="zh_Hant_HK">
-      <Text>{1_amount}勇武試煉</Text>
-    </Replace>
     <Replace Tag="LOC_TRIUMPH_ALREADY_EARNED" Language="zh_Hant_HK">
       <Text>凱旋挑戰已由{1_playerName}完成</Text>
     </Replace>
@@ -39719,14 +39821,47 @@
     <Replace Tag="LOC_UI_CITY_DETAILS_CITY_TURNS_TILL_RAZED" Language="zh_Hant_HK">
       <Text>距離該聚落永久消失還有{1_Turns}回合</Text>
     </Replace>
+    <Replace Tag="LOC_UI_CITY_DETAILS_CONNECTED" Language="zh_Hant_HK">
+      <Text>此{4_IsTown: plural 1?[icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]城鎮[/TIP]; other?[icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP];}已與{1_Settlement}建立連結（{2_Icon}{3_Project}）。</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_CITY_DETAILS_EXPORTING_FOOD_POTENTIAL" Language="zh_Hant_HK">
+      <Text>若{1_Settlement}擁有一個[icon:TOWN_FOCUS][TIP:LOC_PEDIA_CONCEPTS_TOWN_FOCUS_TOOLTIP]城鎮重心[/TIP]，它每回合將輸送{2_Amount: number #.#;-#.#}[icon:YIELD_FOOD]食物至所有相連的[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]。</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_CITY_DETAILS_EXPORTING_FOOD_TO" Language="zh_Hant_HK">
+      <Text>此[icon:YIELD_TOWNS][TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]城鎮[/TIP]已與{2_Settlement}（[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]）建立連結。[nn]它每回合正在將{1_Amount: number #.#;-#.#}[icon:YIELD_FOOD]食物輸送至{2_Settlement}。</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_CITY_DETAILS_GROWTH_BREAKDOWN" Language="zh_Hant_HK">
+      <Text>{1_Current: number #.#;-#.#}/{2_Threshold: number #.#;-#.#}[icon:YIELD_FOOD]（{3_PerTurn: number +#.#;-#.#} [icon:YIELD_FOOD]）</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_CITY_DETAILS_HAPPINESS_STAGE_DETAIL" Language="zh_Hant_HK">
+      <Text>（{1_Minimum}[icon:YIELD_HAPPINESS]至{2_Maximum}[icon:YIELD_HAPPINESS]）</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_CITY_DETAILS_HAPPINESS_STAGE_DETAIL_NO_MAX" Language="zh_Hant_HK">
+      <Text>（{1_Amount}[icon:YIELD_HAPPINESS]或更多）</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_CITY_DETAILS_HAPPINESS_STAGE_DETAIL_NO_MIN" Language="zh_Hant_HK">
+      <Text>（{1_Amount}[icon:YIELD_HAPPINESS]或更少）</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_CITY_DETAILS_IMPORTING_FOOD_FROM" Language="zh_Hant_HK">
+      <Text>此[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]已與{2_Settlement}（{3_Icon}{4_Project}）建立連結。[nn]它正在從{2_Settlement}每回合獲得{1_Amount: number #.#;-#.#}[icon:YIELD_FOOD]食物。</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_CITY_DETAILS_IMPORTING_FOOD_POTENTIAL" Language="zh_Hant_HK">
+      <Text>此[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]已與{2_Settlement}（{3_Icon}{4_Project}）建立連結。[nn]若它擁有能輸送[icon:YIELD_FOOD]食物的[icon:TOWN_FOCUS][TIP:LOC_PEDIA_CONCEPTS_TOWN_FOCUS_TOOLTIP]城鎮重心[/TIP]，則將會從{2_Settlement}每回合獲得{1_Amount: number #.#;-#.#}[icon:YIELD_FOOD]食物。</Text>
+    </Replace>
     <Replace Tag="LOC_UI_CITY_DETAILS_NEW_CITIZEN_IN_TURNS" Language="zh_Hant_HK">
       <Text>新市民於{1_Turns}回合內出現</Text>
     </Replace>
     <Replace Tag="LOC_UI_CITY_DETAILS_NEXT_TREASURE_FLEET_TURNS" Language="zh_Hant_HK">
       <Text>下一個寶藏護衛隊將在{1_Turns}回合內生成</Text>
     </Replace>
+    <Replace Tag="LOC_UI_CITY_DETAILS_NO_IMPORTING_FOOD_POTENTIAL" Language="zh_Hant_HK">
+      <Text>此[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]已與{1_Settlement}（{2_Icon}{3_Project}）建立連結。[nn]這個相連城鎮的[TIP:LOC_PEDIA_CONCEPTS_TOWN_FOCUS_TOOLTIP]重心[/TIP]不會將[icon:YIELD_FOOD]食物輸送至相連的[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]。</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_CITY_DETAILS_NUMBER_OF_CONNECTIONS" Language="zh_Hant_HK">
+      <Text>[B]{1_City}[/B]有[B]{2_Connections}[/B]條連結。</Text>
+    </Replace>
     <Replace Tag="LOC_UI_CITY_DETAILS_SPECIALIST_PER_TILE" Language="zh_Hant_HK">
-      <Text>這座城市目前允許每個格位有{1_Specialist}名專家</Text>
+      <Text>這座[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]目前允許每個格位有{1_Specialist}名[icon:SPECIALIST][TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_TOOLTIP]專家[/TIP]</Text>
     </Replace>
     <Replace Tag="LOC_UI_CITY_DETAILS_TREASURE_FLEET_CONSTRUCT_PREREQ_NEEDED" Language="zh_Hant_HK">
       <Text>需要{1_ConstructName}建築來生成寶藏護衛隊</Text>
@@ -39995,7 +40130,7 @@
       <Text>+{1_Amount}[icon:{2_Icon}]</Text>
     </Replace>
     <Replace Tag="LOC_UI_PRODUCTION_ALLOWS_TRAINING" Language="zh_Hant_HK">
-      <Text>允許在此[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]中訓練[icon:{1_UnitType}]{2_UnitName}</Text>
+      <Text>允許在此[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]中訓練[icon:{1_UnitType}]{2_UnitName}。</Text>
     </Replace>
     <Replace Tag="LOC_UI_PRODUCTION_BASE_YIELD" Language="zh_Hant_HK">
       <Text>基礎收益：{1_Yields}</Text>
@@ -40103,7 +40238,10 @@
       <Text>解鎖等級{1_Level}</Text>
     </Replace>
     <Replace Tag="LOC_UI_TOWN_DETAILS_SPECIALIST_PER_TILE" Language="zh_Hant_HK">
-      <Text>這座城鎮目前允許每個格位有{1_Specialist}名專家</Text>
+      <Text>這座[icon:YIELD_TOWNS][TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]城鎮[/TIP]目前允許每個格位有{1_Specialist}名[icon:SPECIALIST][TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_TOOLTIP]專家[/TIP]</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_TOWN_FOCUS_CONNECTION_INFO" Language="zh_Hant_HK">
+      <Text>{1_Settlement}已與{2_Cities}個[icon:YIELD_CITIES]城市及{3_Towns}個[icon:YIELD_TOWNS]城鎮相連。</Text>
     </Replace>
     <Replace Tag="LOC_UI_TURN_YEAR_NUMBERS" Language="zh_Hant_HK">
       <Text>回合{1_TurnNum} \| {2_TurnYear}</Text>
@@ -40187,7 +40325,7 @@
       <Text>經驗值：{1_currentXP}/{2_nextLevelXP}</Text>
     </Replace>
     <Replace Tag="LOC_UNITCOMMAND_ACTIVATE_GREAT_PERSON_APPEND_CITY_LIST" Language="zh_Hant_HK">
-      <Text>[LI]{1_CityName}</Text>
+      <Text>{1_CityName}</Text>
     </Replace>
     <Replace Tag="LOC_UNITCOMMAND_ACTIVATE_GREAT_PERSON_INSUFFICIENT_GOLD" Language="zh_Hant_HK">
       <Text>還需要{1_gold}金幣。</Text>
@@ -40621,9 +40759,6 @@
     <Replace Tag="LOC_TRADITION_SLOT_NAME" Language="zh_Hant_HK">
       <Text>傳統槽位</Text>
     </Replace>
-    <Replace Tag="LOC_TRADITION_TRIAL_OF_TIME_NAME" Language="zh_Hant_HK">
-      <Text>勇武試煉</Text>
-    </Replace>
     <Replace Tag="LOC_TUTORIAL_APEX_AGE_BODY" Language="zh_Hant_HK">
       <Text>你的文明正處於其[TIP:LOC_PEDIA_CONCEPTS_APEX_AGE_TOOLTIP]巔峰時代[/TIP]：這是形塑民族認同的關鍵時刻。
 				[n]在巔峰時代中，文明能訓練[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_UNITS_TOOLTIP]特色單位[/TIP]、建造特色基礎設施，並研究特色[TIP:LOC_PEDIA_CONCEPTS_CIVIC_TOOLTIP]市政[/TIP]。
@@ -40800,6 +40935,9 @@
     </Replace>
     <Replace Tag="LOC_YIELD_BONUS_NAME" Language="zh_Hant_HK">
       <Text>加成</Text>
+    </Replace>
+    <Replace Tag="LOC_YIELD_CITY_CAP" Language="zh_Hant_HK">
+      <Text>[icon:YIELD_CITY_CAP]城市上限</Text>
     </Replace>
     <Replace Tag="LOC_YIELD_CULTURE" Language="zh_Hant_HK">
       <Text>[icon:YIELD_CULTURE]文化值</Text>

@@ -10,6 +10,25 @@
   background: linear-gradient(90deg, #4c473d 0%, #333640 100%);
 }
 
+.growth-bar-animation {
+  animation: growth-bar-pulse 1s infinite alternate ease-in-out;
+}
+
+@keyframes growth-bar-pulse {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.66;
+  }
+}
+.growth-timer {
+  background-image: url("blp:turn_icon");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+
 .indented-growth-item {
   max-width: 78%;
 }

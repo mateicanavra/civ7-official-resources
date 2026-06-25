@@ -182,10 +182,7 @@ class ModelYieldsReport {
       console.error(`model-yield-report.ts: getDistrictYields - No district found for componentID ${districtID}`);
       return this.createBlankMap();
     }
-    const districtYields = GameplayMap.getYields(
-      GameplayMap.getIndexFromLocation(cityDistrict.location),
-      owner
-    );
+    const districtYields = GameplayMap.getYields(GameplayMap.getIndexFromLocation(cityDistrict.location), owner) ?? [];
     const districtYieldsMap = {
       [YieldTypes.YIELD_GOLD]: districtYields.find((element) => element[0] == Database.makeHash("YIELD_GOLD"))?.[1] ?? 0,
       [YieldTypes.YIELD_SCIENCE]: districtYields.find((element) => element[0] == Database.makeHash("YIELD_SCIENCE"))?.[1] ?? 0,

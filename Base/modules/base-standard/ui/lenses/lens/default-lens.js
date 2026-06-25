@@ -13,6 +13,7 @@ class DefaultLens {
    * Users are able to manage which layers to use in the default lens, so stick with those.
    */
   blendEnabledLayersOnTransition = false;
+  useUserConfig = true;
 }
 LensManager.registerLens("fxs-default-lens", new DefaultLens());
 //# sourceMappingURL=default-lens.js.map

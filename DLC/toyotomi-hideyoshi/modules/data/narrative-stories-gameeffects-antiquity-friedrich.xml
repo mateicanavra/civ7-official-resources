@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+    <Modifier id="10167_ALTB_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_FAVORS_GRIEVANCES" run-once="false" permanent="true">
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_PLAYER_MET_IMMEDIATE_GOSSIP">
+                <Argument name="GossipTypes">GOSSIP_DIPLOMACY_ACTION_STARTED</Argument>
+                <Argument name="GOSSIP_DIPLOMACY_ACTION_STARTED">Hash,OtherPlayer,Other,Hash,DiplomacyActionGroup,DIPLOMACY_ACTION_GROUP_ENDEAVOR,Hash,Leader,LEADER_FRIEDRICH_ALT</Argument>
+            </Requirement>
+        </SubjectRequirements>
+        <Argument name="Amount">5</Argument>
+        <Argument name="TargetLeader">LEADER_FRIEDRICH_ALT</Argument>
+    </Modifier>
+    <Modifier id="10167_ALTC_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_FAVORS_GRIEVANCES" run-once="false" permanent="true">
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_PLAYER_MET_IMMEDIATE_GOSSIP">
+                <Argument name="GossipTypes">GOSSIP_DIPLOMACY_ACTION_STARTED</Argument>
+                <Argument name="GOSSIP_DIPLOMACY_ACTION_STARTED">Hash,OtherPlayer,Other,Hash,DiplomacyActionGroup,DIPLOMACY_ACTION_GROUP_SANCTION,Hash,Leader,LEADER_FRIEDRICH_ALT</Argument>
+            </Requirement>
+        </SubjectRequirements>
+        <Argument name="Amount">-5</Argument>
+        <Argument name="TargetLeader">LEADER_FRIEDRICH_ALT</Argument>
+    </Modifier>
+    <RequirementSet id="REQSET_10167_ALTA_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_LEADER_TOYOTOMI_HIDEYOSHI"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_10167_ALTA_NARRATIVE">
+        <Requirement xref="REQ_STORY_LEADER_TOYOTOMI_HIDEYOSHI"/>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
+            <Argument name="GossipTypes">GOSSIP_DIPLOMACY_ACTION_STARTED01</Argument>
+            <Argument name="GOSSIP_DIPLOMACY_ACTION_STARTED01">Hash,OtherPlayer,Other,Hash,DiplomacyActionGroup,DIPLOMACY_ACTION_GROUP_ENDEAVOR,Hash,Leader,LEADER_FRIEDRICH_ALT</Argument>
+            <Argument name="DuplicateCount">3</Argument>
+            <Argument name="Amount">1</Argument>
+        </Requirement>
+    </RequirementSet>
+</GameEffects>

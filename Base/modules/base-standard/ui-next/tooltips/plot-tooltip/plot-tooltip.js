@@ -1,5 +1,5 @@
-import { template, insert, spread } from '../../../../core/vendor/solid-js/web/dist/web.js';
-import { createSignal, createMemo, createComponent, Show, For, createRenderEffect, splitProps, mergeProps, createEffect, useContext, on, onCleanup, Switch, Match } from '../../../../core/vendor/solid-js/dist/solid.js';
+import { template, insert, use, spread } from '../../../../core/vendor/solid-js/web/dist/web.js';
+import { createSignal, createMemo, createComponent, Show, For, mergeProps, createRenderEffect, splitProps, useContext, createEffect, on, onCleanup, Switch, Match } from '../../../../core/vendor/solid-js/dist/solid.js';
 import LensManager from '../../../../core/ui/lenses/lens-manager.js';
 import { Icon } from '../../../../core/ui-next/components/icon.js';
 import { L10n } from '../../../../core/ui-next/components/l10n.js';
@@ -9,7 +9,8 @@ import { TooltipHorizontalPosition, TooltipVerticalPosition, Tooltip, TooltipCon
 import { TriggerActivationContext, TriggerActivationContextProvider, TriggerType } from '../../../../core/ui-next/components/trigger.js';
 import { ComponentRegistry } from '../../../../core/ui-next/services/component-registry.js';
 import { FocusManager } from '../../../../core/ui-next/services/focus-manager.js';
-import { ActiveInputDevice, IsMouseActive, IsKeyboardActive } from '../../../../core/ui-next/services/input.js';
+import { isFocusable } from '../../../../core/ui-next/services/focus.js';
+import { IsMouseActive } from '../../../../core/ui-next/services/input.js';
 import { ProductionPanelCategory } from '../../../ui/production-chooser/production-chooser-helpers.js';
 import { PillText, Pill } from '../../components/pills.js';
 import { YieldBarEntryStyle, YieldBar } from '../../components/yield-bar.js';
@@ -26,16 +27,25 @@ import { hasRandomEventData, RandomEventPlotTooltipContent } from './random-even
 import { hasSettlementRecommendationData, SettlementRecommendationPlotTooltipContent } from './settlement-recommendation-content.js';
 import { UnitFlag } from './unit-flag.js';
 
-var _tmpl$ = /* @__PURE__ */ template(`<div class="flex flex-row gap-2"></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="flex items-center"></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="flex flex-row"><span class="font-body text-xs text-accent-3"></span></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div class="absolute top-0\\.5 right-2\\.5 size-7 flex items-center justify-center bg-contain bg-center bg-no-repeat"><div class="size-5 bg-contain bg-center bg-no-repeat"></div></div>`), _tmpl$5 = /* @__PURE__ */ template(`<div class="flex items-center font-body text-sm text-accent-3"></div>`), _tmpl$6 = /* @__PURE__ */ template(`<div class="flex flex-col justify-center grow-0 shrink"></div>`), _tmpl$7 = /* @__PURE__ */ template(`<div class="flex flex-row font-title text-sm text-negative"></div>`), _tmpl$8 = /* @__PURE__ */ template(`<div class="flex flex-row font-body text-sm text-accent-3"></div>`), _tmpl$9 = /* @__PURE__ */ template(`<div class="flex flex-col font-body text-sm"></div>`), _tmpl$10 = /* @__PURE__ */ template(`<div class=relative></div>`), _tmpl$11 = /* @__PURE__ */ template(`<div class="flex flex-row flex-wrap justify-center mt-1 gap-2"></div>`), _tmpl$12 = /* @__PURE__ */ template(`<div></div>`);
+var _tmpl$ = /* @__PURE__ */ template(`<div class="flex flex-row gap-2"></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="flex items-center"></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div class="flex flex-row"><span class="font-body text-xs text-accent-3"></span></div>`), _tmpl$5 = /* @__PURE__ */ template(`<div class="absolute top-0\\.5 right-2\\.5 size-7 flex items-center justify-center bg-contain bg-center bg-no-repeat"><div class="size-5 bg-contain bg-center bg-no-repeat"></div></div>`), _tmpl$6 = /* @__PURE__ */ template(`<div class="flex items-center font-body text-sm text-accent-3"></div>`), _tmpl$7 = /* @__PURE__ */ template(`<div class="flex flex-col justify-center grow-0 shrink"></div>`), _tmpl$8 = /* @__PURE__ */ template(`<div class="flex flex-row font-title text-sm text-negative"></div>`), _tmpl$9 = /* @__PURE__ */ template(`<div class="flex flex-row font-body text-sm text-accent-3"></div>`), _tmpl$10 = /* @__PURE__ */ template(`<div class="flex flex-col font-body text-sm"></div>`), _tmpl$11 = /* @__PURE__ */ template(`<div class=relative></div>`), _tmpl$12 = /* @__PURE__ */ template(`<div class="flex flex-row flex-wrap justify-center mt-1 gap-2"></div>`);
+const _PROTECTED_IMPORTS = [isFocusable];
 const [IsPlotTooltipVisible, SetIsPlotTooltipVisible] = createSignal(true);
 const ConstructibleRow = (props) => {
   const statusEntryIcons = createMemo(() => {
     const entryIcons = [];
     if (props.constructible.damaged) {
-      entryIcons.push("url(blp:fonticon_damaged)");
+      entryIcons.push({
+        icon: "url(blp:fonticon_damaged)"
+      });
     }
     if (props.constructible.overbuildable && props.isLocalPlayer) {
-      entryIcons.push("url(blp:city_overbuildable)");
+      entryIcons.push({
+        icon: "url(blp:city_overbuildable)",
+        tooltipProps: {
+          header: "LOC_PLOT_TOOLTIP_OVERBUILDABLE",
+          text: "LOC_PEDIA_CONCEPTS_OVERBUILDABLE_TOOLTIP"
+        }
+      });
     }
     return entryIcons;
   });
@@ -78,6 +88,7 @@ const ConstructibleRow = (props) => {
               get initialHPosition() {
                 return TooltipHorizontalPosition.RIGHT;
               },
+              allowFlip: true,
               get children() {
                 return createComponent(TooltipKeyword, {
                   get children() {
@@ -97,17 +108,35 @@ const ConstructibleRow = (props) => {
           get each() {
             return statusEntryIcons();
           },
-          children: (icon) => (() => {
+          children: (entry) => (() => {
             var _el$2 = _tmpl$2();
             insert(_el$2, createComponent(Show, {
-              when: icon,
-              children: (icon2) => createComponent(Icon, {
-                isUrl: true,
-                get name() {
-                  return icon2();
-                },
-                "class": "size-5"
-              })
+              get when() {
+                return entry.tooltipProps;
+              },
+              get fallback() {
+                return createComponent(Icon, {
+                  isUrl: true,
+                  "class": "size-5",
+                  get name() {
+                    return entry.icon;
+                  }
+                });
+              },
+              children: (tooltipProps) => createComponent(Tooltip.Text, mergeProps(tooltipProps, {
+                get children() {
+                  var _el$3 = _tmpl$3();
+                  use(isFocusable, _el$3, () => [true, void 0]);
+                  insert(_el$3, createComponent(Icon, {
+                    isUrl: true,
+                    get name() {
+                      return entry.icon;
+                    },
+                    "class": "size-5"
+                  }));
+                  return _el$3;
+                }
+              }))
             }));
             return _el$2;
           })()
@@ -136,9 +165,16 @@ const SpecialistsRow = (props) => createComponent(TicketRow, {
     });
   },
   get children() {
-    var _el$3 = _tmpl$3(), _el$4 = _el$3.firstChild;
-    insert(_el$3, createComponent(Tooltip.Text, {
+    var _el$4 = _tmpl$4(), _el$5 = _el$4.firstChild;
+    insert(_el$4, createComponent(Tooltip.Text, {
       text: "LOC_PEDIA_CONCEPTS_SPECIALIST_TOOLTIP",
+      get initialVPosition() {
+        return TooltipVerticalPosition.BOTTOM;
+      },
+      get initialHPosition() {
+        return TooltipHorizontalPosition.RIGHT;
+      },
+      allowFlip: true,
       get children() {
         return createComponent(TooltipKeyword, {
           get children() {
@@ -149,9 +185,9 @@ const SpecialistsRow = (props) => createComponent(TicketRow, {
           }
         });
       }
-    }), _el$4);
-    insert(_el$4, () => `${props.current}/${props.max}`);
-    return _el$3;
+    }), _el$5);
+    insert(_el$5, () => `${props.current}/${props.max}`);
+    return _el$4;
   }
 });
 const PlayerOwnerRow = (props) => {
@@ -242,10 +278,10 @@ const UnitInfoSection = (props) => {
     "class": "relative",
     get children() {
       return [(() => {
-        var _el$5 = _tmpl$4(), _el$6 = _el$5.firstChild;
-        _el$5.style.setProperty("background-image", "url(blp:tooltip_unitIconHolder)");
-        createRenderEffect((_$p) => (_$p = props.isCivilian ? "url(blp:action_civilianunits)" : "url(blp:tooltip_unitIcon)") != null ? _el$6.style.setProperty("background-image", _$p) : _el$6.style.removeProperty("background-image"));
-        return _el$5;
+        var _el$6 = _tmpl$5(), _el$7 = _el$6.firstChild;
+        _el$6.style.setProperty("background-image", "url(blp:tooltip_unitIconHolder)");
+        createRenderEffect((_$p) => (_$p = props.isCivilian ? "url(blp:action_civilianunits)" : "url(blp:tooltip_unitIcon)") != null ? _el$7.style.setProperty("background-image", _$p) : _el$7.style.removeProperty("background-image"));
+        return _el$6;
       })(), createComponent(TicketRow, {
         get icon() {
           return unitIcon();
@@ -267,6 +303,7 @@ const UnitInfoSection = (props) => {
             get initialHPosition() {
               return TooltipHorizontalPosition.RIGHT;
             },
+            allowFlip: true,
             get children() {
               return createComponent(TooltipKeyword, {
                 get children() {
@@ -351,8 +388,8 @@ const IndependentUnitInfo = (props) => {
       return props.relationship;
     },
     children: (relationship) => (() => {
-      var _el$7 = _tmpl$5();
-      insert(_el$7, createComponent(Show, {
+      var _el$8 = _tmpl$6();
+      insert(_el$8, createComponent(Show, {
         get when() {
           return relationship().hostile;
         },
@@ -363,12 +400,12 @@ const IndependentUnitInfo = (props) => {
           });
         }
       }), null);
-      insert(_el$7, createComponent(L10n.Compose, {
+      insert(_el$8, createComponent(L10n.Compose, {
         get text() {
           return relationship().name;
         }
       }), null);
-      return _el$7;
+      return _el$8;
     })()
   })];
 };
@@ -400,8 +437,8 @@ const PlayerUnitInfo = (props) => {
       return props.relationship;
     },
     get children() {
-      var _el$8 = _tmpl$5();
-      insert(_el$8, createComponent(Show, {
+      var _el$9 = _tmpl$6();
+      insert(_el$9, createComponent(Show, {
         get when() {
           return props.relationship?.hostile;
         },
@@ -412,8 +449,8 @@ const PlayerUnitInfo = (props) => {
           });
         }
       }), null);
-      insert(_el$8, civName, null);
-      return _el$8;
+      insert(_el$9, civName, null);
+      return _el$9;
     }
   }), createComponent(Show, {
     get when() {
@@ -442,19 +479,19 @@ const ResourceInfoRow = (props) => {
       });
     },
     get children() {
-      var _el$9 = _tmpl$6();
-      insert(_el$9, createComponent(L10n.Stylize, {
+      var _el$10 = _tmpl$7();
+      insert(_el$10, createComponent(L10n.Stylize, {
         "class": "font-title text-sm uppercase",
         get text() {
           return props.resource.Name;
         }
       }), null);
-      insert(_el$9, createComponent(L10n.Stylize, {
+      insert(_el$10, createComponent(L10n.Stylize, {
         get text() {
           return props.resource.Tooltip;
         }
       }), null);
-      return _el$9;
+      return _el$10;
     }
   })];
 };
@@ -466,11 +503,11 @@ const DebugInfoSection = (props) => {
       return createComponent(TicketRow, {
         get children() {
           return [(() => {
-            var _el$10 = _tmpl$7();
-            insert(_el$10, createComponent(L10n.Compose, {
+            var _el$11 = _tmpl$8();
+            insert(_el$11, createComponent(L10n.Compose, {
               text: "LOC_PLOT_TOOLTIP_DEBUG_TITLE"
             }), null);
-            insert(_el$10, createComponent(Show, {
+            insert(_el$11, createComponent(Show, {
               get when() {
                 return hasHealth();
               },
@@ -479,21 +516,21 @@ const DebugInfoSection = (props) => {
                 return `: ${props.currentHealth} / ${props.maxHealth}`;
               }
             }), null);
-            return _el$10;
-          })(), (() => {
-            var _el$11 = _tmpl$8();
-            insert(_el$11, createComponent(L10n.Compose, {
-              text: "LOC_PLOT_TOOLTIP_PLOT"
-            }), null);
-            insert(_el$11, () => `: (${props.plotCoord.x},${props.plotCoord.y})`, null);
             return _el$11;
           })(), (() => {
-            var _el$12 = _tmpl$8();
+            var _el$12 = _tmpl$9();
             insert(_el$12, createComponent(L10n.Compose, {
+              text: "LOC_PLOT_TOOLTIP_PLOT"
+            }), null);
+            insert(_el$12, () => `: (${props.plotCoord.x},${props.plotCoord.y})`, null);
+            return _el$12;
+          })(), (() => {
+            var _el$13 = _tmpl$9();
+            insert(_el$13, createComponent(L10n.Compose, {
               text: "LOC_PLOT_TOOLTIP_INDEX"
             }), null);
-            insert(_el$12, () => `: ${props.plotIndex}`, null);
-            return _el$12;
+            insert(_el$13, () => `: ${props.plotIndex}`, null);
+            return _el$13;
           })()];
         }
       });
@@ -582,16 +619,16 @@ const ConstructibleRows = (props) => {
             });
           },
           get children() {
-            var _el$13 = _tmpl$9();
-            insert(_el$13, createComponent(L10n.Compose, {
+            var _el$14 = _tmpl$10();
+            insert(_el$14, createComponent(L10n.Compose, {
               text: "LOC_PLOT_TOOLTIP_GROWTH_IMPROVEMENT_PREFIX_ONLY"
             }), null);
-            insert(_el$13, createComponent(L10n.Compose, {
+            insert(_el$14, createComponent(L10n.Compose, {
               get text() {
                 return freeInfo().name;
               }
             }), null);
-            return _el$13;
+            return _el$14;
           }
         })]
       })];
@@ -882,13 +919,13 @@ const PlotTooltipContent = (props) => {
     return parts.map((part) => Locale.compose(part)).join(", ");
   });
   return (() => {
-    var _el$14 = _tmpl$12();
-    spread(_el$14, mergeProps({
+    var _el$15 = _tmpl$3();
+    spread(_el$15, mergeProps({
       get ["class"]() {
         return `w-auto min-w-62 max-w-84 self-start text-sm ${local.class ?? ""}`;
       }
     }, other), false, true);
-    insert(_el$14, createComponent(Show, {
+    insert(_el$15, createComponent(Show, {
       get when() {
         return biomeLabel();
       },
@@ -912,13 +949,13 @@ const PlotTooltipContent = (props) => {
         });
       }
     }), null);
-    insert(_el$14, createComponent(Show, {
+    insert(_el$15, createComponent(Show, {
       get when() {
         return subheaderText();
       },
       get children() {
-        var _el$15 = _tmpl$10();
-        insert(_el$15, createComponent(L10n.Stylize, {
+        var _el$16 = _tmpl$11();
+        insert(_el$16, createComponent(L10n.Stylize, {
           "class": "text-sm text-center",
           style: {
             "line-height": "1rem"
@@ -927,16 +964,16 @@ const PlotTooltipContent = (props) => {
             return subheaderText();
           }
         }));
-        return _el$15;
+        return _el$16;
       }
     }), null);
-    insert(_el$14, createComponent(Show, {
+    insert(_el$15, createComponent(Show, {
       get when() {
         return keywordPills().length > 0 || route();
       },
       get children() {
-        var _el$16 = _tmpl$11();
-        insert(_el$16, createComponent(For, {
+        var _el$17 = _tmpl$12();
+        insert(_el$17, createComponent(For, {
           get each() {
             return keywordPills();
           },
@@ -945,7 +982,7 @@ const PlotTooltipContent = (props) => {
             small: true
           })
         }), null);
-        insert(_el$16, createComponent(Show, {
+        insert(_el$17, createComponent(Show, {
           get when() {
             return route();
           },
@@ -966,10 +1003,10 @@ const PlotTooltipContent = (props) => {
             }
           })
         }), null);
-        return _el$16;
+        return _el$17;
       }
     }), null);
-    insert(_el$14, createComponent(PlotAlertSection, {
+    insert(_el$15, createComponent(PlotAlertSection, {
       get plotCoord() {
         return local.plotCoord;
       },
@@ -989,7 +1026,7 @@ const PlotTooltipContent = (props) => {
         return unitEntries();
       }
     }), null);
-    insert(_el$14, createComponent(Show, {
+    insert(_el$15, createComponent(Show, {
       get when() {
         return createMemo(() => !!(hexTreasureResource()?.ResourceClassType === "RESOURCECLASS_TREASURE" && local.owningCity != null))() && isDistantLands();
       },
@@ -1004,7 +1041,7 @@ const PlotTooltipContent = (props) => {
         });
       }
     }), null);
-    insert(_el$14, createComponent(Show, {
+    insert(_el$15, createComponent(Show, {
       get when() {
         return feature().volcano;
       },
@@ -1014,7 +1051,7 @@ const PlotTooltipContent = (props) => {
         }
       })
     }), null);
-    insert(_el$14, createComponent(Show, {
+    insert(_el$15, createComponent(Show, {
       get when() {
         return feature().isNaturalWonder;
       },
@@ -1051,7 +1088,7 @@ const PlotTooltipContent = (props) => {
         });
       }
     }), null);
-    insert(_el$14, createComponent(PlotDetailsSection, {
+    insert(_el$15, createComponent(PlotDetailsSection, {
       get plotCoord() {
         return local.plotCoord;
       },
@@ -1068,13 +1105,13 @@ const PlotTooltipContent = (props) => {
         return district();
       }
     }), null);
-    insert(_el$14, createComponent(For, {
+    insert(_el$15, createComponent(For, {
       get each() {
         return unitEntries();
       },
       children: (info) => createComponent(UnitInfoSection, info)
     }), null);
-    insert(_el$14, createComponent(Show, {
+    insert(_el$15, createComponent(Show, {
       get when() {
         return yieldBarData().length > 0;
       },
@@ -1101,7 +1138,7 @@ const PlotTooltipContent = (props) => {
         })];
       }
     }), null);
-    insert(_el$14, createComponent(Show, {
+    insert(_el$15, createComponent(Show, {
       get when() {
         return isShowingDebug();
       },
@@ -1122,10 +1159,10 @@ const PlotTooltipContent = (props) => {
         });
       }
     }), null);
-    return _el$14;
+    return _el$15;
   })();
 };
-const plotTooltipKeyboardActions = /* @__PURE__ */ new Set(["keyboard-nav-up", "keyboard-nav-down", "keyboard-nav-left", "keyboard-nav-right"]);
+const cameraPanActions = /* @__PURE__ */ new Set(["keyboard-nav-up", "keyboard-nav-down", "keyboard-nav-left", "keyboard-nav-right", "camera-pan", "touch-pan"]);
 function getPlotTooltipKind(plotCoord) {
   const activeLens = LensManager.getActiveLens();
   if (activeLens === "fxs-settler-lens") {
@@ -1150,14 +1187,6 @@ const PlotTooltipComponent = (props) => {
     const cityId = GameplayMap.getOwningCityFromXY(coord.x, coord.y);
     return cityId ? Cities.get(cityId) : null;
   });
-  const [lastActiveInputDevice, setLastActiveInputDevice] = createSignal(ActiveInputDevice());
-  createEffect(() => {
-    const activeInputDevice = ActiveInputDevice();
-    if (activeInputDevice !== InputDeviceType.Keyboard) {
-      setLastActiveInputDevice(activeInputDevice);
-    }
-  });
-  const shouldOffsetCursor = createMemo(() => IsMouseActive() || IsKeyboardActive() && lastActiveInputDevice() === InputDeviceType.Mouse, IsMouseActive());
   return createComponent(Tooltip, mergeProps({
     get initialVPosition() {
       return TooltipVerticalPosition.BOTTOM;
@@ -1165,9 +1194,7 @@ const PlotTooltipComponent = (props) => {
     get initialHPosition() {
       return TooltipHorizontalPosition.RIGHT;
     },
-    get offset() {
-      return shouldOffsetCursor() ? 22 : 0;
-    },
+    offset: 22,
     allowFlip: true
   }, other, {
     children: () => {
@@ -1178,6 +1205,7 @@ const PlotTooltipComponent = (props) => {
       if (!tooltipContext) {
         throw new Error("PlotTooltipTrigger must be used within a <Tooltip> root component");
       }
+      const [isWorldDragging, setIsWorldDragging] = createSignal(false);
       const reactiveName = createMemo(() => tooltipContext.name);
       const triggerContext = new TriggerActivationContextProvider(tooltipModel, parentContext, reactiveName);
       tooltipContext.setTriggerContext(triggerContext);
@@ -1224,18 +1252,15 @@ const PlotTooltipComponent = (props) => {
       const onPlotCursorCoordsUpdated = (event) => {
         trySetPlotCoords(event.detail.plotCoords ?? void 0);
       };
-      const onInputAction = (name) => {
-        if (plotTooltipKeyboardActions.has(name)) {
-          hidePlotTooltip();
+      const onInputAction = (name, status) => {
+        if (cameraPanActions.has(name)) {
+          if (status === InputActionStatuses.START) {
+            setIsWorldDragging(true);
+          } else if (status === InputActionStatuses.FINISH) {
+            setIsWorldDragging(false);
+          }
         }
       };
-      const onUpdateFrame = () => {
-        const isWorldDraggingNext = Camera.isWorldDragging();
-        if (isWorldDraggingNext !== isWorldDragging()) {
-          setIsWorldDragging(isWorldDraggingNext);
-        }
-      };
-      const [isWorldDragging, setIsWorldDragging] = createSignal(false);
       const isRevealed = createMemo(() => {
         const currentPlotCoords = plotCoords();
         if (!currentPlotCoords) return false;
@@ -1245,8 +1270,8 @@ const PlotTooltipComponent = (props) => {
       const isWorldFocused = createMemo(() => {
         return focusManager.activeElement() === document.body;
       });
-      createEffect(on([plotCoords, IsPlotTooltipVisible, isWorldFocused, isRevealed, isWorldDragging], ([currentPlotCoords, isVisible, currentIsWorldFocused, revealed, worldDragging], prevValues) => {
-        if (!currentPlotCoords || !isVisible || !currentIsWorldFocused || !revealed || worldDragging) {
+      createEffect(on([plotCoords, IsPlotTooltipVisible, isWorldFocused, isRevealed, isWorldDragging], ([currentPlotCoords, isVisible, currentIsWorldFocused, revealed, currentIsWorldDragging], prevValues) => {
+        if (!currentPlotCoords || !isVisible || !currentIsWorldFocused || !revealed || currentIsWorldDragging) {
           hidePlotTooltip();
         } else {
           const prevPlotCoord = prevValues?.[0];
@@ -1270,13 +1295,11 @@ const PlotTooltipComponent = (props) => {
         }
       });
       engine.on("InputAction", onInputAction);
-      engine.on("UpdateFrame", onUpdateFrame);
       onCleanup(() => {
         clearTooltipDelay();
         window.removeEventListener("cursor-updated", onCursorUpdated);
         window.removeEventListener("plot-cursor-coords-updated", onPlotCursorCoordsUpdated);
         engine.off("InputAction", onInputAction);
-        engine.off("UpdateFrame", onUpdateFrame);
       });
       return createComponent(TriggerActivationContext.Provider, {
         value: triggerContext,

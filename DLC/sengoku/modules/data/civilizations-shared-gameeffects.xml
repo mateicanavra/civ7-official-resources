@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+	<!-- ==================================================	-->
+	<!--				Civ-Specific Traits					-->
+	<!-- ==================================================	-->
+	<!-- SENGOKU -->
+	<Modifier id="SENGOKU_MOD_COMMANDER_XP_CULTURE" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_GRANT_YIELD_PER_XP_EARNED">
+		 <SubjectRequirements>
+            <Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+                <Argument name="Tag">UNIT_CLASS_ARMY_COMMANDER</Argument>
+            </Requirement>
+        </SubjectRequirements>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount" type="ScaleByGameAge" extra="50">2</Argument>
+	</Modifier>
+	<Modifier id="SENGOKU_MOD_COMMANDER_XP_SCIENCE" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_GRANT_YIELD_PER_XP_EARNED">
+		 <SubjectRequirements>
+            <Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+                <Argument name="Tag">UNIT_CLASS_ARMY_COMMANDER</Argument>
+            </Requirement>
+        </SubjectRequirements>
+		<Argument name="YieldType">YIELD_SCIENCE</Argument>
+		<Argument name="Amount" type="ScaleByGameAge" extra="50">2</Argument>
+	</Modifier>
+	<Modifier id="SENGOKU_MOD_COMMANDER_XP_INFLUENCE_EXPLORATION" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_GRANT_YIELD_PER_XP_EARNED">
+		 <SubjectRequirements>
+            <Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+                <Argument name="Tag">UNIT_CLASS_ARMY_COMMANDER</Argument>
+            </Requirement>
+        </SubjectRequirements>
+		<Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+		<Argument name="Amount">1</Argument>
+	</Modifier>
+	<Modifier id="SENGOKU_MOD_COMMANDER_XP_INFLUENCE_MODERN" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_GRANT_YIELD_PER_XP_EARNED">
+		 <SubjectRequirements>
+            <Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+                <Argument name="Tag">UNIT_CLASS_ARMY_COMMANDER</Argument>
+            </Requirement>
+        </SubjectRequirements>
+		<Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+		<Argument name="Amount">2</Argument>
+	</Modifier>
+	<Modifier id="SENGOKU_MOD_REMOVE_SCIENCE_ADJACENCY" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ACTIVATE_CONSTRUCTIBLE_ADJACENCY">
+		<Argument name="ConstructibleAdjacency">RemoveResourceScience</Argument>
+	</Modifier>
+	<Modifier id="SENGOKU_MOD_REMOVE_CULTURE_ADJACENCY" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ACTIVATE_CONSTRUCTIBLE_ADJACENCY">
+		<Argument name="ConstructibleAdjacency">RemoveMountainCulture</Argument>
+	</Modifier>
+</GameEffects>

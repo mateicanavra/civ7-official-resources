@@ -536,6 +536,8 @@ function createCommerceScreenModel() {
   const [focusedSettlementId, setFocusedSettlementId] = createSignal();
   const [firstAssignableCityId, setFirstAssignableCityId] = createSignal();
   const [selectedTradeRouteId, setSelectedTradeRouteId] = createSignal();
+  const [selectedTreasureConvoyId, setSelectedTreasureConvoyId] = createSignal();
+  const [selectedEmpireResource, setSelectedEmpireResource] = createSignal();
   createEffect(() => {
     let cityId;
     model.data.resourceTabData.slottedResourceSectionData.forEach((section) => {
@@ -576,6 +578,7 @@ function createCommerceScreenModel() {
   );
   const [resourceSwapTarget, setResourceSwapTarget] = createSignal(-1);
   const [isInSortAndFilterMode, setIsInSortAndFilterMode] = createSignal(false);
+  const [tabName, setTabName] = createSignal("");
   createEffect(() => {
     if (isInSortAndFilterMode()) {
       resetResourceTab(false);
@@ -591,6 +594,32 @@ function createCommerceScreenModel() {
     if (includeSortAndFilterMode) {
       setIsInSortAndFilterMode(false);
     }
+  }
+  function resetTradeTab() {
+    setSelectedTradeRouteId();
+  }
+  function resetEmpireTab() {
+    setSelectedEmpireResource();
+  }
+  function resetTreasureTab() {
+    setSelectedTreasureConvoyId();
+  }
+  function handleChangeTabs(tab) {
+    switch (tabName()) {
+      case "Resources":
+        resetResourceTab();
+        break;
+      case "Trade":
+        resetTradeTab();
+        break;
+      case "Empire":
+        resetEmpireTab();
+        break;
+      case "Treasure":
+        resetTreasureTab();
+        break;
+    }
+    setTabName(tab?.name);
   }
   function handleSetSelectedSettlementId(newID) {
     if (!newID) {
@@ -919,7 +948,7 @@ function createCommerceScreenModel() {
       hotkeyAction: "cancel",
       navTrayText: cancelEditCityLabel,
       onActivate: () => {
-        gamepadLog("Cancelling resource editing from settlement with ID:", selectedSettlement.id);
+        gamepadLog("Cancelling resource editing from settlement with ID:", selectedSettlement?.id);
         handleSetSelectedSettlementId(void 0);
       }
     };
@@ -928,7 +957,7 @@ function createCommerceScreenModel() {
       hotkeyAction: "cancel",
       navTrayText: "LOC_COMMERCE_GAMEPAD_DESELECT_RESOURCE_HINT",
       onActivate: () => {
-        gamepadLog("Deselecting selected resource", focusedSettlement.id);
+        gamepadLog("Deselecting selected resource", focusedSettlement?.id);
         handleDeselectSelectedResource();
       }
     };
@@ -978,7 +1007,14 @@ function createCommerceScreenModel() {
         }
       }
     });
-    const trayItems = model.selectedSettlementId() ? [] : [toggleSortAndFilterMode];
+    const trayItems = [];
+    if (model.selectedResource().resourceValue === -1) {
+      if (!model.selectedSettlementId()) {
+        trayItems.push(toggleSortAndFilterMode);
+      }
+    } else {
+      trayItems.push(deselectResource);
+    }
     switch (mask) {
       case 2 /* FocusedResource */: {
         return model.isSlottingAvailable ? [...trayItems, assignResource2] : trayItems;
@@ -1003,7 +1039,6 @@ function createCommerceScreenModel() {
         ] : [...trayItems, deselectSettlement];
       }
       case 9 /* SelectedResourceFocusedSettlement */: {
-        trayItems.push(deselectResource);
         if (ComponentID.isMatch(focusedSettlement, selectedResourceData.cityID ?? null)) {
           return trayItems;
         }
@@ -1664,6 +1699,7 @@ function createCommerceScreenModel() {
       }
       const resourceData = {
         iconSrc: `url(${UI.getIcon(playerResource.ResourceType, "RESOURCE")})`,
+        resourceValue: resource.value,
         title: playerResource.Name,
         description: [playerResource.Tooltip],
         originLeaderIds: [originCity.owner],
@@ -2313,6 +2349,11 @@ function createCommerceScreenModel() {
     };
     return tryRequestPlayerOperation(PlayerOperationTypes.ASSIGN_RESOURCE, args);
   }
+  function hasUnassignedResources() {
+    return model.data.resourceTabData.availableResourceSectionData.some(
+      (availableSection) => availableSection.subSections.some((subsection) => subsection.resourceSlotData.length > 0)
+    );
+  }
   const model = createMutable({
     data: populateData(),
     isResourceSelected: false,
@@ -2340,6 +2381,10 @@ function createCommerceScreenModel() {
     clickCityName: handleClickCityName,
     selectedTradeRouteId,
     setSelectedTradeRouteId,
+    selectedEmpireResource,
+    setSelectedEmpireResource,
+    selectedTreasureConvoyId,
+    setSelectedTreasureConvoyId,
     isFirstAssignableCity,
     selectedResourceFilter,
     setSelectedResourceFilter,
@@ -2365,7 +2410,8 @@ function createCommerceScreenModel() {
     isInSortAndFilterMode,
     setIsInSortAndFilterMode,
     settlementHasSlottedResources,
-    resetResourceTabData: resetResourceTab
+    onTabChanged: handleChangeTabs,
+    hasUnassignedResources
   });
   return model;
 }

@@ -120,22 +120,15 @@ const PauseMenuButtonContainer = (props) => {
                 }
               });
             }
-          }), createComponent(Show, {
-            get when() {
-              return model.data.retireButtonString != "LOC_PAUSE_MENU_NOMORETURNS";
+          }), createComponent(Button, {
+            "class": "pause-menu-button",
+            get onActivate() {
+              return model.onClickRetire;
             },
             get children() {
-              return createComponent(Button, {
-                "class": "pause-menu-button",
-                get onActivate() {
-                  return model.onClickRetire;
-                },
-                get children() {
-                  return createComponent(L10n.Compose, {
-                    get text() {
-                      return model.data.retireButtonString;
-                    }
-                  });
+              return createComponent(L10n.Compose, {
+                get text() {
+                  return model.data.retireButtonString;
                 }
               });
             }

@@ -18,9 +18,6 @@ class MainMenuAssetPreload {
     }
     const civData = GetCivilizationData().filter((l) => l.isOwned);
     for (const civ of civData) {
-      if (civ.civID === "RANDOM") {
-        continue;
-      }
       const backgroundName = `bg-panel-${civ.civID.replace("CIVILIZATION_", "").toLowerCase()}`;
       const civSymbolName = `civ_sym_${civ.civID.replace("CIVILIZATION_", "").toLowerCase()}`;
       const civVertIcon = UI.getIconBLP(civ.civID, "BACKGROUND_VERT");
@@ -77,6 +74,7 @@ class MainMenuAssetPreload {
       "base_top-filigree_center",
       "base_top-filigree_left",
       "base_top-filigree_right",
+      "CG_Leader_BG",
       "city_antiquity",
       "city_antiquity_256x256",
       "city_exploration",

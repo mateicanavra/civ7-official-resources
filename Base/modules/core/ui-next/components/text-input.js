@@ -108,6 +108,10 @@ const TextInputComponent = (props) => {
       input.dispatchEvent(new TextBoxTextEditStopEvent(false, inputEvent.detail.name));
       inputEvent.stopPropagation();
       inputEvent.preventDefault();
+    } else if (inputEvent.detail.name == "touch-tap" && enabled()) {
+      onActivate();
+      inputEvent.stopPropagation();
+      inputEvent.preventDefault();
     }
   }
   return (() => {

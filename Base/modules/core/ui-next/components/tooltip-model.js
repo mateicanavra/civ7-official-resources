@@ -1,10 +1,10 @@
-import { createSignal, onCleanup, createEffect, on, createSelector, createMemo } from '../../vendor/solid-js/dist/solid.js';
+import { createSignal, onCleanup, createEffect, on, createMemo, createSelector } from '../../vendor/solid-js/dist/solid.js';
 import { Audio } from '../../ui/audio-base/audio-support.js';
 import { ContextManagerEvents } from '../../ui/context-manager/context-manager.js';
 import { InterfaceModeChangedEventName } from '../../ui/interface-modes/interface-modes.js';
 import { TriggerType } from './trigger.js';
 import { FocusManager } from '../services/focus-manager.js';
-import { IsMouseActive, IsHybridActive, IsTouchActive } from '../services/input.js';
+import { IsMouseActive, IsHybridActive, IsTouchActive, IsKeyboardActive } from '../services/input.js';
 import { ModelRegistry, ModelLifecycle } from '../services/model-registry.js';
 import { createEngineEvent } from '../utilities/game-core-utilities.js';
 import { createWindowEventSignal } from '../utilities/solid-utilities.js';
@@ -15,7 +15,7 @@ function createTooltipModel() {
   const [locked, setLocked] = createSignal();
   const [tooltipsHidden, setTooltipsHidden] = createSignal(false);
   const [touchPress, setTouchPress] = createSignal(false);
-  const [childTooltipCountsSignal, setChildTooltipCounts] = createSignal({});
+  const [childTooltipTable, setChildTooltipTable] = createSignal({});
   const [autoLockTooltip, setAutoLockTooltip] = createSignal();
   let autoLockTimeoutHandle;
   let savedInputContext;
@@ -104,6 +104,9 @@ function createTooltipModel() {
       { defer: true }
     )
   );
+  const isAutolockAvailable = createMemo(() => {
+    return Configuration.getUser().tooltipAutolockEnabled && UI.isMouseAvailable() && !IsTouchActive() && (IsMouseActive() || IsHybridActive());
+  });
   const startAutoLock = (tooltipName, durationMs) => {
     stopAutoLock();
     setAutoLockTooltip(tooltipName);
@@ -120,8 +123,8 @@ function createTooltipModel() {
         stopAutoLock();
         return;
       }
-      const countAccessor = childTooltipCountsSignal()[currentTooltipName];
-      if (!countAccessor || countAccessor() <= 0) {
+      const childTooltipListAccesor = childTooltipTable()[currentTooltipName];
+      if (!childTooltipListAccesor || childTooltipListAccesor().length <= 0) {
         stopAutoLock();
         return;
       }
@@ -131,11 +134,7 @@ function createTooltipModel() {
     }, durationMs);
   };
   const tryStartAutoLock = (tooltipName) => {
-    if (!Configuration.getUser().tooltipAutolockEnabled) {
-      return;
-    }
-    const isAutolockSupported = UI.isMouseAvailable() && (IsMouseActive() || IsHybridActive());
-    if (!isAutolockSupported || IsTouchActive()) {
+    if (!isAutolockAvailable()) {
       return;
     }
     if (locked() === tooltipName || tooltipsHidden()) {
@@ -164,11 +163,12 @@ function createTooltipModel() {
       return target;
     }
   };
-  const register = (name, countAccessor) => {
-    setChildTooltipCounts((current) => ({
+  const register = (name, childListAccesor) => {
+    setChildTooltipTable((current) => ({
       ...current,
-      [name]: countAccessor
+      [name]: childListAccesor
     }));
+    return () => unregister(name);
   };
   const unregister = (name) => {
     stopAutoLock();
@@ -179,7 +179,7 @@ function createTooltipModel() {
     if (activeIdx !== -1) {
       setActive((current) => current.slice(0, activeIdx));
     }
-    setChildTooltipCounts((current) => {
+    setChildTooltipTable((current) => {
       const next = { ...current };
       delete next[name];
       return next;
@@ -189,17 +189,12 @@ function createTooltipModel() {
     stopAutoLock();
     const currentActive = active();
     const lockedTooltip = currentActive[currentActive.length - 1];
-    if (lockedTooltip) {
-      setTargets((current) => {
-        const next = { ...current };
-        delete next[lockedTooltip];
-        return next;
-      });
-    }
     if (lockedTooltip === locked()) {
-      setActive((current) => current.slice(0, -1));
       let nextTooltip = "";
       if (currentActive.length > 1) {
+        if (IsKeyboardActive() || IsMouseActive()) {
+          setActive((current) => current.slice(0, -1));
+        }
         nextTooltip = currentActive[currentActive.length - 2];
         setLocked(nextTooltip);
       } else {
@@ -209,9 +204,9 @@ function createTooltipModel() {
       if (!nextTarget && nextTooltip) {
         nextTarget = getTarget(nextTooltip);
       }
-      if (nextTarget && nextTarget instanceof HTMLElement) {
+      if (nextTarget instanceof HTMLElement) {
         focusManager.setFocus(nextTarget);
-      } else {
+      } else if (nextTarget == null) {
         console.error(
           `TooltipModel.unlock: Unable to focus tooltip "${lockedTooltip}" because its target is missing.`
         );
@@ -275,8 +270,8 @@ function createTooltipModel() {
     }
     if (currentActive.length > 0 && currentTarget) {
       const currentTooltipName = currentActive[currentActive.length - 1];
-      const countAccessor = childTooltipCountsSignal()[currentTooltipName];
-      if (!countAccessor || countAccessor() <= 0) {
+      const childListAccessor = childTooltipTable()[currentTooltipName];
+      if (!childListAccessor || childListAccessor().length <= 0) {
         if (currentActive.length == 1) {
           setTooltipsHidden(true);
         }
@@ -322,19 +317,37 @@ function createTooltipModel() {
     }
     if (type === TriggerType.Focus || type === TriggerType.Activate) {
       if (!isActive(name)) {
-        const shouldNest = active().length > 0 && isLocked(active()[active().length - 1]) || IsTouchActive();
+        let shouldNest;
+        let isRaisingSiblingTooltip = false;
+        const currentActive = active();
+        if (currentActive.length === 0) {
+          shouldNest = false;
+        } else {
+          const currentTop = currentActive[currentActive.length - 1];
+          const currentTopList = childTooltipTable()[currentTop]();
+          if (currentActive.length > 1 && !isLocked(currentTop)) {
+            const previousTop = currentActive[currentActive.length - 2];
+            const previousTopList = childTooltipTable()[previousTop]();
+            isRaisingSiblingTooltip = previousTopList.includes(name);
+          }
+          shouldNest = isRaisingSiblingTooltip || currentTopList.includes(name) && (isLocked(currentTop) || IsTouchActive());
+        }
         if (!shouldNest) {
           setActive([name]);
         } else {
-          setActive((current) => [...current, name]);
+          if (isRaisingSiblingTooltip) {
+            setActive((current) => [...current.slice(0, -1), name]);
+          } else {
+            setActive((current) => [...current, name]);
+          }
           tryStartAutoLock(name);
         }
       }
       if (IsTouchActive() || type === TriggerType.Activate) {
         if (active().length > 1) {
           const tooltipToLock = type === TriggerType.Activate ? name : active()[active().length - 2];
-          const countAccessor = childTooltipCountsSignal()[tooltipToLock];
-          if (countAccessor && countAccessor() > 0) {
+          const childListAccessor = childTooltipTable()[tooltipToLock];
+          if (childListAccessor && childListAccessor().length > 0) {
             setLocked(tooltipToLock);
           }
         }
@@ -358,9 +371,9 @@ function createTooltipModel() {
     active,
     targets,
     locked,
-    childTooltipCounts: childTooltipCountsSignal,
+    isAutolockAvailable,
+    childTooltipTable,
     register,
-    unregister,
     unlock,
     gotTouchPress,
     pop,

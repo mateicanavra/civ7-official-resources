@@ -64,6 +64,7 @@ class ScreenProfilePage extends Panel {
   challengeGroups = [];
   slotGroup;
   challengesSlotGroup;
+  prevFocus;
   currentChallengeCategoryToShow = "";
   challengeCategoriesMap = /* @__PURE__ */ new Map();
   challengesMap = /* @__PURE__ */ new Map();
@@ -123,12 +124,19 @@ class ScreenProfilePage extends Panel {
   }
   onAttach() {
     super.onAttach();
+    this.prevFocus = FocusManager.get().currentFocus();
     Telemetry.sendUIMenuAction({ Menu: TelemetryMenuType.Legends, MenuAction: TelemetryMenuActionType.Load });
   }
   onDetach() {
     Telemetry.sendUIMenuAction({ Menu: TelemetryMenuType.Legends, MenuAction: TelemetryMenuActionType.Exit });
     this.Root.removeEventListener("engine-input", this.engineInputListener);
     this.Root.removeEventListener("navigate-input", this.navigationInputListener);
+    if (this.prevFocus) {
+      const prevSlot = this.prevFocus?.closest("#MainMenuSlot");
+      if (prevSlot) {
+        FocusManager.get().setFocus(prevSlot);
+      }
+    }
     super.onDetach();
   }
   onReceiveFocus() {
@@ -1867,6 +1875,7 @@ class ScreenProfilePage extends Panel {
     }
     challengeOuter.appendChild(outerVSlot);
     frag.appendChild(challengeOuter);
+    NavTray.addOrUpdateShellAction2("LOC_PROFILE_CHALLENGE_HELP");
   }
   challengeSortLeft() {
     this.setChallengeSortType(Math.abs(this.currentSortType - 1) % 2 /* TOTAL */);
@@ -1915,7 +1924,7 @@ class ScreenProfilePage extends Panel {
     }
   }
   createContents() {
-    if (UI.isInShell() && !ScreenProfilePageExternalStatus.isGameCreationDomainInitialized && !Configuration.getGame().isNetworkMultiplayer) {
+    if (UI.isInShell() && !ScreenProfilePageExternalStatus.isGameCreationDomainInitialized && !Configuration.getGame().isAnyMultiplayer) {
       Configuration.editGame()?.reset(GameModeTypes.SINGLEPLAYER);
       GameSetup.setPlayerParameterValue(GameContext.localPlayerID, "PlayerLeader", "RANDOM");
     }
@@ -2045,13 +2054,6 @@ class ScreenProfilePage extends Panel {
         setupTabItem("#challenges", (frag) => {
           this.setupChallengeUI(frag);
         });
-        const currentFocusClassList = FocusManager.get().currentFocus().classList;
-        if (currentFocusClassList.contains("profile-challenges-sort-text") || currentFocusClassList.contains("profile-hof-left-sort-text")) {
-          if (this.challengesSlotGroup) {
-            FocusManager.get().setFocus(this.challengesSlotGroup);
-          }
-          NavTray.addOrUpdateShellAction2("LOC_PROFILE_CHALLENGE_HELP");
-        }
       } else if (this.currentlySelectedMainTab == "customize") {
         setupTabItem("#customize", (frag) => {
           this.setupCustomizeUI(frag);
@@ -2205,18 +2207,21 @@ class ScreenProfilePage extends Panel {
     } else if (this.currentlySelectedMainTab == "challenges") {
       if (inputEvent.detail.name == "shell-action-2") {
         let canJump = true;
-        if (!focusManager.currentFocus().classList.contains("profile-challenges-sort-text")) {
-          const sortControl = MustGetElement(".profile-challenges-sort-text", this.Root);
-          focusManager.setFocus(sortControl);
-          NavTray.addOrUpdateShellAction2("LOC_PROFILE_CHALLENGE_RETURN");
-          canJump = false;
-        }
-        if (canJump && focusManager.currentFocus().classList.contains("profile-challenges-sort-text")) {
-          NavTray.addOrUpdateShellAction2("LOC_PROFILE_CHALLENGE_HELP");
-          if (this.challengesSlotGroup) {
-            focusManager.setFocus(this.challengesSlotGroup);
+        waitForLayout(() => {
+          if (!focusManager.currentFocus().classList.contains("profile-challenges-sort-text")) {
+            const sortControl = MustGetElement(".profile-challenges-sort-text", this.Root);
+            focusManager.setFocus(sortControl);
+            NavTray.addOrUpdateShellAction2("LOC_PROFILE_CHALLENGE_RETURN");
+            canJump = false;
+          } else {
+            NavTray.addOrUpdateShellAction2("LOC_PROFILE_CHALLENGE_HELP");
           }
-        }
+          if (canJump && focusManager.currentFocus().classList.contains("profile-challenges-sort-text")) {
+            if (this.challengesSlotGroup) {
+              focusManager.setFocus(this.challengesSlotGroup);
+            }
+          }
+        });
         inputEvent.stopPropagation();
         inputEvent.preventDefault();
       }

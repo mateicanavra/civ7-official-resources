@@ -211,8 +211,8 @@ TutorialManager.add({
 });
 TutorialManager.add({
   ID: "welcome_capital",
-  isPersistent: true,
   onActivate: (_item) => {
+    InterfaceMode.switchTo("INTERFACEMODE_TUTORIAL_START");
     const player = Players.get(GameContext.localPlayerID);
     if (player) {
       const units = player.Units?.getUnitIds();
@@ -302,7 +302,18 @@ TutorialManager.add({
     return bFounderSelected;
   },
   onObsoleteCheck: (_item) => {
-    return Game.turn > 1;
+    let hasCapital = false;
+    const player = Players.get(GameContext.localPlayerID);
+    if (player) {
+      const playerCities = player.Cities;
+      if (playerCities && playerCities.getCities().length > 0) {
+        const capital = playerCities.getCapital();
+        if (capital) {
+          hasCapital = true;
+        }
+      }
+    }
+    return Game.turn > 1 || hasCapital;
   },
   hiders: [".tut-action-button", ".tut-action-text", "panel-notification-train", "panel-radial-dock"],
   inputFilters: [{ inputName: "next-action" }]
@@ -2052,7 +2063,7 @@ TutorialManager.add({
     anchorPosition: TutorialAnchorPosition.MiddleCenter,
     option1: calloutClose
   },
-  activationCustomEvents: ["OnContextManagerOpen_screen-government-picker"],
+  activationCustomEvents: ["OnContextManagerOpen_screen-government-chooser"],
   onActivateCheck: (_item) => {
     const player = Players.get(GameContext.localPlayerID);
     if (player) {
@@ -2256,7 +2267,7 @@ TutorialManager.add({
     anchorPosition: TutorialAnchorPosition.MiddleRight,
     title: Locale.compose("LOC_TUTORIAL_SPEND_FIRST_ATTRIBUTE_POINT_TITLE"),
     body: { text: Locale.compose("LOC_TUTORIAL_SPEND_FIRST_ATTRIBUTE_POINT_BODY") },
-    option1: calloutClose
+    option1: calloutContinue
   },
   completionCustomEvents: ["OnContextManagerClose"]
 });
@@ -3864,17 +3875,76 @@ TutorialManager.add({
 });
 TutorialManager.add({
   ID: "independent_encampment",
+  onActivate: (item) => {
+    let independentLocation = { x: -1, y: -1 };
+    let independentID = PlayerIds.NO_PLAYER;
+    let bFromUnit = false;
+    let bVillageDiscovered = false;
+    let independentText = "";
+    const player = Players.get(GameContext.localPlayerID);
+    if (player) {
+      const activationEventData = TutorialManager.activatingEvent;
+      if (activationEventData.viewingObjectID != null) {
+        const unit = Units.get(activationEventData.viewingObjectID);
+        if (unit) {
+          if (unit.owner == player.id) {
+            const eventLoc = activationEventData.location;
+            if (eventLoc.x >= 0 && eventLoc.y >= 0) {
+              independentID = Game.IndependentPowers.getIndependentPlayerIDAt(eventLoc.x, eventLoc.y);
+              independentLocation = eventLoc;
+            }
+          } else {
+            const objLoc = unit.location;
+            if (objLoc.x >= 0 && objLoc.y >= 0) {
+              bFromUnit = true;
+              independentID = Game.IndependentPowers.getIndependentPlayerIDFromUnit(
+                activationEventData.viewingObjectID
+              );
+              independentLocation = objLoc;
+            }
+          }
+        }
+      } else {
+        const eventLoc = activationEventData.location;
+        if (eventLoc.x >= 0 && eventLoc.y >= 0) {
+          independentID = Game.IndependentPowers.getIndependentPlayerIDAt(eventLoc.x, eventLoc.y);
+          independentLocation = eventLoc;
+        }
+      }
+      if (independentID == PlayerIds.NO_PLAYER) {
+        const eventLoc = activationEventData.location;
+        independentID = Game.IndependentPowers.getIndependentPlayerIDWithUnitsAt(eventLoc.x, eventLoc.y);
+        bFromUnit = true;
+      }
+      if (independentID != PlayerIds.NO_PLAYER) {
+        bVillageDiscovered = Game.IndependentPowers.independentVillageDiscoveredByPlayer(
+          independentID,
+          GameContext.localPlayerID
+        );
+        const isEncampment = Game.IndependentPowers.isIndependentEncampment(independentID);
+        if (isEncampment) {
+          if (bFromUnit || !bVillageDiscovered) {
+            independentText = "LOC_TUTORIAL_INDEPENDENT_ENCAMPMENT_UNIT_BODY";
+          } else {
+            independentText = "LOC_TUTORIAL_INDEPENDENT_ENCAMPMENT_VILLAGE_BODY";
+          }
+        }
+        if (item.callout && item.callout.body) {
+          item.callout.body.text = independentText;
+        }
+        Camera.lookAtPlot(independentLocation, { zoom: 0.25 });
+        item.highlightPlots = [GameplayMap.getIndexFromLocation(independentLocation)];
+      }
+    }
+  },
   callout: {
     anchorPosition: TutorialAnchorPosition.MiddleCenter,
     title: "LOC_TUTORIAL_INDEPENDENT_ENCAMPMENT_TITLE",
     body: {
       text: "LOC_TUTORIAL_INDEPENDENT_ENCAMPMENT_BODY",
       getLocParams: (_item) => {
-        let independentLocation = { x: -1, y: -1 };
         let independentID = PlayerIds.NO_PLAYER;
-        let bFromUnit = false;
-        let bVillageDiscovered = false;
-        let independentText = "";
+        let independentName = "";
         const player = Players.get(GameContext.localPlayerID);
         if (player) {
           const activationEventData = TutorialManager.activatingEvent;
@@ -3888,16 +3958,13 @@ TutorialManager.add({
                     eventLoc.x,
                     eventLoc.y
                   );
-                  independentLocation = eventLoc;
                 }
               } else {
                 const objLoc = unit.location;
                 if (objLoc.x >= 0 && objLoc.y >= 0) {
-                  bFromUnit = true;
                   independentID = Game.IndependentPowers.getIndependentPlayerIDFromUnit(
                     activationEventData.viewingObjectID
                   );
-                  independentLocation = objLoc;
                 }
               }
             }
@@ -3905,7 +3972,6 @@ TutorialManager.add({
             const eventLoc = activationEventData.location;
             if (eventLoc.x >= 0 && eventLoc.y >= 0) {
               independentID = Game.IndependentPowers.getIndependentPlayerIDAt(eventLoc.x, eventLoc.y);
-              independentLocation = eventLoc;
             }
           }
           if (independentID == PlayerIds.NO_PLAYER) {
@@ -3914,33 +3980,12 @@ TutorialManager.add({
               eventLoc.x,
               eventLoc.y
             );
-            bFromUnit = true;
           }
           if (independentID != PlayerIds.NO_PLAYER) {
-            bVillageDiscovered = Game.IndependentPowers.independentVillageDiscoveredByPlayer(
-              independentID,
-              GameContext.localPlayerID
-            );
-            const independentName = Game.IndependentPowers.independentName(independentID);
-            const isEncampment = Game.IndependentPowers.isIndependentEncampment(independentID);
-            if (independentName != null && isEncampment) {
-              if (bFromUnit || !bVillageDiscovered) {
-                independentText = Locale.compose(
-                  "LOC_TUTORIAL_INDEPENDENT_ENCAMPMENT_UNIT_BODY",
-                  independentName
-                );
-              } else {
-                independentText = Locale.compose(
-                  "LOC_TUTORIAL_INDEPENDENT_ENCAMPMENT_VILLAGE_BODY",
-                  independentName
-                );
-              }
-            }
-            Camera.lookAtPlot(independentLocation, { zoom: 0.25 });
-            _item.highlightPlots = [GameplayMap.getIndexFromLocation(independentLocation)];
+            independentName = Game.IndependentPowers.independentName(independentID) || "";
           }
         }
-        return [independentText];
+        return [independentName];
       }
     },
     option1: calloutContinue

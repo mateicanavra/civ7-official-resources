@@ -1,6 +1,8 @@
+import { HexMap, getDefaultHexSettings, VoronoiValidationSettings } from '../hex-map.js';
+import { PlayerRegion, CreateMajorPlayerAreas } from '../player-areas.js';
+import { profileScope } from '../profiling.js';
 import { RandomImpl } from '../random-pcg-32.js';
-import { VoronoiHex, PlayerRegion } from '../voronoi-hex.js';
-import { VariantOverrideType } from '../voronoi-types.js';
+import { RegionType, VariantOverrideType } from '../voronoi-types.js';
 import { VoronoiBuilder } from '../voronoi-builder.js';
 import { VoronoiUtils, WrapType } from '../voronoi-utils.js';
 
@@ -44,31 +46,42 @@ class VoronoiMap {
   m_initialized = false;
   m_settings;
   m_variants = {};
-  m_defaultSettings = { mapSettings: {}, generatorSettings: {}, ruleSettings: {} };
+  m_defaultSettings = {
+    mapSettings: {},
+    generatorSettings: {},
+    ruleSettings: {},
+    hexSettings: {}
+  };
   // not altered after construction
   m_defaultJson = {};
   // default json object optionally passed in.
-  m_primarySettings = { mapSettings: {}, generatorSettings: {}, ruleSettings: {} };
+  m_primarySettings = {
+    mapSettings: {},
+    generatorSettings: {},
+    ruleSettings: {},
+    hexSettings: {}
+  };
   m_builderNeedsInit = true;
   m_hexDims = { x: 0, y: 0 };
   m_generator;
   m_hexTiles;
-  m_hexStats;
   m_rndInitState;
   m_rndSimulateInternalState;
   m_rndSimulateState;
   m_initialVariants = {};
+  m_dominantCells = [];
   constructor(baseSchema, generator, defaultGeneratorSettings, defaultRulesSettings, defaultJson = {}) {
     this.m_baseSchema = baseSchema;
     this.m_settings = this.m_primarySettings.mapSettings;
     this.m_generator = generator;
     this.m_defaultJson = defaultJson;
-    this.m_hexTiles = new VoronoiHex();
+    this.m_hexTiles = new HexMap();
     for (const [key, value] of Object.entries(this.getSettingsConfig())) {
       this.m_defaultSettings.mapSettings[key] = value.default;
     }
     this.m_defaultSettings.generatorSettings = VoronoiUtils.clone(defaultGeneratorSettings);
     this.m_defaultSettings.ruleSettings = VoronoiUtils.clone(defaultRulesSettings);
+    this.m_defaultSettings.hexSettings = getDefaultHexSettings();
     this.m_primarySettings = VoronoiUtils.clone(this.m_defaultSettings);
     this.resetToDefault();
   }
@@ -90,25 +103,43 @@ class VoronoiMap {
   getWrapType() {
     return this.getSettings().wrapX ? WrapType.WrapX : WrapType.None;
   }
-  createMajorPlayerAreas(valueFunction, playerLandmasses = void 0) {
-    if (playerLandmasses == void 0) {
-      playerLandmasses = [];
-      for (const landmass of this.m_generator.getLandmasses()) {
-        if (landmass.playerAreas > 0) {
-          const playerRegion = new PlayerRegion();
-          playerRegion.id = landmass.id;
-          playerRegion.playerAreas = landmass.playerAreas;
-          playerLandmasses.push(playerRegion);
-        }
+  createMajorPlayerAreas(valueFunction, playerRegions = void 0) {
+    if (playerRegions == void 0) {
+      playerRegions = [];
+      const totalPlayers = this.getSettings().totalPlayers;
+      const mapStats = this.getHexTiles().getMapStats();
+      const scoreLandmass = (landmass) => landmass.land + landmass.coast * 0.5;
+      const totalPlayerLandScore = mapStats.playerLandmasses.reduce(
+        (sum, landmass) => sum + scoreLandmass(landmass),
+        0
+      );
+      let playersAllocated = 0;
+      const remainders = [];
+      for (const playerLandmass of mapStats.playerLandmasses) {
+        const playerRegion = new PlayerRegion();
+        playerRegions.push(playerRegion);
+        playerRegion.id = playerLandmass.playerLandmassId;
+        playerRegion.filter = (tile) => tile.playerLandmassId == playerLandmass.playerLandmassId;
+        const rawScore = scoreLandmass(playerLandmass) / totalPlayerLandScore * totalPlayers;
+        playerRegion.playerAreas = Math.floor(rawScore);
+        remainders.push({ id: remainders.length, remainder: rawScore - playerRegion.playerAreas });
+        playersAllocated += playerRegion.playerAreas;
+      }
+      remainders.sort((a, b) => b.remainder - a.remainder);
+      for (const remainder of remainders) {
+        if (playersAllocated >= totalPlayers) break;
+        playerRegions[remainder.id].playerAreas++;
+        playersAllocated++;
       }
     }
-    this.m_hexTiles.createMajorPlayerAreas(playerLandmasses, valueFunction, {
+    CreateMajorPlayerAreas(this.m_hexTiles, playerRegions, valueFunction, {
       wrap: this.getWrapType(),
       width: this.m_hexDims.x,
       height: this.m_hexDims.y
     });
   }
   simulate() {
+    const perfScope = new profileScope("Simulating Voronoi Map.");
     if (this.m_rndSimulateInternalState == void 0) {
       this.m_rndSimulateInternalState = RandomImpl.getState();
     }
@@ -121,15 +152,37 @@ class VoronoiMap {
       this.m_rndSimulateState = RandomImpl.getState();
     }
     RandomImpl.setState(this.m_rndSimulateState);
+    this.m_dominantCells = [];
     this.m_generator.simulate();
     this.m_hexTiles.initFromRegionCells(
       this.m_hexDims.x,
       this.m_hexDims.y,
       this.m_generator.getKdTree(),
-      this.m_generator.getLandmasses()
+      this.m_generator.getLandmasses(),
+      (cell) => this.getPlayerLandmassFromCell(cell),
+      this.getVoronoiValidationSettings(),
+      this.m_dominantCells
     );
     this.m_hexTiles.validate();
-    this.m_hexStats = this.m_hexTiles.calculatePlayerLandmasses();
+    perfScope.end();
+  }
+  // Default expects oceans to be 0, player landmasses to be 1-n, and non-player land to be > n.
+  getPlayerLandmassFromCell(cell) {
+    if (cell.landmassId > 0) {
+      const landmass = this.m_generator.getLandmasses()[cell.landmassId];
+      if (landmass.type === RegionType.Island) {
+        return 0;
+      } else {
+        return cell.landmassId;
+      }
+    }
+    return -1;
+  }
+  getRegionCellForHex(x, y) {
+    return this.m_dominantCells[x]?.[y];
+  }
+  getVoronoiValidationSettings() {
+    return new VoronoiValidationSettings();
   }
   initInternal(hexDims) {
     this.m_hexDims = hexDims;
@@ -190,6 +243,9 @@ class VoronoiMap {
   setPrimaryRuleSetting(keyPath, value) {
     VoronoiUtils.setPath(this.m_primarySettings.ruleSettings, keyPath, value);
   }
+  setPrimaryHexSetting(keyPath, value) {
+    VoronoiUtils.setPath(this.m_primarySettings.hexSettings, keyPath, value);
+  }
   getPrimaryMapSetting(keyPath) {
     return VoronoiUtils.getPath(this.m_primarySettings.mapSettings, keyPath);
   }
@@ -198,6 +254,9 @@ class VoronoiMap {
   }
   getPrimaryRuleSetting(keyPath) {
     return VoronoiUtils.getPath(this.m_primarySettings.ruleSettings, keyPath);
+  }
+  getPrimaryHexSetting(keyPath) {
+    return VoronoiUtils.getPath(this.m_primarySettings.hexSettings, keyPath);
   }
   getVariants() {
     return this.m_variants;
@@ -217,7 +276,12 @@ class VoronoiMap {
   }
   createVariantKey(variantName, key) {
     if (variantName in this.m_variants) {
-      this.m_variants[variantName].settings[key] = { generatorSettings: {}, mapSettings: {}, ruleSettings: {} };
+      this.m_variants[variantName].settings[key] = {
+        generatorSettings: {},
+        mapSettings: {},
+        ruleSettings: {},
+        hexSettings: {}
+      };
       this.m_builderNeedsInit = true;
     }
   }
@@ -262,6 +326,7 @@ class VoronoiMap {
   applyVariants() {
     this.setSettings(VoronoiUtils.clone(this.m_primarySettings.mapSettings));
     this.getGenerator().setSettings(VoronoiUtils.clone(this.m_primarySettings.generatorSettings));
+    this.getHexTiles().setSettings(VoronoiUtils.clone(this.m_primarySettings.hexSettings));
     for (const [groupKey, rules] of Object.entries(this.getGenerator().getRules())) {
       for (const [ruleName, rule] of Object.entries(rules)) {
         const primarySettings = this.m_primarySettings.ruleSettings[groupKey][ruleName];
@@ -279,6 +344,9 @@ class VoronoiMap {
       }
       for (const { path, value } of this.iterateVariantLeaves(selected.generatorSettings)) {
         this.applyOverrideAtPath(this.getGenerator().getSettings(), path, value);
+      }
+      for (const { path, value } of this.iterateVariantLeaves(selected.hexSettings)) {
+        this.applyOverrideAtPath(this.getHexTiles().getSettings(), path, value);
       }
       const rules = this.getGenerator().getRules();
       for (const { path, value } of this.iterateVariantLeaves(selected.ruleSettings)) {
@@ -312,6 +380,9 @@ class VoronoiMap {
   setVariantRuleSetting(name, key, path, value) {
     this.setVariantSettingInternal(name, key, "ruleSettings", path, value);
   }
+  setVariantHexSetting(name, key, path, value) {
+    this.setVariantSettingInternal(name, key, "hexSettings", path, value);
+  }
   getVariantMapSetting(name, key, path) {
     return this.getVariantSettingInternal(name, key, "mapSettings", path);
   }
@@ -320,6 +391,9 @@ class VoronoiMap {
   }
   getVariantRuleSetting(name, key, path) {
     return this.getVariantSettingInternal(name, key, "ruleSettings", path);
+  }
+  getVariantHexSetting(name, key, path) {
+    return this.getVariantSettingInternal(name, key, "hexSettings", path);
   }
   deleteVariantMapSetting(name, key, path) {
     this.deleteVariantSettingInternal(name, key, "mapSettings", path);
@@ -333,6 +407,9 @@ class VoronoiMap {
   deleteVariantRuleSetting(name, key, path) {
     this.deleteVariantSettingInternal(name, key, "ruleSettings", path);
   }
+  deleteVariantHexSetting(name, key, path) {
+    this.deleteVariantSettingInternal(name, key, "hexSettings", path);
+  }
   getMapVariantsForPath(path) {
     return this.getVariantsForPath(path, "mapSettings");
   }
@@ -341,6 +418,9 @@ class VoronoiMap {
   }
   getRuleVariantsForPath(path) {
     return this.getVariantsForPath(path, "ruleSettings");
+  }
+  getHexVariantsForPath(path) {
+    return this.getVariantsForPath(path, "hexSettings");
   }
   getVariantsForPath(path, recordName) {
     const variants = [];
@@ -483,6 +563,9 @@ class VoronoiMap {
     VoronoiUtils.deepMerge(this.m_primarySettings.generatorSettings, configObject.generatorConfig);
     const rulesConfig = VoronoiUtils.explodeConfig(configObject.rulesConfig);
     VoronoiUtils.deepMerge(this.m_primarySettings.ruleSettings, rulesConfig);
+    if (configObject.hexConfig) {
+      VoronoiUtils.deepMerge(this.m_primarySettings.hexSettings, configObject.hexConfig);
+    }
     if (configObject.variantSettings) {
       this.setVariants(configObject.variantSettings);
     }

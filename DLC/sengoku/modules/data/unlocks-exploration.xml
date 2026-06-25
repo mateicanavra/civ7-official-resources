@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Types>
+		<InsertOrIgnore Type="UNLOCK_CIVILIZATION_MEIJI" Kind="KIND_UNLOCK"/>
+	</Types>
+	<Unlocks>
+		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_MEIJI"/>
+	</Unlocks>
+	<UnlockRewards>
+		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_MEIJI" Name="LOC_CIVILIZATION_MEIJI_NAME" Description="LOC_UNLOCK_MODERN_CIV_DESCRIPTION" Icon="CIVILIZATION_MEIJI" UnlockRewardType="CIVILIZATION_MEIJI" UnlockRewardKind="KIND_CIVILIZATION"/>
+	</UnlockRewards>
+	<UnlockRequirements>
+		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_MEIJI" RequirementSetId="REQSET_CIV_IS_SENGOKU" Description="LOC_UNLOCK_PLAY_AS_SENGOKU_DESCRIPTION" Tooltip="LOC_UNLOCK_PLAY_AS_SENGOKU_MEIJI_TOOLTIP"/>
+	</UnlockRequirements>
+	<UnlockConfigurationValues>
+		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_MEIJI" ConfigurationValue="CIVILIZATION_MEIJI"/>
+	</UnlockConfigurationValues>
+</Database>

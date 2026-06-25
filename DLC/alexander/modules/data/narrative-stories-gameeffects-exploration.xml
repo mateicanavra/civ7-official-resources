@@ -160,12 +160,14 @@
     <RequirementSet id="REQSET_10117A_NARRATIVE">
         <Requirement xref="REQ_STORY_LEADER_ALEXANDER"/>
         <Requirement type="REQUIREMENT_COLLECTION_ANY_MET">
-            <Argument name="CollectionType">COLLECTION_PLAYER_CAPTURED_CITIES</Argument>
+            <Argument name="CollectionType">COLLECTION_PLAYER_CITIES</Argument>
             <Argument name="RequirementSetId">SUBREQSET_10117A_NARRATIVE</Argument>
         </Requirement>
     </RequirementSet>
     <RequirementSet id="SUBREQSET_10117A_NARRATIVE">
-        <Requirement type="REQUIREMENT_CITY_UPGRADED_TO_CITY_IMMEDIATE">
+        <Requirement type="REQUIREMENT_CITY_IS_CITY">
+        </Requirement>
+        <Requirement type="REQUIREMENT_CITY_IS_ORIGINAL_OWNER" inverse="True">
         </Requirement>
         <Requirement type="REQUIREMENT_BUILDING_IS_ADJACENT_TO_X">
             <Argument name="BuildingType">BUILDING_CITY_HALL</Argument>

@@ -579,6 +579,23 @@ function positionFleetCommanders(iPlayer) {
             }
           }
         });
+        shadows = playerUnits.getUnitShadows();
+        for (const constructible of player.Constructibles?.getConstructibles() || []) {
+          if (constructible.typeHash == Database.makeHash("BUILDING_HARBOR")) {
+            const shadowIndex = playerUnits.getShadowIndexClosestToLocation(
+              constructible.location,
+              SEA_DOMAIN_HASH,
+              CORE_CLASS_MILITARY_HASH
+            );
+            if (shadowIndex >= 0 && shadowIndex < shadows.length) {
+              createUnitFromShadowAtLocation(player, shadows[shadowIndex], constructible.location);
+              playerUnits.removeUnitShadowAtIndex(shadowIndex);
+              shadows = playerUnits.getUnitShadows();
+            } else {
+              break;
+            }
+          }
+        }
       }
     }
   }

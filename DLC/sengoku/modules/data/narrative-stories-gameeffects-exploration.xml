@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+    <Modifier id="11186B_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_PRODUCTION</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">2</Argument>
+        <Argument name="ConstructibleType">BUILDING_ARMORER</Argument>
+    </Modifier>
+    <Modifier id="11186B_NARRATIVE_MODIFIER2" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_HAPPINESS</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">-1</Argument>
+        <Argument name="ConstructibleType">BUILDING_ARMORER</Argument>
+    </Modifier>
+    <Modifier id="11186C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_GOLD</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+        <Argument name="ConstructibleType">BUILDING_TEMPLE</Argument>
+    </Modifier>
+    <Modifier id="11186D_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+        <Argument name="Amount">1</Argument>
+        <Argument name="ConstructibleType">BUILDING_TEMPLE</Argument>
+    </Modifier>
+    <Modifier id="11187B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_DEDUCT_TREASURY_NARRATIVE" run-once="true" permanent="true">
+        <Argument name="MultiplierType">REWARD_TYPE_MAJOR_LATE</Argument>
+    </Modifier>
+    <Modifier id="11187B_NARRATIVE_MODIFIER2" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_GOLDEN_AGE" run-once="true" permanent="true">
+    </Modifier>
+    <Modifier id="11187C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_NARRATIVE" run-once="true" permanent="true">
+        <Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+        <Argument name="MultiplierType">REWARD_TYPE_MEDIUM_EARLY</Argument>
+    </Modifier>
+    <Modifier id="11187C_NARRATIVE_MODIFIER2" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_DAMAGE_CONSTRUCTIBLES" run-once="true" permanent="true">
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_CITY_HAPPINESS">
+            </Requirement>
+        </SubjectRequirements>
+        <Argument name="Amount">1</Argument>
+        <Argument name="DamageType">UNHAPPINESS</Argument>
+        <Argument name="Buildings">false</Argument>
+    </Modifier>
+    <Modifier id="11187D_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_FREE_PURCHASE_CHARGE" run-once="false" permanent="true">
+        <Argument name="UnitType">UNIT_NINJA</Argument>
+        <Argument name="Amount">1</Argument>
+    </Modifier>
+    <Modifier id="11188B_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD" run-once="false">
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_CITY_FOLLOWS_RELIGION">
+                <Argument name="cityReligion">True</Argument>
+            </Requirement>
+        </SubjectRequirements>
+        <Argument name="YieldType">YIELD_HAPPINESS</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+    </Modifier>
+    <Modifier id="11188C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_FREE_PURCHASE_CHARGE" run-once="false" permanent="true">
+        <Argument name="UnitType">UNIT_MISSIONARY</Argument>
+        <Argument name="Amount">1</Argument>
+    </Modifier>
+    <Modifier id="11188D_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD" run-once="false" permanent="true">
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_PLOT_IS_NATURAL_WONDER">
+            </Requirement>
+        </SubjectRequirements>
+        <Argument name="YieldType">YIELD_HAPPINESS</Argument>
+        <Argument name="Amount">1</Argument>
+    </Modifier>
+    <Modifier id="11189B_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_ABILITY" run-once="false" permanent="true">
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+                <Argument name="Tag">UNIT_CLASS_INFANTRY</Argument>
+            </Requirement>
+        </SubjectRequirements>
+        <Argument name="AbilityType">ABILITY_NARRATIVE_RANGE_DEFENSE</Argument>
+    </Modifier>
+    <Modifier id="11189C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_GRANT_UNIT" run-once="false" permanent="true">
+        <Argument name="UnitType">UNIT_ARQUEBUSIER</Argument>
+        <Argument name="Amount">1</Argument>
+    </Modifier>
+    <Modifier id="11190B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_FREE_PURCHASE_CHARGE" run-once="false" permanent="true">
+        <Argument name="UnitType">UNIT_MERCHANT</Argument>
+        <Argument name="Amount">1</Argument>
+    </Modifier>
+    <Modifier id="11190C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_FREE_PURCHASE_CHARGE" run-once="false" permanent="true">
+        <Argument name="BuildingType">BUILDING_ARMORER</Argument>
+        <Argument name="Amount">1</Argument>
+    </Modifier>
+    <Modifier id="11190D_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_NARRATIVE" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+        <Argument name="MultiplierType">REWARD_TYPE_MINOR_LATE</Argument>
+    </Modifier>
+    <Modifier id="11191B_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_ABILITY" run-once="false" permanent="true">
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+                <Argument name="Tag">UNIT_CLASS_INFANTRY</Argument>
+            </Requirement>
+        </SubjectRequirements>
+        <Argument name="AbilityType">ABILITY_NARRATIVE_STRENGTH</Argument>
+    </Modifier>
+    <Modifier id="11191C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD" run-once="false" permanent="true">
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_CITY_IS_CITY">
+            </Requirement>
+        </SubjectRequirements>
+        <Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+        <Argument name="Amount">1</Argument>
+    </Modifier>
+    <Modifier id="11191D_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_GRANT_UNIT_EXPERIENCE" run-once="true" permanent="true">
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+                <Argument name="Tag">UNIT_CLASS_COMMAND</Argument>
+            </Requirement>
+        </SubjectRequirements>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">10</Argument>
+    </Modifier>
+    <Modifier id="11192B_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_HAPPINESS</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+        <Argument name="Tag">CULTURE</Argument>
+    </Modifier>
+    <Modifier id="11192C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_CULTURE</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+        <Argument name="Tag">GOLD</Argument>
+    </Modifier>
+    <Modifier id="11193B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_GOLDEN_AGE" run-once="true" permanent="true">
+    </Modifier>
+    <Modifier id="11193C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD" run-once="false" permanent="true">
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_CITY_IS_CITY">
+            </Requirement>
+        </SubjectRequirements>
+        <Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+        <Argument name="Amount">3</Argument>
+    </Modifier>
+    <Modifier id="11194B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ATTRIBUTE" run-once="false" permanent="true">
+        <Argument name="AttributeType">ATTRIBUTE_MILITARISTIC</Argument>
+        <Argument name="Amount">1</Argument>
+    </Modifier>
+    <Modifier id="11194C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ATTRIBUTE" run-once="false" permanent="true">
+        <Argument name="AttributeType">ATTRIBUTE_POLITICAL</Argument>
+        <Argument name="Amount">1</Argument>
+    </Modifier>
+    <Modifier id="12017B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_NARRATIVE" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+        <Argument name="MultiplierType">REWARD_TYPE_MINOR_EARLY</Argument>
+    </Modifier>
+    <Modifier id="12017C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_ABILITY" run-once="false" permanent="true">
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_UNIT_TYPE_MATCHES">
+                <Argument name="UnitType">UNIT_SWORDSMAN</Argument>
+            </Requirement>
+        </SubjectRequirements>
+        <Argument name="AbilityType">ABILITY_NARRATIVE_STRENGTH</Argument>
+    </Modifier>
+    <Modifier id="10165B_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD" run-once="false" permanent="false">
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_PLAYER_HAS_ACTIVE_STORY">
+                <Argument name="StoryType">10165B</Argument>
+            </Requirement>
+        </SubjectRequirements>
+        <Argument name="YieldType">YIELD_GOLD</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">-1</Argument>
+    </Modifier>
+    <Modifier id="10165C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_NARRATIVE" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_HAPPINESS</Argument>
+        <Argument name="MultiplierType">REWARD_TYPE_MINOR_EARLY</Argument>
+    </Modifier>
+    <Modifier id="10165D_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_CULTURE</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+        <Argument name="ConstructibleType">IMPROVEMENT_TEA_HOUSE</Argument>
+    </Modifier>
+    <RequirementSet id="REQSET_11186D_NARRATIVE_REQUISITE">
+        <Requirement type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
+            <Argument name="LeaderType">LEADER_TOYOTOMI_HIDEYOSHI</Argument>
+            <Argument name="AcceptVariation">True</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11187D_NARRATIVE_REQUISITE">
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS" inverse="true">
+            <Argument name="GossipTypes">GOSSIP_TRAIN_UNIT01</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11188D_NARRATIVE_REQUISITE">
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
+            <Argument name="GossipTypes">GOSSIP_BELIEF_ADDED01</Argument>
+            <Argument name="GOSSIP_BELIEF_ADDED01">Hash,BeliefType,BELIEF_BONUS_19</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11190D_NARRATIVE_REQUISITE">
+        <Requirement type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
+            <Argument name="LeaderType">LEADER_TOYOTOMI_HIDEYOSHI</Argument>
+            <Argument name="AcceptVariation">True</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11191D_NARRATIVE_REQUISITE">
+        <Requirement type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
+            <Argument name="LeaderType">LEADER_TOYOTOMI_HIDEYOSHI</Argument>
+            <Argument name="AcceptVariation">True</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11186A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_SENGOKU"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11187A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_SENGOKU"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11188A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_SENGOKU"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11189A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_SENGOKU"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11190A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_SENGOKU"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11191A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_SENGOKU"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11192A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_SENGOKU"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11193A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_SENGOKU"/>
+        <Requirement xref="REQ_STORY_LEADER_TOYOTOMI_HIDEYOSHI_SENGOKU"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11194A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_SENGOKU"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11186A_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_SENGOKU"/>
+        <Requirement type="REQUIREMENT_COLLECTION_ANY_MET">
+            <Argument name="CollectionType">COLLECTION_PLAYER_CITIES</Argument>
+            <Argument name="RequirementSetId">SUBREQSET_11186A_NARRATIVE</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_10165A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_SENGOKU"/>
+        <Requirement xref="REQ_STORY_LEADER_TOYOTOMI_HIDEYOSHI_SENGOKU"/>
+    </RequirementSet>
+    <RequirementSet id="SUBREQSET_11186A_NARRATIVE">
+        <Requirement type="REQUIREMENT_BUILDING_IS_ADJACENT_TO_X">
+            <Argument name="BuildingType">BUILDING_TEMPLE</Argument>
+            <Argument name="AdjacentBuildingTags">MILITARY</Argument>
+            <Argument name="ListCount">1</Argument>
+        </Requirement>
+        <Requirement type="REQUIREMENT_CITY_FOLLOWS_RELIGION">
+            <Argument name="cityReligion">True</Argument>
+        </Requirement>
+        <Requirement type="REQUIREMENT_CITY_IS_ORIGINAL_OWNER">
+        </Requirement>
+        <Requirement type="REQUIREMENT_CITY_IS_TOWN">
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11187A_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_SENGOKU"/>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_UNHAPPY_CITIES">
+            <Argument name="Count">3</Argument>
+            <Argument name="OnlyFounded">True</Argument>
+        </Requirement>
+        <Requirement type="REQUIREMENT_GAME_TURN_IS_X_NARRATIVE">
+            <Argument name="AfterTurn">10</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11188A_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_SENGOKU"/>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_X_SETTLEMENTS_WITH_RELIGION">
+            <Argument name="OnlyFounded">False</Argument>
+            <Argument name="ForeignReligionOnly">True</Argument>
+            <Argument name="SettlementFounded">True</Argument>
+            <Argument name="Amount">3</Argument>
+        </Requirement>
+        <Requirement type="REQUIREMENT_COLLECTION_ANY_MET">
+            <Argument name="CollectionType">COLLECTION_PLAYER_CITIES</Argument>
+            <Argument name="RequirementSetId">SUBREQSET_11188A_NARRATIVE</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="SUBREQSET_11188A_NARRATIVE">
+        <Requirement type="REQUIREMENT_CITY_IS_HOLY_CITY">
+        </Requirement>
+        <Requirement type="REQUIREMENT_CITY_FOLLOWS_RELIGION">
+            <Argument name="cityReligion">True</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11189A_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_SENGOKU"/>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_COMPLETED_PROGRESSION_TREE_NODE" inverse="true">
+            <Argument name="ProgressionTreeNodeType">NODE_TECH_EX_GUNPOWDER</Argument>
+            <Argument name="MinDepth">1</Argument>
+        </Requirement>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
+            <Argument name="GossipTypes">GOSSIP_UNIT_COMBAT_DEATH01,GOSSIP_UNIT_COMBAT_DEATH02,GOSSIP_UNIT_COMBAT_DEATH03</Argument>
+            <Argument name="GOSSIP_UNIT_COMBAT_DEATH01">Hash,OtherPlayer,Self,Hash,KillingUnitType,UNIT_SAMURAI,Hash,DyingUnitType,UNIT_ARQUEBUSIER</Argument>
+            <Argument name="GOSSIP_UNIT_COMBAT_DEATH02">Hash,OtherPlayer,Self,Hash,KillingUnitType,UNIT_SAMURAI_2,Hash,DyingUnitType,UNIT_ARQUEBUSIER</Argument>
+            <Argument name="GOSSIP_UNIT_COMBAT_DEATH03">Hash,OtherPlayer,Self,Hash,KillingUnitType,UNIT_SAMURAI_3,Hash,DyingUnitType,UNIT_ARQUEBUSIER</Argument>
+            <Argument name="Amount">1</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11190A_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_SENGOKU"/>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
+            <Argument name="GossipTypes">GOSSIP_MAKE_DOW01</Argument>
+            <Argument name="GOSSIP_MAKE_DOW01">Hash,OtherPlayer,Other,Numeric,SettlementRatio,70</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11191A_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_SENGOKU"/>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_COMMANDERS_WITH_X_LEVELS">
+            <Argument name="LevelCount">1</Argument>
+            <Argument name="OnlyCommendations">True</Argument>
+            <Argument name="CommanderCount">2</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11192A_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_SENGOKU"/>
+        <Requirement type="REQUIREMENT_PLAYER_IS_AT_PEACE_WITH_ALL_MAJORS" inverse="true">
+        </Requirement>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_BUILDINGS">
+            <Argument name="Amount">5</Argument>
+            <Argument name="BuildingType">IMPROVEMENT_TEA_HOUSE</Argument>
+        </Requirement>
+        <Requirement type="REQUIREMENT_PLAYER_MET_IMMEDIATE_GOSSIP">
+            <Argument name="GossipTypes">GOSSIP_CONSTRUCT_BUILDING</Argument>
+            <Argument name="GOSSIP_CONSTRUCT_BUILDING">Hash,ConstructibleType,IMPROVEMENT_TEA_HOUSE</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11193A_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_SENGOKU"/>
+        <Requirement xref="REQ_STORY_LEADER_TOYOTOMI_HIDEYOSHI_SENGOKU"/>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
+            <Argument name="GossipTypes">GOSSIP_CONSTRUCT_BUILDING01</Argument>
+            <Argument name="GOSSIP_CONSTRUCT_BUILDING01">Hash,ConstructibleType,WONDER_HIMEJI_CASTLE</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11194A_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_SENGOKU"/>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_COMPLETED_PROGRESSION_TREE_NODE">
+            <Argument name="ProgressionTreeNodeType">NODE_CIVIC_EX_SENGOKU_KINSEI</Argument>
+            <Argument name="MinDepth">1</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_12017A_NARRATIVE">
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
+            <Argument name="GossipTypes">GOSSIP_PLAYERS_MEET01</Argument>
+            <Argument name="GOSSIP_PLAYERS_MEET01">Hash,OtherPlayer,Other,Hash,Civilization,CIVILIZATION_SENGOKU</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_10165A_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_SENGOKU"/>
+        <Requirement xref="REQ_STORY_LEADER_TOYOTOMI_HIDEYOSHI_SENGOKU"/>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_BUILDINGS">
+            <Argument name="BuildingType">IMPROVEMENT_TEA_HOUSE</Argument>
+            <Argument name="Amount">2</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_10165B_NARRATIVE">
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
+            <Argument name="GossipTypes">GOSSIP_GOLDEN_AGE01</Argument>
+        </Requirement>
+    </RequirementSet>
+</GameEffects>

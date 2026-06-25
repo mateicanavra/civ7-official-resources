@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+	<Modifier id="GREATPERSON_ALTAR_CULTURE" collection="COLLECTION_OWNER" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+		<Argument name="ConstructibleType">BUILDING_ALTAR</Argument>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount">3</Argument>
+		<String context="Summary">LOC_GREATPERSON_ACADEMY_CULTURE</String>
+	</Modifier>
+	<Modifier id="GREATPERSON_GREAT_WORK_CULTURE" collection="COLLECTION_OWNER" effect="EFFECT_CITY_ADJUST_YIELD_PER_GREAT_WORK" run-once="false" permanent="true">
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount">1</Argument>
+		<String context="Summary">LOC_GREATPERSON_ACADEMY_CULTURE</String>
+	</Modifier>
+	<Modifier id="GREATPERSON_JINJA_HAPPINESS" collection="COLLECTION_OWNER" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+		<Argument name="Tag">JINJA</Argument>
+		<Argument name="YieldType">YIELD_HAPPINESS</Argument>
+		<Argument name="Amount">2</Argument>
+		<String context="Summary">LOC_GREATPERSON_ACADEMY_CULTURE</String>
+	</Modifier>
+	<Modifier id="GREATPERSON_CULTURE_CULTURE" collection="COLLECTION_OWNER" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+		<Argument name="Tag">CULTURE</Argument>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount">2</Argument>
+		<String context="Summary">LOC_GREATPERSON_ACADEMY_CULTURE</String>
+	</Modifier>
+	<Modifier id="GREATPERSON_PALACE_HAPPINESS" collection="COLLECTION_OWNER" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+		<Argument name="ConstructibleType">BUILDING_PALACE</Argument>
+		<Argument name="YieldType">YIELD_HAPPINESS</Argument>
+		<Argument name="Amount">3</Argument>
+		<String context="Summary">LOC_GREATPERSON_ACADEMY_CULTURE</String>
+	</Modifier>
+	<Modifier id="GREATPERSON_GREAT_WORK_SLOTS" collection="COLLECTION_CITY_CONSTRUCTIBLES" effect="EFFECT_CONSTRUCTIBLE_ADJUST_GREAT_WORK_SLOTS" run-once="false" permanent="true">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CONSTRUCTIBLE_HAS_GREAT_WORK_SLOT"/>
+		</SubjectRequirements>
+		<Argument name="Amount">1</Argument>
+		<Argument name="SlotType">GREATWORKSLOT_ANY</Argument>
+	</Modifier>
+	<Modifier id="GREATPERSON_SPECIALISTS_CULTURE" collection="COLLECTION_OWNER" effect="EFFECT_CITY_ADJUST_WORKER_YIELD" run-once="false" permanent="true">
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount">1</Argument>
+		<String context="Summary">LOC_GREATPERSON_ACADEMY_CULTURE</String>
+	</Modifier>
+	<Modifier id="GREATPERSON_PALACE_INFLUENCE_PER_TURN" collection="COLLECTION_OWNER" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+		<Argument name="ConstructibleType">BUILDING_PALACE</Argument>
+		<Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+		<Argument name="Amount">3</Argument>
+		<String context="Summary">LOC_GREATPERSON_ACADEMY_CULTURE</String>
+	</Modifier>
+</GameEffects>

@@ -2,12 +2,15 @@ import { createSignal, createEffect, createMemo, createContext, useContext } fro
 import { createMutable, modifyMutable, reconcile } from '../../../vendor/solid-js/store/dist/store.js';
 import LiveEventManager from '../../../ui/shell/live-event-logic/live-event-logic.js';
 import { DatabaseCache } from '../../../ui/utilities/utilities-data.js';
-import { AgeSelectModel } from './age-select-model.js';
+import { AgeSelectModel, useAgeSelectModelContext } from './age-select-model.js';
 import { SetupParametersModel, PlayerSetupParametersModel } from './game-parameters-model.js';
 import { ModelRegistry, ModelLifecycle } from '../../services/model-registry.js';
 import { FullTextSearch } from '../../utilities/search-utils.js';
 
 const cachedCivDatabase = new DatabaseCache("config");
+function getTypeDomainKey(type, domain) {
+  return `${type}|${domain ?? ""}`;
+}
 function createCivSelectModel() {
   SetupParametersModel.get().forceRefresh();
   const playerConfig = PlayerSetupParametersModel.get().players[GameContext.localPlayerID];
@@ -23,13 +26,162 @@ function createCivSelectModel() {
   function getCivilizations() {
     const civilizations = [];
     if (playerCivilization) {
-      const civItemData = cachedCivDatabase.query("select * from CivilizationItems order by SortIndex");
+      const civItemData = cachedCivDatabase.query(
+        "select * from CivilizationItems order by SortIndex"
+      );
       const civTagData = cachedCivDatabase.query(
         "select * from CivilizationTags inner join Tags on CivilizationTags.TagType = Tags.TagType inner join TagCategories on Tags.TagCategoryType = TagCategories.TagCategoryType"
       );
-      const civUnlockData = cachedCivDatabase.query("select * from CivilizationUnlocks order by SortIndex");
-      const leaderUnlocks = cachedCivDatabase.query("select * from LeaderUnlocks order by SortIndex");
-      const civLeaderPairingData = cachedCivDatabase.query("select * from LeaderCivParings");
+      const civUnlockData = cachedCivDatabase.query(
+        "select * from CivilizationUnlocks order by SortIndex"
+      );
+      const leaderUnlocks = cachedCivDatabase.query(
+        "select * from LeaderUnlocks order by SortIndex"
+      );
+      const civLeaderPairingData = cachedCivDatabase.query(
+        "select * from LeaderCivParings"
+      );
+      const civilizationsData = cachedCivDatabase.query(
+        "select CivilizationType, CivilizationName, CivilizationIntroText from Civilizations"
+      );
+      const leadersData = cachedCivDatabase.query(
+        "select LeaderType, LeaderName from Leaders"
+      );
+      const legacyCivTraitsData = cachedCivDatabase.query(
+        "select CivilizationType, TraitType from LegacyCivilizationTraits"
+      );
+      const traditionsData = cachedCivDatabase.query(
+        "SELECT Traditions.TraitType, Traditions.Name, Traditions.Description, Traditions.AgeType, COALESCE(Nodes.Name, IIF(Syncretism.CivilizationType IS NULL, NULL, 'LOC_UI_SYNCRETISM_TITLE')) AS Civic FROM Traditions LEFT JOIN ( SELECT * FROM ProgressionTreeNodeUnlocks INNER JOIN ProgressionTreeNodes ON ProgressionTreeNodeUnlocks.ProgressionTreeNodeType = ProgressionTreeNodes.ProgressionTreeNodeType ) AS Nodes ON Traditions.TraditionType = Nodes.TargetType LEFT JOIN CivSelfSyncretismUnlocks AS Syncretism ON Syncretism.UnlockType = Traditions.TraditionType WHERE Civic IS NOT NULL"
+      );
+      const civItemsByType = /* @__PURE__ */ new Map();
+      for (const item of civItemData) {
+        const civType = item.CivilizationType ?? "";
+        if (!civType) {
+          continue;
+        }
+        const items = civItemsByType.get(civType);
+        if (items) {
+          items.push(item);
+        } else {
+          civItemsByType.set(civType, [item]);
+        }
+      }
+      const civTagsByTypeDomain = /* @__PURE__ */ new Map();
+      for (const tag of civTagData) {
+        const civType = tag.CivilizationType ?? "";
+        const civDomain = tag.CivilizationDomain ?? "";
+        if (!civType) {
+          continue;
+        }
+        const key = getTypeDomainKey(civType, civDomain);
+        const tags = civTagsByTypeDomain.get(key);
+        if (tags) {
+          tags.push(tag);
+        } else {
+          civTagsByTypeDomain.set(key, [tag]);
+        }
+      }
+      const civUnlocksByCivDomain = /* @__PURE__ */ new Map();
+      const civUnlocksByType = /* @__PURE__ */ new Map();
+      for (const unlock of civUnlockData) {
+        const civType = unlock.CivilizationType ?? "";
+        const civDomain = unlock.CivilizationDomain ?? "";
+        const unlockType = unlock.Type ?? "";
+        if (civType) {
+          const civDomainKey = getTypeDomainKey(civType, civDomain);
+          const civDomainUnlocks = civUnlocksByCivDomain.get(civDomainKey);
+          if (civDomainUnlocks) {
+            civDomainUnlocks.push(unlock);
+          } else {
+            civUnlocksByCivDomain.set(civDomainKey, [unlock]);
+          }
+        }
+        if (unlockType) {
+          const unlocks = civUnlocksByType.get(unlockType);
+          if (unlocks) {
+            unlocks.push(unlock);
+          } else {
+            civUnlocksByType.set(unlockType, [unlock]);
+          }
+        }
+      }
+      const leaderUnlocksByType = /* @__PURE__ */ new Map();
+      for (const unlock of leaderUnlocks) {
+        const unlockType = unlock.Type ?? "";
+        if (!unlockType) {
+          continue;
+        }
+        const unlocks = leaderUnlocksByType.get(unlockType);
+        if (unlocks) {
+          unlocks.push(unlock);
+        } else {
+          leaderUnlocksByType.set(unlockType, [unlock]);
+        }
+      }
+      const civLeaderPairingSet = /* @__PURE__ */ new Set();
+      for (const pairing of civLeaderPairingData) {
+        const civType = pairing.CivilizationType ?? "";
+        const leaderType2 = pairing.LeaderType ?? "";
+        if (!civType || !leaderType2) {
+          continue;
+        }
+        civLeaderPairingSet.add(`${civType}|${leaderType2}`);
+      }
+      const civTraitByCivType = /* @__PURE__ */ new Map();
+      for (const row of legacyCivTraitsData) {
+        const civType = row.CivilizationType ?? "";
+        const traitType = row.TraitType ?? "";
+        if (!civType || !traitType) {
+          continue;
+        }
+        civTraitByCivType.set(civType, traitType);
+      }
+      const civIntroTextByType = /* @__PURE__ */ new Map();
+      const civNameByType = /* @__PURE__ */ new Map();
+      for (const civ of civilizationsData) {
+        const civType = civ.CivilizationType ?? "";
+        if (!civType) {
+          continue;
+        }
+        civIntroTextByType.set(civType, civ.CivilizationIntroText ?? "");
+        civNameByType.set(civType, civ.CivilizationName ?? "");
+      }
+      const leaderNameByType = /* @__PURE__ */ new Map();
+      for (const leader of leadersData) {
+        const leaderType2 = leader.LeaderType ?? "";
+        if (!leaderType2) {
+          continue;
+        }
+        leaderNameByType.set(leaderType2, leader.LeaderName ?? "");
+      }
+      const traditionsByTrait = /* @__PURE__ */ new Map();
+      for (const row of traditionsData) {
+        const traitType = row.TraitType ?? "";
+        if (!traitType) {
+          continue;
+        }
+        const traditions = traditionsByTrait.get(traitType);
+        const tradition = {
+          title: row.Name ?? "",
+          text: row.Description ?? "",
+          plainText: Locale.plainText(row.Description ?? ""),
+          civic: row.Civic ?? "",
+          age: row.AgeType ?? void 0
+        };
+        if (traditions) {
+          traditions.push(tradition);
+        } else {
+          traditionsByTrait.set(traitType, [tradition]);
+        }
+      }
+      for (const traditions of traditionsByTrait.values()) {
+        traditions.sort((a, b) => {
+          if (a.civic == b.civic) return 0;
+          if (a.civic == "LOC_UI_SYNCRETISM_TITLE") return 1;
+          if (b.civic == "LOC_UI_SYNCRETISM_TITLE") return -1;
+          return Locale.compare(a.civic, b.civic);
+        });
+      }
       const leaderParameter = GameSetup.findPlayerParameter(GameContext.localPlayerID, "PlayerLeader");
       const leaderType = leaderParameter ? leaderParameter.value.value : "";
       const prevCivCount = Configuration.getPlayer(GameContext.localPlayerID).previousCivilizationCount;
@@ -68,9 +220,7 @@ function createCivSelectModel() {
         const bgImage = `bg-panel-${civID.replace("CIVILIZATION_", "").toLowerCase()}`;
         const icon = UI.getIconURL(civID == "RANDOM" ? "CIVILIZATION_RANDOM" : civID, "");
         const domain = GameSetup.resolveString(civData.originDomain);
-        const civTags = civTagData.filter(
-          (tag) => tag.CivilizationType == civID && tag.CivilizationDomain == domain
-        );
+        const civTags = civTagsByTypeDomain.get(getTypeDomainKey(civID, domain)) ?? [];
         const traits = civTags.filter((tag) => !tag.HideInDetails && tag.TagCategoryType == "TAG_CATEGORY_TRAIT").map((t) => t.Name);
         const age = civTags.filter((tag) => tag.HideInDetails && tag.TagCategoryType == "TAG_CATEGORY_APEX_AGE").map((t) => t.TagType?.replace("TAG_APEX_", ""));
         const apexAge = age?.length > 0 ? age[0] : "AGE_ANTIQUITY";
@@ -78,12 +228,9 @@ function createCivSelectModel() {
         const ageInfo = ages.sortedAges[ageSortIndex];
         const ageID = ageInfo?.type ?? "";
         const ageName = ageInfo?.name ?? "";
-        const civIntroText = cachedCivDatabase.query(
-          `select CivilizationIntroText from Civilizations where CivilizationType = '${civID}'`
-        );
-        const introText = civIntroText.length > 0 ? civIntroText[0].CivilizationIntroText : "";
-        const valueUnlocks = civUnlockData.filter(
-          (unlock) => unlock.CivilizationType == civID && unlock.CivilizationDomain == domain && (unlock.AgeDomain == null || ages.sortedAges.find((age2) => age2.type == unlock.AgeType)?.domain == unlock.AgeDomain)
+        const introText = civIntroTextByType.get(civID) ?? "";
+        const valueUnlocks = (civUnlocksByCivDomain.get(getTypeDomainKey(civID, domain)) ?? []).filter(
+          (unlock) => unlock.AgeDomain == null || ages.sortedAges.find((age2) => age2.type == unlock.AgeType)?.domain == unlock.AgeDomain
         );
         valueUnlocks.sort(
           (a, b) => a.AgeType == b.AgeType ? Locale.compare(a.Type, b.Type) : Locale.compare(a.AgeType, b.AgeType)
@@ -92,9 +239,7 @@ function createCivSelectModel() {
           const ageName2 = unlock.AgeDomain ? ages.getAgeName(unlock.AgeType) : null;
           return ageName2 ? Locale.stylize("LOC_CREATE_GAME_UNLOCK_ITEM_IN_AGE", unlock.Name, ageName2) : Locale.stylize("LOC_CREATE_GAME_UNLOCK_ITEM", unlock.Name);
         });
-        const civItems = civItemData.filter(
-          (item) => item.CivilizationType == civID
-        );
+        const civItems = civItemsByType.get(civID) ?? [];
         const abilityData = civItems.filter((item) => item.Kind == "KIND_TRAIT");
         const perAgeAbilities = abilityData.map((ability) => ({
           abilityTextTag: ability?.Description,
@@ -124,60 +269,38 @@ function createCivSelectModel() {
           age: item.AgeType ?? void 0
         }));
         if (LiveEventManager.restrictToPreferredCivs()) {
-          const civLeaderFixed = civLeaderPairingData.filter(
-            (row) => row.CivilizationType == civID && row.LeaderType == leaderType
-          );
-          if (civLeaderFixed.length == 0 && !UI.isMultiplayer())
+          const hasFixedPairing = civLeaderPairingSet.has(`${civID}|${leaderType}`);
+          if (!hasFixedPairing && !UI.isMultiplayer())
             continue;
         }
         const isLocked = civData.invalidReason != GameSetupDomainValueInvalidReason.Valid;
         const isOwned = civData.invalidReason != GameSetupDomainValueInvalidReason.NotValidOwnership;
-        const unlocksByCiv = civUnlockData.filter(
-          (unlock) => unlock.Type == civID && (unlock.AgeDomain == null || ages.sortedAges.find((a) => a.type == unlock.AgeType)?.domain == unlock.AgeDomain)
+        const unlocksByCiv = (civUnlocksByType.get(civID) ?? []).filter(
+          (unlock) => unlock.AgeDomain == null || ages.sortedAges.find((a) => a.type == unlock.AgeType)?.domain == unlock.AgeDomain
         ).map((civ) => {
-          const civInfo2 = Database.query(
-            "config",
-            `select CivilizationName from Civilizations where CivilizationType='${civ.CivilizationType}'`
-          )?.[0];
           const civId = Database.makeHash(civ.CivilizationType ?? "");
           return {
             text: Locale.compose(
               "LOC_AGE_TRANSITION_PLAY_AS",
-              civInfo2?.CivilizationName ?? ""
+              civNameByType.get(civ.CivilizationType ?? "") ?? ""
             ),
             isUnlocked: previousCivs.has(civId)
           };
         });
-        const unlocksByLeader = leaderUnlocks.filter(
-          (unlock) => unlock.Type == civID && (unlock.AgeDomain == null || ages.sortedAges.find((a) => a.type == unlock.AgeType)?.domain == unlock.AgeDomain)
+        const unlocksByLeader = (leaderUnlocksByType.get(civID) ?? []).filter(
+          (unlock) => unlock.AgeDomain == null || ages.sortedAges.find((a) => a.type == unlock.AgeType)?.domain == unlock.AgeDomain
         ).map((unlock) => {
-          const leader = Database.query(
-            "config",
-            `select LeaderName from Leaders where LeaderType='${unlock.LeaderType}'`
-          )?.[0];
           return {
-            text: Locale.compose("LOC_AGE_TRANSITION_PLAY_AS", leader?.LeaderName ?? ""),
+            text: Locale.compose(
+              "LOC_AGE_TRANSITION_PLAY_AS",
+              leaderNameByType.get(unlock.LeaderType ?? "") ?? ""
+            ),
             isUnlocked: leaderType == unlock.LeaderType
           };
         });
         const unlockedBy = [...unlocksByCiv, ...unlocksByLeader];
-        const civTrait = civID.replace("CIVILIZATION_", "TRAIT_");
-        const traditionsData = cachedCivDatabase.query(
-          `SELECT Traditions.Name, Traditions.Description, Traditions.AgeType, COALESCE(Nodes.Name, IIF(Syncretism.CivilizationType IS NULL, NULL, 'LOC_UI_SYNCRETISM_TITLE')) AS Civic FROM Traditions LEFT JOIN ( SELECT * FROM ProgressionTreeNodeUnlocks INNER JOIN ProgressionTreeNodes ON ProgressionTreeNodeUnlocks.ProgressionTreeNodeType = ProgressionTreeNodes.ProgressionTreeNodeType ) AS Nodes ON Traditions.TraditionType = Nodes.TargetType LEFT JOIN CivSelfSyncretismUnlocks AS Syncretism ON Syncretism.UnlockType = Traditions.TraditionType WHERE TraitType = '${civTrait}' AND Civic IS NOT NULL`
-        );
-        traditionsData.sort((a, b) => {
-          if (a.Civic == b.Civic) return 0;
-          if (a.Civic == "LOC_UI_SYNCRETISM_TITLE") return 1;
-          if (b.Civic == "LOC_UI_SYNCRETISM_TITLE") return -1;
-          return Locale.compare(a.Civic, b.Civic);
-        });
-        const traditions = traditionsData.map((row) => ({
-          title: row.Name ?? "",
-          text: row.Description ?? "",
-          plainText: Locale.plainText(row.Description ?? ""),
-          civic: row.Civic ?? "",
-          age: row.AgeType ?? void 0
-        }));
+        const civTrait = civTraitByCivType.get(civID) ?? civID.replace("CIVILIZATION_", "TRAIT_");
+        const traditions = civTrait ? traditionsByTrait.get(civTrait) ?? [] : [];
         const fulltext = Locale.toLower(
           [
             name,
@@ -260,6 +383,41 @@ function createCivSelectModel() {
     fulltextSearch
   };
 }
+const createAgeFilterModel = /* @__PURE__ */ (() => {
+  let model = null;
+  return function() {
+    if (model) return model;
+    const ageModel = useAgeSelectModelContext();
+    const isAgeTransition = UI.isInGame();
+    const options = [
+      { ageId: "ALL", name: Locale.compose("LOC_UI_CREATE_GAME_FILTER_ALL_AGES").toUpperCase() },
+      ...ageModel.sortedAges.map((a) => ({ ageId: a.type, name: Locale.compose(a.name).toUpperCase() }))
+    ];
+    const defaultAgeFilter = isAgeTransition ? options.find((a) => a.ageId == ageModel.nextAge.type) ?? options[0] : options[0];
+    const [selected, setSelected] = createSignal(defaultAgeFilter);
+    function isMatch(ageId) {
+      const selectedId = selected().ageId;
+      return selectedId == "ALL" || selectedId == ageId;
+    }
+    function reset() {
+      setSelected(defaultAgeFilter);
+    }
+    model = {
+      selected,
+      setSelected,
+      options,
+      isMatch,
+      reset
+    };
+    return model;
+  };
+})();
+const [getFilter, setFilter] = createSignal("LOC_LEGACIES_FILTER_ALL_ATTRIBUTES");
+const attrFilter = {
+  getFilter,
+  setFilter,
+  reset: () => setFilter("LOC_LEGACIES_FILTER_ALL_ATTRIBUTES")
+};
 const CivSelectModel = ModelRegistry.register(
   "CivSelectModel",
   ModelLifecycle.SharedInstance,
@@ -274,5 +432,5 @@ function useCivSelectModelContext() {
   return context;
 }
 
-export { CivSelectModel, CivSelectModelContext, createCivSelectModel, useCivSelectModelContext };
+export { CivSelectModel, CivSelectModelContext, attrFilter, createAgeFilterModel, createCivSelectModel, useCivSelectModelContext };
 //# sourceMappingURL=civ-select-model.js.map

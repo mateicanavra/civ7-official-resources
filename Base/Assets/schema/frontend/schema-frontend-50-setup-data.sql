@@ -28,6 +28,8 @@ CREATE TABLE 'Ages' (
 	'MaxTurns' INTEGER,
 	'FixedMaxTurns' BOOLEAN NOT NULL DEFAULT 0,
 	'Banner' TEXT,
+	'ChronologyIndex' INTEGER NOT NULL DEFAULT 0,
+	'Hidden' BOOLEAN NOT NULL DEFAULT 0,
 	'SortIndex' INTEGER NOT NULL,
 	PRIMARY KEY('Domain', 'AgeType')
 );

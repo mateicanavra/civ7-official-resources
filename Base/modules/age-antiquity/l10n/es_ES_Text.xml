@@ -5620,7 +5620,7 @@
       <Text>La historia continúa.</Text>
     </Replace>
     <Replace Tag="LOC_161A_IMPERATIVE" Language="es_ES">
-      <Text>Obtén 3/4 de Pieles, Camellos, Lana o Caballos.</Text>
+      <Text>Mejora 3/4 de Pieles, Camellos, Lana o Caballos.</Text>
     </Replace>
     <Replace Tag="LOC_161A_NAME" Language="es_ES">
       <Text>Subsidiemos a los zapateros.</Text>
@@ -13569,7 +13569,7 @@
       <Text>Inscripción en Preah Khan</Text>
     </Replace>
     <Replace Tag="LOC_CIVIC_AQ_ATTRIBUTE_EXPANSIONIST_SPECIALIST_CAP_INCREASE_DESCRIPTION" Language="es_ES">
-      <Text>+1 al [icon:SPECIALIST] [TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_LIMIT_TOOLTIP]límite de Especialistas[/TIP] en la [icon:NOTIFICATION_SELECT_CAPITAL] capital en esta era.</Text>
+      <Text>[B]+1 al [icon:SPECIALIST][/B] [TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_LIMIT_TOOLTIP]límite de Especialistas[/TIP] en la [icon:NOTIFICATION_SELECT_CAPITAL] [TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]capital[/TIP] en esta [TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]era[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_CIVIC_AQ_ATTRIBUTE_SYNCRETISM_CHOICE_AUTHOR" Language="es_ES">
       <Text>Judith Berling</Text>
@@ -15611,11 +15611,17 @@
     <Replace Tag="LOC_DISCOVERY_40028C_NAME" Language="es_ES">
       <Text>Las mercancías serán para las familias de los mercaderes.</Text>
     </Replace>
+    <Replace Tag="LOC_GOLDEN_AGE_CLASSICAL_REPUBLIC_1_DESCRIPTION" Language="es_ES">
+      <Text>+100 a [icon:YIELD_DIPLOMACY] Influencia inmediatamente.</Text>
+    </Replace>
     <Replace Tag="LOC_GOLDEN_AGE_CLASSICAL_REPUBLIC_NAME" Language="es_ES">
       <Text>República clásica</Text>
     </Replace>
     <Replace Tag="LOC_GOLDEN_AGE_DESPOTISM_NAME" Language="es_ES">
       <Text>Despotismo</Text>
+    </Replace>
+    <Replace Tag="LOC_GOLDEN_AGE_OLIGARCHY_1_DESCRIPTION" Language="es_ES">
+      <Text>+200 de [icon:YIELD_GOLD] Oro inmediatamente.</Text>
     </Replace>
     <Replace Tag="LOC_GOLDEN_AGE_OLIGARCHY_NAME" Language="es_ES">
       <Text>Oligarquía</Text>
@@ -15627,22 +15633,25 @@
       <Text>una cantidad concreta de</Text>
     </Replace>
     <Replace Tag="LOC_GOVERNMENT_CLASSICAL_REPUBLIC_DESCRIPTION" Language="es_ES">
-      <Text>Este gobierno te permite elegir uno de estos efectos durante una Celebración.</Text>
+      <Text>Este [icon:GOVERNMENT] [TIP:LOC_PEDIA_CONCEPTS_GOVERNMENT_TOOLTIP]gobierno[/TIP] te permite elegir uno de estos efectos durante una [icon:CELEBRATION] [TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]Celebración[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_GOVERNMENT_CLASSICAL_REPUBLIC_PASSIVE_DESCRIPTION" Language="es_ES">
-      <Text>Al completar una Maravilla, ganas [icon:YIELD_CULTURE] equivalente al 20 % del coste de la Maravilla.</Text>
+      <Text>+1 a [icon:YIELD_CULTURE] Cultura en asentamientos felices o con mayor Felicidad. +4 a [icon:YIELD_CULTURE] Cultura adicionales en ciudades dichosas o con mayor Felicidad.</Text>
     </Replace>
     <Replace Tag="LOC_GOVERNMENT_DESPOTISM_DESCRIPTION" Language="es_ES">
-      <Text>Este gobierno te permite elegir uno de estos efectos durante una Celebración.</Text>
+      <Text>Este [icon:GOVERNMENT] [TIP:LOC_PEDIA_CONCEPTS_GOVERNMENT_TOOLTIP]gobierno[/TIP] te permite elegir uno de estos efectos durante una [icon:CELEBRATION] [TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]Celebración[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_GOVERNMENT_DESPOTISM_PASSIVE_DESCRIPTION" Language="es_ES">
-      <Text>Adquiere una unidad de infantería en los nuevos asentamientos que fundes.</Text>
+      <Text>+2 a [icon:YIELD_SCIENCE] Ciencia por cada asentamiento conquistado. El Descontento causa una reducción de los rendimientos del 3 % en tus asentamientos por cada punto negativo de [icon:YIELD_HAPPINESS] Felicidad (normalmente se reduce un 5 %).</Text>
     </Replace>
     <Replace Tag="LOC_GOVERNMENT_OLIGARCHY_DESCRIPTION" Language="es_ES">
-      <Text>Este gobierno te permite elegir uno de estos efectos durante una Celebración.</Text>
+      <Text>Este [icon:GOVERNMENT] [TIP:LOC_PEDIA_CONCEPTS_GOVERNMENT_TOOLTIP]gobierno[/TIP] te permite elegir uno de estos efectos durante una [icon:CELEBRATION] [TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]Celebración[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_GOVERNMENT_OLIGARCHY_PASSIVE_DESCRIPTION" Language="es_ES">
-      <Text>+1 a la capacidad de recursos en ciudades.</Text>
+      <Text>+10 % a la [icon:YIELD_PRODUCTION] Producción destinada a construir edificios. +10 % al [icon:YIELD_GOLD] Oro destinado a comprar Almacenes en pueblos pesqueros y agrícolas.</Text>
+    </Replace>
+    <Replace Tag="LOC_GOVERNMENT_REVOLUCION_AQ_PASSIVE_DESCRIPTION" Language="es_ES">
+      <Text>+2 a [icon:YIELD_HAPPINESS] Felicidad en las ciudades por cada [icon:TRADITION] [TIP:LOC_PEDIA_CONCEPTS_TRADITION_TOOLTIP]Tradición[/TIP] asignada en el [icon:GOVERNMENT] [TIP:LOC_PEDIA_CONCEPTS_GOVERNMENT_TOOLTIP]gobierno[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_GREAT_PERSON_INDIVIDUAL_LOGIOS_ARETE_DESCRIPTION" Language="es_ES">
       <Text>Se activa en una Acrópolis para otorgar 75 de[icon:YIELD_DIPLOMACY] Influencia (a velocidad estándar).</Text>
@@ -15867,10 +15876,10 @@
       <Text>Efecto: se duplican los rendimientos básicos de esta [TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]mejora[/TIP] durante las [icon:CELEBRATION] [TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]Celebraciones[/TIP].[n]Se debe construir en [TIP:LOC_PEDIA_CONCEPTS_FLAT_TERRAIN_TOOLTIP]terreno Llano[/TIP] adyacente a un [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]distrito[/TIP]. Máximo de una por [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]asentamiento[/TIP].[n][TIP:LOC_PEDIA_CONCEPTS_UNIQUE_IMPROVEMENT_TOOLTIP]Mejora exclusiva[/TIP] de ciudad-estado.</Text>
     </Replace>
     <Replace Tag="LOC_IMPROVEMENT_HAN_GREAT_WALL_DESCRIPTION" Language="es_ES">
-      <Text>[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_IMPROVEMENT_TOOLTIP]Mejora exclusiva[/TIP] han. +2 a [icon:YIELD_CULTURE] Cultura. +1 a[icon:YIELD_HAPPINESS] Felicidad por adyacencia a segmentos de la Gran Muralla. +1 a [icon:CULTURE_VP] Turismo. Cuenta como [icon:Action_Fortify] Fortificación, +6 a la [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Fuerza de combate[/TIP] al defenderse. Cuando se construye, se construye también una carretera. Debe construirse en línea. No puede ramificarse ni bifurcarse. Su aumento de coste con cada construcción es menor que el de otras mejoras exclusivas. </Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_IMPROVEMENT_TOOLTIP]Mejora exclusiva[/TIP] han. +2 a [icon:YIELD_CULTURE] Cultura. +1 a[icon:YIELD_HAPPINESS] Felicidad por adyacencia a mejoras de la Gran Muralla. +1 a [icon:CULTURE_VP] [TIP:LOC_PEDIA_CONCEPTS_TOURISTS_TOOLTIP]Turismo[/TIP]. Cuenta como [icon:Action_Fortify] Fortificación, +6 a la [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Fuerza de combate[/TIP] al defenderse. Con cada mejora, se construye también una Carretera. Debe construirse en línea. No puede ramificarse ni bifurcarse. Su aumento de coste con cada construcción es menor que el de otras mejoras exclusivas.</Text>
     </Replace>
     <Replace Tag="LOC_IMPROVEMENT_HAN_GREAT_WALL_TOOLTIP" Language="es_ES">
-      <Text>Efecto: +6 a la [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Fuerza de combate[/TIP] para las unidades que defienden en esta casilla.[n]Debe construirse en línea y colocarse. No puede ramificarse ni bifurcarse.[n][TIP:LOC_PEDIA_CONCEPTS_UNIQUE_IMPROVEMENT_TOOLTIP]Mejora exclusiva[/TIP] han.</Text>
+      <Text>Efecto: +1 al [icon:CULTURE_VP] [TIP:LOC_PEDIA_CONCEPTS_TOURISTS_TOOLTIP]Turismo[/TIP]. Cuenta como [icon:Action_Fortify] Fortificación, +6 a la [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Fuerza de combate[/TIP] al defenderse.[n]Con cada mejora, se construye también una Carretera. Debe construirse en línea. No puede ramificarse ni bifurcarse.[n]Su aumento de coste con cada construcción es menor que el de otras mejoras exclusivas.[n][TIP:LOC_PEDIA_CONCEPTS_UNIQUE_IMPROVEMENT_TOOLTIP]Mejora exclusiva[/TIP] han.</Text>
     </Replace>
     <Replace Tag="LOC_IMPROVEMENT_HAWELT_DESCRIPTION" Language="es_ES">
       <Text>[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_IMPROVEMENT_TOOLTIP]Mejora exclusiva[/TIP] aksumita. +2 de [icon:YIELD_GOLD] Oro. +1 a [icon:YIELD_CULTURE] Cultura por adyacencia con [TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]Maravillas[/TIP] y otro Hawilt. Se debe construir en [TIP:LOC_PEDIA_CONCEPTS_FLAT_TERRAIN_TOOLTIP]terreno Llano[/TIP].</Text>
@@ -16023,28 +16032,28 @@
       <Text>Ondea un nuevo estandarte ornamentado con triunfales laureles. Roma busca a sus campeones.</Text>
     </Replace>
     <Replace Tag="LOC_MOD_ACHARYA_PANTHEON_DESCRIPTION" Language="es_ES">
-      <Text>Desbloquea la fundación de un [icon:NAR_REW_RELIGION] [TIP:LOC_PEDIA_CONCEPTS_PANTHEON_TOOLTIP]Panteón[/TIP] u otorga una Creencia adicional si ya has fundado uno.</Text>
+      <Text>Desbloquea la fundación de un [icon:NAR_REW_RELIGION] [TIP:LOC_PEDIA_CONCEPTS_PANTHEON_TOOLTIP]Panteón[/TIP] u otorga una [TIP:LOC_PEDIA_CONCEPTS_RELIGION_TOOLTIP]Creencia[/TIP] adicional si ya has fundado uno.</Text>
     </Replace>
     <Replace Tag="LOC_MOD_AQ_ENTERTAINMENT_CELEBRATION_VP_DESCRIPTION" Language="es_ES">
-      <Text>+2 a [icon:CULTURE_VP] Turismo por [icon:CELEBRATION] Celebraciones.</Text>
+      <Text>[B]+2 a [icon:CULTURE_VP][/B] [TIP:LOC_PEDIA_CONCEPTS_TOURISTS_TOOLTIP]Turismo[/TIP] por [icon:CELEBRATION] [TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]Celebraciones[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_MOD_AQ_FREE_MERCHANT_DESCRIPTION" Language="es_ES">
       <Text>Obtienes un [icon:UNIT_MERCHANT] Mercader gratis.</Text>
     </Replace>
     <Replace Tag="LOC_MOD_AQ_FUTURE_CIVIC_AGE_PROGRESS_DESCRIPTION" Language="es_ES">
-      <Text>+10 al [icon:NOTIFICATION_TEAM_VICTORIOUS] [TIP:LOC_PEDIA_CONCEPTS_AGE_PROGRESS_TOOLTIP]Progreso de era[/TIP].</Text>
+      <Text>[B]+10 al [icon:NOTIFICATION_TEAM_VICTORIOUS][/B] [TIP:LOC_PEDIA_CONCEPTS_AGE_PROGRESS_TOOLTIP]Progreso de era[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_MOD_AQ_FUTURE_CIVIC_ATTRIBUTE_DESCRIPTION" Language="es_ES">
-      <Text>+1 [icon:ATTRIBUTE] punto de [TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]atributo[/TIP] aleatorio.</Text>
+      <Text>[B]+1 [icon:ATTRIBUTE][/B] punto de [TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]atributo[/TIP] aleatorio.</Text>
     </Replace>
     <Replace Tag="LOC_MOD_AQ_FUTURE_CIVIC_BOOST_DESCRIPTION" Language="es_ES">
-      <Text>Un potenciador para un [icon:RADIAL_CIVICS] [TIP:LOC_PEDIA_CONCEPTS_CIVIC_TOOLTIP]Principio[/TIP] inicial no específico de civilización en la próxima [TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]era[/TIP].</Text>
+      <Text>Un potenciador para un [icon:CIVICS] [TIP:LOC_PEDIA_CONCEPTS_CIVIC_TOOLTIP]Principio[/TIP] inicial no específico de civilización en la próxima [TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]era[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_MOD_AQ_SKILLED_TRADES_GDP_IMPORTED_RESOURCES_DESCRIPTION" Language="es_ES">
-      <Text>+1 punto de [icon:ECONOMIC_VP] PIB por turno por [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]recursos[/TIP] importados que asignes a [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]ciudades[/TIP] (que no a pueblos).</Text>
+      <Text>[B]+1 punto [icon:ECONOMIC_VP][/B] de [TIP:LOC_PEDIA_CONCEPTS_GDP_TOOLTIP]PIB[/TIP] por turno por [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]recursos[/TIP] importados que asignes a [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]ciudades[/TIP] (que no a [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]pueblos[/TIP]).</Text>
     </Replace>
     <Replace Tag="LOC_MOD_AQ_TRADITION_SLOT_DESCRIPTION" Language="es_ES">
-      <Text>+1 [icon:NAR_REW_TRADITION_SLOT] espacio de [TIP:LOC_PEDIA_CONCEPTS_SOCIAL_POLICY_TOOLTIP]política social[/TIP].</Text>
+      <Text>[B]+1 [icon:NAR_REW_TRADITION_SLOT] espacio de política social.[/B]</Text>
     </Replace>
     <Replace Tag="LOC_MOD_CIV_WONDER_PRODUCTION_AKSUM_DESCRIPTION" Language="es_ES">
       <Text>+30 % a la [icon:YIELD_PRODUCTION] Producción para la [TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]Maravilla[/TIP] asociada de Aksum.</Text>
@@ -16077,7 +16086,7 @@
       <Text>+30 % a la [icon:YIELD_PRODUCTION] Producción por ser la [TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]Maravilla[/TIP] asociada del Imperio romano.</Text>
     </Replace>
     <Replace Tag="LOC_MOD_CODE_OF_LAWS_REVEAL_CIV_CULTURE_TREE_DESCRIPTION" Language="es_ES">
-      <Text>Desbloquea el árbol de Principios exclusivos de la civilización.</Text>
+      <Text>Desbloquea el [icon:CIVICS] [TIP:LOC_PEDIA_CONCEPTS_CIVIC_TOOLTIP]árbol de Principios[/TIP] exclusivos de la civilización.</Text>
     </Replace>
     <Replace Tag="LOC_MOD_DISCIPLINE_FREE_COMMANDER_DESCRIPTION" Language="es_ES">
       <Text>Obtienes un [icon:UNIT_ARMY_COMMANDER] [TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]Comandante[/TIP] de ejército gratis.</Text>
@@ -16086,7 +16095,7 @@
       <Text>Desbloquea la fundación de un [icon:NAR_REW_RELIGION] [TIP:LOC_PEDIA_CONCEPTS_PANTHEON_TOOLTIP]Panteón[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_MOD_SENATUS_POPULUSQUE_ROMANUS_TRADITION_SLOTS_DESCRIPTION" Language="es_ES">
-      <Text>+1 [icon:NAR_REW_TRADITION_SLOT] espacio de Tradición.</Text>
+      <Text>[B]+1 [icon:NAR_REW_TRADITION_SLOT] espacio de Tradición[/B].</Text>
     </Replace>
     <Replace Tag="LOC_NODE_CIVIC_EX_AKSUM_RENAISSANCE_NAME" Language="es_ES">
       <Text>Renacimiento aksumita</Text>
@@ -16383,451 +16392,472 @@
       <Text>Queda al menos en tercera posición en la victoria [B]Gran biblioteca[/B].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_AKHET_I_DESCRIPTION" Language="es_ES">
-      <Text>+2 a [icon:YIELD_FOOD] en [icon:CITY_RURAL] [TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]mejoras[/TIP] y [icon:CITY_URBAN] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]distritos[/TIP] emplazados en [TIP:LOC_PEDIA_CONCEPTS_NAVIGABLE_RIVER_TOOLTIP]Ríos navegables[/TIP].</Text>
+      <Text>[B]+2 a [icon:YIELD_FOOD][/B] en [icon:CITY_RURAL] [TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]mejoras[/TIP] y [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]distritos[/TIP] [icon:CITY_URBAN] emplazados en [TIP:LOC_PEDIA_CONCEPTS_NAVIGABLE_RIVER_TOOLTIP]Ríos navegables[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_AKHET_II_DESCRIPTION" Language="es_ES">
-      <Text>+3 a [icon:YIELD_FOOD] en [icon:CITY_RURAL] [TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]mejoras[/TIP] y [icon:CITY_URBAN] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]distritos[/TIP] emplazados en [TIP:LOC_PEDIA_CONCEPTS_NAVIGABLE_RIVER_TOOLTIP]Ríos navegables[/TIP].</Text>
+      <Text>[B]+3 a [icon:YIELD_FOOD][/B] en [icon:CITY_RURAL] [TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]mejoras[/TIP] y [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]distritos[/TIP] [icon:CITY_URBAN] emplazados en [TIP:LOC_PEDIA_CONCEPTS_NAVIGABLE_RIVER_TOOLTIP]Ríos navegables[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_AKHET_TOOLTIP" Language="es_ES">
       <Text>Ajet</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_AKSUM_SYNCRETISM_EXPLORATION_DESCRIPTION" Language="es_ES">
-      <Text>+1 a la [icon:YIELD_PRODUCTION] en la [icon:NOTIFICATION_SELECT_CAPITAL] [TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]capital[/TIP] por cada [icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]ruta comercial[/TIP] activa. Las rutas comerciales obtienen +2 al [icon:Action_Showall] [TIP:LOC_PEDIA_CONCEPTS_SIGHT_TOOLTIP]alcance visual[/TIP] y no se pueden [icon:Action_Pillage] saquear.</Text>
+      <Text>[B]+1 a la [icon:YIELD_PRODUCTION][/B] en la [icon:NOTIFICATION_SELECT_CAPITAL] [TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]capital[/TIP] por cada [icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]ruta comercial[/TIP] activa. Las [icon:TRADE_ROUTE] rutas comerciales obtienen [B]+2 al [icon:Action_Showall][/B] [TIP:LOC_PEDIA_CONCEPTS_SIGHT_TOOLTIP]alcance visual[/TIP] y no se pueden saquear.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_AKSUM_SYNCRETISM_MODERN_DESCRIPTION" Language="es_ES">
-      <Text>+2 a la [icon:YIELD_PRODUCTION] en la [icon:NOTIFICATION_SELECT_CAPITAL] [TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]capital[/TIP] por cada [icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]ruta comercial[/TIP] activa. Las rutas comerciales obtienen +2 al [icon:Action_Showall] [TIP:LOC_PEDIA_CONCEPTS_SIGHT_TOOLTIP]alcance visual[/TIP] y no se pueden [icon:Action_Pillage] saquear.</Text>
+      <Text>[B]+2 a la [icon:YIELD_PRODUCTION][/B] en la [icon:NOTIFICATION_SELECT_CAPITAL] [TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]capital[/TIP] por cada [icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]ruta comercial[/TIP] activa. Las [icon:TRADE_ROUTE] rutas comerciales obtienen [B]+2 al [icon:Action_Showall][/B] [TIP:LOC_PEDIA_CONCEPTS_SIGHT_TOOLTIP]alcance visual[/TIP] y no se pueden saquear.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_AKSUM_SYNCRETISM_TOOLTIP" Language="es_ES">
       <Text>Ruta del incienso</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_AMBITIOUS_GOVERNORS_DESCRIPTION" Language="es_ES">
-      <Text>-6 a [icon:YIELD_HAPPINESS] en las [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]ciudades[/TIP].</Text>
+      <Text>[B]-6 a [icon:YIELD_HAPPINESS][/B] en las [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]ciudades[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_ANGARIUM_DESCRIPTION" Language="es_ES">
-      <Text>+3 de [icon:YIELD_GOLD] en los [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]pueblos[/TIP], el doble en [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]pueblos capturados[/TIP] de cualquier era.</Text>
+      <Text>[B]+3 de [icon:YIELD_GOLD][/B] en los [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]pueblos[/TIP], el doble en [icon:YIELD_TOWNS] pueblos capturados de cualquier [TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]era[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_ANGARIUM_II_DESCRIPTION" Language="es_ES">
-      <Text>+6 de [icon:YIELD_GOLD] en los [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]pueblos[/TIP], el doble en [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]pueblos capturados[/TIP] de cualquier era.</Text>
+      <Text>[B]+6 de [icon:YIELD_GOLD][/B] en los [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]pueblos[/TIP], el doble en [icon:YIELD_TOWNS] pueblos capturados de cualquier [TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]era[/TIP].</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_ANNONA_DESCRIPTION" Language="es_ES">
+      <Text>[B]+1 a [icon:YIELD_FOOD][/B] en edificios de Almacén de Alimentos de asentamientos felices o con mayor Felicidad, o +2 en asentamientos dichosos o con mayor Felicidad.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_AQ_ATTRIBUTE_CULTURAL_01_DESCRIPTION" Language="es_ES">
-      <Text>+15% a la [icon:YIELD_PRODUCTION] destinada a construir [icon:WONDER] [TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]Maravillas[/TIP].</Text>
+      <Text>[B]+15 % a la [icon:YIELD_PRODUCTION][/B] destinada a construir [icon:WONDER] [TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]Maravillas[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_AQ_ATTRIBUTE_DIPLOMATIC_01_HAPPINESS_DESCRIPTION" Language="es_ES">
-      <Text>Los [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]edificios[/TIP] de Felicidad no tienen coste de [TIP:LOC_PEDIA_CONCEPTS_MAINTENANCE_TOOLTIP]mantenimiento[/TIP] en las [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]ciudades[/TIP].</Text>
+      <Text>Los [icon:CITY_BUILDING_LIST] [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]edificios de Felicidad[/TIP] no tienen coste de [TIP:LOC_PEDIA_CONCEPTS_MAINTENANCE_TOOLTIP]mantenimiento[/TIP] en las [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]ciudades[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_AQ_ATTRIBUTE_DIPLOMATIC_01_INFLUENCE_DESCRIPTION" Language="es_ES">
-      <Text>+25 % a la [icon:YIELD_DIPLOMACY] destinada a iniciar [icon:ENDEAVOR] [TIP:LOC_PEDIA_CONCEPTS_ENDEAVOR_TOOLTIP]Esfuerzos[/TIP]. +1 de [icon:YIELD_GOLD] por los [icon:ENDEAVOR] Esfuerzos activos que hayas iniciado o apoyado.</Text>
+      <Text>[B]+25 % a la [icon:YIELD_DIPLOMACY][/B] destinada a iniciar [icon:ENDEAVOR] [TIP:LOC_PEDIA_CONCEPTS_ENDEAVOR_TOOLTIP]Esfuerzos[/TIP]. [B]+1 de [icon:YIELD_GOLD][/B] por los [icon:ENDEAVOR] Esfuerzos activos que hayas iniciado o apoyado.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_AQ_ATTRIBUTE_ECONOMIC_01_DESCRIPTION" Language="es_ES">
-      <Text>+1 a la [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCE_CAPACITY_TOOLTIP]capacidad de recursos[/TIP] en [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]asentamientos[/TIP] con un [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]edificio[/TIP] de Oro.</Text>
+      <Text>[B]+1 a la [icon:RADIAL_RESOURCES][/B] [TIP:LOC_PEDIA_CONCEPTS_RESOURCE_CAPACITY_TOOLTIP]capacidad de recursos[/TIP] en [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]asentamientos[/TIP] con un [icon:CITY_BUILDING_LIST] [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]edificio de Oro[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_AQ_ATTRIBUTE_EXPANSIONIST_01_DESCRIPTION" Language="es_ES">
-      <Text>+10 % a la [icon:YIELD_PRODUCTION] destinada a construir y +10 % al [icon:YIELD_GOLD] destinado a comprar [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]edificios[/TIP] de [icon:YIELD_WAREHOUSE] [TIP:LOC_PEDIA_CONCEPTS_WAREHOUSE_TOOLTIP]Almacén[/TIP].</Text>
+      <Text>[B]+10 % a la [icon:YIELD_PRODUCTION][/B] destinada a construir y [B]+10 % al [icon:YIELD_GOLD][/B] destinado a comprar [icon:YIELD_WAREHOUSE] [TIP:LOC_PEDIA_CONCEPTS_WAREHOUSE_TOOLTIP]edificios de Almacén[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_AQ_ATTRIBUTE_MILITARISTIC_01_DESCRIPTION" Language="es_ES">
-      <Text>+25 % a la [icon:YIELD_PRODUCTION] destinada a entrenar a cualquier [icon:UNIT_ARMY_COMMANDER] [TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]Comandante[/TIP]. +1 de [icon:YIELD_GOLD] por cada unidad agrupada en un [icon:UNIT_ARMY_COMMANDER] Comandante.</Text>
+      <Text>[B]+25 % a la [icon:YIELD_PRODUCTION][/B] destinada a entrenar a cualquier [icon:UNIT_ARMY_COMMANDER] [TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]Comandante[/TIP]. [B]+1 de [icon:YIELD_GOLD][/B] por cada unidad agrupada en un [icon:UNIT_ARMY_COMMANDER] Comandante.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_AQ_ATTRIBUTE_SCIENTIFIC_01_DESCRIPTION" Language="es_ES">
-      <Text>+5 % a la [icon:YIELD_PRODUCTION] destinada a [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]edificios[/TIP] por cada [icon:RADIAL_TECH] [TIP:LOC_PEDIA_CONCEPTS_TECH_MASTERY_TOOLTIP]dominio de Tecnología[/TIP] completado en una [TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]era[/TIP].</Text>
+      <Text>[B]+5 % a la [icon:YIELD_PRODUCTION][/B] destinada a [icon:CITY_BUILDING_LIST] [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]edificios[/TIP] por cada [TIP:LOC_PEDIA_CONCEPTS_MASTERY_TOOLTIP]dominio de Tecnología[/TIP] completado en una [TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]era[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_ARTHASHASTRA_I_DESCRIPTION" Language="es_ES">
-      <Text>+1 a [icon:YIELD_SCIENCE] por cada 5 puntos de superávit de [icon:YIELD_HAPPINESS] en [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]ciudades[/TIP].</Text>
+      <Text>[B]+1 de [icon:YIELD_SCIENCE][/B] por cada 5 puntos de superávit de [icon:YIELD_HAPPINESS] en [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]ciudades[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_ARTHASHASTRA_II_DESCRIPTION" Language="es_ES">
-      <Text>+1 a [icon:YIELD_SCIENCE] por cada 5 puntos de superávit de [icon:YIELD_HAPPINESS] en [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]ciudades[/TIP]. +10 % a [icon:YIELD_SCIENCE] en ciudades donde haya una [icon:CELEBRATION] [TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]Celebración[/TIP] en curso.</Text>
+      <Text>[B]+1 de [icon:YIELD_SCIENCE][/B] por cada 5 puntos de superávit de [icon:YIELD_HAPPINESS] en [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]ciudades[/TIP]. [B]+10 % a la [icon:YIELD_SCIENCE][/B] en [icon:YIELD_CITIES] ciudades donde haya una [icon:CELEBRATION] [TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]Celebración[/TIP] en curso.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_ARTHASHASTRA_TOOLTIP" Language="es_ES">
       <Text>Arthashastra</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_ATASSA_DESCRIPTION" Language="es_ES">
-      <Text>+3 a la [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Fuerza de combate[/TIP] de las [TIP:LOC_PEDIA_CONCEPTS_LAND_UNITS_TOOLTIP]unidades terrestres[/TIP] cuando se defienden. Al firmar la paz con otro líder, la Relación con él vuelve a ser de Neutralidad y recibes un [TIP:LOC_PEDIA_CONCEPTS_MERCHANTS_TOOLTIP]Mercader[/TIP] gratis en tu [icon:NOTIFICATION_SELECT_CAPITAL] capital.</Text>
+      <Text>[B]+3 a la [icon:NAR_REW_COMBAT][/B] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Fuerza de combate[/TIP] de las [TIP:LOC_PEDIA_CONCEPTS_LAND_UNITS_TOOLTIP]unidades terrestres[/TIP] cuando se defienden. Al firmar la paz con otro líder, la [icon:RELATIONSHIP] [TIP:LOC_PEDIA_CONCEPTS_RELATIONSHIP_TOOLTIP]Relación[/TIP] con él vuelve a ser de Neutralidad y recibes un [icon:UNIT_MERCHANT] Mercader gratis en tu [icon:NOTIFICATION_SELECT_CAPITAL] [TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]capital[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_AUXILIA_I_DESCRIPTION" Language="es_ES">
-      <Text>+3 % a la [icon:YIELD_PRODUCTION] destinada a producir [TIP:LOC_PEDIA_CONCEPTS_MILITARY_UNIT_TOOLTIP]unidades militares[/TIP] en la [icon:NOTIFICATION_SELECT_CAPITAL] capital por cada [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]pueblo[/TIP]. Entrenar a una unidad de infantería otorga una cantidad de [icon:YIELD_CULTURE] equivalente al 25 % de su coste de [icon:YIELD_PRODUCTION].</Text>
+      <Text>[B]+3 % a la [icon:YIELD_PRODUCTION][/B] destinada a producir [TIP:LOC_PEDIA_CONCEPTS_MILITARY_UNIT_TOOLTIP]unidades militares[/TIP] en la [icon:NOTIFICATION_SELECT_CAPITAL] [TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]capital[/TIP] por cada [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]pueblo[/TIP]. Entrenar a una [TIP:LOC_PEDIA_CONCEPTS_INFANTRY_UNITS_TOOLTIP]unidad de infantería[/TIP] otorga una cantidad de [icon:YIELD_CULTURE] equivalente al 25 % de su coste de [icon:YIELD_PRODUCTION].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_AUXILIA_II_DESCRIPTION" Language="es_ES">
-      <Text>+5 % a la [icon:YIELD_PRODUCTION] destinada a producir unidades militares en la [icon:NOTIFICATION_SELECT_CAPITAL] capital por cada [icon:YIELD_TOWNS] pueblo. Entrenar a una unidad de infantería otorga una cantidad de [icon:YIELD_CULTURE] equivalente al 50 % de su coste de [icon:YIELD_PRODUCTION].</Text>
+      <Text>[B]+5 % a la [icon:YIELD_PRODUCTION][/B] destinada a producir [TIP:LOC_PEDIA_CONCEPTS_MILITARY_UNIT_TOOLTIP]unidades militares[/TIP] en la [icon:NOTIFICATION_SELECT_CAPITAL] [TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]capital[/TIP] por cada [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]pueblo[/TIP]. Entrenar a una [TIP:LOC_PEDIA_CONCEPTS_INFANTRY_UNITS_TOOLTIP]unidad de infantería[/TIP] otorga una cantidad de [icon:YIELD_CULTURE] equivalente al 50 % de su coste de [icon:YIELD_PRODUCTION].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_AUXILIA_TOOLTIP" Language="es_ES">
       <Text>Auxilia</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_BANDITRY_DESCRIPTION" Language="es_ES">
-      <Text>-5 de [icon:YIELD_GOLD] por cada [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]recurso importado[/TIP].</Text>
+      <Text>[B]-5 de [icon:YIELD_GOLD][/B] por cada [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]recurso importado[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_BARBARIAN_MERCENARIES_DESCRIPTION" Language="es_ES">
-      <Text>+100% de [icon:YIELD_GOLD] por [TIP:LOC_PEDIA_CONCEPTS_MAINTENANCE_TOOLTIP]mantenimiento[/TIP] de [TIP:LOC_PEDIA_CONCEPTS_MILITARY_UNIT_TOOLTIP]unidades militares[/TIP].</Text>
+      <Text>[B]+100 % de [icon:YIELD_GOLD][/B] por [TIP:LOC_PEDIA_CONCEPTS_MAINTENANCE_TOOLTIP]mantenimiento[/TIP] de [TIP:LOC_PEDIA_CONCEPTS_MILITARY_UNIT_TOOLTIP]unidades militares[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_BON_OM_TOUK_DESCRIPTION" Language="es_ES">
-      <Text>Los [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]edificios[/TIP] de Ciencia que haya en [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]ciudades[/TIP] obtienen una bonificación de adyacencia por [TIP:LOC_PEDIA_CONCEPTS_FLOODPLAINS_TOOLTIP]terrenos de Aluvión[/TIP]. +3 [icon:GREATWORK] espacios de [TIP:LOC_PEDIA_CONCEPTS_GREAT_WORKS_TOOLTIP]Grandes obras[/TIP] en el palacio.</Text>
+      <Text>Los [icon:CITY_BUILDING_LIST] [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]edificios[/TIP] de Ciencia que haya en [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]ciudades[/TIP] obtienen una bonificación de adyacencia por [icon:CITY_UNIMPROVED] [TIP:LOC_PEDIA_CONCEPTS_FLOODPLAINS_TOOLTIP]terrenos de Aluvión[/TIP]. [B]+3 [icon:NAR_REW_GREATWORK][/B] espacios de [TIP:LOC_PEDIA_CONCEPTS_GREAT_WORKS_TOOLTIP]Grandes obras[/TIP] en el [TIP:LOC_PEDIA_CONCEPTS_PALACE_TOOLTIP]palacio[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_CAPITAL_UNHAPPINESS_DESCRIPTION" Language="es_ES">
-      <Text>-10 a [icon:YIELD_HAPPINESS] en tu [icon:NOTIFICATION_SELECT_CAPITAL] capital.</Text>
+      <Text>[B]-10 a [icon:YIELD_HAPPINESS][/B] en tu [icon:NOTIFICATION_SELECT_CAPITAL] [TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]capital[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_CASTES_DESCRIPTION" Language="es_ES">
-      <Text>+2 a [icon:YIELD_FOOD] en todos los [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]asentamientos[/TIP].</Text>
+      <Text>[B]+2 a [icon:YIELD_FOOD][/B] en todos los [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]asentamientos[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_CHARISMATIC_LEADER_DESCRIPTION" Language="es_ES">
-      <Text>+2 a [icon:YIELD_CULTURE] en el Palacio.</Text>
+      <Text>[B]+2 a [icon:YIELD_CULTURE][/B] en el [TIP:LOC_PEDIA_CONCEPTS_PALACE_TOOLTIP]Palacio[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_CHARVAKA_I_DESCRIPTION" Language="es_ES">
-      <Text>+1 de [icon:YIELD_GOLD] por cada 5 puntos de superávit de [icon:YIELD_HAPPINESS] en [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]ciudades[/TIP].</Text>
+      <Text>[B]+1 de [icon:YIELD_GOLD][/B] por cada 5 puntos de superávit de [icon:YIELD_HAPPINESS] en [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]ciudades[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_CHARVAKA_II_DESCRIPTION" Language="es_ES">
-      <Text>+1 de [icon:YIELD_GOLD] por cada 5 puntos de superávit de [icon:YIELD_HAPPINESS] en [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]ciudades[/TIP]. +10 % a la [icon:YIELD_PRODUCTION] en ciudades donde haya una [icon:CELEBRATION] [TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]Celebración[/TIP] en curso.</Text>
+      <Text>[B]+1 de [icon:YIELD_GOLD][/B] por cada 5 puntos de superávit de [icon:YIELD_HAPPINESS] en [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]ciudades[/TIP]. [B]+10 % a la [icon:YIELD_PRODUCTION][/B] en [icon:YIELD_CITIES] ciudades donde haya una [icon:CELEBRATION] [TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]Celebración[/TIP] en curso.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_CHARVAKA_TOOLTIP" Language="es_ES">
       <Text>Chárvaka</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_CITY_GUARD_DESCRIPTION" Language="es_ES">
-      <Text>+3 a la [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Fuerza de combate[/TIP] de los [icon:CITY_FORTIFIED] [TIP:LOC_PEDIA_CONCEPTS_FORTIFIED_DISTRICTS_TOOLTIP]distritos fortificados[/TIP].</Text>
+      <Text>[B]+3 a la [icon:NAR_REW_COMBAT][/B] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Fuerza de combate[/TIP] de los [icon:CITY_FORTIFIED] [TIP:LOC_PEDIA_CONCEPTS_FORTIFIED_DISTRICTS_TOOLTIP]distritos fortificados[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_CLAN_NETWORKS_DESCRIPTION" Language="es_ES">
-      <Text>+20 % de [icon:GROWTH_RATE] [TIP:LOC_PEDIA_CONCEPTS_GROWTH_RATE_TOOLTIP]tasa de crecimiento[/TIP] en [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]pueblos[/TIP] con enfoque de [icon:PROJECT_GROWTH] Crecimiento.</Text>
+      <Text>[B]+20 % de [icon:GROWTH_RATE][/B] [TIP:LOC_PEDIA_CONCEPTS_GROWTH_RATE_TOOLTIP]tasa de crecimiento[/TIP] en [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]pueblos[/TIP] con enfoque de Crecimiento.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_COINAGE_DESCRIPTION" Language="es_ES">
-      <Text>+1 de [icon:YIELD_GOLD] por cada [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]recurso[/TIP] importado. +1 al [icon:Action_Move] Movimiento de los [icon:UNIT_MERCHANT] Mercaderes.</Text>
+      <Text>[B]+1 de [icon:YIELD_GOLD][/B] por cada [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]recurso[/TIP] importado. [B]+1 al [icon:Action_Move] Movimiento[/B] de los [icon:UNIT_MERCHANT] Mercaderes.</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_COMMANDERIES_DESCRIPTION" Language="es_ES">
+      <Text>[B]+20% de [icon:YIELD_GOLD][/B] destinado a mejorar unidades.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_COMMODITIES_DESCRIPTION" Language="es_ES">
-      <Text>+1 a la [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCE_CAPACITY_TOOLTIP]capacidad de recursos[/TIP] en [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]ciudades[/TIP].</Text>
+      <Text>[B]+1 a la [icon:RADIAL_RESOURCES][/B] [TIP:LOC_PEDIA_CONCEPTS_RESOURCE_CAPACITY_TOOLTIP]capacidad de recursos[/TIP] en [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]ciudades[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_CONSCRIPTION_DESCRIPTION" Language="es_ES">
-      <Text>-1 de [icon:YIELD_GOLD] por [TIP:LOC_PEDIA_CONCEPTS_MAINTENANCE_TOOLTIP]mantenimiento[/TIP] de las unidades.</Text>
+      <Text>[B]-1 de [icon:YIELD_GOLD][/B] por [TIP:LOC_PEDIA_CONCEPTS_MAINTENANCE_TOOLTIP]mantenimiento[/TIP] de las unidades.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_CURSUS_HONORUM_DESCRIPTION" Language="es_ES">
-      <Text>+2 a [icon:YIELD_CULTURE] en [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]edificios[/TIP] de Diplomacia y militares. El efecto se duplica si el [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]edificio[/TIP] es de ambos tipos. Los [icon:UNIT_ARMY_COMMANDER] Comandantes de ejército obtienen gratis el [icon:NAR_REW_PROMOTION] [TIP:LOC_PEDIA_CONCEPTS_PROMOTION_TOOLTIP]ascenso[/TIP] Baluarte.</Text>
+      <Text>[B]+2 a [icon:YIELD_CULTURE][/B] en [icon:CITY_BUILDING_LIST] [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]edificios[/TIP] de Diplomacia y militares. El efecto se duplica si el [icon:CITY_BUILDING_LIST] edificio es de ambos tipos. Los [icon:UNIT_ARMY_COMMANDER] [TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]Comandantes[/TIP] de ejército obtienen gratis el [TIP:LOC_PEDIA_CONCEPTS_PROMOTION_TOOLTIP]ascenso[/TIP] Baluarte.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_DECENTRALIZATION_DESCRIPTION" Language="es_ES">
-      <Text>-75 % de [icon:YIELD_GOLD] y a [icon:YIELD_FOOD] en [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]pueblos[/TIP] con una [icon:TOWN_FOCUS] Especialización.</Text>
+      <Text>[B]-75 % de [icon:YIELD_GOLD][/B] y a [icon:YIELD_FOOD] en [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]pueblos[/TIP] con una Especialización.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_DELIAN_LEAGUE_I_DESCRIPTION" Language="es_ES">
-      <Text>+30 % a la [icon:YIELD_DIPLOMACY] destinada a iniciar [icon:ENDEAVOR] [TIP:LOC_PEDIA_CONCEPTS_ENDEAVOR_TOOLTIP]Esfuerzos[/TIP].</Text>
+      <Text>[B]+30 % a la [icon:YIELD_DIPLOMACY][/B] destinada a iniciar [icon:ENDEAVOR] [TIP:LOC_PEDIA_CONCEPTS_ENDEAVOR_TOOLTIP]Esfuerzos[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_DELIAN_LEAGUE_II_DESCRIPTION" Language="es_ES">
-      <Text>+50 % a la [icon:YIELD_DIPLOMACY] destinada a iniciar y apoyar [icon:ENDEAVOR] [TIP:LOC_PEDIA_CONCEPTS_ENDEAVOR_TOOLTIP]Esfuerzos[/TIP].</Text>
+      <Text>[B]+50 % a la [icon:YIELD_DIPLOMACY][/B] destinada a iniciar y apoyar [icon:ENDEAVOR] [TIP:LOC_PEDIA_CONCEPTS_ENDEAVOR_TOOLTIP]Esfuerzos[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_DESPOTISM_UNHAPPINESS_DESCRIPTION" Language="es_ES">
-      <Text>-6 a [icon:YIELD_HAPPINESS] en [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]asentamientos[/TIP] sin [TIP:LOC_PEDIA_CONCEPTS_WALL_TOOLTIP]Murallas[/TIP].</Text>
+      <Text>[B]-6 a [icon:YIELD_HAPPINESS][/B] en [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]asentamientos[/TIP] sin una fortificación de [icon:CITY_FORTIFIED] [TIP:LOC_PEDIA_CONCEPTS_WALL_TOOLTIP]Murallas[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_DIPLOMACY_FAVOR_ACCRUE_DESCRIPTION" Language="es_ES">
-      <Text>Las [icon:RELATIONSHIP] Relaciones aumentan un 25 % más al apoyar [icon:DIPLOMATIC_ACTION] Acciones diplomáticas.</Text>
+      <Text>+25 % a la [icon:RELATIONSHIP] [TIP:LOC_PEDIA_CONCEPTS_RELATIONSHIP_TOOLTIP]Relación[/TIP] obtenida al apoyar Acciones diplomáticas.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_DRAMA_AND_POETRY_DESCRIPTION" Language="es_ES">
-      <Text>+2 a [icon:YIELD_CULTURE] en [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]edificios[/TIP] de Cultura. +20 % a la [icon:YIELD_PRODUCTION] destinada a construir [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]edificios[/TIP] de Cultura.</Text>
+      <Text>[B]+2 a [icon:YIELD_CULTURE][/B] en [icon:CITY_BUILDING_LIST] [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]edificios de Cultura[/TIP]. [B]+20 % a la [icon:YIELD_PRODUCTION][/B] destinada a construir [icon:CITY_BUILDING_LIST] edificios de Cultura.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_DRILLS_DESCRIPTION" Language="es_ES">
-      <Text>+30 % a la [icon:YIELD_PRODUCTION] destinada a entrenar unidades de [TIP:LOC_PEDIA_CONCEPTS_INFANTRY_UNITS_TOOLTIP]infantería[/TIP] y a [TIP:LOC_PEDIA_CONCEPTS_RANGED_UNITS_TOOLTIP]distancia[/TIP].</Text>
+      <Text>[B]+30 % a la [icon:YIELD_PRODUCTION][/B] destinada a entrenar unidades de infantería y a [TIP:LOC_PEDIA_CONCEPTS_RANGED_UNITS_TOOLTIP]distancia[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_EGYPT_SYNCRETISM_EXPLORATION_DESCRIPTION" Language="es_ES">
-      <Text>+1 a [icon:YIELD_CULTURE] y de [icon:YIELD_GOLD] en [icon:WONDER] [TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]Maravillas[/TIP], que se duplica en [icon:WONDER] [TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]Maravillas[/TIP] de la Antigüedad.</Text>
+      <Text>[B]+1 a [icon:YIELD_CULTURE][/B] y de [icon:YIELD_GOLD] en [icon:WONDER] [TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]Maravillas[/TIP], que se duplica en [icon:WONDER] Maravillas de la Antigüedad.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_EGYPT_SYNCRETISM_MODERN_DESCRIPTION" Language="es_ES">
-      <Text>+2 a [icon:YIELD_CULTURE] y de [icon:YIELD_GOLD] en [icon:WONDER] [TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]Maravillas[/TIP], que se duplica en [icon:WONDER] [TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]Maravillas[/TIP] de la Antigüedad.</Text>
+      <Text>[B]+2 a [icon:YIELD_CULTURE][/B] y de [icon:YIELD_GOLD] en [icon:WONDER] [TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]Maravillas[/TIP], que se duplica en [icon:WONDER] Maravillas de la Antigüedad.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_EGYPT_SYNCRETISM_TOOLTIP" Language="es_ES">
       <Text>Horus dorado</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_ETHICS_DESCRIPTION" Language="es_ES">
-      <Text>+1 a [icon:YIELD_CULTURE] por [icon:SPECIALIST] [TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_TOOLTIP]Especialistas[/TIP]. +1 a [icon:YIELD_HAPPINESS] por [TIP:LOC_PEDIA_CONCEPTS_MAINTENANCE_TOOLTIP]mantenimiento[/TIP] de [icon:SPECIALIST] [TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_TOOLTIP]Especialistas[/TIP].</Text>
+      <Text>[B]+1 a [icon:YIELD_CULTURE][/B] por [icon:SPECIALIST] [TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_TOOLTIP]Especialistas[/TIP]. [B]+1 a [icon:YIELD_HAPPINESS][/B] por [TIP:LOC_PEDIA_CONCEPTS_MAINTENANCE_TOOLTIP]mantenimiento[/TIP] de [icon:SPECIALIST] Especialistas.</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_FAJIA_DESCRIPTION" Language="es_ES">
+      <Text>[B]+1[/B] al Apoyo bélico en todas las guerras que declares.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_FENGHUO_DESCRIPTION" Language="es_ES">
-      <Text>+1 al [icon:UNIT_MOVEMENT_ICON] Movimiento y +3 a la [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Fuerza de combate[/TIP] para las unidades en construcciones y mejoras de Fortificación en tu territorio. +2 de [icon:YIELD_GOLD] en construcciones y mejoras de Fortificación.</Text>
+      <Text>[B]+1 al [icon:Action_Move] Movimiento[/B] y [B]+3 a la [icon:NAR_REW_COMBAT][/B] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Fuerza de combate[/TIP] para las unidades en [icon:CITY_BUILDING_LIST] [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]construcciones[/TIP] y [icon:CITY_RURAL] [TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]mejoras[/TIP] de Fortificación en tu territorio. [B]+2 de [icon:YIELD_GOLD][/B] en [icon:CITY_BUILDING_LIST] construcciones y [icon:CITY_RURAL] mejoras de Fortificación.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_FENGHUO_II_DESCRIPTION" Language="es_ES">
-      <Text>+1 al [icon:UNIT_MOVEMENT_ICON] Movimiento y +5 a la [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Fuerza de combate[/TIP] para las unidades en construcciones y mejoras de Fortificación en tu territorio. +3 de [icon:YIELD_GOLD] en construcciones y mejoras de Fortificación.</Text>
+      <Text>[B]+1 al [icon:Action_Move] Movimiento[/B] y [B]+5 a la [icon:NAR_REW_COMBAT][/B] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Fuerza de combate[/TIP] para las unidades en [icon:CITY_BUILDING_LIST] [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]construcciones[/TIP] y [icon:CITY_RURAL] [TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]mejoras[/TIP] de Fortificación en tu territorio. [B]+3 de [icon:YIELD_GOLD][/B] en [icon:CITY_BUILDING_LIST] construcciones y [icon:CITY_RURAL] mejoras de Fortificación.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_GIFT_ECONOMY_DESCRIPTION" Language="es_ES">
-      <Text>+1 de [icon:YIELD_GOLD] y a [icon:YIELD_HAPPINESS] por cada [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]recurso[/TIP] importado.</Text>
+      <Text>[B]+1 de [icon:YIELD_GOLD][/B] y a [icon:YIELD_HAPPINESS] por cada [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]recurso[/TIP] importado.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_GIFT_ECONOMY_II_DESCRIPTION" Language="es_ES">
-      <Text>+2 de [icon:YIELD_GOLD] y a [icon:YIELD_HAPPINESS] por [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]recursos[/TIP] importados.</Text>
+      <Text>[B]+2 de [icon:YIELD_GOLD][/B] y [B]+2 a [icon:YIELD_HAPPINESS][/B] por [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]recursos[/TIP] importados.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_GREECE_SYNCRETISM_EXPLORATION_DESCRIPTION" Language="es_ES">
-      <Text>+1 a [icon:YIELD_HAPPINESS] y a la [icon:YIELD_PRODUCTION] en las [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]ciudades[/TIP] por cada [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]ciudad-estado[/TIP] que esté bajo tu [TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]suzeranía[/TIP].</Text>
+      <Text>[B]+1 a [icon:YIELD_HAPPINESS][/B] y a la [icon:YIELD_PRODUCTION] en las [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]ciudades[/TIP] por cada [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]ciudad-estado[/TIP] que esté bajo tu [TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]suzeranía[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_GREECE_SYNCRETISM_MODERN_DESCRIPTION" Language="es_ES">
-      <Text>+2 a [icon:YIELD_HAPPINESS] y a la [icon:YIELD_PRODUCTION] en las [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]ciudades[/TIP] por cada [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]ciudad-estado[/TIP] que esté bajo tu [TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]suzeranía[/TIP].</Text>
+      <Text>[B]+2 a [icon:YIELD_HAPPINESS][/B] y a la [icon:YIELD_PRODUCTION] en las [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]ciudades[/TIP] por cada [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]ciudad-estado[/TIP] que esté bajo tu [TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]suzeranía[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_GREECE_SYNCRETISM_TOOLTIP" Language="es_ES">
       <Text>Helenismo</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_HAAB_I_DESCRIPTION" Language="es_ES">
-      <Text>+2 a [icon:YIELD_CULTURE] en [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]edificios[/TIP] de Felicidad.</Text>
+      <Text>[B]+2 a [icon:YIELD_CULTURE][/B] en [icon:CITY_BUILDING_LIST] [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]edificios de Felicidad[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_HAAB_II_DESCRIPTION" Language="es_ES">
-      <Text>+2 a [icon:YIELD_CULTURE] en [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]edificios[/TIP] de Felicidad. El efecto se duplica durante una [icon:CELEBRATION] [TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]Celebración[/TIP].</Text>
+      <Text>[B]+2 a [icon:YIELD_CULTURE][/B] en [icon:CITY_BUILDING_LIST] [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]edificios de Felicidad[/TIP]. El efecto se duplica durante una [icon:CELEBRATION] [TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]Celebración[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_HAAB_TOOLTIP" Language="es_ES">
       <Text>Haab'</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_HAN_SYNCRETISM_EXPLORATION_DESCRIPTION" Language="es_ES">
-      <Text>+1 a [icon:YIELD_SCIENCE] en las ciudades por cada [icon:TRADITION] [TIP:LOC_PEDIA_CONCEPTS_TRADITION_TOOLTIP]Tradición[/TIP] asignada en el [icon:GOVERNMENT] gobierno.</Text>
+      <Text>[B]+1 a [icon:YIELD_SCIENCE][/B] en las [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]ciudades[/TIP] por cada [icon:TRADITION] [TIP:LOC_PEDIA_CONCEPTS_TRADITION_TOOLTIP]Tradición[/TIP] asignada en el [icon:GOVERNMENT] [TIP:LOC_PEDIA_CONCEPTS_GOVERNMENT_TOOLTIP]gobierno[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_HAN_SYNCRETISM_MODERN_DESCRIPTION" Language="es_ES">
-      <Text>+2 a [icon:YIELD_SCIENCE] en las ciudades por cada [icon:TRADITION] [TIP:LOC_PEDIA_CONCEPTS_TRADITION_TOOLTIP]Tradición[/TIP] asignada en el [icon:GOVERNMENT] gobierno.</Text>
+      <Text>[B]+2 a [icon:YIELD_SCIENCE][/B] en las [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]ciudades[/TIP] por cada [icon:TRADITION] [TIP:LOC_PEDIA_CONCEPTS_TRADITION_TOOLTIP]Tradición[/TIP] asignada en el [icon:GOVERNMENT] [TIP:LOC_PEDIA_CONCEPTS_GOVERNMENT_TOOLTIP]gobierno[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_HAN_SYNCRETISM_TOOLTIP" Language="es_ES">
       <Text>Gobierno de los aptos</Text>
     </Replace>
+    <Replace Tag="LOC_TRADITION_HANGJIAO_DESCRIPTION" Language="es_ES">
+      <Text>[B]+1 a [icon:YIELD_PRODUCTION][/B] en edificios de Almacén de Producción de asentamientos felices o con mayor Felicidad, o +2 en asentamientos dichosos o con mayor Felicidad.</Text>
+    </Replace>
     <Replace Tag="LOC_TRADITION_HEALING_CULTS_DESCRIPTION" Language="es_ES">
-      <Text>+5 a [icon:YIELD_HAPPINESS] en Altares de [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]asentamientos[/TIP] [icon:YIELD_PLAGUE] [TIP:LOC_PEDIA_CONCEPTS_INFECTED_TOOLTIP]infectados[/TIP], pero -10 de [icon:YIELD_GOLD] en Altares.</Text>
+      <Text>[B]+5 a [icon:YIELD_HAPPINESS][/B] en Altares de [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]asentamientos[/TIP] [TIP:LOC_PEDIA_CONCEPTS_INFECTED_TOOLTIP]infectados[/TIP], pero [B]-10 de [icon:YIELD_GOLD][/B] en Altares.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_HONOR_DESCRIPTION" Language="es_ES">
-      <Text>+3 a la [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Fuerza de combate[/TIP] contra [icon:INDEPENDENT_POWER] [TIP:LOC_PEDIA_CONCEPTS_INDEPENDENT_POWER_TOOLTIP]potencias independientes[/TIP].</Text>
+      <Text>[B]+3 a la [icon:NAR_REW_COMBAT][/B] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Fuerza de combate[/TIP] contra [icon:INDEPENDENT_POWER] [TIP:LOC_PEDIA_CONCEPTS_INDEPENDENT_POWER_TOOLTIP]potencias independientes[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_HOSPITALITY_DESCRIPTION" Language="es_ES">
-      <Text>+3 a [icon:YIELD_CULTURE] por cada [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]ciudad-estado[/TIP] que esté bajo tu [TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]suzeranía[/TIP].</Text>
+      <Text>[B]+3 a [icon:YIELD_CULTURE][/B] por cada [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]ciudad-estado[/TIP] que esté bajo tu [TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]suzeranía[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_INCOMPETENT_MINISTERS_DESCRIPTION" Language="es_ES">
-      <Text>-1 a [icon:YIELD_DIPLOMACY] en los [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]asentamientos[/TIP] fundados por ti.</Text>
+      <Text>[B]-1 a [icon:YIELD_DIPLOMACY][/B] en los [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]asentamientos[/TIP] fundados por ti.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_INFERIOR_TACTICS_DESCRIPTION" Language="es_ES">
-      <Text>-6 a la [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Fuerza de combate[/TIP] contra [icon:INDEPENDENT_POWER] [TIP:LOC_PEDIA_CONCEPTS_INDEPENDENT_POWER_TOOLTIP]potencias independientes[/TIP].</Text>
+      <Text>[B]-6 a la [icon:NAR_REW_COMBAT][/B] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Fuerza de combate[/TIP] contra [icon:INDEPENDENT_POWER] [TIP:LOC_PEDIA_CONCEPTS_INDEPENDENT_POWER_TOOLTIP]potencias independientes[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_JU_XIAN_DESCRIPTION" Language="es_ES">
-      <Text>+1 a [icon:YIELD_SCIENCE] por [icon:SPECIALIST] [TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_TOOLTIP]Especialistas[/TIP].</Text>
+      <Text>[B]+1 a [icon:YIELD_SCIENCE][/B] por [icon:SPECIALIST] [TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_TOOLTIP]Especialistas[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_JU_XIAN_II_DESCRIPTION" Language="es_ES">
-      <Text>+1 a [icon:YIELD_SCIENCE] por [icon:SPECIALIST] [TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_TOOLTIP]Especialistas[/TIP]. +10 % a [icon:YIELD_SCIENCE] en la [icon:NOTIFICATION_SELECT_CAPITAL] capital.</Text>
+      <Text>[B]+1 a [icon:YIELD_SCIENCE][/B] por [icon:SPECIALIST] [TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_TOOLTIP]Especialistas[/TIP]. [B]+10 % a [icon:YIELD_SCIENCE][/B] en la [icon:NOTIFICATION_SELECT_CAPITAL] [TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]capital[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_KAMBU_MERA_I_DESCRIPTION" Language="es_ES">
-      <Text>+50 % a [icon:YIELD_FOOD] y [icon:YIELD_HAPPINESS] destinados al [TIP:LOC_PEDIA_CONCEPTS_MAINTENANCE_TOOLTIP]mantenimiento[/TIP] de [icon:SPECIALIST] [TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_TOOLTIP]Especialistas[/TIP].</Text>
+      <Text>[B]+50 % a [icon:YIELD_FOOD][/B] y [icon:YIELD_HAPPINESS] destinados al mantenimiento de [icon:SPECIALIST] [TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_TOOLTIP]Especialistas[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_KAMBU_MERA_II_DESCRIPTION" Language="es_ES">
-      <Text>+100 % a [icon:YIELD_FOOD] y [icon:YIELD_HAPPINESS] destinados a [TIP:LOC_PEDIA_CONCEPTS_MAINTENANCE_TOOLTIP]mantener[/TIP] [icon:SPECIALIST] [TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_TOOLTIP]Especialistas[/TIP]. +1 al [icon:SPECIALIST] [TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_LIMIT_TOOLTIP]límite de Especialistas[/TIP] en la [icon:NOTIFICATION_SELECT_CAPITAL] [TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]capital[/TIP].</Text>
+      <Text>[B]+100 % a [icon:YIELD_FOOD][/B] y [icon:YIELD_HAPPINESS] destinados a mantener [icon:SPECIALIST] [TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_TOOLTIP]Especialistas[/TIP]. [B]+1 al [icon:SPECIALIST][/B] [TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_LIMIT_TOOLTIP]límite de Especialistas[/TIP] en la [icon:NOTIFICATION_SELECT_CAPITAL] [TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]capital[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_KAMBU_MERA_TOOLTIP" Language="es_ES">
       <Text>Kambu-Mera</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_KARA_DESCRIPTION" Language="es_ES">
-      <Text>+25 % a la [icon:YIELD_PRODUCTION] destinada a entrenar [TIP:LOC_PEDIA_CONCEPTS_INFANTRY_UNITS_TOOLTIP]unidades de infantería[/TIP] y -2 de [icon:YIELD_GOLD] por [TIP:LOC_PEDIA_CONCEPTS_MAINTENANCE_TOOLTIP]mantenimiento[/TIP] de las [TIP:LOC_PEDIA_CONCEPTS_INFANTRY_UNITS_TOOLTIP]unidades de infantería[/TIP].</Text>
+      <Text>[B]+25 % a la [icon:YIELD_PRODUCTION][/B] destinada a entrenar [TIP:LOC_PEDIA_CONCEPTS_INFANTRY_UNITS_TOOLTIP]unidades de infantería[/TIP] y [B]-2 de [icon:YIELD_GOLD][/B] por [TIP:LOC_PEDIA_CONCEPTS_MAINTENANCE_TOOLTIP]mantenimiento[/TIP] de las unidades de infantería.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_KARA_II_DESCRIPTION" Language="es_ES">
-      <Text>+25 % a la [icon:YIELD_PRODUCTION] destinada a entrenar [TIP:LOC_PEDIA_CONCEPTS_INFANTRY_UNITS_TOOLTIP]unidades de infantería[/TIP]. -3 de [icon:YIELD_GOLD] por [TIP:LOC_PEDIA_CONCEPTS_MAINTENANCE_TOOLTIP]mantenimiento[/TIP] de las unidades de infantería. Las unidades de infantería se curan +15 [icon:Action_Heal] PG al derrotar a una unidad enemiga.</Text>
+      <Text>[B]+25 % a la [icon:YIELD_PRODUCTION][/B] destinada a entrenar [TIP:LOC_PEDIA_CONCEPTS_INFANTRY_UNITS_TOOLTIP]unidades de infantería[/TIP]. [B]-3 de [icon:YIELD_GOLD][/B] por [TIP:LOC_PEDIA_CONCEPTS_MAINTENANCE_TOOLTIP]mantenimiento[/TIP] de las unidades de infantería. Las unidades de infantería se [icon:Action_Heal] curan [B]+15 PG[/B] al derrotar a una unidad enemiga.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_KEMET_I_DESCRIPTION" Language="es_ES">
-      <Text>+2 a [icon:YIELD_CULTURE] en [icon:CITY_RURAL] [TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]mejoras[/TIP] y [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]distritos[/TIP] [icon:CITY_URBAN] emplazados en [TIP:LOC_PEDIA_CONCEPTS_NAVIGABLE_RIVER_TOOLTIP]Ríos navegables[/TIP].</Text>
+      <Text>[B]+2 a [icon:YIELD_CULTURE][/B] en [icon:CITY_RURAL] [TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]mejoras[/TIP] y [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]distritos[/TIP] [icon:CITY_URBAN] emplazados en [TIP:LOC_PEDIA_CONCEPTS_NAVIGABLE_RIVER_TOOLTIP]Ríos navegables[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_KEMET_II_DESCRIPTION" Language="es_ES">
-      <Text>+3 a [icon:YIELD_CULTURE] en [icon:CITY_RURAL] [TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]mejoras[/TIP] y [icon:CITY_URBAN] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]distritos[/TIP] emplazados en [TIP:LOC_PEDIA_CONCEPTS_NAVIGABLE_RIVER_TOOLTIP]Ríos navegables[/TIP].</Text>
+      <Text>[B]+3 a [icon:YIELD_CULTURE][/B] en [icon:CITY_RURAL] [TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]mejoras[/TIP] y [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]distritos[/TIP] [icon:CITY_URBAN] emplazados en [TIP:LOC_PEDIA_CONCEPTS_NAVIGABLE_RIVER_TOOLTIP]Ríos navegables[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_KEMET_TOOLTIP" Language="es_ES">
       <Text>Kemet</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_KHMER_SYNCRETISM_EXPLORATION_DESCRIPTION" Language="es_ES">
-      <Text>+1 de [icon:YIELD_GOLD] por [icon:SPECIALIST] [TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_TOOLTIP]Especialistas[/TIP].</Text>
+      <Text>[B]+1 de [icon:YIELD_GOLD][/B] por [icon:SPECIALIST] [TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_TOOLTIP]Especialistas[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_KHMER_SYNCRETISM_MODERN_DESCRIPTION" Language="es_ES">
-      <Text>+1 de [icon:YIELD_GOLD] y a [icon:YIELD_SCIENCE] en [icon:SPECIALIST] [TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_TOOLTIP]Especialistas[/TIP].</Text>
+      <Text>[B]+1 de [icon:YIELD_GOLD][/B] y a [icon:YIELD_SCIENCE] en [icon:SPECIALIST] [TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_TOOLTIP]Especialistas[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_KHMER_SYNCRETISM_TOOLTIP" Language="es_ES">
       <Text>Varna</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_KSHATRIYA_DESCRIPTION" Language="es_ES">
-      <Text>+3 a la [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Fuerza de combate[/TIP] de las unidades de [TIP:LOC_PEDIA_CONCEPTS_INFANTRY_UNITS_TOOLTIP]infantería[/TIP] y [TIP:LOC_PEDIA_CONCEPTS_CAVALRY_UNITS_TOOLTIP]caballería[/TIP] cuando están adyacentes entre sí, o +5 cuando hay una [icon:CELEBRATION] [TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]Celebración[/TIP] en curso.</Text>
+      <Text>[B]+3 a la [icon:NAR_REW_COMBAT][/B] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Fuerza de combate[/TIP] de las unidades de infantería y [TIP:LOC_PEDIA_CONCEPTS_CAVALRY_UNITS_TOOLTIP]caballería[/TIP] cuando están adyacentes entre sí, o +5 cuando hay una [icon:CELEBRATION] [TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]Celebración[/TIP] en curso.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_LATINITAS_I_DESCRIPTION" Language="es_ES">
-      <Text>+2 a [icon:YIELD_FOOD] y a [icon:YIELD_CULTURE] en [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]pueblos[/TIP], que se duplica en [icon:PROJECT_TOWN_FORT] pueblos fortificados.</Text>
+      <Text>[B]+2 a [icon:YIELD_FOOD][/B] y a [icon:YIELD_CULTURE] en [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]pueblos[/TIP], que se duplica en [icon:YIELD_TOWNS] pueblos fortificados.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_LATINITAS_II_DESCRIPTION" Language="es_ES">
-      <Text>+2 a [icon:YIELD_FOOD] y a [icon:YIELD_CULTURE] en [icon:YIELD_TOWNS] pueblos, que se duplica en [icon:PROJECT_TOWN_FORT] pueblos fortificados. El efecto se duplica de nuevo en Tierras lejanas.</Text>
+      <Text>[B]+2 a [icon:YIELD_FOOD][/B] y a [icon:YIELD_CULTURE] en [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]pueblos[/TIP], que se duplica en [icon:YIELD_TOWNS] pueblos fortificados. El efecto se duplica de nuevo en [TIP:LOC_PEDIA_CONCEPTS_DISTANT_LANDS_TOOLTIP]Tierras lejanas[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_LATINITAS_TOOLTIP" Language="es_ES">
       <Text>Latinitas</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_LITERATURE_DESCRIPTION" Language="es_ES">
-      <Text>+2 a [icon:YIELD_SCIENCE] en [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]edificios[/TIP] de Ciencia. +20 % a la [icon:YIELD_PRODUCTION] destinada a construir [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]edificios[/TIP] de Ciencia.</Text>
+      <Text>[B]+2 a [icon:YIELD_SCIENCE][/B] en [icon:CITY_BUILDING_LIST] [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]edificios de Ciencia[/TIP]. [B]+20 % a la [icon:YIELD_PRODUCTION][/B] destinada a construir [icon:CITY_BUILDING_LIST] edificios de Ciencia.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_LOYALTY_SETTLEMENT_CAP_DESCRIPTION" Language="es_ES">
-      <Text>-1 al [icon:SETTLEMENT_LIMIT] límite de [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_LIMIT_TOOLTIP]asentamientos[/TIP].</Text>
+      <Text>[B]-1 al [icon:SETTLEMENT_LIMIT][/B] [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_LIMIT_TOOLTIP]límite de asentamientos[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_MAURYA_SYNCRETISM_EXPLORATION_DESCRIPTION" Language="es_ES">
-      <Text>+2 a la [icon:YIELD_Production] y a [icon:YIELD_SCIENCE] en el [TIP:LOC_PEDIA_CONCEPTS_PALACE_TOOLTIP]Palacio[/TIP] y en los Ayuntamientos de [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]asentamientos capturados[/TIP] de cualquier era, y el doble si hay una [icon:CELEBRATION] [TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]Celebración[/TIP] en curso.</Text>
+      <Text>[B]+2 a la [icon:YIELD_PRODUCTION][/B] y a [icon:YIELD_SCIENCE] en el [TIP:LOC_PEDIA_CONCEPTS_PALACE_TOOLTIP]Palacio[/TIP] y en los Ayuntamientos de [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]asentamientos capturados[/TIP] de cualquier [TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]era[/TIP], y el doble si hay una [icon:CELEBRATION] [TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]Celebración[/TIP] en curso.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_MAURYA_SYNCRETISM_MODERN_DESCRIPTION" Language="es_ES">
-      <Text>+3 a la [icon:YIELD_Production] y a [icon:YIELD_SCIENCE] en el [TIP:LOC_PEDIA_CONCEPTS_PALACE_TOOLTIP]Palacio[/TIP] y en los Ayuntamientos de [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]asentamientos capturados[/TIP] de cualquier era, y el doble si hay una [icon:CELEBRATION] [TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]Celebración[/TIP] en curso.</Text>
+      <Text>[B]+3 a la [icon:YIELD_PRODUCTION][/B] y a [icon:YIELD_SCIENCE] en el [TIP:LOC_PEDIA_CONCEPTS_PALACE_TOOLTIP]Palacio[/TIP] y en los Ayuntamientos de [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]asentamientos capturados[/TIP] de cualquier [TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]era[/TIP], y el doble si hay una [icon:CELEBRATION] [TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]Celebración[/TIP] en curso.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_MAURYA_SYNCRETISM_TOOLTIP" Language="es_ES">
       <Text>Chhatrapati</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_MAY_THIS_PLEASE_THE_PEOPLE_I_DESCRIPTION" Language="es_ES">
-      <Text>+2 a [icon:YIELD_CULTURE] en [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]recursos[/TIP] emplazados en Costa o adyacentes.</Text>
+      <Text>[B]+2 a [icon:YIELD_CULTURE][/B] en [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]recursos[/TIP] emplazados en Costa o adyacentes.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_MAY_THIS_PLEASE_THE_PEOPLE_II_DESCRIPTION" Language="es_ES">
-      <Text>+3 a [icon:YIELD_CULTURE] en [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]recursos[/TIP] emplazados en Costa o adyacentes.</Text>
+      <Text>[B]+3 a [icon:YIELD_CULTURE][/B] en [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]recursos[/TIP] emplazados en Costa o adyacentes.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_MAY_THIS_PLEASE_THE_PEOPLE_TOOLTIP" Language="es_ES">
       <Text>Que esto complazca al pueblo</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_MAYA_SYNCRETISM_EXPLORATION_DESCRIPTION" Language="es_ES">
-      <Text>+2 a [icon:YIELD_SCIENCE] en [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]edificios[/TIP] de Ciencia situados en [icon:CITY_UNIMPROVED] [TIP:LOC_PEDIA_CONCEPTS_VEGETATED_TERRAIN_TOOLTIP]terreno con Vegetación[/TIP].</Text>
+      <Text>[B]+2 a [icon:YIELD_SCIENCE][/B] en [icon:CITY_BUILDING_LIST] [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]edificios de Ciencia[/TIP] situados en [icon:CITY_UNIMPROVED] [TIP:LOC_PEDIA_CONCEPTS_VEGETATED_TERRAIN_TOOLTIP]terreno con Vegetación[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_MAYA_SYNCRETISM_MODERN_DESCRIPTION" Language="es_ES">
-      <Text>+2 a [icon:YIELD_SCIENCE] en [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]edificios[/TIP] de Felicidad y Ciencia situados en [icon:CITY_UNIMPROVED] [TIP:LOC_PEDIA_CONCEPTS_VEGETATED_TERRAIN_TOOLTIP]terreno con Vegetación[/TIP].</Text>
+      <Text>[B]+2 a [icon:YIELD_SCIENCE][/B] en [icon:CITY_BUILDING_LIST] [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]edificios[/TIP] de Felicidad y Ciencia situados en [icon:CITY_UNIMPROVED] [TIP:LOC_PEDIA_CONCEPTS_VEGETATED_TERRAIN_TOOLTIP]terreno con Vegetación[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_MAYA_SYNCRETISM_TOOLTIP" Language="es_ES">
       <Text>Milpa</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_MEDICINE_DESCRIPTION" Language="es_ES">
-      <Text>Las unidades ganan +5 de [icon:Action_Heal] curación.</Text>
+      <Text>Las unidades ganan +5 de curación.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_MIASMA_DESCRIPTION" Language="es_ES">
-      <Text>Ganas 1 [icon:UNIT_MIGRANT] Migrante cuando una [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]ciudad[/TIP] está [icon:YIELD_PLAGUE] [TIP:LOC_PEDIA_CONCEPTS_INFECTED_TOOLTIP]infectada[/TIP], pero -25 % a la [icon:GROWTH_RATE] [TIP:LOC_PEDIA_CONCEPTS_GROWTH_RATE_TOOLTIP]tasa de crecimiento[/TIP] de las [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]ciudades[/TIP].</Text>
+      <Text>Obtienes [B]1 [icon:UNIT_MIGRANT] Migrante[/B] cuando una [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]ciudad[/TIP] está [TIP:LOC_PEDIA_CONCEPTS_INFECTED_TOOLTIP]infectada[/TIP], pero [B]-25 % a la [icon:GROWTH_RATE][/B] [TIP:LOC_PEDIA_CONCEPTS_GROWTH_RATE_TOOLTIP]tasa de crecimiento[/TIP] de las [icon:YIELD_CITIES] ciudades.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_MIRACLES_OF_THE_TWINS_I_DESCRIPTION" Language="es_ES">
-      <Text>Todas las unidades obtienen la habilidad Veneno, +3 a la [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Fuerza de combate[/TIP] contra unidades [icon:DAMAGED] heridas. Los [icon:UNIT_SCOUT] Batidores y las unidades a distancia obtienen [TIP:LOC_PEDIA_CONCEPTS_STEALTH_TOOLTIP]Sigilo[/TIP] en [icon:CITY_UNIMPROVED] [TIP:LOC_PEDIA_CONCEPTS_VEGETATED_TERRAIN_TOOLTIP]terreno con Vegetación[/TIP].</Text>
+      <Text>Todas las unidades obtienen la habilidad Veneno, [B]+3 a la [icon:NAR_REW_COMBAT][/B] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Fuerza de combate[/TIP] contra unidades [icon:DAMAGED] heridas. Los Batidores y las [TIP:LOC_PEDIA_CONCEPTS_RANGED_UNITS_TOOLTIP]unidades a distancia[/TIP] obtienen [TIP:LOC_PEDIA_CONCEPTS_STEALTH_TOOLTIP]Sigilo[/TIP] en [icon:CITY_UNIMPROVED] [TIP:LOC_PEDIA_CONCEPTS_VEGETATED_TERRAIN_TOOLTIP]terreno con Vegetación[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_MIRACLES_OF_THE_TWINS_II_DESCRIPTION" Language="es_ES">
-      <Text>Todas las unidades obtienen la habilidad Veneno, +3 a la [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Fuerza de combate[/TIP] contra unidades [icon:DAMAGED] heridas. Los [icon:UNIT_SCOUT] Batidores y las unidades a distancia obtienen [TIP:LOC_PEDIA_CONCEPTS_STEALTH_TOOLTIP]Sigilo[/TIP] en [icon:CITY_UNIMPROVED] [TIP:LOC_PEDIA_CONCEPTS_VEGETATED_TERRAIN_TOOLTIP]terreno con Vegetación[/TIP]. Las unidades a distancia ignoran la Vegetación en su [icon:UNIT_MOVEMENT_ICON] Movimiento.</Text>
+      <Text>Todas las unidades obtienen la habilidad Veneno, [B]+3 a la [icon:NAR_REW_COMBAT][/B] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Fuerza de combate[/TIP] contra unidades [icon:DAMAGED] heridas. Los Batidores y las [TIP:LOC_PEDIA_CONCEPTS_RANGED_UNITS_TOOLTIP]unidades a distancia[/TIP] obtienen [TIP:LOC_PEDIA_CONCEPTS_STEALTH_TOOLTIP]Sigilo[/TIP] en [icon:CITY_UNIMPROVED] [TIP:LOC_PEDIA_CONCEPTS_VEGETATED_TERRAIN_TOOLTIP]terreno con Vegetación[/TIP]. Las unidades a distancia ignoran la [icon:CITY_UNIMPROVED] Vegetación en su [icon:Action_Move] Movimiento.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_MISSISSIPPIAN_SYNCRETISM_EXPLORATION_DESCRIPTION" Language="es_ES">
-      <Text>Las unidades a distancia [icon:PLOT_BURNING] [TIP:LOC_PEDIA_CONCEPTS_BURNING_TOOLTIP]incendian[/TIP] casillas durante 2 turnos al atacar.</Text>
+      <Text>Las [TIP:LOC_PEDIA_CONCEPTS_RANGED_UNITS_TOOLTIP]unidades a distancia[/TIP] [icon:PLOT_BURNING] [TIP:LOC_PEDIA_CONCEPTS_BURNING_TOOLTIP]incendian[/TIP] casillas durante 2 turnos al atacar.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_MISSISSIPPIAN_SYNCRETISM_MODERN_DESCRIPTION" Language="es_ES">
-      <Text>Las unidades a distancia [icon:PLOT_BURNING] [TIP:LOC_PEDIA_CONCEPTS_BURNING_TOOLTIP]incendian[/TIP] casillas durante 2 turnos al atacar. +50 de [icon:YIELD_GOLD] por [icon:RADIAL_RESOURCES] recurso al crear [icon:ROUTE_TRADE] rutas comerciales. Varía según la velocidad del juego.</Text>
+      <Text>Las [TIP:LOC_PEDIA_CONCEPTS_RANGED_UNITS_TOOLTIP]unidades a distancia[/TIP] [icon:PLOT_BURNING] [TIP:LOC_PEDIA_CONCEPTS_BURNING_TOOLTIP]incendian[/TIP] casillas durante 2 turnos al atacar. [B]+50 de [icon:YIELD_GOLD][/B] por [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]recurso[/TIP] al crear [icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]rutas comerciales[/TIP]. Varía según la velocidad de juego.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_MISSISSIPPIAN_SYNCRETISM_TOOLTIP" Language="es_ES">
       <Text>Efigies sacrificiales</Text>
     </Replace>
+    <Replace Tag="LOC_TRADITION_MURALISMO_I_DESCRIPTION" Language="es_ES">
+      <Text>[B]+2 a [icon:YIELD_HAPPINESS][/B] en todos los [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]asentamientos[/TIP].</Text>
+    </Replace>
     <Replace Tag="LOC_TRADITION_OLIGARCHY_UNHAPPINESS_DESCRIPTION" Language="es_ES">
-      <Text>-6 a [icon:YIELD_HAPPINESS] en [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]asentamientos[/TIP] con [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCE_CAPACITY_TOOLTIP]capacidad de recursos[/TIP] sin llenar.</Text>
+      <Text>[B]-6 a [icon:YIELD_HAPPINESS][/B] en [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]asentamientos[/TIP] con [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCE_CAPACITY_TOOLTIP]capacidad de recursos[/TIP] sin llenar.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_ORATORY_DESCRIPTION" Language="es_ES">
-      <Text>+2 a [icon:YIELD_DIPLOMACY] por turno.</Text>
+      <Text>[B]+2 a [icon:YIELD_DIPLOMACY][/B] por turno.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_PELOPONNESIAN_LEAGUE_I_DESCRIPTION" Language="es_ES">
-      <Text>+30 % a la [icon:YIELD_DIPLOMACY] destinada a iniciar [icon:SANCTIONS] [TIP:LOC_PEDIA_CONCEPTS_SANCTION_TOOLTIP]Sanciones[/TIP].</Text>
+      <Text>[B]+30 % a la [icon:YIELD_DIPLOMACY][/B] destinada a iniciar [icon:SANCTIONS] [TIP:LOC_PEDIA_CONCEPTS_SANCTION_TOOLTIP]Sanciones[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_PELOPONNESIAN_LEAGUE_II_DESCRIPTION" Language="es_ES">
-      <Text>+50 % a la [icon:YIELD_DIPLOMACY] destinada a iniciar [icon:SANCTIONS] [TIP:LOC_PEDIA_CONCEPTS_SANCTION_TOOLTIP]Sanciones[/TIP] y Acciones de [icon:ESPIONAGE] [TIP:LOC_PEDIA_CONCEPTS_ESPIONAGE_TOOLTIP]espionaje[/TIP].</Text>
+      <Text>[B]+50 % a la [icon:YIELD_DIPLOMACY][/B] destinada a iniciar [icon:SANCTIONS] [TIP:LOC_PEDIA_CONCEPTS_SANCTION_TOOLTIP]Sanciones[/TIP] y [icon:ESPIONAGE] [TIP:LOC_PEDIA_CONCEPTS_ESPIONAGE_TOOLTIP]Acciones de espionaje[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_PERSIA_SYNCRETISM_EXPLORATION_DESCRIPTION" Language="es_ES">
-      <Text>+1 a [icon:YIELD_CULTURE] en [icon:CITY_RURAL] mejoras exclusivas. +1 de [icon:YIELD_GOLD] en mejoras y edificios exclusivos en [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]asentamientos capturados[/TIP] de cualquier era.</Text>
+      <Text>[B]+1 a [icon:YIELD_CULTURE][/B] en [icon:CITY_RURAL] [TIP:LOC_PEDIA_CONCEPTS_UNIQUE_IMPROVEMENT_TOOLTIP]mejoras exclusivas[/TIP]. [B]+1 de [icon:YIELD_GOLD][/B] en mejoras y [icon:CITY_BUILDING_LIST] [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]edificios[/TIP] exclusivos en [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]asentamientos capturados[/TIP] de cualquier [TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]era[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_PERSIA_SYNCRETISM_MODERN_DESCRIPTION" Language="es_ES">
-      <Text>+2 a [icon:YIELD_CULTURE] en [icon:CITY_RURAL] mejoras exclusivas. +2 de [icon:YIELD_GOLD] en mejoras y edificios exclusivos en [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]asentamientos capturados[/TIP] de cualquier era.</Text>
+      <Text>[B]+2 a [icon:YIELD_CULTURE][/B] en [icon:CITY_RURAL] [TIP:LOC_PEDIA_CONCEPTS_UNIQUE_IMPROVEMENT_TOOLTIP]mejoras exclusivas[/TIP]. [B]+2 de [icon:YIELD_GOLD][/B] en mejoras y [icon:CITY_BUILDING_LIST] [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]edificios[/TIP] exclusivos en [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]asentamientos capturados[/TIP] de cualquier [TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]era[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_PET_KOT_DESCRIPTION" Language="es_ES">
-      <Text>+1 a [icon:YIELD_SCIENCE] en [icon:CITY_RURAL] [TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]mejoras[/TIP] en [icon:CITY_UNIMPROVED] [TIP:LOC_PEDIA_CONCEPTS_VEGETATED_TERRAIN_TOOLTIP]terreno con Vegetación[/TIP] pertenecientes a [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]ciudades[/TIP].</Text>
+      <Text>[B]+1 a [icon:YIELD_SCIENCE][/B] en [icon:CITY_RURAL] [TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]mejoras[/TIP] en [icon:CITY_UNIMPROVED] [TIP:LOC_PEDIA_CONCEPTS_VEGETATED_TERRAIN_TOOLTIP]terreno con Vegetación[/TIP] pertenecientes a [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]ciudades[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_PITHI_CHRAT_I_DESCRIPTION" Language="es_ES">
-      <Text>+1 a [icon:YIELD_FOOD] en [TIP:LOC_PEDIA_CONCEPTS_FLOODPLAINS_TOOLTIP]terrenos de Aluvión[/TIP] de [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]pueblos[/TIP], pero -5 a [icon:YIELD_FOOD] en [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]ciudades[/TIP] que no sean tu [icon:NOTIFICATION_SELECT_CAPITAL] [TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]capital[/TIP].</Text>
+      <Text>[B]+1 a [icon:YIELD_FOOD][/B] en [icon:CITY_UNIMPROVED] [TIP:LOC_PEDIA_CONCEPTS_FLOODPLAINS_TOOLTIP]terrenos de Aluvión[/TIP] de [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]pueblos[/TIP], pero [B]-5 a [icon:YIELD_FOOD][/B] en [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]ciudades[/TIP] que no sean tu [icon:NOTIFICATION_SELECT_CAPITAL] [TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]capital[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_PITHI_CHRAT_II_DESCRIPTION" Language="es_ES">
-      <Text>+2 a [icon:YIELD_FOOD] en [TIP:LOC_PEDIA_CONCEPTS_FLOODPLAINS_TOOLTIP]terrenos de Aluvión[/TIP] de [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]pueblos[/TIP], pero -10 a [icon:YIELD_FOOD] en [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]ciudades[/TIP] que no sean tu [icon:NOTIFICATION_SELECT_CAPITAL] [TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]capital[/TIP].</Text>
+      <Text>[B]+2 a [icon:YIELD_FOOD][/B] en [icon:CITY_UNIMPROVED] [TIP:LOC_PEDIA_CONCEPTS_FLOODPLAINS_TOOLTIP]terrenos de Aluvión[/TIP] de [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]pueblos[/TIP], pero [B]-10 a [icon:YIELD_FOOD][/B] en [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]ciudades[/TIP] que no sean tu [icon:NOTIFICATION_SELECT_CAPITAL] [TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]capital[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_PITHI_CHRAT_TOOLTIP" Language="es_ES">
       <Text>Pithi Chrat</Text>
     </Replace>
+    <Replace Tag="LOC_TRADITION_POIEISIS_DESCRIPTION" Language="es_ES">
+      <Text>[B]+1 a [icon:YIELD_CULTURE][/B] por Grandes obras en exposición en asentamientos dichosos, o [B]+2 a [icon:YIELD_CULTURE][/B] en asentamientos eufóricos.</Text>
+    </Replace>
     <Replace Tag="LOC_TRADITION_PORT_OF_NATIONS_I_DESCRIPTION" Language="es_ES">
-      <Text>+2 a [icon:YIELD_CULTURE] y de [icon:YIELD_GOLD] por cada [icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]ruta comercial[/TIP] activa. +100 % de [icon:TRADE_INCOME] [TIP:LOC_PEDIA_CONCEPTS_TRADE_INCOME_TOOLTIP]beneficios por Comercio[/TIP] en [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]asentamientos[/TIP] adyacentes a Costa.</Text>
+      <Text>[B]+2 a [icon:YIELD_CULTURE][/B] y de [icon:YIELD_GOLD] por cada [icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]ruta comercial[/TIP] activa. [B]+100 % de [icon:TRADE_INCOME][/B] [TIP:LOC_PEDIA_CONCEPTS_TRADE_INCOME_TOOLTIP]beneficios por Comercio[/TIP] en [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]asentamientos[/TIP] adyacentes a Costa.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_PORT_OF_NATIONS_II_DESCRIPTION" Language="es_ES">
-      <Text>+3 a [icon:YIELD_CULTURE] y de [icon:YIELD_GOLD] por cada [icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]ruta comercial[/TIP] activa. +200 % de [icon:TRADE_INCOME] [TIP:LOC_PEDIA_CONCEPTS_TRADE_INCOME_TOOLTIP]beneficios por Comercio[/TIP] en [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]asentamientos[/TIP] adyacentes a Costa.</Text>
+      <Text>[B]+3 a [icon:YIELD_CULTURE][/B] y de [icon:YIELD_GOLD] por cada [icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]ruta comercial[/TIP] activa. [B]+200 % de [icon:TRADE_INCOME][/B] [TIP:LOC_PEDIA_CONCEPTS_TRADE_INCOME_TOOLTIP]beneficios por Comercio[/TIP] en [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]asentamientos[/TIP] adyacentes a Costa.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_PORT_OF_NATIONS_TOOLTIP" Language="es_ES">
       <Text>Puerto de las naciones</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_PRIESTHOOD_DESCRIPTION" Language="es_ES">
-      <Text>+2 de [icon:YIELD_GOLD] en todos los [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]asentamientos[/TIP].</Text>
+      <Text>[B]+2 de [icon:YIELD_GOLD][/B] en todos los [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]asentamientos[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_PRINCEPS_CIVITATIS_I_DESCRIPTION" Language="es_ES">
-      <Text>+1 a la [icon:YIELD_PRODUCTION] en [icon:CITY_URBAN] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]distritos[/TIP] de tu [icon:NOTIFICATION_SELECT_CAPITAL] capital.</Text>
+      <Text>[B]+1 a la [icon:YIELD_PRODUCTION][/B] en [icon:CITY_URBAN] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]distritos[/TIP] de tu [icon:NOTIFICATION_SELECT_CAPITAL] [TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]capital[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_PRINCEPS_CIVITATIS_II_DESCRIPTION" Language="es_ES">
-      <Text>+2 a la [icon:YIELD_PRODUCTION] en [icon:CITY_URBAN] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]distritos[/TIP] de tu [icon:NOTIFICATION_SELECT_CAPITAL] capital.</Text>
+      <Text>[B]+2 a la [icon:YIELD_PRODUCTION][/B] en [icon:CITY_URBAN] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]distritos[/TIP] de tu [icon:NOTIFICATION_SELECT_CAPITAL] [TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]capital[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_PRINCEPS_CIVITATIS_TOOLTIP" Language="es_ES">
       <Text>Princeps Civitatis</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_PROGNOSIS_DESCRIPTION" Language="es_ES">
-      <Text>+2 a [icon:YIELD_SCIENCE] en [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]edificios[/TIP] de Ciencia en [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]asentamientos[/TIP] [icon:YIELD_PLAGUE] [TIP:LOC_PEDIA_CONCEPTS_INFECTED_TOOLTIP]infectados[/TIP], pero -4 de [icon:YIELD_GOLD] en [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]edificios[/TIP] de Ciencia.</Text>
+      <Text>[B]+2 a [icon:YIELD_SCIENCE][/B] en [icon:CITY_BUILDING_LIST] [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]edificios de Ciencia[/TIP] en [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]asentamientos[/TIP] [TIP:LOC_PEDIA_CONCEPTS_INFECTED_TOOLTIP]infectados[/TIP], pero [B]-4 de [icon:YIELD_GOLD][/B] en [icon:CITY_BUILDING_LIST] edificios de Ciencia.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_PROSECUTE_APOSTATES_DESCRIPTION" Language="es_ES">
-      <Text>+5 a [icon:YIELD_HAPPINESS] en [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]asentamientos[/TIP] [icon:YIELD_PLAGUE] [TIP:LOC_PEDIA_CONCEPTS_INFECTED_TOOLTIP]infectados[/TIP] con un [icon:UNIT_ARMY_COMMANDER] Comandante [TIP:LOC_PEDIA_CONCEPTS_STATIONED_TOOLTIP]estacionado[/TIP], pero -5 a [icon:YIELD_HAPPINESS] en [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]asentamientos[/TIP] sin Altares.</Text>
+      <Text>[B]+5 a [icon:YIELD_HAPPINESS][/B] en [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]asentamientos[/TIP] [TIP:LOC_PEDIA_CONCEPTS_INFECTED_TOOLTIP]infectados[/TIP] con un [icon:UNIT_ARMY_COMMANDER] [TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]Comandante[/TIP] [TIP:LOC_PEDIA_CONCEPTS_STATIONED_TOOLTIP]estacionado[/TIP], pero [B]-5 a [icon:YIELD_HAPPINESS][/B] en asentamientos sin Altares.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_PROVINCIAL_SCORN_DESCRIPTION" Language="es_ES">
-      <Text>-6 % a [icon:YIELD_HAPPINESS] en los [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]pueblos[/TIP].</Text>
+      <Text>[B]-6 a [icon:YIELD_HAPPINESS][/B] en los [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]pueblos[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_REBELLIOUS_COMMANDERS_DESCRIPTION" Language="es_ES">
-      <Text>-1 a [icon:YIELD_HAPPINESS] en todas las [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]ciudades[/TIP] por cada [icon:NAR_REW_PROMOTION] [TIP:LOC_PEDIA_CONCEPTS_PROMOTION]ascenso de Comandante[/TIP].</Text>
+      <Text>[B]-1 a [icon:YIELD_HAPPINESS][/B] en todas las [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]ciudades[/TIP] por cada [TIP:LOC_PEDIA_CONCEPTS_PROMOTION_TOOLTIP]ascenso[/TIP] de [icon:UNIT_ARMY_COMMANDER] [TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]Comandante[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_RECRUITMENT_SHORTFALLS_DESCRIPTION" Language="es_ES">
-      <Text>+2 a [icon:YIELD_FOOD] en los [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]pueblos[/TIP], pero -15 de [icon:Action_Heal] curación a todas las unidades.</Text>
+      <Text>[B]+2 a [icon:YIELD_FOOD][/B] en los [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]pueblos[/TIP], pero -15 de curación a todas las unidades.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_REPUBLIC_UNHAPPINESS_DESCRIPTION" Language="es_ES">
-      <Text>-6 a [icon:YIELD_HAPPINESS] en [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]asentamientos[/TIP] a más de 9 casillas de distancia de tu Palacio.</Text>
+      <Text>[B]-6 a [icon:YIELD_HAPPINESS][/B] en [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]asentamientos[/TIP] a más de 9 casillas de distancia de tu [TIP:LOC_PEDIA_CONCEPTS_PALACE_TOOLTIP]Palacio[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_RICHES_OF_THE_DUAT_DESCRIPTION" Language="es_ES">
-      <Text>+10 % a la [icon:YIELD_PRODUCTION] destinada a construir [icon:WONDER] [TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]Maravillas[/TIP]; el efecto se duplica si se construyen en [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]ciudades[/TIP] cuyos Centros urbanos estén situados en terreno de [icon:CITY_UNIMPROVED] Desierto. +2 a la [icon:YIELD_PRODUCTION] Producción destinada a construir [icon:WONDER] [TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]Maravillas[/TIP] en Desierto.</Text>
+      <Text>[B]+10 % a la [icon:YIELD_PRODUCTION][/B] destinada a construir [icon:WONDER] [TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]Maravillas[/TIP]; el efecto se duplica si se construyen en [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]ciudades[/TIP] cuyos [icon:YIELD_CITIES] Centros urbanos estén situados en terreno de Desierto. [B]+2 a la [icon:YIELD_PRODUCTION][/B] Producción destinada a construir [icon:WONDER] Maravillas en Desierto.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_RITES_AND_RITUALS_DESCRIPTION" Language="es_ES">
-      <Text>+2 a [icon:YIELD_HAPPINESS] en todos los [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]asentamientos[/TIP].</Text>
+      <Text>[B]+2 a [icon:YIELD_HAPPINESS][/B] en todos los [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]asentamientos[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_ROME_SYNCRETISM_EXPLORATION_DESCRIPTION" Language="es_ES">
-      <Text>+1 a la [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Fuerza de combate[/TIP] de unidades de infantería por cada [icon:TRADITION] [TIP:LOC_PEDIA_CONCEPTS_TRADITION_TOOLTIP]Tradición[/TIP] asignada en el [icon:GOVERNMENT] gobierno.</Text>
+      <Text>[B]+1 a la [icon:NAR_REW_COMBAT][/B] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Fuerza de combate[/TIP] de [TIP:LOC_PEDIA_CONCEPTS_INFANTRY_UNITS_TOOLTIP]unidades de infantería[/TIP] por cada [icon:TRADITION] [TIP:LOC_PEDIA_CONCEPTS_TRADITION_TOOLTIP]Tradición[/TIP] asignada en el [icon:GOVERNMENT] [TIP:LOC_PEDIA_CONCEPTS_GOVERNMENT_TOOLTIP]gobierno[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_ROME_SYNCRETISM_MODERN_DESCRIPTION" Language="es_ES">
-      <Text>+1 a la [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Fuerza de combate[/TIP] de unidades de infantería por cada [icon:TRADITION] [TIP:LOC_PEDIA_CONCEPTS_TRADITION_TOOLTIP]Tradición[/TIP] asignada en el [icon:GOVERNMENT] gobierno. +3 a [icon:YIELD_CULTURE] en la capital por cada pueblo.</Text>
+      <Text>[B]+1 a la [icon:NAR_REW_COMBAT][/B] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Fuerza de combate[/TIP] de [TIP:LOC_PEDIA_CONCEPTS_INFANTRY_UNITS_TOOLTIP]unidades de infantería[/TIP] por cada [icon:TRADITION] [TIP:LOC_PEDIA_CONCEPTS_TRADITION_TOOLTIP]Tradición[/TIP] asignada en el [icon:GOVERNMENT] [TIP:LOC_PEDIA_CONCEPTS_GOVERNMENT_TOOLTIP]gobierno[/TIP]. [B]+3 a [icon:YIELD_CULTURE][/B] en la [icon:NOTIFICATION_SELECT_CAPITAL] [TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]capital[/TIP] por cada [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]pueblo[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_ROME_SYNCRETISM_TOOLTIP" Language="es_ES">
       <Text>Limitanei</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_SCHOLARS_DESCRIPTION" Language="es_ES">
-      <Text>+1 a [icon:YIELD_SCIENCE] por [icon:SPECIALIST] [TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_TOOLTIP]Especialistas[/TIP]. +1 a [icon:YIELD_HAPPINESS] por [TIP:LOC_PEDIA_CONCEPTS_MAINTENANCE_TOOLTIP]mantenimiento[/TIP] de [icon:SPECIALIST] [TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_TOOLTIP]Especialistas[/TIP].</Text>
+      <Text>[B]+1 a [icon:YIELD_SCIENCE][/B] por [icon:SPECIALIST] [TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_TOOLTIP]Especialistas[/TIP]. [B]+1 a [icon:YIELD_HAPPINESS][/B] por [TIP:LOC_PEDIA_CONCEPTS_MAINTENANCE_TOOLTIP]mantenimiento[/TIP] de [icon:SPECIALIST] Especialistas.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_SHAHANSHAH_DESCRIPTION" Language="es_ES">
-      <Text>+3 a la [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Fuerza de combate[/TIP] de las unidades en territorio enemigo. +5 a [icon:YIELD_CULTURE] y de [icon:YIELD_GOLD] por cada civilización distinta a la tuya cuyo [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]asentamiento[/TIP] hayas capturado.</Text>
+      <Text>[B]+3 a la [icon:NAR_REW_COMBAT][/B] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Fuerza de combate[/TIP] de las unidades en territorio enemigo. [B]+5 a [icon:YIELD_CULTURE][/B] y de [icon:YIELD_GOLD] por cada civilización distinta a la tuya cuyo [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]asentamiento[/TIP] hayas capturado.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_SHAHANSHAH_II_DESCRIPTION" Language="es_ES">
-      <Text>+3 a la [icon:UNIT_COMBAT_STRENGTH] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Fuerza de combate[/TIP] de las unidades en territorio enemigo. +10 a [icon:YIELD_CULTURE] y de [icon:YIELD_GOLD] por cada civilización distinta a la tuya cuyo [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]asentamiento[/TIP] hayas capturado.</Text>
+      <Text>[B]+3 a la [icon:NAR_REW_COMBAT][/B] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Fuerza de combate[/TIP] de las unidades en territorio enemigo. [B]+10 a [icon:YIELD_CULTURE][/B] y de [icon:YIELD_GOLD] por cada civilización distinta a la tuya cuyo [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]asentamiento[/TIP] hayas capturado.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_SHELL_TEMPERED_POTTERY_DESCRIPTION" Language="es_ES">
-      <Text>Todos los edificios de Alimentos, de Oro y de [icon:YIELD_WAREHOUSE] [TIP:LOC_PEDIA_CONCEPTS_WAREHOUSE_TOOLTIP]Almacén[/TIP] reciben +1 de [icon:YIELD_GOLD] Oro por adyacencia a [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]recursos[/TIP].</Text>
+      <Text>Todos los edificios de Alimentos, de Oro y de [icon:YIELD_WAREHOUSE] [TIP:LOC_PEDIA_CONCEPTS_WAREHOUSE_TOOLTIP]Almacén[/TIP] reciben [B]+1 de [icon:YIELD_GOLD][/B] Oro por adyacencia a [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]recursos[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_SHELL_TEMPERED_POTTERY_II_DESCRIPTION" Language="es_ES">
-      <Text>Todos los [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]edificios[/TIP] reciben +1 de [icon:YIELD_GOLD] por adyacencia a [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]recursos[/TIP].</Text>
+      <Text>Todos los [icon:CITY_BUILDING_LIST] [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]edificios[/TIP] reciben [B]+1 de [icon:YIELD_GOLD][/B] por adyacencia a [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]recursos[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_STRATEGOI_DESCRIPTION" Language="es_ES">
-      <Text>+1 a la [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Fuerza de combate[/TIP] de las unidades de infantería por cada [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]ciudad-estado[/TIP] que esté bajo tu [TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]suzeranía[/TIP].</Text>
+      <Text>[B]+1 a la [icon:NAR_REW_COMBAT][/B] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Fuerza de combate[/TIP] de las [TIP:LOC_PEDIA_CONCEPTS_INFANTRY_UNITS_TOOLTIP]unidades de infantería[/TIP] por cada [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]ciudad-estado[/TIP] que esté bajo tu [TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]suzeranía[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_SUPPRESS_LOCAL_TRADITIONS_DESCRIPTION" Language="es_ES">
-      <Text>-3 a [icon:YIELD_HAPPINESS] en [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]asentamientos[/TIP] que no hayas fundado.</Text>
+      <Text>[B]-3 a [icon:YIELD_HAPPINESS][/B] en [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]asentamientos[/TIP] que no hayas fundado tú.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_SURVEY_DESCRIPTION" Language="es_ES">
-      <Text>Los Batidores reciben +1 al [icon:Action_Move] Movimiento y al [icon:Action_Showall] [TIP:LOC_PEDIA_CONCEPTS_SIGHT_TOOLTIP]alcance visual[/TIP].</Text>
+      <Text>Los Batidores reciben [B]+1 al [icon:Action_Move] Movimiento y al [icon:Action_Showall] [TIP:LOC_PEDIA_CONCEPTS_SIGHT_TOOLTIP]alcance visual[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_THRONE_OF_MY_FATHERS_DESCRIPTION" Language="es_ES">
-      <Text>+15 % de [icon:YIELD_GOLD] en [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]ciudades[/TIP] adyacentes a Costa. Obtienes una cantidad de [icon:YIELD_CULTURE] equivalente al 25 % de tus [icon:TRADE_INCOME] [TIP:LOC_PEDIA_CONCEPTS_TRADE_INCOME_TOOLTIP]beneficios por Comercio[/TIP].</Text>
+      <Text>[B]+15 % de [icon:YIELD_GOLD][/B] en [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]ciudades[/TIP] adyacentes a Costa. Obtienes una cantidad de [icon:YIELD_CULTURE] equivalente al 25 % de tus [icon:TRADE_INCOME] [TIP:LOC_PEDIA_CONCEPTS_TRADE_INCOME_TOOLTIP]beneficios por Comercio[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_TOOL_MAKING_DESCRIPTION" Language="es_ES">
-      <Text>+1 a la [icon:YIELD_PRODUCTION] y [icon:YIELD_SCIENCE] en el Palacio.</Text>
+      <Text>[B]+1 a la [icon:YIELD_PRODUCTION][/B] y a [icon:YIELD_SCIENCE] en el [TIP:LOC_PEDIA_CONCEPTS_PALACE_TOOLTIP]Palacio[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_TRIBUTE_DESCRIPTION" Language="es_ES">
-      <Text>-10 de [icon:YIELD_GOLD] por cada [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]ciudad-estado[/TIP] que esté bajo tu [TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]suzeranía[/TIP].</Text>
+      <Text>[B]-10 de [icon:YIELD_GOLD][/B] por cada [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]ciudad-estado[/TIP] que esté bajo tu [TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]suzeranía[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_TZOLKIN_I_DESCRIPTION" Language="es_ES">
-      <Text>+2 a [icon:YIELD_SCIENCE] en [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]edificios[/TIP] de Felicidad.</Text>
+      <Text>[B]+2 a [icon:YIELD_SCIENCE][/B] en [icon:CITY_BUILDING_LIST] [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]edificios de Felicidad[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_TZOLKIN_II_DESCRIPTION" Language="es_ES">
-      <Text>+2 a [icon:YIELD_SCIENCE] en [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]edificios[/TIP] de Felicidad. El efecto se duplica durante una [icon:CELEBRATION] [TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]Celebración[/TIP].</Text>
+      <Text>[B]+2 a [icon:YIELD_SCIENCE][/B] en [icon:CITY_BUILDING_LIST] [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]edificios de Felicidad[/TIP]. El efecto se duplica durante una [icon:CELEBRATION] [TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]Celebración[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_TZOLKIN_TOOLTIP" Language="es_ES">
       <Text>Tzolk'in</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_XENIA_I_DESCRIPTION" Language="es_ES">
-      <Text>+50 % a la [icon:YIELD_DIPLOMACY] destinada a iniciar y progresar en el proyecto [icon:PROJECT] Trabar amistad con independiente.</Text>
+      <Text>[B]+50 % a la [icon:YIELD_DIPLOMACY][/B] destinada a iniciar y progresar en el [icon:DEFAULT_PROJECT] [TIP:LOC_PEDIA_CONCEPTS_PROJECTS_TOOLTIP]proyecto[/TIP] Trabar amistad con independiente.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_XENIA_II_DESCRIPTION" Language="es_ES">
-      <Text>+50 % a la [icon:YIELD_DIPLOMACY] destinada a iniciar y progresar en el proyecto [icon:PROJECT] Trabar amistad con independiente. +4 a [icon:YIELD_CULTURE] por cada [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]ciudad-estado[/TIP] que esté bajo tu [TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]suzeranía[/TIP].</Text>
+      <Text>[B]+50 % a la [icon:YIELD_DIPLOMACY][/B] destinada a iniciar y progresar en el [icon:DEFAULT_PROJECT] [TIP:LOC_PEDIA_CONCEPTS_PROJECTS_TOOLTIP]proyecto[/TIP] Trabar amistad con independiente. [B]+4 a [icon:YIELD_CULTURE][/B] por cada [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]ciudad-estado[/TIP] que esté bajo tu [TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]suzeranía[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_XENIA_TOOLTIP" Language="es_ES">
       <Text>Xenía</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_XIU_TAIXUE_DESCRIPTION" Language="es_ES">
-      <Text>Los [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]edificios[/TIP] de Ciencia obtienen +1 a [icon:YIELD_SCIENCE] por adyacencia a [icon:CITY_UNIQUE_QUARTER] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]barrios[/TIP].</Text>
+      <Text>Los [icon:CITY_BUILDING_LIST] [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]edificios de Ciencia[/TIP] obtienen [B]+1 a [icon:YIELD_SCIENCE][/B] por adyacencia a [icon:CITY_UNIQUE_QUARTER] [TIP:LOC_PEDIA_CONCEPTS_UNIQUE_QUARTER_TOOLTIP]barrios[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_XUMIN_ZHAO_DESCRIPTION" Language="es_ES">
-      <Text>+2 a [icon:YIELD_FOOD] en [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]edificios[/TIP] de Felicidad. +1 a [icon:YIELD_DIPLOMACY] por cada [icon:TRADITION] espacio de [TIP:LOC_PEDIA_CONCEPTS_TRADITION_TOOLTIP]Tradición[/TIP] en el [icon:GOVERNMENT] gobierno.</Text>
+      <Text>[B]+2 a [icon:YIELD_FOOD][/B] en [icon:CITY_BUILDING_LIST] [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]edificios de Felicidad[/TIP]. [B]+1 a [icon:YIELD_DIPLOMACY][/B] por cada [icon:TRADITION] [TIP:LOC_PEDIA_CONCEPTS_TRADITION_TOOLTIP]Tradición[/TIP] asignada en el [icon:GOVERNMENT] [TIP:LOC_PEDIA_CONCEPTS_GOVERNMENT_TOOLTIP]gobierno[/TIP].</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_YAXCHE_DESCRIPTION" Language="es_ES">
+      <Text>[B]+2 a [icon:YIELD_HAPPINESS][/B] en Maravillas.</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_AKSUM_ABILITY_DESCRIPTION" Language="es_ES">
       <Text>[BLIST][LI]+3 de [icon:YIELD_GOLD] Oro en [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]recursos[/TIP] en [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]asentamientos[/TIP] adyacentes a Costa.[LI]+1 al límite de [icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]rutas comerciales[/TIP] con otras civilizaciones, y todas las civilizaciones reciben +1 al límite de [icon:TRADE_ROUTE] rutas comerciales contigo.[LI]Las [icon:TRADE_ROUTE] rutas comerciales a o desde tus asentamientos tienen [TIP:LOC_PEDIA_CONCEPTS_TRADE_RANGE_TOOLTIP]alcance[/TIP] ilimitado.[LI]+30 % a la [icon:YIELD_PRODUCTION] Producción destinada a la construcción de la Gran estela.[/BLIST]</Text>
@@ -17289,10 +17319,10 @@
       <Text>+1 a [icon:YIELD_CULTURE] Cultura por cada 5 puntos de superávit de [icon:YIELD_HAPPINESS] Felicidad en este [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]asentamiento[/TIP].[n]Se debe construir en Llanura.</Text>
     </Replace>
     <Replace Tag="LOC_WONDER_TERRACOTTA_ARMY_DESCRIPTION" Language="es_ES">
-      <Text>+2 a la [icon:YIELD_PRODUCTION] Producción. Otorga un [icon:UNIT_ARMY_COMMANDER] Comandante de ejército gratis al construirse. +25 % a la [TIP:LOC_PEDIA_CONCEPTS_EXPERIENCE_TOOLTIP]experiencia del ejército[/TIP]. [TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]No envejece[/TIP]. Se debe construir en Pradera.</Text>
+      <Text>+2 a la [icon:YIELD_PRODUCTION] Producción. Otorga un [icon:UNIT_ARMY_COMMANDER] Comandante de ejército gratis al construirse. +25 % a la [TIP:LOC_PEDIA_CONCEPTS_COMMANDER_EXPERIENCE_TOOLTIP]experiencia del ejército[/TIP]. [TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]No envejece[/TIP]. Se debe construir en Pradera.</Text>
     </Replace>
     <Replace Tag="LOC_WONDER_TERRACOTTA_ARMY_TOOLTIP" Language="es_ES">
-      <Text>Otorga un [icon:UNIT_ARMY_COMMANDER] Comandante de ejército gratis al construirse. +25 % a la [TIP:LOC_PEDIA_CONCEPTS_EXPERIENCE_TOOLTIP]experiencia del comandante[/TIP].[n]Se debe construir en Pradera.</Text>
+      <Text>Otorga un [icon:UNIT_ARMY_COMMANDER] Comandante de ejército gratis al construirse. +25 % a la [TIP:LOC_PEDIA_CONCEPTS_COMMANDER_EXPERIENCE_TOOLTIP]experiencia del comandante[/TIP].[n]Se debe construir en Pradera.</Text>
     </Replace>
     <Replace Tag="LOC_WONDER_WEIYANG_PALACE_DESCRIPTION" Language="es_ES">
       <Text>+3 a [icon:YIELD_DIPLOMACY] Influencia. +1 [icon:NAR_REW_TRADITION_SLOT] espacio de [TIP:LOC_PEDIA_CONCEPTS_TRADITION_TOOLTIP]Tradición[/TIP]. [TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]No envejece[/TIP]. Se debe construir en Pradera.</Text>
@@ -18284,29 +18314,23 @@
     <Replace Tag="LOC_DISCOVERY_40028C_DESCRIPTION" Language="es_ES">
       <Text>{1_reward}.</Text>
     </Replace>
-    <Replace Tag="LOC_GOLDEN_AGE_CLASSICAL_REPUBLIC_1_DESCRIPTION" Language="es_ES">
-      <Text>+20 % a[icon:YIELD_CULTURE] Cultura durante {1_numTurns} {1: plural 1?turno; other?turnos;}.</Text>
-    </Replace>
     <Replace Tag="LOC_GOLDEN_AGE_CLASSICAL_REPUBLIC_2_DESCRIPTION" Language="es_ES">
-      <Text>+15 % a la[icon:YIELD_PRODUCTION] Producción destinada a construir Maravillas durante {1_numTurns} {1: plural 1?turno; other?turnos;}.</Text>
+      <Text>+10 % a la [icon:YIELD_PRODUCTION] Producción destinada a construir Maravillas, o +20 % en ciudades dichosas o con mayor Felicidad, durante {1_numTurns} {1: plural 1?turno; other?turnos;}.</Text>
     </Replace>
     <Replace Tag="LOC_GOLDEN_AGE_DESPOTISM_1_DESCRIPTION" Language="es_ES">
-      <Text>+20 % a[icon:YIELD_SCIENCE] Ciencia durante {1_numTurns} {1: plural 1?turno; other?turnos;}.</Text>
+      <Text>+1 a [icon:YIELD_SCIENCE] Ciencia en edificios de Producción y edificios de Almacén de Producción durante {1_numTurns} {1: plural 1?turno; other?turnos;}.</Text>
     </Replace>
     <Replace Tag="LOC_GOLDEN_AGE_DESPOTISM_2_DESCRIPTION" Language="es_ES">
-      <Text>+30 % a la[icon:YIELD_PRODUCTION] Producción destinada a entrenar unidades de infantería durante {1_numTurns} {1: plural 1?turno; other?turnos;}.</Text>
-    </Replace>
-    <Replace Tag="LOC_GOLDEN_AGE_OLIGARCHY_1_DESCRIPTION" Language="es_ES">
-      <Text>+20 % a[icon:YIELD_FOOD] Alimentos durante {1_numTurns} {1: plural 1?turno; other?turnos;}.</Text>
+      <Text>+10 % a la [icon:YIELD_PRODUCTION] Producción destinada a entrenar unidades militares y +10 % de [icon:YIELD_GOLD] Oro destinado a comprar unidades militares durante {1_numTurns} {1: plural 1?turno; other?turnos;}.</Text>
     </Replace>
     <Replace Tag="LOC_GOLDEN_AGE_OLIGARCHY_2_DESCRIPTION" Language="es_ES">
-      <Text>+30 % a la[icon:YIELD_PRODUCTION] Producción destinada a construir edificios durante {1_numTurns} {1: plural 1?turno; other?turnos;}.</Text>
+      <Text>+1 a [icon:YIELD_FOOD] Alimentos en los pueblos por cada asentamiento conectado durante {1_numTurns} {1: plural 1?turno; other?turnos;}.</Text>
     </Replace>
     <Replace Tag="LOC_GOLDEN_AGE_REVOLUCION_AQ_1_DESCRIPTION" Language="es_ES">
-      <Text>+30 % a[icon:YIELD_CULTURE] Cultura durante {1_numTurns} turnos.</Text>
+      <Text>+2 a [icon:YIELD_CULTURE] Cultura en los asentamientos felices, o +6 en asentamientos dichosos, o +10 en asentamientos eufóricos, durante {1_numTurns} {1: plural 1?turno; other?turnos;}.</Text>
     </Replace>
     <Replace Tag="LOC_GOLDEN_AGE_REVOLUCION_AQ_2_DESCRIPTION" Language="es_ES">
-      <Text>+50 % a la tasa de crecimiento en la capital durante {1_numTurns} turnos.</Text>
+      <Text>+3 a [icon:YIELD_FOOD] Alimentos en todos los asentamientos dichosos o de mayor Felicidad durante {1_numTurns} {1: plural 1?turno; other?turnos;}.</Text>
     </Replace>
     <Replace Tag="LOC_GREATPERSON_ACADEMY_CULTURE" Language="es_ES">
       <Text>La Academia proporciona +{1_Amount} a[icon:YIELD_CULTURE] Cultura en esta ciudad.</Text>
@@ -18412,6 +18436,11 @@
     </Replace>
     <Replace Tag="LOC_TRADITION_ANGARIUM_NAME" Language="es_ES">
       <Text>Čāpār-Kāna I</Text>
+      <Gender>masculine</Gender>
+      <Plurality>1</Plurality>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_ANNONA_NAME" Language="es_ES">
+      <Text>Annona</Text>
       <Gender>masculine</Gender>
       <Plurality>1</Plurality>
     </Replace>
@@ -18530,6 +18559,11 @@
       <Gender>feminine</Gender>
       <Plurality>1</Plurality>
     </Replace>
+    <Replace Tag="LOC_TRADITION_COMMANDERIES_NAME" Language="es_ES">
+      <Text>Encomiendas</Text>
+      <Gender>feminine</Gender>
+      <Plurality>2</Plurality>
+    </Replace>
     <Replace Tag="LOC_TRADITION_COMMODITIES_NAME" Language="es_ES">
       <Text>Lujos</Text>
       <Gender>masculine</Gender>
@@ -18590,6 +18624,11 @@
       <Gender>feminine</Gender>
       <Plurality>1</Plurality>
     </Replace>
+    <Replace Tag="LOC_TRADITION_FAJIA_NAME" Language="es_ES">
+      <Text>Fajia</Text>
+      <Gender>masculine</Gender>
+      <Plurality>1</Plurality>
+    </Replace>
     <Replace Tag="LOC_TRADITION_FENGHUO_II_NAME" Language="es_ES">
       <Text>Fenghuo II</Text>
       <Gender>masculine</Gender>
@@ -18637,6 +18676,11 @@
     </Replace>
     <Replace Tag="LOC_TRADITION_HAN_SYNCRETISM_MODERN_NAME" Language="es_ES">
       <Text>Gobierno de los aptos II</Text>
+      <Gender>masculine</Gender>
+      <Plurality>1</Plurality>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_HANGJIAO_NAME" Language="es_ES">
+      <Text>Hangjiao</Text>
       <Gender>masculine</Gender>
       <Plurality>1</Plurality>
     </Replace>
@@ -18796,6 +18840,11 @@
       <Gender>feminine</Gender>
       <Plurality>2</Plurality>
     </Replace>
+    <Replace Tag="LOC_TRADITION_MURALISMO_I_NAME" Language="es_ES">
+      <Text>Muralismo I</Text>
+      <Gender>masculine</Gender>
+      <Plurality>1</Plurality>
+    </Replace>
     <Replace Tag="LOC_TRADITION_OLIGARCHY_UNHAPPINESS_NAME" Language="es_ES">
       <Text>Decadencia</Text>
       <Gender>feminine</Gender>
@@ -18839,6 +18888,11 @@
     <Replace Tag="LOC_TRADITION_PITHI_CHRAT_II_NAME" Language="es_ES">
       <Text>Pithi Chrat II</Text>
       <Gender>masculine</Gender>
+      <Plurality>1</Plurality>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_POIEISIS_NAME" Language="es_ES">
+      <Text>Poiesis</Text>
+      <Gender>feminine</Gender>
       <Plurality>1</Plurality>
     </Replace>
     <Replace Tag="LOC_TRADITION_PORT_OF_NATIONS_I_NAME" Language="es_ES">
@@ -18994,6 +19048,11 @@
     </Replace>
     <Replace Tag="LOC_TRADITION_XUMIN_ZHAO_NAME" Language="es_ES">
       <Text>Xumin Zhao</Text>
+      <Gender>masculine</Gender>
+      <Plurality>1</Plurality>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_YAXCHE_NAME" Language="es_ES">
+      <Text>Yaxché</Text>
       <Gender>masculine</Gender>
       <Plurality>1</Plurality>
     </Replace>

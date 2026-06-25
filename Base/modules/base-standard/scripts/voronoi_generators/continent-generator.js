@@ -1,7 +1,7 @@
 import { sub2, rotate2, add2, dot2, dot2_90 } from '../../../core/scripts/MathHelpers.js';
 import { QuadTree, WrappedQuadTree } from '../quadtree.js';
 import { WindContextDesc, WindContext } from '../utils/wind-context.js';
-import { RegionType, TerrainType } from '../voronoi-types.js';
+import { RegionType, TerrainType, FeatureType } from '../voronoi-types.js';
 import { RuleAvoidEdge } from '../voronoi_rules/avoid-edge.js';
 import { RuleCellArea } from '../voronoi_rules/cell-area.js';
 import { RuleCoastalExposure } from '../voronoi_rules/coastal-exposure.js';
@@ -1353,7 +1353,7 @@ class ContinentGenerator extends MapGenerator {
     VoronoiUtils.shuffle(volcanoCells, totalVolcanos);
     volcanoCells = volcanoCells.slice(0, totalVolcanos);
     volcanoCells.forEach((cell) => {
-      cell.terrainType = TerrainType.Volcano;
+      cell.featureType = FeatureType.Volcano;
     });
     this.m_regionCells.forEach((cell) => {
       cell.currentScore = 0;

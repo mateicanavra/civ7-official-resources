@@ -33,15 +33,15 @@
 		<Argument name="Tooltip">LOC_TRADITION_EX_ATTRIBUTE_ECONOMIC_01_NAME</Argument>
 	</Modifier>
 	<Modifier id="TRADITION_EX_ATTRIBUTE_EXPANSIONIST_01_TALL_WAREHOUSE_ADJACENCY" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ACTIVATE_CONSTRUCTIBLE_ADJACENCY">
-			<SubjectRequirements>
-				<Requirement type="REQUIREMENT_CITY_IS_CITY"/>
-			</SubjectRequirements>
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_CITY"/>
+		</SubjectRequirements>
 		<Argument name="ConstructibleAdjacency">CivicExpExpansionistTallWarehouseUrbanFood</Argument>
 	</Modifier>
 	<Modifier id="TRADITION_EX_ATTRIBUTE_EXPANSIONIST_01_WIDE_WAREHOUSE_ADJACENCY" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ACTIVATE_CONSTRUCTIBLE_ADJACENCY">
-			<SubjectRequirements>
-				<Requirement type="REQUIREMENT_CITY_IS_TOWN"/>
-			</SubjectRequirements>
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_TOWN"/>
+		</SubjectRequirements>
 		<Argument name="ConstructibleAdjacency">CivicExpExpansionistWideWarehouseRuralFood</Argument>
 	</Modifier>
 	<Modifier id="TRADITION_EX_ATTRIBUTE_MILITARISTIC_01_MOD_COMMANDER_XP" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ARMY_ADJUST_EXPERIENCE_RATE">
@@ -65,158 +65,159 @@
 		<Argument name="YieldType">YIELD_SCIENCE</Argument>
 		<Argument name="PercentCost" type="ScaleByGameSpeed">25</Argument>
 		<Argument name="Overbuilt">true</Argument>
+		<String context="WorldText">LOC_WORLD_SCIENCE_INCREASE_FLOATER</String>
 	</Modifier>
 	<!-- ==================================================	-->
 	<!--	Exploration Apex Self Syncretism				-->
 	<!-- ==================================================	-->
-		<Modifier id="MOD_UNLOCK_ABBASID_SYNCRETISM_ANTIQUITY" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
-			<Argument name="Tradition">TRADITION_ABBASID_SYNCRETISM_ANTIQUITY</Argument>
-		</Modifier>
-		<Modifier id="MOD_UNLOCK_ABBASID_SYNCRETISM_MODERN" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
-			<Argument name="Tradition">TRADITION_ABBASID_SYNCRETISM_MODERN</Argument>
-		</Modifier>
-		<Modifier id="MOD_UNLOCK_CHOLA_SYNCRETISM_ANTIQUITY" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
-			<Argument name="Tradition">TRADITION_CHOLA_SYNCRETISM_ANTIQUITY</Argument>
-		</Modifier>
-		<Modifier id="MOD_UNLOCK_CHOLA_SYNCRETISM_MODERN" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
-			<Argument name="Tradition">TRADITION_CHOLA_SYNCRETISM_MODERN</Argument>
-		</Modifier>
-		<Modifier id="MOD_UNLOCK_HAWAII_SYNCRETISM_ANTIQUITY" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
-			<Argument name="Tradition">TRADITION_HAWAII_SYNCRETISM_ANTIQUITY</Argument>
-		</Modifier>
-		<Modifier id="MOD_UNLOCK_HAWAII_SYNCRETISM_MODERN" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
-			<Argument name="Tradition">TRADITION_HAWAII_SYNCRETISM_MODERN</Argument>
-		</Modifier>
-		<Modifier id="MOD_UNLOCK_INCA_SYNCRETISM_ANTIQUITY" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
-			<Argument name="Tradition">TRADITION_INCA_SYNCRETISM_ANTIQUITY</Argument>
-		</Modifier>
-		<Modifier id="MOD_UNLOCK_INCA_SYNCRETISM_MODERN" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
-			<Argument name="Tradition">TRADITION_INCA_SYNCRETISM_MODERN</Argument>
-		</Modifier>
-		<Modifier id="MOD_UNLOCK_MAJAPAHIT_SYNCRETISM_ANTIQUITY" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
-			<Argument name="Tradition">TRADITION_MAJAPAHIT_SYNCRETISM_ANTIQUITY</Argument>
-		</Modifier>
-		<Modifier id="MOD_UNLOCK_MAJAPAHIT_SYNCRETISM_MODERN" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
-			<Argument name="Tradition">TRADITION_MAJAPAHIT_SYNCRETISM_MODERN</Argument>
-		</Modifier>
-		<Modifier id="MOD_UNLOCK_MING_SYNCRETISM_ANTIQUITY" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
-			<Argument name="Tradition">TRADITION_MING_SYNCRETISM_ANTIQUITY</Argument>
-		</Modifier>
-		<Modifier id="MOD_UNLOCK_MING_SYNCRETISM_MODERN" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
-			<Argument name="Tradition">TRADITION_MING_SYNCRETISM_MODERN</Argument>
-		</Modifier>
-		<Modifier id="MOD_UNLOCK_MONGOLIA_SYNCRETISM_ANTIQUITY" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
-			<Argument name="Tradition">TRADITION_MONGOLIA_SYNCRETISM_ANTIQUITY</Argument>
-		</Modifier>
-		<Modifier id="MOD_UNLOCK_MONGOLIA_SYNCRETISM_MODERN" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
-			<Argument name="Tradition">TRADITION_MONGOLIA_SYNCRETISM_MODERN</Argument>
-		</Modifier>
-		<Modifier id="MOD_UNLOCK_NORMAN_SYNCRETISM_ANTIQUITY" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
-			<Argument name="Tradition">TRADITION_NORMAN_SYNCRETISM_ANTIQUITY</Argument>
-		</Modifier>
-		<Modifier id="MOD_UNLOCK_NORMAN_SYNCRETISM_MODERN" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
-			<Argument name="Tradition">TRADITION_NORMAN_SYNCRETISM_MODERN</Argument>
-		</Modifier>
-		<Modifier id="MOD_UNLOCK_SPAIN_SYNCRETISM_ANTIQUITY" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
-			<Argument name="Tradition">TRADITION_SPAIN_SYNCRETISM_ANTIQUITY</Argument>
-		</Modifier>
-		<Modifier id="MOD_UNLOCK_SPAIN_SYNCRETISM_MODERN" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
-			<Argument name="Tradition">TRADITION_SPAIN_SYNCRETISM_MODERN</Argument>
-		</Modifier>
-		<Modifier id="MOD_UNLOCK_SONGHAI_SYNCRETISM_ANTIQUITY" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
-			<Argument name="Tradition">TRADITION_SONGHAI_SYNCRETISM_ANTIQUITY</Argument>
-		</Modifier>
-		<Modifier id="MOD_UNLOCK_SONGHAI_SYNCRETISM_MODERN" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
-			<Argument name="Tradition">TRADITION_SONGHAI_SYNCRETISM_MODERN</Argument>
-		</Modifier>
+	<Modifier id="MOD_UNLOCK_ABBASID_SYNCRETISM_ANTIQUITY" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
+		<Argument name="Tradition">TRADITION_ABBASID_SYNCRETISM_ANTIQUITY</Argument>
+	</Modifier>
+	<Modifier id="MOD_UNLOCK_ABBASID_SYNCRETISM_MODERN" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
+		<Argument name="Tradition">TRADITION_ABBASID_SYNCRETISM_MODERN</Argument>
+	</Modifier>
+	<Modifier id="MOD_UNLOCK_CHOLA_SYNCRETISM_ANTIQUITY" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
+		<Argument name="Tradition">TRADITION_CHOLA_SYNCRETISM_ANTIQUITY</Argument>
+	</Modifier>
+	<Modifier id="MOD_UNLOCK_CHOLA_SYNCRETISM_MODERN" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
+		<Argument name="Tradition">TRADITION_CHOLA_SYNCRETISM_MODERN</Argument>
+	</Modifier>
+	<Modifier id="MOD_UNLOCK_HAWAII_SYNCRETISM_ANTIQUITY" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
+		<Argument name="Tradition">TRADITION_HAWAII_SYNCRETISM_ANTIQUITY</Argument>
+	</Modifier>
+	<Modifier id="MOD_UNLOCK_HAWAII_SYNCRETISM_MODERN" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
+		<Argument name="Tradition">TRADITION_HAWAII_SYNCRETISM_MODERN</Argument>
+	</Modifier>
+	<Modifier id="MOD_UNLOCK_INCA_SYNCRETISM_ANTIQUITY" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
+		<Argument name="Tradition">TRADITION_INCA_SYNCRETISM_ANTIQUITY</Argument>
+	</Modifier>
+	<Modifier id="MOD_UNLOCK_INCA_SYNCRETISM_MODERN" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
+		<Argument name="Tradition">TRADITION_INCA_SYNCRETISM_MODERN</Argument>
+	</Modifier>
+	<Modifier id="MOD_UNLOCK_MAJAPAHIT_SYNCRETISM_ANTIQUITY" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
+		<Argument name="Tradition">TRADITION_MAJAPAHIT_SYNCRETISM_ANTIQUITY</Argument>
+	</Modifier>
+	<Modifier id="MOD_UNLOCK_MAJAPAHIT_SYNCRETISM_MODERN" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
+		<Argument name="Tradition">TRADITION_MAJAPAHIT_SYNCRETISM_MODERN</Argument>
+	</Modifier>
+	<Modifier id="MOD_UNLOCK_MING_SYNCRETISM_ANTIQUITY" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
+		<Argument name="Tradition">TRADITION_MING_SYNCRETISM_ANTIQUITY</Argument>
+	</Modifier>
+	<Modifier id="MOD_UNLOCK_MING_SYNCRETISM_MODERN" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
+		<Argument name="Tradition">TRADITION_MING_SYNCRETISM_MODERN</Argument>
+	</Modifier>
+	<Modifier id="MOD_UNLOCK_MONGOLIA_SYNCRETISM_ANTIQUITY" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
+		<Argument name="Tradition">TRADITION_MONGOLIA_SYNCRETISM_ANTIQUITY</Argument>
+	</Modifier>
+	<Modifier id="MOD_UNLOCK_MONGOLIA_SYNCRETISM_MODERN" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
+		<Argument name="Tradition">TRADITION_MONGOLIA_SYNCRETISM_MODERN</Argument>
+	</Modifier>
+	<Modifier id="MOD_UNLOCK_NORMAN_SYNCRETISM_ANTIQUITY" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
+		<Argument name="Tradition">TRADITION_NORMAN_SYNCRETISM_ANTIQUITY</Argument>
+	</Modifier>
+	<Modifier id="MOD_UNLOCK_NORMAN_SYNCRETISM_MODERN" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
+		<Argument name="Tradition">TRADITION_NORMAN_SYNCRETISM_MODERN</Argument>
+	</Modifier>
+	<Modifier id="MOD_UNLOCK_SPAIN_SYNCRETISM_ANTIQUITY" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
+		<Argument name="Tradition">TRADITION_SPAIN_SYNCRETISM_ANTIQUITY</Argument>
+	</Modifier>
+	<Modifier id="MOD_UNLOCK_SPAIN_SYNCRETISM_MODERN" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
+		<Argument name="Tradition">TRADITION_SPAIN_SYNCRETISM_MODERN</Argument>
+	</Modifier>
+	<Modifier id="MOD_UNLOCK_SONGHAI_SYNCRETISM_ANTIQUITY" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
+		<Argument name="Tradition">TRADITION_SONGHAI_SYNCRETISM_ANTIQUITY</Argument>
+	</Modifier>
+	<Modifier id="MOD_UNLOCK_SONGHAI_SYNCRETISM_MODERN" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
+		<Argument name="Tradition">TRADITION_SONGHAI_SYNCRETISM_MODERN</Argument>
+	</Modifier>
 	<!-- ==================================================	-->
 	<!--	Exploration Apex Civ Traditions					-->
 	<!-- ==================================================	-->
 	<!-- Abbasids -->
 	<!-- =============================================	-->
-		<Modifier id="CITY_OF_PEACE_MOD_ADJACENT_CITY_CENTER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ACTIVATE_CONSTRUCTIBLE_ADJACENCY">
-			<Argument name="ConstructibleAdjacency">CityOfPeaceWildcardScienceCityCenter</Argument>
-			<String context="Description">LOC_TRADITION_CITY_OF_PEACE_DESCRIPTION</String>
-		</Modifier>
-		<Modifier id="COMPENDIOUS_BOOK_I_MOD_TOWN_YIELDS" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_ACTIVATE_CONSTRUCTIBLE_ADJACENCY">
-			<Argument name="ConstructibleAdjacency">CityOfPeaceIWildcardScienceCityCenter</Argument>
-			<String context="Description">LOC_TRADITION_COMPENDIOUS_BOOK_I_DESCRIPTION</String>
-		</Modifier>
-		<Modifier id="COMPENDIOUS_BOOK_II_MOD_TOWN_YIELDS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
-			<SubjectRequirements>
-				<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
-					<Argument name="RequirementSetId">REQSET_ONLY_TOWNS</Argument>
-				</Requirement>
-			</SubjectRequirements>
-			<Argument name="Amount">2</Argument>
-			<Argument name="YieldType">YIELD_HAPPINESS, YIELD_SCIENCE</Argument>
-			<Argument name="Tooltip">LOC_TRADITION_COMPENDIOUS_BOOK_II_NAME</Argument>
-		</Modifier>
-		<Modifier id="SALES_AND_TRADE_MOD_RESOURCE_SCIENCE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_RESOURCE">
-			<SubjectRequirements>
-				<Requirement type="REQUIREMENT_CITY_POPULATION">
-					<Argument name="MinWorkerPopulation">5</Argument>
-				</Requirement>
-				<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
-					<Argument name="RequirementSetId">REQSET_ONLY_CITIES</Argument>
-				</Requirement>
-			</SubjectRequirements>
-			<Argument name="Amount">1</Argument>
-			<Argument name="PercentMultiplier">false</Argument>
-			<Argument name="YieldType">YIELD_SCIENCE</Argument>
-			<Argument name="Tooltip">LOC_TRADITION_SALES_AND_TRADE_I_NAME</Argument>
-		</Modifier>
-		<Modifier id="SALES_AND_TRADE_MOD_RESOURCE_GOLD" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_RESOURCE">
-			<SubjectRequirements>
-				<Requirement type="REQUIREMENT_CITY_POPULATION">
-					<Argument name="MinWorkerPopulation">5</Argument>
-				</Requirement>
-				<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
-					<Argument name="RequirementSetId">REQSET_ONLY_CITIES</Argument>
-				</Requirement>
-			</SubjectRequirements>
-			<Argument name="Amount">1</Argument>
-			<Argument name="YieldType">YIELD_GOLD</Argument>
-			<Argument name="PercentMultiplier">false</Argument>
-			<Argument name="Tooltip">LOC_TRADITION_SALES_AND_TRADE_I_NAME</Argument>
-			<String context="Description">LOC_TRADITION_SALES_AND_TRADE_I_DESCRIPTION</String>
-		</Modifier>
-		<Modifier id="SALES_AND_TRADE_II_MOD_RESOURCE_SCIENCE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_RESOURCE">
-			<SubjectRequirements>
-				<Requirement type="REQUIREMENT_CITY_POPULATION">
-					<Argument name="MinWorkerPopulation">5</Argument>
-				</Requirement>
-				<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
-					<Argument name="RequirementSetId">REQSET_ONLY_CITIES</Argument>
-				</Requirement>
-			</SubjectRequirements>
-			<Argument name="Amount">2</Argument>
-			<Argument name="PercentMultiplier">false</Argument>
-			<Argument name="YieldType">YIELD_SCIENCE</Argument>
-			<Argument name="Tooltip">LOC_TRADITION_SALES_AND_TRADE_II_NAME</Argument>
-		</Modifier>
-		<Modifier id="SALES_AND_TRADE_II_MOD_RESOURCE_GOLD" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_RESOURCE">
-			<SubjectRequirements>
-				<Requirement type="REQUIREMENT_CITY_POPULATION">
-					<Argument name="MinWorkerPopulation">5</Argument>
-				</Requirement>
-				<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
-					<Argument name="RequirementSetId">REQSET_ONLY_CITIES</Argument>
-				</Requirement>
-			</SubjectRequirements>
-			<Argument name="Amount">2</Argument>
-			<Argument name="YieldType">YIELD_GOLD</Argument>
-			<Argument name="PercentMultiplier">false</Argument>
-			<Argument name="Tooltip">LOC_TRADITION_SALES_AND_TRADE_II_NAME</Argument>
-			<String context="Description">LOC_TRADITION_SALES_AND_TRADE_II_DESCRIPTION</String>
-		</Modifier>
+	<Modifier id="CITY_OF_PEACE_MOD_ADJACENT_CITY_CENTER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ACTIVATE_CONSTRUCTIBLE_ADJACENCY">
+		<Argument name="ConstructibleAdjacency">CityOfPeaceWildcardScienceCityCenter</Argument>
+		<String context="Description">LOC_TRADITION_CITY_OF_PEACE_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="COMPENDIOUS_BOOK_I_MOD_TOWN_YIELDS" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_ACTIVATE_CONSTRUCTIBLE_ADJACENCY">
+		<Argument name="ConstructibleAdjacency">CityOfPeaceIWildcardScienceCityCenter</Argument>
+		<String context="Description">LOC_TRADITION_COMPENDIOUS_BOOK_I_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="COMPENDIOUS_BOOK_II_MOD_TOWN_YIELDS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+				<Argument name="RequirementSetId">REQSET_ONLY_TOWNS</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">2</Argument>
+		<Argument name="YieldType">YIELD_HAPPINESS, YIELD_SCIENCE</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_COMPENDIOUS_BOOK_II_NAME</Argument>
+	</Modifier>
+	<Modifier id="SALES_AND_TRADE_MOD_RESOURCE_SCIENCE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_RESOURCE">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_POPULATION">
+				<Argument name="MinWorkerPopulation">5</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+				<Argument name="RequirementSetId">REQSET_ONLY_CITIES</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">1</Argument>
+		<Argument name="PercentMultiplier">false</Argument>
+		<Argument name="YieldType">YIELD_SCIENCE</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_SALES_AND_TRADE_I_NAME</Argument>
+	</Modifier>
+	<Modifier id="SALES_AND_TRADE_MOD_RESOURCE_GOLD" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_RESOURCE">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_POPULATION">
+				<Argument name="MinWorkerPopulation">5</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+				<Argument name="RequirementSetId">REQSET_ONLY_CITIES</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">1</Argument>
+		<Argument name="YieldType">YIELD_GOLD</Argument>
+		<Argument name="PercentMultiplier">false</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_SALES_AND_TRADE_I_NAME</Argument>
+		<String context="Description">LOC_TRADITION_SALES_AND_TRADE_I_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="SALES_AND_TRADE_II_MOD_RESOURCE_SCIENCE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_RESOURCE">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_POPULATION">
+				<Argument name="MinWorkerPopulation">5</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+				<Argument name="RequirementSetId">REQSET_ONLY_CITIES</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">2</Argument>
+		<Argument name="PercentMultiplier">false</Argument>
+		<Argument name="YieldType">YIELD_SCIENCE</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_SALES_AND_TRADE_II_NAME</Argument>
+	</Modifier>
+	<Modifier id="SALES_AND_TRADE_II_MOD_RESOURCE_GOLD" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_RESOURCE">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_POPULATION">
+				<Argument name="MinWorkerPopulation">5</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+				<Argument name="RequirementSetId">REQSET_ONLY_CITIES</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">2</Argument>
+		<Argument name="YieldType">YIELD_GOLD</Argument>
+		<Argument name="PercentMultiplier">false</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_SALES_AND_TRADE_II_NAME</Argument>
+		<String context="Description">LOC_TRADITION_SALES_AND_TRADE_II_DESCRIPTION</String>
+	</Modifier>
 
-		<Modifier id="ABBASID_SYNCRETISM_ANTIQUITY_ADJACENCY" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_ACTIVATE_CONSTRUCTIBLE_ADJACENCY">
-			<Argument name="ConstructibleAdjacency">AbbasidTrialOfTimeBuildingHappinessCityCenter</Argument>
-		</Modifier>
-		<Modifier id="ABBASID_SYNCRETISM_MODERN_ADJACENCY" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ACTIVATE_CONSTRUCTIBLE_ADJACENCY">
-			<Argument name="ConstructibleAdjacency">AbbasidTrialOfTimeBuildingHappinessCityCenter</Argument>
-		</Modifier>
+	<Modifier id="ABBASID_SYNCRETISM_ANTIQUITY_ADJACENCY" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_ACTIVATE_CONSTRUCTIBLE_ADJACENCY">
+		<Argument name="ConstructibleAdjacency">AbbasidTrialOfTimeBuildingHappinessCityCenter</Argument>
+	</Modifier>
+	<Modifier id="ABBASID_SYNCRETISM_MODERN_ADJACENCY" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ACTIVATE_CONSTRUCTIBLE_ADJACENCY">
+		<Argument name="ConstructibleAdjacency">AbbasidTrialOfTimeBuildingHappinessCityCenter</Argument>
+	</Modifier>
 	<!-- =============================================	-->
 	<!-- Chola -->
 	<!-- =============================================	-->
@@ -527,7 +528,7 @@
 		<Argument name="Rural">true</Argument>
 		<Argument name="Tooltip">LOC_TRADITION_QUIPU_TOOLTIP</Argument>
 	</Modifier>
-	
+
 	<Modifier id="INCA_SYNCRETISM_ANTIQUITY_FOOD_ADJACENT_MOUNTAIN" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
 		<SubjectRequirements type="REQUIREMENTSET_TEST_ANY">
 			<Requirement type="REQUIREMENT_PLOT_ADJACENT_TERRAIN_TYPE_MATCHES">
@@ -560,8 +561,8 @@
 	<!-- Majapahit -->
 	<!-- =============================================	-->
 	<RequirementSet id="REQSET_PLOT_ON_OR_ADJACENT_TO_COAST" type="REQUIREMENTSET_TEST_ANY">
-			<Requirement type="REQUIREMENT_PLOT_ADJACENT_TO_COAST"/>
-			<Requirement type="REQUIREMENT_PLOT_IS_COAST"/>
+		<Requirement type="REQUIREMENT_PLOT_ADJACENT_TO_COAST"/>
+		<Requirement type="REQUIREMENT_PLOT_IS_COAST"/>
 	</RequirementSet>
 
 	<Modifier id="PANJI_CULTURE_WORKERS" collection="COLLECTION_PLAYER_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_WORKER_YIELD">
@@ -573,7 +574,7 @@
 		<Argument name="YieldType">YIELD_CULTURE</Argument>
 		<Argument name="Tooltip">LOC_TRADITION_PANJI_NAME</Argument>
 	</Modifier>
-	
+
 	<Modifier id="AWISAN_DALEM_I_MOD_FISHING_BOAT_CULTURE" collection="COLLECTION_PLAYER_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
 		<SubjectRequirements>
 			<Requirement type="REQUIREMENT_CITY_IS_CITY" />
@@ -807,11 +808,11 @@
 		<Argument name="Tooltip">LOC_TRADITION_JARLIG_TOOLTIP</Argument>
 	</Modifier>
 	<Modifier id="MONGOLIA_SYNCRETISM_ANTIQUITY_MOD_HORSE_YIELD" collection="COLLECTION_PLAYER_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
-        <SubjectRequirements>
-            <Requirement type="REQUIREMENT_PLOT_RESOURCE_TYPE_MATCHES">
-                <Argument name="ResourceType">RESOURCE_HORSES</Argument>
-            </Requirement>
-        </SubjectRequirements>
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_RESOURCE_TYPE_MATCHES">
+				<Argument name="ResourceType">RESOURCE_HORSES</Argument>
+			</Requirement>
+		</SubjectRequirements>
 		<Argument name="Amount">1</Argument>
 		<Argument name="YieldType">YIELD_DIPLOMACY,YIELD_PRODUCTION</Argument>
 		<Argument name="Tooltip">LOC_TRADITION_MONGOLIA_SYNCRETISM_TOOLTIP</Argument>
@@ -823,21 +824,21 @@
 		<Argument name="ModifierId">ATTACH_MONGOLIA_SYNCRETISM_ANTIQUITY_MOD_HORSE_YIELD_CAPTURED</Argument>
 	</Modifier>
 	<Modifier id="ATTACH_MONGOLIA_SYNCRETISM_ANTIQUITY_MOD_HORSE_YIELD_CAPTURED" collection="COLLECTION_CITY_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
-        <SubjectRequirements>
-            <Requirement type="REQUIREMENT_PLOT_RESOURCE_TYPE_MATCHES">
-                <Argument name="ResourceType">RESOURCE_HORSES</Argument>
-            </Requirement>
-       </SubjectRequirements>
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_RESOURCE_TYPE_MATCHES">
+				<Argument name="ResourceType">RESOURCE_HORSES</Argument>
+			</Requirement>
+		</SubjectRequirements>
 		<Argument name="Amount">1</Argument>
 		<Argument name="YieldType">YIELD_DIPLOMACY,YIELD_PRODUCTION</Argument>
 		<Argument name="Tooltip">LOC_TRADITION_MONGOLIA_SYNCRETISM_TOOLTIP</Argument>
 	</Modifier>
 	<Modifier id="MONGOLIA_SYNCRETISM_MODERN_MOD_HORSE_YIELD" collection="COLLECTION_PLAYER_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
-        <SubjectRequirements>
-            <Requirement type="REQUIREMENT_PLOT_RESOURCE_TYPE_MATCHES">
-                <Argument name="ResourceType">RESOURCE_HORSES</Argument>
-            </Requirement>
-        </SubjectRequirements>
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_RESOURCE_TYPE_MATCHES">
+				<Argument name="ResourceType">RESOURCE_HORSES</Argument>
+			</Requirement>
+		</SubjectRequirements>
 		<Argument name="Amount">2</Argument>
 		<Argument name="YieldType">YIELD_DIPLOMACY,YIELD_PRODUCTION</Argument>
 		<Argument name="Tooltip">LOC_TRADITION_MONGOLIA_SYNCRETISM_TOOLTIP</Argument>
@@ -849,11 +850,11 @@
 		<Argument name="ModifierId">ATTACH_MONGOLIA_SYNCRETISM_MODERN_MOD_HORSE_YIELD_CAPTURED</Argument>
 	</Modifier>
 	<Modifier id="ATTACH_MONGOLIA_SYNCRETISM_MODERN_MOD_HORSE_YIELD_CAPTURED" collection="COLLECTION_CITY_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
-        <SubjectRequirements>
-            <Requirement type="REQUIREMENT_PLOT_RESOURCE_TYPE_MATCHES">
-                <Argument name="ResourceType">RESOURCE_HORSES</Argument>
-            </Requirement>
-       </SubjectRequirements>
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_RESOURCE_TYPE_MATCHES">
+				<Argument name="ResourceType">RESOURCE_HORSES</Argument>
+			</Requirement>
+		</SubjectRequirements>
 		<Argument name="Amount">2</Argument>
 		<Argument name="YieldType">YIELD_DIPLOMACY,YIELD_PRODUCTION</Argument>
 		<Argument name="Tooltip">LOC_TRADITION_MONGOLIA_SYNCRETISM_TOOLTIP</Argument>
@@ -1381,7 +1382,7 @@
 		<Argument name="Amount">2</Argument>
 		<Argument name="YieldType">YIELD_GOLD</Argument>
 		<Argument name="Tooltip">LOC_TRADITION_SPAIN_SYNCRETISM_TOOLTIP</Argument>
-	</Modifier>	
+	</Modifier>
 	<Modifier id="SPAIN_SYNCRETISM_MODERN_FOOD_PRODUCTION_CITIES_DISTANT_LANDS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
 		<SubjectRequirements>
 			<Requirement type="REQUIREMENT_CITY_IS_CITY"/>

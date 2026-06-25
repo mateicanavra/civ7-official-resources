@@ -263,7 +263,7 @@ class MPLobbyDataModel {
     return Network.isPlayerStartReady(GameContext.localPlayerID);
   }
   get canEditMementos() {
-    return !this.isLocalPlayerReady && MPLobbyDataModel.isNewGame;
+    return Configuration.getGame().isMementosEnabled && !this.isLocalPlayerReady && MPLobbyDataModel.isNewGame;
   }
   get summaryMapSize() {
     const mapSizeName = this.findGameParameter(this.MapSizeStringHandle)?.value.name;

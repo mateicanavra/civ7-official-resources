@@ -1,8 +1,8 @@
 import { template, insert, Portal, className, spread, use } from '../../vendor/solid-js/web/dist/web.js';
-import { createContext, useContext, createMemo, createSignal, onMount, onCleanup, createComponent, createEffect, on, Show, mergeProps, createRenderEffect, splitProps, children } from '../../vendor/solid-js/dist/solid.js';
+import { createContext, useContext, createSignal, createMemo, onMount, onCleanup, createComponent, createEffect, on, Show, mergeProps, createRenderEffect, splitProps, children } from '../../vendor/solid-js/dist/solid.js';
 import { Activatable } from './activatable.js';
 import { L10n } from './l10n.js';
-import { NavHelp, KBMNavHelp } from './nav-help.js';
+import { KBMNavHelp, NavHelp } from './nav-help.js';
 import { Slot } from './slot.js';
 import { NestedTooltipContext } from './tooltip-compat.js';
 import { TooltipModel } from './tooltip-model.js';
@@ -10,10 +10,11 @@ import { TriggerActivationContext, TriggerActivationContextProvider, TriggerType
 import { ComponentRegistry } from '../services/component-registry.js';
 import { FocusManager } from '../services/focus-manager.js';
 import { useFocusContext } from '../services/focus.js';
-import { IsMouseActive, IsKeyboardActive, IsTouchActive, ActiveInputDevice } from '../services/input.js';
-import { createPropsRefSignal, createLayoutComplete } from '../utilities/solid-utilities.js';
+import { HotkeyIconContext } from '../services/hotkey.js';
+import { IsMouseActive, IsKeyboardActive, IsTouchActive } from '../services/input.js';
+import { createArraySignal, createPropsRefSignal, createLayoutComplete } from '../utilities/solid-utilities.js';
 
-var _tmpl$ = /* @__PURE__ */ template(`<span class=hidden></span>`), _tmpl$2 = /* @__PURE__ */ template(`<div></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="flex flex-row items-center justify-center"></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div class="flex flex-col flex-auto items-center justify-center"><div class="flex flex-row items-center justify-center"></div><div class="flex-auto tooltip-autolock-progress bg-secondary"></div></div>`), _tmpl$5 = /* @__PURE__ */ template(`<div class="absolute top-1 left-1 rotate-180 size-4 bg-contain opacity-30"></div>`), _tmpl$6 = /* @__PURE__ */ template(`<div class="absolute top-1 right-1 -rotate-90 size-4 bg-contain opacity-30"></div>`), _tmpl$7 = /* @__PURE__ */ template(`<div class="absolute bottom-1 left-1 rotate-90 size-4 bg-contain opacity-30"></div>`), _tmpl$8 = /* @__PURE__ */ template(`<div class="absolute bottom-1 right-1 size-4 bg-contain opacity-30"></div>`), _tmpl$9 = /* @__PURE__ */ template(`<div role=heading></div>`);
+var _tmpl$ = /* @__PURE__ */ template(`<span class=hidden></span>`), _tmpl$2 = /* @__PURE__ */ template(`<div></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="flex flex-row items-center justify-center"></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div class="flex-auto tooltip-autolock-progress bg-secondary"></div>`), _tmpl$5 = /* @__PURE__ */ template(`<div class="relative h-0\\.5 w-full flex-auto bg-secondary scale-0 origin-center -mb-2 rounded"></div>`), _tmpl$6 = /* @__PURE__ */ template(`<div class=tooltip-frame-focus-glow></div>`), _tmpl$7 = /* @__PURE__ */ template(`<div class="absolute top-1 left-1 rotate-180 size-4 bg-contain opacity-30"></div>`), _tmpl$8 = /* @__PURE__ */ template(`<div class="absolute top-1 right-1 -rotate-90 size-4 bg-contain opacity-30"></div>`), _tmpl$9 = /* @__PURE__ */ template(`<div class="absolute bottom-1 left-1 rotate-90 size-4 bg-contain opacity-30"></div>`), _tmpl$10 = /* @__PURE__ */ template(`<div class="absolute bottom-1 right-1 size-4 bg-contain opacity-30"></div>`), _tmpl$11 = /* @__PURE__ */ template(`<div role=heading></div>`);
 const MAX_VISIBLE_TOOLTIPS = 10;
 const TooltipNavigationRules = /* @__PURE__ */ new Map([[InputNavigationAction.UP, (context) => {
   const firstFocusable = context.children()[0];
@@ -146,49 +147,54 @@ function computeTooltipPosition(targetRect, tooltip, desiredV, desiredH, offset)
 let curTooltip = 0;
 const TooltipRootComponent = (props) => {
   const parentCtx = useContext(TooltipContext);
+  const nestedCtx = useContext(NestedTooltipContext);
   const tooltipModel = TooltipModel.get();
-  const name = createMemo(() => `tooltip-${curTooltip++}`);
+  const name = `tooltip-${curTooltip++}`;
   const [triggerContext, setTriggerContext] = createSignal(void 0);
   const [vPosition, setVPosition] = createSignal(props.initialVPosition);
   const [hPosition, setHPosition] = createSignal(props.initialHPosition);
-  const [childTooltipCount, setChildTooltipCount] = createSignal(0);
+  const [childTooltipList, setChildTooltipList] = createArraySignal([]);
   const offset = createMemo(() => props.offset ?? 0);
-  const nestedCtx = useContext(NestedTooltipContext);
   if (!nestedCtx?.disabled) {
     onMount(() => {
-      parentCtx?.setChildTooltipCount((count) => count + 1);
+      parentCtx?.setChildTooltipList((tooltips) => {
+        tooltips.push(name);
+        return tooltips;
+      });
       onCleanup(() => {
-        parentCtx?.setChildTooltipCount((count) => count - 1);
+        parentCtx?.setChildTooltipList((tooltips) => {
+          const index = tooltips.indexOf(name);
+          if (index !== -1) {
+            tooltips.splice(index, 1);
+          }
+          return tooltips;
+        });
       });
     });
   }
   onMount(() => {
-    const tooltipName = name();
-    tooltipModel.register(tooltipName, childTooltipCount);
+    const unregister = tooltipModel.register(name, childTooltipList);
     onCleanup(() => {
-      const tooltipName2 = name();
-      tooltipModel.unregister(tooltipName2);
+      unregister();
     });
   });
   return createComponent(TooltipContext.Provider, {
     get value() {
       return {
-        /* eslint-disable solid/reactivity -- these don't need to be reactive */
-        name: name(),
-        offset,
-        allowFlip: props.allowFlip ?? false,
-        showFiligrees: props.showFiligrees ?? true,
+        name,
         initialVPosition: props.initialVPosition,
         initialHPosition: props.initialHPosition,
-        /* eslint-enable solid/reactivity */
+        offset,
+        allowFlip: () => props.allowFlip ?? false,
+        showFiligrees: () => props.showFiligrees ?? true,
         vPosition,
         setVPosition,
         hPosition,
         setHPosition,
         triggerContext,
         setTriggerContext,
-        childTooltipCount,
-        setChildTooltipCount
+        childTooltipList,
+        setChildTooltipList
       };
     },
     get children() {
@@ -209,6 +215,7 @@ const [mousePosition, setMousePosition] = createSignal({
   x: 0,
   y: 0
 });
+const areRectsEqual = (rect1, rect2) => rect1 && rect2 && rect1.top === rect2.top && rect1.left === rect2.left && rect1.width === rect2.width && rect1.height === rect2.height;
 const TooltipContentComponent = (props) => {
   const focusManager = FocusManager.get();
   const tooltipModel = TooltipModel.get();
@@ -224,6 +231,8 @@ const TooltipContentComponent = (props) => {
   const [isCalculatingPosition, setIsCalculatingPosition] = createSignal(true);
   const [didCalculatePosition, setDidCalculatePosition] = createSignal(false);
   const isLayoutComplete = createLayoutComplete();
+  const target = createMemo(() => tooltipModel.getTarget(ctx.name));
+  const [targetRect, setTargetRect] = createSignal();
   const isTop = createMemo(() => {
     const active = tooltipModel.active();
     return active.length > 0 && active[active.length - 1] === ctx.name;
@@ -240,11 +249,10 @@ const TooltipContentComponent = (props) => {
   const shouldShow = createMemo(() => {
     const activeStack = tooltipModel.active();
     const stackIndex = activeStack.indexOf(ctx.name);
-    return stackIndex >= Math.max(0, activeStack.length - MAX_VISIBLE_TOOLTIPS);
+    const hasValidTarget = targetRect() !== void 0;
+    return stackIndex >= Math.max(0, activeStack.length - MAX_VISIBLE_TOOLTIPS) && hasValidTarget;
   });
   const enterAnimationClass = createMemo(() => getTooltipEnterClass(ctx.vPosition() ?? "auto" /* AUTO */, ctx.hPosition() ?? "auto" /* AUTO */));
-  const target = createMemo(() => tooltipModel.getTarget(ctx.name));
-  const [targetRect, setTargetRect] = createSignal();
   const setTargetRectFromXY = (x, y) => {
     setTargetRect({
       x,
@@ -265,18 +273,20 @@ const TooltipContentComponent = (props) => {
         const x = screenUV.x * window.innerWidth;
         const y = screenUV.y * window.innerHeight;
         setTargetRectFromXY(x, y);
+      } else {
+        setTargetRect(void 0);
       }
     }
   };
   createEffect(() => {
     if (!IsMouseActive() && isTop() && !tooltipModel.isLocked(ctx.name)) {
       engine.on("CameraChanged", onCameraChanged);
+      onCleanup(() => {
+        engine.off("CameraChanged", onCameraChanged);
+      });
     } else {
       engine.off("CameraChanged", onCameraChanged);
     }
-  });
-  onCleanup(() => {
-    engine.off("CameraChanged", onCameraChanged);
   });
   createEffect(() => {
     const currentTarget = target();
@@ -289,6 +299,8 @@ const TooltipContentComponent = (props) => {
           const x = screenUV.x * window.innerWidth;
           const y = screenUV.y * window.innerHeight;
           setTargetRectFromXY(x, y);
+        } else {
+          setTargetRect(void 0);
         }
       }
     } else {
@@ -298,9 +310,33 @@ const TooltipContentComponent = (props) => {
     }
   });
   createEffect(() => {
+    const currentTarget = target();
+    if (!(currentTarget instanceof HTMLElement) || !isTop() || tooltipModel.isLocked(ctx.name)) {
+      return;
+    }
+    let rafId;
+    let oldRect;
+    const pollRect = () => {
+      const newRect = currentTarget.getBoundingClientRect();
+      if (!areRectsEqual(oldRect, newRect)) {
+        setTargetRect(newRect);
+        oldRect = newRect;
+      }
+      rafId = requestAnimationFrame(pollRect);
+    };
+    rafId = requestAnimationFrame(pollRect);
+    onCleanup(() => {
+      if (rafId !== void 0) {
+        cancelAnimationFrame(rafId);
+      }
+    });
+  });
+  createEffect(() => {
     const tooltip = root();
     const currentTargetRect = targetRect();
-    if (!currentTargetRect || !tooltip || !isLayoutComplete() || !shouldActivate() || tooltipModel.isLocked(ctx.name)) {
+    if (!currentTargetRect || !tooltip || !isLayoutComplete() || !shouldActivate() || // ensure tooltip positions are calculated at least once,
+    // mostly to ensure tooltips on touch have their positions calculated because they can start locked
+    tooltipModel.isLocked(ctx.name) && didCalculatePosition()) {
       return;
     }
     const offset = ctx.offset ?? 0;
@@ -316,7 +352,7 @@ const TooltipContentComponent = (props) => {
       }
       const initial = computeTooltipPosition(currentTargetRect, tooltip, ctx.initialVPosition ?? ctx.vPosition() ?? "auto" /* AUTO */, ctx.initialHPosition ?? ctx.hPosition() ?? "auto" /* AUTO */, offset());
       let final = initial;
-      if (ctx.allowFlip) {
+      if (ctx.allowFlip()) {
         const needFlipVertical = initial.overflow.above || initial.overflow.below;
         const needFlipHorizontal = initial.overflow.left || initial.overflow.right;
         if (needFlipVertical || needFlipHorizontal) {
@@ -362,7 +398,7 @@ const TooltipContentComponent = (props) => {
     if (locked && currentRoot) {
       FocusManager.get().setFocus(currentRoot);
       onCleanup(() => {
-        if (focusManager.currentFocus() === currentRoot) {
+        if (focusManager.currentFocus() === currentRoot && !currentRoot.isConnected) {
           focusManager.setFocus(document.body);
         }
       });
@@ -373,6 +409,9 @@ const TooltipContentComponent = (props) => {
       name,
       status
     } = inputEvent.detail;
+    if (tooltipModel.locked()) {
+      inputEvent.preventDefault();
+    }
     if (status === InputActionStatuses.FINISH) {
       let didHandleEvent = false;
       if (name === "keyboard-inspect-tooltip" || name === "toggle-tooltip") {
@@ -439,7 +478,7 @@ const TooltipContentComponent = (props) => {
                   return !tooltipModel.isLocked(ctx.name);
                 },
                 get ["class"]() {
-                  return `absolute visible ${props.class ?? ""}`;
+                  return `absolute visible tooltip-content-root ${props.class ?? ""}`;
                 },
                 get classList() {
                   return {
@@ -496,6 +535,10 @@ const TooltipInspectHintComponent = (props) => {
   const tooltipModel = TooltipModel.get();
   const ctx = useContext(TooltipContext);
   const [local, other] = splitProps(props, ["class", "progressBarRef", "handlers"]);
+  const hotkeyIconProvider = {
+    disabled: () => false,
+    actionName: () => "toggle-tooltip"
+  };
   if (!ctx && local.handlers == void 0) {
     throw new Error("Tooltip.InspectHint must be used within a <Tooltip> root component or managed individually using handlers.");
   }
@@ -512,7 +555,7 @@ const TooltipInspectHintComponent = (props) => {
       return local.handlers.tooltipCount();
     }
     if (ctx) {
-      return ctx.childTooltipCount();
+      return ctx.childTooltipList().length;
     } else {
       console.error("Tooltip.InspectHint The tooltip count should be handled to show the tooltip.");
       return 0;
@@ -546,47 +589,68 @@ const TooltipInspectHintComponent = (props) => {
     },
     role: "heading"
   });
+  const navHelp = createMemo(() => {
+    if (IsMouseActive() || IsKeyboardActive()) {
+      return createComponent(KBMNavHelp, {
+        actionName: "keyboard-inspect-tooltip"
+      });
+    } else {
+      return createComponent(NavHelp, {
+        actionName: "toggle-tooltip",
+        "class": "size-8"
+      });
+    }
+  });
   return createComponent(Show, {
     get when() {
-      return createMemo(() => !!!IsTouchActive())() && tooltipCount() > 0;
+      return !IsTouchActive();
     },
     get children() {
       var _el$3 = _tmpl$2();
       spread(_el$3, mergeProps(other, {
         get ["class"]() {
-          return `flex flex-col justify-center mt-4 ${local.class ?? ""}`;
+          return `flex flex-col justify-center items-center px-2 gap-1 text-sm text-accent-3 font-body uppercase ${local.class ?? ""}`;
+        },
+        "style": {
+          "letter-spacing": "-0.5px"
         }
       }), false, true);
-      insert(_el$3, createComponent(Show, {
-        get when() {
-          return !isLocked() || isTopLevelActiveAndLocked();
-        },
+      insert(_el$3, createComponent(HotkeyIconContext.Provider, {
+        value: hotkeyIconProvider,
         get children() {
-          var _el$4 = _tmpl$3();
-          insert(_el$4, createComponent(Show, {
+          return [createComponent(Show, {
             get when() {
-              return createMemo(() => ActiveInputDevice() != InputDeviceType.Mouse)() && ActiveInputDevice() != InputDeviceType.Keyboard;
-            },
-            get fallback() {
-              return (() => {
-                var _el$5 = _tmpl$4(), _el$6 = _el$5.firstChild, _el$7 = _el$6.nextSibling;
-                insert(_el$6, inspectText, null);
-                insert(_el$6, createComponent(KBMNavHelp, {
-                  actionName: "keyboard-inspect-tooltip"
-                }), null);
-                var _ref$ = local.progressBarRef;
-                typeof _ref$ === "function" ? use(_ref$, _el$7) : local.progressBarRef = _el$7;
-                return _el$5;
-              })();
+              return createMemo(() => !!(!isLocked() || isTopLevelActiveAndLocked()))() && tooltipCount() > 0;
             },
             get children() {
-              return [createMemo(() => inspectText()), createComponent(NavHelp, {
-                actionName: "toggle-tooltip",
-                "class": "size-8"
+              return [(() => {
+                var _el$4 = _tmpl$3();
+                insert(_el$4, inspectText, null);
+                insert(_el$4, navHelp, null);
+                return _el$4;
+              })(), createComponent(Show, {
+                get when() {
+                  return tooltipModel.isAutolockAvailable();
+                },
+                get children() {
+                  var _el$5 = _tmpl$4();
+                  var _ref$ = local.progressBarRef;
+                  typeof _ref$ === "function" ? use(_ref$, _el$5) : local.progressBarRef = _el$5;
+                  return _el$5;
+                }
               })];
             }
-          }));
-          return _el$4;
+          }), createComponent(Show, {
+            get when() {
+              return tooltipCount() > 0;
+            },
+            get children() {
+              var _el$6 = _tmpl$5();
+              var _ref$2 = local.progressBarRef;
+              typeof _ref$2 === "function" ? use(_ref$2, _el$6) : local.progressBarRef = _el$6;
+              return _el$6;
+            }
+          })];
         }
       }));
       return _el$3;
@@ -600,8 +664,7 @@ const TooltipTriggerComponent = (props) => {
   }
   const parentContext = useContext(TriggerActivationContext);
   const tooltipModel = TooltipModel.get();
-  const reactiveName = createMemo(() => tooltipContext.name);
-  const triggerContext = new TriggerActivationContextProvider(tooltipModel, void 0, reactiveName);
+  const triggerContext = new TriggerActivationContextProvider(tooltipModel, void 0, () => tooltipContext.name);
   tooltipContext.setTriggerContext(triggerContext);
   const [root, setRoot] = createSignal();
   const [needsWrapper, setNeedsWrapper] = createSignal(false);
@@ -630,11 +693,6 @@ const TooltipTriggerComponent = (props) => {
     if (event instanceof MouseEvent && event.screenX === 0 && event.screenY === 0) {
       return;
     }
-    const activeTooltips = tooltipModel.active();
-    const top = activeTooltips.length > 0 ? activeTooltips[activeTooltips.length - 1] : null;
-    if (top && tooltipModel.isLocked(top) && top !== parentContext?.name()) {
-      return;
-    }
     event.stopPropagation();
     triggerTooltipWithDelay();
   };
@@ -647,7 +705,7 @@ const TooltipTriggerComponent = (props) => {
       tooltipModel.gotTouchPress(false);
       return;
     }
-    if (event.detail.name !== "touch-press" || event.detail.status !== InputActionStatuses.FINISH) {
+    if (event.detail.name !== "touch-press" && event.detail.name !== "touch-tap" || event.detail.status !== InputActionStatuses.FINISH) {
       return;
     }
     tooltipModel.gotTouchPress(true);
@@ -715,9 +773,9 @@ const TooltipTriggerComponent = (props) => {
         },
         get fallback() {
           return (() => {
-            var _el$8 = _tmpl$2();
-            use(setRoot, _el$8);
-            spread(_el$8, mergeProps(props, {
+            var _el$7 = _tmpl$2();
+            use(setRoot, _el$7);
+            spread(_el$7, mergeProps(props, {
               "on:mouseover": onShowTooltip,
               "on:mouseleave": onMouseLeave,
               "on:focus": onShowTooltip,
@@ -728,8 +786,8 @@ const TooltipTriggerComponent = (props) => {
                 return `tooltip-trigger-${tooltipContext.name}`;
               }
             }), false, true);
-            insert(_el$8, resolved);
-            return _el$8;
+            insert(_el$7, resolved);
+            return _el$7;
           })();
         },
         get children() {
@@ -748,33 +806,24 @@ const TooltipFrameComponent = (props) => {
   const tooltipModel = TooltipModel.get();
   const [frameRef, setFrameRef] = createSignal(void 0);
   const [progressBarRef, setProgressBarRef] = createSignal(void 0);
-  let currentProgressAnimation;
-  let currentFrameAnimation;
   let frameGlowTimeout;
   const isAutoLocking = createMemo(() => ctx ? tooltipModel.isAutoLocking(ctx.name) : false);
-  const startAutoLockAnimation = (element, animationName, durationMs) => {
-    const animations = element.getAnimations();
-    const animation = animations.find((a) => a.animationName === animationName);
-    if (!animation) {
-      return void 0;
-    }
+  const startAutoLockAnimation = (element, animationClass, durationMs) => {
     element.style.animationDuration = `${durationMs}ms`;
-    animation.currentTime = 0;
-    animation.play();
-    return animation;
+    element.classList.remove(animationClass);
+    void element.offsetWidth;
+    element.classList.add(animationClass);
   };
-  const stopAutoLockAnimation = (animation) => {
-    if (!animation) {
+  const stopAutoLockAnimation = (element, animationClass) => {
+    if (!element) {
       return;
     }
-    animation.pause();
-    animation.currentTime = 0;
+    element.classList.remove(animationClass);
+    element.style.animationDuration = "";
   };
   const stopAllAnimations = () => {
-    stopAutoLockAnimation(currentProgressAnimation);
-    stopAutoLockAnimation(currentFrameAnimation);
-    currentProgressAnimation = void 0;
-    currentFrameAnimation = void 0;
+    stopAutoLockAnimation(progressBarRef(), AUTOLOCK_PROGRESS_ANIMATION_NAME);
+    stopAutoLockAnimation(frameRef(), AUTOLOCK_FRAME_ANIMATION_NAME);
     if (frameGlowTimeout !== void 0) {
       clearTimeout(frameGlowTimeout);
       frameGlowTimeout = void 0;
@@ -782,18 +831,15 @@ const TooltipFrameComponent = (props) => {
   };
   createEffect(on([isAutoLocking, progressBarRef, frameRef], ([autoLocking, progressBarRef2, frameRef2]) => {
     const autolockMs = Configuration.getUser().tooltipAutolock;
-    if (autolockMs <= 100) {
-      return;
-    }
-    if (!progressBarRef2 || !frameRef2) {
+    if (autolockMs <= 100 || !progressBarRef2 || !frameRef2) {
       stopAllAnimations();
       return;
     }
     if (autoLocking) {
-      currentProgressAnimation = startAutoLockAnimation(progressBarRef2, AUTOLOCK_PROGRESS_ANIMATION_NAME, autolockMs);
+      startAutoLockAnimation(progressBarRef2, AUTOLOCK_PROGRESS_ANIMATION_NAME, autolockMs);
       const glowDelayMs = Math.max(0, autolockMs - AUTOLOCK_FRAME_GLOW_LEAD_MS);
       frameGlowTimeout = window.setTimeout(() => {
-        currentFrameAnimation = startAutoLockAnimation(frameRef2, AUTOLOCK_FRAME_ANIMATION_NAME, AUTOLOCK_FRAME_GLOW_DURATION_MS);
+        startAutoLockAnimation(frameRef2, AUTOLOCK_FRAME_ANIMATION_NAME, AUTOLOCK_FRAME_GLOW_DURATION_MS);
         frameGlowTimeout = void 0;
       }, glowDelayMs);
     } else {
@@ -801,43 +847,51 @@ const TooltipFrameComponent = (props) => {
     }
   }));
   return (() => {
-    var _el$9 = _tmpl$2();
-    use(setFrameRef, _el$9);
-    spread(_el$9, mergeProps(props, {
+    var _el$8 = _tmpl$2();
+    use(setFrameRef, _el$8);
+    spread(_el$8, mergeProps(props, {
       get ["class"]() {
-        return `img-tooltip-border img-tooltip-bg tooltip-autolock-frame p-4 min-w-48 ${props.class ?? ""}`;
+        return `img-tooltip-border img-tooltip-bg p-4 min-w-48 ${props.class ?? ""}`;
       }
     }), false, true);
-    insert(_el$9, createComponent(Show, {
+    insert(_el$8, createComponent(Show, {
       get when() {
-        return ctx?.showFiligrees;
+        return createMemo(() => !!!IsMouseActive())() && !IsKeyboardActive();
+      },
+      get children() {
+        return _tmpl$6();
+      }
+    }), null);
+    insert(_el$8, createComponent(Show, {
+      get when() {
+        return ctx?.showFiligrees();
       },
       get children() {
         return [(() => {
-          var _el$10 = _tmpl$5();
+          var _el$10 = _tmpl$7();
           _el$10.style.setProperty("background-image", "url(blp:mp_player_detail)");
           return _el$10;
         })(), (() => {
-          var _el$11 = _tmpl$6();
+          var _el$11 = _tmpl$8();
           _el$11.style.setProperty("background-image", "url(blp:mp_player_detail)");
           return _el$11;
         })(), (() => {
-          var _el$12 = _tmpl$7();
+          var _el$12 = _tmpl$9();
           _el$12.style.setProperty("background-image", "url(blp:mp_player_detail)");
           return _el$12;
         })(), (() => {
-          var _el$13 = _tmpl$8();
+          var _el$13 = _tmpl$10();
           _el$13.style.setProperty("background-image", "url(blp:mp_player_detail)");
           return _el$13;
         })()];
       }
     }), null);
-    insert(_el$9, () => props.children, null);
-    insert(_el$9, createComponent(Tooltip.InspectHint, {
-      "class": "relative mt-1",
+    insert(_el$8, () => props.children, null);
+    insert(_el$8, createComponent(Tooltip.InspectHint, {
+      "class": "relative mt-2",
       progressBarRef: setProgressBarRef
     }), null);
-    return _el$9;
+    return _el$8;
   })();
 };
 const TooltipTextComponent = (props) => {
@@ -863,7 +917,7 @@ const TooltipTextComponent = (props) => {
                   return local.header;
                 },
                 children: (header) => (() => {
-                  var _el$15 = _tmpl$9();
+                  var _el$15 = _tmpl$11();
                   insert(_el$15, createComponent(L10n.Compose, {
                     get text() {
                       return header();

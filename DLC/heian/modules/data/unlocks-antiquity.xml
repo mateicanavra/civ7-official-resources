@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<RequirementSets>
+		<Row RequirementSetId="REQSET_CIV_IS_HEIAN" RequirementSetType="REQUIREMENTSET_TEST_ALL"/>
+	</RequirementSets>
+	<Requirements>
+		<Row RequirementId="REQ_CIV_IS_HEIAN" RequirementType="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES"/>
+	</Requirements>
+	<RequirementArguments>
+		<Row RequirementId="REQ_CIV_IS_HEIAN" Name="CivilizationType" Value="CIVILIZATION_HEIAN"/>
+	</RequirementArguments>
+	<RequirementSetRequirements>
+		<Row RequirementSetId="REQSET_CIV_IS_HEIAN" RequirementId="REQ_CIV_IS_HEIAN"/>
+	</RequirementSetRequirements>
+	<UnlockRequirements>
+		<Row UnlockType="UNLOCK_CIVILIZATION_HAWAII" RequirementSetId="REQSET_CIV_IS_HEIAN" Description="LOC_UNLOCK_PLAY_AS_HEIAN_DESCRIPTION" Tooltip="LOC_UNLOCK_PLAY_AS_HEIAN_HAWAII_TOOLTIP"/>
+		<Row UnlockType="UNLOCK_CIVILIZATION_MEIJI" RequirementSetId="REQSET_CIV_IS_HEIAN" Description="LOC_UNLOCK_PLAY_AS_HEIAN_DESCRIPTION" Tooltip="LOC_UNLOCK_PLAY_AS_HEIAN_MEIJI_TOOLTIP"/>
+	</UnlockRequirements>
+</Database>

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Types>
+		<!--Civ Unique Military-->
+		<Row Type="UNIT_YUMI" Kind="KIND_UNIT"/>
+		<Row Type="UNIT_YUMI_2" Kind="KIND_UNIT"/>
+		<!--Civ Unique Civilian-->
+		<Row Type="UNIT_SHIJIN" Kind="KIND_UNIT"/>
+		<Row Type="UNIT_SHIJIN_NAKAYAMA_TADACHIKA" Kind="KIND_UNIT"/>
+		<Row Type="UNIT_SHIJIN_MURASAKI_SHIKIBU" Kind="KIND_UNIT"/>
+		<Row Type="UNIT_SHIJIN_LADY_SARASHINA" Kind="KIND_UNIT"/>
+		<Row Type="UNIT_SHIJIN_SEI_SHONAGON" Kind="KIND_UNIT"/>
+		<Row Type="UNIT_SHIJIN_IZUMI_SHIKIBUTIR" Kind="KIND_UNIT"/>
+		<Row Type="UNIT_SHIJIN_MICHITSUNA_S_MOTHER" Kind="KIND_UNIT"/>
+		<Row Type="UNIT_SHIJIN_OSHIKOCHI_NO_MITSUNE" Kind="KIND_UNIT"/>
+		<Row Type="UNIT_SHIJIN_KI_NO_TOMONORI" Kind="KIND_UNIT"/>
+		<Row Type="UNIT_SHIJIN_KI_NO_TSURAYUKI" Kind="KIND_UNIT"/>
+		<Row Type="UNIT_SHIJIN_MIBU_NO_TADAMINE" Kind="KIND_UNIT"/>
+		<!--Civ Unique Abilities-->
+		<Row Type="ABILITY_YUMI" Kind="KIND_ABILITY"/>
+		<Row Type="ABILITY_SHIJIN" Kind="KIND_ABILITY"/>
+	</Types>
+	<Units>
+		<!--Civ Unique Military-->
+		<Row UnitType="UNIT_YUMI" Name="LOC_UNIT_YUMI_NAME" Description="LOC_UNIT_YUMI_DESCRIPTION" Tier="1" BaseSightRange="2" BaseMoves="4" UnitMovementClass="UNIT_MOVEMENT_CLASS_MOUNTED" Domain="DOMAIN_LAND" CoreClass="CORE_CLASS_MILITARY" FormationClass="FORMATION_CLASS_LAND_COMBAT" ZoneOfControl="true" TraitType="TRAIT_HEIAN"/>
+		<Row UnitType="UNIT_YUMI_2" Name="LOC_UNIT_YUMI_NAME" Description="LOC_UNIT_YUMI_2_DESCRIPTION" Tier="2" Maintenance="1" BaseSightRange="2" BaseMoves="4" UnitMovementClass="UNIT_MOVEMENT_CLASS_MOUNTED" Domain="DOMAIN_LAND" CoreClass="CORE_CLASS_MILITARY" FormationClass="FORMATION_CLASS_LAND_COMBAT" ZoneOfControl="true" TraitType="TRAIT_HEIAN"/>
+		<!--Civ Unique Civilian-->
+		<Row UnitType="UNIT_SHIJIN" Name="LOC_UNIT_SHIJIN_NAME" Description="LOC_UNIT_SHIJIN_DESCRIPTION" BaseSightRange="1" BaseMoves="5" UnitMovementClass="UNIT_MOVEMENT_CLASS_FOOT" Domain="DOMAIN_LAND" CoreClass="CORE_CLASS_CIVILIAN" FormationClass="FORMATION_CLASS_CIVILIAN" ZoneOfControl="false" CostProgressionModel="COST_PROGRESSION_PREVIOUS_COPIES" CostProgressionParam1="30" TraitType="TRAIT_HEIAN"/>
+		<Row UnitType="UNIT_SHIJIN_NAKAYAMA_TADACHIKA" Name="LOC_GREAT_PERSON_INDIVIDUAL_SHIJIN_NAKAYAMA_TADACHIKA_NAME" Description="LOC_UNIT_SHIJIN_DESCRIPTION" BaseSightRange="1" BaseMoves="5" UnitMovementClass="UNIT_MOVEMENT_CLASS_FOOT" Domain="DOMAIN_LAND" CoreClass="CORE_CLASS_CIVILIAN" FormationClass="FORMATION_CLASS_CIVILIAN" ZoneOfControl="false" CostProgressionModel="COST_PROGRESSION_PREVIOUS_COPIES" CostProgressionParam1="30" TraitType="TRAIT_HEIAN" CanTrain="false" CanPurchase="false"/>
+		<Row UnitType="UNIT_SHIJIN_MURASAKI_SHIKIBU" Name="LOC_GREAT_PERSON_INDIVIDUAL_SHIJIN_MURASAKI_SHIKIBU_NAME" Description="LOC_UNIT_SHIJIN_DESCRIPTION" BaseSightRange="1" BaseMoves="5" UnitMovementClass="UNIT_MOVEMENT_CLASS_FOOT" Domain="DOMAIN_LAND" CoreClass="CORE_CLASS_CIVILIAN" FormationClass="FORMATION_CLASS_CIVILIAN" ZoneOfControl="false" CostProgressionModel="COST_PROGRESSION_PREVIOUS_COPIES" CostProgressionParam1="30" TraitType="TRAIT_HEIAN" CanTrain="false" CanPurchase="false"/>
+		<Row UnitType="UNIT_SHIJIN_LADY_SARASHINA" Name="LOC_GREAT_PERSON_INDIVIDUAL_SHIJIN_LADY_SARASHINA_NAME" Description="LOC_UNIT_SHIJIN_DESCRIPTION" BaseSightRange="1" BaseMoves="5" UnitMovementClass="UNIT_MOVEMENT_CLASS_FOOT" Domain="DOMAIN_LAND" CoreClass="CORE_CLASS_CIVILIAN" FormationClass="FORMATION_CLASS_CIVILIAN" ZoneOfControl="false" CostProgressionModel="COST_PROGRESSION_PREVIOUS_COPIES" CostProgressionParam1="30" TraitType="TRAIT_HEIAN" CanTrain="false" CanPurchase="false"/>
+		<Row UnitType="UNIT_SHIJIN_SEI_SHONAGON" Name="LOC_GREAT_PERSON_INDIVIDUAL_SHIJIN_SEI_SHONAGON_NAME" Description="LOC_UNIT_SHIJIN_DESCRIPTION" BaseSightRange="1" BaseMoves="5" UnitMovementClass="UNIT_MOVEMENT_CLASS_FOOT" Domain="DOMAIN_LAND" CoreClass="CORE_CLASS_CIVILIAN" FormationClass="FORMATION_CLASS_CIVILIAN" ZoneOfControl="false" CostProgressionModel="COST_PROGRESSION_PREVIOUS_COPIES" CostProgressionParam1="30" TraitType="TRAIT_HEIAN" CanTrain="false" CanPurchase="false"/>
+		<Row UnitType="UNIT_SHIJIN_IZUMI_SHIKIBUTIR" Name="LOC_GREAT_PERSON_INDIVIDUAL_SHIJIN_IZUMI_SHIKIBUTIR_NAME" Description="LOC_UNIT_SHIJIN_DESCRIPTION" BaseSightRange="1" BaseMoves="5" UnitMovementClass="UNIT_MOVEMENT_CLASS_FOOT" Domain="DOMAIN_LAND" CoreClass="CORE_CLASS_CIVILIAN" FormationClass="FORMATION_CLASS_CIVILIAN" ZoneOfControl="false" CostProgressionModel="COST_PROGRESSION_PREVIOUS_COPIES" CostProgressionParam1="30" TraitType="TRAIT_HEIAN" CanTrain="false" CanPurchase="false"/>
+		<Row UnitType="UNIT_SHIJIN_MICHITSUNA_S_MOTHER" Name="LOC_GREAT_PERSON_INDIVIDUAL_SHIJIN_MICHITSUNA_S_MOTHER_NAME" Description="LOC_UNIT_SHIJIN_DESCRIPTION" BaseSightRange="1" BaseMoves="5" UnitMovementClass="UNIT_MOVEMENT_CLASS_FOOT" Domain="DOMAIN_LAND" CoreClass="CORE_CLASS_CIVILIAN" FormationClass="FORMATION_CLASS_CIVILIAN" ZoneOfControl="false" CostProgressionModel="COST_PROGRESSION_PREVIOUS_COPIES" CostProgressionParam1="30" TraitType="TRAIT_HEIAN" CanTrain="false" CanPurchase="false"/>
+		<Row UnitType="UNIT_SHIJIN_OSHIKOCHI_NO_MITSUNE" Name="LOC_GREAT_PERSON_INDIVIDUAL_SHIJIN_OSHIKOCHI_NO_MITSUNE_NAME" Description="LOC_UNIT_SHIJIN_DESCRIPTION" BaseSightRange="1" BaseMoves="5" UnitMovementClass="UNIT_MOVEMENT_CLASS_FOOT" Domain="DOMAIN_LAND" CoreClass="CORE_CLASS_CIVILIAN" FormationClass="FORMATION_CLASS_CIVILIAN" ZoneOfControl="false" CostProgressionModel="COST_PROGRESSION_PREVIOUS_COPIES" CostProgressionParam1="30" TraitType="TRAIT_HEIAN" CanTrain="false" CanPurchase="false"/>
+		<Row UnitType="UNIT_SHIJIN_KI_NO_TOMONORI" Name="LOC_GREAT_PERSON_INDIVIDUAL_SHIJIN_KI_NO_TOMONORI_NAME" Description="LOC_UNIT_SHIJIN_DESCRIPTION" BaseSightRange="1" BaseMoves="5" UnitMovementClass="UNIT_MOVEMENT_CLASS_FOOT" Domain="DOMAIN_LAND" CoreClass="CORE_CLASS_CIVILIAN" FormationClass="FORMATION_CLASS_CIVILIAN" ZoneOfControl="false" CostProgressionModel="COST_PROGRESSION_PREVIOUS_COPIES" CostProgressionParam1="30" TraitType="TRAIT_HEIAN" CanTrain="false" CanPurchase="false"/>
+		<Row UnitType="UNIT_SHIJIN_KI_NO_TSURAYUKI" Name="LOC_GREAT_PERSON_INDIVIDUAL_SHIJIN_KI_NO_TSURAYUKI_NAME" Description="LOC_UNIT_SHIJIN_DESCRIPTION" BaseSightRange="1" BaseMoves="5" UnitMovementClass="UNIT_MOVEMENT_CLASS_FOOT" Domain="DOMAIN_LAND" CoreClass="CORE_CLASS_CIVILIAN" FormationClass="FORMATION_CLASS_CIVILIAN" ZoneOfControl="false" CostProgressionModel="COST_PROGRESSION_PREVIOUS_COPIES" CostProgressionParam1="30" TraitType="TRAIT_HEIAN" CanTrain="false" CanPurchase="false"/>
+		<Row UnitType="UNIT_SHIJIN_MIBU_NO_TADAMINE" Name="LOC_GREAT_PERSON_INDIVIDUAL_SHIJIN_MIBU_NO_TADAMINE_NAME" Description="LOC_UNIT_SHIJIN_DESCRIPTION" BaseSightRange="1" BaseMoves="5" UnitMovementClass="UNIT_MOVEMENT_CLASS_FOOT" Domain="DOMAIN_LAND" CoreClass="CORE_CLASS_CIVILIAN" FormationClass="FORMATION_CLASS_CIVILIAN" ZoneOfControl="false" CostProgressionModel="COST_PROGRESSION_PREVIOUS_COPIES" CostProgressionParam1="30" TraitType="TRAIT_HEIAN" CanTrain="false" CanPurchase="false"/>
+	</Units>
+	<Unit_Stats>
+		<!--Civ Unique Military-->
+		<Row UnitType="UNIT_YUMI" Combat="10" RangedCombat="15" Bombard="5" Range="2"/>
+		<Row UnitType="UNIT_YUMI_2" Combat="20" RangedCombat="25" Bombard="15" Range="2"/>
+	</Unit_Stats>
+	<Unit_Costs>
+		<!--Civ Unique Military-->
+		<Row UnitType="UNIT_YUMI" YieldType="YIELD_PRODUCTION" Cost="30"/>
+		<Row UnitType="UNIT_YUMI_2" YieldType="YIELD_PRODUCTION" Cost="50"/>
+		<!--Civ Unique Civilian-->
+		<Row UnitType="UNIT_SHIJIN" YieldType="YIELD_PRODUCTION" Cost="30"/>
+		<Row UnitType="UNIT_SHIJIN_NAKAYAMA_TADACHIKA" YieldType="YIELD_PRODUCTION" Cost="30"/>
+		<Row UnitType="UNIT_SHIJIN_MURASAKI_SHIKIBU" YieldType="YIELD_PRODUCTION" Cost="30"/>
+		<Row UnitType="UNIT_SHIJIN_LADY_SARASHINA" YieldType="YIELD_PRODUCTION" Cost="30"/>
+		<Row UnitType="UNIT_SHIJIN_SEI_SHONAGON" YieldType="YIELD_PRODUCTION" Cost="30"/>
+		<Row UnitType="UNIT_SHIJIN_IZUMI_SHIKIBUTIR" YieldType="YIELD_PRODUCTION" Cost="30"/>
+		<Row UnitType="UNIT_SHIJIN_MICHITSUNA_S_MOTHER" YieldType="YIELD_PRODUCTION" Cost="30"/>
+		<Row UnitType="UNIT_SHIJIN_OSHIKOCHI_NO_MITSUNE" YieldType="YIELD_PRODUCTION" Cost="30"/>
+		<Row UnitType="UNIT_SHIJIN_KI_NO_TOMONORI" YieldType="YIELD_PRODUCTION" Cost="30"/>
+		<Row UnitType="UNIT_SHIJIN_KI_NO_TSURAYUKI" YieldType="YIELD_PRODUCTION" Cost="30"/>
+		<Row UnitType="UNIT_SHIJIN_MIBU_NO_TADAMINE" YieldType="YIELD_PRODUCTION" Cost="30"/>
+	</Unit_Costs>
+	<UnitUpgrades>
+		<!--Civ Unique Military-->
+		<Row Unit="UNIT_YUMI" UpgradeUnit="UNIT_YUMI_2"/>
+	</UnitUpgrades>
+	<UnitReplaces>
+		<!--Civ Unique Military-->
+		<Row CivUniqueUnitType="UNIT_YUMI" ReplacesUnitType="UNIT_SLINGER"/>
+		<Row CivUniqueUnitType="UNIT_YUMI_2" ReplacesUnitType="UNIT_ARCHER"/>
+	</UnitReplaces>
+	<Tags>
+		<!--Civ Unique Military-->
+		<Row Tag="UNIT_CLASS_YUMI" Category="UNIT_CLASS"/>
+		<!--Civ Unique Civilian-->
+		<Row Tag="UNIT_CLASS_SHIJIN" Category="UNIT_CLASS"/>
+	</Tags>
+	<TypeTags>
+		<!--Civ Unique Military-->
+		<Row Type="UNIT_YUMI" Tag="UNIT_CLASS_COMBAT"/>
+		<Row Type="UNIT_YUMI" Tag="UNIT_CLASS_RANGED"/>
+		<Row Type="UNIT_YUMI" Tag="UNIT_CLASS_YUMI"/>
+		<Row Type="UNIT_YUMI" Tag="UNIT_CLASS_UNIQUE"/>
+		<Row Type="UNIT_YUMI_2" Tag="UNIT_CLASS_COMBAT"/>
+		<Row Type="UNIT_YUMI_2" Tag="UNIT_CLASS_RANGED"/>
+		<Row Type="UNIT_YUMI_2" Tag="UNIT_CLASS_YUMI"/>
+		<Row Type="UNIT_YUMI_2" Tag="UNIT_CLASS_UNIQUE"/>
+		<!--Civ Unique Civilian-->
+		<Row Type="UNIT_SHIJIN" Tag="UNIT_CLASS_GREATPERSON"/>
+		<Row Type="UNIT_SHIJIN" Tag="UNIT_CLASS_SHIJIN"/>
+		<Row Type="UNIT_SHIJIN_MURASAKI_SHIKIBU" Tag="UNIT_CLASS_GREATPERSON"/>
+		<Row Type="UNIT_SHIJIN_MURASAKI_SHIKIBU" Tag="UNIT_CLASS_SHIJIN"/>
+		<Row Type="UNIT_SHIJIN_LADY_SARASHINA" Tag="UNIT_CLASS_GREATPERSON"/>
+		<Row Type="UNIT_SHIJIN_LADY_SARASHINA" Tag="UNIT_CLASS_SHIJIN"/>
+		<Row Type="UNIT_SHIJIN_SEI_SHONAGON" Tag="UNIT_CLASS_GREATPERSON"/>
+		<Row Type="UNIT_SHIJIN_SEI_SHONAGON" Tag="UNIT_CLASS_SHIJIN"/>
+		<Row Type="UNIT_SHIJIN_IZUMI_SHIKIBUTIR" Tag="UNIT_CLASS_GREATPERSON"/>
+		<Row Type="UNIT_SHIJIN_IZUMI_SHIKIBUTIR" Tag="UNIT_CLASS_SHIJIN"/>
+		<Row Type="UNIT_SHIJIN_MICHITSUNA_S_MOTHER" Tag="UNIT_CLASS_GREATPERSON"/>
+		<Row Type="UNIT_SHIJIN_MICHITSUNA_S_MOTHER" Tag="UNIT_CLASS_SHIJIN"/>
+		<Row Type="UNIT_SHIJIN_OSHIKOCHI_NO_MITSUNE" Tag="UNIT_CLASS_GREATPERSON"/>
+		<Row Type="UNIT_SHIJIN_OSHIKOCHI_NO_MITSUNE" Tag="UNIT_CLASS_SHIJIN"/>
+		<Row Type="UNIT_SHIJIN_KI_NO_TOMONORI" Tag="UNIT_CLASS_GREATPERSON"/>
+		<Row Type="UNIT_SHIJIN_KI_NO_TOMONORI" Tag="UNIT_CLASS_SHIJIN"/>
+		<Row Type="UNIT_SHIJIN_KI_NO_TSURAYUKI" Tag="UNIT_CLASS_GREATPERSON"/>
+		<Row Type="UNIT_SHIJIN_KI_NO_TSURAYUKI" Tag="UNIT_CLASS_SHIJIN"/>
+		<Row Type="UNIT_SHIJIN_MIBU_NO_TADAMINE" Tag="UNIT_CLASS_GREATPERSON"/>
+		<Row Type="UNIT_SHIJIN_MIBU_NO_TADAMINE" Tag="UNIT_CLASS_SHIJIN"/>
+		<Row Type="UNIT_SHIJIN_NAKAYAMA_TADACHIKA" Tag="UNIT_CLASS_GREATPERSON"/>
+		<Row Type="UNIT_SHIJIN_NAKAYAMA_TADACHIKA" Tag="UNIT_CLASS_SHIJIN"/>
+	</TypeTags>
+	<UnitClass_Abilities>
+		<Row UnitAbilityType="ABILITY_YUMI" UnitClassType="UNIT_CLASS_YUMI"/>
+		<Row UnitAbilityType="ABILITY_SHIJIN" UnitClassType="UNIT_CLASS_SHIJIN"/>
+	</UnitClass_Abilities>
+	<UnitAbilities>
+		<!--Unique-->
+		<Row UnitAbilityType="ABILITY_YUMI" Name="LOC_UNIT_YUMI_NAME" Description="LOC_ABILITY_YUMI_DESCRIPTION"/>
+		<Row UnitAbilityType="ABILITY_SHIJIN" Name="LOC_UNIT_SHIJIN_NAME" Description="LOC_ABILITY_SHIJIN_DESCRIPTION"/>
+	</UnitAbilities>
+	<UnitAbilityModifiers>
+		<Row UnitAbilityType="ABILITY_YUMI" ModifierId="YUMI_RANGED_MOD_COMBAT_STRENGTH"/>
+	</UnitAbilityModifiers>
+	<Unit_Advisories>
+		<Row UnitType="UNIT_YUMI" AdvisoryClassType="ADVISORY_CLASS_MILITARY"/>
+		<Row UnitType="UNIT_YUMI_2" AdvisoryClassType="ADVISORY_CLASS_MILITARY"/>
+		<Row UnitType="UNIT_SHIJIN" AdvisoryClassType="ADVISORY_CLASS_HAPPINESS"/>
+	</Unit_Advisories>
+	<AIUnitPrioritizedActions>
+		<Row UnitType="UNIT_SHIJIN" CommandType="UNITCOMMAND_ACTIVATE_GREAT_PERSON" />
+	</AIUnitPrioritizedActions>
+</Database>

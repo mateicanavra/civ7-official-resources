@@ -1,4 +1,4 @@
-import { createMemo, createSignal, onMount, createEffect, on, createContext, useContext } from '../../../../core/vendor/solid-js/dist/solid.js';
+import { createMemo, createSignal, onMount, onCleanup, createEffect, on, createContext, useContext } from '../../../../core/vendor/solid-js/dist/solid.js';
 import { createStore } from '../../../../core/vendor/solid-js/store/dist/store.js';
 import { Layout } from '../../../../core/ui/utilities/utilities-layout.js';
 import { useLocalPlayerId, createEngineEvent } from '../../../../core/ui-next/utilities/game-core-utilities.js';
@@ -35,6 +35,9 @@ const DedicationsModel = () => {
   const [selectedCapital, setSelectedCapital] = createSignal(
     getCapital() !== null ? getCapital().id : void 0
   );
+  const isAdvancedStart = createMemo(
+    () => GameInfo.Ages.lookup(Game.age)?.AgeType != "AGE_ANTIQUITY" && Configuration.getGame().previousAgeCount == 0
+  );
   const [state, setState] = createStore({
     assignedItems: [
       ...DEDICATIONS_SLOT_IDS.map((slotID) => {
@@ -55,6 +58,16 @@ const DedicationsModel = () => {
   const isDeckFull = createMemo(() => state.selectedItems.length == DEDICATIONS_SLOT_IDS.length);
   onMount(() => {
     autoSlotSelectedItems();
+    if (isAdvancedStart()) {
+      engine.on("AdvancedStartCardAdded", setSelectedItems);
+      engine.on("AdvancedStartCardRemoved", setSelectedItems);
+    }
+  });
+  onCleanup(() => {
+    if (isAdvancedStart()) {
+      engine.off("AdvancedStartCardAdded", setSelectedItems);
+      engine.off("AdvancedStartCardRemoved", setSelectedItems);
+    }
   });
   createEffect(() => {
     if (localPlayerID() != PlayerIds.NO_PLAYER) {
@@ -122,11 +135,17 @@ const DedicationsModel = () => {
     return selectedCards;
   }
   function autoSlotSelectedItems() {
+    if (isAdvancedStart()) {
+      return;
+    }
     state.selectedItems.forEach((item2) => {
       if (canAutoSlotItem(item2.info.id)) {
         autoSlotItem(item2.info.id);
       }
     });
+  }
+  function setSelectedItems() {
+    setState("selectedItems", getSelectedItems());
   }
   function updateSelectedItems() {
     const selectedItems = getSelectedItems();

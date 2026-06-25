@@ -3945,7 +3945,7 @@
       <Text>Проводник доктора Рисаля ведет его по широким проспектам {1_SUBJECT_CIVILIZATION_ADJ} столицы и через сельскохозяйственные земли. Многие виды и звуки ему знакомы, но некоторые — нет, и именно последние пробуждают любопытство поэта.</Text>
     </Replace>
     <Replace Tag="LOC_10183A_STORYTITLE" Language="ru_RU">
-      <Text>Добрый доктор в {1_SUBJECT_CIVILIZATION_ADJ} землях</Text>
+      <Text>Добрый доктор в {1_SUBJECT_CIVILIZATION_ADJ[3]}их землях</Text>
     </Replace>
     <Replace Tag="LOC_10183B_DESCRIPTION" Language="ru_RU">
       <Text>{1_reward}.</Text>
@@ -5199,7 +5199,7 @@
       <Text>История продолжается.</Text>
     </Replace>
     <Replace Tag="LOC_161A_IMPERATIVE" Language="ru_RU">
-      <Text>Соберите 3 из 4 следующих ресурсов: шкуры, верблюды, шерсть или лошади.</Text>
+      <Text>Улучшите 3 из 4 следующих ресурсов: шкуры, верблюды, шерсть или лошади.</Text>
     </Replace>
     <Replace Tag="LOC_161A_NAME" Language="ru_RU">
       <Text>Покрыть стоимость услуг сапожников.</Text>
@@ -13114,7 +13114,7 @@
       <Text>Надпись в храме Прэахкхан</Text>
     </Replace>
     <Replace Tag="LOC_CIVIC_AQ_ATTRIBUTE_EXPANSIONIST_SPECIALIST_CAP_INCREASE_DESCRIPTION" Language="ru_RU">
-      <Text>+1 к [icon:SPECIALIST] [TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_LIMIT_TOOLTIP]лимиту специалистов[/TIP] в [icon:NOTIFICATION_SELECT_CAPITAL] столице в эту эпоху.</Text>
+      <Text>[B]+1 к [icon:SPECIALIST][/B] [TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_LIMIT_TOOLTIP]лимиту специалистов[/TIP] в [icon:NOTIFICATION_SELECT_CAPITAL] [TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]столице[/TIP] в эту [TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]эпоху[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_CIVIC_AQ_ATTRIBUTE_SYNCRETISM_CHOICE_AUTHOR" Language="ru_RU">
       <Text>Джудит Берлинг</Text>
@@ -13159,7 +13159,7 @@
       <Text>Патрис Лумумба</Text>
     </Replace>
     <Replace Tag="LOC_CIVIC_CAH_NAH_HA_QUOTE" Language="ru_RU">
-      <Text>«То, что молящийся отдает своему богу на самом деле, — это не пища, которую он помещает на алтарь, и не кровь, текущая из его вен, а его мысль».</Text>
+      <Text>«То, что молящийся отдает своему богу на самом деле, — это не [icon:YIELD_FOOD], которую он помещает на алтарь, и не кровь, текущая из его вен, а его мысль».</Text>
     </Replace>
     <Replace Tag="LOC_CIVIC_CAH_NAH_HA_QUOTE_AUTHOR" Language="ru_RU">
       <Text>Эмиль Дюркгейм</Text>
@@ -13255,7 +13255,7 @@
       <Text>Эсхил</Text>
     </Replace>
     <Replace Tag="LOC_CIVIC_LEGATUS_PRO_PRAETORE_QUOTE" Language="ru_RU">
-      <Text>«Крадущий у одного человека — в цепях. Крадущий у всего народа — в пурпуре и злате».</Text>
+      <Text>Крадущий у одного человека — в цепях. Крадущий у всего народа — в пурпуре и [icon:YIELD_GOLD].</Text>
     </Replace>
     <Replace Tag="LOC_CIVIC_LEGATUS_PRO_PRAETORE_QUOTE_AUTHOR" Language="ru_RU">
       <Text>Катон</Text>
@@ -13267,7 +13267,7 @@
       <Text>Ли цзи</Text>
     </Replace>
     <Replace Tag="LOC_CIVIC_LIGHT_OF_AMUN_RA_QUOTE" Language="ru_RU">
-      <Text>«Узри же образ золотой, господин ужаса, что вечно катится и изо дня в день обновляется».</Text>
+      <Text>Узри же образ [icon:YIELD_GOLD], господин ужаса, что вечно катится и изо дня в день обновляется.</Text>
     </Replace>
     <Replace Tag="LOC_CIVIC_LIGHT_OF_AMUN_RA_QUOTE_AUTHOR" Language="ru_RU">
       <Text>Книга мертвых</Text>
@@ -15156,11 +15156,17 @@
     <Replace Tag="LOC_DISCOVERY_40028C_NAME" Language="ru_RU">
       <Text>Товары переходят к родне торговцев.</Text>
     </Replace>
+    <Replace Tag="LOC_GOLDEN_AGE_CLASSICAL_REPUBLIC_1_DESCRIPTION" Language="ru_RU">
+      <Text>+100 к [icon:YIELD_DIPLOMACY] влиянию немедленно</Text>
+    </Replace>
     <Replace Tag="LOC_GOLDEN_AGE_CLASSICAL_REPUBLIC_NAME" Language="ru_RU">
       <Text>Античная республика|античной республики|античной республике|античную республику|античной республикой|античной республике</Text>
     </Replace>
     <Replace Tag="LOC_GOLDEN_AGE_DESPOTISM_NAME" Language="ru_RU">
       <Text>Деспотизм|деспотизма|деспотизму|деспотизм|деспотизмом|деспотизме</Text>
+    </Replace>
+    <Replace Tag="LOC_GOLDEN_AGE_OLIGARCHY_1_DESCRIPTION" Language="ru_RU">
+      <Text>+200 к [icon:YIELD_GOLD] золоту немедленно</Text>
     </Replace>
     <Replace Tag="LOC_GOLDEN_AGE_OLIGARCHY_NAME" Language="ru_RU">
       <Text>Олигархия|олигархии|олигархии|олигархию|олигархией|олигархии</Text>
@@ -15172,22 +15178,25 @@
       <Text>определенное количество</Text>
     </Replace>
     <Replace Tag="LOC_GOVERNMENT_CLASSICAL_REPUBLIC_DESCRIPTION" Language="ru_RU">
-      <Text>Данное правительство предоставляет выбор между этими эффектами во время празднества.</Text>
+      <Text>Данное [icon:GOVERNMENT] [TIP:LOC_PEDIA_CONCEPTS_GOVERNMENT_TOOLTIP]правительство[/TIP] предоставляет выбор между этими эффектами во время [icon:CELEBRATION] [TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]празднества[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_GOVERNMENT_CLASSICAL_REPUBLIC_PASSIVE_DESCRIPTION" Language="ru_RU">
-      <Text>При завершении чуда света вы получаете [icon:YIELD_CULTURE] в размере 20% от стоимости чуда света.</Text>
+      <Text>+1 к [icon:YIELD_CULTURE] культуре в поселениях с уровнем довольства «Счастье» или выше. Дополнительно +4 к [icon:YIELD_CULTURE] культуре в городах с уровнем довольства «Радость» или выше.</Text>
     </Replace>
     <Replace Tag="LOC_GOVERNMENT_DESPOTISM_DESCRIPTION" Language="ru_RU">
-      <Text>Данное правительство предоставляет выбор между этими эффектами во время празднества.</Text>
+      <Text>Данное [icon:GOVERNMENT] [TIP:LOC_PEDIA_CONCEPTS_GOVERNMENT_TOOLTIP]правительство[/TIP] предоставляет выбор между этими эффектами во время [icon:CELEBRATION] [TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]празднества[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_GOVERNMENT_DESPOTISM_PASSIVE_DESCRIPTION" Language="ru_RU">
-      <Text>Каждый раз, когда вы основываете поселение, получайте бесплатный юнит пехоты.</Text>
+      <Text>+2 к [icon:YIELD_SCIENCE] науке за каждое захваченное поселение. Недовольство вызывает снижение прибыли в ваших поселениях на 3% за каждое очко отрицательного [icon:YIELD_HAPPINESS] довольства (обычно -5%).</Text>
     </Replace>
     <Replace Tag="LOC_GOVERNMENT_OLIGARCHY_DESCRIPTION" Language="ru_RU">
-      <Text>Данное правительство предоставляет выбор между этими эффектами во время празднества.</Text>
+      <Text>Данное [icon:GOVERNMENT] [TIP:LOC_PEDIA_CONCEPTS_GOVERNMENT_TOOLTIP]правительство[/TIP] предоставляет выбор между этими эффектами во время [icon:CELEBRATION] [TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]празднества[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_GOVERNMENT_OLIGARCHY_PASSIVE_DESCRIPTION" Language="ru_RU">
-      <Text>+1 к максимуму ресурсов в городах.</Text>
+      <Text>+10% [icon:YIELD_PRODUCTION] производства при строительстве зданий. +10% [icon:YIELD_GOLD] золота для покупки складов в фермерских и рыбацких городках.</Text>
+    </Replace>
+    <Replace Tag="LOC_GOVERNMENT_REVOLUCION_AQ_PASSIVE_DESCRIPTION" Language="ru_RU">
+      <Text>+2 к [icon:YIELD_HAPPINESS] довольству в городах за каждую заполненную ячейку [icon:TRADITION] [TIP:LOC_PEDIA_CONCEPTS_TRADITION_TOOLTIP]традиции[/TIP] в [icon:GOVERNMENT] [TIP:LOC_PEDIA_CONCEPTS_GOVERNMENT_TOOLTIP]правительстве[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_GREAT_PERSON_INDIVIDUAL_LOGIOS_ARETE_DESCRIPTION" Language="ru_RU">
       <Text>Активируйте на акрополе, чтобы получить 75 очков[icon:YIELD_DIPLOMACY] влияния (при стандартной скорости).</Text>
@@ -15412,10 +15421,10 @@
       <Text>Эффект: удваивает базовую прибыль от этого [TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]улучшения[/TIP] во время [icon:CELEBRATION] [TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]празднеств[/TIP].[n]Размещается только на [TIP:LOC_PEDIA_CONCEPTS_FLAT_TERRAIN_TOOLTIP]ровном ландшафте[/TIP], который соседствует с [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]районом[/TIP]. Не более одного на [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]поселение[/TIP].[n][TIP:LOC_PEDIA_CONCEPTS_UNIQUE_IMPROVEMENT_TOOLTIP]Уникальное улучшение[/TIP] города-государства.</Text>
     </Replace>
     <Replace Tag="LOC_IMPROVEMENT_HAN_GREAT_WALL_DESCRIPTION" Language="ru_RU">
-      <Text>[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_IMPROVEMENT_TOOLTIP]Уникальное улучшение[/TIP] Хань. +2 к [icon:YIELD_CULTURE] культуре. +1 к [icon:YIELD_HAPPINESS] довольству за соседние сегменты Великой стены. +1 [icon:CULTURE_VP] к туризму. Считается [icon:Action_Fortify] укреплением, +6 к [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]боевой мощи[/TIP] в обороне. К каждому сегменту Великой стены также прокладывается дорога. Может быть выстроено только в линию. Не может разветвляться. Имеет сниженное изменение стоимости по сравнению с другими уникальными улучшениями. </Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_IMPROVEMENT_TOOLTIP]Уникальное улучшение[/TIP] Хань. +2 к [icon:YIELD_CULTURE] культуре. +1 к [icon:YIELD_HAPPINESS] довольству за соседние улучшения Великой стены. +1 [icon:CULTURE_VP] к [TIP:LOC_PEDIA_CONCEPTS_TOURISTS_TOOLTIP]туризму[/TIP]. Считается [icon:Action_Fortify] укреплением, +6 к [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]боевой мощи[/TIP] в обороне. К каждому улучшению Великой стены также прокладывается дорога. Может быть выстроено только в линию. Не может разветвляться. Имеет сниженное изменение стоимости по сравнению с другими уникальными улучшениями.</Text>
     </Replace>
     <Replace Tag="LOC_IMPROVEMENT_HAN_GREAT_WALL_TOOLTIP" Language="ru_RU">
-      <Text>Эффект: +6 к [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]боевой мощи[/TIP] юнитов, которые обороняются на клетке.[n]Может быть выстроено только в линию. Не может разветвляться.[n][TIP:LOC_PEDIA_CONCEPTS_UNIQUE_IMPROVEMENT_TOOLTIP]Уникальное улучшение[/TIP] Хань.</Text>
+      <Text>Эффект: +1 к [icon:CULTURE_VP] [TIP:LOC_PEDIA_CONCEPTS_TOURISTS_TOOLTIP]туризму[/TIP]. Считается [icon:Action_Fortify] укреплением, +6 к [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]боевой мощи[/TIP] в обороне.[n]К каждому улучшению Великой стены также прокладывается дорога. Может быть выстроено только в линию. Не может разветвляться.[n]Имеет сниженное изменение стоимости по сравнению с другими уникальными улучшениями.[n][TIP:LOC_PEDIA_CONCEPTS_UNIQUE_IMPROVEMENT_TOOLTIP]Уникальное улучшение[/TIP] Хань.</Text>
     </Replace>
     <Replace Tag="LOC_IMPROVEMENT_HAWELT_DESCRIPTION" Language="ru_RU">
       <Text>[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_IMPROVEMENT_TOOLTIP]Уникальное улучшение[/TIP] Аксума. +2 к [icon:YIELD_GOLD] золоту. +1 к [icon:YIELD_CULTURE] культуре за соседствующие [TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]чудеса[/TIP] и другие хавулти. Размещается только на [TIP:LOC_PEDIA_CONCEPTS_FLAT_TERRAIN_TOOLTIP]ровном ландшафте[/TIP].</Text>
@@ -15568,28 +15577,28 @@
       <Text>Развевается новое знамя с пламенным триумфальным лавром. Рим ищет своих героев.</Text>
     </Replace>
     <Replace Tag="LOC_MOD_ACHARYA_PANTHEON_DESCRIPTION" Language="ru_RU">
-      <Text>Открывает основание [icon:NAR_REW_RELIGION] [TIP:LOC_PEDIA_CONCEPTS_PANTHEON_TOOLTIP]пантеона[/TIP] или дает дополнительное верование, если вы уже его основали.</Text>
+      <Text>Открывает основание [icon:NAR_REW_RELIGION] [TIP:LOC_PEDIA_CONCEPTS_PANTHEON_TOOLTIP]пантеона[/TIP] или дает дополнительное [TIP:LOC_PEDIA_CONCEPTS_RELIGION_TOOLTIP]верование[/TIP], если вы уже его основали.</Text>
     </Replace>
     <Replace Tag="LOC_MOD_AQ_ENTERTAINMENT_CELEBRATION_VP_DESCRIPTION" Language="ru_RU">
-      <Text>+2 к [icon:CULTURE_VP] туризму за [icon:CELEBRATION] празднества.</Text>
+      <Text>[B]+2 к [icon:CULTURE_VP][/B] [TIP:LOC_PEDIA_CONCEPTS_TOURISTS_TOOLTIP]туризму[/TIP] за [icon:CELEBRATION] [TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]празднества[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_MOD_AQ_FREE_MERCHANT_DESCRIPTION" Language="ru_RU">
       <Text>Получите бесплатного [icon:UNIT_MERCHANT] торговца.</Text>
     </Replace>
     <Replace Tag="LOC_MOD_AQ_FUTURE_CIVIC_AGE_PROGRESS_DESCRIPTION" Language="ru_RU">
-      <Text>+10 к [icon:NOTIFICATION_TEAM_VICTORIOUS] [TIP:LOC_PEDIA_CONCEPTS_AGE_PROGRESS_TOOLTIP]прогрессу эпохи[/TIP].</Text>
+      <Text>[B]+10 к [icon:NOTIFICATION_TEAM_VICTORIOUS][/B] [TIP:LOC_PEDIA_CONCEPTS_AGE_PROGRESS_TOOLTIP]прогрессу эпохи[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_MOD_AQ_FUTURE_CIVIC_ATTRIBUTE_DESCRIPTION" Language="ru_RU">
-      <Text>+1 [icon:ATTRIBUTE] случайное очко [TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]характеристик[/TIP].</Text>
+      <Text>[B]+1 [icon:ATTRIBUTE][/B] случайное очко [TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]характеристик[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_MOD_AQ_FUTURE_CIVIC_BOOST_DESCRIPTION" Language="ru_RU">
-      <Text>В следующую [TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]эпоху[/TIP] будет усилен начальный [icon:RADIAL_CIVICS] [TIP:LOC_PEDIA_CONCEPTS_CIVIC_TOOLTIP]социальный институт[/TIP], не относящийся к определенной цивилизации.</Text>
+      <Text>В следующую [TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]эпоху[/TIP] будет усилен начальный [icon:CIVICS] [TIP:LOC_PEDIA_CONCEPTS_CIVIC_TOOLTIP]социальный институт[/TIP], не относящийся к определенной цивилизации.</Text>
     </Replace>
     <Replace Tag="LOC_MOD_AQ_SKILLED_TRADES_GDP_IMPORTED_RESOURCES_DESCRIPTION" Language="ru_RU">
-      <Text>+1 к [icon:ECONOMIC_VP] ВВП за ход за импортированные [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]ресурсы[/TIP], назначенные в [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]города[/TIP] (не городки).</Text>
+      <Text>[B]+1 к [icon:ECONOMIC_VP][/B] [TIP:LOC_PEDIA_CONCEPTS_GDP_TOOLTIP]ВВП[/TIP] за ход за импортированные [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]ресурсы[/TIP], назначенные в [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]города[/TIP] (не [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]городки[/TIP]).</Text>
     </Replace>
     <Replace Tag="LOC_MOD_AQ_TRADITION_SLOT_DESCRIPTION" Language="ru_RU">
-      <Text>+1 [icon:NAR_REW_TRADITION_SLOT] ячейка [TIP:LOC_PEDIA_CONCEPTS_SOCIAL_POLICY_TOOLTIP]общественного курса[/TIP].</Text>
+      <Text>[B]+1 [icon:NAR_REW_TRADITION_SLOT] ячейка общественного курса[/B].</Text>
     </Replace>
     <Replace Tag="LOC_MOD_CIV_WONDER_PRODUCTION_AKSUM_DESCRIPTION" Language="ru_RU">
       <Text>+30% [icon:YIELD_PRODUCTION] производства за [TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]чудо света[/TIP], связанное с Аксумом.</Text>
@@ -15622,16 +15631,16 @@
       <Text>+30% [icon:YIELD_PRODUCTION] производства за [TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]чудо света[/TIP], связанное с Римом.</Text>
     </Replace>
     <Replace Tag="LOC_MOD_CODE_OF_LAWS_REVEAL_CIV_CULTURE_TREE_DESCRIPTION" Language="ru_RU">
-      <Text>Открывает дерево уникальных социальных институтов цивилизации.</Text>
+      <Text>Открывает дерево уникальных [icon:CIVICS] [TIP:LOC_PEDIA_CONCEPTS_CIVIC_TOOLTIP]социальных институтов[/TIP] цивилизации.</Text>
     </Replace>
     <Replace Tag="LOC_MOD_DISCIPLINE_FREE_COMMANDER_DESCRIPTION" Language="ru_RU">
-      <Text>Бесплатно получите [icon:UNIT_ARMY_COMMANDER] [TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]командира[/TIP] армии.</Text>
+      <Text>Бесплатно получите [icon:UNIT_ARMY_COMMANDER] [TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]командира армии[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_MOD_PANTHEON_UNLOCK_DESCRIPTION" Language="ru_RU">
       <Text>Открывает [icon:NAR_REW_RELIGION] «Создание [TIP:LOC_PEDIA_CONCEPTS_PANTHEON_TOOLTIP]пантеона[/TIP]».</Text>
     </Replace>
     <Replace Tag="LOC_MOD_SENATUS_POPULUSQUE_ROMANUS_TRADITION_SLOTS_DESCRIPTION" Language="ru_RU">
-      <Text>+1 [icon:NAR_REW_TRADITION_SLOT] ячейка традиции.</Text>
+      <Text>[B]+1 [icon:NAR_REW_TRADITION_SLOT] ячейка традиции[/B].</Text>
     </Replace>
     <Replace Tag="LOC_NODE_CIVIC_EX_AKSUM_RENAISSANCE_NAME" Language="ru_RU">
       <Text>Возрождение Аксума</Text>
@@ -15928,451 +15937,472 @@
       <Text>Займите как минимум третье место в победе [B]«Великая библиотека»[/B]</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_AKHET_I_DESCRIPTION" Language="ru_RU">
-      <Text>+2 к [icon:YIELD_FOOD] на [icon:CITY_RURAL] [TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]улучшениях[/TIP] и в [icon:CITY_URBAN] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]районах[/TIP] на [TIP:LOC_PEDIA_CONCEPTS_NAVIGABLE_RIVER_TOOLTIP]судоходных реках[/TIP].</Text>
+      <Text>[B]+2 к [icon:YIELD_FOOD][/B] на [icon:CITY_RURAL] [TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]улучшениях[/TIP] и в [icon:CITY_URBAN] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]районах[/TIP] на [TIP:LOC_PEDIA_CONCEPTS_NAVIGABLE_RIVER_TOOLTIP]судоходных реках[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_AKHET_II_DESCRIPTION" Language="ru_RU">
-      <Text>+3 к [icon:YIELD_FOOD] на [icon:CITY_RURAL] [TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]улучшениях[/TIP] и в [icon:CITY_URBAN] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]районах[/TIP] на [TIP:LOC_PEDIA_CONCEPTS_NAVIGABLE_RIVER_TOOLTIP]судоходных реках[/TIP].</Text>
+      <Text>[B]+3 к [icon:YIELD_FOOD][/B] на [icon:CITY_RURAL] [TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]улучшениях[/TIP] и в [icon:CITY_URBAN] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]районах[/TIP] на [TIP:LOC_PEDIA_CONCEPTS_NAVIGABLE_RIVER_TOOLTIP]судоходных реках[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_AKHET_TOOLTIP" Language="ru_RU">
       <Text>Акхет</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_AKSUM_SYNCRETISM_EXPLORATION_DESCRIPTION" Language="ru_RU">
-      <Text>+1 к [icon:YIELD_PRODUCTION] в [icon:NOTIFICATION_SELECT_CAPITAL] [TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]столице[/TIP] за каждый действующий [icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]торговый путь[/TIP]. Торговые пути получают +2 к [icon:Action_Showall] [TIP:LOC_PEDIA_CONCEPTS_SIGHT_TOOLTIP]обзору[/TIP] и не могут быть [icon:Action_Pillage] разграблены.</Text>
+      <Text>[B]+1 к [icon:YIELD_PRODUCTION][/B] в [icon:NOTIFICATION_SELECT_CAPITAL] [TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]столице[/TIP] за каждый действующий [icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]торговый путь[/TIP]. [icon:TRADE_ROUTE] Торговые пути получают [B]+2 к [icon:Action_Showall][/B] [TIP:LOC_PEDIA_CONCEPTS_SIGHT_TOOLTIP]обзору[/TIP] и не могут быть разграблены.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_AKSUM_SYNCRETISM_MODERN_DESCRIPTION" Language="ru_RU">
-      <Text>+2 к [icon:YIELD_PRODUCTION] в [icon:NOTIFICATION_SELECT_CAPITAL] [TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]столице[/TIP] за каждый действующий [icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]торговый путь[/TIP]. Торговые пути получают +2 к [icon:Action_Showall] [TIP:LOC_PEDIA_CONCEPTS_SIGHT_TOOLTIP]обзору[/TIP] и не могут быть [icon:Action_Pillage] разграблены.</Text>
+      <Text>[B]+2 к [icon:YIELD_PRODUCTION][/B] в [icon:NOTIFICATION_SELECT_CAPITAL] [TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]столице[/TIP] за каждый действующий [icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]торговый путь[/TIP]. [icon:TRADE_ROUTE] Торговые пути получают [B]+2 к [icon:Action_Showall][/B] [TIP:LOC_PEDIA_CONCEPTS_SIGHT_TOOLTIP]обзору[/TIP] и не могут быть разграблены.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_AKSUM_SYNCRETISM_TOOLTIP" Language="ru_RU">
       <Text>Путь благовоний</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_AMBITIOUS_GOVERNORS_DESCRIPTION" Language="ru_RU">
-      <Text>-6 к [icon:YIELD_HAPPINESS] в [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]городах[/TIP].</Text>
+      <Text>[B]-6 к [icon:YIELD_HAPPINESS][/B] в [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]городах[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_ANGARIUM_DESCRIPTION" Language="ru_RU">
-      <Text>+3 к [icon:YIELD_GOLD] в [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]городках[/TIP]. Удваивается в [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]захваченных городках[/TIP] из любой эпохи.</Text>
+      <Text>[B]+3 к [icon:YIELD_GOLD][/B] в [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]городках[/TIP]. Удваивается в захваченных [icon:YIELD_TOWNS] городках из любой [TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]эпохи[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_ANGARIUM_II_DESCRIPTION" Language="ru_RU">
-      <Text>+6 к [icon:YIELD_GOLD] в [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]городках[/TIP]. Удваивается в [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]захваченных городках[/TIP] из любой эпохи.</Text>
+      <Text>[B]+6 к [icon:YIELD_GOLD][/B] в [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]городках[/TIP]. Удваивается в захваченных [icon:YIELD_TOWNS] городках из любой [TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]эпохи[/TIP].</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_ANNONA_DESCRIPTION" Language="ru_RU">
+      <Text>[B]+1 к [icon:YIELD_FOOD][/B] от продуктовых зданий складов в поселениях с уровнем довольства «Счастье» или выше или +2 в поселениях с уровнем довольства «Радость» или выше.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_AQ_ATTRIBUTE_CULTURAL_01_DESCRIPTION" Language="ru_RU">
-      <Text>+15% [icon:YIELD_PRODUCTION] при строительстве [icon:WONDER] [TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]чудес[/TIP].</Text>
+      <Text>[B]+15% [icon:YIELD_PRODUCTION][/B] при строительстве [icon:WONDER] [TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]чудес[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_AQ_ATTRIBUTE_DIPLOMATIC_01_HAPPINESS_DESCRIPTION" Language="ru_RU">
-      <Text>[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]Здания[/TIP] довольства не требуют платы за [TIP:LOC_PEDIA_CONCEPTS_MAINTENANCE_TOOLTIP]содержание[/TIP] в [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]городах[/TIP].</Text>
+      <Text>[icon:CITY_BUILDING_LIST] [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]Здания довольства[/TIP] не требуют платы за [TIP:LOC_PEDIA_CONCEPTS_MAINTENANCE_TOOLTIP]содержание[/TIP] в [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]городах[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_AQ_ATTRIBUTE_DIPLOMATIC_01_INFLUENCE_DESCRIPTION" Language="ru_RU">
-      <Text>+25% к [icon:YIELD_DIPLOMACY] для запуска [icon:ENDEAVOR] [TIP:LOC_PEDIA_CONCEPTS_ENDEAVOR_TOOLTIP]инициатив[/TIP]. +1 к [icon:YIELD_GOLD] от активных [icon:ENDEAVOR] инициатив, которые вы запустили или поддержали.</Text>
+      <Text>[B]+25% к [icon:YIELD_DIPLOMACY][/B] для запуска [icon:ENDEAVOR] [TIP:LOC_PEDIA_CONCEPTS_ENDEAVOR_TOOLTIP]инициатив[/TIP]. [B]+1 к [icon:YIELD_GOLD][/B] от активных [icon:ENDEAVOR] инициатив, которые вы запустили или поддержали.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_AQ_ATTRIBUTE_ECONOMIC_01_DESCRIPTION" Language="ru_RU">
-      <Text>+1 к [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCE_CAPACITY_TOOLTIP]максимуму ресурсов[/TIP] в [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]поселениях[/TIP] со [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]зданием[/TIP] золота.</Text>
+      <Text>[B]+1 [icon:RADIAL_RESOURCES][/B] [TIP:LOC_PEDIA_CONCEPTS_RESOURCE_CAPACITY_TOOLTIP]максимуму ресурсов[/TIP] в [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]поселениях[/TIP] со [icon:CITY_BUILDING_LIST] [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]зданием золота[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_AQ_ATTRIBUTE_EXPANSIONIST_01_DESCRIPTION" Language="ru_RU">
-      <Text>+10% [icon:YIELD_PRODUCTION] при строительстве и +10% [icon:YIELD_GOLD] для покупки [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]зданий[/TIP] [icon:YIELD_WAREHOUSE] [TIP:LOC_PEDIA_CONCEPTS_WAREHOUSE_TOOLTIP]складов[/TIP].</Text>
+      <Text>[B]+10% к [icon:YIELD_PRODUCTION][/B] при строительстве и [B]+10% к [icon:YIELD_GOLD][/B] для покупки [icon:YIELD_WAREHOUSE] [TIP:LOC_PEDIA_CONCEPTS_WAREHOUSE_TOOLTIP]зданий складов[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_AQ_ATTRIBUTE_MILITARISTIC_01_DESCRIPTION" Language="ru_RU">
-      <Text>+25% [icon:YIELD_PRODUCTION] при подготовке всех [icon:UNIT_ARMY_COMMANDER] [TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]командиров[/TIP]. +1 к [icon:YIELD_GOLD] за каждый юнит, присоединенный к [icon:UNIT_ARMY_COMMANDER] командирам.</Text>
+      <Text>[B]+25% [icon:YIELD_PRODUCTION][/B] при подготовке всех [icon:UNIT_ARMY_COMMANDER] [TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]командиров[/TIP]. [B]+1 к [icon:YIELD_GOLD][/B] за каждого юнита, присоединенного к [icon:UNIT_ARMY_COMMANDER] командирам.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_AQ_ATTRIBUTE_SCIENTIFIC_01_DESCRIPTION" Language="ru_RU">
-      <Text>+5% [icon:YIELD_PRODUCTION] для [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]зданий[/TIP] за каждое завершенное [icon:RADIAL_TECH] [TIP:LOC_PEDIA_CONCEPTS_TECH_MASTERY_TOOLTIP]усовершенствование технологии[/TIP] в [TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]эпохе[/TIP].</Text>
+      <Text>[B]+5% к [icon:YIELD_PRODUCTION][/B] для [icon:CITY_BUILDING_LIST] [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]зданий[/TIP] за каждое завершенное [TIP:LOC_PEDIA_CONCEPTS_MASTERY_TOOLTIP]усовершенствование технологии[/TIP] в [TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]эпохе[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_ARTHASHASTRA_I_DESCRIPTION" Language="ru_RU">
-      <Text>+1 к [icon:YIELD_SCIENCE] за каждые 5 избыточных единицы [icon:YIELD_HAPPINESS] в [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]городах[/TIP].</Text>
+      <Text>[B]+1 к [icon:YIELD_SCIENCE][/B] за каждые 5 избыточных единиц [icon:YIELD_HAPPINESS] в [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]городах[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_ARTHASHASTRA_II_DESCRIPTION" Language="ru_RU">
-      <Text>+1 к [icon:YIELD_SCIENCE] за каждые 5 избыточных единиц [icon:YIELD_HAPPINESS] в [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]городах[/TIP]. +10% [icon:YIELD_SCIENCE] в городах во время [icon:CELEBRATION] [TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]празднества[/TIP].</Text>
+      <Text>[B]+1 к [icon:YIELD_SCIENCE][/B] за каждые 5 избыточных единиц [icon:YIELD_HAPPINESS] в [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]городах[/TIP]. [B]+10% к [icon:YIELD_SCIENCE][/B] в [icon:YIELD_CITIES] городах во время [icon:CELEBRATION] [TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]празднества[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_ARTHASHASTRA_TOOLTIP" Language="ru_RU">
       <Text>Артхашастра</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_ATASSA_DESCRIPTION" Language="ru_RU">
-      <Text>+3 к [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]боевой мощи[/TIP] [TIP:LOC_PEDIA_CONCEPTS_LAND_UNITS_TOOLTIP]сухопутных юнитов[/TIP] при обороне. При заключении мира с другим лидером отношения с ним вновь становятся нейтральными, и вы получаете бесплатного [TIP:LOC_PEDIA_CONCEPTS_MERCHANTS_TOOLTIP] торговца[/TIP] в своей [icon:NOTIFICATION_SELECT_CAPITAL] столице.</Text>
+      <Text>[B]+3 к [icon:NAR_REW_COMBAT][/B] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]боевой мощи[/TIP] [TIP:LOC_PEDIA_CONCEPTS_LAND_UNITS_TOOLTIP]сухопутных юнитов[/TIP] при обороне. При заключении мира с другим лидером [icon:RELATIONSHIP] [TIP:LOC_PEDIA_CONCEPTS_RELATIONSHIP_TOOLTIP]отношения[/TIP] с ним вновь становятся нейтральными, и вы получаете бесплатного [icon:UNIT_MERCHANT] торговца в своей [icon:NOTIFICATION_SELECT_CAPITAL] [TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]столице[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_AUXILIA_I_DESCRIPTION" Language="ru_RU">
-      <Text>+3% к [icon:YIELD_PRODUCTION] [TIP:LOC_PEDIA_CONCEPTS_MILITARY_UNIT_TOOLTIP]военных юнитов[/TIP] в [icon:NOTIFICATION_SELECT_CAPITAL] столице за каждый [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]городок[/TIP]. За подготовку пехотинца 25% стоимости его [icon:YIELD_PRODUCTION] возвращается в виде [icon:YIELD_CULTURE].</Text>
+      <Text>[B]+3% к [icon:YIELD_PRODUCTION][/B] [TIP:LOC_PEDIA_CONCEPTS_MILITARY_UNIT_TOOLTIP]военных юнитов[/TIP] в [icon:NOTIFICATION_SELECT_CAPITAL] [TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]столице[/TIP] за каждый [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]городок[/TIP]. За подготовку [TIP:LOC_PEDIA_CONCEPTS_INFANTRY_UNITS_TOOLTIP]пехотинца[/TIP] 25% стоимости его [icon:YIELD_PRODUCTION] возвращается в виде [icon:YIELD_CULTURE].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_AUXILIA_II_DESCRIPTION" Language="ru_RU">
-      <Text>+5% к [icon:YIELD_PRODUCTION] военных юнитов в [icon:NOTIFICATION_SELECT_CAPITAL] столице за каждый [icon:YIELD_TOWNS] городок. За подготовку пехотинца 50% стоимости его [icon:YIELD_PRODUCTION] возвращается в виде [icon:YIELD_CULTURE].</Text>
+      <Text>[B]+5% к [icon:YIELD_PRODUCTION][/B] [TIP:LOC_PEDIA_CONCEPTS_MILITARY_UNIT_TOOLTIP]военных юнитов[/TIP] в [icon:NOTIFICATION_SELECT_CAPITAL] [TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]столице[/TIP] за каждый [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]городок[/TIP]. За подготовку [TIP:LOC_PEDIA_CONCEPTS_INFANTRY_UNITS_TOOLTIP]пехотинца[/TIP] 50% стоимости его [icon:YIELD_PRODUCTION] возвращается в виде [icon:YIELD_CULTURE].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_AUXILIA_TOOLTIP" Language="ru_RU">
       <Text>Ауксилия</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_BANDITRY_DESCRIPTION" Language="ru_RU">
-      <Text>-5 к [icon:YIELD_GOLD] за каждый импортируемый [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]ресурс[/TIP].</Text>
+      <Text>[B]-5 к [icon:YIELD_GOLD][/B] за каждый импортируемый [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]ресурс[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_BARBARIAN_MERCENARIES_DESCRIPTION" Language="ru_RU">
-      <Text>+100% к затратам [icon:YIELD_GOLD] золота на [TIP:LOC_PEDIA_CONCEPTS_MAINTENANCE_TOOLTIP]содержание[/TIP] для [TIP:LOC_PEDIA_CONCEPTS_MILITARY_UNIT_TOOLTIP]военных юнитов[/TIP].</Text>
+      <Text>[B]+100% к затратам [icon:YIELD_GOLD][/B] золота на [TIP:LOC_PEDIA_CONCEPTS_MAINTENANCE_TOOLTIP]содержание[/TIP] для [TIP:LOC_PEDIA_CONCEPTS_MILITARY_UNIT_TOOLTIP]военных юнитов[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_BON_OM_TOUK_DESCRIPTION" Language="ru_RU">
-      <Text>Научные [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]здания[/TIP] в [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]городах[/TIP] получают бонус за соседство от [TIP:LOC_PEDIA_CONCEPTS_FLOODPLAINS_TOOLTIP]речных пойм[/TIP]. +3 к ячейкам [icon:GREATWORK] [TIP:LOC_PEDIA_CONCEPTS_GREAT_WORKS_TOOLTIP]шедевра[/TIP] во дворце.</Text>
+      <Text>[icon:CITY_BUILDING_LIST] [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]Научные здания[/TIP] в [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]городах[/TIP] получают бонус за соседство от [icon:CITY_UNIMPROVED] [TIP:LOC_PEDIA_CONCEPTS_FLOODPLAINS_TOOLTIP]речных пойм[/TIP]. [B]+3 к [icon:NAR_REW_GREATWORK][/B] ячейкам [TIP:LOC_PEDIA_CONCEPTS_GREAT_WORKS_TOOLTIP]шедевра[/TIP] во [TIP:LOC_PEDIA_CONCEPTS_PALACE_TOOLTIP]дворце[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_CAPITAL_UNHAPPINESS_DESCRIPTION" Language="ru_RU">
-      <Text>-10 к [icon:YIELD_HAPPINESS] в [icon:NOTIFICATION_SELECT_CAPITAL] столице.</Text>
+      <Text>[B]-10 к [icon:YIELD_HAPPINESS][/B] в [icon:NOTIFICATION_SELECT_CAPITAL] [TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]столице[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_CASTES_DESCRIPTION" Language="ru_RU">
-      <Text>+2 [icon:YIELD_FOOD] во всех [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]поселениях[/TIP].</Text>
+      <Text>[B]+2 [icon:YIELD_FOOD][/B] во всех [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]поселениях[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_CHARISMATIC_LEADER_DESCRIPTION" Language="ru_RU">
-      <Text>+2 к [icon:YIELD_CULTURE] от дворца.</Text>
+      <Text>[B]+2 к [icon:YIELD_CULTURE][/B] от [TIP:LOC_PEDIA_CONCEPTS_PALACE_TOOLTIP]дворца[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_CHARVAKA_I_DESCRIPTION" Language="ru_RU">
-      <Text>+1 к [icon:YIELD_GOLD] за каждые 5 избыточных единицы [icon:YIELD_HAPPINESS] в [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]городах[/TIP].</Text>
+      <Text>[B]+1 к [icon:YIELD_GOLD][/B] за каждые 5 избыточных единиц [icon:YIELD_HAPPINESS] в [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]городах[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_CHARVAKA_II_DESCRIPTION" Language="ru_RU">
-      <Text>+1 к [icon:YIELD_GOLD] за каждые 5 избыточных единиц [icon:YIELD_HAPPINESS] в [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]городах[/TIP]. +10% [icon:YIELD_PRODUCTION] в городах во время [icon:CELEBRATION] [TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]празднества[/TIP].</Text>
+      <Text>[B]+1 к [icon:YIELD_GOLD][/B] за каждые 5 избыточных единиц [icon:YIELD_HAPPINESS] в [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]городах[/TIP]. [B]+10% к [icon:YIELD_PRODUCTION][/B] в [icon:YIELD_CITIES] городах во время [icon:CELEBRATION] [TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]празднества[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_CHARVAKA_TOOLTIP" Language="ru_RU">
       <Text>Чарвака</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_CITY_GUARD_DESCRIPTION" Language="ru_RU">
-      <Text>+3 к [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]боевой мощи[/TIP] [icon:CITY_FORTIFIED] [TIP:LOC_PEDIA_CONCEPTS_FORTIFIED_DISTRICTS_TOOLTIP]укрепленных районов[/TIP].</Text>
+      <Text>[B]+3 к [icon:NAR_REW_COMBAT][/B] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]боевой мощи[/TIP] [icon:CITY_FORTIFIED] [TIP:LOC_PEDIA_CONCEPTS_FORTIFIED_DISTRICTS_TOOLTIP]укрепленных районов[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_CLAN_NETWORKS_DESCRIPTION" Language="ru_RU">
-      <Text>+20% [icon:GROWTH_RATE] [TIP:LOC_PEDIA_CONCEPTS_GROWTH_RATE_TOOLTIP]скорости роста[/TIP] населения в [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]городках[/TIP], сосредоточенных на [icon:PROJECT_GROWTH] росте.</Text>
+      <Text>[B]+20% к [icon:GROWTH_RATE][/B] [TIP:LOC_PEDIA_CONCEPTS_GROWTH_RATE_TOOLTIP]скорости роста[/TIP] населения в [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]городках[/TIP], сосредоточенных на росте.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_COINAGE_DESCRIPTION" Language="ru_RU">
-      <Text>+1 к [icon:YIELD_GOLD] за каждый импортируемый [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]ресурс[/TIP]. +1 к [icon:Action_Move] перемещению для [icon:UNIT_MERCHANT] торговцев.</Text>
+      <Text>[B]+1 к [icon:YIELD_GOLD][/B] за каждый импортируемый [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]ресурс[/TIP]. [B]+1 к [icon:Action_Move] перемещению[/B] для [icon:UNIT_MERCHANT] торговцев.</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_COMMANDERIES_DESCRIPTION" Language="ru_RU">
+      <Text>[B]+20% [icon:YIELD_GOLD][/B] при улучшении юнитов.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_COMMODITIES_DESCRIPTION" Language="ru_RU">
-      <Text>+1 к [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCE_CAPACITY_TOOLTIP]максимуму ресурсов[/TIP] в [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]городах[/TIP].</Text>
+      <Text>[B]+1 к [icon:RADIAL_RESOURCES][/B] [TIP:LOC_PEDIA_CONCEPTS_RESOURCE_CAPACITY_TOOLTIP]максимуму ресурсов[/TIP] в [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]городах[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_CONSCRIPTION_DESCRIPTION" Language="ru_RU">
-      <Text>-1 [icon:YIELD_GOLD] к [TIP:LOC_PEDIA_CONCEPTS_MAINTENANCE_TOOLTIP]содержанию[/TIP] юнитов.</Text>
+      <Text>[B]-1 [icon:YIELD_GOLD][/B] к [TIP:LOC_PEDIA_CONCEPTS_MAINTENANCE_TOOLTIP]содержанию[/TIP] юнитов.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_CURSUS_HONORUM_DESCRIPTION" Language="ru_RU">
-      <Text>+2 к [icon:YIELD_CULTURE] для зданий дипломатии и военных [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]зданий[/TIP]; значение удваивается, если [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]здание[/TIP] принадлежит к обеим категориям. [icon:UNIT_ARMY_COMMANDER] Командиры армии получают [icon:NAR_REW_PROMOTION] [TIP:LOC_PEDIA_CONCEPTS_PROMOTION_TOOLTIP]повышение[/TIP] «Оплот» бесплатно.</Text>
+      <Text>[B]+2 к [icon:YIELD_CULTURE][/B] для зданий дипломатии и [icon:CITY_BUILDING_LIST] [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]военных зданий[/TIP]; значение удваивается, если [icon:CITY_BUILDING_LIST] здание принадлежит к обеим категориям. [icon:UNIT_ARMY_COMMANDER] [TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]Командиры армии[/TIP] получают [TIP:LOC_PEDIA_CONCEPTS_PROMOTION_TOOLTIP]повышение[/TIP] «Оплот» бесплатно.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_DECENTRALIZATION_DESCRIPTION" Language="ru_RU">
-      <Text>+75% [icon:YIELD_GOLD] и [icon:YIELD_FOOD] в [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]городках[/TIP] со [icon:TOWN_FOCUS] специализацией.</Text>
+      <Text>[B]-75% к [icon:YIELD_GOLD][/B] и к [icon:YIELD_FOOD] в [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]городках[/TIP] со специализацией.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_DELIAN_LEAGUE_I_DESCRIPTION" Language="ru_RU">
-      <Text>+30% [icon:YIELD_DIPLOMACY] для запуска [icon:ENDEAVOR] [TIP:LOC_PEDIA_CONCEPTS_ENDEAVOR_TOOLTIP]инициатив[/TIP].</Text>
+      <Text>[B]+30% [icon:YIELD_DIPLOMACY][/B] для запуска [icon:ENDEAVOR] [TIP:LOC_PEDIA_CONCEPTS_ENDEAVOR_TOOLTIP]инициатив[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_DELIAN_LEAGUE_II_DESCRIPTION" Language="ru_RU">
-      <Text>+50% [icon:YIELD_DIPLOMACY] для запуска и поддержки [icon:ENDEAVOR] [TIP:LOC_PEDIA_CONCEPTS_ENDEAVOR_TOOLTIP]инициатив[/TIP].</Text>
+      <Text>[B]+50% [icon:YIELD_DIPLOMACY][/B] для запуска и поддержки [icon:ENDEAVOR] [TIP:LOC_PEDIA_CONCEPTS_ENDEAVOR_TOOLTIP]инициатив[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_DESPOTISM_UNHAPPINESS_DESCRIPTION" Language="ru_RU">
-      <Text>-6 к [icon:YIELD_HAPPINESS] в [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]поселениях[/TIP] без [TIP:LOC_PEDIA_CONCEPTS_WALL_TOOLTIP]стен[/TIP].</Text>
+      <Text>[B]-6 к [icon:YIELD_HAPPINESS][/B] в [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]поселениях[/TIP] без укрепления [icon:CITY_FORTIFIED] [TIP:LOC_PEDIA_CONCEPTS_WALL_TOOLTIP]стен[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_DIPLOMACY_FAVOR_ACCRUE_DESCRIPTION" Language="ru_RU">
-      <Text>[icon:RELATIONSHIP] Отношения, получаемые за поддержку [icon:DIPLOMATIC_ACTION] дипломатических процессов, улучшаются на 25%.</Text>
+      <Text>+25% к [icon:RELATIONSHIP] [TIP:LOC_PEDIA_CONCEPTS_RELATIONSHIP_TOOLTIP]отношениям[/TIP], полученных за поддержку дипломатических процессов.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_DRAMA_AND_POETRY_DESCRIPTION" Language="ru_RU">
-      <Text>+2 к [icon:YIELD_CULTURE] за культурные [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]здания[/TIP]. +20% [icon:YIELD_PRODUCTION] при строительстве культурных [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]зданий[/TIP].</Text>
+      <Text>[B]+2 к [icon:YIELD_CULTURE][/B] за [icon:CITY_BUILDING_LIST] [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]культурные здания[/TIP]. [B]+20% [icon:YIELD_PRODUCTION][/B] при строительстве [icon:CITY_BUILDING_LIST] культурных зданий.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_DRILLS_DESCRIPTION" Language="ru_RU">
-      <Text>+30% [icon:YIELD_PRODUCTION] для подготовки [TIP:LOC_PEDIA_CONCEPTS_INFANTRY_UNITS_TOOLTIP]пехоты[/TIP] и [TIP:LOC_PEDIA_CONCEPTS_RANGED_UNITS_TOOLTIP]дальнобойных юнитов[/TIP].</Text>
+      <Text>[B]+30% [icon:YIELD_PRODUCTION][/B] для подготовки пехоты и [TIP:LOC_PEDIA_CONCEPTS_RANGED_UNITS_TOOLTIP]дальнобойных юнитов[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_EGYPT_SYNCRETISM_EXPLORATION_DESCRIPTION" Language="ru_RU">
-      <Text>+1 к [icon:YIELD_CULTURE] и [icon:YIELD_GOLD] от [icon:WONDER] [TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]чудес[/TIP], удваивается для [icon:WONDER] [TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]чудес[/TIP] эпохи античности.</Text>
+      <Text>[B]+1 к [icon:YIELD_CULTURE][/B] и [icon:YIELD_GOLD] от [icon:WONDER] [TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]чудес[/TIP], удваивается для [icon:WONDER] чудес эпохи античности.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_EGYPT_SYNCRETISM_MODERN_DESCRIPTION" Language="ru_RU">
-      <Text>+2 к [icon:YIELD_CULTURE] и [icon:YIELD_GOLD] от [icon:WONDER] [TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]чудес[/TIP], удваивается для [icon:WONDER] [TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]чудес[/TIP] эпохи античности.</Text>
+      <Text>[B]+2 к [icon:YIELD_CULTURE][/B] и [icon:YIELD_GOLD] от [icon:WONDER] [TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]чудес[/TIP], удваивается для [icon:WONDER] чудес эпохи античности.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_EGYPT_SYNCRETISM_TOOLTIP" Language="ru_RU">
       <Text>Золотой Гор</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_ETHICS_DESCRIPTION" Language="ru_RU">
-      <Text>+1 к [icon:YIELD_CULTURE] от [icon:SPECIALIST] [TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_TOOLTIP]специалистов[/TIP]. +1 к затратам [icon:YIELD_HAPPINESS] на [TIP:LOC_PEDIA_CONCEPTS_MAINTENANCE_TOOLTIP]содержание[/TIP] [icon:SPECIALIST] [TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_TOOLTIP]специалистов[/TIP].</Text>
+      <Text>[B]+1 к [icon:YIELD_CULTURE][/B] от [icon:SPECIALIST] [TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_TOOLTIP]специалистов[/TIP]. [B]+1 к затратам [icon:YIELD_HAPPINESS][/B] на [TIP:LOC_PEDIA_CONCEPTS_MAINTENANCE_TOOLTIP]содержание[/TIP] [icon:SPECIALIST] специалистов.</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_FAJIA_DESCRIPTION" Language="ru_RU">
+      <Text>[B]+1 к [/B] военной поддержке в войнах, объявляемых вами.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_FENGHUO_DESCRIPTION" Language="ru_RU">
-      <Text>+1 к [icon:UNIT_MOVEMENT_ICON] перемещению и +3 к [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]боевой мощи[/TIP] юнитов от конструкций типа «Укрепления» и улучшений на вашей территории. +2 [icon:YIELD_GOLD] от конструкций типа «Укрепления» и улучшений.</Text>
+      <Text>[B]+1 к [icon:Action_Move] перемещению[/B] и [B]+3 к [icon:NAR_REW_COMBAT][/B] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]боевой мощи[/TIP] юнитов от [icon:CITY_BUILDING_LIST] [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]конструкций типа «Укрепления»[/TIP] и [icon:CITY_RURAL] [TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]улучшений[/TIP] на вашей территории. [B]+2 [icon:YIELD_GOLD][/B] от [icon:CITY_BUILDING_LIST] конструкций типа «Укрепления» и [icon:CITY_RURAL] улучшений.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_FENGHUO_II_DESCRIPTION" Language="ru_RU">
-      <Text>+1 к [icon:UNIT_MOVEMENT_ICON] перемещению и +5 к [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]боевой мощи[/TIP] юнитов от конструкций типа «Укрепления» и улучшений на вашей территории. +3 [icon:YIELD_GOLD] от конструкций типа «Укрепления» и улучшений.</Text>
+      <Text>[B]+1 к [icon:Action_Move] перемещению[/B] и [B]+5 к [icon:NAR_REW_COMBAT][/B] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]боевой мощи[/TIP] юнитов от [icon:CITY_BUILDING_LIST] [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]конструкций типа «Укрепления»[/TIP] и [icon:CITY_RURAL] [TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]улучшений[/TIP] на вашей территории. [B]+3 [icon:YIELD_GOLD][/B] от [icon:CITY_BUILDING_LIST] конструкций типа «Укрепления» и [icon:CITY_RURAL] улучшений.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_GIFT_ECONOMY_DESCRIPTION" Language="ru_RU">
-      <Text>+1 [icon:YIELD_GOLD] и [icon:YIELD_HAPPINESS] за каждый импортируемый [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]ресурс[/TIP].</Text>
+      <Text>[B]+1 [icon:YIELD_GOLD][/B] и [icon:YIELD_HAPPINESS] за каждый импортируемый [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]ресурс[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_GIFT_ECONOMY_II_DESCRIPTION" Language="ru_RU">
-      <Text>+2 [icon:YIELD_GOLD] и +2 [icon:YIELD_HAPPINESS] от импортируемых [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]ресурсов[/TIP].</Text>
+      <Text>[B]+2 [icon:YIELD_GOLD][/B] и [B]+2 [icon:YIELD_HAPPINESS][/B] от импортируемых [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]ресурсов[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_GREECE_SYNCRETISM_EXPLORATION_DESCRIPTION" Language="ru_RU">
-      <Text>+1 [icon:YIELD_HAPPINESS] и [icon:YIELD_PRODUCTION] в [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]городах[/TIP] за каждый [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]город-государство[/TIP], [TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]сюзереном[/TIP] которого вы являетесь.</Text>
+      <Text>[B]+1 [icon:YIELD_HAPPINESS][/B] и [icon:YIELD_PRODUCTION] в [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]городах[/TIP] за каждый [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]город-государство[/TIP], [TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]сюзереном[/TIP] которого вы являетесь.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_GREECE_SYNCRETISM_MODERN_DESCRIPTION" Language="ru_RU">
-      <Text>+2 [icon:YIELD_HAPPINESS] и [icon:YIELD_PRODUCTION] в [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]городах[/TIP] за каждый [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]город-государство[/TIP], [TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]сюзереном[/TIP] которого вы являетесь.</Text>
+      <Text>[B]+2 [icon:YIELD_HAPPINESS][/B] и [icon:YIELD_PRODUCTION] в [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]городах[/TIP] за каждый [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]город-государство[/TIP], [TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]сюзереном[/TIP] которого вы являетесь.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_GREECE_SYNCRETISM_TOOLTIP" Language="ru_RU">
       <Text>Эллинизм</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_HAAB_I_DESCRIPTION" Language="ru_RU">
-      <Text>+2 [icon:YIELD_CULTURE] от [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]зданий[/TIP], повышающих довольство.</Text>
+      <Text>[B]+2 [icon:YIELD_CULTURE][/B] от [icon:CITY_BUILDING_LIST] [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]зданий, повышающих довольство[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_HAAB_II_DESCRIPTION" Language="ru_RU">
-      <Text>+2 [icon:YIELD_CULTURE] за [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]здания[/TIP], повышающие довольство. Удваивается во время [icon:CELEBRATION] [TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]празднества[/TIP].</Text>
+      <Text>[B]+2 [icon:YIELD_CULTURE][/B] за [icon:CITY_BUILDING_LIST] [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]здания, повышающие довольство[/TIP]. Удваивается во время [icon:CELEBRATION] [TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]празднества[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_HAAB_TOOLTIP" Language="ru_RU">
       <Text>Хааб</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_HAN_SYNCRETISM_EXPLORATION_DESCRIPTION" Language="ru_RU">
-      <Text>+1 к [icon:YIELD_SCIENCE] в городах за каждую заполненную ячейку [icon:TRADITION] [TIP:LOC_PEDIA_CONCEPTS_TRADITION_TOOLTIP]традиции[/TIP] в [icon:GOVERNMENT] правительстве.</Text>
+      <Text>[B]+1 к [icon:YIELD_SCIENCE][/B] в [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]городах[/TIP] за каждую заполненную ячейку [icon:TRADITION] [TIP:LOC_PEDIA_CONCEPTS_TRADITION_TOOLTIP]традиции[/TIP] в [icon:GOVERNMENT] [TIP:LOC_PEDIA_CONCEPTS_GOVERNMENT_TOOLTIP]правительстве[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_HAN_SYNCRETISM_MODERN_DESCRIPTION" Language="ru_RU">
-      <Text>+2 к [icon:YIELD_SCIENCE] в городах за каждую заполненную ячейку [icon:TRADITION] [TIP:LOC_PEDIA_CONCEPTS_TRADITION_TOOLTIP]традиции[/TIP] в [icon:GOVERNMENT] правительстве.</Text>
+      <Text>[B]+2 к [icon:YIELD_SCIENCE][/B] в [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]городах[/TIP] за каждую заполненную ячейку [icon:TRADITION] [TIP:LOC_PEDIA_CONCEPTS_TRADITION_TOOLTIP]традиции[/TIP] в [icon:GOVERNMENT] [TIP:LOC_PEDIA_CONCEPTS_GOVERNMENT_TOOLTIP]правительстве[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_HAN_SYNCRETISM_TOOLTIP" Language="ru_RU">
       <Text>Способное правление</Text>
     </Replace>
+    <Replace Tag="LOC_TRADITION_HANGJIAO_DESCRIPTION" Language="ru_RU">
+      <Text>[B]+1 к [icon:YIELD_PRODUCTION][/B] от производственных зданий складов в поселениях с уровнем довольства «Счастье» или выше или +2 в поселениях с уровнем довольства «Радость» или выше.</Text>
+    </Replace>
     <Replace Tag="LOC_TRADITION_HEALING_CULTS_DESCRIPTION" Language="ru_RU">
-      <Text>+5 [icon:YIELD_HAPPINESS] от алтарей в [icon:YIELD_PLAGUE] [TIP:LOC_PEDIA_CONCEPTS_INFECTED_TOOLTIP]зараженных[/TIP] [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]поселениях[/TIP], но -10 к [icon:YIELD_GOLD] от алтарей.</Text>
+      <Text>[B]+5 [icon:YIELD_HAPPINESS][/B] от алтарей в [TIP:LOC_PEDIA_CONCEPTS_INFECTED_TOOLTIP]зараженных[/TIP] [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]поселениях[/TIP], но [B]-10 к [icon:YIELD_GOLD][/B] от алтарей.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_HONOR_DESCRIPTION" Language="ru_RU">
-      <Text>+3 к [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]боевой мощи[/TIP] против [icon:INDEPENDENT_POWER] [TIP:LOC_PEDIA_CONCEPTS_INDEPENDENT_POWER_TOOLTIP]независимых держав[/TIP].</Text>
+      <Text>[B]+3 к [icon:NAR_REW_COMBAT][/B] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]боевой мощи[/TIP] против [icon:INDEPENDENT_POWER] [TIP:LOC_PEDIA_CONCEPTS_INDEPENDENT_POWER_TOOLTIP]независимых держав[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_HOSPITALITY_DESCRIPTION" Language="ru_RU">
-      <Text>+3 к [icon:YIELD_CULTURE] за каждый [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]город-государство[/TIP], [TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]сюзереном[/TIP] которого вы являетесь.</Text>
+      <Text>[B]+3 к [icon:YIELD_CULTURE][/B] за каждый [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]город-государство[/TIP], [TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]сюзереном[/TIP] которого вы являетесь.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_INCOMPETENT_MINISTERS_DESCRIPTION" Language="ru_RU">
-      <Text>-1 к [icon:YIELD_DIPLOMACY] в [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]поселениях[/TIP], которые вы основали.</Text>
+      <Text>[B]-1 к [icon:YIELD_DIPLOMACY][/B] в [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]поселениях[/TIP], которые вы основали.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_INFERIOR_TACTICS_DESCRIPTION" Language="ru_RU">
-      <Text>-6 к [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]боевой мощи[/TIP] против [icon:INDEPENDENT_POWER] [TIP:LOC_PEDIA_CONCEPTS_INDEPENDENT_POWER_TOOLTIP]независимых держав[/TIP].</Text>
+      <Text>[B]-6 к [icon:NAR_REW_COMBAT][/B] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]боевой мощи[/TIP] против [icon:INDEPENDENT_POWER] [TIP:LOC_PEDIA_CONCEPTS_INDEPENDENT_POWER_TOOLTIP]независимых держав[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_JU_XIAN_DESCRIPTION" Language="ru_RU">
-      <Text>+1 [icon:YIELD_SCIENCE] от [icon:SPECIALIST] [TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_TOOLTIP]специалистов[/TIP].</Text>
+      <Text>[B]+1 [icon:YIELD_SCIENCE][/B] от [icon:SPECIALIST] [TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_TOOLTIP]специалистов[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_JU_XIAN_II_DESCRIPTION" Language="ru_RU">
-      <Text>+1 [icon:YIELD_SCIENCE] за [icon:SPECIALIST] [TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_TOOLTIP]специалистов[/TIP]. +10% [icon:YIELD_SCIENCE] в [icon:NOTIFICATION_SELECT_CAPITAL] столице.</Text>
+      <Text>[B]+1 [icon:YIELD_SCIENCE][/B] за [icon:SPECIALIST] [TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_TOOLTIP]специалистов[/TIP]. [B]+10% [icon:YIELD_SCIENCE][/B] в [icon:NOTIFICATION_SELECT_CAPITAL] [TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]столице[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_KAMBU_MERA_I_DESCRIPTION" Language="ru_RU">
-      <Text>+50% [icon:YIELD_FOOD] и [icon:YIELD_HAPPINESS] для [TIP:LOC_PEDIA_CONCEPTS_MAINTENANCE_TOOLTIP]содержания[/TIP] [icon:SPECIALIST] [TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_TOOLTIP]специалистов[/TIP].</Text>
+      <Text>[B]+50% [icon:YIELD_FOOD][/B] и [icon:YIELD_HAPPINESS] для содержания [icon:SPECIALIST] [TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_TOOLTIP]специалистов[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_KAMBU_MERA_II_DESCRIPTION" Language="ru_RU">
-      <Text>+100%[icon:YIELD_FOOD] и [icon:YIELD_HAPPINESS] за [TIP:LOC_PEDIA_CONCEPTS_MAINTENANCE_TOOLTIP]содержание[/TIP] [icon:SPECIALIST] [TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_TOOLTIP]специалистов[/TIP]. +1 к [icon:SPECIALIST] [TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_LIMIT_TOOLTIP]лимиту специалистов[/TIP] в [icon:NOTIFICATION_SELECT_CAPITAL] [TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]столице[/TIP].</Text>
+      <Text>[B]+100% [icon:YIELD_FOOD][/B] и [icon:YIELD_HAPPINESS] за содержание [icon:SPECIALIST] [TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_TOOLTIP]специалистов[/TIP]. [B]+1 к [icon:SPECIALIST][/B] [TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_LIMIT_TOOLTIP]лимиту специалистов[/TIP] в [icon:NOTIFICATION_SELECT_CAPITAL] [TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]столице[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_KAMBU_MERA_TOOLTIP" Language="ru_RU">
       <Text>Камбу-Мера</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_KARA_DESCRIPTION" Language="ru_RU">
-      <Text>+25% [icon:YIELD_PRODUCTION] при подготовке [TIP:LOC_PEDIA_CONCEPTS_INFANTRY_UNITS_TOOLTIP]пехотных юнитов[/TIP]. -2 от затрат [icon:YIELD_GOLD] на [TIP:LOC_PEDIA_CONCEPTS_MAINTENANCE_TOOLTIP]содержание[/TIP] [TIP:LOC_PEDIA_CONCEPTS_INFANTRY_UNITS_TOOLTIP]пехотных юнитов[/TIP].</Text>
+      <Text>[B]+25% [icon:YIELD_PRODUCTION][/B] при подготовке [TIP:LOC_PEDIA_CONCEPTS_INFANTRY_UNITS_TOOLTIP]пехотных юнитов[/TIP]. [B]-2 от затрат [icon:YIELD_GOLD][/B] на [TIP:LOC_PEDIA_CONCEPTS_MAINTENANCE_TOOLTIP]содержание[/TIP] пехотных юнитов.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_KARA_II_DESCRIPTION" Language="ru_RU">
-      <Text>+25% [icon:YIELD_PRODUCTION] при подготовке [TIP:LOC_PEDIA_CONCEPTS_INFANTRY_UNITS_TOOLTIP]пехотных юнитов[/TIP]. -3 от затрат [icon:YIELD_GOLD] на [TIP:LOC_PEDIA_CONCEPTS_MAINTENANCE_TOOLTIP]содержание[/TIP] пехотных юнитов. Пехотные юниты восстанавливают 15 [icon:Action_Heal] ОЗ после победы над вражеским юнитом.</Text>
+      <Text>[B]+25% [icon:YIELD_PRODUCTION][/B] при подготовке [TIP:LOC_PEDIA_CONCEPTS_INFANTRY_UNITS_TOOLTIP]пехотных юнитов[/TIP]. [B]-3 от затрат [icon:YIELD_GOLD][/B] на [TIP:LOC_PEDIA_CONCEPTS_MAINTENANCE_TOOLTIP]содержание[/TIP] пехотных юнитов. Пехотные юниты [icon:Action_Heal] восстанавливают [B]15 [icon:Action_Heal] ОЗ[/B] после победы над вражеским юнитом.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_KEMET_I_DESCRIPTION" Language="ru_RU">
-      <Text>+2 к [icon:YIELD_CULTURE] на [icon:CITY_RURAL] [TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]улучшениях[/TIP] и в [icon:CITY_URBAN] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]районах[/TIP] на [TIP:LOC_PEDIA_CONCEPTS_NAVIGABLE_RIVER_TOOLTIP]судоходных реках[/TIP].</Text>
+      <Text>[B]+2 к [icon:YIELD_CULTURE][/B] на [icon:CITY_RURAL] [TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]улучшениях[/TIP] и в [icon:CITY_URBAN] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]районах[/TIP] на [TIP:LOC_PEDIA_CONCEPTS_NAVIGABLE_RIVER_TOOLTIP]судоходных реках[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_KEMET_II_DESCRIPTION" Language="ru_RU">
-      <Text>+3 к [icon:YIELD_CULTURE] на [icon:CITY_RURAL] [TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]улучшениях[/TIP] и в [icon:CITY_URBAN] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]районах[/TIP] на [TIP:LOC_PEDIA_CONCEPTS_NAVIGABLE_RIVER_TOOLTIP]судоходных реках[/TIP].</Text>
+      <Text>[B]+3 к [icon:YIELD_CULTURE][/B] на [icon:CITY_RURAL] [TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]улучшениях[/TIP] и в [icon:CITY_URBAN] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]районах[/TIP] на [TIP:LOC_PEDIA_CONCEPTS_NAVIGABLE_RIVER_TOOLTIP]судоходных реках[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_KEMET_TOOLTIP" Language="ru_RU">
       <Text>Кемет</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_KHMER_SYNCRETISM_EXPLORATION_DESCRIPTION" Language="ru_RU">
-      <Text>+1 [icon:YIELD_GOLD] на [icon:SPECIALIST] [TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_TOOLTIP]специалистах[/TIP].</Text>
+      <Text>[B]+1 [icon:YIELD_GOLD][/B] на [icon:SPECIALIST] [TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_TOOLTIP]специалистах[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_KHMER_SYNCRETISM_MODERN_DESCRIPTION" Language="ru_RU">
-      <Text>+1 [icon:YIELD_GOLD] и [icon:YIELD_SCIENCE] на [icon:SPECIALIST] [TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_TOOLTIP]специалистах[/TIP].</Text>
+      <Text>[B]+1 [icon:YIELD_GOLD][/B] и [icon:YIELD_SCIENCE] на [icon:SPECIALIST] [TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_TOOLTIP]специалистах[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_KHMER_SYNCRETISM_TOOLTIP" Language="ru_RU">
       <Text>Варна</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_KSHATRIYA_DESCRIPTION" Language="ru_RU">
-      <Text>+3 к [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]боевой мощи[/TIP] [TIP:LOC_PEDIA_CONCEPTS_INFANTRY_UNITS_TOOLTIP]пехоты[/TIP] и [TIP:LOC_PEDIA_CONCEPTS_CAVALRY_UNITS_TOOLTIP]кавалерии[/TIP], когда они находятся рядом друг с другом, или +5 во время [icon:CELEBRATION] [TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]празднества[/TIP].</Text>
+      <Text>[B]+3 к [icon:NAR_REW_COMBAT][/B] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]боевой мощи[/TIP] пехоты и [TIP:LOC_PEDIA_CONCEPTS_CAVALRY_UNITS_TOOLTIP]кавалерии[/TIP], когда они находятся рядом друг с другом, или +5 во время [icon:CELEBRATION] [TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]празднества[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_LATINITAS_I_DESCRIPTION" Language="ru_RU">
-      <Text>+2 к [icon:YIELD_FOOD] и [icon:YIELD_CULTURE] в [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]городках[/TIP], удваивается в [icon:PROJECT_TOWN_FORT] городках-фортах.</Text>
+      <Text>[B]+2 к [icon:YIELD_FOOD][/B] и [icon:YIELD_CULTURE] в [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]городках[/TIP], удваивается в [icon:YIELD_TOWNS] городках-фортах.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_LATINITAS_II_DESCRIPTION" Language="ru_RU">
-      <Text>+2 к [icon:YIELD_FOOD] и [icon:YIELD_CULTURE] в [icon:YIELD_TOWNS] городках, удваивается в [icon:PROJECT_TOWN_FORT] городках-фортах. Эти значения еще удваиваются в далеких землях.</Text>
+      <Text>[B]+2 к [icon:YIELD_FOOD][/B] и [icon:YIELD_CULTURE] в [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]городках[/TIP], удваивается в [icon:YIELD_TOWNS] городках-фортах. Эти значения еще удваиваются в [TIP:LOC_PEDIA_CONCEPTS_DISTANT_LANDS_TOOLTIP]далеких землях[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_LATINITAS_TOOLTIP" Language="ru_RU">
       <Text>Латинство</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_LITERATURE_DESCRIPTION" Language="ru_RU">
-      <Text>+2 к [icon:YIELD_SCIENCE] за научные [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]здания[/TIP]. +20% [icon:YIELD_PRODUCTION] при строительстве научных [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]зданий[/TIP].</Text>
+      <Text>[B]+2 к [icon:YIELD_SCIENCE][/B] за [icon:CITY_BUILDING_LIST] [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]научные здания[/TIP]. [B]+20% [icon:YIELD_PRODUCTION][/B] при строительстве [icon:CITY_BUILDING_LIST] научных зданий.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_LOYALTY_SETTLEMENT_CAP_DESCRIPTION" Language="ru_RU">
-      <Text>-1 к [icon:SETTLEMENT_LIMIT] [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_LIMIT_TOOLTIP]лимиту поселений[/TIP].</Text>
+      <Text>[B]-1 к [icon:SETTLEMENT_LIMIT][/B] [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_LIMIT_TOOLTIP]лимиту поселений[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_MAURYA_SYNCRETISM_EXPLORATION_DESCRIPTION" Language="ru_RU">
-      <Text>+2 к [icon:YIELD_Production] и к [icon:YIELD_SCIENCE] от [TIP:LOC_PEDIA_CONCEPTS_PALACE_TOOLTIP]дворца[/TIP] и ратуши в [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]захваченных вами поселениях[/TIP] из любой эпохи. Удваивается во время [icon:CELEBRATION] [TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]празднества[/TIP].</Text>
+      <Text>[B]+2 к [icon:YIELD_PRODUCTION][/B] и к [icon:YIELD_SCIENCE] от [TIP:LOC_PEDIA_CONCEPTS_PALACE_TOOLTIP]дворца[/TIP] и [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]ратуши[/TIP] в [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]захваченных вами поселениях[/TIP] из любой [TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]эпохи[/TIP]. Удваивается во время [icon:CELEBRATION] [TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]празднества[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_MAURYA_SYNCRETISM_MODERN_DESCRIPTION" Language="ru_RU">
-      <Text>+3 к [icon:YIELD_Production] и к [icon:YIELD_SCIENCE] от [TIP:LOC_PEDIA_CONCEPTS_PALACE_TOOLTIP]дворца[/TIP] и ратуши в [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]захваченных вами поселениях[/TIP] из любой эпохи. Удваивается во время [icon:CELEBRATION] [TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]празднества[/TIP].</Text>
+      <Text>[B]+3 к [icon:YIELD_PRODUCTION][/B] и к [icon:YIELD_SCIENCE] от [TIP:LOC_PEDIA_CONCEPTS_PALACE_TOOLTIP]дворца[/TIP] и [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]ратуши[/TIP] в [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]захваченных вами поселениях[/TIP] из любой [TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]эпохи[/TIP]. Удваивается во время [icon:CELEBRATION] [TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]празднества[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_MAURYA_SYNCRETISM_TOOLTIP" Language="ru_RU">
       <Text>Чхатрапати</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_MAY_THIS_PLEASE_THE_PEOPLE_I_DESCRIPTION" Language="ru_RU">
-      <Text>+2 к [icon:YIELD_CULTURE] от [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]ресурсов[/TIP] на побережье или по соседству с ним.</Text>
+      <Text>[B]+2 к [icon:YIELD_CULTURE][/B] от [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]ресурсов[/TIP] на побережье или по соседству с ним.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_MAY_THIS_PLEASE_THE_PEOPLE_II_DESCRIPTION" Language="ru_RU">
-      <Text>+3 к [icon:YIELD_CULTURE] от [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]ресурсов[/TIP] на побережье или по соседству с ним.</Text>
+      <Text>[B]+3 к [icon:YIELD_CULTURE][/B] от [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]ресурсов[/TIP] на побережье или по соседству с ним.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_MAY_THIS_PLEASE_THE_PEOPLE_TOOLTIP" Language="ru_RU">
       <Text>Пусть народ возрадуется</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_MAYA_SYNCRETISM_EXPLORATION_DESCRIPTION" Language="ru_RU">
-      <Text>+2 к [icon:YIELD_SCIENCE] от научных [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]зданий[/TIP], размещенных на [icon:CITY_UNIMPROVED] [TIP:LOC_PEDIA_CONCEPTS_VEGETATED_TERRAIN_TOOLTIP]ландшафте с растительностью[/TIP].</Text>
+      <Text>[B]+2 к [icon:YIELD_SCIENCE][/B] от [icon:CITY_BUILDING_LIST] [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]научных зданий[/TIP], размещенных на [icon:CITY_UNIMPROVED] [TIP:LOC_PEDIA_CONCEPTS_VEGETATED_TERRAIN_TOOLTIP]ландшафте с растительностью[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_MAYA_SYNCRETISM_MODERN_DESCRIPTION" Language="ru_RU">
-      <Text>+2 [icon:YIELD_SCIENCE] от зданий довольства и научных [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]зданий[/TIP], размещенных на [icon:CITY_UNIMPROVED] [TIP:LOC_PEDIA_CONCEPTS_VEGETATED_TERRAIN_TOOLTIP]ландшафте с растительностью[/TIP].</Text>
+      <Text>[B]+2 [icon:YIELD_SCIENCE][/B] от зданий довольства и [icon:CITY_BUILDING_LIST] [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]научных зданий[/TIP], размещенных на [icon:CITY_UNIMPROVED] [TIP:LOC_PEDIA_CONCEPTS_VEGETATED_TERRAIN_TOOLTIP]ландшафте с растительностью[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_MAYA_SYNCRETISM_TOOLTIP" Language="ru_RU">
       <Text>Мильпы</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_MEDICINE_DESCRIPTION" Language="ru_RU">
-      <Text>Юниты получают +5 [icon:Action_Heal] к лечению.</Text>
+      <Text>Юниты получают +5 к лечению.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_MIASMA_DESCRIPTION" Language="ru_RU">
-      <Text>Вы получите 1 [icon:UNIT_MIGRANT] эмигранта при [icon:YIELD_PLAGUE] [TIP:LOC_PEDIA_CONCEPTS_INFECTED_TOOLTIP]заражении[/TIP] [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]города[/TIP], но -25% [icon:GROWTH_RATE] [TIP:LOC_PEDIA_CONCEPTS_GROWTH_RATE_TOOLTIP]скорости роста[/TIP] [icon:YIELD_CITIES] городов.</Text>
+      <Text>Вы получите [B]1 [icon:UNIT_MIGRANT] эмигранта[/B] при [TIP:LOC_PEDIA_CONCEPTS_INFECTED_TOOLTIP]заражении[/TIP] [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]города[/TIP], но [B]-25% [icon:GROWTH_RATE][/B] [TIP:LOC_PEDIA_CONCEPTS_GROWTH_RATE_TOOLTIP]скорости роста[/TIP] [icon:YIELD_CITIES] городов.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_MIRACLES_OF_THE_TWINS_I_DESCRIPTION" Language="ru_RU">
-      <Text>Все юниты получают способность «Яд»: +3 к [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]боевой мощи[/TIP] против [icon:DAMAGED] раненых юнитов. [icon:UNIT_SCOUT] Разведчики и дальнобойные юниты получают [TIP:LOC_PEDIA_CONCEPTS_STEALTH_TOOLTIP]скрытность[/TIP] на [icon:CITY_UNIMPROVED] [TIP:LOC_PEDIA_CONCEPTS_VEGETATED_TERRAIN_TOOLTIP]ландшафте с растительностью[/TIP].</Text>
+      <Text>Все юниты получают способность «Яд»: [B]+3 к [icon:NAR_REW_COMBAT][/B] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]боевой мощи[/TIP] против [icon:DAMAGED] раненых юнитов. Разведчики и [TIP:LOC_PEDIA_CONCEPTS_RANGED_UNITS_TOOLTIP]дальнобойные юниты[/TIP] получают [TIP:LOC_PEDIA_CONCEPTS_STEALTH_TOOLTIP]скрытность[/TIP] на [icon:CITY_UNIMPROVED] [TIP:LOC_PEDIA_CONCEPTS_VEGETATED_TERRAIN_TOOLTIP]ландшафте с растительностью[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_MIRACLES_OF_THE_TWINS_II_DESCRIPTION" Language="ru_RU">
-      <Text>Все юниты получают способность «Яд»: +3 к [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]боевой мощи[/TIP] против [icon:DAMAGED] раненых юнитов. [icon:UNIT_SCOUT] Разведчики и дальнобойные юниты получают [TIP:LOC_PEDIA_CONCEPTS_STEALTH_TOOLTIP]скрытность[/TIP] на [icon:CITY_UNIMPROVED] [TIP:LOC_PEDIA_CONCEPTS_VEGETATED_TERRAIN_TOOLTIP]ландшафте с растительностью[/TIP]. Дальнобойные юниты игнорируют растительность при [icon:UNIT_MOVEMENT_ICON] перемещении.</Text>
+      <Text>Все юниты получают способность «Яд»: [B]+3 к [icon:NAR_REW_COMBAT][/B] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]боевой мощи[/TIP] против [icon:DAMAGED] раненых юнитов. Разведчики и [TIP:LOC_PEDIA_CONCEPTS_RANGED_UNITS_TOOLTIP]дальнобойные юниты[/TIP] получают [TIP:LOC_PEDIA_CONCEPTS_STEALTH_TOOLTIP]скрытность[/TIP] на [icon:CITY_UNIMPROVED] [TIP:LOC_PEDIA_CONCEPTS_VEGETATED_TERRAIN_TOOLTIP]ландшафте с растительностью[/TIP]. Дальнобойные юниты игнорируют [icon:CITY_UNIMPROVED] растительность при [icon:Action_Move] перемещении.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_MISSISSIPPIAN_SYNCRETISM_EXPLORATION_DESCRIPTION" Language="ru_RU">
-      <Text>Дальнобойные юниты накладывают статус [icon:PLOT_BURNING] [TIP:LOC_PEDIA_CONCEPTS_BURNING_TOOLTIP]горения[/TIP] на клетки на 2 хода во время атаки.</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_RANGED_UNITS_TOOLTIP]Дальнобойные юниты[/TIP] накладывают статус [icon:PLOT_BURNING] [TIP:LOC_PEDIA_CONCEPTS_BURNING_TOOLTIP]горения[/TIP] на клетки на 2 хода во время атаки.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_MISSISSIPPIAN_SYNCRETISM_MODERN_DESCRIPTION" Language="ru_RU">
-      <Text>Дальнобойные юниты накладывают статус [icon:PLOT_BURNING] [TIP:LOC_PEDIA_CONCEPTS_BURNING_TOOLTIP]горения[/TIP] на клетки на 2 хода во время атаки. +50 к [icon:YIELD_GOLD] за [icon:RADIAL_RESOURCES] ресурс при создании [icon:ROUTE_TRADE] торгового пути. Масштабируется по скорости игры.</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_RANGED_UNITS_TOOLTIP]Дальнобойные юниты[/TIP] накладывают статус [icon:PLOT_BURNING] [TIP:LOC_PEDIA_CONCEPTS_BURNING_TOOLTIP]горения[/TIP] на клетки на 2 хода во время атаки. [B]+50 к [icon:YIELD_GOLD][/B] за [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]ресурс[/TIP] при создании [icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]торгового пути[/TIP]. Масштабируется по скорости игры.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_MISSISSIPPIAN_SYNCRETISM_TOOLTIP" Language="ru_RU">
       <Text>Жертвенные фигуры</Text>
     </Replace>
+    <Replace Tag="LOC_TRADITION_MURALISMO_I_DESCRIPTION" Language="ru_RU">
+      <Text>[B]+2 [icon:YIELD_HAPPINESS][/B] во всех [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]поселениях[/TIP].</Text>
+    </Replace>
     <Replace Tag="LOC_TRADITION_OLIGARCHY_UNHAPPINESS_DESCRIPTION" Language="ru_RU">
-      <Text>-6 к [icon:YIELD_HAPPINESS] в [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]поселениях[/TIP] с незаполненным [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCE_CAPACITY_TOOLTIP]максимумом ресурсов[/TIP].</Text>
+      <Text>[B]-6 к [icon:YIELD_HAPPINESS][/B] в [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]поселениях[/TIP] с незаполненным [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCE_CAPACITY_TOOLTIP]максимумом ресурсов[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_ORATORY_DESCRIPTION" Language="ru_RU">
-      <Text>+2 [icon:YIELD_DIPLOMACY] за ход.</Text>
+      <Text>[B]+2 [icon:YIELD_DIPLOMACY][/B] за ход.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_PELOPONNESIAN_LEAGUE_I_DESCRIPTION" Language="ru_RU">
-      <Text>+30% [icon:YIELD_DIPLOMACY] для накладывания [icon:SANCTIONS] [TIP:LOC_PEDIA_CONCEPTS_SANCTION_TOOLTIP]санкций[/TIP].</Text>
+      <Text>[B]+30% [icon:YIELD_DIPLOMACY][/B] для накладывания [icon:SANCTIONS] [TIP:LOC_PEDIA_CONCEPTS_SANCTION_TOOLTIP]санкций[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_PELOPONNESIAN_LEAGUE_II_DESCRIPTION" Language="ru_RU">
-      <Text>+50% [icon:YIELD_DIPLOMACY] для накладывания [icon:SANCTIONS] [TIP:LOC_PEDIA_CONCEPTS_SANCTION_TOOLTIP]санкций[/TIP] и запуска действий [icon:ESPIONAGE] [TIP:LOC_PEDIA_CONCEPTS_ESPIONAGE_TOOLTIP]шпионажа[/TIP].</Text>
+      <Text>[B]+50% [icon:YIELD_DIPLOMACY][/B] для накладывания [icon:SANCTIONS] [TIP:LOC_PEDIA_CONCEPTS_SANCTION_TOOLTIP]санкций[/TIP] и запуска [icon:ESPIONAGE] [TIP:LOC_PEDIA_CONCEPTS_ESPIONAGE_TOOLTIP]действий шпионажа[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_PERSIA_SYNCRETISM_EXPLORATION_DESCRIPTION" Language="ru_RU">
-      <Text>+1 к [icon:YIELD_CULTURE] от [icon:CITY_RURAL] уникальных улучшений. +1 [icon:YIELD_GOLD] от уникальных улучшений и зданий в [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]захваченных вами поселениях[/TIP] из любой эпохи.</Text>
+      <Text>[B]+1 к [icon:YIELD_CULTURE][/B] от [icon:CITY_RURAL] [TIP:LOC_PEDIA_CONCEPTS_UNIQUE_IMPROVEMENT_TOOLTIP]уникальных улучшений[/TIP]. [B]+1 [icon:YIELD_GOLD][/B] от уникальных улучшений и [icon:CITY_BUILDING_LIST] [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]зданий[/TIP] в [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]захваченных вами поселениях[/TIP] из любой [TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]эпохи[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_PERSIA_SYNCRETISM_MODERN_DESCRIPTION" Language="ru_RU">
-      <Text>+2 к [icon:YIELD_CULTURE] от [icon:CITY_RURAL] уникальных улучшений. +2 [icon:YIELD_GOLD] от уникальных улучшений и зданий в [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]захваченных вами поселениях[/TIP] из любой эпохи.</Text>
+      <Text>[B]+2 к [icon:YIELD_CULTURE][/B] от [icon:CITY_RURAL] [TIP:LOC_PEDIA_CONCEPTS_UNIQUE_IMPROVEMENT_TOOLTIP]уникальных улучшений[/TIP]. [B]+2 [icon:YIELD_GOLD][/B] от уникальных улучшений и [icon:CITY_BUILDING_LIST] [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]зданий[/TIP] в [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]захваченных вами поселениях[/TIP] из любой [TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]эпохи[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_PET_KOT_DESCRIPTION" Language="ru_RU">
-      <Text>+1 к [icon:YIELD_SCIENCE] для [icon:CITY_RURAL] [TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]улучшений[/TIP] на [icon:CITY_UNIMPROVED] ландшафте с [TIP:LOC_PEDIA_CONCEPTS_VEGETATED_TERRAIN_TOOLTIP]растительностью[/TIP] в [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]городах[/TIP].</Text>
+      <Text>[B]+1 к [icon:YIELD_SCIENCE][/B] для [icon:CITY_RURAL] [TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]улучшений[/TIP] на [icon:CITY_UNIMPROVED] ландшафте с [TIP:LOC_PEDIA_CONCEPTS_VEGETATED_TERRAIN_TOOLTIP]растительностью[/TIP] в [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]городах[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_PITHI_CHRAT_I_DESCRIPTION" Language="ru_RU">
-      <Text>+1 к [icon:YIELD_FOOD] от [TIP:LOC_PEDIA_CONCEPTS_FLOODPLAINS_TOOLTIP]речных пойм[/TIP] в [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]городках[/TIP], но -5 от [icon:YIELD_FOOD] в [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]городах[/TIP], кроме вашей [icon:NOTIFICATION_SELECT_CAPITAL] [TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]столицы[/TIP].</Text>
+      <Text>[B]+1 к [icon:YIELD_FOOD][/B] от [icon:CITY_UNIMPROVED] [TIP:LOC_PEDIA_CONCEPTS_FLOODPLAINS_TOOLTIP]речных пойм[/TIP] в [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]городках[/TIP], но [B]-5 от [icon:YIELD_FOOD][/B] в [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]городах[/TIP], кроме вашей [icon:NOTIFICATION_SELECT_CAPITAL] [TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]столицы[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_PITHI_CHRAT_II_DESCRIPTION" Language="ru_RU">
-      <Text>+2 к [icon:YIELD_FOOD] от [TIP:LOC_PEDIA_CONCEPTS_FLOODPLAINS_TOOLTIP]речных пойм[/TIP] в [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]городках[/TIP], но -10 от [icon:YIELD_FOOD] в [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]городах[/TIP], кроме вашей [icon:NOTIFICATION_SELECT_CAPITAL] [TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]столицы[/TIP].</Text>
+      <Text>[B]+2 к [icon:YIELD_FOOD][/B] от [icon:CITY_UNIMPROVED] [TIP:LOC_PEDIA_CONCEPTS_FLOODPLAINS_TOOLTIP]речных пойм[/TIP] в [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]городках[/TIP], но [B]-10 от [icon:YIELD_FOOD][/B] в [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]городах[/TIP], кроме вашей [icon:NOTIFICATION_SELECT_CAPITAL] [TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]столицы[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_PITHI_CHRAT_TOOLTIP" Language="ru_RU">
       <Text>Церемония первой борозды</Text>
     </Replace>
+    <Replace Tag="LOC_TRADITION_POIEISIS_DESCRIPTION" Language="ru_RU">
+      <Text>[B]+1 к [icon:YIELD_CULTURE][/B] за демонстрацию шедевров в поселениях с уровнем довольства «Радость» или [B]+2 к [icon:YIELD_CULTURE][/B] в поселениях с уровнем довольства «Экстаз».</Text>
+    </Replace>
     <Replace Tag="LOC_TRADITION_PORT_OF_NATIONS_I_DESCRIPTION" Language="ru_RU">
-      <Text>+2 к [icon:YIELD_CULTURE] и [icon:YIELD_GOLD] за каждый действующий [icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]торговый путь[/TIP]. +100% [icon:TRADE_INCOME] [TIP:LOC_PEDIA_CONCEPTS_TRADE_INCOME_TOOLTIP]торгового дохода[/TIP] в [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]поселениях[/TIP] по соседству с побережьем.</Text>
+      <Text>[B]+2 к [icon:YIELD_CULTURE][/B] и [icon:YIELD_GOLD] за каждый действующий [icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]торговый путь[/TIP]. [B]+100% [icon:TRADE_INCOME][/B] [TIP:LOC_PEDIA_CONCEPTS_TRADE_INCOME_TOOLTIP]торгового дохода[/TIP] в [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]поселениях[/TIP] по соседству с побережьем.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_PORT_OF_NATIONS_II_DESCRIPTION" Language="ru_RU">
-      <Text>+3 к [icon:YIELD_CULTURE] и [icon:YIELD_GOLD] за каждый действующий [icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]торговый путь[/TIP]. +200% [icon:TRADE_INCOME] [TIP:LOC_PEDIA_CONCEPTS_TRADE_INCOME_TOOLTIP]торгового дохода[/TIP] в [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]поселениях[/TIP] по соседству с побережьем.</Text>
+      <Text>[B]+3 к [icon:YIELD_CULTURE][/B] и [icon:YIELD_GOLD] за каждый действующий [icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]торговый путь[/TIP]. [B]+200% [icon:TRADE_INCOME][/B] [TIP:LOC_PEDIA_CONCEPTS_TRADE_INCOME_TOOLTIP]торгового дохода[/TIP] в [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]поселениях[/TIP] по соседству с побережьем.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_PORT_OF_NATIONS_TOOLTIP" Language="ru_RU">
       <Text>Порт наций</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_PRIESTHOOD_DESCRIPTION" Language="ru_RU">
-      <Text>+2 [icon:YIELD_GOLD] во всех [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]поселениях[/TIP].</Text>
+      <Text>[B]+2 [icon:YIELD_GOLD][/B] во всех [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]поселениях[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_PRINCEPS_CIVITATIS_I_DESCRIPTION" Language="ru_RU">
-      <Text>+1 к [icon:YIELD_PRODUCTION] в [icon:CITY_URBAN] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]районах[/TIP] [icon:NOTIFICATION_SELECT_CAPITAL] столицы.</Text>
+      <Text>[B]+1 к [icon:YIELD_PRODUCTION][/B] в [icon:CITY_URBAN] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]районах[/TIP] [icon:NOTIFICATION_SELECT_CAPITAL] [TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]столицы[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_PRINCEPS_CIVITATIS_II_DESCRIPTION" Language="ru_RU">
-      <Text>+2 к [icon:YIELD_PRODUCTION] в [icon:CITY_URBAN] районах [icon:NOTIFICATION_SELECT_CAPITAL] столицы.</Text>
+      <Text>[B]+2 к [icon:YIELD_PRODUCTION][/B] в [icon:CITY_URBAN] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]районах[/TIP] [icon:NOTIFICATION_SELECT_CAPITAL] [TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]столицы[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_PRINCEPS_CIVITATIS_TOOLTIP" Language="ru_RU">
       <Text>Первый гражданин</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_PROGNOSIS_DESCRIPTION" Language="ru_RU">
-      <Text>+2 [icon:YIELD_SCIENCE] в научных [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]зданиях[/TIP] в [icon:YIELD_PLAGUE] [TIP:LOC_PEDIA_CONCEPTS_INFECTED_TOOLTIP]зараженных[/TIP] [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]поселениях[/TIP], но -4 [icon:YIELD_GOLD] в научных [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]зданиях[/TIP].</Text>
+      <Text>[B]+2 [icon:YIELD_SCIENCE][/B] в [icon:CITY_BUILDING_LIST] [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]научных зданиях[/TIP] в [TIP:LOC_PEDIA_CONCEPTS_INFECTED_TOOLTIP]зараженных[/TIP] [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]поселениях[/TIP], но [B]-4 [icon:YIELD_GOLD][/B] в [icon:CITY_BUILDING_LIST] научных зданиях.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_PROSECUTE_APOSTATES_DESCRIPTION" Language="ru_RU">
-      <Text>+5 к [icon:YIELD_HAPPINESS] в [icon:YIELD_PLAGUE] [TIP:LOC_PEDIA_CONCEPTS_INFECTED_TOOLTIP]зараженных[/TIP] [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]поселениях[/TIP], где [TIP:LOC_PEDIA_CONCEPTS_STATIONED_TOOLTIP]размещен[/TIP] [icon:UNIT_ARMY_COMMANDER] командир, но -5 [icon:YIELD_HAPPINESS] в [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]поселениях[/TIP] без алтаря.</Text>
+      <Text>[B]+5 к [icon:YIELD_HAPPINESS][/B] в [TIP:LOC_PEDIA_CONCEPTS_INFECTED_TOOLTIP]зараженных[/TIP] [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]поселениях[/TIP], где [TIP:LOC_PEDIA_CONCEPTS_STATIONED_TOOLTIP]размещен[/TIP] [icon:UNIT_ARMY_COMMANDER] [TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]командир[/TIP], но [B]-5 [icon:YIELD_HAPPINESS][/B] в поселениях без алтаря.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_PROVINCIAL_SCORN_DESCRIPTION" Language="ru_RU">
-      <Text>-6 [icon:YIELD_HAPPINESS] в [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]городках[/TIP].</Text>
+      <Text>[B]-6 [icon:YIELD_HAPPINESS][/B] в [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]городках[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_REBELLIOUS_COMMANDERS_DESCRIPTION" Language="ru_RU">
-      <Text>-1 к [icon:YIELD_HAPPINESS] во всех [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]городах[/TIP] за каждое [icon:NAR_REW_PROMOTION] [TIP:LOC_PEDIA_CONCEPTS_PROMOTION]повышение командира[/TIP].</Text>
+      <Text>[B]-1 к [icon:YIELD_HAPPINESS][/B] во всех [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]городах[/TIP] за каждое [TIP:LOC_PEDIA_CONCEPTS_PROMOTION_TOOLTIP]повышение[/TIP] [icon:UNIT_ARMY_COMMANDER] [TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]командира[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_RECRUITMENT_SHORTFALLS_DESCRIPTION" Language="ru_RU">
-      <Text>+2 [icon:YIELD_FOOD] в [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]городках[/TIP], но -15 [icon:Action_Heal] к лечению всех юнитов.</Text>
+      <Text>[B]+2 [icon:YIELD_FOOD][/B] в [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]городках[/TIP], но -15 к лечению всех юнитов.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_REPUBLIC_UNHAPPINESS_DESCRIPTION" Language="ru_RU">
-      <Text>-6 к [icon:YIELD_HAPPINESS] в [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]поселениях[/TIP], которые находятся более чем в 9 клетках от вашего дворца.</Text>
+      <Text>[B]-6 к [icon:YIELD_HAPPINESS][/B] в [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]поселениях[/TIP], которые находятся более чем в 9 клетках от вашего [TIP:LOC_PEDIA_CONCEPTS_PALACE_TOOLTIP]дворца[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_RICHES_OF_THE_DUAT_DESCRIPTION" Language="ru_RU">
-      <Text>+10% к [icon:YIELD_PRODUCTION] при строительстве [icon:WONDER] [TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]чудес[/TIP]. Этот бонус удваивается при строительстве в [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]городах[/TIP] с центрами на [icon:CITY_UNIMPROVED] пустынном ландшафте. +2 к [icon:YIELD_PRODUCTION] для [icon:WONDER] [TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]чудес[/TIP] в пустыне.</Text>
+      <Text>[B]+10% к [icon:YIELD_PRODUCTION][/B] при строительстве [icon:WONDER] [TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]чудес[/TIP]. Этот бонус удваивается при строительстве в [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]городах[/TIP] с [icon:YIELD_CITIES] центрами на пустынном ландшафте. [B]+2 к [icon:YIELD_PRODUCTION][/B] для [icon:WONDER] чудес в пустыне.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_RITES_AND_RITUALS_DESCRIPTION" Language="ru_RU">
-      <Text>+2 [icon:YIELD_HAPPINESS] во всех [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]поселениях[/TIP].</Text>
+      <Text>[B]+2 [icon:YIELD_HAPPINESS][/B] во всех [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]поселениях[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_ROME_SYNCRETISM_EXPLORATION_DESCRIPTION" Language="ru_RU">
-      <Text>+1 к [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]боевой мощи[/TIP] пехотных юнитов за каждую [icon:TRADITION] [TIP:LOC_PEDIA_CONCEPTS_TRADITION_TOOLTIP]традицию[/TIP] в ячейках [icon:GOVERNMENT] правительства.</Text>
+      <Text>[B]+1 к [icon:NAR_REW_COMBAT][/B] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]боевой мощи[/TIP] [TIP:LOC_PEDIA_CONCEPTS_INFANTRY_UNITS_TOOLTIP]пехотных юнитов[/TIP] за каждую [icon:TRADITION] [TIP:LOC_PEDIA_CONCEPTS_TRADITION_TOOLTIP]традицию[/TIP] в ячейках [icon:GOVERNMENT] [TIP:LOC_PEDIA_CONCEPTS_GOVERNMENT_TOOLTIP]правительства[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_ROME_SYNCRETISM_MODERN_DESCRIPTION" Language="ru_RU">
-      <Text>+1 к [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]боевой мощи[/TIP] пехотных юнитов за каждую [icon:TRADITION] [TIP:LOC_PEDIA_CONCEPTS_TRADITION_TOOLTIP]традицию[/TIP] в ячейках [icon:GOVERNMENT] правительства. +3 к [icon:YIELD_CULTURE] в столице за каждый городок.</Text>
+      <Text>[B]+1 к [icon:NAR_REW_COMBAT][/B] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]боевой мощи[/TIP] [TIP:LOC_PEDIA_CONCEPTS_INFANTRY_UNITS_TOOLTIP]пехотных юнитов[/TIP] за каждую [icon:TRADITION] [TIP:LOC_PEDIA_CONCEPTS_TRADITION_TOOLTIP]традицию[/TIP] в ячейках [icon:GOVERNMENT] [TIP:LOC_PEDIA_CONCEPTS_GOVERNMENT_TOOLTIP]правительства[/TIP]. [B]+3 к [icon:YIELD_CULTURE][/B] в [icon:NOTIFICATION_SELECT_CAPITAL] [TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]столице[/TIP] за каждый [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]городок[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_ROME_SYNCRETISM_TOOLTIP" Language="ru_RU">
       <Text>Лимитан</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_SCHOLARS_DESCRIPTION" Language="ru_RU">
-      <Text>+1 к [icon:YIELD_SCIENCE] от [icon:SPECIALIST] [TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_TOOLTIP]специалистов[/TIP]. +1 к затратам [icon:YIELD_HAPPINESS] на [TIP:LOC_PEDIA_CONCEPTS_MAINTENANCE_TOOLTIP]содержание[/TIP] [icon:SPECIALIST] [TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_TOOLTIP]специалистов[/TIP].</Text>
+      <Text>[B]+1 к [icon:YIELD_SCIENCE][/B] от [icon:SPECIALIST] [TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_TOOLTIP]специалистов[/TIP]. [B]+1 к затратам [icon:YIELD_HAPPINESS][/B] на [TIP:LOC_PEDIA_CONCEPTS_MAINTENANCE_TOOLTIP]содержание[/TIP] [icon:SPECIALIST] специалистов.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_SHAHANSHAH_DESCRIPTION" Language="ru_RU">
-      <Text>+3 к [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]боевой мощи[/TIP] юнитов на вражеской территории. +5 к [icon:YIELD_CULTURE] и [icon:YIELD_GOLD] за каждую цивилизацию, чье [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]поселение[/TIP] вы захватили.</Text>
+      <Text>[B]+3 к [icon:NAR_REW_COMBAT][/B] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]боевой мощи[/TIP] юнитов на вражеской территории. [B]+5 к [icon:YIELD_CULTURE][/B] и [icon:YIELD_GOLD] за каждую цивилизацию, чье [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]поселение[/TIP] вы захватили.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_SHAHANSHAH_II_DESCRIPTION" Language="ru_RU">
-      <Text>+3 к [icon:UNIT_COMBAT_STRENGTH] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]боевой мощи[/TIP] юнитов на вражеской территории. +10 к [icon:YIELD_CULTURE] и [icon:YIELD_GOLD] за каждую цивилизацию, чье [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]поселение[/TIP] вы захватили.</Text>
+      <Text>[B]+3 к [icon:NAR_REW_COMBAT][/B] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]боевой мощи[/TIP] юнитов на вражеской территории. [B]+10 к [icon:YIELD_CULTURE][/B] и [icon:YIELD_GOLD] за каждую цивилизацию, чье [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]поселение[/TIP] вы захватили.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_SHELL_TEMPERED_POTTERY_DESCRIPTION" Language="ru_RU">
-      <Text>Все [icon:YIELD_WAREHOUSE] [TIP:LOC_PEDIA_CONCEPTS_WAREHOUSE_TOOLTIP]здания[/TIP] пищи, золота и складов получают бонус за соседство +1 к [icon:YIELD_GOLD] от [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]ресурсов[/TIP].</Text>
+      <Text>Все [icon:YIELD_WAREHOUSE] [TIP:LOC_PEDIA_CONCEPTS_WAREHOUSE_TOOLTIP]здания[/TIP] пищи, золота и складов получают бонус за соседство [B]+1 к [icon:YIELD_GOLD][/B] от [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]ресурсов[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_SHELL_TEMPERED_POTTERY_II_DESCRIPTION" Language="ru_RU">
-      <Text>Все [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]здания[/TIP] получают бонус за соседство +1 [icon:YIELD_GOLD] от [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]ресурсов[/TIP].</Text>
+      <Text>Все [icon:CITY_BUILDING_LIST] [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]здания[/TIP] получают бонус за соседство [B]+1 [icon:YIELD_GOLD][/B] от [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]ресурсов[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_STRATEGOI_DESCRIPTION" Language="ru_RU">
-      <Text>+1 к [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]боевой мощи[/TIP] юнитов пехоты за каждый [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]город-государство[/TIP], [TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]сюзереном[/TIP] которого вы являетесь.</Text>
+      <Text>[B]+1 к [icon:NAR_REW_COMBAT][/B] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]боевой мощи[/TIP] [TIP:LOC_PEDIA_CONCEPTS_INFANTRY_UNITS_TOOLTIP]юнитов пехоты[/TIP] за каждый [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]город-государство[/TIP], [TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]сюзереном[/TIP] которого вы являетесь.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_SUPPRESS_LOCAL_TRADITIONS_DESCRIPTION" Language="ru_RU">
-      <Text>-3 к [icon:YIELD_HAPPINESS] в [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]поселениях[/TIP], основанных не вами.</Text>
+      <Text>[B]-3 к [icon:YIELD_HAPPINESS][/B] в [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]поселениях[/TIP], основанных не вами.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_SURVEY_DESCRIPTION" Language="ru_RU">
-      <Text>Разведчики получают +1 к [icon:Action_Move] перемещению и [icon:Action_Showall] [TIP:LOC_PEDIA_CONCEPTS_SIGHT_TOOLTIP]обзору[/TIP].</Text>
+      <Text>Разведчики получают [B]+1 к [icon:Action_Move] перемещению[/B] и к [icon:Action_Showall] [TIP:LOC_PEDIA_CONCEPTS_SIGHT_TOOLTIP]обзору[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_THRONE_OF_MY_FATHERS_DESCRIPTION" Language="ru_RU">
-      <Text>+15% [icon:YIELD_GOLD] в [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]городах[/TIP] по соседству с побережьем. Получите [icon:YIELD_CULTURE] в размере 25% от [icon:TRADE_INCOME] [TIP:LOC_PEDIA_CONCEPTS_TRADE_INCOME_TOOLTIP]торгового дохода[/TIP].</Text>
+      <Text>[B]+15% [icon:YIELD_GOLD][/B] в [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]городах[/TIP] по соседству с побережьем. Получите [icon:YIELD_CULTURE] в размере 25% от [icon:TRADE_INCOME] [TIP:LOC_PEDIA_CONCEPTS_TRADE_INCOME_TOOLTIP]торгового дохода[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_TOOL_MAKING_DESCRIPTION" Language="ru_RU">
-      <Text>+1 [icon:YIELD_PRODUCTION] и [icon:YIELD_SCIENCE] от дворца.</Text>
+      <Text>[B]+1 [icon:YIELD_PRODUCTION][/B] и [icon:YIELD_SCIENCE] от [TIP:LOC_PEDIA_CONCEPTS_PALACE_TOOLTIP]дворца[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_TRIBUTE_DESCRIPTION" Language="ru_RU">
-      <Text>-10 к [icon:YIELD_GOLD] за каждый [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]город-государство[/TIP], [TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]сюзереном[/TIP] которого вы являетесь.</Text>
+      <Text>[B]-10 к [icon:YIELD_GOLD][/B] за каждый [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]город-государство[/TIP], [TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]сюзереном[/TIP] которого вы являетесь.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_TZOLKIN_I_DESCRIPTION" Language="ru_RU">
-      <Text>+2 [icon:YIELD_SCIENCE] от [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]зданий[/TIP], повышающих довольство.</Text>
+      <Text>[B]+2 [icon:YIELD_SCIENCE][/B] от [icon:CITY_BUILDING_LIST] [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]зданий, повышающих довольство[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_TZOLKIN_II_DESCRIPTION" Language="ru_RU">
-      <Text>+2 [icon:YIELD_SCIENCE] за [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]здания[/TIP], повышающие довольство. Удваивается во время [icon:CELEBRATION] [TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]празднества[/TIP].</Text>
+      <Text>[B]+2 [icon:YIELD_SCIENCE][/B] за [icon:CITY_BUILDING_LIST] [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]здания, повышающие довольство[/TIP]. Удваивается во время [icon:CELEBRATION] [TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]празднества[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_TZOLKIN_TOOLTIP" Language="ru_RU">
       <Text>Цолькин</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_XENIA_I_DESCRIPTION" Language="ru_RU">
-      <Text>+50% [icon:YIELD_DIPLOMACY] для запуска и продвижения проекта [icon:PROJECT] «Подружиться с независимыми».</Text>
+      <Text>[B]+50% [icon:YIELD_DIPLOMACY][/B] для запуска и продвижения [icon:DEFAULT_PROJECT] [TIP:LOC_PEDIA_CONCEPTS_PROJECTS_TOOLTIP]проекта[/TIP] «Подружиться с независимыми».</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_XENIA_II_DESCRIPTION" Language="ru_RU">
-      <Text>+50% [icon:YIELD_DIPLOMACY] для запуска и продвижения проекта [icon:PROJECT] «Подружиться с независимыми». +4 к [icon:YIELD_CULTURE] за каждый [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]город-государство[/TIP], [TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]сюзереном[/TIP] которого вы являетесь.</Text>
+      <Text>[B]+50% [icon:YIELD_DIPLOMACY][/B] для запуска и продвижения [icon:DEFAULT_PROJECT] [TIP:LOC_PEDIA_CONCEPTS_PROJECTS_TOOLTIP]проекта[/TIP] «Подружиться с независимыми». [B]+4 к [icon:YIELD_CULTURE][/B] за каждый [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]город-государство[/TIP], [TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]сюзереном[/TIP] которого вы являетесь.</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_XENIA_TOOLTIP" Language="ru_RU">
       <Text>Ксения</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_XIU_TAIXUE_DESCRIPTION" Language="ru_RU">
-      <Text>Научные [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]здания[/TIP] получают бонус за соседство + 1 [icon:YIELD_SCIENCE] от [icon:CITY_UNIQUE_QUARTER] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]кварталов[/TIP].</Text>
+      <Text>[icon:CITY_BUILDING_LIST] [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]Научные здания[/TIP] получают бонус за соседство [B]+1 [icon:YIELD_SCIENCE][/B] от [icon:CITY_UNIQUE_QUARTER] [TIP:LOC_PEDIA_CONCEPTS_UNIQUE_QUARTER_TOOLTIP]кварталов[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_XUMIN_ZHAO_DESCRIPTION" Language="ru_RU">
-      <Text>+2 [icon:YIELD_FOOD] от [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]зданий[/TIP] довольства. +1 [icon:YIELD_DIPLOMACY] за каждую заполненную ячейку [icon:TRADITION] [TIP:LOC_PEDIA_CONCEPTS_TRADITION_TOOLTIP]традиции[/TIP] в [icon:GOVERNMENT] правительстве.</Text>
+      <Text>[B]+2 [icon:YIELD_FOOD][/B] от [icon:CITY_BUILDING_LIST] [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]зданий довольства[/TIP]. [B]+1 [icon:YIELD_DIPLOMACY][/B] за каждую заполненную ячейку [icon:TRADITION] [TIP:LOC_PEDIA_CONCEPTS_TRADITION_TOOLTIP]традиции[/TIP] в [icon:GOVERNMENT] [TIP:LOC_PEDIA_CONCEPTS_GOVERNMENT_TOOLTIP]правительстве[/TIP].</Text>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_YAXCHE_DESCRIPTION" Language="ru_RU">
+      <Text>[B]+2 к [icon:YIELD_HAPPINESS][/B] от чудес.</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_AKSUM_ABILITY_DESCRIPTION" Language="ru_RU">
       <Text>[BLIST][LI]+3 к [icon:YIELD_GOLD] золоту от [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]ресурсов[/TIP] в [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]поселениях[/TIP] по соседству с побережьем.[LI]+1 к лимиту [icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]торговых путей[/TIP] с другими цивилизациями, а все цивилизации получают +1 к лимиту [icon:TRADE_ROUTE] торговых путей с вами.[LI][icon:TRADE_ROUTE] Торговые пути, ведущие в ваши поселения или из них, имеют неограниченную [TIP:LOC_PEDIA_CONCEPTS_TRADE_RANGE_TOOLTIP]дальность[/TIP].[LI]+30% к [icon:YIELD_PRODUCTION] производству при строительстве Великой стелы.[/BLIST]</Text>
@@ -16834,10 +16864,10 @@
       <Text>+1 к [icon:YIELD_CULTURE] культуре за каждые 5 избыточных единиц [icon:YIELD_HAPPINESS] довольства в этом [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]поселении[/TIP].[n]Размещается на равнинах.</Text>
     </Replace>
     <Replace Tag="LOC_WONDER_TERRACOTTA_ARMY_DESCRIPTION" Language="ru_RU">
-      <Text>+2 к [icon:YIELD_PRODUCTION] производству. По окончании строительства бесплатно дает вам [icon:UNIT_ARMY_COMMANDER] командира армии. +25% [TIP:LOC_PEDIA_CONCEPTS_EXPERIENCE_TOOLTIP]опыта командиру[/TIP] армии. [TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]Не устаревает[/TIP]. Должно находиться на лугу.</Text>
+      <Text>+2 к [icon:YIELD_PRODUCTION] производству. По окончании строительства бесплатно дает вам [icon:UNIT_ARMY_COMMANDER] командира армии. +25% [TIP:LOC_PEDIA_CONCEPTS_COMMANDER_EXPERIENCE_TOOLTIP]опыта командиру[/TIP] армии. [TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]Не устаревает[/TIP]. Должно находиться на лугу.</Text>
     </Replace>
     <Replace Tag="LOC_WONDER_TERRACOTTA_ARMY_TOOLTIP" Language="ru_RU">
-      <Text>По окончании строительства бесплатно дает вам [icon:UNIT_ARMY_COMMANDER] командира армии. +25% [TIP:LOC_PEDIA_CONCEPTS_EXPERIENCE_TOOLTIP]опыта командиру[/TIP] армии.[n]Размещается на лугу.</Text>
+      <Text>По окончании строительства бесплатно дает вам [icon:UNIT_ARMY_COMMANDER] командира армии. +25% [TIP:LOC_PEDIA_CONCEPTS_COMMANDER_EXPERIENCE_TOOLTIP]опыта командиру[/TIP] армии.[n]Размещается на лугу.</Text>
     </Replace>
     <Replace Tag="LOC_WONDER_WEIYANG_PALACE_DESCRIPTION" Language="ru_RU">
       <Text>+3 к [icon:YIELD_DIPLOMACY] влиянию. +1 ячейка [icon:NAR_REW_TRADITION_SLOT] [TIP:LOC_PEDIA_CONCEPTS_TRADITION_TOOLTIP]традиции[/TIP]. [TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]Не устаревает[/TIP]. Размещается на лугу.</Text>
@@ -17829,29 +17859,23 @@
     <Replace Tag="LOC_DISCOVERY_40028C_DESCRIPTION" Language="ru_RU">
       <Text>{1_reward}.</Text>
     </Replace>
-    <Replace Tag="LOC_GOLDEN_AGE_CLASSICAL_REPUBLIC_1_DESCRIPTION" Language="ru_RU">
-      <Text>+20% [icon:YIELD_CULTURE] к культуре на {1_numTurns} {1: plural 1?ход; 2?хода; 3? ходов;}.</Text>
-    </Replace>
     <Replace Tag="LOC_GOLDEN_AGE_CLASSICAL_REPUBLIC_2_DESCRIPTION" Language="ru_RU">
-      <Text>+15%[icon:YIELD_PRODUCTION] производства при строительстве чудес на {1_numTurns} {1: plural 1?ход; 2?хода; 3? ходов;}.</Text>
+      <Text>+10% [icon:YIELD_PRODUCTION] производства при строительстве чудес или +20% в городах с уровнем довольства «Радость» или выше на {1_numTurns} {1: plural 1?ход; 2?хода; 3?ходов;}.</Text>
     </Replace>
     <Replace Tag="LOC_GOLDEN_AGE_DESPOTISM_1_DESCRIPTION" Language="ru_RU">
-      <Text>+20%[icon:YIELD_SCIENCE] к науке на {1_numTurns} {1: plural 1?ход; 2?хода; 3? ходов;}.</Text>
+      <Text>+1 к [icon:YIELD_SCIENCE] науке от производственных зданий и производственных зданий складов на {1_numTurns} {1: plural 1?ход; 2?хода; 3?ходов;}.</Text>
     </Replace>
     <Replace Tag="LOC_GOLDEN_AGE_DESPOTISM_2_DESCRIPTION" Language="ru_RU">
-      <Text>+30%[icon:YIELD_PRODUCTION] производства при подготовке пехоты на {1_numTurns} {1: plural 1?ход; 2?хода; 3? ходов;}.</Text>
-    </Replace>
-    <Replace Tag="LOC_GOLDEN_AGE_OLIGARCHY_1_DESCRIPTION" Language="ru_RU">
-      <Text>+20%[icon:YIELD_FOOD] к пище на {1_numTurns} {1: plural 1?ход; 2?хода; 3? ходов;}.</Text>
+      <Text>+10% [icon:YIELD_PRODUCTION] производства при подготовке военных юнитов и +10% [icon:YIELD_GOLD] золота при покупке военных юнитов на {1_numTurns} {1: plural 1?ход; 2?хода; 3?ходов;}.</Text>
     </Replace>
     <Replace Tag="LOC_GOLDEN_AGE_OLIGARCHY_2_DESCRIPTION" Language="ru_RU">
-      <Text>+30%[icon:YIELD_PRODUCTION] производства при строительстве зданий на {1_numTurns} {1_numTurns: plural 1?ход; 2?хода; 3? ходов;}.</Text>
+      <Text>+1 к [icon:YIELD_FOOD] пище в городках за каждое связанное поселение на {1_numTurns} {1: plural 1?ход; 2?хода; 3?ходов;}.</Text>
     </Replace>
     <Replace Tag="LOC_GOLDEN_AGE_REVOLUCION_AQ_1_DESCRIPTION" Language="ru_RU">
-      <Text>+30% [icon:YIELD_CULTURE] к культуре на {1_numTurns} {1_numTurns: plural 1?ход; 2?хода; other?ходов;}.</Text>
+      <Text>+2 к [icon:YIELD_CULTURE] культуре в поселениях с уровнем довольства «Счастье», или +6 в поселениях с уровнем довольства «Радость», или +10 в поселениях с уровнем довольства «Экстаз», на {1_numTurns} {1: plural 1?ход; 2?хода; 3?ходов;}.</Text>
     </Replace>
     <Replace Tag="LOC_GOLDEN_AGE_REVOLUCION_AQ_2_DESCRIPTION" Language="ru_RU">
-      <Text>+50% скорости роста в столице на {1_numTurns} {plural 1?ход; 2?хода; other?ходов;}.</Text>
+      <Text>+3 к [icon:YIELD_FOOD] пище в каждом поселении с уровнем довольства «Радость» или выше на {1_numTurns} {1: plural 1?ход; 2?хода; 3?ходов;}.</Text>
     </Replace>
     <Replace Tag="LOC_GREATPERSON_ACADEMY_CULTURE" Language="ru_RU">
       <Text>Академия дает +{1_Amount}[icon:YIELD_CULTURE] к культуре в этом городе.</Text>
@@ -17960,6 +17984,11 @@
       <Gender>feminine</Gender>
       <Plurality>1</Plurality>
     </Replace>
+    <Replace Tag="LOC_TRADITION_ANNONA_NAME" Language="ru_RU">
+      <Text>Аннона|анноны|анноне|аннону|анноной|анноне</Text>
+      <Gender>feminine</Gender>
+      <Plurality>1</Plurality>
+    </Replace>
     <Replace Tag="LOC_TRADITION_AQ_ATTRIBUTE_CULTURAL_01_NAME" Language="ru_RU">
       <Text>Просветленное правление|просветленного правления|просветленному правлению|просветленное правление|просветленным правлением|просветленном правлении</Text>
       <Gender>neuter</Gender>
@@ -18065,6 +18094,11 @@
     <Replace Tag="LOC_TRADITION_COINAGE_NAME" Language="ru_RU">
       <Text>Чеканка|чеканки|чеканке|чеканку|чеканкой|чеканке</Text>
     </Replace>
+    <Replace Tag="LOC_TRADITION_COMMANDERIES_NAME" Language="ru_RU">
+      <Text>Военные округа|военных округов|военным округам|военные округа|военными округами|военных округах</Text>
+      <Gender>masculine</Gender>
+      <Plurality>2</Plurality>
+    </Replace>
     <Replace Tag="LOC_TRADITION_COMMODITIES_NAME" Language="ru_RU">
       <Text>Товары|товаров|товарам|товары|товарами|товарах</Text>
     </Replace>
@@ -18117,6 +18151,11 @@
       <Gender>feminine</Gender>
       <Plurality>1</Plurality>
     </Replace>
+    <Replace Tag="LOC_TRADITION_FAJIA_NAME" Language="ru_RU">
+      <Text>Фацзя|фацзя|фацзя|фацзя|фацзя|фацзя</Text>
+      <Gender>feminine</Gender>
+      <Plurality>1</Plurality>
+    </Replace>
     <Replace Tag="LOC_TRADITION_FENGHUO_II_NAME" Language="ru_RU">
       <Text>Фэнхо II</Text>
       <Gender>neuter</Gender>
@@ -18164,6 +18203,11 @@
     </Replace>
     <Replace Tag="LOC_TRADITION_HAN_SYNCRETISM_MODERN_NAME" Language="ru_RU">
       <Text>Способное правление II|Способного правления II|Способному правлению II|Способное правление II|Способным правлением II|Способном правлении II</Text>
+      <Gender>neuter</Gender>
+      <Plurality>1</Plurality>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_HANGJIAO_NAME" Language="ru_RU">
+      <Text>Ханцзяо</Text>
       <Gender>neuter</Gender>
       <Plurality>1</Plurality>
     </Replace>
@@ -18319,6 +18363,11 @@
       <Gender>feminine</Gender>
       <Plurality>2</Plurality>
     </Replace>
+    <Replace Tag="LOC_TRADITION_MURALISMO_I_NAME" Language="ru_RU">
+      <Text>Мурализм I|Мурализма I|Мурализму I|Мурализм I|Мурализмом I|Мурализме I</Text>
+      <Gender>masculine</Gender>
+      <Plurality>1</Plurality>
+    </Replace>
     <Replace Tag="LOC_TRADITION_OLIGARCHY_UNHAPPINESS_NAME" Language="ru_RU">
       <Text>Упадок|упадка|упадку|упадок|упадком|упадке</Text>
       <Gender>masculine</Gender>
@@ -18360,6 +18409,11 @@
     <Replace Tag="LOC_TRADITION_PITHI_CHRAT_II_NAME" Language="ru_RU">
       <Text>Церемония первой борозды II|Церемонии первой борозды II|Церемонии первой борозды II|Церемонию первой борозды II|Церемонией первой борозды II|Церемонии первой борозды II</Text>
       <Gender>feminine</Gender>
+      <Plurality>1</Plurality>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_POIEISIS_NAME" Language="ru_RU">
+      <Text>Пойесис|пойесиса|пойесису|пойесис|пойесисом|пойесисе</Text>
+      <Gender>masculine</Gender>
       <Plurality>1</Plurality>
     </Replace>
     <Replace Tag="LOC_TRADITION_PORT_OF_NATIONS_I_NAME" Language="ru_RU">
@@ -18512,6 +18566,11 @@
     <Replace Tag="LOC_TRADITION_XUMIN_ZHAO_NAME" Language="ru_RU">
       <Text>Сюйминь Чжао</Text>
       <Gender>masculine</Gender>
+      <Plurality>1</Plurality>
+    </Replace>
+    <Replace Tag="LOC_TRADITION_YAXCHE_NAME" Language="ru_RU">
+      <Text>Ясче</Text>
+      <Gender>neuter</Gender>
       <Plurality>1</Plurality>
     </Replace>
     <Replace Tag="LOC_UNIT_ARCHER_NAME" Language="ru_RU">

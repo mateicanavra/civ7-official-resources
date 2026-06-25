@@ -1,6 +1,7 @@
 import { template, insert } from '../../../../core/vendor/solid-js/web/dist/web.js';
 import { useContext, createComponent, Show, mergeProps, createMemo } from '../../../../core/vendor/solid-js/dist/solid.js';
 import { ComponentID } from '../../../../core/ui/utilities/utilities-component-id.js';
+import { AudioContextProvider } from '../../../../core/ui-next/components/audio-context-provider.js';
 import { Icon } from '../../../../core/ui-next/components/icon.js';
 import { ImageButton } from '../../../../core/ui-next/components/image-button.js';
 import { Tooltip } from '../../../../core/ui-next/components/tooltip.js';
@@ -58,53 +59,58 @@ const FactoryTypeDisplayComponent = (props) => {
             isUrl: true
           });
         }
-      })), createComponent(Show, {
-        get when() {
-          return props.unassignResourceTooltip;
-        },
-        get fallback() {
-          return createComponent(ImageButton, mergeProps(imageButtonData, {
-            get disableFocus() {
-              return createMemo(() => !!IsControllerActive())() && !cityIsSelectedForEditing();
+      })), createComponent(AudioContextProvider, {
+        segment: "ReturnResources",
+        get children() {
+          return createComponent(Show, {
+            get when() {
+              return props.unassignResourceTooltip;
             },
-            get disabled() {
-              return !model.isSlottingAvailable || model.selectedResource().resourceValue !== -1;
-            },
-            onFocus: () => model.setFocusedResource({
-              resourceValue: -1,
-              cityID: void 0
-            }),
-            onActivate: () => model.clearFactoryResources(props.cityID)
-          }));
-        },
-        children: (tooltipText) => createComponent(Tooltip.Text, {
-          get text() {
-            return tooltipText();
-          },
-          get children() {
-            return createComponent(ImageButton, mergeProps(imageButtonData, {
-              get disableFocus() {
-                return createMemo(() => !!IsControllerActive())() && !cityIsSelectedForEditing();
-              },
-              get disabled() {
-                return !model.isSlottingAvailable || model.selectedResource().resourceValue !== -1;
-              },
-              onFocus: () => {
-                model.setFocusedResource({
+            get fallback() {
+              return createComponent(ImageButton, mergeProps(imageButtonData, {
+                get disableFocus() {
+                  return createMemo(() => !!IsControllerActive())() && !cityIsSelectedForEditing();
+                },
+                get disabled() {
+                  return !model.isSlottingAvailable || model.selectedResource().resourceValue !== -1;
+                },
+                onFocus: () => model.setFocusedResource({
                   resourceValue: -1,
                   cityID: void 0
-                });
-                delayByFrame(() => {
-                  hotkeyContext.registerNavtray("accept", tooltipText());
-                });
+                }),
+                onActivate: () => model.clearFactoryResources(props.cityID)
+              }));
+            },
+            children: (tooltipText) => createComponent(Tooltip.Text, {
+              get text() {
+                return tooltipText();
               },
-              onBlur: () => {
-                hotkeyContext.unregisterNavtray("accept");
-              },
-              onActivate: () => model.clearFactoryResources(props.cityID)
-            }));
-          }
-        })
+              get children() {
+                return createComponent(ImageButton, mergeProps(imageButtonData, {
+                  get disableFocus() {
+                    return createMemo(() => !!IsControllerActive())() && !cityIsSelectedForEditing();
+                  },
+                  get disabled() {
+                    return !model.isSlottingAvailable || model.selectedResource().resourceValue !== -1;
+                  },
+                  onFocus: () => {
+                    model.setFocusedResource({
+                      resourceValue: -1,
+                      cityID: void 0
+                    });
+                    delayByFrame(() => {
+                      hotkeyContext.registerNavtray("accept", tooltipText());
+                    });
+                  },
+                  onBlur: () => {
+                    hotkeyContext.unregisterNavtray("accept");
+                  },
+                  onActivate: () => model.clearFactoryResources(props.cityID)
+                }));
+              }
+            })
+          });
+        }
       })]
     }));
     return _el$;

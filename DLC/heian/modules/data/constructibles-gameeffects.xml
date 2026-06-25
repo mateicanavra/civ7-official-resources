@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+	<Modifier id="MOD_HEIAN_HOO_DO_HALL_WONDERS_APPEAL" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_WONDER_APPEAL">
+		<Argument name="Amount">1</Argument>
+	</Modifier>
+	<Modifier id="MOD_HEIAN_HOO_DO_HALL_APPEAL_YIELDS" collection="COLLECTION_CITY_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_HAS_APPEAL">
+				<Argument name="UseAppealDoubleHappinessThreshold">true</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_CULTURE, YIELD_PRODUCTION, YIELD_HAPPINESS</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Tooltip">LOC_WONDER_HOO_DO_HALL_NAME</Argument>
+	</Modifier>
+</GameEffects>

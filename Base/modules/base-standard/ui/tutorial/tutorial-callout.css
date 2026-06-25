@@ -145,6 +145,22 @@ tutorial-callout.bottom-center .tutorial-callout-content, tutorial-callout.middl
     coh-font-fit-mode: shrink;
   }
 }
+tutorial-callout.middle-center-wide .tutorial-callout-content {
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+  max-width: 55vw;
+}
+@media (max-height: 42.6666666667rem) {
+  tutorial-callout.middle-center-wide .tutorial-callout-content {
+    max-width: 90vw;
+  }
+}
+@media (experience: mobile) {
+  tutorial-callout.middle-center-wide .tutorial-callout-content {
+    max-width: 53.3333333333rem;
+  }
+}
 tutorial-callout.tutorial-callout__anchor-position {
   position: absolute;
   pointer-events: none;

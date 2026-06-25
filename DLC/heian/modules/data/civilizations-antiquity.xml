@@ -1,0 +1,32 @@
+<Database>
+	<TraitModifiers>
+		<Row TraitType="TRAIT_HEIAN_ABILITY" ModifierId="TRAIT_MOD_APPEALING_CULTURE"/>
+		<Row TraitType="TRAIT_HEIAN_ABILITY" ModifierId="MOD_CIV_WONDER_PRODUCTION_HEIAN"/>
+	</TraitModifiers>
+	<RequirementSets>
+		<Row RequirementSetId="REQSET_PLAYER_IS_HEIAN" RequirementSetType="REQUIREMENTSET_TEST_ALL"/>
+	</RequirementSets>
+	<RequirementSetRequirements>
+		<Row RequirementSetId="REQSET_PLAYER_IS_HEIAN" RequirementId="REQ_PLAYER_HAS_TRAIT_HEIAN"/>
+	</RequirementSetRequirements>
+	<Requirements>
+		<Row RequirementId="REQ_PLAYER_HAS_TRAIT_HEIAN" RequirementType="REQUIREMENT_PLAYER_HAS_CIVILIZATION_OR_LEADER_TRAIT"/>
+	</Requirements>
+	<RequirementArguments>
+		<Row RequirementId="REQ_PLAYER_HAS_TRAIT_HEIAN" Name="TraitType" Value="TRAIT_HEIAN"/>
+	</RequirementArguments>
+	<AiListTypes>
+		<Row ListType="Heian Unit Biases" />
+		<Row ListType="Heian Government Bias" />
+	</AiListTypes>
+	<AiLists>
+		<Row ListType="Heian Unit Biases" LeaderType="TRAIT_HEIAN" System="UnitBiases" />
+		<Row ListType="Heian Government Bias" LeaderType="TRAIT_HEIAN" System="GovernmentBiases" />
+	</AiLists>
+	<AiFavoredItems>
+		<Row ListType="Heian Unit Biases" Item="UNIT_YUMI" Value="50" />
+		<Row ListType="Heian Unit Biases" Item="UNIT_YUMI_2" Value="50" />
+		<Row ListType="Heian Unit Biases" Item="UNIT_SHIJIN" Value="50" />
+		<Row ListType="Heian Government Bias" Item="GOVERNMENT_CLASSIC_REPUBLIC" Value="25" />
+	</AiFavoredItems>
+</Database>

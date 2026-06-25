@@ -1,3 +1,24 @@
+if (typeof GameInfo === "undefined") {
+  const dummyEntry = new Proxy(
+    {},
+    {
+      get() {
+        return -1;
+      }
+    }
+  );
+  const dummyTable = new Proxy([], {
+    get(target, prop) {
+      if (prop === "find") return () => dummyEntry;
+      return target[prop];
+    }
+  });
+  globalThis.GameInfo = new Proxy({}, {
+    get() {
+      return dummyTable;
+    }
+  });
+}
 const g_MountainTerrain = GameInfo.Terrains.find(
   (t) => t.TerrainType == "TERRAIN_MOUNTAIN"
 ).$index;

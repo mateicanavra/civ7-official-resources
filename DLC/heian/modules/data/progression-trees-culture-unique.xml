@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Kinds>
+		<InsertOrIgnore Kind="KIND_TREE"/>
+		<InsertOrIgnore Kind="KIND_TREE_NODE"/>
+	</Kinds>
+	<Types>
+		<!--Civ Unique Mastery Trees-->
+		<Row Type="TREE_CIVICS_AQ_HEIAN" Kind="KIND_TREE"/>
+		<!--Civ Unique Mastery Tree Nodes-->
+		<Row Type="NODE_CIVIC_AQ_HEIAN_RITSURYO" Kind="KIND_TREE_NODE"/>
+		<Row Type="NODE_CIVIC_AQ_HEIAN_WAKA" Kind="KIND_TREE_NODE"/>
+		<Row Type="NODE_CIVIC_AQ_HEIAN_URBAN_GRID" Kind="KIND_TREE_NODE"/>
+		<Row Type="NODE_CIVIC_AQ_HEIAN_MONO_NO_AWARE" Kind="KIND_TREE_NODE"/>
+	</Types>
+	<TypeQuotes>
+		<Row Type="NODE_CIVIC_AQ_HEIAN_RITSURYO" Quote="LOC_CIVIC_RITSURYO_QUOTE" QuoteAuthor="LOC_CIVIC_RITSURYO_AUTHOR" QuoteAudio="VO_Quote_Ritsuryo"/>
+		<Row Type="NODE_CIVIC_AQ_HEIAN_WAKA" Quote="LOC_CIVIC_WAKA_QUOTE" QuoteAuthor="LOC_CIVIC_WAKA_AUTHOR" QuoteAudio="VO_Quote_Waka"/>
+		<Row Type="NODE_CIVIC_AQ_HEIAN_URBAN_GRID" Quote="LOC_CIVIC_URBAN_GRID_QUOTE" QuoteAuthor="LOC_CIVIC_URBAN_GRID_AUTHOR" QuoteAudio="VO_Quote_UrbanGrid"/>
+		<Row Type="NODE_CIVIC_AQ_HEIAN_MONO_NO_AWARE" Quote="LOC_CIVIC_MONO_NO_AWARE_QUOTE" QuoteAuthor="LOC_CIVIC_MONO_NO_AWARE_AUTHOR" QuoteAudio="VO_Quote_MonoNoAware"/>
+	</TypeQuotes>
+	<ProgressionTrees>
+		<!--Civ Unique Mastery Trees-->
+		<Row ProgressionTreeType="TREE_CIVICS_AQ_HEIAN" AgeType="AGE_ANTIQUITY" SystemType="SYSTEM_CULTURE" Name="LOC_TREE_CIVICS_AQ_HEIAN_NAME"/>
+	</ProgressionTrees>
+	<ProgressionTreeNodes>
+		<!--Civ Unique Mastery Tree Nodes-->
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_HEIAN_RITSURYO" ProgressionTree="TREE_CIVICS_AQ_HEIAN" Cost="150" Name="LOC_CIVIC_RITSURYO_NAME" IconString="cult_heian"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_HEIAN_WAKA" ProgressionTree="TREE_CIVICS_AQ_HEIAN" Cost="250" Name="LOC_CIVIC_WAKA_NAME" IconString="cult_heian"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_HEIAN_URBAN_GRID" ProgressionTree="TREE_CIVICS_AQ_HEIAN" Cost="250" Name="LOC_CIVIC_URBAN_GRID_NAME" IconString="cult_heian"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_HEIAN_MONO_NO_AWARE" ProgressionTree="TREE_CIVICS_AQ_HEIAN" Cost="400" Name="LOC_CIVIC_MONO_NO_AWARE_NAME" IconString="cult_heian"/>
+	</ProgressionTreeNodes>
+	<ProgressionTreeNodeUnlocks>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_MAIN_CHIEFDOM" TargetKind="KIND_MODIFIER" TargetType="MOD_REVEAL_CIV_CULTURE_TREE_HEIAN" UnlockDepth="1" Hidden="true"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_HEIAN_RITSURYO" TargetKind="KIND_CONSTRUCTIBLE" TargetType="IMPROVEMENT_JINJA_LAND" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_HEIAN_RITSURYO" TargetKind="KIND_CONSTRUCTIBLE" TargetType="IMPROVEMENT_JINJA_SEA" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_HEIAN_RITSURYO" TargetKind="KIND_MODIFIER" TargetType="MOD_TOT_TRADITION_SLOT" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_HEIAN_RITSURYO" TargetKind="KIND_TRADITION" TargetType="TRADITION_INSEI" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_HEIAN_WAKA" TargetKind="KIND_MODIFIER" TargetType="MOD_AQ_CODEX_CIVIC" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_HEIAN_WAKA" TargetKind="KIND_TRADITION" TargetType="TRADITION_UTSUROU" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_HEIAN_URBAN_GRID" TargetKind="KIND_CONSTRUCTIBLE" TargetType="WONDER_HOO_DO_HALL" UnlockDepth="1" AIIgnoreUnlockValue="true"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_HEIAN_URBAN_GRID" TargetKind="KIND_TRADITION" TargetType="TRADITION_JO_BO_SYSTEM" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_HEIAN_MONO_NO_AWARE" TargetKind="KIND_MODIFIER" TargetType="MOD_TOT_TRADITION_SLOT" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_HEIAN_MONO_NO_AWARE" TargetKind="KIND_TRADITION" TargetType="TRADITION_MONOGATARI" UnlockDepth="1"/>
+	</ProgressionTreeNodeUnlocks>
+	<ProgressionTreePrereqs>
+		<Row Node="NODE_CIVIC_AQ_HEIAN_WAKA" PrereqNode="NODE_CIVIC_AQ_HEIAN_RITSURYO"/>
+		<Row Node="NODE_CIVIC_AQ_HEIAN_URBAN_GRID" PrereqNode="NODE_CIVIC_AQ_HEIAN_RITSURYO"/>
+		<Row Node="NODE_CIVIC_AQ_HEIAN_MONO_NO_AWARE" PrereqNode="NODE_CIVIC_AQ_HEIAN_WAKA"/>
+		<Row Node="NODE_CIVIC_AQ_HEIAN_MONO_NO_AWARE" PrereqNode="NODE_CIVIC_AQ_HEIAN_URBAN_GRID"/>
+	</ProgressionTreePrereqs>
+	<ProgressionTree_Advisories>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_HEIAN_RITSURYO" AdvisoryClassType="ADVISORY_CLASS_CULTURE"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_HEIAN_WAKA" AdvisoryClassType="ADVISORY_CLASS_CULTURE"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_HEIAN_URBAN_GRID" AdvisoryClassType="ADVISORY_CLASS_CULTURE"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_HEIAN_MONO_NO_AWARE" AdvisoryClassType="ADVISORY_CLASS_FOOD"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_HEIAN_MONO_NO_AWARE" AdvisoryClassType="ADVISORY_CLASS_CULTURE"/>
+	</ProgressionTree_Advisories>
+</Database>

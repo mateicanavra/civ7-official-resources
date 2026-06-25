@@ -23,7 +23,7 @@ const EndGameScreenComponent = () => {
     window.addEventListener(InputEngineEventName, handleWindowEngineInput);
   });
   onCleanup(() => {
-    fxsMovie.removeEventListener("movie-ended", onMovieEnd);
+    fxsMovie?.removeEventListener("movie-ended", onMovieEnd);
     window.removeEventListener(InputEngineEventName, handleWindowEngineInput);
   });
   const isDomination = model.endgameData.victoryClassType === "VICTORY_CLASS_DOMINATION";
@@ -87,10 +87,12 @@ const EndGameScreenComponent = () => {
     ContextManager.pop("endgame-screen");
     ContextManager.push("screen-victory-progress", {
       singleton: true,
-      createMouseGuard: false,
+      createMouseGuard: true,
       attributes: {
         endGameScreen: "true",
-        activeTabId: model.endgameData.victoryTab
+        activeTabId: model.endgameData.victoryTab,
+        allowOneMoreTurn: `${model.endgameData.allowOneMoreTurn}`,
+        showNextTurnButton: `${model.endgameData.showNextTurnButton}`
       }
     });
   };
@@ -172,7 +174,7 @@ const EndGameScreenComponent = () => {
                 var _el$11 = _tmpl$4();
                 insert(_el$11, createComponent(PortraitIconVictory, {
                   get playerId() {
-                    return GameContext.localPlayerID;
+                    return model.endgameData.playerId;
                   },
                   size: 52,
                   isVictory: true,
@@ -208,7 +210,7 @@ const EndGameScreenComponent = () => {
                   get text() {
                     return model.endgameData.leaderQuote;
                   },
-                  role: "paragraph"
+                  role: "article"
                 }));
                 insert(_el$20, () => model.endgameData.leaderName, _el$22);
                 return _el$12;

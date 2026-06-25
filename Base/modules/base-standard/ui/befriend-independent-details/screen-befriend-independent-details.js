@@ -11,6 +11,7 @@ import styles from './screen-befriend-independent-details.scss.js';
 class BefriendIndependentDetailsScreen extends Panel {
   engineInputListener = this.onEngineInput.bind(this);
   interfaceModeChangedListener = this.onInterfaceModeChanged.bind(this);
+  canPlayExitSound = true;
   render() {
     this.Root.classList.value = "fullscreen";
     this.Root.innerHTML = `
@@ -30,11 +31,13 @@ class BefriendIndependentDetailsScreen extends Panel {
     engine.on("DiplomacyEventSupportChanged", this.onSupportChanged, this);
     window.addEventListener("interface-mode-changed", this.interfaceModeChangedListener);
     this.Root.addEventListener(InputEngineEventName, this.engineInputListener);
+    this.canPlayExitSound = true;
   }
   onDetach() {
     engine.off("DiplomacyEventSupportChanged", this.onSupportChanged, this);
     window.removeEventListener("interface-mode-changed", this.interfaceModeChangedListener);
     this.Root.removeEventListener(InputEngineEventName, this.engineInputListener);
+    this.canPlayExitSound = false;
   }
   onInterfaceModeChanged() {
     if (!InterfaceMode.isInInterfaceMode("INTERFACEMODE_DIPLOMACY_HUB")) {
@@ -316,7 +319,10 @@ class BefriendIndependentDetailsScreen extends Panel {
       return true;
     }
     if (inputEvent.isCancelInput() || inputEvent.detail.name == "sys-menu") {
-      Audio.playSound("data-audio-hiding", "leader-panel");
+      if (this.canPlayExitSound) {
+        Audio.playSound("data-audio-hiding", "leader-panel");
+        this.canPlayExitSound = false;
+      }
       DiplomacyManager.lowerDiplomacyHub();
       inputEvent.stopPropagation();
       inputEvent.preventDefault();

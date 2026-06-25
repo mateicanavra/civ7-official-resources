@@ -12,6 +12,7 @@ class DiplomacyTargetSelectScreen extends DiplomacyInputPanel {
   lastSelectedTarget;
   operationArgs;
   engineInputListener = this.onEngineInput.bind(this);
+  prevFocus;
   subsystemPanel = null;
   confirmButton = null;
   render() {
@@ -34,6 +35,7 @@ class DiplomacyTargetSelectScreen extends DiplomacyInputPanel {
     return false;
   }
   onAttach() {
+    this.prevFocus = FocusManager.get().currentFocus();
     this.enableOpenSound = true;
     this.enableCloseSound = true;
     this.Root.setAttribute("data-audio-group-ref", "diplomacy-target-select-panel");
@@ -288,6 +290,11 @@ class DiplomacyTargetSelectScreen extends DiplomacyInputPanel {
   }
   onDetach() {
     this.Root.removeEventListener(InputEngineEventName, this.engineInputListener);
+    waitForLayout(() => {
+      if (this.prevFocus instanceof HTMLElement && Navigation.isFocusable(this.prevFocus)) {
+        FocusManager.get().setFocus(this.prevFocus);
+      }
+    });
   }
   onEngineInput(inputEvent) {
     const inputEventName = inputEvent.detail.name;

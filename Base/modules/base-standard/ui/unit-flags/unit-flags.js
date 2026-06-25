@@ -71,12 +71,7 @@ class GenericUnitFlag extends Component {
     if (GameContext.localObserverID == this._componentID.owner || GameContext.localObserverID == PlayerIds.OBSERVER_ID) {
       this.Root.classList.add("cursor-pointer");
     }
-    const localObserverID = GameContext.localObserverID;
-    const localObserver = Players.get(localObserverID);
-    const unitOwner = Players.get(this.componentID.owner);
-    if (unitOwner?.isMinor && localObserver?.Diplomacy?.isAtWarWithUnitOwner(this.componentID)) {
-      this.Root.classList.add("unit-flag--hostile");
-    }
+    this.updateAffinity();
     let playerColorPri = "rgb(0, 0, 0)";
     let playerColorSec = "rgb(255, 255, 255)";
     if (Players.isValid(this.componentID.owner)) {
@@ -510,6 +505,24 @@ class GenericUnitFlag extends Component {
       if (this.flagOffset != offset) {
         this.flagOffset = offset;
         this.unitContainer.style.left = Layout.pixels(offset * this.SPACING + this.BASE_OFFSET);
+      }
+    }
+  }
+  /**
+   * Hotseat
+   */
+  localPlayerUpdate() {
+    this.updateAffinity();
+  }
+  updateAffinity() {
+    const unitOwner = Players.get(this.componentID.owner);
+    if (unitOwner?.isMinor) {
+      const localObserverID = GameContext.localObserverID;
+      const localObserver = Players.get(localObserverID);
+      if (localObserver?.Diplomacy?.isAtWarWithUnitOwner(this.componentID)) {
+        this.Root.classList.add("unit-flag--hostile");
+      } else {
+        this.Root.classList.remove("unit-flag--hostile");
       }
     }
   }

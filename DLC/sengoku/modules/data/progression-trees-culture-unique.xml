@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Types>
+		<!--Civ Unique Mastery Trees-->
+		<Row Type="TREE_CIVICS_EX_SENGOKU" Kind="KIND_TREE"/>
+		<!--Civ Unique Mastery Tree Nodes-->
+		<Row Type="NODE_CIVIC_EX_SENGOKU_TENKA_BITO" Kind="KIND_TREE_NODE"/>
+		<Row Type="NODE_CIVIC_EX_SENGOKU_IKKI" Kind="KIND_TREE_NODE"/>
+		<Row Type="NODE_CIVIC_EX_SENGOKU_RAKUICHI_RAKUZA" Kind="KIND_TREE_NODE"/>
+		<Row Type="NODE_CIVIC_EX_SENGOKU_KINSEI" Kind="KIND_TREE_NODE"/>
+	</Types>
+	<TypeQuotes>
+		<Row Type="NODE_CIVIC_EX_SENGOKU_TENKA_BITO" Quote="LOC_CIVIC_TENKA_BITO_QUOTE" QuoteAuthor="LOC_CIVIC_TENKA_BITO_AUTHOR" QuoteAudio="VO_Quote_TenkaBito"/>
+		<Row Type="NODE_CIVIC_EX_SENGOKU_IKKI" Quote="LOC_CIVIC_IKKI_QUOTE" QuoteAuthor="LOC_CIVIC_IKKI_AUTHOR" QuoteAudio="VO_Quote_Ikki"/>
+		<Row Type="NODE_CIVIC_EX_SENGOKU_RAKUICHI_RAKUZA" Quote="LOC_CIVIC_RAKUICHI_RAKUZA_QUOTE" QuoteAuthor="LOC_CIVIC_RAKUICHI_RAKUZA_AUTHOR" QuoteAudio="VO_Quote_RakuichiRakuza"/>
+		<Row Type="NODE_CIVIC_EX_SENGOKU_KINSEI" Quote="LOC_CIVIC_KINSEI_QUOTE" QuoteAuthor="LOC_CIVIC_KINSEI_AUTHOR" QuoteAudio="VO_Quote_Kinsei"/>
+</TypeQuotes>
+	<ProgressionTrees>
+		<!--Civ Unique Mastery Trees-->
+		<Row ProgressionTreeType="TREE_CIVICS_EX_SENGOKU" AgeType="AGE_EXPLORATION" SystemType="SYSTEM_CULTURE" Name="LOC_TREE_CIVICS_EX_SENGOKU_NAME"/>
+	</ProgressionTrees>
+	<ProgressionTreeNodes>
+		<!--Civ Unique Mastery Tree Nodes-->
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_SENGOKU_TENKA_BITO" ProgressionTree="TREE_CIVICS_EX_SENGOKU" Cost="800" Name="LOC_CIVIC_TENKA_BITO_NAME" IconString="cult_sengoku"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_SENGOKU_IKKI" ProgressionTree="TREE_CIVICS_EX_SENGOKU" Cost="800" Name="LOC_CIVIC_IKKI_NAME" IconString="cult_sengoku"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_SENGOKU_RAKUICHI_RAKUZA" ProgressionTree="TREE_CIVICS_EX_SENGOKU" Cost="800" Name="LOC_CIVIC_RAKUICHI_RAKUZA_NAME" IconString="cult_sengoku"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_SENGOKU_KINSEI" ProgressionTree="TREE_CIVICS_EX_SENGOKU" Cost="2000" Name="LOC_CIVIC_KINSEI_NAME" IconString="cult_sengoku"/>
+	</ProgressionTreeNodes>
+	<ProgressionTreeNodeUnlocks>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_SENGOKU_TENKA_BITO" TargetKind="KIND_CONSTRUCTIBLE" TargetType="IMPROVEMENT_TEA_HOUSE" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_SENGOKU_TENKA_BITO" TargetKind="KIND_MODIFIER" TargetType="MOD_TOT_TRADITION_SLOT" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_SENGOKU_IKKI" TargetKind="KIND_CONSTRUCTIBLE" TargetType="WONDER_HIMEJI_CASTLE" UnlockDepth="1" AIIgnoreUnlockValue="true"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_SENGOKU_IKKI" TargetKind="KIND_TRADITION" TargetType="TRADITION_GEKOKUJO" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_SENGOKU_RAKUICHI_RAKUZA" TargetKind="KIND_TRADITION" TargetType="TRADITION_KABUNAKAMA" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_SENGOKU_RAKUICHI_RAKUZA" TargetKind="KIND_MODIFIER" TargetType="MOD_TOT_TRADITION_SLOT" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_SENGOKU_KINSEI" TargetKind="KIND_TRADITION" TargetType="TRADITION_DAIMYO" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_SENGOKU_KINSEI" TargetKind="KIND_MODIFIER" TargetType="KINSEI_MOD_MOD_SAMURAI_2" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_SENGOKU_KINSEI" TargetKind="KIND_MODIFIER" TargetType="MOD_CIV_SENGOKU_NO_MAN" UnlockDepth="1" Hidden="true"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_SENGOKU_KINSEI" TargetKind="KIND_MODIFIER" TargetType="MOD_EX_SETTLEMENT_CAP_INCREASE_MORE" UnlockDepth="1"/>
+	</ProgressionTreeNodeUnlocks>
+	<ProgressionTreePrereqs>
+		<Row Node="NODE_CIVIC_EX_SENGOKU_KINSEI" PrereqNode="NODE_CIVIC_EX_SENGOKU_TENKA_BITO"/>
+		<Row Node="NODE_CIVIC_EX_SENGOKU_KINSEI" PrereqNode="NODE_CIVIC_EX_SENGOKU_IKKI"/>
+		<Row Node="NODE_CIVIC_EX_SENGOKU_KINSEI" PrereqNode="NODE_CIVIC_EX_SENGOKU_RAKUICHI_RAKUZA"/>
+	</ProgressionTreePrereqs>
+	<ProgressionTree_Advisories>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_SENGOKU_TENKA_BITO" AdvisoryClassType="ADVISORY_CLASS_MILITARY"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_SENGOKU_IKKI" AdvisoryClassType="ADVISORY_CLASS_MILITARY"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_SENGOKU_RAKUICHI_RAKUZA" AdvisoryClassType="ADVISORY_CLASS_MILITARY"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_SENGOKU_KINSEI" AdvisoryClassType="ADVISORY_CLASS_EMPIRE_EXPANSION"/>
+	</ProgressionTree_Advisories>
+</Database>

@@ -88,6 +88,10 @@ class PanelBeliefPicker extends Panel {
       this.backButton.classList.add("hidden");
     }
     window.dispatchEvent(new HideMiniMapEvent(true));
+    waitForLayout(() => {
+      const focusElement = MustGetElement(".belief-picker-chooser-item", this.Root);
+      FocusManager.get().setFocus(focusElement);
+    });
   }
   onDetach() {
     this.beliefConfirmButton.removeEventListener("action-activate", this.beliefConfirmButtonListener);

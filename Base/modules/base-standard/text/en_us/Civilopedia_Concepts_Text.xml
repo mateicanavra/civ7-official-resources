@@ -226,14 +226,14 @@
 			<Text>Wall defenses cannot be purchased with Gold, except in the City Center. Instead, walls in urban districts can be constructed one tile at a time from the City build queue, using Production. Walls cannot be constructed on Navigable River hexes and must be built adjacent to other wall defenses from the same settlement, starting with the City Center. Walls cannot be built adjacent to walls owned by a different settlement, except in the city center, which is always allowed.</Text>
 		</Row>
 		<Row Tag="LOC_PEDIA_CONCEPTS_PAGE_CITYCAPTURE_1_CHAPTER_WALL_PARA_3">
-			<Text>When a unit attacks a defensible district, combat is resolved by taking the attacking unit's strength and comparing it to the defense strength of the district, which is calculated based on the strongest melee unit trained by the district owner minus a set value (10). Walls and all City or Town centers deal reciprocal damage to melee attackers.</Text>
+			<Text>When a unit attacks a defensible district, combat is resolved by taking the attacking unit's strength and comparing it to the defense strength of the district, which is calculated based on the strongest melee unit trained by the district owner minus a set value (10). Walls and all City or Town centers deal reciprocal damage to melee attackers, defenders first.</Text>
 		</Row>
 
 		<Row Tag="LOC_PEDIA_CONCEPTS_PAGE_TILES_1_TITLE">
 			<Text>Urban and Rural Tiles</Text>
 		</Row>
 		<Row Tag="LOC_PEDIA_CONCEPTS_PAGE_TILES_1_CHAPTER_CONTENT_PARA_1">
-			<Text>Two types of tiles exist within a Settlement: Urban and Rural. Rural tiles are obtained through border expansion, while Urban tiles are created by placing buildings on a Rural tile.</Text>
+			<Text>Two types of tiles exist within a Settlement: Urban and Rural. Rural tiles are obtained through border expansion into Improvements, while Urban tiles are created by placing Buildings to form a District.</Text>
 		</Row>
 		<Row Tag="LOC_PEDIA_CONCEPTS_PAGE_TILES_1_CHAPTER_CONTENT_PARA_2">
 			<Text>During a growth event, placing Population on a Rural tile results in an Improvement. Basic Improvements include Farms, Mines, Woodcutters, Clay Pits, Fishing Boats, Camps, Pastures, Plantations, Quarries, and Oil Rigs. Conversely, placing Population on an Urban tile grants a Specialist. Specialists provide increased Yields based on the adjacency bonuses of the Building they are placed on, but they also reduce the City's Food and Happiness (-2 Food, -2 Happiness per Age).</Text>
@@ -265,7 +265,7 @@
 			<Text>Natural Wonders are unique terrain features scattered throughout the world. Cutscenes play once a Natural Wonder is discovered. These formations are relatively uncommon and provide powerful bonuses to nearby civilizations. Players should seek out Wonders, settle next to them, and use growth events to place population on the Wonder tiles to collect the bonuses like Tourism.</Text>
 		</Row>
 		<Row Tag="LOC_PEDIA_CONCEPTS_PAGE_NATURALWONDER_1_CHAPTER_CONTENT_PARA_2">
-			<Text>All Natural Wonders base yielda scale by game age. Each Age provides an additional +50% yield to the Natural Wonder tiles. For example, if an Antiquity Natural Wonder tile provides 6 Food, that same tile would provides 9 Food in Exploration, and 12 Food in Modern.</Text>
+			<Text>All Natural Wonder base yields scale by game age. Each Age provides an additional +50% yield to the Natural Wonder tiles. For example, if an Antiquity Natural Wonder tile provides 6 Food, that same tile would provides 9 Food in Exploration, and 12 Food in Modern.</Text>
 		</Row>
 		<Row Tag="LOC_PEDIA_CONCEPTS_PAGE_NATURALWONDER_1_CHAPTER_CONTENT_PARA_3">
 			<Text>Tip: Natural Wonder yields are substantial, so discovering one early could significantly influence your expansion strategy.</Text>
@@ -278,7 +278,7 @@
 			<Text>Discoveries replace the traditional “Goody Huts” from previous Civilization games. These special points of interest are placed on the map during its initial generation, and some may even reappear as exploration progresses.</Text>
 		</Row>
 		<Row Tag="LOC_PEDIA_CONCEPTS_PAGE_DISCOVERIES_1_CHAPTER_CONTENT_PARA_2">
-			<Text>There are three types of Discoveries, each increasing in complexity, rewards, and rarity:[BLIST][LI][B]Basic Discoveries[/B] function similarly to classic Goody Huts. When a unit enters the tile, the discovery provides an immediate small reward and then disappears.[LI][B]Investigations[/B] require more investment, either by damaging a unit at the location, paying a resource yield such as gold, science, production, happiness, or culture—or a combination of both. Completing Investigations provides medium-sized rewards.</Text>
+			<Text>There are two types of Discoveries, each increasing in complexity, rewards, and rarity:[BLIST][LI][B]Basic Discoveries[/B] function similarly to classic Goody Huts. When a unit enters the tile, the discovery provides an immediate small reward and then disappears.[LI][B]Investigations[/B] require more investment, either by damaging a unit at the location, paying a resource yield such as gold, science, production, happiness, or culture—or a combination of both. Completing Investigations provides medium-sized rewards.[/BLIST]</Text>
 		</Row>
 		<Row Tag="LOC_PEDIA_CONCEPTS_PAGE_DISCOVERIES_1_CHAPTER_CONTENT_PARA_3">
 			<Text>Tip: Always prioritize sending scouts or idle units to explore Discoveries early. Basic Discoveries give quick boosts, while strategic investment in Investigations and Mythic Quests can significantly accelerate your civilization’s progress.</Text>
@@ -383,13 +383,13 @@
 			<Text>Basics</Text>
 		</Row>
 		<Row Tag="LOC_PEDIA_CONCEPTS_PAGE_GOVERNMENT_1_CHAPTER_CONTENT_PARA_1">
-			<Text>Governments are part of the Culture system and are key decision makers in each Age.</Text>
+			<Text>Governments are part of the Happiness gameplay in each Age, and offer different directions for your Civilization through the Age.</Text>
 		</Row>
 		<Row Tag="LOC_PEDIA_CONCEPTS_PAGE_GOVERNMENT_1_CHAPTER_CONTENT_PARA_2">
-			<Text>At least three different Governments are selectable in each Age. Once a government is chosen that choice is locked in for the Age and cannot be changed.</Text>
+			<Text>Three different Governments are selectable in each Age. Once a Government is chosen that choice is locked in for the Age and cannot be changed. Some Civs also have entirely unique Governments.</Text>
 		</Row>
 		<Row Tag="LOC_PEDIA_CONCEPTS_PAGE_GOVERNMENT_1_CHAPTER_CONTENT_PARA_3">
-			<Text>Every Government type provides the player with 2 Celebration effects to choose between every time they earn a Celebration moment. These effects last for 10 turns, encourage the player to focus on specific gameplay for their duration, and are unique to each Government type. In addition, every Celebration will grant a new Policy slot.</Text>
+			<Text>Every Government type provides the player with a passive effect, two bonuses to choose from during Celebrations, and new Traditions in the Civic Tree. While Governments change on Age Transition, Traditions you've unlocked are carried over.</Text>
 		</Row>
 
 		<Row Tag="LOC_PEDIA_CONCEPTS_PAGE_DIPLOMACY_2_TITLE">
@@ -456,7 +456,7 @@
 			<Text>Leader Agendas</Text>
 		</Row>
 		<Row Tag="LOC_PEDIA_CONCEPTS_PAGE_DIPLOMACY_6_CHAPTER_LEADERAGENDA_PARA_1">
-			<Text>Leader Agendas specifically affect the relationship between two Civs. For example, Hatshepsut’s agenda, Wonders of Iteru, decreases your relationship with her Civ by a small amount if you have more Wonders than she does, but it also increases your relationship by a medium amount if you have fewer Wonders.</Text>
+			<Text>Leader Agendas specifically affect the relationship between two Civs. For example, Hatshepsut’s agenda, Wonders of Iteru, decreases your relationship with her Civ by a small amount if you have more Wonders than she does, but it also increases your relationship by a medium amount if you have fewer Wonders. However, when a human player plays as a specific Leader, that player does not gain effects from their Leader's Agenda. Agendas belong to the AI alone.</Text>
 		</Row>
 		<Row Tag="LOC_PEDIA_CONCEPTS_PAGE_DIPLOMACY_6_CHAPTER_AIBIAS_TITLE">
 			<Text>AI Biases</Text>
@@ -559,10 +559,10 @@
 			<Text>Celebration</Text>
 		</Row>
 		<Row Tag="LOC_PEDIA_CONCEPTS_PAGE_CELEBRATION_1_CHAPTER_CONTENT_PARA_1">
-			<Text>Celebrations unlock a Policy slot and grant Tourism. Additionally, Civs experiencing a Celebration can select one of two duration-based buffs from Government-specific effects. For example, during a Celebration, a Classical Republic Civ unlocks a Tradition Slot and then picks between +20% Culture for 10 Turns or +15% Production toward Wonders for 10 Turns.</Text>
+			<Text>You earn a Celebration when when enough excess Happiness has accrued across your empire. Celebrations unlock a Policy slot and, once Entertainment is studied, grant Tourism. Additionally, Civs experiencing a Celebration can select one of two bonuses from Government-specific effects. Check your Government screen to see what bonuses you can choose from.</Text>
 		</Row>
 		<Row Tag="LOC_PEDIA_CONCEPTS_PAGE_CELEBRATION_1_CHAPTER_CONTENT_PARA_2">
-			<Text>Each successive Celebration costs more Happiness than the previous one. During a Celebration, Happiness accrual does not cease, and can lead to chaining Celebrations.[/LIST] </Text>
+			<Text>Each successive Celebration costs more Happiness than the previous one. During a Celebration, Happiness continues to accrue, and can lead to back-to-back Celebrations.</Text>
 		</Row>
 		<Row Tag="LOC_PEDIA_CONCEPTS_PAGE_CELEBRATION_1_CHAPTER_CONTENT_PARA_3">
 			<Text>Tip: Monitor the number of turns remaining until your next Celebration to strategically plan and maximize the benefits of your Celebration effects.</Text>
@@ -672,7 +672,7 @@
 			<Text>Adding Population</Text>
 		</Row>
 		<Row Tag="LOC_PEDIA_CONCEPTS_PAGE_GROWTH_1_CHAPTER_POP_PARA_1">
-			<Text>[BLIST][LI]Food Accumulation: Food from each Settlement is added to a bucket each turn. Upon crossing the growth threshold, the Settlement gains a Population.[LI]Population Allocation: Players can choose between placing a new Population on an empty tile for an Improvement or adding it to an Urban tile to gain a Specialist.[/LIST]</Text>
+			<Text>[BLIST][LI]Food Accumulation: Food from each Settlement is added to a bucket each turn. Upon crossing the growth threshold, the Settlement gains a Population.[LI]Population Allocation: Players can choose between placing a new Population on an empty tile for an Improvement or adding it to an Urban tile to gain a Specialist.[LI]Growth Rate: Modifiers that use this term are effects that decrease the amount of Food a Settlement needs to grow a Population.[/LIST]</Text>
 		</Row>
 		<Row Tag="LOC_PEDIA_CONCEPTS_PAGE_GROWTH_1_CHAPTER_POP_PARA_2">
 			<Text>Tip: Food is the primary driver of population growth. Increase a City’s food supply by setting a connected Town's focus to send additional food to the City.</Text>
@@ -711,7 +711,7 @@
 			<Text>Wall defenses cannot be purchased with Gold, except in the City Center. Instead, Walls in Districts can be constructed one tile at a time from the City build queue, using Production. Walls cannot be constructed on Navigable River hexes and must be built adjacent to other Walls from the same Settlement, starting with the City Center. Walls cannot be built adjacent to Walls owned by a different Settlement, except in the City Center, which is always allowed. Walls cannot be constructed on Rural tiles.</Text>
 		</Row>
 		<Row Tag="LOC_PEDIA_CONCEPTS_PAGE_WALLS_1_CHAPTER_CONTENT_PARA_4">
-			<Text>When a Unit attacks a defensible District, combat is resolved by taking the attacking Unit's strength and comparing it to the defense strength of the District, which is calculated based on the strongest melee unit trained by the District owner minus a set value (10). Walls and all City or Town Centers deal reciprocal damage to melee attackers.</Text>
+			<Text>When a Unit attacks a defensible District, combat is resolved by taking the attacking Unit's strength and comparing it to the defense strength of the District, which is calculated based on the strongest melee unit trained by the District owner minus a set value (10). Walls and all City or Town Centers deal reciprocal damage to melee attackers, defender first.</Text>
 		</Row>
 		<Row Tag="LOC_PEDIA_CONCEPTS_PAGE_WALLS_1_CHAPTER_CONTENT_PARA_5">
 			<Text>Tip: To capture a Settlement, attackers must gain control of the City/Town Center and any Districts with walled defenses.</Text>
@@ -1219,7 +1219,7 @@
 			<Text>In battle, the type of terrain can help or hurt your units. Each natural feature adds or subtracts a bonus to a unit’s defensive combat strength. Here’s a simple guide:</Text>
 		</Row>
 		<Row Tag="LOC_PEDIA_CONCEPTS_PAGE_COMBAT_3_CHAPTER_CONTENT_PARA_2">
-			<Text>[BLIST][LI]Vegetated Areas: Forests, woodlands, and similar features give your units a +2 bonus in combat when defending.[LI]Wet Areas: Bogs, oasis, and other wet features lower your defensive combat strength by 2.[LI]Hills: If a tile is a hill, it provides extra defense—currently a bonus of +3.[LI]Navigable Rivers: Naval units can sail on these without trouble. However, land units must embark (board a boat) to cross safely.[LI]Minor Rivers: These slow you down in combat. Attacking from a minor river tile gives your unit a penalty, and defending from one also makes your unit less effective.[/LIST]</Text>
+			<Text>[BLIST][LI]Vegetated Areas: Forests, woodlands, and similar features give your units a +2 bonus in combat when defending.[LI]Wet Areas: Bogs, oasis, and other wet features lower your defensive combat strength by 2.[LI]Rough: If a tile is rough, it provides extra defense—currently a bonus of +3.[LI]Navigable Rivers: Naval units can sail on these without trouble. However, land units must embark (board a boat) to cross safely.[LI]Minor Rivers: These slow you down in combat. Attacking from a minor river tile gives your unit a penalty, and defending from one also makes your unit less effective.[/LIST]</Text>
 		</Row>
 		<Row Tag="LOC_PEDIA_CONCEPTS_PAGE_COMBAT_3_CHAPTER_CONTENT_PARA_3">
 			<Text>Tip: Generally speaking, you would not want to defend on water tiles, while you’d get increased protection from standing on vegetated tiles and hills. </Text>
@@ -1380,7 +1380,7 @@
 			<Text>Civics</Text>
 		</Row>
 		<Row Tag="LOC_PEDIA_CONCEPTS_PAGE_CIVIC_1_CHAPTER_CONTENT_PARA_1">
-			<Text>Civics are similar to technologies in that they are also researched; however they use the Culture yield to progress. Civics can unlock wonders, units, and buildings. Unlike technologies, Civics often provide Policies that can be slotted into a Government.</Text>
+			<Text>Civics are similar to Technologies in that they are also researched; however they use the Culture yield to progress. Civics can unlock Wonders, Units, and Buildings. Unlike Technologies, Civics often provide Policies that can be slotted into a Government.</Text>
 		</Row>
 		<Row Tag="LOC_PEDIA_CONCEPTS_PAGE_CIVIC_1_CHAPTER_CONTENT_PARA_2">
 			<Text>Selecting a Tech or Civic deeper in the tree will queue up the pre-requisite nodes for you automatically.</Text>
@@ -1426,7 +1426,7 @@
 			<Text>Land tiles near mountains, coasts, [TIP:LOC_PEDIA_CONCEPTS_NAVIGABLE_RIVER_TOOLTIP]Navigable Rivers[/TIP], and [TIP:LOC_PEDIA_CONCEPTS_NATURAL_WONDER_TOOLTIP]Natural Wonders[/TIP] have Appeal. Higher Appeal, from Average to Breathtaking, increases the Happiness of improved rural tiles.</Text>
 		</Row>
 		<Row Tag="LOC_PEDIA_CONCEPTS_PAGE_TOWN_4_CHAPTER_CONTENT_PARA_1">
-			<Text>Land tiles adjacent to items of natural beauty (forests, savannah woodlands, sagebrush steppe, mangrove swamp, taiga, mountains, coasts, navigable rivers and natural wonders) have an "appealing" quality that influences the Happiness yield available from that tile. A tile's Appeal score can be Average, Charming, or Breathtaking based on the number of items of natural beauty around it. Each adjacent item of natural beauty grants +1 Appeal, with 3 being the threshold for Charming, and 5 for Breathtaking. Charming rural tiles with an improvement receive +1 Happiness, while an improved Breathtaking rural tile receives +2 Happiness. Natural Wonders are also tiles of great natural beauty, but their yields are unique to each wonder and therefore do not always include Happiness.</Text>
+			<Text>Land tiles adjacent to items of natural beauty (forests, savannah woodlands, sagebrush steppe, mangrove swamp, taiga, mountains, coasts, navigable rivers, and natural wonders) have an "appealing" quality that influences the Happiness yield available from that tile. A tile's Appeal score can be Average, Charming, or Breathtaking based on the number of items of natural beauty around it. Each adjacent item of natural beauty grants +1 Appeal, with 3 being the threshold for Charming, and 5 for Breathtaking. Charming rural tiles with an improvement receive +1 Happiness, while an improved Breathtaking rural tile receives +2 Happiness. Natural Wonders are also tiles of great natural beauty, but their yields are unique to each wonder and therefore do not always include Happiness.</Text>
 		</Row>
 		<Row Tag="LOC_PEDIA_CONCEPTS_PAGE_TOWN_4_CHAPTER_CONTENT_PARA_2">
 			<Text>Tip: Some buildings can receive an adjacency bonus from Appealing tiles. Using Buildings and Improvements to maximize on the Appeal of tiles can boost the Happiness of your empire.</Text>
@@ -1682,10 +1682,10 @@
 			<Text>Pirating</Text>
 		</Row>
 		<Row Tag="LOC_PEDIA_CONCEPTS_PAGE_PIRATING_1_CHAPTER_CONTENT_PARA_1">
-			<Text>Some Units have the [icon:UNIT_CAUTION] Pirate ability, or gain it from a Civilization or Leader ability. Units that have the [icon:UNIT_CAUTION] Pirate ability can cross the borders of other civilizations, plunder trade routes from non-Allied civilizations, and attack Units of non-Allied Civilizations without Declaring War. Non-Allied Civilizations can also attack these units, and they remain in hostile borders after Declaring War. Privateering is counted as pirating, and any privateer ship is subject to pirating rules.</Text>
+			<Text>Some Units have the [icon:UNIT_CAUTION] Pirate ability, or gain it from a Civilization or Leader ability. Units that have the [icon:UNIT_CAUTION] Pirate ability can cross the borders of other civilizations, plunder trade routes from non-Allied civilizations, and attack Units of non-Allied Civilizations without Declaring War. Defeating units reduces relationship with the civilization or Independent Power. Non-Allied Civilizations can also attack these units, and they remain in hostile borders after Declaring War. Defeating Pirate Units will not reduce relationship with that Civilization. Privateering is counted as pirating, and any privateer ship is subject to pirating rules.</Text>
 		</Row>
 		<Row Tag="LOC_PEDIA_CONCEPTS_PAGE_PIRATING_1_CHAPTER_CONTENT_PARA_2">
-			<Text>Tip: Pirating, while lucrative, still decreases Relationship with the target Civilization or Independent Power. Be careful who you push around! </Text>
+			<Text>Tip: Try keeping your Units in Fortified Districts. This will allow you to attack Pirates, but the District defenses will protect you from being attacked.</Text>
 		</Row>
 
 		<Row Tag="LOC_PEDIA_CONCEPTS_PAGE_ONEMORE_1_TITLE">
@@ -2008,7 +2008,7 @@
 			<Text>Bonus Resources must be assigned to any [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]Settlement[/TIP] with available [TIP:LOC_PEDIA_CONCEPTS_RESOURCE_CAPACITY_TOOLTIP]Resource Capacity[/TIP] to gain their bonuses.[NN]When unassigned, Bonus Resources provide [icon:YIELD_GOLD][b]Gold[/b] and [icon:YIELD_HAPPINESS][b]Happiness[/b] instead of their bonus.</Text>
 		</Row>
 		<Row Tag="LOC_PEDIA_CONCEPTS_CITY_RESOURCES_TOOLTIP">
-			<Text>City Resources must be assigned to a City with available [TIP:LOC_PEDIA_CONCEPTS_RESOURCE_CAPACITY_TOOLTIP]Resource Capacity[/TIP] to gain their bonuses.[NN]When unassigned, City Resources provide [icon:YIELD_GOLD][b]Gold[/b] and [icon:YIELD_HAPPINESS][b]Happiness[/b] instead of their bonus.</Text>
+			<Text>City Resources must be assigned to a [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]City[/TIP] with available [TIP:LOC_PEDIA_CONCEPTS_RESOURCE_CAPACITY_TOOLTIP]Resource Capacity[/TIP] to gain their bonuses.[NN]When unassigned, City Resources provide [icon:YIELD_GOLD][b]Gold[/b] and [icon:YIELD_HAPPINESS][b]Happiness[/b] instead of their bonus.</Text>
 		</Row>
 		<Row Tag="LOC_PEDIA_CONCEPTS_EMPIRE_RESOURCES_TOOLTIP">
 			<Text>Empire Resources automatically give empire-wide bonuses without needing to be assigned to a [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]Settlement[/TIP].</Text>
@@ -2041,7 +2041,7 @@
 			<Text>Sight is the number of tiles a unit has vision to around themselves. Sight is required to target units with [TIP:LOC_PEDIA_CONCEPTS_RANGED_ATTACK_TOOLTIP]Ranged Attacks[/TIP], reveal tiles and remove the fog of war.[NN][TIP:LOC_PEDIA_CONCEPTS_VEGETATED_TERRAIN_TOOLTIP]Vegetated Terrain[/TIP] and Mountains block Sight.</Text>
 		</Row>
 		<Row Tag="LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP">
-			<Text>Celebrations occur when enough excess [icon:YIELD_HAPPINESS][b]Happiness[/b] has accrued across your empire.[NN]Celebrations grant your [TIP:LOC_PEDIA_CONCEPTS_GOVERNMENT_TOOLTIP]Government[/TIP] an additional Policy Slot and allow you to choose a powerful temporary bonus based on your chosen Government.</Text>
+			<Text>Celebrations occur when enough excess [icon:YIELD_HAPPINESS][b]Happiness[/b] has accrued across your empire.[NN]Celebrations grant your [TIP:LOC_PEDIA_CONCEPTS_GOVERNMENT_TOOLTIP]Government[/TIP] an additional Policy Slot and allow you to choose a powerful bonus based on your chosen Government.</Text>
 		</Row>
 		<Row Tag="LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP">
 			<Text>The first Civilization to befriend an [TIP:LOC_PEDIA_CONCEPTS_INDEPENDENT_POWER_TOOLTIP]Independent Power[/TIP] will become its Suzerain and gain a powerful [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]City-State[/TIP] bonus.[NN]City-States you are the Suzerain of will join in all of your wars.[NN]Attacking a City-State will also declare war on its Suzerain.</Text>
@@ -2067,7 +2067,7 @@
 		<Row Tag="LOC_PEDIA_CONCEPTS_WAR_SUPPORT_TOOLTIP">
 			<Text>Each point of War Support a Civilization has over its opponent's War Support reduces that Opponent's Unit [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Combat Strength[/TIP] and [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]Settlement[/TIP] [icon:YIELD_HAPPINESS][b]Happiness[/b].[NN]More War Support can be gained by spending [icon:YIELD_DIPLOMACY][b]Influence[/b].</Text>
 		</Row>
-		<Row Tag="LOC_PEDIA_CONCEPTS_EXPERIENCE_TOOLTIP">
+		<Row Tag="LOC_PEDIA_CONCEPTS_COMMANDER_EXPERIENCE_TOOLTIP">
 			<Text>Experience is gained by [TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]Commander[/TIP] as units engage in combat within their [TIP:LOC_PEDIA_CONCEPTS_COMMAND_RADIUS_TOOLTIP]Command Radius[/TIP].[NN]When a Commander gains enough Experience, they receive a [TIP:LOC_PEDIA_CONCEPTS_PROMOTION_TOOLTIP]Promotion[/TIP].</Text>
 		</Row>
 		<Row Tag="LOC_PEDIA_CONCEPTS_TOWN_FOCUS_TOOLTIP">
@@ -2080,7 +2080,7 @@
 			<Text>Command Radius is the number of tiles around a [TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]Commander[/TIP] that gain benefits from their [TIP:LOC_PEDIA_CONCEPTS_PROMOTION_TOOLTIP]Promotions[/TIP] and [TIP:LOC_PEDIA_CONCEPTS_COMMENDATION_TOOLTIP]Commendations[/TIP].</Text>
 		</Row>
 		<Row Tag="LOC_PEDIA_CONCEPTS_PROMOTION_TOOLTIP">
-			<Text>Promotions are bonuses that a [TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]Commander[/TIP] can gain through [TIP:LOC_PEDIA_CONCEPTS_EXPERIENCE_TOOLTIP]Experience[/TIP].[NN]Reaching the final Promotion in a tree unlocks a [TIP:LOC_PEDIA_CONCEPTS_COMMENDATION_TOOLTIP]Commendation[/TIP].</Text>
+			<Text>Promotions are bonuses that a [TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]Commander[/TIP] can gain through [TIP:LOC_PEDIA_CONCEPTS_COMMANDER_EXPERIENCE_TOOLTIP]Experience[/TIP].[NN]Reaching the final Promotion in a tree unlocks a [TIP:LOC_PEDIA_CONCEPTS_COMMENDATION_TOOLTIP]Commendation[/TIP].</Text>
 		</Row>
 		<Row Tag="LOC_PEDIA_CONCEPTS_COMMENDATION_TOOLTIP">
 			<Text>Commendations are extremely powerful bonuses that a [TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]Commander[/TIP] can choose each time they reach the final [TIP:LOC_PEDIA_CONCEPTS_PROMOTION_TOOLTIP]Promotion[/TIP] in a tree.</Text>
@@ -2125,7 +2125,7 @@
 			<Text>Units that start their turn on a Burning tile take damage.</Text>
 		</Row>
 		<Row Tag="LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP">
-			<Text>Commanders are a special type of [TIP:LOC_PEDIA_CONCEPTS_SUPPORT_UNIT_TOOLTIP]Support Unit[/TIP] that can gain [TIP:LOC_PEDIA_CONCEPTS_EXPERIENCE_TOOLTIP]Experience[/TIP] and can assemble other units of the same domain to form an Army, Fleet, or Air Squadron, allowing them to move together with their Commander.[NN]Assembled Units are vulnerable and cannot attack until the units have been deployed onto tiles adjacent to the Commander.[NN]Defeated Commanders will respawn in your [TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]Capital[/TIP] after a delay.</Text>
+			<Text>Commanders are a special type of [TIP:LOC_PEDIA_CONCEPTS_SUPPORT_UNIT_TOOLTIP]Support Unit[/TIP] that can gain [TIP:LOC_PEDIA_CONCEPTS_COMMANDER_EXPERIENCE_TOOLTIP]Experience[/TIP] and can assemble other units of the same domain to form an Army, Fleet, or Air Squadron, allowing them to move together with their Commander.[NN]Assembled Units are vulnerable and cannot attack until the units have been deployed onto tiles adjacent to the Commander.[NN]Defeated Commanders will respawn in your [TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]Capital[/TIP] after a delay.</Text>
 		</Row>
 		<Row Tag="LOC_PEDIA_CONCEPTS_TREATIES_TOOLTIP">
 			<Text>Treaties are a type of diplomatic action with ongoing effects that can increase or decrease [TIP:LOC_PEDIA_CONCEPTS_RELATIONSHIP_TOOLTIP]Relationship[/TIP] and cannot be Supported, only Accepted or Rejected.</Text>
@@ -2350,12 +2350,12 @@
 			<Text>Hurricanes are a kind of [TIP:LOC_PEDIA_CONCEPTS_NATURAL_DISASTERS_TOOLTIP]Natural Disaster[/TIP] where tropical storms worsen.</Text>
 		</Row>
 
-		<Row Tag="LOC_PEDIA_CONCEPTS_THUNDERSTORM_TOOLTIP">
-			<Text>Thunderstorms are a kind of [TIP:LOC_PEDIA_CONCEPTS_NATURAL_DISASTERS_TOOLTIP]Natural Disaster[/TIP] where lightning illuminates the sky.</Text>
-		</Row>
-
 		<Row Tag="LOC_PEDIA_CONCEPTS_TORNADO_TOOLTIP">
 			<Text>Tornadoes are a kind of [TIP:LOC_PEDIA_CONCEPTS_NATURAL_DISASTERS_TOOLTIP]Natural Disaster[/TIP] where air currents form a column touching the ground.</Text>
+		</Row>
+
+		<Row Tag="LOC_PEDIA_CONCEPTS_THUNDERSTORM_TOOLTIP">
+			<Text>Thunderstorms are a kind of [TIP:LOC_PEDIA_CONCEPTS_NATURAL_DISASTERS_TOOLTIP]Natural Disaster[/TIP] where lightning illuminates the sky.</Text>
 		</Row>
 
 		<Row Tag="LOC_PEDIA_CONCEPTS_VOLCANIC_ERUPTION_TOOLTIP">

@@ -2,7 +2,7 @@ import { render } from '../../../../core/vendor/solid-js/web/dist/web.js';
 import { createEffect, onMount, onCleanup, createComponent, Show } from '../../../../core/vendor/solid-js/dist/solid.js';
 import { IsControllerActive, IsTouchActive } from '../../../../core/ui-next/services/input.js';
 import { AgeTransitionLoadScreen } from '../age-transition/age-transition-load-screen.js';
-import { createLoadScreenModel } from './load-screen-model.js';
+import { createLoadScreenModel, LoadCurtainClosedEvent } from './load-screen-model.js';
 import { LoadScreenContext, LoadScreen } from './load-screen.js';
 
 if (UI.isInGame() || UI.isInLoading()) {
@@ -24,6 +24,9 @@ if (UI.isInGame() || UI.isInLoading()) {
         loadingCurtain.removeEventListener("animationend", handleCurtainClosed);
         dispose?.();
         dispose = void 0;
+        window.dispatchEvent(new LoadCurtainClosedEvent({
+          closed: true
+        }));
       };
       dispose = render(() => {
         createEffect(() => {
@@ -44,7 +47,9 @@ if (UI.isInGame() || UI.isInLoading()) {
         });
         onCleanup(() => {
           loadingCurtain.removeEventListener("animationend", handleCurtainClosed);
-          Input.setActiveContext(InputContext.World);
+          if (!Configuration.getGame().isHotseat) {
+            Input.setActiveContext(InputContext.World);
+          }
         });
         return createComponent(LoadScreenContext.Provider, {
           value: model,

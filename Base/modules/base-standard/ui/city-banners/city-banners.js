@@ -3,13 +3,24 @@ import { ComponentID } from '../../../core/ui/utilities/utilities-component-id.j
 import { CreateElementTable, MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
 import { Icon } from '../../../core/ui/utilities/utilities-image.js';
 import UpdateGate from '../../../core/ui/utilities/utilities-update-gate.js';
-import { BANNER_INVALID_LOCATION, BannerType, CityStatusType } from './banner-support.js';
+import { BANNER_INVALID_LOCATION, BannerType } from './banner-support.js';
 import CityBannerManager from './city-banner-manager.js';
 import { RaiseDiplomacyEvent } from '../diplomacy/diplomacy-events.js';
 import content from './city-banners.html.js';
 import styles from './city-banners.scss.js';
 
 const BANNER_ANCHOR_OFFSET = { x: 0, y: 0, z: 42 };
+const happinessStages = [];
+GameInfo.HappinessStages.forEach((row) => {
+  happinessStages.push({
+    happinessStage: row.HappinessStageType,
+    name: row.HappinessStageType.replace("HAPPINESS_STAGE_", "LOC_UI_CITY_DETAILS_"),
+    icon: row.HappinessStageType.replace("HAPPINESS_STAGE_", "YIELD_"),
+    textColor: row.HappinessStageType.replace("HAPPINESS_STAGE_", "").toLowerCase() + "-text",
+    min: row.StageMinThreshold ?? -Infinity,
+    max: row.StageMaxThreshold ?? Infinity
+  });
+});
 class CityBannerComponent extends FxsActivatable {
   _worldAnchorHandle = null;
   inputSelector = ".city-banner__container, .city-banner__queue-container, .city-banner__portrait";
@@ -708,21 +719,20 @@ class CityBannerComponent extends FxsActivatable {
         );
         return;
       }
-      let happinessStatus = CityStatusType.happy;
-      this.elements.statusIcon.setAttribute("data-tooltip-content", "LOC_UI_CITY_DETAILS_HAPPY");
-      if (happiness < 0) {
-        happinessStatus = CityStatusType.unhappy;
-        this.elements.statusIcon.setAttribute("data-tooltip-content", "LOC_UI_CITY_DETAILS_UNHAPPY");
-      } else if (happiness < -10) {
-        happinessStatus = CityStatusType.angry;
-        this.elements.statusIcon.setAttribute("data-tooltip-content", "LOC_UI_CITY_DETAILS_ANGRY");
-      }
       if (this.city.isInfected) {
-        happinessStatus = CityStatusType.plague;
         this.elements.statusIcon.setAttribute("data-tooltip-content", "LOC_UI_CITY_DETAILS_INFECTED");
+        const icon = UI.getIconURL("YIELD_PLAGUE", "YIELD");
+        this.elements.statusIcon.style.backgroundImage = `url('${icon}')`;
+      } else {
+        for (const stage of happinessStages) {
+          if (happiness >= stage.min && happiness <= stage.max) {
+            this.elements.statusIcon.setAttribute("data-tooltip-content", stage.name);
+            const icon = UI.getIconURL(stage.icon, "YIELD");
+            this.elements.statusIcon.style.backgroundImage = `url('${icon}')`;
+            break;
+          }
+        }
       }
-      const icon = UI.getIconURL(happinessStatus, "YIELD");
-      this.elements.statusIcon.style.backgroundImage = `url('${icon}')`;
       const isLocalPlayerCity = this.componentID.owner === GameContext.localObserverID;
       this.elements.cityName.classList.toggle("city-banner__status--hidden", !isLocalPlayerCity);
       if (!this.city.Happiness) {
@@ -793,8 +803,12 @@ class CityBannerComponent extends FxsActivatable {
    */
   localPlayerUpdate() {
     const isLocalPlayerCity = this.componentID.owner === GameContext.localObserverID;
-    this.Root.classList.toggle("city-banner--city", isLocalPlayerCity);
-    this.Root.classList.toggle("city-banner--city-other", !isLocalPlayerCity);
+    const isMajorCity = this.Root.classList.contains("city-banner--city") || this.Root.classList.contains("city-banner--city-other");
+    if (isMajorCity) {
+      this.Root.classList.toggle("city-banner--city", isLocalPlayerCity);
+      this.Root.classList.toggle("city-banner--city-other", !isLocalPlayerCity);
+    }
+    this.affinityUpdate();
   }
   updateConqueredIcon() {
     if (this.city && this.city.isValid && this.city.originalOwner != this.city.owner && this.city.mostRecentTranseferType != CityTransferTypes.BY_INCORPORATE_CITY_STATE && this.city.owner == GameContext.localObserverID) {

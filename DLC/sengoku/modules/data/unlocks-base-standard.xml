@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Types>
+		<InsertOrIgnore Type="UNLOCK_CIVILIZATION_SENGOKU" Kind="KIND_UNLOCK"/>
+	</Types>
+	<Unlocks>
+		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_SENGOKU"/>
+	</Unlocks>
+	<UnlockRewards>
+		<Row UnlockType="UNLOCK_CIVILIZATION_SENGOKU" Name="LOC_CIVILIZATION_SENGOKU_NAME" Description="LOC_UNLOCK_EXPLORATION_CIV_DESCRIPTION" Icon="CIVILIZATION_SENGOKU" UnlockRewardType="CIVILIZATION_SENGOKU" UnlockRewardKind="KIND_CIVILIZATION"/>
+	</UnlockRewards>
+	<RequirementSets>
+		<Row RequirementSetId="REQSET_PLAYER_HAS_ALL_WARS" RequirementSetType="REQUIREMENTSET_TEST_ALL"/>
+	</RequirementSets>
+	<Requirements>
+		<Row RequirementId="REQ_PLAYER_HAS_ALL_WARS" RequirementType="REQUIREMENT_PLAYER_HAS_X_WARS"/>
+	</Requirements>
+	<RequirementArguments>
+		<Row RequirementId="REQ_PLAYER_HAS_ALL_WARS" Name="AllMajors" Value="true"/>
+		<Row RequirementId="REQ_PLAYER_HAS_ALL_WARS" Name="HomeHemisphere" Value="true"/>
+		<Row RequirementId="REQ_PLAYER_HAS_ALL_WARS" Name="OnlyLiving" Value="true"/>
+	</RequirementArguments>
+	<RequirementSetRequirements>
+		<Row RequirementSetId="REQSET_PLAYER_HAS_ALL_WARS" RequirementId="REQ_PLAYER_HAS_ALL_WARS"/>
+		<Row RequirementSetId="REQSET_PLAYER_HAS_ALL_WARS" RequirementId="REQ_AGE_IS_ANTIQUITY"/>
+	</RequirementSetRequirements>
+	<UnlockRequirements>
+		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_SENGOKU" RequirementSetId="REQSET_LEADER_IS_HIMIKO" Description="LOC_UNLOCK_PLAY_AS_HIMIKO_DESCRIPTION" Tooltip="LOC_UNLOCK_PLAY_AS_HIMIKO_SENGOKU_TOOLTIP"/>
+		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_SENGOKU" RequirementSetId="REQSET_PLAYER_HAS_ALL_WARS" Description="LOC_UNLOCK_WARS_DESCRIPTION" Tooltip="LOC_UNLOCK_WARS_SENGOKU_TOOLTIP" GameplayUnlock="True" NarrativeText="LOC_UNLOCK_WARS_SENGOKU_NARRATIVE"/>
+	</UnlockRequirements>
+	<UnlockConfigurationValues>
+		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_SENGOKU" ConfigurationValue="CIVILIZATION_SENGOKU"/>
+	</UnlockConfigurationValues>
+</Database>

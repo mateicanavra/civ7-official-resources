@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+	<Modifier id="TOYOTOMI_HIDEYOSHI_MOD_DOUBLE_DAMAGE_ATTACK" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_DAMAGE_ATTACK_MODIFIER">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_DOMAIN_MATCHES">
+				<Argument name="UnitDomain">DOMAIN_LAND</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Percent">200</Argument>
+	</Modifier>
+	<Modifier id="TOYOTOMI_HIDEYOSHI_MOD_OPPONENTS_DOUBLE_DAMAGE_ATTACK" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_OPPONENT_DAMAGE_ATTACK_MODIFIER">
+		<Argument name="Percent">200</Argument>
+	</Modifier>
+	<Modifier id="TOYOTOMI_HIDEYOSHI_MOD_HEAL_ANYWHERE" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_HEAL_PER_TURN">
+		<Argument name="Amount">5</Argument>
+	</Modifier>
+	<Modifier id="TOYOTOMI_HIDEYOSHI_MOD_HEAL_CULTURE_OR_WONDER" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_HEAL_PER_TURN">
+		<SubjectRequirements type="REQUIREMENTSET_TEST_ANY">
+			<Requirement type="REQUIREMENT_PLOT_HAS_CONSTRUCTIBLE">
+				<Argument name="Tag">CULTURE</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_PLOT_HAS_CONSTRUCTIBLE">
+				<Argument name="ConstructibleClass">WONDER</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">5</Argument>
+	</Modifier>
+	<Modifier id="TOYOTOMI_HIDEYOSHI_MOD_ORIGINAL_CULTURE_BUILDING_PRODUCTION_TOWARDS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_PRODUCTION">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_ORIGINAL_OWNER"/>
+		</SubjectRequirements>
+		<Argument name="Percent">25</Argument>
+		<Argument name="Tag">CULTURE</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_LEADER_TOYOTOMI_HIDEYOSHI_ABILITY_NAME</Argument>
+	</Modifier>
+	<Modifier id="TOYOTOMI_HIDEYOSHI_MOD_CONQUERED_CULTURE_BUILDING_PRODUCTION_TOWARDS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_PRODUCTION">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_CONQUERED_ANY_AGE"/>
+		</SubjectRequirements>
+		<Argument name="Percent">50</Argument>
+		<Argument name="Tag">CULTURE</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_LEADER_TOYOTOMI_HIDEYOSHI_ABILITY_NAME</Argument>
+	</Modifier>
+	<Modifier id="TOYOTOMI_HIDEYOSHI_MOD_AGENDA" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_AGENDA_TIMED_UPDATE">
+		<String context="Name">LOC_DIPLOMACY_AGENDA_TOYOTOMI_HIDEYOSHI_NAME</String>
+		<Argument name="ModName">LOC_DIPLOMACY_AGENDA_TOYOTOMI_HIDEYOSHI_NAME</Argument>
+		<Argument name="Tooltip">LOC_DIPLOMACY_AGENDA_TOYOTOMI_HIDEYOSHI_DESC</Argument>
+		<Argument name="WeightType">DIPLOMACY_AGENDA_COMPARE_YIELD_AND_UNITS</Argument>
+		<Argument name="FirstMeetDelay">20</Argument>
+		<Argument name="UpdateFreq">10</Argument>
+		<Argument name="AwardTo1">DIPLOMACY_AGENDA_AWARD_HIGHEST</Argument>
+		<Argument name="AwardAmtType1">DIPLOMACY_AGENDA_AMT_MEDIUM</Argument>
+		<Argument name="Arg1">YIELD_CULTURE</Argument>
+		<Argument name="Arg2">DOMAIN_LAND</Argument>
+		<Argument name="AwardTo2">DIPLOMACY_AGENDA_AWARD_LOWEST</Argument>
+		<Argument name="AwardAmtType2">DIPLOMACY_AGENDA_NEG_AMT_SMALL</Argument>
+		<Argument name="NotifyMessage">LOC_NOTIFICATION_DIPLOMATIC_AGENDA_DEFAULT_MESSAGE</Argument>
+		<Argument name="NotifySummary">LOC_NOTIFICATION_DIPLOMATIC_AGENDA_DEFAULT_SUMMARY</Argument>
+	</Modifier>
+</GameEffects>

@@ -1,4 +1,5 @@
-import { HexValidationSettings, RemoveBridgingCoastsOptions, PlayerRegion } from '../voronoi-hex.js';
+import { HexValidationSettings, RemoveBridgingLandmassOptions, VoronoiValidationSettings, SeparationFilterOptions } from '../hex-map.js';
+import { PlayerRegion } from '../player-areas.js';
 import { RegionType } from '../voronoi-types.js';
 import shatteredSeasSettings from '../voronoi_data/shattered-seas.mapconfig.js';
 import { UnifiedContinentsBase } from './unified-continents-base.js';
@@ -41,10 +42,15 @@ class VoronoiShatteredSeas extends UnifiedContinentsBase {
     this.m_settings.minDistantSpawnCenterDistance = 0.25;
     this.m_settings.maxDistantSpawnCenterDistance = 0.5;
     const hexValidationSettings = new HexValidationSettings();
-    hexValidationSettings.removeBridgingLandmass = true;
-    hexValidationSettings.removeBridgingCoasts = RemoveBridgingCoastsOptions.DIFFERENT_TYPES | RemoveBridgingCoastsOptions.DIFFERENT_LANDMASS_GROUPS;
+    hexValidationSettings.removeBridgingPlayerLandmasses = RemoveBridgingLandmassOptions.FORCE_COASTS;
     this.getHexTiles().setValidationSettings(hexValidationSettings);
     super.simulateInternal();
+  }
+  getVoronoiValidationSettings() {
+    const voronoiValidationSettings = new VoronoiValidationSettings();
+    voronoiValidationSettings.forceOceans = SeparationFilterOptions.DIFFERENT_LANDMASS_GROUPS;
+    voronoiValidationSettings.forceCoasts = SeparationFilterOptions.ALL;
+    return voronoiValidationSettings;
   }
   /**
    * Creates major player areas by assigning players to landmasses in a round-robin fashion.
@@ -66,18 +72,19 @@ class VoronoiShatteredSeas extends UnifiedContinentsBase {
       return out;
     }, []);
     landmassIds.sort((a, b) => regions[b].cellCount - regions[a].cellCount);
-    const playerLandmasses = new Array(landmassIds.length);
-    for (let i = 0; i < playerLandmasses.length; ++i) {
-      playerLandmasses[i] = new PlayerRegion();
-      playerLandmasses[i].id = landmassIds[i];
+    const playerRegions = new Array(landmassIds.length);
+    for (let i = 0; i < playerRegions.length; ++i) {
+      playerRegions[i] = new PlayerRegion();
+      playerRegions[i].id = landmassIds[i];
+      playerRegions[i].filter = (tile) => {
+        const cell = this.getRegionCellForHex(tile.coord.x, tile.coord.y);
+        return cell?.landmassId === landmassIds[i];
+      };
     }
-    playerLandmasses.forEach((region) => {
-      region.filter = ((tile) => tile.landmassId == region.id).bind(region);
-    });
     for (let i = 0; i < this.getSettings().totalPlayers; ++i) {
-      ++playerLandmasses[i % landmassIds.length].playerAreas;
+      ++playerRegions[i % landmassIds.length].playerAreas;
     }
-    super.createMajorPlayerAreas(valueFunction, playerLandmasses);
+    super.createMajorPlayerAreas(valueFunction, playerRegions);
   }
   static getName() {
     return "Shattered Seas";

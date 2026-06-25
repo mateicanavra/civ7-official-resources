@@ -1071,7 +1071,7 @@
       <Text>Clic/Pression tactile : délai avant déplacement</Text>
     </Replace>
     <Replace Tag="LOC_OPTIONS_ACCESSIBILITY_LONG_PRESS_DESCRIPTION" Language="fr_FR">
-      <Text>Définit la durée pendant laquelle vous pouvez maintenir un clic de souris ou une pression sur écran tactile avant que le déplacement ne soit pris en compte. Si le jeu ne gère pas bien les clics ou les pressions tactiles, augmenter cette valeur peur résoudre le problème.</Text>
+      <Text>Définit la durée pendant laquelle vous pouvez maintenir un clic de souris ou une pression sur écran tactile avant que le déplacement ne soit pris en compte. S'il vous est difficile de ne pas trembler ou si votre souris est très sensible, vous pouvez augmenter la valeur pour aider le jeu à interpréter correctement les clics et les pressions tactiles.</Text>
     </Replace>
     <Replace Tag="LOC_OPTIONS_ADAPTIVE_TRIGGERS_ENABLED" Language="fr_FR">
       <Text>Gâchettes adaptatives</Text>
@@ -1203,7 +1203,8 @@
       <Text>Changement d'unité auto.</Text>
     </Replace>
     <Replace Tag="LOC_OPTIONS_AUTOUNITYCYCLE_DESCRIPTION" Language="fr_FR">
-      <Text>Une fois que les points de mouvement de l'unité sélectionnée sont épuisés, vous passez directement aux unités qui en ont encore.</Text>
+      <Text>Une fois que les points de mouvement de l'unité sélectionnée sont épuisés, vous passez directement
+					aux unités qui en ont encore.</Text>
     </Replace>
     <Replace Tag="LOC_OPTIONS_BRIGHTNESS" Language="fr_FR">
       <Text>Luminosité</Text>
@@ -1892,6 +1893,12 @@
     <Replace Tag="LOC_OPTIONS_GFX_XEFG_DESCRIPTION" Language="fr_FR">
       <Text>Des images générées par IA sont imbriquées dans les graphismes existants pour décupler le nombre d'images par seconde (FPS) et augmenter les performances.</Text>
     </Replace>
+    <Replace Tag="LOC_OPTIONS_GFX_XEFG_FRAME_COUNT" Language="fr_FR">
+      <Text>Interpolation d'images</Text>
+    </Replace>
+    <Replace Tag="LOC_OPTIONS_GFX_XEFG_FRAME_COUNT_DESCRIPTION" Language="fr_FR">
+      <Text>Nombre d'images à générer entre les images rendues.</Text>
+    </Replace>
     <Replace Tag="LOC_OPTIONS_GFX_XELL" Language="fr_FR">
       <Text>Faible latence Intel Xe</Text>
     </Replace>
@@ -2029,6 +2036,9 @@
     </Replace>
     <Replace Tag="LOC_OPTIONS_HELP_TYPES_DESCRIPTION" Language="fr_FR">
       <Text>Définit les types d'assistance à afficher pendant vos parties.</Text>
+    </Replace>
+    <Replace Tag="LOC_OPTIONS_HOTSEAT_NOT_VALID" Language="fr_FR">
+      <Text>Invalide en mode de jeu Chacun son tour.</Text>
     </Replace>
     <Replace Tag="LOC_OPTIONS_INPUT_DEVICE" Language="fr_FR">
       <Text>Périphérique d'entrée</Text>
@@ -3142,6 +3152,9 @@
     </Replace>
     <Replace Tag="LOC_PROFILE_TITLE_DLC_SEASONPASS_3" Language="fr_FR">
       <Text>Capitaine pirate</Text>
+    </Replace>
+    <Replace Tag="LOC_PROFILE_TITLE_DLC_SEASONPASS_4" Language="fr_FR">
+      <Text>Poète guerrier</Text>
     </Replace>
     <Replace Tag="LOC_PROFILE_TITLE_FOUNDATION_1" Language="fr_FR">
       <Text>Scribe scribouillard</Text>
@@ -4308,7 +4321,7 @@
       <Text>Affiche ou masque le filtre du commerce.</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_RANKINGS_SCREEN" Language="fr_FR">
-      <Text>Écran des classements</Text>
+      <Text>Écran des victoires</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_RELIGION" Language="fr_FR">
       <Text>Écran des religions</Text>
@@ -5157,10 +5170,10 @@
       <Text>Débloque les éléments suivants : [BLIST]{1_Items}[/LIST].</Text>
     </Replace>
     <Replace Tag="LOC_CREATE_GAME_UNLOCKS_LIST_ITEM" Language="fr_FR">
-      <Text>[LI] [B]{1_UnlockName}[/B].</Text>
+      <Text>[B]{1_UnlockName}.[/B]</Text>
     </Replace>
     <Replace Tag="LOC_CREATE_GAME_UNLOCKS_LIST_ITEM_IN_AGE" Language="fr_FR">
-      <Text>[LI] [B]{1_UnlockName}[/B] à l'[B]{2_AgeName}[/B].</Text>
+      <Text>[B]{1_UnlockName}[/B] à [B]l'{2_AgeName}.[/B]</Text>
     </Replace>
     <Replace Tag="LOC_CROSSPLAY_CHOICE_1_CONTEXT_CONFLICT_RESOLUTION" Language="fr_FR">
       <Text>Sauvegarde interplateforme locale : {1_CrossplayType}</Text>

@@ -56,7 +56,6 @@ for (const e of GameInfo.TypeTags) {
 function getConstructibleTagsFromType(type) {
   const tagSet = constructibleItemTypeMap.get(type);
   if (!tagSet) {
-    console.error(`utilities-tags: getConstructibleTagsFromType called with an invalid constructible type ${type}`);
     return [];
   }
   return Array.from(tagSet).filter((tag) => !constructibleTagsToExclude.includes(tag) && constructibleTagNames.has(tag)).map((tag) => Locale.compose(constructibleTagNames.get(tag)));

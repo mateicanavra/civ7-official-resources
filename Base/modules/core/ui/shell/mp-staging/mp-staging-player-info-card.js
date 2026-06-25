@@ -79,7 +79,11 @@ class MpStagingPlayerInfoCard extends Panel {
   }
   refresh() {
     const isHotseat = Configuration.getGame().isHotseat;
-    this.titleLabel.innerHTML = isHotseat ? this.playerData.gamertag : this.playerData.firstPartyName;
+    let firstPlayerName = this.playerData.firstPartyName;
+    if (isHotseat || !this.playerData.firstPartyName || this.playerData.firstPartyName === "") {
+      firstPlayerName = this.playerData.gamertag;
+    }
+    this.titleLabel.innerHTML = firstPlayerName;
     this.titleLabel.firstChild?.classList?.add("font-fit-shrink", "whitespace-nowrap");
     this.title2Label.innerHTML = this.playerData.isHuman ? this.playerData.twoKName : this.playerData.gamertag;
     this.title2Label.firstChild?.classList?.add("font-fit-shrink", "whitespace-nowrap");

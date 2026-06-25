@@ -7,6 +7,7 @@ import UpdateGate from '../utilities/utilities-update-gate.js';
 
 const FORCE_GAMEPAD = false;
 const LOG_CURSOR_MISMATCH = false;
+const LOG_INPUT_EVENTS = false;
 class ActionHandlerSingleton {
   static Instance;
   // Singleton
@@ -103,6 +104,22 @@ class ActionHandlerSingleton {
    * @param y coordinate if relevant
    */
   onEngineInput(name, status, x, y) {
+    const statusToString = (status2) => {
+      switch (status2) {
+        case InputActionStatuses.START:
+          return "start";
+        case InputActionStatuses.FINISH:
+          return "finish";
+        case InputActionStatuses.UPDATE:
+          return "update";
+        case InputActionStatuses.HOLD:
+          return "hold";
+        case InputActionStatuses.DRAG:
+          return "drag";
+        default:
+          return "Unknown";
+      }
+    };
     if (Cursor.softCursorEnabled && this.handleSoftCursorInput(name, status, x, y)) {
       return;
     }
@@ -165,6 +182,33 @@ class ActionHandlerSingleton {
       }
       const inputName = this.isGamepadActive || Cursor.softCursorEnabled ? name : "refocus";
       navigationDirection = this.isGamepadActive && navigationDirection != null ? navigationDirection : InputNavigationAction.NONE;
+      if (LOG_INPUT_EVENTS) {
+        const dirToString = (dir) => {
+          switch (dir) {
+            case InputNavigationAction.UP:
+              return "UP";
+            case InputNavigationAction.DOWN:
+              return "DOWN";
+            case InputNavigationAction.LEFT:
+              return "LEFT";
+            case InputNavigationAction.RIGHT:
+              return "RIGHT";
+            case InputNavigationAction.NEXT:
+              return "NEXT";
+            case InputNavigationAction.PREVIOUS:
+              return "PREVIOUS";
+            case InputNavigationAction.SHELL_NEXT:
+              return "SHELL_NEXT";
+            case InputNavigationAction.SHELL_PREVIOUS:
+              return "SHELL_PREVIOUS";
+            default:
+              return "Unknown";
+          }
+        };
+        console.log(
+          `Nav: ${inputName}, Status: '${statusToString(status)}' (${status}), Dir: '${dirToString(navigationDirection)}' (${navigationDirection}), DeviceType: ${this.deviceType}`
+        );
+      }
       const navigationEvent = new NavigateInputEvent(NavigateInputEventName, {
         bubbles: true,
         cancelable: true,
@@ -177,6 +221,11 @@ class ActionHandlerSingleton {
         }
       }
     } else {
+      if (LOG_INPUT_EVENTS) {
+        console.log(
+          `Act: ${name}, Status: '${statusToString(status)}' (${status}), DeviceType: ${this.deviceType}`
+        );
+      }
       const inputEvent = new InputEngineEvent(name, status, x, y, isTouch, isMouse);
       try {
         const live = Framework.ContextManager.handleInput(inputEvent);

@@ -1,5 +1,6 @@
 import { g_DesiredBufferBetweenMajorStarts, g_RequiredBufferBetweenMajorStarts } from './map-globals.js';
 import { getSectorRegion, shuffle, isOceanAccess } from './map-utilities.js';
+import { profileScope } from '../scripts/profiling.js';
 
 class PlayerRegion {
   tiles = [];
@@ -428,8 +429,27 @@ function assignStartPositions(iNumWest, iNumEast, west, east, iStartSectorRows, 
   }
   return startPositions;
 }
+function assignStartPositionsFromHexMap(hexMap) {
+  const perfScope = new profileScope("Building PlayerRegions from hex map");
+  const playerRegions = [];
+  for (const row of hexMap.getTiles()) {
+    for (const tile of row) {
+      if (tile.majorPlayerRegionId >= 0) {
+        const playerRegion = playerRegions[tile.majorPlayerRegionId] ??= new PlayerRegion();
+        playerRegion.regionId = tile.majorPlayerRegionId;
+        playerRegion.landmassId = tile.playerLandmassId - 1;
+        playerRegion.tiles.push(tile.coord);
+      }
+    }
+  }
+  console.log(
+    `Creating player regions.. initializing indices: ${playerRegions.map((pr) => [pr.regionId, pr.landmassId])}`
+  );
+  perfScope.end();
+  return assignStartPositionsFromTiles(playerRegions);
+}
 function assignStartPositionsFromTiles(playerRegions) {
-  console.log("Assigning Starting Positions");
+  const scope = new profileScope("Assigning Starting Positions");
   if (playerRegions.length === 0) {
     console.error("empty array passed to assignStartPositionsFromTiles()");
     return [];
@@ -525,6 +545,7 @@ function assignStartPositionsFromTiles(playerRegions) {
       console.log("FAILED TO PICK LOCATION FOR: " + playerId);
     }
   }
+  scope.end();
   return startPositions;
 }
 function assignSingleContinentStartPositions(iNumPlayers, primaryLandmass, iStartSectorRows, iStartSectorCols, sectors) {
@@ -1274,5 +1295,5 @@ function getNaturalWonderStartBiasScore(score, iX, iY) {
   return outputScore;
 }
 
-export { PlayerRegion, PlayerRegionScores, assignSingleContinentStartPositions, assignStartPositions, assignStartPositionsFromTiles, chooseStartSectors };
+export { PlayerRegion, PlayerRegionScores, assignSingleContinentStartPositions, assignStartPositions, assignStartPositionsFromHexMap, assignStartPositionsFromTiles, chooseStartSectors };
 //# sourceMappingURL=assign-starting-plots.js.map

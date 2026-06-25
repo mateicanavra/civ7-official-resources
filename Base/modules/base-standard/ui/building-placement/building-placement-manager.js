@@ -48,6 +48,11 @@ class BuildingPlacementManagerClass {
   }
   // Placement data for the currently selected constructible
   selectedPlacementData;
+  //Plots that would become unique quarters if a unique quarter building is being placed
+  _uniqueQuarterPlots = [];
+  get uniqueQuarterPlots() {
+    return this._uniqueQuarterPlots;
+  }
   //Plots that are already developed and have buildings placed on them
   _urbanPlots = [];
   get urbanPlots() {
@@ -114,7 +119,18 @@ class BuildingPlacementManagerClass {
     }
     this._currentConstructible = constructible;
     this.isRepairing = operationResult.RepairDamaged;
-    operationResult.Plots?.forEach((plot) => this._urbanPlots.push(plot));
+    const uniqueQuarterPlotIndices = [];
+    for (const uniqueDistrictDef of GameInfo.UniqueQuarters) {
+      if (constructible.ConstructibleType == uniqueDistrictDef.BuildingType1 || constructible.ConstructibleType == uniqueDistrictDef.BuildingType2) {
+        uniqueQuarterPlotIndices.push(BuildingPlacementManager.findExistingUniqueBuilding(uniqueDistrictDef));
+      }
+    }
+    operationResult.Plots?.forEach((plot) => {
+      if (uniqueQuarterPlotIndices.includes(plot)) {
+        this._uniqueQuarterPlots.push(plot);
+      }
+      this._urbanPlots.push(plot);
+    });
     operationResult.ExpandUrbanPlots?.forEach((p) => {
       const location = GameplayMap.getLocationFromIndex(p);
       const city = MapCities.getCity(location.x, location.y);
@@ -457,6 +473,7 @@ class BuildingPlacementManagerClass {
   reset() {
     this._cityID = null;
     this._currentConstructible = null;
+    this._uniqueQuarterPlots = [];
     this._expandablePlots = [];
     this._urbanPlots = [];
     this._developedPlots = [];
@@ -591,7 +608,6 @@ class BuildingPlacementManagerClass {
       return data.constructibleType == typeHash;
     });
     if (!placementData) {
-      console.error("building-placement-manager.ts: getNumberOfWarehouseBonuses failed to find placement data");
       return 0;
     }
     let highestWarehouseCount = 0;
@@ -627,7 +643,6 @@ class BuildingPlacementManagerClass {
       return data.constructibleType == typeHash;
     });
     if (!placementData) {
-      console.error("building-placement-manager.ts: getHighestAdjacencyBonus failed to find placement data");
       return 0;
     }
     let highestAdjacencyBonus = 0;

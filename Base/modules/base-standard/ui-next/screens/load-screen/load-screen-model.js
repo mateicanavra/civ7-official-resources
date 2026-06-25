@@ -9,6 +9,12 @@ import { ComponentRegistry } from '../../../../core/ui-next/services/component-r
 import { ComponentUtilities } from '../../../../core/ui-next/utilities/component-utilities.js';
 import { createArraySignal } from '../../../../core/ui-next/utilities/solid-utilities.js';
 
+const LoadCurtainClosedEventName = "load-curtain-closed-event";
+class LoadCurtainClosedEvent extends CustomEvent {
+  constructor(detail) {
+    super(LoadCurtainClosedEventName, { bubbles: false, cancelable: true, detail });
+  }
+}
 function getCivLoadingInfo() {
   const gameConfig = Configuration.getGame();
   const playerConfig = Configuration.getPlayer(GameContext.localPlayerID);
@@ -652,5 +658,5 @@ function createLoadScreenModel() {
   return model;
 }
 
-export { createLoadScreenModel, getCivLoadingInfo, getLeaderLoadingInfo };
+export { LoadCurtainClosedEvent, LoadCurtainClosedEventName, createLoadScreenModel, getCivLoadingInfo, getLeaderLoadingInfo };
 //# sourceMappingURL=load-screen-model.js.map

@@ -1,5 +1,3 @@
-import LensManager from '../../../core/ui/lenses/lens-manager.js';
-
 class MiniMapModel {
   static _Instance;
   static getInstance() {
@@ -13,19 +11,6 @@ class MiniMapModel {
   }
   getLensDisplayOption(lens) {
     return UI.getOption("user", "Interface", lens);
-  }
-  setDecorationOption(decorLayer, value) {
-    const convValue = value ? 1 : 0;
-    UI.setOption("user", "Gameplay", LensManager.getLayerOption(decorLayer), convValue);
-    Configuration.getUser().saveCheckpoint();
-  }
-  getDecorationOption(decorLayer) {
-    const intval = UI.getOption(
-      "user",
-      "Gameplay",
-      LensManager.getLayerOption(decorLayer)
-    );
-    return intval != 0;
   }
 }
 const MiniMapData = MiniMapModel.getInstance();

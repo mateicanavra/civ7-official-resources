@@ -30,7 +30,13 @@ class ScreenStoreLauncher extends Panel {
     this.redeemButton.addEventListener("action-activate", this.redeemButtonActivateListener);
     this.redeemButton.setAttribute("data-audio-group-ref", "collections");
     this.redeemButton.setAttribute("data-audio-activate-ref", "data-audio-redeem-activate");
+    this.redeemButton.setAttribute("data-audio-focus-ref", "data-audio-focus");
+    this.redeemButton.setAttribute("data-audio-press-ref", "data-audio-press");
     this.backButton.addEventListener("action-activate", this.backButtonActivateListener);
+    this.backButton.setAttribute("data-audio-group-ref", "collections");
+    this.backButton.setAttribute("data-audio-activate-ref", "data-audio-cancel-activate");
+    this.backButton.setAttribute("data-audio-focus-ref", "data-audio-focus");
+    this.backButton.setAttribute("data-audio-press-ref", "data-audio-press");
   }
   onDetach() {
     super.onDetach();

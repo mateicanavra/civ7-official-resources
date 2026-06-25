@@ -339,11 +339,11 @@ CREATE TABLE "PlayerUnlockedTraditions" (
 
 DROP TABLE IF EXISTS "PlayerCatalogAdvisors";
 CREATE TABLE "PlayerCatalogAdvisors" (
-		"PlayerID" INTEGER NOT NULL,
-		"AdvisorType" INTEGER NOT NULL,
-		"Followed" BOOLEAN NOT NULL,
-		"Pages" TEXT NOT NULL,
-		"Turns" TEXT NOT NULL,
+		"PlayerID" INTEGER,
+		"AdvisorType" INTEGER,
+		"Followed" BOOLEAN,
+		"Pages" TEXT,
+		"Turns" TEXT,
 		PRIMARY KEY(PlayerID, AdvisorType));
 
 DROP TABLE IF EXISTS "PlayerVictoryPoints";

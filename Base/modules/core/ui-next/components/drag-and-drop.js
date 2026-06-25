@@ -1,8 +1,15 @@
 import { template, insert, Portal, style, use, className, classList, delegateEvents } from '../../vendor/solid-js/web/dist/web.js';
-import { createContext, useContext, createSignal, createMemo, createEffect, onCleanup, createComponent, createRenderEffect } from '../../vendor/solid-js/dist/solid.js';
+import { createContext, useContext, createSignal, createMemo, onCleanup, untrack, createEffect, createComponent, createRenderEffect } from '../../vendor/solid-js/dist/solid.js';
 import { ActiveInputDevice } from '../services/input.js';
 
-var _tmpl$ = /* @__PURE__ */ template(`<div></div>`);
+var _tmpl$ = /* @__PURE__ */ template(`<div class="drag-and-drop flex-auto"></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div></div>`);
+var debugLevels = /* @__PURE__ */ ((debugLevels2) => {
+  debugLevels2[debugLevels2["Log"] = 0] = "Log";
+  debugLevels2[debugLevels2["Verbose"] = 1] = "Verbose";
+  debugLevels2[debugLevels2["VeryVerbose"] = 2] = "VeryVerbose";
+  return debugLevels2;
+})(debugLevels || {});
+const DEBUG_LEVEL = 0 /* Log */;
 var DragEndStatus = /* @__PURE__ */ ((DragEndStatus2) => {
   DragEndStatus2[DragEndStatus2["Released"] = 0] = "Released";
   DragEndStatus2[DragEndStatus2["Cancelled"] = 1] = "Cancelled";
@@ -92,6 +99,53 @@ const DragAndDrop = (props) => {
   overlayRoot.appendChild(overlayContent);
   let capturedStartCallback = null;
   let capturedEndCallback = null;
+  let currentDropzoneElement;
+  window.addEventListener("engine-input", onEngineInputCapture, {
+    capture: true
+  });
+  onCleanup(() => {
+    window.removeEventListener("engine-input", onEngineInputCapture, {
+      capture: true
+    });
+  });
+  function onEngineInputCapture(event) {
+    let handled = false;
+    debugTrace(2 /* VeryVerbose */, "onInputAction:", event.detail);
+    if (event.detail.name === "touch-pan" && event.detail.status === InputActionStatuses.DRAG) {
+      onMouseOrTouchMove(event.detail.x, event.detail.y);
+      if (!isDragging()) {
+        return;
+      }
+      debugTrace(2 /* VeryVerbose */, "onInputAction:", "touch-pan", InputActionStatuses.UPDATE, `[${event.detail.x}, ${event.detail.y}]`);
+      const elementsAtPoint = document.elementsFromPoint(event.detail.x, event.detail.y);
+      const el = elementsAtPoint.find((el2) => el2.classList.contains("dropzone")) ?? null;
+      if (el !== currentDropzoneElement) {
+        if (currentDropzoneElement && currentDropzoneElement.contains(el) === false) {
+          debugTrace(0 /* Log */, "onInputAction: leaving dropzone", currentDropzoneElement, `[${event.detail.x}, ${event.detail.y}]`);
+          currentDropzoneElement.dispatchEvent(new MouseEvent("mouseleave", {
+            bubbles: true
+          }));
+        }
+        currentDropzoneElement = el;
+        if (currentDropzoneElement) {
+          debugTrace(0 /* Log */, "onInputAction: entering dropzone", currentDropzoneElement, `[${event.detail.x}, ${event.detail.y}]`);
+          currentDropzoneElement.dispatchEvent(new MouseEvent("mouseenter", {
+            bubbles: true
+          }));
+        }
+      }
+      handled = true;
+    }
+    if (event.detail.name === "touch-complete" && event.detail.status === InputActionStatuses.FINISH) {
+      debugTrace(1 /* Verbose */, "onInputAction:", "touch-complete", InputActionStatuses.FINISH, `[${event.detail.x}, ${event.detail.y}]`);
+      releaseDraggable(event.detail.x, event.detail.y);
+      handled = true;
+    }
+    if (handled) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+  }
   const isDisabled = createMemo(() => {
     const activeInputDevice = ActiveInputDevice();
     let inputSupportsDND = false;
@@ -111,15 +165,25 @@ const DragAndDrop = (props) => {
     x: 0,
     y: 0
   };
+  const shouldDebugTrace = untrack(() => props.debugTrace);
+  function debugTrace(debugLevel, ...args) {
+    if (!shouldDebugTrace || debugLevel > DEBUG_LEVEL) {
+      return;
+    }
+    console.debug(`[${Date.now()}] DnD: DragAndDrop`, ...args);
+  }
   function resetDrag() {
+    debugTrace(1 /* Verbose */, "resetDrag");
     setIsCapture(null);
     setIsDropping(null);
     setIsDragging(null);
     setDropzones([]);
     overlayRoot.style.display = "none";
     overlayRoot.remove();
+    currentDropzoneElement = null;
   }
-  function startDrag(event) {
+  function startDrag(x, y) {
+    debugTrace(1 /* Verbose */, "startDrag", `[${x}, ${y}]`);
     if (isDragging()) {
       throw new Error("Already in a dragging operation!");
     }
@@ -127,9 +191,7 @@ const DragAndDrop = (props) => {
     if (draggable == null) {
       throw new Error("Cannot start a drag operation when no draggable has been captured.");
     }
-    if (props.debugTrace) {
-      console.log("Starting drag operation.", draggable);
-    }
+    debugTrace(1 /* Verbose */, "Starting drag operation.", draggable);
     setIsDragging(draggable);
     if (props.onDragStart) {
       props.onDragStart(draggable, initialPosition);
@@ -138,11 +200,12 @@ const DragAndDrop = (props) => {
       capturedStartCallback(draggable, initialPosition);
     }
     const setPosition = props.setElementPosition ?? defaultSetElementPosition;
-    setPosition(overlayRoot, event.clientX, event.clientY);
+    setPosition(overlayRoot, x, y);
     overlayRoot.style.display = "";
     overlayParent().appendChild(overlayRoot);
   }
-  function captureDraggable(draggable, event, startCallback, endCallback, canDropPredicate) {
+  function captureDraggable(draggable, x, y, startCallback, endCallback, canDropPredicate) {
+    debugTrace(1 /* Verbose */, "captureDraggable", draggable, `[${x}, ${y}]`);
     if (isDragging()) {
       throw new Error("Already in a dragging operation!");
     }
@@ -158,15 +221,16 @@ const DragAndDrop = (props) => {
       setDraggableCanDropPredicate(null);
     }
     const setPosition = props.setElementPosition ?? defaultSetElementPosition;
-    setPosition(overlayRoot, event.clientX, event.clientY);
-    initialPosition.x = event.clientX;
-    initialPosition.y = event.clientY;
+    setPosition(overlayRoot, x, y);
+    initialPosition.x = x;
+    initialPosition.y = y;
   }
-  function releaseDraggable(event) {
+  function releaseDraggable(x, y) {
+    debugTrace(1 /* Verbose */, "releaseDraggable", `[${x}, ${y}]`);
     const draggable = isDragging();
     const position = {
-      x: event.clientX,
-      y: event.clientY
+      x,
+      y
     };
     if (draggable == null) {
       resetDrag();
@@ -197,7 +261,7 @@ const DragAndDrop = (props) => {
           statusText = "Rejected";
           break;
       }
-      console.log("Ending Drag Operation.", statusText, draggable, dz?.dropzone);
+      debugTrace(0 /* Log */, "Ending Drag Operation.", statusText, draggable, dz?.dropzone);
     }
     if (dz && dz.canDrop()) {
       setIsDropping({
@@ -219,6 +283,7 @@ const DragAndDrop = (props) => {
     resetDrag();
   }
   function cancelDrag() {
+    debugTrace(1 /* Verbose */, "cancelDrag");
     const draggable = isDragging();
     if (draggable) {
       if (capturedEndCallback) {
@@ -228,12 +293,16 @@ const DragAndDrop = (props) => {
     }
     resetDrag();
   }
-  function enterDropzone(dropzone2, el, canDrop, _event) {
+  function enterDropzone(dropzone2, el, canDrop, _x, _y) {
     const original = dropzones();
-    if (original.length > 0 && original[original.length - 1].dropzone.id == dropzone2.id) {
+    if (original.find((z) => z.dropzone.id === dropzone2.id)) {
       return false;
     }
-    const zones = original.filter((z) => !el.contains(z.ref) && z.ref.contains(el));
+    const zones = original.filter((z) => {
+      const zoneIsChildOfElement = el.contains(z.ref);
+      const elementIsChildOfZone = z.ref.contains(el);
+      return !zoneIsChildOfElement && elementIsChildOfZone;
+    });
     zones.push({
       dropzone: dropzone2,
       ref: el,
@@ -241,12 +310,12 @@ const DragAndDrop = (props) => {
     });
     if (props.debugTrace) {
       const t = zones.length > 1 ? "nested dropzone" : "dropzone";
-      console.log(`Entering ${t}.`, dropzone2, canDrop());
+      debugTrace(0 /* Log */, `enterDropzone Entering ${t}.`, dropzone2, canDrop());
     }
     setDropzones(zones);
     return true;
   }
-  function leaveDropzone(dz, _el, _event) {
+  function leaveDropzone(dz, _el, _x, _y) {
     const current_dz = dropzone();
     if (current_dz && current_dz.dropzone.id != dz.id) {
       console.warn("Leaving a drop zone that is not the active drop zone??");
@@ -255,10 +324,10 @@ const DragAndDrop = (props) => {
     const zones = original.filter((z) => z.dropzone.id != dz.id);
     if (original.length != zones.length) {
       if (props.debugTrace) {
-        console.log("Leaving Dropzone.", dz);
+        debugTrace(0 /* Log */, "leaveDropzone: Leaving Dropzone.", dz);
         if (zones.length > 0) {
           const newZone = zones[zones.length - 1];
-          console.log("Still within dropzone.", newZone.dropzone, newZone.canDrop());
+          debugTrace(0 /* Log */, "leaveDropzone: Still within dropzone.", newZone.dropzone, newZone.canDrop());
         }
       }
       setDropzones(zones);
@@ -268,12 +337,13 @@ const DragAndDrop = (props) => {
     }
     return true;
   }
-  function handleMouseMove(event) {
+  function onMouseOrTouchMove(x, y) {
+    debugTrace(2 /* VeryVerbose */, "onMouseOrTouchMove:", `[${x}, ${y}]`, "isDragging:", isDragging(), "isCaptured:", isCaptured());
     if (isDragging() == null && isCaptured()) {
-      startDrag(event);
+      startDrag(x, y);
     }
-    let newX = event.clientX;
-    let newY = event.clientY;
+    let newX = x;
+    let newY = y;
     if (props.restrict === "x") {
       newY = initialPosition.y;
     } else if (props.restrict === "y") {
@@ -288,27 +358,43 @@ const DragAndDrop = (props) => {
       newY = Math.max(bounds.top, Math.min(newY, bounds.bottom));
     }
     const setPosition = props.setElementPosition ?? defaultSetElementPosition;
-    setPosition(overlayRoot, event.clientX, event.clientY);
+    setPosition(overlayRoot, x, y);
+  }
+  function handleMouseMove(event) {
+    debugTrace(2 /* VeryVerbose */, "handleMouseMove");
+    onMouseOrTouchMove(event.clientX, event.clientY);
   }
   function handleMouseUp(event) {
-    releaseDraggable(event);
+    debugTrace(1 /* Verbose */, "handleMouseUp");
+    releaseDraggable(event.clientX, event.clientY);
   }
   createEffect(() => {
     if (isDisabled() && isDragging()) {
       cancelDrag();
     }
   });
+  let listeningForMouseEvents = false;
   createEffect(() => {
+    if (ActiveInputDevice() !== InputDeviceType.Mouse) {
+      return;
+    }
     if (isCaptured()) {
+      debugTrace(1 /* Verbose */, "DragAndDrop: isCaptured changed to true. Adding mouse listeners for move and up");
+      listeningForMouseEvents = true;
       document.addEventListener("mousemove", handleMouseMove);
       document.addEventListener("mouseup", handleMouseUp);
     } else {
+      debugTrace(1 /* Verbose */, "DragAndDrop: isCaptured changed to false. Removing mouse listeners for move and up");
+      listeningForMouseEvents = false;
       document.removeEventListener("mousemove", handleMouseMove);
       document.removeEventListener("mouseup", handleMouseUp);
     }
     onCleanup(() => {
-      document.removeEventListener("mousemove", handleMouseMove);
-      document.removeEventListener("mouseup", handleMouseUp);
+      if (listeningForMouseEvents) {
+        debugTrace(1 /* Verbose */, "DragAndDrop: onCleanup. Removing mouse listeners for move and up");
+        document.removeEventListener("mousemove", handleMouseMove);
+        document.removeEventListener("mouseup", handleMouseUp);
+      }
     });
   });
   return createComponent(DragAndDropContext.Provider, {
@@ -330,7 +416,9 @@ const DragAndDrop = (props) => {
           dropPredicate: activeCanDropPredicate
         },
         get children() {
-          return props.children;
+          var _el$ = _tmpl$();
+          insert(_el$, () => props.children);
+          return _el$;
         }
       });
     }
@@ -350,7 +438,29 @@ const Draggable = (props) => {
   if (draggableContext.draggable != null) {
     throw new Error("<Draggable> components must not be nested.");
   }
-  function handleMouseDown(event) {
+  const shouldDebugTrace = untrack(() => props.debugTrace);
+  const debugId = untrack(() => props.debugId);
+  function debugTrace(debugLevel, ...args) {
+    if (!shouldDebugTrace || debugLevel > DEBUG_LEVEL) {
+      return;
+    }
+    console.debug(`[${Date.now()}] DnD: Draggable ([${debugId ?? "no id"})`, ...args);
+  }
+  engine.on("InputAction", onInputAction);
+  onCleanup(() => {
+    engine.off("InputAction", onInputAction);
+  });
+  function onInputAction(name, status, x, y) {
+    if (status !== InputActionStatuses.FINISH || name !== "touch-tap") {
+      return;
+    }
+    if (name === "touch-tap") {
+      debugTrace(0 /* Log */, "onInputAction:", name, status, `[${x}, ${y}]`);
+      stopDrag(x, y);
+    }
+  }
+  function startDrag(x, y) {
+    debugTrace(1 /* Verbose */, "startDrag:", `[${x}, ${y}]`);
     if (isDisabled() || context.isDragging()) {
       return;
     }
@@ -358,10 +468,25 @@ const Draggable = (props) => {
       id,
       data: props.data,
       debugId: props.debugId
-    }, event, props.onDragStart, props.onDragEnd, props.canDrop);
+    }, x, y, props.onDragStart, props.onDragEnd, props.canDrop);
+  }
+  function stopDrag(x, y) {
+    debugTrace(1 /* Verbose */, "stopDrag:", `[${x}, ${y}]`);
+    internalContext.releaseDraggable(x, y);
+  }
+  function handleMouseDown(event) {
+    debugTrace(1 /* Verbose */, "handleMouseDown");
+    startDrag(event.clientX, event.clientY);
+  }
+  function handleTouchStart(event) {
+    debugTrace(1 /* Verbose */, "handleTouchStart");
+    if (event.touches.length > 0) {
+      startDrag(event.touches[0].clientX, event.touches[0].clientY);
+    }
   }
   function handleMouseClick(event) {
-    internalContext.releaseDraggable(event);
+    debugTrace(1 /* Verbose */, "handleMouseClick");
+    stopDrag(event.clientX, event.clientY);
   }
   const isDisabled = createMemo(() => {
     return context.isDisabled() || props.disabled === true;
@@ -400,11 +525,12 @@ const Draggable = (props) => {
       isDragging
     },
     get children() {
-      var _el$ = _tmpl$();
-      _el$.$$click = handleMouseClick;
-      _el$.$$mousedown = handleMouseDown;
-      insert(_el$, () => props.children, null);
-      insert(_el$, (() => {
+      var _el$2 = _tmpl$2();
+      _el$2.$$touchstart = handleTouchStart;
+      _el$2.$$click = handleMouseClick;
+      _el$2.$$mousedown = handleMouseDown;
+      insert(_el$2, () => props.children, null);
+      insert(_el$2, (() => {
         var _c$ = createMemo(() => !!isDragging());
         return () => _c$() && createComponent(Portal, {
           get mount() {
@@ -424,8 +550,8 @@ const Draggable = (props) => {
           }
         });
       })(), null);
-      createRenderEffect((_$p) => style(_el$, isDragging() ? props.ghostElementStyle : "", _$p));
-      return _el$;
+      createRenderEffect((_$p) => style(_el$2, isDragging() ? props.ghostElementStyle : "", _$p));
+      return _el$2;
     }
   });
 };
@@ -440,6 +566,14 @@ const Dropzone = (props) => {
   const [_hovering, setHovering] = createSignal(null);
   const [localCanDrop, setLocalCanDrop] = createSignal(null);
   const [contextCanDrop, setContextCanDrop] = createSignal(null);
+  const shouldDebugTrace = untrack(() => props.debugTrace);
+  const debugId = untrack(() => props.debugId);
+  function debugTrace(debugLevel, ...args) {
+    if (!shouldDebugTrace || debugLevel > DEBUG_LEVEL) {
+      return;
+    }
+    console.debug(`[${Date.now()}] DnD: Dropzone (${debugId ?? "no id"})`, ...args);
+  }
   createEffect(() => {
     if (props.canDrop) {
       const draggable = context.isDragging();
@@ -502,7 +636,8 @@ const Dropzone = (props) => {
       }
     }
   });
-  function handleMouseEnter(event) {
+  function onEnterDropzone(x, y) {
+    debugTrace(1 /* Verbose */, "onEnterDropzone:", `[${x}, ${y}]`, "isDisabled:", isDisabled());
     if (isDisabled()) {
       return;
     }
@@ -513,15 +648,20 @@ const Dropzone = (props) => {
         data: props.data,
         debugId: props.debugId
       };
-      if (internalContext.enterDropzone(dropzone2, dropzoneDiv, canDrop, event)) {
+      if (internalContext.enterDropzone(dropzone2, dropzoneDiv, canDrop, x, y)) {
         setHovering(dragging);
       }
       if (props.onDragOver) {
-        props.onDragOver(dragging, dropzone2, event);
+        props.onDragOver(dragging, dropzone2, x, y);
       }
     }
   }
-  function handleMouseLeave(event) {
+  function handleMouseEnter(event) {
+    debugTrace(1 /* Verbose */, "handleMouseEnter");
+    onEnterDropzone(event.clientX, event.clientY);
+  }
+  function onExitDropZone(x, y) {
+    debugTrace(1 /* Verbose */, "onExitDropZone:", `[${x}, ${y}]`, "isDisabled:", isDisabled());
     if (isDisabled()) {
       return;
     }
@@ -532,13 +672,17 @@ const Dropzone = (props) => {
         data: props.data,
         debugId: props.debugId
       };
-      if (internalContext.leaveDropzone(dropzone2, dropzoneDiv, event)) {
+      if (internalContext.leaveDropzone(dropzone2, dropzoneDiv, x, y)) {
         if (props.onDragLeave) {
-          props.onDragLeave(dragging, dropzone2, event);
+          props.onDragLeave(dragging, dropzone2, x, y);
         }
       }
     }
     setHovering(null);
+  }
+  function handleMouseLeave(event) {
+    debugTrace(1 /* Verbose */, "handleMouseLeave");
+    onExitDropZone(event.clientX, event.clientY);
   }
   const dropzone = createMemo(() => {
     return {
@@ -553,22 +697,22 @@ const Dropzone = (props) => {
       canDrop
     },
     get children() {
-      var _el$2 = _tmpl$();
-      _el$2.addEventListener("mouseleave", handleMouseLeave);
-      _el$2.addEventListener("mouseenter", handleMouseEnter);
+      var _el$3 = _tmpl$2();
+      _el$3.addEventListener("mouseleave", handleMouseLeave);
+      _el$3.addEventListener("mouseenter", handleMouseEnter);
       var _ref$ = dropzoneDiv;
-      typeof _ref$ === "function" ? use(_ref$, _el$2) : dropzoneDiv = _el$2;
-      insert(_el$2, () => props.children);
+      typeof _ref$ === "function" ? use(_ref$, _el$3) : dropzoneDiv = _el$3;
+      insert(_el$3, () => props.children);
       createRenderEffect((_p$) => {
-        var _v$ = props.class, _v$2 = props.classList;
-        _v$ !== _p$.e && className(_el$2, _p$.e = _v$);
-        _p$.t = classList(_el$2, _v$2, _p$.t);
+        var _v$ = `${props.class ?? ""} dropzone`, _v$2 = props.classList;
+        _v$ !== _p$.e && className(_el$3, _p$.e = _v$);
+        _p$.t = classList(_el$3, _v$2, _p$.t);
         return _p$;
       }, {
         e: void 0,
         t: void 0
       });
-      return _el$2;
+      return _el$3;
     }
   });
 };
@@ -581,7 +725,7 @@ function createTypedDropzone() {
 function createTypedDragAndDrop() {
   return [DragAndDrop, (props) => Draggable(props), (props) => Dropzone(props)];
 }
-delegateEvents(["mousedown", "click"]);
+delegateEvents(["mousedown", "click", "touchstart"]);
 
 export { DragAndDrop, DragAndDropContext, DragAndDropGlobalContext, DragEndStatus, Draggable, DraggableContext, Dropzone, DropzoneContext, createTypedDragAndDrop, createTypedDraggable, createTypedDropzone, defaultSetElementPosition, setElementPositionViaTopLeft, setElementPositionViaTransform, useDragAndDropContext, useDragAndDropGlobalContext, useDraggableContext, useDropzoneContext };
 //# sourceMappingURL=drag-and-drop.js.map

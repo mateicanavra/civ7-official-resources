@@ -181,11 +181,6 @@ class TradeRouteChooser extends Panel {
   onReceiveFocus() {
     super.onReceiveFocus();
     Focus.setContextAwareFocus(this.routesListEl, this.Root);
-    waitForLayout(() => {
-      waitForLayout(() => {
-        Focus.setContextAwareFocus(this.routesListEl, this.Root);
-      });
-    });
   }
   onLoseFocus() {
     super.onLoseFocus();

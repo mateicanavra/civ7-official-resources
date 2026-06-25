@@ -1,40 +1,190 @@
 <?xml version="1.0" encoding="utf-8"?>
 <GameEffects xmlns="GameEffects">
 	<!-- Classical Republic -->
-	<Modifier id="MOD_GOLDEN_AGE_CLASSICAL_REPUBLIC_CULTURE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD">
+	<!-- +1 Culture in Happy Settlements. +4 additional Culture in Joyous Cities. -->
+	<Modifier id="MOD_CLASSICAL_REPUBLIC_PASSIVE_HAPPY_CITIES" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_HAS_GOVERNMENT">
+            	<Argument name="GovernmentType">GOVERNMENT_CLASSICAL_REPUBLIC</Argument>
+       		</Requirement>
+			<Requirement type="REQUIREMENT_SETTLEMENT_HAPPINESS_STAGE_MATCHES">
+				<Argument name="IsGreaterThanOrEquals">true</Argument>
+				<Argument name="HappinessStage">HAPPINESS_STAGE_HAPPY</Argument>
+       		</Requirement>
+		</SubjectRequirements>
 		<Argument name="YieldType">YIELD_CULTURE</Argument>
-		<Argument name="Percent">20</Argument>
+		<Argument name="Amount">1</Argument>
 	</Modifier>
+	<Modifier id="MOD_CLASSICAL_REPUBLIC_PASSIVE_JOYOUS_CITIES" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_HAS_GOVERNMENT">
+            	<Argument name="GovernmentType">GOVERNMENT_CLASSICAL_REPUBLIC</Argument>
+       		</Requirement>
+			<Requirement type="REQUIREMENT_CITY_IS_CITY"/>
+			<Requirement type="REQUIREMENT_SETTLEMENT_HAPPINESS_STAGE_MATCHES">
+				<Argument name="IsGreaterThanOrEquals">true</Argument>
+				<Argument name="HappinessStage">HAPPINESS_STAGE_JOYOUS</Argument>
+       		</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount">4</Argument>
+	</Modifier>
+	<!-- +100 Influence immediately -->
+	<Modifier id="MOD_GOLDEN_AGE_CLASSICAL_REPUBLIC_INFLUENCE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD">
+		<Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+		<Argument name="Amount" type="ScaleByGameSpeed">100</Argument>
+	</Modifier>
+	<!-- +10% Production towards Wonders, or +20% in Joyous Cities for 6 turns. -->
 	<Modifier id="MOD_GOLDEN_AGE_CLASSICAL_REPUBLIC_WONDER_PRODUCTION" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_WONDER_PRODUCTION">
-		<Argument name="Percent">15</Argument>
+		<Argument name="Percent">10</Argument>
+	</Modifier>
+	<Modifier id="MOD_GOLDEN_AGE_CLASSICAL_REPUBLIC_WONDER_PRODUCTION_JOYOUS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_WONDER_PRODUCTION">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_SETTLEMENT_HAPPINESS_STAGE_MATCHES">
+				<Argument name="IsGreaterThanOrEquals">true</Argument>
+				<Argument name="HappinessStage">HAPPINESS_STAGE_JOYOUS</Argument>
+       		</Requirement>
+		</SubjectRequirements>
+		<Argument name="Percent">10</Argument>
 	</Modifier>
 	<!-- Despotism -->
-	<Modifier id="MOD_GOLDEN_AGE_DESPOTISM_SCIENCE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD">
-		<Argument name="YieldType">YIELD_SCIENCE</Argument>
-		<Argument name="Percent">20</Argument>
+	<!-- Unhappiness causes -3% reduction in Yields in your Settlements per point of Unhappiness (from -5%). +2 Science for each Settlement you have conquered in this Age. -->
+	<Modifier id="MOD_DESPOTISM_PASSIVE_UNHAPPINESS_MITIGATION" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELDS_PENALTY_PER_HAPPINESS_DEFICIT">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_HAS_GOVERNMENT">
+            	<Argument name="GovernmentType">GOVERNMENT_DESPOTISM</Argument>
+       		</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">2</Argument>
 	</Modifier>
+	<Modifier id="MOD_DESPOTISM_PASSIVE_CONQUEST_SCIENCE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD_PER_CONQUERED_SETTLEMENT">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_HAS_GOVERNMENT">
+            	<Argument name="GovernmentType">GOVERNMENT_DESPOTISM</Argument>
+       		</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_SCIENCE</Argument>
+		<Argument name="Amount">2</Argument>
+	</Modifier>
+	<!-- +1 Science on Production and Production Warehouse Buildings for 6 turns. -->
+	<Modifier id="MOD_GOLDEN_AGE_DESPOTISM_PRODUCTION_BUILDING_SCIENCE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_CONSTRUCTIBLE_YIELD">
+		<Argument name="Tag">PRODUCTION</Argument>
+		<Argument name="YieldType">YIELD_SCIENCE</Argument>
+		<Argument name="Amount">1</Argument>
+	</Modifier>
+	<Modifier id="MOD_GOLDEN_AGE_DESPOTISM_PRODUCTION_WAREHOUSE_BUILDING_SCIENCE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_CONSTRUCTIBLE_YIELD">
+		<Argument name="Tag">PRODUCTION_WAREHOUSE</Argument>
+		<Argument name="YieldType">YIELD_SCIENCE</Argument>
+		<Argument name="Amount">1</Argument>
+	</Modifier>
+	<!-- +10% Produciton and Gold towards Producing and Purchasing Military Units for 6 turns. -->
 	<Modifier id="MOD_GOLDEN_AGE_DESPOTISM_UNIT_PRODUCTION" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_UNIT_PRODUCTION">
-		<Argument name="UnitClass">UNIT_CLASS_INFANTRY</Argument>
-		<Argument name="Percent">30</Argument>
+		<Argument name="UnitClass">UNIT_CLASS_COMBAT</Argument>
+		<Argument name="Percent">10</Argument>
+	</Modifier>
+	<Modifier id="MOD_GOLDEN_AGE_DESPOTISM_UNIT_PURCHASING" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_ADJUST_PLAYER_OR_CITY_UNIT_PURCHASE_EFFICIENCY">
+		<Argument name="UnitTag">UNIT_CLASS_COMBAT</Argument>
+		<Argument name="Percent">10</Argument>
 	</Modifier>
 	<!-- Oligarchy -->
-	<Modifier id="MOD_GOLDEN_AGE_OLIGARCHY_FOOD" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
-		<Argument name="YieldType">YIELD_FOOD</Argument>
-		<Argument name="Percent">20</Argument>
+	<!-- +10% Production towards Buildings. +10% Gold towards purchasing Warehouses in Fishing and Farming Towns. -->
+	<Modifier id="MOD_OLIGARCHY_PASSIVE_BUILDING_CONSTRUCTION" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_PRODUCTION">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_HAS_GOVERNMENT">
+            	<Argument name="GovernmentType">GOVERNMENT_OLIGARCHY</Argument>
+       		</Requirement>
+		</SubjectRequirements>
+		<Argument name="Percent">10</Argument>
 	</Modifier>
-	<Modifier id="MOD_GOLDEN_AGE_OLIGARCHY_BUILDING_PRODUCTION" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_PRODUCTION">
-		<Argument name="ConstructibleClass">BUILDING</Argument>
-		<Argument name="Percent">30</Argument>
+	<Modifier id="MOD_OLIGARCHY_PASSIVE_FARMING_WAREHOUSE_PURCHASE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_ADJUST_PLAYER_OR_CITY_BUILDING_PURCHASE_EFFICIENCY">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_HAS_GOVERNMENT">
+            	<Argument name="GovernmentType">GOVERNMENT_OLIGARCHY</Argument>
+       		</Requirement>
+			<Requirement type="REQUIREMENT_CITY_IS_TOWN"/>
+			<Requirement type="REQUIREMENT_CITY_HAS_PROJECT">
+				<Argument name="ProjectType">PROJECT_TOWN_GRANARY</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="BuildingTag">WAREHOUSE</Argument>
+		<Argument name="Percent">10</Argument>
+	</Modifier>
+	<Modifier id="MOD_OLIGARCHY_PASSIVE_FISHING_WAREHOUSE_PURCHASE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_ADJUST_PLAYER_OR_CITY_BUILDING_PURCHASE_EFFICIENCY">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_HAS_GOVERNMENT">
+            	<Argument name="GovernmentType">GOVERNMENT_OLIGARCHY</Argument>
+       		</Requirement>
+			<Requirement type="REQUIREMENT_CITY_IS_TOWN"/>
+			<Requirement type="REQUIREMENT_CITY_HAS_PROJECT">
+				<Argument name="ProjectType">PROJECT_TOWN_FISHING</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="BuildingTag">WAREHOUSE</Argument>
+		<Argument name="Percent">10</Argument>
+	</Modifier>
+	<!-- +200 Gold immediately -->
+	<Modifier id="MOD_GOLDEN_AGE_OLIGARCHY_GOLD" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD">
+		<Argument name="YieldType">YIELD_GOLD</Argument>
+		<Argument name="Amount" type="ScaleByGameSpeed">200</Argument>
+	</Modifier>
+	<!-- +1 Food in Towns for each Connected Settlement for 6 turns. -->
+	<Modifier id="MOD_GOLDEN_AGE_OLIGARCHY_CONNECTED_FOOD" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_CONNECTED_CITY">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_TOWN"/>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_FOOD</Argument>
+		<Argument name="Amount">1</Argument>
 	</Modifier>
 	<!-- Revolucion -->
-	<Modifier id="MOD_GOLDEN_AGE_REVOLUCION_AQ_CULTURE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD">
-		<Argument name="YieldType">YIELD_CULTURE</Argument>
-		<Argument name="Percent">30</Argument>
-	</Modifier>
-	<Modifier id="MOD_GOLDEN_AGE_REVOLUCION_AQ_GROWTH" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_GROWTH">
+	<!-- +2 Happiness (per Age) in the Cities for each Tradition slotted into the Government.-->
+	<Modifier id="MOD_REVOLUCION_AQ_PASSIVE_HAPPINESS" collection="COLLECTION_ALL_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_ACTIVE_TRADITION">
 		<SubjectRequirements>
-			<Requirement type="REQUIREMENT_CITY_IS_CAPITAL"/>
+			<Requirement type="REQUIREMENT_CITY_IS_CITY"/>
 		</SubjectRequirements>
-		<Argument name="Percent">50</Argument>
+		<Argument name="CivUnique">true</Argument>
+		<Argument name="YieldType">YIELD_HAPPINESS</Argument>
+		<Argument name="Amount">2</Argument>
+	</Modifier>
+	<!-- +2 Culture in Happy Settlements, or +6 in Joyous Settlements, or +10 in Ecstatic Settlements, for 6 turns. -->
+	<Modifier id="MOD_GOLDEN_AGE_REVOLUCION_AQ_CULTURE_HAPPY" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_SETTLEMENT_HAPPINESS_STAGE_MATCHES">
+				<Argument name="IsGreaterThanOrEquals">true</Argument>
+				<Argument name="HappinessStage">HAPPINESS_STAGE_HAPPY</Argument>
+       		</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount">2</Argument>
+	</Modifier>
+	<Modifier id="MOD_GOLDEN_AGE_REVOLUCION_AQ_CULTURE_JOYOUS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_SETTLEMENT_HAPPINESS_STAGE_MATCHES">
+				<Argument name="IsGreaterThanOrEquals">true</Argument>
+				<Argument name="HappinessStage">HAPPINESS_STAGE_JOYOUS</Argument>
+       		</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount">4</Argument>
+	</Modifier>
+	<Modifier id="MOD_GOLDEN_AGE_REVOLUCION_AQ_CULTURE_ECSTATIC" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_SETTLEMENT_HAPPINESS_STAGE_MATCHES">
+				<Argument name="IsGreaterThanOrEquals">true</Argument>
+				<Argument name="HappinessStage">HAPPINESS_STAGE_ECSTATIC</Argument>
+       		</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount">4</Argument>
+	</Modifier>
+	<!-- +3 Food in every Joyous Settlement, for 6 turns. -->
+	<Modifier id="MOD_GOLDEN_AGE_REVOLUCION_AQ_FOOD" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_SETTLEMENT_HAPPINESS_STAGE_MATCHES">
+				<Argument name="IsGreaterThanOrEquals">true</Argument>
+				<Argument name="HappinessStage">HAPPINESS_STAGE_JOYOUS</Argument>
+       		</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_FOOD</Argument>
+		<Argument name="Amount">3</Argument>
 	</Modifier>
 </GameEffects>

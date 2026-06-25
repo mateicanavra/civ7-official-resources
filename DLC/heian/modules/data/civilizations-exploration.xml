@@ -1,0 +1,15 @@
+<Database>
+	<Civilizations>
+		<!-- Replace civics tree. -->
+		<Update>
+			<Where CivilizationType="CIVILIZATION_HEIAN" />
+			<Set UniqueCultureProgressionTree="TREE_CIVICS_EX_TEST_OF_TIME" />
+		</Update>
+	</Civilizations>
+	<TraitModifiers>
+		<Row TraitType="TRAIT_HEIAN_ABILITY" ModifierId="TRAIT_MOD_APPEALING_MORE_CULTURE"/>
+	</TraitModifiers>
+	<CivilizationTraits>
+		<Row CivilizationType="CIVILIZATION_HEIAN" TraitType="TRAIT_ANACHRONISTIC_CIV" />
+	</CivilizationTraits>
+</Database>

@@ -128,6 +128,9 @@ class MultiplayerIngameSingleton {
     return false;
   }
   attachHotseatCurtain() {
+    if (!this.canAttachCurtain()) {
+      return;
+    }
     const curtain = document.createElement("hotseat-curtain");
     curtain.id = HtmlIdHotseatCurtain;
     const popups = document.querySelector(".fxs-popups");
@@ -135,6 +138,9 @@ class MultiplayerIngameSingleton {
       return;
     }
     popups.parentElement?.insertBefore(curtain, popups);
+  }
+  canAttachCurtain() {
+    return ContextManager.canOpenPauseMenu();
   }
   /**
    * Local player changed; likely handing off game to another player (hotseat).

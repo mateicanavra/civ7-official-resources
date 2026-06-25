@@ -333,15 +333,16 @@ class MultiplayerShellManagerSingleton {
   onGameBrowse(serverType, skipToGameCreator = false) {
     this.serverType = serverType;
     this.skipToGameCreator = skipToGameCreator;
+    const isGameCenter = Network.getLocalHostingPlatform() == HostingType.HOSTING_TYPE_GAMECENTER;
     switch (serverType) {
       case ServerType.SERVER_TYPE_LAN:
       case ServerType.SERVER_TYPE_WIRELESS: {
-        if (Network.getLocalHostingPlatform() == HostingType.HOSTING_TYPE_GAMECENTER) {
+        if (isGameCenter) {
           this.refreshGameCenterAuthentication();
           if (!Network.isAuthenticated()) {
             DialogBoxManager.createDialog_Confirm({
-              body: Locale.compose("LOC_UI_CONNECTION_FAILED"),
-              title: Locale.compose("LOC_UI_OFFLINE_ACCOUNT_TITLE")
+              body: Locale.compose("LOC_UI_GAME_CENTER_REQUIRED"),
+              title: Locale.compose("LOC_UI_GAME_CENTER_TITLE")
             });
             this.tellMainMenuWereBack();
             return;
@@ -355,6 +356,14 @@ class MultiplayerShellManagerSingleton {
             });
             return;
           }
+        }
+        if (!Network.isLocalNetworkEnabled()) {
+          DialogBoxManager.createDialog_Confirm({
+            body: Locale.compose("LOC_UI_WIRELESS_DISABLED"),
+            title: Locale.compose("LOC_UI_NETWORK_CONNECTION_FAILED")
+          });
+          this.tellMainMenuWereBack();
+          return;
         }
         ContextManager.push("screen-mp-browser", {
           singleton: true,
@@ -382,8 +391,8 @@ class MultiplayerShellManagerSingleton {
     if (!isOnline && !Network.isBanned()) {
       Network.tryConnect(true);
       DialogBoxManager.createDialog_Confirm({
-        body: Locale.compose("LOC_UI_CONNECTION_FAILED"),
-        title: Locale.compose("LOC_UI_OFFLINE_ACCOUNT_TITLE")
+        body: Locale.compose(isGameCenter ? "LOC_UI_GAME_CENTER_REQUIRED" : "LOC_UI_CONNECTION_FAILED"),
+        title: Locale.compose(isGameCenter ? "LOC_UI_GAME_CENTER_TITLE" : "LOC_UI_OFFLINE_ACCOUNT_TITLE")
       });
       this.tellMainMenuWereBack();
       return;
@@ -409,11 +418,10 @@ class MultiplayerShellManagerSingleton {
       return;
     }
     if (!Network.isLoggedIn()) {
-      const usesTwoKAccount = Network.getLocalHostingPlatform() != HostingType.HOSTING_TYPE_GAMECENTER;
       Network.tryConnect(false);
       DialogBoxManager.createDialog_Confirm({
-        body: Locale.compose("LOC_UI_ACCOUNT_LOGIN_PROMPT"),
-        title: usesTwoKAccount ? Locale.compose("LOC_UI_LOGIN_ACCOUNT_TITLE") : void 0
+        body: Locale.compose(isGameCenter ? "LOC_UI_GAME_CENTER_REQUIRED" : "LOC_UI_ACCOUNT_LOGIN_PROMPT"),
+        title: Locale.compose(isGameCenter ? "LOC_UI_GAME_CENTER_TITLE" : "LOC_UI_LOGIN_ACCOUNT_TITLE")
       });
       this.tellMainMenuWereBack();
       return;
@@ -445,7 +453,7 @@ class MultiplayerShellManagerSingleton {
       this.tellMainMenuWereBack();
       return;
     }
-    if (Network.getLocalHostingPlatform() == HostingType.HOSTING_TYPE_GAMECENTER && !Network.isChildOnlinePermissionsGranted()) {
+    if (isGameCenter && !Network.isChildOnlinePermissionsGranted()) {
       DialogBoxManager.createDialog_Confirm({
         body: Locale.compose("LOC_MP_JOIN_MULTIPLAYER_RESTRICTED"),
         callback: () => {
@@ -460,7 +468,7 @@ class MultiplayerShellManagerSingleton {
       this.sendPremiumCheckRequest();
     }
   }
-  onLanding() {
+  openLanding() {
     ContextManager.push("screen-mp-landing", { singleton: true, createMouseGuard: true });
   }
   tellMainMenuWereBack() {

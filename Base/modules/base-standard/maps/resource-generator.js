@@ -38,62 +38,72 @@ function generateResources(iWidth, iHeight, minMarineResourceTypesOverride = 3) 
   const avgDistanceBetweenPoints = 3;
   const normalizedRangeSmoothing = 2;
   const poisson = TerrainBuilder.generatePoissonMap(seed, avgDistanceBetweenPoints, normalizedRangeSmoothing);
+  const hexDistance2X = [
+    { x: -1, y: -2 },
+    // NW
+    { x: 1, y: -2 },
+    // NE
+    { x: -1, y: 2 },
+    // SW
+    { x: 1, y: 2 }
+    // SE
+  ];
+  const checkPoissonRegion = (iX, iY) => {
+    const index = iY * iWidth + iX;
+    const coord = { x: iX, y: iY };
+    if (poisson[index] >= 1) return true;
+    let score = 0;
+    for (const offset of hexDistance2X) {
+      const adjLoc = { x: coord.x + offset.x, y: coord.y + offset.y };
+      if (adjLoc.x >= 0 && adjLoc.x < iWidth && adjLoc.y >= 0 && adjLoc.y < iHeight) {
+        const adjIndex = adjLoc.y * iWidth + adjLoc.x;
+        if (poisson[adjIndex] >= 1) ++score;
+      }
+    }
+    return score >= 2;
+  };
   for (let iY = iHeight - 1; iY >= 0; iY--) {
     for (let iX = 0; iX < iWidth; iX++) {
-      const landmassRegionId = GameplayMap.getLandmassRegionId(iX, iY);
-      const index = iY * iWidth + iX;
-      if (poisson[index] >= 1) {
+      if (checkPoissonRegion(iX, iY)) {
         const resources2 = [];
+        const landmassRegionId = GameplayMap.getLandmassRegionId(iX, iY);
         aResourceTypes.forEach((resourceLandmass) => {
           const assignedLandmass = resourceLandmass.landmassId;
           const allowedOnLandmass = assignedLandmass == LandmassRegion.LANDMASS_REGION_ANY || assignedLandmass != LandmassRegion.LANDMASS_REGION_NONE && landmassRegionId != LandmassRegion.LANDMASS_REGION_DEFAULT && assignedLandmass % landmassRegionId == 0;
-          if (allowedOnLandmass && canHaveFlowerPlot(iX, iY, resourceLandmass.typeIdx)) {
+          if (allowedOnLandmass && canHaveResource(iX, iY, resourceLandmass.typeIdx)) {
             resources2.push(resourceLandmass.typeIdx);
           }
         });
         if (resources2.length > 0) {
-          let resourceChosen = ResourceTypes.NO_RESOURCE;
-          let resourceChosenIndex = 0;
-          for (let iI = 0; iI < resources2.length; iI++) {
-            if (resourceChosen == ResourceTypes.NO_RESOURCE) {
-              resourceChosen = resources2[iI];
-              resourceChosenIndex = resources2[iI];
+          let resourceChosen = resources2[0];
+          for (let iI = 1; iI < resources2.length; iI++) {
+            if (GameplayMap.isNavigableRiver(iX, iY)) {
+              if (ResourceBuilder.isResourceIgnoringWeightForRiverPlacement(resources2[iI])) {
+                resourceChosen = resources2[iI];
+                break;
+              }
             } else {
-              if (GameplayMap.isNavigableRiver(iX, iY)) {
-                if (ResourceBuilder.isResourceIgnoringWeightForRiverPlacement(resources2[iI])) {
+              if (resourceRunningWeight[resources2[iI]] > resourceRunningWeight[resourceChosen]) {
+                resourceChosen = resources2[iI];
+              } else if (resourceRunningWeight[resources2[iI]] == resourceRunningWeight[resourceChosen]) {
+                const iRoll = TerrainBuilder.getRandomNumber(2, "Resource Scatter");
+                if (iRoll >= 1) {
                   resourceChosen = resources2[iI];
-                  resourceChosenIndex = resources2[iI];
-                  break;
-                }
-              } else {
-                if (resourceRunningWeight[resources2[iI]] > resourceRunningWeight[resourceChosenIndex]) {
-                  resourceChosen = resources2[iI];
-                  resourceChosenIndex = resources2[iI];
-                } else if (resourceRunningWeight[resources2[iI]] == resourceRunningWeight[resourceChosenIndex]) {
-                  const iRoll = TerrainBuilder.getRandomNumber(2, "Resource Scatter");
-                  if (iRoll >= 1) {
-                    resourceChosen = resources2[iI];
-                    resourceChosenIndex = resources2[iI];
-                  }
                 }
               }
             }
           }
-          if (resourceChosen != ResourceTypes.NO_RESOURCE) {
-            const iResourcePlotIndex = getFlowerPlot(iX, iY, resourceChosen);
-            if (iResourcePlotIndex != -1) {
-              const iLocation = GameplayMap.getLocationFromIndex(iResourcePlotIndex);
-              const iResourceX = iLocation.x;
-              const iResourceY = iLocation.y;
-              ResourceBuilder.setResourceType(iResourceX, iResourceY, resourceChosen);
-              resourceRunningWeight[resourceChosenIndex] -= resourceWeight[resourceChosenIndex];
-              resourcesPlacedCount[resourceChosenIndex]++;
-              getImportantResourceCounts(landmassRegionId)[resourceChosenIndex]++;
-            } else {
-              console.log("Resource Index Failure");
-            }
+          const iResourcePlotIndex = getFlowerPlot(iX, iY, resourceChosen);
+          if (iResourcePlotIndex != -1) {
+            const iLocation = GameplayMap.getLocationFromIndex(iResourcePlotIndex);
+            const iResourceX = iLocation.x;
+            const iResourceY = iLocation.y;
+            ResourceBuilder.setResourceType(iResourceX, iResourceY, resourceChosen);
+            resourceRunningWeight[resourceChosen] -= resourceWeight[resourceChosen];
+            resourcesPlacedCount[resourceChosen]++;
+            getImportantResourceCounts(landmassRegionId)[resourceChosen]++;
           } else {
-            console.log("Resource Type Failure");
+            console.log("Resource Index Failure");
           }
         }
       }
@@ -161,8 +171,9 @@ function generateResources(iWidth, iHeight, minMarineResourceTypesOverride = 3) 
 }
 function wouldCreateCluster(x, y, resourceType, maxAdjacent = 1) {
   let count = 0;
+  const pos = { x, y };
   for (let dir = 0; dir < DirectionTypes.NUM_DIRECTION_TYPES; dir++) {
-    const adjLoc = GameplayMap.getAdjacentPlotLocation(GameplayMap.getLocationFromIndex(GameplayMap.getIndexFromXY(x, y)), dir);
+    const adjLoc = GameplayMap.getAdjacentPlotLocation(pos, dir);
     const adjResource = GameplayMap.getResourceType(adjLoc.x, adjLoc.y);
     const matches = resourceType == void 0 ? adjResource != ResourceTypes.NO_RESOURCE : adjResource === resourceType;
     if (matches) {
@@ -172,18 +183,9 @@ function wouldCreateCluster(x, y, resourceType, maxAdjacent = 1) {
   }
   return false;
 }
-function canHaveFlowerPlot(iX, iY, resourceType) {
+function canHaveResource(iX, iY, resourceType) {
   if (ResourceBuilder.canHaveResource(iX, iY, resourceType, false) && !wouldCreateCluster(iX, iY, resourceType)) {
     return true;
-  }
-  for (let iDirection = 0; iDirection < DirectionTypes.NUM_DIRECTION_TYPES; iDirection++) {
-    const iIndex = GameplayMap.getIndexFromXY(iX, iY);
-    const iLocation = GameplayMap.getLocationFromIndex(iIndex);
-    const iAdjacentX = GameplayMap.getAdjacentPlotLocation(iLocation, iDirection).x;
-    const iAdjacentY = GameplayMap.getAdjacentPlotLocation(iLocation, iDirection).y;
-    if (ResourceBuilder.canHaveResource(iAdjacentX, iAdjacentY, resourceType, false) && !wouldCreateCluster(iAdjacentX, iAdjacentY, resourceType)) {
-      return true;
-    }
   }
   return false;
 }
@@ -209,5 +211,5 @@ function getFlowerPlot(iX, iY, resourceType) {
   }
 }
 
-export { canHaveFlowerPlot, generateResources, getFlowerPlot, wouldCreateCluster };
+export { canHaveResource, generateResources, getFlowerPlot, wouldCreateCluster };
 //# sourceMappingURL=resource-generator.js.map

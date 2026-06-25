@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+	<Modifier id="NACHI_FALLS_HAPPINESS_PURCHASE" collection="COLLECTION_ALL_PLAYERS" effect="EFFECT_PLAYER_GRANT_FREE_PURCHASE_CHARGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_MAP_HAS_FEATURE">
+				<Argument name="FeatureType">FEATURE_NACHI_FALLS</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_HAS_FEATURE">
+				<Argument name="FeatureType">FEATURE_NACHI_FALLS</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">2</Argument>
+		<Argument name="Tag">HAPPINESS</Argument>
+	</Modifier>
+	<Modifier id="SEONGSAN_ILCHULBONG_CAVALRY_PRODUCTION" collection="COLLECTION_ALL_CITIES" effect="EFFECT_CITY_ADJUST_UNIT_PRODUCTION">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_MAP_HAS_FEATURE">
+				<Argument name="FeatureType">FEATURE_SEONGSAN_ILCHULBONG</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_HAS_FEATURE">
+				<Argument name="FeatureType">FEATURE_SEONGSAN_ILCHULBONG</Argument>
+			</Requirement>
+		</SubjectRequirements>
+        <Argument name="Percent">20</Argument>
+        <Argument name="UnitClass">UNIT_CLASS_CAVALRY</Argument>
+    </Modifier>
+</GameEffects>

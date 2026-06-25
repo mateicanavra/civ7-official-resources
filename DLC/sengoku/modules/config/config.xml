@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<LeaderCivilizationBias>
+	</LeaderCivilizationBias>
+	<Civilizations>
+		<Row Domain="ExplorationAgeCivilizations" CivilizationType="CIVILIZATION_SENGOKU" CivilizationName="LOC_CIVILIZATION_SENGOKU_NAME" CivilizationFullName="LOC_CIVILIZATION_SENGOKU_FULLNAME" CivilizationDescription="LOC_CIVILIZATION_SENGOKU_DESCRIPTION" CivilizationIntroText="LOC_LOADING_CIV_INTRO_TEXT_SENGOKU" CivilizationIcon="shawnee_icon.png"/>
+	</Civilizations>
+	<CivilizationItems>
+		<Row CivilizationDomain="AntiquityAgeCivilizations" AgeType="AGE_ANTIQUITY" CivilizationType="CIVILIZATION_SENGOKU" Type="TRAIT_SENGOKU_ABILITY" Kind="KIND_TRAIT" Name="LOC_TRAIT_SENGOKU_ABILITY_NAME" Description="LOC_TRAIT_SENGOKU_ABILITY_AQ_DESCRIPTION"/>
+		<Row CivilizationDomain="ExplorationAgeCivilizations" AgeType="AGE_EXPLORATION" CivilizationType="CIVILIZATION_SENGOKU" Type="TRAIT_SENGOKU_ABILITY" Kind="KIND_TRAIT" Name="LOC_TRAIT_SENGOKU_ABILITY_NAME" Description="LOC_TRAIT_SENGOKU_ABILITY_EX_DESCRIPTION"/>
+		<Row CivilizationDomain="ModernAgeCivilizations" AgeType="AGE_MODERN" CivilizationType="CIVILIZATION_SENGOKU" Type="TRAIT_SENGOKU_ABILITY" Kind="KIND_TRAIT" Name="LOC_TRAIT_SENGOKU_ABILITY_NAME" Description="LOC_TRAIT_SENGOKU_ABILITY_MO_DESCRIPTION"/>
+		<!-- Unique Units -->
+		<Row CivilizationDomain="ExplorationAgeCivilizations" CivilizationType="CIVILIZATION_SENGOKU" Type="UNIT_SAMURAI" Kind="KIND_UNIT" Name="LOC_UNIT_SAMURAI_NAME" Description="LOC_UNIT_SAMURAI_BASE_DESCRIPTION" Icon="unitflag_leiomano.png"/>
+		<Row CivilizationDomain="ExplorationAgeCivilizations" CivilizationType="CIVILIZATION_SENGOKU" Type="UNIT_NINJA" Kind="KIND_UNIT" Name="LOC_UNIT_NINJA_NAME" Description="LOC_UNIT_NINJA_DESCRIPTION" Icon="unitflag_NINJA.png"/>
+		<Row CivilizationDomain="ExplorationAgeCivilizations" CivilizationType="CIVILIZATION_SENGOKU" Type="IMPROVEMENT_TEA_HOUSE" Kind="KIND_IMPROVEMENT" Name="LOC_IMPROVEMENT_TEA_HOUSE_NAME" Description="LOC_IMPROVEMENT_TEA_HOUSE_DESCRIPTION" Icon="impicon_loikalo.png"/>
+	</CivilizationItems>
+	<CivilizationTags>
+		<Row CivilizationDomain="ExplorationAgeCivilizations" CivilizationType="CIVILIZATION_SENGOKU" TagType="TAG_TRAIT_POLITICAL"/>
+		<Row CivilizationDomain="ExplorationAgeCivilizations" CivilizationType="CIVILIZATION_SENGOKU" TagType="TAG_TRAIT_MILITARISTIC"/>
+		<!-- ToT -->
+		<Row CivilizationDomain="ExplorationAgeCivilizations" CivilizationType="CIVILIZATION_SENGOKU" TagType="TAG_APEX_AGE_EXPLORATION"/>
+	</CivilizationTags>
+	<CivilizationUnlocks>
+		<Row CivilizationDomain="AntiquityAgeCivilizations" CivilizationType="CIVILIZATION_PERSIA" AgeDomain="StandardAges" AgeType="AGE_EXPLORATION" Type="CIVILIZATION_SENGOKU" Kind="KIND_CIVILIZATION" Name="LOC_CIVILIZATION_SENGOKU_NAME" Description="LOC_CIVILIZATION_SENGOKU_DESCRIPTION" Icon="CIVILIZATION_SENGOKU"/>
+		<Row CivilizationDomain="ExplorationAgeCivilizations" CivilizationType="CIVILIZATION_SENGOKU" AgeDomain="StandardAges" AgeType="AGE_MODERN" Type="CIVILIZATION_MEIJI" Kind="KIND_CIVILIZATION" Name="LOC_CIVILIZATION_MEIJI_NAME" Description="LOC_CIVILIZATION_MEIJI_DESCRIPTION" Icon="CIVILIZATION_MEIJI"/>
+	</CivilizationUnlocks>
+	<LeaderUnlocks>
+		<Row LeaderDomain="StandardLeaders" LeaderType="LEADER_HIMIKO" AgeDomain="StandardAges" AgeType="AGE_EXPLORATION" Type="CIVILIZATION_SENGOKU" Kind="KIND_CIVILIZATION" Name="LOC_CIVILIZATION_SENGOKU_NAME" Description="LOC_CIVILIZATION_SENGOKU_DESCRIPTION" Icon="CIVILIZATION_SENGOKU" />
+	</LeaderUnlocks>
+	<LeaderCivilizationBias>
+		<Row CivilizationDomain="ExplorationAgeCivilizations" CivilizationType="CIVILIZATION_SENGOKU" LeaderDomain="StandardLeaders" LeaderType="LEADER_HIMIKO" Bias="3" ReasonType="LOC_UNLOCK_PLAY_AS_HIMIKO_SENGOKU_TOOLTIP" ChoiceType="LOC_CREATE_GAME_HISTORICAL_CHOICE" />
+	</LeaderCivilizationBias>
+	<OwnershipConditions>
+		<Row ItemType="CIVILIZATION_SENGOKU" Action="LOC_LOCKED_INCLUDED_WITH_CONTENT" />
+	</OwnershipConditions>
+</Database>

@@ -18,6 +18,7 @@ import UnitSelection from '../unit-selection/unit-selection.js';
 import WorldInput from '../world-input/world-input.js';
 import styles from './unit-actions.scss.js';
 import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
+import ContextManager from '../../../core/ui/context-manager/context-manager.js';
 import { DialogBoxAction } from '../../../core/ui/dialog-box/model-dialog-box.js';
 
 var UnitActionPanelState = /* @__PURE__ */ ((UnitActionPanelState2) => {
@@ -619,6 +620,9 @@ class UnitActions extends Panel {
     }
   }
   realizeFocus() {
+    if (ContextManager.getTarget("trade-route-chooser")) {
+      return;
+    }
     const moveButtonIndex = this.standardActions.findIndex((action) => {
       return action.type == "UNITOPERATION_MOVE_TO";
     });
@@ -1373,22 +1377,12 @@ class UnitActions extends Panel {
   }
   createButtons(actions) {
     let lastButton = null;
-    const spacerClass = actions == this.hiddenActions ? "mb-2" : "mr-3";
-    const halfLength = actions.length + 1 >> 1;
+    const isHiddenAction = actions == this.hiddenActions;
+    const spacerClass = isHiddenAction ? "mb-2" : "mr-3";
+    const hasDeselectAction = isHiddenAction && UI.getViewExperience() == UIViewExperience.Mobile;
+    const totalNumActions = actions.length + (hasDeselectAction ? 1 : 0);
     for (const [index, action] of actions.entries()) {
-      const newButton = document.createElement("unit-action-button");
-      newButton.classList.add(spacerClass, "relative");
-      newButton.innerHTML = `
-			<fxs-activatable class="unit-actions__action-button">
-				<div class="unit-action-button__button-bg-container">
-					<div class="unit-action-button__button-highlight"></div>
-					<div class="unit-action-button__button-icon flex-auto bg-contain pointer-events-none bg-no-repeat relative"></div>
-				</div>
-			</fxs-activatable>
-			`;
-      if (actions == this.hiddenActions && actions.length >= 4 && index >= halfLength) {
-        newButton.classList.add("ml-2");
-      }
+      const newButton = this.createUnitActionButton(index, totalNumActions, isHiddenAction);
       lastButton = newButton;
       if (actions == this.commandActions) {
         const buttonBackground = newButton.querySelector(
@@ -1405,11 +1399,6 @@ class UnitActions extends Panel {
         console.error("No activatable found for unit action button!");
         return;
       }
-      newActivatable.setAttribute("tabindex", "-1");
-      newActivatable.setAttribute("disable-focus-allowed", "true");
-      newActivatable.setAttribute("data-audio-group-ref", "interact-unit");
-      newActivatable.setAttribute("data-audio-focus", "unit-info-hovered");
-      newActivatable.setAttribute("data-audio-press-ref", "data-audio-unit-action-clicked");
       switch (action.type) {
         case "UNITCOMMAND_MAKE_TRADE_ROUTE":
           newActivatable.setAttribute("data-audio-activate-ref", "data-audio-unit-merchant-activate");
@@ -1521,6 +1510,9 @@ class UnitActions extends Panel {
         case "UNITOPERATION_COASTAL_RAID":
           newActivatable.setAttribute("data-audio-activate-ref", "data-audio-coastal-raid");
           break;
+        case "UNITCOMMAND_DISPERSE_CLAN":
+          newActivatable.setAttribute("data-audio-activate-ref", "data-audio-delete-unit-confirm-release");
+          break;
         case "UNITCOMMAND_PLUNDER_TRADE_ROUTE":
           newActivatable.setAttribute("data-audio-activate-ref", "data-audio-plunder-route");
           break;
@@ -1553,6 +1545,12 @@ class UnitActions extends Panel {
         newButton.appendChild(chargesLeftElement);
       }
     }
+    if (hasDeselectAction) {
+      lastButton = this.createDeselectUnitAction(totalNumActions);
+      if (this.hiddenContainer.children.length == 6) {
+        this.hiddenContainer.children[2].classList.remove(spacerClass);
+      }
+    }
     if (lastButton) {
       lastButton.classList.remove(spacerClass);
     }
@@ -1560,6 +1558,50 @@ class UnitActions extends Panel {
       "hidden",
       this.hiddenContainer.children.length < 1
     );
+  }
+  createUnitActionButton(index, totalNumActions, isHiddenAction) {
+    const spacerClass = isHiddenAction ? "mb-2" : "mr-3";
+    const halfLength = totalNumActions >> 1;
+    const newButton = document.createElement("unit-action-button");
+    newButton.classList.add(spacerClass, "relative");
+    newButton.innerHTML = `
+		<fxs-activatable class="unit-actions__action-button">
+			<div class="unit-action-button__button-bg-container">
+				<div class="unit-action-button__button-highlight"></div>
+				<div class="unit-action-button__button-icon flex-auto bg-contain pointer-events-none bg-no-repeat relative"></div>
+			</div>
+		</fxs-activatable>
+		`;
+    if (isHiddenAction && totalNumActions >= 4 && index >= halfLength) {
+      newButton.classList.add("ml-2");
+    }
+    const newActivatable = MustGetElement(".unit-actions__action-button", newButton);
+    newActivatable.setAttribute("tabindex", "-1");
+    newActivatable.setAttribute("disable-focus-allowed", "true");
+    newActivatable.setAttribute("data-audio-group-ref", "interact-unit");
+    newActivatable.setAttribute("data-audio-focus", "unit-info-hovered");
+    newActivatable.setAttribute("data-audio-press-ref", "data-audio-unit-action-clicked");
+    return newButton;
+  }
+  createDeselectUnitAction(totalNumActions) {
+    const commandText = `[STYLE:unit-action__tooltip-title]${Locale.compose("LOC_UNITCOMMAND_DESELECT_NAME")}[/STYLE][n]${Locale.compose("LOC_UNITCOMMAND_DESELECT_DESCRIPTION")}`;
+    const newButton = this.createUnitActionButton(totalNumActions - 1, totalNumActions, true);
+    const newActivatable = MustGetElement(".unit-actions__action-button", newButton);
+    newActivatable.setAttribute("data-tooltip-content", commandText);
+    newActivatable.setAttribute("data-tooltip-anchor", "left");
+    newActivatable.setAttribute("data-tooltip-alignment", "top-right");
+    newActivatable.setAttribute("data-tooltip-hide-on-update", "");
+    newActivatable.setAttribute("play-error-sound", "false");
+    newActivatable.setAttribute("category", 3 /* HIDDEN */.toString());
+    const iconCSS = `url("blp:action_deselect.png")`;
+    newActivatable.style.setProperty("--button-icon", iconCSS);
+    newActivatable.addEventListener("action-activate", () => {
+      UI.Player.deselectAllUnits();
+      InterfaceMode.switchToDefault();
+    });
+    this.hiddenContainer.appendChild(newButton);
+    this.hiddenActionElements.push(newActivatable);
+    return newButton;
   }
   setButtonData(button, action) {
     if (action && button) {
@@ -1671,7 +1713,8 @@ class UnitActions extends Panel {
     } else {
       this.shelfButton.setAttribute("tabindex", "-1");
     }
-    const isDouble = this.hiddenActions.length >= 4;
+    const numActionsForDouble = UI.getViewExperience() == UIViewExperience.Mobile ? 3 : 4;
+    const isDouble = this.hiddenActions.length >= numActionsForDouble;
     this.Root.querySelector(".unit-actions__hidden-column-bg")?.classList.toggle(
       "no-col",
       !UnitActionsPanelModel.isShelfOpen

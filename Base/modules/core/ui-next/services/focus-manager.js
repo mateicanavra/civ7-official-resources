@@ -18,6 +18,7 @@ function createFocusManager() {
   const isWorldFocused = createMemo(() => currentFocus() == document.body);
   const isFocusLocked = createMemo(() => lockedFocusTarget() != null);
   const focusChain = createMemo(() => buildFocusChain(currentFocus()));
+  let focusAudioDebounce = false;
   function handleDeviceChanged(deviceType) {
     setIsGamePadActive(deviceType == InputDeviceType.Controller);
     if (isGamepadActive()) {
@@ -218,10 +219,14 @@ function createFocusManager() {
         if (applySolidFocus) {
           solidRootFocus.focusDescendant(currentFocus(), false);
         }
-        if (prevFocus == curFocus) {
+        if (prevFocus == curFocus && !focusAudioDebounce) {
           const audioId = curFocus.getAttribute("data-audio-focus-ref") || "data-audio-focus";
           const audioGroup = curFocus.getAttribute("data-audio-group-ref") || "audio-base";
           Audio.playSound(audioId, audioGroup);
+          focusAudioDebounce = true;
+          requestAnimationFrame(() => {
+            focusAudioDebounce = false;
+          });
         }
       };
       if (document.activeElement != curFocus) {

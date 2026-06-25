@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+<Modifier id="MOD_HIMEJI_CASTLE_FORTIFICATION_SCIENCE" collection="COLLECTION_OWNER_CITY" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" permanent="true" run-once="true">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_WONDER_IS_ACTIVE">
+				<Argument name="ConstructibleType">WONDER_HIMEJI_CASTLE</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Tag">FORTIFICATION</Argument>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount">4</Argument>
+		<Argument name="Tooltip">LOC_WONDER_HIMEJI_CASTLE_NAME</Argument>
+		<Argument name="Description">LOC_WONDER_HIMEJI_CASTLE_DESCRIPTION</Argument>
+	</Modifier>
+	<Modifier id="MOD_HIMEJI_CASTLE_WALL_COMBAT_STRENGTH" collection="COLLECTION_PLAYER_COMBAT" effect="EFFECT_ADJUST_UNIT_STRENGTH_MODIFIER">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_WONDER_IS_ACTIVE">
+				<Argument name="ConstructibleType">WONDER_HIMEJI_CASTLE</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_DEFENDER_IS_PLAYER_OWNED_DISTRICT"/>
+		</SubjectRequirements>
+		<Argument name="Amount">5</Argument>
+		<String context="Preview">LOC_MOD_HIMEJI_CASTLE_PREVIEW</String>
+	</Modifier>
+</GameEffects>

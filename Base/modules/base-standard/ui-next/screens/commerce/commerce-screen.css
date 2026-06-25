@@ -51,6 +51,9 @@
   animation-iteration-count: 2;
 }
 
-.trade-route-card-activatable:focus .trade-route-card, .trade-route-card-activatable:focus-within .trade-route-card {
+.focusable-card-activatable:focus .focusable-card, .focusable-card-activatable:focus-within .focusable-card {
   border-image-source: url("blp:base_ticket-select-bg");
+}
+.focusable-card-activatable:focus .ornate-card-bg, .focusable-card-activatable:focus-within .ornate-card-bg {
+  border-image-source: url("blp:hud_mini_box_highlight");
 }

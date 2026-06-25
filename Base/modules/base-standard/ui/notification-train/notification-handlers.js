@@ -161,7 +161,7 @@ var NotificationHandlers;
   NotificationHandlers2.ChooseCelebration = ChooseCelebration;
   class ChooseGovernment extends DefaultHandler {
     activate(_notificationId, _activatedBy) {
-      ContextManager.push("screen-government-picker", { singleton: true, createMouseGuard: true });
+      ContextManager.push("screen-government-chooser", { singleton: true, createMouseGuard: true });
       return true;
     }
   }

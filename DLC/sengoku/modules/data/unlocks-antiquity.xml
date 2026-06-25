@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Types>
+		<InsertOrIgnore Type="UNLOCK_CIVILIZATION_SENGOKU" Kind="KIND_UNLOCK"/>
+	</Types>
+	<Unlocks>
+		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_SENGOKU"/>
+	</Unlocks>
+	<UnlockRewards>
+		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_SENGOKU" Name="LOC_CIVILIZATION_SENGOKU_NAME" Description="LOC_UNLOCK_EXPLORATION_CIV_DESCRIPTION" Icon="CIVILIZATION_SENGOKU" UnlockRewardType="CIVILIZATION_SENGOKU" UnlockRewardKind="KIND_CIVILIZATION"/>
+	</UnlockRewards>
+	<UnlockConfigurationValues>
+		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_SENGOKU" ConfigurationValue="CIVILIZATION_SENGOKU"/>
+	</UnlockConfigurationValues>
+	<RequirementSets>
+		<Row RequirementSetId="REQSET_CIV_IS_SENGOKU" RequirementSetType="REQUIREMENTSET_TEST_ALL"/>
+	</RequirementSets>
+	<Requirements>
+		<Row RequirementId="REQ_CIV_IS_SENGOKU" RequirementType="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES"/>
+	</Requirements>
+	<RequirementArguments>
+		<Row RequirementId="REQ_CIV_IS_SENGOKU" Name="CivilizationType" Value="CIVILIZATION_SENGOKU"/>
+	</RequirementArguments>
+	<RequirementSetRequirements>
+		<Row RequirementSetId="REQSET_CIV_IS_SENGOKU" RequirementId="REQ_CIV_IS_SENGOKU"/>
+	</RequirementSetRequirements>
+	<UnlockRequirements>
+		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_SENGOKU" RequirementSetId="REQSET_CIV_IS_SENGOKU" Description="LOC_UNLOCK_PLAY_AS_SENGOKU_DESCRIPTION" Tooltip="LOC_UNLOCK_PLAY_AS_SENGOKU_SENGOKU_TOOLTIP"/>
+		<Row UnlockType="UNLOCK_CIVILIZATION_SENGOKU" RequirementSetId="REQSET_CIV_IS_PERSIA" Description="LOC_UNLOCK_PLAY_AS_PERSIA_DESCRIPTION" Tooltip="LOC_UNLOCK_PLAY_AS_PERSIA_SENGOKU_TOOLTIP"/>
+	</UnlockRequirements>
+</Database>

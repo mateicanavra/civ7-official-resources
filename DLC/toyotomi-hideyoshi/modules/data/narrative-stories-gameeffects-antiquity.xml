@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+    <Modifier id="LEADER_CHAIN_1310B_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_PRODUCTION" run-once="false" permanent="true">
+        <Argument name="Percent">25</Argument>
+        <Argument name="ConstructibleType">BUILDING_MONUMENT</Argument>
+    </Modifier>
+    <Modifier id="LEADER_CHAIN_1310C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_PRODUCTION" run-once="false" permanent="true">
+        <Argument name="Percent">25</Argument>
+        <Argument name="ConstructibleType">BUILDING_BARRACKS</Argument>
+    </Modifier>
+    <Modifier id="LEADER_CHAIN_1310D_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_GRANT_UNIT" run-once="false" permanent="true">
+        <Argument name="UnitTag">UNIT_CLASS_INFANTRY</Argument>
+        <Argument name="Amount">1</Argument>
+    </Modifier>
+    <Modifier id="LEADER_CHAIN_1311B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ATTRIBUTE" run-once="false" permanent="true">
+        <Argument name="AttributeType">ATTRIBUTE_CULTURAL</Argument>
+        <Argument name="Amount">1</Argument>
+    </Modifier>
+    <Modifier id="LEADER_CHAIN_1311C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_HAPPINESS</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+        <Argument name="ConstructibleType">BUILDING_AMPHITHEATER</Argument>
+    </Modifier>
+    <Modifier id="LEADER_CHAIN_1312B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ATTRIBUTE" run-once="false" permanent="true">
+        <Argument name="AttributeType">ATTRIBUTE_MILITARISTIC</Argument>
+        <Argument name="Amount">1</Argument>
+    </Modifier>
+    <Modifier id="LEADER_CHAIN_1312C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_GREAT_WORK" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_CULTURE</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+    </Modifier>
+    <Modifier id="10164B_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_CULTURE</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">2</Argument>
+        <Argument name="ConstructibleType">BUILDING_AMPHITHEATER</Argument>
+    </Modifier>
+    <Modifier id="10164C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_HAPPINESS</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">2</Argument>
+        <Argument name="ConstructibleType">BUILDING_AMPHITHEATER</Argument>
+    </Modifier>
+    <Modifier id="10164D_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_CULTURE</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">3</Argument>
+        <Argument name="ConstructibleType">BUILDING_AMPHITHEATER</Argument>
+    </Modifier>
+    <Modifier id="10164D_NARRATIVE_MODIFIER2" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_GOLD</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">-2</Argument>
+        <Argument name="ConstructibleType">BUILDING_AMPHITHEATER</Argument>
+    </Modifier>
+    <Modifier id="10164D_NARRATIVE_MODIFIER3" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_GOLD</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">-2</Argument>
+        <Argument name="ConstructibleType">BUILDING_AMPHITHEATER</Argument>
+    </Modifier>
+    <Modifier id="10167B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_FAVORS_GRIEVANCES" run-once="false" permanent="true">
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_PLAYER_MET_IMMEDIATE_GOSSIP">
+                <Argument name="GossipTypes">GOSSIP_DIPLOMACY_ACTION_STARTED</Argument>
+                <Argument name="GOSSIP_DIPLOMACY_ACTION_STARTED">Hash,OtherPlayer,Other,Hash,DiplomacyActionGroup,DIPLOMACY_ACTION_GROUP_ENDEAVOR,Hash,Leader,LEADER_FRIEDRICH</Argument>
+            </Requirement>
+        </SubjectRequirements>
+        <Argument name="Amount">5</Argument>
+        <Argument name="TargetLeader">LEADER_FRIEDRICH</Argument>
+    </Modifier>
+    <Modifier id="10167C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_FAVORS_GRIEVANCES" run-once="false" permanent="true">
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_PLAYER_MET_IMMEDIATE_GOSSIP">
+                <Argument name="GossipTypes">GOSSIP_DIPLOMACY_ACTION_STARTED</Argument>
+                <Argument name="GOSSIP_DIPLOMACY_ACTION_STARTED">Hash,OtherPlayer,Other,Hash,DiplomacyActionGroup,DIPLOMACY_ACTION_GROUP_SANCTION,Hash,Leader,LEADER_FRIEDRICH</Argument>
+            </Requirement>
+        </SubjectRequirements>
+        <Argument name="Amount">-5</Argument>
+        <Argument name="TargetLeader">LEADER_FRIEDRICH</Argument>
+    </Modifier>
+    <Modifier id="LEADER_CHAIN_1310B_NARRATIVE_MODIFIER2" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_NARRATIVE_TAG" run-once="false" permanent="true">
+        <Argument name="Amount">1</Argument>
+        <Argument name="NarrativeTagType">NARRATIVE_TAG_LEADER_CHAIN_A</Argument>
+    </Modifier>
+    <Modifier id="LEADER_CHAIN_1310C_NARRATIVE_MODIFIER2" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_NARRATIVE_TAG" run-once="false" permanent="true">
+        <Argument name="Amount">1</Argument>
+        <Argument name="NarrativeTagType">NARRATIVE_TAG_LEADER_CHAIN_B</Argument>
+    </Modifier>
+    <Modifier id="LEADER_CHAIN_1311B_NARRATIVE_MODIFIER2" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_NARRATIVE_TAG" run-once="false" permanent="true">
+        <Argument name="Amount">1</Argument>
+        <Argument name="NarrativeTagType">NARRATIVE_TAG_LEADER_CHAIN_A</Argument>
+    </Modifier>
+    <Modifier id="LEADER_CHAIN_1312B_NARRATIVE_MODIFIER2" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_NARRATIVE_TAG" run-once="false" permanent="true">
+        <Argument name="Amount">1</Argument>
+        <Argument name="NarrativeTagType">NARRATIVE_TAG_LEADER_CHAIN_B</Argument>
+    </Modifier>
+    <RequirementSet id="REQSET_LEADER_CHAIN_1310A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_LEADER_TOYOTOMI_HIDEYOSHI_ONLY"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_LEADER_CHAIN_1311A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_LEADER_TOYOTOMI_HIDEYOSHI_ONLY"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_LEADER_CHAIN_1312A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_LEADER_TOYOTOMI_HIDEYOSHI_ONLY"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_10164A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_LEADER_TOYOTOMI_HIDEYOSHI"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_10167A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_LEADER_TOYOTOMI_HIDEYOSHI"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_LEADER_CHAIN_1310A_NARRATIVE">
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_BUILDINGS">
+            <Argument name="BuildingTag">CULTURE</Argument>
+            <Argument name="Amount">1</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_LEADER_CHAIN_1310B_NARRATIVE">
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
+            <Argument name="GossipTypes">GOSSIP_FOUND_CITY01</Argument>
+            <Argument name="GOSSIP_FOUND_CITY01">NumericNegative,OpponentDistance,5</Argument>
+            <Argument name="AfterInit">True</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_LEADER_CHAIN_1310C_NARRATIVE">
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
+            <Argument name="GossipTypes">GOSSIP_CONSTRUCT_BUILDING01</Argument>
+            <Argument name="GOSSIP_CONSTRUCT_BUILDING01">Hash,IsWonder,True</Argument>
+            <Argument name="AfterInit">True</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_LEADER_CHAIN_1311A_NARRATIVE">
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_BUILDINGS">
+            <Argument name="BuildingTag">CULTURE</Argument>
+            <Argument name="Amount">5</Argument>
+        </Requirement>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_NARRATIVE_TAGS">
+            <Argument name="NarrativeTagType">NARRATIVE_TAG_LEADER_CHAIN_A</Argument>
+            <Argument name="Amount">1</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_LEADER_CHAIN_1311B_NARRATIVE">
+        <Requirement type="REQUIREMENT_COLLECTION_COUNT_ATLEAST">
+            <Argument name="Count">3</Argument>
+            <Argument name="CollectionType">COLLECTION_PLAYER_CITIES</Argument>
+            <Argument name="RequirementSetId">SUBREQSET_LEADER_CHAIN_1311B_NARRATIVE</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="SUBREQSET_LEADER_CHAIN_1311B_NARRATIVE">
+        <Requirement type="REQUIREMENT_CITY_HAS_ANY_WONDER">
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_LEADER_CHAIN_1312A_NARRATIVE">
+        <Requirement type="REQUIREMENT_PLAYER_IS_AT_PEACE_WITH_ALL_MAJORS" inverse="true">
+        </Requirement>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_NARRATIVE_TAGS">
+            <Argument name="NarrativeTagType">NARRATIVE_TAG_LEADER_CHAIN_B</Argument>
+            <Argument name="Amount">1</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_LEADER_CHAIN_1312B_NARRATIVE">
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
+            <Argument name="GossipTypes">GOSSIP_UNIT_COMBAT_DEATH01</Argument>
+            <Argument name="GOSSIP_UNIT_COMBAT_DEATH01">Hash,OtherPlayer,Self</Argument>
+            <Argument name="TurnWindow">0</Argument>
+            <Argument name="DuplicateCount">3</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_10164A_NARRATIVE">
+        <Requirement xref="REQ_STORY_LEADER_TOYOTOMI_HIDEYOSHI"/>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_BUILDINGS">
+            <Argument name="BuildingType">BUILDING_AMPHITHEATER</Argument>
+            <Argument name="Amount">3</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_10167A_NARRATIVE">
+        <Requirement xref="REQ_STORY_LEADER_TOYOTOMI_HIDEYOSHI"/>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
+            <Argument name="GossipTypes">GOSSIP_DIPLOMACY_ACTION_STARTED01</Argument>
+            <Argument name="GOSSIP_DIPLOMACY_ACTION_STARTED01">Hash,OtherPlayer,Other,Hash,DiplomacyActionGroup,DIPLOMACY_ACTION_GROUP_ENDEAVOR,Hash,Leader,LEADER_FRIEDRICH</Argument>
+            <Argument name="DuplicateCount">3</Argument>
+            <Argument name="Amount">1</Argument>
+        </Requirement>
+    </RequirementSet>
+</GameEffects>

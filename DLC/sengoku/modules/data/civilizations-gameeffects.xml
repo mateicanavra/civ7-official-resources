@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+	<!-- ==================================================	-->
+	<!--				Civ-Specific Trees					-->
+	<!-- ==================================================	-->
+	<Modifier id="MOD_REVEAL_CIV_CULTURE_TREE_SENGOKU" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_REVEAL_CULTURE_TREE">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_HAS_CIVILIZATION_OR_LEADER_TRAIT">
+				<Argument name="TraitType">TRAIT_SENGOKU</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="ProgressionTreeType">TREE_CIVICS_EX_SENGOKU</Argument>
+	</Modifier>
+	<!-- ==================================================	-->
+	<!--				Wonder Bonuses						-->
+	<!-- ==================================================	-->
+	<Modifier id="MOD_CIV_WONDER_PRODUCTION_SENGOKU" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_FAVORED_WONDER_PRODUCTION">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_HAS_CIVILIZATION_OR_LEADER_TRAIT">
+				<Argument name="TraitType">TRAIT_SENGOKU</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Percent">30</Argument>
+		<String context="Preview">LOC_MOD_CIV_WONDER_PRODUCTION_SENGOKU_DESCRIPTION</String>
+	</Modifier>
+</GameEffects>

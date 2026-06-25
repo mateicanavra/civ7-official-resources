@@ -182,6 +182,7 @@ class FxsChooserItem extends FxsActivatable {
     );
     this.Root.appendChild(this.selectedOverlay);
     this.container.classList.add(
+      "fxs-chooser-item-container",
       "hud_sidepanel_list-bg-no-fill",
       "relative",
       "flex",

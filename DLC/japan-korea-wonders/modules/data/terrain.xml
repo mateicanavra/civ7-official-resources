@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Kinds>
+		<InsertOrIgnore Kind="KIND_FEATURE"/>
+	</Kinds>
+	<Tags>
+		<InsertOrIgnore Tag="ONETILEADJACENTTOISLAND" Category="FEATURE_ATTRIBUTE"/>
+	</Tags>
+	<Types>
+		<!--Natural Wonders -->
+		<Row Type="FEATURE_NACHI_FALLS" Kind="KIND_FEATURE"/>
+		<Row Type="FEATURE_SEONGSAN_ILCHULBONG" Kind="KIND_FEATURE"/>
+	</Types>
+	<TypeTags>
+		<Row Type="FEATURE_SEONGSAN_ILCHULBONG" Tag="ONETILEADJACENTTOISLAND"/>
+		<Row Type="FEATURE_SEONGSAN_ILCHULBONG" Tag="SHALLOWWATER"/>
+		<Row Type="FEATURE_SEONGSAN_ILCHULBONG" Tag="NOTADJACENTTOICE"/>
+	</TypeTags>
+	<TypeQuotes>
+		<Row Type="FEATURE_NACHI_FALLS" Quote="LOC_QUOTE_FEATURE_NACHI_FALLS" QuoteAuthor="LOC_QUOTE_AUTHOR_FEATURE_NACHI_FALLS" QuoteAudio="VO_Quote_NachiFalls"/>
+		<Row Type="FEATURE_SEONGSAN_ILCHULBONG" Quote="LOC_QUOTE_FEATURE_SEONGSAN_ILCHULBONG" QuoteAuthor="LOC_QUOTE_AUTHOR_FEATURE_SEONGSAN_ILCHULBONG" QuoteAudio="VO_Quote_SeongsanIlchulbong"/>
+	</TypeQuotes>
+	<Features>
+		<!--Natural Wonders -->
+		<Row FeatureType="FEATURE_NACHI_FALLS" Name="LOC_FEATURE_NACHI_FALLS_NAME" Description="LOC_FEATURE_NACHI_FALLS_DESCRIPTION" Tooltip="LOC_FEATURE_NACHI_FALLS_TOOLTIP" PlacementClass="FOURPARALLELAGRMWATERFALL" Impassable="true" Appeal="6" Removable="false" SightThroughModifier="1"/>
+		<Row FeatureType="FEATURE_SEONGSAN_ILCHULBONG" Name="LOC_FEATURE_SEONGSAN_ILCHULBONG_NAME" Description="LOC_FEATURE_SEONGSAN_ILCHULBONG_DESCRIPTION" Tooltip="LOC_FEATURE_SEONGSAN_ILCHULBONG_TOOLTIP" PlacementClass="TWO" Appeal="6" Impassable="false" NoLake="true" Removable="false" SightThroughModifier="1"/>
+	</Features>
+	<Feature_NaturalWonders>
+		<Row FeatureType="FEATURE_NACHI_FALLS" Tiles="4" NoRiver="false" PlacementPercentage="100" Direction="0"/>
+		<Row FeatureType="FEATURE_SEONGSAN_ILCHULBONG" Tiles="2" PlacementPercentage="100"/>
+	</Feature_NaturalWonders>
+	<Feature_ValidTerrains>
+		<!--Natural Wonders -->
+		<Row FeatureType="FEATURE_NACHI_FALLS" TerrainType="TERRAIN_FLAT"/>
+		<Row FeatureType="FEATURE_SEONGSAN_ILCHULBONG" TerrainType="TERRAIN_COAST"/>
+	</Feature_ValidTerrains>
+	<Feature_ValidBiomes>
+		<!--Natural Wonders -->
+		<Row FeatureType="FEATURE_NACHI_FALLS" BiomeType="BIOME_TROPICAL"/>
+		<Row FeatureType="FEATURE_SEONGSAN_ILCHULBONG" BiomeType="BIOME_MARINE"/>
+	</Feature_ValidBiomes>
+	<TerrainBiomeFeature_YieldChanges>
+		<!--Natural Wonders -->
+		<Row TerrainType="TERRAIN_FLAT" BiomeType="BIOME_TROPICAL" FeatureType="FEATURE_NACHI_FALLS" YieldType="YIELD_CULTURE" YieldChange="6" ScaleByGameAge="50"/>
+		<Row TerrainType="TERRAIN_COAST" BiomeType="BIOME_MARINE" FeatureType="FEATURE_SEONGSAN_ILCHULBONG" YieldType="YIELD_HAPPINESS" YieldChange="6" ScaleByGameAge="50"/>
+	</TerrainBiomeFeature_YieldChanges>
+	<GameModifiers>
+		<Row ModifierId="NACHI_FALLS_HAPPINESS_PURCHASE"/>
+		<Row ModifierId="SEONGSAN_ILCHULBONG_CAVALRY_PRODUCTION"/>
+	</GameModifiers>
+	<AiFavoredItems>
+		<Row ListType="Isabella Settle Plot Conditions" Item="Specific Feature" Favored="false" Value="15" StringVal="FEATURE_NACHI_FALLS" TooltipString="LOC_SETTLEMENT_RECOMMENDATION_FEATURES"/>
+		<Row ListType="Isabella Settle Plot Conditions" Item="Specific Feature" Favored="false" Value="15" StringVal="FEATURE_SEONGSAN_ILCHULBONG" TooltipString="LOC_SETTLEMENT_RECOMMENDATION_FEATURES"/>
+	</AiFavoredItems>
+	<District_FreeConstructibles>
+		<Row DistrictType="DISTRICT_RURAL" ConstructibleType="IMPROVEMENT_EXPEDITION_BASE" FeatureType="FEATURE_NACHI_FALLS" Priority="3"/>
+		<Row DistrictType="DISTRICT_RURAL" ConstructibleType="IMPROVEMENT_EXPEDITION_BASE" FeatureType="FEATURE_SEONGSAN_ILCHULBONG" Priority="3"/>
+	</District_FreeConstructibles>
+</Database>

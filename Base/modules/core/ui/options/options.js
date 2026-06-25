@@ -236,6 +236,7 @@ function updateAntialiasingVisiblity() {
 }
 let xellOption;
 let vsyncOption;
+let xefgFrameCountOption;
 let tooltipAutolockSliderOption;
 let uiScaleAdjustmentSliderOption;
 let advisorWarningsOption;
@@ -433,6 +434,15 @@ const onGfxAntialiasingDropdownUpdate = ({ id, dropdownItems = [] }, value) => {
   }
   onAdvancedOptionChanged();
 };
+const onGfxXefgFrameCountInit = (optionInfo) => {
+  if (!Options.supportsGraphicOptions) return;
+  const currentCount = Options.graphicsOptions.numGeneratedFrames ?? 1;
+  optionInfo.selectedItemIndex = optionInfo.dropdownItems?.findIndex(({ value }) => value === currentCount) ?? 0;
+};
+const onGfxXefgFrameCountUpdate = ({ dropdownItems = [] }, value) => {
+  const { value: count } = dropdownItems[value];
+  Options.graphicsOptions.numGeneratedFrames = count;
+};
 const onGfxCoreCheckboxInit = (optionInfo) => {
   switch (optionInfo.id) {
     case "option-gfx-vsync":
@@ -445,6 +455,9 @@ const onGfxCoreCheckboxInit = (optionInfo) => {
       optionInfo.currentValue = Options.graphicsOptions.frameGenerationMode == FrameGenerationMode.INTEL_XeFG;
       xellOption.currentValue = optionInfo.currentValue || Options.graphicsOptions.lowLatencyMode == LowLatencyMode.INTEL_XELL;
       xellOption.isDisabled = optionInfo.currentValue;
+      if (xefgFrameCountOption && Options.supportedOptions.intelXefgMaxFrames > 1) {
+        xefgFrameCountOption.isHidden = !optionInfo.currentValue;
+      }
       break;
     case "option-gfx-intel-xell":
       optionInfo.currentValue = Options.graphicsOptions.lowLatencyMode == LowLatencyMode.INTEL_XELL || Options.graphicsOptions.frameGenerationMode == FrameGenerationMode.INTEL_XeFG;
@@ -470,6 +483,10 @@ const onGfxCoreCheckboxUpdate = (optionInfo, value) => {
       } else {
         xellOption.currentValue = Options.graphicsOptions.lowLatencyMode == LowLatencyMode.INTEL_XELL;
         xellOption.isDisabled = false;
+      }
+      if (xefgFrameCountOption && Options.supportedOptions.intelXefgMaxFrames > 1) {
+        xefgFrameCountOption.isHidden = !value;
+        xefgFrameCountOption.forceRender?.();
       }
       xellOption.forceRender?.();
       vsyncOption.forceRender?.();
@@ -764,6 +781,13 @@ const onCheckboxUpdate = (optionInfo, value) => {
     UI.setOption(optionInfo.optionSet, optionInfo.optionType, optionInfo.optionName, value ? 1 : 0);
   }
 };
+const onAutoEndTurnInit = (optionInfo) => {
+  optionInfo.isDisabled = UI.isInGame() && Configuration.getGame().isHotseat;
+  if (optionInfo.isDisabled) {
+    optionInfo.description = Locale.compose("LOC_OPTIONS_HOTSEAT_NOT_VALID");
+  }
+  onCheckboxInit(optionInfo);
+};
 const onRemapInit = (optionInfo) => {
   optionInfo.currentValue = VisualRemaps.getRemapState(optionInfo.id) == VisualRemapSelection.Disabled ? false : true;
 };
@@ -976,6 +1000,9 @@ const onUiAutoScaleInit = (optionInfo) => {
   uiScaleAdjustmentSliderOption.isDisabled = !value;
 };
 const onUiAutoScaleUpdate = (optionInfo, value) => {
+  if (value != optionInfo.currentValue) {
+    Options.needReloadRefCount += 1;
+  }
   Configuration.getUser().setUiAutoScale(value);
   optionInfo.currentValue = Configuration.getUser().uiAutoScale;
   uiScaleAdjustmentSliderOption.isDisabled = !value;
@@ -1021,6 +1048,7 @@ const onUiAutoScaleAdjustmentUpdate = (optionInfo, value) => {
   value = Math.floor(value);
   optionInfo.currentValue = value;
   optionInfo.formattedValue = `${value}%`;
+  Options.needReloadRefCount += 1;
   UI.setOption("user", "Accessibility", "UIAutoScaleAdjustment", value);
 };
 const onHUDhOffsetInit = (optionInfo) => {
@@ -1403,7 +1431,7 @@ Options.addInitCallback(() => {
     group: "general",
     type: OptionType.Checkbox,
     id: "option-autoendturn",
-    initListener: onCheckboxInit,
+    initListener: onAutoEndTurnInit,
     updateListener: onCheckboxUpdate,
     label: "LOC_OPTIONS_AUTOENDTURN",
     description: "LOC_OPTIONS_AUTOENDTURN_DESCRIPTION",
@@ -1974,7 +2002,7 @@ Options.addInitCallback(() => {
         label: "LOC_OPTIONS_GFX_XELL",
         description: "LOC_OPTIONS_GFX_XELL_DESCRIPTION"
       };
-      if (supportedOptions.intelXefgSupported) {
+      if (supportedOptions.intelXefgMaxFrames > 0) {
         Options.addOption({
           category: CategoryType.Graphics,
           group: "advanced",
@@ -1985,6 +2013,25 @@ Options.addInitCallback(() => {
           label: "LOC_OPTIONS_GFX_XEFG",
           description: "LOC_OPTIONS_GFX_XEFG_DESCRIPTION"
         });
+        if (supportedOptions.intelXefgMaxFrames > 1) {
+          const frameCountItems = [];
+          for (let i = 1; i <= supportedOptions.intelXefgMaxFrames; i++) {
+            frameCountItems.push({ value: i, label: `${i}` });
+          }
+          xefgFrameCountOption = {
+            category: CategoryType.Graphics,
+            group: "advanced",
+            type: OptionType.Dropdown,
+            id: "option-gfx-intel-xefg-framecount",
+            initListener: onGfxXefgFrameCountInit,
+            updateListener: onGfxXefgFrameCountUpdate,
+            label: "LOC_OPTIONS_GFX_XEFG_FRAME_COUNT",
+            description: "LOC_OPTIONS_GFX_XEFG_FRAME_COUNT_DESCRIPTION",
+            dropdownItems: frameCountItems,
+            isHidden: Options.graphicsOptions.frameGenerationMode != FrameGenerationMode.INTEL_XeFG
+          };
+          Options.addOption(xefgFrameCountOption);
+        }
       }
       Options.addOption(xellOption);
     }

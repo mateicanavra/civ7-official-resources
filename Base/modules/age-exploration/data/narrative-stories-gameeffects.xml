@@ -639,7 +639,7 @@
         <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
         <Argument name="ConstructibleType">BUILDING_STONECUTTER</Argument>
     </Modifier>
-    <Modifier id="1112D_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD" run-once="false" permanent="true">
+    <Modifier id="1112D_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD" run-once="false">
         <SubjectRequirements>
             <Requirement type="REQUIREMENT_CITY_FOLLOWS_RELIGION">
             </Requirement>
@@ -7643,10 +7643,10 @@
     <RequirementSet id="REQSET_LEADER_CHAIN_1137B_NARRATIVE">
         <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
             <Argument name="GossipTypes">GOSSIP_GATHER_RESOURCE01,GOSSIP_GATHER_RESOURCE02,GOSSIP_GATHER_RESOURCE03,GOSSIP_GATHER_RESOURCE04</Argument>
-            <Argument name="GOSSIP_GATHER_RESOURCE01">Hash,ResourceType,RESOURCE_COCOA</Argument>
-            <Argument name="GOSSIP_GATHER_RESOURCE02">Hash,ResourceType,RESOURCE_SPICES</Argument>
-            <Argument name="GOSSIP_GATHER_RESOURCE03">Hash,ResourceType,RESOURCE_SUGAR</Argument>
-            <Argument name="GOSSIP_GATHER_RESOURCE04">Hash,ResourceType,RESOURCE_TEA</Argument>
+            <Argument name="GOSSIP_GATHER_RESOURCE01">Hash,ResourceType,RESOURCE_COCOA,Hash,IsForeignHemisphere,True</Argument>
+            <Argument name="GOSSIP_GATHER_RESOURCE02">Hash,ResourceType,RESOURCE_SPICES,Hash,IsForeignHemisphere,True</Argument>
+            <Argument name="GOSSIP_GATHER_RESOURCE03">Hash,ResourceType,RESOURCE_SUGAR,Hash,IsForeignHemisphere,True</Argument>
+            <Argument name="GOSSIP_GATHER_RESOURCE04">Hash,ResourceType,RESOURCE_TEA,Hash,IsForeignHemisphere,True</Argument>
             <Argument name="Amount">4</Argument>
             <Argument name="AfterInit">True</Argument>
         </Requirement>

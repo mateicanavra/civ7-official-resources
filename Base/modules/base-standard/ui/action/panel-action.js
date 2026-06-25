@@ -787,7 +787,7 @@ class PanelAction extends Panel {
     if (inputEvent.detail.status != InputActionStatuses.FINISH) {
       return;
     }
-    if (inputEvent.detail.name == "force-end-turn") {
+    if (inputEvent.detail.name == "force-end-turn" && !InterfaceMode.isInInterfaceMode("INTERFACEMODE_HOTSEAT")) {
       this.sendEndTurn();
     }
     if (inputEvent.detail.name == "multiplayer-pause" && Configuration.getGame().isAnyMultiplayer) {

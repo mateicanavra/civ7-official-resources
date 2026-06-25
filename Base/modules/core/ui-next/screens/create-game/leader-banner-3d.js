@@ -126,7 +126,7 @@ const LeaderBanner3d = (props) => {
 const LeaderPedestalBanner3d = (props) => {
   const leaderModel = useLeaderSelectModelContext();
   const civModel = useCivSelectModelContext();
-  const [animState, setAnimState] = createSignal("SPAWN");
+  const [animState, setAnimState] = createSignal("SPAWN_Trim16");
   const bannerAsset = createMemo(() => civModel.selectedCiv().civID == "RANDOM" ? "CIVILIZATION_RANDOM_BANNER_GAME_ASSET" : `${civModel.selectedCiv().civID}_BANNER_GAME_ASSET`);
   const primaryColor = createMemo(() => leaderModel.selectedLeader().colors?.primaryColor);
   const secondaryColor = createMemo(() => leaderModel.selectedLeader().colors?.secondaryColor);

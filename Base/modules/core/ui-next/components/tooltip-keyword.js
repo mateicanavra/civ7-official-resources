@@ -1,11 +1,9 @@
 import '../../vendor/solid-js/web/dist/web.js';
 import { Activatable } from './activatable.js';
-import { TooltipModel } from './tooltip-model.js';
 import { ActiveInputDevice } from '../services/input.js';
 import { createComponent, mergeProps } from '../../vendor/solid-js/dist/solid.js';
 
 const TooltipKeyword = (props) => {
-  const tooltipModel = TooltipModel.get();
   return createComponent(Activatable, mergeProps(props, {
     get ["class"]() {
       return `tooltip-keyword cursor-pointer transition-color duration-50 ${props.class ?? ""}`;
@@ -16,7 +14,6 @@ const TooltipKeyword = (props) => {
         ...props.classList
       };
     },
-    onActivate: () => tooltipModel.lock(),
     get children() {
       return props.children;
     }

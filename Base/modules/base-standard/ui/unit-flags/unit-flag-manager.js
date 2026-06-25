@@ -154,14 +154,16 @@ class UnitFlagManager extends Component {
     window.addEventListener("unit-actions-hide", this.interactUnitHideListener);
     window.addEventListener("ui-disable-unit-flags", this.uiDisableUnitFlagsListener);
     window.addEventListener("ui-enable-unit-flags", this.uiEnableUnitFlagsListener);
+    engine.on("AffinityLevelChanged", this.onAffinityLevelChanged, this);
     engine.on("CameraChanged", this.onZoomChange, this);
     engine.on("CityInitialized", this.onCityInitialized, this);
+    engine.on("DiplomacyDeclareWar", this.requestFlagsRebuild, this);
+    engine.on("DiplomacyMakePeace", this.requestFlagsRebuild, this);
+    engine.on("LocalPlayerChanged", this.onLocalPlayerChanged, this);
     engine.on("UnitDamageChanged", this.onUnitDamageChanged, this);
     engine.on("UnitMovementPointsChanged", this.onUnitMovementPointsChanged, this);
     engine.on("UnitRemovedFromMap", this.onUnitRemovedFromMap, this);
     engine.on("UnitVisibilityChanged", this.onUnitVisibilityChanged, this);
-    engine.on("DiplomacyDeclareWar", this.requestFlagsRebuild, this);
-    engine.on("DiplomacyMakePeace", this.requestFlagsRebuild, this);
     this.setZoomLevel(Camera.getState().zoomLevel ?? 1);
     window.requestAnimationFrame(() => {
       this.requestFlagsRebuild();
@@ -172,14 +174,16 @@ class UnitFlagManager extends Component {
     window.removeEventListener("ui-show-unit-flags", this.globalShowListener);
     window.removeEventListener("unit-actions-show", this.interactUnitShowListener);
     window.removeEventListener("unit-actions-hide", this.interactUnitHideListener);
+    engine.off("AffinityLevelChanged", this.onAffinityLevelChanged, this);
     engine.off("CameraChanged", this.onZoomChange, this);
     engine.off("CityInitialized", this.onCityInitialized, this);
+    engine.off("DiplomacyDeclareWar", this.requestFlagsRebuild, this);
+    engine.off("DiplomacyMakePeace", this.requestFlagsRebuild, this);
+    engine.off("LocalPlayerChanged", this.onLocalPlayerChanged, this);
     engine.off("UnitDamageChanged", this.onUnitDamageChanged, this);
     engine.off("UnitMovementPointsChanged", this.onUnitMovementPointsChanged, this);
     engine.off("UnitRemovedFromMap", this.onUnitRemovedFromMap, this);
     engine.off("UnitVisibilityChanged", this.onUnitVisibilityChanged, this);
-    engine.off("DiplomacyDeclareWar", this.requestFlagsRebuild, this);
-    engine.off("DiplomacyMakePeace", this.requestFlagsRebuild, this);
     this.removeAllFlags();
     super.onDetach();
   }
@@ -254,6 +258,15 @@ class UnitFlagManager extends Component {
       flag.enable();
     }
   }
+  /**
+   * Hotseat
+   * @param _data unused
+   */
+  onLocalPlayerChanged(_data) {
+    this.flags.forEach((flag) => {
+      flag.localPlayerUpdate();
+    });
+  }
   onUnitDamageChanged(data) {
     const unitFlag = this.getFlag(data.unit);
     if (!unitFlag) {
@@ -274,6 +287,14 @@ class UnitFlagManager extends Component {
       return;
     }
     unitFlag.Destroy();
+  }
+  onAffinityLevelChanged(data) {
+    if (!(data.player == GameContext.localObserverID)) {
+      return;
+    }
+    this.flags.forEach((flag) => {
+      flag.updateAffinity();
+    });
   }
   onZoomChange(cameraState) {
     const zoomLevel = cameraState.zoomLevel;

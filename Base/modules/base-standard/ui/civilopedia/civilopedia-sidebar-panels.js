@@ -816,13 +816,10 @@ class PediaSideBarResourceClassType extends PediaSidebarPanel {
     resourceText.classList.value = "text-center font-initial flex-initial text-base mb-1 pointer-events-auto";
     resourceText.innerHTML = Locale.compose("LOC_PEDIA_SIDEBAR_RESOURCE_CLASS_TYPE", resourceClassName);
     const resourceTypeIcon = document.createElement("div");
-    let resourceTypeImageName = resourceClassType.split("_")[1].toLocaleLowerCase();
-    if (resourceTypeImageName == "treasure") {
-      resourceTypeImageName = "distant";
-    }
+    const resourceTypeImageName = resourceClassType.split("_")[1].toLocaleLowerCase();
     resourceTypeIcon.style.setProperty(
       "background-image",
-      `url(fs://game/base-standard/ui/icons/culture_icons/restype_${resourceTypeImageName}.png)`
+      `url(fs://game/base-standard/ui/icons/culture_icons/restype_${resourceTypeImageName}_v2.png)`
     );
     resourceTypeIcon.classList.add("size-6", "bg-contain", "mr-2");
     this.Root.appendChild(resourceTypeIcon);

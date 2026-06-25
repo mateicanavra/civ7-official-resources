@@ -1,0 +1,48 @@
+<Database>
+	<TraitModifiers>
+		<Row TraitType="TRAIT_SENGOKU_ABILITY" ModifierId="SENGOKU_MOD_COMMANDER_XP_CULTURE"/>
+		<Row TraitType="TRAIT_SENGOKU_ABILITY" ModifierId="SENGOKU_MOD_COMMANDER_XP_SCIENCE"/>
+		<Row TraitType="TRAIT_SENGOKU_ABILITY" ModifierId="SENGOKU_MOD_COMMANDER_XP_INFLUENCE_EXPLORATION"/>
+		<Row TraitType="TRAIT_SENGOKU_ABILITY" ModifierId="SENGOKU_MOD_REMOVE_SCIENCE_ADJACENCY"/>
+		<Row TraitType="TRAIT_SENGOKU_ABILITY" ModifierId="SENGOKU_MOD_REMOVE_CULTURE_ADJACENCY"/>
+		<Row TraitType="TRAIT_SENGOKU_ABILITY" ModifierId="MOD_REVEAL_CIV_CULTURE_TREE_SENGOKU"/>
+		<Row TraitType="TRAIT_SENGOKU_ABILITY" ModifierId="MOD_CIV_WONDER_PRODUCTION_SENGOKU"/>
+	</TraitModifiers>
+	<RequirementSets>
+		<Row RequirementSetId="REQSET_PLAYER_IS_SENGOKU" RequirementSetType="REQUIREMENTSET_TEST_ALL"/>
+	</RequirementSets>
+	<RequirementSetRequirements>
+		<Row RequirementSetId="REQSET_PLAYER_IS_SENGOKU" RequirementId="REQ_PLAYER_HAS_TRAIT_SENGOKU"/>
+	</RequirementSetRequirements>
+	<Requirements>
+		<Row RequirementId="REQ_PLAYER_HAS_TRAIT_SENGOKU" RequirementType="REQUIREMENT_PLAYER_HAS_CIVILIZATION_OR_LEADER_TRAIT"/>
+	</Requirements>
+	<RequirementArguments>
+		<Row RequirementId="REQ_PLAYER_HAS_TRAIT_SENGOKU" Name="TraitType" Value="TRAIT_SENGOKU"/>
+	</RequirementArguments>
+	<AiListTypes>
+		<Row ListType="Sengoku Unit Biases" />
+		<Row ListType="Sengoku Government Bias" />
+		<Row ListType="Sengoku Constructibles Biases" />
+	</AiListTypes>
+	<AiLists>
+		<Row ListType="Sengoku Unit Biases" LeaderType="TRAIT_SENGOKU" System="UnitBiases" />
+		<Row ListType="Sengoku Government Bias" LeaderType="TRAIT_SENGOKU" System="GovernmentBiases" />
+		<Row ListType="Sengoku Constructibles Biases" LeaderType="TRAIT_SENGOKU" System="ConstructibleBiases" />
+	</AiLists>
+	<AiFavoredItems>
+		<Row ListType="Sengoku Unit Biases" Item="UNIT_SAMURAI" Value="50" />
+		<Row ListType="Sengoku Unit Biases" Item="UNIT_SAMURAI_2" Value="50" />
+		<Row ListType="Sengoku Unit Biases" Item="UNIT_SAMURAI_3" Value="50" />
+		<Row ListType="Sengoku Unit Biases" Item="UNIT_NINJA" Value="25" />
+		<Row ListType="Sengoku Government Bias" Item="GOVERNMENT_FEUDAL_MONARCHY" Value="50" />
+		<Row ListType="Sengoku Constructibles Biases" Item="WONDER_HIMEJI_CASTLE" Value="50" />
+		<Row ListType="Sengoku Constructibles Biases" Item="IMPROVEMENT_TEA_HOUSE" Value="200" />
+	</AiFavoredItems>
+	<Independents>
+		<Update>
+			<Where IndependentType="INDEPENDENT_EXPLORATION_13"/>
+			<Set Name="LOC_INDEPENDENT_EXPLORATION_13_MINOR_SENGOKU_NAME" CityStateName="LOC_INDEPENDENT_EXPLORATION_13_MAJOR_SENGOKU_NAME"/>
+		</Update>
+	</Independents>
+</Database>

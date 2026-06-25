@@ -296,13 +296,17 @@ class PanelMPFriendOptions extends Panel {
     }
   }
   setButtonActivate(buttonType, buttonActive) {
-    this.socialButtons[buttonType].innerHTML = `
-		<div class="flex flex-col relative w-full px-1 py-3">
-			<div class="font-body mb-1 text-center"
-				data-l10n-id="${Locale.compose(this.buttonStrings[buttonType])}"
-			></div>
-			<div class="cap-chooser__keep-text font-body text-sm"></div>
-		</div>`;
+    const buttonContainer = this.socialButtons[buttonType].querySelector(".fxs-chooser-item-container");
+    if (buttonContainer) {
+      if (!buttonContainer.querySelector(".mp-friends-option-button")) {
+        const textElement = document.createElement("div");
+        textElement.classList.add("mp-friends-option-button", "font-body", "text-center", "w-full", "py-3");
+        textElement.setAttribute("data-l10n-id", Locale.compose(this.buttonStrings[buttonType]));
+        buttonContainer.appendChild(textElement);
+      }
+    } else {
+      console.error("mp-friends-options: Failed to find button container!");
+    }
     this.socialButtons[buttonType].classList.add("mb-2");
     if (buttonActive) {
       this.socialButtons[buttonType].classList.remove("disabled");

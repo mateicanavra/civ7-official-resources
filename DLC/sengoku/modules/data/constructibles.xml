@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Types>
+		<!--Civ Unique Improvements-->
+		<Row Type="IMPROVEMENT_TEA_HOUSE" Kind="KIND_CONSTRUCTIBLE"/>
+		<!--Wonders-->
+		<Row Type="WONDER_HIMEJI_CASTLE" Kind="KIND_CONSTRUCTIBLE"/>
+	</Types>
+	<TypeQuotes>
+		<Row Type="WONDER_HIMEJI_CASTLE" Quote="LOC_QUOTE_WONDER_HIMEJI_CASTLE" QuoteAuthor="LOC_QUOTE_AUTHOR_WONDER_HIMEJI_CASTLE" QuoteAudio="VO_Quote_HimejiCastle"/>
+	</TypeQuotes>
+	<Constructibles>
+		<!--Civ Unique Improvements-->
+		<Row ConstructibleType="IMPROVEMENT_TEA_HOUSE" Name="LOC_IMPROVEMENT_TEA_HOUSE_NAME" Description="LOC_IMPROVEMENT_TEA_HOUSE_DESCRIPTION" Tooltip="LOC_IMPROVEMENT_TEA_HOUSE_TOOLTIP" ConstructibleClass="IMPROVEMENT" Cost="90" Population="1" Age="AGE_EXPLORATION" CostProgressionModel="COST_PROGRESSION_PREVIOUS_COPIES_CITY" CostProgressionParam1="20"/>
+		<!--Wonders-->
+		<Row ConstructibleType="WONDER_HIMEJI_CASTLE" Name="LOC_WONDER_HIMEJI_CASTLE_NAME" Description="LOC_WONDER_HIMEJI_CASTLE_DESCRIPTION" Tooltip="LOC_WONDER_HIMEJI_CASTLE_TOOLTIP" ConstructibleClass="WONDER" Cost="750" Population="0" DistrictDefense="true" ImmuneDamage="true" Age="AGE_EXPLORATION" RequiresUnlock="true"/>
+	</Constructibles>
+	<Improvements>
+		<!--Civ Unique Improvements-->
+		<Row ConstructibleType="IMPROVEMENT_TEA_HOUSE" ResourceTier="0" CityBuildable="true" TraitType="TRAIT_SENGOKU" SameAdjacentValid="false"/>
+	</Improvements>
+	<Wonders>
+		<Row ConstructibleType="WONDER_HIMEJI_CASTLE" MaxWorldInstances="1"/>
+	</Wonders>
+	<Constructible_ValidTerrains>
+		<Row ConstructibleType="IMPROVEMENT_TEA_HOUSE" TerrainType="TERRAIN_FLAT"/>
+		<Row ConstructibleType="WONDER_HIMEJI_CASTLE" TerrainType="TERRAIN_HILL"/>
+	</Constructible_ValidTerrains>
+	<TypeTags>
+		<Row Type="IMPROVEMENT_TEA_HOUSE" Tag="UNIQUE_IMPROVEMENT"/>
+		<Row Type="IMPROVEMENT_TEA_HOUSE" Tag="AGELESS"/>
+		<Row Type="WONDER_HIMEJI_CASTLE" Tag="AGELESS"/>
+		<Row Type="WONDER_HIMEJI_CASTLE" Tag="FORTIFICATION"/>
+	</TypeTags>
+	<Constructible_ValidDistricts>
+		<!--Civ Unique Improvements-->
+		<Row ConstructibleType="IMPROVEMENT_TEA_HOUSE" DistrictType="DISTRICT_RURAL"/>
+		<!--Wonders-->
+		<Row ConstructibleType="WONDER_HIMEJI_CASTLE" DistrictType="DISTRICT_WONDER"/>
+	</Constructible_ValidDistricts>
+	<Constructible_YieldChanges>
+		<!--Civ Unique Improvements-->
+		<Row ConstructibleType="IMPROVEMENT_TEA_HOUSE" YieldType="YIELD_FOOD" YieldChange="2"/>
+		<Row ConstructibleType="IMPROVEMENT_TEA_HOUSE" YieldType="YIELD_HAPPINESS" YieldChange="2"/>
+	</Constructible_YieldChanges>
+	<Constructible_Adjacencies>
+		<Row ConstructibleType="IMPROVEMENT_TEA_HOUSE" YieldChangeId="TeahouseDistrictCulture"/>
+	</Constructible_Adjacencies>
+	<Adjacency_YieldChanges>
+		<Row ID="TeahouseDistrictCulture" YieldType="YIELD_CULTURE" YieldChange="1" TilesRequired="1"  AdjacentDistrict="DISTRICT_URBAN"/>
+	</Adjacency_YieldChanges>
+	<Constructible_Plunders>
+		<!--Civ Unique Improvements-->
+		<Row ConstructibleType="IMPROVEMENT_TEA_HOUSE" PlunderType="PLUNDER_HEAL" Amount="30"/>
+	</Constructible_Plunders>
+	<ConstructibleModifiers>
+		<!--Wonders-->
+		<Row ConstructibleType="WONDER_HIMEJI_CASTLE" ModifierId="MOD_HIMEJI_CASTLE_FORTIFICATION_SCIENCE"/>
+		<Row ConstructibleType="WONDER_HIMEJI_CASTLE" ModifierId="MOD_HIMEJI_CASTLE_WALL_COMBAT_STRENGTH"/>
+	</ConstructibleModifiers>
+	<Constructible_Advisories>
+		<Row ConstructibleType="IMPROVEMENT_TEA_HOUSE" AdvisoryClassType="ADVISORY_CLASS_CULTURE"/>
+		<Row ConstructibleType="IMPROVEMENT_TEA_HOUSE" AdvisoryClassType="ADVISORY_CLASS_FOOD"/>
+		<Row ConstructibleType="WONDER_HIMEJI_CASTLE" AdvisoryClassType="ADVISORY_CLASS_DEFENSE"/>
+		<Row ConstructibleType="WONDER_HIMEJI_CASTLE" AdvisoryClassType="ADVISORY_CLASS_MILITARY"/>
+	</Constructible_Advisories>
+</Database>

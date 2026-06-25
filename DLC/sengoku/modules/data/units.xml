@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Types>
+		<!--Civ Unique Military-->
+		<Row Type="UNIT_SAMURAI" Kind="KIND_UNIT"/>
+		<Row Type="UNIT_SAMURAI_2" Kind="KIND_UNIT"/>
+		<Row Type="UNIT_SAMURAI_3" Kind="KIND_UNIT"/>
+		<!--Civ Unique Civilian-->
+		<Row Type="UNIT_NINJA" Kind="KIND_UNIT"/>
+		<!--Civ Unique Abilities-->
+		<Row Type="ABILITY_DISPERSE_CLAN" Kind="KIND_ABILITY"/>
+		<Row Type="ABILITY_SAMURAI" Kind="KIND_ABILITY"/>
+		<Row Type="ABILITY_SABOTAGE" Kind="KIND_ABILITY"/>
+		<Row Type="ABILITY_SABOTAGE_ARMYCOMMANDER" Kind="KIND_ABILITY"/>
+	</Types>
+	<Units>
+		<!--Civ Unique Military-->
+		<Row UnitType="UNIT_SAMURAI" Name="LOC_UNIT_SAMURAI_NAME" Description="LOC_UNIT_SAMURAI_DESCRIPTION" Tier="1" Maintenance="2" BaseSightRange="2" BaseMoves="2" UnitMovementClass="UNIT_MOVEMENT_CLASS_FOOT" Domain="DOMAIN_LAND" CoreClass="CORE_CLASS_MILITARY" FormationClass="FORMATION_CLASS_LAND_COMBAT" ZoneOfControl="true" TraitType="TRAIT_SENGOKU"/>
+		<Row UnitType="UNIT_SAMURAI_2" Name="LOC_UNIT_SAMURAI_NAME" Description="LOC_UNIT_SAMURAI_2_DESCRIPTION" Tier="2" Maintenance="4" BaseSightRange="2" BaseMoves="2" UnitMovementClass="UNIT_MOVEMENT_CLASS_FOOT" Domain="DOMAIN_LAND" CoreClass="CORE_CLASS_MILITARY" FormationClass="FORMATION_CLASS_LAND_COMBAT" ZoneOfControl="true" CanTrain="false" TraitType="TRAIT_SENGOKU"/>
+		<Row UnitType="UNIT_SAMURAI_3" Name="LOC_UNIT_SAMURAI_NAME" Description="LOC_UNIT_SAMURAI_3_DESCRIPTION" Tier="3" Maintenance="6" BaseSightRange="2" BaseMoves="2" UnitMovementClass="UNIT_MOVEMENT_CLASS_FOOT" Domain="DOMAIN_LAND" CoreClass="CORE_CLASS_MILITARY" FormationClass="FORMATION_CLASS_LAND_COMBAT" ZoneOfControl="true" CanTrain="false" CanPurchase="false" TraitType="TRAIT_SENGOKU"/>
+		<!--Civ Unique Civilian-->
+		<Row UnitType="UNIT_NINJA" Name="LOC_UNIT_NINJA_NAME" Description="LOC_UNIT_NINJA_DESCRIPTION" BaseSightRange="3" BaseMoves="3" UnitMovementClass="UNIT_MOVEMENT_CLASS_FOOT" Domain="DOMAIN_LAND" CoreClass="CORE_CLASS_CIVILIAN" FormationClass="FORMATION_CLASS_CIVILIAN" CostProgressionModel="COST_PROGRESSION_PREVIOUS_COPIES" CostProgressionParam1="50" TraitType="TRAIT_SENGOKU"/>
+	</Units>
+	<Unit_Stats>
+		<!--Civ Unique Military-->
+		<Row UnitType="UNIT_SAMURAI" Combat="38"/>
+		<Row UnitType="UNIT_SAMURAI_2" Combat="43"/>
+		<Row UnitType="UNIT_SAMURAI_3" Combat="48"/>
+		<!--Civ Unique Civilian-->
+	</Unit_Stats>
+	<Unit_Costs>
+		<!--Civ Unique Military-->
+		<Row UnitType="UNIT_SAMURAI" YieldType="YIELD_PRODUCTION" Cost="130"/>
+		<Row UnitType="UNIT_SAMURAI_2" YieldType="YIELD_PRODUCTION" Cost="170"/>
+		<Row UnitType="UNIT_SAMURAI_3" YieldType="YIELD_PRODUCTION" Cost="220"/>
+		<!--Civ Unique Civilian-->
+		<Row UnitType="UNIT_NINJA" YieldType="YIELD_PRODUCTION" Cost="150"/>
+	</Unit_Costs>
+	<UnitUpgrades>
+		<!--Civ Unique Military-->
+		<Row Unit="UNIT_SAMURAI" UpgradeUnit="UNIT_SAMURAI_2"/>
+		<Row Unit="UNIT_SAMURAI_2" UpgradeUnit="UNIT_SAMURAI_3"/>
+	</UnitUpgrades>
+	<UnitUpgradeKills>
+		<Row UnitType="UNIT_SAMURAI_2" KillCount="3"/>
+		<Row UnitType="UNIT_SAMURAI_3" KillCount="3"/>
+	</UnitUpgradeKills>
+	<UnitReplaces>
+		<!--Civ Unique Military-->
+		<Row CivUniqueUnitType="UNIT_SAMURAI" ReplacesUnitType="UNIT_SWORDSMAN"/>
+		<Row CivUniqueUnitType="UNIT_SAMURAI_2" ReplacesUnitType="UNIT_MAN_AT_ARMS"/>
+		<Row CivUniqueUnitType="UNIT_SAMURAI_3" ReplacesUnitType="UNIT_PIKEMAN"/>
+	</UnitReplaces>
+	<Tags>
+		<!--Civ Unique Military-->
+		<Row Tag="UNIT_CLASS_SAMURAI" Category="UNIT_CLASS"/>
+		<!--Civ Unique Civilian-->
+		<Row Tag="UNIT_CLASS_NINJA" Category="UNIT_CLASS"/>
+		<InsertOrIgnore Tag="UNIT_CLASS_ALT_UPGRADE" Category="UNIT_CLASS"/>
+	</Tags>
+	<TypeTags>
+		<!--Civ Unique Military-->
+		<Row Type="UNIT_SAMURAI" Tag="UNIT_CLASS_COMBAT"/>
+		<Row Type="UNIT_SAMURAI" Tag="UNIT_CLASS_MELEE"/>
+		<Row Type="UNIT_SAMURAI" Tag="UNIT_CLASS_INFANTRY"/>
+		<Row Type="UNIT_SAMURAI" Tag="UNIT_CLASS_SAMURAI"/>
+		<Row Type="UNIT_SAMURAI" Tag="UNIT_CLASS_ALT_UPGRADE"/>
+		<Row Type="UNIT_SAMURAI" Tag="UNIT_CLASS_UNIQUE"/>
+		<Row Type="UNIT_SAMURAI_2" Tag="UNIT_CLASS_COMBAT"/>
+		<Row Type="UNIT_SAMURAI_2" Tag="UNIT_CLASS_MELEE"/>
+		<Row Type="UNIT_SAMURAI_2" Tag="UNIT_CLASS_INFANTRY"/>
+		<Row Type="UNIT_SAMURAI_2" Tag="UNIT_CLASS_SAMURAI"/>
+		<Row Type="UNIT_SAMURAI_2" Tag="UNIT_CLASS_ALT_UPGRADE"/>
+		<Row Type="UNIT_SAMURAI_2" Tag="UNIT_CLASS_UNIQUE"/>
+		<Row Type="UNIT_SAMURAI_3" Tag="UNIT_CLASS_COMBAT"/>
+		<Row Type="UNIT_SAMURAI_3" Tag="UNIT_CLASS_MELEE"/>
+		<Row Type="UNIT_SAMURAI_3" Tag="UNIT_CLASS_INFANTRY"/>
+		<Row Type="UNIT_SAMURAI_3" Tag="UNIT_CLASS_SAMURAI"/>
+		<Row Type="UNIT_SAMURAI_3" Tag="UNIT_CLASS_ELITE_INFANTRY"/>
+		<Row Type="UNIT_SAMURAI_3" Tag="UNIT_CLASS_ALT_UPGRADE"/>
+		<Row Type="UNIT_SAMURAI_3" Tag="UNIT_CLASS_UNIQUE"/>
+		<!--Civ Unique Civilian-->
+		<Row Type="UNIT_NINJA" Tag="UNIT_CLASS_NINJA"/>
+		<Row Type="UNIT_NINJA" Tag="UNIT_CLASS_STEALTH"/>
+	</TypeTags>
+	<UnitClass_Abilities>
+		<Row UnitAbilityType="ABILITY_SAMURAI" UnitClassType="UNIT_CLASS_SAMURAI"/>
+		<Row UnitAbilityType="ABILITY_DISPERSE_CLAN" UnitClassType="UNIT_CLASS_NINJA"/>
+		<Row UnitAbilityType="ABILITY_SABOTAGE" UnitClassType="UNIT_CLASS_NINJA"/>
+		<Row UnitAbilityType="ABILITY_SABOTAGE_ARMYCOMMANDER" UnitClassType="UNIT_CLASS_NINJA"/>
+	</UnitClass_Abilities>
+	<UnitAbilities>
+		<!--Unique-->
+		<Row UnitAbilityType="ABILITY_SAMURAI" Name="LOC_UNIT_SAMURAI_NAME" Description="LOC_ABILITY_SAMURAI_DESCRIPTION"/>
+		<Row UnitAbilityType="ABILITY_DISPERSE_CLAN" Name="LOC_ABILITY_DISPERSE_CLAN_NAME" Description="LOC_ABILITY_DISPERSE_CLAN_DESCRIPTION"/>
+		<Row UnitAbilityType="ABILITY_SABOTAGE" Name="LOC_ABILITY_SABOTAGE_NAME" Description="LOC_ABILITY_SABOTAGE_DESCRIPTION"/>
+		<Row UnitAbilityType="ABILITY_SABOTAGE_ARMYCOMMANDER" Name="LOC_ABILITY_SABOTAGE_NAME" Description="LOC_ABILITY_SABOTAGE_DESCRIPTION"/>
+	</UnitAbilities>
+	<UnitAbilityModifiers>
+		<Row UnitAbilityType="ABILITY_SABOTAGE" ModifierId="NINJA_MOD_GRANT_ABILITY_CHARGE"/>
+	</UnitAbilityModifiers>
+	<Unit_Advisories>
+		<Row UnitType="UNIT_SAMURAI" AdvisoryClassType="ADVISORY_CLASS_MILITARY"/>
+		<Row UnitType="UNIT_SAMURAI_2" AdvisoryClassType="ADVISORY_CLASS_MILITARY"/>
+		<Row UnitType="UNIT_SAMURAI_3" AdvisoryClassType="ADVISORY_CLASS_MILITARY"/>
+	</Unit_Advisories>
+</Database>

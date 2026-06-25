@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<CivilizationSyncretismUnlocks>
+		<Row CivilizationType="CIVILIZATION_SENGOKU" UnlockCivilizationType="CIVILIZATION_PERSIA" />
+		<Row CivilizationType="CIVILIZATION_MEIJI" UnlockCivilizationType="CIVILIZATION_SENGOKU" />
+	</CivilizationSyncretismUnlocks>
+	<LeaderSyncretismUnlocks>
+		<Row LeaderType="LEADER_TOYOTOMI_HIDEYOSHI" UnlockCivilizationType="CIVILIZATION_SENGOKU" />
+		<Row LeaderType="LEADER_HIMIKO" UnlockCivilizationType="CIVILIZATION_SENGOKU" />
+	</LeaderSyncretismUnlocks>
+	<CivSelfSyncretismUnlocks>
+		<Row CivilizationType="CIVILIZATION_SENGOKU" UnlockType="TRADITION_SENGOKU_SYNCRETISM_ANTIQUITY" Kind="KIND_TRADITION" Age="AGE_ANTIQUITY" ModifierID="MOD_UNLOCK_SENGOKU_SYNCRETISM_ANTIQUITY" />
+		<Row CivilizationType="CIVILIZATION_SENGOKU" UnlockType="TRADITION_CULTURE_SLOT" Kind="KIND_CULTURE_SLOT" Age="AGE_ANTIQUITY" ModifierID="MOD_SELF_SYNCRETISM_GRANT_TRADITION_SLOT" />
+		<Row CivilizationType="CIVILIZATION_SENGOKU" UnlockType="TRADITION_SENGOKU_SYNCRETISM_MODERN" Kind="KIND_TRADITION" Age="AGE_MODERN" ModifierID="MOD_UNLOCK_SENGOKU_SYNCRETISM_MODERN" />
+		<Row CivilizationType="CIVILIZATION_SENGOKU" UnlockType="TRADITION_CULTURE_SLOT" Kind="KIND_CULTURE_SLOT" Age="AGE_MODERN" ModifierID="MOD_SELF_SYNCRETISM_GRANT_TRADITION_SLOT" />
+	</CivSelfSyncretismUnlocks>
+</Database>

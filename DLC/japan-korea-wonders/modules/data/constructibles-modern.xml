@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Kinds>
+		<InsertOrIgnore Kind="KIND_CONSTRUCTIBLE"/>
+	</Kinds>
+	<Types>
+		<Row Type="WONDER_NIRAYAMA_REVERBERATORY_FURNACE" Kind="KIND_CONSTRUCTIBLE"/>
+	</Types>
+	<TypeQuotes>
+		<Row Type="WONDER_NIRAYAMA_REVERBERATORY_FURNACE" Quote="LOC_QUOTE_WONDER_NIRAYAMA_REVERBERATORY_FURNACE" QuoteAuthor="LOC_QUOTE_AUTHOR_WONDER_NIRAYAMA_REVERBERATORY_FURNACE" QuoteAudio="VO_Quote_Reverberatory_Furnace"/>
+	</TypeQuotes>    
+	<Constructibles>
+		<Row ConstructibleType="WONDER_NIRAYAMA_REVERBERATORY_FURNACE" Name="LOC_WONDER_NIRAYAMA_REVERBERATORY_FURNACE_NAME" Description="LOC_WONDER_NIRAYAMA_REVERBERATORY_FURNACE_DESCRIPTION" Tooltip="LOC_WONDER_NIRAYAMA_REVERBERATORY_FURNACE_TOOLTIP" ConstructibleClass="WONDER" Cost="1500" Population="0" ImmuneDamage="true" RequiresUnlock="true" Age="AGE_MODERN"/>
+	</Constructibles>
+	<TypeTags>
+		<Row Type="WONDER_NIRAYAMA_REVERBERATORY_FURNACE" Tag="AGELESS"/>
+	</TypeTags>
+	<Wonders>
+		<Row ConstructibleType="WONDER_NIRAYAMA_REVERBERATORY_FURNACE" MaxWorldInstances="1"  AdjacentConstructible="IMPROVEMENT_MINE_RESOURCE"/>
+	</Wonders>
+	<Constructible_ValidDistricts>
+		<Row ConstructibleType="WONDER_NIRAYAMA_REVERBERATORY_FURNACE" DistrictType="DISTRICT_WONDER"/>
+	</Constructible_ValidDistricts>
+	<Constructible_YieldChanges>
+		<Row ConstructibleType="WONDER_NIRAYAMA_REVERBERATORY_FURNACE" YieldType="YIELD_PRODUCTION" YieldChange="5"/>
+	</Constructible_YieldChanges>
+	<Constructible_WarehouseYields>
+		<Row ConstructibleType="WONDER_NIRAYAMA_REVERBERATORY_FURNACE" YieldChangeId="NirayamaReverberatoryFurnaceMineResourceProduction"/>
+		<Row ConstructibleType="WONDER_NIRAYAMA_REVERBERATORY_FURNACE" YieldChangeId="NirayamaReverberatoryFurnaceMineResourceScience"/>
+		<Row ConstructibleType="WONDER_NIRAYAMA_REVERBERATORY_FURNACE" YieldChangeId="NirayamaReverberatoryFurnaceRoughTerrainScience"/>
+	</Constructible_WarehouseYields>
+	<Warehouse_YieldChanges>
+		<Row ID="NirayamaReverberatoryFurnaceMineResourceProduction" YieldType="YIELD_PRODUCTION" YieldChange="4" ConstructibleInCity="IMPROVEMENT_MINE_RESOURCE"/>
+		<Row ID="NirayamaReverberatoryFurnaceMineResourceScience" YieldType="YIELD_SCIENCE" YieldChange="2" ConstructibleInCity="IMPROVEMENT_MINE_RESOURCE"/>
+		<Row ID="NirayamaReverberatoryFurnaceRoughTerrainScience" YieldType="YIELD_SCIENCE" YieldChange="2" TerrainInCity="TERRAIN_HILL"/>
+	</Warehouse_YieldChanges>
+	<Constructible_Advisories>
+		<Row ConstructibleType="WONDER_NIRAYAMA_REVERBERATORY_FURNACE" AdvisoryClassType="ADVISORY_CLASS_SCIENCE"/>
+	</Constructible_Advisories>
+</Database>

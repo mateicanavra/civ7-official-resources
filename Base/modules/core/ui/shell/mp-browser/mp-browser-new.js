@@ -413,9 +413,12 @@ class PanelMPBrowser extends Panel {
   onQueryDone(_event) {
   }
   onQueryComplete(_event) {
-    this.ImplQueryCompete();
+    this.ImplQueryCompete(false);
   }
-  ImplQueryCompete() {
+  // restartQuery - When true, start a new games list query after the query completion process is finished.
+  // 					We use this option to handle a lobby shutdown during the initial screen refresh. (See isInitialRefreshDone flag).
+  //					We encountered this specific issue when a bad join code was used on some machines.
+  ImplQueryCompete(restartQuery) {
     const queryCompleteTimestamp = /* @__PURE__ */ new Date();
     const bufferMs = this.REFRESH_BUFFER_TIME_MS - (queryCompleteTimestamp.getTime() - this.refreshStartTimestamp.getTime());
     setTimeout(
@@ -435,6 +438,9 @@ class PanelMPBrowser extends Panel {
         this.updateJoinButton();
         waitForLayout(() => {
           this.focusGameList();
+          if (restartQuery) {
+            this.startQuery();
+          }
         });
       },
       bufferMs > 0 ? bufferMs : 0
@@ -485,8 +491,10 @@ class PanelMPBrowser extends Panel {
   onLobbyShutdown(_event) {
     if (this.isInitialRefreshDone) {
       this.currentPanelOperation = 0 /* None */;
+      this.startQuery();
+    } else {
+      this.ImplQueryCompete(true);
     }
-    this.startQuery();
   }
   onEngineInput(inputEvent) {
     if (this.handleEngineInput(inputEvent)) {
@@ -1180,7 +1188,7 @@ class PanelMPBrowser extends Panel {
       return;
     }
     if (!this.canBrowseGames()) {
-      this.ImplQueryCompete();
+      this.ImplQueryCompete(false);
       return;
     }
     const serverType = Number.parseInt(

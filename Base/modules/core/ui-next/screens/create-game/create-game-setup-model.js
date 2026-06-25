@@ -25,6 +25,7 @@ function buildGameSetupModel() {
     ["LOC_MAP_CONTINENTS_PLUS_NAME", "MapTypes_ContinentsPlus"],
     ["LOC_MAP_SHUFFLE_NAME", "MapTypes_Shuffle"],
     ["LOC_MAP_ARCHIPELAGO_NAME", "MapTypes_Archipelago"],
+    ["LOC_MAP_ARCHIPELAGO_VORONOI_NAME", "MapTypes_Archipelago"],
     ["LOC_MAP_FRACTAL_NAME", "MapTypes_Fractal"],
     ["LOC_MAP_TERRA_INCOGNITA_NAME", "MapTypes_TerraIncognita"],
     ["LOC_MAP_PANGAEA_PLUS_NAME", "MapTypes_PangeaPlus"],

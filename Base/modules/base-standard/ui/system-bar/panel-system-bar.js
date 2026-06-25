@@ -22,7 +22,7 @@ class PanelSystemBar extends Panel {
   timeoutID = 0;
   currentTurnTimerDisplay = 0;
   joinCodeShowing = false;
-  shouldShowJoinCode = !UI.isGameCenterNetworkBuild() && !Configuration.getGame().isHotseat;
+  shouldShowJoinCode = Network.getLocalHostingPlatform() != HostingType.HOSTING_TYPE_GAMECENTER && !Configuration.getGame().isHotseat;
   constructor(root) {
     super(root);
     this.animateInType = this.animateOutType = AnchorType.RelativeToTopRight;

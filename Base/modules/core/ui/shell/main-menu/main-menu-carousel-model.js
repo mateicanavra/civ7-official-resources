@@ -9,6 +9,14 @@ var CarouselActionTypes = /* @__PURE__ */ ((CarouselActionTypes2) => {
 })(CarouselActionTypes || {});
 function createPromoCarouselModel() {
   let carouselSliderId = -1;
+  const carouselImages = [];
+  function preloadCarouselImage(image) {
+    const imageElement = new Image();
+    imageElement.src = image;
+    imageElement.style.display = "none";
+    imageElement.style.position = "absolute";
+    carouselImages.push(imageElement);
+  }
   function onPromosRetrievalCompleted(data) {
     if (!Online.Promo.isPromoReady()) {
       console.error("main-menu-carousel.tsx: Promo is not ready! CreateCarousel skipped");
@@ -107,24 +115,30 @@ function createPromoCarouselModel() {
       autoRedeemOnShow: promo.autoRedeemOnShow,
       layout: promo.promoLayout
     });
+    preloadCarouselImage(promo.primaryImageUrl);
   }
   function handleNextItem() {
     const nextItemIndex = model.selectedCarouselIndex + 1;
     if (nextItemIndex < model.carouselItems.length) {
       setCarouselIndex(nextItemIndex);
-      resetCarouselSlider();
-      return true;
+    } else {
+      setCarouselIndex(0);
     }
-    return false;
+    resetCarouselSlider();
+    return true;
   }
   function handlePreviousItem() {
     const previousItemIndex = model.selectedCarouselIndex - 1;
     if (previousItemIndex >= 0) {
       setCarouselIndex(previousItemIndex);
-      resetCarouselSlider();
-      return true;
+    } else {
+      setCarouselIndex(model.carouselItems.length - 1);
     }
-    return false;
+    resetCarouselSlider();
+    return true;
+  }
+  function handleSetItem(index) {
+    setCarouselIndex(index);
   }
   createEffect(() => {
     if (model.isExpanded) {
@@ -211,6 +225,7 @@ function createPromoCarouselModel() {
     carouselImage: "url('blp:carousel_default')",
     onNextItem: handleNextItem,
     onPreviousItem: handlePreviousItem,
+    onSetItem: handleSetItem,
     onCarouselInteract: handleCarouselInteract,
     onCarouselUpdate: updateCarousel,
     onTelemetryPromoAction: handleTelemetryPromoAction

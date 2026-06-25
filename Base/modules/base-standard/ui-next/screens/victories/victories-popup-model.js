@@ -45,7 +45,25 @@ function createVictoriesPopupDataModel() {
     }
     PopupSequencer.closePopup("screen-victories-popup");
     requestActive = false;
+    const wasUnlockBanner = dataModel.victoryUnlockBanner;
     dataModel.victoryUnlockBanner = false;
+    if (wasUnlockBanner && dataModel.anyPlayerDominant()) {
+      delayByFrame(() => {
+        dataModel.setExtraClass("victories-popup__enter");
+        const popupData = {
+          category: PopupSequencer.getCategory(),
+          screenId: "screen-victories-popup",
+          properties: {
+            singleton: true,
+            createMouseGuard: false
+          },
+          priority: PopupPriority.beforeCinematics
+          // between wonder cinematics (which will display before this) and tech/civics completion (which will display after)
+        };
+        requestActive = true;
+        PopupSequencer.addDisplayRequest(popupData);
+      }, 2);
+    }
   };
   dataModel.anyPlayerDominant = anyPlayerDominant;
   dataModel.setAnyPlayerDominant = setAnyPlayerDominant;

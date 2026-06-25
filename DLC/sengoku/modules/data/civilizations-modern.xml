@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Civilizations>
+		<Update>
+			<Where CivilizationType="CIVILIZATION_SENGOKU" />
+			<Set UniqueCultureProgressionTree="TREE_CIVICS_MO_TEST_OF_TIME" />
+		</Update>
+	</Civilizations>
+	<CivilizationTraits>
+		<Row CivilizationType="CIVILIZATION_SENGOKU" TraitType="TRAIT_ANACHRONISTIC_CIV" />
+	</CivilizationTraits>
+	<TraitModifiers>
+		<Row TraitType="TRAIT_SENGOKU_ABILITY" ModifierId="SENGOKU_MOD_COMMANDER_XP_CULTURE"/>
+		<Row TraitType="TRAIT_SENGOKU_ABILITY" ModifierId="SENGOKU_MOD_COMMANDER_XP_SCIENCE"/>
+		<Row TraitType="TRAIT_SENGOKU_ABILITY" ModifierId="SENGOKU_MOD_COMMANDER_XP_INFLUENCE_MODERN"/>
+		<Row TraitType="TRAIT_SENGOKU_ABILITY" ModifierId="SENGOKU_MOD_REMOVE_SCIENCE_ADJACENCY"/>
+		<Row TraitType="TRAIT_SENGOKU_ABILITY" ModifierId="SENGOKU_MOD_REMOVE_CULTURE_ADJACENCY"/>
+	</TraitModifiers>
+</Database>

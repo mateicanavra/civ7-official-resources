@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Types>
+		<InsertOrIgnore Type="UNLOCK_CIVILIZATION_SENGOKU" Kind="KIND_UNLOCK" />
+	</Types>
+	<Unlocks>
+		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_SENGOKU" />
+	</Unlocks>
+	<UnlockRewards>
+		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_SENGOKU" Name="LOC_CIVILIZATION_SENGOKU_NAME" Description="LOC_UNLOCK_EXPLORATION_CIV_DESCRIPTION" Icon="CIVILIZATION_SENGOKU" UnlockRewardType="CIVILIZATION_SENGOKU" UnlockRewardKind="KIND_CIVILIZATION" />
+	</UnlockRewards>
+	<UnlockRequirements>
+		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_SENGOKU" RequirementSetId="REQSET_LEADER_IS_TOYOTOMI_HIDEYOSHI" Description="LOC_UNLOCK_PLAY_AS_TOYOTOMI_HIDEYOSHI_DESCRIPTION" Tooltip="LOC_UNLOCK_PLAY_AS_TOYOTOMI_HIDEYOSHI_SENGOKU_TOOLTIP"/>
+	</UnlockRequirements>
+	<UnlockConfigurationValues>
+		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_SENGOKU" ConfigurationValue="CIVILIZATION_SENGOKU"/>
+	</UnlockConfigurationValues>
+</Database>

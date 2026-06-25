@@ -166,15 +166,17 @@ function getPlotYields(location, playerID) {
   const plotIndex = GameplayMap.getIndexFromLocation(location);
   const rawYields = GameplayMap.getYields(plotIndex, playerID);
   const yields = [];
-  for (const [yieldType, yieldAmount] of rawYields) {
-    if (yieldAmount > 0) {
-      const yieldDef = GameInfo.Yields.lookup(yieldType);
-      if (yieldDef) {
-        yields.push({
-          yieldType: yieldDef.YieldType,
-          amount: yieldAmount,
-          name: yieldDef.Name
-        });
+  if (rawYields) {
+    for (const [yieldType, yieldAmount] of rawYields) {
+      if (yieldAmount > 0) {
+        const yieldDef = GameInfo.Yields.lookup(yieldType);
+        if (yieldDef) {
+          yields.push({
+            yieldType: yieldDef.YieldType,
+            amount: yieldAmount,
+            name: yieldDef.Name
+          });
+        }
       }
     }
   }

@@ -738,7 +738,7 @@ class LensPanel extends MinimapSubpanel {
     }
     const label = document.createElement("div");
     label.role = "paragraph";
-    label.className = "text-accent-2 text-base font-body pointer-events-auto";
+    label.className = "text-accent-2 text-base font-body pointer-events-auto shrink font-fit-shrink";
     label.dataset.l10nId = caption;
     checkboxLabelContainer.appendChild(label);
     this.layerCheckboxContainer.appendChild(checkboxLabelContainer);
@@ -746,7 +746,6 @@ class LensPanel extends MinimapSubpanel {
       const isLayerEnabled2 = LensManager.isLayerEnabled(layerType);
       if (isLayerEnabled2 != event.detail.value) {
         LensManager.toggleLayer(layerType, { force: event.detail.value, serialize: true });
-        MiniMapData.setDecorationOption(layerType, event.detail.value);
       }
     });
   }

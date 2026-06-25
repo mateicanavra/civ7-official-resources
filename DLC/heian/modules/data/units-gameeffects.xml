@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+	<!-- ==================================================	-->
+	<!--	Unique Abilities							-->
+	<!-- ==================================================	-->
+	<Modifier id="YUMI_RANGED_MOD_COMBAT_STRENGTH" collection="COLLECTION_UNIT_COMBAT" effect="EFFECT_ADJUST_UNIT_STRENGTH_MODIFIER">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_HAS_MOVED" inverse="true"/>
+		</SubjectRequirements>
+		<Argument name="Amount">5</Argument>
+		<String context="Preview">LOC_ABILITY_YUMI_PREVIEW</String>
+	</Modifier>
+</GameEffects>

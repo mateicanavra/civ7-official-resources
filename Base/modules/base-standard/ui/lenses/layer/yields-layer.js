@@ -115,7 +115,7 @@ class YieldsLensLayer {
       } else if (oldConstructibleState != constructibleState) {
         needsRefresh = true;
       } else {
-        if (state.yields.size != yields.length) {
+        if (state.yields.size != yields?.length) {
           needsRefresh = true;
         } else {
           for (const [yieldType, yieldAmount] of yields) {
@@ -131,35 +131,37 @@ class YieldsLensLayer {
         state.revealedState = revealedState;
         state.constructibleState = constructibleState;
         const position = { x: 0, y: 0, z: 5 };
-        const groupWidth = (yields.length - 1) * this.yieldSpritePadding;
+        const groupWidth = yields ? (yields.length - 1) * this.yieldSpritePadding : 0;
         const groupOffset = groupWidth / 2 - groupWidth;
         const scale = constructibleState == 1 /* PRODUCING */ ? 1 : 0.7;
         this.yieldSpriteGrid.clearPlot(plotIndex);
         let count = 0;
-        for (const [yieldType, yieldAmount] of yields) {
-          state.yields.set(yieldType, yieldAmount);
-          const yieldDef = GameInfo.Yields.lookup(yieldType);
-          if (yieldDef) {
-            position.x = count * this.yieldSpritePadding + groupOffset;
-            const icons = this.yieldIcons.get(yieldType);
-            if (icons) {
-              if (yieldAmount >= 4.5) {
-                this.yieldSpriteGrid.addSprite(plotIndex, icons[4], position, { scale });
-                this.yieldSpriteGrid.addText(
-                  plotIndex,
-                  yieldAmount.toString(),
-                  position,
-                  this.fontData
-                );
-              } else if (yieldAmount >= 1) {
-                const rounded = Math.round(yieldAmount);
-                this.yieldSpriteGrid.addSprite(plotIndex, icons[rounded - 1], position, {
-                  scale
-                });
-              } else if (yieldAmount >= 0) {
-                this.yieldSpriteGrid.addSprite(plotIndex, icons[0], position, { scale });
+        if (yields) {
+          for (const [yieldType, yieldAmount] of yields) {
+            state.yields.set(yieldType, yieldAmount);
+            const yieldDef = GameInfo.Yields.lookup(yieldType);
+            if (yieldDef) {
+              position.x = count * this.yieldSpritePadding + groupOffset;
+              const icons = this.yieldIcons.get(yieldType);
+              if (icons) {
+                if (yieldAmount >= 4.5) {
+                  this.yieldSpriteGrid.addSprite(plotIndex, icons[4], position, { scale });
+                  this.yieldSpriteGrid.addText(
+                    plotIndex,
+                    yieldAmount.toString(),
+                    position,
+                    this.fontData
+                  );
+                } else if (yieldAmount >= 1) {
+                  const rounded = Math.round(yieldAmount);
+                  this.yieldSpriteGrid.addSprite(plotIndex, icons[rounded - 1], position, {
+                    scale
+                  });
+                } else if (yieldAmount >= 0) {
+                  this.yieldSpriteGrid.addSprite(plotIndex, icons[0], position, { scale });
+                }
+                ++count;
               }
-              ++count;
             }
           }
         }

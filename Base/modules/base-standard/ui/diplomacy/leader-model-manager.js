@@ -89,72 +89,220 @@ class LeaderModelManagerClass {
   // These flags are used when an animation is started so that we know to ignore that animation change trigger
   leaderLeftAnimationJustStarted = false;
   leaderRightAnimationJustStarted = false;
+  /************************************************************************************************************************/
+  /**                        IF YOU CHANGE THIS, COORDINATE WITH GRAPHICS DEPARTMENT TO MOVE IT TO JSON                  **/
+  /**                                          IF YOU DO NOT YOU WILL BREAK BENCHMARKING                                 **/
+  /**                                         WHICH MAY CAUSE INGAME ASSETS TO BE BLURRY!                                **/
+  /**                                                                                                                    **/
+  /**/
   static OFF_CAMERA_DISTANCE = 130;
-  // In World units
+  // In World units                                             /**/ 
+  /**/
   static CAMERA_SUBJECT_DISTANCE = 255;
+  /**/
+  /**/
   static CAMERA_DOLLY_ANIMATION_IN_DURATION = 1;
+  /**/
+  /**/
   static CAMERA_DOLLY_ANIMATION_OUT_DURATION = 0.55;
+  /**/
+  /**/
   static DECLARE_WAR_DOLLY_DISTANCE = 20;
+  /**/
+  /**/
   LEADER_EXIT_DURATION = LeaderModelManagerClass.CAMERA_DOLLY_ANIMATION_OUT_DURATION;
-  // 0.6 seconds
+  // 0.6s     /**/ 
+  /**/
   static DARKENING_VFX_POSITION = { x: 0, y: 110, z: 0 };
+  /**/
+  /**/
   static LEFT_MODEL_POSITION = { x: -11.5, y: 72, z: -13 };
+  /**/
+  /**/
   static LEFT_BANNER_POSITION = { x: -16, y: 85, z: 0 };
+  /**/
+  /**/
   static LEFT_BANNER_ANGLE = 45;
+  /**/
+  /**/
   static RIGHT_MODEL_POSITION = { x: 11.5, y: 72, z: -13 };
+  /**/
+  /**/
   static RIGHT_INDEPENDENT_MODEL_POSITION = { x: 7.7, y: 71.9, z: -23 };
+  /**/
+  /**/
   static RIGHT_INDEPENDENT_MODEL_SCALE = 0.7;
+  /**/
+  /**/
   static RIGHT_INDEPENDENT_MODEL_ANGLE = -32;
+  /**/
+  /**/
   static RIGHT_INDEPENDENT_BANNER_POSITION = { x: 15, y: 82, z: -15.5 };
+  /**/
+  /**/
   static RIGHT_INDEPENDENT_VIGNETTE_OFFSET = { x: 0, y: -4.25, z: -25 };
+  /**/
+  /**/
   static RIGHT_INDEPENDENT_CAMERA_OFFSET = { x: 0, y: 0, z: -30 };
+  /**/
+  /**/
   static RIGHT_MODEL_AT_WAR_POSITION = { x: 16.5, y: 72, z: -13 };
+  /**/
+  /**/
   static RIGHT_BANNER_POSITION = { x: 16, y: 85, z: 0 };
+  /**/
+  /**/
   static RIGHT_BANNER_ANGLE = -45;
+  /**/
+  /**/
   static BANNER_SCALE = 1.8;
+  /**/
+  /**/
   MAX_LENGTH_OF_ANIMATION_EXIT = 550;
-  // 0.6 seconds
+  // 0.6 seconds                                              /**/ 
+  /**/
   static FOREGROUND_CAMERA_IN_ID = Database.makeHash("leader-camera-in");
+  /**/
+  /**/
   static FOREGROUND_CAMERA_OUT_ID = Database.makeHash("leader-camera-out");
+  /**/
+  /**/
   static SCREEN_DARKENING_ASSET_NAME = "VFX_Diplomacy_Screen_Darkening";
+  /**/
+  /**/
   static TRIGGER_HASH_ANIMATION_STATE_END = WorldUI.hash("AnimationStateChange");
+  /**/
+  /**/
   static TRIGGER_HASH_SEQUENCE_TRIGGER = WorldUI.hash("SEQUENCE");
-  // SL: determine break point of an animation no-transition period. Has to be hard-coded in leader animation file's action trigger.
+  /**/
+  /**/
+  // SL: determine break point of an animation no-transition period.                                               /**/ 
+  /**/
+  // Has to be hard-coded in leader animation file's action trigger.                                               /**/ 
+  /**/
   static TRIGGER_NO_TRANSITION_START = WorldUI.hash("NO_TRANSITION_START");
+  /**/
+  /**/
   static TRIGGER_NO_TRANSITION_END = WorldUI.hash("NO_TRANSITION_END");
+  /**/
+  /**/
+  /**/
+  /**/
   static LEFT_MODEL_POSITION_SMALL_ASPECT_RATIO = { x: -9.5, y: 72, z: -13 };
+  /**/
+  /**/
   static LEFT_BANNER_POSITION_SMALL_ASPECT_RATIO = { x: -13, y: 85, z: 0 };
+  /**/
+  /**/
   static RIGHT_MODEL_POSITION_SMALL_ASPECT_RATIO = { x: 9.5, y: 72, z: -13 };
+  /**/
+  /**/
   static RIGHT_BANNER_POSITION_SMALL_ASPECT_RATIO = { x: 13, y: 85, z: 0 };
+  /**/
+  /**/
   static RIGHT_MODEL_AT_WAR_POSITION_SMALL_ASPECT_RATIO = { x: 14.5, y: 72, z: -13 };
+  /**/
+  /**/
+  /**/
+  /**/
   static LEFT_MODEL_POSITION_SMALL_SCREEN_MOBILE = { x: -14, y: 72, z: -13 };
+  /**/
+  /**/
   static LEFT_BANNER_POSITION_SMALL_SCREEN_MOBILE = { x: -18, y: 85, z: 0 };
+  /**/
+  /**/
   static RIGHT_MODEL_POSITION_SMALL_SCREEN_MOBILE = { x: 14, y: 72, z: -13 };
+  /**/
+  /**/
   static RIGHT_BANNER_POSITION_SMALL_SCREEN_MOBILE = { x: 18, y: 85, z: 0 };
+  /**/
+  /**/
   static RIGHT_MODEL_AT_WAR_POSITION_SMALL_SCREEN_MOBILE = { x: 19, y: 72, z: -13 };
+  /**/
+  /**/
+  /**/
+  /**/
   static POSITIONS = {
+    /**/
+    /**/
     [0 /* Regular */]: {
+      /**/
+      /**/
       [1 /* LeftBanner */]: LeaderModelManagerClass.LEFT_BANNER_POSITION,
+      /**/
+      /**/
       [0 /* LeftModel */]: LeaderModelManagerClass.LEFT_MODEL_POSITION,
+      /**/
+      /**/
       [3 /* RightBanner */]: LeaderModelManagerClass.RIGHT_BANNER_POSITION,
+      /**/
+      /**/
       [2 /* RightModel */]: LeaderModelManagerClass.RIGHT_MODEL_POSITION,
+      /**/
+      /**/
       [4 /* RightModelAtWar */]: LeaderModelManagerClass.RIGHT_MODEL_AT_WAR_POSITION
+      /**/
+      /**/
     },
+    /**/
+    /**/
     [1 /* SmallAspectRatio */]: {
+      /**/
+      /**/
       [1 /* LeftBanner */]: LeaderModelManagerClass.LEFT_BANNER_POSITION_SMALL_ASPECT_RATIO,
+      /**/
+      /**/
       [0 /* LeftModel */]: LeaderModelManagerClass.LEFT_MODEL_POSITION_SMALL_ASPECT_RATIO,
+      /**/
+      /**/
       [3 /* RightBanner */]: LeaderModelManagerClass.RIGHT_BANNER_POSITION_SMALL_ASPECT_RATIO,
+      /**/
+      /**/
       [2 /* RightModel */]: LeaderModelManagerClass.RIGHT_MODEL_POSITION_SMALL_ASPECT_RATIO,
-      [4 /* RightModelAtWar */]: LeaderModelManagerClass.RIGHT_MODEL_AT_WAR_POSITION_SMALL_ASPECT_RATIO
+      /**/
+      /**/
+      [4 /* RightModelAtWar */]: (
+        /**/
+        /**/
+        LeaderModelManagerClass.RIGHT_MODEL_AT_WAR_POSITION_SMALL_ASPECT_RATIO
+      )
+      /**/
+      /**/
     },
+    /**/
+    /**/
     [2 /* SmallMobileScreen */]: {
+      /**/
+      /**/
       [1 /* LeftBanner */]: LeaderModelManagerClass.LEFT_BANNER_POSITION_SMALL_SCREEN_MOBILE,
+      /**/
+      /**/
       [0 /* LeftModel */]: LeaderModelManagerClass.LEFT_MODEL_POSITION_SMALL_SCREEN_MOBILE,
+      /**/
+      /**/
       [3 /* RightBanner */]: LeaderModelManagerClass.RIGHT_BANNER_POSITION_SMALL_SCREEN_MOBILE,
+      /**/
+      /**/
       [2 /* RightModel */]: LeaderModelManagerClass.RIGHT_MODEL_POSITION_SMALL_SCREEN_MOBILE,
-      [4 /* RightModelAtWar */]: LeaderModelManagerClass.RIGHT_MODEL_AT_WAR_POSITION_SMALL_SCREEN_MOBILE
+      /**/
+      /**/
+      [4 /* RightModelAtWar */]: (
+        /**/
+        /**/
+        LeaderModelManagerClass.RIGHT_MODEL_AT_WAR_POSITION_SMALL_SCREEN_MOBILE
+      )
+      /**/
+      /**/
     }
+    /**/
+    /**/
   };
+  /**/
+  /**                                                                                                                    **/
+  /**                       IF YOU CHANGE THE ABOVE, COORDINATE WITH GRAPHICS DEPARTMENT TO MOVE IT TO JSON              **/
+  /**                                          IF YOU DO NOT YOU WILL BREAK BENCHMARKING                                 **/
+  /**                                         WHICH MAY CAUSE INGAME ASSETS TO BE BLURRY!                                **/
+  /************************************************************************************************************************/
   currentSequenceType = "";
   isLocalPlayerInitiator = false;
   leaderSequenceStepID = 0;

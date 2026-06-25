@@ -1,49 +1,152 @@
 <?xml version="1.0" encoding="utf-8"?>
 <GameEffects xmlns="GameEffects">
 	<!-- Feudal Monarchy -->
-	<Modifier id="MOD_GOLDEN_AGE_FEUDAL_MONARCHY_FOOD" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
-		<Argument name="YieldType">YIELD_FOOD</Argument>
-		<Argument name="Percent">20</Argument>
+	<Modifier id="MOD_FEUDAL_MONARCHY_PASSIVE_WALLS_PRODUCTION" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_PRODUCTION">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_HAS_GOVERNMENT">
+            	<Argument name="GovernmentType">GOVERNMENT_FEUDAL_MONARCHY</Argument>
+       		</Requirement>
+		</SubjectRequirements>
+		<Argument name="ConstructibleType">BUILDING_MEDIEVAL_WALLS</Argument>
+		<Argument name="Percent">10</Argument>
+	</Modifier>	
+	<Modifier id="MOD_FEUDAL_MONARCHY_PASSIVE_UNIT_PRODUCTION" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_UNIT_PRODUCTION">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_HAS_GOVERNMENT">
+            	<Argument name="GovernmentType">GOVERNMENT_FEUDAL_MONARCHY</Argument>
+       		</Requirement>
+		</SubjectRequirements>
+		<Argument name="UnitClass">UNIT_CLASS_COMBAT</Argument>
+		<Argument name="Percent">10</Argument>
 	</Modifier>
-	<Modifier id="MOD_GOLDEN_AGE_FEUDAL_MONARCHY_CAVALRY" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_UNIT_PRODUCTION">
-		<Argument name="UnitClass">UNIT_CLASS_CAVALRY</Argument>
-		<Argument name="Percent">30</Argument>
+	<Modifier id="MOD_GOLDEN_AGE_FEUDAL_MONARCHY_COMBAT_STRENGTH" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_ABILITY">
+		<Argument name="AbilityType">ABILITY_EX_FEUDAL_MONARCHY_GOLDEN_AGE</Argument>
 	</Modifier>
-	<Modifier id="MOD_GOLDEN_AGE_FEUDAL_MONARCHY_NAVAL" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_UNIT_PRODUCTION">
-		<Argument name="UnitClass">UNIT_CLASS_NAVAL</Argument>
-		<Argument name="Percent">30</Argument>
+	<Modifier id="EX_FEUDAL_MONARCHY_GOLDEN_AGE_MOD_COMBAT_STRENGTH" collection="COLLECTION_UNIT_COMBAT" effect="EFFECT_ADJUST_UNIT_STRENGTH_MODIFIER">
+		<Argument name="Amount">3</Argument>
+		<String context="Preview">LOC_ABILITY_GOLDEN_AGE_FEUDAL_MONARCHY_PREVIEW</String>
 	</Modifier>
+	<Modifier id="MOD_GOLDEN_AGE_FEUDAL_MONARCHY_FREE_PROMOTION" collection="COLLECTION_OWNER_COMMANDER_HIGHEST_LEVEL" effect="EFFECT_GRANT_UNIT_PROMOTION">
+        <Argument name="Amount">1</Argument>
+    </Modifier>
 	<!-- Plutocracy -->
-	<Modifier id="MOD_GOLDEN_AGE_PLUTOCRACY_GOLD" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD">
-		<Argument name="YieldType">YIELD_GOLD</Argument>
+	<Modifier id="MOD_PLUTOCRACY_PASSIVE_OVERBUILDING" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_OVERBUILD_PRODUCTION_MOD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_HAS_GOVERNMENT">
+            	<Argument name="GovernmentType">GOVERNMENT_PLUTOCRACY</Argument>
+       		</Requirement>
+		</SubjectRequirements>
 		<Argument name="Percent">20</Argument>
 	</Modifier>
-	<Modifier id="MOD_GOLDEN_AGE_PLUTOCRACY_OVERBUILDING" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_PRODUCTION">
-		<Argument name="ConstructibleClass">BUILDING</Argument>
-		<Argument name="Percent">30</Argument>
+	<Modifier id="MOD_GOLDEN_AGE_PLUTOCRACY_GOLD" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD">
+		<Argument name="Amount">600</Argument>
+		<Argument name="YieldType">YIELD_GOLD</Argument>
+		<Argument name="Scale">true</Argument>
+	</Modifier>
+	<Modifier id="MOD_GOLDEN_AGE_PLUTOCRACY_SPECIALIST_MAINTENANCE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_WORKER_MAINTENANCE_EFFICIENCY">
+		<Argument name="YieldType">YIELD_FOOD, YIELD_HAPPINESS</Argument>
+		<Argument name="Amount">-2</Argument>
+		<Argument name="Tooltip">LOC_GOVERNMENT_PLUTOCRACY_NAME</Argument>
 	</Modifier>
 	<!-- Theocracy -->
-	<Modifier id="MOD_GOLDEN_AGE_THEOCRACY_CULTURE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD">
-		<Argument name="YieldType">YIELD_CULTURE</Argument>
+	<Modifier id="MOD_THEOCRACY_PASSIVE_TEMPLE_PRODUCTION" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_PRODUCTION">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_HAS_GOVERNMENT">
+            	<Argument name="GovernmentType">GOVERNMENT_THEOCRACY</Argument>
+       		</Requirement>
+		</SubjectRequirements>
+		<Argument name="ConstructibleType">BUILDING_TEMPLE</Argument>
+		<Argument name="Percent">20</Argument>
+	</Modifier>	
+	<Modifier id="MOD_THEOCRACY_PASSIVE_TEMPLE_PURCHASING" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_ADJUST_PLAYER_OR_CITY_BUILDING_PURCHASE_EFFICIENCY">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_HAS_GOVERNMENT">
+            	<Argument name="GovernmentType">GOVERNMENT_THEOCRACY</Argument>
+       		</Requirement>
+		</SubjectRequirements>
+		<Argument name="BuildingType">BUILDING_TEMPLE</Argument>
+		<Argument name="Percent">20</Argument>
+	</Modifier>	
+	<Modifier id="MOD_THEOCRACY_PASSIVE_MISSIONARY_PRODUCTION" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_UNIT_PRODUCTION">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_HAS_GOVERNMENT">
+            	<Argument name="GovernmentType">GOVERNMENT_THEOCRACY</Argument>
+       		</Requirement>
+		</SubjectRequirements>
+		<Argument name="UnitClass">UNIT_CLASS_RELIGIOUS</Argument>
 		<Argument name="Percent">20</Argument>
 	</Modifier>
-	<Modifier id="MOD_GOLDEN_AGE_THEOCRACY_CIVILIAN" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_UNIT_PRODUCTION">
-		<Argument name="UnitCoreClass">CORE_CLASS_CIVILIAN</Argument>
-		<Argument name="Percent">40</Argument>
+	<Modifier id="MOD_THEOCRACY_PASSIVE_MISSIONARY_PURCHASING" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_ADJUST_PLAYER_OR_CITY_UNIT_PURCHASE_EFFICIENCY">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_HAS_GOVERNMENT">
+            	<Argument name="GovernmentType">GOVERNMENT_THEOCRACY</Argument>
+       		</Requirement>
+		</SubjectRequirements>
+		<Argument name="UnitTag">UNIT_CLASS_RELIGIOUS</Argument>
+		<Argument name="Percent">20</Argument>
 	</Modifier>
-	<Modifier id="MOD_GOLDEN_AGE_THEOCRACY_SUPPORT" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_UNIT_PRODUCTION">
-		<Argument name="UnitCoreClass">CORE_CLASS_SUPPORT</Argument>
-		<Argument name="Percent">40</Argument>
+	<Modifier id="MOD_GOLDEN_AGE_THEOCRACY_RELIC" collection="COLLECTION_OWNER" effect="EFFECT_GRANT_GREAT_WORK">
+		<Argument name="ObjectType">GREATWORKOBJECT_RELIC</Argument>
+		<Argument name="Amount">1</Argument>
 	</Modifier>
-	<Modifier id="MOD_GOLDEN_AGE_THEOCRACY_RECON" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_UNIT_PRODUCTION">
-		<Argument name="UnitCoreClass">CORE_CLASS_RECON</Argument>
-		<Argument name="Percent">40</Argument>
+	<Modifier id="MOD_GOLDEN_AGE_THEOCRACY_DISPLAYED_RELICS_CULTURE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_GREAT_WORK">
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount">1</Argument>
+	</Modifier>
+	<Modifier id="MOD_GOLDEN_AGE_THEOCRACY_DISPLAYED_RELICS_HAPPINESS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_GREAT_WORK">
+		<Argument name="YieldType">YIELD_HAPPINESS</Argument>
+		<Argument name="Amount">1</Argument>
+	</Modifier>
+	<Modifier id="MOD_GOLDEN_AGE_THEOCRACY_DISPLAYED_RELICS_GOLD" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_GREAT_WORK">
+		<Argument name="YieldType">YIELD_GOLD</Argument>
+		<Argument name="Amount">1</Argument>
+	</Modifier>
+	<Modifier id="MOD_GOLDEN_AGE_THEOCRACY_DISPLAYED_RELICS_INFLUENCE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_GREAT_WORK">
+		<Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+		<Argument name="Amount">1</Argument>
 	</Modifier>
 	<!-- Revolucion -->
-	<Modifier id="MOD_GOLDEN_AGE_REVOLUCION_EX_CULTURE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD">
-		<Argument name="YieldType">YIELD_CULTURE</Argument>
-		<Argument name="Percent">30</Argument>
+	<!-- +2 Happiness (per Age) in the Cities for each Tradition slotted into the Government.-->
+	<Modifier id="MOD_REVOLUCION_EX_PASSIVE_HAPPINESS" collection="COLLECTION_ALL_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_ACTIVE_TRADITION">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_CITY"/>
+		</SubjectRequirements>
+		<Argument name="CivUnique">true</Argument>
+		<Argument name="YieldType">YIELD_HAPPINESS</Argument>
+		<Argument name="Amount">4</Argument>
 	</Modifier>
+	<!-- +2 Culture in Happy Settlements, or +6 in Joyous Settlements, or +10 in Ecstatic Settlements, for 6 turns. -->
+	<Modifier id="MOD_GOLDEN_AGE_REVOLUCION_EX_CULTURE_HAPPY" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_SETTLEMENT_HAPPINESS_STAGE_MATCHES">
+				<Argument name="IsGreaterThanOrEquals">true</Argument>
+				<Argument name="HappinessStage">HAPPINESS_STAGE_HAPPY</Argument>
+       		</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount">2</Argument>
+	</Modifier>
+	<Modifier id="MOD_GOLDEN_AGE_REVOLUCION_EX_CULTURE_JOYOUS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_SETTLEMENT_HAPPINESS_STAGE_MATCHES">
+				<Argument name="IsGreaterThanOrEquals">true</Argument>
+				<Argument name="HappinessStage">HAPPINESS_STAGE_JOYOUS</Argument>
+       		</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount">4</Argument>
+	</Modifier>
+	<Modifier id="MOD_GOLDEN_AGE_REVOLUCION_EX_CULTURE_ECSTATIC" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_SETTLEMENT_HAPPINESS_STAGE_MATCHES">
+				<Argument name="IsGreaterThanOrEquals">true</Argument>
+				<Argument name="HappinessStage">HAPPINESS_STAGE_ECSTATIC</Argument>
+       		</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount">4</Argument>
+	</Modifier>
+	<!-- +100% Production towards training and Gold towards purchasing Missionaries and +2 Charges and Movement for Missionaries. -->
 	 <Modifier id="MOD_GOLDEN_AGE_REVOLUCION_EX_MISSIONARY_PRODUCTION" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_UNIT_PRODUCTION">
         <Argument name="Percent">100</Argument>
 		<Argument name="UnitClass">UNIT_CLASS_RELIGIOUS</Argument>

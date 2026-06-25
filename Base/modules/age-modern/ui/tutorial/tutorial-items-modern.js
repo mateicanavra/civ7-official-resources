@@ -45,7 +45,7 @@ TutorialManager.add({
 TutorialManager.add({
   ID: "ideologies_unlock",
   callout: {
-    anchorPosition: TutorialAnchorPosition.MiddleCenter,
+    anchorPosition: TutorialAnchorPosition.MiddleCenterWide,
     title: Locale.compose("LOC_TUTORIAL_IDEOLOGIES_UNLOCK_TITLE"),
     body: {
       text: "LOC_TUTORIAL_IDEOLOGIES_UNLOCK_BODY",

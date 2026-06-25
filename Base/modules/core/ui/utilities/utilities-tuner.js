@@ -175,6 +175,40 @@ class TunerUtilities {
         return "UNKNOWN";
     }
   }
+  getYieldSourceTypeString(type) {
+    switch (type) {
+      case YieldSourceTypes.BASE:
+        return "BASE";
+      case YieldSourceTypes.ADJACENCY:
+        return "ADJACENCY";
+      case YieldSourceTypes.WAREHOUSE:
+        return "WAREHOUSE";
+      case YieldSourceTypes.CONSTRUCTIBLES:
+        return "CONSTRUCTIBLES";
+      case YieldSourceTypes.NATURAL:
+        return "NATURAL";
+      case YieldSourceTypes.WORKERS:
+        return "WORKERS";
+      case YieldSourceTypes.APPEAL:
+        return "APPEAL";
+      case YieldSourceTypes.ENVIRONMENT:
+        return "ENVIRONMENT";
+      case YieldSourceTypes.RESOURCES:
+        return "RESOURCES";
+      case YieldSourceTypes.CITY_MODIFIERS:
+        return "CITY_MODIFIERS";
+      case YieldSourceTypes.PROJECT:
+        return "PROJECT";
+      case YieldSourceTypes.GREAT_WORKS:
+        return "GREAT_WORKS";
+      case YieldSourceTypes.HALVED:
+        return "HALVED";
+      case YieldSourceTypes.MULTIPLIED:
+        return "MULTIPLIED";
+      default:
+        return "UNKNOWN";
+    }
+  }
 }
 const tunerUtilities = new TunerUtilities();
 console.log("tunerUtilities active");

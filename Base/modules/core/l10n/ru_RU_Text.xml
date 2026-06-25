@@ -626,7 +626,7 @@
       <Text>Сохранить игру</Text>
     </Replace>
     <Replace Tag="LOC_HOTSEAT_START_TURN" Language="ru_RU">
-      <Text>Начало хода</Text>
+      <Text>Начать ход</Text>
     </Replace>
     <Replace Tag="LOC_INPUT_CONTEXT_CITY" Language="ru_RU">
       <Text>Город</Text>
@@ -1067,7 +1067,7 @@
       <Text>Задержка перемещения при нажатии/касании</Text>
     </Replace>
     <Replace Tag="LOC_OPTIONS_ACCESSIBILITY_LONG_PRESS_DESCRIPTION" Language="ru_RU">
-      <Text>Определяет, как долго нажатие мышью или касание экрана может удерживаться, прежде чем будет учитываться перемещение. Если нажатия или касания не всегда корректно обрабатываются игрой, попробуйте увеличить это значение.</Text>
+      <Text>Изменяет время, в течение которого можно удерживать нажатие кнопки мыши или касание экрана, прежде чем движение начнет учитываться. Если вам сложно держать руки неподвижно или мышь слишком чувствительна, более высокие значения помогут избежать ошибочного принятия щелчков и касаний за перетаскивания.</Text>
     </Replace>
     <Replace Tag="LOC_OPTIONS_ADAPTIVE_TRIGGERS_ENABLED" Language="ru_RU">
       <Text>Адаптивные триггеры включены</Text>
@@ -1199,7 +1199,9 @@
       <Text>Автоматическая смена юнитов</Text>
     </Replace>
     <Replace Tag="LOC_OPTIONS_AUTOUNITYCYCLE_DESCRIPTION" Language="ru_RU">
-      <Text>Израсходовав все очки перемещения для выбранного юнита, переберите юнитов, у которых остались очки перемещения.</Text>
+      <Text>Израсходовав все очки перемещения для выбранного юнита, переберите юнитов,
+
+					у которых остались очки перемещения.</Text>
     </Replace>
     <Replace Tag="LOC_OPTIONS_BRIGHTNESS" Language="ru_RU">
       <Text>Яркость</Text>
@@ -1888,6 +1890,12 @@
     <Replace Tag="LOC_OPTIONS_GFX_XEFG_DESCRIPTION" Language="ru_RU">
       <Text>Кадры, созданные искусственным интеллектом, чередуются с существующей графикой, что значительно увеличивает количество кадров в секунду (FPS) и повышает производительность.</Text>
     </Replace>
+    <Replace Tag="LOC_OPTIONS_GFX_XEFG_FRAME_COUNT" Language="ru_RU">
+      <Text>Интерполированные кадры</Text>
+    </Replace>
+    <Replace Tag="LOC_OPTIONS_GFX_XEFG_FRAME_COUNT_DESCRIPTION" Language="ru_RU">
+      <Text>Количество кадров, генерируемых между отрисованными кадрами.</Text>
+    </Replace>
     <Replace Tag="LOC_OPTIONS_GFX_XELL" Language="ru_RU">
       <Text>Технология снижения задержки Intel Xe</Text>
     </Replace>
@@ -2025,6 +2033,9 @@
     </Replace>
     <Replace Tag="LOC_OPTIONS_HELP_TYPES_DESCRIPTION" Language="ru_RU">
       <Text>Какие виды помощи будут показываться во время игры.</Text>
+    </Replace>
+    <Replace Tag="LOC_OPTIONS_HOTSEAT_NOT_VALID" Language="ru_RU">
+      <Text>Не действует в режиме поочередной игры.</Text>
     </Replace>
     <Replace Tag="LOC_OPTIONS_INPUT_DEVICE" Language="ru_RU">
       <Text>Устройство ввода</Text>
@@ -3138,6 +3149,9 @@
     </Replace>
     <Replace Tag="LOC_PROFILE_TITLE_DLC_SEASONPASS_3" Language="ru_RU">
       <Text>Пиратский капитан</Text>
+    </Replace>
+    <Replace Tag="LOC_PROFILE_TITLE_DLC_SEASONPASS_4" Language="ru_RU">
+      <Text>Поэт-воин</Text>
     </Replace>
     <Replace Tag="LOC_PROFILE_TITLE_FOUNDATION_1" Language="ru_RU">
       <Text>Поспешный писец</Text>
@@ -4304,7 +4318,7 @@
       <Text>Включить/выключить линзу по торговле</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_RANKINGS_SCREEN" Language="ru_RU">
-      <Text>Экран рейтинга</Text>
+      <Text>Включить/выключить экран побед</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_RELIGION" Language="ru_RU">
       <Text>Панель религии</Text>
@@ -5153,10 +5167,10 @@
       <Text>Разблокирует следующее: [BLIST]{1_Items}[/LIST]</Text>
     </Replace>
     <Replace Tag="LOC_CREATE_GAME_UNLOCKS_LIST_ITEM" Language="ru_RU">
-      <Text>[LI] [B]{1_UnlockName}[/B].</Text>
+      <Text>[B]{1_UnlockName}[/B].</Text>
     </Replace>
     <Replace Tag="LOC_CREATE_GAME_UNLOCKS_LIST_ITEM_IN_AGE" Language="ru_RU">
-      <Text>[LI] [B]{1_UnlockName} [/B](эпоха: [B]{2:lower{2_Age}})[/B].</Text>
+      <Text>[B]{1_UnlockName} [/B]в эпоху: [B]{2_AgeName} [/B].</Text>
     </Replace>
     <Replace Tag="LOC_CROSSPLAY_CHOICE_1_CONTEXT_CONFLICT_RESOLUTION" Language="ru_RU">
       <Text>Сохранение локальной кросс-игры {1_CrossplayType}</Text>

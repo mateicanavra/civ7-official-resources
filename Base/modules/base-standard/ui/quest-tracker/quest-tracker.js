@@ -13,6 +13,12 @@ class QuestCompletedEvent extends CustomEvent {
     super(QuestCompletedEventName, { bubbles: false, detail: { name } });
   }
 }
+const QuestTrackerRefreshRequestName = "quest-tracker-refresh-request";
+class QuestTrackerRefreshRequest extends CustomEvent {
+  constructor() {
+    super(QuestTrackerRefreshRequestName, { bubbles: false });
+  }
+}
 class QuestTracker {
   items = /* @__PURE__ */ new Map();
   trackerItemAddedLiteEvent = new LiteEvent();
@@ -33,12 +39,16 @@ class QuestTracker {
   get isDrawerOut() {
     return this._isDrawerOut;
   }
-  constructor() {
-    const localPlayerId = GameContext.localObserverID;
+  /**
+   * CTOR
+   * @param playerId, ID of the player this tracker belongs to.
+   */
+  constructor(playerId) {
+    const player = Players.get(playerId);
     this.catalog = new Catalog({
       name: this.questCatalogName,
       version: 1,
-      player: Players.get(localPlayerId)
+      player
     });
   }
   get AddEvent() {
@@ -222,16 +232,27 @@ class QuestTracker {
     window.dispatchEvent(new QuestListUpdatedEvent(questName));
   }
 }
-let instance = null;
+const instances = [];
 function getQuestTracker() {
-  if (!instance) {
-    if (!UI.isInGame()) {
-      throw new Error("QuestTracker should only be accessed in-game.");
-    }
-    instance = new QuestTracker();
+  if (!UI.isInGame()) {
+    throw new Error("quest-tracker: should only be accessed in-game.");
   }
-  return instance;
+  const playerId = GameContext.localObserverID;
+  if (playerId > 999) {
+    throw new Error(`quest-tracker: Player ID of "${playerId}" exceeds maximum supported value of 999.`);
+  }
+  if (!instances[playerId]) {
+    instances[playerId] = new QuestTracker(playerId);
+  }
+  return instances[playerId];
+}
+if (Configuration.getGame().isHotseat) {
+  let onLocalPlayerChanged = function() {
+    console.log("quest-tracker: Requesting info for local player: " + GameContext.localObserverID);
+    window.dispatchEvent(new QuestTrackerRefreshRequest());
+  };
+  engine.on("LocalPlayerChanged", onLocalPlayerChanged);
 }
 
-export { QuestCompletedEvent, QuestCompletedEventName, QuestListUpdatedEvent, QuestListUpdatedEventName, getQuestTracker };
+export { QuestCompletedEvent, QuestCompletedEventName, QuestListUpdatedEvent, QuestListUpdatedEventName, QuestTrackerRefreshRequest, QuestTrackerRefreshRequestName, getQuestTracker };
 //# sourceMappingURL=quest-tracker.js.map

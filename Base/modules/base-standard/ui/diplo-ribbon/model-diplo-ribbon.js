@@ -125,6 +125,7 @@ class DiploRibbonModel {
     engine.on("TraditionChanged", this.onPolicyChanged, this);
     engine.on("TreasuryChanged", this.onTreasuryChanged, this);
     engine.on("WonderCompleted", this.onWonderCompleted, this);
+    engine.on("NarrativeChoiceMade", this.onNarrativeChoiceMade, this);
     window.addEventListener("main-menu-return", this.updateDiploRibbonListener);
     window.addEventListener("update-diplo-ribbon", this.updateDiploRibbonListener);
     window.addEventListener("interface-mode-changed", this.interfaceModeChangedListener);
@@ -699,6 +700,11 @@ class DiploRibbonModel {
       this.queueYieldUpdate(data.player);
     }
   }
+  onNarrativeChoiceMade(data) {
+    if (this.playerData.some((o) => o.id == data.player)) {
+      this.queueYieldUpdate(data.player);
+    }
+  }
   onCultureYieldChanged(data) {
     if (this.playerData.some((o) => o.id == data.player)) {
       this.queueYieldUpdate(data.player);
@@ -843,7 +849,6 @@ class DiploRibbonModel {
       otherPlayer = Players.get(data.player1);
     }
     if (!otherPlayer) {
-      console.error("model-diplo-ribbon: Not involved in diplomacy meeting, not updating diplo ribbon.");
       return;
     }
     for (const playerData of this._playerData) {

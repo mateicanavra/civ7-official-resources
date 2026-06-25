@@ -355,6 +355,12 @@
 		}
 	},
 	{
+		"path": "LeaderSelectScreen",
+		"events": {
+			"popup-open": "overlay-window-open"
+		}
+	},
+	{
 		"path": "LeaderSelectPortraitButton",
 		"constraints": {
 			"leaderType": {
@@ -438,6 +444,12 @@
 		}
 	},
 	{
+		"path": "CivSelectScreen",
+		"events": {
+			"popup-open": "overlay-window-open"
+		}
+	},
+	{
 		"path": "CivSelectScreen/TextInput",
 		"events": {
 			"activate": "search-press",
@@ -487,9 +499,15 @@
 	{
 		"path": "CivSelectScreen/CivSelectCard",
 		"events": {
-			"activate": "civ-select-selected",
+			"activate": "none",
 			"press": "civ-select-press",
 			"focus": "civ-select-focus"
+		}
+	},
+	{
+		"path": "GameSetupOptions",
+		"events": {
+			"popup-open": "overlay-window-open"
 		}
 	},
 	{
@@ -553,11 +571,23 @@
 		}
 	},
 	{
+		"path": "CivilizationDetails",
+		"events": {
+			"popup-open": "overlay-window-open"
+		}
+	},
+	{
 		"path": "MapSelectPopup/Activatable",
 		"events": {
 			"activate": "map-type-activate",
 			"press": "hero-press",
 			"focus": "map-type-focus"
+		}
+	},
+	{
+		"path": "CreateGameHub/HubLeaderInfo/CreateGameHub",
+		"events": {
+			"popup-open": "overlay-window-open"
 		}
 	},
 	{
@@ -823,7 +853,7 @@
 	{
 		"path": "AgeTransition/Activatable",
 		"events": {
-			"activate": "overlay-window-open",
+			"activate": "none",
 			"press": "primary-button-press",
 			"focus": "create-top-focus"
 		}
@@ -917,6 +947,12 @@
 			"activate": "popup-close-generic",
 			"press": "primary-button-press",
 			"focus": "hero-focus"
+		}
+	},
+	{
+		"path": "CommerceScreen/ImageButton",
+		"events": {
+			"pressError": "error-press"
 		}
 	},
 	{
@@ -1220,7 +1256,7 @@
 		}
 	},
 	{
-		"path": "PolicyCard/Assigned",
+		"path": "GovernmentScreen/PolicyCard/Assigned",
 		"events": {
 			"activate": "social-policy-remove",
 			"press": "policy-card-press",
@@ -1229,7 +1265,7 @@
 		}
 	},
 	{
-		"path": "PolicyCard/Unassigned",
+		"path": "GovernmentScreen/PolicyCard/Unassigned",
 		"events": {
 			"activate": "social-policy-activate",
 			"press": "policy-card-press",
@@ -1238,7 +1274,7 @@
 		}
 	},
 	{
-		"path": "PolicyConfirmButton",
+		"path": "GovernmentScreen/PolicyConfirmButton",
 		"events": {
 			"activate": "social-policy-confim-release",
 			"press": "primary-button-press",
@@ -1272,7 +1308,7 @@
 	{
 		"path": "VictoryScreen/PlayerRow",
 		"events": {
-			"focus": "hero-focus"
+			"focus": "select-focus"
 		}
 	},
 	{
@@ -1429,12 +1465,70 @@
 		}
 	},
 	{
-		"path": "PromoCarousel/Expanded/ArrowButton",
+		"path": "PromoCarousel/Expanded/Button",
 		"events": {
 			"activate": "",
+			"press": "select-press",
+			"pressError": "error-press",
+			"focus": "hero-focus"
+		}
+	},
+	{
+		"path": "PromoCarousel/Expanded/ArrowButton",
+		"events": {
+			"activate": "generic-pager-navigate",
 			"press": "generic-pager-press",
 			"pressError": "error-press",
 			"focus": "generic-pager-focus"
+		}
+	},
+	{
+		"path": "PromoCarousel/Expanded/RadioButton",
+		"events": {
+			"activate": "generic-pager-navigate",
+			"press": "generic-radio-press",
+			"pressError": "error-press",
+			"focus": "generic-radio-focus"
+		}
+	},
+	{
+		"path": "GovernmentScreen",
+		"events": {
+			"popup-open": "generic-panel-showing",
+			"popup-close": "generic-panel-hiding"
+		}
+	},
+	{
+		"path": "GovernmentScreen/CloseButton",
+		"events": {
+			"activate": "generic-window-close",
+			"press": "generic-close-button-press",
+			"focus": "select-focus"
+		}
+	},
+	{
+		"path": "GovernmentScreen/Activatable",
+		"events": {
+			"activate": "government-card-activate",
+			"press": "hero-press",
+			"focus": "social-policy-focus"
+		}
+	},
+	{
+		"path": "GovernmentScreen/Button",
+		"events": {
+			"activate": "social-policy-government-activate",
+			"press": "hero-press",
+			"pressError": "error-press",
+			"focus": "hero-focus"
+		}
+	},
+	{
+		"path": "GovernmentScreen/TabListItem",
+		"events": {
+			"activate": "generic-tab-navigate",
+			"tab-nav-next": "generic-tab-navigate",
+			"tab-nav-previous": "generic-tab-navigate"
 		}
 	}
 ]

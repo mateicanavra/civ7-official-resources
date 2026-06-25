@@ -5,7 +5,7 @@ import { Tooltip } from '../../../core/ui-next/components/tooltip.js';
 import { ComponentRegistry } from '../../../core/ui-next/services/component-registry.js';
 import { createComponent } from '../../../core/vendor/solid-js/dist/solid.js';
 
-var _tmpl$ = /* @__PURE__ */ template(`<div class="uppercase text-secondary font-title"></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="uppercase mb-3"></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="flex flex-row"><div class="flex-auto font-body mr-2"></div><div class="text-white -mt-0\\.5"></div></div>`);
+var _tmpl$ = /* @__PURE__ */ template(`<div class="uppercase text-secondary font-title"></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="uppercase mb-3"></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="flex flex-row"><div class="flex-auto font-body mr-2 self-center"></div><div class="text-white self-center"></div></div>`);
 const ScienceVictoryItemTooltipComponent = (props) => {
   return createComponent(Tooltip, {
     get children() {

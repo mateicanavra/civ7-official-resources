@@ -21,6 +21,7 @@ let policiesWasTradition = [];
 const allActive = createMemo(() => [...activeTraditionCards, ...activePolicyCards]);
 function createPoliciesModel() {
   onCleanup(() => {
+    clearArrays();
     handleConsideredPolicies();
   });
   let _activePolicies = [];
@@ -348,6 +349,12 @@ function createPoliciesModel() {
     _availableCrisisPolicies = [];
     _availablePolicies = [];
     _availableTraditions = [];
+    setActivePolicyCards([]);
+    setActiveTraditionCards([]);
+    setActiveCrisisCards([]);
+    setAvailablePolicyCards([]);
+    setAvailableTraditionCards([]);
+    setAvailableCrisisCards([]);
   }
   function handleOnConfirmClick() {
     model.confirmDisable = true;
@@ -417,7 +424,6 @@ function createPoliciesModel() {
     }
   }
   function handleOnClose() {
-    clearArrays();
     ContextManager.pop("screen-policies");
   }
   const model = createMutable({

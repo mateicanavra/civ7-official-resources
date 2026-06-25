@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Types>
+		<Row Type="NODE_CIVIC_EX_HEIAN_RENAISSANCE" Kind="KIND_TREE_NODE"/>
+	</Types>
+	<TypeQuotes>
+		<Row Type="NODE_CIVIC_EX_HEIAN_RENAISSANCE" Quote="LOC_CIVIC_EX_RENAISSANCE_QUOTE" QuoteAuthor="LOC_CIVIC_EX_RENAISSANCE_AUTHOR" QuoteAudio="VO_Quote_ToT_EXP_Renaissance"/>
+	</TypeQuotes>
+	<ProgressionTreeNodes>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_HEIAN_RENAISSANCE" ProgressionTree="TREE_CIVICS_EX_TEST_OF_TIME" Cost="800" Name="LOC_NODE_CIVIC_EX_HEIAN_RENAISSANCE_NAME" IconString="cult_heian" CanSteal="false"/>
+	</ProgressionTreeNodes>
+	<ProgressionTreeNodeUnlocks>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_HEIAN_RENAISSANCE" TargetKind="KIND_TRADITION" TargetType="TRADITION_JO_BO_SYSTEM_II" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_HEIAN_RENAISSANCE" TargetKind="KIND_MODIFIER" TargetType="MOD_TOT_TRADITION_SLOT" UnlockDepth="1"/>
+	</ProgressionTreeNodeUnlocks>
+	<ProgressionTreeNodeTraits>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_HEIAN_RENAISSANCE" RequiredTraitType="TRAIT_HEIAN" />
+	</ProgressionTreeNodeTraits>
+	<ProgressionTreePrereqs>
+		<Row Node="NODE_CIVIC_EX_HIERARCHY" PrereqNode="NODE_CIVIC_EX_HEIAN_RENAISSANCE"/>
+		<Row Node="NODE_CIVIC_EX_SYNCRETISM_CHOICE" PrereqNode="NODE_CIVIC_EX_HEIAN_RENAISSANCE"/>
+	</ProgressionTreePrereqs>
+	<ProgressionTree_Advisories>
+	</ProgressionTree_Advisories>
+</Database>

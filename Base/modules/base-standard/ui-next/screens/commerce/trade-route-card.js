@@ -9,6 +9,7 @@ import { Icon } from '../../../../core/ui-next/components/icon.js';
 import { useImageCache } from '../../../../core/ui-next/components/image-cache.js';
 import { L10n } from '../../../../core/ui-next/components/l10n.js';
 import { ComponentRegistry } from '../../../../core/ui-next/services/component-registry.js';
+import { IsControllerActive } from '../../../../core/ui-next/services/input.js';
 import { FramedResource } from '../../components/framed-resource.js';
 import { LeaderWithRibbon } from '../../components/leader-with-ribbon.js';
 import { CommerceCriteriaDisplay } from './commerce-criteria-display.js';
@@ -40,7 +41,7 @@ const TradeRouteCardComponent = (props) => {
   imageCache.registerImages(TradeCardSymbol, Object.values(images));
   const content = createComponent(CardFrame, mergeProps(cardFrameProps, {
     get ["class"]() {
-      return `px-4 pt-4 pb-2 flex flex-col mb-2 mt-2 relative trade-route-card ${local.class ?? ""}`;
+      return `px-4 pt-4 pb-2 flex flex-col mb-2 mt-2 relative focusable-card ${local.class ?? ""}`;
     },
     get classList() {
       return {
@@ -166,13 +167,13 @@ const TradeRouteCardComponent = (props) => {
     get name() {
       return `${Locale.compose(local.tradeRoute.cityName)}-Trade-Route-Card`;
     },
-    "class": "trade-route-card-activatable",
+    "class": "focusable-card-activatable trade-route-card",
     get autoFocus() {
       return local.autoFocus;
     },
     onActivate: () => model.setSelectedTradeRouteId(props.tradeRoute.cityID),
     get disabled() {
-      return props.disabled || model.selectedTradeRouteId() !== void 0;
+      return !IsControllerActive() || props.disabled || model.selectedTradeRouteId() !== void 0;
     },
     get onFocus() {
       return local.onFocus;

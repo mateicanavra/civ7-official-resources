@@ -1,10 +1,5 @@
-import ContextManager from '../../../../core/ui/context-manager/context-manager.js';
-import { DisplayHandlerBase } from '../../../../core/ui/context-manager/display-handler.js';
-import { DisplayQueueManager } from '../../../../core/ui/context-manager/display-queue-manager.js';
-import { InterfaceMode } from '../../../../core/ui/interface-modes/interface-modes.js';
 import { Catalog } from '../../../../core/ui/utilities/utility-serialize.js';
-import { getQuestTracker } from '../../../ui/quest-tracker/quest-tracker.js';
-import { createTriumphData } from './legacies-model.js';
+import { getQuestTracker, QuestTrackerRefreshRequestName } from '../../../ui/quest-tracker/quest-tracker.js';
 
 const VERSION = 2;
 const TRACKED_TRIUMPH_OBJECT_NAME = "tracked-triumphs";
@@ -12,12 +7,13 @@ const TRACKED_TRIUMPH_KEY_NAME = "ids";
 class TriumphTrackingManagerClass {
   triumphCatalogName = "TriumphTrackerCatalog";
   catalog;
-  constructor() {
-    const localPlayerId = GameContext.localObserverID;
+  playerId;
+  constructor(playerId) {
+    this.playerId = playerId;
     this.catalog = new Catalog({
       name: this.triumphCatalogName,
       version: VERSION,
-      player: Players.get(localPlayerId)
+      player: Players.get(playerId)
     });
     if (!this.catalog.justCreated) {
       this.readTrackedTriumphs();
@@ -30,7 +26,7 @@ class TriumphTrackingManagerClass {
     engine.off("PlayerLegacyProgress", this.onLegacyProgress, this);
   }
   onLegacyProgress(event) {
-    if (event.player != GameContext.localPlayerID) {
+    if (event.player != this.playerId) {
       return;
     }
     const legacyDef = GameInfo.Legacies.lookup(event.legacy);
@@ -42,6 +38,13 @@ class TriumphTrackingManagerClass {
     if (questTracker.has(legacyDef.LegacyType, "triumph")) {
       this.addTriumphToQuestTracker(legacyDef);
     }
+  }
+  /**
+   * Public exposure for tracked triumphs to be (re-)sent to quest tracker.
+   * Required for hotseat when switching players.
+   */
+  refreshQuestTracker() {
+    this.readTrackedTriumphs();
   }
   // Parse the tracked triumphs from disk and add them to the quest tracker
   readTrackedTriumphs() {
@@ -63,9 +66,9 @@ class TriumphTrackingManagerClass {
   }
   //Do the actual adding the triumph to the quest tracker
   addTriumphToQuestTracker(triumph) {
-    const localPlayerLegacies = Players.get(GameContext.localPlayerID)?.Legacies;
+    const localPlayerLegacies = Players.get(this.playerId)?.Legacies;
     if (!localPlayerLegacies) {
-      console.error("triumph-tracking-manager: unable to get legacies object for local player");
+      console.error("triumph-tracking-manager: unable to get legacies object for local player: " + this.playerId);
       return;
     }
     const triumphQuestItem = {
@@ -108,6 +111,19 @@ class TriumphTrackingManagerClass {
     }
     this.writeTrackedLegacies();
   }
+  onClickTrackTriumph(legacyType) {
+    const legacy = GameInfo.Legacies.lookup(legacyType);
+    if (!legacy) {
+      console.error("legacies-model: unable to get legacy definition of legacy of type: " + legacyType);
+      return;
+    }
+    const questTracker = getQuestTracker();
+    if (questTracker.has(legacyType, "triumph")) {
+      this.unTrackTriumph(legacy);
+    } else {
+      this.trackTriumph(legacy);
+    }
+  }
   //Do the actual serialization and writing to disk
   writeTrackedLegacies() {
     let serializedTriumphIDs = "";
@@ -126,60 +142,21 @@ class TriumphTrackingManagerClass {
     this.catalog.getObject(TRACKED_TRIUMPH_OBJECT_NAME).write(TRACKED_TRIUMPH_KEY_NAME, serializedTriumphIDs);
   }
 }
-const TriumphTrackingManager = new TriumphTrackingManagerClass();
-class TriumphCompleteQueueManagerClass extends DisplayHandlerBase {
-  static instance = null;
-  currentTriumphData = null;
-  constructor() {
-    super("TrimpuhCompletePopup", 8010);
-    if (TriumphCompleteQueueManagerClass.instance) {
-      console.error("Only one instance of the TechCivicPopup manager class can exist at a time!");
-    }
-    TriumphCompleteQueueManagerClass.instance = this;
-    this.initializeListeners();
+const instances = [];
+function getTriumphTrackingManager() {
+  const playerId = GameContext.localObserverID;
+  if (playerId > 999) {
+    throw new Error(`triumph-tracker-manager: Player ID of "${playerId}" exceeds maximum supported value of 999.`);
   }
-  initializeListeners() {
-    engine.on("PlayerLegacyCompleted", this.onLegacyCompleted, this);
+  if (!instances[playerId]) {
+    instances[playerId] = new TriumphTrackingManagerClass(playerId);
   }
-  onLegacyCompleted(event) {
-    const legacyDef = GameInfo.Legacies.lookup(event.legacy);
-    if (!legacyDef) {
-      console.error(
-        "triumph-tracking-manager.ts: Unable to find triumph definition for triumph of type: " + event.legacy
-      );
-      return;
-    }
-    if (event.player != GameContext.localPlayerID) {
-      if (legacyDef.FirstPlayerOnly) {
-        TriumphTrackingManager.unTrackTriumph(legacyDef);
-      }
-      return;
-    }
-    TriumphTrackingManager.unTrackTriumph(legacyDef);
-    if (ContextManager.shouldShowPopup(event.player)) {
-      this.addDisplayRequest({ triumphData: createTriumphData(legacyDef) });
-    }
-  }
-  show(request) {
-    this.currentTriumphData = request;
-    InterfaceMode.switchToDefault();
-    ContextManager.push("triumph-complete-popup", { createMouseGuard: true, singleton: true });
-  }
-  hide() {
-    ContextManager.pop("triumph-complete-popup");
-    this.currentTriumphData = null;
-  }
-  closePopup = () => {
-    if (this.currentTriumphData) {
-      DisplayQueueManager.close(this.currentTriumphData);
-    }
-  };
-  isShowing() {
-    return ContextManager.hasInstanceOf("triumph-complete-popup");
-  }
+  return instances[playerId];
 }
-const TriumphCompleteQueueManager = new TriumphCompleteQueueManagerClass();
-DisplayQueueManager.registerHandler(TriumphCompleteQueueManager);
+window.addEventListener(QuestTrackerRefreshRequestName, () => {
+  getTriumphTrackingManager().refreshQuestTracker();
+});
+getTriumphTrackingManager();
 
-export { TriumphCompleteQueueManager, TriumphTrackingManager, TriumphTrackingManagerClass };
+export { TriumphTrackingManagerClass, getTriumphTrackingManager };
 //# sourceMappingURL=triumph-tracking-manager.js.map

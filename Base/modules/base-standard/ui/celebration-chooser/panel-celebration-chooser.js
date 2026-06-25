@@ -4,6 +4,7 @@ import { Focus } from '../../../core/ui/input/focus-support.js';
 import NavTray from '../../../core/ui/navigation-tray/model-navigation-tray.js';
 import Databind from '../../../core/ui/utilities/utilities-core-databinding.js';
 import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
+import { Layout } from '../../../core/ui/utilities/utilities-layout.js';
 import { ChooserItem } from '../chooser-item/chooser-item.js';
 import { ScreenGeneralChooser } from '../general-chooser/screen-general-chooser.js';
 import { HideMiniMapEvent } from '../mini-map/panel-mini-map.js';
@@ -92,9 +93,14 @@ class CelebrationChooser extends ScreenGeneralChooser {
     this.bonusEntryContainer = MustGetElement(".celebrations__choices-container", this.Root);
     this.createEntries(this.bonusEntryContainer);
     const celebrationSubsystemFrame = MustGetElement(".celebration-subsystem-frame", this.Root);
-    celebrationSubsystemFrame.classList.toggle("top-48", uiViewExperience != UIViewExperience.Mobile);
-    if (uiViewExperience == UIViewExperience.Mobile) {
+    celebrationSubsystemFrame.classList.toggle(
+      "top-48",
+      uiViewExperience != UIViewExperience.Mobile && !Layout.isCompact()
+    );
+    if (uiViewExperience == UIViewExperience.Mobile || Layout.isCompact()) {
       celebrationSubsystemFrame.classList.add("top-10");
+    }
+    if (uiViewExperience == UIViewExperience.Mobile) {
       this.bonusEntryContainer.classList.add("w-128");
       this.bonusEntryContainer.classList.add("mx-6");
       this.bonusEntryContainer.classList.remove("mx-11");

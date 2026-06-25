@@ -26,6 +26,7 @@ class WorldAnchorTextManager extends Component {
   onAttach() {
     super.onAttach();
     engine.on("WorldTextMessage", this.onWorldTextMessage, this);
+    engine.on("LocalPlayerChanged", this.localPlayerChangedListener, this);
     window.addEventListener("ui-hide-world-anchor-texts", this.hideListener);
     window.addEventListener("ui-show-world-anchor-texts", this.showListener);
   }
@@ -33,6 +34,7 @@ class WorldAnchorTextManager extends Component {
     window.removeEventListener("ui-show-world-anchor-texts", this.showListener);
     window.removeEventListener("ui-hide-world-anchor-texts", this.hideListener);
     engine.off("WorldTextMessage", this.onWorldTextMessage, this);
+    engine.off("LocalPlayerChanged", this.localPlayerChangedListener, this);
     super.onDetach();
   }
   onHideWorldAnchorTexts() {
@@ -105,6 +107,9 @@ class WorldAnchorTextManager extends Component {
     const children = this.Root.childNodes;
     for (let i = children.length - 1; i >= 0; i--) {
       const node = children.item(i);
+      if (node instanceof HTMLElement === false) {
+        continue;
+      }
       const plotxy = node.getAttribute("data-anchor-text-xy");
       if (plotxy == dataPlotxy) {
         messagesOnPlot++;
@@ -120,7 +125,22 @@ class WorldAnchorTextManager extends Component {
     worldAnchoredText.setAttribute("data-anchor-text-xy", PlotCoord.toString(data.location));
     worldAnchoredText.setAttribute("data-anchor-text-msg", data.text);
     worldAnchoredText.setAttribute("data-anchor-text-delay", messagesOnPlot.toString());
+    worldAnchoredText.setAttribute("data-anchor-text-targetId", "" + data.targetID);
     this.Root.appendChild(worldAnchoredText);
+  }
+  localPlayerChangedListener(data) {
+    const children = this.Root.childNodes;
+    for (const node of children) {
+      if (node instanceof HTMLElement === false) {
+        continue;
+      }
+      const targetPlayer = node.getAttribute("data-anchor-text-targetId");
+      if (targetPlayer !== "" + data.player) {
+        node.classList.add("hidden");
+      } else {
+        node.classList.remove("hidden");
+      }
+    }
   }
 }
 Controls.define("world-anchor-texts", {

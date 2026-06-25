@@ -32,6 +32,7 @@ class PlaceBuildingInterfaceMode extends ChoosePlotInterfaceMode {
   plotOverlay = null;
   lastHoveredPlot = -1;
   mapFocused = true;
+  uniqueQuarterModelGroup = WorldUI.createModelGroup("UniqueQuarterModelGroup");
   OUTER_REGION_OVERLAY_FILTER = { saturation: 0.1, brightness: 0.3 };
   //Semi-opaque dark grey to darken plots outside of the city
   cursorUpdateListener = this.onCursorUpdated.bind(this);
@@ -94,6 +95,9 @@ class PlaceBuildingInterfaceMode extends ChoosePlotInterfaceMode {
     if (this.plotOverlay) {
       this.plotOverlay.clear();
     }
+    if (this.uniqueQuarterModelGroup) {
+      this.uniqueQuarterModelGroup.clear();
+    }
     window.removeEventListener(CursorUpdatedEventName, this.cursorUpdateListener);
     window.removeEventListener(PlotCursorUpdatedEventName, this.plotCursorUpdatedListener);
     WorldUI.setUnitVisibility(true);
@@ -142,6 +146,16 @@ class PlaceBuildingInterfaceMode extends ChoosePlotInterfaceMode {
     this.plotOverlay.addPlots(BuildingPlacementManager.urbanPlots, { fillColor: 3360534819 /* best */ });
     this.plotOverlay.addPlots(BuildingPlacementManager.developedPlots, { fillColor: 3355505406 /* okay */ });
     this.plotOverlay.addPlots(BuildingPlacementManager.expandablePlots, { fillColor: 3357402549 /* good */ });
+    if (!BuildingPlacementManager.isRepairing) {
+      for (const plotIndex of BuildingPlacementManager.uniqueQuarterPlots) {
+        this.uniqueQuarterModelGroup.addVFXAtPlot(
+          "VFX_3dUI_Hex_Highlight_01",
+          plotIndex,
+          { x: 0, y: 0, z: 0 },
+          { angle: 0, constants: { Color3: [1, 0.992, 0.62], Alpha1: 1 } }
+        );
+      }
+    }
   }
   undecorate(_overlay, _modelGroup) {
     this.plotOverlay = null;

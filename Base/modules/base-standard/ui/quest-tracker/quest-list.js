@@ -269,12 +269,12 @@ class QuestItemElement extends FxsActivatable {
     questTitle.textContent = title;
     titleHslot.appendChild(questTitle);
     const questInfo = document.createElement("div");
-    questInfo.className = "flex";
+    questInfo.className = "flex items-start";
     const questBullet = document.createElement("img");
     questBullet.src = "fs://game/hud_quest_bullet.png";
-    questBullet.className = "size-8 mr-1";
+    questBullet.className = "quest-item-bullet mr-1";
     const questInfoText = document.createElement("div");
-    questInfoText.className = `font-body text-xs text-accent-2 max-w-64`;
+    questInfoText.className = `quest-item-info-text font-body text-accent-2 max-w-64`;
     const infoText = getQuestDescription(quest);
     questInfoText.innerHTML = infoText;
     questInfo.appendChild(questInfoText);

@@ -63,6 +63,7 @@ class PanelMPPlayerOptions extends Panel {
   slotGroup;
   currentTab = "";
   currentTabIndex = -1;
+  prevFocus;
   pendingAdds = /* @__PURE__ */ new Map();
   pendingUpdates = /* @__PURE__ */ new Map();
   constructor(root) {
@@ -74,6 +75,7 @@ class PanelMPPlayerOptions extends Panel {
   }
   onAttach() {
     super.onAttach();
+    this.prevFocus = FocusManager.get().currentFocus();
     window.dispatchEvent(new SocialPanelOpenEvent());
     engine.on("PlayerInfoChanged", this.updateLobbyTabListener);
     engine.on("UserInfoUpdated", this.userInfoUpdatedListener);
@@ -122,6 +124,12 @@ class PanelMPPlayerOptions extends Panel {
     MPFriendsModel.eventNotificationUpdate.off(this.dataUpdateListener);
     MPFriendsModel.offIsSearchingChange(this.searchingStatusListener);
     NavTray.clear();
+    if (this.prevFocus) {
+      const prevSlot = this.prevFocus?.closest("#MainMenuSlot");
+      if (prevSlot) {
+        FocusManager.get().setFocus(prevSlot);
+      }
+    }
     super.onDetach();
   }
   onAttributeChanged(name, _oldValue, _newValue) {

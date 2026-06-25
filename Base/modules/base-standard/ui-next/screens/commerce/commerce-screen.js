@@ -54,10 +54,8 @@ const CommerceScreenComponent = (_props) => {
         get children() {
           return createComponent(Tab, {
             "class": "w-full flex flex-col flex-auto pointer-events-auto relative",
-            onTabChanged: (tab) => {
-              if (tab?.name === "Resource") {
-                model.resetResourceTabData();
-              }
+            get onTabChanged() {
+              return model.onTabChanged;
             },
             get children() {
               return [createComponent(Tab.TabList, {

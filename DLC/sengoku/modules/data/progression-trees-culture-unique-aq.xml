@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Types>
+		<Row Type="NODE_CIVIC_AQ_SENGOKU_FOUNDATION" Kind="KIND_TREE_NODE"/>
+	</Types>
+	<TypeQuotes>
+		<Row Type="NODE_CIVIC_AQ_SENGOKU_FOUNDATION" Quote="LOC_CIVIC_AQ_ORIGINS_QUOTE" QuoteAuthor="LOC_CIVIC_AQ_ORIGINS_AUTHOR" QuoteAudio="VO_Quote_ToT_ANT_Origins" />
+	</TypeQuotes>
+	<ProgressionTreeNodes>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_SENGOKU_FOUNDATION" ProgressionTree="TREE_CIVICS_AQ_TEST_OF_TIME" Cost="150" Name="LOC_NODE_CIVIC_AQ_SENGOKU_FOUNDATION_NAME" IconString="cult_sengoku" CanSteal="false"/>
+	</ProgressionTreeNodes>
+	<ProgressionTreeNodeUnlocks>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_SENGOKU_FOUNDATION" TargetKind="KIND_TRADITION" TargetType="TRADITION_GEKOKUJO_I" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_SENGOKU_FOUNDATION" TargetKind="KIND_MODIFIER" TargetType="MOD_AQ_SETTLEMENT_CAP_INCREASE" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_SENGOKU_FOUNDATION" TargetKind="KIND_MODIFIER" TargetType="MOD_TOT_TRADITION_SLOT" UnlockDepth="1"/>
+	</ProgressionTreeNodeUnlocks>
+	<ProgressionTreeNodeTraits>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_SENGOKU_FOUNDATION" RequiredTraitType="TRAIT_SENGOKU" />
+	</ProgressionTreeNodeTraits>
+	<ProgressionTreePrereqs>
+		<Row Node="NODE_CIVIC_AQ_FOUNDATION" PrereqNode="NODE_CIVIC_AQ_SENGOKU_FOUNDATION"/>
+		<Row Node="NODE_CIVIC_AQ_SYNCRETISM_CHOICE" PrereqNode="NODE_CIVIC_AQ_SENGOKU_FOUNDATION"/>
+	</ProgressionTreePrereqs>
+	<ProgressionTree_Advisories>
+	</ProgressionTree_Advisories>
+</Database>

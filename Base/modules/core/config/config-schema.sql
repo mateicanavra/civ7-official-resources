@@ -91,6 +91,7 @@ CREATE TABLE 'ProgressionTreeNodeUnlocks' (
 	'IconString' TEXT,
 	'NotTraitType' TEXT,
 	'RequiredTraitType' TEXT,
+	'RequiredGovernmentType' TEXT,
 	'TargetKind' TEXT NOT NULL,
 	'UnlockDepth' INTEGER NOT NULL DEFAULT 1,
 	PRIMARY KEY("ProgressionTreeNodeType", "TargetType")

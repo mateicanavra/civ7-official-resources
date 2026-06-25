@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Types>
+		<!--Civ Unique Improvements-->
+		<Row Type="IMPROVEMENT_JINJA" Kind="KIND_CONSTRUCTIBLE"/> <!-- For UI Reasons -->
+		<Row Type="IMPROVEMENT_JINJA_LAND" Kind="KIND_CONSTRUCTIBLE"/>
+		<Row Type="IMPROVEMENT_JINJA_SEA" Kind="KIND_CONSTRUCTIBLE"/>
+		<!--Wonders-->
+		<Row Type="WONDER_HOO_DO_HALL" Kind="KIND_CONSTRUCTIBLE"/>
+	</Types>
+	<TypeQuotes>
+		<Row Type="WONDER_HOO_DO_HALL" Quote="LOC_QUOTE_WONDER_HOO_DO_HALL" QuoteAuthor="LOC_QUOTE_AUTHOR_WONDER_HOO_DO_HALL" QuoteAudio="VO_Quote_HoodoHall"/>
+	</TypeQuotes>
+	<Constructibles>
+		<!--Civ Unique Improvements-->
+		<Row ConstructibleType="IMPROVEMENT_JINJA_LAND" Name="LOC_IMPROVEMENT_JINJA_LAND_NAME" Description="LOC_IMPROVEMENT_JINJA_LAND_DESCRIPTION" Tooltip="LOC_IMPROVEMENT_JINJA_LAND_TOOLTIP" ConstructibleClass="IMPROVEMENT" Cost="30" Population="1" Age="AGE_ANTIQUITY"/>
+		<Row ConstructibleType="IMPROVEMENT_JINJA_SEA" Name="LOC_IMPROVEMENT_JINJA_SEA_NAME" Description="LOC_IMPROVEMENT_JINJA_SEA_DESCRIPTION" Tooltip="LOC_IMPROVEMENT_JINJA_SEA_TOOLTIP" ConstructibleClass="IMPROVEMENT" AdjacentTerrain="TERRAIN_FLAT" Cost="30" Population="1" Age="AGE_ANTIQUITY"/>
+		<!--Wonders-->
+		<Row ConstructibleType="WONDER_HOO_DO_HALL" Name="LOC_WONDER_HOO_DO_HALL_NAME" Description="LOC_WONDER_HOO_DO_HALL_DESCRIPTION" Tooltip="LOC_WONDER_HOO_DO_HALL_TOOLTIP" ConstructibleClass="WONDER" Cost="375" Population="0" RequiresUnlock="true" ImmuneDamage="true" Age="AGE_ANTIQUITY" AdjacentRiver="true"/>
+	</Constructibles>
+	<Improvements>
+		<!--Civ Unique Improvements-->
+		<Row ConstructibleType="IMPROVEMENT_JINJA_LAND" OnePerSettlement="true" CityBuildable="true" TraitType="TRAIT_HEIAN"/>
+		<Row ConstructibleType="IMPROVEMENT_JINJA_SEA" OnePerSettlement="true" CityBuildable="true" Domain="DOMAIN_SEA" TraitType="TRAIT_HEIAN"/>
+	</Improvements>
+	<Wonders>
+		<Row ConstructibleType="WONDER_HOO_DO_HALL" MaxWorldInstances="1"/>
+	</Wonders>
+	<Constructible_ValidTerrains>
+		<Row ConstructibleType="IMPROVEMENT_JINJA_LAND" TerrainType="TERRAIN_FLAT"/>
+		<Row ConstructibleType="IMPROVEMENT_JINJA_LAND" TerrainType="TERRAIN_HILL"/>
+		<Row ConstructibleType="IMPROVEMENT_JINJA_SEA" TerrainType="TERRAIN_COAST"/>
+		<Row ConstructibleType="WONDER_HOO_DO_HALL" TerrainType="TERRAIN_FLAT"/>
+	</Constructible_ValidTerrains>
+	<Tags>
+		<Row Tag="JINJA" Category="CONSTRUCTIBLE_TAG"/>
+	</Tags>
+	<TypeTags>
+		<Row Type="WONDER_HOO_DO_HALL" Tag="AGELESS"/>
+		 <!-- For UI Reasons -->
+		<Row Type="IMPROVEMENT_JINJA" Tag="UNIQUE_IMPROVEMENT"/>
+		<Row Type="IMPROVEMENT_JINJA" Tag="AGELESS"/>
+		<Row Type="IMPROVEMENT_JINJA" Tag="JINJA"/>
+		 <!-- ============== -->
+		<Row Type="IMPROVEMENT_JINJA_LAND" Tag="UNIQUE_IMPROVEMENT"/>
+		<Row Type="IMPROVEMENT_JINJA_LAND" Tag="AGELESS"/>
+		<Row Type="IMPROVEMENT_JINJA_LAND" Tag="JINJA"/>
+		<Row Type="IMPROVEMENT_JINJA_SEA" Tag="UNIQUE_IMPROVEMENT"/>
+		<Row Type="IMPROVEMENT_JINJA_SEA" Tag="AGELESS"/>
+		<Row Type="IMPROVEMENT_JINJA_SEA" Tag="JINJA"/>
+	</TypeTags>
+	<Constructible_ValidDistricts>
+		<!--Civ Unique Improvements-->
+		<Row ConstructibleType="IMPROVEMENT_JINJA_LAND" DistrictType="DISTRICT_RURAL"/>
+		<Row ConstructibleType="IMPROVEMENT_JINJA_SEA" DistrictType="DISTRICT_RURAL"/>
+		<!--Wonders-->
+		<Row ConstructibleType="WONDER_HOO_DO_HALL" DistrictType="DISTRICT_WONDER"/>
+	</Constructible_ValidDistricts>
+	<Constructible_YieldChanges>
+		<!--Civ Unique Improvements-->
+		<Row ConstructibleType="IMPROVEMENT_JINJA_LAND" YieldType="YIELD_HAPPINESS" YieldChange="2"/>
+		<Row ConstructibleType="IMPROVEMENT_JINJA_SEA" YieldType="YIELD_HAPPINESS" YieldChange="2"/>
+	</Constructible_YieldChanges>
+	<Constructible_Adjacencies>
+		<Row ConstructibleType="IMPROVEMENT_JINJA_LAND" YieldChangeId="JinjaAppealCharmingCulture"/>
+		<Row ConstructibleType="IMPROVEMENT_JINJA_LAND" YieldChangeId="JinjaAppealBreathtakingCulture"/>
+		<Row ConstructibleType="IMPROVEMENT_JINJA_SEA" YieldChangeId="JinjaAppealCharmingCulture"/>
+		<Row ConstructibleType="IMPROVEMENT_JINJA_SEA" YieldChangeId="JinjaAppealBreathtakingCulture"/>
+	</Constructible_Adjacencies>
+	<Adjacency_YieldChanges>
+		<Row ID="JinjaAppealCharmingCulture" YieldType="YIELD_CULTURE" YieldChange="2" TilesRequired="1" ProjectMaxYield="true" AdjacentCharmingAppeal="True"/>
+		<Row ID="JinjaAppealBreathtakingCulture" YieldType="YIELD_CULTURE" YieldChange="2" TilesRequired="1" ProjectMaxYield="true" AdjacentBreathtakingAppeal="True"/>
+	</Adjacency_YieldChanges>
+	<Constructible_Plunders>
+		<!--Civ Unique Improvements-->
+		<Row ConstructibleType="IMPROVEMENT_JINJA_LAND" PlunderType="PLUNDER_HEAL" Amount="30"/>
+		<Row ConstructibleType="IMPROVEMENT_JINJA_SEA" PlunderType="PLUNDER_HEAL" Amount="30"/>
+	</Constructible_Plunders>
+	<ConstructibleModifiers>
+		<Row ConstructibleType="WONDER_HOO_DO_HALL" ModifierId="MOD_HEIAN_HOO_DO_HALL_WONDERS_APPEAL"/>
+		<Row ConstructibleType="WONDER_HOO_DO_HALL" ModifierId="MOD_HEIAN_HOO_DO_HALL_APPEAL_YIELDS"/>
+	</ConstructibleModifiers>
+	<Constructible_Advisories>
+		<Row ConstructibleType="IMPROVEMENT_JINJA_LAND" AdvisoryClassType="ADVISORY_CLASS_CULTURE"/>
+		<Row ConstructibleType="IMPROVEMENT_JINJA_LAND" AdvisoryClassType="ADVISORY_CLASS_HAPPINESS"/>
+		<Row ConstructibleType="IMPROVEMENT_JINJA_SEA" AdvisoryClassType="ADVISORY_CLASS_CULTURE"/>
+		<Row ConstructibleType="IMPROVEMENT_JINJA_SEA" AdvisoryClassType="ADVISORY_CLASS_HAPPINESS"/>
+		<Row ConstructibleType="WONDER_HOO_DO_HALL" AdvisoryClassType="ADVISORY_CLASS_CULTURE"/>
+		<Row ConstructibleType="WONDER_HOO_DO_HALL" AdvisoryClassType="ADVISORY_CLASS_HAPPINESS"/>
+	</Constructible_Advisories>
+</Database>

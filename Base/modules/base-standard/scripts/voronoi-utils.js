@@ -2,7 +2,7 @@ import { Voronoi } from '../../core/scripts/external/TypeScript-Voronoi-master/s
 import { sub2, div2s } from '../../core/scripts/MathHelpers.js';
 import { kdTree } from './kd-tree.js';
 import { RandomImpl } from './random-pcg-32.js';
-import { TerrainType, BiomeType, DetailsType, MapSize, MapDims } from './voronoi-types.js';
+import { TerrainType, BiomeType, FeatureType, DetailsType, MapSize, MapDims } from './voronoi-types.js';
 
 var WrapType = /* @__PURE__ */ ((WrapType2) => {
   WrapType2[WrapType2["None"] = 0] = "None";
@@ -22,6 +22,7 @@ class RegionCell {
   elevation = 0;
   terrainType = TerrainType.Unknown;
   biomeType = BiomeType.Unknown;
+  featureType = FeatureType.None;
   detailsType = DetailsType.None;
   regionConsiderationBits = 0n;
   // helps avoid a set lookup when on a region's consideration heap during processing.
@@ -42,6 +43,7 @@ class RegionCell {
     this.elevation = 0;
     this.terrainType = TerrainType.Unknown;
     this.biomeType = BiomeType.Unknown;
+    this.featureType = FeatureType.None;
     this.detailsType = DetailsType.None;
   }
 }

@@ -1043,7 +1043,7 @@
       <Text>클릭/터치 시 이동 지연 시간</Text>
     </Replace>
     <Replace Tag="LOC_OPTIONS_ACCESSIBILITY_LONG_PRESS_DESCRIPTION" Language="ko_KR">
-      <Text>실제로 이동되기까지 마우스 클릭 또는 화면 터치 시 얼마나 길게 눌러야 하는지를 변경합니다. 게임에서 클릭/터치 처리가 제대로 되지 않는 경우, 큰 값으로 설정하면 도움이 될 수 있습니다.</Text>
+      <Text>실제로 이동하기까지 마우스 클릭 또는 화면 터치 시 얼마나 길게 눌러야 하는지를 변경합니다. 손을 가만히 두기 힘들거나 마우스가 매우 민감한 경우, 값을 높이면 클릭과 탭이 드래그로 잘못 인식되는 것을 방지할 수 있습니다.</Text>
     </Replace>
     <Replace Tag="LOC_OPTIONS_ADAPTIVE_TRIGGERS_ENABLED" Language="ko_KR">
       <Text>적응형 트리거 활성화</Text>
@@ -1175,7 +1175,8 @@
       <Text>자동 유닛 순환</Text>
     </Replace>
     <Replace Tag="LOC_OPTIONS_AUTOUNITYCYCLE_DESCRIPTION" Language="ko_KR">
-      <Text>선택한 유닛의 모든 이동력을 소모한 다음 이동력이 남은 다음 유닛 간에 전환합니다.</Text>
+      <Text>선택한 유닛의 모든 이동력을 소모한 다음, 이동력이 남은
+					다음 유닛 간에 전환합니다.</Text>
     </Replace>
     <Replace Tag="LOC_OPTIONS_BRIGHTNESS" Language="ko_KR">
       <Text>밝기</Text>
@@ -1864,6 +1865,12 @@
     <Replace Tag="LOC_OPTIONS_GFX_XEFG_DESCRIPTION" Language="ko_KR">
       <Text>AI가 생성한 프레임을 기존 그래픽 출력 사이에 끼워 넣어 초당 프레임 수(FPS)를 크게 늘리고 성능을 향상합니다.</Text>
     </Replace>
+    <Replace Tag="LOC_OPTIONS_GFX_XEFG_FRAME_COUNT" Language="ko_KR">
+      <Text>보간된 프레임</Text>
+    </Replace>
+    <Replace Tag="LOC_OPTIONS_GFX_XEFG_FRAME_COUNT_DESCRIPTION" Language="ko_KR">
+      <Text>렌더링된 프레임 사이에 생성될 프레임 수입니다.</Text>
+    </Replace>
     <Replace Tag="LOC_OPTIONS_GFX_XELL" Language="ko_KR">
       <Text>Intel Xe 저지연</Text>
     </Replace>
@@ -2001,6 +2008,9 @@
     </Replace>
     <Replace Tag="LOC_OPTIONS_HELP_TYPES_DESCRIPTION" Language="ko_KR">
       <Text>게임 플레이 중에 표시할 도움말 유형입니다.</Text>
+    </Replace>
+    <Replace Tag="LOC_OPTIONS_HOTSEAT_NOT_VALID" Language="ko_KR">
+      <Text>핫시트 게임 모드에서는 적용되지 않습니다.</Text>
     </Replace>
     <Replace Tag="LOC_OPTIONS_INPUT_DEVICE" Language="ko_KR">
       <Text>입력 장치</Text>
@@ -2519,7 +2529,7 @@
       <Text>변경 취소</Text>
     </Replace>
     <Replace Tag="LOC_OPTIONS_RELOAD_WARN_BODY" Language="ko_KR">
-      <Text>옵션이 하나 이상 변경되면 변경 사항을 표시하기 위해 게임이 일시적으로 다시 로드됩니다. 지금 자리를 잃지는 않지만, 진행 중인 모든 작업을 다시 시작해야 할 수 있습니다. 계속 진행하시겠습니까?</Text>
+      <Text>변경된 옵션 중 변경 사항 표시를 위해 게임을 일시적으로 다시 불러와야 하는 항목이 있습니다. 진행 중인 일부 작업을 다시 시작해야 할 수도 있습니다. 계속 진행하시겠습니까?</Text>
     </Replace>
     <Replace Tag="LOC_OPTIONS_RELOAD_WARN_CONTINUE" Language="ko_KR">
       <Text>계속하기</Text>
@@ -3114,6 +3124,9 @@
     </Replace>
     <Replace Tag="LOC_PROFILE_TITLE_DLC_SEASONPASS_3" Language="ko_KR">
       <Text>해적 선장</Text>
+    </Replace>
+    <Replace Tag="LOC_PROFILE_TITLE_DLC_SEASONPASS_4" Language="ko_KR">
+      <Text>전사 시인</Text>
     </Replace>
     <Replace Tag="LOC_PROFILE_TITLE_FOUNDATION_1" Language="ko_KR">
       <Text>휘갈겨 쓰는 필경사</Text>
@@ -4280,7 +4293,7 @@
       <Text>교역 렌즈를 전환합니다.</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_RANKINGS_SCREEN" Language="ko_KR">
-      <Text>순위표 화면 전환</Text>
+      <Text>승리 화면 전환</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_RELIGION" Language="ko_KR">
       <Text>종교 패널 전환</Text>
@@ -5129,10 +5142,10 @@
       <Text>다음을 잠금 해제:[BLIST]{1_Items}[/LIST]</Text>
     </Replace>
     <Replace Tag="LOC_CREATE_GAME_UNLOCKS_LIST_ITEM" Language="ko_KR">
-      <Text>[LI] [B]{1_UnlockName}[/B].</Text>
+      <Text>[B]{1_UnlockName}[/B].</Text>
     </Replace>
     <Replace Tag="LOC_CREATE_GAME_UNLOCKS_LIST_ITEM_IN_AGE" Language="ko_KR">
-      <Text>[LI] [B]{2_AgeName}[/B] 시대에 [B]{1_UnlockName}[/B],</Text>
+      <Text>[B]{2_AgeName}[/B] 시대에 [B]{1_UnlockName}[/B].</Text>
     </Replace>
     <Replace Tag="LOC_CROSSPLAY_CHOICE_1_CONTEXT_CONFLICT_RESOLUTION" Language="ko_KR">
       <Text>로컬 크로스플레이 저장 파일 {1_CrossplayType}</Text>
@@ -5276,7 +5289,7 @@
       <Text>빌드: {1_BuildString}</Text>
     </Replace>
     <Replace Tag="LOC_UI_AGE_TRANSITION_FOR_LEADER" Language="ko_KR">
-      <Text>{1_Leader}을(를) 위하여</Text>
+      <Text>지도자: {1_Leader}</Text>
     </Replace>
     <Replace Tag="LOC_UI_ALREADY_FRIEND" Language="ko_KR">
       <Text>{1_PlayerName} 님은 이미 친구입니다.</Text>

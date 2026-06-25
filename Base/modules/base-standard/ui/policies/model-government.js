@@ -1,6 +1,7 @@
 import { createSignal, createContext, useContext } from '../../../core/vendor/solid-js/dist/solid.js';
 import { createMutable } from '../../../core/vendor/solid-js/store/dist/store.js';
 import { utils } from '../../../core/ui/graph-layout/utils.js';
+import { getModifierTextByContext } from '../../../core/ui/utilities/utilities-core-textprovider.js';
 import { ModelRegistry, ModelLifecycle } from '../../../core/ui-next/services/model-registry.js';
 
 const [activePolicyTab, setActivePolicyTab] = createSignal("gov-overview");
@@ -14,6 +15,11 @@ function createGovtScreenModel() {
   let happinessRingMeter = 0;
   let celebrationTurnsLeftNumber = "";
   let celebrationTurnsLeftDesc = "";
+  let govAbility = "";
+  let happinessNeeded = 0;
+  let happinessNextThreshold = 0;
+  let govtChosen = false;
+  const traditionsUnlocked = [];
   const celebrationChoices = [];
   const crisisEventMarkers = [
     {
@@ -65,6 +71,24 @@ function createGovtScreenModel() {
   }
   const localPlayerGovernmentType = localPlayerCulture.getGovernmentType() ?? null;
   if (localPlayerGovernmentType) {
+    if (localPlayerGovernmentType == -1) {
+      govtChosen = false;
+    } else {
+      govtChosen = true;
+    }
+    const governmentDef = GameInfo.Governments.lookup(localPlayerGovernmentType);
+    if (governmentDef) {
+      const govModifiers = GameInfo.GovernmentModifiers.filter(
+        (m) => m.GovernmentType === governmentDef.GovernmentType
+      );
+      for (const govMod of govModifiers) {
+        const text = getModifierTextByContext(govMod.ModifierId, "Description");
+        if (text) {
+          govAbility = text;
+          break;
+        }
+      }
+    }
     const currentGovernment = GameInfo.Governments.lookup(localPlayerGovernmentType);
     govName = currentGovernment?.Name ?? "";
     govDescription = currentGovernment?.Description ?? "";
@@ -113,9 +137,24 @@ function createGovtScreenModel() {
         );
         celebrationTurnsLeftNumber = Locale.compose("LOC_UI_X_TURNS_LEFT", turnsToNextCelebration);
         happinessRingMeter = 100 * happinessTotal / nextCelebrationThreshold;
+        happinessNeeded = happinessTotal;
+        happinessNextThreshold = nextCelebrationThreshold;
       }
     }
   }
+  GameInfo.ProgressionTreeNodeUnlocks.forEach((node) => {
+    if (localPlayerGovernmentType) {
+      if (node.RequiredGovernmentType == GameInfo.Governments.lookup(localPlayerGovernmentType)?.GovernmentType) {
+        const nodeInfo = GameInfo.ProgressionTreeNodes.lookup(node.ProgressionTreeNodeType);
+        if (nodeInfo) {
+          const tradition = GameInfo.Traditions.lookup(node.TargetType);
+          if (tradition) {
+            traditionsUnlocked.push(tradition);
+          }
+        }
+      }
+    }
+  });
   const crisisStage = Game.CrisisManager.getCurrentCrisisStage(0);
   const nextCrisisStage = Math.max(0, crisisStage + 1);
   let showCrisisText = false;
@@ -150,6 +189,46 @@ function createGovtScreenModel() {
       return true;
     }
   }
+  function getHappinessRangeString(stage) {
+    let happinessRange = "";
+    const min = stage.StageMinThreshold ?? -Infinity;
+    const max = stage.StageMaxThreshold ?? Infinity;
+    if (min == -Infinity) {
+      happinessRange = Locale.stylize("LOC_UI_CITY_DETAILS_HAPPINESS_STAGE_DETAIL_NO_MIN", max);
+    } else if (max == Infinity) {
+      happinessRange = Locale.stylize("LOC_UI_CITY_DETAILS_HAPPINESS_STAGE_DETAIL_NO_MAX", min);
+    } else {
+      happinessRange = Locale.stylize("LOC_UI_CITY_DETAILS_HAPPINESS_STAGE_DETAIL", min, max);
+    }
+    return happinessRange;
+  }
+  function getSettlementHappiness() {
+    const happinessStages = [];
+    GameInfo.HappinessStages.forEach((row) => {
+      happinessStages.push({
+        stage: row.HappinessStageType,
+        stageName: row.HappinessStageType.replace("HAPPINESS_STAGE_", "LOC_UI_CITY_DETAILS_"),
+        icon: row.HappinessStageType.replace("HAPPINESS_STAGE_", "YIELD_"),
+        textColor: row.HappinessStageType.replace("HAPPINESS_STAGE_", "").toLowerCase() + "-text",
+        min: row.StageMinThreshold ?? -Infinity,
+        max: row.StageMaxThreshold ?? Infinity,
+        settlements: 0,
+        happinessRange: getHappinessRangeString(row)
+      });
+    });
+    const localPlayer2 = Players.get(GameContext.localPlayerID);
+    localPlayer2?.Cities?.getCities().forEach((city) => {
+      const cityHappiness = city.Happiness?.netHappinessPerTurn;
+      if (cityHappiness) {
+        for (const stage of happinessStages) {
+          if (cityHappiness >= stage.min && cityHappiness <= stage.max) {
+            stage.settlements++;
+          }
+        }
+      }
+    });
+    return happinessStages;
+  }
   function populateData() {
     const ornatePanelData = {
       topIconSrc: "url(blp:fi_celebration_128)",
@@ -172,6 +251,12 @@ function createGovtScreenModel() {
       celebrationTurnsLeftDesc,
       celebrationTurnsLeft: celebrationTurnsLeftNumber,
       happinessRing: happinessRingMeter,
+      governmentAbilityDescription: govAbility,
+      hasGovtBeenChosen: govtChosen,
+      happinessNeeded,
+      happinessNextCelebrationThreshold: happinessNextThreshold,
+      govtTraditions: traditionsUnlocked,
+      settlementHappiness: getSettlementHappiness,
       displayCrisisTab: showCrisisTab
     };
     return govtScreenData;

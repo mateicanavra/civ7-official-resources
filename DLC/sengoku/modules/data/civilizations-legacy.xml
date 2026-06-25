@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Types>
+		<!-- Major Civs -->
+		<Row Type="TRAIT_SENGOKU" Kind="KIND_TRAIT"/>
+		<Row Type="CIVILIZATION_SENGOKU" Kind="KIND_CIVILIZATION"/>
+	</Types>
+	<LegacyCivilizations>
+		<!-- Full Civs -->
+		<Row CivilizationType="CIVILIZATION_SENGOKU" Name="LOC_CIVILIZATION_SENGOKU_NAME" FullName="LOC_CIVILIZATION_SENGOKU_FULLNAME" Adjective="LOC_CIVILIZATION_SENGOKU_ADJECTIVE" Age="AGE_EXPLORATION"/>
+	</LegacyCivilizations>
+	<LegacyCivilizationTraits>
+		<Row CivilizationType="CIVILIZATION_SENGOKU" TraitType="TRAIT_SENGOKU"/>
+	</LegacyCivilizationTraits>
+	<Traits>
+		<Row TraitType="TRAIT_SENGOKU" InternalOnly="true"/>
+	</Traits>
+	<LegacyIndependents>
+		<Update>
+			<Where IndependentType="INDEPENDENT_EXPLORATION_13"/>
+			<Set Name="LOC_INDEPENDENT_EXPLORATION_13_MAJOR_SENGOKU_NAME"/>
+		</Update>
+	</LegacyIndependents>
+</Database>

@@ -101,6 +101,7 @@ function createCivUnlocksModel() {
   });
   const civInfos = [];
   const bypassCivUnlocks = isBypassCivilizationUnlocksEnabled();
+  const currentAgeName = GameInfo.Ages.lookup(Game.age)?.Name ?? "";
   civUnlocks.forEach((unlock) => {
     if (!unlock.UnlockRewardType) {
       return;
@@ -126,49 +127,71 @@ function createCivUnlocksModel() {
       };
       unlockedByData.push(unlock2);
     });
-    unlockedByData.sort((a, b) => Number(b.isGameplayUnlock) - Number(a.isGameplayUnlock));
-    unlockedByData.sort((a, b) => Number(b.isUnlocked) - Number(a.isUnlocked));
+    unlockedByData.sort(
+      (a, b) => Number(b.isUnlocked) - Number(a.isUnlocked) || Number(b.isGameplayUnlock) - Number(a.isGameplayUnlock)
+    );
     const civDef = GameInfo.Civilizations.lookup(unlock.UnlockRewardType);
     if (!civDef) {
       return;
     }
     const civTags = civTagsByType.get(civDef.CivilizationType) ?? [];
-    const traits = civTags.filter((tag) => !tag.HideInDetails && tag.TagCategoryType == "TAG_CATEGORY_TRAIT").map((t) => t.Name);
-    const age = civTags.filter((tag) => tag.HideInDetails && tag.TagCategoryType == "TAG_CATEGORY_APEX_AGE").map((t) => t.TagType?.replace("TAG_APEX_", ""));
+    const traits = [];
+    let apexAge;
+    for (const tag of civTags) {
+      if (!tag.HideInDetails && tag.TagCategoryType == "TAG_CATEGORY_TRAIT") {
+        traits.push(tag.Name ?? "");
+        continue;
+      }
+      if (!apexAge && tag.HideInDetails && tag.TagCategoryType == "TAG_CATEGORY_APEX_AGE") {
+        apexAge = (tag.TagType ?? "").replace("TAG_APEX_", "");
+      }
+    }
     const civItems = civItemsByType.get(civDef.CivilizationType) ?? [];
-    const abilityData = civItems.filter((item) => item.Kind == "KIND_TRAIT");
-    const perAgeAbilities = abilityData.map((ability) => ({
-      abilityTextTag: ability?.Description ?? "",
-      abilityTitle: Locale.stylize(ability?.Name ?? ""),
-      abilityText: Locale.stylize(ability?.Description ?? ""),
-      age: ability?.AgeType
-    }));
-    const buildings = civItems.filter(
-      (item) => item.Kind == "KIND_BUILDING" || item.Kind == "KIND_IMPROVEMENT" || item.Kind == "KIND_QUARTER" || item.Kind == "KIND_ROUTE"
-    ).map((item) => ({
-      title: Locale.stylize(item.Name ?? ""),
-      icon: item.Kind === "KIND_QUARTER" ? "CITY_UNIQUE_QUARTER" : item.Type,
-      text: Locale.stylize(item.Description ?? ""),
-      description: item.Description ?? "",
-      kind: item.Kind ?? "",
-      age: item.AgeType ?? void 0
-    }));
-    const units = civItems.filter((item) => item.Kind == "KIND_UNIT").map((item) => ({
-      title: Locale.stylize(item.Name ?? ""),
-      icon: item.Kind === "KIND_QUARTER" ? "CITY_UNIQUE_QUARTER" : item.Type,
-      text: Locale.stylize(item.Description ?? ""),
-      description: item.Description ?? "",
-      kind: item.Kind ?? "",
-      age: item.AgeType ?? void 0
-    }));
+    const perAgeAbilities = [];
+    const buildings = [];
+    const units = [];
+    for (const item of civItems) {
+      const itemKind = item.Kind ?? "";
+      if (itemKind == "KIND_TRAIT") {
+        perAgeAbilities.push({
+          abilityTextTag: item.Description ?? "",
+          abilityTitle: Locale.stylize(item.Name ?? ""),
+          abilityText: Locale.stylize(item.Description ?? ""),
+          age: item.AgeType
+        });
+        continue;
+      }
+      if (itemKind == "KIND_BUILDING" || itemKind == "KIND_IMPROVEMENT" || itemKind == "KIND_QUARTER" || itemKind == "KIND_ROUTE") {
+        buildings.push({
+          title: Locale.stylize(item.Name ?? ""),
+          icon: itemKind === "KIND_QUARTER" ? "CITY_UNIQUE_QUARTER" : item.Type ?? "",
+          text: Locale.stylize(item.Description ?? ""),
+          description: item.Description ?? "",
+          kind: itemKind,
+          age: item.AgeType ?? void 0
+        });
+        continue;
+      }
+      if (itemKind == "KIND_UNIT") {
+        units.push({
+          title: Locale.stylize(item.Name ?? ""),
+          icon: item.Type ?? "",
+          text: Locale.stylize(item.Description ?? ""),
+          description: item.Description ?? "",
+          kind: itemKind,
+          age: item.AgeType ?? void 0
+        });
+      }
+    }
     const civTrait = civDef.CivilizationType.replace("CIVILIZATION_", "TRAIT_");
     const traditions = traditionsByTrait.get(civTrait) ?? [];
+    const apexAgeId = apexAge ?? "";
     const fulltext = Locale.toLower(
       [
         civDef.Name,
         perAgeAbilities.map((b) => `${b.abilityTitle} ${b.abilityText}`).join(" "),
         traits.join(" "),
-        GameInfo.Ages.lookup(Game.age)?.Name ?? "",
+        currentAgeName,
         buildings.map((b) => `${b.title} ${b.text}`).join(" "),
         units.map((u) => `${u.title} ${u.text}`).join(" "),
         traditions.map((t) => `${t.title} ${t.text}`).join(" ")
@@ -181,14 +204,14 @@ function createCivUnlocksModel() {
       bgImage: `bg-panel-${civDef.CivilizationType.replace("CIVILIZATION_", "").toLowerCase()}`,
       perAgeAbilities,
       traits,
-      ageName: GameInfo.Ages.lookup(age[0])?.Name ?? "",
+      ageName: GameInfo.Ages.lookup(apexAgeId)?.Name ?? "",
       buildings,
       units,
       traditions,
       isLocked: bypassCivUnlocks ? false : rewardProgress ? rewardProgress.isUnlocked == false : false,
       unlockedBy: unlockedByData,
       isOwned: true,
-      apexAge: age[0],
+      apexAge: apexAgeId,
       ageSortIndex: 0,
       colors: UI.Color.getDefaultColors3DAsHex(Database.makeHash(civDef.CivilizationType)),
       unlocks: [],
@@ -202,9 +225,9 @@ function createCivUnlocksModel() {
     }
     civInfos.push(civInfo);
   });
-  civInfos.sort((a, b) => Number(a.isLocked) - Number(b.isLocked));
-  civInfos.sort((a, b) => Number(!a.isCurrentCiv) - Number(!b.isCurrentCiv));
-  civInfos.sort((a, b) => Number(!a.isPreviousCiv) - Number(!b.isPreviousCiv));
+  civInfos.sort(
+    (a, b) => Number(!a.isPreviousCiv) - Number(!b.isPreviousCiv) || Number(!a.isCurrentCiv) - Number(!b.isCurrentCiv) || Number(a.isLocked) - Number(b.isLocked)
+  );
   const [isViewingDetails, setIsViewingDetails] = createSignal(false);
   return {
     civInfo: civInfos,

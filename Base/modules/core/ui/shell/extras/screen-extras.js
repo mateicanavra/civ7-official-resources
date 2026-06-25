@@ -1,3 +1,4 @@
+import { ActionActivateEvent } from '../../components/fxs-activatable.js';
 import ContextManager from '../../context-manager/context-manager.js';
 import ActionHandler from '../../input/action-handler.js';
 import { ActiveDeviceTypeChangedEventName } from '../../input/input-events.js';
@@ -59,6 +60,14 @@ class ScreenExtras extends Panel {
     } else {
       graphicsBenchmarkButton.remove();
       aiBenchmarkButton.remove();
+    }
+    if (modsButton) {
+      const openAdditionalContentOnShow = this.Root.getAttribute("open-additional-content");
+      if (openAdditionalContentOnShow !== null && openAdditionalContentOnShow === "true") {
+        requestAnimationFrame(() => {
+          modsButton.dispatchEvent(new ActionActivateEvent(0, 0));
+        });
+      }
     }
   }
   onDetach() {
@@ -164,7 +173,13 @@ Controls.define("screen-extras", {
   styles: [styles],
   innerHTML: [content],
   opens: ["screen-credits"],
-  attributes: []
+  skipPostOnAttach: true,
+  attributes: [
+    {
+      name: "open-additional-content",
+      description: "Attribute used to open the additional content section of the extras screen when shown."
+    }
+  ]
 });
 
 export { ScreenExtras };

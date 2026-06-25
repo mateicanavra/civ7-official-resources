@@ -29,6 +29,9 @@ class ContextManagerSingleton {
   dragStartingTime = 0;
   // Time in milliseconds during which drag events won't count against a click on an element or world hex
   clickDuration = 400;
+  // Trach if we're in the process of pushing a screen, to avoid re-entrant issues.
+  pushingTarget = null;
+  pushingClassName = null;
   constructor() {
     window.addEventListener("set-activated-component", this.onSetActivatedEvent.bind(this));
     window.addEventListener("view-changed", () => {
@@ -52,13 +55,19 @@ class ContextManagerSingleton {
     return ContextManagerSingleton._instance;
   }
   get isEmpty() {
-    return this.screens.length == 0;
+    return this.screens.length == 0 && this.pushingTarget == null && this.pushingClassName == null;
   }
   /** ------------------------------------------------------------------------------------------------------------------
    * Push a reference to a component in to the front of the stack.
    * @param targetElement The element you want to register with the ContextManager, extending HTMLElement somewhere in its parentage.
    */
   pushElement(targetElement, prop) {
+    if (this.pushingTarget != null) {
+      console.warn(
+        `ContextManager.pushElement() is already in the process of pushing a screen: ${this.pushingTarget.tagName}, attempted to push: ${targetElement.tagName}. This likely means that there is a re-entrant issue with the screen's onAttach logic.`
+      );
+    }
+    this.pushingTarget = targetElement;
     let deactivatedElement;
     if (this.screens.length > 0) {
       if (targetElement.tagName.toLowerCase() != "mouse-guard") {
@@ -107,12 +116,19 @@ class ContextManagerSingleton {
         targetElement.dispatchEvent(this.receiveFocusEvent);
       }
     }
+    this.pushingTarget = null;
   }
   /** ------------------------------------------------------------------------------------------------------------------
    * Function will create and the Push() a new elements of specified class type.
    * @param targetClassName string of HTMLElement type to create
    */
   push(targetClassName, prop) {
+    if (this.pushingClassName != null) {
+      console.warn(
+        `ContextManager.push() is already in the process of pushing a screen: ${this.pushingClassName}, attempted to push: ${targetClassName}. This likely means that there is a re-entrant issue with the screen's onAttach logic.`
+      );
+    }
+    this.pushingClassName = targetClassName;
     if (this.screens.length == 0 && targetClassName != "mouse-guard") {
       ViewManager.handleLoseFocus();
     }
@@ -186,6 +202,7 @@ class ContextManagerSingleton {
         panel.setPanelOptions(prop.panelOptions);
       }
     }
+    this.pushingClassName = null;
     return target;
   }
   /** ------------------------------------------------------------------------------------------------------------------
@@ -621,10 +638,14 @@ class ContextManagerSingleton {
     if (ContextManager.getTarget("endgame-screen")) {
       return false;
     }
+    const victoryProgress = ContextManager.getTarget("screen-victory-progress");
+    if (victoryProgress && victoryProgress.getAttribute("endGameScreen") == "true") {
+      return false;
+    }
     if (ViewManager && ViewManager.current.getName() == "Diplomacy") {
       return false;
     }
-    const isCinematic = DisplayQueueManager.activeDisplays.some((request) => request.category === "Cinematic");
+    const isCinematic = DisplayQueueManager.activeDisplays.some((request) => request.category === "Cinematic") || ViewManager.current.getName() == "Cinematic";
     return !isCinematic && !GameContext.hasSentRetire();
   }
   isGameActive() {

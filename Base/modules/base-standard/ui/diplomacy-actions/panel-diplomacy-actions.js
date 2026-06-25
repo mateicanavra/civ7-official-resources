@@ -4,6 +4,7 @@ import { Navigation } from '../../../core/ui/input/navigation-support.js';
 import { InterfaceMode } from '../../../core/ui/interface-modes/interface-modes.js';
 import NavTray from '../../../core/ui/navigation-tray/model-navigation-tray.js';
 import { IconState } from '../../../core/ui/stateful-icon/stateful-icon.js';
+import { getModifierTextByContext } from '../../../core/ui/utilities/utilities-core-textprovider.js';
 import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
 import { Icon } from '../../../core/ui/utilities/utilities-image.js';
 import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
@@ -93,6 +94,7 @@ class DiplomacyActionPanel extends DiplomacyInputPanel {
 		`;
     const subsystemPanel = MustGetElement("fxs-subsystem-frame", this.Root);
     subsystemPanel.addEventListener("subsystem-frame-close", () => {
+      Audio.playSound("data-audio-hiding", "leader-panel");
       this.close();
     });
     subsystemPanel.setAttribute("data-audio-close-group-ref", "leader-panel");
@@ -287,6 +289,7 @@ class DiplomacyActionPanel extends DiplomacyInputPanel {
       false
     );
     if (!supportResult.Success) {
+      Audio.playSound("data-audio-error-press", "befriend-independent-details");
       return;
     }
     Game.PlayerOperations.sendRequest(
@@ -1170,6 +1173,30 @@ class DiplomacyActionPanel extends DiplomacyInputPanel {
         );
         return;
       }
+      const governmentAbilityTitle = document.createElement("div");
+      governmentAbilityTitle.classList.value = "flex flex-auto w-full uppercase text-accent-3 justify-center font-title-xs tracking-100 my-2";
+      governmentAbilityTitle.innerHTML = Locale.stylize("LOC_UI_GOVERNMENT_ABILITY");
+      governmentContainer.appendChild(governmentAbilityTitle);
+      const govModifiers = GameInfo.GovernmentModifiers.filter(
+        (m) => m.GovernmentType === governmentDefinition.GovernmentType
+      );
+      for (const govMod of govModifiers) {
+        const govAbilityText = getModifierTextByContext(govMod.ModifierId, "Description");
+        if (govAbilityText) {
+          const governmentAbility = document.createElement("div");
+          governmentAbility.classList.value = "flex items-center text-center px-2 text-sm";
+          governmentAbility.innerHTML = Locale.stylize(govAbilityText);
+          governmentContainer.appendChild(governmentAbility);
+          break;
+        }
+      }
+      const divider = document.createElement("div");
+      divider.classList.add("w-60", "filigree-divider-inner-frame", "self-center", "mt-7", "mb-4");
+      governmentContainer.appendChild(divider);
+      const celebrationTitle = document.createElement("div");
+      celebrationTitle.classList.value = "flex flex-auto w-full uppercase text-accent-3 justify-center font-title-xs tracking-100 mb-2";
+      celebrationTitle.innerHTML = Locale.stylize("LOC_UI_CELEBRATION_OPTIONS");
+      governmentContainer.appendChild(celebrationTitle);
       const governmentDescription = document.createElement("p");
       governmentDescription.classList.add("font-body", "text-center", "text-sm", "mb-2");
       governmentDescription.innerHTML = Locale.stylize(governmentDefinition.Description);
@@ -1188,9 +1215,9 @@ class DiplomacyActionPanel extends DiplomacyInputPanel {
             continue;
           }
           const celebrationChoiceContainer = document.createElement("div");
-          celebrationChoiceContainer.classList.value = "flex items-center mb-3 max-w-3\\/4 text-sm";
+          celebrationChoiceContainer.classList.value = "flex items-center mb-3 max-w-3\\/4 text-sm pl-2 my-3";
           const celebrationItemImage = document.createElement("div");
-          celebrationItemImage.classList.value = "bg-no-repeat bg-center bg-contain size-8 mr-3";
+          celebrationItemImage.classList.value = "bg-no-repeat bg-center bg-contain size-8 mr-2";
           celebrationItemImage.style.backgroundImage = `url(${UI.getIconURL(celebrationItemDef.GoldenAgeType)})`;
           celebrationChoiceContainer.appendChild(celebrationItemImage);
           const celebrationItemDesc = document.createElement("div");
@@ -1202,6 +1229,69 @@ class DiplomacyActionPanel extends DiplomacyInputPanel {
           celebrationChoiceContainer.appendChild(celebrationItemDesc);
           governmentContainer.appendChild(celebrationChoiceContainer);
         }
+      }
+    }
+    const govTypeString = governmentDefinition?.GovernmentType ?? "";
+    if (govTypeString) {
+      const govtNodes = GameInfo.ProgressionTreeNodeUnlocks.filter(
+        (o) => o.RequiredGovernmentType == govTypeString
+      );
+      if (govtNodes) {
+        if (govtNodes.length > 0) {
+          const divider = document.createElement("div");
+          divider.classList.add("w-60", "filigree-divider-inner-frame", "my-4", "self-center");
+          governmentContainer.appendChild(divider);
+          const traditionTitle = document.createElement("div");
+          traditionTitle.classList.value = "flex flex-auto w-full uppercase text-accent-3 justify-center font-title-xs tracking-100 mb-2";
+          traditionTitle.innerHTML = Locale.stylize("LOC_UI_TRADITIONS_TITLE");
+          governmentContainer.appendChild(traditionTitle);
+        }
+        for (const govtTraditions in govtNodes) {
+          const tradition = GameInfo.Traditions.lookup(govtNodes[govtTraditions].TargetType);
+          if (tradition) {
+            const traditionItem = document.createElement("div");
+            traditionItem.classList.value = `flex flex-row items-center ml-2 mb-4`;
+            governmentContainer.appendChild(traditionItem);
+            const itemIcon = document.createElement("fxs-icon");
+            itemIcon.classList.add("size-12", "mr-4", "relative");
+            itemIcon.setAttribute("data-icon-context", "DEFAULT");
+            itemIcon.style.backgroundImage = `url('blp:unlock_tradition')`;
+            traditionItem.appendChild(itemIcon);
+            const itemText = document.createElement("div");
+            itemText.classList.value = "flex flex-col flex-auto ml-1 justify-center items-start";
+            const itemName = document.createElement("div");
+            itemName.role = "paragraph";
+            itemName.classList.value = "font-title text-sm mt-4 uppercase pointer-events-auto";
+            itemName.innerHTML = Locale.stylize(tradition.Name ?? "");
+            itemText.appendChild(itemName);
+            const unlockNode = govtNodes.filter(
+              (item) => item.TargetType == govtNodes[govtTraditions].TargetType
+            );
+            if (unlockNode) {
+              const nodeObject = GameInfo.ProgressionTreeNodes.lookup(
+                unlockNode[0].ProgressionTreeNodeType
+              );
+              const unlockNodeName = nodeObject ? nodeObject.Name : "";
+              const itemUnlock = document.createElement("div");
+              itemUnlock.role = "paragraph";
+              itemUnlock.classList.value = "font-body text-accent-3 text-sm w-full pointer-events-auto";
+              itemUnlock.innerHTML = Locale.stylize(
+                `{LOC_LOADING_TRADITION_UNLOCKED_WITH} [B]{${unlockNodeName}}[/B]`
+              );
+              itemText.appendChild(itemUnlock);
+            }
+            const itemDescription = document.createElement("div");
+            itemDescription.role = "paragraph";
+            itemDescription.classList.value = "font-body text-sm w-full pointer-events-auto";
+            itemDescription.innerHTML = Locale.stylize(tradition.Description ?? "");
+            itemText.appendChild(itemDescription);
+            traditionItem.appendChild(itemText);
+            governmentContainer.appendChild(traditionItem);
+          }
+        }
+        const spacer = document.createElement("div");
+        spacer.classList.value = "h-8 w-full";
+        governmentContainer.appendChild(spacer);
       }
     }
     if (!playerObject.Religion) {

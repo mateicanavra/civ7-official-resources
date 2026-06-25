@@ -131,6 +131,9 @@ class WorldInputSingleton {
     if (Cursor.isOnUI) {
       return true;
     }
+    if (InterfaceMode.isInInterfaceMode("INTERFACEMODE_HOTSEAT")) {
+      return true;
+    }
     InterfaceMode.switchToDefault();
     this.unselectPlot();
     return false;

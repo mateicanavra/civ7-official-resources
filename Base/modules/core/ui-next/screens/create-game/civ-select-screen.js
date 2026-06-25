@@ -1,5 +1,5 @@
 import { template, insert } from '../../../vendor/solid-js/web/dist/web.js';
-import { createSignal, createMemo, createComponent, Show, For, createRenderEffect, mergeProps } from '../../../vendor/solid-js/dist/solid.js';
+import { createSignal, createMemo, onMount, createComponent, Show, For, createRenderEffect, mergeProps } from '../../../vendor/solid-js/dist/solid.js';
 import { Layout } from '../../../ui/utilities/utilities-layout.js';
 import { Activatable } from '../../components/activatable.js';
 import { AudioContextProvider } from '../../components/audio-context-provider.js';
@@ -17,7 +17,7 @@ import { Tab } from '../../components/tab.js';
 import { Tooltip } from '../../components/tooltip.js';
 import { useAgeSelectModelContext } from './age-select-model.js';
 import { CivCard } from './civ-card.js';
-import { useCivSelectModelContext } from './civ-select-model.js';
+import { useCivSelectModelContext, createAgeFilterModel, attrFilter } from './civ-select-model.js';
 import { CreateGameHRule } from './create-game-components.js';
 import { CreateGameStage, CreateGameStageMode, CreateGameStageHeader } from './create-game-stage.js';
 import { LeaderSelectButtonBase } from './leader-select-button.js';
@@ -32,29 +32,6 @@ import { useIsSmallScreen } from '../../utilities/layout-utilities.js';
 import style from './civ-select-screen.scss.js';
 
 var _tmpl$ = /* @__PURE__ */ template(`<div class="absolute inset-0 flex flex-col items-center justify-end group"><div class="absolute inset-0 img-unit-panelbox pointer-events-none"></div><div class="absolute inset-0"></div><div class="create-game-hub-bottom-gradient absolute left-0 bottom-0"></div><div class="absolute inset-0 w-full h-full border-2 border-secondary-3"></div><div class="img-rollover-highlight absolute inset-0 opacity-0 group-focus\\:opacity-100 group-hover\\:opacity-100 group-pressed\\:opacity-100 pointer-events-none"></div><div class="flex items-center justify-center size-36 relative mb-4"></div></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="flex flex-row ml-6 mr-1\\.25 mt-1 mb-2 uppercase accent-2 font-bold"></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="flex flex-row flex-wrap"></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div class="flex flex-col size-full civ-age-select-body flex-auto"><div class="flex flex-col ml-10 mr-8"><div class="flex flex-row mt-4 mb-2 items-center"><div class=flex-auto></div><span class="mr-3 text-accent-2 uppercase"></span></div></div><div class="flex flex-row flex-auto"><div class="flex flex-col items-center h-full w-52"></div></div></div>`), _tmpl$5 = /* @__PURE__ */ template(`<div class="mx-2 w-full font-fit-shrink"></div>`);
-const createAgeFilterModel = function() {
-  const ageModel = useAgeSelectModelContext();
-  const isAgeTransition = UI.isInGame();
-  const options = [{
-    ageId: "ALL",
-    name: Locale.compose("LOC_UI_CREATE_GAME_FILTER_ALL_AGES").toUpperCase()
-  }, ...ageModel.sortedAges.map((a) => ({
-    ageId: a.type,
-    name: Locale.compose(a.name).toUpperCase()
-  }))];
-  const defaultAgeFilter = isAgeTransition ? options.find((a) => a.ageId == ageModel.nextAge.type) ?? options[0] : options[0];
-  const [selected, setSelected] = createSignal(defaultAgeFilter);
-  function isMatch(ageId) {
-    const selectedId = selected().ageId;
-    return selectedId == "ALL" || selectedId == ageId;
-  }
-  return {
-    selected,
-    setSelected,
-    isMatch,
-    options
-  };
-};
 const CivSelectScreenComponent = () => {
   const model = useCivSelectModelContext();
   const ageModel = useAgeSelectModelContext();
@@ -68,11 +45,6 @@ const CivSelectScreenComponent = () => {
     if (tag.Name) attributeFilters.push(tag.Name);
   });
   const isAgeTransition = createMemo(() => UI.isInGame());
-  const currentCiv = createMemo(() => {
-    if (!UI.isInGame() || !Players) return "";
-    return model.selectedCiv().civID;
-  });
-  const [selectedAttrFilter, setSelectedAttrFilter] = createSignal("LOC_LEGACIES_FILTER_ALL_ATTRIBUTES");
   const [textFilter, setTextFilter] = createSignal("");
   const enableTextFilter = createMemo(() => ViewExperience() == UIViewExperience.Desktop && !IsControllerActive());
   const isSmallScreen = useIsSmallScreen();
@@ -81,7 +53,7 @@ const CivSelectScreenComponent = () => {
   function shouldShowCiv(civ) {
     const matchAge = civ.civID != "RANDOM" && ageFilter.isMatch(civ.apexAge);
     const isPreviousCiv = isAgeTransition() ? civ.civID == model.previousCiv()?.civID : false;
-    const matchAttribute = civ.civID != "RANDOM" && (selectedAttrFilter() == "LOC_LEGACIES_FILTER_ALL_ATTRIBUTES" || !selectedAttrFilter() || civ.traits.some((t) => t == selectedAttrFilter()));
+    const matchAttribute = civ.civID != "RANDOM" && (attrFilter.getFilter() == "LOC_LEGACIES_FILTER_ALL_ATTRIBUTES" || !attrFilter.getFilter() || civ.traits.some((t) => t == attrFilter.getFilter()));
     const matchText = !enableTextFilter() || !textFilter() || searchResults().has(civ.civID);
     return matchAge && matchAttribute && matchText && !isPreviousCiv;
   }
@@ -160,9 +132,13 @@ const CivSelectScreenComponent = () => {
     setFiltersFocused(false);
   }
   function updateAttrFilter(item) {
-    setSelectedAttrFilter(item);
+    attrFilter.setFilter(item);
     setFiltersFocused(false);
   }
+  const audio = useAudio("CivSelectScreen");
+  onMount(() => {
+    audio("popup-open");
+  });
   return createComponent(CreateGameStage, {
     get header() {
       return createComponent(CreateGameStageHeader, {
@@ -172,6 +148,11 @@ const CivSelectScreenComponent = () => {
         title: "LOC_UI_CREATE_GAME_CIVILIZATION_SELECT",
         get hideButtonText() {
           return isAgeTransition() ? "LOC_UI_AGE_TRANSITION_VIEW_MAP" : void 0;
+        },
+        onBack: () => {
+          screenFlow.activatePrev();
+          ageFilter.reset();
+          attrFilter.reset();
         }
       });
     },
@@ -189,6 +170,8 @@ const CivSelectScreenComponent = () => {
           onActivate: () => {
             screenFlow.activatePrev();
             useAudio("CreateGameBackButton")("activate");
+            ageFilter.reset();
+            attrFilter.reset();
           }
         }, {
           hotkeyAction: "shell-action-2",
@@ -259,7 +242,7 @@ const CivSelectScreenComponent = () => {
                     }
                   }), createComponent(Dropdown, {
                     get defaultValue() {
-                      return attributeFilters[0];
+                      return attrFilter.getFilter();
                     },
                     selectedItemTemplate: (item) => (() => {
                       var _el$26 = _tmpl$5();

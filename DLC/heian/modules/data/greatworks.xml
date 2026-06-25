@@ -1,0 +1,16 @@
+<Database>
+	<Types>
+		<!-- Great Person Great Works -->
+		<Row Type="GREATWORK_SHIKIBU_GENJI" Kind="KIND_GREATWORK"/>
+		<Row Type="GREATWORK_SHONAGON_PILLOW" Kind="KIND_GREATWORK"/>
+	</Types>
+	<GreatWorks>
+		<!-- Great Person Great Works -->
+		<Row GreatWorkType="GREATWORK_SHIKIBU_GENJI" GreatWorkObjectType="GREATWORKOBJECT_WRITING" GreatPersonIndividualType="GREAT_PERSON_INDIVIDUAL_SHIJIN_MURASAKI_SHIKIBU" Name="LOC_GREATWORK_SHIKIBU_GENJI_NAME" Description="LOC_GREATWORK_SHIKIBU_GENJI_DESCRIPTION" Generic="false" Image="fs://game/gw_rotulus.png"/>
+		<Row GreatWorkType="GREATWORK_SHONAGON_PILLOW" GreatWorkObjectType="GREATWORKOBJECT_WRITING" GreatPersonIndividualType="GREAT_PERSON_INDIVIDUAL_SHIJIN_SEI_SHONAGON" Name="LOC_GREATWORK_SHONAGON_PILLOW_NAME" Description="LOC_GREATWORK_SHONAGON_PILLOW_DESCRIPTION" Generic="false" Image="fs://game/gw_rotulus.png"/>
+	</GreatWorks>
+	<GreatWork_YieldChanges>
+		<Row GreatWorkType="GREATWORK_SHIKIBU_GENJI" YieldType="YIELD_CULTURE" YieldChange="2"/>
+		<Row GreatWorkType="GREATWORK_SHONAGON_PILLOW" YieldType="YIELD_HAPPINESS" YieldChange="2"/>
+	</GreatWork_YieldChanges>
+</Database>

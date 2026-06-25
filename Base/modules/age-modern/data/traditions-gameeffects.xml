@@ -634,4 +634,61 @@
                 <Argument name="UseAlliances">true</Argument>
                 <Argument name="YieldType">YIELD_PRODUCTION</Argument>
         </Modifier>
+		<Modifier id="MOD_GARRISON_STATE_WAR_SUPPORT_DISCOUNT" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_ADJUST_DIPLOMATIC_ACTION_TYPE_EFFICIENCY">
+			<Argument name="Percent">25</Argument>
+			<Argument name="ActionType">DIPLOMACY_ACTION_DECLARE_WAR</Argument>
+		</Modifier>
+		<Modifier id="MOD_JINGOISM_OPPOSING_IDEOLOGY_COMBAT" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ATTACH_MODIFIERS">
+			<SubjectRequirements>
+				<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+					<Argument name="Tag">UNIT_CLASS_COMBAT</Argument>
+				</Requirement>
+			</SubjectRequirements>
+			<Argument name="ModifierId">MOD_JINGOISM_OPPOSING_IDEOLOGY_COMBAT_ATTACH</Argument>
+		</Modifier>
+		<Modifier id="MOD_JINGOISM_OPPOSING_IDEOLOGY_COMBAT_ATTACH" collection="COLLECTION_UNIT_COMBAT" effect="EFFECT_ADJUST_UNIT_STRENGTH_MODIFIER">
+			<SubjectRequirements>
+				<Requirement type="REQUIREMENT_PLAYER_IS_ATTACKING"/>
+				<Requirement type="REQUIREMENT_OPPONENT_IS_OTHER_IDEOLOGY"/>
+			</SubjectRequirements>
+			<Argument name="Amount">5</Argument>
+			<String context="Preview">LOC_PARTISAN_MOD_IDEOLOGY_DESCRIPTION</String>
+		</Modifier>
+		<Modifier id="MOD_EVIDENZBUREAU_COUNTERSPY_DISCOUNT" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_ADJUST_DIPLOMATIC_ACTION_TYPE_EFFICIENCY">
+			<Argument name="Percent">100</Argument>
+			<Argument name="ActionType">DIPLOMACY_ACTION_COUNTER_SPY</Argument>
+		</Modifier>
+		<Modifier id="MOD_CROWN_PROPERTIES_INFLUENCE_PER_GOLD_BUILDING" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_CONSTRUCTIBLE_YIELD">
+			<Argument name="Tag">GOLD</Argument>
+			<Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+			<Argument name="Amount">2</Argument>
+		</Modifier>
+		<Modifier id="MOD_THINK_TANKS_PROJECT_PRODUCTION" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_PROJECT_PRODUCTION">
+			<SubjectRequirements>
+				<Requirement type="REQUIREMENT_CITY_IS_CAPITAL" inverse="true">
+				</Requirement>
+			</SubjectRequirements>
+			<Argument name="Percent">10</Argument>
+		</Modifier>
+		<Modifier id="MOD_THINK_TANKS_PROJECT_PRODUCTION_CAPITAL" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_PROJECT_PRODUCTION">
+			<SubjectRequirements>
+				<Requirement type="REQUIREMENT_CITY_IS_CAPITAL">
+				</Requirement>
+			</SubjectRequirements>
+			<Argument name="Percent">20</Argument>
+		</Modifier>
+		<Modifier id="MOD_ARMY_CORPS_OF_ENGINEERS_WONDER_PRODUCTION" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_WONDER_PRODUCTION">
+			<SubjectRequirements>
+				<Requirement type="REQUIREMENT_CITY_IS_CAPITAL" inverse="true">
+				</Requirement>
+			</SubjectRequirements>
+			<Argument name="Percent">10</Argument>
+		</Modifier>
+		<Modifier id="MOD_ARMY_CORPS_OF_ENGINEERS_WONDER_PRODUCTION_CAPITAL" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_WONDER_PRODUCTION">
+			<SubjectRequirements>
+				<Requirement type="REQUIREMENT_CITY_IS_CAPITAL">
+				</Requirement>
+			</SubjectRequirements>
+			<Argument name="Percent">20</Argument>
+		</Modifier>
 </GameEffects>

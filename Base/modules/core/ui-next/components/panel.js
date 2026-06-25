@@ -21,6 +21,8 @@ class PanelStackContextProvider {
   }
 }
 const PanelStackContext = createContext();
+const NAV_REPEAT_INITIAL_THRESHOLD = 400;
+const NAV_REPEAT_THRESHOLD = 150;
 const PanelComponent = (props) => {
   const adapterContext = useContext(SolidAdapterContext);
   const [root, setRoot] = createPropsRefSignal(() => props.ref);
@@ -29,6 +31,8 @@ const PanelComponent = (props) => {
   const resolvedNavRules = createMemo(() => props.navRules ?? DefaultNavigationRules.vertical);
   const useAutoFocus = createMemo(() => props.autoFocus ?? true);
   const [isActiveContext, setIsActiveContext] = createSignal(false);
+  let navRepeatThreshold = 0;
+  let navRepeatTimestamp = 0;
   const onClosePanel = () => {
     ContextManager.pop(props.id);
   };
@@ -92,7 +96,22 @@ const PanelComponent = (props) => {
     if (hotkeyProvider.onInput(navigationEvent)) {
       return;
     }
-    if (navigationEvent.detail.status != InputActionStatuses.FINISH) {
+    if (navigationEvent.detail.status == InputActionStatuses.START) {
+      navRepeatThreshold = NAV_REPEAT_INITIAL_THRESHOLD;
+      navRepeatTimestamp = Date.now();
+      return;
+    } else if (navigationEvent.detail.status == InputActionStatuses.UPDATE) {
+      const now = Date.now();
+      if (navRepeatThreshold > 0 && now >= navRepeatTimestamp + navRepeatThreshold) {
+        navRepeatThreshold = NAV_REPEAT_THRESHOLD;
+        navRepeatTimestamp = now;
+      } else {
+        return;
+      }
+    } else if (navigationEvent.detail.status == InputActionStatuses.FINISH) {
+      navRepeatThreshold = 0;
+      navRepeatTimestamp = 0;
+    } else {
       return;
     }
     if (focusProvider.navigate(navigationEvent.detail.navigation)) {

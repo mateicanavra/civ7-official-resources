@@ -85,6 +85,14 @@ function getPlotEffectAlert(effect) {
       turns
     };
   }
+  if (effect.plotEffectType === "PLOTEFFECT_PLAGUE") {
+    return {
+      title: effect.name,
+      tooltipText: "LOC_PEDIA_CONCEPTS_INFECTED_TOOLTIP",
+      icon: "url(blp:yield_plague)",
+      turns
+    };
+  }
   return null;
 }
 function getStormAlert(storm) {

@@ -86,6 +86,20 @@ var GameCoreRandom;
     return num;
   }
   GameCoreRandom2.getRandomNumber = getRandomNumber;
+  function randomNormal(mean, stdDev, strLog) {
+    const u1 = fRand(strLog + " Normal u1");
+    const u2 = fRand(strLog + " Normal u2");
+    const z0 = Math.sqrt(-2 * Math.log(Math.max(u1, 1e-6))) * Math.cos(2 * Math.PI * u2);
+    return z0 * stdDev + mean;
+  }
+  GameCoreRandom2.randomNormal = randomNormal;
+  function randomNormal2(mean, stdDevBelow, stdDevAbove, strLog) {
+    const u1 = fRand(strLog + " Normal u1");
+    const u2 = fRand(strLog + " Normal u2");
+    const z0 = Math.sqrt(-2 * Math.log(Math.max(u1, 1e-6))) * Math.cos(2 * Math.PI * u2);
+    return z0 * (z0 < 0 ? stdDevBelow : stdDevAbove) + mean;
+  }
+  GameCoreRandom2.randomNormal2 = randomNormal2;
   function getState() {
     if (LOG_LEVEL >= 1) {
       console.log("GameCoreRandom: getState() called with current state " + GameCoreRandom2.randomState.state);

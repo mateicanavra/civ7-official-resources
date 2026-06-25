@@ -83,6 +83,7 @@ class TownFocusSection extends FxsVSlot {
   // #region Element References
   townFocusItem = document.createElement("town-focus-chooser-item");
   defaultLabelElement = document.createElement("div");
+  connectionsElement = document.createElement("div");
   // #endregion
   // #region Lifecycle
   onInitialize() {
@@ -110,6 +111,17 @@ class TownFocusSection extends FxsVSlot {
           this.townFocusItem.removeAttribute(name);
         }
         break;
+      case "data-settlement-name":
+      case "data-connected-towns":
+      case "data-connected-cities":
+      case "data-food-export":
+        this.connectionsElement.innerHTML = Locale.stylize(
+          "LOC_UI_TOWN_FOCUS_CONNECTION_INFO",
+          this.Root.getAttribute("data-settlement-name") ?? "",
+          Number(this.Root.getAttribute("data-connected-cities")),
+          Number(this.Root.getAttribute("data-connected-towns"))
+        );
+        break;
       default:
         super.onAttributeChanged(name, oldValue, newValue);
         break;
@@ -130,6 +142,8 @@ class TownFocusSection extends FxsVSlot {
       "beforeend",
       '<div class="font-title uppercase text-xs text-secondary-2 text-gradient-secondary" data-l10n-id="LOC_UI_TOWN_FOCUS"></div>'
     );
+    this.connectionsElement.classList.value = "production-chooser__town-focus__default-label font-body text-xs text-accent-2";
+    this.Root.appendChild(this.connectionsElement);
     this.townFocusItem.classList.add("flex-auto", "mx-5", "my-2");
     this.Root.appendChild(this.townFocusItem);
     this.defaultLabelElement.classList.value = "production-chooser__town-focus__default-label font-body text-xs text-accent-2";
@@ -166,6 +180,15 @@ Controls.define("town-focus-section", {
     },
     {
       name: "data-show-default-label"
+    },
+    {
+      name: "data-settlement-name"
+    },
+    {
+      name: "data-connected-towns"
+    },
+    {
+      name: "data-connected-cities"
     }
   ],
   tabIndex: -1

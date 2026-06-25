@@ -1,0 +1,99 @@
+<Database>
+	<Types>
+		<!-- Major Civs -->
+		<Row Type="TRAIT_HEIAN_ABILITY" Kind="KIND_TRAIT"/>
+	</Types>
+	<Kinds>
+		<InsertOrIgnore KIND="KIND_TRAIT"/>
+	</Kinds>
+	<Civilizations>
+		<!-- Full Civs -->
+		<Row CivilizationType="CIVILIZATION_HEIAN" Name="LOC_CIVILIZATION_HEIAN_NAME" FullName="LOC_CIVILIZATION_HEIAN_FULLNAME" Description="LOC_CIVILIZATION_HEIAN_DESCRIPTION" Adjective="LOC_CIVILIZATION_HEIAN_ADJECTIVE" StartingCivilizationLevelType="CIVILIZATION_LEVEL_FULL_CIV" ApexAge="AGE_ANTIQUITY" UniqueCultureProgressionTree="TREE_CIVICS_AQ_HEIAN" CapitalName="LOC_CITY_NAME_HEIAN1" RandomCityNameDepth="10"/>
+	</Civilizations>
+	<CivilizationFavoredWonders>
+		<Row CivilizationType="CIVILIZATION_HEIAN" FavoredWonderType="WONDER_HOO_DO_HALL" FavoredWonderName="LOC_HOO_DO_HALL_NAME"/>
+	</CivilizationFavoredWonders>
+	<Traits>
+		<!--Civ Traits-->
+		<Row TraitType="TRAIT_HEIAN_ABILITY" Name="LOC_TRAIT_HEIAN_ABILITY_NAME" Description="LOC_TRAIT_HEIAN_ABILITY_DESCRIPTION" InternalOnly="true"/>
+	</Traits>
+	<CivilizationTraits>
+		<Row CivilizationType="CIVILIZATION_HEIAN" TraitType="TRAIT_ANTIQUITY_CIV"/>
+		<Row CivilizationType="CIVILIZATION_HEIAN" TraitType="TRAIT_HEIAN"/>
+		<Row CivilizationType="CIVILIZATION_HEIAN" TraitType="TRAIT_HEIAN_ABILITY"/>
+		<Row CivilizationType="CIVILIZATION_HEIAN" TraitType="TRAIT_ATTRIBUTE_CULTURAL" />
+		<Row CivilizationType="CIVILIZATION_HEIAN" TraitType="TRAIT_ATTRIBUTE_CULTURAL_TOT_EX" />
+		<Row CivilizationType="CIVILIZATION_HEIAN" TraitType="TRAIT_ATTRIBUTE_CULTURAL_TOT_MO" />
+		<Row CivilizationType="CIVILIZATION_HEIAN" TraitType="TRAIT_ATTRIBUTE_POLITICAL" />
+		<Row CivilizationType="CIVILIZATION_HEIAN" TraitType="TRAIT_ATTRIBUTE_POLITICAL_TOT_EX" />
+		<Row CivilizationType="CIVILIZATION_HEIAN" TraitType="TRAIT_ATTRIBUTE_POLITICAL_TOT_EX_HAPPINESS" />
+		<Row CivilizationType="CIVILIZATION_HEIAN" TraitType="TRAIT_ATTRIBUTE_POLITICAL_TOT_MO" />
+		<Row CivilizationType="CIVILIZATION_HEIAN" TraitType="TRAIT_ATTRIBUTE_POLITICAL_TOT_MO_HAPPINESS" />
+	</CivilizationTraits>
+	<LeaderCivPriorities>
+		<InsertOrIgnore Leader="LEADER_HIMIKO" Civilization="CIVILIZATION_HEIAN" Priority="4"/>
+		<InsertOrIgnore Leader="LEADER_ISABELLA" Civilization="CIVILIZATION_HEIAN" Priority="2"/>
+		<InsertOrIgnore Leader="LEADER_JOSE_RIZAL" Civilization="CIVILIZATION_HEIAN" Priority="1"/>
+	</LeaderCivPriorities>
+	<CityNames>
+		<!--Shawnee-->
+		<Row CivilizationType="CIVILIZATION_HEIAN" CityName="LOC_CITY_NAME_HEIAN1"/>
+		<Row CivilizationType="CIVILIZATION_HEIAN" CityName="LOC_CITY_NAME_HEIAN2"/>
+		<Row CivilizationType="CIVILIZATION_HEIAN" CityName="LOC_CITY_NAME_HEIAN3"/>
+		<Row CivilizationType="CIVILIZATION_HEIAN" CityName="LOC_CITY_NAME_HEIAN4"/>
+		<Row CivilizationType="CIVILIZATION_HEIAN" CityName="LOC_CITY_NAME_HEIAN5"/>
+		<Row CivilizationType="CIVILIZATION_HEIAN" CityName="LOC_CITY_NAME_HEIAN6"/>
+		<Row CivilizationType="CIVILIZATION_HEIAN" CityName="LOC_CITY_NAME_HEIAN7"/>
+		<Row CivilizationType="CIVILIZATION_HEIAN" CityName="LOC_CITY_NAME_HEIAN8"/>
+		<Row CivilizationType="CIVILIZATION_HEIAN" CityName="LOC_CITY_NAME_HEIAN9"/>
+		<Row CivilizationType="CIVILIZATION_HEIAN" CityName="LOC_CITY_NAME_HEIAN10"/>
+		<Row CivilizationType="CIVILIZATION_HEIAN" CityName="LOC_CITY_NAME_HEIAN11"/>
+		<Row CivilizationType="CIVILIZATION_HEIAN" CityName="LOC_CITY_NAME_HEIAN12"/>
+		<Row CivilizationType="CIVILIZATION_HEIAN" CityName="LOC_CITY_NAME_HEIAN13"/>
+		<Row CivilizationType="CIVILIZATION_HEIAN" CityName="LOC_CITY_NAME_HEIAN14"/>
+		<Row CivilizationType="CIVILIZATION_HEIAN" CityName="LOC_CITY_NAME_HEIAN15"/>
+		<Row CivilizationType="CIVILIZATION_HEIAN" CityName="LOC_CITY_NAME_HEIAN16"/>
+		<Row CivilizationType="CIVILIZATION_HEIAN" CityName="LOC_CITY_NAME_HEIAN17"/>
+		<Row CivilizationType="CIVILIZATION_HEIAN" CityName="LOC_CITY_NAME_HEIAN18"/>
+	</CityNames>
+	<VisArt_CivilizationBuildingCultures>
+		<Row CivilizationType="CIVILIZATION_HEIAN" BuildingCulture="BUILDING_CULTURE_EAS"/>
+		<Row CivilizationType="CIVILIZATION_HEIAN" BuildingCulture="BUILDING_CULTURE_EAS_ANT"/>
+		<Row CivilizationType="CIVILIZATION_HEIAN" BuildingCulture="BUILDING_CULTURE_EAS_EXP"/>
+		<Row CivilizationType="CIVILIZATION_HEIAN" BuildingCulture="BUILDING_CULTURE_EAS_MOD"/>
+		<Row CivilizationType="CIVILIZATION_HEIAN" BuildingCulture="ANT_STONE"/>
+		<Row CivilizationType="CIVILIZATION_HEIAN" BuildingCulture="EXP_STONE"/>
+		<Row CivilizationType="CIVILIZATION_HEIAN" BuildingCulture="MOD_STONE"/>
+	</VisArt_CivilizationBuildingCultures>
+	<VisArt_CivilizationUnitCultures>
+	<Row CivilizationType="CIVILIZATION_HEIAN" UnitCulture="Asian"/>
+	</VisArt_CivilizationUnitCultures>
+	<StartBiasTerrains>
+		<Row CivilizationType="CIVILIZATION_HEIAN" TerrainType="TERRAIN_MOUNTAIN" Score="10"/>
+	</StartBiasTerrains>
+	<StartBiasFeatureClasses>
+		<Row CivilizationType="CIVILIZATION_HEIAN" FeatureClassType="FEATURE_CLASS_VEGETATED" Score="10" />
+	</StartBiasFeatureClasses>
+	<StartBiasRivers>
+		<Row CivilizationType="CIVILIZATION_HEIAN" Score="10"/>
+	</StartBiasRivers>
+	<AiListTypes>
+		<Row ListType="Heian Settle Plot Conditions" />
+		<Row ListType="Heian Constructibles Biases" />
+	</AiListTypes>
+	<AiLists>
+		<Row ListType="Heian Settle Plot Conditions" LeaderType="TRAIT_HEIAN" System="SettlementPlotEvaluations" />
+		<Row ListType="Heian Constructibles Biases" LeaderType="TRAIT_HEIAN" System="ConstructibleBiases" />
+	</AiLists>
+	<AiFavoredItems>
+		<Row ListType="Heian Settle Plot Conditions" Item="Breathtaking Tiles" Favored="false" Value="2" TooltipString="LOC_SETTLEMENT_RECOMMENDATION_TERRAIN" />
+		<Row ListType="Heian Constructibles Biases" Item="IMPROVEMENT_JINJA_LAND" Value="200" />
+		<Row ListType="Heian Constructibles Biases" Item="IMPROVEMENT_JINJA_SEA" Value="200" />
+		<Row ListType="Heian Constructibles Biases" Item="WONDER_HOO_DO_HALL" Value="50" />
+	</AiFavoredItems>
+	<EndGameMovies>
+		<!-- Defeats (Civ Specific) -->
+		<Row DefeatType="DEFEAT_DEFAULT" CivilizationType="CIVILIZATION_HEIAN" Priority="450" MovieType="MOVIE_DEFEAT_HEIAN" />
+		<Row DefeatType="DEFEAT_RETIRE" CivilizationType="CIVILIZATION_HEIAN" Priority="440" MovieType="MOVIE_DEFEAT_HEIAN" />
+	</EndGameMovies>
+</Database>

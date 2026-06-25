@@ -1047,7 +1047,7 @@
       <Text>Klick-/Berührungsverzögerung</Text>
     </Replace>
     <Replace Tag="LOC_OPTIONS_ACCESSIBILITY_LONG_PRESS_DESCRIPTION" Language="de_DE">
-      <Text>Regelt, wie lange die Maustaste gedrückt oder der Bildschirm berührt werden kann, bevor eine Reaktion erfolgt. Wenn das Spiel nicht zuverlässig auf Klicken/Berühren reagiert, können höhere Werte an dieser Stelle Abhilfe schaffen.</Text>
+      <Text>Regelt, wie lange die Maustaste gedrückt oder der Bildschirm berührt werden kann, bevor eine Reaktion erfolgt. Wenn es schwerfällt, die Hände ruhig zu halten, oder die Maus sehr empfindlich reagiert, können höhere Werte an dieser Stelle helfen zu verhindern, dass ein Klicken oder Tippen als Ziehen fehlinterpretiert wird.</Text>
     </Replace>
     <Replace Tag="LOC_OPTIONS_ADAPTIVE_TRIGGERS_ENABLED" Language="de_DE">
       <Text>Adaptive Trigger aktiviert</Text>
@@ -1179,7 +1179,8 @@
       <Text>Einheiten automatisch ansehen</Text>
     </Replace>
     <Replace Tag="LOC_OPTIONS_AUTOUNITYCYCLE_DESCRIPTION" Language="de_DE">
-      <Text>Nachdem Ihr alle Fortbewegungspunkte für die gewählte Einheit ausgegeben habt, könnt Ihr Euch Einheiten mit verbleibender Fortbewegung ansehen.</Text>
+      <Text>Nachdem Ihr alle Fortbewegungspunkte für die gewählte Einheit ausgegeben habt, könnt Ihr Euch Einheiten mit
+					verbleibender Fortbewegung ansehen.</Text>
     </Replace>
     <Replace Tag="LOC_OPTIONS_BRIGHTNESS" Language="de_DE">
       <Text>Helligkeit</Text>
@@ -1868,6 +1869,12 @@
     <Replace Tag="LOC_OPTIONS_GFX_XEFG_DESCRIPTION" Language="de_DE">
       <Text>KI-generierte Frames (Bilder) werden mittels Interlacing in die bestehende Grafikausgabe eingefügt, um die Zahl der Frames pro Sekunde (FPS) deutlich zu erhöhen und die Leistung zu verbessern.</Text>
     </Replace>
+    <Replace Tag="LOC_OPTIONS_GFX_XEFG_FRAME_COUNT" Language="de_DE">
+      <Text>Interpolierte Frames</Text>
+    </Replace>
+    <Replace Tag="LOC_OPTIONS_GFX_XEFG_FRAME_COUNT_DESCRIPTION" Language="de_DE">
+      <Text>Anzahl an Frames, die zwischen gerenderten Frames generiert werden sollen.</Text>
+    </Replace>
     <Replace Tag="LOC_OPTIONS_GFX_XELL" Language="de_DE">
       <Text>Intel Xe Low Latency</Text>
     </Replace>
@@ -2005,6 +2012,9 @@
     </Replace>
     <Replace Tag="LOC_OPTIONS_HELP_TYPES_DESCRIPTION" Language="de_DE">
       <Text>Die Hilfen, die während des Spielens angezeigt werden.</Text>
+    </Replace>
+    <Replace Tag="LOC_OPTIONS_HOTSEAT_NOT_VALID" Language="de_DE">
+      <Text>Im Hotseat-Spielmodus nicht gültig.</Text>
     </Replace>
     <Replace Tag="LOC_OPTIONS_INPUT_DEVICE" Language="de_DE">
       <Text>Eingabegerät</Text>
@@ -3118,6 +3128,9 @@
     </Replace>
     <Replace Tag="LOC_PROFILE_TITLE_DLC_SEASONPASS_3" Language="de_DE">
       <Text>Piratenkapitän</Text>
+    </Replace>
+    <Replace Tag="LOC_PROFILE_TITLE_DLC_SEASONPASS_4" Language="de_DE">
+      <Text>Kriegerpoet</Text>
     </Replace>
     <Replace Tag="LOC_PROFILE_TITLE_FOUNDATION_1" Language="de_DE">
       <Text>Schreibender Schreiber</Text>
@@ -4284,7 +4297,7 @@
       <Text>Handelslinse umschalten</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_RANKINGS_SCREEN" Language="de_DE">
-      <Text>Rangliste anzeigen</Text>
+      <Text>Siege anzeigen</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_RELIGION" Language="de_DE">
       <Text>Religionsmenü umschalten</Text>
@@ -5133,10 +5146,10 @@
       <Text>Schaltet Folgendes frei:[BLIST]{1_Items}[/LIST]</Text>
     </Replace>
     <Replace Tag="LOC_CREATE_GAME_UNLOCKS_LIST_ITEM" Language="de_DE">
-      <Text>[LI] [B]{1_UnlockName}[/B].</Text>
+      <Text>[B]{1_UnlockName}[/B].</Text>
     </Replace>
     <Replace Tag="LOC_CREATE_GAME_UNLOCKS_LIST_ITEM_IN_AGE" Language="de_DE">
-      <Text>[LI] [B]{1_UnlockName}[/B] im Zeitalter [B]{2_AgeName}[/B].</Text>
+      <Text>[B]{1_UnlockName}[/B] im Zeitalter [B]{2_AgeName}[/B].</Text>
     </Replace>
     <Replace Tag="LOC_CROSSPLAY_CHOICE_1_CONTEXT_CONFLICT_RESOLUTION" Language="de_DE">
       <Text>Lokaler Crossplay-Spielstand {1_CrossplayType}</Text>

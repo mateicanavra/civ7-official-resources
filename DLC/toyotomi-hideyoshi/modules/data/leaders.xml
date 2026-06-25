@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Kinds>
+		<InsertOrIgnore Kind="KIND_TRAIT"/>
+		<InsertOrIgnore Kind="KIND_VICTORY"/>
+	</Kinds>
+	<Types>
+		<Row Type="LEADER_TOYOTOMI_HIDEYOSHI" Kind="KIND_LEADER"/>
+		<Row Type="TRAIT_LEADER_TOYOTOMI_HIDEYOSHI_ABILITY" Kind="KIND_TRAIT"/>
+		<Row Type="VICTORY_LEADER_TOYOTOMI_HIDEYOSHI" Kind="KIND_VICTORY"/>
+	</Types>
+	<Leaders>
+		<Row LeaderType="LEADER_TOYOTOMI_HIDEYOSHI" Name="LOC_LEADER_TOYOTOMI_HIDEYOSHI_NAME" IsMajorLeader="true" InheritFrom="LEADER_DEFAULT" />
+	</Leaders>
+	<TypeQuotes>
+		<Row Type="LEADER_TOYOTOMI_HIDEYOSHI" Quote="LOC_MAIN_CHAR_SELECT_LEADER_TOYOTOMI_HIDEYOSHI_ANY"/>
+		<Row Type="VICTORY_LEADER_TOYOTOMI_HIDEYOSHI" Quote="LOC_VICTORY_LEADER_TOYOTOMI_HIDEYOSHI" QuoteAudio="play_victory_toyotomi"/>
+	</TypeQuotes>
+	<AiListTypes>
+	</AiListTypes>
+	<AiLists>
+	</AiLists>
+	<AiFavoredItems>
+	</AiFavoredItems>
+	<Traits>
+		<Row TraitType="TRAIT_LEADER_TOYOTOMI_HIDEYOSHI_ABILITY" InternalOnly="true" Name="LOC_TRAIT_LEADER_TOYOTOMI_HIDEYOSHI_ABILITY_NAME" Description="LOC_TRAIT_LEADER_TOYOTOMI_HIDEYOSHI_ABILITY_DESCRIPTION"/>
+	</Traits>
+	<LeaderTraits>
+		<Row LeaderType="LEADER_TOYOTOMI_HIDEYOSHI" TraitType="TRAIT_LEADER_TOYOTOMI_HIDEYOSHI_ABILITY"/>
+		<Row LeaderType="LEADER_TOYOTOMI_HIDEYOSHI" TraitType="TRAIT_LEADER_ATTRIBUTE_CULTURAL"/>
+		<Row LeaderType="LEADER_TOYOTOMI_HIDEYOSHI" TraitType="TRAIT_LEADER_ATTRIBUTE_MILITARISTIC"/>
+		<Row LeaderType="LEADER_TOYOTOMI_HIDEYOSHI" TraitType="TRAIT_AQ_MILITARY_VICTORY"/>
+		<Row LeaderType="LEADER_TOYOTOMI_HIDEYOSHI" TraitType="TRAIT_EX_MILITARY_VICTORY"/>
+		<Row LeaderType="LEADER_TOYOTOMI_HIDEYOSHI" TraitType="TRAIT_MO_CULTURE_VICTORY"/>
+	</LeaderTraits>
+	<TraitModifiers>
+		<Row TraitType="TRAIT_LEADER_TOYOTOMI_HIDEYOSHI_ABILITY" ModifierId="TOYOTOMI_HIDEYOSHI_MOD_DOUBLE_DAMAGE_ATTACK"/>
+		<Row TraitType="TRAIT_LEADER_TOYOTOMI_HIDEYOSHI_ABILITY" ModifierId="TOYOTOMI_HIDEYOSHI_MOD_OPPONENTS_DOUBLE_DAMAGE_ATTACK"/>
+		<Row TraitType="TRAIT_LEADER_TOYOTOMI_HIDEYOSHI_ABILITY" ModifierId="TOYOTOMI_HIDEYOSHI_MOD_HEAL_CULTURE_OR_WONDER"/>
+		<Row TraitType="TRAIT_LEADER_TOYOTOMI_HIDEYOSHI_ABILITY" ModifierId="TOYOTOMI_HIDEYOSHI_MOD_HEAL_ANYWHERE"/>
+		<Row TraitType="TRAIT_LEADER_TOYOTOMI_HIDEYOSHI_ABILITY" ModifierId="TOYOTOMI_HIDEYOSHI_MOD_ORIGINAL_CULTURE_BUILDING_PRODUCTION_TOWARDS"/>
+		<Row TraitType="TRAIT_LEADER_TOYOTOMI_HIDEYOSHI_ABILITY" ModifierId="TOYOTOMI_HIDEYOSHI_MOD_CONQUERED_CULTURE_BUILDING_PRODUCTION_TOWARDS"/>
+		<Row TraitType="TRAIT_LEADER_TOYOTOMI_HIDEYOSHI_ABILITY" ModifierId="TOYOTOMI_HIDEYOSHI_MOD_AGENDA"/>
+	</TraitModifiers>
+	<AiListTypes>
+		<!-- Leader Psuedoyield Biases -->
+		<Row ListType="Toyotomi Yield Biases"/>
+		<Row ListType="Toyotomi Budget Biases"/>
+		<Row ListType="Toyotomi PseudoYield Biases"/>
+		<Row ListType="Toyotomi Diplomacy Biases"/>
+	</AiListTypes>
+	<AiLists>
+		<!-- Leader Psuedoyield Biases -->
+		<Row ListType="Toyotomi Yield Biases" LeaderType="TRAIT_LEADER_TOYOTOMI_HIDEYOSHI_ABILITY" System="YieldBiases"/>
+		<Row ListType="Toyotomi Budget Biases" LeaderType="TRAIT_LEADER_TOYOTOMI_HIDEYOSHI_ABILITY" System="AiBudgetBiases"/>
+		<Row ListType="Toyotomi PseudoYield Biases" LeaderType="TRAIT_LEADER_TOYOTOMI_HIDEYOSHI_ABILITY" System="PseudoYieldBiases"/>
+		<Row ListType="Toyotomi Diplomacy Biases" LeaderType="TRAIT_LEADER_TOYOTOMI_HIDEYOSHI_ABILITY" System="DiplomaticGroupBiases"/>
+	</AiLists>
+	<AiFavoredItems>
+		<Row ListType="Toyotomi Yield Biases" Item="YIELD_PRODUCTION" Value="50"/>
+		<Row ListType="Toyotomi Yield Biases" Item="YIELD_CULTURE" Value="25"/>
+		<Row ListType="Toyotomi Budget Biases" Item="AI_BUDGET_STANDING_ARMY" Value="50"/>
+		<Row ListType="Toyotomi PseudoYield Biases" Item="PSEUDOYIELD_STANDING_NAVY_COMBAT_VALUE" Value="-50"/>
+		<Row ListType="Toyotomi PseudoYield Biases" Item="PSEUDOYIELD_STANDING_NAVY_UNIT" Value="-50"/>
+		<Row ListType="Toyotomi Diplomacy Biases" Item="DIPLOMACY_ACTION_BECOME_SUZERAIN" Value="50"/>
+		<Row ListType="Toyotomi Diplomacy Biases" Item="DIPLOMACY_ACTION_GROUP_SANCTION" Value="25"/>
+	</AiFavoredItems>
+</Database>

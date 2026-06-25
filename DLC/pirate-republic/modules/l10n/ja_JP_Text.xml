@@ -356,7 +356,7 @@
       <Text>499本の剣が499人の領主を待っている。</Text>
     </Replace>
     <Replace Tag="LOC_11113B_DESCRIPTION" Language="ja_JP">
-      <Text>1ポイント相当の{1_reward}。</Text>
+      <Text>積荷1に相当する{1_reward}を得る。</Text>
     </Replace>
     <Replace Tag="LOC_11113B_IMPERATIVE" Language="ja_JP">
       <Text>バッカニアの「襲撃隊」アクションをチョーラに対して使用する</Text>
@@ -589,6 +589,24 @@
     <Replace Tag="LOC_TOT_30030C_NAME" Language="ja_JP">
       <Text>使いものにならない者たちを追い帰せ。共和国には基準が必要だ。</Text>
     </Replace>
+    <Replace Tag="LOC_TOT_30073A_COMPLETION" Language="ja_JP">
+      <Text>共和国に数ある海賊企業の中でも、ブラッディ・カトラス社（BCI）の冷酷さは際立っている。とはいえ、本社ビル32階に板歩きの刑の板材を設置したことは、さすがにやりすぎだろう。労働者の権利を訴える活動家たちは、最近失脚した内部告発者は不当に狙われたと主張している。これに対してBCIのCEOは、「奴は壊血病持ちの犬コロ野郎」で「悪魔の笛でも吹いてりゃいい」と反論している。</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30073A_STORYTITLE" Language="ja_JP">
+      <Text>企業的襲撃者</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30073B_DESCRIPTION" Language="ja_JP">
+      <Text>{1_reward}。</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30073B_NAME" Language="ja_JP">
+      <Text>企業も海賊船も、船長が仕切っているのは同じだ。</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30073C_DESCRIPTION" Language="ja_JP">
+      <Text>{1_reward}。</Text>
+    </Replace>
+    <Replace Tag="LOC_TOT_30073C_NAME" Language="ja_JP">
+      <Text>海賊の正義は、軍用海賊船上でのみ有効だ。</Text>
+    </Replace>
     <Replace Tag="LOC_ABILITY_SLOOP_DESCRIPTION" Language="ja_JP">
       <Text>攻撃後に移動できる。</Text>
     </Replace>
@@ -629,7 +647,7 @@
       <Text>海洋ユニットの[B] [icon:Action_Pillage] 略奪による産出量と [icon:Action_Heal] 回復量+100%[/B]。 [icon:UNIT_SETTLER] 開拓者の訓練や購入はできないが、他の文明の [icon:UNIT_SETTLER] 開拓者を捕らえることはできる。海洋ユニット、財宝輸送隊、バッカニアユニットが、 [icon:WAR] 戦争中や国境開放状態でなくとも他の文明の国境内に入れる。他の[B]ユニット[/B]を倒した[TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]海洋ユニット[/TIP]から [icon:ECONOMIC_VP] [TIP:LOC_PEDIA_CONCEPTS_GDP_TOOLTIP]GDP[/TIP] +5。</Text>
     </Replace>
     <Replace Tag="LOC_ENEMY_OF_ALL_NATIONS_MOD_TREASURE_FLEET_CS_DESCRIPTION" Language="ja_JP">
-      <Text>すべての[TIP:LOC_PEDIA_CONCEPTS_MILITARY_UNIT_TOOLTIP]軍事ユニット[/TIP]の [icon:UNIT_TREASURE_FLEET] [TIP:LOC_PEDIA_CONCEPTS_TREASURE_CONVOY_TOOLTIP]財宝輸送隊[/TIP]に対する [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]戦闘力[/TIP]+15。</Text>
+      <Text>すべての[TIP:LOC_PEDIA_CONCEPTS_MILITARY_UNIT_TOOLTIP]軍事ユニット[/TIP]の [icon:UNIT_TREASURE_FLEET] [TIP:LOC_PEDIA_CONCEPTS_TREASURE_CONVOY_TOOLTIP]財宝輸送隊[/TIP]に対する [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]戦闘力[/TIP][B]+15。[/B]</Text>
     </Replace>
     <Replace Tag="LOC_ENEMY_OF_ALL_NATIONS_MOD_TREASURE_FLEET_EXTRA_VP_DESCRIPTION" Language="ja_JP">
       <Text>拿捕した [icon:UNIT_TREASURE_FLEET] [TIP:LOC_PEDIA_CONCEPTS_TREASURE_CONVOY_TOOLTIP]財宝輸送隊[/TIP]の積荷+2。</Text>
@@ -641,7 +659,7 @@
       <Text>おい、ひよっ子、今やお前も波と塩以外は怖い物なしって連中の一員だ。さあ、錨を上げやがれ。待ってるのはお宝か、それとも死刑台か、船に乗ってのお楽しみだ。後戻りはできねえぞ。もうお前は悪魔と契約しちまったんだ。</Text>
     </Replace>
     <Replace Tag="LOC_LOADING_CIV_TIPS_TEXT_PIRATE_REPUBLIC" Language="ja_JP">
-      <Text>海賊共和国は開拓者を訓練できないので、社会制度「寄港地」を解除し、固有の司令官である「バッカニア」に新しい町を作るチャージをもたらそう</Text>
+      <Text>海賊共和国は開拓者を訓練できないので、固有の司令官である「バッカニア」を海戦に用いて、居住地のチャージとアクション「襲撃隊」のために経験値を獲得しよう！</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_PIRATE_REPUBLIC_COMPLETE_HAVANA_HARBOR_DESC" Language="ja_JP">
       <Text>海賊共和国でプレイし、ハバナ港を完成させる。</Text>
@@ -665,7 +683,7 @@
       <Text>海賊の近代化</Text>
     </Replace>
     <Replace Tag="LOC_PIRATE_AQ_MOD_FREE_SETTLER_DESCRIPTION" Language="ja_JP">
-      <Text>無償の [icon:UNIT_SETTLER] 開拓者ユニット1つを得る。</Text>
+      <Text>無償の [B][icon:UNIT_SETTLER] 開拓者ユニット1つ[/B]を得る。</Text>
     </Replace>
     <Replace Tag="LOC_QUARTER_HAVEN_DESCRIPTION" Language="ja_JP">
       <Text>海賊共和国の[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_QUARTER_TOOLTIP]固有街区[/TIP]。同じ[TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]区域[/TIP]に海軍基地と海軍工廠を建設すると築かれる。備蓄している [icon:TREASURE_FLEET] [TIP:LOC_PEDIA_CONCEPTS_TREASURE_RESOURCES_TOOLTIP]財宝資源[/TIP]1つにつき [icon:YIELD_GOLD] ゴールド+1。このタイルにいる味方[TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]海洋ユニット[/TIP]の [icon:Action_Heal] 回復量+50。</Text>
@@ -680,28 +698,28 @@
       <Text>黄金を間近にすると、他のことはすべて頭から消えた</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_BLACK_FLAG_I_DESCRIPTION" Language="ja_JP">
-      <Text>[TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]交易路[/TIP]の [icon:Action_Pillage] 略奪による [icon:YIELD_GOLD] ゴールド+50（ゲーム速度に応じて変化）。海洋ユニットによる [icon:Action_Pillage] 沿岸襲撃の産出量および [icon:Action_Heal] 回復量+50%。</Text>
+      <Text>[icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]交易路[/TIP]の [icon:Action_Pillage] 略奪による [B][icon:YIELD_GOLD] +50[/B]（ゲーム速度に応じて変化）。[TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]海洋ユニット[/TIP]による [icon:Action_Pillage] 沿岸襲撃の産出量および [icon:Action_Heal] 回復量+50%。</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_BLACK_FLAG_II_DESCRIPTION" Language="ja_JP">
-      <Text>[TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]交易路[/TIP]の [icon:CITY_BUILDING_LIST] 略奪による [icon:YIELD_GOLD] ゴールド+100（ゲーム速度に応じて変化）。海洋ユニットによる [icon:Action_Pillage] 沿岸襲撃の産出量および [icon:Action_Heal] 回復量+100%。 [icon:UNIT_FLEET_COMMANDER] [TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]艦隊司令官[/TIP]と[TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]海洋ユニット[/TIP]が環礁で[TIP:LOC_PEDIA_CONCEPTS_STEALTH_TOOLTIP]「ステルス」[/TIP]を獲得する。</Text>
+      <Text>[icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]交易路[/TIP]の [icon:Action_Pillage] 略奪による [B][icon:YIELD_GOLD] +100[/B]（ゲーム速度に応じて変化）。[TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]海洋ユニット[/TIP]による [icon:Action_Pillage] 沿岸襲撃の産出量および [icon:Action_Heal] 回復量+100%。 [icon:UNIT_FLEET_COMMANDER] [TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]艦隊司令官[/TIP]と海洋ユニットが環礁で[TIP:LOC_PEDIA_CONCEPTS_STEALTH_TOOLTIP]「ステルス」[/TIP]を獲得する。</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_MERRY_LIFE_AND_A_SHORT_ONE_DESCRIPTION" Language="ja_JP">
-      <Text>[TIP:LOC_PEDIA_CONCEPTS_SUPPORT_UNIT_TOOLTIP]支援ユニット[/TIP]を倒すと、そのユニットの [icon:YIELD_PRODUCTION] 生産コストに相当する [icon:YIELD_GOLD] ゴールドを得る。[TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]海洋ユニット[/TIP]を倒すと、そのユニットの [icon:YIELD_PRODUCTION] 生産コストの25%に相当する [icon:YIELD_GOLD] ゴールドを得る。</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_SUPPORT_UNIT_TOOLTIP]支援ユニット[/TIP]を倒すと、そのユニットの [icon:YIELD_PRODUCTION] コストに相当する [icon:YIELD_GOLD] を得る。[TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]海洋ユニット[/TIP]を倒すと、そのユニットの [icon:YIELD_PRODUCTION] コストの25%に相当する [icon:YIELD_GOLD] を得る。</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_PIRATE_REPUBLIC_SYNCRETISM_ANTIQUITY_DESCRIPTION" Language="ja_JP">
-      <Text>沿岸にあるか隣接している [icon:CITY_URBAN] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]区域[/TIP]の [icon:YIELD_PRODUCTION] 生産力+2。沿岸にないか隣接していない [icon:CITY_URBAN] 区域の [icon:YIELD_HAPPINESS] 幸福度-1。</Text>
+      <Text>沿岸にあるか隣接している [icon:CITY_URBAN] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]区域[/TIP]の [B][icon:YIELD_PRODUCTION] +2。[/B]沿岸にないか隣接していない [icon:CITY_URBAN] 区域の [B][icon:YIELD_HAPPINESS] -1。[/B]</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_PIRATE_REPUBLIC_SYNCRETISM_MODERN_DESCRIPTION" Language="ja_JP">
-      <Text>沿岸にあるか隣接している [icon:CITY_URBAN] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]区域[/TIP]の [icon:YIELD_PRODUCTION] 生産力+3。沿岸にないか隣接していない [icon:CITY_URBAN] 区域の [icon:YIELD_HAPPINESS] 幸福度-2。</Text>
+      <Text>沿岸にあるか隣接している [icon:CITY_URBAN] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]区域[/TIP]の [B][icon:YIELD_PRODUCTION] +3。[/B]沿岸にないか隣接していない [icon:CITY_URBAN] 区域の [B][icon:YIELD_HAPPINESS] -2。[/B]</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_PIRATE_REPUBLIC_SYNCRETISM_TOOLTIP" Language="ja_JP">
       <Text>岸辺の同胞</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_PRESS_GANGS_I_DESCRIPTION" Language="ja_JP">
-      <Text>軽海洋ユニットの訓練に対する [icon:YIELD_PRODUCTION] 生産力と [icon:YIELD_GOLD] ゴールド+100%。 [icon:UNIT_FLEET_COMMANDER] [TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]艦隊司令官[/TIP]が無償で [icon:NAR_REW_PROMOTION] [TIP:LOC_PROMOTION_FLEET_LOOTING_DESCRIPTION]昇格「現地徴発」[/TIP]を得る。</Text>
+      <Text>軽[TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]海洋ユニット[/TIP]の訓練に対する [icon:YIELD_PRODUCTION] と [icon:YIELD_GOLD] [B]+100%。[/B] [icon:UNIT_FLEET_COMMANDER] [TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]艦隊司令官[/TIP]が無償で [icon:NAR_REW_PROMOTION] [TIP:LOC_PROMOTION_FLEET_LOOTING_DESCRIPTION]昇格「現地徴発」[/TIP]を得る。</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_PRESS_GANGS_II_DESCRIPTION" Language="ja_JP">
-      <Text>軽海洋ユニットの訓練に対する [icon:YIELD_PRODUCTION] 生産力と [icon:YIELD_GOLD] ゴールド+150%。 [icon:UNIT_FLEET_COMMANDER] [TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]艦隊司令官[/TIP]が無償で[TIP:LOC_PROMOTION_FLEET_LOOTING_DESCRIPTION]昇格「現地徴発」[/TIP]を得る。</Text>
+      <Text>軽[TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]海洋ユニット[/TIP]の訓練に対する [icon:YIELD_PRODUCTION] と [icon:YIELD_GOLD] [B]+150%。[/B] [icon:UNIT_FLEET_COMMANDER] [TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]艦隊司令官[/TIP]が無償で [icon:NAR_REW_PROMOTION] [TIP:LOC_PROMOTION_FLEET_LOOTING_DESCRIPTION]昇格「現地徴発」[/TIP]を得る。</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_PIRATE_REPUBLIC_ABILITY_AQ_DESCRIPTION" Language="ja_JP">
       <Text>[BLIST][LI][icon:WAR] [B]戦争中[/B]や[B]国境開放[/B]状態でなくとも[B]海洋ユニット[/B]が他[B]文明[/B]の国境内に入れる。[LI][icon:UNIT_SETTLER] [B]開拓者[/B]を訓練したり購入したりすることはできないが、他文明の [icon:UNIT_SETTLER] [B]開拓者[/B]を捕らえることはできる。 [icon:RADIAL_TECH] 「帆走術」と「航海術」の技術、および [icon:RADIAL_CIVICS] 社会制度「海賊の起源」を研究すると、無償の [icon:UNIT_SETTLER] [B]開拓者[/B]を得る。[LI][TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]海洋ユニット[/TIP]が他の[B]ユニット[/B]を倒すと [icon:ECONOMIC_VP] [TIP:LOC_PEDIA_CONCEPTS_GDP_TOOLTIP]GDP[/TIP] +5。[/BLIST]</Text>
@@ -719,7 +737,7 @@
       <Text>海賊の社会制度</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_BUCCANEER_DESCRIPTION" Language="ja_JP">
-      <Text>海賊共和国固有の艦隊司令官。 [icon:NAR_REW_PROMOTION] 昇格2つにつき「襲撃隊」アクションを使用するためのチャージ1を得る。襲撃隊: [TIP:LOC_PEDIA_CONCEPTS_DISTANT_LANDS_TOOLTIP]遠隔地[/TIP]の他文明が保有する、隣接した [icon:TREASURE_FLEET] [TIP:LOC_PEDIA_CONCEPTS_TREASURE_RESOURCES_TOOLTIP]財宝資源[/TIP]を標的にする。この[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]居住地[/TIP]はただちにこちらの支配下にある [icon:UNIT_TREASURE_FLEET] [TIP:LOC_PEDIA_CONCEPTS_TREASURE_CONVOY_TOOLTIP]財宝輸送隊[/TIP]を出現させるが、別の [icon:UNIT_TREASURE_FLEET] [TIP:LOC_PEDIA_CONCEPTS_TREASURE_CONVOY_TOOLTIP]財宝輸送隊[/TIP]が出現するまでターンはリセットされない。</Text>
+      <Text>海賊共和国固有の艦隊司令官。 [icon:NAR_REW_PROMOTION] レベル2につき「襲撃隊」アクションを使用するためのチャージ1を得る。襲撃隊: [TIP:LOC_PEDIA_CONCEPTS_DISTANT_LANDS_TOOLTIP]遠隔地[/TIP]の他文明が保有する、隣接した [icon:TREASURE_FLEET] [TIP:LOC_PEDIA_CONCEPTS_TREASURE_RESOURCES_TOOLTIP]財宝資源[/TIP]を標的にする。この[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]居住地[/TIP]はただちにこちらの支配下にある [icon:UNIT_TREASURE_FLEET] [TIP:LOC_PEDIA_CONCEPTS_TREASURE_CONVOY_TOOLTIP]財宝輸送隊[/TIP]を出現させるが、別の [icon:UNIT_TREASURE_FLEET] [TIP:LOC_PEDIA_CONCEPTS_TREASURE_CONVOY_TOOLTIP]財宝輸送隊[/TIP]が出現するまでターンはリセットされない。</Text>
     </Replace>
     <Replace Tag="LOC_UNIT_SLOOP_2_DESCRIPTION" Language="ja_JP">
       <Text>海賊共和国固有の軽[TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]海洋ユニット[/TIP]（ティア2）。 [icon:UNIT_CAUTION] 「[TIP:LOC_PEDIA_CONCEPTS_PIRATE_TOOLTIP]「海賊」[/TIP]」能力を持つ。敵ユニットを倒すとそのユニットの [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]戦闘力[/TIP]の100%に相当する [icon:YIELD_GOLD] ゴールドが手に入る。移動力5を持ち、攻撃後も [icon:Action_Move] 移動できる。</Text>

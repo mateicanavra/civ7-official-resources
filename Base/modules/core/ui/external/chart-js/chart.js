@@ -3917,7 +3917,8 @@
 
 	function nodeListContains(nodeList, canvas) {
 		for (const node of nodeList) {
-			if (node === canvas || node.contains(canvas)) {
+			// FIRAXIS CHANGE: added check for 'node' being not undefined (may be a Coherent issue)
+			if (node && (node === canvas || node.contains(canvas))) {
 				return true;
 			}
 		}

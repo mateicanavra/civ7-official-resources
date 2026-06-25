@@ -10,6 +10,7 @@ import { ComponentRegistry } from '../../../../core/ui-next/services/component-r
 import { IsControllerActive } from '../../../../core/ui-next/services/input.js';
 import { ComponentUtilities } from '../../../../core/ui-next/utilities/component-utilities.js';
 import { DedicationCardContents } from './dedication-card-contents.js';
+import { getTriumphTrackingManager } from './triumph-tracking-manager.js';
 import style$1 from './triumph-card.scss.js';
 
 var _tmpl$ = /* @__PURE__ */ template(`<div class="img-rollover-highlight absolute inset-0 opacity-0 group-focus\\:opacity-100 group-hover\\:opacity-100 group-pressed\\:opacity-80 pointer-events-none"></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div><div class="absolute w-28 h-9 left-6 -top-1 bg-contain bg-no-repeat bg-center opacity-30"></div><div class="absolute w-28 h-9 right-6 -top-1 bg-contain bg-no-repeat bg-center opacity-30"></div></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="mt-1 font-fit-shrink w-full flex-row justify-center text-xs text-center"></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div class="flex flex-col grow mt-3 text-center w-full flex-row justify-center items-center relative"><div class="text-center font-fit-shrink w-full flex-row justify-center text-xs"></div></div>`), _tmpl$5 = /* @__PURE__ */ template(`<div class="flex mt-2 flex-row uppercase text-sm justify-center items-center"><div class=font-fit-shrink></div></div>`), _tmpl$6 = /* @__PURE__ */ template(`<div class="text-negative uppercase font-fit-shrink mt-2 w-full text-center text-sm"></div>`), _tmpl$7 = /* @__PURE__ */ template(`<div><div class="flex text-secondary uppercase mt-8 w-full flex-row items-center justify-center text-center font-title"></div><div><div class="flex flex-row justify-center items-center mb-6"><div class="dedication-pill px-2 uppercase flex-row justify-center flex flex-row items-center"></div></div></div></div>`), _tmpl$8 = /* @__PURE__ */ template(`<div class="size-14 bg-no-repeat bg-contain bg-center absolute"></div>`), _tmpl$9 = /* @__PURE__ */ template(`<div class="size-10 absolute"></div>`), _tmpl$10 = /* @__PURE__ */ template(`<div class="size-9 bg-no-repeat bg-contain bg-center absolute"></div>`), _tmpl$11 = /* @__PURE__ */ template(`<div class="size-10 bg-no-repeat bg-contain bg-center absolute"></div>`), _tmpl$12 = /* @__PURE__ */ template(`<div class="size-19 absolute -top-7 flex flex-col items-center justify-center self-center bg-cover bg-center bg-no-repeat pointer-events-none"></div>`), _tmpl$13 = /* @__PURE__ */ template(`<div><div class="flex flex-col mt-3 text-center mt-1 font-fit-shrink w-full flex-row justify-center relative"><div class="flex flex-row items-center justify-center img-popup-header-bk absolute -top-3 -left-3 -right-3 h-11 text-center"></div><div class="mt-9 bg-accent6 w-full text-sm font-fit-shrink"></div></div></div>`), _tmpl$14 = /* @__PURE__ */ template(`<div class="text-positive uppercase font-fit-shrink mt-2 w-full text-center text-sm"></div>`), _tmpl$15 = /* @__PURE__ */ template(`<div class="flex flex-col triumph-card my-4 mx-1\\.5 w-84 min-h-96 pointer-events-auto group"></div>`);
@@ -21,7 +22,7 @@ const TriumphCardComponent = (props) => {
     if (!canToggleTracked()) {
       return;
     }
-    props.model.onClickTrackTriumph(props.triumph.triumphType);
+    getTriumphTrackingManager().onClickTrackTriumph(props.triumph.triumphType);
     props.triumph.isTracked = !props.triumph.isTracked;
   };
   const cardContent = () => createComponent(MinimalOrnateCard, {
@@ -256,7 +257,7 @@ const TriumphCardComponent = (props) => {
           }
         }), null);
         createRenderEffect((_p$) => {
-          var _v$3 = `flex flex-col flex-auto py-2 px-3 relative items-center justify-between ${props.triumph.isComingSoon ? "opacity-50" : ""}`, _v$4 = `flex flex-col mt-4 grow items-center self-end justify-end ${props.triumph.isFirstOnly ? "opacity-50" : ""}`;
+          var _v$3 = `flex flex-col flex-auto py-2 px-3 relative items-center justify-between ${props.triumph.isComingSoon ? "opacity-50" : ""}`, _v$4 = `flex flex-col mt-4 grow items-center self-stretch justify-end ${props.triumph.isFirstOnly ? "opacity-50" : ""}`;
           _v$3 !== _p$.e && className(_el$5, _p$.e = _v$3);
           _v$4 !== _p$.t && className(_el$10, _p$.t = _v$4);
           return _p$;

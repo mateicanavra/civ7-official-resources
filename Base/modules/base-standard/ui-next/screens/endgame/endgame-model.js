@@ -15,7 +15,10 @@ function createEndGameContextModel() {
     const playerList = Players.getEverAlive();
     const localPlayerID = GameContext.localPlayerID;
     const localPlayer = playerList[localPlayerID];
+    const args = {};
+    const allowedOneMoreTurn = Game.PlayerOperations.canStart(GameContext.localPlayerID, PlayerOperationTypes.EXTEND_GAME, args, false).Success && !Configuration.getGame().isAnyMultiplayer;
     const endgameData2 = {
+      playerId: -1,
       leader: "",
       leaderName: "",
       leaderQuote: "",
@@ -29,11 +32,15 @@ function createEndGameContextModel() {
       isDefeated: false,
       victoryTab: "",
       isAlive: true,
-      victorySound: ""
+      victorySound: "",
+      allowOneMoreTurn: allowedOneMoreTurn,
+      showNextTurnButton: false
+      // will be set to the correct value below
     };
     if (localPlayer) {
       const leaderDef = GameInfo.Leaders.lookup(localPlayer.leaderType);
       const leader = leaderDef?.LeaderType.replace("_ALT", "") || "";
+      endgameData2.playerId = localPlayerID;
       endgameData2.leader = leader;
       endgameData2.leaderName = Locale.compose(localPlayer.leaderName);
       endgameData2.leaderQuote = `LOC_VICTORY_${leader}`;
@@ -66,6 +73,8 @@ function createEndGameContextModel() {
         endgameData2.isDefeated = true;
         endgameData2.isAlive = localPlayer.isAlive;
         endgameData2.victorySound = "Victory_Defeat";
+        endgameData2.allowOneMoreTurn = allowOneMoreTurn(defeatDefinition);
+        endgameData2.showNextTurnButton = Configuration.getGame().isHotseat && Players.getNumAliveHumans() > 0;
       }
     }
     return endgameData2;
@@ -102,6 +111,12 @@ function createEndGameContextModel() {
       default:
         return "" /* Default */;
     }
+  }
+  function allowOneMoreTurn(defeatDefinition) {
+    if (Configuration.getGame().isAnyMultiplayer) return false;
+    else if (!defeatDefinition) return true;
+    else if (defeatDefinition) return defeatDefinition.AllowOneMoreTurn;
+    else return true;
   }
   function chooseDefeatMovie(defeatType, player) {
     const defeatTypeToUse = defeatType ? defeatType : "DEFEAT_DEFAULT";

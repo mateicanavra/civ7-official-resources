@@ -1043,7 +1043,7 @@
       <Text>クリック/タッチによる移動の遅延</Text>
     </Replace>
     <Replace Tag="LOC_OPTIONS_ACCESSIBILITY_LONG_PRESS_DESCRIPTION" Language="ja_JP">
-      <Text>マウスクリックまたは画面タッチから移動開始までの長押し時間を変更します。クリック/タッチしても反応しないことがある場合は、この値を大きくすると改善することがあります。</Text>
+      <Text>マウスクリックまたは画面タッチから移動開始までの長押し時間を変更します。手を安定させにくい場合やマウスの感度が高すぎる場合は、この値を高くするとクリックやタップがドラッグ操作と誤認されにくくなります。</Text>
     </Replace>
     <Replace Tag="LOC_OPTIONS_ADAPTIVE_TRIGGERS_ENABLED" Language="ja_JP">
       <Text>アダプティブトリガー有効</Text>
@@ -1864,6 +1864,12 @@
     <Replace Tag="LOC_OPTIONS_GFX_XEFG_DESCRIPTION" Language="ja_JP">
       <Text>AI生成のフレームを既存のグラフィック出力と組み合わせることにより、秒間フレーム数（FPS）を大幅に高め、パフォーマンスを向上させます。</Text>
     </Replace>
+    <Replace Tag="LOC_OPTIONS_GFX_XEFG_FRAME_COUNT" Language="ja_JP">
+      <Text>補完フレーム</Text>
+    </Replace>
+    <Replace Tag="LOC_OPTIONS_GFX_XEFG_FRAME_COUNT_DESCRIPTION" Language="ja_JP">
+      <Text>レンダリングされたフレームの間に生成されるフレーム数です。</Text>
+    </Replace>
     <Replace Tag="LOC_OPTIONS_GFX_XELL" Language="ja_JP">
       <Text>Intel Xe低レイテンシー</Text>
     </Replace>
@@ -2001,6 +2007,9 @@
     </Replace>
     <Replace Tag="LOC_OPTIONS_HELP_TYPES_DESCRIPTION" Language="ja_JP">
       <Text>ゲーム中に表示するヘルプの種類です。</Text>
+    </Replace>
+    <Replace Tag="LOC_OPTIONS_HOTSEAT_NOT_VALID" Language="ja_JP">
+      <Text>ホットシートゲームモードでは無効になります。</Text>
     </Replace>
     <Replace Tag="LOC_OPTIONS_INPUT_DEVICE" Language="ja_JP">
       <Text>入力デバイス</Text>
@@ -3115,6 +3124,9 @@
     <Replace Tag="LOC_PROFILE_TITLE_DLC_SEASONPASS_3" Language="ja_JP">
       <Text>海賊の船長</Text>
     </Replace>
+    <Replace Tag="LOC_PROFILE_TITLE_DLC_SEASONPASS_4" Language="ja_JP">
+      <Text>歌人武将</Text>
+    </Replace>
     <Replace Tag="LOC_PROFILE_TITLE_FOUNDATION_1" Language="ja_JP">
       <Text>筆走る書記官</Text>
     </Replace>
@@ -3857,7 +3869,7 @@
       <Text>メニューに戻る</Text>
     </Replace>
     <Replace Tag="LOC_UI_CREATE_GAME_EXPLORATION" Language="ja_JP">
-      <Text>探検</Text>
+      <Text>探検の時代</Text>
     </Replace>
     <Replace Tag="LOC_UI_CREATE_GAME_EXPLORATION_AGE_CIVILIZATIONS" Language="ja_JP">
       <Text>探検の時代の文明</Text>
@@ -4280,7 +4292,7 @@
       <Text>交易レンズの切り替え</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_RANKINGS_SCREEN" Language="ja_JP">
-      <Text>ランキング画面の切り替え</Text>
+      <Text>勝利画面の切り替え</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_RELIGION" Language="ja_JP">
       <Text>宗教パネルの切り替え</Text>
@@ -5129,10 +5141,10 @@
       <Text>以下を解除する: [BLIST]{1_Items}[/LIST]</Text>
     </Replace>
     <Replace Tag="LOC_CREATE_GAME_UNLOCKS_LIST_ITEM" Language="ja_JP">
-      <Text>[LI] [B]{1_UnlockName}[/B]</Text>
+      <Text>[B]{1_UnlockName}[/B]。</Text>
     </Replace>
     <Replace Tag="LOC_CREATE_GAME_UNLOCKS_LIST_ITEM_IN_AGE" Language="ja_JP">
-      <Text>[LI] [B]{1_UnlockName}[/B]を[B]{2_AgeName}[/B]時代に解除する。</Text>
+      <Text>[B]{1_UnlockName}[/B]を[B]{2_AgeName}[/B]時代に解除。</Text>
     </Replace>
     <Replace Tag="LOC_CROSSPLAY_CHOICE_1_CONTEXT_CONFLICT_RESOLUTION" Language="ja_JP">
       <Text>ローカルクロスプレイのセーブデータ{1_CrossplayType}</Text>
@@ -5351,7 +5363,7 @@
       <Text>{1_AgeName}から文明を選択すると「時の試練」が有効化されます。</Text>
     </Replace>
     <Replace Tag="LOC_UI_CREATE_GAME_CIVILIZATIONS_NUMBER" Language="ja_JP">
-      <Text>文明数{1_NumCivs}</Text>
+      <Text>文明数: {1_NumCivs}</Text>
     </Replace>
     <Replace Tag="LOC_UI_CREATE_GAME_FILTER_ITEM" Language="ja_JP">
       <Text>フィルター: {1_Item}</Text>

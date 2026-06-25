@@ -119,6 +119,7 @@ class MainMenu extends Component {
   bShowRewardsScreen = false;
   bPendingSSOCheck = false;
   pendingSSODialogBoxID = -1;
+  odrDownloadDialogBoxId = -1;
   forceOfflineLegalFlow = false;
   hasShownDNAErrorPopup = false;
   isInLoginFlow = false;
@@ -214,8 +215,8 @@ class MainMenu extends Component {
 					<div class="main-menu-slot-container flex self-center">
 						<fxs-vslot id="MainMenuSlot">
 							<div class="flex flex-col mr-48">
-								<div class="logo-box bg-center bg-cover bg-no-repeat self-center -my-6"></div>
-								<div class="filigree-divider-h2 my-2 self-center"></div>
+								<div class="logo-box bg-center bg-cover bg-no-repeat self-center -mt-6 -mb-4"></div>
+								<div class="logo-filigree filigree-divider-h2 mb-2 self-center"></div>
 							</div>
 							<div class="relative pl-18">
 								<div class="flex my-8 main-menu-container-inner">
@@ -407,6 +408,7 @@ class MainMenu extends Component {
     }
     ContextManager.pushElement(this.Root);
     this.checkForError();
+    this.checkIfModsWereReset();
     Network.onExitPremium();
     const lastPremiumError = Network.getLastPremiumError();
     Network.clearPremiumError();
@@ -705,11 +707,7 @@ class MainMenu extends Component {
       MultiplayerShellManager.onGameMode();
       return;
     }
-    if (MultiplayerShellManager.hasSupportForLANLikeServerTypes()) {
-      MultiplayerShellManager.onLanding();
-    } else {
-      MultiplayerShellManager.onGameBrowse(ServerType.SERVER_TYPE_INTERNET);
-    }
+    MultiplayerShellManager.openLanding();
   }
   onCredits() {
     UI.toggleGameCenterAccessPoint(false, UIGameCenterAccessPointLocation.BottomLeading);
@@ -761,9 +759,11 @@ class MainMenu extends Component {
   }
   // Updated On-Demand Resource download
   updateOdrDownload() {
+    this.odrDownload?.classList.toggle("hidden", !UI.shouldShowHighEndAssetsDownloadOption());
   }
   returnedToMainMenu() {
     UI.toggleGameCenterAccessPoint(true, UIGameCenterAccessPointLocation.BottomLeading);
+    Configuration.editGame()?.reset();
     if (ContextManager.getCurrentTarget() == this.Root) {
       FocusManager.get().setFocus(this.slot);
     }
@@ -1327,6 +1327,30 @@ class MainMenu extends Component {
       });
     }
   }
+  checkIfModsWereReset() {
+    if (Modding.checkModsResetFlag()) {
+      Modding.resetModsResetFlag();
+      const confirmOption = {
+        actions: ["accept"],
+        label: "LOC_GENERIC_OK"
+      };
+      const addonsCallback = () => {
+        this.openExtras(true);
+      };
+      const addonsOption = {
+        actions: ["cancel", "keyboard-escape"],
+        label: "LOC_NOTIFICATION_ADDONS_RESET_OPEN_ADDONS",
+        callback: addonsCallback
+      };
+      const options = [confirmOption, addonsOption];
+      return DialogBoxManager.createDialog_MultiOption({
+        body: "LOC_NOTIFICATION_ADDONS_RESET_DESCRIPTION",
+        title: "LOC_NOTIFICATION_ADDONS_RESET_TITLE",
+        options,
+        canClose: false
+      });
+    }
+  }
   startSection(data) {
     switch (data) {
       case "multiplayer":
@@ -1719,10 +1743,18 @@ class MainMenu extends Component {
     }
     this.openMultiplayer();
   }
-  openExtras() {
+  openExtras(openModsContent) {
     ContextManager.popUntil("main-menu");
     cancelAllChainedAnimations();
-    ContextManager.push("screen-extras", { singleton: true, createMouseGuard: true });
+    if (openModsContent === true) {
+      ContextManager.push("screen-extras", {
+        singleton: true,
+        createMouseGuard: true,
+        attributes: { "open-additional-content": "true" }
+      });
+    } else {
+      ContextManager.push("screen-extras", { singleton: true, createMouseGuard: true });
+    }
   }
   openStore() {
     const isUserInput = true;
@@ -1973,10 +2005,13 @@ class MainMenu extends Component {
   }
   // Activate On-Demand Resource
   onOdrButtonActivate() {
+    if (this.odrDownloadDialogBoxId != -1) {
+      return;
+    }
     this.showDownloadAssetsDialogConfirm();
   }
   showDownloadAssetsDialogConfirm() {
-    DialogBoxManager.createDialog_MultiOption({
+    this.odrDownloadDialogBoxId = DialogBoxManager.createDialog_MultiOption({
       body: "LOC_UI_HIGH_END_DOWNLOAD_BODY",
       title: "LOC_UI_HIGH_END_DOWNLOAD_TITLE",
       canClose: false,
@@ -1984,7 +2019,10 @@ class MainMenu extends Component {
         {
           actions: ["cancel", "keyboard-escape"],
           label: "LOC_GENERIC_CANCEL",
-          callback: () => UI.setShowODRDownloadPrompt(0)
+          callback: () => {
+            UI.setShowODRDownloadPrompt(0);
+            this.odrDownloadDialogBoxId = -1;
+          }
         },
         {
           actions: ["accept"],
@@ -1992,6 +2030,7 @@ class MainMenu extends Component {
           callback: (eAction) => {
             if (eAction == DialogBoxAction.Confirm) {
               UI.startHighEndAssetsDownload();
+              this.odrDownloadDialogBoxId = -1;
               ContextManager.push("odr-download", { singleton: true });
             }
           }

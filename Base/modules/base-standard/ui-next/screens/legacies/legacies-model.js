@@ -3,7 +3,6 @@ import { createMutable } from '../../../../core/vendor/solid-js/store/dist/store
 import ContextManager from '../../../../core/ui/context-manager/context-manager.js';
 import { getQuestTracker } from '../../../ui/quest-tracker/quest-tracker.js';
 import { getLegacyCardStyling } from './legacies-support.js';
-import { TriumphTrackingManager } from './triumph-tracking-manager.js';
 
 var TriumphFilterOptions = /* @__PURE__ */ ((TriumphFilterOptions2) => {
   TriumphFilterOptions2["DEFAULT"] = "DEFAULT";
@@ -163,19 +162,6 @@ function createLegaciesScreenModel() {
   const [selectedTriumphFilter, setSelectedTriumphFilter] = createSignal(
     "DEFAULT" /* DEFAULT */
   );
-  function handleClickTrackTriumph(legacyType) {
-    const legacy = GameInfo.Legacies.lookup(legacyType);
-    if (!legacy) {
-      console.error("legacies-model: unable to get legacy definition of legacy of type: " + legacyType);
-      return;
-    }
-    const questTracker = getQuestTracker();
-    if (questTracker.has(legacyType, "triumph")) {
-      TriumphTrackingManager.unTrackTriumph(legacy);
-    } else {
-      TriumphTrackingManager.trackTriumph(legacy);
-    }
-  }
   function handleClickClose() {
     ContextManager.pop("screen-legacies");
   }
@@ -199,7 +185,6 @@ function createLegaciesScreenModel() {
   const [isShowingDetails, setIsShowingDetails] = createSignal(false);
   const model = createMutable({
     triumphSections: populateTriumphData(),
-    onClickTrackTriumph: handleClickTrackTriumph,
     onClickClose: handleClickClose,
     selectedTriumphFilter,
     setSelectedTriumphFilter,

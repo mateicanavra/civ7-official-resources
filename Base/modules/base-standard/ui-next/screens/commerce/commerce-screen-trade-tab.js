@@ -220,6 +220,18 @@ const TradeRoutesContainer = (props) => {
   const [focusedTradeRoute, setFocusedTradeRoute] = createSignal();
   const shouldAutoFocusDropdown = createMemo(() => isSorting());
   const autoFocusRouteIsPermitted = createMemo(() => !shouldAutoFocusDropdown());
+  const firstVisibleSectionIndex = createMemo(() => {
+    let visibleSectionIndex = -1;
+    props.tradeRouteSections.forEach((section, index) => {
+      if (visibleSectionIndex > -1) {
+        return;
+      }
+      if (section.tradeRoutes.length > 0) {
+        visibleSectionIndex = index;
+      }
+    });
+    return visibleSectionIndex;
+  });
   const shouldAutoFocusRoute = (routeCityId, sectionIndex, routeIndex) => {
     if (!autoFocusRouteIsPermitted()) {
       return false;
@@ -228,7 +240,7 @@ const TradeRoutesContainer = (props) => {
       return false;
     }
     if (focusedTradeRoute() === void 0) {
-      return sectionIndex === 0 && routeIndex === 0;
+      return sectionIndex === firstVisibleSectionIndex() && routeIndex === 0;
     }
     return ComponentID.isMatch(focusedTradeRoute(), routeCityId);
   };
