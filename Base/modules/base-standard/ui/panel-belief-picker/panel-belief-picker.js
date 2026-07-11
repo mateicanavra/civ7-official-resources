@@ -89,7 +89,7 @@ class PanelBeliefPicker extends Panel {
     }
     window.dispatchEvent(new HideMiniMapEvent(true));
     waitForLayout(() => {
-      const focusElement = MustGetElement(".belief-picker-chooser-item", this.Root);
+      const focusElement = MustGetElement(".belief-picker-_belief-choices", this.Root);
       FocusManager.get().setFocus(focusElement);
     });
   }
