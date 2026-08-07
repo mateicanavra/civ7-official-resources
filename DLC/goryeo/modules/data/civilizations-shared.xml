@@ -1,0 +1,94 @@
+<Database>
+	<Types>
+		<!-- Major Civs -->
+		<Row Type="TRAIT_GORYEO_ABILITY" Kind="KIND_TRAIT"/>
+	</Types>
+	<Kinds>
+		<InsertOrIgnore KIND="KIND_TRAIT"/>
+	</Kinds>
+	<Civilizations>
+		<!-- Full Civs -->
+		<Row CivilizationType="CIVILIZATION_GORYEO" Name="LOC_CIVILIZATION_GORYEO_NAME" FullName="LOC_CIVILIZATION_GORYEO_FULLNAME" Description="LOC_CIVILIZATION_GORYEO_DESCRIPTION" Adjective="LOC_CIVILIZATION_GORYEO_ADJECTIVE" StartingCivilizationLevelType="CIVILIZATION_LEVEL_FULL_CIV" ApexAge="AGE_EXPLORATION" CapitalName="LOC_CITY_NAME_GORYEO1" RandomCityNameDepth="10"/>
+	</Civilizations>
+	<CivilizationFavoredWonders>
+		<Row CivilizationType="CIVILIZATION_GORYEO" FavoredWonderType="WONDER_BUSEOKSA" FavoredWonderName="LOC_WONDER_BUSEOKSA_NAME"/>
+	</CivilizationFavoredWonders>
+	<Traits>
+		<!--Civ Traits-->
+		<Row TraitType="TRAIT_GORYEO_ABILITY" Name="LOC_TRAIT_GORYEO_ABILITY_NAME" Description="LOC_TRAIT_GORYEO_ABILITY_DESCRIPTION" InternalOnly="true"/>
+	</Traits>
+	<CivilizationTraits>
+		<Row CivilizationType="CIVILIZATION_GORYEO" TraitType="TRAIT_EXPLORATION_CIV"/>
+		<Row CivilizationType="CIVILIZATION_GORYEO" TraitType="TRAIT_GORYEO"/>
+		<Row CivilizationType="CIVILIZATION_GORYEO" TraitType="TRAIT_GORYEO_ABILITY"/>
+		<Row CivilizationType="CIVILIZATION_GORYEO" TraitType="TRAIT_ATTRIBUTE_CULTURAL"/>
+		<Row CivilizationType="CIVILIZATION_GORYEO" TraitType="TRAIT_ATTRIBUTE_CULTURAL_TOT_AQ" />
+		<Row CivilizationType="CIVILIZATION_GORYEO" TraitType="TRAIT_ATTRIBUTE_CULTURAL_TOT_MO" />
+		<Row CivilizationType="CIVILIZATION_GORYEO" TraitType="TRAIT_ATTRIBUTE_POLITICAL"/>
+		<Row CivilizationType="CIVILIZATION_GORYEO" TraitType="TRAIT_ATTRIBUTE_POLITICAL_TOT_AQ" />
+		<Row CivilizationType="CIVILIZATION_GORYEO" TraitType="TRAIT_ATTRIBUTE_POLITICAL_TOT_AQ_INFLUENCE" />
+		<Row CivilizationType="CIVILIZATION_GORYEO" TraitType="TRAIT_ATTRIBUTE_POLITICAL_TOT_MO" />
+		<Row CivilizationType="CIVILIZATION_GORYEO" TraitType="TRAIT_ATTRIBUTE_POLITICAL_TOT_MO_INFLUENCE" />
+	</CivilizationTraits>
+	<TraitModifiers>
+		<Row TraitType="TRAIT_GORYEO_ABILITY" ModifierId="TRAIT_MOD_ENDEAVOR_CULTURE"/>
+		<Row TraitType="TRAIT_GORYEO_ABILITY" ModifierId="TRAIT_MOD_CITY_UNIQUE_IMPROVEMENT_INFLUENCE"/>
+		<Row TraitType="TRAIT_GORYEO_ABILITY" ModifierId="TRAIT_MOD_TOWN_UNIQUE_IMPROVEMENT_CULTURE"/>
+	</TraitModifiers>
+	<LeaderCivPriorities>
+		<!--This is the table used for AI, the UI uses LeaderCivilizationBias in config.xml-->
+		<Row Leader="LEADER_CONFUCIUS" Civilization="CIVILIZATION_GORYEO" Priority="1"/>
+		<Row Leader="LEADER_MACHIAVELLI" Civilization="CIVILIZATION_GORYEO" Priority="2"/>
+	</LeaderCivPriorities>
+	<CityNames>
+		<!--Shawnee-->
+		<Row CivilizationType="CIVILIZATION_GORYEO" CityName="LOC_CITY_NAME_GORYEO1"/>
+		<Row CivilizationType="CIVILIZATION_GORYEO" CityName="LOC_CITY_NAME_GORYEO2"/>
+		<Row CivilizationType="CIVILIZATION_GORYEO" CityName="LOC_CITY_NAME_GORYEO3"/>
+		<Row CivilizationType="CIVILIZATION_GORYEO" CityName="LOC_CITY_NAME_GORYEO4"/>
+		<Row CivilizationType="CIVILIZATION_GORYEO" CityName="LOC_CITY_NAME_GORYEO5"/>
+		<Row CivilizationType="CIVILIZATION_GORYEO" CityName="LOC_CITY_NAME_GORYEO6"/>
+		<Row CivilizationType="CIVILIZATION_GORYEO" CityName="LOC_CITY_NAME_GORYEO7"/>
+		<Row CivilizationType="CIVILIZATION_GORYEO" CityName="LOC_CITY_NAME_GORYEO8"/>
+		<Row CivilizationType="CIVILIZATION_GORYEO" CityName="LOC_CITY_NAME_GORYEO9"/>
+		<Row CivilizationType="CIVILIZATION_GORYEO" CityName="LOC_CITY_NAME_GORYEO10"/>
+		<Row CivilizationType="CIVILIZATION_GORYEO" CityName="LOC_CITY_NAME_GORYEO11"/>
+		<Row CivilizationType="CIVILIZATION_GORYEO" CityName="LOC_CITY_NAME_GORYEO12"/>
+		<Row CivilizationType="CIVILIZATION_GORYEO" CityName="LOC_CITY_NAME_GORYEO13"/>
+		<Row CivilizationType="CIVILIZATION_GORYEO" CityName="LOC_CITY_NAME_GORYEO14"/>
+		<Row CivilizationType="CIVILIZATION_GORYEO" CityName="LOC_CITY_NAME_GORYEO15"/>
+		<Row CivilizationType="CIVILIZATION_GORYEO" CityName="LOC_CITY_NAME_GORYEO16"/>
+	</CityNames>
+	<VisArt_CivilizationBuildingCultures>
+		<Row CivilizationType="CIVILIZATION_GORYEO" BuildingCulture="BUILDING_CULTURE_EAS"/>
+		<Row CivilizationType="CIVILIZATION_GORYEO" BuildingCulture="BUILDING_CULTURE_EAS_ANT" />
+		<Row CivilizationType="CIVILIZATION_GORYEO" BuildingCulture="BUILDING_CULTURE_EAS_EXP" />
+		<Row CivilizationType="CIVILIZATION_GORYEO" BuildingCulture="BUILDING_CULTURE_EAS_MOD" />
+		<Row CivilizationType="CIVILIZATION_GORYEO" BuildingCulture="ANT_STONE"/>
+		<Row CivilizationType="CIVILIZATION_GORYEO" BuildingCulture="EXP_STONE"/>
+		<Row CivilizationType="CIVILIZATION_GORYEO" BuildingCulture="MOD_STONE"/>
+	</VisArt_CivilizationBuildingCultures>
+	<VisArt_CivilizationUnitCultures>
+	<Row CivilizationType="CIVILIZATION_GORYEO" UnitCulture="Asian"/>
+	</VisArt_CivilizationUnitCultures>
+	<AiListTypes>
+		<Row ListType="Goryeo Tag Biases" />
+	</AiListTypes>
+	<AiLists>
+		<Row ListType="Goryeo Tag Biases" LeaderType="TRAIT_GORYEO" System="TagBiases" />
+	</AiLists>
+	<AiFavoredItems>
+		<Row ListType="Goryeo Tag Biases" Item="UNIQUE_IMPROVEMENT" Value="50" />
+	</AiFavoredItems>
+	<StartBiasBiomes>
+		<Row CivilizationType="CIVILIZATION_GORYEO" BiomeType="BIOME_GRASSLAND" Score="5" />
+	</StartBiasBiomes>
+	<StartBiasFeatureClasses>
+		<Row CivilizationType="CIVILIZATION_GORYEO" FeatureClassType="FEATURE_CLASS_VEGETATED" Score="15" />
+	</StartBiasFeatureClasses>
+	<EndGameMovies>
+		<!-- Defeats (Civ Specific) -->
+		<Row DefeatType="DEFEAT_DEFAULT" CivilizationType="CIVILIZATION_GORYEO" Priority="450" MovieType="MOVIE_DEFEAT_GORYEO" />
+		<Row DefeatType="DEFEAT_RETIRE" CivilizationType="CIVILIZATION_GORYEO" Priority="440" MovieType="MOVIE_DEFEAT_GORYEO" />
+	</EndGameMovies>
+</Database>

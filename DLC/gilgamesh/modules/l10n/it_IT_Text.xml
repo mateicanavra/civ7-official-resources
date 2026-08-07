@@ -43,6 +43,12 @@
     <Replace Tag="LOC_DIPLO_MAKE_DEAL_REJECTED_LEADER_GILGAMESH" Language="it_IT">
       <Text>Il tuo accordo ha il sapore della cenere.</Text>
     </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_DECREASED_LEADER_GILGAMESH" Language="it_IT">
+      <Text>Tu gracchi come l'uccello anzû, strisci a terra come il Lilītu.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_INCREASED_LEADER_GILGAMESH" Language="it_IT">
+      <Text>Ben fatto! Lottiamo.</Text>
+    </Replace>
     <Replace Tag="LOC_MAIN_CHAR_SELECT_LEADER_GILGAMESH_ANY" Language="it_IT">
       <Text>Altri si definisco "re". Chi tra loro può vantare questo corpo divino, questa barba regale, questi occhi luminosi?</Text>
     </Replace>
@@ -619,13 +625,19 @@
       <Text>Gilgamesh Moderna Dedizione Militarista</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_ALLY_OF_ENKIDU_DESC" Language="it_IT">
-      <Text>Apprezza il leader che ha avviato o sostenuto il maggior numero di Iniziative. Non ama i leader che hanno stretto un'Alleanza con qualcun altro.</Text>
+      <Text>Apprezza il leader che ha avviato o sostenuto il maggior numero di [icon:ENDEAVOR] Iniziative. Disprezza i leader che hanno stretto [icon:PLAYER_RELATIONSHIP_ALLIANCE] un'Alleanza con qualcun altro.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_ALLY_OF_ENKIDU_DESC_DISLIKES" Language="it_IT">
+      <Text>Gilgamesh disprezza i leader che hanno stretto [icon:PLAYER_RELATIONSHIP_ALLIANCE] un'Alleanza con qualcun altro.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_ALLY_OF_ENKIDU_DESC_LIKES" Language="it_IT">
+      <Text>Gilgamesh apprezza il leader che ha avviato o sostenuto il maggior numero di [icon:ENDEAVOR] Iniziative.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_ALLY_OF_ENKIDU_NAME" Language="it_IT">
       <Text>Alleato di Enkidu</Text>
     </Replace>
     <Replace Tag="LOC_LEADER_GILGAMESH_DESCRIPTION" Language="it_IT">
-      <Text>+2 [icon:WAR_SUPPORT] Supporto bellico quando fai parte di una sola alleanza. Quando una delle tue unità militari sconfigge un'unità nemica, ottieni [icon:YIELD_DIPLOMACY] Influenza pari al 50% della [icon:NAR_REW_COMBAT] Forza di combattimento dell'unità sconfitta. Tutte le Iniziative base vengono sbloccate automaticamente. Le Iniziative condotte insieme ai propri alleati non sono incluse nel limite massimo di Iniziative dello stesso tipo che puoi avere attive nello stesso momento. I tuoi alleati possono sostenere gratuitamente le tue Iniziative.</Text>
+      <Text>+2 [icon:WAR_SUPPORT] Supporto bellico quando fai parte di una sola [icon:PLAYER_RELATIONSHIP_ALLIANCE] alleanza. Quando una delle tue unità militari sconfigge un'unità nemica, ottieni [icon:YIELD_DIPLOMACY] Influenza pari al 50% della [icon:NAR_REW_COMBAT] Forza di combattimento dell'unità sconfitta. Tutte le Iniziative base vengono sbloccate automaticamente. Le Iniziative condotte insieme ai propri alleati non sono incluse nel limite massimo di Iniziative dello stesso tipo che puoi avere attive nello stesso momento. I tuoi alleati possono sostenere gratuitamente le tue Iniziative.</Text>
     </Replace>
     <Replace Tag="LOC_LOADING_LEADER_INTRO_TEXT_GILGAMESH" Language="it_IT">
       <Text>Nessuno ama la vita più di te, Gilgamesh, primo degli eroi e migliore degli amici. I boschi di cedri tremano alle tue risate, il Tigri si inonda delle tue lacrime e i nemici tremano al tuo avvicinarsi. Ti aspetta una nuova sfida: vieni, scrivi un nuovo verso del tuo poema epico.</Text>
@@ -1073,8 +1085,8 @@
       <Text>Mortale una volta, due volte divino</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_LEADER_GILGAMESH_ABILITY_DESCRIPTION" Language="it_IT">
-      <Text>[BLIST][LI]+2 [B][icon:WAR_SUPPORT] Supporto bellico[/B] quando fai parte di una sola alleanza.
-				[LI]Quando una delle tue unità militari sconfigge un'unità nemica, ottieni [B][icon:YIELD_DIPLOMACY] Influenza[/B] pari al 50% della [icon:NAR_REW_COMBAT] Forza di combattimento dell'unità sconfitta. 
+      <Text>[BLIST][LI]+2 [B][icon:WAR_SUPPORT] Supporto bellico[/B] quando fai parte di una sola [icon:PLAYER_RELATIONSHIP_ALLIANCE] alleanza.
+				[LI]Quando una delle tue unità militari sconfigge un'unità nemica, ottieni [B][icon:YIELD_DIPLOMACY] Influenza[/B] pari al 50% della [icon:NAR_REW_COMBAT] Forza di combattimento dell'unità sconfitta.
 				[LI]Tutte le Iniziative base vengono sbloccate automaticamente. Le Iniziative condotte insieme ai propri alleati non sono incluse nel limite massimo di Iniziative dello stesso tipo che puoi avere attive nello stesso momento. I tuoi alleati possono sostenere gratuitamente le tue Iniziative. [/LIST]</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_LEADER_GILGAMESH_ABILITY_NAME" Language="it_IT">

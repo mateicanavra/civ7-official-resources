@@ -592,6 +592,9 @@
     <Replace Tag="LOC_GROUPID_PLAYERDIFFICULTY" Language="zh_Hant_HK">
       <Text>玩家難度設定</Text>
     </Replace>
+    <Replace Tag="LOC_GROUPID_VICTORYOPTIONS" Language="zh_Hant_HK">
+      <Text>勝利設定</Text>
+    </Replace>
     <Replace Tag="LOC_HOTSEAT_ENTER_PASSWORD_HERE" Language="zh_Hant_HK">
       <Text>在此處輸入密碼</Text>
     </Replace>
@@ -657,6 +660,9 @@
     </Replace>
     <Replace Tag="LOC_JOIN_GAME_CONNECTION_REJECTED" Language="zh_Hant_HK">
       <Text>無法連線至遊戲主機。若是使用加入密碼，請檢查該密碼然後再試一次。</Text>
+    </Replace>
+    <Replace Tag="LOC_JOIN_GAME_CROSSPLAY_DISABLED" Language="zh_Hant_HK">
+      <Text>在停用跨平台遊玩期間，你無法加入跨平台遊玩之遊戲。你可以在選項選單中啟用跨平台遊玩。</Text>
     </Replace>
     <Replace Tag="LOC_JOIN_GAME_JOINCODE_SYNTAX" Language="zh_Hant_HK">
       <Text>加入密碼錯誤。請檢查加入密碼然後再試一次。</Text>
@@ -2922,7 +2928,7 @@
       <Text>Xbox</Text>
     </Replace>
     <Replace Tag="LOC_PLOT_MOVE" Language="zh_Hant_HK">
-      <Text>航海</Text>
+      <Text>導覽</Text>
     </Replace>
     <Replace Tag="LOC_PLOT_MOVE_HELP" Language="zh_Hant_HK">
       <Text>將格位的特別標示移動到地圖各處</Text>
@@ -3890,9 +3896,6 @@
     <Replace Tag="LOC_UI_CREATE_GAME_GAME_START_CIV_SELECTION" Language="zh_Hant_HK">
       <Text>遊戲開始文明選擇</Text>
     </Replace>
-    <Replace Tag="LOC_UI_CREATE_GAME_HEIGHT_OF_POWER" Language="zh_Hant_HK">
-      <Text>[權勢巔峰的說明文字]</Text>
-    </Replace>
     <Replace Tag="LOC_UI_CREATE_GAME_HEIGHT_OF_POWER_DESCRIPTION" Language="zh_Hant_HK">
       <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</Text>
     </Replace>
@@ -3901,9 +3904,6 @@
     </Replace>
     <Replace Tag="LOC_UI_CREATE_GAME_HISTORICAL_RANDOM_DESCRIPTION" Language="zh_Hant_HK">
       <Text>將選擇與該領袖在歷史、地理或戰略上具有關聯的文明。</Text>
-    </Replace>
-    <Replace Tag="LOC_UI_CREATE_GAME_HOWWHEN_IS_TEST_OF_TIME_ACTIVATED" Language="zh_Hant_HK">
-      <Text>[時間試煉如何/何時啟動的說明文字]</Text>
     </Replace>
     <Replace Tag="LOC_UI_CREATE_GAME_HOWWHEN_IS_TEST_OF_TIME_ACTIVATED_DESCRIPTION" Language="zh_Hant_HK">
       <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</Text>
@@ -3994,9 +3994,6 @@
     </Replace>
     <Replace Tag="LOC_UI_CREATE_GAME_UNLOCKED_BY_DESCRIPTION" Language="zh_Hant_HK">
       <Text>完成任意條件以解鎖此文明。</Text>
-    </Replace>
-    <Replace Tag="LOC_UI_CREATE_GAME_WHAT_IS_TEST_OF_TIME" Language="zh_Hant_HK">
-      <Text>[什麼是時間試煉的說明文字]</Text>
     </Replace>
     <Replace Tag="LOC_UI_CREATE_GAME_WHAT_IS_TEST_OF_TIME_DESCRIPTION" Language="zh_Hant_HK">
       <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</Text>
@@ -4194,19 +4191,22 @@
       <Text>切換至下一個就緒單位</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_OPEN_ATTRIBUTES" Language="zh_Hant_HK">
-      <Text>開啟屬性</Text>
+      <Text>開啟/關閉屬性</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_OPEN_ATTRIBUTES_TT" Language="zh_Hant_HK">
-      <Text>開啟屬性畫面</Text>
+      <Text>開啟與關閉屬性畫面</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_OPEN_CIVILOPEDIA" Language="zh_Hant_HK">
-      <Text>開啟文明百科</Text>
+      <Text>開啟/關閉文明百科</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_OPEN_CIVILOPEDIA_TT" Language="zh_Hant_HK">
+      <Text>開啟與關閉文明百科</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_OPEN_GOVERNMENT" Language="zh_Hant_HK">
-      <Text>開啟政體</Text>
+      <Text>開啟/關閉政體</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_OPEN_GOVERNMENT_TT" Language="zh_Hant_HK">
-      <Text>開啟政體畫面</Text>
+      <Text>開啟與關閉政體畫面</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_PAUSE_ONLINE_GAME" Language="zh_Hant_HK">
       <Text>暫停線上遊戲</Text>
@@ -4250,14 +4250,29 @@
     <Replace Tag="LOC_UI_KBM_MAPPING_SECONDARY_KEY" Language="zh_Hant_HK">
       <Text>次要</Text>
     </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_ADVISORS" Language="zh_Hant_HK">
+      <Text>開啟/關閉大臣議會</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_ADVISORS_TT" Language="zh_Hant_HK">
+      <Text>開啟與關閉大臣議會畫面</Text>
+    </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_CIVICS_SCREEN" Language="zh_Hant_HK">
-      <Text>開啟/關閉市政畫面</Text>
+      <Text>開啟/關閉文化樹</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_CIVICS_SCREEN_TT" Language="zh_Hant_HK">
+      <Text>開啟與關閉文化樹</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_GREAT_PEOPLE_SCREEN" Language="zh_Hant_HK">
-      <Text>開啟/關閉偉人畫面</Text>
+      <Text>開啟/關閉偉人</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_GREAT_PEOPLE_SCREEN_TT" Language="zh_Hant_HK">
+      <Text>開啟與關閉偉人畫面</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_GREAT_WORKS_SCREEN" Language="zh_Hant_HK">
-      <Text>開啟/關閉巨作畫面</Text>
+      <Text>開啟/關閉巨作</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_GREAT_WORKS_SCREEN_TT" Language="zh_Hant_HK">
+      <Text>開啟與關閉巨作畫面</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_GRID" Language="zh_Hant_HK">
       <Text>開啟/關閉網格</Text>
@@ -4267,6 +4282,12 @@
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_JOURNAL" Language="zh_Hant_HK">
       <Text>開啟/關閉日誌</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_LEGACIES" Language="zh_Hant_HK">
+      <Text>開啟/關閉傳承</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_LEGACIES_TT" Language="zh_Hant_HK">
+      <Text>開啟與關閉傳承畫面</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_LENS_CONTINENT" Language="zh_Hant_HK">
       <Text>大陸</Text>
@@ -4293,10 +4314,16 @@
       <Text>開啟/關閉貿易濾鏡</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_RANKINGS_SCREEN" Language="zh_Hant_HK">
-      <Text>開啟/關閉勝利畫面</Text>
+      <Text>開啟/關閉勝利</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_RANKINGS_SCREEN_TT" Language="zh_Hant_HK">
+      <Text>開啟與關閉勝利畫面</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_RELIGION" Language="zh_Hant_HK">
-      <Text>開啟/關閉宗教面板</Text>
+      <Text>開啟/關閉宗教</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_RELIGION_TT" Language="zh_Hant_HK">
+      <Text>開啟與關閉宗教畫面</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_RESOURCE_ICONS" Language="zh_Hant_HK">
       <Text>開啟/關閉資源圖示</Text>
@@ -4310,8 +4337,14 @@
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_TECH_TREE" Language="zh_Hant_HK">
       <Text>開啟/關閉科技樹</Text>
     </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_TECH_TREE_TT" Language="zh_Hant_HK">
+      <Text>開啟與關閉科技樹</Text>
+    </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_TRADE_SCREEN" Language="zh_Hant_HK">
-      <Text>開啟/關閉貿易畫面</Text>
+      <Text>開啟/關閉貿易</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_TRADE_SCREEN_TT" Language="zh_Hant_HK">
+      <Text>開啟與關閉貿易畫面</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_VICTORY_PROGRESS" Language="zh_Hant_HK">
       <Text>開啟/關閉勝利進度畫面</Text>
@@ -4697,6 +4730,9 @@
     <Replace Tag="LOC_UI_MP_GAME_RULE_TURN_TIME" Language="zh_Hant_HK">
       <Text>回合時間：</Text>
     </Replace>
+    <Replace Tag="LOC_UI_MP_GAME_RULE_TURN_TIME_EXTENDED" Language="zh_Hant_HK">
+      <Text>延長回合時間：</Text>
+    </Replace>
     <Replace Tag="LOC_UI_MP_GAME_RULE_TURN_TIMER" Language="zh_Hant_HK">
       <Text>回合倒數：</Text>
     </Replace>
@@ -5051,6 +5087,9 @@
     <Replace Tag="LOC_UI_SAVE_CONFIG" Language="zh_Hant_HK">
       <Text>儲存組態</Text>
     </Replace>
+    <Replace Tag="LOC_UI_SHOW_TOOLTIPS" Language="zh_Hant_HK">
+      <Text>顯示提示說明（按住）</Text>
+    </Replace>
     <Replace Tag="LOC_UI_SOCIAL_PLAYER_OPTIONS" Language="zh_Hant_HK">
       <Text>玩家選項</Text>
     </Replace>
@@ -5089,6 +5128,15 @@
     </Replace>
     <Replace Tag="LOC_UI_TOOLTIP_DLCS" Language="zh_Hant_HK">
       <Text>官方內容</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_TOOLTIP_HIDDEN_HINT_BODY_POST" Language="zh_Hant_HK">
+      <Text>以再次顯示提示說明。重新啟動後將再次顯示提示說明。</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_TOOLTIP_HIDDEN_HINT_BODY_PRE" Language="zh_Hant_HK">
+      <Text>按住檢視動作</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_TOOLTIP_HIDDEN_HINT_TITLE" Language="zh_Hant_HK">
+      <Text>提示說明已隱藏</Text>
     </Replace>
     <Replace Tag="LOC_UI_TOOLTIP_MODS" Language="zh_Hant_HK">
       <Text>附加內容</Text>

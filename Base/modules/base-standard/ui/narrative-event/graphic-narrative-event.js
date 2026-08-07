@@ -349,7 +349,7 @@ class GraphicNarrativeEvent extends Panel {
     buttonFXS.setAttribute("data-audio-group-ref", "small-narrative-event");
     if (!canAfford) {
       buttonFXS.classList.add("opacity-50");
-      buttonFXS.setAttribute("data-audio-press-ref", "data-audio-error");
+      buttonFXS.setAttribute("data-audio-press-ref", "data-audio-error-press");
       buttonFXS.setAttribute("data-audio-activate-ref", "none");
     }
     container.appendChild(buttonFXS);

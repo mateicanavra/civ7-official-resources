@@ -1,20 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Database>
-	<Civilizations>
-		<Update>
-			<Where CivilizationType="CIVILIZATION_HEIAN" />
-			<Set UniqueCultureProgressionTree="TREE_CIVICS_MO_TEST_OF_TIME" />
-		</Update>
-	</Civilizations>
 	<Traits>
 	</Traits>
 	<TraitModifiers>
 		<Row TraitType="TRAIT_HEIAN_ABILITY" ModifierId="TRAIT_MOD_APPEALING_MORE_CULTURE"/>
 		<Row TraitType="TRAIT_HEIAN_ABILITY" ModifierId="TRAIT_MOD_APPEALING_VP"/>
 	</TraitModifiers>
-	<CivilizationTraits>
-		<Row CivilizationType="CIVILIZATION_HEIAN" TraitType="TRAIT_ANACHRONISTIC_CIV" />
-	</CivilizationTraits>
 	<VictoryScorings>
 		<Row VictoryType="VICTORY_CULTURE_MODERN" TrackerType="VICTORY_TRACKER_RESORT_TOWN_TOURISM" ScoringId="VICTORY_TRACKER_APPEALING_HEIAN" Name="LOC_CIVILIZATION_HEIAN_NAME" Data="CITY" Points="2" RequiresActivation="true"/>
 	</VictoryScorings>

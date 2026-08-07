@@ -592,6 +592,9 @@
     <Replace Tag="LOC_GROUPID_PLAYERDIFFICULTY" Language="ko_KR">
       <Text>플레이어 난이도 설정</Text>
     </Replace>
+    <Replace Tag="LOC_GROUPID_VICTORYOPTIONS" Language="ko_KR">
+      <Text>승리 설정</Text>
+    </Replace>
     <Replace Tag="LOC_HOTSEAT_ENTER_PASSWORD_HERE" Language="ko_KR">
       <Text>여기에 비밀번호를 입력하세요.</Text>
     </Replace>
@@ -657,6 +660,9 @@
     </Replace>
     <Replace Tag="LOC_JOIN_GAME_CONNECTION_REJECTED" Language="ko_KR">
       <Text>게임 호스트에 연결하지 못했습니다. 참여 코드를 사용하는 경우 코드를 확인한 후 다시 시도해 주세요.</Text>
+    </Replace>
+    <Replace Tag="LOC_JOIN_GAME_CROSSPLAY_DISABLED" Language="ko_KR">
+      <Text>크로스플레이가 비활성화된 상태에서는 크로스플레이 게임에 참여할 수 없습니다. 옵션 메뉴에서 크로스플레이를 활성화할 수 있습니다.</Text>
     </Replace>
     <Replace Tag="LOC_JOIN_GAME_JOINCODE_SYNTAX" Language="ko_KR">
       <Text>잘못된 참여 코드입니다. 참여 코드를 확인하고 다시 시도해 주세요.</Text>
@@ -3890,9 +3896,6 @@
     <Replace Tag="LOC_UI_CREATE_GAME_GAME_START_CIV_SELECTION" Language="ko_KR">
       <Text>게임 시작 문명 선택</Text>
     </Replace>
-    <Replace Tag="LOC_UI_CREATE_GAME_HEIGHT_OF_POWER" Language="ko_KR">
-      <Text>[Height of Power Text]</Text>
-    </Replace>
     <Replace Tag="LOC_UI_CREATE_GAME_HEIGHT_OF_POWER_DESCRIPTION" Language="ko_KR">
       <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</Text>
     </Replace>
@@ -3901,9 +3904,6 @@
     </Replace>
     <Replace Tag="LOC_UI_CREATE_GAME_HISTORICAL_RANDOM_DESCRIPTION" Language="ko_KR">
       <Text>지도자와 역사적, 지리적 또는 전략적 관계가 있는 문명이 선택됩니다.</Text>
-    </Replace>
-    <Replace Tag="LOC_UI_CREATE_GAME_HOWWHEN_IS_TEST_OF_TIME_ACTIVATED" Language="ko_KR">
-      <Text>[How/When is Test of Time activated Text]</Text>
     </Replace>
     <Replace Tag="LOC_UI_CREATE_GAME_HOWWHEN_IS_TEST_OF_TIME_ACTIVATED_DESCRIPTION" Language="ko_KR">
       <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</Text>
@@ -3994,9 +3994,6 @@
     </Replace>
     <Replace Tag="LOC_UI_CREATE_GAME_UNLOCKED_BY_DESCRIPTION" Language="ko_KR">
       <Text>아무 요건이나 만족하면 이 문명이 잠금 해제됩니다.</Text>
-    </Replace>
-    <Replace Tag="LOC_UI_CREATE_GAME_WHAT_IS_TEST_OF_TIME" Language="ko_KR">
-      <Text>[What is Test of Time Text]</Text>
     </Replace>
     <Replace Tag="LOC_UI_CREATE_GAME_WHAT_IS_TEST_OF_TIME_DESCRIPTION" Language="ko_KR">
       <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</Text>
@@ -4194,19 +4191,22 @@
       <Text>다음 준비 완료된 유닛으로 전환합니다.</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_OPEN_ATTRIBUTES" Language="ko_KR">
-      <Text>지도자 속성표 열기</Text>
+      <Text>속성 전환</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_OPEN_ATTRIBUTES_TT" Language="ko_KR">
-      <Text>지도자 속성표를 엽니다.</Text>
+      <Text>속성 화면을 열고 닫습니다</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_OPEN_CIVILOPEDIA" Language="ko_KR">
-      <Text>문명 백과사전 열기</Text>
+      <Text>문명 백과사전 전환</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_OPEN_CIVILOPEDIA_TT" Language="ko_KR">
+      <Text>문명 백과사전을 열고 닫습니다</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_OPEN_GOVERNMENT" Language="ko_KR">
-      <Text>정부 열기</Text>
+      <Text>정부 전환</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_OPEN_GOVERNMENT_TT" Language="ko_KR">
-      <Text>정부 화면을 엽니다.</Text>
+      <Text>정부 화면을 열고 닫습니다</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_PAUSE_ONLINE_GAME" Language="ko_KR">
       <Text>온라인 게임 일시 정지</Text>
@@ -4250,14 +4250,29 @@
     <Replace Tag="LOC_UI_KBM_MAPPING_SECONDARY_KEY" Language="ko_KR">
       <Text>보조</Text>
     </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_ADVISORS" Language="ko_KR">
+      <Text>보좌관 의회 전환</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_ADVISORS_TT" Language="ko_KR">
+      <Text>보좌관 의회 화면을 열고 닫습니다</Text>
+    </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_CIVICS_SCREEN" Language="ko_KR">
-      <Text>사회 제도 화면 전환</Text>
+      <Text>문화 속성표 전환</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_CIVICS_SCREEN_TT" Language="ko_KR">
+      <Text>문화 속성표를 열고 닫습니다</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_GREAT_PEOPLE_SCREEN" Language="ko_KR">
-      <Text>위인 화면 전환</Text>
+      <Text>위인 전환</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_GREAT_PEOPLE_SCREEN_TT" Language="ko_KR">
+      <Text>위인 화면을 열고 닫습니다</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_GREAT_WORKS_SCREEN" Language="ko_KR">
-      <Text>걸작 화면 전환</Text>
+      <Text>걸작 전환</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_GREAT_WORKS_SCREEN_TT" Language="ko_KR">
+      <Text>걸작 화면을 열고 닫습니다</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_GRID" Language="ko_KR">
       <Text>격자 전환</Text>
@@ -4267,6 +4282,12 @@
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_JOURNAL" Language="ko_KR">
       <Text>일지 전환</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_LEGACIES" Language="ko_KR">
+      <Text>유산 전환</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_LEGACIES_TT" Language="ko_KR">
+      <Text>유산 화면을 열고 닫습니다</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_LENS_CONTINENT" Language="ko_KR">
       <Text>대륙</Text>
@@ -4293,10 +4314,16 @@
       <Text>교역 렌즈를 전환합니다.</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_RANKINGS_SCREEN" Language="ko_KR">
-      <Text>승리 화면 전환</Text>
+      <Text>승리 전환</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_RANKINGS_SCREEN_TT" Language="ko_KR">
+      <Text>승리 화면을 열고 닫습니다</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_RELIGION" Language="ko_KR">
-      <Text>종교 패널 전환</Text>
+      <Text>종교 전환</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_RELIGION_TT" Language="ko_KR">
+      <Text>종교 화면을 열고 닫습니다</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_RESOURCE_ICONS" Language="ko_KR">
       <Text>자원 아이콘 전환</Text>
@@ -4310,8 +4337,14 @@
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_TECH_TREE" Language="ko_KR">
       <Text>기술 발전표 전환</Text>
     </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_TECH_TREE_TT" Language="ko_KR">
+      <Text>기술 발전표를 열고 닫습니다</Text>
+    </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_TRADE_SCREEN" Language="ko_KR">
-      <Text>교역로 화면 전환</Text>
+      <Text>교역 전환</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_TRADE_SCREEN_TT" Language="ko_KR">
+      <Text>교역 화면을 열고 닫습니다</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_VICTORY_PROGRESS" Language="ko_KR">
       <Text>승리 진행 상황 화면 전환</Text>
@@ -4697,6 +4730,9 @@
     <Replace Tag="LOC_UI_MP_GAME_RULE_TURN_TIME" Language="ko_KR">
       <Text>턴 시간:</Text>
     </Replace>
+    <Replace Tag="LOC_UI_MP_GAME_RULE_TURN_TIME_EXTENDED" Language="ko_KR">
+      <Text>연장된 턴 시간:</Text>
+    </Replace>
     <Replace Tag="LOC_UI_MP_GAME_RULE_TURN_TIMER" Language="ko_KR">
       <Text>턴 타이머:</Text>
     </Replace>
@@ -5051,6 +5087,9 @@
     <Replace Tag="LOC_UI_SAVE_CONFIG" Language="ko_KR">
       <Text>설정 저장</Text>
     </Replace>
+    <Replace Tag="LOC_UI_SHOW_TOOLTIPS" Language="ko_KR">
+      <Text>툴팁 표시(길게 누르기)</Text>
+    </Replace>
     <Replace Tag="LOC_UI_SOCIAL_PLAYER_OPTIONS" Language="ko_KR">
       <Text>플레이어 옵션</Text>
     </Replace>
@@ -5089,6 +5128,15 @@
     </Replace>
     <Replace Tag="LOC_UI_TOOLTIP_DLCS" Language="ko_KR">
       <Text>공식 콘텐츠</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_TOOLTIP_HIDDEN_HINT_BODY_POST" Language="ko_KR">
+      <Text>툴팁을 다시 표시합니다. 재시작 시 툴팁이 다시 표시됩니다.</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_TOOLTIP_HIDDEN_HINT_BODY_PRE" Language="ko_KR">
+      <Text>길게 눌러 활동 살펴보기</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_TOOLTIP_HIDDEN_HINT_TITLE" Language="ko_KR">
+      <Text>툴팁 숨김</Text>
     </Replace>
     <Replace Tag="LOC_UI_TOOLTIP_MODS" Language="ko_KR">
       <Text>추가 콘텐츠</Text>

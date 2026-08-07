@@ -43,6 +43,12 @@
     <Replace Tag="LOC_DIPLO_MAKE_DEAL_REJECTED_LEADER_GILGAMESH" Language="ja_JP">
       <Text>貴様の提案は灰のごとく味気ない。</Text>
     </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_DECREASED_LEADER_GILGAMESH" Language="ja_JP">
+      <Text>お前の鳴き声はアンズー鳥、這い回る様はリリートゥのようだ。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_INCREASED_LEADER_GILGAMESH" Language="ja_JP">
+      <Text>よし！ では、友情の証しに力試しをしよう。</Text>
+    </Replace>
     <Replace Tag="LOC_MAIN_CHAR_SELECT_LEADER_GILGAMESH_ANY" Language="ja_JP">
       <Text>王と称する者は他にもいるが、俺のような神々しき体躯、宝玉のごとき顎鬚、煌々と光る瞳を誇れる者がいようか？</Text>
     </Replace>
@@ -617,13 +623,19 @@
       <Text>ギルガメシュ 近代 傾注 軍事</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_ALLY_OF_ENKIDU_DESC" Language="ja_JP">
-      <Text>開始したか支持した外交努力が最も多い指導者を好む。他の誰かと同盟を結んでいる指導者を嫌う。</Text>
+      <Text>開始したか支持した [icon:ENDEAVOR] 外交努力が最も多い指導者を好む。他の誰かと [icon:PLAYER_RELATIONSHIP_ALLIANCE] 同盟を結んでいる指導者を嫌う。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_ALLY_OF_ENKIDU_DESC_DISLIKES" Language="ja_JP">
+      <Text>ギルガメシュは他の誰かと [icon:PLAYER_RELATIONSHIP_ALLIANCE] 同盟を結んでいる指導者を嫌う。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_ALLY_OF_ENKIDU_DESC_LIKES" Language="ja_JP">
+      <Text>ギルガメシュは開始したか支持した [icon:ENDEAVOR] 外交努力が最も多い指導者を好む。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_ALLY_OF_ENKIDU_NAME" Language="ja_JP">
       <Text>エンキドゥの盟友</Text>
     </Replace>
     <Replace Tag="LOC_LEADER_GILGAMESH_DESCRIPTION" Language="ja_JP">
-      <Text>同盟国が1つだけの場合、 [icon:WAR_SUPPORT] 戦争への支持+2。軍事ユニットが敵ユニットを倒すと、そのユニットの [icon:NAR_REW_COMBAT] 戦闘力の50%に相当する [icon:YIELD_DIPLOMACY] 影響力を得る。すべての基本的な外交努力が自動的に解除される。同盟国との外交努力が、同じ種類の外交努力を同時にいくつも実行できないという制約の対象外となる。同盟国にコストなしで外交努力を支持してもらえる。</Text>
+      <Text>[icon:PLAYER_RELATIONSHIP_ALLIANCE] 同盟国が1つだけの場合、 [icon:WAR_SUPPORT] 戦争への支持+2。軍事ユニットが敵ユニットを倒すと、そのユニットの [icon:NAR_REW_COMBAT] 戦闘力の50%に相当する [icon:YIELD_DIPLOMACY] 影響力を得る。すべての基本的な外交努力が自動的に解除される。同盟国との外交努力が、同じ種類の外交努力を同時にいくつも実行できないという制約の対象外となる。同盟国にコストなしで外交努力を支持してもらえる。</Text>
     </Replace>
     <Replace Tag="LOC_LOADING_LEADER_INTRO_TEXT_GILGAMESH" Language="ja_JP">
       <Text>ギルガメシュよ、最古の英雄にして至高の友よ、汝ほど生を愛する者はいない。ヒノキの森には汝の笑いが響き、チグリス川は汝の涙で溢れ、敵は迫り来る汝に戦慄する。新たな試練が待っている... さあ、立ち上がれ。叙事詩に新たな詩を刻むのだ。</Text>
@@ -1071,7 +1083,7 @@
       <Text>三分の一は人、三分の二は神</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_LEADER_GILGAMESH_ABILITY_DESCRIPTION" Language="ja_JP">
-      <Text>[BLIST][LI]同盟国が1つだけの場合、 [B][icon:WAR_SUPPORT] 戦争への支持[/B]+2。
+      <Text>[BLIST][LI] [icon:PLAYER_RELATIONSHIP_ALLIANCE] 同盟国が1つだけの場合、 [B][icon:WAR_SUPPORT] 戦争への支持[/B]+2。
 				[LI]軍事ユニットが敵のユニットを倒すと、そのユニットの [icon:NAR_REW_COMBAT] 戦闘力の50%に相当する [B][icon:YIELD_DIPLOMACY] 影響力[/B]を得る。
 				[LI]すべての基本的な外交努力が自動的に解除される。同盟との外交努力が、同時に有効にできる外交努力の種類の上限に数えられない。同盟国は無償で外交努力を支持できる。[/LIST]</Text>
     </Replace>

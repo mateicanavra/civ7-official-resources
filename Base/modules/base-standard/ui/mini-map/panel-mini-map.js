@@ -205,7 +205,12 @@ class PanelMiniMap extends Panel {
     this.subpanels.push(subpanel);
   }
   onContextChange(_event) {
-    this.updateChatNavHelp();
+    const deactivatedElement = _event.detail.deactivatedElement;
+    if (deactivatedElement && (deactivatedElement.typeName === "lens-panel" || deactivatedElement.typeName === "screen-mp-chat")) {
+      this.closeSubpanels();
+    } else {
+      this.updateChatNavHelp();
+    }
   }
   onActiveLensChanged(event) {
     const hasLegend = event.detail.hasLegend;

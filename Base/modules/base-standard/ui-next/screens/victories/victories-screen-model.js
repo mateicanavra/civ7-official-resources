@@ -1,8 +1,9 @@
-import { createSignal, onMount, createEffect, createContext, useContext } from '../../../../core/vendor/solid-js/dist/solid.js';
+import { createSignal, onMount, createEffect, untrack, createContext, useContext } from '../../../../core/vendor/solid-js/dist/solid.js';
 import { createMutable } from '../../../../core/vendor/solid-js/store/dist/store.js';
 import ContextManager from '../../../../core/ui/context-manager/context-manager.js';
 import { utils } from '../../../../core/ui/graph-layout/utils.js';
 import ActionHandler from '../../../../core/ui/input/action-handler.js';
+import NavTray from '../../../../core/ui/navigation-tray/model-navigation-tray.js';
 import { ObjectToRgbaString } from '../../../../core/ui/utilities/utilities-color.js';
 import { ComponentID } from '../../../../core/ui/utilities/utilities-component-id.js';
 import { Layout } from '../../../../core/ui/utilities/utilities-layout.js';
@@ -90,6 +91,12 @@ function calcPlayerColors() {
 }
 function createVictoriesScreenModel(isEndGame, allowOneMoreTurn, showNextTurnButton) {
   const playerUiStateById = /* @__PURE__ */ new Map();
+  const persistentUiState = {
+    lastFocusedPlayer: PlayerIds.NO_PLAYER,
+    lastInspectedPlayer: PlayerIds.NO_PLAYER,
+    isInspecting: false
+  };
+  const [currentTab, setCurrentTab] = createSignal("");
   function getOrCreatePlayerRowState(playerId) {
     let state = playerUiStateById.get(playerId);
     if (!state) {
@@ -108,13 +115,213 @@ function createVictoriesScreenModel(isEndGame, allowOneMoreTurn, showNextTurnBut
     }
     return state;
   }
+  function syncPersistentUiStateToData(data) {
+    data.lastFocusedPlayer = persistentUiState.lastFocusedPlayer;
+    data.lastInspectedPlayer = persistentUiState.lastInspectedPlayer;
+    data.isInspecting = persistentUiState.isInspecting;
+  }
+  function setLastFocusedPlayer(playerId) {
+    persistentUiState.lastFocusedPlayer = playerId;
+    model.data.lastFocusedPlayer = playerId;
+  }
+  function setLastInspectedPlayer(playerId) {
+    persistentUiState.lastInspectedPlayer = playerId;
+    model.data.lastInspectedPlayer = playerId;
+  }
+  function setIsInspecting(isInspecting) {
+    persistentUiState.isInspecting = isInspecting;
+    model.data.isInspecting = isInspecting;
+  }
+  function clearAllPlayerPresentationState() {
+    playerUiStateById.forEach((state) => {
+      state.setIsHighlighted(false);
+      state.setIsFocused(false);
+      state.setShouldDimScore(false);
+    });
+  }
+  function getTabTypeFromId(tabId) {
+    switch (tabId) {
+      case "military":
+        return 0 /* Military */;
+      case "cultural":
+        return 1 /* Cultural */;
+      case "economic":
+        return 2 /* Economic */;
+      case "scientific":
+        return 3 /* Scientific */;
+      case "score":
+        return 4 /* Score */;
+    }
+  }
+  function applyHighlightPlayer(playerId, tabType) {
+    switch (tabType) {
+      case 2 /* Economic */:
+        model.data.economicDetails.playerDetails.forEach((player) => {
+          if (player.playerInfo.playerId == playerId) {
+            player.playerInfo.setHighlighted(true);
+            player.playerInfo.setDimScore(false);
+          } else {
+            player.playerInfo.setDimScore(true);
+          }
+        });
+        highlightEconPlayer(playerId);
+        break;
+      case 0 /* Military */:
+        model.data.militaryDetails.playerDetails.forEach((player) => {
+          if (player.playerInfo.playerId == playerId) {
+            player.playerInfo.setHighlighted(true);
+            player.playerInfo.setDimScore(false);
+          } else {
+            player.playerInfo.setDimScore(true);
+          }
+        });
+        break;
+      case 3 /* Scientific */:
+        model.data.scienceDetails.playerDetails.find((player) => player.playerInfo.playerId == playerId)?.playerInfo.setHighlighted(true);
+        break;
+      case 1 /* Cultural */:
+        model.data.cultureDetails.playerDetails.find((player) => player.playerInfo.playerId == playerId)?.playerInfo.setHighlighted(true);
+        break;
+      case 4 /* Score */:
+        model.data.scoreDetails.playerDetails.find((player) => player.playerInfo.playerId == playerId)?.playerInfo.setHighlighted(true);
+        model.data.scoreDetails.playerDetails.find((player) => player.playerInfo.playerId != playerId)?.playerInfo.setHighlighted(false);
+        break;
+    }
+  }
+  function applyUnHighlightPlayer(playerId, tabType) {
+    switch (tabType) {
+      case 2 /* Economic */:
+        model.data.economicDetails.playerDetails.forEach((player) => {
+          player.playerInfo.setDimScore(false);
+          if (player.playerInfo.playerId == playerId) {
+            player.playerInfo.setHighlighted(false);
+          }
+        });
+        highlightAllEconPlayers();
+        break;
+      case 0 /* Military */:
+        model.data.militaryDetails.playerDetails.forEach((player) => {
+          player.playerInfo.setDimScore(false);
+          if (player.playerInfo.playerId == playerId) {
+            player.playerInfo.setHighlighted(false);
+          }
+        });
+        break;
+      case 3 /* Scientific */:
+        model.data.scienceDetails.playerDetails.find((player) => player.playerInfo.playerId == playerId)?.playerInfo.setHighlighted(false);
+        break;
+      case 1 /* Cultural */:
+        model.data.cultureDetails.playerDetails.find((player) => player.playerInfo.playerId == playerId)?.playerInfo.setHighlighted(false);
+        break;
+      case 4 /* Score */:
+        model.data.scoreDetails.playerDetails.find((player) => player.playerInfo.playerId == playerId)?.playerInfo.setHighlighted(false);
+        break;
+    }
+  }
+  function applyFocusPlayer(playerId, tabType) {
+    switch (tabType) {
+      case 2 /* Economic */:
+        model.data.economicDetails.playerDetails.forEach((player) => {
+          if (player.playerInfo.playerId == playerId) {
+            player.playerInfo.setDimScore(false);
+            player.playerInfo.setFocused(true);
+          } else {
+            player.playerInfo.setDimScore(true);
+            player.playerInfo.setFocused(false);
+          }
+        });
+        break;
+      case 0 /* Military */:
+        model.data.militaryDetails.playerDetails.forEach((player) => {
+          if (player.playerInfo.playerId == playerId) {
+            player.playerInfo.setDimScore(false);
+            player.playerInfo.setFocused(true);
+          } else {
+            player.playerInfo.setDimScore(true);
+            player.playerInfo.setFocused(false);
+          }
+        });
+        break;
+      case 1 /* Cultural */:
+        model.data.cultureDetails.playerDetails.forEach((player) => {
+          if (player.playerInfo.playerId == playerId) {
+            player.playerInfo.setDimScore(false);
+            player.playerInfo.setHighlighted(true);
+          } else {
+            player.playerInfo.setDimScore(true);
+            player.playerInfo.setHighlighted(false);
+            player.playerInfo.setFocused(false);
+          }
+        });
+        break;
+      case 3 /* Scientific */:
+        model.data.scienceDetails.playerDetails.find((player) => player.playerInfo.playerId == playerId)?.playerInfo.setHighlighted(true);
+        break;
+      case 4 /* Score */:
+        applyHighlightPlayer(playerId, tabType);
+        break;
+    }
+  }
+  function applyUnFocusPlayer(playerId, tabType) {
+    switch (tabType) {
+      case 2 /* Economic */:
+        model.data.economicDetails.playerDetails.forEach((player) => {
+          player.playerInfo.setDimScore(false);
+          if (player.playerInfo.playerId == playerId) {
+            player.playerInfo.setFocused(false);
+          }
+        });
+        break;
+      case 0 /* Military */:
+        model.data.militaryDetails.playerDetails.forEach((player) => {
+          player.playerInfo.setDimScore(false);
+          if (player.playerInfo.playerId == playerId) {
+            player.playerInfo.setFocused(false);
+          }
+        });
+        break;
+      case 1 /* Cultural */:
+        model.data.cultureDetails.playerDetails.forEach((player) => {
+          player.playerInfo.setDimScore(false);
+          if (player.playerInfo.playerId == playerId) {
+            player.playerInfo.setHighlighted(false);
+          }
+        });
+        break;
+      case 3 /* Scientific */:
+        model.data.scienceDetails.playerDetails.find((player) => player.playerInfo.playerId == playerId)?.playerInfo.setHighlighted(false);
+        break;
+      case 4 /* Score */:
+        applyUnHighlightPlayer(playerId, tabType);
+        break;
+    }
+  }
+  function reapplyTrackedUiState() {
+    clearAllPlayerPresentationState();
+    const tabType = getTabTypeFromId(model.data.currentTab());
+    if (tabType == void 0) {
+      return;
+    }
+    if (persistentUiState.lastFocusedPlayer != PlayerIds.NO_PLAYER) {
+      applyFocusPlayer(persistentUiState.lastFocusedPlayer, tabType);
+    }
+    if (persistentUiState.isInspecting && persistentUiState.lastInspectedPlayer != PlayerIds.NO_PLAYER) {
+      applyHighlightPlayer(persistentUiState.lastInspectedPlayer, tabType);
+    } else if (tabType == 2 /* Economic */) {
+      highlightAllEconPlayers();
+    }
+    syncPersistentUiStateToData(model.data);
+  }
   onMount(() => {
     const victoryDominanceChanged = createEngineEvent("VictoryDominanceChanged");
     const victoryCountdownChanged = createEngineEvent("VictoryCountdownChanged");
     const victoryPointsChanged = createEngineEvent("VictoryPointsChanged");
     createEffect(() => {
       if (victoryDominanceChanged() || victoryCountdownChanged() || victoryPointsChanged()) {
-        model.data = populateData();
+        untrack(() => {
+          model.data = populateData();
+          reapplyTrackedUiState();
+        });
       }
     });
     createEffect(() => {
@@ -122,7 +329,12 @@ function createVictoriesScreenModel(isEndGame, allowOneMoreTurn, showNextTurnBut
         model.data.economicDetails.ageOptions.selectedValue()
       );
       if (chart) {
-        model.data.economicDetails.currentChart = chart;
+        untrack(() => {
+          model.data.economicDetails.currentChart = chart;
+          if (model.data.currentTab() == "economic") {
+            reapplyTrackedUiState();
+          }
+        });
       } else {
         console.error(
           `victories-screen-model: Could not find chart for age ${model.data.economicDetails.ageOptions.selectedValue()}`
@@ -131,6 +343,7 @@ function createVictoriesScreenModel(isEndGame, allowOneMoreTurn, showNextTurnBut
     });
   });
   function handleClickClose() {
+    NavTray.clear();
     ContextManager.pop("screen-victory-progress");
   }
   function handleUnFocusAllPlayers(tabId) {
@@ -176,14 +389,15 @@ function createVictoriesScreenModel(isEndGame, allowOneMoreTurn, showNextTurnBut
   }
   function handleTabChanged(tabId) {
     if (tabId == model.data.currentTab()) {
-      return;
+      return false;
     }
     model.tooltipToggle = false;
-    model.data.lastFocusedPlayer = PlayerIds.NO_PLAYER;
-    model.data.lastInspectedPlayer = PlayerIds.NO_PLAYER;
-    model.data.isInspecting = false;
+    setLastFocusedPlayer(PlayerIds.NO_PLAYER);
+    setLastInspectedPlayer(PlayerIds.NO_PLAYER);
+    setIsInspecting(false);
     model.data.setCurrentTab(tabId);
     handleUnFocusAllPlayers(tabId);
+    return true;
   }
   function handleGamepadInfoButton() {
     model.tooltipToggle = !model.tooltipToggle;
@@ -240,179 +454,44 @@ function createVictoriesScreenModel(isEndGame, allowOneMoreTurn, showNextTurnBut
           break;
       }
       if (model.data.isInspecting) {
-        model.data.isInspecting = false;
+        setIsInspecting(false);
       } else {
-        model.data.isInspecting = true;
+        setIsInspecting(true);
       }
-      model.data.lastInspectedPlayer = model.data.lastFocusedPlayer;
+      setLastInspectedPlayer(model.data.lastFocusedPlayer);
     } else if (model.data.currentTab() == "summary") {
       if (model.data.isInspecting) {
-        model.data.isInspecting = false;
+        setIsInspecting(false);
       } else {
-        model.data.isInspecting = true;
+        setIsInspecting(true);
       }
-      model.data.lastFocusedPlayer = PlayerIds.NO_PLAYER;
+      setLastFocusedPlayer(PlayerIds.NO_PLAYER);
     }
   }
   function handleHighlightPlayer(playerId, tabType) {
-    switch (tabType) {
-      case 2 /* Economic */:
-        model.data.economicDetails.playerDetails.forEach((player) => {
-          if (player.playerInfo.playerId == playerId) {
-            player.playerInfo.setHighlighted(true);
-            player.playerInfo.setDimScore(false);
-          } else {
-            player.playerInfo.setDimScore(true);
-          }
-        });
-        highlightEconPlayer(playerId);
-        break;
-      case 0 /* Military */:
-        model.data.militaryDetails.playerDetails.forEach((player) => {
-          if (player.playerInfo.playerId == playerId) {
-            player.playerInfo.setHighlighted(true);
-            player.playerInfo.setDimScore(false);
-          } else {
-            player.playerInfo.setDimScore(true);
-          }
-        });
-        break;
-      case 3 /* Scientific */:
-        model.data.scienceDetails.playerDetails.find((player) => player.playerInfo.playerId == playerId)?.playerInfo.setHighlighted(true);
-        break;
-      case 1 /* Cultural */:
-        model.data.cultureDetails.playerDetails.find((player) => player.playerInfo.playerId == playerId)?.playerInfo.setHighlighted(true);
-        break;
-      case 4 /* Score */:
-        model.data.scoreDetails.playerDetails.find((player) => player.playerInfo.playerId == playerId)?.playerInfo.setHighlighted(true);
-        model.data.scoreDetails.playerDetails.find((player) => player.playerInfo.playerId != playerId)?.playerInfo.setHighlighted(false);
-        break;
-    }
+    applyHighlightPlayer(playerId, tabType);
   }
   function handleUnHighlightPlayer(playerId, tabType) {
-    switch (tabType) {
-      case 2 /* Economic */:
-        model.data.economicDetails.playerDetails.forEach((player) => {
-          player.playerInfo.setDimScore(false);
-          if (player.playerInfo.playerId == playerId) {
-            player.playerInfo.setHighlighted(false);
-          }
-        });
-        highlightAllEconPlayers();
-        break;
-      case 0 /* Military */:
-        model.data.militaryDetails.playerDetails.forEach((player) => {
-          player.playerInfo.setDimScore(false);
-          if (player.playerInfo.playerId == playerId) {
-            player.playerInfo.setHighlighted(false);
-          }
-        });
-        break;
-      case 3 /* Scientific */:
-        model.data.scienceDetails.playerDetails.find((player) => player.playerInfo.playerId == playerId)?.playerInfo.setHighlighted(false);
-        break;
-      case 1 /* Cultural */:
-        model.data.cultureDetails.playerDetails.find((player) => player.playerInfo.playerId == playerId)?.playerInfo.setHighlighted(false);
-        break;
-      case 4 /* Score */:
-        model.data.scoreDetails.playerDetails.find((player) => player.playerInfo.playerId == playerId)?.playerInfo.setHighlighted(false);
-        break;
-    }
+    applyUnHighlightPlayer(playerId, tabType);
   }
   function handleFocusPlayer(playerId, tabType) {
     if (playerId == model.data.lastFocusedPlayer) {
       return;
     }
-    model.data.lastFocusedPlayer = playerId;
+    setLastFocusedPlayer(playerId);
     if (model.data.isInspecting && model.data.lastInspectedPlayer != playerId) {
-      model.data.isInspecting = false;
+      setIsInspecting(false);
       handleUnHighlightPlayer(model.data.lastInspectedPlayer, 2 /* Economic */);
       handleUnHighlightPlayer(model.data.lastInspectedPlayer, 0 /* Military */);
-      model.data.lastInspectedPlayer = PlayerIds.NO_PLAYER;
+      setLastInspectedPlayer(PlayerIds.NO_PLAYER);
     }
-    switch (tabType) {
-      case 2 /* Economic */:
-        model.data.economicDetails.playerDetails.forEach((player) => {
-          if (player.playerInfo.playerId == playerId) {
-            player.playerInfo.setDimScore(false);
-            player.playerInfo.setFocused(true);
-          } else {
-            player.playerInfo.setDimScore(true);
-            player.playerInfo.setFocused(false);
-          }
-        });
-        break;
-      case 0 /* Military */:
-        model.data.militaryDetails.playerDetails.forEach((player) => {
-          if (player.playerInfo.playerId == playerId) {
-            player.playerInfo.setDimScore(false);
-            player.playerInfo.setFocused(true);
-          } else {
-            player.playerInfo.setDimScore(true);
-            player.playerInfo.setFocused(false);
-          }
-        });
-        break;
-      case 1 /* Cultural */:
-        model.data.cultureDetails.playerDetails.forEach((player) => {
-          if (player.playerInfo.playerId == playerId) {
-            player.playerInfo.setDimScore(false);
-            player.playerInfo.setHighlighted(true);
-          } else {
-            player.playerInfo.setDimScore(true);
-            player.playerInfo.setHighlighted(false);
-            player.playerInfo.setFocused(false);
-          }
-        });
-        break;
-      case 3 /* Scientific */:
-        model.data.scienceDetails.playerDetails.find((player) => player.playerInfo.playerId == playerId)?.playerInfo.setHighlighted(true);
-        break;
-      case 4 /* Score */:
-        handleHighlightPlayer(playerId, tabType);
-        break;
-    }
+    applyFocusPlayer(playerId, tabType);
   }
   function handleUnFocusPlayer(playerId, tabType) {
-    model.data.lastFocusedPlayer = PlayerIds.NO_PLAYER;
-    switch (tabType) {
-      case 2 /* Economic */:
-        model.data.economicDetails.playerDetails.forEach((player) => {
-          player.playerInfo.setDimScore(false);
-          if (player.playerInfo.playerId == playerId) {
-            player.playerInfo.setFocused(false);
-          }
-        });
-        break;
-      case 0 /* Military */:
-        model.data.militaryDetails.playerDetails.forEach((player) => {
-          player.playerInfo.setDimScore(false);
-          if (player.playerInfo.playerId == playerId) {
-            player.playerInfo.setFocused(false);
-          }
-        });
-        break;
-      case 1 /* Cultural */:
-        model.data.cultureDetails.playerDetails.forEach((player) => {
-          player.playerInfo.setDimScore(false);
-          if (player.playerInfo.playerId == playerId) {
-            player.playerInfo.setHighlighted(false);
-          }
-        });
-        break;
-      case 3 /* Scientific */:
-        model.data.scienceDetails.playerDetails.find((player) => player.playerInfo.playerId == playerId)?.playerInfo.setHighlighted(false);
-        break;
-      case 4 /* Score */:
-        handleUnHighlightPlayer(playerId, tabType);
-        break;
-    }
+    setLastFocusedPlayer(PlayerIds.NO_PLAYER);
+    applyUnFocusPlayer(playerId, tabType);
   }
-  function populateData(isEndGame2, allowOneMoreTurn2, showNextTurnButton2) {
-    playerUiStateById.forEach((state) => {
-      state.setIsHighlighted(false);
-      state.setShouldDimScore(false);
-    });
+  function populateData() {
     const ornatePanelData = {
       topIconSrc: Game.AgeProgressManager.isExtendedGame || Game.AgeProgressManager.getMaxAgeProgressionPoints() <= 0 ? "url(blp:hud_omt_infinity)" : "url(blp:sub_agetimer)",
       backgroundImageSrc: "",
@@ -487,6 +566,7 @@ function createVictoriesScreenModel(isEndGame, allowOneMoreTurn, showNextTurnBut
           rules: "",
           dominantPlayer: calcDominantPlayer(victory.$hash, victory.CountdownDuration),
           tabId: "",
+          visible: Game.VictoryManager.isCountdownVictoryEnabled(victory.VictoryType),
           hasFocus: false
         };
         const includeUnmetPlayers = victoryDefinition.VictoryClassType === "VICTORY_CLASS_SCIENCE";
@@ -495,7 +575,6 @@ function createVictoriesScreenModel(isEndGame, allowOneMoreTurn, showNextTurnBut
           victoryDefinition.VictoryClassType,
           includeUnmetPlayers
         );
-        let show_summary = true;
         switch (victoryDefinition.VictoryClassType) {
           case "VICTORY_CLASS_MILITARY":
             victoryProps.victoryLogo = "img-emblem-military";
@@ -536,22 +615,26 @@ function createVictoriesScreenModel(isEndGame, allowOneMoreTurn, showNextTurnBut
             break;
           case "VICTORY_CLASS_SCORE":
             scoreDetails = calcScoreDetails(victory.$hash);
-            show_summary = false;
+            victoryProps.visible = false;
             break;
           default:
-            show_summary = false;
+            victoryProps.visible = false;
             break;
         }
-        if (show_summary) {
-          panelList.push(victoryProps);
-        }
+        panelList.push(victoryProps);
       } else {
         console.error(
           `victories-screen-model: Unable to find victory definition for victory ${victory.VictoryType}`
         );
       }
     });
-    const [currentTab, setCurrentTab] = createSignal(panelList[0]?.tabId || "");
+    const fallbackTab = "summary";
+    const preservedTab = currentTab();
+    const hasPreservedTab = preservedTab == "summary" || panelList.some((panel) => panel.tabId == preservedTab && panel.visible);
+    const defaultTab = hasPreservedTab ? preservedTab : fallbackTab;
+    if (currentTab() != defaultTab) {
+      setCurrentTab(defaultTab);
+    }
     const victoriesScreenData = {
       ornatePanelData,
       panels: panelList,
@@ -560,15 +643,15 @@ function createVictoriesScreenModel(isEndGame, allowOneMoreTurn, showNextTurnBut
       scienceDetails,
       cultureDetails,
       scoreDetails,
-      defaultTab: "",
+      defaultTab,
       currentTab,
       setCurrentTab,
-      lastFocusedPlayer: PlayerIds.NO_PLAYER,
-      lastInspectedPlayer: PlayerIds.NO_PLAYER,
-      isInspecting: false,
-      isEndGame: isEndGame2,
-      allowOneMoreTurn: allowOneMoreTurn2,
-      showNextTurnButton: showNextTurnButton2
+      lastFocusedPlayer: persistentUiState.lastFocusedPlayer,
+      lastInspectedPlayer: persistentUiState.lastInspectedPlayer,
+      isInspecting: persistentUiState.isInspecting,
+      isEndGame,
+      allowOneMoreTurn,
+      showNextTurnButton
     };
     return victoriesScreenData;
   }
@@ -1050,7 +1133,11 @@ function createVictoriesScreenModel(isEndGame, allowOneMoreTurn, showNextTurnBut
     return militaryDetail;
   }
   function highlightEconPlayer(playerId) {
-    model.data.economicDetails.currentChart.graphLines.forEach((line) => {
+    const graphLines = model.data.economicDetails.currentChart.graphLines;
+    if (!graphLines) {
+      return;
+    }
+    graphLines.forEach((line) => {
       const detail = model.data.economicDetails.playerDetails.find((a) => a.playerInfo.playerId == line.refCon);
       if (detail) {
         if (line.refCon == playerId) {
@@ -1064,7 +1151,11 @@ function createVictoriesScreenModel(isEndGame, allowOneMoreTurn, showNextTurnBut
     });
   }
   function highlightAllEconPlayers() {
-    model.data.economicDetails.currentChart.graphLines.forEach((line) => {
+    const graphLines = model.data.economicDetails.currentChart.graphLines;
+    if (!graphLines) {
+      return;
+    }
+    graphLines.forEach((line) => {
       const detail = model.data.economicDetails.playerDetails.find((a) => a.playerInfo.playerId == line.refCon);
       if (detail) {
         line.color = detail.playerColor;
@@ -1094,7 +1185,7 @@ function createVictoriesScreenModel(isEndGame, allowOneMoreTurn, showNextTurnBut
             playerGraphLine.color = "#ffffff";
           }
           const thisPlayersData = ageData.find((a) => a.playerId == player.id);
-          let turn = 0;
+          let turn = 1;
           if (thisPlayersData) {
             thisPlayersData.history.forEach((point) => {
               playerGraphLine.points.push({ x: turn, y: point });
@@ -1562,7 +1653,6 @@ function createVictoriesScreenModel(isEndGame, allowOneMoreTurn, showNextTurnBut
               break;
             }
             case VictoryTrackerTypes.VICTORY_TRACKER_RESORT_TOWN_TOURISM: {
-              const scoreData2 = GameInfo.VictoryDataUIs.find((a) => a.$hash == point.id);
               if (!iconOverride) {
                 pointSource.iconSrc = "url(blp:focus_resort)";
                 pointSource.typeName = Locale.compose("LOC_PROJECT_TOWN_RESORT_NAME");
@@ -1617,7 +1707,6 @@ function createVictoriesScreenModel(isEndGame, allowOneMoreTurn, showNextTurnBut
             }
             case VictoryTrackerTypes.VICTORY_TRACKER_BUILDING_TAG: {
               pointSource.sourceName = Locale.compose(point.name);
-              const scoreData2 = GameInfo.VictoryDataUIs.find((a) => a.$hash == point.id);
               if (!iconOverride) {
                 pointSource.iconSrc = "url(blp:victory_cultural)";
                 pointSource.typeName = Locale.compose(point.name) + " " + Locale.compose("LOC_VICTORY_TOURISM_NAME");
@@ -1726,7 +1815,7 @@ function createVictoriesScreenModel(isEndGame, allowOneMoreTurn, showNextTurnBut
     return cultureDetail;
   }
   const model = createMutable({
-    data: populateData(isEndGame, allowOneMoreTurn, showNextTurnButton),
+    data: populateData(),
     tooltipToggle: false,
     clickCloseButton: handleClickClose,
     onGamepadInfoButton: handleGamepadInfoButton,

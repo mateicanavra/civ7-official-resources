@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<!-- ====================================== -->
+	<!-- Standard Unlocks -->
+	<!-- ====================================== -->
+	<Types>
+		<InsertOrIgnore Type="UNLOCK_CIVILIZATION_JOSEON" Kind="KIND_UNLOCK"/>
+	</Types>
+	<Unlocks>
+		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_JOSEON"/>
+	</Unlocks>
+	<UnlockRewards>
+		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_JOSEON" Name="LOC_CIVILIZATION_JOSEON_NAME" Description="LOC_UNLOCK_MODERN_CIV_DESCRIPTION" Icon="CIVILIZATION_JOSEON" UnlockRewardType="CIVILIZATION_JOSEON" UnlockRewardKind="KIND_CIVILIZATION"/>
+	</UnlockRewards>
+	<RequirementSets>
+		<InsertOrIgnore RequirementSetId="REQSET_PLAYER_HAS_LOTS_OF_SPECIALISTS" RequirementSetType="REQUIREMENTSET_TEST_ALL"/>
+	</RequirementSets>
+	<Requirements>
+		<InsertOrIgnore RequirementId="REQ_PLAYER_HAS_LOTS_OF_SPECIALISTS" RequirementType="REQUIREMENT_PLAYER_HAS_X_WORKERS"/>
+	</Requirements>
+	<RequirementArguments>
+		<InsertOrIgnore RequirementId="REQ_PLAYER_HAS_LOTS_OF_SPECIALISTS" Name="Amount" Value="16"/>
+	</RequirementArguments>
+	<RequirementSetRequirements>
+		<InsertOrIgnore RequirementSetId="REQSET_PLAYER_HAS_LOTS_OF_SPECIALISTS" RequirementId="REQ_PLAYER_HAS_LOTS_OF_SPECIALISTS"/>
+		<InsertOrIgnore RequirementSetId="REQSET_PLAYER_HAS_LOTS_OF_SPECIALISTS" RequirementId="REQ_AGE_IS_EXPLORATION"/>
+	</RequirementSetRequirements>
+	<UnlockRequirements>
+		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_JOSEON" RequirementSetId="REQSET_PLAYER_HAS_LOTS_OF_SPECIALISTS" Description="LOC_UNLOCK_LOTS_OF_SPECIALISTS_DESCRIPTION" Tooltip="LOC_UNLOCK_LOTS_OF_SPECIALISTS_JOSEON_TOOLTIP" GameplayUnlock="True" NarrativeText="LOC_UNLOCK_LOTS_OF_SPECIALISTS_JOSEON_NARRATIVE"/>
+		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_JOSEON" RequirementSetId="REQSET_LEADER_IS_CONFUCIUS" Description="LOC_UNLOCK_PLAY_AS_CONFUCIUS_DESCRIPTION" Tooltip="LOC_UNLOCK_PLAY_AS_CONFUCIUS_JOSEON_TOOLTIP"/>
+		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_JOSEON" RequirementSetId="REQSET_LEADER_IS_PACHACUTI" Description="LOC_UNLOCK_PLAY_AS_PACHACUTI_DESCRIPTION" Tooltip="LOC_UNLOCK_PLAY_AS_PACHACUTI_JOSEON_TOOLTIP"/>
+	</UnlockRequirements>
+	<UnlockConfigurationValues>
+		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_JOSEON" ConfigurationValue="CIVILIZATION_JOSEON"/>
+	</UnlockConfigurationValues>
+	<!-- ====================================== -->
+	<!-- Test of Time Unlocks -->
+	<!-- ====================================== -->
+	<RequirementSets>
+		<InsertOrIgnore RequirementSetId="REQSET_CIV_IS_JOSEON" RequirementSetType="REQUIREMENTSET_TEST_ALL"/>
+	</RequirementSets>
+	<Requirements>
+		<InsertOrIgnore RequirementId="REQ_CIV_IS_JOSEON" RequirementType="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES"/>
+	</Requirements>
+	<RequirementArguments>
+		<InsertOrIgnore RequirementId="REQ_CIV_IS_JOSEON" Name="CivilizationType" Value="CIVILIZATION_JOSEON"/>
+	</RequirementArguments>
+	<RequirementSetRequirements>
+		<InsertOrIgnore RequirementSetId="REQSET_CIV_IS_JOSEON" RequirementId="REQ_CIV_IS_JOSEON"/>
+	</RequirementSetRequirements>
+	<UnlockRequirements>
+		<Row UnlockType="UNLOCK_CIVILIZATION_JOSEON" RequirementSetId="REQSET_CIV_IS_JOSEON" Description="LOC_UNLOCK_PLAY_AS_JOSEON_DESCRIPTION" Tooltip="LOC_UNLOCK_PLAY_AS_JOSEON_JOSEON_TOOLTIP"/>
+	</UnlockRequirements>
+</Database>

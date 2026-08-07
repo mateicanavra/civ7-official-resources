@@ -43,6 +43,12 @@
     <Replace Tag="LOC_DIPLO_MAKE_DEAL_REJECTED_LEADER_GILGAMESH" Language="ru_RU">
       <Text>У твоей сделки вкус пепла.</Text>
     </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_DECREASED_LEADER_GILGAMESH" Language="ru_RU">
+      <Text>Вы кричите, как птица Анзу, и пресмыкаетесь, как Лилиту.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_INCREASED_LEADER_GILGAMESH" Language="ru_RU">
+      <Text>Отлично! Давайте поборемся.</Text>
+    </Replace>
     <Replace Tag="LOC_MAIN_CHAR_SELECT_LEADER_GILGAMESH_ANY" Language="ru_RU">
       <Text>Прочие мнят себя царями. Кто из них сравнится с моей божественной силой, лазурной бородой, яркими очами?</Text>
     </Replace>
@@ -619,13 +625,19 @@
       <Text>Устремление Гильгамеша в современную эпоху: военное дело</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_ALLY_OF_ENKIDU_DESC" Language="ru_RU">
-      <Text>Этому лидеру нравятся лидеры, которые начали или поддержали больше всего инициатив, и не нравятся те, кто состоит в союзе с кем-либо еще.</Text>
+      <Text>Этому лидеру нравится лидер, который начал или поддержал больше всего [icon:ENDEAVOR] инициатив, и не нравятся те, кто состоит в [icon:PLAYER_RELATIONSHIP_ALLIANCE] союзе с кем-либо еще.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_ALLY_OF_ENKIDU_DESC_DISLIKES" Language="ru_RU">
+      <Text>Гильгамешу не нравятся лидеры, которые состоят в [icon:PLAYER_RELATIONSHIP_ALLIANCE] союзе с кем-либо еще.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_ALLY_OF_ENKIDU_DESC_LIKES" Language="ru_RU">
+      <Text>Гильгамешу нравится лидер, который начал или поддержал больше всего [icon:ENDEAVOR] инициатив.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_ALLY_OF_ENKIDU_NAME" Language="ru_RU">
       <Text>Соратник Энкиду</Text>
     </Replace>
     <Replace Tag="LOC_LEADER_GILGAMESH_DESCRIPTION" Language="ru_RU">
-      <Text>+2 к [icon:WAR_SUPPORT] военной поддержке, если вы состоите только в одном союзе. Когда один из ваших военных юнитов побеждает вражеского юнита, получите [icon:YIELD_DIPLOMACY] влияние в размере 50% от [icon:NAR_REW_COMBAT] боевой мощи побежденного юнита. Все основные инициативы автоматически разблокируются. Инициативы, выполняемые с союзниками, не учитываются в лимите на одну активную инициативу определенного типа одновременно. Союзники могут поддерживать ваши инициативы бесплатно.</Text>
+      <Text>+2 к [icon:WAR_SUPPORT] военной поддержке, если вы состоите только в одном [icon:PLAYER_RELATIONSHIP_ALLIANCE] союзе. Когда один из ваших военных юнитов побеждает вражеского юнита, получите [icon:YIELD_DIPLOMACY] влияние в размере 50% от [icon:NAR_REW_COMBAT] боевой мощи побежденного юнита. Все основные инициативы автоматически разблокируются. Инициативы, выполняемые с союзниками, не учитываются в лимите на одну активную инициативу определенного типа одновременно. Союзники могут поддерживать ваши инициативы бесплатно.</Text>
     </Replace>
     <Replace Tag="LOC_LOADING_LEADER_INTRO_TEXT_GILGAMESH" Language="ru_RU">
       <Text>Никто не любит жизнь больше тебя, Гильгамеш, первый из героев и лучший из друзей. Кедровые рощи сотрясаются от твоего смеха, Тигр разливается от твоих слез, а твои враги трепещут при твоем приближении. Тебя ждет новое испытание — иди же и напиши новую строфу к своему эпосу.</Text>
@@ -1077,11 +1089,11 @@
       <Text>Однажды смертный, дважды божественный</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_LEADER_GILGAMESH_ABILITY_DESCRIPTION" Language="ru_RU">
-      <Text>[BLIST][LI]+2 к [B][icon:WAR_SUPPORT] военной поддержке[/B], если вы состоите только в одном союзе.
+      <Text>[BLIST][LI]+2 к [B][icon:WAR_SUPPORT] военной поддержке[/B], если вы состоите только в одном [icon:PLAYER_RELATIONSHIP_ALLIANCE] союзе.
 
 				[LI]Когда один из ваших военных юнитов побеждает вражеского юнита, получите [B][icon:YIELD_DIPLOMACY] влияние[/B] в размере 50% от [icon:NAR_REW_COMBAT] боевой мощи побежденного юнита. 
 
-				[LI]Все основные инициативы автоматически разблокируются. Инициативы, выполняемые с союзниками, не учитываются в лимите на одну активную инициативу определенного типа одновременно. Союзники могут поддерживать ваши инициативы бесплатно. [/LIST]</Text>
+				[LI]Все основные инициативы автоматически разблокируются. Инициативы, выполняемые с союзниками, не учитываются в лимите на одну активную инициативу определенного типа одновременно. Союзники могут поддерживать ваши инициативы бесплатно.[/LIST]</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_LEADER_GILGAMESH_ABILITY_NAME" Language="ru_RU">
       <Text>Единожды смертный, дважды божественный</Text>

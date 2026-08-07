@@ -241,36 +241,46 @@ var VoronoiUtils;
     const height = bbox.yb - bbox.yt;
     const density = Math.sqrt(sites.length / (width * height));
     const wrapMargin = Math.min(4 / density, width * 0.5);
-    const createDiagram = (sites2) => {
-      if (wrap == 1 /* WrapX */) {
-        sites2 = sites2.filter((value) => value.x >= bbox.xl && value.x < bbox.xr);
-        const marginSites = [];
-        for (const site of sites2) {
-          if (site.x <= bbox.xl + wrapMargin) {
-            marginSites.push({ x: site.x + width, y: site.y, id: 0 });
-          } else if (site.x > bbox.xr - wrapMargin) {
-            marginSites.push({ x: site.x - width, y: site.y, id: 0 });
-          }
+    const wrappedBbox = wrap == 1 /* WrapX */ ? { xl: bbox.xl - wrapMargin, xr: bbox.xr + wrapMargin, yt: bbox.yt, yb: bbox.yb } : bbox;
+    const buildWrappedInput = (input) => {
+      if (wrap !== 1 /* WrapX */) return { useSites: input, realSites: input };
+      const realSites = input.filter((value) => value.x >= bbox.xl && value.x < bbox.xr);
+      const marginSites = [];
+      for (const site of realSites) {
+        if (site.x <= bbox.xl + wrapMargin) {
+          marginSites.push({ x: site.x + width, y: site.y, id: 0 });
+        } else if (site.x > bbox.xr - wrapMargin) {
+          marginSites.push({ x: site.x - width, y: site.y, id: 0 });
         }
-        sites2 = sites2.concat(marginSites);
-        console.log(`Duplicating ${sites2.length} sites around the voronoi graph margins.`);
-        const wrappedBbox = {
-          xl: bbox.xl - wrapMargin,
-          xr: bbox.xr + wrapMargin,
-          yt: bbox.yt,
-          yb: bbox.yb
-        };
-        return voronoi.compute(sites2, wrappedBbox);
-      } else {
-        return voronoi.compute(sites2, bbox);
       }
+      return { useSites: realSites.concat(marginSites), realSites };
     };
-    let diagram = createDiagram(sites);
+    const createDiagram = (input) => {
+      const w = buildWrappedInput(input);
+      if (wrap == 1 /* WrapX */) {
+        console.log(`Duplicating ${w.useSites.length} sites around the voronoi graph margins.`);
+      }
+      return voronoi.compute(w.useSites, wrappedBbox);
+    };
+    let centroidsX = new Float64Array(Math.max(16, sites.length * 2));
+    let centroidsY = new Float64Array(centroidsX.length);
     for (let index = 0; index < relaxationSteps; index++) {
-      sites = lloydRelaxation(diagram.cells, 2);
-      voronoi.toRecycle = diagram;
-      diagram = createDiagram(sites);
+      const w = buildWrappedInput(sites);
+      if (centroidsX.length < w.useSites.length) {
+        centroidsX = new Float64Array(w.useSites.length);
+        centroidsY = new Float64Array(w.useSites.length);
+      }
+      voronoi.computeCentroids(w.useSites, wrappedBbox, centroidsX, centroidsY);
+      for (let i = 0, n = w.useSites.length; i < n; i++) {
+        const s = w.useSites[i];
+        const id = s.id;
+        s.x += 2 * (centroidsX[id] - s.x);
+        s.y += 2 * (centroidsY[id] - s.y);
+        s.id = 0;
+      }
+      sites = w.realSites;
     }
+    const diagram = createDiagram(sites);
     const isInside = (v, bounds) => {
       return v != null && v.x >= bounds.xl && v.x < bounds.xr && v.y >= bounds.yt && v.y < bounds.yb;
     };

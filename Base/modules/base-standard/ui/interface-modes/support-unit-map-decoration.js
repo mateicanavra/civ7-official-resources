@@ -115,6 +115,7 @@ var UnitMapDecorationSupport;
       this.updateRanges();
       engine.on("UnitMoveComplete", this.onUnitMoveComplete, this);
       engine.on("UnitKilledInCombat", this.onUnitKilled, this);
+      engine.on("UnitMovementPointsCleared", this.onUnitMovementPointsCleared, this);
       const plotCoords = Camera.pickPlotFromPoint(Cursor.position.x, Cursor.position.y);
       if (plotCoords && !ActionHandler.isGamepadActive && ActionHandler.deviceType != InputDeviceType.Touch) {
         this.update(plotCoords);
@@ -123,6 +124,9 @@ var UnitMapDecorationSupport;
       }
     }
     onUnitKilled() {
+      this.updateRanges();
+    }
+    onUnitMovementPointsCleared() {
       this.updateRanges();
     }
     updateRanges() {
@@ -522,6 +526,7 @@ var UnitMapDecorationSupport;
       this.showDesiredDestination = false;
       engine.off("UnitMoveComplete", this.onUnitMoveComplete, this);
       engine.off("UnitKilledInCombat", this.onUnitKilled, this);
+      engine.off("UnitMovementPointsCleared", this.onUnitMovementPointsCleared, this);
     }
   }
   UnitMapDecorationSupport2.manager = new Instance();

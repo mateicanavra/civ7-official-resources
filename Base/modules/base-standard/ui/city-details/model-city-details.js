@@ -29,6 +29,8 @@ class CityDetailsModel {
   buildings = [];
   improvements = [];
   wonders = [];
+  constructibleCounts = /* @__PURE__ */ new Map();
+  warehouseCounts = /* @__PURE__ */ new Map();
   yields = [];
   isBeingRazed = false;
   getTurnsUntilRazed = -1;
@@ -289,6 +291,8 @@ class CityDetailsModel {
     this.buildings = [];
     this.improvements = [];
     this.wonders = [];
+    this.constructibleCounts.clear();
+    this.warehouseCounts.clear();
     for (const constructibleID of constructibles.getIds()) {
       const constructible = Constructibles.getByComponentID(constructibleID);
       if (!constructible) {
@@ -298,6 +302,8 @@ class CityDetailsModel {
       if (!constructibleDefinition) {
         return;
       }
+      const count = this.constructibleCounts.get(constructibleDefinition.Name) || 0;
+      this.constructibleCounts.set(constructibleDefinition.Name, count + 1);
       const constructibleData = {
         id: constructibleID,
         location: constructible.location,
@@ -343,6 +349,48 @@ class CityDetailsModel {
           break;
         case "IMPROVEMENT":
           this.improvements.push(constructibleData);
+          const warehouseImprovementDefinition = GameInfo.Constructibles.lookup(
+            Districts.getFreeConstructible(constructible.location, city.owner)
+          );
+          if (warehouseImprovementDefinition) {
+            const warehouseImprovementType = warehouseImprovementDefinition.ConstructibleType;
+            const warehouseImprovementName = warehouseImprovementDefinition.Name;
+            const ImprovementType = constructibleDefinition.ConstructibleType;
+            const improvementName = constructibleDefinition.Name;
+            if (!this.warehouseCounts.has(warehouseImprovementName)) {
+              this.warehouseCounts.set(warehouseImprovementName, {
+                name: warehouseImprovementName,
+                icon: warehouseImprovementType,
+                total: 0,
+                breakdown: /* @__PURE__ */ new Map()
+              });
+            }
+            const warehouseEntry = this.warehouseCounts.get(warehouseImprovementName);
+            if (!warehouseEntry || !warehouseEntry.breakdown) {
+              console.error(`model-city-details: warehouse entry was just created but does not exist?`);
+              break;
+            }
+            warehouseEntry.total += 1;
+            if (!warehouseEntry.breakdown.has(improvementName)) {
+              warehouseEntry.breakdown.set(improvementName, {
+                name: improvementName,
+                icon: ImprovementType,
+                total: 0
+              });
+            }
+            const warehouseSubEntry = warehouseEntry.breakdown.get(improvementName);
+            if (!warehouseSubEntry) {
+              console.error(
+                `model-city-details: warehouse breakdown was just created but does not exist?`
+              );
+              break;
+            }
+            warehouseSubEntry.total += 1;
+          } else {
+            console.error(
+              `model-city-details: basic improvment type not found for plot ${constructible.location}!`
+            );
+          }
           break;
         case "WONDER":
           this.wonders.push(constructibleData);
@@ -353,6 +401,17 @@ class CityDetailsModel {
           );
       }
     }
+    this.improvements.sort((a, b) => {
+      const freqA = this.constructibleCounts.get(a.name) || 0;
+      const freqB = this.constructibleCounts.get(b.name) || 0;
+      if (freqB !== freqA) {
+        return freqB - freqA;
+      }
+      if (a.name != b.name) {
+        return a.name.localeCompare(b.name);
+      }
+      return 0;
+    });
     this.yields = [];
     for (let yieldIndex = 0; yieldIndex < GameInfo.Yields.length; yieldIndex++) {
       const yieldInfo = GameInfo.Yields[yieldIndex];

@@ -1,17 +1,17 @@
-import AdviceManager from '../../../base-standard/ui/advice/advice-manager.js';
+import { adviceAddItem, adviceAddBundle } from '../../../base-standard/ui/advice/advice-manager.js';
 import { hasCivic, goldInRange, shouldSelect } from '../../../base-standard/ui/advice/advice-support.js';
 
 const TURN_WAIT = 20;
 const TURN_START = 10;
 const TURN_OFFSET = 8;
-AdviceManager.addItem({
+adviceAddItem({
   id: "ADVICE_ANTIQUITY_ECONOMIC_ECONOMIC_VICTORY",
   type: AdvisorTypes.ECONOMIC,
   onSelect: () => {
     return Game.turn == 1;
   }
 });
-AdviceManager.addItem({
+adviceAddItem({
   id: "ADVICE_ANTIQUITY_ECONOMIC_TRADE_ROUTES",
   // player has Code of Laws unlocked
   type: AdvisorTypes.ECONOMIC,
@@ -19,7 +19,7 @@ AdviceManager.addItem({
     return hasCivic("NODE_CIVIC_AQ_MAIN_CODE_OF_LAWS");
   }
 });
-AdviceManager.addItem({
+adviceAddItem({
   id: "ADVICE_AGELESS_ECONOMIC_SPENDING_GOLD",
   // Player has more than 500 gold
   type: AdvisorTypes.ECONOMIC,
@@ -27,7 +27,7 @@ AdviceManager.addItem({
     return goldInRange(500, -1);
   }
 });
-AdviceManager.addItem({
+adviceAddItem({
   id: "ADVICE_ANTIQUITY_ECONOMIC_TRIUMPH",
   // Player has between 8 and 24 slotted resources
   type: AdvisorTypes.ECONOMIC,
@@ -43,7 +43,7 @@ AdviceManager.addItem({
     return false;
   }
 });
-AdviceManager.addBundle({
+adviceAddBundle({
   id: "economicMisc01",
   type: AdvisorTypes.ECONOMIC,
   pages: [

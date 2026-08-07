@@ -149,25 +149,25 @@
       <Text>今の時代にこの居住地を支配している間、ターンごとの [icon:YIELD_DIPLOMACY] 影響力-4</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ACTION_ESPIONAGE_BUY_LOYALTY_DESCRIPTION" Language="ja_JP">
-      <Text>対象の指導者が解除した陸上軍事ユニットと同じものを獲得する。ユニットは首都に出現する。</Text>
+      <Text>対象の指導者が解除した陸上軍事ユニットと同じものを獲得する。ユニットは [icon:NOTIFICATION_SELECT_CAPITAL] 首都に出現する。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ACTION_ESPIONAGE_BUY_LOYALTY_NAME" Language="ja_JP">
       <Text>忠誠心を買う</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_CULTURAL_EXCHANGE_INITIAL" Language="ja_JP">
-      <Text>他の指導者と文化交流する。[n]承諾: ターンごとの [icon:YIELD_CULTURE] 文化力+8。相手の指導者のターンごとの [icon:YIELD_CULTURE] 文化力+4。[n]支持: 双方のターンごとの [icon:YIELD_CULTURE] 文化力+12。[n]拒否: 関係が悪化する。</Text>
+      <Text>他の指導者と文化交流する。[n]承諾: ターンごとの [icon:YIELD_CULTURE] 文化力+8。相手の指導者のターンごとの [icon:YIELD_CULTURE] 文化力+4。[n]支持: 双方のターンごとの [icon:YIELD_CULTURE] 文化力+12。[n]拒否: [icon:RELATIONSHIP] 関係が悪化する。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_CULTURAL_EXCHANGE_SUPPORT" Language="ja_JP">
       <Text>双方の指導者のターンごとの [icon:YIELD_CULTURE] +12。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_DEMAND_TRIBUTE_ACCEPT" Language="ja_JP">
-      <Text>ターンごとに [icon:YIELD_GOLD] ゴールド20を失う。アクション完了時に、対象の居住地の近くに2ポイント相当の財宝輸送隊が出現する。</Text>
+      <Text>ターンごとに [icon:YIELD_GOLD] ゴールド20を失う。アクション完了時に、対象の居住地の近くに2ポイント相当の [icon:UNIT_TREASURE_FLEET] 財宝輸送隊が出現する。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_DEMAND_TRIBUTE_DESCRIPTION" Language="ja_JP">
-      <Text>財宝資源のある居住地が対象になる。この制裁の期間中、居住地の所有者はターンごとに [icon:YIELD_GOLD] ゴールド-20。アクション完了時に価値2の財宝輸送隊が出現する。</Text>
+      <Text>[icon:UNIT_TREASURE_FLEET] 財宝資源のある居住地が対象になる。この制裁の期間中、居住地の所有者はターンごとに [icon:YIELD_GOLD] ゴールド-20。アクション完了時に価値2の [icon:UNIT_TREASURE_FLEET] 財宝輸送隊が出現する。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_DEMAND_TRIBUTE_INITIAL" Language="ja_JP">
-      <Text>財宝資源のある居住地が対象になる。この制裁の期間中、居住地の所有者はターンごとに [icon:YIELD_GOLD] ゴールド-20。アクション完了時に価値2の財宝輸送隊が出現する。</Text>
+      <Text>[icon:UNIT_TREASURE_FLEET] 財宝資源のある居住地が対象になる。この制裁の期間中、居住地の所有者はターンごとに [icon:YIELD_GOLD] ゴールド-20。アクション完了時に価値2の [icon:UNIT_TREASURE_FLEET] 財宝輸送隊が出現する。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_DEMAND_TRIBUTE_NAME" Language="ja_JP">
       <Text>貢物を要求する</Text>
@@ -176,10 +176,10 @@
       <Text>外交アクションをキャンセルする。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_FARMERS_MARKET_INITIAL" Language="ja_JP">
-      <Text>他の指導者と農産物を共有する。[n]承諾: 町のターンごとの [icon:YIELD_FOOD] 食料+4。相手の指導者のターンごとの [icon:YIELD_GOLD] ゴールド+4。[n]支持: 双方の指導者の町のターンごとの [icon:YIELD_FOOD] 食料+6。[n]拒否: 関係が悪化する。</Text>
+      <Text>他の指導者と農産物を共有する。[n]承諾: [icon:YIELD_TOWNS] 町のターンごとの [icon:YIELD_FOOD] 食料+4。相手の指導者のターンごとの [icon:YIELD_GOLD] ゴールド+4。[n]支持: 双方の指導者の [icon:YIELD_TOWNS] 町のターンごとの [icon:YIELD_FOOD] 食料+6。[n]拒否: [icon:RELATIONSHIP] 関係が悪化する。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_FARMERS_MARKET_SUPPORT" Language="ja_JP">
-      <Text>双方の指導者のターンごとの町の [icon:YIELD_FOOD] 食料+6。</Text>
+      <Text>双方の指導者のターンごとの [icon:YIELD_TOWNS] 町の [icon:YIELD_FOOD] +6。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_FRIEND_OF_WA" Language="ja_JP">
       <Text>親魏倭王と同盟を組む。[n]承諾: 双方の [icon:YIELD_SCIENCE] 科学力+25%。</Text>
@@ -188,37 +188,37 @@
       <Text>親魏倭王と同盟を組む。[n]承諾: 双方の [icon:YIELD_SCIENCE] 科学力+25%。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_GINSING_AGREEMENT_INITIAL" Language="ja_JP">
-      <Text>他の指導者と人参協定を交わす。[n]承諾: 都市のターンごとの [icon:YIELD_FOOD] 食料+6。相手の都市のターンごとの [icon:YIELD_FOOD] 食料+4。[n]支持: 双方の都市のターンごとの [icon:YIELD_FOOD] 食料+10。[n]拒否: 関係が悪化する。</Text>
+      <Text>他の指導者と人参協定を交わす。[n]承諾: [icon:YIELD_CITIES] 都市のターンごとの [icon:YIELD_FOOD] 食料+6。相手の [icon:YIELD_CITIES] 都市のターンごとの [icon:YIELD_FOOD] 食料+4。[n]支持: 双方の [icon:YIELD_CITIES] 都市のターンごとの [icon:YIELD_FOOD] 食料+10。[n]拒否: [icon:RELATIONSHIP] 関係が悪化する。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_GINSING_AGREEMENT_SUPPORT" Language="ja_JP">
-      <Text>双方の指導者のターンごとの都市の [icon:YIELD_FOOD] 食料+10。</Text>
+      <Text>双方の指導者のターンごとの [icon:YIELD_CITIES] 都市の [icon:YIELD_FOOD] +10。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_LOCAL_FESTIVALS_INITIAL" Language="ja_JP">
-      <Text>他の指導者と地元の祭典を開催する。[n]承諾: すべての都市のターンごとの [icon:YIELD_HAPPINESS] 幸福度+4。相手の指導者のターンごとの [icon:YIELD_DIPLOMACY] 影響力+4。[n]支持: 双方の都市のターンごとの [icon:YIELD_HAPPINESS] 幸福度+6。[n]拒否: 関係が悪化する。</Text>
+      <Text>他の指導者と地元の祭典を開催する。[n]承諾: すべての [icon:YIELD_CITIES] 都市のターンごとの [icon:YIELD_HAPPINESS] 幸福度+4。相手の指導者のターンごとの [icon:YIELD_DIPLOMACY] 影響力+4。[n]支持: 双方の [icon:YIELD_CITIES] 都市のターンごとの [icon:YIELD_HAPPINESS] 幸福度+6。[n]拒否: [icon:RELATIONSHIP] 関係が悪化する。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_LOCAL_FESTIVALS_SUPPORT" Language="ja_JP">
-      <Text>双方の指導者の都市のターンごとの [icon:YIELD_HAPPINESS] 幸福度+6。</Text>
+      <Text>双方の指導者の [icon:YIELD_CITIES] 都市のターンごとの [icon:YIELD_HAPPINESS] +6。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_MILITARY_AID_ACCEPT" Language="ja_JP">
-      <Text>ターンごとの [icon:YIELD_GOLD] ゴールド+4。[n]相手の指導者のユニットの戦闘力+2。</Text>
+      <Text>ターンごとの [icon:YIELD_GOLD] +4。[n]相手の指導者のユニットの [icon:NAR_REW_COMBAT] 戦闘力+2。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_MINOR_TRADE_INITIAL" Language="ja_JP">
-      <Text>他の指導者を相手に市場を開放する。[n]承諾: ターンごとの [icon:YIELD_GOLD] ゴールド+8。相手のターンごとの [icon:YIELD_GOLD] ゴールド+4。[n]支持: 双方のターンごとの [icon:YIELD_GOLD] ゴールド+12。[n]拒否: 関係が悪化する。</Text>
+      <Text>他の指導者を相手に市場を開放する。[n]承諾: ターンごとの [icon:YIELD_GOLD] ゴールド+8。相手のターンごとの [icon:YIELD_GOLD] ゴールド+4。[n]支持: 双方のターンごとの [icon:YIELD_GOLD] ゴールド+12。[n]拒否: [icon:RELATIONSHIP] 関係が悪化する。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_MINOR_TRADE_SUPPORT" Language="ja_JP">
-      <Text>双方の指導者のターンごとのゴールド [icon:YIELD_GOLD] +12。</Text>
+      <Text>双方の指導者のターンごとの [icon:YIELD_GOLD] +12。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_OPEN_BORDERS_ACCEPT" Language="ja_JP">
       <Text>国境を開放する。[n]ターンごとの [icon:YIELD_GOLD] ゴールド+4。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_RESEARCH_COLLABORATION_INITIAL" Language="ja_JP">
-      <Text>他の指導者と共同研究をする。[n]承諾: ターンごとの [icon:YIELD_SCIENCE] 科学力+8。相手のターンごとの [icon:YIELD_SCIENCE] 科学力+4。[n]支持: 双方のターンごとの [icon:YIELD_SCIENCE] 科学力+12。[n]拒否: 関係が悪化する。</Text>
+      <Text>他の指導者と共同研究をする。[n]承諾: ターンごとの [icon:YIELD_SCIENCE] 科学力+8。相手のターンごとの [icon:YIELD_SCIENCE] 科学力+4。[n]支持: 双方のターンごとの [icon:YIELD_SCIENCE] 科学力+12。[n]拒否: [icon:RELATIONSHIP] 関係が悪化する。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_RESEARCH_COLLABORATION_SUPPORT" Language="ja_JP">
-      <Text>双方の指導者のターンごとの科学力 [icon:YIELD_SCIENCE] +12。</Text>
+      <Text>双方の指導者のターンごとの [icon:YIELD_SCIENCE] +12。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_TRADE_MAP_ACCEPT" Language="ja_JP">
-      <Text>ターンごとの [icon:YIELD_GOLD] ゴールド+4。[n]他の指導者に対してあなたの領土が少しずつ明らかになる。</Text>
+      <Text>ターンごとの [icon:YIELD_GOLD] +4。[n]相手指導者に対してあなたの領土が時間経過とともに明らかになっていく。</Text>
     </Replace>
     <Replace Tag="LOC_EXP_RESOURCE_CLOVES_TOOLTIP" Language="ja_JP">
       <Text>[icon:YIELD_FOOD] 食料+6、 [icon:YIELD_GOLD] ゴールド+10%</Text>
@@ -575,25 +575,25 @@
       <Text>{1_leaderName}による外交アクション「貢物を要求する」により、 [icon:YIELD_GOLD] ゴールドがターンごとに失われています。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_FARMERS_MARKET_ACCEPT" Language="ja_JP">
-      <Text>ターンごとに [icon:YIELD_GOLD] +4。[n]{1_initialName}はターンごとに町で [icon:YIELD_FOOD] +4を得ます。</Text>
+      <Text>ターンごとに [icon:YIELD_GOLD] +4。[n]{1_initialName}は [icon:YIELD_TOWNS] ターンごとに町で [icon:YIELD_FOOD] +4を得ます。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_FRIEND_OF_WA_ACCEPT" Language="ja_JP">
       <Text>[icon:YIELD_SCIENCE] +25%。[n]{1_initialName}が [icon:YIELD_SCIENCE] +25%を得ます。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_GINSING_AGREEMENT_ACCEPT" Language="ja_JP">
-      <Text>ターンごとに都市の [icon:YIELD_FOOD] +4。[n]{1_initialName}がターンごとに都市で [icon:YIELD_FOOD] +6を得ます。</Text>
+      <Text>ターンごとに都市の [icon:YIELD_FOOD] +4。[n]{1_initialName}がターンごとに [icon:YIELD_CITIES] 都市で [icon:YIELD_FOOD] +6を得ます。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_IMPROVE_TRADE_RELATIONS_ACCEPT" Language="ja_JP">
-      <Text>[icon:YIELD_GOLD] +60。[n]{1_initialName}はあなたとの間に新たな交易路を開設できます。</Text>
+      <Text>[icon:YIELD_GOLD] +60。[n]{1_initialName}はあなたとの間に新たな [icon:TRADE_ROUTE] 交易路を開設できます。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_LOCAL_FESTIVALS_ACCEPT" Language="ja_JP">
-      <Text>ターンごとの [icon:YIELD_DIPLOMACY] +4。[n]{1_initialName}が都市でターンごとに [icon:YIELD_HAPPINESS] +4を得ます。</Text>
+      <Text>ターンごとの [icon:YIELD_DIPLOMACY] +4。[n]{1_initialName}が [icon:YIELD_CITIES] 都市でターンごとに [icon:YIELD_HAPPINESS] +4を得ます。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_MINOR_TRADE_ACCEPT" Language="ja_JP">
       <Text>ターンごとに [icon:YIELD_GOLD] +4。[n]{1_initialName}がターンごとに [icon:YIELD_GOLD] +8を得ます。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_RESEARCH_COLLABORATION_ACCEPT" Language="ja_JP">
-      <Text>ターンごとに [icon:YIELD_SCIENCE] +4。[n]{1_initialName}がターンごとに [icon:YIELD_SCIENCE] +8を得ます。</Text>
+      <Text>ターンごとに [icon:YIELD_SCIENCE] +4。[n]{1_initialName} がターンごとに [icon:YIELD_SCIENCE] +8を得ます。</Text>
     </Replace>
     <Replace Tag="LOC_MOD_EX_TECH_WALL_STRENGTH_PREVIEW" Language="ja_JP">
       <Text>城+{1_Amount}</Text>
@@ -630,9 +630,10 @@
     </Replace>
     <Replace Tag="LOC_TUTORIAL_ADVANCED_START_CARD_CHOICE_BODY" Language="ja_JP">
       <Text>
-				[b]「傾注」[/b]は3つまで選択できます。「傾注」にはそれぞれ強力な効果があり、その[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]時代[/TIP]]の終わりまでつづくか、即時ボーナスをもたらします。[n][BLIST][LI]{1_Prompts}で「傾注」を選択に追加します。
-				[LI]{1_Prompts}で「傾注」を選択から外します。[/LIST][n]すべて選択し終わったら、{1_Prompts}で[b]決定[/b]します。
-			</Text>
+				左にあるのはレガシーのリストです。レガシーは序盤のゲーム展開を有利にしてくれるボーナスです。レガシーにはそれぞれ消費ポイントが設定されているので、よく考えて選択しましょう。
+				[n][n][BLIST][LI]レガシーを{1_Prompts}すると、選択に追加されます。
+				[LI]選択済みのレガシーを{1_Prompts}すると、選択から削除されます。[/LIST]
+				[n][n]すべて選択し終わったら、{2_Prompts}で[b]決定[/b]します。</Text>
     </Replace>
     <Replace Tag="LOC_TUTORIAL_ADVANCED_START_CARD_CHOICE_TITLE" Language="ja_JP">
       <Text>開始オプション</Text>
@@ -840,7 +841,7 @@
     </Replace>
     <Replace Tag="LOC_TUTORIAL_ECONOMIC_QUEST_3_BODY" Language="ja_JP">
       <Text>[b]遠隔地[/b]には本土と異なる [icon:RADIAL_RESOURCES] [b]資源[/b]があり、十分な時間が経過すればそれらを[b]財宝輸送隊[/b]に積んで本土に持ち帰ることができます。
-				[n]次の目標: [icon:RESOURCE_TYPE_DISTANT_TREASURE] [b]遠隔地の財宝資源[/b]を5つ開発し、居住地に[b]財宝輸送隊[/b]が出現するのを待つ[/b]。</Text>
+				[n]次の目標: [icon:RESOURCE_TYPE_DISTANT_TREASURE] [b]遠隔地の財宝資源[/b]を5つ開発し、[b]居住地[/b]に[b]財宝輸送隊[/b]が出現するのを待つ。[/b]</Text>
     </Replace>
     <Replace Tag="LOC_TUTORIAL_ECONOMIC_QUEST_3_TITLE" Language="ja_JP">
       <Text>レガシーパス: {LOC_LEGACY_PATH_EXPLORATION_ECONOMIC_NAME}III</Text>

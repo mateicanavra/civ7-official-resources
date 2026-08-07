@@ -7,7 +7,7 @@ import { InterfaceMode } from '../../../core/ui/interface-modes/interface-modes.
 import { ComponentID } from '../../../core/ui/utilities/utilities-component-id.js';
 import { NetworkUtilities } from '../../../core/ui/utilities/utilities-network.js';
 import { PlotCoord } from '../../../core/ui/utilities/utilities-plotcoord.js';
-import AdviceManager from '../advice/advice-manager.js';
+import getAdviceManager from '../advice/advice-manager.js';
 import { AGE_TRANSITION_BANNER_FADE_OUT_DURATION } from '../age-transition-banner/age-transition-banner.js';
 import { RaiseDiplomacyEvent } from '../diplomacy/diplomacy-events.js';
 import DiplomacyManager from '../diplomacy/diplomacy-manager.js';
@@ -419,6 +419,27 @@ var NotificationHandlers;
     }
   }
   NotificationHandlers2.ChooseBelief = ChooseBelief;
+  class ViewAgendaMessage extends DefaultHandler {
+    activate(_notificationId, _activatedBy) {
+      const notification = Game.Notifications.find(_notificationId);
+      const amountKey = Game.getHash("PARAM_AMOUNT0").toString();
+      const typeKey = Game.getHash("SOURCE").toString();
+      if (notification) {
+        const attributes = {
+          "data-notification-id": JSON.stringify(_notificationId),
+          "data-notification-type": notification.Type.toString(),
+          "data-from-player": (notification.Player ?? 0).toString(),
+          // @ts-expect-error: This does work to grab the amount from the notification
+          "data-modifier-id": (notification[typeKey] ?? 0).toString(),
+          // @ts-expect-error: This does work to grab the amount from the notification
+          "data-relationship-change": (notification[amountKey] ?? 0).toString()
+        };
+        ContextManager.push("diplo-message-popup", { createMouseGuard: true, singleton: true, attributes });
+      }
+      return true;
+    }
+  }
+  NotificationHandlers2.ViewAgendaMessage = ViewAgendaMessage;
   class InvestigateDiplomaticAction extends DefaultHandler {
     activate(_notificationId, _activatedBy) {
       super.activate(_notificationId, _activatedBy);
@@ -560,8 +581,9 @@ var NotificationHandlers;
       return false;
     }
     add(notificationId) {
-      AdviceManager.addFromWatchOut(notificationId);
-      if (!AdviceManager.isFollowed(AdviceManager.getAdvisorTypeFromTutorialAdvisorType(this.advisorType))) {
+      const adviceManager = getAdviceManager();
+      adviceManager.addFromWatchOut(notificationId);
+      if (!adviceManager.isFollowed(adviceManager.getAdvisorTypeFromTutorialAdvisorType(this.advisorType))) {
         const notification = Game.Notifications.find(notificationId);
         const warningType = notification?.WarningType;
         if (warningType != void 0 && warningType != -1) {
@@ -782,6 +804,10 @@ NotificationModel.manager.registerHandler("NOTIFICATION_CHOOSE_BELIEF", new Noti
 NotificationModel.manager.registerHandler(
   "NOTIFICATION_DIPLOMATIC_ACTION",
   new NotificationHandlers.InvestigateDiplomaticAction()
+);
+NotificationModel.manager.registerHandler(
+  "NOTIFICATION_DIPLOMATIC_ACTION_AGENDA",
+  new NotificationHandlers.ViewAgendaMessage()
 );
 NotificationModel.manager.registerHandler(
   "NOTIFICATION_DIPLOMATIC_ACTION_WARNING",

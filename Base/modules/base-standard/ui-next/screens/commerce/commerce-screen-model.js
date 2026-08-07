@@ -9,6 +9,7 @@ import { useAudio } from '../../../../core/ui-next/services/audio-support.js';
 import { IsControllerActive } from '../../../../core/ui-next/services/input.js';
 import { ModelRegistry, ModelLifecycle } from '../../../../core/ui-next/services/model-registry.js';
 import { createEngineEvent } from '../../../../core/ui-next/utilities/game-core-utilities.js';
+import { FullTextSearch } from '../../../../core/ui-next/utilities/search-utils.js';
 import { compareSettlementTypes, compareSettlementNames } from '../../../../core/ui-next/utilities/settlement-utilities.js';
 import CityYields from '../../../ui/utilities/utilities-city-yields.js';
 import { ConstructibleHasTagType } from '../../../ui/utilities/utilities-tags.js';
@@ -909,7 +910,7 @@ function createCommerceScreenModel() {
       const focusedCity = Cities.get(focusedSettlement);
       if (focusedCity) {
         editCityLabel = Locale.compose(
-          "LOC_COMMERCE_GAMEPAD_SELECT_CITY_HINT",
+          canSlot ? "LOC_COMMERCE_GAMEPAD_SELECT_CITY_HINT" : "LOC_COMMERCE_GAMEPAD_VIEW_CONTAINER_HINT",
           Locale.compose(focusedCity.name)
         );
       }
@@ -918,7 +919,7 @@ function createCommerceScreenModel() {
       const selectedCity = Cities.get(selectedSettlement);
       if (selectedCity) {
         cancelEditCityLabel = Locale.compose(
-          "LOC_COMMERCE_GAMEPAD_DESELECT_CITY_HINT",
+          canSlot ? "LOC_COMMERCE_GAMEPAD_DESELECT_CITY_HINT" : "LOC_COMMERCE_GAMEPAD_STOP_VIEWING_CONTAINER_HINT",
           Locale.compose(selectedCity.name)
         );
       }
@@ -1382,13 +1383,13 @@ function createCommerceScreenModel() {
       const city = Cities.get(cityID);
       if (city) {
         const cityName = Locale.compose(city.name);
-        const result = printCitySlotIndices(slottedResourceIndices[getStoreKey(cityID)]);
+        const result = printCitySlotIndices(slottedResourceIndices[ComponentID.toString(cityID)]);
         console.debug("DebugResources:", `${cityName} changed:`, result);
       }
       return;
     }
     Object.entries(slottedResourceIndices).forEach(([key, slotMap]) => {
-      const city = Cities.get(getComponentIdFromStoreKey(key));
+      const city = Cities.get(ComponentID.fromString(key));
       if (city) {
         const cityName = Locale.compose(city.name);
         const result = printCitySlotIndices(slotMap);
@@ -1401,7 +1402,7 @@ function createCommerceScreenModel() {
     slottedResources.forEach((slottedResourceSection) => {
       slottedResourceSection.cityResources.forEach((cityResourceData) => {
         cityResourceData.slottedResources.sort(
-          (a, b) => slottedResourceIndices[getStoreKey(cityResourceData.cityID)].record[a.resourceValue] - slottedResourceIndices[getStoreKey(cityResourceData.cityID)].record[b.resourceValue]
+          (a, b) => slottedResourceIndices[ComponentID.toString(cityResourceData.cityID)].record[a.resourceValue] - slottedResourceIndices[ComponentID.toString(cityResourceData.cityID)].record[b.resourceValue]
         );
       });
     });
@@ -1445,24 +1446,17 @@ function createCommerceScreenModel() {
   function resourceNameShort(resourceType) {
     return resourceType.split("_")[1].toLowerCase();
   }
-  function getStoreKey(id) {
-    return `${id.owner}-${id.id}-${id.type}`;
-  }
-  function getComponentIdFromStoreKey(storeKey) {
-    const tokens = storeKey.split("-");
-    return { owner: parseInt(tokens[0]), id: parseInt(tokens[1]), type: parseInt(tokens[2]) };
-  }
   function swapItemSlotIndices(cityIdA, resourceValueA, cityIdB, resourceValueB) {
     let keyA = "";
     let indexA = -1;
     if (cityIdA) {
-      keyA = getStoreKey(cityIdA);
+      keyA = ComponentID.toString(cityIdA);
       indexA = slottedResourceIndices[keyA].record[resourceValueA];
     }
     let keyB = "";
     let indexB = -1;
     if (cityIdB) {
-      keyB = getStoreKey(cityIdB);
+      keyB = ComponentID.toString(cityIdB);
       indexB = slottedResourceIndices[keyB].record[resourceValueB];
     }
     if (cityIdA) {
@@ -1486,12 +1480,12 @@ function createCommerceScreenModel() {
       console.error(`commerce-screen-model::addItemSlotIndex: city with id ${cityID} has no Resources object.`);
       return;
     }
-    const key = getStoreKey(cityID);
+    const key = ComponentID.toString(cityID);
     slottedResourceIndices[key].record[resourceValue] = city.Resources.getAssignedResources().length;
     slottedResourceIndices[key].isDirty = true;
   }
   function removeItemSlotIndex(cityID, resourceValue) {
-    const key = getStoreKey(cityID);
+    const key = ComponentID.toString(cityID);
     delete slottedResourceIndices[key].record[resourceValue];
     const remainingIndices = Object.values(slottedResourceIndices[key].record).length;
     slottedResourceIndices[key].isDirty = true;
@@ -1500,7 +1494,7 @@ function createCommerceScreenModel() {
   function reIndexSlottedResources(slottedResources, options = { force: false }) {
     slottedResources.forEach((slottedResourceSection) => {
       slottedResourceSection.cityResources.forEach((cityData) => {
-        const key = getStoreKey(cityData.cityID);
+        const key = ComponentID.toString(cityData.cityID);
         let updatedResources = [];
         if (slottedResourceIndices[key]) {
           if (!slottedResourceIndices[key].isDirty && !options.force) {
@@ -2152,9 +2146,19 @@ function createCommerceScreenModel() {
         targetPlayer.isMinor ? cityName : targetPlayer.name
       )
     });
-    const resourceText = resources.map((resource) => {
-      return [Locale.compose(resource.resourceName), Locale.compose(resource.resourceType)].join(" ");
-    }).join(" ");
+    const resourceNames = [];
+    const resourceTypes = [];
+    resources.forEach((resource) => {
+      const name = Locale.compose(resource.resourceName);
+      const type = Locale.compose(resource.resourceType);
+      if (resourceNames.includes(name) === false) {
+        resourceNames.push(name);
+      }
+      if (resourceTypes.includes(type) === false) {
+        resourceTypes.push(type);
+      }
+    });
+    const resourceText = [resourceNames.join(" "), resourceTypes.join(" ")].join(" ");
     const tradeRouteData = {
       availability: 0 /* Unset */,
       cityName,
@@ -2210,6 +2214,8 @@ function createCommerceScreenModel() {
     });
     return tradeRouteData;
   }
+  const tradeRouteSearch = new FullTextSearch("TradeRouteFilter");
+  const tradeRouteFuzzySearch = (text) => tradeRouteSearch.find(text);
   function populateTradeRoutes() {
     const tradeRouteTabData = {
       tradeRouteSections: []
@@ -2265,6 +2271,20 @@ function createCommerceScreenModel() {
         unavailableTradeRouteSection.tradeRoutes.push(tradeRouteData);
       }
     });
+    function appendTradeRouteSearchData(tradeRouteSection) {
+      const searchData = [];
+      tradeRouteSection.tradeRoutes.forEach((route) => {
+        searchData.push({
+          key: ComponentID.toString(route.cityID),
+          title: route.cityName,
+          fullText: route.fullText
+        });
+      });
+      tradeRouteSearch.addSearchData(searchData);
+    }
+    appendTradeRouteSearchData(activeTradeRouteSection);
+    appendTradeRouteSearchData(availableTradeRouteSection);
+    appendTradeRouteSearchData(unavailableTradeRouteSection);
     tradeRouteTabData.tradeRouteSections = [
       activeTradeRouteSection,
       availableTradeRouteSection,
@@ -2411,7 +2431,8 @@ function createCommerceScreenModel() {
     setIsInSortAndFilterMode,
     settlementHasSlottedResources,
     onTabChanged: handleChangeTabs,
-    hasUnassignedResources
+    hasUnassignedResources,
+    tradeRouteSearch: tradeRouteFuzzySearch
   });
   return model;
 }

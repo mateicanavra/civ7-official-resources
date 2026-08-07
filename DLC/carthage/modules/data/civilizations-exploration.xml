@@ -6,14 +6,4 @@
 		<Row TraitType="TRAIT_CARTHAGE_ABILITY" ModifierId="MOD_TOWN_WATER_BUILDING" />
 		<Row TraitType="TRAIT_CARTHAGE_ABILITY" ModifierId="MOD_FORBID_CITIES_FROM_TOWNS" />
 	</TraitModifiers>
-	<Civilizations>
-		<!-- Replace civics tree. -->
-		<Update>
-			<Where CivilizationType="CIVILIZATION_CARTHAGE" />
-			<Set UniqueCultureProgressionTree="TREE_CIVICS_EX_TEST_OF_TIME"/>
-		</Update>
-	</Civilizations>
-	<CivilizationTraits>
-		<Row CivilizationType="CIVILIZATION_CARTHAGE" TraitType="TRAIT_ANACHRONISTIC_CIV" />
-	</CivilizationTraits>
 </Database>

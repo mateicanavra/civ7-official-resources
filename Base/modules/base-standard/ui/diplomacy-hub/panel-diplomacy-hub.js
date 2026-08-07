@@ -310,6 +310,10 @@ class DiplomacyHubPanel extends DiplomacyInputPanel {
           });
           dialogOption.Callback();
         });
+        if (dialogOptionButton.getAttribute("hover-only-trigger") == null) {
+          dialogOptionButton.setAttribute("hover-only-trigger", "true");
+        }
+        dialogOptionButton.setAttribute("action-key", "inline-accept");
         dialogOptionsContainer.appendChild(dialogOptionButton);
       });
     }

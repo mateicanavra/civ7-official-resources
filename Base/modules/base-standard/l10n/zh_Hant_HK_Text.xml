@@ -823,6 +823,9 @@
     <Replace Tag="LOC_PEDIA_CONCEPTS_BRIDGE_TOOLTIP" Language="zh_Hant_HK">
       <Text>橋樑能讓[TIP:LOC_PEDIA_CONCEPTS_LAND_UNITS_TOOLTIP]陸地單位[/TIP]直接跨越[TIP:LOC_PEDIA_CONCEPTS_NAVIGABLE_RIVER_TOOLTIP]可航行河流[/TIP]，而無須[TIP:LOC_PEDIA_CONCEPTS_EMBARK_TOOLTIP]上船[/TIP]。[NN]若已經建成有渡輪穿越河流的道路，建造橋樑的費用將會降低。</Text>
     </Replace>
+    <Replace Tag="LOC_PEDIA_CONCEPTS_BUILDING_TIER_TOOLTIP" Language="zh_Hant_HK">
+      <Text>標準建築分為1階與2階，這會決定其花費、基礎產出，以及解鎖時間的早晚。1階建築通常是每個時代中各產出類型最先解鎖的標準建築。</Text>
+    </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP" Language="zh_Hant_HK">
       <Text>建築必須放置在現有的[TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]區域[/TIP]上，或與區域相鄰。建築可提升[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]的各項產出與都會[TIP:LOC_PEDIA_CONCEPTS_POPULATION_TOOLTIP]人口[/TIP]。[NN]除[TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]不分時代[/TIP]的建築外，其餘建築在下個[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]時代[/TIP]中皆變為[TIP:LOC_PEDIA_CONCEPTS_OVERBUILDABLE_TOOLTIP]可翻新增建[/TIP]。[NN]每新增一個建築，都會提高後續所有建築的[icon:YIELD_PRODUCTION][b]生產力[/b]花費。</Text>
     </Replace>
@@ -907,6 +910,9 @@
     <Replace Tag="LOC_PEDIA_CONCEPTS_ECONOMIC_VICTORY_TOOLTIP" Language="zh_Hant_HK">
       <Text>四種勝利類型之一。當一位領袖在經濟上對所有其他領袖取得主導地位時，即可獲得經濟勝利。這種主導地位是以[TIP:LOC_PEDIA_CONCEPTS_GDP_TOOLTIP]GDP[/TIP]來衡量的。</Text>
     </Replace>
+    <Replace Tag="LOC_PEDIA_CONCEPTS_EFFICIENCY_TOOLTIP" Language="zh_Hant_HK">
+      <Text>效率代表你的購買力：每有1%的效率，你的產量在花費時便可多發揮1%的效益，亦即實際支出會降低。[NN]你的領袖、文明、[TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]屬性[/TIP]、[TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]奇觀[/TIP]及其他效果，皆可能對遊戲中的各類花費套用不同的效率。[NN]舉例而言，若你的金幣效率在[TIP:LOC_PEDIA_CONCEPTS_MAINTENANCE_TOOLTIP]建築維護[/TIP]上為+50%，則原本每回合需消耗[B]-6金幣[/B]維護費用的[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建築[/TIP]，實際僅需[B]-4金幣[/B]。</Text>
+    </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_EMBARK_TOOLTIP" Language="zh_Hant_HK">
       <Text>上船單位的[TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]戰鬥力[/TIP]較弱，且對[TIP:LOC_PEDIA_CONCEPTS_RANGED_ATTACK_TOOLTIP]遠程攻擊[/TIP]極為脆弱。上船單位只能在返回陸地後才能進行攻擊。</Text>
     </Replace>
@@ -953,7 +959,7 @@
       <Text>GDP代表你在[TIP:LOC_PEDIA_CONCEPTS_ECONOMIC_VICTORY_TOOLTIP]經濟勝利[/TIP]上的進度。你每回合會因指派至[TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]的[TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]資源[/TIP]數額（研究「輪子」後）、已建造的每座[icon:YIELD_GOLD][b]金幣[/b][TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建築[/TIP]（研究「貨幣」後）等來源獲得GDP。當你對所有其他玩家達到足夠的經濟主導地位時，將會觸發經濟勝利倒數。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_GOVERNMENT_TOOLTIP" Language="zh_Hant_HK">
-      <Text>你的政體決定了帝國在[TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]慶典[/TIP]期間所獲得的加成。在每個[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]時代[/TIP]初期，你將被要求選擇你的政體。</Text>
+      <Text>你的政體決定了帝國在[TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]慶典[/TIP]期間可選擇的加成，以及你將獲得的被動能力與政體[TIP:LOC_PEDIA_CONCEPTS_TRADITION_TOOLTIP]傳統[/TIP]。每個[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]時代[/TIP]初期，你都需要選擇自己的政體。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_GREAT_WORKS_TOOLTIP" Language="zh_Hant_HK">
       <Text>巨作是於各個[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]時代[/TIP]中透過不同途徑取得的珍貴物品。[NN]請前往巨作畫面，將巨作放置到[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]中擁有可用巨作槽位的[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建築[/TIP]內。</Text>
@@ -1217,7 +1223,7 @@
       <Text>建築：翻新增建</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_BUILDINGS_11_CHAPTER_CONTENT_PARA_1" Language="zh_Hant_HK">
-      <Text>除了倉庫建築和奇觀外，大多數的建築都會產生以金幣與幸福感計的維護費用。在古典時代，建築通常一開始會產生-2金幣及-2幸福感之維護費用。這些費用會在之後的時代中提高，例如在探索時代便是-3金幣與-3幸福感。然而，金幣建築不會有金幣維護費用，而幸福感建築也不會有幸福感維護費用。</Text>
+      <Text>除了倉庫建築和奇觀外，大多數的建築都會產生以金幣與幸福感計的維護費用。在古典時代，建築通常一開始會產生-2金幣及-2幸福感之維護費用。這些費用會在之後的時代中提高，例如在探索時代便是-3金幣與-3幸福感。然而，金幣建築不會有金幣維護費用，而幸福感建築也不會有幸福感維護費用。生產力建築也不會提高該聚落中未來建築的花費。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_BUILDINGS_11_CHAPTER_CONTENT_PARA_2" Language="zh_Hant_HK">
       <Text>小訣竅：當建造大量建築時，務必要留心當下的金幣與幸福感水準。若想維持健康又不斷擴張的帝國，幸福感建築的建造往往不可或缺。</Text>
@@ -1263,6 +1269,15 @@
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_BUILDINGS_17_TITLE" Language="zh_Hant_HK">
       <Text>建築：橋樑</Text>
+    </Replace>
+    <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_BUILDINGS_18_CHAPTER_CONTENT_PARA_1" Language="zh_Hant_HK">
+      <Text>每個時代都有兩個階層的標準建築，稱為1階與2階。建築的階層會影響其花費、基礎產出、在科技樹上的解鎖位置，並可能被特定的遊戲效果引用。倉庫建築和特色建築不屬於任一階層，而是擁有各自的花費、基礎產出和解鎖方式。</Text>
+    </Replace>
+    <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_BUILDINGS_18_CHAPTER_CONTENT_PARA_2" Language="zh_Hant_HK">
+      <Text>每個時代通常都會在每個階層中為每種產出各設一種對應的建築。莊園和公會會堂等外交建築是例外，它們皆屬於2階建築；不過某些時代中可能會有帶有次要影響力產出的1階建築，例如紀念碑。佔用整格的建築也有階層，其花費和基礎產出通常是同階層一般建築的兩倍。</Text>
+    </Replace>
+    <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_BUILDINGS_18_TITLE" Language="zh_Hant_HK">
+      <Text>建築：階層</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_BUILDINGS_2_CHAPTER_CONTENT_PARA_1" Language="zh_Hant_HK">
       <Text>倉庫建築能根據聚落中同類型改良設施的數量來提供加成。舉例而言，糧倉賦予聚落中的每個農場、種植場或牧場+1食物。而這些改良設施每個都提供同樣類型的加成：食物。如果你有2座農場、1座種植場和1座牧場，你便可因建造穀倉而獲得+4食物。改良設施所提供的額外產量，將顯示於其對應的倉庫建築上，而非顯示在改良設施本身上。</Text>
@@ -1552,8 +1567,17 @@
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_COMBAT_10_TITLE" Language="zh_Hant_HK">
       <Text>單位能力</Text>
     </Replace>
+    <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_COMBAT_11_CHAPTER_CONTENT_PARA_1" Language="zh_Hant_HK">
+      <Text>海戰是指兩個海上單位之間的戰鬥，並發生於水域之中。無論是在水岸、湖泊，還是在研發完探索時代造船術及後續科技後可進入的深海，只要身處險惡水域，海戰都可能爆發。</Text>
+    </Replace>
+    <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_COMBAT_11_CHAPTER_CONTENT_PARA_2" Language="zh_Hant_HK">
+      <Text>海上單位的運作方式與陸地單位大致相同。在探索時代，海上單位可集結至艦隊指揮官麾下（某些領袖能力可在古典時代提供艦隊指揮官），就如同陸地單位集結至軍隊指揮官麾下一樣。這兩類指揮官擁有相同的集結、解除集結與衝散機制。</Text>
+    </Replace>
+    <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_COMBAT_11_TITLE" Language="zh_Hant_HK">
+      <Text>海戰</Text>
+    </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_COMBAT_2_CHAPTER_CONTENT_PARA_1" Language="zh_Hant_HK">
-      <Text>遠程單位在攻擊時不會受到反擊傷害，讓他們和待在前線的近戰單位成了絕配。然而，遠程單位很容易受到近戰單位的傷害，尤其是騎兵，他們會在攻擊遠程單位時獲得戰鬥力加成。遠程單位也有近戰戰鬥力數據，此數據是用來計算他們防守近戰攻擊時所承受的傷害。然而，遠程單位的近戰戰鬥力通常很低。</Text>
+      <Text>遠程單位在攻擊時不會受到反擊傷害，讓他們和待在前線的近戰單位成了絕配。然而，遠程單位很容易受到近戰單位的傷害，尤其是騎兵，他們會在攻擊遠程單位時獲得戰鬥力加成。遠程單位也有近戰戰鬥力數據，此數據是用來計算他們防守近戰攻擊時所承受的傷害。然而，遠程單位的近戰戰鬥力通常很低。遠程單位在攻擊海上單位時，也會使用其轟擊戰鬥力，而該數值低於攻城單位。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_COMBAT_2_CHAPTER_CONTENT_PARA_2" Language="zh_Hant_HK">
       <Text>遠程攻擊的戰鬥加成，取決於你單位（即攻擊方）目前所站立的格位；而近戰攻擊則不同，其戰鬥加成會依防守方所在的格位（即攻擊所發生之處）來套用。</Text>
@@ -1892,7 +1916,7 @@
       <Text>食物：收益</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_FORTIFICATION_1_CHAPTER_CONTENT_PARA_1" Language="zh_Hant_HK">
-      <Text>防禦工事指的是任一類型能提升格位防禦力的結構。最常見的防禦工事類型就是城牆，但特定奇觀與改良設施也能充作防禦工事。</Text>
+      <Text>防禦工事是指任何能提升格位防禦能力的可建造物。最常見的防禦工事是城牆，可將區域轉變為有防禦工事的區域，使其擁有生命值與防禦力。鄉村格位上的防禦工事改良設施不會增加生命值，而是為於該格位上防守的任何單位提供+6戰鬥力的加成。某些奇觀也屬於防禦工事，會作為有防禦工事的區域運作，並擁有自身的生命值與防禦力。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_FORTIFICATION_1_CHAPTER_CONTENT_PARA_2" Language="zh_Hant_HK">
       <Text>小訣竅：軍事單位也可以創造暫時性防禦工事，這能協助單位更有效率地防禦格位。在你知道即將發生戰鬥的地方建造暫時性防禦工事，或者用其來保護重要地區。但要注意的是，暫時性防禦工事遭到遺棄後，就會直接消失。</Text>
@@ -2461,6 +2485,18 @@
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_STATEHOOD_3_TITLE" Language="zh_Hant_HK">
       <Text>國家地位：城邦</Text>
     </Replace>
+    <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_SYNCRETISM_1_CHAPTER_CONTENT_PARA_1" Language="zh_Hant_HK">
+      <Text>兼收並蓄是指兩種或多種文化、哲學、理念或宗教相互混合，形成新的形態。這是一個持續發生的過程：例如羅馬傳統融入高盧部族，或是由原住民與西班牙傳統共同形成梅斯蒂索文化。這個詞尤其適用於宗教傳統：例如天主教與非洲宗教融合，形成巫毒教等新體系；又如道教、佛教與儒家共同造就了中國民間信仰。融合並不局限於過去某個特定時刻，而是在我們嘗試調和彼此衝突的世界觀時不斷發生。</Text>
+    </Replace>
+    <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_SYNCRETISM_1_CHAPTER_CONTENT_PARA_2" Language="zh_Hant_HK">
+      <Text>將我們的傳統與文化視為兼收並蓄，會對本質化的世界觀提出挑戰；但我們所相信的正常與自然之事，並非一直都是如此，這一事實並不會削弱兼收並蓄實踐的意義。世界在變，我們亦在隨之改變。</Text>
+    </Replace>
+    <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_SYNCRETISM_1_CHAPTER_CONTENT_PARA_3" Language="zh_Hant_HK">
+      <Text>兼收並蓄是《文明帝國VII》的全新機制，讓處於自身巔峰時代之外的文明有機會採納該時代巔峰文明的元素。具體而言，它可讓你將一個巔峰時代文明的特色單位、建築或改良設施納入自己的帝國。你將可使用這些內容，直到該時代結束。或者，當你解鎖選擇兼收並蓄加成的選項時，也可以專注於自身，選擇一項對應目前文明的確立傳統。而你的確立傳統會在未來的時代中得以保留。</Text>
+    </Replace>
+    <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_SYNCRETISM_1_TITLE" Language="zh_Hant_HK">
+      <Text>兼收並蓄</Text>
+    </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_TEAMPLAY_1_CHAPTER_CONTENT_PARA_1" Language="zh_Hant_HK">
       <Text>在多人遊戲中，玩家可以組隊。若要設置，玩家在建立多人遊戲時應該在團隊下拉式選單中選擇相同的團隊。</Text>
     </Replace>
@@ -2696,19 +2732,19 @@
       <Text>單位類型</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_WALLS_1_CHAPTER_CONTENT_PARA_1" Language="zh_Hant_HK">
-      <Text>玩家可以在城市中建造城牆，或者在城市或城鎮中購買它們。</Text>
+      <Text>城牆是一類防禦工事。它會將區域轉變為有防禦工事的區域。若要佔領聚落，必須控制該聚落所有有防禦工事的區域。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_WALLS_1_CHAPTER_CONTENT_PARA_2" Language="zh_Hant_HK">
-      <Text>城牆防禦能提升100點區域生命值。來自上個時代的城牆僅能提供一半的防禦加成與區域生命值，而來自兩個時代以前的城牆則不會提供任何好處。然而。來自上個時代的城牆可用當前時代的防禦手段進行翻新增建，為其進行升級。城牆不會透過城市的生產佇列進行修復，只要它們未遭到攻擊，且未相鄰於敵方單位，就會自動隨時間修復。</Text>
+      <Text>城牆防禦能提升100點區域生命值。當有單位攻擊有防禦工事的區域時，戰鬥判定會以進攻單位的戰鬥力與該區域的防禦力比對，該區域的防禦力是根據該區域擁有者訓練過最強大的近戰單位戰鬥力減去固定數值（10）後得出的結果。城牆和所有城市或城鎮中心都會對攻擊方的近戰單位造成反擊傷害，且由防守方先行造成傷害。單一格位上有多個防禦工事建築時（例如建在防禦工事奇觀上的城牆），其生命值會疊加。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_WALLS_1_CHAPTER_CONTENT_PARA_3" Language="zh_Hant_HK">
-      <Text>除了在城市中心以外，城牆防禦不得透過金幣購買。區域中的城牆可以使用生產力，從城市建造佇列中一格格地建造。城牆不能建造在可航行河流格位上，並且從城市中心開始後，就必須建造位於同個聚落且相鄰於其他城牆處。城牆不得建造在不同聚落所擁有之城牆旁，但城市中心除外，玩家永遠可以在城市中心建造城牆。城墻不能建造在鄉村格位上。</Text>
+      <Text>玩家可以在城市中建造城牆，也可以在城市或城鎮中購買城牆。城牆只能在城市中心以金幣購買。區域中的城牆可透過城市建造佇列，使用生產力逐格建造。城牆不能建造在可航行河流格位上，並且從城市中心開始後，就必須建造位於同個聚落且相鄰於其他城牆處。城牆不得建造在不同聚落所擁有之城牆旁，但城市中心除外，玩家永遠可以在城市中心建造城牆。城墻不能建造在鄉村格位上。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_WALLS_1_CHAPTER_CONTENT_PARA_4" Language="zh_Hant_HK">
-      <Text>當有單位攻擊可防禦的區域時，戰鬥判定會以進攻單位的戰鬥力與該區域的防禦力比對，該區域的防禦力是根據該區域擁有者訓練過最強大的近戰單位戰鬥力減去固定數值（10）後得出的結果。城牆和所有城市或城鎮中心都會對攻擊方的近戰單位造成反擊傷害，且由防守方先行造成傷害。</Text>
+      <Text>來自上個時代的城牆僅能提供一半的防禦加成與區域生命值，而來自兩個時代以前的城牆則不會提供任何好處。然而，來自上個時代的城牆可用當前時代的防禦手段進行翻新增建，為其進行升級。城牆不會透過城市的生產佇列進行修復，只要它們未遭到攻擊，且未相鄰於敵方單位，就會自動隨時間修復。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_WALLS_1_CHAPTER_CONTENT_PARA_5" Language="zh_Hant_HK">
-      <Text>小訣竅：若要佔領某個聚落，進攻方必須掌控住城市/城鎮中心，以及任何擁有城牆防禦的區域。</Text>
+      <Text>小訣竅：若要佔領某個聚落，攻擊方必須掌控住所有有防禦工事的區域。這包括城市/城鎮中心、任何擁有城牆的區域，以及某些類型的奇觀。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_WALLS_1_TITLE" Language="zh_Hant_HK">
       <Text>城牆</Text>
@@ -3965,7 +4001,7 @@
       <Text>近代科技勝利</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_PAGE_AGES_39_CHAPTER_CONTENT_PARA_1" Language="zh_Hant_HK">
-      <Text>若啟用了「時代轉場影響：重組」選項，每個時代結束時，軍事單位會受到部分重置。在古典時代後，海上單位會消失，但你將在探索時代開始時獲得一個免費的柯克船。陸地單位在古典時代結束時的保留上限為6個，在探索時代結束時則為9個，外加其他已指派至軍隊指揮官麾下的單位。超出這些限制的多餘單位將會解散，而若你的軍事單位少於最小值，你會獲得免費的步兵來弭平此差距。</Text>
+      <Text>若啟用了「時代轉場影響：重組」選項，每個時代結束時，軍事單位會受到部分重置。除了集結到艦隊指揮官麾下的船艦外，你帝國中每有一座港灣，便可在時代轉場中額外保留1個海上單位。陸地單位在古典時代結束時的保留上限為6個，在探索時代結束時則為9個，外加其他已指派至軍隊指揮官麾下的單位。超出這些限制的多餘單位將會解散，而若你的軍事單位少於最小值，你會獲得免費的步兵來弭平此差距。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_PAGE_AGES_39_CHAPTER_CONTENT_PARA_2" Language="zh_Hant_HK">
       <Text>所有在時代轉場後獲得的單位，將會自動升級為新時代的1階單位。被擊敗的指揮官將在時代轉場後重生。</Text>
@@ -5523,6 +5559,120 @@
     </Replace>
     <Replace Tag="LOC_DIPLO_MAKE_DEAL_REJECTED_LEADER_XERXES" Language="zh_Hant_HK">
       <Text>這次我的大門得關閉了。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_DECREASED_LEADER_AMINA" Language="zh_Hant_HK">
+      <Text>沉默，是面對愚蠢唯一的回答。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_DECREASED_LEADER_ASHOKA" Language="zh_Hant_HK">
+      <Text>作惡確實容易。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_DECREASED_LEADER_AUGUSTUS" Language="zh_Hant_HK">
+      <Text>你的無知讓你顯得愚蠢。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_DECREASED_LEADER_BENJAMIN_FRANKLIN" Language="zh_Hant_HK">
+      <Text>我們生來都無知，但要一直愚蠢下去，可得十分努力。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_DECREASED_LEADER_CATHERINE" Language="zh_Hant_HK">
+      <Text>看看時間！你是不是該走了？</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_DECREASED_LEADER_CHARLEMAGNE" Language="zh_Hant_HK">
+      <Text>或許別人會欣賞你。我不會。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_DECREASED_LEADER_CONFUCIUS" Language="zh_Hant_HK">
+      <Text>對於既不修正道，也不講誠信之人，我們必須將其逐出身邊。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_DECREASED_LEADER_FRIEDRICH" Language="zh_Hant_HK">
+      <Text>無話可說的人，總是說不出好話。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_DECREASED_LEADER_HARRIET_TUBMAN" Language="zh_Hant_HK">
+      <Text>暴風雲正在逼近。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_DECREASED_LEADER_HATSHEPSUT" Language="zh_Hant_HK">
+      <Text>我是太陽，誰敢與太陽相爭？</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_DECREASED_LEADER_HIMIKO" Language="zh_Hant_HK">
+      <Text>你以為自己光芒耀眼。但燈塔底下永遠是一片陰影。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_DECREASED_LEADER_IBN_BATTUTA" Language="zh_Hant_HK">
+      <Text>邪惡與無知總是相伴而行。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_DECREASED_LEADER_ISABELLA" Language="zh_Hant_HK">
+      <Text>主已賜予我統治萬土之權。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_DECREASED_LEADER_JOSE_RIZAL" Language="zh_Hant_HK">
+      <Text>你嘲笑他人的痛苦。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_DECREASED_LEADER_LAFAYETTE" Language="zh_Hant_HK">
+      <Text>暴君露出真面目了！</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_DECREASED_LEADER_MACHIAVELLI" Language="zh_Hant_HK">
+      <Text>有人正在編織計謀，而那個人不是我。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_DECREASED_LEADER_PACHACUTI" Language="zh_Hant_HK">
+      <Text>雪色潔白，卻並不穩固。群山很快就會降下災禍。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_DECREASED_LEADER_TRUNG_TRAC" Language="zh_Hant_HK">
+      <Text>我們記得。我們永遠記得。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_DECREASED_LEADER_XERXES" Language="zh_Hant_HK">
+      <Text>你的話語充斥空氣，如同鴨子嘎嘎亂叫。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_INCREASED_LEADER_AMINA" Language="zh_Hant_HK">
+      <Text>如同沙漠中的綠蔭！</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_INCREASED_LEADER_ASHOKA" Language="zh_Hant_HK">
+      <Text>行善並不容易。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_INCREASED_LEADER_AUGUSTUS" Language="zh_Hant_HK">
+      <Text>你的磚石讓我想起大理石。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_INCREASED_LEADER_BENJAMIN_FRANKLIN" Language="zh_Hant_HK">
+      <Text>真是這年頭太少見的常識啊！</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_INCREASED_LEADER_CATHERINE" Language="zh_Hant_HK">
+      <Text>我就是喜歡聰明才智。展現給我看吧！</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_INCREASED_LEADER_CHARLEMAGNE" Language="zh_Hant_HK">
+      <Text>敬志同道合之人！</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_INCREASED_LEADER_CONFUCIUS" Language="zh_Hant_HK">
+      <Text>君子懷念他人所樹立的典範，小人則惦記他人所賜予的恩惠。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_INCREASED_LEADER_FRIEDRICH" Language="zh_Hant_HK">
+      <Text>白日充滿硝煙，夜晚有戲劇，如今又有這等事！</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_INCREASED_LEADER_HARRIET_TUBMAN" Language="zh_Hant_HK">
+      <Text>這是向前邁出的一步。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_INCREASED_LEADER_HATSHEPSUT" Language="zh_Hant_HK">
+      <Text>我會問問太陽之民，是否願意讓你與他們一同永生。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_INCREASED_LEADER_HIMIKO" Language="zh_Hant_HK">
+      <Text>是的，這裡有值得珍視之物。星辰的言語，與財富的低語。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_INCREASED_LEADER_IBN_BATTUTA" Language="zh_Hant_HK">
+      <Text>我很高興我們仍走在同一條道路上。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_INCREASED_LEADER_ISABELLA" Language="zh_Hant_HK">
+      <Text>不抱太高期待，是女王的必要之道。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_INCREASED_LEADER_JOSE_RIZAL" Language="zh_Hant_HK">
+      <Text>你的心中有詩。我看得出來。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_INCREASED_LEADER_LAFAYETTE" Language="zh_Hant_HK">
+      <Text>自由得到了你這位朋友。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_INCREASED_LEADER_MACHIAVELLI" Language="zh_Hant_HK">
+      <Text>向你致上最深的祝賀。真的。我是認真的。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_INCREASED_LEADER_PACHACUTI" Language="zh_Hant_HK">
+      <Text>願霜不降，願雹不落。願萬物安然無恙。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_INCREASED_LEADER_TRUNG_TRAC" Language="zh_Hant_HK">
+      <Text>你就像來自群山的清涼微風。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_INCREASED_LEADER_XERXES" Language="zh_Hant_HK">
+      <Text>看來，你一直很仔細地觀察我。</Text>
     </Replace>
     <Replace Tag="LOC_MAIN_CHAR_SELECT_LEADER_AMINA_ANY" Language="zh_Hant_HK">
       <Text>重新磨利你的武器、安上你的馬鞍，然後透過神靈追求心中平和。今日，我們出征。 </Text>
@@ -9897,7 +10047,7 @@
     <Replace Tag="LOC_ADVICE_ANTIQUITY_MILITARY_ARMY_COMMANDERS_MESSAGE" Language="zh_Hant_HK">
       <Text>
 				[B]軍隊[/B][TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]指揮官[/TIP]是一類[TIP:LOC_PEDIA_CONCEPTS_SUPPORT_UNIT_TOOLTIP]支援單位[/TIP]，擁有特殊能力，並能為附近的[TIP:LOC_PEDIA_CONCEPTS_MILITARY_UNIT_TOOLTIP]軍事單位[/TIP]提供加成。軍隊指揮官也可以[b]集結軍事單位[/b]與[TIP:LOC_PEDIA_CONCEPTS_CIVILIAN_UNIT_TOOLTIP]平民單位[/TIP]，使其能夠快速在地圖上移動。
-				[nn]只要戰鬥發生在其[TIP:LOC_PEDIA_CONCEPTS_COMMAND_RADIUS_TOOLTIP]指揮範圍[/TIP]內，軍隊指揮官就會獲得[b]經驗值[/b]。隨著等級提升，他們將獲得[TIP:LOC_PEDIA_CONCEPTS_PROMOTION_TOOLTIP]強化[/TIP]，解鎖更多加成與能力。當軍隊指揮官在某一強化路線中取得最終的強化時，便可獲得一項[TIP:LOC_PEDIA_CONCEPTS_COMMENDATION_TOOLTIP]嘉獎[/TIP]。高等級的軍隊指揮官往往能對戰爭結果產生巨大影響，因此務必讓他們待在前線、置身戰火之中。
+				[nn]只要戰鬥發生在其[b][TIP:LOC_PEDIA_CONCEPTS_COMMAND_RADIUS_TOOLTIP]指揮範圍[/TIP][/b]內，軍隊指揮官就會獲得[b]經驗值[/b]。隨著等級提升，他們將獲得[TIP:LOC_PEDIA_CONCEPTS_PROMOTION_TOOLTIP]強化[/TIP]，解鎖更多加成與能力。當軍隊指揮官在某一強化路線中取得最終的強化時，便可獲得一項[TIP:LOC_PEDIA_CONCEPTS_COMMENDATION_TOOLTIP]嘉獎[/TIP]。高等級的軍隊指揮官往往能對戰爭結果產生巨大影響，因此務必讓他們待在前線、置身戰火之中。
 				[nn]當某個單位與軍隊指揮官相鄰時，可以透過[b]「增添至軍隊」[/b]（單位指令）或[b]「集結軍隊」[/b]（指揮官指令）將其集結至指揮官麾下。每位指揮官最多可同時集結4個單位，並可透過強化解鎖額外容量。集結後，單位將隨指揮官一同行動，並可一起或逐一[b]部署[/b]，重新投入戰場。
 				[nn]最後，若你的軍隊指揮官在戰鬥中被擊敗，將在數回合後自動於你的[TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]首都[/TIP]重生。
 			</Text>
@@ -11423,7 +11573,7 @@
     </Replace>
     <Replace Tag="LOC_ADVICE_MODERN_MILITARY_VICTORY_COUNTERPLAY_MESSAGE" Language="zh_Hant_HK">
       <Text>
-				要取得軍事勝利，你必須確保沒有任何人比你更早達成。如果有其他領袖擁有比你更多的聚落，最直接的解決方法就是透過戰爭佔領他們的聚落。
+				要取得[TIP:LOC_PEDIA_CONCEPTS_MILITARY_VICTORY_TOOLTIP]軍事勝利[/TIP]，你必須確保沒有任何人比你更早達成。如果有其他領袖擁有比你更多的[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]，最直接的解決方法就是透過戰爭佔領他們的聚落。
 				如果對方已經確立意識形態，而你尚未選擇，選擇一個相對立的意識形態將使宣戰更加容易。當然，這也會激怒對方，因此若你選擇這條路，便要做好開戰準備。
 				你也不一定要親自奪取聚落。如果對手正在與他人交戰，你可以支援他們的敵人，或在可能時使用「軍事援助」[TIP:LOC_PEDIA_CONCEPTS_ENDEAVOR_TOOLTIP]外交手段[/TIP]，讓對方的戰爭變得更加艱難。
 				如果暫時無法直接對付排名第一的領袖，也可以透過提升目標分數來拖慢他們的勝利。目標分數是以第二名玩家的分數為基準計算的倍數，因此只要取得足夠多的聚落，就能提高目標分數，使對手更難達成勝利。
@@ -12862,6 +13012,9 @@
     <Replace Tag="LOC_BANNER_FOUNDATION_6_NAME" Language="zh_Hant_HK">
       <Text>凱旋</Text>
     </Replace>
+    <Replace Tag="LOC_BANNER_FOUNDATION_7_NAME" Language="zh_Hant_HK">
+      <Text>近代</Text>
+    </Replace>
     <Replace Tag="LOC_BANNER_FRIEDRICH_OBLIQUE_NAME" Language="zh_Hant_HK">
       <Text>腓特烈（戰術家）旗幟</Text>
     </Replace>
@@ -13134,6 +13287,9 @@
     </Replace>
     <Replace Tag="LOC_BUILDING_PLACEMENT_UNIQUE_QUARTER" Language="zh_Hant_HK">
       <Text>特色城區</Text>
+    </Replace>
+    <Replace Tag="LOC_BUILDING_PLACEMENT_UNIQUE_QUARTER_BLOCKER" Language="zh_Hant_HK">
+      <Text>是否確定？</Text>
     </Replace>
     <Replace Tag="LOC_BUILDING_PLACEMENT_WAREHOUSE_IMPROVEMENTS" Language="zh_Hant_HK">
       <Text>倉庫改良設施：</Text>
@@ -13714,6 +13870,27 @@
     <Replace Tag="LOC_DARK_AGE_REQUNLOCK_DESCRIPTION" Language="zh_Hant_HK">
       <Text>在此時代未贏得任何勝利</Text>
     </Replace>
+    <Replace Tag="LOC_DEAL_ITEM_ALREADY_USED" Language="zh_Hant_HK">
+      <Text>此產出類型已包含在交易中。</Text>
+    </Replace>
+    <Replace Tag="LOC_DEAL_ITEM_GOLD_LARGE_LUMP_DESCRIPTION" Language="zh_Hant_HK">
+      <Text>一大筆[icon:YIELD_GOLD]金幣。</Text>
+    </Replace>
+    <Replace Tag="LOC_DEAL_ITEM_GOLD_SMALL_LUMP_DESCRIPTION" Language="zh_Hant_HK">
+      <Text>一小筆[icon:YIELD_GOLD]金幣。</Text>
+    </Replace>
+    <Replace Tag="LOC_DEAL_ITEM_INFLUENCE_LARGE_LUMP_DESCRIPTION" Language="zh_Hant_HK">
+      <Text>一大筆[icon:YIELD_DIPLOMACY]影響力。</Text>
+    </Replace>
+    <Replace Tag="LOC_DEAL_ITEM_INFLUENCE_SMALL_LUMP_DESCRIPTION" Language="zh_Hant_HK">
+      <Text>一小筆[icon:YIELD_DIPLOMACY]影響力。</Text>
+    </Replace>
+    <Replace Tag="LOC_DEAL_ITEM_INSUFFICIENT_GOLD" Language="zh_Hant_HK">
+      <Text>[icon:YIELD_GOLD]金幣不足。</Text>
+    </Replace>
+    <Replace Tag="LOC_DEAL_ITEM_INSUFFICIENT_INFLUENCE" Language="zh_Hant_HK">
+      <Text>[icon:YIELD_DIPLOMACY]影響力不足。</Text>
+    </Replace>
     <Replace Tag="LOC_DEDICATIONS_ACTIVE_DEDICATIONS" Language="zh_Hant_HK">
       <Text>使用中的奉獻</Text>
     </Replace>
@@ -13849,6 +14026,12 @@
     <Replace Tag="LOC_DIPLO_MAKE_DEAL_REJECTED_GENERIC" Language="zh_Hant_HK">
       <Text>我拒絕這個和平提案！</Text>
     </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_DECREASED_GENERIC" Language="zh_Hant_HK">
+      <Text>你竟毫無敬意嗎？</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_INCREASED_GENERIC" Language="zh_Hant_HK">
+      <Text>你的行動倒也並非全然令人不悅。</Text>
+    </Replace>
     <Replace Tag="LOC_DIPLOMACY_ACTION_ALL_TAB_NAME" Language="zh_Hant_HK">
       <Text>A</Text>
     </Replace>
@@ -13979,7 +14162,7 @@
       <Text>擁有共同意識形態的文明無法與對方開戰。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ACTION_FAILURE_REASON_WAR_FORMAL_NEEDS_HOSTILE" Language="zh_Hant_HK">
-      <Text>在未擁有敵對關係的情況下無法展開正式戰爭。</Text>
+      <Text>在未擁有敵對[icon:RELATIONSHIP]關係的情況下無法展開正式戰爭。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ACTION_FAILURE_REASON_WAR_WITHOUT_END" Language="zh_Hant_HK">
       <Text>戰爭將不會結束。</Text>
@@ -14000,7 +14183,7 @@
       <Text>與另一名領袖建立同盟。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ACTION_FORM_ALLIANCE_DISABLED" Language="zh_Hant_HK">
-      <Text>你們的關係還沒好到可以締結同盟。</Text>
+      <Text>你們的[icon:RELATIONSHIP]關係還沒好到可以締結[icon:PLAYER_RELATIONSHIP_ALLIANCE]同盟。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ACTION_FORM_ALLIANCE_NAME" Language="zh_Hant_HK">
       <Text>締結同盟</Text>
@@ -14030,7 +14213,7 @@
       <Text>此行動已經延宕，需要更多支持。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ACTION_LAND_CLAIM_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>向全世界廣為宣傳你想要在此土地上定居的意圖。若成功，可放置由你掌控的城鎮。</Text>
+      <Text>向全世界廣為宣傳你想要在此土地上定居的意圖。若成功，可建立一座由你掌控的[icon:YIELD_TOWNS]城鎮。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ACTION_LAND_CLAIM_NAME" Language="zh_Hant_HK">
       <Text>土地佔據</Text>
@@ -14237,115 +14420,223 @@
       <Text>增加戰爭支援</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_BAROQUE_DESC" Language="zh_Hant_HK">
-      <Text>喜歡首都中有奇觀的領袖，不喜歡首都中有建築的領袖。</Text>
+      <Text>喜歡首都中有[icon:WONDER]奇觀的領袖，不喜歡首都中有[icon:CITY_BUILDING_LIST]建築的領袖。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_BAROQUE_DESC_DISLIKES" Language="zh_Hant_HK">
+      <Text>腓特烈不喜歡首都中有[icon:CITY_BUILDING_LIST]建築的領袖。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_BAROQUE_DESC_LIKES" Language="zh_Hant_HK">
+      <Text>腓特烈喜歡首都中有[icon:WONDER]奇觀的領袖。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_BAROQUE_NAME" Language="zh_Hant_HK">
       <Text>巴洛克</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_CIVIC_VIRTUE_DESC" Language="zh_Hant_HK">
-      <Text>面對和他擁有相同政體類型的領袖可獲得雙倍關係，面對未和他有相同政體的領袖時關係也會加倍損失。</Text>
+      <Text>面對和他擁有相同[icon:GOVERNMENT]政體類型的領袖將獲得雙倍[icon:RELATIONSHIP]關係提升，面對和他擁有不同[icon:GOVERNMENT]政體類型的領袖時[icon:RELATIONSHIP]關係會加倍損失。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_CIVIC_VIRTUE_DESC_DISLIKES" Language="zh_Hant_HK">
+      <Text>班傑明‧富蘭克林面對和他擁有不同[icon:GOVERNMENT]政體類型的領袖時[icon:RELATIONSHIP]關係會加倍損失。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_CIVIC_VIRTUE_DESC_LIKES" Language="zh_Hant_HK">
+      <Text>班傑明‧富蘭克林面對和他擁有相同[icon:GOVERNMENT]政體類型的領袖將獲得雙倍[icon:RELATIONSHIP]關係提升。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_CIVIC_VIRTUE_NAME" Language="zh_Hant_HK">
       <Text>公民美德</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_CULTURE_FROM_CONQUEST_DESC" Language="zh_Hant_HK">
-      <Text>喜歡每回合的[icon:YIELD_CULTURE]文化值收入最高的文明，不喜歡其他文明間互相締結同盟關係。</Text>
+      <Text>喜歡每回合的[icon:YIELD_CULTURE]文化值收入最高的領袖，不喜歡其他領袖間互相締結[icon:PLAYER_RELATIONSHIP_ALLIANCE]同盟關係。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_CULTURE_FROM_CONQUEST_DESC_DISLIKES" Language="zh_Hant_HK">
+      <Text>拿破崙不喜歡其他領袖間互相締結[icon:PLAYER_RELATIONSHIP_ALLIANCE]同盟關係。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_CULTURE_FROM_CONQUEST_DESC_LIKES" Language="zh_Hant_HK">
+      <Text>拿破崙喜歡每回合的[icon:YIELD_CULTURE]文化值收入最高的領袖。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_CULTURE_FROM_CONQUEST_NAME" Language="zh_Hant_HK">
       <Text>征服者之文化</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_DESERT_OF_THE_WARRIOR_QUEEN_DESC" Language="zh_Hant_HK">
-      <Text>喜歡在沙漠或平原中沒有聚落的文明，不喜歡那些在沙漠或平原中有聚落的文明。</Text>
+      <Text>喜歡在沙漠或平原中沒有聚落的領袖，不喜歡那些在沙漠或平原中有聚落的領袖。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_DESERT_OF_THE_WARRIOR_QUEEN_DESC_DISLIKES" Language="zh_Hant_HK">
+      <Text>阿米娜不喜歡那些在沙漠或平原中有聚落的領袖。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_DESERT_OF_THE_WARRIOR_QUEEN_DESC_LIKES" Language="zh_Hant_HK">
+      <Text>阿米娜喜歡在沙漠或平原中沒有聚落的領袖。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_DESERT_OF_THE_WARRIOR_QUEEN_NAME" Language="zh_Hant_HK">
       <Text>戰士女王的沙漠</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_DUSHA_DESC" Language="zh_Hant_HK">
-      <Text>喜歡擁有最少巨作的文明，不喜歡擁有最多巨作的文明。 </Text>
+      <Text>喜歡擁有最少[icon:NAR_REW_GREATWORK]巨作的領袖，不喜歡擁有最多[icon:NAR_REW_GREATWORK]巨作的領袖。 </Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_DUSHA_DESC_DISLIKES" Language="zh_Hant_HK">
+      <Text>凱薩琳不喜歡擁有最多[icon:NAR_REW_GREATWORK]巨作的領袖。 </Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_DUSHA_DESC_LIKES" Language="zh_Hant_HK">
+      <Text>凱薩琳喜歡擁有最少[icon:NAR_REW_GREATWORK]巨作的領袖。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_DUSHA_NAME" Language="zh_Hant_HK">
       <Text>俄羅斯靈魂</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_FAR_AND_WIDE_DESC" Language="zh_Hant_HK">
-      <Text>喜歡擁有最多已揭露格位的文明，不喜歡擁有最少已揭露格位的文明。</Text>
+      <Text>喜歡擁有最多已揭露格位的領袖，不喜歡擁有最少已揭露格位的領袖。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_FAR_AND_WIDE_DESC_DISLIKES" Language="zh_Hant_HK">
+      <Text>伊本‧巴圖塔不喜歡擁有最少已揭露格位的領袖。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_FAR_AND_WIDE_DESC_LIKES" Language="zh_Hant_HK">
+      <Text>伊本‧巴圖塔喜歡擁有最多已揭露格位的領袖。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_FAR_AND_WIDE_NAME" Language="zh_Hant_HK">
       <Text>地大物博</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_FRENCH_QUARTERS_DESC" Language="zh_Hant_HK">
-      <Text>喜歡擁有最多城區的文明，不喜歡擁有最少城區的文明。</Text>
+      <Text>喜歡擁有最多[icon:CITY_UNIQUE_QUARTER]城區的領袖，不喜歡擁有最少[icon:CITY_UNIQUE_QUARTER]城區的領袖。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_FRENCH_QUARTERS_DESC_DISLIKES" Language="zh_Hant_HK">
+      <Text>拉法葉不喜歡擁有最少[icon:CITY_UNIQUE_QUARTER]城區的領袖。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_FRENCH_QUARTERS_DESC_LIKES" Language="zh_Hant_HK">
+      <Text>拉法葉喜歡擁有最多[icon:CITY_UNIQUE_QUARTER]城區的領袖。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_FRENCH_QUARTERS_NAME" Language="zh_Hant_HK">
       <Text>法國區</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_GUANXI_DESC" Language="zh_Hant_HK">
-      <Text>喜歡擁有最多專家的文明，不喜歡擁有最少專家的文明。</Text>
+      <Text>喜歡擁有最多[icon:SPECIALIST]專家的領袖，不喜歡擁有最少[icon:SPECIALIST]專家的領袖。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_GUANXI_DESC_DISLIKES" Language="zh_Hant_HK">
+      <Text>孔子不喜歡擁有最少[icon:SPECIALIST]專家的領袖。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_GUANXI_DESC_LIKES" Language="zh_Hant_HK">
+      <Text>孔子喜歡擁有最多[icon:SPECIALIST]專家的領袖。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_GUANXI_NAME" Language="zh_Hant_HK">
       <Text>關係</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_KAPWA_DESC" Language="zh_Hant_HK">
-      <Text>喜歡進行最多外交手段的領袖，不喜歡進行最多制裁的領袖。</Text>
+      <Text>喜歡進行最多[icon:ENDEAVOR]外交手段的領袖，不喜歡進行最多[icon:SANCTIONS]制裁的領袖。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_KAPWA_DESC_DISLIKES" Language="zh_Hant_HK">
+      <Text>荷西‧黎剎不喜歡進行最多[icon:SANCTIONS]制裁的領袖。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_KAPWA_DESC_LIKES" Language="zh_Hant_HK">
+      <Text>荷西‧黎剎喜歡進行最多[icon:ENDEAVOR]外交手段的領袖。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_KAPWA_NAME" Language="zh_Hant_HK">
       <Text>共生共享</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_LORD_OF_COIN_DESC" Language="zh_Hant_HK">
-      <Text>喜歡貿易路線數量比他少的文明，不喜歡貿易路線數量與他相同甚至比他多的文明。</Text>
+      <Text>喜歡[icon:TRADE_ROUTE]貿易路線數量比他少的領袖，不喜歡[icon:TRADE_ROUTE]貿易路線數量與他相同甚至比他多的領袖。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_LORD_OF_COIN_DESC_DISLIKES" Language="zh_Hant_HK">
+      <Text>薛西斯不喜歡[icon:TRADE_ROUTE]貿易路線數量與他相同甚至比他多的領袖。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_LORD_OF_COIN_DESC_LIKES" Language="zh_Hant_HK">
+      <Text>薛西斯喜歡[icon:TRADE_ROUTE]貿易路線數量比他少的領袖。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_LORD_OF_COIN_NAME" Language="zh_Hant_HK">
       <Text>硬幣之主</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_LORD_OF_FIRE_DESC" Language="zh_Hant_HK">
-      <Text>喜歡除了他以外相互交戰的領袖，不喜歡除了他以外不互相交戰的領袖。</Text>
+      <Text>喜歡與除他之外的其他領袖[icon:WAR]交戰的領袖，不喜歡未與除他之外的其他領袖[icon:WAR]交戰的領袖</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_LORD_OF_FIRE_DESC_DISLIKES" Language="zh_Hant_HK">
+      <Text>薛西斯不喜歡未與除他之外的其他領袖[icon:WAR]交戰的領袖。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_LORD_OF_FIRE_DESC_LIKES" Language="zh_Hant_HK">
+      <Text>薛西斯喜歡與除他之外的其他領袖[icon:WAR]交戰的領袖。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_LORD_OF_FIRE_NAME" Language="zh_Hant_HK">
       <Text>火焰之主</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_MOUNTAIN_KING_DESC" Language="zh_Hant_HK">
-      <Text>喜歡國土邊境山脈格位不多的文明。不喜歡邊境山脈格位最多的玩家。</Text>
+      <Text>喜歡邊界中山脈格位不多的領袖，不喜歡邊界中山脈格位最多的領袖。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_MOUNTAIN_KING_DESC_DISLIKES" Language="zh_Hant_HK">
+      <Text>帕查庫特克不喜歡邊界中山脈格位最多的領袖。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_MOUNTAIN_KING_DESC_LIKES" Language="zh_Hant_HK">
+      <Text>帕查庫特克喜歡邊界中山脈格位不多的領袖。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_MOUNTAIN_KING_NAME" Language="zh_Hant_HK">
       <Text>山脈王者</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_NAPOLEONIC_CODE_DESC" Language="zh_Hant_HK">
-      <Text>喜歡陸地單位數量最少的文明，不喜歡擁有最多海上單位數量的文明。</Text>
+      <Text>喜歡陸地單位數量最少的領袖，不喜歡海上單位數量最多的領袖。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_NAPOLEONIC_CODE_DESC_DISLIKES" Language="zh_Hant_HK">
+      <Text>拿破崙不喜歡海上單位數量最多的領袖。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_NAPOLEONIC_CODE_DESC_LIKES" Language="zh_Hant_HK">
+      <Text>拿破崙喜歡陸地單位數量最少的領袖。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_NAPOLEONIC_CODE_NAME" Language="zh_Hant_HK">
       <Text>拿破崙法典</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_RESTITUTOR_ORBIS_DESC" Language="zh_Hant_HK">
-      <Text>喜歡帝國中有城市的文明，不喜歡帝國中有城鎮的文明。</Text>
+      <Text>喜歡帝國中有[icon:YIELD_CITIES]城市的領袖，不喜歡帝國中有[icon:YIELD_TOWNS]城鎮的領袖。 </Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_RESTITUTOR_ORBIS_DESC_DISLIKES" Language="zh_Hant_HK">
+      <Text>奧古斯都不喜歡帝國中有[icon:YIELD_TOWNS]城鎮的領袖。 </Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_RESTITUTOR_ORBIS_DESC_LIKES" Language="zh_Hant_HK">
+      <Text>奧古斯都喜歡帝國中有[icon:YIELD_CITIES]城市的領袖。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_RESTITUTOR_ORBIS_NAME" Language="zh_Hant_HK">
       <Text>世界重建者</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_SHAMAN_QUEEN_DESC" Language="zh_Hant_HK">
-      <Text>喜歡聚落中有[icon:YIELD_CULTURE]文化值與[icon:YIELD_HAPPINESS]幸福感建築的文明。不喜歡聚落中有[icon:YIELD_SCIENCE]科技值與[icon:YIELD_GOLD]金幣建築的文明。</Text>
+      <Text>喜歡聚落中有[icon:YIELD_CULTURE]文化值與[icon:YIELD_HAPPINESS]幸福感建築的領袖，不喜歡聚落中有[icon:YIELD_SCIENCE]科技值與[icon:YIELD_GOLD]金幣建築的領袖。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_SHAMAN_QUEEN_DESC_DISLIKES" Language="zh_Hant_HK">
+      <Text>卑彌呼不喜歡聚落中有[icon:YIELD_SCIENCE]科技值與[icon:YIELD_GOLD]金幣建築的領袖。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_SHAMAN_QUEEN_DESC_LIKES" Language="zh_Hant_HK">
+      <Text>卑彌呼喜歡聚落中有[icon:YIELD_CULTURE]文化值與[icon:YIELD_HAPPINESS]幸福感建築的領袖。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_SHAMAN_QUEEN_NAME" Language="zh_Hant_HK">
       <Text>天照的巫女</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_STORIED_LANDS_DESC" Language="zh_Hant_HK">
-      <Text>喜歡完成的故事比他少的領袖，不喜歡完成的故事比他多的領袖。</Text>
+      <Text>喜歡完成的[icon:NAR_REW_DEFAULT]故事比他少的領袖，不喜歡完成的[icon:NAR_REW_DEFAULT]故事比他多的領袖。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_STORIED_LANDS_NAME" Language="zh_Hant_HK">
       <Text>充滿故事的土地</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_SUZERAIN_OF_THE_WORLD_DESC" Language="zh_Hant_HK">
-      <Text>喜歡不干涉獨立軍勢力的領袖，不喜歡驅散獨立軍的領袖。</Text>
+      <Text>喜歡不干涉[icon:INDEPENDENT_POWER]獨立軍勢力的領袖，不喜歡驅散[icon:INDEPENDENT_POWER]獨立軍勢力的領袖。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_SUZERAIN_OF_THE_WORLD_DESC_DISLIKES" Language="zh_Hant_HK">
+      <Text>特庫姆塞不喜歡驅散[icon:INDEPENDENT_POWER]獨立軍勢力的領袖。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_SUZERAIN_OF_THE_WORLD_DESC_LIKES" Language="zh_Hant_HK">
+      <Text>特庫姆塞喜歡不干涉[icon:INDEPENDENT_POWER]獨立軍勢力的領袖。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_SUZERAIN_OF_THE_WORLD_NAME" Language="zh_Hant_HK">
       <Text>世界的宗主國</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_THE_GOLDEN_SHEPHERD_DESC" Language="zh_Hant_HK">
-      <Text>喜歡有過最多慶典的文明。不喜歡有過最少慶典的文明。</Text>
+      <Text>喜歡有過最多[icon:CELEBRATION]慶典的領袖，不喜歡有過最少[icon:CELEBRATION]慶典的領袖。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_THE_GOLDEN_SHEPHERD_DESC_DISLIKES" Language="zh_Hant_HK">
+      <Text>查理曼不喜歡有過最少[icon:CELEBRATION]慶典的領袖。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_THE_GOLDEN_SHEPHERD_DESC_LIKES" Language="zh_Hant_HK">
+      <Text>查理曼喜歡有過最多[icon:CELEBRATION]慶典的領袖。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_THE_GOLDEN_SHEPHERD_NAME" Language="zh_Hant_HK">
       <Text>黃金牧羊犬</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_THE_SPIDER_DESC" Language="zh_Hant_HK">
-      <Text>喜歡與除了他以外的人交戰的領袖。</Text>
+      <Text>喜歡與除了他以外的人[icon:WAR]交戰的領袖。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_THE_SPIDER_DESC_DISLIKES" Language="zh_Hant_HK">
+      <Text>馬基維利會隱藏他不喜歡某些領袖的理由。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_THE_SPIDER_DESC_LIKES" Language="zh_Hant_HK">
+      <Text>馬基維利喜歡與除了他以外的人[icon:WAR]交戰的領袖。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_THE_SPIDER_NAME" Language="zh_Hant_HK">
       <Text>蜘蛛</Text>
@@ -14354,49 +14645,97 @@
       <Text>議程</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_TO_ARMS_DESC" Language="zh_Hant_HK">
-      <Text>喜歡軍事單位數量最多的文明，不喜歡擁有最少軍事單位數量的文明。</Text>
+      <Text>喜歡軍事單位數量最多的領袖，不喜歡軍事單位數量最少的領袖。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_TO_ARMS_DESC_DISLIKES" Language="zh_Hant_HK">
+      <Text>腓特烈不喜歡軍事單位數量最少的領袖。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_TO_ARMS_DESC_LIKES" Language="zh_Hant_HK">
+      <Text>腓特烈喜歡軍事單位數量最多的領袖。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_TO_ARMS_NAME" Language="zh_Hant_HK">
       <Text>全民皆兵</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_VAN_MINH_DESC" Language="zh_Hant_HK">
-      <Text>喜歡擁有最少指揮官強化的文明。不喜歡擁有最多指揮官強化的文明。</Text>
+      <Text>喜歡擁有最少[icon:NAR_REW_PROMOTION]指揮官強化的領袖，不喜歡擁有最多[icon:NAR_REW_PROMOTION]指揮官強化的領袖。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_VAN_MINH_DESC_DISLIKES" Language="zh_Hant_HK">
+      <Text>徵側不喜歡擁有最多[icon:NAR_REW_PROMOTION]指揮官強化的領袖。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_VAN_MINH_DESC_LIKES" Language="zh_Hant_HK">
+      <Text>徵側喜歡擁有最少[icon:NAR_REW_PROMOTION]指揮官強化的領袖。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_VAN_MINH_NAME" Language="zh_Hant_HK">
       <Text>軍人文明</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_VERACITY_DESC" Language="zh_Hant_HK">
-      <Text>喜歡展開正式戰爭的領袖，不喜歡展開突襲戰爭的領袖。</Text>
+      <Text>喜歡展開[icon:WAR]正式戰爭的領袖，不喜歡展開[icon:WAR]突襲戰爭的領袖。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_VERACITY_DESC_DISLIKES" Language="zh_Hant_HK">
+      <Text>哈莉特‧塔布曼不喜歡展開[icon:WAR]突襲戰爭的領袖。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_VERACITY_DESC_LIKES" Language="zh_Hant_HK">
+      <Text>哈莉特‧塔布曼喜歡展開[icon:WAR]正式戰爭的領袖。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_VERACITY_NAME" Language="zh_Hant_HK">
       <Text>實事求是</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_WITHOUT_REGRET_DESC" Language="zh_Hant_HK">
-      <Text>喜歡擁有最少土地的文明，不喜歡擁有最多土地的文明。</Text>
+      <Text>喜歡擁有最少土地的領袖，不喜歡擁有最多土地的領袖。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_WITHOUT_REGRET_DESC_DISLIKES" Language="zh_Hant_HK">
+      <Text>阿育王不喜歡擁有最多土地的領袖。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_WITHOUT_REGRET_DESC_LIKES" Language="zh_Hant_HK">
+      <Text>阿育王喜歡擁有最少土地的領袖。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_WITHOUT_REGRET_NAME" Language="zh_Hant_HK">
       <Text>無悔</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_WITHOUT_SORROW_DESC" Language="zh_Hant_HK">
-      <Text>喜歡擁有最高[icon:YIELD_HAPPINESS]幸福感的文明，不喜歡擁有最低[icon:YIELD_HAPPINESS]幸福感的文明。</Text>
+      <Text>喜歡擁有最高[icon:YIELD_HAPPINESS]幸福感的領袖，不喜歡擁有最低[icon:YIELD_HAPPINESS]幸福感的領袖。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_WITHOUT_SORROW_DESC_DISLIKES" Language="zh_Hant_HK">
+      <Text>阿育王不喜歡擁有最低[icon:YIELD_HAPPINESS]幸福感的領袖。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_WITHOUT_SORROW_DESC_LIKES" Language="zh_Hant_HK">
+      <Text>阿育王喜歡擁有最高[icon:YIELD_HAPPINESS]幸福感的領袖。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_WITHOUT_SORROW_NAME" Language="zh_Hant_HK">
       <Text>無悲</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_WONDERLUST_DESC" Language="zh_Hant_HK">
-      <Text>喜歡疆域中沒有任何自然奇觀的文明，不喜歡疆域內有自然奇觀的文明。</Text>
+      <Text>喜歡邊界中沒有任何[icon:NOTIFICATION_DISCOVER_NATURAL_WONDER]自然奇觀的領袖，不喜歡邊界中有[icon:NOTIFICATION_DISCOVER_NATURAL_WONDER]自然奇觀的領袖。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_WONDERLUST_DESC_DISLIKES" Language="zh_Hant_HK">
+      <Text>伊莎貝拉不喜歡邊界中有[icon:NOTIFICATION_DISCOVER_NATURAL_WONDER]自然奇觀的領袖。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_WONDERLUST_DESC_LIKES" Language="zh_Hant_HK">
+      <Text>伊莎貝拉喜歡邊界中沒有任何[icon:NOTIFICATION_DISCOVER_NATURAL_WONDER]自然奇觀的領袖。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_WONDERLUST_NAME" Language="zh_Hant_HK">
       <Text>奇觀愛好者</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_WONDERS_OF_ITERU_DESC" Language="zh_Hant_HK">
-      <Text>喜歡奇觀數量比她少的文明，不喜歡奇觀數量比她多的文明。</Text>
+      <Text>喜歡[icon:WONDER]奇觀數量比她少的領袖，不喜歡[icon:WONDER]奇觀數量比她多的領袖。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_WONDERS_OF_ITERU_DESC_DISLIKES" Language="zh_Hant_HK">
+      <Text>哈特謝普蘇特不喜歡[icon:WONDER]奇觀數量比她多的領袖。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_WONDERS_OF_ITERU_DESC_LIKES" Language="zh_Hant_HK">
+      <Text>哈特謝普蘇特喜歡[icon:WONDER]奇觀數量比她少的領袖。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_WONDERS_OF_ITERU_NAME" Language="zh_Hant_HK">
       <Text>古尼羅河的奇觀</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_YAMATAI_DESC" Language="zh_Hant_HK">
-      <Text>喜歡聚落中有[icon:YIELD_SCIENCE]科技值與[icon:YIELD_GOLD]金幣建築的文明。不喜歡聚落中有[icon:YIELD_CULTURE]文化值與[icon:YIELD_HAPPINESS]幸福感建築的文明。</Text>
+      <Text>喜歡聚落中有[icon:YIELD_SCIENCE]科技值與[icon:YIELD_GOLD]金幣建築的領袖，不喜歡聚落中有[icon:YIELD_CULTURE]文化值與[icon:YIELD_HAPPINESS]幸福感建築的領袖。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_YAMATAI_DESC_DISLIKES" Language="zh_Hant_HK">
+      <Text>卑彌呼不喜歡聚落中有[icon:YIELD_CULTURE]文化值與[icon:YIELD_HAPPINESS]幸福感建築的領袖。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_YAMATAI_DESC_LIKES" Language="zh_Hant_HK">
+      <Text>卑彌呼喜歡聚落中有[icon:YIELD_SCIENCE]科技值與[icon:YIELD_GOLD]金幣建築的領袖。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_YAMATAI_NAME" Language="zh_Hant_HK">
       <Text>邪馬臺</Text>
@@ -14419,8 +14758,14 @@
     <Replace Tag="LOC_DIPLOMACY_ATTRIBUTES_BUTTON_NAME" Language="zh_Hant_HK">
       <Text>屬性</Text>
     </Replace>
+    <Replace Tag="LOC_DIPLOMACY_BACK_TO_DEAL" Language="zh_Hant_HK">
+      <Text>回到和平協議</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_BACK_TO_MAP" Language="zh_Hant_HK">
+      <Text>檢視地圖</Text>
+    </Replace>
     <Replace Tag="LOC_DIPLOMACY_CALL_TO_ARMS_STAY_NEUTRAL_BOTH_ALLIES" Language="zh_Hant_HK">
-      <Text>你將終結你與雙方的同盟關係，而你與他們之間的關係也會受到負面影響。</Text>
+      <Text>你將終結你與雙方的[icon:PLAYER_RELATIONSHIP_ALLIANCE]同盟關係，而你與他們之間的[icon:RELATIONSHIP]關係也會受到負面影響。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_CALL_TO_ARMS_STAY_NEUTRAL_TITLE" Language="zh_Hant_HK">
       <Text>保持中立</Text>
@@ -14464,6 +14809,9 @@
     <Replace Tag="LOC_DIPLOMACY_ENDEAVORS_TOOLTIP_DESCRIPTION" Language="zh_Hant_HK">
       <Text>對你和其他目標領袖有利的專案，但其他領袖也能做出貢獻換得較少的獎勵。</Text>
     </Replace>
+    <Replace Tag="LOC_DIPLOMACY_ENTER_DECLARE_WAR" Language="zh_Hant_HK">
+      <Text>此行動將會宣告正式戰爭。確定要繼續？</Text>
+    </Replace>
     <Replace Tag="LOC_DIPLOMACY_ESPIONAGE_CONVERT_POPULATION_DESCRIPTION" Language="zh_Hant_HK">
       <Text>讓目標聚落皈依你創立的宗教。</Text>
     </Replace>
@@ -14489,7 +14837,7 @@
       <Text>行動成功</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ESPIONAGE_FAKE_ARTIFACTS_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>移除來自目標文明展出的[TIP:LOC_PEDIA_CONCEPTS_ARTIFACT_TOOLTIP]文物[/TIP]之所有收益。</Text>
+      <Text>移除來自目標文明所展出[icon:NAR_REW_GREATWORK][TIP:LOC_PEDIA_CONCEPTS_ARTIFACT_TOOLTIP]文物[/TIP]的所有產量。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ESPIONAGE_FAKE_ARTIFACTS_NAME" Language="zh_Hant_HK">
       <Text>散播假文物的謠言</Text>
@@ -14507,7 +14855,7 @@
       <Text>滲透敵方陣地</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ESPIONAGE_MILITARY_INFILTRATION_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>獲得目標所有的指揮官視野。</Text>
+      <Text>獲得目標所有[icon:UNIT_ARMY_COMMANDER]指揮官的視野。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ESPIONAGE_MILITARY_INFILTRATION_NAME" Language="zh_Hant_HK">
       <Text>軍事滲透</Text>
@@ -14528,13 +14876,13 @@
       <Text>破壞運輸</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ESPIONAGE_SABOTAGE_SPACE_PROGRAM_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>增加建造發射台所需的時間，以及完成「發射衛星」[TIP:LOC_PEDIA_CONCEPTS_PROJECTS_TOOLTIP]專案[/TIP]的時間。</Text>
+      <Text>增加建造發射台所需的時間，以及完成[icon:DEFAULT_PROJECT]「發射衛星」[TIP:LOC_PEDIA_CONCEPTS_PROJECTS_TOOLTIP]專案[/TIP]的時間。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ESPIONAGE_SABOTAGE_SPACE_PROGRAM_NAME" Language="zh_Hant_HK">
       <Text>破壞太空計畫</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ESPIONAGE_SABOTAGE_WORKERS_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>癱瘓目標聚落中的[TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_TOOLTIP]專家[/TIP]。</Text>
+      <Text>癱瘓目標聚落中的[icon:SPECIALIST][TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_TOOLTIP]專家[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ESPIONAGE_SABOTAGE_WORKERS_NAME" Language="zh_Hant_HK">
       <Text>破壞專家士氣</Text>
@@ -14546,7 +14894,7 @@
       <Text>盜取政府機密</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ESPIONAGE_STEAL_RICHES_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>掠奪目標聚落中的所有寶藏資源，然後生成一個由你掌控的寶藏護衛隊。</Text>
+      <Text>掠奪目標聚落中的所有[icon:TREASURE_FLEET]寶藏資源，然後生成一個由你掌控的[icon:UNIT_TREASURE_FLEET]寶藏護衛隊。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ESPIONAGE_STEAL_RICHES_NAME" Language="zh_Hant_HK">
       <Text>盜取財富</Text>
@@ -14558,7 +14906,7 @@
       <Text>盜取科技進展</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ESTABLISH_TREASURE_FLEET_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>在遙遠土地上，某個有能力生成寶藏護衛隊的盟友之聚落創造一個寶藏護衛隊單位。</Text>
+      <Text>在遙遠土地上，能夠生成[icon:UNIT_TREASURE_FLEET]寶藏護衛隊的一個盟友聚落中創造一個[icon:UNIT_TREASURE_FLEET]寶藏護衛隊單位。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ESTABLISH_TREASURE_FLEET_NAME" Language="zh_Hant_HK">
       <Text>建立寶藏護衛隊</Text>
@@ -14708,7 +15056,7 @@
       <Text>歸還給你</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PEACE_DEAL_SELECT_SETTLEMENTS" Language="zh_Hant_HK">
-      <Text>選擇各領袖要交易的聚落</Text>
+      <Text>選擇各領袖要交易的聚落、金幣或影響力</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PEACE_DEAL_SHOW_CITY" Language="zh_Hant_HK">
       <Text>顯示城市</Text>
@@ -14726,16 +15074,16 @@
       <Text>不是你的回合時，你不能提案求和！</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PICK_ALLIANCE_BODY_2" Language="zh_Hant_HK">
-      <Text>突襲戰爭的減益會隨著關係越友好而提升。</Text>
+      <Text>關係越友好，[icon:WAR]突襲戰爭的減益便越高。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_ACKNOWLEDGE" Language="zh_Hant_HK">
       <Text>確認</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_BECOME_SUZERAIN_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>立即將此獨立軍勢力轉化為奉你[TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主國[/TIP]的[TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP]。</Text>
+      <Text>立即將此[icon:INDEPENDENT_POWER]獨立軍勢力轉化為奉你為[TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主國[/TIP]的[icon:CITYSTATE][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_BECOME_SUZERAIN_INITIAL" Language="zh_Hant_HK">
-      <Text>立即將此獨立軍勢力轉化為奉你[TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主國[/TIP]的[TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP]。</Text>
+      <Text>立即將此[icon:INDEPENDENT_POWER]獨立軍勢力轉化為奉你為[TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主國[/TIP]的[icon:CITYSTATE][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_BECOME_SUZERAIN_NAME" Language="zh_Hant_HK">
       <Text>自由獨立</Text>
@@ -14765,61 +15113,61 @@
       <Text>發動反[icon:ESPIONAGE][TIP:LOC_PEDIA_CONCEPTS_ESPIONAGE_TOOLTIP]諜報[/TIP]活動來阻礙你懷疑其他領袖對你進行的任何特務行動。將針對你之特務行動的完成時間加倍、提高其30%失敗機率，同時將其揭露機率提高30%。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_CS_BOLSTER_MILITARY_INITIAL" Language="zh_Hant_HK">
-      <Text>為此[TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP]創造一個軍事單位。</Text>
+      <Text>為此[icon:CITYSTATE][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP]創造一個軍事單位。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_CS_BOLSTER_MILITARY_NAME" Language="zh_Hant_HK">
       <Text>增兵</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_CS_BOLSTER_MILITARY_NO_DATA" Language="zh_Hant_HK">
-      <Text>為此[TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP]創造一個軍事單位。</Text>
+      <Text>為此[icon:CITYSTATE][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP]創造一個軍事單位。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_CS_INCORPORATE" Language="zh_Hant_HK">
-      <Text>此外交行動完成後，會將此[TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP]作為新的城鎮整合至你的文明中。</Text>
+      <Text>此外交行動完成後，會將此[icon:CITYSTATE][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP]作為新的[icon:YIELD_TOWNS]城鎮整合至你的文明中。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_CS_INCORPORATE_INITIAL" Language="zh_Hant_HK">
-      <Text>此外交行動完成後，會將此[TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP]作為新的城鎮整合至你的文明中。</Text>
+      <Text>此外交行動完成後，會將此[icon:CITYSTATE][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP]作為新的[icon:YIELD_TOWNS]城鎮整合至你的文明中。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_CS_INCORPORATE_NAME" Language="zh_Hant_HK">
       <Text>整合</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_CS_INCORPORATE_NO_DATA" Language="zh_Hant_HK">
-      <Text>此外交行動完成後，會將此[TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP]作為新的城鎮整合至你的文明中。</Text>
+      <Text>此外交行動完成後，會將此[icon:CITYSTATE][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP]作為新的[icon:YIELD_TOWNS]城鎮整合至你的文明中。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_CS_LEVY_UNIT" Language="zh_Hant_HK">
-      <Text>從此[TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP]選擇並永久掌控一個單位。</Text>
+      <Text>從此[icon:CITYSTATE][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP]選擇並永久掌控一個單位。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_CS_LEVY_UNIT_INITIAL" Language="zh_Hant_HK">
-      <Text>從此[TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP]選擇並永久掌控一個單位。該單位的[icon:YIELD_DIPLOMACY]影響力花費與其[icon:YIELD_PRODUCTION]生產力花費相同。</Text>
+      <Text>從此[icon:CITYSTATE][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP]選擇並永久掌控一個單位。該單位的[icon:YIELD_DIPLOMACY]影響力花費與其[icon:YIELD_PRODUCTION]生產力花費相同。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_CS_LEVY_UNIT_NAME" Language="zh_Hant_HK">
       <Text>徵集單位</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_CS_LEVY_UNIT_NO_DATA" Language="zh_Hant_HK">
-      <Text>從此[TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP]選擇並永久掌控一個單位。</Text>
+      <Text>從此[icon:CITYSTATE][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP]選擇並永久掌控一個單位。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_CS_ORDER_ATTACK_INITIAL" Language="zh_Hant_HK">
-      <Text>讓某[TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP]攻擊另一個文明。</Text>
+      <Text>讓一個[icon:CITYSTATE][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP]攻擊另一個文明。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_CS_ORDER_ATTACK_NAME" Language="zh_Hant_HK">
       <Text>城邦：命令攻打</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_CS_ORDER_ATTACK_NO_DATA" Language="zh_Hant_HK">
-      <Text>讓某[TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP]攻擊另一個文明。</Text>
+      <Text>讓一個[icon:CITYSTATE][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP]攻擊另一個文明。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_CS_PROMOTE_GROWTH" Language="zh_Hant_HK">
-      <Text>透過協助[TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP]產生[icon:YIELD_FOOD]食物，促進該城邦的成長。在此外交行動進行期間，它每回合能額外產生15[icon:YIELD_FOOD]食物。</Text>
+      <Text>透過協助[icon:CITYSTATE][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP]產生[icon:YIELD_FOOD]食物，促進該城邦的成長。在此外交行動進行期間，它每回合能額外產生15[icon:YIELD_FOOD]食物。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_CS_PROMOTE_GROWTH_INITIAL" Language="zh_Hant_HK">
-      <Text>透過協助[TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP]產生[icon:YIELD_FOOD]食物，促進該城邦的成長。在此外交行動進行期間，它每回合能額外產生15[icon:YIELD_FOOD]食物。</Text>
+      <Text>透過協助[icon:CITYSTATE][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP]產生[icon:YIELD_FOOD]食物，促進該城邦的成長。在此外交行動進行期間，它每回合能額外產生15[icon:YIELD_FOOD]食物。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_CS_PROMOTE_GROWTH_NAME" Language="zh_Hant_HK">
       <Text>促進成長</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_CS_PROMOTE_GROWTH_NO_DATA" Language="zh_Hant_HK">
-      <Text>透過協助[TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP]產生[icon:YIELD_FOOD]食物，促進該城邦的成長。</Text>
+      <Text>透過協助[icon:CITYSTATE][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP]產生[icon:YIELD_FOOD]食物，促進該城邦的成長。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_CS_REVEAL_MAP_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>該[TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP]向你揭露其已探索的地圖。</Text>
+      <Text>該[icon:CITYSTATE][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP]向你揭露其已探索的地圖。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_CS_REVEAL_MAP_NAME" Language="zh_Hant_HK">
       <Text>城邦：揭露地圖</Text>
@@ -14834,7 +15182,7 @@
       <Text>向其他文明宣戰。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_DENOUNCE_INITIAL" Language="zh_Hant_HK">
-      <Text>降低你和對方領袖間的關係。</Text>
+      <Text>降低你和對方領袖間的[icon:RELATIONSHIP]關係。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_DENOUNCE_MILITARY_PRESENCE_ACCEPT" Language="zh_Hant_HK">
       <Text>同意在此外交行動期間不攻打此文明。如若違反協定，戰爭起始時就有厭戰情緒。</Text>
@@ -14864,7 +15212,7 @@
       <Text>譴責</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_DENOUNCE_NO_DATA" Language="zh_Hant_HK">
-      <Text>減少你和對方領袖間的關係。</Text>
+      <Text>降低你和對方領袖間的[icon:RELATIONSHIP]關係。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_DENOUNCE_REJECT" Language="zh_Hant_HK">
       <Text>取消該外交行動。</Text>
@@ -14909,10 +15257,10 @@
       <Text>和另一名領袖達成交易[icon:YIELD_FOOD]食物的協議。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_GIVE_INFLUENCE_TOKEN_INITIAL" Language="zh_Hant_HK">
-      <Text>花費[icon:YIELD_DIPLOMACY]影響力來和某獨立軍勢力交好。完成後，會成為奉你為[TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主國[/TIP]的[TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP]。</Text>
+      <Text>花費[icon:YIELD_DIPLOMACY]影響力來和一個[icon:INDEPENDENT_POWER]獨立軍勢力交好。完成後，它會成為奉你為[TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主國[/TIP]的[icon:CITYSTATE][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_GRANT_POLICY_SLOT_INITIAL" Language="zh_Hant_HK">
-      <Text>展開「改革」外交手段。[n]對方接受：當外交行動完成時，你獲得一個傳統槽位。當外交行動完成時，另一方獲得一個社會政策槽位。「改革」對每位其他領袖僅能使用一次。[n]對方支持：雙方在此外交行動完成時都能獲得一個傳統槽位。[n]對方拒絕：關係惡化。</Text>
+      <Text>展開「改革」外交手段。[n]對方接受：當外交行動完成時，你獲得一個[icon:NAR_REW_TRADITION_SLOT]傳統槽位。當外交行動完成時，另一方獲得一個社會政策槽位。「改革」對每位其他領袖僅能使用一次。[n]對方支持：雙方在此外交行動完成時都能獲得一個[icon:NAR_REW_TRADITION_SLOT]傳統槽位。[n]對方拒絕：[icon:RELATIONSHIP]關係惡化。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_GRANT_POLICY_SLOT_NAME" Language="zh_Hant_HK">
       <Text>改革</Text>
@@ -14924,7 +15272,7 @@
       <Text>雙方在此外交行動完成時都能獲得一個傳統槽位。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_IMPROVE_TRADE_RELATIONS_INITIAL" Language="zh_Hant_HK">
-      <Text>若接受行動，將你能和其他文明建立的貿易路線數量永久提升1。[n]對方接受：目標可獲得[icon:YIELD_GOLD]金幣。</Text>
+      <Text>若接受行動，將你能和對方文明建立的[icon:TRADE_ROUTE]貿易路線數量永久提升1。[n]對方接受：目標獲得[icon:YIELD_GOLD]金幣。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_IMPROVE_TRADE_RELATIONS_NAME" Language="zh_Hant_HK">
       <Text>改善貿易關係</Text>
@@ -14933,13 +15281,13 @@
       <Text>若對方接受此行動，這將永久提升你能與某文明建立的[icon:TRADE_ROUTE][TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]貿易路線[/TIP]數量。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_INCITE_RAID_INITIAL" Language="zh_Hant_HK">
-      <Text>煽動某獨立軍勢力去突襲其他文明。</Text>
+      <Text>煽動一個[icon:INDEPENDENT_POWER]獨立軍勢力去突襲其他文明。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_INCITE_RAID_NAME" Language="zh_Hant_HK">
       <Text>獨立軍：煽動突襲</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_INCITE_RAID_NO_DATA" Language="zh_Hant_HK">
-      <Text>煽動某獨立軍勢力去突襲其他文明。</Text>
+      <Text>煽動一個[icon:INDEPENDENT_POWER]獨立軍勢力去突襲其他文明。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_LOCAL_FESTIVALS_NAME" Language="zh_Hant_HK">
       <Text>當地節慶</Text>
@@ -14948,16 +15296,16 @@
       <Text>和另一名領袖展開一次當地節慶。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_MILITARY_AID_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>賦予軍事單位戰鬥加成。[n]對方接受：你的單位+2戰鬥力。對方領袖每回合的[icon:YIELD_GOLD]金幣收入+2。[n]對方支持：雙方領袖的單位+3戰鬥力。[n]對方拒絕：關係惡化。</Text>
+      <Text>賦予軍事單位戰鬥加成。[n]對方接受：你的單位+2[icon:NAR_REW_COMBAT]戰鬥力。對方領袖每回合的[icon:YIELD_GOLD]金幣收入+2。[n]對方支持：雙方領袖的單位+3[icon:NAR_REW_COMBAT]戰鬥力。[n]對方拒絕：[icon:RELATIONSHIP]關係惡化。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_MILITARY_AID_NAME" Language="zh_Hant_HK">
       <Text>軍事外援</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_MILITARY_AID_SUPPORT" Language="zh_Hant_HK">
-      <Text>雙方領袖的單位獲得+3戰鬥力。</Text>
+      <Text>雙方領袖的單位+3[icon:NAR_REW_COMBAT]戰鬥力。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_MILITARY_SABOTAGE_INITIAL" Language="zh_Hant_HK">
-      <Text>目標的軍事單位-3戰鬥力。</Text>
+      <Text>目標的軍事單位-3[icon:NAR_REW_COMBAT]戰鬥力。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_MINOR_TRADE_NAME" Language="zh_Hant_HK">
       <Text>開放通商</Text>
@@ -15107,13 +15455,13 @@
       <Text>取消該外交行動。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_SEND_DELEGATION_INITIAL" Language="zh_Hant_HK">
-      <Text>提升你和對方領袖間的關係。</Text>
+      <Text>提升你和對方領袖間的[icon:RELATIONSHIP]關係。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_SEND_DELEGATION_NAME" Language="zh_Hant_HK">
       <Text>和解</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_SEND_DELEGATION_NO_DATA" Language="zh_Hant_HK">
-      <Text>提升你和對方領袖間的關係。</Text>
+      <Text>提升你和對方領袖間的[icon:RELATIONSHIP]關係。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_SEND_DELEGATION_REJECT" Language="zh_Hant_HK">
       <Text>取消該外交行動。</Text>
@@ -15125,10 +15473,10 @@
       <Text>送[icon:YIELD_GOLD]金幣給某位盟友。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_STEAL_CIVIC_INITIAL" Language="zh_Hant_HK">
-      <Text>盜取其他文明已經研究，但你還未研究的市政。</Text>
+      <Text>盜取其他文明已經研究，但你還未研究的[icon:RADIAL_CIVICS]市政。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_STEAL_TECH_INITIAL" Language="zh_Hant_HK">
-      <Text>盜取其他文明已經研發，但你還未研發的科技。</Text>
+      <Text>盜取其他文明已經研究，但你還未研究的[icon:RADIAL_TECH]科技。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_TRADE_MAP_DESCRIPTION" Language="zh_Hant_HK">
       <Text>隨時間揭露另一名領袖所佔據的領土。</Text>
@@ -15212,13 +15560,13 @@
       <Text>另一名領袖即將成為此獨立軍勢力的[TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主國[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_STAGE_INDEPENDENT_CITY_STATEHOOD_TOOLTIP" Language="zh_Hant_HK">
-      <Text>此獨立軍勢力很快將會轉變為[TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP]，而你將成為其[TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主國[/TIP]。他們贈與了其他贈禮。</Text>
+      <Text>此[icon:INDEPENDENT_POWER]獨立軍勢力很快將會轉變為[icon:CITYSTATE][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP]，而你將成為其[TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主國[/TIP]。他們又贈與了一件贈禮。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_STAGE_INDEPENDENT_FRIENDLY_2_TOOLTIP" Language="zh_Hant_HK">
-      <Text>此獨立軍勢力如今已經足夠友善，他們還送了你一個贈禮。</Text>
+      <Text>此[icon:INDEPENDENT_POWER]獨立軍勢力如今已經足夠友善，他們還贈與了你一件贈禮。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_STAGE_INDEPENDENT_FRIENDLY_TOOLTIP" Language="zh_Hant_HK">
-      <Text>該獨立軍勢力對你很友善。</Text>
+      <Text>該[icon:INDEPENDENT_POWER]獨立軍勢力對你很友好。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_STAGE_INDEPENDENT_HOSTILE_TOOLTIP" Language="zh_Hant_HK">
       <Text>該獨立軍勢力對你有敵意。</Text>
@@ -15260,10 +15608,10 @@
       <Text>突襲戰爭</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_SUZERAIN_TEAM" Language="zh_Hant_HK">
-      <Text>某位隊友是此[TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP]的[TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主國[/TIP]</Text>
+      <Text>某位隊友是此[icon:CITYSTATE][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP]的[TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主國[/TIP]</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_SUZERAIN_YOU" Language="zh_Hant_HK">
-      <Text>你是此[TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP]的[TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主國[/TIP]</Text>
+      <Text>你是此[icon:CITYSTATE][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP]的[TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主國[/TIP]</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_THEIR_ACTIONS_HEADER" Language="zh_Hant_HK">
       <Text>對方的行動</Text>
@@ -15305,10 +15653,10 @@
       <Text>戰爭</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMATIC_ESPIONAGE_MILITARY_INFILTRATION_EFFECT" Language="zh_Hant_HK">
-      <Text>我們獲得了對方指揮官的視野。</Text>
+      <Text>我們獲得了對方[icon:UNIT_ARMY_COMMANDER]指揮官的視野。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMATIC_ESPIONAGE_MILITARY_INFILTRATION_EFFECT_TARGET" Language="zh_Hant_HK">
-      <Text>對方獲得了我方指揮官的視野。</Text>
+      <Text>對方獲得了我方[icon:UNIT_ARMY_COMMANDER]指揮官的視野。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMATIC_NAME" Language="zh_Hant_HK">
       <Text>外交</Text>
@@ -15449,34 +15797,58 @@
       <Text>返回主選單</Text>
     </Replace>
     <Replace Tag="LOC_FAVOR_FROM_DISPERSE_IP" Language="zh_Hant_HK">
-      <Text>在另一名領袖旁驅散一股有敵意的獨立軍</Text>
+      <Text>你驅散了對方附近的敵對獨立軍勢力</Text>
+    </Replace>
+    <Replace Tag="LOC_FAVOR_FROM_DISPERSE_IP_ALT" Language="zh_Hant_HK">
+      <Text>對方驅散了你附近的敵對獨立軍勢力</Text>
     </Replace>
     <Replace Tag="LOC_FAVOR_FROM_ENDEAVOR" Language="zh_Hant_HK">
-      <Text>和另一名領袖的外交手段</Text>
+      <Text>來自你對對方發起的外交手段</Text>
+    </Replace>
+    <Replace Tag="LOC_FAVOR_FROM_ENDEAVOR_ALT" Language="zh_Hant_HK">
+      <Text>來自對方對你發起的外交手段</Text>
     </Replace>
     <Replace Tag="LOC_FAVOR_FROM_INDEPENDENT" Language="zh_Hant_HK">
       <Text>來自某獨立軍勢力</Text>
     </Replace>
     <Replace Tag="LOC_FAVOR_FROM_PROJECT" Language="zh_Hant_HK">
-      <Text>來自某外交行動</Text>
+      <Text>來自你對對方展開的外交行動</Text>
+    </Replace>
+    <Replace Tag="LOC_FAVOR_FROM_PROJECT_ALT" Language="zh_Hant_HK">
+      <Text>來自對方對你展開的外交行動</Text>
     </Replace>
     <Replace Tag="LOC_FAVOR_FROM_START_TRADE_ROUTE" Language="zh_Hant_HK">
-      <Text>建立了一條貿易路線</Text>
+      <Text>你建立了與對方之間的貿易路線</Text>
+    </Replace>
+    <Replace Tag="LOC_FAVOR_FROM_START_TRADE_ROUTE_ALT" Language="zh_Hant_HK">
+      <Text>對方建立了與你之間的貿易路線</Text>
     </Replace>
     <Replace Tag="LOC_FAVOR_FROM_STORYLET" Language="zh_Hant_HK">
       <Text>來自某敘事事件</Text>
     </Replace>
     <Replace Tag="LOC_FAVOR_FROM_SUPPORT" Language="zh_Hant_HK">
-      <Text>和另一名領袖的受支持外交手段</Text>
+      <Text>你支援了對方的外交手段</Text>
+    </Replace>
+    <Replace Tag="LOC_FAVOR_FROM_SUPPORT_ALT" Language="zh_Hant_HK">
+      <Text>對方支援了你的外交手段</Text>
     </Replace>
     <Replace Tag="LOC_FAVOR_FROM_TOWN_LIBERATED" Language="zh_Hant_HK">
-      <Text>解放一座城鎮</Text>
+      <Text>你解放了對方的城鎮</Text>
+    </Replace>
+    <Replace Tag="LOC_FAVOR_FROM_TOWN_LIBERATED_ALT" Language="zh_Hant_HK">
+      <Text>對方解放了你的城鎮</Text>
     </Replace>
     <Replace Tag="LOC_FAVOR_FROM_WAR_SUPPORT_3RD_PARTY" Language="zh_Hant_HK">
-      <Text>來自支持某場戰爭</Text>
+      <Text>你支援了對方的戰爭</Text>
+    </Replace>
+    <Replace Tag="LOC_FAVOR_FROM_WAR_SUPPORT_3RD_PARTY_ALT" Language="zh_Hant_HK">
+      <Text>對方支援了你的戰爭</Text>
     </Replace>
     <Replace Tag="LOC_FAVOR_FROM_WONDER" Language="zh_Hant_HK">
-      <Text>來自奇觀</Text>
+      <Text>來自你擁有的奇觀</Text>
+    </Replace>
+    <Replace Tag="LOC_FAVOR_FROM_WONDER_ALT" Language="zh_Hant_HK">
+      <Text>來自對方擁有的奇觀</Text>
     </Replace>
     <Replace Tag="LOC_FEATURE_BARRIER_REEF_DESCRIPTION" Language="zh_Hant_HK">
       <Text>+2[icon:YIELD_FOOD]食物、[icon:YIELD_HAPPINESS]幸福感與[icon:YIELD_SCIENCE]科技值，依照時代疊加。相鄰水域生物群系上的[icon:CITY_RURAL]改良設施、[icon:CITY_URBAN]區域和[icon:WONDER]奇觀+2[icon:YIELD_SCIENCE]科技值。</Text>
@@ -15587,7 +15959,7 @@
       <Text>此聚落中崎嶇地形上的[icon:CITY_RURAL]改良設施+2[icon:YIELD_CULTURE]文化值。</Text>
     </Replace>
     <Replace Tag="LOC_FIRST_MEET_FRIENDLY_ERROR_CAPITALS_REVEALED" Language="zh_Hant_HK">
-      <Text>在決定要揭露哪個首都時發生問題。</Text>
+      <Text>決定要揭露哪個[icon:NOTIFICATION_SELECT_CAPITAL]首都時發生問題。</Text>
     </Replace>
     <Replace Tag="LOC_FIRST_MEET_FRIENDLY_GREETING_TITLE" Language="zh_Hant_HK">
       <Text>友善的問候</Text>
@@ -15602,7 +15974,7 @@
       <Text>具敵意的問候</Text>
     </Replace>
     <Replace Tag="LOC_FIRST_MEET_NEUTRAL_GREETING_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>無關係變更。</Text>
+      <Text>無[icon:RELATIONSHIP]關係變更。</Text>
     </Replace>
     <Replace Tag="LOC_FIRST_MEET_NEUTRAL_GREETING_TITLE" Language="zh_Hant_HK">
       <Text>中立的問候</Text>
@@ -15658,8 +16030,14 @@
     <Replace Tag="LOC_GAME_TURN_TIMER_TIME" Language="zh_Hant_HK">
       <Text>回合時間</Text>
     </Replace>
+    <Replace Tag="LOC_GAME_TURN_TIMER_TIME_EXTENDED" Language="zh_Hant_HK">
+      <Text>延長回合時間</Text>
+    </Replace>
+    <Replace Tag="LOC_GAME_TURN_TIMER_TIME_EXTENDED_TOOLTIP" Language="zh_Hant_HK">
+      <Text>用於較長回合的回合時間（進階開局期間、時代最後一回合、時代轉場後的第一回合）（秒）。</Text>
+    </Replace>
     <Replace Tag="LOC_GAME_TURN_TIMER_TIME_TOOLTIP" Language="zh_Hant_HK">
-      <Text>標準回合倒數模式所使用的回合時間（以秒計）。</Text>
+      <Text>用於標準回合的回合時間（秒）。</Text>
     </Replace>
     <Replace Tag="LOC_GAME_TURNTIMER_DESC" Language="zh_Hant_HK">
       <Text>決定玩家有多久時間能進行其回合。[n]無：玩家在沒有時間限制的情況下進行回合。[n]標準：回合時間取決於回合時間選項（以秒數計）。[n]動態：回合時間會根據遊戲中城市和單位數量進行動態調整。</Text>
@@ -15797,7 +16175,7 @@
       <Text>最近的聚落獲得免費偵察兵</Text>
     </Replace>
     <Replace Tag="LOC_GOVERNMENT_HAPPINESS_REMINDER_TEXT" Language="zh_Hant_HK">
-      <Text>正的當地幸福感會在帝國層級累積，用於推動進入慶典。負的當地幸福感則來自超出聚落限制、負的戰爭支援，以及建築與專家的維護費用。</Text>
+      <Text>正的當地[icon:YIELD_HAPPINESS]幸福感會在帝國層級累積，用於推動進入[icon:CELEBRATION]慶典。負的當地[icon:YIELD_HAPPINESS]幸福感則來自超出[icon:SETTLEMENT_LIMIT]聚落限制、負的[icon:WAR_SUPPORT]戰爭支援，以及[icon:CITY_BUILDING_LIST]建築與[icon:SPECIALIST]專家的維護費用。</Text>
     </Replace>
     <Replace Tag="LOC_GREAT_PEOPLE_CANNOT_EARN_PERSON_NO_VALID_LOCATION" Language="zh_Hant_HK">
       <Text>此單位沒有有效的地點。</Text>
@@ -15866,73 +16244,136 @@
       <Text>賦予100科技值。</Text>
     </Replace>
     <Replace Tag="LOC_GRIEVANCE_FROM_ATTACK_CITY_STATE" Language="zh_Hant_HK">
-      <Text>攻打一座城邦</Text>
+      <Text>你攻擊了一個城邦</Text>
+    </Replace>
+    <Replace Tag="LOC_GRIEVANCE_FROM_ATTACK_CITY_STATE_ALT" Language="zh_Hant_HK">
+      <Text>對方攻擊了一個城邦</Text>
     </Replace>
     <Replace Tag="LOC_GRIEVANCE_FROM_BREAK_ALLIANCE" Language="zh_Hant_HK">
-      <Text>透過宣戰斷絕一段同盟關係</Text>
+      <Text>你對對方宣戰，破壞了同盟關係</Text>
+    </Replace>
+    <Replace Tag="LOC_GRIEVANCE_FROM_BREAK_ALLIANCE_ALT" Language="zh_Hant_HK">
+      <Text>對方對你宣戰，破壞了同盟關係</Text>
     </Replace>
     <Replace Tag="LOC_GRIEVANCE_FROM_CAPTURE_SETTLEMENT" Language="zh_Hant_HK">
-      <Text>已佔領一個聚落</Text>
+      <Text>你佔領了對方的聚落</Text>
+    </Replace>
+    <Replace Tag="LOC_GRIEVANCE_FROM_CAPTURE_SETTLEMENT_ALT" Language="zh_Hant_HK">
+      <Text>對方佔領了你的聚落</Text>
     </Replace>
     <Replace Tag="LOC_GRIEVANCE_FROM_CLOSE_LAND_CLAIM" Language="zh_Hant_HK">
-      <Text>開拓處太靠近其他文明的首都</Text>
+      <Text>你建立聚落的位置離對方的[icon:NOTIFICATION_SELECT_CAPITAL]首都太近</Text>
+    </Replace>
+    <Replace Tag="LOC_GRIEVANCE_FROM_CLOSE_LAND_CLAIM_ALT" Language="zh_Hant_HK">
+      <Text>對方建立聚落的位置離你的[icon:NOTIFICATION_SELECT_CAPITAL]首都太近</Text>
     </Replace>
     <Replace Tag="LOC_GRIEVANCE_FROM_CLOSE_MILITARY" Language="zh_Hant_HK">
-      <Text>將軍事單位留在靠近其他文明處</Text>
+      <Text>你讓軍事單位停留在對方的文明附近</Text>
+    </Replace>
+    <Replace Tag="LOC_GRIEVANCE_FROM_CLOSE_MILITARY_ALT" Language="zh_Hant_HK">
+      <Text>對方讓軍事單位停留在你的文明附近</Text>
     </Replace>
     <Replace Tag="LOC_GRIEVANCE_FROM_DISPERSING_IP" Language="zh_Hant_HK">
-      <Text>驅散了一股與其交好的獨立軍勢力</Text>
+      <Text>你驅散了一個與對方交好的獨立軍勢力</Text>
+    </Replace>
+    <Replace Tag="LOC_GRIEVANCE_FROM_DISPERSING_IP_ALT" Language="zh_Hant_HK">
+      <Text>對方驅散了一個與你交好的獨立軍勢力</Text>
     </Replace>
     <Replace Tag="LOC_GRIEVANCE_FROM_END_ALLIANCE" Language="zh_Hant_HK">
-      <Text>終結了同盟關係</Text>
+      <Text>你終結了與對方的同盟關係</Text>
+    </Replace>
+    <Replace Tag="LOC_GRIEVANCE_FROM_END_ALLIANCE_ALT" Language="zh_Hant_HK">
+      <Text>對方終結了與你的同盟關係</Text>
     </Replace>
     <Replace Tag="LOC_GRIEVANCE_FROM_ESPIONAGE_DISCOVERY" Language="zh_Hant_HK">
       <Text>來自諜報發現</Text>
     </Replace>
     <Replace Tag="LOC_GRIEVANCE_FROM_OPPOSE" Language="zh_Hant_HK">
-      <Text>反對了某外交行動</Text>
+      <Text>你拒絕了對方的外交行動</Text>
+    </Replace>
+    <Replace Tag="LOC_GRIEVANCE_FROM_OPPOSE_ALT" Language="zh_Hant_HK">
+      <Text>對方拒絕了你的外交行動</Text>
     </Replace>
     <Replace Tag="LOC_GRIEVANCE_FROM_PRIVATER_ATTACK" Language="zh_Hant_HK">
-      <Text>來自私掠船或海盜攻擊</Text>
+      <Text>來自你發動的私掠船或海盜攻擊</Text>
+    </Replace>
+    <Replace Tag="LOC_GRIEVANCE_FROM_PRIVATER_ATTACK_ALT" Language="zh_Hant_HK">
+      <Text>來自對方發動的私掠船或海盜攻擊</Text>
     </Replace>
     <Replace Tag="LOC_GRIEVANCE_FROM_PRIVATER_PILLAGE" Language="zh_Hant_HK">
-      <Text>來自私掠船或海盜掠奪</Text>
+      <Text>來自你發動的私掠船或海盜掠奪</Text>
+    </Replace>
+    <Replace Tag="LOC_GRIEVANCE_FROM_PRIVATER_PILLAGE_ALT" Language="zh_Hant_HK">
+      <Text>來自對方發動的私掠船或海盜掠奪</Text>
     </Replace>
     <Replace Tag="LOC_GRIEVANCE_FROM_PROJECT" Language="zh_Hant_HK">
-      <Text>來自某外交行動</Text>
+      <Text>來自你對對方展開的外交行動</Text>
+    </Replace>
+    <Replace Tag="LOC_GRIEVANCE_FROM_PROJECT_ALT" Language="zh_Hant_HK">
+      <Text>來自對方對你展開的外交行動</Text>
     </Replace>
     <Replace Tag="LOC_GRIEVANCE_FROM_RAZING_SETTLEMENT" Language="zh_Hant_HK">
-      <Text>曾將某聚落夷為平地</Text>
+      <Text>你夷平了對方的聚落</Text>
+    </Replace>
+    <Replace Tag="LOC_GRIEVANCE_FROM_RAZING_SETTLEMENT_ALT" Language="zh_Hant_HK">
+      <Text>對方夷平了你的聚落</Text>
     </Replace>
     <Replace Tag="LOC_GRIEVANCE_FROM_REJECTED_ALLIANCE" Language="zh_Hant_HK">
-      <Text>要求同盟遭拒</Text>
+      <Text>你拒絕了對方的結盟提議</Text>
+    </Replace>
+    <Replace Tag="LOC_GRIEVANCE_FROM_REJECTED_ALLIANCE_ALT" Language="zh_Hant_HK">
+      <Text>對方拒絕了你的結盟提議</Text>
     </Replace>
     <Replace Tag="LOC_GRIEVANCE_FROM_REJECTED_ENDEAVOR" Language="zh_Hant_HK">
-      <Text>拒絕了外交手段</Text>
+      <Text>你拒絕了對方的外交手段</Text>
+    </Replace>
+    <Replace Tag="LOC_GRIEVANCE_FROM_REJECTED_ENDEAVOR_ALT" Language="zh_Hant_HK">
+      <Text>對方拒絕了你的外交手段</Text>
     </Replace>
     <Replace Tag="LOC_GRIEVANCE_FROM_REVEALED_ESPIONAGE" Language="zh_Hant_HK">
-      <Text>已揭露的諜報行動</Text>
+      <Text>對方針對你的諜報行動已遭到揭露</Text>
+    </Replace>
+    <Replace Tag="LOC_GRIEVANCE_FROM_REVEALED_ESPIONAGE_ALT" Language="zh_Hant_HK">
+      <Text>你針對對方的諜報行動已遭到揭露</Text>
     </Replace>
     <Replace Tag="LOC_GRIEVANCE_FROM_REVEALED_TS_ESPIONAGE" Language="zh_Hant_HK">
-      <Text>揭露了最高機密的諜報行動</Text>
+      <Text>對方針對你的最高機密諜報行動已遭到揭露</Text>
+    </Replace>
+    <Replace Tag="LOC_GRIEVANCE_FROM_REVEALED_TS_ESPIONAGE_ALT" Language="zh_Hant_HK">
+      <Text>你針對對方的最高機密諜報行動已遭到揭露</Text>
     </Replace>
     <Replace Tag="LOC_GRIEVANCE_FROM_SANCTION" Language="zh_Hant_HK">
-      <Text>制裁了其他文明</Text>
+      <Text>你制裁了對方</Text>
+    </Replace>
+    <Replace Tag="LOC_GRIEVANCE_FROM_SANCTION_ALT" Language="zh_Hant_HK">
+      <Text>對方制裁了你</Text>
     </Replace>
     <Replace Tag="LOC_GRIEVANCE_FROM_STORYLET" Language="zh_Hant_HK">
       <Text>來自某敘事事件</Text>
     </Replace>
     <Replace Tag="LOC_GRIEVANCE_FROM_UNEVEN_PEACE_DEAL" Language="zh_Hant_HK">
-      <Text>不平等的和平協議</Text>
+      <Text>來自你的不平等和平協議</Text>
+    </Replace>
+    <Replace Tag="LOC_GRIEVANCE_FROM_UNEVEN_PEACE_DEAL_ALT" Language="zh_Hant_HK">
+      <Text>來自對方的不平等和平協議</Text>
     </Replace>
     <Replace Tag="LOC_GRIEVANCE_FROM_WAR_OPPOSITION_3RD_PARTY" Language="zh_Hant_HK">
-      <Text>來自反對某場戰爭</Text>
+      <Text>來自你反對對方的戰爭</Text>
+    </Replace>
+    <Replace Tag="LOC_GRIEVANCE_FROM_WAR_OPPOSITION_3RD_PARTY_ALT" Language="zh_Hant_HK">
+      <Text>來自對方反對你的戰爭</Text>
     </Replace>
     <Replace Tag="LOC_GRIEVANCE_FROM_WINNING_SUZERAIN" Language="zh_Hant_HK">
-      <Text>贏得了成為某城邦宗主國的競賽</Text>
+      <Text>你贏得了成為某城邦宗主國的競賽</Text>
+    </Replace>
+    <Replace Tag="LOC_GRIEVANCE_FROM_WINNING_SUZERAIN_ALT" Language="zh_Hant_HK">
+      <Text>對方贏得了成為某城邦宗主國的競賽</Text>
     </Replace>
     <Replace Tag="LOC_GRIEVANCE_FROM_WONDER" Language="zh_Hant_HK">
-      <Text>來自奇觀</Text>
+      <Text>來自你擁有的奇觀</Text>
+    </Replace>
+    <Replace Tag="LOC_GRIEVANCE_FROM_WONDER_ALT" Language="zh_Hant_HK">
+      <Text>來自對方擁有的奇觀</Text>
     </Replace>
     <Replace Tag="LOC_GROUPID_TRIUMPH_SETTINGS_NAME" Language="zh_Hant_HK">
       <Text>凱旋挑戰設定</Text>
@@ -15971,7 +16412,10 @@
       <Text>Fire Tuner</Text>
     </Replace>
     <Replace Tag="LOC_HISTORICAL_EVENT_LEADER_AGENDA" Language="zh_Hant_HK">
-      <Text>領袖議程</Text>
+      <Text>來自你的領袖議程</Text>
+    </Replace>
+    <Replace Tag="LOC_HISTORICAL_EVENT_LEADER_AGENDA_ALT" Language="zh_Hant_HK">
+      <Text>來自他們的領袖議程</Text>
     </Replace>
     <Replace Tag="LOC_HISTORICAL_EVENT_MUTUAL_TRADE" Language="zh_Hant_HK">
       <Text>相互貿易</Text>
@@ -16028,7 +16472,7 @@
       <Text>總體</Text>
     </Replace>
     <Replace Tag="LOC_HOF_DEFEAT" Language="zh_Hant_HK">
-      <Text>[COLOR_RED]落敗[ENDCOLOR]</Text>
+      <Text>落敗</Text>
     </Replace>
     <Replace Tag="LOC_HOF_DELETE_GAME" Language="zh_Hant_HK">
       <Text>刪除遊戲</Text>
@@ -16625,7 +17069,7 @@
       <Text>各[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]+1[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_RESOURCE_CAPACITY_TOOLTIP]資源容量[/TIP]。每有一個指派至[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]的[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]資源[/TIP]，便+1[icon:YIELD_GOLD]金幣，依照[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]時代[/TIP]疊加。在平原與沙漠上的[TIP:LOC_PEDIA_CONCEPTS_LAND_UNITS_TOOLTIP]陸地單位[/TIP]+5[icon:NAR_REW_COMBAT][TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]戰鬥力[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_LEADER_ASHOKA_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]中每多出5[icon:YIELD_HAPPINESS]幸福感，便+1[icon:YIELD_FOOD]食物。在[icon:CELEBRATION][TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]慶典[/TIP]期間所有[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]+10%[icon:YIELD_FOOD]食物。[icon:CITY_BUILDING_LIST]特色[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建築[/TIP]都會從所有[icon:CITY_RURAL]改良設施獲得+1[icon:YIELD_HAPPINESS]幸福感相鄰加成。</Text>
+      <Text>[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]中每多出5[icon:YIELD_HAPPINESS]幸福感，便+1[icon:YIELD_FOOD]食物。在[icon:CELEBRATION][TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]慶典[/TIP]期間，開心的[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]+10%[icon:YIELD_FOOD]食物、歡欣的聚落+15%、狂喜的聚落+20%。[icon:CITY_BUILDING_LIST]特色建築、[icon:YIELD_HAPPINESS]幸福感建築和[icon:YIELD_FOOD]食物[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建築[/TIP]都會從所有[icon:CITY_RURAL]改良設施獲得+1[icon:YIELD_HAPPINESS]幸福感相鄰加成。</Text>
     </Replace>
     <Replace Tag="LOC_LEADER_ASSOCIATED_CIV_SELECTION_MODE_DESCRIPTION" Language="zh_Hant_HK">
       <Text>時代轉場時AI如何選擇文明</Text>
@@ -16637,7 +17081,7 @@
       <Text>隨機文明將完全隨機選擇，忽略其關聯性。[nn]此規則同時適用於AI與人類玩家選擇隨機文明的情形。</Text>
     </Replace>
     <Replace Tag="LOC_LEADER_AUGUSTUS_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>每擁有一座[icon:YIELD_TOWNS][TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]城鎮[/TIP]，[icon:NOTIFICATION_SELECT_CAPITAL]首都便+2[icon:YIELD_PRODUCTION]生產力。可在擁有任何重心的[icon:YIELD_TOWNS][TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]城鎮[/TIP]中購買[icon:YIELD_CULTURE]文化值[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建築[/TIP]。購買[icon:YIELD_TOWNS][TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]城鎮[/TIP]中的[icon:CITY_BUILDING_LIST][TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建築[/TIP]時+50%[icon:YIELD_GOLD]金幣效益。</Text>
+      <Text>每擁有一座[icon:YIELD_TOWNS][TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]城鎮[/TIP]，[icon:NOTIFICATION_SELECT_CAPITAL]首都便+2[icon:YIELD_PRODUCTION]生產力。可在擁有任何重心的[icon:YIELD_TOWNS][TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]城鎮[/TIP]中購買[icon:YIELD_CULTURE]文化值[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建築[/TIP]。購買[icon:YIELD_TOWNS][TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]城鎮[/TIP]中的[icon:CITY_BUILDING_LIST][TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建築[/TIP]時+15%[icon:YIELD_GOLD]金幣效益。若[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建築[/TIP]在你的[icon:NOTIFICATION_SELECT_CAPITAL]首都中，此加成加倍。</Text>
     </Replace>
     <Replace Tag="LOC_LEADER_BENJAMIN_FRANKLIN_DESCRIPTION" Language="zh_Hant_HK">
       <Text>[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]中的[icon:YIELD_PRODUCTION]生產力和[icon:YIELD_SCIENCE]科技值[icon:CITY_BUILDING_LIST][TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建築[/TIP]+1[icon:YIELD_SCIENCE]科技值，依照[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]時代[/TIP]疊加。每展開一項正在進行中的[icon:ENDEAVOR]外交手段，建造[icon:CITY_BUILDING_LIST][TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建築[/TIP]時便+5%[icon:YIELD_PRODUCTION]生產力效益。從你展開或支持且正在進行中的[icon:ENDEAVOR][TIP:LOC_PEDIA_CONCEPTS_ENDEAVOR_TOOLTIP]外交手段[/TIP]中獲得+2[icon:YIELD_SCIENCE]科技值，依照[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]時代[/TIP]疊加。可以同時進行兩個相同類型的[icon:ENDEAVOR][TIP:LOC_PEDIA_CONCEPTS_ENDEAVOR_TOOLTIP]外交手段[/TIP]。</Text>
@@ -16904,10 +17348,10 @@
       <Text>百家思想</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_CULTURAL_5_RACE_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先研究完所有一般[TIP:LOC_PEDIA_CONCEPTS_CIVIC_TOOLTIP]市政[/TIP]和精通。</Text>
+      <Text>最先研究完所有一般[icon:RADIAL_CIVICS][TIP:LOC_PEDIA_CONCEPTS_CIVIC_TOOLTIP]市政[/TIP]和精通。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_CULTURAL_5_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>研究完所有一般[TIP:LOC_PEDIA_CONCEPTS_CIVIC_TOOLTIP]市政[/TIP]和精通。</Text>
+      <Text>最先研究完所有一般[icon:RADIAL_CIVICS][TIP:LOC_PEDIA_CONCEPTS_CIVIC_TOOLTIP]市政[/TIP]和精通。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_DIPLOMATIC_1_DESCRIPTION" Language="zh_Hant_HK">
       <Text>每成為一個[icon:CITYSTATE][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP]的[TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主國[/TIP]，[TIP:LOC_PEDIA_CONCEPTS_PALACE_TOOLTIP]宮殿[/TIP]便[B]+2[icon:YIELD_DIPLOMACY][/B]和[icon:YIELD_HAPPINESS]。</Text>
@@ -17744,10 +18188,10 @@
       <Text>時代精神：城區</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_CULTURAL_5_RACE_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先研究完所有一般[TIP:LOC_PEDIA_CONCEPTS_CIVIC_TOOLTIP]市政[/TIP]和精通。</Text>
+      <Text>最先研究完所有一般[icon:RADIAL_CIVICS][TIP:LOC_PEDIA_CONCEPTS_CIVIC_TOOLTIP]市政[/TIP]和精通。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_CULTURAL_5_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先研究完所有一般[TIP:LOC_PEDIA_CONCEPTS_CIVIC_TOOLTIP]市政[/TIP]和精通。</Text>
+      <Text>最先研究完所有一般[icon:RADIAL_CIVICS][TIP:LOC_PEDIA_CONCEPTS_CIVIC_TOOLTIP]市政[/TIP]和精通。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_DIPLOMATIC_1_DESCRIPTION" Language="zh_Hant_HK">
       <Text>發動與領袖的外交行動時[B]+20%[icon:YIELD_DIPLOMACY]效益[/B]。</Text>
@@ -18056,7 +18500,7 @@
       <Text>最先研究完所有[icon:RADIAL_TECH][TIP:LOC_PEDIA_CONCEPTS_TECH_TOOLTIP]科技[/TIP]和精通。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_SCIENTIFIC_5_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>最先研究完所有[TIP:LOC_PEDIA_CONCEPTS_TECH_TOOLTIP]科技[/TIP]和精通。</Text>
+      <Text>最先研究完所有[icon:RADIAL_TECH][TIP:LOC_PEDIA_CONCEPTS_TECH_TOOLTIP]科技[/TIP]和精通。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_OPTION" Language="zh_Hant_HK">
       <Text>下個時代的傳承選項</Text>
@@ -18815,7 +19259,7 @@
       <Text>王座下面的鮮花。</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_ASHOKA_RENOUNCER_GOLD_SAPPHIRE_FLOWERS_FUNCTIONAL_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>當你在[icon:ATTRIBUTE_EXPANSIONIST][TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]擴張屬性[/TIP]樹上花用[icon:ATTRIBUTE][TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]屬性[/TIP]點數時，[icon:NOTIFICATION_SELECT_CAPITAL][TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]首都[/TIP]獲得[B]100[icon:YIELD_FOOD][/B]。</Text>
+      <Text>當你在[icon:ATTRIBUTE_EXPANSIONIST][TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]擴張屬性[/TIP]樹上花用[icon:ATTRIBUTE][TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]屬性[/TIP]點數時，[icon:NOTIFICATION_SELECT_CAPITAL][TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]首都[/TIP]獲得[B]100[icon:YIELD_FOOD][/B]。（隨遊戲速度調整）</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_ASHOKA_RENOUNCER_GOLD_SAPPHIRE_FLOWERS_NAME" Language="zh_Hant_HK">
       <Text>金色與寶藍色花朵</Text>
@@ -18887,7 +19331,7 @@
       <Text>上面有許多里程累積的刻印。</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_BATTUTA_TRAVELLERS_SANDALS_FUNCTIONAL_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>花用[icon:ATTRIBUTE][TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]屬性[/TIP]點數即可獲得+10的相應收益。</Text>
+      <Text>花用[icon:ATTRIBUTE][TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]屬性[/TIP]點數即可獲得25的相應產量。（隨遊戲速度調整）</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_BATTUTA_TRAVELLERS_SANDALS_NAME" Language="zh_Hant_HK">
       <Text>旅行者的涼鞋</Text>
@@ -18971,7 +19415,7 @@
       <Text>世界就在你手中。</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_CHARLEMAGNE_GLOBUS_CRUCIGER_FUNCTIONAL_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>當你在[icon:ATTRIBUTE_POLITICAL][TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]外交屬性[/TIP]樹上花用[icon:ATTRIBUTE][TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]屬性[/TIP]點數時，[B]+50[icon:YIELD_DIPLOMACY][/B]。</Text>
+      <Text>當你在[icon:ATTRIBUTE_POLITICAL][TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]外交屬性[/TIP]樹上花用[icon:ATTRIBUTE][TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]屬性[/TIP]點數時，獲得[B]50[icon:YIELD_DIPLOMACY][/B]。（隨遊戲速度調整）</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_CHARLEMAGNE_GLOBUS_CRUCIGER_NAME" Language="zh_Hant_HK">
       <Text>十字聖球</Text>
@@ -19286,7 +19730,7 @@
       <Text>騎士精神的最高榮譽勳章。</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_FRIEDRICH_OBLIQUE_ORDER_BLACK_EAGLE_FUNCTIONAL_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>當你在[icon:ATTRIBUTE_MILITARISTIC][TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]軍事屬性[/TIP]樹上花用[icon:ATTRIBUTE][TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]屬性[/TIP]點數時，獲得[B]50[icon:YIELD_PRODUCTION][/B]。</Text>
+      <Text>當你在[icon:ATTRIBUTE_MILITARISTIC][TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]軍事屬性[/TIP]樹上花用[icon:ATTRIBUTE][TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]屬性[/TIP]點數時，獲得[B]50[icon:YIELD_PRODUCTION][/B]。（隨遊戲速度調整）</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_FRIEDRICH_OBLIQUE_ORDER_BLACK_EAGLE_NAME" Language="zh_Hant_HK">
       <Text>黑鷹勳章</Text>
@@ -19349,7 +19793,7 @@
       <Text>豐收之友。</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_HIMIKO_QUEEN_DOTAKU_FUNCTIONAL_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>當你在[icon:ATTRIBUTE_SCIENTIFIC][TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]科技屬性[/TIP]樹上花用[icon:ATTRIBUTE][TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]屬性[/TIP]點數時，獲得[B]50[icon:YIELD_SCIENCE][/B]。</Text>
+      <Text>當你在[icon:ATTRIBUTE_SCIENTIFIC][TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]科技屬性[/TIP]樹上花用[icon:ATTRIBUTE][TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]屬性[/TIP]點數時，獲得[B]50[icon:YIELD_SCIENCE][/B]。（隨遊戲速度調整）</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_HIMIKO_QUEEN_DOTAKU_NAME" Language="zh_Hant_HK">
       <Text>銅鐸</Text>
@@ -29630,10 +30074,10 @@
       <Text>特色城區</Text>
     </Replace>
     <Replace Tag="LOC_PLOT_TOOLTIP_URBAN_DISTRICT" Language="zh_Hant_HK">
-      <Text>都會區域</Text>
+      <Text>區域</Text>
     </Replace>
     <Replace Tag="LOC_PLOT_TOOLTIP_URBAN_QUARTER" Language="zh_Hant_HK">
-      <Text>都會城區</Text>
+      <Text>城區</Text>
     </Replace>
     <Replace Tag="LOC_PLOT_TOOLTIP_YOU" Language="zh_Hant_HK">
       <Text>你</Text>
@@ -30661,6 +31105,12 @@
     <Replace Tag="LOC_SETUP_NO_CIV_UNLOCKS_NAME" Language="zh_Hant_HK">
       <Text>略過文明解鎖條件</Text>
     </Replace>
+    <Replace Tag="LOC_SETUP_VICTORIES_DESC" Language="zh_Hant_HK">
+      <Text>選擇遊戲中可用的勝利類型。</Text>
+    </Replace>
+    <Replace Tag="LOC_SETUP_VICTORIES_NAME" Language="zh_Hant_HK">
+      <Text>勝利類型</Text>
+    </Replace>
     <Replace Tag="LOC_SINGLEAGE_DESCRIPTION" Language="zh_Hant_HK">
       <Text>僅遊玩單一時代。不會轉場至之後的時代。</Text>
     </Replace>
@@ -31530,7 +31980,7 @@
       <Text>扎造的戰士女王</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_LEADER_ASHOKA_ABILITY_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>[BLIST][LI][icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]中每多出5[icon:YIELD_HAPPINESS]幸福感，便+1[icon:YIELD_FOOD]食物。[LI]在[icon:CELEBRATION][TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]慶典[/TIP]期間所有[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]+10%[icon:YIELD_FOOD]食物。[LI][icon:CITY_BUILDING_LIST]特色[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建築[/TIP]會從所有[icon:CITY_RURAL]改良設施獲得+1[icon:YIELD_HAPPINESS]幸福感的相鄰加成。[/BLIST]</Text>
+      <Text>[BLIST][LI][icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]中每多出5[icon:YIELD_HAPPINESS]幸福感，便+1[icon:YIELD_FOOD]食物。[LI]在[icon:CELEBRATION][TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]慶典[/TIP]期間，開心的[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]+10%[icon:YIELD_FOOD]食物、歡欣的聚落+15%、狂喜的聚落+20%。[LI][icon:CITY_BUILDING_LIST]特色建築、[icon:YIELD_HAPPINESS]幸福感建築和[icon:YIELD_FOOD]食物[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建築[/TIP]都會從所有[icon:CITY_RURAL]改良設施獲得+1[icon:YIELD_HAPPINESS]幸福感相鄰加成。[/BLIST]</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_LEADER_ASHOKA_ABILITY_NAME" Language="zh_Hant_HK">
       <Text>法王</Text>
@@ -31608,7 +32058,7 @@
       <Text>民族英雄</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_LEADER_LAFAYETTE_ABILITY_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>[BLIST][LI]獲得一種稱為「改革」的[icon:ENDEAVOR][TIP:LOC_PEDIA_CONCEPTS_ENDEAVOR_TOOLTIP]外交手段[/TIP]，它能賦予一個額外的[icon:NAR_REW_TRADITION_SLOT][TIP:LOC_PEDIA_CONCEPTS_TRADITION_TOOLTIP]傳統[/TIP]槽位。支持此[TIP:LOC_PEDIA_CONCEPTS_ENDEAVOR_TOOLTIP]手段[/TIP]將會賦予對方領袖一個額外的[TIP:LOC_PEDIA_CONCEPTS_TRADITION_TOOLTIP]傳統[/TIP]槽位，否則其將獲得一個[TIP:LOC_PEDIA_CONCEPTS_SOCIAL_POLICY_TOOLTIP]社會政策[/TIP]槽位[LI]在[icon:GOVERNMENT]政體槽位中每放置有一個[icon:TRADITION][TIP:LOC_PEDIA_CONCEPTS_TRADITION_TOOLTIP]傳統[/TIP]（而非[icon:SOCIAL_POLICY][TIP:LOC_PEDIA_CONCEPTS_SOCIAL_POLICY_TOOLTIP]社會政策[/TIP]），便+1[icon:NAR_REW_COMBAT][TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]戰鬥力[/TIP]。[LI]各[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]+1[icon:YIELD_CULTURE]文化值與[icon:YIELD_HAPPINESS]幸福感，依照[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]時代[/TIP]疊加，在[TIP:LOC_PEDIA_CONCEPTS_DISTANT_LANDS_TOOLTIP]遙遠土地[/TIP]中加倍。[/BLIST]</Text>
+      <Text>[BLIST][LI]獲得一種稱為「改革」的[icon:ENDEAVOR][TIP:LOC_PEDIA_CONCEPTS_ENDEAVOR_TOOLTIP]外交手段[/TIP]，它能賦予一個額外的[icon:NAR_REW_TRADITION_SLOT][TIP:LOC_PEDIA_CONCEPTS_TRADITION_TOOLTIP]傳統[/TIP]槽位。支持此[TIP:LOC_PEDIA_CONCEPTS_ENDEAVOR_TOOLTIP]手段[/TIP]將會賦予對方領袖一個額外的[TIP:LOC_PEDIA_CONCEPTS_TRADITION_TOOLTIP]傳統[/TIP]槽位，否則其將獲得一個[TIP:LOC_PEDIA_CONCEPTS_SOCIAL_POLICY_TOOLTIP]社會政策[/TIP]槽位。「改革」對每位其他領袖僅能使用一次。[LI]在[icon:GOVERNMENT]政體槽位中每放置有一個[icon:TRADITION][TIP:LOC_PEDIA_CONCEPTS_TRADITION_TOOLTIP]傳統[/TIP]（而非[icon:SOCIAL_POLICY][TIP:LOC_PEDIA_CONCEPTS_SOCIAL_POLICY_TOOLTIP]社會政策[/TIP]），便+1[icon:NAR_REW_COMBAT][TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]戰鬥力[/TIP]。[LI]各[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]+1[icon:YIELD_CULTURE]文化值與[icon:YIELD_HAPPINESS]幸福感，依照[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]時代[/TIP]疊加，在[TIP:LOC_PEDIA_CONCEPTS_DISTANT_LANDS_TOOLTIP]遙遠土地[/TIP]中加倍。[/BLIST]</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_LEADER_LAFAYETTE_ABILITY_NAME" Language="zh_Hant_HK">
       <Text>兩個世界的英雄</Text>
@@ -31922,11 +32372,14 @@
     <Replace Tag="LOC_UI_CITY_BACK_TO_PRODUCTION" Language="zh_Hant_HK">
       <Text>返回生產</Text>
     </Replace>
+    <Replace Tag="LOC_UI_CITY_BANNER_EMPTY_PRODUCTION_QUEUE" Language="zh_Hant_HK">
+      <Text>佇列中沒有其他項目</Text>
+    </Replace>
     <Replace Tag="LOC_UI_CITY_BANNER_PRODUCTION" Language="zh_Hant_HK">
       <Text>目前正在生產：</Text>
     </Replace>
     <Replace Tag="LOC_UI_CITY_CAP_REACHED" Language="zh_Hant_HK">
-      <Text>已達城市上限</Text>
+      <Text>已達城市限制</Text>
     </Replace>
     <Replace Tag="LOC_UI_CITY_CAPITAL_CURR_DESC" Language="zh_Hant_HK">
       <Text>新首都</Text>
@@ -32044,6 +32497,12 @@
     </Replace>
     <Replace Tag="LOC_UI_CITY_DETAILS_URBAN_POPULATION_TOOLTIP" Language="zh_Hant_HK">
       <Text>都會人口代表位於你的[icon:CITY_BUILDING_LIST][TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建築[/TIP]中的公民。[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]中每有1座[icon:CITY_BUILDING_LIST]建築（[TIP:LOC_PEDIA_CONCEPTS_WALL_TOOLTIP]城牆[/TIP]不計入其中），你便會獲得1都會人口。</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_CITY_DETAILS_WAREHOUSE_BREAKDOWN_DESCRIPTION" Language="zh_Hant_HK">
+      <Text>此聚落中[TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]改良設施[/TIP]的明細，可用於追蹤[icon:YIELD_WAREHOUSE]倉庫加成。[nn]此清單會將[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_IMPROVEMENT_TOOLTIP]特色改良設施[/TIP]列於其建造後所覆蓋的基礎改良設施之下。</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_CITY_DETAILS_WAREHOUSE_BREAKDOWN_HEADER" Language="zh_Hant_HK">
+      <Text>改良設施明細</Text>
     </Replace>
     <Replace Tag="LOC_UI_CITY_DETAILS_WONDERS" Language="zh_Hant_HK">
       <Text>奇觀</Text>
@@ -32626,6 +33085,9 @@
     </Replace>
     <Replace Tag="LOC_UI_GENERAL_APPEAL_LEGEND_NATURAL_WONDER" Language="zh_Hant_HK">
       <Text>[STYLE:text-secondary]自然奇觀：[/STYLE]該特定奇觀專有的產出</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_GENERIC_HIDE" Language="zh_Hant_HK">
+      <Text>隱藏</Text>
     </Replace>
     <Replace Tag="LOC_UI_GLOBAL_CRISIS" Language="zh_Hant_HK">
       <Text>全球性危機</Text>
@@ -36420,10 +36882,10 @@
 				[NN]某些以科學為主題的奇觀提供3點；在古典時代，[B]巨作槽位[/B]中每展示了一本[B]抄本[/B]，你還能額外獲得+1點。近代中的某些凱旋挑戰也會提供創新值。</Text>
     </Replace>
     <Replace Tag="LOC_VICTORIES_RULES_SCORE_BODY_1" Language="zh_Hant_HK">
-      <Text>[B]以下主要要素將依序納入計算：[/B][B][NN][NLIST][LI]在所有勝利中的勝利倒數回合數。[LI]在所有啟用中的勝利類型中的名次。[LI]整場遊戲中完成的大型凱旋挑戰的數量。[/LIST]</Text>
+      <Text>[B]以下主要要素將依序納入計算：[/B][NN][NLIST][LI]在所有勝利中的勝利倒數回合數。[LI]在所有啟用中的勝利類型中的名次。[LI]整場遊戲中完成的大型凱旋挑戰的數量。[/LIST]</Text>
     </Replace>
     <Replace Tag="LOC_VICTORIES_RULES_SCORE_BODY_2" Language="zh_Hant_HK">
-      <Text>[B]各要素將加總計算為你的分數。[/B][B][NN][NLIST][LI]勝利倒數回合數乘以1000。[LI]1000減去你在所有勝利類型中的當前名次乘以10的數值。[LI]你於整場遊戲中完成的大型凱旋挑戰的總數。[/LIST]</Text>
+      <Text>[B]各要素將加總計算為你的分數。[/B][NN][NLIST][LI]勝利倒數回合數乘以1000。[LI]1000減去你在所有勝利類型中的當前名次乘以10的數值。[LI]你於整場遊戲中完成的大型凱旋挑戰的總數。[/LIST]</Text>
     </Replace>
     <Replace Tag="LOC_VICTORIES_RULES_SCORE_HEADER_1" Language="zh_Hant_HK">
       <Text>分數計算方式</Text>
@@ -36794,8 +37256,14 @@
     <Replace Tag="LOC_VICTORY_SCORE_VICTORY_NAME" Language="zh_Hant_HK">
       <Text>分數勝利</Text>
     </Replace>
+    <Replace Tag="LOC_VICTORY_SUMMARY_ALL_DISABLED" Language="zh_Hant_HK">
+      <Text>所有勝利已停用。</Text>
+    </Replace>
     <Replace Tag="LOC_VICTORY_SUMMARY_HEADER" Language="zh_Hant_HK">
-      <Text>最先達成以下四種勝利之一的領袖將贏得遊戲。</Text>
+      <Text>最先達成以下任一勝利的領袖將贏得遊戲。</Text>
+    </Replace>
+    <Replace Tag="LOC_VICTORY_SUMMARY_ONLY_SCORE_ENABLED" Language="zh_Hant_HK">
+      <Text>僅啟用分數勝利。</Text>
     </Replace>
     <Replace Tag="LOC_VICTORY_TOOLTIP_REQUIRED_POINTS" Language="zh_Hant_HK">
       <Text>需要的點數</Text>
@@ -37637,6 +38105,9 @@
     <Replace Tag="LOC_BUILDING_PLACEMENT_REPLACE_BUILDING_BODY_ADD_SPECIALIST" Language="zh_Hant_HK">
       <Text>當你將新的{2_Name}新增至此格位時，來自{1_CurrentBuildingName}的勞工將會成為專家。專家能貢獻和先前城市建築一樣的收益。是否繼續？</Text>
     </Replace>
+    <Replace Tag="LOC_BUILDING_PLACEMENT_UNIQUE_QUARTER_BLOCKER_BODY" Language="zh_Hant_HK">
+      <Text>將[b]{1_Building}[/b]放置在此格位，將使你無法在此聚落中建造[b]{2_Quarter}[/b]特色城區。是否繼續？</Text>
+    </Replace>
     <Replace Tag="LOC_BUILDING_PLACEMENT_WAREHOUSE_BONUS" Language="zh_Hant_HK">
       <Text>{2_yieldType}的倉庫加成</Text>
     </Replace>
@@ -37817,6 +38288,9 @@
     <Replace Tag="LOC_COMBAT_PREVIEW_TERRAIN_BONUS_DESC" Language="zh_Hant_HK">
       <Text>+{1_Value}理想地形</Text>
     </Replace>
+    <Replace Tag="LOC_COMBAT_PREVIEW_TERRAIN_COMBAT_BONUS_DESC" Language="zh_Hant_HK">
+      <Text>+{1_Value}{2_Name}地形</Text>
+    </Replace>
     <Replace Tag="LOC_COMBAT_PREVIEW_TERRAIN_PENALTY" Language="zh_Hant_HK">
       <Text>{1_Value}不利地形</Text>
     </Replace>
@@ -37898,6 +38372,12 @@
     <Replace Tag="LOC_COMMERCE_GAMEPAD_SELECT_CITY_HINT" Language="zh_Hant_HK">
       <Text>編輯{1_cityName}</Text>
     </Replace>
+    <Replace Tag="LOC_COMMERCE_GAMEPAD_STOP_VIEWING_CONTAINER_HINT" Language="zh_Hant_HK">
+      <Text>停止查看{1_containerName}</Text>
+    </Replace>
+    <Replace Tag="LOC_COMMERCE_GAMEPAD_VIEW_CONTAINER_HINT" Language="zh_Hant_HK">
+      <Text>查看{1_containerName}</Text>
+    </Replace>
     <Replace Tag="LOC_COMMERCE_SCREEN_TITLE" Language="zh_Hant_HK">
       <Text>{1_civ_name}商業</Text>
     </Replace>
@@ -37922,6 +38402,18 @@
     <Replace Tag="LOC_COMMERCE_UNASSIGN_RESOURCES" Language="zh_Hant_HK">
       <Text>取消指派{1_cityName}的所有資源</Text>
     </Replace>
+    <Replace Tag="LOC_DEAL_ITEM_GOLD_LARGE_LUMP_NAME" Language="zh_Hant_HK">
+      <Text>{1_amount}[icon:YIELD_GOLD]金幣</Text>
+    </Replace>
+    <Replace Tag="LOC_DEAL_ITEM_GOLD_SMALL_LUMP_NAME" Language="zh_Hant_HK">
+      <Text>{1_amount}[icon:YIELD_GOLD]金幣</Text>
+    </Replace>
+    <Replace Tag="LOC_DEAL_ITEM_INFLUENCE_LARGE_LUMP_NAME" Language="zh_Hant_HK">
+      <Text>{1_amount}[icon:YIELD_DIPLOMACY]影響力</Text>
+    </Replace>
+    <Replace Tag="LOC_DEAL_ITEM_INFLUENCE_SMALL_LUMP_NAME" Language="zh_Hant_HK">
+      <Text>{1_amount}[icon:YIELD_DIPLOMACY]影響力</Text>
+    </Replace>
     <Replace Tag="LOC_DEDICATIONS_AVAILABLE_DESC" Language="zh_Hant_HK">
       <Text>已為下個{1_ageName}時代獲得奉獻。</Text>
     </Replace>
@@ -37935,7 +38427,7 @@
       <Text>增加支援[N]{1_influenceConst}[icon:YIELD_DIPLOMACY]影響力</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ACTION_BONUS_ENVOYS" Language="zh_Hant_HK">
-      <Text>由於你與牽涉到的領袖間之關係，你在此專案上獲得了{1_numEmvoys}名額外使者。</Text>
+      <Text>由於你與牽涉到的領袖之間的[icon:RELATIONSHIP]關係，你在此專案上獲得了{1_numEmvoys}名額外使者。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ACTION_COST_YIELD_DIPLOMACY" Language="zh_Hant_HK">
       <Text>{1_cost}[icon:YIELD_DIPLOMACY]影響力</Text>
@@ -37989,7 +38481,7 @@
       <Text>宣戰後不能太快和解。距離可締造和平還有{1_turns}回合。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ACTION_FAILURE_RELATIONSHIP_LEVEL" Language="zh_Hant_HK">
-      <Text>你需要至少有{1_Relationship}的關係才能展開此外交行動。</Text>
+      <Text>你需要至少達{1_Relationship}的[icon:RELATIONSHIP]關係才能展開此外交行動。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ACTION_FAILURE_WAR_WITH_THEIR_ALLY" Language="zh_Hant_HK">
       <Text>由於與對方的盟友{1_AllyName}正在交戰中，你無法展開此外交行動。</Text>
@@ -38031,7 +38523,7 @@
       <Text>我接受你的{1_actionName}行動</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ACTION_RESPONSE_REJECT" Language="zh_Hant_HK">
-      <Text>我拒絕你的{1_actionName}行動！花用了[icon:YIELD_DIPLOMACY]影響力來阻擋外交手段，持續{2_cooldown}回合。</Text>
+      <Text>我拒絕你的{1_actionName}行動！已花用[icon:YIELD_DIPLOMACY]影響力來阻擋外交手段，持續{2_cooldown}回合。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ACTION_RESPONSE_SUPPORT" Language="zh_Hant_HK">
       <Text>我支持你的{1_actionName}行動！[N]花用了[icon:YIELD_DIPLOMACY]影響力來支持。</Text>
@@ -38072,6 +38564,9 @@
     <Replace Tag="LOC_DIPLOMACY_ACTIONS_USE_GRIEVANCE" Language="zh_Hant_HK">
       <Text>對{1_leaderName}的怨氣</Text>
     </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_CHANGE_DESCRIPTION" Language="zh_Hant_HK">
+      <Text>{1: number +#;-#}[icon:RELATIONSHIP]關係</Text>
+    </Replace>
     <Replace Tag="LOC_DIPLOMACY_ALLIANCE_RESPONSE_REJECT" Language="zh_Hant_HK">
       <Text>我拒絕你的{1_actionName}行動！在至少{2_cooldown}回合之前，我不會再考慮其他同盟關係。</Text>
     </Replace>
@@ -38097,16 +38592,16 @@
       <Text>{1_progress}/{2_total}（每回合+{3_amount}）</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_BONUS_WAR_SUPPORT" Language="zh_Hant_HK">
-      <Text>此戰爭會創造出下列戰爭支持[N]{1_yourWarBonus}給你，{2_theirWarBonus}及{3_theirInfluenceBonus}[icon:YIELD_DIPLOMACY]影響力送給你對手。[N]突襲戰爭的減益會隨著關係越友好而提升。[N]處於敵對關係將創造正式戰爭。</Text>
+      <Text>此戰爭會創造出下列[icon:WAR_SUPPORT]戰爭支援[N]給你{1_yourWarBonus}，給對方{2_theirWarBonus}，以及給你對手{3_theirInfluenceBonus}[icon:YIELD_DIPLOMACY]影響力。[N]關係越友好，突襲戰爭的減益便越高。[N]處於敵對關係將創造[icon:WAR]正式戰爭。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_CALL_TO_ARMS_JOIN_WAR" Language="zh_Hant_HK">
-      <Text>你會尊重你與{1_allyName}之間的同盟關係，向{2_targetName}宣戰。</Text>
+      <Text>你會尊重你與{1_allyName}之間的[icon:PLAYER_RELATIONSHIP_ALLIANCE]同盟關係，向{2_targetName}[icon:WAR]宣戰。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_CALL_TO_ARMS_STAY_NEUTRAL_ONE_ALLY" Language="zh_Hant_HK">
-      <Text>你將會結束和{1_leaderName}之間的同盟關係，並且不加入這場戰爭。</Text>
+      <Text>你將會結束和{1_leaderName}之間的[icon:PLAYER_RELATIONSHIP_ALLIANCE]同盟關係，並且不加入這場[icon:WAR]戰爭。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_CALL_TO_ARMS_SUPPORT_ALLY_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>你將會結束你與{1_leaderName}之間的同盟關係，並對其宣戰。</Text>
+      <Text>你將會結束你與{1_leaderName}之間的[icon:PLAYER_RELATIONSHIP_ALLIANCE]同盟關係，並對其[icon:WAR]宣戰。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_CHOSEN_CITY_STATE_BONUS" Language="zh_Hant_HK">
       <Text>已選擇的城邦加成：{1_bonusName}</Text>
@@ -38136,25 +38631,25 @@
       <Text>{1_Leader}已被打敗</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ESPIONAGE_MILITARY_INFILTRATION_DESCRIPTION_TARGET" Language="zh_Hant_HK">
-      <Text>{1_leaderName}擁有你所有指揮官的視野。</Text>
+      <Text>{1_leaderName}擁有你所有[icon:UNIT_ARMY_COMMANDER]指揮官的視野。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ESPIONAGE_MILITARY_SABOTAGE_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>對方的軍事單位-3戰鬥力，持續{1_turns}回合。</Text>
+      <Text>對方的軍事單位-3[icon:NAR_REW_COMBAT]戰鬥力，持續{1_turns}回合。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ESPIONAGE_MILITARY_SABOTAGE_DESCRIPTION_TARGET" Language="zh_Hant_HK">
-      <Text>你的軍事單位-3戰鬥力，持續{1_turns}回合。</Text>
+      <Text>你的軍事單位-3[icon:NAR_REW_COMBAT]戰鬥力，持續{1_turns}回合。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ESPIONAGE_PENALTY" Language="zh_Hant_HK">
       <Text>遭揭露的減益：{1_penalty}[icon:YIELD_DIPLOMACY]影響力每回合，持續{2_turns}個回合</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_FAILED_RAID_NOW_FRIENDS_SUMMARY" Language="zh_Hant_HK">
-      <Text>在你擊敗他們的襲擊後，獨立軍勢力{1_tribe}又對你產生新的敬重。他們現在對你友善，而你和其之間的關係也在改善。</Text>
+      <Text>在你擊退他們的襲擊後，[icon:INDEPENDENT_POWER]獨立軍勢力{1_tribe}又對你產生新的敬重。他們現在對你友好，而你和其之間的[icon:RELATIONSHIP]關係也在改善。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_FIRST_MEET_NOTIFICATION_SUMMARY_INITIAL" Language="zh_Hant_HK">
       <Text>你遇到了{1_Civ}</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_FORM_ALLIANCE_TOOL_TIP" Language="zh_Hant_HK">
-      <Text>締結同盟會讓你與其他人交戰。[N][B]{1_leaders}[/B]</Text>
+      <Text>締結[icon:PLAYER_RELATIONSHIP_ALLIANCE]同盟會讓你與其他人[icon:WAR]交戰。[N][B]{1_leaders}[/B]</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_INDEPENDENT_CIV_NAME" Language="zh_Hant_HK">
       <Text>之於{1_independent_name}人民</Text>
@@ -38166,7 +38661,7 @@
       <Text>沒有可對{1_leaderName}進行的外交制裁。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PEACE_DEAL_CITY_WONDER_COUNT" Language="zh_Hant_HK">
-      <Text>城市有{1_wondercount}座世界奇觀</Text>
+      <Text>城市有{1_wondercount}座世界[icon:WONDER]奇觀</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PEACE_DEAL_RETURNS_TO_THEM" Language="zh_Hant_HK">
       <Text>歸還給{1_leaderName}</Text>
@@ -38178,13 +38673,13 @@
       <Text>{1_leaderName}將會拒絕此協議</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PICK_ALLIANCE_BODY_1" Language="zh_Hant_HK">
-      <Text>與{1_selectedPlayer}締結同盟會讓你與其他人交戰。</Text>
+      <Text>與{1_selectedPlayer}締結[icon:PLAYER_RELATIONSHIP_ALLIANCE]同盟會讓你與其他人[icon:WAR]交戰。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PICK_WAR_TYPE_FORMAL_BODY" Language="zh_Hant_HK">
-      <Text>由於你和對方之間處於敵對關係，這將會發動正式戰爭。[N]初始戰爭支持 - 對你：{1_yourWarBonus}，對對方：{2_theirWarBonus}。[N]突襲戰爭的減益會隨著關係越友好而提升。</Text>
+      <Text>由於你和對方之間處於[icon:PLAYER_RELATIONSHIP_HOSTILE]敵對關係，這將會發動[icon:WAR]正式戰爭。[N]初始戰爭支援 - 對你：{1_yourWarBonus}，對對方：{2_theirWarBonus}。[N]關係越友好，[icon:WAR]突襲戰爭的減益便越高。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PICK_WAR_TYPE_SURPRISE_BODY" Language="zh_Hant_HK">
-      <Text>由於你和對方之間並非處於敵對關係，這將會發動突襲戰爭。對方會獲得{3_theirInfluenceBonus}[icon:YIELD_DIPLOMACY]影響力。[N]初始戰爭支持 - 對你：{1_yourWarBonus}，對對方：{2_theirWarBonus}。[N]突襲戰爭的減益會隨著關係越友好而提升。</Text>
+      <Text>由於你和對方之間並非處於[icon:PLAYER_RELATIONSHIP_HOSTILE]敵對關係，這將會發動[icon:WAR]突襲戰爭。對方會獲得{3_theirInfluenceBonus}[icon:YIELD_DIPLOMACY]影響力。[N]初始[icon:WAR_SUPPORT]戰爭支援 - 對你：{1_yourWarBonus}，對對方：{2_theirWarBonus}。[N]關係越友好，[icon:WAR]突襲戰爭的減益便越高。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_CLOSE_BORDERS" Language="zh_Hant_HK">
       <Text>{1_initiatorName}已對{2_targetName}關閉其邊境。</Text>
@@ -38202,7 +38697,7 @@
       <Text>從你和{5_OtherLeaderName}之間的文化交流，你正在獲得每回合的[icon:YIELD_CULTURE]文化值收入+{2_Amount}。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_CULTURAL_EXCHANGE_REJECT" Language="zh_Hant_HK">
-      <Text>取消該外交行動。[n]{1_initialName}的[icon:YIELD_DIPLOMACY]影響力已退還。[n]雙方領袖接下來{2_cooldown}回合不得進行新外交手段。[n]關係惡化。</Text>
+      <Text>取消該外交行動。[n]{1_initialName}的[icon:YIELD_DIPLOMACY]影響力已退還。[n]雙方領袖接下來{2_cooldown}回合不得進行新外交手段。[n][icon:RELATIONSHIP]關係惡化。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_CULTURAL_EXCHANGE_REQUEST" Language="zh_Hant_HK">
       <Text>{1_leaderName}正邀請你展開文化交流。</Text>
@@ -38211,16 +38706,16 @@
       <Text>{4_otherName}新增了{3_targetAmount}對你的怨氣。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_DENOUNCE_ACCEPT" Language="zh_Hant_HK">
-      <Text>你們的關係會在{3_duration}回合內減少60。</Text>
+      <Text>你們的[icon:RELATIONSHIP]關係會在{3_duration}回合內減少60。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_DENOUNCE_MILITARY_PRESENCE_REQUEST" Language="zh_Hant_HK">
       <Text>{1_leaderName}譴責了你在其邊境的軍事展現！</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_ESTABLISH_TREASURE_FLEET_ACCEPT" Language="zh_Hant_HK">
-      <Text>{3_duration}回合後，在你的聚落為發動者創造一個寶藏護衛隊單位。在此外交行動進行期間，每回合的[icon:YIELD_GOLD]金幣收入+12。</Text>
+      <Text>{3_duration}回合後，在你的聚落中為發動者創造一個[icon:UNIT_TREASURE_FLEET]寶藏護衛隊單位。在此外交行動進行期間，每回合的[icon:YIELD_GOLD]金幣收入+12。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_ESTABLISH_TREASURE_FLEET_REJECT" Language="zh_Hant_HK">
-      <Text>取消該外交行動。[n]{1_initialName}的[icon:YIELD_DIPLOMACY]影響力已退還。[n]雙方領袖接下來{2_cooldown}回合不得進行新外交手段。[n]關係惡化。</Text>
+      <Text>取消該外交行動。[n]{1_initialName}的[icon:YIELD_DIPLOMACY]影響力已退還。[n]雙方領袖接下來{2_cooldown}回合不得進行新[icon:ENDEAVOR]外交手段。[n][icon:RELATIONSHIP]關係惡化。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_FARMERS_MARKET_REQUEST" Language="zh_Hant_HK">
       <Text>{1_leaderName}正邀請你一起展開農夫市集。</Text>
@@ -38229,22 +38724,22 @@
       <Text>你將會和{1_initialName}締結同盟。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_FORM_ALLIANCE_REJECT" Language="zh_Hant_HK">
-      <Text>你拒絕了{1_initialName}的同盟提議。[n]接下來的{2_cooldown}回合間，領袖間不得有新的同盟關係。[n]關係惡化。</Text>
+      <Text>你拒絕了{1_initialName}的[icon:PLAYER_RELATIONSHIP_ALLIANCE]同盟提議。[n]接下來的{2_cooldown}回合間，領袖間不得有新的[icon:PLAYER_RELATIONSHIP_ALLIANCE]同盟關係。[n][icon:RELATIONSHIP]關係惡化。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_FREE_CAPTURED_COMMANDER_ACCEPT" Language="zh_Hant_HK">
       <Text>接受對方領袖{1_gold}[icon:YIELD_GOLD]金幣的贖金要求。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_FRIEND_OF_WA_REJECT" Language="zh_Hant_HK">
-      <Text>取消該外交行動。[n]{1_initialName}的[icon:YIELD_DIPLOMACY]影響力已退還。[n]雙方領袖接下來{2_cooldown}回合不得進行新外交手段。[n]關係惡化。</Text>
+      <Text>取消該外交行動。[n]{1_initialName}的[icon:YIELD_DIPLOMACY]影響力已退還。[n]雙方領袖接下來{2_cooldown}回合不得進行新外交手段。[n][icon:RELATIONSHIP]關係惡化。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_FRIEND_OF_WA_REQUEST" Language="zh_Hant_HK">
       <Text>{1_leaderName}正邀請你一起進行[icon:YIELD_SCIENCE]科技研發。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_GINSING_AGREEMENT" Language="zh_Hant_HK">
-      <Text>從你和{5_OtherLeaderName}之間的人參協議，你的首都正在獲得每回合的[icon:YIELD_FOOD]食物收入+{2_Amount}。</Text>
+      <Text>從你和{5_OtherLeaderName}之間的人參協議，你的[icon:NOTIFICATION_SELECT_CAPITAL]首都正在獲得每回合的[icon:YIELD_FOOD]食物收入+{2_Amount}。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_GINSING_AGREEMENT_REJECT" Language="zh_Hant_HK">
-      <Text>取消該外交行動。[n]{1_initialName}的[icon:YIELD_DIPLOMACY]影響力已退還。[n]雙方領袖接下來{2_cooldown}回合不得進行新外交手段。[n]關係惡化。</Text>
+      <Text>取消該外交行動。[n]{1_initialName}的[icon:YIELD_DIPLOMACY]影響力已退還。[n]雙方領袖接下來{2_cooldown}回合不得進行新外交手段。[n][icon:RELATIONSHIP]關係惡化。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_GINSING_AGREEMENT_REQUEST" Language="zh_Hant_HK">
       <Text>{1_leaderName}正嘗試與你貿易[icon:YIELD_FOOD]食物。</Text>
@@ -38253,7 +38748,7 @@
       <Text>{1_initialName}在此外交行動完成時獲得一個傳統槽位。[n]在此外交行動完成時你獲得一個社會政策槽位。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_GRANT_POLICY_SLOT_REJECT" Language="zh_Hant_HK">
-      <Text>取消該外交行動。[n]{1_initialName}的[icon:YIELD_DIPLOMACY]影響力已退還。[n]雙方領袖接下來{2_cooldown}回合不得進行新外交手段。[n]關係惡化。</Text>
+      <Text>取消該外交行動。[n]{1_initialName}的[icon:YIELD_DIPLOMACY]影響力已退還。[n]雙方領袖接下來{2_cooldown}回合不得進行新外交手段。[n][icon:RELATIONSHIP]關係惡化。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_GRANT_POLICY_SLOT_REQUEST" Language="zh_Hant_HK">
       <Text>{1_leaderName}正邀請你參與改革外交手段。</Text>
@@ -38274,7 +38769,7 @@
       <Text>從你和{5_OtherLeaderName}之間的當地節慶，你正在獲得每回合的[icon:YIELD_HAPPINESS]幸福感收入+{2_Amount}。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_LOCAL_FESTIVALS_REJECT" Language="zh_Hant_HK">
-      <Text>封鎖未來的所有專案，持續{2_cooldown}個回合。[n]關係惡化。</Text>
+      <Text>封鎖未來的所有專案，持續{2_cooldown}回合。[n][icon:RELATIONSHIP]關係惡化。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_LOCAL_FESTIVALS_REQUEST" Language="zh_Hant_HK">
       <Text>{1_leaderName}正邀請你一起展開當地節慶。</Text>
@@ -38286,7 +38781,7 @@
       <Text>從你和{5_OtherLeaderName}之間的文化交流，你正在獲得每回合的[icon:YIELD_GOLD]金幣收入+{2_Amount}。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_MINOR_TRADE_REJECT" Language="zh_Hant_HK">
-      <Text>取消該外交行動。[n]{1_initialName}的[icon:YIELD_DIPLOMACY]影響力已退還。[n]雙方領袖接下來{2_cooldown}回合不得進行新外交手段。[n]關係惡化。</Text>
+      <Text>取消該外交行動。[n]{1_initialName}的[icon:YIELD_DIPLOMACY]影響力已退還。[n]雙方領袖接下來{2_cooldown}回合不得進行新[icon:ENDEAVOR]外交手段。[n][icon:RELATIONSHIP]關係惡化。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_MINOR_TRADE_REQUEST" Language="zh_Hant_HK">
       <Text>{1_leaderName}正邀請你和其互相開放通商。</Text>
@@ -38295,7 +38790,7 @@
       <Text>{1_initiatorName}要求{2_targetName}開放其邊界{3_numberTurns}回合。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_OPEN_BORDERS_REJECT" Language="zh_Hant_HK">
-      <Text>取消該外交行動。[n]{1_initialName}的[icon:YIELD_DIPLOMACY]影響力已退還。[n]雙方領袖接下來{2_cooldown}回合不得進行新外交手段。[n]關係惡化。</Text>
+      <Text>取消該[icon:DIPLOMATIC_ACTION]外交行動。[n]{1_initialName}的[icon:YIELD_DIPLOMACY]影響力已退還。[n]雙方領袖接下來{2_cooldown}回合不得進行新[icon:ENDEAVOR]外交手段。[n][icon:RELATIONSHIP]關係惡化。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_OPEN_BORDERS_REQUEST" Language="zh_Hant_HK">
       <Text>{1_leaderName}正要求你向其開放邊境。</Text>
@@ -38310,7 +38805,7 @@
       <Text>從你和{5_OtherLeaderName}之間的研究合作，你正在獲得每回合的[icon:YIELD_SCIENCE]科技值收入+{2_Amount}。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_RESEARCH_COLLABORATION_REJECT" Language="zh_Hant_HK">
-      <Text>取消該外交行動。[n]{1_initialName}的[icon:YIELD_DIPLOMACY]影響力已退還。[n]雙方領袖接下來{2_cooldown}回合不得進行新外交手段。[n]關係惡化。</Text>
+      <Text>取消該外交行動。[n]{1_initialName}的[icon:YIELD_DIPLOMACY]影響力已退還。[n]雙方領袖接下來{2_cooldown}回合不得進行新外交手段。[n][icon:RELATIONSHIP]關係惡化。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_RESEARCH_COLLABORATION_REQUEST" Language="zh_Hant_HK">
       <Text>{1_leaderName}正邀請你展開研究合作。</Text>
@@ -38358,10 +38853,10 @@
       <Text>{1_leaderName}正嘗試阻礙你的金融。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_SEND_DELEGATION_ACCEPT" Language="zh_Hant_HK">
-      <Text>你們的關係會在{3_duration}回合內提升30。</Text>
+      <Text>你們的[icon:RELATIONSHIP]關係會在{3_duration}回合內提升30。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_SEND_DELEGATION_SUPPORT" Language="zh_Hant_HK">
-      <Text>你們的關係會在{3_duration}回合內提升60。</Text>
+      <Text>你們的[icon:RELATIONSHIP]關係會在{3_duration}回合內提升60。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_SEND_GOLD_ACCEPT" Language="zh_Hant_HK">
       <Text>接受{1_initialName}的[icon:YIELD_GOLD]金幣援助。</Text>
@@ -38373,10 +38868,10 @@
       <Text>{1_leaderName}正邀請你交換地圖。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_RELATIONSHIP_CHANGE_ACCEPTED" Language="zh_Hant_HK">
-      <Text>若接受後的關係變化：{1_change}</Text>
+      <Text>若接受後的[icon:RELATIONSHIP]關係變化：{1_change}</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_RELATIONSHIP_CHANGE_SUPPORTED" Language="zh_Hant_HK">
-      <Text>若支持後的關係變化：{1_change}</Text>
+      <Text>若支持後的[icon:RELATIONSHIP]關係變化：{1_change}</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_REVEAL_CHANCE" Language="zh_Hant_HK">
       <Text>揭露機率：{1_revealChance}%</Text>
@@ -38433,7 +38928,7 @@
       <Text>成功機率：{1_successChance}% 揭露機率：{2_revealChance}%</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_SUZERAIN_OTHER" Language="zh_Hant_HK">
-      <Text>{1_name}是此[TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP]的[TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主國[/TIP]</Text>
+      <Text>{1_name}是此[icon:CITYSTATE][TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP]的[TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主國[/TIP]</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_TREATY_RESPONSE_REJECT" Language="zh_Hant_HK">
       <Text>我拒絕你的{1_actionName}行動！花用了[icon:YIELD_DIPLOMACY]影響力來阻擋此行動，持續{2_cooldown}回合。</Text>
@@ -38472,22 +38967,22 @@
       <Text>{1_HaveXP}/{2_GoalXP}經驗值</Text>
     </Replace>
     <Replace Tag="LOC_FIRST_MEET_FRIENDLY_BOTH_CAPITALS_REVEALED" Language="zh_Hant_HK">
-      <Text>你的首都和{1_LeaderName}的首都{2_CapitalName}都將被揭露。</Text>
+      <Text>你的[icon:NOTIFICATION_SELECT_CAPITAL]首都和{1_LeaderName}的[icon:NOTIFICATION_SELECT_CAPITAL]首都{2_CapitalName}都將被揭露。</Text>
     </Replace>
     <Replace Tag="LOC_FIRST_MEET_FRIENDLY_GREETING" Language="zh_Hant_HK">
       <Text>+{1_cost}[icon:YIELD_DIPLOMACY]影響力</Text>
     </Replace>
     <Replace Tag="LOC_FIRST_MEET_FRIENDLY_GREETING_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>若任一方領袖的首都就在附近，則揭露該首都。（{2_whatCapitalsRevealed}）[N]+{1_relationShipDelta}關係</Text>
+      <Text>若任一方領袖的首都就在附近，則揭露該[icon:NOTIFICATION_SELECT_CAPITAL]首都。（{2_whatCapitalsRevealed}）[N]+{1_relationShipDelta}[icon:RELATIONSHIP]關係。</Text>
     </Replace>
     <Replace Tag="LOC_FIRST_MEET_FRIENDLY_THEIR_CAPITAL_REVEALED" Language="zh_Hant_HK">
-      <Text>{1_LeaderName}的首都{2_CapitalName}將被揭露。</Text>
+      <Text>{1_LeaderName}的[icon:NOTIFICATION_SELECT_CAPITAL]首都{2_CapitalName}將被揭露。</Text>
     </Replace>
     <Replace Tag="LOC_FIRST_MEET_HOSTILE_GREETING" Language="zh_Hant_HK">
       <Text>-{1_cost}[icon:YIELD_DIPLOMACY]影響力</Text>
     </Replace>
     <Replace Tag="LOC_FIRST_MEET_HOSTILE_GREETING_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>{1_relationShipDelta}關係</Text>
+      <Text>{1_relationShipDelta}[icon:RELATIONSHIP]關係。</Text>
     </Replace>
     <Replace Tag="LOC_FIRST_MEET_NEUTRAL_GREETING" Language="zh_Hant_HK">
       <Text>{1_cost}[icon:YIELD_DIPLOMACY]影響力</Text>
@@ -38592,7 +39087,7 @@
       <Text>已損失{Amount}個單位。</Text>
     </Replace>
     <Replace Tag="LOC_HOF_TURNS" Language="zh_Hant_HK">
-      <Text>[ICON_TURN] {1_Turns}回合</Text>
+      <Text>{1_Turns}回合</Text>
     </Replace>
     <Replace Tag="LOC_HOF_VICTORYPROGRESS_COUNT" Language="zh_Hant_HK">
       <Text>獲得過{1_Count}次。</Text>
@@ -39150,10 +39645,16 @@
       <Text>和{1_LeaderName}的關係已從{2_PrevRel}變更至{3_CurrRel}。</Text>
     </Replace>
     <Replace Tag="LOC_NOTIFICATION_DIPLOMATIC_AGENDA_DEFAULT_MESSAGE" Language="zh_Hant_HK">
-      <Text>{1_LeaderName}的議程已經改變了你們之間的關係。</Text>
+      <Text>{1_LeaderName}有訊息傳來</Text>
     </Replace>
     <Replace Tag="LOC_NOTIFICATION_DIPLOMATIC_AGENDA_DEFAULT_SUMMARY" Language="zh_Hant_HK">
       <Text>{1_LeaderName}的議程已經改變了你們之間的關係。</Text>
+    </Replace>
+    <Replace Tag="LOC_NOTIFICATION_DIPLOMATIC_AGENDA_MINOR_MESSAGE" Language="zh_Hant_HK">
+      <Text>由於對方的議程，你與{1_LeaderName}的關係已{2: number +#;-#}。</Text>
+    </Replace>
+    <Replace Tag="LOC_NOTIFICATION_DIPLOMATIC_AGENDA_MINOR_SUMMARY" Language="zh_Hant_HK">
+      <Text>由於對方的議程，你與{1_LeaderName}的關係已{2: number +#;-#}。</Text>
     </Replace>
     <Replace Tag="LOC_NOTIFICATION_DIPLOMATIC_ALLIES_AT_WAR_SUMMARY" Language="zh_Hant_HK">
       <Text>你的盟友{1_Ally1Name}已和你的盟友{2_Ally2Name}開戰。</Text>
@@ -39273,7 +39774,7 @@
       <Text>你的文明發現了自然奇觀{1_NaturalWonderName}。</Text>
     </Replace>
     <Replace Tag="LOC_NOTIFICATION_DISPERSE_IP_REWARD_SUMMARY" Language="zh_Hant_HK">
-      <Text>{1_IPName}的獨立軍勢力已被驅散。你獲得了{2_reward} [{3_YieldIcon}]{4_YieldType}。</Text>
+      <Text>{1_IPName}的獨立軍勢力已被驅散。你獲得了{2_reward}{3_YieldType}。</Text>
     </Replace>
     <Replace Tag="LOC_NOTIFICATION_DISTRICT_ATTACKED_BY_IP_SUMMARY" Language="zh_Hant_HK">
       <Text>{1_CityName}遭到{2_CivName}攻擊。</Text>
@@ -39725,6 +40226,12 @@
     <Replace Tag="LOC_UI_ACQUIRE_TILE_SPECIALIST_SLOTS_AVAILABLE" Language="zh_Hant_HK">
       <Text>此格位有{1_NumSlots}個可用的專家槽位。</Text>
     </Replace>
+    <Replace Tag="LOC_UI_ADJACENCY_BREATHTAKING_TILE_YIELD" Language="zh_Hant_HK">
+      <Text>壯麗格位+{1_Amount} {2_YieldName}相鄰加成</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_ADJACENCY_CHARMING_TILE_YIELD" Language="zh_Hant_HK">
+      <Text>迷人格位+{1_Amount} {2_YieldName}相鄰加成</Text>
+    </Replace>
     <Replace Tag="LOC_UI_ADJACENCY_INFO_BIOME" Language="zh_Hant_HK">
       <Text>每有一個相鄰的{3_BiomeName}格位，便+{1_Amount}{2_YieldName}</Text>
     </Replace>
@@ -39809,6 +40316,24 @@
     <Replace Tag="LOC_UI_CITY_BANNER_POPULATION_INFO" Language="zh_Hant_HK">
       <Text>都會人口：{1_Urban}[n]鄉村人口：{2_Rural}[n]專家人數：{3_Specialists}</Text>
     </Replace>
+    <Replace Tag="LOC_UI_CITY_BANNER_PRODUCTION_BONUS_CONSTRUCTIBLE" Language="zh_Hant_HK">
+      <Text>（建造{3}時{1: number +#.#;-#.#}基礎[icon:YIELD_PRODUCTION]×{2: number #.#;-#.#}%[TIP:LOC_PEDIA_CONCEPTS_EFFICIENCY_TOOLTIP]效率[/TIP]）</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_CITY_BANNER_PRODUCTION_BONUS_PROJECT" Language="zh_Hant_HK">
+      <Text>（展開{3}時{1: number +#.#;-#.#}基礎[icon:YIELD_PRODUCTION]×{2: number #.#;-#.#}%[TIP:LOC_PEDIA_CONCEPTS_EFFICIENCY_TOOLTIP]效率[/TIP]）</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_CITY_BANNER_PRODUCTION_BONUS_UNIT" Language="zh_Hant_HK">
+      <Text>（訓練一個{3}時{1: number +#.#;-#.#}基礎[icon:YIELD_PRODUCTION]×{2: number #.#;-#.#}%[TIP:LOC_PEDIA_CONCEPTS_EFFICIENCY_TOOLTIP]效率[/TIP]）</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_CITY_BANNER_TURNS_TO_COMPLETION" Language="zh_Hant_HK">
+      <Text>{1_turns}回合後完成</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_CITY_BANNER_YIELD_BREAKDOWN" Language="zh_Hant_HK">
+      <Text>{1_Current: number #.#;-#.#}/{2_Threshold: number #.#;-#.#}[icon:{4_YIELD}][n]每回合[icon:{4_YIELD}]收入{3_PerTurn: number +#.#;-#.#}</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_CITY_BANNER_YIELD_GROWTH_RATE_BONUS" Language="zh_Hant_HK">
+      <Text>（{1: number +#.#;-#.#}基礎[icon:YIELD_FOOD]×{2: number #.#;-#.#}%[icon:GROWTH_RATE][TIP:LOC_PEDIA_CONCEPTS_GROWTH_RATE_TOOLTIP]成長速率[/TIP]）</Text>
+    </Replace>
     <Replace Tag="LOC_UI_CITY_CAPTURE_KEEP_SETTLEMENT_DESC" Language="zh_Hant_HK">
       <Text>在該聚落同化前，幸福感與生產力都會暫時減少。[n]{1_penalty}。</Text>
     </Replace>
@@ -39848,6 +40373,9 @@
     <Replace Tag="LOC_UI_CITY_DETAILS_IMPORTING_FOOD_POTENTIAL" Language="zh_Hant_HK">
       <Text>此[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]已與{2_Settlement}（{3_Icon}{4_Project}）建立連結。[nn]若它擁有能輸送[icon:YIELD_FOOD]食物的[icon:TOWN_FOCUS][TIP:LOC_PEDIA_CONCEPTS_TOWN_FOCUS_TOOLTIP]城鎮重心[/TIP]，則將會從{2_Settlement}每回合獲得{1_Amount: number #.#;-#.#}[icon:YIELD_FOOD]食物。</Text>
     </Replace>
+    <Replace Tag="LOC_UI_CITY_DETAILS_IMPROVEMENTS_COUNT" Language="zh_Hant_HK">
+      <Text>聚落中的數量：{1_Amount}</Text>
+    </Replace>
     <Replace Tag="LOC_UI_CITY_DETAILS_NEW_CITIZEN_IN_TURNS" Language="zh_Hant_HK">
       <Text>新市民於{1_Turns}回合內出現</Text>
     </Replace>
@@ -39871,6 +40399,9 @@
     </Replace>
     <Replace Tag="LOC_UI_CITY_DETAILS_UNIQUE_QUARTER_NEEDS" Language="zh_Hant_HK">
       <Text>建造{1_Name}來完成特色城區</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_CITY_DETAILS_WAREHOUSE_BREAKDOWN_COUNT" Language="zh_Hant_HK">
+      <Text>×{1}</Text>
     </Replace>
     <Replace Tag="LOC_UI_CITY_DETAILS_YIELD_MULTIPLIER_ONE_DECIMAL" Language="zh_Hant_HK">
       <Text>{1_Amount: number x #.#;x -#.#}</Text>
@@ -40036,6 +40567,9 @@
     </Replace>
     <Replace Tag="LOC_UI_GREAT_WORKS_UNIQUE_NAME" Language="zh_Hant_HK">
       <Text>{1_artifact}</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_HOLD_INPUT" Language="zh_Hant_HK">
+      <Text>{1_ActionName}（按住）</Text>
     </Replace>
     <Replace Tag="LOC_UI_IMPROVEMENT_FOR_TILE" Language="zh_Hant_HK">
       <Text>選擇此格位將建造{1_ImprovementName}。</Text>
@@ -40619,7 +41153,7 @@
       <Text>在此處開拓聚落將會觸怒{1_independent}</Text>
     </Replace>
     <Replace Tag="LOC_WARNING_LANDCLAIM_TOO_CLOSE_MAJOR" Language="zh_Hant_HK">
-      <Text>在此處開拓聚落將會傷害你和{1_leader}之間的關係</Text>
+      <Text>在此處開拓聚落將會傷害你和{1_leader}之間的[icon:RELATIONSHIP]關係</Text>
     </Replace>
     <Replace Tag="LOC_WARNING_LOSING_INDEPENDENT_MESSAGE" Language="zh_Hant_HK">
       <Text>{2_IndependentName}的統治者越來越受到{1_LeaderName}的影響。若我們不在那裡多花點影響力的話，對方很快就會成為附庸於我們對手的城邦！</Text>
@@ -40937,7 +41471,7 @@
       <Text>加成</Text>
     </Replace>
     <Replace Tag="LOC_YIELD_CITY_CAP" Language="zh_Hant_HK">
-      <Text>[icon:YIELD_CITY_CAP]城市上限</Text>
+      <Text>[icon:YIELD_CITY_CAP]城市限制</Text>
     </Replace>
     <Replace Tag="LOC_YIELD_CULTURE" Language="zh_Hant_HK">
       <Text>[icon:YIELD_CULTURE]文化值</Text>

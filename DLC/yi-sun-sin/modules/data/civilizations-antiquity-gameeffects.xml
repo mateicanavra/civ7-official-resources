@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+	<Modifier id="YI_MOD_FREE_NAVAL_COMMANDER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_NAVAL_UNIT_WITH_OCEAN_ACCESS" permanent="true">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_HAS_COMPLETED_PROGRESSION_TREE_NODE">
+				<Argument name="ProgressionTreeNodeType">NODE_CIVIC_AQ_MAIN_DISCIPLINE</Argument>
+				<Argument name="MinDepth">1</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_PLAYER_HAS_CONSTRUCTIBLE">
+				<Argument name="ConstructibleType">BUILDING_HARBOR</Argument>
+				<Argument name="IsComplete">true</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="UnitTag">UNIT_CLASS_FLEET_COMMANDER</Argument>
+		<Argument name="Amount">1</Argument>
+	</Modifier>
+</GameEffects>

@@ -194,9 +194,17 @@ function parseConstructibleAdjacency(def) {
   } else if (def.AdjacentLake) {
     result = Locale.compose("LOC_UI_ADJACENCY_INFO_LAKE", amount, yieldName);
   } else if (def.AdjacentCharmingAppeal) {
-    result = Locale.compose("LOC_UI_CHARMING_APPEAL", amount, yieldName);
+    if (amount && yieldName) {
+      result = Locale.compose("LOC_UI_ADJACENCY_CHARMING_TILE_YIELD", amount, yieldName);
+    } else {
+      result = Locale.compose("LOC_UI_CHARMING_APPEAL");
+    }
   } else if (def.AdjacentBreathtakingAppeal) {
-    result = Locale.compose("LOC_UI_BREATHTAKING_APPEAL", amount, yieldName);
+    if (amount && yieldName) {
+      result = Locale.compose("LOC_UI_ADJACENCY_BREATHTAKING_TILE_YIELD", amount, yieldName);
+    } else {
+      result = Locale.compose("LOC_UI_BREATHTAKING_APPEAL");
+    }
   } else if (def.AdjacentSpecificResource) {
     const resourceName = GameInfo.Resources.lookup(def.AdjacentSpecificResource)?.Name;
     if (resourceName) {
@@ -363,6 +371,10 @@ function getModifierTextByContext(modifierId, context) {
   const modifierStringInfo = GameInfo.ModifierStrings.find((o) => o.ModifierId == modifierId && o.Context == context);
   return modifierStringInfo ? modifierStringInfo.Text : "";
 }
+function getModifierArgumentByContext(modifierId, context) {
+  const modifierStringInfo = GameInfo.ModifierArguments.find((o) => o.ModifierId == modifierId && o.Name == context);
+  return modifierStringInfo ? modifierStringInfo.Value : "";
+}
 function fixupNNBSP(dt) {
   return dt.replaceAll(" ", " ");
 }
@@ -374,5 +386,5 @@ function roundTo2(v) {
   }
 }
 
-export { composeConstructibleDescription, composeProgressionTreeNodeUnlocks, composeProgressionTreeNodeUnlocksSplit, fixupNNBSP, formatStringArrayAsListString, formatStringArrayAsNewLineText, getConstructibleEffectStrings, getModifierTextByContext, parseConstructibleAdjacency, parseConstructibleAdjacencyNameOnly, quickFormatProgressionTreeNodeUnlocks, roundTo2 };
+export { composeConstructibleDescription, composeProgressionTreeNodeUnlocks, composeProgressionTreeNodeUnlocksSplit, fixupNNBSP, formatStringArrayAsListString, formatStringArrayAsNewLineText, getConstructibleEffectStrings, getModifierArgumentByContext, getModifierTextByContext, parseConstructibleAdjacency, parseConstructibleAdjacencyNameOnly, quickFormatProgressionTreeNodeUnlocks, roundTo2 };
 //# sourceMappingURL=utilities-core-textprovider.js.map

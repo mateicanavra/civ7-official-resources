@@ -149,25 +149,25 @@
       <Text>你在本时代中控制此定居点期间，每回合[icon:YIELD_DIPLOMACY]影响力收益-4</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ACTION_ESPIONAGE_BUY_LOYALTY_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>获得目标领袖已解锁的陆地军事单位的一个副本。该单位将出现在你的首都中。</Text>
+      <Text>获得目标领袖已解锁的陆地军事单位的一个副本。该单位将出现在你的[icon:NOTIFICATION_SELECT_CAPITAL]首都中。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ACTION_ESPIONAGE_BUY_LOYALTY_NAME" Language="zh_Hans_CN">
       <Text>收买忠诚</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_CULTURAL_EXCHANGE_INITIAL" Language="zh_Hans_CN">
-      <Text>与另一位领袖进行文化交流。[n]接受：你的每回合[icon:YIELD_CULTURE]文化值收益+8。对方领袖的每回合[icon:YIELD_CULTURE]文化值收益+4。[n]支持：双方领袖的每回合[icon:YIELD_CULTURE]文化值收益+12。[n]拒绝：关系恶化。</Text>
+      <Text>与另一位领袖进行文化交流。[n]接受：你的每回合[icon:YIELD_CULTURE]文化值收益+8。对方领袖的每回合[icon:YIELD_CULTURE]文化值收益+4。[n]支持：双方领袖的每回合[icon:YIELD_CULTURE]文化值收益+12。[n]拒绝：[icon:RELATIONSHIP]关系恶化。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_CULTURAL_EXCHANGE_SUPPORT" Language="zh_Hans_CN">
-      <Text>双方领袖每回合[icon:YIELD_CULTURE]文化值收益+12。</Text>
+      <Text>双方领袖每回合[icon:YIELD_CULTURE]收益+12。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_DEMAND_TRIBUTE_ACCEPT" Language="zh_Hans_CN">
-      <Text>你的[icon:YIELD_GOLD]每回合金币收益-20。行动结束后，将在目标定居点附近生成一支计2点的宝藏护送队。</Text>
+      <Text>你的[icon:YIELD_GOLD]每回合金币收益-20。行动结束后，将在目标定居点附近生成一支计2点的[icon:UNIT_TREASURE_FLEET]宝藏护送队。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_DEMAND_TRIBUTE_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>以一个拥有宝藏资源的定居点为目标。在制裁生效期间，使定居点拥有者的[icon:YIELD_GOLD]每回合金币收益-20。行动结束时，创造出一支计2点的宝藏护送队。</Text>
+      <Text>以一个拥有[icon:TREASURE_FLEET]宝藏资源的定居点为目标。在制裁生效期间，使定居点拥有者的[icon:YIELD_GOLD]每回合金币收益-20。行动结束时，创造出一支计2点的[icon:UNIT_TREASURE_FLEET]宝藏护送队。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_DEMAND_TRIBUTE_INITIAL" Language="zh_Hans_CN">
-      <Text>以一个拥有宝藏资源的定居点为目标。在制裁生效期间，使定居点拥有者的[icon:YIELD_GOLD]每回合金币收益-20。行动结束时，创造出一支计2点的宝藏护送队。</Text>
+      <Text>以一个拥有[icon:TREASURE_FLEET]宝藏资源的定居点为目标。在制裁生效期间，使定居点拥有者的[icon:YIELD_GOLD]每回合金币收益-20。行动结束时，创造出一支计2点的[icon:UNIT_TREASURE_FLEET]宝藏护送队。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_DEMAND_TRIBUTE_NAME" Language="zh_Hans_CN">
       <Text>索要贡品</Text>
@@ -176,10 +176,10 @@
       <Text>取消外交行动。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_FARMERS_MARKET_INITIAL" Language="zh_Hans_CN">
-      <Text>与另一位领袖分享农产品。[n]接受：你城镇的每回合[icon:YIELD_FOOD]食物收益+4。对方领袖的每回合[icon:YIELD_GOLD]金币收益+4。[n]支持：双方领袖城镇的每回合[icon:YIELD_FOOD]食物收益+6。[n]拒绝：关系恶化。</Text>
+      <Text>与另一位领袖分享农产品。[n]接受：你[icon:YIELD_TOWNS]城镇的每回合[icon:YIELD_FOOD]食物收益+4。对方领袖的每回合[icon:YIELD_GOLD]金币收益+4。[n]支持：双方领袖[icon:YIELD_TOWNS]城镇的每回合[icon:YIELD_FOOD]食物收益+6。[n]拒绝：[icon:RELATIONSHIP]关系恶化。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_FARMERS_MARKET_SUPPORT" Language="zh_Hans_CN">
-      <Text>双方领袖的城镇每回合[icon:YIELD_FOOD]食物收益+6。</Text>
+      <Text>双方领袖的[icon:YIELD_TOWNS]城镇每回合[icon:YIELD_FOOD]食物收益+6。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_FRIEND_OF_WA" Language="zh_Hans_CN">
       <Text>以“亲魏倭王”的名义与对方结盟。[n]接受：双方领袖获得的[icon:YIELD_SCIENCE]科技值+25%。</Text>
@@ -188,37 +188,37 @@
       <Text>以“亲魏倭王”的名义与对方结盟。[n]接受：双方领袖获得的[icon:YIELD_SCIENCE]科技值+25%。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_GINSING_AGREEMENT_INITIAL" Language="zh_Hans_CN">
-      <Text>与另一位领袖缔结人参协议。[n]接受：你城市的每回合[icon:YIELD_FOOD]食物收益+6。对方领袖的城市的每回合[icon:YIELD_FOOD]食物收益+4。[n]支持：双方领袖的城市的每回合[icon:YIELD_FOOD]食物收益+10。[n]拒绝：关系恶化。</Text>
+      <Text>与另一位领袖缔结人参协议。[n]接受：你[icon:YIELD_CITIES]城市的每回合[icon:YIELD_FOOD]食物收益+6。对方领袖的[icon:YIELD_CITIES]城市的每回合[icon:YIELD_FOOD]食物收益+4。[n]支持：双方领袖的[icon:YIELD_CITIES]城市的每回合[icon:YIELD_FOOD]食物收益+10。[n]拒绝：[icon:RELATIONSHIP]关系恶化。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_GINSING_AGREEMENT_SUPPORT" Language="zh_Hans_CN">
-      <Text>双方领袖的城市每回合[icon:YIELD_FOOD]收益+10。</Text>
+      <Text>双方领袖的[icon:YIELD_CITIES]城市每回合[icon:YIELD_FOOD]收益+10。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_LOCAL_FESTIVALS_INITIAL" Language="zh_Hans_CN">
-      <Text>与另一位领袖庆祝本地节庆。[n]接受：你的城市的每回合[icon:YIELD_HAPPINESS]幸福值收益+4。对方领袖的每回合[icon:YIELD_DIPLOMACY]影响力收益+4。[n]支持：双方领袖的城市的每回合[icon:YIELD_HAPPINESS]幸福值收益+6。[n]拒绝：关系恶化。</Text>
+      <Text>与另一位领袖庆祝本地节庆。[n]接受：你的[icon:YIELD_CITIES]城市的每回合[icon:YIELD_HAPPINESS]幸福值收益+4。对方领袖的每回合[icon:YIELD_DIPLOMACY]影响力收益+4。[n]支持：双方领袖的[icon:YIELD_CITIES]城市的每回合[icon:YIELD_HAPPINESS]幸福值收益+6。[n]拒绝：[icon:RELATIONSHIP]关系恶化。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_LOCAL_FESTIVALS_SUPPORT" Language="zh_Hans_CN">
-      <Text>双方领袖的城市每回合[icon:YIELD_HAPPINESS]幸福值收益+6。</Text>
+      <Text>双方领袖的[icon:YIELD_CITIES]城市每回合[icon:YIELD_HAPPINESS]收益+6。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_MILITARY_AID_ACCEPT" Language="zh_Hans_CN">
-      <Text>每回合[icon:YIELD_GOLD]金币收益+4。[n]对方领袖的单位+2战斗力。</Text>
+      <Text>每回合[icon:YIELD_GOLD]收益+4。[n]对方领袖的单位+2[icon:NAR_REW_COMBAT]战斗力。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_MINOR_TRADE_INITIAL" Language="zh_Hans_CN">
-      <Text>与另一位领袖开放市场。[n]接受：你的每回合[icon:YIELD_GOLD]金币收益+8。对方领袖的每回合[icon:YIELD_GOLD]金币收益+4。[n]支持：双方领袖的每回合[icon:YIELD_GOLD]金币收益+12。[n]拒绝：关系恶化。</Text>
+      <Text>与另一位领袖开放市场。[n]接受：你的每回合[icon:YIELD_GOLD]金币收益+8。对方领袖的每回合[icon:YIELD_GOLD]金币收益+4。[n]支持：双方领袖的每回合[icon:YIELD_GOLD]金币收益+12。[n]拒绝：[icon:RELATIONSHIP]关系恶化。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_MINOR_TRADE_SUPPORT" Language="zh_Hans_CN">
-      <Text>双方领袖每回合[icon:YIELD_GOLD]金币收益+12。</Text>
+      <Text>双方领袖每回合[icon:YIELD_GOLD]收益+12。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_OPEN_BORDERS_ACCEPT" Language="zh_Hans_CN">
       <Text>向对方开放你的边界。[n]每回合[icon:YIELD_GOLD]金币收益+4。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_RESEARCH_COLLABORATION_INITIAL" Language="zh_Hans_CN">
-      <Text>与另一位领袖进行研究合作。[n]接受：你的每回合[icon:YIELD_SCIENCE]科技值收益+8。对方领袖的每回合[icon:YIELD_SCIENCE]科技值收益+4。[n]支持：双方领袖的每回合[icon:YIELD_SCIENCE]科技值收益+12。[n]拒绝：关系恶化。</Text>
+      <Text>与另一位领袖进行研究合作。[n]接受：你的每回合[icon:YIELD_SCIENCE]科技值收益+8。对方领袖的每回合[icon:YIELD_SCIENCE]科技值收益+4。[n]支持：双方领袖的每回合[icon:YIELD_SCIENCE]科技值收益+12。[n]拒绝：[icon:RELATIONSHIP]关系恶化。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_RESEARCH_COLLABORATION_SUPPORT" Language="zh_Hans_CN">
-      <Text>双方领袖每回合[icon:YIELD_SCIENCE]科技值收益+12。</Text>
+      <Text>双方领袖每回合[icon:YIELD_SCIENCE]收益+12。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_TRADE_MAP_ACCEPT" Language="zh_Hans_CN">
-      <Text>每回合[icon:YIELD_GOLD]金币收益+4。[n]随时间推移，对方领袖将探明你占据的领土。</Text>
+      <Text>每回合[icon:YIELD_GOLD]收益+4。[n]随时间推移，对方领袖将探明你占据的领土。</Text>
     </Replace>
     <Replace Tag="LOC_EXP_RESOURCE_CLOVES_TOOLTIP" Language="zh_Hans_CN">
       <Text>+6[icon:YIELD_FOOD]食物、+10%[icon:YIELD_GOLD]金币</Text>
@@ -569,31 +569,31 @@
       <Text>城市规划</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_CULTURAL_EXCHANGE_ACCEPT" Language="zh_Hans_CN">
-      <Text>每回合[icon:YIELD_CULTURE]文化值收益+4。[n]{1_initialName}每回合[icon:YIELD_CULTURE]文化值收益+8。</Text>
+      <Text>每回合[icon:YIELD_CULTURE]收益+4。[n]{1_initialName}每回合[icon:YIELD_CULTURE]收益+8。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_DEMAND_TRIBUTE_REQUEST" Language="zh_Hans_CN">
       <Text>{1_leaderName}正在利用“索要贡品”外交行动削减我们的每回合[icon:YIELD_GOLD]金币收益。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_FARMERS_MARKET_ACCEPT" Language="zh_Hans_CN">
-      <Text>每回合[icon:YIELD_GOLD]金币收益+4。[n]{1_initialName}的城镇每回合[icon:YIELD_FOOD]食物收益+4。</Text>
+      <Text>每回合[icon:YIELD_GOLD]收益+4。[n]{1_initialName}的[icon:YIELD_TOWNS]城镇每回合[icon:YIELD_FOOD]收益+4。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_FRIEND_OF_WA_ACCEPT" Language="zh_Hans_CN">
       <Text>[icon:YIELD_SCIENCE]+25%。[n]{1_initialName}获得[icon:YIELD_SCIENCE]+25%。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_GINSING_AGREEMENT_ACCEPT" Language="zh_Hans_CN">
-      <Text>你的城市每回合[icon:YIELD_FOOD]收益+4。[n]{1_initialName}的城市每回合[icon:YIELD_FOOD]收益+6。</Text>
+      <Text>你的[icon:YIELD_CITIES]城市每回合[icon:YIELD_FOOD]收益+4。[n]{1_initialName}的[icon:YIELD_CITIES]城市每回合[icon:YIELD_FOOD]收益+6。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_IMPROVE_TRADE_RELATIONS_ACCEPT" Language="zh_Hans_CN">
-      <Text>[icon:YIELD_GOLD]+60。[n]{1_initialName}可以额外建立一条与你之间的贸易路线。</Text>
+      <Text>+60[icon:YIELD_GOLD]。[n]{1_initialName}可以额外建立一条与你之间的[icon:TRADE_ROUTE]贸易路线。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_LOCAL_FESTIVALS_ACCEPT" Language="zh_Hans_CN">
-      <Text>每回合[icon:YIELD_DIPLOMACY]影响力收益+4。[n]{1_initialName}的城市每回合[icon:YIELD_HAPPINESS]幸福值收益+4。</Text>
+      <Text>每回合[icon:YIELD_DIPLOMACY]收益+4。[n]{1_initialName}的[icon:YIELD_CITIES]城市每回合[icon:YIELD_HAPPINESS]收益+4。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_MINOR_TRADE_ACCEPT" Language="zh_Hans_CN">
-      <Text>每回合[icon:YIELD_GOLD]金币收益+4。[n]{1_initialName}每回合[icon:YIELD_GOLD]金币收益+8。</Text>
+      <Text>每回合[icon:YIELD_GOLD]收益+4。[n]{1_initialName}每回合[icon:YIELD_GOLD]收益+8。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_RESEARCH_COLLABORATION_ACCEPT" Language="zh_Hans_CN">
-      <Text>每回合[icon:YIELD_SCIENCE]科技值收益+4。[n]{1_initialName}每回合[icon:YIELD_SCIENCE]科技值收益+8。</Text>
+      <Text>每回合[icon:YIELD_SCIENCE]收益+4。[n]{1_initialName}每回合[icon:YIELD_SCIENCE]收益+8。</Text>
     </Replace>
     <Replace Tag="LOC_MOD_EX_TECH_WALL_STRENGTH_PREVIEW" Language="zh_Hans_CN">
       <Text>+{1_Amount}城堡</Text>
@@ -630,8 +630,10 @@
     </Replace>
     <Replace Tag="LOC_TUTORIAL_ADVANCED_START_CARD_CHOICE_BODY" Language="zh_Hans_CN">
       <Text>
-				你可以选择最多3项[b]献礼[/b]。每项献礼将提供持续整个[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]时代[/TIP]的强大效果，或即时生效的加成。[n][BLIST][LI]{1_Prompts}一张卡将其加入你的选择。
-				[LI] {1_Prompts}选中的一张卡将其移除。[/LIST][n]完成所有选择后，{1_Prompts}[b]确认[/b]。
+				左侧列出的是一系列传承，这类加成能帮助你的帝国抢占先机。每项传承都需消耗一定数量的传承点，请谨慎选择。
+				[n][n][BLIST][LI]{1_Prompts}一项传承将其加入你的选择。
+				[LI]{1_Prompts}选中的一项传承将其移除。[/LIST]
+				[n][n]完成所有选择后，{2_Prompts}[b]确认[/b]。
 			</Text>
     </Replace>
     <Replace Tag="LOC_TUTORIAL_ADVANCED_START_CARD_CHOICE_TITLE" Language="zh_Hans_CN">
@@ -842,7 +844,7 @@
     </Replace>
     <Replace Tag="LOC_TUTORIAL_ECONOMIC_QUEST_3_BODY" Language="zh_Hans_CN">
       <Text>[b]遥远土地[/b]拥有许多与本土不同的[icon:RADIAL_RESOURCES][b]资源[/b]；经历足够时间之后，可以装载上[b]宝藏护送队[/b]，将这些资源运回本土。
-				[n]下个目标：改良5处[icon:RESOURCE_TYPE_DISTANT_TREASURE][b]遥远土地宝藏资源[/b]，并等候[b]宝藏护送队[/b][b]在此定居点中生成[/b]。</Text>
+				[n]下个目标：改良5处[icon:RESOURCE_TYPE_DISTANT_TREASURE][b]遥远土地宝藏资源[/b]，并等候[b]宝藏护送队[/b]在此[b]定居点[/b]中生成。</Text>
     </Replace>
     <Replace Tag="LOC_TUTORIAL_ECONOMIC_QUEST_3_TITLE" Language="zh_Hans_CN">
       <Text>传承路径：{LOC_LEGACY_PATH_EXPLORATION_ECONOMIC_NAME} III</Text>

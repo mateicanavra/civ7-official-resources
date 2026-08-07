@@ -148,6 +148,7 @@ const EconomicVictoryTab = () => {
         get maxY() {
           return model.data.economicDetails.currentChart.graphTarget;
         },
+        minX: 1,
         gridColorX: "rgb(255 255 255 / 30%)",
         get axisLabelX() {
           return Locale.compose("LOC_GENERIC_TURN");

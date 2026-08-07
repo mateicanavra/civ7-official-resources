@@ -1,6 +1,7 @@
-import { createMemo, createSignal, onMount, onCleanup, createEffect, on, createContext, useContext } from '../../../../core/vendor/solid-js/dist/solid.js';
+import { createMemo, createSignal, onMount, onCleanup, createEffect, on } from '../../../../core/vendor/solid-js/dist/solid.js';
 import { createStore } from '../../../../core/vendor/solid-js/store/dist/store.js';
 import { Layout } from '../../../../core/ui/utilities/utilities-layout.js';
+import { ModelRegistry, ModelLifecycle } from '../../../../core/ui-next/services/model-registry.js';
 import { useLocalPlayerId, createEngineEvent } from '../../../../core/ui-next/utilities/game-core-utilities.js';
 import { LayoutModel } from '../../../../core/ui-next/utilities/layout-utilities.js';
 import { addAvailableCard, removeAvailableCard, getLegacyCardStyling, parseCardText, getLegacyTypeFromCardID, isCrisis, getStylingFromTag, selectCapital, markCompletedDeck } from './legacies-support.js';
@@ -17,15 +18,15 @@ var DedicationsFilterOptions = /* @__PURE__ */ ((DedicationsFilterOptions2) => {
   DedicationsFilterOptions2["CRISIS"] = "CRISIS";
   return DedicationsFilterOptions2;
 })(DedicationsFilterOptions || {});
-const DedicationsModel = () => {
+const CreateDedicationsModel = () => {
   const SMALL_SCREEN_MODE_MAX_HEIGHT = 800;
   const SMALL_SCREEN_MODE_MAX_WIDTH = 1e3;
   const DEDICATIONS_SLOT_IDS = ["Slot1", "Slot2", "Slot3"];
   const DEDICATIONS_AVAILABLE_ID = "Available";
-  const layout = LayoutModel.get();
   const isSmallScreen = createMemo(() => {
     const isMobileViewExperience = UI.getViewExperience() == UIViewExperience.Mobile;
-    return isMobileViewExperience || layout.screenHeight() <= Layout.pixelsToScreenPixels(SMALL_SCREEN_MODE_MAX_HEIGHT) || layout.screenWidth() <= Layout.pixelsToScreenPixels(SMALL_SCREEN_MODE_MAX_WIDTH);
+    const layoutModel = LayoutModel.get();
+    return isMobileViewExperience || layoutModel.screenHeight() <= Layout.pixelsToScreenPixels(SMALL_SCREEN_MODE_MAX_HEIGHT) || layoutModel.screenWidth() <= Layout.pixelsToScreenPixels(SMALL_SCREEN_MODE_MAX_WIDTH);
   });
   const localPlayerID = useLocalPlayerId();
   const playerLegacyCompleted = createEngineEvent("PlayerLegacyCompleted");
@@ -470,8 +471,11 @@ const DedicationsModel = () => {
     isSmallScreen
   };
 };
-const DedicationsModelContext = createContext(DedicationsModel());
-const useDedicationsModel = () => useContext(DedicationsModelContext);
+const DedicationsModel = ModelRegistry.register(
+  "DedicationsModel",
+  ModelLifecycle.SharedInstance,
+  CreateDedicationsModel
+);
 
-export { DedicationsFilterOptions, DedicationsModelContext, useDedicationsModel };
+export { DedicationsFilterOptions, DedicationsModel };
 //# sourceMappingURL=dedications-model.js.map

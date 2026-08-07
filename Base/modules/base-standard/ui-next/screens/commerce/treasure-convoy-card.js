@@ -84,7 +84,11 @@ const TreasureConvoyCardComponent = (props) => {
             return _el$2;
           })(), (() => {
             var _el$3 = _tmpl$3();
-            insert(_el$3, () => props.fleet.cityName);
+            insert(_el$3, createComponent(L10n.Compose, {
+              get text() {
+                return props.fleet.cityName;
+              }
+            }));
             return _el$3;
           })()];
         }

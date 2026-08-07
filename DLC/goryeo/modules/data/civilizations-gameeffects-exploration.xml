@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+	<!-- ==================================================	-->
+	<!--				Civ-Specific Traits					-->
+	<!-- ==================================================	-->
+	<!-- GORYEO -->
+	<Modifier id="MOD_CIV_STATIONED_TOBANG_INFLUENCE" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ATTACH_MODIFIERS">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_CLASS_MATCHES">
+				<Argument name="UnitClass">UNIT_CLASS_TOBANG</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="ModifierId">CIV_MOD_STATIONED_ON_DISTRICT_INFLUENCE</Argument>
+	</Modifier>
+	<Modifier id="CIV_MOD_STATIONED_ON_DISTRICT_INFLUENCE" collection="COLLECTION_UNIT_OCCUPIED_CITY" effect="EFFECT_CITY_ADJUST_YIELD">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_UNIT_IS_STATIONED_ON_DISTRICT">
+				<Argument name="DistrictType">DISTRICT_CITY_CENTER</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Amount">1</Argument>
+		<Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+		<Argument name="Tooltip">LOC_UNIT_TOBANG_NAME</Argument>
+	</Modifier>
+	<!-- ==================================================	-->
+	<!--				Civ-Specific Trees					-->
+	<!-- ==================================================	-->
+	<Modifier id="MOD_REVEAL_CIV_CULTURE_TREE_GORYEO" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_REVEAL_CULTURE_TREE">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_HAS_CIVILIZATION_OR_LEADER_TRAIT">
+				<Argument name="TraitType">TRAIT_GORYEO</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="ProgressionTreeType">TREE_CIVICS_EX_GORYEO</Argument>
+	</Modifier>
+	<!-- ==================================================	-->
+	<!--				Wonder Bonuses						-->
+	<!-- ==================================================	-->
+	<Modifier id="MOD_CIV_WONDER_PRODUCTION_GORYEO" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_FAVORED_WONDER_PRODUCTION">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_HAS_CIVILIZATION_OR_LEADER_TRAIT">
+				<Argument name="TraitType">TRAIT_GORYEO</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Percent">30</Argument>
+		<String context="Preview">LOC_MOD_CIV_WONDER_PRODUCTION_GORYEO_DESCRIPTION</String>
+	</Modifier>
+</GameEffects>

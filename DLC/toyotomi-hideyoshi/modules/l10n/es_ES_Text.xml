@@ -26,31 +26,37 @@
       <Text>A Toyotomi Hideyoshi, nacido en la nada y ascendido hasta albergar sueños de conquista mundial, se le recuerda por su ambición. Pero su legado pervive en la elegancia de la alta cultura nipona, pues contribuyó a allanar el camino de la futura era Edo, no solo en términos administrativos, sino también culturales.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLO_DECLARE_WAR_INITIATOR_LEADER_TOYOTOMI_HIDEYOSHI_ANY" Language="es_ES">
-      <Text> La virtud es veloz.  </Text>
+      <Text>La virtud es veloz.  </Text>
     </Replace>
     <Replace Tag="LOC_DIPLO_DECLARE_WAR_RECIPIENT_LEADER_TOYOTOMI_HIDEYOSHI_ANY" Language="es_ES">
-      <Text> No he logrado convenceros. Muy bien. Arrojaos contra nuestras espadas, pues. </Text>
+      <Text>No he logrado convenceros. Muy bien. Arrojaos contra nuestras espadas, pues. </Text>
     </Replace>
     <Replace Tag="LOC_DIPLO_DEFEAT_AI_LEADER_TOYOTOMI_HIDEYOSHI_ANY" Language="es_ES">
-      <Text> He apuntado demasiado lejos, como un mono que intenta alcanzar la luna. </Text>
+      <Text>He apuntado demasiado lejos, como un mono que intenta alcanzar la luna. </Text>
     </Replace>
     <Replace Tag="LOC_DIPLO_FIRST_MEET_NEAR_INITIATOR_LEADER_TOYOTOMI_HIDEYOSHI_ANY" Language="es_ES">
-      <Text> Quienes me llamaron mono o hijo de un granjero ahora me llaman señor. </Text>
+      <Text>Quienes me llamaron mono o hijo de un granjero ahora me llaman señor. </Text>
     </Replace>
     <Replace Tag="LOC_DIPLO_FIRST_MEET_NEAR_RECIPIENT_LEADER_TOYOTOMI_HIDEYOSHI_ANY" Language="es_ES">
-      <Text> Quienes me llamaron mono o hijo de un granjero ahora me llaman señor. </Text>
+      <Text>Quienes me llamaron mono o hijo de un granjero ahora me llaman señor. </Text>
     </Replace>
     <Replace Tag="LOC_DIPLO_FIRST_MEET_NO_MANS_LEADER_TOYOTOMI_HIDEYOSHI_ANY" Language="es_ES">
-      <Text> Quienes me llamaron mono o hijo de un granjero ahora me llaman señor. </Text>
+      <Text>Quienes me llamaron mono o hijo de un granjero ahora me llaman señor. </Text>
     </Replace>
     <Replace Tag="LOC_DIPLO_MAKE_DEAL_ACCEPTED_LEADER_TOYOTOMI_HIDEYOSHI" Language="es_ES">
-      <Text> Está decidido. </Text>
+      <Text>Está decidido. </Text>
     </Replace>
     <Replace Tag="LOC_DIPLO_MAKE_DEAL_REJECTED_LEADER_TOYOTOMI_HIDEYOSHI" Language="es_ES">
-      <Text> ¿Me tomas por idiota? </Text>
+      <Text>¿Me tomáis por necio? </Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_DECREASED_LEADER_TOYOTOMI_HIDEYOSHI" Language="es_ES">
+      <Text>El drama ha terminado. Podéis dejar de actuar como necios.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_INCREASED_LEADER_TOYOTOMI_HIDEYOSHI" Language="es_ES">
+      <Text>Dejad que caliente vuestras sandalias en mi abrigo.</Text>
     </Replace>
     <Replace Tag="LOC_MAIN_CHAR_SELECT_LEADER_TOYOTOMI_HIDEYOSHI_ANY" Language="es_ES">
-      <Text> Si uno cree que tendrá éxito, lo tendrá. Si cree que va a fracasar, fracasará. </Text>
+      <Text>Si uno cree que tendrá éxito, lo tendrá. Si cree que va a fracasar, fracasará. </Text>
     </Replace>
     <Replace Tag="LOC_VICTORY_LEADER_TOYOTOMI_HIDEYOSHI" Language="es_ES">
       <Text>Es un gran día. Pero hay que trazar planes para mañana.</Text>
@@ -586,13 +592,19 @@
       <Text>Estandarte de Toyotomi Hideyoshi</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_TOYOTOMI_HIDEYOSHI_DESC" Language="es_ES">
-      <Text>Le gustan las civilizaciones que poseen mucha [icon:YIELD_CULTURE] Cultura y multitud de [TIP:LOC_PEDIA_CONCEPTS_LAND_UNITS_TOOLTIP]unidades terrestres[/TIP]. No le gustan las civilizaciones con poca [icon:YIELD_CULTURE] Cultura y unidades terrestres.</Text>
+      <Text>Le gustan los líderes que tienen más [TIP:LOC_PEDIA_CONCEPTS_LAND_UNITS_TOOLTIP]unidades terrestres[/TIP] y [icon:YIELD_CULTURE] Cultura. Le disgustan los líderes que tienen menos unidades terrestres o menos [icon:YIELD_CULTURE] Cultura.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_TOYOTOMI_HIDEYOSHI_DESC_DISLIKES" Language="es_ES">
+      <Text>A Toyotomi Hideyoshi le disgustan los líderes que tienen menos unidades terrestres o menos [icon:YIELD_CULTURE] Cultura.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_TOYOTOMI_HIDEYOSHI_DESC_LIKES" Language="es_ES">
+      <Text>A Toyotomi Hideyoshi le gustan los líderes que tienen más [TIP:LOC_PEDIA_CONCEPTS_LAND_UNITS_TOOLTIP]unidades terrestres[/TIP] y [icon:YIELD_CULTURE] Cultura.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_TOYOTOMI_HIDEYOSHI_NAME" Language="es_ES">
       <Text>Kampaku</Text>
     </Replace>
     <Replace Tag="LOC_LEADER_TOYOTOMI_HIDEYOSHI_DESCRIPTION" Language="es_ES">
-      <Text>Las [TIP:LOC_PEDIA_CONCEPTS_LAND_UNITS_TOOLTIP]unidades terrestres[/TIP] infligen el [b][icon:DAMAGED] doble de daño[/b] cuando atacan a unidades enemigas, pero tus efectivos reciben el [icon:DAMAGED] doble de daño al defenderte. Tus unidades [b][icon:Action_Heal] sanan[/b] 5 PG adicionales, y el doble si se encuentran en un [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]edificio[/TIP] de [b][icon:YIELD_CULTURE] Cultura[/b] o una [B][icon:WONDER] Maravilla[/B]. [b]+25 % a la [icon:YIELD_PRODUCTION] Producción[/b] destinada a [b][icon:YIELD_CULTURE] edificios de Cultura.[/b] El efecto se [b]duplica[/b] en [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]ciudades capturadas[/TIP] de cualquier era. </Text>
+      <Text>Las [TIP:LOC_PEDIA_CONCEPTS_LAND_UNITS_TOOLTIP]unidades terrestres[/TIP] infligen el [b][icon:DAMAGED] doble de daño[/b] cuando atacan a unidades enemigas, pero todas tus unidades reciben el [icon:DAMAGED] doble de daño al defender. Tus unidades [b][icon:Action_Heal] sanan[/b] 5 PG adicionales, y el doble si se encuentran en un [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]edificio[/TIP] de [b][icon:YIELD_CULTURE] Cultura[/b] o una [B][icon:WONDER] Maravilla[/B]. [b]+25 % a la [icon:YIELD_PRODUCTION] Producción[/b] destinada a [b][icon:YIELD_CULTURE] edificios de Cultura[/b]. El efecto se [b]duplica[/b] en [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]ciudades capturadas[/TIP] de cualquier era. </Text>
     </Replace>
     <Replace Tag="LOC_LOADING_LEADER_INTRO_TEXT_TOYOTOMI_HIDEYOSHI" Language="es_ES">
       <Text>Toyotomi Hideyoshi, naciste hijo de campesino y llegaste a gobernante. Habrá quien se mofe de tu cuna y de tu apariencia, pero nadie osa hacerlo ante ti. Con tu titánica determinación haces retroceder a tus rivales, y su sumisión alarga tu alcance. Ilustre kanpaku Hideyoshi, aferra la oportunidad, ondea tu estandarte.</Text>
@@ -610,7 +622,7 @@
       <Text>Requiere de riego regular.</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_TOYOTOMI_HIDEYOSHI_KABUTO_FUNCTIONAL_DESCRIPTION" Language="es_ES">
-      <Text>[B]+1 a [icon:YIELD_DIPLOMACY][/B] por era.</Text>
+      <Text>[B]+3 a [icon:YIELD_DIPLOMACY][/B] por [B]era.[/B]</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_TOYOTOMI_HIDEYOSHI_KABUTO_NAME" Language="es_ES">
       <Text>Kabuto</Text>
@@ -1028,7 +1040,7 @@
       <Text>Ilustre unificador</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_LEADER_TOYOTOMI_HIDEYOSHI_ABILITY_DESCRIPTION" Language="es_ES">
-      <Text>[BLIST][LI]Las [TIP:LOC_PEDIA_CONCEPTS_LAND_UNITS_TOOLTIP]unidades terrestres[/TIP] infligen el [b][icon:DAMAGED] doble de daño[/b] cuando atacan a unidades enemigas, pero tus efectivos reciben el [b][icon:DAMAGED] doble de daño[/b] al defender.[LI]Tus unidades [b][icon:Action_Heal] sanan[/b] 5 PG adicionales, y el doble si se encuentran en un [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]edificio[/TIP] de [b][icon:YIELD_CULTURE] Cultura[/b] o una [B][icon:WONDER] Maravilla[/B]. [LI][b]+25 % a la [icon:YIELD_PRODUCTION] Producción[/b] destinada a [b][icon:YIELD_CULTURE] edificios de Cultura.[/b] El efecto se [b]duplica[/b] en [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]ciudades capturadas[/TIP] de cualquier era.[/LIST]</Text>
+      <Text>[BLIST][LI]Las [TIP:LOC_PEDIA_CONCEPTS_LAND_UNITS_TOOLTIP]unidades terrestres[/TIP] infligen el [b][icon:DAMAGED] doble de daño[/b] cuando atacan a unidades enemigas, pero todas tus unidades reciben el [b][icon:DAMAGED] doble de daño[/b] al defender.[LI]Tus unidades [b][icon:Action_Heal] sanan[/b] 5 PG adicionales, y el doble si se encuentran en un [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]edificio[/TIP] de [b][icon:YIELD_CULTURE] Cultura[/b] o una [B][icon:WONDER] Maravilla[/B]. [LI][b]+25 % a la [icon:YIELD_PRODUCTION] Producción[/b] destinada a [b][icon:YIELD_CULTURE] edificios de Cultura[/b]. El efecto se [b]duplica[/b] en [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]ciudades capturadas[/TIP] de cualquier era.[/LIST]</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_LEADER_TOYOTOMI_HIDEYOSHI_ABILITY_NAME" Language="es_ES">
       <Text>Ilustre unificador</Text>

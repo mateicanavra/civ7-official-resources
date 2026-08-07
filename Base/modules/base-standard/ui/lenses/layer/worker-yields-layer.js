@@ -9,6 +9,7 @@ const SPECIALIST_PIP_Y_INITIAL_OFFSET = 12;
 const SPECIALIST_PIP_Y_OFFSET = 18;
 const SPECIALIST_PIP_SHRINK_COUNT = 4;
 const SPECIALIST_PIP_SHRINK_SCALE = 0.7;
+const SPECIALIST_PIP_BLOCKED_ALPHA = 0.5;
 const ICON_Z_OFFSET = 5;
 const YIELD_CHANGE_OFFSET = { x: 0, y: -10, z: 0 };
 class WorkerYieldsLensLayer {
@@ -136,47 +137,31 @@ class WorkerYieldsLensLayer {
     const currentWorkers = info.NumWorkers;
     const workerCap = info.MaxWorkers;
     const location = GameplayMap.getLocationFromIndex(info.PlotIndex);
-    if (currentWorkers > 0) {
-      for (let i = 0; i < workerCap; i++) {
-        const offsetAndScale = this.getSpecialistPipOffsetsAndScale(i, workerCap - 1);
-        if (i < currentWorkers) {
-          const texture = "specialist_tile_pip_full";
-          this.yieldVisualizer.addSprite(
-            location,
-            texture,
-            {
-              x: offsetAndScale.xOffset,
-              y: offsetAndScale.yOffset,
-              z: ICON_Z_OFFSET
-            },
-            { scale: offsetAndScale.scale }
-          );
-        } else {
-          const texture = "specialist_tile_pip_empty";
-          this.yieldVisualizer.addSprite(
-            location,
-            texture,
-            {
-              x: offsetAndScale.xOffset,
-              y: offsetAndScale.yOffset,
-              z: ICON_Z_OFFSET
-            },
-            { scale: offsetAndScale.scale }
-          );
-        }
-      }
-    } else {
-      for (let i = 0; i < workerCap; i++) {
-        const offsetAndScale = this.getSpecialistPipOffsetsAndScale(i, workerCap - 1);
+    for (let i = 0; i < workerCap; i++) {
+      const offsetAndScale = this.getSpecialistPipOffsetsAndScale(i, workerCap - 1);
+      if (i < currentWorkers) {
+        const texture = "specialist_tile_pip_full";
         this.yieldVisualizer.addSprite(
           location,
-          "specialist_tile_pip_empty",
+          texture,
           {
             x: offsetAndScale.xOffset,
             y: offsetAndScale.yOffset,
             z: ICON_Z_OFFSET
           },
           { scale: offsetAndScale.scale }
+        );
+      } else {
+        const texture = info.IsBlocked ? "specialist_tile_pip_bad" : "specialist_tile_pip_empty";
+        this.yieldVisualizer.addSprite(
+          location,
+          texture,
+          {
+            x: offsetAndScale.xOffset,
+            y: offsetAndScale.yOffset,
+            z: ICON_Z_OFFSET
+          },
+          { scale: offsetAndScale.scale, alpha: info.IsBlocked ? SPECIALIST_PIP_BLOCKED_ALPHA : 1 }
         );
       }
     }

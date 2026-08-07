@@ -2349,8 +2349,13 @@
         <Argument name="Percent">25</Argument>
         <Argument name="ConstructibleType">BUILDING_MARKET</Argument>
     </Modifier>
-    <Modifier id="8094B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER_COMMANDER_NEAREST_STORY" effect="EFFECT_GRANT_UNIT_PROMOTION" run-once="true" permanent="true">
-        <Argument name="Amount">1</Argument>
+    <Modifier id="8094B_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_GRANT_UNIT_EXPERIENCE" run-once="true" permanent="true">
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+                <Argument name="Tag">UNIT_CLASS_COMMAND</Argument>
+            </Requirement>
+        </SubjectRequirements>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">10</Argument>
     </Modifier>
     <Modifier id="8094C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_GRANT_UNIT" run-once="true" permanent="true">
         <Argument name="UnitTag">UNIT_CLASS_MELEE</Argument>

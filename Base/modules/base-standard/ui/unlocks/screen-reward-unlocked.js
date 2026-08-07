@@ -56,7 +56,7 @@ class ScreenRewardUnlocked extends Panel {
       let subString = "";
       const localPlayer = Players.get(GameContext.localPlayerID);
       if (localPlayer) {
-        subString = Locale.compose(localPlayer.civilizationAdjective);
+        subString = localPlayer.civilizationAdjective;
       }
       const narrString = Locale.compose(this.popupData.requirements[0].narrative, subString);
       description.setAttribute("data-l10n-id", narrString);
@@ -161,13 +161,17 @@ class ScreenRewardUnlocked extends Panel {
     progressMetWrapper.appendChild(textBox);
     this.closeButton.setAttribute("caption", "LOC_GENERIC_CONTINUE");
     this.closeButton.setAttribute("action-key", "inline-accept");
-    this.closeButton.addEventListener("action-activate", UnlockPopupManager.closePopup);
+    this.closeButton.addEventListener("action-activate", onclose);
     modalFrame.appendChild(headerWrapper);
     modalFrame.appendChild(descriptionContainer);
     modalFrame.appendChild(unlockedRewardWrapper);
     modalFrame.appendChild(progressMetWrapper);
     modalFrame.appendChild(this.closeButton);
     this.Root.appendChild(modalFrame);
+    function onclose() {
+      UnlockPopupManager.closePopup();
+      FocusManager.get().setFocus(document.getRootNode());
+    }
   }
   onEngineInput(inputEvent) {
     if (inputEvent.detail.status != InputActionStatuses.FINISH) {

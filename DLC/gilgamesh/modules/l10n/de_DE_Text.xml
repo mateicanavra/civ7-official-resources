@@ -43,6 +43,12 @@
     <Replace Tag="LOC_DIPLO_MAKE_DEAL_REJECTED_LEADER_GILGAMESH" Language="de_DE">
       <Text>Euer Angebot schmeckt nach Asche.</Text>
     </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_DECREASED_LEADER_GILGAMESH" Language="de_DE">
+      <Text>Ihr ruft wie der Anzû, Ihr kriecht wie die Lilītu.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_INCREASED_LEADER_GILGAMESH" Language="de_DE">
+      <Text>Gut gemacht! Lasst uns ringen.</Text>
+    </Replace>
     <Replace Tag="LOC_MAIN_CHAR_SELECT_LEADER_GILGAMESH_ANY" Language="de_DE">
       <Text>Diese anderen behaupten, Könige zu sein. Wer von ihnen hat meine gottgleiche Gestalt, meinen majestätischen Bart, meine blitzenden Augen?</Text>
     </Replace>
@@ -619,13 +625,19 @@
       <Text>Gilgamesch, Widmung der Moderne (militärisch)</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_ALLY_OF_ENKIDU_DESC" Language="de_DE">
-      <Text>Mag den Anführer, der die meisten Unterfangen gestartet oder unterstützt hat. Mag keine Anführer, die in einer Allianz mit einem anderen Anführer sind.</Text>
+      <Text>Mag den Anführer, der die meisten [icon:ENDEAVOR] Unterfangen gestartet oder unterstützt hat. Mag keine Anführer, die in einer [icon:PLAYER_RELATIONSHIP_ALLIANCE] Allianz mit einem anderen Anführer sind.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_ALLY_OF_ENKIDU_DESC_DISLIKES" Language="de_DE">
+      <Text>Gilgamesch mag keine Anführer, die in einer [icon:PLAYER_RELATIONSHIP_ALLIANCE] Allianz mit einem anderen Anführer sind.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_ALLY_OF_ENKIDU_DESC_LIKES" Language="de_DE">
+      <Text>Gilgamesch mag den Anführer, der die meisten [icon:ENDEAVOR] Unterfangen gestartet oder unterstützt hat.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_ALLY_OF_ENKIDU_NAME" Language="de_DE">
       <Text>Verbündeter von Enkidu</Text>
     </Replace>
     <Replace Tag="LOC_LEADER_GILGAMESH_DESCRIPTION" Language="de_DE">
-      <Text>+2 [icon:WAR_SUPPORT] Kriegsunterstützung bei Mitgliedschaft in nur einer Allianz. Wenn eine Eurer Militäreinheiten eine feindliche Einheit besiegt, erhaltet Ihr [icon:YIELD_DIPLOMACY] Einfluss in Höhe von 50 % der [icon:NAR_REW_COMBAT] Kampfstärke der besiegten Einheit. Alle grundlegenden Unterfangen werden automatisch freigeschaltet. Unterfangen mit Verbündeten zählen nicht für die Bedingung, dass nur ein Unterfangen eines bestimmten Typs gleichzeitig aktiv sein darf. Verbündete können Eure Unterfangen kostenlos unterstützen.</Text>
+      <Text>+2 [icon:WAR_SUPPORT] Kriegsunterstützung bei Mitgliedschaft in nur einer [icon:PLAYER_RELATIONSHIP_ALLIANCE] Allianz. Wenn eine Eurer Militäreinheiten eine feindliche Einheit besiegt, erhaltet Ihr [icon:YIELD_DIPLOMACY] Einfluss in Höhe von 50 % der [icon:NAR_REW_COMBAT] Kampfstärke der besiegten Einheit. Alle grundlegenden Unterfangen werden automatisch freigeschaltet. Unterfangen mit Verbündeten zählen nicht für die Bedingung, dass nur ein Unterfangen eines bestimmten Typs gleichzeitig aktiv sein darf. Verbündete können Eure Unterfangen kostenlos unterstützen.</Text>
     </Replace>
     <Replace Tag="LOC_LOADING_LEADER_INTRO_TEXT_GILGAMESH" Language="de_DE">
       <Text>Niemand liebt das Leben mehr als Ihr, Gilgamesch, erster der Helden und bester der Freunde. Die Zedernwälder beben, wenn Ihr lacht; der Tigris tritt über die Ufer, wenn Ihr weint; und Eure Feinde erzittern, wenn sie Euch kommen sehen.</Text>
@@ -1073,9 +1085,9 @@
       <Text>Einmal sterblich, zweimal göttlich</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_LEADER_GILGAMESH_ABILITY_DESCRIPTION" Language="de_DE">
-      <Text>[BLIST][LI]+2 [B][icon:WAR_SUPPORT] Kriegsunterstützung bei Mitgliedschaft in nur einer Allianz.
-[LI]Wenn eine Eurer Militäreinheiten eine feindliche Einheit besiegt, erhaltet Ihr [B][icon:YIELD_DIPLOMACY] Einfluss[/B] in Höhe von 50 % der [icon:NAR_REW_COMBAT] Kampfstärke der besiegten Einheit.
-[LI]Alle grundlegenden Unterfangen werden automatisch freigeschaltet. Unterfangen mit Verbündeten zählen nicht für die Bedingung, dass nur ein Unterfangen eines bestimmten Typs gleichzeitig aktiv sein darf. Verbündete können Eure Unterfangen kostenlos unterstützen.[/LIST]</Text>
+      <Text>[BLIST][LI]+2 [B][icon:WAR_SUPPORT] Kriegsunterstützung bei Mitgliedschaft in nur einer [icon:PLAYER_RELATIONSHIP_ALLIANCE] Allianz.
+				[LI]Wenn eine Eurer Militäreinheiten eine feindliche Einheit besiegt, erhaltet Ihr [B][icon:YIELD_DIPLOMACY] Einfluss[/B] in Höhe von 50 % der [icon:NAR_REW_COMBAT] Kampfstärke der besiegten Einheit.
+				[LI]Alle grundlegenden Unterfangen werden automatisch freigeschaltet. Unterfangen mit Verbündeten zählen nicht für die Bedingung, dass nur ein Unterfangen eines bestimmten Typs gleichzeitig aktiv sein darf. Verbündete können Eure Unterfangen kostenlos unterstützen.[/LIST]</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_LEADER_GILGAMESH_ABILITY_NAME" Language="de_DE">
       <Text>Einmal sterblich, zweimal göttlich</Text>

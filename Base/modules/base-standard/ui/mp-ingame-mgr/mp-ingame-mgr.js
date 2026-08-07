@@ -1,5 +1,6 @@
 import ContextManager from '../../../core/ui/context-manager/context-manager.js';
 import { DialogBoxManager } from '../../../core/ui/dialog-box/manager-dialog-box.js';
+import { InterfaceMode } from '../../../core/ui/interface-modes/interface-modes.js';
 import { NetworkUtilities } from '../../../core/ui/utilities/utilities-network.js';
 import { LoadingStartCurtainRemoveName } from '../root-game.js';
 import '../../ui-next/screens/hotseat/hotseat-curtain.js';
@@ -147,6 +148,9 @@ class MultiplayerIngameSingleton {
    */
   onLocalPlayerChanged(_data) {
     if (Configuration.getGame().isHotseat) {
+      if (!InterfaceMode.isInDefaultMode()) {
+        InterfaceMode.switchToDefault();
+      }
       waitForLayout(() => {
         this.attachHotseatCurtain();
       });

@@ -51,7 +51,8 @@ var ModelPositionObjectType = /* @__PURE__ */ ((ModelPositionObjectType2) => {
 })(ModelPositionObjectType || {});
 class LeaderModelManagerClass {
   static instance = null;
-  leaderModelGroup;
+  leaderModelGroupLeft;
+  leaderModelGroupRight;
   closeStartTime = 0;
   sequenceStartTime = 0;
   leftAnimationStartTime = 0;
@@ -89,6 +90,8 @@ class LeaderModelManagerClass {
   // These flags are used when an animation is started so that we know to ignore that animation change trigger
   leaderLeftAnimationJustStarted = false;
   leaderRightAnimationJustStarted = false;
+  // Tracks the first meet player ID to avoid reloading the same leader
+  lastFirstMeetPlayerId = -1;
   /************************************************************************************************************************/
   /**                        IF YOU CHANGE THIS, COORDINATE WITH GRAPHICS DEPARTMENT TO MOVE IT TO JSON                  **/
   /**                                          IF YOU DO NOT YOU WILL BREAK BENCHMARKING                                 **/
@@ -315,7 +318,8 @@ class LeaderModelManagerClass {
       );
     }
     LeaderModelManagerClass.instance = this;
-    this.leaderModelGroup = WorldUI.createModelGroup("leaderModelGroup");
+    this.leaderModelGroupLeft = WorldUI.createModelGroup("leaderModelGroupLeft");
+    this.leaderModelGroupRight = WorldUI.createModelGroup("leaderModelGroupRight");
     engine.on("ModelTrigger", (id, hash) => {
       this.handleTriggerCallback(id, hash);
     });
@@ -468,12 +472,12 @@ class LeaderModelManagerClass {
         y: LeaderModelManagerClass.DARKENING_VFX_POSITION.y + offset.y,
         z: LeaderModelManagerClass.DARKENING_VFX_POSITION.z + offset.z
       };
-      this.leaderModelGroup.addModel(
+      this.leaderModelGroupRight.addModel(
         LeaderModelManagerClass.SCREEN_DARKENING_ASSET_NAME,
         { marker: this.leader3DMarkerCenter, offset: vignetteOffset },
         { angle: 0, scale: 1, foreground: true }
       );
-      this.leaderModelGroup.addModel(
+      this.leaderModelGroupRight.addModel(
         "Diplomatic_Scene_Bounds_Marker",
         { marker: this.leader3DMarkerCenter, offset: { x: 0, y: 20, z: 0 } },
         { angle: 0, scale: 1, foreground: true }
@@ -515,12 +519,12 @@ class LeaderModelManagerClass {
     const rightBannerPosition = LeaderModelManagerClass.POSITIONS[screenType][3 /* RightBanner */];
     this.leader3DMarkerLeft = WorldUI.createFixedMarker({ x: 0, y: 0, z: 0 });
     if (this.leader3DMarkerLeft != null) {
-      this.leaderModelGroup.addModel(
+      this.leaderModelGroupLeft.addModel(
         this.getLeftLightingAssetName(),
         { marker: this.leader3DMarkerLeft, offset: leftModelPosition },
         { angle: 0, scale: 1, foreground: true }
       );
-      this.leader3DModelLeft = this.leaderModelGroup.addModel(
+      this.leader3DModelLeft = this.leaderModelGroupLeft.addModel(
         this.getLeaderAssetName(leader1.LeaderType.toString()),
         { marker: this.leader3DMarkerLeft, offset: leftModelPosition },
         {
@@ -534,7 +538,7 @@ class LeaderModelManagerClass {
         }
       );
       if (this.leader3DModelLeft == null) {
-        this.leader3DModelLeft = this.leaderModelGroup.addModel(
+        this.leader3DModelLeft = this.leaderModelGroupLeft.addModel(
           this.getFallbackAssetName(),
           { marker: this.leader3DMarkerLeft, offset: leftModelPosition },
           {
@@ -548,7 +552,7 @@ class LeaderModelManagerClass {
           }
         );
       }
-      this.leader3DBannerLeft = this.leaderModelGroup.addModel(
+      this.leader3DBannerLeft = this.leaderModelGroupLeft.addModel(
         this.getCivBannerName(civ1.CivilizationType.toString()),
         { marker: this.leader3DMarkerLeft, offset: leftBannerPosition },
         {
@@ -562,7 +566,7 @@ class LeaderModelManagerClass {
         }
       );
       if (this.leader3DBannerLeft == null) {
-        this.leader3DBannerLeft = this.leaderModelGroup.addModel(
+        this.leader3DBannerLeft = this.leaderModelGroupLeft.addModel(
           this.getFallbackBannerAssetName(),
           { marker: this.leader3DMarkerLeft, offset: leftBannerPosition },
           {
@@ -602,12 +606,12 @@ class LeaderModelManagerClass {
     }
     this.leader3DMarkerRight = WorldUI.createFixedMarker({ x: 0, y: 0, z: 0 });
     if (this.leader3DMarkerRight != null) {
-      this.leaderModelGroup.addModel(
+      this.leaderModelGroupRight.addModel(
         this.getRightLightingAssetName(),
         { marker: this.leader3DMarkerRight, offset: rightModelPosition },
         { angle: 0, scale: 1, foreground: true }
       );
-      this.leader3DModelRight = this.leaderModelGroup.addModel(
+      this.leader3DModelRight = this.leaderModelGroupRight.addModel(
         this.getLeaderAssetName(leader2.LeaderType.toString()),
         { marker: this.leader3DMarkerRight, offset: rightModelPosition },
         {
@@ -621,7 +625,7 @@ class LeaderModelManagerClass {
         }
       );
       if (this.leader3DModelRight == null) {
-        this.leader3DModelRight = this.leaderModelGroup.addModel(
+        this.leader3DModelRight = this.leaderModelGroupRight.addModel(
           this.getFallbackAssetName(),
           { marker: this.leader3DMarkerRight, offset: rightModelPosition },
           {
@@ -635,7 +639,7 @@ class LeaderModelManagerClass {
           }
         );
       }
-      this.leader3DBannerRight = this.leaderModelGroup.addModel(
+      this.leader3DBannerRight = this.leaderModelGroupRight.addModel(
         this.getCivBannerName(civ2.CivilizationType.toString()),
         { marker: this.leader3DMarkerRight, offset: rightBannerPosition },
         {
@@ -649,7 +653,7 @@ class LeaderModelManagerClass {
         }
       );
       if (this.leader3DBannerRight == null) {
-        this.leader3DBannerRight = this.leaderModelGroup.addModel(
+        this.leader3DBannerRight = this.leaderModelGroupRight.addModel(
           this.getFallbackBannerAssetName(),
           { marker: this.leader3DMarkerRight, offset: rightBannerPosition },
           {
@@ -705,12 +709,12 @@ class LeaderModelManagerClass {
     const leftBannerPosition = LeaderModelManagerClass.POSITIONS[screenType][1 /* LeftBanner */];
     this.leader3DMarkerLeft = WorldUI.createFixedMarker({ x: 0, y: 0, z: 0 });
     if (this.leader3DMarkerLeft != null) {
-      this.leaderModelGroup.addModel(
+      this.leaderModelGroupLeft.addModel(
         this.getLeftLightingAssetName(),
         { marker: this.leader3DMarkerLeft, offset: leftModelPosition },
         { angle: 0, scale: 1, foreground: true }
       );
-      this.leader3DModelLeft = this.leaderModelGroup.addModel(
+      this.leader3DModelLeft = this.leaderModelGroupLeft.addModel(
         this.getLeaderAssetName(leader1.LeaderType.toString()),
         { marker: this.leader3DMarkerLeft, offset: leftModelPosition },
         {
@@ -724,7 +728,7 @@ class LeaderModelManagerClass {
         }
       );
       if (this.leader3DModelLeft == null) {
-        this.leader3DModelLeft = this.leaderModelGroup.addModel(
+        this.leader3DModelLeft = this.leaderModelGroupLeft.addModel(
           this.getFallbackAssetName(),
           { marker: this.leader3DMarkerLeft, offset: leftModelPosition },
           {
@@ -738,7 +742,7 @@ class LeaderModelManagerClass {
           }
         );
       }
-      this.leader3DBannerLeft = this.leaderModelGroup.addModel(
+      this.leader3DBannerLeft = this.leaderModelGroupLeft.addModel(
         this.getCivBannerName(civ1.CivilizationType.toString()),
         { marker: this.leader3DMarkerLeft, offset: leftBannerPosition },
         {
@@ -752,7 +756,7 @@ class LeaderModelManagerClass {
         }
       );
       if (this.leader3DBannerLeft == null) {
-        this.leader3DBannerLeft = this.leaderModelGroup.addModel(
+        this.leader3DBannerLeft = this.leaderModelGroupLeft.addModel(
           this.getFallbackBannerAssetName(),
           { marker: this.leader3DMarkerLeft, offset: leftBannerPosition },
           {
@@ -775,6 +779,9 @@ class LeaderModelManagerClass {
   // Show a leader on the right side of the screen
   // Their idle animations will be playing
   showRightLeaderModel(playerID) {
+    if (this.lastFirstMeetPlayerId == playerID) {
+      return;
+    }
     this.clear();
     const p2ColorPrimary = UI.Player.getPrimaryColorValueAsHex(playerID);
     const p2ColorSecondary = UI.Player.getSecondaryColorValueAsHex(playerID);
@@ -813,12 +820,12 @@ class LeaderModelManagerClass {
     }
     this.leader3DMarkerRight = WorldUI.createFixedMarker({ x: 0, y: 0, z: 0 });
     if (this.leader3DMarkerRight != null) {
-      this.leaderModelGroup.addModel(
+      this.leaderModelGroupRight.addModel(
         this.getRightLightingAssetName(),
         { marker: this.leader3DMarkerRight, offset: modelPosition },
         { angle: 0, scale: 1, foreground: true }
       );
-      this.leader3DModelRight = this.leaderModelGroup.addModel(
+      this.leader3DModelRight = this.leaderModelGroupRight.addModel(
         this.getLeaderAssetName(leader2.LeaderType.toString()),
         { marker: this.leader3DMarkerRight, offset: modelPosition },
         {
@@ -832,7 +839,7 @@ class LeaderModelManagerClass {
         }
       );
       if (this.leader3DModelRight == null) {
-        this.leader3DModelRight = this.leaderModelGroup.addModel(
+        this.leader3DModelRight = this.leaderModelGroupRight.addModel(
           this.getFallbackAssetName(),
           { marker: this.leader3DMarkerRight, offset: modelPosition },
           {
@@ -846,7 +853,7 @@ class LeaderModelManagerClass {
           }
         );
       }
-      this.leader3DBannerRight = this.leaderModelGroup.addModel(
+      this.leader3DBannerRight = this.leaderModelGroupRight.addModel(
         this.getCivBannerName(civ2.CivilizationType.toString()),
         { marker: this.leader3DMarkerRight, offset: rightBannerPosition },
         {
@@ -860,7 +867,7 @@ class LeaderModelManagerClass {
         }
       );
       if (this.leader3DBannerRight == null) {
-        this.leader3DBannerRight = this.leaderModelGroup.addModel(
+        this.leader3DBannerRight = this.leaderModelGroupRight.addModel(
           this.getFallbackBannerAssetName(),
           { marker: this.leader3DMarkerRight, offset: rightBannerPosition },
           {
@@ -907,12 +914,12 @@ class LeaderModelManagerClass {
     const p2ColorSecondary = this.getIndSecondaryColor(player2);
     this.leader3DMarkerRight = WorldUI.createFixedMarker({ x: 0, y: 0, z: 0 });
     if (this.leader3DMarkerRight != null) {
-      this.leaderModelGroup.addModel(
+      this.leaderModelGroupRight.addModel(
         this.getIndependentLightingAssetName(),
         { marker: this.leader3DMarkerRight, offset: LeaderModelManagerClass.RIGHT_INDEPENDENT_MODEL_POSITION },
         { angle: 0, scale: 1, foreground: true }
       );
-      this.leader3DModelRight = this.leaderModelGroup.addModel(
+      this.leader3DModelRight = this.leaderModelGroupRight.addModel(
         this.getIndLeaderAssetName(player2),
         { marker: this.leader3DMarkerRight, offset: LeaderModelManagerClass.RIGHT_INDEPENDENT_MODEL_POSITION },
         {
@@ -926,13 +933,13 @@ class LeaderModelManagerClass {
         }
       );
       if (this.leader3DModelRight == null) {
-        this.leader3DModelRight = this.leaderModelGroup.addModel(
+        this.leader3DModelRight = this.leaderModelGroupRight.addModel(
           this.getFallbackAssetName(),
           { marker: this.leader3DMarkerRight, offset: rightModelPosition },
           { angle: 0, scale: 1, initialState: "IDLE", foreground: true, triggerCallbacks: true }
         );
       }
-      this.leader3DModelLeft = this.leaderModelGroup.addModel(
+      this.leader3DModelLeft = this.leaderModelGroupRight.addModel(
         this.getIndLeaderBGAssetName(player2),
         { marker: this.leader3DMarkerRight, offset: LeaderModelManagerClass.RIGHT_INDEPENDENT_MODEL_POSITION },
         {
@@ -945,7 +952,7 @@ class LeaderModelManagerClass {
           selectionScriptParams: { player: playerID }
         }
       );
-      this.leader3DBannerRight = this.leaderModelGroup.addModel(
+      this.leader3DBannerRight = this.leaderModelGroupRight.addModel(
         this.getIndBannerAssetName(player2),
         { marker: this.leader3DMarkerRight, offset: LeaderModelManagerClass.RIGHT_INDEPENDENT_BANNER_POSITION },
         {
@@ -959,7 +966,7 @@ class LeaderModelManagerClass {
         }
       );
       if (this.leader3DBannerRight == null) {
-        this.leader3DBannerRight = this.leaderModelGroup.addModel(
+        this.leader3DBannerRight = this.leaderModelGroupRight.addModel(
           this.getFallbackBannerAssetName(),
           {
             marker: this.leader3DMarkerRight,
@@ -1188,8 +1195,11 @@ class LeaderModelManagerClass {
   }
   // ------------------------------------------------------------------------
   clear() {
-    this.leaderModelGroup.clear();
-    WorldUI.releaseMarker(this.leader3DMarkerLeft);
+    this.leaderModelGroupLeft.clear();
+    this.leaderModelGroupRight.clear();
+    if (this.leader3DMarkerLeft) {
+      WorldUI.releaseMarker(this.leader3DMarkerLeft);
+    }
     WorldUI.releaseMarker(this.leader3DMarkerRight);
     WorldUI.releaseMarker(this.leader3DRevealFlagMarker);
     if (this.worldCamera) {
@@ -1215,6 +1225,16 @@ class LeaderModelManagerClass {
     this.isLeaderShowing = false;
     this.isRightHostile = false;
     this.declareWarCameraActive = false;
+    this.lastFirstMeetPlayerId = -1;
+  }
+  clearLeftLeaderModel() {
+    this.leaderModelGroupLeft.clear();
+    if (this.leader3DMarkerLeft) {
+      WorldUI.releaseMarker(this.leader3DMarkerLeft);
+    }
+    this.leader3DMarkerLeft = null;
+    this.leader3DModelLeft = null;
+    this.leader3DBannerLeft = null;
   }
   // ------------------------------------------------------------------------
   onUpdate(timeStamp) {
@@ -1232,7 +1252,7 @@ class LeaderModelManagerClass {
         this.cameraDollyDelayed = false;
         this.doForegroundCameraDolly(false);
       }
-      if (this.leaderModelGroup.isLoaded() && this.cameraDollyQueued) {
+      if (this.leaderModelGroupLeft.isLoaded() && this.leaderModelGroupRight.isLoaded() && this.cameraDollyQueued) {
         this.cameraDollyQueued = false;
         if (this.cameraAnimationDelayDuration > 0) {
           this.cameraDollyDelayed = true;
@@ -1278,6 +1298,7 @@ class LeaderModelManagerClass {
     this.clear();
     const playerID1 = params.player1;
     const playerID2 = params.player2;
+    this.lastFirstMeetPlayerId = playerID2;
     const p1ColorPrimary = UI.Player.getPrimaryColorValueAsHex(playerID1);
     const p1ColorSecondary = UI.Player.getSecondaryColorValueAsHex(playerID1);
     const player1 = Players.get(playerID1);
@@ -1308,12 +1329,12 @@ class LeaderModelManagerClass {
     const rightBannerPosition = LeaderModelManagerClass.POSITIONS[screenType][3 /* RightBanner */];
     this.leader3DMarkerLeft = WorldUI.createFixedMarker({ x: 0, y: 0, z: 0 });
     if (this.leader3DMarkerLeft != null) {
-      this.leaderModelGroup.addModel(
+      this.leaderModelGroupLeft.addModel(
         this.getLeftLightingAssetName(),
         { marker: this.leader3DMarkerLeft, offset: leftModelPosition },
         { angle: 0, scale: 1, foreground: true }
       );
-      this.leader3DModelLeft = this.leaderModelGroup.addModel(
+      this.leader3DModelLeft = this.leaderModelGroupLeft.addModel(
         this.getLeaderAssetName(leader1.LeaderType.toString()),
         { marker: this.leader3DMarkerLeft, offset: leftModelPosition },
         {
@@ -1326,7 +1347,7 @@ class LeaderModelManagerClass {
         }
       );
       if (this.leader3DModelLeft == null) {
-        this.leader3DModelLeft = this.leaderModelGroup.addModel(
+        this.leader3DModelLeft = this.leaderModelGroupLeft.addModel(
           this.getFallbackAssetName(),
           { marker: this.leader3DMarkerLeft, offset: leftModelPosition },
           {
@@ -1339,7 +1360,7 @@ class LeaderModelManagerClass {
           }
         );
       }
-      this.leader3DBannerLeft = this.leaderModelGroup.addModel(
+      this.leader3DBannerLeft = this.leaderModelGroupLeft.addModel(
         this.getCivBannerName(civ1.CivilizationType.toString()),
         { marker: this.leader3DMarkerLeft, offset: leftBannerPosition },
         {
@@ -1353,7 +1374,7 @@ class LeaderModelManagerClass {
         }
       );
       if (this.leader3DBannerLeft == null) {
-        this.leader3DBannerLeft = this.leaderModelGroup.addModel(
+        this.leader3DBannerLeft = this.leaderModelGroupLeft.addModel(
           this.getFallbackBannerAssetName(),
           { marker: this.leader3DMarkerLeft, offset: leftBannerPosition },
           {
@@ -1393,12 +1414,12 @@ class LeaderModelManagerClass {
     }
     this.leader3DMarkerRight = WorldUI.createFixedMarker({ x: 0, y: 0, z: 0 });
     if (this.leader3DMarkerRight != null) {
-      this.leaderModelGroup.addModel(
+      this.leaderModelGroupRight.addModel(
         this.getRightLightingAssetName(),
         { marker: this.leader3DMarkerRight, offset: rightModelPosition },
         { angle: 0, scale: 1, foreground: true }
       );
-      this.leader3DModelRight = this.leaderModelGroup.addModel(
+      this.leader3DModelRight = this.leaderModelGroupRight.addModel(
         this.getLeaderAssetName(leader2.LeaderType.toString()),
         { marker: this.leader3DMarkerRight, offset: rightModelPosition },
         {
@@ -1411,7 +1432,7 @@ class LeaderModelManagerClass {
         }
       );
       if (this.leader3DModelRight == null) {
-        this.leader3DModelRight = this.leaderModelGroup.addModel(
+        this.leader3DModelRight = this.leaderModelGroupRight.addModel(
           this.getFallbackAssetName(),
           { marker: this.leader3DMarkerRight, offset: rightModelPosition },
           {
@@ -1424,7 +1445,7 @@ class LeaderModelManagerClass {
           }
         );
       }
-      this.leader3DBannerRight = this.leaderModelGroup.addModel(
+      this.leader3DBannerRight = this.leaderModelGroupRight.addModel(
         this.getCivBannerName(civ2.CivilizationType.toString()),
         { marker: this.leader3DMarkerRight, offset: rightBannerPosition },
         {
@@ -1438,7 +1459,7 @@ class LeaderModelManagerClass {
         }
       );
       if (this.leader3DBannerRight == null) {
-        this.leader3DBannerRight = this.leaderModelGroup.addModel(
+        this.leader3DBannerRight = this.leaderModelGroupRight.addModel(
           this.getFallbackBannerAssetName(),
           { marker: this.leader3DMarkerRight, offset: rightBannerPosition },
           {
@@ -1544,12 +1565,12 @@ class LeaderModelManagerClass {
     const leftBannerPosition = LeaderModelManagerClass.POSITIONS[screenType][1 /* LeftBanner */];
     this.leader3DMarkerLeft = WorldUI.createFixedMarker({ x: 0, y: 0, z: 0 });
     if (this.leader3DMarkerLeft != null) {
-      this.leaderModelGroup.addModel(
+      this.leaderModelGroupLeft.addModel(
         this.getLeftLightingAssetName(),
         { marker: this.leader3DMarkerLeft, offset: leftModelPosition },
         { angle: 0, scale: 1, foreground: true }
       );
-      this.leader3DModelLeft = this.leaderModelGroup.addModel(
+      this.leader3DModelLeft = this.leaderModelGroupLeft.addModel(
         this.getLeaderAssetName(leader1.LeaderType.toString()),
         { marker: this.leader3DMarkerLeft, offset: leftModelPosition },
         {
@@ -1562,7 +1583,7 @@ class LeaderModelManagerClass {
         }
       );
       if (this.leader3DModelLeft == null) {
-        this.leader3DModelLeft = this.leaderModelGroup.addModel(
+        this.leader3DModelLeft = this.leaderModelGroupLeft.addModel(
           this.getFallbackAssetName(),
           { marker: this.leader3DMarkerLeft, offset: leftModelPosition },
           {
@@ -1575,7 +1596,7 @@ class LeaderModelManagerClass {
           }
         );
       }
-      this.leader3DBannerLeft = this.leaderModelGroup.addModel(
+      this.leader3DBannerLeft = this.leaderModelGroupLeft.addModel(
         this.getCivBannerName(civ1.CivilizationType.toString()),
         { marker: this.leader3DMarkerLeft, offset: leftBannerPosition },
         {
@@ -1589,7 +1610,7 @@ class LeaderModelManagerClass {
         }
       );
       if (this.leader3DBannerLeft == null) {
-        this.leader3DBannerLeft = this.leaderModelGroup.addModel(
+        this.leader3DBannerLeft = this.leaderModelGroupLeft.addModel(
           this.getFallbackBannerAssetName(),
           { marker: this.leader3DMarkerLeft, offset: leftBannerPosition },
           {
@@ -1631,12 +1652,12 @@ class LeaderModelManagerClass {
     const rightBannerPosition = LeaderModelManagerClass.POSITIONS[screenType][3 /* RightBanner */];
     this.leader3DMarkerRight = WorldUI.createFixedMarker({ x: 0, y: 0, z: 0 });
     if (this.leader3DMarkerRight != null) {
-      this.leaderModelGroup.addModel(
+      this.leaderModelGroupRight.addModel(
         this.getRightLightingAssetName(),
         { marker: this.leader3DMarkerRight, offset: rightModelPosition },
         { angle: 0, scale: 1, foreground: true }
       );
-      this.leader3DModelRight = this.leaderModelGroup.addModel(
+      this.leader3DModelRight = this.leaderModelGroupRight.addModel(
         this.getLeaderAssetName(leader2.LeaderType.toString()),
         { marker: this.leader3DMarkerRight, offset: rightModelPosition },
         {
@@ -1649,7 +1670,7 @@ class LeaderModelManagerClass {
         }
       );
       if (this.leader3DModelRight == null) {
-        this.leader3DModelRight = this.leaderModelGroup.addModel(
+        this.leader3DModelRight = this.leaderModelGroupRight.addModel(
           this.getFallbackAssetName(),
           { marker: this.leader3DMarkerRight, offset: rightModelPosition },
           {
@@ -1662,7 +1683,7 @@ class LeaderModelManagerClass {
           }
         );
       }
-      this.leader3DBannerRight = this.leaderModelGroup.addModel(
+      this.leader3DBannerRight = this.leaderModelGroupRight.addModel(
         this.getCivBannerName(civ2.CivilizationType.toString()),
         { marker: this.leader3DMarkerRight, offset: rightBannerPosition },
         {
@@ -1676,7 +1697,7 @@ class LeaderModelManagerClass {
         }
       );
       if (this.leader3DBannerRight == null) {
-        this.leader3DBannerRight = this.leaderModelGroup.addModel(
+        this.leader3DBannerRight = this.leaderModelGroupRight.addModel(
           this.getFallbackBannerAssetName(),
           { marker: this.leader3DMarkerRight, offset: rightBannerPosition },
           {
@@ -1793,12 +1814,12 @@ class LeaderModelManagerClass {
     const rightBannerPosition = LeaderModelManagerClass.POSITIONS[screenType][3 /* RightBanner */];
     this.leader3DMarkerLeft = WorldUI.createFixedMarker({ x: 0, y: 0, z: 0 });
     if (this.leader3DMarkerLeft != null) {
-      this.leaderModelGroup.addModel(
+      this.leaderModelGroupLeft.addModel(
         this.getLeftLightingAssetName(),
         { marker: this.leader3DMarkerLeft, offset: leftModelPosition },
         { angle: 0, scale: 1, foreground: true }
       );
-      this.leader3DModelLeft = this.leaderModelGroup.addModel(
+      this.leader3DModelLeft = this.leaderModelGroupLeft.addModel(
         this.getLeaderAssetName(leader1.LeaderType.toString()),
         { marker: this.leader3DMarkerLeft, offset: leftModelPosition },
         {
@@ -1812,7 +1833,7 @@ class LeaderModelManagerClass {
         }
       );
       if (this.leader3DModelLeft == null) {
-        this.leader3DModelLeft = this.leaderModelGroup.addModel(
+        this.leader3DModelLeft = this.leaderModelGroupLeft.addModel(
           this.getFallbackAssetName(),
           { marker: this.leader3DMarkerLeft, offset: leftModelPosition },
           {
@@ -1826,7 +1847,7 @@ class LeaderModelManagerClass {
           }
         );
       }
-      this.leader3DBannerLeft = this.leaderModelGroup.addModel(
+      this.leader3DBannerLeft = this.leaderModelGroupLeft.addModel(
         this.getCivBannerName(civ1.CivilizationType.toString()),
         { marker: this.leader3DMarkerLeft, offset: leftBannerPosition },
         {
@@ -1840,7 +1861,7 @@ class LeaderModelManagerClass {
         }
       );
       if (this.leader3DBannerLeft == null) {
-        this.leader3DBannerLeft = this.leaderModelGroup.addModel(
+        this.leader3DBannerLeft = this.leaderModelGroupLeft.addModel(
           this.getFallbackBannerAssetName(),
           { marker: this.leader3DMarkerLeft, offset: leftBannerPosition },
           {
@@ -1880,12 +1901,12 @@ class LeaderModelManagerClass {
     }
     this.leader3DMarkerRight = WorldUI.createFixedMarker({ x: 0, y: 0, z: 0 });
     if (this.leader3DMarkerRight != null) {
-      this.leaderModelGroup.addModel(
+      this.leaderModelGroupRight.addModel(
         this.getRightLightingAssetName(),
         { marker: this.leader3DMarkerRight, offset: rightModelPosition },
         { angle: 0, scale: 1, foreground: true }
       );
-      this.leader3DModelRight = this.leaderModelGroup.addModel(
+      this.leader3DModelRight = this.leaderModelGroupRight.addModel(
         this.getLeaderAssetName(leader2.LeaderType.toString()),
         { marker: this.leader3DMarkerRight, offset: rightModelPosition },
         {
@@ -1898,7 +1919,7 @@ class LeaderModelManagerClass {
         }
       );
       if (this.leader3DModelRight == null) {
-        this.leader3DModelRight = this.leaderModelGroup.addModel(
+        this.leader3DModelRight = this.leaderModelGroupRight.addModel(
           this.getFallbackAssetName(),
           { marker: this.leader3DMarkerRight, offset: rightModelPosition },
           {
@@ -1911,7 +1932,7 @@ class LeaderModelManagerClass {
           }
         );
       }
-      this.leader3DBannerRight = this.leaderModelGroup.addModel(
+      this.leader3DBannerRight = this.leaderModelGroupRight.addModel(
         this.getCivBannerName(civ2.CivilizationType.toString()),
         { marker: this.leader3DMarkerRight, offset: rightBannerPosition },
         {
@@ -1925,7 +1946,7 @@ class LeaderModelManagerClass {
         }
       );
       if (this.leader3DBannerRight == null) {
-        this.leader3DBannerRight = this.leaderModelGroup.addModel(
+        this.leader3DBannerRight = this.leaderModelGroupRight.addModel(
           this.getFallbackBannerAssetName(),
           { marker: this.leader3DMarkerRight, offset: rightBannerPosition },
           {
@@ -2016,12 +2037,12 @@ class LeaderModelManagerClass {
     const rightBannerPosition = LeaderModelManagerClass.POSITIONS[screenType][3 /* RightBanner */];
     this.leader3DMarkerLeft = WorldUI.createFixedMarker({ x: 0, y: 0, z: 0 });
     if (this.leader3DMarkerLeft != null) {
-      this.leaderModelGroup.addModel(
+      this.leaderModelGroupLeft.addModel(
         this.getLeftLightingAssetName(),
         { marker: this.leader3DMarkerLeft, offset: leftModelPosition },
         { angle: 0, scale: 1, foreground: true }
       );
-      this.leader3DModelLeft = this.leaderModelGroup.addModel(
+      this.leader3DModelLeft = this.leaderModelGroupLeft.addModel(
         this.getLeaderAssetName(leader1.LeaderType.toString()),
         { marker: this.leader3DMarkerLeft, offset: leftModelPosition },
         {
@@ -2035,7 +2056,7 @@ class LeaderModelManagerClass {
         }
       );
       if (this.leader3DModelLeft == null) {
-        this.leader3DModelLeft = this.leaderModelGroup.addModel(
+        this.leader3DModelLeft = this.leaderModelGroupLeft.addModel(
           this.getFallbackAssetName(),
           { marker: this.leader3DMarkerLeft, offset: leftModelPosition },
           {
@@ -2049,7 +2070,7 @@ class LeaderModelManagerClass {
           }
         );
       }
-      this.leader3DBannerLeft = this.leaderModelGroup.addModel(
+      this.leader3DBannerLeft = this.leaderModelGroupLeft.addModel(
         this.getCivBannerName(civ1.CivilizationType.toString()),
         { marker: this.leader3DMarkerLeft, offset: leftBannerPosition },
         {
@@ -2063,7 +2084,7 @@ class LeaderModelManagerClass {
         }
       );
       if (this.leader3DBannerLeft == null) {
-        this.leader3DBannerLeft = this.leaderModelGroup.addModel(
+        this.leader3DBannerLeft = this.leaderModelGroupLeft.addModel(
           this.getFallbackBannerAssetName(),
           { marker: this.leader3DMarkerLeft, offset: leftBannerPosition },
           {
@@ -2103,12 +2124,12 @@ class LeaderModelManagerClass {
     }
     this.leader3DMarkerRight = WorldUI.createFixedMarker({ x: 0, y: 0, z: 0 });
     if (this.leader3DMarkerRight != null) {
-      this.leaderModelGroup.addModel(
+      this.leaderModelGroupRight.addModel(
         this.getRightLightingAssetName(),
         { marker: this.leader3DMarkerRight, offset: rightModelPosition },
         { angle: 0, scale: 1, foreground: true }
       );
-      this.leader3DModelRight = this.leaderModelGroup.addModel(
+      this.leader3DModelRight = this.leaderModelGroupRight.addModel(
         this.getLeaderAssetName(leader2.LeaderType.toString()),
         { marker: this.leader3DMarkerRight, offset: rightModelPosition },
         {
@@ -2121,7 +2142,7 @@ class LeaderModelManagerClass {
         }
       );
       if (this.leader3DModelRight == null) {
-        this.leader3DModelRight = this.leaderModelGroup.addModel(
+        this.leader3DModelRight = this.leaderModelGroupRight.addModel(
           this.getFallbackAssetName(),
           { marker: this.leader3DMarkerRight, offset: rightModelPosition },
           {
@@ -2134,7 +2155,7 @@ class LeaderModelManagerClass {
           }
         );
       }
-      this.leader3DBannerRight = this.leaderModelGroup.addModel(
+      this.leader3DBannerRight = this.leaderModelGroupRight.addModel(
         this.getCivBannerName(civ2.CivilizationType.toString()),
         { marker: this.leader3DMarkerRight, offset: rightBannerPosition },
         {
@@ -2148,7 +2169,7 @@ class LeaderModelManagerClass {
         }
       );
       if (this.leader3DBannerRight == null) {
-        this.leader3DBannerRight = this.leaderModelGroup.addModel(
+        this.leader3DBannerRight = this.leaderModelGroupRight.addModel(
           this.getFallbackBannerAssetName(),
           { marker: this.leader3DMarkerRight, offset: rightBannerPosition },
           {
@@ -2238,12 +2259,12 @@ class LeaderModelManagerClass {
     const rightBannerPosition = LeaderModelManagerClass.POSITIONS[screenType][3 /* RightBanner */];
     this.leader3DMarkerLeft = WorldUI.createFixedMarker({ x: 0, y: 0, z: 0 });
     if (this.leader3DMarkerLeft != null) {
-      this.leaderModelGroup.addModel(
+      this.leaderModelGroupLeft.addModel(
         this.getLeftLightingAssetName(),
         { marker: this.leader3DMarkerLeft, offset: leftModelPosition },
         { angle: 0, scale: 1, foreground: true }
       );
-      this.leader3DModelLeft = this.leaderModelGroup.addModel(
+      this.leader3DModelLeft = this.leaderModelGroupLeft.addModel(
         this.getLeaderAssetName(leader1.LeaderType.toString()),
         { marker: this.leader3DMarkerLeft, offset: leftModelPosition },
         {
@@ -2256,7 +2277,7 @@ class LeaderModelManagerClass {
         }
       );
       if (this.leader3DModelLeft == null) {
-        this.leader3DModelLeft = this.leaderModelGroup.addModel(
+        this.leader3DModelLeft = this.leaderModelGroupLeft.addModel(
           this.getFallbackAssetName(),
           { marker: this.leader3DMarkerLeft, offset: leftModelPosition },
           {
@@ -2269,7 +2290,7 @@ class LeaderModelManagerClass {
           }
         );
       }
-      this.leader3DBannerLeft = this.leaderModelGroup.addModel(
+      this.leader3DBannerLeft = this.leaderModelGroupLeft.addModel(
         this.getCivBannerName(civ1.CivilizationType.toString()),
         { marker: this.leader3DMarkerLeft, offset: leftBannerPosition },
         {
@@ -2283,7 +2304,7 @@ class LeaderModelManagerClass {
         }
       );
       if (this.leader3DBannerLeft == null) {
-        this.leader3DBannerLeft = this.leaderModelGroup.addModel(
+        this.leader3DBannerLeft = this.leaderModelGroupLeft.addModel(
           this.getFallbackBannerAssetName(),
           { marker: this.leader3DMarkerLeft, offset: leftBannerPosition },
           {
@@ -2323,12 +2344,12 @@ class LeaderModelManagerClass {
     }
     this.leader3DMarkerRight = WorldUI.createFixedMarker({ x: 0, y: 0, z: 0 });
     if (this.leader3DMarkerRight != null) {
-      this.leaderModelGroup.addModel(
+      this.leaderModelGroupRight.addModel(
         this.getRightLightingAssetName(),
         { marker: this.leader3DMarkerRight, offset: rightModelPosition },
         { angle: 0, scale: 1, foreground: true }
       );
-      this.leader3DModelRight = this.leaderModelGroup.addModel(
+      this.leader3DModelRight = this.leaderModelGroupRight.addModel(
         this.getLeaderAssetName(leader2.LeaderType.toString()),
         { marker: this.leader3DMarkerRight, offset: rightModelPosition },
         {
@@ -2341,7 +2362,7 @@ class LeaderModelManagerClass {
         }
       );
       if (this.leader3DModelRight == null) {
-        this.leader3DModelRight = this.leaderModelGroup.addModel(
+        this.leader3DModelRight = this.leaderModelGroupRight.addModel(
           this.getFallbackAssetName(),
           { marker: this.leader3DMarkerRight, offset: rightModelPosition },
           {
@@ -2354,7 +2375,7 @@ class LeaderModelManagerClass {
           }
         );
       }
-      this.leader3DBannerRight = this.leaderModelGroup.addModel(
+      this.leader3DBannerRight = this.leaderModelGroupRight.addModel(
         this.getCivBannerName(civ2.CivilizationType.toString()),
         { marker: this.leader3DMarkerRight, offset: rightBannerPosition },
         {
@@ -2368,7 +2389,7 @@ class LeaderModelManagerClass {
         }
       );
       if (this.leader3DBannerRight == null) {
-        this.leader3DBannerRight = this.leaderModelGroup.addModel(
+        this.leader3DBannerRight = this.leaderModelGroupRight.addModel(
           this.getFallbackBannerAssetName(),
           { marker: this.leader3DMarkerRight, offset: rightBannerPosition },
           {
@@ -2450,10 +2471,22 @@ class LeaderModelManagerClass {
     this.updateSequenceWaitFromAnimationTrigger(id, hash);
     switch (this.leaderSequenceStepID) {
       case 1: {
-        if (hash == LeaderModelManagerClass.TRIGGER_HASH_SEQUENCE_TRIGGER) break;
-        if (this.leaderSequenceGate.isWaiting() == false) {
+        if (this.leaderSequenceGate.isWaiting() == false && id == this.leader3DModelLeft?.id) {
+          if (hash == LeaderModelManagerClass.TRIGGER_HASH_SEQUENCE_TRIGGER) break;
           this.doSequenceSharedAdvance();
           this.playLeaderAnimation("IDLE_ListeningPlayer", "left");
+          this.leaderSequenceGate.clear();
+          break;
+        }
+        if (id == this.leader3DModelRight?.id) {
+          if (hash == LeaderModelManagerClass.TRIGGER_HASH_SEQUENCE_TRIGGER) {
+            this.rightAnimState = "IDLE_WaitingOther";
+          }
+          if (hash == LeaderModelManagerClass.TRIGGER_HASH_ANIMATION_STATE_END) {
+            this.playLeaderAnimation("IDLE_WaitingOther", "right");
+          }
+        }
+        if (this.leftAnimState == "IDLE_ListeningPlayer" && this.rightAnimState == "IDLE_WaitingOther") {
           this.leaderSequenceStepID = 0;
           this.currentSequenceType = "";
           this.leaderSequenceGate.clear();
@@ -2484,10 +2517,22 @@ class LeaderModelManagerClass {
     this.updateSequenceWaitFromAnimationTrigger(id, hash);
     switch (this.leaderSequenceStepID) {
       case 1: {
-        if (hash == LeaderModelManagerClass.TRIGGER_HASH_SEQUENCE_TRIGGER) break;
-        if (this.leaderSequenceGate.isWaiting() == false) {
+        if (this.leaderSequenceGate.isWaiting() == false && id == this.leader3DModelLeft?.id) {
+          if (hash == LeaderModelManagerClass.TRIGGER_HASH_SEQUENCE_TRIGGER) break;
           this.doSequenceSharedAdvance();
           this.playLeaderAnimation("IDLE_DwPlayer", "left");
+          this.leaderSequenceGate.clear();
+          break;
+        }
+        if (id == this.leader3DModelRight?.id) {
+          if (hash == LeaderModelManagerClass.TRIGGER_HASH_SEQUENCE_TRIGGER) {
+            this.rightAnimState = "IDLE_WaitingOther";
+          }
+          if (hash == LeaderModelManagerClass.TRIGGER_HASH_ANIMATION_STATE_END) {
+            this.playLeaderAnimation("IDLE_WaitingOther", "right");
+          }
+        }
+        if (this.leftAnimState == "IDLE_DwPlayer" && this.rightAnimState == "IDLE_WaitingOther") {
           this.leaderSequenceStepID = 0;
           this.currentSequenceType = "";
           this.leaderSequenceGate.clear();
@@ -2609,7 +2654,7 @@ class LeaderModelManagerClass {
   // Other Acknowledge Negative Sequence
   // ------------------------------------------------------------------------
   // This starts the sequencing for the other leader to play their
-  // positive acknowledge animation and then continue to their idle.
+  // negative acknowledge animation and then continue to their idle.
   // ------------------------------------------------------------------------
   beginAcknowledgeNegativeOtherSequence(forced) {
     if (this.rightAnimState != "IDLE_WaitingOther" && this.rightAnimState != "IDLE_DwCenterOther" && forced != true)

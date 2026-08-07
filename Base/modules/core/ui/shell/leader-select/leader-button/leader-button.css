@@ -69,9 +69,24 @@ Based on Robert Penner's easing equations
   min-width: 7.1111111111rem;
   min-height: 7.1111111111rem;
 }
-.leader-button-xp-ring .fxs-ring-meter__ring-right {
-  background-position: right;
-}
 .leader-button-xp-ring .fxs-ring-meter__ring-left {
-  background-position: left;
+  border-radius: 0;
+  border-top-left-radius: 200% 100%;
+  border-bottom-left-radius: 200% 100%;
+  border-left-width: 0.2222222222rem;
+  border-right-width: 0;
+}
+.leader-button-xp-ring .fxs-ring-meter__ring-right {
+  border-radius: 0;
+  border-top-right-radius: 200% 100%;
+  border-bottom-right-radius: 200% 100%;
+  border-left-width: 0;
+  border-right-width: 0.2222222222rem;
+}
+.leader-button-xp-ring .fxs-ring-meter__ring-right,
+.leader-button-xp-ring .fxs-ring-meter__ring-left {
+  border-color: rgb(255, 228, 184);
+  border-style: solid;
+  border-top-width: 0.2222222222rem;
+  border-bottom-width: 0.2222222222rem;
 }

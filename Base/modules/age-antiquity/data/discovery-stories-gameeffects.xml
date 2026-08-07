@@ -882,6 +882,9 @@
         <Argument name="YieldType">YIELD_HAPPINESS</Argument>
         <Argument name="MultiplierType">REWARD_TYPE_MEDIUM</Argument>
     </Modifier>
+    <Modifier id="DISCOVERY_22004D_NARRATIVE_MODIFIER2" collection="COLLECTION_OWNER_UNIT_NEAREST_STORY" effect="EFFECT_UNIT_ADJUST_DAMAGE" run-once="true" permanent="true">
+        <Argument name="Amount">-1000</Argument>
+    </Modifier>
     <Modifier id="DISCOVERY_22005B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_MODIFY_PLAYER_YIELD_FOR_X_TURNS" run-once="true" permanent="true">
         <Argument name="YieldType">YIELD_HAPPINESS</Argument>
         <Argument name="ReductionPercent">100</Argument>

@@ -186,7 +186,7 @@ function createPauseMenuModel() {
   function handleClickSocialPanel() {
     if (Network.isLoggedIn()) {
       if (NetworkUtilities.isAccessAllowed(DNAPermissionType.PLAY_ONLINE)) {
-        ContextManager.push("screen-mp-friends", { singleton: true, createMouseGuard: true });
+        NetworkUtilities.openSocialPanel("lobby-list-tab");
       } else {
         ContextManager.push("screen-mp-account-permissions", {
           singleton: true,

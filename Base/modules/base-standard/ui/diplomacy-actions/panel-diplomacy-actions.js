@@ -1,7 +1,7 @@
 import { Audio } from '../../../core/ui/audio-base/audio-support.js';
 import ContextManager from '../../../core/ui/context-manager/context-manager.js';
 import { Navigation } from '../../../core/ui/input/navigation-support.js';
-import { InterfaceMode } from '../../../core/ui/interface-modes/interface-modes.js';
+import { InterfaceModeChangedEventName, InterfaceMode } from '../../../core/ui/interface-modes/interface-modes.js';
 import NavTray from '../../../core/ui/navigation-tray/model-navigation-tray.js';
 import { IconState } from '../../../core/ui/stateful-icon/stateful-icon.js';
 import { getModifierTextByContext } from '../../../core/ui/utilities/utilities-core-textprovider.js';
@@ -37,6 +37,7 @@ class DiplomacyActionPanel extends DiplomacyInputPanel {
   civSymbol;
   diploTint;
   tabBar;
+  tabItems = [];
   panels = [];
   slotGroup;
   initialLoadComplete = false;
@@ -45,9 +46,11 @@ class DiplomacyActionPanel extends DiplomacyInputPanel {
   needsRefresh = false;
   infoTabIndex = 3;
   actionTabIndex = 0;
+  relationshipTabIndex = 1;
   governmentTabIndex = 2;
   previousPlayer = -1;
   relationshipToolTip = "";
+  relationshipIcon = [];
   previousPlayerIsMajor = true;
   initDataPopulationTimerHandle = 0;
   render() {
@@ -102,17 +105,23 @@ class DiplomacyActionPanel extends DiplomacyInputPanel {
     this.mementosHeaderElement = MustGetElement("#panel-diplomacy-actions__civ-name-header", this.Root);
     this.civSymbol = MustGetElement("#panel-diplomacy-actions__civ-symbol", this.Root);
     this.majorActionsSlot = MustGetElement("#panel-diplomacy-actions__major-action-buttons", this.Root);
-    if (Players.get(DiplomacyManager.selectedPlayerID)?.isIndependent) {
-      this.majorActionsSlot.classList.add("hidden");
-    }
     this.tabBar = MustGetElement("fxs-tab-bar", this.Root);
     this.slotGroup = MustGetElement("fxs-slot-group", this.Root);
     const actionsPanel = MustGetElement("#diplomacy-tab-actions", this.Root);
     this.panels.push(actionsPanel);
-    const playerObject = Players.get(DiplomacyManager.selectedPlayerID);
+    this.diploTint = MustGetElement(".subsystem-frame__diplo-tint", this.Root);
+    this.updateSelectedPlayerElements(DiplomacyManager.selectedPlayerID);
+  }
+  updateSelectedPlayerElements(playerID) {
+    const playerObject = Players.get(playerID);
     if (!playerObject) {
-      console.error("panel-diplomacy-actions: Unable to get player object for selected player!");
+      console.error(
+        "panel-diplomacy-actions: (updateSelectedPlayerElements) Unable to get player object for selected player!"
+      );
       return;
+    }
+    if (playerObject.isIndependent) {
+      this.majorActionsSlot?.classList.add("hidden");
     }
     if (playerObject.isMajor) {
       this.leaderNameElement?.setAttribute("title", Locale.compose(playerObject.leaderName));
@@ -140,14 +149,13 @@ class DiplomacyActionPanel extends DiplomacyInputPanel {
     } else {
       this.refreshTabItems(playerObject, 1 /* OtherPlayerDiplomacy */);
     }
-    this.tabBar.addEventListener("tab-selected", this.onOptionsTabSelected.bind(this));
+    this.tabBar?.addEventListener("tab-selected", this.onOptionsTabSelected.bind(this));
     if (playerObject.id == GameContext.localPlayerID) {
       this.tabBar?.setAttribute("selected-tab-index", `${this.infoTabIndex}`);
     } else {
-      this.slotGroup.setAttribute("selected-slot", "diplomacy-tab-actions");
+      this.slotGroup?.setAttribute("selected-slot", "diplomacy-tab-actions");
     }
     waitForLayout(() => {
-      this.diploTint = MustGetElement(".subsystem-frame__diplo-tint", this.Root);
       this.diploTint?.style.setProperty(
         "fxs-background-image-tint",
         UI.Player.getPrimaryColorValueAsString(playerObject.id)
@@ -201,13 +209,16 @@ class DiplomacyActionPanel extends DiplomacyInputPanel {
     super.onAttach();
     this.render();
     this.Root.addEventListener("view-receive-focus", this.viewReceiveFocusListener);
-    window.addEventListener("interface-mode-changed", this.interfaceModeChangedListener);
+    window.addEventListener(InterfaceModeChangedEventName, this.interfaceModeChangedListener);
     window.addEventListener("diplomacy-selected-player-changed", this.selectedPlayerChangedListener);
     engine.on("DiplomacyEventSupportChanged", this.supportChangedListener);
     engine.on("DiplomacyEventCanceled", this.actionCanceledListener);
     engine.on("DiplomacyEventEnded", this.diplomacyEventEndedListener);
     engine.on("DiplomacyQueueChanged", this.diplomacyQueueChangedListener);
     engine.on("GameCoreEventPlaybackComplete", this.gameCoreEventPlaybackCompleteListener);
+    this.startInitDataPopulationTimer();
+  }
+  startInitDataPopulationTimer() {
     if (this.checkShouldShowPanel()) {
       this.initDataPopulationTimerHandle = setTimeout(this.populateInitialDataTimerListener, 83);
     } else {
@@ -217,7 +228,7 @@ class DiplomacyActionPanel extends DiplomacyInputPanel {
   onDetach() {
     super.onDetach();
     this.Root.removeEventListener("view-receive-focus", this.viewReceiveFocusListener);
-    window.removeEventListener("interface-mode-changed", this.interfaceModeChangedListener);
+    window.removeEventListener(InterfaceModeChangedEventName, this.interfaceModeChangedListener);
     window.removeEventListener("diplomacy-selected-player-changed", this.selectedPlayerChangedListener);
     engine.off("DiplomacyEventSupportChanged", this.supportChangedListener);
     engine.off("DiplomacyEventCanceled", this.actionCanceledListener);
@@ -241,7 +252,7 @@ class DiplomacyActionPanel extends DiplomacyInputPanel {
     if (!InterfaceMode.isInInterfaceMode("INTERFACEMODE_DIPLOMACY_HUB") && !DiplomacyManager.isFirstMeetDiplomacyOpen || currentTarget != void 0 && currentTarget.nodeName != "SCREEN-BEFRIEND-INDEPENDENT-DETAILS") {
       return false;
     }
-    if (!this.checkShouldShowPanel()) {
+    if (!this.checkShouldShowPanel() || DiplomacyManager.isClosingActionsPanel) {
       return true;
     }
     const inputEventName = inputEvent.detail.name;
@@ -660,8 +671,8 @@ class DiplomacyActionPanel extends DiplomacyInputPanel {
         );
         return;
       }
-      const tabItems = [];
-      tabItems.push({
+      this.tabItems = [];
+      this.tabItems.push({
         id: "diplomacy-tab-actions",
         icon: {
           [IconState.Default]: "blp:projects_normal-tab-button",
@@ -677,24 +688,26 @@ class DiplomacyActionPanel extends DiplomacyInputPanel {
       });
       if (isLocal == 0 /* LocalPlayerDiplomacy */) {
         this.relationshipToolTip = "LOC_UI_DIPLOMACY_MINOR_POWERS_TOOLTIP";
+        this.relationshipIcon = ["blp:citystate_normal-tab-button.png", "blp:citystate_active-tab-button.png"];
       } else {
         this.relationshipToolTip = "LOC_UI_DIPLOMACY_RELATIONSHIPS_TOOLTIP";
+        this.relationshipIcon = ["blp:relationships_normal-tab-button", "blp:relationships_active-tab-button"];
       }
-      tabItems.push({
+      this.tabItems.push({
         id: "diplomacy-tab-relationship",
         icon: {
-          [IconState.Default]: "blp:relationships_normal-tab-button",
-          [IconState.Hover]: "blp:relationships_active-tab-button",
-          [IconState.Focus]: "blp:relationships_active-tab-button",
-          [IconState.Active]: "blp:relationships_active-tab-button",
-          [IconState.Pressed]: "blp:relationships_active-tab-button"
+          [IconState.Default]: this.relationshipIcon[0],
+          [IconState.Hover]: this.relationshipIcon[1],
+          [IconState.Focus]: this.relationshipIcon[1],
+          [IconState.Active]: this.relationshipIcon[1],
+          [IconState.Pressed]: this.relationshipIcon[1]
         },
         className: "",
         iconClass: "size-13",
         highlight: true,
         tooltip: Locale.stylize(this.relationshipToolTip)
       });
-      tabItems.push({
+      this.tabItems.push({
         id: "diplomacy-tab-government",
         icon: {
           [IconState.Default]: "blp:govtreligion_normal-tab-button",
@@ -708,7 +721,7 @@ class DiplomacyActionPanel extends DiplomacyInputPanel {
         highlight: true,
         tooltip: Locale.stylize("LOC_UI_DIPLOMACY_GOVERNMENT_TOOLTIP")
       });
-      tabItems.push({
+      this.tabItems.push({
         id: "diplomacy-tab-info",
         icon: {
           [IconState.Default]: "blp:lore_normal-tab-button",
@@ -722,12 +735,12 @@ class DiplomacyActionPanel extends DiplomacyInputPanel {
         highlight: true,
         tooltip: Locale.stylize("LOC_UI_DIPLOMACY_ABILITIES_TOOLTIP")
       });
-      this.tabBar.setAttribute("tab-items", JSON.stringify(tabItems));
-      this.infoTabIndex = tabItems.findIndex((tab) => tab.id == "diplomacy-tab-info");
-      this.actionTabIndex = tabItems.findIndex((tab) => tab.id == "diplomacy-tab-actions");
+      this.tabBar.setAttribute("tab-items", JSON.stringify(this.tabItems));
+      this.infoTabIndex = this.tabItems.findIndex((tab) => tab.id == "diplomacy-tab-info");
+      this.actionTabIndex = this.tabItems.findIndex((tab) => tab.id == "diplomacy-tab-actions");
       const { playerId, section } = DiploRibbonData.sectionSelected;
       if (this.previousPlayer != GameContext.localPlayerID && this.previousPlayerIsMajor == false && DiplomacyManager.selectedPlayerID == GameContext.localPlayerID || section == "relationship") {
-        const tabIndex = tabItems.findIndex((tab) => tab.id == "diplomacy-tab-relationship");
+        const tabIndex = this.tabItems.findIndex((tab) => tab.id == "diplomacy-tab-relationship");
         if (tabIndex != -1) {
           this.tabBar.setAttribute("selected-tab-index", `${tabIndex}`);
         }
@@ -1937,9 +1950,10 @@ class DiplomacyActionPanel extends DiplomacyInputPanel {
       this.majorActionsSlot?.classList.toggle("hidden", e.detail.selectedItem.id != "diplomacy-tab-actions");
     }
     this.slotGroup?.setAttribute("selected-slot", e.detail.selectedItem.id);
+    waitForLayout(() => this.realizeInitialFocus());
   }
-  onInterfaceModeChanged() {
-    if (this.checkShouldShowPanel() && InterfaceMode.isInInterfaceMode("INTERFACEMODE_DIPLOMACY_HUB")) {
+  onInterfaceModeChanged(event) {
+    if (this.checkShouldShowPanel() && event.detail.newMode == "INTERFACEMODE_DIPLOMACY_HUB") {
       this.checkRefesh();
       this.realizeInitialFocus();
     }
@@ -1953,6 +1967,7 @@ class DiplomacyActionPanel extends DiplomacyInputPanel {
         console.error("panel-diplomacy-actions: Unable to get player object for selected player!");
         return;
       }
+      this.updateSelectedPlayerElements(DiplomacyManager.selectedPlayerID);
       if (playerObject.isMajor) {
         this.leaderNameElement?.setAttribute("title", Locale.compose(playerObject.leaderName));
         this.mementosHeaderElement?.setAttribute(
@@ -1997,18 +2012,31 @@ class DiplomacyActionPanel extends DiplomacyInputPanel {
     this.previousPlayer = DiplomacyManager.selectedPlayerID;
   }
   realizeInitialFocus() {
+    const playerObject = Players.get(DiplomacyManager.selectedPlayerID);
+    if (playerObject && playerObject.isMajor) {
+      const tabIndex = this.tabBar?.getAttribute("selected-tab-index");
+      if (tabIndex !== null && tabIndex !== void 0) {
+        const index = parseInt(tabIndex);
+        this.slotGroup?.setAttribute("selected-slot", this.tabItems[index].id);
+      }
+    }
     const props = { isDisableFocusAllowed: false, direction: InputNavigationAction.NONE };
-    if (this.firstFocusSection && this.tabBar?.getAttribute("selected-tab-index")?.valueOf() != this.infoTabIndex.toString() && this.tabBar?.getAttribute("selected-tab-index")?.valueOf() != this.governmentTabIndex.toString() && this.previousPlayerIsMajor == true) {
+    if (this.firstFocusSection && this.tabBar?.getAttribute("selected-tab-index")?.valueOf() != this.infoTabIndex.toString() && this.tabBar?.getAttribute("selected-tab-index")?.valueOf() != this.governmentTabIndex.toString() && this.tabBar?.getAttribute("selected-tab-index")?.valueOf() != this.relationshipTabIndex.toString() && this.previousPlayerIsMajor == true) {
       FocusManager.get().setFocus(this.firstFocusSection);
     } else {
-      if (this.tabBar?.getAttribute("selected-tab-index")?.valueOf() == this.infoTabIndex.toString() || this.tabBar?.getAttribute("selected-tab-index")?.valueOf() == this.governmentTabIndex.toString()) {
+      if (this.tabBar?.getAttribute("selected-tab-index")?.valueOf() == this.infoTabIndex.toString() || this.tabBar?.getAttribute("selected-tab-index")?.valueOf() == this.governmentTabIndex.toString() || this.tabBar?.getAttribute("selected-tab-index")?.valueOf() == this.relationshipTabIndex.toString()) {
         if (this.tabBar?.getAttribute("selected-tab-index")?.valueOf() == this.infoTabIndex.toString()) {
           const currentSelectedTab = this.Root.querySelector("#diplomacy-tab-info");
           if (currentSelectedTab) {
             FocusManager.get().setFocus(currentSelectedTab);
           }
-        } else {
+        } else if (this.tabBar?.getAttribute("selected-tab-index")?.valueOf() == this.governmentTabIndex.toString()) {
           const currentSelectedTab = this.Root.querySelector("#diplomacy-tab-government");
+          if (currentSelectedTab) {
+            FocusManager.get().setFocus(currentSelectedTab);
+          }
+        } else {
+          const currentSelectedTab = this.Root.querySelector("#diplomacy-tab-relationship");
           if (currentSelectedTab) {
             FocusManager.get().setFocus(currentSelectedTab);
           }
@@ -2438,6 +2466,9 @@ class DiplomacyActionPanel extends DiplomacyInputPanel {
     DiplomacyManager.clickStartProject(projectData);
   }
   clickQuickStartActionItem(projectData, recentlyCompletedData) {
+    if (DiplomacyManager.isClosingActionsPanel) {
+      return;
+    }
     const actionOperationArguments = {
       Amount: 1,
       Player1: GameContext.localPlayerID,

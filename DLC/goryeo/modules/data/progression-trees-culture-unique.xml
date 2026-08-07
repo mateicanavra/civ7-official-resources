@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Types>
+		<!--Civ Unique Mastery Trees-->
+		<Row Type="TREE_CIVICS_EX_GORYEO" Kind="KIND_TREE"/>
+		<!--Civ Unique Mastery Tree Nodes-->
+		<Row Type="NODE_CIVIC_EX_GORYEO_CHEONSU" Kind="KIND_TREE_NODE"/>
+		<Row Type="NODE_CIVIC_EX_GORYEO_TRIPITAKA_KOREANA" Kind="KIND_TREE_NODE"/>
+		<Row Type="NODE_CIVIC_EX_GORYEO_JIKJI" Kind="KIND_TREE_NODE"/>
+	</Types>
+	<TypeQuotes>
+		<Row Type="NODE_CIVIC_EX_GORYEO_CHEONSU" Quote="LOC_CIVIC_CHEONSU_QUOTE" QuoteAuthor="LOC_CIVIC_CHEONSU_AUTHOR" QuoteAudio="VO_Quote_Cheonsu"/>
+		<Row Type="NODE_CIVIC_EX_GORYEO_TRIPITAKA_KOREANA" Quote="LOC_CIVIC_TRIPITAKA_KOREANA_QUOTE" QuoteAuthor="LOC_CIVIC_TRIPITAKA_KOREANA_AUTHOR" QuoteAudio="VO_Quote_TripitakaKoreana"/>
+		<Row Type="NODE_CIVIC_EX_GORYEO_JIKJI" Quote="LOC_CIVIC_JIKJI_QUOTE" QuoteAuthor="LOC_CIVIC_JIKJI_AUTHOR" QuoteAudio="VO_Quote_Jikji"/>
+	</TypeQuotes>
+	<ProgressionTrees>
+		<!--Civ Unique Mastery Trees-->
+		<Row ProgressionTreeType="TREE_CIVICS_EX_GORYEO" AgeType="AGE_EXPLORATION" SystemType="SYSTEM_CULTURE" Name="LOC_TREE_CIVICS_EX_GORYEO_NAME"/>
+	</ProgressionTrees>
+	<ProgressionTreeNodes>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_GORYEO_CHEONSU" ProgressionTree="TREE_CIVICS_EX_GORYEO" Cost="800" Name="LOC_CIVIC_CHEONSU_NAME" IconString="cult_goryeo"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_GORYEO_TRIPITAKA_KOREANA" ProgressionTree="TREE_CIVICS_EX_GORYEO" Cost="1200" Name="LOC_CIVIC_TRIPITAKA_KOREANA_NAME" IconString="cult_goryeo" />
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_GORYEO_JIKJI" ProgressionTree="TREE_CIVICS_EX_GORYEO" Cost="1200" Name="LOC_CIVIC_JIKJI_NAME" IconString="cult_goryeo" />
+	</ProgressionTreeNodes>
+	<ProgressionTreeNodeUnlocks>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_GORYEO_CHEONSU" TargetKind="KIND_CONSTRUCTIBLE" TargetType="IMPROVEMENT_GAMA" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_GORYEO_CHEONSU" TargetKind="KIND_MODIFIER" TargetType="MOD_TOT_TRADITION_SLOT" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_GORYEO_CHEONSU" TargetKind="KIND_TRADITION" TargetType="TRADITION_BONGWAN" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_GORYEO_CHEONSU" TargetKind="KIND_CONSTRUCTIBLE" TargetType="WONDER_BUSEOKSA" UnlockDepth="1" AIIgnoreUnlockValue="true"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_GORYEO_TRIPITAKA_KOREANA" TargetKind="KIND_TRADITION" TargetType="TRADITION_HOGUK_JONGGYO" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_GORYEO_TRIPITAKA_KOREANA" TargetKind="KIND_MODIFIER" TargetType="MOD_EX_SETTLEMENT_CAP_INCREASE" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_GORYEO_JIKJI" TargetKind="KIND_MODIFIER" TargetType="MOD_TOT_TRADITION_SLOT" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_GORYEO_JIKJI" TargetKind="KIND_TRADITION" TargetType="TRADITION_SAGAE_CHIBUBEOP" UnlockDepth="1"/>
+	</ProgressionTreeNodeUnlocks>
+	<ProgressionTreePrereqs>
+		<Row Node="NODE_CIVIC_EX_GORYEO_TRIPITAKA_KOREANA" PrereqNode="NODE_CIVIC_EX_GORYEO_CHEONSU"/>
+		<Row Node="NODE_CIVIC_EX_GORYEO_JIKJI" PrereqNode="NODE_CIVIC_EX_GORYEO_CHEONSU"/>
+	</ProgressionTreePrereqs>
+	<ProgressionTree_Advisories>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_GORYEO_CHEONSU" AdvisoryClassType="ADVISORY_CLASS_CULTURE"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_GORYEO_TRIPITAKA_KOREANA" AdvisoryClassType="ADVISORY_CLASS_DIPLOMACY"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_GORYEO_JIKJI" AdvisoryClassType="ADVISORY_CLASS_ECONOMIC"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_GORYEO_JIKJI" AdvisoryClassType="ADVISORY_CLASS_CULTURE"/>
+	</ProgressionTree_Advisories>
+</Database>

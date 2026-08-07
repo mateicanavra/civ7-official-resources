@@ -89,9 +89,8 @@ TutorialManager.add({
     }
     return false;
   },
-  runAllTurns: true
-  // disabling for now.
-  //nextID: "advancedStart_card_choice",
+  runAllTurns: true,
+  nextID: "advancedStart_card_choice"
 });
 TutorialManager.add({
   ID: "advancedStart_bonus_placement",
@@ -104,6 +103,31 @@ TutorialManager.add({
   activationCustomEvents: ["advanced-start-bonus-placement-started"],
   runAllTurns: true,
   filterPlayers: []
+});
+TutorialManager.add({
+  ID: "advancedStart_card_choice",
+  callout: {
+    anchorPosition: TutorialAnchorPosition.MiddleCenter,
+    title: "LOC_TUTORIAL_ADVANCED_START_CARD_CHOICE_TITLE",
+    body: { text: "LOC_TUTORIAL_ADVANCED_START_CARD_CHOICE_BODY" },
+    actionPrompts: [
+      {
+        kbm: "LOC_TUTORIAL_ADVANCED_TRANSITION_START_KBM",
+        gamepad: "LOC_TUTORIAL_ADVANCED_TRANSITION_START_GAMEPAD",
+        hybrid: "LOC_TUTORIAL_ADVANCED_TRANSITION_START_KBM",
+        touch: "LOC_TUTORIAL_ADVANCED_TRANSITION_START_TOUCH",
+        actionName: "inline-confirm"
+      },
+      {
+        kbm: "LOC_TUTORIAL_ADVANCED_TRANSITION_START_KBM",
+        gamepad: "LOC_TUTORIAL_ADVANCED_TRANSITION_START_GAMEPAD_ALT",
+        hybrid: "LOC_TUTORIAL_ADVANCED_TRANSITION_START_KBM",
+        touch: "LOC_TUTORIAL_ADVANCED_TRANSITION_START_TOUCH",
+        actionName: "inline-shell-action-1"
+      }
+    ],
+    option1: calloutContinue
+  }
 });
 TutorialManager.add({
   ID: "ageTransition_intro",
@@ -158,6 +182,7 @@ TutorialManager.add({
 });
 TutorialManager.add({
   ID: "tutorial_missionary_unlocked",
+  canMinimize: false,
   callout: {
     anchorPosition: TutorialAnchorPosition.MiddleRight,
     title: "LOC_TUTORIAL_MISSIONARY_AVAILABLE_TITLE",
@@ -258,6 +283,7 @@ TutorialManager.add({
 });
 TutorialManager.add({
   ID: "tutorial_missionary_trained",
+  canMinimize: false,
   callout: {
     anchorPosition: TutorialAnchorPosition.MiddleRight,
     title: "LOC_TUTORIAL_MISSIONARY_TRAINED_TITLE",
@@ -488,6 +514,7 @@ TutorialManager.add({
 });
 TutorialManager.add({
   ID: "tutorial_overbuilding",
+  canMinimize: false,
   callout: {
     anchorPosition: TutorialAnchorPosition.MiddleRight,
     title: "LOC_TUTORIAL_OVERBUILDING_TITLE",

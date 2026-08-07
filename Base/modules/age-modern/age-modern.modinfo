@@ -35,9 +35,8 @@
 	</ActionCriteria>
 	<ActionGroups>
 		<ActionGroup id="age-modern-art" scope="game" criteria="always">
-			<Actions>				
+			<Actions>
 				<UpdateIcons>
-					<Item>data/icons/advisor-icons.xml</Item>
 					<Item>data/icons/building-icons.xml</Item>
 					<Item>data/icons/celebration-icons.xml</Item>
 					<Item>data/icons/city-state-bonus-icons.xml</Item>
@@ -50,21 +49,31 @@
 				</UpdateIcons>
 			</Actions>
 		</ActionGroup>
+		<ActionGroup id="age-modern-art-age-specific" scope="game" criteria="modern-age-current">
+			<Actions>				
+				<UpdateIcons>
+					<Item>data/icons/advisor-icons.xml</Item>
+				</UpdateIcons>
+			</Actions>
+		</ActionGroup>
 		<ActionGroup id="age-modern-gameplay-static" scope="game" criteria="always">
 			<Actions>
 				<UpdateDatabase>
 					<Item>data/ai-shared.xml</Item>
+					<Item>data/civilizations-legacy.xml</Item>
+					<Item>data/civilizations-shared-gameeffects.xml</Item>
+					<Item>data/civilizations-shared.xml</Item>
+					<Item>data/constructibles-shared.xml</Item>
 					<Item>data/gameplay-static.xml</Item>
 					<Item>data/gameplay.xml</Item>
-					<Item>data/constructibles-shared.xml</Item>
+					<Item>data/loading-info.xml</Item>
 					<Item>data/progression-trees-tech-gameeffects-shared.xml</Item>
-					<Item>data/traditions.xml</Item>
 					<Item>data/traditions-gameeffects.xml</Item>
-					<Item>data/traditions-tot.xml</Item>
 					<Item>data/traditions-tot-gameeffects.xml</Item>
+					<Item>data/traditions-tot.xml</Item>
+					<Item>data/traditions.xml</Item>
 					<Item>data/unlocks-shared.xml</Item>
 					<Item>data/unlocks-syncretism.xml</Item>
-					<Item>data/civilizations-legacy.xml</Item>
 				</UpdateDatabase>
 			</Actions>
 		</ActionGroup>
@@ -96,7 +105,7 @@
 					<Item>text/en_us/IndependentsText.xml</Item>
 					<Item>text/en_us/WonderQuotes.xml</Item>
 					<Item>text/en_us/tot-NarrativeStoriesText.xml</Item>
-					
+
 					<!-- Items below were generated via our loc tool. -->
 					<Item locale="de_DE">l10n/de_DE_Text.xml</Item>
 					<Item locale="es_ES">l10n/es_ES_Text.xml</Item>
@@ -112,7 +121,7 @@
 				</UpdateText>
 			</Actions>
 		</ActionGroup>
-		
+
 		<!--NOTE: We should try and reduce the age specific text as much as possible as this requires extra changes when batching translations. -->
 		<!--IMPORTANT NOTE: Any changes made below should also be reflected in the localization configuration so translations are generated properly.-->
 		<ActionGroup id="age-modern-text-age-specific" scope="game" criteria="modern-age-current">
@@ -169,6 +178,7 @@
 					<Item>data/constructible-modifiers-gameeffects.xml</Item>
 					<Item>data/crisis-stages.xml</Item>
 					<Item>data/diplomacy-actions.xml</Item>
+					<Item>data/diplomacy-deal-items.xml</Item>
 					<Item>data/diplomacy-gameeffects.xml</Item>
 					<Item>data/discovery-stories-gameeffects.xml</Item>
 					<Item>data/discovery-stories.xml</Item>
@@ -197,7 +207,7 @@
 					<Item>data/progression-trees-culture-common.xml</Item>
 					<Item>data/progression-trees-culture-common-gameeffects.xml</Item>
 					<Item>data/progression-trees-culture-tot-common.xml</Item>
-					<Item>data/progression-trees-culture-tot-common-gameeffects.xml</Item>	
+					<Item>data/progression-trees-culture-tot-common-gameeffects.xml</Item>
 					<Item>data/progression-trees-culture-unique.xml</Item>
 					<Item>data/progression-trees-culture-unique-gameeffects.xml</Item>
 					<Item>data/progression-trees-tech.xml</Item>
@@ -234,11 +244,8 @@
 		<ActionGroup id="civs-antiquity-age" scope="game" criteria="antiquity-age-current">
 			<Actions>
 				<UpdateDatabase>
-					<Item>data/loading-info.xml</Item>
 					<Item>data/progression-trees-culture-unique-aq.xml</Item>
 					<Item>data/progression-trees-culture-unique-aq-gameeffects.xml</Item>
-					<Item>data/civilizations-shared.xml</Item>
-					<Item>data/civilizations-shared-gameeffects.xml</Item>
 					<Item>data/civilizations-antiquity-gameeffects.xml</Item>
 					<Item>data/civilizations-antiquity.xml</Item>
 				</UpdateDatabase>
@@ -247,11 +254,8 @@
 		<ActionGroup id="civs-exploration-age" scope="game" criteria="exploration-age-current">
 			<Actions>
 				<UpdateDatabase>
-					<Item>data/loading-info.xml</Item>
 					<Item>data/progression-trees-culture-unique-ex.xml</Item>
 					<Item>data/progression-trees-culture-unique-ex-gameeffects.xml</Item>
-					<Item>data/civilizations-shared.xml</Item>
-					<Item>data/civilizations-shared-gameeffects.xml</Item>
 					<Item>data/civilizations-exploration-gameeffects.xml</Item>
 					<Item>data/civilizations-exploration.xml</Item>
 				</UpdateDatabase>
@@ -260,9 +264,6 @@
 		<ActionGroup id="civs-modern-age" scope="game" criteria="modern-age-current">
 			<Actions>
 				<UpdateDatabase>
-					<Item>data/loading-info.xml</Item>
-					<Item>data/civilizations-shared.xml</Item>
-					<Item>data/civilizations-shared-gameeffects.xml</Item>
 					<Item>data/civilizations-gameeffects.xml</Item>
 					<Item>data/civilizations-modern.xml</Item>
 					<Item>data/civilizations-modern-gameeffects.xml</Item>

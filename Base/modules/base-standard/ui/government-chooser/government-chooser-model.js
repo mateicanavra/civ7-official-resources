@@ -31,17 +31,33 @@ function createGovtChooserModel() {
               }
             }
             traditionsUnlocked = [];
-            GameInfo.ProgressionTreeNodeUnlocks.forEach((node) => {
-              if (node.RequiredGovernmentType == governmentType) {
-                const nodeInfo = GameInfo.ProgressionTreeNodes.lookup(node.ProgressionTreeNodeType);
-                if (nodeInfo) {
-                  const tradition = GameInfo.Traditions.lookup(node.TargetType);
+            const lookupGov = GameInfo.Governments.lookup(governmentType)?.GovernmentType;
+            const govTypeString = lookupGov ?? "";
+            let unlockNode = [];
+            const govtNodes = GameInfo.ProgressionTreeNodeUnlocks.filter(
+              (o) => o.RequiredGovernmentType == govTypeString
+            );
+            if (govtNodes) {
+              if (govtNodes.length > 0) {
+                for (const govtTraditions in govtNodes) {
+                  const tradition = GameInfo.Traditions.lookup(govtNodes[govtTraditions].TargetType);
                   if (tradition) {
-                    traditionsUnlocked.push(tradition);
+                    unlockNode = govtNodes.filter(
+                      (item) => item.TargetType == govtNodes[govtTraditions].TargetType
+                    );
+                    const nodeObject = GameInfo.ProgressionTreeNodes.lookup(
+                      unlockNode[0].ProgressionTreeNodeType
+                    );
+                    const unlockNodeName = nodeObject ? nodeObject.Name : "";
+                    const traditionDisplayItem = {
+                      def: tradition,
+                      unlock: `{LOC_LOADING_TRADITION_UNLOCKED_WITH} [B]{${unlockNodeName}}[/B]`
+                    };
+                    traditionsUnlocked.push(traditionDisplayItem);
                   }
                 }
               }
-            });
+            }
             const governmentCelebrationTypes = Game.Culture.GetCelebrationTypesForGovernment(
               governmentDef.GovernmentType
             );

@@ -344,15 +344,14 @@ CREATE TABLE 'TurnTimers' (
 	'SortIndex' INTEGER NOT NULL DEFAULT 0
 );
 
-CREATE TABLE 'Victories'(
-	'Domain' TEXT NOT NULL DEFAULT 'StandardVictories',
+CREATE TABLE 'Victories' (
+	'Domain' TEXT DEFAULT 'StandardVictories',
 	'VictoryType' TEXT NOT NULL,
 	'Name' TEXT NOT NULL,
 	'Description' TEXT NOT NULL,
 	'Icon' TEXT,
-	'Visible' BOOLEAN NOT NULL DEFAULT 1,
-	'ReadOnly' BOOLEAN NOT NULL DEFAULT 0,
-	'EnabledByDefault' BOOLEAN NOT NULL DEFAULT 1
+	'SortIndex' INTEGER NOT NULL DEFAULT 0,
+	Primary Key('Domain', 'VictoryType')
 );
 
 -- Rulesets, Ages, and Maps have the ability to override a parameter's domain with another.

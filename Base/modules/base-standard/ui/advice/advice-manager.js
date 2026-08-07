@@ -14,6 +14,8 @@ const adviceCatalogName = "AdviceTrackerCatalog";
 class AdviceManagerClass {
   catalog;
   advisorMinds;
+  localPlayerID;
+  showPopupOnce = false;
   /**
    * Open a catalog to load/save values to the save-game, to track pages selected for the advisors.
    *
@@ -21,20 +23,20 @@ class AdviceManagerClass {
    * If we persist the UI tree (and hence this manager) then either this CTOR functionality
    * needs to be moved out into an init() or the catalog needs to be switched based on player changes.
    */
-  constructor() {
+  constructor(playerId) {
     this.advisorMinds = /* @__PURE__ */ new Map();
     this.advisorMinds.set(AdvisorTypes.CULTURE, this.createMind("culture"));
     this.advisorMinds.set(AdvisorTypes.MILITARY, this.createMind("military"));
     this.advisorMinds.set(AdvisorTypes.ECONOMIC, this.createMind("economic"));
     this.advisorMinds.set(AdvisorTypes.SCIENCE, this.createMind("science"));
-    const localPlayerId = GameContext.localObserverID;
-    this.catalog = new Catalog({ name: adviceCatalogName, version: VERSION, player: Players.get(localPlayerId) });
+    this.catalog = new Catalog({ name: adviceCatalogName, version: VERSION, player: Players.get(playerId) });
     if (!this.catalog.justCreated) {
       this.readFromDisk(this.advisorMinds.get(AdvisorTypes.CULTURE), AdvisorTypes.CULTURE);
       this.readFromDisk(this.advisorMinds.get(AdvisorTypes.MILITARY), AdvisorTypes.MILITARY);
       this.readFromDisk(this.advisorMinds.get(AdvisorTypes.ECONOMIC), AdvisorTypes.ECONOMIC);
       this.readFromDisk(this.advisorMinds.get(AdvisorTypes.SCIENCE), AdvisorTypes.SCIENCE);
     }
+    this.localPlayerID = playerId;
     engine.on("PlayerTurnActivated", this.onPlayerTurnActivated, this);
   }
   /**
@@ -61,8 +63,7 @@ class AdviceManagerClass {
    * @param data Information about the player activating on this turn.
    */
   onPlayerTurnActivated(data) {
-    const localPlayerID = GameContext.localObserverID;
-    if (data.player != localPlayerID) {
+    if (data.player != this.localPlayerID) {
       return;
     }
     const tutorialOn = Configuration.getUser().tutorialLevel === TutorialLevel.TutorialOn;
@@ -72,7 +73,7 @@ class AdviceManagerClass {
       "LOC_DIFFICULTY_PRINCE_NAME",
       "LOC_DIFFICULTY_KING_NAME"
     ].includes(gameDifficultyName);
-    if ((tutorialOn || isViceroyOrLower) && Game.turn === TURN_TO_DISPLAY_ADVISOR_POPUP && !this.isAnyFollowed() && !Autoplay.isActive) {
+    if (!this.showPopupOnce && (tutorialOn || isViceroyOrLower) && Game.turn === TURN_TO_DISPLAY_ADVISOR_POPUP && !this.isAnyFollowed() && !Autoplay.isActive) {
       const popupData = {
         category: PopupSequencer.getCategory(),
         screenId: "advisor-council-popup",
@@ -80,7 +81,13 @@ class AdviceManagerClass {
         properties: { singleton: true, createMouseGuard: true },
         priority: PopupPriority.beforeCinematics
       };
-      PopupSequencer.addDisplayRequest(popupData);
+      waitUntilValue(() => {
+        const curtain = document.getElementById("loading-curtain");
+        return curtain ? null : true;
+      }).then(() => {
+        PopupSequencer.addDisplayRequest(popupData);
+        this.showPopupOnce = true;
+      });
     }
     this.considerNextPages();
   }
@@ -848,8 +855,34 @@ class AdviceManagerClass {
     this.tunerClearMind(AdvisorTypes.SCIENCE);
   }
 }
-const AdviceManager = new AdviceManagerClass();
-globalThis.AdviceManager = AdviceManager;
+globalThis.getAdviceManager = getAdviceManager;
+const instances = [];
+function internalGetAdviceManager(playerId) {
+  if (!instances[playerId]) {
+    instances[playerId] = new AdviceManagerClass(playerId);
+  }
+  return instances[playerId];
+}
+function getAdviceManager() {
+  const playerId = GameContext.localObserverID;
+  if (playerId > 999) {
+    throw new Error(`advice-manager: Player ID of "${playerId}" exceeds maximum supported value of 999.`);
+  }
+  return internalGetAdviceManager(playerId);
+}
+getAdviceManager();
+function adviceAddItem(item) {
+  const humanIds = Players.getAliveHumanIds();
+  humanIds.forEach((playerId) => {
+    internalGetAdviceManager(playerId).addItem(item);
+  });
+}
+function adviceAddBundle(bundle) {
+  const humanIds = Players.getAliveHumanIds();
+  humanIds.forEach((playerId) => {
+    internalGetAdviceManager(playerId).addBundle(bundle);
+  });
+}
 
-export { AdviceManager as default };
+export { adviceAddBundle, adviceAddItem, getAdviceManager as default };
 //# sourceMappingURL=advice-manager.js.map

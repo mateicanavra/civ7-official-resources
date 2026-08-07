@@ -9,6 +9,11 @@ const AgeIcon = (props) => {
     AGE_EXPLORATION: "url('city_exploration')",
     AGE_MODERN: "url('city_modern')"
   };
+  const framedAgeIcon = {
+    AGE_ANTIQUITY: "url('blp:city_antiguity_128x128')",
+    AGE_EXPLORATION: "url('city_exploration_128x128')",
+    AGE_MODERN: "url('city_modern_128x128')"
+  };
   const ageText = {
     AGE_ANTIQUITY: "LOC_UI_CREATE_GAME_ANTIQUITY",
     AGE_EXPLORATION: "LOC_UI_CREATE_GAME_EXPLORATION",
@@ -30,7 +35,7 @@ const AgeIcon = (props) => {
           return props.class;
         },
         get name() {
-          return ageIcons[props.ageId];
+          return props.framedIcons ? framedAgeIcon[props.ageId] : ageIcons[props.ageId];
         }
       });
     }

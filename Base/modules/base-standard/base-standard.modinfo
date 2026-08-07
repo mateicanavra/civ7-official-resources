@@ -35,6 +35,7 @@
                     <Item>ui/advice/advice-manager.js</Item>
 					<Item>ui-next/screens/advisor-council/advisor-screen.js</Item>
 					<Item>ui-next/screens/advisor-council/advisor-screen-popup.js</Item>
+					<Item>ui-next/screens/diplo-message/diplo-message-popup.js</Item>
                     <Item>ui/advanced-start/model-advanced-start.js</Item>
                     <Item>ui/advanced-start/screen-advanced-start.js</Item>
                     <Item>
@@ -268,6 +269,7 @@
                     <Item>ui/government-chooser/screen-government-chooser.js</Item>
                     <Item module="false">ui/tuner-input/tuner-input.js</Item>
                     <Item>ui/turn-icon/turn-icon.js</Item>
+					<Item>ui/tutorial/tutorial-callout.js</Item>
                     <Item>ui/tutorial/tutorial-dialog-page.js</Item>
                     <Item>ui/tutorial/tutorial-dialog.js</Item>
                     <Item>ui/tutorial/tutorial-inspector.js</Item>
@@ -301,6 +303,7 @@
                     <Item>ui/views/view-cinematic.js</Item>
                     <Item>ui/views/view-city.js</Item>
                     <Item>ui/views/view-diplomacy.js</Item>
+                    <Item>ui/views/view-diplomacy-world.js</Item>
                     <Item>ui/views/view-pause-menu.js</Item>
                     <Item>ui/views/view-placement.js</Item>
                     <Item>ui/views/view-screenshot.js</Item>
@@ -931,6 +934,17 @@
                 </ImportFiles>
             </Actions>
         </ActionGroup>
+		<ActionGroup id="base-game-post-process" scope="game" criteria="always">
+			<Properties>
+				<LoadOrder>999</LoadOrder>
+			</Properties>
+			<Actions>
+				<UpdateDatabase>
+					<Item>data/ages-post-process.sql</Item>
+				</UpdateDatabase>
+			</Actions>
+		</ActionGroup>
+
         <ActionGroup id="base-game-shell" scope="shell" criteria="always">
             <Actions>
                 <ImportFiles>

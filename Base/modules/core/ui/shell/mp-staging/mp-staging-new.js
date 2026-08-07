@@ -47,6 +47,7 @@ class PanelMPLobby extends Panel {
   leftSectionHeader;
   leftSectionContent;
   playerInfoSlot;
+  playerInfoSlotContainer;
   headerSpacings;
   profileHeader;
   profileHeaderContainer;
@@ -121,6 +122,7 @@ class PanelMPLobby extends Panel {
     this.playerInfoSlot.addEventListener("engine-input", this.onPlayerInfoEngineInput.bind(this));
     this.playerInfoSlot.addEventListener("navigate-input", this.onPlayerInfoNavigateInput.bind(this));
     this.playerInfoSlot.addEventListener("focus", this.onPlayerInfoFocus);
+    this.playerInfoSlotContainer = MustGetElement(".player-info-slot-container", this.Root);
     this.backButton = MustGetElement(".back-button", this.Root);
     Databind.if(this.backButton, `!{{g_NavTray.isTrayRequired}}`);
     const mementosButton = MustGetElement(".memento-button", this.Root);
@@ -180,6 +182,8 @@ class PanelMPLobby extends Panel {
         closedHeaderDropdown.classList.add("mp-staging__focusable-slot", "my-0\\.5", "flex");
         closedHeaderDropdown.setAttribute("container-class", "border-accent-5 border");
         closedHeaderDropdown.setAttribute("bg-class", "bg-primary-5 opacity-50");
+        closedHeaderDropdown.setAttribute("data-audio-group-ref", "multiplayer-lobby");
+        closedHeaderDropdown.setAttribute("data-audio-press-ref", "data-audio-dropdown-press");
         Databind.attribute(closedHeaderDropdown, "optionID", "player.playerInfoDropdown.id");
         Databind.attribute(
           closedHeaderDropdown,
@@ -249,6 +253,8 @@ class PanelMPLobby extends Panel {
         playerInfoDropdown.setAttribute("has-background", "false");
         playerInfoDropdown.classList.add("mp-staging__focusable-slot", "my-0\\.5", "flex");
         playerInfoDropdown.setAttribute("container-class", "border-accent-5 border");
+        playerInfoDropdown.setAttribute("data-audio-group-ref", "multiplayer-lobby");
+        playerInfoDropdown.setAttribute("data-audio-press-ref", "data-audio-dropdown-press");
         Databind.attribute(playerInfoDropdown, "optionID", "player.playerInfoDropdown.id");
         Databind.attribute(
           playerInfoDropdown,
@@ -299,6 +305,8 @@ class PanelMPLobby extends Panel {
         teamDropdown.setAttribute("index", "1");
         teamDropdown.setAttribute("no-selection-caption", " ");
         teamDropdown.setAttribute("label-class", "absolute font-body-xl text-white text-shadow");
+        teamDropdown.setAttribute("data-audio-group-ref", "multiplayer-lobby");
+        teamDropdown.setAttribute("data-audio-press-ref", "data-audio-dropdown-press");
         Databind.attribute(teamDropdown, "optionID", "player.teamDropdown.id");
         Databind.attribute(teamDropdown, "dropdown-items", "player.teamDropdown.serializedItemList");
         Databind.attribute(teamDropdown, "selected-item-index", "player.teamDropdown.selectedItemIndex");
@@ -346,6 +354,8 @@ class PanelMPLobby extends Panel {
           "icon-container-innerhtml",
           "<div class='img-prof-btn-bg absolute w-16 h-16'></div>"
         );
+        civilizationDropdown.setAttribute("data-audio-group-ref", "multiplayer-lobby");
+        civilizationDropdown.setAttribute("data-audio-press-ref", "data-audio-dropdown-press");
         Databind.attribute(civilizationDropdown, "optionID", "player.civilizationDropdown.id");
         Databind.attribute(
           civilizationDropdown,
@@ -407,6 +417,8 @@ class PanelMPLobby extends Panel {
         leaderDropdown.setAttribute("has-border", "false");
         leaderDropdown.setAttribute("has-background", "false");
         leaderDropdown.classList.add("mp-staging__focusable-slot", "my-1", "mx-0\\.5", "flex", "flex-auto");
+        leaderDropdown.setAttribute("data-audio-group-ref", "multiplayer-lobby");
+        leaderDropdown.setAttribute("data-audio-press-ref", "data-audio-dropdown-press");
         if (Configuration.getGame().isHotseat) {
           leaderDropdown.classList.add("mp-leader-dropdown-hotseat");
         }
@@ -561,6 +573,7 @@ class PanelMPLobby extends Panel {
     this.readyButtonLoadingContainer = MustGetElement(".mp-staging__ring-meter__loading", this.Root);
     this.createLoadingAnimation(this.readyButtonLoadingContainer);
     this.updatePlayerInfoSlot();
+    this.updatePlayerInfoSlotContainer();
     const model = this.MPLobbyDataModelProxy.access();
     model.updateGlobalCountdownData();
     if (ContextManager.hasInstanceOf("screen-save-load")) {
@@ -803,6 +816,7 @@ class PanelMPLobby extends Panel {
     this.updateLeftSection();
     this.updateNavTray();
     this.updatePlayerInfoSlot();
+    this.updatePlayerInfoSlotContainer();
     this.updateReadyButtonContainer();
     this.updateReadyDescriptionContainer();
     this.updateBotSection();
@@ -835,12 +849,15 @@ class PanelMPLobby extends Panel {
     this.readyButtonContainer.classList.toggle("justify-end", this.isSmallScreen());
     this.readyButtonContainer.classList.toggle("right-28", this.isSmallScreen());
     this.readyButtonContainer.classList.toggle("-bottom-3", this.isSmallScreen());
-    this.readyButtonContainer.classList.toggle("hidden", this.isSmallScreen() && this.isMobileViewExperience);
+    this.readyButtonContainer.classList.toggle(
+      "hidden",
+      this.isSmallScreen() && this.isMobileViewExperience && !Configuration.getGame().isHotseat
+    );
   }
   updateReadyDescriptionContainer() {
     this.readyDescriptionContainer.classList.toggle(
       "hidden",
-      !this.isSmallScreen() || !this.isMobileViewExperience
+      !this.isSmallScreen() || !this.isMobileViewExperience || Configuration.getGame().isHotseat
     );
   }
   updateShowJoinCodeButton() {
@@ -948,6 +965,12 @@ class PanelMPLobby extends Panel {
     );
     this.playerInfoSlot.classList.toggle("mb-0", this.isSmallScreen() && this.isMobileViewExperience);
   }
+  updatePlayerInfoSlotContainer() {
+    this.playerInfoSlotContainer.classList.toggle(
+      "mb-24",
+      this.isSmallScreen() && this.isMobileViewExperience && Configuration.getGame().isHotseat
+    );
+  }
   updateViewRuleButton() {
     this.viewAllRulesButtonTop.classList.toggle("hidden", !this.isSmallScreen() || this.isMobileViewExperience);
     this.viewAllRulesButtonFarBot.classList.toggle("hidden", !this.isSmallScreen() || !this.isMobileViewExperience);
@@ -1008,6 +1031,7 @@ class PanelMPLobby extends Panel {
     window.dispatchEvent(
       new SendCampaignSetupTelemetryEvent(CampaignSetupType.Abandon, lastHumanCount, lastParticipantCount)
     );
+    Audio.playSound("data-audio-back-button-activate", "multiplayer-lobby");
     super.close();
   }
 }

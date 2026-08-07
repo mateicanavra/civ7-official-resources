@@ -31,9 +31,8 @@
 	</ActionCriteria>
 	<ActionGroups>
 		<ActionGroup id="age-antiquity-art" scope="game" criteria="always">
-			<Actions>				
+			<Actions>
 				<UpdateIcons>
-					<Item>data/icons/advisor-icons.xml</Item>
 					<Item>data/icons/building-icons.xml</Item>
 					<Item>data/icons/celebration-icons.xml</Item>
 					<Item>data/icons/city-state-bonus-icons.xml</Item>
@@ -42,6 +41,13 @@
 					<Item>data/icons/project-icons.xml</Item>
 					<Item>data/icons/unit-icons.xml</Item>
 					<Item>data/icons/wonder-icons.xml</Item>
+				</UpdateIcons>
+			</Actions>
+		</ActionGroup>
+		<ActionGroup id="age-antiquity-art-age-specific" scope="game" criteria="antiquity-age-current">
+			<Actions>				
+				<UpdateIcons>
+					<Item>data/icons/advisor-icons.xml</Item>
 				</UpdateIcons>
 			</Actions>
 		</ActionGroup>
@@ -129,12 +135,15 @@
 		<ActionGroup id="age-antiquity-gameplay" scope="game" criteria="always">
 			<Actions>
 				<UpdateDatabase>
-					<Item>data/gameplay.xml</Item>
 					<Item>data/ai-shared.xml</Item>
+					<Item>data/civilizations-shared-gameeffects.xml</Item>
+					<Item>data/civilizations-shared.xml</Item>
+					<Item>data/gameplay.xml</Item>
+					<Item>data/loading-info.xml</Item>
 					<Item>data/traditions-gameeffects.xml</Item>
-					<Item>data/traditions.xml</Item>
-					<Item>data/traditions-tot.xml</Item>
 					<Item>data/traditions-tot-gameeffects.xml</Item>
+					<Item>data/traditions-tot.xml</Item>
+					<Item>data/traditions.xml</Item>
 					<Item>data/units-shared.xml</Item>
 					<Item>data/unlocks-shared.xml</Item>
 					<Item>data/unlocks-syncretism.xml</Item>
@@ -149,12 +158,11 @@
 					<Item>data/constructibles-gameeffects.xml</Item>
 					<Item>data/constructibles.xml</Item>
 					<Item>data/independents-legacy.xml</Item>
-					<Item>data/loading-info.xml</Item>
 				</UpdateDatabase>
 			</Actions>
 		</ActionGroup>
 		<ActionGroup id="age-antiquity-main" scope="game" criteria="antiquity-age-current">
-			<Actions>				
+			<Actions>
 				<UpdateDatabase>
 					<Item>data/age-active.xml</Item>
 					<Item>data/ai-antiquity.xml</Item>
@@ -168,6 +176,7 @@
 					<Item>data/constructibles-no-persist.xml</Item>
 					<Item>data/crisis-stages.xml</Item>
 					<Item>data/diplomacy-actions.xml</Item>
+					<Item>data/diplomacy-deal-items.xml</Item>
 					<Item>data/diplomacy-gameeffects.xml</Item>
 					<Item>data/discovery-stories-gameeffects.xml</Item>
 					<Item>data/discovery-stories.xml</Item>
@@ -197,10 +206,8 @@
 					<Item>data/metaprogression-gameeffects.xml</Item>
 					<Item>data/narrative-crises-stories-gameeffects.xml</Item>
 					<Item>data/narrative-crises-stories.xml</Item>
-
 					<Item>data/projects.xml</Item>
 					<Item>data/projects-gameeffects.xml</Item>
-
 					<Item>data/religion.xml</Item>
 					<Item>data/religion-gameeffects.xml</Item>
 					<Item>data/resources.xml</Item>
@@ -219,7 +226,7 @@
 					<Item>data/progression-trees-culture-common.xml</Item>
 					<Item>data/progression-trees-culture-common-gameeffects.xml</Item>
 					<Item>data/progression-trees-culture-unique.xml</Item>
-					<Item>data/progression-trees-culture-unique-gameeffects.xml</Item> 
+					<Item>data/progression-trees-culture-unique-gameeffects.xml</Item>
 					<Item>data/progression-trees-culture-tot-common.xml</Item>
 					<Item>data/progression-trees-culture-tot-common-gameeffects.xml</Item>
 				</UpdateDatabase>
@@ -236,8 +243,6 @@
 			<Actions>
 				<UpdateDatabase>
 					<Item>data/civilizations-gameeffects.xml</Item>
-					<Item>data/civilizations-shared.xml</Item>
-					<Item>data/civilizations-shared-gameeffects.xml</Item>
 					<Item>data/civilizations-antiquity.xml</Item>
 				</UpdateDatabase>
 			</Actions>
@@ -247,8 +252,6 @@
 				<UpdateDatabase>
 					<Item>data/progression-trees-culture-unique-ex.xml</Item>
 					<Item>data/progression-trees-culture-unique-ex-gameeffects.xml</Item>
-					<Item>data/civilizations-shared.xml</Item>
-					<Item>data/civilizations-shared-gameeffects.xml</Item>
 					<Item>data/civilizations-exploration.xml</Item>
 				</UpdateDatabase>
 			</Actions>
@@ -258,8 +261,6 @@
 				<UpdateDatabase>
 					<Item>data/progression-trees-culture-unique-mo.xml</Item>
 					<Item>data/progression-trees-culture-unique-mo-gameeffects.xml</Item>
-					<Item>data/civilizations-shared.xml</Item>
-					<Item>data/civilizations-shared-gameeffects.xml</Item>
 					<Item>data/civilizations-modern.xml</Item>
 				</UpdateDatabase>
 			</Actions>

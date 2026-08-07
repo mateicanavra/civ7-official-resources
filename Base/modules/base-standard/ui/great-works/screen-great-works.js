@@ -7,32 +7,19 @@ import { applyPlayerColorsToElement } from '../../../core/ui/utilities/utilities
 import { ComponentID } from '../../../core/ui/utilities/utilities-component-id.js';
 import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
 import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
+import { ViewExperience } from '../../../core/ui-next/services/view-experience.js';
 import GreatWorks from './model-great-works.js';
 import content from './screen-great-works.html.js';
 import styles from './screen-great-works.scss.js';
 
 class ScreenGreatWorks extends Panel {
-  activeDeviceTypeListener = (event) => {
-    this.onActiveDeviceTypeChanged(event);
-  };
-  onGreatWorkUnhovered = () => {
-    this.onFocusOut();
-  };
-  greatWorkSelectedListener = (event) => {
-    this.onGreatWorkSelected(event);
-  };
-  emptySlotSelectedListener = (event) => {
-    this.onEmptySlotSelected(event);
-  };
-  engineInputListener = (inputEvent) => {
-    this.onEngineInput(inputEvent);
-  };
-  rebuildGreatWorksListener = () => {
-    this.rebuildGreatWorksPanel();
-  };
-  navigateInputListener = (navigationEvent) => {
-    this.onNavigateInput(navigationEvent);
-  };
+  activeDeviceTypeListener = this.onActiveDeviceTypeChanged.bind(this);
+  onGreatWorkUnhovered = this.onFocusOut.bind(this);
+  greatWorkSelectedListener = this.onGreatWorkSelected.bind(this);
+  emptySlotSelectedListener = this.onEmptySlotSelected.bind(this);
+  engineInputListener = this.onEngineInput.bind(this);
+  rebuildGreatWorksListener = this.rebuildGreatWorksPanel.bind(this);
+  navigateInputListener = this.onNavigateInput.bind(this);
   currentlySelectedWork = null;
   lastSelectedElementId = "";
   settlementFilter = "all";
@@ -50,6 +37,10 @@ class ScreenGreatWorks extends Panel {
     { label: "LOC_UI_SETTLEMENT_TAB_BAR_ALL", id: "all" }
   ];
   settlementTabBarListener = this.onSettlementTabBarSelected.bind(this);
+  onInitialize() {
+    super.onInitialize();
+    this.settlementTabBar.setAttribute("tabindex", "-1");
+  }
   onAttach() {
     super.onAttach();
     this.Root.addEventListener(InputEngineEventName, this.engineInputListener);
@@ -62,18 +53,16 @@ class ScreenGreatWorks extends Panel {
     });
     const frame = MustGetElement("fxs-frame", this.Root);
     frame.setAttribute("outside-safezone-mode", "full");
-    const uiViewExperience = UI.getViewExperience();
-    if (uiViewExperience == UIViewExperience.Mobile) {
+    if (ViewExperience() == UIViewExperience.Mobile) {
       frame.setAttribute("frame-style", "f1");
       frame.setAttribute("no-filigree", "true");
       frame.setAttribute("override-styling", "relative flex size-full");
       const topFiligree = MustGetElement(".great-works-top-border", this.Root);
       topFiligree.classList.add("hidden");
       const header = MustGetElement(".great-works-header", this.Root);
-      if (frame.children.length > 0) {
-        frame.insertBefore(header, frame.children[0]);
-      } else {
-        frame.appendChild(header);
+      const columnsParent = MustGetElement(".great-works-columns", this.Root).parentNode;
+      if (columnsParent) {
+        columnsParent.insertBefore(header, columnsParent.children[0]);
       }
     }
     this.updateAll();
@@ -162,14 +151,11 @@ class ScreenGreatWorks extends Panel {
       return;
     }
     const cityList = MustGetElement(".city-slots-displayed-list", this.Root);
-    if (cityList.hasChildNodes()) {
+    if (this.hasSettlementsForCurrentFilter(cityList)) {
       FocusManager.get().setFocus(cityList);
       return;
     } else {
-      const focusElement = MustGetElement(".great-works-columns", this.Root);
-      if (focusElement) {
-        FocusManager.get().setFocus(focusElement);
-      }
+      FocusManager.get().setFocus(this.settlementTabBar);
     }
   }
   onReceiveFocus() {
@@ -191,7 +177,7 @@ class ScreenGreatWorks extends Panel {
     this.settlementTabBar.setAttribute("tab-items", JSON.stringify(this.settlementTabData));
     this.settlementTabBar.setAttribute("selected-tab-index", "2");
     this.settlementTabBar.addEventListener("tab-selected", this.settlementTabBarListener);
-    if (UI.getViewExperience() != UIViewExperience.Mobile) {
+    if (ViewExperience() != UIViewExperience.Mobile) {
       this.settlementTabBar.setAttribute("nav-help-right-class", "relative right-0");
       this.settlementTabBar.setAttribute("nav-help-left-class", "relative left-0");
     }
@@ -609,6 +595,16 @@ class ScreenGreatWorks extends Panel {
   onSettlementTabBarSelected(event) {
     this.settlementFilter = event.detail.selectedItem.id;
     this.filterSettlementByType(this.settlementFilter);
+  }
+  hasSettlementsForCurrentFilter(cityList) {
+    const filter = this.settlementFilter;
+    for (let i = 0; i < cityList.children.length; i++) {
+      const type = cityList.children[i].getAttribute("settlement-type");
+      if (filter === "all" || type === filter || filter === "city" && type === "capital") {
+        return true;
+      }
+    }
+    return false;
   }
   filterSettlementByType(settlementTypeFilter) {
     const cityList = this.Root.querySelector(".city-slots-displayed-list");

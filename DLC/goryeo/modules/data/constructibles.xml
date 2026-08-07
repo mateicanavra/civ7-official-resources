@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Types>
+		<!--Civ Unique Improvements-->
+		<Row Type="IMPROVEMENT_GAMA" Kind="KIND_CONSTRUCTIBLE"/>
+		<!--Wonders-->
+		<Row Type="WONDER_BUSEOKSA" Kind="KIND_CONSTRUCTIBLE"/>
+	</Types>
+	<TypeQuotes>
+		<Row Type="WONDER_BUSEOKSA" Quote="LOC_QUOTE_WONDER_BUSEOKSA" QuoteAuthor="LOC_QUOTE_AUTHOR_WONDER_BUSEOKSA" QuoteAudio="VO_Quote_Buseoksa"/>
+	</TypeQuotes>
+	<Constructibles>
+		<!--Civ Unique Improvements-->
+		<Row ConstructibleType="IMPROVEMENT_GAMA" Name="LOC_IMPROVEMENT_GAMA_NAME" Description="LOC_IMPROVEMENT_GAMA_DESCRIPTION" Tooltip="LOC_IMPROVEMENT_GAMA_TOOLTIP" ConstructibleClass="IMPROVEMENT" Cost="90" CostProgressionModel="COST_PROGRESSION_PREVIOUS_COPIES_CITY" CostProgressionParam1="20"  Population="1" Age="AGE_EXPLORATION"/>
+		<!--Wonders-->
+		<Row ConstructibleType="WONDER_BUSEOKSA" Name="LOC_WONDER_BUSEOKSA_NAME" Description="LOC_WONDER_BUSEOKSA_DESCRIPTION" AdjacentTerrain="TERRAIN_MOUNTAIN" Tooltip="LOC_WONDER_BUSEOKSA_TOOLTIP" ConstructibleClass="WONDER" Cost="600" Population="0" ImmuneDamage="true" Age="AGE_EXPLORATION" RequiresUnlock="true"/>
+	</Constructibles>
+	<Improvements>
+		<!--Civ Unique Improvements-->
+		<Row ConstructibleType="IMPROVEMENT_GAMA" ResourceTier="0" CityBuildable="true" TraitType="TRAIT_GORYEO"/>
+	</Improvements>
+	<Wonders>
+		<Row ConstructibleType="WONDER_BUSEOKSA" MaxWorldInstances="1"/>
+	</Wonders>
+	<Constructible_RequiredFeatureClasses>
+		<Row ConstructibleType="IMPROVEMENT_GAMA" FeatureClassType="FEATURE_CLASS_VEGETATED"/>
+	</Constructible_RequiredFeatureClasses>
+	<Constructible_ValidBiomes>
+		<Row ConstructibleType="WONDER_BUSEOKSA" BiomeType="BIOME_GRASSLAND"/>
+		<Row ConstructibleType="WONDER_BUSEOKSA" BiomeType="BIOME_TROPICAL"/>
+	</Constructible_ValidBiomes>
+	<TypeTags>
+		<Row Type="IMPROVEMENT_GAMA" Tag="UNIQUE_IMPROVEMENT"/>
+		<Row Type="IMPROVEMENT_GAMA" Tag="AGELESS"/>
+		<Row Type="WONDER_BUSEOKSA" Tag="AGELESS"/>
+	</TypeTags>
+	<Constructible_ValidDistricts>
+		<!--Civ Unique Improvements-->
+		<Row ConstructibleType="IMPROVEMENT_GAMA" DistrictType="DISTRICT_RURAL"/>
+		<!--Wonders-->
+		<Row ConstructibleType="WONDER_BUSEOKSA" DistrictType="DISTRICT_WONDER"/>
+	</Constructible_ValidDistricts>
+	<Constructible_YieldChanges>
+		<Row ConstructibleType="IMPROVEMENT_GAMA" YieldType="YIELD_CULTURE" YieldChange="3"/>
+		<Row ConstructibleType="WONDER_BUSEOKSA" YieldType="YIELD_HAPPINESS" YieldChange="2"/>
+	</Constructible_YieldChanges>
+	<Constructible_Adjacencies>
+		<Row ConstructibleType="IMPROVEMENT_GAMA" YieldChangeId="GamaProductionWarehouse"/>
+	</Constructible_Adjacencies>
+	<Adjacency_YieldChanges>
+		<Row ID="GamaProductionWarehouse" YieldType="YIELD_PRODUCTION" YieldChange="1" TilesRequired="1" ProjectMaxYield="true" AdjacentConstructibleTag="WAREHOUSE"/>
+	</Adjacency_YieldChanges>
+	<Constructible_Plunders>
+		<!--Civ Unique Improvements-->
+		<Row ConstructibleType="IMPROVEMENT_GAMA" PlunderType="PLUNDER_HEAL" Amount="30"/>
+	</Constructible_Plunders>
+	<ConstructibleModifiers>
+		<Row ConstructibleType="WONDER_BUSEOKSA" ModifierId="MOD_BUSEOKSA_INFLUENCE"/>
+		<Row ConstructibleType="WONDER_BUSEOKSA" ModifierId="MOD_BUSEOKSA_ECSTATIC_GOLD"/>
+	</ConstructibleModifiers>
+	<Constructible_Advisories>
+		<Row ConstructibleType="IMPROVEMENT_GAMA" AdvisoryClassType="ADVISORY_CLASS_CULTURE"/>
+		<Row ConstructibleType="WONDER_BUSEOKSA" AdvisoryClassType="ADVISORY_CLASS_CULTURE"/>
+	</Constructible_Advisories>
+</Database>

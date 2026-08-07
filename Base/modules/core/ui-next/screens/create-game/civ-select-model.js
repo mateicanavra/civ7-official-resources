@@ -47,9 +47,7 @@ function createCivSelectModel() {
       const leadersData = cachedCivDatabase.query(
         "select LeaderType, LeaderName from Leaders"
       );
-      const legacyCivTraitsData = cachedCivDatabase.query(
-        "select CivilizationType, TraitType from LegacyCivilizationTraits"
-      );
+      const legacyCivTraitsData = [];
       const traditionsData = cachedCivDatabase.query(
         "SELECT Traditions.TraitType, Traditions.Name, Traditions.Description, Traditions.AgeType, COALESCE(Nodes.Name, IIF(Syncretism.CivilizationType IS NULL, NULL, 'LOC_UI_SYNCRETISM_TITLE')) AS Civic FROM Traditions LEFT JOIN ( SELECT * FROM ProgressionTreeNodeUnlocks INNER JOIN ProgressionTreeNodes ON ProgressionTreeNodeUnlocks.ProgressionTreeNodeType = ProgressionTreeNodes.ProgressionTreeNodeType ) AS Nodes ON Traditions.TraditionType = Nodes.TargetType LEFT JOIN CivSelfSyncretismUnlocks AS Syncretism ON Syncretism.UnlockType = Traditions.TraditionType WHERE Civic IS NOT NULL"
       );

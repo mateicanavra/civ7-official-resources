@@ -1,17 +1,17 @@
-import AdviceManager from '../../../base-standard/ui/advice/advice-manager.js';
+import { adviceAddItem, adviceAddBundle } from '../../../base-standard/ui/advice/advice-manager.js';
 import { anyTechUnlocked, shouldSelect } from '../../../base-standard/ui/advice/advice-support.js';
 
 const TURN_WAIT = 20;
 const TURN_START = 10;
 const TURN_OFFSET = 4;
-AdviceManager.addItem({
+adviceAddItem({
   id: "ADVICE_ANTIQUITY_SCIENCE_SCIENTIFIC_VICTORY",
   type: AdvisorTypes.SCIENCE,
   onSelect: () => {
     return Game.turn == 1;
   }
 });
-AdviceManager.addItem({
+adviceAddItem({
   id: "ADVICE_ANTIQUITY_SCIENCE_SPECIALISTS",
   // Player can have a specialist in their capital
   type: AdvisorTypes.SCIENCE,
@@ -26,7 +26,7 @@ AdviceManager.addItem({
     return false;
   }
 });
-AdviceManager.addItem({
+adviceAddItem({
   id: "ADVICE_ANTIQUITY_SCIENCE_TECH_MASTERIES",
   // Player has unlocked the Writing technology
   type: AdvisorTypes.SCIENCE,
@@ -34,7 +34,7 @@ AdviceManager.addItem({
     return anyTechUnlocked(["NODE_TECH_AQ_WRITING"]);
   }
 });
-AdviceManager.addItem({
+adviceAddItem({
   id: "ADVICE_ANTIQUITY_SCIENCE_TRIUMPH",
   // Player has researched Currency or Engineering
   type: AdvisorTypes.SCIENCE,
@@ -42,7 +42,7 @@ AdviceManager.addItem({
     return anyTechUnlocked(["NODE_TECH_AQ_CURRENCY", "NODE_TECH_AQ_ENGINEERING"]);
   }
 });
-AdviceManager.addBundle({
+adviceAddBundle({
   id: "scienceMisc01",
   type: AdvisorTypes.SCIENCE,
   pages: [

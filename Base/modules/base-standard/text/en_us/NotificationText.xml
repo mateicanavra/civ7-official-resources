@@ -309,10 +309,16 @@
 			<Text>Your ally {1_Ally1Name} has gone to war with your ally {2_Ally2Name}.</Text>
 		</Row>
 		<Row Tag="LOC_NOTIFICATION_DIPLOMATIC_AGENDA_DEFAULT_MESSAGE">
-			<Text>The Agenda of {1_LeaderName} has changed your Relationship.</Text>
+			<Text>{1_LeaderName} Has a Message</Text>
 		</Row>
 		<Row Tag="LOC_NOTIFICATION_DIPLOMATIC_AGENDA_DEFAULT_SUMMARY">
 			<Text>The Agenda of {1_LeaderName} has changed your Relationship.</Text>
+		</Row>
+		<Row Tag="LOC_NOTIFICATION_DIPLOMATIC_AGENDA_MINOR_MESSAGE">
+			<Text>Your Relationship with {1_LeaderName} has changed by {2: number +#;-#} due to their Agenda.</Text>
+		</Row>
+		<Row Tag="LOC_NOTIFICATION_DIPLOMATIC_AGENDA_MINOR_SUMMARY">
+			<Text>Your Relationship with {1_LeaderName} has changed by {2: number +#;-#} due to their Agenda.</Text>
 		</Row>
 		<Row Tag="LOC_NOTIFICATION_DIPLOMATIC_ESPIONAGE_REVEALED_TARGET">
 			<Text>You discovered {1_LeaderName} performing the Espionage Action {2_ActionName} against you.  For being revealed they suffer a {3_PenaltyInfluence} Influence penalty for {4_PenaltyTurns} turns.  {5_SuccessFailStr}</Text>
@@ -546,7 +552,7 @@
 			<Text>Independent Power Dispersed</Text>
 		</Row>
 		<Row Tag="LOC_NOTIFICATION_DISPERSE_IP_REWARD_SUMMARY">
-			<Text>The Independent Power of {1_IPName} has been dispersed. You have received {2_reward} [{3_YieldIcon}]{4_YieldType}.</Text>
+			<Text>The Independent Power of {1_IPName} has been dispersed. You have received {2_reward} {3_YieldType}.</Text>
 		</Row>
 		<Row Tag="LOC_NOTIFICATION_WONDER_COMPLETED_MESSAGE">
 			<Text>Wonder Completed</Text>

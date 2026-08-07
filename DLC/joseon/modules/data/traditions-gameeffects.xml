@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+	<Modifier id="GWAGEO_I_MOD_CULTURE_SPECIALISTS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_WORKER_YIELD">
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_GWAGEO_I_NAME</Argument>
+		<String context="Description">LOC_TRADITION_GWAGEO_I_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="GWAGEO_I_MOD_HAPPINESS_SPECIALISTS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_WORKER_YIELD">
+		<Argument name="YieldType">YIELD_HAPPINESS</Argument>
+		<Argument name="Amount">-1</Argument>
+		<Argument name="Divisor">2</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_GWAGEO_I_NAME</Argument>
+	</Modifier>
+	<Modifier id="GWAGEO_MOD_CULTURE_SPECIALISTS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_WORKER_YIELD">
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_GWAGEO_II_NAME</Argument>
+		<String context="Description">LOC_TRADITION_GWAGEO_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="SILHAK_MOD_SCIENCE_SPECIALISTS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_WORKER_YIELD">
+		<Argument name="YieldType">YIELD_SCIENCE</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_SILHAK_NAME</Argument>
+		<String context="Description">LOC_TRADITION_SILHAK_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="YANGBEOBMIUI_I_MOD_CAPITAL_CULTURE_POP" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_ADJUST_YIELD_PER_POPULATION">
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="All">true</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Divisor">2</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_YANGBEOBMIUI_I_NAME</Argument>
+		<String context="Description">LOC_TRADITION_YANGBEOBMIUI_I_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="YANGBEOBMIUI_MOD_CAPITAL_CULTURE_POP" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_ADJUST_YIELD_PER_POPULATION">
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="All">true</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Divisor">2</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_YANGBEOBMIUI_II_NAME</Argument>
+		<String context="Description">LOC_TRADITION_YANGBEOBMIUI_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="YANGBEOBMIUI_I_MOD_TOWN_FOOD" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_TOWN"/>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_FOOD</Argument>
+		<Argument name="Percent">15</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_YANGBEOBMIUI_I_NAME</Argument>
+	</Modifier>
+	<Modifier id="YANGBEOBMIUI_MOD_TOWN_FOOD" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_TOWN"/>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_FOOD</Argument>
+		<Argument name="Percent">15</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_YANGBEOBMIUI_II_NAME</Argument>
+	</Modifier>
+	<!-- Revolucion -->
+	<Modifier id="YANGBAN_BUREAUCRACY_I_MOD_3_SPECIALISTS_YIELD" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_ATTACH_MODIFIERS">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_CITY"/>
+		</SubjectRequirements>
+		<Argument name="ModifierId">ATTACH_YANGBAN_BUREAUCRACY_I_MOD_3_SPECIALISTS_YIELD</Argument>
+		<String context="Description">LOC_TRADITION_YANGBAN_BUREAUCRACY_I_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="ATTACH_YANGBAN_BUREAUCRACY_I_MOD_3_SPECIALISTS_YIELD" collection="COLLECTION_CITY_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_DISTRICT_CLASS">
+				<Argument name="DistrictClass">CITYCENTER, URBAN</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_PLOT_HAS_X_WORKER_POPULATION">
+				<Argument name="MinWorkerPopulation">2</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_FOOD, YIELD_PRODUCTION</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_YANGBAN_BUREAUCRACY_I_NAME</Argument>
+	</Modifier>
+	<Modifier id="YANGBAN_BUREAUCRACY_MOD_3_SPECIALISTS_YIELD" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_ATTACH_MODIFIERS">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_CITY"/>
+		</SubjectRequirements>
+		<Argument name="ModifierId">ATTACH_YANGBAN_BUREAUCRACY_MOD_3_SPECIALISTS_YIELD</Argument>
+		<String context="Description">LOC_TRADITION_YANGBAN_BUREAUCRACY_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="ATTACH_YANGBAN_BUREAUCRACY_MOD_3_SPECIALISTS_YIELD" collection="COLLECTION_CITY_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_DISTRICT_CLASS">
+				<Argument name="DistrictClass">CITYCENTER, URBAN</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_PLOT_HAS_X_WORKER_POPULATION">
+				<Argument name="MinWorkerPopulation">3</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_FOOD, YIELD_PRODUCTION</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_YANGBAN_BUREAUCRACY_II_NAME</Argument>
+	</Modifier>
+	<Modifier id="MOD_UNLOCK_JOSEON_SYNCRETISM_ANTIQUITY" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
+			<Argument name="Tradition">TRADITION_JOSEON_SYNCRETISM_ANTIQUITY</Argument>
+		</Modifier>
+	<Modifier id="MOD_UNLOCK_JOSEON_SYNCRETISM_EXPLORATION" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
+			<Argument name="Tradition">TRADITION_JOSEON_SYNCRETISM_EXPLORATION</Argument>
+	</Modifier>
+	<Modifier id="JOSEON_SYNCRETISM_ANTIQUITY_MOD_CAPITAL_HAPPINESS_POP" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_ADJUST_YIELD_PER_POPULATION">
+		<Argument name="YieldType">YIELD_HAPPINESS</Argument>
+		<Argument name="All">true</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Divisor">2</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_JOSEON_SYNCRETISM_ANTIQUITY_NAME</Argument>
+		<String context="Description">LOC_TRADITION_JOSEON_SYNCRETISM_ANTIQUITY_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="JOSEON_SYNCRETISM_EXPLORATION_MOD_CAPITAL_HAPPINESS_POP" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_ADJUST_YIELD_PER_POPULATION">
+		<Argument name="YieldType">YIELD_HAPPINESS</Argument>
+		<Argument name="All">true</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_JOSEON_SYNCRETISM_EXPLORATION_NAME</Argument>
+		<String context="Description">LOC_TRADITION_JOSEON_SYNCRETISM_EXPLORATION_DESCRIPTION</String>
+	</Modifier>
+</GameEffects>

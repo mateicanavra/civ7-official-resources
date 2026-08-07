@@ -1,10 +1,10 @@
-import { createSignal, createContext, useContext } from '../../../../core/vendor/solid-js/dist/solid.js';
-import { createMutable } from '../../../../core/vendor/solid-js/store/dist/store.js';
+import { createSignal, createEffect, on, createContext, useContext } from '../../../../core/vendor/solid-js/dist/solid.js';
+import { createStore } from '../../../../core/vendor/solid-js/store/dist/store.js';
 import ContextManager from '../../../../core/ui/context-manager/context-manager.js';
 import { useAudio } from '../../../../core/ui-next/services/audio-support.js';
-import AdviceManager from '../../../ui/advice/advice-manager.js';
+import { useLocalPlayerId } from '../../../../core/ui-next/utilities/game-core-utilities.js';
+import getAdviceManager from '../../../ui/advice/advice-manager.js';
 import PopupSequencer from '../../../ui/popup-sequencer/popup-sequencer.js';
-import { AgePortraitTags } from '../../../ui/tutorial/tutorial-callout.js';
 
 const AgeAdviceTags = {
   [Game.getHash("AGE_ANTIQUITY")]: "ANTIQUITY",
@@ -20,26 +20,26 @@ var AdvicePanelTypes = /* @__PURE__ */ ((AdvicePanelTypes2) => {
 })(AdvicePanelTypes || {});
 function createAdvisorCouncilScreenModel() {
   const [followed, setFollowed] = createSignal({
-    [AdvisorTypes.CULTURE]: AdviceManager.isCultureFollowed(),
-    [AdvisorTypes.ECONOMIC]: AdviceManager.isEconomicFollowed(),
-    [AdvisorTypes.MILITARY]: AdviceManager.isMilitaryFollowed(),
-    [AdvisorTypes.SCIENCE]: AdviceManager.isScientificFollowed()
+    [AdvisorTypes.CULTURE]: getAdviceManager().isCultureFollowed(),
+    [AdvisorTypes.ECONOMIC]: getAdviceManager().isEconomicFollowed(),
+    [AdvisorTypes.MILITARY]: getAdviceManager().isMilitaryFollowed(),
+    [AdvisorTypes.SCIENCE]: getAdviceManager().isScientificFollowed()
   });
   const [selectedAdvisorCard, setSelectedAdvisorCard] = createSignal(AdvisorTypes.NO_ADVISOR);
   const [selectedPanel, setSelectedPanel] = createSignal(4 /* None */);
   const followAdvisor = (advisor) => {
     switch (advisor) {
       case AdvisorTypes.CULTURE:
-        AdviceManager.setCultureFollowed(true);
+        getAdviceManager().setCultureFollowed(true);
         break;
       case AdvisorTypes.ECONOMIC:
-        AdviceManager.setEconomicFollowed(true);
+        getAdviceManager().setEconomicFollowed(true);
         break;
       case AdvisorTypes.MILITARY:
-        AdviceManager.setMilitaryFollowed(true);
+        getAdviceManager().setMilitaryFollowed(true);
         break;
       case AdvisorTypes.SCIENCE:
-        AdviceManager.setScientificFollowed(true);
+        getAdviceManager().setScientificFollowed(true);
         break;
     }
     setFollowed((prev) => ({ ...prev, [advisor]: true }));
@@ -47,16 +47,16 @@ function createAdvisorCouncilScreenModel() {
   const unfollowAdvisor = (advisor) => {
     switch (advisor) {
       case AdvisorTypes.CULTURE:
-        AdviceManager.setCultureFollowed(false);
+        getAdviceManager().setCultureFollowed(false);
         break;
       case AdvisorTypes.ECONOMIC:
-        AdviceManager.setEconomicFollowed(false);
+        getAdviceManager().setEconomicFollowed(false);
         break;
       case AdvisorTypes.MILITARY:
-        AdviceManager.setMilitaryFollowed(false);
+        getAdviceManager().setMilitaryFollowed(false);
         break;
       case AdvisorTypes.SCIENCE:
-        AdviceManager.setScientificFollowed(false);
+        getAdviceManager().setScientificFollowed(false);
         break;
     }
     setFollowed((prev) => ({ ...prev, [advisor]: false }));
@@ -96,22 +96,22 @@ function createAdvisorCouncilScreenModel() {
     advisorData.push({
       type: AdvisorTypes.CULTURE,
       title: "CULTURE",
-      pages: AdviceManager.getCulturePages()
+      pages: getAdviceManager().getCulturePages()
     });
     advisorData.push({
       type: AdvisorTypes.ECONOMIC,
       title: "ECONOMIC",
-      pages: AdviceManager.getEconomicPages()
+      pages: getAdviceManager().getEconomicPages()
     });
     advisorData.push({
       type: AdvisorTypes.MILITARY,
       title: "MILITARY",
-      pages: AdviceManager.getMilitaryPages()
+      pages: getAdviceManager().getMilitaryPages()
     });
     advisorData.push({
       type: AdvisorTypes.SCIENCE,
       title: "SCIENCE",
-      pages: AdviceManager.getScientificPages()
+      pages: getAdviceManager().getScientificPages()
     });
     return advisorData;
   }
@@ -134,16 +134,16 @@ function createAdvisorCouncilScreenModel() {
     let pages = [];
     switch (advisor) {
       case AdvisorTypes.CULTURE:
-        pages = AdviceManager.getCulturePages();
+        pages = getAdviceManager().getCulturePages();
         break;
       case AdvisorTypes.ECONOMIC:
-        pages = AdviceManager.getEconomicPages();
+        pages = getAdviceManager().getEconomicPages();
         break;
       case AdvisorTypes.MILITARY:
-        pages = AdviceManager.getMilitaryPages();
+        pages = getAdviceManager().getMilitaryPages();
         break;
       case AdvisorTypes.SCIENCE:
-        pages = AdviceManager.getScientificPages();
+        pages = getAdviceManager().getScientificPages();
         break;
     }
     if (pages?.length) {
@@ -154,24 +154,18 @@ function createAdvisorCouncilScreenModel() {
     }
   }
   function getAdvisorPortraitURL(advisor) {
-    const ageTag = AgePortraitTags[Game.age];
-    if (ageTag !== void 0) {
-      switch (advisor) {
-        case AdvisorTypes.CULTURE:
-          return `blp:adv_culture_${ageTag}`;
-        case AdvisorTypes.ECONOMIC:
-          return `blp:adv_economic_${ageTag}`;
-        case AdvisorTypes.MILITARY:
-          return `blp:adv_military_${ageTag}`;
-        case AdvisorTypes.SCIENCE:
-          return `blp:adv_science_${ageTag}`;
-        default:
-          console.error(`Advisor-Screen-Model: unable to get advisr portrait URL for '${advisor}'.`);
-          return "";
-      }
-    } else {
-      console.error(`Advisor-Screen-Model: unable to get ageTag for '${Game.age}'.`);
-      return "";
+    switch (advisor) {
+      case AdvisorTypes.CULTURE:
+        return UI.getIconURL("ADVISOR_CULTURE");
+      case AdvisorTypes.ECONOMIC:
+        return UI.getIconURL("ADVISOR_ECONOMIC");
+      case AdvisorTypes.MILITARY:
+        return UI.getIconURL("ADVISOR_MILITARY");
+      case AdvisorTypes.SCIENCE:
+        return UI.getIconURL("ADVISOR_SCIENCE");
+      default:
+        console.error(`Advisor-Screen-Model: unable to get advisr portrait URL for '${advisor}'.`);
+        return "";
     }
   }
   function handleClickCloseScreen() {
@@ -194,7 +188,7 @@ function createAdvisorCouncilScreenModel() {
       ornatePanelData.topIconBackgroundTint = variants.primaryColor.tintColor;
     }
   }
-  const model = createMutable({
+  const [model, setModel] = createStore({
     clickCloseScreen: handleClickCloseScreen,
     clickClosePopup: handleClickClosePopup,
     advisorInitialQuote: getAdvisorsInitialQuote,
@@ -211,6 +205,31 @@ function createAdvisorCouncilScreenModel() {
     playFollowAudio,
     ornatePanelData
   });
+  const localPlayerId = useLocalPlayerId();
+  createEffect(
+    on(
+      localPlayerId,
+      (playerId) => {
+        setFollowed({
+          [AdvisorTypes.CULTURE]: getAdviceManager().isCultureFollowed(),
+          [AdvisorTypes.ECONOMIC]: getAdviceManager().isEconomicFollowed(),
+          [AdvisorTypes.MILITARY]: getAdviceManager().isMilitaryFollowed(),
+          [AdvisorTypes.SCIENCE]: getAdviceManager().isScientificFollowed()
+        });
+        setModel("advisorsData", getAdvisorsData());
+        const currentPlayer = Players.get(playerId);
+        if (currentPlayer != null) {
+          const playerColor = UI.Color.getPlayerColors(playerId);
+          if (playerColor) {
+            const variants = UI.Color.createPlayerColorVariants(playerColor);
+            setModel("ornatePanelData", "topIconBackgroundTint", variants.primaryColor.tintColor);
+          }
+        }
+      },
+      { defer: true }
+      // Defer prevents this from running on the initial mount, acting just like your old engine.on listener
+    )
+  );
   return model;
 }
 const AdvisorCouncilScreenContext = createContext();

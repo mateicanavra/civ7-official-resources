@@ -592,6 +592,9 @@
     <Replace Tag="LOC_GROUPID_PLAYERDIFFICULTY" Language="zh_Hans_CN">
       <Text>玩家难度设置</Text>
     </Replace>
+    <Replace Tag="LOC_GROUPID_VICTORYOPTIONS" Language="zh_Hans_CN">
+      <Text>胜利设置</Text>
+    </Replace>
     <Replace Tag="LOC_HOTSEAT_ENTER_PASSWORD_HERE" Language="zh_Hans_CN">
       <Text>在此处密码</Text>
     </Replace>
@@ -657,6 +660,9 @@
     </Replace>
     <Replace Tag="LOC_JOIN_GAME_CONNECTION_REJECTED" Language="zh_Hans_CN">
       <Text>未能连接到游戏房间。如果使用了加入密码，请检查并重试。</Text>
+    </Replace>
+    <Replace Tag="LOC_JOIN_GAME_CROSSPLAY_DISABLED" Language="zh_Hans_CN">
+      <Text>禁用跨平台游戏时无法加入跨平台游戏。可以在选项菜单中启用跨平台游戏。</Text>
     </Replace>
     <Replace Tag="LOC_JOIN_GAME_JOINCODE_SYNTAX" Language="zh_Hans_CN">
       <Text>加入密码错误。请检查加入密码并重试。</Text>
@@ -3096,7 +3102,7 @@
       <Text>第一公民</Text>
     </Replace>
     <Replace Tag="LOC_PROFILE_TITLE_BENJAMIN_FRANKLIN" Language="zh_Hans_CN">
-      <Text>美国第一人</Text>
+      <Text>首个美国人</Text>
     </Replace>
     <Replace Tag="LOC_PROFILE_TITLE_CATHERINE" Language="zh_Hans_CN">
       <Text>北方之星</Text>
@@ -3186,7 +3192,7 @@
       <Text>民族英雄</Text>
     </Replace>
     <Replace Tag="LOC_PROFILE_TITLE_LAFAYETTE" Language="zh_Hans_CN">
-      <Text>两世英雄</Text>
+      <Text>两个世界的英雄</Text>
     </Replace>
     <Replace Tag="LOC_PROFILE_TITLE_MACHIAVELLI" Language="zh_Hans_CN">
       <Text>君主</Text>
@@ -3890,9 +3896,6 @@
     <Replace Tag="LOC_UI_CREATE_GAME_GAME_START_CIV_SELECTION" Language="zh_Hans_CN">
       <Text>游戏初始文明选择</Text>
     </Replace>
-    <Replace Tag="LOC_UI_CREATE_GAME_HEIGHT_OF_POWER" Language="zh_Hans_CN">
-      <Text>[权力巅峰文本]</Text>
-    </Replace>
     <Replace Tag="LOC_UI_CREATE_GAME_HEIGHT_OF_POWER_DESCRIPTION" Language="zh_Hans_CN">
       <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</Text>
     </Replace>
@@ -3901,9 +3904,6 @@
     </Replace>
     <Replace Tag="LOC_UI_CREATE_GAME_HISTORICAL_RANDOM_DESCRIPTION" Language="zh_Hans_CN">
       <Text>将选择与领袖存在历史、地理或战略关联的文明。</Text>
-    </Replace>
-    <Replace Tag="LOC_UI_CREATE_GAME_HOWWHEN_IS_TEST_OF_TIME_ACTIVATED" Language="zh_Hans_CN">
-      <Text>[如何/何时激活岁月洗礼的文本]</Text>
     </Replace>
     <Replace Tag="LOC_UI_CREATE_GAME_HOWWHEN_IS_TEST_OF_TIME_ACTIVATED_DESCRIPTION" Language="zh_Hans_CN">
       <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</Text>
@@ -3994,9 +3994,6 @@
     </Replace>
     <Replace Tag="LOC_UI_CREATE_GAME_UNLOCKED_BY_DESCRIPTION" Language="zh_Hans_CN">
       <Text>达成任意条件来解锁此文明。</Text>
-    </Replace>
-    <Replace Tag="LOC_UI_CREATE_GAME_WHAT_IS_TEST_OF_TIME" Language="zh_Hans_CN">
-      <Text>[何为岁月洗礼文本]</Text>
     </Replace>
     <Replace Tag="LOC_UI_CREATE_GAME_WHAT_IS_TEST_OF_TIME_DESCRIPTION" Language="zh_Hans_CN">
       <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</Text>
@@ -4194,19 +4191,22 @@
       <Text>切换到下个就绪单位</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_OPEN_ATTRIBUTES" Language="zh_Hans_CN">
-      <Text>打开属性</Text>
+      <Text>开关属性</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_OPEN_ATTRIBUTES_TT" Language="zh_Hans_CN">
-      <Text>打开属性画面</Text>
+      <Text>打开或关闭属性画面</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_OPEN_CIVILOPEDIA" Language="zh_Hans_CN">
-      <Text>打开文明百科</Text>
+      <Text>开关文明百科</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_OPEN_CIVILOPEDIA_TT" Language="zh_Hans_CN">
+      <Text>打开或关闭文明百科</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_OPEN_GOVERNMENT" Language="zh_Hans_CN">
-      <Text>打开政体</Text>
+      <Text>开关政体</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_OPEN_GOVERNMENT_TT" Language="zh_Hans_CN">
-      <Text>打开政体画面</Text>
+      <Text>打开或关闭政体画面</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_PAUSE_ONLINE_GAME" Language="zh_Hans_CN">
       <Text>暂停在线游戏</Text>
@@ -4250,14 +4250,29 @@
     <Replace Tag="LOC_UI_KBM_MAPPING_SECONDARY_KEY" Language="zh_Hans_CN">
       <Text>次要</Text>
     </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_ADVISORS" Language="zh_Hans_CN">
+      <Text>开关顾问理事会</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_ADVISORS_TT" Language="zh_Hans_CN">
+      <Text>打开或关闭顾问理事会画面</Text>
+    </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_CIVICS_SCREEN" Language="zh_Hans_CN">
-      <Text>开关市政画面</Text>
+      <Text>开关文化树</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_CIVICS_SCREEN_TT" Language="zh_Hans_CN">
+      <Text>打开或关闭文化树</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_GREAT_PEOPLE_SCREEN" Language="zh_Hans_CN">
-      <Text>开关伟人画面</Text>
+      <Text>开关伟人</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_GREAT_PEOPLE_SCREEN_TT" Language="zh_Hans_CN">
+      <Text>打开或关闭伟人画面</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_GREAT_WORKS_SCREEN" Language="zh_Hans_CN">
-      <Text>开关巨作画面</Text>
+      <Text>开关巨作</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_GREAT_WORKS_SCREEN_TT" Language="zh_Hans_CN">
+      <Text>打开或关闭巨作画面</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_GRID" Language="zh_Hans_CN">
       <Text>开关网格</Text>
@@ -4267,6 +4282,12 @@
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_JOURNAL" Language="zh_Hans_CN">
       <Text>开关日志</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_LEGACIES" Language="zh_Hans_CN">
+      <Text>开关传承</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_LEGACIES_TT" Language="zh_Hans_CN">
+      <Text>打开或关闭传承画面</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_LENS_CONTINENT" Language="zh_Hans_CN">
       <Text>大陆</Text>
@@ -4293,10 +4314,16 @@
       <Text>开关贸易滤镜</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_RANKINGS_SCREEN" Language="zh_Hans_CN">
-      <Text>开关胜利画面</Text>
+      <Text>开关胜利</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_RANKINGS_SCREEN_TT" Language="zh_Hans_CN">
+      <Text>打开或关闭胜利画面</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_RELIGION" Language="zh_Hans_CN">
-      <Text>开关宗教面板</Text>
+      <Text>开关宗教</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_RELIGION_TT" Language="zh_Hans_CN">
+      <Text>打开或关闭宗教画面</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_RESOURCE_ICONS" Language="zh_Hans_CN">
       <Text>开关资源图标</Text>
@@ -4310,8 +4337,14 @@
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_TECH_TREE" Language="zh_Hans_CN">
       <Text>开关科技树</Text>
     </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_TECH_TREE_TT" Language="zh_Hans_CN">
+      <Text>打开或关闭科技树</Text>
+    </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_TRADE_SCREEN" Language="zh_Hans_CN">
-      <Text>开关贸易画面</Text>
+      <Text>开关贸易</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_TRADE_SCREEN_TT" Language="zh_Hans_CN">
+      <Text>打开或关闭贸易画面</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_VICTORY_PROGRESS" Language="zh_Hans_CN">
       <Text>开关胜利进度画面</Text>
@@ -4697,6 +4730,9 @@
     <Replace Tag="LOC_UI_MP_GAME_RULE_TURN_TIME" Language="zh_Hans_CN">
       <Text>回合时间：</Text>
     </Replace>
+    <Replace Tag="LOC_UI_MP_GAME_RULE_TURN_TIME_EXTENDED" Language="zh_Hans_CN">
+      <Text>延长回合时间：</Text>
+    </Replace>
     <Replace Tag="LOC_UI_MP_GAME_RULE_TURN_TIMER" Language="zh_Hans_CN">
       <Text>回合计时器：</Text>
     </Replace>
@@ -5051,6 +5087,9 @@
     <Replace Tag="LOC_UI_SAVE_CONFIG" Language="zh_Hans_CN">
       <Text>保存配置</Text>
     </Replace>
+    <Replace Tag="LOC_UI_SHOW_TOOLTIPS" Language="zh_Hans_CN">
+      <Text>显示提示文本（按住）</Text>
+    </Replace>
     <Replace Tag="LOC_UI_SOCIAL_PLAYER_OPTIONS" Language="zh_Hans_CN">
       <Text>玩家选项</Text>
     </Replace>
@@ -5089,6 +5128,15 @@
     </Replace>
     <Replace Tag="LOC_UI_TOOLTIP_DLCS" Language="zh_Hans_CN">
       <Text>官方内容</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_TOOLTIP_HIDDEN_HINT_BODY_POST" Language="zh_Hans_CN">
+      <Text>再次按住以重新显示提示文本。重启后将恢复显示提示文本。</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_TOOLTIP_HIDDEN_HINT_BODY_PRE" Language="zh_Hans_CN">
+      <Text>按住查看操作</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_TOOLTIP_HIDDEN_HINT_TITLE" Language="zh_Hans_CN">
+      <Text>提示文本已隐藏</Text>
     </Replace>
     <Replace Tag="LOC_UI_TOOLTIP_MODS" Language="zh_Hans_CN">
       <Text>附加内容</Text>

@@ -592,6 +592,9 @@
     <Replace Tag="LOC_GROUPID_PLAYERDIFFICULTY" Language="es_ES">
       <Text>Configuración de dificultad de partida</Text>
     </Replace>
+    <Replace Tag="LOC_GROUPID_VICTORYOPTIONS" Language="es_ES">
+      <Text>Configuración de victoria</Text>
+    </Replace>
     <Replace Tag="LOC_HOTSEAT_ENTER_PASSWORD_HERE" Language="es_ES">
       <Text>Escribe aquí la contraseña.</Text>
     </Replace>
@@ -657,6 +660,9 @@
     </Replace>
     <Replace Tag="LOC_JOIN_GAME_CONNECTION_REJECTED" Language="es_ES">
       <Text>Error al conectar con el anfitrión. Si estás usando un código de juego para unirte, compruébalo e inténtalo de nuevo.</Text>
+    </Replace>
+    <Replace Tag="LOC_JOIN_GAME_CROSSPLAY_DISABLED" Language="es_ES">
+      <Text>No puedes unirte a partidas de juego cruzado si la opción de juego cruzado está desactivada. Puedes activar el juego cruzado en el menú Opciones.</Text>
     </Replace>
     <Replace Tag="LOC_JOIN_GAME_JOINCODE_SYNTAX" Language="es_ES">
       <Text>El código de juego es incorrecto. Compruébalo e inténtalo de nuevo.</Text>
@@ -2468,7 +2474,7 @@
       <Text>La cámara solo se desplazará automáticamente a tus unidades cuando caigan derrotadas.</Text>
     </Replace>
     <Replace Tag="LOC_OPTIONS_PLAYER_COMBAT_CAMERA_PAN_2" Language="es_ES">
-      <Text>Todo el combate</Text>
+      <Text>Todos los combates</Text>
     </Replace>
     <Replace Tag="LOC_OPTIONS_PLAYER_COMBAT_CAMERA_PAN_2_DESCRIPTION" Language="es_ES">
       <Text>La cámara se desplazará automáticamente a tus unidades cada vez que reciban daño.</Text>
@@ -3889,9 +3895,6 @@
     <Replace Tag="LOC_UI_CREATE_GAME_GAME_START_CIV_SELECTION" Language="es_ES">
       <Text>Selección inicial de civilización</Text>
     </Replace>
-    <Replace Tag="LOC_UI_CREATE_GAME_HEIGHT_OF_POWER" Language="es_ES">
-      <Text>[Height of Power Text]</Text>
-    </Replace>
     <Replace Tag="LOC_UI_CREATE_GAME_HEIGHT_OF_POWER_DESCRIPTION" Language="es_ES">
       <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</Text>
     </Replace>
@@ -3900,9 +3903,6 @@
     </Replace>
     <Replace Tag="LOC_UI_CREATE_GAME_HISTORICAL_RANDOM_DESCRIPTION" Language="es_ES">
       <Text>Se seleccionarán civilizaciones vinculadas histórica, geográfica o estratégicamente con el líder.</Text>
-    </Replace>
-    <Replace Tag="LOC_UI_CREATE_GAME_HOWWHEN_IS_TEST_OF_TIME_ACTIVATED" Language="es_ES">
-      <Text>[How/When is Test of Time activated Text]</Text>
     </Replace>
     <Replace Tag="LOC_UI_CREATE_GAME_HOWWHEN_IS_TEST_OF_TIME_ACTIVATED_DESCRIPTION" Language="es_ES">
       <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</Text>
@@ -3993,9 +3993,6 @@
     </Replace>
     <Replace Tag="LOC_UI_CREATE_GAME_UNLOCKED_BY_DESCRIPTION" Language="es_ES">
       <Text>Completa cualquier requisito para desbloquear esta civilización.</Text>
-    </Replace>
-    <Replace Tag="LOC_UI_CREATE_GAME_WHAT_IS_TEST_OF_TIME" Language="es_ES">
-      <Text>[What is Test of Time Text]</Text>
     </Replace>
     <Replace Tag="LOC_UI_CREATE_GAME_WHAT_IS_TEST_OF_TIME_DESCRIPTION" Language="es_ES">
       <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</Text>
@@ -4193,19 +4190,22 @@
       <Text>Pasa a la siguiente unidad que esté lista.</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_OPEN_ATTRIBUTES" Language="es_ES">
-      <Text>Abrir Atributos</Text>
+      <Text>Alternar atributos</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_OPEN_ATTRIBUTES_TT" Language="es_ES">
-      <Text>Abre la pantalla de Atributos.</Text>
+      <Text>Abre y cierra la pantalla de atributos.</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_OPEN_CIVILOPEDIA" Language="es_ES">
-      <Text>Abrir Civilopedia</Text>
+      <Text>Alternar Civilopedia</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_OPEN_CIVILOPEDIA_TT" Language="es_ES">
+      <Text>Abre y cierra la Civilopedia.</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_OPEN_GOVERNMENT" Language="es_ES">
-      <Text>Abrir Gobierno</Text>
+      <Text>Alternar Gobierno</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_OPEN_GOVERNMENT_TT" Language="es_ES">
-      <Text>Abre la pantalla de Gobierno.</Text>
+      <Text>Abre y cierra la pantalla de Gobierno.</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_PAUSE_ONLINE_GAME" Language="es_ES">
       <Text>Pausar partida en línea</Text>
@@ -4249,14 +4249,29 @@
     <Replace Tag="LOC_UI_KBM_MAPPING_SECONDARY_KEY" Language="es_ES">
       <Text>Secundaria</Text>
     </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_ADVISORS" Language="es_ES">
+      <Text>Alternar Concilio de consejeros</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_ADVISORS_TT" Language="es_ES">
+      <Text>Abre y cierra la pantalla del Concilio de consejeros.</Text>
+    </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_CIVICS_SCREEN" Language="es_ES">
-      <Text>Pantalla de Principios</Text>
+      <Text>Alternar árbol de Cultura</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_CIVICS_SCREEN_TT" Language="es_ES">
+      <Text>Abre y cierra el árbol de Cultura.</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_GREAT_PEOPLE_SCREEN" Language="es_ES">
-      <Text>Pantalla de Grandes personajes</Text>
+      <Text>Alternar Grandes personajes</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_GREAT_PEOPLE_SCREEN_TT" Language="es_ES">
+      <Text>Abre y cierra la pantalla de Grandes personajes.</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_GREAT_WORKS_SCREEN" Language="es_ES">
-      <Text>Pantalla de Grandes obras</Text>
+      <Text>Alternar Grandes obras</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_GREAT_WORKS_SCREEN_TT" Language="es_ES">
+      <Text>Abre y cierra la pantalla de Grandes obras.</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_GRID" Language="es_ES">
       <Text>Cuadrícula</Text>
@@ -4266,6 +4281,12 @@
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_JOURNAL" Language="es_ES">
       <Text>Abrir/Cerrar diario</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_LEGACIES" Language="es_ES">
+      <Text>Alternar legados</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_LEGACIES_TT" Language="es_ES">
+      <Text>Abre y cierra la pantalla de Legados.</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_LENS_CONTINENT" Language="es_ES">
       <Text>Continente</Text>
@@ -4292,10 +4313,16 @@
       <Text>Aplica o quita la lente de Comercio.</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_RANKINGS_SCREEN" Language="es_ES">
-      <Text>Pantalla de Victoria</Text>
+      <Text>Alternar victoria</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_RANKINGS_SCREEN_TT" Language="es_ES">
+      <Text>Abre y cierra la pantalla de Victoria</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_RELIGION" Language="es_ES">
-      <Text>Panel de Religión</Text>
+      <Text>Alternar Religión</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_RELIGION_TT" Language="es_ES">
+      <Text>Abre y cierra la pantalla de Religión.</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_RESOURCE_ICONS" Language="es_ES">
       <Text>Iconos de recursos</Text>
@@ -4309,8 +4336,14 @@
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_TECH_TREE" Language="es_ES">
       <Text>Árbol tecnológico</Text>
     </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_TECH_TREE_TT" Language="es_ES">
+      <Text>Abre y cierra el árbol de Tecnología.</Text>
+    </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_TRADE_SCREEN" Language="es_ES">
-      <Text>Pantalla comercial</Text>
+      <Text>Alternar comercio</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_TRADE_SCREEN_TT" Language="es_ES">
+      <Text>Abre y cierra la pantalla de Comercio.</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_VICTORY_PROGRESS" Language="es_ES">
       <Text>Pantalla de progreso en victorias</Text>
@@ -4696,6 +4729,9 @@
     <Replace Tag="LOC_UI_MP_GAME_RULE_TURN_TIME" Language="es_ES">
       <Text>Duración de turnos:</Text>
     </Replace>
+    <Replace Tag="LOC_UI_MP_GAME_RULE_TURN_TIME_EXTENDED" Language="es_ES">
+      <Text>Contador de turnos ampliado:</Text>
+    </Replace>
     <Replace Tag="LOC_UI_MP_GAME_RULE_TURN_TIMER" Language="es_ES">
       <Text>Contador de turnos:</Text>
     </Replace>
@@ -5050,6 +5086,9 @@
     <Replace Tag="LOC_UI_SAVE_CONFIG" Language="es_ES">
       <Text>Guardar</Text>
     </Replace>
+    <Replace Tag="LOC_UI_SHOW_TOOLTIPS" Language="es_ES">
+      <Text>Mostrar ventanas informativas (MANTENER)</Text>
+    </Replace>
     <Replace Tag="LOC_UI_SOCIAL_PLAYER_OPTIONS" Language="es_ES">
       <Text>Opciones del jugador</Text>
     </Replace>
@@ -5088,6 +5127,15 @@
     </Replace>
     <Replace Tag="LOC_UI_TOOLTIP_DLCS" Language="es_ES">
       <Text>Contenido oficial</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_TOOLTIP_HIDDEN_HINT_BODY_POST" Language="es_ES">
+      <Text>para mostrar otra vez las ventanas informativas. Las ventanas informativas se abrirán de nuevo al reiniciar el juego.</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_TOOLTIP_HIDDEN_HINT_BODY_PRE" Language="es_ES">
+      <Text>Mantén pulsada la acción de inspección</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_TOOLTIP_HIDDEN_HINT_TITLE" Language="es_ES">
+      <Text>Ventanas informativas ocultas</Text>
     </Replace>
     <Replace Tag="LOC_UI_TOOLTIP_MODS" Language="es_ES">
       <Text>Complementos</Text>

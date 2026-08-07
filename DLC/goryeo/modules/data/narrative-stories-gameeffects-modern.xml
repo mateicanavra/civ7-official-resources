@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+    <Modifier id="11281B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ATTRIBUTE" run-once="false" permanent="true">
+        <Argument name="AttributeType">ATTRIBUTE_CULTURAL</Argument>
+        <Argument name="Amount">1</Argument>
+    </Modifier>
+    <Modifier id="11281C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ATTRIBUTE" run-once="false" permanent="true">
+        <Argument name="AttributeType">ATTRIBUTE_POLITICAL</Argument>
+        <Argument name="Amount">1</Argument>
+    </Modifier>
+    <Modifier id="11185B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_GRANT_GREAT_WORK" run-once="false" permanent="true">
+        <Argument name="Amount">1</Argument>
+        <Argument name="GreatWork">GREATWORK_ARTIFACT_JIKJI</Argument>
+    </Modifier>
+    <Modifier id="11184C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_CULTURE</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+        <Argument name="ConstructibleType">BUILDING_TEMPLE</Argument>
+    </Modifier>
+    <RequirementSet id="REQSET_11184A_NARRATIVE_REQUISITE">
+        <Requirement type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
+            <Argument name="CivilizationType">CIVILIZATION_JOSEON</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11281A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_GORYEO"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11281A_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_GORYEO"/>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_COMPLETED_PROGRESSION_TREE_NODE">
+            <Argument name="ProgressionTreeNodeType">NODE_CIVIC_MO_ADMINISTRATION</Argument>
+            <Argument name="MinDepth">1</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11184A_NARRATIVE">
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_NARRATIVE_TAGS">
+            <Argument name="NarrativeTagType">NARRATIVE_TAG_GORYEO_JIKJI</Argument>
+            <Argument name="Amount">2</Argument>
+        </Requirement>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
+            <Argument name="GossipTypes">GOSSIP_DIPLOMACY_ACTION_STARTED01</Argument>
+            <Argument name="GOSSIP_DIPLOMACY_ACTION_STARTED01">Hash,OtherPlayer,Other,Hash,DiplomacyActionType,DIPLOMACY_ACTION_CULTURAL_EXCHANGE</Argument>
+            <Argument name="DuplicateCount">6</Argument>
+        </Requirement>
+        <Requirement type="REQUIREMENT_COLLECTION_ANY_MET">
+            <Argument name="CollectionType">COLLECTION_PLAYER_CAPITAL_CITY</Argument>
+            <Argument name="RequirementSetId">SUBREQSET_11184A_NARRATIVE</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="SUBREQSET_11184A_NARRATIVE">
+        <Requirement type="REQUIREMENT_CITY_HAS_BUILDING">
+            <Argument name="BuildingType">BUILDING_MUSEUM</Argument>
+            <Argument name="Amount">1</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11185B_NARRATIVE">
+        <Requirement type="REQUIREMENT_PLAYER_RESEARCH_ARTIFACTS_IMMEDIATE">
+            <Argument name="ForeignOnly">True</Argument>
+        </Requirement>
+    </RequirementSet>
+</GameEffects>

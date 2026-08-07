@@ -47,6 +47,7 @@ const VictoriesScreenComponent = (props) => {
   const handleOnClosing = () => {
     if (!props.endGameScreen) {
       audio("popup-close");
+      audio("stop-sound");
     }
   };
   const handleWindowEngineInput = (inputEvent) => {
@@ -110,7 +111,11 @@ const VictoriesScreenComponent = (props) => {
             },
             onTabChanged: (tabProps) => {
               if (tabProps) {
-                model.tabChanged(tabProps.name);
+                if (model.tabChanged(tabProps.name)) {
+                  if (tabProps.name !== "summary" && tabProps.name !== "score") {
+                    useAudio("TabListItem")(`tab-nav-${tabProps.name}`);
+                  }
+                }
               }
             },
             get children() {
@@ -133,22 +138,37 @@ const VictoriesScreenComponent = (props) => {
               }), createComponent(Tab.Item, {
                 name: "cultural",
                 title: () => "LOC_VICTORY_CULTURE_MODERN_NAME",
+                get disabled() {
+                  return !Game.VictoryManager.isCountdownVictoryEnabled(Database.makeHash("VICTORY_CULTURE_MODERN"));
+                },
                 body: () => createComponent(CultureVictoryTab, mergeProps(() => model.data.cultureDetails))
               }), createComponent(Tab.Item, {
                 name: "economic",
                 title: () => "LOC_VICTORY_ECONOMIC_MODERN_NAME",
+                get disabled() {
+                  return !Game.VictoryManager.isCountdownVictoryEnabled(Database.makeHash("VICTORY_ECONOMIC_MODERN"));
+                },
                 body: () => createComponent(EconomicVictoryTab, {})
               }), createComponent(Tab.Item, {
                 name: "military",
                 title: () => "LOC_VICTORY_MILITARY_MODERN_NAME",
+                get disabled() {
+                  return !Game.VictoryManager.isCountdownVictoryEnabled(Database.makeHash("VICTORY_MILITARY_MODERN"));
+                },
                 body: () => createComponent(MilitaryVictoryTab, {})
               }), createComponent(Tab.Item, {
                 name: "scientific",
                 title: () => "LOC_VICTORY_SCIENCE_MODERN_NAME",
+                get disabled() {
+                  return !Game.VictoryManager.isCountdownVictoryEnabled(Database.makeHash("VICTORY_SCIENCE_MODERN"));
+                },
                 body: () => createComponent(ScienceVictoryTab, mergeProps(() => model.data.scienceDetails))
               }), createComponent(Tab.Item, {
                 name: "score",
                 title: () => "LOC_VICTORY_SCORE_NAME",
+                get disabled() {
+                  return !Game.VictoryManager.isScoreVictoryEnabled();
+                },
                 body: () => createComponent(ScoreVictoryTab, {})
               })];
             }

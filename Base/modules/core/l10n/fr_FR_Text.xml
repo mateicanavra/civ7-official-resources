@@ -620,6 +620,9 @@
     <Replace Tag="LOC_GROUPID_PLAYERDIFFICULTY" Language="fr_FR">
       <Text>Paramètres de difficulté du joueur</Text>
     </Replace>
+    <Replace Tag="LOC_GROUPID_VICTORYOPTIONS" Language="fr_FR">
+      <Text>Paramètres des victoires</Text>
+    </Replace>
     <Replace Tag="LOC_HOTSEAT_ENTER_PASSWORD_HERE" Language="fr_FR">
       <Text>Saisissez le mot de passe ici.</Text>
     </Replace>
@@ -685,6 +688,9 @@
     </Replace>
     <Replace Tag="LOC_JOIN_GAME_CONNECTION_REJECTED" Language="fr_FR">
       <Text>Échec de la connexion à l'hôte. Si vous utilisez un code de connexion, vérifiez-le et réessayez.</Text>
+    </Replace>
+    <Replace Tag="LOC_JOIN_GAME_CROSSPLAY_DISABLED" Language="fr_FR">
+      <Text>Impossible de rejoindre des parties en jeu interplateforme si l'option est désactivée. Vous pouvez activer le jeu interplateforme dans le menu des options.</Text>
     </Replace>
     <Replace Tag="LOC_JOIN_GAME_JOINCODE_SYNTAX" Language="fr_FR">
       <Text>Code de connexion incorrect. Vérifiez et réessayez.</Text>
@@ -2497,7 +2503,7 @@
       <Text>Centre la caméra sur vos unités uniquement lorsqu'elles sont vaincues.</Text>
     </Replace>
     <Replace Tag="LOC_OPTIONS_PLAYER_COMBAT_CAMERA_PAN_2" Language="fr_FR">
-      <Text>Tout le combat</Text>
+      <Text>Tous les combats</Text>
     </Replace>
     <Replace Tag="LOC_OPTIONS_PLAYER_COMBAT_CAMERA_PAN_2_DESCRIPTION" Language="fr_FR">
       <Text>Centre la caméra sur vos unités chaque fois qu'elles subissent des dégâts.</Text>
@@ -2506,7 +2512,7 @@
       <Text>Centre automatiquement la caméra sur le combat contre vos unités.</Text>
     </Replace>
     <Replace Tag="LOC_OPTIONS_PLOT_TOOLTIP_DELAY" Language="fr_FR">
-      <Text>Délai bulle d'informations (case)</Text>
+      <Text>Délai infobulle (case)</Text>
     </Replace>
     <Replace Tag="LOC_OPTIONS_PLOT_TOOLTIP_DELAY_DESCRIPTION" Language="fr_FR">
       <Text>Définit le temps d'attente en secondes avant l'apparition d'une infobulle sur une case.</Text>
@@ -3918,9 +3924,6 @@
     <Replace Tag="LOC_UI_CREATE_GAME_GAME_START_CIV_SELECTION" Language="fr_FR">
       <Text>Choix de la civilisation de départ</Text>
     </Replace>
-    <Replace Tag="LOC_UI_CREATE_GAME_HEIGHT_OF_POWER" Language="fr_FR">
-      <Text>[Height of Power Text]</Text>
-    </Replace>
     <Replace Tag="LOC_UI_CREATE_GAME_HEIGHT_OF_POWER_DESCRIPTION" Language="fr_FR">
       <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</Text>
     </Replace>
@@ -3929,9 +3932,6 @@
     </Replace>
     <Replace Tag="LOC_UI_CREATE_GAME_HISTORICAL_RANDOM_DESCRIPTION" Language="fr_FR">
       <Text>Les civilisations seront choisies selon leurs relations historiques, géographiques ou stratégiques avec le dirigeant.</Text>
-    </Replace>
-    <Replace Tag="LOC_UI_CREATE_GAME_HOWWHEN_IS_TEST_OF_TIME_ACTIVATED" Language="fr_FR">
-      <Text>[How/When is Test of Time activated Text]</Text>
     </Replace>
     <Replace Tag="LOC_UI_CREATE_GAME_HOWWHEN_IS_TEST_OF_TIME_ACTIVATED_DESCRIPTION" Language="fr_FR">
       <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</Text>
@@ -4022,9 +4022,6 @@
     </Replace>
     <Replace Tag="LOC_UI_CREATE_GAME_UNLOCKED_BY_DESCRIPTION" Language="fr_FR">
       <Text>Remplissez l'une des conditions pour débloquer cette civilisation.</Text>
-    </Replace>
-    <Replace Tag="LOC_UI_CREATE_GAME_WHAT_IS_TEST_OF_TIME" Language="fr_FR">
-      <Text>[What is Test of Time Text]</Text>
     </Replace>
     <Replace Tag="LOC_UI_CREATE_GAME_WHAT_IS_TEST_OF_TIME_DESCRIPTION" Language="fr_FR">
       <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</Text>
@@ -4222,19 +4219,22 @@
       <Text>Passe à l'unité prête suivante.</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_OPEN_ATTRIBUTES" Language="fr_FR">
-      <Text>Ouvrir Attributs</Text>
+      <Text>Consulter les attributs</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_OPEN_ATTRIBUTES_TT" Language="fr_FR">
-      <Text>Ouvre l'écran des attributs.</Text>
+      <Text>Ouvre et ferme l'écran des attributs.</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_OPEN_CIVILOPEDIA" Language="fr_FR">
-      <Text>Ouvrir la Civilopédia</Text>
+      <Text>Consulter la Civilopédia</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_OPEN_CIVILOPEDIA_TT" Language="fr_FR">
+      <Text>Ouvre et ferme la Civilopédia.</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_OPEN_GOVERNMENT" Language="fr_FR">
-      <Text>Ouvrir Gouvernement</Text>
+      <Text>Consulter le gouvernement</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_OPEN_GOVERNMENT_TT" Language="fr_FR">
-      <Text>Ouvre l'écran du gouvernement.</Text>
+      <Text>Ouvre et ferme l'écran du gouvernement.</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_PAUSE_ONLINE_GAME" Language="fr_FR">
       <Text>Partie en ligne : pause</Text>
@@ -4278,14 +4278,29 @@
     <Replace Tag="LOC_UI_KBM_MAPPING_SECONDARY_KEY" Language="fr_FR">
       <Text>Secondaire</Text>
     </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_ADVISORS" Language="fr_FR">
+      <Text>Consulter l'assemblée des conseillers</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_ADVISORS_TT" Language="fr_FR">
+      <Text>Ouvre et ferme l'assemblée des conseillers.</Text>
+    </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_CIVICS_SCREEN" Language="fr_FR">
-      <Text>Écran des dogmes</Text>
+      <Text>Consulter l'arbre culturel</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_CIVICS_SCREEN_TT" Language="fr_FR">
+      <Text>Ouvre et ferme l'arbre culturel.</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_GREAT_PEOPLE_SCREEN" Language="fr_FR">
-      <Text>Écran des personnages illustres</Text>
+      <Text>Consulter les personnages illustres</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_GREAT_PEOPLE_SCREEN_TT" Language="fr_FR">
+      <Text>Ouvre et ferme l'écran des personnages illustres.</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_GREAT_WORKS_SCREEN" Language="fr_FR">
-      <Text>Écran des chefs-d'œuvre</Text>
+      <Text>Consulter les chefs-d'œuvre</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_GREAT_WORKS_SCREEN_TT" Language="fr_FR">
+      <Text>Ouvre et ferme l'écran des chefs-d'œuvre.</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_GRID" Language="fr_FR">
       <Text>Afficher la grille</Text>
@@ -4295,6 +4310,12 @@
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_JOURNAL" Language="fr_FR">
       <Text>Afficher/Masquer le journal</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_LEGACIES" Language="fr_FR">
+      <Text>Consulter les héritages</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_LEGACIES_TT" Language="fr_FR">
+      <Text>Ouvre et ferme l'écran des héritages.</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_LENS_CONTINENT" Language="fr_FR">
       <Text>Continent</Text>
@@ -4321,10 +4342,16 @@
       <Text>Affiche ou masque le filtre du commerce.</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_RANKINGS_SCREEN" Language="fr_FR">
-      <Text>Écran des victoires</Text>
+      <Text>Consulter les victoires</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_RANKINGS_SCREEN_TT" Language="fr_FR">
+      <Text>Ouvre et ferme l'écran des victoires.</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_RELIGION" Language="fr_FR">
-      <Text>Écran des religions</Text>
+      <Text>Consulter la religion</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_RELIGION_TT" Language="fr_FR">
+      <Text>Ouvre et ferme l'écran des religions.</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_RESOURCE_ICONS" Language="fr_FR">
       <Text>Icônes des ressources</Text>
@@ -4338,8 +4365,14 @@
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_TECH_TREE" Language="fr_FR">
       <Text>Arbre des technologies</Text>
     </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_TECH_TREE_TT" Language="fr_FR">
+      <Text>Ouvre et ferme l'arbre des technologies.</Text>
+    </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_TRADE_SCREEN" Language="fr_FR">
-      <Text>Écran du commerce</Text>
+      <Text>Consulter le commerce</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_TRADE_SCREEN_TT" Language="fr_FR">
+      <Text>Ouvre et ferme l'écran du commerce.</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_VICTORY_PROGRESS" Language="fr_FR">
       <Text>Écran de progression des victoires</Text>
@@ -4725,6 +4758,9 @@
     <Replace Tag="LOC_UI_MP_GAME_RULE_TURN_TIME" Language="fr_FR">
       <Text>Durée des tours :</Text>
     </Replace>
+    <Replace Tag="LOC_UI_MP_GAME_RULE_TURN_TIME_EXTENDED" Language="fr_FR">
+      <Text>Durée des tours étendus :</Text>
+    </Replace>
     <Replace Tag="LOC_UI_MP_GAME_RULE_TURN_TIMER" Language="fr_FR">
       <Text>Chrono. de tour :</Text>
     </Replace>
@@ -5079,6 +5115,9 @@
     <Replace Tag="LOC_UI_SAVE_CONFIG" Language="fr_FR">
       <Text>Sauvegarder la config.</Text>
     </Replace>
+    <Replace Tag="LOC_UI_SHOW_TOOLTIPS" Language="fr_FR">
+      <Text>Afficher les infobulles (MAINTENIR)</Text>
+    </Replace>
     <Replace Tag="LOC_UI_SOCIAL_PLAYER_OPTIONS" Language="fr_FR">
       <Text>Options du joueur</Text>
     </Replace>
@@ -5117,6 +5156,15 @@
     </Replace>
     <Replace Tag="LOC_UI_TOOLTIP_DLCS" Language="fr_FR">
       <Text>Contenu officiel</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_TOOLTIP_HIDDEN_HINT_BODY_POST" Language="fr_FR">
+      <Text>pour afficher à nouveau les infobulles. Elles s'afficheront au redémarrage.</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_TOOLTIP_HIDDEN_HINT_BODY_PRE" Language="fr_FR">
+      <Text>Maintenir la commande Inspecter</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_TOOLTIP_HIDDEN_HINT_TITLE" Language="fr_FR">
+      <Text>Infobulles masquées</Text>
     </Replace>
     <Replace Tag="LOC_UI_TOOLTIP_MODS" Language="fr_FR">
       <Text>Extensions</Text>

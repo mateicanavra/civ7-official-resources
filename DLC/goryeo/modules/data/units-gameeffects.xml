@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+	<Modifier id="HWACHA_MOD_SPLASH_ABILITY" collection="COLLECTION_OWNER" effect="EFFECT_ADJUST_UNIT_SPLASH_DAMAGE">
+		<Argument name="Percent">15</Argument>
+	</Modifier>
+	<Modifier id="TOBANG_MOD_STATION_ABILITY" collection="COLLECTION_UNIT_COMBAT" effect="EFFECT_ADJUST_UNIT_STRENGTH_MODIFIER">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_UNIT_IS_STATIONED_ON_DISTRICT">
+				<Argument name="DistrictType">DISTRICT_URBAN, DISTRICT_CITY_CENTER</Argument>
+				<Argument name="Owned">false</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Amount">3</Argument>
+		<String context="Preview">LOC_UNIT_TOBANG_PREVIEW</String>
+	</Modifier>
+</GameEffects>

@@ -149,7 +149,7 @@
 			<SQL>SELECT AgeType AS PageGroupID, Name, ChronologyIndex AS SortIndex FROM Ages</SQL>
 		</Row>
 		<Row SectionID="CULTURE">
-			<SQL>SELECT ProgressionTreeType as PageGroupID, Name, 20 as SortIndex FROM ProgressionTrees WHERE ProgressionTreeType in (SELECT UniqueCultureProgressionTree from Civilizations) </SQL>
+			<SQL>SELECT ProgressionTreeType as PageGroupID, Name, 20 as SortIndex FROM ProgressionTrees WHERE SystemType = "SYSTEM_CULTURE" AND ProgressionTreeType not in (SELECT MainCultureProgressionTreeType from Ages)</SQL>
 		</Row>
 	</CivilopediaPageGroupQueries>
 
@@ -159,10 +159,11 @@
 		</Row>
 
 		<Row SectionID="CULTURE">
-			<SQL>SELECT ProgressionTreeNodeType as PageID, "CIVICS" as PageGroupID, "Gameplay" as PageLayoutID, Name, 10 as SortIndex FROM ProgressionTreeNodes WHERE ProgressionTree in (SELECT ProgressionTreeType from ProgressionTrees where NOT EXISTS (Select 1 from Civilizations where UniqueCultureProgressionTree = ProgressionTreeType) and SystemType = "SYSTEM_CULTURE")</SQL>
+			<SQL>SELECT ProgressionTreeNodeType as PageID, "CIVICS" as PageGroupID, "Gameplay" as PageLayoutID, Name, 10 as SortIndex FROM ProgressionTreeNodes WHERE ProgressionTree in (SELECT MainCultureProgressionTreeType from Ages where Active = 1)</SQL>
 		</Row>
 		<Row SectionID="CULTURE">
-			<SQL>SELECT ProgressionTreeNodeType as PageID, ProgressionTree as PageGroupID, "Gameplay" as PageLayoutID, Name, 20 as SortIndex FROM ProgressionTreeNodes WHERE ProgressionTree in (SELECT UniqueCultureProgressionTree from Civilizations)</SQL>
+			<SQL>SELECT ProgressionTreeNodeType as PageID, ProgressionTree as PageGroupID, "Gameplay" as PageLayoutID, PTN.Name, 20 as SortIndex FROM ProgressionTreeNodes PTN inner join ProgressionTrees PT on PTN.ProgressionTree = PT.ProgressionTreeType
+WHERE PT.SystemType = "SYSTEM_CULTURE" AND PT.ProgressionTreeType not in (SELECT MainCultureProgressionTreeType from Ages)</SQL>
 		</Row>
 
 		<Row SectionID="GOVERNMENT">

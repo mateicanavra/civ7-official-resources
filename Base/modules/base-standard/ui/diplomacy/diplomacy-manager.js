@@ -147,7 +147,6 @@ class DiplomacyManagerImpl {
       InterfaceMode.switchToDefault();
       return;
     } else if (this.firstMeetPlayerID != PlayerIds.NO_PLAYER && DiplomacyProjectManager.isEmpty()) {
-      InterfaceMode.switchToDefault();
       setTimeout(
         //Wait 2ms so the context manager can finish advancing and closing down
         () => {

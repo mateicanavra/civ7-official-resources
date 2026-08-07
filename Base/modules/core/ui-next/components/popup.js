@@ -123,7 +123,7 @@ const PopupItem = (props) => {
         },
         get children() {
           return [createComponent(Activatable, {
-            "class": "fullscreen pointer-events-auto",
+            "class": "fixed inset-0 pointer-events-auto",
             style: {
               "background-color": "#00000080"
             },

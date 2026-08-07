@@ -34,6 +34,11 @@ class BuildingPlacementManagerClass {
     console.error(`building-placement-manager: Failed to get city for ID ${this.cityID}`);
     return null;
   }
+  uniqueQuarters = [];
+  _currentQuarter = null;
+  get currentQuarter() {
+    return this._currentQuarter;
+  }
   _currentConstructible = null;
   get currentConstructible() {
     return this._currentConstructible;
@@ -48,6 +53,11 @@ class BuildingPlacementManagerClass {
   }
   // Placement data for the currently selected constructible
   selectedPlacementData;
+  //Plots that that have the potential to become unique quarters if the correct building is placed
+  _potentialUniqueQuarterPlots = [];
+  get potentialUniqueQuarterPlots() {
+    return this._potentialUniqueQuarterPlots;
+  }
   //Plots that would become unique quarters if a unique quarter building is being placed
   _uniqueQuarterPlots = [];
   get uniqueQuarterPlots() {
@@ -100,6 +110,18 @@ class BuildingPlacementManagerClass {
   initializePlacementData(cityID) {
     this._cityID = cityID;
     this.isRepairing = false;
+    this.uniqueQuarters = [];
+    const player = Players.get(GameContext.localPlayerID);
+    const playerConstructibles = player?.Constructibles;
+    if (playerConstructibles) {
+      const uniqueQuarterTypes = playerConstructibles.getUnlockedUniqueQuarters();
+      for (const uniqueQuarterType of uniqueQuarterTypes) {
+        const uniqueQuarterDef = GameInfo.UniqueQuarters.lookup(uniqueQuarterType);
+        if (uniqueQuarterDef) {
+          this.uniqueQuarters.push(uniqueQuarterDef.UniqueQuarterType);
+        }
+      }
+    }
     this.allPlacementData = this.city?.Yields?.calculateAllBuildingsPlacements();
     if (!this.allPlacementData) {
       console.error(`building-placement-manager: calculateAllBuildingsPlacements failed for cityID ${cityID}`);
@@ -121,8 +143,18 @@ class BuildingPlacementManagerClass {
     this.isRepairing = operationResult.RepairDamaged;
     const uniqueQuarterPlotIndices = [];
     for (const uniqueDistrictDef of GameInfo.UniqueQuarters) {
-      if (constructible.ConstructibleType == uniqueDistrictDef.BuildingType1 || constructible.ConstructibleType == uniqueDistrictDef.BuildingType2) {
-        uniqueQuarterPlotIndices.push(BuildingPlacementManager.findExistingUniqueBuilding(uniqueDistrictDef));
+      if (this.uniqueQuarters.includes(uniqueDistrictDef.UniqueQuarterType)) {
+        const uniqueQuarterPlot = BuildingPlacementManager.findExistingUniqueBuilding(uniqueDistrictDef);
+        if (uniqueQuarterPlot != -1) {
+          this.potentialUniqueQuarterPlots.push({
+            plotID: uniqueQuarterPlot,
+            uniqueQuarterDef: uniqueDistrictDef
+          });
+          if (constructible.ConstructibleType == uniqueDistrictDef.BuildingType1 || constructible.ConstructibleType == uniqueDistrictDef.BuildingType2) {
+            uniqueQuarterPlotIndices.push(uniqueQuarterPlot);
+            this._currentQuarter = uniqueDistrictDef;
+          }
+        }
       }
     }
     operationResult.Plots?.forEach((plot) => {
@@ -138,6 +170,9 @@ class BuildingPlacementManagerClass {
         this._developedPlots.push(p);
       } else {
         this._expandablePlots.push(p);
+      }
+      if (uniqueQuarterPlotIndices.includes(p)) {
+        this._uniqueQuarterPlots.push(p);
       }
     });
     this.selectedPlacementData = this.allPlacementData.buildings.find((buildingData) => {
@@ -472,7 +507,9 @@ class BuildingPlacementManagerClass {
   }
   reset() {
     this._cityID = null;
+    this._currentQuarter = null;
     this._currentConstructible = null;
+    this._potentialUniqueQuarterPlots = [];
     this._uniqueQuarterPlots = [];
     this._expandablePlots = [];
     this._urbanPlots = [];

@@ -111,10 +111,14 @@ const Model3dComponent = (props) => {
     triggerCallbacks: !!props.onTrigger,
     selectionScriptParams: props.selectionScriptParams
   }));
-  engine.on("ModelTrigger", (id, hash) => {
+  const callback = (id, hash) => {
     if (model()?.id == id) {
       props.onTrigger?.(hash);
     }
+  };
+  engine.on("ModelTrigger", callback);
+  onCleanup(() => {
+    engine.off("ModelTrigger", callback);
   });
   createEffect(on(() => props.hidden, (hidden, prevHidden) => {
     const alpha = hidden ? 0 : props.alpha ?? 1;

@@ -83,6 +83,23 @@ class PanelDownloadAssets extends Panel {
     switch (data) {
       case ODRErrorCode.NetworkErrorRetry:
       case ODRErrorCode.UnknownErrorRetry:
+        DialogBoxManager.createDialog_MultiOption({
+          body: "LOC_UI_CODE_REDEEM_INTERNAL_SERVER_ERROR",
+          title: "LOC_UI_ODR_DOWNLOAD_ERROR_TITLE",
+          canClose: false,
+          options: [
+            {
+              actions: ["accept"],
+              label: "LOC_GENERIC_RETRY",
+              callback: () => UI.startHighEndAssetsDownload()
+            },
+            {
+              actions: ["cancel", "keyboard-escape"],
+              label: "LOC_GENERIC_ABORT",
+              callback: () => this.close()
+            }
+          ]
+        });
         break;
       case ODRErrorCode.CriticalServerAssetCorrupted:
       case ODRErrorCode.UnknownErrorCritical:

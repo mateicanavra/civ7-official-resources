@@ -110,6 +110,8 @@ const ActivatableComponent = (props) => {
         if (isStart) {
           triggerUiSFX("pressError", "data-audio-error-press");
           triggerUiVFX("pressError");
+          inputEvent.stopPropagation();
+          inputEvent.preventDefault();
         }
       } else {
         if (isStart) {
@@ -117,9 +119,9 @@ const ActivatableComponent = (props) => {
           triggerUiVFX("press");
         } else {
           activate();
-          inputEvent.preventDefault();
-          inputEvent.stopPropagation();
         }
+        inputEvent.stopPropagation();
+        inputEvent.preventDefault();
       }
     } else {
       props["on:engine-input"]?.(inputEvent);
@@ -137,7 +139,7 @@ const ActivatableComponent = (props) => {
     var _el$ = _tmpl$();
     use(registerNavTray, _el$, () => [props.hotkeyAction, () => props.disabled != true, props.navTrayText]);
     use(registerHotkey, _el$, () => [props.hotkeyAction, () => props.disabled != true, activate]);
-    use(isFocusable, _el$, () => [!props.disabled && !props.disableFocus, props.autoFocus]);
+    use(isFocusable, _el$, () => [!props.disableFocus, props.autoFocus]);
     use(setRoot, _el$);
     spread(_el$, mergeProps(props, {
       get role() {

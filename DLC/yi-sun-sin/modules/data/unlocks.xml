@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Kinds>
+		<InsertOrIgnore Kind="KIND_UNLOCK"/>
+	</Kinds>
+	<Types>
+		<InsertOrIgnore Type="UNLOCK_LEGEND_LEVEL_4_YI_SUN_SIN" Kind="KIND_UNLOCK"/>
+		<InsertOrIgnore Type="UNLOCK_LEGEND_LEVEL_8_YI_SUN_SIN" Kind="KIND_UNLOCK"/>
+	</Types>
+	<Unlocks>
+		<InsertOrIgnore UnlockType="UNLOCK_LEGEND_LEVEL_4_YI_SUN_SIN"/>
+		<InsertOrIgnore UnlockType="UNLOCK_LEGEND_LEVEL_8_YI_SUN_SIN"/>
+	</Unlocks>
+	<UnlockRewards>
+		<InsertOrIgnore UnlockType="UNLOCK_LEGEND_LEVEL_4_YI_SUN_SIN" Name="LOC_CARD_AT_EXP_LEGEND_YI_SUN_SIN_1_NAME" Description="LOC_CARD_AT_EXP_LEGEND_YI_SUN_SIN_1_DESCRIPTION" Icon="LEADER_YI_SUN_SIN"/>
+		<InsertOrIgnore UnlockType="UNLOCK_LEGEND_LEVEL_4_YI_SUN_SIN" Name="LOC_CARD_AT_EXP_LEGEND_YI_SUN_SIN_2_NAME" Description="LOC_CARD_AT_EXP_LEGEND_YI_SUN_SIN_2_DESCRIPTION" Icon="LEADER_YI_SUN_SIN"/>
+		<InsertOrIgnore UnlockType="UNLOCK_LEGEND_LEVEL_8_YI_SUN_SIN" Name="LOC_CARD_AT_MOD_LEGEND_YI_SUN_SIN_1_NAME" Description="LOC_CARD_AT_MOD_LEGEND_YI_SUN_SIN_1_DESCRIPTION" Icon="LEADER_YI_SUN_SIN"/>
+		<InsertOrIgnore UnlockType="UNLOCK_LEGEND_LEVEL_8_YI_SUN_SIN" Name="LOC_CARD_AT_MOD_LEGEND_YI_SUN_SIN_2_NAME" Description="LOC_CARD_AT_MOD_LEGEND_YI_SUN_SIN_2_DESCRIPTION" Icon="LEADER_YI_SUN_SIN"/>
+	</UnlockRewards>
+	<RequirementSets>
+		<Row RequirementSetId="REQSET_LEADER_IS_YI_SUN_SIN" RequirementSetType="REQUIREMENTSET_TEST_ALL"/>
+
+		<Row RequirementSetId="REQSET_LEGEND_LEVEL_4_YI_SUN_SIN" RequirementSetType="REQUIREMENTSET_TEST_ALL"/>
+		<Row RequirementSetId="REQSET_LEGEND_LEVEL_8_YI_SUN_SIN" RequirementSetType="REQUIREMENTSET_TEST_ALL"/>
+	</RequirementSets>
+	<Requirements>
+		<Row RequirementId="REQ_LEADER_IS_YI_SUN_SIN" RequirementType="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES"/>
+
+		<Row RequirementId="REQ_LEGEND_LEVEL_4_YI_SUN_SIN" RequirementType="REQUIREMENT_METAPROGRESSION_LEGEND_PATH_LEVEL"/>
+		<Row RequirementId="REQ_LEGEND_LEVEL_8_YI_SUN_SIN" RequirementType="REQUIREMENT_METAPROGRESSION_LEGEND_PATH_LEVEL"/>
+	</Requirements>
+	<RequirementArguments>
+		<Row RequirementId="REQ_LEADER_IS_YI_SUN_SIN" Name="LeaderType" Value="LEADER_YI_SUN_SIN"/>
+
+		<Row RequirementId="REQ_LEGEND_LEVEL_4_YI_SUN_SIN" Name="SpecificPath" Value="LEGEND_PATH_YI_SUN_SIN"/>
+		<Row RequirementId="REQ_LEGEND_LEVEL_4_YI_SUN_SIN" Name="LevelThreshold" Value="4"/>
+		<Row RequirementId="REQ_LEGEND_LEVEL_8_YI_SUN_SIN" Name="SpecificPath" Value="LEGEND_PATH_YI_SUN_SIN"/>
+		<Row RequirementId="REQ_LEGEND_LEVEL_8_YI_SUN_SIN" Name="LevelThreshold" Value="8"/>
+	</RequirementArguments>
+	<RequirementSetRequirements>
+		<Row RequirementSetId="REQSET_LEADER_IS_YI_SUN_SIN" RequirementId="REQ_LEADER_IS_YI_SUN_SIN"/>
+
+		<Row RequirementSetId="REQSET_LEGEND_LEVEL_4_YI_SUN_SIN" RequirementId="REQ_LEADER_IS_YI_SUN_SIN"/>
+		<Row RequirementSetId="REQSET_LEGEND_LEVEL_4_YI_SUN_SIN" RequirementId="REQ_LEGEND_LEVEL_4_YI_SUN_SIN"/>
+		<Row RequirementSetId="REQSET_LEGEND_LEVEL_8_YI_SUN_SIN" RequirementId="REQ_LEADER_IS_YI_SUN_SIN"/>
+		<Row RequirementSetId="REQSET_LEGEND_LEVEL_8_YI_SUN_SIN" RequirementId="REQ_LEGEND_LEVEL_8_YI_SUN_SIN"/>
+	</RequirementSetRequirements>
+	<UnlockRequirements>
+		<InsertOrIgnore UnlockType="UNLOCK_LEGEND_LEVEL_4_YI_SUN_SIN" RequirementSetId="REQSET_LEGEND_LEVEL_4_YI_SUN_SIN" Description="LOC_UNLOCK_LEGEND_LEVEL_4_YI_SUN_SIN_DESCRIPTION"/>
+		<InsertOrIgnore UnlockType="UNLOCK_LEGEND_LEVEL_8_YI_SUN_SIN" RequirementSetId="REQSET_LEGEND_LEVEL_8_YI_SUN_SIN" Description="LOC_UNLOCK_LEGEND_LEVEL_4_YI_SUN_SIN_DESCRIPTION"/>
+	</UnlockRequirements>
+</Database>

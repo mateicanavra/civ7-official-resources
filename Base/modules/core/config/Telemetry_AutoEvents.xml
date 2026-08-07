@@ -19,20 +19,32 @@
 	  <TableItem Kind="Challenge" Context="ChallengeCompleted" Type="Set_Value" Name="accomplishmentEvent" Session="Yes" EventData="AccomplishmentStatus" EventDataType="string"/>
     </Table>
   </Item>
-	<Item Type="Entitlement" Name="EntitlementStatus">
-		<Table Name="Entitlement:EntitlementCached/" EventName="LocalMachineEvent::EntitlementCached">
-			<TableItem Kind="Entititlement" Context="EntitlementCached" Type="Set_Value" Name="entitlementId" Session="Yes" EventData="EntitlementId" EventDataType="string"/>
-			<TableItem Kind="Entititlement" Context="EntitlementCached" Type="Set_Value" Name="entitlementItemId" Session="Yes" EventData="EntitlementItemId" EventDataType="string"/>
-			<TableItem Kind="Entititlement" Context="EntitlementCached" Type="Set_Value" Name="entitlementCustom" Session="Yes" EventData="EntitlementCustom" EventDataType="string"/>
-			<TableItem Kind="Entititlement" Context="EntitlementCached" Type="Set_Value" Name="entitlementItemType" Session="Yes" EventData="entitlementItemType" EventDataType="int"/>
-		</Table>
-  </Item>
   <Item Type="Customization" Name="CustomizationStatus">
 	<Table Name="Customization:CustomizationStatus/" EventName="LocalMachineEvent::DNAUserProfileCustomizationSaved">
 	  <TableItem Kind="Challenge" Context="ChallengeCompleted" Type="Set_Value" Name="badgeId" Session="Yes" EventData="BadgeID" EventDataType="string"/>
 	  <TableItem Kind="Challenge" Context="ChallengeCompleted" Type="Set_Value" Name="titleId" Session="Yes" EventData="TitleID" EventDataType="string"/>
 	  <TableItem Kind="Challenge" Context="ChallengeCompleted" Type="Set_Value" Name="bannerId" Session="Yes" EventData="BannerID" EventDataType="string"/>
 	  <TableItem Kind="Challenge" Context="ChallengeCompleted" Type="Set_Value" Name="customizationInstanceId" Session="Yes" EventData="CustomizationInstanceID" EventDataType="string"/>
+    </Table>
+  </Item>
+  <Item Type="Dna" Name="dna_status">
+    <Table Name="Dna:dna_status/" EventName="LocalMachineEvent::DnaStatus">
+      <TableItem Kind="Dna" Context="DnaEvent" Type="Set_Value" Name="num_jwt_received" Session="Yes" EventData="NumJwtReceived" EventDataType="int"/>
+      <TableItem Kind="Dna" Context="DnaEvent" Type="Set_Value" Name="num_push_subscribe_failed" Session="Yes" EventData="NumPushEventSubscribeFailed" EventDataType="int"/>
+      <TableItem Kind="Dna" Context="DnaEvent" Type="Set_Value" Name="num_push_subscribe_succeeded" Session="Yes" EventData="NumPushEventSubscribeSucceeded" EventDataType="int"/>
+      <TableItem Kind="Dna" Context="DnaEvent" Type="Set_Value" Name="num_push_failed" Session="Yes" EventData="NumPushEventFailed" EventDataType="int"/>
+      <TableItem Kind="Dna" Context="DnaEvent" Type="Set_Value" Name="num_push_received" Session="Yes" EventData="NumPushEventReceived" EventDataType="int"/>
+      <TableItem Kind="Dna" Context="DnaEvent" Type="Set_Value" Name="num_push_completed" Session="Yes" EventData="NumPushEventChallengeCompleted" EventDataType="int"/>
+      <TableItem Kind="Dna" Context="DnaEvent" Type="Set_Value" Name="num_entitlements_cached" Session="Yes" EventData="NumEntitlementsCached" EventDataType="int"/>
+      <TableItem Kind="Dna" Context="DnaEvent" Type="Set_Value" Name="num_entitlements_failed" Session="Yes" EventData="NumEntitlementsFetchFailed" EventDataType="int"/>
+      <TableItem Kind="Dna" Context="DnaEvent" Type="Set_Value" Name="num_entitlements_succeeded" Session="Yes" EventData="NumEntitlementsFetchSucceeded" EventDataType="int"/>
+      <TableItem Kind="Dna" Context="DnaEvent" Type="Set_Value" Name="num_entitlements_stored" Session="Yes" EventData="NumEntitlementsStored" EventDataType="int"/>
+      <TableItem Kind="Dna" Context="DnaEvent" Type="Set_Value" Name="num_challenges_posted" Session="Yes" EventData="NumChallengesPosted" EventDataType="int"/>
+      <TableItem Kind="Dna" Context="DnaEvent" Type="Set_Value" Name="num_request_challenges" Session="Yes" EventData="NumRequestChallenges" EventDataType="int"/>
+      <TableItem Kind="Dna" Context="DnaEvent" Type="Set_Value" Name="num_request_statistics" Session="Yes" EventData="NumRequestStatistics" EventDataType="int"/>
+      <TableItem Kind="Dna" Context="DnaEvent" Type="Set_Value" Name="num_challenges_defined" Session="Yes" EventData="NumChallengesDefined" EventDataType="int"/>
+	  <TableItem Kind="Dna" Context="DnaEvent" Type="Set_Value" Name="num_meta_post_failed" Session="Yes" EventData="NumMetaPostFailed" EventDataType="int"/>
+	  <TableItem Kind="Dna" Context="DnaEvent" Type="Set_Value" Name="num_meta_post_rejected" Session="Yes" EventData="NumMetaPostRejected" EventDataType="int"/>
     </Table>
   </Item>
 </TelemetryItems>

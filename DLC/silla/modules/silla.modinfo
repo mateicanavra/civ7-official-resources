@@ -26,6 +26,12 @@
 			<AgeInUse>AGE_EXPLORATION</AgeInUse>
 			<AgeInUse>AGE_MODERN</AgeInUse>
 		</Criteria>
+		<Criteria id="joseon-current-shell">
+			<ModInUse>joseon</ModInUse>
+		</Criteria>
+		<Criteria id="goryeo-current-shell">
+			<ModInUse>goryeo</ModInUse>
+		</Criteria>
 		<Criteria id="always">
 			<AlwaysMet></AlwaysMet>
 		</Criteria>
@@ -187,28 +193,27 @@
 		<ActionGroup id="base-game-main-silla" scope="game" criteria="always">
 			<Actions>
 				<UpdateDatabase>
-					<Item>data/civilizations-legacy.xml</Item>
-					<Item>data/named-places.xml</Item>
-					<Item>data/traditions.xml</Item>
-					<Item>data/traditions-gameeffects.xml</Item>
-					<Item>data/narrative-stories-common-gameeffects.xml</Item>
-					<Item>data/unlocks.xml</Item>
-					<Item>data/unlocks-syncretism.xml</Item>
-					
 					<Item>data/citizen-names.xml</Item>
-					<Item>data/loading-info-antiquity.xml</Item>
-					<Item>data/metaprogression.xml</Item>
-					<Item>data/metaprogression-gameeffects.xml</Item>
-					<Item>data/constructibles.xml</Item>
+					<Item>data/civilizations-legacy.xml</Item>
+					<Item>data/civilizations-shared-gameeffects.xml</Item>
+					<Item>data/civilizations-shared.xml</Item>
 					<Item>data/constructibles-gameeffects.xml</Item>
+					<Item>data/constructibles.xml</Item>
+					<Item>data/loading-info-antiquity.xml</Item>
+					<Item>data/metaprogression-gameeffects.xml</Item>
+					<Item>data/metaprogression.xml</Item>
+					<Item>data/named-places.xml</Item>
+					<Item>data/narrative-stories-common-gameeffects.xml</Item>
+					<Item>data/traditions-gameeffects.xml</Item>
+					<Item>data/traditions.xml</Item>
+					<Item>data/unlocks-syncretism.xml</Item>
+					<Item>data/unlocks.xml</Item>
 				</UpdateDatabase>
 			</Actions>
 		</ActionGroup>
 		<ActionGroup id="age-antiquity-main-silla" scope="game" criteria="antiquity-age-current">
 			<Actions>
 				<UpdateDatabase>
-					<Item>data/civilizations-shared.xml</Item>
-					<Item>data/civilizations-shared-gameeffects.xml</Item>
 					<Item>data/civilizations-antiquity.xml</Item>
 					<Item>data/civilizations-gameeffects.xml</Item>
 					<Item>data/narrative-display.xml</Item>
@@ -224,8 +229,6 @@
 		<ActionGroup id="age-exploration-main-silla" scope="game" criteria="exploration-age-current">
 			<Actions>
 				<UpdateDatabase>
-					<Item>data/civilizations-shared.xml</Item>
-					<Item>data/civilizations-shared-gameeffects.xml</Item>
 					<Item>data/civilizations-exploration.xml</Item>
 					<Item>data/progression-trees-culture-unique-ex.xml</Item>
 					<Item>data/tot-exploration-narrative-stories-gameeffects.xml</Item>
@@ -236,12 +239,24 @@
 		<ActionGroup id="age-modern-main-silla" scope="game" criteria="modern-age-current">
 			<Actions>
 				<UpdateDatabase>
-					<Item>data/civilizations-shared.xml</Item>
-					<Item>data/civilizations-shared-gameeffects.xml</Item>
 					<Item>data/civilizations-modern.xml</Item>
 					<Item>data/progression-trees-culture-unique-mo.xml</Item>
 					<Item>data/tot-modern-narrative-stories-gameeffects.xml</Item>
 					<Item>data/tot-modern-narrative-stories.xml</Item>
+				</UpdateDatabase>
+			</Actions>
+		</ActionGroup>
+		<ActionGroup id="shell-goryeo-goryeo" scope="shell" criteria="goryeo-current-shell">
+			<Actions>
+				<UpdateDatabase>
+					<Item>config/config-goryeo.xml</Item>
+				</UpdateDatabase>
+			</Actions>
+		</ActionGroup>
+		<ActionGroup id="shell-joseon-silla" scope="shell" criteria="joseon-current-shell">
+			<Actions>
+				<UpdateDatabase>
+					<Item>config/config-joseon.xml</Item>
 				</UpdateDatabase>
 			</Actions>
 		</ActionGroup>

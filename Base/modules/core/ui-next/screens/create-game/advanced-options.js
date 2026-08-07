@@ -5,6 +5,7 @@ import { Layout } from '../../../ui/utilities/utilities-layout.js';
 import { Accordian } from '../../components/accordian.js';
 import { Activatable } from '../../components/activatable.js';
 import { AlternatingRows } from '../../components/alternating-rows.js';
+import { AudioContextProvider } from '../../components/audio-context-provider.js';
 import { Button } from '../../components/button.js';
 import { Dropdown, DropdownItem } from '../../components/dropdown.js';
 import { Frame } from '../../components/frame.js';
@@ -467,10 +468,6 @@ const AdvancedOptionsPlayerSetup = () => {
                 },
                 get children() {
                   return createComponent(Activatable, {
-                    audio: {
-                      onPress: "data-audio-primary-button-press",
-                      onFocus: "data-audio-primary-button-focus"
-                    },
                     "class": `m-2 size-12 cursor-pointer group relative`,
                     onActivate: () => closeSlot(slot),
                     get children() {
@@ -517,15 +514,15 @@ const strInvertSelection = GameSetup.makeString("InvertSelection");
 const AdvancedOptionMultiselectField = (props) => {
   const stringCache = useGameSetupStringCacheContext();
   const isInverted = createMemo(() => props.parameter.uxHint == strInvertSelection);
-  const valueItems = createMemo(() => [{
+  const valueItems = (domainValue) => [{
     name: "LOC_UI_ENABLED",
     value: !isInverted(),
-    description: `{${stringCache.resolve(props.parameter.description)}}[N] [N]{LOC_UI_ENABLED}`
+    description: `{${stringCache.resolve(domainValue.description)}}[N] [N]{LOC_UI_ENABLED}`
   }, {
     name: "LOC_UI_DISABLED",
     value: isInverted(),
-    description: `{${stringCache.resolve(props.parameter.description)}}[N] [N]{LOC_UI_DISABLED}`
-  }]);
+    description: `{${stringCache.resolve(domainValue.description)}}[N] [N]{LOC_UI_DISABLED}`
+  }];
   function hasValue(value) {
     return !!props.parameter.values.find((v) => v.value == value);
   }
@@ -565,7 +562,7 @@ const AdvancedOptionMultiselectField = (props) => {
               return createComponent(SelectorSmall, {
                 "class": "m-1",
                 get items() {
-                  return valueItems();
+                  return valueItems(domainValue());
                 },
                 setSelectedValue: (value) => setValue(domainValue(), value),
                 selectedValue: () => hasValue(domainValue().value),
@@ -646,12 +643,17 @@ const AdvancedOptionTextField = (props) => {
     }
     return value2;
   }
-  return createComponent(TextInput, {
-    "class": "w-72 m-1",
-    setValue,
-    value,
-    enableVirtualKeyboard: true,
-    tabIndex: -1
+  return createComponent(AudioContextProvider, {
+    segment: "Option",
+    get children() {
+      return createComponent(TextInput, {
+        "class": "w-72 m-1",
+        setValue,
+        value,
+        enableVirtualKeyboard: true,
+        tabIndex: -1
+      });
+    }
   });
 };
 const AdvancedReadonlyTextField = (props) => {
@@ -843,23 +845,28 @@ const AdvancedOptionsScreenComponent = () => {
               text: "LOC_ADVANCED_OPTIONS_ADVANCED"
             });
           }
-        }), createComponent(Tab, {
-          "class": "flex-auto flex flex-col",
-          defaultTab: "advanced-options-general",
+        }), createComponent(AudioContextProvider, {
+          segment: "AdvancedOptions",
           get children() {
-            return [createComponent(Tab.TabList, {
-              "class": "w-full my-2"
-            }), createComponent(Tab.Output, {}), createComponent(Tab.Item, {
-              name: "advanced-options-general",
-              title: () => "LOC_ADVANCED_OPTIONS_GAME_SETTINGS",
-              body: () => createComponent(AdvancedOptionsGameSetup, {})
-            }), createComponent(Tab.Item, {
-              name: "advanced-options-player",
-              title: () => createComponent(L10n.Compose, {
-                text: "LOC_ADVANCED_OPTIONS_PLAYER_SETTINGS"
-              }),
-              body: () => createComponent(AdvancedOptionsPlayerSetup, {})
-            })];
+            return createComponent(Tab, {
+              "class": "flex-auto flex flex-col",
+              defaultTab: "advanced-options-general",
+              get children() {
+                return [createComponent(Tab.TabList, {
+                  "class": "w-full my-2"
+                }), createComponent(Tab.Output, {}), createComponent(Tab.Item, {
+                  name: "advanced-options-general",
+                  title: () => "LOC_ADVANCED_OPTIONS_GAME_SETTINGS",
+                  body: () => createComponent(AdvancedOptionsGameSetup, {})
+                }), createComponent(Tab.Item, {
+                  name: "advanced-options-player",
+                  title: () => createComponent(L10n.Compose, {
+                    text: "LOC_ADVANCED_OPTIONS_PLAYER_SETTINGS"
+                  }),
+                  body: () => createComponent(AdvancedOptionsPlayerSetup, {})
+                })];
+              }
+            });
           }
         }), (() => {
           var _el$43 = _tmpl$20(), _el$44 = _el$43.firstChild, _el$45 = _el$44.nextSibling, _el$46 = _el$45.firstChild, _el$47 = _el$46.nextSibling;

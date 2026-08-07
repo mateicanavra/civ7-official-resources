@@ -1,0 +1,92 @@
+<Database>
+	<Types>
+		<!-- Major Civs -->
+		<Row Type="TRAIT_JOSEON_ABILITY" Kind="KIND_TRAIT"/>
+	</Types>
+	<Civilizations>
+		<!-- Full Civs -->
+		<Row CivilizationType="CIVILIZATION_JOSEON" Name="LOC_CIVILIZATION_JOSEON_NAME" FullName="LOC_CIVILIZATION_JOSEON_FULLNAME" Description="LOC_CIVILIZATION_JOSEON_DESCRIPTION" Adjective="LOC_CIVILIZATION_JOSEON_ADJECTIVE" StartingCivilizationLevelType="CIVILIZATION_LEVEL_FULL_CIV" AITargetCityPercentage="25"  ApexAge="AGE_MODERN" CapitalName="LOC_CITY_NAME_JOSEON1" RandomCityNameDepth="10"/>
+	</Civilizations>
+	<CivilizationFavoredWonders>
+		<Row CivilizationType="CIVILIZATION_JOSEON" FavoredWonderType="WONDER_HWASEONG" FavoredWonderName="LOC_WONDER_HWASEONG_NAME"/>
+	</CivilizationFavoredWonders>
+	<Traits>
+		<!--Civ Traits-->
+		<Row TraitType="TRAIT_JOSEON_ABILITY" Name="LOC_TRAIT_JOSEON_ABILITY_NAME" Description="LOC_TRAIT_JOSEON_ABILITY_DESCRIPTION" InternalOnly="true"/>
+	</Traits>
+	<TraitModifiers>
+		<Row TraitType="TRAIT_JOSEON_ABILITY" ModifierId="MOD_TOWN_TIER1_BUILDINGS"/>
+	</TraitModifiers>
+	<CivilizationTraits>
+		<Row CivilizationType="CIVILIZATION_JOSEON" TraitType="TRAIT_MODERN_CIV"/>
+		<Row CivilizationType="CIVILIZATION_JOSEON" TraitType="TRAIT_JOSEON"/>
+		<Row CivilizationType="CIVILIZATION_JOSEON" TraitType="TRAIT_JOSEON_ABILITY"/>
+		<Row CivilizationType="CIVILIZATION_JOSEON" TraitType="TRAIT_ATTRIBUTE_CULTURAL"/>
+		<Row CivilizationType="CIVILIZATION_JOSEON" TraitType="TRAIT_ATTRIBUTE_CULTURAL_TOT_AQ" />
+		<Row CivilizationType="CIVILIZATION_JOSEON" TraitType="TRAIT_ATTRIBUTE_CULTURAL_TOT_EX" />
+		<Row CivilizationType="CIVILIZATION_JOSEON" TraitType="TRAIT_ATTRIBUTE_EXPANSIONIST" />
+		<Row CivilizationType="CIVILIZATION_JOSEON" TraitType="TRAIT_ATTRIBUTE_EXPANSIONIST_TALL" />
+		<Row CivilizationType="CIVILIZATION_JOSEON" TraitType="TRAIT_ATTRIBUTE_EXPANSIONIST_TOT_AQ" />
+		<Row CivilizationType="CIVILIZATION_JOSEON" TraitType="TRAIT_ATTRIBUTE_EXPANSIONIST_TOT_AQ_TALL" />
+		<Row CivilizationType="CIVILIZATION_JOSEON" TraitType="TRAIT_ATTRIBUTE_EXPANSIONIST_TOT_EX" />
+		<Row CivilizationType="CIVILIZATION_JOSEON" TraitType="TRAIT_ATTRIBUTE_EXPANSIONIST_TOT_EX_TALL" />
+	</CivilizationTraits>
+	<LeaderCivPriorities>
+		<!--This is the table used for AI, the UI uses LeaderCivilizationBias in config.xml-->
+		<Row Leader="LEADER_PACHACUTI" Civilization="CIVILIZATION_JOSEON" Priority="3" />
+		<Row Leader="LEADER_CHARLEMAGNE" Civilization="CIVILIZATION_JOSEON" Priority="1" />
+	</LeaderCivPriorities>
+	<CityNames>
+		<Row CivilizationType="CIVILIZATION_JOSEON" CityName="LOC_CITY_NAME_JOSEON1"/>
+		<Row CivilizationType="CIVILIZATION_JOSEON" CityName="LOC_CITY_NAME_JOSEON2"/>
+		<Row CivilizationType="CIVILIZATION_JOSEON" CityName="LOC_CITY_NAME_JOSEON3"/>
+		<Row CivilizationType="CIVILIZATION_JOSEON" CityName="LOC_CITY_NAME_JOSEON4"/>
+		<Row CivilizationType="CIVILIZATION_JOSEON" CityName="LOC_CITY_NAME_JOSEON5"/>
+		<Row CivilizationType="CIVILIZATION_JOSEON" CityName="LOC_CITY_NAME_JOSEON6"/>
+		<Row CivilizationType="CIVILIZATION_JOSEON" CityName="LOC_CITY_NAME_JOSEON7"/>
+		<Row CivilizationType="CIVILIZATION_JOSEON" CityName="LOC_CITY_NAME_JOSEON8"/>
+		<Row CivilizationType="CIVILIZATION_JOSEON" CityName="LOC_CITY_NAME_JOSEON9"/>
+		<Row CivilizationType="CIVILIZATION_JOSEON" CityName="LOC_CITY_NAME_JOSEON10"/>
+		<Row CivilizationType="CIVILIZATION_JOSEON" CityName="LOC_CITY_NAME_JOSEON11"/>
+		<Row CivilizationType="CIVILIZATION_JOSEON" CityName="LOC_CITY_NAME_JOSEON12"/>
+		<Row CivilizationType="CIVILIZATION_JOSEON" CityName="LOC_CITY_NAME_JOSEON13"/>
+		<Row CivilizationType="CIVILIZATION_JOSEON" CityName="LOC_CITY_NAME_JOSEON14"/>
+		<Row CivilizationType="CIVILIZATION_JOSEON" CityName="LOC_CITY_NAME_JOSEON15"/>
+		<Row CivilizationType="CIVILIZATION_JOSEON" CityName="LOC_CITY_NAME_JOSEON16"/>
+		<Row CivilizationType="CIVILIZATION_JOSEON" CityName="LOC_CITY_NAME_JOSEON17"/>
+		<Row CivilizationType="CIVILIZATION_JOSEON" CityName="LOC_CITY_NAME_JOSEON18"/>
+	</CityNames>
+	<VisArt_CivilizationBuildingCultures>
+		<Row CivilizationType="CIVILIZATION_JOSEON" BuildingCulture="BUILDING_CULTURE_EAS"/>
+		<Row CivilizationType="CIVILIZATION_JOSEON" BuildingCulture="BUILDING_CULTURE_EAS_ANT"/>
+		<Row CivilizationType="CIVILIZATION_JOSEON" BuildingCulture="BUILDING_CULTURE_EAS_EXP"/>
+		<Row CivilizationType="CIVILIZATION_JOSEON" BuildingCulture="BUILDING_CULTURE_EAS_MOD"/>
+		<Row CivilizationType="CIVILIZATION_JOSEON" BuildingCulture="ANT_STONE"/>
+		<Row CivilizationType="CIVILIZATION_JOSEON" BuildingCulture="EXP_STONE"/>
+		<Row CivilizationType="CIVILIZATION_JOSEON" BuildingCulture="MOD_STONE"/>
+	</VisArt_CivilizationBuildingCultures>
+	<VisArt_CivilizationUnitCultures>
+	<Row CivilizationType="CIVILIZATION_JOSEON" UnitCulture="Asian"/>
+	</VisArt_CivilizationUnitCultures>
+	<StartBiasTerrains>
+		<Row CivilizationType="CIVILIZATION_JOSEON" TerrainType="TERRAIN_HILL" Score="5" />
+	</StartBiasTerrains>
+	<AiListTypes>
+		<Row ListType="Joseon Tag Biases" />
+	</AiListTypes>
+	<AiLists>
+		<Row ListType="Joseon Tag Biases" LeaderType="TRAIT_JOSEON" System="TagBiases" />
+	</AiLists>
+	<AiFavoredItems>
+		<Row ListType="Joseon Tag Biases" Item="CULTURE" Value="50" />
+		<Row ListType="Joseon Tag Biases" Item="SCIENCE" Value="50" />
+	</AiFavoredItems>
+	<Tags>
+		<Row Tag="JOSEON" Category="CONSTRUCTIBLE_TAG"/>
+	</Tags>
+	<EndGameMovies>
+		<!-- Defeats (Civ Specific) -->
+		<Row DefeatType="DEFEAT_DEFAULT" CivilizationType="CIVILIZATION_JOSEON" Priority="450" MovieType="MOVIE_DEFEAT_JOSEON" />
+		<Row DefeatType="DEFEAT_RETIRE" CivilizationType="CIVILIZATION_JOSEON" Priority="440" MovieType="MOVIE_DEFEAT_JOSEON" />
+	</EndGameMovies>
+</Database>

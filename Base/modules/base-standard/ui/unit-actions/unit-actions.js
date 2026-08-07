@@ -19,6 +19,7 @@ import WorldInput from '../world-input/world-input.js';
 import styles from './unit-actions.scss.js';
 import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
 import ContextManager from '../../../core/ui/context-manager/context-manager.js';
+import DiplomacyManager from '../diplomacy/diplomacy-manager.js';
 import { DialogBoxAction } from '../../../core/ui/dialog-box/model-dialog-box.js';
 
 var UnitActionPanelState = /* @__PURE__ */ ((UnitActionPanelState2) => {
@@ -259,6 +260,9 @@ class UnitActions extends Panel {
           "unit-prev-help-1",
           "unit-prev-help-2"
         ]);
+        if (ContextManager.hasInstanceOf("panel-radial-menu")) {
+          ContextManager.pop("panel-radial-menu");
+        }
         break;
       case 2 /* ANIMATEOUT */:
         this.Root.classList.toggle("unit-actions--anim-in", false);
@@ -1042,6 +1046,7 @@ class UnitActions extends Panel {
             requireConfirm: enabled.RequiresConfirmation ? enabled.RequiresConfirmation : false,
             confirmTitle: enabled.ConfirmDialogTitle,
             confirmBody: enabled.ConfirmDialogBody,
+            targetPlayer: enabled.Player2,
             UICategory: this.getUnitActionCategory(operation.CategoryInUI),
             priority: operation.PriorityInUI ? operation.PriorityInUI : 0,
             callback: (location) => {
@@ -1673,12 +1678,32 @@ class UnitActions extends Panel {
           doAction();
         }
       };
-      DialogBoxManager.createDialog_ConfirmCancel({
-        dialogId: this.dialogId,
-        body: action.confirmBody,
-        title: action.confirmTitle || confirmUnitActionTitleDefault,
-        callback: dbCallback
-      });
+      if (action.targetPlayer) {
+        const player = Players.get(GameContext.localPlayerID);
+        if (player?.Diplomacy) {
+          if (player.Diplomacy.isAtWarWith(action.targetPlayer)) {
+            doAction();
+          } else {
+            const player2 = Players.get(action.targetPlayer);
+            DiplomacyManager.startWarFromMap(
+              {
+                player: action.targetPlayer,
+                independentIndex: player2?.isIndependent ? action.targetPlayer : -1
+              },
+              () => {
+                dbCallback(DialogBoxAction.Confirm);
+              }
+            );
+          }
+        }
+      } else {
+        DialogBoxManager.createDialog_ConfirmCancel({
+          dialogId: this.dialogId,
+          body: action.confirmBody,
+          title: action.confirmTitle || confirmUnitActionTitleDefault,
+          callback: dbCallback
+        });
+      }
     } else {
       doAction();
     }

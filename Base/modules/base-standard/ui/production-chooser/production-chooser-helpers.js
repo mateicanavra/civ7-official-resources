@@ -976,6 +976,18 @@ const GetLastProductionData = (cityID) => {
     }
     return data;
   }
+  const projectDefinition = GameInfo.Projects.lookup(lastTypeHash);
+  if (projectDefinition) {
+    const data = {
+      typeHash: lastTypeHash,
+      name: projectDefinition.Name,
+      type: projectDefinition.ProjectType,
+      isUnit: false,
+      isProject: true,
+      details: []
+    };
+    return data;
+  }
   console.error(
     `production-chooser-helper: GetLastProductionData failed to return valid last production data for city ID ${cityID}`
   );

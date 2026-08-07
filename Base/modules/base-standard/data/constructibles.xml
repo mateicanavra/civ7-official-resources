@@ -297,6 +297,8 @@
 		<Row ID="QuarterScience" YieldType="YIELD_SCIENCE" YieldChange="1" TilesRequired="1" AdjacentQuarter="true"/>
 		<!-- Wildcard Adjacency Yields Changes -->
 		<Row ID="AshokaUniqueBuildingAdjacencyToImprovements" YieldType="YIELD_HAPPINESS" YieldChange="1" TilesRequired="1" AdjacentConstructibleClass="IMPROVEMENT"/>
+		<Row ID="AshokaHappinessBuildingAdjacencyToImprovements" YieldType="YIELD_HAPPINESS" YieldChange="1" TilesRequired="1" AdjacentConstructibleClass="IMPROVEMENT"/>
+		<Row ID="AshokaFoodBuildingAdjacencyToImprovements" YieldType="YIELD_HAPPINESS" YieldChange="1" TilesRequired="1" AdjacentConstructibleClass="IMPROVEMENT"/>
 		<Row ID="CharlemagneMilitaryBuildingHappiness" YieldType="YIELD_HAPPINESS" YieldChange="1" TilesRequired="1" AdjacentConstructibleTag="FORTIFICATION"/>
 		<Row ID="CharlemagneScienceBuildingHappiness" YieldType="YIELD_HAPPINESS" YieldChange="1" TilesRequired="1" AdjacentConstructibleTag="FORTIFICATION"/>
 		<Row ID="PachacutiMountainFood" YieldType="YIELD_FOOD" YieldChange="1" TilesRequired="1" ProjectMaxYield="true" AdjacentTerrain="TERRAIN_MOUNTAIN"/>
@@ -318,6 +320,8 @@
 	<Constructible_WildcardAdjacencies>
 		<!-- Leaders -->
 		<Row YieldChangeId="AshokaUniqueBuildingAdjacencyToImprovements" RequiresActivation="true" ConstructibleTag="UNIQUE"/>
+		<Row YieldChangeId="AshokaHappinessBuildingAdjacencyToImprovements" RequiresActivation="true" ConstructibleTag="HAPPINESS"/>
+		<Row YieldChangeId="AshokaFoodBuildingAdjacencyToImprovements" RequiresActivation="true" ConstructibleTag="FOOD"/>
 		<Row YieldChangeId="CharlemagneMilitaryBuildingHappiness" RequiresActivation="true" ConstructibleTag="MILITARY"/>
 		<Row YieldChangeId="CharlemagneScienceBuildingHappiness" RequiresActivation="true" ConstructibleTag="SCIENCE"/>
 		<Row YieldChangeId="PachacutiMountainFood" RequiresActivation="true" ConstructibleClass="BUILDING"/>

@@ -1,13 +1,15 @@
-import { Catalog } from '../../../../core/ui/utilities/utility-serialize.js';
+import { Catalog, CatalogItemCommittedEventName } from '../../../../core/ui/utilities/utility-serialize.js';
 import { getQuestTracker, QuestTrackerRefreshRequestName } from '../../../ui/quest-tracker/quest-tracker.js';
 
 const VERSION = 2;
 const TRACKED_TRIUMPH_OBJECT_NAME = "tracked-triumphs";
+const PENDING_TRIUMPH_OBJECT_NAME = "pending-to-untrack";
 const TRACKED_TRIUMPH_KEY_NAME = "ids";
 class TriumphTrackingManagerClass {
   triumphCatalogName = "TriumphTrackerCatalog";
   catalog;
   playerId;
+  isCatalogValueReady = true;
   constructor(playerId) {
     this.playerId = playerId;
     this.catalog = new Catalog({
@@ -20,10 +22,12 @@ class TriumphTrackingManagerClass {
     }
     engine.on("BeforeUnload", this.beforeUnload, this);
     engine.on("PlayerLegacyProgress", this.onLegacyProgress, this);
+    window.addEventListener(CatalogItemCommittedEventName, this.onCatalogCommited);
   }
   beforeUnload() {
     engine.off("BeforeUnload", this.beforeUnload, this);
     engine.off("PlayerLegacyProgress", this.onLegacyProgress, this);
+    window.removeEventListener(CatalogItemCommittedEventName, this.onCatalogCommited);
   }
   onLegacyProgress(event) {
     if (event.player != this.playerId) {
@@ -39,12 +43,50 @@ class TriumphTrackingManagerClass {
       this.addTriumphToQuestTracker(legacyDef);
     }
   }
+  onCatalogCommited = (event) => {
+    if (this.playerId != event.detail.playerId) {
+      return;
+    }
+    if (event.detail.objectId === TRACKED_TRIUMPH_OBJECT_NAME && event.detail.key === TRACKED_TRIUMPH_KEY_NAME) {
+      this.readTrackedTriumphs();
+      this.isCatalogValueReady = true;
+    }
+  };
   /**
    * Public exposure for tracked triumphs to be (re-)sent to quest tracker.
    * Required for hotseat when switching players.
    */
   refreshQuestTracker() {
-    this.readTrackedTriumphs();
+    this.checkForPendingToUntrack();
+    if (this.isCatalogValueReady) {
+      this.readTrackedTriumphs();
+    }
+  }
+  // Check if we have a pending Triumph to untrack on this player's turn
+  checkForPendingToUntrack() {
+    const tracker = instances.find(
+      (tracker2) => tracker2.catalog.getObject(PENDING_TRIUMPH_OBJECT_NAME).read(TRACKED_TRIUMPH_KEY_NAME) != "" && tracker2.catalog.getObject(PENDING_TRIUMPH_OBJECT_NAME).read(TRACKED_TRIUMPH_KEY_NAME) != null
+    );
+    if (tracker == void 0) {
+      return;
+    }
+    const pendingToUntrack = tracker.catalog.getObject(PENDING_TRIUMPH_OBJECT_NAME).read(TRACKED_TRIUMPH_KEY_NAME);
+    if (tracker.playerId == GameContext.localObserverID) {
+      const trackedTriumphs = this.catalog.getObject(TRACKED_TRIUMPH_OBJECT_NAME).read(TRACKED_TRIUMPH_KEY_NAME);
+      const existsInTrackedTriumphs = trackedTriumphs.includes(pendingToUntrack);
+      if (!existsInTrackedTriumphs) {
+        this.catalog.getObject(PENDING_TRIUMPH_OBJECT_NAME).write(TRACKED_TRIUMPH_KEY_NAME, "");
+        return;
+      }
+    }
+    const legacyDef = GameInfo.Legacies.lookup(pendingToUntrack);
+    if (legacyDef == null) {
+      console.log(
+        "triumph-tracking-manager: couldn't to find legacy definition for triumph type: " + pendingToUntrack
+      );
+      return;
+    }
+    this.unTrackTriumph(legacyDef);
   }
   // Parse the tracked triumphs from disk and add them to the quest tracker
   readTrackedTriumphs() {
@@ -111,6 +153,9 @@ class TriumphTrackingManagerClass {
     }
     this.writeTrackedLegacies();
   }
+  setTriumphToUntrack(triumph) {
+    this.catalog.getObject(PENDING_TRIUMPH_OBJECT_NAME).write(TRACKED_TRIUMPH_KEY_NAME, triumph.LegacyType);
+  }
   onClickTrackTriumph(legacyType) {
     const legacy = GameInfo.Legacies.lookup(legacyType);
     if (!legacy) {
@@ -140,6 +185,7 @@ class TriumphTrackingManagerClass {
       serializedTriumphIDs += "|" + questItem.id;
     });
     this.catalog.getObject(TRACKED_TRIUMPH_OBJECT_NAME).write(TRACKED_TRIUMPH_KEY_NAME, serializedTriumphIDs);
+    this.isCatalogValueReady = false;
   }
 }
 const instances = [];

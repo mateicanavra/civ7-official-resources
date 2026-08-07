@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+	<!-- ==================================================	-->
+	<!--	EXPLORATION							-->
+	<!-- ==================================================	-->
+	<Modifier id="HOGUK_JONGGYO_I_MOD_HAPPY_SETTLEMENT_INFLUENCE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_HAPPINESS">
+				<Argument name="MinSurplusHappiness">1</Argument>
+				<Argument name="Unhappy">false</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_HOGUK_JONGGYO_I_NAME</Argument>
+		<String context="Description">LOC_TRADITION_HOGUK_JONGGYO_I_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="HOGUK_JONGGYO_MOD_HAPPY_SETTLEMENT_INFLUENCE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
+		<SubjectRequirements type="REQUIREMENTSET_TEST_ANY">
+			<Requirement type="REQUIREMENT_CITY_FOLLOWS_RELIGION"/>
+			<Requirement type="REQUIREMENT_CITY_HAPPINESS">
+				<Argument name="MinSurplusHappiness">1</Argument>
+				<Argument name="Unhappy">false</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_HOGUK_JONGGYO_II_NAME</Argument>
+		<String context="Description">LOC_TRADITION_HOGUK_JONGGYO_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="SAGAE_CHIBUBEOP_MOD_CITY_GOLD_FROM_CULTURE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_CONVERSION">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_CITY"/>
+		</SubjectRequirements>
+		<Argument name="FromYieldType">YIELD_CULTURE</Argument>
+		<Argument name="ToYieldType">YIELD_GOLD</Argument>
+		<Argument name="Percent">10</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_SAGAE_CHIBUBEOP_NAME</Argument>
+		<String context="Description">LOC_TRADITION_SAGAE_CHIBUBEOP_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="BONGWAN_MOD_HAPPINESS_IMPROVEMENT" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD">
+		<Argument name="Tag">UNIQUE_IMPROVEMENT</Argument>
+		<Argument name="YieldType">YIELD_HAPPINESS</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_BONGWAN_I_NAME</Argument>
+		<String context="Description">LOC_TRADITION_BONGWAN_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="BONGWAN_II_MOD_HAPPINESS_IMPROVEMENT" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD">
+		<Argument name="Tag">UNIQUE_IMPROVEMENT</Argument>
+		<Argument name="YieldType">YIELD_HAPPINESS</Argument>
+		<Argument name="Amount">3</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_BONGWAN_II_NAME</Argument>
+		<String context="Description">LOC_TRADITION_BONGWAN_II_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="BONGWAN_MOD_BEFRIEND" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_ADJUST_DIPLOMATIC_ACTION_TYPE_EFFICIENCY">
+		<Argument name="ActionType">DIPLOMACY_ACTION_GIVE_INFLUENCE_TOKEN</Argument>
+		<Argument name="Percent">25</Argument>
+	</Modifier>
+	<Modifier id="MOD_UNLOCK_GORYEO_SYNCRETISM_ANTIQUITY" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
+			<Argument name="Tradition">TRADITION_GORYEO_SYNCRETISM_ANTIQUITY</Argument>
+		</Modifier>
+	<Modifier id="MOD_UNLOCK_GORYEO_SYNCRETISM_MODERN" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
+			<Argument name="Tradition">TRADITION_GORYEO_SYNCRETISM_MODERN</Argument>
+	</Modifier>
+	<Modifier id="GORYEO_SYNCRETISM_ANTIQUITY_MOD_IMPROVEMENT_PRODUCTION" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_ADJUST_BUILDING_PRODUCTION_EFFICIENCY_PER_NUM_ACTIVE_DIPLOMATIC_ACTIONS">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_CITY"/>
+		</SubjectRequirements>
+		<Argument name="Percent">10</Argument>
+		<Argument name="ConstructibleClass">IMPROVEMENT</Argument>
+		<Argument name="DiplomaticActionGroup">DIPLOMACY_ACTION_GROUP_ENDEAVOR</Argument>
+		<Argument name="CountOnlyStartedOrSupportedActions">True</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_GORYEO_SYNCRETISM_ANTIQUITY_NAME</Argument>
+		<String context="Description">LOC_TRADITION_GORYEO_SYNCRETISM_ANTIQUITY_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="GORYEO_SYNCRETISM_ANTIQUITY_MOD_UNIQUE_IMPROVEMENT_CULTURE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD">
+		<Argument name="Tag">UNIQUE_IMPROVEMENT</Argument>
+		<Argument name="YieldType">YIELD_FOOD</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_GORYEO_SYNCRETISM_ANTIQUITY_NAME</Argument>
+	</Modifier>
+	<Modifier id="GORYEO_SYNCRETISM_MODERN_MOD_IMPROVEMENT_PRODUCTION" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_ADJUST_BUILDING_PRODUCTION_EFFICIENCY_PER_NUM_ACTIVE_DIPLOMATIC_ACTIONS">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_CITY"/>
+		</SubjectRequirements>
+		<Argument name="Percent">15</Argument>
+		<Argument name="ConstructibleClass">IMPROVEMENT</Argument>
+		<Argument name="DiplomaticActionGroup">DIPLOMACY_ACTION_GROUP_ENDEAVOR</Argument>
+		<Argument name="CountOnlyStartedOrSupportedActions">True</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_GORYEO_SYNCRETISM_MODERN_NAME</Argument>
+		<String context="Description">LOC_TRADITION_GORYEO_SYNCRETISM_MODERN_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="GORYEO_SYNCRETISM_MODERN_MOD_UNIQUE_IMPROVEMENT_CULTURE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD">
+		<Argument name="Tag">UNIQUE_IMPROVEMENT</Argument>
+		<Argument name="YieldType">YIELD_FOOD</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_GORYEO_SYNCRETISM_MODERN_NAME</Argument>
+	</Modifier>
+</GameEffects>

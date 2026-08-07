@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Types>
+		<InsertOrIgnore Type="UNLOCK_CIVILIZATION_GORYEO" Kind="KIND_UNLOCK"/>
+	</Types>
+	<Unlocks>
+		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_GORYEO"/>
+	</Unlocks>
+	<UnlockRewards>
+		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_GORYEO" Name="LOC_CIVILIZATION_GORYEO_NAME" Description="LOC_UNLOCK_EXPLORATION_CIV_DESCRIPTION" Icon="CIVILIZATION_GORYEO" UnlockRewardType="CIVILIZATION_GORYEO" UnlockRewardKind="KIND_CIVILIZATION"/>
+	</UnlockRewards>
+	<UnlockRequirements>
+		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_GORYEO" RequirementSetId="REQSET_CIV_IS_SILLA" Description="LOC_UNLOCK_PLAY_AS_SILLA_DESCRIPTION" Tooltip="LOC_UNLOCK_PLAY_AS_SILLA_GORYEO_TOOLTIP"/>
+	</UnlockRequirements>
+	<UnlockConfigurationValues>
+		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_GORYEO" ConfigurationValue="CIVILIZATION_GORYEO"/>
+	</UnlockConfigurationValues>
+	<CivilizationSyncretismUnlocks>
+		<Row CivilizationType="CIVILIZATION_GORYEO" UnlockCivilizationType="CIVILIZATION_SILLA" />
+	</CivilizationSyncretismUnlocks>
+</Database>

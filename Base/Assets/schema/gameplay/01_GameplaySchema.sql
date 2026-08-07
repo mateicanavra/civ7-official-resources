@@ -518,7 +518,7 @@ CREATE TABLE 'AiOperationDefs' (
 	'AllowTargetUpdate' BOOLEAN NOT NULL DEFAULT 1,
 	'BehaviorTree' TEXT,
 	'EnemyType' TEXT NOT NULL DEFAULT "NONE",
-	'MaxTargetDefense' INTEGER NOT NULL DEFAULT -1,
+	'MaxNumWalls' INTEGER NOT NULL DEFAULT 0,
 	'MaxTargetDistInArea' INTEGER NOT NULL DEFAULT 5,
 	'MaxTargetDistInRegion' INTEGER NOT NULL DEFAULT 10,
 	'MaxTargetDistInWorld' INTEGER NOT NULL DEFAULT 0,
@@ -911,7 +911,6 @@ CREATE TABLE 'Civilizations' (
 	PRIMARY KEY("CivilizationType"),
 	FOREIGN KEY ("ApexAge") REFERENCES "Ages"("AgeType") ON DELETE CASCADE ON UPDATE CASCADE,
 	FOREIGN KEY ("StartingCivilizationLevelType") REFERENCES "CivilizationLevels"("CivilizationLevelType") ON DELETE CASCADE ON UPDATE CASCADE,
-	FOREIGN KEY ("UniqueCultureProgressionTree") REFERENCES "ProgressionTrees"("ProgressionTreeType") ON DELETE CASCADE ON UPDATE CASCADE,
 	FOREIGN KEY ("CivilizationType") REFERENCES "Types"("Type") ON DELETE CASCADE ON UPDATE CASCADE
 );
 CREATE TABLE 'CivilizationCitizenNames' (
@@ -1371,6 +1370,22 @@ CREATE TABLE 'DealItemAgreements' (
 	'Name' LOC_TEXT NOT NULL,
 	PRIMARY KEY("Type")
 );
+CREATE TABLE 'DealItemGold' (
+	'Type' TEXT NOT NULL,
+	'Amount' INTEGER NOT NULL DEFAULT 0,
+	'Description' LOC_TEXT NOT NULL,
+	'Name' LOC_TEXT NOT NULL,
+	'ScaleByGameSpeed' BOOLEAN NOT NULL DEFAULT 0,
+	PRIMARY KEY("Type")
+);
+CREATE TABLE 'DealItemInfluence' (
+	'Type' TEXT NOT NULL,
+	'Amount' INTEGER NOT NULL DEFAULT 0,
+	'Description' LOC_TEXT NOT NULL,
+	'Name' LOC_TEXT NOT NULL,
+	'ScaleByGameSpeed' BOOLEAN NOT NULL DEFAULT 0,
+	PRIMARY KEY("Type")
+);
 CREATE TABLE 'Defeats' (
 	'DefeatType' TEXT NOT NULL,
 	'AllowAgeTransition' BOOLEAN NOT NULL DEFAULT 0,
@@ -1496,6 +1511,7 @@ CREATE TABLE 'DiplomacyBonusEnvoyData' (
 );
 CREATE TABLE 'DiplomacyFavorsGrievancesEventsData' (
 	'DiplomacyFavorGrievanceEventType' TEXT NOT NULL,
+	'AltName' LOC_TEXT,
 	'Amount' INTEGER NOT NULL DEFAULT 0,
 	'DiplomacyFavorGrievanceEventGroup' TEXT NOT NULL,
 	'InfAward' INTEGER NOT NULL DEFAULT 0,
@@ -3988,6 +4004,7 @@ CREATE TABLE 'Units' (
 	'CanTargetLand' BOOLEAN NOT NULL DEFAULT 1,
 	'CanTrain' BOOLEAN NOT NULL DEFAULT 1,
 	'CanTriggerDiscovery' BOOLEAN NOT NULL DEFAULT 1,
+	'ConstructibleType' TEXT,
 	'CoreClass' TEXT NOT NULL,
 	'CostProgressionModel' TEXT NOT NULL DEFAULT "NO_COST_PROGRESSION",
 	'CostProgressionParam1' INTEGER NOT NULL DEFAULT 0,
@@ -4021,6 +4038,7 @@ CREATE TABLE 'Units' (
 	'SpreadCharges' INTEGER NOT NULL DEFAULT 0,
 	'Spy' BOOLEAN NOT NULL DEFAULT 0,
 	'Stackable' BOOLEAN NOT NULL DEFAULT 0,
+	'StaticConstructibleUnit' BOOLEAN NOT NULL DEFAULT 0,
 	'StrategicResource' TEXT,
 	'TeamVisibility' BOOLEAN NOT NULL DEFAULT 0,
 	'Teleport' BOOLEAN NOT NULL DEFAULT 0,
@@ -4039,7 +4057,8 @@ CREATE TABLE 'Units' (
 	FOREIGN KEY ("PromotionClass") REFERENCES "UnitPromotionClasses"("PromotionClassType") ON DELETE SET DEFAULT ON UPDATE SET DEFAULT,
 	FOREIGN KEY ("PseudoYieldType") REFERENCES "PseudoYields"("PseudoYieldType") ON DELETE SET DEFAULT ON UPDATE SET DEFAULT,
 	FOREIGN KEY ("UnitType") REFERENCES "Types"("Type") ON DELETE CASCADE ON UPDATE CASCADE,
-	FOREIGN KEY ("VictoryType") REFERENCES "Victories"("VictoryType") ON DELETE CASCADE ON UPDATE CASCADE
+	FOREIGN KEY ("VictoryType") REFERENCES "Victories"("VictoryType") ON DELETE CASCADE ON UPDATE CASCADE,
+	FOREIGN KEY ("ConstructibleType") REFERENCES "Constructibles"("ConstructibleType") ON DELETE CASCADE ON UPDATE CASCADE
 );
 CREATE TABLE 'Unit_Abilities' (
 	'UnitAbilityType' TEXT NOT NULL,
@@ -4613,9 +4632,9 @@ CREATE TRIGGER OnDelete_AdvisoryClasses_Cascade_AdvisorSubjectsAdvisoryClassType
 CREATE TRIGGER OnDelete_Difficulties_Cascade_AdvisorWarningsMaxDifficulty AFTER DELETE ON Difficulties FOR EACH ROW BEGIN DELETE FROM AdvisorWarnings WHERE MaxDifficulty = OLD.DifficultyType; END;
 CREATE TRIGGER OnDelete_AdviceInstances_Cascade_AdvisorWarningsAdviceID AFTER DELETE ON AdviceInstances FOR EACH ROW BEGIN DELETE FROM AdvisorWarnings WHERE AdviceID = OLD.AdviceID; END;
 CREATE TRIGGER OnDelete_Types_Cascade_AgesAgeType AFTER DELETE ON Types FOR EACH ROW BEGIN DELETE FROM Ages WHERE AgeType = OLD.Type; END;
-CREATE TRIGGER OnDelete_ProgressionTrees_Cascade_AgesMainCultureProgressionTreeType AFTER DELETE ON ProgressionTrees FOR EACH ROW BEGIN DELETE FROM Ages WHERE MainCultureProgressionTreeType = OLD.ProgressionTreeType; END;
-CREATE TRIGGER OnDelete_ProgressionTrees_Cascade_AgesMainTechProgressionTreeType AFTER DELETE ON ProgressionTrees FOR EACH ROW BEGIN DELETE FROM Ages WHERE MainTechProgressionTreeType = OLD.ProgressionTreeType; END;
-CREATE TRIGGER OnDelete_TradeSystemParameterSets_Cascade_AgesTradeSystemParameterSet AFTER DELETE ON TradeSystemParameterSets FOR EACH ROW BEGIN DELETE FROM Ages WHERE TradeSystemParameterSet = OLD.Type; END;
+CREATE TRIGGER OnDelete_ProgressionTrees_SetNULL_AgesMainCultureProgressionTreeType AFTER DELETE ON ProgressionTrees FOR EACH ROW BEGIN UPDATE Ages SET MainCultureProgressionTreeType = NULL WHERE MainCultureProgressionTreeType = OLD.ProgressionTreeType; END;
+CREATE TRIGGER OnDelete_ProgressionTrees_SetNULL_AgesMainTechProgressionTreeType AFTER DELETE ON ProgressionTrees FOR EACH ROW BEGIN UPDATE Ages SET MainTechProgressionTreeType = NULL WHERE MainTechProgressionTreeType = OLD.ProgressionTreeType; END;
+CREATE TRIGGER OnDelete_TradeSystemParameterSets_SetNULL_AgesTradeSystemParameterSet AFTER DELETE ON TradeSystemParameterSets FOR EACH ROW BEGIN UPDATE Ages SET TradeSystemParameterSet = NULL WHERE TradeSystemParameterSet = OLD.Type; END;
 CREATE TRIGGER OnDelete_Ages_Cascade_AgeConstructibleDefaultMaintenancesAge AFTER DELETE ON Ages FOR EACH ROW BEGIN DELETE FROM AgeConstructibleDefaultMaintenances WHERE Age = OLD.AgeType; END;
 CREATE TRIGGER OnDelete_Ages_Cascade_AgeConstructibleDefaultYieldsAge AFTER DELETE ON Ages FOR EACH ROW BEGIN DELETE FROM AgeConstructibleDefaultYields WHERE Age = OLD.AgeType; END;
 CREATE TRIGGER OnDelete_AgeProgressions_Cascade_AgeCrisesAgeProgressionType AFTER DELETE ON AgeProgressions FOR EACH ROW BEGIN DELETE FROM AgeCrises WHERE AgeProgressionType = OLD.AgeProgressionType; END;
@@ -4671,7 +4690,7 @@ CREATE TRIGGER OnDelete_Ages_Cascade_AllowedFreeUnitsAge AFTER DELETE ON Ages FO
 CREATE TRIGGER OnDelete_Units_Cascade_AllowedFreeUnitsUnit AFTER DELETE ON Units FOR EACH ROW BEGIN DELETE FROM AllowedFreeUnits WHERE Unit = OLD.UnitType; END;
 CREATE TRIGGER OnDelete_AiOperationLists_Cascade_AllowedOperationsListType AFTER DELETE ON AiOperationLists FOR EACH ROW BEGIN DELETE FROM AllowedOperations WHERE ListType = OLD.ListType; END;
 CREATE TRIGGER OnDelete_AiOperationDefs_Cascade_AllowedOperationsOperationDef AFTER DELETE ON AiOperationDefs FOR EACH ROW BEGIN DELETE FROM AllowedOperations WHERE OperationDef = OLD.OperationName; END;
-CREATE TRIGGER OnDelete_ProgressionTrees_Cascade_AttributesProgressionTreeType AFTER DELETE ON ProgressionTrees FOR EACH ROW BEGIN DELETE FROM Attributes WHERE ProgressionTreeType = OLD.ProgressionTreeType; END;
+CREATE TRIGGER OnDelete_ProgressionTrees_SetNULL_AttributesProgressionTreeType AFTER DELETE ON ProgressionTrees FOR EACH ROW BEGIN UPDATE Attributes SET ProgressionTreeType = NULL WHERE ProgressionTreeType = OLD.ProgressionTreeType; END;
 CREATE TRIGGER OnDelete_Difficulties_Cascade_BarbarianAttackForcesMinTargetDifficulty AFTER DELETE ON Difficulties FOR EACH ROW BEGIN DELETE FROM BarbarianAttackForces WHERE MinTargetDifficulty = OLD.DifficultyType; END;
 CREATE TRIGGER OnDelete_Difficulties_Cascade_BarbarianAttackForcesMaxTargetDifficulty AFTER DELETE ON Difficulties FOR EACH ROW BEGIN DELETE FROM BarbarianAttackForces WHERE MaxTargetDifficulty = OLD.DifficultyType; END;
 CREATE TRIGGER OnDelete_Resources_Cascade_BarbarianTribesRequiredResource AFTER DELETE ON Resources FOR EACH ROW BEGIN DELETE FROM BarbarianTribes WHERE RequiredResource = OLD.ResourceType; END;
@@ -4710,9 +4729,8 @@ CREATE TRIGGER OnDelete_Leaders_Cascade_CityNamesLeaderType AFTER DELETE ON Lead
 CREATE TRIGGER OnDelete_Continents_Cascade_CityNamesContinentType AFTER DELETE ON Continents FOR EACH ROW BEGIN DELETE FROM CityNames WHERE ContinentType = OLD.ContinentType; END;
 CREATE TRIGGER OnDelete_CityStateTypes_Cascade_CityStateBonusesCityStateType AFTER DELETE ON CityStateTypes FOR EACH ROW BEGIN DELETE FROM CityStateBonuses WHERE CityStateType = OLD.CityStateType; END;
 CREATE TRIGGER OnDelete_CityStateBonuses_Cascade_CityStateBonusModifiersCityStateBonusType AFTER DELETE ON CityStateBonuses FOR EACH ROW BEGIN DELETE FROM CityStateBonusModifiers WHERE CityStateBonusType = OLD.CityStateBonusType; END;
-CREATE TRIGGER OnDelete_Ages_Cascade_CivilizationsApexAge AFTER DELETE ON Ages FOR EACH ROW BEGIN DELETE FROM Civilizations WHERE ApexAge = OLD.AgeType; END;
-CREATE TRIGGER OnDelete_CivilizationLevels_Cascade_CivilizationsStartingCivilizationLevelType AFTER DELETE ON CivilizationLevels FOR EACH ROW BEGIN DELETE FROM Civilizations WHERE StartingCivilizationLevelType = OLD.CivilizationLevelType; END;
-CREATE TRIGGER OnDelete_ProgressionTrees_Cascade_CivilizationsUniqueCultureProgressionTree AFTER DELETE ON ProgressionTrees FOR EACH ROW BEGIN DELETE FROM Civilizations WHERE UniqueCultureProgressionTree = OLD.ProgressionTreeType; END;
+CREATE TRIGGER OnDelete_Ages_SetNULL_CivilizationsApexAge AFTER DELETE ON Ages FOR EACH ROW BEGIN UPDATE Civilizations SET ApexAge = NULL WHERE ApexAge = OLD.AgeType; END;
+CREATE TRIGGER OnDelete_CivilizationLevels_SetNULL_CivilizationsStartingCivilizationLevelType AFTER DELETE ON CivilizationLevels FOR EACH ROW BEGIN UPDATE Civilizations SET StartingCivilizationLevelType = NULL WHERE StartingCivilizationLevelType = OLD.CivilizationLevelType; END;
 CREATE TRIGGER OnDelete_Types_Cascade_CivilizationsCivilizationType AFTER DELETE ON Types FOR EACH ROW BEGIN DELETE FROM Civilizations WHERE CivilizationType = OLD.Type; END;
 CREATE TRIGGER OnDelete_Civilizations_Cascade_CivilizationCitizenNamesCivilizationType AFTER DELETE ON Civilizations FOR EACH ROW BEGIN DELETE FROM CivilizationCitizenNames WHERE CivilizationType = OLD.CivilizationType; END;
 CREATE TRIGGER OnDelete_Civilizations_Cascade_CivilizationFavoredWondersCivilizationType AFTER DELETE ON Civilizations FOR EACH ROW BEGIN DELETE FROM CivilizationFavoredWonders WHERE CivilizationType = OLD.CivilizationType; END;
@@ -4912,15 +4930,13 @@ CREATE TRIGGER OnDelete_GreatPersonIndividuals_Cascade_GreatPersonIndividualBirt
 CREATE TRIGGER OnDelete_GreatPersonIndividuals_Cascade_GreatPersonVictoryTypeEntriesGreatPersonIndividualType AFTER DELETE ON GreatPersonIndividuals FOR EACH ROW BEGIN DELETE FROM GreatPersonVictoryTypeEntries WHERE GreatPersonIndividualType = OLD.GreatPersonIndividualType; END;
 CREATE TRIGGER OnDelete_Ages_Cascade_GreatWorksAgeType AFTER DELETE ON Ages FOR EACH ROW BEGIN DELETE FROM GreatWorks WHERE AgeType = OLD.AgeType; END;
 CREATE TRIGGER OnDelete_GreatPersonIndividuals_Cascade_GreatWorksGreatPersonIndividualType AFTER DELETE ON GreatPersonIndividuals FOR EACH ROW BEGIN DELETE FROM GreatWorks WHERE GreatPersonIndividualType = OLD.GreatPersonIndividualType; END;
-CREATE TRIGGER OnDelete_GreatWorkObjectTypes_Cascade_GreatWorksGreatWorkObjectType AFTER DELETE ON GreatWorkObjectTypes FOR EACH ROW BEGIN DELETE FROM GreatWorks WHERE GreatWorkObjectType = OLD.GreatWorkObjectType; END;
-CREATE TRIGGER OnDelete_GreatWorkSourceTypes_Cascade_GreatWorksGreatWorkSourceType AFTER DELETE ON GreatWorkSourceTypes FOR EACH ROW BEGIN DELETE FROM GreatWorks WHERE GreatWorkSourceType = OLD.GreatWorkSourceType; END;
 CREATE TRIGGER OnDelete_GreatWorkObjectTypes_Cascade_GreatWork_ValidSubTypesGreatWorkObjectType AFTER DELETE ON GreatWorkObjectTypes FOR EACH ROW BEGIN DELETE FROM GreatWork_ValidSubTypes WHERE GreatWorkObjectType = OLD.GreatWorkObjectType; END;
 CREATE TRIGGER OnDelete_GreatWorkSlotTypes_Cascade_GreatWork_ValidSubTypesGreatWorkSlotType AFTER DELETE ON GreatWorkSlotTypes FOR EACH ROW BEGIN DELETE FROM GreatWork_ValidSubTypes WHERE GreatWorkSlotType = OLD.GreatWorkSlotType; END;
 CREATE TRIGGER OnDelete_GreatWorks_Cascade_GreatWork_YieldChangesGreatWorkType AFTER DELETE ON GreatWorks FOR EACH ROW BEGIN DELETE FROM GreatWork_YieldChanges WHERE GreatWorkType = OLD.GreatWorkType; END;
 CREATE TRIGGER OnDelete_Yields_Cascade_GreatWork_YieldChangesYieldType AFTER DELETE ON Yields FOR EACH ROW BEGIN DELETE FROM GreatWork_YieldChanges WHERE YieldType = OLD.YieldType; END;
 CREATE TRIGGER OnDelete_GreatWorks_Cascade_GreatWorkModifiersGreatWorkType AFTER DELETE ON GreatWorks FOR EACH ROW BEGIN DELETE FROM GreatWorkModifiers WHERE GreatWorkType = OLD.GreatWorkType; END;
 CREATE TRIGGER OnDelete_PseudoYields_Cascade_GreatWorkObjectTypesPseudoYieldType AFTER DELETE ON PseudoYields FOR EACH ROW BEGIN DELETE FROM GreatWorkObjectTypes WHERE PseudoYieldType = OLD.PseudoYieldType; END;
-CREATE TRIGGER OnDelete_ProgressionTrees_Cascade_IdeologiesProgressionTreeType AFTER DELETE ON ProgressionTrees FOR EACH ROW BEGIN DELETE FROM Ideologies WHERE ProgressionTreeType = OLD.ProgressionTreeType; END;
+CREATE TRIGGER OnDelete_ProgressionTrees_SetNULL_IdeologiesProgressionTreeType AFTER DELETE ON ProgressionTrees FOR EACH ROW BEGIN UPDATE Ideologies SET ProgressionTreeType = NULL WHERE ProgressionTreeType = OLD.ProgressionTreeType; END;
 CREATE TRIGGER OnDelete_ProgressionTreeNodes_Cascade_IdeologiesFirstTreeNode AFTER DELETE ON ProgressionTreeNodes FOR EACH ROW BEGIN DELETE FROM Ideologies WHERE FirstTreeNode = OLD.ProgressionTreeNodeType; END;
 CREATE TRIGGER OnDelete_Ideologies_Cascade_IdeologiesRivalIdeology AFTER DELETE ON Ideologies FOR EACH ROW BEGIN DELETE FROM Ideologies WHERE RivalIdeology = OLD.IdeologyType; END;
 CREATE TRIGGER OnDelete_Ideologies_Cascade_IdeologyAdoptionModifiersIdeologyType AFTER DELETE ON Ideologies FOR EACH ROW BEGIN DELETE FROM IdeologyAdoptionModifiers WHERE IdeologyType = OLD.IdeologyType; END;
@@ -5025,8 +5041,8 @@ CREATE TRIGGER OnDelete_RandomEvents_Cascade_RandomEventPlotEffectsRandomEventTy
 CREATE TRIGGER OnDelete_EventClasses_Cascade_RandomEventUIEventClass AFTER DELETE ON EventClasses FOR EACH ROW BEGIN DELETE FROM RandomEventUI WHERE EventClass = OLD.EventClass; END;
 CREATE TRIGGER OnDelete_RandomEvents_Cascade_RandomEventYieldsRandomEventType AFTER DELETE ON RandomEvents FOR EACH ROW BEGIN DELETE FROM RandomEventYields WHERE RandomEventType = OLD.RandomEventType; END;
 CREATE TRIGGER OnDelete_Yields_Cascade_RandomEventYieldsYieldType AFTER DELETE ON Yields FOR EACH ROW BEGIN DELETE FROM RandomEventYields WHERE YieldType = OLD.YieldType; END;
-CREATE TRIGGER OnDelete_Terrains_Cascade_RegionClaimObstaclesTerrainType AFTER DELETE ON Terrains FOR EACH ROW BEGIN DELETE FROM RegionClaimObstacles WHERE TerrainType = OLD.TerrainType; END;
-CREATE TRIGGER OnDelete_Features_Cascade_RegionClaimObstaclesFeatureType AFTER DELETE ON Features FOR EACH ROW BEGIN DELETE FROM RegionClaimObstacles WHERE FeatureType = OLD.FeatureType; END;
+CREATE TRIGGER OnDelete_Terrains_SetNULL_RegionClaimObstaclesTerrainType AFTER DELETE ON Terrains FOR EACH ROW BEGIN UPDATE RegionClaimObstacles SET TerrainType = NULL WHERE TerrainType = OLD.TerrainType; END;
+CREATE TRIGGER OnDelete_Features_SetNULL_RegionClaimObstaclesFeatureType AFTER DELETE ON Features FOR EACH ROW BEGIN UPDATE RegionClaimObstacles SET FeatureType = NULL WHERE FeatureType = OLD.FeatureType; END;
 CREATE TRIGGER OnDelete_Types_Cascade_ReligionsReligionType AFTER DELETE ON Types FOR EACH ROW BEGIN DELETE FROM Religions WHERE ReligionType = OLD.Type; END;
 CREATE TRIGGER OnDelete_Requirements_Cascade_RequirementArgumentsRequirementId AFTER DELETE ON Requirements FOR EACH ROW BEGIN DELETE FROM RequirementArguments WHERE RequirementId = OLD.RequirementId; END;
 CREATE TRIGGER OnDelete_Requirements_Cascade_RequirementSetRequirementsRequirementId AFTER DELETE ON Requirements FOR EACH ROW BEGIN DELETE FROM RequirementSetRequirements WHERE RequirementId = OLD.RequirementId; END;
@@ -5143,6 +5159,7 @@ CREATE TRIGGER OnDelete_UnitPromotionClasses_SetNULL_UnitsPromotionClass AFTER D
 CREATE TRIGGER OnDelete_PseudoYields_SetNULL_UnitsPseudoYieldType AFTER DELETE ON PseudoYields FOR EACH ROW BEGIN UPDATE Units SET PseudoYieldType = NULL WHERE PseudoYieldType = OLD.PseudoYieldType; END;
 CREATE TRIGGER OnDelete_Types_Cascade_UnitsUnitType AFTER DELETE ON Types FOR EACH ROW BEGIN DELETE FROM Units WHERE UnitType = OLD.Type; END;
 CREATE TRIGGER OnDelete_Victories_Cascade_UnitsVictoryType AFTER DELETE ON Victories FOR EACH ROW BEGIN DELETE FROM Units WHERE VictoryType = OLD.VictoryType; END;
+CREATE TRIGGER OnDelete_Constructibles_Cascade_UnitsConstructibleType AFTER DELETE ON Constructibles FOR EACH ROW BEGIN DELETE FROM Units WHERE ConstructibleType = OLD.ConstructibleType; END;
 CREATE TRIGGER OnDelete_UnitAbilities_Cascade_Unit_AbilitiesUnitAbilityType AFTER DELETE ON UnitAbilities FOR EACH ROW BEGIN DELETE FROM Unit_Abilities WHERE UnitAbilityType = OLD.UnitAbilityType; END;
 CREATE TRIGGER OnDelete_Units_Cascade_Unit_AbilitiesUnitType AFTER DELETE ON Units FOR EACH ROW BEGIN DELETE FROM Unit_Abilities WHERE UnitType = OLD.UnitType; END;
 CREATE TRIGGER OnDelete_Units_Cascade_Unit_AdvisoriesUnitType AFTER DELETE ON Units FOR EACH ROW BEGIN DELETE FROM Unit_Advisories WHERE UnitType = OLD.UnitType; END;
@@ -5173,12 +5190,12 @@ CREATE TRIGGER OnDelete_Units_Cascade_UnitCapturesBecomesUnitType AFTER DELETE O
 CREATE TRIGGER OnDelete_UnitAbilities_Cascade_UnitClass_AbilitiesUnitAbilityType AFTER DELETE ON UnitAbilities FOR EACH ROW BEGIN DELETE FROM UnitClass_Abilities WHERE UnitAbilityType = OLD.UnitAbilityType; END;
 CREATE TRIGGER OnDelete_InterfaceModes_SetNULL_UnitCommandsInterfaceMode AFTER DELETE ON InterfaceModes FOR EACH ROW BEGIN UPDATE UnitCommands SET InterfaceMode = NULL WHERE InterfaceMode = OLD.InterfaceModeType; END;
 CREATE TRIGGER OnDelete_DiplomacyActions_Cascade_UnitDiplomacyAction_TargetsDiplomacyActionType AFTER DELETE ON DiplomacyActions FOR EACH ROW BEGIN DELETE FROM UnitDiplomacyAction_Targets WHERE DiplomacyActionType = OLD.DiplomacyActionType; END;
-CREATE TRIGGER OnDelete_CivilizationLevels_Cascade_UnitDiplomacyAction_TargetsCivilizationLevelType AFTER DELETE ON CivilizationLevels FOR EACH ROW BEGIN DELETE FROM UnitDiplomacyAction_Targets WHERE CivilizationLevelType = OLD.CivilizationLevelType; END;
+CREATE TRIGGER OnDelete_CivilizationLevels_SetNULL_UnitDiplomacyAction_TargetsCivilizationLevelType AFTER DELETE ON CivilizationLevels FOR EACH ROW BEGIN UPDATE UnitDiplomacyAction_Targets SET CivilizationLevelType = NULL WHERE CivilizationLevelType = OLD.CivilizationLevelType; END;
 CREATE TRIGGER OnDelete_Tags_Cascade_UnitDiplomacyAction_TargetsUnitTag AFTER DELETE ON Tags FOR EACH ROW BEGIN DELETE FROM UnitDiplomacyAction_Targets WHERE UnitTag = OLD.Tag; END;
 CREATE TRIGGER OnDelete_DiplomacyActions_Cascade_UnitDiplomacyAction_ValidUnitsDiplomacyActionType AFTER DELETE ON DiplomacyActions FOR EACH ROW BEGIN DELETE FROM UnitDiplomacyAction_ValidUnits WHERE DiplomacyActionType = OLD.DiplomacyActionType; END;
 CREATE TRIGGER OnDelete_Tags_Cascade_UnitDiplomacyAction_ValidUnitsUnitTag AFTER DELETE ON Tags FOR EACH ROW BEGIN DELETE FROM UnitDiplomacyAction_ValidUnits WHERE UnitTag = OLD.Tag; END;
-CREATE TRIGGER OnDelete_Terrains_Cascade_UnitMovementClassObstaclesTerrainType AFTER DELETE ON Terrains FOR EACH ROW BEGIN DELETE FROM UnitMovementClassObstacles WHERE TerrainType = OLD.TerrainType; END;
-CREATE TRIGGER OnDelete_Features_Cascade_UnitMovementClassObstaclesFeatureType AFTER DELETE ON Features FOR EACH ROW BEGIN DELETE FROM UnitMovementClassObstacles WHERE FeatureType = OLD.FeatureType; END;
+CREATE TRIGGER OnDelete_Terrains_SetNULL_UnitMovementClassObstaclesTerrainType AFTER DELETE ON Terrains FOR EACH ROW BEGIN UPDATE UnitMovementClassObstacles SET TerrainType = NULL WHERE TerrainType = OLD.TerrainType; END;
+CREATE TRIGGER OnDelete_Features_SetNULL_UnitMovementClassObstaclesFeatureType AFTER DELETE ON Features FOR EACH ROW BEGIN UPDATE UnitMovementClassObstacles SET FeatureType = NULL WHERE FeatureType = OLD.FeatureType; END;
 CREATE TRIGGER OnDelete_Districts_Cascade_UnitOperationsTargetDistrict AFTER DELETE ON Districts FOR EACH ROW BEGIN DELETE FROM UnitOperations WHERE TargetDistrict = OLD.DistrictType; END;
 CREATE TRIGGER OnDelete_InterfaceModes_SetNULL_UnitOperationsInterfaceMode AFTER DELETE ON InterfaceModes FOR EACH ROW BEGIN UPDATE UnitOperations SET InterfaceMode = NULL WHERE InterfaceMode = OLD.InterfaceModeType; END;
 CREATE TRIGGER OnDelete_Types_Cascade_UnitPromotionsUnitPromotionType AFTER DELETE ON Types FOR EACH ROW BEGIN DELETE FROM UnitPromotions WHERE UnitPromotionType = OLD.Type; END;

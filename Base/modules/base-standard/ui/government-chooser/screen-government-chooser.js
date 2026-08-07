@@ -272,13 +272,19 @@ const GovernmentChooserItem = (props) => {
                     insert(_el$19, createComponent(L10n.Stylize, {
                       "class": "text-secondary uppercase tracking-100 font-title-sm",
                       get text() {
-                        return item.Name ?? "";
+                        return item.def.Name ?? "";
+                      }
+                    }), null);
+                    insert(_el$19, createComponent(L10n.Stylize, {
+                      "class": "font-body-sm flex flex-auto w-full text-accent-3",
+                      get text() {
+                        return item.unlock;
                       }
                     }), null);
                     insert(_el$19, createComponent(L10n.Stylize, {
                       "class": "font-body-sm flex flex-auto w-full",
                       get text() {
-                        return item.Description ?? "";
+                        return item.def.Description ?? "";
                       }
                     }), null);
                     insert(_el$17, createComponent(Show, {

@@ -20,14 +20,15 @@ import { ScrollArea } from '../../../../core/ui-next/components/scroll-area.js';
 import { VSlot, HSlot, SpatialSlot } from '../../../../core/ui-next/components/slot.js';
 import { useAudio } from '../../../../core/ui-next/services/audio-support.js';
 import { ComponentRegistry } from '../../../../core/ui-next/services/component-registry.js';
-import { useFocusContext, FocusSortOrders } from '../../../../core/ui-next/services/focus.js';
 import { HotkeyContext } from '../../../../core/ui-next/services/hotkey.js';
+import { ViewExperience } from '../../../../core/ui-next/services/view-experience.js';
+import { useIsSmallScreen } from '../../../../core/ui-next/utilities/layout-utilities.js';
 import { OrnatePopupFrame, OrnateTopIcon } from '../../components/ornate-popup.js';
 import { DedicationCardContents } from './dedication-card-contents.js';
-import { useDedicationsModel } from './dedications-model.js';
+import { DedicationsModel } from './dedications-model.js';
 import { DialogBoxAction } from '../../../../core/ui/dialog-box/model-dialog-box.js';
 
-var _tmpl$ = /* @__PURE__ */ template(`<div></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="absolute inset-0 metal-card-frame-bg-hover"></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="absolute inset-0 py-2 px-3 flex flex-col items-center justify-center uppercase"></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div class="absolute z-1"></div>`), _tmpl$5 = /* @__PURE__ */ template(`<div class="absolute top-0 left-6 bottom-0 h-1/2 w-64 mt-4 img-frame-filigree pointer-events-none"></div>`), _tmpl$6 = /* @__PURE__ */ template(`<div class="absolute top-0 right-6 bottom-0 h-1/2 w-64 mt-4 rotate-y-180 img-frame-filigree pointer-events-none"></div>`), _tmpl$7 = /* @__PURE__ */ template(`<div class="max-w-full relative mt-4 mb-2"></div>`), _tmpl$8 = /* @__PURE__ */ template(`<div class="flex flex-col items-center pointer-events-none"role=heading><div class="flex items-center font-body text-accent-2 text-sm mt-1"></div></div>`), _tmpl$9 = /* @__PURE__ */ template(`<div class="flex flex-auto"></div>`), _tmpl$10 = /* @__PURE__ */ template(`<span class="m-1 truncate"></span>`);
+var _tmpl$ = /* @__PURE__ */ template(`<div></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="absolute inset-0 metal-card-frame-bg-hover"></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="absolute inset-0 py-2 px-3 flex flex-col items-center justify-center uppercase"></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div class="absolute z-1"></div>`), _tmpl$5 = /* @__PURE__ */ template(`<div class="max-w-full relative mt-4 mb-2"></div>`), _tmpl$6 = /* @__PURE__ */ template(`<div role=heading><div class="flex items-center font-body text-accent-2 text-sm mt-1"></div></div>`), _tmpl$7 = /* @__PURE__ */ template(`<span class="m-1 truncate"></span>`);
 const DedicationCard = (props) => {
   const [isHover, setIsHover] = createSignal(false);
   const onHover = () => {
@@ -101,6 +102,12 @@ const DedicationCard = (props) => {
             return props.isDisplayOnly;
           },
           name: "DedicationCard",
+          get tabIndex() {
+            return props.tabIndex;
+          },
+          get autoFocus() {
+            return props.tabIndex == 0;
+          },
           get children() {
             return createComponent(DedicationCardContents, mergeProps(props, {
               isHover,
@@ -112,7 +119,7 @@ const DedicationCard = (props) => {
         });
       }
     }));
-    createRenderEffect(() => className(_el$, `flex ${props.class}`));
+    createRenderEffect(() => className(_el$, `flex ${props.class ? props.class : ""}`));
     return _el$;
   })();
 };
@@ -127,19 +134,33 @@ const EmptySlot = (props) => {
   const onDehover = () => {
     setIsHover(false);
   };
+  const isMobile = ViewExperience() == UIViewExperience.Mobile;
+  const isSmallScreen = useIsSmallScreen();
   return createComponent(Activatable, {
     get ["class"]() {
-      return `flex-auto ${props.class}`;
+      return `${isMobile ? "flex" : ""} flex-auto justify-center ${props.class}`;
     },
     onFocus: onHover,
     onBlur: onDehover,
+    get tabIndex() {
+      return props.tabIndex;
+    },
+    get autoFocus() {
+      return props.tabIndex == 0;
+    },
     get children() {
       return createComponent(MetalCardFrame, {
         onMouseEnter: onHover,
         onMouseLeave: onDehover,
-        "class": `w-72 h-32 flex flex-auto justify-center items-center font-fit-shrink text-xs relative`,
-        style: {
-          filter: "grayscale(1)"
+        get ["class"]() {
+          return `${isMobile && isSmallScreen() ? "w-96 min-h-36" : "w-72 h-32"} max-w-full flex flex-auto justify-center items-center font-fit-shrink text-xs relative`;
+        },
+        get style() {
+          return {
+            filter: "grayscale(1)",
+            width: isMobile && !isSmallScreen() ? `${Layout.pixelsToScreenPixels(412)}px` : void 0,
+            "min-height": isMobile && !isSmallScreen() ? `${Layout.pixelsToScreenPixels(182)}px` : void 0
+          };
         },
         get children() {
           return [(() => {
@@ -171,12 +192,14 @@ const EmptySlot = (props) => {
 };
 const DedicationSelectionComponent = () => {
   let overlay;
-  const [slotsFocus, setSlotsFocus] = createSignal(null);
-  const [availableFocus, setAvailableFocus] = createSignal(null);
-  const model = useDedicationsModel();
+  const model = DedicationsModel.get();
+  const isMobile = ViewExperience() == UIViewExperience.Mobile;
+  const isSmallScreen = useIsSmallScreen();
   const audio = useAudio("ChooseDedicationsPopup");
   const dedicationAudio = useAudio("ChooseDedicationsPopup/DragonDrop/DedicationCard");
   const hotkeyContext = useContext(HotkeyContext);
+  const [shouldAutoFocusEmpty, setShouldAutoFocusEmpty] = createSignal(true);
+  const [shouldAutoFocusAvailable, setShouldAutoFocusAvailable] = createSignal(false);
   onMount(() => {
     hotkeyContext.registerNavtray("cancel", "LOC_GENERIC_BACK");
   });
@@ -263,12 +286,14 @@ const DedicationSelectionComponent = () => {
   const handleActivateDedication = (card) => {
     if (model.contains(card.id, model.DEDICATIONS_AVAILABLE_ID) && model.canAutoSlotItem(card.id)) {
       model.autoSlotItem(card.id);
-      availableFocus()?.focusCurrentOrDefault();
+      setShouldAutoFocusEmpty(false);
+      setShouldAutoFocusAvailable(true);
       return;
     }
     if (model.DEDICATIONS_SLOT_IDS.some((slot) => model.contains(card.id, slot))) {
       model.unEquipItem(card.id);
-      slotsFocus()?.focusCurrentOrDefault();
+      setShouldAutoFocusEmpty(true);
+      setShouldAutoFocusAvailable(false);
     }
   };
   const getNavTrayText = (id) => {
@@ -280,9 +305,9 @@ const DedicationSelectionComponent = () => {
   return createComponent(Panel, {
     name: "Dedication Selection Screen",
     id: "screen-dedication-selection",
-    "class": "flex",
+    "class": `${isMobile ? "fullscreen" : "flex"}`,
     get style() {
-      return {
+      return isMobile ? {} : {
         height: model.isSmallScreen() ? "auto" : Layout.pixels(860),
         width: model.isSmallScreen() ? "auto" : Layout.pixels(1060),
         position: model.isSmallScreen() ? "absolute" : void 0,
@@ -305,7 +330,7 @@ const DedicationSelectionComponent = () => {
             "class": "flex-auto",
             get style() {
               return {
-                "padding-bottom": model.isSmallScreen() ? Layout.pixels(0) : Layout.pixels(12)
+                "padding-bottom": isMobile ? Layout.pixels(8) : model.isSmallScreen() ? Layout.pixels(0) : Layout.pixels(12)
               };
             },
             get topIconSrc() {
@@ -313,16 +338,27 @@ const DedicationSelectionComponent = () => {
             },
             topIconClass: "size-9 -mt-1",
             topIconBackgroundTint: "#0089ff",
-            longFiligree: true,
-            noClose: true,
+            longFiligree: !isMobile,
+            noClose: !isMobile,
+            closePopupCallback: isMobile ? () => ContextManager.pop("screen-dedication-selection") : void 0,
+            isFullscreen: isMobile,
             get children() {
-              return [_tmpl$5(), _tmpl$6(), createComponent(Show, {
+              return [(() => {
+                var _el$5 = _tmpl$();
+                className(_el$5, `absolute top-0 ${isMobile ? "left-2 mt-2" : "left-6 mt-4"} bottom-0 h-1/2 w-64 img-frame-filigree pointer-events-none`);
+                return _el$5;
+              })(), (() => {
+                var _el$6 = _tmpl$();
+                className(_el$6, `absolute top-0 ${isMobile ? "right-2 mt-2" : "right-6 mt-4"} bottom-0 h-1/2 w-64 rotate-y-180 img-frame-filigree pointer-events-none`);
+                return _el$6;
+              })(), createComponent(Show, {
                 get when() {
                   return !model.isSmallScreen();
                 },
                 get fallback() {
                   return (() => {
                     var _el$11 = _tmpl$();
+                    className(_el$11, `${isMobile ? "relative mt-6" : ""}`);
                     insert(_el$11, createComponent(Filigree.TitleAccent, {
                       get children() {
                         return [createComponent(OrnateTopIcon, {
@@ -350,7 +386,7 @@ const DedicationSelectionComponent = () => {
                   })();
                 },
                 get children() {
-                  var _el$7 = _tmpl$7();
+                  var _el$7 = _tmpl$5();
                   insert(_el$7, createComponent(FiligreeTitle.H2, {
                     text: "LOC_DEDICATIONS_CHOOSE_DEDICATIONS",
                     bgGlow: true
@@ -359,9 +395,7 @@ const DedicationSelectionComponent = () => {
                 }
               }), createComponent(VSlot, {
                 "class": "flex-auto w-full items-center",
-                get sortOrder() {
-                  return FocusSortOrders.byDomOrder;
-                },
+                autoFocus: true,
                 get children() {
                   return [createComponent(AudioContextProvider, {
                     segment: "DragonDrop",
@@ -371,71 +405,74 @@ const DedicationSelectionComponent = () => {
                         debugTrace: false,
                         overlayParent: overlay,
                         get children() {
-                          return [createComponent(
-                            HSlot,
-                            {
-                              get sortOrder() {
-                                return FocusSortOrders.byDomOrder;
-                              },
-                              children: () => {
-                                onMount(() => {
-                                  const focusContext = useFocusContext();
-                                  setSlotsFocus(focusContext);
-                                });
-                                onCleanup(() => {
-                                  setSlotsFocus(null);
-                                });
-                                return createComponent(For, {
-                                  get each() {
-                                    return model.DEDICATIONS_SLOT_IDS;
-                                  },
-                                  children: (slot) => createComponent(Dropzone, {
-                                    debugId: `Empty Dropzone ${slot}`,
-                                    data: slot,
-                                    canDrop: canEquipItem,
-                                    get children() {
-                                      return createComponent(Show, {
-                                        get when() {
-                                          return model.items(slot)[0];
+                          return [createComponent(HSlot, {
+                            "class": "justify-center",
+                            tabindex: 0,
+                            get autoFocus() {
+                              return shouldAutoFocusEmpty();
+                            },
+                            get children() {
+                              return createComponent(For, {
+                                get each() {
+                                  return model.DEDICATIONS_SLOT_IDS;
+                                },
+                                children: (slot, index) => createComponent(Dropzone, {
+                                  debugId: `Empty Dropzone ${slot}`,
+                                  data: slot,
+                                  canDrop: canEquipItem,
+                                  get children() {
+                                    return createComponent(Show, {
+                                      get when() {
+                                        return model.items(slot)[0];
+                                      },
+                                      keyed: true,
+                                      get fallback() {
+                                        return createComponent(EmptySlot, {
+                                          get ["class"]() {
+                                            return `${isMobile ? `my-2 ${isSmallScreen() ? "mx-4" : "mx-7"}` : "m-2"}`;
+                                          },
+                                          onHover: () => hotkeyContext.unregisterNavtray("accept"),
+                                          get tabIndex() {
+                                            return index();
+                                          }
+                                        });
+                                      },
+                                      children: (slotCard) => createComponent(DedicationCard, {
+                                        get id() {
+                                          return slotCard.id;
                                         },
-                                        keyed: true,
-                                        get fallback() {
-                                          return createComponent(EmptySlot, {
-                                            "class": "m-2",
-                                            onHover: () => hotkeyContext.unregisterNavtray("accept")
-                                          });
+                                        "class": "flex-auto",
+                                        get contentClass() {
+                                          return `${isMobile ? `my-4 ${isSmallScreen() ? "mx-4" : "mx-7"}` : "m-3"}`;
                                         },
-                                        children: (slotCard) => createComponent(DedicationCard, {
-                                          get id() {
-                                            return slotCard.id;
-                                          },
-                                          "class": "flex-auto",
-                                          contentClass: "m-3",
-                                          get title() {
-                                            return slotCard.title;
-                                          },
-                                          get description() {
-                                            return slotCard.description;
-                                          },
-                                          get background() {
-                                            return slotCard.descriptionBG;
-                                          },
-                                          get icon() {
-                                            return slotCard.traitIcon;
-                                          },
-                                          onDragEnd: handleEquipmentDragEnd,
-                                          onDedicationActivate: () => handleActivateDedication(slotCard),
-                                          onHover: () => hotkeyContext.registerNavtray("accept", getNavTrayText(model.items(slot)[0].id)),
-                                          onDehover: () => hotkeyContext.unregisterNavtray("accept")
-                                        })
-                                      });
-                                    }
-                                  })
-                                });
-                              }
+                                        get title() {
+                                          return slotCard.title;
+                                        },
+                                        get description() {
+                                          return slotCard.description;
+                                        },
+                                        get background() {
+                                          return slotCard.descriptionBG;
+                                        },
+                                        get icon() {
+                                          return slotCard.traitIcon;
+                                        },
+                                        onDragEnd: handleEquipmentDragEnd,
+                                        onDedicationActivate: () => handleActivateDedication(slotCard),
+                                        onHover: () => hotkeyContext.registerNavtray("accept", getNavTrayText(model.items(slot)[0].id)),
+                                        onDehover: () => hotkeyContext.unregisterNavtray("accept"),
+                                        get tabIndex() {
+                                          return index();
+                                        }
+                                      })
+                                    });
+                                  }
+                                })
+                              });
                             }
-                          ), (() => {
-                            var _el$8 = _tmpl$8(), _el$9 = _el$8.firstChild;
+                          }), (() => {
+                            var _el$8 = _tmpl$6(), _el$9 = _el$8.firstChild;
+                            className(_el$8, `flex flex-col items-center pointer-events-none ${isMobile ? "relative" : ""}`);
                             insert(_el$8, createComponent(Header, {
                               "class": `max-w-full text-center justify-center}`,
                               get children() {
@@ -458,12 +495,13 @@ const DedicationSelectionComponent = () => {
                             });
                             return _el$8;
                           })(), (() => {
-                            var _el$10 = _tmpl$9();
+                            var _el$10 = _tmpl$();
+                            className(_el$10, `flex flex-auto ${isMobile ? "px-5" : ""}`);
                             insert(_el$10, createComponent(InnerFrame, {
                               "class": "flex-auto w-full",
                               get children() {
                                 return createComponent(ScrollArea, {
-                                  "class": "flex-auto",
+                                  "class": `flex-auto ${isMobile ? "px-5 py-2" : ""}`,
                                   useProxy: true,
                                   reserveSpace: true,
                                   get children() {
@@ -477,23 +515,22 @@ const DedicationSelectionComponent = () => {
                                         return createComponent(SpatialSlot, {
                                           name: "Available Spatial Slot",
                                           "class": "flex justify-center items-start flex-wrap relative left-3 p-3",
-                                          children: () => {
-                                            onMount(() => {
-                                              const focusContext = useFocusContext();
-                                              setAvailableFocus(focusContext);
-                                            });
-                                            onCleanup(() => {
-                                              setAvailableFocus(null);
-                                            });
+                                          tabIndex: 1,
+                                          get autoFocus() {
+                                            return shouldAutoFocusAvailable();
+                                          },
+                                          get children() {
                                             return createComponent(For, {
                                               get each() {
                                                 return model.items(model.DEDICATIONS_AVAILABLE_ID);
                                               },
-                                              children: (card) => createComponent(DedicationCard, {
+                                              children: (card, index) => createComponent(DedicationCard, {
                                                 get id() {
                                                   return card.id;
                                                 },
-                                                contentClass: "mt-5 m-3",
+                                                get contentClass() {
+                                                  return `${isMobile ? `my-4 ${isSmallScreen() ? "mx-4" : "mx-7"}` : "m-3"} mt-5`;
+                                                },
                                                 get title() {
                                                   return card.title;
                                                 },
@@ -512,7 +549,10 @@ const DedicationSelectionComponent = () => {
                                                 onDragEnd: handleEquipmentDragEnd,
                                                 onDedicationActivate: () => handleActivateDedication(card),
                                                 onHover: () => hotkeyContext.registerNavtray("accept", getNavTrayText(card.id)),
-                                                onDehover: () => hotkeyContext.unregisterNavtray("accept")
+                                                onDehover: () => hotkeyContext.unregisterNavtray("accept"),
+                                                get tabIndex() {
+                                                  return index();
+                                                }
                                               })
                                             });
                                           }
@@ -529,7 +569,8 @@ const DedicationSelectionComponent = () => {
                       });
                     }
                   }), createComponent(HSlot, {
-                    "class": "my-5 justify-center items-center",
+                    "class": `my-5 justify-center items-center ${isMobile ? "relative" : ""}`,
+                    tabIndex: 2,
                     get children() {
                       return [createComponent(Header, {
                         role: "heading",
@@ -545,7 +586,7 @@ const DedicationSelectionComponent = () => {
                         },
                         onItemSelected: (item) => model.setSelectedCapital(item.id),
                         selectedItemTemplate: (item) => (() => {
-                          var _el$12 = _tmpl$10();
+                          var _el$12 = _tmpl$7();
                           insert(_el$12, (() => {
                             var _c$ = createMemo(() => !!item.isCapital);
                             return () => _c$() ? createComponent(L10n.Compose, {
@@ -588,9 +629,10 @@ const DedicationSelectionComponent = () => {
                   }), createComponent(HSlot, {
                     get style() {
                       return {
-                        "margin-bottom": model.isSmallScreen() ? Layout.pixels(56) : Layout.pixels(24)
+                        "margin-bottom": isMobile ? Layout.pixels(18) : model.isSmallScreen() ? Layout.pixels(56) : Layout.pixels(24)
                       };
                     },
+                    tabIndex: 3,
                     get children() {
                       return [createComponent(AudioContextProvider, {
                         segment: "Confirm",

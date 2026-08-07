@@ -13,7 +13,9 @@ const Stylize = (props) => {
   return (() => {
     var _el$ = _tmpl$();
     use((el) => {
-      if (!props.args?.includes("disableTooltips")) el.owner = owner;
+      if (!props.disableTooltips) {
+        el.owner = owner;
+      }
       if (typeof props.ref === "function") props.ref(el);
     }, _el$);
     spread(_el$, mergeProps(other, {

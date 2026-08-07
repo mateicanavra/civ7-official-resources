@@ -47,7 +47,9 @@ class AgeProgressionPopupManagerClass extends DisplayHandlerBase {
   }
   onAgeProgression() {
     const ageCountdownStarted = Game.AgeProgressManager.ageCountdownStarted;
-    if (ageCountdownStarted) {
+    const isFinalAge = Game.AgeProgressManager.isFinalAge;
+    const scoreVictoryEnabled = Game.VictoryManager.isScoreVictoryEnabled();
+    if (ageCountdownStarted && (!isFinalAge || scoreVictoryEnabled)) {
       if (ContextManager.shouldShowPopup(GameContext.localPlayerID)) {
         const curAgeProgress = Game.AgeProgressManager.getCurrentAgeProgressionPoints();
         const maxAgeProgress = Game.AgeProgressManager.getMaxAgeProgressionPoints();

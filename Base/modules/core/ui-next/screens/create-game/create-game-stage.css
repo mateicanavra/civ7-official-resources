@@ -10,9 +10,19 @@
     height: 4.6666666667rem;
   }
 }
+@media (experience: mobile) {
+  .create-game-stage-header {
+    position: relative;
+  }
+}
 
 .create-game-stage-header-container {
   padding-top: 1.3333333333rem;
+}
+@media (experience: mobile) and (max-height: 55.5555555556rem) {
+  .create-game-stage-header-container {
+    padding-top: 0.8888888889rem;
+  }
 }
 
 .create-game-header-left-button-area {
@@ -24,6 +34,16 @@
   .create-game-header-left-button-area {
     top: 1.3333333333rem;
     left: 1.3333333333rem;
+  }
+}
+@media (experience: mobile) {
+  .create-game-header-left-button-area {
+    left: 1.6666666667rem;
+  }
+}
+@media (experience: mobile) and (max-height: 55.5555555556rem) {
+  .create-game-header-left-button-area {
+    top: 0.8888888889rem;
   }
 }
 
@@ -39,6 +59,13 @@
   }
 }
 
+@media (experience: mobile) {
+  .create-game-back-button {
+    width: 3.2222222222rem;
+    height: 3.2222222222rem;
+  }
+}
+
 .create-game-stage-body {
   position: absolute;
   top: 7.2222222222rem;
@@ -48,6 +75,12 @@
 @media (max-height: 55.5555555556rem) {
   .create-game-stage-body {
     top: 4.6666666667rem;
+  }
+}
+@media (experience: mobile) {
+  .create-game-stage-body {
+    position: relative;
+    top: 0;
   }
 }
 
@@ -128,5 +161,11 @@
   .create-game-badge-container {
     width: 3.1111111111rem;
     height: 3.1111111111rem;
+  }
+}
+@media (experience: mobile) and (max-height: 55.5555555556rem) {
+  .create-game-badge-container {
+    width: 3.5555555556rem;
+    height: 3.5555555556rem;
   }
 }

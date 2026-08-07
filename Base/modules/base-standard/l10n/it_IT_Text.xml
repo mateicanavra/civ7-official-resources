@@ -1019,6 +1019,9 @@
     <Replace Tag="LOC_PEDIA_CONCEPTS_BRIDGE_TOOLTIP" Language="it_IT">
       <Text>I ponti permettono alle [TIP:LOC_PEDIA_CONCEPTS_LAND_UNITS_TOOLTIP]unità terrestri[/TIP] di superare i [TIP:LOC_PEDIA_CONCEPTS_NAVIGABLE_RIVER_TOOLTIP]fiumi navigabili[/TIP] senza [TIP:LOC_PEDIA_CONCEPTS_EMBARK_TOOLTIP]imbarcarsi[/TIP].[NN]Costruirli costa meno se una strada ha già creato un Traghetto attraverso il fiume.</Text>
     </Replace>
+    <Replace Tag="LOC_PEDIA_CONCEPTS_BUILDING_TIER_TOOLTIP" Language="it_IT">
+      <Text>Gli edifici standard possono essere di livello 1 o di livello 2, che determina il costo, la resa di base e quanto presto si sbloccano. Generalmente, gli edifici di livello 1 sono i primi edifici standard di ogni tipo di resa sbloccati in ciascuna epoca.</Text>
+    </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP" Language="it_IT">
       <Text>Gli edifici, che devono essere posizionati nei [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]distretti[/TIP] già esistenti o adiacenti a essi, incrementano le rese e la [TIP:LOC_PEDIA_CONCEPTS_POPULATION_TOOLTIP]popolazione[/TIP] urbana degli [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]insediamenti[/TIP].[NN]Esclusi quelli [TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]Senza epoca[/TIP], gli edifici diventano [TIP:LOC_PEDIA_CONCEPTS_OVERBUILDABLE_TOOLTIP]Ammodernabili[/TIP] all'inizio di una nuova [TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]epoca[/TIP].[NN]Costruire un edificio aumenta il costo in [icon:YIELD_PRODUCTION][b]Produzione[/b] di tutti i successivi.</Text>
     </Replace>
@@ -1103,6 +1106,9 @@
     <Replace Tag="LOC_PEDIA_CONCEPTS_ECONOMIC_VICTORY_TOOLTIP" Language="it_IT">
       <Text>Uno dei quattro tipi di vittoria: la Vittoria economica va al leader che riesce a imporre la propria preminenza economica su tutti gli altri, misurata dal [TIP:LOC_PEDIA_CONCEPTS_GDP_TOOLTIP]PIL[/TIP].</Text>
     </Replace>
+    <Replace Tag="LOC_PEDIA_CONCEPTS_EFFICIENCY_TOOLTIP" Language="it_IT">
+      <Text>L'Efficienza rappresenta il tuo potere d'acquisto: per ogni 1% di Efficienza, la resa ottenuta quando spendi una valuta aumenta dell'1%. Questo significa che l'importo effettivamente pagato risulta ridotto.[NN]Il tuo Leader, la tua civiltà, i tuoi [TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]Attributi[/TIP], le [TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]Meraviglie[/TIP] e altri effetti possono applicare Efficienze diverse a costi diversi nel gioco.[NN]Per esempio, se la tua Efficienza totale per l'Oro è del +50% sulla [TIP:LOC_PEDIA_CONCEPTS_MAINTENANCE_TOOLTIP]manutenzione degli edifici[/TIP], un [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]edificio[/TIP] che normalmente costerebbe [B]-6 Oro[/B] per turno verrà a costare solo [B]-4 Oro[/B] per turno.</Text>
+    </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_EMBARK_TOOLTIP" Language="it_IT">
       <Text>Le unità imbarcate hanno [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Forza di combattimento[/TIP] ridotta, sono particolarmente vulnerabili agli [TIP:LOC_PEDIA_CONCEPTS_RANGED_ATTACK_TOOLTIP]attacchi a distanza[/TIP] e possono attaccare solo una volta sbarcate nuovamente sulla terraferma.</Text>
     </Replace>
@@ -1149,7 +1155,7 @@
       <Text>Il PIL rappresenta i tuoi progressi nel conseguimento di una [TIP:LOC_PEDIA_CONCEPTS_ECONOMIC_VICTORY_TOOLTIP]Vittoria economica[/TIP]. Dopo aver ricercato la Ruota, guadagni PIL ogni turno in base alle [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]risorse[/TIP] che hai assegnato alle tue [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]città[/TIP], agli [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]edifici[/TIP] che forniscono [icon:YIELD_GOLD] [b]Oro[/b] da te costruiti (solo dopo aver ricercato la tecnologica Valuta) e altro. Una volta imposto il tuo predominio economico sugli altri giocatori, si avvierà il conto alla rovescia per la Vittoria economica.</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_GOVERNMENT_TOOLTIP" Language="it_IT">
-      <Text>Dalla tua forma di governo dipende il bonus che riceverai durante le [TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]Celebrazioni[/TIP]. All'inizio di ciascuna [TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]epoca[/TIP] ti verrà chiesto di scegliere una forma di governo.</Text>
+      <Text>Dalla tua forma di governo dipendono le abilità passive e le [TIP:LOC_PEDIA_CONCEPTS_TRADITION_TOOLTIP]Tradizioni[/TIP] che riceverai, nonché l'insieme di bonus tra cui sarai chiamato a scegliere durante le [TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]Celebrazioni[/TIP]. All'inizio di ciascuna [TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]epoca[/TIP] ti verrà chiesto di scegliere una forma di governo.</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_GREAT_WORKS_TOOLTIP" Language="it_IT">
       <Text>I Capolavori sono oggetti di grande valore, ottenibili soddisfacendo specifiche condizioni che cambiano in base all'[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]epoca[/TIP]. [NN]Nella schermata Capolavori è possibile assegnare i Capolavori ai propri [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]insediamenti[/TIP], sempre che questi includano [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]edifici[/TIP] con slot Capolavoro vuoti.</Text>
@@ -1179,7 +1185,7 @@
       <Text>Gli [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]insediamenti[/TIP] Infettati subiscono [TIP:LOC_PEDIA_CONCEPTS_UNREST_TOOLTIP]Irrequietezza[/TIP], smettono di [TIP:LOC_PEDIA_CONCEPTS_GROWTH_RATE_TOOLTIP]crescere[/TIP] e diffondono l'infezione agli insediamenti [TIP:LOC_PEDIA_CONCEPTS_CONNECTED_TOOLTIP]collegati[/TIP].[NN]Le unità subiscono danni quando iniziano il proprio turno in una casella Infettata.</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_INNOVATION_TOOLTIP" Language="it_IT">
-      <Text>Le Innovazioni rappresentano i tuoi progressi nel conseguimento della [TIP:LOC_PEDIA_CONCEPTS_SCIENTIFIC_VICTORY_TOOLTIP]Vittoria scientifica[/TIP]. È possibile ottenerle in vari modi, per esempio inserendo [TIP:LOC_PEDIA_CONCEPTS_CODEX_TOOLTIP]Codici[/TIP], ricercando [TIP:LOC_PEDIA_CONCEPTS_MASTERY_TOOLTIP]Maestrie tecnologiche[/TIP] e completando [TIP:LOC_PEDIA_CONCEPTS_SCIENCE_PROJECT_TOOLTIP]Progetti scientifici[/TIP]. Una volta raggiunte 100 Innovazioni e costruita una Piattaforma di lancio, si avvierà il conto alla rovescia per la Vittoria scientifica.</Text>
+      <Text>L'Innovazione rappresenta i tuoi progressi nel conseguimento della [TIP:LOC_PEDIA_CONCEPTS_SCIENTIFIC_VICTORY_TOOLTIP]Vittoria scientifica[/TIP]. È possibile ottenere Innovazione in vari modi, per esempio inserendo [TIP:LOC_PEDIA_CONCEPTS_CODEX_TOOLTIP]Codici[/TIP] negli slot, ottenendo [TIP:LOC_PEDIA_CONCEPTS_MASTERY_TOOLTIP]Maestrie tecnologiche[/TIP] e completando [TIP:LOC_PEDIA_CONCEPTS_SCIENCE_PROJECT_TOOLTIP]Progetti scientifici[/TIP]. Quando avrai ottenuto 100 Innovazione e avrai costruito una Piattaforma di lancio, si avvierà il conto alla rovescia per la Vittoria scientifica.</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_LAND_UNITS_TOOLTIP" Language="it_IT">
       <Text>Le unità terrestri si [TIP:LOC_PEDIA_CONCEPTS_EMBARK_TOOLTIP]imbarcano[/TIP] quando entrano in una [TIP:LOC_PEDIA_CONCEPTS_WATER_TERRAIN_TOOLTIP]casella acquatica[/TIP].</Text>
@@ -1413,7 +1419,7 @@
       <Text>Edifici: Ammodernamento</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_BUILDINGS_11_CHAPTER_CONTENT_PARA_1" Language="it_IT">
-      <Text>La maggior parte degli edifici, tranne Depositi e Meraviglie, ha un costo di mantenimento in Oro e Felicità. In epoca antica, tipicamente, gli edifici partono con un costo di mantenimento di -2 Oro e -2 Felicità. Questo costo aumenta nelle epoche successive, per esempio passando a -3 Oro e -3 Felicità nell'epoca delle esplorazioni. Tuttavia, gli edifici che rendono Oro non hanno un costo di mantenimento in Oro e gli edifici che danno Felicità non hanno un costo di mantenimento in Felicità.</Text>
+      <Text>La maggior parte degli edifici, tranne Depositi e Meraviglie, ha un costo di mantenimento in Oro e Felicità. In epoca antica, tipicamente, gli edifici partono con un costo di mantenimento di -2 Oro e -2 Felicità. Questo costo aumenta nelle epoche successive, per esempio passando a -3 Oro e -3 Felicità nell'epoca delle esplorazioni. Tuttavia, gli edifici che rendono Oro non hanno un costo di mantenimento in Oro e gli edifici che danno Felicità non hanno un costo di mantenimento in Felicità. Inoltre, gli Edifici che aumentano la Produzione non fanno aumentare il costo degli Edifici futuri in quell'insediamento.</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_BUILDINGS_11_CHAPTER_CONTENT_PARA_2" Language="it_IT">
       <Text>Suggerimento: Quando costruisci molti edifici, tieni d'occhio i tuoi livelli di Oro e Felicità. Spesso, costruire strutture che danno Felicità è indispensabile per mantenere l'impero sano e in grado di espandersi.</Text>
@@ -1459,6 +1465,15 @@
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_BUILDINGS_17_TITLE" Language="it_IT">
       <Text>Edifici: Ponti</Text>
+    </Replace>
+    <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_BUILDINGS_18_CHAPTER_CONTENT_PARA_1" Language="it_IT">
+      <Text>In ogni epoca ci sono due livelli di edifici standard, chiamati livello 1 e livello 2. Il livello di un edificio incide su costo, resa di base, punto dell'Albero delle tecnologie in cui si sblocca, e alcuni effetti del gioco potrebbero menzionarlo. Gli edifici Deposito e quelli esclusivi non appartengono a nessuno dei due livelli e hanno i propri costi, rese di base e modi di essere sbloccati.</Text>
+    </Replace>
+    <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_BUILDINGS_18_CHAPTER_CONTENT_PARA_2" Language="it_IT">
+      <Text>Generalmente, in ogni epoca c'è un edificio dedicato a ogni resa in ciascun livello. Gli edifici diplomatici come le Ville e i Palazzi delle corporazioni fanno eccezione e sono sempre edifici di livello 2, anche se un'epoca può avere un edificio di livello 1 con una resa secondaria d'Influenza, come il monumento. Anche gli "edifici a casella piena" hanno un livello: di solito, costo e resa di base sono il doppio rispetto ai normali edifici di quel livello.</Text>
+    </Replace>
+    <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_BUILDINGS_18_TITLE" Language="it_IT">
+      <Text>Edifici: Livelli</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_BUILDINGS_2_CHAPTER_CONTENT_PARA_1" Language="it_IT">
       <Text>Un Deposito fornisce bonus in base al numero di miglioramenti dello stesso tipo all'interno di un insediamento. Per esempio, un Granaio fornisce +1 Cibo per ogni Fattoria, Piantagione o Pascolo nell'insediamento. Ognuno di questi miglioramenti fornisce lo stesso tipo di bonus: Cibo. Così se hai 2 Fattorie, 1 Piantagione e 1 Pascolo, la costruzione di un Granaio ti fa guadagnare +4 Cibo. Le rese bonus dei miglioramenti sono indicate sugli edifici Deposito corrispondenti e non sui miglioramenti stessi.</Text>
@@ -1748,8 +1763,17 @@
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_COMBAT_10_TITLE" Language="it_IT">
       <Text>Abilità delle unità</Text>
     </Replace>
+    <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_COMBAT_11_CHAPTER_CONTENT_PARA_1" Language="it_IT">
+      <Text>Il combattimento navale si riferisce a uno scontro tra due unità navali che si affrontano su uno specchio d'acqua. Che si tratti di acque costiere, lacustri o di mare aperto (una volta ottenuta la Costruzione Navale), il combattimento navale può verificarsi ovunque sull'acqua.</Text>
+    </Replace>
+    <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_COMBAT_11_CHAPTER_CONTENT_PARA_2" Language="it_IT">
+      <Text>Le unità navali funzionano in modo molto simile a quelle terrestri e, nell'epoca delle esplorazioni, possono anche unirsi ai Comandanti di flotta (con l'eccezione di alcune abilità dei leader, che permettono di ottenere Comandanti di flotta già in epoca antica). In questo si comportano proprio come le unità terrestri nei confronti dei Comandanti d'Armata: in effetti, i due tipi di Comandanti condividono le stesse meccaniche di associazione, separazione e travolgimento.</Text>
+    </Replace>
+    <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_COMBAT_11_TITLE" Language="it_IT">
+      <Text>Combattimento navale</Text>
+    </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_COMBAT_2_CHAPTER_CONTENT_PARA_1" Language="it_IT">
-      <Text>Le unità a distanza non subiscono danni reciproci quando attaccano, il che le rende ottime quando sono associate a unità di mischia in prima linea. Tuttavia, le unità a distanza sono vulnerabili alle unità di mischia, specialmente alla cavalleria, che guadagna un bonus alla forza di combattimento quando attacca unità a distanza. Le unità a distanza hanno una statistica di forza in mischia, usata per calcolare i danni che subiscono quando si difendono da attacchi ravvicinati. Tuttavia, la forza in mischia delle unità a distanza è generalmente molto bassa.</Text>
+      <Text>Le unità a distanza non subiscono danni reciproci quando attaccano, il che le rende ottime quando sono protette da unità di mischia in prima linea. Tuttavia, le unità a distanza sono vulnerabili alle unità di mischia, specialmente alla cavalleria, che guadagna un bonus alla forza di combattimento quando attacca unità a distanza. Le unità a distanza hanno una statistica di forza in mischia, usata per calcolare i danni che subiscono quando si difendono da attacchi ravvicinati. Tuttavia, la forza in mischia delle unità a distanza è generalmente molto bassa. Inoltre, quando attaccano le unità navali, le unità a distanza usano la loro Forza di bombardamento, che è inferiore a quella delle unità d'assedio.</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_COMBAT_2_CHAPTER_CONTENT_PARA_2" Language="it_IT">
       <Text>Gli attacchi a distanza utilizzano bonus al combattimento calcolati in base alla casella in cui è attualmente posizionata la tua unità. In questo differiscono dagli attacchi in mischia, in cui si applicano i bonus relativi alla casella dell'unità che si difende dall'attacco.</Text>
@@ -2088,7 +2112,7 @@
       <Text>Cibo: Resa</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_FORTIFICATION_1_CHAPTER_CONTENT_PARA_1" Language="it_IT">
-      <Text>Le fortificazioni sono strutture che assistono nella difesa di una casella. Le fortificazioni più diffuse sono le Mura, ma alcune Meraviglie e alcuni miglioramenti possono fungere da fortificazioni.</Text>
+      <Text>Una fortificazione è un tipo di costruzione che aumenta la difesa di una casella. Il tipo più comune di fortificazione sono le Mura, che trasformano un distretto in un distretto fortificato dotato di punti salute e forza difensiva. I miglioramenti fortificati nelle caselle rurali non aggiungono salute, ma forniscono un bonus di +6 alla Forza di combattimento delle unità che si difendono al suo interno. Anche alcune Meraviglie sono fortificazioni: queste si comportano come distretti fortificati, con salute e forza difensiva.</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_FORTIFICATION_1_CHAPTER_CONTENT_PARA_2" Language="it_IT">
       <Text>Suggerimento: Le unità militari possono costruire fortificazioni temporanee per difendere più efficacemente certe caselle. Costruiscile dove prevedi che si svolgeranno dei combattimenti, oppure per proteggere una zona di grande valore. Attenzione, però: una volta abbandonate, le fortificazioni temporanee scompariranno.</Text>
@@ -2657,6 +2681,18 @@
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_STATEHOOD_3_TITLE" Language="it_IT">
       <Text>Entità politiche: Città-stato</Text>
     </Replace>
+    <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_SYNCRETISM_1_CHAPTER_CONTENT_PARA_1" Language="it_IT">
+      <Text>Con sincretismo ci si riferisce alla fusione di due o più culture, filosofie, idee o religioni per dare vita a una nuova formazione. È un processo che accade costantemente: la mescolanza di tradizioni romane nelle tribù galliche, o la creazione della cultura meticcia dalle tradizioni indigene e spagnole. Il termine è di particolare importanza per le tradizioni religiose: per esempio, la fusione del cattolicesimo e delle religioni africane in nuovi sistemi come il vudù, oppure la creazione della religione popolare cinese dal taoismo, buddhismo e confucianesimo. Il sincretismo non è limitato a un particolare momento del passato, ma si verifica costantemente mentre cerchiamo di riconciliare visioni contrastanti del mondo.</Text>
+    </Replace>
+    <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_SYNCRETISM_1_CHAPTER_CONTENT_PARA_2" Language="it_IT">
+      <Text>Considerare sincretiche le nostre culture e tradizioni costituisce una sfida alle visioni essenzializzate del mondo, ma il fatto che ciò che reputiamo normale e naturale non lo è stato sempre non rende le pratiche sincretiche meno significative. Con il cambiare del mondo, cambiamo anche noi.</Text>
+    </Replace>
+    <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_SYNCRETISM_1_CHAPTER_CONTENT_PARA_3" Language="it_IT">
+      <Text>Il Sincretismo è una nuova meccanica di Civilization VII, che permette a una civiltà al di fuori del proprio Apice di adottare elementi di una civiltà all'Apice di quell'epoca. In particolare, ti permette di incorporare nel tuo impero unità, edifici e miglioramenti esclusivi di una civiltà all'Apice. Potrai farlo fino alla fine di quell'epoca. In alternativa, quando sblocchi l'opzione per scegliere un bonus Sincretismo, puoi concentrarti verso l'interno e scegliere una Tradizione Affermazione che corrisponde alla tua civiltà attuale. La Tradizione Affermazione resta anche nelle epoche future.</Text>
+    </Replace>
+    <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_SYNCRETISM_1_TITLE" Language="it_IT">
+      <Text>Sincretismo</Text>
+    </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_TEAMPLAY_1_CHAPTER_CONTENT_PARA_1" Language="it_IT">
       <Text>In modalità multigiocatore è possibile formare delle squadre. Per far questo i giocatori devono selezionare la stessa squadra nel relativo menu a tendina durante la creazione della partita multigiocatore.</Text>
     </Replace>
@@ -2892,19 +2928,19 @@
       <Text>Tipi di unità</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_WALLS_1_CHAPTER_CONTENT_PARA_1" Language="it_IT">
-      <Text>Le Mura possono essere costruite nelle città, oppure acquistate sia nelle città sia nei paesi.</Text>
+      <Text>Le Mura sono un tipo di fortificazione che trasforma un distretto in un distretto fortificato. Per catturare un Insediamento è necessario controllare tutti i suoi distretti fortificati.</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_WALLS_1_CHAPTER_CONTENT_PARA_2" Language="it_IT">
-      <Text>Le Mura aumentano di 100 la Salute di un distretto. Le Mura dell'epoca precedente forniscono solo metà del bonus alle difese e alla Salute del distretto; le Mura ancora più antiche non forniscono alcun bonus. Tuttavia, le Mura delle epoche passate possono essere migliorate e sostituite con fortificazioni dell'epoca in corso. Non è necessario inserire la riparazione delle Mura nella coda di produzione; le Mura si riparano automaticamente se non sono sotto attacco e se non ci sono unità nemiche adiacenti.</Text>
+      <Text>Le Mura aumentano di 100 la salute di un distretto. Quando un'unità attacca un distretto fortificato, il risultato dello scontro si ottiene confrontando la Forza dell'unità attaccante alle difese del distretto, calcolate sottraendo un valore prefissato (10) alla Forza dell'unità da mischia più potente addestrata dal giocatore che possiede il distretto. Le Mura e i Centri delle città e dei paesi infliggono danni reciproci agli attaccanti da mischia; il difensore subisce danni per primo. È possibile avere più fortificazioni nella stessa casella, come nel caso di una Meraviglia a cui sono state aggiunte Mura: in questo caso i punti salute si sommano.</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_WALLS_1_CHAPTER_CONTENT_PARA_3" Language="it_IT">
-      <Text>Con l'eccezione del Centro cittadino, le Mura non possono essere acquistate in cambio di Oro. Le Mura dei distretti devono essere costruite una casella alla volta in cambio di Produzione, tramite la coda di costruzione della città. Le Mura non possono essere costruite sui fiumi navigabili e devono essere adiacenti ad altre Mura, a partire dal Centro cittadino. Le Mura non possono mai essere adiacenti a Mura che appartengono a un altro insediamento, con l'eccezione del Centro cittadino, che può sempre costruirle. Non si possono costruire Mura nelle caselle rurali.</Text>
+      <Text>Le Mura possono essere costruite nelle città o acquistate nelle città e nei Paesi, ma l'acquisto in cambio di Oro può avvenire solo nei Centri cittadini. Le Mura dei distretti devono essere costruite una casella alla volta in cambio di Produzione, tramite la coda di costruzione della città. Le Mura non possono essere costruite sui fiumi navigabili e devono essere adiacenti ad altre Mura, a partire dal Centro cittadino. Le Mura non possono mai essere adiacenti a Mura che appartengono a un altro insediamento, con l'eccezione del Centro cittadino, che può sempre costruirle. Non si possono costruire Mura nelle caselle rurali.</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_WALLS_1_CHAPTER_CONTENT_PARA_4" Language="it_IT">
-      <Text>Quando un'unità attacca un distretto difendibile, il risultato dello scontro si ottiene confrontando la Forza dell'unità attaccante alle difese del distretto, calcolate sottraendo un valore prefissato (10) alla Forza dell'unità da mischia più potente addestrata dal giocatore che possiede il distretto. Le Mura e i Centri delle città e dei paesi infliggono danni reciproci agli attaccanti da mischia, il difensore subisce danni per primo.</Text>
+      <Text>Le Mura dell'epoca precedente forniscono solo metà del bonus alle difese e alla salute del distretto; le Mura ancora più antiche non forniscono alcun bonus. Tuttavia, le Mura delle epoche passate possono essere migliorate e sostituite con fortificazioni dell'epoca in corso. Non è necessario inserire la riparazione delle Mura nella coda di produzione; le Mura si riparano automaticamente se non sono sotto attacco e se non ci sono unità nemiche adiacenti.</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_WALLS_1_CHAPTER_CONTENT_PARA_5" Language="it_IT">
-      <Text>Suggerimento: per catturare un insediamento è necessario prendere il controllo del centro dell'insediamento e di tutti i distretti con Mura.</Text>
+      <Text>Suggerimento: per catturare un insediamento è necessario prendere il controllo di tutti i suoi distretti fortificati. Questi includono il Centro della città o Paese, i distretti dotati di Mura e alcune Meraviglie.</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_WALLS_1_TITLE" Language="it_IT">
       <Text>Mura</Text>
@@ -4161,7 +4197,7 @@
       <Text>Vittoria scientifica in epoca moderna</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_PAGE_AGES_39_CHAPTER_CONTENT_PARA_1" Language="it_IT">
-      <Text>Se hai scelto Riorganizzazione come opzione per l'Impatto del passaggio di epoca, alla fine di ogni epoca le unità militari saranno parzialmente reimpostate. Le unità navali sono perdute alla fine dell'epoca antica, ma all'inizio dell'epoca delle esplorazioni otterrai una Cocca gratuita. Le unità terrestri sono limitate a 6 dopo l'epoca antica e 9 dopo quella delle esplorazioni, a cui si aggiungono tutte quelle associate ai Comandanti d'Armata. Le unità che superano questi limiti sono sciolte: se invece hai meno unità del minimo, riceverai unità di fanteria gratuite per compensare la differenza.</Text>
+      <Text>Se hai scelto Riorganizzazione come opzione per l'Impatto del passaggio di epoca, alla fine di ogni epoca le unità militari saranno parzialmente reimpostate. Oltre alle navi che potrai conservare in quanto associate ai Comandanti di flotta, per ogni Porto nel tuo impero un'ulteriore unità navale supererà indenne il passaggio di epoca. Le unità terrestri sono limitate a 6 dopo l'epoca antica e 9 dopo quella delle esplorazioni, a cui si aggiungono tutte quelle associate ai Comandanti d'Armata. Le unità che superano questi limiti saranno sciolte: se invece hai meno unità del minimo, riceverai unità di fanteria gratuite per compensare la differenza.</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_PAGE_AGES_39_CHAPTER_CONTENT_PARA_2" Language="it_IT">
       <Text>Tutte le unità ricevute dopo il passaggio vengono migliorate automaticamente a unità di livello 1 della nuova epoca. I Comandanti sconfitti rientreranno in gioco.</Text>
@@ -5811,6 +5847,120 @@
     </Replace>
     <Replace Tag="LOC_DIPLO_MAKE_DEAL_REJECTED_LEADER_XERXES" Language="it_IT">
       <Text>In questo momento le porte sono chiuse.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_DECREASED_LEADER_AMINA" Language="it_IT">
+      <Text>Il silenzio è l'unica risposta alla stoltezza.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_DECREASED_LEADER_ASHOKA" Language="it_IT">
+      <Text>È proprio vero, fare cattive azioni è facile.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_DECREASED_LEADER_AUGUSTUS" Language="it_IT">
+      <Text>La tua ignoranza ti porta alla stoltezza.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_DECREASED_LEADER_BENJAMIN_FRANKLIN" Language="it_IT">
+      <Text>Tutti nasciamo ignoranti, ma bisogna lavorare sodo per rimanere stupidi.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_DECREASED_LEADER_CATHERINE" Language="it_IT">
+      <Text>Guarda che ora s'è fatta! Non dovresti andare?</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_DECREASED_LEADER_CHARLEMAGNE" Language="it_IT">
+      <Text>Altri possono ammirarti. Io no.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_DECREASED_LEADER_CONFUCIUS" Language="it_IT">
+      <Text>Coloro che non coltivano azioni rette né onestà, quelli dobbiamo scacciarli da noi.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_DECREASED_LEADER_FRIEDRICH" Language="it_IT">
+      <Text>Si parla sempre male, quando non si ha niente da dire.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_DECREASED_LEADER_HARRIET_TUBMAN" Language="it_IT">
+      <Text>Sono in arrivo nuvole temporalesche.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_DECREASED_LEADER_HATSHEPSUT" Language="it_IT">
+      <Text>Io sono il sole, e chi può contestare il sole?</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_DECREASED_LEADER_HIMIKO" Language="it_IT">
+      <Text>Tu credi di brillare intensamente. Ma la base di un faro è sempre in ombra.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_DECREASED_LEADER_IBN_BATTUTA" Language="it_IT">
+      <Text>Malvagità e ignoranza camminano appaiate.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_DECREASED_LEADER_ISABELLA" Language="it_IT">
+      <Text>Il Signore mi ha donato il dominio su tutte le terre.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_DECREASED_LEADER_JOSE_RIZAL" Language="it_IT">
+      <Text>Tu ridi del dolore degli altri.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_DECREASED_LEADER_LAFAYETTE" Language="it_IT">
+      <Text>La tua tirannia è svelata!</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_DECREASED_LEADER_MACHIAVELLI" Language="it_IT">
+      <Text>Qualcuno sta tessendo delle trame, e non sono io.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_DECREASED_LEADER_PACHACUTI" Language="it_IT">
+      <Text>La neve è bianca e instabile. Le montagne causeranno presto un disastro.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_DECREASED_LEADER_TRUNG_TRAC" Language="it_IT">
+      <Text>Noi ricordiamo. Ricordiamo sempre.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_DECREASED_LEADER_XERXES" Language="it_IT">
+      <Text>Le tue parole riempiono l'aria come lo starnazzare delle anatre.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_INCREASED_LEADER_AMINA" Language="it_IT">
+      <Text>Come l'ombra nel deserto!</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_INCREASED_LEADER_ASHOKA" Language="it_IT">
+      <Text>Fare bene è difficile</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_INCREASED_LEADER_AUGUSTUS" Language="it_IT">
+      <Text>I tuoi mattoni mi ricordano il marmo.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_INCREASED_LEADER_BENJAMIN_FRANKLIN" Language="it_IT">
+      <Text>Un buon senso che al giorno d'oggi è molto raro!</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_INCREASED_LEADER_CATHERINE" Language="it_IT">
+      <Text>Adoro l'astuzia. Mostramela!</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_INCREASED_LEADER_CHARLEMAGNE" Language="it_IT">
+      <Text>Un brindisi alle menti affini!</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_INCREASED_LEADER_CONFUCIUS" Language="it_IT">
+      <Text>La persona retta apprezza gli esempi dati dagli uomini, quella meschina il bottino che ne deriva.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_INCREASED_LEADER_FRIEDRICH" Language="it_IT">
+      <Text>Polvere da sparo di giorno, teatro di notte e ora questo!</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_INCREASED_LEADER_HARRIET_TUBMAN" Language="it_IT">
+      <Text>È un passo avanti.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_INCREASED_LEADER_HATSHEPSUT" Language="it_IT">
+      <Text>Chiederò al popolo del sole di farti vivere in eterno con loro.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_INCREASED_LEADER_HIMIKO" Language="it_IT">
+      <Text>Sì, ci sono cose degne. Il discorso delle stelle e il chiacchiericcio della ricchezza.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_INCREASED_LEADER_IBN_BATTUTA" Language="it_IT">
+      <Text>Mi fa piacere che procediamo sullo stesso percorso.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_INCREASED_LEADER_ISABELLA" Language="it_IT">
+      <Text>Evitare le aspettative troppo alte è una necessità, per una regina.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_INCREASED_LEADER_JOSE_RIZAL" Language="it_IT">
+      <Text>C'è della poesia nel tuo cuore. La vedo.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_INCREASED_LEADER_LAFAYETTE" Language="it_IT">
+      <Text>La libertà può sempre contare su di te.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_INCREASED_LEADER_MACHIAVELLI" Language="it_IT">
+      <Text>Le mie più sincere congratulazioni. Dico sul serio.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_INCREASED_LEADER_PACHACUTI" Language="it_IT">
+      <Text>Fa' sì che non ghiacci e che non grandini. Preserva ogni cosa in pace.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_INCREASED_LEADER_TRUNG_TRAC" Language="it_IT">
+      <Text>Sei come una fresca brezza montana.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_INCREASED_LEADER_XERXES" Language="it_IT">
+      <Text>Vedo che mi hai osservato attentamente.</Text>
     </Replace>
     <Replace Tag="LOC_MAIN_CHAR_SELECT_LEADER_AMINA_ANY" Language="it_IT">
       <Text>Affila le armi, sella i cavalli e fai la pace con la divinità. Oggi andiamo a conquistare. </Text>
@@ -10351,8 +10501,8 @@
     </Replace>
     <Replace Tag="LOC_ADVICE_ANTIQUITY_MILITARY_ARMY_COMMANDERS_MESSAGE" Language="it_IT">
       <Text>
-				I [TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]Comandanti[/TIP] [b]d'Armata[/b] sono [TIP:LOC_PEDIA_CONCEPTS_SUPPORT_UNIT_TOOLTIP]unità di supporto[/TIP] che forniscono bonus speciali alle [TIP:LOC_PEDIA_CONCEPTS_MILITARY_UNIT_TOOLTIP]unità militari[/TIP] circostanti. I Comandanti d'Armata possono inoltre [b]associare a sé le unità militari[/b] e quelle [TIP:LOC_PEDIA_CONCEPTS_CIVILIAN_UNIT_TOOLTIP]civili[/TIP] per spostarle più rapidamente da un punto all'altro della mappa.
-				[nn]I Comandanti d'Armata guadagnano [b]XP[/b] ogni volta che due unità di affrontano all'interno del loro [b] [TIP:LOC_PEDIA_CONCEPTS_COMMAND_RADIUS_TOOLTIP]raggio di comando[/TIP][/b]: passare di livello permette loro di ottenere [TIP:LOC_PEDIA_CONCEPTS_PROMOTION_TOOLTIP]promozioni[/TIP], che ne espandono i bonus e le abilità. Ogni volta che un Comandante d'Armata riceve l'ultima promozione di uno specifico albero, può scegliere un'[TIP:LOC_PEDIA_CONCEPTS_COMMENDATION_TOOLTIP]onorificenza[/TIP]. I Comandanti d'Armata di livello elevato possono cambiare radicalmente le sorti di una guerra, quindi cerca di posizionarli il più possibile vicino al fronte, dove avvengono tutti i combattimenti.
+				[TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]I Comandanti[/TIP] [B]d'Armata[/B] sono [TIP:LOC_PEDIA_CONCEPTS_SUPPORT_UNIT_TOOLTIP]unità di supporto[/TIP] che forniscono bonus speciali alle [TIP:LOC_PEDIA_CONCEPTS_MILITARY_UNIT_TOOLTIP]unità militari[/TIP] circostanti. I Comandanti d'Armata possono inoltre [b]associare a sé le unità militari[/b] e quelle [TIP:LOC_PEDIA_CONCEPTS_CIVILIAN_UNIT_TOOLTIP]civili[/TIP] per spostarle più rapidamente da un punto all'altro della mappa.
+				[nn]I Comandanti d'Armata guadagnano [b]XP[/b] ogni volta che due unità si affrontano all'interno del loro [b][TIP:LOC_PEDIA_CONCEPTS_COMMAND_RADIUS_TOOLTIP]raggio di comando[/TIP][/b]. Passare di livello permette loro di ottenere [TIP:LOC_PEDIA_CONCEPTS_PROMOTION_TOOLTIP]promozioni[/TIP], che ne espandono i bonus e le abilità. Ogni volta che un Comandante d'Armata riceve l'ultima promozione di uno specifico albero, può scegliere un'[TIP:LOC_PEDIA_CONCEPTS_COMMENDATION_TOOLTIP]onorificenza[/TIP]. I Comandanti d'Armata di livello elevato possono cambiare radicalmente le sorti di una guerra, quindi cerca di posizionarli il più possibile vicino al fronte, dove avvengono tutti i combattimenti.
 				[nn]Se un'unità è adiacente a un Comandante d'Armata, può esserci associata utilizzando i comandi [b]Aggiunti all'esercito[/b] (per l'unità) o [b]Assembla esercito[/b] (per il Comandante). Ciascun Comandante può associare un massimo di quattro unità per volta, ma questo limite può essere incrementato grazie alle promozioni. Le unità associate si muovono sulla mappa insieme al proprio Comandante d'Armata e possono essere [b]schierate[/b] tutte insieme o una alla volta per partecipare a una battaglia.
 				[nn]I Comandanti d'Armata che vengono sconfitti rientrano in gioco automaticamente nella tua [TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]capitale[/TIP] qualche turno più tardi.
 			</Text>
@@ -13318,6 +13468,9 @@
     <Replace Tag="LOC_BANNER_FOUNDATION_6_NAME" Language="it_IT">
       <Text>Trionfo</Text>
     </Replace>
+    <Replace Tag="LOC_BANNER_FOUNDATION_7_NAME" Language="it_IT">
+      <Text>Epoca moderna</Text>
+    </Replace>
     <Replace Tag="LOC_BANNER_FRIEDRICH_OBLIQUE_NAME" Language="it_IT">
       <Text>Bandiera Federico, obliquo</Text>
     </Replace>
@@ -13590,6 +13743,9 @@
     </Replace>
     <Replace Tag="LOC_BUILDING_PLACEMENT_UNIQUE_QUARTER" Language="it_IT">
       <Text>Quartiere esclusivo</Text>
+    </Replace>
+    <Replace Tag="LOC_BUILDING_PLACEMENT_UNIQUE_QUARTER_BLOCKER" Language="it_IT">
+      <Text>Confermi?</Text>
     </Replace>
     <Replace Tag="LOC_BUILDING_PLACEMENT_WAREHOUSE_IMPROVEMENTS" Language="it_IT">
       <Text>Miglioramenti Deposito:</Text>
@@ -14170,6 +14326,27 @@
     <Replace Tag="LOC_DARK_AGE_REQUNLOCK_DESCRIPTION" Language="it_IT">
       <Text>Non ottenere alcuna Vittoria in questa epoca</Text>
     </Replace>
+    <Replace Tag="LOC_DEAL_ITEM_ALREADY_USED" Language="it_IT">
+      <Text>Questo tipo di resa è già rappresentata nell'accordo.</Text>
+    </Replace>
+    <Replace Tag="LOC_DEAL_ITEM_GOLD_LARGE_LUMP_DESCRIPTION" Language="it_IT">
+      <Text>Una grande quantità di [icon:YIELD_GOLD] Oro.</Text>
+    </Replace>
+    <Replace Tag="LOC_DEAL_ITEM_GOLD_SMALL_LUMP_DESCRIPTION" Language="it_IT">
+      <Text>Una piccola quantità di [icon:YIELD_GOLD] Oro.</Text>
+    </Replace>
+    <Replace Tag="LOC_DEAL_ITEM_INFLUENCE_LARGE_LUMP_DESCRIPTION" Language="it_IT">
+      <Text>Una grande quantità di [icon:YIELD_DIPLOMACY] Influenza.</Text>
+    </Replace>
+    <Replace Tag="LOC_DEAL_ITEM_INFLUENCE_SMALL_LUMP_DESCRIPTION" Language="it_IT">
+      <Text>Una piccola quantità di [icon:YIELD_DIPLOMACY] Influenza.</Text>
+    </Replace>
+    <Replace Tag="LOC_DEAL_ITEM_INSUFFICIENT_GOLD" Language="it_IT">
+      <Text>[icon:YIELD_GOLD] Oro insufficiente.</Text>
+    </Replace>
+    <Replace Tag="LOC_DEAL_ITEM_INSUFFICIENT_INFLUENCE" Language="it_IT">
+      <Text>[icon:YIELD_DIPLOMACY] Influenza insufficiente.</Text>
+    </Replace>
     <Replace Tag="LOC_DEDICATIONS_ACTIVE_DEDICATIONS" Language="it_IT">
       <Text>Dedizioni attive</Text>
     </Replace>
@@ -14305,6 +14482,12 @@
     <Replace Tag="LOC_DIPLO_MAKE_DEAL_REJECTED_GENERIC" Language="it_IT">
       <Text>Rifiuto questa proposta di pace!</Text>
     </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_DECREASED_GENERIC" Language="it_IT">
+      <Text>Non hai nessun rispetto?</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_INCREASED_GENERIC" Language="it_IT">
+      <Text>Le tue azioni non sono del tutto sgradevoli.</Text>
+    </Replace>
     <Replace Tag="LOC_DIPLOMACY_ACTION_ALL_TAB_NAME" Language="it_IT">
       <Text>A</Text>
     </Replace>
@@ -14435,7 +14618,7 @@
       <Text>Le civiltà con ideologie condivise non possono farsi la guerra.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ACTION_FAILURE_REASON_WAR_FORMAL_NEEDS_HOSTILE" Language="it_IT">
-      <Text>Per dichiarare una Guerra formale è necessario che la relazione sia ostile.</Text>
+      <Text>Per dichiarare una Guerra formale è necessario che la [icon:RELATIONSHIP] relazione sia ostile.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ACTION_FAILURE_REASON_WAR_WITHOUT_END" Language="it_IT">
       <Text>La guerra non avrà fine.</Text>
@@ -14456,7 +14639,7 @@
       <Text>Stringe un'alleanza con un altro leader.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ACTION_FORM_ALLIANCE_DISABLED" Language="it_IT">
-      <Text>Le vostre relazioni non sono sufficientemente solide da formare un'alleanza.</Text>
+      <Text>Le vostre [icon:RELATIONSHIP] relazioni non sono sufficientemente solide da formare [icon:PLAYER_RELATIONSHIP_ALLIANCE] un'Alleanza.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ACTION_FORM_ALLIANCE_NAME" Language="it_IT">
       <Text>Forma alleanza</Text>
@@ -14486,7 +14669,7 @@
       <Text>Questa azione è in stallo e richiede maggiore supporto.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ACTION_LAND_CLAIM_DESCRIPTION" Language="it_IT">
-      <Text>Comunica al mondo intero la tua intenzione di stabilirti in questo territorio. In caso di successo, nascerà un paese sotto il tuo controllo.</Text>
+      <Text>Comunica al mondo intero la tua intenzione di stabilirti in questo territorio. In caso di successo, nascerà un [icon:YIELD_TOWNS] paese sotto il tuo controllo.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ACTION_LAND_CLAIM_NAME" Language="it_IT">
       <Text>Rivendicazione territoriale</Text>
@@ -14693,115 +14876,223 @@
       <Text>Aggiungi Supporto bellico</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_BAROQUE_DESC" Language="it_IT">
-      <Text>Apprezza i leader che hanno Meraviglie nella propria capitale. Disprezza chi ha edifici nella propria capitale.</Text>
+      <Text>Apprezza i leader che hanno [icon:WONDER] Meraviglie nella propria capitale. Disprezza chi ha [icon:CITY_BUILDING_LIST] edifici nella propria capitale.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_BAROQUE_DESC_DISLIKES" Language="it_IT">
+      <Text>Federico disprezza chi ha [icon:CITY_BUILDING_LIST] edifici nella propria capitale.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_BAROQUE_DESC_LIKES" Language="it_IT">
+      <Text>Federico apprezza i leader che hanno [icon:WONDER] Meraviglie nella propria capitale.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_BAROQUE_NAME" Language="it_IT">
       <Text>Barocco</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_CIVIC_VIRTUE_DESC" Language="it_IT">
-      <Text>Le sue relazioni con i leader che condividono la sua forma di governo crescono al doppio della velocità. Le sue relazioni con i leader che non condividono la sua forma di governo si riducono al doppio della velocità.</Text>
+      <Text>Le sue [icon:RELATIONSHIP] relazioni con i leader che condividono la sua [icon:GOVERNMENT] forma di governo crescono al doppio della velocità. Le sue [icon:RELATIONSHIP] relazioni con i leader che non condividono la sua [icon:GOVERNMENT] forma di governo si riducono al doppio della velocità.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_CIVIC_VIRTUE_DESC_DISLIKES" Language="it_IT">
+      <Text>Le [icon:RELATIONSHIP] relazioni di Benjamin Franklin con i leader che non condividono la sua [icon:GOVERNMENT] forma di governo si riducono al doppio della velocità.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_CIVIC_VIRTUE_DESC_LIKES" Language="it_IT">
+      <Text>Le [icon:RELATIONSHIP] relazioni di Benjamin Franklin con i leader che condividono la sua [icon:GOVERNMENT] forma di governo crescono al doppio della velocità.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_CIVIC_VIRTUE_NAME" Language="it_IT">
       <Text>Virtù civile</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_CULTURE_FROM_CONQUEST_DESC" Language="it_IT">
-      <Text>Apprezza la civiltà con la [icon:YIELD_CULTURE] Cultura per turno più alta. Disprezza le civiltà che stringono Alleanze le une con le altre.</Text>
+      <Text>Apprezza il leader con la [icon:YIELD_CULTURE] Cultura per turno più alta. Disprezza i leader che stringono [icon:PLAYER_RELATIONSHIP_ALLIANCE] Alleanze tra di loro.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_CULTURE_FROM_CONQUEST_DESC_DISLIKES" Language="it_IT">
+      <Text>Napoleone disprezza i leader che stringono [icon:PLAYER_RELATIONSHIP_ALLIANCE] Alleanze tra di loro.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_CULTURE_FROM_CONQUEST_DESC_LIKES" Language="it_IT">
+      <Text>Napoleone apprezza il leader con la [icon:YIELD_CULTURE] Cultura per turno più alta.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_CULTURE_FROM_CONQUEST_NAME" Language="it_IT">
       <Text>Cultura dalle conquiste</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_DESERT_OF_THE_WARRIOR_QUEEN_DESC" Language="it_IT">
-      <Text>Apprezza le civiltà che non hanno insediamenti in deserti o pianure. Disprezza chi ha insediamenti in deserti o pianure.</Text>
+      <Text>Apprezza i leader che non hanno insediamenti in deserti o pianure. Disprezza i leader che hanno insediamenti in deserti o pianure.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_DESERT_OF_THE_WARRIOR_QUEEN_DESC_DISLIKES" Language="it_IT">
+      <Text>Amina disprezza i leader che hanno insediamenti in deserti o pianure.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_DESERT_OF_THE_WARRIOR_QUEEN_DESC_LIKES" Language="it_IT">
+      <Text>Amina apprezza i leader che non hanno insediamenti in deserti o pianure.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_DESERT_OF_THE_WARRIOR_QUEEN_NAME" Language="it_IT">
       <Text>Deserto della regina guerriera</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_DUSHA_DESC" Language="it_IT">
-      <Text>Apprezza la civiltà con il minor numero di Capolavori. Disprezza la civiltà con il maggior numero di Capolavori. </Text>
+      <Text>Apprezza il leader con il minor numero di [icon:NAR_REW_GREATWORK] Capolavori. Disprezza il leader con il maggior numero di [icon:NAR_REW_GREATWORK] Capolavori. </Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_DUSHA_DESC_DISLIKES" Language="it_IT">
+      <Text>Caterina apprezza il leader con il minor numero di [icon:NAR_REW_GREATWORK] Capolavori. </Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_DUSHA_DESC_LIKES" Language="it_IT">
+      <Text>Caterina apprezza il leader con il minor numero di [icon:NAR_REW_GREATWORK] Capolavori.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_DUSHA_NAME" Language="it_IT">
       <Text>Dusha</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_FAR_AND_WIDE_DESC" Language="it_IT">
-      <Text>Apprezza la civiltà che ha rivelato il maggior numero di caselle. Disprezza la civiltà che ha rivelato il minor numero di caselle.</Text>
+      <Text>Apprezza il leader che ha rivelato il maggior numero di caselle. Disprezza il leader che ha rivelato il minor numero di caselle.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_FAR_AND_WIDE_DESC_DISLIKES" Language="it_IT">
+      <Text>Ibn Battuta disprezza il leader che ha rivelato il minor numero di caselle.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_FAR_AND_WIDE_DESC_LIKES" Language="it_IT">
+      <Text>Ibn Battuta apprezza il leader che ha rivelato il maggior numero di caselle.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_FAR_AND_WIDE_NAME" Language="it_IT">
       <Text>Urbi et orbi</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_FRENCH_QUARTERS_DESC" Language="it_IT">
-      <Text>Apprezza la civiltà con il maggior numero di quartieri. Disprezza la civiltà con il minor numero di quartieri.</Text>
+      <Text>Apprezza il leader con il maggior numero di [icon:CITY_UNIQUE_QUARTER] quartieri. Disprezza il leader con il minor numero di [icon:CITY_UNIQUE_QUARTER] quartieri.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_FRENCH_QUARTERS_DESC_DISLIKES" Language="it_IT">
+      <Text>Lafayette disprezza il leader con il minor numero di [icon:CITY_UNIQUE_QUARTER] quartieri.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_FRENCH_QUARTERS_DESC_LIKES" Language="it_IT">
+      <Text>Lafayette apprezza il leader con il maggior numero di [icon:CITY_UNIQUE_QUARTER] quartieri</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_FRENCH_QUARTERS_NAME" Language="it_IT">
       <Text>Quartiere francese</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_GUANXI_DESC" Language="it_IT">
-      <Text>Apprezza la civiltà con il maggior numero di specialisti. Disprezza la civiltà con il minor numero di specialisti.</Text>
+      <Text>Apprezza il leader con il maggior numero di [icon:SPECIALIST] specialisti. Disprezza il leader con il minor numero di [icon:SPECIALIST] specialisti.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_GUANXI_DESC_DISLIKES" Language="it_IT">
+      <Text>Confucio disprezza il leader con il minor numero di [icon:SPECIALIST] specialisti.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_GUANXI_DESC_LIKES" Language="it_IT">
+      <Text>Confucio apprezza il leader con il maggior numero di [icon:SPECIALIST] specialisti.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_GUANXI_NAME" Language="it_IT">
       <Text>Guanxi</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_KAPWA_DESC" Language="it_IT">
-      <Text>Apprezza il leader che avvia il maggior numero di Iniziative diplomatiche. Disprezza il leader che avvia il maggior numero di Sanzioni.</Text>
+      <Text>Apprezza il leader che avvia il maggior numero di [icon:ENDEAVOR] Iniziative. Disprezza il leader che avvia il maggior numero di [icon:SANCTIONS] Sanzioni.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_KAPWA_DESC_DISLIKES" Language="it_IT">
+      <Text>José Rizal disprezza il leader che avvia il maggior numero di [icon:SANCTIONS] Sanzioni.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_KAPWA_DESC_LIKES" Language="it_IT">
+      <Text>José Rizal apprezza il leader che avvia il maggior numero di [icon:ENDEAVOR] Iniziative.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_KAPWA_NAME" Language="it_IT">
       <Text>Kapwa</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_LORD_OF_COIN_DESC" Language="it_IT">
-      <Text>Apprezza le civiltà che hanno meno Rotte commerciali di lui. Disprezza chi ha altrettante o più Rotte commerciali di lui.</Text>
+      <Text>Apprezza i leader che hanno meno [icon:TRADE_ROUTE] Rotte commerciali di lui. Disprezza chi ha altrettante o più [icon:TRADE_ROUTE] Rotte commerciali di lui.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_LORD_OF_COIN_DESC_DISLIKES" Language="it_IT">
+      <Text>Serse disprezza chi ha altrettante o più [icon:TRADE_ROUTE] Rotte commerciali di lui.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_LORD_OF_COIN_DESC_LIKES" Language="it_IT">
+      <Text>Serse apprezza i leader che hanno meno [icon:TRADE_ROUTE] Rotte commerciali di lui.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_LORD_OF_COIN_NAME" Language="it_IT">
       <Text>Signore del conio</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_LORD_OF_FIRE_DESC" Language="it_IT">
-      <Text>Apprezza i leader che sono in guerra con altri, se stesso escluso. Disprezza chi non è in guerra con altri, se stesso escluso.</Text>
+      <Text>Apprezza i leader che sono in [icon:WAR] guerra con altri, se stesso escluso. Disprezza chi non è in [icon:WAR] guerra con altri, se stesso escluso.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_LORD_OF_FIRE_DESC_DISLIKES" Language="it_IT">
+      <Text>Serse disprezza chi non è in [icon:WAR] guerra con altri, se stesso escluso.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_LORD_OF_FIRE_DESC_LIKES" Language="it_IT">
+      <Text>Serse apprezza i leader che sono in [icon:WAR] guerra con altri, se stesso escluso.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_LORD_OF_FIRE_NAME" Language="it_IT">
       <Text>Signore del fuoco</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_MOUNTAIN_KING_DESC" Language="it_IT">
-      <Text>Apprezza le civiltà che hanno poche montagne ai propri confini. Disprezza il giocatore che ha più montagne di tutti ai suoi confini.</Text>
+      <Text>Apprezza i leader che hanno poche montagne ai propri confini. Disprezza il giocatore che ha più montagne di tutti ai suoi confini.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_MOUNTAIN_KING_DESC_DISLIKES" Language="it_IT">
+      <Text>Pachacuti disprezza il leader che ha più montagne di tutti ai suoi confini.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_MOUNTAIN_KING_DESC_LIKES" Language="it_IT">
+      <Text>Pachacuti apprezza i leader che hanno poche montagne ai propri confini.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_MOUNTAIN_KING_NAME" Language="it_IT">
       <Text>Re delle montagne</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_NAPOLEONIC_CODE_DESC" Language="it_IT">
-      <Text>Apprezza la civiltà con il minor numero di unità terrestri. Disprezza la civiltà con il maggior numero di unità navali.</Text>
+      <Text>Apprezza il leader con il minor numero di unità terrestri. Disprezza il leader con il maggior numero di unità navali.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_NAPOLEONIC_CODE_DESC_DISLIKES" Language="it_IT">
+      <Text>Napoleone disprezza il leader con il maggior numero di unità navali.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_NAPOLEONIC_CODE_DESC_LIKES" Language="it_IT">
+      <Text>Napoleone apprezza il leader con il minor numero di unità terrestri.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_NAPOLEONIC_CODE_NAME" Language="it_IT">
       <Text>Codice napoleonico</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_RESTITUTOR_ORBIS_DESC" Language="it_IT">
-      <Text>Apprezza le civiltà il cui impero include città. Disprezza le civiltà il cui impero include Paesi. </Text>
+      <Text>Apprezza i leader il cui impero include [icon:YIELD_CITIES] città. Disprezza i leader il cui impero include [icon:YIELD_TOWNS] Paesi. </Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_RESTITUTOR_ORBIS_DESC_DISLIKES" Language="it_IT">
+      <Text>Augusto disprezza i leader il cui impero include [icon:YIELD_TOWNS] Paesi. </Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_RESTITUTOR_ORBIS_DESC_LIKES" Language="it_IT">
+      <Text>Augusto apprezza i leader il cui impero include [icon:YIELD_CITIES] città.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_RESTITUTOR_ORBIS_NAME" Language="it_IT">
       <Text>Restitutor Orbis</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_SHAMAN_QUEEN_DESC" Language="it_IT">
-      <Text>Apprezza le civiltà con edifici[icon:YIELD_CULTURE] culturali e che producono[icon:YIELD_HAPPINESS] Felicità nei propri insediamenti. Disprezza le civiltà con edifici[icon:YIELD_SCIENCE] scientifici e che producono[icon:YIELD_GOLD] Oro nei propri insediamenti.</Text>
+      <Text>Apprezza i leader che hanno nei loro insediamenti sia edifici [icon:YIELD_CULTURE] culturali, sia edifici che producono [icon:YIELD_HAPPINESS] Felicità. Disprezza i leader che hanno nei loro insediamenti sia edifici [icon:YIELD_SCIENCE] scientifici, sia edifici che producono [icon:YIELD_GOLD] Oro.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_SHAMAN_QUEEN_DESC_DISLIKES" Language="it_IT">
+      <Text>Himiko disprezza i leader che hanno nei loro insediamenti sia edifici [icon:YIELD_SCIENCE] scientifici, sia edifici che producono [icon:YIELD_GOLD] Oro.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_SHAMAN_QUEEN_DESC_LIKES" Language="it_IT">
+      <Text>Himiko apprezza i leader che hanno nei loro insediamenti sia edifici [icon:YIELD_CULTURE] culturali, sia edifici che producono [icon:YIELD_HAPPINESS] Felicità.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_SHAMAN_QUEEN_NAME" Language="it_IT">
       <Text>Miko di Amaterasu</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_STORIED_LANDS_DESC" Language="it_IT">
-      <Text>Apprezza i leader che completano meno storie di lui. Disprezza chi completa più storie di lui.</Text>
+      <Text>Apprezza i leader che completano meno [icon:NAR_REW_DEFAULT] storie di lui. Disprezza chi completa più [icon:NAR_REW_DEFAULT] storie di lui.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_STORIED_LANDS_NAME" Language="it_IT">
       <Text>Terre ricche di storia</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_SUZERAIN_OF_THE_WORLD_DESC" Language="it_IT">
-      <Text>Apprezza i leader che non disturbano le potenze indipendenti. Disprezza chi disperde le potenze indipendenti.</Text>
+      <Text>Apprezza i leader che non disturbano le [icon:INDEPENDENT_POWER] potenze indipendenti. Disprezza chi disperde le [icon:INDEPENDENT_POWER] potenze indipendenti.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_SUZERAIN_OF_THE_WORLD_DESC_DISLIKES" Language="it_IT">
+      <Text>Tecumseh disprezza chi disperde le [icon:INDEPENDENT_POWER] potenze indipendenti.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_SUZERAIN_OF_THE_WORLD_DESC_LIKES" Language="it_IT">
+      <Text>Tecumseh apprezza i leader che non disturbano le [icon:INDEPENDENT_POWER] potenze indipendenti.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_SUZERAIN_OF_THE_WORLD_NAME" Language="it_IT">
       <Text>Sovrano del mondo</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_THE_GOLDEN_SHEPHERD_DESC" Language="it_IT">
-      <Text>Apprezza la civiltà che ha indetto il maggior numero di Celebrazioni. Disprezza la civiltà che ha indetto il minor numero di Celebrazioni.</Text>
+      <Text>Apprezza il leader che ha indetto il maggior numero di [icon:CELEBRATION] Celebrazioni. Disprezza il leader che ha indetto il minor numero di [icon:CELEBRATION] Celebrazioni.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_THE_GOLDEN_SHEPHERD_DESC_DISLIKES" Language="it_IT">
+      <Text>Carlo Magno disprezza il leader che ha indetto il minor numero di [icon:CELEBRATION] Celebrazioni.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_THE_GOLDEN_SHEPHERD_DESC_LIKES" Language="it_IT">
+      <Text>Carlo Magno apprezza il leader che ha indetto il maggior numero di [icon:CELEBRATION] Celebrazioni.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_THE_GOLDEN_SHEPHERD_NAME" Language="it_IT">
       <Text>Il dorato pastore</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_THE_SPIDER_DESC" Language="it_IT">
-      <Text>Apprezza i leader che sono in guerra con altri, se stesso escluso.</Text>
+      <Text>Apprezza i leader che sono in [icon:WAR] guerra con altri, se stesso escluso.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_THE_SPIDER_DESC_DISLIKES" Language="it_IT">
+      <Text>Machiavelli non rivela perché disprezza alcuni leader.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_THE_SPIDER_DESC_LIKES" Language="it_IT">
+      <Text>Machiavelli apprezza i leader che sono in [icon:WAR] guerra con altri, se stesso escluso.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_THE_SPIDER_NAME" Language="it_IT">
       <Text>Il ragno</Text>
@@ -14810,49 +15101,97 @@
       <Text>Agenda</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_TO_ARMS_DESC" Language="it_IT">
-      <Text>Apprezza la civiltà con il maggior numero di unità militari. Disprezza la civiltà con il minor numero di unità militari.</Text>
+      <Text>Apprezza il leader con il maggior numero di unità militari. Disprezza il leader con il minor numero di unità militari.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_TO_ARMS_DESC_DISLIKES" Language="it_IT">
+      <Text>Federico disprezza il leader con il minor numero di unità militari.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_TO_ARMS_DESC_LIKES" Language="it_IT">
+      <Text>Federico apprezza il leader con il maggior numero di unità militari.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_TO_ARMS_NAME" Language="it_IT">
       <Text>Alle armi!</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_VAN_MINH_DESC" Language="it_IT">
-      <Text>Apprezza la civiltà con il minor numero di promozioni Comandante. Disprezza la civiltà con il maggior numero di promozioni Comandante.</Text>
+      <Text>Apprezza il leader con il minor numero di [icon:NAR_REW_PROMOTION] promozioni Comandante. Disprezza il leader con il maggior numero di [icon:NAR_REW_PROMOTION] promozioni Comandante.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_VAN_MINH_DESC_DISLIKES" Language="it_IT">
+      <Text>Trưng Trac disprezza il leader con il maggior numero di [icon:NAR_REW_PROMOTION] promozioni Comandante.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_VAN_MINH_DESC_LIKES" Language="it_IT">
+      <Text>Trưng Trac apprezza il leader con il minor numero di [icon:NAR_REW_PROMOTION] promozioni Comandante.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_VAN_MINH_NAME" Language="it_IT">
       <Text>Văn Minh</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_VERACITY_DESC" Language="it_IT">
-      <Text>Apprezza i leader che dichiarano guerre formali. Disprezza chi dichiara guerre a sorpresa.</Text>
+      <Text>Apprezza i leader che dichiarano [icon:WAR] guerre formali. Disprezza i leader che dichiarano [icon:WAR] guerre a sorpresa.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_VERACITY_DESC_DISLIKES" Language="it_IT">
+      <Text>Harriet Tubman disprezza i leader che dichiarano [icon:WAR] guerre a sorpresa.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_VERACITY_DESC_LIKES" Language="it_IT">
+      <Text>Harriet Tubman apprezza i leader che dichiarano [icon:WAR] guerre formali.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_VERACITY_NAME" Language="it_IT">
       <Text>Sincerità</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_WITHOUT_REGRET_DESC" Language="it_IT">
-      <Text>Apprezza la civiltà con il minor numero di territori. Disprezza la civiltà con il maggior numero di territori.</Text>
+      <Text>Apprezza il leader con il minor numero di territori. Disprezza il leader con il maggior numero di territori.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_WITHOUT_REGRET_DESC_DISLIKES" Language="it_IT">
+      <Text>Ashoka disprezza il leader con il maggior numero di territori.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_WITHOUT_REGRET_DESC_LIKES" Language="it_IT">
+      <Text>Ashoka apprezza il leader con il minor numero di territori.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_WITHOUT_REGRET_NAME" Language="it_IT">
       <Text>Nessun rimpianto</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_WITHOUT_SORROW_DESC" Language="it_IT">
-      <Text>Apprezza la civiltà con la[icon:YIELD_HAPPINESS] Felicità più alta. Disprezza la civiltà con la[icon:YIELD_HAPPINESS] Felicità più bassa.</Text>
+      <Text>Apprezza il leader con la [icon:YIELD_HAPPINESS] Felicità più alta. Disprezza il leader con la [icon:YIELD_HAPPINESS] Felicità più bassa.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_WITHOUT_SORROW_DESC_DISLIKES" Language="it_IT">
+      <Text>Ashoka disprezza il leader con la [icon:YIELD_HAPPINESS] Felicità più bassa.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_WITHOUT_SORROW_DESC_LIKES" Language="it_IT">
+      <Text>Ashoka apprezza il leader con la [icon:YIELD_HAPPINESS] Felicità più alta.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_WITHOUT_SORROW_NAME" Language="it_IT">
       <Text>Nessun rimorso</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_WONDERLUST_DESC" Language="it_IT">
-      <Text>Apprezza le civiltà che non hanno Meraviglie naturali all'interno dei propri confini. Disprezza chi ha Meraviglie naturali all'interno dei propri confini.</Text>
+      <Text>Apprezza i leader che non hanno [icon:NOTIFICATION_DISCOVER_NATURAL_WONDER] Meraviglie naturali all'interno dei propri confini. Disprezza chi ha [icon:NOTIFICATION_DISCOVER_NATURAL_WONDER] Meraviglie naturali all'interno dei propri confini.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_WONDERLUST_DESC_DISLIKES" Language="it_IT">
+      <Text>Isabella disprezza i leader che hanno [icon:NOTIFICATION_DISCOVER_NATURAL_WONDER] Meraviglie naturali all'interno dei propri confini.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_WONDERLUST_DESC_LIKES" Language="it_IT">
+      <Text>Isabella apprezza i leader che non hanno [icon:NOTIFICATION_DISCOVER_NATURAL_WONDER] Meraviglie naturali all'interno dei propri confini.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_WONDERLUST_NAME" Language="it_IT">
       <Text>Voglia di Meraviglie</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_WONDERS_OF_ITERU_DESC" Language="it_IT">
-      <Text>Apprezza le civiltà che hanno meno Meraviglie di lei. Disprezza chi ha più Meraviglie di lei.</Text>
+      <Text>Apprezza i leader che hanno meno [icon:WONDER] Meraviglie di lei. Disprezza chi ha più [icon:WONDER] Meraviglie di lei.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_WONDERS_OF_ITERU_DESC_DISLIKES" Language="it_IT">
+      <Text>Hatshepsut disprezza i leader che hanno più [icon:WONDER] Meraviglie di lei.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_WONDERS_OF_ITERU_DESC_LIKES" Language="it_IT">
+      <Text>Hatshepsut apprezza i leader che hanno meno [icon:WONDER] Meraviglie di lei.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_WONDERS_OF_ITERU_NAME" Language="it_IT">
       <Text>Meraviglie dell'Iteru</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_YAMATAI_DESC" Language="it_IT">
-      <Text>Apprezza le civiltà che hanno nei loro insediamenti sia edifici[icon:YIELD_SCIENCE] scientifici, sia edifici che producono[icon:YIELD_GOLD] Oro. Disprezza le civiltà che hanno nei loro insediamenti edifici[icon:YIELD_CULTURE] culturali e che producono[icon:YIELD_HAPPINESS] Felicità.</Text>
+      <Text>Apprezza i leader che hanno nei loro insediamenti sia edifici [icon:YIELD_SCIENCE] scientifici, sia edifici che producono [icon:YIELD_GOLD] Oro. Disprezza le civiltà che hanno nei loro insediamenti edifici [icon:YIELD_CULTURE] culturali e che producono [icon:YIELD_HAPPINESS] Felicità.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_YAMATAI_DESC_DISLIKES" Language="it_IT">
+      <Text>Himiko disprezza i leader che hanno nei loro insediamenti sia edifici [icon:YIELD_CULTURE] culturali, sia edifici che producono [icon:YIELD_HAPPINESS] Felicità.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_YAMATAI_DESC_LIKES" Language="it_IT">
+      <Text>Himiko apprezza i leader che hanno nei loro insediamenti sia edifici [icon:YIELD_SCIENCE] scientifici, sia edifici che producono [icon:YIELD_GOLD] Oro.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_YAMATAI_NAME" Language="it_IT">
       <Text>Yamatai</Text>
@@ -14875,8 +15214,14 @@
     <Replace Tag="LOC_DIPLOMACY_ATTRIBUTES_BUTTON_NAME" Language="it_IT">
       <Text>Attributi</Text>
     </Replace>
+    <Replace Tag="LOC_DIPLOMACY_BACK_TO_DEAL" Language="it_IT">
+      <Text>Torna al trattato di pace</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_BACK_TO_MAP" Language="it_IT">
+      <Text>Visualizza la mappa</Text>
+    </Replace>
     <Replace Tag="LOC_DIPLOMACY_CALL_TO_ARMS_STAY_NEUTRAL_BOTH_ALLIES" Language="it_IT">
-      <Text>La tua alleanza con entrambe le parti terminerà e la tua relazione con loro peggiorerà.</Text>
+      <Text>La tua [icon:PLAYER_RELATIONSHIP_ALLIANCE] alleanza con entrambe le parti terminerà e la tua [icon:RELATIONSHIP] relazione con loro peggiorerà.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_CALL_TO_ARMS_STAY_NEUTRAL_TITLE" Language="it_IT">
       <Text>Rimani neutrale</Text>
@@ -14920,6 +15265,9 @@
     <Replace Tag="LOC_DIPLOMACY_ENDEAVORS_TOOLTIP_DESCRIPTION" Language="it_IT">
       <Text>I progetti forniscono benefici a te e un altro leader; altri leader possono contribuire in cambio di ricompense ridotte.</Text>
     </Replace>
+    <Replace Tag="LOC_DIPLOMACY_ENTER_DECLARE_WAR" Language="it_IT">
+      <Text>Con quest'azione dichiarerai una guerra formale. Confermi?</Text>
+    </Replace>
     <Replace Tag="LOC_DIPLOMACY_ESPIONAGE_CONVERT_POPULATION_DESCRIPTION" Language="it_IT">
       <Text>Converti l'insediamento bersaglio alla religione da te fondata.</Text>
     </Replace>
@@ -14945,7 +15293,7 @@
       <Text>Azione conclusa con successo</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ESPIONAGE_FAKE_ARTIFACTS_DESCRIPTION" Language="it_IT">
-      <Text>I [TIP:LOC_PEDIA_CONCEPTS_ARTIFACT_TOOLTIP]Manufatti[/TIP] esposti dalla civiltà bersaglio non producono più alcuna resa.</Text>
+      <Text>I [icon:NAR_REW_GREATWORK] [TIP:LOC_PEDIA_CONCEPTS_ARTIFACT_TOOLTIP]Manufatti[/TIP] esposti dalla civiltà bersaglio non producono più alcuna resa.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ESPIONAGE_FAKE_ARTIFACTS_NAME" Language="it_IT">
       <Text>Diffondi voci su Manufatti falsi</Text>
@@ -14963,7 +15311,7 @@
       <Text>Infiltrati nelle posizioni nemiche</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ESPIONAGE_MILITARY_INFILTRATION_DESCRIPTION" Language="it_IT">
-      <Text>Tutti i Comandanti del bersaglio diventano visibili.</Text>
+      <Text>Tutti i [icon:UNIT_ARMY_COMMANDER] Comandanti del bersaglio diventano visibili.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ESPIONAGE_MILITARY_INFILTRATION_NAME" Language="it_IT">
       <Text>Infiltrazione militare</Text>
@@ -14984,13 +15332,13 @@
       <Text>Sabotaggio trasporti</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ESPIONAGE_SABOTAGE_SPACE_PROGRAM_DESCRIPTION" Language="it_IT">
-      <Text>Aumenta il tempo necessario a costruire Piattaforme di lancio e quello che serve per completare il [TIP:LOC_PEDIA_CONCEPTS_PROJECTS_TOOLTIP]Progetto[/TIP] Lancia satellite.</Text>
+      <Text>Aumenta il tempo necessario a costruire Piattaforme di lancio e quello che serve per completare il [icon:DEFAULT_PROJECT] [TIP:LOC_PEDIA_CONCEPTS_PROJECTS_TOOLTIP]Progetto[/TIP] Lancia satellite.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ESPIONAGE_SABOTAGE_SPACE_PROGRAM_NAME" Language="it_IT">
       <Text>Sabotaggio programma spaziale</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ESPIONAGE_SABOTAGE_WORKERS_DESCRIPTION" Language="it_IT">
-      <Text>Disattiva gli [TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_TOOLTIP]specialisti[/TIP] nell'insediamento bersaglio.</Text>
+      <Text>Disattiva gli [icon:SPECIALIST] [TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_TOOLTIP]specialisti[/TIP] nell'insediamento bersaglio.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ESPIONAGE_SABOTAGE_WORKERS_NAME" Language="it_IT">
       <Text>Sabotaggio Morale specialisti</Text>
@@ -15002,7 +15350,7 @@
       <Text>Furto di segreti governativi</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ESPIONAGE_STEAL_RICHES_DESCRIPTION" Language="it_IT">
-      <Text>Saccheggia tutte le risorse Tesoro nell'insediamento bersaglio e genera un Convoglio del tesoro sotto il tuo controllo.</Text>
+      <Text>Saccheggia tutte le [icon:TREASURE_FLEET] risorse Tesoro nell'insediamento bersaglio e genera un [icon:UNIT_TREASURE_FLEET] Convoglio del tesoro sotto il tuo controllo.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ESPIONAGE_STEAL_RICHES_NAME" Language="it_IT">
       <Text>Furto di tesori</Text>
@@ -15014,7 +15362,7 @@
       <Text>Furto di progressi tecnologici</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ESTABLISH_TREASURE_FLEET_DESCRIPTION" Language="it_IT">
-      <Text>Crea un Convoglio del tesoro in un insediamento in Terre lontane appartenente a un alleato e in grado di generare un Convoglio del tesoro.</Text>
+      <Text>Crea un [icon:UNIT_TREASURE_FLEET] Convoglio del tesoro in un insediamento in Terre lontane appartenente a un alleato e in grado di generare un [icon:UNIT_TREASURE_FLEET] Convoglio del tesoro.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ESTABLISH_TREASURE_FLEET_NAME" Language="it_IT">
       <Text>Crea Convoglio del tesoro</Text>
@@ -15164,7 +15512,7 @@
       <Text>Torna in tuo possesso</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PEACE_DEAL_SELECT_SETTLEMENTS" Language="it_IT">
-      <Text>Seleziona gli insediamenti scambiati dai leader</Text>
+      <Text>Seleziona insediamenti, Oro o Influenza per lo scambio tra leader</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PEACE_DEAL_SHOW_CITY" Language="it_IT">
       <Text>Mostra città</Text>
@@ -15182,16 +15530,16 @@
       <Text>Non puoi fare proposte di pace se non è il tuo turno!</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PICK_ALLIANCE_BODY_2" Language="it_IT">
-      <Text>La penalità per la dichiarazione di una Guerra a sorpresa è maggiore in caso di rapporti amichevoli.</Text>
+      <Text>La penalità per la dichiarazione di una [icon:WAR] Guerra a sorpresa è maggiore in caso di rapporti amichevoli.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_ACKNOWLEDGE" Language="it_IT">
       <Text>Riconosci</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_BECOME_SUZERAIN_DESCRIPTION" Language="it_IT">
-      <Text>La potenza indipendente diventerà immediatamente una [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]città-stato[/TIP] con te come [TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]Sovrano[/TIP].</Text>
+      <Text>La [icon:INDEPENDENT_POWER] potenza indipendente diventerà immediatamente una [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]città-stato[/TIP] con te come [TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]Sovrano[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_BECOME_SUZERAIN_INITIAL" Language="it_IT">
-      <Text>La potenza indipendente diventerà immediatamente una [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]città-stato[/TIP] con te come [TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]Sovrano[/TIP].</Text>
+      <Text>La [icon:INDEPENDENT_POWER] potenza indipendente diventerà immediatamente una [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]città-stato[/TIP] con te come [TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]Sovrano[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_BECOME_SUZERAIN_NAME" Language="it_IT">
       <Text>Itsaraphab</Text>
@@ -15221,61 +15569,61 @@
       <Text>Avvia un'attività di [icon:ESPIONAGE] [TIP:LOC_PEDIA_CONCEPTS_ESPIONAGE_TOOLTIP]controspionaggio[/TIP] per ostacolare eventuali azioni segrete che sospetti un altro leader stia compiendo ai tuoi danni. Raddoppia il tempo necessario per completare le azioni, aumenta del 30% la loro probabilità di fallimento e aumenta del 30% la probabilità di rivelare azioni di spionaggio rivolte contro di te.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_CS_BOLSTER_MILITARY_INITIAL" Language="it_IT">
-      <Text>Crea un'unità militare per questa [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]città-stato[/TIP].</Text>
+      <Text>Crea un'unità militare per questa [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]città-stato[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_CS_BOLSTER_MILITARY_NAME" Language="it_IT">
       <Text>Rinforza esercito</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_CS_BOLSTER_MILITARY_NO_DATA" Language="it_IT">
-      <Text>Crea un'unità militare per questa [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]città-stato[/TIP].</Text>
+      <Text>Crea un'unità militare per questa [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]città-stato[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_CS_INCORPORATE" Language="it_IT">
-      <Text>Al completamento dell'azione diplomatica, incorpora questa [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]città-stato[/TIP] nella tua civiltà sotto forma di nuovo Paese.</Text>
+      <Text>Al completamento dell'azione diplomatica, trasforma questa [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]città-stato[/TIP] in un [icon:YIELD_TOWNS] Paese della tua civiltà.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_CS_INCORPORATE_INITIAL" Language="it_IT">
-      <Text>Al completamento dell'azione diplomatica, incorpora questa [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]città-stato[/TIP] nella tua civiltà sotto forma di nuovo Paese.</Text>
+      <Text>Al completamento dell'azione diplomatica, trasforma questa [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]città-stato[/TIP] in un [icon:YIELD_TOWNS] Paese della tua civiltà.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_CS_INCORPORATE_NAME" Language="it_IT">
       <Text>Assorbi</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_CS_INCORPORATE_NO_DATA" Language="it_IT">
-      <Text>Al completamento dell'azione diplomatica, incorpora questa [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]città-stato[/TIP] nella tua civiltà sotto forma di nuovo Paese.</Text>
+      <Text>Al completamento dell'azione diplomatica, trasforma questa [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]città-stato[/TIP] in un [icon:YIELD_TOWNS] Paese della tua civiltà.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_CS_LEVY_UNIT" Language="it_IT">
-      <Text>Seleziona un'unità di questa [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]città-stato[/TIP] e prendine permanentemente il controllo.</Text>
+      <Text>Seleziona un'unità di questa [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]città-stato[/TIP] e prendine permanentemente il controllo.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_CS_LEVY_UNIT_INITIAL" Language="it_IT">
-      <Text>Seleziona un'unità di questa [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]città-stato[/TIP] e prendine permanentemente il controllo. Il costo in [icon:YIELD_DIPLOMACY] Influenza dell'unità è pari al suo costo in [icon:YIELD_PRODUCTION] Produzione.</Text>
+      <Text>Seleziona un'unità di questa [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]città-stato[/TIP] e prendine permanentemente il controllo. Il costo in [icon:YIELD_DIPLOMACY] Influenza dell'unità è pari al suo costo in [icon:YIELD_PRODUCTION] Produzione.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_CS_LEVY_UNIT_NAME" Language="it_IT">
       <Text>Recluta unità</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_CS_LEVY_UNIT_NO_DATA" Language="it_IT">
-      <Text>Seleziona un'unità di questa [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]città-stato[/TIP] e prendine permanentemente il controllo.</Text>
+      <Text>Seleziona un'unità di questa [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]città-stato[/TIP] e prendine permanentemente il controllo.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_CS_ORDER_ATTACK_INITIAL" Language="it_IT">
-      <Text>Ordina a una [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]città-stato[/TIP] di attaccare un'altra civiltà.</Text>
+      <Text>Ordina a una [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]città-stato[/TIP] di attaccare un'altra civiltà.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_CS_ORDER_ATTACK_NAME" Language="it_IT">
       <Text>Città-stato - Ordine d'attacco</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_CS_ORDER_ATTACK_NO_DATA" Language="it_IT">
-      <Text>Ordina a una [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]città-stato[/TIP] di attaccare un'altra civiltà.</Text>
+      <Text>Ordina a una [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]città-stato[/TIP] di attaccare un'altra civiltà.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_CS_PROMOTE_GROWTH" Language="it_IT">
-      <Text>Promuovi la crescita di una [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]città-stato[/TIP] aiutandola a produrre [icon:YIELD_FOOD] Cibo. Finché l'azione diplomatica è attiva, la città-stato produce 15 [icon:YIELD_FOOD] Cibo in più per turno.</Text>
+      <Text>Promuovi la crescita di una [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]città-stato[/TIP] aiutandola a produrre [icon:YIELD_FOOD] Cibo. Finché l'azione diplomatica è attiva, la città-stato produce 15 [icon:YIELD_FOOD] Cibo in più per turno.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_CS_PROMOTE_GROWTH_INITIAL" Language="it_IT">
-      <Text>Promuovi la crescita di una [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]città-stato[/TIP] aiutandola a produrre [icon:YIELD_FOOD] Cibo. Finché l'azione diplomatica è attiva, la città-stato produce 15 [icon:YIELD_FOOD] Cibo in più per turno.</Text>
+      <Text>Promuovi la crescita di una [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]città-stato[/TIP] aiutandola a produrre [icon:YIELD_FOOD] Cibo. Finché l'azione diplomatica è attiva, la città-stato produce 15 [icon:YIELD_FOOD] Cibo in più per turno.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_CS_PROMOTE_GROWTH_NAME" Language="it_IT">
       <Text>Promuovi crescita</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_CS_PROMOTE_GROWTH_NO_DATA" Language="it_IT">
-      <Text>Promuovi la crescita di una [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]città-stato[/TIP] aiutandola a produrre [icon:YIELD_FOOD] Cibo.</Text>
+      <Text>Promuovi la crescita di una [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]città-stato[/TIP] aiutandola a produrre [icon:YIELD_FOOD] Cibo.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_CS_REVEAL_MAP_DESCRIPTION" Language="it_IT">
-      <Text>La [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]città-stato[/TIP] ti rivela la parte di mappa che ha esplorato.</Text>
+      <Text>La [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]città-stato[/TIP] ti rivela la parte di mappa che ha esplorato.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_CS_REVEAL_MAP_NAME" Language="it_IT">
       <Text>Città-stato - rivela mappa</Text>
@@ -15290,7 +15638,7 @@
       <Text>Dichiara guerra a un'altra civiltà.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_DENOUNCE_INITIAL" Language="it_IT">
-      <Text>Riduce le tue relazioni con l'altro leader.</Text>
+      <Text>Riduce le tue [icon:RELATIONSHIP] relazioni con l'altro leader.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_DENOUNCE_MILITARY_PRESENCE_ACCEPT" Language="it_IT">
       <Text>Stringi un patto di non aggressione con l'altra civiltà per la durata dell'azione diplomatica. Così facendo, subirai Stanchezza di guerra all'inizio della guerra.</Text>
@@ -15320,7 +15668,7 @@
       <Text>Denuncia</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_DENOUNCE_NO_DATA" Language="it_IT">
-      <Text>Riduce le tue relazioni con l'altro leader.</Text>
+      <Text>Riduce le tue [icon:RELATIONSHIP] relazioni con l'altro leader.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_DENOUNCE_REJECT" Language="it_IT">
       <Text>Annulla l'azione diplomatica.</Text>
@@ -15365,10 +15713,10 @@
       <Text>Raggiungi un accordo per il commercio di[icon:YIELD_FOOD] Cibo con un altro leader.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_GIVE_INFLUENCE_TOKEN_INITIAL" Language="it_IT">
-      <Text>Spendi [icon:YIELD_DIPLOMACY] Influenza per stringere amicizia con una potenza indipendente. Al completamento diventerà una [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]città-stato[/TIP] con te come [TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]Sovrano[/TIP].</Text>
+      <Text>Spendi [icon:YIELD_DIPLOMACY] Influenza per stringere amicizia con una [icon:INDEPENDENT_POWER] potenza indipendente. Al completamento diventerà una [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]città-stato[/TIP] con te come [TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]Sovrano[/TIP].</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_GRANT_POLICY_SLOT_INITIAL" Language="it_IT">
-      <Text>Avvia l'Iniziativa Riforma.[n]Se viene accettata: Ricevi uno slot Tradizione al completamento dell'azione diplomatica. L'altro giocatore riceve uno slot per Politiche sociali. La Riforma si può utilizzare solo una volta con ogni altro Leader.[n]Se viene supportata: Entrambi i giocatori ricevono uno slot Tradizione al completamento dell'azione diplomatica.[n]Se viene rifiutata: Le relazioni peggiorano.</Text>
+      <Text>Avvia l'Iniziativa Riforma.[n]Se viene accettata: Ricevi uno slot [icon:NAR_REW_TRADITION_SLOT] Tradizione al completamento dell'azione diplomatica. L'altro giocatore riceve uno slot per Politiche sociali. La Riforma si può utilizzare solo una volta con ogni altro Leader.[n]Se viene supportata: Entrambi i giocatori ricevono uno slot [icon:NAR_REW_TRADITION_SLOT] Tradizione al completamento dell'azione diplomatica.[n]Se viene rifiutata: Le [icon:RELATIONSHIP] relazioni peggiorano.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_GRANT_POLICY_SLOT_NAME" Language="it_IT">
       <Text>Riforma</Text>
@@ -15380,7 +15728,7 @@
       <Text>Entrambi i giocatori ricevono uno slot Tradizione al completamento dell'azione diplomatica.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_IMPROVE_TRADE_RELATIONS_INITIAL" Language="it_IT">
-      <Text>Se l'azione viene accettata, aumenta permanentemente di 1 il numero di Rotte commerciali che puoi stabilire con l'altra civiltà. [n]Se viene accettata: Il bersaglio riceve [icon:YIELD_GOLD] Oro.</Text>
+      <Text>Se l'azione viene accettata, aumenta permanentemente di 1 il numero di [icon:TRADE_ROUTE] Rotte commerciali che puoi stabilire con l'altra civiltà.[n]Se viene accettata: Il bersaglio riceve [icon:YIELD_GOLD] Oro.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_IMPROVE_TRADE_RELATIONS_NAME" Language="it_IT">
       <Text>Migliora relazioni commerciali</Text>
@@ -15389,13 +15737,13 @@
       <Text>Se l'azione viene accettata, aumenta permanentemente il numero di [icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]Rotte commerciali[/TIP] che puoi stabilire con una civiltà.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_INCITE_RAID_INITIAL" Language="it_IT">
-      <Text>Istiga una potenza indipendente a saccheggiare un'altra civiltà.</Text>
+      <Text>Incita una [icon:INDEPENDENT_POWER] potenza indipendente a compiere un'incursione contro un'altra civiltà.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_INCITE_RAID_NAME" Language="it_IT">
       <Text>Potenza indipendente - Istiga saccheggio</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_INCITE_RAID_NO_DATA" Language="it_IT">
-      <Text>Incita una potenza indipendente a compiere un'incursione contro un'altra civiltà.</Text>
+      <Text>Incita una [icon:INDEPENDENT_POWER] potenza indipendente a compiere un'incursione contro un'altra civiltà.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_LOCAL_FESTIVALS_NAME" Language="it_IT">
       <Text>Festival locale</Text>
@@ -15404,16 +15752,16 @@
       <Text>Organizza un festival locale con un altro leader.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_MILITARY_AID_DESCRIPTION" Language="it_IT">
-      <Text>Fornisci un bonus in combattimento alle unità militari.[n]Se viene accettata: Le tue unità ricevono +2 alla Forza di combattimento. L'altro leader riceve +2 [icon:YIELD_GOLD] Oro per turno.[n]Se viene supportata: Le unità di entrambi i leader ricevono +3 alla Forza di combattimento.[n]Se viene rifiutata: Le relazioni peggiorano.</Text>
+      <Text>Fornisci un bonus in combattimento alle unità militari.[n]Se viene accettato: Le tue unità ricevono +2 alla [icon:NAR_REW_COMBAT] Forza di combattimento. L'altro leader riceve +2 [icon:YIELD_GOLD] Oro per turno.[n]Se viene supportato: Le unità di entrambi i leader ricevono +3 alla [icon:NAR_REW_COMBAT] Forza di combattimento.[n]Se viene rifiutato: Le [icon:RELATIONSHIP] relazioni peggiorano.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_MILITARY_AID_NAME" Language="it_IT">
       <Text>Aiuto militare</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_MILITARY_AID_SUPPORT" Language="it_IT">
-      <Text>Le unità di entrambi i leader ricevono +3 alla Forza di combattimento.</Text>
+      <Text>Le unità di entrambi i leader ricevono +3 alla [icon:NAR_REW_COMBAT] Forza di combattimento.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_MILITARY_SABOTAGE_INITIAL" Language="it_IT">
-      <Text>-3 alla Forza di combattimento di tutte le unità militari del bersaglio.</Text>
+      <Text>-3 alla [icon:NAR_REW_COMBAT] Forza di combattimento di tutte le unità militari del bersaglio.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_MINOR_TRADE_NAME" Language="it_IT">
       <Text>Mercati aperti</Text>
@@ -15563,13 +15911,13 @@
       <Text>Annulla l'azione diplomatica.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_SEND_DELEGATION_INITIAL" Language="it_IT">
-      <Text>Migliora le tue relazioni con l'altro leader.</Text>
+      <Text>Migliora le tue [icon:RELATIONSHIP] relazioni con l'altro leader.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_SEND_DELEGATION_NAME" Language="it_IT">
       <Text>Riconciliazione</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_SEND_DELEGATION_NO_DATA" Language="it_IT">
-      <Text>Migliora le tue relazioni con l'altro leader.</Text>
+      <Text>Migliora le tue [icon:RELATIONSHIP] relazioni con l'altro leader.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_SEND_DELEGATION_REJECT" Language="it_IT">
       <Text>Annulla l'azione diplomatica.</Text>
@@ -15581,10 +15929,10 @@
       <Text>Invia [icon:YIELD_GOLD] Oro a un alleato.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_STEAL_CIVIC_INITIAL" Language="it_IT">
-      <Text>Rubi un Progresso civico che non hai ancora studiato da un'altra civiltà.</Text>
+      <Text>Rubi un [icon:RADIAL_CIVICS] Progresso civico che non hai ancora studiato da un'altra civiltà.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_STEAL_TECH_INITIAL" Language="it_IT">
-      <Text>Rubi una tecnologia che non hai ancora ricercato da un'altra civiltà.</Text>
+      <Text>Rubi una [icon:RADIAL_TECH] tecnologia che non hai ancora ricercato da un'altra civiltà.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_TRADE_MAP_DESCRIPTION" Language="it_IT">
       <Text>Rivela i territori dell'altro leader sulla mappa nel corso del tempo.</Text>
@@ -15668,13 +16016,13 @@
       <Text>Un altro leader sta per diventare [TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]Sovrano[/TIP] di questa potenza indipendente.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_STAGE_INDEPENDENT_CITY_STATEHOOD_TOOLTIP" Language="it_IT">
-      <Text>Questa potenza indipendente diventerà presto una [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]città-stato[/TIP] con te come [TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]Sovrano[/TIP] e ha deciso di farti un altro regalo.</Text>
+      <Text>Questa [icon:INDEPENDENT_POWER] potenza indipendente diventerà presto una [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]città-stato[/TIP] con te come [TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]Sovrano[/TIP] e ha deciso di farti un altro regalo.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_STAGE_INDEPENDENT_FRIENDLY_2_TOOLTIP" Language="it_IT">
-      <Text>I vostri rapporti sono sufficientemente amichevoli: la potenza indipendente ha deciso di farti un regalo.</Text>
+      <Text>I vostri rapporti sono sufficientemente amichevoli: la [icon:INDEPENDENT_POWER] potenza indipendente ha deciso di farti un regalo.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_STAGE_INDEPENDENT_FRIENDLY_TOOLTIP" Language="it_IT">
-      <Text>La potenza indipendente è tua amica.</Text>
+      <Text>La [icon:INDEPENDENT_POWER] potenza indipendente è tua amica.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_STAGE_INDEPENDENT_HOSTILE_TOOLTIP" Language="it_IT">
       <Text>La potenza indipendente è ostile nei tuoi confronti.</Text>
@@ -15716,10 +16064,10 @@
       <Text>Guerra a sorpresa</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_SUZERAIN_TEAM" Language="it_IT">
-      <Text>Un compagno di squadra è il [TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]Sovrano[/TIP] di questa [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]città-stato[/TIP]</Text>
+      <Text>Un compagno di squadra è il [TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]Sovrano[/TIP] di questa [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]città-stato[/TIP]</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_SUZERAIN_YOU" Language="it_IT">
-      <Text>Sei [TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]Sovrano[/TIP] di questa [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]città-stato[/TIP]</Text>
+      <Text>Sei [TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]Sovrano[/TIP] di questa [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]città-stato[/TIP]</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_THEIR_ACTIONS_HEADER" Language="it_IT">
       <Text>Le sue azioni</Text>
@@ -15761,10 +16109,10 @@
       <Text>Guerre</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMATIC_ESPIONAGE_MILITARY_INFILTRATION_EFFECT" Language="it_IT">
-      <Text>Possiamo vedere i suoi Comandanti.</Text>
+      <Text>Possiamo vedere i suoi [icon:UNIT_ARMY_COMMANDER] Comandanti.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMATIC_ESPIONAGE_MILITARY_INFILTRATION_EFFECT_TARGET" Language="it_IT">
-      <Text>Può vedere i nostri Comandanti.</Text>
+      <Text>Può vedere i nostri [icon:UNIT_ARMY_COMMANDER] Comandanti.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMATIC_NAME" Language="it_IT">
       <Text>Diplomatica</Text>
@@ -15905,34 +16253,58 @@
       <Text>Torna al menu principale</Text>
     </Replace>
     <Replace Tag="LOC_FAVOR_FROM_DISPERSE_IP" Language="it_IT">
-      <Text>Hai disperso una potenza indipendente ostile vicina a un altro leader</Text>
+      <Text>Hai disperso una potenza indipendente ostile nelle sue vicinanze</Text>
+    </Replace>
+    <Replace Tag="LOC_FAVOR_FROM_DISPERSE_IP_ALT" Language="it_IT">
+      <Text>Ha disperso una potenza indipendente ostile nelle tue vicinanze</Text>
     </Replace>
     <Replace Tag="LOC_FAVOR_FROM_ENDEAVOR" Language="it_IT">
-      <Text>Da un'Iniziativa con un altro leader</Text>
+      <Text>Da un'iniziativa che hai avviato con questa civiltà</Text>
+    </Replace>
+    <Replace Tag="LOC_FAVOR_FROM_ENDEAVOR_ALT" Language="it_IT">
+      <Text>Da un'Iniziativa che ha avviato con te</Text>
     </Replace>
     <Replace Tag="LOC_FAVOR_FROM_INDEPENDENT" Language="it_IT">
       <Text>Da una potenza indipendente</Text>
     </Replace>
     <Replace Tag="LOC_FAVOR_FROM_PROJECT" Language="it_IT">
-      <Text>Da un'azione diplomatica</Text>
+      <Text>Da un'Azione diplomatica che hai avviato con questa civiltà</Text>
+    </Replace>
+    <Replace Tag="LOC_FAVOR_FROM_PROJECT_ALT" Language="it_IT">
+      <Text>Da un'Azione diplomatica che ha avviato con te</Text>
     </Replace>
     <Replace Tag="LOC_FAVOR_FROM_START_TRADE_ROUTE" Language="it_IT">
-      <Text>Hai stabilito una Rotta commerciale</Text>
+      <Text>Hai stabilito una Rotta commerciale con questa civiltà</Text>
+    </Replace>
+    <Replace Tag="LOC_FAVOR_FROM_START_TRADE_ROUTE_ALT" Language="it_IT">
+      <Text>Ha stabilito una Rotta commerciale con te</Text>
     </Replace>
     <Replace Tag="LOC_FAVOR_FROM_STORYLET" Language="it_IT">
       <Text>Da un evento narrativo</Text>
     </Replace>
     <Replace Tag="LOC_FAVOR_FROM_SUPPORT" Language="it_IT">
-      <Text>Da un'Iniziativa supportata con un altro leader</Text>
+      <Text>Hai sostenuto la sua Iniziativa</Text>
+    </Replace>
+    <Replace Tag="LOC_FAVOR_FROM_SUPPORT_ALT" Language="it_IT">
+      <Text>Ha sostenuto la tua Iniziativa</Text>
     </Replace>
     <Replace Tag="LOC_FAVOR_FROM_TOWN_LIBERATED" Language="it_IT">
-      <Text>Hai liberato un Paese</Text>
+      <Text>Hai liberato un suo Paese</Text>
+    </Replace>
+    <Replace Tag="LOC_FAVOR_FROM_TOWN_LIBERATED_ALT" Language="it_IT">
+      <Text>Ha liberato un tuo Paese</Text>
     </Replace>
     <Replace Tag="LOC_FAVOR_FROM_WAR_SUPPORT_3RD_PARTY" Language="it_IT">
-      <Text>Dal supporto a una guerra</Text>
+      <Text>Hai supportato una sua guerra</Text>
+    </Replace>
+    <Replace Tag="LOC_FAVOR_FROM_WAR_SUPPORT_3RD_PARTY_ALT" Language="it_IT">
+      <Text>Ha supportato una tua guerra</Text>
     </Replace>
     <Replace Tag="LOC_FAVOR_FROM_WONDER" Language="it_IT">
-      <Text>Da una Meraviglia</Text>
+      <Text>Da una Meraviglia che possiedi</Text>
+    </Replace>
+    <Replace Tag="LOC_FAVOR_FROM_WONDER_ALT" Language="it_IT">
+      <Text>Da una Meraviglia che possiede</Text>
     </Replace>
     <Replace Tag="LOC_FEATURE_BARRIER_REEF_DESCRIPTION" Language="it_IT">
       <Text>+2 [icon:YIELD_FOOD] Cibo, [icon:YIELD_HAPPINESS] Felicità e [icon:YIELD_SCIENCE] Scienza per epoca. +2 [icon:YIELD_SCIENCE] Scienza da [icon:CITY_RURAL] miglioramenti, [icon:CITY_URBAN] distretti e [icon:WONDER] Meraviglie su biomi marini adiacenti.</Text>
@@ -16043,7 +16415,7 @@
       <Text>+2 [icon:YIELD_CULTURE] Cultura dai [icon:CITY_RURAL] miglioramenti in terreno accidentato in questo insediamento.</Text>
     </Replace>
     <Replace Tag="LOC_FIRST_MEET_FRIENDLY_ERROR_CAPITALS_REVEALED" Language="it_IT">
-      <Text>Si è verificato un problema nella scelta della capitale da rivelare.</Text>
+      <Text>Si è verificato un problema nella scelta della [icon:NOTIFICATION_SELECT_CAPITAL] capitale da rivelare.</Text>
     </Replace>
     <Replace Tag="LOC_FIRST_MEET_FRIENDLY_GREETING_TITLE" Language="it_IT">
       <Text>Saluto amichevole</Text>
@@ -16058,7 +16430,7 @@
       <Text>Saluto ostile</Text>
     </Replace>
     <Replace Tag="LOC_FIRST_MEET_NEUTRAL_GREETING_DESCRIPTION" Language="it_IT">
-      <Text>Nessun cambiamento nelle relazioni.</Text>
+      <Text>Nessun cambiamento nelle [icon:RELATIONSHIP] relazioni.</Text>
     </Replace>
     <Replace Tag="LOC_FIRST_MEET_NEUTRAL_GREETING_TITLE" Language="it_IT">
       <Text>Saluto neutrale</Text>
@@ -16114,8 +16486,14 @@
     <Replace Tag="LOC_GAME_TURN_TIMER_TIME" Language="it_IT">
       <Text>Durata turno</Text>
     </Replace>
+    <Replace Tag="LOC_GAME_TURN_TIMER_TIME_EXTENDED" Language="it_IT">
+      <Text>Durata turni prolungati</Text>
+    </Replace>
+    <Replace Tag="LOC_GAME_TURN_TIMER_TIME_EXTENDED_TOOLTIP" Language="it_IT">
+      <Text>La durata in secondi dei turni più lunghi (durante l'Inizio avanzato, nell'ultimo turno di un'epoca o nel primo turno dopo un passaggio di epoca).</Text>
+    </Replace>
     <Replace Tag="LOC_GAME_TURN_TIMER_TIME_TOOLTIP" Language="it_IT">
-      <Text>Durata turno usata dal Timer standard dei turni (in secondi).</Text>
+      <Text>La durata in secondi dei turni standard.</Text>
     </Replace>
     <Replace Tag="LOC_GAME_TURNTIMER_DESC" Language="it_IT">
       <Text>Determina quanto tempo i giocatori hanno a disposizione per completare il loro turno.[n]Nessuno - I giocatori non hanno vincoli di tempo.[n]Standard - Il tempo è basato sull'opzione Durata turno (in secondi).[n]Dinamico - Il tempo per completare un turno scala dinamicamente in base al numero di città e unità in gioco.</Text>
@@ -16253,7 +16631,7 @@
       <Text>Scout gratuito nell'insediamento più vicino</Text>
     </Replace>
     <Replace Tag="LOC_GOVERNMENT_HAPPINESS_REMINDER_TEXT" Language="it_IT">
-      <Text>La Felicità positiva a livello locale viene raccolta in quella dell'impero per alimentare le Celebrazioni. La Felicità negativa a livello locale si genera al superamento del limite massimo di insediamenti, dal Supporto bellico negativo e dal mantenimento degli specialisti e degli edifici.</Text>
+      <Text>La [icon:YIELD_HAPPINESS] Felicità positiva a livello locale viene raccolta in quella dell'impero per alimentare le [icon:CELEBRATION] Celebrazioni. La [icon:YIELD_HAPPINESS] Felicità negativa a livello locale si genera al superamento del [icon:SETTLEMENT_LIMIT] limite massimo di insediamenti, dal [icon:WAR_SUPPORT] Supporto bellico negativo e dal mantenimento di [icon:CITY_BUILDING_LIST] edifici e [icon:SPECIALIST] specialisti.</Text>
     </Replace>
     <Replace Tag="LOC_GREAT_PEOPLE_CANNOT_EARN_PERSON_NO_VALID_LOCATION" Language="it_IT">
       <Text>Quest'unità non ha una posizione valida.</Text>
@@ -16322,73 +16700,136 @@
       <Text>Fornisce 100 Scienza.</Text>
     </Replace>
     <Replace Tag="LOC_GRIEVANCE_FROM_ATTACK_CITY_STATE" Language="it_IT">
+      <Text>Tu hai attaccato una città-stato</Text>
+    </Replace>
+    <Replace Tag="LOC_GRIEVANCE_FROM_ATTACK_CITY_STATE_ALT" Language="it_IT">
       <Text>Ha attaccato una città-stato</Text>
     </Replace>
     <Replace Tag="LOC_GRIEVANCE_FROM_BREAK_ALLIANCE" Language="it_IT">
-      <Text>Ha infranto un'Alleanza dichiarando guerra</Text>
+      <Text>Hai infranto un'alleanza dichiarando guerra alla sua civiltà</Text>
+    </Replace>
+    <Replace Tag="LOC_GRIEVANCE_FROM_BREAK_ALLIANCE_ALT" Language="it_IT">
+      <Text>Ha infranto un'alleanza dichiarandoti guerra</Text>
     </Replace>
     <Replace Tag="LOC_GRIEVANCE_FROM_CAPTURE_SETTLEMENT" Language="it_IT">
-      <Text>Ha catturato un insediamento</Text>
+      <Text>Hai catturato un loro insediamento</Text>
+    </Replace>
+    <Replace Tag="LOC_GRIEVANCE_FROM_CAPTURE_SETTLEMENT_ALT" Language="it_IT">
+      <Text>Ha catturato un tuo insediamento</Text>
     </Replace>
     <Replace Tag="LOC_GRIEVANCE_FROM_CLOSE_LAND_CLAIM" Language="it_IT">
-      <Text>Ha creato un insediamento troppo vicino alla capitale di un'altra civiltà</Text>
+      <Text>La tua civiltà ha costruito insediamenti troppo vicini alla sua [icon:NOTIFICATION_SELECT_CAPITAL] capitale</Text>
+    </Replace>
+    <Replace Tag="LOC_GRIEVANCE_FROM_CLOSE_LAND_CLAIM_ALT" Language="it_IT">
+      <Text>Ha costruito insediamenti troppo vicini alla tua [icon:NOTIFICATION_SELECT_CAPITAL] capitale</Text>
     </Replace>
     <Replace Tag="LOC_GRIEVANCE_FROM_CLOSE_MILITARY" Language="it_IT">
-      <Text>Ha tenuto l'esercito vicino a un'altra civiltà</Text>
+      <Text>Hai tenuto l'esercito vicino alla sua civiltà</Text>
+    </Replace>
+    <Replace Tag="LOC_GRIEVANCE_FROM_CLOSE_MILITARY_ALT" Language="it_IT">
+      <Text>Ha tenuto l'esercito vicino alla tua civiltà</Text>
     </Replace>
     <Replace Tag="LOC_GRIEVANCE_FROM_DISPERSING_IP" Language="it_IT">
-      <Text>Ha disperso una potenza indipendente con cui stavamo facendo amicizia</Text>
+      <Text>Hai disperso una potenza indipendente con cui stava facendo amicizia</Text>
+    </Replace>
+    <Replace Tag="LOC_GRIEVANCE_FROM_DISPERSING_IP_ALT" Language="it_IT">
+      <Text>Ha disperso una potenza indipendente con cui stavi facendo amicizia</Text>
     </Replace>
     <Replace Tag="LOC_GRIEVANCE_FROM_END_ALLIANCE" Language="it_IT">
-      <Text>Ha posto fine a un'Alleanza</Text>
+      <Text>Hai posto fine a un'alleanza con la sua civiltà</Text>
+    </Replace>
+    <Replace Tag="LOC_GRIEVANCE_FROM_END_ALLIANCE_ALT" Language="it_IT">
+      <Text>Ha posto fine a un'alleanza con te</Text>
     </Replace>
     <Replace Tag="LOC_GRIEVANCE_FROM_ESPIONAGE_DISCOVERY" Language="it_IT">
       <Text>Da una scoperta ottenuta con lo spionaggio</Text>
     </Replace>
     <Replace Tag="LOC_GRIEVANCE_FROM_OPPOSE" Language="it_IT">
-      <Text>Ha voluto opporsi a un'azione diplomatica</Text>
+      <Text>Hai rifiutato la sua azione diplomatica</Text>
+    </Replace>
+    <Replace Tag="LOC_GRIEVANCE_FROM_OPPOSE_ALT" Language="it_IT">
+      <Text>Ha rifiutato la tua azione diplomatica</Text>
     </Replace>
     <Replace Tag="LOC_GRIEVANCE_FROM_PRIVATER_ATTACK" Language="it_IT">
-      <Text>Dall'attacco di un Corsaro o di un Pirata</Text>
+      <Text>Per l'attacco di un Corsaro o di un Pirata che tu hai iniziato</Text>
+    </Replace>
+    <Replace Tag="LOC_GRIEVANCE_FROM_PRIVATER_ATTACK_ALT" Language="it_IT">
+      <Text>Per l'attacco di un Corsaro o di un Pirata che ha iniziato</Text>
     </Replace>
     <Replace Tag="LOC_GRIEVANCE_FROM_PRIVATER_PILLAGE" Language="it_IT">
-      <Text>Dal saccheggio di un Corsaro o un Pirata</Text>
+      <Text>Per il saccheggio di un Corsaro o di un Pirata che tu hai iniziato</Text>
+    </Replace>
+    <Replace Tag="LOC_GRIEVANCE_FROM_PRIVATER_PILLAGE_ALT" Language="it_IT">
+      <Text>Per il saccheggio di un Corsaro o di un Pirata che ha iniziato</Text>
     </Replace>
     <Replace Tag="LOC_GRIEVANCE_FROM_PROJECT" Language="it_IT">
-      <Text>Da un'azione diplomatica</Text>
+      <Text>Da un'Azione diplomatica che hai avviato con questa civiltà</Text>
+    </Replace>
+    <Replace Tag="LOC_GRIEVANCE_FROM_PROJECT_ALT" Language="it_IT">
+      <Text>Da un'Azione diplomatica che ha avviato con te</Text>
     </Replace>
     <Replace Tag="LOC_GRIEVANCE_FROM_RAZING_SETTLEMENT" Language="it_IT">
-      <Text>Ha raso al suolo un insediamento</Text>
+      <Text>Hai raso al suolo un suo insediamento</Text>
+    </Replace>
+    <Replace Tag="LOC_GRIEVANCE_FROM_RAZING_SETTLEMENT_ALT" Language="it_IT">
+      <Text>Ha raso al suolo un tuo insediamento</Text>
     </Replace>
     <Replace Tag="LOC_GRIEVANCE_FROM_REJECTED_ALLIANCE" Language="it_IT">
-      <Text>Alleanza rifiutata</Text>
+      <Text>Hai rifiutato la sua richiesta di alleanza</Text>
+    </Replace>
+    <Replace Tag="LOC_GRIEVANCE_FROM_REJECTED_ALLIANCE_ALT" Language="it_IT">
+      <Text>Ha rifiutato la tua richiesta di alleanza</Text>
     </Replace>
     <Replace Tag="LOC_GRIEVANCE_FROM_REJECTED_ENDEAVOR" Language="it_IT">
-      <Text>Ha rifiutato un'Iniziativa</Text>
+      <Text>Hai rifiutato la sua Iniziativa</Text>
+    </Replace>
+    <Replace Tag="LOC_GRIEVANCE_FROM_REJECTED_ENDEAVOR_ALT" Language="it_IT">
+      <Text>Ha rifiutato la tua Iniziativa</Text>
     </Replace>
     <Replace Tag="LOC_GRIEVANCE_FROM_REVEALED_ESPIONAGE" Language="it_IT">
-      <Text>Spionaggio rivelato</Text>
+      <Text>La sua azione di spionaggio contro la tua civiltà è stata rivelata</Text>
+    </Replace>
+    <Replace Tag="LOC_GRIEVANCE_FROM_REVEALED_ESPIONAGE_ALT" Language="it_IT">
+      <Text>La tua azione di spionaggio contro la sua civiltà è stata rivelata</Text>
     </Replace>
     <Replace Tag="LOC_GRIEVANCE_FROM_REVEALED_TS_ESPIONAGE" Language="it_IT">
-      <Text>Spionaggio Top Secret rivelato</Text>
+      <Text>La sua azione di spionaggio Top Secret contro la tua civiltà è stata rivelata</Text>
+    </Replace>
+    <Replace Tag="LOC_GRIEVANCE_FROM_REVEALED_TS_ESPIONAGE_ALT" Language="it_IT">
+      <Text>La tua azione di spionaggio Top Secret contro la sua civiltà è stata rivelata</Text>
     </Replace>
     <Replace Tag="LOC_GRIEVANCE_FROM_SANCTION" Language="it_IT">
-      <Text>Ha imposto sanzioni a un'altra civiltà</Text>
+      <Text>Hai promulgato una Sanzione contro la sua civiltà</Text>
+    </Replace>
+    <Replace Tag="LOC_GRIEVANCE_FROM_SANCTION_ALT" Language="it_IT">
+      <Text>Ha promulgato una Sanzione contro di te</Text>
     </Replace>
     <Replace Tag="LOC_GRIEVANCE_FROM_STORYLET" Language="it_IT">
       <Text>Da un evento narrativo</Text>
     </Replace>
     <Replace Tag="LOC_GRIEVANCE_FROM_UNEVEN_PEACE_DEAL" Language="it_IT">
-      <Text>Trattato di pace iniquo</Text>
+      <Text>Hai imposto un trattato di pace iniquo</Text>
+    </Replace>
+    <Replace Tag="LOC_GRIEVANCE_FROM_UNEVEN_PEACE_DEAL_ALT" Language="it_IT">
+      <Text>Ha imposto un trattato di pace iniquo</Text>
     </Replace>
     <Replace Tag="LOC_GRIEVANCE_FROM_WAR_OPPOSITION_3RD_PARTY" Language="it_IT">
-      <Text>Dall'opposizione a una guerra</Text>
+      <Text>Dalla tua opposizione a una sua guerra</Text>
+    </Replace>
+    <Replace Tag="LOC_GRIEVANCE_FROM_WAR_OPPOSITION_3RD_PARTY_ALT" Language="it_IT">
+      <Text>Dalla sua opposizione a una tua guerra</Text>
     </Replace>
     <Replace Tag="LOC_GRIEVANCE_FROM_WINNING_SUZERAIN" Language="it_IT">
+      <Text>Tu hai vinto la gara per diventare Sovrano di una città-stato</Text>
+    </Replace>
+    <Replace Tag="LOC_GRIEVANCE_FROM_WINNING_SUZERAIN_ALT" Language="it_IT">
       <Text>Ha vinto la gara per diventare Sovrano di una città-stato</Text>
     </Replace>
     <Replace Tag="LOC_GRIEVANCE_FROM_WONDER" Language="it_IT">
-      <Text>Da una Meraviglia</Text>
+      <Text>Da una Meraviglia che possiedi</Text>
+    </Replace>
+    <Replace Tag="LOC_GRIEVANCE_FROM_WONDER_ALT" Language="it_IT">
+      <Text>Da una Meraviglia che possiede</Text>
     </Replace>
     <Replace Tag="LOC_GROUPID_TRIUMPH_SETTINGS_NAME" Language="it_IT">
       <Text>Impostazioni Trionfi</Text>
@@ -16427,7 +16868,10 @@
       <Text>Fire Tuner</Text>
     </Replace>
     <Replace Tag="LOC_HISTORICAL_EVENT_LEADER_AGENDA" Language="it_IT">
-      <Text>Agenda del leader</Text>
+      <Text>Dalla tua Agenda del leader</Text>
+    </Replace>
+    <Replace Tag="LOC_HISTORICAL_EVENT_LEADER_AGENDA_ALT" Language="it_IT">
+      <Text>Dalla sua Agenda del leader</Text>
     </Replace>
     <Replace Tag="LOC_HISTORICAL_EVENT_MUTUAL_TRADE" Language="it_IT">
       <Text>Scambio reciproco</Text>
@@ -16484,7 +16928,7 @@
       <Text>Globale</Text>
     </Replace>
     <Replace Tag="LOC_HOF_DEFEAT" Language="it_IT">
-      <Text>[COLOR_RED]SCONFITTA[ENDCOLOR]</Text>
+      <Text>SCONFITTA</Text>
     </Replace>
     <Replace Tag="LOC_HOF_DELETE_GAME" Language="it_IT">
       <Text>Elimina partita</Text>
@@ -17081,7 +17525,7 @@
       <Text>+1 [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCE_CAPACITY_TOOLTIP]Capacità risorse[/TIP] nelle [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]città[/TIP].+1 [icon:YIELD_GOLD] Oro per [TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]epoca[/TIP] per ogni [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]risorsa[/TIP] assegnata a una [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]città[/TIP].+5 alla [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Forza di combattimento[/TIP] delle [TIP:LOC_PEDIA_CONCEPTS_LAND_UNITS_TOOLTIP]unità terrestri[/TIP] nelle pianure e nei deserti.</Text>
     </Replace>
     <Replace Tag="LOC_LEADER_ASHOKA_DESCRIPTION" Language="it_IT">
-      <Text>+1 [icon:YIELD_FOOD] Cibo nelle [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]città[/TIP] per ogni 5 [icon:YIELD_HAPPINESS] Felicità in eccesso. +10% [icon:YIELD_FOOD] Cibo in tutti gli [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]insediamenti[/TIP] durante una [icon:CELEBRATION] [TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]Celebrazione[/TIP]. Gli [icon:CITY_BUILDING_LIST] [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]edifici[/TIP] esclusivi ottengono un bonus di +1 [icon:YIELD_HAPPINESS] Felicità per la vicinanza a tutti i [icon:CITY_RURAL] miglioramenti.</Text>
+      <Text>+1 [icon:YIELD_FOOD] Cibo nelle [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]città[/TIP] per ogni 5 [icon:YIELD_HAPPINESS] Felicità in eccesso.+10% [icon:YIELD_FOOD] Cibo negli [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]insediamenti[/TIP] Felici durante una [icon:CELEBRATION] [TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]Celebrazione[/TIP], o 15% negli insediamenti Felici, o 20% negli insediamenti Beati.[icon:CITY_BUILDING_LIST]Gli [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]edifici[/TIP] esclusivi che producono [icon:YIELD_HAPPINESS] Felicità e [icon:YIELD_FOOD] Cibo ottengono un bonus di +1 [icon:YIELD_HAPPINESS] Felicità per la vicinanza a tutti i [icon:CITY_RURAL] miglioramenti.</Text>
     </Replace>
     <Replace Tag="LOC_LEADER_ASSOCIATED_CIV_SELECTION_MODE_DESCRIPTION" Language="it_IT">
       <Text>Determina come l'IA sceglie le proprie civiltà al passaggio di epoca.</Text>
@@ -17093,7 +17537,7 @@
       <Text>Le civiltà casuali saranno selezionate davvero a caso, indipendentemente da qualsiasi associazione.[nn]Questo vale sia per l'IA sia per i giocatori umani.</Text>
     </Replace>
     <Replace Tag="LOC_LEADER_AUGUSTUS_DESCRIPTION" Language="it_IT">
-      <Text>+2 [icon:YIELD_PRODUCTION] Produzione nella [icon:NOTIFICATION_SELECT_CAPITAL] capitale per ogni [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]Paese[/TIP]. Puoi acquistare [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]edifici[/TIP] [icon:YIELD_CULTURE] culturali nei [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]Paesi[/TIP], qualsiasi sia il loro Focus. +50% [icon:YIELD_GOLD] Oro per l'acquisto di [icon:CITY_BUILDING_LIST] [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]edifici[/TIP] nei [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]Paesi[/TIP].</Text>
+      <Text>+2 [icon:YIELD_PRODUCTION] Produzione nella [icon:NOTIFICATION_SELECT_CAPITAL] capitale per ogni [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]Paese[/TIP]. Puoi acquistare [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]edifici[/TIP] [icon:YIELD_CULTURE] culturali nei [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]Paesi[/TIP], qualsiasi sia il loro Focus. +15% [icon:YIELD_GOLD] Oro per l'acquisto di [icon:CITY_BUILDING_LIST] [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]edifici[/TIP] nei [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]Paesi[/TIP]. Il bonus raddoppia se lo stesso [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]edificio[/TIP] è presente anche nella tua [icon:NOTIFICATION_SELECT_CAPITAL] capitale.</Text>
     </Replace>
     <Replace Tag="LOC_LEADER_BENJAMIN_FRANKLIN_DESCRIPTION" Language="it_IT">
       <Text>+1 [icon:YIELD_SCIENCE] Scienza per [TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]epoca[/TIP] dagli [icon:CITY_BUILDING_LIST] [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]edifici[/TIP] che aumentano la [icon:YIELD_PRODUCTION] Produzione e dagli edifici [icon:YIELD_SCIENCE] scientifici nelle [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]città[/TIP]. +5% [icon:YIELD_PRODUCTION] Produzione per la costruzione di [icon:CITY_BUILDING_LIST] [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]edifici[/TIP] dalle [icon:ENDEAVOR] Iniziative attive che hai avviato o sostenuto. +2 [icon:YIELD_SCIENCE] Scienza per [TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]epoca[/TIP] dalle [icon:ENDEAVOR] [TIP:LOC_PEDIA_CONCEPTS_ENDEAVOR_TOOLTIP]Iniziative[/TIP] attive che hai avviato o sostenuto. Puoi avere due [icon:ENDEAVOR] [TIP:LOC_PEDIA_CONCEPTS_ENDEAVOR_TOOLTIP]Iniziative[/TIP] dello stesso tipo attive allo stesso tempo.</Text>
@@ -17360,10 +17804,10 @@
       <Text>Cento scuole di pensiero</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_CULTURAL_5_RACE_TRIGGER_DESCRIPTION" Language="it_IT">
-      <Text>Prima civiltà a studiare tutti i [TIP:LOC_PEDIA_CONCEPTS_CIVIC_TOOLTIP]Progressi civici[/TIP] generici e le relative Maestrie.</Text>
+      <Text>Prima civiltà a studiare tutti i [icon:RADIAL_CIVICS] [TIP:LOC_PEDIA_CONCEPTS_CIVIC_TOOLTIP]Progressi civici[/TIP] e le Maestrie civiche generici.</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_CULTURAL_5_TRIGGER_DESCRIPTION" Language="it_IT">
-      <Text>Studia tutti i [TIP:LOC_PEDIA_CONCEPTS_CIVIC_TOOLTIP]Progressi civici[/TIP] generici e le relative Maestrie.</Text>
+      <Text>Prima civiltà a studiare tutti i [icon:RADIAL_CIVICS] [TIP:LOC_PEDIA_CONCEPTS_CIVIC_TOOLTIP]Progressi civici[/TIP] e le Maestrie civiche generici.</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_DIPLOMATIC_1_DESCRIPTION" Language="it_IT">
       <Text>[B] +2 [icon:YIELD_DIPLOMACY][/B] e [icon:YIELD_HAPPINESS] dal [TIP:LOC_PEDIA_CONCEPTS_PALACE_TOOLTIP]Palazzo[/TIP] per ogni [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]città-stato[/TIP] di cui sei [TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]Sovrano[/TIP].</Text>
@@ -18200,10 +18644,10 @@
       <Text>Zeitgeist: quartieri</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_CULTURAL_5_RACE_TRIGGER_DESCRIPTION" Language="it_IT">
-      <Text>Prima civiltà a studiare tutti i [TIP:LOC_PEDIA_CONCEPTS_CIVIC_TOOLTIP]Progressi civici[/TIP] generici e le relative Maestrie.</Text>
+      <Text>Prima civiltà a studiare tutti i [icon:RADIAL_CIVICS] [TIP:LOC_PEDIA_CONCEPTS_CIVIC_TOOLTIP]Progressi civici[/TIP] e le Maestrie civiche generici.</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_CULTURAL_5_TRIGGER_DESCRIPTION" Language="it_IT">
-      <Text>Prima civiltà a studiare tutti i [TIP:LOC_PEDIA_CONCEPTS_CIVIC_TOOLTIP]Progressi civici[/TIP] generici e le relative Maestrie.</Text>
+      <Text>Prima civiltà a studiare tutti i [icon:RADIAL_CIVICS] [TIP:LOC_PEDIA_CONCEPTS_CIVIC_TOOLTIP]Progressi civici[/TIP] e le Maestrie civiche generici.</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_DIPLOMATIC_1_DESCRIPTION" Language="it_IT">
       <Text>[B]+20% [icon:YIELD_DIPLOMACY][/B] per l'avviamento di Azioni diplomatiche con i leader.</Text>
@@ -18512,7 +18956,7 @@
       <Text>Prima civiltà a ricercare tutte le [icon:RADIAL_TECH] [TIP:LOC_PEDIA_CONCEPTS_TECH_TOOLTIP]tecnologie[/TIP] e Maestrie tecnologiche.</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_SCIENTIFIC_5_TRIGGER_DESCRIPTION" Language="it_IT">
-      <Text>Prima civiltà a ricercare tutte le [TIP:LOC_PEDIA_CONCEPTS_TECH_TOOLTIP]tecnologie[/TIP] e Maestrie tecnologiche.</Text>
+      <Text>Prima civiltà a ricercare tutte le [icon:RADIAL_TECH] [TIP:LOC_PEDIA_CONCEPTS_TECH_TOOLTIP]tecnologie[/TIP] e Maestrie tecnologiche.</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_OPTION" Language="it_IT">
       <Text>Opzione di Retaggio per l'epoca successiva</Text>
@@ -19274,7 +19718,7 @@
       <Text>Sbocciano sotto il trono.</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_ASHOKA_RENOUNCER_GOLD_SAPPHIRE_FLOWERS_FUNCTIONAL_DESCRIPTION" Language="it_IT">
-      <Text>Ottieni [B]100 [icon:YIELD_FOOD][/B] nella [icon:NOTIFICATION_SELECT_CAPITAL] [TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]capitale[/TIP] quando spendi un punto [icon:ATTRIBUTE] [TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]Attributo[/TIP] [icon:ATTRIBUTE_EXPANSIONIST] [TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]Espansionista[/TIP] nel relativo albero.</Text>
+      <Text>Ottieni [B]100 [icon:YIELD_FOOD][/B] nella [icon:NOTIFICATION_SELECT_CAPITAL] [TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]capitale[/TIP] quando spendi un punto [icon:ATTRIBUTE] [TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]Attributo[/TIP] [icon:ATTRIBUTE_EXPANSIONIST] [TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]Espansionista[/TIP] nel relativo albero (scala con la velocità del gioco).</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_ASHOKA_RENOUNCER_GOLD_SAPPHIRE_FLOWERS_NAME" Language="it_IT">
       <Text>Fiori d'oro e zaffiro</Text>
@@ -19346,7 +19790,7 @@
       <Text>Portano il segno di innumerevoli chilometri.</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_BATTUTA_TRAVELLERS_SANDALS_FUNCTIONAL_DESCRIPTION" Language="it_IT">
-      <Text>Ogni volta che spendi un punto [icon:ATTRIBUTE] [TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]Attributo[/TIP], guadagni 10 della resa corrispondente.</Text>
+      <Text>Ogni volta che spendi un punto [icon:ATTRIBUTE] [TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]Attributo[/TIP], ottieni 25 della resa corrispondente (scala con la velocità del gioco).</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_BATTUTA_TRAVELLERS_SANDALS_NAME" Language="it_IT">
       <Text>Sandali da viaggiatore</Text>
@@ -19430,7 +19874,7 @@
       <Text>Il mondo intero nelle tue mani.</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_CHARLEMAGNE_GLOBUS_CRUCIGER_FUNCTIONAL_DESCRIPTION" Language="it_IT">
-      <Text>[B]+50 [icon:YIELD_DIPLOMACY][/B] quando spendi un punto [icon:ATTRIBUTE] [TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]Attributo[/TIP] [icon:ATTRIBUTE_POLITICAL] [TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]Diplomatico[/TIP] nel relativo albero.</Text>
+      <Text>Ottieni [B]50 [icon:YIELD_DIPLOMACY][/B] ogni volta che spendi un punto [icon:ATTRIBUTE] [TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]Attributo[/TIP] [icon:ATTRIBUTE_POLITICAL] [TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]Diplomatico[/TIP] nel relativo albero (scala con la velocità del gioco).</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_CHARLEMAGNE_GLOBUS_CRUCIGER_NAME" Language="it_IT">
       <Text>Globo crucigero</Text>
@@ -19745,7 +20189,7 @@
       <Text>Il più alto ordine della cavalleria.</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_FRIEDRICH_OBLIQUE_ORDER_BLACK_EAGLE_FUNCTIONAL_DESCRIPTION" Language="it_IT">
-      <Text>Ottieni [B]50 [icon:YIELD_PRODUCTION][/B] quando spendi un punto [icon:ATTRIBUTE] [TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]Attributo[/TIP] [icon:ATTRIBUTE_MILITARISTIC] [TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]Militarista[/TIP] nel relativo albero.</Text>
+      <Text>Ottieni [B]50 [icon:YIELD_PRODUCTION][/B] ogni volta che spendi un punto [icon:ATTRIBUTE] [TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]Attributo[/TIP] [icon:ATTRIBUTE_MILITARISTIC] [TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]Militarista[/TIP] nel relativo albero (scala con la velocità del gioco).</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_FRIEDRICH_OBLIQUE_ORDER_BLACK_EAGLE_NAME" Language="it_IT">
       <Text>Stemma dell'Ordine dell'Aquila Nera</Text>
@@ -19808,7 +20252,7 @@
       <Text>Amica del raccolto.</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_HIMIKO_QUEEN_DOTAKU_FUNCTIONAL_DESCRIPTION" Language="it_IT">
-      <Text>Ottieni [B]50 [icon:YIELD_SCIENCE][/B] quando spendi un punto [icon:ATTRIBUTE] [TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]Attributo[/TIP] [icon:ATTRIBUTE_SCIENTIFIC] [TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]Scientifico[/TIP] nel relativo albero.</Text>
+      <Text>Ottieni [B]50 [icon:YIELD_SCIENCE][/B] ogni volta che spendi un punto [icon:ATTRIBUTE] [TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]Attributo[/TIP] [icon:ATTRIBUTE_SCIENTIFIC] [TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]Scientifico[/TIP] nel relativo albero (scala con la velocità del gioco).</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_HIMIKO_QUEEN_DOTAKU_NAME" Language="it_IT">
       <Text>Dōtaku</Text>
@@ -30091,10 +30535,10 @@
       <Text>Quartiere esclusivo</Text>
     </Replace>
     <Replace Tag="LOC_PLOT_TOOLTIP_URBAN_DISTRICT" Language="it_IT">
-      <Text>Distretto urbano</Text>
+      <Text>Distretto</Text>
     </Replace>
     <Replace Tag="LOC_PLOT_TOOLTIP_URBAN_QUARTER" Language="it_IT">
-      <Text>Quartiere urbano</Text>
+      <Text>Quartiere</Text>
     </Replace>
     <Replace Tag="LOC_PLOT_TOOLTIP_YOU" Language="it_IT">
       <Text>Tu</Text>
@@ -31122,6 +31566,12 @@
     <Replace Tag="LOC_SETUP_NO_CIV_UNLOCKS_NAME" Language="it_IT">
       <Text>Ignora gli elementi sbloccati dalle civiltà</Text>
     </Replace>
+    <Replace Tag="LOC_SETUP_VICTORIES_DESC" Language="it_IT">
+      <Text>Scegli quali vittorie attivare per questa partita.</Text>
+    </Replace>
+    <Replace Tag="LOC_SETUP_VICTORIES_NAME" Language="it_IT">
+      <Text>Vittorie</Text>
+    </Replace>
     <Replace Tag="LOC_SINGLEAGE_DESCRIPTION" Language="it_IT">
       <Text>Gioca una sola epoca. Non passare alle epoche successive.</Text>
     </Replace>
@@ -31991,7 +32441,7 @@
       <Text>Regina guerriera di Zazzau</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_LEADER_ASHOKA_ABILITY_DESCRIPTION" Language="it_IT">
-      <Text>[BLIST][LI]+1 [icon:YIELD_FOOD] Cibo nelle [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]città[/TIP] per ogni 5 [icon:YIELD_HAPPINESS] Felicità in eccesso.[LI]+10% [icon:YIELD_FOOD] Cibo in tutti gli [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]insediamenti[/TIP] durante una [icon:CELEBRATION] [TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]Celebrazione[/TIP].[LI]Gli [icon:CITY_BUILDING_LIST] [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]edifici[/TIP] esclusivi ottengono un bonus di +1 [icon:YIELD_HAPPINESS] Felicità per la vicinanza a tutti i [icon:CITY_RURAL] miglioramenti.[/BLIST]</Text>
+      <Text>[BLIST][LI]+1 [icon:YIELD_FOOD] Cibo nelle [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]città[/TIP] per ogni 5 [icon:YIELD_HAPPINESS] Felicità in eccesso.[LI]+10% [icon:YIELD_FOOD] Cibo negli [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]insediamenti[/TIP] Felici durante una [icon:CELEBRATION] [TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]Celebrazione[/TIP], o 15% negli insediamenti Felici, o 20% negli insediamenti Beati.[LI]Gli [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]edifici[/TIP] [icon:CITY_BUILDING_LIST] esclusivi, che producono [icon:YIELD_HAPPINESS] Felicità e [icon:YIELD_FOOD] cibo ottengono un bonus di +1 [icon:YIELD_HAPPINESS] Felicità per la vicinanza a tutti i [icon:CITY_RURAL] miglioramenti.[/BLIST]</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_LEADER_ASHOKA_ABILITY_NAME" Language="it_IT">
       <Text>Dhammaraja</Text>
@@ -32069,7 +32519,7 @@
       <Text>Pambansang bayani</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_LEADER_LAFAYETTE_ABILITY_DESCRIPTION" Language="it_IT">
-      <Text>[BLIST][LI]Ottieni una [icon:ENDEAVOR] [TIP:LOC_PEDIA_CONCEPTS_ENDEAVOR_TOOLTIP]Iniziativa[/TIP] esclusiva chiamata Riforma, che fornisce uno slot [icon:NAR_REW_TRADITION_SLOT] [TIP:LOC_PEDIA_CONCEPTS_TRADITION_TOOLTIP]Tradizione[/TIP] aggiuntivo. Sostenere questa [TIP:LOC_PEDIA_CONCEPTS_ENDEAVOR_TOOLTIP]Iniziativa[/TIP] fornisce anche all'altro leader uno slot [TIP:LOC_PEDIA_CONCEPTS_TRADITION_TOOLTIP]Tradizione[/TIP]; in caso contrario, ottiene uno slot per [TIP:LOC_PEDIA_CONCEPTS_SOCIAL_POLICY_TOOLTIP]Politiche sociali[/TIP] aggiuntivo.[LI]+1 alla [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Forza di combattimento[/TIP] per ogni [icon:TRADITION] [TIP:LOC_PEDIA_CONCEPTS_TRADITION_TOOLTIP]Tradizione[/TIP], ma non [icon:SOCIAL_POLICY] [TIP:LOC_PEDIA_CONCEPTS_SOCIAL_POLICY_TOOLTIP]Politica sociale[/TIP], inserita nel [icon:GOVERNMENT] governo.[LI]+1 [icon:YIELD_CULTURE] Cultura e [icon:YIELD_HAPPINESS] Felicità per [TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]epoca[/TIP] negli [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]insediamenti[/TIP]. Questi effetti sono raddoppiati in [TIP:LOC_PEDIA_CONCEPTS_DISTANT_LANDS_TOOLTIP]Terre lontane[/TIP].[/BLIST]</Text>
+      <Text>[BLIST][LI]Ottieni una [icon:ENDEAVOR] [TIP:LOC_PEDIA_CONCEPTS_ENDEAVOR_TOOLTIP]Iniziativa[/TIP] esclusiva chiamata Riforma, che fornisce uno slot [icon:NAR_REW_TRADITION_SLOT] [TIP:LOC_PEDIA_CONCEPTS_TRADITION_TOOLTIP]Tradizione[/TIP] aggiuntivo. Sostenere questa [TIP:LOC_PEDIA_CONCEPTS_ENDEAVOR_TOOLTIP]Iniziativa[/TIP] fornisce anche all'altro leader uno slot [TIP:LOC_PEDIA_CONCEPTS_TRADITION_TOOLTIP]Tradizione[/TIP]; in caso contrario, l'altro leader ottiene uno slot per [TIP:LOC_PEDIA_CONCEPTS_SOCIAL_POLICY_TOOLTIP]Politiche sociali[/TIP]. La Riforma si può utilizzare solo una volta con ogni altro Leader. [LI]+1 alla [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Forza di combattimento[/TIP] per ogni [icon:TRADITION] [TIP:LOC_PEDIA_CONCEPTS_TRADITION_TOOLTIP]Tradizione[/TIP], ma non [icon:SOCIAL_POLICY] [TIP:LOC_PEDIA_CONCEPTS_SOCIAL_POLICY_TOOLTIP]Politiche sociali[/TIP], inserita nel [icon:GOVERNMENT] governo.[LI]+1 [icon:YIELD_CULTURE] Cultura e [icon:YIELD_HAPPINESS] Felicità per [TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]epoca[/TIP] negli [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]insediamenti[/TIP]. Questi effetti sono raddoppiati in [TIP:LOC_PEDIA_CONCEPTS_DISTANT_LANDS_TOOLTIP]Terre lontane[/TIP].[/BLIST]</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_LEADER_LAFAYETTE_ABILITY_NAME" Language="it_IT">
       <Text>Eroe dei due mondi</Text>
@@ -32383,6 +32833,9 @@
     <Replace Tag="LOC_UI_CITY_BACK_TO_PRODUCTION" Language="it_IT">
       <Text>Torna alla Produzione</Text>
     </Replace>
+    <Replace Tag="LOC_UI_CITY_BANNER_EMPTY_PRODUCTION_QUEUE" Language="it_IT">
+      <Text>Non ci sono altri elementi in coda</Text>
+    </Replace>
     <Replace Tag="LOC_UI_CITY_BANNER_PRODUCTION" Language="it_IT">
       <Text>Produzione in corso di:</Text>
     </Replace>
@@ -32505,6 +32958,12 @@
     </Replace>
     <Replace Tag="LOC_UI_CITY_DETAILS_URBAN_POPULATION_TOOLTIP" Language="it_IT">
       <Text>La popolazione urbana è composta dai cittadini che popolano i tuoi [icon:CITY_BUILDING_LIST] [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]edifici[/TIP]. Ottieni un punto di popolazione urbana per ogni [icon:CITY_BUILDING_LIST] edificio nei tuoi [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]insediamenti[/TIP], escluse le [TIP:LOC_PEDIA_CONCEPTS_WALL_TOOLTIP]Mura[/TIP].</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_CITY_DETAILS_WAREHOUSE_BREAKDOWN_DESCRIPTION" Language="it_IT">
+      <Text>Un resoconto dettagliato dei miglioramenti costruiti in questo [TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]insediamento[/TIP], utile per tenere traccia dei bonus per i [icon:YIELD_WAREHOUSE] Depositi.[nn]L'elenco riporta i [TIP:LOC_PEDIA_CONCEPTS_UNIQUE_IMPROVEMENT_TOOLTIP]miglioramenti esclusivi[/TIP] sotto il miglioramento su cui sono stati costruiti.</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_CITY_DETAILS_WAREHOUSE_BREAKDOWN_HEADER" Language="it_IT">
+      <Text>Resoconto miglioramenti</Text>
     </Replace>
     <Replace Tag="LOC_UI_CITY_DETAILS_WONDERS" Language="it_IT">
       <Text>Meraviglie</Text>
@@ -33087,6 +33546,9 @@
     </Replace>
     <Replace Tag="LOC_UI_GENERAL_APPEAL_LEGEND_NATURAL_WONDER" Language="it_IT">
       <Text>[STYLE:text-secondary]Meraviglia naturale:[/STYLE] Rese come specificato per quella particolare Meraviglia.</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_GENERIC_HIDE" Language="it_IT">
+      <Text>Nascondi</Text>
     </Replace>
     <Replace Tag="LOC_UI_GLOBAL_CRISIS" Language="it_IT">
       <Text>Crisi globale</Text>
@@ -36880,10 +37342,10 @@
 				[NN]Esistono molti modi per ottenere Innovazione: i due principali sono la ricerca delle [B]Maestrie tecnologiche[/B] e il completamento di certi [B]Progetti[/B]. I Progetti si sbloccano ricercando tecnologie avanzate in ciascuna epoca, dopodiché possono essere condotti in qualsiasi città che soddisfi i requisiti. Le varie Maestrie e Progetti forniscono diverse quantità di Innovazione.  				[NN]Specifiche Meraviglie a tema scientifico forniscono 3 punti e si ottiene 1 punto in più per ogni [B]Codice[/B] assegnato a uno [B]slot Capolavoro[/B] durante l'epoca antica. Inoltre, alcuni Trionfi dell'epoca moderna forniscono Innovazione.</Text>
     </Replace>
     <Replace Tag="LOC_VICTORIES_RULES_SCORE_BODY_1" Language="it_IT">
-      <Text>[B]Vengono presi in considerazione i seguenti elementi, nell'ordine indicato:[/B][B][NN][NLIST][LI]Il numero di turni che hai passato in un conto alla rovescia Vittoria, considerando tutte le Vittorie.[LI]Il tuo posizionamento nelle classifiche delle diverse Vittorie.[LI]Il numero di Trionfi maggiori che hai completato nel corso della partita.[/LIST]</Text>
+      <Text>[B]Vengono presi in considerazione i seguenti elementi, nell'ordine indicato:[/B][NN][NLIST][LI]Il numero di turni che hai passato in un conto alla rovescia Vittoria, considerando tutte le Vittorie.[LI]Il tuo posizionamento nelle classifiche delle diverse Vittorie.[LI]Il numero di Trionfi maggiori che hai completato nel corso della partita.[/LIST]</Text>
     </Replace>
     <Replace Tag="LOC_VICTORIES_RULES_SCORE_BODY_2" Language="it_IT">
-      <Text>[B]La somma dei singoli elementi fornisce il tuo punteggio totale.[/B][B][NN][NLIST][LI]Turni nel conto alla rovescia Vittoria moltiplicati per 1000.[LI]1000 meno il tuo posizionamento nelle classifiche delle diverse Vittorie, moltiplicato per 10.[LI]Il numero totale di Trionfi maggiori che hai completato.[/LIST]</Text>
+      <Text>[B]La somma dei singoli elementi fornisce il tuo punteggio totale.[/B][NN][NLIST][LI]Turni nel conto alla rovescia Vittoria moltiplicati per 1000.[LI]1000 meno il tuo posizionamento nelle classifiche delle diverse Vittorie, moltiplicato per 10.[LI]Il numero totale di Trionfi maggiori che hai completato.[/LIST]</Text>
     </Replace>
     <Replace Tag="LOC_VICTORIES_RULES_SCORE_HEADER_1" Language="it_IT">
       <Text>Come viene determinato il punteggio</Text>
@@ -37254,8 +37716,14 @@
     <Replace Tag="LOC_VICTORY_SCORE_VICTORY_NAME" Language="it_IT">
       <Text>Vittoria ai punti</Text>
     </Replace>
+    <Replace Tag="LOC_VICTORY_SUMMARY_ALL_DISABLED" Language="it_IT">
+      <Text>Tutte le Vittorie sono state disattivate.</Text>
+    </Replace>
     <Replace Tag="LOC_VICTORY_SUMMARY_HEADER" Language="it_IT">
-      <Text>Vince la partita il primo leader a ottenere una tra queste quattro Vittorie.</Text>
+      <Text>Il primo leader a ottenere una qualsiasi delle Vittorie qui sotto vincerà la partita.</Text>
+    </Replace>
+    <Replace Tag="LOC_VICTORY_SUMMARY_ONLY_SCORE_ENABLED" Language="it_IT">
+      <Text>L'unica Vittoria attiva è quella ai punti.</Text>
     </Replace>
     <Replace Tag="LOC_VICTORY_TOOLTIP_REQUIRED_POINTS" Language="it_IT">
       <Text>Punti richiesti</Text>
@@ -38097,6 +38565,9 @@
     <Replace Tag="LOC_BUILDING_PLACEMENT_REPLACE_BUILDING_BODY_ADD_SPECIALIST" Language="it_IT">
       <Text>Se aggiungerai la nuova costruzione {2_Name} a questa casella, i lavoratori dell'edificio {1_CurrentBuildingName} diventeranno specialisti. Gli specialisti forniscono alla città la resa dell'edificio in cui erano precedentemente impegnati. Vuoi continuare?</Text>
     </Replace>
+    <Replace Tag="LOC_BUILDING_PLACEMENT_UNIQUE_QUARTER_BLOCKER_BODY" Language="it_IT">
+      <Text>Costruire [b]{1_Building[2]}[/b] in questa casella ti impedirà di completare il quartiere esclusivo [b]{2_Quarter}[/b] in questo insediamento. Vuoi continuare?</Text>
+    </Replace>
     <Replace Tag="LOC_BUILDING_PLACEMENT_WAREHOUSE_BONUS" Language="it_IT">
       <Text>Bonus per i depositi alla resa: {2_yieldType}</Text>
     </Replace>
@@ -38277,6 +38748,9 @@
     <Replace Tag="LOC_COMBAT_PREVIEW_TERRAIN_BONUS_DESC" Language="it_IT">
       <Text>+{1_Value} Terreno ideale</Text>
     </Replace>
+    <Replace Tag="LOC_COMBAT_PREVIEW_TERRAIN_COMBAT_BONUS_DESC" Language="it_IT">
+      <Text>+{1_Value} terreno {2_Name}</Text>
+    </Replace>
     <Replace Tag="LOC_COMBAT_PREVIEW_TERRAIN_PENALTY" Language="it_IT">
       <Text>{1_Value} Terreno sfavorevole</Text>
     </Replace>
@@ -38358,6 +38832,12 @@
     <Replace Tag="LOC_COMMERCE_GAMEPAD_SELECT_CITY_HINT" Language="it_IT">
       <Text>Modifica {1_cityName}</Text>
     </Replace>
+    <Replace Tag="LOC_COMMERCE_GAMEPAD_STOP_VIEWING_CONTAINER_HINT" Language="it_IT">
+      <Text>Interrompi la visualizzazione di {1_containerName}</Text>
+    </Replace>
+    <Replace Tag="LOC_COMMERCE_GAMEPAD_VIEW_CONTAINER_HINT" Language="it_IT">
+      <Text>Visualizza {1_containerName}</Text>
+    </Replace>
     <Replace Tag="LOC_COMMERCE_SCREEN_TITLE" Language="it_IT">
       <Text>Commercio con: {1_civ_name}</Text>
     </Replace>
@@ -38382,6 +38862,18 @@
     <Replace Tag="LOC_COMMERCE_UNASSIGN_RESOURCES" Language="it_IT">
       <Text>Rimuovi tutte le risorse da {1_cityName}</Text>
     </Replace>
+    <Replace Tag="LOC_DEAL_ITEM_GOLD_LARGE_LUMP_NAME" Language="it_IT">
+      <Text>{1_amount} [icon:YIELD_GOLD] Oro</Text>
+    </Replace>
+    <Replace Tag="LOC_DEAL_ITEM_GOLD_SMALL_LUMP_NAME" Language="it_IT">
+      <Text>{1_amount} [icon:YIELD_GOLD] Oro</Text>
+    </Replace>
+    <Replace Tag="LOC_DEAL_ITEM_INFLUENCE_LARGE_LUMP_NAME" Language="it_IT">
+      <Text>{1_amount} [icon:YIELD_DIPLOMACY] Influenza</Text>
+    </Replace>
+    <Replace Tag="LOC_DEAL_ITEM_INFLUENCE_SMALL_LUMP_NAME" Language="it_IT">
+      <Text>{1_amount} [icon:YIELD_DIPLOMACY] Influenza</Text>
+    </Replace>
     <Replace Tag="LOC_DEDICATIONS_AVAILABLE_DESC" Language="it_IT">
       <Text>Dedizioni ottenute per la successiva epoca {1_ageName}.</Text>
     </Replace>
@@ -38395,7 +38887,7 @@
       <Text>AGGIUNGI SOSTEGNO[N]{1_influenceConst}[icon:YIELD_DIPLOMACY]Influenza</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ACTION_BONUS_ENVOYS" Language="it_IT">
-      <Text>Stai ricevendo {1_numEmvoys} {1: plural 1?Emissario;other?Emissari;} bonus su questo progetto per via delle tue relazioni con i leader coinvolti.</Text>
+      <Text>Stai ricevendo {1_numEmvoys} {1: plural 1?Emissario;other?Emissari;} bonus su questo progetto per via delle tue [icon:RELATIONSHIP] relazioni con i leader coinvolti.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ACTION_COST_YIELD_DIPLOMACY" Language="it_IT">
       <Text>{1_cost}[icon:YIELD_DIPLOMACY] Influenza</Text>
@@ -38449,7 +38941,7 @@
       <Text>Impossibile fare la pace così presto dopo aver dichiarato guerra. Devi aspettare ancora {1_turns} {1_turns: plural 1?turno;other?turni;} prima che diventi possibile fare la pace.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ACTION_FAILURE_RELATIONSHIP_LEVEL" Language="it_IT">
-      <Text>Per dare inizio a quest'azione diplomatica devi avere un livello di relazioni pari almeno a: {1_Relationship}.</Text>
+      <Text>Per dare inizio a quest'azione diplomatica devi avere un livello di [icon:RELATIONSHIP] relazioni pari almeno a: {1_Relationship}.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ACTION_FAILURE_WAR_WITH_THEIR_ALLY" Language="it_IT">
       <Text>Non puoi avviare quest'azione diplomatica perché sei in guerra con {1_AllyName}, con cui questa civiltà è alleata.</Text>
@@ -38532,6 +39024,9 @@
     <Replace Tag="LOC_DIPLOMACY_ACTIONS_USE_GRIEVANCE" Language="it_IT">
       <Text>Rimostranza contro {1_leaderName}</Text>
     </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_CHANGE_DESCRIPTION" Language="it_IT">
+      <Text>{1: number +#;-#} relazioni [icon:RELATIONSHIP]</Text>
+    </Replace>
     <Replace Tag="LOC_DIPLOMACY_ALLIANCE_RESPONSE_REJECT" Language="it_IT">
       <Text>Rifiuto la tua azione {1_actionName}! Non prenderò in considerazione un'altra Alleanza per almeno {2_cooldown} turni.</Text>
     </Replace>
@@ -38557,16 +39052,16 @@
       <Text>{1_progress}/{2_total} (+{3_amount} per turno)</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_BONUS_WAR_SUPPORT" Language="it_IT">
-      <Text>Questa guerra darà origine al seguente Supporto bellico:[N] {1_yourWarBonus} per te, {2_theirWarBonus} e {3_theirInfluenceBonus}[icon:YIELD_DIPLOMACY] Influenza per il tuo avversario.[N]La penalità per la dichiarazione di una Guerra a sorpresa è maggiore in caso di rapporti amichevoli.[N]Relazioni ostili daranno origine a una Guerra formale.</Text>
+      <Text>Questa guerra produrrà il seguente [icon:WAR_SUPPORT] Supporto bellico:[N] {1_yourWarBonus} per te e {2_theirWarBonus} per il leader avversario (che riceverà anche {3_theirInfluenceBonus} [icon:YIELD_DIPLOMACY] Influenza).[N]La penalità per la dichiarazione di una Guerra a sorpresa è maggiore in caso di rapporti amichevoli.[N]Relazioni ostili daranno origine a una [icon:WAR] Guerra formale.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_CALL_TO_ARMS_JOIN_WAR" Language="it_IT">
-      <Text>Onorerai la tua alleanza con {1_allyName[4]} e dichiarerai guerra {2_targetName[3]}.</Text>
+      <Text>Onorerai la tua [icon:PLAYER_RELATIONSHIP_ALLIANCE] alleanza con {1_allyName[4]} e dichiarerai [icon:WAR] guerra {2_targetName[3]}.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_CALL_TO_ARMS_STAY_NEUTRAL_ONE_ALLY" Language="it_IT">
-      <Text>Porrai fine alla tua alleanza con {1_leaderName[4]} e non ti unirai alla guerra.</Text>
+      <Text>Porrai fine alla tua [icon:PLAYER_RELATIONSHIP_ALLIANCE] alleanza con {1_leaderName[4]} e non ti unirai alla [icon:WAR] guerra.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_CALL_TO_ARMS_SUPPORT_ALLY_DESCRIPTION" Language="it_IT">
-      <Text>Porrai fine alla tua alleanza con {1_leaderName[4]} e dichiarerai guerra contro {1: gender masculine:?{1: plural 1?di lui; other?di loro}; feminine?{1: plural 1?di lei; other?di loro};}.</Text>
+      <Text>Porrai fine alla tua [icon:PLAYER_RELATIONSHIP_ALLIANCE] alleanza con {1_leaderName[4]} e dichiarerai [icon:WAR] guerra contro {1: gender masculine:?{1: plural 1?di lui; other?di loro}; feminine?{1: plural 1?di lei; other?di loro};}.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_CHOSEN_CITY_STATE_BONUS" Language="it_IT">
       <Text>Bonus città-stato scelto: {1_bonusName}</Text>
@@ -38596,25 +39091,25 @@
       <Text>{1_leaderName[4]} {1: plural 1?ha subito;other?hanno subito;} una sconfitta</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ESPIONAGE_MILITARY_INFILTRATION_DESCRIPTION_TARGET" Language="it_IT">
-      <Text>{1_leaderName[4]} {1: plural 1?ha;other?hanno;} la visione di tutti i tuoi Comandanti.</Text>
+      <Text>{1_leaderName[4]} {1: plural 1?può;other?possono;} vedere tutti i tuoi [icon:UNIT_ARMY_COMMANDER] Comandanti.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ESPIONAGE_MILITARY_SABOTAGE_DESCRIPTION" Language="it_IT">
-      <Text>-3 alla Forza di combattimento delle unità militari di questo leader per {1_turns} {1_turns: plural 1?turno; other?turni;}.</Text>
+      <Text>-3 alla [icon:NAR_REW_COMBAT] Forza di combattimento delle unità militari di questo leader per {1_turns} {1_turns: plural 1?turno; other?turni;}.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ESPIONAGE_MILITARY_SABOTAGE_DESCRIPTION_TARGET" Language="it_IT">
-      <Text>-3 alla Forza di combattimento delle tue unità militari per {1_turns} {1_turns: plural 1?turno; other?turni;}.</Text>
+      <Text>-3 alla [icon:NAR_REW_COMBAT] Forza di combattimento delle tue unità militari per {1_turns} {1_turns: plural 1?turno; other?turni;}.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ESPIONAGE_PENALTY" Language="it_IT">
       <Text>Penalità se rivelata: {1_penalty}[icon:YIELD_DIPLOMACY] Influenza per turno per {2_turns} turni</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_FAILED_RAID_NOW_FRIENDS_SUMMARY" Language="it_IT">
-      <Text>La potenza indipendente {1_tribe} ha guadagnato nuovo rispetto per te dopo che hai respinto la sua incursione. Ora è amichevole e le vostre relazioni continuano a migliorare.</Text>
+      <Text>La [icon:INDEPENDENT_POWER] potenza indipendente {1_tribe} ha guadagnato nuovo rispetto per te dopo che hai respinto la sua incursione. Ora è amichevole e le vostre [icon:RELATIONSHIP] relazioni continuano a migliorare.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_FIRST_MEET_NOTIFICATION_SUMMARY_INITIAL" Language="it_IT">
       <Text>Hai incontrato {1_Civ[4]}.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_FORM_ALLIANCE_TOOL_TIP" Language="it_IT">
-      <Text>Stringere un'alleanza ti farà entrare in guerra con altre civiltà.[N][B]{1_leaders}[/B]</Text>
+      <Text>Stringere un'[icon:PLAYER_RELATIONSHIP_ALLIANCE] alleanza ti farà entrare in [icon:WAR] guerra con altre civiltà.[N][B]{1_leaders}[/B]</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_INDEPENDENT_CIV_NAME" Language="it_IT">
       <Text>del popolo {1_independent_name}</Text>
@@ -38626,7 +39121,7 @@
       <Text>Nessuna Sanzione disponibile con {1_leaderName[4]}.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PEACE_DEAL_CITY_WONDER_COUNT" Language="it_IT">
-      <Text>La città ha {1_wondercount} {1: plural 1?Grande Meraviglia;other?Grandi Meraviglie;}</Text>
+      <Text>La città ha {1_wondercount} [icon:WONDER] {1: plural 1?Grande Meraviglia;other?Grandi Meraviglie;}</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PEACE_DEAL_RETURNS_TO_THEM" Language="it_IT">
       <Text>Ritorna {1_leaderName[3]}</Text>
@@ -38638,13 +39133,13 @@
       <Text>{1_leaderName} rifiuterà questa proposta</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PICK_ALLIANCE_BODY_1" Language="it_IT">
-      <Text>Stringere un'alleanza con {1_selectedPlayer} ti farà entrare in guerra con altre civiltà.</Text>
+      <Text>Stringere un'[icon:PLAYER_RELATIONSHIP_ALLIANCE] alleanza con {1_selectedPlayer} ti farà entrare in [icon:WAR] guerra con altre civiltà.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PICK_WAR_TYPE_FORMAL_BODY" Language="it_IT">
-      <Text>Dal momento che le vostre relazioni sono ostili, questo darà inizio a una Guerra formale.[N]Supporto bellico iniziale: {1_yourWarBonus} per te, {2_theirWarBonus} per il tuo avversario.[N]La penalità per la dichiarazione di una Guerra a sorpresa è maggiore in caso di rapporti amichevoli.</Text>
+      <Text>Dal momento che le vostre relazioni sono [icon:PLAYER_RELATIONSHIP_HOSTILE] ostili, questo darà inizio a una [icon:WAR] Guerra formale.[N]Supporto bellico iniziale: {1_yourWarBonus} per te, {2_theirWarBonus} per il tuo avversario.[N]La penalità per la dichiarazione di una [icon:WAR] Guerra a sorpresa è maggiore in caso di rapporti amichevoli.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PICK_WAR_TYPE_SURPRISE_BODY" Language="it_IT">
-      <Text>Dal momento che le vostre relazioni non sono ostili, questo darà inizio a una Guerra a sorpresa. Il tuo avversario otterrà {3_theirInfluenceBonus}[icon:YIELD_DIPLOMACY] Influenza.[N]Supporto bellico iniziale: {1_yourWarBonus} per te, {2_theirWarBonus} per il tuo avversario.[N]La penalità per la dichiarazione di una Guerra a sorpresa è maggiore in caso di rapporti amichevoli.</Text>
+      <Text>Dal momento che le vostre relazioni non sono [icon:WAR] ostili, questo darà inizio a una [icon:PLAYER_RELATIONSHIP_HOSTILE] Guerra a sorpresa. Il tuo avversario otterrà {3_theirInfluenceBonus} [icon:YIELD_DIPLOMACY] Influenza.[N][icon:WAR_SUPPORT] Supporto bellico iniziale: {1_yourWarBonus} per te, {2_theirWarBonus} per il tuo avversario.[N]La penalità per la dichiarazione di una [icon:WAR] Guerra a sorpresa è maggiore in caso di rapporti amichevoli.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_CLOSE_BORDERS" Language="it_IT">
       <Text>{1_initiatorName[4]} {1: plural 1?ha chiuso i suoi;other?hanno chiuso i loro;} confini {2_targetName[3]}.</Text>
@@ -38662,7 +39157,7 @@
       <Text>Stai ricevendo +{2_Amount}[icon:YIELD_CULTURE] Cultura per turno dal tuo scambio culturale con {5_OtherLeaderName[4]}.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_CULTURAL_EXCHANGE_REJECT" Language="it_IT">
-      <Text>Annulla l'azione diplomatica.[n]L'[icon:YIELD_DIPLOMACY] Influenza {1_initialName[2]} sarà rimborsata.[n]Nessuna nuova Iniziativa tra i leader per {2_cooldown} turni.[n]Le relazioni peggiorano.</Text>
+      <Text>Annulla l'azione diplomatica.[n]L'[icon:YIELD_DIPLOMACY] Influenza {1_initialName[2]} sarà rimborsata.[n]Nessuna nuova Iniziativa sarà possibile tra i leader per {2_cooldown} turni.[n]Le [icon:RELATIONSHIP] relazioni peggiorano.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_CULTURAL_EXCHANGE_REQUEST" Language="it_IT">
       <Text>{1_leaderName[4]} {1: plural 1?ti sta;other?ti stanno;} invitando ad avviare uno scambio culturale.</Text>
@@ -38671,16 +39166,16 @@
       <Text>{4_otherName[4]} {1: plural 1?aggiunge;other?aggiungono;} {3_targetAmount} alle tue rimostranze.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_DENOUNCE_ACCEPT" Language="it_IT">
-      <Text>Le vostre relazioni si ridurranno di 60 nell'arco di {3_duration} turni.</Text>
+      <Text>Le vostre [icon:RELATIONSHIP] relazioni si ridurranno di 60 nell'arco di {3_duration} turni.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_DENOUNCE_MILITARY_PRESENCE_REQUEST" Language="it_IT">
       <Text>{1_leaderName[4]} {1: plural 1?ha;other?hanno;} denunciato la tua presenza militare {1: plural 1?sul suo confine;other?sul loro confine;}.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_ESTABLISH_TREASURE_FLEET_ACCEPT" Language="it_IT">
-      <Text>Crea un Convoglio del tesoro di proprietà del promotore nel tuo insediamento dopo {3_duration} turni. Guadagni +12[icon:YIELD_GOLD] Oro per turno finché l'azione diplomatica rimane attiva.</Text>
+      <Text>Crea nel tuo insediamento un [icon:UNIT_TREASURE_FLEET] Convoglio del tesoro di proprietà del promotore dopo {3_duration} turni. Guadagni +12 [ icon:YIELD_GOLD] Oro per turno finché l'azione diplomatica rimane attiva.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_ESTABLISH_TREASURE_FLEET_REJECT" Language="it_IT">
-      <Text>Annulla l'azione diplomatica.[n]L'[icon:YIELD_DIPLOMACY] Influenza {1_initialName[2]} sarà rimborsata.[n]Nessuna nuova Iniziativa tra i leader per {2_cooldown} turni.[n]Le relazioni peggiorano.</Text>
+      <Text>Annulla l'azione diplomatica.[n]L'[icon:YIELD_DIPLOMACY] Influenza {1_initialName[2]} sarà rimborsata.[n]Nessuna nuova [icon:ENDEAVOR] Iniziativa sarà possibile tra i leader per {2_cooldown} turni.[n]Le [icon:RELATIONSHIP] relazioni peggiorano.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_FARMERS_MARKET_REQUEST" Language="it_IT">
       <Text>{1_leaderName[4]} {1: plural 1?ti sta;other?ti stanno;} invitando ad avviare dei Mercati agricoli insieme.</Text>
@@ -38689,22 +39184,22 @@
       <Text>Stringerai un'alleanza con {1_initialName[4]}.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_FORM_ALLIANCE_REJECT" Language="it_IT">
-      <Text>Rifiuti l'offerta di alleanza {1_initialName[2]}.[n]Nessuna nuova alleanza fra i leader per {2_cooldown} turni.[n]Le relazioni peggiorano.</Text>
+      <Text>Rifiuti l'offerta di [icon:PLAYER_RELATIONSHIP_ALLIANCE] alleanza {1_initialName[2]}.[n]Creare una nuova [icon:PLAYER_RELATIONSHIP_ALLIANCE] alleanza fra i leader sarà impossibile per {2_cooldown} turni.[n]Le [icon:RELATIONSHIP] relazioni peggiorano.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_FREE_CAPTURED_COMMANDER_ACCEPT" Language="it_IT">
       <Text>Accetti il riscatto di {1_gold}[icon:YIELD_GOLD] Oro offerto dell'altro leader.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_FRIEND_OF_WA_REJECT" Language="it_IT">
-      <Text>Annulla l'azione diplomatica.[n]L'[icon:YIELD_DIPLOMACY] Influenza {1_initialName[2]} sarà rimborsata.[n]Nessuna nuova Iniziativa tra i leader per {2_cooldown} turni.[n]Le relazioni peggiorano.</Text>
+      <Text>Annulla l'azione diplomatica.[n]L'[icon:YIELD_DIPLOMACY] Influenza {1_initialName[2]} sarà rimborsata.[n]Nessuna nuova Iniziativa sarà possibile tra i leader per {2_cooldown} turni.[n]Le [icon:RELATIONSHIP] relazioni peggiorano.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_FRIEND_OF_WA_REQUEST" Language="it_IT">
       <Text>{1_leaderName[4]} {1: plural 1?ti sta;other?ti stanno;} invitando a svolgere [icon:YIELD_SCIENCE] ricerca scientifica insieme.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_GINSING_AGREEMENT" Language="it_IT">
-      <Text>Stai ricevendo +{2_Amount}[icon:YIELD_FOOD] Cibo per turno nella tua capitale grazie al tuo accordo del Ginseng con {5_OtherLeaderName}.</Text>
+      <Text>Stai ricevendo +{2_Amount} [icon:YIELD_FOOD] Cibo per turno nella tua [icon:NOTIFICATION_SELECT_CAPITAL] capitale grazie al tuo accordo del Ginseng con {5_OtherLeaderName}.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_GINSING_AGREEMENT_REJECT" Language="it_IT">
-      <Text>Annulla l'azione diplomatica.[n]L'[icon:YIELD_DIPLOMACY] Influenza {1_initialName[2]} sarà rimborsata.[n]Nessuna nuova Iniziativa tra i leader per {2_cooldown} turni.[n]Le relazioni peggiorano.</Text>
+      <Text>Annulla l'azione diplomatica.[n]L'[icon:YIELD_DIPLOMACY] Influenza {1_initialName[2]} sarà rimborsata.[n]Nessuna nuova Iniziativa sarà possibile tra i leader per {2_cooldown} turni.[n]Le [icon:RELATIONSHIP] relazioni peggiorano.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_GINSING_AGREEMENT_REQUEST" Language="it_IT">
       <Text>{1_leaderName[4]} {1: plural 1?sta;other?stanno;} cercando di inibire lo scambio di [icon:YIELD_FOOD] Cibo con te.</Text>
@@ -38713,7 +39208,7 @@
       <Text>{1_initialName} ottiene uno slot Tradizione al completamento dell'azione diplomatica.[n] Nello stesso momento tu ottieni uno slot per Politiche sociali.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_GRANT_POLICY_SLOT_REJECT" Language="it_IT">
-      <Text>Annulla l'azione diplomatica.[n]L'[icon:YIELD_DIPLOMACY] Influenza {1_initialName[2]} sarà rimborsata.[n]Nessuna nuova Iniziativa tra i leader per {2_cooldown} turni.[n]Le relazioni peggiorano.</Text>
+      <Text>Annulla l'azione diplomatica.[n]L'[icon:YIELD_DIPLOMACY] Influenza {1_initialName[2]} sarà rimborsata.[n]Nessuna nuova Iniziativa sarà possibile tra i leader per {2_cooldown} turni.[n]Le [icon:RELATIONSHIP] relazioni peggiorano.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_GRANT_POLICY_SLOT_REQUEST" Language="it_IT">
       <Text>{1_leaderName[4]} {1: plural 1?ti sta;other?ti stanno;} invitando a partecipare a un'Iniziativa di Riforma.</Text>
@@ -38734,7 +39229,7 @@
       <Text>Stai ricevendo +{2_Amount}[icon:YIELD_HAPPINESS] Felicità per turno dal tuo festival locale con {5_OtherLeaderName[4]}.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_LOCAL_FESTIVALS_REJECT" Language="it_IT">
-      <Text>Non puoi avviare progetti per {2_cooldown} turni.[n]La relazione peggiora.</Text>
+      <Text>Non puoi avviare progetti per {2_cooldown} turni.[n]Le [icon:RELATIONSHIP] relazioni peggiorano.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_LOCAL_FESTIVALS_REQUEST" Language="it_IT">
       <Text>{1_leaderName} ti sta invitando ad avviare un festival locale congiunto.</Text>
@@ -38746,7 +39241,7 @@
       <Text>Stai ricevendo +{2_Amount}[icon:YIELD_GOLD] Oro per turno dal tuo scambio culturale con {5_OtherLeaderName}.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_MINOR_TRADE_REJECT" Language="it_IT">
-      <Text>Annulla l'azione diplomatica.[n]L'[icon:YIELD_DIPLOMACY] Influenza {1_initialName[2]} sarà rimborsata.[n]Nessuna nuova Iniziativa tra i leader per {2_cooldown} turni.[n]Le relazioni peggiorano.</Text>
+      <Text>Annulla l'azione diplomatica.[n]L'[icon:YIELD_DIPLOMACY] Influenza {1_initialName[2]} sarà rimborsata.[n]Nessuna nuova [icon:ENDEAVOR] Iniziativa sarà possibile tra i leader per {2_cooldown} turni.[n]Le [icon:RELATIONSHIP] relazioni peggiorano.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_MINOR_TRADE_REQUEST" Language="it_IT">
       <Text>{1_leaderName[4]} {1: plural 1?ti sta;other?ti stanno;} invitando ad avere Mercati aperti fra di voi.</Text>
@@ -38755,7 +39250,7 @@
       <Text>{1_initialName[4]} {1: plural 1?ha;other?hanno;} richiesto che {2_targetName[4]} {2: plural 1?apra;other?aprano;} i loro confini per {3_numberTurns} turni.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_OPEN_BORDERS_REJECT" Language="it_IT">
-      <Text>Annulla l'azione diplomatica.[n]L'[icon:YIELD_DIPLOMACY] Influenza {1_initialName[2]} sarà rimborsata.[n]Nessuna nuova Iniziativa tra i leader per {2_cooldown} turni.[n]Le relazioni peggiorano.</Text>
+      <Text>Annulla l'[icon:DIPLOMATIC_ACTION] azione diplomatica.[n]L'[icon:YIELD_DIPLOMACY] Influenza {1_initialName[2]} sarà rimborsata.[n]Nessuna nuova [icon:ENDEAVOR] Iniziativa sarà possibile tra i leader per {2_cooldown} turni.[n]Le [icon:RELATIONSHIP] relazioni peggiorano.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_OPEN_BORDERS_REQUEST" Language="it_IT">
       <Text>{1_leaderName} ti sta chiedendo di aprire le frontiere alla sua civiltà.</Text>
@@ -38770,7 +39265,7 @@
       <Text>Stai ricevendo +{2_Amount}[icon:YIELD_SCIENCE] Scienza per turno dalla tua Collaborazione nella ricerca con {5_OtherLeaderName}.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_RESEARCH_COLLABORATION_REJECT" Language="it_IT">
-      <Text>Annulla l'azione diplomatica.[n]L'[icon:YIELD_DIPLOMACY] Influenza {1_initialName[2]} sarà rimborsata.[n]Nessuna nuova Iniziativa tra i leader per {2_cooldown} turni.[n]Le relazioni peggiorano.</Text>
+      <Text>Annulla l'azione diplomatica.[n]L'[icon:YIELD_DIPLOMACY] Influenza {1_initialName[2]} sarà rimborsata.[n]Nessuna nuova Iniziativa sarà possibile tra i leader per {2_cooldown} turni.[n]Le [icon:RELATIONSHIP] relazioni peggiorano.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_RESEARCH_COLLABORATION_REQUEST" Language="it_IT">
       <Text>{1_leaderName[4]} {1: plural 1?ti sta;other?ti stanno;} invitando ad avviare una Collaborazione nella ricerca.</Text>
@@ -38818,10 +39313,10 @@
       <Text>{1_leaderName[4]} {1: plural 1?sta;other?stanno;} cercando di inibire le tue finanze.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_SEND_DELEGATION_ACCEPT" Language="it_IT">
-      <Text>Le vostre relazioni aumenteranno di 30 nell'arco di {3_duration} turni.</Text>
+      <Text>Le vostre [icon:RELATIONSHIP] relazioni aumenteranno di 30 nell'arco di {3_duration} turni.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_SEND_DELEGATION_SUPPORT" Language="it_IT">
-      <Text>Le vostre relazioni aumenteranno di 60 nell'arco di {3_duration} turni.</Text>
+      <Text>Le vostre [icon:RELATIONSHIP] relazioni aumenteranno di 60 nell'arco di {3_duration} turni.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_SEND_GOLD_ACCEPT" Language="it_IT">
       <Text>Accetta l'aiuto in [icon:YIELD_GOLD] Oro da parte {1_initialName[2]}.</Text>
@@ -38833,10 +39328,10 @@
       <Text>{1_leaderName[4]} {1: plural 1?ti sta;other?ti stanno;} invitando a scambiare le mappe.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_RELATIONSHIP_CHANGE_ACCEPTED" Language="it_IT">
-      <Text>Cambiamento nelle relazioni se accettata: {1_change}</Text>
+      <Text>Cambiamento nelle [icon:RELATIONSHIP] relazioni se accettata: {1_change}</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_RELATIONSHIP_CHANGE_SUPPORTED" Language="it_IT">
-      <Text>Cambiamento nelle relazioni se sostenuta: {1_change}</Text>
+      <Text>Cambiamento nelle [icon:RELATIONSHIP] relazioni se sostenuta: {1_change}</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_REVEAL_CHANCE" Language="it_IT">
       <Text>Probabilità di essere scoperti: {1_revealChance}%</Text>
@@ -38893,7 +39388,7 @@
       <Text>Probabilità di successo: {1_successChance}% Probabilità di essere scoperti: {2_revealChance}%</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_SUZERAIN_OTHER" Language="it_IT">
-      <Text>{1_name[4]} {1: plural 1?è;other?sono;} il [TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]Sovrano[/TIP] di questa [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]città-stato[/TIP]</Text>
+      <Text>{1_name[4]} {1: plural 1?è;other?sono;} il [TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]Sovrano[/TIP] di questa [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]città-stato[/TIP]</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_TREATY_RESPONSE_REJECT" Language="it_IT">
       <Text>Rifiuto la tua azione {1_actionName}! È stata spesa [icon:YIELD_DIPLOMACY] Influenza per bloccare quest'azione per {2_cooldown} turni.</Text>
@@ -38932,22 +39427,22 @@
       <Text>{1_HaveXP}/{2_GoalXP}XP</Text>
     </Replace>
     <Replace Tag="LOC_FIRST_MEET_FRIENDLY_BOTH_CAPITALS_REVEALED" Language="it_IT">
-      <Text>La tua capitale verrà rivelata, così come {2_CapitalName}, la capitale {1_LeaderName[2]}.</Text>
+      <Text>La tua [icon:NOTIFICATION_SELECT_CAPITAL] capitale verrà rivelata, così come {2_CapitalName}, la [icon:NOTIFICATION_SELECT_CAPITAL] capitale {1_LeaderName[2]}.</Text>
     </Replace>
     <Replace Tag="LOC_FIRST_MEET_FRIENDLY_GREETING" Language="it_IT">
       <Text>+{1_cost} [icon:YIELD_DIPLOMACY] Influenza</Text>
     </Replace>
     <Replace Tag="LOC_FIRST_MEET_FRIENDLY_GREETING_DESCRIPTION" Language="it_IT">
-      <Text>Rivela la capitale dei due leader se vicina. ({2_whatCapitalsRevealed})[N]+{1_relationShipDelta} alle relazioni.</Text>
+      <Text>Rivela la [icon:NOTIFICATION_SELECT_CAPITAL] capitale del leader, se vicina ({2_whatCapitalsRevealed}).[N]+{1_relationShipDelta} alle [icon:RELATIONSHIP] relazioni.</Text>
     </Replace>
     <Replace Tag="LOC_FIRST_MEET_FRIENDLY_THEIR_CAPITAL_REVEALED" Language="it_IT">
-      <Text>La capitale {1_LeaderName[2]}, {2_CapitalName}, sarà rivelata.</Text>
+      <Text>La [icon:NOTIFICATION_SELECT_CAPITAL] capitale {1_LeaderName[2]}, {2_CapitalName}, sarà rivelata.</Text>
     </Replace>
     <Replace Tag="LOC_FIRST_MEET_HOSTILE_GREETING" Language="it_IT">
       <Text>-{1_cost} [icon:YIELD_DIPLOMACY] Influenza</Text>
     </Replace>
     <Replace Tag="LOC_FIRST_MEET_HOSTILE_GREETING_DESCRIPTION" Language="it_IT">
-      <Text>Relazione {1_relationShipDelta}.</Text>
+      <Text>{1_relationShipDelta} alle [icon:RELATIONSHIP] relazioni.</Text>
     </Replace>
     <Replace Tag="LOC_FIRST_MEET_NEUTRAL_GREETING" Language="it_IT">
       <Text>{1_cost} [icon:YIELD_DIPLOMACY] Influenza</Text>
@@ -39052,7 +39547,7 @@
       <Text>{Amount: plural 1?{Amount} unità perduta;other?{Amount} unità perdute;}.</Text>
     </Replace>
     <Replace Tag="LOC_HOF_TURNS" Language="it_IT">
-      <Text>[ICON_TURN] {1_Turns} {1: plural 1?turno;other?turni;}</Text>
+      <Text>{1_Turns} turni</Text>
     </Replace>
     <Replace Tag="LOC_HOF_VICTORYPROGRESS_COUNT" Language="it_IT">
       <Text>Ottenuta {1_Count} {1: plural 1?volta;other?volte;}.</Text>
@@ -39610,10 +40105,16 @@
       <Text>Le relazioni con {1_LeaderName[4]} sono cambiate da {2_PrevRel} a {3_CurrRel}.</Text>
     </Replace>
     <Replace Tag="LOC_NOTIFICATION_DIPLOMATIC_AGENDA_DEFAULT_MESSAGE" Language="it_IT">
-      <Text>L'Agenda {1_LeaderName[2]} ha modificato le vostre relazioni.</Text>
+      <Text>{1_LeaderName} ha un messaggio</Text>
     </Replace>
     <Replace Tag="LOC_NOTIFICATION_DIPLOMATIC_AGENDA_DEFAULT_SUMMARY" Language="it_IT">
       <Text>L'Agenda {1_LeaderName[2]} ha modificato le vostre relazioni.</Text>
+    </Replace>
+    <Replace Tag="LOC_NOTIFICATION_DIPLOMATIC_AGENDA_MINOR_MESSAGE" Language="it_IT">
+      <Text>Le tue relazioni con {1_LeaderName} sono cambiate di {2: number +#;-#} a causa della sua Agenda.</Text>
+    </Replace>
+    <Replace Tag="LOC_NOTIFICATION_DIPLOMATIC_AGENDA_MINOR_SUMMARY" Language="it_IT">
+      <Text>Le tue relazioni con {1_LeaderName} sono cambiate di {2: number +#;-#} a causa della sua Agenda.</Text>
     </Replace>
     <Replace Tag="LOC_NOTIFICATION_DIPLOMATIC_ALLIES_AT_WAR_SUMMARY" Language="it_IT">
       <Text>{1: gender masculine?Il tuo alleato; feminine?La tua alleata;} {1_Ally1Name[4]} è in guerra con {1: gender masculine?l'altro tuo alleato; feminine?l'altra tua alleata;}, {2_Ally2Name[4]}.</Text>
@@ -39733,7 +40234,7 @@
       <Text>La tua civiltà ha scoperto la Meraviglia naturale {1_NaturalWonderName}.</Text>
     </Replace>
     <Replace Tag="LOC_NOTIFICATION_DISPERSE_IP_REWARD_SUMMARY" Language="it_IT">
-      <Text>La potenza indipendente {1_IPName[2]} è stata dispersa. Hai ricevuto {2_reward} [{3_YieldIcon}]{4_YieldType}.</Text>
+      <Text>La potenza indipendente {1_IPName} è stata dispersa. Hai ricevuto {2_reward} {3_YieldType}.</Text>
     </Replace>
     <Replace Tag="LOC_NOTIFICATION_DISTRICT_ATTACKED_BY_IP_SUMMARY" Language="it_IT">
       <Text>La città di {1_CityName} è stata attaccata {2_CivName[5]}.</Text>
@@ -40185,6 +40686,12 @@
     <Replace Tag="LOC_UI_ACQUIRE_TILE_SPECIALIST_SLOTS_AVAILABLE" Language="it_IT">
       <Text>Questa casella ha {1_NumSlots} slot {1_NumSlots: plural 1?specialista; other?specialisti;} disponibili.</Text>
     </Replace>
+    <Replace Tag="LOC_UI_ADJACENCY_BREATHTAKING_TILE_YIELD" Language="it_IT">
+      <Text>+{1_Amount} {2_YieldName} per la vicinanza a una casella Mozzafiato</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_ADJACENCY_CHARMING_TILE_YIELD" Language="it_IT">
+      <Text>+{1_Amount} {2_YieldName} per la vicinanza a una casella Deliziosa</Text>
+    </Replace>
     <Replace Tag="LOC_UI_ADJACENCY_INFO_BIOME" Language="it_IT">
       <Text>+{1_Amount} {2_YieldName} per ogni casella adiacente di tipo {3_BiomeName}</Text>
     </Replace>
@@ -40269,6 +40776,24 @@
     <Replace Tag="LOC_UI_CITY_BANNER_POPULATION_INFO" Language="it_IT">
       <Text>Popolazione urbana: {1_Urban}[n]Popolazione rurale: {2_Rural}[n]Specialisti: {3_Specialists}</Text>
     </Replace>
+    <Replace Tag="LOC_UI_CITY_BANNER_PRODUCTION_BONUS_CONSTRUCTIBLE" Language="it_IT">
+      <Text>({1: number +#.#;-#.#} [icon:YIELD_PRODUCTION] Base × {2: number #.#;-#.#}% [TIP:LOC_PEDIA_CONCEPTS_EFFICIENCY_TOOLTIP]Efficienza[/TIP] per: {3})</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_CITY_BANNER_PRODUCTION_BONUS_PROJECT" Language="it_IT">
+      <Text>({1: number +#.#;-#.#} [icon:YIELD_PRODUCTION] Base × {2: number #.#;-#.#}% [TIP:LOC_PEDIA_CONCEPTS_EFFICIENCY_TOOLTIP]Efficienza[/TIP] per: {3})</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_CITY_BANNER_PRODUCTION_BONUS_UNIT" Language="it_IT">
+      <Text>({1: number +#.#;-#.#} [icon:YIELD_PRODUCTION] Base × {2: number #.#;-#.#}% [TIP:LOC_PEDIA_CONCEPTS_EFFICIENCY_TOOLTIP]Efficienza[/TIP] per: {3})</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_CITY_BANNER_TURNS_TO_COMPLETION" Language="it_IT">
+      <Text>{1_turns} {1_turns: plural 1?turno; other?turni;} per il completamento</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_CITY_BANNER_YIELD_BREAKDOWN" Language="it_IT">
+      <Text>{1_Current: number #.#;-#.#} / {2_Threshold: number #.#;-#.#} [icon:{4_YIELD}][n]{3_PerTurn: number +#.#;-#.#} [icon:{4_YIELD}] per turno</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_CITY_BANNER_YIELD_GROWTH_RATE_BONUS" Language="it_IT">
+      <Text>({1: number +#.#;-#.#} [icon:YIELD_FOOD] Base × {2: number #.#;-#.#}% [icon:GROWTH_RATE] [TIP:LOC_PEDIA_CONCEPTS_GROWTH_RATE_TOOLTIP]velocità di crescita[/TIP])</Text>
+    </Replace>
     <Replace Tag="LOC_UI_CITY_CAPTURE_KEEP_SETTLEMENT_DESC" Language="it_IT">
       <Text>Felicità e Produzione risulteranno temporaneamente ridotte fino all'assimilazione dell'insediamento.[n]{1_penalty}.</Text>
     </Replace>
@@ -40308,6 +40833,9 @@
     <Replace Tag="LOC_UI_CITY_DETAILS_IMPORTING_FOOD_POTENTIAL" Language="it_IT">
       <Text>Questa [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]città[/TIP] è collegata a {2_Settlement} ({3_Icon} {4_Project}).[nn]Se {2_Settlement} avesse un [icon:TOWN_FOCUS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_FOCUS_TOOLTIP]Focus[/TIP] per inviare [icon:YIELD_FOOD] Cibo, la città riceverebbe {1_Amount: number #.#;-#.#} [icon:YIELD_FOOD] Cibo per turno.</Text>
     </Replace>
+    <Replace Tag="LOC_UI_CITY_DETAILS_IMPROVEMENTS_COUNT" Language="it_IT">
+      <Text>Quantità nell'insediamento: {1_Amount}</Text>
+    </Replace>
     <Replace Tag="LOC_UI_CITY_DETAILS_NEW_CITIZEN_IN_TURNS" Language="it_IT">
       <Text>Nuovo cittadino fra {1_Turns} {1_Turns: plural 1?turno;other?turni;}</Text>
     </Replace>
@@ -40331,6 +40859,9 @@
     </Replace>
     <Replace Tag="LOC_UI_CITY_DETAILS_UNIQUE_QUARTER_NEEDS" Language="it_IT">
       <Text>Costruisci {1_Name[3]} per completare il quartiere esclusivo</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_CITY_DETAILS_WAREHOUSE_BREAKDOWN_COUNT" Language="it_IT">
+      <Text>×{1}</Text>
     </Replace>
     <Replace Tag="LOC_UI_CITY_DETAILS_YIELD_MULTIPLIER_ONE_DECIMAL" Language="it_IT">
       <Text>{1_Amount: number x #.#;x -#.#}</Text>
@@ -40496,6 +41027,9 @@
     </Replace>
     <Replace Tag="LOC_UI_GREAT_WORKS_UNIQUE_NAME" Language="it_IT">
       <Text>{1_artifact}</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_HOLD_INPUT" Language="it_IT">
+      <Text>{1_ActionName} (TIENI PREMUTO)</Text>
     </Replace>
     <Replace Tag="LOC_UI_IMPROVEMENT_FOR_TILE" Language="it_IT">
       <Text>Scegli questa casella per ottenere {1_ImprovementName[3]}.</Text>
@@ -41079,7 +41613,7 @@
       <Text>Se ti stabilirai qui, farai infuriare {1_independent[4]}</Text>
     </Replace>
     <Replace Tag="LOC_WARNING_LANDCLAIM_TOO_CLOSE_MAJOR" Language="it_IT">
-      <Text>Se ti stabilirai qui, le tue relazioni con {1_leader} peggioreranno</Text>
+      <Text>Se costruirai un insediamento qui, le tue [icon:RELATIONSHIP] relazioni con {1_leader} peggioreranno</Text>
     </Replace>
     <Replace Tag="LOC_WARNING_LOSING_INDEPENDENT_MESSAGE" Language="it_IT">
       <Text>I governatori di {2_IndependentName} subiscono sempre più il potere di {1_LeaderName}. Dobbiamo spendere più Influenza per impedire che diventi una città-stato sotto la Sovranità dei nostri rivali!</Text>

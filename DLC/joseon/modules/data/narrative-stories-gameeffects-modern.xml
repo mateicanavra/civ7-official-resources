@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+    <Modifier id="12019B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_NARRATIVE" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_CULTURE</Argument>
+        <Argument name="MultiplierType">REWARD_TYPE_MINOR_EARLY</Argument>
+    </Modifier>
+    <Modifier id="12019C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_FOOD</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+    </Modifier>
+    <Modifier id="11196B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_NARRATIVE" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_GOLD</Argument>
+        <Argument name="MultiplierType">REWARD_TYPE_MAJOR_EARLY</Argument>
+    </Modifier>
+    <Modifier id="11196C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_NARRATIVE" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+        <Argument name="MultiplierType">REWARD_TYPE_MAJOR_EARLY</Argument>
+    </Modifier>
+    <Modifier id="11196D_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_GRANT_YIELD_PER_XP_EARNED" run-once="false" permanent="true">
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+                <Argument name="Tag">UNIT_CLASS_BYEONGSA</Argument>
+            </Requirement>
+        </SubjectRequirements>
+        <Argument name="YieldType">YIELD_HAPPINESS</Argument>
+        <Argument name="Amount">3</Argument>
+    </Modifier>
+    <Modifier id="11197B_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_ADJUST_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_CULTURE</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">4</Argument>
+    </Modifier>
+    <Modifier id="11197C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_ADJUST_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_HAPPINESS</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">4</Argument>
+    </Modifier>
+    <Modifier id="11197D_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_ADJUST_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_SCIENCE</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">4</Argument>
+    </Modifier>
+    <Modifier id="11198B_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD" run-once="false" permanent="true">
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_PLOT_UNIQUE_QUARTER">
+                <Argument name="UniqueQuarterType">QUARTER_SEOWON</Argument>
+            </Requirement>
+        </SubjectRequirements>
+        <Argument name="YieldType">YIELD_SCIENCE</Argument>
+        <Argument name="Amount">4</Argument>
+    </Modifier>
+    <Modifier id="11198B_NARRATIVE_MODIFIER2" collection="COLLECTION_PLAYER_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD" run-once="false" permanent="true">
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_PLOT_UNIQUE_QUARTER">
+                <Argument name="UniqueQuarterType">QUARTER_SEOWON</Argument>
+            </Requirement>
+        </SubjectRequirements>
+        <Argument name="YieldType">YIELD_HAPPINESS</Argument>
+        <Argument name="Amount">-2</Argument>
+    </Modifier>
+    <Modifier id="11198C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD" run-once="false" permanent="true">
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_CITY_IS_CITY">
+            </Requirement>
+        </SubjectRequirements>
+        <Argument name="YieldType">YIELD_HAPPINESS</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+    </Modifier>
+    <Modifier id="11198C_NARRATIVE_MODIFIER2" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD" run-once="false" permanent="true">
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_CITY_IS_CITY">
+            </Requirement>
+        </SubjectRequirements>
+        <Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+        <Argument name="Amount">-1</Argument>
+    </Modifier>
+    <Modifier id="11199B_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_ABILITY" run-once="false" permanent="true">
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+                <Argument name="Tag">UNIT_CLASS_INFANTRY</Argument>
+            </Requirement>
+        </SubjectRequirements>
+        <Argument name="AbilityType">ABILITY_NARRATIVE_DEFENSIVE</Argument>
+    </Modifier>
+    <Modifier id="11199C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_ABILITY" run-once="false" permanent="true">
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+                <Argument name="Tag">UNIT_CLASS_CAVALRY</Argument>
+            </Requirement>
+        </SubjectRequirements>
+        <Argument name="AbilityType">ABILITY_NARRATIVE_AGGRESSION</Argument>
+    </Modifier>
+    <Modifier id="11199D_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_CULTURE</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+        <Argument name="ConstructibleType">BUILDING_MILITARY_ACADEMY</Argument>
+    </Modifier>
+    <Modifier id="11200B_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_UNIT_PRODUCTION" run-once="false" permanent="true">
+        <Argument name="Percent">35</Argument>
+        <Argument name="UnitClass">UNIT_CLASS_TURTLE_SHIP</Argument>
+    </Modifier>
+    <Modifier id="11200B_NARRATIVE_MODIFIER2" collection="COLLECTION_OWNER" effect="EFFECT_ADJUST_PLAYER_OR_CITY_UNIT_PURCHASE_EFFICIENCY" run-once="false" permanent="true">
+        <Argument name="Percent">35</Argument>
+        <Argument name="UnitTag">UNIT_CLASS_TURTLE_SHIP</Argument>
+    </Modifier>
+    <Modifier id="11200B_NARRATIVE_MODIFIER3" collection="COLLECTION_PLAYER_TRAINED_UNITS" effect="EFFECT_UNIT_ADJUST_DAMAGE" run-once="false" permanent="true">
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+                <Argument name="Tag">UNIT_CLASS_TURTLE_SHIP</Argument>
+            </Requirement>
+        </SubjectRequirements>
+        <Argument name="Amount">50</Argument>
+    </Modifier>
+    <Modifier id="11200C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_ABILITY" run-once="false" permanent="true">
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+                <Argument name="Tag">UNIT_CLASS_TURTLE_SHIP</Argument>
+            </Requirement>
+        </SubjectRequirements>
+        <Argument name="AbilityType">ABILITY_NARRATIVE_STRENGTH</Argument>
+    </Modifier>
+    <Modifier id="11200C_NARRATIVE_MODIFIER2" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_UNIT_MAINTENANCE_EFFICIENCY" run-once="false" permanent="true">
+        <Argument name="Percent">-50</Argument>
+        <Argument name="UnitTag">UNIT_CLASS_TURTLE_SHIP</Argument>
+    </Modifier>
+    <Modifier id="11200D_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_ADD_COMMANDER_WITH_UNITS" run-once="false" permanent="true">
+        <Argument name="CommanderType">UNIT_FLEET_COMMANDER</Argument>
+        <Argument name="UnitTags">UNIT_CLASS_TURTLE_SHIP,UNIT_CLASS_TURTLE_SHIP,UNIT_CLASS_TURTLE_SHIP,UNIT_CLASS_TURTLE_SHIP</Argument>
+        <Argument name="Levels">2</Argument>
+    </Modifier>
+    <Modifier id="11201B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_NARRATIVE" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+        <Argument name="MultiplierType">REWARD_TYPE_MINOR_EARLY</Argument>
+    </Modifier>
+    <Modifier id="11201C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_UNIT_PRODUCTION" run-once="false" permanent="true">
+        <Argument name="Percent">10</Argument>
+        <Argument name="UnitClass">UNIT_CLASS_TURTLE_SHIP</Argument>
+    </Modifier>
+    <Modifier id="11202B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ATTRIBUTE" run-once="false" permanent="true">
+        <Argument name="AttributeType">ATTRIBUTE_CULTURAL</Argument>
+        <Argument name="Amount">1</Argument>
+    </Modifier>
+    <Modifier id="11202C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ATTRIBUTE" run-once="false" permanent="true">
+        <Argument name="AttributeType">ATTRIBUTE_EXPANSIONIST</Argument>
+        <Argument name="Amount">1</Argument>
+    </Modifier>
+    <Modifier id="11203B_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD" run-once="false" permanent="true">
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_CITY_IS_CITY">
+            </Requirement>
+        </SubjectRequirements>
+        <Argument name="YieldType">YIELD_HAPPINESS</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">2</Argument>
+    </Modifier>
+    <Modifier id="11203C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD" run-once="false">
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_CITY_IS_CITY" inverse="true">
+            </Requirement>
+        </SubjectRequirements>
+        <Argument name="YieldType">YIELD_HAPPINESS</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+    </Modifier>
+    <Modifier id="11204B_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD" run-once="false">
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_CITY_IS_CITY" inverse="true">
+            </Requirement>
+        </SubjectRequirements>
+        <Argument name="YieldType">YIELD_GOLD</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+    </Modifier>
+    <Modifier id="11204C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD" run-once="false" permanent="true">
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_CITY_IS_CITY">
+            </Requirement>
+        </SubjectRequirements>
+        <Argument name="YieldType">YIELD_GOLD</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">2</Argument>
+    </Modifier>
+    <Modifier id="11205B_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_SCIENCE</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+        <Argument name="ConstructibleType">BUILDING_PRINTING_HOUSE</Argument>
+    </Modifier>
+    <Modifier id="11205C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_PRODUCTION</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+        <Argument name="ConstructibleType">BUILDING_PRINTING_HOUSE</Argument>
+    </Modifier>
+    <RequirementSet id="REQSET_11196D_NARRATIVE_REQUISITE">
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_UNIT_TYPE">
+            <Argument name="Amount">1</Argument>
+            <Argument name="UnitTag">UNIT_CLASS_BYEONGSA</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11197D_NARRATIVE_REQUISITE">
+        <Requirement type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
+            <Argument name="LeaderType">LEADER_CONFUCIUS</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11200D_NARRATIVE_REQUISITE">
+        <Requirement type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
+            <Argument name="LeaderType">LEADER_YI_SUN_SIN</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11196A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_JOSEON"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11197A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_JOSEON"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11199A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_JOSEON"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11200A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_JOSEON"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11200E_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_JOSEON"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11201D_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_JOSEON"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11202A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_JOSEON"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11203A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_JOSEON"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11204A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_JOSEON"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11205A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_JOSEON"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_12019A_NARRATIVE">
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
+            <Argument name="GossipTypes">GOSSIP_TRADE_ROUTE_STARTED01</Argument>
+            <Argument name="GOSSIP_TRADE_ROUTE_STARTED01">Hash,OtherPlayer,Other,Hash,Civilization,CIVILIZATION_JOSEON</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11196A_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_JOSEON"/>
+        <Requirement type="REQUIREMENT_PLAYER_MET_IMMEDIATE_GOSSIP">
+            <Argument name="GossipTypes">GOSSIP_CONSTRUCT_BUILDING</Argument>
+            <Argument name="GOSSIP_CONSTRUCT_BUILDING">Hash,ConstructibleType,WONDER_HWASEONG</Argument>
+        </Requirement>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_ACTIVE_TRADITION">
+            <Argument name="TraitType">TRAIT_GORYEO</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11197A_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_JOSEON"/>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_UNIQUE_QUARTER" inverse="true">
+            <Argument name="UniqueQuarterType">QUARTER_SEOWON</Argument>
+        </Requirement>
+        <Requirement type="REQUIREMENT_COLLECTION_ANY_MET">
+            <Argument name="CollectionType">COLLECTION_PLAYER_CAPITAL_CITY</Argument>
+            <Argument name="RequirementSetId">SUBREQSET_11197A_NARRATIVE</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="SUBREQSET_11197A_NARRATIVE">
+        <Requirement type="REQUIREMENT_CITY_HAPPINESS">
+            <Argument name="Unhappy">True</Argument>
+        </Requirement>
+        <Requirement type="REQUIREMENT_GAME_TURN_IS_X_NARRATIVE">
+            <Argument name="Turn">10</Argument>
+            <Argument name="Scale">True</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11198A_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_JOSEON"/>
+        <Requirement type="REQUIREMENT_COLLECTION_ANY_MET">
+            <Argument name="CollectionType">COLLECTION_PLAYER_CITIES</Argument>
+            <Argument name="RequirementSetId">SUBREQSET_11198A_NARRATIVE</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="SUBREQSET_11198A_NARRATIVE">
+        <Requirement type="REQUIREMENT_CITY_HAS_UNIQUE_QUARTER">
+            <Argument name="UniqueQuarterType">QUARTER_SEOWON</Argument>
+        </Requirement>
+        <Requirement type="REQUIREMENT_CITY_IS_CITY" inverse="true">
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11199A_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_JOSEON"/>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_BUILDINGS">
+            <Argument name="BuildingType">BUILDING_MILITARY_ACADEMY</Argument>
+            <Argument name="Amount">2</Argument>
+        </Requirement>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_UNIT_TYPE">
+            <Argument name="Amount">2</Argument>
+            <Argument name="UnitTag">UNIT_CLASS_BYEONGSA</Argument>
+        </Requirement>
+        <Requirement type="REQUIREMENT_PLAYER_IS_AT_PEACE_WITH_ALL_MAJORS">
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11200E_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_JOSEON"/>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_MILITARY_UNITS">
+            <Argument name="UnitTag">UNIT_CLASS_TURTLE_SHIP</Argument>
+            <Argument name="Amount">6</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11200A_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_JOSEON"/>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
+            <Argument name="GossipTypes">GOSSIP_UNIT_COMBAT_DEATH01,GOSSIP_UNIT_COMBAT_DEATH02,GOSSIP_UNIT_COMBAT_DEATH03</Argument>
+            <Argument name="GOSSIP_UNIT_COMBAT_DEATH01">Hash,OtherPlayer,Self,Hash,KillingUnitType,UNIT_TURTLE_SHIP,Hash,DomainType,DOMAIN_SEA</Argument>
+            <Argument name="GOSSIP_UNIT_COMBAT_DEATH02">Hash,OtherPlayer,Self,Hash,KillingUnitType,UNIT_TURTLE_SHIP_2,Hash,DomainType,DOMAIN_SEA</Argument>
+            <Argument name="GOSSIP_UNIT_COMBAT_DEATH03">Hash,OtherPlayer,Self,Hash,KillingUnitType,UNIT_TURTLE_SHIP_3,Hash,DomainType,DOMAIN_SEA</Argument>
+            <Argument name="Amount">1</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11201D_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_JOSEON"/>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_COMPLETED_PROGRESSION_TREE_NODE">
+            <Argument name="ProgressionTreeNodeType">NODE_CIVIC_MO_MAIN_MODERNIZATION</Argument>
+            <Argument name="MinDepth">1</Argument>
+        </Requirement>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_COMPLETED_PROGRESSION_TREE_NODE">
+            <Argument name="ProgressionTreeNodeType">NODE_CIVIC_MO_MAIN_SOCIAL_QUESTION</Argument>
+            <Argument name="MinDepth">1</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11201A_NARRATIVE">
+        <Requirement type="REQUIREMENT_PLAYER_MET_IMMEDIATE_GOSSIP">
+            <Argument name="GossipTypes">GOSSIP_DIPLOMACY_RESPONSE</Argument>
+            <Argument name="GOSSIP_DIPLOMACY_RESPONSE">Hash,DiplomacyResponseType,DIPLOMACY_RESPONSE_SUPPORT,Hash,DiplomacyActionType,DIPLOMACY_ACTION_CULTURAL_EXCHANGE</Argument>
+        </Requirement>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_X_TRADE_ROUTES_WITH_PLAYER" inverse="true">
+            <Argument name="Amount">1</Argument>
+            <Argument name="AllPlayers">True</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11202A_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_JOSEON"/>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_COMPLETED_PROGRESSION_TREE_NODE">
+            <Argument name="ProgressionTreeNodeType">NODE_CIVIC_MO_JOSEON_SAMGANG</Argument>
+            <Argument name="MinDepth">1</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11203A_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_JOSEON"/>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_ACTIVE_TRADITION">
+            <Argument name="TraditionType">TRADITION_GWAGEO</Argument>
+        </Requirement>
+        <Requirement type="REQUIREMENT_COLLECTION_COUNT_ATLEAST">
+            <Argument name="Count">3</Argument>
+            <Argument name="CollectionType">COLLECTION_PLAYER_CITIES</Argument>
+            <Argument name="RequirementSetId">SUBREQSET_11203A_NARRATIVE_CITIES</Argument>
+        </Requirement>
+        <Requirement type="REQUIREMENT_COLLECTION_COUNT_ATLEAST">
+            <Argument name="Count">5</Argument>
+            <Argument name="CollectionType">COLLECTION_PLAYER_CITIES</Argument>
+            <Argument name="RequirementSetId">SUBREQSET_11203A_NARRATIVE_TOWNS</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="SUBREQSET_11203A_NARRATIVE_CITIES">
+        <Requirement type="REQUIREMENT_CITY_HAS_BUILDING">
+            <Argument name="BuildingType">BUILDING_CONFUCIAN_ACADEMY</Argument>
+            <Argument name="Amount">1</Argument>
+        </Requirement>
+        <Requirement type="REQUIREMENT_CITY_IS_CITY">
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="SUBREQSET_11203A_NARRATIVE_TOWNS">
+        <Requirement type="REQUIREMENT_CITY_HAS_BUILDING">
+            <Argument name="BuildingType">BUILDING_CONFUCIAN_ACADEMY</Argument>
+            <Argument name="Amount">1</Argument>
+        </Requirement>
+        <Requirement type="REQUIREMENT_CITY_IS_CITY" inverse="true">
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11204A_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_JOSEON"/>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
+            <Argument name="GossipTypes">GOSSIP_TRADE_ROUTE_STARTED01</Argument>
+            <Argument name="GOSSIP_TRADE_ROUTE_STARTED01">Hash,OtherPlayer,Other</Argument>
+            <Argument name="DuplicateCount">5</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11205A_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_JOSEON"/>
+        <Requirement type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES" inverse="true">
+            <Argument name="CivilizationType">CIVILIZATION_GORYEO</Argument>
+            <Argument name="IsPastCivilization">True</Argument>
+        </Requirement>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_ACTIVE_TRADITION">
+            <Argument name="TraditionType">TRADITION_PRESERVATION_SOCIETIES</Argument>
+        </Requirement>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_BUILDINGS">
+            <Argument name="BuildingType">BUILDING_PRINTING_HOUSE</Argument>
+            <Argument name="Amount">8</Argument>
+        </Requirement>
+    </RequirementSet>
+</GameEffects>

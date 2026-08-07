@@ -374,6 +374,7 @@ class ScreenCultureTree extends Panel {
     }
   }
   close() {
+    PopupSequencer.closePopup("syncretism-info-card");
     super.close();
   }
   refreshNavTray() {

@@ -204,12 +204,14 @@ const TradeRoutesContainer = (props) => {
     return sortByResourceCount;
   });
   const [textFilter, setTextFilter] = createSignal("");
+  const tradeRouteSearchResults = createMemo(() => {
+    return model.tradeRouteSearch(textFilter());
+  });
   function tradeRouteIsIncludedInFilter(tradeRouteData) {
     if (textFilter() === "") {
       return true;
     }
-    const textToCompare = Locale.toLower(textFilter());
-    return tradeRouteData.fullText.includes(textToCompare);
+    return tradeRouteSearchResults().has(ComponentID.toString(tradeRouteData.cityID));
   }
   createEffect(() => {
     props.tradeRouteSections.forEach((tradeRouteSection) => {
@@ -248,7 +250,7 @@ const TradeRoutesContainer = (props) => {
     if (model.selectedTradeRouteId()) {
       const selectedCity = Cities.get(model.selectedTradeRouteId());
       if (selectedCity) {
-        const deselectRouteLabel = Locale.compose("LOC_COMMERCE_GAMEPAD_DESELECT_CITY_HINT", Locale.compose(selectedCity.name));
+        const deselectRouteLabel = Locale.compose("LOC_COMMERCE_GAMEPAD_STOP_VIEWING_CONTAINER_HINT", Locale.compose(selectedCity.name));
         return [{
           hotkeyAction: "cancel",
           name: "cancel-traderoute-edit",
@@ -270,7 +272,7 @@ const TradeRoutesContainer = (props) => {
       if (focusedTradeRoute()) {
         const focusedCity = Cities.get(focusedTradeRoute());
         if (focusedCity) {
-          const selectRouteLabel = Locale.compose("LOC_COMMERCE_GAMEPAD_SELECT_CITY_HINT", Locale.compose(focusedCity.name));
+          const selectRouteLabel = Locale.compose("LOC_COMMERCE_GAMEPAD_VIEW_CONTAINER_HINT", Locale.compose(focusedCity.name));
           items.push({
             hotkeyAction: "accept",
             name: "traderoute-edit",

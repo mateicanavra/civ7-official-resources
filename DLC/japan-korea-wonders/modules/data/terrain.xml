@@ -23,7 +23,7 @@
 	<Features>
 		<!--Natural Wonders -->
 		<Row FeatureType="FEATURE_NACHI_FALLS" Name="LOC_FEATURE_NACHI_FALLS_NAME" Description="LOC_FEATURE_NACHI_FALLS_DESCRIPTION" Tooltip="LOC_FEATURE_NACHI_FALLS_TOOLTIP" PlacementClass="FOURPARALLELAGRMWATERFALL" Impassable="true" Appeal="6" Removable="false" SightThroughModifier="1"/>
-		<Row FeatureType="FEATURE_SEONGSAN_ILCHULBONG" Name="LOC_FEATURE_SEONGSAN_ILCHULBONG_NAME" Description="LOC_FEATURE_SEONGSAN_ILCHULBONG_DESCRIPTION" Tooltip="LOC_FEATURE_SEONGSAN_ILCHULBONG_TOOLTIP" PlacementClass="TWO" Appeal="6" Impassable="false" NoLake="true" Removable="false" SightThroughModifier="1"/>
+		<Row FeatureType="FEATURE_SEONGSAN_ILCHULBONG" Name="LOC_FEATURE_SEONGSAN_ILCHULBONG_NAME" Description="LOC_FEATURE_SEONGSAN_ILCHULBONG_DESCRIPTION" Tooltip="LOC_FEATURE_SEONGSAN_ILCHULBONG_TOOLTIP" PlacementClass="TWO" Appeal="6" Impassable="true" NoLake="true" Removable="false" SightThroughModifier="1"/>
 	</Features>
 	<Feature_NaturalWonders>
 		<Row FeatureType="FEATURE_NACHI_FALLS" Tiles="4" NoRiver="false" PlacementPercentage="100" Direction="0"/>
@@ -31,7 +31,7 @@
 	</Feature_NaturalWonders>
 	<Feature_ValidTerrains>
 		<!--Natural Wonders -->
-		<Row FeatureType="FEATURE_NACHI_FALLS" TerrainType="TERRAIN_FLAT"/>
+		<Row FeatureType="FEATURE_NACHI_FALLS" TerrainType="TERRAIN_MOUNTAIN"/>
 		<Row FeatureType="FEATURE_SEONGSAN_ILCHULBONG" TerrainType="TERRAIN_COAST"/>
 	</Feature_ValidTerrains>
 	<Feature_ValidBiomes>
@@ -41,7 +41,7 @@
 	</Feature_ValidBiomes>
 	<TerrainBiomeFeature_YieldChanges>
 		<!--Natural Wonders -->
-		<Row TerrainType="TERRAIN_FLAT" BiomeType="BIOME_TROPICAL" FeatureType="FEATURE_NACHI_FALLS" YieldType="YIELD_CULTURE" YieldChange="6" ScaleByGameAge="50"/>
+		<Row TerrainType="TERRAIN_MOUNTAIN" BiomeType="BIOME_TROPICAL" FeatureType="FEATURE_NACHI_FALLS" YieldType="YIELD_CULTURE" YieldChange="6" ScaleByGameAge="50"/>
 		<Row TerrainType="TERRAIN_COAST" BiomeType="BIOME_MARINE" FeatureType="FEATURE_SEONGSAN_ILCHULBONG" YieldType="YIELD_HAPPINESS" YieldChange="6" ScaleByGameAge="50"/>
 	</TerrainBiomeFeature_YieldChanges>
 	<GameModifiers>

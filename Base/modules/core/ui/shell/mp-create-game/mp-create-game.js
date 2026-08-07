@@ -69,7 +69,6 @@ class PanelMPCreateGame extends AdvancedOptionsBase {
         isActive: false,
         eventHandler: () => {
           this.showAddOnsSetupPanel();
-          this.enteredAdditionalContent = true;
         }
       });
     }
@@ -207,6 +206,7 @@ class PanelMPCreateGame extends AdvancedOptionsBase {
     this.close();
     if (this.enteredAdditionalContent) {
       Configuration.editGame()?.refreshEnabledMods();
+      this.enteredAdditionalContent = false;
     }
     MultiplayerShellManager.hostMultiplayerGame(MultiplayerShellManager.serverType);
   }
@@ -215,6 +215,8 @@ class PanelMPCreateGame extends AdvancedOptionsBase {
       NavTray.addOrUpdateNavShellPrevious("LOC_UI_SAVE_CONFIG");
       NavTray.addOrUpdateNavShellNext("LOC_UI_LOAD_CONFIG");
       NavTray.addOrUpdateShellAction1("LOC_OPTIONS_MODDING_ENABLE_ALL");
+      NavTray.addOrUpdateShellAction3("LOC_UI_MP_BROWSER_LOAD_NAVTRAY");
+      this.enteredAdditionalContent = true;
     } else {
       super.setupNavTray();
       NavTray.addOrUpdateShellAction1("LOC_UI_MP_HOST_LOBBY");
@@ -262,6 +264,7 @@ class PanelMPCreateGame extends AdvancedOptionsBase {
     this.goToNewPanel(this.mpAdvancedSetupPanel);
   }
   showAddOnsSetupPanel() {
+    this.enteredAdditionalContent = true;
     this.goToNewPanel(this.addOnsSetupPanel);
   }
   resolveParamGroup(param) {

@@ -137,7 +137,7 @@ const EmpireResourceContainer = (props) => {
     if (model.selectedEmpireResource()) {
       const selectedResourceDefinition = getResourceDefinitonFromResourceValue(model.selectedEmpireResource());
       if (selectedResourceDefinition) {
-        const deselectResourceLabel = Locale.compose("LOC_COMMERCE_GAMEPAD_DESELECT_CITY_HINT", Locale.compose(selectedResourceDefinition.Name));
+        const deselectResourceLabel = Locale.compose("LOC_COMMERCE_GAMEPAD_STOP_VIEWING_CONTAINER_HINT", Locale.compose(selectedResourceDefinition.Name));
         return [{
           hotkeyAction: "cancel",
           name: "cancel-empire-resource-edit",
@@ -149,7 +149,7 @@ const EmpireResourceContainer = (props) => {
     } else if (focusedResourceCard()) {
       const focusedResourceDefinition = getResourceDefinitonFromResourceValue(focusedResourceCard());
       if (focusedResourceDefinition) {
-        const selectResourceLabel = Locale.compose("LOC_COMMERCE_GAMEPAD_SELECT_CITY_HINT", Locale.compose(focusedResourceDefinition.Name));
+        const selectResourceLabel = Locale.compose("LOC_COMMERCE_GAMEPAD_VIEW_CONTAINER_HINT", Locale.compose(focusedResourceDefinition.Name));
         return [{
           hotkeyAction: "accept",
           name: "empire-resource-edit",
@@ -272,7 +272,7 @@ const EmpireResourceContainer = (props) => {
                                         return createComponent(L10n.Stylize, {
                                           "class": "py-1 self-center text-center",
                                           text: description,
-                                          args: ["disableTooltips"]
+                                          disableTooltips: true
                                         });
                                       },
                                       get children() {

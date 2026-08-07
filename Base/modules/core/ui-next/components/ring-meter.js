@@ -3,7 +3,7 @@ import { mergeProps, createMemo, createEffect, on, createComponent, Show, For, c
 import { ComponentRegistry } from '../services/component-registry.js';
 import { createPropsRefSignal, createAnimationSignal } from '../utilities/solid-utilities.js';
 
-var _tmpl$ = /* @__PURE__ */ template(`<div class="absolute self-center top-px left-0 right-0 bottom-0"></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div><div></div><div class=fxs-ring-meter__ring><div class=fxs-ring-meter__mask-left><div class=fxs-ring-meter__ring-left></div></div><div class=fxs-ring-meter__mask-right><div class=fxs-ring-meter__ring-right></div></div></div></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="absolute ring-meter-pip"></div>`);
+var _tmpl$ = /* @__PURE__ */ template(`<div class="absolute self-center top-px left-0 right-0 bottom-0"></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div data-name=RingMeter><div></div><div class=fxs-ring-meter__ring><div class=fxs-ring-meter__mask-left><div class=fxs-ring-meter__ring-left></div></div><div class=fxs-ring-meter__mask-right><div class=fxs-ring-meter__ring-right></div></div></div></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="absolute ring-meter-pip"></div>`);
 const RingMeterComponent = (props) => {
   const EPSILON = 5e-4;
   let ringFillStart = 0;

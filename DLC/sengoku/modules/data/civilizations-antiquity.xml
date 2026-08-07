@@ -1,17 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Database>
-	<Civilizations>
-		<Update>
-			<Where CivilizationType="CIVILIZATION_SENGOKU" />
-			<Set UniqueCultureProgressionTree="TREE_CIVICS_AQ_TEST_OF_TIME" />
-		</Update>
-	</Civilizations>
 	<ProgressionTreeNodeUnlocks>
 		<Delete ProgressionTreeNodeType="NODE_TECH_EX_CASTLES" TargetType="WONDER_HIMEJI_CASTLE"/>
 	</ProgressionTreeNodeUnlocks>
-	<CivilizationTraits>
-		<Row CivilizationType="CIVILIZATION_SENGOKU" TraitType="TRAIT_ANACHRONISTIC_CIV" />
-	</CivilizationTraits>
 	<TraitModifiers>
 		<Row TraitType="TRAIT_SENGOKU_ABILITY" ModifierId="SENGOKU_MOD_COMMANDER_XP_CULTURE"/>
 		<Row TraitType="TRAIT_SENGOKU_ABILITY" ModifierId="SENGOKU_MOD_COMMANDER_XP_SCIENCE"/>

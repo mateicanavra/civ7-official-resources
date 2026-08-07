@@ -1,5 +1,5 @@
 import { template, addEventListener, insert, className } from '../../../vendor/solid-js/web/dist/web.js';
-import { createSignal, createMemo, createComponent, For, createRenderEffect, onMount, Show } from '../../../vendor/solid-js/dist/solid.js';
+import { createSignal, createMemo, createComponent, For, createRenderEffect, Show } from '../../../vendor/solid-js/dist/solid.js';
 import { Activatable } from '../../components/activatable.js';
 import { defineLegacyComponent } from '../../components/fxs-solid-component.js';
 import { Icon } from '../../components/icon.js';
@@ -70,11 +70,9 @@ const FocusTreeNode = (props) => {
 const FocusViewerComponent = (props) => {
   const [isVisible, setIsVisible] = createSignal(props.initialVisibility);
   const icon = createMemo(() => isVisible() ? "Action_Sleep" : "Action_Wake");
-  onMount(() => {
-    console.log("FocusViewer mounted");
-  });
   return (() => {
     var _el$5 = _tmpl$3();
+    _el$5.style.setProperty("z-index", "99999");
     insert(_el$5, createComponent(Activatable, {
       disableFocus: true,
       "class": "border-2 size-16 border-white self-end m-4",

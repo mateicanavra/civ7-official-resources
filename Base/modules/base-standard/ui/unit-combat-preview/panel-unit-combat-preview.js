@@ -73,6 +73,7 @@ class PanelUnitCombatPreview extends Component {
   onDetach() {
     UI.lockCursor(false);
     SetIsPlotTooltipVisible(true);
+    WorldAnchors.ClearWorldUnitsSelectedUnitTargeting();
     engine.off("UnitSelectionChanged", this.onUnitSelectionChanged, this);
     engine.off("UnitRemovedFromMap", this.onUnitRemovedFromMap, this);
     engine.off("UnitMoveComplete", this.onUnitMoveComplete, this);

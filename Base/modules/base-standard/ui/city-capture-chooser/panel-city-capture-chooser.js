@@ -80,7 +80,9 @@ class CityCaptureChooserScreen extends Panel {
   }
   setFocus() {
     const focusElement = MustGetElement(".cap-chooser__choice-container", this.Root);
-    FocusManager.get().setFocus(focusElement);
+    delayByFrame(() => {
+      FocusManager.get().setFocus(focusElement);
+    }, 20);
   }
   keepSettlementSelected() {
     if (this.selectedButton) {

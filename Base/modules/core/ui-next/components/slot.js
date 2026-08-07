@@ -1,8 +1,8 @@
 import { template, use, spread, insert } from '../../vendor/solid-js/web/dist/web.js';
-import { useContext, createMemo, onMount, mergeProps, createComponent, onCleanup } from '../../vendor/solid-js/dist/solid.js';
+import { createMemo, onMount, mergeProps, createComponent, onCleanup } from '../../vendor/solid-js/dist/solid.js';
 import SpatialWrap from '../../ui/external/js-spatial-navigation/spatial-wrapper.js';
 import { ComponentRegistry } from '../services/component-registry.js';
-import { isContextFocusable, isFocusableAFocusContext, FocusContext, FocusContextProvider, DefaultNavigationRules } from '../services/focus.js';
+import { isContextFocusable, isFocusableAFocusContext, FocusContextProvider, FocusContext, DefaultNavigationRules } from '../services/focus.js';
 import { createPropsRefSignal } from '../utilities/solid-utilities.js';
 
 var _tmpl$ = /* @__PURE__ */ template(`<div></div>`);
@@ -27,8 +27,7 @@ const SlotComponent = (props) => {
     }
     return false;
   };
-  const parentContext = useContext(FocusContext);
-  const focusContext = new FocusContextProvider(root, navigationHandler, props.name ?? parentContext.contextName, props.sortOrder);
+  const focusContext = new FocusContextProvider(root, navigationHandler, props.name ?? "Slot", props.sortOrder);
   const isFocusable = createMemo(() => !props.disabled && !props.disableFocus && focusContext.hasChildren());
   onMount(() => props.setFocusContext?.(focusContext));
   return (() => {

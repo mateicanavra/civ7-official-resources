@@ -7,6 +7,7 @@ import { Button } from '../../../../core/ui-next/components/button.js';
 import { defineLegacyComponent } from '../../../../core/ui-next/components/fxs-solid-component.js';
 import { L10n } from '../../../../core/ui-next/components/l10n.js';
 import { Panel } from '../../../../core/ui-next/components/panel.js';
+import { NestedTooltipContext } from '../../../../core/ui-next/components/tooltip-compat.js';
 import { ComponentRegistry } from '../../../../core/ui-next/services/component-registry.js';
 import { EndgameCinematicManager } from './endgame-cinematics.js';
 import { createEndGameContextModel, EndGameScreenContext } from './endgame-model.js';
@@ -114,147 +115,154 @@ const EndGameScreenComponent = () => {
     "class": "fullscreen",
     onCancelInput: () => nextPage(),
     get children() {
-      return createComponent(EndGameScreenContext.Provider, {
-        value: model,
+      return createComponent(NestedTooltipContext.Provider, {
+        value: {
+          disabled: true
+        },
         get children() {
-          return [createComponent(Show, {
-            get when() {
-              return activePage() < 2;
-            },
+          return createComponent(EndGameScreenContext.Provider, {
+            value: model,
             get children() {
-              var _el$ = _tmpl$3(), _el$2 = _el$.firstChild, _el$3 = _el$2.nextSibling, _el$4 = _el$3.firstChild, _el$5 = _el$4.firstChild, _el$7 = _el$5.nextSibling, _el$10 = _el$3.nextSibling;
-              _el$5.style.setProperty("background-image", "url('blp:age-banner_filligree.png')");
-              insert(_el$4, createComponent(Show, {
+              return [createComponent(Show, {
                 get when() {
-                  return !!model.endgameData.victoryIconUrl?.trim();
+                  return activePage() < 2;
                 },
                 get children() {
-                  var _el$6 = _tmpl$();
-                  createRenderEffect((_$p) => (_$p = `${model.endgameData.victoryIconUrl}`) != null ? _el$6.style.setProperty("background-image", _$p) : _el$6.style.removeProperty("background-image"));
-                  return _el$6;
-                }
-              }), _el$7);
-              insert(_el$4, () => model.endgameData.victoryName, _el$7);
-              _el$7.style.setProperty("background-image", "url('blp:age-banner_filligree.png')");
-              insert(_el$, createComponent(Show, {
-                get when() {
-                  return createMemo(() => model.endgameData.victoryDescription != "")() && activePage() === 0;
-                },
-                get children() {
-                  var _el$8 = _tmpl$2(), _el$9 = _el$8.firstChild;
-                  insert(_el$8, createComponent(L10n.Stylize, {
-                    get text() {
-                      return model.endgameData.victoryDescription;
+                  var _el$ = _tmpl$3(), _el$2 = _el$.firstChild, _el$3 = _el$2.nextSibling, _el$4 = _el$3.firstChild, _el$5 = _el$4.firstChild, _el$7 = _el$5.nextSibling, _el$10 = _el$3.nextSibling;
+                  _el$5.style.setProperty("background-image", "url('blp:age-banner_filligree.png')");
+                  insert(_el$4, createComponent(Show, {
+                    get when() {
+                      return !!model.endgameData.victoryIconUrl?.trim();
                     },
-                    role: "heading"
-                  }), null);
-                  return _el$8;
-                }
-              }), _el$10);
-              _el$10.style.setProperty("background-image", "url('blp:popup_paneltop_wide.png')");
-              createRenderEffect((_p$) => {
-                var _v$ = `endgame-victory-title flex justify-center items-center bg-cover bg-no-repeat relative ${activePage() === 1 ? "h-36" : model.endgameData.victoryDescription !== "" ? "h-48" : "h-40 no-desc"}`, _v$2 = `endgame-banner-border absolute size-full top-0 left-0${activePage() === 1 ? " small" : ""}`, _v$3 = `${model.endgameData.victoryBgUrl}}`;
-                _v$ !== _p$.e && className(_el$, _p$.e = _v$);
-                _v$2 !== _p$.t && className(_el$2, _p$.t = _v$2);
-                _v$3 !== _p$.a && ((_p$.a = _v$3) != null ? _el$2.style.setProperty("border-image-source", _v$3) : _el$2.style.removeProperty("border-image-source"));
-                return _p$;
-              }, {
-                e: void 0,
-                t: void 0,
-                a: void 0
-              });
-              return _el$;
-            }
-          }), createComponent(Show, {
-            get when() {
-              return activePage() === 0;
-            },
-            get children() {
-              return [(() => {
-                var _el$11 = _tmpl$4();
-                insert(_el$11, createComponent(PortraitIconVictory, {
-                  get playerId() {
-                    return model.endgameData.playerId;
-                  },
-                  size: 52,
-                  isVictory: true,
-                  isDomination,
-                  get isDefeat() {
-                    return model.endgameData.isDefeated;
-                  }
-                }));
-                return _el$11;
-              })(), createComponent(Button, {
-                onActivate: () => {
-                  nextPage();
-                },
-                hotkeyAction: "accept",
-                navTrayText: "LOC_GENERIC_CONTINUE",
-                "class": "absolute bottom-10 right-10",
-                get children() {
-                  return createComponent(L10n.Compose, {
-                    text: "LOC_GENERIC_CONTINUE"
+                    get children() {
+                      var _el$6 = _tmpl$();
+                      createRenderEffect((_$p) => (_$p = `${model.endgameData.victoryIconUrl}`) != null ? _el$6.style.setProperty("background-image", _$p) : _el$6.style.removeProperty("background-image"));
+                      return _el$6;
+                    }
+                  }), _el$7);
+                  insert(_el$4, () => model.endgameData.victoryName, _el$7);
+                  _el$7.style.setProperty("background-image", "url('blp:age-banner_filligree.png')");
+                  insert(_el$, createComponent(Show, {
+                    get when() {
+                      return createMemo(() => model.endgameData.victoryDescription != "")() && activePage() === 0;
+                    },
+                    get children() {
+                      var _el$8 = _tmpl$2(), _el$9 = _el$8.firstChild;
+                      insert(_el$8, createComponent(L10n.Stylize, {
+                        get text() {
+                          return model.endgameData.victoryDescription;
+                        },
+                        role: "heading"
+                      }), null);
+                      return _el$8;
+                    }
+                  }), _el$10);
+                  _el$10.style.setProperty("background-image", "url('blp:popup_paneltop_wide.png')");
+                  createRenderEffect((_p$) => {
+                    var _v$ = `endgame-victory-title flex justify-center items-center bg-cover bg-no-repeat relative ${activePage() === 1 ? "h-36" : model.endgameData.victoryDescription !== "" ? "h-48" : "h-40 no-desc"}`, _v$2 = `endgame-banner-border absolute size-full top-0 left-0${activePage() === 1 ? " small" : ""}`, _v$3 = `${model.endgameData.victoryBgUrl}}`;
+                    _v$ !== _p$.e && className(_el$, _p$.e = _v$);
+                    _v$2 !== _p$.t && className(_el$2, _p$.t = _v$2);
+                    _v$3 !== _p$.a && ((_p$.a = _v$3) != null ? _el$2.style.setProperty("border-image-source", _v$3) : _el$2.style.removeProperty("border-image-source"));
+                    return _p$;
+                  }, {
+                    e: void 0,
+                    t: void 0,
+                    a: void 0
                   });
+                  return _el$;
+                }
+              }), createComponent(Show, {
+                get when() {
+                  return activePage() === 0;
+                },
+                get children() {
+                  return [(() => {
+                    var _el$11 = _tmpl$4();
+                    insert(_el$11, createComponent(PortraitIconVictory, {
+                      get playerId() {
+                        return model.endgameData.playerId;
+                      },
+                      size: 52,
+                      isVictory: true,
+                      isDomination,
+                      get isDefeat() {
+                        return model.endgameData.isDefeated;
+                      }
+                    }));
+                    return _el$11;
+                  })(), createComponent(Button, {
+                    onActivate: () => {
+                      nextPage();
+                    },
+                    hotkeyAction: "accept",
+                    navTrayText: "LOC_GENERIC_CONTINUE",
+                    "class": "absolute bottom-10 right-10",
+                    get children() {
+                      return createComponent(L10n.Compose, {
+                        text: "LOC_GENERIC_CONTINUE"
+                      });
+                    }
+                  })];
+                }
+              }), createComponent(Show, {
+                get when() {
+                  return activePage() === 1 && !model.endgameData.isDefeated;
+                },
+                get children() {
+                  return [(() => {
+                    var _el$12 = _tmpl$5(), _el$13 = _el$12.firstChild, _el$14 = _el$13.firstChild, _el$15 = _el$14.nextSibling, _el$16 = _el$15.nextSibling, _el$17 = _el$13.nextSibling, _el$18 = _el$17.nextSibling, _el$19 = _el$18.firstChild, _el$20 = _el$19.nextSibling, _el$21 = _el$20.firstChild, _el$22 = _el$21.nextSibling;
+                    _el$16.style.setProperty("background-image", "url('blp:base_top-filigree_center.png')");
+                    insert(_el$17, createComponent(L10n.Stylize, {
+                      get text() {
+                        return model.endgameData.leaderQuote;
+                      },
+                      role: "article"
+                    }));
+                    insert(_el$20, () => model.endgameData.leaderName, _el$22);
+                    return _el$12;
+                  })(), (() => {
+                    var _el$23 = _tmpl$6();
+                    insert(_el$23, createComponent(Button, {
+                      onActivate: () => {
+                        setActivePage(0);
+                      },
+                      "class": "mr-8",
+                      hotkeyAction: "shell-action-1",
+                      navTrayText: "LOC_END_GAME_REPLAY",
+                      get children() {
+                        return createComponent(L10n.Compose, {
+                          text: "LOC_END_GAME_REPLAY"
+                        });
+                      }
+                    }), null);
+                    insert(_el$23, createComponent(Button, {
+                      onActivate: () => {
+                        nextPage();
+                      },
+                      hotkeyAction: "accept",
+                      navTrayText: "LOC_GENERIC_CONTINUE",
+                      get children() {
+                        return createComponent(L10n.Compose, {
+                          text: "LOC_GENERIC_CONTINUE"
+                        });
+                      }
+                    }), null);
+                    return _el$23;
+                  })()];
+                }
+              }), createComponent(Show, {
+                get when() {
+                  return activePage() === 2;
+                },
+                get children() {
+                  var _el$24 = _tmpl$7();
+                  var _ref$ = fxsMovie;
+                  typeof _ref$ === "function" ? use(_ref$, _el$24) : fxsMovie = _el$24;
+                  return _el$24;
                 }
               })];
             }
-          }), createComponent(Show, {
-            get when() {
-              return activePage() === 1 && !model.endgameData.isDefeated;
-            },
-            get children() {
-              return [(() => {
-                var _el$12 = _tmpl$5(), _el$13 = _el$12.firstChild, _el$14 = _el$13.firstChild, _el$15 = _el$14.nextSibling, _el$16 = _el$15.nextSibling, _el$17 = _el$13.nextSibling, _el$18 = _el$17.nextSibling, _el$19 = _el$18.firstChild, _el$20 = _el$19.nextSibling, _el$21 = _el$20.firstChild, _el$22 = _el$21.nextSibling;
-                _el$16.style.setProperty("background-image", "url('blp:base_top-filigree_center.png')");
-                insert(_el$17, createComponent(L10n.Stylize, {
-                  get text() {
-                    return model.endgameData.leaderQuote;
-                  },
-                  role: "article"
-                }));
-                insert(_el$20, () => model.endgameData.leaderName, _el$22);
-                return _el$12;
-              })(), (() => {
-                var _el$23 = _tmpl$6();
-                insert(_el$23, createComponent(Button, {
-                  onActivate: () => {
-                    setActivePage(0);
-                  },
-                  "class": "mr-8",
-                  hotkeyAction: "shell-action-1",
-                  navTrayText: "LOC_END_GAME_REPLAY",
-                  get children() {
-                    return createComponent(L10n.Compose, {
-                      text: "LOC_END_GAME_REPLAY"
-                    });
-                  }
-                }), null);
-                insert(_el$23, createComponent(Button, {
-                  onActivate: () => {
-                    nextPage();
-                  },
-                  hotkeyAction: "accept",
-                  navTrayText: "LOC_GENERIC_CONTINUE",
-                  get children() {
-                    return createComponent(L10n.Compose, {
-                      text: "LOC_GENERIC_CONTINUE"
-                    });
-                  }
-                }), null);
-                return _el$23;
-              })()];
-            }
-          }), createComponent(Show, {
-            get when() {
-              return activePage() === 2;
-            },
-            get children() {
-              var _el$24 = _tmpl$7();
-              var _ref$ = fxsMovie;
-              typeof _ref$ === "function" ? use(_ref$, _el$24) : fxsMovie = _el$24;
-              return _el$24;
-            }
-          })];
+          });
         }
       });
     }

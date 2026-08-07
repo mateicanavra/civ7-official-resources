@@ -37,20 +37,20 @@ class RelationshipBreakdown {
     );
     this.update(playerA, playerB);
   }
-  update(playerA, playerB = GameContext.localPlayerID) {
-    const playerDiplomacy = Players.Diplomacy.get(playerA);
+  update(otherPlayer, localPlayer = GameContext.localPlayerID) {
+    const playerDiplomacy = Players.Diplomacy.get(localPlayer);
     if (!playerDiplomacy) {
-      console.error("relationship-breakdown: Unable to get player diplomacy", playerA);
+      console.error("relationship-breakdown: Unable to get player diplomacy", localPlayer);
       return;
     }
-    const relationship = playerDiplomacy.getRelationshipEnum(playerB);
-    if (playerB == PlayerIds.NO_PLAYER) {
-      console.error("relationship-breakdown: playerB is NO_PLAYER");
+    const relationship = playerDiplomacy.getRelationshipEnum(otherPlayer);
+    if (otherPlayer == PlayerIds.NO_PLAYER) {
+      console.error("relationship-breakdown: otherPlayer is NO_PLAYER");
     } else {
-      this.relationshipName.innerHTML = Locale.stylize(playerDiplomacy.getRelationshipLevelName(playerB));
+      this.relationshipName.innerHTML = Locale.stylize(playerDiplomacy.getRelationshipLevelName(otherPlayer));
     }
     this.relationshipIcon.setAttribute("data-icon-id", DiplomacyManager.getRelationshipTypeString(relationship));
-    const relationshipAmountValue = playerDiplomacy.getRelationshipLevel(playerB);
+    const relationshipAmountValue = playerDiplomacy.getRelationshipLevel(otherPlayer);
     let relationshipAmountString = relationshipAmountValue.toString();
     if (relationshipAmountValue > 0) {
       relationshipAmountString = "+" + relationshipAmountString;
@@ -59,17 +59,23 @@ class RelationshipBreakdown {
     this.relationshipAmount.classList.toggle("text-negative", relationshipAmountValue < 0);
     this.relationshipAmount.innerHTML = relationshipAmountString;
     const items = [];
-    if (playerB != PlayerIds.NO_PLAYER) {
-      const relationshipHistory = playerDiplomacy.getPlayerRelationshipHistory(playerB);
+    if (otherPlayer != PlayerIds.NO_PLAYER) {
+      const relationshipHistory = playerDiplomacy.getPlayerRelationshipHistory(otherPlayer);
       relationshipHistory?.forEach((relationshipEvent) => {
-        const itemIndex = items.findIndex((item) => relationshipEvent.eventType == item.eventType);
+        const itemIndex = items.findIndex((item) => relationshipEvent.eventType == item.eventType && relationshipEvent.triggeredBy == item.triggeredBy);
         if (itemIndex != -1) {
           items[itemIndex].amount += relationshipEvent.amount;
         } else {
-          items.push({ eventType: relationshipEvent.eventType, amount: relationshipEvent.amount });
+          items.push({ eventType: relationshipEvent.eventType, amount: relationshipEvent.amount, triggeredBy: relationshipEvent.triggeredBy });
         }
       });
     }
+    items.sort((a, b) => {
+      if (a.eventType != b.eventType) {
+        return b.eventType - a.eventType;
+      }
+      return b.triggeredBy - a.triggeredBy;
+    });
     this.relationshipItemsContainer.innerHTML = "";
     for (let i = 0; i < items.length; i++) {
       const item = items[i];
@@ -83,7 +89,7 @@ class RelationshipBreakdown {
         relationshipEventText.classList.add("text-accent-1");
       }
       relationshipEventText.innerHTML = Locale.stylize(
-        playerDiplomacy.getFavorGrievanceEventTypeName(item.eventType)
+        playerDiplomacy.getFavorGrievanceEventTypeName(item.eventType, item.triggeredBy)
       );
       relationshipEventLine.append(relationshipEventText);
       const relationshipEventAmount = document.createElement("div");

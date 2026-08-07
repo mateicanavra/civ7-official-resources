@@ -41,6 +41,12 @@ const PolicyCard = (props) => {
   function focusableNotActivatable() {
     return disableClick() && IsControllerActive();
   }
+  function cardCannotMove() {
+    if (props.isActive) {
+      return false;
+    }
+    return !model.canSlotCard(props.card);
+  }
   return createComponent(AudioContextProvider, {
     segment: "PolicyCard",
     get children() {
@@ -50,7 +56,7 @@ const PolicyCard = (props) => {
           typeof _ref$ === "function" ? _ref$(r$) : props.ref = r$;
         },
         get disabled() {
-          return createMemo(() => !!disableClick())() && !IsControllerActive();
+          return createMemo(() => !!disableClick())() && !IsControllerActive() || cardCannotMove();
         },
         get ["class"]() {
           return `flex flex-col my-1 relative text-accent-1 policy-base-card ${props.isActive ? "ml-4" : "ml-2"} ${!props.card.Name ? "opacity-0" : ""} ${props.card.CultureSlotType == "TRADITION_CULTURE_SLOT" ? "tradition-base-bg" : props.card.CultureSlotType == "CRISIS_CULTURE_SLOT" ? "crisis-base-bg" : "policy-base-bg"}`;
@@ -67,7 +73,7 @@ const PolicyCard = (props) => {
           return props.autoFocus;
         },
         get audioComponentAlias() {
-          return focusableNotActivatable() ? "" : props.isActive ? "Assigned" : "Unassigned";
+          return focusableNotActivatable() || !props.card ? "" : props.isActive ? "Assigned" : "Unassigned";
         },
         get children() {
           return [(() => {

@@ -43,6 +43,12 @@
     <Replace Tag="LOC_DIPLO_MAKE_DEAL_REJECTED_LEADER_GILGAMESH" Language="zh_Hans_CN">
       <Text>你的交易如灰烬般苦涩。</Text>
     </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_DECREASED_LEADER_GILGAMESH" Language="zh_Hans_CN">
+      <Text>你像安祖鸟叫嚷不停，像风妖四处乱窜。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_INCREASED_LEADER_GILGAMESH" Language="zh_Hans_CN">
+      <Text>干得好！咱们来一场摔角吧。</Text>
+    </Replace>
     <Replace Tag="LOC_MAIN_CHAR_SELECT_LEADER_GILGAMESH_ANY" Language="zh_Hans_CN">
       <Text>这些人自称为王。他们之中，谁能匹敌我神祇般的躯体、青金石般的美髯、熠熠生辉的双眸？</Text>
     </Replace>
@@ -617,13 +623,19 @@
       <Text>吉尔伽美什近世时代献礼军事</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_ALLY_OF_ENKIDU_DESC" Language="zh_Hans_CN">
-      <Text>喜欢发起或支持外交努力数量最多的领袖，讨厌与其他人缔结同盟的领袖。</Text>
+      <Text>喜欢发起或支持[icon:ENDEAVOR]外交努力数量最多的领袖，讨厌与其他人缔结[icon:PLAYER_RELATIONSHIP_ALLIANCE]同盟的领袖。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_ALLY_OF_ENKIDU_DESC_DISLIKES" Language="zh_Hans_CN">
+      <Text>吉尔伽美什讨厌与他人结成[icon:PLAYER_RELATIONSHIP_ALLIANCE]同盟的领袖。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_ALLY_OF_ENKIDU_DESC_LIKES" Language="zh_Hans_CN">
+      <Text>吉尔伽美什喜欢发起或支持[icon:ENDEAVOR]外交努力数量最多的领袖。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_ALLY_OF_ENKIDU_NAME" Language="zh_Hans_CN">
       <Text>恩奇都的盟友</Text>
     </Replace>
     <Replace Tag="LOC_LEADER_GILGAMESH_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>仅拥有一个同盟时+2[icon:WAR_SUPPORT]战争支持。你的一个军事单位击杀敌方单位时，获得等同于被击杀单位[icon:NAR_REW_COMBAT]战斗力50%的[icon:YIELD_DIPLOMACY]影响力。所有基础外交努力将自动解锁。与盟友的外交努力不受“同类型努力一次仅能激活一项”的限制。盟友能免费支持你的外交努力。</Text>
+      <Text>仅拥有一个[icon:PLAYER_RELATIONSHIP_ALLIANCE]同盟时+2[icon:WAR_SUPPORT]战争支持。你的一个军事单位击杀敌方单位时，获得等同于被击杀单位[icon:NAR_REW_COMBAT]战斗力50%的[icon:YIELD_DIPLOMACY]影响力。所有基础外交努力将自动解锁。与盟友的外交努力不受“同类型外交努力一次仅能激活一项”的限制。盟友能免费支持你的外交努力。</Text>
     </Replace>
     <Replace Tag="LOC_LOADING_LEADER_INTRO_TEXT_GILGAMESH" Language="zh_Hans_CN">
       <Text>吉尔伽美什，群雄之首，忠实良友，你对生命之爱无人可及。你的笑声震撼雪松林，你的泪水涨溢底格里斯河，你的敌手闻风而栗。新的挑战在前——来吧，为你的史诗续写新章。</Text>
@@ -1071,7 +1083,7 @@
       <Text>一分为人，二分为神</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_LEADER_GILGAMESH_ABILITY_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>[BLIST][LI]仅拥有一个同盟时+2[B][icon:WAR_SUPPORT]战争支持[/B]。
+      <Text>[BLIST][LI]仅拥有一个[icon:PLAYER_RELATIONSHIP_ALLIANCE]同盟时+2[B][icon:WAR_SUPPORT]战争支持[/B]。
 				[LI]你的一个军事单位击杀敌方单位时，获得等同于被击杀单位[icon:NAR_REW_COMBAT]战斗力50%的[B][icon:YIELD_DIPLOMACY]影响力[/B]。
 				[LI]所有基础外交努力将自动解锁。与盟友的外交努力不受“同类型努力一次仅能激活一项”的限制。盟友能免费支持你的外交努力。[/LIST]</Text>
     </Replace>

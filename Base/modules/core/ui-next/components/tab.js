@@ -69,25 +69,31 @@ class TabContextProvider {
   }
   activateNext() {
     const active = this._active();
+    const tabs = this._tabs();
     if (active) {
-      let activeIndex = this._tabs().indexOf(active) + 1;
-      if (activeIndex >= this._tabs().length) {
-        activeIndex = 0;
+      const activeIndex = tabs.indexOf(active) + 1;
+      for (let i = 0; i < tabs.length; i++) {
+        const nextTab = tabs[(activeIndex + i) % tabs.length];
+        if (!nextTab.disabled) {
+          this._setActive(nextTab);
+          return tabs.length > 1;
+        }
       }
-      this._setActive(this._tabs()[activeIndex]);
-      return this._tabs().length > 1;
     }
     return false;
   }
   activatePrevious() {
     const active = this._active();
+    const tabs = this._tabs();
     if (active) {
-      let activeIndex = this._tabs().indexOf(active) - 1;
-      if (activeIndex < 0) {
-        activeIndex = this._tabs().length - 1;
+      const activeIndex = tabs.indexOf(active) - 1;
+      for (let i = 0; i < tabs.length; i++) {
+        const prevTab = tabs[(activeIndex - i + tabs.length) % tabs.length];
+        if (!prevTab.disabled) {
+          this._setActive(prevTab);
+          return tabs.length > 1;
+        }
       }
-      this._setActive(this._tabs()[activeIndex]);
-      return this._tabs().length > 1;
     }
     return false;
   }
@@ -184,6 +190,9 @@ const TabListItem = (props) => {
         "text-accent-5": props.disabled,
         "cursor-pointer": !props.disabled
       };
+    },
+    get disabled() {
+      return props.disabled;
     },
     disableFocus: true,
     name: "TabListItem",

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Types>
+		<!--Civ Unique Military-->
+		<Row Type="UNIT_TOBANG" Kind="KIND_UNIT"/>
+		<Row Type="UNIT_TOBANG_2" Kind="KIND_UNIT"/>
+		<Row Type="UNIT_TOBANG_3" Kind="KIND_UNIT"/>
+		<!--Civ Unique Civilian-->
+		<Row Type="UNIT_HWACHA" Kind="KIND_UNIT"/>
+		<Row Type="UNIT_HWACHA_2" Kind="KIND_UNIT"/>
+		<Row Type="UNIT_HWACHA_3" Kind="KIND_UNIT"/>
+		<!--Civ Unique Abilities-->
+		<Row Type="ABILITY_TOBANG" Kind="KIND_ABILITY"/>
+		<Row Type="ABILITY_HWACHA" Kind="KIND_ABILITY"/>
+	</Types>
+	<Units>
+		<!--Civ Unique Military-->
+		<Row UnitType="UNIT_TOBANG" Name="LOC_UNIT_TOBANG_NAME" Description="LOC_UNIT_TOBANG_DESCRIPTION" Tier="1" Maintenance="3" BaseSightRange="2" BaseMoves="3" UnitMovementClass="UNIT_MOVEMENT_CLASS_MOUNTED" Domain="DOMAIN_LAND" CoreClass="CORE_CLASS_MILITARY" FormationClass="FORMATION_CLASS_LAND_COMBAT" ZoneOfControl="true" TraitType="TRAIT_GORYEO"/>
+		<Row UnitType="UNIT_TOBANG_2" Name="LOC_UNIT_TOBANG_NAME" Description="LOC_UNIT_TOBANG_2_DESCRIPTION" Tier="2" Maintenance="4" BaseSightRange="2" BaseMoves="3" UnitMovementClass="UNIT_MOVEMENT_CLASS_MOUNTED" Domain="DOMAIN_LAND" CoreClass="CORE_CLASS_MILITARY" FormationClass="FORMATION_CLASS_LAND_COMBAT" ZoneOfControl="true" TraitType="TRAIT_GORYEO"/>
+		<Row UnitType="UNIT_TOBANG_3" Name="LOC_UNIT_TOBANG_NAME" Description="LOC_UNIT_TOBANG_3_DESCRIPTION" Tier="3" Maintenance="5" BaseSightRange="2" BaseMoves="3" UnitMovementClass="UNIT_MOVEMENT_CLASS_MOUNTED" Domain="DOMAIN_LAND" CoreClass="CORE_CLASS_MILITARY" FormationClass="FORMATION_CLASS_LAND_COMBAT" ZoneOfControl="true" TraitType="TRAIT_GORYEO"/>
+		<!--Civ Unique Civilian-->
+		<Row UnitType="UNIT_HWACHA" Name="LOC_UNIT_HWACHA_NAME" Description="LOC_UNIT_HWACHA_DESCRIPTION" Tier="1" Maintenance="2" BaseSightRange="2" BaseMoves="2" UnitMovementClass="UNIT_MOVEMENT_CLASS_WHEELED" Domain="DOMAIN_LAND" CoreClass="CORE_CLASS_MILITARY" FormationClass="FORMATION_CLASS_LAND_COMBAT" ZoneOfControl="false" TraitType="TRAIT_GORYEO"/>
+		<Row UnitType="UNIT_HWACHA_2" Name="LOC_UNIT_HWACHA_NAME" Description="LOC_UNIT_HWACHA_2_DESCRIPTION" Tier="2" Maintenance="3" BaseSightRange="2" BaseMoves="2" UnitMovementClass="UNIT_MOVEMENT_CLASS_WHEELED" Domain="DOMAIN_LAND" CoreClass="CORE_CLASS_MILITARY" FormationClass="FORMATION_CLASS_LAND_COMBAT" ZoneOfControl="false" TraitType="TRAIT_GORYEO"/>
+		<Row UnitType="UNIT_HWACHA_3" Name="LOC_UNIT_HWACHA_NAME" Description="LOC_UNIT_HWACHA_3_DESCRIPTION" Tier="3" Maintenance="4" BaseSightRange="2" BaseMoves="2" UnitMovementClass="UNIT_MOVEMENT_CLASS_WHEELED" Domain="DOMAIN_LAND" CoreClass="CORE_CLASS_MILITARY" FormationClass="FORMATION_CLASS_LAND_COMBAT" ZoneOfControl="false" TraitType="TRAIT_GORYEO"/>
+	</Units>
+	<Unit_Stats>
+		<!--Civ Unique Military-->
+		<Row UnitType="UNIT_TOBANG" Combat="40"/>
+		<Row UnitType="UNIT_TOBANG_2" Combat="45"/>
+		<Row UnitType="UNIT_TOBANG_3" Combat="50"/>
+		<Row UnitType="UNIT_HWACHA" Combat="25" RangedCombat="20" Bombard="40" Range="2"/>
+		<Row UnitType="UNIT_HWACHA_2" Combat="30" RangedCombat="25" Bombard="45" Range="2"/>
+		<Row UnitType="UNIT_HWACHA_3" Combat="35" RangedCombat="30" Bombard="50" Range="2"/>
+	</Unit_Stats>
+	<Unit_Costs>
+		<!--Civ Unique Military-->
+		<Row UnitType="UNIT_TOBANG" YieldType="YIELD_PRODUCTION" Cost="170"/>
+		<Row UnitType="UNIT_TOBANG_2" YieldType="YIELD_PRODUCTION" Cost="210"/>
+		<Row UnitType="UNIT_TOBANG_3" YieldType="YIELD_PRODUCTION" Cost="260"/>
+		<Row UnitType="UNIT_HWACHA" YieldType="YIELD_PRODUCTION" Cost="110"/>
+		<Row UnitType="UNIT_HWACHA_2" YieldType="YIELD_PRODUCTION" Cost="150"/>
+		<Row UnitType="UNIT_HWACHA_3" YieldType="YIELD_PRODUCTION" Cost="200"/>
+	</Unit_Costs>
+	<UnitUpgrades>
+		<!--Civ Unique Military-->
+		<Row Unit="UNIT_TOBANG" UpgradeUnit="UNIT_TOBANG_2"/>
+		<Row Unit="UNIT_TOBANG_2" UpgradeUnit="UNIT_TOBANG_3"/>
+		<Row Unit="UNIT_HWACHA" UpgradeUnit="UNIT_HWACHA_2"/>
+		<Row Unit="UNIT_HWACHA_2" UpgradeUnit="UNIT_HWACHA_3"/>
+	</UnitUpgrades>
+	<UnitReplaces>
+		<!--Civ Unique Military-->
+		<Row CivUniqueUnitType="UNIT_TOBANG" ReplacesUnitType="UNIT_COURSER"/>
+		<Row CivUniqueUnitType="UNIT_TOBANG_2" ReplacesUnitType="UNIT_KNIGHT"/>
+		<Row CivUniqueUnitType="UNIT_TOBANG_3" ReplacesUnitType="UNIT_LANCER"/>
+		<!--Civ Unique Civilian-->
+		<Row CivUniqueUnitType="UNIT_HWACHA" ReplacesUnitType="UNIT_CATAPULT"/>
+		<Row CivUniqueUnitType="UNIT_HWACHA_2" ReplacesUnitType="UNIT_TREBUCHET"/>
+		<Row CivUniqueUnitType="UNIT_HWACHA_3" ReplacesUnitType="UNIT_BOMBARD"/>
+	</UnitReplaces>
+	<Tags>
+		<!--Civ Unique Military-->
+		<Row Tag="UNIT_CLASS_TOBANG" Category="UNIT_CLASS"/>
+		<!--Civ Unique Civilian-->
+		<Row Tag="UNIT_CLASS_HWACHA" Category="UNIT_CLASS"/>
+	</Tags>
+	<TypeTags>
+		<!--Civ Unique Military-->
+		<Row Type="UNIT_TOBANG" Tag="UNIT_CLASS_COMBAT"/>
+		<Row Type="UNIT_TOBANG" Tag="UNIT_CLASS_MOUNTED"/>
+		<Row Type="UNIT_TOBANG" Tag="UNIT_CLASS_CAVALRY"/>
+		<Row Type="UNIT_TOBANG" Tag="UNIT_CLASS_TOBANG"/>
+		<Row Type="UNIT_TOBANG" Tag="UNIT_CLASS_UNIQUE"/>
+		<Row Type="UNIT_TOBANG_2" Tag="UNIT_CLASS_COMBAT"/>
+		<Row Type="UNIT_TOBANG_2" Tag="UNIT_CLASS_MOUNTED"/>
+		<Row Type="UNIT_TOBANG_2" Tag="UNIT_CLASS_CAVALRY"/>
+		<Row Type="UNIT_TOBANG_2" Tag="UNIT_CLASS_TOBANG"/>
+		<Row Type="UNIT_TOBANG_2" Tag="UNIT_CLASS_UNIQUE"/>
+		<Row Type="UNIT_TOBANG_3" Tag="UNIT_CLASS_COMBAT"/>
+		<Row Type="UNIT_TOBANG_3" Tag="UNIT_CLASS_MOUNTED"/>
+		<Row Type="UNIT_TOBANG_3" Tag="UNIT_CLASS_CAVALRY"/>
+		<Row Type="UNIT_TOBANG_3" Tag="UNIT_CLASS_TOBANG"/>
+		<Row Type="UNIT_TOBANG_3" Tag="UNIT_CLASS_ELITE_CAVALRY"/>
+		<Row Type="UNIT_TOBANG_3" Tag="UNIT_CLASS_UNIQUE"/>
+		<!--Civ Unique Civilian-->
+		<Row Type="UNIT_HWACHA" Tag="UNIT_CLASS_COMBAT"/>
+		<Row Type="UNIT_HWACHA" Tag="UNIT_CLASS_SIEGE"/>
+		<Row Type="UNIT_HWACHA" Tag="UNIT_CLASS_HWACHA"/>
+		<Row Type="UNIT_HWACHA" Tag="UNIT_CLASS_UNIQUE"/>
+		<Row Type="UNIT_HWACHA_2" Tag="UNIT_CLASS_COMBAT"/>
+		<Row Type="UNIT_HWACHA_2" Tag="UNIT_CLASS_SIEGE"/>
+		<Row Type="UNIT_HWACHA_2" Tag="UNIT_CLASS_HWACHA"/>
+		<Row Type="UNIT_HWACHA_2" Tag="UNIT_CLASS_UNIQUE"/>
+		<Row Type="UNIT_HWACHA_3" Tag="UNIT_CLASS_COMBAT"/>
+		<Row Type="UNIT_HWACHA_3" Tag="UNIT_CLASS_SIEGE"/>
+		<Row Type="UNIT_HWACHA_3" Tag="UNIT_CLASS_ELITE_SIEGE"/>
+		<Row Type="UNIT_HWACHA_3" Tag="UNIT_CLASS_HWACHA"/>
+		<Row Type="UNIT_HWACHA_3" Tag="UNIT_CLASS_UNIQUE"/>
+	</TypeTags>
+	<UnitClass_Abilities>
+		<Row UnitAbilityType="ABILITY_TOBANG" UnitClassType="UNIT_CLASS_TOBANG"/>
+		<Row UnitAbilityType="ABILITY_HWACHA" UnitClassType="UNIT_CLASS_HWACHA"/>
+	</UnitClass_Abilities>
+	<UnitAbilities>
+		<Row UnitAbilityType="ABILITY_TOBANG" Name="LOC_UNIT_TOBANG_NAME" Description="LOC_ABILITY_TOBANG_DESCRIPTION"/>
+		<Row UnitAbilityType="ABILITY_HWACHA" Name="LOC_UNIT_HWACHA_NAME" Description="LOC_ABILITY_HWACHA_DESCRIPTION"/>
+	</UnitAbilities>
+	<UnitAbilityModifiers>
+		<Row UnitAbilityType="ABILITY_HWACHA" ModifierId="HWACHA_MOD_SPLASH_ABILITY"/>
+		<Row UnitAbilityType="ABILITY_TOBANG" ModifierId="TOBANG_MOD_STATION_ABILITY"/>
+	</UnitAbilityModifiers>
+	<Unit_Advisories>
+		<Row UnitType="UNIT_TOBANG" AdvisoryClassType="ADVISORY_CLASS_MILITARY"/>
+		<Row UnitType="UNIT_TOBANG_2" AdvisoryClassType="ADVISORY_CLASS_MILITARY"/>
+		<Row UnitType="UNIT_TOBANG_3" AdvisoryClassType="ADVISORY_CLASS_MILITARY"/>
+		<Row UnitType="UNIT_HWACHA" AdvisoryClassType="ADVISORY_CLASS_MILITARY"/>
+		<Row UnitType="UNIT_HWACHA_2" AdvisoryClassType="ADVISORY_CLASS_MILITARY"/>
+		<Row UnitType="UNIT_HWACHA_3" AdvisoryClassType="ADVISORY_CLASS_MILITARY"/>
+	</Unit_Advisories>
+</Database>

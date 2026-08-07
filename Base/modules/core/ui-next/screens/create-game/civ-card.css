@@ -105,7 +105,6 @@
   width: 3.6111111111rem;
   height: 3.6111111111rem;
   padding-bottom: 0.1111111111rem;
-  margin-left: 0.4444444444rem;
   background-image: url("blp:hud_sub_circle_dis");
   background-repeat: no-repeat;
   background-size: cover;
@@ -114,7 +113,18 @@
   .create-game-civ-card-icon-container {
     width: 2.4444444444rem;
     height: 2.4444444444rem;
-    margin-left: 0.1111111111rem;
+  }
+}
+
+.create-game-civ-card-framed-icon-container {
+  width: 3.6111111111rem;
+  height: 3.6111111111rem;
+  padding-bottom: 0.1111111111rem;
+}
+@media (max-height: 55.5555555556rem) {
+  .create-game-civ-card-framed-icon-container {
+    width: 2.4444444444rem;
+    height: 2.4444444444rem;
   }
 }
 
@@ -140,13 +150,13 @@
 }
 
 .create-game-civ-card-icon-age {
-  width: 2.6666666667rem;
-  height: 2.6666666667rem;
+  width: 3.1111111111rem;
+  height: 3.1111111111rem;
 }
 @media (max-height: 55.5555555556rem) {
   .create-game-civ-card-icon-age {
-    width: 1.7777777778rem;
-    height: 1.7777777778rem;
+    width: 2.3333333333rem;
+    height: 2.3333333333rem;
   }
 }
 

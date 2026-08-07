@@ -10,12 +10,7 @@
 		<Argument name="Amount">1</Argument>
 		<Argument name="LegacyPathType">LEGACY_PATH_MODERN_SCIENCE</Argument>
 	</Modifier>
-	<Modifier id="MOD_TRANS_OCEANIC_FLIGHT_REWARD_FROM_PROJECT" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_GRANT_UNIT" permanent="true">
-		<SubjectRequirements>
-			<Requirement type="REQUIREMENT_PLAYER_HAS_COMPLETED_PROJECT">
-				<Argument name="ProjectType">PROJECT_TRANS_OCEANIC_FLIGHT</Argument>
-			</Requirement>
-		</SubjectRequirements>
+	<Modifier id="MOD_TRANS_OCEANIC_FLIGHT_REWARD_FROM_PROJECT" collection="COLLECTION_OWNER" effect="EFFECT_CITY_GRANT_UNIT" permanent="true">
 		<Argument name="Amount">1</Argument>
 		<Argument name="UnitType">UNIT_SQUADRON_COMMANDER</Argument>
 	</Modifier>

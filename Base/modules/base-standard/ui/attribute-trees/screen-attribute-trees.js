@@ -232,8 +232,6 @@ class ScreenIdentity extends Panel {
       "flex",
       "flex-col"
     );
-    cardDetailContainer.classList.toggle("flex", TreeSupport.isSmallScreen());
-    cardDetailContainer.classList.toggle("hidden", !TreeSupport.isSmallScreen());
     cardDetailContainer.classList.toggle("w-128", this.isMobileViewExperience);
     cardDetailContainer.classList.toggle("w-96", !this.isMobileViewExperience);
     cardDetailContainer.setAttribute("panel-id", id);

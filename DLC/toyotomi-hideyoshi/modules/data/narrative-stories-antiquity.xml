@@ -21,8 +21,8 @@
     </Types>
     <NarrativeStories>
         <Row NarrativeStoryType="LEADER_CHAIN_1310A" Name="LOC_LEADER_CHAIN_1310A_NAME" Description="LOC_LEADER_CHAIN_1310A_DESCRIPTION" Completion="LOC_LEADER_CHAIN_1310A_COMPLETION" StoryTitle="LOC_LEADER_CHAIN_1310A_STORYTITLE" Age="AGE_ANTIQUITY" Activation="REQUISITE" RequirementSetId="REQSET_LEADER_CHAIN_1310A_NARRATIVE" ActivationRequirementSetId="REQSET_LEADER_CHAIN_1310A_NARRATIVE_REQUISITE" UIActivation="3DPANEL"/>
-        <Row NarrativeStoryType="LEADER_CHAIN_1310B" Name="LOC_LEADER_CHAIN_1310B_NAME" Description="LOC_LEADER_CHAIN_1310B_DESCRIPTION" Completion="LOC_LEADER_CHAIN_1310B_COMPLETION" StoryTitle="LOC_LEADER_CHAIN_1310B_STORYTITLE" Age="AGE_ANTIQUITY" Activation="LINKED" Imperative="LOC_LEADER_CHAIN_1310B_IMPERATIVE" IsQuest="TRUE" RequirementSetId="REQSET_LEADER_CHAIN_1310B_NARRATIVE" UIActivation="STANDARD"/>
-        <Row NarrativeStoryType="LEADER_CHAIN_1310C" Name="LOC_LEADER_CHAIN_1310C_NAME" Description="LOC_LEADER_CHAIN_1310C_DESCRIPTION" Completion="LOC_LEADER_CHAIN_1310C_COMPLETION" StoryTitle="LOC_LEADER_CHAIN_1310C_STORYTITLE" Age="AGE_ANTIQUITY" Activation="LINKED" Imperative="LOC_LEADER_CHAIN_1310C_IMPERATIVE" IsQuest="TRUE" RequirementSetId="REQSET_LEADER_CHAIN_1310C_NARRATIVE" UIActivation="STANDARD"/>
+        <Row NarrativeStoryType="LEADER_CHAIN_1310B" Name="LOC_LEADER_CHAIN_1310B_NAME" Description="LOC_LEADER_CHAIN_1310B_DESCRIPTION" Completion="LOC_LEADER_CHAIN_1310B_COMPLETION" StoryTitle="LOC_LEADER_CHAIN_1310B_STORYTITLE" Age="AGE_ANTIQUITY" Activation="LINKED" Imperative="LOC_LEADER_CHAIN_1310C_IMPERATIVE" IsQuest="TRUE" RequirementSetId="REQSET_LEADER_CHAIN_1310B_NARRATIVE" UIActivation="STANDARD"/>
+        <Row NarrativeStoryType="LEADER_CHAIN_1310C" Name="LOC_LEADER_CHAIN_1310C_NAME" Description="LOC_LEADER_CHAIN_1310C_DESCRIPTION" Completion="LOC_LEADER_CHAIN_1310C_COMPLETION" StoryTitle="LOC_LEADER_CHAIN_1310C_STORYTITLE" Age="AGE_ANTIQUITY" Activation="LINKED" Imperative="LOC_LEADER_CHAIN_1310B_IMPERATIVE" IsQuest="TRUE" RequirementSetId="REQSET_LEADER_CHAIN_1310C_NARRATIVE" UIActivation="STANDARD"/>
         <Row NarrativeStoryType="LEADER_CHAIN_1310D" Name="LOC_LEADER_CHAIN_1310D_NAME" Description="LOC_LEADER_CHAIN_1310D_DESCRIPTION" Completion="LOC_LEADER_CHAIN_1310D_COMPLETION" Age="AGE_ANTIQUITY" Activation="LINKED" Hidden="TRUE" RequirementSetId="Met" UIActivation="STANDARD"/>
         <Row NarrativeStoryType="LEADER_CHAIN_1311A" Name="LOC_LEADER_CHAIN_1311A_NAME" Description="LOC_LEADER_CHAIN_1311A_DESCRIPTION" Completion="LOC_LEADER_CHAIN_1311A_COMPLETION" StoryTitle="LOC_LEADER_CHAIN_1311A_STORYTITLE" Age="AGE_ANTIQUITY" Activation="REQUISITE" RequirementSetId="REQSET_LEADER_CHAIN_1311A_NARRATIVE" ActivationRequirementSetId="REQSET_LEADER_CHAIN_1311A_NARRATIVE_REQUISITE" UIActivation="3DPANEL"/>
         <Row NarrativeStoryType="LEADER_CHAIN_1311B" Name="LOC_LEADER_CHAIN_1311B_NAME" Description="LOC_LEADER_CHAIN_1311B_DESCRIPTION" Completion="LOC_LEADER_CHAIN_1311B_COMPLETION" StoryTitle="LOC_LEADER_CHAIN_1311B_STORYTITLE" Age="AGE_ANTIQUITY" Activation="LINKED" Imperative="LOC_LEADER_CHAIN_1311B_IMPERATIVE" IsQuest="TRUE" ShowProgress="TRUE" RequirementSetId="REQSET_LEADER_CHAIN_1311B_NARRATIVE" UIActivation="STANDARD"/>
@@ -54,7 +54,6 @@
         <Row NarrativeRewardType="10164C_REWARD" ModifierID="10164C_NARRATIVE_MODIFIER"/>
         <Row NarrativeRewardType="10164D_REWARD" ModifierID="10164D_NARRATIVE_MODIFIER"/>
         <Row NarrativeRewardType="10164D_REWARD2" ModifierID="10164D_NARRATIVE_MODIFIER2"/>
-        <Row NarrativeRewardType="10164D_REWARD3" ModifierID="10164D_NARRATIVE_MODIFIER3"/>
         <Row NarrativeRewardType="10167B_REWARD" ModifierID="10167B_NARRATIVE_MODIFIER"/>
         <Row NarrativeRewardType="10167C_REWARD" ModifierID="10167C_NARRATIVE_MODIFIER"/>
     </NarrativeRewards>
@@ -74,7 +73,6 @@
         <Row NarrativeStoryType="10164C" NarrativeRewardType="10164C_REWARD" Activation="START"/>
         <Row NarrativeStoryType="10164D" NarrativeRewardType="10164D_REWARD" Activation="START"/>
         <Row NarrativeStoryType="10164D" NarrativeRewardType="10164D_REWARD2" Activation="START"/>
-        <Row NarrativeStoryType="10164D" NarrativeRewardType="10164D_REWARD3" Activation="START"/>
         <Row NarrativeStoryType="10167B" NarrativeRewardType="10167B_REWARD" Activation="START"/>
         <Row NarrativeStoryType="10167C" NarrativeRewardType="10167C_REWARD" Activation="START"/>
     </NarrativeStory_Rewards>
@@ -117,8 +115,8 @@
         <Row NarrativeStoryType="10164D" NarrativeStoryTextType="REWARD" NarrativeTextReplacementType="REWARD" Priority="2"/>
     </NarrativeStory_TextReplacements>
     <NarrativeStory_Links>
-        <Row FromNarrativeStoryType="LEADER_CHAIN_1310A" ToNarrativeStoryType="LEADER_CHAIN_1310B" Priority="0" Name="LOC_LEADER_CHAIN_1310B_NAME" Description="LOC_LEADER_CHAIN_1310B_DESCRIPTION" Imperative="LOC_LEADER_CHAIN_1310B_IMPERATIVE"/>
-        <Row FromNarrativeStoryType="LEADER_CHAIN_1310A" ToNarrativeStoryType="LEADER_CHAIN_1310C" Priority="1" Name="LOC_LEADER_CHAIN_1310C_NAME" Description="LOC_LEADER_CHAIN_1310C_DESCRIPTION" Imperative="LOC_LEADER_CHAIN_1310C_IMPERATIVE"/>
+        <Row FromNarrativeStoryType="LEADER_CHAIN_1310A" ToNarrativeStoryType="LEADER_CHAIN_1310B" Priority="0" Name="LOC_LEADER_CHAIN_1310B_NAME" Description="LOC_LEADER_CHAIN_1310B_DESCRIPTION" Imperative="LOC_LEADER_CHAIN_1310C_IMPERATIVE"/>
+        <Row FromNarrativeStoryType="LEADER_CHAIN_1310A" ToNarrativeStoryType="LEADER_CHAIN_1310C" Priority="1" Name="LOC_LEADER_CHAIN_1310C_NAME" Description="LOC_LEADER_CHAIN_1310C_DESCRIPTION" Imperative="LOC_LEADER_CHAIN_1310B_IMPERATIVE"/>
         <Row FromNarrativeStoryType="LEADER_CHAIN_1310A" ToNarrativeStoryType="LEADER_CHAIN_1310D" Priority="2" Name="LOC_LEADER_CHAIN_1310D_NAME" Description="LOC_LEADER_CHAIN_1310D_DESCRIPTION"/>
         <Row FromNarrativeStoryType="LEADER_CHAIN_1311A" ToNarrativeStoryType="LEADER_CHAIN_1311B" Priority="0" Name="LOC_LEADER_CHAIN_1311B_NAME" Description="LOC_LEADER_CHAIN_1311B_DESCRIPTION" Imperative="LOC_LEADER_CHAIN_1311B_IMPERATIVE"/>
         <Row FromNarrativeStoryType="LEADER_CHAIN_1311A" ToNarrativeStoryType="LEADER_CHAIN_1311C" Priority="1" Name="LOC_LEADER_CHAIN_1311C_NAME" Description="LOC_LEADER_CHAIN_1311C_DESCRIPTION"/>

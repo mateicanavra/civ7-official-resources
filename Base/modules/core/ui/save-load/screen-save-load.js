@@ -970,7 +970,7 @@ class ScreenSaveLoad extends Panel {
     this.updateNavTray();
     this.updateSaveCardContainer();
     if (id == "crossplay" /* CROSSPLAY */ && !this.isCrossplayReady()) {
-      this.focusSlotGroup();
+      waitForLayout(() => this.focusSlotGroup());
       this.updateNavTray();
     } else {
       this.startQuery(true);
@@ -1149,7 +1149,7 @@ class ScreenSaveLoad extends Panel {
       { isOverwriteQueryIds: true }
     );
     this.updateControls(isReset);
-    this.focusSlotGroup();
+    waitForLayout(() => this.focusSlotGroup());
     this.updateNavTray();
   }
   startDelete() {

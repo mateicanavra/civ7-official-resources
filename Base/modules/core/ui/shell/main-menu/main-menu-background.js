@@ -6,10 +6,10 @@ import { ComponentRegistry } from '../../../ui-next/services/component-registry.
 import { LayoutModel, useIsSmallScreen } from '../../../ui-next/utilities/layout-utilities.js';
 
 const FRONT_IMAGE_MARGIN = 7;
-const FRONT_FILIGEE_X_OFFSET = 30;
-const FRONT_FILIGEE_X_OFFSET_SMALL = -40;
-const FRONT_FILIGEE_Y_OFFSET = 75;
-const FRONT_FILIGEE_Y_OFFSET_SMALL = 35;
+const FRONT_FILIGREE_X_OFFSET = 30;
+const FRONT_FILIGREE_X_OFFSET_SMALL = -40;
+const FRONT_FILIGREE_Y_OFFSET = 75;
+const FRONT_FILIGREE_Y_OFFSET_SMALL = 35;
 const MIDDLE_FILIGREE_Y_SIZE = 4;
 const MIDDLE_FILIGREE_Y_OFFSET_REL = 4;
 const MIDDLE_FILIGREE_Y_OFFSET_REL_SMALL = 3;
@@ -22,14 +22,15 @@ const MainMenuBackgroundComponent = (props) => {
   const isWidescreen = createMemo(() => {
     return layout.screenWidth() / layout.screenHeight() > 2;
   });
+  const isMobile = UI.getViewExperience() == UIViewExperience.Mobile;
   const frontFiligreeYOffset = createMemo(() => {
-    return isSmallScreen() ? layout.toScaledPixels(FRONT_FILIGEE_Y_OFFSET_SMALL)() : layout.toScaledPixels(FRONT_FILIGEE_Y_OFFSET)();
+    return isSmallScreen() ? layout.toScaledPixels(FRONT_FILIGREE_Y_OFFSET_SMALL)() : layout.toScaledPixels(FRONT_FILIGREE_Y_OFFSET)();
   });
   const frontFiligreeMaxXOffset = createMemo(() => {
     return (layout.screenWidth() - layout.screenHeight() * 1.777) / 2;
   });
   const frontFiligreeXOffset = createMemo(() => {
-    return isWidescreen() ? frontFiligreeMaxXOffset() : isSmallScreen() ? layout.toScaledPixels(FRONT_FILIGEE_X_OFFSET_SMALL)() : layout.toScaledPixels(FRONT_FILIGEE_X_OFFSET)();
+    return isMobile ? FRONT_FILIGREE_X_OFFSET_SMALL : isWidescreen() ? frontFiligreeMaxXOffset() : isSmallScreen() ? layout.toScaledPixels(FRONT_FILIGREE_X_OFFSET_SMALL)() : layout.toScaledPixels(FRONT_FILIGREE_X_OFFSET)();
   });
   const frontImageYSize = createMemo(() => {
     return layout.screenHeight() - frontFiligreeYOffset() * 2 - frontImageMargin();

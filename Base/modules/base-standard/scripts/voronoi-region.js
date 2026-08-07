@@ -16,6 +16,7 @@ class VoronoiRegion {
   seedLocation = { x: 0, y: 0 };
   considerationList = [];
   cellCount = 0;
+  latestAddedCell = null;
   minOrder = 0;
   // Used for offsetting the order of individual cells, for visualizing and debugging region growth over time.
   scoringContext;
@@ -70,10 +71,12 @@ class VoronoiRegion {
     const newCellId = this.considerationList[newCellIndex].id;
     VoronoiUtils.swapAndPop(this.considerationList, newCellIndex);
     const newCell = regionCells[newCellId];
+    newCell.regionConsiderationBits = 0n;
     this.setRegionIdForCell(newCell, this.id, this.scoringContext);
     this.scoringContext.totalArea += newCell.area;
     this.scoringContext.cellCount++;
     this.cellCount = this.scoringContext.cellCount;
+    this.latestAddedCell = newCell;
     if (this.quadTree) {
       this.quadTree.insert(newCell);
     }
@@ -86,12 +89,12 @@ class VoronoiRegion {
         continue;
       }
       const score = this.scoreCell(neighbor, this.scoringContext);
-      if (neighbor.regionConsiderationBits & BigInt(1 << this.id)) {
+      if (neighbor.regionConsiderationBits & 1n << BigInt(this.id)) {
         const pair = this.considerationList.find((value) => value.id === neighborId);
         pair.score = score;
       } else {
         this.considerationList.push({ id: neighborId, score });
-        neighbor.regionConsiderationBits |= BigInt(1 << this.id);
+        neighbor.regionConsiderationBits |= 1n << BigInt(this.id);
       }
     }
     return this.considerationList.length > 0 && this.scoringContext.totalArea < this.maxArea;

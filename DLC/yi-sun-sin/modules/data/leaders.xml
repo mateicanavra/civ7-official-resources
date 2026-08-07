@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Kinds>
+		<InsertOrIgnore Kind="KIND_VICTORY"/>
+	</Kinds>
+	<Types>
+		<Row Type="LEADER_YI_SUN_SIN" Kind="KIND_LEADER"/>
+		<Row Type="TRAIT_LEADER_YI_SUN_SIN_ABILITY" Kind="KIND_TRAIT"/>
+		<Row Type="DIPLOMACY_AGENDA_COMPARE_UNIT_TAGS_AND_DISTRICTS" Kind="KIND_DIPLOMACY_ACTION"/>
+		<Row Type="VICTORY_LEADER_YI_SUN_SIN" Kind="KIND_VICTORY"/>
+	</Types>
+	<Leaders>
+		<Row LeaderType="LEADER_YI_SUN_SIN" Name="LOC_LEADER_YI_SUN_SIN_NAME" IsMajorLeader="true" InheritFrom="LEADER_DEFAULT"/>
+	</Leaders>
+	<TypeQuotes>
+		<Row Type="LEADER_YI_SUN_SIN" Quote="LOC_MAIN_CHAR_SELECT_LEADER_YI_SUN_SIN_ANY"/>
+		<Row Type="VICTORY_LEADER_YI_SUN_SIN" Quote="LOC_VICTORY_LEADER_YI_SUN_SIN" QuoteAudio="play_victory_yi"/>
+	</TypeQuotes>
+	<AiListTypes>
+		<!-- Leader Psuedoyield Biases -->
+		<Row ListType="Yi Yield Biases"/>
+		<Row ListType="Yi Tag Biases"/>
+		<Row ListType="Yi PseudoYield Biases"/>
+		<Row ListType="Yi Diplomacy Biases"/>
+		<Row ListType="Yi Constructibles Biases" />
+	</AiListTypes>
+	<AiLists>
+		<!-- Leader Psuedoyield Biases -->
+		<Row ListType="Yi Yield Biases" LeaderType="TRAIT_LEADER_YI_SUN_SIN_ABILITY" System="YieldBiases"/>
+		<Row ListType="Yi Tag Biases" LeaderType="TRAIT_LEADER_YI_SUN_SIN_ABILITY" System="TagBiases"/>
+		<Row ListType="Yi PseudoYield Biases" LeaderType="TRAIT_LEADER_YI_SUN_SIN_ABILITY" System="PseudoYieldBiases"/>
+		<Row ListType="Yi Diplomacy Biases" LeaderType="TRAIT_LEADER_YI_SUN_SIN_ABILITY" System="DiplomaticGroupBiases"/>
+		<Row ListType="Yi Constructibles Biases" LeaderType="TRAIT_LEADER_YI_SUN_SIN_ABILITY" System="ConstructibleBiases" />
+	</AiLists>
+	<AiFavoredItems>
+		<Row ListType="Yi Yield Biases" Item="YIELD_PRODUCTION" Value="50"/>
+		<Row ListType="Yi Yield Biases" Item="YIELD_SCIENCE" Value="25"/>
+		<Row ListType="Yi Tag Biases" Item="UNIT_CLASS_FLEET_COMMANDER" Value="200"/>
+		<Row ListType="Yi Tag Biases" Item="SCIENCE" Value="25"/>
+		<Row ListType="Yi PseudoYield Biases" Item="PSEUDOYIELD_STANDING_NAVY_COMBAT_VALUE" Value="50"/>
+		<Row ListType="Yi PseudoYield Biases" Item="PSEUDOYIELD_STANDING_NAVY_UNIT" Value="50"/>
+		<Row ListType="Yi Diplomacy Biases" Item="DIPLOMACY_ACTION_BECOME_SUZERAIN" Value="50"/>
+		<Row ListType="Yi Constructibles Biases" Item="BUILDING_HARBOR" Value="25" />
+	</AiFavoredItems>
+	<Traits>
+		<Row TraitType="TRAIT_LEADER_YI_SUN_SIN_ABILITY" InternalOnly="true" Name="LOC_TRAIT_LEADER_YI_SUN_SIN_ABILITY_NAME" Description="LOC_TRAIT_LEADER_YI_SUN_SIN_ABILITY_DESCRIPTION"/>
+	</Traits>
+	<LeaderTraits>
+		<Row LeaderType="LEADER_YI_SUN_SIN" TraitType="TRAIT_LEADER_YI_SUN_SIN_ABILITY"/>
+		<Row LeaderType="LEADER_YI_SUN_SIN" TraitType="TRAIT_LEADER_ATTRIBUTE_MILITARISTIC"/>
+		<Row LeaderType="LEADER_YI_SUN_SIN" TraitType="TRAIT_LEADER_ATTRIBUTE_SCIENTIFIC"/>
+		<Row LeaderType="LEADER_YI_SUN_SIN" TraitType="TRAIT_UNLOCK_FLEET_COMMANDER"/>
+		<Row LeaderType="LEADER_YI_SUN_SIN" TraitType="TRAIT_AQ_SCIENCE_VICTORY"/>
+		<Row LeaderType="LEADER_YI_SUN_SIN" TraitType="TRAIT_EX_MILITARY_VICTORY"/>
+		<Row LeaderType="LEADER_YI_SUN_SIN" TraitType="TRAIT_MO_SCIENCE_VICTORY"/>
+	</LeaderTraits>
+	<TraitModifiers>
+		<Row TraitType="TRAIT_LEADER_YI_SUN_SIN_ABILITY" ModifierId="YI_MOD_SCIENCE_BUILDING_XP"/>
+		<Row TraitType="TRAIT_LEADER_YI_SUN_SIN_ABILITY" ModifierId="YI_MOD_GOLD_PER_XP"/>
+		<Row TraitType="TRAIT_LEADER_YI_SUN_SIN_ABILITY" ModifierId="YI_MOD_SCIENCE_KILLS"/>
+		<Row TraitType="TRAIT_LEADER_YI_SUN_SIN_ABILITY" ModifierId="YI_MOD_AGENDA_YI"/>
+	</TraitModifiers>
+	<StartBiasAdjacentToCoasts>
+		<Row LeaderType="LEADER_YI_SUN_SIN" Score="200"/>
+	</StartBiasAdjacentToCoasts>
+</Database>

@@ -270,6 +270,7 @@
 	<AllowedOperations>
 		<Row ListType="Major Civ Operations" OperationDef="Attack Enemy City"/>
 		<Row ListType="Major Civ Operations" OperationDef="Attack Enemy Independent"/>
+		<Row ListType="Major Civ Operations" OperationDef="Attack Enemy Large City"/>
 		<Row ListType="Major Civ Operations" OperationDef="City Defense"/>
 		<Row ListType="Major Civ Operations" OperationDef="City Founding"/>
 		<Row ListType="Independent Civ Operations" OperationDef="Independent Raid"/>
@@ -280,8 +281,9 @@
 		<Row ListType="City State Operations" OperationDef="City Defense"/>
 	</AllowedOperations>
 	<AiOperationDefs>
-		<Row OperationName="Attack Enemy City" TargetType="TARGET_ENEMY_CITY" EnemyType="WAR" OperationType="CITY_ASSAULT" BehaviorTree="Simple City Assault" SelfStart="True" Priority="3" MaxTargetDistInRegion="-1" MaxTargetDistInArea="30" MaxTargetDistInWorld="45" MinOddsOfSuccess="0.25" MustHaveUnits="5"/>
+		<Row OperationName="Attack Enemy City" TargetType="TARGET_ENEMY_CITY" EnemyType="WAR" OperationType="CITY_ASSAULT" BehaviorTree="Simple City Assault" SelfStart="True" Priority="3" MaxTargetDistInRegion="-1" MaxTargetDistInArea="30" MaxTargetDistInWorld="45" MinOddsOfSuccess="0.25" MaxNumWalls="3" MustHaveUnits="5"/>
 		<Row OperationName="Attack Enemy Independent" TargetType="TARGET_ENEMY_INDEPENDENT" BehaviorTree="Minor Power Assault" Priority="2"/>
+		<Row OperationName="Attack Enemy Large City" TargetType="TARGET_ENEMY_CITY" EnemyType="WAR" OperationType="CITY_ASSAULT" BehaviorTree="Simple City Assault" SelfStart="True" Priority="3" MaxTargetDistInRegion="-1" MaxTargetDistInArea="30" MaxTargetDistInWorld="45" MinOddsOfSuccess="0.25" MaxNumWalls="-3" MustHaveUnits="5"/>
 		<Row OperationName="City Defense" TargetType="TARGET_MY_CITY" BehaviorTree="Simple City Defense" Priority="4" MaxTargetDistInRegion="-1" MaxTargetDistInArea="-1" MaxTargetDistInWorld="0"/>
 		<Row OperationName="City Founding" TargetType="TARGET_NEW_CITY" BehaviorTree="Settle New Town" Priority="2" SelfStart="false" MaxTargetDistInRegion="-1" MaxTargetDistInArea="-1" MaxTargetDistInWorld="0"/>
 		<Row OperationName="Independent Raid" TargetType="TARGET_ENEMY_CITY" EnemyType="WAR" BehaviorTree="Independent Power Raid" SelfStart="false" Priority="3"/>
@@ -293,6 +295,7 @@
 	<AiTeams>
 		<Row TeamName="Enemy City Attack"/>
 		<Row TeamName="Independent Camp Attack"/>
+		<Row TeamName="Enemy Large City Attack"/>
 		<Row TeamName="City Defense"/>
 		<Row TeamName="City Founders"/>
 		<Row TeamName="Independent Civ Force"/>
@@ -303,6 +306,7 @@
 	<AiOperationTeams>
 		<Row TeamName="Enemy City Attack" OperationName="Attack Enemy City" InitialStrengthAdvantage="0" OngoingStrengthAdvantage="4"/>
 		<Row TeamName="Independent Camp Attack" OperationName="Attack Enemy Independent" InitialStrengthAdvantage="0" OngoingStrengthAdvantage="2"/>
+		<Row TeamName="Enemy Large City Attack" OperationName="Attack Enemy Large City" InitialStrengthAdvantage="0" OngoingStrengthAdvantage="4"/>
 		<Row TeamName="City Defense" OperationName="City Defense" InitialStrengthAdvantage="-1" OngoingStrengthAdvantage="1"/>
 		<Row TeamName="City Founders" OperationName="City Founding" InitialStrengthAdvantage="0" OngoingStrengthAdvantage="1"/>
 		<Row TeamName="Independent Civ Force" OperationName="Independent Raid" InitialStrengthAdvantage="-3" OngoingStrengthAdvantage="0"/>
@@ -324,6 +328,13 @@
 		<Row TeamName="Independent Camp Attack" ClassTag="UNIT_CLASS_ARMY_COMMANDER" MinNumber="1" MaxNumber="1"/>
 		<Row TeamName="Independent Camp Attack" ClassTag="UNIT_CLASS_NAVAL" MaxNumber="1"/>
 		<Row TeamName="Independent Camp Attack" ClassTag="UNIT_CLASS_RECON" MaxNumber="0"/>
+		<Row TeamName="Enemy Large City Attack" ClassTag="UNIT_CLASS_MELEE" MinNumber="2"/>
+		<Row TeamName="Enemy Large City Attack" ClassTag="UNIT_CLASS_RANGED" MinNumber="0" MaxNumber="3"/>
+		<Row TeamName="Enemy Large City Attack" ClassTag="UNIT_CLASS_SIEGE" MinNumber = "1" MaxNumber="3"/>
+		<Row TeamName="Enemy Large City Attack" ClassTag="UNIT_CLASS_ARMY_COMMANDER" MinNumber="1" MaxNumber="3"/>
+		<Row TeamName="Enemy Large City Attack" ClassTag="UNIT_CLASS_NAVAL" MaxNumber="0"/>
+		<Row TeamName="Enemy Large City Attack" ClassTag="UNIT_CLASS_LOGISTICS" MaxNumber="2"/>
+		<Row TeamName="Enemy Large City Attack" ClassTag="UNIT_CLASS_HEALER" MinNumber="0"/>
 		<Row TeamName="City Defense" ClassTag="UNIT_CLASS_ARMY_COMMANDER" MaxNumber="1"/>
 		<Row TeamName="City Defense" ClassTag="UNIT_CLASS_NAVAL" MaxNumber="0"/>
 		<Row TeamName="City Defense" ClassTag="UNIT_CLASS_NON_COMBAT" MaxNumber="0"/>

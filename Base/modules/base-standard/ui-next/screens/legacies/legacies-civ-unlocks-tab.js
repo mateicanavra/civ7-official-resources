@@ -16,6 +16,7 @@ import { AgeSelectModel, AgeSelectModelContext } from '../../../../core/ui-next/
 import { CivCard } from '../../../../core/ui-next/screens/create-game/civ-card.js';
 import { CivDetailsBase } from '../../../../core/ui-next/screens/create-game/civ-details.js';
 import { CivSelectModelContext } from '../../../../core/ui-next/screens/create-game/civ-select-model.js';
+import { CreateGameHRule } from '../../../../core/ui-next/screens/create-game/create-game-components.js';
 import { CivUnlocksModel } from '../../../../core/ui-next/screens/unlocks/civ-unlocks-model.js';
 import { useAudio } from '../../../../core/ui-next/services/audio-support.js';
 import { ComponentRegistry } from '../../../../core/ui-next/services/component-registry.js';
@@ -272,7 +273,6 @@ const LegaciesUnlocksTabComponent = () => {
                             }
                           }), null);
                           insert(_el$5, createComponent(Dropdown, {
-                            hotkey: "shell-action-1",
                             get defaultValue() {
                               return attributeFilter();
                             },
@@ -288,6 +288,7 @@ const LegaciesUnlocksTabComponent = () => {
                               createRenderEffect(() => className(_el$24, `flex grow min-w-0 truncate font-fit-shrink ${isSmallScreen() ? "text-xs" : ""}`));
                               return _el$24;
                             })(),
+                            hotkey: "shell-action-1",
                             onItemSelected: (item) => {
                               setAttributeFilter(item);
                             },
@@ -338,53 +339,56 @@ const LegaciesUnlocksTabComponent = () => {
                             "class": "size-24 -bottom-px relative",
                             isUrl: true
                           }));
-                          insert(_el$8, createComponent(SpatialSlot, {
-                            name: "civ-unlocks-scrollable",
+                          insert(_el$8, createComponent(ScrollArea, {
                             "class": "flex-auto",
                             get children() {
-                              return createComponent(ScrollArea, {
-                                "class": "flex-auto",
+                              return createComponent(SpatialSlot, {
+                                name: "civ-unlocks-scrollable",
                                 get children() {
-                                  var _el$17 = _tmpl$4();
-                                  insert(_el$17, createComponent(For, {
-                                    get each() {
-                                      return filteredCivs();
-                                    },
-                                    children: (civ) => createComponent(AudioContextProvider, {
-                                      segment: "CivCard",
-                                      get children() {
-                                        return createComponent(Tab.Trigger, {
-                                          name: "civ-details",
-                                          get children() {
-                                            return createComponent(CivCard, mergeProps({
-                                              "class": "is-unlocks"
-                                            }, civ, {
-                                              get isSelected() {
-                                                return civ.civID == selectedCivId();
-                                              },
-                                              get isApexAgeSelected() {
-                                                return ageSelectModel.nextAge.type == civ.apexAge;
-                                              },
-                                              get leaderIcon() {
-                                                return unlocksModel.leaderIcon;
-                                              },
-                                              isRecommended: false,
-                                              isUnlocks: true,
-                                              get showAllUnlocks() {
-                                                return shouldShowAllRequirements();
-                                              },
-                                              onSelect: () => {
-                                                setSelectedUnlocksCiv(civ);
-                                                setViewCiv(civ);
-                                                legaciesModel.setIsShowingDetails(true);
-                                              }
-                                            }));
-                                          }
-                                        });
-                                      }
-                                    })
-                                  }));
-                                  return _el$17;
+                                  return [(() => {
+                                    var _el$17 = _tmpl$4();
+                                    insert(_el$17, createComponent(For, {
+                                      get each() {
+                                        return filteredCivs();
+                                      },
+                                      children: (civ) => createComponent(Tab.Trigger, {
+                                        name: "civ-details",
+                                        get children() {
+                                          return createComponent(AudioContextProvider, {
+                                            segment: "CivCard",
+                                            get children() {
+                                              return createComponent(CivCard, mergeProps({
+                                                "class": "is-unlocks"
+                                              }, civ, {
+                                                get isSelected() {
+                                                  return civ.civID == selectedCivId();
+                                                },
+                                                get isApexAgeSelected() {
+                                                  return ageSelectModel.nextAge.type == civ.apexAge;
+                                                },
+                                                get leaderIcon() {
+                                                  return unlocksModel.leaderIcon;
+                                                },
+                                                isRecommended: false,
+                                                isUnlocks: true,
+                                                get showAllUnlocks() {
+                                                  return shouldShowAllRequirements();
+                                                },
+                                                onSelect: () => {
+                                                  setSelectedUnlocksCiv(civ);
+                                                  setViewCiv(civ);
+                                                  legaciesModel.setIsShowingDetails(true);
+                                                }
+                                              }));
+                                            }
+                                          });
+                                        }
+                                      })
+                                    }));
+                                    return _el$17;
+                                  })(), createComponent(CreateGameHRule, {
+                                    "class": "my-2"
+                                  })];
                                 }
                               });
                             }

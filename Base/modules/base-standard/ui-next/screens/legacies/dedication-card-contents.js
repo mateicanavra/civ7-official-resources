@@ -39,7 +39,7 @@ const DedicationCardContents = (props) => {
           get text() {
             return props.description;
           },
-          args: ["disableTooltips"],
+          disableTooltips: true,
           get ["class"]() {
             return `${!props.isDisplayOnly ? "dedication-card-no-tooltip" : ""}`;
           }

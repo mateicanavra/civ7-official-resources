@@ -4,6 +4,7 @@ import { defineLegacyComponent } from '../../../../core/ui-next/components/fxs-s
 import { Tab } from '../../../../core/ui-next/components/tab.js';
 import { useAudio } from '../../../../core/ui-next/services/audio-support.js';
 import { ComponentRegistry } from '../../../../core/ui-next/services/component-registry.js';
+import { ViewExperience } from '../../../../core/ui-next/services/view-experience.js';
 import { useIsSmallScreen, useAspectRatio } from '../../../../core/ui-next/utilities/layout-utilities.js';
 import { ScreenFrame } from '../../components/screen-frame.js';
 import { AdvisorTab } from './advisor-screen-advice-tab.js';
@@ -31,6 +32,7 @@ const AdvisorCouncilComponent = (_props) => {
   const handleOnClosing = () => {
     audio("AdvisorScreen", "popup-close");
   };
+  const isMobile = ViewExperience() == UIViewExperience.Mobile;
   const isSmallScreen = useIsSmallScreen();
   const aspectRatio = useAspectRatio();
   return createComponent(AdvisorCouncilScreenContext.Provider, {
@@ -49,6 +51,7 @@ const AdvisorCouncilComponent = (_props) => {
           var _ref$ = rootRef;
           typeof _ref$ === "function" ? _ref$(r$) : rootRef = r$;
         },
+        isFullscreen: isMobile,
         get children() {
           return createComponent(Tab, {
             "class": "w-full flex flex-col flex-auto pointer-events-auto relative",
@@ -70,7 +73,7 @@ const AdvisorCouncilComponent = (_props) => {
                   insert(_el$, createComponent(CouncilRoom, {
                     isPopup: false
                   }));
-                  createRenderEffect(() => className(_el$, `flex-1 ${isSmallScreen() ? "mb-24" : "mb-16"}`));
+                  createRenderEffect(() => className(_el$, `flex-1 ${isSmallScreen() ? isMobile ? "mb-14" : "mb-24" : "mb-16"}`));
                   return _el$;
                 })()
               }), createComponent(For, {

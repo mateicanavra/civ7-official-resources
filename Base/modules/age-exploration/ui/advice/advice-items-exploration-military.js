@@ -1,17 +1,17 @@
-import AdviceManager from '../../../base-standard/ui/advice/advice-manager.js';
+import { adviceAddItem, adviceAddBundle } from '../../../base-standard/ui/advice/advice-manager.js';
 import { shouldSelect } from '../../../base-standard/ui/advice/advice-support.js';
 
 const TURN_WAIT = 20;
 const TURN_START = 10;
 const TURN_OFFSET = 12;
-AdviceManager.addItem({
+adviceAddItem({
   id: "ADVICE_EXPLORATION_MILITARY_MILITARY_VICTORY",
   type: AdvisorTypes.MILITARY,
   onSelect: () => {
     return Game.turn == 1;
   }
 });
-AdviceManager.addItem({
+adviceAddItem({
   id: "ADVICE_EXPLORATION_MILITARY_PEACE_DEALS",
   type: AdvisorTypes.MILITARY,
   onSelect: () => {
@@ -37,7 +37,7 @@ AdviceManager.addItem({
     return bCanMakePeace;
   }
 });
-AdviceManager.addBundle({
+adviceAddBundle({
   id: "ADVICE_EXPLORATION_MILITARY_MISC",
   type: AdvisorTypes.MILITARY,
   pages: [

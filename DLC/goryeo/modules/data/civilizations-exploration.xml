@@ -1,0 +1,46 @@
+<Database>
+	<TraitModifiers>
+		<Row TraitType="TRAIT_GORYEO_ABILITY" ModifierId="MOD_REVEAL_CIV_CULTURE_TREE_GORYEO"/>
+		<Row TraitType="TRAIT_GORYEO_ABILITY" ModifierId="MOD_CIV_WONDER_PRODUCTION_GORYEO"/>
+		<Row TraitType="TRAIT_EXPLORATION_CIV" ModifierId="MOD_CIV_STATIONED_TOBANG_INFLUENCE"/>
+		<Row TraitType="TRAIT_ANACHRONISTIC_CIV" ModifierId="MOD_CIV_STATIONED_TOBANG_INFLUENCE"/>
+	</TraitModifiers>
+	<RequirementSets>
+		<Row RequirementSetId="REQSET_PLAYER_IS_GORYEO" RequirementSetType="REQUIREMENTSET_TEST_ALL"/>
+	</RequirementSets>
+	<RequirementSetRequirements>
+		<Row RequirementSetId="REQSET_PLAYER_IS_GORYEO" RequirementId="REQ_PLAYER_HAS_TRAIT_GORYEO"/>
+	</RequirementSetRequirements>
+	<Requirements>
+		<Row RequirementId="REQ_PLAYER_HAS_TRAIT_GORYEO" RequirementType="REQUIREMENT_PLAYER_HAS_CIVILIZATION_OR_LEADER_TRAIT"/>
+	</Requirements>
+	<RequirementArguments>
+		<Row RequirementId="REQ_PLAYER_HAS_TRAIT_GORYEO" Name="TraitType" Value="TRAIT_GORYEO"/>
+	</RequirementArguments>
+	<AiListTypes>
+		<Row ListType="Goryeo Unit Biases" />
+		<Row ListType="Goryeo Government Bias" />
+		<Row ListType="Goryeo Constructibles Biases" />
+	</AiListTypes>
+	<AiLists>
+		<Row ListType="Goryeo Unit Biases" LeaderType="TRAIT_GORYEO" System="UnitBiases" />
+		<Row ListType="Goryeo Government Bias" LeaderType="TRAIT_GORYEO" System="GovernmentBiases" />
+		<Row ListType="Goryeo Constructibles Biases" LeaderType="TRAIT_GORYEO" System="ConstructibleBiases" />
+	</AiLists>
+	<AiFavoredItems>
+		<Row ListType="Goryeo Unit Biases" Item="UNIT_TOBANG" Value="50" />
+		<Row ListType="Goryeo Unit Biases" Item="UNIT_TOBANG_2" Value="50" />
+		<Row ListType="Goryeo Unit Biases" Item="UNIT_TOBANG_3" Value="50" />
+		<Row ListType="Goryeo Unit Biases" Item="UNIT_HWACHA" Value="50" />
+		<Row ListType="Goryeo Unit Biases" Item="UNIT_HWACHA_2" Value="50" />
+		<Row ListType="Goryeo Unit Biases" Item="UNIT_HWACHA_3" Value="50" />
+		<Row ListType="Goryeo Government Bias" Item="GOVERNMENT_FEUDAL_MONARCHY" Value="25" />
+		<Row ListType="Goryeo Constructibles Biases" Item="WONDER_BUSEOKSA" Value="50" />
+	</AiFavoredItems>
+	<Independents>
+		<Update>
+			<Where IndependentType="INDEPENDENT_EXPLORATION_15"/>
+			<Set Name="LOC_INDEPENDENT_EXPLORATION_15_MINOR_GORYEO_NAME" CityStateName="LOC_INDEPENDENT_EXPLORATION_15_MAJOR_GORYEO_NAME"/>
+		</Update>
+	</Independents>
+</Database>

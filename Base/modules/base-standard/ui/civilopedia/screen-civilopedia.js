@@ -118,6 +118,10 @@ class ScreenCivilopedia extends Panel {
         this.searchBar?.onActivate();
         handledInput = true;
         break;
+      case "open-civilopedia":
+        this.close();
+        handledInput = true;
+        break;
     }
     if (handledInput) {
       inputEvent.stopPropagation();

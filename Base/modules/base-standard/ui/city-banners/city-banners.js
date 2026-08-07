@@ -6,8 +6,11 @@ import UpdateGate from '../../../core/ui/utilities/utilities-update-gate.js';
 import { BANNER_INVALID_LOCATION, BannerType } from './banner-support.js';
 import CityBannerManager from './city-banner-manager.js';
 import { RaiseDiplomacyEvent } from '../diplomacy/diplomacy-events.js';
+import { ProductionPanelCategory } from '../production-chooser/production-chooser-helpers.js';
 import content from './city-banners.html.js';
 import styles from './city-banners.scss.js';
+import '../../ui-next/screens/city-banners/city-banner-population.js';
+import '../../ui-next/screens/city-banners/city-banner-production.js';
 
 const BANNER_ANCHOR_OFFSET = { x: 0, y: 0, z: 42 };
 const happinessStages = [];
@@ -36,13 +39,11 @@ class CityBannerComponent extends FxsActivatable {
     originalCapitalCurrIndicator: ".city-banner__original-capital-curr-star",
     cityStateColor: ".city-banner__city-state-type",
     container: ".city-banner__container",
+    container_bg: ".city-banner__stretch",
     growthQueueContainer: ".city-banner__population-container",
-    growthQueueMeter: ".city-banner__population-ring",
-    growthQueueTurns: ".city-banner__population-container > .city-banner__turn > .city-banner__turn-number",
-    productionQueue: ".city-banner__queue-container.queue-production",
-    productionQueueMeter: ".city-banner__production-ring",
-    productionQueueIcon: ".city-banner__queue-img",
-    productionQueueTurns: ".city-banner__queue-container.queue-production > .city-banner__turn > .city-banner__turn-number",
+    growthQueue: ".city-banner__population",
+    productionQueueContainer: ".city-banner__production-container",
+    productionQueue: ".city-banner__production",
     portrait: ".city-banner__portrait",
     portraitIcon: ".city-banner__portrait-img",
     urbanReligionSymbol: ".city-banner__religion-symbol",
@@ -56,7 +57,6 @@ class CityBannerComponent extends FxsActivatable {
     portraitImg: ".city-banner__portrait-img",
     cityNameContainer: ".city-banner__name-container",
     cityName: ".city-banner__name",
-    popCount: ".city-banner__population-number",
     civPatternContainer: ".city-banner__pattern-container",
     civPattern: ".city-banner__pattern",
     unrestTurns: ".city-banner__unrest > .city-banner__time-container > .city-banner__time-text",
@@ -393,7 +393,7 @@ class CityBannerComponent extends FxsActivatable {
     };
     this.setCityInfo(bannerData);
     if (city) {
-      this.setPopulation(city.population);
+      this.realizePopulation();
       this.realizeBuilds();
       this.realizeHappiness();
       this.realizeReligion();
@@ -417,7 +417,7 @@ class CityBannerComponent extends FxsActivatable {
       capitalIndicator,
       originalCapitalIndicator,
       originalCapitalCurrIndicator,
-      container,
+      container_bg,
       cityName,
       portrait,
       portraitIcon
@@ -432,7 +432,8 @@ class CityBannerComponent extends FxsActivatable {
       "city-banner--citystate"
     );
     if (data.bannerType == BannerType.town) {
-      container.setAttribute("data-tooltip-content", Locale.compose("LOC_CAPITAL_SELECT_PROMOTION_NONE"));
+      cityName.setAttribute("data-tooltip-content", Locale.compose("LOC_CAPITAL_SELECT_PROMOTION_NONE"));
+      container_bg.setAttribute("data-tooltip-content", Locale.compose("LOC_CAPITAL_SELECT_PROMOTION_NONE"));
       this.Root.classList.add("city-banner--town");
       if (this.city && this.city.isValid) {
         originalCapitalIndicator.classList.toggle(
@@ -442,7 +443,8 @@ class CityBannerComponent extends FxsActivatable {
         originalCapitalIndicator.classList.add("city-banner__town-original-capital-star");
       }
     } else {
-      container.setAttribute("data-tooltip-content", data.tooltip);
+      cityName.setAttribute("data-tooltip-content", data.tooltip);
+      container_bg.setAttribute("data-tooltip-content", data.tooltip);
       if (data.bannerType == BannerType.cityState) {
         this.Root.classList.add("city-banner--citystate");
       } else if (data.bannerType == BannerType.village) {
@@ -470,60 +472,15 @@ class CityBannerComponent extends FxsActivatable {
       }
     }
   }
-  setPopulation(population) {
-    this.elements.popCount.textContent = population.toString();
-  }
-  setProduction(data) {
-    const { productionQueue, productionQueueIcon, productionQueueTurns, productionQueueMeter } = this.elements;
-    if (data && data.turnsLeft > 0) {
-      productionQueue.classList.remove("queue-none");
-      productionQueueIcon.style.backgroundImage = `url('${Icon.getProductionIconFromHash(data.hash)}')`;
-      productionQueueIcon.classList.toggle("city-banner__queue-img--unit", data.kind == ProductionKind.UNIT);
-      const name = data.kind == ProductionKind.UNIT ? GameInfo.Units.lookup(data.hash)?.Name : data.kind == ProductionKind.CONSTRUCTIBLE ? GameInfo.Constructibles.lookup(data.hash)?.Name : GameInfo.Projects.lookup(data.hash)?.Name;
-      if (!name) {
-        console.error(
-          `City Banner Production Icon Tooltip: No name could be found for data with hash ${data.hash}`
-        );
-      } else {
-        productionQueue.setAttribute(
-          "data-tooltip-content",
-          `<div>${Locale.compose("LOC_UI_CITY_BANNER_PRODUCTION")}</div><div>${Locale.compose(name)}</div>`
-        );
-      }
-    } else {
-      productionQueue.classList.add("queue-none");
-    }
-    productionQueueTurns.textContent = data ? data.turnsLeft.toString() : "0";
-    productionQueueMeter.setAttribute("value", data ? data.percentLeft.toString() : "0");
-  }
-  setFood(turnsLeft, current, nextTarget) {
-    const { growthQueueContainer, growthQueueMeter, growthQueueTurns } = this.elements;
-    if (turnsLeft >= 0) {
-      growthQueueMeter.setAttribute("value", current.toString());
-      growthQueueMeter.setAttribute("max-value", nextTarget.toString());
-      growthQueueTurns.innerHTML = turnsLeft.toString();
-      growthQueueTurns.classList.remove("hidden");
-    } else {
-      growthQueueTurns.classList.add("hidden");
-      growthQueueMeter.setAttribute("value", "0");
-      growthQueueMeter.setAttribute("max-value", "0");
-    }
-    if (this.city && this.city.isValid && this.city.Workers) {
-      const specialists = this.city.Workers.getNumWorkers(false) ?? 0;
-      const urbanPop = this.city.urbanPopulation ?? 0;
-      const ruralPop = this.city.ruralPopulation ?? 0;
-      const growthTooltip = Locale.compose(
-        "LOC_UI_CITY_BANNER_POPULATION_INFO",
-        urbanPop.toString(),
-        ruralPop.toString(),
-        specialists.toString()
-      );
-      growthQueueContainer.setAttribute("data-tooltip-content", growthTooltip);
-    }
-  }
   realizePopulation() {
+    const showGrowthQueue = this.city && this.city.isValid;
+    this.elements.growthQueueContainer.classList.toggle("hidden", !showGrowthQueue);
     if (this.city && this.city.isValid) {
-      this.setPopulation(this.city.population);
+      this.elements.growthQueue.dataset.cityid = JSON.stringify(this.city.id);
+      this.elements.growthQueue.dataset.population = this.city.population.toString();
+      this.elements.growthQueue.dataset.currentFood = (this.city.Growth?.currentFood ?? 0).toString();
+      this.elements.growthQueue.dataset.canGrow = !this.city.isTown || this.city.Growth?.growthType == GrowthTypes.EXPAND ? "true" : "false";
+      this.elements.growthQueue.dataset.foodPerTurn = (this.city.Yields?.getNetYield(YieldTypes.YIELD_FOOD) ?? 0).toString();
     }
   }
   realizeCityStateType(color, icon) {
@@ -657,41 +614,112 @@ class CityBannerComponent extends FxsActivatable {
     }
   }
   realizeBuilds() {
+    const { productionQueueContainer, productionQueue } = this.elements;
     if (this.city && this.city.isValid) {
+      const isLocalPlayerCity = this.city.owner === GameContext.localObserverID;
+      if (!isLocalPlayerCity) {
+        productionQueueContainer.classList.toggle("hidden", true);
+        return;
+      }
       const buildQueue = this.city.BuildQueue;
-      const cityGrowth = this.city.Growth;
-      if (buildQueue) {
+      const cityProduction = this.city.Production;
+      if (buildQueue && cityProduction) {
         if (buildQueue.isEmpty) {
-          this.setProduction(null);
+          productionQueueContainer.classList.toggle("hidden", true);
         } else {
-          let currentProductionTypeHash = buildQueue.currentProductionTypeHash;
-          if (currentProductionTypeHash == null) {
-            console.warn(`city.BuildQueue.CurrentProductionTypeHash returned null instead of hash.`);
-            currentProductionTypeHash = -1;
-          }
-          this.setProduction({
-            hash: buildQueue.currentProductionTypeHash,
-            turnsLeft: buildQueue.currentTurnsLeft,
-            percentLeft: buildQueue.getPercentComplete(currentProductionTypeHash),
-            kind: buildQueue.currentProductionKind
-          });
+          productionQueueContainer.classList.toggle("hidden", false);
+          productionQueue.dataset.cityid = JSON.stringify(this.city.id);
+          productionQueue.dataset.prodPerTurn = (this.city.Yields?.getNetYield(YieldTypes.YIELD_PRODUCTION) ?? 0).toString();
+          productionQueue.dataset.turnsLeft = buildQueue.currentTurnsLeft.toString();
+          productionQueue.dataset.percent = buildQueue.getPercentComplete(buildQueue.currentProductionTypeHash).toString();
+          this.processBuilds(buildQueue, cityProduction);
         }
       } else {
-        console.error("City-banners: RealizeBuilds: city.BuildQueue was undefined");
-      }
-      if (cityGrowth) {
-        const isExpanding = !this.city.isTown || cityGrowth.growthType == GrowthTypes.EXPAND;
-        const turnsUntilGrowth = isExpanding ? cityGrowth.turnsUntilGrowth : -1;
-        this.setFood(turnsUntilGrowth, cityGrowth.currentFood, cityGrowth.getNextGrowthFoodThreshold().value);
-      } else {
-        console.error("City-banners: RealizeBuilds: city.Growth was undefined");
+        productionQueueContainer.classList.toggle("hidden", true);
+        console.error("City-banners: RealizeBuilds: city.BuildQueue or city.Production was undefined");
       }
     } else {
+      productionQueueContainer.classList.toggle("hidden", true);
       console.error(
         "City Banner missing city object when production changed. cid: ",
         ComponentID.toLogString(this.componentID)
       );
     }
+  }
+  processBuilds(buildQueue, cityProduction) {
+    const { productionQueue } = this.elements;
+    const queueData = [];
+    const queueNodes = buildQueue.getQueue() ?? [];
+    const queueMax = 4;
+    if (queueNodes.length > 0) {
+      for (let index = 0; index < queueNodes.length; index++) {
+        if (index > queueMax) break;
+        const queueItem = queueNodes[index];
+        switch (queueItem.kind) {
+          case ProductionKind.CONSTRUCTIBLE: {
+            const buildingInfo = GameInfo.Constructibles.lookup(queueItem.constructibleType);
+            if (buildingInfo) {
+              queueData.push({
+                type: buildingInfo.ConstructibleType,
+                name: buildingInfo.Name,
+                icon: `url('${Icon.getConstructibleIconFromDefinition(buildingInfo)}')`,
+                kind: ProductionPanelCategory.BUILDINGS,
+                cost: cityProduction.getConstructibleProductionCost(buildingInfo.ConstructibleType),
+                progress: buildQueue.getPercentComplete(queueItem.type),
+                turns: buildQueue.getTurnsLeft(queueItem.constructibleType)
+              });
+            }
+            break;
+          }
+          case ProductionKind.UNIT: {
+            const unitInfo = GameInfo.Units.lookup(queueItem.unitType);
+            if (unitInfo) {
+              queueData.push({
+                type: unitInfo.UnitType,
+                name: unitInfo.Name,
+                icon: `url('${Icon.getUnitIconFromDefinition(unitInfo)}')`,
+                kind: ProductionPanelCategory.UNITS,
+                cost: cityProduction.getUnitProductionCost(unitInfo.UnitType),
+                progress: buildQueue.getPercentComplete(queueItem.type),
+                turns: buildQueue.getTurnsLeft(queueItem.unitType)
+              });
+            }
+            break;
+          }
+          case ProductionKind.PROJECT: {
+            const projectInfo = GameInfo.Projects.lookup(queueItem.projectType);
+            if (projectInfo) {
+              queueData.push({
+                type: projectInfo.ProjectType,
+                name: projectInfo.Name,
+                icon: `url('${Icon.getProjectIconFromDefinition(projectInfo)}')`,
+                kind: ProductionPanelCategory.PROJECTS,
+                cost: cityProduction.getProjectProductionCost(projectInfo.ProjectType),
+                progress: buildQueue.getPercentComplete(queueItem.type),
+                turns: buildQueue.getTurnsLeft(queueItem.projectType)
+              });
+            }
+            break;
+          }
+          default:
+            break;
+        }
+      }
+    }
+    while (queueData.length <= queueMax) {
+      queueData.push({
+        type: "",
+        name: "",
+        icon: "",
+        kind: "",
+        cost: 0,
+        progress: 0,
+        turns: 0
+      });
+    }
+    const currentData = queueData.shift();
+    productionQueue.dataset.currentProduction = JSON.stringify(currentData);
+    productionQueue.dataset.buildQueue = JSON.stringify(queueData);
   }
   realizeTradeNetwork() {
     if (this.city && this.city.isValid && this.city.Trade) {
@@ -839,6 +867,7 @@ class CityBannerComponent extends FxsActivatable {
   }
   disable() {
     this.Root.classList.add("disabled");
+    this.Root.removeEventListener("action-activate", this.onActivateEventListener);
     const elements = this.Root.querySelectorAll(this.inputSelector);
     if (elements.length == 0) {
       console.warn(
@@ -852,6 +881,7 @@ class CityBannerComponent extends FxsActivatable {
   }
   enable() {
     this.Root.classList.remove("disabled");
+    this.Root.addEventListener("action-activate", this.onActivateEventListener);
     const elements = this.Root.querySelectorAll(this.inputSelector);
     if (elements.length == 0) {
       console.warn(

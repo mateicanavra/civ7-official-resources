@@ -99,7 +99,10 @@ class BefriendIndependentDetailsScreen extends Panel {
       this.addBefriendIndependentProgressSteps(progressBar, actionHeader, completionData);
     });
     if (activeEvents.length > 0) {
-      const index = activeEvents.length - 1;
+      let index = 0;
+      for (let i = 1; i < activeEvents.length; i++) {
+        if (activeEvents[i].progressScore > activeEvents[index].progressScore) index = i;
+      }
       const ourConfiguration = Configuration.getPlayer(GameContext.localPlayerID);
       if (ourConfiguration.leaderTypeName) {
         const ourIcon = document.createElement("leader-icon");

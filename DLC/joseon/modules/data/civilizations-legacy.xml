@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Types>
+		<!-- Major Civs -->
+		<Row Type="TRAIT_JOSEON" Kind="KIND_TRAIT"/>
+		<Row Type="CIVILIZATION_JOSEON" Kind="KIND_CIVILIZATION"/>
+	</Types>
+	<LegacyCivilizations>
+		<!-- Full Civs -->
+		<Row CivilizationType="CIVILIZATION_JOSEON" Name="LOC_CIVILIZATION_JOSEON_NAME" FullName="LOC_CIVILIZATION_JOSEON_FULLNAME" Adjective="LOC_CIVILIZATION_JOSEON_ADJECTIVE" Age="AGE_MODERN"/>
+	</LegacyCivilizations>
+	<LegacyCivilizationTraits>
+		<Row CivilizationType="CIVILIZATION_JOSEON" TraitType="TRAIT_JOSEON"/>
+	</LegacyCivilizationTraits>
+	<Traits>
+		<Row TraitType="TRAIT_JOSEON" InternalOnly="true"/>
+	</Traits>
+	<LegacyIndependents>
+		<Update>
+			<Where IndependentType="INDEPENDENT_MODERN_12"/>
+			<Set Name="LOC_INDEPENDENT_MODERN_12_MAJOR_JOSEON_NAME"/>
+		</Update>
+	</LegacyIndependents>
+</Database>

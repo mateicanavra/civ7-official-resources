@@ -68,6 +68,7 @@ class OtherPlayerDiplomacyActionPanel extends DiplomacyActionPanel {
     } else {
       LeaderModelManager.showRightLeaderModel(DiplomacyManager.selectedPlayerID);
     }
+    LeaderModelManager.clearLeftLeaderModel();
   }
   populateAvailableActions() {
     if (this.majorActionsSlot) {
@@ -145,6 +146,18 @@ class OtherPlayerDiplomacyActionPanel extends DiplomacyActionPanel {
       this.populateAvailableActions();
       this.populateRelationshipInfo();
     }
+  }
+  onInterfaceModeChanged(event) {
+    if (event.detail.prevMode == "INTERFACEMODE_DIPLOMACY_DIALOG" && event.detail.newMode == "INTERFACEMODE_DIPLOMACY_HUB") {
+      this.startInitDataPopulationTimer();
+    } else {
+      super.onInterfaceModeChanged(event);
+    }
+  }
+  populateInitialData() {
+    super.populateInitialData();
+    this.onSelectedPlayerChanged();
+    this.initialLoadComplete = true;
   }
   /**
    * Handler for updates in response to a support change.

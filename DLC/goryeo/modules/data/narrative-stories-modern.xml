@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database>
+    <Types>
+        <Row Type="11281A" Kind="KIND_NARRATIVE_STORY"/>
+        <Row Type="11281B" Kind="KIND_NARRATIVE_STORY"/>
+        <Row Type="11281C" Kind="KIND_NARRATIVE_STORY"/>
+        <Row Type="11184A" Kind="KIND_NARRATIVE_STORY"/>
+        <Row Type="11185B" Kind="KIND_NARRATIVE_STORY"/>
+        <Row Type="11184C" Kind="KIND_NARRATIVE_STORY"/>
+    </Types>
+    <NarrativeStories>
+        <Row NarrativeStoryType="11281A" Name="LOC_11281A_NAME" Description="LOC_11281A_DESCRIPTION" Completion="LOC_11281A_COMPLETION" StoryTitle="LOC_11281A_STORYTITLE" Age="AGE_MODERN" Activation="REQUISITE" RequirementSetId="REQSET_11281A_NARRATIVE" ActivationRequirementSetId="REQSET_11281A_NARRATIVE_REQUISITE" UIActivation="STANDARD"/>
+        <Row NarrativeStoryType="11281B" Name="LOC_11281B_NAME" Description="LOC_11281B_DESCRIPTION" Completion="LOC_11281B_COMPLETION" Age="AGE_MODERN" Activation="LINKED" Hidden="TRUE" RequirementSetId="Met" UIActivation="STANDARD"/>
+        <Row NarrativeStoryType="11281C" Name="LOC_11281C_NAME" Description="LOC_11281C_DESCRIPTION" Completion="LOC_11281C_COMPLETION" Age="AGE_MODERN" Activation="LINKED" Hidden="TRUE" RequirementSetId="Met" UIActivation="STANDARD"/>
+        <Row NarrativeStoryType="11184A" Name="LOC_11184A_NAME" Description="LOC_11184A_DESCRIPTION" Completion="LOC_11184A_COMPLETION" StoryTitle="LOC_11184A_STORYTITLE" Age="AGE_MODERN" Activation="REQUISITE" RequirementSetId="REQSET_11184A_NARRATIVE" ActivationRequirementSetId="REQSET_11184A_NARRATIVE_REQUISITE" UIActivation="STANDARD"/>
+        <Row NarrativeStoryType="11185B" Name="LOC_11185B_NAME" Description="LOC_11185B_DESCRIPTION" Completion="LOC_11185B_COMPLETION" StoryTitle="LOC_11185B_STORYTITLE" Age="AGE_MODERN" Activation="LINKED" Imperative="LOC_11185B_IMPERATIVE" IsQuest="TRUE" RequirementSetId="REQSET_11185B_NARRATIVE" UIActivation="STANDARD"/>
+        <Row NarrativeStoryType="11184C" Name="LOC_11184C_NAME" Description="LOC_11184C_DESCRIPTION" Completion="LOC_11184C_COMPLETION" Age="AGE_MODERN" Activation="LINKED" Hidden="TRUE" RequirementSetId="Met" UIActivation="STANDARD"/>
+    </NarrativeStories>
+    <NarrativeRewards>
+        <Row NarrativeRewardType="11281B_REWARD" ModifierID="11281B_NARRATIVE_MODIFIER"/>
+        <Row NarrativeRewardType="11281C_REWARD" ModifierID="11281C_NARRATIVE_MODIFIER"/>
+        <Row NarrativeRewardType="11185B_REWARD" ModifierID="11185B_NARRATIVE_MODIFIER"/>
+        <Row NarrativeRewardType="11184C_REWARD" ModifierID="11184C_NARRATIVE_MODIFIER"/>
+    </NarrativeRewards>
+    <NarrativeStory_Rewards>
+        <Row NarrativeStoryType="11281B" NarrativeRewardType="11281B_REWARD" Activation="START"/>
+        <Row NarrativeStoryType="11281C" NarrativeRewardType="11281C_REWARD" Activation="START"/>
+        <Row NarrativeStoryType="11185B" NarrativeRewardType="11185B_REWARD" Activation="COMPLETE"/>
+        <Row NarrativeStoryType="11184C" NarrativeRewardType="11184C_REWARD" Activation="START"/>
+    </NarrativeStory_Rewards>
+    <NarrativeStoryOverrides>
+    </NarrativeStoryOverrides>
+    <NarrativeVariations>
+    </NarrativeVariations>
+    <NarrativeRewardIcons>
+        <Row NarrativeStoryType="11185B" RewardIconType="QUEST"/>
+        <Row NarrativeStoryType="11281B" RewardIconType="ATTRIBUTE_CULTURAL"/>
+        <Row NarrativeStoryType="11281C" RewardIconType="ATTRIBUTE_POLITICAL"/>
+        <Row NarrativeStoryType="11185B" RewardIconType="GREATWORK"/>
+        <Row NarrativeStoryType="11184C" RewardIconType="YIELD_CULTURE"/>
+    </NarrativeRewardIcons>
+    <NarrativeStory_TextReplacements>
+        <Row NarrativeStoryType="11281B" NarrativeStoryTextType="REWARD" NarrativeTextReplacementType="REWARD" Priority="1"/>
+        <Row NarrativeStoryType="11281C" NarrativeStoryTextType="REWARD" NarrativeTextReplacementType="REWARD" Priority="1"/>
+        <Row NarrativeStoryType="11185B" NarrativeStoryTextType="REWARD" NarrativeTextReplacementType="REWARD" Priority="1"/>
+        <Row NarrativeStoryType="11184C" NarrativeStoryTextType="REWARD" NarrativeTextReplacementType="REWARD" Priority="1"/>
+    </NarrativeStory_TextReplacements>
+    <NarrativeStory_Links>
+        <Row FromNarrativeStoryType="11281A" ToNarrativeStoryType="11281B" Priority="0" Name="LOC_11281B_NAME" Description="LOC_11281B_DESCRIPTION"/>
+        <Row FromNarrativeStoryType="11281A" ToNarrativeStoryType="11281C" Priority="1" Name="LOC_11281C_NAME" Description="LOC_11281C_DESCRIPTION"/>
+        <Row FromNarrativeStoryType="11184A" ToNarrativeStoryType="11185B" Priority="0" Name="LOC_11185B_NAME" Description="LOC_11185B_DESCRIPTION" Imperative="LOC_11185B_IMPERATIVE"/>
+        <Row FromNarrativeStoryType="11184A" ToNarrativeStoryType="11184C" Priority="1" Name="LOC_11184C_NAME" Description="LOC_11184C_DESCRIPTION"/>
+    </NarrativeStory_Links>
+</Database>

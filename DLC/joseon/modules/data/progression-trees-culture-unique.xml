@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Types>
+		<!--Civ Unique Mastery Trees-->
+		<Row Type="TREE_CIVICS_MO_JOSEON" Kind="KIND_TREE"/>
+		<!--Civ Unique Mastery Tree Nodes-->
+		<Row Type="NODE_CIVIC_MO_JOSEON_IHAK" Kind="KIND_TREE_NODE"/>
+		<Row Type="NODE_CIVIC_MO_JOSEON_SEONBI" Kind="KIND_TREE_NODE"/>
+		<Row Type="NODE_CIVIC_MO_JOSEON_GYEONGGUK_DAEJEON" Kind="KIND_TREE_NODE"/>
+		<Row Type="NODE_CIVIC_MO_JOSEON_SAMGANG" Kind="KIND_TREE_NODE"/>
+	</Types>
+	<TypeQuotes>
+		<Row Type="NODE_CIVIC_MO_JOSEON_IHAK" Quote="LOC_CIVIC_IHAK_QUOTE" QuoteAuthor="LOC_CIVIC_IHAK_AUTHOR" QuoteAudio="VO_Quote_Ihak"/>
+		<Row Type="NODE_CIVIC_MO_JOSEON_SEONBI" Quote="LOC_CIVIC_SEONBI_QUOTE" QuoteAuthor="LOC_CIVIC_SEONBI_AUTHOR" QuoteAudio="VO_Quote_Seonbi"/>
+		<Row Type="NODE_CIVIC_MO_JOSEON_GYEONGGUK_DAEJEON" Quote="LOC_CIVIC_GYEONGGUK_DAEJEON_QUOTE" QuoteAuthor="LOC_CIVIC_GYEONGGUK_DAEJEON_AUTHOR" QuoteAudio="VO_Quote_GyeonggukDaejon"/>
+		<Row Type="NODE_CIVIC_MO_JOSEON_SAMGANG" Quote="LOC_CIVIC_SAMGANG_QUOTE" QuoteAuthor="LOC_CIVIC_SAMGANG_AUTHOR" QuoteAudio="VO_Quote_Samgang"/>
+	</TypeQuotes>
+	<ProgressionTrees>
+		<!--Civ Unique Mastery Trees-->
+		<Row ProgressionTreeType="TREE_CIVICS_MO_JOSEON" AgeType="AGE_MODERN" SystemType="SYSTEM_CULTURE" Name="LOC_TREE_CIVICS_MO_JOSEON_NAME"/>
+	</ProgressionTrees>
+	<ProgressionTreeNodes>
+		<!--Civ Unique Mastery Tree Nodes-->
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_JOSEON_IHAK" ProgressionTree="TREE_CIVICS_MO_JOSEON" Cost="2000" Name="LOC_CIVIC_IHAK_NAME" IconString="cult_joseon"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_JOSEON_SEONBI" ProgressionTree="TREE_CIVICS_MO_JOSEON" Cost="2000" Name="LOC_CIVIC_SEONBI_NAME" IconString="cult_joseon"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_JOSEON_GYEONGGUK_DAEJEON" ProgressionTree="TREE_CIVICS_MO_JOSEON" Cost="3000" Name="LOC_CIVIC_GYEONGGUK_DAEJEON_NAME" IconString="cult_joseon"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_JOSEON_SAMGANG" ProgressionTree="TREE_CIVICS_MO_JOSEON" Cost="4000" Name="LOC_CIVIC_SAMGANG_NAME" IconString="cult_joseon"/>
+	</ProgressionTreeNodes>
+	<ProgressionTreeNodeUnlocks>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_JOSEON_IHAK" TargetKind="KIND_CONSTRUCTIBLE" TargetType="BUILDING_CONFUCIAN_ACADEMY" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_JOSEON_IHAK" TargetKind="KIND_CONSTRUCTIBLE" TargetType="WONDER_HWASEONG" UnlockDepth="1" AIIgnoreUnlockValue="true"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_JOSEON_IHAK" TargetKind="KIND_MODIFIER" TargetType="MOD_PROGRESSION_TREE_JOSEON_CITY_LIMIT" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_JOSEON_IHAK" TargetKind="KIND_TRADITION" TargetType="TRADITION_GWAGEO" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_JOSEON_SEONBI" TargetKind="KIND_CONSTRUCTIBLE" TargetType="BUILDING_PRINTING_HOUSE" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_JOSEON_SEONBI" TargetKind="KIND_MODIFIER" TargetType="MOD_PROGRESSION_TREE_JOSEON_CITY_LIMIT" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_JOSEON_SEONBI" TargetKind="KIND_TRADITION" TargetType="TRADITION_SILHAK" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_JOSEON_GYEONGGUK_DAEJEON" TargetKind="KIND_MODIFIER" TargetType="MOD_TOT_TRADITION_SLOT" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_JOSEON_GYEONGGUK_DAEJEON" TargetKind="KIND_TRADITION" TargetType="TRADITION_YANGBEOBMIUI" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_JOSEON_SAMGANG" TargetKind="KIND_MODIFIER" TargetType="MOD_PROGRESSION_TREE_JOSEON_CITY_LIMIT" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_JOSEON_SAMGANG" TargetKind="KIND_TRADITION" TargetType="TRADITION_YANGBAN_BUREAUCRACY" UnlockDepth="1"/>
+	</ProgressionTreeNodeUnlocks>
+	<ProgressionTreePrereqs>
+		<Row Node="NODE_CIVIC_MO_JOSEON_GYEONGGUK_DAEJEON" PrereqNode="NODE_CIVIC_MO_JOSEON_IHAK"/>
+		<Row Node="NODE_CIVIC_MO_JOSEON_GYEONGGUK_DAEJEON" PrereqNode="NODE_CIVIC_MO_JOSEON_SEONBI"/>
+		<Row Node="NODE_CIVIC_MO_JOSEON_SAMGANG" PrereqNode="NODE_CIVIC_MO_JOSEON_GYEONGGUK_DAEJEON"/>
+	</ProgressionTreePrereqs>
+	<ProgressionTree_Advisories>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_JOSEON_IHAK" AdvisoryClassType="ADVISORY_CLASS_CULTURE"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_JOSEON_SEONBI" AdvisoryClassType="ADVISORY_CLASS_SCIENCE"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_JOSEON_GYEONGGUK_DAEJEON" AdvisoryClassType="ADVISORY_CLASS_CULTURE"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_JOSEON_SAMGANG" AdvisoryClassType="ADVISORY_CLASS_FOOD"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_JOSEON_SAMGANG" AdvisoryClassType="ADVISORY_CLASS_CULTURE"/>
+	</ProgressionTree_Advisories>
+</Database>

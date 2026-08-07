@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<LeaderCivilizationBias>
+	</LeaderCivilizationBias>
+	<Civilizations>
+		<Row Domain="ExplorationAgeCivilizations" CivilizationType="CIVILIZATION_GORYEO" CivilizationName="LOC_CIVILIZATION_GORYEO_NAME" CivilizationFullName="LOC_CIVILIZATION_GORYEO_FULLNAME" CivilizationDescription="LOC_CIVILIZATION_GORYEO_DESCRIPTION" CivilizationIntroText="LOC_LOADING_CIV_INTRO_TEXT_GORYEO" CivilizationIcon="shawnee_icon.png"/>
+	</Civilizations>
+	<CivilizationItems>
+		<Row CivilizationDomain="AntiquityAgeCivilizations" AgeType="AGE_ANTIQUITY" CivilizationType="CIVILIZATION_GORYEO" Type="TRAIT_GORYEO_ABILITY" Kind="KIND_TRAIT" Name="LOC_TRAIT_GORYEO_ABILITY_NAME" Description="LOC_TRAIT_GORYEO_ABILITY_AQ_DESCRIPTION"/>
+		<Row CivilizationDomain="ExplorationAgeCivilizations" AgeType="AGE_EXPLORATION" CivilizationType="CIVILIZATION_GORYEO" Type="TRAIT_GORYEO_ABILITY" Kind="KIND_TRAIT" Name="LOC_TRAIT_GORYEO_ABILITY_NAME" Description="LOC_TRAIT_GORYEO_ABILITY_EX_DESCRIPTION"/>
+		<Row CivilizationDomain="ModernAgeCivilizations" AgeType="AGE_MODERN" CivilizationType="CIVILIZATION_GORYEO" Type="TRAIT_GORYEO_ABILITY" Kind="KIND_TRAIT" Name="LOC_TRAIT_GORYEO_ABILITY_NAME" Description="LOC_TRAIT_GORYEO_ABILITY_MO_DESCRIPTION"/>
+		<Row CivilizationDomain="ExplorationAgeCivilizations" CivilizationType="CIVILIZATION_GORYEO" Type="UNIT_HWACHA" Kind="KIND_UNIT" Name="LOC_UNIT_HWACHA_NAME" Description="LOC_UNIT_HWACHA_BASE_DESCRIPTION" Icon="unitflag_leiomano.png"/>
+		<Row CivilizationDomain="ExplorationAgeCivilizations" CivilizationType="CIVILIZATION_GORYEO" Type="UNIT_TOBANG" Kind="KIND_UNIT" Name="LOC_UNIT_TOBANG_NAME" Description="LOC_UNIT_TOBANG_BASE_DESCRIPTION" Icon="unitflag_TOBANG.png"/>
+		<Row CivilizationDomain="ExplorationAgeCivilizations" CivilizationType="CIVILIZATION_GORYEO" Type="IMPROVEMENT_GAMA" Kind="KIND_IMPROVEMENT" Name="LOC_IMPROVEMENT_GAMA_NAME" Description="LOC_IMPROVEMENT_GAMA_DESCRIPTION" Icon="impicon_loikalo.png"/>
+	</CivilizationItems>
+	<CivilizationTags>
+		<Row CivilizationDomain="ExplorationAgeCivilizations" CivilizationType="CIVILIZATION_GORYEO" TagType="TAG_TRAIT_CULTURAL"/>
+		<Row CivilizationDomain="ExplorationAgeCivilizations" CivilizationType="CIVILIZATION_GORYEO" TagType="TAG_TRAIT_POLITICAL"/>
+		<Row CivilizationDomain="ExplorationAgeCivilizations" CivilizationType="CIVILIZATION_GORYEO" TagType="TAG_APEX_AGE_EXPLORATION"/>
+	</CivilizationTags>
+	<CivilizationUnlocks>
+		<Row CivilizationDomain="AntiquityAgeCivilizations" CivilizationType="CIVILIZATION_GREECE" AgeDomain="StandardAges" AgeType="AGE_EXPLORATION" Type="CIVILIZATION_GORYEO" Kind="KIND_CIVILIZATION" Name="LOC_CIVILIZATION_GORYEO_NAME" Description="LOC_CIVILIZATION_GORYEO_DESCRIPTION" Icon="CIVILIZATION_GORYEO"/>
+		<Row CivilizationDomain="ExplorationAgeCivilizations" CivilizationType="CIVILIZATION_GORYEO" AgeDomain="StandardAges" AgeType="AGE_MODERN" Type="CIVILIZATION_FRENCH_EMPIRE" Kind="KIND_CIVILIZATION" Name="LOC_CIVILIZATION_FRENCH_EMPIRE_NAME" Description="LOC_CIVILIZATION_FRENCH_EMPIRE_DESCRIPTION" Icon="CIVILIZATION_FRENCH_EMPIRE"/>
+	</CivilizationUnlocks>
+	<LeaderUnlocks>
+		<Row LeaderDomain="StandardLeaders" LeaderType="LEADER_CONFUCIUS" AgeDomain="StandardAges" AgeType="AGE_EXPLORATION" Type="CIVILIZATION_GORYEO" Kind="KIND_CIVILIZATION" Name="LOC_CIVILIZATION_GORYEO_NAME" Description="LOC_CIVILIZATION_GORYEO_DESCRIPTION" Icon="CIVILIZATION_GORYEO" />
+		<Row LeaderDomain="StandardLeaders" LeaderType="LEADER_MACHIAVELLI" AgeDomain="StandardAges" AgeType="AGE_EXPLORATION" Type="CIVILIZATION_GORYEO" Kind="KIND_CIVILIZATION" Name="LOC_CIVILIZATION_GORYEO_NAME" Description="LOC_CIVILIZATION_GORYEO_DESCRIPTION" Icon="CIVILIZATION_GORYEO" />
+	</LeaderUnlocks>
+	<LeaderCivilizationBias>
+		<Row CivilizationDomain="ExplorationAgeCivilizations" CivilizationType="CIVILIZATION_GORYEO" LeaderDomain="StandardLeaders" LeaderType="LEADER_CONFUCIUS" Bias="1" ReasonType="LOC_UNLOCK_PLAY_AS_CONFUCIUS_GORYEO_TOOLTIP" ChoiceType="LOC_CREATE_GAME_GEOGRAPHIC_CHOICE" />
+		<Row CivilizationDomain="ExplorationAgeCivilizations" CivilizationType="CIVILIZATION_GORYEO" LeaderDomain="StandardLeaders" LeaderType="LEADER_MACHIAVELLI" Bias="2" ReasonType="LOC_UNLOCK_PLAY_AS_MACHIAVELLI_GORYEO_TOOLTIP" ChoiceType="LOC_CREATE_GAME_STRATEGIC_CHOICE" />
+	</LeaderCivilizationBias>
+	<OwnershipConditions>
+		<Row ItemType="CIVILIZATION_GORYEO" Action="LOC_LOCKED_INCLUDED_WITH_CONTENT" />
+	</OwnershipConditions>
+</Database>

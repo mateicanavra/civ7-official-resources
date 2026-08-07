@@ -1,5 +1,5 @@
-import { template, insert } from '../../../../../core/vendor/solid-js/web/dist/web.js';
-import { createRenderEffect, createComponent, Show, createMemo, For } from '../../../../../core/vendor/solid-js/dist/solid.js';
+import { template, className, insert } from '../../../../../core/vendor/solid-js/web/dist/web.js';
+import { mergeProps, createRenderEffect, createComponent, Show, createMemo, For } from '../../../../../core/vendor/solid-js/dist/solid.js';
 import { Icon } from '../../../../../core/ui-next/components/icon.js';
 import { L10n } from '../../../../../core/ui-next/components/l10n.js';
 import { TooltipKeyword } from '../../../../../core/ui-next/components/tooltip-keyword.js';
@@ -7,12 +7,25 @@ import { Tooltip } from '../../../../../core/ui-next/components/tooltip.js';
 import { getDistrictHealthInfo } from '../helpers.js';
 import { TicketSection, TicketRow } from './utility.js';
 
-var _tmpl$ = /* @__PURE__ */ template(`<div class="size-6 shrink-0 bg-contain bg-center bg-no-repeat"></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="flex flex-col items-center ml-2 shrink-0"><div class="size-6 bg-contain bg-center bg-no-repeat"></div><span class="font-body text-xs text-accent-2"></span></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="flex items-center w-full"><div class="font-title text-sm uppercase text-secondary flex-1 flex flex-wrap items-center"></div></div>`), _tmpl$4 = /* @__PURE__ */ template(`<span class=mx-1>,</span>`), _tmpl$5 = /* @__PURE__ */ template(`<div class="flex items-center w-full"></div>`), _tmpl$6 = /* @__PURE__ */ template(`<div class="flex items-center mt-0\\.5 font-body text-sm text-accent-3"><span></span></div>`);
-const PlotAlertIcon = (props) => (() => {
-  var _el$ = _tmpl$();
-  createRenderEffect((_$p) => (_$p = props.icon ?? "url(blp:tooltip_alert_icon)") != null ? _el$.style.setProperty("background-image", _$p) : _el$.style.removeProperty("background-image"));
-  return _el$;
-})();
+var _tmpl$ = /* @__PURE__ */ template(`<div></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="flex flex-col items-center ml-2 shrink-0"><div class="size-6 bg-contain bg-center bg-no-repeat"></div><span class="font-body text-xs text-accent-2"></span></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="flex items-center w-full"><div class="font-title text-sm uppercase text-secondary flex-1 flex flex-wrap items-center"></div></div>`), _tmpl$4 = /* @__PURE__ */ template(`<span class=mx-1>,</span>`), _tmpl$5 = /* @__PURE__ */ template(`<div class="flex items-center w-full"></div>`), _tmpl$6 = /* @__PURE__ */ template(`<div class="flex items-center mt-0\\.5 font-body text-sm text-accent-3"><span></span></div>`);
+const PlotAlertIcon = (props) => {
+  const mergedProps = mergeProps({
+    iconSizeClass: "size-6"
+  }, props);
+  return (() => {
+    var _el$ = _tmpl$();
+    createRenderEffect((_p$) => {
+      var _v$ = `${mergedProps.iconSizeClass} shrink-0 bg-contain bg-center bg-no-repeat`, _v$2 = props.icon ?? "url(blp:tooltip_alert_icon)";
+      _v$ !== _p$.e && className(_el$, _p$.e = _v$);
+      _v$2 !== _p$.t && ((_p$.t = _v$2) != null ? _el$.style.setProperty("background-image", _v$2) : _el$.style.removeProperty("background-image"));
+      return _p$;
+    }, {
+      e: void 0,
+      t: void 0
+    });
+    return _el$;
+  })();
+};
 const PlotAlertTimer = (props) => createComponent(Show, {
   get when() {
     return props.turns != null;
@@ -90,6 +103,7 @@ function getPlotEffectAlert(effect) {
       title: effect.name,
       tooltipText: "LOC_PEDIA_CONCEPTS_INFECTED_TOOLTIP",
       icon: "url(blp:yield_plague)",
+      iconSizeClass: "size-12",
       turns
     };
   }
@@ -267,6 +281,9 @@ const PlotAlertSection = (props) => {
                 return createComponent(PlotAlertIcon, {
                   get icon() {
                     return alert.icon;
+                  },
+                  get iconSizeClass() {
+                    return alert.iconSizeClass;
                   }
                 });
               },

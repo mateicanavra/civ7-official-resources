@@ -2480,6 +2480,14 @@ fxs-icon {
   display: flex;
 }
 
+@keyframes kbm-nav-help-hold-fill {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
 /** Generic ornamentation *********************************************************************/
 fxs-ornament1 {
   display: flex;
@@ -27484,6 +27492,12 @@ Not supported as of Gameface 1.56
 
 .fullscreen-outside-safezone-bot {
   bottom: -var(--safezone-bottom);
+}
+
+.fullscreen-outside-safezone-x-bot {
+  bottom: -var(--safezone-bottom);
+  right: -var(--safezone-right);
+  left: -var(--safezone-left);
 }
 
 .fullscreen-outside-safezone-top {

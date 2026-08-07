@@ -35,6 +35,9 @@ class TriumphCompleteQueueManagerClass extends DisplayHandlerBase {
       }
       return;
     }
+    if (Configuration.getGame().isHotseat && legacyDef.FirstPlayerOnly) {
+      getTriumphTrackingManager().setTriumphToUntrack(legacyDef);
+    }
     getTriumphTrackingManager().unTrackTriumph(legacyDef);
     if (ContextManager.shouldShowPopup(event.player)) {
       this.addDisplayRequest({ triumphData: createTriumphData(legacyDef) });

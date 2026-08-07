@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+	<Modifier id="TRAIT_MOD_ENDEAVOR_CULTURE" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_ADJUST_YIELD_PER_PLAYER_INVOLVED_ACTION">
+		<Argument name="ActionGroupType">DIPLOMACY_ACTION_GROUP_ENDEAVOR</Argument>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount" type="ScaleByGameAge" extra="50">2</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_GORYEO_ABILITY_NAME</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_CITY_UNIQUE_IMPROVEMENT_INFLUENCE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_CITY"/>
+		</SubjectRequirements>
+		<Argument name="Tag">UNIQUE_IMPROVEMENT</Argument>
+		<Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_GORYEO_ABILITY_NAME</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_TOWN_UNIQUE_IMPROVEMENT_CULTURE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_TOWN"/>
+		</SubjectRequirements>
+		<Argument name="Tag">UNIQUE_IMPROVEMENT</Argument>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_GORYEO_ABILITY_NAME</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_GORYEO_IMPROVEMENT_TOURISM" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ACTIVATE_VICTORY_POINT_TRACKER">
+		<Argument name="TrackerName">VICTORY_TRACKER_GORYEO_UNIQUE_IMPROVEMENTS</Argument>
+	</Modifier>
+</GameEffects>

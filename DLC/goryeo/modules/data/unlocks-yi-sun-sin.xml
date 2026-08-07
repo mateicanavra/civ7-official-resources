@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Types>
+		<InsertOrIgnore Type="UNLOCK_CIVILIZATION_GORYEO" Kind="KIND_UNLOCK" />
+	</Types>
+	<Unlocks>
+		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_GORYEO" />
+	</Unlocks>
+	<UnlockRewards>
+		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_GORYEO" Name="LOC_CIVILIZATION_GORYEO_NAME" Description="LOC_UNLOCK_EXPLORATION_CIV_DESCRIPTION" Icon="CIVILIZATION_GORYEO" UnlockRewardType="CIVILIZATION_GORYEO" UnlockRewardKind="KIND_CIVILIZATION" />
+	</UnlockRewards>
+	<UnlockRequirements>
+		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_GORYEO" RequirementSetId="REQSET_LEADER_IS_YI_SUN_SIN" Description="LOC_UNLOCK_PLAY_AS_YI_SUN_SIN_DESCRIPTION" Tooltip="LOC_UNLOCK_PLAY_AS_YI_SUN_SIN_GORYEO_TOOLTIP"/>
+	</UnlockRequirements>
+	<UnlockConfigurationValues>
+		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_GORYEO" ConfigurationValue="CIVILIZATION_GORYEO"/>
+	</UnlockConfigurationValues>
+	<LeaderSyncretismUnlocks>
+		<Row LeaderType="LEADER_YI_SUN_SIN" UnlockCivilizationType="CIVILIZATION_GORYEO" />
+	</LeaderSyncretismUnlocks>
+</Database>

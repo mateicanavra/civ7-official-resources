@@ -119,7 +119,7 @@ class ResourceLensLayer {
     this.suppressedPlots.clear();
   }
   updateIconScaling() {
-    const scale = Math.max(GlobalScaling.getCurrentScale() / 100, 1);
+    const scale = GlobalScaling.getCurrentScale() / 100;
     this.resourceSpriteGrid.setScale(scale);
     this.resourceTypeSpriteGrid.setScale(scale);
   }

@@ -692,7 +692,7 @@
 			<Text>Fortifications</Text>
 		</Row>
 		<Row Tag="LOC_PEDIA_CONCEPTS_PAGE_FORTIFICATION_1_CHAPTER_CONTENT_PARA_1">
-			<Text>A Fortification is any type of structure that increases the defense of the tile. The most common type of Fortification is Walls, but certain Wonders and Improvements can also be Fortifications.</Text>
+			<Text>A Fortification is any type of constructible that increases the defense of the tile. The most common type of Fortification is Walls, which turns a District into a Fortified District with health and a defense strength. Fortification Improvements on Rural tiles do not add health, but instead grant a +6 Combat Strength bonus for any Units defending on the tile. Some Wonders are also Fortifications, and act as Fortified Districts with their own health and defense strength.</Text>
 		</Row>
 		<Row Tag="LOC_PEDIA_CONCEPTS_PAGE_FORTIFICATION_1_CHAPTER_CONTENT_PARA_2">
 			<Text>Tip: Military Units can also create temporary Fortifications, which can help a Unit defend the tile more effectively. Build temporary Fortifications where you know combat will take place, or to protect a critical area. Be warned: once temporary Fortifications are abandoned, they will disappear.</Text>
@@ -702,19 +702,19 @@
 			<Text>Walls</Text>
 		</Row>
 		<Row Tag="LOC_PEDIA_CONCEPTS_PAGE_WALLS_1_CHAPTER_CONTENT_PARA_1">
-			<Text>Players can build Walls in Cities or purchase them in both Cities or Towns.</Text>
+			<Text>Walls are a type of Fortification. They turn a District into a Fortified District. All of a Settlement's Fortified Districts must be controlled to capture it.</Text>
 		</Row>
 		<Row Tag="LOC_PEDIA_CONCEPTS_PAGE_WALLS_1_CHAPTER_CONTENT_PARA_2">
-			<Text>Wall defenses increase a District's health by 100. Walls from the previous Age provide only half the defense bonus and half the District health, while Walls older than one age provide no benefit. However, Walls from the previous Age can be upgraded by overbuilding them with the current age defenses. Walls are not repaired through the City production queue; they automatically repair over time as long as they are not under attack and have no adjacent enemy Units.</Text>
+			<Text>Wall defenses increase a District's health by 100. When a Unit attacks a Fortified District, combat is resolved by taking the attacking Unit's strength and comparing it to the defense strength of the District, which is calculated based on the strongest melee unit trained by the District owner minus a set value (10). Walls and all City or Town Centers deal reciprocal damage to melee attackers, defender first. Multiple Fortification Buildings on a tile stack their health, such as Walls on a Fortification Wonder.</Text>
 		</Row>
 		<Row Tag="LOC_PEDIA_CONCEPTS_PAGE_WALLS_1_CHAPTER_CONTENT_PARA_3">
-			<Text>Wall defenses cannot be purchased with Gold, except in the City Center. Instead, Walls in Districts can be constructed one tile at a time from the City build queue, using Production. Walls cannot be constructed on Navigable River hexes and must be built adjacent to other Walls from the same Settlement, starting with the City Center. Walls cannot be built adjacent to Walls owned by a different Settlement, except in the City Center, which is always allowed. Walls cannot be constructed on Rural tiles.</Text>
+			<Text>Players can build Walls in Cities or purchase them in both Cities or Towns. Walls can only be purchased with Gold in the City Center. Walls in Districts can be constructed one tile at a time from the City build queue, using Production. Walls cannot be constructed on Navigable River hexes and must be built adjacent to other Walls from the same Settlement, starting with the City Center. Walls cannot be built adjacent to Walls owned by a different Settlement, except in the City Center, which is always allowed. Walls cannot be constructed on Rural tiles.</Text>
 		</Row>
 		<Row Tag="LOC_PEDIA_CONCEPTS_PAGE_WALLS_1_CHAPTER_CONTENT_PARA_4">
-			<Text>When a Unit attacks a defensible District, combat is resolved by taking the attacking Unit's strength and comparing it to the defense strength of the District, which is calculated based on the strongest melee unit trained by the District owner minus a set value (10). Walls and all City or Town Centers deal reciprocal damage to melee attackers, defender first.</Text>
+			<Text>Walls from the previous Age provide only half the defense bonus and half the District health, while Walls older than one age provide no benefit. However, Walls from the previous Age can be upgraded by overbuilding them with the current age defenses. Walls are not repaired through the City production queue; they automatically repair over time as long as they are not under attack and have no adjacent enemy Units.</Text>
 		</Row>
 		<Row Tag="LOC_PEDIA_CONCEPTS_PAGE_WALLS_1_CHAPTER_CONTENT_PARA_5">
-			<Text>Tip: To capture a Settlement, attackers must gain control of the City/Town Center and any Districts with walled defenses.</Text>
+			<Text>Tip: To capture a Settlement, attackers must gain control of any Fortified Districts. That includes the City/Town Center, any Districts with Walls, and some types of Wonders.</Text>
 		</Row>
 
 		<Row Tag="LOC_PEDIA_CONCEPTS_PAGE_SETTLERS_1_TITLE">
@@ -871,7 +871,7 @@
 			<Text>Buildings: Maintenance</Text>
 		</Row>
 		<Row Tag="LOC_PEDIA_CONCEPTS_PAGE_BUILDINGS_11_CHAPTER_CONTENT_PARA_1">
-			<Text>Most buildings, aside from Warehouse buildings and Wonders, incur maintenance costs in the form of Gold and Happiness. In the Antiquity Age, buildings typically start with a maintenance cost of -2 Gold and -2 Happiness. This cost increases in later Ages, such as -3 Gold and -3 Happiness in the Exploration Age. However, Gold buildings do not have a Gold maintenance cost, and Happiness buildings do not have a Happiness maintenance cost.</Text>
+			<Text>Most buildings, aside from Warehouse buildings and Wonders, incur maintenance costs in the form of Gold and Happiness. In the Antiquity Age, buildings typically start with a maintenance cost of -2 Gold and -2 Happiness. This cost increases in later Ages, such as -3 Gold and -3 Happiness in the Exploration Age. However, Gold buildings do not have a Gold maintenance cost, and Happiness buildings do not have a Happiness maintenance cost. Production Buildings also do not increse the cost of future Buildings in that Settlement.</Text>
 		</Row>
 		<Row Tag="LOC_PEDIA_CONCEPTS_PAGE_BUILDINGS_11_CHAPTER_CONTENT_PARA_2">
 			<Text>Tip: When constructing a lot of buildings, keep a close eye on your Gold and Happiness levels. Building Happiness structures is often essential for maintaining a healthy and expanding empire.</Text>
@@ -920,6 +920,16 @@
 		</Row>
 		<Row Tag="LOC_PEDIA_CONCEPTS_PAGE_BUILDINGS_17_CHAPTER_CONTENT_PARA_1">
 			<Text>Land Units may use Bridges to cross a Navigable River on this tile without embarking. Consider building them in convenient locations to keep your Civilization moving.</Text>
+		</Row>
+
+		<Row Tag="LOC_PEDIA_CONCEPTS_PAGE_BUILDINGS_18_TITLE">
+			<Text>Buildings: Tiers</Text>
+		</Row>
+		<Row Tag="LOC_PEDIA_CONCEPTS_PAGE_BUILDINGS_18_CHAPTER_CONTENT_PARA_1">
+			<Text>There are two Tiers of Standard Buildings in each Age, referred to as Tier 1 and Tier 2. The Tier of a Buildings affects its cost, base Yield, where it unlocks on the Tech Tree, and may be referenced by certain game effects. Warehouse Buildings and Unique Buildings do not belong to either Tier, and have their own costs, base Yields, and unlock patterns.</Text>
+		</Row>
+		<Row Tag="LOC_PEDIA_CONCEPTS_PAGE_BUILDINGS_18_CHAPTER_CONTENT_PARA_2">
+			<Text>Each Age usually has one Building dedicated to each Yield in each Tier. Diplomacy Buildings like the Villa and Guildhall are an exception and always Tier 2 buildings, though an Age may have a Tier 1 building with a secondary Influence Yield, like the Monument. Full-tile Buildings also have a Tier, and their costs and base Yields are usually double the normal buildings of that Tier.</Text>
 		</Row>
 
 		<Row Tag="LOC_PEDIA_CONCEPTS_PAGE_PROJECTS_TITLE">
@@ -1203,7 +1213,7 @@
 			<Text>Ranged Combat</Text>
 		</Row>
 		<Row Tag="LOC_PEDIA_CONCEPTS_PAGE_COMBAT_2_CHAPTER_CONTENT_PARA_1">
-			<Text>Ranged units do not suffer reciprocal damage when attacking, making them an excellent choice to pair with melee frontline units. However, ranged units are vulnerable to melee units, especially cavalry, which gain combat strength while attacking ranged units. Ranged units have a melee strength stat, which is used to calculate the damage they take when defending against melee attacks. However, ranged units’ melee strength is typically low.</Text>
+			<Text>Ranged units do not suffer reciprocal damage when attacking, making them an excellent choice to pair with melee frontline units. However, ranged units are vulnerable to melee units, especially cavalry, which gain combat strength while attacking ranged units. Ranged units have a melee strength stat, which is used to calculate the damage they take when defending against melee attacks. However, ranged units’ melee strength is typically low. Ranged units also use their bombard strength when attacking naval units, which is lower than seige units.</Text>
 		</Row>
 		<Row Tag="LOC_PEDIA_CONCEPTS_PAGE_COMBAT_2_CHAPTER_CONTENT_PARA_2">
 			<Text>Ranged Attacks provide the Combat Bonuses obtained during gameplay on the tile where your unit is currently positioned. This differs from Melee Attacks where bonuses apply on the defender’s tile where the attack takes place.</Text>
@@ -1348,6 +1358,16 @@
 		</Row>
 		<Row Tag="LOC_PEDIA_CONCEPTS_PAGE_COMBAT_10_CHAPTER_CONTENT_PARA_14">
 			<Text>Swift: Fast as the wind, units with the Swift ability ignore the Zone of Control exerted by enemy units. This means they can move freely in spite of the presence of enemies on the battlefield, and their movement is not stopped by entering a Zone of Control. Tip: A unit with the Swift ability can escape from deadly combat scenarios with ease. It's not a retreat – it's a backwards advance!</Text>
+		</Row>
+
+		<Row Tag="LOC_PEDIA_CONCEPTS_PAGE_COMBAT_11_TITLE">
+			<Text>Naval Combat</Text>
+		</Row>
+		<Row Tag="LOC_PEDIA_CONCEPTS_PAGE_COMBAT_11_CHAPTER_CONTENT_PARA_1">
+			<Text>Naval Combat refers to combat between two naval units and takes place in bodies of water. Whether on Coastal, Lake, or Deep Ocean Marine past Exploration Shipbuilding and beyond, naval combat can occur anywhere in treacherous waters.</Text>
+		</Row>
+		<Row Tag="LOC_PEDIA_CONCEPTS_PAGE_COMBAT_11_CHAPTER_CONTENT_PARA_2">
+			<Text>Naval units operate much like their land counterparts, and in Exploration can assemble into Fleet Commanders (excepting some leader abilities that grant Fleet Commanders in Antiquity) the same way land units can assemble into Army Commanders. These two commander types share the same packing, unpacking, and overrun mechanics.</Text>
 		</Row>
 
 		<Row Tag="LOC_PEDIA_CONCEPTS_PAGE_PILLAGING_2_TITLE">
@@ -1733,6 +1753,19 @@
 			<Text>Note: Technology and Civic progress, Triumph progress, and Victory progress is [B]not[/B] shared between teammates.</Text>
 		</Row>
 
+		<Row Tag="LOC_PEDIA_CONCEPTS_PAGE_SYNCRETISM_1_TITLE">
+			<Text>Syncretism</Text>
+		</Row>
+		<Row Tag="LOC_PEDIA_CONCEPTS_PAGE_SYNCRETISM_1_CHAPTER_CONTENT_PARA_1">
+			<Text>Syncretism refers to the blending of two or more cultures, philosophies, ideas or religions into a new formation. This is a process that happens constantly: the blending of Roman traditions into Gaulish tribes, for instance, or the creation of Mestizo culture out of indigenous and Spanish traditions. The term is especially relevant to religious traditions: e.g. the fusion of Catholicism and African religions into new systems such as Vodou; the creation of Chinese popular religion out of Taoism, Buddhism and Confucianism, for instance. Syncretism is not limited to one particular moment in the past, rather, it happens constantly as we try to reconcile conflicting ways of seeing the world.</Text>
+		</Row>
+		<Row Tag="LOC_PEDIA_CONCEPTS_PAGE_SYNCRETISM_1_CHAPTER_CONTENT_PARA_2">
+			<Text>Seeing our traditions and cultures as syncretic presents a challenge to essentialized views of the world, but the fact that what we believe is normal and natural has not always been so does not make syncretic practices less meaningful. As the world changes, so, too, do we.</Text>
+		</Row>
+		<Row Tag="LOC_PEDIA_CONCEPTS_PAGE_SYNCRETISM_1_CHAPTER_CONTENT_PARA_3">
+			<Text>Syncretism is a mechanic new to Civilization VII, that gives a Civilization outside of its Apex Age a chance to adopt elements of an Apex Age Civilization in that Age. Specifically, it allows you to incorporate the Unique Unit, Buildings, or Improvement of an Apex Age Civilization into your empire. You will have access to it until the end of the Age. Alternatively, when you unlock the option to choose a Syncretism bonus, you can focus inward and choose an Affirmation Tradition that corresponds to your current Civilization. Your Affirmation Tradition is retained in future Ages.</Text>
+		</Row>
+
 		<Row Tag="LOC_PEDIA_CONCEPTS_PAGE_LEGENDS_1_TITLE">
 			<Text>Legends System</Text>
 		</Row>
@@ -1914,6 +1947,9 @@
 		<Row Tag="LOC_PEDIA_CONCEPTS_MAINTENANCE_TOOLTIP">
 			<Text>Maintenance is an ongoing yield cost applied each turn to maintain Units, [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]Buildings[/TIP] and [icon:SPECIALIST][TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_TOOLTIP]Specialists[/TIP].</Text>
 		</Row>
+		<Row Tag="LOC_PEDIA_CONCEPTS_EFFICIENCY_TOOLTIP">
+			<Text>Efficiency represents your purchasing power: for each 1% of Efficiency, your yield goes 1% further when spent. This means the amount you actually pay is reduced.[NN]Your Leader, Civilization, [TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]Attributes[/TIP], [TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]Wonders[/TIP], and other effects can apply different Efficiencies to different costs in the game.[NN]For example, if your total Gold Efficiency is +50% on [TIP:LOC_PEDIA_CONCEPTS_MAINTENANCE_TOOLTIP]Building Maintenance[/TIP], a [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]Building[/TIP]  that normally costs [B]-6 Gold[/B] per turn to maintain only costs you [B]-4 Gold[/B] per turn.</Text>
+		</Row>
 		<Row Tag="LOC_PEDIA_CONCEPTS_SETTLEMENT_LIMIT_TOOLTIP">
 			<Text>Your Settlement Limit is the number of [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]Settlements[/TIP] your Civilization can effectively administer.[NN]Each Settlement you control over your Settlement Limit incurs a [icon:YIELD_HAPPINESS][b]Happiness[/b] penalty in every Settlement in your Empire.</Text>
 		</Row>
@@ -2036,6 +2072,9 @@
 		</Row>
 		<Row Tag="LOC_PEDIA_CONCEPTS_UNIQUE_IMPROVEMENT_TOOLTIP">
 			<Text>Unique Improvements are a type of [TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]Ageless[/TIP] Improvement that must be built on an existing Improvement.[NN]Unique Improvements retain the [TIP:LOC_PEDIA_CONCEPTS_WAREHOUSE_TOOLTIP]Warehouse[/TIP] bonuses of the Improvement they replaced.</Text>
+		</Row>
+		<Row Tag="LOC_PEDIA_CONCEPTS_BUILDING_TIER_TOOLTIP">
+			<Text>Standard Buildings are either Tier 1 or Tier 2, which determines their costs, base Yields, and how early they unlock. Tier 1 Buildings are usually the first Standard Building of each Yield type unlocked in each Age.</Text>
 		</Row>
 		<Row Tag="LOC_PEDIA_CONCEPTS_SIGHT_TOOLTIP">
 			<Text>Sight is the number of tiles a unit has vision to around themselves. Sight is required to target units with [TIP:LOC_PEDIA_CONCEPTS_RANGED_ATTACK_TOOLTIP]Ranged Attacks[/TIP], reveal tiles and remove the fog of war.[NN][TIP:LOC_PEDIA_CONCEPTS_VEGETATED_TERRAIN_TOOLTIP]Vegetated Terrain[/TIP] and Mountains block Sight.</Text>
@@ -2227,7 +2266,7 @@
 		</Row>
 
 		<Row Tag="LOC_PEDIA_CONCEPTS_INNOVATION_TOOLTIP">
-			<Text>Innovation represents your progress in the [TIP:LOC_PEDIA_CONCEPTS_SCIENTIFIC_VICTORY_TOOLTIP]Scientific Victory[/TIP]. You earn Innovations many ways, including assigning [TIP:LOC_PEDIA_CONCEPTS_CODEX_TOOLTIP]Codices[/TIP], researching [TIP:LOC_PEDIA_CONCEPTS_MASTERY_TOOLTIP]Tech Masteries[/TIP], and completing [TIP:LOC_PEDIA_CONCEPTS_SCIENCE_PROJECT_TOOLTIP]Scientific Projects[/TIP]. Once you reach 100 Innovations and have a Launch Pad, you'll trigger the Scientific Victory countdown.</Text>
+			<Text>Innovation represents your progress in the [TIP:LOC_PEDIA_CONCEPTS_SCIENTIFIC_VICTORY_TOOLTIP]Scientific Victory[/TIP]. You earn Innovation many ways, including assigning [TIP:LOC_PEDIA_CONCEPTS_CODEX_TOOLTIP]Codices[/TIP], researching [TIP:LOC_PEDIA_CONCEPTS_MASTERY_TOOLTIP]Tech Masteries[/TIP], and completing [TIP:LOC_PEDIA_CONCEPTS_SCIENCE_PROJECT_TOOLTIP]Scientific Projects[/TIP]. Once you reach 100 Innovation and have a Launch Pad, you'll trigger the Scientific Victory countdown.</Text>
 		</Row>
 
 		<Row Tag="LOC_PEDIA_CONCEPTS_GDP_TOOLTIP">
@@ -2239,7 +2278,7 @@
 		</Row>
 
 		<Row Tag="LOC_PEDIA_CONCEPTS_GOVERNMENT_TOOLTIP">
-			<Text>Your Government determines the bonus your Empire receives during a [TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]Celebration[/TIP]. Early each [TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]Age[/TIP], you'll be asked to select your Government.</Text>
+			<Text>Your Government determines the bonuses your Empire can choose between during a [TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]Celebration[/TIP] and what passive ability and Government [TIP:LOC_PEDIA_CONCEPTS_TRADITION_TOOLTIP]Traditions[/TIP] you'll receive. Early each [TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]Age[/TIP], you'll be asked to select your Government.</Text>
 		</Row>
 
 		<Row Tag="LOC_PEDIA_CONCEPTS_WAR_WEARINESS_TOOLTIP">

@@ -1,23 +1,20 @@
-import AdviceManager from '../../../base-standard/ui/advice/advice-manager.js';
+import { adviceAddItem, adviceAddBundle } from '../../../base-standard/ui/advice/advice-manager.js';
 import { shouldSelect } from '../../../base-standard/ui/advice/advice-support.js';
 
 const TURN_WAIT = 20;
 const TURN_START = 10;
 const TURN_OFFSET = 4;
-AdviceManager.addItem({
+adviceAddItem({
   id: "ADVICE_MODERN_SCIENCE_SCIENTIFIC_VICTORY",
   type: AdvisorTypes.SCIENCE,
   onSelect: () => {
     return Game.turn == 1;
   }
 });
-AdviceManager.addBundle({
+adviceAddBundle({
   id: "ADVICE_MODERN_SCIENCE_MISC",
   type: AdvisorTypes.SCIENCE,
-  pages: [
-    "ADVICE_MODERN_SCIENCE_VICTORY_COUNTERPLAY",
-    "ADVICE_MODERN_SCIENCE_TRIUMPH"
-  ],
+  pages: ["ADVICE_MODERN_SCIENCE_VICTORY_COUNTERPLAY", "ADVICE_MODERN_SCIENCE_TRIUMPH"],
   priority: 100,
   delivery: "random",
   onSelect: () => {

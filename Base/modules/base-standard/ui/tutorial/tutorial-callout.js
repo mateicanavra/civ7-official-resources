@@ -38,11 +38,6 @@ function parseJSON(v, fallback) {
     return fallback;
   }
 }
-const AgePortraitTags = {
-  [Game.getHash("AGE_ANTIQUITY")]: "ant",
-  [Game.getHash("AGE_EXPLORATION")]: "exp",
-  [Game.getHash("AGE_MODERN")]: "mod"
-};
 const CalloutOption = (props) => {
   const order = createMemo(() => props.order ?? 0);
   const definition = createMemo(() => props.definition ?? null);
@@ -174,24 +169,19 @@ const TutorialCallout = (props) => {
   const advisorURL = createMemo(() => {
     let url = "";
     if (advisorType()) {
-      const ageTag = AgePortraitTags[Game.age];
-      if (ageTag !== void 0) {
-        switch (advisorType()) {
-          case "advisor-military":
-            url = `adv_military_${ageTag}`;
-            break;
-          case "advisor-culture":
-            url = `adv_culture_${ageTag}`;
-            break;
-          case "advisor-science":
-            url = `adv_science_${ageTag}`;
-            break;
-          case "advisor-economic":
-            url = `adv_economic_${ageTag}`;
-            break;
-        }
-      } else {
-        console.error(`Tutorial-Callout: unable to get ageTag for '${Game.age}'.`);
+      switch (advisorType()) {
+        case "advisor-military":
+          url = UI.getIconURL("ADVISOR_MILITARY");
+          break;
+        case "advisor-culture":
+          url = UI.getIconURL("ADVISOR_CULTURE");
+          break;
+        case "advisor-science":
+          url = UI.getIconURL("ADVISOR_SCIENCE");
+          break;
+        case "advisor-economic":
+          url = UI.getIconURL("ADVISOR_ECONOMIC");
+          break;
       }
     }
     props.el.classList.toggle("empty-advisor", url == "");
@@ -654,7 +644,7 @@ const TutorialCallout = (props) => {
       }
     }), null);
     createRenderEffect((_p$) => {
-      var _v$ = !!handheld(), _v$2 = !!isWatchOut(), _v$3 = !!(advisorURL() != "" && UI.getViewExperience() == UIViewExperience.Mobile), _v$4 = !!isTooltipInputChange(), _v$5 = !!(advisorURL() == ""), _v$6 = !!(advisorURL() == ""), _v$7 = `url('blp:${advisorURL()}')`;
+      var _v$ = !!handheld(), _v$2 = !!isWatchOut(), _v$3 = !!(advisorURL() != "" && UI.getViewExperience() == UIViewExperience.Mobile), _v$4 = !!isTooltipInputChange(), _v$5 = !!(advisorURL() == ""), _v$6 = !!(advisorURL() == ""), _v$7 = `url('${advisorURL()}')`;
       _v$ !== _p$.e && _el$.classList.toggle("handheld", _p$.e = _v$);
       _v$2 !== _p$.t && _el$.classList.toggle("type--notification", _p$.t = _v$2);
       _v$3 !== _p$.a && _el$.classList.toggle("tutorial-callout_has-advisor", _p$.a = _v$3);
@@ -688,6 +678,4 @@ defineLegacyComponent("tutorial-callout", {
     el
   });
 });
-
-export { AgePortraitTags };
 //# sourceMappingURL=tutorial-callout.js.map

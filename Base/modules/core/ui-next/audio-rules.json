@@ -9,6 +9,7 @@
 	{
 		"path": "Button",
 		"events": {
+			"pressError": "error-press",
 			"press": "primary-button-press",
 			"focus": "primary-button-focus"
 		}
@@ -1256,12 +1257,17 @@
 		}
 	},
 	{
+		"path": "GovernmentScreen/PolicyCard",
+		"events": {
+			"pressError": "error-press"
+		}
+	},
+	{
 		"path": "GovernmentScreen/PolicyCard/Assigned",
 		"events": {
 			"activate": "social-policy-remove",
 			"press": "policy-card-press",
-			"focus": "social-policy-focus",
-			"pressError": "error-press"
+			"focus": "social-policy-focus"
 		}
 	},
 	{
@@ -1287,7 +1293,13 @@
 		"events": {
 			"activate": "generic-tab-navigate",
 			"tab-nav-next": "generic-tab-navigate",
-			"tab-nav-previous": "generic-tab-navigate"
+			"tab-nav-previous": "generic-tab-navigate",
+			"tab-nav-cultural": "victory-culture-showing",
+			"tab-nav-economic": "victory-economic-showing",
+			"tab-nav-military": "victory-military-showing",
+			"tab-nav-scientific": "victory-science-showing",
+			"tab-nav-summary": "victory-summary-showing",
+			"tab-nav-score": "victory-score-showing"
 		}
 	},
 	{
@@ -1320,7 +1332,6 @@
 	{
 		"path": "VictoryScreen/SummaryCard/Cultural",
 		"events": {
-			"activate": "victory-culture-showing",
 			"press": "hero-press",
 			"focus": "hero-focus"
 		}
@@ -1328,7 +1339,6 @@
 	{
 		"path": "VictoryScreen/SummaryCard/Scientific",
 		"events": {
-			"activate": "victory-science-showing",
 			"press": "hero-press",
 			"focus": "hero-focus"
 		}
@@ -1336,7 +1346,6 @@
 	{
 		"path": "VictoryScreen/SummaryCard/Military",
 		"events": {
-			"activate": "victory-military-showing",
 			"press": "hero-press",
 			"focus": "hero-focus"
 		}
@@ -1344,7 +1353,6 @@
 	{
 		"path": "VictoryScreen/SummaryCard/Economic",
 		"events": {
-			"activate": "victory-economic-showing",
 			"press": "hero-press",
 			"focus": "hero-focus"
 		}
@@ -1379,7 +1387,8 @@
 		"path": "VictoryScreen",
 		"events": {
 			"popup-close": "overlay-window-close",
-			"popup-open": "overlay-window-open"
+			"popup-open": "overlay-window-open",
+			"stop-sound": "stop-victory-sound"
 		}
 	},
 	{
@@ -1387,6 +1396,13 @@
 		"events": {
 			"dropdown-open": "generic-dropdown-open",
 			"dropdown-close": "generic-dropdown-close"
+		}
+	},
+	{
+		"path": "VictoryScreen/Button",
+		"events": {
+			"press": "primary-button-press",
+			"focus": "primary-button-focus"
 		}
 	},
 	{
@@ -1529,6 +1545,90 @@
 			"activate": "generic-tab-navigate",
 			"tab-nav-next": "generic-tab-navigate",
 			"tab-nav-previous": "generic-tab-navigate"
+		}
+	},
+	{
+		"path": "Hotseat",
+		"events": {
+			"popup-open": "hotseat-state"
+		}
+	},
+	{
+		"path": "Hotseat/Button",
+		"events": {
+			"activate": "hotseat-start-game",
+			"press": "primary-button-press",
+			"focus": "primary-button-focus"
+		}
+	},
+	{
+		"path": "AgendaScreen",
+		"events": {
+			"positive-showing": "agenda-positive-showing",
+			"negative-showing": "agenda-negative-showing"
+		}
+	},
+	{
+		"path": "AdvancedOptions",
+		"events": {
+			"dropdown-open": "generic-dropdown-open",
+			"dropdown-close": "generic-dropdown-close",
+			"nav-previous": "generic-pager-navigate",
+			"nav-next": "generic-pager-navigate"
+		}
+	},
+	{
+		"path": "AdvancedOptions/AccordianHeader",
+		"events": {
+			"activate": "",
+			"press": "hero-press",
+			"focus": "hero-focus"
+		}
+	},
+	{
+		"path": "AdvancedOptions/TabListItem",
+		"events": {
+			"activate": "generic-tab-navigate",
+			"tab-nav-next": "generic-tab-navigate",
+			"tab-nav-previous": "generic-tab-navigate"
+		}
+	},
+	{
+		"path": "AdvancedOptions/Activatable",
+		"events": {
+			"press": "select-press",
+			"focus": "hero-focus"
+		}
+	},
+	{
+		"path": "AdvancedOptions/Dropdown",
+		"events": {
+			"dropdown-open": "generic-dropdown-open",
+			"dropdown-close": "generic-dropdown-close"
+		}
+	},
+	{
+		"path": "AdvancedOptions/Button",
+		"events": {
+			"pressError": "error-press",
+			"press": "primary-button-press",
+			"focus": "primary-button-focus"
+		}
+	},
+	{
+		"path": "AdvancedOptions/Option/Activatable",
+		"events": {
+			"activate": "",
+			"press": "",
+			"focus": "hero-focus"
+		}
+	},
+	{
+		"path": "AdvancedOptions/Option/ArrowButton",
+		"events": {
+			"activate": "generic-pager-navigate",
+			"press": "generic-dropdown-select",
+			"focus": "generic-pager-focus"
 		}
 	}
 ]

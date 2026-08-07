@@ -1,17 +1,17 @@
-import AdviceManager from '../../../base-standard/ui/advice/advice-manager.js';
+import { adviceAddItem, adviceAddBundle } from '../../../base-standard/ui/advice/advice-manager.js';
 import { shouldSelect } from '../../../base-standard/ui/advice/advice-support.js';
 
 const TURN_WAIT = 20;
 const TURN_START = 10;
 const TURN_OFFSET = 0;
-AdviceManager.addItem({
+adviceAddItem({
   id: "ADVICE_MODERN_CULTURE_CULTURAL_VICTORY",
   type: AdvisorTypes.CULTURE,
   onSelect: () => {
     return Game.turn == 1;
   }
 });
-AdviceManager.addBundle({
+adviceAddBundle({
   id: "ADVICE_MODERN_CULTURE_MISC",
   type: AdvisorTypes.CULTURE,
   pages: [

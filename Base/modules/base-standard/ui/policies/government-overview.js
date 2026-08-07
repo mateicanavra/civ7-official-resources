@@ -9,11 +9,13 @@ import { ScrollArea } from '../../../core/ui-next/components/scroll-area.js';
 import { NestedTooltipContext } from '../../../core/ui-next/components/tooltip-compat.js';
 import { TicketBox } from '../../../core/ui-next/screens/create-game/ticket-box.js';
 import { GovtScreenModel } from './model-government.js';
+import { PoliciesModel } from './model-policies.js';
 
-var _tmpl$ = /* @__PURE__ */ template(`<div class="relative font-body-base text-accent-2 p-6 my-px flex flex-col items-center"><div class="policies__overview-government-divider w-128 h-px mt-3 mb-2"></div></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="flex w-full flex-col "></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="relative flex flex-col items-center"></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div class="policies__overview-government-divider w-128 h-px mt-3"></div>`), _tmpl$5 = /* @__PURE__ */ template(`<div class="relative font-body-base px-8 py-4 my-px flex flex-col items-center"><div class="relative flex flex-col items-start"></div></div>`), _tmpl$6 = /* @__PURE__ */ template(`<div class="relative font-body-base px-8 py-4 my-px flex flex-col w-full items-center"><div class="relative flex flex-col items-start w-full"></div></div>`), _tmpl$7 = /* @__PURE__ */ template(`<div class="p-5 w-full"><div class="text-accent-2 font-title uppercase tracking-100 bg-primary-4 w-full p-3"></div><div class="w-full mx-8 mb-12 bg-primary-5 "></div></div>`), _tmpl$8 = /* @__PURE__ */ template(`<div class="policies__overview-happiness-meter-circle bg-no-repeat bg-center bg-cover size-22 flex items-center justify-center"><div class="policies__overview-happiness-meter-image bg-no-repeat bg-center bg-cover size-12"></div></div>`), _tmpl$9 = /* @__PURE__ */ template(`<div class="flex items-center relative w-full pr-18 pl-10 justify-between"><div class="flex items-center"><div class="flex flex-col pointer-events-auto"><div class="policies__overview-turns-left-number font-body-sm"></div></div></div><div class=mr-7><div class="flex flex-col text-accent-2 items-center pointer-events-auto"><div data-l10n-id=LOC_ATTR_YIELD_INCOME class="font-title-xs uppercase text-accent-3 tracking-100"></div><div class="font-body tracking-100 max-w-60 mb-3"></div></div></div></div>`), _tmpl$10 = /* @__PURE__ */ template(`<div class="flex-auto flex text-center flex-col px-2 pb-4"><div class="p-3 flex-auto flex flex-row w-full"><div class="gov-outer-container py-3 px-6 flex-1 h-full mx-2"><div class="flex flex-row mr-1 w-full"></div></div><div class="gov-outer-container p-3 h-full flex-1 mx-2 w-full"></div></div></div>`), _tmpl$11 = /* @__PURE__ */ template(`<div class="flex flex-auto flex-col w-full"></div>`), _tmpl$12 = /* @__PURE__ */ template(`<div class="w-full text-accent-3 flex items-center flex-row mb-4"></div>`), _tmpl$13 = /* @__PURE__ */ template(`<div class="w-full text-accent-3 flex items-center flex-row mb-2"><div class="flex flex-col ml-1 flex-auto text-left"></div></div>`), _tmpl$14 = /* @__PURE__ */ template(`<div></div>`), _tmpl$15 = /* @__PURE__ */ template(`<div><div class="flex flex-row w-full justify-between"><div class="flex flex-row items-center"></div><span class=font-bold></span></div></div>`);
+var _tmpl$ = /* @__PURE__ */ template(`<div class="relative font-body-base text-accent-2 p-6 my-px flex flex-col items-center"><div class="policies__overview-government-divider w-128 h-px mt-3 mb-2"></div></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="flex w-full flex-col "></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="relative flex flex-col items-center"></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div class="policies__overview-government-divider w-128 h-px mt-3"></div>`), _tmpl$5 = /* @__PURE__ */ template(`<div class="relative font-body-base px-8 py-4 my-px flex flex-col items-center"><div class="relative flex flex-col items-start"></div></div>`), _tmpl$6 = /* @__PURE__ */ template(`<div class="relative font-body-base px-8 py-3 my-px flex flex-col w-full items-center"><div class="relative flex flex-col items-start w-full"></div></div>`), _tmpl$7 = /* @__PURE__ */ template(`<div class="p-5 w-full"><div role=heading class="text-accent-2 font-title uppercase tracking-100 bg-primary-4 w-full p-3"></div><div class="w-full mx-8 mb-12 bg-primary-5 "></div></div>`), _tmpl$8 = /* @__PURE__ */ template(`<div class="policies__overview-happiness-meter-circle bg-no-repeat bg-center bg-cover size-22 flex items-center justify-center"><div class="policies__overview-happiness-meter-image bg-no-repeat bg-center bg-cover size-12"></div></div>`), _tmpl$9 = /* @__PURE__ */ template(`<div><div class="flex flex-auto items-center mr-5"><div class="flex flex-col flex-auto pointer-events-auto"><div class="policies__overview-turns-left-number font-body-sm"role=heading></div></div></div><div class="flex flex-auto justify-end"role=article><div class="flex flex-col text-accent-2 items-center pointer-events-auto"role=article><div data-l10n-id=LOC_ATTR_YIELD_INCOME class="font-title-xs uppercase text-accent-3 tracking-100"></div><div class="font-body tracking-100 max-w-60 mb-3"></div></div></div></div>`), _tmpl$10 = /* @__PURE__ */ template(`<div class="flex-auto flex text-center flex-col px-2 pb-4"><div class="p-3 flex-auto flex flex-row w-full"><div class="gov-outer-container py-3 px-6 flex-1 h-full mx-2"><div class="flex flex-row mr-1 w-full"></div></div><div class="gov-outer-container p-3 h-full flex-1 mx-2 w-full"></div></div></div>`), _tmpl$11 = /* @__PURE__ */ template(`<div class="flex flex-auto flex-col w-full"></div>`), _tmpl$12 = /* @__PURE__ */ template(`<div class="w-full text-accent-3 flex items-center flex-row mb-4"></div>`), _tmpl$13 = /* @__PURE__ */ template(`<div class="w-full text-accent-3 flex items-center flex-row mb-2"><div class="flex flex-col ml-1 flex-auto text-left"role=article></div></div>`), _tmpl$14 = /* @__PURE__ */ template(`<div></div>`), _tmpl$15 = /* @__PURE__ */ template(`<div role=article><div class="flex flex-row w-full justify-between"><div class="flex flex-row items-center"></div><span class=font-bold></span></div></div>`);
 const GovernmentOverview = () => {
   let root;
   const govModel = GovtScreenModel.get();
+  const policyModel = PoliciesModel.get();
   return createComponent(NestedTooltipContext.Provider, {
     value: {
       disabled: true
@@ -43,7 +45,8 @@ const GovernmentOverview = () => {
                   get fallback() {
                     return createComponent(L10n.Stylize, {
                       "class": "py-9 text-accent-4",
-                      text: "LOC_UI_NO_GOVERNMENT_CHOSEN"
+                      text: "LOC_UI_NO_GOVERNMENT_CHOSEN",
+                      role: "heading"
                     });
                   },
                   get children() {
@@ -52,17 +55,20 @@ const GovernmentOverview = () => {
                       get text() {
                         return govModel.data.governmentName;
                       },
-                      "class": "uppercase relative font-bold tracking-150 font-title-2xl"
+                      "class": "uppercase relative font-bold tracking-150 font-title-2xl",
+                      role: "heading"
                     }), _el$7);
                     insert(_el$6, createComponent(L10n.Stylize, {
                       text: "LOC_UI_GOVERNMENT_ABILITY",
-                      "class": "uppercase relative text-accent-4 font-title-sm tracking-100 mt-5 mb-2"
+                      "class": "uppercase relative text-accent-4 font-title-sm tracking-100 mt-5 mb-2",
+                      role: "heading"
                     }), null);
                     insert(_el$6, createComponent(L10n.Stylize, {
                       get text() {
                         return govModel.data.governmentAbilityDescription;
                       },
-                      "class": "relative text-accent-3 mb-4"
+                      "class": "relative text-accent-3 mb-4",
+                      role: "article"
                     }), null);
                     return _el$6;
                   }
@@ -87,20 +93,28 @@ const GovernmentOverview = () => {
                   get fallback() {
                     return createComponent(L10n.Stylize, {
                       "class": "py-9 text-accent-4",
-                      text: "LOC_UI_NO_GOVERNMENT_CHOSEN"
+                      text: "LOC_UI_NO_GOVERNMENT_CHOSEN",
+                      role: "heading"
                     });
                   },
                   get children() {
-                    return [(() => {
-                      var _el$9 = _tmpl$3();
-                      insert(_el$9, createComponent(L10n.Stylize, {
-                        get text() {
-                          return govModel.data.governmentDescription;
-                        },
-                        "class": "relative text-accent-4 font-sm mt-4"
-                      }));
-                      return _el$9;
-                    })(), _tmpl$4(), (() => {
+                    return [createComponent(Show, {
+                      get when() {
+                        return govModel.data.celebrationBonusItems.length < 3;
+                      },
+                      get children() {
+                        return [(() => {
+                          var _el$9 = _tmpl$3();
+                          insert(_el$9, createComponent(L10n.Stylize, {
+                            get text() {
+                              return govModel.data.governmentDescription;
+                            },
+                            "class": "relative text-accent-4 font-sm mt-4"
+                          }));
+                          return _el$9;
+                        })(), _tmpl$4()];
+                      }
+                    }), (() => {
                       var _el$11 = _tmpl$5(), _el$12 = _el$11.firstChild;
                       insert(_el$12, createComponent(For, {
                         get each() {
@@ -112,6 +126,9 @@ const GovernmentOverview = () => {
                           },
                           get image() {
                             return item.image ?? "";
+                          },
+                          get overFourItems() {
+                            return govModel.data.celebrationBonusItems.length > 3;
                           }
                         })
                       }));
@@ -121,55 +138,65 @@ const GovernmentOverview = () => {
                 });
               }
             }), null);
-            insert(_el$8, createComponent(FiligreeTitle.H4, {
-              text: "LOC_UI_TRADITIONS_TITLE",
-              "filigree-style": "h4",
-              "class": "mt-4 mb-3"
-            }), null);
-            insert(_el$8, createComponent(InnerFrame, {
-              "class": "flex flex-col items-center relative px-2",
+            insert(_el$8, createComponent(Show, {
+              get when() {
+                return govModel.data.hasGovtBeenChosen && govModel.data.govtTraditions.length > 0;
+              },
               get children() {
-                return createComponent(Show, {
-                  get when() {
-                    return govModel.data.hasGovtBeenChosen;
-                  },
-                  get fallback() {
-                    return createComponent(L10n.Stylize, {
-                      "class": "py-9 text-accent-4",
-                      text: "LOC_UI_NO_GOVERNMENT_CHOSEN"
-                    });
-                  },
+                return [createComponent(FiligreeTitle.H4, {
+                  text: "LOC_UI_TRADITIONS_TITLE",
+                  "filigree-style": "h4",
+                  "class": "mt-4 mb-3"
+                }), createComponent(InnerFrame, {
+                  "class": "flex flex-col items-center relative px-2",
                   get children() {
-                    var _el$13 = _tmpl$6(), _el$14 = _el$13.firstChild;
-                    insert(_el$14, createComponent(For, {
-                      get each() {
-                        return govModel.data.govtTraditions;
+                    return createComponent(Show, {
+                      get when() {
+                        return govModel.data.hasGovtBeenChosen;
                       },
-                      children: (item) => (() => {
-                        var _el$28 = _tmpl$11();
-                        insert(_el$28, createComponent(TraditionItem, {
-                          get itemName() {
-                            return item.Name;
+                      get fallback() {
+                        return createComponent(L10n.Stylize, {
+                          "class": "py-9 text-accent-4",
+                          text: "LOC_UI_NO_GOVERNMENT_CHOSEN",
+                          role: "heading"
+                        });
+                      },
+                      get children() {
+                        var _el$13 = _tmpl$6(), _el$14 = _el$13.firstChild;
+                        insert(_el$14, createComponent(For, {
+                          get each() {
+                            return govModel.data.govtTraditions;
                           },
-                          get description() {
-                            return item.Description ?? "";
-                          },
-                          image: `url(blp:unlock_tradition)`
-                        }), null);
-                        insert(_el$28, createComponent(Show, {
-                          get when() {
-                            return item != govModel.data.govtTraditions[govModel.data.govtTraditions.length - 1];
-                          },
-                          get children() {
-                            return createComponent(Divider, {});
-                          }
-                        }), null);
-                        return _el$28;
-                      })()
-                    }));
-                    return _el$13;
+                          children: (item) => (() => {
+                            var _el$28 = _tmpl$11();
+                            insert(_el$28, createComponent(TraditionItem, {
+                              get itemName() {
+                                return item.def.Name;
+                              },
+                              get description() {
+                                return item.def.Description ?? "";
+                              },
+                              get addtionalDescription() {
+                                return item.unlock;
+                              },
+                              image: `url(blp:unlock_tradition)`
+                            }), null);
+                            insert(_el$28, createComponent(Show, {
+                              get when() {
+                                return item != govModel.data.govtTraditions[govModel.data.govtTraditions.length - 1];
+                              },
+                              get children() {
+                                return createComponent(Divider, {});
+                              }
+                            }), null);
+                            return _el$28;
+                          })()
+                        }));
+                        return _el$13;
+                      }
+                    });
                   }
-                });
+                })];
               }
             }), null);
             return _el$8;
@@ -250,11 +277,13 @@ const GovernmentOverview = () => {
                     text: "LOC_UI_HAPPINESS_NEEDED"
                   }), null);
                   insert(_el$25, () => govModel.data.happinessNeeded + "/" + govModel.data.happinessNextCelebrationThreshold, null);
+                  createRenderEffect(() => className(_el$19, `flex items-center relative w-full justify-between ${policyModel.isSmallScreen() ? "pr-8 pl-5" : "pr-18 pl-10"}  `));
                   return _el$19;
                 }
               }), createComponent(L10n.Stylize, {
                 "class": "p-6 text-accent-4",
-                text: "LOC_GOVERNMENT_HAPPINESS_REMINDER_TEXT"
+                text: "LOC_GOVERNMENT_HAPPINESS_REMINDER_TEXT",
+                role: "article"
               })];
             }
           })];
@@ -268,14 +297,18 @@ const CelebrationItem = (props) => {
   return (() => {
     var _el$29 = _tmpl$12();
     insert(_el$29, createComponent(Icon, {
-      "class": "size-10",
+      get ["class"]() {
+        return `${props.overFourItems ? "size-6" : "size-10"}`;
+      },
       get name() {
         return props.image;
       },
       isUrl: true
     }), null);
     insert(_el$29, createComponent(L10n.Stylize, {
-      "class": "ml-1 flex flex-auto text-left",
+      get ["class"]() {
+        return `ml-1 flex flex-auto text-left ${props.overFourItems ? "text-xs" : ""}`;
+      },
       get text() {
         return props.description;
       }
@@ -297,12 +330,19 @@ const TraditionItem = (props) => {
       vertical: true
     }), _el$31);
     insert(_el$31, createComponent(L10n.Stylize, {
-      "class": "text-secondary uppercase tracking-100 font-title",
+      "class": "text-secondary uppercase tracking-100 font-title-sm",
       get text() {
         return props.itemName ?? "";
       }
     }), null);
     insert(_el$31, createComponent(L10n.Stylize, {
+      "class": "text-sm",
+      get text() {
+        return props.addtionalDescription ?? "";
+      }
+    }), null);
+    insert(_el$31, createComponent(L10n.Stylize, {
+      "class": "text-sm text-accent-2",
       get text() {
         return props.description;
       }

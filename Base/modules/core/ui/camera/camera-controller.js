@@ -43,6 +43,7 @@ class CameraControllerSingleton {
   engineInputListener = this.onEngineInput.bind(this);
   updateFrameListener = this.onUpdateFrame.bind(this);
   userOptionChangedListener = this.onUserOptionChanged.bind(this);
+  inputContextChangedListener = this.onInputContextChanged.bind(this);
   mouseMoveEventListener = null;
   updateFrameEventHandle = null;
   constructor() {
@@ -74,6 +75,7 @@ class CameraControllerSingleton {
       this.dragMouseSwipe(event);
     });
     engine.on("UI_OptionsChanged", this.userOptionChangedListener);
+    engine.on("InputContextChanged", this.inputContextChangedListener);
     this.updateEdgePanningState();
     this.startingCameraZoom = Camera.getState().zoomLevel;
   }
@@ -82,6 +84,12 @@ class CameraControllerSingleton {
    */
   onUserOptionChanged() {
     this.updateEdgePanningState();
+  }
+  /**
+   * Reset zoom type when navigating to other contexts to prevent getting stuck
+   */
+  onInputContextChanged() {
+    this.zoomInProgress = 0 /* None */;
   }
   /**
    * Check the user configuration and see if edge panning should be enabled

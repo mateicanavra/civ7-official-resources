@@ -12,7 +12,7 @@ function App() {
     id: "enableFocusViewer",
     value: false
   });
-  return [createComponent(Show, {
+  return [createComponent(PlotTooltip, {}), createComponent(Show, {
     get when() {
       return focusViewerEnabled();
     },
@@ -21,7 +21,7 @@ function App() {
         initialVisibility: true
       });
     }
-  }), createComponent(PlotTooltip, {})];
+  })];
 }
 function InitApp() {
   const root = document.getElementById("solidjs-root");

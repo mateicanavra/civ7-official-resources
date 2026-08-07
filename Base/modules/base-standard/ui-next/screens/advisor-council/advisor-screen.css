@@ -1,3 +1,9 @@
+@media (experience: mobile) {
+  #advisor-screen {
+    padding-top: 0.6666666667rem;
+  }
+}
+
 .advisor-panel {
   width: 111.1111111111rem;
   max-width: 100%;
@@ -30,11 +36,18 @@
 }
 
 .advisor-card {
-  max-height: 41.6666666667rem;
+  max-width: 33.3333333333rem;
+  max-height: 52.7777777778rem;
   border-image-outset: 0.8333333333rem 0.7222222222rem 0.8333333333rem 0.7222222222rem;
   border-image-slice: 30 20 fill;
   border-image-source: url("blp:hud_unit-panel_box-bg");
   border-image-width: 1.6666666667rem 1.1111111111rem;
+}
+@media (experience: mobile) and (min-height: 55.5555555556rem) {
+  .advisor-card {
+    margin-right: 0.4444444444rem;
+    margin-left: 0.4444444444rem;
+  }
 }
 
 .advice-section-container {
@@ -71,9 +84,39 @@
   opacity: 0.8;
 }
 
+@media (experience: mobile) {
+  .advice-section-title {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+@media (experience: mobile) and (max-height: 55.5555555556rem) {
+  .advice-section-title {
+    margin-top: 0.3333333333rem;
+  }
+}
+
+@media (experience: mobile) {
+  .advice-quote-container {
+    height: 22.2222222222rem;
+    margin-top: 1.8888888889rem;
+  }
+}
+@media (experience: mobile) and (max-height: 55.5555555556rem) {
+  .advice-quote-container {
+    height: 20rem;
+    margin-top: 0.5555555556rem;
+  }
+}
+
 @media (max-height: 55.5555555556rem) {
   .advisor-card-title {
     margin: 0 0 2vh;
+  }
+}
+@media (experience: mobile) and (max-height: 55.5555555556rem) {
+  .advisor-card-title {
+    margin-bottom: 0.6666666667rem;
   }
 }
 
@@ -82,18 +125,15 @@
   line-height: 0;
 }
 
-.advisor-card-activatable {
+.advisor-card-focusable {
   top: 0;
   width: 100%;
   height: 100%;
-  color: rgba(0, 0, 0, 0);
-}
-
-.advisor-card-focusable {
   background: rgba(255, 253, 240, 0.158);
   border-image-slice: 30 fill;
   border-image-source: url("blp:rollover_highlight");
   border-image-width: 1.6666666667rem;
+  color: rgba(0, 0, 0, 0);
   filter: fxs-color-tint(rgb(184, 195, 251));
   opacity: 0;
 }
@@ -179,6 +219,18 @@
     width: 55.5555555556rem;
   }
 }
+@media (experience: mobile) {
+  .advisor-tab-list {
+    width: 72.2222222222rem;
+    margin-top: 1.1111111111rem;
+    margin-bottom: 2.1111111111rem;
+  }
+}
+@media (experience: mobile) and (max-height: 55.5555555556rem) {
+  .advisor-tab-list {
+    width: 68.8888888889rem;
+  }
+}
 
 .advisor-tab-output-container {
   margin-top: 4.25vh;
@@ -236,6 +288,11 @@
 
 .advisor-tabs-container {
   height: 75%;
+}
+@media (experience: mobile) and (min-height: 55.5555555556rem) {
+  .advisor-tabs-container {
+    height: 78%;
+  }
 }
 
 .advisor-portrait-tab {

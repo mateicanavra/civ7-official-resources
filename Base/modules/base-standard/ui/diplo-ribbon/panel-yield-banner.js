@@ -129,7 +129,7 @@ class PanelYieldBanner extends Panel {
     super.onAttach();
     const player = Players.get(GameContext.localObserverID);
     if (!player?.Stats) {
-      console.error("panel-yield-banner.ts: Could not get local player stats");
+      console.error(`panel-yield-banner: Could not get local player ${player?.id} stats`);
       return;
     }
     this.Root.listenForEngineEvent("UnitRemovedFromMap", this.onUnitRemovedFromMap, this);
@@ -149,6 +149,8 @@ class PanelYieldBanner extends Panel {
     this.Root.listenForEngineEvent("TradeRouteAddedToMap", this.updateAll, this);
     this.Root.listenForEngineEvent("TradeRouteRemovedFromMap", this.updateAll, this);
     this.Root.listenForEngineEvent("NarrativeChoiceMade", this.onNarrativeChoiceMade, this);
+    this.Root.listenForEngineEvent("PlayerCityLimitChanged", this.onPlayerCityLimitChanged, this);
+    this.Root.listenForEngineEvent("TraditionSlotsAdded", this.updateAll, this);
     this.Root.addEventListener(InputEngineEventName, this.engineInputListener);
     window.addEventListener("interface-mode-changed", this.interfaceModeChangedListener);
     engine.on("InputContextChanged", this.inputContextChangedListener);
@@ -168,7 +170,7 @@ class PanelYieldBanner extends Panel {
     }
     const player = Players.get(GameContext.localObserverID);
     if (!player?.Stats) {
-      console.error("panel-yield-banner.ts: Could not get local player stats");
+      console.error(`panel-yield-banner: Could not get local player ${player?.id} stats`);
       return;
     }
     const goldYieldElement = this.yieldElementMap[YieldTypes.YIELD_GOLD];
@@ -180,10 +182,12 @@ class PanelYieldBanner extends Panel {
     }
     const player = Players.get(GameContext.localObserverID);
     if (!player?.Stats) {
-      console.error("panel-yield-banner.ts: Could not get local player stats");
+      console.error(`panel-yield-banner: Could not get local player ${player?.id} stats`);
       return;
     }
     this.settlementCapElement.dataset.value = player.Stats.numSettlements.toString();
+    this.cityCapElement.dataset.value = player?.Stats?.numCities.toString();
+    this.cityCapElement.dataset.max = player.Cities?.getCityLimit().toString();
   };
   onPlayerYieldChanged(data) {
     if (data.player !== GameContext.localObserverID) {
@@ -191,7 +195,7 @@ class PanelYieldBanner extends Panel {
     }
     const player = Players.get(GameContext.localObserverID);
     if (!player?.Stats) {
-      console.error("panel-yield-banner.ts: Could not get local player stats");
+      console.error(`panel-yield-banner: Could not get local player ${player?.id} stats`);
       return;
     }
     if (data.yield in this.yieldElementMap) {
@@ -205,7 +209,7 @@ class PanelYieldBanner extends Panel {
     }
     const player = Players.get(GameContext.localObserverID);
     if (!player?.Stats) {
-      console.error("panel-yield-banner.ts: Could not get local player stats");
+      console.error(`panel-yield-banner: Could not get local player ${player?.id} stats`);
       return;
     }
     this.settlementCapElement.dataset.value = player.Stats.numSettlements.toString();
@@ -225,7 +229,7 @@ class PanelYieldBanner extends Panel {
     }
     const player = Players.get(GameContext.localObserverID);
     if (!player?.Stats) {
-      console.error("panel-yield-banner.ts: Could not get local player stats");
+      console.error(`panel-yield-banner: Could not get local player ${player?.id} stats`);
       return;
     }
     const diplomacyYieldElement = this.yieldElementMap[YieldTypes.YIELD_DIPLOMACY];
@@ -244,25 +248,40 @@ class PanelYieldBanner extends Panel {
     }
     this.updateAll();
   }
+  onPlayerCityLimitChanged(data) {
+    if (!data) {
+      return;
+    }
+    if (data.player != GameContext.localPlayerID) {
+      return;
+    }
+    const player = Players.get(data.player);
+    if (!player) {
+      console.error("panel-yield-banner: Could not get local player");
+      return;
+    }
+    this.cityCapElement.dataset.value = player?.Stats?.numCities.toString();
+    this.cityCapElement.dataset.max = player.Cities?.getCityLimit().toString();
+  }
   updateAll() {
     const player = Players.get(GameContext.localObserverID);
     if (!player) {
-      console.error("panel-yield-banner.ts: Could not get local player in updateAll!");
+      console.error("panel-yield-banner: Could not get local player in updateAll!");
       return;
     }
     const playerStats = player.Stats;
     if (!playerStats) {
-      console.error("panel-yield-banner.ts: Could not get local player stats in updateAll");
+      console.error(`panel-yield-banner: Could not get local player ${player?.id} stats in updateAll`);
       return;
     }
     const playerTreasury = player.Treasury;
     if (!playerTreasury) {
-      console.error("panel-yield-banner.ts: Could not get local player treasury in updateAll");
+      console.error(`panel-yield-banner: Could not get local player ${player?.id} treasury in updateAll`);
       return;
     }
     const playerDiploTreasury = player.DiplomacyTreasury;
     if (!playerDiploTreasury) {
-      console.error("panel-yield-banner.ts: Could not get local player diplo treasury in updateAll");
+      console.error(`panel-yield-banner: Could not get local player ${player?.id} diplo treasury in updateAll`);
       return;
     }
     this.yieldElementMap[YieldTypes.YIELD_GOLD].dataset.value = playerStats.getNetYield(YieldTypes.YIELD_GOLD).toString();
@@ -274,7 +293,7 @@ class PanelYieldBanner extends Panel {
     this.yieldElementMap[YieldTypes.YIELD_SCIENCE].dataset.value = playerStats.getNetYield(YieldTypes.YIELD_SCIENCE).toString();
     this.settlementCapElement.dataset.value = playerStats.numSettlements.toString();
     this.settlementCapElement.dataset.max = playerStats.settlementCap.toString();
-    this.cityCapElement.dataset.value = player.Cities?.getCountOfCities().toString();
+    this.cityCapElement.dataset.value = player.Stats?.numCities.toString();
     this.cityCapElement.dataset.max = player.Cities?.getCityLimit().toString();
   }
   onEngineInput(event) {
@@ -305,7 +324,7 @@ class PanelYieldBanner extends Panel {
     };
     const player = Players.get(GameContext.localObserverID);
     if (!player?.Stats || !player?.Treasury || !player?.DiplomacyTreasury) {
-      console.error("panel-yield-banner.ts: Required player libraries were missing.");
+      console.error(`panel-yield-banner: Required player ${player?.id} libraries were missing.`);
       return;
     }
     if ((this.Root.getAttribute("display-nav-help") ?? "true") != "false") {

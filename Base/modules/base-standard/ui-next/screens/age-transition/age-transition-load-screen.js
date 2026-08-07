@@ -1,5 +1,6 @@
 import { template, insert } from '../../../../core/vendor/solid-js/web/dist/web.js';
 import { createComponent, createRenderEffect, createSignal, onMount, Show } from '../../../../core/vendor/solid-js/dist/solid.js';
+import { AudioContextProvider } from '../../../../core/ui-next/components/audio-context-provider.js';
 import { Flipbook } from '../../../../core/ui-next/components/flipbook.js';
 import { Header } from '../../../../core/ui-next/components/header.js';
 import { HeroButton2 } from '../../../../core/ui-next/components/hero-button.js';
@@ -38,9 +39,6 @@ const AgeTransitionStage = ComponentRegistry.register({
 });
 const AgeTransitionLoadScreenComponent = (props) => {
   const model = useLoadScreenContext();
-  const beginGameSounds = {};
-  beginGameSounds.group = "main-menu-audio";
-  beginGameSounds.onActivate = "data-audio-begin-game";
   function getAgeHeader(age) {
     return `LOC_LOADING_AGE_TRANSITION_${age.replace("AGE_", "")}_HEADER`;
   }
@@ -145,32 +143,41 @@ const AgeTransitionLoadScreenComponent = (props) => {
             }
           }), (() => {
             var _el$11 = _tmpl$3();
-            insert(_el$11, createComponent(HeroButton2, {
-              "class": "mx-3 px-8 mt-10",
-              get style() {
+            insert(_el$11, createComponent(AudioContextProvider, {
+              segment: "LoadScreen",
+              get vars() {
                 return {
-                  visibility: hasStartButton() ? void 0 : "hidden"
-                };
-              },
-              get disabled() {
-                return !model.canBeginGame;
-              },
-              onActivate: () => startGame(),
-              audio: beginGameSounds,
-              get classList() {
-                return {
-                  hidden: model.hideBeginButton
+                  canBeginGame: model.canBeginGame.toString()
                 };
               },
               get children() {
-                return [createComponent(NavHelp, {
-                  "class": "-ml-10 mr-2",
+                return createComponent(HeroButton2, {
+                  "class": "mx-3 px-8 mt-10",
+                  get style() {
+                    return {
+                      visibility: hasStartButton() ? void 0 : "hidden"
+                    };
+                  },
                   get disabled() {
                     return !model.canBeginGame;
+                  },
+                  onActivate: () => startGame(),
+                  get classList() {
+                    return {
+                      hidden: model.hideBeginButton
+                    };
+                  },
+                  get children() {
+                    return [createComponent(NavHelp, {
+                      "class": "-ml-10 mr-2",
+                      get disabled() {
+                        return !model.canBeginGame;
+                      }
+                    }), createComponent(L10n.Compose, {
+                      text: "LOC_GENERIC_CONTINUE"
+                    })];
                   }
-                }), createComponent(L10n.Compose, {
-                  text: "LOC_GENERIC_CONTINUE"
-                })];
+                });
               }
             }));
             return _el$11;

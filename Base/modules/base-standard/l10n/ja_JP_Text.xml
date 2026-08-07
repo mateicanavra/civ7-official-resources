@@ -823,6 +823,9 @@
     <Replace Tag="LOC_PEDIA_CONCEPTS_BRIDGE_TOOLTIP" Language="ja_JP">
       <Text>橋は[TIP:LOC_PEDIA_CONCEPTS_LAND_UNITS_TOOLTIP]陸上ユニット[/TIP]が[TIP:LOC_PEDIA_CONCEPTS_EMBARK_TOOLTIP]乗船[/TIP]しなくても[TIP:LOC_PEDIA_CONCEPTS_NAVIGABLE_RIVER_TOOLTIP]航行可能な河川[/TIP]を渡れるようになります。[NN]渡し場がすでに道路に形成されている場合は建設コストが下がります。</Text>
     </Replace>
+    <Replace Tag="LOC_PEDIA_CONCEPTS_BUILDING_TIER_TOOLTIP" Language="ja_JP">
+      <Text>標準建造物にはティア1とティア2があり、コスト、基本産出量、解除される時期がそれぞれ異なります。普通、ティア1の建造物は、各時代で最初に解除される各産出物の標準建造物です。</Text>
+    </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP" Language="ja_JP">
       <Text>建造物は既存の[TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]区域[/TIP]かその隣に配置する必要があります。建造物は[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]居住地[/TIP]の産出量と市街[TIP:LOC_PEDIA_CONCEPTS_POPULATION_TOOLTIP]人口[/TIP]を増加させます。[NN][TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]「時代を問わない」[/TIP]ものを除いて、建造物は[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]時代[/TIP]が進むと[TIP:LOC_PEDIA_CONCEPTS_OVERBUILDABLE_TOOLTIP]改築可能[/TIP]になります。[NN]各建造物は、その後に築かれるすべての建造物の [icon:YIELD_PRODUCTION] [b]生産[/b]コストを増加させます。</Text>
     </Replace>
@@ -907,6 +910,9 @@
     <Replace Tag="LOC_PEDIA_CONCEPTS_ECONOMIC_VICTORY_TOOLTIP" Language="ja_JP">
       <Text>4種類ある勝利のうちの1つです。経済による勝利は、指導者が他のすべての指導者に対して経済的優位を確立することで達成されます。その尺度となるのが[TIP:LOC_PEDIA_CONCEPTS_GDP_TOOLTIP]GDP[/TIP]です。</Text>
     </Replace>
+    <Replace Tag="LOC_PEDIA_CONCEPTS_EFFICIENCY_TOOLTIP" Language="ja_JP">
+      <Text>効率は購買力を表します。効率1%ごとに、消費時の産出量が1%上昇します。つまり、実質的な支払い額が減るわけです。[NN]指導者、文明、[TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]属性[/TIP]、[TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]遺産[/TIP]、その他の効果ごとに、異なる効率が異なるコストに適用されます。[NN]たとえば、[TIP:LOC_PEDIA_CONCEPTS_MAINTENANCE_TOOLTIP]建造物の維持費[/TIP]に関するゴールド効率の合計が+50%なら、通常は毎ターン[B]6ゴールド[/B]かかる[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建造物[/TIP]の維持費が毎ターン[B]4ゴールド[/B]に減少します。</Text>
+    </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_EMBARK_TOOLTIP" Language="ja_JP">
       <Text>乗船中のユニットは、[TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]戦闘力[/TIP]が低下し、[TIP:LOC_PEDIA_CONCEPTS_RANGED_ATTACK_TOOLTIP]長距離攻撃[/TIP]を受けやすくなります。また、乗船中のユニットは、下船するまで攻撃を行えません。</Text>
     </Replace>
@@ -953,7 +959,7 @@
       <Text>GDPは、[TIP:LOC_PEDIA_CONCEPTS_ECONOMIC_VICTORY_TOOLTIP]経済による勝利[/TIP]の進捗を表します。「車輪」を研究した後に[TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]都市[/TIP]へ割り当てた[TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]資源[/TIP]や、「通貨」を研究した後に築いた [icon:YIELD_GOLD] [b]ゴールド[/b]関連の[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建造物[/TIP]などは、ターンごとにGDPをもたらします。他のすべてのプレイヤーに対して十分な優位性を得ると、経済による勝利へのカウントダウンが始まります。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_GOVERNMENT_TOOLTIP" Language="ja_JP">
-      <Text>国が[TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]祝宴[/TIP]中に得るボーナスは、政府の種類によって決まります。それぞれの[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]時代[/TIP]の序盤には、政府を選択するよう促されます。</Text>
+      <Text>国が[TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]祝宴[/TIP]中に選べるボーナス、および受け取れるパッシブ能力と政府の[TIP:LOC_PEDIA_CONCEPTS_TRADITION_TOOLTIP]伝統[/TIP]は、政府の種類によって決まります。それぞれの[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]時代[/TIP]の序盤には、政府を選択するよう促されます。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_GREAT_WORKS_TOOLTIP" Language="ja_JP">
       <Text>傑作は、[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]時代[/TIP]ごとに異なる方法で獲得できる貴重な品です。[NN]傑作画面を使い、有効な傑作スロットがある[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建造物[/TIP]が存在する[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]居住地[/TIP]に傑作を配置してください。</Text>
@@ -1217,7 +1223,7 @@
       <Text>建造物: 改築</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_BUILDINGS_11_CHAPTER_CONTENT_PARA_1" Language="ja_JP">
-      <Text>倉庫と遺産を除き、ほとんどの建造物は維持費としてゴールドや幸福度を消費します。通常、古代の建造物の維持費はゴールド-2と幸福度-2ですが、このコストは時代が進むほど増えていき、探検の時代にはゴールド-3と幸福度-3となります。ただし、ゴールド関連の建造物は維持にゴールドを必要とせず、幸福度関連の建造物も幸福度を消費しません。</Text>
+      <Text>倉庫と遺産を除き、ほとんどの建造物は維持費としてゴールドや幸福度を消費します。通常、古代の建造物の維持費はゴールド-2と幸福度-2ですが、このコストは時代が進むほど増えていき、探検の時代にはゴールド-3と幸福度-3となります。ただし、ゴールド関連の建造物は維持にゴールドを必要とせず、幸福度関連の建造物も幸福度を消費しません。生産関連の建造物も、その居住地でこれから築かれる建造物のコストを上昇させません。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_BUILDINGS_11_CHAPTER_CONTENT_PARA_2" Language="ja_JP">
       <Text>ヒント: 多数の建造物を建設する際は、ゴールドと幸福度の量に注意しましょう。多くの場合、幸福度関連の建造物の建設は、健全で拡大をつづける帝国の維持に不可欠です。</Text>
@@ -1263,6 +1269,15 @@
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_BUILDINGS_17_TITLE" Language="ja_JP">
       <Text>建造物: 橋</Text>
+    </Replace>
+    <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_BUILDINGS_18_CHAPTER_CONTENT_PARA_1" Language="ja_JP">
+      <Text>各時代の標準建造物には2つの段階があり、ティア1とティア2と呼ばれます。建造物のコストや基本産出量、技術ツリーでの解除位置はティアによって異なるほか、ゲーム中の特定の効果に影響する場合もあります。倉庫建造物と固有建造物にティアはなく、コスト、基本産出量、解除時期はそれぞれ一定です。</Text>
+    </Replace>
+    <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_BUILDINGS_18_CHAPTER_CONTENT_PARA_2" Language="ja_JP">
+      <Text>通常、各時代には、各産出物に特化した建造物が各ティアに1つあります。ヴィラやギルド会館のような外交関連の建造物は例外的に常にティア2ですが、モニュメントのような副次的に影響力を産出するティア1の建造物がある時代も存在します。1つのタイル全体を占める建造物にもティアがあり、コストと基本産出量はそのティアの通常の建造物の2倍です。</Text>
+    </Replace>
+    <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_BUILDINGS_18_TITLE" Language="ja_JP">
+      <Text>建造物: ティア</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_BUILDINGS_2_CHAPTER_CONTENT_PARA_1" Language="ja_JP">
       <Text>倉庫は、居住地内に設置されている同じタイプの施設の数に応じてボーナスをもたらします。たとえば穀物庫は、居住地にある農場、プランテーション、牧草地（すべて食料ボーナスをもたらす施設）1つにつき食料+1をもたらします。もし農場が2つ、プランテーションが1つ、牧草地が1つあるなら、穀物庫を建設することによって得られるボーナスは食料+4となります。施設からのボーナス産出量は、施設そのものではなく対応する倉庫建造物に表示されます。</Text>
@@ -1552,8 +1567,17 @@
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_COMBAT_10_TITLE" Language="ja_JP">
       <Text>ユニット能力</Text>
     </Replace>
+    <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_COMBAT_11_CHAPTER_CONTENT_PARA_1" Language="ja_JP">
+      <Text>海洋戦闘とは、水上において2つの海洋ユニットの間で交わされる戦闘の総称です、海洋戦闘は、沿岸や湖、探検の時代に「造船」技術を研究した後なら外洋まで、敵と味方が同時に存在している水域ならどこでも起こり得ます。</Text>
+    </Replace>
+    <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_COMBAT_11_CHAPTER_CONTENT_PARA_2" Language="ja_JP">
+      <Text>海洋ユニットの操作は陸上ユニットとほぼ同じです。軍団司令官が陸上ユニットを統合できるように、探検の時代以降の艦隊司令官は海洋ユニットを統合できます（古代でも、指導者の能力によって可能になる場合があります）。軍団司令官と艦隊司令官はどちらも「統合」、「解散」、「圧倒」を実行できます。</Text>
+    </Replace>
+    <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_COMBAT_11_TITLE" Language="ja_JP">
+      <Text>海洋戦闘</Text>
+    </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_COMBAT_2_CHAPTER_CONTENT_PARA_1" Language="ja_JP">
-      <Text>長距離戦闘ユニットは攻撃時に反撃ダメージを受けないので、前線で近接戦闘をするユニットと組み合わせるのに最適です。ただし、長距離戦闘ユニットは近接戦闘ユニットに弱く、特に騎兵ユニットは長距離戦闘ユニットへの攻撃時に戦闘力が上乗せされます。長距離戦闘ユニットには近接戦闘値があり、近接攻撃を受けた際のダメージ算出にはこの値が使用されます。なお、多くの場合、長距離戦闘ユニットの近接戦闘値は高くありません。</Text>
+      <Text>長距離戦闘ユニットは攻撃時に反撃ダメージを受けないので、前線で近接戦闘をするユニットと組み合わせるのに最適です。ただし、長距離戦闘ユニットは近接戦闘ユニットに弱く、特に騎兵ユニットは長距離戦闘ユニットへの攻撃時に戦闘力が上乗せされます。長距離戦闘ユニットには近接戦闘値があり、近接攻撃を受けた際のダメージ算出にはこの値が使用されます。なお、多くの場合、長距離戦闘ユニットの近接戦闘値は高くありません。また、長距離戦闘ユニットは海洋ユニットに対して砲撃戦闘力を使用しますが、この値も攻囲ユニットほどではありません。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_COMBAT_2_CHAPTER_CONTENT_PARA_2" Language="ja_JP">
       <Text>長距離攻撃には、ユニットが現在配置されているタイルから獲得できる戦闘ボーナスが適用されます。一方、近接攻撃には、防衛側のユニットがいるタイルのボーナスが適用されます。</Text>
@@ -1892,7 +1916,7 @@
       <Text>食料: 産出</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_FORTIFICATION_1_CHAPTER_CONTENT_PARA_1" Language="ja_JP">
-      <Text>「要塞化陣地」とは、タイルの防御力を高める建築物の総称です。最もありふれた要塞化陣地は防壁ですが、一部の遺産や施設も要塞化陣地に含まれます。</Text>
+      <Text>「要塞化陣地」とは、タイルの防御力を高める建物の総称です。最もありふれた要塞化陣地は防壁で、これは通常の区域を防衛力を持つ要塞化区域に変えます。郊外タイルにある要塞化施設は体力を増加させませんが、そのタイルで防戦しているすべてのユニットの戦闘力を6ポイント向上させます。遺産の中には要塞化陣地としての側面を持ち合わせ、独自の体力と防衛力を備えた要塞化区域として機能するものもあります。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_FORTIFICATION_1_CHAPTER_CONTENT_PARA_2" Language="ja_JP">
       <Text>ヒント: 軍事ユニットが一時的な要塞化陣地を形成する場合もあります。これにより、ユニットがタイルを防衛しやすくなります。戦場となりそうな地点や守りを固めたい重要地点に、一時的な要塞化陣地を築きましょう。ただし、一時的な要塞化陣地は、要塞化を解くと消滅してしまいます。</Text>
@@ -2461,6 +2485,18 @@
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_STATEHOOD_3_TITLE" Language="ja_JP">
       <Text>独立国家: 都市国家</Text>
     </Replace>
+    <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_SYNCRETISM_1_CHAPTER_CONTENT_PARA_1" Language="ja_JP">
+      <Text>習合とは、2つ以上の文化、哲学、思想、宗教が融合し、新たな形態が生まれることです。ローマの伝統がガリアの諸部族に吸収されたり、先住民とスペインの伝統からメスティソ文化が生まれたりしたように、歴史的に見て集合はなんら珍しい現象ではありません。集合という言葉は宗教の文脈で使われることが多く、カトリックとアフリカの宗教が融合したブードゥー教や、道教、仏教、儒教から派生した中国の民間宗教などはその代表例です。習合は過去の特定の瞬間に限定されるものではなく、むしろ、相反する世界観を調和させようと人々が試みる中で絶え間なく生じていることなのです。</Text>
+    </Replace>
+    <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_SYNCRETISM_1_CHAPTER_CONTENT_PARA_2" Language="ja_JP">
+      <Text>自分たちの伝統や文化を習合的なものであると捉えることは、本質主義的な世界観に異を唱えることに他なりません。しかし、今日の「普通なこと」や「自然なこと」が、過去においてはそうでなかったからといって、習合の意義が損なれるわけではありません。世界の変化に合わせ、人もまた変化するものなのです。</Text>
+    </Replace>
+    <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_SYNCRETISM_1_CHAPTER_CONTENT_PARA_3" Language="ja_JP">
+      <Text>『シヴィライゼーション VII』で新たに採用されたシステムである「習合」は、ある時代において、全盛時代ではない文明に全盛時代の文明の要素を取り入れるチャンスをもたらします。具体的には、全盛時代の文明の固有ユニット、建造物、施設を取り入れることができるのです。これらはその時代が終了するまで利用できます。あるいは、習合ボーナスを選ぶ選択肢が解除された際に、現在の文明に対応する「認容」の伝統を選び、内政に注力することもできます。「認容」の伝統は、その後の時代も保持されます。</Text>
+    </Replace>
+    <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_SYNCRETISM_1_TITLE" Language="ja_JP">
+      <Text>習合</Text>
+    </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_TEAMPLAY_1_CHAPTER_CONTENT_PARA_1" Language="ja_JP">
       <Text>マルチプレイヤーでは、チームを結成できます。チームを組みたいときは、マルチプレイヤーゲーム作成時に、チームドロップダウンメニューで同じチームを選択します。</Text>
     </Replace>
@@ -2600,7 +2636,7 @@
       <Text>こうした不満は、居住地に司令官を配置することである程度抑えられます。もともとは自文明のものだった居住地を征服した場合は、占領ではなく解放とみなされ、不安関連のペナルティはすべて消えます。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_TOWN_6_CHAPTER_CONTENT_PARA_3" Language="ja_JP">
-      <Text>ヒント: 和平交渉によって獲得した居住地では、不安は発生しません。軍事一辺倒ではなく、時には外交も交えるのが賢いやり方です。</Text>
+      <Text>ヒント: 和平協定によって獲得した居住地では、不安は発生しません。軍事一辺倒ではなく、時には外交も交えるのが賢いやり方です。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_TOWN_6_TITLE" Language="ja_JP">
       <Text>不安</Text>
@@ -2696,19 +2732,19 @@
       <Text>ユニットのタイプ</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_WALLS_1_CHAPTER_CONTENT_PARA_1" Language="ja_JP">
-      <Text>都市には防壁を築けます。また、購入することは都市と町のどちらでも可能です。</Text>
+      <Text>防壁は要塞化陣地の一種で、区域を要塞化区域に変えます。居住地を占領するには、要塞化区域をすべて支配しなければなりません。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_WALLS_1_CHAPTER_CONTENT_PARA_2" Language="ja_JP">
-      <Text>防壁は区域の体力を100上昇させます。ただし、1つ前の時代の防壁はもたらす防衛力ボーナスと区域の体力が半分になりますし、さらに古い時代の防壁は恩恵をいっさいもたらしません。ただし、前の時代の防壁を今の時代の防壁によって改築し、アップグレードすることは可能です。防壁の修復に都市の生産キューを使う必要はなく、時間経過にともなって自動的に修復されます。ただしこれは、攻撃を受けておらず、隣接する敵ユニットもいない場合に限られます。</Text>
+      <Text>防壁は区域の体力を100上昇させます。ユニットが要塞化区域を攻撃した場合、戦闘結果は攻撃側ユニットの戦闘力とその区域の防衛力の比較によって決まります。防衛力は、その区域の所有者が訓練した中で最強の近接戦闘ユニットを基準とし、そこから既定の値（10）を差し引くことで算出されます。防壁および都心や町の中心は、近接戦闘によって攻撃してきた敵に対して反撃ダメージを与えます。先攻は防衛側です。要塞化陣地でもある遺産に防壁もある場合など、1つのタイルに要塞化陣地建造物が複数ある場合は、体力が累積します。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_WALLS_1_CHAPTER_CONTENT_PARA_3" Language="ja_JP">
-      <Text>都心を除き、ゴールドによって防壁を購入することはできません。区域の防壁は、生産力を消費して、都市建設キューで1タイルずつ建設する必要があります。防壁は、航行可能な河川タイルには建設できず、同じ居住地の防壁に隣接する場所に、都心を起点として建設しなければなりません。他の居住地の防壁に隣接する場所には築けませんが、そこが都心である場合は例外です。防壁は、郊外タイルには建設できません。</Text>
+      <Text>都市には防壁を築けます。また、都市と町のいずれでも、ゴールドを使って防壁を購入できます。ただし、防壁を購入できる場所は都心や町の中心に限られます。区域の防壁は、生産力を消費し、都市建設キューで1タイルずつ建設する必要があります。防壁は、航行可能な河川タイルには建設できず、同じ居住地の防壁に隣接する場所に、都心を起点として建設しなければなりません。他の居住地の防壁に隣接する場所には築けませんが、そこが都心である場合は例外です。防壁は、郊外タイルには建設できません。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_WALLS_1_CHAPTER_CONTENT_PARA_4" Language="ja_JP">
-      <Text>ユニットが防衛力のある区域を攻撃した場合、戦闘結果は攻撃側ユニットの戦闘力とその区域の防衛力の比較によって決定されます。防衛力は、その区域の所有者が訓練した中で最強の近接戦闘ユニットを基準とし、そこから既定の値（10）を差し引くことで算出されます。防壁および都心や町の中心は、近接戦闘によって攻撃してきた敵に対して反撃ダメージを与えます。先攻は防衛側です。</Text>
+      <Text>1つ前の時代の防壁は、防衛力ボーナスと区域の体力が半分になります。さらに古い時代の防壁は、恩恵をいっさいもたらしません。ただし、1つ前の時代の防壁を改築し、今の時代の防壁にアップグレードすることは可能です。また、防壁の修復に都市の生産キューを使う必要はなく、攻撃を受けず、隣接する敵ユニットもいなければ、時間の経過にともなって自動的に修復されます。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_WALLS_1_CHAPTER_CONTENT_PARA_5" Language="ja_JP">
-      <Text>ヒント: 居住地を占領するには、都心や町の中心と、防壁を備えた防衛施設がある区域を支配しなければなりません。</Text>
+      <Text>ヒント: 居住地を占領するには、要塞化区域を支配しなければなりません。要塞化区域には、都心や町の中心、防壁がある区域、一部の遺産が含まれます。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_WALLS_1_TITLE" Language="ja_JP">
       <Text>防壁</Text>
@@ -3965,7 +4001,7 @@
       <Text>近代の科学による勝利</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_PAGE_AGES_39_CHAPTER_CONTENT_PARA_1" Language="ja_JP">
-      <Text>「時代の移行の影響」オプションを「再編」にしている場合は、1つの時代が終了すると、軍事ユニットの一部がリセットされます。海洋ユニットは最初の時代が終わると失われますが、探検の時代の開始時にコグ船が無償で手に入ります。陸上ユニットは、軍団司令官に割り当てられているユニット数に、古代の終了時なら6、探検の時代の終了時なら9を加えた数が上限となります。上限を超えたユニットは解隊されます。反対にユニット数が下限に満たない場合は、足りない分だけ歩兵ユニットを無償でもらえます。</Text>
+      <Text>「時代の移行の影響」オプションを「再編」にしている場合は、1つの時代が終了すると、軍事ユニットの一部がリセットされます。移行時には、艦隊司令官に統合されている艦船に加えて、港ごとに追加の海洋ユニットを保持できます。陸上ユニットは、軍団司令官に割り当てられているユニット数に、古代の終了時なら6、探検の時代の終了時なら9を加えた数が上限となります。上限を超えたユニットは解隊されます。反対にユニット数が下限に満たない場合は、足りない分だけ歩兵ユニットを無償でもらえます。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_PAGE_AGES_39_CHAPTER_CONTENT_PARA_2" Language="ja_JP">
       <Text>移行後に受け取ったユニットは、すべて次の時代のティア1ユニットへ自動的にアップグレードされます。 倒された司令官は、時代の移行後に再出現します。</Text>
@@ -4445,7 +4481,7 @@
       <Text>アジアと同じく、ヒスイはメソアメリカの民族やニュージーランドのマオリ族の間でも、美と芸術、魔力を象徴する希少な鉱物とみなされている。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_PAGE_RESOURCE_KAOLIN_CHAPTER_HISTORY_PARA_1" Language="ja_JP">
-      <Text>カオリンはきめの細かい白粘土であり、紙の艶出しや化粧品の美白成分、あるいは顔料として現代でもさまざまな用途に使われている。カオリンという名前を知っている人は多くないかもしれないが、古くから存在するその主な用途の一つ、つまり陶磁器については誰もが耳にしたことがあるだろう。この硬質で時に半透明の陶器は、きわめて高い温度で焼き上げられる。陶磁器はアジア（特に中国）からヨーロッパに渡った最初期の交易品の一つで、その軽さと硬さ、繊細さと色彩から、これを手に入れる財力を持つ者にとっては名声と洗練の象徴でもあった。ドイツのマイセンで1710年に製造に成功するまで、中国製（および後の朝鮮および日本製） の陶磁器と同じ物を再現しようと、さまざまな諜報活動や隠密活動が行われていたほどだ。</Text>
+      <Text>カオリンはきめの細かい白粘土であり、紙の艶出しや化粧品の美白成分、あるいは顔料として現代でもさまざまな用途に使われている。カオリンという名前を知っている人は多くないかもしれないが、古くから存在するその主な用途の一つ、つまり陶磁器については誰もが耳にしたことがあるだろう。この硬質で時に半透明の陶器は、きわめて高い温度で焼き上げられる。陶磁器はアジア（特に中国）からヨーロッパに渡った最初期の交易品の一つで、その軽さと硬さ、繊細さと色彩から、これを手に入れる財力を持つ者にとっては名声と洗練の象徴でもあった。ドイツのマイセンで1710年に製造に成功するまで、中国製（および後の朝鮮半島および日本製） の陶磁器と同じ物を再現しようと、さまざまな諜報活動や隠密活動が行われていたほどだ。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_PAGE_RESOURCE_LIMESTONE_CHAPTER_HISTORY_PARA_1" Language="ja_JP">
       <Text>先史時代の海底に積った軟体動物やサンゴの殻は、細かく砕けて炭酸カルシウムの粉になり、何百万年もかけて圧縮された。こうした過程を経て生まれたのが、古代から建材として重要な役割を果たしてきた石灰岩だ。白くて艶やかな石灰岩は、加工が容易なこともあり、エジプトのピラミッドをはじめとする古代の建造物に用いられた。石灰岩を焼くことで得られる漆喰は、マヤ世界の遺産によく使われている。高温と高圧にさらされた石灰岩はさらに変質し、大理石となる。特性は石灰岩とまったく異なるが、大理石も非常に美しくて重要な石材だ。</Text>
@@ -5524,6 +5560,120 @@
     </Replace>
     <Replace Tag="LOC_DIPLO_MAKE_DEAL_REJECTED_LEADER_XERXES" Language="ja_JP">
       <Text>今回は門を閉ざそう。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_DECREASED_LEADER_AMINA" Language="ja_JP">
+      <Text>沈黙は愚かさに対する唯一の答えだ。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_DECREASED_LEADER_ASHOKA" Language="ja_JP">
+      <Text>まこと、悪を成すことは容易い。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_DECREASED_LEADER_AUGUSTUS" Language="ja_JP">
+      <Text>無知ゆえの愚かしさか。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_DECREASED_LEADER_BENJAMIN_FRANKLIN" Language="ja_JP">
+      <Text>たしかに人は皆、生まれた時は無知だ。しかし、無知なまま成長するとは、それはそれで一種の才覚だな。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_DECREASED_LEADER_CATHERINE" Language="ja_JP">
+      <Text>あら、もうこんな時間。行かなくてよろしいの？</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_DECREASED_LEADER_CHARLEMAGNE" Language="ja_JP">
+      <Text>他の者がお前を崇めても、余はお前を崇めぬ。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_DECREASED_LEADER_CONFUCIUS" Language="ja_JP">
+      <Text>正しい行いや誠実さを培わない者をこそ、我らは退けねばならぬのだ。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_DECREASED_LEADER_FRIEDRICH" Language="ja_JP">
+      <Text>言うべきことがない時ほど人はつまらないことを言う。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_DECREASED_LEADER_HARRIET_TUBMAN" Language="ja_JP">
+      <Text>嵐雲が近づいてるよ。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_DECREASED_LEADER_HATSHEPSUT" Language="ja_JP">
+      <Text>私は太陽。太陽に異を唱える者がいようか？</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_DECREASED_LEADER_HIMIKO" Language="ja_JP">
+      <Text>そなたは己が光り輝いていると思うているが、灯台下暗しと言うぞ。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_DECREASED_LEADER_IBN_BATTUTA" Language="ja_JP">
+      <Text>邪悪さと無知は対の存在である。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_DECREASED_LEADER_ISABELLA" Language="ja_JP">
+      <Text>私は主から賜ったのです。あなたが支配しているすべての地の支配権を。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_DECREASED_LEADER_JOSE_RIZAL" Language="ja_JP">
+      <Text>君は他人の苦しみを笑うのだな。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_DECREASED_LEADER_LAFAYETTE" Language="ja_JP">
+      <Text>暴君め、正体を現したな！</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_DECREASED_LEADER_MACHIAVELLI" Language="ja_JP">
+      <Text>企み事をしている者がいる。私ではないがね。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_DECREASED_LEADER_PACHACUTI" Language="ja_JP">
+      <Text>雪は白く、すぐに消える。じきに山から災いがやって来よう。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_DECREASED_LEADER_TRUNG_TRAC" Language="ja_JP">
+      <Text>私たちは覚えている。ずっとね。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_DECREASED_LEADER_XERXES" Language="ja_JP">
+      <Text>お前の言葉がアヒルの鳴き声のように辺りに響いておる。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_INCREASED_LEADER_AMINA" Language="ja_JP">
+      <Text>まるで砂漠の木陰のよう！</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_INCREASED_LEADER_ASHOKA" Language="ja_JP">
+      <Text>善を為すことは困難である。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_INCREASED_LEADER_AUGUSTUS" Language="ja_JP">
+      <Text>君のレンガは大理石を思わせる。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_INCREASED_LEADER_BENJAMIN_FRANKLIN" Language="ja_JP">
+      <Text>近頃ではすっかり見られなくなった、良識ある考えだ！</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_INCREASED_LEADER_CATHERINE" Language="ja_JP">
+      <Text>聡明さは私の愛するもの。もっと見せてくださいませ！</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_INCREASED_LEADER_CHARLEMAGNE" Language="ja_JP">
+      <Text>志を同じくする者に乾杯！</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_INCREASED_LEADER_CONFUCIUS" Language="ja_JP">
+      <Text>君子は刑を思い、小人は利を思う。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_INCREASED_LEADER_FRIEDRICH" Language="ja_JP">
+      <Text>昼は硝煙に包まれ、夜は劇場で過ごした後にこれとは！</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_INCREASED_LEADER_HARRIET_TUBMAN" Language="ja_JP">
+      <Text>一歩前進だね。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_INCREASED_LEADER_HATSHEPSUT" Language="ja_JP">
+      <Text>太陽の民に、お前を永遠に生かしてくれるか聞いてやろう。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_INCREASED_LEADER_HIMIKO" Language="ja_JP">
+      <Text>ここには価値あるものがある。星の語らいと富のざわめきだ。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_INCREASED_LEADER_IBN_BATTUTA" Language="ja_JP">
+      <Text>我々が同じ道を歩み続けられることを嬉しく思う。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_INCREASED_LEADER_ISABELLA" Language="ja_JP">
+      <Text>女王に求められるのは高望みしないこと。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_INCREASED_LEADER_JOSE_RIZAL" Language="ja_JP">
+      <Text>君の心には詩がある。僕には見えるんだ。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_INCREASED_LEADER_LAFAYETTE" Language="ja_JP">
+      <Text>君は自由の友だ。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_INCREASED_LEADER_MACHIAVELLI" Language="ja_JP">
+      <Text>心の底からお祝い申し上げる。本当に。心から。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_INCREASED_LEADER_PACHACUTI" Language="ja_JP">
+      <Text>霜が降りぬよう、雹が降らぬよう、すべてを平和のうちに守るがいい。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_INCREASED_LEADER_TRUNG_TRAC" Language="ja_JP">
+      <Text>お前は山から吹き降ろす涼風のようだ。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_INCREASED_LEADER_XERXES" Language="ja_JP">
+      <Text>私をじっくりと観察していたようだな。</Text>
     </Replace>
     <Replace Tag="LOC_MAIN_CHAR_SELECT_LEADER_AMINA_ANY" Language="ja_JP">
       <Text>武器を研ぎ、馬に鞍を置き、神の意思を聞け。今日、私たちは征服する。</Text>
@@ -9883,7 +10033,7 @@
     </Replace>
     <Replace Tag="LOC_ADVICE_ANTIQUITY_MILITARY_ARMY_COMMANDERS_MESSAGE" Language="ja_JP">
       <Text>
-				[B]軍団[/B][TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]司令官[/TIP]は特殊能力を持つ[TIP:LOC_PEDIA_CONCEPTS_SUPPORT_UNIT_TOOLTIP]支援ユニット[/TIP]で、付近の[TIP:LOC_PEDIA_CONCEPTS_MILITARY_UNIT_TOOLTIP]軍事ユニット[/TIP]にボーナスをもたらします。軍団司令官には、[TIP:LOC_PEDIA_CONCEPTS_CIVILIAN_UNIT_TOOLTIP]民間人ユニット[/TIP]と[b]軍事ユニットを統合[/b]し、素早く移動させる能力もあります。						[nn]軍団司令官は、自分の[TIP:LOC_PEDIA_CONCEPTS_COMMAND_RADIUS_TOOLTIP]指揮範囲[/TIP]内で戦闘が起きるたびに[b]XP[/b]を獲得します。レベルアップした軍団司令官は[TIP:LOC_PEDIA_CONCEPTS_PROMOTION_TOOLTIP]昇格[/TIP]を獲得し、ボーナスと能力がさらに増えます。あるルートの最後の昇格を獲得した軍団司令官は[TIP:LOC_PEDIA_CONCEPTS_COMMENDATION_TOOLTIP]「賞賛」[/TIP]を手に入れます。レベルアップした軍団司令官は戦争の行方に大きな影響を与えるので、軍団司令官は必ず前線に配置しておきましょう。
+				[B]軍団[/B][TIP:LOC_PEDIA_CONCEPTS_COMMANDER_TOOLTIP]司令官[/TIP]は特殊能力を持つ[TIP:LOC_PEDIA_CONCEPTS_SUPPORT_UNIT_TOOLTIP]支援ユニット[/TIP]で、付近の[TIP:LOC_PEDIA_CONCEPTS_MILITARY_UNIT_TOOLTIP]軍事ユニット[/TIP]にボーナスをもたらします。軍団司令官には、[TIP:LOC_PEDIA_CONCEPTS_CIVILIAN_UNIT_TOOLTIP]民間人ユニット[/TIP]と[b]軍事ユニットを統合[/b]し、素早く移動させる能力もあります。						[nn]軍団司令官は、自分の[b][TIP:LOC_PEDIA_CONCEPTS_COMMAND_RADIUS_TOOLTIP]指揮範囲[/TIP][/b]内で戦闘が起きるたびに[b]XP[/b]を獲得します。レベルアップした軍団司令官は[TIP:LOC_PEDIA_CONCEPTS_PROMOTION_TOOLTIP]昇格[/TIP]を獲得し、ボーナスと能力がさらに増えます。あるルートの最後の昇格を獲得した軍団司令官は[TIP:LOC_PEDIA_CONCEPTS_COMMENDATION_TOOLTIP]「賞賛」[/TIP]を手に入れます。レベルアップした軍団司令官は戦争の行方に大きな影響を与えるので、軍団司令官は必ず前線に配置しておきましょう。
 				[nn]軍団司令官に隣接しているユニットは、[b]「軍団に追加」[/b]（ユニットのアクション）または[b]「軍団を編成」[/b]（司令官のアクション）を使って司令官に統合できます。司令官が同時に統合できるユニットは最大4つです（昇格によってさらに増やすこともできます）。統合されたユニットは軍団司令官と共に移動し、[b]展開[/b]によって戦場に復帰します（同時に復帰させることも、1ユニットずつ復帰させることもできます）。
 				[nn]戦闘で倒された軍団司令官は、数ターン後、自動的に[TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]首都[/TIP]に再出現します。</Text>
     </Replace>
@@ -10740,7 +10890,7 @@
 			</Text>
     </Replace>
     <Replace Tag="LOC_ADVICE_EXPLORATION_MILITARY_PEACE_DEALS_NOTE_DESC" Language="ja_JP">
-      <Text>戦争中に占領した[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]居住地[/TIP]は[TIP:LOC_PEDIA_CONCEPTS_UNREST_TOOLTIP]「不安」[/TIP]状態になりますが、和平交渉で交換条件として得た居住地はそうなりません。</Text>
+      <Text>戦争中に占領した[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]居住地[/TIP]は[TIP:LOC_PEDIA_CONCEPTS_UNREST_TOOLTIP]「不安」[/TIP]状態になりますが、和平協定で交換条件として得た居住地はそうなりません。</Text>
     </Replace>
     <Replace Tag="LOC_ADVICE_EXPLORATION_MILITARY_PEACE_DEALS_NOTE_TITLE" Language="ja_JP">
       <Text>覚えておきましょう...</Text>
@@ -12849,6 +12999,9 @@
     <Replace Tag="LOC_BANNER_FOUNDATION_6_NAME" Language="ja_JP">
       <Text>大勝利</Text>
     </Replace>
+    <Replace Tag="LOC_BANNER_FOUNDATION_7_NAME" Language="ja_JP">
+      <Text>近代</Text>
+    </Replace>
     <Replace Tag="LOC_BANNER_FRIEDRICH_OBLIQUE_NAME" Language="ja_JP">
       <Text>フリードリヒ2世（常勝将軍）のバナー</Text>
     </Replace>
@@ -13121,6 +13274,9 @@
     </Replace>
     <Replace Tag="LOC_BUILDING_PLACEMENT_UNIQUE_QUARTER" Language="ja_JP">
       <Text>固有街区</Text>
+    </Replace>
+    <Replace Tag="LOC_BUILDING_PLACEMENT_UNIQUE_QUARTER_BLOCKER" Language="ja_JP">
+      <Text>よろしいですか？</Text>
     </Replace>
     <Replace Tag="LOC_BUILDING_PLACEMENT_WAREHOUSE_IMPROVEMENTS" Language="ja_JP">
       <Text>倉庫施設:</Text>
@@ -13701,6 +13857,27 @@
     <Replace Tag="LOC_DARK_AGE_REQUNLOCK_DESCRIPTION" Language="ja_JP">
       <Text>この時代にどの勝利も達成しない</Text>
     </Replace>
+    <Replace Tag="LOC_DEAL_ITEM_ALREADY_USED" Language="ja_JP">
+      <Text>このタイプの産出物はすでに取引に含まれています。</Text>
+    </Replace>
+    <Replace Tag="LOC_DEAL_ITEM_GOLD_LARGE_LUMP_DESCRIPTION" Language="ja_JP">
+      <Text>大量の [icon:YIELD_GOLD] ゴールド。</Text>
+    </Replace>
+    <Replace Tag="LOC_DEAL_ITEM_GOLD_SMALL_LUMP_DESCRIPTION" Language="ja_JP">
+      <Text>少量の [icon:YIELD_GOLD] ゴールド。</Text>
+    </Replace>
+    <Replace Tag="LOC_DEAL_ITEM_INFLUENCE_LARGE_LUMP_DESCRIPTION" Language="ja_JP">
+      <Text>莫大な [icon:YIELD_DIPLOMACY] 影響力。</Text>
+    </Replace>
+    <Replace Tag="LOC_DEAL_ITEM_INFLUENCE_SMALL_LUMP_DESCRIPTION" Language="ja_JP">
+      <Text>わずかな [icon:YIELD_DIPLOMACY] 影響力。</Text>
+    </Replace>
+    <Replace Tag="LOC_DEAL_ITEM_INSUFFICIENT_GOLD" Language="ja_JP">
+      <Text>[icon:YIELD_GOLD] ゴールドが不十分です。</Text>
+    </Replace>
+    <Replace Tag="LOC_DEAL_ITEM_INSUFFICIENT_INFLUENCE" Language="ja_JP">
+      <Text>[icon:YIELD_DIPLOMACY] 影響力が不十分です。</Text>
+    </Replace>
     <Replace Tag="LOC_DEDICATIONS_ACTIVE_DEDICATIONS" Language="ja_JP">
       <Text>有効な傾注</Text>
     </Replace>
@@ -13836,6 +14013,12 @@
     <Replace Tag="LOC_DIPLO_MAKE_DEAL_REJECTED_GENERIC" Language="ja_JP">
       <Text>平和のために提案を拒否する！</Text>
     </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_DECREASED_GENERIC" Language="ja_JP">
+      <Text>敬意というものがないのか？</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_INCREASED_GENERIC" Language="ja_JP">
+      <Text>あなたの行動は必ずしも不快ではない。</Text>
+    </Replace>
     <Replace Tag="LOC_DIPLOMACY_ACTION_ALL_TAB_NAME" Language="ja_JP">
       <Text>A</Text>
     </Replace>
@@ -13966,7 +14149,7 @@
       <Text>同じイデオロギーの文明同士は戦争できません。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ACTION_FAILURE_REASON_WAR_FORMAL_NEEDS_HOSTILE" Language="ja_JP">
-      <Text>敵対関係ではないため、正規戦争を開始できません。</Text>
+      <Text>敵対 [icon:RELATIONSHIP] 関係ではないため、正規戦争を開始できません。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ACTION_FAILURE_REASON_WAR_WITHOUT_END" Language="ja_JP">
       <Text>戦争は終わりません。</Text>
@@ -13987,7 +14170,7 @@
       <Text>他の指導者と同盟します。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ACTION_FORM_ALLIANCE_DISABLED" Language="ja_JP">
-      <Text>「関係」がそれほど良好でないため、同盟できません。</Text>
+      <Text> [icon:RELATIONSHIP] 関係がそれほど良好でないため、 [icon:PLAYER_RELATIONSHIP_ALLIANCE] 同盟できません。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ACTION_FORM_ALLIANCE_NAME" Language="ja_JP">
       <Text>同盟を組む</Text>
@@ -14017,7 +14200,7 @@
       <Text>このアクションは行き詰っており、状況の打開にはさらなる支持が必要です。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ACTION_LAND_CLAIM_DESCRIPTION" Language="ja_JP">
-      <Text>この地へ定住する意思を世界に向けて宣言する。成功すれば、支配下の町が配置される。</Text>
+      <Text>この地へ定住する意思を世界に向けて宣言する。成功すれば、支配下の [icon:YIELD_TOWNS] 町が配置される。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ACTION_LAND_CLAIM_NAME" Language="ja_JP">
       <Text>領有宣言</Text>
@@ -14224,115 +14407,223 @@
       <Text>戦争への支持を追加</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_BAROQUE_DESC" Language="ja_JP">
-      <Text>首都に遺産がある指導者を好み、首都に建造物のある指導者を嫌う。</Text>
+      <Text>首都に [icon:WONDER] 遺産がある指導者を好み、首都に [icon:CITY_BUILDING_LIST] 建造物のある指導者を嫌う。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_BAROQUE_DESC_DISLIKES" Language="ja_JP">
+      <Text>フリードリヒ2世は首都に [icon:CITY_BUILDING_LIST] 建造物のある指導者を嫌う。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_BAROQUE_DESC_LIKES" Language="ja_JP">
+      <Text>フリードリヒ2世は首都に [icon:WONDER] 遺産がある指導者を好む。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_BAROQUE_NAME" Language="ja_JP">
       <Text>バロック</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_CIVIC_VIRTUE_DESC" Language="ja_JP">
-      <Text>政府のタイプが同じ指導者とは関係の上昇が、政府のタイプが違う指導者とは関係の低下が2倍になる。</Text>
+      <Text>[icon:GOVERNMENT] 政府のタイプが同じ指導者とは [icon:RELATIONSHIP] 関係の上昇が、 [icon:GOVERNMENT] 政府のタイプが違う指導者とは [icon:RELATIONSHIP] 関係の低下が2倍になる。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_CIVIC_VIRTUE_DESC_DISLIKES" Language="ja_JP">
+      <Text>ベンジャミン・フランクリンは [icon:GOVERNMENT] 政府のタイプが違う指導者との [icon:RELATIONSHIP] 関係の低下が2倍になる。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_CIVIC_VIRTUE_DESC_LIKES" Language="ja_JP">
+      <Text>ベンジャミン・フランクリンは [icon:GOVERNMENT] 政府のタイプが同じ指導者との [icon:RELATIONSHIP] 関係の上昇が2倍になる</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_CIVIC_VIRTUE_NAME" Language="ja_JP">
       <Text>市民の美徳</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_CULTURE_FROM_CONQUEST_DESC" Language="ja_JP">
-      <Text>ターンごとの [icon:YIELD_CULTURE] 文化力産出量が最大の文明を好む。互いに同盟している他の文明を嫌う。</Text>
+      <Text>ターンごとの [icon:YIELD_CULTURE] 文化力産出量が最も多い指導者を好む。互いに [icon:PLAYER_RELATIONSHIP_ALLIANCE] 同盟している他の指導者を嫌う。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_CULTURE_FROM_CONQUEST_DESC_DISLIKES" Language="ja_JP">
+      <Text>ナポレオンは互いに [icon:PLAYER_RELATIONSHIP_ALLIANCE] 同盟している他の指導者を嫌う。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_CULTURE_FROM_CONQUEST_DESC_LIKES" Language="ja_JP">
+      <Text>ナポレオンはターンごとの [icon:YIELD_CULTURE] 文化力産出量が最も多い指導者を好む。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_CULTURE_FROM_CONQUEST_NAME" Language="ja_JP">
       <Text>征服による文化力</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_DESERT_OF_THE_WARRIOR_QUEEN_DESC" Language="ja_JP">
-      <Text>砂漠や平原に居住地がない文明を好み、砂漠や平原に居住地がある指導者を嫌う。</Text>
+      <Text>砂漠や平原に居住地がない指導者を好み、砂漠や平原に居住地がある指導者を嫌う。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_DESERT_OF_THE_WARRIOR_QUEEN_DESC_DISLIKES" Language="ja_JP">
+      <Text>アミナは砂漠や平原に居住地がある指導者を嫌う。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_DESERT_OF_THE_WARRIOR_QUEEN_DESC_LIKES" Language="ja_JP">
+      <Text>アミナは砂漠や平原に居住地がない指導者を好む。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_DESERT_OF_THE_WARRIOR_QUEEN_NAME" Language="ja_JP">
       <Text>戦士女王の砂漠</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_DUSHA_DESC" Language="ja_JP">
-      <Text>傑作の数が少ない文明を好み、最も多い文明を嫌う。</Text>
+      <Text>[icon:NAR_REW_GREATWORK] 傑作の数が最も少ない指導者を好み、 [icon:NAR_REW_GREATWORK] 傑作の数が最も多い指導者を嫌う。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_DUSHA_DESC_DISLIKES" Language="ja_JP">
+      <Text>エカチェリーナ2世は [icon:NAR_REW_GREATWORK] 傑作の数が最も多い指導者を嫌う。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_DUSHA_DESC_LIKES" Language="ja_JP">
+      <Text>エカチェリーナ2世は [icon:NAR_REW_GREATWORK] 傑作の数が最も少ない指導者を好む。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_DUSHA_NAME" Language="ja_JP">
       <Text>ドゥシャ</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_FAR_AND_WIDE_DESC" Language="ja_JP">
-      <Text>明らかにしたタイルが最も多い文明を好み、最も少ない文明を嫌う。</Text>
+      <Text>明らかにしたタイルが最も多い指導者を好み、最も少ない指導者を嫌う。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_FAR_AND_WIDE_DESC_DISLIKES" Language="ja_JP">
+      <Text>イブン・バットゥータは明らかにしたタイルが最も少ない指導者を嫌う。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_FAR_AND_WIDE_DESC_LIKES" Language="ja_JP">
+      <Text>イブン・バットゥータは明らかにしたタイルが最も多い指導者を好む。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_FAR_AND_WIDE_NAME" Language="ja_JP">
       <Text>はるか彼方まで</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_FRENCH_QUARTERS_DESC" Language="ja_JP">
-      <Text>街区が最も多い文明を好み、最も少ない文明を嫌う。</Text>
+      <Text>[icon:CITY_UNIQUE_QUARTER] 街区が最も多い指導者を好み、 [icon:CITY_UNIQUE_QUARTER] 街区が最も少ない指導者を嫌う。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_FRENCH_QUARTERS_DESC_DISLIKES" Language="ja_JP">
+      <Text>ラファイエットは [icon:CITY_UNIQUE_QUARTER] 街区が最も少ない指導者を嫌う。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_FRENCH_QUARTERS_DESC_LIKES" Language="ja_JP">
+      <Text>ラファイエットは [icon:CITY_UNIQUE_QUARTER] 街区が最も多い指導者を好む。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_FRENCH_QUARTERS_NAME" Language="ja_JP">
       <Text>フレンチ・クオーター</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_GUANXI_DESC" Language="ja_JP">
-      <Text>専門家が最も多い文明を好み、最も少ない文明を嫌う。</Text>
+      <Text>[icon:SPECIALIST] 専門家が最も多い指導者を好み、 [icon:SPECIALIST] 専門家が最も少ない指導者を嫌う。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_GUANXI_DESC_DISLIKES" Language="ja_JP">
+      <Text>孔子は [icon:SPECIALIST] 専門家が最も少ない指導者を嫌う。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_GUANXI_DESC_LIKES" Language="ja_JP">
+      <Text>孔子は [icon:SPECIALIST] 専門家が最も多い指導者を好む。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_GUANXI_NAME" Language="ja_JP">
       <Text>縁故</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_KAPWA_DESC" Language="ja_JP">
-      <Text>外交努力を最も多く実行している指導者を好み、制裁を最も多く実行している指導者を嫌う。</Text>
+      <Text>[icon:ENDEAVOR] 外交努力を最も多く実行している指導者を好み、 [icon:SANCTIONS] 制裁を最も多く実行している指導者を嫌う。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_KAPWA_DESC_DISLIKES" Language="ja_JP">
+      <Text>ホセ・リサールは [icon:SANCTIONS] 制裁を最も多く実行している指導者を嫌う。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_KAPWA_DESC_LIKES" Language="ja_JP">
+      <Text>ホセ・リサールは [icon:ENDEAVOR] 外交努力を最も多く実行している指導者を好む。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_KAPWA_NAME" Language="ja_JP">
       <Text>カプワ</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_LORD_OF_COIN_DESC" Language="ja_JP">
-      <Text>交易路の数が自分より少ない文明を好み、自分と同じか多い文明を嫌う。</Text>
+      <Text>[icon:TRADE_ROUTE] 交易路の数が自分より少ない指導者を好み、 [icon:TRADE_ROUTE] 交易路の数が自分と同じか多い指導者を嫌う。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_LORD_OF_COIN_DESC_DISLIKES" Language="ja_JP">
+      <Text>クセルクセス1世は [icon:TRADE_ROUTE] 交易路の数が自分と同じか多い指導者を嫌う。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_LORD_OF_COIN_DESC_LIKES" Language="ja_JP">
+      <Text>クセルクセス1世は [icon:TRADE_ROUTE] 交易路の数が自分より少ない指導者を好む。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_LORD_OF_COIN_NAME" Language="ja_JP">
       <Text>コインの王</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_LORD_OF_FIRE_DESC" Language="ja_JP">
-      <Text>自分以外の指導者と戦争している指導者を好み、自分以外の指導者と戦争していない文明を嫌う。</Text>
+      <Text>自分以外の指導者と [icon:WAR] 戦争している指導者を好み、自分以外の指導者と [icon:WAR] 戦争していない指導者を嫌う。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_LORD_OF_FIRE_DESC_DISLIKES" Language="ja_JP">
+      <Text>クセルクセス1世は自分以外の指導者と [icon:WAR] 戦争していない指導者を嫌う。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_LORD_OF_FIRE_DESC_LIKES" Language="ja_JP">
+      <Text>クセルクセス1世は自分以外の指導者と [icon:WAR] 戦争している指導者を好む。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_LORD_OF_FIRE_NAME" Language="ja_JP">
       <Text>戦火の王</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_MOUNTAIN_KING_DESC" Language="ja_JP">
-      <Text>国境内に山岳のない文明を好み、山岳がある文明を嫌う。</Text>
+      <Text>国境内に山岳のない指導者を好み、山岳がある指導者を嫌う。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_MOUNTAIN_KING_DESC_DISLIKES" Language="ja_JP">
+      <Text>パチャクテクは国境内に山岳がある指導者を嫌う。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_MOUNTAIN_KING_DESC_LIKES" Language="ja_JP">
+      <Text>パチャクテクは国境内に山岳のない指導者を好む。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_MOUNTAIN_KING_NAME" Language="ja_JP">
       <Text>山の王</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_NAPOLEONIC_CODE_DESC" Language="ja_JP">
-      <Text>陸上ユニットが最も少ない文明を好み、海洋ユニットが最も多い文明を嫌う。</Text>
+      <Text>陸上ユニットが最も少ない指導者を好み、海洋ユニットが最も多い指導者を嫌う。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_NAPOLEONIC_CODE_DESC_DISLIKES" Language="ja_JP">
+      <Text>ナポレオンは海洋ユニットが最も多い指導者を嫌う。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_NAPOLEONIC_CODE_DESC_LIKES" Language="ja_JP">
+      <Text>ナポレオンは陸上ユニットが最も少ない指導者を好む。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_NAPOLEONIC_CODE_NAME" Language="ja_JP">
       <Text>ナポレオン法典</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_RESTITUTOR_ORBIS_DESC" Language="ja_JP">
-      <Text>帝国内に都市がある文明を好み、帝国内に町がある文明を嫌う。</Text>
+      <Text>国境内に [icon:YIELD_CITIES] 都市がある指導者を好み、 [icon:YIELD_TOWNS] 町がある指導者を嫌う。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_RESTITUTOR_ORBIS_DESC_DISLIKES" Language="ja_JP">
+      <Text>アウグストゥスは国境内に [icon:YIELD_TOWNS] 町がある指導者を嫌う。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_RESTITUTOR_ORBIS_DESC_LIKES" Language="ja_JP">
+      <Text>アウグストゥスは国境内に [icon:YIELD_CITIES] 都市がある指導者を好む。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_RESTITUTOR_ORBIS_NAME" Language="ja_JP">
       <Text>世界の修復者</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_SHAMAN_QUEEN_DESC" Language="ja_JP">
-      <Text>居住地に [icon:YIELD_CULTURE] 文化力と [icon:YIELD_HAPPINESS] 幸福度関連の建造物が両方ある文明を好む。居住地に [icon:YIELD_SCIENCE] 科学力と [icon:YIELD_GOLD] ゴールド関連の建造物が両方ある文明を嫌う。</Text>
+      <Text>居住地に [icon:YIELD_CULTURE] 文化力と [icon:YIELD_HAPPINESS] 幸福度関連の建造物が両方ある指導者を好み、 [icon:YIELD_SCIENCE] 科学力と [icon:YIELD_GOLD] ゴールド関連の建造物が両方ある指導者を嫌う。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_SHAMAN_QUEEN_DESC_DISLIKES" Language="ja_JP">
+      <Text>卑弥呼は居住地に [icon:YIELD_SCIENCE] 科学力と [icon:YIELD_GOLD] ゴールド関連の建造物が両方ある指導者を嫌う。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_SHAMAN_QUEEN_DESC_LIKES" Language="ja_JP">
+      <Text>卑弥呼は居住地に [icon:YIELD_CULTURE] 文化力と [icon:YIELD_HAPPINESS] 幸福度関連の建造物が両方ある指導者を好む。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_SHAMAN_QUEEN_NAME" Language="ja_JP">
       <Text>天照の巫女</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_STORIED_LANDS_DESC" Language="ja_JP">
-      <Text>完了したストーリーが自分より少ない指導者を好み、自分より多い指導者を嫌う。</Text>
+      <Text>完了した [icon:NAR_REW_DEFAULT] ストーリーが自分より少ない指導者を好み、完了した [icon:NAR_REW_DEFAULT] ストーリーが自分より多い指導者を嫌う。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_STORIED_LANDS_NAME" Language="ja_JP">
       <Text>語られし地</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_SUZERAIN_OF_THE_WORLD_DESC" Language="ja_JP">
-      <Text>独立勢力に干渉しない指導者を好む。独立勢力を粉砕する指導者を嫌う。</Text>
+      <Text>[icon:INDEPENDENT_POWER] 独立勢力に干渉しない指導者を好み、 [icon:INDEPENDENT_POWER] 独立勢力を粉砕する指導者を嫌う。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_SUZERAIN_OF_THE_WORLD_DESC_DISLIKES" Language="ja_JP">
+      <Text>テカムセは [icon:INDEPENDENT_POWER] 独立勢力を粉砕する指導者を嫌う。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_SUZERAIN_OF_THE_WORLD_DESC_LIKES" Language="ja_JP">
+      <Text>テカムセは [icon:INDEPENDENT_POWER] 独立勢力に干渉しない指導者を好む。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_SUZERAIN_OF_THE_WORLD_NAME" Language="ja_JP">
       <Text>世界の盟主</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_THE_GOLDEN_SHEPHERD_DESC" Language="ja_JP">
-      <Text>最も祝宴の多い文明を好む。最も祝宴の少ない文明を嫌う。</Text>
+      <Text>最も [icon:CELEBRATION] 祝宴の多い指導者を好み、最も [icon:CELEBRATION] 祝宴の少ない指導者を嫌う。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_THE_GOLDEN_SHEPHERD_DESC_DISLIKES" Language="ja_JP">
+      <Text>シャルルマーニュは最も [icon:CELEBRATION] 祝宴の少ない指導者を嫌う。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_THE_GOLDEN_SHEPHERD_DESC_LIKES" Language="ja_JP">
+      <Text>シャルルマーニュは最も [icon:CELEBRATION] 祝宴の多い指導者を好む。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_THE_GOLDEN_SHEPHERD_NAME" Language="ja_JP">
       <Text>黄金の羊飼い</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_THE_SPIDER_DESC" Language="ja_JP">
-      <Text>自分以外と戦争状態にある指導者を好む。</Text>
+      <Text>自分以外と [icon:WAR] 戦争状態にある指導者を好む。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_THE_SPIDER_DESC_DISLIKES" Language="ja_JP">
+      <Text>マキャヴェッリは一部の指導者を嫌う理由を隠す。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_THE_SPIDER_DESC_LIKES" Language="ja_JP">
+      <Text>マキャヴェッリは自分以外と [icon:WAR] 戦争状態にある指導者を好む。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_THE_SPIDER_NAME" Language="ja_JP">
       <Text>糸を引く者</Text>
@@ -14341,49 +14632,97 @@
       <Text>アジェンダ</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_TO_ARMS_DESC" Language="ja_JP">
-      <Text>軍事ユニットが最も多い文明を好み、最も少ない文明を嫌う。</Text>
+      <Text>軍事ユニットが最も多い指導者を好み、最も少ない指導者を嫌う。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_TO_ARMS_DESC_DISLIKES" Language="ja_JP">
+      <Text>フリードリヒ2世は軍事ユニットが最も少ない指導者を嫌う。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_TO_ARMS_DESC_LIKES" Language="ja_JP">
+      <Text>フリードリヒ2世は軍事ユニットが最も多い指導者を好む。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_TO_ARMS_NAME" Language="ja_JP">
       <Text>戦闘準備！</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_VAN_MINH_DESC" Language="ja_JP">
-      <Text>司令官の昇格が最も少ない文明を好み、最も多い文明を嫌う。</Text>
+      <Text>[icon:NAR_REW_PROMOTION] 司令官の昇格が最も少ない指導者を好み、 [icon:NAR_REW_PROMOTION] 司令官の昇格が最も多い指導者を嫌う。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_VAN_MINH_DESC_DISLIKES" Language="ja_JP">
+      <Text>徴側は [icon:NAR_REW_PROMOTION] 司令官の昇格が最も多い指導者を嫌う。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_VAN_MINH_DESC_LIKES" Language="ja_JP">
+      <Text>徴側は [icon:NAR_REW_PROMOTION] 司令官の昇格が最も少ない指導者を好む。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_VAN_MINH_NAME" Language="ja_JP">
       <Text>バン・ミン</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_VERACITY_DESC" Language="ja_JP">
-      <Text>正規戦争を仕掛ける指導者を好み、奇襲戦争を仕掛ける指導者を嫌う。</Text>
+      <Text>[icon:WAR] 正規戦争を仕掛ける指導者を好み、 [icon:WAR] 奇襲戦争を仕掛ける指導者を嫌う。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_VERACITY_DESC_DISLIKES" Language="ja_JP">
+      <Text>ハリエット・タブマンは [icon:WAR] 奇襲戦争を仕掛ける指導者を嫌う。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_VERACITY_DESC_LIKES" Language="ja_JP">
+      <Text>ハリエット・タブマンは [icon:WAR] 正規戦争を仕掛ける指導者を好む。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_VERACITY_NAME" Language="ja_JP">
       <Text>正道</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_WITHOUT_REGRET_DESC" Language="ja_JP">
-      <Text>土地が最も少ない文明を好み、土地が最も多い文明を嫌う。</Text>
+      <Text>土地が最も少ない指導者を好み、土地が最も多い指導者を嫌う。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_WITHOUT_REGRET_DESC_DISLIKES" Language="ja_JP">
+      <Text>アショーカは土地が最も多い指導者を嫌う。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_WITHOUT_REGRET_DESC_LIKES" Language="ja_JP">
+      <Text>アショーカは土地が最も少ない指導者を好む。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_WITHOUT_REGRET_NAME" Language="ja_JP">
       <Text>足るを知る</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_WITHOUT_SORROW_DESC" Language="ja_JP">
-      <Text>[icon:YIELD_HAPPINESS] 幸福度が最も高い文明を好み、 [icon:YIELD_HAPPINESS] 幸福度が最も低い文明を嫌う。</Text>
+      <Text>[icon:YIELD_HAPPINESS] 幸福度が最も高い指導者を好み、 [icon:YIELD_HAPPINESS] 幸福度が最も低い指導者を嫌う。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_WITHOUT_SORROW_DESC_DISLIKES" Language="ja_JP">
+      <Text>アショーカは [icon:YIELD_HAPPINESS] 幸福度が最も低い指導者を嫌う。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_WITHOUT_SORROW_DESC_LIKES" Language="ja_JP">
+      <Text>アショーカは [icon:YIELD_HAPPINESS] 幸福度が最も高い指導者を好む。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_WITHOUT_SORROW_NAME" Language="ja_JP">
       <Text>悲しみなき生</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_WONDERLUST_DESC" Language="ja_JP">
-      <Text>国境内に自然遺産のない文明を好み、自然遺産がある文明を嫌う。</Text>
+      <Text>国境内に [icon:NOTIFICATION_DISCOVER_NATURAL_WONDER] 自然遺産がない指導者を好み、 [icon:NOTIFICATION_DISCOVER_NATURAL_WONDER] 自然遺産がある指導者を嫌う。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_WONDERLUST_DESC_DISLIKES" Language="ja_JP">
+      <Text>イサベルは国境内に [icon:NOTIFICATION_DISCOVER_NATURAL_WONDER] 自然遺産がある指導者を嫌う。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_WONDERLUST_DESC_LIKES" Language="ja_JP">
+      <Text>イサベルは国境内に [icon:NOTIFICATION_DISCOVER_NATURAL_WONDER] 自然遺産がない指導者を好む。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_WONDERLUST_NAME" Language="ja_JP">
       <Text>同類意識</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_WONDERS_OF_ITERU_DESC" Language="ja_JP">
-      <Text>遺産が自分より少ない文明を好み、自分より多い文明を嫌う。</Text>
+      <Text>[icon:WONDER] 遺産が自分より少ない指導者を好み、 [icon:WONDER] 遺産が自分より多い指導者を嫌う。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_WONDERS_OF_ITERU_DESC_DISLIKES" Language="ja_JP">
+      <Text>ハトシェプストは [icon:WONDER] 遺産が自分より多い指導者を嫌う。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_WONDERS_OF_ITERU_DESC_LIKES" Language="ja_JP">
+      <Text>ハトシェプストは [icon:WONDER] 遺産が自分より少ない指導者を好む。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_WONDERS_OF_ITERU_NAME" Language="ja_JP">
       <Text>大河の遺産</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_YAMATAI_DESC" Language="ja_JP">
-      <Text>居住地に [icon:YIELD_SCIENCE] 科学力と [icon:YIELD_GOLD] ゴールド関連の建造物が両方ある文明を好む。居住地に [icon:YIELD_CULTURE] 文化力と [icon:YIELD_HAPPINESS] 幸福度関連の建造物が両方ある文明を嫌う。</Text>
+      <Text>居住地に [icon:YIELD_SCIENCE] 科学力と [icon:YIELD_GOLD] ゴールド関連の建造物が両方ある指導者を好む。居住地に [icon:YIELD_CULTURE] 文化力と [icon:YIELD_HAPPINESS] 幸福度関連の建造物が両方ある指導者を嫌う。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_YAMATAI_DESC_DISLIKES" Language="ja_JP">
+      <Text>卑弥呼は居住地に [icon:YIELD_CULTURE] 文化力と [icon:YIELD_HAPPINESS] 幸福度関連の建造物が両方ある指導者を嫌う。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_YAMATAI_DESC_LIKES" Language="ja_JP">
+      <Text>卑弥呼は居住地に [icon:YIELD_SCIENCE] 科学力と [icon:YIELD_GOLD] ゴールド関連の建造物が両方ある指導者を好む。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_YAMATAI_NAME" Language="ja_JP">
       <Text>邪馬台国</Text>
@@ -14406,8 +14745,14 @@
     <Replace Tag="LOC_DIPLOMACY_ATTRIBUTES_BUTTON_NAME" Language="ja_JP">
       <Text>属性</Text>
     </Replace>
+    <Replace Tag="LOC_DIPLOMACY_BACK_TO_DEAL" Language="ja_JP">
+      <Text>和平協定に戻る</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_BACK_TO_MAP" Language="ja_JP">
+      <Text>マップを表示</Text>
+    </Replace>
     <Replace Tag="LOC_DIPLOMACY_CALL_TO_ARMS_STAY_NEUTRAL_BOTH_ALLIES" Language="ja_JP">
-      <Text>双方との同盟が終了し、相手との関係に悪影響が生じます。</Text>
+      <Text>双方との [icon:PLAYER_RELATIONSHIP_ALLIANCE] 同盟が終了し、相手との [icon:RELATIONSHIP] 関係に悪影響が生じます。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_CALL_TO_ARMS_STAY_NEUTRAL_TITLE" Language="ja_JP">
       <Text>中立を維持する</Text>
@@ -14431,7 +14776,7 @@
       <Text>キャンセル</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_DEAL_PEACE_TITLE" Language="ja_JP">
-      <Text>和平の取引</Text>
+      <Text>和平協定</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_DEAL_PROPOSE" Language="ja_JP">
       <Text>提案</Text>
@@ -14450,6 +14795,9 @@
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ENDEAVORS_TOOLTIP_DESCRIPTION" Language="ja_JP">
       <Text>プロジェクトは自分と相手に利益をもたらしますが、他の指導者たちもプロジェクトに貢献することで多少の利益を得られます。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_ENTER_DECLARE_WAR" Language="ja_JP">
+      <Text>このアクションは正規戦争を宣言します。よろしいですか？</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ESPIONAGE_CONVERT_POPULATION_DESCRIPTION" Language="ja_JP">
       <Text>対象居住地を自分が創始した宗教に改宗させる。</Text>
@@ -14476,7 +14824,7 @@
       <Text>アクションに成功した</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ESPIONAGE_FAKE_ARTIFACTS_DESCRIPTION" Language="ja_JP">
-      <Text>対象の文明で展示されているすべての[TIP:LOC_PEDIA_CONCEPTS_ARTIFACT_TOOLTIP]秘宝[/TIP]の産出物を取り除きます。</Text>
+      <Text>対象の文明で展示されているすべての [icon:NAR_REW_GREATWORK] [TIP:LOC_PEDIA_CONCEPTS_ARTIFACT_TOOLTIP]秘宝[/TIP]の産出物を取り除きます。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ESPIONAGE_FAKE_ARTIFACTS_NAME" Language="ja_JP">
       <Text>偽の秘宝の噂を拡散</Text>
@@ -14494,7 +14842,7 @@
       <Text>敵陣潜入</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ESPIONAGE_MILITARY_INFILTRATION_DESCRIPTION" Language="ja_JP">
-      <Text>相手のすべての司令官の視界を得る。</Text>
+      <Text>相手のすべての [icon:UNIT_ARMY_COMMANDER] 司令官の視界を得る。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ESPIONAGE_MILITARY_INFILTRATION_NAME" Language="ja_JP">
       <Text>軍事的潜入</Text>
@@ -14515,13 +14863,13 @@
       <Text>輸送妨害</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ESPIONAGE_SABOTAGE_SPACE_PROGRAM_DESCRIPTION" Language="ja_JP">
-      <Text>発射場の建設と「衛星の打ち上げ」[TIP:LOC_PEDIA_CONCEPTS_PROJECTS_TOOLTIP]プロジェクト[/TIP]の完了に要する時間が延びます。</Text>
+      <Text>発射場の建設と [icon:DEFAULT_PROJECT] 「衛星の打ち上げ」[TIP:LOC_PEDIA_CONCEPTS_PROJECTS_TOOLTIP]プロジェクト[/TIP]の完了に要する時間が延びます。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ESPIONAGE_SABOTAGE_SPACE_PROGRAM_NAME" Language="ja_JP">
       <Text>宇宙開発妨害</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ESPIONAGE_SABOTAGE_WORKERS_DESCRIPTION" Language="ja_JP">
-      <Text>対象居住地の[TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_TOOLTIP]専門家[/TIP]を無効にします。</Text>
+      <Text>対象居住地の [icon:SPECIALIST] [TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_TOOLTIP]専門家[/TIP]を無効にします。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ESPIONAGE_SABOTAGE_WORKERS_NAME" Language="ja_JP">
       <Text>専門家の士気低下</Text>
@@ -14533,7 +14881,7 @@
       <Text>政府機密の奪取</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ESPIONAGE_STEAL_RICHES_DESCRIPTION" Language="ja_JP">
-      <Text>対象の居住地のすべての財宝資源を略奪し、自分の指揮下に財宝輸送隊を出現させる。</Text>
+      <Text>対象の居住地のすべての [icon:TREASURE_FLEET] 財宝資源を略奪し、自分の指揮下に [icon:UNIT_TREASURE_FLEET] 財宝輸送隊を出現させる。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ESPIONAGE_STEAL_RICHES_NAME" Language="ja_JP">
       <Text>富の奪取</Text>
@@ -14545,7 +14893,7 @@
       <Text>最新技術の奪取</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ESTABLISH_TREASURE_FLEET_DESCRIPTION" Language="ja_JP">
-      <Text>遠隔地にある、同盟国の財宝輸送隊を生み出せる居住地で、財宝輸送隊ユニットを生み出す。</Text>
+      <Text>遠隔地にある、同盟国の [icon:UNIT_TREASURE_FLEET] 財宝輸送隊を生み出せる居住地で、 [icon:UNIT_TREASURE_FLEET] 財宝輸送隊ユニットを生み出す。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ESTABLISH_TREASURE_FLEET_NAME" Language="ja_JP">
       <Text>財宝輸送隊の設立</Text>
@@ -14689,13 +15037,13 @@
       <Text>提案</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PEACE_DEAL_RECEIVES" Language="ja_JP">
-      <Text>受領</Text>
+      <Text>が以下を獲得: </Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PEACE_DEAL_RETURNS_TO_YOU" Language="ja_JP">
       <Text>あなたの元に戻る</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PEACE_DEAL_SELECT_SETTLEMENTS" Language="ja_JP">
-      <Text>取引する居住地を選択</Text>
+      <Text>指導者と取引する居住地、ゴールド、影響力を選択</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PEACE_DEAL_SHOW_CITY" Language="ja_JP">
       <Text>都市の表示</Text>
@@ -14713,16 +15061,16 @@
       <Text>和平を提案できるのは自分のターンだけです！</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PICK_ALLIANCE_BODY_2" Language="ja_JP">
-      <Text>相手との友好度が高いほど、奇襲戦争に対するペナルティは重くなる。</Text>
+      <Text>相手との友好度が高いほど、 [icon:WAR] 奇襲戦争に対するペナルティは重くなる。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_ACKNOWLEDGE" Language="ja_JP">
       <Text>確認</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_BECOME_SUZERAIN_DESCRIPTION" Language="ja_JP">
-      <Text>即座にこの独立勢力があなたを[TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主国[/TIP]とする[TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]都市国家[/TIP]になります。</Text>
+      <Text>即座にこの [icon:INDEPENDENT_POWER] 独立勢力があなたを[TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主国[/TIP]とする [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]都市国家[/TIP]になります。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_BECOME_SUZERAIN_INITIAL" Language="ja_JP">
-      <Text>即座にこの独立勢力があなたを[TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主国[/TIP]とする[TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]都市国家[/TIP]になります。</Text>
+      <Text>即座にこの [icon:INDEPENDENT_POWER] 独立勢力があなたを[TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主国[/TIP]とする [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]都市国家[/TIP]になります。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_BECOME_SUZERAIN_NAME" Language="ja_JP">
       <Text>イサラパープ</Text>
@@ -14752,61 +15100,61 @@
       <Text>他の指導者があなたに対して企んでいると思われる秘密のアクションを妨害するため、対 [icon:ESPIONAGE] [TIP:LOC_PEDIA_CONCEPTS_ESPIONAGE_TOOLTIP]スパイ活動[/TIP]アクションを発動します。アクション終了までにかかる時間が2倍になり、失敗の可能性が30%上昇するほか、自国に対するスパイ活動を発見できる可能性が30%上昇します。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_CS_BOLSTER_MILITARY_INITIAL" Language="ja_JP">
-      <Text>この[TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]都市国家[/TIP]のために軍事ユニットを生み出す。</Text>
+      <Text>この [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]都市国家[/TIP]のために軍事ユニットを生み出す。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_CS_BOLSTER_MILITARY_NAME" Language="ja_JP">
       <Text>軍備増強</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_CS_BOLSTER_MILITARY_NO_DATA" Language="ja_JP">
-      <Text>この[TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]都市国家[/TIP]のために軍事ユニットを生み出す。</Text>
+      <Text>この [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]都市国家[/TIP]のために軍事ユニットを生み出す。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_CS_INCORPORATE" Language="ja_JP">
-      <Text>外交アクションが完了すると、この[TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]都市国家[/TIP]が新たな町として自文明に組み込まれる。</Text>
+      <Text>外交アクションが完了すると、この [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]都市国家[/TIP]が新たな [icon:YIELD_TOWNS] 町として自文明に組み込まれる。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_CS_INCORPORATE_INITIAL" Language="ja_JP">
-      <Text>外交アクションが完了すると、この[TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]都市国家[/TIP]が新たな町として自文明に組み込まれる。</Text>
+      <Text>外交アクションが完了すると、この [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]都市国家[/TIP]が新たな [icon:YIELD_TOWNS] 町として自文明に組み込まれる。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_CS_INCORPORATE_NAME" Language="ja_JP">
       <Text>併合</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_CS_INCORPORATE_NO_DATA" Language="ja_JP">
-      <Text>外交アクションが完了すると、この[TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]都市国家[/TIP]が新たな町として自文明に組み込まれる。</Text>
+      <Text>外交アクションが完了すると、この [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]都市国家[/TIP]が新たな [icon:YIELD_TOWNS] 町として自文明に組み込まれる。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_CS_LEVY_UNIT" Language="ja_JP">
-      <Text>この[TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]都市国家[/TIP]のユニット1つを選択して恒久的に支配下に置く。</Text>
+      <Text>この [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]都市国家[/TIP]のユニット1つを選択して、恒久的に支配下に置く。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_CS_LEVY_UNIT_INITIAL" Language="ja_JP">
-      <Text>この[TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]都市国家[/TIP]のユニット1つを恒久的に操作できるようになる。ユニットの [icon:YIELD_DIPLOMACY] 影響力コストは [icon:YIELD_PRODUCTION] 生産力コストに相当する。</Text>
+      <Text>この [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]都市国家[/TIP]のユニット1つを恒久的に操作できるようになる。ユニットの [icon:YIELD_DIPLOMACY] 影響力コストは [icon:YIELD_PRODUCTION] 生産力コストに相当する。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_CS_LEVY_UNIT_NAME" Language="ja_JP">
       <Text>ユニット徴発</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_CS_LEVY_UNIT_NO_DATA" Language="ja_JP">
-      <Text>この[TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]都市国家[/TIP]のユニット1つを選択して恒久的に支配下に置く。</Text>
+      <Text>この [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]都市国家[/TIP]のユニット1つを選択して、恒久的に支配下に置く。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_CS_ORDER_ATTACK_INITIAL" Language="ja_JP">
-      <Text>[TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]都市国家[/TIP]に他文明を攻撃させる。</Text>
+      <Text>[icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]都市国家[/TIP]に他文明を攻撃させる。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_CS_ORDER_ATTACK_NAME" Language="ja_JP">
       <Text>都市国家 - 攻撃命令</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_CS_ORDER_ATTACK_NO_DATA" Language="ja_JP">
-      <Text>[TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]都市国家[/TIP]に他文明を攻撃させる。</Text>
+      <Text>[icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]都市国家[/TIP]に他文明を攻撃させる。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_CS_PROMOTE_GROWTH" Language="ja_JP">
-      <Text>[TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]都市国家[/TIP]の [icon:YIELD_FOOD] 食料生産を助けて成長を促す。外交アクションの実行中は、さらにターンごとの [icon:YIELD_FOOD] 食料+15。</Text>
+      <Text>[icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]都市国家[/TIP]の [icon:YIELD_FOOD] 食料生産を助けて成長を促す。外交アクションの実行中は、さらにターンごとの [icon:YIELD_FOOD] 食料+15。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_CS_PROMOTE_GROWTH_INITIAL" Language="ja_JP">
-      <Text>[TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]都市国家[/TIP]の [icon:YIELD_FOOD] 食料生産を助けて成長を促す。外交アクションの実行中は、さらにターンごとの [icon:YIELD_FOOD] 食料+15。</Text>
+      <Text>[icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]都市国家[/TIP]の [icon:YIELD_FOOD] 食料生産を助けて成長を促す。外交アクションの実行中は、さらにターンごとの [icon:YIELD_FOOD] 食料+15。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_CS_PROMOTE_GROWTH_NAME" Language="ja_JP">
       <Text>成長の促進</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_CS_PROMOTE_GROWTH_NO_DATA" Language="ja_JP">
-      <Text>[TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]都市国家[/TIP]の [icon:YIELD_FOOD] 食料生産を助けて成長を促す。</Text>
+      <Text>[icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]都市国家[/TIP]の [icon:YIELD_FOOD] 食料生産を助けて成長を促す。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_CS_REVEAL_MAP_DESCRIPTION" Language="ja_JP">
-      <Text>[TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]都市国家[/TIP]が探索済みのマップが明らかになる。</Text>
+      <Text>[icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]都市国家[/TIP]が探索済みのマップが明らかになる。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_CS_REVEAL_MAP_NAME" Language="ja_JP">
       <Text>都市国家 - マップの表示</Text>
@@ -14821,7 +15169,7 @@
       <Text>他の文明に宣戦布告する。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_DENOUNCE_INITIAL" Language="ja_JP">
-      <Text>相手指導者との「関係」が悪化する。</Text>
+      <Text>相手指導者との [icon:RELATIONSHIP] 関係が悪化する。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_DENOUNCE_MILITARY_PRESENCE_ACCEPT" Language="ja_JP">
       <Text>この外交アクションの期間中は、相手文明を攻撃しないと約束する。約束を破ると、戦争開始時に戦争による疲労が発生する。</Text>
@@ -14851,7 +15199,7 @@
       <Text>非難声明</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_DENOUNCE_NO_DATA" Language="ja_JP">
-      <Text>相手指導者との「関係」が悪化する。</Text>
+      <Text>相手指導者との [icon:RELATIONSHIP] 関係が悪化する。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_DENOUNCE_REJECT" Language="ja_JP">
       <Text>外交アクションをキャンセルする。</Text>
@@ -14896,10 +15244,10 @@
       <Text>他の指導者と [icon:YIELD_FOOD] 食料を融通し合う協定を結ぶ。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_GIVE_INFLUENCE_TOKEN_INITIAL" Language="ja_JP">
-      <Text>[icon:YIELD_DIPLOMACY] 影響力を消費して独立勢力と友好関係を築く。完了すると、あなたを[TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主国[/TIP]とする[TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]都市国家[/TIP]になる。</Text>
+      <Text>[icon:YIELD_DIPLOMACY] 影響力を消費して [icon:INDEPENDENT_POWER] 独立勢力と友好関係を築く。完了すると、あなたを[TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主国[/TIP]とする [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]都市国家[/TIP]になる。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_GRANT_POLICY_SLOT_INITIAL" Language="ja_JP">
-      <Text>外交努力「改革」を開始する。[n]承諾: 外交アクションが完了すると伝統スロットを1つ得る。相手プレイヤーは外交アクションが完了すると社会政策スロット1つを得る。互いの指導者が「改革」を1回使用できる。[n]支持: 外交アクションが完了すると双方が伝統スロット1つを得る。[n]拒否: 関係が悪化する。</Text>
+      <Text>外交努力「改革」を開始する。[n]承諾: 外交アクションが完了すると [icon:NAR_REW_TRADITION_SLOT] 伝統スロットを1つ得る。相手プレイヤーは外交アクションが完了すると社会政策スロット1つを得る。互いの指導者が「改革」を1回使用できる。[n]支持: 外交アクションが完了すると双方が [icon:NAR_REW_TRADITION_SLOT] 伝統スロット1つを得る。[n]拒否: [icon:RELATIONSHIP] 関係が悪化する。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_GRANT_POLICY_SLOT_NAME" Language="ja_JP">
       <Text>改革</Text>
@@ -14911,7 +15259,7 @@
       <Text>外交アクションが完了すると双方が伝統スロット1つを得る。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_IMPROVE_TRADE_RELATIONS_INITIAL" Language="ja_JP">
-      <Text>アクションが承諾されると、他文明との間に築ける交易路が恒久的に+1。[n]承諾: 対象は [icon:YIELD_GOLD] ゴールドを得る。</Text>
+      <Text>アクションが承諾されると、他文明との間に築ける [icon:TRADE_ROUTE] 交易路が恒久的に+1。[n]承諾: 対象は [icon:YIELD_GOLD] ゴールドを得る。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_IMPROVE_TRADE_RELATIONS_NAME" Language="ja_JP">
       <Text>交易関係の改善</Text>
@@ -14920,13 +15268,13 @@
       <Text>アクションが承諾されると、文明間で築ける [icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]交易路[/TIP]の数が恒久的に増える。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_INCITE_RAID_INITIAL" Language="ja_JP">
-      <Text>独立勢力を扇動して他の文明を襲撃させる。</Text>
+      <Text>[icon:INDEPENDENT_POWER] 独立勢力を扇動し、他の文明を襲撃させる。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_INCITE_RAID_NAME" Language="ja_JP">
       <Text>独立勢力 - 襲撃の扇動</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_INCITE_RAID_NO_DATA" Language="ja_JP">
-      <Text>独立勢力を扇動し、他の文明を襲撃させる。</Text>
+      <Text>[icon:INDEPENDENT_POWER] 独立勢力を扇動し、他の文明を襲撃させる。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_LOCAL_FESTIVALS_NAME" Language="ja_JP">
       <Text>地元の祭典</Text>
@@ -14935,16 +15283,16 @@
       <Text>他の指導者と地元の祭典を開催する。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_MILITARY_AID_DESCRIPTION" Language="ja_JP">
-      <Text>軍事ユニットが戦闘力ボーナスを得る。[n]承諾: 自軍のユニットの戦闘力+2。相手の指導者のターンごとの [icon:YIELD_GOLD] ゴールド+2。[n]支持: 双方のユニットの戦闘力+3。[n]拒否: 関係が悪化する。</Text>
+      <Text>軍事ユニットが戦闘力ボーナスを得る。[n]承諾: 自軍のユニットの [icon:NAR_REW_COMBAT] 戦闘力+2。相手の指導者のターンごとの [icon:YIELD_GOLD] ゴールド+2。[n]支持: 双方のユニットの [icon:NAR_REW_COMBAT] 戦闘力+3。[n]拒否: [icon:RELATIONSHIP] 関係が悪化する。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_MILITARY_AID_NAME" Language="ja_JP">
       <Text>軍事支援</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_MILITARY_AID_SUPPORT" Language="ja_JP">
-      <Text>双方の指導者のユニットの戦闘力+3。</Text>
+      <Text>双方の指導者のユニットの [icon:NAR_REW_COMBAT] 戦闘力+3。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_MILITARY_SABOTAGE_INITIAL" Language="ja_JP">
-      <Text>ターゲットの軍事ユニットの戦闘力-3。</Text>
+      <Text>ターゲットの軍事ユニットの [icon:NAR_REW_COMBAT] 戦闘力-3。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_MINOR_TRADE_NAME" Language="ja_JP">
       <Text>市場開放</Text>
@@ -15094,13 +15442,13 @@
       <Text>外交アクションをキャンセルする。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_SEND_DELEGATION_INITIAL" Language="ja_JP">
-      <Text>相手指導者との「関係」を向上させる。</Text>
+      <Text>相手指導者との [icon:RELATIONSHIP] 関係を向上させる。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_SEND_DELEGATION_NAME" Language="ja_JP">
       <Text>関係深化</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_SEND_DELEGATION_NO_DATA" Language="ja_JP">
-      <Text>相手指導者との「関係」を向上させる。</Text>
+      <Text>相手指導者との [icon:RELATIONSHIP] 関係を向上させる。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_SEND_DELEGATION_REJECT" Language="ja_JP">
       <Text>外交アクションをキャンセルする。</Text>
@@ -15112,10 +15460,10 @@
       <Text>同盟国に [icon:YIELD_GOLD] ゴールドを送る。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_STEAL_CIVIC_INITIAL" Language="ja_JP">
-      <Text>他の文明が研究済みで、自分が持っていない社会制度を盗む。</Text>
+      <Text>他の文明が研究済みで、自分が持っていない [icon:RADIAL_CIVICS] 社会制度を盗む。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_STEAL_TECH_INITIAL" Language="ja_JP">
-      <Text>他の文明が研究済みで、自分が持っていない技術を盗む。</Text>
+      <Text>他の文明が研究済みで、自分が持っていない [icon:RADIAL_TECH] 技術を盗む。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_TRADE_MAP_DESCRIPTION" Language="ja_JP">
       <Text>他の指導者の領土が少しずつ明らかになる。</Text>
@@ -15199,13 +15547,13 @@
       <Text>他の指導者がこの独立勢力の[TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主国[/TIP]になろうとしています。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_STAGE_INDEPENDENT_CITY_STATEHOOD_TOOLTIP" Language="ja_JP">
-      <Text>この独立勢力はもうすぐ[TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]都市国家[/TIP]になります。[TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主国[/TIP]はあなたです。さらに一つ贈り物をもらいました。</Text>
+      <Text>この [icon:INDEPENDENT_POWER] 独立勢力はもうすぐ [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]都市国家[/TIP]になります。[TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主国[/TIP]はあなたです。さらに一つ贈り物をもらいました。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_STAGE_INDEPENDENT_FRIENDLY_2_TOOLTIP" Language="ja_JP">
-      <Text>独立勢力と友好的になり、贈り物をもらえるようになりました。</Text>
+      <Text>[icon:INDEPENDENT_POWER] 独立勢力と友好的になり、贈り物をもらえるようになりました。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_STAGE_INDEPENDENT_FRIENDLY_TOOLTIP" Language="ja_JP">
-      <Text>友好的な独立勢力です。</Text>
+      <Text>友好的な [icon:INDEPENDENT_POWER] 独立勢力です。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_STAGE_INDEPENDENT_HOSTILE_TOOLTIP" Language="ja_JP">
       <Text>敵対的な独立勢力です。</Text>
@@ -15247,10 +15595,10 @@
       <Text>奇襲戦争</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_SUZERAIN_TEAM" Language="ja_JP">
-      <Text>チームメイトがこの[TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]都市国家[/TIP]の[TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主国[/TIP]です</Text>
+      <Text>チームメイトがこの [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]都市国家[/TIP]の[TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主国[/TIP]です</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_SUZERAIN_YOU" Language="ja_JP">
-      <Text>この[TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]都市国家[/TIP]の[TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主国[/TIP]です</Text>
+      <Text>この [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]都市国家[/TIP]の[TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主国[/TIP]です</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_THEIR_ACTIONS_HEADER" Language="ja_JP">
       <Text>相手のアクション</Text>
@@ -15292,10 +15640,10 @@
       <Text>戦争</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMATIC_ESPIONAGE_MILITARY_INFILTRATION_EFFECT" Language="ja_JP">
-      <Text>相手の司令官の視野を得ました。</Text>
+      <Text>相手の [icon:UNIT_ARMY_COMMANDER] 司令官の視野を得ました。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMATIC_ESPIONAGE_MILITARY_INFILTRATION_EFFECT_TARGET" Language="ja_JP">
-      <Text>相手があなたの司令官の視野を得ました。</Text>
+      <Text>相手があなたの [icon:UNIT_ARMY_COMMANDER] 司令官の視野を得ました。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMATIC_NAME" Language="ja_JP">
       <Text>外交</Text>
@@ -15436,34 +15784,58 @@
       <Text>メインメニューに戻る</Text>
     </Replace>
     <Replace Tag="LOC_FAVOR_FROM_DISPERSE_IP" Language="ja_JP">
-      <Text>他の指導者の近くの敵対的な独立勢力を粉砕した</Text>
+      <Text>あなたが相手の近くの敵対的な独立勢力を粉砕</Text>
+    </Replace>
+    <Replace Tag="LOC_FAVOR_FROM_DISPERSE_IP_ALT" Language="ja_JP">
+      <Text>相手があなたの近くの敵対的な独立勢力が粉砕</Text>
     </Replace>
     <Replace Tag="LOC_FAVOR_FROM_ENDEAVOR" Language="ja_JP">
-      <Text>他の指導者との外交努力</Text>
+      <Text>相手に対して開始した外交努力により</Text>
+    </Replace>
+    <Replace Tag="LOC_FAVOR_FROM_ENDEAVOR_ALT" Language="ja_JP">
+      <Text>あなたに対して開始された外交努力により</Text>
     </Replace>
     <Replace Tag="LOC_FAVOR_FROM_INDEPENDENT" Language="ja_JP">
       <Text>独立勢力により</Text>
     </Replace>
     <Replace Tag="LOC_FAVOR_FROM_PROJECT" Language="ja_JP">
-      <Text>外交アクションにより</Text>
+      <Text>相手に対して開始した外交アクションにより</Text>
+    </Replace>
+    <Replace Tag="LOC_FAVOR_FROM_PROJECT_ALT" Language="ja_JP">
+      <Text>あなたに対して開始された外交アクションにより</Text>
     </Replace>
     <Replace Tag="LOC_FAVOR_FROM_START_TRADE_ROUTE" Language="ja_JP">
-      <Text>交易路を築いた</Text>
+      <Text>あなたが交易路を開設</Text>
+    </Replace>
+    <Replace Tag="LOC_FAVOR_FROM_START_TRADE_ROUTE_ALT" Language="ja_JP">
+      <Text>相手が交易路を開設</Text>
     </Replace>
     <Replace Tag="LOC_FAVOR_FROM_STORYLET" Language="ja_JP">
       <Text>ストーリーイベントにより</Text>
     </Replace>
     <Replace Tag="LOC_FAVOR_FROM_SUPPORT" Language="ja_JP">
-      <Text>他の指導者の外交努力を支持した</Text>
+      <Text>あなたが相手の外交努力を支持</Text>
+    </Replace>
+    <Replace Tag="LOC_FAVOR_FROM_SUPPORT_ALT" Language="ja_JP">
+      <Text>相手があなたの外交努力を支持</Text>
     </Replace>
     <Replace Tag="LOC_FAVOR_FROM_TOWN_LIBERATED" Language="ja_JP">
-      <Text>町を解放した</Text>
+      <Text>あなたが相手の町を解放</Text>
+    </Replace>
+    <Replace Tag="LOC_FAVOR_FROM_TOWN_LIBERATED_ALT" Language="ja_JP">
+      <Text>相手があなたの町が解放</Text>
     </Replace>
     <Replace Tag="LOC_FAVOR_FROM_WAR_SUPPORT_3RD_PARTY" Language="ja_JP">
-      <Text>戦争の支持により</Text>
+      <Text>あなたが相手の戦争を支持</Text>
+    </Replace>
+    <Replace Tag="LOC_FAVOR_FROM_WAR_SUPPORT_3RD_PARTY_ALT" Language="ja_JP">
+      <Text>相手があなたの戦争を支持</Text>
     </Replace>
     <Replace Tag="LOC_FAVOR_FROM_WONDER" Language="ja_JP">
-      <Text>遺産により</Text>
+      <Text>あなたが保有している遺産により</Text>
+    </Replace>
+    <Replace Tag="LOC_FAVOR_FROM_WONDER_ALT" Language="ja_JP">
+      <Text>相手が保有している遺産により</Text>
     </Replace>
     <Replace Tag="LOC_FEATURE_BARRIER_REEF_DESCRIPTION" Language="ja_JP">
       <Text>時代ごとの [icon:YIELD_FOOD] 食料、 [icon:YIELD_HAPPINESS] 幸福度、 [icon:YIELD_SCIENCE] 科学力+2。隣接する「海洋」バイオームの [icon:CITY_RURAL] 施設、 [icon:CITY_URBAN] 区域、 [icon:WONDER] 遺産の [icon:YIELD_SCIENCE] 科学力+2。</Text>
@@ -15574,7 +15946,7 @@
       <Text>この居住地にある荒地地形の [icon:CITY_RURAL] 施設の [icon:YIELD_CULTURE] 文化力+2。</Text>
     </Replace>
     <Replace Tag="LOC_FIRST_MEET_FRIENDLY_ERROR_CAPITALS_REVEALED" Language="ja_JP">
-      <Text>どちらの首都が明らかにされるかに関して問題がある。</Text>
+      <Text>どちらの [icon:NOTIFICATION_SELECT_CAPITAL] 首都が明らかにされるかに関して問題がある。</Text>
     </Replace>
     <Replace Tag="LOC_FIRST_MEET_FRIENDLY_GREETING_TITLE" Language="ja_JP">
       <Text>友好的な挨拶</Text>
@@ -15589,7 +15961,7 @@
       <Text>敵対的な挨拶</Text>
     </Replace>
     <Replace Tag="LOC_FIRST_MEET_NEUTRAL_GREETING_DESCRIPTION" Language="ja_JP">
-      <Text>関係は変化しません。</Text>
+      <Text>[icon:RELATIONSHIP] 関係は変化しません。</Text>
     </Replace>
     <Replace Tag="LOC_FIRST_MEET_NEUTRAL_GREETING_TITLE" Language="ja_JP">
       <Text>中立的な挨拶</Text>
@@ -15645,8 +16017,14 @@
     <Replace Tag="LOC_GAME_TURN_TIMER_TIME" Language="ja_JP">
       <Text>ターン時間</Text>
     </Replace>
+    <Replace Tag="LOC_GAME_TURN_TIMER_TIME_EXTENDED" Language="ja_JP">
+      <Text>ターン時間延長</Text>
+    </Replace>
+    <Replace Tag="LOC_GAME_TURN_TIMER_TIME_EXTENDED_TOOLTIP" Language="ja_JP">
+      <Text>長いターン（詳細スタート、時代最後のターン、時代の移行後最初のターン）で用いるターン時間（秒）。</Text>
+    </Replace>
     <Replace Tag="LOC_GAME_TURN_TIMER_TIME_TOOLTIP" Language="ja_JP">
-      <Text>標準のターンタイマーモードで用いるターン時間（秒）。</Text>
+      <Text>普通のターンで用いるターン時間（秒）。</Text>
     </Replace>
     <Replace Tag="LOC_GAME_TURNTIMER_DESC" Language="ja_JP">
       <Text>プレイヤーが自分のターンにかけられる時間を設定[n]なし - 時間制限はなく、好きなだけ時間をかけられます。[n]標準 - 「ターン時間」オプションで設定した時間になります（単位は秒）。[n]変動 - 都市やユニットの数に応じてターン時間が変動します。</Text>
@@ -15784,7 +16162,7 @@
       <Text>最寄りの居住地に無償の斥候</Text>
     </Replace>
     <Replace Tag="LOC_GOVERNMENT_HAPPINESS_REMINDER_TEXT" Language="ja_JP">
-      <Text>幸福度がプラスの居住地が帝国全体で集められ、祝宴を盛り上げる。幸福度がマイナスになるのは居住地上限を超えた場合、戦争への支持がマイナスの場合、建造物や専門家の維持費などだ。</Text>
+      <Text>[icon:YIELD_HAPPINESS] 幸福度がプラスの居住地が国全体で合算され、 [icon:CELEBRATION] 祝宴への機運を高める。 [icon:YIELD_HAPPINESS] 幸福度がマイナスになる原因は、 [icon:SETTLEMENT_LIMIT] 居住地上限の超過、[icon:WAR_SUPPORT] 戦争への支持がマイナス、 [icon:CITY_BUILDING_LIST] 建造物や [icon:SPECIALIST] 専門家の維持費など。</Text>
     </Replace>
     <Replace Tag="LOC_GREAT_PEOPLE_CANNOT_EARN_PERSON_NO_VALID_LOCATION" Language="ja_JP">
       <Text>このユニットに有効な場所はありません。</Text>
@@ -15853,73 +16231,136 @@
       <Text>科学力100を得る。</Text>
     </Replace>
     <Replace Tag="LOC_GRIEVANCE_FROM_ATTACK_CITY_STATE" Language="ja_JP">
-      <Text>都市国家を攻撃</Text>
+      <Text>あなたが都市国家を攻撃</Text>
+    </Replace>
+    <Replace Tag="LOC_GRIEVANCE_FROM_ATTACK_CITY_STATE_ALT" Language="ja_JP">
+      <Text>相手が都市国家を攻撃</Text>
     </Replace>
     <Replace Tag="LOC_GRIEVANCE_FROM_BREAK_ALLIANCE" Language="ja_JP">
-      <Text>宣戦布告により同盟を破棄</Text>
+      <Text>あなたが宣戦布告により同盟を破棄</Text>
+    </Replace>
+    <Replace Tag="LOC_GRIEVANCE_FROM_BREAK_ALLIANCE_ALT" Language="ja_JP">
+      <Text>相手が宣戦布告により同盟を破棄</Text>
     </Replace>
     <Replace Tag="LOC_GRIEVANCE_FROM_CAPTURE_SETTLEMENT" Language="ja_JP">
-      <Text>居住地を占領</Text>
+      <Text>あなたが相手の居住地を占領</Text>
+    </Replace>
+    <Replace Tag="LOC_GRIEVANCE_FROM_CAPTURE_SETTLEMENT_ALT" Language="ja_JP">
+      <Text>相手があなたの居住地を占領</Text>
     </Replace>
     <Replace Tag="LOC_GRIEVANCE_FROM_CLOSE_LAND_CLAIM" Language="ja_JP">
-      <Text>他文明の首都に近い場所に居住地を建築</Text>
+      <Text>あなたが相手の [icon:NOTIFICATION_SELECT_CAPITAL] 首都に近い場所に居住地を建設</Text>
+    </Replace>
+    <Replace Tag="LOC_GRIEVANCE_FROM_CLOSE_LAND_CLAIM_ALT" Language="ja_JP">
+      <Text>相手があなたの [icon:NOTIFICATION_SELECT_CAPITAL] 首都に近い場所に居住地を建設</Text>
     </Replace>
     <Replace Tag="LOC_GRIEVANCE_FROM_CLOSE_MILITARY" Language="ja_JP">
-      <Text>他文明の近くに軍を駐留</Text>
+      <Text>あなたが相手の文明の近くに軍を駐留</Text>
+    </Replace>
+    <Replace Tag="LOC_GRIEVANCE_FROM_CLOSE_MILITARY_ALT" Language="ja_JP">
+      <Text>相手があなたの文明の近くに軍を駐留</Text>
     </Replace>
     <Replace Tag="LOC_GRIEVANCE_FROM_DISPERSING_IP" Language="ja_JP">
-      <Text>友好的だった独立勢力を粉砕</Text>
+      <Text>あなたが相手に友好的だった独立勢力を粉砕</Text>
+    </Replace>
+    <Replace Tag="LOC_GRIEVANCE_FROM_DISPERSING_IP_ALT" Language="ja_JP">
+      <Text>相手があなたに友好的だった独立勢力を粉砕</Text>
     </Replace>
     <Replace Tag="LOC_GRIEVANCE_FROM_END_ALLIANCE" Language="ja_JP">
-      <Text>同盟を終了</Text>
+      <Text>あなたが相手との同盟を終了</Text>
+    </Replace>
+    <Replace Tag="LOC_GRIEVANCE_FROM_END_ALLIANCE_ALT" Language="ja_JP">
+      <Text>相手があなたとの同盟を終了</Text>
     </Replace>
     <Replace Tag="LOC_GRIEVANCE_FROM_ESPIONAGE_DISCOVERY" Language="ja_JP">
       <Text>スパイ活動の発見</Text>
     </Replace>
     <Replace Tag="LOC_GRIEVANCE_FROM_OPPOSE" Language="ja_JP">
-      <Text>外交アクションに反対</Text>
+      <Text>あなたが相手の外交アクションを拒否</Text>
+    </Replace>
+    <Replace Tag="LOC_GRIEVANCE_FROM_OPPOSE_ALT" Language="ja_JP">
+      <Text>相手があなたの外交アクションを拒否</Text>
     </Replace>
     <Replace Tag="LOC_GRIEVANCE_FROM_PRIVATER_ATTACK" Language="ja_JP">
-      <Text>私掠船または海賊の攻撃により</Text>
+      <Text>あなたによる私掠船や海賊の攻撃により</Text>
+    </Replace>
+    <Replace Tag="LOC_GRIEVANCE_FROM_PRIVATER_ATTACK_ALT" Language="ja_JP">
+      <Text>相手による私掠船や海賊の攻撃により</Text>
     </Replace>
     <Replace Tag="LOC_GRIEVANCE_FROM_PRIVATER_PILLAGE" Language="ja_JP">
-      <Text>私掠船または海賊の略奪により</Text>
+      <Text>相手による私掠船や海賊の略奪により</Text>
+    </Replace>
+    <Replace Tag="LOC_GRIEVANCE_FROM_PRIVATER_PILLAGE_ALT" Language="ja_JP">
+      <Text>相手による私掠船や海賊の略奪により</Text>
     </Replace>
     <Replace Tag="LOC_GRIEVANCE_FROM_PROJECT" Language="ja_JP">
-      <Text>外交アクション</Text>
+      <Text>あなたが相手に対して開始した外交アクションにより</Text>
+    </Replace>
+    <Replace Tag="LOC_GRIEVANCE_FROM_PROJECT_ALT" Language="ja_JP">
+      <Text>相手があなたに対して開始した外交アクションにより</Text>
     </Replace>
     <Replace Tag="LOC_GRIEVANCE_FROM_RAZING_SETTLEMENT" Language="ja_JP">
-      <Text>居住地を完全に破壊</Text>
+      <Text>あなたが相手の居住地を完全に破壊</Text>
+    </Replace>
+    <Replace Tag="LOC_GRIEVANCE_FROM_RAZING_SETTLEMENT_ALT" Language="ja_JP">
+      <Text>相手があなたの居住地を完全に破壊</Text>
     </Replace>
     <Replace Tag="LOC_GRIEVANCE_FROM_REJECTED_ALLIANCE" Language="ja_JP">
-      <Text>同盟を拒否</Text>
+      <Text>相手があなたの同盟提案を拒否</Text>
+    </Replace>
+    <Replace Tag="LOC_GRIEVANCE_FROM_REJECTED_ALLIANCE_ALT" Language="ja_JP">
+      <Text>相手があなたの同盟提案を拒否</Text>
     </Replace>
     <Replace Tag="LOC_GRIEVANCE_FROM_REJECTED_ENDEAVOR" Language="ja_JP">
-      <Text>外交努力を拒否</Text>
+      <Text>あなたが相手の外交努力を拒否</Text>
+    </Replace>
+    <Replace Tag="LOC_GRIEVANCE_FROM_REJECTED_ENDEAVOR_ALT" Language="ja_JP">
+      <Text>相手があなたの外交努力を拒否</Text>
     </Replace>
     <Replace Tag="LOC_GRIEVANCE_FROM_REVEALED_ESPIONAGE" Language="ja_JP">
-      <Text>スパイ活動が発覚</Text>
+      <Text>相手のあなたに対するスパイ活動が発覚</Text>
+    </Replace>
+    <Replace Tag="LOC_GRIEVANCE_FROM_REVEALED_ESPIONAGE_ALT" Language="ja_JP">
+      <Text>あなたの相手に対するスパイ活動が発覚</Text>
     </Replace>
     <Replace Tag="LOC_GRIEVANCE_FROM_REVEALED_TS_ESPIONAGE" Language="ja_JP">
-      <Text>極秘スパイ活動の発覚</Text>
+      <Text>相手のあなたに対する極秘スパイ活動が発覚</Text>
+    </Replace>
+    <Replace Tag="LOC_GRIEVANCE_FROM_REVEALED_TS_ESPIONAGE_ALT" Language="ja_JP">
+      <Text>あなたの相手に対する極秘スパイ活動が発覚</Text>
     </Replace>
     <Replace Tag="LOC_GRIEVANCE_FROM_SANCTION" Language="ja_JP">
-      <Text>別の文明に制裁を加えた</Text>
+      <Text>あなたが相手を制裁</Text>
+    </Replace>
+    <Replace Tag="LOC_GRIEVANCE_FROM_SANCTION_ALT" Language="ja_JP">
+      <Text>相手があなたを制裁</Text>
     </Replace>
     <Replace Tag="LOC_GRIEVANCE_FROM_STORYLET" Language="ja_JP">
       <Text>ストーリーイベント</Text>
     </Replace>
     <Replace Tag="LOC_GRIEVANCE_FROM_UNEVEN_PEACE_DEAL" Language="ja_JP">
-      <Text>不平等な和平協定</Text>
+      <Text>あなたからの不平等な和平協定</Text>
+    </Replace>
+    <Replace Tag="LOC_GRIEVANCE_FROM_UNEVEN_PEACE_DEAL_ALT" Language="ja_JP">
+      <Text>相手からの不平等な和平協定</Text>
     </Replace>
     <Replace Tag="LOC_GRIEVANCE_FROM_WAR_OPPOSITION_3RD_PARTY" Language="ja_JP">
-      <Text>戦争に反対</Text>
+      <Text>あなたが相手の戦争に反対していることにより</Text>
+    </Replace>
+    <Replace Tag="LOC_GRIEVANCE_FROM_WAR_OPPOSITION_3RD_PARTY_ALT" Language="ja_JP">
+      <Text>相手があなたの戦争に反対していることにより</Text>
     </Replace>
     <Replace Tag="LOC_GRIEVANCE_FROM_WINNING_SUZERAIN" Language="ja_JP">
-      <Text>競争に勝って都市国家の宗主国になった</Text>
+      <Text>あなたが都市国家の宗主権獲得競争に勝利</Text>
+    </Replace>
+    <Replace Tag="LOC_GRIEVANCE_FROM_WINNING_SUZERAIN_ALT" Language="ja_JP">
+      <Text>相手が都市国家の宗主権獲得競争に勝利</Text>
     </Replace>
     <Replace Tag="LOC_GRIEVANCE_FROM_WONDER" Language="ja_JP">
-      <Text>遺産により</Text>
+      <Text>あなたが保有している遺産により</Text>
+    </Replace>
+    <Replace Tag="LOC_GRIEVANCE_FROM_WONDER_ALT" Language="ja_JP">
+      <Text>相手が保有している遺産により</Text>
     </Replace>
     <Replace Tag="LOC_GROUPID_TRIUMPH_SETTINGS_NAME" Language="ja_JP">
       <Text>成功の設定</Text>
@@ -15958,7 +16399,10 @@
       <Text>Fire Tuner</Text>
     </Replace>
     <Replace Tag="LOC_HISTORICAL_EVENT_LEADER_AGENDA" Language="ja_JP">
-      <Text>指導者のアジェンダ</Text>
+      <Text>自文明の指導者のアジェンダにより</Text>
+    </Replace>
+    <Replace Tag="LOC_HISTORICAL_EVENT_LEADER_AGENDA_ALT" Language="ja_JP">
+      <Text>他文明の指導者のアジェンダにより</Text>
     </Replace>
     <Replace Tag="LOC_HISTORICAL_EVENT_MUTUAL_TRADE" Language="ja_JP">
       <Text>相互交易</Text>
@@ -16015,7 +16459,7 @@
       <Text>総合</Text>
     </Replace>
     <Replace Tag="LOC_HOF_DEFEAT" Language="ja_JP">
-      <Text>[COLOR_RED]敗北[ENDCOLOR]</Text>
+      <Text>敗北</Text>
     </Replace>
     <Replace Tag="LOC_HOF_DELETE_GAME" Language="ja_JP">
       <Text>ゲームの削除</Text>
@@ -16612,7 +17056,7 @@
       <Text>[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]都市[/TIP]の[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_RESOURCE_CAPACITY_TOOLTIP]資源最大数[/TIP]+1。[icon:YIELD_CITIES][TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]都市[/TIP]に割り当てられている[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]資源[/TIP]1つにつき[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]時代[/TIP]ごとの[icon:YIELD_GOLD]ゴールド+1。すべての[TIP:LOC_PEDIA_CONCEPTS_LAND_UNITS_TOOLTIP]陸上ユニット[/TIP]は平原と砂漠で[icon:NAR_REW_COMBAT][TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]戦闘力[/TIP]+5。</Text>
     </Replace>
     <Replace Tag="LOC_LEADER_ASHOKA_DESCRIPTION" Language="ja_JP">
-      <Text>[icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]都市[/TIP]の余剰 [icon:YIELD_HAPPINESS] 幸福度5ごとに [icon:YIELD_FOOD] 食料+1。 [icon:CELEBRATION] [TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]祝宴[/TIP]の間はすべての[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]居住地[/TIP]の [icon:YIELD_FOOD] 食料+10%。 [icon:CITY_BUILDING_LIST] 固有[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建造物[/TIP]がすべての [icon:CITY_RURAL] 施設から [icon:YIELD_HAPPINESS] 幸福度+1の隣接ボーナスを得る。</Text>
+      <Text>[icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]都市[/TIP]の余剰 [icon:YIELD_HAPPINESS] 幸福度5ごとに [icon:YIELD_FOOD] 食料+1。 [icon:CELEBRATION] [TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]祝宴[/TIP]の間は「幸福」状態の[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]居住地[/TIP]の [icon:YIELD_FOOD] 食料+10%、「歓喜」状態で+15%、「至福」状態で+20%。 [icon:CITY_BUILDING_LIST] 固有、 [icon:YIELD_HAPPINESS] 幸福度関連、 [icon:YIELD_FOOD] 食料関連の[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建造物[/TIP]がすべての [icon:CITY_RURAL] 施設から [icon:YIELD_HAPPINESS] 幸福度+1の隣接ボーナスを得る。</Text>
     </Replace>
     <Replace Tag="LOC_LEADER_ASSOCIATED_CIV_SELECTION_MODE_DESCRIPTION" Language="ja_JP">
       <Text>時代の移行時にAIが文明を選択する方法を設定します。</Text>
@@ -16624,7 +17068,7 @@
       <Text>関連性を無視して、ランダムな文明が選択されます。[nn]これはランダムな文明を選択するAIのプレイヤーにも人間のプレイヤーにも適用されます。</Text>
     </Replace>
     <Replace Tag="LOC_LEADER_AUGUSTUS_DESCRIPTION" Language="ja_JP">
-      <Text>[icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]町[/TIP]1つにつき [icon:NOTIFICATION_SELECT_CAPITAL] 首都の [icon:YIELD_PRODUCTION] 生産力+2。専業がある [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]町[/TIP]で [icon:YIELD_CULTURE] 文化力関連の[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建造物[/TIP]を購入できる。 [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]町[/TIP]での [icon:CITY_BUILDING_LIST] [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建造物[/TIP]の購入に使われる [icon:YIELD_GOLD] ゴールドが発揮する効果+50%。</Text>
+      <Text>[icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]町[/TIP]1つにつき [icon:NOTIFICATION_SELECT_CAPITAL] 首都の [icon:YIELD_PRODUCTION] 生産力+2。専業がある [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]町[/TIP]で [icon:YIELD_CULTURE] 文化力関連の[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建造物[/TIP]を購入できる。 [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]町[/TIP]での [icon:CITY_BUILDING_LIST] [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建造物[/TIP]の購入に使われる [icon:YIELD_GOLD] ゴールドが発揮する効果+15%。その[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建造物[/TIP]が [icon:NOTIFICATION_SELECT_CAPITAL] 首都にある場合は効果が2倍になる。</Text>
     </Replace>
     <Replace Tag="LOC_LEADER_BENJAMIN_FRANKLIN_DESCRIPTION" Language="ja_JP">
       <Text>[icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]都市[/TIP]の [icon:YIELD_PRODUCTION] 生産関連と [icon:YIELD_SCIENCE] 科学関連の [icon:CITY_BUILDING_LIST] [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建造物[/TIP]の[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]時代[/TIP]ごとの [icon:YIELD_SCIENCE] 科学力+1。開始または支持した有効な [icon:ENDEAVOR] 外交努力ごとに  [icon:CITY_BUILDING_LIST] [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建造物[/TIP]の建設に対する [icon:YIELD_PRODUCTION] 生産力+5%。開始または支持した有効な [icon:ENDEAVOR] [TIP:LOC_PEDIA_CONCEPTS_ENDEAVOR_TOOLTIP]外交努力[/TIP]1つにつき[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]時代[/TIP]ごとの [icon:YIELD_SCIENCE] 科学力+2。同じタイプの [icon:ENDEAVOR] [TIP:LOC_PEDIA_CONCEPTS_ENDEAVOR_TOOLTIP]外交努力[/TIP]を2つ同時に実行できる。</Text>
@@ -16786,7 +17230,7 @@
       <Text>追加解除方法</Text>
     </Replace>
     <Replace Tag="LOC_LEGACIES_UNLOCKS_ANY_REQUIREMENT" Language="ja_JP">
-      <Text>この文明を解除するために、任意の条件を満たしてください。</Text>
+      <Text>任意の条件を満たすとこの文明を解除できます。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACIES_UNLOCKS_FINAL_AGE" Language="ja_JP">
       <Text>これが最後の時代です。さらに文明を解除することはできません。</Text>
@@ -16891,10 +17335,10 @@
       <Text>諸子百家</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_CULTURAL_5_RACE_TRIGGER_DESCRIPTION" Language="ja_JP">
-      <Text>誰よりも早く一般的な[TIP:LOC_PEDIA_CONCEPTS_CIVIC_TOOLTIP]社会制度[/TIP]と習熟をすべて研究する。</Text>
+      <Text>誰よりも早く一般的な [icon:RADIAL_CIVICS] [TIP:LOC_PEDIA_CONCEPTS_CIVIC_TOOLTIP]社会制度[/TIP]と習熟をすべて研究する。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_CULTURAL_5_TRIGGER_DESCRIPTION" Language="ja_JP">
-      <Text>一般的な[TIP:LOC_PEDIA_CONCEPTS_CIVIC_TOOLTIP]社会制度[/TIP]と習熟をすべて研究する。</Text>
+      <Text>誰よりも早く一般的な [icon:RADIAL_CIVICS] [TIP:LOC_PEDIA_CONCEPTS_CIVIC_TOOLTIP]社会制度[/TIP]と習熟をすべて研究する。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_DIPLOMATIC_1_DESCRIPTION" Language="ja_JP">
       <Text>[TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主国[/TIP]になっている [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]都市国家[/TIP]1つにつき[TIP:LOC_PEDIA_CONCEPTS_PALACE_TOOLTIP]宮殿[/TIP]の [icon:YIELD_DIPLOMACY] と [icon:YIELD_HAPPINESS] [B]+2[/B]。</Text>
@@ -17215,7 +17659,7 @@
       <Text>誰よりも早くすべての [icon:RADIAL_TECH] [TIP:LOC_PEDIA_CONCEPTS_TECH_TOOLTIP]技術[/TIP]と習熟を研究する。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_AQ_SCIENTIFIC_5_TRIGGER_DESCRIPTION" Language="ja_JP">
-      <Text>すべての [icon:RADIAL_TECH] [TIP:LOC_PEDIA_CONCEPTS_TECH_TOOLTIP]技術[/TIP]と習熟を研究する。</Text>
+      <Text>誰よりも早くすべての [icon:RADIAL_TECH] [TIP:LOC_PEDIA_CONCEPTS_TECH_TOOLTIP]技術[/TIP]と習熟を研究する。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_CONQUEROR_1_DESCRIPTION" Language="ja_JP">
       <Text>[icon:ECONOMIC_VP] [TIP:LOC_PEDIA_CONCEPTS_GDP_TOOLTIP]GDP[/TIP][B]300。[/B]</Text>
@@ -17731,10 +18175,10 @@
       <Text>時代精神: 街区</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_CULTURAL_5_RACE_TRIGGER_DESCRIPTION" Language="ja_JP">
-      <Text>誰よりも早く一般的な[TIP:LOC_PEDIA_CONCEPTS_CIVIC_TOOLTIP]社会制度[/TIP]と習熟をすべて研究する。</Text>
+      <Text>誰よりも早く一般的な [icon:RADIAL_CIVICS] [TIP:LOC_PEDIA_CONCEPTS_CIVIC_TOOLTIP]社会制度[/TIP]と習熟をすべて研究する。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_CULTURAL_5_TRIGGER_DESCRIPTION" Language="ja_JP">
-      <Text>誰よりも早く一般的な[TIP:LOC_PEDIA_CONCEPTS_CIVIC_TOOLTIP]社会制度[/TIP]と習熟をすべて研究する。</Text>
+      <Text>誰よりも早く一般的な [icon:RADIAL_CIVICS] [TIP:LOC_PEDIA_CONCEPTS_CIVIC_TOOLTIP]社会制度[/TIP]と習熟をすべて研究する。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_DIPLOMATIC_1_DESCRIPTION" Language="ja_JP">
       <Text>指導者との外交アクションの開始に対する [B][icon:YIELD_DIPLOMACY] +20%。[/B]</Text>
@@ -18043,7 +18487,7 @@
       <Text>誰よりも早くすべての [icon:RADIAL_TECH] [TIP:LOC_PEDIA_CONCEPTS_TECH_TOOLTIP]技術[/TIP]と習熟を研究する。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_MO_SCIENTIFIC_5_TRIGGER_DESCRIPTION" Language="ja_JP">
-      <Text>誰よりも早くすべての[TIP:LOC_PEDIA_CONCEPTS_TECH_TOOLTIP]技術[/TIP]と習熟を研究する。</Text>
+      <Text>誰よりも早くすべての [icon:RADIAL_TECH] [TIP:LOC_PEDIA_CONCEPTS_TECH_TOOLTIP]技術[/TIP]と習熟を研究する。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_OPTION" Language="ja_JP">
       <Text>次の時代のレガシーオプション</Text>
@@ -18805,7 +19249,7 @@
       <Text>玉座の下に咲く花々。</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_ASHOKA_RENOUNCER_GOLD_SAPPHIRE_FLOWERS_FUNCTIONAL_DESCRIPTION" Language="ja_JP">
-      <Text>[icon:ATTRIBUTE_EXPANSIONIST] [TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]領土拡張主義属性[/TIP]ツリーに [icon:ATTRIBUTE] [TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]属性[/TIP]ポイントを費やすと [icon:NOTIFICATION_SELECT_CAPITAL] [TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]首都[/TIP]の [B][icon:YIELD_FOOD] +100[/B]。</Text>
+      <Text>[icon:ATTRIBUTE_EXPANSIONIST] [TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]領土拡張主義属性[/TIP]ツリーに [icon:ATTRIBUTE] [TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]属性[/TIP]ポイントを費やすと [icon:NOTIFICATION_SELECT_CAPITAL] [TIP:LOC_PEDIA_CONCEPTS_CAPITAL_TOOLTIP]首都[/TIP]の [B][icon:YIELD_FOOD] +100。[/B]（ゲーム速度に応じて変化）</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_ASHOKA_RENOUNCER_GOLD_SAPPHIRE_FLOWERS_NAME" Language="ja_JP">
       <Text>金と青玉の花</Text>
@@ -18877,7 +19321,7 @@
       <Text>歩んだ長い道のりが見てとれる。</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_BATTUTA_TRAVELLERS_SANDALS_FUNCTIONAL_DESCRIPTION" Language="ja_JP">
-      <Text>[icon:ATTRIBUTE] [TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]属性[/TIP]ポイントを費やすたびに対応する産出量+10。</Text>
+      <Text>[icon:ATTRIBUTE] [TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]属性[/TIP]ポイントを費やすたびに対応する産出量+25。（ゲーム速度に応じて変化）</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_BATTUTA_TRAVELLERS_SANDALS_NAME" Language="ja_JP">
       <Text>旅人のサンダル</Text>
@@ -18961,7 +19405,7 @@
       <Text>手のひらに乗る世界。</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_CHARLEMAGNE_GLOBUS_CRUCIGER_FUNCTIONAL_DESCRIPTION" Language="ja_JP">
-      <Text>[icon:ATTRIBUTE_POLITICAL] [TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]外交属性[/TIP]ツリーに [icon:ATTRIBUTE] [TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]属性[/TIP]ポイントを費やすと[B] [icon:YIELD_DIPLOMACY] +50[/B]。</Text>
+      <Text>[icon:ATTRIBUTE_POLITICAL] [TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]外交属性[/TIP]ツリーに [icon:ATTRIBUTE] [TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]属性[/TIP]ポイントを費やすと[B] [icon:YIELD_DIPLOMACY] +50。[/B]（ゲーム速度に応じて変化）</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_CHARLEMAGNE_GLOBUS_CRUCIGER_NAME" Language="ja_JP">
       <Text>宝珠</Text>
@@ -19276,7 +19720,7 @@
       <Text>騎士の最高位。</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_FRIEDRICH_OBLIQUE_ORDER_BLACK_EAGLE_FUNCTIONAL_DESCRIPTION" Language="ja_JP">
-      <Text>[icon:ATTRIBUTE_MILITARISTIC] [TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]軍事属性[/TIP]ツリーに [icon:ATTRIBUTE] [TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]属性[/TIP]ポイントを消費すると[B] [icon:YIELD_PRODUCTION] +50[/B]。</Text>
+      <Text>[icon:ATTRIBUTE_MILITARISTIC] [TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]軍事属性[/TIP]ツリーに [icon:ATTRIBUTE] [TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]属性[/TIP]ポイントを消費すると[B] [icon:YIELD_PRODUCTION] +50。[/B]（ゲーム速度に応じて変化）</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_FRIEDRICH_OBLIQUE_ORDER_BLACK_EAGLE_NAME" Language="ja_JP">
       <Text>黒鷲勲章</Text>
@@ -19339,7 +19783,7 @@
       <Text>収穫の友。</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_HIMIKO_QUEEN_DOTAKU_FUNCTIONAL_DESCRIPTION" Language="ja_JP">
-      <Text>[icon:ATTRIBUTE_SCIENTIFIC] [TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]科学属性[/TIP]ツリーに [icon:ATTRIBUTE] [TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]属性[/TIP]ポイントを消費すると[B] [icon:YIELD_SCIENCE] +50[/B]。</Text>
+      <Text>[icon:ATTRIBUTE_SCIENTIFIC] [TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]科学属性[/TIP]ツリーに [icon:ATTRIBUTE] [TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]属性[/TIP]ポイントを消費すると[B] [icon:YIELD_SCIENCE] +50。[/B]（ゲーム速度に応じて変化）</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_HIMIKO_QUEEN_DOTAKU_NAME" Language="ja_JP">
       <Text>銅鐸</Text>
@@ -29620,10 +30064,10 @@
       <Text>固有街区</Text>
     </Replace>
     <Replace Tag="LOC_PLOT_TOOLTIP_URBAN_DISTRICT" Language="ja_JP">
-      <Text>市街区域</Text>
+      <Text>区域</Text>
     </Replace>
     <Replace Tag="LOC_PLOT_TOOLTIP_URBAN_QUARTER" Language="ja_JP">
-      <Text>市街街区</Text>
+      <Text>街区</Text>
     </Replace>
     <Replace Tag="LOC_PLOT_TOOLTIP_YOU" Language="ja_JP">
       <Text>あなた</Text>
@@ -30019,7 +30463,7 @@
       <Text>防衛時、この司令官の戦闘力+10。ユニットスロット+2。</Text>
     </Replace>
     <Replace Tag="LOC_PROMOTION_SQUADRON_AERIAL_RECONNIASSANCE_DESCRIPTION" Language="ja_JP">
-      <Text>司令官能力「航空偵察」を解除する。これによって周囲の視界が開け、増援を受けている敵の司令官とステルスユニットの位置が明らかになる。</Text>
+      <Text>司令官能力「航空偵察」が解除される。これによって周囲の視界が開け、増援を受けている敵の司令官とステルスユニットの位置が明らかになる。</Text>
     </Replace>
     <Replace Tag="LOC_PROMOTION_SQUADRON_AIRBORNE_FORCES_DESCRIPTION" Language="ja_JP">
       <Text>司令官能力「空挺降下」が解除される。歩兵ユニットをこの司令官に統合し、一定範囲内に展開できるようになる。</Text>
@@ -30650,6 +31094,12 @@
     </Replace>
     <Replace Tag="LOC_SETUP_NO_CIV_UNLOCKS_NAME" Language="ja_JP">
       <Text>文明の解除を省略</Text>
+    </Replace>
+    <Replace Tag="LOC_SETUP_VICTORIES_DESC" Language="ja_JP">
+      <Text>達成可能な勝利を選択します。</Text>
+    </Replace>
+    <Replace Tag="LOC_SETUP_VICTORIES_NAME" Language="ja_JP">
+      <Text>勝利</Text>
     </Replace>
     <Replace Tag="LOC_SINGLEAGE_DESCRIPTION" Language="ja_JP">
       <Text>1つの時代だけをプレイします。後の時代には移行しません。</Text>
@@ -31520,7 +31970,7 @@
       <Text>ザザウの戦士女王</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_LEADER_ASHOKA_ABILITY_DESCRIPTION" Language="ja_JP">
-      <Text>[BLIST][LI][icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]都市[/TIP]の余剰 [icon:YIELD_HAPPINESS] 幸福度5ごとに [icon:YIELD_FOOD] 食料+1。[LI][icon:CELEBRATION] [TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]祝宴[/TIP]の間はすべての[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]居住地[/TIP]の [icon:YIELD_FOOD] 食料+10%。[LI][icon:CITY_BUILDING_LIST] 固有[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建造物[/TIP]がすべての [icon:CITY_RURAL] 施設から [icon:YIELD_HAPPINESS] 幸福度+1の隣接ボーナスを得る。[/BLIST]</Text>
+      <Text>[BLIST][LI][icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]都市[/TIP]の余剰 [icon:YIELD_HAPPINESS] 幸福度5ごとに [icon:YIELD_FOOD] 食料+1。[LI][icon:CELEBRATION] [TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]祝宴[/TIP]の間は「幸福」状態の[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]居住地[/TIP]の [icon:YIELD_FOOD] 食料+10%、「歓喜」状態では+15%、「至福」状態では+20%。[LI][icon:CITY_BUILDING_LIST] 固有、 [icon:YIELD_HAPPINESS] 幸福度関連、 [icon:YIELD_FOOD] 食料関連の[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建造物[/TIP]がすべての [icon:CITY_RURAL] 施設から [icon:YIELD_HAPPINESS] 幸福度+1の隣接ボーナスを得る。[/BLIST]</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_LEADER_ASHOKA_ABILITY_NAME" Language="ja_JP">
       <Text>法によって統治する者</Text>
@@ -31598,7 +32048,7 @@
       <Text>国民的英雄</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_LEADER_LAFAYETTE_ABILITY_DESCRIPTION" Language="ja_JP">
-      <Text>[BLIST][LI]固有の [icon:ENDEAVOR] [TIP:LOC_PEDIA_CONCEPTS_ENDEAVOR_TOOLTIP]外交努力[/TIP]「改革」を獲得し、 [icon:NAR_REW_TRADITION_SLOT] [TIP:LOC_PEDIA_CONCEPTS_TRADITION_TOOLTIP]伝統[/TIP]スロット+1。この[TIP:LOC_PEDIA_CONCEPTS_ENDEAVOR_TOOLTIP]外交努力[/TIP]を支持した指導者も[TIP:LOC_PEDIA_CONCEPTS_TRADITION_TOOLTIP]伝統[/TIP]スロット+1、それ以外は[TIP:LOC_PEDIA_CONCEPTS_SOCIAL_POLICY_TOOLTIP]社会政策[/TIP]スロット+1。[LI][icon:GOVERNMENT] 政府のスロットに配置されている [icon:SOCIAL_POLICY] [TIP:LOC_PEDIA_CONCEPTS_SOCIAL_POLICY_TOOLTIP]社会政策[/TIP]以外の [icon:TRADITION] [TIP:LOC_PEDIA_CONCEPTS_TRADITION_TOOLTIP]伝統[/TIP]1つにつき [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]戦闘力[/TIP]+1。[LI][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]居住地[/TIP]の[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]時代[/TIP]ごとの [icon:YIELD_CULTURE] 文化力と [icon:YIELD_HAPPINESS] 幸福度+1（[TIP:LOC_PEDIA_CONCEPTS_DISTANT_LANDS_TOOLTIP]遠隔地[/TIP]では2倍）。[/BLIST]</Text>
+      <Text>[BLIST][LI]固有の [icon:ENDEAVOR] [TIP:LOC_PEDIA_CONCEPTS_ENDEAVOR_TOOLTIP]外交努力[/TIP]「改革」を獲得し、 [icon:NAR_REW_TRADITION_SLOT] [TIP:LOC_PEDIA_CONCEPTS_TRADITION_TOOLTIP]伝統[/TIP]スロット+1。この[TIP:LOC_PEDIA_CONCEPTS_ENDEAVOR_TOOLTIP]外交努力[/TIP]を支持した指導者も[TIP:LOC_PEDIA_CONCEPTS_TRADITION_TOOLTIP]伝統[/TIP]スロット+1、それ以外は[TIP:LOC_PEDIA_CONCEPTS_SOCIAL_POLICY_TOOLTIP]社会政策[/TIP]スロット+1。「改革」はそれぞれの指導者が1回使用できる。[LI][icon:GOVERNMENT] 政府のスロットに配置されている [icon:SOCIAL_POLICY] [TIP:LOC_PEDIA_CONCEPTS_SOCIAL_POLICY_TOOLTIP]社会政策[/TIP]以外の [icon:TRADITION] [TIP:LOC_PEDIA_CONCEPTS_TRADITION_TOOLTIP]伝統[/TIP]1つにつき [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]戦闘力[/TIP]+1。[LI][TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]居住地[/TIP]の[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]時代[/TIP]ごとの [icon:YIELD_CULTURE] 文化力と [icon:YIELD_HAPPINESS] 幸福度+1（[TIP:LOC_PEDIA_CONCEPTS_DISTANT_LANDS_TOOLTIP]遠隔地[/TIP]では2倍）。[/BLIST]</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_LEADER_LAFAYETTE_ABILITY_NAME" Language="ja_JP">
       <Text>両大陸の英雄</Text>
@@ -31912,11 +32362,14 @@
     <Replace Tag="LOC_UI_CITY_BACK_TO_PRODUCTION" Language="ja_JP">
       <Text>生産に戻る</Text>
     </Replace>
+    <Replace Tag="LOC_UI_CITY_BANNER_EMPTY_PRODUCTION_QUEUE" Language="ja_JP">
+      <Text>待機中の追加アイテムはありません。</Text>
+    </Replace>
     <Replace Tag="LOC_UI_CITY_BANNER_PRODUCTION" Language="ja_JP">
       <Text>生産中:</Text>
     </Replace>
     <Replace Tag="LOC_UI_CITY_CAP_REACHED" Language="ja_JP">
-      <Text>都市上限に到達しました</Text>
+      <Text>都市限界に到達しました</Text>
     </Replace>
     <Replace Tag="LOC_UI_CITY_CAPITAL_CURR_DESC" Language="ja_JP">
       <Text>新首都</Text>
@@ -31949,7 +32402,7 @@
       <Text>閉じる</Text>
     </Replace>
     <Replace Tag="LOC_UI_CITY_DETAILS_ANGRY" Language="ja_JP">
-      <Text>怒っている</Text>
+      <Text>憤慨</Text>
     </Replace>
     <Replace Tag="LOC_UI_CITY_DETAILS_BUILDING_DAMAGED" Language="ja_JP">
       <Text>損傷</Text>
@@ -32034,6 +32487,12 @@
     </Replace>
     <Replace Tag="LOC_UI_CITY_DETAILS_URBAN_POPULATION_TOOLTIP" Language="ja_JP">
       <Text>市街人口とは、[icon:CITY_BUILDING_LIST][TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建造物[/TIP]で働いている市民の数です。[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]居住地[/TIP]の[icon:CITY_BUILDING_LIST]建造物1つにつき市街人口1を獲得します。[TIP:LOC_PEDIA_CONCEPTS_WALL_TOOLTIP]防壁[/TIP]は含まれません。</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_CITY_DETAILS_WAREHOUSE_BREAKDOWN_DESCRIPTION" Language="ja_JP">
+      <Text>[icon:YIELD_WAREHOUSE] 倉庫ボーナスの管理に便利な、この居住地の[TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]施設[/TIP]の内訳です。[nn]施設の上に建設された[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_IMPROVEMENT_TOOLTIP]固有施設[/TIP]がリストアップされます。</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_CITY_DETAILS_WAREHOUSE_BREAKDOWN_HEADER" Language="ja_JP">
+      <Text>施設の内訳</Text>
     </Replace>
     <Replace Tag="LOC_UI_CITY_DETAILS_WONDERS" Language="ja_JP">
       <Text>遺産</Text>
@@ -32616,6 +33075,9 @@
     </Replace>
     <Replace Tag="LOC_UI_GENERAL_APPEAL_LEGEND_NATURAL_WONDER" Language="ja_JP">
       <Text>[STYLE:text-secondary]自然遺産:[/STYLE] その遺産に応じた特定の産出量</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_GENERIC_HIDE" Language="ja_JP">
+      <Text>非表示</Text>
     </Replace>
     <Replace Tag="LOC_UI_GLOBAL_CRISIS" Language="ja_JP">
       <Text>世界的危機</Text>
@@ -35194,7 +35656,7 @@
       <Text>トシャカーナ</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_EX_CULTURAL_2_DESCRIPTION" Language="ja_JP">
-      <Text>[icon:WONDER] [TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]遺産[/TIP]の[B] [icon:YIELD_CULTURE] と [icon:YIELD_PRODUCTION] +4。</Text>
+      <Text>[icon:WONDER] [TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]遺産[/TIP]の[B] [icon:YIELD_CULTURE] と [icon:YIELD_PRODUCTION] +4[/B]。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_EX_CULTURAL_2_NAME" Language="ja_JP">
       <Text>ルネサンス世界の遺産</Text>
@@ -35230,7 +35692,7 @@
       <Text>宮廷人</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_EX_DEFAULT_4_DESCRIPTION" Language="ja_JP">
-      <Text>[icon:NAR_REW_TRADITION_SLOT] [社会政策スロットが追加された状態で開始。</Text>
+      <Text>[icon:NAR_REW_TRADITION_SLOT] 社会政策スロットが追加された状態で開始。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_EX_DEFAULT_4_NAME" Language="ja_JP">
       <Text>大明律</Text>
@@ -36408,10 +36870,10 @@
       <Text>[B]科学による勝利[/B]は、[B]宇宙開発競争[/B]を制することで達成できます。[B]イノベーション[/B]100を獲得し、なおかつ稼働状態の発射場を保有していることが、そのための条件となります。				[NN]イノベーションはさまざまな方法で獲得できますが、主な獲得方法は[B]技術習熟[/B]を研究することと[B]プロジェクト[/B]を完了することの2つです。プロジェクトは各時代の高度な技術を研究することで解除され、条件を満たしている都市であればどこでも生産できます。習熟やプロジェクトによって得られるポイントはさまざまです。				[NN]科学に関連した特定の遺産からは3ポイントを獲得できます。古代では、[B]傑作スロット[/B]に割り当てた[B]写本[/B]1つにつき1ポイントを追加で獲得できます。近代の「成功」の中にもイノベーションをもたらすものがあります。</Text>
     </Replace>
     <Replace Tag="LOC_VICTORIES_RULES_SCORE_BODY_1" Language="ja_JP">
-      <Text>[B]以下の主要要素が、この順番で考慮されます:[/B][B][NN][NLIST][LI]勝利のカウントダウンを何ターン行ったか（すべての勝利が対象）。[LI]すべての有効な勝利での順位。[LI]これまでに達成した「大成功」の数。[/LIST]</Text>
+      <Text>[B]以下の主要要素が、この順番で考慮されます:[/B][NN][NLIST][LI]勝利のカウントダウンを何ターン行ったか（すべての勝利が対象）。[LI]すべての有効な勝利での順位。[LI]これまでに達成した「大成功」の数。[/LIST]</Text>
     </Replace>
     <Replace Tag="LOC_VICTORIES_RULES_SCORE_BODY_2" Language="ja_JP">
-      <Text>[B]個々の要素がスコアに追加されます。[/B][B][NN][NLIST][LI]勝利のカウントダウン・ターン数x1000。[LI]1000-すべての勝利における現在の順位x10。[LI]達成したすべての「大成功」の合計。[/LIST]</Text>
+      <Text>[B]個々の要素がスコアに追加されます。[/B][NN][NLIST][LI]勝利のカウントダウン・ターン数x1000。[LI]1000-すべての勝利における現在の順位x10。[LI]達成したすべての「大成功」の合計。[/LIST]</Text>
     </Replace>
     <Replace Tag="LOC_VICTORIES_RULES_SCORE_HEADER_1" Language="ja_JP">
       <Text>スコアの算出方法</Text>
@@ -36782,8 +37244,14 @@
     <Replace Tag="LOC_VICTORY_SCORE_VICTORY_NAME" Language="ja_JP">
       <Text>スコアによる勝利</Text>
     </Replace>
+    <Replace Tag="LOC_VICTORY_SUMMARY_ALL_DISABLED" Language="ja_JP">
+      <Text>すべての勝利が無効化されました。</Text>
+    </Replace>
     <Replace Tag="LOC_VICTORY_SUMMARY_HEADER" Language="ja_JP">
-      <Text>以下の4つの勝利のいずれかを最初に達成したプレイヤーがゲームの勝者となります。</Text>
+      <Text>以下の勝利のいずれかを最初に達成したプレイヤーがゲームの勝者となります。</Text>
+    </Replace>
+    <Replace Tag="LOC_VICTORY_SUMMARY_ONLY_SCORE_ENABLED" Language="ja_JP">
+      <Text>スコアによる勝利のみが有効です。</Text>
     </Replace>
     <Replace Tag="LOC_VICTORY_TOOLTIP_REQUIRED_POINTS" Language="ja_JP">
       <Text>必要なポイント</Text>
@@ -37624,6 +38092,9 @@
     <Replace Tag="LOC_BUILDING_PLACEMENT_REPLACE_BUILDING_BODY_ADD_SPECIALIST" Language="ja_JP">
       <Text>このタイルに新しい{2_Name}を追加すると、{1_CurrentBuildingName}の労働者は専門家になります。専門家は以前の建造物の産出量を都市にもたらします。続行しますか？</Text>
     </Replace>
+    <Replace Tag="LOC_BUILDING_PLACEMENT_UNIQUE_QUARTER_BLOCKER_BODY" Language="ja_JP">
+      <Text>このタイルに[b]{1_Building}[/b]を配置すると、固有街区である[b]{2_Quarter}[/b]を完成させられなくなります。続行しますか？</Text>
+    </Replace>
     <Replace Tag="LOC_BUILDING_PLACEMENT_WAREHOUSE_BONUS" Language="ja_JP">
       <Text>{2_yieldType}に倉庫ボーナス</Text>
     </Replace>
@@ -37804,6 +38275,9 @@
     <Replace Tag="LOC_COMBAT_PREVIEW_TERRAIN_BONUS_DESC" Language="ja_JP">
       <Text>理想的な地形+{1_Value}</Text>
     </Replace>
+    <Replace Tag="LOC_COMBAT_PREVIEW_TERRAIN_COMBAT_BONUS_DESC" Language="ja_JP">
+      <Text>{2_Name}地形+{1_Value}</Text>
+    </Replace>
     <Replace Tag="LOC_COMBAT_PREVIEW_TERRAIN_PENALTY" Language="ja_JP">
       <Text>好ましくない地形{1_Value}</Text>
     </Replace>
@@ -37885,6 +38359,12 @@
     <Replace Tag="LOC_COMMERCE_GAMEPAD_SELECT_CITY_HINT" Language="ja_JP">
       <Text>{1_cityName}を編集</Text>
     </Replace>
+    <Replace Tag="LOC_COMMERCE_GAMEPAD_STOP_VIEWING_CONTAINER_HINT" Language="ja_JP">
+      <Text>{1_containerName}の表示を終了</Text>
+    </Replace>
+    <Replace Tag="LOC_COMMERCE_GAMEPAD_VIEW_CONTAINER_HINT" Language="ja_JP">
+      <Text>{1_containerName}を表示</Text>
+    </Replace>
     <Replace Tag="LOC_COMMERCE_SCREEN_TITLE" Language="ja_JP">
       <Text>{1_civ_name}商業</Text>
     </Replace>
@@ -37909,6 +38389,18 @@
     <Replace Tag="LOC_COMMERCE_UNASSIGN_RESOURCES" Language="ja_JP">
       <Text>{1_cityName}への資源の割り当てをすべて解除</Text>
     </Replace>
+    <Replace Tag="LOC_DEAL_ITEM_GOLD_LARGE_LUMP_NAME" Language="ja_JP">
+      <Text>[icon:YIELD_GOLD] ゴールド{1_amount}</Text>
+    </Replace>
+    <Replace Tag="LOC_DEAL_ITEM_GOLD_SMALL_LUMP_NAME" Language="ja_JP">
+      <Text>[icon:YIELD_GOLD] ゴールド{1_amount}</Text>
+    </Replace>
+    <Replace Tag="LOC_DEAL_ITEM_INFLUENCE_LARGE_LUMP_NAME" Language="ja_JP">
+      <Text>[icon:YIELD_DIPLOMACY] 影響力{1_amount}</Text>
+    </Replace>
+    <Replace Tag="LOC_DEAL_ITEM_INFLUENCE_SMALL_LUMP_NAME" Language="ja_JP">
+      <Text>[icon:YIELD_DIPLOMACY] 影響力{1_amount}</Text>
+    </Replace>
     <Replace Tag="LOC_DEDICATIONS_AVAILABLE_DESC" Language="ja_JP">
       <Text>次の時代である{1_ageName}のために獲得した「傾注」</Text>
     </Replace>
@@ -37922,7 +38414,7 @@
       <Text>支援を追加[N][icon:YIELD_DIPLOMACY] 影響力{1_influenceConst}</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ACTION_BONUS_ENVOYS" Language="ja_JP">
-      <Text>関わっている指導者との関係により、このプロジェクトに対するボーナス代表団{1_numEmvoys}を獲得。</Text>
+      <Text>関わっている指導者との [icon:RELATIONSHIP] 関係により、このプロジェクトに対するボーナス代表団{1_numEmvoys}を獲得。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ACTION_COST_YIELD_DIPLOMACY" Language="ja_JP">
       <Text>[icon:YIELD_DIPLOMACY] 影響力{1_cost}</Text>
@@ -37976,7 +38468,7 @@
       <Text>戦争を宣言した後すぐに和平を結ぶことはできません。{1_turns}ターン後に和平を結べるようになります。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ACTION_FAILURE_RELATIONSHIP_LEVEL" Language="ja_JP">
-      <Text>この外交アクションを開始するには、関係が「{1_Relationship}」以上でなければなりません。</Text>
+      <Text>この外交アクションを開始するには、 [icon:RELATIONSHIP] 関係が「{1_Relationship}」以上でなければなりません。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ACTION_FAILURE_WAR_WITH_THEIR_ALLY" Language="ja_JP">
       <Text>相手の同盟者である{1_AllyName}と戦争状態にあるため、この外交アクションは開始できません。</Text>
@@ -38059,6 +38551,9 @@
     <Replace Tag="LOC_DIPLOMACY_ACTIONS_USE_GRIEVANCE" Language="ja_JP">
       <Text>{1_leaderName}に対する不平</Text>
     </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_CHANGE_DESCRIPTION" Language="ja_JP">
+      <Text>[icon:RELATIONSHIP] 関係{1: number +#;-#}</Text>
+    </Replace>
     <Replace Tag="LOC_DIPLOMACY_ALLIANCE_RESPONSE_REJECT" Language="ja_JP">
       <Text>あなたの{1_actionName}を拒否する！ 少なくとも{2_cooldown}ターンの間、同盟を検討するつもりはない。</Text>
     </Replace>
@@ -38084,16 +38579,16 @@
       <Text>{1_progress}/{2_total}（ターンごとに+{3_amount}）</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_BONUS_WAR_SUPPORT" Language="ja_JP">
-      <Text>この戦争で生み出される戦争への支持[N]あなたに対して{1_yourWarBonus}、あなたの敵に対して [icon:YIELD_DIPLOMACY] 影響力{2_theirWarBonus}および{3_theirInfluenceBonus}。[N]奇襲戦争に対するペナルティは、友好度が高いほど大きくなります。[N]敵対的な関係にある場合は、正規戦争が発生します。</Text>
+      <Text>この戦争で生み出される [icon:WAR_SUPPORT] 戦争への支持[N]あなたに対して{1_yourWarBonus}、相手に対して{2_theirWarBonus}、あなたの敵に対して{3_theirInfluenceBonus}の [icon:YIELD_DIPLOMACY] 影響力。[N]奇襲戦争に対するペナルティは、友好度が高いほど大きくなります。[N]敵対的な関係にある場合は、 [icon:WAR] 正規戦争が発生します。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_CALL_TO_ARMS_JOIN_WAR" Language="ja_JP">
-      <Text>{1_allyName}との同盟を尊重し、{2_targetName}に戦争を宣言します。</Text>
+      <Text>{1_allyName}との [icon:PLAYER_RELATIONSHIP_ALLIANCE] 同盟を尊重し、{2_targetName}に [icon:WAR] 戦争を宣言します。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_CALL_TO_ARMS_STAY_NEUTRAL_ONE_ALLY" Language="ja_JP">
-      <Text>{1_leaderName}との同盟を終了し、戦争に参加しません。</Text>
+      <Text>{1_leaderName}との [icon:PLAYER_RELATIONSHIP_ALLIANCE] 同盟を終了し、 [icon:WAR] 戦争に参加しません。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_CALL_TO_ARMS_SUPPORT_ALLY_DESCRIPTION" Language="ja_JP">
-      <Text>{1_leaderName}との同盟を終了し、戦争を宣言します。</Text>
+      <Text>{1_leaderName}との [icon:PLAYER_RELATIONSHIP_ALLIANCE] 同盟を終了し、 [icon:WAR] 戦争を宣言します。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_CHOSEN_CITY_STATE_BONUS" Language="ja_JP">
       <Text>選択した都市国家ボーナス: {1_bonusName}</Text>
@@ -38123,25 +38618,25 @@
       <Text>{1_Leader}が敗北</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ESPIONAGE_MILITARY_INFILTRATION_DESCRIPTION_TARGET" Language="ja_JP">
-      <Text>{1_leaderName}はあなたの司令官全員の視界を得ています。</Text>
+      <Text>{1_leaderName}はあなたの [icon:UNIT_ARMY_COMMANDER] 司令官全員の視界を得ています。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ESPIONAGE_MILITARY_SABOTAGE_DESCRIPTION" Language="ja_JP">
-      <Text>{1_turns}ターンの間、相手軍事ユニットの戦闘力-3。</Text>
+      <Text>{1_turns}ターンの間、相手の軍事ユニットの [icon:NAR_REW_COMBAT] 戦闘力-3。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ESPIONAGE_MILITARY_SABOTAGE_DESCRIPTION_TARGET" Language="ja_JP">
-      <Text>{1_turns}ターンの間、自国軍事ユニットの戦闘力-3。</Text>
+      <Text>{1_turns}ターンの間、あなたの軍事ユニットの [icon:NAR_REW_COMBAT] 戦闘力-3。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ESPIONAGE_PENALTY" Language="ja_JP">
       <Text>発見された場合のペナルティ: {2_turns}ターンの間、ターンごとに [icon:YIELD_DIPLOMACY] 影響力{1_penalty}</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_FAILED_RAID_NOW_FRIENDS_SUMMARY" Language="ja_JP">
-      <Text>独立勢力である{1_tribe}の襲撃を撃退したことで、彼らから尊敬を得ました。この結果、彼らのあなたに対する態度は友好的なものとなり、関係が向上しつつあります。</Text>
+      <Text>[icon:INDEPENDENT_POWER] 独立勢力である{1_tribe}の襲撃を撃退したことで、彼らから尊敬を得ました。この結果、彼らのあなたに対する態度は友好的なものとなり、 [icon:RELATIONSHIP] 関係が向上しつつあります。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_FIRST_MEET_NOTIFICATION_SUMMARY_INITIAL" Language="ja_JP">
       <Text>{1_Civ}と出会いました。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_FORM_ALLIANCE_TOOL_TIP" Language="ja_JP">
-      <Text>同盟を結ぶと他の文明と戦争状態になる。[N][B]{1_leaders}[/B]</Text>
+      <Text>[icon:PLAYER_RELATIONSHIP_ALLIANCE] 同盟を結ぶと、他の文明と [icon:WAR] 戦争状態になります。[N][B]{1_leaders}[/B]</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_INDEPENDENT_CIV_NAME" Language="ja_JP">
       <Text>{1_independent_name}の民</Text>
@@ -38153,7 +38648,7 @@
       <Text>{1_leaderName}に対して可能な制裁はありません。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PEACE_DEAL_CITY_WONDER_COUNT" Language="ja_JP">
-      <Text>都市に世界遺産が{1_wondercount}あります</Text>
+      <Text>都市に世界 [icon:WONDER] 遺産が{1_wondercount}あります</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PEACE_DEAL_RETURNS_TO_THEM" Language="ja_JP">
       <Text>{1_leaderName}の元に戻る</Text>
@@ -38165,13 +38660,13 @@
       <Text>{1_leaderName}がこの取引を拒否します。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PICK_ALLIANCE_BODY_1" Language="ja_JP">
-      <Text>{1_selectedPlayer}と同盟を結ぶと他の文明と戦争状態になる。</Text>
+      <Text>{1_selectedPlayer}と [icon:PLAYER_RELATIONSHIP_ALLIANCE] 同盟を結ぶと、他の文明と [icon:WAR] 戦争状態になります。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PICK_WAR_TYPE_FORMAL_BODY" Language="ja_JP">
-      <Text>相手とは敵対関係にあるので、これは正規戦争の宣言となります。[N]開戦当初の戦争への支持: あなたに対して{1_yourWarBonus}、敵に対して{2_theirWarBonus}。[N]奇襲戦争に対するペナルティは、相手との友好度が高いほど大きくなります。</Text>
+      <Text>相手とは [icon:PLAYER_RELATIONSHIP_HOSTILE] 敵対関係にあるので、これは [icon:WAR] 正規戦争の宣言となります。[N]開戦当初の戦争への支持: あなたに対して{1_yourWarBonus}、敵に対して{2_theirWarBonus}。[N] [icon:WAR] 奇襲戦争に対するペナルティは、相手との友好度が高いほど大きくなります。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PICK_WAR_TYPE_SURPRISE_BODY" Language="ja_JP">
-      <Text>相手と敵対関係にないので、これは奇襲戦争の宣言となります。[N]敵が [icon:YIELD_DIPLOMACY] 影響力{3_theirInfluenceBonus}を得ます。[N]開戦当初の戦争への支持: あなたに対して{1_yourWarBonus}、敵に対して{2_theirWarBonus}。[N]奇襲戦争に対するペナルティは、友好度が高いほど大きくなります。</Text>
+      <Text>相手と [icon:PLAYER_RELATIONSHIP_HOSTILE] 敵対関係にないので、これは [icon:WAR] 奇襲戦争の宣言となります。敵が [icon:YIELD_DIPLOMACY] 影響力{3_theirInfluenceBonus}を得ます。[N]開戦当初の [icon:WAR_SUPPORT] 戦争への支持: あなたに対して{1_yourWarBonus}、敵に対して{2_theirWarBonus}。[N][icon:WAR] 奇襲戦争に対するペナルティは、友好度が高いほど大きくなります。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_CLOSE_BORDERS" Language="ja_JP">
       <Text>{1_initiatorName}が{2_targetName}との国境を封鎖しました。</Text>
@@ -38189,7 +38684,7 @@
       <Text>{5_OtherLeaderName}との文化交流によりターンごとに [icon:YIELD_CULTURE] 文化力+{2_Amount}を得ま。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_CULTURAL_EXCHANGE_REJECT" Language="ja_JP">
-      <Text>外交アクションがキャンセルされます。[n]{1_initialName}の [icon:YIELD_DIPLOMACY] 影響力が返還されます。[n]{2_cooldown}ターンの間、指導者間での新たな外交努力は実施できません。[n]関係が悪化します。</Text>
+      <Text>外交アクションがキャンセルされます。[n]{1_initialName}の [icon:YIELD_DIPLOMACY] 影響力が返還されます。[n]{2_cooldown}ターンの間、指導者間での新たな外交努力は実施できません。[n][icon:RELATIONSHIP] 関係が悪化します。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_CULTURAL_EXCHANGE_REQUEST" Language="ja_JP">
       <Text>{1_leaderName}が「文化交流」の開始を提案しています。</Text>
@@ -38198,16 +38693,16 @@
       <Text>{4_leaderName}があなたへの不平を{3_targetAmount}追加します。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_DENOUNCE_ACCEPT" Language="ja_JP">
-      <Text>関係が{3_duration}ターンで60悪化します。</Text>
+      <Text>[icon:RELATIONSHIP] 関係が{3_duration}ターンで60悪化します。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_DENOUNCE_MILITARY_PRESENCE_REQUEST" Language="ja_JP">
       <Text>あなたの軍が国境付近に展開していることを{1_initiatorName}が非難しました！</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_ESTABLISH_TREASURE_FLEET_ACCEPT" Language="ja_JP">
-      <Text>{3_duration}ターン後、主唱者のために自分の居住地で財宝輸送隊ユニットが生み出されます。外交アクションを実行中は、ターンごとの [icon:YIELD_GOLD] ゴールド+12。</Text>
+      <Text>{3_duration}ターン後、主唱者のために自分の居住地で [icon:UNIT_TREASURE_FLEET] 財宝輸送隊ユニットが生み出されます。外交アクションを実行中は、ターンごとの [icon:YIELD_GOLD] ゴールド+12。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_ESTABLISH_TREASURE_FLEET_REJECT" Language="ja_JP">
-      <Text>外交アクションがキャンセルされます。[n]{1_initialName}の [icon:YIELD_DIPLOMACY] 影響力が返還されます。[n]{2_cooldown} ターンの間、指導者間での新たな外交努力は実施できません。[n]関係が悪化します。</Text>
+      <Text>外交アクションがキャンセルされます。[n]{1_initialName}の [icon:YIELD_DIPLOMACY] 影響力が返還されます。[n]{2_cooldown}ターンの間、指導者間での新たな [icon:ENDEAVOR] 外交努力は実施できません。[n][icon:RELATIONSHIP] 関係が悪化します。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_FARMERS_MARKET_REQUEST" Language="ja_JP">
       <Text>{1_leaderName}が「農業市場」を共同で開始することを提案しています。</Text>
@@ -38216,22 +38711,22 @@
       <Text>{1_initialName}と同盟を結びます。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_FORM_ALLIANCE_REJECT" Language="ja_JP">
-      <Text>{1_initialName}からの同盟の提案を断ります。[n]{2_cooldown}ターンの間、指導者間で新たな同盟を結ぶことはできません。[n]関係が悪化します。</Text>
+      <Text>{1_initialName}からの [icon:PLAYER_RELATIONSHIP_ALLIANCE] 同盟の提案を断ります。[n]{2_cooldown}ターンの間、指導者間で新たな [icon:PLAYER_RELATIONSHIP_ALLIANCE] 同盟を結ぶことはできません。[n][icon:RELATIONSHIP] 関係が悪化します。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_FREE_CAPTURED_COMMANDER_ACCEPT" Language="ja_JP">
       <Text>他の指導者から身代金{1_gold} [icon:YIELD_GOLD] ゴールドを受け取ります。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_FRIEND_OF_WA_REJECT" Language="ja_JP">
-      <Text>外交アクションがキャンセルされます。[n]{1_initialName}の [icon:YIELD_DIPLOMACY] 影響力が返還されます。[n]{2_cooldown}ターンの間、指導者間での新たな外交努力は実施できません。[n]関係が悪化します。</Text>
+      <Text>外交アクションがキャンセルされます。[n]{1_initialName}の [icon:YIELD_DIPLOMACY] 影響力が返還されます。[n]{2_cooldown}ターンの間、指導者間での新たな外交努力は実施できません。[n][icon:RELATIONSHIP] 関係が悪化します。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_FRIEND_OF_WA_REQUEST" Language="ja_JP">
       <Text>{1_leaderName}が [icon:YIELD_SCIENCE] 科学研究を共同で実施することを提案しています。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_GINSING_AGREEMENT" Language="ja_JP">
-      <Text>{5_OtherLeaderName}との「人参協定」により、ターンごとに首都で [icon:YIELD_FOOD] 食料+{2_Amount}を得ます。</Text>
+      <Text>{5_OtherLeaderName}との「人参協定」により、ターンごとに [icon:NOTIFICATION_SELECT_CAPITAL] 首都で [icon:YIELD_FOOD] 食料+{2_Amount}を得ます。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_GINSING_AGREEMENT_REJECT" Language="ja_JP">
-      <Text>外交アクションがキャンセルされます。[n]{1_initialName}の [icon:YIELD_DIPLOMACY] 影響力が返還されます。[n] {2_cooldown}ターンの間、指導者間での新たな外交努力は実施できません。[n]関係が悪化します。</Text>
+      <Text>外交アクションがキャンセルされます。[n]{1_initialName}の [icon:YIELD_DIPLOMACY] 影響力が返還されます。[n]{2_cooldown}ターンの間、指導者間での新たな外交努力は実施できません。[n][icon:RELATIONSHIP] 関係が悪化します。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_GINSING_AGREEMENT_REQUEST" Language="ja_JP">
       <Text>{1_leaderName}があなたと [icon:YIELD_FOOD] 食料の交換を試みています。</Text>
@@ -38240,7 +38735,7 @@
       <Text>外交アクションが完了すると、{1_initialName}が伝統スロット+1。[n]この外交アクションが完了すると、社会政策スロット+1。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_GRANT_POLICY_SLOT_REJECT" Language="ja_JP">
-      <Text>外交アクションがキャンセルされます。[n]{1_initialName}の [icon:YIELD_DIPLOMACY] 影響力が返還されます。[n]{2_cooldown}ターンの間、指導者間での新たな外交努力は実施できません。[n]関係が悪化します。</Text>
+      <Text>外交アクションがキャンセルされます。[n]{1_initialName}の [icon:YIELD_DIPLOMACY] 影響力が返還されます。[n]{2_cooldown}ターンの間、指導者間での新たな外交努力は実施できません。[n][icon:RELATIONSHIP] 関係が悪化します。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_GRANT_POLICY_SLOT_REQUEST" Language="ja_JP">
       <Text>{1_leaderName}が外交努力「改革」の実施を提案しています。</Text>
@@ -38261,7 +38756,7 @@
       <Text>{5_OtherLeaderName}との地元の祭典により、ターンごとに [icon:YIELD_HAPPINESS] 幸福度+{2_Amount}を得ます。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_LOCAL_FESTIVALS_REJECT" Language="ja_JP">
-      <Text>{2_cooldown}ターンの間、新しいプロジェクトを開始できません。[n]関係が悪化します。</Text>
+      <Text>{2_cooldown}ターンの間、新しいプロジェクトを開始できません。[n][icon:RELATIONSHIP] 関係が悪化します。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_LOCAL_FESTIVALS_REQUEST" Language="ja_JP">
       <Text>「地元の祭典」を共に開始しようと{1_leaderName}から誘われています。</Text>
@@ -38273,7 +38768,7 @@
       <Text>{5_OtherLeaderName}との文化交流により、ターンごとに [icon:YIELD_GOLD] ゴールド+{2_Amount}を得ます。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_MINOR_TRADE_REJECT" Language="ja_JP">
-      <Text>外交アクションがキャンセルされます。[n]{1_initialName}の [icon:YIELD_DIPLOMACY] 影響力が返還されます。[n]{2_cooldown}ターンの間、指導者間での新たな外交努力は実施できません。[n]関係が悪化します。</Text>
+      <Text>外交アクションがキャンセルされます。[n]{1_initialName}の [icon:YIELD_DIPLOMACY] 影響力は返還されます。[n]{2_cooldown}ターンの間、指導者間での新たな [icon:ENDEAVOR] 外交努力は実施できません。[n][icon:RELATIONSHIP] 関係が悪化します。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_MINOR_TRADE_REQUEST" Language="ja_JP">
       <Text>{1_leaderName}が相互の「市場開放」を提案しています。</Text>
@@ -38282,7 +38777,7 @@
       <Text>{1_initiatorName}が{2_targetName}に対し、{3_numberTurns}ターンの間国境を開放することを要請しました。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_OPEN_BORDERS_REJECT" Language="ja_JP">
-      <Text>外交アクションがキャンセルされます。[n]{1_initialName}の [icon:YIELD_DIPLOMACY] 影響力が返還されます。[n]{2_cooldown}ターンの間、指導者間での新たな外交努力は実施できません。[n]関係が悪化します。</Text>
+      <Text>[icon:DIPLOMATIC_ACTION] 外交アクションがキャンセルされます。[n]{1_initialName}の [icon:YIELD_DIPLOMACY] 影響力は返還されます。[n]{2_cooldown}ターンの間、指導者間での新たな [icon:ENDEAVOR] 外交努力は実施できません。[n][icon:RELATIONSHIP] 関係が悪化します。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_OPEN_BORDERS_REQUEST" Language="ja_JP">
       <Text>{1_leaderName}が国境の開放を求めています。</Text>
@@ -38297,7 +38792,7 @@
       <Text>{5_OtherLeaderName}との共同研究により、ターンごとに [icon:YIELD_SCIENCE] 科学力+{2_Amount}を得ます。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_RESEARCH_COLLABORATION_REJECT" Language="ja_JP">
-      <Text>外交アクションがキャンセルされます。[n]{1_initialName}の [icon:YIELD_DIPLOMACY] 影響力が返還されます。[n]{2_cooldown}ターンの間、指導者間での新たな外交努力は実施できません。[n]関係が悪化します。</Text>
+      <Text>外交アクションがキャンセルされます。[n]{1_initialName}の [icon:YIELD_DIPLOMACY] 影響力が返還されます。[n]{2_cooldown}ターンの間、指導者間での新たな外交努力は実施できません。[n][icon:RELATIONSHIP] 関係が悪化します。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_RESEARCH_COLLABORATION_REQUEST" Language="ja_JP">
       <Text>{1_leaderName}が「共同研究」の開始を提案しています。</Text>
@@ -38345,10 +38840,10 @@
       <Text>{1_leaderName}があなたの財政の妨害を試みています。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_SEND_DELEGATION_ACCEPT" Language="ja_JP">
-      <Text>関係が{3_duration}ターンで30向上します。</Text>
+      <Text>[icon:RELATIONSHIP] 関係が{3_duration}ターンで30向上します。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_SEND_DELEGATION_SUPPORT" Language="ja_JP">
-      <Text>関係が{3_duration}ターンで60向上します。</Text>
+      <Text>[icon:RELATIONSHIP] 関係が{3_duration}ターンで60向上します。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_SEND_GOLD_ACCEPT" Language="ja_JP">
       <Text>{1_initialName}による [icon:YIELD_GOLD] ゴールドの支援を受け入れます。</Text>
@@ -38360,10 +38855,10 @@
       <Text>{1_leaderName}が「交易地図」を提案しています。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_RELATIONSHIP_CHANGE_ACCEPTED" Language="ja_JP">
-      <Text>承諾した場合の関係の変化: {1_change}</Text>
+      <Text>承諾した場合の [icon:RELATIONSHIP] 関係の変化: {1_change}</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_RELATIONSHIP_CHANGE_SUPPORTED" Language="ja_JP">
-      <Text>支持した場合の関係の変化: {1_change}</Text>
+      <Text>支持した場合の [icon:RELATIONSHIP] 関係の変化: {1_change}</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_REVEAL_CHANCE" Language="ja_JP">
       <Text>発見される確率: {1_revealChance}%</Text>
@@ -38420,7 +38915,7 @@
       <Text>成功率: {1_successChance}% 明らかになる確率: {2_revealChance}%</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_SUZERAIN_OTHER" Language="ja_JP">
-      <Text>{1_name}がこの[TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]都市国家[/TIP]の宗主国です</Text>
+      <Text>{1_name}がこの [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]都市国家[/TIP]の[TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主国[/TIP]です</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_TREATY_RESPONSE_REJECT" Language="ja_JP">
       <Text>あなたの{1_actionName}を拒否する！ [icon:YIELD_DIPLOMACY] 影響力を消費し、このアクションを{2_cooldown}ターンの間ブロックします。</Text>
@@ -38459,22 +38954,22 @@
       <Text>経験値{1_HaveXP}/{2_GoalXP}</Text>
     </Replace>
     <Replace Tag="LOC_FIRST_MEET_FRIENDLY_BOTH_CAPITALS_REVEALED" Language="ja_JP">
-      <Text>あなたの首都と{1_LeaderName}の首都である{2_CapitalName}が明らかにされます。</Text>
+      <Text>あなたの [icon:NOTIFICATION_SELECT_CAPITAL] 首都と{1_LeaderName}の [icon:NOTIFICATION_SELECT_CAPITAL] 首都である{2_CapitalName}が明らかにされます。</Text>
     </Replace>
     <Replace Tag="LOC_FIRST_MEET_FRIENDLY_GREETING" Language="ja_JP">
       <Text>[icon:YIELD_DIPLOMACY] 影響力+{1_cost}</Text>
     </Replace>
     <Replace Tag="LOC_FIRST_MEET_FRIENDLY_GREETING_DESCRIPTION" Language="ja_JP">
-      <Text>付近にいる場合、どちらかの指導者の首都が明らかになります。{2_whatCapitalsRevealed}[N]関係+{1_relationShipDelta}。</Text>
+      <Text>付近にいる場合、どちらかの指導者の [icon:NOTIFICATION_SELECT_CAPITAL] 首都が明らかになります。{2_whatCapitalsRevealed}[N][icon:RELATIONSHIP] 関係+{1_relationShipDelta}。</Text>
     </Replace>
     <Replace Tag="LOC_FIRST_MEET_FRIENDLY_THEIR_CAPITAL_REVEALED" Language="ja_JP">
-      <Text>{1_LeaderName}の首都である{2_CapitalName}が明らかにされます。</Text>
+      <Text>{1_LeaderName}の [icon:NOTIFICATION_SELECT_CAPITAL] 首都である{2_CapitalName}が明らかにされます。</Text>
     </Replace>
     <Replace Tag="LOC_FIRST_MEET_HOSTILE_GREETING" Language="ja_JP">
       <Text>[icon:YIELD_DIPLOMACY] 影響力-{1_cost}</Text>
     </Replace>
     <Replace Tag="LOC_FIRST_MEET_HOSTILE_GREETING_DESCRIPTION" Language="ja_JP">
-      <Text>関係{1_relationShipDelta}。</Text>
+      <Text>[icon:RELATIONSHIP] 関係{1_relationShipDelta}。</Text>
     </Replace>
     <Replace Tag="LOC_FIRST_MEET_NEUTRAL_GREETING" Language="ja_JP">
       <Text>[icon:YIELD_DIPLOMACY] 影響力{1_cost}</Text>
@@ -38579,7 +39074,7 @@
       <Text>{Amount}ユニットを喪失。</Text>
     </Replace>
     <Replace Tag="LOC_HOF_TURNS" Language="ja_JP">
-      <Text>[ICON_TURN] {1_Turns}ターン</Text>
+      <Text>{1_Turns}ターン</Text>
     </Replace>
     <Replace Tag="LOC_HOF_VICTORYPROGRESS_COUNT" Language="ja_JP">
       <Text>{1_Count}回達成。</Text>
@@ -39137,10 +39632,16 @@
       <Text>{1_LeaderName}との関係が{2_PrevRel}から{3_CurrRel}へ変化しました。</Text>
     </Replace>
     <Replace Tag="LOC_NOTIFICATION_DIPLOMATIC_AGENDA_DEFAULT_MESSAGE" Language="ja_JP">
-      <Text>{1_LeaderName}のアジェンダにより、あなたとの関係が変化しました。</Text>
+      <Text>{1_LeaderName}からメッセージがあります。</Text>
     </Replace>
     <Replace Tag="LOC_NOTIFICATION_DIPLOMATIC_AGENDA_DEFAULT_SUMMARY" Language="ja_JP">
       <Text>{1_LeaderName}のアジェンダにより、あなたとの関係が変化しました。</Text>
+    </Replace>
+    <Replace Tag="LOC_NOTIFICATION_DIPLOMATIC_AGENDA_MINOR_MESSAGE" Language="ja_JP">
+      <Text>{1_LeaderName}との関係がアジェンダによって変化しました：{2: number +#;-#}</Text>
+    </Replace>
+    <Replace Tag="LOC_NOTIFICATION_DIPLOMATIC_AGENDA_MINOR_SUMMARY" Language="ja_JP">
+      <Text>{1_LeaderName}との関係がアジェンダによって変化しました：{2: number +#;-#}</Text>
     </Replace>
     <Replace Tag="LOC_NOTIFICATION_DIPLOMATIC_ALLIES_AT_WAR_SUMMARY" Language="ja_JP">
       <Text>あなたの同盟国である{1_Ally1Name}が同じく同盟国である{2_Ally2Name}と戦争状態になりました。</Text>
@@ -39260,7 +39761,7 @@
       <Text>あなたの文明が自然遺産「{1_NaturalWonderName}」を発見しました。</Text>
     </Replace>
     <Replace Tag="LOC_NOTIFICATION_DISPERSE_IP_REWARD_SUMMARY" Language="ja_JP">
-      <Text>独立勢力{1_IPName}を粉砕しました。 [{3_YieldIcon}] {4_YieldType}+{2_reward}を受け取りました。</Text>
+      <Text>独立勢力{1_IPName}を粉砕しました。{3_YieldType}{2_reward}を手に入れました。</Text>
     </Replace>
     <Replace Tag="LOC_NOTIFICATION_DISTRICT_ATTACKED_BY_IP_SUMMARY" Language="ja_JP">
       <Text>{1_CityName}が{2_CivName}から攻撃を受けました。</Text>
@@ -39712,6 +40213,12 @@
     <Replace Tag="LOC_UI_ACQUIRE_TILE_SPECIALIST_SLOTS_AVAILABLE" Language="ja_JP">
       <Text>このタイルには専門家スロットが{1_NumSlots}あります。</Text>
     </Replace>
+    <Replace Tag="LOC_UI_ADJACENCY_BREATHTAKING_TILE_YIELD" Language="ja_JP">
+      <Text>隣接している「驚異的」タイルにより{2_YieldName}+{1_Amount}</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_ADJACENCY_CHARMING_TILE_YIELD" Language="ja_JP">
+      <Text>隣接している「魅力的」タイルにより{2_YieldName}+{1_Amount}</Text>
+    </Replace>
     <Replace Tag="LOC_UI_ADJACENCY_INFO_BIOME" Language="ja_JP">
       <Text>隣接している{3_BiomeName}タイル1つにつき{2_YieldName}+{1_Amount}。</Text>
     </Replace>
@@ -39796,6 +40303,24 @@
     <Replace Tag="LOC_UI_CITY_BANNER_POPULATION_INFO" Language="ja_JP">
       <Text>市街人口: {1_Urban}[n]郊外人口: {2_Rural}[n]専門家: {3_Specialists}</Text>
     </Replace>
+    <Replace Tag="LOC_UI_CITY_BANNER_PRODUCTION_BONUS_CONSTRUCTIBLE" Language="ja_JP">
+      <Text>（{3}に対して [icon:YIELD_PRODUCTION] 基本値{1: number +#.#;-#.#}×[TIP:LOC_PEDIA_CONCEPTS_EFFICIENCY_TOOLTIP]効率[/TIP]{2: number #.#;-#.#}%）</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_CITY_BANNER_PRODUCTION_BONUS_PROJECT" Language="ja_JP">
+      <Text>（{3}に対して [icon:YIELD_PRODUCTION] 基本値{1: number +#.#;-#.#}×[TIP:LOC_PEDIA_CONCEPTS_EFFICIENCY_TOOLTIP]効率[/TIP]{2: number #.#;-#.#}%）</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_CITY_BANNER_PRODUCTION_BONUS_UNIT" Language="ja_JP">
+      <Text>（{3}に対して [icon:YIELD_PRODUCTION] 基本値{1: number +#.#;-#.#}×[TIP:LOC_PEDIA_CONCEPTS_EFFICIENCY_TOOLTIP]効率[/TIP]{2: number #.#;-#.#}%）</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_CITY_BANNER_TURNS_TO_COMPLETION" Language="ja_JP">
+      <Text>完了まで{1_turns}ターン</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_CITY_BANNER_YIELD_BREAKDOWN" Language="ja_JP">
+      <Text>{1_Current: number #.#;-#.#} / {2_Threshold: number #.#;-#.#} [icon:{4_YIELD}][n]ターンごとに [icon:{4_YIELD}] {3_PerTurn: number +#.#;-#.#}</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_CITY_BANNER_YIELD_GROWTH_RATE_BONUS" Language="ja_JP">
+      <Text>（ [icon:YIELD_FOOD] 基本値{1: number +#.#;-#.#} × [icon:GROWTH_RATE] [TIP:LOC_PEDIA_CONCEPTS_GROWTH_RATE_TOOLTIP]成長率[/TIP]{2: number #.#;-#.#}%）</Text>
+    </Replace>
     <Replace Tag="LOC_UI_CITY_CAPTURE_KEEP_SETTLEMENT_DESC" Language="ja_JP">
       <Text>居住地が同化されるまでの間、幸福度と生産力が一時的に低下します。[n]{1_penalty}。</Text>
     </Replace>
@@ -39809,13 +40334,13 @@
       <Text>居住地が完全に失われるまで{1_Turns}ターン</Text>
     </Replace>
     <Replace Tag="LOC_UI_CITY_DETAILS_CONNECTED" Language="ja_JP">
-      <Text>この {4_IsTown: plural 1?[icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]Town[/TIP]; other?[icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]City[/TIP];}は{1_Settlement}（{2_Icon}{3_Project}）と結ばれています。</Text>
+      <Text>この {4_IsTown: plural 1?[icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]町[/TIP]; other?[icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]都市[/TIP];}は{1_Settlement}（{2_Icon}{3_Project}）と結ばれています。</Text>
     </Replace>
     <Replace Tag="LOC_UI_CITY_DETAILS_EXPORTING_FOOD_POTENTIAL" Language="ja_JP">
       <Text>{1_Settlement}に [icon:TOWN_FOCUS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_FOCUS_TOOLTIP]町の専業[/TIP]がある場合は、ターンごとに [icon:YIELD_FOOD] 食料{2_Amount}を結ばれているすべての [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]都市[/TIP]へ送ります。</Text>
     </Replace>
     <Replace Tag="LOC_UI_CITY_DETAILS_EXPORTING_FOOD_TO" Language="ja_JP">
-      <Text>この [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]町[/TIP]は{2_Settlement}（ [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]都市[/TIP]）と結ばれています。[nn]ターンごとに [icon:YIELD_FOOD] 食料{1_Amount}を{2_Settlement}へ送ります。</Text>
+      <Text>この [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]町[/TIP]は{2_Settlement}（ [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]都市[/TIP]）と結ばれています。[nn]ターンごとに [icon:YIELD_FOOD] 食料{1_Amount: number #.#;-#.#}を{2_Settlement}へ送ります。</Text>
     </Replace>
     <Replace Tag="LOC_UI_CITY_DETAILS_GROWTH_BREAKDOWN" Language="ja_JP">
       <Text>{1_Current:number#.#;-#.#}/{2_Threshold:number#.#;-#.#}[icon:YIELD_FOOD]({3_PerTurn:number+#.#;-#.#}[icon:YIELD_FOOD])</Text>
@@ -39830,10 +40355,13 @@
       <Text>（[icon:YIELD_HAPPINESS]{1_Amount}以下）</Text>
     </Replace>
     <Replace Tag="LOC_UI_CITY_DETAILS_IMPORTING_FOOD_FROM" Language="ja_JP">
-      <Text>この [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]都市[/TIP]は{2_Settlement}（ {3_Icon} {4_Project}）と結ばれています。[nn]ターンごとに [icon:YIELD_FOOD] 食料{1_Amount:}を{2_Settlement}から受け取ります。</Text>
+      <Text>この [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]都市[/TIP]は{2_Settlement}（ {3_Icon} {4_Project}）と結ばれています。[nn]ターンごとに [icon:YIELD_FOOD] 食料{1_Amount: number #.#;-#.#}を{2_Settlement}から受け取ります。</Text>
     </Replace>
     <Replace Tag="LOC_UI_CITY_DETAILS_IMPORTING_FOOD_POTENTIAL" Language="ja_JP">
-      <Text>この [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]都市[/TIP]は{2_Settlement}（ {3_Icon} {4_Project}）と結ばれています。[nn][icon:YIELD_FOOD] {2_Settlement}の [icon:TOWN_FOCUS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_FOCUS_TOOLTIP]町の専業[/TIP]が食料を送るものである場合は、ターンごとに [icon:YIELD_FOOD] 食料{1_Amount}を受け取ります。</Text>
+      <Text>この [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]都市[/TIP]は{2_Settlement}（ {3_Icon} {4_Project}）と結ばれています。[nn]{2_Settlement}の [icon:TOWN_FOCUS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_FOCUS_TOOLTIP]町の専業[/TIP]が [icon:YIELD_FOOD] 食料を送るものである場合は、ターンごとに [icon:YIELD_FOOD] 食料{1_Amount: number #.#;-#.#}を受け取ります。</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_CITY_DETAILS_IMPROVEMENTS_COUNT" Language="ja_JP">
+      <Text>居住地内の数: {1_Amount}</Text>
     </Replace>
     <Replace Tag="LOC_UI_CITY_DETAILS_NEW_CITIZEN_IN_TURNS" Language="ja_JP">
       <Text>{1_Turns}ターン後に新たな市民</Text>
@@ -39858,6 +40386,9 @@
     </Replace>
     <Replace Tag="LOC_UI_CITY_DETAILS_UNIQUE_QUARTER_NEEDS" Language="ja_JP">
       <Text>{1_Name}を建設すると固有街区が完成</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_CITY_DETAILS_WAREHOUSE_BREAKDOWN_COUNT" Language="ja_JP">
+      <Text>x{1}</Text>
     </Replace>
     <Replace Tag="LOC_UI_CITY_DETAILS_YIELD_MULTIPLIER_ONE_DECIMAL" Language="ja_JP">
       <Text>{1_Amount: number x #.#;x -#.#}</Text>
@@ -40023,6 +40554,9 @@
     </Replace>
     <Replace Tag="LOC_UI_GREAT_WORKS_UNIQUE_NAME" Language="ja_JP">
       <Text>{1_artifact}</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_HOLD_INPUT" Language="ja_JP">
+      <Text>{1_ActionName}（長押し）</Text>
     </Replace>
     <Replace Tag="LOC_UI_IMPROVEMENT_FOR_TILE" Language="ja_JP">
       <Text>このタイルを選択すると{1_ImprovementName}が得られます</Text>
@@ -40228,7 +40762,7 @@
       <Text>この [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]町[/TIP]の各タイルに配置できる [icon:SPECIALIST] 専門家の数: {1_Specialist}人</Text>
     </Replace>
     <Replace Tag="LOC_UI_TOWN_FOCUS_CONNECTION_INFO" Language="ja_JP">
-      <Text>{1_Settlement}が結ばれている [icon:YIELD_CITIES] の数は{2_Cities}、 [icon:YIELD_TOWNS] 町の数は{3_Towns}です。</Text>
+      <Text>{1_Settlement}が結ばれている [icon:YIELD_CITIES] 都市の数は{2_Cities}、 [icon:YIELD_TOWNS] 町の数は{3_Towns}です。</Text>
     </Replace>
     <Replace Tag="LOC_UI_TURN_YEAR_NUMBERS" Language="ja_JP">
       <Text>ターン{1_TurnNum} \| {2_TurnYear}</Text>
@@ -40606,7 +41140,7 @@
       <Text>ここに居住地を築くと{1_independent}の怒りを買います</Text>
     </Replace>
     <Replace Tag="LOC_WARNING_LANDCLAIM_TOO_CLOSE_MAJOR" Language="ja_JP">
-      <Text>ここに居住地を築くと{1_leader}との関係が悪化します</Text>
+      <Text>ここに居住地を築くと{1_leader}との [icon:RELATIONSHIP] 関係が悪化します</Text>
     </Replace>
     <Replace Tag="LOC_WARNING_LOSING_INDEPENDENT_MESSAGE" Language="ja_JP">
       <Text>{2_IndependentName}の統治者たちは、一段と{1_LeaderName}寄りの姿勢を強めつつあります。もっと影響力を行使しなければ、私たちのライバルを宗主国と仰ぐ都市国家が誕生することになるでしょう！</Text>
@@ -40924,7 +41458,7 @@
       <Text>ボーナス</Text>
     </Replace>
     <Replace Tag="LOC_YIELD_CITY_CAP" Language="ja_JP">
-      <Text>[icon:YIELD_CITY_CAP] 都市上限</Text>
+      <Text>[icon:YIELD_CITY_CAP] 都市限界</Text>
     </Replace>
     <Replace Tag="LOC_YIELD_CULTURE" Language="ja_JP">
       <Text>[icon:YIELD_CULTURE] 文化力</Text>

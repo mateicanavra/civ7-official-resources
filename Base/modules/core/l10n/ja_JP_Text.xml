@@ -592,6 +592,9 @@
     <Replace Tag="LOC_GROUPID_PLAYERDIFFICULTY" Language="ja_JP">
       <Text>プレイヤー難易度設定</Text>
     </Replace>
+    <Replace Tag="LOC_GROUPID_VICTORYOPTIONS" Language="ja_JP">
+      <Text>勝利設定</Text>
+    </Replace>
     <Replace Tag="LOC_HOTSEAT_ENTER_PASSWORD_HERE" Language="ja_JP">
       <Text>ここにパスワードを入力してください。</Text>
     </Replace>
@@ -657,6 +660,9 @@
     </Replace>
     <Replace Tag="LOC_JOIN_GAME_CONNECTION_REJECTED" Language="ja_JP">
       <Text>ゲームのホストに接続できませんでした。参加コードを使用している場合は、コードを確認してもう一度お試しださい。</Text>
+    </Replace>
+    <Replace Tag="LOC_JOIN_GAME_CROSSPLAY_DISABLED" Language="ja_JP">
+      <Text>「クロスプレイ」が無効になっている状態ではクロスプレイゲームに参加できません。「オプション」メニューで「クロスプレイ」を有効にしてください。</Text>
     </Replace>
     <Replace Tag="LOC_JOIN_GAME_JOINCODE_SYNTAX" Language="ja_JP">
       <Text>参加コードが正しくありません。コードを確認して再度お試しください。</Text>
@@ -3889,9 +3895,6 @@
     <Replace Tag="LOC_UI_CREATE_GAME_GAME_START_CIV_SELECTION" Language="ja_JP">
       <Text>ゲーム開始時の文明選択</Text>
     </Replace>
-    <Replace Tag="LOC_UI_CREATE_GAME_HEIGHT_OF_POWER" Language="ja_JP">
-      <Text>[絶頂期のテキスト]</Text>
-    </Replace>
     <Replace Tag="LOC_UI_CREATE_GAME_HEIGHT_OF_POWER_DESCRIPTION" Language="ja_JP">
       <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</Text>
     </Replace>
@@ -3900,9 +3903,6 @@
     </Replace>
     <Replace Tag="LOC_UI_CREATE_GAME_HISTORICAL_RANDOM_DESCRIPTION" Language="ja_JP">
       <Text>指導者と歴史、地理、戦略上の関連性がある文明が選ばれます。</Text>
-    </Replace>
-    <Replace Tag="LOC_UI_CREATE_GAME_HOWWHEN_IS_TEST_OF_TIME_ACTIVATED" Language="ja_JP">
-      <Text>[「時の試練」がいつ/どのように発動するかのテキスト]</Text>
     </Replace>
     <Replace Tag="LOC_UI_CREATE_GAME_HOWWHEN_IS_TEST_OF_TIME_ACTIVATED_DESCRIPTION" Language="ja_JP">
       <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</Text>
@@ -3992,10 +3992,7 @@
       <Text>解除条件</Text>
     </Replace>
     <Replace Tag="LOC_UI_CREATE_GAME_UNLOCKED_BY_DESCRIPTION" Language="ja_JP">
-      <Text>この文明を解除するために、任意の条件を満たしてください。</Text>
-    </Replace>
-    <Replace Tag="LOC_UI_CREATE_GAME_WHAT_IS_TEST_OF_TIME" Language="ja_JP">
-      <Text>[「時の試練」とは何かのテキスト]</Text>
+      <Text>任意の条件を満たすとこの文明を解除できます。</Text>
     </Replace>
     <Replace Tag="LOC_UI_CREATE_GAME_WHAT_IS_TEST_OF_TIME_DESCRIPTION" Language="ja_JP">
       <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</Text>
@@ -4193,19 +4190,22 @@
       <Text>次の行動可能なユニットに切り替えます</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_OPEN_ATTRIBUTES" Language="ja_JP">
-      <Text>属性を開く</Text>
+      <Text>属性の切り替え</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_OPEN_ATTRIBUTES_TT" Language="ja_JP">
-      <Text>「属性」画面を開く</Text>
+      <Text>「属性」画面の開閉</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_OPEN_CIVILOPEDIA" Language="ja_JP">
-      <Text>シヴィロペディアを開く</Text>
+      <Text>シヴィロペディアの切り替え</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_OPEN_CIVILOPEDIA_TT" Language="ja_JP">
+      <Text>シヴィロペディアの開閉</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_OPEN_GOVERNMENT" Language="ja_JP">
-      <Text>政府を開く</Text>
+      <Text>政府の切り替え</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_OPEN_GOVERNMENT_TT" Language="ja_JP">
-      <Text>「政府」画面を開く</Text>
+      <Text>政府画面の開閉</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_PAUSE_ONLINE_GAME" Language="ja_JP">
       <Text>オンラインゲームの一時停止</Text>
@@ -4249,14 +4249,29 @@
     <Replace Tag="LOC_UI_KBM_MAPPING_SECONDARY_KEY" Language="ja_JP">
       <Text>セカンダリ</Text>
     </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_ADVISORS" Language="ja_JP">
+      <Text>助言者評議会の切り替え</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_ADVISORS_TT" Language="ja_JP">
+      <Text>助言者評議会画面の開閉</Text>
+    </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_CIVICS_SCREEN" Language="ja_JP">
-      <Text>社会制度画面の切り替え</Text>
+      <Text>文化ツリーの切り替え</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_CIVICS_SCREEN_TT" Language="ja_JP">
+      <Text>文化ツリーの開閉</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_GREAT_PEOPLE_SCREEN" Language="ja_JP">
-      <Text>偉人画面の切り替え</Text>
+      <Text>偉人の切り替え</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_GREAT_PEOPLE_SCREEN_TT" Language="ja_JP">
+      <Text>偉人画面の開閉</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_GREAT_WORKS_SCREEN" Language="ja_JP">
-      <Text>傑作画面の切り替え</Text>
+      <Text>傑作の切り替え</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_GREAT_WORKS_SCREEN_TT" Language="ja_JP">
+      <Text>傑作画面の開閉</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_GRID" Language="ja_JP">
       <Text>グリッドの切り替え</Text>
@@ -4266,6 +4281,12 @@
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_JOURNAL" Language="ja_JP">
       <Text>ジャーナルの切り替え</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_LEGACIES" Language="ja_JP">
+      <Text>レガシーの切り替え</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_LEGACIES_TT" Language="ja_JP">
+      <Text>レガシー画面の開閉</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_LENS_CONTINENT" Language="ja_JP">
       <Text>大陸</Text>
@@ -4292,10 +4313,16 @@
       <Text>交易レンズの切り替え</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_RANKINGS_SCREEN" Language="ja_JP">
-      <Text>勝利画面の切り替え</Text>
+      <Text>勝利の切り替え</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_RANKINGS_SCREEN_TT" Language="ja_JP">
+      <Text>勝利画面の開閉</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_RELIGION" Language="ja_JP">
-      <Text>宗教パネルの切り替え</Text>
+      <Text>宗教の切り替え</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_RELIGION_TT" Language="ja_JP">
+      <Text>宗教画面の開閉</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_RESOURCE_ICONS" Language="ja_JP">
       <Text>資源アイコンの切り替え</Text>
@@ -4309,8 +4336,14 @@
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_TECH_TREE" Language="ja_JP">
       <Text>技術ツリーの切り替え</Text>
     </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_TECH_TREE_TT" Language="ja_JP">
+      <Text>技術ツリーの開閉</Text>
+    </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_TRADE_SCREEN" Language="ja_JP">
-      <Text>交易画面の切り替え</Text>
+      <Text>交易の切り替え</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_TRADE_SCREEN_TT" Language="ja_JP">
+      <Text>交易画面の開閉</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_VICTORY_PROGRESS" Language="ja_JP">
       <Text>勝利の達成状況画面の切り替え</Text>
@@ -4696,6 +4729,9 @@
     <Replace Tag="LOC_UI_MP_GAME_RULE_TURN_TIME" Language="ja_JP">
       <Text>ターン時間:</Text>
     </Replace>
+    <Replace Tag="LOC_UI_MP_GAME_RULE_TURN_TIME_EXTENDED" Language="ja_JP">
+      <Text>延長されたターン時間：</Text>
+    </Replace>
     <Replace Tag="LOC_UI_MP_GAME_RULE_TURN_TIMER" Language="ja_JP">
       <Text>ターンタイマー: </Text>
     </Replace>
@@ -5050,6 +5086,9 @@
     <Replace Tag="LOC_UI_SAVE_CONFIG" Language="ja_JP">
       <Text>設定を保存</Text>
     </Replace>
+    <Replace Tag="LOC_UI_SHOW_TOOLTIPS" Language="ja_JP">
+      <Text>ツールチップの表示（長押し）</Text>
+    </Replace>
     <Replace Tag="LOC_UI_SOCIAL_PLAYER_OPTIONS" Language="ja_JP">
       <Text>プレイヤー設定</Text>
     </Replace>
@@ -5088,6 +5127,15 @@
     </Replace>
     <Replace Tag="LOC_UI_TOOLTIP_DLCS" Language="ja_JP">
       <Text>オフィシャルコンテンツ</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_TOOLTIP_HIDDEN_HINT_BODY_POST" Language="ja_JP">
+      <Text>ツールチップを再表示します。ツールチップは再起動時に表示されます。</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_TOOLTIP_HIDDEN_HINT_BODY_PRE" Language="ja_JP">
+      <Text>長押ししてアクションを調べる</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_TOOLTIP_HIDDEN_HINT_TITLE" Language="ja_JP">
+      <Text>非表示のツールチップ</Text>
     </Replace>
     <Replace Tag="LOC_UI_TOOLTIP_MODS" Language="ja_JP">
       <Text>追加コンテンツ</Text>

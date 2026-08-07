@@ -454,10 +454,10 @@ class PlayerDiplomacyActionPanel extends DiplomacyActionPanel {
       relationshipContainer.appendChild(header);
       const headerTextElem = header.children[0].children[0];
       if (headerTextElem) {
-        headerTextElem.classList.add("flex");
-        const headerIcon = document.createElement("fxs-icon");
-        headerIcon.classList.add("relative", "size-8", "-top-1");
-        headerIcon.setAttribute("data-icon-id", "CITYSTATE");
+        headerTextElem.classList.add("flex", "flex-row", "items-center", "gap-2");
+        const headerIcon = document.createElement("div");
+        headerIcon.classList.add("relative", "size-6", "bg-center", "bg-no-repeat", "bg-contain");
+        headerIcon.style.backgroundImage = "url('blp:fi_citystate_gold_64.png')";
         headerTextElem.insertBefore(headerIcon, headerTextElem.childNodes[0]);
         headerTextElem.appendChild(headerIcon.cloneNode());
       }
@@ -493,10 +493,10 @@ class PlayerDiplomacyActionPanel extends DiplomacyActionPanel {
       relationshipContainer.appendChild(header);
       const headerTextElem = header.children[0].children[0];
       if (headerTextElem) {
-        headerTextElem.classList.add("flex");
-        const headerIcon = document.createElement("fxs-icon");
-        headerIcon.classList.add("relative", "size-8", "-top-1");
-        headerIcon.setAttribute("data-icon-id", "INDEPENDENT_POWER");
+        headerTextElem.classList.add("flex", "flex-row", "items-center", "gap-2");
+        const headerIcon = document.createElement("div");
+        headerIcon.classList.add("relative", "size-6", "bg-center", "bg-no-repeat", "bg-contain");
+        headerIcon.style.backgroundImage = "url('blp:fi_independent_power_gold_64.png')";
         headerTextElem.insertBefore(headerIcon, headerTextElem.childNodes[0]);
         headerTextElem.appendChild(headerIcon.cloneNode());
       }

@@ -260,7 +260,7 @@ var Icon;
   function getCivSymbolFromCivilizationType(civilization) {
     const civDef = GameInfo.Civilizations.lookup(civilization);
     if (civDef) {
-      return "fs://game/core/ui/civ_sym_" + civDef.CivilizationType.slice(13).toLowerCase();
+      return UI.getIconURL(civDef.CivilizationType);
     }
     return "";
   }

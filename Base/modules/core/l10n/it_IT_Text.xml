@@ -620,6 +620,9 @@
     <Replace Tag="LOC_GROUPID_PLAYERDIFFICULTY" Language="it_IT">
       <Text>Impostazioni difficoltà giocatore</Text>
     </Replace>
+    <Replace Tag="LOC_GROUPID_VICTORYOPTIONS" Language="it_IT">
+      <Text>Impostazioni di Vittoria</Text>
+    </Replace>
     <Replace Tag="LOC_HOTSEAT_ENTER_PASSWORD_HERE" Language="it_IT">
       <Text>Inserisci la password.</Text>
     </Replace>
@@ -685,6 +688,9 @@
     </Replace>
     <Replace Tag="LOC_JOIN_GAME_CONNECTION_REJECTED" Language="it_IT">
       <Text>Impossibile connettersi all'host. Se stai utilizzando un codice lobby, verificalo e riprova.</Text>
+    </Replace>
+    <Replace Tag="LOC_JOIN_GAME_CROSSPLAY_DISABLED" Language="it_IT">
+      <Text>Non puoi partecipare a partite cross-play perché la funzione cross-play è disattivata. Puoi attivarla nel menu Opzioni.</Text>
     </Replace>
     <Replace Tag="LOC_JOIN_GAME_JOINCODE_SYNTAX" Language="it_IT">
       <Text>Il codice lobby è sbagliato. Verificalo e riprova.</Text>
@@ -2485,7 +2491,7 @@
       <Text>Inquadra automaticamente combattimento</Text>
     </Replace>
     <Replace Tag="LOC_OPTIONS_PLAYER_COMBAT_CAMERA_PAN_0" Language="it_IT">
-      <Text>Disattiva</Text>
+      <Text>Disattivata</Text>
     </Replace>
     <Replace Tag="LOC_OPTIONS_PLAYER_COMBAT_CAMERA_PAN_0_DESCRIPTION" Language="it_IT">
       <Text>L'opzione Inquadra automaticamente combattimento è disattivata.</Text>
@@ -2503,7 +2509,7 @@
       <Text>La visuale si sposta sulle tue unità ogni volta che subiscono danni.</Text>
     </Replace>
     <Replace Tag="LOC_OPTIONS_PLAYER_COMBAT_CAMERA_PAN_DESCRIPTION" Language="it_IT">
-      <Text>La visuale si sposta automaticamente sulle tue unità ogni volta che combattono.</Text>
+      <Text>Sposta automaticamente la visuale sulle tue unità durante il combattimento.</Text>
     </Replace>
     <Replace Tag="LOC_OPTIONS_PLOT_TOOLTIP_DELAY" Language="it_IT">
       <Text>Ritardo suggerimento caselle</Text>
@@ -3918,9 +3924,6 @@
     <Replace Tag="LOC_UI_CREATE_GAME_GAME_START_CIV_SELECTION" Language="it_IT">
       <Text>Selezione civiltà di inizio partita</Text>
     </Replace>
-    <Replace Tag="LOC_UI_CREATE_GAME_HEIGHT_OF_POWER" Language="it_IT">
-      <Text>[Height of Power Text]</Text>
-    </Replace>
     <Replace Tag="LOC_UI_CREATE_GAME_HEIGHT_OF_POWER_DESCRIPTION" Language="it_IT">
       <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</Text>
     </Replace>
@@ -3929,9 +3932,6 @@
     </Replace>
     <Replace Tag="LOC_UI_CREATE_GAME_HISTORICAL_RANDOM_DESCRIPTION" Language="it_IT">
       <Text>Verranno selezionate civiltà che hanno un rapporto storico, geografico o strategico con il leader.</Text>
-    </Replace>
-    <Replace Tag="LOC_UI_CREATE_GAME_HOWWHEN_IS_TEST_OF_TIME_ACTIVATED" Language="it_IT">
-      <Text>[How/When is Test of Time activated Text]</Text>
     </Replace>
     <Replace Tag="LOC_UI_CREATE_GAME_HOWWHEN_IS_TEST_OF_TIME_ACTIVATED_DESCRIPTION" Language="it_IT">
       <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</Text>
@@ -4023,9 +4023,6 @@
     <Replace Tag="LOC_UI_CREATE_GAME_UNLOCKED_BY_DESCRIPTION" Language="it_IT">
       <Text>Completa un requisito qualsiasi per sbloccare questa civiltà.</Text>
     </Replace>
-    <Replace Tag="LOC_UI_CREATE_GAME_WHAT_IS_TEST_OF_TIME" Language="it_IT">
-      <Text>[What is Test of Time Text]</Text>
-    </Replace>
     <Replace Tag="LOC_UI_CREATE_GAME_WHAT_IS_TEST_OF_TIME_DESCRIPTION" Language="it_IT">
       <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</Text>
     </Replace>
@@ -4039,7 +4036,7 @@
       <Text>Scegli un elemento</Text>
     </Replace>
     <Replace Tag="LOC_UI_ENABLED" Language="it_IT">
-      <Text>Attivo</Text>
+      <Text>Attivato</Text>
     </Replace>
     <Replace Tag="LOC_UI_ERROR_DECODING_ENTITLEMENT_NAME" Language="it_IT">
       <Text>Errore G100: Impossibile decodificare il nome dell'oggetto concesso</Text>
@@ -4222,19 +4219,22 @@
       <Text>Passa alla successiva unità pronta ad agire</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_OPEN_ATTRIBUTES" Language="it_IT">
-      <Text>Apri Attributi</Text>
+      <Text>Mostra/Nascondi Attributi</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_OPEN_ATTRIBUTES_TT" Language="it_IT">
-      <Text>Apri la schermata degli Attributi</Text>
+      <Text>Apre e chiude la schermata degli Attributi</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_OPEN_CIVILOPEDIA" Language="it_IT">
-      <Text>Apri Civilopedia</Text>
+      <Text>Mostra/Nascondi Civilopedia</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_OPEN_CIVILOPEDIA_TT" Language="it_IT">
+      <Text>Apre e chiude la Civilopedia</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_OPEN_GOVERNMENT" Language="it_IT">
-      <Text>Apri Governo</Text>
+      <Text>Mostra/Nascondi governo</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_OPEN_GOVERNMENT_TT" Language="it_IT">
-      <Text>Apri la schermata del Governo</Text>
+      <Text>Apre e chiude la schermata del Governo</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_PAUSE_ONLINE_GAME" Language="it_IT">
       <Text>Pausa partita online</Text>
@@ -4278,14 +4278,29 @@
     <Replace Tag="LOC_UI_KBM_MAPPING_SECONDARY_KEY" Language="it_IT">
       <Text>Secondaria</Text>
     </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_ADVISORS" Language="it_IT">
+      <Text>Mostra/Nascondi Consiglieri</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_ADVISORS_TT" Language="it_IT">
+      <Text>Apre e chiude la schermata dei Consiglieri</Text>
+    </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_CIVICS_SCREEN" Language="it_IT">
-      <Text>Mostra/Nascondi Schermata Progressi civici</Text>
+      <Text>Mostra/Nascondi Albero culturale</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_CIVICS_SCREEN_TT" Language="it_IT">
+      <Text>Apre e chiude l'Albero culturale</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_GREAT_PEOPLE_SCREEN" Language="it_IT">
-      <Text>Mostra/Nascondi Schermata Grandi Personaggi</Text>
+      <Text>Mostra/Nascondi Grandi Personaggi</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_GREAT_PEOPLE_SCREEN_TT" Language="it_IT">
+      <Text>Apre e chiude la schermata dei Grandi Personaggi</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_GREAT_WORKS_SCREEN" Language="it_IT">
-      <Text>Schermata Capolavori</Text>
+      <Text>Mostra/Nascondi Capolavori</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_GREAT_WORKS_SCREEN_TT" Language="it_IT">
+      <Text>Apre e chiude la schermata dei Capolavori</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_GRID" Language="it_IT">
       <Text>Mostra/Nascondi Griglia</Text>
@@ -4295,6 +4310,12 @@
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_JOURNAL" Language="it_IT">
       <Text>Mostra/Nascondi Registro</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_LEGACIES" Language="it_IT">
+      <Text>Mostra/Nascondi Retaggi</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_LEGACIES_TT" Language="it_IT">
+      <Text>Apre e chiude la schermata dei Retaggi</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_LENS_CONTINENT" Language="it_IT">
       <Text>Continente</Text>
@@ -4321,10 +4342,16 @@
       <Text>Attiva/Disattiva la lente Commercio</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_RANKINGS_SCREEN" Language="it_IT">
-      <Text>Mostra/Nascondi schermata Vittorie</Text>
+      <Text>Mostra/Nascondi Vittorie</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_RANKINGS_SCREEN_TT" Language="it_IT">
+      <Text>Apre e chiude la schermata delle Vittorie</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_RELIGION" Language="it_IT">
-      <Text>Mostra/Nascondi Pannello religione</Text>
+      <Text>Mostra/Nascondi Religione</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_RELIGION_TT" Language="it_IT">
+      <Text>Apre e chiude la schermata della Religione</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_RESOURCE_ICONS" Language="it_IT">
       <Text>Icone risorse</Text>
@@ -4338,8 +4365,14 @@
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_TECH_TREE" Language="it_IT">
       <Text>Mostra/Nascondi Albero Tecnologie</Text>
     </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_TECH_TREE_TT" Language="it_IT">
+      <Text>Apre e chiude l'Albero delle tecnologie</Text>
+    </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_TRADE_SCREEN" Language="it_IT">
-      <Text>Mostra/Nascondi Schermata Commercio</Text>
+      <Text>Mostra/Nascondi Commercio</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_TRADE_SCREEN_TT" Language="it_IT">
+      <Text>Apre e chiude la schermata del Commercio</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_VICTORY_PROGRESS" Language="it_IT">
       <Text>Mostra/Nascondi Schermata Progresso vittoria</Text>
@@ -4725,6 +4758,9 @@
     <Replace Tag="LOC_UI_MP_GAME_RULE_TURN_TIME" Language="it_IT">
       <Text>Durata turno:</Text>
     </Replace>
+    <Replace Tag="LOC_UI_MP_GAME_RULE_TURN_TIME_EXTENDED" Language="it_IT">
+      <Text>Durata turni prolungati:</Text>
+    </Replace>
     <Replace Tag="LOC_UI_MP_GAME_RULE_TURN_TIMER" Language="it_IT">
       <Text>Timer dei turni:</Text>
     </Replace>
@@ -5079,6 +5115,9 @@
     <Replace Tag="LOC_UI_SAVE_CONFIG" Language="it_IT">
       <Text>Salva</Text>
     </Replace>
+    <Replace Tag="LOC_UI_SHOW_TOOLTIPS" Language="it_IT">
+      <Text>Mostra suggerimenti (TIENI PREMUTO)</Text>
+    </Replace>
     <Replace Tag="LOC_UI_SOCIAL_PLAYER_OPTIONS" Language="it_IT">
       <Text>Opzioni giocatore</Text>
     </Replace>
@@ -5117,6 +5156,15 @@
     </Replace>
     <Replace Tag="LOC_UI_TOOLTIP_DLCS" Language="it_IT">
       <Text>Contenuti ufficiali</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_TOOLTIP_HIDDEN_HINT_BODY_POST" Language="it_IT">
+      <Text>per mostrare nuovamente i suggerimenti. I suggerimenti saranno mostrati di nuovo al riavvio del gioco.</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_TOOLTIP_HIDDEN_HINT_BODY_PRE" Language="it_IT">
+      <Text>Tieni premuto azione ispezione</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_TOOLTIP_HIDDEN_HINT_TITLE" Language="it_IT">
+      <Text>Suggerimenti nascosti</Text>
     </Replace>
     <Replace Tag="LOC_UI_TOOLTIP_MODS" Language="it_IT">
       <Text>Add-on</Text>

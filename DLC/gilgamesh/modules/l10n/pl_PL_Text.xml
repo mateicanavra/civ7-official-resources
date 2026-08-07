@@ -43,6 +43,12 @@
     <Replace Tag="LOC_DIPLO_MAKE_DEAL_REJECTED_LEADER_GILGAMESH" Language="pl_PL">
       <Text>Twoja oferta ma posmak popiołu.</Text>
     </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_DECREASED_LEADER_GILGAMESH" Language="pl_PL">
+      <Text>Skrzeczysz jak ptak Anzu, pełzasz jak Lilītu.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_INCREASED_LEADER_GILGAMESH" Language="pl_PL">
+      <Text>Brawo! Czas na zapasy.</Text>
+    </Replace>
     <Replace Tag="LOC_MAIN_CHAR_SELECT_LEADER_GILGAMESH_ANY" Language="pl_PL">
       <Text>Pozostali twierdzą, że są królami. Który z nich może pochwalić się moją boską posturą, lapisową brodą i błyszczącymi oczami?</Text>
     </Replace>
@@ -663,13 +669,19 @@
       <Text>Upamiętnienie wojskowe Gilgamesza epoki nowożytnej</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_ALLY_OF_ENKIDU_DESC" Language="pl_PL">
-      <Text>Lubi przywódców, którzy rozpoczęli lub wspierają najwięcej przedsięwzięć. Nie lubi przywódców, którzy są z kimś innym w sojuszu.</Text>
+      <Text>Lubi przywódców, którzy rozpoczęli lub wspierają najwięcej [icon:ENDEAVOR] przedsięwzięć. Nie lubi przywódców, którzy są z kimś innym w [icon:PLAYER_RELATIONSHIP_ALLIANCE] sojuszu.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_ALLY_OF_ENKIDU_DESC_DISLIKES" Language="pl_PL">
+      <Text>Gilgamesz nie lubi przywódców, którzy są z kimś innym w [icon:PLAYER_RELATIONSHIP_ALLIANCE] sojuszu.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_ALLY_OF_ENKIDU_DESC_LIKES" Language="pl_PL">
+      <Text>Gilgamesz lubi przywódców, którzy rozpoczęli lub wspierają najwięcej [icon:ENDEAVOR] przedsięwzięć.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_ALLY_OF_ENKIDU_NAME" Language="pl_PL">
       <Text>Sojusznik Enkidu</Text>
     </Replace>
     <Replace Tag="LOC_LEADER_GILGAMESH_DESCRIPTION" Language="pl_PL">
-      <Text>+2 do [icon:WAR_SUPPORT] wsparcia wojny, gdy znajdujesz się w tylko jednym sojuszu. Gdy jedna z twoich jednostek wojskowych pokona wrogą jednostkę, zyskujesz [icon:YIELD_DIPLOMACY] wpływy, których ilość równa się 50% [icon:NAR_REW_COMBAT] siły bojowej pokonanej jednostki. Wszystkie podstawowe przedsięwzięcia są automatycznie odblokowane. Przedsięwzięcia wspólne z sojusznikami nie wliczają się do limitu wspierania maksymalnie jednego przedsięwzięcia danego typu jednocześnie. Sojusznicy mogą wspierać twoje przedsięwzięcia za darmo.</Text>
+      <Text>+2 do [icon:WAR_SUPPORT] wsparcia dla wojny, gdy znajdujesz się w tylko jednym [icon:PLAYER_RELATIONSHIP_ALLIANCE] sojuszu. Gdy jedna z twoich jednostek wojskowych pokona wrogą jednostkę, zyskujesz [icon:YIELD_DIPLOMACY] wpływy, których ilość równa się 50% [icon:NAR_REW_COMBAT] siły bojowej pokonanej jednostki. Wszystkie podstawowe przedsięwzięcia są automatycznie odblokowane. Przedsięwzięcia wspólne z sojusznikami nie wliczają się do limitu wspierania maksymalnie jednego przedsięwzięcia danego typu jednocześnie. Sojusznicy mogą wspierać twoje przedsięwzięcia za darmo.</Text>
     </Replace>
     <Replace Tag="LOC_LOADING_LEADER_INTRO_TEXT_GILGAMESH" Language="pl_PL">
       <Text>Nikt nie kocha życia bardziej niż ty, Gilgameszu, pierwszy z bohaterów i najlepszy z przyjaciół. Gaje cedrowe drżą od twego śmiechu, Tygrys wylewa od twych łez, a twoi wrogowie drżą na twój widok. Czeka cię nowe wyzwanie – dalej, dopisz nowy wers do swojej epopei.</Text>
@@ -1117,10 +1129,9 @@
       <Text>Raz śmiertelny, dwa razy boski</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_LEADER_GILGAMESH_ABILITY_DESCRIPTION" Language="pl_PL">
-      <Text>[BLIST][LI]+2 do [B][icon:WAR_SUPPORT] wsparcia dla wojny[/B], gdy znajdujesz się w tylko jednym sojuszu.
-[LI]Gdy jedna z twoich jednostek wojskowych pokona wrogą jednostkę, zyskujesz [B][icon:YIELD_DIPLOMACY] wpływy[/B], których ilość równa się 50% [icon:NAR_REW_COMBAT] siły bojowej pokonanej jednostki.
-[LI]Wszystkie podstawowe przedsięwzięcia są automatycznie odblokowane. Przedsięwzięcia wspólne z sojusznikami nie wliczają się do limitu wspierania maksymalnie jednego przedsięwzięcia danego typu jednocześnie. Sojusznicy mogą wspierać twoje przedsięwzięcia za darmo.[/LIST]
-</Text>
+      <Text>[BLIST][LI]+2 do [B][icon:WAR_SUPPORT] wsparcia dla wojny[/B], gdy znajdujesz się w tylko jednym [icon:PLAYER_RELATIONSHIP_ALLIANCE] sojuszu.
+				[LI]Gdy jedna z twoich jednostek wojskowych pokona wrogą jednostkę, zyskujesz [B][icon:YIELD_DIPLOMACY] wpływy[/B], których ilość równa się 50% [icon:NAR_REW_COMBAT] siły bojowej pokonanej jednostki. 
+				[LI]Wszystkie podstawowe przedsięwzięcia są automatycznie odblokowane. Przedsięwzięcia wspólne z sojusznikami nie wliczają się do limitu wspierania maksymalnie jednego przedsięwzięcia danego typu jednocześnie. Sojusznicy mogą wspierać twoje przedsięwzięcia za darmo. [/LIST]</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_LEADER_GILGAMESH_ABILITY_NAME" Language="pl_PL">
       <Text>Raz śmiertelny, dwa razy boski</Text>

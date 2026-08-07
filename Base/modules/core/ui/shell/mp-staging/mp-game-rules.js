@@ -160,6 +160,7 @@ class PanelMPPlayerOptions extends Panel {
       this.rules.push(ruleTurnTimerRule);
     }
     const turnTimerTime = gameConfig.turnTimerTime;
+    const turnTimerTimeExtended = gameConfig.turnTimerTimeExtended;
     if (turnTimerType == TurnTimerType.TURNTIMER_STANDARD) {
       const ruleTurnTime = this.addRule(
         this.rulesContainer,
@@ -168,6 +169,14 @@ class PanelMPPlayerOptions extends Panel {
       );
       if (ruleTurnTime) {
         this.rules.push(ruleTurnTime);
+      }
+      const ruleTurnTimeExtended = this.addRule(
+        this.rulesContainer,
+        Locale.compose("LOC_UI_MP_GAME_RULE_TURN_TIME_EXTENDED"),
+        `${turnTimerTimeExtended}`
+      );
+      if (ruleTurnTimeExtended) {
+        this.rules.push(ruleTurnTimeExtended);
       }
     }
     const turnPhaseType = gameConfig.turnPhaseType;

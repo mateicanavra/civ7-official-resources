@@ -13,6 +13,7 @@ import CityDetails, { UpdateCityDetailsEventName } from './model-city-details.js
 import { GetPrevCityID, GetNextCityID } from '../production-chooser/production-chooser-helpers.js';
 import { OVERLAY_PRIORITY } from '../utilities/utilities-overlay.js';
 import { ProductionTooltip } from '../../ui-next/tooltips/production-tooltip.js';
+import { WarehouseBreakdownTooltip } from '../../ui-next/tooltips/warehouse-breakdown-tooltip.js';
 import styles from './panel-city-details.scss.js';
 
 const ShowCityDetailsEventName = "show-city-details";
@@ -115,6 +116,11 @@ class PanelCityDetails extends Panel {
   buildingsList;
   improvementsCategory;
   improvementsList;
+  improvementsCollapseAllContainter;
+  improvementsCollapseAll;
+  improvementsCollapseAllText;
+  improvementsHeader;
+  improvementsWarehouseIcon;
   wondersCategory;
   wondersList;
   yieldsSlot;
@@ -184,6 +190,11 @@ class PanelCityDetails extends Panel {
     this.buildingsList = MustGetElement(".buildings-list", this.Root);
     this.improvementsCategory = MustGetElement(".improvements-category", this.Root);
     this.improvementsList = MustGetElement(".improvements-list", this.Root);
+    this.improvementsCollapseAllContainter = MustGetElement(".improvements-collapse-all", this.Root);
+    this.improvementsCollapseAll = MustGetElement(".improvements-collapse-all-minus-plus", this.Root);
+    this.improvementsCollapseAllText = MustGetElement(".improvements-collapse-all-text", this.Root);
+    this.improvementsHeader = MustGetElement(".improvements-header", this.Root);
+    this.improvementsWarehouseIcon = MustGetElement(".improvements-breakdown-icon", this.Root);
     this.wondersCategory = MustGetElement(".wonders-category", this.Root);
     this.wondersList = MustGetElement(".wonders-list", this.Root);
     this.yieldsSlot = MustGetElement(`#${"city-details-tab-yields" /* yields */}`, this.Root);
@@ -522,9 +533,25 @@ class PanelCityDetails extends Panel {
 					<div class="self-center font-title text-lg uppercase ml-2 text-gradient-secondary" data-l10n-id="LOC_UI_CITY_DETAILS_BUILDINGS"></div>
 				</div>
 				<div class="buildings-list flex-col m-1"></div>
-				<div class="improvements-category flex m-1">
+				<div class="improvements-category flex m-1 flex-row items-center">
 					<fxs-icon class="size-16 m-1" data-icon-id="CITY_IMPROVEMENTS_LIST"></fxs-icon>
-					<div class="self-center font-title text-lg uppercase ml-2 text-gradient-secondary" data-l10n-id="LOC_UI_CITY_DETAILS_IMPROVEMENTS"></div>
+					<div class="flex-col flex grow">
+						<div class="improvements-header flex-row flex ml-2 justify-between self-stretch items-center">
+							<div class="self-center font-title text-lg uppercase text-gradient-secondary" data-l10n-id="LOC_UI_CITY_DETAILS_IMPROVEMENTS"></div>
+							<div class="constructible-entry improvements-breakdown-icon flex flex-row items-center justify-center mr-5 relative" tabindex="-1">
+								<div class="constructible-entry-highlight flex-row flex items-center justify-between relative -top-1 -right-1">
+									<div class="size-6 m-1 bg-center bg-contain bg-no-repeat" style="background-image: url('blp:icon_info.png')">
+									</div>
+								</div>
+							</div>
+						</div>
+						<fxs-activatable class="improvements-collapse-all pointer-events-auto constructible-entry flex-row flex ml-2 self-stretch items-center" tabindex="-1">
+							<div class="constructible-entry-highlight flex-row flex items-center justify-between">
+								<div class="improvements-collapse-all-text" data-l10n-id="LOC_GLOBAL_YIELDS_COLLAPSE_ALL"></div>
+								<fxs-minus-plus type="minus" class="improvements-collapse-all-minus-plus ml-2"></fxs-minus-plus>
+							</div>
+						</fxs-activatable>
+					</div>
 				</div>
 				<div class="improvements-list flex-col m-1"></div>
 				<div class="wonders-category flex m-1">
@@ -802,16 +829,35 @@ class PanelCityDetails extends Panel {
     }
     const shouldShowImprovements = CityDetails.improvements.length > 0;
     this.improvementsCategory.classList.toggle("hidden", !shouldShowImprovements);
+    this.improvementsCollapseAllContainter.addEventListener("action-activate", () => {
+      this.onCollapseAllSection(
+        this.improvementsCollapseAll,
+        this.improvementsCollapseAllText,
+        this.improvementsList
+      );
+    });
+    this.improvementsCollapseAll.addEventListener("action-activate", () => {
+      this.onCollapseAllSection(
+        this.improvementsCollapseAll,
+        this.improvementsCollapseAllText,
+        this.improvementsList
+      );
+    });
+    this.addWarehouseBreakdownTooltip(this.improvementsHeader, this.improvementsWarehouseIcon);
     this.improvementsList.innerHTML = "";
+    let currentImprovement = "";
+    let currentImprovementList;
     for (const improvement of CityDetails.improvements) {
-      const improvementEntry = this.addConstructibleData(improvement);
-      const improvementDef = GameInfo.Constructibles.lookup(improvement.type);
-      if (improvementDef && improvementDef.Tooltip) {
-        this.addProductionTooltip(this.improvementsList, improvementEntry, improvement);
-      } else {
+      let improvementEntry;
+      if (currentImprovement != improvement.name) {
+        currentImprovement = improvement.name;
+        [improvementEntry, currentImprovementList] = this.addImprovementEntry(improvement);
         this.improvementsList.appendChild(improvementEntry);
+        this.improvementsList.appendChild(this.createDivider());
       }
-      this.improvementsList.appendChild(this.createDivider());
+      if (currentImprovementList) {
+        this.addImprovementPlotEntry(improvement, currentImprovementList);
+      }
     }
     const shouldShowWonders = CityDetails.wonders.length > 0;
     this.wondersCategory.classList.toggle("hidden", !shouldShowWonders);
@@ -1025,6 +1071,20 @@ class PanelCityDetails extends Panel {
     this.disposeTooltips.push(dispose);
     return dispose;
   }
+  addWarehouseBreakdownTooltip(parent, child) {
+    const isSmallScreen = window.innerHeight <= Layout.pixelsToScreenPixels(900) || window.innerWidth <= Layout.pixelsToScreenPixels(1700);
+    const dispose = render(
+      () => WarehouseBreakdownTooltip({
+        children: child,
+        initialHPosition: isSmallScreen ? TooltipHorizontalPosition.RIGHT : TooltipHorizontalPosition.LEFT,
+        initialVPosition: TooltipVerticalPosition.CENTER,
+        warehouseCounts: CityDetails.warehouseCounts
+      }),
+      parent
+    );
+    this.disposeTooltips.push(dispose);
+    return dispose;
+  }
   addDistrictData(districtData) {
     const mainDiv = document.createElement("div");
     mainDiv.classList.add("flex", "flex-col", "ml-4");
@@ -1053,6 +1113,208 @@ class PanelCityDetails extends Panel {
       const constructibleEntry = this.addConstructibleData(constructibleData);
       this.addProductionTooltip(mainDiv, constructibleEntry, constructibleData);
     }
+    return mainDiv;
+  }
+  updateCollapseAll(collapseButton, collapseText, sectionCollapse) {
+    let type = "plus";
+    const buttons = sectionCollapse.getElementsByTagName("fxs-minus-plus");
+    for (const e of buttons) {
+      if (e.getAttribute("type") !== type) {
+        type = "minus";
+        break;
+      }
+    }
+    collapseButton.setAttribute("type", type);
+    collapseText.setAttribute(
+      "data-l10n-id",
+      type === "plus" ? "LOC_UI_QUEUE_FILTER_SHOW_ALL" : "LOC_GLOBAL_YIELDS_COLLAPSE_ALL"
+    );
+  }
+  onCollapseAllSection(collapseButton, collapseText, sectionCollapse) {
+    const type = collapseButton.getAttribute("type") === "plus" ? "minus" : "plus";
+    collapseButton.setAttribute("type", type);
+    if (type == "minus") {
+      Audio.playSound("data-audio-dropdown-open");
+      collapseText.setAttribute("data-l10n-id", "LOC_GLOBAL_YIELDS_COLLAPSE_ALL");
+    } else {
+      Audio.playSound("data-audio-dropdown-close");
+      collapseText.setAttribute("data-l10n-id", "LOC_UI_QUEUE_FILTER_SHOW_ALL");
+    }
+    const buttons = sectionCollapse.getElementsByTagName("fxs-minus-plus");
+    for (const e of buttons) {
+      if (e.getAttribute("type") !== type) {
+        e.dispatchEvent(new CustomEvent("on-collapse-all"));
+      }
+    }
+  }
+  onCollapseImprovementSection(collapseButton, listContainer, collapseAllButton, collapseAllText, sectionCollapse, playSound = true) {
+    const type = collapseButton.getAttribute("type");
+    if (type == "minus") {
+      collapseButton.setAttribute("type", "plus");
+      listContainer.classList.add("hidden");
+      if (playSound) Audio.playSound("data-audio-dropdown-close");
+    } else {
+      collapseButton.setAttribute("type", "minus");
+      listContainer.classList.remove("hidden");
+      if (playSound) Audio.playSound("data-audio-dropdown-open");
+    }
+    this.updateCollapseAll(collapseAllButton, collapseAllText, sectionCollapse);
+  }
+  addImprovementEntry(constructibleData) {
+    const wrapDiv = document.createElement("div");
+    wrapDiv.classList.add("relative");
+    const collapseButton = document.createElement("fxs-minus-plus");
+    collapseButton.classList.add("absolute", "top-1", "right-5");
+    collapseButton.setAttribute("type", "minus");
+    wrapDiv.appendChild(collapseButton);
+    const childList = document.createElement("div");
+    childList.classList.value = "pl-4";
+    const mainDiv = document.createElement("fxs-activatable");
+    mainDiv.classList.add("constructible-entry", "flex", "flex-col");
+    mainDiv.setAttribute("tabindex", "-1");
+    mainDiv.setAttribute("data-type", constructibleData.type);
+    collapseButton.addEventListener("on-collapse-all", () => {
+      this.onCollapseImprovementSection(
+        collapseButton,
+        childList,
+        this.improvementsCollapseAll,
+        this.improvementsCollapseAllText,
+        this.improvementsList,
+        false
+      );
+    });
+    collapseButton.addEventListener("action-activate", () => {
+      this.onCollapseImprovementSection(
+        collapseButton,
+        childList,
+        this.improvementsCollapseAll,
+        this.improvementsCollapseAllText,
+        this.improvementsList
+      );
+    });
+    mainDiv.addEventListener("action-activate", () => {
+      this.onCollapseImprovementSection(
+        collapseButton,
+        childList,
+        this.improvementsCollapseAll,
+        this.improvementsCollapseAllText,
+        this.improvementsList
+      );
+    });
+    const topDiv = document.createElement("div");
+    topDiv.classList.add("constructible-entry-highlight", "flex", "ml-6", "mt-1", "mb-1", "pointer-events-none");
+    const icon = document.createElement("fxs-icon");
+    icon.classList.add("size-12");
+    icon.setAttribute("data-icon-context", constructibleData.iconContext);
+    icon.setAttribute("data-icon-id", constructibleData.icon);
+    topDiv.appendChild(icon);
+    const rightContainer = document.createElement("div");
+    rightContainer.classList.add("flex", "flex-col");
+    const nameContainer = document.createElement("div");
+    nameContainer.classList.add("flex", "ml-2", "center", "flex-col");
+    rightContainer.appendChild(nameContainer);
+    const name = document.createElement("div");
+    name.classList.add("mr-2", "font-title", "uppercase");
+    name.textContent = Locale.compose(constructibleData.name);
+    nameContainer.appendChild(name);
+    const countText = document.createElement("div");
+    countText.classList.add("ml-2", "text-sm");
+    countText.textContent = Locale.compose(
+      "LOC_UI_CITY_DETAILS_IMPROVEMENTS_COUNT",
+      CityDetails.constructibleCounts.get(constructibleData.name) ?? 0
+    );
+    rightContainer.appendChild(countText);
+    topDiv.appendChild(rightContainer);
+    mainDiv.appendChild(topDiv);
+    const improvementDef = GameInfo.Constructibles.lookup(constructibleData.type);
+    if (improvementDef && improvementDef.Tooltip) {
+      this.addProductionTooltip(wrapDiv, mainDiv, constructibleData);
+    } else {
+      wrapDiv.appendChild(mainDiv);
+    }
+    wrapDiv.appendChild(childList);
+    return [wrapDiv, childList];
+  }
+  addImprovementPlotEntry(constructibleData, listContainer) {
+    const mainDiv = document.createElement("fxs-activatable");
+    mainDiv.classList.add("constructible-entry", "flex", "flex-col");
+    mainDiv.setAttribute("tabindex", "-1");
+    mainDiv.setAttribute("data-type", constructibleData.type);
+    mainDiv.setAttribute("data-tooltip-style", "production-constructible-tooltip");
+    const topDiv = document.createElement("div");
+    topDiv.classList.add("constructible-entry-highlight", "flex", "flex-col", "ml-6", "pointer-events-none");
+    const divider = document.createElement("div");
+    divider.setAttribute("class", "grow h-px");
+    divider.style.background = "rgba(77, 83, 102, 0.30)";
+    topDiv.appendChild(divider);
+    const rightContainer = document.createElement("div");
+    rightContainer.classList.add("flex", "flex-col", "py-1");
+    const nameContainer = document.createElement("div");
+    nameContainer.classList.add("flex", "ml-2", "center", "flex-col");
+    rightContainer.appendChild(nameContainer);
+    if (constructibleData.damaged) {
+      const damagedText = document.createElement("div");
+      damagedText.classList.add("uppercase", "text-negative", "text-xs");
+      damagedText.textContent = "LOC_UI_CITY_DETAILS_BUILDING_DAMAGED";
+      nameContainer.appendChild(damagedText);
+    }
+    if (constructibleData.yieldMap) {
+      const yieldContainer = document.createElement("div");
+      yieldContainer.classList.add("flex", "flex-wrap", "max-w-96");
+      for (const [_yieldType, yieldData] of constructibleData.yieldMap) {
+        if (yieldData.icon && yieldData.iconContext) {
+          const yieldEntry = document.createElement("div");
+          yieldEntry.classList.add("flex");
+          yieldContainer.appendChild(yieldEntry);
+          const yieldIcon = document.createElement("fxs-icon");
+          yieldIcon.setAttribute("data-icon-context", yieldData.iconContext);
+          yieldIcon.setAttribute("data-icon-id", yieldData.icon);
+          yieldIcon.classList.add("ml-2", "size-6");
+          yieldEntry.appendChild(yieldIcon);
+          const yieldValue = document.createElement("div");
+          yieldValue.classList.add("text-xs", "self-center");
+          yieldValue.textContent = Locale.compose("LOC_UI_CITY_DETAILS_YIELD_ONE_DECIMAL", yieldData.value);
+          yieldEntry.appendChild(yieldValue);
+        }
+      }
+      rightContainer.appendChild(yieldContainer);
+    }
+    if (constructibleData.maintenanceMap) {
+      const maintenanceContainer = document.createElement("div");
+      maintenanceContainer.classList.add("flex", "pl-2");
+      const maintenanceText = document.createElement("div");
+      maintenanceText.textContent = Locale.compose("LOC_UI_PRODUCTION_BUILDING_MAINTENANCE");
+      maintenanceContainer.appendChild(maintenanceText);
+      for (const [_maintenanceType, maintenanceData] of constructibleData.maintenanceMap) {
+        if (maintenanceData.icon && maintenanceData.iconContext) {
+          const maintenanceEntry = document.createElement("div");
+          maintenanceEntry.classList.add("flex");
+          maintenanceContainer.appendChild(maintenanceEntry);
+          const maintenanceIcon = document.createElement("fxs-icon");
+          maintenanceIcon.setAttribute("data-icon-context", maintenanceData.iconContext);
+          maintenanceIcon.setAttribute("data-icon-id", maintenanceData.icon);
+          maintenanceIcon.classList.add("ml-2", "size-6");
+          maintenanceEntry.appendChild(maintenanceIcon);
+          const maintenanceValue = document.createElement("div");
+          maintenanceValue.classList.add("text-xs", "self-center", "text-negative-light");
+          maintenanceValue.textContent = Locale.compose(
+            "LOC_UI_CITY_DETAILS_YIELD_ONE_DECIMAL",
+            maintenanceData.value
+          );
+          maintenanceEntry.appendChild(maintenanceValue);
+        }
+      }
+      rightContainer.appendChild(maintenanceContainer);
+    }
+    mainDiv.setAttribute("data-constructible-data", JSON.stringify(constructibleData));
+    mainDiv.addEventListener("mouseover", this.mouseOverBuildingListener);
+    mainDiv.addEventListener("mouseout", this.mouseOutBuildingListener);
+    mainDiv.addEventListener("focus", this.focusBuildingListener);
+    mainDiv.addEventListener("focusout", this.focusOutBuildingListener);
+    mainDiv.addEventListener("action-activate", this.activateBuildingListener);
+    topDiv.appendChild(rightContainer);
+    mainDiv.appendChild(topDiv);
+    listContainer.appendChild(mainDiv);
     return mainDiv;
   }
   addConstructibleData(constructibleData) {

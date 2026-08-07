@@ -43,6 +43,12 @@
     <Replace Tag="LOC_DIPLO_MAKE_DEAL_REJECTED_LEADER_GILGAMESH" Language="fr_FR">
       <Text>Votre marché a un goût de cendres.</Text>
     </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_DECREASED_LEADER_GILGAMESH" Language="fr_FR">
+      <Text>Vous croassez comme l'Anzû et rampez comme Lilītu.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_INCREASED_LEADER_GILGAMESH" Language="fr_FR">
+      <Text>Bravo ! Affrontons-nous.</Text>
+    </Replace>
     <Replace Tag="LOC_MAIN_CHAR_SELECT_LEADER_GILGAMESH_ANY" Language="fr_FR">
       <Text>Ces autres prétendent être des rois. Qui parmi eux peut se vanter de ma stature divine, de ma barbe de lapis, de mes yeux étincelants ?</Text>
     </Replace>
@@ -619,13 +625,19 @@
       <Text>Engagement militariste de Gilgamesh pour l'Âge moderne</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_ALLY_OF_ENKIDU_DESC" Language="fr_FR">
-      <Text>Apprécie le dirigeant qui a entrepris ou soutenu le plus d'initiatives conjointes. N'apprécie pas les dirigeants alliés à quelqu'un d'autre.</Text>
+      <Text>Apprécie le dirigeant qui a entrepris ou soutenu le plus [icon:ENDEAVOR] d'initiatives conjointes. N'apprécie pas les dirigeants [icon:PLAYER_RELATIONSHIP_ALLIANCE] alliés à quelqu'un d'autre.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_ALLY_OF_ENKIDU_DESC_DISLIKES" Language="fr_FR">
+      <Text>Gilgamesh n'apprécie pas les dirigeants [icon:PLAYER_RELATIONSHIP_ALLIANCE] alliés à quelqu'un d'autre.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_ALLY_OF_ENKIDU_DESC_LIKES" Language="fr_FR">
+      <Text>Gilgamesh apprécie le dirigeant qui a entrepris ou soutenu le plus [icon:ENDEAVOR] d'initiatives conjointes.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_ALLY_OF_ENKIDU_NAME" Language="fr_FR">
       <Text>Adepte d'Enkidu</Text>
     </Replace>
     <Replace Tag="LOC_LEADER_GILGAMESH_DESCRIPTION" Language="fr_FR">
-      <Text>[icon:WAR_SUPPORT] Soutien à la guerre +2 si vous n'avez qu'une seule alliance. Si l'une de vos unités militaires l'emporte sur une unité adverse, vous recevez une quantité [icon:YIELD_DIPLOMACY] d'Influence égale à 50 % de la [icon:NAR_REW_COMBAT] Puissance de combat de l'unité vaincue. Toutes les initiatives conjointes de base sont automatiquement débloquées. Les initiatives conjointes avec des alliés ne sont pas prises en compte pour la limite d'une seule initiative conjointe d'un même type active à la fois. Vos alliés peuvent soutenir vos initiatives conjointes gratuitement.</Text>
+      <Text>[icon:WAR_SUPPORT] Soutien à la guerre +2 si vous n'avez qu'une seule [icon:PLAYER_RELATIONSHIP_ALLIANCE] alliance. Si l'une de vos unités militaires l'emporte sur une unité adverse, vous recevez une quantité [icon:YIELD_DIPLOMACY] d'Influence égale à 50 % de la [icon:NAR_REW_COMBAT] Puissance de combat de l'unité vaincue. Toutes les initiatives conjointes de base sont automatiquement débloquées. Les initiatives conjointes avec des alliés ne sont pas prises en compte pour la limite d'une seule initiative conjointe d'un même type active à la fois. Vos alliés peuvent soutenir vos initiatives conjointes gratuitement.</Text>
     </Replace>
     <Replace Tag="LOC_LOADING_LEADER_INTRO_TEXT_GILGAMESH" Language="fr_FR">
       <Text>Nul n'aime plus la vie que vous, Gilgamesh, premier des héros et meilleur des compagnons. Les forêts de cèdres tremblent sous votre rire, le Tigre se remplit de vos larmes et vos ennemis reculent à votre approche. Un nouveau défi vous attend ; venez écrire un nouveau chapitre à votre épopée.</Text>
@@ -1073,7 +1085,7 @@
       <Text>Une fois mortel, deux fois divin</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_LEADER_GILGAMESH_ABILITY_DESCRIPTION" Language="fr_FR">
-      <Text>[BLIST][LI][B][icon:WAR_SUPPORT] Soutien à la guerre[/B] +2 si vous n'avez qu'une seule alliance.
+      <Text>[BLIST][LI][B][icon:WAR_SUPPORT] Soutien à la guerre +2[/B] si vous n'avez qu'une seule [icon:PLAYER_RELATIONSHIP_ALLIANCE] alliance.
 				[LI]Si l'une de vos unités militaires l'emporte sur une unité adverse, vous recevez une quantité [B][icon:YIELD_DIPLOMACY] d'Influence[/B] égale à 50 % de la [icon:NAR_REW_COMBAT] Puissance de combat de l'unité vaincue.
 				[LI]Toutes les initiatives conjointes de base sont automatiquement débloquées. Les initiatives conjointes avec des alliés ne sont pas prises en compte pour la limite d'une seule initiative conjointe d'un même type active à la fois. Vos alliés peuvent soutenir vos initiatives conjointes gratuitement.[/LIST]</Text>
     </Replace>

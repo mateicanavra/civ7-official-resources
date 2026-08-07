@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Types>
+		<!--Civ Unique Buildings-->
+		<Row Type="BUILDING_CONFUCIAN_ACADEMY" Kind="KIND_CONSTRUCTIBLE"/>
+		<Row Type="BUILDING_PRINTING_HOUSE" Kind="KIND_CONSTRUCTIBLE"/>
+		<Row Type="QUARTER_SEOWON" Kind="KIND_QUARTER"/>
+		<!--Wonders-->
+		<Row Type="WONDER_HWASEONG" Kind="KIND_CONSTRUCTIBLE"/>
+	</Types>
+	<TypeQuotes>
+		<Row Type="WONDER_HWASEONG" Quote="LOC_QUOTE_WONDER_HWASEONG" QuoteAuthor="LOC_QUOTE_AUTHOR_WONDER_HWASEONG" QuoteAudio="VO_Quote_Hwaseong"/>
+	</TypeQuotes>
+	<Constructibles>
+		<!--Civ Unique Buildings-->
+		<Row ConstructibleType="BUILDING_CONFUCIAN_ACADEMY" Name="LOC_BUILDING_CONFUCIAN_ACADEMY_NAME" Description="LOC_BUILDING_CONFUCIAN_ACADEMY_DESCRIPTION" Tooltip="LOC_BUILDING_CONFUCIAN_ACADEMY_TOOLTIP" ConstructibleClass="BUILDING" Cost="650" Population="1" Age="AGE_MODERN"/>
+		<Row ConstructibleType="BUILDING_PRINTING_HOUSE" Name="LOC_BUILDING_PRINTING_HOUSE_NAME" Description="LOC_BUILDING_PRINTING_HOUSE_DESCRIPTION" Tooltip="LOC_BUILDING_PRINTING_HOUSE_TOOLTIP" ConstructibleClass="BUILDING" Cost="650" Population="1" Age="AGE_MODERN"/>
+		<!--Wonders-->
+		<Row ConstructibleType="WONDER_HWASEONG" Name="LOC_WONDER_HWASEONG_NAME" Description="LOC_WONDER_HWASEONG_DESCRIPTION" Tooltip="LOC_WONDER_HWASEONG_TOOLTIP" ConstructibleClass="WONDER" Cost="1000" AdjacentTerrain="TERRAIN_HILL" Population="0" ImmuneDamage="true" Age="AGE_MODERN" RequiresUnlock="true"/>
+	</Constructibles>
+	<Buildings>
+		<!-- Civ Unique Buildings -->
+		<Row ConstructibleType="BUILDING_CONFUCIAN_ACADEMY" Movable="false" TraitType="TRAIT_JOSEON" CapitalForbidden="true" Town="true"/>
+		<Row ConstructibleType="BUILDING_PRINTING_HOUSE" Movable="false" TraitType="TRAIT_JOSEON" CapitalForbidden="true" Town="true"/>
+	</Buildings>
+	<Wonders>
+		<Row ConstructibleType="WONDER_HWASEONG" MaxWorldInstances="1"/>
+	</Wonders>
+	<TypeTags>
+		<Row Type="BUILDING_CONFUCIAN_ACADEMY" Tag="CULTURE"/>
+		<Row Type="BUILDING_CONFUCIAN_ACADEMY" Tag="UNIQUE"/>
+		<Row Type="BUILDING_CONFUCIAN_ACADEMY" Tag="AGELESS"/>
+		<Row Type="BUILDING_PRINTING_HOUSE" Tag="SCIENCE"/>
+		<Row Type="BUILDING_PRINTING_HOUSE" Tag="UNIQUE"/>
+		<Row Type="BUILDING_PRINTING_HOUSE" Tag="AGELESS"/>
+		<Row Type="WONDER_HWASEONG" Tag="AGELESS"/>
+	</TypeTags>
+	<Constructible_ValidDistricts>
+		<Row ConstructibleType="BUILDING_CONFUCIAN_ACADEMY" DistrictType="DISTRICT_CITY_CENTER"/>
+		<Row ConstructibleType="BUILDING_CONFUCIAN_ACADEMY" DistrictType="DISTRICT_URBAN"/>
+		<Row ConstructibleType="BUILDING_PRINTING_HOUSE" DistrictType="DISTRICT_CITY_CENTER"/>
+		<Row ConstructibleType="BUILDING_PRINTING_HOUSE" DistrictType="DISTRICT_URBAN"/>
+		<!--Wonders-->
+		<Row ConstructibleType="WONDER_HWASEONG" DistrictType="DISTRICT_WONDER"/>
+	</Constructible_ValidDistricts>
+	<Constructible_ValidTerrains>
+		<Row ConstructibleType="WONDER_HWASEONG" TerrainType="TERRAIN_FLAT"/>
+	</Constructible_ValidTerrains>
+	<Constructible_YieldChanges>
+		<Row ConstructibleType="BUILDING_CONFUCIAN_ACADEMY" YieldType="YIELD_CULTURE" YieldChange="9"/>
+		<Row ConstructibleType="BUILDING_PRINTING_HOUSE" YieldType="YIELD_SCIENCE" YieldChange="9"/>
+		<!--Wonders-->
+		<Row ConstructibleType="WONDER_HWASEONG" YieldType="YIELD_CULTURE" YieldChange="4"/>
+	</Constructible_YieldChanges>
+	<Constructible_Maintenances>
+		<Row ConstructibleType="BUILDING_CONFUCIAN_ACADEMY" YieldType="YIELD_GOLD" Amount="4"/>
+		<Row ConstructibleType="BUILDING_CONFUCIAN_ACADEMY" YieldType="YIELD_HAPPINESS" Amount="0"/>
+		<Row ConstructibleType="BUILDING_PRINTING_HOUSE" YieldType="YIELD_HAPPINESS" Amount="4"/>
+		<Row ConstructibleType="BUILDING_PRINTING_HOUSE" YieldType="YIELD_GOLD" Amount="4"/>
+	</Constructible_Maintenances>
+	<Constructible_BuildingCostProgressions>
+		<Row ConstructibleType="BUILDING_CONFUCIAN_ACADEMY" Percent="5" />
+		<Row ConstructibleType="BUILDING_PRINTING_HOUSE" Percent="5" />
+	</Constructible_BuildingCostProgressions>
+	<Constructible_Adjacencies>
+		<Row ConstructibleType="BUILDING_CONFUCIAN_ACADEMY" YieldChangeId="MountainHappiness"/>
+		<Row ConstructibleType="BUILDING_CONFUCIAN_ACADEMY" YieldChangeId="WonderHappiness"/>
+		<Row ConstructibleType="BUILDING_PRINTING_HOUSE" YieldChangeId="PrintingHouseQuarterProduction"/>
+		<Row ConstructibleType="BUILDING_PRINTING_HOUSE" YieldChangeId="WonderProduction"/>
+	</Constructible_Adjacencies>
+	<Adjacency_YieldChanges>
+		<Row ID="PrintingHouseQuarterProduction" YieldType="YIELD_PRODUCTION" YieldChange="1" TilesRequired="1" ProjectMaxYield="true" AdjacentQuarter="true"/>
+	</Adjacency_YieldChanges>
+	<Constructible_Plunders>
+		<Row ConstructibleType="BUILDING_CONFUCIAN_ACADEMY" PlunderType="PLUNDER_CULTURE" Amount="120"/>
+		<Row ConstructibleType="BUILDING_PRINTING_HOUSE" PlunderType="PLUNDER_SCIENCE" Amount="120"/>
+	</Constructible_Plunders>
+	<ConstructibleModifiers>
+		<!--Wonders-->
+		<Row ConstructibleType="WONDER_HWASEONG" ModifierId="MOD_HWASEONG_POLICY_SLOT"/>
+		<Row ConstructibleType="WONDER_HWASEONG" ModifierId="MOD_HWASEONG_TRADITION_SLOT"/>
+	</ConstructibleModifiers>
+	<GameModifiers>
+		<!-- Unique Quarter modifiers are game-wide -->
+		<Row ModifierId="MOD_SEOWON_YIELD_CONVERSION"/>
+		<Row ModifierId="MOD_SEOWON_POPULATION_CAPITAL"/>
+	</GameModifiers>
+	<UniqueQuarters>
+		<Row UniqueQuarterType="QUARTER_SEOWON" BuildingType1="BUILDING_CONFUCIAN_ACADEMY" BuildingType2="BUILDING_PRINTING_HOUSE" Name="LOC_QUARTER_SEOWON_NAME" Description="LOC_QUARTER_SEOWON_DESCRIPTION" Tooltip="LOC_QUARTER_SEOWON_TOOLTIP" TraitType="TRAIT_JOSEON"/>
+	</UniqueQuarters>
+	
+	<UniqueQuarterModifiers>
+		<!-- These are listed here so the AI can evalutate Unique Quarters. They do not have any effects on the game for human players. -->
+		<Row UniqueQuarterType="QUARTER_SEOWON" ModifierId="MOD_SEOWON_YIELD_CONVERSION"/>
+		<Row UniqueQuarterType="QUARTER_SEOWON" ModifierId="MOD_SEOWON_POPULATION_CAPITAL"/>
+	</UniqueQuarterModifiers>
+	<Constructible_Advisories>
+		<Row ConstructibleType="BUILDING_CONFUCIAN_ACADEMY" AdvisoryClassType="ADVISORY_CLASS_CULTURE"/>
+		<Row ConstructibleType="BUILDING_PRINTING_HOUSE" AdvisoryClassType="ADVISORY_CLASS_SCIENCE"/>
+	</Constructible_Advisories>
+</Database>

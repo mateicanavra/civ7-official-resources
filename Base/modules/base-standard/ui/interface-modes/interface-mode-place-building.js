@@ -228,7 +228,58 @@ class PlaceBuildingInterfaceMode extends ChoosePlotInterfaceMode {
   }
   proposePlot(plot, accept, reject) {
     const plotIndex = GameplayMap.getIndexFromLocation(plot);
-    if (BuildingPlacementManager.urbanPlots.find((p) => p == plotIndex) || BuildingPlacementManager.expandablePlots.find((p) => p == plotIndex)) {
+    if (!BuildingPlacementManager.currentConstructible?.ExistingDistrictOnly && (BuildingPlacementManager.uniqueQuarterPlots.length > 0 && !BuildingPlacementManager.uniqueQuarterPlots.includes(plotIndex) || BuildingPlacementManager.uniqueQuarterPlots.length <= 0 && BuildingPlacementManager.potentialUniqueQuarterPlots.map((a) => a.plotID).includes(plotIndex))) {
+      const acceptCallback = () => {
+        accept();
+      };
+      const cancelCallback = () => {
+        this.setMapFocused(true);
+        reject();
+      };
+      const okOption = {
+        actions: ["accept"],
+        label: "LOC_GENERIC_OK",
+        callback: acceptCallback
+      };
+      const cancelOption = {
+        actions: ["cancel", "keyboard-escape", "mousebutton-right"],
+        label: "LOC_GENERIC_CANCEL",
+        callback: cancelCallback
+      };
+      if (!BuildingPlacementManager.currentConstructible) {
+        console.error(
+          "interface-mode-place-building: No valid currentConstructible variable in BuildingPlacementManager!"
+        );
+        reject();
+        return;
+      }
+      let currentQuarterDef = BuildingPlacementManager.currentQuarter ?? void 0;
+      if (!currentQuarterDef) {
+        currentQuarterDef = BuildingPlacementManager.potentialUniqueQuarterPlots.find(
+          (a) => a.plotID == plotIndex
+        )?.uniqueQuarterDef;
+      }
+      if (!currentQuarterDef) {
+        console.error(
+          "interface-mode-place-building: No valid current Quarter definition found! But one is expected!"
+        );
+        reject();
+        return;
+      }
+      const body = Locale.stylize(
+        "LOC_BUILDING_PLACEMENT_UNIQUE_QUARTER_BLOCKER_BODY",
+        BuildingPlacementManager.currentConstructible.Name,
+        currentQuarterDef.Name
+      );
+      const options = [okOption, cancelOption];
+      NavTray.clear();
+      DialogBoxManager.createDialog_MultiOption({
+        body,
+        title: "LOC_BUILDING_PLACEMENT_UNIQUE_QUARTER_BLOCKER",
+        options,
+        canClose: false
+      });
+    } else if (BuildingPlacementManager.urbanPlots.find((p) => p == plotIndex) || BuildingPlacementManager.expandablePlots.find((p) => p == plotIndex)) {
       accept();
     } else if (BuildingPlacementManager.developedPlots.find((p) => p == plotIndex)) {
       const acceptCallback = () => {

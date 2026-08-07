@@ -1,6 +1,7 @@
 import { Audio } from '../../audio-base/audio-support.js';
 import { DropdownSelectionChangeEventName } from '../../components/fxs-dropdown.js';
 import { MustGetElement } from '../../utilities/utilities-dom.js';
+import { Layout } from '../../utilities/utilities-layout.js';
 
 const booleanSelectorActionsList = [{ label: "LOC_UI_DISABLED" }, { label: "LOC_UI_ENABLED" }];
 class OptionsBase {
@@ -39,7 +40,7 @@ class OptionsBase {
     if (parameterID) {
       parameterInteractable.setAttribute("data-parameter-id", parameterID);
     }
-    parameterInteractable.classList.add("w-96");
+    parameterInteractable.style.width = Layout.pixels(386);
   }
 }
 class BooleanOption extends OptionsBase {
@@ -47,18 +48,20 @@ class BooleanOption extends OptionsBase {
   create(setupParam) {
     if (UI.isInGame()) {
       const selectedOption = document.createElement("div");
-      selectedOption.classList.value = "advanced-options__option font-body-base w-96 mr-4 text-center pointer-events-auto";
+      selectedOption.classList.value = "advanced-options__option font-body-base mr-4 text-center pointer-events-auto";
       selectedOption.innerHTML = Locale.compose(
         this.castToBoolean(setupParam.value.value) ? "LOC_UI_ENABLED" : "LOC_UI_DISABLED"
       );
       selectedOption.setAttribute("tabIndex", "-1");
+      selectedOption.style.width = Layout.pixels(386);
       this.setParameterCommonInfo(setupParam, selectedOption, null);
       this.component = selectedOption;
       return selectedOption;
     }
     const booleanSelector = document.createElement("fxs-selector");
     const parameterID = GameSetup.resolveString(setupParam.ID);
-    booleanSelector.classList.add("advanced-options__option", "font-body-base", "w-96", "mr-4");
+    booleanSelector.classList.add("advanced-options__option", "font-body-base", "mr-4");
+    booleanSelector.style.width = Layout.pixels(386);
     booleanSelector.setAttribute("dropdown-items", JSON.stringify(booleanSelectorActionsList));
     booleanSelector.setAttribute(
       "selected-item-index",
@@ -135,14 +138,16 @@ class NumericOption extends OptionsBase {
   create(setupParam) {
     if (UI.isInGame()) {
       const selectedOption = document.createElement("div");
-      selectedOption.classList.value = "advanced-options__option font-body-base w-96 mr-4 text-center pointer-events-auto";
+      selectedOption.classList.value = "advanced-options__option font-body-base mr-4 text-center pointer-events-auto";
       selectedOption.innerHTML = Locale.compose(this.getParameterValueName(setupParam));
       selectedOption.setAttribute("tabIndex", "-1");
+      selectedOption.style.width = Layout.pixels(386);
       this.setParameterCommonInfo(setupParam, selectedOption, null);
       return selectedOption;
     }
     this.parameterID = GameSetup.resolveString(setupParam.ID);
-    this.textboxElement.classList.add("advanced-options__option", "font-body-base", "max-w-96", "mr-4");
+    this.textboxElement.classList.add("advanced-options__option", "font-body-base", "mr-4");
+    this.textboxElement.style.maxWidth = Layout.pixels(386);
     this.textboxElement.setAttribute("max-length", "11");
     this.textboxElement.setAttribute("value", this.getParameterValueName(setupParam));
     this.textboxElement.addEventListener(ComponentValueChangeEventName, this.componentValueChangedEventListener);
@@ -190,15 +195,17 @@ class TextBoxOption extends OptionsBase {
   create(setupParam) {
     if (UI.isInGame()) {
       const selectedOption = document.createElement("div");
-      selectedOption.classList.value = "advanced-options__option font-body-base w-96 mr-4 text-center pointer-events-auto";
+      selectedOption.classList.value = "advanced-options__option font-body-base mr-4 text-center pointer-events-auto";
       selectedOption.innerHTML = Locale.compose(this.getParameterValueName(setupParam));
       selectedOption.setAttribute("tabIndex", "-1");
+      selectedOption.style.width = Layout.pixels(386);
       this.setParameterCommonInfo(setupParam, selectedOption, null);
       return selectedOption;
     }
     this.parameterID = setupParam.ID;
     const textboxElement = document.createElement("fxs-textbox");
-    textboxElement.classList.add("advanced-options__option", "font-body-base", "max-w-96", "mr-4");
+    textboxElement.classList.add("advanced-options__option", "font-body-base", "mr-4");
+    textboxElement.style.maxWidth = Layout.pixels(386);
     textboxElement.setAttribute("value", this.getParameterValueName(setupParam));
     textboxElement.setAttribute("max-length", "32");
     textboxElement.addEventListener(ComponentValueChangeEventName, this.componentValueChangedEventListener);
@@ -240,9 +247,10 @@ class SelectorOption extends OptionsBase {
   create(setupParam) {
     if (UI.isInGame()) {
       const selectedOption = document.createElement("div");
-      selectedOption.classList.value = "advanced-options__option font-body-base w-96 mr-4 text-center pointer-events-auto";
+      selectedOption.classList.value = "advanced-options__option font-body-base mr-4 text-center pointer-events-auto";
       selectedOption.innerHTML = Locale.compose(this.getParameterValueName(setupParam));
       selectedOption.setAttribute("tabIndex", "-1");
+      selectedOption.style.width = Layout.pixels(386);
       this.setParameterCommonInfo(setupParam, selectedOption, null);
       return selectedOption;
     }
@@ -507,7 +515,8 @@ class MultiSelectorOption extends OptionsBase {
           } else {
             pvControl.setAttribute("data-tooltip-content", Locale.stylize(`[B]${pvName}[/B][N]${pvDesc}`));
           }
-          pvControl.classList.add("advanced-options__option", "mr-4", "w-96");
+          pvControl.classList.add("advanced-options__option", "mr-4");
+          pvControl.style.width = Layout.pixels(386);
           const legacyClassName = pv.additionalProperties?.find((ap) => ap.name == strLegacyClassType)?.value?.toString();
           if (legacyClassName) {
             const pvIcon = document.createElement("fxs-icon");

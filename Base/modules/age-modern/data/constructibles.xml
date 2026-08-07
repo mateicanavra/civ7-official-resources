@@ -62,9 +62,6 @@
 		<Row Type="WONDER_STATUE_OF_LIBERTY" Kind="KIND_CONSTRUCTIBLE"/>
 		<Row Type="WONDER_TAJ_MAHAL" Kind="KIND_CONSTRUCTIBLE"/>
 		<Row Type="WONDER_WORLDS_FAIR" Kind="KIND_CONSTRUCTIBLE"/>
-		<!-- Exploration Revived Buildings -->
-		<Row Type="BUILDING_UNIVERSITY_MO" Kind="KIND_CONSTRUCTIBLE"/>
-		<Row Type="BUILDING_PLAGUE_HOSPITAL" Kind="KIND_CONSTRUCTIBLE"/>
 	</Types>
 	<TraitModifiers>
 		<Row TraitType="TRAIT_LEADER_MAJOR_CIV" ModifierId="MOD_SHORE_BATTERY_ABILITY"/>
@@ -166,9 +163,6 @@
 		<Row ConstructibleType="WONDER_STATUE_OF_LIBERTY" Name="LOC_WONDER_STATUE_OF_LIBERTY_NAME" Description="LOC_WONDER_STATUE_OF_LIBERTY_DESCRIPTION" Tooltip="LOC_WONDER_STATUE_OF_LIBERTY_TOOLTIP" ConstructibleClass="WONDER" RiverPlacement="ANCHORED" Cost="2100" Population="0" ImmuneDamage="true" Age="AGE_MODERN" RequiresUnlock="true" />
 		<Row ConstructibleType="WONDER_TAJ_MAHAL" Name="LOC_WONDER_TAJ_MAHAL_NAME" Description="LOC_WONDER_TAJ_MAHAL_DESCRIPTION" Tooltip="LOC_WONDER_TAJ_MAHAL_TOOLTIP" ConstructibleClass="WONDER" Cost="1800" Population="0" ImmuneDamage="true" Age="AGE_MODERN" RequiresUnlock="true" />
 		<Row ConstructibleType="WONDER_WORLDS_FAIR" Name="LOC_WONDER_WORLDS_FAIR_NAME" Description="LOC_WONDER_WORLDS_FAIR_DESCRIPTION" Tooltip="LOC_WONDER_WORLDS_FAIR_TOOLTIP" ConstructibleClass="WONDER" Cost="2100" Population="0" ImmuneDamage="true" Age="AGE_MODERN" RequiresUnlock="true"/>
-		<!-- Exploration Revived Buildings -->
-		<Row ConstructibleType="BUILDING_UNIVERSITY_MO" Name="LOC_BUILDING_UNIVERSITY_MO_NAME" Description="LOC_BUILDING_UNIVERSITY_DESCRIPTION" Tooltip="LOC_BUILDING_UNIVERSITY_TOOLTIP" ConstructibleClass="BUILDING" Cost="200" Population="1" Age="AGE_MODERN" RequiresUnlock="true"/>
-		<Row ConstructibleType="BUILDING_PLAGUE_HOSPITAL" Name="LOC_BUILDING_PLAGUE_HOSPITAL_NAME" Description="LOC_BUILDING_PLAGUE_HOSPITAL_DESCRIPTION" Tooltip="LOC_BUILDING_PLAGUE_HOSPITAL_TOOLTIP" ConstructibleClass="BUILDING" Cost="200" Population="1" Age="AGE_MODERN" RequiresUnlock="true"/>
 	</Constructibles>
 	<Buildings>
 		<Row ConstructibleType="BUILDING_AIRFIELD" Movable="false"/>
@@ -202,9 +196,6 @@
 		<Row ConstructibleType="BUILDING_PORTAL_DE_MERCADERES" Movable="false" TraitType="TRAIT_MEXICO"/>
 		<Row ConstructibleType="BUILDING_EXAMINATION_HALL" Movable="false" TraitType="TRAIT_QING"/>
 		<Row ConstructibleType="BUILDING_MONEY_SHOP" Movable="false" TraitType="TRAIT_QING"/>
-		<!-- Exploration Revived Buildings -->
-		<Row ConstructibleType="BUILDING_UNIVERSITY_MO" Movable="false" ArchaeologyResearch="True"/>
-		<Row ConstructibleType="BUILDING_PLAGUE_HOSPITAL" Movable="false"/>
 	</Buildings>
 	<Improvements>
 		<Update>
@@ -329,8 +320,6 @@
 		<Row Type="WONDER_STATUE_OF_LIBERTY" Tag="AGELESS"/>
 		<Row Type="WONDER_TAJ_MAHAL" Tag="AGELESS"/>
 		<Row Type="WONDER_WORLDS_FAIR" Tag="AGELESS"/>
-		<!-- Crisis -->
-		<Row Type="BUILDING_PLAGUE_HOSPITAL" Tag="FOOD"/>
 	</TypeTags>
 	<Constructible_ValidDistricts>
 		<!-- Improvements -->
@@ -424,11 +413,6 @@
 		<Row ConstructibleType="WONDER_STATUE_OF_LIBERTY" DistrictType="DISTRICT_WONDER"/>
 		<Row ConstructibleType="WONDER_TAJ_MAHAL" DistrictType="DISTRICT_WONDER"/>
 		<Row ConstructibleType="WONDER_WORLDS_FAIR" DistrictType="DISTRICT_WONDER"/>
-		<!-- Exploration Revived Buildings -->
-		<Row ConstructibleType="BUILDING_UNIVERSITY_MO" DistrictType="DISTRICT_URBAN"/>
-		<Row ConstructibleType="BUILDING_UNIVERSITY_MO" DistrictType="DISTRICT_CITY_CENTER"/>
-		<Row ConstructibleType="BUILDING_PLAGUE_HOSPITAL" DistrictType="DISTRICT_URBAN"/>
-		<Row ConstructibleType="BUILDING_PLAGUE_HOSPITAL" DistrictType="DISTRICT_CITY_CENTER"/>
 	</Constructible_ValidDistricts>
 	<District_FreeConstructibles>
 		<Row DistrictType="DISTRICT_RURAL" ConstructibleType="IMPROVEMENT_FISHING_BOAT" TerrainType="TERRAIN_OCEAN" Priority="3"/>
@@ -527,9 +511,6 @@
 		<Row ConstructibleType="WONDER_WORLDS_FAIR" YieldType="YIELD_DIPLOMACY" YieldChange="6"/>
 		<Row ConstructibleType="WONDER_WORLDS_FAIR" YieldType="YIELD_HAPPINESS" YieldChange="6"/>
 		<Row ConstructibleType="WONDER_WORLDS_FAIR" YieldType="YIELD_SCIENCE" YieldChange="6"/>
-		<!-- Exploration Revived Buildings -->
-		<Row ConstructibleType="BUILDING_UNIVERSITY_MO" YieldType="YIELD_SCIENCE" YieldChange="8"/>
-		<Row ConstructibleType="BUILDING_PLAGUE_HOSPITAL" YieldType="YIELD_FOOD" YieldChange="8"/>
 	</Constructible_YieldChanges>
 	<Constructible_Maintenances>
 		<!-- Buildings -->
@@ -582,11 +563,6 @@
 		<Row ConstructibleType="BUILDING_EXAMINATION_HALL" YieldType="YIELD_GOLD" Amount="4"/>
 		<Row ConstructibleType="BUILDING_EXAMINATION_HALL" YieldType="YIELD_HAPPINESS" Amount="0"/>
 		<Row ConstructibleType="BUILDING_MONEY_SHOP" YieldType="YIELD_HAPPINESS" Amount="4"/>
-		<!-- Exploration Revived Buildings -->
-		<Row ConstructibleType="BUILDING_UNIVERSITY_MO" YieldType="YIELD_GOLD" Amount="3"/>
-		<Row ConstructibleType="BUILDING_UNIVERSITY_MO" YieldType="YIELD_HAPPINESS" Amount="3"/>
-		<Row ConstructibleType="BUILDING_PLAGUE_HOSPITAL" YieldType="YIELD_GOLD" Amount="3"/>
-		<Row ConstructibleType="BUILDING_PLAGUE_HOSPITAL" YieldType="YIELD_HAPPINESS" Amount="3"/>
 	</Constructible_Maintenances>
 	<Constructible_Adjacencies>
 		<Row ConstructibleType="BUILDING_CANNERY" YieldChangeId="CoastFood"/>
@@ -652,12 +628,6 @@
 		<Row ConstructibleType="IMPROVEMENT_STEPWELL" YieldChangeId="StepwellFarmFood"/>
 		<Row ConstructibleType="IMPROVEMENT_FARM" YieldChangeId="JinsiKamilFarmPlantationFood" RequiresActivation="true"/>
 		<Row ConstructibleType="IMPROVEMENT_PLANTATION" YieldChangeId="JinsiKamilPlantationFarmFood" RequiresActivation="true"/>
-		<!-- Exploration Revived Buildings -->
-		<Row ConstructibleType="BUILDING_UNIVERSITY_MO" YieldChangeId="ResourceScience"/>
-		<Row ConstructibleType="BUILDING_UNIVERSITY_MO" YieldChangeId="WonderScience"/>
-		<Row ConstructibleType="BUILDING_PLAGUE_HOSPITAL" YieldChangeId="CoastFood"/>
-		<Row ConstructibleType="BUILDING_PLAGUE_HOSPITAL" YieldChangeId="RiverFood"/>
-		<Row ConstructibleType="BUILDING_PLAGUE_HOSPITAL" YieldChangeId="WonderFood"/>
 	</Constructible_Adjacencies>
 	<Adjacency_YieldChanges>
 		<!-- Standard -->
@@ -821,9 +791,6 @@
 		<Row ConstructibleType="IMPROVEMENT_INSTITUTE" PlunderType="PLUNDER_HEAL" Amount="30"/>
 		<Row ConstructibleType="IMPROVEMENT_ABATTOIR" PlunderType="PLUNDER_HEAL" Amount="30"/>
 		<Row ConstructibleType="IMPROVEMENT_CIRCUS_FAIR" PlunderType="PLUNDER_HEAL" Amount="30"/>
-		<!-- Exploration Revived Buildings -->
-		<Row ConstructibleType="BUILDING_UNIVERSITY_MO" PlunderType="PLUNDER_SCIENCE" Amount="50"/>
-		<Row ConstructibleType="BUILDING_PLAGUE_HOSPITAL" PlunderType="PLUNDER_GOLD" Amount="50"/>
 	</Constructible_Plunders>
 	<Constructible_PillageRandomEvents>
 		<Row ConstructibleType="BUILDING_MODERN_BRIDGE" EventClass="CLASS_FLOOD" PercentChance="0"/>
@@ -1017,10 +984,6 @@
 		<Row ConstructibleType="WONDER_STATUE_OF_LIBERTY" AdvisoryClassType="ADVISORY_CLASS_FOOD"/>
 		<Row ConstructibleType="WONDER_TAJ_MAHAL" AdvisoryClassType="ADVISORY_CLASS_ECONOMIC"/>
 		<Row ConstructibleType="WONDER_WORLDS_FAIR" AdvisoryClassType="ADVISORY_CLASS_CULTURE"/>
-		<!-- Exploration Revived Buildings -->
-		<Row ConstructibleType="BUILDING_UNIVERSITY_MO" AdvisoryClassType="ADVISORY_CLASS_SCIENCE"/>
-		<Row ConstructibleType="BUILDING_PLAGUE_HOSPITAL" AdvisoryClassType="ADVISORY_CLASS_FOOD"/>
-		<Row ConstructibleType="BUILDING_PLAGUE_HOSPITAL" AdvisoryClassType="ADVISORY_CLASS_ECONOMIC"/>
 	</Constructible_Advisories>
 	<Constructible_GreatWorks>
 		<Row ConstructibleType="WONDER_HERMITAGE" GreatWorkSlotType="GREATWORKSLOT_ANY" NumSlots="3"/>

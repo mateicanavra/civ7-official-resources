@@ -113,7 +113,7 @@ const OrnateFrameComponent = (props) => {
       }
     }), null);
     createRenderEffect((_p$) => {
-      var _v$ = `absolute inset-0 ${props.useNoMarginFrame ? "" : frameinsetClasses} pointer-events-none`, _v$2 = `${props.useNoMarginFrame ? "ornate-panel-frame-no-margin" : "ornate-panel-frame"} opacity-90 size-full absolute`, _v$3 = `size-full ${props.useNoMarginFrame ? "" : frameinsetClasses} relative`;
+      var _v$ = `absolute ${props.isFullscreen ? "fullscreen-outside-safezone" : "inset-0"} ${props.useNoMarginFrame ? "" : frameinsetClasses} pointer-events-none`, _v$2 = `${props.useNoMarginFrame ? "ornate-panel-frame-no-margin" : "ornate-panel-frame"} ${props.isFullscreen ? "fullscreen-outside-safezone" : "size-full"} opacity-90 absolute`, _v$3 = `size-full ${props.useNoMarginFrame ? "" : frameinsetClasses} relative`;
       _v$ !== _p$.e && className(_el$2, _p$.e = _v$);
       _v$2 !== _p$.t && className(_el$4, _p$.t = _v$2);
       _v$3 !== _p$.a && className(_el$5, _p$.a = _v$3);

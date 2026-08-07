@@ -2,6 +2,7 @@ import { template, insert, className, setAttribute } from '../../../../core/vend
 import { createSignal, createMemo, createEffect, on, createComponent, untrack, Show, mergeProps, createRenderEffect, For } from '../../../../core/vendor/solid-js/dist/solid.js';
 import { ComponentID } from '../../../../core/ui/utilities/utilities-component-id.js';
 import { Icon as Icon$1 } from '../../../../core/ui/utilities/utilities-image.js';
+import { Layout } from '../../../../core/ui/utilities/utilities-layout.js';
 import { Activatable } from '../../../../core/ui-next/components/activatable.js';
 import { AudioContextProvider } from '../../../../core/ui-next/components/audio-context-provider.js';
 import { CardFrame } from '../../../../core/ui-next/components/card-frame.js';
@@ -20,6 +21,7 @@ import { Tooltip } from '../../../../core/ui-next/components/tooltip.js';
 import { useAudio } from '../../../../core/ui-next/services/audio-support.js';
 import { ComponentRegistry } from '../../../../core/ui-next/services/component-registry.js';
 import { IsControllerActive, ActiveInputDevice } from '../../../../core/ui-next/services/input.js';
+import { LayoutModel } from '../../../../core/ui-next/utilities/layout-utilities.js';
 import { FramedResource } from '../../components/framed-resource.js';
 import { GamepadTrayItemProvider } from '../../components/gamepad-tray-item-provider.js';
 import { YieldDelta } from '../../components/yield-delta.js';
@@ -29,7 +31,7 @@ import { FactoryTypeDisplay } from './factory-type-display.js';
 import { ResourceTooltip } from '../../tooltips/resource-tooltip.js';
 import style from './commerce-screen.scss.js';
 
-var _tmpl$ = /* @__PURE__ */ template(`<div></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div><div tabindex=1 data-name=available-resources-container class="flex flex-col h-full w-full relative pb-4"></div></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div data-name=commerce-unassigned-resources class=flex-auto></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div class="text-accent-2 m-2"></div>`), _tmpl$5 = /* @__PURE__ */ template(`<div class="flex flex-row mb-1 relative"><div class=text-secondary></div></div>`), _tmpl$6 = /* @__PURE__ */ template(`<div class="w-full h-0\\.5 mt-1 mb-2 opacity-50"></div>`), _tmpl$7 = /* @__PURE__ */ template(`<div class="flex flex-row flex-wrap relative"></div>`), _tmpl$8 = /* @__PURE__ */ template(`<div class="flex flex-row items-center justify-center self-end pr-4"></div>`), _tmpl$9 = /* @__PURE__ */ template(`<div tabindex=2 data-name=slotted-resource-container class="flex flex-col flex-auto pb-4 relative"></div>`), _tmpl$10 = /* @__PURE__ */ template(`<div class="w-full flex flex-col"></div>`), _tmpl$11 = /* @__PURE__ */ template(`<div class="city-type-pill rounded-full min-w-7 flex flex-row justify-center items-center px-2 ml-2"><span></span></div>`), _tmpl$12 = /* @__PURE__ */ template(`<div class="city-type-pill rounded-full min-w-7 flex flex-row justify-center items-center px-2 ml-2"></div>`), _tmpl$13 = /* @__PURE__ */ template(`<div class="flex flex-row items-center"><div class="mr-2 size-9 bg-center bg-cover bg-no-repeat relative"></div><div class="text-secondary font-title uppercase text-lg"></div><div class="settlement-pill-row flex-row items-center text-xs text-accent-1"></div></div>`), _tmpl$14 = /* @__PURE__ */ template(`<div class="flex flex-row flex-wrap relative w-full justify-between"></div>`), _tmpl$15 = /* @__PURE__ */ template(`<div class="flex flex-row items-center"><div class="flex flex-row max-h-full items-end"></div><div class="flex-auto flex flex-row"><div class=flex-auto><div class="flex flex-row flex-wrap mt-4 flex-auto"></div></div></div></div>`), _tmpl$16 = /* @__PURE__ */ template(`<div class="flex items-center flex-col relative"></div>`), _tmpl$17 = /* @__PURE__ */ template(`<div class=hidden></div>`), _tmpl$18 = /* @__PURE__ */ template(`<div class="size-16 mr-3 relative flex flex-row justify-center"></div>`), _tmpl$19 = /* @__PURE__ */ template(`<div class="w-full p-2 mb-2 relative"><div class="bg-center bg-no-repeat absolute inset-0 bg-cover opacity-20"></div><div class="absolute top-1 left-1 rotate-180 size-4 bg-contain opacity-30"></div><div class="absolute top-1 right-1 -rotate-90 size-4 bg-contain opacity-30"></div><div class="absolute bottom-1 left-1 rotate-90 size-4 bg-contain opacity-30"></div><div class="absolute bottom-1 right-1 size-4 bg-contain opacity-30"></div><div class="flex flex-row"><div class="flex flex-col relative items-start justify-center ml-3"><div class="uppercase mr-2 text-secondary font-title"></div><div class=text-accent-2></div></div></div></div>`), _tmpl$20 = /* @__PURE__ */ template(`<div class="text-secondary w-full text-center -top-9 left-0"></div>`), _tmpl$21 = /* @__PURE__ */ template(`<div class="flex flex-row flex-auto relative"></div>`), _tmpl$22 = /* @__PURE__ */ template(`<div class="font-title uppercase text-secondary"></div>`), _tmpl$23 = /* @__PURE__ */ template(`<div class="flex flex-row w-full items-center"><div class="flex flex-row items-center"><div class="text-secondary uppercase font-title flex-auto"></div><div class="flex flex-row"></div></div><div class="text-secondary uppercase font-title ml-5 pointer-events-none"></div></div>`), _tmpl$24 = /* @__PURE__ */ template(`<div class="ml-2 flex flex-row"><div class="size-6 mr-1 bg-cover bg-center"></div></div>`), _tmpl$25 = /* @__PURE__ */ template(`<div class=ml-2></div>`);
+var _tmpl$ = /* @__PURE__ */ template(`<div></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div><div tabindex=1 data-name=available-resources-container class="flex flex-col h-full w-full relative pb-4"></div></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div data-name=commerce-unassigned-resources class=flex-auto></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div class="text-accent-2 m-2"></div>`), _tmpl$5 = /* @__PURE__ */ template(`<div class="flex flex-row mb-1 relative"><div class=text-secondary></div></div>`), _tmpl$6 = /* @__PURE__ */ template(`<div class="w-full h-0\\.5 mt-1 mb-2 opacity-50"></div>`), _tmpl$7 = /* @__PURE__ */ template(`<div class="flex flex-row flex-wrap relative"></div>`), _tmpl$8 = /* @__PURE__ */ template(`<div class="flex flex-row items-center justify-center self-end pr-4"></div>`), _tmpl$9 = /* @__PURE__ */ template(`<div tabindex=2 data-name=slotted-resource-container class="flex flex-col flex-auto pb-4 relative"></div>`), _tmpl$10 = /* @__PURE__ */ template(`<div class="w-full flex flex-col"></div>`), _tmpl$11 = /* @__PURE__ */ template(`<div class="city-type-pill rounded-full min-w-7 flex flex-row justify-center items-center px-2 ml-2"><span></span></div>`), _tmpl$12 = /* @__PURE__ */ template(`<div class="city-type-pill rounded-full min-w-7 flex flex-row justify-center items-center px-2 ml-2"></div>`), _tmpl$13 = /* @__PURE__ */ template(`<div class="flex flex-row items-center text-xs text-accent-1"></div>`), _tmpl$14 = /* @__PURE__ */ template(`<div class="flex flex-row items-center"><div class="mr-2 size-9 bg-center bg-cover bg-no-repeat relative"></div><div class="text-secondary font-title uppercase text-lg"></div></div>`), _tmpl$15 = /* @__PURE__ */ template(`<div class="flex flex-row flex-wrap relative w-full justify-between"></div>`), _tmpl$16 = /* @__PURE__ */ template(`<div class="flex flex-row items-center"><div class="flex flex-row max-h-full items-end"></div><div class="flex-auto flex flex-row"><div class=flex-auto><div class="flex flex-row flex-wrap mt-4 flex-auto"></div></div></div></div>`), _tmpl$17 = /* @__PURE__ */ template(`<div class="flex items-center flex-col relative"></div>`), _tmpl$18 = /* @__PURE__ */ template(`<div class=hidden></div>`), _tmpl$19 = /* @__PURE__ */ template(`<div class="size-16 mr-3 relative flex flex-row justify-center"></div>`), _tmpl$20 = /* @__PURE__ */ template(`<div class="w-full p-2 mb-2 relative"><div class="bg-center bg-no-repeat absolute inset-0 bg-cover opacity-20"></div><div class="absolute top-1 left-1 rotate-180 size-4 bg-contain opacity-30"></div><div class="absolute top-1 right-1 -rotate-90 size-4 bg-contain opacity-30"></div><div class="absolute bottom-1 left-1 rotate-90 size-4 bg-contain opacity-30"></div><div class="absolute bottom-1 right-1 size-4 bg-contain opacity-30"></div><div class="flex flex-row"><div class="flex flex-col relative items-start justify-center ml-3"><div class="uppercase mr-2 text-secondary font-title"></div><div class=text-accent-2></div></div></div></div>`), _tmpl$21 = /* @__PURE__ */ template(`<div class="text-secondary w-full text-center -top-9 left-0"></div>`), _tmpl$22 = /* @__PURE__ */ template(`<div class="flex flex-row flex-auto relative"></div>`), _tmpl$23 = /* @__PURE__ */ template(`<div class="font-title uppercase text-secondary"></div>`), _tmpl$24 = /* @__PURE__ */ template(`<div class="flex flex-row w-full items-center"><div class="flex flex-row items-center"><div class="text-secondary uppercase font-title flex-auto"></div><div class="flex flex-row"></div></div><div class="text-secondary uppercase font-title ml-5 pointer-events-none"></div></div>`), _tmpl$25 = /* @__PURE__ */ template(`<div class="ml-2 flex flex-row"><div class="size-6 mr-1 bg-cover bg-center"></div></div>`), _tmpl$26 = /* @__PURE__ */ template(`<div class=ml-2></div>`);
 const DEBUG_DRAG_AND_DROP = false;
 const [DragAndDrop, Draggable, Dropzone] = createTypedDragAndDrop();
 const DraggableResource = (props) => {
@@ -334,6 +336,9 @@ const AvailableResourcesSection = (props) => {
       model.setFocusedSettlementId(void 0);
     },
     onBlur: () => setIsFocused(false),
+    get disableFocus() {
+      return selectionState() === ResourceContainerSelectionState.NotSelecting || !isEnabled();
+    },
     get disabled() {
       return !isEnabled() || selectionState() === ResourceContainerSelectionState.CanNotSelect;
     },
@@ -662,7 +667,7 @@ const SettlementName = (props) => {
     "blp:focus_urban"
   ]);
   return (() => {
-    var _el$15 = _tmpl$13(), _el$16 = _el$15.firstChild, _el$17 = _el$16.nextSibling, _el$18 = _el$17.nextSibling;
+    var _el$15 = _tmpl$14(), _el$16 = _el$15.firstChild, _el$17 = _el$16.nextSibling;
     _el$16.style.setProperty("background-image", 'url("blp:banner_hex")');
     insert(_el$16, createComponent(Icon, {
       "class": "size-8 absolute top-1\\/2 left-1\\/2 -translate-1\\/2",
@@ -671,86 +676,95 @@ const SettlementName = (props) => {
       }
     }));
     insert(_el$17, () => props.settlementName);
-    insert(_el$18, createComponent(Tooltip.Text, {
-      text: "LOC_COMMERCE_SETTLEMENT_INFO_TYPE_TOOLTIP",
-      get children() {
-        var _el$19 = _tmpl$12();
-        insert(_el$19, () => props.settlementTypeName);
-        return _el$19;
-      }
-    }), null);
-    insert(_el$18, createComponent(Tooltip.Text, {
-      text: "LOC_COMMERCE_SETTLEMENT_INFO_DISTANCE_TYPE_TOOLTIP",
-      get children() {
-        var _el$20 = _tmpl$12();
-        insert(_el$20, () => props.settlementDistanceTypeName);
-        return _el$20;
-      }
-    }), null);
-    insert(_el$18, createComponent(Show, {
+    insert(_el$15, createComponent(Show, {
       get when() {
-        return props.isTown;
+        return LayoutModel.get().screenHeight() > Layout.pixelsToScreenPixels(720);
       },
       get children() {
-        return createComponent(Tooltip.Text, {
-          text: "LOC_COMMERCE_SETTLEMENT_INFO_TOWN_FOCUS_TOOLTIP",
+        var _el$18 = _tmpl$13();
+        insert(_el$18, createComponent(Tooltip.Text, {
+          text: "LOC_COMMERCE_SETTLEMENT_INFO_TYPE_TOOLTIP",
           get children() {
-            var _el$21 = _tmpl$11(), _el$22 = _el$21.firstChild;
-            insert(_el$21, createComponent(Icon, {
-              "class": "size-7",
-              get name() {
-                return props.townFocusIcon;
-              },
-              isUrl: true
-            }), _el$22);
-            insert(_el$22, () => props.townFocusName);
-            return _el$21;
+            var _el$19 = _tmpl$12();
+            insert(_el$19, () => props.settlementTypeName);
+            return _el$19;
           }
-        });
-      }
-    }), null);
-    insert(_el$18, createComponent(Show, {
-      get when() {
-        return props.hasRail;
-      },
-      get children() {
-        return createComponent(Tooltip.Text, {
-          text: "LOC_COMMERCE_SETTLEMENT_INFO_RAIL_TOOLTIP",
+        }), null);
+        insert(_el$18, createComponent(Tooltip.Text, {
+          text: "LOC_COMMERCE_SETTLEMENT_INFO_DISTANCE_TYPE_TOOLTIP",
           get children() {
-            var _el$23 = _tmpl$11(), _el$24 = _el$23.firstChild;
-            insert(_el$23, createComponent(Icon, {
-              "class": "size-7",
-              name: "url(blp:action_movebyrail)",
-              isUrl: true
-            }), _el$24);
-            insert(_el$24, createComponent(L10n.Compose, {
-              text: "LOC_BUILDING_RAIL_STATION_NAME"
-            }));
-            return _el$23;
+            var _el$20 = _tmpl$12();
+            insert(_el$20, () => props.settlementDistanceTypeName);
+            return _el$20;
           }
-        });
-      }
-    }), null);
-    insert(_el$18, createComponent(Tooltip.Text, {
-      text: "LOC_COMMERCE_SETTLEMENT_INFO_WAREHOUSE_TOOLTIP",
-      get children() {
-        return createComponent(SettlementInfoCount, {
-          type: "warehouse",
-          get count() {
-            return props.warehouseCount;
+        }), null);
+        insert(_el$18, createComponent(Show, {
+          get when() {
+            return props.isTown;
+          },
+          get children() {
+            return createComponent(Tooltip.Text, {
+              text: "LOC_COMMERCE_SETTLEMENT_INFO_TOWN_FOCUS_TOOLTIP",
+              get children() {
+                var _el$21 = _tmpl$11(), _el$22 = _el$21.firstChild;
+                insert(_el$21, createComponent(Icon, {
+                  "class": "size-7",
+                  get name() {
+                    return props.townFocusIcon;
+                  },
+                  isUrl: true
+                }), _el$22);
+                insert(_el$22, () => props.townFocusName);
+                return _el$21;
+              }
+            });
           }
-        });
-      }
-    }), null);
-    insert(_el$18, createComponent(Tooltip.Text, {
-      text: "LOC_COMMERCE_SETTLEMENT_INFO_WATER_TOOLTIP",
-      get children() {
-        return createComponent(SettlementInfoCount, {
-          type: "water",
-          get count() {
-            return props.waterCount;
+        }), null);
+        insert(_el$18, createComponent(Show, {
+          get when() {
+            return props.hasRail;
+          },
+          get children() {
+            return createComponent(Tooltip.Text, {
+              text: "LOC_COMMERCE_SETTLEMENT_INFO_RAIL_TOOLTIP",
+              get children() {
+                var _el$23 = _tmpl$11(), _el$24 = _el$23.firstChild;
+                insert(_el$23, createComponent(Icon, {
+                  "class": "size-7",
+                  name: "url(blp:action_movebyrail)",
+                  isUrl: true
+                }), _el$24);
+                insert(_el$24, createComponent(L10n.Compose, {
+                  text: "LOC_BUILDING_RAIL_STATION_NAME"
+                }));
+                return _el$23;
+              }
+            });
           }
-        });
+        }), null);
+        insert(_el$18, createComponent(Tooltip.Text, {
+          text: "LOC_COMMERCE_SETTLEMENT_INFO_WAREHOUSE_TOOLTIP",
+          get children() {
+            return createComponent(SettlementInfoCount, {
+              type: "warehouse",
+              get count() {
+                return props.warehouseCount;
+              }
+            });
+          }
+        }), null);
+        insert(_el$18, createComponent(Tooltip.Text, {
+          text: "LOC_COMMERCE_SETTLEMENT_INFO_WATER_TOOLTIP",
+          get children() {
+            return createComponent(SettlementInfoCount, {
+              type: "water",
+              get count() {
+                return props.waterCount;
+              }
+            });
+          }
+        }), null);
+        return _el$18;
       }
     }), null);
     return _el$15;
@@ -830,7 +844,7 @@ const CityResourceContainerInternal = (props) => {
     return settlementIsSelected() && model.selectedResource().resourceValue !== -1;
   });
   return (() => {
-    var _el$25 = _tmpl$16();
+    var _el$25 = _tmpl$17();
     insert(_el$25, createComponent(CardFrame, {
       tabIndex: -1,
       onFocus: () => setMouseIsOverCity(true),
@@ -866,7 +880,7 @@ const CityResourceContainerInternal = (props) => {
           debugTrace: DEBUG_DRAG_AND_DROP,
           get children() {
             return [(() => {
-              var _el$26 = _tmpl$14();
+              var _el$26 = _tmpl$15();
               insert(_el$26, createComponent(Show, {
                 get when() {
                   return model.selectedResource().resourceValue === -1;
@@ -898,7 +912,7 @@ const CityResourceContainerInternal = (props) => {
             })(), createComponent(Divider.Horizontal, {
               margin: 2
             }), (() => {
-              var _el$27 = _tmpl$15(), _el$28 = _el$27.firstChild, _el$29 = _el$28.nextSibling, _el$30 = _el$29.firstChild, _el$31 = _el$30.firstChild;
+              var _el$27 = _tmpl$16(), _el$28 = _el$27.firstChild, _el$29 = _el$28.nextSibling, _el$30 = _el$29.firstChild, _el$31 = _el$30.firstChild;
               insert(_el$28, () => createComponent(For, {
                 get each() {
                   return props.yieldDeltas;
@@ -930,7 +944,7 @@ const CityResourceContainerInternal = (props) => {
                 get fallback() {
                   return (
                     //Stops a blank "" being rendered by a For loop with no iterations
-                    _tmpl$17()
+                    _tmpl$18()
                   );
                 },
                 get children() {
@@ -1003,7 +1017,7 @@ const CityResourceContainerInternal = (props) => {
                     })();
                   },
                   get children() {
-                    var _el$33 = _tmpl$18();
+                    var _el$33 = _tmpl$19();
                     insert(_el$33, createComponent(Activatable, {
                       name: "assignment-slot",
                       get autoFocus() {
@@ -1015,6 +1029,9 @@ const CityResourceContainerInternal = (props) => {
                           "opacity-20": !model.ghostResourceFocused(),
                           "opacity-60 focused-resource": model.ghostResourceFocused()
                         };
+                      },
+                      get disableFocus() {
+                        return settlementIsSelected() === false;
                       },
                       get disabled() {
                         return settlementIsSelected() === false;
@@ -1245,7 +1262,7 @@ const WarningBanner = () => {
   const cache = useImageCache();
   cache.registerImages(WarningBannerSymbol, Object.values(images));
   return (() => {
-    var _el$35 = _tmpl$19(), _el$36 = _el$35.firstChild, _el$37 = _el$36.nextSibling, _el$38 = _el$37.nextSibling, _el$39 = _el$38.nextSibling, _el$40 = _el$39.nextSibling, _el$41 = _el$40.nextSibling, _el$42 = _el$41.firstChild, _el$43 = _el$42.firstChild, _el$44 = _el$43.nextSibling;
+    var _el$35 = _tmpl$20(), _el$36 = _el$35.firstChild, _el$37 = _el$36.nextSibling, _el$38 = _el$37.nextSibling, _el$39 = _el$38.nextSibling, _el$40 = _el$39.nextSibling, _el$41 = _el$40.nextSibling, _el$42 = _el$41.firstChild, _el$43 = _el$42.firstChild, _el$44 = _el$43.nextSibling;
     _el$35.style.setProperty("border-image-slice", "22 180 fill");
     _el$35.style.setProperty("border-image-width", "22px 180px");
     insert(_el$41, createComponent(Icon, {
@@ -1378,7 +1395,7 @@ const CommerceResourcesContainerComponent = (props) => {
     description: "LOC_COMMERCE_RESOURCE_ALLOCATION_DESCRIPTION",
     get headerBar() {
       return (() => {
-        var _el$47 = _tmpl$23(), _el$48 = _el$47.firstChild, _el$49 = _el$48.firstChild, _el$50 = _el$49.nextSibling, _el$51 = _el$48.nextSibling;
+        var _el$47 = _tmpl$24(), _el$48 = _el$47.firstChild, _el$49 = _el$48.firstChild, _el$50 = _el$49.nextSibling, _el$51 = _el$48.nextSibling;
         _el$48.style.setProperty("width", "28%");
         insert(_el$49, createComponent(L10n.Compose, {
           text: "LOC_COMMERCE_AVAILABLE_RESOURCES_TITLE"
@@ -1388,7 +1405,7 @@ const CommerceResourcesContainerComponent = (props) => {
             return props.unslottedBonuses;
           },
           children: (unslottedBonus) => (() => {
-            var _el$54 = _tmpl$24(), _el$55 = _el$54.firstChild;
+            var _el$54 = _tmpl$25(), _el$55 = _el$54.firstChild;
             insert(_el$54, () => `+${unslottedBonus.bonusAmount}`, null);
             createRenderEffect((_$p) => (_$p = unslottedBonus.iconSrc) != null ? _el$55.style.setProperty("background-image", _$p) : _el$55.style.removeProperty("background-image"));
             return _el$54;
@@ -1402,7 +1419,7 @@ const CommerceResourcesContainerComponent = (props) => {
           "class": "ml-8 flex flex-row flex-auto items-center justify-end",
           get children() {
             return [(() => {
-              var _el$52 = _tmpl$22();
+              var _el$52 = _tmpl$23();
               insert(_el$52, createComponent(L10n.Compose, {
                 text: "LOC_ADVANCED_START_FILTER"
               }));
@@ -1416,7 +1433,7 @@ const CommerceResourcesContainerComponent = (props) => {
                     when: item !== "DEFAULT",
                     get fallback() {
                       return (() => {
-                        var _el$56 = _tmpl$25();
+                        var _el$56 = _tmpl$26();
                         insert(_el$56, createComponent(L10n.Stylize, {
                           text: "LOC_COMMERCE_RESOURCE_SORT_FILTER_DEFAULT_LABEL"
                         }));
@@ -1450,7 +1467,7 @@ const CommerceResourcesContainerComponent = (props) => {
                             when: item !== "DEFAULT",
                             get fallback() {
                               return (() => {
-                                var _el$57 = _tmpl$25();
+                                var _el$57 = _tmpl$26();
                                 insert(_el$57, createComponent(L10n.Stylize, {
                                   text: "LOC_COMMERCE_RESOURCE_SORT_FILTER_DEFAULT_LABEL"
                                 }));
@@ -1468,7 +1485,7 @@ const CommerceResourcesContainerComponent = (props) => {
                     });
                   }
                 }), (() => {
-                  var _el$53 = _tmpl$22();
+                  var _el$53 = _tmpl$23();
                   insert(_el$53, createComponent(L10n.Compose, {
                     text: "LOC_COMMERCE_SORT_LABEL"
                   }));
@@ -1476,7 +1493,7 @@ const CommerceResourcesContainerComponent = (props) => {
                 })(), createComponent(Dropdown, {
                   "class": "ml-2 max-w-60 flex-auto pointer-events-auto min-h-14",
                   selectedItemTemplate: ([key]) => (() => {
-                    var _el$58 = _tmpl$25();
+                    var _el$58 = _tmpl$26();
                     insert(_el$58, createComponent(L10n.Compose, {
                       text: key
                     }));
@@ -1520,7 +1537,7 @@ const CommerceResourcesContainerComponent = (props) => {
         items: gamepadTrayItems,
         get children() {
           return [(() => {
-            var _el$45 = _tmpl$20();
+            var _el$45 = _tmpl$21();
             insert(_el$45, createComponent(Show, {
               get when() {
                 return !model.isSlottingAvailable;
@@ -1543,7 +1560,7 @@ const CommerceResourcesContainerComponent = (props) => {
                 name: "commerce-resources-container",
                 "class": "flex-auto relative",
                 get children() {
-                  var _el$46 = _tmpl$21();
+                  var _el$46 = _tmpl$22();
                   insert(_el$46, createComponent(AvailableResourcesContainer, props), null);
                   insert(_el$46, createComponent(SlottedResourcesContainer, props), null);
                   return _el$46;

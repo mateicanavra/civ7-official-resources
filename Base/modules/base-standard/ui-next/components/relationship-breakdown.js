@@ -36,16 +36,23 @@ const RelationshipBreakdownComponent = (props) => {
     }
     const relationshipItemList = [];
     for (const historyItem of relationshipHistory) {
-      const itemIndex = relationshipItemList.findIndex((item) => historyItem.eventType == item.eventType);
+      const itemIndex = relationshipItemList.findIndex((item) => historyItem.eventType == item.eventType && historyItem.triggeredBy == item.triggeredBy);
       if (itemIndex != -1) {
         relationshipItemList[itemIndex].amount += historyItem.amount;
       } else {
         relationshipItemList.push({
           eventType: historyItem.eventType,
-          amount: historyItem.amount
+          amount: historyItem.amount,
+          triggeredBy: historyItem.triggeredBy
         });
       }
     }
+    relationshipItemList.sort((a, b) => {
+      if (a.eventType != b.eventType) {
+        return b.eventType - a.eventType;
+      }
+      return b.triggeredBy - a.triggeredBy;
+    });
     setRelationshipItems(relationshipItemList);
   });
   const addPlusIfNeeded = (num) => {
@@ -89,7 +96,7 @@ const RelationshipBreakdownComponent = (props) => {
             var _el$7 = _tmpl$3(), _el$8 = _el$7.firstChild, _el$9 = _el$8.nextSibling;
             insert(_el$8, createComponent(L10n.Stylize, {
               get text() {
-                return getPlayerDiplomacy(propsWithDefaults.comparisonPlayerId)?.getFavorGrievanceEventTypeName(relationshipItem.eventType) ?? "";
+                return getPlayerDiplomacy(propsWithDefaults.comparisonPlayerId)?.getFavorGrievanceEventTypeName(relationshipItem.eventType, relationshipItem.triggeredBy) ?? "";
               }
             }));
             insert(_el$9, () => addPlusIfNeeded(Math.floor(relationshipItem.amount * 10) / 10));

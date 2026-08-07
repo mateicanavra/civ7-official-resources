@@ -10,7 +10,7 @@ import { useIsSmallScreen } from '../../../../core/ui-next/utilities/layout-util
 import { LeaderWithRibbon } from '../../components/leader-with-ribbon.js';
 import { useVictoriesScreenContext, VictoryTabType } from './victories-screen-model.js';
 
-var _tmpl$ = /* @__PURE__ */ template(`<div class="absolute -top-14 victories-header"><div class="font-body text-body text-xs self-center"></div></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class=self-center></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="victories-military-col-4 font-title text-xl text-white flex flex-row"><div class="h-full w-2"></div><div class="flex-1 self-center"></div></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div class="victories-military-col-3 font-title text-sm uppercase flex flex-row"><div class="w-full self-center"><div class="self-start ml-2"></div></div></div>`), _tmpl$5 = /* @__PURE__ */ template(`<div class="flex flex-row absolute -mt-6 ml-2 w-full victories-point-goal-line"><div><div role=heading></div></div><div class="flex flex-row"><div class=self-center></div></div></div>`), _tmpl$6 = /* @__PURE__ */ template(`<div class="w-full h-4"></div>`), _tmpl$7 = /* @__PURE__ */ template(`<div class="flex flex-col"></div>`), _tmpl$8 = /* @__PURE__ */ template(`<div class=self-center>-</div>`), _tmpl$9 = /* @__PURE__ */ template(`<div class="victories-military-col-3 font-title text-sm"></div>`), _tmpl$10 = /* @__PURE__ */ template(`<div class="flex flex-row victories-military-bottom-line h-14 w-full"><div class="victories-military-col-1 font-title text-sm fxs-header uppercase self-center"><div></div></div><div class="victories-military-col-2 self-center"></div><div class="victories-military-col-4 flex flex-row"><div class="w-full font-title text-sm fxs-header uppercase flex flex-row"><div class="self-center w-full text-center font-fit-shrink"></div></div></div></div>`), _tmpl$11 = /* @__PURE__ */ template(`<div></div>`), _tmpl$12 = /* @__PURE__ */ template(`<div class=text-white></div>`), _tmpl$13 = /* @__PURE__ */ template(`<div class="text-white break-words"></div>`), _tmpl$14 = /* @__PURE__ */ template(`<div class=text-body></div>`), _tmpl$15 = /* @__PURE__ */ template(`<div class=text-negative></div>`), _tmpl$16 = /* @__PURE__ */ template(`<div class="absolute inset-0 flex flex-row"><div><div></div></div><div></div></div>`), _tmpl$17 = /* @__PURE__ */ template(`<div><div class="h-full w-2"></div><div class="self-center flex-1"><div class="font-title bold text-xl self-center text-white"></div></div></div>`), _tmpl$18 = /* @__PURE__ */ template(`<div class=items-center><div></div><div class="font-title text-xs text-secondary uppercase self-center"></div><div class="font-body text-xs text-primary self-center mb-4"></div></div>`), _tmpl$19 = /* @__PURE__ */ template(`<div class="w-full h-3"></div>`), _tmpl$20 = /* @__PURE__ */ template(`<div class="relative mx-4 victories-tooltip-divider"></div>`), _tmpl$21 = /* @__PURE__ */ template(`<div class=victories-tooltip-spreadsheet-player-id-block role=heading></div>`), _tmpl$22 = /* @__PURE__ */ template(`<div class="w-full h-2"></div>`), _tmpl$23 = /* @__PURE__ */ template(`<div><div class="font-title-sm uppercase self-center fxs-header mb-2"></div></div>`);
+var _tmpl$ = /* @__PURE__ */ template(`<div class="absolute -top-14 victories-header"><div class="font-body text-body text-xs self-center"></div></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class=self-center></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="victories-military-col-4 font-title text-xl text-white flex flex-row"><div class="h-full w-2"></div><div class="flex-1 self-center"></div></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div class="victories-military-col-3 font-title text-sm uppercase flex flex-row"><div class="w-full self-center"><div class="self-start ml-2"></div></div></div>`), _tmpl$5 = /* @__PURE__ */ template(`<div class="flex flex-row absolute -mt-6 ml-2 w-full victories-point-goal-line"><div><div role=heading></div></div><div class="flex flex-row"><div class=self-center></div></div></div>`), _tmpl$6 = /* @__PURE__ */ template(`<div class="w-full h-4"></div>`), _tmpl$7 = /* @__PURE__ */ template(`<div class="flex flex-col"></div>`), _tmpl$8 = /* @__PURE__ */ template(`<div class=self-center>-</div>`), _tmpl$9 = /* @__PURE__ */ template(`<div class="victories-military-col-3 font-title text-sm"></div>`), _tmpl$10 = /* @__PURE__ */ template(`<div class="flex flex-row victories-military-bottom-line h-14 w-full"><div class="victories-military-col-1 font-title text-sm fxs-header uppercase self-center"><div></div></div><div class="victories-military-col-2 self-center"></div><div class="victories-military-col-4 flex flex-row"><div class="w-full font-title text-sm fxs-header uppercase flex flex-row"><div class="self-center w-full text-center font-fit-shrink"></div></div></div></div>`), _tmpl$11 = /* @__PURE__ */ template(`<div></div>`), _tmpl$12 = /* @__PURE__ */ template(`<div class=text-body></div>`), _tmpl$13 = /* @__PURE__ */ template(`<div class=text-negative></div>`), _tmpl$14 = /* @__PURE__ */ template(`<div class="absolute inset-0 flex flex-row"><div><div></div></div><div></div></div>`), _tmpl$15 = /* @__PURE__ */ template(`<div><div class="h-full w-2"></div><div class="self-center flex-1"><div class="font-title bold text-xl self-center text-white"></div></div></div>`), _tmpl$16 = /* @__PURE__ */ template(`<div class=items-center><div></div><div class="font-title text-xs text-secondary uppercase self-center"></div><div class="font-body text-xs text-primary self-center mb-4"></div></div>`), _tmpl$17 = /* @__PURE__ */ template(`<div class="w-full h-3"></div>`), _tmpl$18 = /* @__PURE__ */ template(`<div class="relative mx-4 victories-tooltip-divider"></div>`), _tmpl$19 = /* @__PURE__ */ template(`<div class=victories-tooltip-spreadsheet-player-id-block role=heading></div>`), _tmpl$20 = /* @__PURE__ */ template(`<div class="w-full h-2"></div>`), _tmpl$21 = /* @__PURE__ */ template(`<div><div class="font-title-sm uppercase self-center fxs-header mb-2"></div></div>`);
 const VictoryTabBase = (props) => {
   const isSmallScreen = useIsSmallScreen();
   const mergedProps = mergeProps({
@@ -173,6 +173,7 @@ const VictoryRowPlayerDisplay = (props) => {
     ctx.unFocusPlayer(props.playerInfo.playerId, props.rowType);
   };
   const columnClass = untrack(() => `victories-${props.columnClassOverride ?? "military"}`);
+  const isSmallScreen = useIsSmallScreen();
   return createComponent(Activatable, {
     get ["class"]() {
       return `${columnClass}-cols-1-and-2 victories-row-${props.rowId} relative flex flex-row`;
@@ -201,7 +202,7 @@ const VictoryRowPlayerDisplay = (props) => {
         });
         return _el$26;
       })(), (() => {
-        var _el$27 = _tmpl$16(), _el$28 = _el$27.firstChild, _el$29 = _el$28.firstChild, _el$30 = _el$28.nextSibling;
+        var _el$27 = _tmpl$14(), _el$28 = _el$27.firstChild, _el$29 = _el$28.firstChild, _el$30 = _el$28.nextSibling;
         className(_el$28, `flex flex-row ${columnClass}-col-1 justify-center`);
         insert(_el$29, () => props.rowId);
         className(_el$30, `relative ${columnClass}-col-2 victories-military-left-line`);
@@ -230,36 +231,39 @@ const VictoryRowPlayerDisplay = (props) => {
                   },
                   get fallback() {
                     return (() => {
-                      var _el$36 = _tmpl$12();
+                      var _el$36 = _tmpl$11();
                       insert(_el$36, createComponent(L10n.Stylize, {
                         get text() {
                           return `${Locale.compose(props.playerInfo.playerIsMet ? props.playerInfo.playerName : "LOC_UI_UNMET_PLAYER_NAME")} ${Locale.compose(props.playerInfo.playerId == GameContext.localPlayerID ? "LOC_UI_RANKINGS_YOU" : "")}`;
                         }
                       }));
+                      createRenderEffect(() => className(_el$36, `text-white ${isSmallScreen() ? "text-xs" : ""}`));
                       return _el$36;
                     })();
                   },
                   get children() {
                     return [(() => {
-                      var _el$32 = _tmpl$12();
+                      var _el$32 = _tmpl$11();
                       insert(_el$32, createComponent(L10n.Stylize, {
                         get text() {
                           return `${Locale.compose(props.playerInfo.playerIsMet ? props.playerInfo.leaderName : "LOC_UI_UNMET_PLAYER_NAME")}  ${Locale.compose(props.playerInfo.playerId == GameContext.localPlayerID ? "LOC_UI_RANKINGS_YOU" : "")}`;
                         }
                       }));
+                      createRenderEffect(() => className(_el$32, `text-white ${isSmallScreen() ? "text-xs" : ""}`));
                       return _el$32;
                     })(), (() => {
-                      var _el$33 = _tmpl$13();
+                      var _el$33 = _tmpl$11();
                       insert(_el$33, createComponent(L10n.Stylize, {
                         get text() {
                           return `${Locale.compose(props.playerInfo.playerIsMet ? props.playerInfo.playerName : "")}`;
                         }
                       }));
+                      createRenderEffect(() => className(_el$33, `text-white ${isSmallScreen() ? "text-xs" : ""} break-words`));
                       return _el$33;
                     })()];
                   }
                 }), (() => {
-                  var _el$34 = _tmpl$14();
+                  var _el$34 = _tmpl$12();
                   insert(_el$34, createComponent(L10n.Compose, {
                     get text() {
                       return props.playerInfo.govType;
@@ -271,7 +275,7 @@ const VictoryRowPlayerDisplay = (props) => {
                     return props.playerInfo.playerAtWarWith;
                   },
                   get children() {
-                    var _el$35 = _tmpl$15();
+                    var _el$35 = _tmpl$13();
                     insert(_el$35, createComponent(L10n.Compose, {
                       text: "LOC_TRADE_LENS_ROUTE_TYPE_WAR"
                     }));
@@ -326,7 +330,7 @@ const VictoryRow = (props) => {
           });
         }
       }), (() => {
-        var _el$37 = _tmpl$17(), _el$38 = _el$37.firstChild, _el$39 = _el$38.nextSibling, _el$40 = _el$39.firstChild;
+        var _el$37 = _tmpl$15(), _el$38 = _el$37.firstChild, _el$39 = _el$38.nextSibling, _el$40 = _el$39.firstChild;
         className(_el$37, `flex flex-row ${columnClass}-col-4`);
         _el$39.style.setProperty("transition-property", "opacity");
         insert(_el$40, () => Locale.toNumber(props.playerInfo.score));
@@ -404,7 +408,7 @@ const VictoryRulesTooltip = (props) => {
         get children() {
           return createComponent(Tooltip.Frame, {
             get children() {
-              var _el$41 = _tmpl$18(), _el$42 = _el$41.firstChild, _el$43 = _el$42.nextSibling, _el$44 = _el$43.nextSibling;
+              var _el$41 = _tmpl$16(), _el$42 = _el$41.firstChild, _el$43 = _el$42.nextSibling, _el$44 = _el$43.nextSibling;
               insert(_el$42, createComponent(L10n.Compose, {
                 get text() {
                   return props.titleText;
@@ -462,7 +466,7 @@ const SpreadsheetTooltip = (props) => {
             get children() {
               return createComponent(Tooltip.Frame, {
                 get children() {
-                  var _el$45 = _tmpl$23(), _el$46 = _el$45.firstChild;
+                  var _el$45 = _tmpl$21(), _el$46 = _el$45.firstChild;
                   insert(_el$46, createComponent(L10n.Compose, {
                     get text() {
                       return props.data.title ? props.data.title : "";
@@ -471,7 +475,7 @@ const SpreadsheetTooltip = (props) => {
                   insert(_el$45, createComponent(CardFrame, {
                     "class": "mb-4",
                     get children() {
-                      return [_tmpl$19(), createComponent(For, {
+                      return [_tmpl$17(), createComponent(For, {
                         get each() {
                           return props.data.items;
                         },
@@ -482,13 +486,13 @@ const SpreadsheetTooltip = (props) => {
                                 return index() > 0;
                               },
                               get children() {
-                                return _tmpl$20();
+                                return _tmpl$18();
                               }
                             }), createComponent(HSlot, {
                               "class": "victories-tooltip-spreadsheet-row min-h-8 font-body text-xs text-body ml-4 mr-4 justify-between",
                               get children() {
                                 return [(() => {
-                                  var _el$56 = _tmpl$21();
+                                  var _el$56 = _tmpl$19();
                                   insert(_el$56, createComponent(L10n.Compose, {
                                     get text() {
                                       return sheetItem.name;
@@ -511,11 +515,11 @@ const SpreadsheetTooltip = (props) => {
                         get children() {
                           return createComponent(VSlot, {
                             get children() {
-                              return [_tmpl$20(), createComponent(HSlot, {
+                              return [_tmpl$18(), createComponent(HSlot, {
                                 "class": "victories-tooltip-spreadsheet-row min-h-8 font-title-sm uppercase fxs-header mx-4 justify-between",
                                 get children() {
                                   return [(() => {
-                                    var _el$49 = _tmpl$21();
+                                    var _el$49 = _tmpl$19();
                                     insert(_el$49, createComponent(L10n.Compose, {
                                       text: "LOC_VICTORIES_TOOLTIP_TOTAL"
                                     }));
@@ -541,11 +545,11 @@ const SpreadsheetTooltip = (props) => {
                       return createComponent(CardFrame, {
                         "class": "mb-4",
                         get children() {
-                          return [_tmpl$22(), createComponent(HSlot, {
+                          return [_tmpl$20(), createComponent(HSlot, {
                             "class": "victories-tooltip-spreadsheet-row min-h-8 font-body text-xs text-body ml-4 mr-4 justify-between",
                             get children() {
                               return [(() => {
-                                var _el$52 = _tmpl$21();
+                                var _el$52 = _tmpl$19();
                                 insert(_el$52, createComponent(L10n.Compose, {
                                   text: "LOC_VICTORIES_TOOLTIP_LAST_TURN"
                                 }));

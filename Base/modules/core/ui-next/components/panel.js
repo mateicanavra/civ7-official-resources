@@ -40,6 +40,9 @@ const PanelComponent = (props) => {
   function handleContextChanged(args) {
     const isActive = args.detail.activatedElement == adapterContext?.rootElement;
     setIsActiveContext(isActive);
+    if (props.onContextChanged) {
+      props.onContextChanged(args.detail.activatedElement, args.detail.deactivatedElement);
+    }
   }
   const stackProvider = new PanelStackContextProvider(applyContext);
   onMount(() => {

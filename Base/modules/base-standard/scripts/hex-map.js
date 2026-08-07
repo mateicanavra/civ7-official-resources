@@ -23,6 +23,8 @@ class HexValidationSettings {
   removeBridgingPlayerLandmasses = 2 /* FORCE_OCEANS */;
   forceCoasts = true;
   removeLakes = true;
+  removeOrphanCoastTiles = true;
+  // coast tiles that are part of a set with no land
   lakeDensityAllowed = 0.03;
   // ratio of land tiles to lake tiles.
   maxLakeSize = 6;
@@ -475,6 +477,9 @@ class HexMap {
     if (this.m_validationSettings.removeLakes) {
       this.removeLakes();
     }
+    if (this.m_validationSettings.removeOrphanCoastTiles) {
+      this.removeOrphanCoastTiles();
+    }
     if (this.m_validationSettings.removeAdjacentVolcanos) {
       this.removeAdjacentVolcanoes();
     }
@@ -579,6 +584,34 @@ class HexMap {
     );
     this.m_lakeTiles = totalLakeTiles;
   }
+  removeOrphanCoastTiles() {
+    let totalRemovedTiles = 0;
+    this.forAllTiles((tile) => {
+      if (tile.terrainType === TerrainType.Coast && !tile.visited) {
+        const coastTiles = [];
+        let foundLand = false;
+        this.floodFill(tile, (tile2) => {
+          if (tile2.terrainType === TerrainType.Coast) {
+            coastTiles.push(tile2);
+            return 0 /* Include */;
+          } else if (tile2.terrainType !== TerrainType.Ocean) {
+            foundLand = true;
+            return 2 /* Halt */;
+          }
+          return 1 /* Exclude */;
+        });
+        if (!foundLand) {
+          for (const coastTile of coastTiles) {
+            coastTile.terrainType = TerrainType.Ocean;
+            coastTile.playerLandmassId = -1;
+          }
+          totalRemovedTiles += coastTiles.length;
+        }
+      }
+    });
+    this.clearVisited();
+    console.log(`Removed ${totalRemovedTiles} orphan coast tiles.`);
+  }
   removeAdjacentVolcanoes() {
     this.forAllTiles((tile) => {
       if (tile.featureType === FeatureType.Volcano) {
@@ -652,11 +685,14 @@ class HexMap {
         return considerTiles.pop();
       };
       let size = 0;
+      const lakeTiles = [];
+      let lakePlayerLandmass = -1;
       while (totalSize > size && considerTiles.length > 0 && this.m_lakeTiles < targetLakeTileCount) {
         const tile = popWeightedLakeTile(lakeSettings.clumpiness);
         tile.visited = s_lake;
         tile.terrainType = TerrainType.Coast;
-        console.log(`Adding lake tile at ${tile.coord.x},${tile.coord.y} on landmass ${tile.playerLandmassId}`);
+        lakeTiles.push(tile.coord);
+        lakePlayerLandmass = tile.playerLandmassId;
         this.m_lakeTiles++;
         size++;
         let idx = considerTiles.length;
@@ -665,6 +701,9 @@ class HexMap {
           considerTiles[idx].visited = s_considered;
         }
       }
+      console.log(
+        `Added lake of size ${size} at ${seedTile.coord.x},${seedTile.coord.y} on landmass ${lakePlayerLandmass}. (${lakeTiles.map((t) => `(${t.x},${t.y})`).join(", ")})`
+      );
       ++lakesAdded;
       lakeTilesAdded += size;
     }
@@ -685,7 +724,7 @@ class HexMap {
           tile.coord.x,
           tile.coord.y,
           this.m_tiles,
-          (neighbor) => neighbor && neighbor.playerLandmassId !== tile.playerLandmassId && neighbor.playerLandmassId !== -1
+          (neighbor) => neighbor && neighbor.playerLandmassId !== tile.playerLandmassId && neighbor.playerLandmassId !== -1 && (option != 1 /* FORCE_COASTS */ || neighbor.terrainType !== TerrainType.Coast)
         )) {
           tile.terrainType = option === 2 /* FORCE_OCEANS */ ? TerrainType.Ocean : TerrainType.Coast;
           if (tile.terrainType === TerrainType.Ocean) {

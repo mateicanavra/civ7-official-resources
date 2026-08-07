@@ -389,6 +389,7 @@ function createLoadScreenModel() {
   let loadScreenInfo;
   let playingAudio;
   let playedAudioFinished = false;
+  let blockFurtherAudio = false;
   let queuedAudio;
   let queuedTimeoutHandle;
   let isBenchmark = false;
@@ -419,6 +420,7 @@ function createLoadScreenModel() {
     }
   }
   function handleGameStart() {
+    blockFurtherAudio = true;
     cancelQueuedAudio();
     UI.notifyUIReady();
     if (Configuration.getXR()) {
@@ -433,7 +435,7 @@ function createLoadScreenModel() {
     if (loadScreenInfo && !isAgeTransition) {
       const newlyQueued = !queuedAudio;
       queuedAudio = loadScreenInfo.audio.civAudioTag;
-      if (playedAudioFinished && queuedAudio && newlyQueued) {
+      if (playedAudioFinished && queuedAudio && newlyQueued && !blockFurtherAudio) {
         playQueuedAudio(1e3);
       }
     }
@@ -441,7 +443,7 @@ function createLoadScreenModel() {
   function handleAudioFinished(tag) {
     if (tag == playingAudio) {
       playedAudioFinished = true;
-      if (queuedAudio) {
+      if (queuedAudio && !blockFurtherAudio) {
         playQueuedAudio(2e3);
       }
     }
@@ -651,6 +653,10 @@ function createLoadScreenModel() {
       model.canBeginGame = true;
       if (UI.getGameLoadingState() == UIGameLoadingState.WaitingForUIReady) {
         UI.sendAudioEvent("main-menu-load-ready");
+      }
+      if (UI.getGameLoadingState() == UIGameLoadingState.GameStarted) {
+        blockFurtherAudio = true;
+        cancelQueuedAudio();
       }
       engine.off("UIGameLoadingProgressChanged", updateLoadingProgress);
     });

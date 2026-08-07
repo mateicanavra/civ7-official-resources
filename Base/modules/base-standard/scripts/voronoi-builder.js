@@ -1,4 +1,5 @@
 import { Diagram } from '../../core/scripts/external/TypeScript-Voronoi-master/src/diagram.js';
+import { profileFunction } from './profiling.js';
 import { WrapType, VoronoiUtils } from './voronoi-utils.js';
 
 class VoronoiBuilder {
@@ -26,7 +27,10 @@ class VoronoiBuilder {
   buildVoronoi(width, height, cellCount, relaxationSteps, wrap = WrapType.None) {
     const bbox = { xl: 0, xr: width, yt: 0, yb: height };
     const sites = VoronoiUtils.createRandomSites(cellCount, width, height);
-    this.m_diagram = VoronoiUtils.computeVoronoi(sites, bbox, relaxationSteps, wrap);
+    this.m_diagram = profileFunction(
+      "Compute Voronoi",
+      () => VoronoiUtils.computeVoronoi(sites, bbox, relaxationSteps, wrap)
+    );
   }
 }
 

@@ -21,7 +21,7 @@ const STARTING_INNER_HTML = `
 <div class="army-panel__container-background flex">
 	<div class="army-panel__main-container relative flex w-auto p-2">
 		<fxs-vslot class="army-panel__main-column flex relative flex-col justify-start" focus-rule="last">
-			<fxs-hslot class="army-panel__standard-actions flex relative flex-row justify-center mb-2" ignore-prior-focus>
+			<fxs-hslot class="army-panel__standard-actions flex relative flex-row justify-center mb-2" ignore-prior-focus data-navrule-up="stop">
 			</fxs-hslot>
 			<div class="army-panel__units-background relative pointer-events-none pl-5 h-49">
 				<fxs-spatial-slot class="army-panel__portrait-row mt-1 flex flex-row" ignore-prior-focus>

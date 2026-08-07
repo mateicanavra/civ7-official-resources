@@ -626,6 +626,9 @@
     <Replace Tag="LOC_GROUPID_PLAYERDIFFICULTY" Language="pl_PL">
       <Text>Ustawienia poziomu trudności gracza</Text>
     </Replace>
+    <Replace Tag="LOC_GROUPID_VICTORYOPTIONS" Language="pl_PL">
+      <Text>Ustawienia zwycięstwa</Text>
+    </Replace>
     <Replace Tag="LOC_HOTSEAT_ENTER_PASSWORD_HERE" Language="pl_PL">
       <Text>Wprowadź hasło tutaj.</Text>
     </Replace>
@@ -691,6 +694,9 @@
     </Replace>
     <Replace Tag="LOC_JOIN_GAME_CONNECTION_REJECTED" Language="pl_PL">
       <Text>Nie udało się połączyć z gospodarzem gry. Jeśli korzystasz z kodu dołączenia, sprawdź go i spróbuj ponownie.</Text>
+    </Replace>
+    <Replace Tag="LOC_JOIN_GAME_CROSSPLAY_DISABLED" Language="pl_PL">
+      <Text>Nie możesz dołączyć do rozgrywki crossplay, gdy crossplay jest wyłączony w opcjach gry. Crossplay możesz włączyć w menu opcji.</Text>
     </Replace>
     <Replace Tag="LOC_JOIN_GAME_JOINCODE_SYNTAX" Language="pl_PL">
       <Text>Niewłaściwy kod dołączenia. Sprawdź go i spróbuj ponownie.</Text>
@@ -3924,9 +3930,6 @@
     <Replace Tag="LOC_UI_CREATE_GAME_GAME_START_CIV_SELECTION" Language="pl_PL">
       <Text>Wybór cywilizacji na początek gry</Text>
     </Replace>
-    <Replace Tag="LOC_UI_CREATE_GAME_HEIGHT_OF_POWER" Language="pl_PL">
-      <Text>[Height of Power Text]</Text>
-    </Replace>
     <Replace Tag="LOC_UI_CREATE_GAME_HEIGHT_OF_POWER_DESCRIPTION" Language="pl_PL">
       <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</Text>
     </Replace>
@@ -3935,9 +3938,6 @@
     </Replace>
     <Replace Tag="LOC_UI_CREATE_GAME_HISTORICAL_RANDOM_DESCRIPTION" Language="pl_PL">
       <Text>Cywilizacje będą wybrane w taki sposób, żeby mieć powiązanie historyczne, geograficzne lub strategiczne z przywódcą.</Text>
-    </Replace>
-    <Replace Tag="LOC_UI_CREATE_GAME_HOWWHEN_IS_TEST_OF_TIME_ACTIVATED" Language="pl_PL">
-      <Text>[How/When is Test of Time activated Text]</Text>
     </Replace>
     <Replace Tag="LOC_UI_CREATE_GAME_HOWWHEN_IS_TEST_OF_TIME_ACTIVATED_DESCRIPTION" Language="pl_PL">
       <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</Text>
@@ -4028,9 +4028,6 @@
     </Replace>
     <Replace Tag="LOC_UI_CREATE_GAME_UNLOCKED_BY_DESCRIPTION" Language="pl_PL">
       <Text>Spełnij którykolwiek wymagany warunek, aby odblokować tę cywilizację.</Text>
-    </Replace>
-    <Replace Tag="LOC_UI_CREATE_GAME_WHAT_IS_TEST_OF_TIME" Language="pl_PL">
-      <Text>[What is Test of Time Text]</Text>
     </Replace>
     <Replace Tag="LOC_UI_CREATE_GAME_WHAT_IS_TEST_OF_TIME_DESCRIPTION" Language="pl_PL">
       <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</Text>
@@ -4228,19 +4225,22 @@
       <Text>Przełącza na kolejną gotową jednostkę</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_OPEN_ATTRIBUTES" Language="pl_PL">
-      <Text>Otwórz atrybuty</Text>
+      <Text>Wł./wył. atrybuty</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_OPEN_ATTRIBUTES_TT" Language="pl_PL">
-      <Text>Otwórz ekran atrybutów</Text>
+      <Text>Otwórz lub zamknij ekran atrybutów</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_OPEN_CIVILOPEDIA" Language="pl_PL">
-      <Text>Otwórz Civilopedię</Text>
+      <Text>Wł./wył. Civilopedię</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_OPEN_CIVILOPEDIA_TT" Language="pl_PL">
+      <Text>Otwórz lub zamknij Civilopedię</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_OPEN_GOVERNMENT" Language="pl_PL">
-      <Text>Otwórz ustrój</Text>
+      <Text>Wł./wył. ustrój</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_OPEN_GOVERNMENT_TT" Language="pl_PL">
-      <Text>Otwórz ekran ustroju</Text>
+      <Text>Otwórz lub zamknij ekran ustroju</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_PAUSE_ONLINE_GAME" Language="pl_PL">
       <Text>Wstrzymanie rozgrywki sieciowej</Text>
@@ -4284,14 +4284,29 @@
     <Replace Tag="LOC_UI_KBM_MAPPING_SECONDARY_KEY" Language="pl_PL">
       <Text>Pomocniczy</Text>
     </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_ADVISORS" Language="pl_PL">
+      <Text>Wł./wył. radę doradców</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_ADVISORS_TT" Language="pl_PL">
+      <Text>Otwórz lub zamknij ekran rady doradców</Text>
+    </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_CIVICS_SCREEN" Language="pl_PL">
-      <Text>Wł./wył. ekran idei</Text>
+      <Text>Wł./wył. drzewo kultury</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_CIVICS_SCREEN_TT" Language="pl_PL">
+      <Text>Otwórz lub zamknij drzewo kultury</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_GREAT_PEOPLE_SCREEN" Language="pl_PL">
-      <Text>Wł./wył. ekran wielkich ludzi</Text>
+      <Text>Wł./wył. wielkich ludzi</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_GREAT_PEOPLE_SCREEN_TT" Language="pl_PL">
+      <Text>Otwórz lub zamknij ekran wielkich ludzi</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_GREAT_WORKS_SCREEN" Language="pl_PL">
-      <Text>Wł./wył. ekran wielkich dzieł</Text>
+      <Text>Wł./wył. wielkie dzieła</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_GREAT_WORKS_SCREEN_TT" Language="pl_PL">
+      <Text>Otwórz lub zamknij ekran wielkich dzieł</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_GRID" Language="pl_PL">
       <Text>Wł./wył. siatkę</Text>
@@ -4301,6 +4316,12 @@
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_JOURNAL" Language="pl_PL">
       <Text>Wł./wył. dziennik</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_LEGACIES" Language="pl_PL">
+      <Text>Wł./wył. spuścizny</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_LEGACIES_TT" Language="pl_PL">
+      <Text>Otwórz lub zamknij ekran spuścizn</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_LENS_CONTINENT" Language="pl_PL">
       <Text>Kontynent</Text>
@@ -4327,10 +4348,16 @@
       <Text>Wł./wył. filtra handlu</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_RANKINGS_SCREEN" Language="pl_PL">
-      <Text>Wł./wył. ekran zwycięstw</Text>
+      <Text>Wł./wył. zwycięstwa</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_RANKINGS_SCREEN_TT" Language="pl_PL">
+      <Text>Otwórz lub zamknij ekran zwycięstwa</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_RELIGION" Language="pl_PL">
-      <Text>Wł./wył. panel religii</Text>
+      <Text>Wł./wył. religie</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_RELIGION_TT" Language="pl_PL">
+      <Text>Otwórz lub zamknij ekran religii</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_RESOURCE_ICONS" Language="pl_PL">
       <Text>Wł./wył. ikony zasobów</Text>
@@ -4344,8 +4371,14 @@
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_TECH_TREE" Language="pl_PL">
       <Text>Wł./wył. drzewo technologii</Text>
     </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_TECH_TREE_TT" Language="pl_PL">
+      <Text>Otwórz lub zamknij drzewo technologii</Text>
+    </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_TRADE_SCREEN" Language="pl_PL">
-      <Text>Wł./wył. ekran handlu</Text>
+      <Text>Wł./wył. handel</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_TRADE_SCREEN_TT" Language="pl_PL">
+      <Text>Otwórz lub zamknij ekran handlu</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_VICTORY_PROGRESS" Language="pl_PL">
       <Text>Wł./wył. ekran postępu zwycięstwa</Text>
@@ -4731,6 +4764,9 @@
     <Replace Tag="LOC_UI_MP_GAME_RULE_TURN_TIME" Language="pl_PL">
       <Text>Czas tury:</Text>
     </Replace>
+    <Replace Tag="LOC_UI_MP_GAME_RULE_TURN_TIME_EXTENDED" Language="pl_PL">
+      <Text>Wydłużony czas trwania tury:</Text>
+    </Replace>
     <Replace Tag="LOC_UI_MP_GAME_RULE_TURN_TIMER" Language="pl_PL">
       <Text>Zegar tury:</Text>
     </Replace>
@@ -5085,6 +5121,9 @@
     <Replace Tag="LOC_UI_SAVE_CONFIG" Language="pl_PL">
       <Text>Zapisz konfigurację</Text>
     </Replace>
+    <Replace Tag="LOC_UI_SHOW_TOOLTIPS" Language="pl_PL">
+      <Text>Pokaż podpowiedzi (PRZYTRZYMAJ)</Text>
+    </Replace>
     <Replace Tag="LOC_UI_SOCIAL_PLAYER_OPTIONS" Language="pl_PL">
       <Text>Opcje gracza</Text>
     </Replace>
@@ -5123,6 +5162,15 @@
     </Replace>
     <Replace Tag="LOC_UI_TOOLTIP_DLCS" Language="pl_PL">
       <Text>Oficjalna zawartość</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_TOOLTIP_HIDDEN_HINT_BODY_POST" Language="pl_PL">
+      <Text>, by ponownie pokazać podpowiedzi. Podpowiedzi będą ponownie wyświetlane po restarcie.</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_TOOLTIP_HIDDEN_HINT_BODY_PRE" Language="pl_PL">
+      <Text>Przytrzymaj akcję sprawdzania</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_TOOLTIP_HIDDEN_HINT_TITLE" Language="pl_PL">
+      <Text>Podpowiedzi ukryte</Text>
     </Replace>
     <Replace Tag="LOC_UI_TOOLTIP_MODS" Language="pl_PL">
       <Text>Dodatki</Text>

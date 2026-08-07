@@ -100,6 +100,8 @@ class MainMenu extends Component {
   static VO_CAMERA_TARGET = { x: -2.7588, y: -17.4867, z: 14.8042 };
   static VO_SMALL_SCREEN_CAMERA_POSITION = { x: -1.834, y: -23.0713, z: 15.2 };
   static VO_SMALL_SCREEN_CAMERA_TARGET = { x: -3.7, y: -17.4867, z: 14.8042 };
+  static VO_MOBILE_CAMERA_POSITION = { x: -1.834, y: -23.0713, z: 15.2 };
+  static VO_MOBILE_CAMERA_TARGET = { x: -3.4588, y: -17.4867, z: 14.8042 };
   currentPreloadingAsset = null;
   hasPreloadingBegun = false;
   preloadAssetNames = [];
@@ -123,6 +125,9 @@ class MainMenu extends Component {
   forceOfflineLegalFlow = false;
   hasShownDNAErrorPopup = false;
   isInLoginFlow = false;
+  isGameCenter = Network.getLocalHostingPlatform() == HostingType.HOSTING_TYPE_GAMECENTER;
+  isMobile = UI.getViewExperience() == UIViewExperience.Mobile;
+  isDesktop = UI.getViewExperience() == UIViewExperience.Desktop;
   constructor(root) {
     super(root);
     engine.on("LaunchToHostMPGame", this.onLaunchHostMPGameListener);
@@ -134,6 +139,7 @@ class MainMenu extends Component {
     this.slot.setAttribute("data-navrule-down", "wrap");
     this.carouselSmallContainer = MustGetElement(".carousel-small-container", this.Root);
     this.buttonContainer = MustGetElement(".main-menu-button-container", this.Root);
+    this.buttonContainer.classList.toggle("ml-16", this.isGameCenter && this.isDesktop);
     this.mainMenuBackground = MustGetElement("main-menu-background", this.Root);
     if (Network.supportsSSO()) {
       this.promoCarouselSmall = document.createElement("promo-carousel-small");
@@ -145,13 +151,21 @@ class MainMenu extends Component {
       this.accountStatusNavHelp = document.createElement("fxs-nav-help");
       this.accountStatusNavHelp.setAttribute("action-key", "inline-shell-action-2");
       this.accountStatusNavHelp.classList.add("absolute", "top-2", "left-2");
+    } else {
+      this.carouselSmallContainer.classList.add("hidden");
     }
     this.profileHeaderContainer = MustGetElement(".main-menu__profile-header-container", this.Root);
+    this.profileHeaderContainer.classList.toggle("mb-14", this.isGameCenter && this.isDesktop);
+    this.profileHeaderContainer.classList.toggle("-ml-26", this.isGameCenter && this.isDesktop);
+    if (this.isMobile) {
+      this.profileHeaderContainer.className = `main-menu__profile-header-container absolute flex flex-col flex-col-reverse flex-nowrap items-end right-3`;
+      this.Root.appendChild(this.profileHeaderContainer);
+    }
     this.buildInfo = MustGetElement(".main-menu-build-info", this.Root);
     this.buildInfo.innerHTML = Locale.compose("LOC_SHELL_BUILD_INFO", BuildInfo.version.display);
     this.slot.appendChild(this.buildInfo);
     this.odrDownload = document.createElement("div");
-    this.odrDownload.classList.add("ml-2", "relative", "main-menu_odr-download", "hidden");
+    this.odrDownload.classList.add("mt-2", "relative", "main-menu_odr-download", "hidden");
     const odrDownloadButton = document.createElement("fxs-activatable");
     odrDownloadButton.addEventListener(ActionActivateEventName, this.odrDownloadButtonActivateListener);
     odrDownloadButton.classList.add(
@@ -206,6 +220,24 @@ class MainMenu extends Component {
     this.shroud = document.createElement("div");
     this.shroud.classList.value = "menu-shroud pointer-events-none absolute inset-0 fullscreen-outside-safezone";
     this.Root.appendChild(this.shroud);
+    if (this.isGameCenter && this.isDesktop) {
+      const slotContainer = MustGetElement(".main-menu-slot-container-outer", this.Root);
+      slotContainer.classList.add("main-menu-wide");
+      const carouselBtnContainer = MustGetElement(".carousel-button-container", this.Root);
+      carouselBtnContainer.classList.add("main-menu-wide");
+      const filigreeTop = MustGetElement(".main-menu-container-top", this.Root);
+      filigreeTop.classList.add("top-0");
+      filigreeTop.classList.remove("top-2");
+      const filigreeBottom = MustGetElement(".main-menu-container-bottom", this.Root);
+      filigreeBottom.classList.add("-bottom-6");
+      filigreeBottom.classList.remove("-bottom-14");
+      const logoContainer = MustGetElement(".main-menu-logo-container", this.Root);
+      logoContainer.classList.add("mr-56");
+      logoContainer.classList.add("mt-12");
+      const mainContainer = MustGetElement(".main-menu-container-inner", this.Root);
+      mainContainer.classList.add("my-3");
+      mainContainer.classList.remove("my-8");
+    }
   }
   render() {
     this.Root.innerHTML = `
@@ -214,7 +246,7 @@ class MainMenu extends Component {
 				<div class="flex self-end h-full">
 					<div class="main-menu-slot-container flex self-center">
 						<fxs-vslot id="MainMenuSlot">
-							<div class="flex flex-col mr-48">
+							<div class="flex flex-col mr-48 main-menu-logo-container">
 								<div class="logo-box bg-center bg-cover bg-no-repeat self-center -mt-6 -mb-4"></div>
 								<div class="logo-filigree filigree-divider-h2 mb-2 self-center"></div>
 							</div>
@@ -369,7 +401,11 @@ class MainMenu extends Component {
     }
     buttonList.forEach((button) => {
       const newButton = document.createElement("fxs-text-button");
-      newButton.classList.add("main-menu-text-button", "self-start", "whitespace-nowrap");
+      newButton.classList.add("main-menu-text-button", "whitespace-nowrap");
+      newButton.classList.toggle("self-start", !this.isGameCenter);
+      newButton.classList.toggle("text-center", this.isGameCenter);
+      newButton.classList.toggle("self-center", this.isGameCenter);
+      newButton.classList.toggle("my-1", this.isGameCenter && this.isDesktop);
       newButton.setAttribute("type", "big");
       newButton.setAttribute("centered", "false");
       newButton.setAttribute("highlight-style", "decorative");
@@ -668,7 +704,7 @@ class MainMenu extends Component {
     );
     if (leaderData) {
       const { currentLevel } = leaderData;
-      if (currentLevel > FoundationLevel) {
+      if (currentLevel != FoundationLevel) {
         updatePlayerProfile({ FoundationLevel: currentLevel });
       }
     }
@@ -1821,6 +1857,16 @@ class MainMenu extends Component {
         },
         { fovy: 43 }
       );
+    } else if (this.isGameCenter) {
+      Camera.pushCamera(
+        MainMenu.VO_MOBILE_CAMERA_POSITION,
+        {
+          x: MainMenu.VO_MOBILE_CAMERA_TARGET.x,
+          y: MainMenu.VO_MOBILE_CAMERA_TARGET.y,
+          z: MainMenu.VO_MOBILE_CAMERA_TARGET.z
+        },
+        { fovy: 48 }
+      );
     } else {
       Camera.pushCamera(MainMenu.VO_CAMERA_POSITION, {
         x: MainMenu.VO_CAMERA_TARGET.x,
@@ -1975,7 +2021,6 @@ class MainMenu extends Component {
   }
   // blank out main menu
   raiseShroud() {
-    console.log("raiseShroud");
     this.slot.classList.add("hidden");
     this.buildInfo.classList.add("hidden");
     this.promoCarouselSmall?.setAttribute("visible", "false");
@@ -1984,7 +2029,6 @@ class MainMenu extends Component {
   }
   // show main menu
   lowerShroud() {
-    console.log("lowerShroud");
     this.promoCarouselSmall?.setAttribute("visible", "true");
     this.slot.classList.remove("hidden");
     this.shroud.style.display = "none";

@@ -30,7 +30,7 @@
 		<Argument name="Amount">4</Argument>
 	</Modifier>
 	<!-- +100 Influence immediately -->
-	<Modifier id="MOD_GOLDEN_AGE_CLASSICAL_REPUBLIC_INFLUENCE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD">
+	<Modifier id="MOD_GOLDEN_AGE_CLASSICAL_REPUBLIC_INFLUENCE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD" permanent="true">
 		<Argument name="YieldType">YIELD_DIPLOMACY</Argument>
 		<Argument name="Amount" type="ScaleByGameSpeed">100</Argument>
 	</Modifier>
@@ -82,7 +82,7 @@
 		<Argument name="UnitClass">UNIT_CLASS_COMBAT</Argument>
 		<Argument name="Percent">10</Argument>
 	</Modifier>
-	<Modifier id="MOD_GOLDEN_AGE_DESPOTISM_UNIT_PURCHASING" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_ADJUST_PLAYER_OR_CITY_UNIT_PURCHASE_EFFICIENCY">
+	<Modifier id="MOD_GOLDEN_AGE_DESPOTISM_UNIT_PURCHASING" collection="COLLECTION_OWNER" effect="EFFECT_ADJUST_PLAYER_OR_CITY_UNIT_PURCHASE_EFFICIENCY">
 		<Argument name="UnitTag">UNIT_CLASS_COMBAT</Argument>
 		<Argument name="Percent">10</Argument>
 	</Modifier>
@@ -123,7 +123,7 @@
 		<Argument name="Percent">10</Argument>
 	</Modifier>
 	<!-- +200 Gold immediately -->
-	<Modifier id="MOD_GOLDEN_AGE_OLIGARCHY_GOLD" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD">
+	<Modifier id="MOD_GOLDEN_AGE_OLIGARCHY_GOLD" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD" permanent="true">
 		<Argument name="YieldType">YIELD_GOLD</Argument>
 		<Argument name="Amount" type="ScaleByGameSpeed">200</Argument>
 	</Modifier>
@@ -137,7 +137,7 @@
 	</Modifier>
 	<!-- Revolucion -->
 	<!-- +2 Happiness (per Age) in the Cities for each Tradition slotted into the Government.-->
-	<Modifier id="MOD_REVOLUCION_AQ_PASSIVE_HAPPINESS" collection="COLLECTION_ALL_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_ACTIVE_TRADITION">
+	<Modifier id="MOD_REVOLUCION_AQ_PASSIVE_HAPPINESS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_ACTIVE_TRADITION">
 		<SubjectRequirements>
 			<Requirement type="REQUIREMENT_CITY_IS_CITY"/>
 		</SubjectRequirements>

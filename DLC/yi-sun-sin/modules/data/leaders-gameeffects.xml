@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+	<Modifier id="YI_MOD_SCIENCE_BUILDING_XP" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_ATTACH_MODIFIERS" permanent="true">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_BUILT_TAGGED_CONSTRUCTIBLE">
+				<Argument name="Tags">SCIENCE</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="ModifierId">ATTACH_YI_MOD_SCIENCE_BUILDING_XP</Argument>
+	</Modifier>
+	 <Modifier id="ATTACH_YI_MOD_SCIENCE_BUILDING_XP" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_GRANT_UNIT_EXPERIENCE" run-once="true" permanent="true">
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+                <Argument name="Tag">UNIT_CLASS_FLEET_COMMANDER</Argument>
+            </Requirement>
+        </SubjectRequirements>
+        <Argument name="Amount" type="ScaleByGameSpeed">10</Argument>
+    </Modifier>
+	<Modifier id="YI_MOD_GOLD_PER_XP" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_GRANT_YIELD_PER_XP_EARNED" permanent="true">
+		 <SubjectRequirements>
+            <Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+                <Argument name="Tag">UNIT_CLASS_FLEET_COMMANDER</Argument>
+            </Requirement>
+        </SubjectRequirements>
+		<Argument name="YieldType">YIELD_GOLD</Argument>
+		<Argument name="Amount" type="ScaleByGameAge" extra="100">3</Argument>
+	</Modifier>
+	<Modifier id="YI_MOD_SCIENCE_KILLS" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ATTACH_MODIFIERS">
+		<Argument name="ModifierId">YI_MOD_SCIENCE_KILLS_MODIFIER</Argument>
+	</Modifier>
+	<Modifier id="YI_MOD_SCIENCE_KILLS_MODIFIER" collection="COLLECTION_UNIT_COMBAT" effect="EFFECT_ADJUST_UNIT_POST_COMBAT_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_DOMAIN_MATCHES">
+				<Argument name="UnitDomain">DOMAIN_SEA</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_SCIENCE</Argument>
+		<Argument name="PercentDefeatedStrength">100</Argument>
+		<String context="WorldText">LOC_WORLD_SCIENCE_INCREASE_FLOATER</String>
+	</Modifier>
+	<Modifier id="YI_MOD_AGENDA_YI" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_AGENDA_TIMED_UPDATE">
+		<String context="Name">LOC_DIPLOMACY_AGENDA_YI_NAME</String>
+		<Argument name="ModName">LOC_DIPLOMACY_AGENDA_YI_NAME</Argument>
+		<Argument name="Tooltip">LOC_DIPLOMACY_AGENDA_YI_DESC</Argument>
+		<Argument name="WeightType">DIPLOMACY_AGENDA_COMPARE_UNIT_TAGS_AND_DISTRICTS</Argument>
+		<Argument name="FirstMeetDelay">20</Argument>
+		<Argument name="UpdateFreq">10</Argument>
+		<Argument name="AwardTo1">DIPLOMACY_AGENDA_AWARD_HIGHEST</Argument>
+		<Argument name="AwardAmtType1">DIPLOMACY_AGENDA_AMT_MEDIUM</Argument>
+		<Argument name="Arg1">UNIT_CLASS_NAVAL</Argument>
+		<Argument name="Arg2">FORTIFICATION</Argument>
+		<Argument name="AwardTo2">DIPLOMACY_AGENDA_AWARD_LOWEST</Argument>
+		<Argument name="AwardAmtType2">DIPLOMACY_AGENDA_NEG_AMT_SMALL</Argument>
+		<Argument name="NotifyMessage">LOC_NOTIFICATION_DIPLOMATIC_AGENDA_DEFAULT_MESSAGE</Argument>
+		<Argument name="NotifySummary">LOC_NOTIFICATION_DIPLOMATIC_AGENDA_DEFAULT_SUMMARY</Argument>
+	</Modifier>
+</GameEffects>

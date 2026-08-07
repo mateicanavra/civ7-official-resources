@@ -794,6 +794,10 @@ TutorialManager.add({
   },
   onActivate: (_item) => {
     UI.Player.selectNextReadyUnit();
+    InterfaceMode.switchTo("INTERFACEMODE_TUTORIAL_START", { lazyInit: true });
+  },
+  onCleanUp: (_item) => {
+    InterfaceMode.switchToDefault();
   },
   onCompleteCheck: (_item) => {
     let bSpentMovementOrSkipOrRemoved = false;

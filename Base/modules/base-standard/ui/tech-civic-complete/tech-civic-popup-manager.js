@@ -22,6 +22,7 @@ class TechCivicPopupManagerClass extends DisplayHandlerBase {
   currentTechCivicPopupData = null;
   isFirstCivic = true;
   isFirstTech = true;
+  isFirstPopup = true;
   constructor() {
     super("TechCivicPopup", 8e3);
     if (TechCivicPopupManagerClass.instance) {
@@ -43,10 +44,22 @@ class TechCivicPopupManagerClass extends DisplayHandlerBase {
    * @implements {IDisplayQueue}
    */
   show(request) {
-    window.dispatchEvent(new TechCivicPopupVisibilityEvent(this.isShowing()));
-    this.currentTechCivicPopupData = request;
-    InterfaceMode.switchToDefault();
-    ContextManager.push("screen-tech-civic-complete", { createMouseGuard: true, singleton: true });
+    const showPopup = () => {
+      window.dispatchEvent(new TechCivicPopupVisibilityEvent(this.isShowing()));
+      this.currentTechCivicPopupData = request;
+      InterfaceMode.switchToDefault();
+      ContextManager.clear();
+      ContextManager.push("screen-tech-civic-complete", { createMouseGuard: true, singleton: true });
+    };
+    if (this.isFirstPopup) {
+      const framesUntilOtherGameSetupIsDone = 40;
+      delayByFrame(() => {
+        showPopup();
+        this.isFirstPopup = false;
+      }, framesUntilOtherGameSetupIsDone);
+    } else {
+      showPopup();
+    }
   }
   /**
    * @implements {IDisplayQueue}

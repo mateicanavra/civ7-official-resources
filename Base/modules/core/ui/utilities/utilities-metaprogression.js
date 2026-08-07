@@ -41,7 +41,8 @@ const ChallengeCategorySortIndex = {
   3371692936: 1675,
   3399637381: 1712,
   3553143903: 1750,
-  9503566: 1755
+  9503566: 1755,
+  1370530846: 1910
 };
 var ChallengeClass = /* @__PURE__ */ ((ChallengeClass2) => {
   ChallengeClass2[ChallengeClass2["CHALLENGE_CLASS_FOUNDATION"] = 197113329] = "CHALLENGE_CLASS_FOUNDATION";

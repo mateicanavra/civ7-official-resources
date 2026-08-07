@@ -1,4 +1,4 @@
-import { template, insert, className } from '../../../../core/vendor/solid-js/web/dist/web.js';
+import { template, className, insert } from '../../../../core/vendor/solid-js/web/dist/web.js';
 import { onMount, createComponent, Show, createRenderEffect } from '../../../../core/vendor/solid-js/dist/solid.js';
 import { ActiveDeviceTypeChangedEventName } from '../../../../core/ui/input/input-events.js';
 import { AudioContextProvider } from '../../../../core/ui-next/components/audio-context-provider.js';
@@ -8,13 +8,14 @@ import { L10n } from '../../../../core/ui-next/components/l10n.js';
 import { useAudio } from '../../../../core/ui-next/services/audio-support.js';
 import { ComponentRegistry } from '../../../../core/ui-next/services/component-registry.js';
 import { IsControllerActive } from '../../../../core/ui-next/services/input.js';
+import { ViewExperience } from '../../../../core/ui-next/services/view-experience.js';
 import { useWindowSize, useIsSmallScreen, useAspectRatio } from '../../../../core/ui-next/utilities/layout-utilities.js';
 import { useWindowListener } from '../../../../core/ui-next/utilities/solid-utilities.js';
 import { ScreenFrame, ScreenFrameCloseHandler } from '../../components/screen-frame.js';
 import { CouncilRoom } from './advisor-screen-council-tab.js';
 import { createAdvisorCouncilScreenModel, AdvisorCouncilScreenContext } from './advisor-screen-model.js';
 
-var _tmpl$ = /* @__PURE__ */ template(`<div class="w-full flex flex-col flex-auto"><div class="flex-1 mt-10 mb-8"></div><div role=note></div></div>`);
+var _tmpl$ = /* @__PURE__ */ template(`<div class="w-full flex flex-col flex-auto"><div></div><div role=note></div></div>`);
 const AdvisorCouncilPopupComponent = () => {
   const model = createAdvisorCouncilScreenModel();
   const audio = useAudio();
@@ -34,6 +35,7 @@ const AdvisorCouncilPopupComponent = () => {
   const windowSize = useWindowSize();
   const isSmallScreen = useIsSmallScreen();
   const aspectRatio = useAspectRatio();
+  const isMobile = ViewExperience() == UIViewExperience.Mobile;
   return createComponent(AdvisorCouncilScreenContext.Provider, {
     value: model,
     get children() {
@@ -49,8 +51,10 @@ const AdvisorCouncilPopupComponent = () => {
         get closeHandler() {
           return ScreenFrameCloseHandler.PopupSequencer;
         },
+        isFullscreen: isMobile,
         get children() {
           var _el$ = _tmpl$(), _el$2 = _el$.firstChild, _el$3 = _el$2.nextSibling;
+          className(_el$2, `flex-1 ${isMobile ? "mt-5" : "mt-10"} mb-8`);
           insert(_el$2, createComponent(CouncilRoom, {
             isPopup: true
           }));

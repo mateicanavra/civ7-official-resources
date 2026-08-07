@@ -1,4 +1,5 @@
-import { RBTree, RBTreeNode } from './rbtree.js';
+import { NIL, RBTreeIdx, BeachPool } from './rbtree-pool.js';
+import { CircleEventHeap } from './circle-event-heap.js';
 import { Vertex } from './vertex.js';
 import { Edge } from './edge.js';
 import { Cell } from './cell.js';
@@ -12,11 +13,24 @@ class Voronoi {
     this.edges = null;
     this.cells = null;
     this.toRecycle = null;
-    this.beachsectionJunkyard = [];
-    this.circleEventJunkyard = [];
+    this.beachPool = null;
+    this.beachTree = null;
+    this.circleHeap = null;
+    this.eventArcIdx = null;
+    this.eventX = null;
+    this.eventYcenter = null;
+    this.eventCount = 0;
+    this.eventCapacity = 0;
     this.vertexJunkyard = [];
     this.edgeJunkyard = [];
     this.cellJunkyard = [];
+    this.skipHalfedges = false;
+    this.caArea = null;
+    this.caSumX = null;
+    this.caSumY = null;
+    this.caEvents = null;
+    this.caCapacity = 0;
+    this.caLastN = 0;
   }
   //
   // public methods
@@ -29,34 +43,7 @@ class Voronoi {
   //   *references* to sites are copied locally.
   compute(sites, bbox) {
     let startTime = Date.now();
-    this.reset();
-    if (this.toRecycle) {
-      this.vertexJunkyard.push(...this.toRecycle.vertices);
-      this.edgeJunkyard.push(...this.toRecycle.edges);
-      this.cellJunkyard.push(...this.toRecycle.cells);
-      this.toRecycle = null;
-    }
-    let siteEvents = sites.slice(0);
-    siteEvents.sort((a, b) => b.y - a.y || b.x - a.x);
-    let site = siteEvents.pop(), siteid = 0, xsitex, xsitey, cells = this.cells, circle;
-    for (; ; ) {
-      circle = this.firstCircleEvent;
-      if (site && (!circle || site.y < circle.y || site.y === circle.y && site.x < circle.x)) {
-        if (site.x !== xsitex || site.y !== xsitey) {
-          cells[siteid] = this.createCell(site);
-          site.id = siteid++;
-          this.addBeachsection(site);
-          xsitey = site.y;
-          xsitex = site.x;
-        }
-        site = siteEvents.pop();
-      } else if (circle) {
-        this.removeBeachsection(circle.arc);
-      } else {
-        break;
-      }
-    }
-    this.clipEdges(bbox);
+    this.runSweepAndClip(sites, bbox);
     this.closeCells(bbox);
     let stopTime = Date.now();
     let diagram = new Diagram();
@@ -66,6 +53,222 @@ class Voronoi {
     diagram.execTime = stopTime - startTime;
     this.reset();
     return diagram;
+  }
+  // Lloyd-relaxation fast path: runs the Fortune sweep + edge clipping but
+  // skips halfedge construction, halfedge sorting, cell-closing, and the
+  // Diagram object. Computes per-cell centroids directly from edge endpoints,
+  // using direction-aware shoelace contributions per (lSite, rSite) edge plus
+  // CCW bbox-border closure for cells whose edges touch the bbox.
+  //
+  // `outX`/`outY` are filled at indices matching the cell ids assigned during
+  // the sweep (i.e., outX[site.id] is the centroid x of `site`'s cell). For
+  // cells with degenerate (≈0) area the site's existing position is written.
+  computeCentroids(sites, bbox, outX, outY) {
+    this.skipHalfedges = true;
+    this.runSweepAndClip(sites, bbox);
+    this.accumulateCentroids(bbox, sites, outX, outY);
+    this.skipHalfedges = false;
+    if (this.cells.length > 0) {
+      const synth = new Diagram();
+      synth.vertices = this.vertices;
+      synth.edges = this.edges;
+      synth.cells = this.cells;
+      this.toRecycle = synth;
+    }
+    this.reset();
+  }
+  runSweepAndClip(sites, bbox) {
+    this.reset();
+    this.beachPool.ensureCapacity(sites.length * 2);
+    this.ensureEventCapacity(sites.length * 3);
+    if (this.toRecycle) {
+      this.vertexJunkyard.push(...this.toRecycle.vertices);
+      this.edgeJunkyard.push(...this.toRecycle.edges);
+      this.cellJunkyard.push(...this.toRecycle.cells);
+      this.toRecycle = null;
+    }
+    let siteEvents = sites.slice(0);
+    siteEvents.sort((a, b) => b.y - a.y || b.x - a.x);
+    const heap = this.circleHeap;
+    const eventArcIdx = this.eventArcIdx;
+    const beachCircleEventIdx = this.beachPool.circleEventIdx;
+    let site = siteEvents.pop(), siteid = 0, xsitex, xsitey, cells = this.cells, circleEv, circleY, circleX;
+    for (; ; ) {
+      let heapIndices = heap.indices;
+      while (heap.size > 0) {
+        const ev = heapIndices[0];
+        if (beachCircleEventIdx[eventArcIdx[ev]] === ev) break;
+        heap.pop();
+      }
+      if (heap.size > 0) {
+        heapIndices = heap.indices;
+        circleEv = heapIndices[0];
+        circleY = heap.y[0];
+        circleX = heap.x[0];
+      } else {
+        circleEv = NIL;
+      }
+      if (site && (circleEv === NIL || site.y < circleY || site.y === circleY && site.x < circleX)) {
+        if (site.x !== xsitex || site.y !== xsitey) {
+          cells[siteid] = this.createCell(site);
+          site.id = siteid++;
+          this.addBeachsection(site);
+          xsitey = site.y;
+          xsitex = site.x;
+        }
+        site = siteEvents.pop();
+      } else if (circleEv !== NIL) {
+        heap.pop();
+        this.removeBeachsection(eventArcIdx[circleEv]);
+      } else {
+        break;
+      }
+    }
+    this.clipEdges(bbox);
+  }
+  // Walk all (clipped) edges to accumulate per-cell shoelace integrals, then
+  // add bbox-border closure contributions for cells whose edges terminate on
+  // the bbox. Output is per-cell centroid in outX/outY (cell index = site.id).
+  accumulateCentroids(bbox, sites, outX, outY) {
+    const xl = bbox.xl, xr = bbox.xr, yt = bbox.yt, yb = bbox.yb;
+    const w = xr - xl;
+    const h = yb - yt;
+    const perim = 2 * (w + h);
+    const eps = EPSILON;
+    const n = this.cells.length;
+    const edges = this.edges;
+    if (this.caCapacity < n) {
+      let cap = this.caCapacity || 1024;
+      while (cap < n) cap *= 2;
+      this.caArea = new Float64Array(cap);
+      this.caSumX = new Float64Array(cap);
+      this.caSumY = new Float64Array(cap);
+      this.caEvents = new Array(cap);
+      this.caCapacity = cap;
+    }
+    const cellArea = this.caArea;
+    const cellSumX = this.caSumX;
+    const cellSumY = this.caSumY;
+    const cellEvents = this.caEvents;
+    cellArea.fill(0, 0, n);
+    cellSumX.fill(0, 0, n);
+    cellSumY.fill(0, 0, n);
+    const clearLen = n > this.caLastN ? n : this.caLastN;
+    for (let i = 0; i < clearLen; i++) {
+      const e = cellEvents[i];
+      if (e !== void 0) e.length = 0;
+    }
+    this.caLastN = n;
+    for (let i = 0, ne = edges.length; i < ne; i++) {
+      const edge = edges[i];
+      const lId = edge.lSite.id;
+      const rId = edge.rSite.id;
+      const va = edge.va;
+      const vb = edge.vb;
+      const ax = va.x, ay = va.y;
+      const bx = vb.x, by = vb.y;
+      const cross = ax * by - ay * bx;
+      const sx = ax + bx;
+      const sy = ay + by;
+      cellArea[lId] += cross;
+      cellSumX[lId] += sx * cross;
+      cellSumY[lId] += sy * cross;
+      cellArea[rId] -= cross;
+      cellSumX[rId] -= sx * cross;
+      cellSumY[rId] -= sy * cross;
+      let aPos = -1;
+      if (ax - xl < eps && ax - xl > -eps) aPos = ay - yt;
+      else if (ay - yb > -eps && ay - yb < eps) aPos = h + (ax - xl);
+      else if (ax - xr > -eps && ax - xr < eps) aPos = h + w + (yb - ay);
+      else if (ay - yt > -eps && ay - yt < eps) aPos = 2 * h + w + (xr - ax);
+      let bPos = -1;
+      if (bx - xl < eps && bx - xl > -eps) bPos = by - yt;
+      else if (by - yb > -eps && by - yb < eps) bPos = h + (bx - xl);
+      else if (bx - xr > -eps && bx - xr < eps) bPos = h + w + (yb - by);
+      else if (by - yt > -eps && by - yt < eps) bPos = 2 * h + w + (xr - bx);
+      if (aPos >= 0) {
+        let evL = cellEvents[lId];
+        if (evL === void 0) cellEvents[lId] = evL = [];
+        evL.push(aPos, ax, ay, 0);
+        let evR = cellEvents[rId];
+        if (evR === void 0) cellEvents[rId] = evR = [];
+        evR.push(aPos, ax, ay, 1);
+      }
+      if (bPos >= 0) {
+        let evL = cellEvents[lId];
+        if (evL === void 0) cellEvents[lId] = evL = [];
+        evL.push(bPos, bx, by, 1);
+        let evR = cellEvents[rId];
+        if (evR === void 0) cellEvents[rId] = evR = [];
+        evR.push(bPos, bx, by, 0);
+      }
+    }
+    const cornerXs = [xl, xr, xr, xl];
+    const cornerYs = [yb, yb, yt, yt];
+    const cornerPoses = [h, h + w, 2 * h + w, perim];
+    for (let cellIdx = 0; cellIdx < n; cellIdx++) {
+      const ev = cellEvents[cellIdx];
+      if (ev === void 0) continue;
+      const m = ev.length >>> 2;
+      if (m === 0) continue;
+      const tuples = new Array(m);
+      for (let k = 0; k < m; k++) {
+        const o = k << 2;
+        tuples[k] = { pos: ev[o], x: ev[o + 1], y: ev[o + 2], isExit: ev[o + 3] };
+      }
+      tuples.sort((a, b) => a.pos - b.pos || b.isExit - a.isExit);
+      for (let k = 0; k < m; k++) {
+        if (tuples[k].isExit !== 1) continue;
+        const exitT = tuples[k];
+        const entryT = tuples[(k + 1) % m];
+        const exitPos = exitT.pos;
+        let walkLen = entryT.pos - exitPos;
+        if (walkLen <= 0) walkLen += perim;
+        const walkEnd = exitPos + walkLen;
+        let curX = exitT.x;
+        let curY = exitT.y;
+        for (let pass = 0; pass < 2; pass++) {
+          const off = pass === 0 ? 0 : perim;
+          let broke = false;
+          for (let c = 0; c < 4; c++) {
+            const cp = cornerPoses[c] + off;
+            if (cp <= exitPos) continue;
+            if (cp >= walkEnd) {
+              broke = true;
+              break;
+            }
+            const nx2 = cornerXs[c];
+            const ny2 = cornerYs[c];
+            const cross2 = curX * ny2 - curY * nx2;
+            cellArea[cellIdx] += cross2;
+            cellSumX[cellIdx] += (curX + nx2) * cross2;
+            cellSumY[cellIdx] += (curY + ny2) * cross2;
+            curX = nx2;
+            curY = ny2;
+          }
+          if (broke) break;
+        }
+        const nx = entryT.x;
+        const ny = entryT.y;
+        const cross = curX * ny - curY * nx;
+        cellArea[cellIdx] += cross;
+        cellSumX[cellIdx] += (curX + nx) * cross;
+        cellSumY[cellIdx] += (curY + ny) * cross;
+      }
+    }
+    for (let i = 0; i < n; i++) {
+      const a = cellArea[i];
+      const absA = a < 0 ? -a : a;
+      if (absA > eps) {
+        const inv3a = 1 / (3 * a);
+        outX[i] = cellSumX[i] * inv3a;
+        outY[i] = cellSumY[i] * inv3a;
+      } else {
+        const s = this.cells[i].site;
+        outX[i] = s.x;
+        outY[i] = s.y;
+      }
+    }
   }
   //
   // private methods
@@ -117,24 +320,37 @@ class Voronoi {
     }
   }
   reset() {
-    if (!this.beachline) {
-      this.beachline = new RBTree();
+    if (!this.beachTree) {
+      this.beachTree = new RBTreeIdx();
+      this.beachPool = new BeachPool(1024);
+      this.circleHeap = new CircleEventHeap(1024);
+      this.eventArcIdx = new Int32Array(1024);
+      this.eventX = new Float64Array(1024);
+      this.eventYcenter = new Float64Array(1024);
+      this.eventCapacity = 1024;
     }
-    if (this.beachline.root) {
-      let beachsection = this.beachline.first(this.beachline.root);
-      while (beachsection) {
-        this.beachsectionJunkyard.push(beachsection);
-        beachsection = beachsection.next;
-      }
-    }
-    this.beachline.root = null;
-    if (!this.circleEvents) {
-      this.circleEvents = new RBTree();
-    }
-    this.circleEvents.root = this.firstCircleEvent = null;
+    this.beachPool.reset();
+    this.beachTree.root = NIL;
+    this.circleHeap.clear();
+    this.eventCount = 0;
     this.vertices = [];
     this.edges = [];
     this.cells = [];
+  }
+  ensureEventCapacity(min) {
+    if (this.eventCapacity >= min) return;
+    let newCap = this.eventCapacity || 1024;
+    while (newCap < min) newCap *= 2;
+    const newArc = new Int32Array(newCap);
+    const newX = new Float64Array(newCap);
+    const newYc = new Float64Array(newCap);
+    newArc.set(this.eventArcIdx);
+    newX.set(this.eventX);
+    newYc.set(this.eventYcenter);
+    this.eventArcIdx = newArc;
+    this.eventX = newX;
+    this.eventYcenter = newYc;
+    this.eventCapacity = newCap;
   }
   createCell(site) {
     let cell = this.cellJunkyard.pop();
@@ -176,8 +392,10 @@ class Voronoi {
     if (vb) {
       this.setEdgeEndpoint(edge, lSite, rSite, vb);
     }
-    this.cells[lSite.id].halfedges.push(this.createHalfedge(edge, lSite, rSite));
-    this.cells[rSite.id].halfedges.push(this.createHalfedge(edge, rSite, lSite));
+    if (!this.skipHalfedges) {
+      this.cells[lSite.id].halfedges.push(this.createHalfedge(edge, lSite, rSite));
+      this.cells[rSite.id].halfedges.push(this.createHalfedge(edge, rSite, lSite));
+    }
     return edge;
   }
   createBorderEdge(lSite, va, vb) {
@@ -216,26 +434,23 @@ class Voronoi {
   // to avoid new memory allocation. This resulted in a measurable
   // performance gain.
   createBeachsection(site) {
-    let beachsection = this.beachsectionJunkyard.pop();
-    if (!beachsection) {
-      beachsection = new RBTreeNode();
-    }
-    beachsection.site = site;
-    return beachsection;
+    return this.beachPool.alloc(site);
   }
   // calculate the left break point of a particular beach section,
   // given a particular sweep line
   leftBreakPoint(arc, directrix) {
-    let site = arc.site, rfocx = site.x, rfocy = site.y, pby2 = rfocy - directrix;
+    const bp = this.beachPool;
+    const siteX = bp.siteX;
+    const siteY = bp.siteY;
+    let rfocx = siteX[arc], rfocy = siteY[arc], pby2 = rfocy - directrix;
     if (!pby2) {
       return rfocx;
     }
-    let lArc = arc.prev;
-    if (!lArc) {
+    const lArc = bp.links.prev[arc];
+    if (lArc === NIL) {
       return -Infinity;
     }
-    site = lArc.site;
-    let lfocx = site.x, lfocy = site.y, plby2 = lfocy - directrix;
+    let lfocx = siteX[lArc], lfocy = siteY[lArc], plby2 = lfocy - directrix;
     if (!plby2) {
       return lfocx;
     }
@@ -248,73 +463,107 @@ class Voronoi {
   // calculate the right break point of a particular beach section,
   // given a particular directrix
   rightBreakPoint(arc, directrix) {
-    let rArc = arc.next;
-    if (rArc) {
+    const bp = this.beachPool;
+    const rArc = bp.links.next[arc];
+    if (rArc !== NIL) {
       return this.leftBreakPoint(rArc, directrix);
     }
-    let site = arc.site;
-    return site.y === directrix ? site.x : Infinity;
+    const sy = bp.siteY[arc];
+    return sy === directrix ? bp.siteX[arc] : Infinity;
   }
   detachBeachsection(beachsection) {
     this.detachCircleEvent(beachsection);
-    this.beachline.removeNode(beachsection);
-    this.beachsectionJunkyard.push(beachsection);
+    this.beachTree.removeNode(this.beachPool.links, beachsection);
+    this.beachPool.free(beachsection);
   }
   removeBeachsection(beachsection) {
-    let circle = beachsection.circleEvent, x = circle.x, y = circle.ycenter, vertex = this.createVertex(x, y), previous = beachsection.prev, next = beachsection.next, disappearingTransitions = [beachsection], abs_fn = Math.abs;
+    const bp = this.beachPool;
+    const bPrev = bp.links.prev;
+    const bNext = bp.links.next;
+    const bCircle = bp.circleEventIdx;
+    const bSite = bp.siteRef;
+    const bEdge = bp.edgeRef;
+    const eventX = this.eventX;
+    const eventYc = this.eventYcenter;
+    const circle = bCircle[beachsection];
+    const x = eventX[circle];
+    const y = eventYc[circle];
+    const vertex = this.createVertex(x, y);
+    let previous = bPrev[beachsection];
+    let next = bNext[beachsection];
+    const disappearingTransitions = [beachsection];
+    const abs_fn = Math.abs;
     this.detachBeachsection(beachsection);
     let lArc = previous;
-    while (lArc.circleEvent && abs_fn(x - lArc.circleEvent.x) < EPSILON && abs_fn(y - lArc.circleEvent.ycenter) < EPSILON) {
-      previous = lArc.prev;
+    let lCircle = bCircle[lArc];
+    while (lCircle !== NIL && abs_fn(x - eventX[lCircle]) < EPSILON && abs_fn(y - eventYc[lCircle]) < EPSILON) {
+      previous = bPrev[lArc];
       disappearingTransitions.unshift(lArc);
       this.detachBeachsection(lArc);
       lArc = previous;
+      lCircle = bCircle[lArc];
     }
     disappearingTransitions.unshift(lArc);
     this.detachCircleEvent(lArc);
     let rArc = next;
-    while (rArc.circleEvent && abs_fn(x - rArc.circleEvent.x) < EPSILON && abs_fn(y - rArc.circleEvent.ycenter) < EPSILON) {
-      next = rArc.next;
+    let rCircle = bCircle[rArc];
+    while (rCircle !== NIL && abs_fn(x - eventX[rCircle]) < EPSILON && abs_fn(y - eventYc[rCircle]) < EPSILON) {
+      next = bNext[rArc];
       disappearingTransitions.push(rArc);
       this.detachBeachsection(rArc);
       rArc = next;
+      rCircle = bCircle[rArc];
     }
     disappearingTransitions.push(rArc);
     this.detachCircleEvent(rArc);
-    let nArcs = disappearingTransitions.length, iArc;
+    const nArcs = disappearingTransitions.length;
+    let iArc;
     for (iArc = 1; iArc < nArcs; iArc++) {
       rArc = disappearingTransitions[iArc];
       lArc = disappearingTransitions[iArc - 1];
-      this.setEdgeStartpoint(rArc.edge, lArc.site, rArc.site, vertex);
+      this.setEdgeStartpoint(bEdge[rArc], bSite[lArc], bSite[rArc], vertex);
     }
     lArc = disappearingTransitions[0];
     rArc = disappearingTransitions[nArcs - 1];
-    rArc.edge = this.createEdge(lArc.site, rArc.site, void 0, vertex);
+    bEdge[rArc] = this.createEdge(bSite[lArc], bSite[rArc], void 0, vertex);
     this.attachCircleEvent(lArc);
     this.attachCircleEvent(rArc);
   }
   addBeachsection(site) {
-    let x = site.x, directrix = site.y;
-    let lArc, rArc, dxl, dxr, node = this.beachline.root;
-    while (node) {
+    const x = site.x;
+    const directrix = site.y;
+    const bp = this.beachPool;
+    const bLinks = bp.links;
+    const bLeft = bLinks.left;
+    const bRight = bLinks.right;
+    const bPrev = bLinks.prev;
+    const bNext = bLinks.next;
+    const bSite = bp.siteRef;
+    const bEdge = bp.edgeRef;
+    let lArc = NIL;
+    let rArc = NIL;
+    let dxl;
+    let dxr;
+    let node = this.beachTree.root;
+    while (node !== NIL) {
       dxl = this.leftBreakPoint(node, directrix) - x;
       if (dxl > EPSILON) {
-        node = node.left;
+        node = bLeft[node];
       } else {
         dxr = x - this.rightBreakPoint(node, directrix);
         if (dxr > EPSILON) {
-          if (!node.right) {
+          if (bRight[node] === NIL) {
             lArc = node;
             break;
           }
-          node = node.right;
+          node = bRight[node];
         } else {
           if (dxl > -EPSILON) {
-            lArc = node.prev;
+            lArc = bPrev[node];
             rArc = node;
           } else if (dxr > -EPSILON) {
             lArc = node;
-            rArc = node.next;
+            rArc = bNext[node];
           } else {
             lArc = rArc = node;
           }
@@ -322,94 +571,94 @@ class Voronoi {
         }
       }
     }
-    let newArc = this.createBeachsection(site);
-    this.beachline.insertSuccessor(lArc, newArc);
-    if (!lArc && !rArc) {
+    const newArc = this.createBeachsection(site);
+    this.beachTree.insertSuccessor(bLinks, lArc, newArc);
+    if (lArc === NIL && rArc === NIL) {
       return;
     }
     if (lArc === rArc) {
       this.detachCircleEvent(lArc);
-      rArc = this.createBeachsection(lArc.site);
-      this.beachline.insertSuccessor(newArc, rArc);
-      newArc.edge = rArc.edge = this.createEdge(lArc.site, newArc.site);
+      rArc = this.createBeachsection(bSite[lArc]);
+      this.beachTree.insertSuccessor(bLinks, newArc, rArc);
+      const newEdge = this.createEdge(bSite[lArc], site);
+      bEdge[newArc] = newEdge;
+      bEdge[rArc] = newEdge;
       this.attachCircleEvent(lArc);
       this.attachCircleEvent(rArc);
       return;
     }
-    if (lArc && !rArc) {
-      newArc.edge = this.createEdge(lArc.site, newArc.site);
+    if (lArc !== NIL && rArc === NIL) {
+      bEdge[newArc] = this.createEdge(bSite[lArc], site);
       return;
     }
     if (lArc !== rArc) {
       this.detachCircleEvent(lArc);
       this.detachCircleEvent(rArc);
-      let lSite = lArc.site, ax = lSite.x, ay = lSite.y, bx = site.x - ax, by = site.y - ay, rSite = rArc.site, cx = rSite.x - ax, cy = rSite.y - ay, d = 2 * (bx * cy - by * cx), hb = bx * bx + by * by, hc = cx * cx + cy * cy, vertex = this.createVertex((cy * hb - by * hc) / d + ax, (bx * hc - cx * hb) / d + ay);
-      this.setEdgeStartpoint(rArc.edge, lSite, rSite, vertex);
-      newArc.edge = this.createEdge(lSite, site, void 0, vertex);
-      rArc.edge = this.createEdge(site, rSite, void 0, vertex);
+      const lSite = bSite[lArc];
+      const ax = lSite.x;
+      const ay = lSite.y;
+      const bx = site.x - ax;
+      const by = site.y - ay;
+      const rSite = bSite[rArc];
+      const cx = rSite.x - ax;
+      const cy = rSite.y - ay;
+      const d = 2 * (bx * cy - by * cx);
+      const hb = bx * bx + by * by;
+      const hc = cx * cx + cy * cy;
+      const vertex = this.createVertex((cy * hb - by * hc) / d + ax, (bx * hc - cx * hb) / d + ay);
+      this.setEdgeStartpoint(bEdge[rArc], lSite, rSite, vertex);
+      bEdge[newArc] = this.createEdge(lSite, site, void 0, vertex);
+      bEdge[rArc] = this.createEdge(site, rSite, void 0, vertex);
       this.attachCircleEvent(lArc);
       this.attachCircleEvent(rArc);
       return;
     }
   }
   attachCircleEvent(arc) {
-    let lArc = arc.prev, rArc = arc.next;
-    if (!lArc || !rArc) {
+    const bp = this.beachPool;
+    const bLinks = bp.links;
+    const lArc = bLinks.prev[arc];
+    const rArc = bLinks.next[arc];
+    if (lArc === NIL || rArc === NIL) {
       return;
     }
-    let lSite = lArc.site, cSite = arc.site, rSite = rArc.site;
+    const bSiteRef = bp.siteRef;
+    const lSite = bSiteRef[lArc];
+    const rSite = bSiteRef[rArc];
     if (lSite === rSite) {
       return;
     }
-    let bx = cSite.x, by = cSite.y, ax = lSite.x - bx, ay = lSite.y - by, cx = rSite.x - bx, cy = rSite.y - by;
-    let d = 2 * (ax * cy - ay * cx);
+    const siteX = bp.siteX;
+    const siteY = bp.siteY;
+    const bx = siteX[arc];
+    const by = siteY[arc];
+    const ax = siteX[lArc] - bx;
+    const ay = siteY[lArc] - by;
+    const cx = siteX[rArc] - bx;
+    const cy = siteY[rArc] - by;
+    const d = 2 * (ax * cy - ay * cx);
     if (d >= -2e-12) {
       return;
     }
-    let ha = ax * ax + ay * ay, hc = cx * cx + cy * cy, x = (cy * ha - ay * hc) / d, y = (ax * hc - cx * ha) / d, ycenter = y + by;
-    let circleEvent = this.circleEventJunkyard.pop();
-    if (!circleEvent) {
-      circleEvent = new RBTreeNode();
+    const ha = ax * ax + ay * ay;
+    const hc = cx * cx + cy * cy;
+    const px = (cy * ha - ay * hc) / d;
+    const py = (ax * hc - cx * ha) / d;
+    const ycenter = py + by;
+    const eventX = px + bx;
+    const eventY = ycenter + Math.sqrt(px * px + py * py);
+    const ev = this.eventCount++;
+    if (ev >= this.eventCapacity) {
+      this.ensureEventCapacity(ev + 1);
     }
-    circleEvent.arc = arc;
-    circleEvent.site = cSite;
-    circleEvent.x = x + bx;
-    circleEvent.y = ycenter + Math.sqrt(x * x + y * y);
-    circleEvent.ycenter = ycenter;
-    arc.circleEvent = circleEvent;
-    let predecessor = null, node = this.circleEvents.root;
-    while (node) {
-      if (circleEvent.y < node.y || circleEvent.y === node.y && circleEvent.x <= node.x) {
-        if (node.left) {
-          node = node.left;
-        } else {
-          predecessor = node.prev;
-          break;
-        }
-      } else {
-        if (node.right) {
-          node = node.right;
-        } else {
-          predecessor = node;
-          break;
-        }
-      }
-    }
-    this.circleEvents.insertSuccessor(predecessor, circleEvent);
-    if (!predecessor) {
-      this.firstCircleEvent = circleEvent;
-    }
+    this.eventArcIdx[ev] = arc;
+    this.eventX[ev] = eventX;
+    this.eventYcenter[ev] = ycenter;
+    bp.circleEventIdx[arc] = ev;
+    this.circleHeap.push(eventY, eventX, ev);
   }
   detachCircleEvent(arc) {
-    let circleEvent = arc.circleEvent;
-    if (circleEvent) {
-      if (!circleEvent.prev) {
-        this.firstCircleEvent = circleEvent.next;
-      }
-      this.circleEvents.removeNode(circleEvent);
-      this.circleEventJunkyard.push(circleEvent);
-      arc.circleEvent = null;
-    }
+    this.beachPool.circleEventIdx[arc] = NIL;
   }
   // connect dangling edges (not if a cursory test tells us
   // it is not going to be visible.

@@ -26,31 +26,37 @@
       <Text>丰臣秀吉出身寒微，却怀征服天下之志，以野心留名青史。然而他的遗产远不止于此——日本高雅文化的诸多传统中，至今仍可见他的影响；而后来的江户时代，无论行政体系还是艺术发展，亦有他奠基之功。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLO_DECLARE_WAR_INITIATOR_LEADER_TOYOTOMI_HIDEYOSHI_ANY" Language="zh_Hans_CN">
-      <Text> 义勇疾如风。  </Text>
+      <Text>义勇疾如风。  </Text>
     </Replace>
     <Replace Tag="LOC_DIPLO_DECLARE_WAR_RECIPIENT_LEADER_TOYOTOMI_HIDEYOSHI_ANY" Language="zh_Hans_CN">
-      <Text> 既然无缘说服，那便请君以身试刀。 </Text>
+      <Text>既然无缘说服，那便请君以身试刀。 </Text>
     </Replace>
     <Replace Tag="LOC_DIPLO_DEFEAT_AI_LEADER_TOYOTOMI_HIDEYOSHI_ANY" Language="zh_Hans_CN">
-      <Text> 我好高骛远，终究只是猴子捞月。 </Text>
+      <Text>我好高骛远，终究只是猴子捞月。 </Text>
     </Replace>
     <Replace Tag="LOC_DIPLO_FIRST_MEET_NEAR_INITIATOR_LEADER_TOYOTOMI_HIDEYOSHI_ANY" Language="zh_Hans_CN">
-      <Text> 曾嘲我为猴、讽我为农家小子之人，如今无不俯首称我主公。 </Text>
+      <Text>曾嘲我为猴、讽我为农家小子之人，如今无不俯首称我主公。 </Text>
     </Replace>
     <Replace Tag="LOC_DIPLO_FIRST_MEET_NEAR_RECIPIENT_LEADER_TOYOTOMI_HIDEYOSHI_ANY" Language="zh_Hans_CN">
-      <Text> 曾嘲我为猴、讽我为农家小子之人，如今无不俯首称我主公。 </Text>
+      <Text>曾嘲我为猴、讽我为农家小子之人，如今无不俯首称我主公。 </Text>
     </Replace>
     <Replace Tag="LOC_DIPLO_FIRST_MEET_NO_MANS_LEADER_TOYOTOMI_HIDEYOSHI_ANY" Language="zh_Hans_CN">
-      <Text> 曾嘲我为猴、讽我为农家小子之人，如今无不俯首称我主公。 </Text>
+      <Text>曾嘲我为猴、讽我为农家小子之人，如今无不俯首称我主公。 </Text>
     </Replace>
     <Replace Tag="LOC_DIPLO_MAKE_DEAL_ACCEPTED_LEADER_TOYOTOMI_HIDEYOSHI" Language="zh_Hans_CN">
-      <Text> 此事已定。 </Text>
+      <Text>此事已定。 </Text>
     </Replace>
     <Replace Tag="LOC_DIPLO_MAKE_DEAL_REJECTED_LEADER_TOYOTOMI_HIDEYOSHI" Language="zh_Hans_CN">
-      <Text> 你莫非以为我是愚钝之人？ </Text>
+      <Text>你莫非以为我是愚钝之人？ </Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_DECREASED_LEADER_TOYOTOMI_HIDEYOSHI" Language="zh_Hans_CN">
+      <Text>这场戏已经落幕，你不必再装傻充愣。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_INCREASED_LEADER_TOYOTOMI_HIDEYOSHI" Language="zh_Hans_CN">
+      <Text>让我把你的草鞋揣入怀里中暖一暖。</Text>
     </Replace>
     <Replace Tag="LOC_MAIN_CHAR_SELECT_LEADER_TOYOTOMI_HIDEYOSHI_ANY" Language="zh_Hans_CN">
-      <Text> 信其能成者，成；信其将败者，败。 </Text>
+      <Text>信其能成者，成；信其将败者，败。 </Text>
     </Replace>
     <Replace Tag="LOC_VICTORY_LEADER_TOYOTOMI_HIDEYOSHI" Language="zh_Hans_CN">
       <Text>今日固然辉煌，但明日的蓝图仍待绘就。</Text>
@@ -584,13 +590,19 @@
       <Text>丰臣秀吉背景</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_TOYOTOMI_HIDEYOSHI_DESC" Language="zh_Hans_CN">
-      <Text>喜欢拥有大量[TIP:LOC_PEDIA_CONCEPTS_LAND_UNITS_TOOLTIP]陆地单位[/TIP]和[icon:YIELD_CULTURE]文化值的文明，讨厌缺乏陆地单位和[icon:YIELD_CULTURE]文化值的文明。</Text>
+      <Text>喜欢拥有最多[TIP:LOC_PEDIA_CONCEPTS_LAND_UNITS_TOOLTIP]陆地单位[/TIP]和最高[icon:YIELD_CULTURE]文化值的领袖。讨厌拥有最少陆地单位和最低[icon:YIELD_CULTURE]文化值的领袖。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_TOYOTOMI_HIDEYOSHI_DESC_DISLIKES" Language="zh_Hans_CN">
+      <Text>丰臣秀吉讨厌拥有最少[TIP:LOC_PEDIA_CONCEPTS_LAND_UNITS_TOOLTIP]陆地单位[/TIP]和最低[icon:YIELD_CULTURE]文化值的领袖。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_TOYOTOMI_HIDEYOSHI_DESC_LIKES" Language="zh_Hans_CN">
+      <Text>丰臣秀吉喜欢拥有最多[TIP:LOC_PEDIA_CONCEPTS_LAND_UNITS_TOOLTIP]陆地单位[/TIP]和最高[icon:YIELD_CULTURE]文化值的领袖。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_TOYOTOMI_HIDEYOSHI_NAME" Language="zh_Hans_CN">
       <Text>关白</Text>
     </Replace>
     <Replace Tag="LOC_LEADER_TOYOTOMI_HIDEYOSHI_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>[TIP:LOC_PEDIA_CONCEPTS_LAND_UNITS_TOOLTIP]陆地单位[/TIP]攻击敌方单位时造成[b][icon:DAMAGED]双倍伤害[/b]，但防御时也受到[icon:DAMAGED]双倍伤害。你的单位额外[b][icon:Action_Heal]治愈[/b]5生命值，如果位于[b][icon:YIELD_CULTURE]文化值[/b][TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建筑[/TIP]或[B][icon:WONDER]奇观[/B]上，此加成加倍。建造[b][icon:YIELD_CULTURE]文化值建筑[/b]时[b]+25%[icon:YIELD_PRODUCTION]生产力效用[/b]。此加成在任意时代的[TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]占领城市[/TIP]中[b]加倍[/b]。 </Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_LAND_UNITS_TOOLTIP]陆地单位[/TIP]攻击敌方单位时造成[b][icon:DAMAGED]双倍伤害[/b]，但你所有的单位防御时也受到[icon:DAMAGED]双倍伤害。你的单位额外[b][icon:Action_Heal]治愈[/b]5生命值，如果位于[b][icon:YIELD_CULTURE]文化值[/b][TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建筑[/TIP]或[B][icon:WONDER]奇观[/B]上，此加成加倍。建造[b][icon:YIELD_CULTURE]文化值建筑[/b]时[b]+25%[icon:YIELD_PRODUCTION]生产力效用[/b]。此加成在任意时代的[TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]占领城市[/TIP]中[b]加倍[/b]。 </Text>
     </Replace>
     <Replace Tag="LOC_LOADING_LEADER_INTRO_TEXT_TOYOTOMI_HIDEYOSHI" Language="zh_Hans_CN">
       <Text>丰臣秀吉，你从一介农家子弟跃居公卿之位。纵然有人在背后讥讽你出身卑微且其貌不扬，却无人胆敢当面放肆。你凭借钢铁般的意志，击退强敌扩张势力，令群雄纷纷俯首。关白殿下，时机已至，请高举战旗！</Text>
@@ -608,7 +620,7 @@
       <Text>需要定期浇水。</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_TOYOTOMI_HIDEYOSHI_KABUTO_FUNCTIONAL_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>[B]+1[icon:YIELD_DIPLOMACY][/B]，按时代叠加。</Text>
+      <Text>[B]+3[icon:YIELD_DIPLOMACY][/B]，按[B]时代[/B]叠加。</Text>
     </Replace>
     <Replace Tag="LOC_MEMENTO_TOYOTOMI_HIDEYOSHI_KABUTO_NAME" Language="zh_Hans_CN">
       <Text>兜</Text>
@@ -1023,10 +1035,10 @@
       <Text>近世时代文化献礼</Text>
     </Replace>
     <Replace Tag="LOC_TITLE_TOYOTOMI_HIDEYOSHI_NAME" Language="zh_Hans_CN">
-      <Text>一统天下者</Text>
+      <Text>天下统一者</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_LEADER_TOYOTOMI_HIDEYOSHI_ABILITY_DESCRIPTION" Language="zh_Hans_CN">
-      <Text>[BLIST][LI][TIP:LOC_PEDIA_CONCEPTS_LAND_UNITS_TOOLTIP]陆地单位[/TIP]攻击敌方单位时造成[b][icon:DAMAGED]双倍伤害[/b]，但防御时也受到[b][icon:DAMAGED]双倍伤害[/b]。[LI]你的单位额外[b][icon:Action_Heal]治愈[/b]5生命值，如果位于[b][icon:YIELD_CULTURE]文化值[/b][TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建筑[/TIP]或[B][icon:WONDER]奇观[/B]上，此加成加倍。[LI]建造[b][icon:YIELD_CULTURE]文化值建筑[/b]时[b]+25%[icon:YIELD_PRODUCTION]生产力效用[/b]。此加成在任意时代的[TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]占领城市[/TIP]中[b]加倍[/b]。[/LIST]</Text>
+      <Text>[BLIST][LI][TIP:LOC_PEDIA_CONCEPTS_LAND_UNITS_TOOLTIP]陆地单位[/TIP]攻击敌方单位时造成[b][icon:DAMAGED]双倍伤害[/b]，但你所有的单位防御时也受到[b][icon:DAMAGED]双倍伤害[/b]。[LI]你的单位额外[b][icon:Action_Heal]治愈[/b]5生命值，如果位于[b][icon:YIELD_CULTURE]文化值[/b][TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建筑[/TIP]或[B][icon:WONDER]奇观[/B]上，此加成加倍。[LI]建造[b][icon:YIELD_CULTURE]文化值建筑[/b]时[b]+25%[icon:YIELD_PRODUCTION]生产力效用[/b]。此加成在任意时代的[TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]占领城市[/TIP]中[b]加倍[/b]。[/LIST]</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_LEADER_TOYOTOMI_HIDEYOSHI_ABILITY_NAME" Language="zh_Hans_CN">
       <Text>天下统一者</Text>

@@ -844,6 +844,18 @@
 		<Row Tag="LOC_UI_CITY_DETAILS_WONDERS">
 			<Text>Wonders</Text>
 		</Row>
+		<Row Tag="LOC_UI_CITY_DETAILS_IMPROVEMENTS_COUNT">
+			<Text>Amount in Settlement: {1_Amount}</Text>
+		</Row>
+		<Row Tag="LOC_UI_CITY_DETAILS_WAREHOUSE_BREAKDOWN_HEADER">
+			<Text>Improvement Breakdown</Text>
+		</Row>
+		<Row Tag="LOC_UI_CITY_DETAILS_WAREHOUSE_BREAKDOWN_DESCRIPTION">
+			<Text>A breakdown of the [TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]Improvements[/TIP] in this settlement to help track [icon:YIELD_WAREHOUSE] Warehouse Bonuses.[nn]This lists [TIP:LOC_PEDIA_CONCEPTS_UNIQUE_IMPROVEMENT_TOOLTIP]Unique Improvements[/TIP] under the Improvement they have been built over.</Text>
+		</Row>
+		<Row Tag="LOC_UI_CITY_DETAILS_WAREHOUSE_BREAKDOWN_COUNT">
+			<Text>×{1}</Text>
+		</Row>
 		<Row Tag="LOC_UI_CITY_DETAILS_YIELDS_TAB">
 			<Text>Yields Breakdown</Text>
 		</Row>
@@ -1225,7 +1237,7 @@
 			<Text>Convert to City</Text>
 		</Row>
 		<Row Tag="LOC_UI_CITY_CAP_REACHED">
-			<Text>City Cap Reached</Text>
+			<Text>City Limit Reached</Text>
 		</Row>
 		<Row Tag="LOC_UI_CITY_PURCHASE_TOGGLE">
 			<Text>Toggle Purchase Mode</Text>
@@ -1310,6 +1322,27 @@
 		</Row>
 		<Row Tag="LOC_UI_CITY_BANNER_PRODUCTION">
 			<Text>Currently Producing:</Text>
+		</Row>
+		<Row Tag="LOC_UI_CITY_BANNER_YIELD_BREAKDOWN">
+			<Text>{1_Current: number #.#;-#.#} / {2_Threshold: number #.#;-#.#} [icon:{4_YIELD}][n]{3_PerTurn: number +#.#;-#.#} [icon:{4_YIELD}] per turn</Text>
+		</Row>
+		<Row Tag="LOC_UI_CITY_BANNER_YIELD_GROWTH_RATE_BONUS">
+			<Text>({1: number +#.#;-#.#} [icon:YIELD_FOOD] Base × {2: number #.#;-#.#}% [icon:GROWTH_RATE] [TIP:LOC_PEDIA_CONCEPTS_GROWTH_RATE_TOOLTIP]Growth Rate[/TIP])</Text>
+		</Row>
+		<Row Tag="LOC_UI_CITY_BANNER_PRODUCTION_BONUS_CONSTRUCTIBLE">
+			<Text>({1: number +#.#;-#.#} [icon:YIELD_PRODUCTION] Base × {2: number #.#;-#.#}% [TIP:LOC_PEDIA_CONCEPTS_EFFICIENCY_TOOLTIP]Efficiency[/TIP] towards the {3})</Text>
+		</Row>
+		<Row Tag="LOC_UI_CITY_BANNER_PRODUCTION_BONUS_UNIT">
+			<Text>({1: number +#.#;-#.#} [icon:YIELD_PRODUCTION] Base × {2: number #.#;-#.#}% [TIP:LOC_PEDIA_CONCEPTS_EFFICIENCY_TOOLTIP]Efficiency[/TIP] towards {3: gender *:an?an; other?a;} {3})</Text>
+		</Row>
+		<Row Tag="LOC_UI_CITY_BANNER_PRODUCTION_BONUS_PROJECT">
+			<Text>({1: number +#.#;-#.#} [icon:YIELD_PRODUCTION] Base × {2: number #.#;-#.#}% [TIP:LOC_PEDIA_CONCEPTS_EFFICIENCY_TOOLTIP]Efficiency[/TIP] towards {3})</Text>
+		</Row>
+		<Row Tag="LOC_UI_CITY_BANNER_TURNS_TO_COMPLETION">
+			<Text>{1_turns} {1_turns: plural 1?turn; other?turns;} until completion</Text>
+		</Row>
+		<Row Tag="LOC_UI_CITY_BANNER_EMPTY_PRODUCTION_QUEUE">
+			<Text>No additional items in queue</Text>
 		</Row>
 		<Row Tag="LOC_UI_CITY_INTERACT_GROWTH">
 			<Text>City Growth and Food Queue</Text>
@@ -1746,8 +1779,14 @@
 		<Row Tag="LOC_UI_CHARMING_APPEAL">
 			<Text>Charming Appeal</Text>
 		</Row>
+		<Row Tag="LOC_UI_ADJACENCY_CHARMING_TILE_YIELD">
+			<Text>+{1_Amount} {2_YieldName} Adjacency for Charming Tile</Text>
+		</Row>
 		<Row Tag="LOC_UI_BREATHTAKING_APPEAL">
 			<Text>Breathtaking Appeal</Text>
+		</Row>
+		<Row Tag="LOC_UI_ADJACENCY_BREATHTAKING_TILE_YIELD">
+			<Text>+{1_Amount} {2_YieldName} Adjacency for Breathtaking Tile</Text>
 		</Row>
 		<Row Tag="LOC_UI_MINI_MAP_SETTLER">
 			<Text>Settler</Text>
@@ -2448,6 +2487,12 @@
 		</Row>
 		<Row Tag="LOC_UI_TIME_TESTED">
 			<Text>Time-Tested</Text>
+		</Row>
+		<Row Tag="LOC_UI_GENERIC_HIDE">
+			<Text>Hide</Text>
+		</Row>
+		<Row Tag="LOC_UI_HOLD_INPUT">
+			<Text>{1_ActionName} (HOLD)</Text>
 		</Row>
 	</EnglishText>
 </Database>

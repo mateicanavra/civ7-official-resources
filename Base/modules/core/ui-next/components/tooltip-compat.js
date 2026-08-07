@@ -3,12 +3,18 @@ import { createContext, createMemo, runWithOwner, createRenderEffect, useContext
 import { defineLegacyComponent } from './fxs-solid-component.js';
 import { TooltipKeyword } from './tooltip-keyword.js';
 import { TooltipContext, TooltipVerticalPosition, TooltipHorizontalPosition, Tooltip } from './tooltip.js';
-import { TriggerActivationContext } from './trigger.js';
 import { isFocusable } from '../services/focus.js';
 
 var _tmpl$ = /* @__PURE__ */ template(`<span class=text-accent-1></span>`);
 const _PROTECTED_IMPORTS = [isFocusable];
 const NestedTooltipContext = createContext();
+const isNestedTooltipContextDisabled = (ctx) => {
+  const disabled = ctx?.disabled;
+  if (!disabled) {
+    return false;
+  }
+  return typeof disabled === "function" ? disabled() : disabled;
+};
 const findOwnerFromElement = (element) => {
   if (!element) return null;
   let current = element;
@@ -55,7 +61,7 @@ defineLegacyComponent("fxs-tip", {
     let activatableRef;
     return createComponent(Show, {
       get when() {
-        return nestedCtx === void 0 || !nestedCtx.disabled;
+        return !isNestedTooltipContextDisabled(nestedCtx);
       },
       get fallback() {
         return (() => {
@@ -65,37 +71,22 @@ defineLegacyComponent("fxs-tip", {
         })();
       },
       get children() {
-        return createComponent(TriggerActivationContext.Provider, {
-          get value() {
-            return ctx?.triggerContext();
+        return createComponent(Tooltip.Text, {
+          header: keywordText,
+          get text() {
+            return tooltipText();
           },
+          initialVPosition,
+          initialHPosition,
+          allowFlip: true,
           get children() {
-            return createComponent(Tooltip.Text, {
-              header: keywordText,
-              get text() {
-                return tooltipText();
+            return createComponent(TooltipKeyword, {
+              ref(r$) {
+                var _ref$ = activatableRef;
+                typeof _ref$ === "function" ? _ref$(r$) : activatableRef = r$;
               },
-              initialVPosition,
-              initialHPosition,
-              allowFlip: true,
-              children: () => {
-                const ctx2 = useContext(TooltipContext);
-                return createComponent(TriggerActivationContext.Provider, {
-                  get value() {
-                    return ctx2?.triggerContext();
-                  },
-                  get children() {
-                    return createComponent(TooltipKeyword, {
-                      ref(r$) {
-                        var _ref$ = activatableRef;
-                        typeof _ref$ === "function" ? _ref$(r$) : activatableRef = r$;
-                      },
-                      get children() {
-                        return tooltipCaption();
-                      }
-                    });
-                  }
-                });
+              get children() {
+                return tooltipCaption();
               }
             });
           }
@@ -105,5 +96,5 @@ defineLegacyComponent("fxs-tip", {
   });
 });
 
-export { NestedTooltipContext };
+export { NestedTooltipContext, isNestedTooltipContextDisabled };
 //# sourceMappingURL=tooltip-compat.js.map

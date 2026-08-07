@@ -1,17 +1,17 @@
-import AdviceManager from '../../../base-standard/ui/advice/advice-manager.js';
+import { adviceAddItem, adviceAddBundle } from '../../../base-standard/ui/advice/advice-manager.js';
 import { shouldSelect, isAtWar, amountConqueredSettlements } from '../../../base-standard/ui/advice/advice-support.js';
 
 const TURN_WAIT = 20;
 const TURN_START = 10;
 const TURN_OFFSET = 12;
-AdviceManager.addItem({
+adviceAddItem({
   id: "ADVICE_ANTIQUITY_MILITARY_MILITARY_VICTORY",
   type: AdvisorTypes.MILITARY,
   onSelect: () => {
     return Game.turn == 1;
   }
 });
-AdviceManager.addItem({
+adviceAddItem({
   id: "ADVICE_ANTIQUITY_MILITARY_INDEPENDENT_POWERS",
   // obsolete if player has dispersed at least 1 Independent
   type: AdvisorTypes.MILITARY,
@@ -29,7 +29,7 @@ AdviceManager.addItem({
     return false;
   }
 });
-AdviceManager.addItem({
+adviceAddItem({
   id: "ADVICE_ANTIQUITY_MILITARY_SETTLING",
   // can train a settler unit and capital has more than 5 population
   type: AdvisorTypes.MILITARY,
@@ -71,7 +71,7 @@ AdviceManager.addItem({
     return false;
   }
 });
-AdviceManager.addItem({
+adviceAddItem({
   id: "ADVICE_ANTIQUITY_MILITARY_ALLIANCES",
   // have a Helpful relationship with a major civ
   type: AdvisorTypes.MILITARY,
@@ -94,7 +94,7 @@ AdviceManager.addItem({
     return false;
   }
 });
-AdviceManager.addItem({
+adviceAddItem({
   id: "ADVICE_ANTIQUITY_MILITARY_DECLARING_WAR",
   // At Peace and have a Hostile relationship with a major civ
   type: AdvisorTypes.MILITARY,
@@ -118,7 +118,7 @@ AdviceManager.addItem({
     return false;
   }
 });
-AdviceManager.addItem({
+adviceAddItem({
   id: "ADVICE_ANTIQUITY_MILITARY_CAPTURING_SETTLEMENTS",
   // At war with any major civ
   type: AdvisorTypes.MILITARY,
@@ -129,7 +129,7 @@ AdviceManager.addItem({
     return false;
   }
 });
-AdviceManager.addItem({
+adviceAddItem({
   id: "ADVICE_ANTIQUITY_MILITARY_TERRAIN_TACTICS",
   // At war with any major civ
   type: AdvisorTypes.MILITARY,
@@ -140,7 +140,7 @@ AdviceManager.addItem({
     return false;
   }
 });
-AdviceManager.addItem({
+adviceAddItem({
   id: "ADVICE_ANTIQUITY_MILITARY_VICTORY_SCORE",
   // Between 1 and 5 captured settlements
   type: AdvisorTypes.MILITARY,
@@ -151,7 +151,7 @@ AdviceManager.addItem({
     return amountConqueredSettlements() > 5;
   }
 });
-AdviceManager.addBundle({
+adviceAddBundle({
   id: "miliatryMisc01",
   type: AdvisorTypes.MILITARY,
   pages: [

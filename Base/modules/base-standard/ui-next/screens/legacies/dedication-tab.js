@@ -10,12 +10,12 @@ import { ScrollArea } from '../../../../core/ui-next/components/scroll-area.js';
 import { HSlot } from '../../../../core/ui-next/components/slot.js';
 import { HotkeyContext } from '../../../../core/ui-next/services/hotkey.js';
 import { DedicationCard } from './dedication-selection.js';
-import { useDedicationsModel, DedicationsFilterOptions } from './dedications-model.js';
+import { DedicationsModel, DedicationsFilterOptions } from './dedications-model.js';
 
 var _tmpl$ = /* @__PURE__ */ template(`<div class="flex items-center justify-center text-accent-3 text-base w-full text-center min-h-38"></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="flex justify-center flex-auto flex-wrap p-1"></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="flex my-2"></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div class="flex items-center"></div>`), _tmpl$5 = /* @__PURE__ */ template(`<div class="flex w-full justify-end px-6 mt-2 items-center"></div>`), _tmpl$6 = /* @__PURE__ */ template(`<div class="flex justify-center items-start flex-wrap p-1"></div>`), _tmpl$7 = /* @__PURE__ */ template(`<div class="px-10 pb-2 flex flex-auto flex-col"><div class="text-accent-2 text-xs w-full text-center my-1"></div></div>`), _tmpl$8 = /* @__PURE__ */ template(`<div class="flex justify-center text-accent-2 text-base w-full m-6 p-3"></div>`), _tmpl$9 = /* @__PURE__ */ template(`<span class=m-1></span>`);
 const DedicationTab = () => {
   const dropdownDedicationItems = ["ALL", "DEFAULT", "CULTURAL", "DIPLOMATIC", "ECONOMIC", "EXPANSIONIST", "MILITARISTIC", "SCIENTIFIC", "CRISIS"];
-  const model = useDedicationsModel();
+  const model = DedicationsModel.get();
   const hotkeyContext = useContext(HotkeyContext);
   onMount(() => {
     hotkeyContext.registerNavtray("shell-action-2", "LOC_ADVANCED_START_FILTER");

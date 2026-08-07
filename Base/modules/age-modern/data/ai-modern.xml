@@ -33,7 +33,9 @@
       <Where TeamName="Independent Civ Force" ClassTag="UNIT_CLASS_COMBAT"/>
       <Set MaxNumber="5"/>
     </Update>
-  </OpTeamRequirements>
+	<Row TeamName="City Defense" ClassTag="UNIT_CLASS_AIRCRAFT" MinNumber="1"/>
+ 	<Row TeamName="Enemy Large City Attack" ClassTag="UNIT_CLASS_AIRCRAFT" MinNumber="1"/>
+ </OpTeamRequirements>
   <AiListTypes>
     <!-- Ideology Biases -->
     <Row ListType="IdeologyCommunismYieldBiases"/>

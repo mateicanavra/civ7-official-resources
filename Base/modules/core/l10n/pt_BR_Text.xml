@@ -608,6 +608,9 @@
     <Replace Tag="LOC_GROUPID_PLAYERDIFFICULTY" Language="pt_BR">
       <Text>Configurações de Dificuldade do Jogador</Text>
     </Replace>
+    <Replace Tag="LOC_GROUPID_VICTORYOPTIONS" Language="pt_BR">
+      <Text>Configurações de Vitória</Text>
+    </Replace>
     <Replace Tag="LOC_HOTSEAT_ENTER_PASSWORD_HERE" Language="pt_BR">
       <Text>Insira a senha aqui.</Text>
     </Replace>
@@ -673,6 +676,9 @@
     </Replace>
     <Replace Tag="LOC_JOIN_GAME_CONNECTION_REJECTED" Language="pt_BR">
       <Text>Não foi possível conectar ao host da partida. Se estiver usando um Código de Jogo, confira-o e tente novamente.</Text>
+    </Replace>
+    <Replace Tag="LOC_JOIN_GAME_CROSSPLAY_DISABLED" Language="pt_BR">
+      <Text>Você não pode participar de jogos entre plataformas com a opção Jogo entre plataformas desabilitada. Você pode habilitá-la no menu Opções.</Text>
     </Replace>
     <Replace Tag="LOC_JOIN_GAME_JOINCODE_SYNTAX" Language="pt_BR">
       <Text>Código de Jogo incorreto. Confira o Código de Jogo e tente novamente.</Text>
@@ -2488,7 +2494,7 @@
       <Text>A câmera se moverá para suas Unidades quando elas forem derrotadas.</Text>
     </Replace>
     <Replace Tag="LOC_OPTIONS_PLAYER_COMBAT_CAMERA_PAN_2" Language="pt_BR">
-      <Text>Todo combate</Text>
+      <Text>Todo os combates</Text>
     </Replace>
     <Replace Tag="LOC_OPTIONS_PLAYER_COMBAT_CAMERA_PAN_2_DESCRIPTION" Language="pt_BR">
       <Text>A câmera se moverá para suas Unidades sempre que elas sofrerem dano.</Text>
@@ -3909,9 +3915,6 @@
     <Replace Tag="LOC_UI_CREATE_GAME_GAME_START_CIV_SELECTION" Language="pt_BR">
       <Text>Seleção de Civilização do Início da Partida</Text>
     </Replace>
-    <Replace Tag="LOC_UI_CREATE_GAME_HEIGHT_OF_POWER" Language="pt_BR">
-      <Text>[Height of Power Text]</Text>
-    </Replace>
     <Replace Tag="LOC_UI_CREATE_GAME_HEIGHT_OF_POWER_DESCRIPTION" Language="pt_BR">
       <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</Text>
     </Replace>
@@ -3920,9 +3923,6 @@
     </Replace>
     <Replace Tag="LOC_UI_CREATE_GAME_HISTORICAL_RANDOM_DESCRIPTION" Language="pt_BR">
       <Text>Serão selecionadas Civilizações que tenham uma relação histórica, geográfica ou estratégica com a liderança.</Text>
-    </Replace>
-    <Replace Tag="LOC_UI_CREATE_GAME_HOWWHEN_IS_TEST_OF_TIME_ACTIVATED" Language="pt_BR">
-      <Text>[How/When is Test of Time activated Text]</Text>
     </Replace>
     <Replace Tag="LOC_UI_CREATE_GAME_HOWWHEN_IS_TEST_OF_TIME_ACTIVATED_DESCRIPTION" Language="pt_BR">
       <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</Text>
@@ -4013,9 +4013,6 @@
     </Replace>
     <Replace Tag="LOC_UI_CREATE_GAME_UNLOCKED_BY_DESCRIPTION" Language="pt_BR">
       <Text>Conclua qualquer requisito para desbloquear esta Civilização.</Text>
-    </Replace>
-    <Replace Tag="LOC_UI_CREATE_GAME_WHAT_IS_TEST_OF_TIME" Language="pt_BR">
-      <Text>[What is Test of Time Text]</Text>
     </Replace>
     <Replace Tag="LOC_UI_CREATE_GAME_WHAT_IS_TEST_OF_TIME_DESCRIPTION" Language="pt_BR">
       <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</Text>
@@ -4213,19 +4210,22 @@
       <Text>Troca para a próxima unidade pronta.</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_OPEN_ATTRIBUTES" Language="pt_BR">
-      <Text>Abrir Atributos</Text>
+      <Text>Alternar Atributos</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_OPEN_ATTRIBUTES_TT" Language="pt_BR">
-      <Text>Abre a tela de atributos</Text>
+      <Text>Abre e fecha a tela de Atributos</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_OPEN_CIVILOPEDIA" Language="pt_BR">
-      <Text>Abrir Civilopédia</Text>
+      <Text>Alternar a Civilopédia</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_OPEN_CIVILOPEDIA_TT" Language="pt_BR">
+      <Text>Abre e fecha a Civilopédia</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_OPEN_GOVERNMENT" Language="pt_BR">
-      <Text>Abrir Governo</Text>
+      <Text>Alternar Governo</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_OPEN_GOVERNMENT_TT" Language="pt_BR">
-      <Text>Abre a tela de governo</Text>
+      <Text>Abre e fecha a tela de Governo</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_PAUSE_ONLINE_GAME" Language="pt_BR">
       <Text>Pausar jogo online</Text>
@@ -4269,14 +4269,29 @@
     <Replace Tag="LOC_UI_KBM_MAPPING_SECONDARY_KEY" Language="pt_BR">
       <Text>Secundária</Text>
     </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_ADVISORS" Language="pt_BR">
+      <Text>Alternar Conselheiros</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_ADVISORS_TT" Language="pt_BR">
+      <Text>Abre e fecha a tela de Conselheiros</Text>
+    </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_CIVICS_SCREEN" Language="pt_BR">
-      <Text>Alternar tela de Cívicos</Text>
+      <Text>Alternar Árvore de Cultura</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_CIVICS_SCREEN_TT" Language="pt_BR">
+      <Text>Abre e fecha a Árvore de Cultura</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_GREAT_PEOPLE_SCREEN" Language="pt_BR">
-      <Text>Alternar tela de Grandes Personalidades</Text>
+      <Text>Alternar Grandes Personalidades</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_GREAT_PEOPLE_SCREEN_TT" Language="pt_BR">
+      <Text>Abre e fecha a tela de Grandes Personalidades</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_GREAT_WORKS_SCREEN" Language="pt_BR">
-      <Text>Alternar tela de Grandes Obras</Text>
+      <Text>Alternar Grandes Obras</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_GREAT_WORKS_SCREEN_TT" Language="pt_BR">
+      <Text>Abre e fecha a tela de Grandes Obras</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_GRID" Language="pt_BR">
       <Text>Alternar grade</Text>
@@ -4286,6 +4301,12 @@
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_JOURNAL" Language="pt_BR">
       <Text>Alternar Diário</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_LEGACIES" Language="pt_BR">
+      <Text>Alternar Legados</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_LEGACIES_TT" Language="pt_BR">
+      <Text>Abre e fecha a tela de Legados</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_LENS_CONTINENT" Language="pt_BR">
       <Text>Continente</Text>
@@ -4312,10 +4333,16 @@
       <Text>Alterna a lente de comércio.</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_RANKINGS_SCREEN" Language="pt_BR">
-      <Text>Alternar Tela da Vitória</Text>
+      <Text>Alternar Vitórias</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_RANKINGS_SCREEN_TT" Language="pt_BR">
+      <Text>Abre e fecha a tela de Vitórias</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_RELIGION" Language="pt_BR">
-      <Text>Alternar painel de Religião</Text>
+      <Text>Alternar Religião</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_RELIGION_TT" Language="pt_BR">
+      <Text>Abre e fecha a tela de Religião</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_RESOURCE_ICONS" Language="pt_BR">
       <Text>Alternar ícones de Recursos</Text>
@@ -4329,8 +4356,14 @@
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_TECH_TREE" Language="pt_BR">
       <Text>Alternar tela de Árvore de Tecnologia</Text>
     </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_TECH_TREE_TT" Language="pt_BR">
+      <Text>Abre e fecha a Árvore de Tecnologia</Text>
+    </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_TRADE_SCREEN" Language="pt_BR">
-      <Text>Alternar tela de Comércio</Text>
+      <Text>Alternar Comércio</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_TRADE_SCREEN_TT" Language="pt_BR">
+      <Text>Abre e fecha a tela de Comércio</Text>
     </Replace>
     <Replace Tag="LOC_UI_KBM_MAPPING_TOGGLE_VICTORY_PROGRESS" Language="pt_BR">
       <Text>Alternar tela de Progresso da Vitória</Text>
@@ -4716,6 +4749,9 @@
     <Replace Tag="LOC_UI_MP_GAME_RULE_TURN_TIME" Language="pt_BR">
       <Text>Tempo de Turno:</Text>
     </Replace>
+    <Replace Tag="LOC_UI_MP_GAME_RULE_TURN_TIME_EXTENDED" Language="pt_BR">
+      <Text>Tempo de turno prolongado:</Text>
+    </Replace>
     <Replace Tag="LOC_UI_MP_GAME_RULE_TURN_TIMER" Language="pt_BR">
       <Text>Tempo de turno:</Text>
     </Replace>
@@ -5070,6 +5106,9 @@
     <Replace Tag="LOC_UI_SAVE_CONFIG" Language="pt_BR">
       <Text>Salvar conf.</Text>
     </Replace>
+    <Replace Tag="LOC_UI_SHOW_TOOLTIPS" Language="pt_BR">
+      <Text>Exibir dicas de tela (SEGURAR)</Text>
+    </Replace>
     <Replace Tag="LOC_UI_SOCIAL_PLAYER_OPTIONS" Language="pt_BR">
       <Text>Opções do jogador</Text>
     </Replace>
@@ -5108,6 +5147,15 @@
     </Replace>
     <Replace Tag="LOC_UI_TOOLTIP_DLCS" Language="pt_BR">
       <Text>Conteúdo oficial</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_TOOLTIP_HIDDEN_HINT_BODY_POST" Language="pt_BR">
+      <Text>para mostrar as dicas novamente. Dicas de tela serão exibidas novamente ao reiniciar.</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_TOOLTIP_HIDDEN_HINT_BODY_PRE" Language="pt_BR">
+      <Text>Segure a ação inspecionar</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_TOOLTIP_HIDDEN_HINT_TITLE" Language="pt_BR">
+      <Text>Dicas de tela ocultas</Text>
     </Replace>
     <Replace Tag="LOC_UI_TOOLTIP_MODS" Language="pt_BR">
       <Text>Complementos</Text>
@@ -5155,7 +5203,7 @@
       <Text>Desbloqueia [B]{1_Item}[/B].</Text>
     </Replace>
     <Replace Tag="LOC_CREATE_GAME_UNLOCK_ITEM_IN_AGE" Language="pt_BR">
-      <Text>Desbloqueia [B]{1_Item} [/B] na Era [B]{2_Age}.[/B]</Text>
+      <Text>Desbloqueia [B]{1_Item} [/B] na Era [B]{2: gender *:semartmasc?; *:semartfem?; masculine?do ; feminine?da ;}{2_Age}[/B].</Text>
     </Replace>
     <Replace Tag="LOC_CREATE_GAME_UNLOCKS_LIST" Language="pt_BR">
       <Text>Desbloqueia o seguinte:[BLIST]{1_Items}[/LIST]</Text>

@@ -38,6 +38,17 @@ class VictoryProgressModel {
   onTeamVictory(event) {
     this.victoryEvent = event;
     if (!Game.AgeProgressManager.isExtendedGame) {
+      if (Configuration.getGame().isHotseat) {
+        const player = Players.get(GameContext.localPlayerID);
+        if (player) {
+          if (player.team != event.team) {
+            return;
+          }
+          if (!player.isTurnActive && Players.getNumAliveHumans() > 0) {
+            return;
+          }
+        } else return;
+      }
       const cinematicDef = GameInfo.VictoryCinematics.lookup(event.victory);
       if (cinematicDef && cinematicDef.VictoryCinematicType != VictoryCinematicTypes.NO_VICTORY_CINEMATIC_TYPE && GameplayMap.isValidLocation(event.location)) {
         CinematicManager.startEndOfGameCinematic(
@@ -51,7 +62,7 @@ class VictoryProgressModel {
     }
   }
   onAgeEnded(event) {
-    if (event.victoryType != VictoryTypes.NO_VICTORY || Game.AgeProgressManager.isFinalAge) {
+    if (event.victoryType != VictoryTypes.NO_VICTORY) {
       DisplayQueueManager.add({ category: EndGameScreenCategory, forceShow: true });
     }
   }

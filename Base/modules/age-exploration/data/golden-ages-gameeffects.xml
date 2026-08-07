@@ -20,6 +20,11 @@
 		<Argument name="Percent">10</Argument>
 	</Modifier>
 	<Modifier id="MOD_GOLDEN_AGE_FEUDAL_MONARCHY_COMBAT_STRENGTH" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_ABILITY">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_CLASS_MATCHES">
+				<Argument name="UnitClass">UNIT_CLASS_COMBAT</Argument>
+			</Requirement>
+		</SubjectRequirements>
 		<Argument name="AbilityType">ABILITY_EX_FEUDAL_MONARCHY_GOLDEN_AGE</Argument>
 	</Modifier>
 	<Modifier id="EX_FEUDAL_MONARCHY_GOLDEN_AGE_MOD_COMBAT_STRENGTH" collection="COLLECTION_UNIT_COMBAT" effect="EFFECT_ADJUST_UNIT_STRENGTH_MODIFIER">
@@ -38,7 +43,7 @@
 		</SubjectRequirements>
 		<Argument name="Percent">20</Argument>
 	</Modifier>
-	<Modifier id="MOD_GOLDEN_AGE_PLUTOCRACY_GOLD" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD">
+	<Modifier id="MOD_GOLDEN_AGE_PLUTOCRACY_GOLD" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD" permanent="true">
 		<Argument name="Amount">600</Argument>
 		<Argument name="YieldType">YIELD_GOLD</Argument>
 		<Argument name="Scale">true</Argument>
@@ -58,7 +63,7 @@
 		<Argument name="ConstructibleType">BUILDING_TEMPLE</Argument>
 		<Argument name="Percent">20</Argument>
 	</Modifier>	
-	<Modifier id="MOD_THEOCRACY_PASSIVE_TEMPLE_PURCHASING" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_ADJUST_PLAYER_OR_CITY_BUILDING_PURCHASE_EFFICIENCY">
+	<Modifier id="MOD_THEOCRACY_PASSIVE_TEMPLE_PURCHASING" collection="COLLECTION_OWNER" effect="EFFECT_ADJUST_PLAYER_OR_CITY_BUILDING_PURCHASE_EFFICIENCY">
 		<SubjectRequirements>
 			<Requirement type="REQUIREMENT_PLAYER_HAS_GOVERNMENT">
             	<Argument name="GovernmentType">GOVERNMENT_THEOCRACY</Argument>
@@ -67,7 +72,7 @@
 		<Argument name="BuildingType">BUILDING_TEMPLE</Argument>
 		<Argument name="Percent">20</Argument>
 	</Modifier>	
-	<Modifier id="MOD_THEOCRACY_PASSIVE_MISSIONARY_PRODUCTION" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_UNIT_PRODUCTION">
+	<Modifier id="MOD_THEOCRACY_PASSIVE_MISSIONARY_PRODUCTION" collection="COLLECTION_OWNER" effect="EFFECT_CITY_ADJUST_UNIT_PRODUCTION">
 		<SubjectRequirements>
 			<Requirement type="REQUIREMENT_PLAYER_HAS_GOVERNMENT">
             	<Argument name="GovernmentType">GOVERNMENT_THEOCRACY</Argument>
@@ -76,7 +81,7 @@
 		<Argument name="UnitClass">UNIT_CLASS_RELIGIOUS</Argument>
 		<Argument name="Percent">20</Argument>
 	</Modifier>
-	<Modifier id="MOD_THEOCRACY_PASSIVE_MISSIONARY_PURCHASING" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_ADJUST_PLAYER_OR_CITY_UNIT_PURCHASE_EFFICIENCY">
+	<Modifier id="MOD_THEOCRACY_PASSIVE_MISSIONARY_PURCHASING" collection="COLLECTION_OWNER" effect="EFFECT_ADJUST_PLAYER_OR_CITY_UNIT_PURCHASE_EFFICIENCY">
 		<SubjectRequirements>
 			<Requirement type="REQUIREMENT_PLAYER_HAS_GOVERNMENT">
             	<Argument name="GovernmentType">GOVERNMENT_THEOCRACY</Argument>
@@ -85,7 +90,7 @@
 		<Argument name="UnitTag">UNIT_CLASS_RELIGIOUS</Argument>
 		<Argument name="Percent">20</Argument>
 	</Modifier>
-	<Modifier id="MOD_GOLDEN_AGE_THEOCRACY_RELIC" collection="COLLECTION_OWNER" effect="EFFECT_GRANT_GREAT_WORK">
+	<Modifier id="MOD_GOLDEN_AGE_THEOCRACY_RELIC" collection="COLLECTION_OWNER" effect="EFFECT_GRANT_GREAT_WORK" permanent="true">
 		<Argument name="ObjectType">GREATWORKOBJECT_RELIC</Argument>
 		<Argument name="Amount">1</Argument>
 	</Modifier>
@@ -107,7 +112,7 @@
 	</Modifier>
 	<!-- Revolucion -->
 	<!-- +2 Happiness (per Age) in the Cities for each Tradition slotted into the Government.-->
-	<Modifier id="MOD_REVOLUCION_EX_PASSIVE_HAPPINESS" collection="COLLECTION_ALL_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_ACTIVE_TRADITION">
+	<Modifier id="MOD_REVOLUCION_EX_PASSIVE_HAPPINESS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_ACTIVE_TRADITION">
 		<SubjectRequirements>
 			<Requirement type="REQUIREMENT_CITY_IS_CITY"/>
 		</SubjectRequirements>

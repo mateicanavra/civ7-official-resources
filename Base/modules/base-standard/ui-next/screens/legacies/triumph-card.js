@@ -153,7 +153,7 @@ const TriumphCardComponent = (props) => {
                   get text() {
                     return props.triumph.triumphRequirements;
                   },
-                  args: ["disableTooltips"]
+                  disableTooltips: true
                 });
               }
             }));

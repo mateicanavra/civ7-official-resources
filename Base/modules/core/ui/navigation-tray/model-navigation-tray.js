@@ -62,6 +62,11 @@ class NavigationTrayModel {
   };
   /** List of actions keyed by the input action with a list of loc keys to display, most recently added is displayed */
   actionStacks = [];
+  /**
+   * Persistent entries that are not cleared by {@link clear}.
+   * Regular entries in actionStacks take priority over persistent ones for the same action.
+   */
+  persistentActionStacks = [];
   entries = [];
   // Acts as a map with NavigationTrayEntry.icon as unique keys
   onUpdate;
@@ -210,6 +215,33 @@ class NavigationTrayModel {
   removeToggleTooltip() {
     this.removeEntry("toggle-tooltip");
   }
+  /**
+   * Add or update a persistent entry that survives {@link clear} calls.
+   * Regular entries added via {@link addOrUpdateEntry} take priority over persistent entries for the same action.
+   */
+  addPersistentEntry(key, action) {
+    const { actionStack } = this.getPersistentActionStack(action);
+    if (actionStack) {
+      actionStack.locKeys.push(key);
+    } else {
+      this.persistentActionStacks.push({ action, locKeys: [key] });
+    }
+    this.updateGate.call("addPersistentEntry");
+  }
+  /**
+   * Remove the most recently added persistent entry for the given action.
+   * If no persistent entries remain for the action, it is removed from the persistent list.
+   */
+  removePersistentEntry(action) {
+    const { actionStack, actionStackIndex } = this.getPersistentActionStack(action);
+    if (actionStack) {
+      actionStack.locKeys.pop();
+      if (actionStack.locKeys.length === 0) {
+        this.persistentActionStacks.splice(actionStackIndex, 1);
+      }
+    }
+    this.updateGate.call("removePersistentEntry");
+  }
   addOrUpdateCameraPan(key) {
     this.addOrUpdateEntry(key, "camera-pan");
   }
@@ -235,6 +267,13 @@ class NavigationTrayModel {
     }
     return { actionStack: this.actionStacks[stackIndex], actionStackIndex: stackIndex };
   }
+  getPersistentActionStack(action) {
+    const stackIndex = this.persistentActionStacks.findIndex((stack) => stack.action === action);
+    if (stackIndex === -1) {
+      return { actionStackIndex: -1 };
+    }
+    return { actionStack: this.persistentActionStacks[stackIndex], actionStackIndex: stackIndex };
+  }
   addOrUpdateEntry(key, action) {
     const { actionStack } = this.getActionStack(action);
     if (actionStack) {
@@ -259,7 +298,16 @@ class NavigationTrayModel {
     this.updateGate.call("clear");
   }
   update() {
-    this.actionStacks.sort((stackA, stackB) => {
+    const combinedStacks = [...this.persistentActionStacks];
+    for (const stack of this.actionStacks) {
+      const existingIdx = combinedStacks.findIndex((s) => s.action === stack.action);
+      if (existingIdx >= 0) {
+        combinedStacks[existingIdx] = stack;
+      } else {
+        combinedStacks.push(stack);
+      }
+    }
+    combinedStacks.sort((stackA, stackB) => {
       const priorityA = gameActionTrayPosition[stackA.action];
       const priorityB = gameActionTrayPosition[stackB.action];
       if (priorityA - priorityB === 0) {
@@ -268,7 +316,7 @@ class NavigationTrayModel {
       return priorityA - priorityB;
     });
     this.entries = [];
-    for (const actionStack of this.actionStacks) {
+    for (const actionStack of combinedStacks) {
       const icon = Icon.getIconFromActionName(actionStack.action, InputDeviceType.Controller);
       if (!icon) {
         console.error(

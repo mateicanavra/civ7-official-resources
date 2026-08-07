@@ -2656,9 +2656,6 @@
     <Replace Tag="LOC_BUILDING_OPERA_HOUSE_NAME" Language="ja_JP">
       <Text>オペラハウス</Text>
     </Replace>
-    <Replace Tag="LOC_BUILDING_PLAGUE_HOSPITAL_NAME" Language="ja_JP">
-      <Text>感染症病院</Text>
-    </Replace>
     <Replace Tag="LOC_BUILDING_PORT_NAME" Language="ja_JP">
       <Text>港</Text>
     </Replace>
@@ -2688,9 +2685,6 @@
     </Replace>
     <Replace Tag="LOC_BUILDING_TENEMENT_NAME" Language="ja_JP">
       <Text>テネメント</Text>
-    </Replace>
-    <Replace Tag="LOC_BUILDING_UNIVERSITY_MO_NAME" Language="ja_JP">
-      <Text>黄金時代の大学</Text>
     </Replace>
     <Replace Tag="LOC_IMPROVEMENT_ABATTOIR_NAME" Language="ja_JP">
       <Text>食肉処理場</Text>
@@ -11792,10 +11786,10 @@
       <Text>[B]効果:[/B] [icon:CITY_UNIMPROVED] [TIP:LOC_PEDIA_CONCEPTS_VEGETATED_TERRAIN_TOOLTIP]樹草地形[/TIP]の [icon:YIELD_HAPPINESS] 幸福度+1。</Text>
     </Replace>
     <Replace Tag="LOC_BUILDING_DEFENSIVE_FORTIFICATIONS_DESCRIPTION" Language="ja_JP">
-      <Text>近代の[TIP:LOC_PEDIA_CONCEPTS_WALL_TOOLTIP]防壁[/TIP]は、[TIP:LOC_PEDIA_CONCEPTS_FORTIFIED_DISTRICTS_TOOLTIP]要塞化区域[/TIP]の [icon:Action_Heal] HP+100、このタイルを守っているユニットの [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]戦闘力[/TIP]+15。</Text>
+      <Text>近代の要塞化陣地と[TIP:LOC_PEDIA_CONCEPTS_WALL_TOOLTIP]防壁[/TIP]。区域を[TIP:LOC_PEDIA_CONCEPTS_FORTIFIED_DISTRICTS_TOOLTIP]要塞化区域[/TIP]に変え、 [icon:Action_Heal] HP+100。攻撃されると防衛力を付与する。</Text>
     </Replace>
     <Replace Tag="LOC_BUILDING_DEFENSIVE_FORTIFICATIONS_TOOLTIP" Language="ja_JP">
-      <Text>[B]効果:[/B] 近代の[TIP:LOC_PEDIA_CONCEPTS_WALL_TOOLTIP]防壁[/TIP]は、[TIP:LOC_PEDIA_CONCEPTS_FORTIFIED_DISTRICTS_TOOLTIP]要塞化区域[/TIP]の [icon:Action_Heal] HP+100。</Text>
+      <Text>効果: 区域を[TIP:LOC_PEDIA_CONCEPTS_FORTIFIED_DISTRICTS_TOOLTIP]要塞化区域[/TIP]に変え、 [icon:Action_Heal] HP+100。攻撃されると防衛力を付与する。[N]近代の要塞化陣地と[TIP:LOC_PEDIA_CONCEPTS_WALL_TOOLTIP]防壁[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_BUILDING_DEPARTMENT_STORE_DESCRIPTION" Language="ja_JP">
       <Text>[icon:YIELD_HAPPINESS] 幸福度+12。この[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]居住地[/TIP]の [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCE_CAPACITY_TOOLTIP]資源最大数[/TIP]+1。近代の幸福度関連の[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建造物[/TIP]。</Text>
@@ -11886,12 +11880,6 @@
     </Replace>
     <Replace Tag="LOC_BUILDING_OPERA_HOUSE_TOOLTIP" Language="ja_JP">
       <Text>近代の文化と外交関連の[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建造物[/TIP]。</Text>
-    </Replace>
-    <Replace Tag="LOC_BUILDING_PLAGUE_HOSPITAL_DESCRIPTION" Language="ja_JP">
-      <Text>[icon:YIELD_FOOD] 食料+5。 [icon:GROWTH_RATE] [TIP:LOC_PEDIA_CONCEPTS_GROWTH_RATE_TOOLTIP]成長率[/TIP]+15%。近代の食料関連の[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建造物[/TIP]。</Text>
-    </Replace>
-    <Replace Tag="LOC_BUILDING_PLAGUE_HOSPITAL_TOOLTIP" Language="ja_JP">
-      <Text>効果: [icon:GROWTH_RATE] [TIP:LOC_PEDIA_CONCEPTS_GROWTH_RATE_TOOLTIP]成長率[/TIP]+15%。</Text>
     </Replace>
     <Replace Tag="LOC_BUILDING_PORT_DESCRIPTION" Language="ja_JP">
       <Text>[icon:YIELD_GOLD] ゴールド+9。この[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]居住地[/TIP]の [icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCE_CAPACITY_TOOLTIP]資源最大数[/TIP]+2。近代のゴールド関連の建造物。この[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]居住地[/TIP]で訓練された[TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]海洋ユニット[/TIP]は、この [icon:CITY_BUILDING_LIST] [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建造物[/TIP]の位置に出現する。陸地に隣接する沿岸に配置する必要がある。 [icon:YIELD_TOWNS] [TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]町[/TIP]で購入できる。</Text>
@@ -12902,7 +12890,7 @@
       <Text>[icon:RADIAL_RESOURCES] [TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]資源[/TIP]を開発するたびに [icon:YIELD_GOLD] ゴールド100を得る。 [icon:RADIAL_RESOURCES] 資源の [icon:YIELD_PRODUCTION] 生産力+1。</Text>
     </Replace>
     <Replace Tag="LOC_CIVILIZATION_BUGANDA_DESCRIPTION" Language="ja_JP">
-      <Text>[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建造物[/TIP]や[TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]施設[/TIP]を [icon:Action_Pillage] 略奪すると、産出量または [icon:Action_Heal] 回復量に相当する [icon:YIELD_CULTURE] 文化力を得る。陸上[TIP:LOC_PEDIA_CONCEPTS_MILITARY_UNIT_TOOLTIP]軍事ユニット[/TIP]が[TIP:LOC_PEDIA_CONCEPTS_AMPHIBIOUS_TOOLTIP]「水陸両用」[/TIP]能力を得る。</Text>
+      <Text>陸上ユニットが[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建造物[/TIP]や[TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]施設[/TIP]を [icon:Action_Pillage] 略奪すると、産出量または [icon:Action_Heal] 回復量に相当する [icon:YIELD_CULTURE] 文化力を得る。陸上[TIP:LOC_PEDIA_CONCEPTS_MILITARY_UNIT_TOOLTIP]軍事ユニット[/TIP]が[TIP:LOC_PEDIA_CONCEPTS_AMPHIBIOUS_TOOLTIP]「水陸両用」[/TIP]の能力を得る。</Text>
     </Replace>
     <Replace Tag="LOC_CIVILIZATION_FRENCH_EMPIRE_ALT_DESCRIPTION" Language="ja_JP">
       <Text>第3の[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]時代[/TIP]である近代のすべての標準的な政府のパッシブ効果を得る。また、これらの政府の好きな[TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]祝宴[/TIP]効果を選べる。</Text>
@@ -13178,7 +13166,7 @@
       <Text>ウィチャイチャーン</Text>
     </Replace>
     <Replace Tag="LOC_GREAT_PERSON_INDIVIDUAL_VICTORY_JOHN_MAYNARD_KEYNES_DESCRIPTION" Language="ja_JP">
-      <Text>互いの指導者の [icon:NOTIFICATION_SELECT_CAPITAL] 首都で一度ずつ発動し、世界銀行の支部を設立して [icon:ECONOMIC_VP] GDPを獲得する。 [icon:YIELD_GOLD] ゴールドを消費する。消費量は全プレイヤーが「大銀行家」を発動させた回数に応じて変動する。</Text>
+      <Text>他の指導者の [icon:NOTIFICATION_SELECT_CAPITAL] 首都で一度ずつ発動し、世界銀行の支部を設立して [icon:ECONOMIC_VP] GDPを獲得する。 [icon:YIELD_GOLD] ゴールドを消費する。消費量は全プレイヤーが「大銀行家」を発動させた回数に応じて変動する。</Text>
     </Replace>
     <Replace Tag="LOC_GREAT_PERSON_INDIVIDUAL_VICTORY_JOHN_MAYNARD_KEYNES_NAME" Language="ja_JP">
       <Text>大銀行家</Text>
@@ -13250,10 +13238,10 @@
       <Text>タイルの [icon:YIELD_WAREHOUSE] [TIP:LOC_PEDIA_CONCEPTS_WAREHOUSE_TOOLTIP]倉庫[/TIP]ボーナスは失われない。1つの[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]居住地[/TIP]につき1つしか建設できない。[n]都市国家の[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_IMPROVEMENT_TOOLTIP]固有施設[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_IMPROVEMENT_SHORE_BATTERY_DESCRIPTION" Language="ja_JP">
-      <Text>軍事都市国家の[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_IMPROVEMENT_TOOLTIP]固有施設[/TIP]。 [icon:YIELD_PRODUCTION] 生産力+5。 [icon:Action_Ranged] 長距離[TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]戦闘力[/TIP]+3、このタイルにいる長距離戦闘ユニットおよび[TIP:LOC_PEDIA_CONCEPTS_SIEGE_UNITS_TOOLTIP]攻囲ユニット[/TIP]の射程+1。このタイルにいる[TIP:LOC_PEDIA_CONCEPTS_MILITARY_UNIT_TOOLTIP]軍事ユニット[/TIP]の1ターンごとの [icon:Action_Heal] 回復量+5。[TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]時代を問わない[/TIP]。沿岸に隣接させる必要がある。</Text>
+      <Text>軍事都市国家の[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_IMPROVEMENT_TOOLTIP]固有施設[/TIP]。 [icon:YIELD_PRODUCTION] 生産力+5。 [icon:Action_Ranged] 長距離[TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]戦闘力[/TIP]+3、このタイルにいる長距離戦闘ユニットおよび[TIP:LOC_PEDIA_CONCEPTS_SIEGE_UNITS_TOOLTIP]攻囲ユニット[/TIP]の射程+1。このタイルにいる[TIP:LOC_PEDIA_CONCEPTS_MILITARY_UNIT_TOOLTIP]軍事ユニット[/TIP]の1ターンごとの [icon:Action_Heal] 回復量+5。 [icon:Action_Fortify] 要塞化陣地として扱われ、このタイルで防戦しているユニットの [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]戦闘力[/TIP]+6。[TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]時代を問わない[/TIP]。沿岸に隣接させる必要がある。</Text>
     </Replace>
     <Replace Tag="LOC_IMPROVEMENT_SHORE_BATTERY_TOOLTIP" Language="ja_JP">
-      <Text>効果: [icon:Action_Ranged] 長距離[TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]戦闘力[/TIP]+3、このタイルにいる長距離戦闘ユニットおよび[TIP:LOC_PEDIA_CONCEPTS_SIEGE_UNITS_TOOLTIP]攻囲ユニット[/TIP]の射程+1。このタイルにいる[TIP:LOC_PEDIA_CONCEPTS_MILITARY_UNIT_TOOLTIP]軍事ユニット[/TIP]の1ターンごとの [icon:Action_Heal] 回復量+5。[n]タイルの [icon:YIELD_WAREHOUSE] [TIP:LOC_PEDIA_CONCEPTS_WAREHOUSE_TOOLTIP]倉庫[/TIP]ボーナスは失われない。沿岸に隣接させる必要がある。[n]都市国家の[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_IMPROVEMENT_TOOLTIP]固有施設[/TIP]。</Text>
+      <Text>効果: [icon:Action_Ranged] 長距離[TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]戦闘力[/TIP]+3、このタイルにいる長距離戦闘ユニットおよび[TIP:LOC_PEDIA_CONCEPTS_SIEGE_UNITS_TOOLTIP]攻囲ユニット[/TIP]の射程+1。このタイルにいる[TIP:LOC_PEDIA_CONCEPTS_MILITARY_UNIT_TOOLTIP]軍事ユニット[/TIP]の1ターンごとの [icon:Action_Heal] 回復量+5。 [icon:Action_Fortify] 要塞化陣地として扱われ、このタイルで防戦しているユニットの [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]戦闘力[/TIP]+6。[n]タイルの [icon:YIELD_WAREHOUSE] [TIP:LOC_PEDIA_CONCEPTS_WAREHOUSE_TOOLTIP]倉庫[/TIP]ボーナスは失われない。沿岸に隣接させる必要がある。[n]都市国家の[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_IMPROVEMENT_TOOLTIP]固有施設[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_IMPROVEMENT_STEPWELL_DESCRIPTION" Language="ja_JP">
       <Text>ムガルの[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_IMPROVEMENT_TOOLTIP]固有施設[/TIP]。 [icon:YIELD_FOOD] 食料+2。隣接する農場から得られる [icon:YIELD_FOOD] 食料+2。[TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]時代を問わない[/TIP]。[TIP:LOC_PEDIA_CONCEPTS_FLAT_TERRAIN_TOOLTIP]平地地形[/TIP]に配置する必要がある。他の階段井戸に隣接させることはできない。</Text>
@@ -14018,7 +14006,7 @@
       <Text>[icon:DEFAULT_PROJECT] [TIP:LOC_PEDIA_CONCEPTS_PROJECTS_TOOLTIP]プロジェクト[/TIP]の完了に対する [B][icon:YIELD_PRODUCTION] +30%。[/B]</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_QILACHAS_I_DESCRIPTION" Language="ja_JP">
-      <Text>[icon:CITY_FORTIFIED] [[TIP:LOC_PEDIA_CONCEPTS_FORTIFIED_DISTRICTS_TOOLTIP]要塞化区域[/TIP]の [B][icon:YIELD_GOLD] +1。[/B]</Text>
+      <Text>[icon:CITY_FORTIFIED] [TIP:LOC_PEDIA_CONCEPTS_FORTIFIED_DISTRICTS_TOOLTIP]要塞化区域[/TIP]の [B][icon:YIELD_GOLD] +1[/B]。</Text>
     </Replace>
     <Replace Tag="LOC_TRADITION_QILACHAS_II_DESCRIPTION" Language="ja_JP">
       <Text>[icon:CITY_FORTIFIED] [TIP:LOC_PEDIA_CONCEPTS_FORTIFIED_DISTRICTS_TOOLTIP]要塞化区域[/TIP]の [B][icon:YIELD_GOLD] +2。[/B]</Text>
@@ -14150,13 +14138,13 @@
       <Text>フロンティアへの進出</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_BUGANDA_ABILITY_AQ_DESCRIPTION" Language="ja_JP">
-      <Text>[BLIST][LI][TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建造物[/TIP]や[TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]施設[/TIP]を [icon:Action_Pillage] 「略奪」すると、産出量または [icon:Action_Heal] 回復量に相当する [icon:YIELD_CULTURE] [B]文化力[/B] を得る。[LI]陸上[TIP:LOC_PEDIA_CONCEPTS_MILITARY_UNIT_TOOLTIP]軍事ユニット[/TIP]が[TIP:LOC_PEDIA_CONCEPTS_AMPHIBIOUS_TOOLTIP]「水陸両用」[/TIP]能力を得る。[LI]湖の [B][icon:YIELD_CULTURE] 文化力[/B][と [B][icon:YIELD_FOOD] 食料[/B]+2。[/BLIST]</Text>
+      <Text>[BLIST][LI]陸上ユニットが[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建造物[/TIP]や[TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]施設[/TIP]を [icon:Action_Pillage] 「略奪」すると、産出量または [icon:Action_Heal] 回復量に相当する [icon:YIELD_CULTURE] [B]文化力[/B] を得る。[LI]陸上[TIP:LOC_PEDIA_CONCEPTS_MILITARY_UNIT_TOOLTIP]軍事ユニット[/TIP]が[TIP:LOC_PEDIA_CONCEPTS_AMPHIBIOUS_TOOLTIP]「水陸両用」[/TIP]の能力を得る。[LI]湖の [B][icon:YIELD_CULTURE] 文化力[/B]と [B][icon:YIELD_FOOD] 食料[/B]+2。[/BLIST]</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_BUGANDA_ABILITY_DESCRIPTION" Language="ja_JP">
-      <Text>[BLIST][LI][TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建造物[/TIP]や[TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]施設[/TIP]を [icon:Action_Pillage] 「略奪」すると、産出量または [icon:Action_Heal] 回復量に相当する [icon:YIELD_CULTURE] [B]文化力[/B] を得る。[LI]陸上[TIP:LOC_PEDIA_CONCEPTS_MILITARY_UNIT_TOOLTIP]軍事ユニット[/TIP]が[TIP:LOC_PEDIA_CONCEPTS_AMPHIBIOUS_TOOLTIP]「水陸両用」[/TIP]能力を得る。[LI]湖の [B][icon:YIELD_CULTURE] 文化力[/B][と [B][icon:YIELD_FOOD] 食料[/B]+6、湖の [icon:CITY_URBAN] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]区域[/TIP]と [icon:CITY_RURAL] [TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]施設[/TIP]による [icon:CULTURE_VP] [TIP:LOC_PEDIA_CONCEPTS_TOURISTS_TOOLTIP]観光力[/TIP]+1。LI]ムジブ・アザーラ・ムパンガの建設に対する [icon:YIELD_PRODUCTION] 生産力+30%。[/BLIST]</Text>
+      <Text>[BLIST][LI]陸上ユニットが[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建造物[/TIP]や[TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]施設[/TIP]を [icon:Action_Pillage] 「略奪」すると、産出量または [icon:Action_Heal] 回復量に相当する [icon:YIELD_CULTURE] [B]文化力[/B] を得る。[LI]陸上[TIP:LOC_PEDIA_CONCEPTS_MILITARY_UNIT_TOOLTIP]軍事ユニット[/TIP]が[TIP:LOC_PEDIA_CONCEPTS_AMPHIBIOUS_TOOLTIP]「水陸両用」[/TIP]の能力を得る。[LI]湖の [B][icon:YIELD_CULTURE] 文化力[/B]と [B][icon:YIELD_FOOD] 食料[/B]+6、湖の [icon:CITY_URBAN] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]区域[/TIP]と [icon:CITY_RURAL] [TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]施設[/TIP]による [icon:CULTURE_VP] [TIP:LOC_PEDIA_CONCEPTS_TOURISTS_TOOLTIP]観光力[/TIP]+1。[LI]ムジブ・アザーラ・ムパンガの建設に対する [icon:YIELD_PRODUCTION] 生産力+30%。[/BLIST]</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_BUGANDA_ABILITY_EX_DESCRIPTION" Language="ja_JP">
-      <Text>[BLIST][LI][TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建造物[/TIP]や[TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]施設[/TIP]を [icon:Action_Pillage] 「略奪」すると、産出量または [icon:Action_Heal] 回復量に相当する [icon:YIELD_CULTURE] [B]文化力[/B] を得る。[LI]陸上[TIP:LOC_PEDIA_CONCEPTS_MILITARY_UNIT_TOOLTIP]軍事ユニット[/TIP]が[TIP:LOC_PEDIA_CONCEPTS_AMPHIBIOUS_TOOLTIP]「水陸両用」[/TIP]能力を得る。[LI]湖の [B][icon:YIELD_CULTURE] 文化力[/B][と [B][icon:YIELD_FOOD] 食料[/B]+4。[/BLIST]</Text>
+      <Text>[BLIST][LI]陸上ユニットが[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建造物[/TIP]や[TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]施設[/TIP]を [icon:Action_Pillage] 「略奪」すると、産出量または [icon:Action_Heal] 回復量に相当する [icon:YIELD_CULTURE] [B]文化力[/B] を得る。[LI]陸上[TIP:LOC_PEDIA_CONCEPTS_MILITARY_UNIT_TOOLTIP]軍事ユニット[/TIP]が[TIP:LOC_PEDIA_CONCEPTS_AMPHIBIOUS_TOOLTIP]「水陸両用」[/TIP]の能力を得る。[LI]湖の [B][icon:YIELD_CULTURE] 文化力[/B]と [B][icon:YIELD_FOOD] 食料[/B]+4。[/BLIST]</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_BUGANDA_ABILITY_NAME" Language="ja_JP">
       <Text>オムゴンゴ</Text>
@@ -14189,7 +14177,7 @@
       <Text>御一新</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_MEXICO_ABILITY_AQ_DESCRIPTION" Language="ja_JP">
-      <Text>[BLIST][LI]固有の[icon:GOVERNMENT][TIP:LOC_PEDIA_CONCEPTS_GOVERNMENT_TOOLTIP]政府[/TIP]である「革命政府」でスタートする。この政府のパッシブ効果として、政府のスロットに入っている伝統1つにつき時代ごとの各都市の[icon:YIELD_HAPPINESS]幸福度+2。[icon:CELEBRATION][TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]祝宴[/TIP]効果1つを持ち、6ターンの間、[icon:YIELD_CULTURE]文化力が「幸福」状態の居住地では+2、「歓喜」状態の居住地では+6、「至福」状態の居住地では+10。政府の種類を変更することはできない。[LI][icon:CELEBRATION][TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]祝宴[/TIP]の[icon:CULTURE_VP][TIP:LOC_PEDIA_CONCEPTS_TOURISTS_TOOLTIP]観光力[/TIP]+100%。[/BLIST]</Text>
+      <Text>[BLIST][LI]固有の [icon:GOVERNMENT] [TIP:LOC_PEDIA_CONCEPTS_GOVERNMENT_TOOLTIP]政府[/TIP]である「革命政府」でスタートする。この政府のパッシブ効果として、政府のスロットに入っている伝統1つにつき時代ごとの各都市の [icon:YIELD_HAPPINESS] 幸福度+2。 [icon:CELEBRATION] [TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]祝宴[/TIP]効果1つを持ち、6ターンの間、 [icon:YIELD_CULTURE] 文化力が「幸福」状態の居住地では+2、「歓喜」状態の居住地では+6、「至福」状態の居住地では+10。政府の種類を変更することはできない。[LI]解除されると [icon:CELEBRATION] [TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]祝宴[/TIP]の [icon:CULTURE_VP] [TIP:LOC_PEDIA_CONCEPTS_TOURISTS_TOOLTIP]観光力[/TIP]+100%。[/BLIST]</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_MEXICO_ABILITY_DESCRIPTION" Language="ja_JP">
       <Text>[BLIST][LI]固有の [icon:GOVERNMENT] [TIP:LOC_PEDIA_CONCEPTS_GOVERNMENT_TOOLTIP]政府[/TIP]である「革命政府」でスタートする。この政府のパッシブ効果として、政府のスロットに入っている伝統1つにつき時代ごとの各都市の [icon:YIELD_HAPPINESS] 幸福度+2。 [icon:CELEBRATION] [TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]祝宴[/TIP]効果1つを持ち、6ターンの間、 [icon:YIELD_CULTURE] 文化力が「幸福」状態の居住地では+2、「歓喜」状態の居住地では+6、「至福」状態の居住地では+10。政府の種類を変更することはできない。[LI][icon:CELEBRATION] [TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]祝宴[/TIP]の [icon:CULTURE_VP] [TIP:LOC_PEDIA_CONCEPTS_TOURISTS_TOOLTIP]観光力[/TIP]+100%。[LI]ベジャス・アルテス宮殿の建設に対する [icon:YIELD_PRODUCTION] 生産力+30%。[/BLIST]</Text>
@@ -14552,91 +14540,91 @@
       <Text>原子爆弾</Text>
     </Replace>
     <Replace Tag="LOC_WONDER_BRANDENBURG_GATE_DESCRIPTION" Language="ja_JP">
-      <Text>[icon:YIELD_PRODUCTION] 生産力+6。すべての [icon:WAR] 戦争において [icon:WAR_SUPPORT] [TIP:LOC_PEDIA_CONCEPTS_WAR_SUPPORT_TOOLTIP]戦争への支持[/TIP]+1。 [icon:SETTLEMENT_LIMIT] [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_LIMIT_TOOLTIP]居住地上限[/TIP]+1。[TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]時代を問わない[/TIP]。[TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]区域[/TIP]に隣接させる必要がある。</Text>
+      <Text>[icon:YIELD_PRODUCTION] +6。すべての [icon:WAR] 戦争で [B][icon:WAR_SUPPORT][/B] [TIP:LOC_PEDIA_CONCEPTS_WAR_SUPPORT_TOOLTIP]戦争への支持[/TIP][B]+1。[/B] [icon:SETTLEMENT_LIMIT] [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_LIMIT_TOOLTIP]居住地上限[/TIP][B]+1。[/B][TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]時代を問わない[/TIP]。 [icon:CITY_URBAN] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]区域[/TIP]に隣接させる必要がある。</Text>
     </Replace>
     <Replace Tag="LOC_WONDER_BRANDENBURG_GATE_TOOLTIP" Language="ja_JP">
-      <Text>すべての [icon:WAR] 戦争において [icon:WAR_SUPPORT] [TIP:LOC_PEDIA_CONCEPTS_WAR_SUPPORT_TOOLTIP]戦争への支持[/TIP]+1。 [icon:SETTLEMENT_LIMIT] [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_LIMIT_TOOLTIP]居住地上限[/TIP]+1。[n][TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]区域[/TIP]に隣接させる必要がある。</Text>
+      <Text>すべての [icon:WAR] 戦争で [icon:WAR_SUPPORT] [TIP:LOC_PEDIA_CONCEPTS_WAR_SUPPORT_TOOLTIP]戦争への支持[/TIP][B]+1。[/B] [icon:SETTLEMENT_LIMIT] [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_LIMIT_TOOLTIP]居住地上限[/TIP]+1。[n][icon:CITY_URBAN] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]区域[/TIP]に隣接させる必要がある。</Text>
     </Replace>
     <Replace Tag="LOC_WONDER_CHENGDE_MOUNTAIN_RESORT_DESCRIPTION" Language="ja_JP">
-      <Text>[icon:YIELD_GOLD] ゴールド+6。 [icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]交易路[/TIP]でつながっている他文明1つにつき [icon:YIELD_CULTURE] 文化力+5%。[TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]時代を問わない[/TIP]。山岳に隣接させる必要がある。</Text>
+      <Text>[B][icon:YIELD_GOLD] +6。[/B] [icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]交易路[/TIP]でつながっている他文明1つにつき [B][icon:YIELD_CULTURE] +5%。[/B][TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]時代を問わない[/TIP]。山岳に隣接させる必要がある。</Text>
     </Replace>
     <Replace Tag="LOC_WONDER_CHENGDE_MOUNTAIN_RESORT_TOOLTIP" Language="ja_JP">
-      <Text>[icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]交易路[/TIP]でつながっている他文明1つにつき [icon:YIELD_CULTURE] 文化力+5%。[n]山岳に隣接させる必要がある。</Text>
+      <Text>[icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]交易路[/TIP]でつながっている他文明1つにつき [B][icon:YIELD_CULTURE] +5%。[/B][n]山岳に隣接させる必要がある。</Text>
     </Replace>
     <Replace Tag="LOC_WONDER_DOGO_ONSEN_DESCRIPTION" Language="ja_JP">
-      <Text>[icon:YIELD_HAPPINESS] 幸福度+4。この[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]居住地[/TIP]は [icon:CELEBRATION] [TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]祝宴[/TIP]に入るたびに [icon:YIELD_POPULATION] 人口を得る。[TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]時代を問わない[/TIP]。沿岸に隣接させる必要がある。</Text>
+      <Text>[B][icon:YIELD_HAPPINESS] +4。[/B]この[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]居住地[/TIP]は [icon:CELEBRATION] [TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]祝宴[/TIP]に入るたびに [icon:YIELD_POPULATION] [TIP:LOC_PEDIA_CONCEPTS_POPULATION_TOOLTIP]人口[/TIP]を得る。[TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]時代を問わない[/TIP]。沿岸に隣接させる必要がある。</Text>
     </Replace>
     <Replace Tag="LOC_WONDER_DOGO_ONSEN_TOOLTIP" Language="ja_JP">
-      <Text>この[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]居住地[/TIP]は [icon:CELEBRATION] [TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]祝宴[/TIP]に入るたびに [icon:YIELD_POPULATION] 人口を得る。[n]沿岸に隣接させる必要がある。</Text>
+      <Text>この[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]居住地[/TIP]は [icon:CELEBRATION] [TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]祝宴[/TIP]に入るたびに [icon:YIELD_POPULATION] [TIP:LOC_PEDIA_CONCEPTS_POPULATION_TOOLTIP]人口[/TIP]を得る。[n]沿岸に隣接させる必要がある。</Text>
     </Replace>
     <Replace Tag="LOC_WONDER_DOI_SUTHEP_DESCRIPTION" Language="ja_JP">
-      <Text>[icon:YIELD_DIPLOMACY] 影響力+4。[TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主国[/TIP]になっている [icon:CITYSTATE] 都市国家1つにつき [icon:YIELD_CULTURE] 文化力と [icon:YIELD_GOLD] ゴールド+5。[TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]時代を問わない[/TIP]。[TIP:LOC_PEDIA_CONCEPTS_ROUGH_TERRAIN_TOOLTIP]荒地地形[/TIP]に配置する必要がある。</Text>
+      <Text>[B][icon:YIELD_DIPLOMACY] +4。[/B][TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主国[/TIP]になっている [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]都市国家[/TIP]1つにつき [B][icon:YIELD_CULTURE][/B] と [icon:YIELD_GOLD] [B]+5。[/B][TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]時代を問わない[/TIP]。 [icon:CITY_UNIMPROVED] [TIP:LOC_PEDIA_CONCEPTS_ROUGH_TERRAIN_TOOLTIP]荒地地形[/TIP]に配置する必要がある。</Text>
     </Replace>
     <Replace Tag="LOC_WONDER_DOI_SUTHEP_TOOLTIP" Language="ja_JP">
-      <Text>[TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主国[/TIP]になっている [icon:CITYSTATE] 都市国家1つにつき [icon:YIELD_CULTURE] 文化力と [icon:YIELD_GOLD] ゴールド+5。[n][TIP:LOC_PEDIA_CONCEPTS_ROUGH_TERRAIN_TOOLTIP]荒地地形[/TIP]に配置する必要がある。</Text>
+      <Text>[TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主国[/TIP]になっている [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]都市国家[/TIP]1つにつき [icon:YIELD_CULTURE] と [icon:YIELD_GOLD] [B]+5。[/B][n][icon:CITY_UNIMPROVED] [TIP:LOC_PEDIA_CONCEPTS_ROUGH_TERRAIN_TOOLTIP]荒地地形[/TIP]に配置する必要がある。</Text>
     </Replace>
     <Replace Tag="LOC_WONDER_EIFFEL_TOWER_DESCRIPTION" Language="ja_JP">
-      <Text>[icon:YIELD_CULTURE] 文化力+5。この [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]都市[/TIP]の [icon:CITY_UNIQUE_QUARTER] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]街区[/TIP]の [icon:YIELD_CULTURE] 文化力+4、 [icon:CULTURE_VP] 観光力+2。[TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]時代を問わない[/TIP]。[TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]区域[/TIP]に隣接させる必要がある。</Text>
+      <Text>[B][icon:YIELD_CULTURE] +5。[/B]この [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]都市[/TIP]の [icon:CITY_UNIQUE_QUARTER] [TIP:LOC_PEDIA_CONCEPTS_UNIQUE_QUARTER_TOOLTIP]街区[/TIP]の [B][icon:YIELD_CULTURE] +4、[/B] [B][icon:CULTURE_VP]/B] [TIP:LOC_PEDIA_CONCEPTS_TOURISTS_TOOLTIP]観光力[/TIP]B]+2。[/B][TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]時代を問わない[/TIP]。 [icon:CITY_URBAN] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]区域[/TIP]に隣接させる必要がある。</Text>
     </Replace>
     <Replace Tag="LOC_WONDER_EIFFEL_TOWER_TOOLTIP" Language="ja_JP">
-      <Text>この [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]都市[/TIP]の [icon:CITY_UNIQUE_QUARTER] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]街区[/TIP]の [icon:YIELD_CULTURE] 文化力+4、 [icon:CULTURE_VP] 観光力+2。[n][TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]区域[/TIP]に隣接させる必要がある。</Text>
+      <Text>この [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]都市[/TIP]の [icon:CITY_UNIQUE_QUARTER] [TIP:LOC_PEDIA_CONCEPTS_UNIQUE_QUARTER_TOOLTIP]街区[/TIP]の [B][icon:YIELD_CULTURE] +4、[/B] [icon:CULTURE_VP] [TIP:LOC_PEDIA_CONCEPTS_TOURISTS_TOOLTIP]観光力[/TIP]B]+2。[/B][n][icon:CITY_URBAN] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]区域[/TIP]に隣接させる必要がある。</Text>
     </Replace>
     <Replace Tag="LOC_WONDER_HERMITAGE_DESCRIPTION" Language="ja_JP">
-      <Text>[icon:YIELD_CULTURE] 文化力+4。 [icon:NAR_REW_GREATWORK] [TIP:LOC_PEDIA_CONCEPTS_GREAT_WORKS_TOOLTIP]傑作[/TIP]が展示されている[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]居住地[/TIP]の [icon:YIELD_CULTURE] 文化力+5。[TIP:LOC_PEDIA_CONCEPTS_GREAT_WORKS_TOOLTIP]傑作[/TIP]スロット3。[TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]時代を問わない[/TIP]。ツンドラに配置する必要がある。</Text>
+      <Text>[B][icon:YIELD_CULTURE] +4。[/B] [icon:NAR_REW_GREATWORK] [TIP:LOC_PEDIA_CONCEPTS_GREAT_WORKS_TOOLTIP]傑作[/TIP]が展示されている[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]居住地[/TIP]の [B][icon:YIELD_CULTURE] +5。[/B][B] [icon:NAR_REW_GREATWORK] [TIP:LOC_PEDIA_CONCEPTS_GREAT_WORKS_TOOLTIP]傑作[/TIP][/B]スロット[B]3。[/B] [icon:NAR_REW_GREATWORK] [TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]時代を問わない[/TIP]。ツンドラに配置する必要がある。</Text>
     </Replace>
     <Replace Tag="LOC_WONDER_HERMITAGE_MOD_TOOLTIP" Language="ja_JP">
-      <Text>エルミタージュ美術館（スロットにある[TIP:LOC_PEDIA_CONCEPTS_GREAT_WORKS_TOOLTIP]傑作[/TIP]による）</Text>
+      <Text>エルミタージュ美術館（スロットにある [icon:NAR_REW_GREATWORK] [TIP:LOC_PEDIA_CONCEPTS_GREAT_WORKS_TOOLTIP]傑作[/TIP]による）</Text>
     </Replace>
     <Replace Tag="LOC_WONDER_HERMITAGE_TOOLTIP" Language="ja_JP">
-      <Text>[icon:NAR_REW_GREATWORK] [TIP:LOC_PEDIA_CONCEPTS_GREAT_WORKS_TOOLTIP]傑作[/TIP]が展示されている[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]居住地[/TIP]の [icon:YIELD_CULTURE] 文化力+5。[TIP:LOC_PEDIA_CONCEPTS_GREAT_WORKS_TOOLTIP]傑作[/TIP]スロット3。[n]ツンドラに配置する必要がある。</Text>
+      <Text>[icon:NAR_REW_GREATWORK] [TIP:LOC_PEDIA_CONCEPTS_GREAT_WORKS_TOOLTIP]傑作[/TIP]が展示されている[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]居住地[/TIP]の [B][icon:YIELD_CULTURE] +5。[/B][B] [icon:NAR_REW_GREATWORK] [TIP:LOC_PEDIA_CONCEPTS_GREAT_WORKS_TOOLTIP]傑作[/TIP][/B]スロット[B]3。[/B][n]ツンドラに配置する必要がある。</Text>
     </Replace>
     <Replace Tag="LOC_WONDER_MANHATTAN_PROJECT_DESCRIPTION" Language="ja_JP">
-      <Text>[icon:YIELD_SCIENCE] 科学力+5。核兵器をもたらし、 [icon:DEFAULT_PROJECT] [TIP:LOC_PEDIA_CONCEPTS_PROJECTS_TOOLTIP]プロジェクト[/TIP]を通じて核兵器をさらに製造できるようになる。 [icon:DEFAULT_PROJECT] [TIP:LOC_PEDIA_CONCEPTS_PROJECTS_TOOLTIP]プロジェクト[/TIP]「アイビー作戦」と「核兵器の生産」が解除される。 [icon:SCIENCE_VP] 科学による勝利ポイント+3。複数の文明がこの [icon:WONDER] [TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]遺産[/TIP]を建造できる。[TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]時代を問わない[/TIP]。</Text>
+      <Text>[B][icon:YIELD_SCIENCE] +5。[/B]核兵器をもたらし、 [icon:DEFAULT_PROJECT] プロジェクトを通じて核兵器をさらに製造できるようになる。 [icon:DEFAULT_PROJECT] プロジェクト「アイビー作戦」と [icon:DEFAULT_PROJECT] プロジェクト「核兵器の生産」が解除される。 [icon:SCIENCE_VP] [TIP:LOC_PEDIA_CONCEPTS_INNOVATION_TOOLTIP]イノベーション[/TIP][B]+3。[/B]複数の文明がこの [icon:WONDER] 遺産を建造できる。[TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]時代を問わない[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_WONDER_MANHATTAN_PROJECT_TOOLTIP" Language="ja_JP">
-      <Text>核兵器をもたらし、 [icon:DEFAULT_PROJECT] [TIP:LOC_PEDIA_CONCEPTS_PROJECTS_TOOLTIP]プロジェクト[/TIP]を通じて核兵器をさらに製造できるようになる。 [icon:DEFAULT_PROJECT] [TIP:LOC_PEDIA_CONCEPTS_PROJECTS_TOOLTIP]プロジェクト[/TIP]「アイビー作戦」と「核兵器の生産」が解除される。 [icon:SCIENCE_VP] 科学による勝利ポイント+3。[n]複数の文明がこの [icon:WONDER] [TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]遺産[/TIP]を建造できる。</Text>
+      <Text>核兵器をもたらし、 [icon:DEFAULT_PROJECT] プロジェクトを通じて核兵器をさらに製造できるようになる。 [icon:DEFAULT_PROJECT] プロジェクト「アイビー作戦」と [icon:DEFAULT_PROJECT] プロジェクト「核兵器の生産」が解除される。 [icon:SCIENCE_VP] [TIP:LOC_PEDIA_CONCEPTS_INNOVATION_TOOLTIP]イノベーション[/TIP][B]+3。[/B][n]複数の文明がこの [icon:WONDER] 遺産を建造できる。</Text>
     </Replace>
     <Replace Tag="LOC_WONDER_MUZIBU_AZAALA_MPANGA_DESCRIPTION" Language="ja_JP">
-      <Text>[icon:YIELD_FOOD] 食料+4。すべての湖タイルの [icon:CITY_RURAL] [TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]施設[/TIP]と [icon:CITY_URBAN] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]区域[/TIP]の [icon:YIELD_CULTURE] 文化力と [icon:YIELD_FOOD] 食料+4。[TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]時代を問わない[/TIP]。湖に隣接させる必要がある。湖に隣接した[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]居住地[/TIP]の [icon:YIELD_POPULATION] 人口+1。</Text>
+      <Text>[B][icon:YIELD_FOOD] +4。[/B]湖タイルの [icon:CITY_RURAL] [TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]施設[/TIP]と [icon:CITY_URBAN] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]区域[/TIP]の [B][icon:YIELD_CULTURE][/B] と [icon:YIELD_FOOD] [B]+4。[/B][TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]時代を問わない[/TIP]。湖に隣接させる必要がある。湖に隣接した[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]居住地[/TIP]の [icon:YIELD_POPULATION] [TIP:LOC_PEDIA_CONCEPTS_POPULATION_TOOLTIP]人口[/TIP][B]+1。[/B]</Text>
     </Replace>
     <Replace Tag="LOC_WONDER_MUZIBU_AZAALA_MPANGA_TOOLTIP" Language="ja_JP">
-      <Text>すべての湖タイルの [icon:CITY_RURAL] [TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]施設[/TIP]と [icon:CITY_URBAN] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]区域[/TIP]の [icon:YIELD_CULTURE] 文化力と [icon:YIELD_FOOD] 食料+4。湖に隣接した [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]居住地[/TIP]の [icon:YIELD_POPULATION] 人口+1。[n]湖に隣接させる必要がある。</Text>
+      <Text>湖タイルの [icon:CITY_RURAL] [TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]施設[/TIP]と [icon:CITY_URBAN] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]区域[/TIP]の [icon:YIELD_CULTURE] と [icon:YIELD_FOOD] [B]+4。[/B]湖に隣接した[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]居住地[/TIP]の [icon:YIELD_POPULATION] [TIP:LOC_PEDIA_CONCEPTS_POPULATION_TOOLTIP]人口[/TIP][B]+1。[/B][n]湖に隣接させる必要がある。</Text>
     </Replace>
     <Replace Tag="LOC_WONDER_OXFORD_UNIVERSITY_DESCRIPTION" Language="ja_JP">
-      <Text>[icon:YIELD_SCIENCE] 科学力+4。無償で [icon:RADIAL_TECH] [TIP:LOC_PEDIA_CONCEPTS_TECH_TOOLTIP]技術[/TIP]を2つ得る。 [icon:ATTRIBUTE_WILDCARD] ワイルドカード[TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]属性[/TIP]ポイント+1。 [icon:SCIENCE_VP] イノベーション+3。[TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]時代を問わない[/TIP]。[TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]区域[/TIP]に隣接させる必要がある。</Text>
+      <Text>[B][icon:YIELD_SCIENCE] +4。[/B]無償で [icon:RADIAL_TECH] [TIP:LOC_PEDIA_CONCEPTS_TECH_TOOLTIP]技術[/TIP]を2つ得る。 [icon:ATTRIBUTE_WILDCARD] [TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]ワイルドカード属性[/TIP]ポイント[B]+1。[/B] [icon:SCIENCE_VP] [TIP:LOC_PEDIA_CONCEPTS_INNOVATION_TOOLTIP]イノベーション[/TIP][B]+3。[/B][TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]時代を問わない[/TIP]。 [icon:CITY_URBAN] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]区域[/TIP]に隣接させる必要がある。</Text>
     </Replace>
     <Replace Tag="LOC_WONDER_OXFORD_UNIVERSITY_TOOLTIP" Language="ja_JP">
-      <Text>無償で [icon:RADIAL_TECH] [TIP:LOC_PEDIA_CONCEPTS_TECH_TOOLTIP]技術[/TIP]を2つ得る。 [icon:ATTRIBUTE_WILDCARD] ワイルドカード[TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]属性[/TIP]ポイント+1。 [icon:SCIENCE_VP] イノベーション+3。[n][TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]区域[/TIP]に隣接させる必要がある。</Text>
+      <Text>無償で [icon:RADIAL_TECH] [TIP:LOC_PEDIA_CONCEPTS_TECH_TOOLTIP]技術[/TIP]を2つ得る。 [icon:ATTRIBUTE_WILDCARD] [TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]ワイルドカード属性[/TIP]ポイント[B]+1。[/B] [icon:SCIENCE_VP] [TIP:LOC_PEDIA_CONCEPTS_INNOVATION_TOOLTIP]イノベーション[/TIP][B]+3。[/B][n][icon:CITY_URBAN] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]区域[/TIP]に隣接させる必要がある。</Text>
     </Replace>
     <Replace Tag="LOC_WONDER_PALACIO_DE_BELLAS_ARTES_DESCRIPTION" Language="ja_JP">
-      <Text>[icon:YIELD_CULTURE] 文化力+5。 [icon:NAR_REW_GREATWORK] [TIP:LOC_PEDIA_CONCEPTS_ARTIFACT_TOOLTIP]秘宝[/TIP]を1つ得る。[TIP:LOC_PEDIA_CONCEPTS_GREAT_WORKS_TOOLTIP]傑作[/TIP]スロット3。[TIP:LOC_PEDIA_CONCEPTS_GREAT_WORKS_TOOLTIP]傑作[/TIP]の [icon:YIELD_HAPPINESS] 幸福度+3。[TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]時代を問わない[/TIP]。[TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]区域[/TIP]に隣接させる必要がある。</Text>
+      <Text>[B][icon:YIELD_CULTURE] +5。[/B] [icon:NAR_REW_GREATWORK] [TIP:LOC_PEDIA_CONCEPTS_ARTIFACT_TOOLTIP]秘宝[/TIP]を[B]1つ[/B]得る。 [icon:NAR_REW_GREATWORK] [TIP:LOC_PEDIA_CONCEPTS_GREAT_WORKS_TOOLTIP]傑作[/TIP]スロット[B]3。[/B] [icon:NAR_REW_GREATWORK] 傑作の [B][icon:YIELD_HAPPINESS] +3。[/B][TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]時代を問わない[/TIP]。 [icon:CITY_URBAN] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]区域[/TIP]に隣接させる必要がある。</Text>
     </Replace>
     <Replace Tag="LOC_WONDER_PALACIO_DE_BELLAS_ARTES_TOOLTIP" Language="ja_JP">
-      <Text>[icon:NAR_REW_GREATWORK] [TIP:LOC_PEDIA_CONCEPTS_ARTIFACT_TOOLTIP]秘宝[/TIP]を1つ得る。[TIP:LOC_PEDIA_CONCEPTS_GREAT_WORKS_TOOLTIP]傑作[/TIP]スロット3。[TIP:LOC_PEDIA_CONCEPTS_GREAT_WORKS_TOOLTIP]傑作[/TIP]の [icon:YIELD_HAPPINESS] 幸福度+3。[n][TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]区域[/TIP]に隣接させる必要がある。</Text>
+      <Text>[B][icon:NAR_REW_GREATWORK][/B] [TIP:LOC_PEDIA_CONCEPTS_ARTIFACT_TOOLTIP]秘宝[/TIP]を[B]1つ[/B]得る。 [icon:NAR_REW_GREATWORK] [TIP:LOC_PEDIA_CONCEPTS_GREAT_WORKS_TOOLTIP]傑作[/TIP]スロット[B]3。[/B] [icon:NAR_REW_GREATWORK] 傑作の [B][icon:YIELD_HAPPINESS] +3。[/B][n][icon:CITY_URBAN] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]区域[/TIP]に隣接させる必要がある。</Text>
     </Replace>
     <Replace Tag="LOC_WONDER_RED_FORT_DESCRIPTION" Language="ja_JP">
-      <Text>[icon:YIELD_GOLD] ゴールドと [icon:YIELD_PRODUCTION] 生産力+4。征服しなければならない [icon:CITY_FORTIFIED] [TIP:LOC_PEDIA_CONCEPTS_FORTIFIED_DISTRICTS_TOOLTIP]要塞化区域[/TIP]として機能する。この [icon:CITY_FORTIFIED] [TIP:LOC_PEDIA_CONCEPTS_FORTIFIED_DISTRICTS_TOOLTIP]要塞化区域[/TIP]とすべての[TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]都[/TIP]心の [icon:Action_Heal] HP+50。[TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]時代を問わない[/TIP]。[TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]区域[/TIP]に隣接させる必要がある。</Text>
+      <Text>[icon:YIELD_GOLD] と [icon:YIELD_PRODUCTION] [B]+4。[/B]征服しなければならない [icon:CITY_FORTIFIED] [TIP:LOC_PEDIA_CONCEPTS_FORTIFIED_DISTRICTS_TOOLTIP]要塞化区域[/TIP]として機能する。この [icon:CITY_FORTIFIED] 要塞化区域とすべての [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]都市[/TIP]の都心の [B][icon:Action_Heal] HP+50。[/B][TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]時代を問わない[/TIP]。 [icon:CITY_URBAN] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]区域[/TIP]に隣接させる必要がある。</Text>
     </Replace>
     <Replace Tag="LOC_WONDER_RED_FORT_TOOLTIP" Language="ja_JP">
-      <Text>征服しなければならない [icon:CITY_FORTIFIED] [TIP:LOC_PEDIA_CONCEPTS_FORTIFIED_DISTRICTS_TOOLTIP]要塞化区域[/TIP]として機能する。この [icon:CITY_FORTIFIED] [TIP:LOC_PEDIA_CONCEPTS_FORTIFIED_DISTRICTS_TOOLTIP]要塞化区域[/TIP]とすべての[TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]都[/TIP]心の [icon:Action_Heal] HP+50。[n][TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]区域[/TIP]に隣接させる必要がある。</Text>
+      <Text>征服しなければならない [icon:CITY_FORTIFIED] [TIP:LOC_PEDIA_CONCEPTS_FORTIFIED_DISTRICTS_TOOLTIP]要塞化区域[/TIP]として機能する。この [icon:CITY_FORTIFIED] 要塞化区域とすべての [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]都市[/TIP]の都心の [B][icon:Action_Heal] HP+50。[/B][n][icon:CITY_URBAN] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]区域[/TIP]に隣接させる必要がある。</Text>
     </Replace>
     <Replace Tag="LOC_WONDER_STATUE_OF_LIBERTY_DESCRIPTION" Language="ja_JP">
-      <Text>[icon:YIELD_HAPPINESS] 幸福度+6。 [icon:UNIT_MIGRANT] 移住者が4つ出現する。[TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]時代を問わない[/TIP]。陸地に隣接した沿岸に配置する必要がある。</Text>
+      <Text>[B][icon:YIELD_HAPPINESS] +6。[/B] [B][icon:UNIT_MIGRANT] 移住者が4人[/B]出現する。[TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]時代を問わない[/TIP]。陸地に隣接した沿岸に配置する必要がある。</Text>
     </Replace>
     <Replace Tag="LOC_WONDER_STATUE_OF_LIBERTY_TOOLTIP" Language="ja_JP">
-      <Text>[icon:UNIT_MIGRANT] 移住者が4つ出現する。[n]陸地に隣接した沿岸タイルに配置する必要がある。</Text>
+      <Text>[B][icon:UNIT_MIGRANT] 移住者が4人[/B]出現する。[n]陸地に隣接した沿岸に配置する必要がある。</Text>
     </Replace>
     <Replace Tag="LOC_WONDER_TAJ_MAHAL_DESCRIPTION" Language="ja_JP">
-      <Text>[icon:YIELD_GOLD] ゴールド+5。 [icon:CELEBRATION] [TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]祝宴[/TIP]の持続期間+50%。 [icon:ATTRIBUTE_WILDCARD] ワイルドカード[TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]属性[/TIP]ポイント+1。[TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]時代を問わない[/TIP]。平原に配置する必要がある。</Text>
+      <Text>[B][icon:YIELD_GOLD] +5。[/B] [icon:CELEBRATION] [TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]祝宴[/TIP]の持続期間[B]+50%。[/B] [icon:ATTRIBUTE_WILDCARD] [TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]ワイルドカード属性[/TIP]ポイント[B]+1。[/B][TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]時代を問わない[/TIP]。平原に配置する必要がある。</Text>
     </Replace>
     <Replace Tag="LOC_WONDER_TAJ_MAHAL_TOOLTIP" Language="ja_JP">
-      <Text>[icon:CELEBRATION] [TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]祝宴[/TIP]の持続期間+50%。 [icon:ATTRIBUTE_WILDCARD] ワイルドカード[TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]属性[/TIP]ポイント+1。[n]平原に配置する必要がある。</Text>
+      <Text>[icon:CELEBRATION] [TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]祝宴[/TIP]の持続期間[B]+50%。[/B] [icon:ATTRIBUTE_WILDCARD] [TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]ワイルドカード属性[/TIP]ポイント[B]+1。[/B][n]平原に配置する必要がある。</Text>
     </Replace>
     <Replace Tag="LOC_WONDER_WORLDS_FAIR_DESCRIPTION" Language="ja_JP">
-      <Text>すべての [icon:WONDER] 遺産の [icon:CULTURE_VP] 観光力+2。</Text>
+      <Text>すべての [icon:WONDER] 遺産の [icon:CULTURE_VP] [TIP:LOC_PEDIA_CONCEPTS_TOURISTS_TOOLTIP]観光力[/TIP][B]+2。[/B]</Text>
     </Replace>
     <Replace Tag="LOC_WONDER_WORLDS_FAIR_TOOLTIP" Language="ja_JP">
-      <Text>すべての [icon:WONDER] 遺産の [icon:CULTURE_VP] 観光力+2。</Text>
+      <Text>すべての [icon:WONDER] 遺産の [icon:CULTURE_VP] [TIP:LOC_PEDIA_CONCEPTS_TOURISTS_TOOLTIP]観光力[/TIP][B]+2。[/B]</Text>
     </Replace>
     <Replace Tag="LOC_ABILITY_AUTHORITARIANISM_DESCRIPTION" Language="ja_JP">
       <Text>すべてのユニットの[TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]戦闘力[/TIP]+{1_Amount}。</Text>

@@ -311,11 +311,11 @@ html.age-transition .loading-curtain {
 
 #world.screen {
   /* Calculate the "Max Padding" required to create a 16:9 center 
-      The formula: (ViewportWidth - (ViewportHeight * 16/9)) / 2 */
-  --max-padding: (100vw - (100vh * (16 / 9))) / 2;
+      The formula: (ViewportWidth - (ViewportHeight * 16/9) - LeftSafeZone - RightSafeZone) / 2 */
+  --max-padding: (100vw - (100vh * (16 / 9) - var(--safezone-left) - var(--safezone-right))) / 2;
   /* Calculate the actual padding based on your percentage */
   --applied-padding: calc((var(--hud-offset) / 100) * var(--max-padding));
   /* Apply the padding */
-  padding-left: var(--applied-padding);
-  padding-right: var(--applied-padding);
+  padding-left: calc(var(--applied-padding) + var(--safezone-left));
+  padding-right: calc(var(--applied-padding) + var(--safezone-right));
 }

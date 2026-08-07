@@ -1,17 +1,17 @@
-import AdviceManager from '../../../base-standard/ui/advice/advice-manager.js';
+import { adviceAddItem, adviceAddBundle } from '../../../base-standard/ui/advice/advice-manager.js';
 import { playerHasReligion, shouldSelect } from '../../../base-standard/ui/advice/advice-support.js';
 
 const TURN_WAIT = 20;
 const TURN_START = 10;
 const TURN_OFFSET = 0;
-AdviceManager.addItem({
+adviceAddItem({
   id: "ADVICE_EXPLORATION_CULTURE_CULTURAL_VICTORY",
   type: AdvisorTypes.CULTURE,
   onSelect: () => {
     return Game.turn == 1;
   }
 });
-AdviceManager.addItem({
+adviceAddItem({
   id: "ADVICE_EXPLORATION_CULTURE_FOUNDING_RELIGION",
   // Player has not yet created a religion
   type: AdvisorTypes.CULTURE,
@@ -22,7 +22,7 @@ AdviceManager.addItem({
     return playerHasReligion() == true;
   }
 });
-AdviceManager.addItem({
+adviceAddItem({
   id: "ADVICE_EXPLORATION_CULTURE_MISSIONARIES",
   // Player has already created a religion
   type: AdvisorTypes.CULTURE,
@@ -30,7 +30,7 @@ AdviceManager.addItem({
     return playerHasReligion();
   }
 });
-AdviceManager.addItem({
+adviceAddItem({
   id: "ADVICE_EXPLORATION_CULTURE_TRIUMPH",
   // Player has between 4 and 12 Relics slotted
   type: AdvisorTypes.CULTURE,
@@ -49,7 +49,7 @@ AdviceManager.addItem({
     return player.Stats.getTotalGreatWorksSlotted() > 11;
   }
 });
-AdviceManager.addBundle({
+adviceAddBundle({
   id: "ADVICE_EXPLORATION_CULTURE_MISC",
   type: AdvisorTypes.CULTURE,
   pages: [

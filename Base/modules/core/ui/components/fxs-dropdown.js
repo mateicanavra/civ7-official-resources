@@ -120,7 +120,7 @@ class FxsDropdown extends FxsActivatable {
     super.onAttach();
     window.addEventListener("resize", this.onResizeEventListener);
     window.addEventListener(ActiveDeviceTypeChangedEventName, this.activeDeviceTypeListener);
-    this.Root.addEventListener("blur", this.onBlurEventListener);
+    this.Root.addEventListener("blur", this.onBlurEventListener, true);
     this.Root.addEventListener("wheel", this.onScrollWheelEventListener);
     this.Root.addEventListener("action-activate", this.onActivateEventListener);
     this.Root.addEventListener("engine-input", this.onEngineInputEventListener);
@@ -134,7 +134,7 @@ class FxsDropdown extends FxsActivatable {
     this.Root.removeEventListener("engine-input", this.onEngineInputEventListener);
     this.Root.removeEventListener("action-activate", this.onActivateEventListener);
     this.Root.removeEventListener("wheel", this.onScrollWheelEventListener);
-    this.Root.removeEventListener("blur", this.onBlurEventListener);
+    this.Root.removeEventListener("blur", this.onBlurEventListener, true);
     window.removeEventListener("resize", this.onResizeEventListener);
     window.removeEventListener(ActiveDeviceTypeChangedEventName, this.activeDeviceTypeListener);
     this.dropdownItemSlot.removeEventListener("focusin", this.dropdownSlotItemFocusInListener);
@@ -172,7 +172,9 @@ class FxsDropdown extends FxsActivatable {
         this.listeningForClickOutside = true;
       }
     } else {
-      Focus.setContextAwareFocus(this.Root, closestClippingParent(this.Root));
+      if (this.Root.contains(FocusManager.get().currentFocus())) {
+        Focus.setContextAwareFocus(this.Root, closestClippingParent(this.Root));
+      }
       if (this.listeningForClickOutside) {
         document.removeEventListener("click", this.onClickOutsideEventListener);
         document.removeEventListener("touchstart", this.onTouchOutsideEventListener);

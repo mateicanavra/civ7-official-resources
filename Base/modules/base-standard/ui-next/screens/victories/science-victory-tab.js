@@ -15,7 +15,7 @@ import { VictoryCountdownBar } from './victory-countdown-bar.js';
 import { VictoryTabBase, VictoryRow, VictoryHeader } from './victory-tab-base.js';
 import { ScienceVictoryItemTooltip } from '../../tooltips/science-victory-item-tooltip.js';
 
-var _tmpl$ = /* @__PURE__ */ template(`<div class="flex flex-col items-center w-1 text-accent"><div></div></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="size-6 bg-center bg-contain bg-no-repeat"></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="absolute size-6 bg-center bg-contain bg-no-repeat"></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div class="absolute size-6 -translate-x-1\\/2"></div>`), _tmpl$5 = /* @__PURE__ */ template(`<div class="h-12 w-18 -right-1 z-1 absolute pointer-events-none"><div class="size-full bg-center bg-contain bg-no-repeat absolute duration-150 ease-out"></div><div class="size-full bg-center bg-contain bg-no-repeat absolute duration-150 ease-out"></div></div>`), _tmpl$6 = /* @__PURE__ */ template(`<div class="flex-auto flex flex-row relative"><div class="flex flex-row absolute inset-0"><div class="flex flex-col justify-center"></div></div><div class=" flex flex-row items-center relative"><div class="flex-auto h-8"></div></div><div class="flex flex-row absolute inset-0 items-center"></div></div>`), _tmpl$7 = /* @__PURE__ */ template(`<div class="flex-auto flex flex-col justify-center"></div>`), _tmpl$8 = /* @__PURE__ */ template(`<div class="relative size-full"><div class="size-full bg-center bg-contain bg-no-repeat absolute"></div></div>`), _tmpl$9 = /* @__PURE__ */ template(`<div class="flex flex-col items-center justify-center"><div class=size-14></div></div>`), _tmpl$10 = /* @__PURE__ */ template(`<div class="flex-1 font-body text-lg text-white flex flex-col mb-2 items-end"><div class="mr-2 w-full"><div class="uppercase font-title text-lg self-end"></div><div class=self-end></div></div></div>`), _tmpl$11 = /* @__PURE__ */ template(`<div class="flex flex-row"><div class="flex-auto flex flex-row self-end"><div class=w-22></div><div class=w-22></div><div class=w-9></div></div></div>`), _tmpl$12 = /* @__PURE__ */ template(`<div class="relative flex flex-col self-start items-center w-full"></div>`), _tmpl$13 = /* @__PURE__ */ template(`<div class=flex-auto></div>`), _tmpl$14 = /* @__PURE__ */ template(`<div class="flex-auto flex flex-row h-32"><div class="flex flex-col justify-center"></div><div class=w-22></div></div>`);
+var _tmpl$ = /* @__PURE__ */ template(`<div class="flex flex-col items-center w-1 text-accent"><div></div></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="size-6 bg-center bg-contain bg-no-repeat"></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="absolute size-6 bg-center bg-contain bg-no-repeat"></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div class="absolute size-6 -translate-x-1\\/2"></div>`), _tmpl$5 = /* @__PURE__ */ template(`<div class="h-12 w-18 -right-1 z-1 absolute pointer-events-none"><div class="size-full bg-center bg-contain bg-no-repeat absolute duration-150 ease-out"></div><div class="size-full bg-center bg-contain bg-no-repeat absolute duration-150 ease-out"></div></div>`), _tmpl$6 = /* @__PURE__ */ template(`<div class="flex-auto flex flex-row relative"><div class="flex flex-row absolute inset-0"><div class="flex flex-col justify-center"></div></div><div class=" flex flex-row items-center relative"><div class="flex-auto h-8"></div></div><div class="flex flex-row absolute inset-0 items-center"></div></div>`), _tmpl$7 = /* @__PURE__ */ template(`<div class="flex-auto flex flex-col justify-center"></div>`), _tmpl$8 = /* @__PURE__ */ template(`<div class="relative size-full"><div class="size-full bg-center bg-contain bg-no-repeat absolute"></div></div>`), _tmpl$9 = /* @__PURE__ */ template(`<div class="flex flex-col items-center justify-center"><div class=size-14></div></div>`), _tmpl$10 = /* @__PURE__ */ template(`<div class="flex-1 font-body text-lg text-white flex flex-col mb-2 items-end"><div class="mr-2 w-full"><div class="uppercase font-title text-lg self-end"></div><div class=self-end></div></div></div>`), _tmpl$11 = /* @__PURE__ */ template(`<div class="h-8 victories-military-col-3"></div>`), _tmpl$12 = /* @__PURE__ */ template(`<div class="flex flex-row"><div class="flex-auto flex flex-row self-end"><div class=w-22></div><div class=w-22></div><div class=w-9></div></div></div>`), _tmpl$13 = /* @__PURE__ */ template(`<div class="relative flex flex-col self-start items-center w-full"></div>`), _tmpl$14 = /* @__PURE__ */ template(`<div class=flex-auto></div>`), _tmpl$15 = /* @__PURE__ */ template(`<div class="flex-auto flex flex-row h-32"><div class="flex flex-col justify-center"></div><div class=w-22></div></div>`);
 const PointMarkerComponent = (props) => {
   return (() => {
     var _el$ = _tmpl$(), _el$2 = _el$.firstChild;
@@ -337,47 +337,55 @@ const ScienceVictoryTabComponent = (props) => {
       return model.data.scienceDetails.shortestRemainingCountdownDuration >= model.data.scienceDetails.countdownDuration;
     },
     get alternatePointsContent() {
-      return (() => {
-        var _el$20 = _tmpl$10(), _el$21 = _el$20.firstChild, _el$22 = _el$21.firstChild, _el$23 = _el$22.nextSibling;
-        insert(_el$22, createComponent(L10n.Stylize, {
-          text: "LOC_VICTORIES_COUNTDOWN_LABEL",
-          get args() {
-            return [model.data.scienceDetails.shortestRemainingCountdownDuration];
-          }
-        }));
-        insert(_el$23, createComponent(VictoryCountdownBar, mergeProps(victoryCountdownBarProps)));
-        return _el$20;
-      })();
+      return createComponent(Show, {
+        get when() {
+          return !(Game.AgeProgressManager.isExtendedGame || Game.AgeProgressManager.getMaxAgeProgressionPoints() <= 0);
+        },
+        get fallback() {
+          return _tmpl$11();
+        },
+        get children() {
+          var _el$20 = _tmpl$10(), _el$21 = _el$20.firstChild, _el$22 = _el$21.firstChild, _el$23 = _el$22.nextSibling;
+          insert(_el$22, createComponent(L10n.Stylize, {
+            text: "LOC_VICTORIES_COUNTDOWN_LABEL",
+            get args() {
+              return [model.data.scienceDetails.shortestRemainingCountdownDuration];
+            }
+          }));
+          insert(_el$23, createComponent(VictoryCountdownBar, mergeProps(victoryCountdownBarProps)));
+          return _el$20;
+        }
+      });
     },
     get preScrollContent() {
       return (() => {
-        var _el$24 = _tmpl$12();
-        insert(_el$24, createComponent(VictoryHeader, {
+        var _el$25 = _tmpl$13();
+        insert(_el$25, createComponent(VictoryHeader, {
           showDividersAroundChildren: false,
           childContainerPosition: "end",
           get children() {
-            var _el$25 = _tmpl$11(), _el$26 = _el$25.firstChild, _el$27 = _el$26.firstChild, _el$28 = _el$27.nextSibling;
-            insert(_el$26, createComponent(For, {
+            var _el$26 = _tmpl$12(), _el$27 = _el$26.firstChild, _el$28 = _el$27.firstChild, _el$29 = _el$28.nextSibling;
+            insert(_el$27, createComponent(For, {
               get each() {
                 return props.pointsSectionHeaders;
               },
               children: (points) => (() => {
-                var _el$29 = _tmpl$13();
-                insert(_el$29, createComponent(PointMarkerComponent, {
+                var _el$30 = _tmpl$14();
+                insert(_el$30, createComponent(PointMarkerComponent, {
                   points
                 }));
-                return _el$29;
+                return _el$30;
               })()
-            }), _el$28);
-            insert(_el$26, createComponent(PointMarkerComponent, {
+            }), _el$29);
+            insert(_el$27, createComponent(PointMarkerComponent, {
               get points() {
                 return model.data.scienceDetails.targetScore;
               }
-            }), _el$28);
-            return _el$25;
+            }), _el$29);
+            return _el$26;
           }
         }));
-        return _el$24;
+        return _el$25;
       })();
     },
     get children() {
@@ -425,25 +433,25 @@ const ScienceVictoryTabComponent = (props) => {
                     },
                     get children() {
                       return [(() => {
-                        var _el$30 = _tmpl$14(), _el$31 = _el$30.firstChild, _el$32 = _el$31.nextSibling;
-                        _el$30.addEventListener("mouseleave", () => {
+                        var _el$31 = _tmpl$15(), _el$32 = _el$31.firstChild, _el$33 = _el$32.nextSibling;
+                        _el$31.addEventListener("mouseleave", () => {
                           player.playerInfo.setHighlighted(false);
                         });
-                        _el$30.addEventListener("mouseenter", () => {
+                        _el$31.addEventListener("mouseenter", () => {
                           player.playerInfo.setHighlighted(true);
                         });
-                        insert(_el$31, createComponent(Divider.Vertical, {
+                        insert(_el$32, createComponent(Divider.Vertical, {
                           "class": "-translate-x-1\\/2",
                           length: "3\\/4",
                           color: "rgba(255, 255, 255, 0.6)"
                         }));
-                        insert(_el$30, createComponent(PointsBarComponent, {
+                        insert(_el$31, createComponent(PointsBarComponent, {
                           playerDetail: player,
                           get pointsSectionHeaders() {
                             return props.pointsSectionHeaders;
                           }
                         }), null);
-                        return _el$30;
+                        return _el$31;
                       })(), createComponent(Tooltip.Text, {
                         get header() {
                           return launchpadProps().launchpadStatus.tooltipHeader;

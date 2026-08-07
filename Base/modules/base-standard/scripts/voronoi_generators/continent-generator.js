@@ -1,4 +1,5 @@
 import { sub2, rotate2, add2, dot2, dot2_90 } from '../../../core/scripts/MathHelpers.js';
+import { profileFunction } from '../profiling.js';
 import { QuadTree, WrappedQuadTree } from '../quadtree.js';
 import { WindContextDesc, WindContext } from '../utils/wind-context.js';
 import { RegionType, TerrainType, FeatureType } from '../voronoi-types.js';
@@ -650,13 +651,13 @@ class ContinentGenerator extends MapGenerator {
       regionCell.reset();
     }
     VoronoiUtils.performanceMarker("Grow Plates");
-    this.growPlates();
+    profileFunction("Grow Plates", () => this.growPlates());
     VoronoiUtils.performanceMarker("Grow Landmasses");
-    this.growLandmasses();
+    profileFunction("Grow Landmasses", () => this.growLandmasses());
     VoronoiUtils.performanceMarker("Grow Islands");
-    this.growIslands();
+    profileFunction("Grow Islands", () => this.growIslands());
     VoronoiUtils.performanceMarker("Grow Coastal Islands");
-    this.growCoastalIslands();
+    profileFunction("Grow Coastal Islands", () => this.growCoastalIslands());
     VoronoiUtils.performanceMarker("Force Polar Margin");
     this.forcePoles();
     VoronoiUtils.performanceMarker("Mark Land and Ocean Tiles");
@@ -908,22 +909,27 @@ class ContinentGenerator extends MapGenerator {
       new Aabb2({ x: 0, y: 0 }, this.m_worldDims),
       this.m_wrap
     );
+    const hasWaterNeighbor = (cell) => {
+      for (const neighborId of cell.cell.getNeighborIds()) {
+        const neighbor = this.m_regionCells[neighborId];
+        if (neighbor && neighbor.landmassId === 0) {
+          return true;
+        }
+      }
+      return false;
+    };
     landmassesKdTree.build(
-      this.m_regionCells.filter(
-        (value) => this.m_landmassRegions[value.landmassId].type === RegionType.Landmass
-      )
+      this.m_regionCells.filter((value) => {
+        return (
+          // Ignore interior land cells that just bloat the kd tree.
+          this.m_landmassRegions[value.landmassId].type === RegionType.Landmass && hasWaterNeighbor(value)
+        );
+      })
     );
-    for (let i = 0; i < islandCount; ++i) {
-      const islandKdTree = this.m_wrap == WrapType.None ? new kdTree(RegionCellPosGetter) : new WrappedKdTree(
-        RegionCellPosGetter,
-        new Aabb2({ x: 0, y: 0 }, this.m_worldDims),
-        this.m_wrap
-      );
-      islandKdTree.build(
-        this.m_regionCells.filter(
-          (value) => this.m_landmassRegions[value.landmassId].type === RegionType.Island
-        )
-      );
+    const scoreBuffer = new Float32Array(this.m_regionCells.length);
+    const indexBuffer = new Uint32Array(this.m_regionCells.length);
+    let candidateTileCount = 0;
+    {
       Object.values(this.m_rules.Islands).forEach((rule) => rule.prepare());
       const scoreCtx = {
         cells: this.m_regionCells,
@@ -936,25 +942,43 @@ class ContinentGenerator extends MapGenerator {
         rules: this.m_rules.Islands,
         wrap: this.m_wrapDistOpts
       };
-      const islandSeedCandidates = [];
-      for (const regionCell of this.m_regionCells) {
+      for (let i = 0; i < this.m_regionCells.length; ++i) {
+        const regionCell = this.m_regionCells[i];
         const x = regionCell.cell.site.x;
         const y = regionCell.cell.site.y;
-        if (x < islandSettings.meridianDistance || x > this.m_worldDims.x - islandSettings.meridianDistance || y < islandSettings.poleDistance || y > this.m_worldDims.y - islandSettings.poleDistance || regionCell.landmassId > 0)
+        if (regionCell.landmassId > 0 || x < islandSettings.meridianDistance || x > this.m_worldDims.x - islandSettings.meridianDistance || y < islandSettings.poleDistance || y > this.m_worldDims.y - islandSettings.poleDistance)
           continue;
-        const distanceToLandmass = Math.sqrt(landmassesKdTree.search({ x, y }).distSq);
-        const nearestIsland = islandKdTree.search({ x, y });
-        const distanceToIsland = nearestIsland ? Math.sqrt(nearestIsland.distSq) : Infinity;
-        if (distanceToLandmass > islandSettings.landmassDistance && distanceToIsland > islandSettings.islandDistance) {
-          let score = 0;
-          for (const rule of Object.values(this.m_rules.Islands)) {
-            if (rule.isActive) {
-              score += rule.score(regionCell, scoreCtx) * rule.weight;
-            }
+        const distanceToLandmassSq = landmassesKdTree.search({ x, y }).distSq;
+        if (distanceToLandmassSq < islandSettings.landmassDistance * islandSettings.landmassDistance) continue;
+        let score = 0;
+        for (const rule of Object.values(this.m_rules.Islands)) {
+          if (rule.isActive) {
+            score += rule.score(regionCell, scoreCtx) * rule.weight;
           }
-          score *= distanceToIsland === Infinity ? 1 : distanceToIsland;
-          islandSeedCandidates.push([score, regionCell]);
         }
+        scoreBuffer[candidateTileCount] = score;
+        indexBuffer[candidateTileCount] = i;
+        candidateTileCount++;
+      }
+    }
+    const islandQuadTree = this.m_wrap == WrapType.None ? new QuadTree(new Aabb2({ x: 0, y: 0 }, this.m_worldDims), RegionCellPosGetter) : new WrappedQuadTree(
+      new Aabb2({ x: 0, y: 0 }, this.m_worldDims),
+      RegionCellPosGetter,
+      8,
+      4,
+      this.m_wrap
+    );
+    for (let i = 0; i < islandCount; ++i) {
+      const islandSeedCandidates = [];
+      for (let j = 0; j < candidateTileCount; ++j) {
+        const index = indexBuffer[j];
+        const regionCell = this.m_regionCells[index];
+        const x = regionCell.cell.site.x;
+        const y = regionCell.cell.site.y;
+        const nearestIsland = islandQuadTree.nearest({ x, y });
+        if (nearestIsland.distSq < islandSettings.islandDistance * islandSettings.islandDistance) continue;
+        const score = scoreBuffer[j] * (nearestIsland.distSq === Infinity ? 1 : Math.sqrt(nearestIsland.distSq));
+        islandSeedCandidates.push([score, regionCell]);
       }
       if (islandSeedCandidates.length == 0) {
         console.log("Failed to find any candidate locations for island.");
@@ -983,17 +1007,21 @@ class ContinentGenerator extends MapGenerator {
         this.m_plateRegions,
         this.m_wrapDistOpts
       );
+      islandRegion.SetQuadTree(islandQuadTree);
       islandRegion.considerationList.push({ id: islandSeedCandidates[randomIndex][1].id, score: 1 });
+      const islandCells = [];
       while (islandRegion.growStep()) {
+        islandCells.push(islandRegion.latestAddedCell);
         continue;
+      }
+      if (islandRegion.latestAddedCell) {
+        islandCells.push(islandRegion.latestAddedCell);
       }
       islandRegion.logStats();
       this.m_landmassRegions.pop();
-      this.m_regionCells.forEach((value) => {
-        if (value.landmassId === islandRegion.id) {
-          value.landmassId = commonIslandsRegion.id;
-          value.landmassOrder += maxLandmassCellCount;
-        }
+      islandCells.forEach((value) => {
+        value.landmassId = commonIslandsRegion.id;
+        value.landmassOrder += maxLandmassCellCount;
       });
     }
   }

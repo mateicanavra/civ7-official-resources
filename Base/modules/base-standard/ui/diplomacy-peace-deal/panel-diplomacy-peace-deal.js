@@ -3,9 +3,10 @@ import ContextManager from '../../../core/ui/context-manager/context-manager.js'
 import { DialogBoxManager } from '../../../core/ui/dialog-box/manager-dialog-box.js';
 import { InterfaceMode } from '../../../core/ui/interface-modes/interface-modes.js';
 import NavTray from '../../../core/ui/navigation-tray/model-navigation-tray.js';
-import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
+import { MustGetElement, MustGetElements } from '../../../core/ui/utilities/utilities-dom.js';
 import { Icon } from '../../../core/ui/utilities/utilities-image.js';
 import { Layout } from '../../../core/ui/utilities/utilities-layout.js';
+import ViewManager from '../../../core/ui/views/view-manager.js';
 import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
 import DiplomacyManager, { DiplomacyInputPanel, DiplomacyDealProposalResponseEventName } from '../diplomacy/diplomacy-manager.js';
 import LeaderModelManager from '../diplomacy/leader-model-manager.js';
@@ -23,6 +24,7 @@ class DiplomacyPeaceDealPanel extends DiplomacyInputPanel {
   };
   viewReceiveFocusListener = this.onViewReceiveFocus.bind(this);
   onResizeEventListener = this.resizeFonts.bind(this);
+  backToDealListener = this.backToDeal.bind(this);
   closeButton = null;
   ourLeaderAndCivContainer = null;
   ourLeaderNameContainer = null;
@@ -49,8 +51,18 @@ class DiplomacyPeaceDealPanel extends DiplomacyInputPanel {
   otherPlayerReceivesTitleWrapper = null;
   localPlayerReceivesTitle = null;
   otherPlayerReceivesTitle = null;
+  yourPeaceDealGold = null;
+  yourPeaceDealInfluence = null;
+  theirPeaceDealGold = null;
+  theirPeaceDealInfluence = null;
+  selectSettlementText = null;
+  localPlayerReceives = null;
+  otherPlayerReceives = null;
   proposeButton = null;
+  backToMapButton = null;
   rejectButton = null;
+  backToDealButton = null;
+  mainContainer = null;
   warHeader = null;
   isNewDeal = false;
   isAI = false;
@@ -59,6 +71,7 @@ class DiplomacyPeaceDealPanel extends DiplomacyInputPanel {
   needsUpdate = false;
   positiveReactionPlayed = false;
   negativeReactionPlayed = false;
+  goingToMap = false;
   pendingDealAdditions = [];
   pendingDealRemovals = [];
   dealHasBeenModified = false;
@@ -68,7 +81,9 @@ class DiplomacyPeaceDealPanel extends DiplomacyInputPanel {
     window.addEventListener("diplomacy-dialog-request-close", this.diplomacyDialogRequestCloseListener);
     window.addEventListener(DiplomacyDealProposalResponseEventName, this.diplomacyDealProposalResponseListener);
     window.addEventListener("resize", this.onResizeEventListener);
+    window.addEventListener("back-to-peace-deal", this.backToDealListener);
     this.Root.addEventListener("view-receive-focus", this.viewReceiveFocusListener);
+    this.mainContainer = MustGetElement(".peace-deal__deal-container", this.Root);
     this.closeButton = this.Root.querySelector("fxs-close-button");
     if (!this.closeButton) {
       console.error("panel-diplomacy-peace-deal: Unable to find element: fxs-close-button");
@@ -95,6 +110,12 @@ class DiplomacyPeaceDealPanel extends DiplomacyInputPanel {
       console.error("panel-diplomacy-peace-deal: Unable to find element with class: other-player-leader-name");
       return;
     }
+    this.yourPeaceDealGold = MustGetElement(".your-current-peace-deal-gold", this.Root);
+    this.yourPeaceDealInfluence = MustGetElement(".your-current-peace-deal-influence", this.Root);
+    this.theirPeaceDealGold = MustGetElement(".their-current-peace-deal-gold", this.Root);
+    this.theirPeaceDealInfluence = MustGetElement(".their-current-peace-deal-influence", this.Root);
+    this.localPlayerReceives = MustGetElement(".peace-deal__local-player-receives-container", this.Root);
+    this.otherPlayerReceives = MustGetElement(".peace-deal__other-player-receives-container", this.Root);
     this.ourLeaderNameText = this.ourLeaderNameContainer.querySelector(".player-info__leader-name-text");
     this.ourCivNameText = this.ourLeaderAndCivContainer.querySelector(".peace-deal__civ-name-text");
     this.theirLeaderNameText = this.theirLeaderNameContainer.querySelector(".player-info__leader-name-text");
@@ -122,6 +143,7 @@ class DiplomacyPeaceDealPanel extends DiplomacyInputPanel {
     }
     peaceDealToEndText.innerHTML = Locale.compose("LOC_DIPLOMACY_PEACE_DEAL_TO_END");
     this.proposeButton = this.Root.querySelector(".peace-deal__propose-deal-button");
+    this.backToMapButton = this.Root.querySelector(".peace-deal__back-to-map");
     this.rejectButton = this.Root.querySelector(".peace-deal__reject-deal-button");
     this.proposeButton?.addEventListener("action-activate", () => {
       this.clickProposeButton();
@@ -129,6 +151,10 @@ class DiplomacyPeaceDealPanel extends DiplomacyInputPanel {
     this.proposeButton?.setAttribute("data-audio-activate-ref", "none");
     this.rejectButton?.addEventListener("action-activate", () => {
       this.clickRejectButton();
+    });
+    this.backToMapButton?.setAttribute("data-audio-activate-ref", "none");
+    this.backToMapButton?.addEventListener("action-activate", () => {
+      this.clickBackToMap();
     });
     this.peaceDealNavigationContainer = this.Root.querySelector(".peace-deal__navigation-container");
     if (!this.peaceDealNavigationContainer) {
@@ -202,6 +228,7 @@ class DiplomacyPeaceDealPanel extends DiplomacyInputPanel {
     window.removeEventListener("diplomacy-dialog-request-close", this.diplomacyDialogRequestCloseListener);
     window.removeEventListener(DiplomacyDealProposalResponseEventName, this.diplomacyDealProposalResponseListener);
     window.removeEventListener("resize", this.onResizeEventListener);
+    window.removeEventListener("back-to-peace-deal", this.backToDealListener);
     this.Root.removeEventListener("view-receive-focus", this.viewReceiveFocusListener);
   }
   onRequestClose() {
@@ -303,16 +330,18 @@ class DiplomacyPeaceDealPanel extends DiplomacyInputPanel {
             "ml-0\\.5",
             "mt-0\\.5"
           );
-          inspectPosNegImg.src = "fs://game/dip_esp_success_icon.png";
+          inspectPosNegImg.src = "blp:dip_esp_success_icon";
           inspectPosNegImgWrapper.appendChild(inspectPosNegImg);
           inspectWrapper.appendChild(inspectPosNegImgWrapper);
           const inspectPosNegTextWrapper = document.createElement("div");
-          inspectPosNegTextWrapper.classList.value = "justify-center items-center flex text-base";
+          inspectPosNegTextWrapper.classList.value = "justify-center items-center flex text-sm";
           const inspectPosNegText = Locale.stylize(
             "LOC_DIPLOMACY_PEACE_DEAL_WILL_ACCEPT",
             otherPlayerLibrary.name
           );
           inspectPosNegTextWrapper.innerHTML = inspectPosNegText;
+          inspectWrapper.classList.remove("peace-deal__reject-color");
+          inspectWrapper.classList.add("peace-deal__accept-color");
           inspectWrapper.appendChild(inspectPosNegTextWrapper);
           this.pendingDealAdditions = [];
           this.pendingDealRemovals = [];
@@ -342,16 +371,18 @@ class DiplomacyPeaceDealPanel extends DiplomacyInputPanel {
             "ml-0\\.5",
             "mt-0\\.5"
           );
-          inspectPosNegImg.src = "fs://game/dip_esp_fail_icon.png";
+          inspectPosNegImg.src = "blp:dip_esp_fail_icon";
           inspectPosNegImgWrapper.appendChild(inspectPosNegImg);
           inspectWrapper.appendChild(inspectPosNegImgWrapper);
           const inspectPosNegTextWrapper = document.createElement("div");
-          inspectPosNegTextWrapper.classList.value = "justify-center items-center flex text-base";
+          inspectPosNegTextWrapper.classList.value = "justify-center items-center flex text-sm";
           const inspectPosNegText = Locale.stylize(
             "LOC_DIPLOMACY_PEACE_DEAL_WILL_REJECT",
             otherPlayerLibrary.name
           );
           inspectPosNegTextWrapper.innerHTML = inspectPosNegText;
+          inspectWrapper.classList.remove("peace-deal__accept-color");
+          inspectWrapper.classList.add("peace-deal__reject-color");
           inspectWrapper.appendChild(inspectPosNegTextWrapper);
           this.pendingDealAdditions = [];
           this.pendingDealRemovals = [];
@@ -433,7 +464,7 @@ class DiplomacyPeaceDealPanel extends DiplomacyInputPanel {
       acceptRejectIcon.classList.value = "size-12";
       acceptRejectValues.appendChild(acceptRejectIcon);
       const acceptRejectText = document.createElement("div");
-      acceptRejectText.classList.value = "font-body text-xs";
+      acceptRejectText.classList.value = "font-title-xs tracking-50 uppercase";
       const acceptRejectLeader = document.createElement("div");
       acceptRejectLeader.classList.value = "panel-diplomacy-peace-deal_accept-reject-leader justify-center";
       acceptRejectText.appendChild(acceptRejectLeader);
@@ -482,13 +513,13 @@ class DiplomacyPeaceDealPanel extends DiplomacyInputPanel {
       return;
     }
     warNameText.innerHTML = warData.warName;
-    const selectSettlementText = this.Root.querySelector(".peace-deal__select-settlements");
-    if (!selectSettlementText) {
+    this.selectSettlementText = this.Root.querySelector(".peace-deal__select-settlements");
+    if (!this.selectSettlementText) {
       console.error(
         "panel-diplomacy-peace-deal: Can not find element with class .peace-deal__select-settlements"
       );
     }
-    selectSettlementText?.setAttribute("data-l10n-id", "LOC_DIPLOMACY_PEACE_DEAL_SELECT_SETTLEMENTS");
+    this.selectSettlementText?.setAttribute("data-l10n-id", "LOC_DIPLOMACY_PEACE_DEAL_SELECT_SETTLEMENTS");
     const workingDealId = DiplomacyManager.currentDiplomacyDealData ? DiplomacyManager.currentDiplomacyDealData.WorkingDealID : {
       direction: DiplomacyDealDirection.OUTGOING,
       player1: GameContext.localPlayerID,
@@ -545,6 +576,13 @@ class DiplomacyPeaceDealPanel extends DiplomacyInputPanel {
         this.localPlayerReceivesTitleWrapper?.classList.remove("hidden");
       }
     });
+    this.populateGoldInfluenceItems(
+      workingDealId,
+      workingDeal,
+      GameContext.localPlayerID,
+      this.ourYourDealItemsContainer
+    );
+    this.populateGoldInfluenceItems(workingDealId, workingDeal, otherPlayerID, this.theirTheirDealItemsContainer);
     const citiesFromLocalPlayer = Game.DiplomacyDeals.getPossibleWorkingDealItems(
       workingDealId,
       GameContext.localPlayerID,
@@ -630,7 +668,7 @@ class DiplomacyPeaceDealPanel extends DiplomacyInputPanel {
       this.theirTheirDealItemsContainer?.appendChild(cityDealItemElement);
     });
     this.updateButtonStates();
-    this.showLeaderModel();
+    this.showLeaderModel(false);
     const isOtherPlayerHuman = otherPlayerLibrary?.isHuman;
     if (this.isNewDeal || this.pendingDealAdditions.length > 0 || this.pendingDealRemovals.length > 0) {
       this.inspectCurrentDeal(isOtherPlayerHuman);
@@ -650,14 +688,18 @@ class DiplomacyPeaceDealPanel extends DiplomacyInputPanel {
       "chooser-item_unlocked",
       "relative",
       "w-full",
-      "min-h-22",
+      "min-h-14",
       "flex",
       "flex-row",
       "pointer-events-auto",
       "mt-2"
     );
+    const primary = UI.Player.getPrimaryColorValueAsString(city.id.owner);
+    const bottomBorderColor = document.createElement("div");
+    bottomBorderColor.classList.value = "flex flex-auto h-1 absolute peace-deal__item-lower-border left-px right-px bottom-px";
+    bottomBorderColor.style.background = `linear-gradient(90deg, ${primary} 0%, rgba(0,0,0,0) 90%)`;
+    dealItem.appendChild(bottomBorderColor);
     dealItem.setAttribute("tabindex", "-1");
-    dealItem.setAttribute("action-key", "inline-confirm");
     dealItem.setAttribute("data-tooltip-style", "peaceDeal");
     dealItem.setAttribute("componentid", theCityID);
     dealItem.setAttribute("node-id", city.name);
@@ -674,9 +716,12 @@ class DiplomacyPeaceDealPanel extends DiplomacyInputPanel {
     const settlementIconBGOuter = document.createElement("div");
     settlementIconBGOuter.classList.add(
       "peace-deal__settlement-icon-bg-outer",
+      "flex",
       "relative",
-      "size-25",
+      "size-14",
       "self-center",
+      "items-center",
+      "justify-center",
       "pointer-events-none",
       "bg-contain",
       "bg-no-repeat",
@@ -689,8 +734,7 @@ class DiplomacyPeaceDealPanel extends DiplomacyInputPanel {
     const settlementIconBGInner = document.createElement("div");
     settlementIconBGInner.classList.add(
       "peace-deal__settlement-icon-bg-inner",
-      "size-18",
-      "self-center",
+      "size-11",
       "pointer-events-none",
       "bg-contain",
       "bg-no-repeat",
@@ -707,15 +751,14 @@ class DiplomacyPeaceDealPanel extends DiplomacyInputPanel {
     const settlementIconBG = document.createElement("div");
     settlementIconBG.classList.add(
       "peace-deal__settlement-icon-bg",
-      "h-18",
-      "w-18",
+      "h-11",
+      "w-11",
       "relative",
-      "self-center",
       "pointer-events-none",
       "bg-contain",
       "bg-no-repeat",
       "ml-0",
-      "mt-3"
+      "absolute"
     );
     settlementIconBG.style.setProperty(
       "--owner-color-primary",
@@ -724,12 +767,11 @@ class DiplomacyPeaceDealPanel extends DiplomacyInputPanel {
     const settlementIcon = document.createElement("div");
     settlementIcon.classList.add(
       "peace-deal__settlement-icon-image",
-      "size-16",
-      "-mt-18",
+      "size-9",
       "bg-center",
       "bg-no-repeat",
       "bg-contain",
-      "self-center",
+      "absolute",
       "relative"
     );
     if (city.isTown) {
@@ -738,17 +780,21 @@ class DiplomacyPeaceDealPanel extends DiplomacyInputPanel {
       settlementIcon.style.backgroundImage = `url(blp:Yield_Cities)`;
     }
     const populationBackground = document.createElement("div");
-    populationBackground.classList.value = "peace-deal__settlement-population-bg self-end h-10 w-20 -left-0\\.5 top-2\\/3 relative opacity-50";
+    populationBackground.classList.value = "peace-deal__settlement-population-bg self-end w-12 bottom-0 absolute opacity-50";
     const settlementPopulation = document.createElement("div");
     settlementPopulation.classList.add(
       "self-center",
-      "font-title",
-      "text-sm",
+      "font-body",
+      "text-xs",
       "text-center",
       "w-7",
       "peace-deal__deal-item-settlement-population",
-      "relative",
-      "mt-1"
+      "absolute",
+      "bottom-0",
+      "font-bold",
+      "text-shadow",
+      "text-accent-2",
+      "tracking-none"
     );
     settlementIconBGOuter.appendChild(settlementIconBG);
     settlementIconBGOuter.appendChild(settlementIconBGInner);
@@ -764,21 +810,20 @@ class DiplomacyPeaceDealPanel extends DiplomacyInputPanel {
       }
     }
     const settlementInfoWrapper = document.createElement("div");
-    settlementInfoWrapper.classList.add("flex", "flex-col", "justify-center", "relative");
+    settlementInfoWrapper.classList.add("flex", "flex-row", "justify-start", "relative", "flex-auto");
     const settlementInfo = document.createElement("div");
     settlementInfo.classList.add(
       "peace-deal__deal-item-settlement-info",
       "flex",
-      "flex-col",
-      "justify-center",
-      "font-base",
-      "text-sm"
+      "flex-row",
+      "flex-auto",
+      "justify-start",
+      "items-center",
+      "font-title-sm",
+      "tracking-50",
+      "flex-auto",
+      "font-fit-shrink"
     );
-    if (city.owner != city.originalOwner && (city.originalOwner == GameContext.localPlayerID || city.originalOwner == DiplomacyManager.currentDiplomacyDealData?.OtherPlayer || city.originalOwner == DiplomacyManager.selectedPlayerID) || transferType) {
-      settlementInfo.classList.add("pl-0", "max-w-32");
-    } else {
-      settlementInfo.classList.add("max-w-48");
-    }
     if (transferType == DiplomacyDealItemCityTransferTypes.OFFER) {
       settlementInfo.innerHTML = Locale.compose(city.name) + " " + Locale.compose("LOC_DIPLOMACY_PEACE_DEAL_CITY_NEW");
     } else if (transferType == DiplomacyDealItemCityTransferTypes.CEDE_OCCUPIED) {
@@ -788,31 +833,240 @@ class DiplomacyPeaceDealPanel extends DiplomacyInputPanel {
     }
     settlementInfoWrapper.appendChild(settlementInfo);
     dealItem.appendChild(settlementInfoWrapper);
-    settlementInfoWrapper.setAttribute("node-id", city.name);
-    settlementInfoWrapper.setAttribute("componentid", theCityID);
+    settlementInfo.setAttribute("node-id", city.name);
+    settlementInfo.setAttribute("componentid", theCityID);
     if (transferType == DiplomacyDealItemCityTransferTypes.CEDE_OCCUPIED) {
       settlementInfoWrapper.setAttribute("occupied", "true");
     } else {
       settlementInfoWrapper.setAttribute("occupied", "false");
     }
     const settlementStatusWonders = document.createElement("div");
-    if (transferType == DiplomacyDealItemCityTransferTypes.CEDE_OCCUPIED || numberWondersCount > 0) {
-      settlementStatusWonders.classList.add("flex", "flex-row", "pb-1");
-      if (transferType == DiplomacyDealItemCityTransferTypes.CEDE_OCCUPIED) {
-        const settlementStatus = document.createElement("div");
-        settlementStatus.classList.add("size-8", "bg-contain");
-        settlementStatus.style.backgroundImage = `url(fs://game/dip_icon_conquered.png)`;
-        settlementStatusWonders.appendChild(settlementStatus);
-      }
+    if (numberWondersCount > 0) {
+      settlementStatusWonders.classList.add("flex", "flex-row", "items-center", "p-1");
       if (numberWondersCount > 0) {
         const settlementWonders = document.createElement("div");
-        settlementWonders.classList.add("size-8", "bg-contain");
-        settlementWonders.style.backgroundImage = `url(fs://game/city_wonders_hi.png)`;
+        settlementWonders.classList.add("size-6", "bg-contain");
+        settlementWonders.style.backgroundImage = `url(blp:city_wonders_hi)`;
         settlementStatusWonders.appendChild(settlementWonders);
       }
       settlementInfoWrapper.appendChild(settlementStatusWonders);
+      settlementInfo.appendChild(settlementInfoWrapper);
     }
     return dealItem;
+  }
+  populateGoldInfluenceItems(workingDealId, workingDeal, fromPlayer, container) {
+    if (!container) {
+      return;
+    }
+    const isLocalPlayer = fromPlayer == GameContext.localPlayerID;
+    const goldItems = Game.DiplomacyDeals.getPossibleWorkingDealItems(
+      workingDealId,
+      fromPlayer,
+      DiplomacyDealItemTypes.GOLD
+    );
+    goldItems.forEach((dealItem) => {
+      let alreadyInDeal = false;
+      workingDeal?.itemIds.forEach((itemID) => {
+        const workingDealItem = Game.DiplomacyDeals.getWorkingDealItem(
+          workingDealId,
+          itemID
+        );
+        if (workingDealItem?.type == DiplomacyDealItemTypes.GOLD && workingDealItem?.subType == dealItem.subType && workingDealItem?.from == fromPlayer) {
+          alreadyInDeal = true;
+        }
+      });
+      if (alreadyInDeal) {
+        return;
+      }
+      const element = this.createGoldInfluenceDealItem(dealItem, "YIELD_GOLD");
+      if (dealItem.isValid === false) {
+        element.classList.add("opacity-30");
+        element.setAttribute("lump-sum-disable-ignore", "true");
+        element.setAttribute("disabled", "true");
+        element.setAttribute("data-tooltip-content", Locale.compose("LOC_DEAL_ITEM_INSUFFICIENT_GOLD"));
+        element.setAttribute("data-audio-activate-ref", "none");
+        element.setAttribute("data-audio-press-ref", "data-audio-error-press");
+      } else {
+        element.addEventListener("action-activate", () => {
+          this.moveGoldInfluenceDealItem(dealItem, fromPlayer, false, element);
+        });
+      }
+      container.appendChild(element);
+    });
+    const influenceItems = Game.DiplomacyDeals.getPossibleWorkingDealItems(
+      workingDealId,
+      fromPlayer,
+      DiplomacyDealItemTypes.INFLUENCE
+    );
+    influenceItems.forEach((dealItem) => {
+      let alreadyInDeal = false;
+      workingDeal?.itemIds.forEach((itemID) => {
+        const workingDealItem = Game.DiplomacyDeals.getWorkingDealItem(
+          workingDealId,
+          itemID
+        );
+        if (workingDealItem?.type == DiplomacyDealItemTypes.INFLUENCE && workingDealItem?.subType == dealItem.subType && workingDealItem?.from == fromPlayer) {
+          alreadyInDeal = true;
+        }
+      });
+      if (alreadyInDeal) {
+        return;
+      }
+      const element = this.createGoldInfluenceDealItem(dealItem, "YIELD_DIPLOMACY");
+      if (dealItem.isValid === false) {
+        element.classList.add("opacity-30");
+        element.setAttribute("data-tooltip-content", Locale.compose("LOC_DEAL_ITEM_INSUFFICIENT_INFLUENCE"));
+        element.setAttribute("data-audio-activate-ref", "none");
+        element.setAttribute("lump-sum-disable-ignore", "true");
+        element.setAttribute("disabled", "true");
+        element.setAttribute("data-audio-press-ref", "data-audio-error-press");
+      } else {
+        element.addEventListener("action-activate", () => {
+          this.moveGoldInfluenceDealItem(dealItem, fromPlayer, false, element);
+        });
+      }
+      container.appendChild(element);
+    });
+    workingDeal?.itemIds.forEach((itemID) => {
+      const existingItem = Game.DiplomacyDeals.getWorkingDealItem(
+        workingDealId,
+        itemID
+      );
+      if (!existingItem || existingItem.from != fromPlayer) {
+        return;
+      }
+      if (existingItem.type == DiplomacyDealItemTypes.GOLD) {
+        const element = this.createGoldInfluenceDealItem(existingItem, "YIELD_GOLD");
+        element.classList.add("bg-positive");
+        element.addEventListener("action-activate", () => {
+          this.moveGoldInfluenceDealItem(existingItem, fromPlayer, true, element);
+        });
+        const targetContainer = isLocalPlayer ? this.theirYourDealItemsContainer : this.ourTheirDealItemsContainer;
+        targetContainer?.appendChild(element);
+        if (targetContainer == this.theirYourDealItemsContainer) {
+          this.otherPlayerReceivesTitleWrapper?.classList.remove("hidden");
+        } else {
+          this.localPlayerReceivesTitleWrapper?.classList.remove("hidden");
+        }
+      } else if (existingItem.type == DiplomacyDealItemTypes.INFLUENCE) {
+        const element = this.createGoldInfluenceDealItem(existingItem, "YIELD_DIPLOMACY");
+        element.addEventListener("action-activate", () => {
+          this.moveGoldInfluenceDealItem(existingItem, fromPlayer, true, element);
+        });
+        const targetContainer = isLocalPlayer ? this.theirYourDealItemsContainer : this.ourTheirDealItemsContainer;
+        targetContainer?.appendChild(element);
+        if (targetContainer == this.theirYourDealItemsContainer) {
+          this.otherPlayerReceivesTitleWrapper?.classList.remove("hidden");
+        } else {
+          this.localPlayerReceivesTitleWrapper?.classList.remove("hidden");
+        }
+      }
+    });
+  }
+  createGoldInfluenceDealItem(dealItem, yieldIcon) {
+    const element = document.createElement("chooser-item");
+    let subTypeName;
+    const amount = dealItem.amount ?? 0;
+    if (dealItem.type == DiplomacyDealItemTypes.GOLD) {
+      subTypeName = dealItem.subType == DiplomacyDealItemGoldSubTypes.SMALL_LUMP ? "LOC_DEAL_ITEM_GOLD_SMALL_LUMP_NAME" : "LOC_DEAL_ITEM_GOLD_LARGE_LUMP_NAME";
+    } else {
+      subTypeName = dealItem.subType == DiplomacyDealItemInfluenceSubTypes.SMALL_LUMP ? "LOC_DEAL_ITEM_INFLUENCE_SMALL_LUMP_NAME" : "LOC_DEAL_ITEM_INFLUENCE_LARGE_LUMP_NAME";
+    }
+    element.classList.add(
+      "peace-deal__deal-item",
+      "chooser-item_unlocked",
+      dealItem.type == DiplomacyDealItemTypes.GOLD ? "peace-deal__gold-item" : "peace-deal__influence-item",
+      "relative",
+      "w-full",
+      "min-h-11",
+      "flex",
+      "flex-row",
+      "pointer-events-auto",
+      "mt-2",
+      "border"
+    );
+    element.setAttribute("tabindex", "-1");
+    element.setAttribute("data-audio-group-ref", "peace-deal-item");
+    element.setAttribute(
+      "data-audio-activate-ref",
+      dealItem.type == DiplomacyDealItemTypes.GOLD ? "data-audio-peace-gold" : "data-audio-peace-influence"
+    );
+    const iconWrapper = document.createElement("div");
+    iconWrapper.classList.add(
+      "relative",
+      "size-8",
+      "self-center",
+      "bg-center",
+      "bg-no-repeat",
+      "bg-contain",
+      "ml-2"
+    );
+    iconWrapper.style.backgroundImage = `url(${Icon.getYieldIcon(yieldIcon)})`;
+    element.appendChild(iconWrapper);
+    const infoWrapper = document.createElement("div");
+    infoWrapper.classList.add("flex", "flex-col", "flex-auto", "justify-center", "ml-2", "relative");
+    const nameText = document.createElement("div");
+    nameText.classList.add("font-title-sm", "tracking-50");
+    nameText.innerHTML = Locale.stylize(subTypeName, amount);
+    infoWrapper.appendChild(nameText);
+    element.appendChild(infoWrapper);
+    return element;
+  }
+  moveGoldInfluenceDealItem(dealItem, dealOwner, inDeal, target) {
+    if (inDeal) {
+      const dealItemIndex = this.pendingDealAdditions.indexOf(dealItem);
+      if (dealItemIndex > -1) {
+        this.pendingDealAdditions.splice(dealItemIndex, 1);
+      } else {
+        this.pendingDealRemovals.push(dealItem);
+      }
+    } else {
+      const dealItemIndex = this.pendingDealRemovals.indexOf(dealItem);
+      if (dealItemIndex > -1) {
+        this.pendingDealRemovals.splice(dealItemIndex, 1);
+      } else {
+        this.pendingDealAdditions.push(dealItem);
+      }
+    }
+    target.parentElement?.removeChild(target);
+    const otherPlayerID = DiplomacyManager.currentDiplomacyDealData ? DiplomacyManager.currentDiplomacyDealData.OtherPlayer : DiplomacyManager.selectedPlayerID;
+    const yieldIcon = dealItem.type == DiplomacyDealItemTypes.GOLD ? "YIELD_GOLD" : "YIELD_DIPLOMACY";
+    const newElement = this.createGoldInfluenceDealItem(dealItem, yieldIcon);
+    let targetContainer = null;
+    if (!inDeal) {
+      targetContainer = dealOwner == GameContext.localPlayerID ? this.theirYourDealItemsContainer : this.ourTheirDealItemsContainer;
+      targetContainer?.appendChild(newElement);
+      newElement.addEventListener("action-activate", () => {
+        this.moveGoldInfluenceDealItem(dealItem, dealOwner, true, newElement);
+      });
+      if (dealOwner == GameContext.localPlayerID) {
+        this.otherPlayerReceivesTitleWrapper?.classList.remove("hidden");
+      } else {
+        this.localPlayerReceivesTitleWrapper?.classList.remove("hidden");
+      }
+    } else {
+      targetContainer = dealOwner == GameContext.localPlayerID ? this.ourYourDealItemsContainer : this.theirTheirDealItemsContainer;
+      if (targetContainer?.hasChildNodes()) {
+        targetContainer?.insertBefore(newElement, targetContainer?.firstChild);
+      } else {
+        targetContainer?.appendChild(newElement);
+      }
+      newElement.addEventListener("action-activate", () => {
+        this.moveGoldInfluenceDealItem(dealItem, dealOwner, false, newElement);
+      });
+    }
+    this.updateButtonStates();
+    const otherPlayerLibrary = Players.get(otherPlayerID);
+    const isOtherPlayerHuman = otherPlayerLibrary ? otherPlayerLibrary.isHuman : false;
+    this.inspectCurrentDeal(isOtherPlayerHuman, target);
+    this.dealHasBeenModified = true;
+    if (!this.ourTheirDealItemsContainer?.hasChildNodes()) {
+      this.localPlayerReceivesTitleWrapper?.classList.add("hidden");
+    }
+    if (!this.theirYourDealItemsContainer?.hasChildNodes()) {
+      this.otherPlayerReceivesTitleWrapper?.classList.add("hidden");
+    }
+    this.setFocusAfterItemMove(targetContainer, dealOwner);
   }
   setWorkingDealID(workingDealId) {
     this.currentWorkingDealID = workingDealId;
@@ -822,9 +1076,9 @@ class DiplomacyPeaceDealPanel extends DiplomacyInputPanel {
   checkShouldShowPanel() {
     if (InterfaceMode.isInInterfaceMode("INTERFACEMODE_PEACE_DEAL")) {
       this.Root.classList.remove("hidden");
-      delayByFrame(() => {
+      waitForLayout(() => {
         this.realizeInitialFocus();
-      }, 1);
+      });
       return true;
     }
     this.Root.classList.add("hidden");
@@ -841,10 +1095,28 @@ class DiplomacyPeaceDealPanel extends DiplomacyInputPanel {
       "data-l10n-id",
       Locale.compose("LOC_DIPLOMACY_CIV_NAME", otherPlayerLibrary.civilizationAdjective)
     );
+    const yourCivName = GameInfo.Civilizations.lookup(localPlayerLibrary?.civilizationType ?? "")?.CivilizationType;
+    const theirCivName = GameInfo.Civilizations.lookup(
+      otherPlayerLibrary?.civilizationType ?? ""
+    )?.CivilizationType;
+    const yourGold = Math.floor(localPlayerLibrary.Treasury?.goldBalance ?? 0).toString();
+    const yourInfluence = Math.floor(localPlayerLibrary.DiplomacyTreasury?.diplomacyBalance ?? 0).toString();
+    const theirGold = Math.floor(otherPlayerLibrary.Treasury?.goldBalance ?? 0).toString();
+    const theirInfluence = Math.floor(otherPlayerLibrary.DiplomacyTreasury?.diplomacyBalance ?? 0).toString();
+    if (this.yourPeaceDealGold) this.yourPeaceDealGold.innerHTML = yourGold;
+    if (this.yourPeaceDealInfluence) this.yourPeaceDealInfluence.innerHTML = yourInfluence;
+    if (this.theirPeaceDealGold) this.theirPeaceDealGold.innerHTML = theirGold;
+    if (this.theirPeaceDealInfluence) this.theirPeaceDealInfluence.innerHTML = theirInfluence;
+    const yourBgContainer = MustGetElement(".local-player-deal-container-bg", this.Root);
+    yourBgContainer.style.backgroundImage = `url("blp:bg-panel-${yourCivName.replace("CIVILIZATION_", "").toLowerCase()}")`;
+    const theirBgContainer = MustGetElement(".other-player-deal-container-bg", this.Root);
+    theirBgContainer.style.backgroundImage = `url("blp:bg-panel-${theirCivName.replace("CIVILIZATION_", "").toLowerCase()}")`;
     const localPlayerColorPrimary = UI.Player.getPrimaryColorValueAsString(localPlayerLibrary.id);
     const localPlayerColorSecondary = UI.Player.getSecondaryColorValueAsString(localPlayerLibrary.id);
     this.ourLeaderAndCivContainer?.style.setProperty("--player-color-primary", localPlayerColorPrimary);
     this.ourLeaderAndCivContainer?.style.setProperty("--player-color-secondary", localPlayerColorSecondary);
+    const receivesContainer = MustGetElement(".peace-deal__local-player-receives-settlements", this.Root);
+    receivesContainer.style.borderColor = localPlayerColorPrimary;
     this.ourLeaderAndCivContainer?.style.setProperty(
       "--player-pattern",
       Icon.getCivLineCSSFromCivilizationType(localPlayerLibrary.civilizationType)
@@ -857,6 +1129,8 @@ class DiplomacyPeaceDealPanel extends DiplomacyInputPanel {
     const otherPlayerColorSecondary = UI.Player.getSecondaryColorValueAsString(otherPlayerLibrary.id);
     this.theirLeaderAndCivContainer?.style.setProperty("--player-color-primary", otherPlayerColorPrimary);
     this.theirLeaderAndCivContainer?.style.setProperty("--player-color-secondary", otherPlayerColorSecondary);
+    const theyReceiveContainer = MustGetElement(".peace-deal__other-player-receives-settlements", this.Root);
+    theyReceiveContainer.style.borderColor = otherPlayerColorPrimary;
     this.theirLeaderAndCivContainer?.style.setProperty(
       "--player-pattern",
       Icon.getCivLineCSSFromCivilizationType(otherPlayerLibrary.civilizationType)
@@ -916,6 +1190,47 @@ class DiplomacyPeaceDealPanel extends DiplomacyInputPanel {
       return;
     }
   }
+  updateLumpSumStatus() {
+    const localPlayerDeals = MustGetElement(".local-player-deal-container", this.Root);
+    const otherPlayerDeals = MustGetElement(".other-player-deal-container", this.Root);
+    const localPlayerInfluenceItems = MustGetElements(".peace-deal__influence-item", localPlayerDeals);
+    const otherPlayerInfluenceItems = MustGetElements(".peace-deal__influence-item", otherPlayerDeals);
+    const localPlayerGoldItems = MustGetElements(".peace-deal__gold-item", localPlayerDeals);
+    const otherPlayerGoldItems = MustGetElements(".peace-deal__gold-item", otherPlayerDeals);
+    if (this.localPlayerReceives.querySelector(".peace-deal__influence-item") || this.otherPlayerReceives.querySelector(".peace-deal__influence-item")) {
+      localPlayerInfluenceItems.forEach((item) => this.toggleLumpSumItem(item, true));
+      otherPlayerInfluenceItems.forEach((item) => this.toggleLumpSumItem(item, true));
+    } else {
+      localPlayerInfluenceItems.forEach((item) => this.toggleLumpSumItem(item, false));
+      otherPlayerInfluenceItems.forEach((item) => this.toggleLumpSumItem(item, false));
+    }
+    if (this.localPlayerReceives.querySelector(".peace-deal__gold-item") || this.otherPlayerReceives.querySelector(".peace-deal__gold-item")) {
+      otherPlayerGoldItems.forEach((item) => this.toggleLumpSumItem(item, true));
+      localPlayerGoldItems.forEach((item) => this.toggleLumpSumItem(item, true));
+    } else {
+      otherPlayerGoldItems.forEach((item) => this.toggleLumpSumItem(item, false));
+      localPlayerGoldItems.forEach((item) => this.toggleLumpSumItem(item, false));
+    }
+  }
+  toggleLumpSumItem(item, setAsAlreadyUsed) {
+    if (!item) return;
+    if (setAsAlreadyUsed) {
+      if (item.getAttribute("disabled") != "true") {
+        item.setAttribute("disabled", "true");
+        item.classList.add("opacity-30");
+        if (!item.getAttribute("data-tooltip-content")) {
+          item.setAttribute("data-tooltip-content", Locale.compose("LOC_DEAL_ITEM_ALREADY_USED"));
+        }
+      }
+    } else {
+      if (item.getAttribute("lump-sum-disable-ignore") != "true") {
+        item.setAttribute("lump-sum-used", "false");
+        item.setAttribute("disabled", "false");
+        item.classList.remove("opacity-30");
+        item.removeAttribute("data-tooltip-content");
+      }
+    }
+  }
   proposeCurrentDeal() {
     if (!this.currentWorkingDealID) {
       console.error(
@@ -965,6 +1280,8 @@ class DiplomacyPeaceDealPanel extends DiplomacyInputPanel {
         Game.DiplomacyDeals.sendWorkingDeal(this.currentWorkingDealID, DiplomacyDealProposalActions.INSPECT);
       }
     }
+    this.pendingDealAdditions = [];
+    this.pendingDealRemovals = [];
   }
   acceptDeal() {
     if (!this.currentWorkingDealID) {
@@ -1108,18 +1425,6 @@ class DiplomacyPeaceDealPanel extends DiplomacyInputPanel {
       newDealOwner = GameContext.localPlayerID;
     }
     target.parentElement?.removeChild(target);
-    let isFocusSet = false;
-    if (dealOwner == GameContext.localPlayerID) {
-      if (target.parentElement != this.localPlayerDealContainer && this.peaceDealNavigationContainer && this.peaceDealNavigationContainer.childElementCount > 0) {
-        FocusManager.get().setFocus(this.peaceDealNavigationContainer);
-        isFocusSet = true;
-      }
-    } else {
-      if (target.parentElement != this.otherPlayerDealContainer && this.peaceDealNavigationContainer && this.peaceDealNavigationContainer.childElementCount > 0) {
-        FocusManager.get().setFocus(this.peaceDealNavigationContainer);
-        isFocusSet = true;
-      }
-    }
     const dealItemElement = this.createCityDealItem(city, dealType);
     dealItemElement.addEventListener("action-activate", () => {
       this.moveDealItem(dealItem, newDealOwner, !inDeal, dealItemElement);
@@ -1128,9 +1433,6 @@ class DiplomacyPeaceDealPanel extends DiplomacyInputPanel {
       targetContainer?.insertBefore(dealItemElement, targetContainer?.firstChild);
     } else {
       targetContainer?.appendChild(dealItemElement);
-    }
-    if (!isFocusSet) {
-      this.realizeInitialFocus();
     }
     this.updateButtonStates();
     const otherPlayerLibrary = Players.get(otherPlayerID);
@@ -1147,21 +1449,65 @@ class DiplomacyPeaceDealPanel extends DiplomacyInputPanel {
     } else {
       this.otherPlayerReceivesTitleWrapper?.classList.remove("hidden");
     }
+    this.setFocusAfterItemMove(targetContainer, dealOwner);
   }
-  panToCity(location) {
-    Camera.lookAtPlot(location, { zoom: 0.8 });
+  setFocusAfterItemMove(targetContainer, dealOwner) {
+    const theirFirstItem = this.hasActiveChildren(this.theirTheirDealItemsContainer);
+    const yourFirstItem = this.hasActiveChildren(this.ourYourDealItemsContainer);
+    waitForLayout(() => {
+      if (targetContainer) {
+        if (dealOwner == GameContext.localPlayerID) {
+          if (yourFirstItem) {
+            if (targetContainer != this.localPlayerDealContainer || targetContainer != this.localPlayerReceives) {
+              FocusManager.get().setFocus(yourFirstItem);
+              return;
+            }
+          }
+        } else {
+          if (theirFirstItem) {
+            if (targetContainer != this.otherPlayerDealContainer || targetContainer != this.otherPlayerReceives) {
+              FocusManager.get().setFocus(theirFirstItem);
+              return;
+            }
+          }
+        }
+      }
+      this.realizeInitialFocus();
+    });
   }
   updateButtonStates() {
+    this.updateLumpSumStatus();
+    const inspectWrapper = MustGetElement(".panel-diplomacy-peace-deal__inspect-wrapper", this.Root);
     if (this.pendingDealAdditions.length <= 0 && this.pendingDealRemovals.length <= 0) {
       if (!this.isNewDeal && this.currentWorkingDealID?.direction != DiplomacyDealDirection.OUTGOING) {
         this.proposeButton?.setAttribute("caption", Locale.compose("LOC_DIPLOMACY_DEAL_ACCEPT"));
-        const inspectWrapper = MustGetElement(".panel-diplomacy-peace-deal__inspect-wrapper", this.Root);
         inspectWrapper.innerHTML = "";
       }
     } else {
       if (!this.isNewDeal) {
         this.proposeButton?.setAttribute("caption", Locale.compose("LOC_DIPLOMACY_DEAL_PROPOSE"));
       }
+    }
+    const offerContainer = MustGetElement(".peace-deal__offer-container", this.Root);
+    const peaceDealItems = offerContainer.querySelectorAll(".peace-deal__deal-item");
+    if (peaceDealItems.length > 0) {
+      this.selectSettlementText?.classList.add("hidden");
+    } else {
+      this.selectSettlementText?.classList.remove("hidden");
+    }
+    const theyReceiveContainer = MustGetElement(".peace-deal__other-player-receives-container", this.Root);
+    const theyReceiveItems = theyReceiveContainer.querySelectorAll(".peace-deal__deal-item");
+    if (theyReceiveItems.length < 1) {
+      theyReceiveContainer.classList.add("hidden");
+    } else {
+      theyReceiveContainer.classList.remove("hidden");
+    }
+    const youReceiveContainer = MustGetElement(".peace-deal__local-player-receives-container", this.Root);
+    const youReceiveItems = youReceiveContainer.querySelectorAll(".peace-deal__deal-item");
+    if (youReceiveItems.length < 1) {
+      youReceiveContainer.classList.add("hidden");
+    } else {
+      youReceiveContainer.classList.remove("hidden");
     }
   }
   clickProposeButton() {
@@ -1205,16 +1551,41 @@ class DiplomacyPeaceDealPanel extends DiplomacyInputPanel {
       this.rejectDeal();
     }
   }
+  clickBackToMap() {
+    FocusManager.get().clearFocus();
+    LeaderModelManager.exitLeaderScene();
+    Audio.playSound("data-audio-leader-exit");
+    this.mainContainer?.classList.toggle("hidden");
+    this.goingToMap = true;
+    setTimeout(() => {
+      this.goingToMap = false;
+      this.backToDealButton = document.createElement("fxs-button");
+      this.backToDealButton.classList.value = "peace-deal__back-to-deal-button self-center bottom-12 absolute leading-none min-w-32 mr-4 ml-4";
+      this.backToDealButton?.setAttribute("data-audio-activate-ref", "none");
+      this.backToDealButton?.setAttribute("caption", "LOC_DIPLOMACY_BACK_TO_DEAL");
+      this.backToDealButton?.setAttribute("action-key", "inline-cancel");
+      this.backToDealButton?.addEventListener("action-activate", () => {
+        this.backToDeal();
+      });
+      this.Root.appendChild(this.backToDealButton);
+      ViewManager.setCurrentByName("DiplomacyWorld");
+    }, LeaderModelManager.MAX_LENGTH_OF_ANIMATION_EXIT);
+  }
+  backToDeal() {
+    ViewManager.setCurrentByName("Diplomacy");
+    this.mainContainer?.classList.toggle("hidden");
+    this.backToDealButton?.classList.toggle("hidden");
+    this.showLeaderModel(true);
+    this.realizeInitialFocus();
+  }
   realizeInitialFocus() {
-    const localPlayerDealContainer = this.Root.querySelector(".local-player-deal-container");
-    if (!localPlayerDealContainer) {
+    if (!this.ourYourDealItemsContainer) {
       console.error(
         "panel-diplomacy-peace-deal: Unable to find element with class: local-player-deal-container during initial focus!"
       );
       return;
     }
-    const otherPlayerDealContainer = this.Root.querySelector(".other-player-deal-container");
-    if (!otherPlayerDealContainer) {
+    if (!this.theirTheirDealItemsContainer) {
       console.error(
         "panel-diplomacy-peace-deal: Unable to find element with class: other-player-deal-container during initial focus"
       );
@@ -1227,23 +1598,30 @@ class DiplomacyPeaceDealPanel extends DiplomacyInputPanel {
       );
       return;
     }
-    if (this.ourYourDealItemsContainer && this.ourYourDealItemsContainer.childElementCount > 0) {
-      FocusManager.get().setFocus(localPlayerDealContainer);
-    } else if (this.theirTheirDealItemsContainer && this.theirTheirDealItemsContainer.childElementCount > 0) {
-      FocusManager.get().setFocus(otherPlayerDealContainer);
+    const theirFirstItem = this.hasActiveChildren(this.theirTheirDealItemsContainer);
+    const yourFirstItem = this.hasActiveChildren(this.ourYourDealItemsContainer);
+    if (yourFirstItem) {
+      FocusManager.get().setFocus(yourFirstItem);
+    } else if (theirFirstItem) {
+      FocusManager.get().setFocus(theirFirstItem);
     } else {
       FocusManager.get().setFocus(buttonContainer);
     }
     NavTray.clear();
   }
-  showLeaderModel() {
+  hasActiveChildren(parent) {
+    const children = Array.from(parent.children);
+    const active = children.find((child) => child.getAttribute("disabled") != "true");
+    return active ?? null;
+  }
+  showLeaderModel(comingBackFromMap) {
     const otherPlayerID = DiplomacyManager.currentDiplomacyDealData ? DiplomacyManager.currentDiplomacyDealData.OtherPlayer : DiplomacyManager.selectedPlayerID;
     const playerEntry = Players.get(otherPlayerID);
     if (playerEntry == null) {
       console.error("Player is not valid, not displaying a 3d model");
       return;
     } else {
-      if (!this.isNewDeal) {
+      if (!this.isNewDeal || comingBackFromMap) {
         LeaderModelManager.showRightLeaderModel(otherPlayerID);
       }
     }
@@ -1251,6 +1629,9 @@ class DiplomacyPeaceDealPanel extends DiplomacyInputPanel {
   handleInput(inputEvent) {
     if (!InterfaceMode.isInInterfaceMode("INTERFACEMODE_PEACE_DEAL") || ContextManager.getCurrentTarget()) {
       return true;
+    }
+    if (this.goingToMap) {
+      return false;
     }
     const inputEventName = inputEvent.detail.name;
     switch (inputEventName) {
@@ -1266,23 +1647,15 @@ class DiplomacyPeaceDealPanel extends DiplomacyInputPanel {
           return false;
         }
         this.closeButton?.dispatchEvent(new CustomEvent("action-activate"));
+        inputEvent.stopPropagation();
+        inputEvent.preventDefault();
         return false;
       case "shell-action-2":
         {
-          const currentFocus = FocusManager.get().currentFocus();
-          if (currentFocus && currentFocus.hasAttribute("city-location-x")) {
-            const locationXString = currentFocus.getAttribute("city-location-x");
-            const locationYString = currentFocus.getAttribute("city-location-y");
-            if (!locationXString || !locationYString) {
-              console.error(
-                "panel-diplomacy-peace-deal: Unable to get a valid location for focused cityDealItemElement!"
-              );
-              return false;
-            }
-            const location = { x: parseFloat(locationXString), y: parseFloat(locationYString) };
-            this.panToCity(location);
-          }
+          this.backToMapButton?.dispatchEvent(new CustomEvent("action-activate"));
         }
+        inputEvent.stopPropagation();
+        inputEvent.preventDefault();
         return false;
     }
     return true;

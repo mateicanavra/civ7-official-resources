@@ -1,7 +1,7 @@
 import { template } from '../../vendor/solid-js/web/dist/web.js';
 import { Activatable } from './activatable.js';
 import { ComponentRegistry } from '../services/component-registry.js';
-import { IsControllerActive } from '../services/input.js';
+import { IsControllerActive, IsTouchActive } from '../services/input.js';
 import { createComponent, mergeProps } from '../../vendor/solid-js/dist/solid.js';
 
 var _tmpl$ = /* @__PURE__ */ template(`<div class="close-button__bg absolute inset-0"></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="close-button__bg-hover absolute inset-0 opacity-0 group-hover\\:opacity-100 group-focus\\:opacity-100 transition-opacity"></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="close-button__bg-pressed absolute inset-0 opacity-0 group-active\\:opacity-100 group-pressed\\:opacity-100"></div>`);
@@ -15,7 +15,7 @@ const CloseButtonComponent = (props) => {
       };
     },
     get ["class"]() {
-      return `size-12 cursor-pointer group ${props.class ?? "relative"}`;
+      return `${IsTouchActive() ? "size-16" : "size-12"} cursor-pointer group ${props.class ?? "relative"}`;
     },
     get classList() {
       return {

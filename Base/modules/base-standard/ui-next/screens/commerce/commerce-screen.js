@@ -37,6 +37,11 @@ const CommerceScreenComponent = (_props) => {
   const title = createMemo(() => {
     return Locale.compose("LOC_COMMERCE_SCREEN_TITLE", civName());
   });
+  function onContextChanged(activatedElement, _deactivatedElement) {
+    if (activatedElement.nodeName.toLocaleLowerCase() === "screen-resource-allocation") {
+      Input.setActiveContext(InputContext.Shell);
+    }
+  }
   return createComponent(CommerceScreenContext.Provider, {
     value: model,
     get children() {
@@ -51,6 +56,7 @@ const CommerceScreenComponent = (_props) => {
           return title();
         },
         onClosing: handleOnClosing,
+        onContextChanged,
         get children() {
           return createComponent(Tab, {
             "class": "w-full flex flex-col flex-auto pointer-events-auto relative",

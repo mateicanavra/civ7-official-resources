@@ -62,7 +62,7 @@ class ContextManagerSingleton {
    * @param targetElement The element you want to register with the ContextManager, extending HTMLElement somewhere in its parentage.
    */
   pushElement(targetElement, prop) {
-    if (this.pushingTarget != null) {
+    if (this.pushingTarget != null && targetElement.tagName != "MOUSE-GUARD") {
       console.warn(
         `ContextManager.pushElement() is already in the process of pushing a screen: ${this.pushingTarget.tagName}, attempted to push: ${targetElement.tagName}. This likely means that there is a re-entrant issue with the screen's onAttach logic.`
       );
@@ -123,7 +123,7 @@ class ContextManagerSingleton {
    * @param targetClassName string of HTMLElement type to create
    */
   push(targetClassName, prop) {
-    if (this.pushingClassName != null) {
+    if (this.pushingClassName != null && targetClassName != "mouse-guard") {
       console.warn(
         `ContextManager.push() is already in the process of pushing a screen: ${this.pushingClassName}, attempted to push: ${targetClassName}. This likely means that there is a re-entrant issue with the screen's onAttach logic.`
       );

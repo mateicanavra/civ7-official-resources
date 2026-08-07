@@ -338,6 +338,31 @@ function createPoliciesModel() {
         return false;
       }
     }
+    return false;
+  }
+  function handleCanSlotCard(card) {
+    const c = card.CultureSlotType;
+    if (c == "CRISIS_CULTURE_SLOT") {
+      return crisisSlotsAvail() > 0;
+    } else if (c == "POLICY_CULTURE_SLOT") {
+      if (policySlotsAvail() < 1 && tradSlotsAvail() > 0) {
+        return true;
+      } else if (policySlotsAvail() > 0) {
+        return true;
+      }
+      return false;
+    } else if (c == "TRADITION_CULTURE_SLOT") {
+      if (tradSlotsAvail() > 0) {
+        return true;
+      }
+      const policiesInTraditionSlots = activeTraditionCards.filter(
+        (card2) => card2.CultureSlotType == "POLICY_CULTURE_SLOT"
+      );
+      if (policiesInTraditionSlots.length > 0 && policySlotsAvail() > 0) {
+        return true;
+      }
+    }
+    return false;
   }
   function clearArrays() {
     policiesToAdd = [];
@@ -446,6 +471,7 @@ function createPoliciesModel() {
     onConfirmClick: handleOnConfirmClick,
     onCloseClick: handleOnClose,
     clearArrays,
+    canSlotCard: handleCanSlotCard,
     setActiveFocus,
     getActiveFocus: activeFocus,
     setAvailablePolicyFocus,

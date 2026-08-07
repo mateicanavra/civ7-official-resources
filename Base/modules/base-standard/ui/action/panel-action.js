@@ -9,7 +9,7 @@ import { ComponentID } from '../../../core/ui/utilities/utilities-component-id.j
 import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
 import { Icon } from '../../../core/ui/utilities/utilities-image.js';
 import UpdateGate from '../../../core/ui/utilities/utilities-update-gate.js';
-import AdviceManager from '../advice/advice-manager.js';
+import getAdviceManager from '../advice/advice-manager.js';
 import { NotificationModel } from '../notification-train/model-notification-train.js';
 import WatchOutManager from '../watch-out/watch-out-manager.js';
 import styles from './panel-action.scss.js';
@@ -446,7 +446,7 @@ class PanelAction extends Panel {
       const endTurnBlockingType = Game.Notifications.getEndTurnBlockingType(playerID);
       const endTurnBlockingNotificationId = Game.Notifications.findEndTurnBlocking(playerID, endTurnBlockingType);
       const notificationIds = Game.Notifications.getIdsForPlayer(playerID) ?? [];
-      if (endTurnBlockingType == EndTurnBlockingTypes.VIEW_ADVISOR_WARNING && !WatchOutManager.isManagerActive && !AdviceManager.isAnyFollowed()) {
+      if (endTurnBlockingType == EndTurnBlockingTypes.VIEW_ADVISOR_WARNING && !WatchOutManager.isManagerActive && !getAdviceManager().isAnyFollowed()) {
         this.setEndTurnWaiting();
         return;
       }
@@ -486,6 +486,12 @@ class PanelAction extends Panel {
             this.showBlockerIcon(slot, notification);
           } else {
             slot.notificationId = notification.id;
+            const message = Game.Notifications.getMessage(notification.id);
+            if (message) {
+              slot.parentEle.setAttribute("data-tooltip-content", Locale.compose(message));
+            } else {
+              slot.parentEle.removeAttribute("data-tooltip-content");
+            }
           }
         }
       }

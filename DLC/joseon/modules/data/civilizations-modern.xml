@@ -1,0 +1,32 @@
+<Database>
+	<TraitModifiers>
+		<Row TraitType="TRAIT_JOSEON_ABILITY" ModifierId="MOD_JOSEON_CITY_LIMIT_LARGE_INCREASE"/>
+		<Row TraitType="TRAIT_JOSEON_ABILITY" ModifierId="MOD_JOSEON_CAPITAL_SPECIALIST_LIMIT_LARGE_INCREASE"/>
+		<Row TraitType="TRAIT_JOSEON_ABILITY" ModifierId="MOD_JOSEON_NON_CAPITAL_SPECIALIST_LIMIT_SEOWON_INCREASE"/>
+		<Row TraitType="TRAIT_JOSEON_ABILITY" ModifierId="MOD_JOSEON_NON_CAPITAL_SPECIALIST_LIMIT_NO_SEOWON_DECREASE"/>
+		<Row TraitType="TRAIT_JOSEON_ABILITY" ModifierId="MOD_REVEAL_CIV_CULTURE_TREE_JOSEON"/>
+		<Row TraitType="TRAIT_JOSEON_ABILITY" ModifierId="MOD_CIV_WONDER_PRODUCTION_JOSEON"/>
+	</TraitModifiers>
+	<RequirementSets>
+		<Row RequirementSetId="REQSET_PLAYER_IS_JOSEON" RequirementSetType="REQUIREMENTSET_TEST_ALL"/>
+	</RequirementSets>
+	<RequirementSetRequirements>
+		<Row RequirementSetId="REQSET_PLAYER_IS_JOSEON" RequirementId="REQ_PLAYER_HAS_TRAIT_JOSEON"/>
+	</RequirementSetRequirements>
+	<Requirements>
+		<Row RequirementId="REQ_PLAYER_HAS_TRAIT_JOSEON" RequirementType="REQUIREMENT_PLAYER_HAS_CIVILIZATION_OR_LEADER_TRAIT"/>
+	</Requirements>
+	<RequirementArguments>
+		<Row RequirementId="REQ_PLAYER_HAS_TRAIT_JOSEON" Name="TraitType" Value="TRAIT_JOSEON"/>
+	</RequirementArguments>
+	<Independents>
+		<Update>
+			<Where IndependentType="INDEPENDENT_MODERN_12"/>
+			<Set Name="LOC_INDEPENDENT_MODERN_12_MINOR_JOSEON_NAME" CityStateName="LOC_INDEPENDENT_MODERN_12_MAJOR_JOSEON_NAME"/>
+		</Update>
+	</Independents>
+	<TypeTags>
+		<Row Type="BUILDING_MUSEUM" Tag="JOSEON"/>
+		<Row Type="BUILDING_SCHOOLHOUSE" Tag="JOSEON"/>
+	</TypeTags>
+</Database>

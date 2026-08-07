@@ -72,10 +72,6 @@
 		<Argument name="Percent">-50</Argument>
 		<Argument name="YieldType">YIELD_DIPLOMACY</Argument>
 	</Modifier>
-	<Modifier id="CARD_AT_MOD_VICTORY_SCIENTIFIC_FIRST" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_REPLACE_CONSTRUCTIBLE" permanent="true" run-once="true">
-		<Argument name="Destroy">BUILDING_UNIVERSITY</Argument>
-		<Argument name="Create">BUILDING_UNIVERSITY_MO</Argument>
-	</Modifier>
 	<Modifier id="CARD_AT_MOD_VICTORY_SCIENTIFIC_SECOND" collection="COLLECTION_PLAYER_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
 		<SubjectRequirements>
 			<Requirement type="REQUIREMENT_PLOT_IS_QUARTER"/>

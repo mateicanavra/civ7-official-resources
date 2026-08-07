@@ -104,7 +104,7 @@
 		<Row DiplomacyActionType="DIPLOMACY_ACTION_SABOTAGE_FOOD_PRODUCTION" InfCostHostile="90" InfCostUnfriendly="120" InfCostNeutral="240"/>
 		<!-- <Row DiplomacyActionType="DIPLOMACY_ACTION_SABOTAGE_TRADE_CAPACITY" InfCostHostile="150" InfCostUnfriendly="165" InfCostNeutral="180" InfCostFriendly="195" InfCostHelpful="210"/> -->
 		<Row DiplomacyActionType="DIPLOMACY_ACTION_DENOUNCE" InfCostUnfriendly="165" InfCostNeutral="180" InfCostFriendly="195" InfCostHelpful="210"/>
-		<Row DiplomacyActionType="DIPLOMACY_ACTION_SEND_DELEGATION" InfCostHostile="180"/>
+		<Row DiplomacyActionType="DIPLOMACY_ACTION_SEND_DELEGATION" InfCostHostile="180" InfCostUnfriendly="180"/>
 		<Row DiplomacyActionType="DIPLOMACY_ACTION_INCITE_RAID" InfCostNoRelationship="180" InfCostHostile="180" InfCostUnfriendly="180" InfCostNeutral="180" InfCostFriendly="180" InfCostHelpful="180"/>
 		<Row DiplomacyActionType="DIPLOMACY_ACTION_CS_PROMOTE_GROWTH" InfCostNoRelationship="90"/>
 		<Row DiplomacyActionType="DIPLOMACY_ACTION_CS_BOLSTER_MILITARY" InfCostNoRelationship="180"/>
@@ -188,15 +188,15 @@
 		<Row DiplomacyActionType="DIPLOMACY_ACTION_WORKER_DISRUPTION" DiplomaticResponseType="DIPLOMACY_RESPONSE_REJECT" InfCost="180" Name="LOC_DIPLOMACY_RESPONSE_REJECT" Description="LOC_DIPLOMACY_PROJECT_WORKER_DISRUPTION_REJECT"/>-->
 	</DiplomaticActionResponses>
 	<DiplomacyFavorsGrievancesEventsData>
-		<Row DiplomacyFavorGrievanceEventType="GRIEVANCE_FROM_CLOSE_LAND_CLAIM" Amount="20" Range="10" Name="LOC_GRIEVANCE_FROM_CLOSE_LAND_CLAIM" DiplomacyFavorGrievanceEventGroup="DIPLOMACY_UNIQUE_EVENT" InfAward="180"/>
-		<Row DiplomacyFavorGrievanceEventType="GRIEVANCE_FROM_RAZING_SETTLEMENT" Name="LOC_GRIEVANCE_FROM_RAZING_SETTLEMENT" DiplomacyFavorGrievanceEventGroup="DIPLOMACY_GRIEVANCE" InfAwardPerPopulation="15"/>
-		<Row DiplomacyFavorGrievanceEventType="GRIEVANCE_FROM_CAPTURE_SETTLEMENT" Name="LOC_GRIEVANCE_FROM_CAPTURE_SETTLEMENT" DiplomacyFavorGrievanceEventGroup="DIPLOMACY_GRIEVANCE" InfAwardPerPopulation="30"/>
-		<Row DiplomacyFavorGrievanceEventType="GRIEVANCE_FROM_WINNING_SUZERAIN" Amount="-30" Name="LOC_GRIEVANCE_FROM_WINNING_SUZERAIN" DiplomacyFavorGrievanceEventGroup="DIPLOMACY_GRIEVANCE" InfAward="180"/>
-		<Row DiplomacyFavorGrievanceEventType="GRIEVANCE_FROM_DISPERSING_IP" Amount="-30" Name="LOC_GRIEVANCE_FROM_DISPERSING_IP" DiplomacyFavorGrievanceEventGroup="DIPLOMACY_GRIEVANCE" InfAward="180"/>
-		<Row DiplomacyFavorGrievanceEventType="GRIEVANCE_FROM_END_ALLIANCE" Amount="-30" Name="LOC_GRIEVANCE_FROM_END_ALLIANCE" DiplomacyFavorGrievanceEventGroup="DIPLOMACY_GRIEVANCE" InfAward="360"/>
-		<Row DiplomacyFavorGrievanceEventType="GRIEVANCE_FROM_BREAK_ALLIANCE" Amount="-30" Name="LOC_GRIEVANCE_FROM_BREAK_ALLIANCE" DiplomacyFavorGrievanceEventGroup="DIPLOMACY_GRIEVANCE" InfAward="360"/>
-		<Row DiplomacyFavorGrievanceEventType="GRIEVANCE_FROM_UNEVEN_PEACE_DEAL" Amount="-5" Name="LOC_GRIEVANCE_FROM_UNEVEN_PEACE_DEAL" DiplomacyFavorGrievanceEventGroup="DIPLOMACY_GRIEVANCE" InfAward="360"/>
-		<Row DiplomacyFavorGrievanceEventType="GRIEVANCE_FROM_REVEALED_ESPIONAGE" Amount="-10" Name="LOC_GRIEVANCE_FROM_REVEALED_ESPIONAGE" DiplomacyFavorGrievanceEventGroup="DIPLOMACY_GRIEVANCE" InfAward="90"/>
-		<Row DiplomacyFavorGrievanceEventType="GRIEVANCE_FROM_REVEALED_TS_ESPIONAGE" Amount="-20" Name="LOC_GRIEVANCE_FROM_REVEALED_TS_ESPIONAGE" DiplomacyFavorGrievanceEventGroup="DIPLOMACY_GRIEVANCE" InfAward="180"/>
+		<Row DiplomacyFavorGrievanceEventType="GRIEVANCE_FROM_CLOSE_LAND_CLAIM" Amount="20" Range="10" Name="LOC_GRIEVANCE_FROM_CLOSE_LAND_CLAIM" AltName="LOC_GRIEVANCE_FROM_CLOSE_LAND_CLAIM_ALT" DiplomacyFavorGrievanceEventGroup="DIPLOMACY_UNIQUE_EVENT" InfAward="180"/>
+		<Row DiplomacyFavorGrievanceEventType="GRIEVANCE_FROM_RAZING_SETTLEMENT" Name="LOC_GRIEVANCE_FROM_RAZING_SETTLEMENT" AltName="LOC_GRIEVANCE_FROM_RAZING_SETTLEMENT_ALT" DiplomacyFavorGrievanceEventGroup="DIPLOMACY_GRIEVANCE" InfAwardPerPopulation="15"/>
+		<Row DiplomacyFavorGrievanceEventType="GRIEVANCE_FROM_CAPTURE_SETTLEMENT" Name="LOC_GRIEVANCE_FROM_CAPTURE_SETTLEMENT" AltName="LOC_GRIEVANCE_FROM_CAPTURE_SETTLEMENT_ALT" DiplomacyFavorGrievanceEventGroup="DIPLOMACY_GRIEVANCE" InfAwardPerPopulation="30"/>
+		<Row DiplomacyFavorGrievanceEventType="GRIEVANCE_FROM_WINNING_SUZERAIN" Amount="-30" Name="LOC_GRIEVANCE_FROM_WINNING_SUZERAIN" AltName="LOC_GRIEVANCE_FROM_WINNING_SUZERAIN_ALT" DiplomacyFavorGrievanceEventGroup="DIPLOMACY_GRIEVANCE" InfAward="180"/>
+		<Row DiplomacyFavorGrievanceEventType="GRIEVANCE_FROM_DISPERSING_IP" Amount="-30" Name="LOC_GRIEVANCE_FROM_DISPERSING_IP" AltName="LOC_GRIEVANCE_FROM_DISPERSING_IP_ALT" DiplomacyFavorGrievanceEventGroup="DIPLOMACY_GRIEVANCE" InfAward="180"/>
+		<Row DiplomacyFavorGrievanceEventType="GRIEVANCE_FROM_END_ALLIANCE" Amount="-30" Name="LOC_GRIEVANCE_FROM_END_ALLIANCE" AltName="LOC_GRIEVANCE_FROM_END_ALLIANCE_ALT" DiplomacyFavorGrievanceEventGroup="DIPLOMACY_GRIEVANCE" InfAward="360"/>
+		<Row DiplomacyFavorGrievanceEventType="GRIEVANCE_FROM_BREAK_ALLIANCE" Amount="-30" Name="LOC_GRIEVANCE_FROM_BREAK_ALLIANCE" AltName="LOC_GRIEVANCE_FROM_BREAK_ALLIANCE_ALT" DiplomacyFavorGrievanceEventGroup="DIPLOMACY_GRIEVANCE" InfAward="360"/>
+		<Row DiplomacyFavorGrievanceEventType="GRIEVANCE_FROM_UNEVEN_PEACE_DEAL" Amount="-5" Name="LOC_GRIEVANCE_FROM_UNEVEN_PEACE_DEAL" AltName="LOC_GRIEVANCE_FROM_UNEVEN_PEACE_DEAL_ALT" DiplomacyFavorGrievanceEventGroup="DIPLOMACY_GRIEVANCE" InfAward="360"/>
+		<Row DiplomacyFavorGrievanceEventType="GRIEVANCE_FROM_REVEALED_ESPIONAGE" Amount="-10" Name="LOC_GRIEVANCE_FROM_REVEALED_ESPIONAGE" AltName="LOC_GRIEVANCE_FROM_REVEALED_ESPIONAGE_ALT" DiplomacyFavorGrievanceEventGroup="DIPLOMACY_GRIEVANCE" InfAward="90"/>
+		<Row DiplomacyFavorGrievanceEventType="GRIEVANCE_FROM_REVEALED_TS_ESPIONAGE" Amount="-20" Name="LOC_GRIEVANCE_FROM_REVEALED_TS_ESPIONAGE" AltName="LOC_GRIEVANCE_FROM_REVEALED_TS_ESPIONAGE_ALT" DiplomacyFavorGrievanceEventGroup="DIPLOMACY_GRIEVANCE" InfAward="180"/>
 	</DiplomacyFavorsGrievancesEventsData>
 </Database>

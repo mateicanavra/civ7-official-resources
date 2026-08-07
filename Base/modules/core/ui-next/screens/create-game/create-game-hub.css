@@ -163,7 +163,12 @@
 @media (max-height: 55.5555555556rem) {
   .create-game-hub-continue-button-container {
     width: 100vw;
-    margin-left: 0rem;
+    margin-left: 0;
+  }
+}
+@media (experience: mobile) and (max-height: 55.5555555556rem) {
+  .create-game-hub-continue-button-container {
+    width: 100%;
   }
 }
 

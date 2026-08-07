@@ -1,14 +1,19 @@
+import { render } from '../../../core/vendor/solid-js/web/dist/web.js';
 import { ComponentID } from '../../../core/ui/utilities/utilities-component-id.js';
 import UpdateGate from '../../../core/ui/utilities/utilities-update-gate.js';
+import { TooltipVerticalPosition, TooltipHorizontalPosition } from '../../../core/ui-next/components/tooltip.js';
 import { UpdateCityDetailsEventName } from '../city-details/model-city-details.js';
-import { GetLastProductionData } from './production-chooser-helpers.js';
+import { ProductionPanelCategory, GetLastProductionData } from './production-chooser-helpers.js';
+import { ProductionTooltip } from '../../ui-next/tooltips/production-tooltip.js';
 
 class LastProductionSection extends Component {
   cityID = null;
   updateCityDetailsListener = this.onUpdateCityDetails.bind(this);
+  headerElement = document.createElement("div");
   nameElement = document.createElement("div");
   iconElement = document.createElement("fxs-icon");
   yieldDiv = document.createElement("div");
+  frame = null;
   onInitialize() {
     super.onInitialize();
     this.render();
@@ -22,6 +27,23 @@ class LastProductionSection extends Component {
     window.removeEventListener(UpdateCityDetailsEventName, this.updateCityDetailsListener);
     super.onDetach();
   }
+  disposeTooltips = [];
+  addProductionTooltip(parent, child, data) {
+    const dispose = render(
+      () => ProductionTooltip({
+        children: child,
+        name: data.name,
+        type: data.type,
+        category: data.isUnit ? ProductionPanelCategory.UNITS : data.isProject ? ProductionPanelCategory.PROJECTS : void 0,
+        offset: 30,
+        initialHPosition: TooltipHorizontalPosition.RIGHT,
+        initialVPosition: TooltipVerticalPosition.CENTER
+      }),
+      parent
+    );
+    this.disposeTooltips.push(dispose);
+    return dispose;
+  }
   render() {
     this.Root.classList.add(
       "flex",
@@ -32,12 +54,10 @@ class LastProductionSection extends Component {
       "py-2",
       "pointer-events-auto"
     );
-    this.Root.insertAdjacentHTML(
-      "beforeend",
-      '<div class="font-title uppercase text-sm text-secondary-2 text-gradient-secondary mb-1" data-l10n-id="LOC_UI_JUST_COMPLETED"></div>'
-    );
-    const frame = document.createElement("fxs-inner-frame");
-    frame.classList.add("min-w-96", "items-start", "last-production-frame");
+    this.frame = document.createElement("fxs-inner-frame");
+    this.frame.classList.value = "";
+    this.frame.classList.add("min-w-96", "items-start", "last-production-frame");
+    this.frame.setAttribute("tabindex", "-1");
     const container = document.createElement("div");
     container.classList.add("flex", "items-center", "my-4", "ml-8");
     this.iconElement.classList.add("size-16");
@@ -52,15 +72,17 @@ class LastProductionSection extends Component {
     const checkmarkBG = document.createElement("div");
     checkmarkBG.style.backgroundImage = 'url("fs://game/techtree-icon-empty")';
     checkmarkBG.classList.value = "check-icon flex absolute size-6 bg-no-repeat bg-center bg-contain -right-2 -top-2 justify-center items-center";
-    frame.appendChild(checkmarkBG);
+    this.frame.appendChild(checkmarkBG);
     const checkmark = document.createElement("div");
     checkmark.classList.value = "size-4 bg-center bg-contain bg-no-repeat";
     checkmark.style.backgroundImage = 'url("fs://game/techtree_icon-checkmark")';
     checkmarkBG.appendChild(checkmark);
-    frame.appendChild(container);
-    this.Root.appendChild(frame);
+    this.frame.appendChild(container);
+    this.Root.appendChild(this.frame);
   }
   updateGate = new UpdateGate(() => {
+    this.disposeTooltips.forEach((dispose) => dispose());
+    this.disposeTooltips = [];
     if (!this.cityID || ComponentID.isInvalid(this.cityID)) {
       return;
     }
@@ -69,6 +91,9 @@ class LastProductionSection extends Component {
       this.Root.classList.add("hidden");
       return;
     }
+    this.headerElement.classList.value = "font-title uppercase text-sm text-secondary-2 text-gradient-secondary mb-1";
+    this.headerElement.setAttribute("data-l10n-id", "LOC_UI_JUST_COMPLETED");
+    this.Root.appendChild(this.headerElement);
     this.nameElement.setAttribute("data-l10n-id", lastProductionData.name);
     this.iconElement.setAttribute("data-icon-id", lastProductionData.type);
     this.yieldDiv.innerHTML = "";
@@ -88,12 +113,12 @@ class LastProductionSection extends Component {
       yieldEntry.appendChild(yieldValue);
       this.yieldDiv.appendChild(yieldEntry);
     }
-    this.Root.setAttribute("data-type", lastProductionData.type);
-    if (lastProductionData.isUnit) {
-      this.Root.setAttribute("data-tooltip-style", "production-unit-tooltip");
+    if (lastProductionData && this.frame) {
+      this.addProductionTooltip(this.Root, this.frame, lastProductionData);
     } else {
-      this.Root.setAttribute("data-tooltip-style", "production-constructible-tooltip");
+      this.Root.appendChild(this.frame);
     }
+    this.Root.setAttribute("data-type", lastProductionData.type);
     this.Root.classList.remove("hidden");
   });
   onAttributeChanged(name, oldValue, newValue) {
@@ -113,7 +138,6 @@ class LastProductionSection extends Component {
 }
 Controls.define("last-production-section", {
   createInstance: LastProductionSection,
-  tabIndex: -1,
   attributes: [
     {
       name: "data-cityid"

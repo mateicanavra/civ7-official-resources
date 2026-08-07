@@ -248,7 +248,6 @@ function getQuestTracker() {
 }
 if (Configuration.getGame().isHotseat) {
   let onLocalPlayerChanged = function() {
-    console.log("quest-tracker: Requesting info for local player: " + GameContext.localObserverID);
     window.dispatchEvent(new QuestTrackerRefreshRequest());
   };
   engine.on("LocalPlayerChanged", onLocalPlayerChanged);

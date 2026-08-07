@@ -14,10 +14,6 @@
 		<Argument name="ConstructibleClass">WONDER</Argument>
 		<Argument name="Amount">1</Argument>
 	</Modifier>
-	<Modifier id="CARD_AT_CULTURE_GOLDEN_AGE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_REPLACE_CONSTRUCTIBLE" permanent="true" run-once="true">
-		<Argument name="Destroy">BUILDING_AMPHITHEATER</Argument>
-		<Argument name="Create">BUILDING_AMPHITHEATER_EX</Argument>
-	</Modifier>
 	<Modifier id="CARD_AT_VICTORY_ECONOMIC_ADJUST_GOLD_PER_TRADE_ROUTE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD_PER_PROPERTY_VALUE" permanent="true">
 		<Argument name="PropertyName">PROPERTY_ANTIQUITY_TRADE_ROUTE_TOTAL</Argument>
 		<Argument name="YieldType">YIELD_GOLD</Argument>
@@ -27,10 +23,6 @@
 		<Argument name="PropertyName">PROPERTY_ANTIQUITY_CODEX_TOTAL</Argument>
 		<Argument name="YieldType">YIELD_SCIENCE</Argument>
 		<Argument name="Multiplier">2</Argument>
-	</Modifier>
-	<Modifier id="CARD_AT_SCIENCE_GOLDEN_AGE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_REPLACE_CONSTRUCTIBLE" permanent="true" run-once="true">
-		<Argument name="Destroy">BUILDING_ACADEMY</Argument>
-		<Argument name="Create">BUILDING_ACADEMY_EX</Argument>
 	</Modifier>
 	<!-- Dark Age Effects -->
 	<Modifier id="CARD_AT_DARK_AGE_SCIENCE_1" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_PLAYER_GRANT_NARRATIVE_TAG" permanent="true">

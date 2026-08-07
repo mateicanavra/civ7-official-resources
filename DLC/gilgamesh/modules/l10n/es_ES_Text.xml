@@ -43,6 +43,12 @@
     <Replace Tag="LOC_DIPLO_MAKE_DEAL_REJECTED_LEADER_GILGAMESH" Language="es_ES">
       <Text>Tu oferta sabe a cenizas.</Text>
     </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_DECREASED_LEADER_GILGAMESH" Language="es_ES">
+      <Text>Graznáis como el ave Anzu, os arrastráis como Lilītu.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_INCREASED_LEADER_GILGAMESH" Language="es_ES">
+      <Text>¡Bien hecho! Combatamos.</Text>
+    </Replace>
     <Replace Tag="LOC_MAIN_CHAR_SELECT_LEADER_GILGAMESH_ANY" Language="es_ES">
       <Text>Esos otros se dicen también reyes. ¿Quiénes de ellos pueden presumir de mi porte divino, de mi barba de lapislázuli o de mis ojos centelleantes?</Text>
     </Replace>
@@ -619,13 +625,19 @@
       <Text>Dedicación militarista de la Edad Moderna de Gilgamesh</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_ALLY_OF_ENKIDU_DESC" Language="es_ES">
-      <Text>Le gusta el líder que más Esfuerzos haya emprendido o apoyado. No le gustan los líderes que ya estén aliados con otros.</Text>
+      <Text>Le gusta el líder que más [icon:ENDEAVOR] Esfuerzos haya emprendido o apoyado. No le gustan los líderes que ya estén [icon:PLAYER_RELATIONSHIP_ALLIANCE] aliados con otros.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_ALLY_OF_ENKIDU_DESC_DISLIKES" Language="es_ES">
+      <Text>A Gilgamesh no le gustan los líderes que ya estén [icon:PLAYER_RELATIONSHIP_ALLIANCE] aliados con otros.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_ALLY_OF_ENKIDU_DESC_LIKES" Language="es_ES">
+      <Text>A Gilgamesh le gusta el líder que más [icon:ENDEAVOR] Esfuerzos haya emprendido o apoyado.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_ALLY_OF_ENKIDU_NAME" Language="es_ES">
       <Text>Aliado de Enkidu</Text>
     </Replace>
     <Replace Tag="LOC_LEADER_GILGAMESH_DESCRIPTION" Language="es_ES">
-      <Text>+2 de [icon:WAR_SUPPORT] Apoyo bélico si estás en solo una alianza. Cuando una de tus unidades militares derrote a una unidad enemiga, obtienes [icon:YIELD_DIPLOMACY] Influencia equivalente al 50 % de la [icon:NAR_REW_COMBAT] Fuerza de combate de la unidad derrotada. Se desbloquean de inmediato todos los Esfuerzos básicos. Los Esfuerzos emprendidos con aliados no cuentan para el límite de solo un Esfuerzo de cada tipo activo a la vez. Tus aliados pueden apoyar tus Esfuerzos sin coste.</Text>
+      <Text>+2 de [icon:WAR_SUPPORT] Apoyo bélico si estás en solo una [icon:PLAYER_RELATIONSHIP_ALLIANCE] alianza. Cuando una de tus unidades militares derrota a una unidad enemiga, obtienes [icon:YIELD_DIPLOMACY] Influencia equivalente al 50 % de la [icon:NAR_REW_COMBAT] Fuerza de combate de la unidad derrotada. Se desbloquean de inmediato todos los Esfuerzos básicos. Los Esfuerzos emprendidos con aliados no cuentan para el límite de solo un Esfuerzo de cada tipo activo a la vez. Tus aliados pueden apoyar tus Esfuerzos sin coste.</Text>
     </Replace>
     <Replace Tag="LOC_LOADING_LEADER_INTRO_TEXT_GILGAMESH" Language="es_ES">
       <Text>Nadie ama más la vida que tú, Gilgamesh, el primero de los héroes y el mejor de los amigos. Los cedros se agitan con tu risa, el Tigris se inunda con tus lágrimas y tus enemigos tiemblan ante tu presencia. Un nuevo desafío aguarda; ven y escribe un nuevo verso en tu epopeya.</Text>
@@ -1073,9 +1085,9 @@
       <Text>Un tercio mortal, dos tercios dios.</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_LEADER_GILGAMESH_ABILITY_DESCRIPTION" Language="es_ES">
-      <Text>[BLIST][LI]+2 de [B][icon:WAR_SUPPORT] Apoyo bélico[/B] si estás en solo una alianza.
-				[LI]Cuando una de tus unidades militares derrote a una unidad enemiga, obtienes [B][icon:YIELD_DIPLOMACY] Influencia[/B] equivalente al 50 % de la [icon:NAR_REW_COMBAT] Fuerza de combate de la unidad derrotada. 
-				[LI]Se desbloquean de inmediato todos los Esfuerzos básicos. Los Esfuerzos emprendidos con aliados no cuentan para el límite de solo un Esfuerzo de cada tipo activo a la vez. Tus aliados pueden apoyar tus Esfuerzos sin coste. [/LIST]</Text>
+      <Text>[BLIST][LI]+2 de [B][icon:WAR_SUPPORT] Apoyo bélico[/B] si estás en solo una [icon:PLAYER_RELATIONSHIP_ALLIANCE] alianza.
+				[LI]Cuando una de tus unidades militares derrota a una unidad enemiga, obtienes [B][icon:YIELD_DIPLOMACY] Influencia[/B] equivalente al 50 % de la [icon:NAR_REW_COMBAT] Fuerza de combate de la unidad derrotada.
+				[LI]Se desbloquean de inmediato todos los Esfuerzos básicos. Los Esfuerzos emprendidos con aliados no cuentan para el límite de solo un Esfuerzo de cada tipo activo a la vez. Tus aliados pueden apoyar tus Esfuerzos sin coste.[/LIST]</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_LEADER_GILGAMESH_ABILITY_NAME" Language="es_ES">
       <Text>Un tercio mortal, dos tercios dios</Text>

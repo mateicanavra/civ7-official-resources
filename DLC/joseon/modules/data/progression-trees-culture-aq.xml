@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Types>
+		<Row Type="NODE_CIVIC_AQ_JOSEON_ORIGINS" Kind="KIND_TREE_NODE"/>
+	</Types>
+	<TypeQuotes>
+		<Row Type="NODE_CIVIC_AQ_JOSEON_ORIGINS" Quote="LOC_CIVIC_AQ_ORIGINS_QUOTE" QuoteAuthor="LOC_CIVIC_AQ_ORIGINS_AUTHOR" QuoteAudio="VO_Quote_ToT_ANT_Origins" />
+	</TypeQuotes>
+	<ProgressionTreeNodes>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_JOSEON_ORIGINS" ProgressionTree="TREE_CIVICS_AQ_TEST_OF_TIME" Cost="150" Name="LOC_NODE_CIVIC_AQ_JOSEON_ORIGINS_NAME" IconString="cult_joseon" CanSteal="false"/>
+	</ProgressionTreeNodes>
+	<ProgressionTreeNodeUnlocks>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_JOSEON_ORIGINS" TargetKind="KIND_TRADITION" TargetType="TRADITION_YANGBEOBMIUI_I" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_JOSEON_ORIGINS" TargetKind="KIND_MODIFIER" TargetType="MOD_PROGRESSION_TREE_JOSEON_CITY_LIMIT" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_JOSEON_ORIGINS" TargetKind="KIND_MODIFIER" TargetType="MOD_TOT_TRADITION_SLOT" UnlockDepth="1"/>
+	</ProgressionTreeNodeUnlocks>
+	<ProgressionTreeNodeTraits>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_JOSEON_ORIGINS" RequiredTraitType="TRAIT_JOSEON" />
+	</ProgressionTreeNodeTraits>
+	<ProgressionTreePrereqs>
+		<Row Node="NODE_CIVIC_AQ_FOUNDATION" PrereqNode="NODE_CIVIC_AQ_JOSEON_ORIGINS"/>
+		<Row Node="NODE_CIVIC_AQ_SYNCRETISM_CHOICE" PrereqNode="NODE_CIVIC_AQ_JOSEON_ORIGINS"/>
+	</ProgressionTreePrereqs>
+	<ProgressionTree_Advisories>
+	</ProgressionTree_Advisories>
+</Database>

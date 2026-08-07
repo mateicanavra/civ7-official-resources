@@ -43,6 +43,12 @@
     <Replace Tag="LOC_DIPLO_MAKE_DEAL_REJECTED_LEADER_GILGAMESH" Language="zh_Hant_HK">
       <Text>你的交易，嚐來只有灰燼的味道。</Text>
     </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_DECREASED_LEADER_GILGAMESH" Language="zh_Hant_HK">
+      <Text>你像安祖鳥一樣聒噪，像莉莉圖一樣匍匐。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_INCREASED_LEADER_GILGAMESH" Language="zh_Hant_HK">
+      <Text>做得好！來摔跤吧。</Text>
+    </Replace>
     <Replace Tag="LOC_MAIN_CHAR_SELECT_LEADER_GILGAMESH_ANY" Language="zh_Hant_HK">
       <Text>這些人自詡為王。可他們之中，有誰能誇口擁有我這神祇般的體魄、青金石般的鬍鬚，與閃電般的雙眼？</Text>
     </Replace>
@@ -617,13 +623,19 @@
       <Text>吉爾伽美什的近代奉獻軍事</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_ALLY_OF_ENKIDU_DESC" Language="zh_Hant_HK">
-      <Text>喜歡發起或支持最多外交手段的領袖，不喜歡與其他人處於同盟關係中的領袖。</Text>
+      <Text>喜歡發起或支持最多[icon:ENDEAVOR]外交手段的領袖，不喜歡與其他人處於[icon:PLAYER_RELATIONSHIP_ALLIANCE]同盟關係中的領袖。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_ALLY_OF_ENKIDU_DESC_DISLIKES" Language="zh_Hant_HK">
+      <Text>吉爾伽美什不喜歡與其他人處於[icon:PLAYER_RELATIONSHIP_ALLIANCE]同盟關係中的領袖。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_ALLY_OF_ENKIDU_DESC_LIKES" Language="zh_Hant_HK">
+      <Text>吉爾伽美什喜歡發起或支持最多[icon:ENDEAVOR]外交手段的領袖。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_ALLY_OF_ENKIDU_NAME" Language="zh_Hant_HK">
       <Text>恩奇都的盟友</Text>
     </Replace>
     <Replace Tag="LOC_LEADER_GILGAMESH_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>僅擁有一個同盟關係時，+2[icon:WAR_SUPPORT]戰爭支援。當你的一個軍事單位擊敗一個敵方單位時，獲得等同於遭擊敗單位之[icon:NAR_REW_COMBAT]戰鬥力50%的[icon:YIELD_DIPLOMACY]影響力。所有基礎外交手段將自動解鎖。與盟友進行的外交手段不受「同一時間僅能啟動一項同類型手段」的限制。盟友可免費支援你的外交手段。</Text>
+      <Text>僅擁有一個[icon:PLAYER_RELATIONSHIP_ALLIANCE]同盟關係時，+2[icon:WAR_SUPPORT]戰爭支援。當你的一個軍事單位擊敗一個敵方單位時，獲得等同於遭擊敗單位之[icon:NAR_REW_COMBAT]戰鬥力50%的[icon:YIELD_DIPLOMACY]影響力。所有基礎外交手段將自動解鎖。與盟友進行的外交手段不受「同一時間僅能啟動一項同類型手段」的限制。盟友可免費支援你的外交手段。</Text>
     </Replace>
     <Replace Tag="LOC_LOADING_LEADER_INTRO_TEXT_GILGAMESH" Language="zh_Hant_HK">
       <Text>無人比你更愛生命，吉爾伽美什——眾英雄之首，至友之友。雪松林因你的笑聲而震動，底格里斯河因你的淚水而漲溢，敵人因你的腳步而恐懼。新的挑戰在前——來吧，續寫你史詩的新篇。</Text>
@@ -1071,7 +1083,7 @@
       <Text>一分為人，二分為神</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_LEADER_GILGAMESH_ABILITY_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>[BLIST][LI]僅擁有一個同盟關係時，+2[B][icon:WAR_SUPPORT]戰爭支援[/B]。
+      <Text>[BLIST][LI]僅擁有一個[icon:PLAYER_RELATIONSHIP_ALLIANCE]同盟關係時，+2[B][icon:WAR_SUPPORT]戰爭支援[/B]。
 				[LI]當你的一個軍事單位擊敗一個敵方單位時，獲得等同於遭擊敗單位之[icon:NAR_REW_COMBAT]戰鬥力50%的[B][icon:YIELD_DIPLOMACY]影響力[/B]。
 				[LI]所有基礎外交手段將自動解鎖。與盟友進行的外交手段不受「同一時間僅能啟動一項同類型手段」的限制。盟友可免費支援你的外交手段。[/LIST]</Text>
     </Replace>

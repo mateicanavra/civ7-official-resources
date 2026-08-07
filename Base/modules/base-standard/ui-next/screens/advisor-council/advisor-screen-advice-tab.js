@@ -12,6 +12,7 @@ import { Tab } from '../../../../core/ui-next/components/tab.js';
 import { FocusManager } from '../../../../core/ui-next/services/focus-manager.js';
 import { isFocusable } from '../../../../core/ui-next/services/focus.js';
 import { IsControllerActive } from '../../../../core/ui-next/services/input.js';
+import { ViewExperience } from '../../../../core/ui-next/services/view-experience.js';
 import { useIsSmallScreen } from '../../../../core/ui-next/utilities/layout-utilities.js';
 import { AdvisorPortrait, AdvisorQuoteContainer } from './advisor-card.js';
 import { useAdvisorScreenContext, AdvicePanelTypes } from './advisor-screen-model.js';
@@ -22,6 +23,7 @@ const PortraitTab = (props) => {
   const isFollowing = () => model.isFollowing(props.type);
   const [isHovered, setIsHovered] = createSignal(false);
   const isSmallScreen = useIsSmallScreen();
+  const isMobile = ViewExperience() == UIViewExperience.Mobile;
   return (() => {
     var _el$ = _tmpl$3(), _el$2 = _el$.firstChild, _el$3 = _el$2.firstChild, _el$4 = _el$3.nextSibling, _el$5 = _el$4.nextSibling, _el$6 = _el$5.firstChild;
     insert(_el$3, createComponent(AdvisorPortrait, {
@@ -52,7 +54,7 @@ const PortraitTab = (props) => {
       get children() {
         return createComponent(L10n.Stylize, {
           get ["class"]() {
-            return `mt-6 mx-5 text-accent-3 self-center ${isSmallScreen() ? "text-sm" : "text-base"}`;
+            return `${isMobile ? "my-1 mx-4" : "mt-6 mx-5"} text-accent-3 self-center ${isSmallScreen() ? "text-sm" : "text-base"}`;
           },
           get text() {
             return props.quote;
@@ -61,7 +63,9 @@ const PortraitTab = (props) => {
       }
     }));
     insert(_el$5, createComponent(VSlot, {
-      "class": "mt-4 mb-8 flow-row justify-center",
+      get ["class"]() {
+        return `mt-4 ${isMobile && isSmallScreen() ? "mb-3" : "mb-8"} flow-row justify-center`;
+      },
       get children() {
         return createComponent(AudioContextProvider, {
           segment: "AdvisorScreen",
@@ -138,7 +142,7 @@ const PortraitTab = (props) => {
       }
     }), null);
     createRenderEffect((_p$) => {
-      var _v$ = `advisor-portrait-tab relative ${isSmallScreen() ? "mx-1" : "mx-2"}`, _v$2 = `advice-section-container relative flex flex-col justify-around ${isSmallScreen() ? "px-4" : "px-0"}`, _v$3 = `${isSmallScreen() ? "mt-8" : "mt-6"}`, _v$4 = `font-title font-black tracking-100 uppercase self-center text-center ${isSmallScreen() ? "text-sm my-5" : "text-base mt-8 mb-13"}`, _v$5 = `flex flex-col mt-4 ${isSmallScreen() ? "h-80 px-0" : "h-84  px-7"}`;
+      var _v$ = `advisor-portrait-tab relative ${isSmallScreen() ? "mx-1" : "mx-2"}`, _v$2 = `advice-section-container relative flex flex-col justify-around ${isSmallScreen() ? isMobile ? "px-2" : "px-4" : "px-0"}`, _v$3 = `${isSmallScreen() && !isMobile ? "mt-8" : "mt-6"}`, _v$4 = `advice-section-title font-title font-black tracking-100 uppercase self-center text-center ${isSmallScreen() ? "text-sm my-5" : "text-base mt-8 mb-13"}`, _v$5 = `advice-quote-container flex flex-col ${isSmallScreen() ? "h-80 px-0" : "h-84  px-7"}`;
       _v$ !== _p$.e && className(_el$, _p$.e = _v$);
       _v$2 !== _p$.t && className(_el$2, _p$.t = _v$2);
       _v$3 !== _p$.a && className(_el$3, _p$.a = _v$3);
@@ -158,13 +162,14 @@ const PortraitTab = (props) => {
 const MessageTab = (props) => {
   const [isHovered, setIsHovered] = createSignal(false);
   const model = useAdvisorScreenContext();
+  const isMobile = ViewExperience() == UIViewExperience.Mobile;
   const isSmallScreen = useIsSmallScreen();
   return (() => {
     var _el$9 = _tmpl$5(), _el$10 = _el$9.firstChild;
     var _ref$ = props.ref;
     typeof _ref$ === "function" ? use(_ref$, _el$9) : props.ref = _el$9;
     insert(_el$10, createComponent(ScrollArea, {
-      "class": "flex-auto h-full py-1",
+      "class": `flex-auto h-full ${isMobile ? "py-3" : "py-1"}`,
       get useProxy() {
         return isHovered();
       },
@@ -199,7 +204,7 @@ const MessageTab = (props) => {
               get text() {
                 return props.messageDescription;
               },
-              args: ["disableTooltips"]
+              disableTooltips: true
             });
           }
         }));
@@ -236,13 +241,14 @@ const MessageTab = (props) => {
 const NoteTab = (props) => {
   const [isHovered, setIsHovered] = createSignal(false);
   const model = useAdvisorScreenContext();
+  const isMobile = ViewExperience() == UIViewExperience.Mobile;
   const isSmallScreen = useIsSmallScreen();
   return (() => {
     var _el$15 = _tmpl$7(), _el$16 = _el$15.firstChild;
     var _ref$2 = props.ref;
     typeof _ref$2 === "function" ? use(_ref$2, _el$15) : props.ref = _el$15;
     insert(_el$16, createComponent(ScrollArea, {
-      "class": "flex-auto h-full py-1",
+      "class": `flex-auto h-full ${isMobile ? "py-3" : "py-1"}`,
       get useProxy() {
         return isHovered();
       },
@@ -274,7 +280,7 @@ const NoteTab = (props) => {
               get text() {
                 return props.noteDescription;
               },
-              args: ["disableTooltips"]
+              disableTooltips: true
             });
           }
         }));
@@ -318,6 +324,7 @@ const AdvisorTab = (props) => {
   const isFollowing = () => model.isFollowing(props.type);
   const model = useAdvisorScreenContext();
   const isSmallScreen = useIsSmallScreen();
+  const isMobileSmallScreen = ViewExperience() == UIViewExperience.Mobile && isSmallScreen();
   let messageTabRef;
   let noteTabRef;
   createEffect(on([IsControllerActive, model.getSelectedPanel], () => {
@@ -359,7 +366,9 @@ const AdvisorTab = (props) => {
                 }
               }),
               body: () => createComponent(HSlot, {
-                "class": "advisor-tabs-container flex justify-center w-full",
+                get ["class"]() {
+                  return `advisor-tabs-container flex justify-center w-full ${isMobileSmallScreen && IsControllerActive() ? "pb-6" : ""}`;
+                },
                 get children() {
                   return createComponent(Show, {
                     get when() {

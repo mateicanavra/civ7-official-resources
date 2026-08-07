@@ -14,6 +14,7 @@ const TooltipKeyword = (props) => {
         ...props.classList
       };
     },
+    name: "TooltipKeyword",
     get children() {
       return props.children;
     }

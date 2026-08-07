@@ -64,9 +64,6 @@
 		<Row Type="WONDER_SHWEDAGON_ZEDI_DAW" Kind="KIND_CONSTRUCTIBLE"/>
 		<Row Type="WONDER_TOMB_OF_ASKIA" Kind="KIND_CONSTRUCTIBLE"/>
 		<Row Type="WONDER_WHITE_TOWER" Kind="KIND_CONSTRUCTIBLE"/>
-		<!-- Antique Revived Buildings -->
-		<Row Type="BUILDING_ACADEMY_EX" Kind="KIND_CONSTRUCTIBLE"/>
-		<Row Type="BUILDING_AMPHITHEATER_EX" Kind="KIND_CONSTRUCTIBLE"/>
 	</Types>
 	<TypeQuotes>
 		<Row Type="WONDER_BOROBUDUR" Quote="LOC_QUOTE_WONDER_BOROBUDUR" QuoteAuthor="LOC_QUOTE_AUTHOR_WONDER_BOROBUDUR" QuoteAudio="VO_Quote_BoroBudur"/>
@@ -145,9 +142,6 @@
 		<Row ConstructibleType="WONDER_SHWEDAGON_ZEDI_DAW" Name="LOC_WONDER_SHWEDAGON_ZEDI_DAW_NAME" Description="LOC_WONDER_SHWEDAGON_ZEDI_DAW_DESCRIPTION" Tooltip="LOC_WONDER_SHWEDAGON_ZEDI_DAW_TOOLTIP" ConstructibleClass="WONDER" Cost="750" Population="0" ImmuneDamage="true" Age="AGE_EXPLORATION" AdjacentLake="true" RequiresUnlock="true" />
 		<Row ConstructibleType="WONDER_TOMB_OF_ASKIA" Name="LOC_WONDER_TOMB_OF_ASKIA_NAME" Description="LOC_WONDER_TOMB_OF_ASKIA_DESCRIPTION" Tooltip="LOC_WONDER_TOMB_OF_ASKIA_TOOLTIP" ConstructibleClass="WONDER" Cost="525" Population="0" ImmuneDamage="true" Age="AGE_EXPLORATION" RequiresUnlock="true" />
 		<Row ConstructibleType="WONDER_WHITE_TOWER" Name="LOC_WONDER_WHITE_TOWER_NAME" Description="LOC_WONDER_WHITE_TOWER_DESCRIPTION" Tooltip="LOC_WONDER_WHITE_TOWER_TOOLTIP" ConstructibleClass="WONDER" Cost="750" Population="0" ImmuneDamage="true" Age="AGE_EXPLORATION" RequiresUnlock="true" />
-		<!-- Antique Revived Buildings -->
-		<Row ConstructibleType="BUILDING_ACADEMY_EX" Name="LOC_BUILDING_ACADEMY_EX_NAME" Description="LOC_BUILDING_ACADEMY_DESCRIPTION" Tooltip="LOC_BUILDING_ACADEMY_TOOLTIP" ConstructibleClass="BUILDING" Cost="195" Population="1" Age="AGE_EXPLORATION" RequiresUnlock="true"/>
-		<Row ConstructibleType="BUILDING_AMPHITHEATER_EX" Name="LOC_BUILDING_AMPHITHEATER_EX_NAME" Description="LOC_BUILDING_AMPHITHEATER_DESCRIPTION" Tooltip="LOC_BUILDING_AMPHITHEATER_TOOLTIP" ConstructibleClass="BUILDING" Cost="195" Population="1" Age="AGE_EXPLORATION" RequiresUnlock="true"/>
 	</Constructibles>
 	<Buildings>
 		<Row ConstructibleType="BUILDING_ARMORER" Movable="false"/>
@@ -181,9 +175,6 @@
 		<Row ConstructibleType="BUILDING_MOTTE" Movable="false" TraitType="TRAIT_NORMAN"/>
 		<Row ConstructibleType="BUILDING_CASA_CONSISTORIAL" Movable="false" TraitType="TRAIT_SPAIN"/>
 		<Row ConstructibleType="BUILDING_CASA_DE_CONTRATACION" Movable="false" TraitType="TRAIT_SPAIN"/>
-		<!-- Antique Revived Buildings -->
-		<Row ConstructibleType="BUILDING_ACADEMY_EX" Movable="false"/>
-		<Row ConstructibleType="BUILDING_AMPHITHEATER_EX" Movable="false"/>
 	</Buildings>
 	<Improvements>
 		<!-- Civ Unique Improvements -->
@@ -400,11 +391,6 @@
 		<Row ConstructibleType="WONDER_SHWEDAGON_ZEDI_DAW" DistrictType="DISTRICT_WONDER"/>
 		<Row ConstructibleType="WONDER_TOMB_OF_ASKIA" DistrictType="DISTRICT_WONDER"/>
 		<Row ConstructibleType="WONDER_WHITE_TOWER" DistrictType="DISTRICT_WONDER"/>
-		<!-- Antique Revived Buildings -->
-		<Row ConstructibleType="BUILDING_ACADEMY_EX" DistrictType="DISTRICT_CITY_CENTER"/>
-		<Row ConstructibleType="BUILDING_ACADEMY_EX" DistrictType="DISTRICT_URBAN"/>
-		<Row ConstructibleType="BUILDING_AMPHITHEATER_EX" DistrictType="DISTRICT_CITY_CENTER"/>
-		<Row ConstructibleType="BUILDING_AMPHITHEATER_EX" DistrictType="DISTRICT_URBAN"/>
 	</Constructible_ValidDistricts>
 	<District_FreeConstructibles>
 	</District_FreeConstructibles>
@@ -514,9 +500,6 @@
 		<Row ConstructibleType="WONDER_SHWEDAGON_ZEDI_DAW" YieldType="YIELD_SCIENCE" YieldChange="4"/>
 		<Row ConstructibleType="WONDER_TOMB_OF_ASKIA" YieldType="YIELD_GOLD" YieldChange="2"/>
 		<Row ConstructibleType="WONDER_WHITE_TOWER" YieldType="YIELD_HAPPINESS" YieldChange="4"/>
-		<!-- Antique Revived Buildings -->
-		<Row ConstructibleType="BUILDING_ACADEMY_EX" YieldType="YIELD_SCIENCE" YieldChange="4"/>
-		<Row ConstructibleType="BUILDING_AMPHITHEATER_EX" YieldType="YIELD_CULTURE" YieldChange="4"/>
 	</Constructible_YieldChanges>
 	<Constructible_Maintenances>
 		<Row ConstructibleType="BUILDING_ARMORER" YieldType="YIELD_GOLD" Amount="3"/>
@@ -567,10 +550,6 @@
 		<Row ConstructibleType="BUILDING_CASA_CONSISTORIAL" YieldType="YIELD_GOLD" Amount="3"/>
 		<Row ConstructibleType="BUILDING_CASA_CONSISTORIAL" YieldType="YIELD_HAPPINESS" Amount="3"/>
 		<Row ConstructibleType="BUILDING_CASA_DE_CONTRATACION" YieldType="YIELD_HAPPINESS" Amount="3"/>
-		<Row ConstructibleType="BUILDING_ACADEMY_EX" YieldType="YIELD_GOLD" Amount="2"/>
-		<Row ConstructibleType="BUILDING_ACADEMY_EX" YieldType="YIELD_HAPPINESS" Amount="2"/>
-		<Row ConstructibleType="BUILDING_AMPHITHEATER_EX" YieldType="YIELD_GOLD" Amount="2"/>
-		<Row ConstructibleType="BUILDING_AMPHITHEATER_EX" YieldType="YIELD_HAPPINESS" Amount="2"/>
 	</Constructible_Maintenances>
 	<Constructible_Adjacencies>
 		<Row ConstructibleType="BUILDING_ARMORER" YieldChangeId="ResourceProduction"/>
@@ -651,12 +630,6 @@
 		<Row ConstructibleType="IMPROVEMENT_MING_GREAT_WALL" YieldChangeId="MingGreatWallChainGold"/>
 		<Row ConstructibleType="IMPROVEMENT_CARAVANSERAI" YieldChangeId="CaravansariResourceGold"/>
 		<Row ConstructibleType="IMPROVEMENT_CARAVANSERAI" YieldChangeId="CaravansariRiverGold"/>
-		<!-- Antique Revived Buildings -->
-		<Row ConstructibleType="BUILDING_ACADEMY_EX" YieldChangeId="ResourceScience"/>
-		<Row ConstructibleType="BUILDING_ACADEMY_EX" YieldChangeId="WonderScience"/>
-		<Row ConstructibleType="BUILDING_AMPHITHEATER_EX" YieldChangeId="MountainCulture"/>
-		<Row ConstructibleType="BUILDING_AMPHITHEATER_EX" YieldChangeId="NaturalWonderCulture"/>
-		<Row ConstructibleType="BUILDING_AMPHITHEATER_EX" YieldChangeId="WonderCulture"/>
 	</Constructible_Adjacencies>
 	<Adjacency_YieldChanges>
 		<!-- Standard -->
@@ -844,9 +817,6 @@
 		<Row ConstructibleType="IMPROVEMENT_MONASTERY" PlunderType="PLUNDER_HEAL" Amount="30"/>
 		<Row ConstructibleType="IMPROVEMENT_SAQIYA" PlunderType="PLUNDER_HEAL" Amount="30"/>
 		<Row ConstructibleType="IMPROVEMENT_MINOR_EMBASSY" PlunderType="PLUNDER_HEAL" Amount="30"/>
-		<!-- Antique Revived Buildings -->
-		<Row ConstructibleType="BUILDING_ACADEMY_EX" PlunderType="PLUNDER_SCIENCE" Amount="40"/>
-		<Row ConstructibleType="BUILDING_AMPHITHEATER_EX" PlunderType="PLUNDER_CULTURE" Amount="50"/>
 	</Constructible_Plunders>
 	<Constructible_BuildingCostProgressions>
 		<Row ConstructibleType="BUILDING_ARMORER" Percent="0" />
@@ -1017,9 +987,6 @@
 		<Row ConstructibleType="WONDER_TOMB_OF_ASKIA" AdvisoryClassType="ADVISORY_CLASS_ECONOMIC"/>
 		<Row ConstructibleType="WONDER_WHITE_TOWER" AdvisoryClassType="ADVISORY_CLASS_MILITARY"/>
 		<Row ConstructibleType="WONDER_WHITE_TOWER" AdvisoryClassType="ADVISORY_CLASS_HAPPINESS"/>
-		<!-- Antique Revived Buildings -->
-		<Row ConstructibleType="BUILDING_ACADEMY_EX" AdvisoryClassType="ADVISORY_CLASS_SCIENCE"/>
-		<Row ConstructibleType="BUILDING_AMPHITHEATER_EX" AdvisoryClassType="ADVISORY_CLASS_CULTURE"/>
 	</Constructible_Advisories>
 	<Constructible_GreatWorks>
 		<Row ConstructibleType="WONDER_EL_ESCORIAL" GreatWorkSlotType="GREATWORKSLOT_ANY" NumSlots="3"/>

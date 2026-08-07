@@ -454,10 +454,6 @@ function useLoadScreenContext() {
 const LoadScreen = (props) => {
   const model = useLoadScreenContext();
   const defaultTab = createMemo(() => model.startOnCivTab ? "civ-info" : "leader-info");
-  const beginGameSounds = {};
-  beginGameSounds.group = "main-menu-audio";
-  beginGameSounds.onActivate = "data-audio-begin-game";
-  beginGameSounds.onPress = "data-audio-begin-game-press";
   return createComponent(NestedTooltipContext.Provider, {
     value: {
       disabled: true
@@ -560,7 +556,6 @@ const LoadScreen = (props) => {
                               get onActivate() {
                                 return model.onBeginGame;
                               },
-                              audio: beginGameSounds,
                               get classList() {
                                 return {
                                   hidden: model.hideBeginButton

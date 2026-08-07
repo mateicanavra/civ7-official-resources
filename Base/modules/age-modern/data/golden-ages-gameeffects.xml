@@ -53,7 +53,7 @@
 		<Argument name="ConstructibleClass">BUILDING</Argument>
 		<Argument name="Percent">5</Argument>
 	</Modifier>
-	<Modifier id="MOD_GOLDEN_AGE_BUREAUCRATIC_MONARCHY_GOLD" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD">
+	<Modifier id="MOD_GOLDEN_AGE_BUREAUCRATIC_MONARCHY_GOLD" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD" permanent="true">
 		<Argument name="YieldType">YIELD_GOLD</Argument>
 		<Argument name="Amount" type="ScaleByGameSpeed">1000</Argument>
 	</Modifier>
@@ -72,7 +72,7 @@
 		<Argument name="Amount">1</Argument>
 		<Argument name="Tooltip">LOC_GOVERNMENT_ELECTIVE_REPUBLIC_NAME</Argument>
     </Modifier>
-	<Modifier id="MOD_GOLDEN_AGE_ELECTIVE_REPUBLIC_SCIENCE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD">
+	<Modifier id="MOD_GOLDEN_AGE_ELECTIVE_REPUBLIC_SCIENCE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD" permanent="true">
 		<Argument name="YieldType">YIELD_SCIENCE</Argument>
 		<Argument name="Amount" type="ScaleByGameSpeed">1000</Argument>
 	</Modifier>
@@ -129,7 +129,7 @@
 	</Modifier>
 	<!-- Revolución -->
 	<!-- +2 Happiness (per Age) in the Cities for each Tradition slotted into the Government.-->
-	<Modifier id="MOD_REVOLUCION_MO_PASSIVE_HAPPINESS" collection="COLLECTION_ALL_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_ACTIVE_TRADITION">
+	<Modifier id="MOD_REVOLUCION_MO_PASSIVE_HAPPINESS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_ACTIVE_TRADITION">
 		<SubjectRequirements>
 			<Requirement type="REQUIREMENT_CITY_IS_CITY"/>
 		</SubjectRequirements>

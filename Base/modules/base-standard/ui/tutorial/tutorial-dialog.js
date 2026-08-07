@@ -123,6 +123,7 @@ class TutorialDialogPanel extends Panel {
     window.removeEventListener(LoadCurtainClosedEventName, this.updateInteract);
     this.Root.removeEventListener("navigate-input", this.navigateInputListener);
     this.Root.removeEventListener("engine-input", this.engineInputListener);
+    ContextManager.pop(this.Root);
     Input.setActiveContext(InputContext.World);
     super.onDetach();
   }

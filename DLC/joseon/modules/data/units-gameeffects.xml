@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+	<!-- ==================================================	-->
+	<!--	Unique Abilities							-->
+	<!-- ==================================================	-->
+	<Modifier id="BYEONGSA_MOD_CAPITAL_COMBAT" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_ABILITY">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_IN_COMMAND_RADIUS"/>
+			<Requirement type="REQUIREMENT_PLOT_IS_ANY_CAPITAL"/>
+			<Requirement type="REQUIREMENT_UNIT_DOMAIN_MATCHES">
+				<Argument name="UnitDomain">DOMAIN_LAND</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="AbilityType">ABILITY_BYEONGSA_CAPITAL</Argument>
+	</Modifier>
+	<Modifier id="MOD_ABILITY_BYEONGSA_CAPITAL" collection="COLLECTION_UNIT_COMBAT" effect="EFFECT_ADJUST_UNIT_STRENGTH_MODIFIER">
+		<Argument name="Amount">5</Argument>
+		<String context="Preview">LOC_MOD_ABILITY_BYEONGSA_PREVIEW</String>
+	</Modifier>
+	<Modifier id="TURTLE_SHIP_RANGED_COMBAT_STRENGTH" collection="COLLECTION_OWNER" effect="EFFECT_UNIT_ADJUST_COMBAT_STRENGTH_BY_TERRAIN">
+		<Argument name="Amount">7</Argument>
+		<Argument name="TerrainType">TERRAIN_COAST</Argument>
+		<Argument name="CombatType">COMBAT_RANGED</Argument>
+	</Modifier>
+	<Modifier id="TURTLE_SHIP_BOMBARD_COMBAT_STRENGTH" collection="COLLECTION_OWNER" effect="EFFECT_UNIT_ADJUST_COMBAT_STRENGTH_BY_TERRAIN">
+		<Argument name="Amount">10</Argument>
+		<Argument name="TerrainType">TERRAIN_COAST</Argument>
+		<Argument name="CombatType">COMBAT_BOMBARD</Argument>
+	</Modifier>
+</GameEffects>

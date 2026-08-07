@@ -39,6 +39,7 @@
 		<Argument name="WeightType">DIPLOMACY_AGENDA_COMPARE_BIOMES</Argument>
 		<Argument name="FirstMeetDelay">20</Argument>
 		<Argument name="UpdateFreq">10</Argument>
+		<Argument name="UpdateFreqVariance">2</Argument>
 		<Argument name="AwardTo1">DIPLOMACY_AGENDA_AWARD_HIGHER</Argument>
 		<Argument name="AwardAmtType1">DIPLOMACY_AGENDA_NEG_AMT_MEDIUM</Argument>
 		<Argument name="Arg1">BIOME_PLAINS</Argument>
@@ -56,6 +57,14 @@
 		<Argument name="ConstructibleAdjacency">AshokaUniqueBuildingAdjacencyToImprovements</Argument>
 		<Argument name="Tooltip">LOC_TRAIT_LEADER_ASHOKA_ABILITY_NAME</Argument>
 	</Modifier>
+	<Modifier id="ASHOKA_MOD_WILDCARD_HAPPINESS_BUILDING_ADJACENCY_TO_IMPROVEMENTS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ACTIVATE_CONSTRUCTIBLE_ADJACENCY">
+		<Argument name="ConstructibleAdjacency">AshokaHappinessBuildingAdjacencyToImprovements</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_LEADER_ASHOKA_ABILITY_NAME</Argument>
+	</Modifier>
+	<Modifier id="ASHOKA_MOD_WILDCARD_FOOD_BUILDING_ADJACENCY_TO_IMPROVEMENTS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ACTIVATE_CONSTRUCTIBLE_ADJACENCY">
+		<Argument name="ConstructibleAdjacency">AshokaFoodBuildingAdjacencyToImprovements</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_LEADER_ASHOKA_ABILITY_NAME</Argument>
+	</Modifier>
 	<Modifier id="ASHOKA_MOD_HAPPINESS_FOOD" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_SURPLUS_HAPPINESS">
 		<SubjectRequirements>
 			<Requirement type="REQUIREMENT_CITY_IS_CITY"/>
@@ -65,12 +74,38 @@
 		<Argument name="Divisor">5</Argument>
 		<Argument name="Tooltip">LOC_TRAIT_LEADER_ASHOKA_ABILITY_NAME</Argument>
 	</Modifier>
-	<Modifier id="ASHOKA_MOD_CELEBRATION_FOOD" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
+	<Modifier id="ASHOKA_MOD_CELEBRATION_FOOD_HAPPY" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
 		<SubjectRequirements>
 			<Requirement type="REQUIREMENT_PLAYER_IS_IN_GOLDEN_AGE"/>
+			<Requirement type="REQUIREMENT_SETTLEMENT_HAPPINESS_STAGE_MATCHES">
+				<Argument name="IsGreaterThanOrEquals">true</Argument>
+				<Argument name="HappinessStage">HAPPINESS_STAGE_HAPPY</Argument>
+       		</Requirement>
 		</SubjectRequirements>
 		<Argument name="YieldType">YIELD_FOOD</Argument>
 		<Argument name="Percent">10</Argument>
+	</Modifier>
+	<Modifier id="ASHOKA_MOD_CELEBRATION_FOOD_JOYOUS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_IS_IN_GOLDEN_AGE"/>
+			<Requirement type="REQUIREMENT_SETTLEMENT_HAPPINESS_STAGE_MATCHES">
+				<Argument name="IsGreaterThanOrEquals">true</Argument>
+				<Argument name="HappinessStage">HAPPINESS_STAGE_JOYOUS</Argument>
+       		</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_FOOD</Argument>
+		<Argument name="Percent">5</Argument>
+	</Modifier>
+	<Modifier id="ASHOKA_MOD_CELEBRATION_FOOD_ECSTATIC" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_IS_IN_GOLDEN_AGE"/>
+			<Requirement type="REQUIREMENT_SETTLEMENT_HAPPINESS_STAGE_MATCHES">
+				<Argument name="IsGreaterThanOrEquals">true</Argument>
+				<Argument name="HappinessStage">HAPPINESS_STAGE_ECSTATIC</Argument>
+       		</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_FOOD</Argument>
+		<Argument name="Percent">5</Argument>
 	</Modifier>
 	<Modifier id="ASHOKA_MOD_AGENDA_WITHOUT_SORROW" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_AGENDA_TIMED_UPDATE">
 		<String context="Name">LOC_DIPLOMACY_AGENDA_WITHOUT_SORROW_NAME</String>
@@ -79,6 +114,7 @@
 		<Argument name="WeightType">DIPLOMACY_AGENDA_COMPARE_YIELD_TYPE</Argument>
 		<Argument name="FirstMeetDelay">20</Argument>
 		<Argument name="UpdateFreq">10</Argument>
+		<Argument name="UpdateFreqVariance">2</Argument>
 		<Argument name="AwardTo1">DIPLOMACY_AGENDA_AWARD_HIGHEST</Argument>
 		<Argument name="AwardAmtType1">DIPLOMACY_AGENDA_AMT_MEDIUM</Argument>
 		<Argument name="Arg1">YIELD_HAPPINESS</Argument>
@@ -127,6 +163,7 @@
 		<Argument name="WeightType">DIPLOMACY_AGENDA_COMPARE_NUM_CITIES_TOWNS</Argument>
 		<Argument name="FirstMeetDelay">20</Argument>
 		<Argument name="UpdateFreq">10</Argument>
+		<Argument name="UpdateFreqVariance">2</Argument>
 		<Argument name="AwardTo1">DIPLOMACY_AGENDA_AWARD_HIGHER</Argument>
 		<!--  Since Weight Type is Cities Towns I have Award 1 relating to Cities since they're listed first.  -->
 		<Argument name="AwardAmtType1">DIPLOMACY_AGENDA_AMT_SMALL</Argument>
@@ -196,6 +233,7 @@
 		<Argument name="WeightType">DIPLOMACY_AGENDA_JUST_DESCRIPTION</Argument>
 		<Argument name="FirstMeetDelay">200</Argument>
 		<Argument name="UpdateFreq">100</Argument>
+		<Argument name="UpdateFreqVariance">2</Argument>
 		<Argument name="AwardTo1">DIPLOMACY_AGENDA_AWARD_IGNORE</Argument>
 		<Argument name="AwardAmtType1">DIPLOMACY_AGENDA_AMT_SMALL</Argument>
 		<Argument name="NotifyMessage">LOC_NOTIFICATION_DIPLOMATIC_AGENDA_DEFAULT_MESSAGE</Argument>
@@ -235,6 +273,7 @@
 		<Argument name="WeightType">DIPLOMACY_AGENDA_COMPARE_NUM_GREAT_WORKS</Argument>
 		<Argument name="FirstMeetDelay">20</Argument>
 		<Argument name="UpdateFreq">10</Argument>
+		<Argument name="UpdateFreqVariance">2</Argument>
 		<Argument name="AwardTo1">DIPLOMACY_AGENDA_AWARD_HIGHEST</Argument>
 		<Argument name="AwardAmtType1">DIPLOMACY_AGENDA_NEG_AMT_MEDIUM</Argument>
 		<Argument name="AwardTo2">DIPLOMACY_AGENDA_AWARD_LOWEST</Argument>
@@ -271,6 +310,7 @@
 		<Argument name="WeightType">DIPLOMACY_AGENDA_COMPARE_GOLDEN_AGES</Argument>
 		<Argument name="FirstMeetDelay">20</Argument>
 		<Argument name="UpdateFreq">10</Argument>
+		<Argument name="UpdateFreqVariance">2</Argument>
 		<Argument name="AwardTo1">DIPLOMACY_AGENDA_AWARD_HIGHEST</Argument>
 		<Argument name="AwardAmtType1">DIPLOMACY_AGENDA_AMT_MEDIUM</Argument>
 		<Argument name="AwardTo2">DIPLOMACY_AGENDA_AWARD_LOWEST</Argument>
@@ -300,6 +340,7 @@
 		<Argument name="WeightType">DIPLOMACY_AGENDA_COMPARE_DISTRICT_SPECIALISTS</Argument>
 		<Argument name="FirstMeetDelay">20</Argument>
 		<Argument name="UpdateFreq">10</Argument>
+		<Argument name="UpdateFreqVariance">2</Argument>
 		<Argument name="AwardTo1">DIPLOMACY_AGENDA_AWARD_HIGHEST</Argument>
 		<Argument name="AwardAmtType1">DIPLOMACY_AGENDA_AMT_MEDIUM</Argument>
 		<Argument name="AwardTo2">DIPLOMACY_AGENDA_AWARD_LOWEST</Argument>
@@ -348,6 +389,7 @@
 		<Argument name="WeightType">DIPLOMACY_AGENDA_COMPARE_NUM_COMBAT_UNITS</Argument>
 		<Argument name="FirstMeetDelay">20</Argument>
 		<Argument name="UpdateFreq">10</Argument>
+		<Argument name="UpdateFreqVariance">2</Argument>
 		<Argument name="AwardTo1">DIPLOMACY_AGENDA_AWARD_LOWEST</Argument>
 		<Argument name="AwardAmtType1">DIPLOMACY_AGENDA_NEG_AMT_MEDIUM</Argument>
 		<Argument name="AwardTo2">DIPLOMACY_AGENDA_AWARD_HIGHEST</Argument>
@@ -412,6 +454,7 @@
 		<Argument name="WeightType">DIPLOMACY_AGENDA_COMPARE_NUM_WONDERS</Argument>
 		<Argument name="FirstMeetDelay">20</Argument>
 		<Argument name="UpdateFreq">10</Argument>
+		<Argument name="UpdateFreqVariance">2</Argument>
 		<Argument name="AwardTo1">DIPLOMACY_AGENDA_AWARD_HIGHER</Argument>
 		<Argument name="AwardAmtType1">DIPLOMACY_AGENDA_NEG_AMT_MEDIUM</Argument>
 		<Argument name="AwardTo2">DIPLOMACY_AGENDA_AWARD_LOWER</Argument>
@@ -457,6 +500,7 @@
 		<Argument name="WeightType">DIPLOMACY_AGENDA_COMPARE_DISTRICTS2</Argument>
 		<Argument name="FirstMeetDelay">20</Argument>
 		<Argument name="UpdateFreq">10</Argument>
+		<Argument name="UpdateFreqVariance">2</Argument>
 		<Argument name="AwardTo1">DIPLOMACY_AGENDA_AWARD_ALL</Argument>
 		<Argument name="AwardAmtType1">DIPLOMACY_AGENDA_NEG_AMT_SMALL</Argument>
 		<Argument name="Arg1">CULTURE</Argument>
@@ -484,6 +528,7 @@
 		<Argument name="WeightType">DIPLOMACY_AGENDA_COMPARE_REVEALED_TILES</Argument>
 		<Argument name="FirstMeetDelay">10</Argument>
 		<Argument name="UpdateFreq">10</Argument>
+		<Argument name="UpdateFreqVariance">2</Argument>
 		<Argument name="AwardTo1">DIPLOMACY_AGENDA_AWARD_HIGHEST</Argument>
 		<Argument name="AwardAmtType1">DIPLOMACY_AGENDA_AMT_LARGE</Argument>
 		<Argument name="AwardTo2">DIPLOMACY_AGENDA_AWARD_LOWEST</Argument>
@@ -523,6 +568,7 @@
 		<Argument name="WeightType">DIPLOMACY_AGENDA_COMPARE_NUM_NATURAL_WONDERS</Argument>
 		<Argument name="FirstMeetDelay">20</Argument>
 		<Argument name="UpdateFreq">10</Argument>
+		<Argument name="UpdateFreqVariance">2</Argument>
 		<Argument name="AwardTo1">DIPLOMACY_AGENDA_AWARD_ALL</Argument>
 		<Argument name="AwardAmtType1">DIPLOMACY_AGENDA_NEG_AMT_MEDIUM</Argument>
 		<Argument name="AwardTo2">DIPLOMACY_AGENDA_AWARD_NONE</Argument>
@@ -570,6 +616,7 @@
 		<Argument name="WeightType">DIPLOMACY_AGENDA_COMPARE_NUM_PROJECTS</Argument>
 		<Argument name="FirstMeetDelay">20</Argument>
 		<Argument name="UpdateFreq">10</Argument>
+		<Argument name="UpdateFreqVariance">2</Argument>
 		<Argument name="AwardTo1">DIPLOMACY_AGENDA_AWARD_HIGHEST</Argument>
 		<Argument name="AwardAmtType1">DIPLOMACY_AGENDA_AMT_MEDIUM</Argument>
 		<Argument name="Arg1">DIPLOMACY_ACTION_GROUP_ENDEAVOR</Argument>
@@ -612,6 +659,7 @@
 		<Argument name="WeightType">DIPLOMACY_AGENDA_COMPARE_DISTRICT_BUILDINGS</Argument>
 		<Argument name="FirstMeetDelay">20</Argument>
 		<Argument name="UpdateFreq">10</Argument>
+		<Argument name="UpdateFreqVariance">2</Argument>
 		<Argument name="AwardTo1">DIPLOMACY_AGENDA_AWARD_HIGHEST</Argument>
 		<Argument name="AwardAmtType1">DIPLOMACY_AGENDA_AMT_SMALL</Argument>
 		<Argument name="Arg1">DISTRICT_URBAN</Argument>		<!-- What districts do we consider.  -->
@@ -660,6 +708,7 @@
 		<Argument name="WeightType">DIPLOMACY_AGENDA_WEIGHTING_AT_WAR</Argument>
 		<Argument name="FirstMeetDelay">20</Argument>
 		<Argument name="UpdateFreq">10</Argument>
+		<Argument name="UpdateFreqVariance">2</Argument>
 		<Argument name="AwardTo1">DIPLOMACY_AGENDA_AWARD_FOR_EACH</Argument>
 		<Argument name="AwardAmtType1">DIPLOMACY_AGENDA_AMT_MEDIUM</Argument>
 		<Argument name="NotifyMessage">LOC_NOTIFICATION_DIPLOMATIC_AGENDA_DEFAULT_MESSAGE</Argument>
@@ -708,6 +757,7 @@
 		<Argument name="WeightType">DIPLOMACY_AGENDA_COMPARE_NUM_TERRAIN_TYPE</Argument>
 		<Argument name="FirstMeetDelay">20</Argument>
 		<Argument name="UpdateFreq">10</Argument>
+		<Argument name="UpdateFreqVariance">2</Argument>
 		<Argument name="AwardTo1">DIPLOMACY_AGENDA_AWARD_LOWEST</Argument>
 		<Argument name="AwardAmtType1">DIPLOMACY_AGENDA_AMT_MEDIUM</Argument>
 		<Argument name="Arg1">TERRAIN_MOUNTAIN</Argument>
@@ -792,6 +842,7 @@
 		<Argument name="WeightType">DIPLOMACY_AGENDA_COMPARE_COMMANDERS</Argument>
 		<Argument name="FirstMeetDelay">20</Argument>
 		<Argument name="UpdateFreq">10</Argument>
+		<Argument name="UpdateFreqVariance">2</Argument>
 		<Argument name="AwardTo1">DIPLOMACY_AGENDA_AWARD_HIGHEST</Argument>
 		<Argument name="AwardAmtType1">DIPLOMACY_AGENDA_NEG_AMT_MEDIUM</Argument>
 		<Argument name="AwardTo2">DIPLOMACY_AGENDA_AWARD_LOWEST</Argument>
@@ -849,6 +900,7 @@
 		<Argument name="WeightType">DIPLOMACY_AGENDA_WEIGHTING_AT_WAR</Argument>
 		<Argument name="FirstMeetDelay">20</Argument>
 		<Argument name="UpdateFreq">10</Argument>
+		<Argument name="UpdateFreqVariance">2</Argument>
 		<Argument name="AwardTo1">DIPLOMACY_AGENDA_AWARD_ALL_NOT</Argument>
 		<Argument name="AwardAmtType1">DIPLOMACY_AGENDA_NEG_AMT_MEDIUM</Argument>
 		<Argument name="AwardTo2">DIPLOMACY_AGENDA_AWARD_AT_LEAST_ONE</Argument>

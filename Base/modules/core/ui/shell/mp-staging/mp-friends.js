@@ -139,6 +139,14 @@ class PanelMPPlayerOptions extends Panel {
           this.tabBar?.setAttribute("selected-tab-index", 3 /* NotificationsTab */.toString());
           this.tabInitialized = true;
           break;
+        case "lobby-list-tab":
+          this.tabBar?.setAttribute("selected-tab-index", 0 /* LobbyTab */.toString());
+          this.tabInitialized = true;
+          break;
+        case "friends-list-tab":
+          this.tabBar?.setAttribute("selected-tab-index", 2 /* FriendsListTab */.toString());
+          this.tabInitialized = true;
+          break;
       }
     }
   }

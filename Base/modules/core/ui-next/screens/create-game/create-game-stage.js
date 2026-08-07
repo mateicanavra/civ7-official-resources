@@ -1,4 +1,4 @@
-import { template, insert, setAttribute } from '../../../vendor/solid-js/web/dist/web.js';
+import { template, insert, className, setAttribute } from '../../../vendor/solid-js/web/dist/web.js';
 import { createMemo, createComponent, Show, createRenderEffect } from '../../../vendor/solid-js/dist/solid.js';
 import ContextManager from '../../../ui/context-manager/context-manager.js';
 import { ScreenProfilePageExternalStatus } from '../../../ui/profile-page/screen-profile-page.js';
@@ -18,7 +18,7 @@ import { ComponentRegistry } from '../../services/component-registry.js';
 import { LayoutModel, useIsSmallScreen } from '../../utilities/layout-utilities.js';
 import style from './create-game-stage.scss.js';
 
-var _tmpl$ = /* @__PURE__ */ template(`<div class=filigree-divider-h2></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class=fullscreen><div class=create-game-stage-header></div><div class="create-game-stage-body relative"><div class="absolute inset-0\\.5 overflow-hidden"><div class="absolute inset-y-px -left-1 pointer-events-none"></div></div><div class="absolute left-0 right-0 -top-5 flex flex-row items-center justify-center -scale-y-100"></div><div class="absolute inset-y-1 inset-x-0"></div></div></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="text-tertiary-1 flex flex-row uppercase"></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div class="create-game-badge-container img-prof-btn-bg pointer-events-auto relative group group-pressed\\:scale-110 group-hover\\:scale-110 group-focus\\:scale-110"><div class="absolute inset-0 opacity-30 group-pressed\\:scale-110 group-hover\\:scale-110 group-focus\\:scale-110"></div></div>`), _tmpl$5 = /* @__PURE__ */ template(`<div class="create-game-stage-header-container pb-6 h-full flex flex-col items-center justify-center relative"><div class=h-5></div><div class=grow></div><div class="flex flex-row items-center justify-center -my-1\\.5"><div class="create-games-stage-header-filigree mt-1"></div><div class="create-game-header-title font-title text-tertiary-1 font-black mx-7 uppercase"></div><div class="create-games-stage-header-filigree mt-1 -scale-x-100"></div></div><div class=grow></div><div class="create-game-header-left-button-area flex flex-row items-center justify-center absolute"></div><div class="create-game-header-right-button-area flex flex-row items-center justify-center absolute"></div></div>`);
+var _tmpl$ = /* @__PURE__ */ template(`<div class=filigree-divider-h2></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class=fullscreen><div class=create-game-stage-header></div><div class="create-game-stage-body relative flex-auto"><div><div class="absolute inset-y-px -left-1 pointer-events-none"></div></div><div class="absolute left-0 right-0 -top-5 flex flex-row items-center justify-center -scale-y-100"></div><div class="absolute inset-y-1 inset-x-0"></div></div></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="text-tertiary-1 flex flex-row uppercase"></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div class="create-game-badge-container img-prof-btn-bg pointer-events-auto relative group group-pressed\\:scale-110 group-hover\\:scale-110 group-focus\\:scale-110"><div class="absolute inset-0 opacity-30 group-pressed\\:scale-110 group-hover\\:scale-110 group-focus\\:scale-110"></div></div>`), _tmpl$5 = /* @__PURE__ */ template(`<div class="create-game-stage-header-container pb-6 h-full flex flex-col items-center justify-center relative"><div class=h-5></div><div class=grow></div><div class="flex flex-row items-center justify-center -my-1\\.5"><div class="create-games-stage-header-filigree mt-1"></div><div class="create-game-header-title font-title text-tertiary-1 font-black mx-7 uppercase"></div><div class="create-games-stage-header-filigree mt-1 -scale-x-100"></div></div><div class=grow></div><div class="create-game-header-left-button-area flex flex-row items-center justify-center absolute"></div><div class="create-game-header-right-button-area flex flex-row items-center justify-center absolute"></div></div>`);
 var CreateGameStageMode = /* @__PURE__ */ ((CreateGameStageMode2) => {
   CreateGameStageMode2[CreateGameStageMode2["Full"] = 0] = "Full";
   CreateGameStageMode2[CreateGameStageMode2["StageOnly"] = 1] = "StageOnly";
@@ -396,13 +396,17 @@ const CreateGameStageComponent = (props) => {
     }));
     insert(_el$8, () => props.children);
     createRenderEffect((_p$) => {
-      var _v$ = `${getBodyHeight()}px`, _v$2 = !!props.addTextBgGradient;
+      var _v$ = `${getBodyHeight()}px`, _v$2 = `${getBodyHeight()}px`, _v$3 = `absolute top-0 my-0\\.5 overflow-hidden ${isSmallScreen() ? `fullscreen-outside-safezone-x-bot` : `fullscreen-outside-safezone-x bottom-0`}`, _v$4 = !!props.addTextBgGradient;
       _v$ !== _p$.e && ((_p$.e = _v$) != null ? _el$3.style.setProperty("height", _v$) : _el$3.style.removeProperty("height"));
-      _v$2 !== _p$.t && _el$5.classList.toggle("create-game-text-gradient", _p$.t = _v$2);
+      _v$2 !== _p$.t && ((_p$.t = _v$2) != null ? _el$3.style.setProperty("max-height", _v$2) : _el$3.style.removeProperty("max-height"));
+      _v$3 !== _p$.a && className(_el$4, _p$.a = _v$3);
+      _v$4 !== _p$.o && _el$5.classList.toggle("create-game-text-gradient", _p$.o = _v$4);
       return _p$;
     }, {
       e: void 0,
-      t: void 0
+      t: void 0,
+      a: void 0,
+      o: void 0
     });
     return _el$;
   })()];
@@ -420,8 +424,9 @@ var ExitButtonPosition = /* @__PURE__ */ ((ExitButtonPosition2) => {
 })(ExitButtonPosition || {});
 const CreateGameStageHeaderComponent = (props) => {
   const context = useScreenFlowContext();
+  const isMobile = UI.getViewExperience() == UIViewExperience.Mobile;
   const isSmallScreen = useIsSmallScreen();
-  const badgeSize = createMemo(() => isSmallScreen() ? BadgeSize.MICRO : BadgeSize.MINI);
+  const badgeSize = createMemo(() => isSmallScreen() ? isMobile ? BadgeSize.SMALL : BadgeSize.MICRO : BadgeSize.MINI);
   const playerCardInfo = createMemo(() => getPlayerCardInfo());
   function onProgressionBadge() {
     if (Network.isMetagamingAvailable()) {
@@ -548,9 +553,9 @@ const CreateGameStageHeaderComponent = (props) => {
                 "class": "group-pressed\\:scale-110 group-hover\\:scale-110 group-focus\\:scale-110"
               }), null);
               createRenderEffect((_p$) => {
-                var _v$3 = playerCardInfo().twoKName, _v$4 = playerCardInfo().BackgroundColor;
-                _v$3 !== _p$.e && setAttribute(_el$19, "data-tooltip-content", _p$.e = _v$3);
-                _v$4 !== _p$.t && ((_p$.t = _v$4) != null ? _el$20.style.setProperty("background-color", _v$4) : _el$20.style.removeProperty("background-color"));
+                var _v$5 = playerCardInfo().twoKName, _v$6 = playerCardInfo().BackgroundColor;
+                _v$5 !== _p$.e && setAttribute(_el$19, "data-tooltip-content", _p$.e = _v$5);
+                _v$6 !== _p$.t && ((_p$.t = _v$6) != null ? _el$20.style.setProperty("background-color", _v$6) : _el$20.style.removeProperty("background-color"));
                 return _p$;
               }, {
                 e: void 0,

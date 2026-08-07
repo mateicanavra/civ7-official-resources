@@ -1,9 +1,11 @@
 import { template, spread, insert } from '../../vendor/solid-js/web/dist/web.js';
 import { createComponent, createSignal, mergeProps, createEffect, Show } from '../../vendor/solid-js/dist/solid.js';
 import { Activatable } from './activatable.js';
+import { useAudio } from '../services/audio-support.js';
 
 var _tmpl$ = /* @__PURE__ */ template(`<div></div>`);
 const AccordianHeader = (props) => {
+  const audioTrigger = useAudio();
   return createComponent(Activatable, {
     get ["class"]() {
       return `accordian-header w-full flex flex-row items-center relative group ${props.class ?? ""}`;
@@ -11,8 +13,16 @@ const AccordianHeader = (props) => {
     get style() {
       return props.style;
     },
-    onActivate: () => props.setIsCollapsed((value) => !value),
+    onActivate: () => {
+      props.setIsCollapsed((value) => !value);
+      if (props.isCollapsed()) {
+        audioTrigger("dropdown-close");
+      } else {
+        audioTrigger("dropdown-open");
+      }
+    },
     "data-name": "accordian-header",
+    audioComponentAlias: "AccordianHeader",
     get children() {
       return props.children;
     }

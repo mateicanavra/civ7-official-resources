@@ -1,5 +1,6 @@
 import { template, insert } from '../../../../core/vendor/solid-js/web/dist/web.js';
 import { useContext, onMount, onCleanup, createComponent, For } from '../../../../core/vendor/solid-js/dist/solid.js';
+import { useAudio } from '../../../../core/ui-next/services/audio-support.js';
 import ActionHandler from '../../../../core/ui/input/action-handler.js';
 import { L10n } from '../../../../core/ui-next/components/l10n.js';
 import { VSlot } from '../../../../core/ui-next/components/slot.js';
@@ -10,12 +11,14 @@ import { useVictoriesScreenContext, VictoryTabType } from './victories-screen-mo
 import { VictoryRow } from './victory-tab-base.js';
 
 var _tmpl$ = /* @__PURE__ */ template(`<div class="w-full h-full flex flex-row"><div class="w-full self-center"><div class="ml-2 uppercase fxs-header"></div></div></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="victories-econ-col-3 victories-economic-graph relative"><div class="ml-8 mt-8 font-title-lg"><div class="fxs-header uppercase"></div><div class="font-body-base text-body"></div><div class="fxs-header mt-4 uppercase"></div><div class="font-body-base text-body"></div></div></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="victories-econ-col-1-and-2-and-4 h-full relative"></div>`);
+const audio = useAudio("VictoryScreen/TabListItem");
 const ScoreVictoryTab = () => {
   const model = useVictoriesScreenContext();
   const layoutModel = LayoutModel.get();
   const hotkeyContext = useContext(HotkeyContext);
   onMount(() => {
     model.tabNavStartup(hotkeyContext);
+    audio("tab-nav-score");
   });
   onCleanup(() => {
     model.tabNavShutdown(hotkeyContext);

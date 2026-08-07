@@ -1,48 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Database>
-	<Civilizations>
-		<!-- Replace civics tree. -->
-		<Update>
-			<Where CivilizationType="CIVILIZATION_AKSUM" />
-			<Set UniqueCultureProgressionTree="TREE_CIVICS_EX_TEST_OF_TIME" />
-		</Update>
-		<Update>
-			<Where CivilizationType="CIVILIZATION_EGYPT" />
-			<Set UniqueCultureProgressionTree="TREE_CIVICS_EX_TEST_OF_TIME" />
-		</Update>
-		<Update>
-			<Where CivilizationType="CIVILIZATION_GREECE" />
-			<Set UniqueCultureProgressionTree="TREE_CIVICS_EX_TEST_OF_TIME" />
-		</Update>
-		<Update>
-			<Where CivilizationType="CIVILIZATION_HAN" />
-			<Set UniqueCultureProgressionTree="TREE_CIVICS_EX_TEST_OF_TIME" />
-		</Update>
-		<Update>
-			<Where CivilizationType="CIVILIZATION_KHMER" />
-			<Set UniqueCultureProgressionTree="TREE_CIVICS_EX_TEST_OF_TIME" />
-		</Update>
-		<Update>
-			<Where CivilizationType="CIVILIZATION_MAURYA" />
-			<Set UniqueCultureProgressionTree="TREE_CIVICS_EX_TEST_OF_TIME" />
-		</Update>
-		<Update>
-			<Where CivilizationType="CIVILIZATION_MAYA" />
-			<Set UniqueCultureProgressionTree="TREE_CIVICS_EX_TEST_OF_TIME" />
-		</Update>
-		<Update>
-			<Where CivilizationType="CIVILIZATION_MISSISSIPPIAN" />
-			<Set UniqueCultureProgressionTree="TREE_CIVICS_EX_TEST_OF_TIME" />
-		</Update>
-		<Update>
-			<Where CivilizationType="CIVILIZATION_PERSIA" />
-			<Set UniqueCultureProgressionTree="TREE_CIVICS_EX_TEST_OF_TIME" />
-		</Update>
-		<Update>
-			<Where CivilizationType="CIVILIZATION_ROME" />
-			<Set Description="LOC_CIVILIZATION_ROME_EX_DESCRIPTION" UniqueCultureProgressionTree="TREE_CIVICS_EX_TEST_OF_TIME" />
-		</Update>
-	</Civilizations>
 	<Traits>
 		<Update>
 			<Where TraitType="TRAIT_ROME_ABILITY" />
@@ -82,16 +39,4 @@
 		<Row TraitType="TRAIT_ROME_ABILITY" ModifierId="TRAIT_MOD_TWELVE_TABLES_TOWNS"/>
 		<Row TraitType="TRAIT_ROME_ABILITY" ModifierId="TRAIT_MOD_TWELVE_TABLES_TOWN_INFANTRY"/>
 	</TraitModifiers>
-	<CivilizationTraits>
-		<Row CivilizationType="CIVILIZATION_AKSUM" TraitType="TRAIT_ANACHRONISTIC_CIV" />
-		<Row CivilizationType="CIVILIZATION_EGYPT" TraitType="TRAIT_ANACHRONISTIC_CIV" />
-		<Row CivilizationType="CIVILIZATION_GREECE" TraitType="TRAIT_ANACHRONISTIC_CIV" />
-		<Row CivilizationType="CIVILIZATION_HAN" TraitType="TRAIT_ANACHRONISTIC_CIV" />
-		<Row CivilizationType="CIVILIZATION_KHMER" TraitType="TRAIT_ANACHRONISTIC_CIV" />
-		<Row CivilizationType="CIVILIZATION_MAURYA" TraitType="TRAIT_ANACHRONISTIC_CIV" />
-		<Row CivilizationType="CIVILIZATION_MAYA" TraitType="TRAIT_ANACHRONISTIC_CIV" />
-		<Row CivilizationType="CIVILIZATION_MISSISSIPPIAN" TraitType="TRAIT_ANACHRONISTIC_CIV" />
-		<Row CivilizationType="CIVILIZATION_PERSIA" TraitType="TRAIT_ANACHRONISTIC_CIV" />
-		<Row CivilizationType="CIVILIZATION_ROME" TraitType="TRAIT_ANACHRONISTIC_CIV" />
-	</CivilizationTraits>
 </Database>

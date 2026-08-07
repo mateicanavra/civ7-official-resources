@@ -43,6 +43,12 @@
     <Replace Tag="LOC_DIPLO_MAKE_DEAL_REJECTED_LEADER_GILGAMESH" Language="ko_KR">
       <Text>그대의 거래에서는 재 맛이 나는구나.</Text>
     </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_DECREASED_LEADER_GILGAMESH" Language="ko_KR">
+      <Text>괴조 안주처럼 꽥꽥대고, 릴리투처럼 기어다니는군.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLO_RELATIONSHIP_INCREASED_LEADER_GILGAMESH" Language="ko_KR">
+      <Text>잘했다! 이제 몸싸움이나 한 판 해보자고.</Text>
+    </Replace>
     <Replace Tag="LOC_MAIN_CHAR_SELECT_LEADER_GILGAMESH_ANY" Language="ko_KR">
       <Text>다른 자들은 왕을 자처하는군. 그들 중 누가 나처럼 신과 같은 체격, 청금석 수염, 번뜩이는 눈을 가졌단 말이냐?</Text>
     </Replace>
@@ -618,13 +624,19 @@
       <Text>길가메시 근대 집중 전략 군사</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_ALLY_OF_ENKIDU_DESC" Language="ko_KR">
-      <Text>가장 많은 외교 노력을 시작했거나 지지한 지도자를 좋아합니다. 다른 지도자와 동맹을 맺고 있는 지도자를 싫어합니다.</Text>
+      <Text>가장 많은 [icon:ENDEAVOR] 외교 노력을 시작했거나 지지한 지도자를 좋아합니다. 다른 지도자와 [icon:PLAYER_RELATIONSHIP_ALLIANCE] 동맹을 맺고 있는 지도자를 싫어합니다.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_ALLY_OF_ENKIDU_DESC_DISLIKES" Language="ko_KR">
+      <Text>길가메시는 다른 지도자와 [icon:PLAYER_RELATIONSHIP_ALLIANCE] 동맹을 맺은 지도자를 싫어합니다.</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_AGENDA_ALLY_OF_ENKIDU_DESC_LIKES" Language="ko_KR">
+      <Text>길가메시는 가장 많은 [icon:ENDEAVOR] 외교 노력을 시작했거나 지지한 지도자를 좋아합니다.</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_AGENDA_ALLY_OF_ENKIDU_NAME" Language="ko_KR">
       <Text>엔키두의 동맹</Text>
     </Replace>
     <Replace Tag="LOC_LEADER_GILGAMESH_DESCRIPTION" Language="ko_KR">
-      <Text>하나의 동맹에만 소속된 경우 [icon:WAR_SUPPORT] 전쟁 지원을 +2회 얻습니다. 우리 문명의 군사 유닛이 적 유닛을 처치하면, 처치한 유닛 [icon:NAR_REW_COMBAT] 전투력의 50%에 해당하는 [icon:YIELD_DIPLOMACY] 영향력을 얻습니다. 모든 기본 외교 노력이 자동으로 잠금 해제됩니다. 같은 유형의 외교 노력은 한 번에 하나만 활성화할 수 있지만, 동맹과의 외교 노력은 이 제한을 받지 않게 됩니다. 동맹은 우리의 외교 노력을 무료로 지원할 수 있습니다.</Text>
+      <Text>하나의 [icon:PLAYER_RELATIONSHIP_ALLIANCE] 동맹에만 소속된 경우 [icon:WAR_SUPPORT] 전쟁 지원을 +2회 얻습니다. 우리 문명의 군사 유닛이 적 유닛을 처치하면, 처치한 유닛 [icon:NAR_REW_COMBAT] 전투력의 50%에 해당하는 [icon:YIELD_DIPLOMACY] 영향력을 얻습니다. 모든 기본 외교 노력이 자동으로 잠금 해제됩니다. 같은 유형의 외교 노력은 한번에 하나만 활성화할 수 있지만, 동맹과의 외교 노력은 이 제한을 받지 않게 됩니다. 동맹은 우리의 외교 노력을 무료로 지원할 수 있습니다.</Text>
     </Replace>
     <Replace Tag="LOC_LOADING_LEADER_INTRO_TEXT_GILGAMESH" Language="ko_KR">
       <Text>최초의 영웅이자 친구 중의 친구인 길가메시여, 당신만큼 생명을 사랑하는 이는 없습니다. 당신이 웃으면 삼나무 숲이 흔들리고, 눈물을 흘리면 티그리스강이 넘실대며, 당당히 나아가면 적들은 공포에 전율할지니. 새로운 도전이 기다리니 이제 오소서. 와서 당신의 서사시에 새로운 한 줄을 더하소서.</Text>
@@ -1072,9 +1084,9 @@
       <Text>신화가 된 필멸자</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_LEADER_GILGAMESH_ABILITY_DESCRIPTION" Language="ko_KR">
-      <Text>[BLIST][LI]하나의 동맹에만 소속된 경우 [B][icon:WAR_SUPPORT] 전쟁 지원[/B]을 +2회 얻습니다.
+      <Text>[BLIST][LI]하나의 [icon:PLAYER_RELATIONSHIP_ALLIANCE] 동맹에만 소속된 경우 [B][icon:WAR_SUPPORT] 전쟁 지원을 +2회[/B] 얻습니다.
 				[LI]우리 문명의 군사 유닛이 적 유닛을 처치하면, 처치한 유닛 [icon:NAR_REW_COMBAT] 전투력의 50%에 해당하는 [B][icon:YIELD_DIPLOMACY] 영향력[/B]을 얻습니다. 
-				[LI]모든 기본 외교 노력이 자동으로 잠금 해제됩니다. 같은 유형의 외교 노력은 한 번에 하나만 활성화할 수 있지만, 동맹과의 외교 노력은 이 제한을 받지 않게 됩니다. 동맹은 우리의 외교 노력을 무료로 지원할 수 있습니다.[/LIST]</Text>
+				[LI]모든 기본 외교 노력이 자동으로 잠금 해제됩니다. 같은 유형의 외교 노력은 한번에 하나만 활성화할 수 있지만, 동맹과의 외교 노력은 이 제한을 받지 않게 됩니다. 동맹은 우리의 외교 노력을 무료로 지원할 수 있습니다.[/LIST]</Text>
     </Replace>
     <Replace Tag="LOC_TRAIT_LEADER_GILGAMESH_ABILITY_NAME" Language="ko_KR">
       <Text>신화가 된 필멸자</Text>

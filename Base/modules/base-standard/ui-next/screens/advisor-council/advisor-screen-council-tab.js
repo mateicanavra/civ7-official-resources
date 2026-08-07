@@ -4,6 +4,7 @@ import { Activatable } from '../../../../core/ui-next/components/activatable.js'
 import { L10n } from '../../../../core/ui-next/components/l10n.js';
 import { VSlot, HSlot } from '../../../../core/ui-next/components/slot.js';
 import { IsControllerActive } from '../../../../core/ui-next/services/input.js';
+import { ViewExperience } from '../../../../core/ui-next/services/view-experience.js';
 import { useWindowSize, useIsSmallScreen, useAspectRatio } from '../../../../core/ui-next/utilities/layout-utilities.js';
 import { AdvisorCard } from './advisor-card.js';
 import { useAdvisorScreenContext } from './advisor-screen-model.js';
@@ -14,6 +15,7 @@ const CouncilRoom = (props) => {
   const windowHeight = useWindowSize();
   const isSmallScreen = useIsSmallScreen();
   const aspectRatio = useAspectRatio();
+  const isMobile = ViewExperience() == UIViewExperience.Mobile;
   onCleanup(() => {
     model.setSelectedAdvisorCard(AdvisorTypes.NO_ADVISOR);
   });
@@ -38,7 +40,7 @@ const CouncilRoom = (props) => {
         return [(() => {
           var _el$3 = _tmpl$2();
           insert(_el$3, createComponent(HSlot, {
-            "class": "flex flex-row w-full h-full",
+            "class": "flex flex-row w-full h-full justify-center",
             get children() {
               return createComponent(For, {
                 get each() {
@@ -59,7 +61,7 @@ const CouncilRoom = (props) => {
               });
             }
           }));
-          createRenderEffect(() => className(_el$3, `${isSmallScreen() ? aspectRatio() <= 1.335 ? "mt-7 mx-8" : "mt-10 mx-8" : aspectRatio() <= 1.335 ? "mt-14 mx-14" : "mt-32 mx-14"}`));
+          createRenderEffect(() => className(_el$3, `${isSmallScreen() ? aspectRatio() <= 1.335 || isMobile ? "mt-7 mx-8" : "mt-10 mx-8" : aspectRatio() <= 1.335 ? "mt-14 mx-14" : "mt-32 mx-14"} ${isMobile && isSmallScreen() && IsControllerActive() ? "pb-2" : ""}`));
           return _el$3;
         })(), createComponent(Activatable, {
           hotkeyAction: "shell-action-2",

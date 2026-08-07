@@ -16,6 +16,7 @@ import GreatWorks from '../../../base-standard/ui/great-works/model-great-works.
 import PopupSequencer from '../../../base-standard/ui/popup-sequencer/popup-sequencer.js';
 import ResourceAllocation from '../../../base-standard/ui/resource-allocation/model-resource-allocation.js';
 import TutorialManager from '../../../base-standard/ui/tutorial/tutorial-manager.js';
+import { getNodeName } from '../../../base-standard/ui/utilities/utilities-textprovider.js';
 
 var NavigationType = /* @__PURE__ */ ((NavigationType2) => {
   NavigationType2["NONE"] = "";
@@ -123,8 +124,8 @@ const DEFAULT_RADIAL_MENUS = [
           const treeObject = cultureTreeType ? Game.ProgressionTrees.getTree(localPlayerId, cultureTreeType) : null;
           const activeNode = treeObject ? treeObject.nodes[treeObject.activeNodeIndex] : void 0;
           const nodeData = activeNode ? Game.ProgressionTrees.getNode(localPlayerId, activeNode.nodeType) : null;
-          const nodeInfo = nodeData ? GameInfo.ProgressionTreeNodes.lookup(nodeData.nodeType) : null;
-          const cultureName = Locale.compose(nodeInfo?.Name ?? "") || void 0;
+          const nodeName = nodeData ? getNodeName(nodeData, localPlayer) : "";
+          const cultureName = Locale.compose(nodeName) || void 0;
           const depthNumeral = Locale.toRomanNumeral((nodeData?.depthUnlocked ?? 0) + 1);
           const renderHeight = window.innerHeight;
           if (!turn || !cultureName) {
@@ -307,7 +308,7 @@ const DEFAULT_RADIAL_MENUS = [
           },
           createsMouseGuard: true
         },
-        tutHidderId: "hideLegacies",
+        tutHidderId: "hideTriumphs",
         description: () => {
           return "";
         }
@@ -327,7 +328,7 @@ const DEFAULT_RADIAL_MENUS = [
           },
           createsMouseGuard: true
         },
-        tutHidderId: "",
+        tutHidderId: "hideAdvisors",
         description: () => {
           return "";
         }

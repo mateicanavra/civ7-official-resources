@@ -54,7 +54,7 @@ const ScreenFrameComponent = (props) => {
   });
   const ornateFrameClass = createMemo(() => {
     const aspectRatio = props.doNotStretch ? "menu-aspect-ratio-fixed" : "menu-aspect-ratio";
-    return `${aspectRatio} flex flex-col items-center max-w-screen max-h-screen`;
+    return `${aspectRatio} flex flex-col items-center ${props.isFullscreen ? "size-full" : "max-w-screen max-h-screen"}`;
   });
   return createComponent(Panel, {
     get name() {
@@ -68,6 +68,9 @@ const ScreenFrameComponent = (props) => {
     ref(r$) {
       var _ref$ = props.ref;
       typeof _ref$ === "function" ? _ref$(r$) : props.ref = r$;
+    },
+    get onContextChanged() {
+      return props.onContextChanged;
     },
     get children() {
       return createComponent(AudioContextProvider, {
@@ -89,13 +92,16 @@ const ScreenFrameComponent = (props) => {
                 get children() {
                   return [createComponent(OrnateFrame, mergeProps(() => props.ornatePanelData, {
                     get hideTopIcon() {
-                      return isSmallScreen();
+                      return isSmallScreen() || props.isFullscreen;
                     },
                     get useNoMarginFrame() {
-                      return isSmallScreen();
+                      return isSmallScreen() || props.isFullscreen;
                     },
                     get ["class"]() {
                       return ornateFrameClass();
+                    },
+                    get isFullscreen() {
+                      return props.isFullscreen;
                     },
                     get children() {
                       return [createComponent(Show, {
@@ -112,7 +118,7 @@ const ScreenFrameComponent = (props) => {
                         get children() {
                           return createComponent(Filigree.TitleAccent, {
                             get ["class"]() {
-                              return `mb-2 mx-24 ${isSmallScreen() ? "mt-2" : "-mt-2"}`;
+                              return `mb-2 mx-24 ${isSmallScreen() || props.isFullscreen ? "mt-2" : "-mt-2"}`;
                             },
                             get children() {
                               return createComponent(Header, {

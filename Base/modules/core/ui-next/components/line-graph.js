@@ -50,7 +50,8 @@ const LineGraph = (props) => {
                   }
                 },
                 display: true,
-                max: props.maxX
+                max: props.maxX,
+                min: props.minX
               }
             },
             plugins: {
@@ -160,22 +161,24 @@ const LineGraph = (props) => {
         graphConfig.options.scales.x.text = props.axisLabelX;
         graphConfig.options.scales.x.max = props.maxX;
         graphConfig.options.elements.radius = props.pointRadius != void 0 ? props.pointRadius : 0;
-        const l = JSON.parse(JSON.stringify(props.lines));
-        graphConfig.data.datasets = [];
-        l.forEach((line) => {
-          graphConfig.data.datasets.push({
-            data: line.points,
-            order: line.order,
-            fill: false,
-            backgroundColor: "#008000",
-            borderColor: props.dashed ? "rgba(0, 0, 0, 0)" : line.color,
-            borderWidth: props.width,
-            tension: 0,
-            spanGaps: true,
-            scaleHack: false
+        if (props.lines) {
+          const l = JSON.parse(JSON.stringify(props.lines));
+          graphConfig.data.datasets = [];
+          l.forEach((line) => {
+            graphConfig.data.datasets.push({
+              data: line.points,
+              order: line.order,
+              fill: false,
+              backgroundColor: "#008000",
+              borderColor: props.dashed ? "rgba(0, 0, 0, 0)" : line.color,
+              borderWidth: props.width,
+              tension: 0,
+              spanGaps: true,
+              scaleHack: false
+            });
           });
-        });
-        graph.update();
+          graph.update();
+        }
       }
     }
   });

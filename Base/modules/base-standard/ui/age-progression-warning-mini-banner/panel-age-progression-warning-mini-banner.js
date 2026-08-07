@@ -25,7 +25,9 @@ class PanelAgeProgressionWarningMiniBanner extends Panel {
   }
   onMiniBannerShow() {
     const ageCountdownStarted = Game.AgeProgressManager.ageCountdownStarted;
-    if (ageCountdownStarted) {
+    const isFinalAge = Game.AgeProgressManager.isFinalAge;
+    const scoreVictoryEnabled = Game.VictoryManager.isScoreVictoryEnabled();
+    if (ageCountdownStarted && (!isFinalAge || scoreVictoryEnabled)) {
       const currentAgeProgressionData = AgeProgressionPopupManager.currentAgeProgressionPopupData;
       if (!currentAgeProgressionData) {
         console.error(

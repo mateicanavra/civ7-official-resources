@@ -2,7 +2,7 @@ import ContextManager from '../../../core/ui/context-manager/context-manager.js'
 import { DisplayHandlerBase } from '../../../core/ui/context-manager/display-handler.js';
 import { DisplayQueueManager } from '../../../core/ui/context-manager/display-queue-manager.js';
 import { PlotCoord } from '../../../core/ui/utilities/utilities-plotcoord.js';
-import AdviceManager from '../advice/advice-manager.js';
+import getAdviceManager from '../advice/advice-manager.js';
 import { NotificationModel } from '../notification-train/model-notification-train.js';
 import { PopupPriority } from '../popup-sequencer/popup-priority.js';
 import TutorialItem, { TutorialLevel, TutorialCalloutType, TutorialAnchorPosition, TutorialAdvisorType } from '../tutorial/tutorial-item.js';
@@ -49,7 +49,8 @@ class WatchOutManagerClass extends DisplayHandlerBase {
     }
   };
   raiseNotificationPanel(notificationId, advisorType, lookAtCallback) {
-    if (!this.isManagerActive && advisorType !== void 0 && !AdviceManager.isFollowed(AdviceManager.getAdvisorTypeFromTutorialAdvisorType(advisorType))) {
+    const adviceManager = getAdviceManager();
+    if (!this.isManagerActive && advisorType !== void 0 && !adviceManager.isFollowed(adviceManager.getAdvisorTypeFromTutorialAdvisorType(advisorType))) {
       NotificationModel.manager.dismiss(notificationId);
       return;
     }

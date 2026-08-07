@@ -1663,7 +1663,7 @@ class MPLobbyDataModel {
     if (!MPLobbyDataModel.isLocalHostPlayer()) {
       return false;
     }
-    if (!MPLobbyDataModel.isNewGame && slotActionData.actionType != "SLOT_ACTION_TYPE_SWAP" /* SWAP */) {
+    if (!MPLobbyDataModel.isNewGame && slotActionData.actionType != "SLOT_ACTION_TYPE_SWAP" /* SWAP */ && !Configuration.getGame().isHotseat) {
       return false;
     }
     const newStatus = slotActionData.slotStatus;

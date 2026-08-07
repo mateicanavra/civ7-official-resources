@@ -9,7 +9,7 @@ import { ProductionPanelCategory, GetTownFocusBlp } from '../../ui/production-ch
 import { ConstructibleDetails } from '../components/constructible-details.js';
 import { AdvisorRecommendationPill, PillText } from '../components/pills.js';
 
-var _tmpl$ = /* @__PURE__ */ template(`<div class="flex flex-row flex-wrap items-center justify-center mt-2 -mb-1"></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="flex items-center"><div class=text-negative-light></div></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div><div class=img-base-ticket-bg-container><div class="img-shell-line-divider h-1 w-1/2 self-center mb-2"></div><div class="img-shell-line-divider h-1 w-1/2 self-center mb-2"></div></div></div>`), _tmpl$5 = /* @__PURE__ */ template(`<div class="flex flex-row flex-wrap items-center justify-center mt-4 -mb-1"></div>`), _tmpl$6 = /* @__PURE__ */ template(`<div><div class="flex flex-row items-center self-center"><div class=filigree-shell-small-left></div><div class=filigree-shell-small-right></div></div></div>`);
+var _tmpl$ = /* @__PURE__ */ template(`<div class="flex flex-row flex-wrap items-center justify-center mt-2 -mb-1"></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="flex items-center"><div class=text-negative-light></div></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div><div class=img-base-ticket-bg-container><div class="img-shell-line-divider h-1 w-1/2 self-center mb-2"></div><div class="img-shell-line-divider h-1 w-1/2 self-center mb-2"></div></div></div>`), _tmpl$5 = /* @__PURE__ */ template(`<div class="flex flex-row flex-wrap items-center justify-center mt-4 -mb-1"></div>`), _tmpl$6 = /* @__PURE__ */ template(`<div><div class="flex flex-row items-center self-center"><div class=filigree-shell-small-left></div><div class=filigree-shell-small-right></div></div></div>`), _tmpl$7 = /* @__PURE__ */ template(`<div class=img-base-ticket-bg-container></div>`);
 const BULLET_CHAR = String.fromCodePoint(8226);
 const normalizeCategory = (value) => {
   if (!value) {
@@ -283,6 +283,7 @@ const ProductionProjectTooltipContent = (props) => {
     const city = Cities.get(cityID);
     return city?.Production?.getProjectProductionCost(hash);
   });
+  const definition = createMemo(() => GameInfo.Projects.lookup(projectHash() ?? ""));
   const requirementsText = createMemo(() => getProjectRequirements(projectHash()));
   const applyDescriptionFormatting = (element) => {
     if (!element) {
@@ -326,15 +327,19 @@ const ProductionProjectTooltipContent = (props) => {
     }), _el$13);
     insert(_el$10, createComponent(Show, {
       get when() {
-        return local.description;
+        return local.description || definition()?.Description;
       },
-      children: (text) => createComponent(L10n.Stylize, {
-        "class": "mt-2",
-        get text() {
-          return text() ?? "";
-        },
-        ref: applyDescriptionFormatting
-      })
+      children: (text) => (() => {
+        var _el$15 = _tmpl$7();
+        insert(_el$15, createComponent(L10n.Stylize, {
+          "class": "mt-2",
+          get text() {
+            return text() ?? "";
+          },
+          ref: applyDescriptionFormatting
+        }));
+        return _el$15;
+      })()
     }), null);
     insert(_el$10, createComponent(Show, {
       get when() {

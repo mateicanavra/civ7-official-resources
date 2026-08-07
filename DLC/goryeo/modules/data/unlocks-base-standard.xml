@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Types>
+		<InsertOrIgnore Type="UNLOCK_CIVILIZATION_GORYEO" Kind="KIND_UNLOCK"/>
+	</Types>
+	<Unlocks>
+		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_GORYEO"/>
+	</Unlocks>
+	<UnlockRewards>
+		<Row UnlockType="UNLOCK_CIVILIZATION_GORYEO" Name="LOC_CIVILIZATION_GORYEO_NAME" Description="LOC_UNLOCK_EXPLORATION_CIV_DESCRIPTION" Icon="CIVILIZATION_GORYEO" UnlockRewardType="CIVILIZATION_GORYEO" UnlockRewardKind="KIND_CIVILIZATION"/>
+	</UnlockRewards>
+	<RequirementSets>
+		<Row RequirementSetId="REQSET_PLAYER_HAS_UNIQUE_IMPROVEMENTS" RequirementSetType="REQUIREMENTSET_TEST_ALL"/>
+		<InsertOrIgnore RequirementSetId="REQSET_CIV_IS_GORYEO" RequirementSetType="REQUIREMENTSET_TEST_ALL"/>
+	</RequirementSets>
+	<Requirements>
+		<Row RequirementId="REQ_PLAYER_HAS_UNIQUE_IMPROVEMENTS" RequirementType="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_BUILDINGS"/>
+		<InsertOrIgnore RequirementId="REQ_CIV_IS_GORYEO" RequirementType="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES"/>
+	</Requirements>
+	<RequirementArguments>
+		<Row RequirementId="REQ_PLAYER_HAS_UNIQUE_IMPROVEMENTS" Name="BuildingTag" Value="UNIQUE_IMPROVEMENT"/>
+		<Row RequirementId="REQ_PLAYER_HAS_UNIQUE_IMPROVEMENTS" Name="Amount" Value="10"/>
+		<InsertOrIgnore RequirementId="REQ_CIV_IS_GORYEO" Name="CivilizationType" Value="CIVILIZATION_GORYEO"/>
+	</RequirementArguments>
+	<RequirementSetRequirements>
+		<Row RequirementSetId="REQSET_PLAYER_HAS_UNIQUE_IMPROVEMENTS" RequirementId="REQ_PLAYER_HAS_UNIQUE_IMPROVEMENTS"/>
+		<Row RequirementSetId="REQSET_PLAYER_HAS_UNIQUE_IMPROVEMENTS" RequirementId="REQ_AGE_IS_ANTIQUITY"/>
+		<InsertOrIgnore RequirementSetId="REQSET_CIV_IS_GORYEO" RequirementId="REQ_CIV_IS_GORYEO"/>
+	</RequirementSetRequirements>
+	<UnlockRequirements>
+		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_GORYEO" RequirementSetId="REQSET_LEADER_IS_CONFUCIUS" Description="LOC_UNLOCK_PLAY_AS_CONFUCIUS_DESCRIPTION" Tooltip="LOC_UNLOCK_PLAY_AS_CONFUCIUS_GORYEO_TOOLTIP"/>
+		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_GORYEO" RequirementSetId="REQSET_LEADER_IS_MACHIAVELLI" Description="LOC_UNLOCK_PLAY_AS_MACHIAVELLI_DESCRIPTION" Tooltip="LOC_UNLOCK_PLAY_AS_MACHIAVELLI_GORYEO_TOOLTIP"/>
+		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_GORYEO" RequirementSetId="REQSET_PLAYER_HAS_UNIQUE_IMPROVEMENTS" Description="LOC_UNLOCK_UNIQUE_IMPROVEMENTS_DESCRIPTION" Tooltip="LOC_UNLOCK_UNIQUE_IMPROVEMENTS_GORYEO_TOOLTIP" GameplayUnlock="True" NarrativeText="LOC_UNLOCK_UNIQUE_IMPROVEMENTS_GORYEO_NARRATIVE"/>
+	</UnlockRequirements>
+	<UnlockConfigurationValues>
+		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_GORYEO" ConfigurationValue="CIVILIZATION_GORYEO"/>
+	</UnlockConfigurationValues>
+</Database>

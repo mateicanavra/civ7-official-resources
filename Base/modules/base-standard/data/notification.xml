@@ -48,6 +48,7 @@
 		<Row Type="NOTIFICATION_DECLARE_WAR" Kind="KIND_NOTIFICATION"/>
 		<Row Type="NOTIFICATION_DECLARE_WAR_ON_YOU" Kind="KIND_NOTIFICATION"/>
 		<Row Type="NOTIFICATION_DIPLOMATIC_ACTION" Kind="KIND_NOTIFICATION"/>
+		<Row Type="NOTIFICATION_DIPLOMATIC_ACTION_AGENDA" Kind="KIND_NOTIFICATION"/>
 		<Row Type="NOTIFICATION_DIPLOMATIC_ACTION_AWARD" Kind="KIND_NOTIFICATION"/>
 		<Row Type="NOTIFICATION_DIPLOMATIC_ACTION_WARNING" Kind="KIND_NOTIFICATION"/>
 		<Row Type="NOTIFICATION_DIPLOMATIC_ACTION_LOW" Kind="KIND_NOTIFICATION"/>
@@ -183,6 +184,7 @@
 		<Row NotificationType="NOTIFICATION_CIVIC_BOOST_AWARDED" SeverityType="MID" ExpiresEndOfTurn="True" AutoNotify="False" Priority="2"/>
 		<Row NotificationType="NOTIFICATION_TECH_BOOST_AWARDED" SeverityType="MID" ExpiresEndOfTurn="True" AutoNotify="False" Priority="2"/>
 		<Row NotificationType="NOTIFICATION_DIPLOMATIC_ACTION" SeverityType="MID" ExpiresEndOfTurn="True" Priority="0"/>
+		<Row NotificationType="NOTIFICATION_DIPLOMATIC_ACTION_AGENDA" SeverityType="HIGH" ExpiresEndOfTurn="True" Priority="3"/>
 		<Row NotificationType="NOTIFICATION_DIPLOMATIC_ACTION_AWARD" SeverityType="MID" ExpiresEndOfTurn="True" Priority="0"/>
 		<Row NotificationType="NOTIFICATION_DIPLOMATIC_ACTION_WARNING" SeverityType="HIGH" ExpiresEndOfTurn="True" Priority="3"/>
 		<Row NotificationType="NOTIFICATION_DIPLOMATIC_ACTION_LOW" SeverityType="LOW" ExpiresEndOfTurn="True" Priority="0"/>
@@ -331,6 +333,7 @@
 		<Row NotificationType="NOTIFICATION_DIPLOMATIC_ACTION_WARNING" Context="Add" Audio="notif-Diplomatic_Warning"/>
 		<Row NotificationType="NOTIFICATION_DIPLOMATIC_ACTION_LOW" Context="Add" Audio="notif-Diplomatic_Low"/>
 		<Row NotificationType="NOTIFICATION_DIPLOMATIC_ACTION" Context="Add" Audio="notif-Diplomatic_Neutral"/>
+		<Row NotificationType="NOTIFICATION_DIPLOMATIC_ACTION_AGENDA" Context="Add" Audio="notif-Diplomatic_Neutral"/>
 		<Row NotificationType="NOTIFICATION_GRIEVANCES_AGAINST_YOU" Context="Add" Audio="notif-Diplomatic_Grievances"/>
 		<!-- Golden Age -->
 		<Row NotificationType="NOTIFICATION_CHOOSE_GOLDEN_AGE" Context="Add" Audio="notif-GoldenAge_Ready"/>

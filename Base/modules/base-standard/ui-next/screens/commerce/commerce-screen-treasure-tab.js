@@ -42,7 +42,7 @@ const TreasureResourceContainer = (props) => {
     if (model.selectedTreasureConvoyId()) {
       const selectedCity = Cities.get(model.selectedTreasureConvoyId());
       if (selectedCity) {
-        const deselectRouteLabel = Locale.compose("LOC_COMMERCE_GAMEPAD_DESELECT_CITY_HINT", Locale.compose(selectedCity.name));
+        const deselectRouteLabel = Locale.compose("LOC_COMMERCE_GAMEPAD_STOP_VIEWING_CONTAINER_HINT", Locale.compose(selectedCity.name));
         return [{
           hotkeyAction: "cancel",
           name: "cancel-treasure-convoy-edit",
@@ -55,7 +55,7 @@ const TreasureResourceContainer = (props) => {
       if (focusedConvoyCard()) {
         const focusedCity = Cities.get(focusedConvoyCard());
         if (focusedCity) {
-          const selectRouteLabel = Locale.compose("LOC_COMMERCE_GAMEPAD_SELECT_CITY_HINT", Locale.compose(focusedCity.name));
+          const selectRouteLabel = Locale.compose("LOC_COMMERCE_GAMEPAD_VIEW_CONTAINER_HINT", Locale.compose(focusedCity.name));
           return [{
             hotkeyAction: "accept",
             name: "treasure-convoy-edit",

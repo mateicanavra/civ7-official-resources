@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <Database>
 	<EnglishText>
 		<Row Tag="LOC_IMPROVEMENT_MOUNTAIN_NAME">
@@ -44,10 +44,10 @@
 			<Text>Defensive Fortifications</Text>
 		</Row>
 		<Row Tag="LOC_BUILDING_DEFENSIVE_FORTIFICATIONS_DESCRIPTION">
-			<Text>Modern [TIP:LOC_PEDIA_CONCEPTS_WALL_TOOLTIP]Wall[/TIP]. Adds 100 [icon:Action_Heal] HP to the [TIP:LOC_PEDIA_CONCEPTS_FORTIFIED_DISTRICTS_TOOLTIP]Fortified District[/TIP] and +15 [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Combat Strength[/TIP] to Units defending in the tile.</Text>
+			<Text>Modern Fortification and [TIP:LOC_PEDIA_CONCEPTS_WALL_TOOLTIP]Wall[/TIP]. Turns the District into a [TIP:LOC_PEDIA_CONCEPTS_FORTIFIED_DISTRICTS_TOOLTIP]Fortified District[/TIP], adding 100 [icon:Action_Heal] HP and giving it a defense strength when attacked.</Text>
 		</Row>
 		<Row Tag="LOC_BUILDING_DEFENSIVE_FORTIFICATIONS_TOOLTIP">
-			<Text>[B]Effect:[/B] Modern [TIP:LOC_PEDIA_CONCEPTS_WALL_TOOLTIP]Wall[/TIP] adds 100 [icon:Action_Heal] HP to the [TIP:LOC_PEDIA_CONCEPTS_FORTIFIED_DISTRICTS_TOOLTIP]Fortified District[/TIP].</Text>
+			<Text>Effect: Turns the District into a [TIP:LOC_PEDIA_CONCEPTS_FORTIFIED_DISTRICTS_TOOLTIP]Fortified District[/TIP], adding 100 [icon:Action_Heal] HP and giving it a defense strength when attacked.[N]Modern Fortification and [TIP:LOC_PEDIA_CONCEPTS_WALL_TOOLTIP]Wall[/TIP].</Text>
 		</Row>
 		<Row Tag="LOC_BUILDING_DEPARTMENT_STORE_NAME">
 			<Text>Department Store</Text>
@@ -332,10 +332,10 @@
 			<Text>Shore Battery</Text>
 		</Row>
 		<Row Tag="LOC_IMPROVEMENT_SHORE_BATTERY_DESCRIPTION">
-			<Text>Militaristic City-State [TIP:LOC_PEDIA_CONCEPTS_UNIQUE_IMPROVEMENT_TOOLTIP]Unique Improvement[/TIP]. +5 [icon:YIELD_PRODUCTION] Production. +3 [icon:Action_Ranged] Ranged [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Combat Strength[/TIP], +1 range to Ranged and [TIP:LOC_PEDIA_CONCEPTS_SIEGE_UNITS_TOOLTIP]Siege Units[/TIP] in this tile. +5 [icon:Action_Heal]Healing per turn to [TIP:LOC_PEDIA_CONCEPTS_MILITARY_UNIT_TOOLTIP]Military Units[/TIP] in this tile. [TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]Ageless[/TIP]. Must be placed adjacent to Coast.</Text>
+			<Text>Militaristic City-State [TIP:LOC_PEDIA_CONCEPTS_UNIQUE_IMPROVEMENT_TOOLTIP]Unique Improvement[/TIP]. +5 [icon:YIELD_PRODUCTION] Production. +3 [icon:Action_Ranged] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Ranged Combat Strength[/TIP] and +1 Range for Ranged and [TIP:LOC_PEDIA_CONCEPTS_SIEGE_UNITS_TOOLTIP]Siege Units[/TIP] in this tile. +5 [icon:Action_Heal] Healing per turn for [TIP:LOC_PEDIA_CONCEPTS_MILITARY_UNIT_TOOLTIP]Military Units[/TIP] in this tile. Counts as a [icon:Action_Fortify] Fortification, granting +6 [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Combat Strength[/TIP] for Units defending on the tile. [TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]Ageless[/TIP]. Must be placed adjacent to Coast.</Text>
 		</Row>
 		<Row Tag="LOC_IMPROVEMENT_SHORE_BATTERY_TOOLTIP">
-			<Text>Effect: +3 [icon:Action_Ranged] Ranged [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Combat Strength[/TIP], +1 Range to Ranged and [TIP:LOC_PEDIA_CONCEPTS_SIEGE_UNITS_TOOLTIP]Siege Units[/TIP] in this tile. +5 [icon:Action_Heal] healing per turn to [TIP:LOC_PEDIA_CONCEPTS_MILITARY_UNIT_TOOLTIP]Military Units[/TIP] in this tile.[n]Does not remove [icon:YIELD_WAREHOUSE] [TIP:LOC_PEDIA_CONCEPTS_WAREHOUSE_TOOLTIP]Warehouse[/TIP] bonuses on a tile. Must be placed adjacent to Coast.[n]City-State [TIP:LOC_PEDIA_CONCEPTS_UNIQUE_IMPROVEMENT_TOOLTIP]Unique Improvement[/TIP].</Text>
+			<Text>Effect: +3 [icon:Action_Ranged] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Ranged Combat Strength[/TIP] and +1 Range for Ranged and [TIP:LOC_PEDIA_CONCEPTS_SIEGE_UNITS_TOOLTIP]Siege Units[/TIP] in this tile. +5 [icon:Action_Heal] Healing per turn for [TIP:LOC_PEDIA_CONCEPTS_MILITARY_UNIT_TOOLTIP]Military Units[/TIP] in this tile. Counts as a [icon:Action_Fortify] Fortification, granting +6 [icon:NAR_REW_COMBAT] [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Combat Strength[/TIP] for Units defending on the tile.[n]Does not remove [icon:YIELD_WAREHOUSE] [TIP:LOC_PEDIA_CONCEPTS_WAREHOUSE_TOOLTIP]Warehouse[/TIP] bonuses on a tile. Must be placed adjacent to Coast.[n]City-State [TIP:LOC_PEDIA_CONCEPTS_UNIQUE_IMPROVEMENT_TOOLTIP]Unique Improvement[/TIP].</Text>
 		</Row>
 		<Row Tag="LOC_IMPROVEMENT_OPEN_AIR_MUSEUM_NAME">
 			<Text>Open-Air Museum</Text>
@@ -438,147 +438,134 @@
 			<Text>Brandenburg Gate</Text>
 		</Row>
 		<Row Tag="LOC_WONDER_BRANDENBURG_GATE_DESCRIPTION">
-			<Text>+6 [icon:YIELD_PRODUCTION] Production. +1 [icon:WAR_SUPPORT] [TIP:LOC_PEDIA_CONCEPTS_WAR_SUPPORT_TOOLTIP]War Support[/TIP] on all [icon:WAR] Wars. +1 [icon:SETTLEMENT_LIMIT] [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_LIMIT_TOOLTIP]Settlement Limit[/TIP]. [TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]Ageless[/TIP]. Must be placed adjacent to a [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]District[/TIP].</Text>
+			<Text>[B]+6 [icon:YIELD_PRODUCTION][/B]. [B]+1 [icon:WAR_SUPPORT][/B] [TIP:LOC_PEDIA_CONCEPTS_WAR_SUPPORT_TOOLTIP]War Support[/TIP] on all [icon:WAR] Wars. [B]+1 [icon:SETTLEMENT_LIMIT][/B] [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_LIMIT_TOOLTIP]Settlement Limit[/TIP]. [TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]Ageless[/TIP]. Must be placed adjacent to a [icon:CITY_URBAN] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]District[/TIP].</Text>
 		</Row>
 		<Row Tag="LOC_WONDER_BRANDENBURG_GATE_TOOLTIP">
-			<Text>+1 [icon:WAR_SUPPORT] [TIP:LOC_PEDIA_CONCEPTS_WAR_SUPPORT_TOOLTIP]War Support[/TIP] on all [icon:WAR] Wars. +1 [icon:SETTLEMENT_LIMIT] [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_LIMIT_TOOLTIP]Settlement Limit[/TIP].[n]Must be placed adjacent to a [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]District[/TIP].</Text>
+			<Text>[B]+1 [icon:WAR_SUPPORT][/B] [TIP:LOC_PEDIA_CONCEPTS_WAR_SUPPORT_TOOLTIP]War Support[/TIP] on all [icon:WAR] Wars. [B]+1 [icon:SETTLEMENT_LIMIT][/B] [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_LIMIT_TOOLTIP]Settlement Limit[/TIP].[n]Must be placed adjacent to a [icon:CITY_URBAN] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]District[/TIP].</Text>
 		</Row>
 		<Row Tag="LOC_WONDER_CHENGDE_MOUNTAIN_RESORT_NAME">
 			<Text>Chengde Mountain Resort</Text>
 		</Row>
 		<Row Tag="LOC_WONDER_CHENGDE_MOUNTAIN_RESORT_DESCRIPTION">
-			<Text>+6 [icon:YIELD_GOLD] Gold. +5% [icon:YIELD_CULTURE] Culture for every other Civilization with which you have a [icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]Trade Route[/TIP]. [TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]Ageless[/TIP]. Must be placed adjacent to a Mountain.</Text>
+			<Text>[B]+6 [icon:YIELD_GOLD][/B]. [B]+5% [icon:YIELD_CULTURE][/B] for every other Civilization with which you have a [icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]Trade Route[/TIP]. [TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]Ageless[/TIP]. Must be placed adjacent to a Mountain.</Text>
 		</Row>
 		<Row Tag="LOC_WONDER_CHENGDE_MOUNTAIN_RESORT_TOOLTIP">
-			<Text>+5% [icon:YIELD_CULTURE] Culture for every other Civilization with which you have a [icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]Trade Route[/TIP].[n]Must be placed adjacent to a Mountain.</Text>
+			<Text>[B]+5% [icon:YIELD_CULTURE][/B] for every other Civilization with which you have a [icon:TRADE_ROUTE] [TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]Trade Route[/TIP].[n]Must be placed adjacent to a Mountain.</Text>
 		</Row>
 		<Row Tag="LOC_WONDER_DOGO_ONSEN_NAME">
 			<Text>Dogo Onsen</Text>
 		</Row>
 		<Row Tag="LOC_WONDER_DOGO_ONSEN_DESCRIPTION">
-			<Text>+4 [icon:YIELD_HAPPINESS] Happiness. This [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]Settlement[/TIP] gains a [icon:YIELD_POPULATION] Population every time you enter a [icon:CELEBRATION] [TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]Celebration[/TIP]. [TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]Ageless[/TIP]. Must be placed adjacent to Coast.</Text>
+			<Text>[B]+4 [icon:YIELD_HAPPINESS][/B]. This [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]Settlement[/TIP] gains a [icon:YIELD_POPULATION] [TIP:LOC_PEDIA_CONCEPTS_POPULATION_TOOLTIP]Population[/TIP] every time you enter a [icon:CELEBRATION] [TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]Celebration[/TIP]. [TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]Ageless[/TIP]. Must be placed adjacent to Coast.</Text>
 		</Row>
 		<Row Tag="LOC_WONDER_DOGO_ONSEN_TOOLTIP">
-			<Text>This [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]Settlement[/TIP] gains a [icon:YIELD_POPULATION] Population every time you enter a [icon:CELEBRATION] [TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]Celebration[/TIP].[n]Must be placed adjacent to Coast.</Text>
+			<Text>This [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]Settlement[/TIP] gains a [icon:YIELD_POPULATION] [TIP:LOC_PEDIA_CONCEPTS_POPULATION_TOOLTIP]Population[/TIP] every time you enter a [icon:CELEBRATION] [TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]Celebration[/TIP].[n]Must be placed adjacent to Coast.</Text>
 		</Row>
 		<Row Tag="LOC_WONDER_DOI_SUTHEP_NAME">
 			<Text>Doi Suthep</Text>
 		</Row>
 		<Row Tag="LOC_WONDER_DOI_SUTHEP_DESCRIPTION">
-			<Text>+4 [icon:YIELD_DIPLOMACY] Influence. +5 [icon:YIELD_CULTURE] Culture and [icon:YIELD_GOLD] Gold for every [icon:CITYSTATE] City-State you are [TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]Suzerain[/TIP] of. [TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]Ageless[/TIP]. Must be placed on [TIP:LOC_PEDIA_CONCEPTS_ROUGH_TERRAIN_TOOLTIP]Rough Terrain[/TIP].</Text>
+			<Text>[B]+4 [icon:YIELD_DIPLOMACY][/B]. [B]+5 [icon:YIELD_CULTURE][/B] and [icon:YIELD_GOLD] for every [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]City-State[/TIP] you are [TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]Suzerain[/TIP] of. [TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]Ageless[/TIP]. Must be placed on [icon:CITY_UNIMPROVED] [TIP:LOC_PEDIA_CONCEPTS_ROUGH_TERRAIN_TOOLTIP]Rough Terrain[/TIP].</Text>
 		</Row>
 		<Row Tag="LOC_WONDER_DOI_SUTHEP_TOOLTIP">
-			<Text>+5 [icon:YIELD_CULTURE] Culture and [icon:YIELD_GOLD] Gold for every [icon:CITYSTATE] City-State you are [TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]Suzerain[/TIP] of.[n]Must be placed on [TIP:LOC_PEDIA_CONCEPTS_ROUGH_TERRAIN_TOOLTIP]Rough Terrain[/TIP].</Text>
+			<Text>[B]+5 [icon:YIELD_CULTURE][/B] and [icon:YIELD_GOLD] for every [icon:CITYSTATE] [TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]City-State[/TIP] you are [TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]Suzerain[/TIP] of.[n]Must be placed on [icon:CITY_UNIMPROVED] [TIP:LOC_PEDIA_CONCEPTS_ROUGH_TERRAIN_TOOLTIP]Rough Terrain[/TIP].</Text>
 		</Row>
 		<Row Tag="LOC_WONDER_EIFFEL_TOWER_NAME">
 			<Text>Eiffel Tower</Text>
 		</Row>
 		<Row Tag="LOC_WONDER_EIFFEL_TOWER_DESCRIPTION">
-			<Text>+5 [icon:YIELD_CULTURE] Culture. +4 [icon:YIELD_CULTURE] Culture and +2 [icon:CULTURE_VP] Tourism on [icon:CITY_UNIQUE_QUARTER] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]Quarters[/TIP] in this [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]City[/TIP]. [TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]Ageless[/TIP]. Must be placed adjacent to a [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]District[/TIP].</Text>
+			<Text>[B]+5 [icon:YIELD_CULTURE][/B]. [B]+4 [icon:YIELD_CULTURE][/B] and [B]+2 [icon:CULTURE_VP][/B] [TIP:LOC_PEDIA_CONCEPTS_TOURISTS_TOOLTIP]Tourism[/TIP] on [icon:CITY_UNIQUE_QUARTER] [TIP:LOC_PEDIA_CONCEPTS_UNIQUE_QUARTER_TOOLTIP]Quarters[/TIP] in this [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]City[/TIP]. [TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]Ageless[/TIP]. Must be placed adjacent to a [icon:CITY_URBAN] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]District[/TIP].</Text>
 		</Row>
 		<Row Tag="LOC_WONDER_EIFFEL_TOWER_TOOLTIP">
-			<Text>+4 [icon:YIELD_CULTURE] Culture and +2 [icon:CULTURE_VP] Tourism on [icon:CITY_UNIQUE_QUARTER] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]Quarters[/TIP] in this [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]City[/TIP].[n]Must be placed adjacent to a [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]District[/TIP].</Text>
+			<Text>[B]+4 [icon:YIELD_CULTURE][/B] and [B]+2 [icon:CULTURE_VP][/B] [TIP:LOC_PEDIA_CONCEPTS_TOURISTS_TOOLTIP]Tourism[/TIP] on [icon:CITY_UNIQUE_QUARTER] [TIP:LOC_PEDIA_CONCEPTS_UNIQUE_QUARTER_TOOLTIP]Quarters[/TIP] in this [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]City[/TIP].[n]Must be placed adjacent to a [icon:CITY_URBAN] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]District[/TIP].</Text>
 		</Row>
 		<Row Tag="LOC_WONDER_HERMITAGE_NAME">
 			<Text>Hermitage</Text>
 		</Row>
 		<Row Tag="LOC_WONDER_HERMITAGE_DESCRIPTION">
-			<Text>+4 [icon:YIELD_CULTURE] Culture. +5 [icon:YIELD_CULTURE] Culture in [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]Settlements[/TIP] that have a [icon:NAR_REW_GREATWORK] [TIP:LOC_PEDIA_CONCEPTS_GREAT_WORKS_TOOLTIP]Great Work[/TIP] on display. Has 3 [TIP:LOC_PEDIA_CONCEPTS_GREAT_WORKS_TOOLTIP]Great Work[/TIP] slots. [TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]Ageless[/TIP]. Must be placed on Tundra.</Text>
+			<Text>[B]+4 [icon:YIELD_CULTURE][/B]. [B]+5 [icon:YIELD_CULTURE][/B] in [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]Settlements[/TIP] that have a [icon:NAR_REW_GREATWORK] [TIP:LOC_PEDIA_CONCEPTS_GREAT_WORKS_TOOLTIP]Great Work[/TIP] on display. Has [B]3 [icon:NAR_REW_GREATWORK] [TIP:LOC_PEDIA_CONCEPTS_GREAT_WORKS_TOOLTIP]Great Work[/TIP][/B] slots. [TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]Ageless[/TIP]. Must be placed on Tundra.</Text>
 		</Row>
 		<Row Tag="LOC_WONDER_HERMITAGE_TOOLTIP">
-			<Text>+5 [icon:YIELD_CULTURE] Culture in [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]Settlements[/TIP] that have a [icon:NAR_REW_GREATWORK] [TIP:LOC_PEDIA_CONCEPTS_GREAT_WORKS_TOOLTIP]Great Work[/TIP] on display. Has 3 [TIP:LOC_PEDIA_CONCEPTS_GREAT_WORKS_TOOLTIP]Great Work[/TIP] slots.[n]Must be placed on Tundra.</Text>
+			<Text>[B]+5 [icon:YIELD_CULTURE][/B] in [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]Settlements[/TIP] that have a [icon:NAR_REW_GREATWORK] [TIP:LOC_PEDIA_CONCEPTS_GREAT_WORKS_TOOLTIP]Great Work[/TIP] on display. Has [B]3 [icon:NAR_REW_GREATWORK] [TIP:LOC_PEDIA_CONCEPTS_GREAT_WORKS_TOOLTIP]Great Work[/TIP][/B] slots.[n]Must be placed on Tundra.</Text>
 		</Row>
 		<Row Tag="LOC_WONDER_HERMITAGE_MOD_TOOLTIP">
-			<Text>Hermitage (from slotted [TIP:LOC_PEDIA_CONCEPTS_GREAT_WORKS_TOOLTIP]Great Work[/TIP])</Text>
+			<Text>Hermitage (from slotted [icon:NAR_REW_GREATWORK] [TIP:LOC_PEDIA_CONCEPTS_GREAT_WORKS_TOOLTIP]Great Work[/TIP])</Text>
 		</Row>
 		<Row Tag="LOC_WONDER_MUZIBU_AZAALA_MPANGA_NAME">
 			<Text>Muzibu Azaala Mpanga</Text>
 		</Row>
 		<Row Tag="LOC_WONDER_MUZIBU_AZAALA_MPANGA_DESCRIPTION">
-			<Text>+4 [icon:YIELD_FOOD] Food. +4 [icon:YIELD_CULTURE] Culture and [icon:YIELD_FOOD] Food on [icon:CITY_RURAL] [TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]Improvements[/TIP] and [icon:CITY_URBAN] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]Districts[/TIP] on Lake tiles. [TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]Ageless[/TIP]. Must be placed adjacent to a Lake. +1 [icon:YIELD_POPULATION] Population in [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]Settlements[/TIP] adjacent to Lakes.</Text>
+			<Text>[B]+4 [icon:YIELD_FOOD][/B]. [B]+4 [icon:YIELD_CULTURE][/B] and [icon:YIELD_FOOD] on [icon:CITY_RURAL] [TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]Improvements[/TIP] and [icon:CITY_URBAN] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]Districts[/TIP] on Lake tiles. [TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]Ageless[/TIP]. Must be placed adjacent to a Lake. [B]+1 [icon:YIELD_POPULATION][/B] [TIP:LOC_PEDIA_CONCEPTS_POPULATION_TOOLTIP]Population[/TIP] in [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]Settlements[/TIP] adjacent to Lakes.</Text>
 		</Row>
 		<Row Tag="LOC_WONDER_MUZIBU_AZAALA_MPANGA_TOOLTIP">
-			<Text>+4 [icon:YIELD_CULTURE] Culture and [icon:YIELD_FOOD] Food on [icon:CITY_RURAL] [TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]Improvements[/TIP] and [icon:CITY_URBAN] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]Districts[/TIP] on Lake tiles. +1 [icon:YIELD_POPULATION] Population in [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]Settlements[/TIP] adjacent to Lakes.[n]Must be placed adjacent to a Lake.</Text>
+			<Text>[B]+4 [icon:YIELD_CULTURE][/B] and [icon:YIELD_FOOD] on [icon:CITY_RURAL] [TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]Improvements[/TIP] and [icon:CITY_URBAN] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]Districts[/TIP] on Lake tiles. [B]+1 [icon:YIELD_POPULATION][/B] [TIP:LOC_PEDIA_CONCEPTS_POPULATION_TOOLTIP]Population[/TIP] in [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]Settlements[/TIP] adjacent to Lakes.[n]Must be placed adjacent to a Lake.</Text>
 		</Row>
 		<Row Tag="LOC_WONDER_OXFORD_UNIVERSITY_NAME">
 			<Text>Oxford University</Text>
 		</Row>
 		<Row Tag="LOC_WONDER_OXFORD_UNIVERSITY_DESCRIPTION">
-			<Text>+4 [icon:YIELD_SCIENCE] Science. Grants 2 [icon:RADIAL_TECH] free [TIP:LOC_PEDIA_CONCEPTS_TECH_TOOLTIP]Technologies[/TIP]. +1 [icon:ATTRIBUTE_WILDCARD] Wildcard [TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]Attribute[/TIP] Point. +3 [icon:SCIENCE_VP] Innovation. [TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]Ageless[/TIP]. Must be placed adjacent to a [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]District[/TIP].</Text>
+			<Text>[B]+4 [icon:YIELD_SCIENCE][/B]. Grants 2 [icon:RADIAL_TECH] free [TIP:LOC_PEDIA_CONCEPTS_TECH_TOOLTIP]Technologies[/TIP]. [B]+1 [icon:ATTRIBUTE_WILDCARD][/B] [TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]Wildcard Attribute[/TIP] Point. [B]+3 [icon:SCIENCE_VP][/B] [TIP:LOC_PEDIA_CONCEPTS_INNOVATION_TOOLTIP]Innovation[/TIP]. [TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]Ageless[/TIP]. Must be placed adjacent to a [icon:CITY_URBAN] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]District[/TIP].</Text>
 		</Row>
 		<Row Tag="LOC_WONDER_OXFORD_UNIVERSITY_TOOLTIP">
-			<Text>Grants 2 [icon:RADIAL_TECH] free [TIP:LOC_PEDIA_CONCEPTS_TECH_TOOLTIP]Technologies[/TIP]. +1 [icon:ATTRIBUTE_WILDCARD] Wildcard [TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]Attribute[/TIP] point. +3 [icon:SCIENCE_VP] Innovation. [n]Must be placed adjacent to a [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]District[/TIP].</Text>
+			<Text>Grants 2 [icon:RADIAL_TECH] free [TIP:LOC_PEDIA_CONCEPTS_TECH_TOOLTIP]Technologies[/TIP]. [B]+1 [icon:ATTRIBUTE_WILDCARD][/B] [TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]Wildcard Attribute[/TIP] point. [B]+3 [icon:SCIENCE_VP][/B] [TIP:LOC_PEDIA_CONCEPTS_INNOVATION_TOOLTIP]Innovation[/TIP]. [n]Must be placed adjacent to a [icon:CITY_URBAN] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]District[/TIP].</Text>
 		</Row>
 		<Row Tag="LOC_WONDER_PALACIO_DE_BELLAS_ARTES_NAME">
 			<Text>Palacio de Bellas Artes</Text>
 		</Row>
 		<Row Tag="LOC_WONDER_PALACIO_DE_BELLAS_ARTES_DESCRIPTION">
-			<Text>+5 [icon:YIELD_CULTURE] Culture. Gain 1 [icon:NAR_REW_GREATWORK] [TIP:LOC_PEDIA_CONCEPTS_ARTIFACT_TOOLTIP]Artifact[/TIP]. Has 3 [TIP:LOC_PEDIA_CONCEPTS_GREAT_WORKS_TOOLTIP]Great Work[/TIP] slots. +3 [icon:YIELD_HAPPINESS] Happiness on [TIP:LOC_PEDIA_CONCEPTS_GREAT_WORKS_TOOLTIP]Great Works[/TIP]. [TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]Ageless[/TIP]. Must be placed adjacent to a [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]District[/TIP].</Text>
+			<Text>[B]+5 [icon:YIELD_CULTURE][/B]. Gain [B]1 [icon:NAR_REW_GREATWORK][/B] [TIP:LOC_PEDIA_CONCEPTS_ARTIFACT_TOOLTIP]Artifact[/TIP]. Has [B]3 [icon:NAR_REW_GREATWORK][/B] [TIP:LOC_PEDIA_CONCEPTS_GREAT_WORKS_TOOLTIP]Great Work[/TIP] slots. [B]+3 [icon:YIELD_HAPPINESS][/B] on [icon:NAR_REW_GREATWORK] Great Works. [TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]Ageless[/TIP]. Must be placed adjacent to a [icon:CITY_URBAN] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]District[/TIP].</Text>
 		</Row>
 		<Row Tag="LOC_WONDER_PALACIO_DE_BELLAS_ARTES_TOOLTIP">
-			<Text>Gain 1 [icon:NAR_REW_GREATWORK] [TIP:LOC_PEDIA_CONCEPTS_ARTIFACT_TOOLTIP]Artifact[/TIP]. Has 3 [TIP:LOC_PEDIA_CONCEPTS_GREAT_WORKS_TOOLTIP]Great Work[/TIP] slots. +3 [icon:YIELD_HAPPINESS] Happiness on [TIP:LOC_PEDIA_CONCEPTS_GREAT_WORKS_TOOLTIP]Great Works[/TIP].[n]Must be placed adjacent to a [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]District[/TIP].</Text>
+			<Text>Gain [B]1 [icon:NAR_REW_GREATWORK][/B] [TIP:LOC_PEDIA_CONCEPTS_ARTIFACT_TOOLTIP]Artifact[/TIP]. Has [B]3 [icon:NAR_REW_GREATWORK][/B] [TIP:LOC_PEDIA_CONCEPTS_GREAT_WORKS_TOOLTIP]Great Work[/TIP] slots. [B]+3 [icon:YIELD_HAPPINESS][/B] on [icon:NAR_REW_GREATWORK] Great Works.[n]Must be placed adjacent to a [icon:CITY_URBAN] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]District[/TIP].</Text>
 		</Row>
 		<Row Tag="LOC_WONDER_RED_FORT_NAME">
 			<Text>Red Fort</Text>
 		</Row>
 		<Row Tag="LOC_WONDER_RED_FORT_DESCRIPTION">
-			<Text>+4 [icon:YIELD_GOLD] Gold and [icon:YIELD_PRODUCTION] Production. Acts as a [icon:CITY_FORTIFIED] [TIP:LOC_PEDIA_CONCEPTS_FORTIFIED_DISTRICTS_TOOLTIP]Fortified District[/TIP] that must be conquered. +50 [icon:Action_Heal] HP to this [icon:CITY_FORTIFIED] [TIP:LOC_PEDIA_CONCEPTS_FORTIFIED_DISTRICTS_TOOLTIP]Fortified District[/TIP] and all [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]City[/TIP] Centers. [TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]Ageless[/TIP]. Must be adjacent to a [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]District[/TIP].</Text>
+			<Text>[B]+4 [icon:YIELD_GOLD][/B] and [icon:YIELD_PRODUCTION]. Acts as a [icon:CITY_FORTIFIED] [TIP:LOC_PEDIA_CONCEPTS_FORTIFIED_DISTRICTS_TOOLTIP]Fortified District[/TIP] that must be conquered. [B]+50 [icon:Action_Heal] HP[/B] to this [icon:CITY_FORTIFIED] Fortified District and all [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]City[/TIP] Centers. [TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]Ageless[/TIP]. Must be adjacent to a [icon:CITY_URBAN] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]District[/TIP].</Text>
 		</Row>
 		<Row Tag="LOC_WONDER_RED_FORT_TOOLTIP">
-			<Text>Acts as a [icon:CITY_FORTIFIED] [TIP:LOC_PEDIA_CONCEPTS_FORTIFIED_DISTRICTS_TOOLTIP]Fortified District[/TIP] that must be conquered. +50 [icon:Action_Heal] HP to this [icon:CITY_FORTIFIED] [TIP:LOC_PEDIA_CONCEPTS_FORTIFIED_DISTRICTS_TOOLTIP]Fortified District[/TIP] and all [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]City[/TIP] Centers.[n]Must be adjacent to a [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]District[/TIP].</Text>
+			<Text>Acts as a [icon:CITY_FORTIFIED] [TIP:LOC_PEDIA_CONCEPTS_FORTIFIED_DISTRICTS_TOOLTIP]Fortified District[/TIP] that must be conquered. [B]+50 [icon:Action_Heal] HP[/B] to this [icon:CITY_FORTIFIED] Fortified District and all [icon:YIELD_CITIES] [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]City[/TIP] Centers.[n]Must be adjacent to a [icon:CITY_URBAN] [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]District[/TIP].</Text>
 		</Row>
 		<Row Tag="LOC_WONDER_STATUE_OF_LIBERTY_NAME">
 			<Text>Statue of Liberty</Text>
 		</Row>
 		<Row Tag="LOC_WONDER_STATUE_OF_LIBERTY_DESCRIPTION">
-			<Text>+6 [icon:YIELD_HAPPINESS] Happiness. Spawns 4 [icon:UNIT_MIGRANT] Migrants. [TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]Ageless[/TIP]. Must be placed on Coast adjacent to land.</Text>
+			<Text>[B]+6 [icon:YIELD_HAPPINESS][/B]. Spawns [B]4 [icon:UNIT_MIGRANT] Migrants[/B]. [TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]Ageless[/TIP]. Must be placed on Coast adjacent to land.</Text>
 		</Row>
 		<Row Tag="LOC_WONDER_STATUE_OF_LIBERTY_TOOLTIP">
-			<Text>Spawns 4 [icon:UNIT_MIGRANT] Migrants.[n]Must be placed on Coast adjacent to land.</Text>
+			<Text>Spawns [B]4 [icon:UNIT_MIGRANT] Migrants[/B].[n]Must be placed on Coast adjacent to land.</Text>
 		</Row>
 		<Row Tag="LOC_WONDER_TAJ_MAHAL_NAME">
 			<Text>Taj Mahal</Text>
 		</Row>
 		<Row Tag="LOC_WONDER_TAJ_MAHAL_DESCRIPTION">
-			<Text>+5 [icon:YIELD_GOLD] Gold. +50% [icon:CELEBRATION] [TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]Celebration[/TIP] duration. +1 [icon:ATTRIBUTE_WILDCARD] Wildcard [TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]Attribute[/TIP] Point. [TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]Ageless[/TIP]. Must be placed on Plains.</Text>
+			<Text>[B]+5 [icon:YIELD_GOLD][/B]. [B]+50% [icon:CELEBRATION][/B] [TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]Celebration[/TIP] duration. [B]+1 [icon:ATTRIBUTE_WILDCARD][/B] [TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]Wildcard Attribute[/TIP] Point. [TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]Ageless[/TIP]. Must be placed on Plains.</Text>
 		</Row>
 		<Row Tag="LOC_WONDER_TAJ_MAHAL_TOOLTIP">
-			<Text>+50% [icon:CELEBRATION] [TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]Celebration[/TIP] duration. +1 [icon:ATTRIBUTE_WILDCARD] Wildcard [TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]Attribute[/TIP] Point.[n]Must be placed on Plains.</Text>
+			<Text>[B]+50% [icon:CELEBRATION][/B] [TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]Celebration[/TIP] duration. [B]+1 [icon:ATTRIBUTE_WILDCARD][/B] [TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]Wildcard Attribute[/TIP] Point.[n]Must be placed on Plains.</Text>
 		</Row>
 		<Row Tag="LOC_WONDER_MANHATTAN_PROJECT_NAME">
 			<Text>Manhattan Project</Text>
 		</Row>
 		<Row Tag="LOC_WONDER_MANHATTAN_PROJECT_DESCRIPTION">
-			<Text>+5[icon:YIELD_SCIENCE] Science. Grants player a Nuclear Weapon, and allows you to build additional Nuclear Weapons via a [icon:DEFAULT_PROJECT] [TIP:LOC_PEDIA_CONCEPTS_PROJECTS_TOOLTIP]Project[/TIP]. Unlocks the [icon:DEFAULT_PROJECT] Project Operation Ivy and Produce Nuclear Weapon [TIP:LOC_PEDIA_CONCEPTS_PROJECTS_TOOLTIP]Projects[/TIP]. +3 [icon:SCIENCE_VP] Innovation. This [icon:WONDER] [TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]Wonder[/TIP] can be built by multiple Civilizations. [TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]Ageless[/TIP].</Text>
+			<Text>[B]+5 [icon:YIELD_SCIENCE][/B]. Grants player a Nuclear Weapon, and allows you to build additional Nuclear Weapons via a [icon:DEFAULT_PROJECT] Project. Unlocks the [icon:DEFAULT_PROJECT] Project Operation Ivy and Produce Nuclear Weapon [icon:DEFAULT_PROJECT] Projects. [B]+3 [icon:SCIENCE_VP][/B] [TIP:LOC_PEDIA_CONCEPTS_INNOVATION_TOOLTIP]Innovation[/TIP]. This [icon:WONDER] Wonder can be built by multiple Civilizations. [TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]Ageless[/TIP].</Text>
 		</Row>
 		<Row Tag="LOC_WONDER_MANHATTAN_PROJECT_TOOLTIP">
-			<Text>Grants player a Nuclear Weapon, and allows you to build additional Nuclear Weapons via a [icon:DEFAULT_PROJECT] [TIP:LOC_PEDIA_CONCEPTS_PROJECTS_TOOLTIP]Project[/TIP]. Unlocks the [icon:DEFAULT_PROJECT] Project Operation Ivy and Produce Nuclear Weapon [TIP:LOC_PEDIA_CONCEPTS_PROJECTS_TOOLTIP]Projects[/TIP]. +3 [icon:SCIENCE_VP] Innovation.[n]This [icon:WONDER] [TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]Wonder[/TIP] can be built by multiple Civilizations.</Text>
+			<Text>Grants player a Nuclear Weapon, and allows you to build additional Nuclear Weapons via a [icon:DEFAULT_PROJECT] Project. Unlocks the [icon:DEFAULT_PROJECT] Project Operation Ivy and Produce Nuclear Weapon [icon:DEFAULT_PROJECT] Projects. [B]+3 [icon:SCIENCE_VP][/B] [TIP:LOC_PEDIA_CONCEPTS_INNOVATION_TOOLTIP]Innovation[/TIP].[n]This [icon:WONDER] Wonder can be built by multiple Civilizations.</Text>
 		</Row>
 		<Row Tag="LOC_WONDER_WORLDS_FAIR_NAME">
 			<Text>World's Fair</Text>
 		</Row>
 		<Row Tag="LOC_WONDER_WORLDS_FAIR_DESCRIPTION">
-			<Text>+2 [icon:CULTURE_VP] Tourism on all [icon:WONDER] Wonders.</Text>
+			<Text>[B]+2 [icon:CULTURE_VP][/B] [TIP:LOC_PEDIA_CONCEPTS_TOURISTS_TOOLTIP]Tourism[/TIP] on all [icon:WONDER] Wonders.</Text>
 		</Row>
 		<Row Tag="LOC_WONDER_WORLDS_FAIR_TOOLTIP">
-			<Text>+2 [icon:CULTURE_VP] Tourism on all [icon:WONDER] Wonders.</Text>
+			<Text>[B]+2 [icon:CULTURE_VP][/B] [TIP:LOC_PEDIA_CONCEPTS_TOURISTS_TOOLTIP]Tourism[/TIP] on all [icon:WONDER] Wonders.</Text>
 		</Row>
 		<!-- Routes -->
 		<Row Tag="LOC_ROUTE_STAATSEISENBAHN_YIELD_DESCRIPTION">
 			<Text>+2[icon:YIELD_GOLD] Gold and[icon:YIELD_PRODUCTION] Production on [icon:CITY_RURAL] [TIP:LOC_PEDIA_CONCEPTS_RURAL_TOOLTIP]Rural[/TIP] tiles with a Staatseisenbahn in your territory.</Text>
-		</Row>
-		<!-- Exploration Revived Buildings -->
-		<Row Tag="LOC_BUILDING_UNIVERSITY_MO_NAME">
-			<Text>Golden Age University</Text>
-		</Row>
-		<Row Tag="LOC_BUILDING_PLAGUE_HOSPITAL_NAME">
-			<Text>Plague Hospital</Text>
-		</Row>
-		<Row Tag="LOC_BUILDING_PLAGUE_HOSPITAL_DESCRIPTION">
-			<Text>+5[icon:YIELD_FOOD] Food. +15% [icon:GROWTH_RATE] [TIP:LOC_PEDIA_CONCEPTS_GROWTH_RATE_TOOLTIP]Growth Rate[/TIP]. Modern Food [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]Building[/TIP].</Text>
-		</Row>
-		<Row Tag="LOC_BUILDING_PLAGUE_HOSPITAL_TOOLTIP">
-			<Text>Effect: +15% [icon:GROWTH_RATE] [TIP:LOC_PEDIA_CONCEPTS_GROWTH_RATE_TOOLTIP]Growth Rate[/TIP].</Text>
 		</Row>
 	</EnglishText>
 </Database>

@@ -109,6 +109,8 @@ panel-town-focus {
   width: 34.4444444444rem;
 }
 
-last-production-section:focus .last-production-frame, last-production-section:hover .last-production-frame, last-production-section.pressed .last-production-frame {
+last-production-section .last-production-frame:focus,
+last-production-section .last-production-frame:hover,
+last-production-section .last-production-frame.pressed {
   background: linear-gradient(to bottom, #23252b, #12151f);
 }

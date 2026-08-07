@@ -7,6 +7,7 @@ import SocialNotificationsManager, { SocialNotificationIndicatorType } from '../
 import { MustGetElement } from '../utilities/utilities-dom.js';
 import { stringifyJSON } from '../utilities/utilities-json.js';
 import { getDefaultPlayerInfo, getPlayerCardInfo } from '../utilities/utilities-liveops.js';
+import { NetworkUtilities } from '../utilities/utilities-network.js';
 
 const ProfileAccountLoggedOutEventName = "profile-account-logged-out";
 class ProfileAccountLoggedOutEvent extends CustomEvent {
@@ -341,7 +342,11 @@ class ProfileHeader extends Component {
       if (checkUnlockedRewards && (Online.UserProfile.getNewlyUnlockedItems().length <= 0 || RewardsNotificationsManager.allNewRewardsAreHidden())) {
         this.showDialogBox("LOC_NO_REWARDS_AVAILABLE", "LOC_REWARDS_TITLE", { isClosable: true });
       } else {
-        ContextManager.push(popupToOpen, popupProperties);
+        if (popupToOpen == "screen-mp-friends") {
+          NetworkUtilities.openSocialPanel("friends-list-tab");
+        } else {
+          ContextManager.push(popupToOpen, popupProperties);
+        }
       }
     } else if (blockInfo.reason !== BlockedAccessReason.NONE) {
       ContextManager.push("screen-mp-account-permissions", {

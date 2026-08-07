@@ -8355,8 +8355,8 @@
     <RequirementSet id="REQSET_9026A_NARRATIVE">
         <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
             <Argument name="GossipTypes">GOSSIP_UNIT_COMBAT_DEATH01,GOSSIP_UNIT_COMBAT_DEATH02</Argument>
-            <Argument name="GOSSIP_UNIT_COMBAT_DEATH01">Hash,OtherPlayer,Self,Hash,KillingUnitType,UNIT_PRIVATEER,Hash,AtWar,False</Argument>
-            <Argument name="GOSSIP_UNIT_COMBAT_DEATH02">Hash,OtherPlayer,Self,Hash,KillingUnitType,UNIT_PRIVATEER_2,Hash,AtWar,False</Argument>
+            <Argument name="GOSSIP_UNIT_COMBAT_DEATH01">Hash,OtherPlayer,Self,Hash,KillingUnitType,UNIT_PRIVATEER,Hash,AtWar,False,Hash,DomainType,DOMAIN_SEA</Argument>
+            <Argument name="GOSSIP_UNIT_COMBAT_DEATH02">Hash,OtherPlayer,Self,Hash,KillingUnitType,UNIT_PRIVATEER_2,Hash,AtWar,False,Hash,DomainType,DOMAIN_SEA</Argument>
             <Argument name="Amount">1</Argument>
         </Requirement>
     </RequirementSet>

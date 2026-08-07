@@ -140,6 +140,11 @@
 	</Modifier>
 	<!-- PRUSSIA -->
 	<Modifier id="TRAIT_MOD_BLOOD_AND_IRON_COMBAT_STRENGTH" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ADJUST_UNIT_RELATIONSHIP_COMBAT_STRENGTH">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_CLASS_MATCHES">
+				<Argument name="UnitClass">UNIT_CLASS_COMBAT</Argument>
+			</Requirement>
+			</SubjectRequirements>
 		<Argument name="Amount">1</Argument>
 		<Argument name="RelationshipTypes">PLAYER_RELATIONSHIP_HOSTILE, PLAYER_RELATIONSHIP_UNFRIENDLY</Argument>
 	</Modifier>

@@ -113,7 +113,15 @@ function createEndGameContextModel() {
     }
   }
   function allowOneMoreTurn(defeatDefinition) {
+    const args = {};
+    const result = Game.PlayerOperations.canStart(
+      GameContext.localPlayerID,
+      PlayerOperationTypes.EXTEND_GAME,
+      args,
+      false
+    );
     if (Configuration.getGame().isAnyMultiplayer) return false;
+    else if (result) return result.Success;
     else if (!defeatDefinition) return true;
     else if (defeatDefinition) return defeatDefinition.AllowOneMoreTurn;
     else return true;

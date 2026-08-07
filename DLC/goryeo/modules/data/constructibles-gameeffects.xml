@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+	<Modifier id="MOD_BUSEOKSA_INFLUENCE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_WONDER_IS_ACTIVE">
+				<Argument name="ConstructibleType">WONDER_BUSEOKSA</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_PLOT_ADJACENT_CONSTRUCTIBLE_TYPE_MATCHES">
+				<Argument name="ConstructibleType">WONDER_BUSEOKSA</Argument>
+				<Argument name="MaxRange">6</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_SETTLEMENT_HAPPINESS_STAGE_MATCHES">
+				<Argument name="IsGreaterThanOrEquals">true</Argument>
+				<Argument name="HappinessStage">HAPPINESS_STAGE_JOYOUS</Argument>
+       		</Requirement>
+		</SubjectRequirements>
+		<Argument name="Tag">UNIQUE_IMPROVEMENT</Argument>
+		<Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Tooltip">LOC_WONDER_BUSEOKSA_NAME</Argument>
+	</Modifier>
+	<Modifier id="MOD_BUSEOKSA_ECSTATIC_GOLD" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_WONDER_IS_ACTIVE">
+				<Argument name="ConstructibleType">WONDER_BUSEOKSA</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_PLOT_ADJACENT_CONSTRUCTIBLE_TYPE_MATCHES">
+				<Argument name="ConstructibleType">WONDER_BUSEOKSA</Argument>
+				<Argument name="MaxRange">6</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_SETTLEMENT_HAPPINESS_STAGE_MATCHES">
+				<Argument name="IsExact">true</Argument>
+				<Argument name="HappinessStage">HAPPINESS_STAGE_ECSTATIC</Argument>
+       		</Requirement>
+		</SubjectRequirements>
+		<Argument name="Tag">UNIQUE_IMPROVEMENT</Argument>
+		<Argument name="YieldType">YIELD_GOLD</Argument>
+		<Argument name="Amount">2</Argument>
+		<Argument name="Tooltip">LOC_WONDER_BUSEOKSA_NAME</Argument>
+	</Modifier>
+</GameEffects>

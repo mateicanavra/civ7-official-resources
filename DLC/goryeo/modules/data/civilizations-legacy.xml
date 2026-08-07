@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Types>
+		<!-- Major Civs -->
+		<Row Type="TRAIT_GORYEO" Kind="KIND_TRAIT"/>
+		<Row Type="CIVILIZATION_GORYEO" Kind="KIND_CIVILIZATION"/>
+	</Types>
+	<LegacyCivilizations>
+		<!-- Full Civs -->
+		<Row CivilizationType="CIVILIZATION_GORYEO" Name="LOC_CIVILIZATION_GORYEO_NAME" FullName="LOC_CIVILIZATION_GORYEO_FULLNAME" Adjective="LOC_CIVILIZATION_GORYEO_ADJECTIVE" Age="AGE_EXPLORATION"/>
+	</LegacyCivilizations>
+	<LegacyCivilizationTraits>
+		<Row CivilizationType="CIVILIZATION_GORYEO" TraitType="TRAIT_GORYEO"/>
+	</LegacyCivilizationTraits>
+	<Traits>
+		<Row TraitType="TRAIT_GORYEO" InternalOnly="true"/>
+	</Traits>
+	<LegacyIndependents>
+		<Update>
+			<Where IndependentType="INDEPENDENT_EXPLORATION_15"/>
+			<Set Name="LOC_INDEPENDENT_EXPLORATION_15_MAJOR_GORYEO_NAME"/>
+		</Update>
+	</LegacyIndependents>
+</Database>
