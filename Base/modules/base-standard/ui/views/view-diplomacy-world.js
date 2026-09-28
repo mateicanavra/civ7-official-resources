@@ -1,9 +1,12 @@
+import { InputHandlerState } from '../../../core/ui/input/input-support.js';
 import LensManager from '../../../core/ui/lenses/lens-manager.js';
 import ViewManager, { UISystem } from '../../../core/ui/views/view-manager.js';
-import { SetIsPlotTooltipVisible } from '../../ui-next/tooltips/plot-tooltip/plot-tooltip.js';
+import { TooltipModel } from '../../../core/ui-next/components/tooltip-model.js';
+import { setCityBannersDisabled } from '../../ui-next/screens/city-banners/city-banner-data.js';
 
 class DiplomacyWorldView {
   canPlayExitSound = true;
+  tooltipModel = TooltipModel.get();
   getName() {
     return "DiplomacyWorld";
   }
@@ -15,13 +18,11 @@ class DiplomacyWorldView {
   }
   enterView() {
     this.canPlayExitSound = true;
-    SetIsPlotTooltipVisible(true);
-    window.dispatchEvent(new CustomEvent("ui-disable-city-banners"));
+    setCityBannersDisabled(true);
     LensManager.enableLayer("fxs-culture-borders-layer");
   }
   exitView() {
-    SetIsPlotTooltipVisible(false);
-    window.dispatchEvent(new CustomEvent("ui-enable-city-banners"));
+    setCityBannersDisabled(false);
     LensManager.disableLayer("fxs-culture-borders-layer");
     if (LensManager.isLayerEnabled("fxs-yields-layer")) {
       LensManager.toggleLayer("fxs-yields-layer", { serialize: false });
@@ -29,23 +30,31 @@ class DiplomacyWorldView {
     if (LensManager.isLayerEnabled("fxs-resource-layer")) {
       LensManager.toggleLayer("fxs-resource-layer", { serialize: false });
     }
+    if (LensManager.isLayerEnabled("fxs-radial-measure-layer")) {
+      LensManager.toggleLayer("fxs-radial-measure-layer", { serialize: false });
+    }
   }
   addEnterCallback(_func) {
   }
   addExitCallback(_func) {
   }
-  readInputEvent(inputEvent) {
+  handleInputEvent(inputEvent) {
     if (inputEvent.detail.status != InputActionStatuses.FINISH) {
-      return true;
+      return InputHandlerState.Active;
     }
     switch (inputEvent.detail.name) {
       case "cancel":
       case "keyboard-escape":
       case "mousebutton-right":
+        if (this.tooltipModel.locked()) {
+          this.tooltipModel.unlockAll();
+        }
         window.dispatchEvent(new CustomEvent("back-to-peace-deal"));
-        return false;
+        return InputHandlerState.Handled;
+      case "sys-menu":
+        return InputHandlerState.Handled;
     }
-    return true;
+    return InputHandlerState.Active;
   }
   getRules() {
     return [
@@ -53,6 +62,7 @@ class DiplomacyWorldView {
       { name: "city-banners", type: UISystem.World, visible: "true" },
       { name: "unit-info-panel", type: UISystem.World, visible: "false" },
       { name: "plot-icons", type: UISystem.World, visible: "true" },
+      { name: "plot-tooltips", type: UISystem.World, visible: "true" },
       { name: "plot-vfx", type: UISystem.World, visible: "false" },
       { name: "units", type: UISystem.Events, selectable: false },
       { name: "unit-flags", type: UISystem.World, visible: "true" },

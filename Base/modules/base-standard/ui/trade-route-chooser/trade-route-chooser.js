@@ -1,15 +1,17 @@
+import { render } from '../../../core/vendor/solid-js/web/dist/web.js';
 import { Audio } from '../../../core/ui/audio-base/audio-support.js';
-import ActionHandler from '../../../core/ui/input/action-handler.js';
 import { Focus } from '../../../core/ui/input/focus-support.js';
 import { ActiveDeviceTypeChangedEventName } from '../../../core/ui/input/input-events.js';
 import { InterfaceMode } from '../../../core/ui/interface-modes/interface-modes.js';
 import LensManager from '../../../core/ui/lenses/lens-manager.js';
 import NavTray from '../../../core/ui/navigation-tray/model-navigation-tray.js';
 import Panel from '../../../core/ui/panel-support.js';
+import { IsControllerActive } from '../../../core/ui-next/services/input.js';
 import { HideMiniMapEvent } from '../mini-map/panel-mini-map.js';
 import { TradeRoutesModel, getResourceTypeIcon } from './trade-routes-model.js';
 import { UnitFlagManager } from '../unit-flags/unit-flag-manager.js';
 import WorldInput from '../world-input/world-input.js';
+import { ResourceTooltip } from '../../ui-next/tooltips/resource-tooltip.js';
 import styles from './trade-route-chooser.scss.js';
 
 class TradeRouteChooser extends Panel {
@@ -31,11 +33,14 @@ class TradeRouteChooser extends Panel {
   engineInputListener = this.onEngineInput.bind(this);
   interfaceModeListener = this.onInterfaceModeChange.bind(this);
   subsystemFrameCloseListener = () => this.close();
+  disposeTooltips = [];
   static get activeChooser() {
     return this._activeChooser;
   }
   constructor(root) {
     super(root);
+    this.disposeTooltips.forEach((dispose) => dispose());
+    this.disposeTooltips = [];
     this.tradeRoutes = TradeRoutesModel.getProjectedTradeRoutes().map((route) => ({
       route,
       element: this.createTradeRouteChooserItem(route)
@@ -137,6 +142,8 @@ class TradeRouteChooser extends Panel {
     TradeRouteChooser._activeChooser = void 0;
     TradeRoutesModel.clearTradeRouteVfx();
     this.tradeRouteBanner?.remove();
+    this.disposeTooltips.forEach((dispose) => dispose());
+    this.disposeTooltips = [];
     engine.off("UnitSelectionChanged", this.onUnitSelectionChanged, this);
     this.Root.removeEventListener("navigate-input", this.navigateInputListener);
     this.Root.removeEventListener("engine-input", this.engineInputListener);
@@ -231,8 +238,8 @@ class TradeRouteChooser extends Panel {
   }
   updateInputDeviceType() {
     if (this.confirmButton) {
-      this.confirmButton.classList.toggle("hidden", ActionHandler.isGamepadActive);
-      this.gamePadFooter.classList.toggle("hidden", !ActionHandler.isGamepadActive);
+      this.confirmButton.classList.toggle("hidden", IsControllerActive());
+      this.gamePadFooter.classList.toggle("hidden", !IsControllerActive());
     }
   }
   defaultSort(a, b) {
@@ -256,7 +263,10 @@ class TradeRouteChooser extends Panel {
   }
   createTradeRouteChooserItem(tradeRoute) {
     const isInvalidRoute = tradeRoute.status != TradeRouteStatus.SUCCESS;
+    const routeCont = document.createElement("div");
+    routeCont.classList.add("my-1\\.5", "flex", "flex-col", "flex-auto", "relative");
     const routeEle = document.createElement("fxs-chooser-item");
+    routeEle.classList.add("absolute", "w-full", "h-full");
     routeEle.setAttribute("content-direction", "flex-col");
     routeEle.setAttribute("selectable-when-disabled", "true");
     routeEle.setAttribute("select-on-focus", "true");
@@ -268,16 +278,27 @@ class TradeRouteChooser extends Panel {
     routeEle.setAttribute("data-trade-route-index", tradeRoute.index.toString());
     routeEle.setAttribute("data-audio-group-ref", "audio-trade-route-chooser");
     routeEle.setAttribute("disabled", isInvalidRoute.toString());
-    routeEle.classList.add("my-1\\.5", "flex", "flex-col", "flex-auto");
+    routeCont.appendChild(routeEle);
     const topInfo = document.createElement("div");
-    topInfo.classList.add("flex", "flex-row", "mx-4", "mt-4");
-    routeEle.appendChild(topInfo);
+    topInfo.classList.add("flex", "flex-row", "mx-4", "mt-4", "relative");
+    routeCont.appendChild(topInfo);
     const leftInfo = document.createElement("div");
     leftInfo.classList.add("flex", "flex-col", "flex-auto");
     topInfo.appendChild(leftInfo);
-    const cityName = document.createElement("fxs-header");
-    cityName.classList.add("text-base");
-    cityName.setAttribute("title", tradeRoute.city.name);
+    const cityName = document.createElement("div");
+    cityName.innerHTML = Locale.stylize(tradeRoute.city.name);
+    cityName.classList.add(
+      "fxs-header",
+      "uppercase",
+      "tracking-100",
+      "text-center",
+      "justify-center",
+      "max-w-full",
+      "font-bold",
+      "text-base",
+      "h-8",
+      "font-fit-shrink"
+    );
     cityName.setAttribute("filigree-style", "none");
     leftInfo.appendChild(cityName);
     const tradeAction = document.createElement("div");
@@ -306,21 +327,57 @@ class TradeRouteChooser extends Panel {
     leaderIcon.setAttribute("data-icon-id", tradeRoute.leaderIcon);
     leaderIcon.setAttribute("data-icon-context", "CIRCLE_MASK");
     leaderBg.appendChild(leaderIcon);
-    const payloadInfo = document.createElement("div");
+    const payloadInfo = document.createElement("fxs-hslot");
     payloadInfo.classList.add("flex", "flex-row", "mx-4", "mb-2");
-    routeEle.appendChild(payloadInfo);
+    payloadInfo.setAttribute("data-tooltip-style", "");
+    routeCont.appendChild(payloadInfo);
     for (const payload of tradeRoute.importPayloads) {
+      const payloadButton = document.createElement("fxs-activatable");
+      payloadButton.setAttribute("tabindex", "-1");
+      payloadButton.classList.add("relative");
       const payloadIcon = document.createElement("fxs-icon");
-      payloadIcon.classList.add("size-10", "relative");
+      payloadIcon.classList.add("size-10");
       payloadIcon.setAttribute("data-icon-id", payload.ResourceType);
       payloadIcon.setAttribute("data-icon-context", "RESOURCE");
-      payloadInfo.appendChild(payloadIcon);
-      const payloadType = document.createElement("fxs-icon");
       const resourceTypeIcon = getResourceTypeIcon(payload, tradeRoute.city);
+      const resourceTypeName = `LOC_${payload.ResourceClassType}_NAME`;
+      payloadButton.appendChild(payloadIcon);
+      payloadButton.setAttribute(
+        "aria-label",
+        Locale.compose(
+          `{${payload.Name}}, ${Locale.compose("LOC_RESOURCECLASS_TOOLTIP_NAME", resourceTypeName)}, {${payload.Tooltip}},`
+        )
+      );
+      payloadButton.addEventListener("action-activate", () => {
+        if (IsControllerActive() && !isInvalidRoute) {
+          this.checkAndStartTradeRoute();
+        }
+      });
+      payloadButton.addEventListener("focus", (event) => {
+        this.handleTradeRouteSelected(routeEle, tradeRoute);
+        event.stopPropagation();
+      });
+      const dispose = render(
+        () => ResourceTooltip({
+          children: payloadButton,
+          resourceName: payload.Name,
+          resourceIcon: `url(blp:${UI.getIconBLP(payload.ResourceType ?? "")})`,
+          resourceType: resourceTypeName,
+          resourceTypeIcon: `url(blp:${UI.getIconBLP(resourceTypeIcon)})`,
+          tooltipText: payload.Tooltip
+        }),
+        payloadInfo
+      );
+      this.disposeTooltips.push(dispose);
+      const payloadType = document.createElement("fxs-icon");
       payloadType.classList.add("size-4", "absolute", "left-0", "bottom-0");
       payloadType.setAttribute("data-icon-id", resourceTypeIcon);
       payloadType.setAttribute("data-icon-context", "RESOURCECLASS");
       payloadIcon.appendChild(payloadType);
+    }
+    if (isInvalidRoute) {
+      topInfo.classList.add("opacity-50");
+      payloadInfo.classList.add("opacity-50");
     }
     routeEle.addEventListener("chooser-item-selected", (event) => {
       this.handleTradeRouteSelected(routeEle, tradeRoute);
@@ -329,7 +386,7 @@ class TradeRouteChooser extends Panel {
     routeEle.addEventListener("action-activate", () => {
       this.checkAndStartTradeRoute();
     });
-    return routeEle;
+    return routeCont;
   }
   handleTradeRouteSelected(routeEle, tradeRoute) {
     UI.sendAudioEvent(Audio.getSoundTag("data-audio-trade-route-activate", "audio-trade-route-chooser"));

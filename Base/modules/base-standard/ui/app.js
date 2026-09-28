@@ -2,6 +2,7 @@ import { render } from '../../core/vendor/solid-js/web/dist/web.js';
 import { createComponent, Show } from '../../core/vendor/solid-js/dist/solid.js';
 import { FocusViewer } from '../../core/ui-next/debug/focus-viewer/focus-viewer.js';
 import { createSignalFromDebugWidget } from '../../core/ui-next/utilities/debug-widgets.js';
+import { CityBanners } from '../ui-next/screens/city-banners/city-banners.js';
 import { PlotTooltip } from '../ui-next/tooltips/plot-tooltip/plot-tooltip.js';
 
 function App() {
@@ -12,7 +13,7 @@ function App() {
     id: "enableFocusViewer",
     value: false
   });
-  return [createComponent(PlotTooltip, {}), createComponent(Show, {
+  return [createComponent(PlotTooltip, {}), createComponent(CityBanners, {}), createComponent(Show, {
     get when() {
       return focusViewerEnabled();
     },

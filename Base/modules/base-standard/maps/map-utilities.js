@@ -1,5 +1,6 @@
 import { g_LandmassFractal, g_CenterExponent, g_IgnoreStartSectorPctFromCtr, g_FlatTerrain, g_OceanTerrain } from './map-globals.js';
-import { wouldCreateCluster } from './resource-generator.js';
+import { getTileId, tileClassIdFromValidBiome } from './resource-placement-common.js';
+import { RandomImpl } from '../scripts/random-pcg-32.js';
 
 function needHumanNearEquator() {
   const uiMapSize = GameplayMap.getMapSize();
@@ -39,30 +40,6 @@ function needHumanNearEquator() {
     }
   }
   return false;
-}
-function getMinimumResourcePlacementModifier() {
-  const mapSizeInfo = GameInfo.Maps.lookup(GameplayMap.getMapSize());
-  if (mapSizeInfo == null) return;
-  let iMapMinimumModifer = 0;
-  const mapType = Configuration.getMapValue("Name");
-  for (const option of GameInfo.MapResourceMinimumAmountModifier) {
-    if (option.MapType === mapType && option.MapSizeType == mapSizeInfo.MapSizeType) {
-      iMapMinimumModifer = option.Amount;
-      break;
-    }
-  }
-  if (iMapMinimumModifer == 0) {
-    for (const option of GameInfo.MapResourceMinimumAmountModifier) {
-      if (option.MapType === "DEFAULT" && option.MapSizeType == mapSizeInfo.MapSizeType) {
-        iMapMinimumModifer = option.Amount;
-        console.log(
-          "Using default map size for resuource placemtn, please update the table for this map type. Modifer is " + iMapMinimumModifer + " by default."
-        );
-        break;
-      }
-    }
-  }
-  return iMapMinimumModifer;
 }
 function getDistanceFromContinentCenter(iX, iY, iContinentBottomRow, iContinentTopRow, iWestContinentLeftCol, iWestContinentRightCol, iEastContinentLeftCol, iEastContinentRightCol) {
   let iContinentLeftEdge = iWestContinentLeftCol;
@@ -452,159 +429,78 @@ function placeRuralDistrict(iX, iY) {
   }
 }
 function replaceIslandResources(iWidth, iHeight, zResourceClassType) {
-  const resourceRunningWeight = new Array(GameInfo.Resources.length);
-  const resourceWeight = new Array(GameInfo.Resources.length);
-  const resources = [];
-  for (let resourceIdx = 0; resourceIdx < GameInfo.Resources.length; resourceIdx++) {
-    const resourceInfo = GameInfo.Resources.lookup(resourceIdx);
-    if (resourceInfo && resourceInfo.Tradeable) {
-      if (GameInfo.Resources.lookup(resourceIdx)?.ResourceClassType == zResourceClassType) {
-        resources.push(resourceIdx);
-      }
-      resourceWeight[resourceInfo.$index] = resourceInfo.Weight;
-    }
-    resourceRunningWeight[resourceIdx] = 0;
-  }
-  for (let iY = iHeight - 1; iY >= 0; iY--) {
-    for (let iX = 0; iX < iWidth; iX++) {
-      if (GameplayMap.hasPlotTag(iX, iY, PlotTags.PLOT_TAG_ISLAND)) {
-        const resourceAtLocation = GameplayMap.getResourceType(iX, iY);
-        if (resourceAtLocation != ResourceTypes.NO_RESOURCE) {
-          if (resources.length > 0) {
-            let resourceChosen = ResourceTypes.NO_RESOURCE;
-            let resourceChosenIndex = 0;
-            for (let iI = 0; iI < resources.length; iI++) {
-              const newResource = resources[iI];
-              if (newResource != resourceAtLocation) {
-                if (ResourceBuilder.canHaveResource(iX, iY, resources[iI], true) && !wouldCreateCluster(iX, iY, newResource)) {
-                  if (resourceChosen == ResourceTypes.NO_RESOURCE) {
-                    resourceChosen = resources[iI];
-                    resourceChosenIndex = resources[iI];
-                  } else {
-                    if (resourceRunningWeight[resources[iI]] > resourceRunningWeight[resourceChosenIndex]) {
-                      resourceChosen = resources[iI];
-                      resourceChosenIndex = resources[iI];
-                    } else if (resourceRunningWeight[resources[iI]] == resourceRunningWeight[resourceChosenIndex]) {
-                      const iRoll = TerrainBuilder.getRandomNumber(2, "Resource Scatter");
-                      if (iRoll >= 1) {
-                        resourceChosen = resources[iI];
-                        resourceChosenIndex = resources[iI];
-                      }
-                    }
-                  }
-                }
-              }
-            }
-            if (resourceChosen != ResourceTypes.NO_RESOURCE) {
-              const iResourcePlotIndex = GameplayMap.getIndexFromXY(iX, iY);
-              if (iResourcePlotIndex != -1) {
-                removeRuralDistrict(iX, iY);
-                ResourceBuilder.setResourceType(iX, iY, ResourceTypes.NO_RESOURCE);
-                ResourceBuilder.setResourceType(iX, iY, resourceChosen);
-                placeRuralDistrict(iX, iY);
-                resourceRunningWeight[resourceChosenIndex] -= resourceWeight[resourceChosenIndex];
-                const oldName = GameInfo.Resources.lookup(resourceAtLocation)?.Name;
-                const name = GameInfo.Resources.lookup(resourceChosenIndex)?.Name;
-                console.log("Replaced " + Locale.compose(oldName) + " at (" + iX + ", " + iY + ")");
-                console.log("Placed " + Locale.compose(name) + " at (" + iX + ", " + iY + ")");
-              } else {
-                console.log("Resource Index Failure");
-              }
-            } else {
-              console.log("No valid resource replacement");
-            }
-          }
-        }
-      }
-    }
-  }
-}
-function auditMinimumResourcesPlacement(iWidth, iHeight) {
-  const landmassIds = /* @__PURE__ */ new Set();
-  const actualCountsByLandmass = /* @__PURE__ */ new Map();
-  const actualIslandCounts = /* @__PURE__ */ new Map();
-  const getActualCounts = (landmassId) => {
-    if (!actualCountsByLandmass.has(landmassId)) {
-      actualCountsByLandmass.set(landmassId, new Array(GameInfo.Resources.length).fill(0));
-    }
-    return actualCountsByLandmass.get(landmassId);
-  };
-  const getActualIslandCounts = (landmassId) => {
-    if (!actualIslandCounts.has(landmassId)) {
-      actualIslandCounts.set(landmassId, new Array(GameInfo.Resources.length).fill(0));
-    }
-    return actualIslandCounts.get(landmassId);
-  };
-  const islandResourceClasses = /* @__PURE__ */ new Set();
-  const mapType = Configuration.getMapValue("Name");
-  for (const option of GameInfo.MapIslandBehavior) {
-    if (option.MapType === mapType && option.ResourceClassType) {
-      islandResourceClasses.add(option.ResourceClassType);
-    }
-  }
+  const candidates = [];
+  let existingCount = 0;
   for (let y = 0; y < iHeight; y++) {
     for (let x = 0; x < iWidth; x++) {
-      const landmassId = GameplayMap.getLandmassRegionId(x, y);
-      if (landmassId == LandmassRegion.LANDMASS_REGION_NONE || landmassId == LandmassRegion.LANDMASS_REGION_ANY) continue;
-      landmassIds.add(landmassId);
-      const resource = GameplayMap.getResourceType(x, y);
-      if (resource != ResourceTypes.NO_RESOURCE) {
-        getActualCounts(landmassId)[resource]++;
-        if (GameplayMap.hasPlotTag(x, y, PlotTags.PLOT_TAG_ISLAND)) {
-          getActualIslandCounts(landmassId)[resource]++;
+      if (!GameplayMap.hasPlotTag(x, y, PlotTags.PLOT_TAG_ISLAND)) continue;
+      const r = GameplayMap.getResourceType(x, y);
+      if (r === ResourceTypes.NO_RESOURCE) continue;
+      const def = GameInfo.Resources.lookup(r);
+      if (!def) continue;
+      if (def.ResourceClassType === zResourceClassType) {
+        existingCount++;
+        continue;
+      }
+      candidates.push({ x, y, resourceIdx: r, tid: getTileId(x, y) });
+    }
+  }
+  const eligibleByTid = /* @__PURE__ */ new Map();
+  for (const rvb of GameInfo.Resource_ValidBiomes) {
+    const def = GameInfo.Resources.find((r) => r.ResourceType === rvb.ResourceType);
+    if (!def || !def.Tradeable || def.ResourceClassType !== zResourceClassType) continue;
+    const weight = rvb.Weight ?? def.Weight;
+    if (weight <= 0) continue;
+    const tid = tileClassIdFromValidBiome(rvb);
+    if (tid === void 0) continue;
+    if (!eligibleByTid.has(tid)) {
+      eligibleByTid.set(tid, []);
+    }
+    eligibleByTid.get(tid).push({ resourceIdx: def.$index, weight });
+  }
+  let replaced = 0;
+  let noneEligible = 0;
+  let noneCanHave = 0;
+  const validResources = [];
+  for (const candidate of candidates) {
+    const options = eligibleByTid.get(candidate.tid);
+    if (!options) {
+      noneEligible++;
+      continue;
+    }
+    validResources.length = 0;
+    let totalWeight = 0;
+    for (const option of options) {
+      if (ResourceBuilder.canHaveResource(candidate.x, candidate.y, option.resourceIdx, true)) {
+        validResources.push(option);
+        totalWeight += option.weight;
+      }
+    }
+    if (validResources.length === 0) {
+      noneCanHave++;
+      continue;
+    }
+    let chosen = validResources[0].resourceIdx;
+    if (validResources.length > 1) {
+      const roll = RandomImpl.fRand("Island Resource Replacement Pick") * totalWeight;
+      let cumulativeWeight = 0;
+      for (let k = 0; k < validResources.length; k++) {
+        cumulativeWeight += validResources[k].weight;
+        if (roll < cumulativeWeight) {
+          chosen = validResources[k].resourceIdx;
+          break;
         }
       }
     }
+    removeRuralDistrict(candidate.x, candidate.y);
+    ResourceBuilder.setResourceType(candidate.x, candidate.y, ResourceTypes.NO_RESOURCE);
+    ResourceBuilder.setResourceType(candidate.x, candidate.y, chosen);
+    placeRuralDistrict(candidate.x, candidate.y);
+    replaced++;
   }
-  console.log("Landmass Layout:");
-  for (let iY = iHeight - 1; iY >= 0; iY--) {
-    let str = "";
-    if (iY % 2 == 1) {
-      str += " ";
-    }
-    for (let iX = 0; iX < iWidth; iX++) {
-      const landmassId = GameplayMap.getLandmassRegionId(iX, iY);
-      let landmass = landmassId == 255 ? "." : landmassId;
-      str += landmass + " ";
-    }
-    console.log(str);
-  }
-  let unmetTotal = 0;
-  for (const landmassId of landmassIds) {
-    for (let i = 0; i < GameInfo.Resources.length; i++) {
-      const resourceInfo = GameInfo.Resources.lookup(i);
-      if (!resourceInfo) {
-        continue;
-      }
-      const assignedLandmass = ResourceBuilder.getResourceLandmass(i);
-      const allowedOnLandmass = assignedLandmass == LandmassRegion.LANDMASS_REGION_ANY || assignedLandmass != LandmassRegion.LANDMASS_REGION_NONE && assignedLandmass % landmassId == 0;
-      if (!allowedOnLandmass)
-        continue;
-      let minimumResourcePlacementModifier = getMinimumResourcePlacementModifier();
-      if (minimumResourcePlacementModifier == void 0) {
-        minimumResourcePlacementModifier = 0;
-      }
-      const required = resourceInfo.MinimumPerHemisphere > 0 ? resourceInfo.MinimumPerHemisphere + minimumResourcePlacementModifier : 0;
-      if (required <= 0 || !ResourceBuilder.isResourceRequiredForAge(i, Game.age))
-        continue;
-      const isIslandResource = islandResourceClasses.has(resourceInfo.ResourceClassType);
-      if (isIslandResource && (landmassId == LandmassRegion.LANDMASS_REGION_EAST || landmassId == LandmassRegion.LANDMASS_REGION_WEST))
-        continue;
-      const actual = isIslandResource ? getActualIslandCounts(landmassId)[i] : getActualCounts(landmassId)[i];
-      if (actual < required) {
-        unmetTotal++;
-        console.log(
-          "Resource minimum unmet: " + (isIslandResource ? "[ISLAND] " : "") + Locale.compose(resourceInfo.Name) + " | landmassId=" + landmassId + " | required=" + required + " | actual=" + actual
-        );
-      } else {
-        console.log(
-          // MET
-          "Resource minimum met: " + (isIslandResource ? "[ISLAND] " : "") + Locale.compose(resourceInfo.Name) + " | landmassId=" + landmassId + " | required=" + required + " | actual=" + actual
-        );
-      }
-    }
-  }
-  console.log("Resource minimum unmet total: " + unmetTotal);
+  console.log(
+    `replaceIslandResources(): Existing=${existingCount}, Candidates=${candidates.length}, Replaced=${replaced}, No eligible replacement=${noneEligible}, Denied by canHaveResource()=${noneCanHave}`
+  );
 }
 function isAdjacentToLand(iX, iY) {
   if (GameplayMap.hasPlotTag(iX, iY, PlotTags.PLOT_TAG_ISLAND)) {
@@ -798,5 +694,5 @@ function markLandmassRegionId(continent, id) {
   }
 }
 
-export { applyCoastalErosion, applyCoastalErosionAdjustingForStartSectors, auditMinimumResourcesPlacement, clearContinent, createIslands, createOrganicLandmasses, determineXShift, determineYShift, getContinentEdgeHeightBump, getDistanceFromContinentCenter, getDistanceToClosestStart, getHeightAdjustingForStartSector, getMaxDistanceFromContinentCenter, getMinimumResourcePlacementModifier, getSector, getSectorRegion, isAdjacentToLand, isAdjacentToNaturalWonder, isCliff, isOceanAccess, markLandmassRegionId, needHumanNearEquator, placeRuralDistrict, removeRuralDistrict, replaceIslandResources, shiftPlotTypesBy, shiftTerrain, shuffle };
+export { applyCoastalErosion, applyCoastalErosionAdjustingForStartSectors, clearContinent, createIslands, createOrganicLandmasses, determineXShift, determineYShift, getContinentEdgeHeightBump, getDistanceFromContinentCenter, getDistanceToClosestStart, getHeightAdjustingForStartSector, getMaxDistanceFromContinentCenter, getSector, getSectorRegion, isAdjacentToLand, isAdjacentToNaturalWonder, isCliff, isOceanAccess, markLandmassRegionId, needHumanNearEquator, placeRuralDistrict, removeRuralDistrict, replaceIslandResources, shiftPlotTypesBy, shiftTerrain, shuffle };
 //# sourceMappingURL=map-utilities.js.map

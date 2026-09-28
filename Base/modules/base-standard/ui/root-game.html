@@ -6,10 +6,9 @@
 			name="viewport"
 			content="width=device-width, initial-scale=1.0"
 		/>
-		<title>Root - Game</title>
-
+		<title>Root - Game</title>
 		<!-- Ideally, these scripts will be nested inside of the body tag.-->
-		<script src="fs://game/core/ui/cohtml.js"></script>
+		<script src="/core/ui/cohtml.js"></script>
 		<script>
 			// Synchronous: runs before the first paint. For age transitions the engine has
 			// already captured a blurred snapshot, so the loading curtain should be
@@ -18,10 +17,10 @@
 				document.documentElement.classList.add("age-transition");
 			}
 		</script>
-		<script src="fs://game/core/ui/accessibility/cohtml-speech-api.js"></script>
-		<script src="fs://game/core/ui/component-support.js"></script>
-		<script src="fs://game/core/ui/utilities/utilities-tuner.js"></script>
-		<script src="fs://game/core/ui/external/chart-js/chart.js"></script>
+		<script src="/core/ui/accessibility/cohtml-speech-api.js"></script>
+		<script src="/core/ui/component-support.js"></script>
+		<script src="/core/ui/utilities/utilities-tuner.js"></script>
+		<script src="/core/ui/external/chart-js/chart.js"></script>
 		<!-- The spatial-manager.js module needs to be added here (despite its presence in the root-shell.html already).
 		It is required because the spatial-manager.ts uses a method exported from the Navigation namespace (defined in navigation-support.ts) -->
 
@@ -30,6 +29,9 @@
 		Load this file early on before many other load requests have gone out.
 	-->
 		<script type="module" crossorigin src="fs://game/core/vendor/vite/preload-helper.js"></script>
+		<script type="module" crossorigin src="fs://game/core/ui/input/input-support.js"></script>
+		<script type="module" crossorigin src="fs://game/core/ui/utilities/utilities-dom.js"></script>
+		<script type="module" crossorigin src="fs://game/core/ui/modding-registry-handler/modding-registry-handler.js"></script>
 		<script type="module" crossorigin src="fs://game/base-standard/ui/root-game.js"></script>
 		<script type="module" crossorigin src="fs://game/core/vendor/solid-js/dist/solid.js"></script>
 		<script type="module" crossorigin src="fs://game/core/ui/audio-base/audio-support.js"></script>
@@ -52,7 +54,6 @@
 		<script type="module" crossorigin src="fs://game/core/ui/input/cursor.js"></script>
 		<script type="module" crossorigin src="fs://game/core/ui/input/debug-input-handler.js"></script>
 		<script type="module" crossorigin src="fs://game/core/ui/input/input-events.js"></script>
-		<script type="module" crossorigin src="fs://game/core/ui/input/input-support.js"></script>
 		<script type="module" crossorigin src="fs://game/core/ui/utilities/utilities-update-gate.js"></script>
 		<script type="module" crossorigin src="fs://game/core/ui/input/action-handler.js"></script>
 		<script type="module" crossorigin src="fs://game/core/ui/utilities/utilities-component-id.js"></script>
@@ -96,19 +97,13 @@
 		<script type="module" crossorigin src="fs://game/core/ui/components/fxs-slot.js"></script>
 		<script type="module" crossorigin src="fs://game/core/ui/input/focus-support.js"></script>
 		<script type="module" crossorigin src="fs://game/core/ui-next/components/fxs-solid-component.js"></script>
-		<script type="module" crossorigin src="fs://game/core/ui-next/components/button.js"></script>
-		<script type="module" crossorigin src="fs://game/core/ui-next/components/modal-frame.js"></script>
-		<script type="module" crossorigin src="fs://game/core/ui-next/components/tooltip-hidden-hint.js"></script>
 		<script type="module" crossorigin src="fs://game/core/ui-next/components/tooltip-model.js"></script>
 		<script type="module" crossorigin src="fs://game/core/ui-next/components/panel.js"></script>
 		<script type="module" crossorigin src="fs://game/core/ui-next/components/arrow-button.js"></script>
 		<script type="module" crossorigin src="fs://game/core/ui-next/services/view-experience.js"></script>
 		<script type="module" crossorigin src="fs://game/core/ui-next/components/radio-button.js"></script>
 		<script type="module" crossorigin src="fs://game/core/ui-next/components/tab.js"></script>
-		<script type="module" crossorigin src="fs://game/core/ui-next/components/tooltip-keyword.js"></script>
-		<script type="module" crossorigin src="fs://game/core/ui-next/components/slot.js"></script>
-		<script type="module" crossorigin src="fs://game/core/ui-next/components/tooltip.js"></script>
-		<script type="module" crossorigin src="fs://game/core/ui-next/components/tooltip-compat.js"></script>
+		<script type="module" crossorigin src="fs://game/core/ui-next/components/tooltip-nested.js"></script>
 		<script type="module" crossorigin src="fs://game/core/ui-next/components/filigree.js"></script>
 		<script type="module" crossorigin src="fs://game/base-standard/ui-next/screens/load-screen/load-screen-model.js"></script>
 		<script type="module" crossorigin src="fs://game/core/ui/utilities/utilities-layout.js"></script>
@@ -207,8 +202,11 @@
 					<fxs-hslot>
 						<panel-sub-system-dock></panel-sub-system-dock>
 						<panel-continents></panel-continents>
-						<panel-settler-legend></panel-settler-legend>
-						<panel-general-appeal-legend></panel-general-appeal-legend>
+						<div
+							name="target-slot-panel-settler-legend"
+							class="fxs-slot-target target-slot-panel-settler-legend"
+							id="target-slot-panel-settler-legend"
+						></div>
 					</fxs-hslot>
 					<fxs-hslot>
 						<quest-list></quest-list>
@@ -321,6 +319,11 @@
 					id="target-slot-trade-route-chooser"
 				></div>
 				<div
+					name="target-slot-panel-general-appeal-legend"
+					class="fxs-slot-target target-slot-panel-general-appeal-legend"
+					id="target-slot-panel-general-appeal-legend"
+				></div>
+				<div
 					name="target-slot-panel-continents"
 					class="fxs-slot-target target-slot-panel-continents flex"
 					id="target-slot-panel-continents"
@@ -362,8 +365,11 @@
 					<fxs-hslot>
 						<panel-sub-system-dock></panel-sub-system-dock>
 						<panel-continents></panel-continents>
-						<panel-settler-legend></panel-settler-legend>
-						<panel-general-appeal-legend></panel-general-appeal-legend>
+						<div
+							name="target-slot-panel-settler-legend"
+							class="fxs-slot-target target-slot-panel-settler-legend"
+							id="target-slot-panel-settler-legend"
+						></div>
 					</fxs-hslot>
 					<fxs-hslot>
 						<quest-list></quest-list>
@@ -483,6 +489,11 @@
 					id="target-slot-trade-route-chooser"
 				></div>
 				<div
+					name="target-slot-panel-general-appeal-legend"
+					class="fxs-slot-target target-slot-panel-general-appeal-legend"
+					id="target-slot-panel-general-appeal-legend"
+				></div>
+				<div
 					name="target-slot-panel-continents"
 					class="fxs-slot-target target-slot-panel-continents flex"
 					id="target-slot-panel-continents"
@@ -524,8 +535,11 @@
 					<fxs-hslot>
 						<panel-sub-system-dock></panel-sub-system-dock>
 						<panel-continents></panel-continents>
-						<panel-settler-legend></panel-settler-legend>
-						<panel-general-appeal-legend></panel-general-appeal-legend>
+						<div
+							name="target-slot-panel-settler-legend"
+							class="fxs-slot-target target-slot-panel-settler-legend"
+							id="target-slot-panel-settler-legend"
+						></div>
 					</fxs-hslot>
 					<fxs-hslot>
 						<quest-list></quest-list>
@@ -639,6 +653,11 @@
 					id="target-slot-trade-route-chooser"
 				></div>
 				<div
+					name="target-slot-panel-general-appeal-legend"
+					class="fxs-slot-target target-slot-panel-general-appeal-legend"
+					id="target-slot-panel-general-appeal-legend"
+				></div>
+				<div
 					name="target-slot-panel-continents"
 					class="fxs-slot-target target-slot-panel-continents flex"
 					id="target-slot-panel-continents"
@@ -679,8 +698,11 @@
 					<fxs-hslot>
 						<panel-sub-system-dock></panel-sub-system-dock>
 						<panel-continents></panel-continents>
-						<panel-settler-legend></panel-settler-legend>
-						<panel-general-appeal-legend></panel-general-appeal-legend>
+						<div
+							name="target-slot-panel-settler-legend"
+							class="fxs-slot-target target-slot-panel-settler-legend"
+							id="target-slot-panel-settler-legend"
+						></div>
 					</fxs-hslot>
 					<fxs-hslot>
 						<quest-list></quest-list>
@@ -785,6 +807,11 @@
 					name="target-slot-trade-route-chooser"
 					class="fxs-slot-target target-slot-trade-route-chooser"
 					id="target-slot-trade-route-chooser"
+				></div>
+				<div
+					name="target-slot-panel-general-appeal-legend"
+					class="fxs-slot-target target-slot-panel-general-appeal-legend"
+					id="target-slot-panel-general-appeal-legend"
 				></div>
 				<div
 					name="target-slot-panel-continents"
@@ -1261,7 +1288,10 @@
 		</div>
 
 		<plot-icons-root class="fullscreen"></plot-icons-root>
-		<city-banners class="fullscreen"></city-banners>
+		<div
+			id="city-banner-container"
+			class="fullscreen"
+		></div>
 		<unit-flags class="fullscreen"></unit-flags>
 		<div
 			id="worldanchor"
@@ -1287,6 +1317,11 @@
 			>
 				<!-- To edit the default elements in the root layout, please look at the native layout manager: AppUI_LayoutManager.cpp -->
 			</div>
+
+			<div
+				id="world-mod-slot"
+				class="fullscreen"
+			></div>
 		</div>
 
 		<div id="solidjs-root">

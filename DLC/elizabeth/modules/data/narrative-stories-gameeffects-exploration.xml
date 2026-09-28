@@ -1,0 +1,446 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+    <Modifier id="10173B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_TRADITION_SLOTS" run-once="false" permanent="true">
+        <Argument name="SlotType">POLICY_CULTURE_SLOT</Argument>
+        <Argument name="Amount">1</Argument>
+    </Modifier>
+    <Modifier id="10173C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_NARRATIVE" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_CULTURE</Argument>
+        <Argument name="MultiplierType">REWARD_TYPE_MAJOR_LATE</Argument>
+    </Modifier>
+    <Modifier id="10174B_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_ABILITY" run-once="false" permanent="true">
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+                <Argument name="Tag">UNIT_CLASS_NAVAL</Argument>
+            </Requirement>
+        </SubjectRequirements>
+        <Argument name="AbilityType">ABILITY_NARRATIVE_AGGRESSION</Argument>
+    </Modifier>
+    <Modifier id="10174C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_ABILITY" run-once="false" permanent="true">
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+                <Argument name="Tag">UNIT_CLASS_LIGHT</Argument>
+            </Requirement>
+            <Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+                <Argument name="Tag">UNIT_CLASS_NAVAL</Argument>
+            </Requirement>
+        </SubjectRequirements>
+        <Argument name="AbilityType">ABILITY_NARRATIVE_STRENGTH</Argument>
+    </Modifier>
+    <Modifier id="10174C_NARRATIVE_MODIFIER2" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_PLAYER_ADJUST_UNIT_MAINTENANCE_EFFICIENCY" run-once="false" permanent="true">
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+                <Argument name="Tag">UNIT_CLASS_LIGHT</Argument>
+            </Requirement>
+            <Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+                <Argument name="Tag">UNIT_CLASS_NAVAL</Argument>
+            </Requirement>
+        </SubjectRequirements>
+        <Argument name="Amount">-3</Argument>
+        <Argument name="UnitTag">UNIT_CLASS_LIGHT</Argument>
+    </Modifier>
+    <Modifier id="10174D_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_NARRATIVE" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_GOLD</Argument>
+        <Argument name="MultiplierType">REWARD_TYPE_MINOR_LATE</Argument>
+    </Modifier>
+    <Modifier id="10174D_NARRATIVE_MODIFIER2" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_NAVAL_UNIT_WITH_OCEAN_ACCESS" run-once="false" permanent="true">
+        <Argument name="UnitTag">UNIT_CLASS_HEAVY</Argument>
+        <Argument name="Amount">1</Argument>
+    </Modifier>
+    <Modifier id="10175B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_NARRATIVE" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+        <Argument name="MultiplierType">REWARD_TYPE_MINOR_LATE</Argument>
+    </Modifier>
+    <Modifier id="10175C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_NARRATIVE" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_HAPPINESS</Argument>
+        <Argument name="MultiplierType">REWARD_TYPE_MEDIUM_LATE</Argument>
+    </Modifier>
+    <Modifier id="10175C_NARRATIVE_MODIFIER2" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_DEDUCT_TREASURY_NARRATIVE" run-once="false" permanent="true">
+        <Argument name="MultiplierType">REWARD_TYPE_MEDIUM_LATE</Argument>
+    </Modifier>
+    <Modifier id="10176B_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_GREAT_WORK_SLOTS" run-once="false" permanent="true">
+        <Argument name="Amount">1</Argument>
+        <Argument name="ConstructibleType">BUILDING_PAVILION</Argument>
+        <Argument name="SlotType">GREATWORKSLOT_RELIC</Argument>
+    </Modifier>
+    <Modifier id="10176C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_NARRATIVE" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_GOLD</Argument>
+        <Argument name="MultiplierType">REWARD_TYPE_MINOR_LATE</Argument>
+    </Modifier>
+    <Modifier id="10176C_NARRATIVE_MODIFIER2" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADD_YIELD_DEBT_NARRATIVE" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_CULTURE</Argument>
+        <Argument name="MultiplierType">REWARD_TYPE_MINOR_LATE</Argument>
+    </Modifier>
+    <Modifier id="10177B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD_PER_NUM_TRADE_ROUTES" run-once="false" permanent="true">
+        <Argument name="Amount">1</Argument>
+        <Argument name="YieldType">YIELD_GOLD</Argument>
+    </Modifier>
+    <Modifier id="10177B_NARRATIVE_MODIFIER2" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD_PER_NUM_TRADE_ROUTES" run-once="false" permanent="true">
+        <Argument name="Amount">-1</Argument>
+        <Argument name="YieldType">YIELD_HAPPINESS</Argument>
+    </Modifier>
+    <Modifier id="10177C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_NARRATIVE" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_HAPPINESS</Argument>
+        <Argument name="MultiplierType">REWARD_TYPE_MEDIUM_LATE</Argument>
+    </Modifier>
+    <Modifier id="10177C_NARRATIVE_MODIFIER2" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_DEDUCT_TREASURY_NARRATIVE" run-once="false" permanent="true">
+        <Argument name="MultiplierType">REWARD_TYPE_MEDIUM_LATE</Argument>
+    </Modifier>
+    <Modifier id="10177D_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD_PER_RESOURCE" run-once="false" permanent="true">
+        <Argument name="Amount">1</Argument>
+        <Argument name="YieldType">YIELD_GOLD</Argument>
+        <Argument name="Imported">TRUE</Argument>
+    </Modifier>
+    <Modifier id="10177D_NARRATIVE_MODIFIER2" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD_PER_RESOURCE" run-once="false" permanent="true">
+        <Argument name="Amount">-1</Argument>
+        <Argument name="YieldType">YIELD_HAPPINESS</Argument>
+        <Argument name="Imported">TRUE</Argument>
+    </Modifier>
+    <Modifier id="10178B_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_GRANT_UNIT_EXPERIENCE" run-once="true" permanent="true">
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+                <Argument name="Tag">UNIT_CLASS_COMMAND</Argument>
+            </Requirement>
+            <Requirement type="REQUIREMENT_UNIT_DOMAIN_MATCHES">
+                <Argument name="UnitDomain">DOMAIN_SEA</Argument>
+            </Requirement>
+        </SubjectRequirements>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">10</Argument>
+    </Modifier>
+    <Modifier id="10178C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_NARRATIVE" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+        <Argument name="MultiplierType">REWARD_TYPE_MINOR_LATE</Argument>
+    </Modifier>
+    <Modifier id="10179B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_NARRATIVE" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_HAPPINESS</Argument>
+        <Argument name="MultiplierType">REWARD_TYPE_MEDIUM_EARLY</Argument>
+    </Modifier>
+    <Modifier id="10179B_NARRATIVE_MODIFIER2" collection="COLLECTION_OWNER_UNIT_NEAREST_STORY" effect="EFFECT_UNIT_ADJUST_DAMAGE" run-once="true" permanent="true">
+        <Argument name="Amount">99</Argument>
+    </Modifier>
+    <Modifier id="10179C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_NARRATIVE" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_CULTURE</Argument>
+        <Argument name="MultiplierType">REWARD_TYPE_MEDIUM_EARLY</Argument>
+    </Modifier>
+    <Modifier id="10179C_NARRATIVE_MODIFIER2" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADD_YIELD_DEBT_NARRATIVE" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+        <Argument name="MultiplierType">REWARD_TYPE_MEDIUM_EARLY</Argument>
+    </Modifier>
+    <Modifier id="10181B_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD" run-once="false" permanent="true">
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_CITY_IS_DISTANT_LANDS">
+            </Requirement>
+        </SubjectRequirements>
+        <Argument name="YieldType">YIELD_FOOD</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+    </Modifier>
+    <Modifier id="10180C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_GRANT_UNIT" run-once="false" permanent="true">
+        <Argument name="UnitType">UNIT_MERCHANT</Argument>
+        <Argument name="Amount">1</Argument>
+    </Modifier>
+    <Modifier id="LEADER_CHAIN_1324B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ATTRIBUTE" run-once="false" permanent="true">
+        <Argument name="AttributeType">ATTRIBUTE_CULTURAL</Argument>
+        <Argument name="Amount">1</Argument>
+    </Modifier>
+    <Modifier id="LEADER_CHAIN_1324C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_GRANT_UNIT" run-once="false" permanent="true">
+        <Argument name="UnitType">UNIT_MERCHANT</Argument>
+        <Argument name="Amount">1</Argument>
+    </Modifier>
+    <Modifier id="LEADER_CHAIN_1325B_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_GREAT_WORK_SLOTS" run-once="false" permanent="true">
+        <Argument name="Amount">2</Argument>
+        <Argument name="ConstructibleType">BUILDING_PALACE</Argument>
+        <Argument name="SlotType">GREATWORKSLOT_RELIC</Argument>
+    </Modifier>
+    <Modifier id="LEADER_CHAIN_1326B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ATTRIBUTE" run-once="false" permanent="true">
+        <Argument name="AttributeType">ATTRIBUTE_ECONOMIC</Argument>
+        <Argument name="Amount">1</Argument>
+    </Modifier>
+    <Modifier id="LEADER_CHAIN_1326C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_GRANT_UNIT" run-once="false" permanent="true">
+        <Argument name="UnitType">UNIT_MERCHANT</Argument>
+        <Argument name="Amount">1</Argument>
+    </Modifier>
+    <Modifier id="LEADER_CHAIN_1327B_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_ABILITY" run-once="false" permanent="true">
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+                <Argument name="Tag">UNIT_CLASS_PRIVATEER</Argument>
+            </Requirement>
+        </SubjectRequirements>
+        <Argument name="AbilityType">ABILITY_NARRATIVE_STRENGTH</Argument>
+    </Modifier>
+    <Modifier id="10181B_NARRATIVE_MODIFIER2" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_NARRATIVE_TAG" run-once="false" permanent="true">
+        <Argument name="Amount">1</Argument>
+        <Argument name="NarrativeTagType">NARRATIVE_TAG_ROANOKE</Argument>
+    </Modifier>
+    <Modifier id="LEADER_CHAIN_1323B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_NARRATIVE_TAG" run-once="false" permanent="true">
+        <Argument name="Amount">1</Argument>
+        <Argument name="NarrativeTagType">NARRATIVE_TAG_LEADER_CHAIN_A</Argument>
+    </Modifier>
+    <Modifier id="LEADER_CHAIN_1323C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_NARRATIVE_TAG" run-once="false" permanent="true">
+        <Argument name="Amount">1</Argument>
+        <Argument name="NarrativeTagType">NARRATIVE_TAG_LEADER_CHAIN_B</Argument>
+    </Modifier>
+    <Modifier id="LEADER_CHAIN_1324B_NARRATIVE_MODIFIER2" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_NARRATIVE_TAG" run-once="false" permanent="true">
+        <Argument name="Amount">1</Argument>
+        <Argument name="NarrativeTagType">NARRATIVE_TAG_LEADER_CHAIN_A</Argument>
+    </Modifier>
+    <Modifier id="LEADER_CHAIN_1325B_NARRATIVE_MODIFIER2" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_NARRATIVE_TAG" run-once="false" permanent="true">
+        <Argument name="Amount">1</Argument>
+        <Argument name="NarrativeTagType">NARRATIVE_TAG_LEADER_CHAIN_A</Argument>
+    </Modifier>
+    <Modifier id="LEADER_CHAIN_1326B_NARRATIVE_MODIFIER2" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_NARRATIVE_TAG" run-once="false" permanent="true">
+        <Argument name="Amount">1</Argument>
+        <Argument name="NarrativeTagType">NARRATIVE_TAG_LEADER_CHAIN_B</Argument>
+    </Modifier>
+    <Modifier id="LEADER_CHAIN_1327B_NARRATIVE_MODIFIER2" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_NARRATIVE_TAG" run-once="false" permanent="true">
+        <Argument name="Amount">1</Argument>
+        <Argument name="NarrativeTagType">NARRATIVE_TAG_LEADER_CHAIN_B</Argument>
+    </Modifier>
+    <RequirementSet id="REQSET_10174D_NARRATIVE_REQUISITE">
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
+            <Argument name="GossipTypes">GOSSIP_MAKE_DOW01</Argument>
+            <Argument name="GOSSIP_MAKE_DOW01">Hash,OtherPlayer,Self,Numeric,NavalStrengthRatio,200,Hash,Civilization,CIVILIZATION_ENGLAND,Hash,OriginalCivilization,CIVILIZATION_SPAIN</Argument>
+            <Argument name="AfterInit">True</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_10177D_NARRATIVE_REQUISITE">
+        <Requirement type="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES">
+            <Argument name="CivilizationType">CIVILIZATION_GREAT_BRITAIN</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_10173A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_LEADER_ELIZABETH"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_10174A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_LEADER_ELIZABETH"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_10175A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_LEADER_ELIZABETH"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_10176A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_LEADER_ELIZABETH"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_10177A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_LEADER_ELIZABETH"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_10178A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_LEADER_ELIZABETH"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_10179A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_LEADER_ELIZABETH"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_10180A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_LEADER_ELIZABETH"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_LEADER_CHAIN_1323A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_LEADER_ELIZABETH_ONLY"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_LEADER_CHAIN_1324A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_LEADER_ELIZABETH_ONLY"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_LEADER_CHAIN_1325A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_LEADER_ELIZABETH_ONLY"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_LEADER_CHAIN_1326A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_LEADER_ELIZABETH_ONLY"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_LEADER_CHAIN_1327A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_LEADER_ELIZABETH_ONLY"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_10173A_NARRATIVE">
+        <Requirement xref="REQ_STORY_LEADER_ELIZABETH"/>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_GOVERNMENT">
+            <Argument name="GovernmentType">GOVERNMENT_FEUDAL_MONARCHY</Argument>
+        </Requirement>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_NARRATIVE_TAGS">
+            <Argument name="NarrativeTagType">NARRATIVE_TAG_TACITUS</Argument>
+            <Argument name="Amount">1</Argument>
+        </Requirement>
+        <Requirement type="REQUIREMENT_COLLECTION_ANY_MET">
+            <Argument name="CollectionType">COLLECTION_PLAYER_CAPITAL_CITY</Argument>
+            <Argument name="RequirementSetId">SUBREQSET_10173A_NARRATIVE</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="SUBREQSET_10173A_NARRATIVE">
+        <Requirement type="REQUIREMENT_CITY_HAS_BUILDING">
+            <Argument name="Amount">1</Argument>
+            <Argument name="BuildingType">BUILDING_UNIVERSITY</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_10174A_NARRATIVE">
+        <Requirement xref="REQ_STORY_LEADER_ELIZABETH"/>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_COMMANDERS_WITH_X_LEVELS">
+            <Argument name="CommanderCount">2</Argument>
+            <Argument name="DomainType">DOMAIN_SEA</Argument>
+            <Argument name="LevelCount">5</Argument>
+        </Requirement>
+        <Requirement type="REQUIREMENT_PLAYER_MET_IMMEDIATE_GOSSIP">
+            <Argument name="GossipTypes">GOSSIP_MAKE_DOW</Argument>
+            <Argument name="GOSSIP_MAKE_DOW">Hash,OtherPlayer,Self,Numeric,NavalStrengthRatio,200</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_10175A_NARRATIVE">
+        <Requirement xref="REQ_STORY_LEADER_ELIZABETH"/>
+        <Requirement type="REQUIREMENT_COLLECTION_ANY_MET">
+            <Argument name="CollectionType">COLLECTION_PLAYER_CAPITAL_CITY</Argument>
+            <Argument name="RequirementSetId">SUBREQSET_10175A_NARRATIVE</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="SUBREQSET_10175A_NARRATIVE">
+        <Requirement type="REQUIREMENT_CITY_HAS_ANY_BUILDING">
+            <Argument name="Amount">2</Argument>
+            <Argument name="BuildingType">BUILDING_BANK,BUILDING_DUNGEON</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_10176A_NARRATIVE">
+        <Requirement xref="REQ_STORY_LEADER_ELIZABETH"/>
+        <Requirement type="REQUIREMENT_COLLECTION_ANY_MET">
+            <Argument name="CollectionType">COLLECTION_PLAYER_PLOT_YIELDS</Argument>
+            <Argument name="RequirementSetId">SUBREQSET_10176A_NARRATIVE</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="SUBREQSET_10176A_NARRATIVE">
+        <Requirement type="REQUIREMENT_PLOT_HAS_YIELD">
+            <Argument name="Amount">15</Argument>
+            <Argument name="YieldType">YIELD_CULTURE</Argument>
+        </Requirement>
+        <Requirement type="REQUIREMENT_PLOT_HAS_CONSTRUCTIBLE">
+            <Argument name="ConstructibleType">BUILDING_PAVILION</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_10177A_NARRATIVE">
+        <Requirement xref="REQ_STORY_LEADER_ELIZABETH"/>
+        <Requirement type="REQUIREMENT_PLAYER_TRADES_WITH_X_PLAYERS">
+            <Argument name="Percent">100</Argument>
+        </Requirement>
+        <Requirement type="REQUIREMENT_COLLECTION_ANY_MET">
+            <Argument name="CollectionType">COLLECTION_PLAYER_CITIES</Argument>
+            <Argument name="RequirementSetId">SUBREQSET_10177A_NARRATIVE</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="SUBREQSET_10177A_NARRATIVE">
+        <Requirement type="REQUIREMENT_CITY_HAS_ANY_BUILDING">
+            <Argument name="Amount">1</Argument>
+            <Argument name="BuildingType">BUILDING_BAZAAR</Argument>
+        </Requirement>
+        <Requirement type="REQUIREMENT_CITY_IS_DISTANT_LANDS">
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_10178A_NARRATIVE">
+        <Requirement xref="REQ_STORY_LEADER_ELIZABETH"/>
+        <Requirement type="REQUIREMENT_PLAYER_MET_IMMEDIATE_GOSSIP">
+            <Argument name="GossipTypes">GOSSIP_UNIT_COMBAT_DEATH</Argument>
+            <Argument name="GOSSIP_UNIT_COMBAT_DEATH">Hash,OtherPlayer,Self,Hash,AtWar,False</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_10179A_NARRATIVE">
+        <Requirement xref="REQ_STORY_LEADER_ELIZABETH"/>
+        <Requirement type="REQUIREMENT_COLLECTION_ANY_MET">
+            <Argument name="CollectionType">COLLECTION_PLAYER_CAPITAL_CITY</Argument>
+            <Argument name="RequirementSetId">SUBREQSET_10179A_NARRATIVE</Argument>
+        </Requirement>
+        <Requirement type="REQUIREMENT_PLAYER_MET_IMMEDIATE_GOSSIP">
+            <Argument name="GossipTypes">GOSSIP_TRAIN_UNIT</Argument>
+            <Argument name="GOSSIP_TRAIN_UNIT">Hash,UnitType,UNIT_KNIGHT,Hash,IsCapital,True</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="SUBREQSET_10179A_NARRATIVE">
+        <Requirement type="REQUIREMENT_BUILDING_IS_ADJACENT_TO_X">
+            <Argument name="BuildingType">BUILDING_PALACE</Argument>
+            <Argument name="AdjacentRiver">True</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_10180A_NARRATIVE">
+        <Requirement xref="REQ_STORY_LEADER_ELIZABETH"/>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
+            <Argument name="GossipTypes">GOSSIP_MEET_INDEPENDENT01</Argument>
+            <Argument name="GOSSIP_MEET_INDEPENDENT01">Hash,IsForeignHemisphere,True,Equal,Influence,0</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_10181A_NARRATIVE">
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
+            <Argument name="GossipTypes">GOSSIP_FOUND_CITY01</Argument>
+            <Argument name="GOSSIP_FOUND_CITY01">Hash,IsForeignHemisphere,True</Argument>
+            <Argument name="AfterInit">True</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_LEADER_CHAIN_1323A_NARRATIVE">
+        <Requirement type="REQUIREMENT_IS_AGE_COUNT">
+            <Argument name="AgeCount">1</Argument>
+        </Requirement>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_COMPLETED_PROGRESSION_TREE_NODE">
+            <Argument name="ProgressionTreeNodeType">NODE_TECH_EX_CARTOGRAPHY</Argument>
+            <Argument name="MinDepth">1</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_LEADER_CHAIN_1324A_NARRATIVE">
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_NARRATIVE_TAGS">
+            <Argument name="NarrativeTagType">NARRATIVE_TAG_LEADER_CHAIN_A</Argument>
+            <Argument name="Amount">1</Argument>
+        </Requirement>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
+            <Argument name="GossipTypes">GOSSIP_FOUND_CITY01</Argument>
+            <Argument name="GOSSIP_FOUND_CITY01">Hash,IsForeignHemisphere,True</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_LEADER_CHAIN_1324B_NARRATIVE">
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
+            <Argument name="GossipTypes">GOSSIP_FOUND_CITY01</Argument>
+            <Argument name="GOSSIP_FOUND_CITY01">Hash,IsForeignHemisphere,True</Argument>
+            <Argument name="DuplicateCount">3</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_LEADER_CHAIN_1325A_NARRATIVE">
+        <Requirement type="REQUIREMENT_PLAYER_FOUNDED_RELIGION">
+        </Requirement>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_NARRATIVE_TAGS">
+            <Argument name="NarrativeTagType">NARRATIVE_TAG_LEADER_CHAIN_A</Argument>
+            <Argument name="Amount">1</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_LEADER_CHAIN_1325B_NARRATIVE">
+        <Requirement type="REQUIREMENT_PLAYER_HAS_X_SETTLEMENTS_WITH_RELIGION">
+            <Argument name="OnlyFounded">True</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_LEADER_CHAIN_1326A_NARRATIVE">
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_NARRATIVE_TAGS">
+            <Argument name="NarrativeTagType">NARRATIVE_TAG_LEADER_CHAIN_B</Argument>
+            <Argument name="Amount">1</Argument>
+        </Requirement>
+        <Requirement type="REQUIREMENT_COLLECTION_ANY_MET">
+            <Argument name="CollectionType">COLLECTION_PLAYER_CITIES</Argument>
+            <Argument name="RequirementSetId">SUBREQSET_LEADER_CHAIN_1326A_NARRATIVE</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="SUBREQSET_LEADER_CHAIN_1326A_NARRATIVE">
+        <Requirement type="REQUIREMENT_CITY_HAS_BUILDING">
+            <Argument name="Tag">WATER</Argument>
+            <Argument name="Amount">1</Argument>
+        </Requirement>
+        <Requirement type="REQUIREMENT_CITY_IS_DISTANT_LANDS">
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_LEADER_CHAIN_1326B_NARRATIVE">
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
+            <Argument name="GossipTypes">GOSSIP_SCORE_DISBAND_UNIT01</Argument>
+            <Argument name="AfterInit">True</Argument>
+            <Argument name="DuplicateCount">4</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_LEADER_CHAIN_1327A_NARRATIVE">
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
+            <Argument name="GossipTypes">GOSSIP_CONSTRUCT_BUILDING01</Argument>
+            <Argument name="GOSSIP_CONSTRUCT_BUILDING01">Hash,ConstructibleType,BUILDING_SHIPYARD,Hash,IsForeignHemisphere,False</Argument>
+        </Requirement>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_NARRATIVE_TAGS">
+            <Argument name="NarrativeTagType">NARRATIVE_TAG_LEADER_CHAIN_B</Argument>
+            <Argument name="Amount">1</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_LEADER_CHAIN_1327B_NARRATIVE">
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_MILITARY_UNITS">
+            <Argument name="Amount">8</Argument>
+            <Argument name="UnitTag">UNIT_CLASS_PRIVATEER</Argument>
+        </Requirement>
+    </RequirementSet>
+</GameEffects>

@@ -1,6 +1,6 @@
 import { Audio } from '../../audio-base/audio-support.js';
 import { ActionActivateEventName } from '../../components/fxs-activatable.js';
-import ContextManager from '../../context-manager/context-manager.js';
+import { ContextManager } from '../../context-manager/context-manager.js';
 import { displayRequestUniqueId } from '../../context-manager/display-handler.js';
 import { DisplayQueueManager } from '../../context-manager/display-queue-manager.js';
 import { DialogBoxManager } from '../../dialog-box/manager-dialog-box.js';
@@ -30,7 +30,7 @@ import { Layout } from '../../utilities/utilities-layout.js';
 import { getPlayerCardInfo, updatePlayerProfile } from '../../utilities/utilities-liveops.js';
 import { NetworkUtilities } from '../../utilities/utilities-network.js';
 import { FocusManager } from '../../../ui-next/services/focus-manager.js';
-import styles from './main-menu.scss2.js';
+import styles from './main-menu.scss.js';
 import { EditorCalibrateHDROpenedEventName, EditorCalibrateHDRClosedEventName } from '../../options/editors/calibrateHDR/editor-calibrate-hdr.js';
 import { DialogBoxAction } from '../../dialog-box/model-dialog-box.js';
 
@@ -158,7 +158,7 @@ class MainMenu extends Component {
     this.profileHeaderContainer.classList.toggle("mb-14", this.isGameCenter && this.isDesktop);
     this.profileHeaderContainer.classList.toggle("-ml-26", this.isGameCenter && this.isDesktop);
     if (this.isMobile) {
-      this.profileHeaderContainer.className = `main-menu__profile-header-container absolute flex flex-col flex-col-reverse flex-nowrap items-end right-3`;
+      this.profileHeaderContainer.className = `main-menu__profile-header-container absolute flex flex-col flex-col-reverse flex-nowrap items-end right-5`;
       this.Root.appendChild(this.profileHeaderContainer);
     }
     this.buildInfo = MustGetElement(".main-menu-build-info", this.Root);
@@ -1118,10 +1118,10 @@ class MainMenu extends Component {
         const isDisabled = this.continueSave == null || hasMissingMods || hasUnownedMods;
         continueItem.classList.toggle("disabled", isDisabled);
         continueItem.setAttribute("disabled", isDisabled ? "true" : "false");
+        if (!this.inSubScreen) {
+          this.build3DScene();
+        }
         if (this.continueSave) {
-          if (!this.inSubScreen) {
-            this.build3DScene();
-          }
           const save = this.continueSave;
           const tooltip = Locale.stylize(
             "LOC_MAIN_MENU_CONTINUE_INFO",
@@ -1301,42 +1301,8 @@ class MainMenu extends Component {
       } else if (lastError == LoadErrorCause.MOD_OWNERSHIP) {
         errorTitle = "LOC_LOAD_GAME_ERROR_MOD_CONFIG";
         errorBody = Locale.compose("LOC_LOAD_GAME_ERROR_MOD_OWNERSHIP");
-        const ownershipErrors = Modding.getLastOwnershipCheck();
-        const packageIds = [];
-        if (ownershipErrors.length > 0) {
-          errorBody += "[N][BLIST]";
-          for (const entry of ownershipErrors) {
-            if (entry.allowance == ModAllowance.None) {
-              const packages = Modding.getOwnershipItemPackages(entry.type, entry.key);
-              if (packages.length > 0) {
-                for (const packageId of packages) {
-                  if (packageIds.includes(packageId) == false) {
-                    packageIds.push(packageId);
-                  }
-                }
-              } else {
-                const displayName = Modding.getOwnershipItemDisplayName(entry.type, entry.key);
-                if (displayName && Locale.keyExists(displayName)) {
-                  errorBody += "[LI]";
-                  errorBody += Locale.compose(displayName);
-                }
-              }
-            }
-          }
-          const packageNames = [];
-          for (const packageId of packageIds) {
-            const packageName = Modding.getOwnershipPackageDisplayName(packageId);
-            if (packageName) {
-              if (packageNames.includes(packageName) == false) {
-                packageNames.push(packageName);
-                if (Locale.keyExists(packageName)) {
-                  errorBody += "[LI]";
-                  errorBody += Locale.compose(packageName);
-                }
-              }
-            }
-          }
-        }
+        const ownershipErrorStr = NetworkUtilities.getOwnershipErrorContentsString();
+        errorBody += ownershipErrorStr;
       } else if (lastError == LoadErrorCause.MOD_CONFIG) {
         errorTitle = "LOC_LOAD_GAME_ERROR_MOD_CONFIG";
         errorBody = Modding.getLastErrorString();
@@ -1393,8 +1359,9 @@ class MainMenu extends Component {
         this.openMultiplayer();
         break;
       case "events":
-        if (PromoCarouselModel.get().carouselItems.length > 0) {
-          ContextManager.push("promo-carousel-expanded", { singleton: true, createMouseGuard: true });
+        const promoCarouselModel = PromoCarouselModel.get();
+        if (promoCarouselModel.carouselItems.length > 0) {
+          promoCarouselModel.onShowExpandedCarousel();
         }
         this.openEvents();
         break;
@@ -1507,8 +1474,9 @@ class MainMenu extends Component {
         }
         break;
       case "shell-action-1":
-        if (PromoCarouselModel.get().carouselItems.length > 0) {
-          ContextManager.push("promo-carousel-expanded", { singleton: true, createMouseGuard: true });
+        const promoCarouselModel = PromoCarouselModel.get();
+        if (promoCarouselModel.carouselItems.length > 0) {
+          promoCarouselModel.onShowExpandedCarousel();
         }
         live = false;
         break;

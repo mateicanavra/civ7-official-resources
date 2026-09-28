@@ -1,13 +1,13 @@
 import { TtsManager } from '../accessibility/tts-manager.js';
 import { Audio } from '../audio-base/audio-support.js';
-import ContextManager, { ContextManagerEvents } from '../context-manager/context-manager.js';
-import ActionHandler from '../input/action-handler.js';
+import { ContextManagerEvents, ContextManager } from '../context-manager/context-manager.js';
 import { ActiveDeviceTypeChangedEventName } from '../input/input-events.js';
 import { InputEngineEventName } from '../input/input-support.js';
 import ChatCommandManager, { NotificationType } from './chat-command-manager.js';
 import Panel from '../panel-support.js';
 import { MustGetElement } from '../utilities/utilities-dom.js';
 import { FocusManager } from '../../ui-next/services/focus-manager.js';
+import { IsControllerActive } from '../../ui-next/services/input.js';
 import styles from './screen-mp-chat.scss.js';
 
 const mapNotificationTypeToClasses = {
@@ -598,7 +598,7 @@ class ScreenMPChat extends Panel {
     this.markupMessage = `${oldMessage.slice(0, selectionStart)}${iconMessage}${oldMessage.slice(selectionStart, oldMessage.length)}`;
     this.stylizedMarkupMessage = Locale.stylize(this.markupMessage);
     this.editBox.setAttribute("value", this.markupMessage);
-    if (ActionHandler.isGamepadActive) {
+    if (IsControllerActive()) {
       this.onSend();
     } else {
       this.setCaretAtPosition(selectionStart + iconMessage.length);

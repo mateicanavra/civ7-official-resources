@@ -96,7 +96,7 @@ class UnitSelectedInterfaceMode {
   // When the mode is active, it will handle any selection changed messages
   onUnitSelectionChanged(data) {
     if (!data.selected) {
-      UnitMapDecorationSupport.manager.deactivate();
+      LensManager.setActiveLens("fxs-default-lens");
     } else {
       UnitMapDecorationSupport.manager.activate(data.unit, UnitMapDecorationSupport.Mode.both);
       this.setUnitLens(data.unit);

@@ -1,6 +1,6 @@
 import { render } from '../../../core/vendor/solid-js/web/dist/web.js';
 import { Audio } from '../../../core/ui/audio-base/audio-support.js';
-import ActionHandler from '../../../core/ui/input/action-handler.js';
+import { ModdingRegistry } from '../../../core/ui/modding-registry-handler/modding-registry-handler.js';
 import NavTray from '../../../core/ui/navigation-tray/model-navigation-tray.js';
 import Panel from '../../../core/ui/panel-support.js';
 import { ComponentID } from '../../../core/ui/utilities/utilities-component-id.js';
@@ -9,6 +9,8 @@ import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
 import { Layout } from '../../../core/ui/utilities/utilities-layout.js';
 import { TooltipVerticalPosition, TooltipHorizontalPosition } from '../../../core/ui-next/components/tooltip.js';
 import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
+import { IsTouchActive } from '../../../core/ui-next/services/input.js';
+import { isMobile } from '../../../core/ui-next/services/view-experience.js';
 import CityDetails, { UpdateCityDetailsEventName } from './model-city-details.js';
 import { GetPrevCityID, GetNextCityID } from '../production-chooser/production-chooser-helpers.js';
 import { OVERLAY_PRIORITY } from '../utilities/utilities-overlay.js';
@@ -54,7 +56,7 @@ const cityDetailTabItems = [
       focus: UI.getIconBLP("CITY_CITIZENS_HI"),
       pressed: UI.getIconBLP("CITY_CITIZENS_HI")
     },
-    iconClass: "size-16",
+    iconClass: isMobile() ? "size-13" : "size-16",
     headerText: "LOC_UI_CITY_DETAILS_GROWTH_TAB"
   },
   {
@@ -65,7 +67,7 @@ const cityDetailTabItems = [
       focus: UI.getIconBLP("CITY_BUILDINGS_HI"),
       pressed: UI.getIconBLP("CITY_BUILDINGS_HI")
     },
-    iconClass: "size-16",
+    iconClass: isMobile() ? "size-13" : "size-16",
     headerText: "LOC_UI_CITY_DETAILS_BUILDINGS_TAB"
   },
   {
@@ -76,10 +78,16 @@ const cityDetailTabItems = [
       focus: UI.getIconBLP("CITY_YIELDS_HI"),
       pressed: UI.getIconBLP("CITY_YIELDS_HI")
     },
-    iconClass: "size-16",
+    iconClass: isMobile() ? "size-13" : "size-16",
     headerText: "LOC_UI_CITY_DETAILS_YIELDS_TAB"
   }
 ];
+const AddTabItemEventName = "add-panel-city-details-tab";
+class AddTabItemEvent extends CustomEvent {
+  constructor(detail) {
+    super(AddTabItemEventName, { bubbles: false, detail });
+  }
+}
 class PanelCityDetails extends Panel {
   // #region Element References
   frame = document.createElement("fxs-subsystem-frame");
@@ -148,12 +156,14 @@ class PanelCityDetails extends Panel {
   updateCityDetailersListener = this.update.bind(this);
   onNextCityButtonListener = this.onNextCityButton.bind(this);
   onPrevCityButtonListener = this.onPrevCityButton.bind(this);
+  onCollapseAllImprovementsListener = this.onCollapseAllImprovements.bind(this);
   onInitialize() {
     super.onInitialize();
     this.render();
   }
   onAttach() {
     super.onAttach();
+    window.addEventListener(AddTabItemEventName, this.onAddTabItemEvent);
     window.addEventListener(ShowCityDetailsEventName, this.onShowCityDetailsEvent);
     window.addEventListener(UpdateCityDetailsEventName, this.updateCityDetailersListener);
     this.frame.addEventListener("subsystem-frame-close", this.requestClose);
@@ -205,9 +215,16 @@ class PanelCityDetails extends Panel {
     this.treasureFleetText = MustGetElement(".treasure-fleet-text", this.Root);
     this.disposeTooltips.forEach((dispose) => dispose());
     this.disposeTooltips = [];
+    this.improvementsCollapseAllContainter.addEventListener(
+      "action-activate",
+      this.onCollapseAllImprovementsListener
+    );
+    this.improvementsCollapseAll.addEventListener("action-activate", this.onCollapseAllImprovementsListener);
     this.update();
+    ModdingRegistry.attachModElements("panel-city-details");
   }
   onDetach() {
+    window.removeEventListener(AddTabItemEventName, this.onAddTabItemEvent);
     window.removeEventListener(ShowCityDetailsEventName, this.onShowCityDetailsEvent);
     window.removeEventListener(UpdateCityDetailsEventName, this.updateCityDetailersListener);
     this.frame.removeEventListener("subsystem-frame-close", this.requestClose);
@@ -302,6 +319,15 @@ class PanelCityDetails extends Panel {
       FocusManager.get().setFocus(growthSlot);
     }
   };
+  onAddTabItemEvent = (event) => {
+    for (const tabItem of cityDetailTabItems) {
+      if (tabItem.id == event.detail.tabItem.id) {
+        return;
+      }
+    }
+    cityDetailTabItems.push(event.detail.tabItem);
+    this.tabBar.setAttribute("tab-items", JSON.stringify(cityDetailTabItems));
+  };
   onShowCityDetailsEvent = (event) => {
     if (event.detail.shouldShow == "toggle") {
       this.toggleClose();
@@ -381,6 +407,7 @@ class PanelCityDetails extends Panel {
     this.tabBar.addEventListener("tab-selected", (e) => {
       this.slotGroup.setAttribute("selected-slot", e.detail.selectedItem.id);
     });
+    this.slotGroup.id = "city-details-slot-group";
     this.slotGroup.classList.add("flex", "flex-auto", "flex-col");
     this.frame.appendChild(this.slotGroup);
     this.Root.appendChild(this.frame);
@@ -461,7 +488,7 @@ class PanelCityDetails extends Panel {
 				<div class="w-1\\/2 h-5 bg-cover bg-no-repeat city-details-half-divider"></div>
 				<div class="w-1\\/2 h-5 bg-cover bg-no-repeat city-details-half-divider -scale-x-100"></div>
 			</div>
-			<div class="flex m-1">
+			<div class="flex m-1" role="paragraph">
 				<fxs-icon class="happiness-icon size-12 m-1" data-icon-context="YIELD" data-icon-id="YIELD_HAPPINESS"></fxs-icon>
 				<div class="flex-col self-center">
 					<div class="flex flex-row">
@@ -530,7 +557,7 @@ class PanelCityDetails extends Panel {
 			<div class="flex flex-col w-full">
 				<div class="buildings-category flex m-1">
 					<fxs-icon class="size-16 m-1" data-icon-id="CITY_BUILDINGS_LIST"></fxs-icon>
-					<div class="self-center font-title text-lg uppercase ml-2 text-gradient-secondary" data-l10n-id="LOC_UI_CITY_DETAILS_BUILDINGS"></div>
+					<div role="paragraph" class="self-center font-title text-lg uppercase ml-2 text-gradient-secondary" data-l10n-id="LOC_UI_CITY_DETAILS_BUILDINGS"></div>
 				</div>
 				<div class="buildings-list flex-col m-1"></div>
 				<div class="improvements-category flex m-1 flex-row items-center">
@@ -829,20 +856,6 @@ class PanelCityDetails extends Panel {
     }
     const shouldShowImprovements = CityDetails.improvements.length > 0;
     this.improvementsCategory.classList.toggle("hidden", !shouldShowImprovements);
-    this.improvementsCollapseAllContainter.addEventListener("action-activate", () => {
-      this.onCollapseAllSection(
-        this.improvementsCollapseAll,
-        this.improvementsCollapseAllText,
-        this.improvementsList
-      );
-    });
-    this.improvementsCollapseAll.addEventListener("action-activate", () => {
-      this.onCollapseAllSection(
-        this.improvementsCollapseAll,
-        this.improvementsCollapseAllText,
-        this.improvementsList
-      );
-    });
     this.addWarehouseBreakdownTooltip(this.improvementsHeader, this.improvementsWarehouseIcon);
     this.improvementsList.innerHTML = "";
     let currentImprovement = "";
@@ -1053,6 +1066,10 @@ class PanelCityDetails extends Panel {
         Audio.playSound(audioId);
       });
       parent.appendChild(childrenContainer);
+    } else {
+      yieldButton.setAttribute("data-audio-focus-ref", "none");
+      yieldButton.setAttribute("data-audio-press-ref", "none");
+      yieldButton.setAttribute("data-audio-activate-ref", "none");
     }
   }
   disposeTooltips = [];
@@ -1147,6 +1164,13 @@ class PanelCityDetails extends Panel {
       }
     }
   }
+  onCollapseAllImprovements() {
+    this.onCollapseAllSection(
+      this.improvementsCollapseAll,
+      this.improvementsCollapseAllText,
+      this.improvementsList
+    );
+  }
   onCollapseImprovementSection(collapseButton, listContainer, collapseAllButton, collapseAllText, sectionCollapse, playSound = true) {
     const type = collapseButton.getAttribute("type");
     if (type == "minus") {
@@ -1173,7 +1197,7 @@ class PanelCityDetails extends Panel {
     mainDiv.classList.add("constructible-entry", "flex", "flex-col");
     mainDiv.setAttribute("tabindex", "-1");
     mainDiv.setAttribute("data-type", constructibleData.type);
-    collapseButton.addEventListener("on-collapse-all", () => {
+    const onCollapseImprovement = () => {
       this.onCollapseImprovementSection(
         collapseButton,
         childList,
@@ -1182,25 +1206,10 @@ class PanelCityDetails extends Panel {
         this.improvementsList,
         false
       );
-    });
-    collapseButton.addEventListener("action-activate", () => {
-      this.onCollapseImprovementSection(
-        collapseButton,
-        childList,
-        this.improvementsCollapseAll,
-        this.improvementsCollapseAllText,
-        this.improvementsList
-      );
-    });
-    mainDiv.addEventListener("action-activate", () => {
-      this.onCollapseImprovementSection(
-        collapseButton,
-        childList,
-        this.improvementsCollapseAll,
-        this.improvementsCollapseAllText,
-        this.improvementsList
-      );
-    });
+    };
+    collapseButton.addEventListener("on-collapse-all", onCollapseImprovement);
+    collapseButton.addEventListener("action-activate", onCollapseImprovement);
+    mainDiv.addEventListener("action-activate", onCollapseImprovement);
     const topDiv = document.createElement("div");
     topDiv.classList.add("constructible-entry-highlight", "flex", "ml-6", "mt-1", "mb-1", "pointer-events-none");
     const icon = document.createElement("fxs-icon");
@@ -1426,7 +1435,7 @@ class PanelCityDetails extends Panel {
       if (constructibleDataAttribute) {
         const constructibleData = JSON.parse(constructibleDataAttribute);
         Camera.lookAtPlot(constructibleData.location);
-        if (ActionHandler.isTouchActive) {
+        if (IsTouchActive()) {
           this.removeBuildingHighlight();
           this.addBuildingHighlight(event);
         }
@@ -1471,5 +1480,5 @@ Controls.define("panel-city-details", {
   tabIndex: -1
 });
 
-export { CityDetailsClosedEvent, CityDetailsClosedEventName, PanelCityDetails, ShowCityDetailsEvent, ShowCityDetailsEventName };
+export { AddTabItemEvent, AddTabItemEventName, CityDetailsClosedEvent, CityDetailsClosedEventName, PanelCityDetails, ShowCityDetailsEvent, ShowCityDetailsEventName };
 //# sourceMappingURL=panel-city-details.js.map

@@ -1,9 +1,9 @@
 import { Audio } from '../../audio-base/audio-support.js';
-import ActionHandler from '../../input/action-handler.js';
 import NavTray from '../../navigation-tray/model-navigation-tray.js';
 import Panel from '../../panel-support.js';
 import { MustGetElement } from '../../utilities/utilities-dom.js';
 import { FocusManager } from '../../../ui-next/services/focus-manager.js';
+import { IsControllerActive } from '../../../ui-next/services/input.js';
 
 function compareInstalledMods(a, b) {
   if (a.length != b.length) {
@@ -431,7 +431,7 @@ class ModsContent extends Panel {
     if (!(event.target instanceof HTMLElement)) {
       return;
     }
-    if (ActionHandler.isGamepadActive) {
+    if (IsControllerActive()) {
       Audio.playSound("data-audio-primary-button-press");
       this.handleModToggle();
     } else {

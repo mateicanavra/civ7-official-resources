@@ -6,7 +6,7 @@ import { Tooltip, TooltipHorizontalPosition, TooltipVerticalPosition } from '../
 import { ComponentRegistry } from '../../../core/ui-next/services/component-registry.js';
 import { createComponent, createRenderEffect } from '../../../core/vendor/solid-js/dist/solid.js';
 
-var _tmpl$ = /* @__PURE__ */ template(`<div class="production-chooser-item flex items-stretch mb-2 ml-2 hover\\\\:text-accent-1 focus\\\\:text-accent-1"><div class="flex-auto flex flex-col"><div class="font-title text-base tracking-100 uppercase transition-color"></div><div class="font-body text-sm transition-color"data-l10n-id=LOC_UI_PRODUCTION_UNIQUE_QUARTER></div></div><div class="font-body text-sm self-end transition-color"></div></div>`);
+var _tmpl$ = /* @__PURE__ */ template(`<div class="production-chooser-item flex items-stretch mb-2 ml-2 hover\\\\:text-accent-1 focus\\\\:text-accent-1"><div class="flex-auto flex flex-col"><div class="font-title text-base tracking-100 uppercase transition-color"></div><div class="font-body text-sm transition-color"data-l10n-id="LOC_UI_PRODUCTION_UNIQUE_QUARTER"></div></div><div class="font-body text-sm self-end transition-color"></div></div>`);
 const ProductionChooserUniqueQuarterItemComponent = (props) => {
   return createComponent(Tooltip.Text, {
     get initialVPosition() {

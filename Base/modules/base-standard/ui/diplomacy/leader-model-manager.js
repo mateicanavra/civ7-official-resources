@@ -85,8 +85,10 @@ class LeaderModelManagerClass {
   isRightHostile = false;
   // Record previous animation state for the diplomacy action panel to delay calling the next step animation
   // SL: for animation deadzone locks
-  inTransitionDeadZone = false;
-  animationPaused = false;
+  leftLeaderInTransitionDeadZone = false;
+  rightLeaderInTransitionDeadZone = false;
+  leftLeaderAnimationQueuedSequence = null;
+  rightLeaderAnimationQueuedSequence = null;
   // These flags are used when an animation is started so that we know to ignore that animation change trigger
   leaderLeftAnimationJustStarted = false;
   leaderRightAnimationJustStarted = false;
@@ -99,208 +101,154 @@ class LeaderModelManagerClass {
   /**                                                                                                                    **/
   /**/
   static OFF_CAMERA_DISTANCE = 130;
-  // In World units                                             /**/ 
+  // In World units
   /**/
   static CAMERA_SUBJECT_DISTANCE = 255;
   /**/
-  /**/
   static CAMERA_DOLLY_ANIMATION_IN_DURATION = 1;
-  /**/
   /**/
   static CAMERA_DOLLY_ANIMATION_OUT_DURATION = 0.55;
   /**/
-  /**/
   static DECLARE_WAR_DOLLY_DISTANCE = 20;
   /**/
-  /**/
   LEADER_EXIT_DURATION = LeaderModelManagerClass.CAMERA_DOLLY_ANIMATION_OUT_DURATION;
-  // 0.6s     /**/ 
+  // 0.6s
   /**/
   static DARKENING_VFX_POSITION = { x: 0, y: 110, z: 0 };
   /**/
-  /**/
   static LEFT_MODEL_POSITION = { x: -11.5, y: 72, z: -13 };
-  /**/
   /**/
   static LEFT_BANNER_POSITION = { x: -16, y: 85, z: 0 };
   /**/
-  /**/
   static LEFT_BANNER_ANGLE = 45;
-  /**/
   /**/
   static RIGHT_MODEL_POSITION = { x: 11.5, y: 72, z: -13 };
   /**/
-  /**/
   static RIGHT_INDEPENDENT_MODEL_POSITION = { x: 7.7, y: 71.9, z: -23 };
-  /**/
   /**/
   static RIGHT_INDEPENDENT_MODEL_SCALE = 0.7;
   /**/
-  /**/
   static RIGHT_INDEPENDENT_MODEL_ANGLE = -32;
-  /**/
   /**/
   static RIGHT_INDEPENDENT_BANNER_POSITION = { x: 15, y: 82, z: -15.5 };
   /**/
-  /**/
   static RIGHT_INDEPENDENT_VIGNETTE_OFFSET = { x: 0, y: -4.25, z: -25 };
-  /**/
   /**/
   static RIGHT_INDEPENDENT_CAMERA_OFFSET = { x: 0, y: 0, z: -30 };
   /**/
-  /**/
   static RIGHT_MODEL_AT_WAR_POSITION = { x: 16.5, y: 72, z: -13 };
-  /**/
   /**/
   static RIGHT_BANNER_POSITION = { x: 16, y: 85, z: 0 };
   /**/
-  /**/
   static RIGHT_BANNER_ANGLE = -45;
-  /**/
   /**/
   static BANNER_SCALE = 1.8;
   /**/
-  /**/
   MAX_LENGTH_OF_ANIMATION_EXIT = 550;
-  // 0.6 seconds                                              /**/ 
+  // 0.6 seconds
   /**/
   static FOREGROUND_CAMERA_IN_ID = Database.makeHash("leader-camera-in");
   /**/
-  /**/
   static FOREGROUND_CAMERA_OUT_ID = Database.makeHash("leader-camera-out");
-  /**/
   /**/
   static SCREEN_DARKENING_ASSET_NAME = "VFX_Diplomacy_Screen_Darkening";
   /**/
-  /**/
   static TRIGGER_HASH_ANIMATION_STATE_END = WorldUI.hash("AnimationStateChange");
-  /**/
   /**/
   static TRIGGER_HASH_SEQUENCE_TRIGGER = WorldUI.hash("SEQUENCE");
   /**/
-  /**/
-  // SL: determine break point of an animation no-transition period.                                               /**/ 
-  /**/
-  // Has to be hard-coded in leader animation file's action trigger.                                               /**/ 
-  /**/
   static TRIGGER_NO_TRANSITION_START = WorldUI.hash("NO_TRANSITION_START");
-  /**/
   /**/
   static TRIGGER_NO_TRANSITION_END = WorldUI.hash("NO_TRANSITION_END");
   /**/
   /**/
   /**/
-  /**/
   static LEFT_MODEL_POSITION_SMALL_ASPECT_RATIO = { x: -9.5, y: 72, z: -13 };
-  /**/
   /**/
   static LEFT_BANNER_POSITION_SMALL_ASPECT_RATIO = { x: -13, y: 85, z: 0 };
   /**/
-  /**/
   static RIGHT_MODEL_POSITION_SMALL_ASPECT_RATIO = { x: 9.5, y: 72, z: -13 };
-  /**/
   /**/
   static RIGHT_BANNER_POSITION_SMALL_ASPECT_RATIO = { x: 13, y: 85, z: 0 };
   /**/
-  /**/
-  static RIGHT_MODEL_AT_WAR_POSITION_SMALL_ASPECT_RATIO = { x: 14.5, y: 72, z: -13 };
-  /**/
+  static RIGHT_MODEL_AT_WAR_POSITION_SMALL_ASPECT_RATIO = {
+    x: 14.5,
+    y: 72,
+    z: -13
+  };
   /**/
   /**/
   /**/
   static LEFT_MODEL_POSITION_SMALL_SCREEN_MOBILE = { x: -14, y: 72, z: -13 };
   /**/
-  /**/
   static LEFT_BANNER_POSITION_SMALL_SCREEN_MOBILE = { x: -18, y: 85, z: 0 };
-  /**/
   /**/
   static RIGHT_MODEL_POSITION_SMALL_SCREEN_MOBILE = { x: 14, y: 72, z: -13 };
   /**/
-  /**/
   static RIGHT_BANNER_POSITION_SMALL_SCREEN_MOBILE = { x: 18, y: 85, z: 0 };
   /**/
-  /**/
-  static RIGHT_MODEL_AT_WAR_POSITION_SMALL_SCREEN_MOBILE = { x: 19, y: 72, z: -13 };
-  /**/
+  static RIGHT_MODEL_AT_WAR_POSITION_SMALL_SCREEN_MOBILE = {
+    x: 19,
+    y: 72,
+    z: -13
+  };
   /**/
   /**/
   /**/
   static POSITIONS = {
-    /**/
     /**/
     [0 /* Regular */]: {
       /**/
       /**/
       [1 /* LeftBanner */]: LeaderModelManagerClass.LEFT_BANNER_POSITION,
       /**/
-      /**/
       [0 /* LeftModel */]: LeaderModelManagerClass.LEFT_MODEL_POSITION,
-      /**/
       /**/
       [3 /* RightBanner */]: LeaderModelManagerClass.RIGHT_BANNER_POSITION,
       /**/
-      /**/
       [2 /* RightModel */]: LeaderModelManagerClass.RIGHT_MODEL_POSITION,
-      /**/
       /**/
       [4 /* RightModelAtWar */]: LeaderModelManagerClass.RIGHT_MODEL_AT_WAR_POSITION
       /**/
-      /**/
     },
-    /**/
     /**/
     [1 /* SmallAspectRatio */]: {
       /**/
       /**/
       [1 /* LeftBanner */]: LeaderModelManagerClass.LEFT_BANNER_POSITION_SMALL_ASPECT_RATIO,
       /**/
-      /**/
       [0 /* LeftModel */]: LeaderModelManagerClass.LEFT_MODEL_POSITION_SMALL_ASPECT_RATIO,
       /**/
-      /**/
       [3 /* RightBanner */]: LeaderModelManagerClass.RIGHT_BANNER_POSITION_SMALL_ASPECT_RATIO,
-      /**/
       /**/
       [2 /* RightModel */]: LeaderModelManagerClass.RIGHT_MODEL_POSITION_SMALL_ASPECT_RATIO,
       /**/
       /**/
       [4 /* RightModelAtWar */]: (
         /**/
-        /**/
         LeaderModelManagerClass.RIGHT_MODEL_AT_WAR_POSITION_SMALL_ASPECT_RATIO
       )
       /**/
-      /**/
     },
-    /**/
     /**/
     [2 /* SmallMobileScreen */]: {
       /**/
       /**/
       [1 /* LeftBanner */]: LeaderModelManagerClass.LEFT_BANNER_POSITION_SMALL_SCREEN_MOBILE,
       /**/
-      /**/
       [0 /* LeftModel */]: LeaderModelManagerClass.LEFT_MODEL_POSITION_SMALL_SCREEN_MOBILE,
       /**/
-      /**/
       [3 /* RightBanner */]: LeaderModelManagerClass.RIGHT_BANNER_POSITION_SMALL_SCREEN_MOBILE,
-      /**/
       /**/
       [2 /* RightModel */]: LeaderModelManagerClass.RIGHT_MODEL_POSITION_SMALL_SCREEN_MOBILE,
       /**/
       /**/
       [4 /* RightModelAtWar */]: (
         /**/
-        /**/
         LeaderModelManagerClass.RIGHT_MODEL_AT_WAR_POSITION_SMALL_SCREEN_MOBILE
       )
-      /**/
-      /**/
     }
-    /**/
-    /**/
   };
-  /**/
   /**                                                                                                                    **/
   /**                       IF YOU CHANGE THE ABOVE, COORDINATE WITH GRAPHICS DEPARTMENT TO MOVE IT TO JSON              **/
   /**                                          IF YOU DO NOT YOU WILL BREAK BENCHMARKING                                 **/
@@ -993,15 +941,26 @@ class LeaderModelManagerClass {
   // This function does all the interpreting of any animation triggers that come in and uses them to advance whatever sequences are relying on them
   handleTriggerCallback(id, hash) {
     if (id == this.leader3DModelLeft?.id || id == this.leader3DModelRight?.id) {
-      if (DEBUG_LOG_TRIGGER) console.log("A Leader animation trigger was hit: " + id + " " + hash);
       if (hash === LeaderModelManagerClass.TRIGGER_NO_TRANSITION_START) {
-        this.inTransitionDeadZone = true;
+        if (id == this.leader3DModelLeft?.id) {
+          this.leftLeaderInTransitionDeadZone = true;
+        } else if (id == this.leader3DModelRight?.id) {
+          this.rightLeaderInTransitionDeadZone = true;
+        }
       }
       if (hash === LeaderModelManagerClass.TRIGGER_NO_TRANSITION_END) {
-        this.inTransitionDeadZone = false;
-        if (this.animationPaused) {
-          this.animationPaused = false;
-          this.playAcknowledgeAnimation();
+        if (id == this.leader3DModelLeft?.id) {
+          this.leftLeaderInTransitionDeadZone = false;
+          if (this.leftLeaderAnimationQueuedSequence != null) {
+            this.leftLeaderAnimationQueuedSequence();
+            this.leftLeaderAnimationQueuedSequence = null;
+          }
+        } else if (id == this.leader3DModelRight?.id) {
+          this.rightLeaderInTransitionDeadZone = false;
+          if (this.rightLeaderAnimationQueuedSequence != null) {
+            this.rightLeaderAnimationQueuedSequence();
+            this.rightLeaderAnimationQueuedSequence = null;
+          }
         }
       }
       if (hash != LeaderModelManagerClass.TRIGGER_HASH_SEQUENCE_TRIGGER && hash != LeaderModelManagerClass.TRIGGER_HASH_ANIMATION_STATE_END) {
@@ -1102,6 +1061,22 @@ class LeaderModelManagerClass {
           }
           this.advancePlayerProposeSequence(id, hash);
           break;
+        case "ACCEPT_SANCTION":
+          if (DEBUG_LOG_TRIGGER) {
+            console.log(
+              " - the trigger was used to advance the accept sanction sequence: " + id + " " + hash
+            );
+          }
+          this.advanceAcceptSanctionSequence(id, hash);
+          break;
+        case "REJECT_SANCTION":
+          if (DEBUG_LOG_TRIGGER) {
+            console.log(
+              " - the trigger was used to advance the reject sanction sequence: " + id + " " + hash
+            );
+          }
+          this.advanceRejectSanctionSequence(id, hash);
+          break;
         case "SHOW_INDEPENDENT":
           if (DEBUG_LOG_TRIGGER) {
             console.log(
@@ -1139,7 +1114,17 @@ class LeaderModelManagerClass {
   }
   // ------------------------------------------------------------------------
   // Use this function to play a leader's animation instead of setting the state directly
-  playLeaderAnimation(stateName, leaderSide) {
+  // Optional delay parameter (in seconds) will defer the animation state change.
+  playLeaderAnimation(stateName, leaderSide, delaySec) {
+    if (delaySec && delaySec > 0) {
+      setTimeout(() => {
+        this.applyLeaderAnimation(stateName, leaderSide);
+      }, delaySec * 1e3);
+    } else {
+      this.applyLeaderAnimation(stateName, leaderSide);
+    }
+  }
+  applyLeaderAnimation(stateName, leaderSide) {
     if (leaderSide.toLowerCase() == "left") {
       if (this.leader3DModelLeft == null) {
         return;
@@ -1148,6 +1133,8 @@ class LeaderModelManagerClass {
       this.leaderLeftAnimationJustStarted = true;
       this.leftAnimState = stateName;
       this.leftAnimationStartTime = performance.now();
+      this.leftLeaderInTransitionDeadZone = false;
+      this.leftLeaderAnimationQueuedSequence = null;
     } else if (leaderSide.toLowerCase() == "right") {
       if (this.leader3DModelRight == null) {
         return;
@@ -1156,6 +1143,8 @@ class LeaderModelManagerClass {
       this.leaderRightAnimationJustStarted = true;
       this.rightAnimState = stateName;
       this.rightAnimationStartTime = performance.now();
+      this.rightLeaderInTransitionDeadZone = false;
+      this.rightLeaderAnimationQueuedSequence = null;
     }
   }
   // ------------------------------------------------------------------------
@@ -2454,8 +2443,8 @@ class LeaderModelManagerClass {
       console.log("Player on the left is ID: " + this.leader3DModelLeft?.id);
       console.log("Player on the right is ID: " + this.leader3DModelRight?.id);
     }
-    if (this.inTransitionDeadZone) {
-      this.animationPaused = true;
+    if (this.leftLeaderInTransitionDeadZone) {
+      this.leftLeaderAnimationQueuedSequence = () => this.playAcknowledgeAnimation();
     } else {
       this.playAcknowledgeAnimation();
     }
@@ -2571,8 +2560,16 @@ class LeaderModelManagerClass {
     }
   }
   beginAcknowledgeOtherSequence() {
-    if (this.rightAnimState != "IDLE_WaitingOther") return;
-    if (DEBUG_LOG_TRIGGER) console.log("Acknowledge Positive Other sequence step 0");
+    if (this.rightAnimState != "IDLE_WaitingOther" && this.rightAnimState != "IDLE_DwCenterOther" && this.rightAnimState != "VO_FirstMeet")
+      return;
+    if (this.rightLeaderInTransitionDeadZone) {
+      this.rightLeaderAnimationQueuedSequence = () => this.playAcknowledgeOtherAnimation();
+    } else {
+      this.playAcknowledgeOtherAnimation();
+    }
+  }
+  playAcknowledgeOtherAnimation() {
+    if (DEBUG_LOG_TRIGGER) console.log("Acknowledge Other sequence step 0");
     if (this.isRightHostile) {
       this.playLeaderAnimation("REACT_DwPositiveOther", "right");
     } else {
@@ -2612,11 +2609,18 @@ class LeaderModelManagerClass {
   // positive acknowledge animation and then continue to their idle.
   // ------------------------------------------------------------------------
   beginAcknowledgePositiveOtherSequence(forced) {
-    if (this.rightAnimState != "IDLE_WaitingOther" && this.rightAnimState != "IDLE_DwCenterOther" && forced != true)
+    if (this.rightAnimState != "IDLE_WaitingOther" && this.rightAnimState != "IDLE_DwCenterOther" && this.rightAnimState != "VO_FirstMeet" && forced != true)
       return;
     if (DEBUG_LOG_TRIGGER) {
       console.log("Acknowledge Positive Other sequence step 0");
     }
+    if (this.rightLeaderInTransitionDeadZone) {
+      this.rightLeaderAnimationQueuedSequence = () => this.playAcknowledgePositiveOtherAnimation();
+    } else {
+      this.playAcknowledgePositiveOtherAnimation();
+    }
+  }
+  playAcknowledgePositiveOtherAnimation() {
     if (this.isRightHostile) {
       this.playLeaderAnimation("REACT_DwPositiveOther", "right");
     } else {
@@ -2657,8 +2661,15 @@ class LeaderModelManagerClass {
   // negative acknowledge animation and then continue to their idle.
   // ------------------------------------------------------------------------
   beginAcknowledgeNegativeOtherSequence(forced) {
-    if (this.rightAnimState != "IDLE_WaitingOther" && this.rightAnimState != "IDLE_DwCenterOther" && forced != true)
+    if (this.rightAnimState != "IDLE_WaitingOther" && this.rightAnimState != "IDLE_DwCenterOther" && this.rightAnimState != "VO_FirstMeet" && forced != true)
       return;
+    if (this.rightLeaderInTransitionDeadZone) {
+      this.rightLeaderAnimationQueuedSequence = () => this.playAcknowledgeNegativeOtherAnimation();
+    } else {
+      this.playAcknowledgeNegativeOtherAnimation();
+    }
+  }
+  playAcknowledgeNegativeOtherAnimation() {
     if (DEBUG_LOG_TRIGGER) console.log("Acknowledge Negative Other sequence step 0");
     if (this.isRightHostile) {
       this.playLeaderAnimation("REACT_DwNegativeOther", "right");
@@ -2689,6 +2700,84 @@ class LeaderModelManagerClass {
           this.leaderSequenceStepID = 0;
           this.currentSequenceType = "";
           this.leaderSequenceGate.clear();
+        }
+        break;
+      }
+    }
+  }
+  // Accept Sanction Sequence
+  // ------------------------------------------------------------------------
+  // This starts the sequencing for the player accepting a sanction
+  // positive acknowledge animation and then continue to their idle.
+  // ------------------------------------------------------------------------
+  beginAcceptSanctionSequence(forced) {
+    if (this.rightAnimState != "IDLE_WaitingOther" && this.rightAnimState != "IDLE_DwCenterOther" && forced != true)
+      return;
+    if (DEBUG_LOG_TRIGGER) console.log("Acknowledge Negative Other sequence step 0");
+    if (this.isRightHostile) {
+      this.playLeaderAnimation("REACT_DwNegativeOther", "right");
+    } else {
+      this.playLeaderAnimation("REACT_NegativeOther", "right");
+    }
+    this.leaderSequenceGate.setWaitForJustRight();
+    this.currentSequenceType = "ACCEPT_SANCTION";
+    this.leaderSequenceStepID = 1;
+  }
+  // ------------------------------------------------------------------------
+  advanceAcceptSanctionSequence(id, hash) {
+    this.updateSequenceWaitFromAnimationTrigger(id, hash);
+    switch (this.leaderSequenceStepID) {
+      case 1: {
+        if (hash == LeaderModelManagerClass.TRIGGER_HASH_SEQUENCE_TRIGGER) break;
+        if (id == this.leader3DModelLeft?.id && this.leftAnimState == "REACT_ListeningAckldgePlayer") {
+          this.playLeaderAnimation("IDLE_ListeningPlayerBreath", "left");
+          break;
+        }
+        if (this.leaderSequenceGate.isWaiting() == false) {
+          this.doSequenceSharedAdvance();
+          if (this.isRightHostile) {
+            this.playLeaderAnimation("IDLE_DwCenterOther", "right");
+          } else {
+            this.playLeaderAnimation("IDLE_WaitingOther", "right");
+          }
+          this.leaderSequenceStepID = 0;
+          this.currentSequenceType = "";
+          this.leaderSequenceGate.clear();
+        }
+        break;
+      }
+    }
+  }
+  // Reject Sanction Sequence
+  // ------------------------------------------------------------------------
+  // This starts the sequencing for the player rejecting a sanction
+  // negative acknowledge animation and then continue to their idle.
+  // ------------------------------------------------------------------------
+  beginRejectSanctionSequence(forced) {
+    if (this.leftAnimState != "IDLE_ListeningPlayer" && this.leftAnimState != "IDLE_ListeningPlayerBreath" && forced != true)
+      return;
+    if (DEBUG_LOG_TRIGGER) console.log("Reject Sanction sequence step 0");
+    this.playLeaderAnimation("REACT_SmugTauntPlayer", "left");
+    this.leaderSequenceGate.setWaitForJustLeft();
+    this.currentSequenceType = "REJECT_SANCTION";
+    this.leaderSequenceStepID = 1;
+  }
+  // ------------------------------------------------------------------------
+  advanceRejectSanctionSequence(id, hash) {
+    this.updateSequenceWaitFromAnimationTrigger(id, hash);
+    switch (this.leaderSequenceStepID) {
+      case 1: {
+        if (hash == LeaderModelManagerClass.TRIGGER_HASH_SEQUENCE_TRIGGER) {
+          if (this.isRightHostile) {
+            this.playLeaderAnimation("REACT_DwNegativeOther", "right");
+          } else {
+            this.playLeaderAnimation("REACT_NegativeOther", "right");
+          }
+          break;
+        }
+        if (id == this.leader3DModelLeft?.id && this.leftAnimState == "REACT_ListeningAckldgePlayer") {
+          this.playLeaderAnimation("IDLE_ListeningPlayerBreath", "left");
+          break;
         }
         break;
       }

@@ -1,3 +1,42 @@
+@media (experience: mobile) {
+  .triumph-card {
+    width: 30%;
+  }
+}
+
+@media (experience: mobile) {
+  .triumph-complete-frame {
+    width: 37.7777777778rem;
+    min-height: 40rem;
+    max-height: 100%;
+    padding-right: 1.7777777778rem;
+    padding-left: 1.7777777778rem;
+  }
+}
+@media (experience: mobile) and (max-height: 55.5555555556rem) {
+  .triumph-complete-frame {
+    height: 100%;
+    min-height: auto;
+  }
+}
+@media (experience: mobile) {
+  .triumph-complete-frame .triumph-card {
+    width: 100%;
+    min-height: 23.3333333333rem;
+    align-self: center;
+    padding-right: 0.5555555556rem;
+    padding-left: 0.5555555556rem;
+    margin-top: 1.2222222222rem;
+    margin-bottom: 0.4444444444rem;
+  }
+}
+@media (experience: mobile) {
+  .triumph-complete-frame .scroll-area_track {
+    right: -1.7777777778rem;
+    margin-left: -1.3333333333rem;
+  }
+}
+
 .dedication-pill {
   border-image-slice: 4 8 4 8 fill;
   border-image-source: url("blp:hud_production_pill");

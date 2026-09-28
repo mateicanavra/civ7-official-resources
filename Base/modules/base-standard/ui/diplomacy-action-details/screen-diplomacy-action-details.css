@@ -52,12 +52,25 @@
 @media (experience: mobile) {
   .support-war-content-container .panel-diplomacy-project-reaction__response-item,
   .your-war-actions-container .panel-diplomacy-project-reaction__response-item {
+    width: 25%;
+    min-width: 17.7777777778rem;
+  }
+}
+@media (experience: mobile) and (max-height: 55.5555555556rem) {
+  .support-war-content-container .panel-diplomacy-project-reaction__response-item,
+  .your-war-actions-container .panel-diplomacy-project-reaction__response-item {
     width: 20%;
-    min-width: 16.6666666667rem;
+    min-width: 15.5555555556rem;
   }
 }
 
-@media (max-height: 40rem), (experience: mobile) {
+@media (experience: mobile) and (min-height: 55.5555555556rem) {
+  .your-war-content-container {
+    padding-top: 1.7777777778rem;
+  }
+}
+
+@media (max-height: 40rem) {
   .panel-diplomacy-project-reaction__response-item-bg {
     margin-left: 0 !important;
   }
@@ -99,6 +112,11 @@
     top: 5.5555555556rem;
   }
 }
+@media (experience: mobile) {
+  .support-your-war-button .panel-diplomacy-project-reaction__response-description {
+    min-height: 65%;
+  }
+}
 
 .option-limited-by-war-bg {
   background-image: url("fs://game/dip_warshield_big.png");
@@ -115,19 +133,53 @@
 }
 @media (experience: mobile) {
   .diplomacy-action-details-root-vslot {
-    width: 96.5%;
+    width: 85%;
+    height: 95%;
     margin-bottom: 0.5555555556rem;
+  }
+}
+@media (experience: mobile) and (max-height: 55.5555555556rem) {
+  .diplomacy-action-details-root-vslot {
+    width: 82%;
+  }
+}
+
+@media (experience: mobile) {
+  .diplomacy-yield-container {
+    margin-top: 0.6666666667rem;
+    margin-bottom: 1.1111111111rem;
+  }
+}
+@media (experience: mobile) and (max-height: 55.5555555556rem) {
+  .diplomacy-yield-container {
+    margin-top: 0.2222222222rem;
+    margin-bottom: 0.8888888889rem;
   }
 }
 
 @media (experience: mobile) {
   .title-progress-bar-frame {
     padding: 1rem;
+    height: 30%;
   }
 }
 @media (experience: mobile) and (max-height: 55.5555555556rem) {
   .title-progress-bar-frame {
     padding-top: 0.7777777778rem;
+    height: 32%;
+  }
+}
+
+@media (experience: mobile) {
+  .title-progress-bar-container {
+    padding-top: 3.5555555556rem;
+    padding-left: 1.7777777778rem;
+    padding-right: 1.7777777778rem;
+  }
+}
+@media (experience: mobile) and (max-height: 55.5555555556rem) {
+  .title-progress-bar-container {
+    padding-top: 1.7777777778rem;
   }
 }
 
@@ -136,6 +188,12 @@
     padding-top: 1rem;
     padding-left: 2.4444444444rem;
     padding-right: 2.4444444444rem;
+    height: 75%;
+  }
+}
+@media (experience: mobile) and (max-height: 55.5555555556rem) {
+  .action-content-frame {
+    height: 73%;
   }
 }
 
@@ -147,8 +205,14 @@
 
 @media (experience: mobile) {
   .option-limited-by-war-column {
+    width: 25%;
+    min-width: 17.7777777778rem;
+  }
+}
+@media (experience: mobile) and (max-height: 55.5555555556rem) {
+  .option-limited-by-war-column {
     width: 20%;
-    min-width: 16.6666666667rem;
+    min-width: 15.5555555556rem;
   }
 }
 
@@ -172,5 +236,11 @@
     margin-top: -0.8888888889rem;
     margin-bottom: 0.4444444444rem;
     align-self: center;
+  }
+}
+
+@media (experience: mobile) {
+  .pledge-bar-container {
+    margin-top: 0.2222222222rem;
   }
 }

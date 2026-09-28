@@ -5,7 +5,7 @@ import { NavHelp } from '../../components/nav-help.js';
 import { ScrollArea } from '../../components/scroll-area.js';
 import { BoundString, BoundBoolean } from './components/bound-property.js';
 
-var _tmpl$ = /* @__PURE__ */ template(`<div class="flex flex-row flex-auto mx-4"><div class="w-2\\/3 m-2 p-2 border border-secondary-3 flex flex-col justify-center items-center"><div class=mt-8>Alone</div></div></div>`);
+var _tmpl$ = /* @__PURE__ */ template(`<div class="flex flex-row flex-auto mx-4"><div class="w-2\\/3 m-2 p-2 border border-secondary-3 flex flex-col justify-center items-center"><div class="mt-8">Alone</div></div></div>`);
 const NavHelpExample = () => {
   const [actionName, setActionName] = createSignal("accept");
   const [disabled, setDisabled] = createSignal(false);

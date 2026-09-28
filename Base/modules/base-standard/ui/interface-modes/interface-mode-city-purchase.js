@@ -1,3 +1,4 @@
+import { InputHandlerState } from '../../../core/ui/input/input-support.js';
 import { InterfaceMode } from '../../../core/ui/interface-modes/interface-modes.js';
 import { ComponentID } from '../../../core/ui/utilities/utilities-component-id.js';
 import { CityDecorationSupport } from './support-city-decoration.js';
@@ -49,14 +50,14 @@ class CityPurchaseInterfaceMode {
   }
   handleInput(inputEvent) {
     if (inputEvent.detail.status != InputActionStatuses.FINISH) {
-      return true;
+      return InputHandlerState.Active;
     }
     switch (inputEvent.detail.name) {
       case "shell-action-2":
         InterfaceMode.switchTo("INTERFACEMODE_CITY_PRODUCTION", { CityID: UI.Player.getHeadSelectedCity() });
-        return false;
+        return InputHandlerState.Handled;
     }
-    return true;
+    return InputHandlerState.Active;
   }
 }
 InterfaceMode.addHandler("INTERFACEMODE_CITY_PURCHASE", new CityPurchaseInterfaceMode());

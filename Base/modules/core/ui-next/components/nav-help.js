@@ -9,7 +9,7 @@ import { HotkeyIconContext } from '../services/hotkey.js';
 import { useActiveInputContext, IsControllerActive, IsHybridActive } from '../services/input.js';
 import { createSignalFromExistingDebugWidget } from '../utilities/debug-widgets.js';
 
-var _tmpl$ = /* @__PURE__ */ template(`<div data-name=NavHelp></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="absolute pointer-events-none origin-bottom"></div>`), _tmpl$3 = /* @__PURE__ */ template(`<span class="relative uppercase text-xs text-center text-accent-1 leading-none"></span>`), _tmpl$4 = /* @__PURE__ */ template(`<div><div class="relative size-full flex items-center justify-center p-0\\.5 bg-contain overflow-hidden"></div></div>`);
+var _tmpl$ = /* @__PURE__ */ template(`<div data-name="NavHelp"></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="absolute pointer-events-none origin-bottom"></div>`), _tmpl$3 = /* @__PURE__ */ template(`<span class="relative uppercase text-xs text-center text-accent-1 leading-none"></span>`), _tmpl$4 = /* @__PURE__ */ template(`<div><div class="relative size-full flex items-center justify-center p-0\\.5 bg-contain overflow-hidden"></div></div>`);
 UI.Debug.registerWidget({
   caption: "Show unknown icons in <NavHelp>",
   category: "Debug",

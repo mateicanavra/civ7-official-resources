@@ -1,5 +1,5 @@
-import { template, use, insert, classList } from '../../../../core/vendor/solid-js/web/dist/web.js';
-import { createSignal, onMount, onCleanup, createMemo, createComponent, Show, For, mergeProps, createRenderEffect } from '../../../../core/vendor/solid-js/dist/solid.js';
+import { template, use, insert, className, classList } from '../../../../core/vendor/solid-js/web/dist/web.js';
+import { createSignal, createMemo, onMount, onCleanup, createComponent, Show, For, mergeProps, createRenderEffect } from '../../../../core/vendor/solid-js/dist/solid.js';
 import { Layout } from '../../../../core/ui/utilities/utilities-layout.js';
 import { Activatable } from '../../../../core/ui-next/components/activatable.js';
 import { CardFrame } from '../../../../core/ui-next/components/card-frame.js';
@@ -12,16 +12,17 @@ import { ScrollArea } from '../../../../core/ui-next/components/scroll-area.js';
 import { SpatialSlot } from '../../../../core/ui-next/components/slot.js';
 import { Tooltip } from '../../../../core/ui-next/components/tooltip.js';
 import { IsControllerActive } from '../../../../core/ui-next/services/input.js';
+import { isMobile } from '../../../../core/ui-next/services/view-experience.js';
+import { useIsSmallScreen } from '../../../../core/ui-next/utilities/layout-utilities.js';
 import { createLayoutComplete } from '../../../../core/ui-next/utilities/solid-utilities.js';
 import { GamepadTrayItemProvider } from '../../components/gamepad-tray-item-provider.js';
 import { CommerceScreenBaseTabContent } from './commerce-screen-base-tab-content.js';
 import { useCommerceScreenContext } from './commerce-screen-model.js';
 
-var _tmpl$ = /* @__PURE__ */ template(`<div class="text-secondary self-center text-center text-accent-2"></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="empire-resource-cards-row flex flex-row flex-wrap flex-auto relative"></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="ml-1 text-white"></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div class="flex flex-col w-full grow items-center mt-8"><div class="mb-2 w-full"></div><div class="w-full text-center items-center flex-col px-2"></div></div>`), _tmpl$5 = /* @__PURE__ */ template(`<div class="flex flex-col w-full justify-center items-center mt-1 mb-1"><div class="flex flex-row flex-wrap"></div></div>`), _tmpl$6 = /* @__PURE__ */ template(`<div class="mx-2 h-10 w-0\\.5 bg-accent"></div>`), _tmpl$7 = /* @__PURE__ */ template(`<div class="flex flex-row items-center mb-1 px-2"></div>`);
-const EMPIRE_CARD_MARGIN_RIGHT = Layout.pixelsToScreenPixels(20);
-const DEFAULT_EMPIRE_CARD_WIDTH = Layout.pixelsToScreenPixels(384);
+var _tmpl$ = /* @__PURE__ */ template(`<div class="text-secondary self-center text-center text-accent-2"></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="ml-1 text-white"></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div class="flex flex-col w-full grow items-center mt-8"><div class="mb-2 w-full"></div><div class="w-full text-center items-center flex-col px-2"></div></div>`), _tmpl$5 = /* @__PURE__ */ template(`<div class="flex flex-col w-full justify-center items-center mt-1 mb-1"><div class="flex flex-row flex-wrap"></div></div>`), _tmpl$6 = /* @__PURE__ */ template(`<div class="mx-2 h-10 w-0\\.5 bg-accent"></div>`), _tmpl$7 = /* @__PURE__ */ template(`<div class="flex flex-row items-center mb-1 px-2"></div>`);
 const EmpireResourceContainer = (props) => {
   const model = useCommerceScreenContext();
+  const isSmallScreen = useIsSmallScreen();
   let cardsRowRef;
   let cardsRowResizeObserver;
   let isApplyingMeasuredWidths = false;
@@ -29,6 +30,12 @@ const EmpireResourceContainer = (props) => {
   const [empireResourceCardWidth, setEmpireResourceCardWidth] = createSignal(void 0);
   const [hasCheckedForWrap, setHasCheckedForWrap] = createSignal(false);
   const [numCardsInFirstRow, setNumCardsInFirstRow] = createSignal(0);
+  const empireCardMarginRight = createMemo(() => {
+    return isMobile() ? Layout.pixelsToScreenPixels(28) : Layout.pixelsToScreenPixels(20);
+  });
+  const defaultEmpireCardWidth = createMemo(() => {
+    return isMobile() ? Layout.pixelsToScreenPixels(isSmallScreen() ? 612 : 680) : Layout.pixelsToScreenPixels(384);
+  });
   const applyMeasuredWidths = (applyFunction) => {
     isApplyingMeasuredWidths = true;
     applyFunction();
@@ -69,7 +76,7 @@ const EmpireResourceContainer = (props) => {
     if (availableWidth <= 0) {
       return;
     }
-    const rowCardCount = Math.max(1, Math.floor((availableWidth + EMPIRE_CARD_MARGIN_RIGHT) / (DEFAULT_EMPIRE_CARD_WIDTH + EMPIRE_CARD_MARGIN_RIGHT)));
+    const rowCardCount = Math.max(1, Math.floor((availableWidth + empireCardMarginRight()) / (defaultEmpireCardWidth() + empireCardMarginRight())));
     const cards = cardsRowRef.querySelectorAll(".empire-resource-card");
     if (cards.length === 0) {
       setHasCheckedForWrap(false);
@@ -94,7 +101,7 @@ const EmpireResourceContainer = (props) => {
       setHasCheckedForWrap(true);
       return;
     }
-    const fittedWidth = (availableWidth - EMPIRE_CARD_MARGIN_RIGHT * rowCardCount) / rowCardCount;
+    const fittedWidth = (availableWidth - empireCardMarginRight() * rowCardCount) / rowCardCount;
     const nextWidth = Math.max(1, Math.floor(fittedWidth * 100) / 100) + "px";
     const needsRowCountUpdate = numCardsInFirstRow() !== rowCardCount;
     const needsWidthUpdate = empireResourceCardWidth() !== nextWidth;
@@ -220,8 +227,8 @@ const EmpireResourceContainer = (props) => {
                           },
                           get style() {
                             return {
-                              width: empireResourceCardWidth() !== void 0 ? empireResourceCardWidth() : DEFAULT_EMPIRE_CARD_WIDTH + "px",
-                              "margin-right": numCardsInFirstRow() === 0 || (index() + 1) % numCardsInFirstRow() !== 0 ? EMPIRE_CARD_MARGIN_RIGHT + "px" : "0px"
+                              width: empireResourceCardWidth() !== void 0 ? empireResourceCardWidth() : defaultEmpireCardWidth() + "px",
+                              "margin-right": numCardsInFirstRow() === 0 || (index() + 1) % numCardsInFirstRow() !== 0 ? empireCardMarginRight() + "px" : "0px"
                             };
                           },
                           get childrenInFront() {
@@ -332,9 +339,17 @@ const EmpireResourceContainer = (props) => {
                       }
                     })
                   }), null);
-                  createRenderEffect((_$p) => classList(_el$, {
-                    "h-full justify-center": props.empireResourceData.length === 0
-                  }, _$p));
+                  createRenderEffect((_p$) => {
+                    var _v$ = `empire-resource-cards-row flex flex-row flex-wrap flex-auto relative ${isMobile() ? "pl-6" : ""}`, _v$2 = {
+                      "h-full justify-center": props.empireResourceData.length === 0
+                    };
+                    _v$ !== _p$.e && className(_el$, _p$.e = _v$);
+                    _p$.t = classList(_el$, _v$2, _p$.t);
+                    return _p$;
+                  }, {
+                    e: void 0,
+                    t: void 0
+                  });
                   return _el$;
                 }
               });

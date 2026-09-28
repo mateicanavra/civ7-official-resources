@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+	<Modifier id="ELIZABETH_MOD_TRADE_ROUTE_UNLIMITED_LAND_RANGE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_TRADE_ROUTE_RANGE">
+		<Argument name="DomainType">DOMAIN_LAND</Argument>
+		<Argument name="Amount">999999</Argument>
+		<String context="Description">LOC_CITY_STATE_BONUS_MODERN_15_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="ELIZABETH_MOD_TRADE_ROUTE_UNLIMITED_SEA_RANGE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_TRADE_ROUTE_RANGE">
+		<Argument name="DomainType">DOMAIN_SEA</Argument>
+		<Argument name="Amount">999999</Argument>
+	</Modifier>
+	<Modifier id="ELIZABETH_MOD_GREAT_WORK" collection="COLLECTION_OWNER" effect="EFFECT_ADJUST_PLAYER_NEW_CONTINENT_GREAT_WORK">
+		<Argument name="Amount">1</Argument>
+	</Modifier>
+	<Modifier id="ELIZABETH_MOD_MERCHANT_SETTLER_EMBARKED_MOVEMENT" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ADJUST_UNIT_EMBARKED_MOVEMENT">
+		<SubjectRequirements type="REQUIREMENTSET_TEST_ANY">
+			<Requirement type="REQUIREMENT_UNIT_CLASS_MATCHES">
+				<Argument name="UnitClass">UNIT_CLASS_CREATE_TOWN</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_UNIT_CLASS_MATCHES">
+				<Argument name="UnitClass">UNIT_CLASS_MAKE_TRADE_ROUTE</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">2</Argument>
+	</Modifier>
+	<Modifier id="ELIZABETH_MOD_NAVAL_MOVEMENT" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_MOVEMENT">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_CLASS_MATCHES">
+				<Argument name="UnitClass">UNIT_CLASS_NAVAL</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">2</Argument>
+	</Modifier>
+	<Modifier id="ELIZABETH_MOD_SETTLER_PURCHASE_COST" collection="COLLECTION_OWNER" effect="EFFECT_ADJUST_PLAYER_OR_CITY_UNIT_PURCHASE_EFFICIENCY">
+        <Argument name="Percent">15</Argument>
+        <Argument name="UnitTag">UNIT_CLASS_CREATE_TOWN</Argument>
+    </Modifier>
+	<Modifier id="ELIZABETH_MOD_MERCHANT_PURCHASE_COST" collection="COLLECTION_OWNER" effect="EFFECT_ADJUST_PLAYER_OR_CITY_UNIT_PURCHASE_EFFICIENCY">
+        <Argument name="Percent">15</Argument>
+        <Argument name="UnitTag">UNIT_CLASS_MAKE_TRADE_ROUTE</Argument>
+    </Modifier>
+	<Modifier id="ELIZABETH_MOD_LAND_COMBAT_STRENGTH" collection="COLLECTION_PLAYER_COMBAT" effect="EFFECT_ADJUST_UNIT_STRENGTH_MODIFIER">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_DOMAIN_MATCHES">
+				<Argument name="UnitDomain">DOMAIN_LAND</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount" type="ScaleByGameAge" extra="100">-2</Argument>
+		<String context="Preview">LOC_TRAIT_LEADER_ELIZABETH_ABILITY_PREVIEW</String>
+	</Modifier>
+	<Modifier id="ELIZABETH_MOD_AGENDA" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_AGENDA_TIMED_UPDATE">
+		<String context="Name">LOC_DIPLOMACY_AGENDA_ELIZABETH_NAME</String>
+		<Argument name="ModName">LOC_DIPLOMACY_AGENDA_ELIZABETH_NAME</Argument>
+		<Argument name="Tooltip">LOC_DIPLOMACY_AGENDA_ELIZABETH_DESC</Argument>
+		<Argument name="WeightType">DIPLOMACY_AGENDA_COMPARE_NUM_TRADE_ROUTES</Argument>
+		<Argument name="FirstMeetDelay">20</Argument>
+		<Argument name="UpdateFreq">10</Argument>
+		<Argument name="AwardTo1">DIPLOMACY_AGENDA_AWARD_LOWER_OR_EQUAL</Argument>
+		<Argument name="AwardAmtType1">DIPLOMACY_AGENDA_NEG_AMT_MEDIUM</Argument>
+		<Argument name="AwardTo2">DIPLOMACY_AGENDA_AWARD_HIGHER</Argument>
+		<Argument name="AwardAmtType2">DIPLOMACY_AGENDA_AMT_MEDIUM</Argument>
+		<Argument name="NotifyMessage">LOC_NOTIFICATION_DIPLOMATIC_AGENDA_DEFAULT_MESSAGE</Argument>
+		<Argument name="NotifySummary">LOC_NOTIFICATION_DIPLOMATIC_AGENDA_DEFAULT_SUMMARY</Argument>
+	</Modifier>
+</GameEffects>

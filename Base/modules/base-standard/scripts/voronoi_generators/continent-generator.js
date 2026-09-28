@@ -577,11 +577,13 @@ class ContinentGenerator extends MapGenerator {
   m_plateBoundaries = new WrappedKdTree(PlateBoundaryPosGetter);
   m_platesDiagram;
   m_plateCells = [];
+  m_landmassRuleSetNames;
   m_rules;
-  constructor(generatorSchema, rulesSettings) {
+  constructor(generatorSchema, rulesSettings, landmassRuleSetNames = []) {
     super();
     this.m_generatorSettingsSchema = generatorSchema;
     this.m_ruleSettings = rulesSettings;
+    this.m_landmassRuleSetNames = landmassRuleSetNames.length > 0 ? landmassRuleSetNames : ["Landmasses"];
     this.constructRules();
   }
   getDefaultGeneratorSettings() {
@@ -590,14 +592,24 @@ class ContinentGenerator extends MapGenerator {
   getDefaultRuleSettings() {
     const defaults = {};
     for (const [ruleCategory, rulesForCategory] of Object.entries(this.m_ruleSettings)) {
-      const cat = defaults[ruleCategory] = {};
-      for (const [ruleName, ruleSettings] of Object.entries(rulesForCategory)) {
-        const ruleSpec = GetRuleSpec(ruleSettings.className);
-        cat[ruleName] = {
-          isActive: Boolean(ruleSettings.isActive) || true,
-          weight: Number(ruleSettings.weight) || 1,
-          ...Rule.createDefaultsFromSpecs(ruleSpec)
-        };
+      const constructRuleSettings = (catName) => {
+        const cat = defaults[catName] = {};
+        for (const [ruleName, value] of Object.entries(rulesForCategory)) {
+          const ruleSettings = value;
+          const ruleSpec = GetRuleSpec(ruleSettings.className);
+          cat[ruleName] = {
+            isActive: ruleSettings.isActive ?? true,
+            weight: Number(ruleSettings.weight) || 1,
+            ...Rule.createDefaultsFromSpecs(ruleSpec)
+          };
+        }
+      };
+      if (ruleCategory === "Landmasses") {
+        for (const setName of this.m_landmassRuleSetNames) {
+          constructRuleSettings(setName);
+        }
+      } else {
+        constructRuleSettings(ruleCategory);
       }
     }
     return defaults;
@@ -608,27 +620,35 @@ class ContinentGenerator extends MapGenerator {
   constructRules() {
     const rules = {};
     for (const [ruleCategory, rulesForCategory] of Object.entries(this.m_ruleSettings)) {
-      const cat = rules[ruleCategory] = {};
-      for (const [ruleName, ruleSettings] of Object.entries(rulesForCategory)) {
-        const rule = ConstructRule(ruleSettings.className);
-        cat[ruleName] = rule;
+      if (ruleCategory === "Landmasses") {
+        for (const setName of this.m_landmassRuleSetNames) {
+          const cat = rules[setName] = {};
+          for (const [ruleName, ruleSettings] of Object.entries(rulesForCategory)) {
+            cat[ruleName] = ConstructRule(ruleSettings.className);
+          }
+        }
+      } else {
+        const cat = rules[ruleCategory] = {};
+        for (const [ruleName, ruleSettings] of Object.entries(rulesForCategory)) {
+          const rule = ConstructRule(ruleSettings.className);
+          cat[ruleName] = rule;
+        }
       }
     }
     this.m_rules = rules;
-    this.m_rules.Landmasses["Near Plate Boundary"].init(this.m_plateBoundaries);
-    this.m_rules["Coastal Islands"]["Near Plate Boundary"].init(this.m_plateBoundaries);
-    this.m_rules.Islands["Near Plate Boundary"].init(this.m_plateBoundaries);
-    this.m_rules.Mountains["Near Plate Boundary"].init(this.m_plateBoundaries);
-    this.m_rules.Elevation["Near Plate Boundary"].init(this.m_plateBoundaries);
-    this.m_rules.Erosion["Near Plate Boundary"].init(this.m_plateBoundaries);
+    for (const ruleCategory of Object.keys(this.m_rules)) {
+      for (const [ruleName, rule] of Object.entries(this.m_rules[ruleCategory])) {
+        if (ruleName === "Near Plate Boundary") {
+          rule.init(this.m_plateBoundaries);
+        }
+      }
+    }
     this.m_rules.Erosion["Neighbors In Region"].inRegionCheck = (ctx, _thisCell, neighborCell) => {
       return ctx.region.getRegionIdForCell(neighborCell) === ctx.region.id && neighborCell.terrainType === TerrainType.Flat;
     };
     const windDesc = new WindContextDesc();
-    this.m_rules.Erosion["Wave Exposure"].init(
-      [TerrainType.Flat],
-      new WindContext(windDesc)
-    );
+    const waveExposureRule = this.m_rules.Erosion["Wave Exposure"];
+    waveExposureRule.init([TerrainType.Flat], new WindContext(windDesc));
     const volcanoNeighborRule = this.m_rules.Volcanoes["Neighbors In Region"];
     volcanoNeighborRule.inRegionCheck = (_ctx, thisCell, neighborCell) => {
       return thisCell.terrainType === neighborCell.terrainType;
@@ -721,8 +741,6 @@ class ContinentGenerator extends MapGenerator {
     this.m_plateRegions = diagram.cells.map((cell, index) => {
       const region = new PlateRegion("Plate" + index, index, 0, bbox.xr * bbox.yb);
       region.seedLocation = { x: cell.site.x, y: cell.site.y };
-      const regionCell = cellKdTree.search(region.seedLocation).data;
-      region.considerationList.push({ id: regionCell.id, score: 1 });
       return region;
     });
     for (const region of this.m_plateRegions) {
@@ -734,6 +752,8 @@ class ContinentGenerator extends MapGenerator {
         this.m_plateRegions,
         this.m_wrapDistOpts
       );
+      const regionCell = cellKdTree.search(region.seedLocation).data;
+      region.pushConsideration(regionCell.id, 1);
       region.growStep();
     }
     const regionFull = new Array(plateCount).fill(false);
@@ -804,50 +824,58 @@ class ContinentGenerator extends MapGenerator {
   }
   growLandmasses() {
     this.m_landmassRegions = this.buildLandmassRegions();
-    for (const region of this.m_landmassRegions) {
-      region.considerationList = [];
-    }
-    for (let i = 1; i < this.m_landmassRegions.length; i++) {
-      const cell = this.m_kdTree.search(this.m_landmassRegions[i].seedLocation).data;
-      this.m_landmassRegions[i].considerationList.push({ id: cell.id, score: 1 });
-    }
     const growingRegions = this.m_landmassRegions.slice(1);
     const quadRegion = new Aabb2({ x: 0, y: 0 }, this.m_worldDims);
     const quadGetPos = (item) => item.cell.site;
     const quadTree = this.m_wrap == WrapType.None ? new QuadTree(quadRegion, quadGetPos) : new WrappedQuadTree(quadRegion, quadGetPos, void 0, void 0, this.m_wrap);
-    const landmassRules = this.getRules().Landmasses;
-    for (const [ruleName, rule] of Object.entries(landmassRules)) {
-      if (!rule.isActive) continue;
-      if (rule.name == RuleAvoidOtherRegions.getName()) {
-        const avoidOtherRegionsRule = rule;
-        avoidOtherRegionsRule.setQuadTree(quadTree);
-        if (ruleName == "Avoid Other Region Groups") {
-          avoidOtherRegionsRule.setFilter(getAvoidOtherRegionGroupsFilter());
-        }
-      } else if (rule.name == RuleNearOtherRegion.getName()) {
-        const regionPositions = this.m_landmassRegions.reduce((acc, value) => {
-          if (value.id > 0) {
-            acc.push({ regionId: value.id, pos: value.seedLocation });
+    for (const setName of this.m_landmassRuleSetNames) {
+      const ruleSet = this.m_rules[setName];
+      for (const [ruleName, rule] of Object.entries(ruleSet)) {
+        if (!rule.isActive) continue;
+        if (rule.name == RuleAvoidOtherRegions.getName()) {
+          const avoidOtherRegionsRule = rule;
+          avoidOtherRegionsRule.setQuadTree(quadTree);
+          if (ruleName == "Avoid Other Region Groups") {
+            avoidOtherRegionsRule.setFilter(getAvoidOtherRegionGroupsFilter());
           }
-          return acc;
-        }, []);
-        rule.buildFromDelaunayTriangulation(
-          regionPositions,
-          { xl: 0, xr: this.m_worldDims.x, yt: 0, yb: this.m_worldDims.y },
-          this.m_wrap
-        );
-        rule.setQuadTree(quadTree);
+        } else if (rule.name == RuleNearOtherRegion.getName()) {
+          const regionPositions = this.m_landmassRegions.reduce(
+            (acc, value) => {
+              if (value.id > 0) {
+                acc.push({ regionId: value.id, regionGroupId: value.groupId, pos: value.seedLocation });
+              }
+              return acc;
+            },
+            []
+          );
+          rule.buildFromDelaunayTriangulation(
+            regionPositions,
+            { xl: 0, xr: this.m_worldDims.x, yt: 0, yb: this.m_worldDims.y },
+            this.m_wrap
+          );
+          rule.setQuadTree(quadTree);
+        }
       }
     }
     for (const region of growingRegions) {
+      const lm = region;
+      const setName = this.m_landmassRuleSetNames.length === 1 ? this.m_landmassRuleSetNames[0] : lm.ruleSetKey;
+      const ruleSet = setName ? this.m_rules[setName] : void 0;
+      if (!ruleSet) {
+        throw new Error(
+          `Landmass ${lm.id} ("${lm.name}") has no valid ruleSetKey (got "${lm.ruleSetKey}"); generator declared sets: [${this.m_landmassRuleSetNames.join(", ")}]`
+        );
+      }
       region.prepareGrowth(
         this.m_regionCells,
         this.m_landmassRegions,
-        landmassRules,
+        ruleSet,
         this.m_worldDims,
         this.m_plateRegions,
         this.m_wrapDistOpts
       );
+      const cell = this.m_kdTree.search(region.seedLocation).data;
+      region.pushConsideration(cell.id, 1);
       region.SetQuadTree(quadTree);
     }
     let regionIndex = 0;
@@ -1008,7 +1036,7 @@ class ContinentGenerator extends MapGenerator {
         this.m_wrapDistOpts
       );
       islandRegion.SetQuadTree(islandQuadTree);
-      islandRegion.considerationList.push({ id: islandSeedCandidates[randomIndex][1].id, score: 1 });
+      islandRegion.pushConsideration(islandSeedCandidates[randomIndex][1].id, 1);
       const islandCells = [];
       while (islandRegion.growStep()) {
         islandCells.push(islandRegion.latestAddedCell);
@@ -1159,7 +1187,7 @@ class ContinentGenerator extends MapGenerator {
       VoronoiUtils.shuffle(scoredIslandSpawnList, coastalIslandSpawnCount);
       scoredIslandSpawnList = scoredIslandSpawnList.slice(0, coastalIslandSpawnCount);
       scoredIslandSpawnList.forEach((tuple) => {
-        coastalIslandRegion.considerationList.push({ id: tuple.cell.id, score: tuple.score });
+        coastalIslandRegion.pushConsideration(tuple.cell.id, tuple.score);
       });
       let coastalCellCount = 0;
       while (coastalIslandRegion.growStep()) {
@@ -1450,6 +1478,7 @@ class ContinentGenerator extends MapGenerator {
       );
       landmass.seedLocation.x = landmassSettings.xPos * this.m_worldDims.x;
       landmass.seedLocation.y = landmassSettings.yPos * this.m_worldDims.y;
+      landmass.ruleSetKey = landmassSettings.ruleSetKey;
       regions.push(landmass);
     }
     return regions;

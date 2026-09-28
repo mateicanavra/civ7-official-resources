@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Kinds>
+		<InsertOrIgnore Kind="KIND_UNLOCK" />
+	</Kinds>
+	<Types>
+		<InsertOrIgnore Type="UNLOCK_LEGEND_LEVEL_4_ELIZABETH" Kind="KIND_UNLOCK" />
+		<InsertOrIgnore Type="UNLOCK_LEGEND_LEVEL_8_ELIZABETH" Kind="KIND_UNLOCK" />
+	</Types>
+	<Unlocks>
+		<InsertOrIgnore UnlockType="UNLOCK_LEGEND_LEVEL_4_ELIZABETH" />
+		<InsertOrIgnore UnlockType="UNLOCK_LEGEND_LEVEL_8_ELIZABETH" />
+	</Unlocks>
+	<UnlockRewards>
+		<InsertOrIgnore UnlockType="UNLOCK_LEGEND_LEVEL_4_ELIZABETH" Name="LOC_CARD_AT_EXP_LEGEND_ELIZABETH_1_NAME" Description="LOC_CARD_AT_EXP_LEGEND_ELIZABETH_1_DESCRIPTION" Icon="LEADER_ELIZABETH" />
+		<InsertOrIgnore UnlockType="UNLOCK_LEGEND_LEVEL_4_ELIZABETH" Name="LOC_CARD_AT_EXP_LEGEND_ELIZABETH_2_NAME" Description="LOC_CARD_AT_EXP_LEGEND_ELIZABETH_2_DESCRIPTION" Icon="LEADER_ELIZABETH" />
+
+		<InsertOrIgnore UnlockType="UNLOCK_LEGEND_LEVEL_8_ELIZABETH" Name="LOC_CARD_AT_MOD_LEGEND_ELIZABETH_1_NAME" Description="LOC_CARD_AT_MOD_LEGEND_ELIZABETH_1_DESCRIPTION" Icon="LEADER_ELIZABETH" />
+		<InsertOrIgnore UnlockType="UNLOCK_LEGEND_LEVEL_8_ELIZABETH" Name="LOC_CARD_AT_MOD_LEGEND_ELIZABETH_2_NAME" Description="LOC_CARD_AT_MOD_LEGEND_ELIZABETH_2_DESCRIPTION" Icon="LEADER_ELIZABETH" />
+	</UnlockRewards>
+	<RequirementSets>
+		<Row RequirementSetId="REQSET_LEADER_IS_ELIZABETH" RequirementSetType="REQUIREMENTSET_TEST_ALL" />
+		<Row RequirementSetId="REQSET_LEGEND_LEVEL_4_ELIZABETH" RequirementSetType="REQUIREMENTSET_TEST_ALL" />
+		<Row RequirementSetId="REQSET_LEGEND_LEVEL_8_ELIZABETH" RequirementSetType="REQUIREMENTSET_TEST_ALL" />
+	</RequirementSets>
+	<Requirements>
+		<Row RequirementId="REQ_LEADER_IS_ELIZABETH" RequirementType="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES" />
+		<Row RequirementId="REQ_LEGEND_LEVEL_4_ELIZABETH" RequirementType="REQUIREMENT_METAPROGRESSION_LEGEND_PATH_LEVEL" />
+		<Row RequirementId="REQ_LEGEND_LEVEL_8_ELIZABETH" RequirementType="REQUIREMENT_METAPROGRESSION_LEGEND_PATH_LEVEL" />
+	</Requirements>
+	<RequirementArguments>
+		<Row RequirementId="REQ_LEADER_IS_ELIZABETH" Name="LeaderType" Value="LEADER_ELIZABETH" />
+
+		<Row RequirementId="REQ_LEGEND_LEVEL_4_ELIZABETH" Name="SpecificPath" Value="LEGEND_PATH_ELIZABETH" />
+		<Row RequirementId="REQ_LEGEND_LEVEL_4_ELIZABETH" Name="LevelThreshold" Value="4" />
+		<Row RequirementId="REQ_LEGEND_LEVEL_8_ELIZABETH" Name="SpecificPath" Value="LEGEND_PATH_ELIZABETH" />
+		<Row RequirementId="REQ_LEGEND_LEVEL_8_ELIZABETH" Name="LevelThreshold" Value="8" />
+	</RequirementArguments>
+	<RequirementSetRequirements>
+		<Row RequirementSetId="REQSET_LEADER_IS_ELIZABETH" RequirementId="REQ_LEADER_IS_ELIZABETH" />
+
+		<Row RequirementSetId="REQSET_LEGEND_LEVEL_4_ELIZABETH" RequirementId="REQ_LEADER_IS_ELIZABETH" />
+		<Row RequirementSetId="REQSET_LEGEND_LEVEL_4_ELIZABETH" RequirementId="REQ_LEGEND_LEVEL_4_ELIZABETH" />
+		<Row RequirementSetId="REQSET_LEGEND_LEVEL_8_ELIZABETH" RequirementId="REQ_LEADER_IS_ELIZABETH" />
+		<Row RequirementSetId="REQSET_LEGEND_LEVEL_8_ELIZABETH" RequirementId="REQ_LEGEND_LEVEL_8_ELIZABETH" />
+	</RequirementSetRequirements>
+	<UnlockRequirements>
+		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_CHOLA" RequirementSetId="REQSET_LEADER_IS_ELIZABETH" Description="LOC_UNLOCK_PLAY_AS_ELIZABETH_DESCRIPTION" Tooltip="LOC_UNLOCK_PLAY_AS_ELIZABETH_CHOLA_TOOLTIP" />
+		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_NORMAN" RequirementSetId="REQSET_LEADER_IS_ELIZABETH" Description="LOC_UNLOCK_PLAY_AS_ELIZABETH_DESCRIPTION" Tooltip="LOC_UNLOCK_PLAY_AS_ELIZABETH_NORMAN_TOOLTIP" />
+		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_AMERICA" RequirementSetId="REQSET_LEADER_IS_ELIZABETH" Description="LOC_UNLOCK_PLAY_AS_ELIZABETH_DESCRIPTION" Tooltip="LOC_UNLOCK_PLAY_AS_ELIZABETH_AMERICA_TOOLTIP" />
+
+		<InsertOrIgnore UnlockType="UNLOCK_LEGEND_LEVEL_4_ELIZABETH" RequirementSetId="REQSET_LEGEND_LEVEL_4_ELIZABETH" Description="LOC_UNLOCK_LEGEND_LEVEL_4_ELIZABETH_DESCRIPTION" />
+		<InsertOrIgnore UnlockType="UNLOCK_LEGEND_LEVEL_8_ELIZABETH" RequirementSetId="REQSET_LEGEND_LEVEL_8_ELIZABETH" Description="LOC_UNLOCK_LEGEND_LEVEL_8_ELIZABETH_DESCRIPTION" />
+	</UnlockRequirements>
+</Database>

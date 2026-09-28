@@ -1,13 +1,13 @@
-import ActionHandler from '../../../core/ui/input/action-handler.js';
 import { ActiveDeviceTypeChangedEventName } from '../../../core/ui/input/input-events.js';
 import UpdateGate from '../../../core/ui/utilities/utilities-update-gate.js';
+import { IsMouseActive, IsControllerActive } from '../../../core/ui-next/services/input.js';
 import { TreeGridSourceType, TreeGrid } from '../tree-grid/tree-grid.js';
 import { TreeGridDirection } from '../tree-grid/tree-support.js';
 
 class CultureTreeModel {
   onUpdate;
   updateGate = new UpdateGate(this.update.bind(this));
-  wasMouseKeyboard = ActionHandler.isMouseKeyboardActive;
+  wasMouseKeyboard = IsMouseActive();
   _trees = [];
   _activeTree = void 0;
   _sourceProgressionTrees = void 0;
@@ -15,10 +15,10 @@ class CultureTreeModel {
   _lastHighlightTree = null;
   constructor() {
     window.addEventListener(ActiveDeviceTypeChangedEventName, () => {
-      if (!this.wasMouseKeyboard || !ActionHandler.isMouseKeyboardActive) {
+      if (!this.wasMouseKeyboard || !IsMouseActive()) {
         this.updateGate.call("ModelCultureTree-ActiveDeviceTypeChanged");
       }
-      this.wasMouseKeyboard = ActionHandler.isMouseKeyboardActive;
+      this.wasMouseKeyboard = IsMouseActive();
     });
     this.updateGate.call("constructor");
   }
@@ -32,7 +32,7 @@ class CultureTreeModel {
     return this._trees;
   }
   get isGamepadActive() {
-    return ActionHandler.isGamepadActive;
+    return IsControllerActive();
   }
   get activeTree() {
     return this._activeTree;

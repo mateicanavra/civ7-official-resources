@@ -6,7 +6,7 @@ import { Tooltip } from '../../../core/ui-next/components/tooltip.js';
 import { ComponentRegistry } from '../../../core/ui-next/services/component-registry.js';
 import { RelationshipBreakdown } from '../components/relationship-breakdown.js';
 
-var _tmpl$ = /* @__PURE__ */ template(`<div></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="text-sm font-title"></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="font-body text-xs min-w-72"></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div class=fxs-relationship-tooltip__agenda></div>`), _tmpl$5 = /* @__PURE__ */ template(`<div class="flex flex-col justify-center w-full"></div>`);
+var _tmpl$ = /* @__PURE__ */ template(`<div></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="text-sm font-title"></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="font-body text-xs min-w-72"></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div class="fxs-relationship-tooltip__agenda"></div>`), _tmpl$5 = /* @__PURE__ */ template(`<div class="flex flex-col justify-center w-full"></div>`);
 const RelationshipTooltipComponent = (props) => {
   const [playerName, setPlayerName] = createSignal("");
   const [warStatus, setWarStatus] = createSignal({

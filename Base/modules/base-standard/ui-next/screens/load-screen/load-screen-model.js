@@ -162,7 +162,8 @@ function createConstructiblesModel(civTrait) {
     const configConstructibles = getConfigItemsForAge(civTrait, [
       "KIND_BUILDING",
       "KIND_QUARTER",
-      "KIND_IMPROVEMENT"
+      "KIND_IMPROVEMENT",
+      "KIND_ROUTE"
     ]);
     const uniqueQuarters = GameInfo.UniqueQuarters.filter((q) => q.TraitType == civTrait.TraitType);
     for (const uniqueQuarter of uniqueQuarters) {
@@ -235,6 +236,19 @@ function createConstructiblesModel(civTrait) {
         ageName: ageData.get(improvement.AgeType).Name
       });
       processedConstructibles.push(improvement.Type);
+    }
+    const routes = GameInfo.Routes.filter((i) => i.TraitType == civTrait.TraitType).map((route) => route.RouteType);
+    for (const route of configConstructibles.filter((q) => q.Kind == "KIND_ROUTE")) {
+      constructiblesModel.push({
+        kind: "KIND_IMPROVEMENT",
+        name: route.Name,
+        description: route.Description,
+        icon: UI.getIconCSS(route.Type, "BUILDING") ?? "",
+        isUniqueQuarter: false,
+        isAvailable: routes.includes(route.Type),
+        ageName: ageData.get(route.AgeType).Name
+      });
+      processedConstructibles.push(route.Type);
     }
   }
   return constructiblesModel;

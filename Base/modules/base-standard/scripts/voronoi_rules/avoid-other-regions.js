@@ -33,10 +33,20 @@ class RuleAvoidOtherRegions extends Rule {
   name = RuleAvoidOtherRegions.getName();
   description = "This rule is used to avoid other regions within some radius. Cells that are too close will be forcibly disqualified, and scores will be tapered as they get close to this minimum distance. By default any region not in the source region is filtered, but at the code level filters can be added to avoid only specific region types or region ids.";
   quadtree;
+  m_minDistance = 0;
+  m_maxDistance = 0;
+  m_minDistanceSq = 0;
+  m_maxDistanceSq = 0;
   m_filter = (ctx, item) => {
     const regionId = ctx.region.getRegionIdForCell(item);
     return regionId != ctx.region.id && regionId != 0;
   };
+  prepare() {
+    this.m_minDistance = this.configValues.minDistance;
+    this.m_minDistanceSq = this.m_minDistance * this.m_minDistance;
+    this.m_maxDistance = this.m_minDistance + this.configValues.distanceFalloff;
+    this.m_maxDistanceSq = this.m_maxDistance * this.m_maxDistance;
+  }
   static getName() {
     return "Avoid Other Regions";
   }
@@ -47,14 +57,10 @@ class RuleAvoidOtherRegions extends Rule {
     this.m_filter = filter;
   }
   score(regionCell, ctx) {
-    const minDistance = this.configValues.minDistance;
-    const minDistanceSq = minDistance * minDistance;
-    const maxDistance = minDistance + this.configValues.distanceFalloff;
-    const maxDistanceSq = maxDistance * maxDistance;
-    let closestDistSq = maxDistanceSq;
+    let closestDistSq = this.m_maxDistanceSq;
     const filter = (item) => this.m_filter(ctx, item);
     if (this.quadtree) {
-      const nearest = this.quadtree.nearest(regionCell.cell.site, filter, maxDistanceSq);
+      const nearest = this.quadtree.nearest(regionCell.cell.site, filter, this.m_maxDistanceSq);
       if (nearest.cell) {
         closestDistSq = nearest.distSq;
       }
@@ -73,7 +79,7 @@ class RuleAvoidOtherRegions extends Rule {
         if (distanceSq < closestDistSq) {
           if (filter(cell)) {
             closestDistSq = Math.min(distanceSq, closestDistSq);
-            if (closestDistSq < minDistanceSq) {
+            if (closestDistSq < this.m_minDistanceSq) {
               break;
             }
           } else {
@@ -92,11 +98,11 @@ class RuleAvoidOtherRegions extends Rule {
         cell.ruleConsideration = false;
       }
     }
-    if (closestDistSq < minDistanceSq) {
+    if (closestDistSq < this.m_minDistanceSq) {
       return -100;
     }
     const closestDist = Math.sqrt(closestDistSq);
-    let score = VoronoiUtils.clamp(VoronoiUtils.iLerp(minDistance, maxDistance, closestDist), 0, 1);
+    let score = VoronoiUtils.clamp(VoronoiUtils.iLerp(this.m_minDistance, this.m_maxDistance, closestDist), 0, 1);
     score = Math.pow(score, this.configValues.falloffCurve);
     return score;
   }

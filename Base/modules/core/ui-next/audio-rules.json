@@ -117,8 +117,8 @@
 		"events": {
 			"popup-open": "tutorial-popup-open",
 			"popup-close": "tutorial-popup-closed",
-			"popup-minimize": "journal-press",
-			"popup-maximize": "journal-press"
+			"popup-minimize": "",
+			"popup-maximize": ""
 		}
 	},
 	{
@@ -129,11 +129,11 @@
 		}
 	},
 	{
-		"path": "TutorialPopupMinimize",
+		"path": "TutorialPopupMinimize/MinusPlusButton",
 		"events": {
 			"activate": "",
-			"press": "",
-			"focus": ""
+			"press": "tutorial-popup-closed",
+			"focus": "generic-radio-focus"
 		}
 	},
 	{
@@ -175,7 +175,8 @@
 	{
 		"path": "ChooseDedicationsPopup",
 		"events": {
-			"popup-open": "dedications-choose-showing"
+			"popup-open": "dedications-choose-showing",
+			"popup-close": "dedications-choose-hiding"
 		}
 	},
 	{
@@ -188,6 +189,8 @@
 		"path": "ChooseDedicationsPopup/DragonDrop/DedicationCard",
 		"events": {
 			"activate": "dedication-selected",
+			"pressError": "dedication-press",
+			"activateError": "error-press",
 			"press": "dedication-press",
 			"focus": "hero-focus",
 			"dropAccept": "dedication-selected",
@@ -240,7 +243,7 @@
 		"constraints": {
 			"following": {
 				"op": "eq",
-				"value": "false"
+				"value": "true"
 			}
 		},
 		"events": {
@@ -254,7 +257,7 @@
 		"constraints": {
 			"following": {
 				"op": "eq",
-				"value": "true"
+				"value": "false"
 			}
 		},
 		"events": {
@@ -541,6 +544,21 @@
 		}
 	},
 	{
+		"path": "GameSetup",
+		"events": {
+			"nav-next": "generic-pager-navigate",
+			"nav-previous": "generic-pager-navigate"
+		}
+	},
+	{
+		"path": "GameSetup/Option/ArrowButton",
+		"events": {
+			"activate": "generic-pager-navigate",
+			"press": "generic-pager-press",
+			"focus": "generic-pager-focus"
+		}
+	},
+	{
 		"path": "GameSetupOptions/RadioButton",
 		"events": {
 			"activate": "generic-pager-navigate",
@@ -567,7 +585,7 @@
 		"path": "CreateGameNavButton",
 		"events": {
 			"activate": "generic-back-activate",
-			"press": "generic-back-press",
+			"press": "hero-press",
 			"focus": "select-focus"
 		}
 	},
@@ -575,6 +593,12 @@
 		"path": "CivilizationDetails",
 		"events": {
 			"popup-open": "overlay-window-open"
+		}
+	},
+	{
+		"path": "CivilizationDetails/ControllerHack/Activatable",
+		"events": {
+			"press": "error-press"
 		}
 	},
 	{
@@ -650,9 +674,32 @@
 	{
 		"path": "CreateGameHub/HubMementos",
 		"events": {
-			"activate": "",
+			"activate": "overlay-window-open",
 			"press": "memento-slot-press",
 			"focus": "memento-slot-focus"
+		}
+	},
+	{
+		"path": "CreateGameStage/ExitConfirm",
+		"events": {
+			"popup-open": "popup-open-generic",
+			"popup-close": "popup-close-generic"
+		}
+	},
+	{
+		"path": "CreateGameStage/ExitConfirm/CreateGameNavButton",
+		"events": {
+			"activate": "",
+			"press": "hero-press",
+			"focus": "select-focus"
+		}
+	},
+	{
+		"path": "CreateGameStage/ExitConfirm/Button",
+		"events": {
+			"activate": "",
+			"press": "primary-button-press",
+			"focus": "hero-focus"
 		}
 	},
 	{
@@ -660,7 +707,8 @@
 		"events": {
 			"activate": "",
 			"press": "memento-slot-press",
-			"focus": "memento-slot-focus"
+			"focus": "memento-slot-focus",
+			"slot-select": "memento-slot-press"
 		}
 	},
 	{
@@ -697,7 +745,7 @@
 			"activate": "memento-remove-release",
 			"press": "hero-press",
 			"focus": "memento-item-focus",
-			"pressError": "data-audio-error-press"
+			"pressError": "error-press"
 		}
 	},
 	{
@@ -712,7 +760,7 @@
 			"activate": "memento-selected",
 			"press": "hero-press",
 			"focus": "memento-item-focus",
-			"pressError": "data-audio-error-press"
+			"pressError": "error-press"
 		}
 	},
 	{
@@ -987,7 +1035,8 @@
 		"path": "CommerceScreen/Activatable",
 		"events": {
 			"press": "select-press",
-			"pressError": "error"
+			"pressError": "error",
+			"focus": "select-focus"
 		}
 	},
 	{
@@ -1267,7 +1316,8 @@
 		"events": {
 			"activate": "social-policy-remove",
 			"press": "policy-card-press",
-			"focus": "social-policy-focus"
+			"focus": "social-policy-focus",
+			"pressError": "error-press"
 		}
 	},
 	{
@@ -1299,7 +1349,8 @@
 			"tab-nav-military": "victory-military-showing",
 			"tab-nav-scientific": "victory-science-showing",
 			"tab-nav-summary": "victory-summary-showing",
-			"tab-nav-score": "victory-score-showing"
+			"tab-nav-score": "victory-score-showing",
+			"pressError": "error-press"
 		}
 	},
 	{
@@ -1629,6 +1680,13 @@
 			"activate": "generic-pager-navigate",
 			"press": "generic-dropdown-select",
 			"focus": "generic-pager-focus"
+		}
+	},
+	{
+		"path": "AppealLens",
+		"events": {
+			"open": "growth-yield-view-expand",
+			"close": "growth-yield-view-collapse"
 		}
 	}
 ]

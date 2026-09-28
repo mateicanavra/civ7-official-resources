@@ -1,11 +1,11 @@
 import { Audio } from '../../../core/ui/audio-base/audio-support.js';
-import ActionHandler from '../../../core/ui/input/action-handler.js';
 import { ActiveDeviceTypeChangedEventName } from '../../../core/ui/input/input-events.js';
 import { InputEngineEventName } from '../../../core/ui/input/input-support.js';
 import NavTray from '../../../core/ui/navigation-tray/model-navigation-tray.js';
 import Panel from '../../../core/ui/panel-support.js';
 import { MustGetElement, MustGetElements } from '../../../core/ui/utilities/utilities-dom.js';
 import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
+import { IsControllerActive } from '../../../core/ui-next/services/input.js';
 import content from './player-yields-report-screen.html.js';
 import styles from './player-yields-report-screen.scss.js';
 import YieldReportData from './model-yields-report.js';
@@ -100,7 +100,7 @@ class PlayerYieldsReportScreen extends Panel {
     this.updateCollapseToggleVisibility();
   }
   updateCollapseToggleVisibility() {
-    if (ActionHandler.isGamepadActive) {
+    if (IsControllerActive()) {
       this.yieldReportHeaderFiller.classList.add("hidden");
       this.collapseToggleButton.classList.add("hidden");
       this.yieldReportHeader.classList.add("justify-center");
@@ -424,14 +424,14 @@ class PlayerYieldsReportScreen extends Panel {
     }
     if (allSectionsCollapsed) {
       Audio.playSound("data-audio-dropdown-open");
-      if (ActionHandler.isGamepadActive) {
+      if (IsControllerActive()) {
         NavTray.addOrUpdateShellAction2("LOC_GLOBAL_YIELDS_COLLAPSE_ALL");
       } else {
         this.enableCollapseAllButton();
       }
     } else {
       Audio.playSound("data-audio-dropdown-close");
-      if (ActionHandler.isGamepadActive) {
+      if (IsControllerActive()) {
         NavTray.addOrUpdateShellAction2("LOC_UI_QUEUE_FILTER_SHOW_ALL");
       } else {
         this.enableExpandAllButton();

@@ -169,9 +169,9 @@
 		<Argument name="WarehouseYieldChange">MOHappinessProjectResourceHappiness</Argument>
 	</Modifier>
 	<!-- Military Victory -->
-	<Modifier id="MOD_PRODUCE_WMD" collection="COLLECTION_OWNER" effect="EFFECT_ADJUST_PLAYER_WMD_COUNT" permanent="true" run-once="true">
+	<Modifier id="MOD_PRODUCE_WMD" collection="COLLECTION_OWNER" effect="EFFECT_ADJUST_PLAYER_INVENTORY_ITEM_COUNT" permanent="true" run-once="true">
 		<Argument name="Amount">1</Argument>
-		<Argument name="Type">WMD_NUCLEAR_DEVICE</Argument>
+		<Argument name="Type">INVENTORY_ITEM_WMD</Argument>
 	</Modifier>
 	<Modifier id="MOD_OPERATION_IVY_BLAST_RADIUS" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_ADJUST_UNIT_WMD_BLAST_RADIUS" permanent="true">
 		<Argument name="BlastRadius">1</Argument>

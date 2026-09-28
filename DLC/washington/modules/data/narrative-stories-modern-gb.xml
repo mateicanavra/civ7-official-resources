@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database>
+    <Types>
+        <Row Type="10210A" Kind="KIND_NARRATIVE_STORY"/>
+        <Row Type="10210B" Kind="KIND_NARRATIVE_STORY"/>
+        <Row Type="10210C" Kind="KIND_NARRATIVE_STORY"/>
+    </Types>
+    <NarrativeStories>
+        <Row NarrativeStoryType="10210A" Name="LOC_10210A_NAME" Description="LOC_10210A_DESCRIPTION" Completion="LOC_10210A_COMPLETION" StoryTitle="LOC_10210A_STORYTITLE" Age="AGE_MODERN" Activation="REQUISITE" RequirementSetId="REQSET_10210A_NARRATIVE" ActivationRequirementSetId="REQSET_10210A_NARRATIVE_REQUISITE" UIActivation="STANDARD"/>
+        <Row NarrativeStoryType="10210B" Name="LOC_10210B_NAME" Description="LOC_10210B_DESCRIPTION" Completion="LOC_10210B_COMPLETION" Age="AGE_MODERN" Activation="LINKED" Hidden="TRUE" RequirementSetId="Met" UIActivation="STANDARD"/>
+        <Row NarrativeStoryType="10210C" Name="LOC_10210C_NAME" Description="LOC_10210C_DESCRIPTION" Completion="LOC_10210C_COMPLETION" Age="AGE_MODERN" Activation="LINKED" Hidden="TRUE" RequirementSetId="Met" UIActivation="STANDARD"/>
+    </NarrativeStories>
+    <NarrativeRewards>
+        <Row NarrativeRewardType="10210B_REWARD" ModifierID="10210B_NARRATIVE_MODIFIER"/>
+        <Row NarrativeRewardType="10210C_REWARD" ModifierID="10210C_NARRATIVE_MODIFIER"/>
+        <Row NarrativeRewardType="10210C_REWARD2" ModifierID="10210C_NARRATIVE_MODIFIER2"/>
+    </NarrativeRewards>
+    <NarrativeStory_Rewards>
+        <Row NarrativeStoryType="10210B" NarrativeRewardType="10210B_REWARD" Activation="START"/>
+        <Row NarrativeStoryType="10210C" NarrativeRewardType="10210C_REWARD" Activation="START"/>
+        <Row NarrativeStoryType="10210C" NarrativeRewardType="10210C_REWARD2" Activation="START"/>
+    </NarrativeStory_Rewards>
+    <NarrativeStoryOverrides>
+    </NarrativeStoryOverrides>
+    <NarrativeVariations>
+    </NarrativeVariations>
+    <NarrativeRewardIcons>
+        <Row NarrativeStoryType="10210B" RewardIconType="YIELD_DIPLOMACY"/>
+        <Row NarrativeStoryType="10210C" RewardIconType="YIELD_HAPPINESS"/>
+        <Row NarrativeStoryType="10210C" RewardIconType="YIELD_DIPLOMACY" Negative="TRUE"/>
+    </NarrativeRewardIcons>
+    <NarrativeStory_TextReplacements>
+        <Row NarrativeStoryType="10210B" NarrativeStoryTextType="REWARD" NarrativeTextReplacementType="REWARD" Priority="1"/>
+        <Row NarrativeStoryType="10210C" NarrativeStoryTextType="REWARD" NarrativeTextReplacementType="REWARD" Priority="1"/>
+    </NarrativeStory_TextReplacements>
+    <NarrativeStory_Links>
+        <Row FromNarrativeStoryType="10210A" ToNarrativeStoryType="10210B" Priority="0" Name="LOC_10210B_NAME" Description="LOC_10210B_DESCRIPTION"/>
+        <Row FromNarrativeStoryType="10210A" ToNarrativeStoryType="10210C" Priority="1" Name="LOC_10210C_NAME" Description="LOC_10210C_DESCRIPTION"/>
+    </NarrativeStory_Links>
+</Database>

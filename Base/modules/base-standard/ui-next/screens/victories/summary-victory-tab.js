@@ -1,6 +1,5 @@
 import { template, insert, className } from '../../../../core/vendor/solid-js/web/dist/web.js';
-import { useContext, onMount, onCleanup, createComponent, Show, For, splitProps, mergeProps, createRenderEffect } from '../../../../core/vendor/solid-js/dist/solid.js';
-import { useAudio } from '../../../../core/ui-next/services/audio-support.js';
+import { useContext, onMount, onCleanup, createComponent, Show, createRenderEffect, For, splitProps, mergeProps } from '../../../../core/vendor/solid-js/dist/solid.js';
 import { Activatable } from '../../../../core/ui-next/components/activatable.js';
 import { AudioContextProvider } from '../../../../core/ui-next/components/audio-context-provider.js';
 import { CardFrame } from '../../../../core/ui-next/components/card-frame.js';
@@ -10,12 +9,14 @@ import { ProgressBar } from '../../../../core/ui-next/components/progress-bar.js
 import { ScrollArea } from '../../../../core/ui-next/components/scroll-area.js';
 import { VSlot, HSlot } from '../../../../core/ui-next/components/slot.js';
 import { Tooltip, TooltipVerticalPosition, TooltipHorizontalPosition } from '../../../../core/ui-next/components/tooltip.js';
+import { useAudio } from '../../../../core/ui-next/services/audio-support.js';
 import { HotkeyContext } from '../../../../core/ui-next/services/hotkey.js';
+import { isMobile } from '../../../../core/ui-next/services/view-experience.js';
 import { useIsSmallScreen, LayoutModel } from '../../../../core/ui-next/utilities/layout-utilities.js';
 import { useVictoriesScreenContext } from './victories-screen-model.js';
 import { VictoryRulesTooltip } from './victory-tab-base.js';
 
-var _tmpl$ = /* @__PURE__ */ template(`<div class="absolute left-12 -top-6 victories-header"></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="w-full h-full self-center victories-summary-main flex flex-col shrink"></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class=flex-1></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div class="self-center font-body text-base text-white mt-12"></div>`), _tmpl$5 = /* @__PURE__ */ template(`<div></div>`), _tmpl$6 = /* @__PURE__ */ template(`<div><div role=heading></div></div>`), _tmpl$7 = /* @__PURE__ */ template(`<div class="victories-summary-header-lines promotion-header__lines self-center bg-cover bg-no-repeat pointer-events-none flex-auto"></div>`), _tmpl$8 = /* @__PURE__ */ template(`<div class="font-body text-2xs self-center mt-4 mx-6 h-16 opacity-60"><div role=heading></div></div>`), _tmpl$9 = /* @__PURE__ */ template(`<div class="h-16 w-8"></div>`), _tmpl$10 = /* @__PURE__ */ template(`<div class="w-full px-4"></div>`), _tmpl$11 = /* @__PURE__ */ template(`<div class="relative h-7 w-full max-w-128 bg-contain bg-no-repeat pointer-events-none"></div>`), _tmpl$12 = /* @__PURE__ */ template(`<div class="size-10 -ml-1 -mt-12 mb-1 victories-trophy"></div>`), _tmpl$13 = /* @__PURE__ */ template(`<div class="font-title text-2xs text-secondary uppercase victories-countdown-title"role=heading></div>`), _tmpl$14 = /* @__PURE__ */ template(`<div class="font-title text-2xs text-body uppercase"role=heading></div>`), _tmpl$15 = /* @__PURE__ */ template(`<div class="victories-progress-bar relative mt-1"role=heading><div class="absolute -top-2 bottom-0 -ml-4 mt-1"role=heading></div></div>`), _tmpl$16 = /* @__PURE__ */ template(`<div><div class="absolute top-2 left-2 rotate-180 size-4 bg-contain"></div><div class="absolute top-2 right-2 -rotate-90 size-4 bg-contain"></div><div class="absolute bottom-2 left-2 rotate-90 size-4 bg-contain"></div><div class="absolute bottom-2 right-2 size-4 bg-contain"></div><div class="absolute inset-0"></div></div>`), _tmpl$17 = /* @__PURE__ */ template(`<div class="font-title-sm opacity-80 uppercase ml-1"role=heading></div>`), _tmpl$18 = /* @__PURE__ */ template(`<div class="font-body-sm opacity-80"role=heading></div>`), _tmpl$19 = /* @__PURE__ */ template(`<div><div class="victories-point-goal-line w-full justify-center mx-4"></div></div>`), _tmpl$20 = /* @__PURE__ */ template(`<div data-name=Point-Goal-Panel></div>`), _tmpl$21 = /* @__PURE__ */ template(`<div class="font-body text-base"role=heading></div>`), _tmpl$22 = /* @__PURE__ */ template(`<div class="img-popup-middle-decor size-16"></div>`), _tmpl$23 = /* @__PURE__ */ template(`<div class="absolute top-0 bottom-1 left-0 right-0 -ml-6 bg-no-repeat bg-cover"></div>`), _tmpl$24 = /* @__PURE__ */ template(`<div class="mr-2 self-center"></div>`), _tmpl$25 = /* @__PURE__ */ template(`<div class="flex flex-row">. </div>`), _tmpl$26 = /* @__PURE__ */ template(`<div><div class="flex flex-row">/</div></div>`), _tmpl$27 = /* @__PURE__ */ template(`<div class="victories-trophy size-6"></div>`), _tmpl$28 = /* @__PURE__ */ template(`<div role=heading></div>`), _tmpl$29 = /* @__PURE__ */ template(`<div class="absolute inset-0 -top-1 bg-no-repeat bg-cover"></div>`), _tmpl$30 = /* @__PURE__ */ template(`<div class="font-title text-xs text-secondary uppercase self-center mt-2 mb-2"></div>`), _tmpl$31 = /* @__PURE__ */ template(`<div class="font-body text-xs text-white self-center justify-center mb-2 w-128"></div>`), _tmpl$32 = /* @__PURE__ */ template(`<div class=items-center><div class="font-title text-xs text-secondary uppercase self-center mb-4"></div></div>`);
+var _tmpl$ = /* @__PURE__ */ template(`<div></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="w-full h-full self-center victories-summary-main flex flex-col shrink"></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="flex-1"></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div class="self-center font-body text-base text-white mt-12"></div>`), _tmpl$5 = /* @__PURE__ */ template(`<div><div role="heading"></div></div>`), _tmpl$6 = /* @__PURE__ */ template(`<div class="victories-summary-header-lines promotion-header__lines self-center bg-cover bg-no-repeat pointer-events-none flex-auto"></div>`), _tmpl$7 = /* @__PURE__ */ template(`<div class="font-body text-2xs self-center mt-4 mx-6 h-16 opacity-60"><div role="heading"></div></div>`), _tmpl$8 = /* @__PURE__ */ template(`<div class="h-16 w-8"></div>`), _tmpl$9 = /* @__PURE__ */ template(`<div class="w-full px-4"></div>`), _tmpl$10 = /* @__PURE__ */ template(`<div class="relative h-7 w-full max-w-128 bg-contain bg-no-repeat pointer-events-none"></div>`), _tmpl$11 = /* @__PURE__ */ template(`<div class="size-10 -ml-1 -mt-12 mb-1 victories-trophy"></div>`), _tmpl$12 = /* @__PURE__ */ template(`<div class="font-title text-2xs text-secondary uppercase victories-countdown-title"role="heading"></div>`), _tmpl$13 = /* @__PURE__ */ template(`<div class="font-title text-2xs text-body uppercase"role="heading"></div>`), _tmpl$14 = /* @__PURE__ */ template(`<div class="victories-progress-bar relative mt-1"role="heading"><div class="absolute -top-2 bottom-0 -ml-4 mt-1"role="heading"></div></div>`), _tmpl$15 = /* @__PURE__ */ template(`<div><div class="absolute top-2 left-2 rotate-180 size-4 bg-contain"></div><div class="absolute top-2 right-2 -rotate-90 size-4 bg-contain"></div><div class="absolute bottom-2 left-2 rotate-90 size-4 bg-contain"></div><div class="absolute bottom-2 right-2 size-4 bg-contain"></div><div class="absolute inset-0"></div></div>`), _tmpl$16 = /* @__PURE__ */ template(`<div class="font-title-sm opacity-80 uppercase ml-1"role="heading"></div>`), _tmpl$17 = /* @__PURE__ */ template(`<div class="font-body-sm opacity-80"role="heading"></div>`), _tmpl$18 = /* @__PURE__ */ template(`<div><div class="victories-point-goal-line w-full justify-center mx-4"></div></div>`), _tmpl$19 = /* @__PURE__ */ template(`<div data-name="Point-Goal-Panel"></div>`), _tmpl$20 = /* @__PURE__ */ template(`<div class="font-body text-base"role="heading"></div>`), _tmpl$21 = /* @__PURE__ */ template(`<div class="img-popup-middle-decor size-16"></div>`), _tmpl$22 = /* @__PURE__ */ template(`<div class="absolute top-0 bottom-1 left-0 right-0 -ml-6 bg-no-repeat bg-cover"></div>`), _tmpl$23 = /* @__PURE__ */ template(`<div class="mr-2 self-center"></div>`), _tmpl$24 = /* @__PURE__ */ template(`<div class="flex flex-row">. </div>`), _tmpl$25 = /* @__PURE__ */ template(`<div><div class="flex flex-row">/</div></div>`), _tmpl$26 = /* @__PURE__ */ template(`<div class="victories-trophy size-6"></div>`), _tmpl$27 = /* @__PURE__ */ template(`<div role="heading"></div>`), _tmpl$28 = /* @__PURE__ */ template(`<div class="absolute inset-0 -top-1 bg-no-repeat bg-cover"></div>`), _tmpl$29 = /* @__PURE__ */ template(`<div class="font-title text-xs text-secondary uppercase self-center mt-2 mb-2"></div>`), _tmpl$30 = /* @__PURE__ */ template(`<div class="font-body text-xs text-white self-center justify-center mb-2 w-128"></div>`), _tmpl$31 = /* @__PURE__ */ template(`<div class="items-center"><div class="font-title text-xs text-secondary uppercase self-center mb-4"></div></div>`);
 const lockedTooltip = {
   descTitle: "LOC_VICTORY_LOCKED_TITLE",
   description: "LOC_VICTORY_LOCKED_BODY",
@@ -74,6 +75,7 @@ const VictoriesSummary = () => {
             });
           }
         }));
+        createRenderEffect(() => className(_el$2, `absolute left-12 ${isMobile() ? "-top-9" : "-top-6"} victories-header`));
         return _el$2;
       }
     }), null);
@@ -179,16 +181,16 @@ const SummaryVictoryCard = (props) => {
             onBlur,
             get children() {
               return [(() => {
-                var _el$5 = _tmpl$5();
+                var _el$5 = _tmpl$();
                 createRenderEffect(() => className(_el$5, `victories-summary-bg pointer-events-auto absolute inset-0 bg-no-repeat bg-cover opacity-40 ${props.summaryBg}`));
                 return _el$5;
               })(), (() => {
-                var _el$6 = _tmpl$5();
+                var _el$6 = _tmpl$();
                 insert(_el$6, createComponent(VSlot, {
                   "class": "w-full",
                   get children() {
                     return [(() => {
-                      var _el$7 = _tmpl$6(), _el$8 = _el$7.firstChild;
+                      var _el$7 = _tmpl$5(), _el$8 = _el$7.firstChild;
                       insert(_el$8, createComponent(L10n.Compose, {
                         get text() {
                           return props.titleText;
@@ -196,12 +198,12 @@ const SummaryVictoryCard = (props) => {
                       }));
                       createRenderEffect(() => className(_el$7, `uppercase font-bold ${titleFontSizeClass} mt-6 ${props.titleColor}`));
                       return _el$7;
-                    })(), _tmpl$7(), (() => {
-                      var _el$10 = _tmpl$5();
+                    })(), _tmpl$6(), (() => {
+                      var _el$10 = _tmpl$();
                       createRenderEffect(() => className(_el$10, `self-center size-8 -mt-6 ${props.victoryLogo}`));
                       return _el$10;
                     })(), (() => {
-                      var _el$11 = _tmpl$8(), _el$12 = _el$11.firstChild;
+                      var _el$11 = _tmpl$7(), _el$12 = _el$11.firstChild;
                       insert(_el$12, createComponent(L10n.Compose, {
                         get text() {
                           return props.description;
@@ -216,7 +218,7 @@ const SummaryVictoryCard = (props) => {
                     return props.dominantPlayer.length == 1 && !isOneMoreTurn;
                   },
                   get children() {
-                    return _tmpl$9();
+                    return _tmpl$8();
                   }
                 }), null);
                 insert(_el$6, createComponent(Show, {
@@ -227,7 +229,7 @@ const SummaryVictoryCard = (props) => {
                         return props.dominantPlayer;
                       },
                       children: (player) => (() => {
-                        var _el$14 = _tmpl$10();
+                        var _el$14 = _tmpl$9();
                         insert(_el$14, createComponent(DominanceCountdownCard, player));
                         return _el$14;
                       })()
@@ -245,7 +247,7 @@ const SummaryVictoryCard = (props) => {
 };
 const DominanceCountdownCard = (props) => {
   return (() => {
-    var _el$15 = _tmpl$16(), _el$16 = _el$15.firstChild, _el$17 = _el$16.nextSibling, _el$18 = _el$17.nextSibling, _el$19 = _el$18.nextSibling, _el$20 = _el$19.nextSibling;
+    var _el$15 = _tmpl$15(), _el$16 = _el$15.firstChild, _el$17 = _el$16.nextSibling, _el$18 = _el$17.nextSibling, _el$19 = _el$18.nextSibling, _el$20 = _el$19.nextSibling;
     _el$16.style.setProperty("background-image", "url(blp:mp_player_detail)");
     _el$17.style.setProperty("background-image", "url(blp:mp_player_detail)");
     _el$18.style.setProperty("background-image", "url(blp:mp_player_detail)");
@@ -254,17 +256,17 @@ const DominanceCountdownCard = (props) => {
       "class": "w-full items-center",
       get children() {
         return [(() => {
-          var _el$21 = _tmpl$11();
+          var _el$21 = _tmpl$10();
           _el$21.style.setProperty("background-image", "url(blp:cPromo_header)");
           return _el$21;
-        })(), _tmpl$12(), (() => {
-          var _el$23 = _tmpl$13();
+        })(), _tmpl$11(), (() => {
+          var _el$23 = _tmpl$12();
           insert(_el$23, createComponent(L10n.Compose, {
             text: "LOC_VICTORY_PROGRESS_COUNTDOWN"
           }));
           return _el$23;
         })(), (() => {
-          var _el$24 = _tmpl$14();
+          var _el$24 = _tmpl$13();
           insert(_el$24, createComponent(L10n.Compose, {
             text: "LOC_VICTORY_PROGRESS_TURNS_REMAINING",
             get args() {
@@ -273,7 +275,7 @@ const DominanceCountdownCard = (props) => {
           }));
           return _el$24;
         })(), (() => {
-          var _el$25 = _tmpl$15(), _el$26 = _el$25.firstChild;
+          var _el$25 = _tmpl$14(), _el$26 = _el$25.firstChild;
           insert(_el$25, createComponent(ProgressBar, {
             "class": "relative w-full ",
             get progressPercent() {
@@ -304,13 +306,13 @@ const DominanceCountdownCard = (props) => {
 };
 const PointGoalPanel = (props) => {
   return (() => {
-    var _el$27 = _tmpl$20();
+    var _el$27 = _tmpl$19();
     insert(_el$27, createComponent(VSlot, {
       "class": "px-4 w-full",
       disableFocus: true,
       get children() {
         return [(() => {
-          var _el$28 = _tmpl$19(), _el$31 = _el$28.firstChild;
+          var _el$28 = _tmpl$18(), _el$31 = _el$28.firstChild;
           insert(_el$28, createComponent(HSlot, {
             "class": "relative w-full",
             get children() {
@@ -344,7 +346,7 @@ const PointGoalPanel = (props) => {
                 "class": "self-center flex-1 justify-between mx-2",
                 get children() {
                   return [(() => {
-                    var _el$29 = _tmpl$17();
+                    var _el$29 = _tmpl$16();
                     insert(_el$29, createComponent(L10n.Compose, {
                       text: "LOC_VICTORY_PROGRESS_POINT_GOAL"
                     }));
@@ -355,7 +357,7 @@ const PointGoalPanel = (props) => {
                     },
                     get fallback() {
                       return (() => {
-                        var _el$32 = _tmpl$21();
+                        var _el$32 = _tmpl$20();
                         insert(_el$32, createComponent(Tooltip.Text, {
                           get text() {
                             return Locale.stylize("LOC_VICTORY_NOVICTORIES_TOOLTIP");
@@ -366,7 +368,7 @@ const PointGoalPanel = (props) => {
                       })();
                     },
                     get children() {
-                      var _el$30 = _tmpl$18();
+                      var _el$30 = _tmpl$17();
                       insert(_el$30, () => Locale.toNumber(props.pointGoal));
                       return _el$30;
                     }
@@ -381,7 +383,7 @@ const PointGoalPanel = (props) => {
             return props.leaderBoard;
           },
           children: (leader, index) => (() => {
-            var _el$33 = _tmpl$19(), _el$45 = _el$33.firstChild;
+            var _el$33 = _tmpl$18(), _el$45 = _el$33.firstChild;
             insert(_el$33, createComponent(Show, {
               get when() {
                 return index() == 3;
@@ -390,7 +392,7 @@ const PointGoalPanel = (props) => {
                 return createComponent(HSlot, {
                   "class": "victories-point-goal-line w-full justify-center mx-4",
                   get children() {
-                    return _tmpl$22();
+                    return _tmpl$21();
                   }
                 });
               }
@@ -403,7 +405,7 @@ const PointGoalPanel = (props) => {
                     return leader.winner;
                   },
                   get children() {
-                    var _el$35 = _tmpl$23();
+                    var _el$35 = _tmpl$22();
                     _el$35.style.setProperty("background-image", "url(blp:victories_gold_banner)");
                     return _el$35;
                   }
@@ -414,7 +416,7 @@ const PointGoalPanel = (props) => {
                       "class": "w-full",
                       get children() {
                         return [(() => {
-                          var _el$36 = _tmpl$24();
+                          var _el$36 = _tmpl$23();
                           insert(_el$36, createComponent(PortraitIcon, {
                             get playerId() {
                               return leader.hasMet ? leader.id : PlayerIds.NO_PLAYER;
@@ -435,7 +437,7 @@ const PointGoalPanel = (props) => {
                                   role: "heading",
                                   get children() {
                                     return [(() => {
-                                      var _el$37 = _tmpl$25(), _el$38 = _el$37.firstChild;
+                                      var _el$37 = _tmpl$24(), _el$38 = _el$37.firstChild;
                                       insert(_el$37, () => leader.place, _el$38);
                                       return _el$37;
                                     })(), createComponent(L10n.Compose, {
@@ -457,19 +459,19 @@ const PointGoalPanel = (props) => {
                                       role: "heading",
                                       get children() {
                                         return [(() => {
-                                          var _el$39 = _tmpl$26(), _el$40 = _el$39.firstChild, _el$41 = _el$40.firstChild;
+                                          var _el$39 = _tmpl$25(), _el$40 = _el$39.firstChild, _el$41 = _el$40.firstChild;
                                           insert(_el$40, () => leader.turnsProgress, _el$41);
                                           insert(_el$40, () => leader.turnsTotal, null);
                                           createRenderEffect(() => className(_el$39, `flex flex-col self-center ${leader.id == GameContext.localPlayerID ? "" : " opacity-60"}`));
                                           return _el$39;
-                                        })(), _tmpl$27()];
+                                        })(), _tmpl$26()];
                                       }
                                     });
                                   }
                                 })];
                               }
                             }), (() => {
-                              var _el$43 = _tmpl$28();
+                              var _el$43 = _tmpl$27();
                               insert(_el$43, () => Locale.toNumber(leader.points));
                               createRenderEffect(() => className(_el$43, `font-body text-2xs self-center mr-2 ${leader.id == GameContext.localPlayerID ? "" : "opacity-60"}`));
                               return _el$43;
@@ -484,7 +486,7 @@ const PointGoalPanel = (props) => {
                     return leader.winner;
                   },
                   get children() {
-                    var _el$44 = _tmpl$29();
+                    var _el$44 = _tmpl$28();
                     _el$44.style.setProperty("background-image", "url(blp:victories_gold_lines)");
                     return _el$44;
                   }
@@ -521,7 +523,7 @@ const VictoryTooltip = (props) => {
         get children() {
           return createComponent(Tooltip.Frame, {
             get children() {
-              var _el$46 = _tmpl$32(), _el$47 = _el$46.firstChild;
+              var _el$46 = _tmpl$31(), _el$47 = _el$46.firstChild;
               insert(_el$47, createComponent(L10n.Compose, {
                 text: "LOC_VICTORY_TOOLTIP_TITLE"
               }));
@@ -529,7 +531,7 @@ const VictoryTooltip = (props) => {
                 "class": "mb-4",
                 get children() {
                   return [(() => {
-                    var _el$48 = _tmpl$30();
+                    var _el$48 = _tmpl$29();
                     insert(_el$48, createComponent(L10n.Compose, {
                       get text() {
                         return props.descTitle;
@@ -537,7 +539,7 @@ const VictoryTooltip = (props) => {
                     }));
                     return _el$48;
                   })(), (() => {
-                    var _el$49 = _tmpl$31();
+                    var _el$49 = _tmpl$30();
                     insert(_el$49, createComponent(L10n.Compose, {
                       get text() {
                         return props.description;
@@ -556,7 +558,7 @@ const VictoryTooltip = (props) => {
                     "class": "mb-4",
                     get children() {
                       return [(() => {
-                        var _el$50 = _tmpl$30();
+                        var _el$50 = _tmpl$29();
                         insert(_el$50, createComponent(L10n.Compose, {
                           get text() {
                             return props.currentVictoryName;
@@ -564,7 +566,7 @@ const VictoryTooltip = (props) => {
                         }));
                         return _el$50;
                       })(), (() => {
-                        var _el$51 = _tmpl$31();
+                        var _el$51 = _tmpl$30();
                         insert(_el$51, createComponent(L10n.Compose, {
                           text: "LOC_VICTORY_TOOLTIP_REQUIREMENTS",
                           get args() {
@@ -586,7 +588,7 @@ const VictoryTooltip = (props) => {
                     "class": "mb-4",
                     get children() {
                       return [(() => {
-                        var _el$52 = _tmpl$30();
+                        var _el$52 = _tmpl$29();
                         insert(_el$52, createComponent(L10n.Compose, {
                           text: "LOC_VICTORY_TOOLTIP_NEXT",
                           get args() {
@@ -595,7 +597,7 @@ const VictoryTooltip = (props) => {
                         }));
                         return _el$52;
                       })(), (() => {
-                        var _el$53 = _tmpl$31();
+                        var _el$53 = _tmpl$30();
                         insert(_el$53, createComponent(L10n.Compose, {
                           text: "LOC_VICTORY_TOOLTIP_REQUIREMENTS",
                           get args() {

@@ -32,6 +32,7 @@ class RuleNearPlateBoundary extends Rule {
   configValues = Rule.createDefaultsFromSpecs(ruleSchema);
   name = RuleNearPlateBoundary.getName();
   description = "Scores cells based on the distance from their site to the nearest plate boundary.";
+  isStatic = true;
   // This must be provided before the rule can run.
   m_plateBoundaries;
   static getName() {

@@ -17,7 +17,7 @@ import { useIsSmallScreen, useWindowSize, useAspectRatio } from '../../../../cor
 import { useAdvisorScreenContext } from './advisor-screen-model.js';
 import advisorStyles from './advisor-screen.scss.js';
 
-var _tmpl$ = /* @__PURE__ */ template(`<div class="relative flex self-center pb-2"><div class="council-advisor-portrait absolute inset-0 bg-cover bg-no-repeat"></div></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="w-full h-13"><div class="relative w-13 h-13 self-center -top-2"><div class="absolute flex flex-col items-center justify-center self-center -bottom-3 -right-8"></div></div></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="advisor-quote-frame-top absolute -top-4 -left-0 bg-center"></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div class="advisor-quote-frame-top absolute -top-4 -right-0 -scale-x-100 h-7 bg-center"></div>`), _tmpl$5 = /* @__PURE__ */ template(`<div class="-top-13 absolute flex flex-col items-center justify-center self-center"></div>`), _tmpl$6 = /* @__PURE__ */ template(`<div class="advisor-quote-container relative"data-name=Ornate-Card></div>`), _tmpl$7 = /* @__PURE__ */ template(`<div class="advisor-quote-frame-top-compact absolute -left-0 bg-center w-full h-4"></div>`), _tmpl$8 = /* @__PURE__ */ template(`<div class="quest-advisor-card-filigree absolute w-full h-20 -top-10"></div>`), _tmpl$9 = /* @__PURE__ */ template(`<div class="advisor-card-focusable absolute"><div class="w-full h-full"></div></div>`), _tmpl$10 = /* @__PURE__ */ template(`<div></div>`), _tmpl$11 = /* @__PURE__ */ template(`<div role=menuitem></div>`), _tmpl$12 = /* @__PURE__ */ template(`<div class="w-full items-center justify-center self-center"></div>`), _tmpl$13 = /* @__PURE__ */ template(`<div class="w-full flex items-center justify-center pointer-events-none"></div>`);
+var _tmpl$ = /* @__PURE__ */ template(`<div class="relative flex self-center pb-2"><div class="council-advisor-portrait absolute inset-0 bg-cover bg-no-repeat"></div></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="w-full h-13"><div class="relative w-13 h-13 self-center -top-2"><div class="absolute flex flex-col items-center justify-center self-center -bottom-3 -right-8"></div></div></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="advisor-quote-frame-top absolute -top-4 -left-0 bg-center"></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div class="advisor-quote-frame-top absolute -top-4 -right-0 -scale-x-100 h-7 bg-center"></div>`), _tmpl$5 = /* @__PURE__ */ template(`<div class="-top-13 absolute flex flex-col items-center justify-center self-center"></div>`), _tmpl$6 = /* @__PURE__ */ template(`<div class="advisor-quote-container relative"data-name="Ornate-Card"></div>`), _tmpl$7 = /* @__PURE__ */ template(`<div class="advisor-quote-frame-top-compact absolute -left-0 bg-center w-full h-4"></div>`), _tmpl$8 = /* @__PURE__ */ template(`<div class="quest-advisor-card-filigree absolute w-full h-20 -top-10"></div>`), _tmpl$9 = /* @__PURE__ */ template(`<div class="advisor-card-focusable absolute"><div class="w-full h-full"></div></div>`), _tmpl$10 = /* @__PURE__ */ template(`<div></div>`), _tmpl$11 = /* @__PURE__ */ template(`<div role="menuitem"></div>`), _tmpl$12 = /* @__PURE__ */ template(`<div class="w-full items-center justify-center self-center"></div>`), _tmpl$13 = /* @__PURE__ */ template(`<div class="w-full flex items-center justify-center pointer-events-none"></div>`);
 const AdvisorPortraitComponent = (props) => {
   const mergedProps = mergeProps({
     shrink: false
@@ -147,7 +147,7 @@ const AdvisorCardComponent = (props) => {
       get vars() {
         return {
           advisorType: mergedProps.title.toLowerCase(),
-          following: (!isFollowing()).toString()
+          following: isFollowing().toString()
         };
       },
       get children() {
@@ -169,14 +169,15 @@ const AdvisorCardComponent = (props) => {
           onActivate: () => {
             if (props.isInitialPopup) {
               if (IsControllerActive()) {
+                useAudio("AdvisorScreen/Confirm/Button")("activate");
                 model.clickClosePopup();
               } else {
-                model.playFollowAudio(mergedProps.type);
                 if (!isFollowing()) {
                   model.follow(mergedProps.type);
                 } else {
                   model.unfollow(mergedProps.type);
                 }
+                model.playFollowAudio(mergedProps.type);
               }
             } else if (tabContext) {
               tabContext.activate(mergedProps.title);

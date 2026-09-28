@@ -1,7 +1,8 @@
-import ContextManager, { ContextManagerEvents } from '../../../core/ui/context-manager/context-manager.js';
+import { ContextManager, ContextManagerEvents } from '../../../core/ui/context-manager/context-manager.js';
 import { DisplayHandlerBase } from '../../../core/ui/context-manager/display-handler.js';
 import { DisplayQueueManager, DisplayHideReason } from '../../../core/ui/context-manager/display-queue-manager.js';
 import InputFilterManager from '../../../core/ui/input/input-filter.js';
+import { InputHandlerState } from '../../../core/ui/input/input-support.js';
 import ViewManager from '../../../core/ui/views/view-manager.js';
 import { VictoryQuestState } from '../quest-tracker/quest-item.js';
 import { getQuestTracker } from '../quest-tracker/quest-tracker.js';
@@ -165,14 +166,14 @@ class TutorialManagerClass extends DisplayHandlerBase {
         case "notification":
           if (this.isShowing() && this.totalCompletedItems() <= this.MAX_CALLOUT_CHECKBOX) {
             document.querySelector("tutorial-callout")?.querySelector("fxs-checkbox")?.setAttribute("selected", "true");
-            return false;
+            return InputHandlerState.Handled;
           }
           break;
         case "center-plot-cursor":
         case "shell-action-3":
           if (this.currentTutorialPopupData && this.currentTutorialPopupData.canMinimize) {
             window.dispatchEvent(new TutorialCalloutMinimizeEvent(true));
-            return false;
+            return InputHandlerState.Handled;
           }
           break;
         // this is here because the keyboard inspect sends the event to the window
@@ -181,12 +182,12 @@ class TutorialManagerClass extends DisplayHandlerBase {
         case "toggle-tooltip":
           if (this.currentTutorialPopupData) {
             window.dispatchEvent(new TutorialCalloutInspectEvent(true));
-            return true;
+            return InputHandlerState.Active;
           }
           break;
       }
     }
-    return true;
+    return InputHandlerState.Active;
   }
   /**
    * Tutorial manager doesn't handle navigation input events
@@ -194,7 +195,7 @@ class TutorialManagerClass extends DisplayHandlerBase {
    * @implements InputEngineEvent
    */
   handleNavigation() {
-    return true;
+    return InputHandlerState.Active;
   }
   /**  Read/Write version information */
   versionChecks() {
@@ -391,7 +392,7 @@ class TutorialManagerClass extends DisplayHandlerBase {
     return DisplayQueueManager.isSuspended();
   }
   /**
-   * @implements {IDisplayQueue}
+   * @implements {IDisplayHandler}
    */
   show(request) {
     this.currentTutorialPopupData = request;
@@ -430,7 +431,7 @@ class TutorialManagerClass extends DisplayHandlerBase {
     this.isPendingShow = false;
   }
   /**
-   * @implements {IDisplayQueue}
+   * @implements {IDisplayHandler}
    */
   hide(request, options) {
     let currentItem = this.currentTutorialPopupData;
@@ -467,7 +468,7 @@ class TutorialManagerClass extends DisplayHandlerBase {
     }
   }
   /**
-   * @implements {IDisplayQueue}
+   * @implements {IDisplayHandler}
    */
   addDialogBoxToQueue(data) {
     if (!data.title) {

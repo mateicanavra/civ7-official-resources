@@ -4,7 +4,6 @@ import { Activatable } from './activatable.js';
 import { L10n } from './l10n.js';
 import { KBMNavHelp, NavHelp } from './nav-help.js';
 import { Slot } from './slot.js';
-import { NestedTooltipContext, isNestedTooltipContextDisabled } from './tooltip-compat.js';
 import { TooltipModel, HIDE_TOOLTIPS_HOLD_THRESHOLD_MS } from './tooltip-model.js';
 import { TriggerActivationContext, TriggerActivationContextProvider, TriggerType } from './trigger.js';
 import { ComponentRegistry } from '../services/component-registry.js';
@@ -13,8 +12,10 @@ import { isFocusable, useFocusContext } from '../services/focus.js';
 import { HotkeyIconContext } from '../services/hotkey.js';
 import { IsKeyboardActive, IsMouseActive, IsTouchActive } from '../services/input.js';
 import { createArraySignal, createPropsRefSignal, createLayoutComplete } from '../utilities/solid-utilities.js';
+import { NestedTooltipContext, isNestedTooltipContextDisabled } from './tooltip-nested.js';
+import './tooltip-hidden-hint.js';
 
-var _tmpl$ = /* @__PURE__ */ template(`<div></div>`), _tmpl$2 = /* @__PURE__ */ template(`<span class=hidden></span>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="flex flex-row items-center"></div>`), _tmpl$4 = /* @__PURE__ */ template(`<span class="flex flex-row items-center">&nbsp;</span>`), _tmpl$5 = /* @__PURE__ */ template(`<div class="flex items-center justify-center"></div>`), _tmpl$6 = /* @__PURE__ */ template(`<div class="relative h-0\\.5 w-full flex-auto bg-secondary scale-0 origin-center -mb-2 rounded"></div>`), _tmpl$7 = /* @__PURE__ */ template(`<div class=tooltip-frame-focus-glow></div>`), _tmpl$8 = /* @__PURE__ */ template(`<div class="absolute top-1 left-1 rotate-180 size-4 bg-contain opacity-30"></div>`), _tmpl$9 = /* @__PURE__ */ template(`<div class="absolute top-1 right-1 -rotate-90 size-4 bg-contain opacity-30"></div>`), _tmpl$10 = /* @__PURE__ */ template(`<div class="absolute bottom-1 left-1 rotate-90 size-4 bg-contain opacity-30"></div>`), _tmpl$11 = /* @__PURE__ */ template(`<div class="absolute bottom-1 right-1 size-4 bg-contain opacity-30"></div>`), _tmpl$12 = /* @__PURE__ */ template(`<div role=heading></div>`);
+var _tmpl$ = /* @__PURE__ */ template(`<div></div>`), _tmpl$2 = /* @__PURE__ */ template(`<span class="hidden"></span>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="flex flex-row items-center"></div>`), _tmpl$4 = /* @__PURE__ */ template(`<span class="flex flex-row items-center">&nbsp;</span>`), _tmpl$5 = /* @__PURE__ */ template(`<div class="flex items-center justify-center"></div>`), _tmpl$6 = /* @__PURE__ */ template(`<div class="relative h-0\\.5 w-full flex-auto bg-secondary scale-0 origin-center -mb-2 rounded"></div>`), _tmpl$7 = /* @__PURE__ */ template(`<div class="tooltip-frame-focus-glow"></div>`), _tmpl$8 = /* @__PURE__ */ template(`<div class="absolute top-1 left-1 rotate-180 size-4 bg-contain opacity-30"></div>`), _tmpl$9 = /* @__PURE__ */ template(`<div class="absolute top-1 right-1 -rotate-90 size-4 bg-contain opacity-30"></div>`), _tmpl$10 = /* @__PURE__ */ template(`<div class="absolute bottom-1 left-1 rotate-90 size-4 bg-contain opacity-30"></div>`), _tmpl$11 = /* @__PURE__ */ template(`<div class="absolute bottom-1 right-1 size-4 bg-contain opacity-30"></div>`), _tmpl$12 = /* @__PURE__ */ template(`<div><div class="flex flex-col items-stretch"></div></div>`), _tmpl$13 = /* @__PURE__ */ template(`<div role="heading"></div>`);
 const _PROTECTED_IMPORTS = [isFocusable];
 const MAX_VISIBLE_TOOLTIPS = 20;
 const TooltipNavigationRules = /* @__PURE__ */ new Map([[InputNavigationAction.UP, (context) => {
@@ -149,11 +150,12 @@ function computeTooltipPosition(targetRect, tooltip, desiredV, desiredH, offset)
     default:
       calcHPos;
   }
+  const safeAreaMargins = UI.getSafeAreaMargins();
   const overflow = {
-    above: top < 0,
-    below: top + tooltipHeight > screenHeight,
-    left: left < 0,
-    right: left + tooltipWidth > screenWidth
+    above: top < safeAreaMargins.top,
+    below: top + tooltipHeight > screenHeight - safeAreaMargins.bottom,
+    left: left < safeAreaMargins.left,
+    right: left + tooltipWidth > screenWidth - safeAreaMargins.right
   };
   return {
     top,
@@ -252,15 +254,16 @@ const TooltipContentInternal = (props) => {
     return _el$;
   })();
 };
-const TooltipContentComponent = (props) => {
-  const focusManager = FocusManager.get();
-  const tooltipModel = TooltipModel.get();
-  const [root, setRoot] = createPropsRefSignal(() => props.ref);
+const TooltipActiveContentComponent = (props) => {
   const ctx = useContext(TooltipContext);
-  const parentNestedCtx = useContext(NestedTooltipContext);
   if (!ctx) {
-    throw new Error("Tooltip.Content must be used within a <Tooltip> root component");
+    throw new Error("TooltipActiveContentComponent must be used within a TooltipContext");
   }
+  const shouldActivate = () => props.shouldActivate();
+  const tooltipModel = TooltipModel.get();
+  const focusManager = FocusManager.get();
+  const [root, setRoot] = createPropsRefSignal(() => props.contentProps.ref);
+  const parentNestedCtx = useContext(NestedTooltipContext);
   const nestedTooltipsDisabled = createMemo(() => {
     if (isNestedTooltipContextDisabled(parentNestedCtx)) {
       return true;
@@ -285,12 +288,6 @@ const TooltipContentComponent = (props) => {
   createEffect(on([() => tooltipModel.isActive(ctx.name), isAnimating], () => {
     setDidCalculatePosition(false);
   }));
-  const shouldActivate = createMemo(() => {
-    const isLocked = tooltipModel.isLocked(ctx.name);
-    const isActive = tooltipModel.isActive(ctx.name);
-    const isHidden = tooltipModel.tooltipsHidden();
-    return !isHidden && (isLocked || isActive);
-  });
   const shouldShow = createMemo(() => targetRect() !== void 0 && !isClipped());
   const enterAnimationClass = createMemo(() => getTooltipEnterClass(ctx.vPosition() ?? "auto" /* AUTO */, ctx.hPosition() ?? "auto" /* AUTO */));
   const setTargetRectFromXY = (x, y) => {
@@ -459,6 +456,7 @@ const TooltipContentComponent = (props) => {
           final = computeTooltipPosition(currentTargetRect, tooltip, flippedVPos, flippedHPos, offset());
         }
       }
+      const safeAreaMargins = UI.getSafeAreaMargins();
       const tooltipWidth = tooltip.offsetWidth;
       const tooltipHeight = tooltip.offsetHeight;
       const screenHeight = window.innerHeight;
@@ -480,8 +478,8 @@ const TooltipContentComponent = (props) => {
       } else if (final.appliedVPos === "center" /* CENTER */) {
         idealVisualTop += yOffset;
       }
-      const clampedVisualTop = Math.min(Math.max(0, idealVisualTop), screenHeight - scaledHeight);
-      const clampedVisualLeft = Math.min(Math.max(0, idealVisualLeft), screenWidth - scaledWidth);
+      const clampedVisualTop = Math.min(Math.max(safeAreaMargins.top, idealVisualTop), screenHeight - scaledHeight - safeAreaMargins.bottom);
+      const clampedVisualLeft = Math.min(Math.max(safeAreaMargins.left, idealVisualLeft), screenWidth - scaledWidth - safeAreaMargins.right);
       batch(() => {
         setTop(clampedVisualTop - yOffset);
         setLeft(clampedVisualLeft - xOffset);
@@ -496,7 +494,7 @@ const TooltipContentComponent = (props) => {
     if (locked && currentRoot) {
       FocusManager.get().setFocus(currentRoot);
       onCleanup(() => {
-        if (focusManager.currentFocus() === currentRoot && !currentRoot.isConnected) {
+        if (focusManager.currentFocus() === currentRoot) {
           focusManager.setFocus(document.body);
         }
       });
@@ -556,6 +554,89 @@ const TooltipContentComponent = (props) => {
       navigationEvent.stopPropagation();
     }
   };
+  return createComponent(Portal, {
+    mount: tooltipRoot,
+    get children() {
+      return [createComponent(Show, {
+        get when() {
+          return tooltipModel.locked() == ctx.name;
+        },
+        get children() {
+          return createComponent(Activatable, {
+            name: "TooltipBackdrop",
+            onActivate: () => tooltipModel.unlockAll(),
+            disableTrigger: true,
+            "class": "fixed inset-0 pointer-events-auto",
+            style: {
+              "background-color": "rgba(0 0 0 / .5)"
+            }
+          });
+        }
+      }), createComponent(Slot, mergeProps(() => props.contentProps, {
+        name: "TooltipContentSlot",
+        ref: setRoot,
+        get disableFocus() {
+          return !tooltipModel.isLocked(ctx.name);
+        },
+        get ["class"]() {
+          return `absolute visible tooltip-content-root ${props.contentProps.class ?? ""}`;
+        },
+        get classList() {
+          return {
+            "opacity-0": isCalculatingPosition() && !didCalculatePosition() && !isAnimating(),
+            hidden: !shouldShow(),
+            "pointer-events-auto": tooltipModel.isLocked(ctx.name) || IsTouchActive(),
+            "pointer-events-none": !tooltipModel.isLocked(ctx.name) && !IsTouchActive()
+          };
+        },
+        get style() {
+          return {
+            top: inPx(top()),
+            left: inPx(left()),
+            transform: `scale(${scale()})`
+          };
+        },
+        navRules: TooltipNavigationRules,
+        lockNavigation: true,
+        "on:navigate-input": onNavigate,
+        "on:engine-input": (e) => {
+          if (e.detail.status === InputActionStatuses.FINISH && e.detail.name === "touch-tap") {
+            e.stopPropagation();
+            if (!isTop()) {
+              tooltipModel.pop();
+            }
+          }
+        },
+        tabIndex: -1,
+        get children() {
+          return createComponent(TooltipContentInternal, {
+            root,
+            focusCtx,
+            setFocusCtx,
+            enterAnimationClass,
+            get children() {
+              return createComponent(NestedTooltipContext.Provider, {
+                value: {
+                  disabled: nestedTooltipsDisabled
+                },
+                get children() {
+                  return props.contentProps.children;
+                }
+              });
+            }
+          });
+        }
+      }))];
+    }
+  });
+};
+const TooltipContentComponent = (props) => {
+  const tooltipModel = TooltipModel.get();
+  const ctx = useContext(TooltipContext);
+  if (!ctx) {
+    throw new Error("Tooltip.Content must be used within a <Tooltip> root component");
+  }
+  const shouldActivate = () => !tooltipModel.tooltipsHidden() && (tooltipModel.isLocked(ctx.name) || tooltipModel.isActive(ctx.name));
   return (
     // Hidden span prevents empty text nodes being rendered as placeholders in the DOM tree
     (() => {
@@ -565,80 +646,9 @@ const TooltipContentComponent = (props) => {
           return shouldActivate();
         },
         get children() {
-          return createComponent(Portal, {
-            mount: tooltipRoot,
-            get children() {
-              return [createComponent(Show, {
-                get when() {
-                  return tooltipModel.locked() == ctx.name;
-                },
-                get children() {
-                  return createComponent(Activatable, {
-                    name: "TooltipBackdrop",
-                    onActivate: () => tooltipModel.unlockAll(),
-                    disableTrigger: true,
-                    "class": "fixed inset-0 pointer-events-auto",
-                    style: {
-                      "background-color": "rgba(0 0 0 / .5)"
-                    }
-                  });
-                }
-              }), createComponent(Slot, mergeProps(props, {
-                name: "TooltipContentSlot",
-                ref: setRoot,
-                get disableFocus() {
-                  return !tooltipModel.isLocked(ctx.name);
-                },
-                get ["class"]() {
-                  return `absolute visible tooltip-content-root ${props.class ?? ""}`;
-                },
-                get classList() {
-                  return {
-                    "opacity-0": isCalculatingPosition() && !didCalculatePosition() && !isAnimating(),
-                    hidden: !shouldShow(),
-                    "pointer-events-auto": tooltipModel.isLocked(ctx.name) || IsTouchActive(),
-                    "pointer-events-none": !tooltipModel.isLocked(ctx.name) && !IsTouchActive()
-                  };
-                },
-                get style() {
-                  return {
-                    top: inPx(top()),
-                    left: inPx(left()),
-                    transform: `scale(${scale()})`
-                  };
-                },
-                navRules: TooltipNavigationRules,
-                lockNavigation: true,
-                "on:navigate-input": onNavigate,
-                "on:engine-input": (e) => {
-                  if (e.detail.status === InputActionStatuses.FINISH && e.detail.name === "touch-tap") {
-                    e.stopPropagation();
-                    if (!isTop()) {
-                      tooltipModel.pop();
-                    }
-                  }
-                },
-                tabIndex: -1,
-                get children() {
-                  return createComponent(TooltipContentInternal, {
-                    root,
-                    focusCtx,
-                    setFocusCtx,
-                    enterAnimationClass,
-                    get children() {
-                      return createComponent(NestedTooltipContext.Provider, {
-                        value: {
-                          disabled: nestedTooltipsDisabled
-                        },
-                        get children() {
-                          return props.children;
-                        }
-                      });
-                    }
-                  });
-                }
-              }))];
-            }
+          return createComponent(TooltipActiveContentComponent, {
+            contentProps: props,
+            shouldActivate
           });
         }
       }));
@@ -650,7 +660,7 @@ const TooltipContentComponent = (props) => {
 const TooltipInspectHintComponent = (props) => {
   const tooltipModel = TooltipModel.get();
   const ctx = useContext(TooltipContext);
-  const [local, other] = splitProps(props, ["class", "progressBarRef", "handlers"]);
+  const [local, other] = splitProps(props, ["class", "progressBarRef", "isLargeContent", "handlers"]);
   const hotkeyIconProvider = {
     disabled: () => false,
     actionName: () => "toggle-tooltip"
@@ -690,6 +700,9 @@ const TooltipInspectHintComponent = (props) => {
   });
   const shouldShowHoldToHideAction = createMemo(() => {
     if (local.handlers) return false;
+    const hasTooltips = tooltipCount() > 0;
+    const hasLargeContent = local.isLargeContent ? local.isLargeContent() : false;
+    if (!hasTooltips && !hasLargeContent) return false;
     const active = tooltipModel.active();
     return active.length > 0 && active[0] === ctx?.name && !tooltipModel.isLocked(ctx.name);
   });
@@ -728,7 +741,7 @@ const TooltipInspectHintComponent = (props) => {
   };
   return createComponent(Show, {
     get when() {
-      return !IsTouchActive();
+      return createMemo(() => !!!IsTouchActive())() && (tooltipCount() > 0 || local.isLargeContent?.());
     },
     get children() {
       var _el$3 = _tmpl$();
@@ -963,8 +976,11 @@ const AUTOLOCK_FRAME_GLOW_LEAD_MS = 5 / 9 * AUTOLOCK_FRAME_GLOW_DURATION_MS;
 const TooltipFrameComponent = (props) => {
   const ctx = useContext(TooltipContext);
   const tooltipModel = TooltipModel.get();
+  const [local, other] = splitProps(props, ["hideHint", "class", "children"]);
   const [frameRef, setFrameRef] = createSignal(void 0);
   const [progressBarRef, setProgressBarRef] = createSignal(void 0);
+  const [contentRef, setContentRef] = createSignal(void 0);
+  const [isLargeContent, setIsLargeContent] = createSignal(false);
   let frameGlowTimeout;
   const isAutoLocking = createMemo(() => ctx ? tooltipModel.isAutoLocking(ctx.name) : false);
   const startAutoLockAnimation = (element, animationClass, durationMs) => {
@@ -987,6 +1003,18 @@ const TooltipFrameComponent = (props) => {
       frameGlowTimeout = void 0;
     }
   };
+  const threshholdContentHeight = 200;
+  createEffect(() => {
+    const contentEl = contentRef();
+    if (!contentEl) return;
+    const observer = new ResizeObserver((entries) => {
+      for (const entry of entries) {
+        setIsLargeContent(entry.contentRect.height > threshholdContentHeight);
+      }
+    });
+    observer.observe(contentEl);
+    onCleanup(() => observer.disconnect());
+  });
   createEffect(on([isAutoLocking, progressBarRef, frameRef], ([autoLocking, progressBarRef2, frameRef2]) => {
     const autolockMs = Configuration.getUser().tooltipAutolock;
     if (autolockMs <= 100 || !progressBarRef2 || !frameRef2) {
@@ -1005,11 +1033,16 @@ const TooltipFrameComponent = (props) => {
     }
   }));
   return (() => {
-    var _el$10 = _tmpl$();
+    var _el$10 = _tmpl$12(), _el$16 = _el$10.firstChild;
     use(setFrameRef, _el$10);
-    spread(_el$10, mergeProps(props, {
+    spread(_el$10, mergeProps(other, {
       get ["class"]() {
-        return `img-tooltip-border img-tooltip-bg p-4 min-w-48 ${props.class ?? ""}`;
+        return `img-tooltip-border img-tooltip-bg p-4 ${local.class ?? ""}`;
+      },
+      get classList() {
+        return {
+          "min-w-48": !local.hideHint
+        };
       }
     }), false, true);
     insert(_el$10, createComponent(Show, {
@@ -1019,7 +1052,7 @@ const TooltipFrameComponent = (props) => {
       get children() {
         return _tmpl$7();
       }
-    }), null);
+    }), _el$16);
     insert(_el$10, createComponent(Show, {
       get when() {
         return ctx?.showFiligrees();
@@ -1043,14 +1076,71 @@ const TooltipFrameComponent = (props) => {
           return _el$15;
         })()];
       }
-    }), null);
-    insert(_el$10, () => props.children, null);
-    insert(_el$10, createComponent(Tooltip.InspectHint, {
-      "class": "relative mt-2",
-      progressBarRef: setProgressBarRef
+    }), _el$16);
+    use(setContentRef, _el$16);
+    insert(_el$16, () => local.children);
+    insert(_el$10, createComponent(Show, {
+      get when() {
+        return !local.hideHint;
+      },
+      get children() {
+        return createComponent(Tooltip.InspectHint, {
+          "class": "relative mt-2",
+          progressBarRef: setProgressBarRef,
+          isLargeContent
+        });
+      }
     }), null);
     return _el$10;
   })();
+};
+const TooltipTextInnerComponent = (props) => {
+  const ctx = useContext(TooltipContext);
+  const hasTooltips = createMemo(() => (ctx?.childTooltipList().length ?? 0) > 0);
+  const showBg = createMemo(() => !!props.header || hasTooltips());
+  return createComponent(Tooltip.Frame, {
+    get ["class"]() {
+      return `relative flex flex-col pb-1 max-w-128 w-full ${props.class ?? ""}`;
+    },
+    get children() {
+      return [createComponent(Show, {
+        get when() {
+          return props.header;
+        },
+        children: (header) => (() => {
+          var _el$18 = _tmpl$13();
+          insert(_el$18, createComponent(L10n.Compose, {
+            get text() {
+              return header();
+            }
+          }));
+          createRenderEffect(() => className(_el$18, `relative text-center font-title text-sm text-secondary mb-2 uppercase tracking-100 ${props.headerClass ?? ""}}`));
+          return _el$18;
+        })()
+      }), (() => {
+        var _el$17 = _tmpl$();
+        insert(_el$17, createComponent(L10n.Stylize, {
+          get text() {
+            return props.text;
+          },
+          get args() {
+            return props.args;
+          },
+          "class": "relative"
+        }));
+        createRenderEffect((_p$) => {
+          var _v$ = `flex-auto w-full ${showBg() ? "p-3" : "p-0"} ${props.bodyClass ?? ""}`, _v$2 = !!showBg();
+          _v$ !== _p$.e && className(_el$17, _p$.e = _v$);
+          _v$2 !== _p$.t && _el$17.classList.toggle("img-base-ticket-bg", _p$.t = _v$2);
+          return _p$;
+        }, {
+          e: void 0,
+          t: void 0
+        });
+        return _el$17;
+      })()];
+    }
+  });
 };
 const TooltipTextComponent = (props) => {
   const [local, other] = splitProps(props, ["text", "args", "children", "header", "class", "headerClass", "bodyClass"]);
@@ -1065,39 +1155,36 @@ const TooltipTextComponent = (props) => {
         }
       }), createComponent(Tooltip.Content, {
         get children() {
+          return createComponent(TooltipTextInnerComponent, local);
+        }
+      })];
+    }
+  }));
+};
+const TooltipLegacyTextComponent = (props) => {
+  const [local, other] = splitProps(props, ["text", "args", "children"]);
+  return createComponent(Tooltip, mergeProps(other, {
+    showFiligrees: false,
+    get children() {
+      return [createComponent(Tooltip.Trigger, {
+        get children() {
+          return local.children;
+        }
+      }), createComponent(Tooltip.Content, {
+        get children() {
           return createComponent(Tooltip.Frame, {
-            get ["class"]() {
-              return `relative flex flex-col pb-1 max-w-128 ${local.class ?? ""}`;
-            },
+            "class": "relative flex flex-col pb-1 max-w-96 p-3 pointer-events-none break-words font-body text-xs",
+            hideHint: true,
             get children() {
-              return [createComponent(Show, {
-                get when() {
-                  return local.header;
+              return createComponent(L10n.Stylize, {
+                get text() {
+                  return local.text;
                 },
-                children: (header) => (() => {
-                  var _el$17 = _tmpl$12();
-                  insert(_el$17, createComponent(L10n.Compose, {
-                    get text() {
-                      return header();
-                    }
-                  }));
-                  createRenderEffect(() => className(_el$17, `relative text-center font-title text-sm text-secondary mb-2 uppercase tracking-100 ${local.headerClass ?? ""}}`));
-                  return _el$17;
-                })()
-              }), (() => {
-                var _el$16 = _tmpl$();
-                insert(_el$16, createComponent(L10n.Stylize, {
-                  get text() {
-                    return local.text;
-                  },
-                  get args() {
-                    return local.args;
-                  },
-                  "class": "relative"
-                }));
-                createRenderEffect(() => className(_el$16, `flex-auto p-3 img-base-ticket-bg ${local.bodyClass ?? ""}`));
-                return _el$16;
-              })()];
+                get args() {
+                  return local.args;
+                },
+                "class": "relative"
+              });
             }
           });
         }
@@ -1110,6 +1197,7 @@ Tooltip.Trigger = ComponentRegistry.register("Tooltip.Trigger", TooltipTriggerCo
 Tooltip.Content = ComponentRegistry.register("Tooltip.Content", TooltipContentComponent);
 Tooltip.Frame = ComponentRegistry.register("Tooltip.Frame", TooltipFrameComponent);
 Tooltip.Text = ComponentRegistry.register("Tooltip.Text", TooltipTextComponent);
+Tooltip.LegacyText = ComponentRegistry.register("Tooltip.LegacyText", TooltipLegacyTextComponent);
 Tooltip.InspectHint = ComponentRegistry.register("Tooltip.InspectHint", TooltipInspectHintComponent);
 
 export { Tooltip, TooltipContext, TooltipHorizontalPosition, TooltipNavigationRules, TooltipVerticalPosition };

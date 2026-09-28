@@ -9,7 +9,7 @@ import { useWindowSize, useIsSmallScreen, useAspectRatio } from '../../../../cor
 import { AdvisorCard } from './advisor-card.js';
 import { useAdvisorScreenContext } from './advisor-screen-model.js';
 
-var _tmpl$ = /* @__PURE__ */ template(`<div role=heading></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="w-full h-full flex flex-col items-center"></div>`);
+var _tmpl$ = /* @__PURE__ */ template(`<div role="heading"></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="w-full h-full flex flex-col items-center"></div>`);
 const CouncilRoom = (props) => {
   const model = useAdvisorScreenContext();
   const windowHeight = useWindowSize();
@@ -70,13 +70,13 @@ const CouncilRoom = (props) => {
           },
           disableFocus: true,
           onActivate: () => {
-            if (IsControllerActive()) {
-              model.playFollowAudio(model.getSelectedAdvisorCard());
-            }
             if (model.isFollowing(model.getSelectedAdvisorCard())) {
               model.unfollow(model.getSelectedAdvisorCard());
             } else {
               model.follow(model.getSelectedAdvisorCard());
+            }
+            if (IsControllerActive()) {
+              model.playFollowAudio(model.getSelectedAdvisorCard());
             }
           }
         }), createComponent(Show, {

@@ -4,10 +4,11 @@ import { L10n } from '../../../../core/ui-next/components/l10n.js';
 import { ScrollArea } from '../../../../core/ui-next/components/scroll-area.js';
 import { VSlot, HSlot } from '../../../../core/ui-next/components/slot.js';
 import { Tooltip, TooltipVerticalPosition, TooltipHorizontalPosition } from '../../../../core/ui-next/components/tooltip.js';
+import { isMobile } from '../../../../core/ui-next/services/view-experience.js';
 import { useIsSmallScreen, LayoutModel } from '../../../../core/ui-next/utilities/layout-utilities.js';
 import { VictoryRulesTooltip, VictoryHeader } from './victory-tab-base.js';
 
-var _tmpl$ = /* @__PURE__ */ template(`<div></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="relative w-full"><div></div></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="absolute -top-14 victories-header"><div class="font-body text-body text-xs self-center"></div></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div class=self-center></div>`), _tmpl$5 = /* @__PURE__ */ template(`<div class="flex flex-row absolute -mt-6 ml-2 w-full victories-point-goal-line"><div><div role=heading></div></div><div class="victories-military-col-4 flex flex-row"><div class="h-full w-2"></div><div class="font-title text-xl text-white flex-1 self-center"></div></div><div class="victories-military-col-3 font-title text-sm uppercase flex flex-row"><div class="w-full self-center"><div class="self-start ml-2"></div></div></div></div>`), _tmpl$6 = /* @__PURE__ */ template(`<div><div role=heading></div></div>`), _tmpl$7 = /* @__PURE__ */ template(`<div class="victories-military-col-4 flex flex-row"></div>`), _tmpl$8 = /* @__PURE__ */ template(`<div class="victories-military-col-3 font-title text-sm uppercase flex flex-row"></div>`), _tmpl$9 = /* @__PURE__ */ template(`<div class="w-full h-4"></div>`), _tmpl$10 = /* @__PURE__ */ template(`<div class="flex flex-row"></div>`), _tmpl$11 = /* @__PURE__ */ template(`<div class="victories-scrollarea shrink mb-2 flex flex-row w-full"></div>`), _tmpl$12 = /* @__PURE__ */ template(`<div class=self-center>-</div>`);
+var _tmpl$ = /* @__PURE__ */ template(`<div></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="relative w-full"><div></div></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div><div class="font-body text-body text-xs self-center"></div></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div class="self-center"></div>`), _tmpl$5 = /* @__PURE__ */ template(`<div class="flex flex-row absolute -mt-6 ml-2 w-full victories-point-goal-line"><div><div role="heading"></div></div><div class="victories-military-col-4 flex flex-row"><div class="h-full w-2"></div><div class="font-title text-xl text-white flex-1 self-center"></div></div><div class="victories-military-col-3 font-title text-sm uppercase flex flex-row"><div class="w-full self-center"><div class="self-start ml-2"></div></div></div></div>`), _tmpl$6 = /* @__PURE__ */ template(`<div><div role="heading"></div></div>`), _tmpl$7 = /* @__PURE__ */ template(`<div class="victories-military-col-4 flex flex-row"></div>`), _tmpl$8 = /* @__PURE__ */ template(`<div class="victories-military-col-3 font-title text-sm uppercase flex flex-row"></div>`), _tmpl$9 = /* @__PURE__ */ template(`<div class="w-full h-4"></div>`), _tmpl$10 = /* @__PURE__ */ template(`<div class="flex flex-row"></div>`), _tmpl$11 = /* @__PURE__ */ template(`<div class="victories-scrollarea shrink mb-2 flex flex-row w-full"></div>`), _tmpl$12 = /* @__PURE__ */ template(`<div class="self-center">-</div>`);
 const VictoriesAltBase = (props) => {
   const isSmallScreen = useIsSmallScreen();
   const layoutModel = LayoutModel.get();
@@ -66,6 +67,7 @@ const VictoriesAltBase = (props) => {
             return props.headerText;
           }
         }));
+        createRenderEffect(() => className(_el$4, `absolute ${isMobile() ? "-top-16" : "-top-14"} victories-header`));
         return _el$4;
       }
     }), createComponent(Show, {

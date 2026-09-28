@@ -1,9 +1,10 @@
-import ActionHandler from '../../input/action-handler.js';
 import { ActiveDeviceTypeChangedEventName } from '../../input/input-events.js';
 import MPBrowserModel from './model-mp-browser-new.js';
 import { MustGetElement } from '../../utilities/utilities-dom.js';
+import { IsControllerActive } from '../../../ui-next/services/input.js';
+import { isGameCenter } from '../../../ui-next/services/network.js';
 import { ChooserItem } from '../../../../base-standard/ui/chooser-item/chooser-item.js';
-import styles from '../../../../base-standard/ui/chooser-item/chooser-item.scss.js';
+import chooserItemStyles from '../../../../base-standard/ui/chooser-item/chooser-item.scss.js';
 
 const ActionConfirmEventName = "browser-item-action-confirm";
 class ActionConfirmEvent extends CustomEvent {
@@ -103,9 +104,13 @@ class MPBrowserChooserItem extends ChooserItem {
 					<div class="px-3 mp-browser-chooser__players text-base font-body-base text-accent-2 max-w-full truncate" data-l10n-id="${players}"></div>
 				</div>
 			</div>
-			<! -- This empty div exists to provide spacing for the "content" section. It is needed to provide space for the additional content buttons in mp-browser-new.ts -->
-			<div class="${mapSortOptionsToFlex[6]}"/>
 		`;
+    if (!isGameCenter()) {
+      content.innerHTML += `
+				<! -- This empty div exists to provide spacing for the "content" section. It is needed to provide space for the additional content buttons in mp-browser-new.ts -->
+				<div class="${mapSortOptionsToFlex[6]}"/>
+			`;
+    }
     this.Root.appendChild(content);
   }
   updateData() {
@@ -164,7 +169,7 @@ class MPBrowserChooserItem extends ChooserItem {
     this.Root.setAttribute("no-border", savedGame ? "true" : "false");
     this.Root.removeAttribute("data-tooltip-content");
     this.Root.removeAttribute("data-tooltip-alternative-target");
-    if (!ActionHandler.isGamepadActive) {
+    if (!IsControllerActive()) {
       const tooltipContent = this.isMissingMods() ? "LOC_UI_MP_BROWSER_MISSING_MOD_TOOLTIP" : savedGame ? "LOC_UI_MP_BROWSER_LOADING_SAVE_TOOLTIP" : "";
       if (tooltipContent) {
         this.Root.setAttribute("data-tooltip-content", tooltipContent);
@@ -196,7 +201,7 @@ Controls.define("mp-browser-chooser-item", {
   createInstance: MPBrowserChooserItem,
   description: "A chooser item to be used with the save-load screen",
   classNames: ["mp-browser-chooser-item", "chooser-item_unlocked", "relative", "flex-auto", "group"],
-  styles: [styles],
+  styles: [chooserItemStyles],
   attributes: [
     { name: "node" },
     { name: "enabled-content" },

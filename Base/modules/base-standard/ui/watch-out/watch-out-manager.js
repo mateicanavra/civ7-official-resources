@@ -1,4 +1,4 @@
-import ContextManager from '../../../core/ui/context-manager/context-manager.js';
+import { ContextManager } from '../../../core/ui/context-manager/context-manager.js';
 import { DisplayHandlerBase } from '../../../core/ui/context-manager/display-handler.js';
 import { DisplayQueueManager } from '../../../core/ui/context-manager/display-queue-manager.js';
 import { PlotCoord } from '../../../core/ui/utilities/utilities-plotcoord.js';
@@ -25,14 +25,14 @@ class WatchOutManagerClass extends DisplayHandlerBase {
     return ContextManager.hasInstanceOf("screen-watch-out");
   }
   /**
-   * @implements {IDisplayQueue}
+   * @implements {IDisplayHandler}
    */
   show(request) {
     this.currentWatchOutPopupData = request;
     ContextManager.push("screen-watch-out", { singleton: true });
   }
   /**
-   * @implements {IDisplayQueue}
+   * @implements {IDisplayHandler}
    */
   hide(_request, _options) {
     this.currentWatchOutPopupData = null;

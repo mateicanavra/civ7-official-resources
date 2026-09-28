@@ -1,0 +1,30 @@
+<Database>
+	<TraitModifiers>
+		<Row TraitType="TRAIT_BABYLON_ABILITY" ModifierId="TRAIT_LESS_SETTLEMENT_CAP"/>
+		<Row TraitType="TRAIT_BABYLON_ABILITY" ModifierId="MOD_CIV_WONDER_PRODUCTION_BABYLON"/>
+		<Row TraitType="TRAIT_ANTIQUITY_CIV" ModifierId="MOD_CIV_QATSI_PRODUCTION_BABYLON"/>
+		<Row TraitType="TRAIT_ANACHRONISTIC_CIV" ModifierId="MOD_CIV_QATSI_PRODUCTION_BABYLON"/>
+	</TraitModifiers>
+	<RequirementSets>
+		<Row RequirementSetId="REQSET_PLAYER_IS_BABYLON" RequirementSetType="REQUIREMENTSET_TEST_ALL"/>
+	</RequirementSets>
+	<RequirementSetRequirements>
+		<Row RequirementSetId="REQSET_PLAYER_IS_BABYLON" RequirementId="REQ_PLAYER_HAS_TRAIT_BABYLON"/>
+	</RequirementSetRequirements>
+	<Requirements>
+		<Row RequirementId="REQ_PLAYER_HAS_TRAIT_BABYLON" RequirementType="REQUIREMENT_PLAYER_HAS_CIVILIZATION_OR_LEADER_TRAIT"/>
+	</Requirements>
+	<RequirementArguments>
+		<Row RequirementId="REQ_PLAYER_HAS_TRAIT_BABYLON" Name="TraitType" Value="TRAIT_BABYLON"/>
+	</RequirementArguments>
+	<Independents>
+		<Update>
+			<Where IndependentType="INDEPENDENT_ANTIQUITY_36"/>
+			<Set Name="LOC_INDEPENDENT_ANTIQUITY_36_MINOR_BABYLON_NAME" CityStateName="LOC_INDEPENDENT_ANTIQUITY_36_MAJOR_BABYLON_NAME"/>
+		</Update>
+		<Update>
+			<Where IndependentType="INDEPENDENT_ANTIQUITY_45"/>
+			<Set Name="LOC_INDEPENDENT_ANTIQUITY_45_MINOR_BABYLON_NAME" CityStateName="LOC_INDEPENDENT_ANTIQUITY_45_MAJOR_BABYLON_NAME"/>
+		</Update>
+	</Independents>
+</Database>

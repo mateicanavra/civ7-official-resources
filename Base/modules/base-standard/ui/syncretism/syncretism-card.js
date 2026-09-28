@@ -4,9 +4,10 @@ import { Activatable } from '../../../core/ui-next/components/activatable.js';
 import { Icon } from '../../../core/ui-next/components/icon.js';
 import { L10n } from '../../../core/ui-next/components/l10n.js';
 import { Tooltip } from '../../../core/ui-next/components/tooltip.js';
+import { isMobile } from '../../../core/ui-next/services/view-experience.js';
 import { SyncretismScreenModel, getOpFlagString, getTraitIcon } from './syncretism-screen-model.js';
 
-var _tmpl$ = /* @__PURE__ */ template(`<div class="relative flex flex-col justify-start flex-auto px-2 pb-1 pt-1"><div class="flex flex-col flex-auto mx-1"></div></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="syncretism-hover absolute -inset-2"></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div class="size-full absolute"><div class="size-full absolute"data-name=sync-card-bg></div><div class="size-full absolute syncretism-card-bg-gradient"data-name=sync-card-bg></div><div class="w-full h-24 absolute syncretism-card-title-gradient"></div><div class="syncretism-card-hover absolute inset-0 opacity-0"data-name=sync-card-hover></div></div>`), _tmpl$5 = /* @__PURE__ */ template(`<div class="flex flex-row px-2 pt-1"><div class="flex flex-row flex-auto justify-start px-1 pt-1 pb-2"><div class=p-1><div class=text-body></div></div></div></div>`), _tmpl$6 = /* @__PURE__ */ template(`<div><div><div class="flex flex-col relative items-center justify-center"></div><div class="flex flex-auto justify-center flex-col ml-3"><div class="font-title uppercase text-secondary pr-2 pb-1"></div><div class="text-sm pb-1"></div></div></div></div>`), _tmpl$7 = /* @__PURE__ */ template(`<div class="mx-2 mt-2 flex flex-row bg-accent-6 "></div>`), _tmpl$8 = /* @__PURE__ */ template(`<div class="syncretism-card-bottom-lock flex items-center"></div>`), _tmpl$9 = /* @__PURE__ */ template(`<div><div class="mx-2 relative grow"><div data-name=sync-card-bg></div><div data-name=sync-card-bg></div><div class="w-full h-24 absolute syncretism-card-title-gradient"></div><div class="relative flex flex-col justify-start flex-auto px-2 pb-1 pt-1"><div class="flex flex-row pr-2 pt-1"><div class="flex flex-row flex-auto justify-start px-1 pt-1 pb-2"><div class=p-1><div class=text-body></div></div></div></div><div class="flex flex-col flex-auto mx-1"></div></div></div></div>`), _tmpl$10 = /* @__PURE__ */ template(`<div><div><div class="flex flex-auto justify-center flex-col"><div class="font-title text-accent-1 pr-2 pb-1"></div><div class="text-sm pb-1"></div></div></div></div>`);
+var _tmpl$ = /* @__PURE__ */ template(`<div class="relative flex flex-col justify-start flex-auto px-2 pb-1 pt-1"><div class="flex flex-col flex-auto mx-1"></div></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="syncretism-hover absolute -inset-2"></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div class="size-full absolute"><div class="size-full absolute"data-name="sync-card-bg"></div><div class="size-full absolute syncretism-card-bg-gradient"data-name="sync-card-bg"></div><div class="w-full h-24 absolute syncretism-card-title-gradient"></div><div class="syncretism-card-hover absolute inset-0 opacity-0"data-name="sync-card-hover"></div></div>`), _tmpl$5 = /* @__PURE__ */ template(`<div class="flex flex-row px-2 pt-1"><div class="flex flex-row flex-auto justify-start px-1 pt-1 pb-2"><div class="p-1"><div class="text-body"></div></div></div></div>`), _tmpl$6 = /* @__PURE__ */ template(`<div><div><div class="flex flex-col relative items-center justify-center"></div><div class="flex flex-auto justify-center flex-col ml-3"><div class="font-title uppercase text-secondary pr-2 pb-1"></div><div class="text-sm pb-1"></div></div></div></div>`), _tmpl$7 = /* @__PURE__ */ template(`<div class="mx-2 mt-2 flex flex-row bg-accent-6 "></div>`), _tmpl$8 = /* @__PURE__ */ template(`<div class="syncretism-card-bottom-lock flex items-center"></div>`), _tmpl$9 = /* @__PURE__ */ template(`<div><div class="mx-2 relative grow"><div data-name="sync-card-bg"></div><div data-name="sync-card-bg"></div><div class="w-full h-24 absolute syncretism-card-title-gradient"></div><div class="relative flex flex-col justify-start flex-auto px-2 pb-1 pt-1"><div class="flex flex-row pr-2 pt-1"><div class="flex flex-row flex-auto justify-start px-1 pt-1 pb-2"><div class="p-1"><div class="text-body"></div></div></div></div><div class="flex flex-col flex-auto mx-1"></div></div></div></div>`), _tmpl$10 = /* @__PURE__ */ template(`<div><div><div class="flex flex-auto justify-center flex-col"><div class="font-title text-accent-1 pr-2 pb-1"></div><div class="text-sm pb-1"></div></div></div></div>`);
 const SyncCard = (props) => {
   const model = SyncretismScreenModel.get();
   return (() => {
@@ -78,7 +79,9 @@ const SyncCardHeader = (props) => {
   return (() => {
     var _el$7 = _tmpl$5(), _el$8 = _el$7.firstChild, _el$9 = _el$8.firstChild, _el$10 = _el$9.firstChild;
     insert(_el$7, createComponent(Icon, {
-      "class": "size-12 self-center",
+      get ["class"]() {
+        return `${isMobile() ? "size-14" : "size-12"} self-center`;
+      },
       get name() {
         return props.civIcon;
       },
@@ -92,14 +95,18 @@ const SyncCardHeader = (props) => {
     }), _el$10);
     insert(_el$10, () => Locale.compose(getOpFlagString(props.flagType)));
     insert(_el$7, createComponent(Icon, {
-      "class": "size-8 self-center",
+      get ["class"]() {
+        return `${isMobile() ? "size-10 mx-1" : "size-8"} self-center`;
+      },
       get name() {
         return `url('blp:${getTraitIcon(props.traits[0]) ?? ""}')`;
       },
       isUrl: false
     }), null);
     insert(_el$7, createComponent(Icon, {
-      "class": "size-8 self-center",
+      get ["class"]() {
+        return `${isMobile() ? "size-10 mx-1" : "size-8"} self-center`;
+      },
       get name() {
         return `url('blp:${getTraitIcon(props.traits[1]) ?? ""}')`;
       },
@@ -120,7 +127,7 @@ const SyncItemExpanded = (props) => {
   return (() => {
     var _el$11 = _tmpl$6(), _el$12 = _el$11.firstChild, _el$13 = _el$12.firstChild, _el$14 = _el$13.nextSibling, _el$15 = _el$14.firstChild, _el$16 = _el$15.nextSibling;
     insert(_el$13, createComponent(Icon, {
-      "class": "size-12 self-center ",
+      "class": "size-12 self-center mr-2",
       get name() {
         return props.icon ?? "";
       },
@@ -234,7 +241,9 @@ const SyncretismPreviewCard = (props) => {
       }
     }), _el$27);
     insert(_el$25, createComponent(Icon, {
-      "class": "size-12 self-center",
+      get ["class"]() {
+        return `${isMobile() ? "size-14" : "size-12"} self-center`;
+      },
       get name() {
         return props.civIcon;
       },
@@ -251,7 +260,7 @@ const SyncretismPreviewCard = (props) => {
     insert(_el$29, () => Locale.compose(getOpFlagString(props.flagType)));
     insert(_el$25, createComponent(Icon, {
       get ["class"]() {
-        return `size-8 self-center ${props.isSyncretized ? "" : "syncretism-card-lock"}`;
+        return `${isMobile() ? "size-10 mx-1" : "size-8"} self-center ${props.isSyncretized ? "" : "syncretism-card-lock"}`;
       },
       get name() {
         return `url('blp:${getTraitIcon(props.traits[0]) ?? ""}')`;
@@ -260,7 +269,7 @@ const SyncretismPreviewCard = (props) => {
     }), null);
     insert(_el$25, createComponent(Icon, {
       get ["class"]() {
-        return `size-8 self-center ${props.isSyncretized ? "" : "syncretism-card-lock"}`;
+        return `${isMobile() ? "size-10 mx-1" : "size-8"} self-center ${props.isSyncretized ? "" : "syncretism-card-lock"}`;
       },
       get name() {
         return `url('blp:${getTraitIcon(props.traits[1]) ?? ""}')`;
@@ -320,7 +329,7 @@ const SyncPreviewItem = (props) => {
   return (() => {
     var _el$31 = _tmpl$10(), _el$32 = _el$31.firstChild, _el$33 = _el$32.firstChild, _el$34 = _el$33.firstChild, _el$35 = _el$34.nextSibling;
     insert(_el$32, createComponent(Icon, {
-      "class": "size-12 self-center",
+      "class": "size-12 self-center mr-2",
       get name() {
         return props.icon ?? "";
       },

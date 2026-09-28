@@ -2,6 +2,18 @@
   width: 21.1111111111rem;
   height: 14.8em;
 }
+@media (experience: mobile) {
+  .create-game-setup-box {
+    width: 25.5555555556rem;
+    height: 22.7777777778rem;
+  }
+}
+@media (experience: mobile) and (max-height: 55.5555555556rem) {
+  .create-game-setup-box {
+    width: 23.8888888889rem;
+    height: 21.1111111111rem;
+  }
+}
 
 .create-game-setup-line-divider {
   height: 0.3333333333rem;
@@ -34,9 +46,20 @@
     margin-left: 2.6666666667rem;
   }
 }
+@media (experience: mobile) {
+  .create-game-setup-container {
+    width: auto;
+    padding-right: 1.8888888889rem;
+  }
+}
 
 .create-game-setup-container-column {
   width: 22rem;
+}
+@media (experience: mobile) {
+  .create-game-setup-container-column {
+    width: auto;
+  }
 }
 
 .create-game-setup-selections {
@@ -50,9 +73,19 @@
     margin-bottom: 0rem;
   }
 }
+@media (experience: mobile) {
+  .create-game-setup-selections {
+    width: auto;
+  }
+}
 
 .create-game-setup-buttons-area {
   width: 66rem;
+}
+@media (experience: mobile) {
+  .create-game-setup-buttons-area {
+    width: auto;
+  }
 }
 
 @media (max-height: 55.5555555556rem) {
@@ -102,15 +135,44 @@
     width: 100%;
   }
 }
+@media (experience: mobile) {
+  .create-game-setup-divider-line {
+    width: auto;
+  }
+}
 
 .create-game-setup-box-bg {
   width: 88.3333333333rem;
   height: 18.3333333333rem;
 }
+@media (experience: mobile) {
+  .create-game-setup-box-bg {
+    width: 111.5555555556rem;
+    height: 22.7777777778rem;
+  }
+}
+@media (experience: mobile) and (max-height: 55.5555555556rem) {
+  .create-game-setup-box-bg {
+    width: 97.6666666667rem;
+    height: 19.4444444444rem;
+  }
+}
 
 .create-game-setup-box-button-bg {
   width: 88.3333333333rem;
   height: 21.1111111111rem;
+}
+@media (experience: mobile) {
+  .create-game-setup-box-button-bg {
+    width: 111.5555555556rem;
+    height: 25.5555555556rem;
+  }
+}
+@media (experience: mobile) and (max-height: 55.5555555556rem) {
+  .create-game-setup-box-button-bg {
+    width: 97.6666666667rem;
+    height: 22.2222222222rem;
+  }
 }
 
 .create-game-setup-continue-button {

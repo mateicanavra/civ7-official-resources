@@ -119,11 +119,15 @@
                 <Argument name="UnitType">UNIT_SPEARMAN</Argument>
             </Requirement>
         </SubjectRequirements>
-        <Argument name="AbilityType">ABILITY_NARRATIVE_STRENGTH</Argument>
+        <Argument name="AbilityType">ABILITY_NARRATIVE_DEFENSIVE</Argument>
     </Modifier>
-    <Modifier id="1072C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_ADJUST_DIPLOMATIC_ACTION_TOKEN_BONUS" run-once="false" permanent="true">
-        <Argument name="ActionType">DIPLOMACY_ACTION_DECLARE_WAR</Argument>
-        <Argument name="Amount">1</Argument>
+    <Modifier id="1072C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_ABILITY" run-once="false" permanent="true">
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_UNIT_TYPE_MATCHES">
+                <Argument name="UnitType">UNIT_SPEARMAN</Argument>
+            </Requirement>
+        </SubjectRequirements>
+        <Argument name="AbilityType">ABILITY_NARRATIVE_AGGRESSION</Argument>
     </Modifier>
     <Modifier id="3035B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_NARRATIVE" run-once="false" permanent="true">
         <Argument name="YieldType">YIELD_CULTURE</Argument>
@@ -5097,10 +5101,9 @@
         </Requirement>
     </RequirementSet>
     <RequirementSet id="REQSET_1072A_NARRATIVE">
-        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
-            <Argument name="GossipTypes">GOSSIP_TRAIN_UNIT01</Argument>
-            <Argument name="GOSSIP_TRAIN_UNIT01">Hash,UnitType,UNIT_SPEARMAN</Argument>
-            <Argument name="DuplicateCount">3</Argument>
+        <Requirement type="REQUIREMENT_PLAYER_MET_IMMEDIATE_GOSSIP">
+            <Argument name="GossipTypes">GOSSIP_DIPLOMACY_ACTION_STARTED</Argument>
+            <Argument name="GOSSIP_DIPLOMACY_ACTION_STARTED">Hash,OtherPlayer,Other,Hash,DiplomacyActionType,DIPLOMACY_ACTION_CS_LEVY_UNIT,Hash,UnitType,UNIT_SPEARMAN</Argument>
         </Requirement>
     </RequirementSet>
     <RequirementSet id="REQSET_3035A_NARRATIVE">
@@ -6923,11 +6926,10 @@
     </RequirementSet>
     <RequirementSet id="REQSET_1046A_NARRATIVE">
         <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
-            <Argument name="GossipTypes">GOSSIP_CONSTRUCT_BUILDING01,GOSSIP_TRADITION_ACTIVATED02</Argument>
-            <Argument name="GOSSIP_CONSTRUCT_BUILDING01">Hash,ConstructibleType,BUILDING_BLACKSMITH</Argument>
-            <Argument name="GOSSIP_TRADITION_ACTIVATED02">Hash,TraditionType,TRADITION_CRAFTSMANSHIP</Argument>
-            <Argument name="OrderedTurnWindow">1000</Argument>
-            <Argument name="Amount">2</Argument>
+            <Argument name="GossipTypes">GOSSIP_PLACED_WORKER01,GOSSIP_PLACED_WORKER02</Argument>
+            <Argument name="GOSSIP_PLACED_WORKER01">Hash,ConstructibleType,BUILDING_BLACKSMITH</Argument>
+            <Argument name="GOSSIP_PLACED_WORKER02">Hash,ConstructibleType2,BUILDING_BLACKSMITH</Argument>
+            <Argument name="Amount">1</Argument>
         </Requirement>
     </RequirementSet>
     <RequirementSet id="REQSET_1047A_NARRATIVE">

@@ -3,6 +3,7 @@ import { Audio } from '../../ui/audio-base/audio-support.js';
 import { buildFocusChain, FocusContext, currentSolidFocus, rootFocus } from './focus.js';
 import { ModelRegistry, ModelLifecycle } from './model-registry.js';
 
+const DEBUG_LOG_FOCUS_INTERVAL = 0;
 function createFocusManager() {
   const [enabledDebugFocus, setEnableDebugFocus] = createSignal(false);
   const [activeElement, setActiveElement] = createSignal(document.activeElement);
@@ -347,6 +348,22 @@ function createFocusManager() {
   };
 }
 const FocusManager = ModelRegistry.register("FocusManager", ModelLifecycle.Singleton, createFocusManager);
+if (DEBUG_LOG_FOCUS_INTERVAL > 0) {
+  setInterval(() => {
+    const weakRef = globalThis.debugCurrentFocus;
+    if (weakRef) {
+      const element = weakRef.deref();
+      if (element) {
+        console.log("focus-manager: element:", element);
+        console.log(`Tag: ${element.tagName}, ID: ${element.id}, Class: ${element.className}`);
+      } else {
+        console.log("focus-manager: Focus element no longer exists (garbage collected).");
+      }
+    } else {
+      console.log("focus-manager: Focus is null or undefined.");
+    }
+  }, DEBUG_LOG_FOCUS_INTERVAL);
+}
 
 export { FocusManager };
 //# sourceMappingURL=focus-manager.js.map

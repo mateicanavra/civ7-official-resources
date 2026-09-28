@@ -479,12 +479,18 @@ class MultiSelectorOption extends OptionsBase {
         teamID: setupParam.teamID
       };
       for (const [key, value] of categoryParamMap) {
-        const pvSettingsGroup = SettingsGroupData.addNewSettingsGroup(
-          key,
-          `${key} + ${setupParam.group.toString()}`,
-          root,
-          { isCollapsible: false }
-        );
+        let pvSettingsGroup = null;
+        if (!isSetupCategoryRedundant(setupParam)) {
+          pvSettingsGroup = SettingsGroupData.addNewSettingsGroup(
+            key,
+            `${key} + ${setupParam.group.toString()}`,
+            root,
+            {
+              isCollapsible: false
+            }
+          );
+        }
+        let regRowIndex = 0;
         for (const pv of value) {
           let hasValue = setupParam.values.some((v) => v.value == pv.value);
           if (invertSelection) {
@@ -532,7 +538,13 @@ class MultiSelectorOption extends OptionsBase {
           pvLabelContainer.appendChild(pvLabel);
           pvRow.appendChild(pvLabelContainer);
           pvRow.appendChild(pvControl);
-          pvSettingsGroup.addOption(pvRow);
+          if (pvSettingsGroup) {
+            pvSettingsGroup.addOption(pvRow);
+          } else {
+            pvRow.classList.add(regRowIndex % 2 == 0 ? "bg-primary-4" : "bg-primary-5");
+            root.appendChild(pvRow);
+            regRowIndex++;
+          }
           if (readOnly) {
             pvControl.setAttribute("disabled", "true");
           }
@@ -814,7 +826,52 @@ class SettingsGroupManager {
     this.cachedHiddenContainerIDS.clear();
   }
 }
+function isSetupCategoryRedundant(setupParam) {
+  const categoryParamMap = /* @__PURE__ */ new Map();
+  if (setupParam) {
+    for (const pv of setupParam.domain.possibleValues ?? []) {
+      const additionalPropsValue = pv.additionalProperties?.find(
+        (ap) => ap.name == GameSetup.makeString("Category")
+      )?.value;
+      let category = typeof additionalPropsValue === "string" ? additionalPropsValue : null;
+      if (category == null) {
+        const q = Database.query(
+          "config",
+          "SELECT Name from ParameterGroups where GroupID = ? LIMIT 1",
+          GameSetup.resolveString(setupParam.group)
+        );
+        if (q && q.length > 0 && typeof q[0].Name == "string") {
+          category = q[0].Name;
+        }
+      }
+      if (category == null) {
+        category = "LOC_ADVANCED_OPTIONS";
+      }
+      if (!categoryParamMap.get(category)) {
+        categoryParamMap.set(category, [pv]);
+      } else {
+        categoryParamMap.get(category).push(pv);
+      }
+    }
+  }
+  const groupNameQuery = Database.query(
+    "config",
+    "SELECT Name from ParameterGroups where GroupID = ? LIMIT 1",
+    GameSetup.resolveString(setupParam.group)
+  );
+  let groupName = null;
+  if (groupNameQuery && groupNameQuery.length > 0 && typeof groupNameQuery[0].Name == "string") {
+    groupName = groupNameQuery[0].Name;
+  }
+  const isSingleCategory = categoryParamMap.size == 1;
+  const onlyCategoryKey = isSingleCategory ? [...categoryParamMap.keys()][0] : null;
+  let categoryIsRedundant = false;
+  if (isSingleCategory && (onlyCategoryKey == GameSetup.resolveString(setupParam.name) || onlyCategoryKey == groupName)) {
+    categoryIsRedundant = true;
+  }
+  return categoryIsRedundant;
+}
 const SettingsGroupData = SettingsGroupManager.getInstance();
 
-export { AdvancedOptionsParameter, BooleanOption, LabelOption, MultiSelectorOption, NumericOption, OptionsBase, SelectorOption, SettingsGroup, SettingsGroupData, TextBoxOption };
+export { AdvancedOptionsParameter, BooleanOption, LabelOption, MultiSelectorOption, NumericOption, OptionsBase, SelectorOption, SettingsGroup, SettingsGroupData, TextBoxOption, isSetupCategoryRedundant };
 //# sourceMappingURL=game-creation-options.js.map

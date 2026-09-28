@@ -1,16 +1,19 @@
-import { template, spread, insert, use, className } from '../../../core/vendor/solid-js/web/dist/web.js';
-import { createComponent, mergeProps, Show, createMemo, Switch, Match, createRenderEffect } from '../../../core/vendor/solid-js/dist/solid.js';
+import { template, spread, insert, className, use } from '../../../core/vendor/solid-js/web/dist/web.js';
+import { createComponent, mergeProps, Show, createRenderEffect, createMemo, Switch, Match } from '../../../core/vendor/solid-js/dist/solid.js';
 import { Activatable } from '../../../core/ui-next/components/activatable.js';
 import { AudioContextProvider } from '../../../core/ui-next/components/audio-context-provider.js';
 import { Icon } from '../../../core/ui-next/components/icon.js';
 import { L10n } from '../../../core/ui-next/components/l10n.js';
 import { IsControllerActive } from '../../../core/ui-next/services/input.js';
+import { isMobile } from '../../../core/ui-next/services/view-experience.js';
+import { useIsSmallScreen } from '../../../core/ui-next/utilities/layout-utilities.js';
 import { PoliciesModel } from './model-policies.js';
 import { setTraditionSlotsFocused, setPolicySlotsFocused, getCivBGFromPolicy, getCivIconFromPolicy, getAdditionalPolicyIcon, policiesFocus, traditionsFocus } from './policies-support.js';
 
-var _tmpl$ = /* @__PURE__ */ template(`<div class="size-full absolute"data-info-name=resize-container></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="flex flex-row flex-auto"><div class="flex flex-auto flex-col p-4"><div class="relative w-full justify-start items-center flex flex-row"></div></div></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div><div class="size-full absolute"data-info-name=resize-container></div><div class="flex flex-row flex-auto"><div class="flex flex-auto flex-col p-4"><div class="relative w-full justify-start items-center flex flex-row"></div></div></div></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div><div class="inset-0 absolute empty-card-tint"><div class="h-1\\/2 w-full policy-card-frame"></div><div class="h-1\\/2 w-full -scale-y-100 policy-card-frame"></div></div><div class="flex flex-row size-full"><div class="flex flex-auto size-full justify-center text-xs font-title tracking-100 uppercase items-center"></div></div></div>`), _tmpl$5 = /* @__PURE__ */ template(`<div><div class="inset-0 absolute empty-card-tint"><div class="h-1\\/2 w-full policy-card-frame"></div><div class="h-1\\/2 w-full -scale-y-100 policy-card-frame"></div></div><div class="flex flex-row size-full"></div></div>`), _tmpl$6 = /* @__PURE__ */ template(`<div class="inset-0 absolute"><div class="h-1\\/2 w-full policy-card-frame"></div><div class="h-1\\/2 w-full -scale-y-100 policy-card-frame"></div></div>`), _tmpl$7 = /* @__PURE__ */ template(`<div class="flex flex-col relative"></div>`), _tmpl$8 = /* @__PURE__ */ template(`<div class="w-6 flex items-center relative left-0\\.5 ml-px"></div>`), _tmpl$9 = /* @__PURE__ */ template(`<div class="inset-0 absolute"><div class="size-full absolute policy-card-bg-image"data-name=tradition-card-bg></div><div class=size-full data-name=tradition-card-bg-overlay></div></div>`), _tmpl$10 = /* @__PURE__ */ template(`<div class="w-full py-2"><div class="flex h-px w-full"></div></div>`), _tmpl$11 = /* @__PURE__ */ template(`<div><div class="relative size-full bg-cover bg-center bg-no-repeat new-dot-tint"></div><div class="absolute inset-1 bg-cover bg-center bg-no-repeat"></div></div>`);
+var _tmpl$ = /* @__PURE__ */ template(`<div class="size-full absolute"data-info-name="resize-container"></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="flex flex-row flex-auto"><div><div class="relative w-full justify-start items-center flex flex-row"></div></div></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div><div class="size-full absolute"data-info-name="resize-container"></div><div class="flex flex-row flex-auto"><div class="flex flex-auto flex-col p-4"><div class="relative w-full justify-start items-center flex flex-row"></div></div></div></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div><div class="inset-0 absolute empty-card-tint"><div class="h-1\\/2 w-full policy-card-frame"></div><div class="h-1\\/2 w-full -scale-y-100 policy-card-frame"></div></div><div class="flex flex-row size-full"><div class="flex flex-auto size-full justify-center text-xs font-title tracking-100 uppercase items-center"></div></div></div>`), _tmpl$5 = /* @__PURE__ */ template(`<div><div class="inset-0 absolute empty-card-tint"><div class="h-1\\/2 w-full policy-card-frame"></div><div class="h-1\\/2 w-full -scale-y-100 policy-card-frame"></div></div><div class="flex flex-row size-full"></div></div>`), _tmpl$6 = /* @__PURE__ */ template(`<div class="inset-0 absolute"><div class="h-1\\/2 w-full policy-card-frame"></div><div class="h-1\\/2 w-full -scale-y-100 policy-card-frame"></div></div>`), _tmpl$7 = /* @__PURE__ */ template(`<div class="flex flex-col relative"></div>`), _tmpl$8 = /* @__PURE__ */ template(`<div class="w-6 flex items-center relative left-0\\.5 ml-px"></div>`), _tmpl$9 = /* @__PURE__ */ template(`<div class="inset-0 absolute"><div class="size-full absolute policy-card-bg-image"data-name="tradition-card-bg"></div><div class="size-full"data-name="tradition-card-bg-overlay"></div></div>`), _tmpl$10 = /* @__PURE__ */ template(`<div class="w-full py-2"><div class="flex h-px w-full"></div></div>`), _tmpl$11 = /* @__PURE__ */ template(`<div><div class="relative size-full bg-cover bg-center bg-no-repeat new-dot-tint"></div><div class="absolute inset-1 bg-cover bg-center bg-no-repeat"></div></div>`);
 const PolicyCard = (props) => {
   const model = PoliciesModel.get();
+  const isSmallScreen = useIsSmallScreen();
   function disableClick() {
     if (props.card.CultureSlotType == "TRADITION_CULTURE_SLOT" && model.canSwapPolicies || props.card.CultureSlotType == "POLICY_CULTURE_SLOT" && model.canSwapPolicies) {
       return false;
@@ -56,10 +59,10 @@ const PolicyCard = (props) => {
           typeof _ref$ === "function" ? _ref$(r$) : props.ref = r$;
         },
         get disabled() {
-          return createMemo(() => !!disableClick())() && !IsControllerActive() || cardCannotMove();
+          return createMemo(() => !!disableClick())() && !IsControllerActive();
         },
         get ["class"]() {
-          return `flex flex-col my-1 relative text-accent-1 policy-base-card ${props.isActive ? "ml-4" : "ml-2"} ${!props.card.Name ? "opacity-0" : ""} ${props.card.CultureSlotType == "TRADITION_CULTURE_SLOT" ? "tradition-base-bg" : props.card.CultureSlotType == "CRISIS_CULTURE_SLOT" ? "crisis-base-bg" : "policy-base-bg"}`;
+          return `flex flex-col my-1 relative text-accent-1 policy-base-card ${props.isActive || isMobile() ? "ml-4" : "ml-2"} ${!props.card.Name ? "opacity-0" : ""} ${props.card.CultureSlotType == "TRADITION_CULTURE_SLOT" ? "tradition-base-bg" : props.card.CultureSlotType == "CRISIS_CULTURE_SLOT" ? "crisis-base-bg crisis-card" : "policy-base-bg"}`;
         },
         onActivate: () => [focusableNotActivatable() ? null : model.onCardClick(props.card, props.isActive, props.tradSlot)],
         onMouseOver: () => setFocusStyles(true),
@@ -74,6 +77,12 @@ const PolicyCard = (props) => {
         },
         get audioComponentAlias() {
           return focusableNotActivatable() || !props.card ? "" : props.isActive ? "Assigned" : "Unassigned";
+        },
+        get disableAudio() {
+          return cardCannotMove();
+        },
+        get disableVisual() {
+          return cardCannotMove();
         },
         get children() {
           return [(() => {
@@ -135,6 +144,7 @@ const PolicyCard = (props) => {
               },
               "class": "text-sm relative text-left text-accent-2"
             }), null);
+            createRenderEffect(() => className(_el$3, `flex flex-auto flex-col ${isMobile() && isSmallScreen() ? "pl-2 pr-4 py-4" : "p-4"}`));
             return _el$2;
           })(), createComponent(NewDot, {
             "class": "absolute top-1\\.5 right-1\\.5",

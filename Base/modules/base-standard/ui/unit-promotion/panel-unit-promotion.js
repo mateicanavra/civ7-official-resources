@@ -1,5 +1,4 @@
 import { Audio } from '../../../core/ui/audio-base/audio-support.js';
-import ActionHandler from '../../../core/ui/input/action-handler.js';
 import { ActiveDeviceTypeChangedEventName } from '../../../core/ui/input/input-events.js';
 import { InputEngineEventName } from '../../../core/ui/input/input-support.js';
 import { InterfaceMode } from '../../../core/ui/interface-modes/interface-modes.js';
@@ -9,6 +8,7 @@ import { ComponentID } from '../../../core/ui/utilities/utilities-component-id.j
 import Databind from '../../../core/ui/utilities/utilities-core-databinding.js';
 import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
 import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
+import { IsControllerActive } from '../../../core/ui-next/services/input.js';
 import UnitPromotion from './model-unit-promotion.js';
 import content from './panel-unit-promotion.html.js';
 import styles from './panel-unit-promotion.scss.js';
@@ -132,7 +132,7 @@ class UnitPromotionPanel extends Panel {
     });
   };
   refreshConfirmButton() {
-    this.promotionConfirmButton.style.display = !ActionHandler.isGamepadActive ? "" : "none";
+    this.promotionConfirmButton.style.display = !IsControllerActive() ? "" : "none";
   }
   createPanelBackground(container, title, isCommendation) {
     const uiViewExperience = UI.getViewExperience();

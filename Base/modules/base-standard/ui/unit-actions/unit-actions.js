@@ -1,7 +1,7 @@
 import { Audio } from '../../../core/ui/audio-base/audio-support.js';
 import { displayRequestUniqueId } from '../../../core/ui/context-manager/display-handler.js';
 import { DialogBoxManager } from '../../../core/ui/dialog-box/manager-dialog-box.js';
-import ActionHandler from '../../../core/ui/input/action-handler.js';
+import { IsControllerActive } from '../../../core/ui-next/services/input.js';
 import { Focus } from '../../../core/ui/input/focus-support.js';
 import { InputEngineEventName } from '../../../core/ui/input/input-support.js';
 import { PlotCursor } from '../../../core/ui/input/plot-cursor.js';
@@ -18,8 +18,9 @@ import UnitSelection from '../unit-selection/unit-selection.js';
 import WorldInput from '../world-input/world-input.js';
 import styles from './unit-actions.scss.js';
 import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
-import ContextManager from '../../../core/ui/context-manager/context-manager.js';
+import { ContextManager } from '../../../core/ui/context-manager/context-manager.js';
 import DiplomacyManager from '../diplomacy/diplomacy-manager.js';
+import { isMobile } from '../../../core/ui-next/services/view-experience.js';
 import { DialogBoxAction } from '../../../core/ui/dialog-box/model-dialog-box.js';
 
 var UnitActionPanelState = /* @__PURE__ */ ((UnitActionPanelState2) => {
@@ -136,6 +137,7 @@ class UnitActions extends Panel {
   isCommander = false;
   isInArmy = false;
   shelfButton;
+  shelfButtonIcon;
   animTimer = 0;
   static ANIM_DELAY = 150;
   /// Are events subscribed to?
@@ -368,6 +370,7 @@ class UnitActions extends Panel {
   }
   getElements() {
     this.shelfButton = MustGetElement(".unit-actions__shelf-button", this.Root);
+    this.shelfButtonIcon = MustGetElement(".unit-actions__shelf-button-icon", this.Root);
     this.hiddenContainer = MustGetElement(".unit-actions__hidden-actions", this.Root);
     this.mainContainer = MustGetElement(".unit-actions__main-container", this.Root);
     this.panelDecor = MustGetElement(".unit-actions__action-panel-decor", this.Root);
@@ -462,14 +465,26 @@ class UnitActions extends Panel {
   }
   switchToDefault() {
     this.currentState = 2 /* ANIMATEOUT */;
-    InterfaceMode.switchToDefault();
+    setTimeout(() => {
+      InterfaceMode.switchToDefault();
+    }, UnitActions.ANIM_DELAY);
   }
   shouldSwitchToDefaultAfterOperation(unit) {
     if (Configuration.getUser().isAutoUnitCycle) {
-      const headUnit = UI.Player.getHeadSelectedUnit();
-      if (headUnit && ComponentID.isMatch(unit, headUnit)) {
-        return false;
-      }
+      let headUnit = null;
+      delayByFrame(() => {
+        headUnit = UI.Player.getHeadSelectedUnit();
+        if (headUnit && ComponentID.isMatch(unit, headUnit)) {
+          return false;
+        } else {
+          if (!UI.Player.selectNextReadyUnit() || !(UI.Player.selectNextReadyUnit()?.id == unit.id)) {
+            return true;
+          } else {
+            UI.Player.selectNextReadyUnit();
+            return false;
+          }
+        }
+      });
     }
     return true;
   }
@@ -600,7 +615,7 @@ class UnitActions extends Panel {
   // so world-input doesn't take its default action of deselecting everything, and
   // put up the unit action interface.
   onUnitReselected(event) {
-    if (ActionHandler.isGamepadActive) {
+    if (IsControllerActive()) {
       event.preventDefault();
       event.stopPropagation();
     }
@@ -793,13 +808,21 @@ class UnitActions extends Panel {
       this.toggleShelfNavHelpContainer.classList.add("trigger-nav-help", "size-0");
       this.toggleShelfNavHelp = document.createElement("fxs-nav-help");
       this.toggleShelfNavHelp.className = "my-nav-help absolute";
-      this.toggleShelfNavHelp.setAttribute("action-key", "inline-nav-left");
+      this.toggleShelfNavHelp.setAttribute(
+        "action-key",
+        UnitActionsPanelModel.isShelfOpen ? "inline-nav-right" : "inline-nav-left"
+      );
       this.toggleShelfNavHelp.style.setProperty(
         "transform",
-        `translate(${Layout.pixels(-40)}, ${Layout.pixels(83)})`
+        `translate(${Layout.pixels(isMobile() ? 6 : -40)}, ${Layout.pixels(83)})`
       );
       this.toggleShelfNavHelpContainer.appendChild(this.toggleShelfNavHelp);
-      this.mainContainer?.appendChild(this.toggleShelfNavHelpContainer);
+      if (isMobile()) {
+        this.shelfButton.appendChild(this.toggleShelfNavHelpContainer);
+        this.shelfButtonIcon.setAttribute("data-bind-class-toggle", "hidden: {{g_NavTray.isTrayRequired}}");
+      } else {
+        this.mainContainer?.appendChild(this.toggleShelfNavHelpContainer);
+      }
     }
   }
   addStat(statValue, statName) {
@@ -1026,7 +1049,7 @@ class UnitActions extends Panel {
             chargesLeft: enabled.ChargesRemaining,
             hotkeyId: operation.HotkeyId
           };
-          if (UnitActionHandlers.doesActionHaveHandler(operation.OperationType) && (!ActionHandler.isGamepadActive || UnitActionHandlers.useHandlerWithGamepad(operation.OperationType))) {
+          if (UnitActionHandlers.doesActionHaveHandler(operation.OperationType) && (!IsControllerActive() || UnitActionHandlers.useHandlerWithGamepad(operation.OperationType))) {
             unitAction.callback = (_location) => {
               if (enabled.Success) {
                 UnitActionHandlers.switchToActionInterfaceMode(operation.OperationType, {
@@ -1167,7 +1190,7 @@ class UnitActions extends Panel {
               }
             }
           };
-          if (UnitActionHandlers.doesActionHaveHandler(command.CommandType) && (!ActionHandler.isGamepadActive || UnitActionHandlers.useHandlerWithGamepad(command.CommandType))) {
+          if (UnitActionHandlers.doesActionHaveHandler(command.CommandType) && (!IsControllerActive() || UnitActionHandlers.useHandlerWithGamepad(command.CommandType))) {
             unitAction.callback = (_location) => {
               if (enabled.Success) {
                 UnitActionHandlers.switchToActionInterfaceMode(command.CommandType, {
@@ -1648,7 +1671,7 @@ class UnitActions extends Panel {
     }
   }
   onShelfFocusout({ relatedTarget }) {
-    if (ActionHandler.isGamepadActive && !(relatedTarget instanceof Node && this.hiddenContainer.contains(relatedTarget)) && UnitActionsPanelModel.isShelfOpen) {
+    if (IsControllerActive() && !(relatedTarget instanceof Node && this.hiddenContainer.contains(relatedTarget)) && UnitActionsPanelModel.isShelfOpen) {
       this.toggleShelfOpen();
     }
   }

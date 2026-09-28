@@ -1,4 +1,4 @@
-import ContextManager from '../../../core/ui/context-manager/context-manager.js';
+import { ContextManager } from '../../../core/ui/context-manager/context-manager.js';
 import { InterfaceMode } from '../../../core/ui/interface-modes/interface-modes.js';
 import DiplomacyManager from '../diplomacy/diplomacy-manager.js';
 import LeaderModelManager from '../diplomacy/leader-model-manager.js';
@@ -54,6 +54,7 @@ class OtherPlayerDiplomacyActionPanel extends DiplomacyActionPanel {
       if (Players.get(DiplomacyManager.selectedPlayerID)?.isIndependent) {
         this.majorActionsSlot?.classList.add("hidden");
         this.showBefriendIndependentDetails();
+        this.realizeNavTray();
       }
     }
   }

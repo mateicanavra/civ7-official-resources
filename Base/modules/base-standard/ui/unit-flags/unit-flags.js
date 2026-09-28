@@ -1,10 +1,14 @@
+import { render } from '../../../core/vendor/solid-js/web/dist/web.js';
 import { ActionActivateEvent } from '../../../core/ui/components/fxs-activatable.js';
 import { utils } from '../../../core/ui/graph-layout/utils.js';
 import { ComponentID } from '../../../core/ui/utilities/utilities-component-id.js';
 import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
 import { Icon } from '../../../core/ui/utilities/utilities-image.js';
 import { Layout } from '../../../core/ui/utilities/utilities-layout.js';
+import { TooltipHorizontalPosition, TooltipVerticalPosition } from '../../../core/ui-next/components/tooltip.js';
 import { UnitFlagManager, UnitFlagFactory } from './unit-flag-manager.js';
+import { buildUnitInfoProps } from '../../ui-next/tooltips/plot-tooltip/helpers.js';
+import { UnitFlagTooltip } from '../../ui-next/tooltips/unit-flag-tooltip.js';
 import styles from './unit-flags.scss.js';
 
 class GenericFlagMaker {
@@ -49,6 +53,7 @@ class GenericUnitFlag extends Component {
   SPACING = 32;
   BASE_OFFSET = -24;
   // Centered, w-12 maps to 48px
+  disposeTooltips = [];
   /**
    * A vertical offset when the unit is 'stacked' with other units.
    * TODO - The unit world anchor should be able to incorporate this offset in C++ to avoid constantly recalculating this in Script.
@@ -74,7 +79,8 @@ class GenericUnitFlag extends Component {
     this.updateAffinity();
     let playerColorPri = "rgb(0, 0, 0)";
     let playerColorSec = "rgb(255, 255, 255)";
-    if (Players.isValid(this.componentID.owner)) {
+    const unitOwner = Players.get(this.componentID.owner);
+    if (Players.isValid(this.componentID.owner) && !unitOwner?.isIndependent) {
       playerColorPri = UI.Player.getPrimaryColorValueAsString(this.componentID.owner);
       playerColorSec = UI.Player.getSecondaryColorValueAsString(this.componentID.owner);
     }
@@ -243,6 +249,8 @@ class GenericUnitFlag extends Component {
     super.onDetach();
   }
   cleanup() {
+    this.disposeTooltips.forEach((dispose) => dispose());
+    this.disposeTooltips = [];
     if (this._isManagerTracked) {
       const manager = UnitFlagManager.instance;
       manager.removeChildFromTracking(this);
@@ -358,15 +366,25 @@ class GenericUnitFlag extends Component {
     this.unitContainer?.classList.toggle("owned-unit", this.componentID.owner == GameContext.localObserverID);
   }
   realizeTooltip() {
-    const playerId = this.componentID.owner;
-    const player = Players.get(playerId);
-    if (player) {
-      const playerName = Locale.compose(player.name);
+    const localPlayer = Players.get(GameContext.localObserverID);
+    if (localPlayer) {
       const unit = this.unit;
-      const unitName = unit ? Locale.compose(unit.name) : "ERROR, unit: " + ComponentID.toLogString(this._componentID);
+      const unitInfo = buildUnitInfoProps(unit, localPlayer);
       const tooltipDiv = this.Root.querySelector(".unit-flag__container");
-      if (tooltipDiv) {
-        tooltipDiv.setAttribute("data-tooltip-content", `<div>${playerName}</div><div>${unitName}</div>`);
+      if (tooltipDiv && unitInfo) {
+        this.disposeTooltips.forEach((dispose2) => dispose2());
+        this.disposeTooltips = [];
+        const dispose = render(
+          () => UnitFlagTooltip({
+            children: tooltipDiv,
+            initialVPosition: TooltipVerticalPosition.BOTTOM,
+            initialHPosition: TooltipHorizontalPosition.RIGHT,
+            allowFlip: true,
+            unitInfo
+          }),
+          this.Root
+        );
+        this.disposeTooltips.push(dispose);
       }
     }
   }
@@ -515,15 +533,12 @@ class GenericUnitFlag extends Component {
     this.updateAffinity();
   }
   updateAffinity() {
-    const unitOwner = Players.get(this.componentID.owner);
-    if (unitOwner?.isMinor) {
-      const localObserverID = GameContext.localObserverID;
-      const localObserver = Players.get(localObserverID);
-      if (localObserver?.Diplomacy?.isAtWarWithUnitOwner(this.componentID)) {
-        this.Root.classList.add("unit-flag--hostile");
-      } else {
-        this.Root.classList.remove("unit-flag--hostile");
-      }
+    const localObserverID = GameContext.localObserverID;
+    const localObserver = Players.get(localObserverID);
+    if (localObserver?.Diplomacy?.isAtWarWithUnitOwner(this.componentID)) {
+      this.Root.classList.add("unit-flag--hostile");
+    } else {
+      this.Root.classList.remove("unit-flag--hostile");
     }
   }
   updatePromotions() {

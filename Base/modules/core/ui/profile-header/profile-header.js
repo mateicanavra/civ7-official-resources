@@ -1,5 +1,5 @@
 import { ActionActivateEvent } from '../components/fxs-activatable.js';
-import ContextManager from '../context-manager/context-manager.js';
+import { ContextManagerEvents, ContextManager } from '../context-manager/context-manager.js';
 import { DialogBoxManager } from '../dialog-box/manager-dialog-box.js';
 import RewardsNotificationsManager from '../rewards-notifications/rewards-notification-manager.js';
 import MPFriendsModel from '../shell/mp-staging/model-mp-friends.js';
@@ -8,6 +8,8 @@ import { MustGetElement } from '../utilities/utilities-dom.js';
 import { stringifyJSON } from '../utilities/utilities-json.js';
 import { getDefaultPlayerInfo, getPlayerCardInfo } from '../utilities/utilities-liveops.js';
 import { NetworkUtilities } from '../utilities/utilities-network.js';
+import { FocusManager } from '../../ui-next/services/focus-manager.js';
+import { IsControllerActive } from '../../ui-next/services/input.js';
 
 const ProfileAccountLoggedOutEventName = "profile-account-logged-out";
 class ProfileAccountLoggedOutEvent extends CustomEvent {
@@ -19,10 +21,13 @@ const giftboxButtonName = "screen-giftbox-popup";
 class ProfileHeader extends Component {
   progressionHeader;
   progressionHeaderButtonContainer;
+  progressionHeaderNavhelp = null;
   socialButtonContainer;
   socialButton;
+  socialButtonNavhelp = null;
   giftboxButton;
   giftboxButtonContainer;
+  giftboxButtonNavhelp = null;
   socialNotification;
   rewardsNotification;
   inputHandler = this.Root;
@@ -41,10 +46,14 @@ class ProfileHeader extends Component {
   spoPCompleteListener = this.onAccountUpdated.bind(this);
   spopHeartBeatReceivedListener = this.onAccountUpdated.bind(this);
   accountInfoUpdatedListener = this.onAccountUpdated.bind(this);
+  notificationListUpdatedListener = this.onNotificationListUpdated.bind(this);
   accountLoggedOutListener = this.onLogoutResults.bind(this);
   engineInputListener = this.onEngineInput.bind(this);
   navigateInputListener = this.onNavigateInput.bind(this);
   connectionStatusChangedListener = this.onAccountUpdated.bind(this);
+  contextManagerCloseListener = this.onContextManagerClose.bind(this);
+  inputDeviceChangedListener = this.onInputDeviceChanged.bind(this);
+  prevFocus;
   onInitialize() {
     super.onInitialize();
     this.Root.innerHTML = this.render();
@@ -53,16 +62,28 @@ class ProfileHeader extends Component {
       ".profile-header__progression-button-container",
       this.Root
     );
+    this.progressionHeaderNavhelp = document.createElement("fxs-nav-help");
+    this.progressionHeaderNavhelp.setAttribute("action-key", "inline-sys-menu");
+    this.progressionHeaderNavhelp.className = "absolute -top-3 -right-4";
+    this.progressionHeaderButtonContainer.appendChild(this.progressionHeaderNavhelp);
     this.socialButtonContainer = MustGetElement(".profile-header__social-button-container", this.Root);
     this.socialButton = MustGetElement(".profile-header__social-button", this.Root);
     this.socialButton.setAttribute("data-audio-press-ref", "data-audio-primary-button-press");
     this.socialButton.setAttribute("data-audio-activate-ref", "none");
+    this.socialButtonNavhelp = document.createElement("fxs-nav-help");
+    this.socialButtonNavhelp.setAttribute("action-key", "inline-shell-action-5");
+    this.socialButtonNavhelp.className = "absolute -top-3 -right-4";
+    this.socialButtonContainer.appendChild(this.socialButtonNavhelp);
     this.socialNotification = MustGetElement(".profile-header__notification-badge", this.Root);
     this.rewardsNotification = MustGetElement(".profile-header__giftbox-notification-icon", this.Root);
     this.giftboxButton = MustGetElement(".profile-header__giftbox-button", this.Root);
     this.giftboxButtonContainer = MustGetElement(".profile-header__giftbox-button-container", this.Root);
     this.giftboxButton.setAttribute("data-audio-press-ref", "data-audio-primary-button-press");
     this.giftboxButton.setAttribute("data-audio-activate-ref", "none");
+    this.giftboxButtonNavhelp = document.createElement("fxs-nav-help");
+    this.giftboxButtonNavhelp.setAttribute("action-key", "inline-cycle-next");
+    this.giftboxButtonNavhelp.className = "absolute -top-3 -right-4";
+    this.giftboxButtonContainer.appendChild(this.giftboxButtonNavhelp);
   }
   onAttach() {
     super.onAttach();
@@ -89,6 +110,9 @@ class ProfileHeader extends Component {
     engine.on("ConnectionStatusChanged", this.connectionStatusChangedListener);
     engine.on("UserProfilesUpdated", this.updateProgressionHeader, this);
     engine.on("UserInfoUpdated", this.accountInfoUpdatedListener);
+    engine.on("NotificationListUpdated", this.notificationListUpdatedListener);
+    this.Root.listenForEngineEvent(ContextManagerEvents.OnClose, this.contextManagerCloseListener, this);
+    this.Root.listenForEngineEvent("InputDeviceChanged", this.inputDeviceChangedListener, this);
     this.progressionHeader.addEventListener("action-activate", this.progressionHeaderActivateListener);
     this.socialButton.addEventListener("action-activate", this.socialButtonActivateListener);
     this.giftboxButton.addEventListener("action-activate", this.giftboxButtonActivateListener);
@@ -120,6 +144,7 @@ class ProfileHeader extends Component {
     engine.off("ConnectionStatusChanged", this.connectionStatusChangedListener);
     engine.off("UserProfilesUpdated", this.updateProgressionHeader, this);
     engine.off("UserInfoUpdated", this.accountInfoUpdatedListener);
+    engine.off("NotificationListUpdated", this.notificationListUpdatedListener);
   }
   onAttributeChanged(name, _oldValue, newValue) {
     switch (name) {
@@ -153,20 +178,17 @@ class ProfileHeader extends Component {
 				<div class="ml-2 relative profile-header__giftbox-button-container">
 					<fxs-activatable class="profile-header__giftbox-button img-prof-btn-bg pointer-events-auto flow-column justify-center items-center w-16 h-16 transition-transform hover\\:scale-110 focus\\:scale-110">
 						<div class="img-giftbox-icon pointer-events-none w-16 h-16"></div>
-						<fxs-nav-help class="absolute -top-3 -right-4" action-key="inline-cycle-next"></fxs-nav-help>
 						<div class="profile-header__giftbox-notification-icon absolute img-notification-badge -bottom-4 w-8 h-8"></div>
 					</fxs-activatable>
 				</div>
 				<div class="ml-2 relative profile-header__social-button-container">
 					<fxs-activatable class="profile-header__social-button img-prof-btn-bg pointer-events-auto flow-column justify-center items-center w-16 h-16 transition-transform hover\\:scale-110 focus\\:scale-110" data-tooltip-content="LOC_UI_MP_SOCIAL_BUTTON_LABEL">
 						<div class="img-social-icon pointer-events-none w-12 h-12"></div>
-						<fxs-nav-help class="absolute -top-3 -right-4" action-key="inline-shell-action-5"></fxs-nav-help>
 						<div class="profile-header__notification-badge img-notification-badge absolute -bottom-4 w-8 h-8"></div>
 					</fxs-activatable>
 				</div>
 				<div class="relative profile-header__progression-button-container flex-auto flow-row">
 					<progression-header class="pointer-events-auto profile-header__progression-header flex-auto" player-card-style="${playerCardStyle}"></progression-header>
-					<fxs-nav-help class="absolute -top-3 -right-4" action-key="inline-sys-menu"></fxs-nav-help>
 				</div>
 			</div>
 		`;
@@ -296,6 +318,10 @@ class ProfileHeader extends Component {
     this.updateSocialButton();
     this.updateGiftboxButton();
   }
+  // Friends Manager updated its notification list.
+  onNotificationListUpdated() {
+    this.updateSocialNotification();
+  }
   onLogoutResults() {
     const isDisabled = true;
     this.updateProgressionHeader(isDisabled);
@@ -303,6 +329,7 @@ class ProfileHeader extends Component {
     this.updateGiftboxButton();
   }
   onProfileHeaderButtonClicked(popupToOpen) {
+    this.prevFocus = FocusManager.get().currentFocus();
     let ignoreAllNetworkBlockReasonsWhenAvailable = false;
     let ignoreUnlinkedAccountBlockReason = false;
     let checkUnlockedRewards = false;
@@ -370,6 +397,26 @@ class ProfileHeader extends Component {
   }
   onGiftboxButtonActivate() {
     this.onProfileHeaderButtonClicked(giftboxButtonName);
+  }
+  onContextManagerClose() {
+    if (this.prevFocus) {
+      if (ContextManager.getCurrentTarget()?.contains(this.prevFocus)) {
+        FocusManager.get().setFocus(this.prevFocus);
+      }
+      if (ContextManager.getCurrentTarget()?.tagName == "MAIN-MENU") {
+        const prevSlot = this.prevFocus?.closest("#MainMenuSlot");
+        if (prevSlot) {
+          FocusManager.get().setFocus(prevSlot);
+        }
+      }
+    }
+  }
+  onInputDeviceChanged() {
+    if (IsControllerActive()) {
+      this.progressionHeaderNavhelp?.classList.remove("hidden");
+      this.socialButtonNavhelp?.classList.remove("hidden");
+      this.giftboxButtonNavhelp?.classList.remove("hidden");
+    }
   }
   showDialogBox(boxBody, boxTitle, inParams) {
     if (this.profileHeaderPopupDialogID) {

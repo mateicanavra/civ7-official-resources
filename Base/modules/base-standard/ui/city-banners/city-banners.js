@@ -273,6 +273,7 @@ class CityBannerComponent extends FxsActivatable {
     if (bannerType == BannerType.cityState || bannerType == BannerType.village) {
       let cityStateColor = "";
       let cityStateIcon = "";
+      let cityStateTypeName = "";
       const bonusType = Game.CityStates.getBonusType(playerID);
       bonusDefinition = GameInfo.CityStateBonuses.find((t) => t.$hash == bonusType);
       const player2 = Players.get(this.componentID.owner);
@@ -291,35 +292,42 @@ class CityBannerComponent extends FxsActivatable {
           case "MILITARISTIC":
             cityStateColor = "#AF1B1C";
             cityStateIcon = "url('blp:bonustype_militaristic.png')";
+            cityStateTypeName = "LOC_ATTRIBUTE_MILITARISTIC";
             break;
           case "SCIENTIFIC":
             yieldType = "YIELD_SCIENCE";
             cityStateColor = "#4D7C96";
             cityStateIcon = "url('blp:bonustype_scientific.png')";
+            cityStateTypeName = "LOC_ATTRIBUTE_SCIENTIFIC";
             break;
           case "ECONOMIC":
             yieldType = "YIELD_GOLD";
             cityStateColor = "#FFD553";
             cityStateIcon = "url('blp:bonustype_economic.png')";
+            cityStateTypeName = "LOC_ATTRIBUTE_ECONOMIC";
             break;
           case "CULTURAL":
             yieldType = "YIELD_CULTURE";
             cityStateColor = "#892BB3";
             cityStateIcon = "url('blp:bonustype_cultural.png')";
+            cityStateTypeName = "LOC_ATTRIBUTE_CULTURAL";
             break;
           case "DIPLOMATIC":
             yieldType = "YIELD_DIPLOMACY";
             cityStateColor = "#255BE4";
             cityStateIcon = "url('blp:bonustype_diplomatic.png')";
+            cityStateTypeName = "LOC_ATTRIBUTE_POLITICAL";
             break;
           case "EXPANSIONIST":
             yieldType = "YIELD_FOOD";
             cityStateColor = "#00A717";
             cityStateIcon = "url('blp:bonustype_expansionist.png')";
+            cityStateTypeName = "LOC_ATTRIBUTE_EXPANSIONIST";
             break;
           case "CIVILIZATION_INDEPENDENT":
             cityStateColor = "#AF1B1C";
             cityStateIcon = "url('blp:bonustype_crisis.png')";
+            cityStateTypeName = "LOC_IMPROVEMENT_ENCAMPMENT_NAME";
             break;
         }
         imagePath = yieldType != "" ? "url(" + UI.getIconURL(yieldType, indCivType == "MILITARISTIC" ? "PLAYER_RELATIONSHIP" : "YIELD") + ")" : "url('blp:Action_Attack.png')";
@@ -328,7 +336,7 @@ class CityBannerComponent extends FxsActivatable {
       if (!bonusDefinition && bonusType != -1) {
         console.error(`city-banners: couldn't find definition for city-state bonus type ${bonusType}`);
       }
-      this.realizeCityStateType(cityStateColor, cityStateIcon);
+      this.realizeCityStateType(cityStateColor, cityStateIcon, cityStateTypeName);
     } else {
       civSymbol = Icon.getCivSymbolCSSFromPlayer(this.componentID);
     }
@@ -397,6 +405,14 @@ class CityBannerComponent extends FxsActivatable {
       this.realizeBuilds();
       this.realizeHappiness();
       this.realizeReligion();
+      const bannerModSlot = this.Root.querySelector(".city-banner__modslot");
+      if (bannerModSlot) {
+        while (bannerModSlot.children.length > 0) {
+          bannerModSlot.removeChild(bannerModSlot.children[0]);
+        }
+        const content2 = CityBannerManager.instance.callModCallback(city, player);
+        bannerModSlot.appendChild(content2);
+      }
     }
     if (bannerType == BannerType.village) {
       this.affinityUpdate();
@@ -483,8 +499,9 @@ class CityBannerComponent extends FxsActivatable {
       this.elements.growthQueue.dataset.foodPerTurn = (this.city.Yields?.getNetYield(YieldTypes.YIELD_FOOD) ?? 0).toString();
     }
   }
-  realizeCityStateType(color, icon) {
+  realizeCityStateType(color, icon, name) {
     const iconDiv = MustGetElement(".city-banner__city-state-icon", this.Root);
+    iconDiv.setAttribute("data-tooltip-content", name);
     iconDiv.style.backgroundImage = icon;
     iconDiv.style.fxsBackgroundImageTint = color;
   }

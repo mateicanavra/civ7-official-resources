@@ -1,3 +1,4 @@
+import { InputHandlerState } from '../input/input-support.js';
 import ViewManager from '../views/view-manager.js';
 
 const debug_showModeChanges = false;
@@ -151,11 +152,11 @@ var InterfaceMode;
   function handleInput(inputEvent) {
     if (inputEvent.type != "engine-input") {
       console.warn("Attempt to handle a non engine-input event to the interface mode handlers.");
-      return true;
+      return InputHandlerState.Active;
     }
     const handler = getInterfaceModeHandler(currentInterfaceMode);
     if (!handler || !handler.handleInput) {
-      return true;
+      return InputHandlerState.Active;
     }
     return handler.handleInput(inputEvent);
   }
@@ -163,11 +164,11 @@ var InterfaceMode;
   function handleNavigation(navigationEvent) {
     if (navigationEvent.type != "navigate-input") {
       console.warn("Attempt to handle a non navigate-input event to the interface mode handlers.");
-      return true;
+      return InputHandlerState.Active;
     }
     const handler = getInterfaceModeHandler(currentInterfaceMode);
     if (!handler || !handler.handleNavigation) {
-      return true;
+      return InputHandlerState.Active;
     }
     return handler.handleNavigation(navigationEvent);
   }

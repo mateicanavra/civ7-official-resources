@@ -4,27 +4,39 @@ import { RegionType } from '../voronoi-types.js';
 import shatteredSeasSettings from '../voronoi_data/shattered-seas.mapconfig.js';
 import { UnifiedContinentsBase } from './unified-continents-base.js';
 
+const shatteredSeasMapSchema = {
+  landmassFactor: {
+    label: "Landmass Factor",
+    description: "The number of main landmasses per player according to the standard player count of a specific map size.",
+    default: 1,
+    min: 0.5,
+    max: 4,
+    step: 0.1
+  },
+  distantFactor: {
+    label: "Distant Factor",
+    description: "The number of distant landmasses per player according to the standard player count of a specific map size.",
+    default: 0.33,
+    min: 0,
+    max: 1,
+    step: 0.01
+  }
+};
+function buildShatteredSeasSettings(source, hexDims) {
+  const result = { ...source };
+  const tileCount = hexDims.x * hexDims.y;
+  const landmassFactor = source.landmassFactor;
+  const distantFactor = source.distantFactor;
+  const playerCountFactor = 570;
+  result.landmassCount = Math.round(tileCount * landmassFactor / playerCountFactor);
+  result.distantCount = Math.round(tileCount * distantFactor / playerCountFactor);
+  result.minDistantSpawnCenterDistance = 0.25;
+  result.maxDistantSpawnCenterDistance = 0.5;
+  return result;
+}
 class VoronoiShatteredSeas extends UnifiedContinentsBase {
   constructor() {
-    const customSchema = {
-      landmassFactor: {
-        label: "Landmass Factor",
-        description: "The number of main landmasses per player according to the standard player count of a specific map size.",
-        default: 1,
-        min: 0.5,
-        max: 4,
-        step: 0.1
-      },
-      distantFactor: {
-        label: "distant Factor",
-        description: "The number of distant landmasses per player according to the standard player count of a specific map size.",
-        default: 0.33,
-        min: 0,
-        max: 1,
-        step: 0.01
-      }
-    };
-    super(customSchema, shatteredSeasSettings);
+    super(shatteredSeasMapSchema, shatteredSeasSettings);
   }
   init(hexDims) {
     this.m_baseSchema.landmassCount.hidden = true;
@@ -32,19 +44,10 @@ class VoronoiShatteredSeas extends UnifiedContinentsBase {
     this.initInternal(hexDims);
   }
   simulateInternal() {
-    const tileCount = this.m_hexDims.x * this.m_hexDims.y;
-    const landmassFactor = this.getSettings().landmassFactor;
-    const distantFactor = this.getSettings().distantFactor;
-    const playerCountFactor = 570;
-    this.m_settings.landmassCount = Math.round(tileCount * landmassFactor / playerCountFactor);
-    this.m_settings.distantCount = Math.round(tileCount * distantFactor / playerCountFactor);
-    this.m_settings.enforceGroupConstraints = 1;
-    this.m_settings.minDistantSpawnCenterDistance = 0.25;
-    this.m_settings.maxDistantSpawnCenterDistance = 0.5;
     const hexValidationSettings = new HexValidationSettings();
     hexValidationSettings.removeBridgingPlayerLandmasses = RemoveBridgingLandmassOptions.FORCE_COASTS;
     this.getHexTiles().setValidationSettings(hexValidationSettings);
-    super.simulateInternal();
+    super.placeDefaultSection(buildShatteredSeasSettings(this.m_settings, this.m_hexDims));
   }
   getVoronoiValidationSettings() {
     const voronoiValidationSettings = new VoronoiValidationSettings();
@@ -94,5 +97,5 @@ class VoronoiShatteredSeas extends UnifiedContinentsBase {
   }
 }
 
-export { VoronoiShatteredSeas };
+export { VoronoiShatteredSeas, buildShatteredSeasSettings, shatteredSeasMapSchema };
 //# sourceMappingURL=shattered-seas.js.map

@@ -1,6 +1,5 @@
 import { Audio } from '../../audio-base/audio-support.js';
-import ContextManager from '../../context-manager/context-manager.js';
-import ActionHandler from '../../input/action-handler.js';
+import { ContextManager } from '../../context-manager/context-manager.js';
 import { ActiveDeviceTypeChangedEventName } from '../../input/input-events.js';
 import NavTray from '../../navigation-tray/model-navigation-tray.js';
 import Panel from '../../panel-support.js';
@@ -10,6 +9,7 @@ import { CivilizationInfoTooltipModel } from './civilization-info-tooltip.js';
 import { GetAgeMap, GetCivilizationData } from '../create-panels/age-civ-select-model.js';
 import { getPlayerCardInfo } from '../../utilities/utilities-liveops.js';
 import { FocusManager } from '../../../ui-next/services/focus-manager.js';
+import { IsControllerActive, IsTouchActive } from '../../../ui-next/services/input.js';
 import styles from './age-transition-civ-select.scss.js';
 
 class AgeTransitionCivSelect extends Panel {
@@ -146,8 +146,8 @@ class AgeTransitionCivSelect extends Panel {
     this.handleActiveDeviceTypeChanged();
   }
   handleActiveDeviceTypeChanged() {
-    this.leftStepperArrow.classList.toggle("hidden", ActionHandler.isGamepadActive);
-    this.rightStepperArrow.classList.toggle("hidden", ActionHandler.isGamepadActive);
+    this.leftStepperArrow.classList.toggle("hidden", IsControllerActive());
+    this.rightStepperArrow.classList.toggle("hidden", IsControllerActive());
   }
   showProgression() {
     if (this.isProgressionShown && Network.isMetagamingAvailable()) {
@@ -575,7 +575,7 @@ class AgeTransitionCivSelect extends Panel {
     this.openAdditionalInfoPanel(this.civCards[prevCardIndex]);
   }
   handleCardSelected(event) {
-    if (ActionHandler.deviceType == InputDeviceType.Touch) {
+    if (IsTouchActive()) {
       this.civCards.forEach((elem) => elem.classList.remove("selected"));
       event.target.classList.add("selected");
     } else {

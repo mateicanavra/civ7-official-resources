@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+
+	<!-- ==================================================	-->
+	<!--					Buildings						-->
+	<!-- ==================================================	-->
+	<Modifier id="MOD_CULTURE_ABBEY" collection="COLLECTION_ALL_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_YOUR_TOWN_FOLLOWING_RELIGION">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_HAS_UNIQUE_QUARTER">
+				<Argument name="UniqueQuarterType">QUARTER_ABBEY</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">2</Argument>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Tooltip">LOC_QUARTER_ABBEY_NAME</Argument>
+	</Modifier>
+	<!-- ==================================================	-->
+	<!--					Wonders							-->
+	<!-- ==================================================	-->
+	<Modifier id="MOD_GLOBE_THEATRE_VP" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ACTIVATE_VICTORY_POINT_TRACKER">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_WONDER_IS_ACTIVE">
+				<Argument name="ConstructibleType">WONDER_GLOBE_THEATRE</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="TrackerName">VICTORY_TRACKER_GLOBE_THEATRE_PER_TURN</Argument>
+	</Modifier>
+	<!-- ==================================================	-->
+	<!--				Wonder Bonuses						-->
+	<!-- ==================================================	-->
+	<Modifier id="MOD_CIV_WONDER_PRODUCTION_ENGLAND" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_FAVORED_WONDER_PRODUCTION">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_HAS_CIVILIZATION_OR_LEADER_TRAIT">
+				<Argument name="TraitType">TRAIT_ENGLAND</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Percent">30</Argument>
+		<String context="Preview">LOC_MOD_CIV_WONDER_PRODUCTION_ENGLAND_DESCRIPTION</String>
+	</Modifier>
+</GameEffects>

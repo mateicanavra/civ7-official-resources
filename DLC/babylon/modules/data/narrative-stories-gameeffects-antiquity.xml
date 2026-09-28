@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+    <Modifier id="12033B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_NARRATIVE" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_CULTURE</Argument>
+        <Argument name="MultiplierType">REWARD_TYPE_MINOR_EARLY</Argument>
+    </Modifier>
+    <Modifier id="12033C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_FOOD</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+    </Modifier>
+    <Modifier id="11232B_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_TRADE_ROUTE_RANGE" run-once="false" permanent="true">
+        <Argument name="DomainType">DOMAIN_SEA</Argument>
+        <Argument name="Amount">3</Argument>
+    </Modifier>
+    <Modifier id="11232B_NARRATIVE_MODIFIER2" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_TRADE_ROUTE_RANGE" run-once="false" permanent="true">
+        <Argument name="DomainType">DOMAIN_LAND</Argument>
+        <Argument name="Amount">3</Argument>
+    </Modifier>
+    <Modifier id="11232C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD_PER_NUM_TRADE_ROUTES" run-once="false" permanent="true">
+        <Argument name="Amount">2</Argument>
+        <Argument name="YieldType">YIELD_GOLD</Argument>
+    </Modifier>
+    <Modifier id="11233B_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_ABILITY" run-once="false" permanent="true">
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+                <Argument name="Tag">UNIT_CLASS_QASTI</Argument>
+            </Requirement>
+        </SubjectRequirements>
+        <Argument name="AbilityType">ABILITY_NARRATIVE_STRENGTH</Argument>
+    </Modifier>
+    <Modifier id="11233C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_PRODUCTION</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+        <Argument name="ConstructibleType">BUILDING_ALTAR</Argument>
+    </Modifier>
+    <Modifier id="11234B_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_CULTURE</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+        <Argument name="ConstructibleType">IMPROVEMENT_KIRIMAHU</Argument>
+    </Modifier>
+    <Modifier id="11234C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_SCIENCE</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+        <Argument name="ConstructibleType">IMPROVEMENT_KIRIMAHU</Argument>
+    </Modifier>
+    <Modifier id="11235B_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_GREAT_WORK" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_CULTURE</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">2</Argument>
+    </Modifier>
+    <Modifier id="11235C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_NARRATIVE" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_SCIENCE</Argument>
+        <Argument name="MultiplierType">REWARD_TYPE_MEDIUM_LATE</Argument>
+    </Modifier>
+    <Modifier id="11236B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_NARRATIVE" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+        <Argument name="MultiplierType">REWARD_TYPE_MINOR_EARLY</Argument>
+    </Modifier>
+    <Modifier id="11236C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_NARRATIVE" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_HAPPINESS</Argument>
+        <Argument name="MultiplierType">REWARD_TYPE_MINOR_EARLY</Argument>
+    </Modifier>
+    <Modifier id="11237B_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_RESOURCE_CLASS" run-once="false" permanent="true">
+        <Argument name="ResourceClassType">RESOURCECLASS_BONUS</Argument>
+        <Argument name="YieldType">YIELD_FOOD</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+    </Modifier>
+    <Modifier id="11237C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_HAPPINESS</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+        <Argument name="ConstructibleType">IMPROVEMENT_KIRIMAHU</Argument>
+    </Modifier>
+    <Modifier id="11238B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_YIELD_PER_NUM_TRADE_ROUTES" run-once="false" permanent="true">
+        <Argument name="Amount">1</Argument>
+        <Argument name="YieldType">YIELD_CULTURE</Argument>
+    </Modifier>
+    <Modifier id="11238C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_WONDER_PRODUCTION" run-once="false" permanent="true">
+        <Argument name="Percent">10</Argument>
+    </Modifier>
+    <Modifier id="11240B_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_FOOD</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">2</Argument>
+        <Argument name="ConstructibleType">BUILDING_ALTAR</Argument>
+    </Modifier>
+    <Modifier id="11240C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_SCIENCE</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">2</Argument>
+        <Argument name="ConstructibleType">BUILDING_ALTAR</Argument>
+    </Modifier>
+    <Modifier id="11241B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_TRADITION_SLOTS" run-once="false" permanent="true">
+        <Argument name="SlotType">TRADITION_CULTURE_SLOT</Argument>
+        <Argument name="Amount">1</Argument>
+    </Modifier>
+    <Modifier id="11241C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_GOLDEN_AGE" run-once="true" permanent="true">
+    </Modifier>
+    <Modifier id="11242B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_GRANT_GREAT_WORK" run-once="false" permanent="true">
+        <Argument name="Amount">1</Argument>
+        <Argument name="GreatWork">GREATWORK_ENUMA_ANU_ENLIL</Argument>
+    </Modifier>
+    <Modifier id="11242C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_SCIENCE</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+        <Argument name="ConstructibleType">BUILDING_ALTAR</Argument>
+    </Modifier>
+    <Modifier id="11243B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ATTRIBUTE" run-once="false" permanent="true">
+        <Argument name="AttributeType">ATTRIBUTE_CULTURAL</Argument>
+        <Argument name="Amount">1</Argument>
+    </Modifier>
+    <Modifier id="11243C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ATTRIBUTE" run-once="false" permanent="true">
+        <Argument name="AttributeType">ATTRIBUTE_EXPANSIONIST</Argument>
+        <Argument name="Amount">1</Argument>
+    </Modifier>
+    <RequirementSet id="REQSET_11232D_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_BABYLON"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11232E_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_BABYLON"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11233A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_BABYLON"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11234A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_BABYLON"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11235A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_BABYLON"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11236A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_BABYLON"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11237A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_BABYLON"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11238A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_BABYLON"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11240A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_BABYLON"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11241A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_BABYLON"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11242A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_BABYLON"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11243A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_BABYLON"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_12033A_NARRATIVE">
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
+            <Argument name="GossipTypes">GOSSIP_PLAYERS_MEET01</Argument>
+            <Argument name="GOSSIP_PLAYERS_MEET01">Hash,OtherPlayer,Other,Hash,Civilization,CIVILIZATION_BABYLON</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11232D_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_BABYLON"/>
+        <Requirement type="REQUIREMENT_COLLECTION_ANY_MET">
+            <Argument name="CollectionType">COLLECTION_PLAYER_CAPITAL_CITY</Argument>
+            <Argument name="RequirementSetId">SUBREQSET_11232D_NARRATIVE</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="SUBREQSET_11232D_NARRATIVE">
+        <Requirement type="REQUIREMENT_BUILDING_IS_ADJACENT_TO_X">
+            <Argument name="BuildingType">BUILDING_PALACE</Argument>
+            <Argument name="AdjacentRiver">True</Argument>
+            <Argument name="DuplicateCount">3</Argument>
+        </Requirement>
+        <Requirement type="REQUIREMENT_CITY_TRAINED_UNIT">
+            <Argument name="UnitType">UNIT_TAMKARU</Argument>
+            <Argument name="CheckOnceOnly">true</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11232E_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_BABYLON"/>
+        <Requirement type="REQUIREMENT_COLLECTION_ANY_MET">
+            <Argument name="CollectionType">COLLECTION_PLAYER_CITIES</Argument>
+            <Argument name="RequirementSetId">SUBREQSET_11232E_NARRATIVE</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="SUBREQSET_11232E_NARRATIVE">
+        <Requirement type="REQUIREMENT_BUILDING_IS_ADJACENT_TO_X">
+            <Argument name="BuildingType">BUILDING_CITY_HALL</Argument>
+            <Argument name="AdjacentRiver">True</Argument>
+            <Argument name="DuplicateCount">3</Argument>
+        </Requirement>
+        <Requirement type="REQUIREMENT_CITY_TRAINED_UNIT">
+            <Argument name="UnitType">UNIT_TAMKARU</Argument>
+            <Argument name="CheckOnceOnly">true</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11233A_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_BABYLON"/>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
+            <Argument name="GossipTypes">GOSSIP_UNIT_COMBAT_DEATH01,GOSSIP_UNIT_COMBAT_DEATH02</Argument>
+            <Argument name="GOSSIP_UNIT_COMBAT_DEATH01">Hash,OtherPlayer,Self,Hash,KillingUnitType,UNIT_QASTI,Hash,DyingUnitType,UNIT_MAGARRU</Argument>
+            <Argument name="GOSSIP_UNIT_COMBAT_DEATH02">Hash,OtherPlayer,Self,Hash,KillingUnitType,UNIT_QASTI_2,Hash,DyingUnitType,UNIT_MAGARRU</Argument>
+            <Argument name="Amount">1</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11234A_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_BABYLON"/>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
+            <Argument name="GossipTypes">GOSSIP_CONSTRUCT_BUILDING01</Argument>
+            <Argument name="GOSSIP_CONSTRUCT_BUILDING01">Hash,ConstructibleType,WONDER_HANGING_GARDENS</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11235A_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_BABYLON"/>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_COMPLETED_PROGRESSION_TREE_NODE">
+            <Argument name="ProgressionTreeNodeType">NODE_TECH_AQ_MATHEMATICS</Argument>
+            <Argument name="MinDepth">1</Argument>
+        </Requirement>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_X_GREAT_WORKS">
+            <Argument name="ObjectType">GREATWORKOBJECT_WRITING</Argument>
+            <Argument name="IncludeArchived">False</Argument>
+            <Argument name="Count">6</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11236A_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_BABYLON"/>
+        <Requirement type="REQUIREMENT_PLAYER_MET_IMMEDIATE_GOSSIP">
+            <Argument name="GossipTypes">GOSSIP_CONSTRUCT_BUILDING</Argument>
+            <Argument name="GOSSIP_CONSTRUCT_BUILDING">Hash,ConstructibleType,BUILDING_ACADEMY</Argument>
+        </Requirement>
+        <Requirement type="REQUIREMENT_COLLECTION_ANY_MET">
+            <Argument name="CollectionType">COLLECTION_PLAYER_CITIES</Argument>
+            <Argument name="RequirementSetId">SUBREQSET_11236A_NARRATIVE</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="SUBREQSET_11236A_NARRATIVE">
+        <Requirement type="REQUIREMENT_CITY_BUILT_CONSTRUCTIBLE_TYPE">
+            <Argument name="ConstructibleType">BUILDING_ACADEMY</Argument>
+        </Requirement>
+        <Requirement type="REQUIREMENT_CITY_HAS_ANY_BUILDING">
+            <Argument name="Amount">1</Argument>
+            <Argument name="BuildingType">BUILDING_MONUMENT</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11237A_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_BABYLON"/>
+        <Requirement type="REQUIREMENT_COLLECTION_ANY_MET">
+            <Argument name="CollectionType">COLLECTION_PLAYER_CITIES</Argument>
+            <Argument name="RequirementSetId">SUBREQSET_11237A_NARRATIVE</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="SUBREQSET_11237A_NARRATIVE">
+        <Requirement type="REQUIREMENT_CITY_HAS_RESOURCE">
+            <Argument name="Produced">True</Argument>
+            <Argument name="All">False</Argument>
+            <Argument name="ResourceType">RESOURCE_WILD_GAME</Argument>
+        </Requirement>
+        <Requirement type="REQUIREMENT_CITY_HAS_BUILDING">
+            <Argument name="BuildingType">IMPROVEMENT_KIRIMAHU</Argument>
+            <Argument name="Amount">1</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11238A_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_BABYLON"/>
+        <Requirement type="REQUIREMENT_PLAYER_STARTS_TRADE_ROUTE_WITH_MATCHING_BUILDING">
+            <Argument name="AnyWonder">True</Argument>
+            <Argument name="CheckRightCityOnly">True</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11240A_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_BABYLON"/>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
+            <Argument name="GossipTypes">GOSSIP_CONSTRUCT_BUILDING01</Argument>
+            <Argument name="GOSSIP_CONSTRUCT_BUILDING01">Hash,ConstructibleType,BUILDING_ALTAR,Numeric,PlayerCount,2</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11241A_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_BABYLON"/>
+        <Requirement type="REQUIREMENT_COLLECTION_ANY_MET">
+            <Argument name="CollectionType">COLLECTION_PLAYER_CITIES</Argument>
+            <Argument name="RequirementSetId">SUBREQSET_11241A_NARRATIVE</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="SUBREQSET_11241A_NARRATIVE">
+        <Requirement type="REQUIREMENT_CITY_HAS_X_WONDERS">
+            <Argument name="Amount">5</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11242A_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_BABYLON"/>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_COMPLETED_PROJECT">
+            <Argument name="ProjectType">PROJECT_CHART_THE_STARS</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_11243A_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_BABYLON"/>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_COMPLETED_PROGRESSION_TREE_NODE">
+            <Argument name="ProgressionTreeNodeType">NODE_CIVIC_AQ_BABYLON_GOLDEN_INTERVAL</Argument>
+            <Argument name="MinDepth">1</Argument>
+        </Requirement>
+    </RequirementSet>
+</GameEffects>

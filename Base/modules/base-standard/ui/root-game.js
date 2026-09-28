@@ -1,7 +1,14 @@
 import { __vitePreload } from '../../core/vendor/vite/preload-helper.js';
+import { InputHandlerState } from '../../core/ui/input/input-support.js';
+import { ModdingRegistry } from '../../core/ui/modding-registry-handler/modding-registry-handler.js';
+/* empty css               */
+/* empty css                               */
+/* empty css                                                 */
+/* empty css                              */
+/* empty css                                        */
 
 await Loading.isInitialized;
-const { default: ContextManager } = await __vitePreload(async () => { const { default: ContextManager } = await import('../../core/ui/context-manager/context-manager.js');return { default: ContextManager }},true              ?[]:void 0);
+const { ContextManager } = await __vitePreload(async () => { const { ContextManager } = await import('../../core/ui/context-manager/context-manager.js');return { ContextManager }},true              ?[]:void 0);
 await __vitePreload(() => import('../../core/ui/input/action-handler.js'),true              ?[]:void 0);
 await __vitePreload(() => import('../../core/ui-next/components/tooltip-compat.js'),true              ?[]:void 0);
 const { TtsManager } = await __vitePreload(async () => { const { TtsManager } = await import('../../core/ui/accessibility/tts-manager.js');return { TtsManager }},true              ?[]:void 0);
@@ -25,14 +32,14 @@ class LoadingInputHandler {
     } else {
       this.loadScreen?.dispatchEvent(inputEvent);
     }
-    return false;
+    return InputHandlerState.Handled;
   }
   handleNavigation(navigationEvent) {
     if (!this.loadScreen) {
       this.loadScreen = document.getElementById("load-screen");
     }
     this.loadScreen?.dispatchEvent(navigationEvent);
-    return false;
+    return InputHandlerState.Handled;
   }
 }
 TtsManager.registerWithContextManager();
@@ -303,6 +310,7 @@ engine.whenReady.then(() => {
   InitDebugWidgets();
   InitApp();
 });
+ModdingRegistry.attachModElements("root-game");
 
 export { LoadingStartCurtainRemoveEvent, LoadingStartCurtainRemoveName };
 //# sourceMappingURL=root-game.js.map

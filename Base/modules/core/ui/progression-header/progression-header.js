@@ -70,6 +70,7 @@ class ProgressionHeader extends FxsActivatable {
     const displayIcon1P = NetworkUtilities.getHostingTypeURL(this.playerInfo.firstPartyType) ?? "";
     const displayName2K = this.playerInfo.twoKName;
     const displayIcon2K = "fs://game/prof_2k_logo.png";
+    const switchIconRemoval = Network.getLocalHostingPlatform() == HostingType.HOSTING_TYPE_NX;
     switch (this.cardStyle) {
       case "social":
         let twoKLogo = "";
@@ -99,7 +100,7 @@ class ProgressionHeader extends FxsActivatable {
 								<fxs-vslot class="ph-title-sub-container flex self-center">							
 									${this.playerInfo.firstPartyName.length > 0 ? `
 										<fxs-hslot class="ph-social-data-row mb-2">
-											${this.display2KName ? `<div class="ph-platform-icon w-8 h-8 mr-2 bg-cover bg-no-repeat" style="background-image: url('${firstPartyLogo}');"></div>` : ""}
+											${this.display2KName ? `<div class="${switchIconRemoval ? "hidden" : ""} ph-platform-icon w-8 h-8 mr-2 bg-cover bg-no-repeat" style="background-image: url('${firstPartyLogo}');"></div>` : ""}
 											<div class="ph-title font-body text-lg text-accent-1 text-shadow flex self-center">${this.playerInfo.firstPartyName}</div>
 											<div class="ph-platform-icon w-8 h-8 mr-2 bg-cover bg-no-repeat" style="background-image: url('${firstPartyFriendStatusURL}');"></div>
 										</fxs-hslot>
@@ -140,7 +141,7 @@ class ProgressionHeader extends FxsActivatable {
 							<div class="ph-title-container flow-row flex-auto justify-center mx-2">
 								<div class="h-full items-stretch max-w-full flow-column">
 									<div class="flow-row items-center">
-										${this.display2KName ? `<div class="ph-platform-icon w-8 h-8 mr-2 bg-cover bg-no-repeat" style="background-image: url('${displayIcon1P}');"></div>` : ""}
+										${this.display2KName ? `<div class="${switchIconRemoval ? "hidden" : ""} ph-platform-icon w-8 h-8 mr-2 bg-cover bg-no-repeat" style="background-image: url('${displayIcon1P}');"></div>` : ""}
 										<div class="flex-auto">
 											<div class="ph-name font-title text-2xl text-header-2 text-shadow font-fit-shrink whitespace-nowrap">${displayName1P}</div>
 										</div>
@@ -171,7 +172,7 @@ class ProgressionHeader extends FxsActivatable {
 						<div class="ph-title-container flex-auto flex-initial h-full">
 							<div class="flow-column max-w-full">
 								<div class="flow-row items-center">
-									${this.display2KName ? `<div class="ph-platform-icon w-7 h-7 mr-2 mb-2 bg-cover bg-no-repeat" style="background-image: url('${displayIcon1P}');"></div>` : ""}
+									${this.display2KName ? `<div class="${switchIconRemoval ? "hidden" : ""} ph-platform-icon w-7 h-7 mr-2 mb-2 bg-cover bg-no-repeat" style="background-image: url('${displayIcon1P}');"></div>` : ""}
 									<div class="flex-auto flow-row items-center mb-2">
 										<div class="ph-name font-body text-base text-header-4 text-shadow font-fit-shrink whitespace-nowrap flex">${displayName1P}</div>
 									</div>

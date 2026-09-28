@@ -7,11 +7,12 @@ import { RingMeter } from '../../components/ring-meter.js';
 import { ComponentRegistry } from '../../services/component-registry.js';
 import style from './leader-select-button.scss.js';
 
-var _tmpl$ = /* @__PURE__ */ template(`<div class="z-1 leader-button-ring-xp-bubble absolute bottom-0 -ml-4 left-1\\/2 flex items-center justify-center text-sm font-white"></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="absolute inset-0 flex items-center justify-center pointer-events-none"><div class="leader-button-focus opacity-0 group-focus\\:opacity-100 group-hover\\:opacity-100"></div></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="absolute inset-0 flex items-center justify-center pointer-events-none"><div class=leader-button-selection></div></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div class="z-1 img-lock2 absolute bottom-0 size-8 -ml-4 left-1\\/2 flex items-center justify-center text-sm font-white"></div>`), _tmpl$5 = /* @__PURE__ */ template(`<div class="absolute inset-0 flex items-center justify-center pointer-events-none"></div>`);
+var _tmpl$ = /* @__PURE__ */ template(`<div class="z-1 leader-button-ring-xp-bubble absolute bottom-0 -ml-4 left-1\\/2 flex items-center justify-center text-sm font-white"></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="absolute inset-0 flex items-center justify-center pointer-events-none"><div class="leader-button-focus opacity-0 group-focus\\:opacity-100 group-hover\\:opacity-100"></div></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="absolute inset-0 flex items-center justify-center pointer-events-none"><div class="leader-button-selection"></div></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div class="z-1 img-lock2 absolute bottom-0 size-8 -ml-4 left-1\\/2 flex items-center justify-center text-sm font-white"></div>`), _tmpl$5 = /* @__PURE__ */ template(`<div class="absolute inset-0 flex items-center justify-center pointer-events-none"></div>`);
+const isOfflineMemento = !Network.supportsSSO() && Online.Metaprogression.supportsMemento();
 const LeaderXpRingComponent = (props) => {
   return createComponent(Show, {
     get when() {
-      return props.level > 0 && !props.isLocked;
+      return props.level > 0 && !props.isLocked && !isOfflineMemento;
     },
     get children() {
       return createComponent(RingMeter, {

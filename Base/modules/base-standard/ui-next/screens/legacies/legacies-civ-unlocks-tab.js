@@ -1,4 +1,4 @@
-import { template, insert, className } from '../../../../core/vendor/solid-js/web/dist/web.js';
+import { template, className, insert } from '../../../../core/vendor/solid-js/web/dist/web.js';
 import { useContext, createSignal, createMemo, onMount, onCleanup, createEffect, on, createComponent, Show, For, createRenderEffect, mergeProps } from '../../../../core/vendor/solid-js/dist/solid.js';
 import { Layout } from '../../../../core/ui/utilities/utilities-layout.js';
 import { Activatable } from '../../../../core/ui-next/components/activatable.js';
@@ -11,7 +11,7 @@ import { ScrollArea } from '../../../../core/ui-next/components/scroll-area.js';
 import { SearchBar } from '../../../../core/ui-next/components/search-bar.js';
 import { SpatialSlot } from '../../../../core/ui-next/components/slot.js';
 import { Tab } from '../../../../core/ui-next/components/tab.js';
-import { NestedTooltipContext } from '../../../../core/ui-next/components/tooltip-compat.js';
+import { NestedTooltipContext } from '../../../../core/ui-next/components/tooltip-nested.js';
 import { AgeSelectModel, AgeSelectModelContext } from '../../../../core/ui-next/screens/create-game/age-select-model.js';
 import { CivCard } from '../../../../core/ui-next/screens/create-game/civ-card.js';
 import { CivDetailsBase } from '../../../../core/ui-next/screens/create-game/civ-details.js';
@@ -27,12 +27,13 @@ import { useIsSmallScreen } from '../../../../core/ui-next/utilities/layout-util
 import { useLegaciesScreenContext } from './legacies-model.js';
 import style from './legacies-civ-unlocks-tab.scss.js';
 
-var _tmpl$ = /* @__PURE__ */ template(`<div class="w-full text-center text-accent-2 text-sm"></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="absolute h-6 -top-0\\.5 -left-1\\.5 -right-1\\.5"></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="flex flex-row w-full mt-1\\.5 mb-2 relative"><div><div class="uppercase mr-2"></div><div></div></div></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div class="flex flex-row flex-wrap w-full"></div>`), _tmpl$5 = /* @__PURE__ */ template(`<div class="flex-auto relative w-full flex flex-row"><div class="flex flex-col items-center h-full px-10 w-84"><div class="flex flex-col items-center relative civ-select-age-banner"><div class="absolute inset-0 img-unit-panelbox pointer-events-none"></div><div class="absolute inset-0"></div><div class="create-game-hub-bottom-gradient absolute left-0 bottom-0"></div><div class="absolute inset-0 w-full h-full border-2 border-secondary-3"></div><div class="img-rollover-highlight absolute inset-0 opacity-0 group-focus\\:opacity-100 group-hover\\:opacity-100 group-pressed\\:opacity-100 pointer-events-none"></div><div class="flex items-center justify-center size-36 relative m-4"></div></div></div></div>`), _tmpl$6 = /* @__PURE__ */ template(`<div class="mt-2 flex flex-col flex-auto items-center mx-8 mb-5 pl-8 pr-8 pt-2 relative"><div class="absolute h-6 -bottom-0\\.5 -left-1\\.5 -right-1\\.5 -scale-y-100"></div></div>`), _tmpl$7 = /* @__PURE__ */ template(`<div class="mt-2 flex flex-col flex-auto items-center justify-center mx-8 mb-5 pl-8 pr-8 pt-2 relative"><div class="absolute h-6 -top-0\\.5 -left-1\\.5 -right-1\\.5"></div><div class="text-xl uppercase font-title flex-wrap"></div><div class="absolute h-6 -bottom-0\\.5 -left-1\\.5 -right-1\\.5 -scale-y-100"></div></div>`), _tmpl$8 = /* @__PURE__ */ template(`<div></div>`);
+var _tmpl$ = /* @__PURE__ */ template(`<div></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="absolute h-6 -top-0\\.5 -left-1\\.5 -right-1\\.5"></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="uppercase mr-2"></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div class="flex flex-row w-full mt-1\\.5 mb-2 relative"><div><div><div></div></div><div></div></div></div>`), _tmpl$5 = /* @__PURE__ */ template(`<div class="flex flex-row flex-wrap w-full"></div>`), _tmpl$6 = /* @__PURE__ */ template(`<div class="flex-auto relative w-full flex flex-row"><div><div class="flex flex-col items-center relative civ-select-age-banner"><div class="absolute inset-0 img-unit-panelbox pointer-events-none"></div><div class="absolute inset-0"></div><div class="create-game-hub-bottom-gradient absolute left-0 bottom-0"></div><div class="absolute inset-0 w-full h-full border-2 border-secondary-3"></div><div class="img-rollover-highlight absolute inset-0 opacity-0 group-focus\\:opacity-100 group-hover\\:opacity-100 group-pressed\\:opacity-100 pointer-events-none"></div><div class="flex items-center justify-center size-36 relative m-4"></div></div></div></div>`), _tmpl$7 = /* @__PURE__ */ template(`<div><div class="absolute h-6 -bottom-0\\.5 -left-1\\.5 -right-1\\.5 -scale-y-100"></div></div>`), _tmpl$8 = /* @__PURE__ */ template(`<div><div class="absolute h-6 -top-0\\.5 -left-1\\.5 -right-1\\.5"></div><div class="text-xl uppercase font-title flex-wrap"></div><div class="absolute h-6 -bottom-0\\.5 -left-1\\.5 -right-1\\.5 -scale-y-100"></div></div>`);
 const LegaciesUnlocksTabComponent = () => {
   const unlocksModel = CivUnlocksModel.get();
   const ageSelectModel = AgeSelectModel.get();
   const legaciesModel = useLegaciesScreenContext();
   const isSmallScreen = useIsSmallScreen();
+  const isMobile = ViewExperience() == UIViewExperience.Mobile;
   const hotkeyContext = useContext(HotkeyContext);
   const attributeFilters = ["LOC_LEGACIES_FILTER_ALL_ATTRIBUTES"];
   Database.query("config", "SELECT * FROM Tags WHERE TagCategoryType = 'TAG_CATEGORY_TRAIT' AND TagType IN (SELECT DISTINCT TagType FROM CivilizationTags)")?.forEach((tag) => {
@@ -136,6 +137,7 @@ const LegaciesUnlocksTabComponent = () => {
   const normalizedText = createMemo(() => textFilter().trim().toLowerCase());
   const showSearch = createMemo(() => ViewExperience() == UIViewExperience.Desktop && !IsControllerActive());
   const selectedCivId = createMemo(() => selectedUnlocksCiv()?.civID ?? "");
+  const hasUnlockRequirements = () => filteredCivs().some((civInfo) => civInfo.unlockedBy?.length > 0);
   const filteredCivs = createMemo(() => {
     const selectedAge = selectedAgeFilter().ageType;
     const selectedAttribute = attributeFilter();
@@ -166,18 +168,19 @@ const LegaciesUnlocksTabComponent = () => {
             when: hasNextAge,
             get fallback() {
               return (() => {
-                var _el$19 = _tmpl$7(), _el$20 = _el$19.firstChild, _el$21 = _el$20.nextSibling, _el$22 = _el$21.nextSibling;
-                _el$19.style.setProperty("background-image", "linear-gradient(rgba(20, 20, 20, 0.8), rgba(20, 20, 20, 0.7), rgba(20, 20, 20, 0.8))");
-                _el$20.style.setProperty("border-image-source", "url(blp:hud_section-line)");
-                _el$20.style.setProperty("border-image-slice", "4 32 0 32 fill");
-                _el$20.style.setProperty("border-image-width", "auto");
-                insert(_el$21, createComponent(L10n.Compose, {
-                  text: "LOC_LEGACIES_UNLOCKS_FINAL_AGE"
-                }));
+                var _el$21 = _tmpl$8(), _el$22 = _el$21.firstChild, _el$23 = _el$22.nextSibling, _el$24 = _el$23.nextSibling;
+                _el$21.style.setProperty("background-image", "linear-gradient(rgba(20, 20, 20, 0.8), rgba(20, 20, 20, 0.7), rgba(20, 20, 20, 0.8))");
                 _el$22.style.setProperty("border-image-source", "url(blp:hud_section-line)");
                 _el$22.style.setProperty("border-image-slice", "4 32 0 32 fill");
                 _el$22.style.setProperty("border-image-width", "auto");
-                return _el$19;
+                insert(_el$23, createComponent(L10n.Compose, {
+                  text: "LOC_LEGACIES_UNLOCKS_FINAL_AGE"
+                }));
+                _el$24.style.setProperty("border-image-source", "url(blp:hud_section-line)");
+                _el$24.style.setProperty("border-image-slice", "4 32 0 32 fill");
+                _el$24.style.setProperty("border-image-width", "auto");
+                createRenderEffect(() => className(_el$21, `mt-2 flex flex-col flex-auto items-center justify-center ${isMobile ? "mx-5 px-5 pb-4" : "mx-8 px-8"} ${isMobile && IsControllerActive() ? "mb-13" : "mb-5"} pt-2 relative`));
+                return _el$21;
               })();
             },
             get children() {
@@ -186,12 +189,13 @@ const LegaciesUnlocksTabComponent = () => {
                 get children() {
                   return [(() => {
                     var _el$ = _tmpl$();
+                    className(_el$, `w-full text-center text-accent-2 text-sm ${isMobile ? "px-4" : ""}`);
                     insert(_el$, createComponent(L10n.Compose, {
                       text: "LOC_UI_PLAYER_UNLOCKS_COMPLETE_LISTED_REQUIREMENTS_CIVILIZATIONS"
                     }));
                     return _el$;
                   })(), (() => {
-                    var _el$2 = _tmpl$6(), _el$18 = _el$2.firstChild;
+                    var _el$2 = _tmpl$7(), _el$20 = _el$2.firstChild;
                     _el$2.style.setProperty("background-image", "linear-gradient(rgba(20, 20, 20, 0.8), rgba(20, 20, 20, 0.7), rgba(20, 20, 20, 0.8))");
                     insert(_el$2, createComponent(Show, {
                       get when() {
@@ -205,7 +209,7 @@ const LegaciesUnlocksTabComponent = () => {
                           _el$3.style.setProperty("border-image-width", "auto");
                           return _el$3;
                         })(), (() => {
-                          var _el$4 = _tmpl$3(), _el$5 = _el$4.firstChild, _el$6 = _el$5.firstChild, _el$7 = _el$6.nextSibling;
+                          var _el$4 = _tmpl$4(), _el$5 = _el$4.firstChild, _el$6 = _el$5.firstChild, _el$8 = _el$6.firstChild, _el$9 = _el$6.nextSibling;
                           insert(_el$4, createComponent(Show, {
                             get when() {
                               return showSearch();
@@ -219,41 +223,53 @@ const LegaciesUnlocksTabComponent = () => {
                               });
                             }
                           }), _el$5);
-                          insert(_el$6, createComponent(L10n.Compose, {
-                            text: "LOC_UI_PLAYER_UNLOCKS_SHOW_ALL_REQUIREMENTS"
-                          }));
-                          insert(_el$5, createComponent(CheckBox, {
-                            disableFocus: true,
-                            "class": "size-6",
-                            get isChecked() {
-                              return shouldShowAllRequirements();
+                          className(_el$6, `flex flex-row ${isMobile ? "self-center w-1\\/2 justify-start items-center -mt-2" : ""}`);
+                          insert(_el$6, createComponent(Show, {
+                            get when() {
+                              return hasUnlockRequirements();
                             },
-                            hotkeyAction: "nav-shell-next",
-                            onActivate: () => {
-                              setShouldShowAllRequirements((shouldShow) => !shouldShow);
+                            get children() {
+                              return [(() => {
+                                var _el$7 = _tmpl$3();
+                                insert(_el$7, createComponent(L10n.Compose, {
+                                  text: "LOC_UI_PLAYER_UNLOCKS_SHOW_ALL_REQUIREMENTS"
+                                }));
+                                return _el$7;
+                              })(), createComponent(CheckBox, {
+                                disableFocus: true,
+                                "class": `${isMobile ? "size-10" : "size-6"}`,
+                                get isChecked() {
+                                  return shouldShowAllRequirements();
+                                },
+                                hotkeyAction: "nav-shell-next",
+                                onActivate: () => {
+                                  setShouldShowAllRequirements((shouldShow) => !shouldShow);
+                                }
+                              })];
                             }
-                          }), _el$7);
-                          insert(_el$7, createComponent(L10n.Compose, {
+                          }), _el$8);
+                          insert(_el$8, createComponent(L10n.Compose, {
                             text: "LOC_LEGACIES_UNLOCKS_NUM_CIVS",
                             get args() {
                               return [filteredCivs().length.toString()];
                             }
                           }));
-                          insert(_el$5, createComponent(Dropdown, {
+                          className(_el$9, `flex flex-row ${isMobile ? "w-1\\/2 justify-end" : ""}`);
+                          insert(_el$9, createComponent(Dropdown, {
                             disableFocus: true,
                             get defaultValue() {
                               return selectedAgeFilter();
                             },
                             selectedItemTemplate: (ageItem) => (() => {
-                              var _el$23 = _tmpl$8();
-                              insert(_el$23, createComponent(L10n.Stylize, {
+                              var _el$25 = _tmpl$();
+                              insert(_el$25, createComponent(L10n.Stylize, {
                                 text: "LOC_UI_CREATE_GAME_FILTER_ITEM",
                                 get args() {
                                   return [Locale.compose(ageItem.ageName)];
                                 }
                               }));
-                              createRenderEffect(() => className(_el$23, `flex grow min-w-0 truncate font-fit-shrink ${isSmallScreen() ? "text-xs" : ""}`));
-                              return _el$23;
+                              createRenderEffect(() => className(_el$25, `m-1 flex grow min-w-0 truncate font-fit-shrink ${isSmallScreen() ? "text-xs" : ""}`));
+                              return _el$25;
                             })(),
                             hotkey: "shell-action-2",
                             onItemSelected: (ageItem) => {
@@ -272,21 +288,21 @@ const LegaciesUnlocksTabComponent = () => {
                               });
                             }
                           }), null);
-                          insert(_el$5, createComponent(Dropdown, {
+                          insert(_el$9, createComponent(Dropdown, {
                             get defaultValue() {
                               return attributeFilter();
                             },
                             disableFocus: true,
                             selectedItemTemplate: (item) => (() => {
-                              var _el$24 = _tmpl$8();
-                              insert(_el$24, createComponent(L10n.Stylize, {
+                              var _el$26 = _tmpl$();
+                              insert(_el$26, createComponent(L10n.Stylize, {
                                 text: "LOC_UI_CREATE_GAME_FILTER_ITEM",
                                 get args() {
                                   return [Locale.compose(item)];
                                 }
                               }));
-                              createRenderEffect(() => className(_el$24, `flex grow min-w-0 truncate font-fit-shrink ${isSmallScreen() ? "text-xs" : ""}`));
-                              return _el$24;
+                              createRenderEffect(() => className(_el$26, `m-1 flex grow min-w-0 truncate font-fit-shrink ${isSmallScreen() ? "text-xs" : ""}`));
+                              return _el$26;
                             })(),
                             hotkey: "shell-action-1",
                             onItemSelected: (item) => {
@@ -310,7 +326,7 @@ const LegaciesUnlocksTabComponent = () => {
                           createRenderEffect((_p$) => {
                             var _v$ = `items-end justify-end grow flex flex-row font-fit-shrink ${isSmallScreen() ? "text-xs" : "text-base"}`, _v$2 = `uppercase ${isSmallScreen() ? "ml-2 mr-2" : "ml-12 mr-6"}`;
                             _v$ !== _p$.e && className(_el$5, _p$.e = _v$);
-                            _v$2 !== _p$.t && className(_el$7, _p$.t = _v$2);
+                            _v$2 !== _p$.t && className(_el$8, _p$.t = _v$2);
                             return _p$;
                           }, {
                             e: void 0,
@@ -318,36 +334,37 @@ const LegaciesUnlocksTabComponent = () => {
                           });
                           return _el$4;
                         })(), (() => {
-                          var _el$8 = _tmpl$5(), _el$9 = _el$8.firstChild, _el$10 = _el$9.firstChild, _el$11 = _el$10.firstChild, _el$12 = _el$11.nextSibling, _el$13 = _el$12.nextSibling, _el$14 = _el$13.nextSibling, _el$15 = _el$14.nextSibling, _el$16 = _el$15.nextSibling;
-                          insert(_el$9, createComponent(L10n.Stylize, {
+                          var _el$10 = _tmpl$6(), _el$11 = _el$10.firstChild, _el$12 = _el$11.firstChild, _el$13 = _el$12.firstChild, _el$14 = _el$13.nextSibling, _el$15 = _el$14.nextSibling, _el$16 = _el$15.nextSibling, _el$17 = _el$16.nextSibling, _el$18 = _el$17.nextSibling;
+                          className(_el$11, `flex flex-col items-center h-full w-84 ${isMobile ? "pr-10" : "px-10"}`);
+                          insert(_el$11, createComponent(L10n.Stylize, {
                             text: !hasNextAge ? "LOC_LEGACIES_CURRENT_AGE" : "LOC_LEGACIES_UPCOMING_AGE",
-                            "class": "text-base uppercase font-title"
-                          }), _el$10);
-                          insert(_el$9, createComponent(L10n.Stylize, {
+                            "class": `text-base uppercase font-title ${isMobile ? "whitespace-nowrap" : ""}`
+                          }), _el$12);
+                          insert(_el$11, createComponent(L10n.Stylize, {
                             text: nextAgeName,
                             "class": "font-title text-tertiary-1 font-black uppercase text-white text-xl mb-2"
-                          }), _el$10);
-                          _el$12.style.setProperty("background-position", "center center");
-                          _el$12.style.setProperty("background-size", "cover");
-                          _el$16.style.setProperty("background-image", "url(blp:hud_sub_circle_dis_128x128)");
-                          _el$16.style.setProperty("background-repeat", "no-repeat");
-                          _el$16.style.setProperty("background-size", "cover");
-                          insert(_el$16, createComponent(Icon, {
+                          }), _el$12);
+                          _el$14.style.setProperty("background-position", "center center");
+                          _el$14.style.setProperty("background-size", "cover");
+                          _el$18.style.setProperty("background-image", "url(blp:hud_sub_circle_dis_128x128)");
+                          _el$18.style.setProperty("background-repeat", "no-repeat");
+                          _el$18.style.setProperty("background-size", "cover");
+                          insert(_el$18, createComponent(Icon, {
                             get name() {
                               return ageSelectModel.selectedAge.icon;
                             },
                             "class": "size-24 -bottom-px relative",
                             isUrl: true
                           }));
-                          insert(_el$8, createComponent(ScrollArea, {
+                          insert(_el$10, createComponent(ScrollArea, {
                             "class": "flex-auto",
                             get children() {
                               return createComponent(SpatialSlot, {
                                 name: "civ-unlocks-scrollable",
                                 get children() {
                                   return [(() => {
-                                    var _el$17 = _tmpl$4();
-                                    insert(_el$17, createComponent(For, {
+                                    var _el$19 = _tmpl$5();
+                                    insert(_el$19, createComponent(For, {
                                       get each() {
                                         return filteredCivs();
                                       },
@@ -385,7 +402,7 @@ const LegaciesUnlocksTabComponent = () => {
                                         }
                                       })
                                     }));
-                                    return _el$17;
+                                    return _el$19;
                                   })(), createComponent(CreateGameHRule, {
                                     "class": "my-2"
                                   })];
@@ -395,19 +412,19 @@ const LegaciesUnlocksTabComponent = () => {
                           }), null);
                           createRenderEffect((_p$) => {
                             var _v$3 = `url('${ageSelectModel.selectedAge.bgImage}')`, _v$4 = Layout.pixels(132), _v$5 = Layout.pixels(132);
-                            _v$3 !== _p$.e && ((_p$.e = _v$3) != null ? _el$12.style.setProperty("background-image", _v$3) : _el$12.style.removeProperty("background-image"));
-                            _v$4 !== _p$.t && ((_p$.t = _v$4) != null ? _el$16.style.setProperty("width", _v$4) : _el$16.style.removeProperty("width"));
-                            _v$5 !== _p$.a && ((_p$.a = _v$5) != null ? _el$16.style.setProperty("height", _v$5) : _el$16.style.removeProperty("height"));
+                            _v$3 !== _p$.e && ((_p$.e = _v$3) != null ? _el$14.style.setProperty("background-image", _v$3) : _el$14.style.removeProperty("background-image"));
+                            _v$4 !== _p$.t && ((_p$.t = _v$4) != null ? _el$18.style.setProperty("width", _v$4) : _el$18.style.removeProperty("width"));
+                            _v$5 !== _p$.a && ((_p$.a = _v$5) != null ? _el$18.style.setProperty("height", _v$5) : _el$18.style.removeProperty("height"));
                             return _p$;
                           }, {
                             e: void 0,
                             t: void 0,
                             a: void 0
                           });
-                          return _el$8;
+                          return _el$10;
                         })()];
                       }
-                    }), _el$18);
+                    }), _el$20);
                     insert(_el$2, createComponent(AudioContextProvider, {
                       segment: "LegaciesCivShowing",
                       get children() {
@@ -422,7 +439,7 @@ const LegaciesUnlocksTabComponent = () => {
                                 return createComponent(CivDetailsBase, {});
                               }
                             }), createComponent(Activatable, {
-                              "class": "size-10 absolute top-10 left-10 bg-center bg-no-repeat bg-contain",
+                              "class": `absolute ${isMobile ? "size-14 top-5 left-5" : "size-10 top-10 left-10"} bg-center bg-no-repeat bg-contain`,
                               onActivate: () => {
                                 setViewCiv(void 0);
                                 legaciesModel.setIsShowingDetails(false);
@@ -435,10 +452,11 @@ const LegaciesUnlocksTabComponent = () => {
                           }
                         });
                       }
-                    }), _el$18);
-                    _el$18.style.setProperty("border-image-source", "url(blp:hud_section-line)");
-                    _el$18.style.setProperty("border-image-slice", "4 32 0 32 fill");
-                    _el$18.style.setProperty("border-image-width", "auto");
+                    }), _el$20);
+                    _el$20.style.setProperty("border-image-source", "url(blp:hud_section-line)");
+                    _el$20.style.setProperty("border-image-slice", "4 32 0 32 fill");
+                    _el$20.style.setProperty("border-image-width", "auto");
+                    createRenderEffect(() => className(_el$2, `mt-2 flex flex-col flex-auto items-center ${isMobile ? "mx-5 px-5 pb-4" : "mx-8 px-8"} ${isMobile && IsControllerActive() ? "mb-13" : "mb-5"} pt-2 relative`));
                     return _el$2;
                   })()];
                 }

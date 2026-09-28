@@ -3,6 +3,7 @@ import { createMutable } from '../../../core/vendor/solid-js/store/dist/store.js
 import { utils } from '../../../core/ui/graph-layout/utils.js';
 import { getModifierTextByContext } from '../../../core/ui/utilities/utilities-core-textprovider.js';
 import { ModelRegistry, ModelLifecycle } from '../../../core/ui-next/services/model-registry.js';
+import { isMobile } from '../../../core/ui-next/services/view-experience.js';
 
 const [activePolicyTab, setActivePolicyTab] = createSignal("gov-overview");
 function createGovtScreenModel() {
@@ -94,8 +95,10 @@ function createGovtScreenModel() {
     govDescription = currentGovernment?.Description ?? "";
   }
   const choices = localPlayerCulture?.getGoldenAgeChoices() ?? "";
+  let currentlyInCelebration = false;
   if (localPlayerStats) {
     if (localPlayerHappiness) {
+      currentlyInCelebration = localPlayerHappiness.isInGoldenAge();
       const happinessPerTurn = localPlayerStats?.getNetYield(YieldTypes.YIELD_HAPPINESS) ?? -1;
       happPer = Locale.stylize(
         "LOC_UI_POLICIES_HAPPINESS_PER_TURN",
@@ -121,6 +124,8 @@ function createGovtScreenModel() {
         }
       }
       celebrationTurnsLeftDesc = localPlayerHappiness.isInGoldenAge() ? "LOC_UI_CURRENT_CELEBRATION" : "LOC_UI_NEXT_CELEBRATION";
+      happinessNeeded = Math.ceil(localPlayerStats.getLifetimeYield(YieldTypes.YIELD_HAPPINESS)) ?? -1;
+      happinessNextThreshold = localPlayerHappiness.nextGoldenAgeThreshold;
       if (localPlayerHappiness.isInGoldenAge()) {
         celebrationTurnsLeftNumber = Locale.compose(
           "LOC_UI_X_TURNS_LEFT",
@@ -129,16 +134,12 @@ function createGovtScreenModel() {
         happinessRingMeter = localPlayerHappiness.getGoldenAgeTurnsLeft() / localPlayerHappiness.getGoldenAgeDuration() * 100;
       } else {
         const happinessPerTurn2 = localPlayerStats.getNetYield(YieldTypes.YIELD_HAPPINESS) ?? -1;
-        const nextCelebrationThreshold = localPlayerHappiness.nextGoldenAgeThreshold;
-        const happinessTotal = Math.ceil(localPlayerStats.getLifetimeYield(YieldTypes.YIELD_HAPPINESS)) ?? -1;
         const turnsToNextCelebration = Math.max(
-          Math.ceil((nextCelebrationThreshold - happinessTotal) / happinessPerTurn2),
+          Math.ceil((happinessNextThreshold - happinessNeeded) / happinessPerTurn2),
           1
         );
         celebrationTurnsLeftNumber = Locale.compose("LOC_UI_X_TURNS_LEFT", turnsToNextCelebration);
-        happinessRingMeter = 100 * happinessTotal / nextCelebrationThreshold;
-        happinessNeeded = happinessTotal;
-        happinessNextThreshold = nextCelebrationThreshold;
+        happinessRingMeter = 100 * happinessNeeded / happinessNextThreshold;
       }
     }
   }
@@ -246,7 +247,10 @@ function createGovtScreenModel() {
       topIconBackgroundTint: "#dba33d",
       backgroundImageSrc: bgSrc,
       name: "Government Screen",
-      id: "policies-screen"
+      id: "policies-screen",
+      isFullscreen: isMobile(),
+      hideTopIcon: isMobile(),
+      useNoMarginFrame: isMobile()
     };
     const govtScreenData = {
       ornatePanelData,
@@ -266,6 +270,7 @@ function createGovtScreenModel() {
       happinessNeeded,
       happinessNextCelebrationThreshold: happinessNextThreshold,
       govtTraditions: traditionsUnlocked,
+      inCelebration: currentlyInCelebration,
       settlementHappiness: getSettlementHappiness,
       displayCrisisTab: showCrisisTab
     };

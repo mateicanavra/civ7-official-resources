@@ -1,6 +1,6 @@
 import { template, insert } from '../../../../../core/vendor/solid-js/web/dist/web.js';
 import { createSignal, createMemo, onMount, onCleanup, createComponent, Show, For } from '../../../../../core/vendor/solid-js/dist/solid.js';
-import ContextManager from '../../../../../core/ui/context-manager/context-manager.js';
+import { ContextManager } from '../../../../../core/ui/context-manager/context-manager.js';
 import { Icon } from '../../../../../core/ui/utilities/utilities-image.js';
 import ViewManager from '../../../../../core/ui/views/view-manager.js';
 import { Button } from '../../../../../core/ui-next/components/button.js';

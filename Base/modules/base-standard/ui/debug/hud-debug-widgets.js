@@ -1,5 +1,4 @@
 import ViewManager from '../../../core/ui/views/view-manager.js';
-import { Init } from './city-banners-stress-test.js';
 
 const subsystemDock = {
   id: "panel-sub-system-dock",
@@ -85,7 +84,6 @@ const InitDebugWidgets = () => {
     const widget = widgetMap[id];
     UI.Debug.registerWidget(widget);
   }
-  Init();
   engine.on("DebugWidgetUpdated", (id, value) => {
     if (id == disableHUD.id) {
       if (value) {

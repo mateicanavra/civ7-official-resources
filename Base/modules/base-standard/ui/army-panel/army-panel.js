@@ -7,6 +7,7 @@ import { formatStringArrayAsNewLineText } from '../../../core/ui/utilities/utili
 import { Icon } from '../../../core/ui/utilities/utilities-image.js';
 import UpdateGate from '../../../core/ui/utilities/utilities-update-gate.js';
 import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
+import { isMobile } from '../../../core/ui-next/services/view-experience.js';
 import CommanderInteract from '../commander-interact/model-commander-interact.js';
 import { UnitActionHandlers } from '../unit-interact/unit-action-handlers.js';
 import UnitSelection from '../unit-selection/unit-selection.js';
@@ -23,11 +24,11 @@ const STARTING_INNER_HTML = `
 		<fxs-vslot class="army-panel__main-column flex relative flex-col justify-start" focus-rule="last">
 			<fxs-hslot class="army-panel__standard-actions flex relative flex-row justify-center mb-2" ignore-prior-focus data-navrule-up="stop">
 			</fxs-hslot>
-			<div class="army-panel__units-background relative pointer-events-none pl-5 h-49">
+			<div class="army-panel__units-background relative pointer-events-none h-49 ${isMobile() ? "pl-2" : "pl-5"}">
 				<fxs-spatial-slot class="army-panel__portrait-row mt-1 flex flex-row" ignore-prior-focus>
 					<div class="army-panel__commander-portrait-container flex center justify-center w-54 h-44 p-1\\.5">
 					</div>
-					<div class="army-panel__army-portraits-column flex flex-col pl-2">
+					<div class="army-panel__army-portraits-column flex flex-col ${isMobile() ? "pl-0\\.5" : "pl-2"}">
 						<div class="army-panel__top-army-row flex flex-row">
 						</div>
 						<div class="army-panel__bottom-army-row flex flex-row">

@@ -1,5 +1,5 @@
 import { ChooserItem } from '../chooser-item/chooser-item.js';
-import styles from '../chooser-item/chooser-item.scss.js';
+import chooserItemStyles from '../chooser-item/chooser-item.scss.js';
 
 class PantheonChooserItem extends ChooserItem {
   get pantheonChooserNode() {
@@ -53,7 +53,7 @@ Controls.define("pantheon-chooser-item", {
   createInstance: PantheonChooserItem,
   description: "A chooser item to be used with the pantheon chooser",
   classNames: ["pantheon-chooser-item", "relative", "group"],
-  styles: [styles],
+  styles: [chooserItemStyles],
   images: [
     "fs://game/hud_sidepanel_list-bg.png",
     "fs://game/hud_list-focus_frame.png",

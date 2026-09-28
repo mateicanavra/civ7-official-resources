@@ -3,8 +3,7 @@ import { VoronoiUtils } from '../voronoi-utils.js';
 import { continentGeneratorSchema, ContinentGenerator, continentGeneratorRulesSettings } from '../voronoi_generators/continent-generator.js';
 import { voronoiMapSchema, VoronoiMap } from './map-common.js';
 
-const unifiedContinentsSchema = {
-  ...voronoiMapSchema,
+const unifiedSectionSchema = {
   totalLandmassSize: {
     label: "Total Landmass Size",
     description: "The total percentage of land to be taken up by the major landmasses.",
@@ -114,19 +113,11 @@ const unifiedContinentsSchema = {
     max: 1,
     step: 0.05,
     hidden: true
-  },
-  enforceGroupConstraints: {
-    label: "Enforce Group Constraints",
-    description: "When enabled, iteratively refines landmass positions to keep same-group landmasses close together and separated from other groups.",
-    default: 0,
-    min: 0,
-    max: 1,
-    step: 1,
-    hidden: true
   }
 };
+const unifiedContinentsSchema = { ...voronoiMapSchema, ...unifiedSectionSchema };
 class UnifiedContinentsBase extends VoronoiMap {
-  constructor(customSchema, defaultMapSettings) {
+  constructor(customSchema, defaultMapSettings, landmassRuleSetNames) {
     const schema = VoronoiUtils.clone(continentGeneratorSchema);
     schema.landmass.children.data.size.locked = true;
     schema.landmass.children.data.variance.locked = true;
@@ -138,7 +129,7 @@ class UnifiedContinentsBase extends VoronoiMap {
     schema.landmass.children.data.coastalIslandsMaxDistance.unified = true;
     schema.landmass.children.data.coastalIslandsSize.unified = true;
     schema.landmass.children.data.coastalIslandsSizeVariance.unified = true;
-    const generator = new ContinentGenerator(schema, { ...continentGeneratorRulesSettings });
+    const generator = new ContinentGenerator(schema, { ...continentGeneratorRulesSettings }, landmassRuleSetNames);
     super(
       { ...unifiedContinentsSchema, ...customSchema },
       generator,
@@ -147,43 +138,259 @@ class UnifiedContinentsBase extends VoronoiMap {
       defaultMapSettings
     );
   }
-  simulateInternal() {
-    this.applySettings();
+  buildSection(settings, startAngle, sweepAngle, landmassDefaults, ruleSetKey) {
+    return {
+      startAngle,
+      sweepAngle,
+      landmassCount: settings.landmassCount,
+      distantCount: settings.distantCount,
+      groupCount: Math.min(settings.landmassGroupCount, settings.landmassCount),
+      totalLandmassSize: settings.totalLandmassSize,
+      maxSizeVariance: settings.maxSizeVariance,
+      totalDistantSize: settings.totalDistantSize,
+      maxDistantSizeVariance: settings.maxDistantSizeVariance,
+      landmassSpawnDistance: {
+        min: settings.minLandmassSpawnCenterDistance,
+        max: settings.maxLandmassSpawnCenterDistance
+      },
+      distantSpawnDistance: {
+        min: settings.minDistantSpawnCenterDistance,
+        max: settings.maxDistantSpawnCenterDistance
+      },
+      groupBalancedMode: settings.groupBalancedMode,
+      minPlayersPerLandmassGroup: settings.minPlayersPerLandmassGroup,
+      ruleSetKey,
+      landmassDefaults: { ...landmassDefaults }
+    };
   }
-  applySettings() {
-    const hexDims = this.m_hexDims;
+  placeDefaultSection(settings) {
     const generatorSettings = this.getGenerator().getSettings();
-    const landmassCount = this.m_settings.landmassCount;
-    const distantCount = this.m_settings.distantCount;
-    const groupCount = Math.min(this.m_settings.landmassGroupCount, landmassCount);
+    const sweepAngle = 2 * Math.PI;
+    const startAngle = sweepAngle * RandomImpl.fRand("Landmass spawn offset");
+    const section = this.buildSection(settings, startAngle, sweepAngle, generatorSettings.landmass[0]);
+    this.placeSections([section]);
+  }
+  placeSections(sections) {
+    const generatorSettings = this.getGenerator().getSettings();
+    generatorSettings.landmass = [];
+    const totalGroupCount = sections.reduce((sum, s) => sum + s.groupCount, 0);
+    const positions = [];
+    const context = {
+      groupOffset: 0,
+      totalGroupCount,
+      runningLandmassCount: 0,
+      runningDistantCount: 0,
+      runningGroupCount: 0
+    };
+    for (const section of sections) {
+      positions.push(...this.placeSection(section, context));
+    }
+    const hexDims = this.m_hexDims;
+    const totalLandmassCount = positions.length;
+    const W = hexDims.x;
+    const H = hexDims.y;
+    positions.forEach((p) => {
+      p.x *= W;
+      p.y *= H;
+    });
+    const slotSizes = positions.map((p, i) => p.size + (generatorSettings.landmass[i].coastalIslandsSize ?? 0));
+    const sameGroupPadding = 1;
+    const sameGroupMultiplier = 1;
+    const diffGroupPadding = 5;
+    const diffGroupMultiplier = 1.2;
+    const radiusOf = (size) => Math.pow(size / 100 * W * H, 0.6) / Math.PI;
+    const minDistBetween = (sizeA, sizeB, sameGroup) => {
+      const padding = sameGroup ? sameGroupPadding : diffGroupPadding;
+      const multiplier = sameGroup ? sameGroupMultiplier : diffGroupMultiplier;
+      return (radiusOf(sizeA) + radiusOf(sizeB)) * multiplier + padding;
+    };
+    const maxDistMultiplier = 1.2;
+    const constraintIterations = 10;
+    const mstStrength = 0.8;
+    const separationStrength = 0.3;
+    const groupMembers = /* @__PURE__ */ new Map();
+    for (let i = 0; i < totalLandmassCount; ++i) {
+      const gid = positions[i].groupId;
+      if (gid === 0) continue;
+      if (!groupMembers.has(gid)) groupMembers.set(gid, []);
+      groupMembers.get(gid).push(i);
+    }
+    const groupMSTs = /* @__PURE__ */ new Map();
+    for (const [gid, members] of groupMembers) {
+      if (members.length < 2) continue;
+      const inTree = /* @__PURE__ */ new Set();
+      const mstEdges = [];
+      inTree.add(members[0]);
+      while (inTree.size < members.length) {
+        let bestDist = Infinity;
+        let bestFrom = -1;
+        let bestTo = -1;
+        for (const from of inTree) {
+          for (const to of members) {
+            if (inTree.has(to)) continue;
+            const dx = positions[to].x - positions[from].x;
+            const dy = positions[to].y - positions[from].y;
+            const d = Math.sqrt(dx * dx + dy * dy);
+            if (d < bestDist) {
+              bestDist = d;
+              bestFrom = from;
+              bestTo = to;
+            }
+          }
+        }
+        if (bestTo >= 0) {
+          inTree.add(bestTo);
+          mstEdges.push([bestFrom, bestTo]);
+        } else {
+          break;
+        }
+      }
+      groupMSTs.set(gid, mstEdges);
+    }
+    const convergenceThreshold = 0.5;
+    const applyForce = (pa, pb, dist, amount, massA = 1, massB = 1) => {
+      let nx;
+      let ny;
+      if (dist > 0) {
+        nx = (pb.x - pa.x) / dist;
+        ny = (pb.y - pa.y) / dist;
+      } else {
+        const angle = (pa.x * 7 + pa.y * 13 + pb.x * 17 + pb.y * 23) % 360 * (Math.PI / 180);
+        nx = Math.cos(angle);
+        ny = Math.sin(angle);
+      }
+      const totalMass = massA + massB;
+      const ratioA = totalMass > 0 ? massB / totalMass : 0.5;
+      const ratioB = totalMass > 0 ? massA / totalMass : 0.5;
+      if (!pa.pinned) {
+        pa.x -= nx * amount * ratioA;
+        pa.y -= ny * amount * ratioA;
+      }
+      if (!pb.pinned) {
+        pb.x += nx * amount * ratioB;
+        pb.y += ny * amount * ratioB;
+      }
+    };
+    for (let iter = 0; iter < constraintIterations; ++iter) {
+      const prevPositions = positions.map((p) => ({ x: p.x, y: p.y }));
+      const damping = 1 - 0.5 * (iter / constraintIterations);
+      const currentMST = mstStrength * damping;
+      const currentSep = separationStrength * damping;
+      for (const [gid, members] of groupMembers) {
+        const mstEdges = groupMSTs.get(gid);
+        if (!mstEdges || members.length < 2) continue;
+        for (const [a, b] of mstEdges) {
+          const pa = positions[a];
+          const pb = positions[b];
+          const dx = pb.x - pa.x;
+          const dy = pb.y - pa.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          const minDist = minDistBetween(slotSizes[a], slotSizes[b], true);
+          const maxDist = minDist * maxDistMultiplier;
+          if (dist > maxDist) {
+            applyForce(pa, pb, dist, -(dist - maxDist) * currentMST);
+          } else if (dist < minDist) {
+            applyForce(pa, pb, dist, (minDist - dist) * (minDist - dist) * currentSep);
+          }
+        }
+      }
+      for (let i = 0; i < totalLandmassCount; ++i) {
+        for (let j = i + 1; j < totalLandmassCount; ++j) {
+          const sameGroup = positions[i].groupId > 0 && positions[i].groupId === positions[j].groupId;
+          const pi = positions[i];
+          const pj = positions[j];
+          const dx = pj.x - pi.x;
+          const dy = pj.y - pi.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          const minDist = minDistBetween(slotSizes[i], slotSizes[j], sameGroup);
+          if (dist < minDist) {
+            const amount = (minDist - (dist > 0 ? dist : 0)) * currentSep;
+            applyForce(pi, pj, dist, amount * amount, slotSizes[i], slotSizes[j]);
+          }
+        }
+      }
+      let maxMovementSq = 0;
+      const edgePadding = 2;
+      for (let i = 0; i < totalLandmassCount; ++i) {
+        const r = radiusOf(slotSizes[i]);
+        const loX = Math.max(edgePadding, r);
+        const hiX = Math.min(W - edgePadding, W - r);
+        const loY = Math.max(edgePadding, r);
+        const hiY = Math.min(H - edgePadding, H - r);
+        if (!positions[i].pinned) {
+          positions[i].x = VoronoiUtils.clamp(positions[i].x, loX, hiX);
+          positions[i].y = VoronoiUtils.clamp(positions[i].y, loY, hiY);
+        }
+        const dx = positions[i].x - prevPositions[i].x;
+        const dy = positions[i].y - prevPositions[i].y;
+        maxMovementSq = Math.max(maxMovementSq, dx * dx + dy * dy);
+      }
+      if (maxMovementSq < convergenceThreshold * convergenceThreshold) break;
+    }
+    for (let i = 0; i < totalLandmassCount; ++i) {
+      positions[i].x /= W;
+      positions[i].y /= H;
+    }
+    for (let i = 0; i < totalLandmassCount; ++i) {
+      const landmass = generatorSettings.landmass[i];
+      landmass.size = positions[i].size;
+      landmass.playerAreas = positions[i].groupId === 0 ? 0 : 1;
+      landmass.xPos = positions[i].x;
+      landmass.yPos = positions[i].y;
+      landmass.variance = 0;
+      landmass.groupId = positions[i].groupId;
+      landmass.ruleSetKey = positions[i].ruleSetKey;
+    }
+  }
+  placeSection(section, context) {
+    const hexDims = this.m_hexDims;
+    const sweepRatio = section.sweepAngle / (2 * Math.PI);
+    const allocateCount = (running, desired, atLeastOne) => {
+      const before = Math.round(running);
+      const after = running + desired;
+      let count = Math.round(after) - before;
+      if (atLeastOne && count === 0 && desired > 0) count = 1;
+      return { count, after };
+    };
+    const landmassAllocation = allocateCount(
+      context.runningLandmassCount,
+      section.landmassCount * sweepRatio,
+      true
+    );
+    const landmassCount = landmassAllocation.count;
+    context.runningLandmassCount = landmassAllocation.after;
+    const distantAllocation = allocateCount(context.runningDistantCount, section.distantCount * sweepRatio, false);
+    const distantCount = distantAllocation.count;
+    context.runningDistantCount = distantAllocation.after;
+    const groupAllocation = allocateCount(context.runningGroupCount, section.groupCount * sweepRatio, true);
+    const groupCount = Math.min(groupAllocation.count, landmassCount);
+    context.runningGroupCount = groupAllocation.after;
+    const totalLandmassSize = section.totalLandmassSize * sweepRatio;
+    const totalDistantSize = section.totalDistantSize * sweepRatio;
     const totalLandmassCount = landmassCount + distantCount;
-    generatorSettings.landmass = Array.from({ length: totalLandmassCount }, () => ({
-      ...generatorSettings.landmass[0]
-    }));
+    const generatorSettings = this.getGenerator().getSettings();
+    for (let i = 0; i < totalLandmassCount; ++i) {
+      const defaults = { ...section.landmassDefaults };
+      generatorSettings.landmass.push(defaults);
+    }
     const tileCount = hexDims.x * hexDims.y;
     const avgDim = (hexDims.x + hexDims.y) / 2;
     const landmassSeparationWidth = 2;
     const separationAxis = 2 * Math.sqrt(totalLandmassCount) - 2;
     const landmassSeparationTiles = avgDim * separationAxis * landmassSeparationWidth;
     const usablePercentage = (tileCount - landmassSeparationTiles) / tileCount;
-    const calculateSizes = (count, totalSize, maxSizeVariance) => {
-      const maxSizeVarianceComp = 1 - maxSizeVariance;
-      const maxSize2 = totalSize / (1 + maxSizeVarianceComp + Math.max(0, count - 2) * (1 - maxSizeVariance / 2));
-      const minSize2 = maxSize2 * maxSizeVarianceComp;
-      return [minSize2, maxSize2];
-    };
-    const adjustedTotalSize = this.m_settings.totalLandmassSize * usablePercentage;
-    const [minSize, maxSize] = calculateSizes(
+    const adjustedTotalSize = totalLandmassSize * usablePercentage;
+    const [minSize, maxSize] = VoronoiUtils.computeBoundedPartitionRange(
       landmassCount,
       adjustedTotalSize,
-      this.getSettings().maxSizeVariance * 0.01
+      section.maxSizeVariance * 0.01
     );
     const landmassSizes = VoronoiUtils.distributeTotal(adjustedTotalSize, minSize, maxSize, landmassCount);
-    const adjustedTotalDistantSize = this.m_settings.totalDistantSize * usablePercentage;
-    const [minDistantSize, maxDistantSize] = calculateSizes(
+    const adjustedTotalDistantSize = totalDistantSize * usablePercentage;
+    const [minDistantSize, maxDistantSize] = VoronoiUtils.computeBoundedPartitionRange(
       distantCount,
       adjustedTotalDistantSize,
-      this.getSettings().maxDistantSizeVariance * 0.01
+      section.maxDistantSizeVariance * 0.01
     );
     const distantSizes = VoronoiUtils.distributeTotal(
       adjustedTotalDistantSize,
@@ -191,16 +398,8 @@ class UnifiedContinentsBase extends VoronoiMap {
       maxDistantSize,
       distantCount
     );
-    const getDistantDistance = (rand) => VoronoiUtils.lerp(
-      this.m_settings.minDistantSpawnCenterDistance,
-      this.m_settings.maxDistantSpawnCenterDistance,
-      rand
-    );
-    const getLandmassDistance = (rand) => VoronoiUtils.lerp(
-      this.m_settings.minLandmassSpawnCenterDistance,
-      this.m_settings.maxLandmassSpawnCenterDistance,
-      rand
-    );
+    const getDistantDistance = (rand) => VoronoiUtils.lerp(section.distantSpawnDistance.min, section.distantSpawnDistance.max, rand);
+    const getLandmassDistance = (rand) => VoronoiUtils.lerp(section.landmassSpawnDistance.min, section.landmassSpawnDistance.max, rand);
     const landmassGroups = Array(totalLandmassCount).fill(0);
     let remainingLandmasses = landmassCount;
     let writeIndex = 0;
@@ -224,16 +423,15 @@ class UnifiedContinentsBase extends VoronoiMap {
       }
       remainingLandmasses -= landmassesInGroup;
     }
-    if (this.m_settings.groupBalancedMode == 1) {
+    if (section.groupBalancedMode == 1) {
       for (let i = 0; i < landmassGroups.length - 1; ++i) {
         if (RandomImpl.getRandomNumber(2, "Distant Lands Slight Random") > 0) {
           [landmassGroups[i], landmassGroups[i + 1]] = [landmassGroups[i + 1], landmassGroups[i]];
         }
       }
-    } else if (this.m_settings.groupBalancedMode == 2) {
+    } else if (section.groupBalancedMode == 2) {
       VoronoiUtils.shuffle(landmassGroups);
     }
-    const singleGroupCenter = groupCount === 1;
     let landmassIdx = 0;
     let distantIdx = 0;
     const slotWeights = [];
@@ -245,204 +443,43 @@ class UnifiedContinentsBase extends VoronoiMap {
       }
     }
     const totalSlotWeight = slotWeights.reduce((a, b) => a + b, 0);
-    const randSpawnOffset = Math.PI * 2 * RandomImpl.fRand("Landmass spawn offset");
     const rands = VoronoiUtils.getPoissonRands(totalLandmassCount, "Landmass Spawn Distance");
     const positions = [];
-    let cumulativeAngle = randSpawnOffset;
+    let cumulativeAngle = section.startAngle;
     for (let i = 0; i < totalLandmassCount; ++i) {
-      const sliceAngle = totalSlotWeight > 0 ? slotWeights[i] / totalSlotWeight * (2 * Math.PI) : 2 * Math.PI / totalLandmassCount;
+      const sliceAngle = totalSlotWeight > 0 ? slotWeights[i] / totalSlotWeight * section.sweepAngle : section.sweepAngle / totalLandmassCount;
       const angle = cumulativeAngle + sliceAngle * 0.5;
       const distFn = landmassGroups[i] === 0 ? getDistantDistance : getLandmassDistance;
       const distance = VoronoiUtils.clamp(distFn(rands[i]), 0, 1) * 0.5;
-      positions.push({ x: 0.5 + Math.cos(angle) * distance, y: 0.5 + Math.sin(angle) * distance });
+      positions.push({
+        x: 0.5 + Math.cos(angle) * distance,
+        y: 0.5 + Math.sin(angle) * distance,
+        pinned: false,
+        size: slotWeights[i],
+        groupId: landmassGroups[i] == 0 ? 0 : landmassGroups[i] + context.groupOffset,
+        ruleSetKey: section.ruleSetKey
+      });
       cumulativeAngle += sliceAngle;
     }
-    let pinnedCenter = -1;
-    const pinnedPos = { x: 0.5, y: 0.5 };
-    if (singleGroupCenter) {
+    if (context.totalGroupCount === 1) {
       for (let i = 0; i < totalLandmassCount; ++i) {
-        if (landmassGroups[i] > 0) {
-          pinnedCenter = i;
+        if (positions[i].groupId > 0) {
           const offsetAngle = RandomImpl.fRand("Pinned center angle") * Math.PI * 2;
           const offsetDist = Math.sqrt(RandomImpl.fRand("Pinned center dist")) * 0.05;
-          pinnedPos.x = 0.5 + Math.cos(offsetAngle) * offsetDist;
-          pinnedPos.y = 0.5 + Math.sin(offsetAngle) * offsetDist;
-          positions[i].x = pinnedPos.x;
-          positions[i].y = pinnedPos.y;
+          positions[i].x = 0.5 + Math.cos(offsetAngle) * offsetDist;
+          positions[i].y = 0.5 + Math.sin(offsetAngle) * offsetDist;
+          positions[i].pinned = true;
           break;
         }
       }
     }
-    if (this.m_settings.enforceGroupConstraints) {
-      const W = hexDims.x;
-      const H = hexDims.y;
-      for (let i = 0; i < totalLandmassCount; ++i) {
-        positions[i].x *= W;
-        positions[i].y *= H;
-      }
-      pinnedPos.x *= W;
-      pinnedPos.y *= H;
-      const slotSizes = slotWeights.map((w, i) => w + (generatorSettings.landmass[i].coastalIslandsSize ?? 0));
-      const sameGroupPadding = 1;
-      const sameGroupMultiplier = 0.75;
-      const diffGroupPadding = 4;
-      const diffGroupMultiplier = 1.25;
-      const radiusOf = (size) => Math.sqrt(size / 100 * W * H / Math.PI);
-      const minDistBetween = (sizeA, sizeB, sameGroup) => {
-        const padding = sameGroup ? sameGroupPadding : diffGroupPadding;
-        const multiplier = sameGroup ? sameGroupMultiplier : diffGroupMultiplier;
-        return (radiusOf(sizeA) + radiusOf(sizeB)) * multiplier + padding;
-      };
-      const groupDistMultiplier = 1;
-      const maxGroupDistBetween = (sizeA, sizeB) => {
-        return (radiusOf(sizeA) + radiusOf(sizeB)) * groupDistMultiplier + sameGroupPadding;
-      };
-      const constraintIterations = 50;
-      const mstStrength = 0.8;
-      const separationStrength = 0.3;
-      const groupMembers = /* @__PURE__ */ new Map();
-      for (let i = 0; i < totalLandmassCount; ++i) {
-        const gid = landmassGroups[i];
-        if (gid === 0) continue;
-        if (!groupMembers.has(gid)) groupMembers.set(gid, []);
-        groupMembers.get(gid).push(i);
-      }
-      const groupMSTs = /* @__PURE__ */ new Map();
-      for (const [gid, members] of groupMembers) {
-        if (members.length < 2) continue;
-        const inTree = /* @__PURE__ */ new Set();
-        const mstEdges = [];
-        inTree.add(members[0]);
-        while (inTree.size < members.length) {
-          let bestDist = Infinity;
-          let bestFrom = -1;
-          let bestTo = -1;
-          for (const from of inTree) {
-            for (const to of members) {
-              if (inTree.has(to)) continue;
-              const dx = positions[to].x - positions[from].x;
-              const dy = positions[to].y - positions[from].y;
-              const d = Math.sqrt(dx * dx + dy * dy);
-              if (d < bestDist) {
-                bestDist = d;
-                bestFrom = from;
-                bestTo = to;
-              }
-            }
-          }
-          if (bestTo >= 0) {
-            inTree.add(bestTo);
-            mstEdges.push([bestFrom, bestTo]);
-          } else {
-            break;
-          }
-        }
-        groupMSTs.set(gid, mstEdges);
-      }
-      const convergenceThreshold = 0.2;
-      const applyForce = (pa, pb, dist, amount, massA = 1, massB = 1) => {
-        let nx;
-        let ny;
-        if (dist > 0) {
-          nx = (pb.x - pa.x) / dist;
-          ny = (pb.y - pa.y) / dist;
-        } else {
-          const angle = (pa.x * 7 + pa.y * 13 + pb.x * 17 + pb.y * 23) % 360 * (Math.PI / 180);
-          nx = Math.cos(angle);
-          ny = Math.sin(angle);
-        }
-        const totalMass = massA + massB;
-        const ratioA = totalMass > 0 ? massB / totalMass : 0.5;
-        const ratioB = totalMass > 0 ? massA / totalMass : 0.5;
-        pa.x -= nx * amount * ratioA;
-        pa.y -= ny * amount * ratioA;
-        pb.x += nx * amount * ratioB;
-        pb.y += ny * amount * ratioB;
-      };
-      for (let iter = 0; iter < constraintIterations; ++iter) {
-        const prevPositions = positions.map((p) => ({ x: p.x, y: p.y }));
-        const damping = 1 - 0.5 * (iter / constraintIterations);
-        const currentMST = mstStrength * damping;
-        const currentSep = separationStrength * damping;
-        for (const [gid, members] of groupMembers) {
-          const mstEdges = groupMSTs.get(gid);
-          if (!mstEdges || members.length < 2) continue;
-          for (const [a, b] of mstEdges) {
-            const pa = positions[a];
-            const pb = positions[b];
-            const dx = pb.x - pa.x;
-            const dy = pb.y - pa.y;
-            const dist = Math.sqrt(dx * dx + dy * dy);
-            const maxDist = maxGroupDistBetween(slotSizes[a], slotSizes[b]);
-            const minDist = minDistBetween(slotSizes[a], slotSizes[b], true);
-            if (dist > maxDist) {
-              applyForce(pa, pb, dist, -(dist - maxDist) * currentMST);
-            } else if (dist < minDist) {
-              applyForce(pa, pb, dist, (minDist - dist) * currentMST);
-            }
-          }
-        }
-        for (let i = 0; i < totalLandmassCount; ++i) {
-          for (let j = i + 1; j < totalLandmassCount; ++j) {
-            if (landmassGroups[i] > 0 && landmassGroups[i] === landmassGroups[j]) continue;
-            const pi = positions[i];
-            const pj = positions[j];
-            const dx = pj.x - pi.x;
-            const dy = pj.y - pi.y;
-            const dist = Math.sqrt(dx * dx + dy * dy);
-            const minDist = minDistBetween(slotSizes[i], slotSizes[j], false);
-            if (dist < minDist) {
-              const amount = (minDist - (dist > 0 ? dist : 0)) * currentSep;
-              applyForce(pi, pj, dist, amount, slotSizes[i], slotSizes[j]);
-            }
-          }
-        }
-        let maxMovementSq = 0;
-        const edgePadding = 2;
-        for (let i = 0; i < totalLandmassCount; ++i) {
-          const r = radiusOf(slotSizes[i]);
-          const loX = Math.max(edgePadding, r);
-          const hiX = Math.min(W - edgePadding, W - r);
-          const loY = Math.max(edgePadding, r);
-          const hiY = Math.min(H - edgePadding, H - r);
-          positions[i].x = VoronoiUtils.clamp(positions[i].x, loX, hiX);
-          positions[i].y = VoronoiUtils.clamp(positions[i].y, loY, hiY);
-          if (singleGroupCenter && i === pinnedCenter) {
-            positions[i].x = pinnedPos.x;
-            positions[i].y = pinnedPos.y;
-          }
-          const dx = positions[i].x - prevPositions[i].x;
-          const dy = positions[i].y - prevPositions[i].y;
-          maxMovementSq = Math.max(maxMovementSq, dx * dx + dy * dy);
-        }
-        if (maxMovementSq < convergenceThreshold * convergenceThreshold) break;
-      }
-      for (let i = 0; i < totalLandmassCount; ++i) {
-        positions[i].x /= W;
-        positions[i].y /= H;
-      }
-    }
-    landmassIdx = 0;
-    distantIdx = 0;
-    for (let i = 0; i < totalLandmassCount; ++i) {
-      const landmass = generatorSettings.landmass[i];
-      if (landmassGroups[i] === 0) {
-        landmass.size = distantSizes[distantIdx++];
-        landmass.playerAreas = 0;
-      } else {
-        landmass.size = landmassSizes[landmassIdx++];
-        landmass.playerAreas = 1;
-      }
-      landmass.xPos = positions[i].x;
-      landmass.yPos = positions[i].y;
-      landmass.variance = 0;
-      landmass.groupId = landmassGroups[i];
-    }
+    context.groupOffset += section.groupCount;
+    return positions;
   }
   getSettingsConfig() {
     return this.m_baseSchema;
   }
 }
 
-export { UnifiedContinentsBase, unifiedContinentsSchema };
+export { UnifiedContinentsBase, unifiedContinentsSchema, unifiedSectionSchema };
 //# sourceMappingURL=unified-continents-base.js.map

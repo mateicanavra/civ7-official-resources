@@ -1,6 +1,8 @@
+import { ContextManager } from '../../../../core/ui/context-manager/context-manager.js';
 import { InterfaceMode } from '../../../../core/ui/interface-modes/interface-modes.js';
 import LensManager from '../../../../core/ui/lenses/lens-manager.js';
 import { HexToFloat4 } from '../../../../core/ui/utilities/utilities-color.js';
+import { HideMiniMapEvent } from '../../mini-map/panel-mini-map.js';
 import { OVERLAY_PRIORITY } from '../../utilities/utilities-overlay.js';
 
 const SETTLEMENT_BLOCKED_COLOR = HexToFloat4(6883593, 0.6);
@@ -26,6 +28,7 @@ class AppealLensLayer {
   initLayer() {
   }
   applyLayer() {
+    ContextManager.push("panel-settler-legend");
     this.clearOverlay();
     engine.on("CityInitialized", this.cityAddedToMapListener);
     const localPlayer = Players.get(GameContext.localPlayerID);
@@ -68,6 +71,8 @@ class AppealLensLayer {
     this.applyLayer();
   }
   removeLayer() {
+    ContextManager.pop("panel-settler-legend");
+    window.dispatchEvent(new HideMiniMapEvent(false));
     this.clearOverlay();
   }
 }

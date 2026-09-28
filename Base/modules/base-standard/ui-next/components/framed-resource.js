@@ -5,7 +5,7 @@ import { Icon } from '../../../core/ui-next/components/icon.js';
 import { useImageCache } from '../../../core/ui-next/components/image-cache.js';
 import { L10n } from '../../../core/ui-next/components/l10n.js';
 
-var _tmpl$ = /* @__PURE__ */ template(`<div class="size-10 bg-contain bg-no-repeat bg-center absolute flex items-center justify-center -bottom-2 translate-y-1\\/2"><div class="size-full bg-contain bg-no-repeat bg-center absolute"></div><div class="size-full bg-contain bg-no-repeat bg-center absolute"></div></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="size-full bg-contain bg-no-repeat bg-center absolute pointer-events-none"></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="absolute flex flex-row items-center gap-1 px-1 py-0\\.5 rounded-lg text-2xs text-white pointer-events-none"></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div></div>`);
+var _tmpl$ = /* @__PURE__ */ template(`<div class="size-10 bg-contain bg-no-repeat bg-center absolute flex items-center justify-center -bottom-2 translate-y-1\\/2"><div class="size-full bg-contain bg-no-repeat bg-center absolute"></div><div class="size-full bg-contain bg-no-repeat bg-center absolute"></div></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="size-full bg-contain bg-no-repeat bg-center absolute pointer-events-none"></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="absolute flex flex-row items-center gap-1 px-1 py-0\\.5 rounded-lg text-2xs text-white pointer-events-none"></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div><div class="relative size-full flex items-end justify-center"></div></div>`);
 const ImportFlagSymbol = Symbol();
 const ImportFlag = (props) => {
   const images = {
@@ -48,32 +48,32 @@ const FramedResource = (props) => {
   imageCache.registerImages(FramedResourceSymbol, Object.values(images));
   const draggableContext = useDraggableContext();
   return (() => {
-    var _el$4 = _tmpl$4();
-    insert(_el$4, createComponent(Show, {
+    var _el$4 = _tmpl$4(), _el$5 = _el$4.firstChild;
+    insert(_el$5, createComponent(Show, {
       get when() {
         return props.importFlag;
       },
       children: (importFlagProps) => createComponent(ImportFlag, mergeProps(importFlagProps))
     }), null);
-    insert(_el$4, createComponent(Show, {
+    insert(_el$5, createComponent(Show, {
       get when() {
         return props.showHighlight;
       },
       get children() {
-        var _el$5 = _tmpl$2();
-        createRenderEffect((_$p) => (_$p = images.resourceSlotSelectCSS) != null ? _el$5.style.setProperty("background-image", _$p) : _el$5.style.removeProperty("background-image"));
-        return _el$5;
+        var _el$6 = _tmpl$2();
+        createRenderEffect((_$p) => (_$p = images.resourceSlotSelectCSS) != null ? _el$6.style.setProperty("background-image", _$p) : _el$6.style.removeProperty("background-image"));
+        return _el$6;
       }
     }), null);
-    insert(_el$4, createComponent(Icon, {
+    insert(_el$5, createComponent(Icon, {
       "class": "size-full pointer-events-none relative",
       isUrl: true,
       get name() {
         return props.resourceIcon;
       }
     }), null);
-    insert(_el$4, () => props.children, null);
-    insert(_el$4, createComponent(Icon, {
+    insert(_el$5, () => props.children, null);
+    insert(_el$5, createComponent(Icon, {
       "class": "size-1\\/2 -bottom-2 absolute pointer-events-none scale-90",
       get name() {
         return props.resourceTypeIcon;
@@ -81,23 +81,35 @@ const FramedResource = (props) => {
       isUrl: true,
       "data-name": "Framed-Resource"
     }), null);
-    insert(_el$4, createComponent(Show, {
+    insert(_el$5, createComponent(Show, {
       get when() {
         return props.isSwapTarget;
       },
       get children() {
-        var _el$6 = _tmpl$3();
-        _el$6.style.setProperty("border", "solid 2px rgba(255, 226, 136, 1)");
-        _el$6.style.setProperty("background", "linear-gradient(to top, rgba(21, 27, 39, 1) 0%, rgba(33, 38, 57, 1) 100%)");
-        insert(_el$6, createComponent(Icon, {
+        var _el$7 = _tmpl$3();
+        _el$7.style.setProperty("border", "solid 2px rgba(255, 226, 136, 1)");
+        _el$7.style.setProperty("background", "linear-gradient(to top, rgba(21, 27, 39, 1) 0%, rgba(33, 38, 57, 1) 100%)");
+        insert(_el$7, createComponent(Icon, {
           "class": "size-4",
           name: "url(blp:replace_arrows)",
           isUrl: true
         }), null);
-        insert(_el$6, createComponent(L10n.Compose, {
+        insert(_el$7, createComponent(L10n.Compose, {
           text: "LOC_COMMERCE_REPLACE_RESOURCE_LABEL"
         }), null);
-        return _el$6;
+        return _el$7;
+      }
+    }), null);
+    insert(_el$4, createComponent(Show, {
+      get when() {
+        return props.isDamaged;
+      },
+      get children() {
+        return createComponent(Icon, {
+          "class": "size-10 absolute top-3",
+          name: "url(blp:buildicon_warning)",
+          isUrl: true
+        });
       }
     }), null);
     createRenderEffect((_p$) => {
@@ -105,13 +117,15 @@ const FramedResource = (props) => {
         "mb-4": props.importFlag !== void 0,
         "mb-2": props.importFlag === void 0,
         ...props.classList
-      };
+      }, _v$8 = !!(props.isDamaged === true);
       _v$6 !== _p$.e && className(_el$4, _p$.e = _v$6);
       _p$.t = classList(_el$4, _v$7, _p$.t);
+      _v$8 !== _p$.a && _el$5.classList.toggle("opacity-30", _p$.a = _v$8);
       return _p$;
     }, {
       e: void 0,
-      t: void 0
+      t: void 0,
+      a: void 0
     });
     return _el$4;
   })();

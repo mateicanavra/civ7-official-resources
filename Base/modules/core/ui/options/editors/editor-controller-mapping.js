@@ -1,9 +1,8 @@
 import { TtsManager } from '../../accessibility/tts-manager.js';
 import { ActionActivateEventName } from '../../components/fxs-activatable.js';
 import { FxsChooserItem } from '../../components/fxs-chooser-item.js';
-import ContextManager from '../../context-manager/context-manager.js';
+import { ContextManager } from '../../context-manager/context-manager.js';
 import { DialogBoxManager } from '../../dialog-box/manager-dialog-box.js';
-import ActionHandler from '../../input/action-handler.js';
 import { Focus } from '../../input/focus-support.js';
 import { ActiveDeviceTypeChangedEventName } from '../../input/input-events.js';
 import NavTray from '../../navigation-tray/model-navigation-tray.js';
@@ -12,8 +11,9 @@ import { MustGetElement, MustGetElements } from '../../utilities/utilities-dom.j
 import { Icon } from '../../utilities/utilities-image.js';
 import { Layout } from '../../utilities/utilities-layout.js';
 import { FocusManager } from '../../../ui-next/services/focus-manager.js';
+import { IsHybridActive, IsControllerActive } from '../../../ui-next/services/input.js';
 import editorControllerMappingStyles from './editor-controller-mapping.scss.js';
-import styles from '../../../../base-standard/ui/chooser-item/chooser-item.scss.js';
+import chooserItemStyles from '../../../../base-standard/ui/chooser-item/chooser-item.scss.js';
 import { DialogBoxAction } from '../../dialog-box/model-dialog-box.js';
 
 const GESTURE_KEYS = [
@@ -610,7 +610,7 @@ class EditorControllerMapping extends Panel {
   }
   updateInputDeviceType() {
     let inputDeviceType = InputDeviceType.Controller;
-    if (ActionHandler.isHybridActive) {
+    if (IsHybridActive()) {
       inputDeviceType = InputDeviceType.Hybrid;
     }
     const activeControllerIcon = Input.getControllerIcon() || this.inputControllerIcon;
@@ -846,8 +846,8 @@ class EditorInputBindingPanel extends Panel {
   activeDeviceTypeListener = this.onActiveDeviceTypeChanged.bind(this);
   onInitialize() {
     this.Root.innerHTML = this.getContent();
-    this.inputDeviceType = ActionHandler.isHybridActive ? InputDeviceType.Hybrid : InputDeviceType.Controller;
-    this.recordingDeviceTypes = ActionHandler.isHybridActive ? [InputDeviceType.Hybrid] : [InputDeviceType.Controller];
+    this.inputDeviceType = IsHybridActive() ? InputDeviceType.Hybrid : InputDeviceType.Controller;
+    this.recordingDeviceTypes = IsHybridActive() ? [InputDeviceType.Hybrid] : [InputDeviceType.Controller];
     this.contextNameDiv = MustGetElement(".editor-input-binding-panel__context-name", this.Root);
     this.actionNameDiv = MustGetElement(".editor-input-binding-panel__action-name", this.Root);
     this.gestureIcon = MustGetElement(".editor-input-binding-panel__gesture-icon", this.Root);
@@ -1022,9 +1022,9 @@ class EditorControllerChooserItem extends FxsChooserItem {
   }
   // TODO: update only on layout change (ounce-right, ounce-left) as this should be the only time the component stays alive and update
   updateInputDeviceType() {
-    if (ActionHandler.isHybridActive) {
+    if (IsHybridActive()) {
       this.inputDeviceType = InputDeviceType.Hybrid;
-    } else if (ActionHandler.isGamepadActive) {
+    } else if (IsControllerActive()) {
       this.inputDeviceType = InputDeviceType.Controller;
     }
     this.updateData();
@@ -1034,7 +1034,7 @@ Controls.define("editor-controller-chooser-item", {
   createInstance: EditorControllerChooserItem,
   description: "A chooser item to be used with the editor controller screen",
   classNames: ["editor-controller-chooser-item", "chooser-item_unlocked"],
-  styles: [styles],
+  styles: [chooserItemStyles],
   attributes: [
     { name: "node" },
     { name: "disabled" },
@@ -1072,7 +1072,7 @@ Controls.define("editor-controller-read-only-item", {
   createInstance: EditorControllerReadOnlyItem,
   description: "A read-only item to be used with the editor controller screen",
   classNames: ["editor-controller-read-only-item", "group"],
-  styles: [styles],
+  styles: [chooserItemStyles],
   attributes: [{ name: "node" }]
 });
 class ControllerMapActionElement extends Component {
@@ -1219,9 +1219,9 @@ class ControllerMapActionElement extends Component {
   }
   // TODO: update only on layout change (ounce-right, ounce-left) as this should be the only time the component stays alive and update
   updateInputDeviceType() {
-    if (ActionHandler.isHybridActive) {
+    if (IsHybridActive()) {
       this.inputDeviceType = InputDeviceType.Hybrid;
-    } else if (ActionHandler.isGamepadActive) {
+    } else if (IsControllerActive()) {
       this.inputDeviceType = InputDeviceType.Controller;
     }
     this.updateInputDeviceLayout();

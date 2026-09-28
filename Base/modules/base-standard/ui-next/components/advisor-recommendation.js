@@ -3,7 +3,7 @@ import { splitProps, mergeProps, createComponent, Show, createRenderEffect, For 
 import { L10n } from '../../../core/ui-next/components/l10n.js';
 import { ComponentRegistry } from '../../../core/ui-next/services/component-registry.js';
 
-var _tmpl$ = /* @__PURE__ */ template(`<div><div></div></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class=my-1></div>`);
+var _tmpl$ = /* @__PURE__ */ template(`<div><div></div></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="my-1"></div>`);
 const getTextForAdvisorRecommendation = (type) => {
   switch (type) {
     case "recommendation-cultural":

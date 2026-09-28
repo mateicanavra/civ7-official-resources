@@ -1,7 +1,7 @@
 import { ActionActivateEvent } from './fxs-activatable.js';
-import ActionHandler from '../input/action-handler.js';
 import { NavigateInputEventName } from '../input/input-support.js';
 import { FocusManager } from '../../ui-next/services/focus-manager.js';
+import { IsControllerActive } from '../../ui-next/services/input.js';
 
 class FxsTextboxValidateVirtualKeyboard extends CustomEvent {
   constructor(detail) {
@@ -183,7 +183,7 @@ class FxsTextbox extends ChangeNotificationComponent {
         Number.parseInt(this.Root.getAttribute("max-length") ?? "-1")
       );
     }
-    if (ActionHandler.isGamepadActive) {
+    if (IsControllerActive()) {
       switch (UI.getVirtualKeyboardType()) {
         case UIVirtualKeyboardType.None:
         case UIVirtualKeyboardType.Inline:

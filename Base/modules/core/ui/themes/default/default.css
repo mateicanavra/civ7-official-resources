@@ -957,6 +957,11 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+@media (experience: mobile) {
+  .img-narrative-frame-bg {
+    background-image: url("blp:bg-panel-chola");
+  }
+}
 
 .img-narrative-frame-overlay {
   border-image-outset: 0.8333333333rem 1.3888888889rem 1.9444444444rem 1.3888888889rem;
@@ -2663,6 +2668,8 @@ fxs-reward-button:hover, fxs-reward-button:focus, fxs-reward-button.pressed {
 }
 fxs-reward-button .fxs-reward-button__action {
   border-top: rgba(76, 83, 102, 0.5) 0.0555555556rem solid;
+  width: 98%;
+  align-self: center;
 }
 fxs-reward-button .reward-warning {
   background-image: url("blp:nar_reg_negative");
@@ -3322,6 +3329,16 @@ fxs-link:hover, fxs-link.pressed {
 
 #uinext-tooltips p {
   pointer-events: inherit;
+}
+
+.img-tooltip-border {
+  width: max-content;
+  max-width: 30rem;
+}
+
+.img-tooltip-border--wide {
+  width: max-content;
+  max-width: 60rem;
 }
 
 .card-frame-bg {

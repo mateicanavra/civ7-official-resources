@@ -1,8 +1,8 @@
 import { Audio } from '../../../core/ui/audio-base/audio-support.js';
-import ActionHandler from '../../../core/ui/input/action-handler.js';
 import Cursor from '../../../core/ui/input/cursor.js';
 import { HighlightColors } from '../../../core/ui/utilities/utilities-color.js';
 import { ComponentID } from '../../../core/ui/utilities/utilities-component-id.js';
+import { IsControllerActive, IsTouchActive } from '../../../core/ui-next/services/input.js';
 import { OVERLAY_PRIORITY } from '../utilities/utilities-overlay.js';
 
 var UnitMapDecorationSupport;
@@ -100,7 +100,7 @@ var UnitMapDecorationSupport;
       this._showDesiredDestination = shouldShow;
     }
     get showDesiredDestination() {
-      return this._showDesiredDestination || ActionHandler.isGamepadActive || ActionHandler.deviceType == InputDeviceType.Touch && !Configuration.getXR();
+      return this._showDesiredDestination || IsControllerActive() || IsTouchActive() && !Configuration.getXR();
     }
     activate(unitID, mode) {
       this.commandRadiusOverlay.clear();
@@ -113,11 +113,12 @@ var UnitMapDecorationSupport;
       this.unitID = unitID;
       this.mode = mode;
       this.updateRanges();
+      engine.on("UnitBermudaTeleported", this.onUnitBermudaTeleported, this);
       engine.on("UnitMoveComplete", this.onUnitMoveComplete, this);
       engine.on("UnitKilledInCombat", this.onUnitKilled, this);
       engine.on("UnitMovementPointsCleared", this.onUnitMovementPointsCleared, this);
       const plotCoords = Camera.pickPlotFromPoint(Cursor.position.x, Cursor.position.y);
-      if (plotCoords && !ActionHandler.isGamepadActive && ActionHandler.deviceType != InputDeviceType.Touch) {
+      if (plotCoords && !IsControllerActive() && !IsTouchActive()) {
         this.update(plotCoords);
       } else {
         this.update();
@@ -180,6 +181,15 @@ var UnitMapDecorationSupport;
         }
         if (isShowingTarget && kAttackPlots != null && kAttackPlots.length > 0) {
           for (const plot of kAttackPlots) {
+            const location = GameplayMap.getLocationFromIndex(plot);
+            const revealedState = GameplayMap.getRevealedState(
+              GameContext.localObserverID,
+              location.x,
+              location.y
+            );
+            if (revealedState != RevealedStates.VISIBLE) {
+              continue;
+            }
             this.unitAttackOverlay.setPlotGroups(plot, dynamicPlotGroupCounter);
             this.unitAttackOverlay.setGroupStyle(
               dynamicPlotGroupCounter,
@@ -499,6 +509,14 @@ var UnitMapDecorationSupport;
     getPathVFXforPlot() {
       return "VFX_3dUI_MovePip_01";
     }
+    /**
+     * Specific to Bermuda event when moving a unit into it.
+     */
+    onUnitBermudaTeleported(data) {
+      if (ComponentID.isMatch(this.unitID, data.unit)) {
+        this.unitMovementStaticModelGroup.clear();
+      }
+    }
     onUnitMoveComplete(data) {
       if (ComponentID.isMatch(this.unitID, data.unit)) {
         if (this.unitMovementStaticModelGroup.vfxCount > 0) {
@@ -524,6 +542,7 @@ var UnitMapDecorationSupport;
       this.unitMovementDynamicModelGroup.clear();
       this.clearVisualizations();
       this.showDesiredDestination = false;
+      engine.off("UnitBermudaTeleported", this.onUnitBermudaTeleported, this);
       engine.off("UnitMoveComplete", this.onUnitMoveComplete, this);
       engine.off("UnitKilledInCombat", this.onUnitKilled, this);
       engine.off("UnitMovementPointsCleared", this.onUnitMovementPointsCleared, this);

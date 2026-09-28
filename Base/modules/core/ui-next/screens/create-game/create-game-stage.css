@@ -58,6 +58,16 @@
     right: 0.6666666667rem;
   }
 }
+@media (experience: mobile) {
+  .create-game-header-right-button-area {
+    right: 1.6666666667rem;
+  }
+}
+@media (experience: mobile) and (max-height: 55.5555555556rem) {
+  .create-game-header-right-button-area {
+    top: 1.2222222222rem;
+  }
+}
 
 @media (experience: mobile) {
   .create-game-back-button {
@@ -109,6 +119,12 @@
   color: #c2c4cc;
   font-weight: normal;
 }
+.create-game-markup.faux-tooltip-controller .faux-tooltip b {
+  color: #c1a25f;
+}
+.create-game-markup.faux-tooltip-controller .faux-tooltip b:hover {
+  color: #eedbb1;
+}
 .create-game-markup .indent-1 {
   margin-top: 0.2222222222rem;
   margin-right: 0.2222222222rem;
@@ -153,19 +169,29 @@
   }
 }
 
-.create-game-badge-container {
+.create-game-badge-container-inner,
+.create-game-badge-container-outer {
   width: 4.8888888889rem;
   height: 4.8888888889rem;
 }
 @media (max-height: 55.5555555556rem) {
-  .create-game-badge-container {
+  .create-game-badge-container-inner,
+  .create-game-badge-container-outer {
     width: 3.1111111111rem;
     height: 3.1111111111rem;
   }
 }
 @media (experience: mobile) and (max-height: 55.5555555556rem) {
-  .create-game-badge-container {
+  .create-game-badge-container-inner,
+  .create-game-badge-container-outer {
     width: 3.5555555556rem;
     height: 3.5555555556rem;
+  }
+}
+
+@media (experience: mobile) and (max-height: 55.5555555556rem) {
+  .create-game-badge-container-outer {
+    top: 0.8888888889rem;
+    right: 1.6666666667rem;
   }
 }

@@ -1,3 +1,4 @@
+import { InputHandlerState } from './input-support.js';
 import { SpriteSheet, SpriteSheetAnimation } from '../utilities/animations.js';
 import ViewManager from '../views/view-manager.js';
 import { FocusManager } from '../../ui-next/services/focus-manager.js';
@@ -312,13 +313,13 @@ class CursorSingleton {
    *  @returns true if still live, false if input should stop.
    */
   handleInput(_inputEvent) {
-    return true;
+    return InputHandlerState.Active;
   }
   /**
    * @returns true if still live, false if input should stop.
    */
   handleNavigation(_navigationEvent) {
-    return true;
+    return InputHandlerState.Active;
   }
   /** Update the target on standard mouse events to ensure we have the best target */
   onClick(event) {

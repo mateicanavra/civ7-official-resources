@@ -1,6 +1,7 @@
-import ContextManager from '../../../core/ui/context-manager/context-manager.js';
+import { ContextManager } from '../../../core/ui/context-manager/context-manager.js';
 import { DisplayHandlerBase } from '../../../core/ui/context-manager/display-handler.js';
 import { DisplayQueueManager } from '../../../core/ui/context-manager/display-queue-manager.js';
+import { InterfaceModeChangedEventName } from '../../../core/ui/interface-modes/interface-modes.js';
 import { PopupPriority } from '../popup-sequencer/popup-priority.js';
 
 var NarrativePopupTypes = /* @__PURE__ */ ((NarrativePopupTypes2) => {
@@ -21,6 +22,7 @@ class NarrativePopupManagerImpl extends DisplayHandlerBase {
       console.error("Only one instance of the NarrativePopupManager class can exist at a time!");
     }
     NarrativePopupManagerImpl.instance = this;
+    window.addEventListener(InterfaceModeChangedEventName, this.onInterfaceModeChanged);
   }
   raiseNotificationPanel(notificationId, _activatedBy, favorDiscovery) {
     if (this.isShowing() && this.isNotificationPanelRaised) {
@@ -83,6 +85,11 @@ class NarrativePopupManagerImpl extends DisplayHandlerBase {
     this.addDisplayRequest(narrativePopupData);
     return;
   }
+  onInterfaceModeChanged = (event) => {
+    if (event.detail.newMode == "INTERFACEMODE_PAUSE_MENU") {
+      DisplayQueueManager.closeMatching(this.getCategory());
+    }
+  };
   closePopup = () => {
     if (this.currentNarrativeData) {
       DisplayQueueManager.close(this.currentNarrativeData);
@@ -90,14 +97,14 @@ class NarrativePopupManagerImpl extends DisplayHandlerBase {
     }
   };
   /**
-   * @implements {IDisplayQueue}
+   * @implements {IDisplayHandler}
    */
   canShow() {
     const isLensPanelOpen = ContextManager.getCurrentTarget()?.classList.contains("lens-panel");
     return ContextManager.isEmpty || isLensPanelOpen === true;
   }
   /**
-   * @implements {IDisplayQueue}
+   * @implements {IDisplayHandler}
    */
   show(request) {
     this.currentNarrativeData = request;
@@ -112,8 +119,7 @@ class NarrativePopupManagerImpl extends DisplayHandlerBase {
       ContextManager.push("small-narrative-event", {
         singleton: true,
         createMouseGuard: false,
-        viewChangeMethod: UIViewChangeMethod.PlayerInteraction,
-        panelOptions: { notificationId: this.notificationID }
+        viewChangeMethod: UIViewChangeMethod.PlayerInteraction
       });
     } else if (request.type == 0 /* REGULAR */) {
       ContextManager.push("screen-narrative-event", {
@@ -146,7 +152,7 @@ class NarrativePopupManagerImpl extends DisplayHandlerBase {
     return false;
   }
   /**
-   * @implements {IDisplayQueue}
+   * @implements {IDisplayHandler}
    */
   hide(request, _options) {
     if (request.type == 1 /* MODEL */) {

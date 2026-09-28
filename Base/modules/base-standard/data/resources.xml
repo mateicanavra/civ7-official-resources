@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by Ed Beach (Firaxis Games) -->
 <Database>
 	<Kinds>
 		<InsertOrIgnore Kind="KIND_RESOURCE"/>
@@ -57,49 +56,49 @@
 	</Types>
 	<Resources>
 		<!--Antiquity Hemispheres 0=Home Lands only 1= Distantlands only-->
-		<Row ResourceType="RESOURCE_COTTON" Name="LOC_RESOURCE_COTTON_NAME" Tooltip="LOC_ANT_RESOURCE_COTTON_TOOLTIP" ResourceClassType="RESOURCECLASS_BONUS" Weight="10" Staple="true"/>
-		<Row ResourceType="RESOURCE_DATES" Name="LOC_RESOURCE_DATES_NAME" Tooltip="LOC_ANT_RESOURCE_DATES_TOOLTIP" ResourceClassType="RESOURCECLASS_BONUS" Weight="10"/>
-		<Row ResourceType="RESOURCE_DYES" Name="LOC_RESOURCE_DYES_NAME" Tooltip="LOC_ANT_RESOURCE_DYES_TOOLTIP" ResourceClassType="RESOURCECLASS_BONUS" Weight="10" AdjacentToLand="true"/>
-		<Row ResourceType="RESOURCE_FISH" Name="LOC_RESOURCE_FISH_NAME" Tooltip="LOC_ANT_RESOURCE_FISH_TOOLTIP" ResourceClassType="RESOURCECLASS_BONUS" Weight="10" AdjacentToLand="true"/>
-		<Row ResourceType="RESOURCE_GOLD" Name="LOC_RESOURCE_GOLD_NAME" Tooltip="LOC_ANT_RESOURCE_GOLD_TOOLTIP" ResourceClassType="RESOURCECLASS_EMPIRE" Weight="20" Staple="true" MinimumPerHemisphere="8"/>
-		<Row ResourceType="RESOURCE_GOLD_DISTANT_LANDS" Name="LOC_RESOURCE_GOLD_NAME" Tooltip="LOC_ANT_RESOURCE_GOLD_DISTANT_LANDS_TOOLTIP" ResourceClassType="RESOURCECLASS_EMPIRE" Weight="25"/>
-		<Row ResourceType="RESOURCE_GYPSUM" Name="LOC_RESOURCE_GYPSUM_NAME" Tooltip="LOC_ANT_RESOURCE_GYPSUM_TOOLTIP" ResourceClassType="RESOURCECLASS_CITY" Weight="10"/>
-		<Row ResourceType="RESOURCE_INCENSE" Name="LOC_RESOURCE_INCENSE_NAME" Tooltip="LOC_ANT_RESOURCE_INCENSE_TOOLTIP" ResourceClassType="RESOURCECLASS_CITY" Weight="10"/>
-		<Row ResourceType="RESOURCE_IVORY" Name="LOC_RESOURCE_IVORY_NAME" Tooltip="LOC_ANT_RESOURCE_IVORY_TOOLTIP" ResourceClassType="RESOURCECLASS_EMPIRE" Weight="10" UnlocksCiv="true"/>
-		<Row ResourceType="RESOURCE_JADE" Name="LOC_RESOURCE_JADE_NAME" Tooltip="LOC_ANT_RESOURCE_JADE_TOOLTIP" ResourceClassType="RESOURCECLASS_CITY" Weight="10" UnlocksCiv="true"/>
-		<Row ResourceType="RESOURCE_KAOLIN" Name="LOC_RESOURCE_KAOLIN_NAME" Tooltip="LOC_ANT_RESOURCE_KAOLIN_TOOLTIP" ResourceClassType="RESOURCECLASS_CITY" Weight="10" Staple="true"/>
-		<Row ResourceType="RESOURCE_MARBLE" Name="LOC_RESOURCE_MARBLE_NAME" Tooltip="LOC_ANT_RESOURCE_MARBLE_TOOLTIP" ResourceClassType="RESOURCECLASS_EMPIRE" Weight="10"/>
-		<Row ResourceType="RESOURCE_PEARLS" Name="LOC_RESOURCE_PEARLS_NAME" Tooltip="LOC_ANT_RESOURCE_PEARLS_TOOLTIP" ResourceClassType="RESOURCECLASS_CITY" Weight="10" AdjacentToLand="true" UnlocksCiv="true"/>
-		<Row ResourceType="RESOURCE_SILK" Name="LOC_RESOURCE_SILK_NAME" Tooltip="LOC_ANT_RESOURCE_SILK_TOOLTIP" ResourceClassType="RESOURCECLASS_CITY" Weight="10" UnlocksCiv="true"/>
-		<Row ResourceType="RESOURCE_SILVER" Name="LOC_RESOURCE_SILVER_NAME" Tooltip="LOC_ANT_RESOURCE_SILVER_TOOLTIP" ResourceClassType="RESOURCECLASS_EMPIRE" Weight="20" Staple="true" MinimumPerHemisphere="8"/>
-		<Row ResourceType="RESOURCE_SILVER_DISTANT_LANDS" Name="LOC_RESOURCE_SILVER_NAME" Tooltip="LOC_ANT_RESOURCE_SILVER_DISTANT_LANDS_TOOLTIP" ResourceClassType="RESOURCECLASS_EMPIRE" Weight="25"/>
-		<Row ResourceType="RESOURCE_WINE" Name="LOC_RESOURCE_WINE_NAME" Tooltip="LOC_ANT_RESOURCE_WINE_TOOLTIP" ResourceClassType="RESOURCECLASS_EMPIRE" Weight="10" UnlocksCiv="true"/>
-		<Row ResourceType="RESOURCE_CAMELS" Name="LOC_RESOURCE_CAMELS_NAME" Tooltip="LOC_ANT_RESOURCE_CAMELS_TOOLTIP" ResourceClassType="RESOURCECLASS_CITY" Weight="10" BonusResourceSlots="2" UnlocksCiv="true"/>
-		<Row ResourceType="RESOURCE_HIDES" Name="LOC_RESOURCE_HIDES_NAME" Tooltip="LOC_ANT_RESOURCE_HIDES_TOOLTIP" ResourceClassType="RESOURCECLASS_BONUS" Weight="40"/>
-		<Row ResourceType="RESOURCE_HORSES" Name="LOC_RESOURCE_HORSES_NAME" Tooltip="LOC_ANT_RESOURCE_HORSES_TOOLTIP" ResourceClassType="RESOURCECLASS_EMPIRE" Weight="10" UnlocksCiv="true" Staple="true"/>
-		<Row ResourceType="RESOURCE_IRON" Name="LOC_RESOURCE_IRON_NAME" Tooltip="LOC_ANT_RESOURCE_IRON_TOOLTIP" ResourceClassType="RESOURCECLASS_EMPIRE" Weight="10" UnlocksCiv="true" Staple="true"/>
-		<Row ResourceType="RESOURCE_SALT" Name="LOC_RESOURCE_SALT_NAME" Tooltip="LOC_ANT_RESOURCE_SALT_TOOLTIP" ResourceClassType="RESOURCECLASS_CITY" Weight="10" UnlocksCiv="true"/>
-		<Row ResourceType="RESOURCE_WOOL" Name="LOC_RESOURCE_WOOL_NAME" Tooltip="LOC_ANT_RESOURCE_WOOL_TOOLTIP" ResourceClassType="RESOURCECLASS_BONUS" Weight="10"/>
-		<Row ResourceType="RESOURCE_LAPIS_LAZULI" Name="LOC_RESOURCE_LAPIS_LAZULI_NAME" Tooltip="LOC_ANT_RESOURCE_LAPIS_LAZULI_TOOLTIP" ResourceClassType="RESOURCECLASS_CITY" Weight="10" Tradeable="false"/>
+		<Row ResourceType="RESOURCE_COTTON" Name="LOC_RESOURCE_COTTON_NAME" Tooltip="LOC_ANT_RESOURCE_COTTON_TOOLTIP" ResourceClassType="RESOURCECLASS_BONUS" Staple="true"/>
+		<Row ResourceType="RESOURCE_DATES" Name="LOC_RESOURCE_DATES_NAME" Tooltip="LOC_ANT_RESOURCE_DATES_TOOLTIP" ResourceClassType="RESOURCECLASS_BONUS" />
+		<Row ResourceType="RESOURCE_DYES" Name="LOC_RESOURCE_DYES_NAME" Tooltip="LOC_ANT_RESOURCE_DYES_TOOLTIP" ResourceClassType="RESOURCECLASS_BONUS" AdjacentToLand="true"/>
+		<Row ResourceType="RESOURCE_FISH" Name="LOC_RESOURCE_FISH_NAME" Tooltip="LOC_ANT_RESOURCE_FISH_TOOLTIP" ResourceClassType="RESOURCECLASS_BONUS" AdjacentToLand="true"/>
+		<Row ResourceType="RESOURCE_GOLD" Name="LOC_RESOURCE_GOLD_NAME" Tooltip="LOC_ANT_RESOURCE_GOLD_TOOLTIP" ResourceClassType="RESOURCECLASS_EMPIRE" Weight="0.5" Staple="true" MinimumPerLandmass="3"/>
+		<Row ResourceType="RESOURCE_GOLD_DISTANT_LANDS" Name="LOC_RESOURCE_GOLD_NAME" Tooltip="LOC_ANT_RESOURCE_GOLD_DISTANT_LANDS_TOOLTIP" ResourceClassType="RESOURCECLASS_EMPIRE" Weight="0.4"/>
+		<Row ResourceType="RESOURCE_GYPSUM" Name="LOC_RESOURCE_GYPSUM_NAME" Tooltip="LOC_ANT_RESOURCE_GYPSUM_TOOLTIP" ResourceClassType="RESOURCECLASS_CITY" />
+		<Row ResourceType="RESOURCE_INCENSE" Name="LOC_RESOURCE_INCENSE_NAME" Tooltip="LOC_ANT_RESOURCE_INCENSE_TOOLTIP" ResourceClassType="RESOURCECLASS_CITY" />
+		<Row ResourceType="RESOURCE_IVORY" Name="LOC_RESOURCE_IVORY_NAME" Tooltip="LOC_ANT_RESOURCE_IVORY_TOOLTIP" ResourceClassType="RESOURCECLASS_EMPIRE" UnlocksCiv="true"/>
+		<Row ResourceType="RESOURCE_JADE" Name="LOC_RESOURCE_JADE_NAME" Tooltip="LOC_ANT_RESOURCE_JADE_TOOLTIP" ResourceClassType="RESOURCECLASS_CITY" UnlocksCiv="true"/>
+		<Row ResourceType="RESOURCE_KAOLIN" Name="LOC_RESOURCE_KAOLIN_NAME" Tooltip="LOC_ANT_RESOURCE_KAOLIN_TOOLTIP" ResourceClassType="RESOURCECLASS_CITY" Staple="true"/>
+		<Row ResourceType="RESOURCE_MARBLE" Name="LOC_RESOURCE_MARBLE_NAME" Tooltip="LOC_ANT_RESOURCE_MARBLE_TOOLTIP" ResourceClassType="RESOURCECLASS_EMPIRE" />
+		<Row ResourceType="RESOURCE_PEARLS" Name="LOC_RESOURCE_PEARLS_NAME" Tooltip="LOC_ANT_RESOURCE_PEARLS_TOOLTIP" ResourceClassType="RESOURCECLASS_CITY" AdjacentToLand="true" UnlocksCiv="true"/>
+		<Row ResourceType="RESOURCE_SILK" Name="LOC_RESOURCE_SILK_NAME" Tooltip="LOC_ANT_RESOURCE_SILK_TOOLTIP" ResourceClassType="RESOURCECLASS_CITY" UnlocksCiv="true"/>
+		<Row ResourceType="RESOURCE_SILVER" Name="LOC_RESOURCE_SILVER_NAME" Tooltip="LOC_ANT_RESOURCE_SILVER_TOOLTIP" ResourceClassType="RESOURCECLASS_EMPIRE" Weight="0.5" Staple="true" MinimumPerLandmass="3"/>
+		<Row ResourceType="RESOURCE_SILVER_DISTANT_LANDS" Name="LOC_RESOURCE_SILVER_NAME" Tooltip="LOC_ANT_RESOURCE_SILVER_DISTANT_LANDS_TOOLTIP" ResourceClassType="RESOURCECLASS_EMPIRE" Weight="0.4"/>
+		<Row ResourceType="RESOURCE_WINE" Name="LOC_RESOURCE_WINE_NAME" Tooltip="LOC_ANT_RESOURCE_WINE_TOOLTIP" ResourceClassType="RESOURCECLASS_EMPIRE" UnlocksCiv="true"/>
+		<Row ResourceType="RESOURCE_CAMELS" Name="LOC_RESOURCE_CAMELS_NAME" Tooltip="LOC_ANT_RESOURCE_CAMELS_TOOLTIP" ResourceClassType="RESOURCECLASS_CITY" BonusResourceSlots="2" UnlocksCiv="true"/>
+		<Row ResourceType="RESOURCE_HIDES" Name="LOC_RESOURCE_HIDES_NAME" Tooltip="LOC_ANT_RESOURCE_HIDES_TOOLTIP" ResourceClassType="RESOURCECLASS_BONUS" Weight="0.25"/>
+		<Row ResourceType="RESOURCE_HORSES" Name="LOC_RESOURCE_HORSES_NAME" Tooltip="LOC_ANT_RESOURCE_HORSES_TOOLTIP" ResourceClassType="RESOURCECLASS_EMPIRE" UnlocksCiv="true" Staple="true"/>
+		<Row ResourceType="RESOURCE_IRON" Name="LOC_RESOURCE_IRON_NAME" Tooltip="LOC_ANT_RESOURCE_IRON_TOOLTIP" ResourceClassType="RESOURCECLASS_EMPIRE" UnlocksCiv="true" Staple="true"/>
+		<Row ResourceType="RESOURCE_SALT" Name="LOC_RESOURCE_SALT_NAME" Tooltip="LOC_ANT_RESOURCE_SALT_TOOLTIP" ResourceClassType="RESOURCECLASS_CITY" UnlocksCiv="true"/>
+		<Row ResourceType="RESOURCE_WOOL" Name="LOC_RESOURCE_WOOL_NAME" Tooltip="LOC_ANT_RESOURCE_WOOL_TOOLTIP" ResourceClassType="RESOURCECLASS_BONUS" />
+		<Row ResourceType="RESOURCE_LAPIS_LAZULI" Name="LOC_RESOURCE_LAPIS_LAZULI_NAME" Tooltip="LOC_ANT_RESOURCE_LAPIS_LAZULI_TOOLTIP" ResourceClassType="RESOURCECLASS_CITY" Tradeable="false"/>
 		<!--  Exploration-->
-		<Row ResourceType="RESOURCE_COCOA" Name="LOC_RESOURCE_COCOA_NAME" Tooltip="LOC_EXP_RESOURCE_COCOA_TOOLTIP" ResourceClassType="RESOURCECLASS_EMPIRE" Weight="5" HemisphereUnique="true" MinimumPerHemisphere="8"/>
-		<Row ResourceType="RESOURCE_FURS" Name="LOC_RESOURCE_FURS_NAME" Tooltip="LOC_EXP_RESOURCE_FURS_TOOLTIP" ResourceClassType="RESOURCECLASS_EMPIRE" Weight="5"/>
-		<Row ResourceType="RESOURCE_SPICES" Name="LOC_RESOURCE_SPICES_NAME" Tooltip="LOC_EXP_RESOURCE_SPICES_TOOLTIP" ResourceClassType="RESOURCECLASS_EMPIRE" Weight="5" HemisphereUnique="true" MinimumPerHemisphere="8"/>
-		<Row ResourceType="RESOURCE_SUGAR" Name="LOC_RESOURCE_SUGAR_NAME" Tooltip="LOC_EXP_RESOURCE_SUGAR_TOOLTIP" ResourceClassType="RESOURCECLASS_EMPIRE" Weight="5" HemisphereUnique="true" MinimumPerHemisphere="8"/>
-		<Row ResourceType="RESOURCE_TEA" Name="LOC_RESOURCE_TEA_NAME" Tooltip="LOC_EXP_RESOURCE_TEA_TOOLTIP" ResourceClassType="RESOURCECLASS_EMPIRE" Weight="5" UnlocksCiv="true" HemisphereUnique="true" MinimumPerHemisphere="8"/>
-		<Row ResourceType="RESOURCE_TRUFFLES" Name="LOC_RESOURCE_TRUFFLES_NAME" Tooltip="LOC_EXP_RESOURCE_TRUFFLES_TOOLTIP" ResourceClassType="RESOURCECLASS_CITY" Weight="10"/>
-		<Row ResourceType="RESOURCE_NITER" Name="LOC_RESOURCE_NITER_NAME" Tooltip="LOC_EXP_RESOURCE_NITER_TOOLTIP" ResourceClassType="RESOURCECLASS_EMPIRE" Weight="10" UnlocksCiv="true"/>
-		<Row ResourceType="RESOURCE_CLOVES" Name="LOC_RESOURCE_CLOVES_NAME" Tooltip="LOC_EXP_RESOURCE_CLOVES_TOOLTIP" ResourceClassType="RESOURCECLASS_CITY" Weight="10" Tradeable="false"/>
-		<Row ResourceType="RESOURCE_WHALES" Name="LOC_RESOURCE_WHALES_NAME" Tooltip="LOC_EXP_RESOURCE_WHALES_TOOLTIP" ResourceClassType="RESOURCECLASS_BONUS" Weight="10" AdjacentToLand="true" LakeEligible="false"/>
+		<Row ResourceType="RESOURCE_COCOA" Name="LOC_RESOURCE_COCOA_NAME" Tooltip="LOC_EXP_RESOURCE_COCOA_TOOLTIP" ResourceClassType="RESOURCECLASS_EMPIRE" Weight="2" LandmassUnique="true" MinimumPerLandmass="3"/>
+		<Row ResourceType="RESOURCE_FURS" Name="LOC_RESOURCE_FURS_NAME" Tooltip="LOC_EXP_RESOURCE_FURS_TOOLTIP" ResourceClassType="RESOURCECLASS_EMPIRE" Weight="2"/>
+		<Row ResourceType="RESOURCE_SPICES" Name="LOC_RESOURCE_SPICES_NAME" Tooltip="LOC_EXP_RESOURCE_SPICES_TOOLTIP" ResourceClassType="RESOURCECLASS_EMPIRE" Weight="2" LandmassUnique="true" MinimumPerLandmass="3"/>
+		<Row ResourceType="RESOURCE_SUGAR" Name="LOC_RESOURCE_SUGAR_NAME" Tooltip="LOC_EXP_RESOURCE_SUGAR_TOOLTIP" ResourceClassType="RESOURCECLASS_EMPIRE" Weight="2" LandmassUnique="true" MinimumPerLandmass="3"/>
+		<Row ResourceType="RESOURCE_TEA" Name="LOC_RESOURCE_TEA_NAME" Tooltip="LOC_EXP_RESOURCE_TEA_TOOLTIP" ResourceClassType="RESOURCECLASS_EMPIRE" Weight="2" UnlocksCiv="true" LandmassUnique="true" MinimumPerLandmass="3"/>
+		<Row ResourceType="RESOURCE_TRUFFLES" Name="LOC_RESOURCE_TRUFFLES_NAME" Tooltip="LOC_EXP_RESOURCE_TRUFFLES_TOOLTIP" ResourceClassType="RESOURCECLASS_CITY" />
+		<Row ResourceType="RESOURCE_NITER" Name="LOC_RESOURCE_NITER_NAME" Tooltip="LOC_EXP_RESOURCE_NITER_TOOLTIP" ResourceClassType="RESOURCECLASS_EMPIRE" UnlocksCiv="true"/>
+		<Row ResourceType="RESOURCE_CLOVES" Name="LOC_RESOURCE_CLOVES_NAME" Tooltip="LOC_EXP_RESOURCE_CLOVES_TOOLTIP" ResourceClassType="RESOURCECLASS_CITY" Tradeable="false"/>
+		<Row ResourceType="RESOURCE_WHALES" Name="LOC_RESOURCE_WHALES_NAME" Tooltip="LOC_EXP_RESOURCE_WHALES_TOOLTIP" ResourceClassType="RESOURCECLASS_BONUS" AdjacentToLand="true" LakeEligible="false"/>
 		<!--Modern-->
-		<Row ResourceType="RESOURCE_COFFEE" Name="LOC_RESOURCE_COFFEE_NAME" Tooltip="LOC_MOD_RESOURCE_COFFEE_TOOLTIP" ResourceClassType="RESOURCECLASS_BONUS" Weight="10" MinimumPerHemisphere="8"/>
-		<Row ResourceType="RESOURCE_TOBACCO" Name="LOC_RESOURCE_TOBACCO_NAME" Tooltip="LOC_MOD_RESOURCE_TOBACCO_TOOLTIP" ResourceClassType="RESOURCECLASS_BONUS" Weight="10" MinimumPerHemisphere="8"/>
-		<Row ResourceType="RESOURCE_CITRUS" Name="LOC_RESOURCE_CITRUS_NAME" Tooltip="LOC_MOD_RESOURCE_CITRUS_TOOLTIP" ResourceClassType="RESOURCECLASS_BONUS" Weight="10" MinimumPerHemisphere="8"/>
-		<Row ResourceType="RESOURCE_COAL" Name="LOC_RESOURCE_COAL_NAME" Tooltip="LOC_MOD_RESOURCE_COAL_TOOLTIP" ResourceClassType="RESOURCECLASS_EMPIRE" Weight="10"/>
-		<Row ResourceType="RESOURCE_NICKEL" Name="LOC_RESOURCE_NICKEL_NAME" Tooltip="LOC_MOD_RESOURCE_NICKEL_TOOLTIP" ResourceClassType="RESOURCECLASS_CITY" Weight="10" Tradeable="false"/>
-		<Row ResourceType="RESOURCE_OIL" Name="LOC_RESOURCE_OIL_NAME" Tooltip="LOC_MOD_RESOURCE_OIL_TOOLTIP" ResourceClassType="RESOURCECLASS_EMPIRE" Weight="10"/>
-		<Row ResourceType="RESOURCE_QUININE" Name="LOC_RESOURCE_QUININE_NAME" Tooltip="LOC_MOD_RESOURCE_QUININE_TOOLTIP" ResourceClassType="RESOURCECLASS_BONUS" Weight="10" MinimumPerHemisphere="8"/>
-		<Row ResourceType="RESOURCE_RUBBER" Name="LOC_RESOURCE_RUBBER_NAME" Tooltip="LOC_MOD_RESOURCE_RUBBER_TOOLTIP" ResourceClassType="RESOURCECLASS_EMPIRE" Weight="10"/>
+		<Row ResourceType="RESOURCE_COFFEE" Name="LOC_RESOURCE_COFFEE_NAME" Tooltip="LOC_MOD_RESOURCE_COFFEE_TOOLTIP" ResourceClassType="RESOURCECLASS_BONUS" MinimumPerLandmass="3"/>
+		<Row ResourceType="RESOURCE_TOBACCO" Name="LOC_RESOURCE_TOBACCO_NAME" Tooltip="LOC_MOD_RESOURCE_TOBACCO_TOOLTIP" ResourceClassType="RESOURCECLASS_BONUS" MinimumPerLandmass="3"/>
+		<Row ResourceType="RESOURCE_CITRUS" Name="LOC_RESOURCE_CITRUS_NAME" Tooltip="LOC_MOD_RESOURCE_CITRUS_TOOLTIP" ResourceClassType="RESOURCECLASS_BONUS" MinimumPerLandmass="3"/>
+		<Row ResourceType="RESOURCE_COAL" Name="LOC_RESOURCE_COAL_NAME" Tooltip="LOC_MOD_RESOURCE_COAL_TOOLTIP" ResourceClassType="RESOURCECLASS_EMPIRE" />
+		<Row ResourceType="RESOURCE_NICKEL" Name="LOC_RESOURCE_NICKEL_NAME" Tooltip="LOC_MOD_RESOURCE_NICKEL_TOOLTIP" ResourceClassType="RESOURCECLASS_CITY" Tradeable="false"/>
+		<Row ResourceType="RESOURCE_OIL" Name="LOC_RESOURCE_OIL_NAME" Tooltip="LOC_MOD_RESOURCE_OIL_TOOLTIP" ResourceClassType="RESOURCECLASS_EMPIRE" />
+		<Row ResourceType="RESOURCE_QUININE" Name="LOC_RESOURCE_QUININE_NAME" Tooltip="LOC_MOD_RESOURCE_QUININE_TOOLTIP" ResourceClassType="RESOURCECLASS_BONUS" MinimumPerLandmass="3"/>
+		<Row ResourceType="RESOURCE_RUBBER" Name="LOC_RESOURCE_RUBBER_NAME" Tooltip="LOC_MOD_RESOURCE_RUBBER_TOOLTIP" ResourceClassType="RESOURCECLASS_EMPIRE" />
 	</Resources>
 	<ResourceClasses>
 		<Row ResourceClassType="RESOURCECLASS_BONUS" Name="LOC_RESOURCECLASS_BONUS_NAME" Description="LOC_RESOURCECLASS_BONUS_DESCRIPTION" Assignable="true"/>
@@ -280,6 +279,8 @@
 		<Row ResourceType="RESOURCE_GOLD" BiomeType="BIOME_PLAINS" TerrainType="TERRAIN_HILL"/>
 		<Row ResourceType="RESOURCE_GOLD" BiomeType="BIOME_TROPICAL" TerrainType="TERRAIN_HILL"/>
 		<Row ResourceType="RESOURCE_GYPSUM" BiomeType="BIOME_TUNDRA" TerrainType="TERRAIN_HILL"/>
+		<Row ResourceType="RESOURCE_GYPSUM" BiomeType="BIOME_GRASSLAND" TerrainType="TERRAIN_HILL"/>
+		<Row ResourceType="RESOURCE_GYPSUM" BiomeType="BIOME_DESERT" TerrainType="TERRAIN_HILL"/>
 		<Row ResourceType="RESOURCE_GYPSUM" BiomeType="BIOME_PLAINS" TerrainType="TERRAIN_FLAT"/>
 		<Row ResourceType="RESOURCE_GYPSUM" BiomeType="BIOME_PLAINS" TerrainType="TERRAIN_HILL"/>
 		<Row ResourceType="RESOURCE_INCENSE" BiomeType="BIOME_PLAINS" TerrainType="TERRAIN_FLAT" FeatureType="FEATURE_SAVANNA_WOODLAND"/>
@@ -307,6 +308,7 @@
 		<Row ResourceType="RESOURCE_SILK" BiomeType="BIOME_TROPICAL" TerrainType="TERRAIN_FLAT" FeatureType="FEATURE_TROPICAL_FLOODPLAIN_MINOR"/>
 		<Row ResourceType="RESOURCE_SILK" BiomeType="BIOME_PLAINS" TerrainType="TERRAIN_FLAT"/>
 		<Row ResourceType="RESOURCE_SILVER" BiomeType="BIOME_TUNDRA" TerrainType="TERRAIN_HILL"/>
+		<Row ResourceType="RESOURCE_SILVER" BiomeType="BIOME_PLAINS" TerrainType="TERRAIN_HILL"/>
 		<Row ResourceType="RESOURCE_SILVER" BiomeType="BIOME_DESERT" TerrainType="TERRAIN_HILL"/>
 		<Row ResourceType="RESOURCE_WINE" BiomeType="BIOME_GRASSLAND" TerrainType="TERRAIN_FLAT"/>
 		<Row ResourceType="RESOURCE_WINE" BiomeType="BIOME_PLAINS" TerrainType="TERRAIN_FLAT"/>
@@ -317,6 +319,7 @@
 		<Row ResourceType="RESOURCE_FURS" BiomeType="BIOME_PLAINS" TerrainType="TERRAIN_FLAT" FeatureType="FEATURE_SAVANNA_WOODLAND"/>
 		<Row ResourceType="RESOURCE_SPICES" BiomeType="BIOME_GRASSLAND" TerrainType="TERRAIN_FLAT" FeatureType="FEATURE_FOREST"/>
 		<Row ResourceType="RESOURCE_SPICES" BiomeType="BIOME_TROPICAL" TerrainType="TERRAIN_FLAT" FeatureType="FEATURE_RAINFOREST"/>
+		<Row ResourceType="RESOURCE_SPICES" BiomeType="BIOME_PLAINS" TerrainType="TERRAIN_FLAT" FeatureType="FEATURE_SAVANNA_WOODLAND"/>
 		<Row ResourceType="RESOURCE_SUGAR" BiomeType="BIOME_GRASSLAND" TerrainType="TERRAIN_FLAT" FeatureType="FEATURE_GRASSLAND_FLOODPLAIN_MINOR"/>
 		<Row ResourceType="RESOURCE_SUGAR" BiomeType="BIOME_PLAINS" TerrainType="TERRAIN_FLAT" FeatureType="FEATURE_PLAINS_FLOODPLAIN_MINOR"/>
 		<Row ResourceType="RESOURCE_SUGAR" BiomeType="BIOME_TROPICAL" TerrainType="TERRAIN_FLAT" FeatureType="FEATURE_TROPICAL_FLOODPLAIN_MINOR"/>

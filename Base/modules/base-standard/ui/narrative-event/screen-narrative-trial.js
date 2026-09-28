@@ -1,5 +1,5 @@
 import { Audio } from '../../../core/ui/audio-base/audio-support.js';
-import ContextManager from '../../../core/ui/context-manager/context-manager.js';
+import { ContextManager } from '../../../core/ui/context-manager/context-manager.js';
 import { InputEngineEventName } from '../../../core/ui/input/input-support.js';
 import NavTray from '../../../core/ui/navigation-tray/model-navigation-tray.js';
 import Panel from '../../../core/ui/panel-support.js';
@@ -159,26 +159,31 @@ class TrialOfTime extends Panel {
         while (entryContainer.lastChild) {
           entryContainer.removeChild(entryContainer.lastChild);
         }
-        const storyLinks = GameInfo.NarrativeStory_Links.filter(
+        const _storyLinks = GameInfo.NarrativeStory_Links.filter(
           (def) => def.FromNarrativeStoryType == storyDef.NarrativeStoryType
         );
         let links = 0;
         if (storyDef.VariableLinks) {
-          let storyLinks2 = playerStories.getOrderedLinks(targetStoryId);
-          if (storyLinks2 && storyLinks2.length > 0) {
-            storyLinks2.forEach((link) => {
+          const storyLinks = playerStories.getOrderedLinks(targetStoryId);
+          if (storyLinks && storyLinks.length > 0) {
+            storyLinks.forEach((link) => {
               if (this.populateLinkEntry(link, targetStoryId, entryContainer, playerStories)) {
                 links = links + 1;
               }
             });
           }
         } else {
-          const storyLinks2 = GameInfo.NarrativeStory_Links.filter(
+          const storyLinks = GameInfo.NarrativeStory_Links.filter(
             (def) => def.FromNarrativeStoryType == storyDef.NarrativeStoryType
           );
-          if (storyLinks2 && storyLinks2.length > 0) {
-            storyLinks2.forEach((link) => {
-              if (this.populateLinkEntry(link.ToNarrativeStoryType, targetStoryId, entryContainer, playerStories)) {
+          if (storyLinks && storyLinks.length > 0) {
+            storyLinks.forEach((link) => {
+              if (this.populateLinkEntry(
+                link.ToNarrativeStoryType,
+                targetStoryId,
+                entryContainer,
+                playerStories
+              )) {
                 links = links + 1;
               }
             });
@@ -209,12 +214,10 @@ class TrialOfTime extends Panel {
   populateLinkEntry(link, targetStoryId, entryContainer, playerStories) {
     const linkDef = GameInfo.NarrativeStories.lookup(link);
     if (linkDef) {
-      if (linkDef?.Activation.toUpperCase() === "LINKED" || (linkDef?.Activation.toUpperCase() === "LINKED_REQUISITE" || linkDef?.Activation.toUpperCase() === "LINKED_SUBJECT_REQUISITE") && playerStories.determineRequisiteLink(linkDef.NarrativeStoryType, targetStoryId)) {
-        const icons = GameInfo.NarrativeRewardIcons.filter(
-          (item) => {
-            return item.NarrativeStoryType === linkDef.NarrativeStoryType;
-          }
-        );
+      if (linkDef?.Activation.toUpperCase() === "LINKED" || (linkDef?.Activation.toUpperCase() === "LINKED_REQUISITE" || linkDef?.Activation.toUpperCase() === "LINKED_COMMON" || linkDef?.Activation.toUpperCase() === "LINKED_SUBJECT_REQUISITE") && playerStories.determineRequisiteLink(linkDef.NarrativeStoryType, targetStoryId)) {
+        const icons = GameInfo.NarrativeRewardIcons.filter((item) => {
+          return item.NarrativeStoryType === linkDef.NarrativeStoryType;
+        });
         const toLinkDef = GameInfo.NarrativeStories.lookup(
           linkDef.NarrativeStoryType
         );

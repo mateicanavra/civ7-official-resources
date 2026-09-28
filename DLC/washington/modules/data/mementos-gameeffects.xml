@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+	<Modifier id="MEMENTO_WASHINGTON_CONSTITUTION_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_ACTIVE_TRADITION">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_CITY"/>
+		</SubjectRequirements>
+		<Argument name="CivUnique">true</Argument>
+		<Argument name="Invert">false</Argument>
+		<Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Tooltip">LOC_MEMENTO_WASHINGTON_CONSTITUTION_NAME</Argument>
+		<String context="Description">LOC_MEMENTO_WASHINGTON_CONSTITUTION_FUNCTIONAL_DESCRIPTION</String>
+	</Modifier>
+	<Modifier id="MEMENTO_WASHINGTON_CIRCUMFERENTOR_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_GRANT_UNIT" run-once="false" permanent="true">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_TRAINED_UNIT">
+				<Argument name="UnitTag">UNIT_CLASS_CREATE_TOWN</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="UnitType">UNIT_MIGRANT</Argument>
+		<Argument name="Amount">1</Argument>
+	</Modifier>
+	<Modifier id="MEMENTO_WASHINGTON_BASTILLE_KEY_MODIFIER_1" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_ACTIVE_TRADITION">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_CITY"/>
+		</SubjectRequirements>
+		<Argument name="CivUnique">true</Argument>
+		<Argument name="Invert">false</Argument>
+		<Argument name="YieldType">YIELD_FOOD</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Tooltip">LOC_MEMENTO_WASHINGTON_BASTILLE_KEY_NAME</Argument>
+	</Modifier>
+	<Modifier id="MEMENTO_WASHINGTON_BASTILLE_KEY_MODIFIER_2" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_ACTIVE_TRADITION">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_CITY"/>
+		</SubjectRequirements>
+		<Argument name="CivUnique">true</Argument>
+		<Argument name="Invert">false</Argument>
+		<Argument name="YieldType">YIELD_HAPPINESS</Argument>
+		<Argument name="Amount">1</Argument>
+		<Argument name="Tooltip">LOC_MEMENTO_WASHINGTON_BASTILLE_KEY_NAME</Argument>
+	</Modifier>
+</GameEffects>

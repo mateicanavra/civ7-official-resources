@@ -45,6 +45,16 @@
   height: 12.5em;
   min-height: 10.5555555556rem;
 }
+@media (experience: mobile) {
+  .memento-select {
+    width: 33.3333333333rem;
+  }
+}
+@media (experience: mobile) and (max-height: 55.5555555556rem) {
+  .memento-select {
+    width: 28.8888888889rem;
+  }
+}
 
 .memento-select-locked {
   filter: grayscale(1);
@@ -60,6 +70,11 @@
   .memento-select-filter-bar {
     margin-right: 2.1666666667rem;
     margin-left: 2.1666666667rem;
+  }
+}
+@media (experience: mobile) {
+  .memento-select-filter-bar {
+    margin: 0.6666666667rem 0.4444444444rem 1rem 0.8888888889rem;
   }
 }
 
@@ -84,6 +99,13 @@
     background-size: 2.8888888889rem 2.8888888889rem;
   }
 }
+@media (experience: mobile) {
+  .memento-select-slot {
+    width: 12.2222222222rem;
+    height: 12.2222222222rem;
+    background-size: 4.1666666667rem 4.1666666667rem;
+  }
+}
 
 .memento-select-slot-base {
   width: 10rem;
@@ -93,6 +115,12 @@
   .memento-select-slot-base {
     width: 8.1111111111rem;
     height: 8.1111111111rem;
+  }
+}
+@media (experience: mobile) {
+  .memento-select-slot-base {
+    width: 13.8888888889rem;
+    height: 13.8888888889rem;
   }
 }
 
@@ -106,6 +134,12 @@
     height: 5.7777777778rem;
   }
 }
+@media (experience: mobile) {
+  .memento-select-slot-icon {
+    width: 9.4444444444rem;
+    height: 9.4444444444rem;
+  }
+}
 
 .memento-select-divider-line {
   width: 100%;
@@ -113,11 +147,24 @@
   background-color: #776a54;
   opacity: 0.9;
 }
+@media (experience: mobile) {
+  .memento-select-divider-line {
+    width: 0.0555555556rem;
+    height: 100%;
+  }
+}
 
 .memento-select-divider-gradient {
   width: 100%;
   height: 7.2222222222rem;
   background: linear-gradient(to bottom, black, transparent);
+}
+@media (experience: mobile) {
+  .memento-select-divider-gradient {
+    width: 1.1111111111rem;
+    height: 100%;
+    background: linear-gradient(to left, black, transparent);
+  }
 }
 
 .memento-select-text-info {
@@ -135,5 +182,18 @@
   }
   .memento-select-text-info.right {
     margin-right: 0.8888888889rem;
+  }
+}
+
+@media (experience: mobile) {
+  .memento-select-list-container {
+    width: 84%;
+    max-width: 72.2222222222rem;
+  }
+}
+@media (experience: mobile) and (max-height: 55.5555555556rem) {
+  .memento-select-list-container {
+    width: 80%;
+    max-width: 64.1666666667rem;
   }
 }

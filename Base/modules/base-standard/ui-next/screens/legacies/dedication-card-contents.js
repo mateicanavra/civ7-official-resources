@@ -1,12 +1,16 @@
-import { template, insert, className } from '../../../../core/vendor/solid-js/web/dist/web.js';
+import { template, insert, className, classList, style } from '../../../../core/vendor/solid-js/web/dist/web.js';
 import { createComponent, Show, createRenderEffect } from '../../../../core/vendor/solid-js/dist/solid.js';
+import { Layout } from '../../../../core/ui/utilities/utilities-layout.js';
 import { MetalCardFrame } from '../../../../core/ui-next/components/card-frame.js';
 import { L10n } from '../../../../core/ui-next/components/l10n.js';
 import { NavHelp } from '../../../../core/ui-next/components/nav-help.js';
 import { IsControllerActive } from '../../../../core/ui-next/services/input.js';
+import { isMobile } from '../../../../core/ui-next/services/view-experience.js';
+import { useIsSmallScreen } from '../../../../core/ui-next/utilities/layout-utilities.js';
 
-var _tmpl$ = /* @__PURE__ */ template(`<div class="relative font-title text-center uppercase text-secondary mb-1"></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="absolute inset-0 metal-card-frame-bg-hover"></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="size-8 absolute bg-contain bg-center bg-no-repeat"></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div><div class="relative overflow-hidden w-full min-h-32 p-3 flex flex-col items-center text-xs"><div class="absolute inset-0"></div><div class="flex relative flex-auto items-center font-fit-shrink text-center overflow-hidden"></div></div></div>`);
+var _tmpl$ = /* @__PURE__ */ template(`<div class="relative font-title text-center uppercase text-secondary mb-1"></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="absolute inset-0 metal-card-frame-bg-hover"></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="size-8 absolute bg-contain bg-center bg-no-repeat"></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div><div class="relative overflow-hidden w-full min-h-32 p-3 flex flex-col items-center"><div class="absolute inset-0"></div><div class="flex relative flex-auto items-center font-fit-shrink text-center overflow-hidden"></div></div></div>`);
 const DedicationCardContents = (props) => {
+  const isSmallScreen = useIsSmallScreen();
   return (() => {
     var _el$ = _tmpl$4(), _el$2 = _el$.firstChild, _el$3 = _el$2.firstChild, _el$5 = _el$3.nextSibling;
     insert(_el$2, createComponent(Show, {
@@ -84,15 +88,29 @@ const DedicationCardContents = (props) => {
       }
     }), null);
     createRenderEffect((_p$) => {
-      var _v$ = `relative flex justify-center w-72 min-h-32 ${props.contentClass || ""}`, _v$2 = props.background || "", _v$3 = props.isHover?.() || props.isDragging?.() ? "brightness(1.5)" : "brightness(1.0)";
+      var _v$ = `relative flex justify-center max-w-full ${props.contentClass || ""}`, _v$2 = {
+        "w-72 min-h-32": !isMobile(),
+        "w-96 min-h-36": isMobile() && isSmallScreen()
+      }, _v$3 = isMobile() && !isSmallScreen() ? {
+        width: `${Layout.pixelsToScreenPixels(412)}px`,
+        "min-height": `${Layout.pixelsToScreenPixels(182)}px`
+      } : {}, _v$4 = !isMobile(), _v$5 = !!isMobile(), _v$6 = props.background || "", _v$7 = props.isHover?.() || props.isDragging?.() ? "brightness(1.5)" : "brightness(1.0)";
       _v$ !== _p$.e && className(_el$, _p$.e = _v$);
-      _v$2 !== _p$.t && ((_p$.t = _v$2) != null ? _el$3.style.setProperty("background-image", _v$2) : _el$3.style.removeProperty("background-image"));
-      _v$3 !== _p$.a && ((_p$.a = _v$3) != null ? _el$3.style.setProperty("filter", _v$3) : _el$3.style.removeProperty("filter"));
+      _p$.t = classList(_el$, _v$2, _p$.t);
+      _p$.a = style(_el$, _v$3, _p$.a);
+      _v$4 !== _p$.o && _el$2.classList.toggle("text-xs", _p$.o = _v$4);
+      _v$5 !== _p$.i && _el$2.classList.toggle("text-sm", _p$.i = _v$5);
+      _v$6 !== _p$.n && ((_p$.n = _v$6) != null ? _el$3.style.setProperty("background-image", _v$6) : _el$3.style.removeProperty("background-image"));
+      _v$7 !== _p$.s && ((_p$.s = _v$7) != null ? _el$3.style.setProperty("filter", _v$7) : _el$3.style.removeProperty("filter"));
       return _p$;
     }, {
       e: void 0,
       t: void 0,
-      a: void 0
+      a: void 0,
+      o: void 0,
+      i: void 0,
+      n: void 0,
+      s: void 0
     });
     return _el$;
   })();

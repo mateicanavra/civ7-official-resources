@@ -1,5 +1,4 @@
 import { Audio } from '../../../core/ui/audio-base/audio-support.js';
-import ActionHandler from '../../../core/ui/input/action-handler.js';
 import { ActiveDeviceTypeChangedEventName } from '../../../core/ui/input/input-events.js';
 import { InputEngineEventName } from '../../../core/ui/input/input-support.js';
 import NavTray from '../../../core/ui/navigation-tray/model-navigation-tray.js';
@@ -8,6 +7,7 @@ import Databind from '../../../core/ui/utilities/utilities-core-databinding.js';
 import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
 import { Layout } from '../../../core/ui/utilities/utilities-layout.js';
 import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
+import { IsControllerActive } from '../../../core/ui-next/services/input.js';
 import PopupSequencer from '../popup-sequencer/popup-sequencer.js';
 import PlayerUnlocks from './model-unlocks.js';
 import content from './screen-unlocks.html.js';
@@ -693,7 +693,7 @@ class ScreenUnlocks extends Panel {
       } else {
         extraRequirement.classList.add("hidden");
       }
-      if (ActionHandler.isGamepadActive) {
+      if (IsControllerActive()) {
         this.showDetailsText.setAttribute(
           "data-l10n-id",
           this.showAllRequirements ? "LOC_UI_PLAYER_UNLOCKS_HIDE_ALL_REQUIREMENTS" : "LOC_UI_PLAYER_UNLOCKS_SHOW_ALL_REQUIREMENTS"

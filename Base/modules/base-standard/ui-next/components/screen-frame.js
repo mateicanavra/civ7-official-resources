@@ -1,6 +1,6 @@
 import { template } from '../../../core/vendor/solid-js/web/dist/web.js';
 import { createSignal, mergeProps, createMemo, createComponent, Show } from '../../../core/vendor/solid-js/dist/solid.js';
-import ContextManager from '../../../core/ui/context-manager/context-manager.js';
+import { ContextManager } from '../../../core/ui/context-manager/context-manager.js';
 import { AudioContextProvider } from '../../../core/ui-next/components/audio-context-provider.js';
 import { CloseButton } from '../../../core/ui-next/components/close-button.js';
 import { Filigree } from '../../../core/ui-next/components/filigree.js';
@@ -82,7 +82,7 @@ const ScreenFrameComponent = (props) => {
             get children() {
               return [createComponent(Show, {
                 get when() {
-                  return !isSmallScreen() && mergedProps.addYieldBar;
+                  return !isSmallScreen() && mergedProps.addYieldBar && !props.isFullscreen;
                 },
                 get children() {
                   return createComponent(YieldStatusBar, {});

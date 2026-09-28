@@ -1,4 +1,4 @@
-import { InputEngineEvent } from '../../../core/ui/input/input-support.js';
+import { InputHandlerState, InputEngineEvent } from '../../../core/ui/input/input-support.js';
 import { InterfaceMode } from '../../../core/ui/interface-modes/interface-modes.js';
 import UnitPromotion from '../unit-promotion/model-unit-promotion.js';
 
@@ -52,7 +52,7 @@ class UnitPromotionInterfaceMode {
   }
   handleInput(inputEvent) {
     if (inputEvent.detail.status != InputActionStatuses.FINISH) {
-      return true;
+      return InputHandlerState.Active;
     }
     if (inputEvent.isCancelInput() || inputEvent.detail.name == "sys-menu") {
       const promotionPanel = document.querySelector("panel-unit-promotion");
@@ -60,9 +60,9 @@ class UnitPromotionInterfaceMode {
         const promotionBackEvent = InputEngineEvent.CreateNewEvent(inputEvent);
         promotionPanel.dispatchEvent(promotionBackEvent);
       }
-      return false;
+      return InputHandlerState.Handled;
     }
-    return true;
+    return InputHandlerState.Active;
   }
 }
 InterfaceMode.addHandler("INTERFACEMODE_UNIT_PROMOTION", new UnitPromotionInterfaceMode());

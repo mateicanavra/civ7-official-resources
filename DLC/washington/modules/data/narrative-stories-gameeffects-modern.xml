@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+    <Modifier id="LEADER_CHAIN_1348B_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD" run-once="false" permanent="false">
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_PLAYER_HAS_ACTIVE_STORY">
+                <Argument name="StoryType">LEADER_CHAIN_1348B</Argument>
+            </Requirement>
+        </SubjectRequirements>
+        <Argument name="YieldType">YIELD_GOLD</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">-3</Argument>
+    </Modifier>
+    <Modifier id="LEADER_CHAIN_1348C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ATTRIBUTE" run-once="false" permanent="true">
+        <Argument name="AttributeType">ATTRIBUTE_POLITICAL</Argument>
+        <Argument name="Amount">1</Argument>
+    </Modifier>
+    <Modifier id="LEADER_CHAIN_1348D_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ATTRIBUTE" run-once="false" permanent="true">
+        <Argument name="AttributeType">ATTRIBUTE_POLITICAL</Argument>
+        <Argument name="Amount">1</Argument>
+    </Modifier>
+    <Modifier id="LEADER_CHAIN_1348D_NARRATIVE_MODIFIER2" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_GOLDEN_AGE" run-once="false" permanent="true">
+    </Modifier>
+    <Modifier id="LEADER_CHAIN_1349C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ATTRIBUTE" run-once="false" permanent="true">
+        <Argument name="AttributeType">ATTRIBUTE_EXPANSIONIST</Argument>
+        <Argument name="Amount">1</Argument>
+    </Modifier>
+    <Modifier id="LEADER_CHAIN_1349D_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ATTRIBUTE" run-once="false" permanent="true">
+        <Argument name="AttributeType">ATTRIBUTE_EXPANSIONIST</Argument>
+        <Argument name="Amount">1</Argument>
+    </Modifier>
+    <Modifier id="LEADER_CHAIN_1349D_NARRATIVE_MODIFIER2" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_GOLDEN_AGE" run-once="false" permanent="true">
+    </Modifier>
+    <Modifier id="10202B_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_ABILITY" run-once="false" permanent="true">
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+                <Argument name="Tag">UNIT_CLASS_INFANTRY</Argument>
+            </Requirement>
+        </SubjectRequirements>
+        <Argument name="AbilityType">ABILITY_NARRATIVE_AGGRESSION</Argument>
+    </Modifier>
+    <Modifier id="10202C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_UNIT_PRODUCTION" run-once="false" permanent="true">
+        <Argument name="Percent">20</Argument>
+        <Argument name="UnitClass">UNIT_CLASS_INFANTRY</Argument>
+    </Modifier>
+    <Modifier id="10203B_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_GRANT_UNIT" run-once="false" permanent="true">
+        <Argument name="UnitType">UNIT_CUIRASSIER</Argument>
+        <Argument name="Amount">1</Argument>
+    </Modifier>
+    <Modifier id="10203C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_NAVAL_UNIT_WITH_OCEAN_ACCESS" run-once="false" permanent="true">
+        <Argument name="UnitType">UNIT_FRIGATE</Argument>
+        <Argument name="Amount">1</Argument>
+    </Modifier>
+    <Modifier id="10205A_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ATTRIBUTE" run-once="false" permanent="true">
+        <Argument name="AttributeType">ATTRIBUTE_ECONOMIC</Argument>
+        <Argument name="Amount">1</Argument>
+    </Modifier>
+    <Modifier id="10206A_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ATTRIBUTE" run-once="false" permanent="true">
+        <Argument name="AttributeType">ATTRIBUTE_EXPANSIONIST</Argument>
+        <Argument name="Amount">1</Argument>
+    </Modifier>
+    <Modifier id="10207A_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ATTRIBUTE" run-once="false" permanent="true">
+        <Argument name="AttributeType">ATTRIBUTE_MILITARISTIC</Argument>
+        <Argument name="Amount">1</Argument>
+    </Modifier>
+    <Modifier id="10204B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ATTRIBUTE" run-once="false" permanent="true">
+        <Argument name="AttributeType">ATTRIBUTE_EXPANSIONIST</Argument>
+        <Argument name="Amount">1</Argument>
+    </Modifier>
+    <Modifier id="10204B_NARRATIVE_MODIFIER2" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADD_YIELD_DEBT_NARRATIVE" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_HAPPINESS</Argument>
+        <Argument name="MultiplierType">REWARD_TYPE_MAJOR_LATE</Argument>
+    </Modifier>
+    <Modifier id="10208B_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD" run-once="false" permanent="false">
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_CITY_IS_CITY" inverse="true">
+            </Requirement>
+        </SubjectRequirements>
+        <Argument name="YieldType">YIELD_GOLD</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+    </Modifier>
+    <Modifier id="10208B_NARRATIVE_MODIFIER2" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_MODIFY_CITY_YIELD_FOR_X_TURNS" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_PRODUCTION</Argument>
+        <Argument name="ReductionPercent">75</Argument>
+        <Argument name="Turns">3</Argument>
+    </Modifier>
+    <Modifier id="10208C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD" run-once="false" permanent="false">
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_CITY_IS_CITY" inverse="true">
+            </Requirement>
+        </SubjectRequirements>
+        <Argument name="YieldType">YIELD_GOLD</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">-2</Argument>
+    </Modifier>
+    <Modifier id="10208C_NARRATIVE_MODIFIER2" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_ADJUST_DIPLOMATIC_ACTION_TOKEN_BONUS" run-once="false" permanent="true">
+        <Argument name="ActionType">DIPLOMACY_ACTION_DECLARE_WAR</Argument>
+        <Argument name="Amount">1</Argument>
+    </Modifier>
+    <Modifier id="10209B_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+        <Argument name="Amount">1</Argument>
+        <Argument name="Tag">FORTIFICATION</Argument>
+    </Modifier>
+    <Modifier id="10209C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_HAPPINESS</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+        <Argument name="ConstructibleType">BUILDING_CITY_PARK</Argument>
+    </Modifier>
+    <Modifier id="10211B_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_GOLD</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+        <Argument name="Tag">HAPPINESS</Argument>
+    </Modifier>
+    <Modifier id="10211C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD" run-once="false" permanent="false">
+        <Argument name="YieldType">YIELD_HAPPINESS</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+    </Modifier>
+    <Modifier id="10211C_NARRATIVE_MODIFIER2" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_SET_GOVERNMENT" run-once="false" permanent="true">
+        <Argument name="GovernmentType">GOVERNMENT_ELECTIVE_REPUBLIC</Argument>
+    </Modifier>
+    <RequirementSet id="REQSET_LEADER_CHAIN_1348C_NARRATIVE_REQUISITE">
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_NARRATIVE_TAGS" inverse="true">
+            <Argument name="NarrativeTagType">NARRATIVE_TAG_LEADER_CHAIN_A</Argument>
+            <Argument name="Amount">4</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_LEADER_CHAIN_1348D_NARRATIVE_REQUISITE">
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_NARRATIVE_TAGS">
+            <Argument name="NarrativeTagType">NARRATIVE_TAG_LEADER_CHAIN_A</Argument>
+            <Argument name="Amount">4</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_LEADER_CHAIN_1349C_NARRATIVE_REQUISITE">
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_NARRATIVE_TAGS" inverse="true">
+            <Argument name="NarrativeTagType">NARRATIVE_TAG_LEADER_CHAIN_B</Argument>
+            <Argument name="Amount">4</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_LEADER_CHAIN_1349D_NARRATIVE_REQUISITE">
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_NARRATIVE_TAGS">
+            <Argument name="NarrativeTagType">NARRATIVE_TAG_LEADER_CHAIN_B</Argument>
+            <Argument name="Amount">4</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_10205A_NARRATIVE_REQUISITE">
+        <Requirement type="REQUIREMENT_PLAYER_HAS_X_RESOURCES">
+            <Argument name="ResourceType">RESOURCE_GOLD</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_10206A_NARRATIVE_REQUISITE">
+        <Requirement type="REQUIREMENT_PLAYER_HAS_X_RESOURCES">
+            <Argument name="ResourceType">RESOURCE_HARDWOOD</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_10207A_NARRATIVE_REQUISITE">
+        <Requirement type="REQUIREMENT_PLAYER_HAS_X_RESOURCES">
+            <Argument name="ResourceType">RESOURCE_IVORY</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_LEADER_CHAIN_1348A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_LEADER_WASHINGTON_ONLY"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_LEADER_CHAIN_1349A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_LEADER_WASHINGTON_ONLY"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_10202A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_LEADER_WASHINGTON"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_10203A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_GREAT_BRITAIN_WASHINGTON"/>
+        <Requirement xref="REQ_STORY_LEADER_WASHINGTON"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_10204A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_LEADER_WASHINGTON"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_10208A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_LEADER_WASHINGTON"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_10209A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_LEADER_WASHINGTON"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_10211A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_LEADER_WASHINGTON"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_LEADER_CHAIN_1348A_NARRATIVE">
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_NARRATIVE_TAGS">
+            <Argument name="NarrativeTagType">NARRATIVE_TAG_LEADER_CHAIN_A</Argument>
+            <Argument name="Amount">3</Argument>
+        </Requirement>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_COMPLETED_PROGRESSION_TREE_NODE">
+            <Argument name="ProgressionTreeNodeType">NODE_CIVIC_MO_MAIN_SOCIAL_QUESTION</Argument>
+            <Argument name="MinDepth">1</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_LEADER_CHAIN_1348B_NARRATIVE">
+        <Requirement type="REQUIREMENT_PLAYER_HAS_COMPLETED_PROGRESSION_TREE_NODE">
+            <Argument name="ProgressionTreeNodeType">NODE_CIVIC_MO_MAIN_NATIONALISM</Argument>
+            <Argument name="MinDepth">1</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_LEADER_CHAIN_1349A_NARRATIVE">
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_NARRATIVE_TAGS">
+            <Argument name="NarrativeTagType">NARRATIVE_TAG_LEADER_CHAIN_B</Argument>
+            <Argument name="Amount">3</Argument>
+        </Requirement>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_COMPLETED_PROGRESSION_TREE_NODE">
+            <Argument name="ProgressionTreeNodeType">NODE_TECH_MO_INDUSTRIALIZATION</Argument>
+            <Argument name="MinDepth">1</Argument>
+        </Requirement>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_X_SETTLEMENTS">
+            <Argument name="CountPerConqueredSettlement">1</Argument>
+            <Argument name="CountPerOwnSettlement">1</Argument>
+            <Argument name="RequiredCount">6</Argument>
+            <Argument name="OnlyCities">True</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_LEADER_CHAIN_1349B_NARRATIVE">
+        <Requirement type="REQUIREMENT_PLAYER_HAS_X_CITIES_WITH_BUILDING_SET">
+            <Argument name="ConstructibleType">BUILDING_RAIL_STATION</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_10202A_NARRATIVE">
+        <Requirement xref="REQ_STORY_LEADER_WASHINGTON"/>
+        <Requirement type="REQUIREMENT_PLAYER_MET_IMMEDIATE_GOSSIP">
+            <Argument name="GossipTypes">GOSSIP_UNIT_COMBAT_DEATH</Argument>
+            <Argument name="GOSSIP_UNIT_COMBAT_DEATH">Hash,OtherPlayer,Self,Hash,IsKillingUnitInfantry,True,Hash,FromRiver,True</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_10203A_NARRATIVE">
+        <Requirement xref="REQ_STORY_CIVILIZATION_GREAT_BRITAIN_WASHINGTON"/>
+        <Requirement xref="REQ_STORY_LEADER_WASHINGTON"/>
+        <Requirement type="REQUIREMENT_PLAYER_MET_IMMEDIATE_GOSSIP">
+            <Argument name="GossipTypes">GOSSIP_UNIT_COMBAT_DEATH</Argument>
+            <Argument name="GOSSIP_UNIT_COMBAT_DEATH">Hash,DyingCivilization,CIVILIZATION_AMERICA,Hash,OtherPlayer,Self</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_10204A_NARRATIVE">
+        <Requirement xref="REQ_STORY_LEADER_WASHINGTON"/>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_X_RESOURCES">
+            <Argument name="ResourceType">RESOURCE_GOLD,RESOURCE_IVORY,RESOURCE_HARDWOOD</Argument>
+            <Argument name="Amount">1</Argument>
+        </Requirement>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_COMPLETED_PROGRESSION_TREE_NODE">
+            <Argument name="ProgressionTreeNodeType">NODE_CIVIC_MO_MAIN_MODERNIZATION</Argument>
+            <Argument name="MinDepth">1</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_10205A_NARRATIVE">
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
+            <Argument name="GossipTypes">GOSSIP_GATHER_RESOURCE01</Argument>
+            <Argument name="GOSSIP_GATHER_RESOURCE01">Hash,ResourceType,RESOURCE_GOLD</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_10206A_NARRATIVE">
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
+            <Argument name="GossipTypes">GOSSIP_GATHER_RESOURCE01</Argument>
+            <Argument name="GOSSIP_GATHER_RESOURCE01">Hash,ResourceType,RESOURCE_HARDWOOD</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_10207A_NARRATIVE">
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
+            <Argument name="GossipTypes">GOSSIP_GATHER_RESOURCE01</Argument>
+            <Argument name="GOSSIP_GATHER_RESOURCE01">Hash,ResourceType,RESOURCE_IVORY</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_10208A_NARRATIVE">
+        <Requirement xref="REQ_STORY_LEADER_WASHINGTON"/>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_X_WARS">
+            <Argument name="Amount">2</Argument>
+        </Requirement>
+        <Requirement type="REQUIREMENT_PLAYER_YIELD_PER_TURN_LEAD_RATIO" inverse="true">
+            <Argument name="YieldType">YIELD_HAPPINESS</Argument>
+            <Argument name="PlayerRatio">50</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_10209A_NARRATIVE">
+        <Requirement xref="REQ_STORY_LEADER_WASHINGTON"/>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
+            <Argument name="GossipTypes">GOSSIP_ALLIED01</Argument>
+            <Argument name="GOSSIP_ALLIED01">Hash,Leader,LEADER_LAFAYETTE</Argument>
+        </Requirement>
+    </RequirementSet>
+    <RequirementSet id="REQSET_10211A_NARRATIVE">
+        <Requirement xref="REQ_STORY_LEADER_WASHINGTON"/>
+        <Requirement type="REQUIREMENT_PLAYER_MET_IMMEDIATE_GOSSIP">
+            <Argument name="GossipTypes">GOSSIP_GOLDEN_AGE</Argument>
+        </Requirement>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_GOVERNMENT">
+            <Argument name="GovernmentType">GOVERNMENT_BUREAUCRATIC_MONARCHY</Argument>
+        </Requirement>
+    </RequirementSet>
+</GameEffects>

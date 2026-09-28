@@ -1,5 +1,5 @@
 import './model-tutorial-inspector.js';
-import ContextManager from '../../../core/ui/context-manager/context-manager.js';
+import { ContextManager } from '../../../core/ui/context-manager/context-manager.js';
 import Databind from '../../../core/ui/utilities/utilities-core-databinding.js';
 import { MakeDraggable, MakeResizeable } from '../../../core/ui/utilities/utilities-frame.js';
 import { TutorialItemState } from './tutorial-item.js';

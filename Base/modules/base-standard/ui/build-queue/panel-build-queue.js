@@ -1,11 +1,11 @@
 import { Audio } from '../../../core/ui/audio-base/audio-support.js';
 import { ActionActivateEventName } from '../../../core/ui/components/fxs-activatable.js';
-import ActionHandler from '../../../core/ui/input/action-handler.js';
 import { ActiveDeviceTypeChangedEventName } from '../../../core/ui/input/input-events.js';
 import { InterfaceMode } from '../../../core/ui/interface-modes/interface-modes.js';
 import NavTray from '../../../core/ui/navigation-tray/model-navigation-tray.js';
 import Databind from '../../../core/ui/utilities/utilities-core-databinding.js';
 import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
+import { IsTouchActive } from '../../../core/ui-next/services/input.js';
 import { RequestBuildQueueCancelItemEvent, RequestBuildQueueMoveItemLastEvent, RequestBuildQueueMoveItemUpEvent } from './build-queue-events.js';
 import { BuildQueue } from './model-build-queue.js';
 import { FocusCityViewEventName, FocusCityViewEvent } from '../views/view-city.js';
@@ -95,7 +95,7 @@ class PanelBuildQueue extends Component {
         "pointer-events-auto",
         "opacity-0"
       );
-      itemContainerTouch.classList.toggle("opacity-0", !ActionHandler.isTouchActive);
+      itemContainerTouch.classList.toggle("opacity-0", !IsTouchActive());
       const item = document.createElement("div");
       item.classList.add(
         "build-queue__item",
@@ -365,7 +365,7 @@ class PanelBuildQueue extends Component {
   }
   onItemActivate(event) {
     const itemIndex = Number.parseInt(event.target.getAttribute("item-index") ?? "0");
-    if (ActionHandler.isTouchActive && itemIndex > 0) {
+    if (IsTouchActive() && itemIndex > 0) {
       this.requestMoveUp(event);
     }
   }
@@ -374,7 +374,7 @@ class PanelBuildQueue extends Component {
   }
   updateItemsContainerHover() {
     this.Root.querySelectorAll(".build-queue__item-container-touch").forEach(
-      (elem) => elem.classList.toggle("opacity-0", !ActionHandler.isTouchActive)
+      (elem) => elem.classList.toggle("opacity-0", !IsTouchActive())
     );
   }
 }

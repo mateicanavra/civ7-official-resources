@@ -11,7 +11,7 @@ import { ComponentRegistry } from '../services/component-registry.js';
 import { FocusContext } from '../services/focus.js';
 import { createArraySignal, createPropsRefSignal, createLayoutComplete } from '../utilities/solid-utilities.js';
 
-var _tmpl$ = /* @__PURE__ */ template(`<div></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div><div class="absolute inset-0 img-tab-bar"></div><div class="absolute -left-1 img-tab-end-cap pointer-events-none left-border"></div><div class="absolute -right-1 rotate-y-180 img-tab-end-cap pointer-events-none right-border"></div><div class="absolute bottom-0 left-0 img-tab-selection-indicator bg-no-repeat bg-center min-h-6 bg-contain transition-left duration-150"></div></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class=text-secondary-1 role=menuitem></div>`);
+var _tmpl$ = /* @__PURE__ */ template(`<div></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div><div class="absolute inset-0 img-tab-bar"></div><div class="absolute -left-1 img-tab-end-cap pointer-events-none left-border"></div><div class="absolute -right-1 rotate-y-180 img-tab-end-cap pointer-events-none right-border"></div><div class="absolute bottom-0 left-0 img-tab-selection-indicator bg-no-repeat bg-center min-h-6 bg-contain transition-left duration-150"></div></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="text-secondary-1"role="menuitem"></div>`);
 class TabContextProvider {
   _active;
   _setActive;

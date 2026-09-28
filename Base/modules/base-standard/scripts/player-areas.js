@@ -477,6 +477,31 @@ function writeBack(ctx, hexMap, playerIdOffset) {
     }
   }
 }
+function CreatePlayerRegions(hexMap, totalPlayers) {
+  const playerRegions = [];
+  const mapStats = hexMap.getMapStats();
+  const scoreLandmass = (landmass) => landmass.land + landmass.coast * 0.5;
+  const totalPlayerLandScore = mapStats.playerLandmasses.reduce((sum, landmass) => sum + scoreLandmass(landmass), 0);
+  let playersAllocated = 0;
+  const remainders = [];
+  for (const playerLandmass of mapStats.playerLandmasses) {
+    const playerRegion = new PlayerRegion();
+    playerRegions.push(playerRegion);
+    playerRegion.id = playerLandmass.playerLandmassId;
+    playerRegion.filter = (tile) => tile.playerLandmassId == playerLandmass.playerLandmassId;
+    const rawScore = scoreLandmass(playerLandmass) / totalPlayerLandScore * totalPlayers;
+    playerRegion.playerAreas = Math.floor(rawScore);
+    remainders.push({ id: remainders.length, remainder: rawScore - playerRegion.playerAreas });
+    playersAllocated += playerRegion.playerAreas;
+  }
+  remainders.sort((a, b) => b.remainder - a.remainder);
+  for (const remainder of remainders) {
+    if (playersAllocated >= totalPlayers) break;
+    playerRegions[remainder.id].playerAreas++;
+    playersAllocated++;
+  }
+  return playerRegions;
+}
 function CreateMajorPlayerAreas(hexMap, playerRegions, valueFunction, wrap = { wrap: WrapType.None }) {
   const perfScope = new profileScope("Creating major player regions");
   const kmeansMaxPasses = 6;
@@ -518,5 +543,5 @@ function CreateMajorPlayerAreas(hexMap, playerRegions, valueFunction, wrap = { w
   perfScope.end();
 }
 
-export { CreateMajorPlayerAreas, PlayerRegion };
+export { CreateMajorPlayerAreas, CreatePlayerRegions, PlayerRegion };
 //# sourceMappingURL=player-areas.js.map

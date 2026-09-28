@@ -1,5 +1,5 @@
 import { HexMap, getDefaultHexSettings, VoronoiValidationSettings } from '../hex-map.js';
-import { PlayerRegion, CreateMajorPlayerAreas } from '../player-areas.js';
+import { CreatePlayerRegions, CreateMajorPlayerAreas } from '../player-areas.js';
 import { profileScope } from '../profiling.js';
 import { RandomImpl } from '../random-pcg-32.js';
 import { RegionType, VariantOverrideType } from '../voronoi-types.js';
@@ -53,7 +53,7 @@ class VoronoiMap {
     hexSettings: {}
   };
   // not altered after construction
-  m_defaultJson = {};
+  m_defaultJson;
   // default json object optionally passed in.
   m_primarySettings = {
     mapSettings: {},
@@ -65,20 +65,32 @@ class VoronoiMap {
   m_hexDims = { x: 0, y: 0 };
   m_generator;
   m_hexTiles;
+  m_ruleSetKeysToPlayerRegionIdMap;
+  m_playerLandmassIdRemap;
+  // new player region id to old player region id & count of tiles.
   m_rndInitState;
   m_rndSimulateInternalState;
   m_rndSimulateState;
   m_initialVariants = {};
   m_dominantCells = [];
-  constructor(baseSchema, generator, defaultGeneratorSettings, defaultRulesSettings, defaultJson = {}) {
-    this.m_baseSchema = baseSchema;
+  constructor(baseSchema, generator, defaultGeneratorSettings, defaultRulesSettings, defaultJson) {
+    this.m_baseSchema = VoronoiUtils.clone(baseSchema);
     this.m_settings = this.m_primarySettings.mapSettings;
     this.m_generator = generator;
     this.m_defaultJson = defaultJson;
     this.m_hexTiles = new HexMap();
-    for (const [key, value] of Object.entries(this.getSettingsConfig())) {
-      this.m_defaultSettings.mapSettings[key] = value.default;
-    }
+    const parseDefaults = (target, schema) => {
+      for (const [key, value] of Object.entries(schema)) {
+        if ("default" in value) {
+          target[key] = value.default;
+        } else {
+          const child = {};
+          target[key] = child;
+          parseDefaults(child, value.children);
+        }
+      }
+    };
+    parseDefaults(this.m_defaultSettings.mapSettings, this.getSettingsConfig());
     this.m_defaultSettings.generatorSettings = VoronoiUtils.clone(defaultGeneratorSettings);
     this.m_defaultSettings.ruleSettings = VoronoiUtils.clone(defaultRulesSettings);
     this.m_defaultSettings.hexSettings = getDefaultHexSettings();
@@ -105,32 +117,7 @@ class VoronoiMap {
   }
   createMajorPlayerAreas(valueFunction, playerRegions = void 0) {
     if (playerRegions == void 0) {
-      playerRegions = [];
-      const totalPlayers = this.getSettings().totalPlayers;
-      const mapStats = this.getHexTiles().getMapStats();
-      const scoreLandmass = (landmass) => landmass.land + landmass.coast * 0.5;
-      const totalPlayerLandScore = mapStats.playerLandmasses.reduce(
-        (sum, landmass) => sum + scoreLandmass(landmass),
-        0
-      );
-      let playersAllocated = 0;
-      const remainders = [];
-      for (const playerLandmass of mapStats.playerLandmasses) {
-        const playerRegion = new PlayerRegion();
-        playerRegions.push(playerRegion);
-        playerRegion.id = playerLandmass.playerLandmassId;
-        playerRegion.filter = (tile) => tile.playerLandmassId == playerLandmass.playerLandmassId;
-        const rawScore = scoreLandmass(playerLandmass) / totalPlayerLandScore * totalPlayers;
-        playerRegion.playerAreas = Math.floor(rawScore);
-        remainders.push({ id: remainders.length, remainder: rawScore - playerRegion.playerAreas });
-        playersAllocated += playerRegion.playerAreas;
-      }
-      remainders.sort((a, b) => b.remainder - a.remainder);
-      for (const remainder of remainders) {
-        if (playersAllocated >= totalPlayers) break;
-        playerRegions[remainder.id].playerAreas++;
-        playersAllocated++;
-      }
+      playerRegions = CreatePlayerRegions(this.getHexTiles(), this.getSettings().totalPlayers);
     }
     CreateMajorPlayerAreas(this.m_hexTiles, playerRegions, valueFunction, {
       wrap: this.getWrapType(),
@@ -161,9 +148,10 @@ class VoronoiMap {
       this.m_generator.getLandmasses(),
       (cell) => this.getPlayerLandmassFromCell(cell),
       this.getVoronoiValidationSettings(),
-      this.m_dominantCells
+      this.m_dominantCells,
+      this.m_ruleSetKeysToPlayerRegionIdMap
     );
-    this.m_hexTiles.validate();
+    this.m_hexTiles.validate({ playerLandmassRemapStats: this.m_playerLandmassIdRemap });
     perfScope.end();
   }
   // Default expects oceans to be 0, player landmasses to be 1-n, and non-player land to be > n.

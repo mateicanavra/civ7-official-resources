@@ -1,4 +1,4 @@
-import ContextManager from '../../../core/ui/context-manager/context-manager.js';
+import { ContextManager } from '../../../core/ui/context-manager/context-manager.js';
 import { InterfaceMode } from '../../../core/ui/interface-modes/interface-modes.js';
 import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
 import { ComponentUtilities } from '../../../core/ui-next/utilities/component-utilities.js';
@@ -551,7 +551,7 @@ class PlayerDiplomacyActionPanel extends DiplomacyActionPanel {
     iconFront.classList.value = "absolute img-civics-icon-frame size-19 flex self-center items-center justify-center pointer-events-none relative";
     iconContainer.appendChild(iconFront);
     const independentType = GameInfo.CityStateTypes.lookup(player.getCityStateCityStateType());
-    const iconSrc = independentType?.CityStateType ? UI.getIconURL(`CITY_STATE_${independentType?.CityStateType}`) : "blp:leader_portrait_independent";
+    const iconSrc = independentType?.CityStateType ? UI.getIconURL(`CITY_STATE_${independentType?.CityStateType}`) : "blp:victory_crisis";
     iconImage.style.backgroundImage = `url(${iconSrc})`;
     if (independentType && iconSrc) {
       iconContainer.setAttribute("data-tooltip-content", Locale.compose(independentType.Name));

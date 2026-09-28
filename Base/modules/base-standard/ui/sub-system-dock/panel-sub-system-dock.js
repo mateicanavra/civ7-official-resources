@@ -1,4 +1,4 @@
-import ContextManager from '../../../core/ui/context-manager/context-manager.js';
+import { ContextManager } from '../../../core/ui/context-manager/context-manager.js';
 import { DialogBoxManager } from '../../../core/ui/dialog-box/manager-dialog-box.js';
 import { ModdingRegistry } from '../../../core/ui/modding-registry-handler/modding-registry-handler.js';
 import Panel, { AnchorType } from '../../../core/ui/panel-support.js';
@@ -116,7 +116,7 @@ class PanelSubSystemDock extends Panel {
       audio: "great-works",
       focusedAudio: "data-audio-focus-small"
     });
-    if (Game.age != Database.makeHash("AGE_MODERN")) {
+    if (Game.hasCapability("CAPABILITY_RELIGION_UI")) {
       this.addButton({
         tooltip: "LOC_UI_VIEW_RELIGION",
         modifierClass: "religion",
@@ -755,7 +755,7 @@ class PanelSubSystemDock extends Panel {
     ContextManager.push("screen-policies", { singleton: true, createMouseGuard: true });
   }
   openVictories() {
-    ContextManager.push("screen-victory-progress", { singleton: true, createMouseGuard: false });
+    ContextManager.push("screen-victory-progress", { singleton: true, createMouseGuard: true });
   }
   onOpenGreatWorks() {
     ContextManager.push("screen-great-works", { singleton: true, createMouseGuard: true });

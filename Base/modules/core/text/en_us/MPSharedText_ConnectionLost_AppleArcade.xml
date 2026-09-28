@@ -3,6 +3,8 @@
 	<!-- Delete existing strings/translations for the given keys. -->
 	<LocalizedText>
 		<Delete Tag="LOC_GAME_ABANDONED_CONNECTION_LOST" />
+		<Delete Tag="LOC_GAME_ABANDONED_CROSSPLAY_DISABLED_CLIENT" />
+		<Delete Tag="LOC_GAME_ABANDONED_CROSSPLAY_DISABLED_CLIENT_TITLE"/>
 	</LocalizedText>
 
 	<!-- Define platform-specific overrides. -->
@@ -10,9 +12,21 @@
 		<Row Tag="LOC_GAME_ABANDONED_CONNECTION_LOST_AA">
 			<Text>Connection to lobby has been lost</Text>
 		</Row>
+		<Row Tag="LOC_GAME_ABANDONED_CROSSPLAY_DISABLED_CLIENT_AA">
+			<Text>You cannot join Crossplay games.</Text>
+		</Row>
+		<Row Tag="LOC_GAME_ABANDONED_CROSSPLAY_DISABLED_CLIENT_TITLE_AA">
+			<Text>Crossplay Unavailable</Text>
+		</Row>
 
 		<Replace Tag="LOC_GAME_ABANDONED_CONNECTION_LOST">
 			<Text>{LOC_GAME_ABANDONED_CONNECTION_LOST_AA}</Text>
+		</Replace>
+		<Replace Tag="LOC_GAME_ABANDONED_CROSSPLAY_DISABLED_CLIENT">
+			<Text>{LOC_GAME_ABANDONED_CROSSPLAY_DISABLED_CLIENT_AA}</Text>
+		</Replace>
+		<Replace Tag="LOC_GAME_ABANDONED_CROSSPLAY_DISABLED_CLIENT_TITLE">
+			<Text>{LOC_GAME_ABANDONED_CROSSPLAY_DISABLED_CLIENT_TITLE_AA}</Text>
 		</Replace>
 	</EnglishText>
 </Database>

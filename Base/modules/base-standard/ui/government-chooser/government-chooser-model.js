@@ -1,6 +1,6 @@
 import { createContext, useContext } from '../../../core/vendor/solid-js/dist/solid.js';
 import { createMutable } from '../../../core/vendor/solid-js/store/dist/store.js';
-import ContextManager from '../../../core/ui/context-manager/context-manager.js';
+import { ContextManager } from '../../../core/ui/context-manager/context-manager.js';
 import { getModifierTextByContext } from '../../../core/ui/utilities/utilities-core-textprovider.js';
 import { ModelRegistry, ModelLifecycle } from '../../../core/ui-next/services/model-registry.js';
 

@@ -1,6 +1,6 @@
 import { FxsNavHelp } from '../../../core/ui/components/fxs-nav-help.js';
-import ActionHandler from '../../../core/ui/input/action-handler.js';
 import { ComponentID } from '../../../core/ui/utilities/utilities-component-id.js';
+import { IsControllerActive, IsTouchActive, IsHybridActive } from '../../../core/ui-next/services/input.js';
 import { VictoryQuestState } from '../quest-tracker/quest-item.js';
 import { getQuestTracker } from '../quest-tracker/quest-tracker.js';
 import { NextItemStatus, TutorialLevel } from './tutorial-item.js';
@@ -459,13 +459,13 @@ function getNameOfFirstUnlockedUnitWithTag(tag) {
 }
 function getTutorialPrompts(actionPrompts) {
   const actionTextPrompts = actionPrompts.map((prompt) => {
-    const actionName = (ActionHandler.isGamepadActive ? FxsNavHelp.getGamepadActionName(prompt.actionName ?? "") : prompt.actionName) ?? "";
+    const actionName = (IsControllerActive() ? FxsNavHelp.getGamepadActionName(prompt.actionName ?? "") : prompt.actionName) ?? "";
     let promptText = prompt.kbm;
-    if (ActionHandler.isGamepadActive) {
+    if (IsControllerActive()) {
       promptText = prompt.gamepad;
-    } else if (ActionHandler.deviceType == InputDeviceType.Touch) {
+    } else if (IsTouchActive()) {
       promptText = prompt.touch ?? prompt.kbm;
-    } else if (ActionHandler.deviceType == InputDeviceType.Hybrid) {
+    } else if (IsHybridActive()) {
       promptText = prompt.hybrid ?? prompt.kbm;
     }
     return Locale.compose(promptText ?? "", actionName);

@@ -1,5 +1,4 @@
 import ViewManager, { UISystem } from '../../../core/ui/views/view-manager.js';
-import { SetIsPlotTooltipVisible } from '../../ui-next/tooltips/plot-tooltip/plot-tooltip.js';
 
 class CinematicView {
   getName() {
@@ -13,11 +12,9 @@ class CinematicView {
   }
   enterView() {
     WorldUI.setUnitVisibility(false);
-    SetIsPlotTooltipVisible(false);
   }
   exitView() {
     WorldUI.setUnitVisibility(true);
-    SetIsPlotTooltipVisible(true);
   }
   addEnterCallback(_func) {
   }
@@ -29,6 +26,7 @@ class CinematicView {
       { name: "city-banners", type: UISystem.World, visible: "false" },
       { name: "district-health-bars", type: UISystem.World, visible: "false" },
       { name: "plot-icons", type: UISystem.World, visible: "false" },
+      { name: "plot-tooltips", type: UISystem.World, visible: "false" },
       { name: "plot-vfx", type: UISystem.World, visible: "false" },
       { name: "unit-flags", type: UISystem.World, visible: "false" },
       { name: "unit-info-panel", type: UISystem.World, visible: "false" },

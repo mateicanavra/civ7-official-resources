@@ -3,7 +3,6 @@ const archipelagoSettings = {
   "mapConfig": {
     "totalLandmassSize": 40,
     "maxSizeVariance": 75,
-    "landmassGroupCount": 2,
     "totalDistantSize": 6,
     "maxDistantSizeVariance": 50,
     "minLandmassSeeds": 16,
@@ -144,105 +143,6 @@ const archipelagoSettings = {
         "erosionPercent": 3,
         "erosionTime": 0.4,
         "erosionRandomness": 0.34,
-        "playerAreas": 0,
-        "coastalIslands": 4,
-        "coastalIslandsMinDistance": 1.5,
-        "coastalIslandsMaxDistance": 2.5,
-        "coastalIslandsSize": 0.3,
-        "coastalIslandsSizeVariance": 0.25
-      },
-      {
-        "erosionPercent": 3,
-        "erosionTime": 0.4,
-        "erosionRandomness": 0.34,
-        "playerAreas": 1,
-        "coastalIslands": 4,
-        "coastalIslandsMinDistance": 1.5,
-        "coastalIslandsMaxDistance": 2.5,
-        "coastalIslandsSize": 0.3,
-        "coastalIslandsSizeVariance": 0.25
-      },
-      {
-        "erosionPercent": 3,
-        "erosionTime": 0.4,
-        "erosionRandomness": 0.34,
-        "playerAreas": 1,
-        "coastalIslands": 4,
-        "coastalIslandsMinDistance": 1.5,
-        "coastalIslandsMaxDistance": 2.5,
-        "coastalIslandsSize": 0.3,
-        "coastalIslandsSizeVariance": 0.25
-      },
-      {
-        "erosionPercent": 3,
-        "erosionTime": 0.4,
-        "erosionRandomness": 0.34,
-        "playerAreas": 1,
-        "coastalIslands": 4,
-        "coastalIslandsMinDistance": 1.5,
-        "coastalIslandsMaxDistance": 2.5,
-        "coastalIslandsSize": 0.3,
-        "coastalIslandsSizeVariance": 0.25
-      },
-      {
-        "erosionPercent": 3,
-        "erosionTime": 0.4,
-        "erosionRandomness": 0.34,
-        "playerAreas": 1,
-        "coastalIslands": 4,
-        "coastalIslandsMinDistance": 1.5,
-        "coastalIslandsMaxDistance": 2.5,
-        "coastalIslandsSize": 0.3,
-        "coastalIslandsSizeVariance": 0.25
-      },
-      {
-        "erosionPercent": 3,
-        "erosionTime": 0.4,
-        "erosionRandomness": 0.34,
-        "playerAreas": 1,
-        "coastalIslands": 4,
-        "coastalIslandsMinDistance": 1.5,
-        "coastalIslandsMaxDistance": 2.5,
-        "coastalIslandsSize": 0.3,
-        "coastalIslandsSizeVariance": 0.25
-      },
-      {
-        "erosionPercent": 3,
-        "erosionTime": 0.4,
-        "erosionRandomness": 0.34,
-        "playerAreas": 1,
-        "coastalIslands": 4,
-        "coastalIslandsMinDistance": 1.5,
-        "coastalIslandsMaxDistance": 2.5,
-        "coastalIslandsSize": 0.3,
-        "coastalIslandsSizeVariance": 0.25
-      },
-      {
-        "erosionPercent": 3,
-        "erosionTime": 0.4,
-        "erosionRandomness": 0.34,
-        "playerAreas": 0,
-        "coastalIslands": 4,
-        "coastalIslandsMinDistance": 1.5,
-        "coastalIslandsMaxDistance": 2.5,
-        "coastalIslandsSize": 0.3,
-        "coastalIslandsSizeVariance": 0.25
-      },
-      {
-        "erosionPercent": 3,
-        "erosionTime": 0.4,
-        "erosionRandomness": 0.34,
-        "playerAreas": 1,
-        "coastalIslands": 4,
-        "coastalIslandsMinDistance": 1.5,
-        "coastalIslandsMaxDistance": 2.5,
-        "coastalIslandsSize": 0.3,
-        "coastalIslandsSizeVariance": 0.25
-      },
-      {
-        "erosionPercent": 3,
-        "erosionTime": 0.4,
-        "erosionRandomness": 0.34,
         "playerAreas": 1,
         "coastalIslands": 4,
         "coastalIslandsMinDistance": 1.5,
@@ -309,7 +209,62 @@ const archipelagoSettings = {
         "erosionPercent": 3,
         "erosionTime": 0.4,
         "erosionRandomness": 0.34,
+        "playerAreas": 1,
+        "coastalIslands": 4,
+        "coastalIslandsMinDistance": 1.5,
+        "coastalIslandsMaxDistance": 2.5,
+        "coastalIslandsSize": 0.3,
+        "coastalIslandsSizeVariance": 0.25
+      },
+      {
+        "erosionPercent": 3,
+        "erosionTime": 0.4,
+        "erosionRandomness": 0.34,
+        "playerAreas": 1,
+        "coastalIslands": 4,
+        "coastalIslandsMinDistance": 1.5,
+        "coastalIslandsMaxDistance": 2.5,
+        "coastalIslandsSize": 0.3,
+        "coastalIslandsSizeVariance": 0.25
+      },
+      {
+        "erosionPercent": 3,
+        "erosionTime": 0.4,
+        "erosionRandomness": 0.34,
         "playerAreas": 0,
+        "coastalIslands": 4,
+        "coastalIslandsMinDistance": 1.5,
+        "coastalIslandsMaxDistance": 2.5,
+        "coastalIslandsSize": 0.3,
+        "coastalIslandsSizeVariance": 0.25
+      },
+      {
+        "erosionPercent": 3,
+        "erosionTime": 0.4,
+        "erosionRandomness": 0.34,
+        "playerAreas": 1,
+        "coastalIslands": 4,
+        "coastalIslandsMinDistance": 1.5,
+        "coastalIslandsMaxDistance": 2.5,
+        "coastalIslandsSize": 0.3,
+        "coastalIslandsSizeVariance": 0.25
+      },
+      {
+        "erosionPercent": 3,
+        "erosionTime": 0.4,
+        "erosionRandomness": 0.34,
+        "playerAreas": 0,
+        "coastalIslands": 4,
+        "coastalIslandsMinDistance": 1.5,
+        "coastalIslandsMaxDistance": 2.5,
+        "coastalIslandsSize": 0.3,
+        "coastalIslandsSizeVariance": 0.25
+      },
+      {
+        "erosionPercent": 3,
+        "erosionTime": 0.4,
+        "erosionRandomness": 0.34,
+        "playerAreas": 1,
         "coastalIslands": 4,
         "coastalIslandsMinDistance": 1.5,
         "coastalIslandsMaxDistance": 2.5,
@@ -453,6 +408,17 @@ const archipelagoSettings = {
         "erosionTime": 0.4,
         "erosionRandomness": 0.34,
         "playerAreas": 0,
+        "coastalIslands": 4,
+        "coastalIslandsMinDistance": 1.5,
+        "coastalIslandsMaxDistance": 2.5,
+        "coastalIslandsSize": 0.3,
+        "coastalIslandsSizeVariance": 0.25
+      },
+      {
+        "erosionPercent": 3,
+        "erosionTime": 0.4,
+        "erosionRandomness": 0.34,
+        "playerAreas": 1,
         "coastalIslands": 4,
         "coastalIslandsMinDistance": 1.5,
         "coastalIslandsMaxDistance": 2.5,
@@ -620,6 +586,7 @@ const archipelagoSettings = {
       "Avoid Other Regions.isActive": true
     }
   },
+  "hexConfig": {},
   "variantSettings": {
     "Sea Level": {
       "settings": {

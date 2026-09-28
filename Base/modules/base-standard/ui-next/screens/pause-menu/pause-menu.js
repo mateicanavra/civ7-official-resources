@@ -14,7 +14,7 @@ import { ComponentRegistry } from '../../../../core/ui-next/services/component-r
 import { createPauseMenuModel } from './pause-menu-model.js';
 import style from './pause-menu.scss.js';
 
-var _tmpl$ = /* @__PURE__ */ template(`<div class="w-7 h-7 mr-2 mb-2 bg-cover bg-no-repeat"></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="flow-row items-center"><div class="w-6 h-6 mr-2\\.5 ml-0\\.5 bg-cover bg-no-repeat"></div><div class="flex-auto flow-row items-center"><div class="font-body text-base text-header-4 text-shadow font-fit-shrink whitespace-nowrap"></div></div></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="relative w-8 h-8 -bottom-9 bg-contain bg-no-repeat self-center justify-center bottom-8"><div class="font-body text-normal text-sm self-center mt-1"></div></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div class="pause-menu-progression-border p-1"><div class="bg-cover bg-no-repeat p-1"><div class="relative flex flow-row justify-between"><div class="w-64 flex-auto flex-initial h-full"><div class="flow-column max-w-full"><div class="flow-row items-center"><div class="flex-auto flow-row items-center mb-2"><div class="font-body text-base text-header-4 text-shadow font-fit-shrink whitespace-nowrap flex"></div></div></div><div class="font-body text-sm text-accent-1 mt-1 flex font-fit-shrink whitespace-nowrap"></div></div></div><div class="flex h-full -mt-1\\.5 mr-0\\.5"><div class="flex flex-auto"><div class="w-12 h-12 bg-contain bg-no-repeat self-center"></div></div></div></div></div></div>`), _tmpl$5 = /* @__PURE__ */ template(`<div class="absolute bottom-10 pause-menu-progression-button"></div>`), _tmpl$6 = /* @__PURE__ */ template(`<div><div class="pause-menu-leader-image bg-contain bg-no-repeat"></div></div>`), _tmpl$7 = /* @__PURE__ */ template(`<div class="pause-menu-map-seed mt-1 flex flex-row font-shrink">: </div>`), _tmpl$8 = /* @__PURE__ */ template(`<div class="pause-menu-map-seed ml-8 mt-1 flex flex-row font-shrink">: </div>`), _tmpl$9 = /* @__PURE__ */ template(`<div class="pause-menu-build-info-bottom-bar mt-3"></div>`), _tmpl$10 = /* @__PURE__ */ template(`<div><div class="font-shrink pause-menu-game-info"></div></div>`), _tmpl$11 = /* @__PURE__ */ template(`<div class="text-xl uppercase font-title font-bold text-secondary mt-4 text-shadow"></div>`), _tmpl$12 = /* @__PURE__ */ template(`<div class="pause-menu-leader-level size-11 text-center font-body-sm bg-contain flex flex-row justify-center items-center"><div></div></div>`), _tmpl$13 = /* @__PURE__ */ template(`<div class="flex flex-row"><div class="w-40 h-12 bg-contain mr-1"></div><div class="w-40 h-12 bg-contain ml-1"></div></div>`), _tmpl$14 = /* @__PURE__ */ template(`<div class="text-lg font-title mt-1 mb-3 uppercase font-bold text-shadow"></div>`), _tmpl$15 = /* @__PURE__ */ template(`<div></div>`), _tmpl$16 = /* @__PURE__ */ template(`<div class="w-full text-secondary text-lg font-title uppercase bold flex flex-row relative mt-3"></div>`), _tmpl$17 = /* @__PURE__ */ template(`<div class="pause-menu-addon-divider w-full h-0\\.5 opacity-50 mt-1 mb-2"></div>`), _tmpl$18 = /* @__PURE__ */ template(`<div class="self-center justify-center flex flex-row w-full mt-10 break-words flex-wrap"></div>`), _tmpl$19 = /* @__PURE__ */ template(`<div class=items-center></div>`), _tmpl$20 = /* @__PURE__ */ template(`<div class="pause-menu-build-info-center absolute bottom-2 w-96 max-h-14 text-center font-fit-shrink"></div>`), _tmpl$21 = /* @__PURE__ */ template(`<div class="pause-menu-addon-divider w-full h-0\\.5 opacity-20"></div>`), _tmpl$22 = /* @__PURE__ */ template(`<div class="absolute fullscreen-outside-safezone pause-menu"></div>`), _tmpl$23 = /* @__PURE__ */ template(`<div class="w-full flex grow relative"><div class="bg-accent-6 opacity-60 bottom-0 absolute fullscreen-top-outside-safezone"></div></div>`), _tmpl$24 = /* @__PURE__ */ template(`<div class="relative w-full h-1"><div class="pause-menu-borders absolute top-0 bottom-0 fullscreen-side-outside-safezone"></div></div>`), _tmpl$25 = /* @__PURE__ */ template(`<div class="pause-menu-corner-filligree size-45 bg-contain opacity-30 absolute top-5 left-5"></div>`), _tmpl$26 = /* @__PURE__ */ template(`<div class="pause-menu-corner-filligree size-45 bg-contain opacity-30 absolute top-5 right-5 rotate-90"></div>`), _tmpl$27 = /* @__PURE__ */ template(`<div class="pause-menu-corner-filligree size-45 bg-contain opacity-30 absolute bottom-5 left-5 -rotate-90"></div>`), _tmpl$28 = /* @__PURE__ */ template(`<div class="pause-menu-corner-filligree size-45 bg-contain opacity-30 absolute bottom-5 right-5 -rotate-180"></div>`), _tmpl$29 = /* @__PURE__ */ template(`<div class="pause-menu-build-info-leader absolute bottom-3 left-9"></div>`), _tmpl$30 = /* @__PURE__ */ template(`<div class="pause-menu-social-button-img size-18 img-social-icon bg-contain bg-no-repeat"></div>`), _tmpl$31 = /* @__PURE__ */ template(`<div class="w-full flex flex-column grow justify-center relative"><div class="bg-accent-6 opacity-60 absolute top-0 fullscreen-bottom-outside-safezone"></div></div>`), _tmpl$32 = /* @__PURE__ */ template(`<div id=clipboard-container class="size-full absolute pointer-events-none opacity-1"></div>`);
+var _tmpl$ = /* @__PURE__ */ template(`<div class="font-fit-shrink"></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="w-7 h-7 mr-2 mb-2 bg-cover bg-no-repeat"></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="flow-row items-center"><div class="w-6 h-6 mr-2\\.5 ml-0\\.5 bg-cover bg-no-repeat"></div><div class="flex-auto flow-row items-center"><div class="font-body text-base text-header-4 text-shadow font-fit-shrink whitespace-nowrap"></div></div></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div class="relative w-8 h-8 -bottom-9 bg-contain bg-no-repeat self-center justify-center bottom-8"><div class="font-body text-normal text-sm self-center mt-1"></div></div>`), _tmpl$5 = /* @__PURE__ */ template(`<div class="pause-menu-progression-border p-1"><div class="bg-cover bg-no-repeat p-1"><div class="relative flex flow-row justify-between"><div class="w-64 flex-auto flex-initial h-full"><div class="flow-column max-w-full"><div class="flow-row items-center"><div class="flex-auto flow-row items-center mb-2"><div class="font-body text-base text-header-4 text-shadow font-fit-shrink whitespace-nowrap flex"></div></div></div><div class="font-body text-sm text-accent-1 mt-1 flex font-fit-shrink whitespace-nowrap"></div></div></div><div class="flex h-full -mt-1\\.5 mr-0\\.5"><div class="flex flex-auto"><div class="w-12 h-12 bg-contain bg-no-repeat self-center"></div></div></div></div></div></div>`), _tmpl$6 = /* @__PURE__ */ template(`<div class="absolute bottom-10 pause-menu-progression-button"></div>`), _tmpl$7 = /* @__PURE__ */ template(`<div><div class="pause-menu-leader-image bg-contain bg-no-repeat"></div></div>`), _tmpl$8 = /* @__PURE__ */ template(`<div class="pause-menu-map-seed mt-1 flex flex-row font-shrink">: </div>`), _tmpl$9 = /* @__PURE__ */ template(`<div class="pause-menu-map-seed ml-8 mt-1 flex flex-row font-shrink">: </div>`), _tmpl$10 = /* @__PURE__ */ template(`<div class="pause-menu-build-info-bottom-bar mt-3"></div>`), _tmpl$11 = /* @__PURE__ */ template(`<div><div class="font-shrink pause-menu-game-info"></div></div>`), _tmpl$12 = /* @__PURE__ */ template(`<div class="text-xl uppercase font-title font-bold text-secondary mt-4 text-shadow"></div>`), _tmpl$13 = /* @__PURE__ */ template(`<div class="pause-menu-leader-level size-11 text-center font-body-sm bg-contain flex flex-row justify-center items-center"><div></div></div>`), _tmpl$14 = /* @__PURE__ */ template(`<div class="flex flex-row"><div class="w-40 h-12 bg-contain mr-1"></div><div class="w-40 h-12 bg-contain ml-1"></div></div>`), _tmpl$15 = /* @__PURE__ */ template(`<div class="text-lg font-title mt-1 mb-3 uppercase font-bold text-shadow"></div>`), _tmpl$16 = /* @__PURE__ */ template(`<div></div>`), _tmpl$17 = /* @__PURE__ */ template(`<div class="w-full text-secondary text-lg font-title uppercase bold flex flex-row relative mt-3"></div>`), _tmpl$18 = /* @__PURE__ */ template(`<div class="pause-menu-addon-divider w-full h-0\\.5 opacity-50 mt-1 mb-2"></div>`), _tmpl$19 = /* @__PURE__ */ template(`<div class="self-center justify-center flex flex-row w-full mt-10 break-words flex-wrap"></div>`), _tmpl$20 = /* @__PURE__ */ template(`<div class="items-center"></div>`), _tmpl$21 = /* @__PURE__ */ template(`<div class="pause-menu-build-info-center absolute bottom-2 w-96 max-h-14 text-center font-fit-shrink"></div>`), _tmpl$22 = /* @__PURE__ */ template(`<div class="pause-menu-addon-divider w-full h-0\\.5 opacity-20"></div>`), _tmpl$23 = /* @__PURE__ */ template(`<div class="absolute fullscreen-outside-safezone pause-menu"></div>`), _tmpl$24 = /* @__PURE__ */ template(`<div class="w-full flex grow relative"><div class="bg-accent-6 opacity-60 bottom-0 absolute fullscreen-top-outside-safezone"></div></div>`), _tmpl$25 = /* @__PURE__ */ template(`<div class="relative w-full h-1"><div class="pause-menu-borders absolute top-0 bottom-0 fullscreen-side-outside-safezone"></div></div>`), _tmpl$26 = /* @__PURE__ */ template(`<div class="pause-menu-corner-filligree size-45 bg-contain opacity-30 absolute top-5 left-5"></div>`), _tmpl$27 = /* @__PURE__ */ template(`<div class="pause-menu-corner-filligree size-45 bg-contain opacity-30 absolute top-5 right-5 rotate-90"></div>`), _tmpl$28 = /* @__PURE__ */ template(`<div class="pause-menu-corner-filligree size-45 bg-contain opacity-30 absolute bottom-5 left-5 -rotate-90"></div>`), _tmpl$29 = /* @__PURE__ */ template(`<div class="pause-menu-corner-filligree size-45 bg-contain opacity-30 absolute bottom-5 right-5 -rotate-180"></div>`), _tmpl$30 = /* @__PURE__ */ template(`<div class="pause-menu-build-info-leader absolute bottom-3 left-9"></div>`), _tmpl$31 = /* @__PURE__ */ template(`<div class="pause-menu-social-button-img size-18 img-social-icon bg-contain bg-no-repeat"></div>`), _tmpl$32 = /* @__PURE__ */ template(`<div class="w-full flex flex-column grow justify-center relative"><div class="bg-accent-6 opacity-60 absolute top-0 fullscreen-bottom-outside-safezone"></div></div>`), _tmpl$33 = /* @__PURE__ */ template(`<div id="clipboard-container"class="size-full absolute pointer-events-none opacity-1"></div>`);
 const PauseMenuContext = createContext();
 function usePauseMenuContext() {
   const context = useContext(PauseMenuContext);
@@ -47,9 +47,11 @@ const PauseMenuButtonContainer = (props) => {
         hotkeyAction: "cancel",
         autoFocus: true,
         get children() {
-          return createComponent(L10n.Compose, {
+          var _el$ = _tmpl$();
+          insert(_el$, createComponent(L10n.Compose, {
             text: "LOC_GENERIC_RESUME"
-          });
+          }));
+          return _el$;
         }
       }), createComponent(Button, {
         "class": "pause-menu-button",
@@ -57,9 +59,11 @@ const PauseMenuButtonContainer = (props) => {
           return model.onClickQuickSave;
         },
         get children() {
-          return createComponent(L10n.Compose, {
+          var _el$2 = _tmpl$();
+          insert(_el$2, createComponent(L10n.Compose, {
             text: "LOC_QUICK_SAVE_NAME"
-          });
+          }));
+          return _el$2;
         }
       }), createComponent(Button, {
         "class": "pause-menu-button",
@@ -67,9 +71,11 @@ const PauseMenuButtonContainer = (props) => {
           return model.onClickSave;
         },
         get children() {
-          return createComponent(L10n.Compose, {
+          var _el$3 = _tmpl$();
+          insert(_el$3, createComponent(L10n.Compose, {
             text: "LOC_PAUSE_MENU_SAVE"
-          });
+          }));
+          return _el$3;
         }
       }), createComponent(Show, {
         get when() {
@@ -82,9 +88,11 @@ const PauseMenuButtonContainer = (props) => {
               return model.onClickLoad;
             },
             get children() {
-              return createComponent(L10n.Compose, {
+              var _el$4 = _tmpl$();
+              insert(_el$4, createComponent(L10n.Compose, {
                 text: "LOC_PAUSE_MENU_LOAD"
-              });
+              }));
+              return _el$4;
             }
           }), createComponent(Show, {
             get when() {
@@ -98,10 +106,13 @@ const PauseMenuButtonContainer = (props) => {
                 get children() {
                   return createComponent(Button, {
                     "class": "pause-menu-button disabled",
+                    disableAudio: true,
                     get children() {
-                      return createComponent(L10n.Compose, {
+                      var _el$11 = _tmpl$();
+                      insert(_el$11, createComponent(L10n.Compose, {
                         text: "LOC_PAUSE_MENU_RESTART"
-                      });
+                      }));
+                      return _el$11;
                     }
                   });
                 }
@@ -114,9 +125,11 @@ const PauseMenuButtonContainer = (props) => {
                   return model.onClickRestart;
                 },
                 get children() {
-                  return createComponent(L10n.Compose, {
+                  var _el$5 = _tmpl$();
+                  insert(_el$5, createComponent(L10n.Compose, {
                     text: "LOC_PAUSE_MENU_RESTART"
-                  });
+                  }));
+                  return _el$5;
                 }
               });
             }
@@ -126,11 +139,13 @@ const PauseMenuButtonContainer = (props) => {
               return model.onClickRetire;
             },
             get children() {
-              return createComponent(L10n.Compose, {
+              var _el$6 = _tmpl$();
+              insert(_el$6, createComponent(L10n.Compose, {
                 get text() {
                   return model.data.retireButtonString;
                 }
-              });
+              }));
+              return _el$6;
             }
           })];
         }
@@ -140,9 +155,11 @@ const PauseMenuButtonContainer = (props) => {
           return model.onClickOptions;
         },
         get children() {
-          return createComponent(L10n.Compose, {
+          var _el$7 = _tmpl$();
+          insert(_el$7, createComponent(L10n.Compose, {
             text: "LOC_PAUSE_MENU_OPTIONS"
-          });
+          }));
+          return _el$7;
         }
       }), createComponent(Show, {
         get when() {
@@ -155,11 +172,13 @@ const PauseMenuButtonContainer = (props) => {
               return model.onClickJoinCode;
             },
             get children() {
-              return createComponent(L10n.Compose, {
+              var _el$8 = _tmpl$();
+              insert(_el$8, createComponent(L10n.Compose, {
                 get text() {
                   return model.joinCodeString;
                 }
-              });
+              }));
+              return _el$8;
             }
           });
         }
@@ -169,9 +188,11 @@ const PauseMenuButtonContainer = (props) => {
           return model.onClickExitToMain;
         },
         get children() {
-          return createComponent(L10n.Compose, {
+          var _el$9 = _tmpl$();
+          insert(_el$9, createComponent(L10n.Compose, {
             text: "LOC_END_GAME_EXIT"
-          });
+          }));
+          return _el$9;
         }
       }), createComponent(Show, {
         get when() {
@@ -184,9 +205,11 @@ const PauseMenuButtonContainer = (props) => {
               return model.onClickExitToDesktop;
             },
             get children() {
-              return createComponent(L10n.Compose, {
+              var _el$10 = _tmpl$();
+              insert(_el$10, createComponent(L10n.Compose, {
                 text: "LOC_PAUSE_MENU_QUIT_TO_DESKTOP"
-              });
+              }));
+              return _el$10;
             }
           });
         }
@@ -196,6 +219,7 @@ const PauseMenuButtonContainer = (props) => {
 };
 const PauseMenuProgressionContainer = (props) => {
   const model = usePauseMenuContext();
+  const switchIconRemoval = Network.getLocalHostingPlatform() == HostingType.HOSTING_TYPE_NX;
   return createComponent(Activatable, mergeProps(props, {
     "class": "relative hover\\:scale-105 transition-transform",
     get onActivate() {
@@ -208,55 +232,55 @@ const PauseMenuProgressionContainer = (props) => {
     },
     get children() {
       return [(() => {
-        var _el$ = _tmpl$4(), _el$2 = _el$.firstChild, _el$3 = _el$2.firstChild, _el$4 = _el$3.firstChild, _el$5 = _el$4.firstChild, _el$6 = _el$5.firstChild, _el$8 = _el$6.firstChild, _el$9 = _el$8.firstChild, _el$14 = _el$6.nextSibling, _el$15 = _el$4.nextSibling, _el$16 = _el$15.firstChild, _el$17 = _el$16.firstChild;
-        insert(_el$6, createComponent(Show, {
+        var _el$12 = _tmpl$5(), _el$13 = _el$12.firstChild, _el$14 = _el$13.firstChild, _el$15 = _el$14.firstChild, _el$16 = _el$15.firstChild, _el$17 = _el$16.firstChild, _el$19 = _el$17.firstChild, _el$20 = _el$19.firstChild, _el$25 = _el$17.nextSibling, _el$26 = _el$15.nextSibling, _el$27 = _el$26.firstChild, _el$28 = _el$27.firstChild;
+        insert(_el$17, createComponent(Show, {
+          get when() {
+            return model.supportsSSO && !switchIconRemoval;
+          },
+          get children() {
+            var _el$18 = _tmpl$2();
+            createRenderEffect((_$p) => (_$p = `url(${props.firstPartyIcon})`) != null ? _el$18.style.setProperty("background-image", _$p) : _el$18.style.removeProperty("background-image"));
+            return _el$18;
+          }
+        }), _el$19);
+        insert(_el$20, () => props.firstPartyName);
+        insert(_el$16, createComponent(Show, {
           get when() {
             return model.supportsSSO;
           },
           get children() {
-            var _el$7 = _tmpl$();
-            createRenderEffect((_$p) => (_$p = `url(${props.firstPartyIcon})`) != null ? _el$7.style.setProperty("background-image", _$p) : _el$7.style.removeProperty("background-image"));
-            return _el$7;
+            var _el$21 = _tmpl$3(), _el$22 = _el$21.firstChild, _el$23 = _el$22.nextSibling, _el$24 = _el$23.firstChild;
+            _el$22.style.setProperty("background-image", "url(blp:prof_2k_logo)");
+            insert(_el$24, () => props.twoKName);
+            return _el$21;
           }
-        }), _el$8);
-        insert(_el$9, () => props.firstPartyName);
-        insert(_el$5, createComponent(Show, {
-          get when() {
-            return model.supportsSSO;
-          },
-          get children() {
-            var _el$10 = _tmpl$2(), _el$11 = _el$10.firstChild, _el$12 = _el$11.nextSibling, _el$13 = _el$12.firstChild;
-            _el$11.style.setProperty("background-image", "url(blp:prof_2k_logo)");
-            insert(_el$13, () => props.twoKName);
-            return _el$10;
-          }
-        }), _el$14);
-        insert(_el$14, createComponent(L10n.Compose, {
+        }), _el$25);
+        insert(_el$25, createComponent(L10n.Compose, {
           get text() {
             return props.playerTitle;
           }
         }));
-        insert(_el$17, createComponent(Show, {
+        insert(_el$28, createComponent(Show, {
           get when() {
             return model.supportsSSO;
           },
           get children() {
-            var _el$18 = _tmpl$3(), _el$19 = _el$18.firstChild;
-            _el$18.style.setProperty("background-image", "url(blp:prof_lvl_bk.png)");
-            insert(_el$19, () => props.foundationLevel);
-            return _el$18;
+            var _el$29 = _tmpl$4(), _el$30 = _el$29.firstChild;
+            _el$29.style.setProperty("background-image", "url(blp:prof_lvl_bk.png)");
+            insert(_el$30, () => props.foundationLevel);
+            return _el$29;
           }
         }));
         createRenderEffect((_p$) => {
           var _v$ = `url(${props.backgroundImage})`, _v$2 = `url(${props.badgeIcon})`;
-          _v$ !== _p$.e && ((_p$.e = _v$) != null ? _el$2.style.setProperty("background-image", _v$) : _el$2.style.removeProperty("background-image"));
-          _v$2 !== _p$.t && ((_p$.t = _v$2) != null ? _el$17.style.setProperty("background-image", _v$2) : _el$17.style.removeProperty("background-image"));
+          _v$ !== _p$.e && ((_p$.e = _v$) != null ? _el$13.style.setProperty("background-image", _v$) : _el$13.style.removeProperty("background-image"));
+          _v$2 !== _p$.t && ((_p$.t = _v$2) != null ? _el$28.style.setProperty("background-image", _v$2) : _el$28.style.removeProperty("background-image"));
           return _p$;
         }, {
           e: void 0,
           t: void 0
         });
-        return _el$;
+        return _el$12;
       })(), createComponent(NavHelp, {
         "class": "absolute -right-2 -top-1"
       })];
@@ -266,40 +290,40 @@ const PauseMenuProgressionContainer = (props) => {
 const PauseMenuLeaderContainer = (props) => {
   const model = usePauseMenuContext();
   return (() => {
-    var _el$20 = _tmpl$6(), _el$21 = _el$20.firstChild;
-    spread(_el$20, mergeProps(props, {
+    var _el$31 = _tmpl$7(), _el$32 = _el$31.firstChild;
+    spread(_el$31, mergeProps(props, {
       "class": "relative pause-menu-leader-container pointer-events-none w-76 flex flex-col justify-center items-center"
     }), false, true);
-    insert(_el$20, createComponent(Show, {
+    insert(_el$31, createComponent(Show, {
       get when() {
         return model.supportsSSO;
       },
       get children() {
-        var _el$22 = _tmpl$5();
-        insert(_el$22, createComponent(PauseMenuProgressionContainer, mergeProps(() => props.progressionBadgeProps)));
-        return _el$22;
+        var _el$33 = _tmpl$6();
+        insert(_el$33, createComponent(PauseMenuProgressionContainer, mergeProps(() => props.progressionBadgeProps)));
+        return _el$33;
       }
     }), null);
-    createRenderEffect((_$p) => (_$p = props.leaderImage) != null ? _el$21.style.setProperty("background-image", _$p) : _el$21.style.removeProperty("background-image"));
-    return _el$20;
+    createRenderEffect((_$p) => (_$p = props.leaderImage) != null ? _el$32.style.setProperty("background-image", _$p) : _el$32.style.removeProperty("background-image"));
+    return _el$31;
   })();
 };
 const PauseMenuGameInfoContainer = (props) => {
   const model = usePauseMenuContext();
   return (() => {
-    var _el$23 = _tmpl$10(), _el$24 = _el$23.firstChild;
-    spread(_el$23, mergeProps(props, {
+    var _el$34 = _tmpl$11(), _el$35 = _el$34.firstChild;
+    spread(_el$34, mergeProps(props, {
       "class": "flex text-accent-1 text-accent-1 absolute items-center w-full justify-center flex-col"
     }), false, true);
-    insert(_el$24, () => props.gameInfoString);
-    insert(_el$23, createComponent(HSlot, {
+    insert(_el$35, () => props.gameInfoString);
+    insert(_el$34, createComponent(HSlot, {
       get children() {
         return [(() => {
-          var _el$25 = _tmpl$7(), _el$26 = _el$25.firstChild;
-          insert(_el$25, createComponent(L10n.Compose, {
+          var _el$36 = _tmpl$8(), _el$37 = _el$36.firstChild;
+          insert(_el$36, createComponent(L10n.Compose, {
             text: "LOC_MAPSEED_NAME"
-          }), _el$26);
-          insert(_el$25, createComponent(Show, {
+          }), _el$37);
+          insert(_el$36, createComponent(Show, {
             get when() {
               return model.isClipboardSupported;
             },
@@ -316,7 +340,7 @@ const PauseMenuGameInfoContainer = (props) => {
               });
             }
           }), null);
-          insert(_el$25, createComponent(Show, {
+          insert(_el$36, createComponent(Show, {
             get when() {
               return !model.isClipboardSupported;
             },
@@ -324,13 +348,13 @@ const PauseMenuGameInfoContainer = (props) => {
               return props.mapSeed;
             }
           }), null);
-          return _el$25;
+          return _el$36;
         })(), (() => {
-          var _el$27 = _tmpl$8(), _el$28 = _el$27.firstChild;
-          insert(_el$27, createComponent(L10n.Compose, {
+          var _el$38 = _tmpl$9(), _el$39 = _el$38.firstChild;
+          insert(_el$38, createComponent(L10n.Compose, {
             text: "LOC_GAMESEED_NAME"
-          }), _el$28);
-          insert(_el$27, createComponent(Show, {
+          }), _el$39);
+          insert(_el$38, createComponent(Show, {
             get when() {
               return model.isClipboardSupported;
             },
@@ -347,7 +371,7 @@ const PauseMenuGameInfoContainer = (props) => {
               });
             }
           }), null);
-          insert(_el$27, createComponent(Show, {
+          insert(_el$38, createComponent(Show, {
             get when() {
               return !model.isClipboardSupported;
             },
@@ -355,22 +379,22 @@ const PauseMenuGameInfoContainer = (props) => {
               return props.gameSeed;
             }
           }), null);
-          return _el$27;
+          return _el$38;
         })()];
       }
     }), null);
-    insert(_el$23, createComponent(Show, {
+    insert(_el$34, createComponent(Show, {
       get when() {
         return model.supportsSSO;
       },
       get children() {
-        var _el$29 = _tmpl$9();
-        _el$29.style.setProperty("color", "rgba(222, 203, 149, 1)");
-        insert(_el$29, () => props.buildInfo);
-        return _el$29;
+        var _el$40 = _tmpl$10();
+        _el$40.style.setProperty("color", "rgba(222, 203, 149, 1)");
+        insert(_el$40, () => props.buildInfo);
+        return _el$40;
       }
     }), null);
-    return _el$23;
+    return _el$34;
   })();
 };
 const PauseMenuInfoContainer = (props) => {
@@ -392,32 +416,32 @@ const PauseMenuInfoContainer = (props) => {
     "data-name": "pause-menu-info-container",
     get children() {
       return [(() => {
-        var _el$30 = _tmpl$11();
-        insert(_el$30, () => props.leaderName);
-        return _el$30;
+        var _el$41 = _tmpl$12();
+        insert(_el$41, () => props.leaderName);
+        return _el$41;
       })(), (() => {
-        var _el$31 = _tmpl$13(), _el$32 = _el$31.firstChild, _el$35 = _el$32.nextSibling;
-        _el$32.style.setProperty("background-image", "url(blp:base_top-filigree_left)");
-        insert(_el$31, createComponent(Show, {
+        var _el$42 = _tmpl$14(), _el$43 = _el$42.firstChild, _el$46 = _el$43.nextSibling;
+        _el$43.style.setProperty("background-image", "url(blp:base_top-filigree_left)");
+        insert(_el$42, createComponent(Show, {
           get when() {
             return model.supportsSSO;
           },
           get children() {
-            var _el$33 = _tmpl$12(), _el$34 = _el$33.firstChild;
-            insert(_el$34, () => props.level);
-            return _el$33;
+            var _el$44 = _tmpl$13(), _el$45 = _el$44.firstChild;
+            insert(_el$45, () => props.level);
+            return _el$44;
           }
-        }), _el$35);
-        _el$35.style.setProperty("background-image", "url(blp:base_top-filigree_right)");
-        return _el$31;
+        }), _el$46);
+        _el$46.style.setProperty("background-image", "url(blp:base_top-filigree_right)");
+        return _el$42;
       })(), (() => {
-        var _el$36 = _tmpl$14();
-        insert(_el$36, createComponent(L10n.Compose, {
+        var _el$47 = _tmpl$15();
+        insert(_el$47, createComponent(L10n.Compose, {
           get text() {
             return props.civName;
           }
         }));
-        return _el$36;
+        return _el$47;
       })(), createComponent(Show, {
         get when() {
           return model.supportsSSO;
@@ -453,10 +477,10 @@ const PauseMenuInfoContainer = (props) => {
                               return [createComponent(L10n.Compose, {
                                 text: "LOC_PAUSE_MENU_MODS_TITLE"
                               }), (() => {
-                                var _el$37 = _tmpl$15();
-                                _el$37.style.setProperty("background-image", "url(blp:base_component-arrow)");
-                                createRenderEffect(() => className(_el$37, `size-10 absolute right-1 -top-3 bg-contain ${!model.isModsCollapsed ? "-rotate-90" : ""}`));
-                                return _el$37;
+                                var _el$48 = _tmpl$16();
+                                _el$48.style.setProperty("background-image", "url(blp:base_component-arrow)");
+                                createRenderEffect(() => className(_el$48, `size-10 absolute right-1 -top-3 bg-contain ${!model.isModsCollapsed ? "-rotate-90" : ""}`));
+                                return _el$48;
                               })()];
                             }
                           });
@@ -466,13 +490,13 @@ const PauseMenuInfoContainer = (props) => {
                           return props.hasActiveMods && !props.hasActiveDLC;
                         },
                         get children() {
-                          var _el$38 = _tmpl$16();
-                          insert(_el$38, createComponent(L10n.Compose, {
+                          var _el$49 = _tmpl$17();
+                          insert(_el$49, createComponent(L10n.Compose, {
                             text: "LOC_PAUSE_MENU_MODS_TITLE"
                           }));
-                          return _el$38;
+                          return _el$49;
                         }
-                      }), _tmpl$17(), createComponent(Show, {
+                      }), _tmpl$18(), createComponent(Show, {
                         get when() {
                           return !model.isModsCollapsed;
                         },
@@ -491,7 +515,7 @@ const PauseMenuInfoContainer = (props) => {
                                   }
                                 });
                               }
-                            }), _tmpl$21()]
+                            }), _tmpl$22()]
                           });
                         }
                       })];
@@ -518,10 +542,10 @@ const PauseMenuInfoContainer = (props) => {
                               return [createComponent(L10n.Compose, {
                                 text: "LOC_UI_CONTENT_MGR_SUBTITLE"
                               }), (() => {
-                                var _el$40 = _tmpl$15();
-                                _el$40.style.setProperty("background-image", "url(blp:base_component-arrow)");
-                                createRenderEffect(() => className(_el$40, `size-10 absolute right-1 -top-3 bg-contain ${!model.isAddonCollapsed ? "-rotate-90" : ""}`));
-                                return _el$40;
+                                var _el$51 = _tmpl$16();
+                                _el$51.style.setProperty("background-image", "url(blp:base_component-arrow)");
+                                createRenderEffect(() => className(_el$51, `size-10 absolute right-1 -top-3 bg-contain ${!model.isAddonCollapsed ? "-rotate-90" : ""}`));
+                                return _el$51;
                               })()];
                             }
                           });
@@ -531,13 +555,13 @@ const PauseMenuInfoContainer = (props) => {
                           return !props.hasActiveMods && props.hasActiveDLC;
                         },
                         get children() {
-                          var _el$41 = _tmpl$16();
-                          insert(_el$41, createComponent(L10n.Compose, {
+                          var _el$52 = _tmpl$17();
+                          insert(_el$52, createComponent(L10n.Compose, {
                             text: "LOC_UI_CONTENT_MGR_SUBTITLE"
                           }));
-                          return _el$41;
+                          return _el$52;
                         }
-                      }), _tmpl$17(), createComponent(Show, {
+                      }), _tmpl$18(), createComponent(Show, {
                         get when() {
                           return !model.isAddonCollapsed;
                         },
@@ -557,7 +581,7 @@ const PauseMenuInfoContainer = (props) => {
                                   }
                                 });
                               }
-                            }), _tmpl$21()]
+                            }), _tmpl$22()]
                           });
                         }
                       })];
@@ -567,11 +591,11 @@ const PauseMenuInfoContainer = (props) => {
                       return !props.hasActiveMods && !props.hasActiveDLC;
                     },
                     get children() {
-                      var _el$43 = _tmpl$18();
-                      insert(_el$43, createComponent(L10n.Compose, {
+                      var _el$54 = _tmpl$19();
+                      insert(_el$54, createComponent(L10n.Compose, {
                         text: "LOC_PAUSE_MENU_NO_ADDONS"
                       }));
-                      return _el$43;
+                      return _el$54;
                     }
                   })];
                 }
@@ -584,9 +608,9 @@ const PauseMenuInfoContainer = (props) => {
           return !model.supportsSSO;
         },
         get children() {
-          var _el$44 = _tmpl$19();
-          insert(_el$44, createComponent(PauseMenuProgressionContainer, mergeProps(() => props.progressionBadgeProps)));
-          return _el$44;
+          var _el$55 = _tmpl$20();
+          insert(_el$55, createComponent(PauseMenuProgressionContainer, mergeProps(() => props.progressionBadgeProps)));
+          return _el$55;
         }
       }), createComponent(Button, {
         "class": "pause-menu-button mt-5",
@@ -594,19 +618,21 @@ const PauseMenuInfoContainer = (props) => {
           return model.onClickAdvancedOptions;
         },
         get children() {
-          return createComponent(L10n.Compose, {
+          var _el$56 = _tmpl$();
+          insert(_el$56, createComponent(L10n.Compose, {
             text: "LOC_ADVANCED_OPTIONS_ADVANCED"
-          });
+          }));
+          return _el$56;
         }
       }), createComponent(Show, {
         get when() {
           return !model.supportsSSO;
         },
         get children() {
-          var _el$45 = _tmpl$20();
-          _el$45.style.setProperty("color", "rgba(222, 203, 149, 1)");
-          insert(_el$45, () => model.data.gameInfo.buildInfo);
-          return _el$45;
+          var _el$57 = _tmpl$21();
+          _el$57.style.setProperty("color", "rgba(222, 203, 149, 1)");
+          insert(_el$57, () => model.data.gameInfo.buildInfo);
+          return _el$57;
         }
       })];
     }
@@ -626,30 +652,30 @@ const PauseMenuComponent = (props) => {
         "class": "h-full w-full pause-menu-fade-in flex flex-col relative",
         id: "screen-pause-menu",
         get children() {
-          return [_tmpl$22(), createComponent(Show, {
+          return [_tmpl$23(), createComponent(Show, {
             get when() {
               return model && model.data;
             },
             get children() {
-              return [_tmpl$23(), _tmpl$24(), createComponent(HSlot, {
+              return [_tmpl$24(), _tmpl$25(), createComponent(HSlot, {
                 "class": "relative justify-center",
                 get children() {
                   return [(() => {
-                    var _el$51 = _tmpl$25();
-                    _el$51.style.setProperty("background-image", "url(blp:base_frame-filigree)");
-                    return _el$51;
+                    var _el$63 = _tmpl$26();
+                    _el$63.style.setProperty("background-image", "url(blp:base_frame-filigree)");
+                    return _el$63;
                   })(), (() => {
-                    var _el$52 = _tmpl$26();
-                    _el$52.style.setProperty("background-image", "url(blp:base_frame-filigree)");
-                    return _el$52;
+                    var _el$64 = _tmpl$27();
+                    _el$64.style.setProperty("background-image", "url(blp:base_frame-filigree)");
+                    return _el$64;
                   })(), (() => {
-                    var _el$53 = _tmpl$27();
-                    _el$53.style.setProperty("background-image", "url(blp:base_frame-filigree)");
-                    return _el$53;
+                    var _el$65 = _tmpl$28();
+                    _el$65.style.setProperty("background-image", "url(blp:base_frame-filigree)");
+                    return _el$65;
                   })(), (() => {
-                    var _el$54 = _tmpl$28();
-                    _el$54.style.setProperty("background-image", "url(blp:base_frame-filigree)");
-                    return _el$54;
+                    var _el$66 = _tmpl$29();
+                    _el$66.style.setProperty("background-image", "url(blp:base_frame-filigree)");
+                    return _el$66;
                   })(), createComponent(HSlot, {
                     "class": "pause-menu-main-container w-full flex flex-row relative justify-around",
                     "data-name": "pause-menu-main-container",
@@ -659,10 +685,10 @@ const PauseMenuComponent = (props) => {
                           return model.supportsSSO;
                         },
                         get children() {
-                          var _el$55 = _tmpl$29();
-                          _el$55.style.setProperty("color", "rgba(222, 203, 149, 1)");
-                          insert(_el$55, () => model.data.gameInfo.buildInfo);
-                          return _el$55;
+                          var _el$67 = _tmpl$30();
+                          _el$67.style.setProperty("color", "rgba(222, 203, 149, 1)");
+                          insert(_el$67, () => model.data.gameInfo.buildInfo);
+                          return _el$67;
                         }
                       }), createComponent(Show, {
                         get when() {
@@ -680,7 +706,7 @@ const PauseMenuComponent = (props) => {
                               "transition-duration": "0.1s"
                             },
                             get children() {
-                              return [_tmpl$30(), createComponent(NavHelp, {
+                              return [_tmpl$31(), createComponent(NavHelp, {
                                 "class": "absolute -left-6"
                               })];
                             }
@@ -690,13 +716,13 @@ const PauseMenuComponent = (props) => {
                     }
                   })];
                 }
-              }), _tmpl$24(), (() => {
-                var _el$58 = _tmpl$31(), _el$59 = _el$58.firstChild;
-                insert(_el$58, createComponent(PauseMenuGameInfoContainer, mergeProps(() => model.data.gameInfo)), null);
-                return _el$58;
+              }), _tmpl$25(), (() => {
+                var _el$70 = _tmpl$32(), _el$71 = _el$70.firstChild;
+                insert(_el$70, createComponent(PauseMenuGameInfoContainer, mergeProps(() => model.data.gameInfo)), null);
+                return _el$70;
               })()];
             }
-          }), _tmpl$32()];
+          }), _tmpl$33()];
         }
       });
     }

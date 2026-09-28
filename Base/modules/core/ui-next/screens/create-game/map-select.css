@@ -3,9 +3,33 @@
   height: 18em;
   min-height: 19.4444444444rem;
 }
+@media (experience: mobile) {
+  .create-game-map-select-box {
+    width: 22.2222222222rem;
+    height: auto;
+    min-height: 22.2222222222rem;
+  }
+}
+@media (experience: mobile) and (max-height: 55.5555555556rem) {
+  .create-game-map-select-box {
+    width: 20.5555555556rem;
+    min-height: 20.5555555556rem;
+  }
+}
 
 .create-game-map-select {
   width: 64.2222222222rem;
+}
+@media (experience: mobile) {
+  .create-game-map-select {
+    width: 77.7777777778rem;
+    padding-right: 1.3333333333rem;
+  }
+}
+@media (experience: mobile) and (max-height: 55.5555555556rem) {
+  .create-game-map-select {
+    width: 72.2222222222rem;
+  }
 }
 
 .map-select-divider-line {

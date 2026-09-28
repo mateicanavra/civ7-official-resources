@@ -112,9 +112,11 @@
 		<Argument name="TypeData">TRIUMPH</Argument>
 	</Modifier>
 	<Modifier id="MOD_LEGACY_MO_MILITARISTIC_2" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_MOVEMENT">
-		<Requirement type="REQUIREMENT_UNIT_DOMAIN_MATCHES">
-			<Argument name="UnitDomain">DOMAIN_AIR</Argument>
-		</Requirement>
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_DOMAIN_MATCHES">
+				<Argument name="UnitDomain">DOMAIN_AIR</Argument>
+			</Requirement>
+		</SubjectRequirements>
 		<Argument name="Amount">3</Argument>
 	</Modifier>
 	<Modifier id="MOD_LEGACY_MO_MILITARISTIC_3" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" permanent="true">

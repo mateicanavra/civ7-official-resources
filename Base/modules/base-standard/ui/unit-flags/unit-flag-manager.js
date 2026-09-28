@@ -9,6 +9,7 @@ function instanceOfUnitFlagType(object) {
 class UnitFlagFactory {
   static makers = /* @__PURE__ */ new Map();
   // { [componentName: string]: UnitFlagFactoryMaker } = {};
+  static extensions = [];
   /**
    * Register a "maker" class that can determine what component should be used	 to make a particulr type of unit flag.
    * @param {UnitFlagFactoryMaker} makerInstance Instance of a "maker" which has the name of HTML component type to instantiate.
@@ -22,6 +23,20 @@ class UnitFlagFactory {
     makerInstance.initialize();
     if (UnitFlagManager.instance) {
       UnitFlagManager.instance.requestFlagsRebuild();
+    }
+  }
+  /**
+   * Registers an extension to be applied to a unit flag after it is created.
+   * @param flagExtension
+   */
+  static registerExtension(flagExtension) {
+    UnitFlagFactory.extensions.push(flagExtension);
+  }
+  static applyExtensions(flag, unitID) {
+    for (const extension of UnitFlagFactory.extensions) {
+      if (extension.componentName === flag.tagName.toLowerCase()) {
+        extension.apply(flag, unitID);
+      }
     }
   }
   static getBestHTMLComponentName(componentID) {
@@ -325,16 +340,27 @@ class UnitFlagManager extends Component {
    */
   onUnitVisibilityChanged(data) {
     const componentID = data.unit;
-    const bitfieldID = ComponentID.toBitfield(componentID);
-    if (!this.flags.has(bitfieldID)) {
-      this.createFlag(componentID);
-      return;
+    const unitLocation = Units.get(componentID)?.location;
+    let plotUnits = void 0;
+    if (unitLocation) {
+      plotUnits = MapUnits.getUnits(unitLocation.x, unitLocation.y);
     }
-    const unitFlag = this.flags.get(bitfieldID);
-    if (!unitFlag) {
-      return;
-    }
-    unitFlag.setVisibility(data.visibility);
+    delayByFrame(
+      () => {
+        const bitfieldID = ComponentID.toBitfield(componentID);
+        if (!this.flags.has(bitfieldID)) {
+          this.createFlag(componentID);
+          return;
+        }
+        const unitFlag = this.flags.get(bitfieldID);
+        if (!unitFlag) {
+          return;
+        }
+        unitFlag.setVisibility(data.visibility);
+      },
+      plotUnits && plotUnits.length > 1 ? 8 : 0
+      //Delay by 8 frames if other flags need to shift so the offset is calculated correctly
+    );
   }
   removeAllFlags() {
     this.Root.innerHTML = "";
@@ -457,6 +483,7 @@ class UnitFlagManager extends Component {
     const flag = document.createElement(tagName);
     flag.setAttribute("unit-id", ComponentID.toString(unitID));
     flag.setAttribute("manager-tracked", "false");
+    UnitFlagFactory.applyExtensions(flag, unitID);
     return flag;
   }
   /**
@@ -477,6 +504,7 @@ class UnitFlagManager extends Component {
     flag.setAttribute("unit-id", ComponentID.toString(unitID));
     const playerRoot = this.getFlagRoot(unit.owner);
     playerRoot?.appendChild(flag);
+    UnitFlagFactory.applyExtensions(flag, unitID);
   }
   /**
    * @description Called by a unit flag to let manager directly access it's instance.

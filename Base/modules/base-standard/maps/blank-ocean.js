@@ -1,4 +1,4 @@
-import { g_OceanTerrain } from './map-globals.js';
+import { g_OceanTerrain, g_MarineBiome } from './map-globals.js';
 
 function requestMapData(initParams) {
   engine.call("SetMapInitData", initParams);
@@ -10,6 +10,7 @@ function generateMap() {
   for (let y = 0; y < iHeight; y++) {
     for (let x = 0; x < iWidth; x++) {
       TerrainBuilder.setTerrainType(x, y, g_OceanTerrain);
+      TerrainBuilder.setBiomeType(x, y, g_MarineBiome);
     }
   }
 }

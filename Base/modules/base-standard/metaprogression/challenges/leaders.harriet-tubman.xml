@@ -443,16 +443,16 @@
 		</challenge>
 		<challenge id="CHALLENGE_LEADER_HARRIET_TUBMAN_QUEST_A_EXPLORATION" scope="Campaign" difficulty="2">
 			<l10n>
-				<name>The Long Road Ahead</name>
-				<description>As Harriet Tubman in Exploration, complete a quest to supply the emissaries.</description>
+				<name>Prophecy and Plans</name>
+				<description>As Harriet Tubman in Exploration, complete a quest to keep the faithful safe.</description>
 			</l10n>
 			<sortIndex>15300</sortIndex>
 			<reward type="XP" reward="50" />
 		</challenge>
 		<challenge id="CHALLENGE_LEADER_HARRIET_TUBMAN_QUEST_B_EXPLORATION" scope="Campaign" difficulty="2">
 			<l10n>
-				<name>Stockpiles</name>
-				<description>As Harriet Tubman in Exploration, complete a quest to garrison ammunition.</description>
+				<name>Fire in the Blood</name>
+				<description>As Harriet Tubman in Exploration, complete a quest to harness the soldiers' fury.</description>
 			</l10n>
 			<sortIndex>15400</sortIndex>
 			<reward type="XP" reward="50" />
@@ -514,23 +514,21 @@
 			<reward type="XP" reward="50" />
 		</challenge>
 		<!-- Hidden Challenges -->
-		<challenge id="CHALLENGE_LEADER_HARRIET_TUBMAN_UNLOCKED_STRATEGYCARDS_EXPLORATION_RECOVER" scope="Career" difficulty="1" hidden="true" allowRewardWhenHidden="true">
+		<challenge id="CHALLENGE_HARRIET_TUBMAN_UNLOCKED_STRATEGYCARDS_EXPLORATION" scope="Campaign" difficulty="1" hidden="true" allowRewardWhenHidden="true">
 			<l10n>
 				<name>Age Transition Card Exploration</name>
 				<description>As Harriet Tubman unlock age transition legend strategycards for Exploration Age.</description>
 			</l10n>
 			<sortIndex>20000</sortIndex>
-			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_HARRIET_TUBMAN_UNLOCKED_STRATEGYCARDS_EXPLORATION_COMPLETED" threshold="1" />
 			<reward type="UnlockableReward" reward="STRATEGYCARD_AS_TUBMAN_EXPLORATION_1" />
 			<reward type="UnlockableReward" reward="STRATEGYCARD_AS_TUBMAN_EXPLORATION_2" />
 		</challenge>
-		<challenge id="CHALLENGE_LEADER_HARRIET_TUBMAN_UNLOCKED_STRATEGYCARDS_MODERN_RECOVER" scope="Career" difficulty="1" hidden="true" allowRewardWhenHidden="true">
+		<challenge id="CHALLENGE_HARRIET_TUBMAN_UNLOCKED_STRATEGYCARDS_MODERN" scope="Campaign" difficulty="1" hidden="true" allowRewardWhenHidden="true">
 			<l10n>
 				<name>Age Transition Card Modern</name>
 				<description>As Harriet Tubman unlock age transition legend strategycards for Modern Age.</description>
 			</l10n>
 			<sortIndex>20100</sortIndex>
-			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_HARRIET_TUBMAN_UNLOCKED_STRATEGYCARDS_MODERN_COMPLETED" threshold="1" />
 			<reward type="UnlockableReward" reward="STRATEGYCARD_AS_TUBMAN_MODERN_1" />
 			<reward type="UnlockableReward" reward="STRATEGYCARD_AS_TUBMAN_MODERN_2" />
 		</challenge>

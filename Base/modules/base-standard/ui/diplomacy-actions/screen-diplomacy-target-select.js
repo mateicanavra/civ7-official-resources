@@ -2,6 +2,8 @@ import { Audio } from '../../../core/ui/audio-base/audio-support.js';
 import { UpdateFromOperationResult } from '../../../core/ui/components/fxs-activatable.js';
 import { InputEngineEventName } from '../../../core/ui/input/input-support.js';
 import { Navigation } from '../../../core/ui/input/navigation-support.js';
+import { getMajorLeader } from '../../../core/ui/utilities/diplomacy-utilities.js';
+import { getPlayerColorVariants } from '../../../core/ui/utilities/utilities-color.js';
 import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
 import { Icon } from '../../../core/ui/utilities/utilities-image.js';
 import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
@@ -90,7 +92,7 @@ class DiplomacyTargetSelectScreen extends DiplomacyInputPanel {
       const targetNameElement = document.createElement("div");
       targetNameElement.classList.value = "font-body-sm text-secondary-1 flex-auto text-left self-center relative";
       if (target.parameterName == "Player3") {
-        const otherPlayer = Players.get(target.targetID);
+        const otherPlayer = getMajorLeader(target.targetID) ?? Players.get(target.targetID);
         if (!otherPlayer) {
           console.error(
             "screen-diplomacy-target-select: Unable to get player library for player with id: " + target.targetID
@@ -103,15 +105,19 @@ class DiplomacyTargetSelectScreen extends DiplomacyInputPanel {
           "pointer-events-auto",
           "relative"
         );
+        const colorVariants = getPlayerColorVariants(otherPlayer.id);
         const portraitBG = document.createElement("div");
         portraitBG.classList.add("panel-diplomacy-actions__ongoing-actions-portrait-bg");
+        if (colorVariants) {
+          portraitBG.style.setProperty("--player-color-secondary", colorVariants.secondaryColor.mainColor);
+        }
         portrait.appendChild(portraitBG);
         const portraitBGInner = document.createElement("div");
         portraitBGInner.classList.add("panel-diplomacy-actions__ongoing-actions-portrait-bg-inner");
         portrait.appendChild(portraitBGInner);
         const portraitIcon = document.createElement("div");
         portraitIcon.classList.add("panel-diplomacy-actions__ongoing-actions-portrait-image");
-        portraitIcon.style.backgroundImage = `url(${Icon.getPlayerLeaderIcon(target.targetID)})`;
+        portraitIcon.style.backgroundImage = `url(${Icon.getPlayerLeaderIcon(otherPlayer.id)})`;
         portrait.appendChild(portraitIcon);
         portrait.setAttribute("data-tooltip-content", Locale.compose(otherPlayer.leaderName));
         const relationshipIcon = document.createElement("img");
@@ -121,22 +127,26 @@ class DiplomacyTargetSelectScreen extends DiplomacyInputPanel {
           console.error("screen-diplomacy-target-select: Unable to get local player diplomacy library!");
           return;
         }
-        if (diplomacy.isAtWarWith(target.targetID)) {
+        if (diplomacy.isAtWarWith(otherPlayer.id)) {
           relationshipIcon.src = UI.getIcon("PLAYER_RELATIONSHIP_AT_WAR", "PLAYER_RELATIONSHIP");
-        } else if (diplomacy.hasAllied(target.targetID)) {
+        } else if (diplomacy.hasAllied(otherPlayer.id)) {
           relationshipIcon.src = UI.getIcon("PLAYER_RELATIONSHIP_ALLIANCE", "PLAYER_RELATIONSHIP");
         } else {
           relationshipIcon.src = UI.getIcon(
-            DiplomacyManager.getRelationshipTypeString(diplomacy.getRelationshipEnum(target.targetID)),
+            DiplomacyManager.getRelationshipTypeString(diplomacy.getRelationshipEnum(otherPlayer.id)),
             "PLAYER_RELATIONSHIP"
           );
         }
         portrait.appendChild(relationshipIcon);
         const targetConfig = Configuration.getPlayer(target.targetID);
-        if (targetConfig) {
-          targetNameElement.innerHTML = Locale.stylize(targetConfig.slotName);
+        if (Players.get(target.targetID)?.isMajor) {
+          if (targetConfig) {
+            targetNameElement.innerHTML = Locale.stylize(targetConfig.slotName);
+          } else {
+            targetNameElement.innerHTML = Locale.compose(otherPlayer.name);
+          }
         } else {
-          targetNameElement.innerHTML = Locale.compose(otherPlayer.name);
+          targetNameElement.innerHTML = Locale.compose(target.targetName);
         }
         targetItem.appendChild(portrait);
         targetItem.addEventListener("action-activate", () => {

@@ -4,6 +4,7 @@ import { defineLegacyComponent } from '../../../../core/ui-next/components/fxs-s
 import { Tab } from '../../../../core/ui-next/components/tab.js';
 import { useAudio } from '../../../../core/ui-next/services/audio-support.js';
 import { ComponentRegistry } from '../../../../core/ui-next/services/component-registry.js';
+import { ViewExperience } from '../../../../core/ui-next/services/view-experience.js';
 import { ScreenFrame } from '../../components/screen-frame.js';
 import { DedicationTab } from './dedication-tab.js';
 import { LegaciesUnlocksTab } from './legacies-civ-unlocks-tab.js';
@@ -13,6 +14,7 @@ import { LegaciesTriumphTab } from './legacies-triumphs-tab.js';
 const LegaciesScreenComponent = (_props) => {
   const model = createLegaciesScreenModel();
   const audio = useAudio("LegaciesPopup");
+  const isMobile = ViewExperience() == UIViewExperience.Mobile;
   onMount(() => {
     audio("popup-open");
   });
@@ -41,12 +43,13 @@ const LegaciesScreenComponent = (_props) => {
           return ornatePanelData();
         },
         onClosing: handleOnClosing,
+        isFullscreen: isMobile,
         get children() {
           return createComponent(Tab, {
             "class": "w-full flex flex-col flex-auto pointer-events-auto relative",
             get children() {
               return [createComponent(Tab.TabList, {
-                "class": "w-187 self-center text-base font-base mb-2",
+                "class": `${isMobile ? "w-192" : "w-187"} self-center text-base font-base mb-2`,
                 nextHotkey: "nav-next",
                 previousHotkey: "nav-previous",
                 get showNavHelp() {

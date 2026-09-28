@@ -27,7 +27,7 @@ import { ViewExperience } from '../../services/view-experience.js';
 import { useIsSmallScreen } from '../../utilities/layout-utilities.js';
 import style from './create-game-setup.scss.js';
 
-var _tmpl$ = /* @__PURE__ */ template(`<div class="absolute inset-y-1\\.5 inset-x-1 overflow-hidden"><img alt=Background class="absolute create-game-setup-box-bg"></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="create-game-setup-bottom-gradient absolute left-1 right-1 bottom-1\\.5"></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="flex flex-row uppercase font-body text-accent-2 text-sm font-fit-shrink max-w-80"></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div class="relative flex-auto flex flex-col"><div class="absolute inset-0 img-unit-panelbox pointer-events-none"></div><div class="absolute inset-0 flex flex-col"><div class="flex-auto flex flex-col justify-center items-center text-center create-game-setup-box-selector-content"><div class="uppercase text-xl font-title font-black text-tertiary-1 font-fit-shrink max-w-80"></div></div><div class="create-game-setup-box-pips-area flex flex-row items-center justify-center p-1 m-0\\.5 mb-1 relative"><div class="create-game-setup-gradient absolute inset-0"></div><div class="flex-auto flex flex-row justify-center items-center"><div class=w-3\\.5></div><div class=w-3\\.5></div></div></div></div></div>`), _tmpl$5 = /* @__PURE__ */ template(`<div class="img-rollover-highlight absolute inset-0 opacity-0 group-focus\\:opacity-100 group-hover\\:opacity-100 group-pressed\\:opacity-100 pointer-events-none"></div>`), _tmpl$6 = /* @__PURE__ */ template(`<div class="absolute inset-0 img-unit-panelbox pointer-events-none"></div>`), _tmpl$7 = /* @__PURE__ */ template(`<div class="absolute inset-y-1\\.5 inset-x-1 overflow-hidden"><img alt=Background class="absolute create-game-setup-box-button-bg"></div>`), _tmpl$8 = /* @__PURE__ */ template(`<div class="flex flex-row uppercase font-body text-accent-2 text-sm "></div>`), _tmpl$9 = /* @__PURE__ */ template(`<div class="uppercase text-xl font-title font-black text-tertiary-1 mx-4 text-center font-fit-shrink"></div>`), _tmpl$10 = /* @__PURE__ */ template(`<div class="absolute inset-0 flex-auto flex flex-col justify-center items-center"></div>`), _tmpl$11 = /* @__PURE__ */ template(`<div class="create-game-setup-divider-line mb-4 mt-8"></div>`), _tmpl$12 = /* @__PURE__ */ template(`<div class="flex flex-col create-game-setup-container-column h-full"></div>`), _tmpl$13 = /* @__PURE__ */ template(`<div class="flex flex-row"></div>`), _tmpl$14 = /* @__PURE__ */ template(`<div class="flex flex-1 flex-col justify-center"></div>`), _tmpl$15 = /* @__PURE__ */ template(`<div class=create-game-setup-divider-line></div>`), _tmpl$16 = /* @__PURE__ */ template(`<div class="flex flex-col create-game-setup-selections"><div class="flex flex-row items-center justify-center"><div class="flex flex-col mx-4 mt-2 items-center"><div class="font-base uppercase text-tertiary-1 font-black"></div></div><div class="civ-select-v-divider w-0\\.5 mx-4 my-2 self-stretch"></div><div class="flex flex-col mx-4 mt-2 items-center"><div class="font-base uppercase text-tertiary-1 font-black"></div></div></div><div class=create-game-setup-divider-line></div></div>`), _tmpl$17 = /* @__PURE__ */ template(`<div class="flex flex-row mb-5 items-center justify-center create-game-setup-buttons-area"><div class="filigree-h4-left mt-3"></div><div class="filigree-h4-right mt-3"></div></div>`), _tmpl$18 = /* @__PURE__ */ template(`<div class="font-title relative flex flex-col flex-auto"data-name=layout-center><div class="flex flex-row flex-auto create-game-setup-container"><div class="flex flex-col"></div></div></div>`);
+var _tmpl$ = /* @__PURE__ */ template(`<div class="absolute inset-y-1\\.5 inset-x-1 overflow-hidden"><img alt="Background"class="absolute create-game-setup-box-bg"></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="create-game-setup-bottom-gradient absolute left-1 right-1 bottom-1\\.5"></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="flex flex-row uppercase font-body text-accent-2 text-sm font-fit-shrink max-w-80"></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div class="relative flex-auto flex flex-col"><div class="absolute inset-0 img-unit-panelbox pointer-events-none"></div><div class="absolute inset-0 flex flex-col"><div class="flex-auto flex flex-col justify-center items-center text-center create-game-setup-box-selector-content"><div class="uppercase text-xl font-title font-black text-tertiary-1 font-fit-shrink max-w-80"></div></div><div class="create-game-setup-box-pips-area flex flex-row items-center justify-center p-1 m-0\\.5 mb-1 relative"><div class="create-game-setup-gradient absolute inset-0"></div><div class="flex-auto flex flex-row justify-center items-center"><div class="w-3\\.5"></div><div class="w-3\\.5"></div></div></div></div></div>`), _tmpl$5 = /* @__PURE__ */ template(`<div class="img-rollover-highlight absolute inset-0 opacity-0 group-focus\\:opacity-100 group-hover\\:opacity-100 group-pressed\\:opacity-100 pointer-events-none"></div>`), _tmpl$6 = /* @__PURE__ */ template(`<div class="absolute inset-0 img-unit-panelbox pointer-events-none"></div>`), _tmpl$7 = /* @__PURE__ */ template(`<div class="absolute inset-y-1\\.5 inset-x-1 overflow-hidden"><img alt="Background"class="absolute create-game-setup-box-button-bg"></div>`), _tmpl$8 = /* @__PURE__ */ template(`<div class="flex flex-row uppercase font-body text-accent-2 text-sm "></div>`), _tmpl$9 = /* @__PURE__ */ template(`<div class="uppercase text-xl font-title font-black text-tertiary-1 mx-4 text-center font-fit-shrink"></div>`), _tmpl$10 = /* @__PURE__ */ template(`<div class="absolute inset-0 flex-auto flex flex-col justify-center items-center"></div>`), _tmpl$11 = /* @__PURE__ */ template(`<div class="create-game-setup-divider-line mb-4 mt-8"></div>`), _tmpl$12 = /* @__PURE__ */ template(`<div class="flex flex-col create-game-setup-container-column h-full"></div>`), _tmpl$13 = /* @__PURE__ */ template(`<div class="flex flex-row"></div>`), _tmpl$14 = /* @__PURE__ */ template(`<div class="flex flex-1 flex-col justify-center"></div>`), _tmpl$15 = /* @__PURE__ */ template(`<div class="create-game-setup-divider-line"></div>`), _tmpl$16 = /* @__PURE__ */ template(`<div class="flex flex-row items-center justify-center"><div class="flex flex-col mx-4 mt-2 items-center"><div class="font-base uppercase text-tertiary-1 font-black"></div></div><div class="civ-select-v-divider w-0\\.5 mx-4 my-2 self-stretch"></div><div class="flex flex-col mx-4 mt-2 items-center"><div class="font-base uppercase text-tertiary-1 font-black"></div></div></div>`), _tmpl$17 = /* @__PURE__ */ template(`<div class="flex flex-col create-game-setup-selections"><div class="create-game-setup-divider-line"></div></div>`), _tmpl$18 = /* @__PURE__ */ template(`<div class="flex flex-row mb-5 items-center justify-center create-game-setup-buttons-area"><div class="filigree-h4-left mt-3"></div><div class="filigree-h4-right mt-3"></div></div>`), _tmpl$19 = /* @__PURE__ */ template(`<div class="font-title relative flex flex-col flex-auto"data-name="layout-center"><div class="flex flex-row flex-auto create-game-setup-container"><div class="flex flex-col"></div></div></div>`);
 function BoxSelector(props) {
   const [local, other] = splitProps(props, ["class", "icon", "title", "items", "selectedValue", "setSelectedValue", "bgImage", "bgImagePositionX", "bgImagePositionY"]);
   const selectedItem = createMemo(() => local.items.find((i) => i.value == local.selectedValue()) ?? local.items[0]);
@@ -355,7 +355,7 @@ const CreateGameSetupComponent = () => {
           }
         }]
       }), (() => {
-        var _el$24 = _tmpl$18(), _el$25 = _el$24.firstChild, _el$26 = _el$25.firstChild;
+        var _el$24 = _tmpl$19(), _el$25 = _el$24.firstChild, _el$26 = _el$25.firstChild;
         insert(_el$26, createComponent(SpatialSlot, {
           name: "game-setup-options",
           "class": "flex flex-col flex-auto",
@@ -399,8 +399,8 @@ const CreateGameSetupComponent = () => {
                             return boxesBg.Difficulty.positionX;
                           }
                         }), null);
-                        insert(_el$30, createComponent(AudioContextProvider, {
-                          segment: "MapSelectButton",
+                        insert(_el$30, createComponent(Popup.Trigger, {
+                          name: "map-select",
                           get children() {
                             return createComponent(Tooltip.Text, {
                               get header() {
@@ -417,8 +417,8 @@ const CreateGameSetupComponent = () => {
                               },
                               allowFlip: true,
                               get children() {
-                                return createComponent(Popup.Trigger, {
-                                  name: "map-select",
+                                return createComponent(AudioContextProvider, {
+                                  segment: "MapSelectButton",
                                   get children() {
                                     return createComponent(BoxSelectorButton, {
                                       id: "map-selection",
@@ -531,7 +531,7 @@ const CreateGameSetupComponent = () => {
               }), null);
               return _el$27;
             })(), (() => {
-              var _el$33 = _tmpl$16(), _el$35 = _el$33.firstChild, _el$36 = _el$35.firstChild, _el$37 = _el$36.firstChild, _el$38 = _el$36.nextSibling, _el$39 = _el$38.nextSibling, _el$40 = _el$39.firstChild;
+              var _el$33 = _tmpl$17(), _el$41 = _el$33.firstChild;
               insert(_el$33, createComponent(Show, {
                 get when() {
                   return !isSmallScreen();
@@ -539,35 +539,42 @@ const CreateGameSetupComponent = () => {
                 get children() {
                   return _tmpl$15();
                 }
-              }), _el$35);
-              insert(_el$37, createComponent(L10n.Compose, {
-                text: "LOC_UI_CREATE_GAME_GAME_START_CIV_SELECTION"
-              }));
-              insert(_el$36, createComponent(SelectorSmall, {
-                "class": "m-1 create-game-setup-selection-carousel accent-2 uppercase text-sm font-black font-body",
-                get items() {
-                  return civMode.options;
-                },
-                setSelectedValue: (value) => civMode.setValue(value),
-                selectedValue: () => civMode.selectedOption?.value,
-                arrowClass: "w-6 h-8"
-              }), null);
-              insert(_el$40, createComponent(L10n.Compose, {
-                text: "LOC_UI_CREATE_GAME_ASSOCIATED_CIV_SELECTION"
-              }));
-              insert(_el$39, createComponent(SelectorSmall, {
-                "class": "m-1 create-game-setup-selection-carousel accent-2 uppercase text-sm font-black font-body",
-                get items() {
-                  return leaderMode.options;
-                },
-                setSelectedValue: (value) => leaderMode.setValue(value),
-                selectedValue: () => leaderMode.selectedOption?.value,
-                arrowClass: "w-6 h-8"
-              }), null);
+              }), _el$41);
+              insert(_el$33, createComponent(AudioContextProvider, {
+                segment: "GameSetup",
+                get children() {
+                  var _el$35 = _tmpl$16(), _el$36 = _el$35.firstChild, _el$37 = _el$36.firstChild, _el$38 = _el$36.nextSibling, _el$39 = _el$38.nextSibling, _el$40 = _el$39.firstChild;
+                  insert(_el$37, createComponent(L10n.Compose, {
+                    text: "LOC_UI_CREATE_GAME_GAME_START_CIV_SELECTION"
+                  }));
+                  insert(_el$36, createComponent(SelectorSmall, {
+                    "class": "m-1 create-game-setup-selection-carousel accent-2 uppercase text-sm font-black font-body",
+                    get items() {
+                      return civMode.options;
+                    },
+                    setSelectedValue: (value) => civMode.setValue(value),
+                    selectedValue: () => civMode.selectedOption?.value,
+                    arrowClass: "w-6 h-8"
+                  }), null);
+                  insert(_el$40, createComponent(L10n.Compose, {
+                    text: "LOC_UI_CREATE_GAME_ASSOCIATED_CIV_SELECTION"
+                  }));
+                  insert(_el$39, createComponent(SelectorSmall, {
+                    "class": "m-1 create-game-setup-selection-carousel accent-2 uppercase text-sm font-black font-body",
+                    get items() {
+                      return leaderMode.options;
+                    },
+                    setSelectedValue: (value) => leaderMode.setValue(value),
+                    selectedValue: () => leaderMode.selectedOption?.value,
+                    arrowClass: "w-6 h-8"
+                  }), null);
+                  return _el$35;
+                }
+              }), _el$41);
               return _el$33;
             })(), (() => {
-              var _el$41 = _tmpl$17(), _el$42 = _el$41.firstChild, _el$43 = _el$42.nextSibling;
-              insert(_el$41, createComponent(HeroButton2, {
+              var _el$42 = _tmpl$18(), _el$43 = _el$42.firstChild, _el$44 = _el$43.nextSibling;
+              insert(_el$42, createComponent(HeroButton2, {
                 "class": "flex items-center justify-center create-game-setup-continue-button",
                 onActivate: () => flowContext.activateNext(),
                 autoFocus: true,
@@ -576,8 +583,8 @@ const CreateGameSetupComponent = () => {
                     text: "LOC_GENERIC_CONTINUE"
                   });
                 }
-              }), _el$43);
-              return _el$41;
+              }), _el$44);
+              return _el$42;
             })()];
           }
         }));

@@ -1,11 +1,11 @@
 import { ActionActivateEvent } from '../../components/fxs-activatable.js';
-import ContextManager from '../../context-manager/context-manager.js';
-import ActionHandler from '../../input/action-handler.js';
+import { ContextManager } from '../../context-manager/context-manager.js';
 import { ActiveDeviceTypeChangedEventName } from '../../input/input-events.js';
 import NavTray from '../../navigation-tray/model-navigation-tray.js';
 import Panel from '../../panel-support.js';
 import { MustGetElement } from '../../utilities/utilities-dom.js';
 import { FocusManager } from '../../../ui-next/services/focus-manager.js';
+import { IsControllerActive } from '../../../ui-next/services/input.js';
 import content from './screen-extras.html.js';
 import styles from './screen-extras.scss.js';
 
@@ -32,7 +32,7 @@ class ScreenExtras extends Panel {
     this.title = MustGetElement(".additional-content-header", this.Root);
     const closeButton = MustGetElement(".additional-content-back-button", this.Root);
     closeButton.addEventListener("action-activate", this.closeButtonListener);
-    if (ActionHandler.isGamepadActive) {
+    if (IsControllerActive()) {
       closeButton.classList.add("hidden");
     }
     window.addEventListener(ActiveDeviceTypeChangedEventName, this.activeDeviceTypeListener, true);

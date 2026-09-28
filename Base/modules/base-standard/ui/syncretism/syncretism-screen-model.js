@@ -1,6 +1,6 @@
 import { createMemo, createSignal, createContext, useContext } from '../../../core/vendor/solid-js/dist/solid.js';
 import { createMutable } from '../../../core/vendor/solid-js/store/dist/store.js';
-import ContextManager from '../../../core/ui/context-manager/context-manager.js';
+import { ContextManager } from '../../../core/ui/context-manager/context-manager.js';
 import { DatabaseCache } from '../../../core/ui/utilities/utilities-data.js';
 import { Icon } from '../../../core/ui/utilities/utilities-image.js';
 import { Layout } from '../../../core/ui/utilities/utilities-layout.js';

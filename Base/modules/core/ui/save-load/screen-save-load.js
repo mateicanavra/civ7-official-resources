@@ -1,10 +1,9 @@
 import { ActionActivateEvent } from '../components/fxs-activatable.js';
 import { DropdownSelectionChangeEventName } from '../components/fxs-dropdown.js';
 import { TextBoxTextEditStopEventName } from '../components/fxs-textbox.js';
-import ContextManager from '../context-manager/context-manager.js';
+import { ContextManager } from '../context-manager/context-manager.js';
 import { displayRequestUniqueId } from '../context-manager/display-handler.js';
 import { DialogBoxManager } from '../dialog-box/manager-dialog-box.js';
-import ActionHandler from '../input/action-handler.js';
 import { InputEngineEventName } from '../input/input-support.js';
 import NavTray from '../navigation-tray/model-navigation-tray.js';
 import Panel, { AnchorType } from '../panel-support.js';
@@ -17,6 +16,7 @@ import { fixupNNBSP } from '../utilities/utilities-core-textprovider.js';
 import { MustGetElement, MustGetElements } from '../utilities/utilities-dom.js';
 import { Layout } from '../utilities/utilities-layout.js';
 import { FocusManager } from '../../ui-next/services/focus-manager.js';
+import { IsControllerActive } from '../../ui-next/services/input.js';
 import styles from './screen-save-load.scss.js';
 import { DialogBoxAction } from '../dialog-box/model-dialog-box.js';
 
@@ -708,7 +708,7 @@ class ScreenSaveLoad extends Panel {
   }
   onCardActivate(event) {
     const { target } = event;
-    if (ActionHandler.isGamepadActive) {
+    if (IsControllerActive()) {
       const { isAutosave, isQuicksave, isCurrentGame } = this.getSelectedSaveGameInfo();
       const menuType = this.Root.getAttribute("menu-type") ?? "load" /* LOAD */;
       if (["load" /* LOAD */, "load_config" /* LOAD_CONFIG */].includes(menuType)) {
@@ -1104,7 +1104,7 @@ class ScreenSaveLoad extends Panel {
   }
   focusSlotGroup() {
     FocusManager.get().setFocus(this.slotGroup);
-    if (!ActionHandler.isGamepadActive) {
+    if (!IsControllerActive()) {
       const saveType = this.Root.getAttribute("menu-type") ?? "load" /* LOAD */;
       const selectedSlot = this.slotGroup?.getAttribute("selected-slot") ?? "local" /* LOCAL */;
       if (["save" /* SAVE */, "save_config" /* SAVE_CONFIG */].includes(saveType)) {
@@ -1389,7 +1389,7 @@ class ScreenSaveLoad extends Panel {
       "trigger-nav-help",
       currentFocus.classList.contains("screen-save__list__slot") || currentFocus.classList.contains("save-load-chooser-item") || currentFocus.classList.contains("screen-save__crossplay__loged-out__link-button")
     );
-    if (!ActionHandler.isGamepadActive || FocusManager.get().currentFocus().tagName !== "SAVE-LOAD-CHOOSER-ITEM") {
+    if (!IsControllerActive() || FocusManager.get().currentFocus().tagName !== "SAVE-LOAD-CHOOSER-ITEM") {
       return;
     }
     const selectedSlot = this.slotGroup?.getAttribute("selected-slot") ?? "local" /* LOCAL */;

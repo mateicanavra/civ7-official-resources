@@ -1,6 +1,6 @@
 import { DialogBoxManager } from '../dialog-box/manager-dialog-box.js';
-import ActionHandler from '../input/action-handler.js';
 import { OptionType, CategoryType, Options } from './model-options.js';
+import { IsControllerActive } from '../../ui-next/services/input.js';
 
 const createOptionComponentInternal = (optionInfo) => {
   switch (optionInfo.type) {
@@ -88,7 +88,7 @@ const CreateOptionComponent = (option) => {
       break;
   }
   element.setAttribute("disabled", option.isDisabled ? "true" : "false");
-  if (!ActionHandler.isGamepadActive) {
+  if (!IsControllerActive()) {
   } else {
     element.setAttribute("data-audio-focus-ref", "data-audio-focus");
   }

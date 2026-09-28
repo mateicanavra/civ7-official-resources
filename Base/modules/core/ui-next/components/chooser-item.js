@@ -4,11 +4,11 @@ import { ChooserItemSelectedEvent } from '../../ui/components/fxs-chooser-item.j
 import { Activatable } from './activatable.js';
 import { ComponentRegistry } from '../services/component-registry.js';
 
-var _tmpl$ = /* @__PURE__ */ template(`<div class="fxs-chooser-item-highlight absolute inset-0"></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="fxs-chooser-item-selected img-list-focus-frame absolute inset-0"></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div class="absolute inset-0 opacity-70 pointer-events-none bg-primary-5"></div>`), _tmpl$5 = /* @__PURE__ */ template(`<div class="fxs-chooser-item-lock-image absolute bg-cover"></div>`), _tmpl$6 = /* @__PURE__ */ template(`<div class="relative flex self-center items-center justify-center pointer-events-none size-19"><div class="fxs-chooser-item-icon-image relative flex flex-col items-center"><div class="fxs-chooser-item-lock-bg absolute inset-0"></div></div><div class="fxs-chooser-item-icon-bg absolute"></div></div>`);
+var _tmpl$ = /* @__PURE__ */ template(`<div class="fxs-chooser-item-highlight absolute inset-0"></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="fxs-chooser-item-selected img-list-focus-frame absolute inset-0"></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div class="absolute inset-0 pointer-events-none bg-primary-5"></div>`), _tmpl$5 = /* @__PURE__ */ template(`<div class="fxs-chooser-item-lock-image absolute bg-cover"></div>`), _tmpl$6 = /* @__PURE__ */ template(`<div class="relative flex self-center items-center justify-center pointer-events-none size-19"><div class="fxs-chooser-item-icon-image relative flex flex-col items-center"><div class="fxs-chooser-item-lock-bg absolute inset-0"></div></div><div class="fxs-chooser-item-icon-bg absolute"></div></div>`);
 const ChooserItemComponent = (props) => {
   const [isSelected, setIsSelected] = createSignal(false);
   let hostRef;
-  const canSelect = () => (props.selectableWhenDisabled || !props.disabled) ?? true;
+  const canSelect = () => (props.selectableWhenDisabled || !(props.disabled || props.disableVisual)) ?? true;
   const dispatchLegacySelectedEvent = () => {
     if (!hostRef) return true;
     return hostRef.dispatchEvent(new ChooserItemSelectedEvent());
@@ -39,6 +39,7 @@ const ChooserItemComponent = (props) => {
   createEffect(() => setIsSelected(!!props.selected));
   const showFrameOnHover = () => props.showFrameOnHover ?? true;
   const showColorBg = () => props.showColorBg ?? true;
+  const disabledOverlayOpacity = () => props.disabledOverlayOpacity ?? 0.7;
   const setRef = (el) => {
     hostRef = el;
     props.ref?.(el);
@@ -102,10 +103,12 @@ const ChooserItemComponent = (props) => {
         return _el$3;
       })(), createComponent(Show, {
         get when() {
-          return props.disabled;
+          return props.disabled || props.disableVisual;
         },
         get children() {
-          return _tmpl$4();
+          var _el$4 = _tmpl$4();
+          createRenderEffect((_$p) => (_$p = disabledOverlayOpacity()) != null ? _el$4.style.setProperty("opacity", _$p) : _el$4.style.removeProperty("opacity"));
+          return _el$4;
         }
       })];
     }

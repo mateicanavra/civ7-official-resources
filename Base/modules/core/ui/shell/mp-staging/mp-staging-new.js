@@ -1,9 +1,8 @@
 import { Audio } from '../../audio-base/audio-support.js';
 import { ActionActivateEventName } from '../../components/fxs-activatable.js';
 import { DropdownSelectionChangeEventName } from '../../components/fxs-dropdown.js';
-import ContextManager, { ContextManagerEvents } from '../../context-manager/context-manager.js';
+import { ContextManagerEvents, ContextManager } from '../../context-manager/context-manager.js';
 import { StartCampaignEvent, SendCampaignSetupTelemetryEvent } from '../../events/shell-events.js';
-import ActionHandler from '../../input/action-handler.js';
 import { ActiveDeviceTypeChangedEventName } from '../../input/input-events.js';
 import NavTray from '../../navigation-tray/model-navigation-tray.js';
 import Panel, { AnchorType } from '../../panel-support.js';
@@ -14,6 +13,7 @@ import Databind from '../../utilities/utilities-core-databinding.js';
 import { MustGetElement, MustGetElements } from '../../utilities/utilities-dom.js';
 import { Layout } from '../../utilities/utilities-layout.js';
 import { FocusManager } from '../../../ui-next/services/focus-manager.js';
+import { IsControllerActive } from '../../../ui-next/services/input.js';
 import content from './mp-staging-new.html.js';
 import styles from './mp-staging-new.scss.js';
 
@@ -539,8 +539,8 @@ class PanelMPLobby extends Panel {
         "group-hover\\:opacity-100",
         "group-pressed\\:opacity-100"
       );
-      Databind.if(kickButtonHighlight, "{{g_NavTray.isTrayRequired}} || {{g_ActionHandler.isTouchActive}}");
-      Databind.classToggle(kickButtonHighlight, "transition-opacity", "!{{g_ActionHandler.isTouchActive}}");
+      Databind.if(kickButtonHighlight, "{{g_NavTray.isTrayRequired}} || {{g_IsTouchActive()}}");
+      Databind.classToggle(kickButtonHighlight, "transition-opacity", "!{{g_IsTouchActive()}}");
       kickButton.appendChild(kickButtonBg);
       kickButton.appendChild(kickButtonHighlight);
       kickButtonContainer.appendChild(kickButton);
@@ -953,15 +953,15 @@ class PanelMPLobby extends Panel {
     );
   }
   updatePlayerInfoSlot() {
-    this.playerInfoSlot.classList.toggle("mb-28", !this.isSmallScreen() && !ActionHandler.isGamepadActive);
-    this.playerInfoSlot.classList.toggle("mb-40", !this.isSmallScreen() && ActionHandler.isGamepadActive);
+    this.playerInfoSlot.classList.toggle("mb-28", !this.isSmallScreen() && !IsControllerActive());
+    this.playerInfoSlot.classList.toggle("mb-40", !this.isSmallScreen() && IsControllerActive());
     this.playerInfoSlot.classList.toggle(
       "mb-36",
-      this.isSmallScreen() && ActionHandler.isGamepadActive && !this.isMobileViewExperience
+      this.isSmallScreen() && IsControllerActive() && !this.isMobileViewExperience
     );
     this.playerInfoSlot.classList.toggle(
       "mb-24",
-      this.isSmallScreen() && !ActionHandler.isGamepadActive && !this.isMobileViewExperience
+      this.isSmallScreen() && !IsControllerActive() && !this.isMobileViewExperience
     );
     this.playerInfoSlot.classList.toggle("mb-0", this.isSmallScreen() && this.isMobileViewExperience);
   }

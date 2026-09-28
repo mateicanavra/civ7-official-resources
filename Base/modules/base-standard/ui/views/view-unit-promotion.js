@@ -1,5 +1,4 @@
 import ViewManager, { UISystem } from '../../../core/ui/views/view-manager.js';
-import { SetIsPlotTooltipVisible } from '../../ui-next/tooltips/plot-tooltip/plot-tooltip.js';
 
 class UnitPromotionView {
   getName() {
@@ -12,10 +11,8 @@ class UnitPromotionView {
     return "unit-promotion";
   }
   enterView() {
-    SetIsPlotTooltipVisible(false);
   }
   exitView() {
-    SetIsPlotTooltipVisible(true);
   }
   handleReceiveFocus() {
     const promotionPanel = document.querySelector("panel-unit-promotion");
@@ -35,6 +32,7 @@ class UnitPromotionView {
       { name: "city-banners", type: UISystem.World, visible: "false" },
       { name: "district-health-bars", type: UISystem.World, visible: "false" },
       { name: "plot-icons", type: UISystem.World, visible: "false" },
+      { name: "plot-tooltips", type: UISystem.World, visible: "false" },
       { name: "plot-vfx", type: UISystem.World, visible: "true" },
       { name: "unit-flags", type: UISystem.World, visible: "false" },
       { name: "small-narratives", type: UISystem.World, visible: "false" },

@@ -1,4 +1,4 @@
-import ContextManager from '../../context-manager/context-manager.js';
+import { ContextManager } from '../../context-manager/context-manager.js';
 import { SendCampaignSetupTelemetryEvent } from '../../events/shell-events.js';
 import NavTray from '../../navigation-tray/model-navigation-tray.js';
 import { AnchorType } from '../../panel-support.js';
@@ -88,14 +88,18 @@ class PanelMPCreateGame extends AdvancedOptionsBase {
     topNav.insertAdjacentElement("afterend", subheader);
   }
   onAttach() {
-    const gameMode = serverTypeToGameModeType.get(MultiplayerShellManager.serverType);
-    if (gameMode) {
-      Configuration.editGame()?.reset(gameMode);
-    } else {
-      console.warn(
-        "Couldn't find gameMode for serverType=${MultiplayerShellManager.serverType} in mp-create-game.ts. Default to INTERNET."
+    if (!MultiplayerShellManager.isShellAbandoningGame) {
+      const gameMode = serverTypeToGameModeType.get(
+        MultiplayerShellManager.serverType
       );
-      Configuration.editGame()?.reset(GameModeTypes.INTERNET);
+      if (gameMode) {
+        Configuration.editGame()?.reset(gameMode);
+      } else {
+        console.warn(
+          "Couldn't find gameMode for serverType=${MultiplayerShellManager.serverType} in mp-create-game.ts. Default to INTERNET."
+        );
+        Configuration.editGame()?.reset(GameModeTypes.INTERNET);
+      }
     }
     super.onAttach();
     this.enteredAdditionalContent = false;

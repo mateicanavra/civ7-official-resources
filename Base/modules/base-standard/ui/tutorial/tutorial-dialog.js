@@ -1,11 +1,11 @@
 import { Audio } from '../../../core/ui/audio-base/audio-support.js';
-import ContextManager from '../../../core/ui/context-manager/context-manager.js';
-import ActionHandler from '../../../core/ui/input/action-handler.js';
+import { ContextManager } from '../../../core/ui/context-manager/context-manager.js';
 import { ActiveDeviceTypeChangedEventName } from '../../../core/ui/input/input-events.js';
 import NavTray from '../../../core/ui/navigation-tray/model-navigation-tray.js';
 import Panel from '../../../core/ui/panel-support.js';
 import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
 import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
+import { IsControllerActive } from '../../../core/ui-next/services/input.js';
 import { LoadCurtainClosedEventName } from '../../ui-next/screens/load-screen/load-screen-model.js';
 import content from './tutorial-dialog.html.js';
 import styles from './tutorial-dialog.scss.js';
@@ -148,8 +148,8 @@ class TutorialDialogPanel extends Panel {
     }
   }
   onActiveDeviceTypeChanged() {
-    this.setButtonVisible(this.previousButton, !ActionHandler.isGamepadActive);
-    this.setButtonVisible(this.nextButton, !ActionHandler.isGamepadActive);
+    this.setButtonVisible(this.previousButton, !IsControllerActive());
+    this.setButtonVisible(this.nextButton, !IsControllerActive());
   }
   close() {
     window.dispatchEvent(new LowerTutorialDialogEvent(this.itemID));
@@ -230,7 +230,7 @@ class TutorialDialogPanel extends Panel {
     if (this.previousButton) {
       if (onFirstPage) {
         this.previousButton.style.display = "none";
-      } else if (onSecondPage && !ActionHandler.isGamepadActive) {
+      } else if (onSecondPage && !IsControllerActive()) {
         this.previousButton.style.display = "flex";
       }
     }

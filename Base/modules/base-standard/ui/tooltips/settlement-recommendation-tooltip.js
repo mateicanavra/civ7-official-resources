@@ -1,6 +1,6 @@
-import ActionHandler from '../../../core/ui/input/action-handler.js';
 import LensManager from '../../../core/ui/lenses/lens-manager.js';
 import TooltipManager from '../../../core/ui/tooltips/tooltip-manager.js';
+import { IsControllerActive } from '../../../core/ui-next/services/input.js';
 import { SettlementRecommendationsLayer } from '../lenses/layer/settlement-recommendations-layer.js';
 
 class SettlementRecommendationTooltipType {
@@ -80,7 +80,7 @@ class SettlementRecommendationTooltipType {
     }
   }
   isBlank() {
-    return !this.recommendation || this.shownByPlot && !ActionHandler.isGamepadActive || LensManager.getActiveLens() !== "fxs-settler-lens";
+    return !this.recommendation || this.shownByPlot && !IsControllerActive() || LensManager.getActiveLens() !== "fxs-settler-lens";
   }
 }
 const instance = new SettlementRecommendationTooltipType();

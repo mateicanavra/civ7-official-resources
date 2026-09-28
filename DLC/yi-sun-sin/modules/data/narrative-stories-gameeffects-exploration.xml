@@ -36,6 +36,11 @@
         <Argument name="ConstructibleType">BUILDING_TEMPLE</Argument>
     </Modifier>
     <Modifier id="10138B_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_ABILITY" run-once="false" permanent="true">
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+                <Argument name="Tag">UNIT_CLASS_NAVAL</Argument>
+            </Requirement>
+        </SubjectRequirements>
         <Argument name="AbilityType">ABILITY_NARRATIVE_MOVEMENT</Argument>
     </Modifier>
     <Modifier id="10138C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_UNIT_PRODUCTION" run-once="false" permanent="true">

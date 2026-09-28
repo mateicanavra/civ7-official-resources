@@ -1,5 +1,5 @@
 import { FxsActivatable } from '../../../core/ui/components/fxs-activatable.js';
-import styles from './chooser-item.scss.js';
+import chooserItemStyles from './chooser-item.scss.js';
 
 class ChooserItem extends FxsActivatable {
   isSelectHighlight = false;
@@ -150,7 +150,7 @@ class ChooserItem extends FxsActivatable {
 Controls.define("chooser-item", {
   createInstance: ChooserItem,
   description: "A chooser item to be used with the tech or civic choosers",
-  styles: [styles],
+  styles: [chooserItemStyles],
   images: [
     "fs://game/hud_sidepanel_list-bg.png",
     "fs://game/hud_list-focus_frame.png",

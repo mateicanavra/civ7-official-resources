@@ -2,7 +2,7 @@ import { FxsTextboxValidateVirtualKeyboard } from '../components/fxs-textbox.js'
 import { Layout } from '../utilities/utilities-layout.js';
 import saveLoadChooserItemStyles from './save-load-chooser-item.scss.js';
 import { ChooserItem } from '../../../base-standard/ui/chooser-item/chooser-item.js';
-import styles from '../../../base-standard/ui/chooser-item/chooser-item.scss.js';
+import chooserItemStyles from '../../../base-standard/ui/chooser-item/chooser-item.scss.js';
 
 const ActionConfirmEventName = "action-confirm";
 class ActionConfirmEvent extends CustomEvent {
@@ -265,7 +265,7 @@ Controls.define("save-load-chooser-item", {
   createInstance: SaveLoadChooserItem,
   description: "A chooser item to be used with the save-load screen",
   classNames: ["save-load-chooser-item", "chooser-item_unlocked", "grow", "relative", "group"],
-  styles: [styles, saveLoadChooserItemStyles],
+  styles: [chooserItemStyles, saveLoadChooserItemStyles],
   attributes: [
     { name: "node" },
     { name: "type" },

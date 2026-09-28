@@ -36,7 +36,6 @@ class MPFriendsPlayerData {
   Both names are displayed the same way for now. We may have a distinct visual according to the type
   (ie. as Lee Chidgey mentioned, in Lego 2K Drive, the 1P has a platform icon and is displayed in black,
   while the 2K has the 2K icon and is displayed in red) */
-  // MMG_TASK https://2kfxs.atlassian.net/browse/IGP-59386 [model-mp-friends] Merge the T2GP status icon and status details with their matching 1P
   friendID1P = "";
   gamertag1P = "";
   statusIcon1P = "";
@@ -194,8 +193,7 @@ class MPFriendsDataModel {
               case FriendStateTypes.Busy:
                 playerStatus1P = 1 /* ORANGE */;
                 break;
-              // MMG_TODO Other states being: .Offline / .Away / .Snooze / .LookngToTrade / .LookingToPlay
-              // MMG_TASK https://2kfxs.atlassian.net/browse/IGP-59414 [model-mp-friends] Mapping to Other states Invited, Offline, Away, Snooze, Date of Block
+              // TODO:  Other states being: .Offline / .Away / .Snooze / .LookngToTrade / .LookingToPlay
               default:
                 break;
             }
@@ -210,8 +208,7 @@ class MPFriendsDataModel {
               case FriendStateTypes.Offline:
                 playerStatusT2gp = 2 /* RED */;
                 break;
-              // MMG_TODO Other states being: .Online / .Busy / .Away / .Snooze / .LookngToTrade / .LookingToPlay
-              // MMG_TASK https://2kfxs.atlassian.net/browse/IGP-59414 [model-mp-friends] Mapping to Other states Invited, Offline, Away, Snooze, Date of Block
+              // TODO:  Other states being: .Online / .Busy / .Away / .Snooze / .LookngToTrade / .LookingToPlay
               default:
                 playerStatusT2gp = 0 /* GREEN */;
                 break;
@@ -385,7 +382,7 @@ class MPFriendsDataModel {
         statusIconPath = "fs://game/core/mpicon_playerstatus_red.png";
         break;
       // MMG_TODO To find a final name and cook the texture file
-      // MMG_TASK https://2kfxs.atlassian.net/browse/IGP-59728 [model-mp-friends] Better names for MPFriendsPlayerStatus and find a final name for the status art and cook the texture file
+      // TODO: Better names for MPFriendsPlayerStatus and find a final name for the status art and cook the texture file
       default:
         console.error("model-mp-friends: getStatusIconPath(): Invalid status");
         break;

@@ -16,6 +16,7 @@ CREATE TABLE 'Adjacency_YieldChanges' (
 	'AdjacentLake' BOOLEAN NOT NULL DEFAULT 0,
 	'AdjacentNaturalWonder' BOOLEAN NOT NULL DEFAULT 0,
 	'AdjacentNavigableRiver' BOOLEAN NOT NULL DEFAULT 0,
+	'AdjacentOtherOwner' BOOLEAN NOT NULL DEFAULT 0,
 	'AdjacentQuarter' BOOLEAN NOT NULL DEFAULT 0,
 	'AdjacentResource' BOOLEAN NOT NULL DEFAULT 0,
 	'AdjacentResourceClass' TEXT NOT NULL DEFAULT "NO_RESOURCECLASS",
@@ -26,6 +27,7 @@ CREATE TABLE 'Adjacency_YieldChanges' (
 	'AdjacentUniqueQuarter' BOOLEAN NOT NULL DEFAULT 0,
 	'AdjacentUniqueQuarterType' TEXT,
 	'Age' TEXT,
+	'PersistOnTransfer' BOOLEAN NOT NULL DEFAULT 0,
 	'ProjectMaxYield' BOOLEAN NOT NULL DEFAULT 0,
 	'Self' BOOLEAN NOT NULL DEFAULT 0,
 	'TilesRequired' INTEGER NOT NULL DEFAULT 1,
@@ -2669,12 +2671,6 @@ CREATE TABLE 'MapResourceDistributions' (
 	'Scale' REAL,
 	PRIMARY KEY("MapResourceDistributionType")
 );
-CREATE TABLE 'MapResourceMinimumAmountModifier' (
-	'MapSizeType' TEXT NOT NULL,
-	'MapType' TEXT NOT NULL,
-	'Amount' INTEGER NOT NULL DEFAULT 0,
-	PRIMARY KEY("MapSizeType", "MapType")
-);
 CREATE TABLE 'MapSeaLevels' (
 	'MapSeaLevelType' TEXT NOT NULL UNIQUE,
 	'Description' TEXT NOT NULL,
@@ -2955,6 +2951,8 @@ CREATE TABLE 'NarrativeStory_Yield_Rewards' (
 );
 CREATE TABLE 'NarrativeTags' (
 	'NarrativeTagType' TEXT NOT NULL,
+	'Name' TEXT,
+	'NarrativeTagSubType' TEXT,
 	PRIMARY KEY("NarrativeTagType")
 );
 CREATE TABLE 'NarrativeVariations' (
@@ -3031,6 +3029,11 @@ CREATE TABLE 'Origins' (
 	'Description' TEXT,
 	'Name' TEXT NOT NULL,
 	PRIMARY KEY("OriginType")
+);
+CREATE TABLE 'PlayerInventoryItems' (
+	'PlayerInventoryItemType' TEXT NOT NULL,
+	'Name' TEXT,
+	PRIMARY KEY("PlayerInventoryItemType")
 );
 CREATE TABLE 'PlayerModifiers' (
 	'ModifierId' TEXT NOT NULL,
@@ -3387,10 +3390,10 @@ CREATE TABLE 'Resources' (
 	'AssignInland' BOOLEAN NOT NULL DEFAULT 0,
 	'BonusResourceSlots' INTEGER NOT NULL DEFAULT 0,
 	'Clumped' BOOLEAN NOT NULL DEFAULT 0,
-	'HemisphereUnique' BOOLEAN NOT NULL DEFAULT 0,
 	'IsPendingGenerationUpdate' BOOLEAN NOT NULL DEFAULT 0,
 	'LakeEligible' BOOLEAN NOT NULL DEFAULT 1,
-	'MinimumPerHemisphere' INTEGER NOT NULL DEFAULT 3,
+	'LandmassUnique' BOOLEAN NOT NULL DEFAULT 0,
+	'MinimumPerLandmass' INTEGER NOT NULL DEFAULT 1,
 	'Name' TEXT NOT NULL,
 	'NoRiver' BOOLEAN NOT NULL DEFAULT 0,
 	'RequiresRiver' BOOLEAN NOT NULL DEFAULT 0,
@@ -3399,7 +3402,7 @@ CREATE TABLE 'Resources' (
 	'Tooltip' TEXT NOT NULL,
 	'Tradeable' BOOLEAN NOT NULL DEFAULT 1,
 	'UnlocksCiv' BOOLEAN NOT NULL DEFAULT 0,
-	'Weight' INTEGER NOT NULL DEFAULT 0,
+	'Weight' REAL NOT NULL DEFAULT 1,
 	PRIMARY KEY("ResourceType"),
 	FOREIGN KEY ("ResourceType") REFERENCES "Types"("Type") ON DELETE CASCADE ON UPDATE CASCADE,
 	FOREIGN KEY ("ResourceClassType") REFERENCES "ResourceClasses"("ResourceClassType") ON DELETE CASCADE ON UPDATE CASCADE
@@ -3446,6 +3449,7 @@ CREATE TABLE 'Resource_ValidBiomes' (
 	'FeatureType' TEXT,
 	'ResourceType' TEXT NOT NULL,
 	'TerrainType' TEXT NOT NULL,
+	'Weight' REAL DEFAULT 1.0,
 	PRIMARY KEY("BiomeType", "FeatureType", "ResourceType", "TerrainType"),
 	FOREIGN KEY ("ResourceType") REFERENCES "Resources"("ResourceType") ON DELETE CASCADE ON UPDATE CASCADE,
 	FOREIGN KEY ("BiomeType") REFERENCES "Biomes"("BiomeType") ON DELETE CASCADE ON UPDATE CASCADE,
@@ -3592,6 +3596,14 @@ CREATE TABLE 'StartBiasFeatureClasses' (
 	FOREIGN KEY ("CivilizationType") REFERENCES "Civilizations"("CivilizationType") ON DELETE CASCADE ON UPDATE CASCADE,
 	FOREIGN KEY ("LeaderType") REFERENCES "Leaders"("LeaderType") ON DELETE CASCADE ON UPDATE CASCADE,
 	FOREIGN KEY ("FeatureClassType") REFERENCES "FeatureClasses"("FeatureClassType") ON DELETE CASCADE ON UPDATE CASCADE
+);
+CREATE TABLE 'StartBiasIslands' (
+	'CivilizationType' TEXT,
+	'LeaderType' TEXT,
+	'Score' INTEGER NOT NULL DEFAULT 0,
+	PRIMARY KEY("CivilizationType", "LeaderType"),
+	FOREIGN KEY ("CivilizationType") REFERENCES "Civilizations"("CivilizationType") ON DELETE CASCADE ON UPDATE CASCADE,
+	FOREIGN KEY ("LeaderType") REFERENCES "Leaders"("LeaderType") ON DELETE CASCADE ON UPDATE CASCADE
 );
 CREATE TABLE 'StartBiasLakes' (
 	'CivilizationType' TEXT,
@@ -5085,6 +5097,8 @@ CREATE TRIGGER OnDelete_Biomes_Cascade_StartBiasBiomesBiomeType AFTER DELETE ON 
 CREATE TRIGGER OnDelete_Civilizations_Cascade_StartBiasFeatureClassesCivilizationType AFTER DELETE ON Civilizations FOR EACH ROW BEGIN DELETE FROM StartBiasFeatureClasses WHERE CivilizationType = OLD.CivilizationType; END;
 CREATE TRIGGER OnDelete_Leaders_Cascade_StartBiasFeatureClassesLeaderType AFTER DELETE ON Leaders FOR EACH ROW BEGIN DELETE FROM StartBiasFeatureClasses WHERE LeaderType = OLD.LeaderType; END;
 CREATE TRIGGER OnDelete_FeatureClasses_Cascade_StartBiasFeatureClassesFeatureClassType AFTER DELETE ON FeatureClasses FOR EACH ROW BEGIN DELETE FROM StartBiasFeatureClasses WHERE FeatureClassType = OLD.FeatureClassType; END;
+CREATE TRIGGER OnDelete_Civilizations_Cascade_StartBiasIslandsCivilizationType AFTER DELETE ON Civilizations FOR EACH ROW BEGIN DELETE FROM StartBiasIslands WHERE CivilizationType = OLD.CivilizationType; END;
+CREATE TRIGGER OnDelete_Leaders_Cascade_StartBiasIslandsLeaderType AFTER DELETE ON Leaders FOR EACH ROW BEGIN DELETE FROM StartBiasIslands WHERE LeaderType = OLD.LeaderType; END;
 CREATE TRIGGER OnDelete_Civilizations_Cascade_StartBiasLakesCivilizationType AFTER DELETE ON Civilizations FOR EACH ROW BEGIN DELETE FROM StartBiasLakes WHERE CivilizationType = OLD.CivilizationType; END;
 CREATE TRIGGER OnDelete_Leaders_Cascade_StartBiasLakesLeaderType AFTER DELETE ON Leaders FOR EACH ROW BEGIN DELETE FROM StartBiasLakes WHERE LeaderType = OLD.LeaderType; END;
 CREATE TRIGGER OnDelete_Civilizations_Cascade_StartBiasNaturalWondersCivilizationType AFTER DELETE ON Civilizations FOR EACH ROW BEGIN DELETE FROM StartBiasNaturalWonders WHERE CivilizationType = OLD.CivilizationType; END;

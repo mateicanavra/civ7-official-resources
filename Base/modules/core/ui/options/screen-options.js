@@ -3,7 +3,7 @@ import { DropdownSelectionChangeEventName } from '../components/fxs-dropdown.js'
 import { FxsSlider } from '../components/fxs-slider.js';
 import { FxsStepper } from '../components/fxs-stepper.js';
 import { FxsSwitch } from '../components/fxs-switch.js';
-import ContextManager from '../context-manager/context-manager.js';
+import { ContextManager } from '../context-manager/context-manager.js';
 import { displayRequestUniqueId } from '../context-manager/display-handler.js';
 import { DialogBoxManager } from '../dialog-box/manager-dialog-box.js';
 import { MainMenuReturnEvent } from '../events/shell-events.js';
@@ -118,6 +118,8 @@ class ScreenOptions extends Panel {
         if (Options.isRestartRequired()) {
           ShowRestartGamePrompt();
         }
+        engine.trigger("UIFontScaleChanged");
+        engine.trigger("UIGlobalScaleChanged");
         VisualRemaps.resetToDefaults();
         window.dispatchEvent(new MainMenuReturnEvent());
         this.close();

@@ -1,6 +1,6 @@
 import '../../../core/vendor/solid-js/web/dist/web.js';
 import { createSignal, onMount, createEffect, onCleanup, createComponent } from '../../../core/vendor/solid-js/dist/solid.js';
-import ContextManager from '../../../core/ui/context-manager/context-manager.js';
+import { ContextManager } from '../../../core/ui/context-manager/context-manager.js';
 import { FiligreeTitle } from '../../../core/ui-next/components/filigree-title.js';
 import { VSlot } from '../../../core/ui-next/components/slot.js';
 import { SubsystemFrame } from '../../../core/ui-next/components/subsystem-frame.js';
@@ -45,7 +45,7 @@ const SidebarChooserComponent = (props) => {
       return props.name;
     },
     get ["class"]() {
-      return `m-4 items-center ${getAnimation()}`;
+      return `m-4 items-center ${getAnimation()} ${props.class ?? ""}`;
     },
     get closeButtonAudio() {
       return props.closeButtonAudioGroup ? {

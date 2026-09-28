@@ -4,6 +4,7 @@
   <LocalizedText>
     <Delete Tag="LOC_MP_JOIN_PARENT_PERMISSIONS_DISABLED" />
     <Delete Tag="LOC_JOIN_GAME_CHILD_ACCOUNT" />
+	<Delete Tag="LOC_JOIN_GAME_CROSSPLAY_DISABLED" />
   </LocalizedText>
 
   <!-- Define platform-specific overrides. -->
@@ -11,11 +12,18 @@
     <Row Tag="LOC_MP_CHILD_ACCOUNT_NOT_ALLOWED_AA">
       <Text>Child accounts are not allowed to play online.</Text>
     </Row>
+	<Row Tag="LOC_JOIN_GAME_CROSSPLAY_DISABLED_AA">
+      <Text>You cannot join Crossplay games.</Text>
+    </Row>
+
     <Replace Tag="LOC_MP_JOIN_PARENT_PERMISSIONS_DISABLED">
       <Text>{LOC_MP_CHILD_ACCOUNT_NOT_ALLOWED_AA}</Text>
     </Replace>
     <Replace Tag="LOC_JOIN_GAME_CHILD_ACCOUNT">
       <Text>{LOC_MP_CHILD_ACCOUNT_NOT_ALLOWED_AA}</Text>
     </Replace>
+	<Replace Tag="LOC_JOIN_GAME_CROSSPLAY_DISABLED">
+		<Text>{LOC_JOIN_GAME_CROSSPLAY_DISABLED_AA}</Text>
+	</Replace>
   </EnglishText>
 </Database>

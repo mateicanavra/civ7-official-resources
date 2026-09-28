@@ -1,8 +1,8 @@
-import { template, use, insert } from '../../../core/vendor/solid-js/web/dist/web.js';
+import { template, use, insert, classList } from '../../../core/vendor/solid-js/web/dist/web.js';
 import { createMemo, createEffect, createComponent, Show, createSignal, on, onMount, onCleanup, createRenderEffect, For } from '../../../core/vendor/solid-js/dist/solid.js';
 import { FxsNavHelp } from '../../../core/ui/components/fxs-nav-help.js';
-import ContextManager, { ContextManagerEvents } from '../../../core/ui/context-manager/context-manager.js';
-import ActionHandler from '../../../core/ui/input/action-handler.js';
+import { ContextManagerEvents, ContextManager } from '../../../core/ui/context-manager/context-manager.js';
+import { DisplayQueueManager } from '../../../core/ui/context-manager/display-queue-manager.js';
 import { ActiveDeviceTypeChangedEventName } from '../../../core/ui/input/input-events.js';
 import ViewManager from '../../../core/ui/views/view-manager.js';
 import { Activatable } from '../../../core/ui-next/components/activatable.js';
@@ -19,8 +19,10 @@ import { TooltipNavigationRules, Tooltip } from '../../../core/ui-next/component
 import { useAudio } from '../../../core/ui-next/services/audio-support.js';
 import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
 import { useFocusContext } from '../../../core/ui-next/services/focus.js';
-import { IsControllerActive, ActiveInputDevice } from '../../../core/ui-next/services/input.js';
+import { ActiveInputDevice, IsControllerActive } from '../../../core/ui-next/services/input.js';
+import { isMobile } from '../../../core/ui-next/services/view-experience.js';
 import { ComponentUtilities } from '../../../core/ui-next/utilities/component-utilities.js';
+import { useIsSmallScreen } from '../../../core/ui-next/utilities/layout-utilities.js';
 import { TutorialCalloutMinimizeEventName, TutorialCalloutInspectEventName, LowerCalloutEvent } from './tutorial-events.js';
 import { TutorialCalloutType } from './tutorial-item.js';
 import TutorialManager from './tutorial-manager.js';
@@ -29,7 +31,7 @@ import WatchOutManager from '../watch-out/watch-out-manager.js';
 import { SetIsPlotTooltipVisible } from '../../ui-next/tooltips/plot-tooltip/plot-tooltip.js';
 import style from './tutorial-callout.scss.js';
 
-var _tmpl$ = /* @__PURE__ */ template(`<div class="absolute size-4 bg-contain -rotate-90 top-2 right-2"></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="tutorial-callout-title-container relative flex flex-col items-center h-auto mt-3"><div class="tutorial-callout-title fxs-header font-title-xl pointer-events-auto mb-0 mt-1\\.5 relative justify-center text-center pb-2 -mr-1 tracking-100"></div><div class="absolute w-96 h-14 bg-center bg-contain bg-no-repeat -bottom-7"></div></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="relative flex items-center min-h-14"></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div class="tutorial-callout-content absolute flex flex-col w-auto top-0 pointer-events-auto"><div class=tutorial-callout-bg><div class="absolute bg-center bg-contain bg-no-repeat -top-7 w-full h-16"></div><div class="absolute size-4 bg-contain rotate-180 top-2 left-2"></div><div class="absolute size-4 bg-contain rotate-90 bottom-2 left-2"></div><div class="absolute size-4 bg-contain rotate-0 bottom-2 right-2"></div></div><div class="tutorial-callout-body-advisor-topper absolute inset-0"><div class="relative w-full h-full"><div class="flex flex-row absolute"><div class="tutorial-callout-body-advisor-wrapper w-1\\\\/2 self-center"></div><div class="tutorial-callout-body-advisor-wrapper w-1\\\\/2 self-center -scale-x-100"></div></div><div class="flex flex-row absolute self-center tutorial-callout-body-advisor-image-container"><div class=relative><div class="tutorial-callout-body-advisor-bg bg-cover bg-no-repeat size-38"></div><div class="tutorial-callout-body-advisor-image absolute inset-0"></div></div></div></div></div><div class=tutorial-callout-overlay></div><div class="tutorial-callout-minimized flex-col items-center"><div class=tutorial-callout-min__advisor-image></div></div></div>`), _tmpl$5 = /* @__PURE__ */ template(`<div class="advisor-text__content relative text-base text-primary-1 mt-3 mb-3 ml-6 mr-4"></div>`), _tmpl$6 = /* @__PURE__ */ template(`<div class="tutorial-callout-body-advisor-container flex flex-row my-4 mx-2 items-center"></div>`), _tmpl$7 = /* @__PURE__ */ template(`<div class="tutorial-callout-body-text img-base-ticket-bg text-base mt-3 mb-3 ml-6 mr-4 py-5 px-3 pointer-events-auto"></div>`);
+var _tmpl$ = /* @__PURE__ */ template(`<div class="absolute size-4 bg-contain -rotate-90 top-2 right-2"></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="tutorial-callout-title-container relative flex flex-col items-center h-auto mt-3"><div class="tutorial-callout-title fxs-header pointer-events-auto mb-0 relative justify-center text-center pb-2 -mr-1 tracking-100"></div><div class="absolute w-96 h-14 bg-center bg-contain bg-no-repeat -bottom-7"></div></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="relative flex items-center min-h-14"></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div class="tutorial-callout-content absolute flex flex-col w-auto top-0 pointer-events-auto"><div class="tutorial-callout-bg"><div class="absolute bg-center bg-contain bg-no-repeat -top-7 w-full h-16"></div><div class="absolute size-4 bg-contain rotate-180 top-2 left-2"></div><div class="absolute size-4 bg-contain rotate-90 bottom-2 left-2"></div><div class="absolute size-4 bg-contain rotate-0 bottom-2 right-2"></div></div><div class="tutorial-callout-body-advisor-topper absolute inset-0"><div class="relative w-full h-full"><div class="flex flex-row absolute"><div class="tutorial-callout-body-advisor-wrapper w-1\\\\/2 self-center"></div><div class="tutorial-callout-body-advisor-wrapper w-1\\\\/2 self-center -scale-x-100"></div></div><div class="flex flex-row absolute self-center tutorial-callout-body-advisor-image-container"><div class="relative"><div class="tutorial-callout-body-advisor-bg bg-cover bg-no-repeat"></div><div class="tutorial-callout-body-advisor-image absolute inset-0"></div></div></div></div></div><div class="tutorial-callout-overlay"></div><div class="tutorial-callout-minimized flex-col items-center"><div class="tutorial-callout-min__advisor-image"></div></div></div>`), _tmpl$5 = /* @__PURE__ */ template(`<div class="advisor-text__content relative text-base text-primary-1 mt-3 mb-3 ml-6 mr-4"></div>`), _tmpl$6 = /* @__PURE__ */ template(`<div class="tutorial-callout-body-advisor-container flex flex-row mx-2 items-center"></div>`), _tmpl$7 = /* @__PURE__ */ template(`<div class="tutorial-callout-body-text img-base-ticket-bg text-base mt-3 mb-3 ml-6 mr-4 py-5 px-3 pointer-events-auto"></div>`);
 function parseJSON(v, fallback) {
   if (!v) return fallback;
   try {
@@ -94,6 +96,7 @@ const TutorialCallout = (props) => {
     }
     return propsValue;
   });
+  const isSmallScreen = useIsSmallScreen();
   const isWatchOut = createMemo(() => value()?.type == TutorialCalloutType.NOTIFICATION);
   const handheld = createMemo(() => UI.getViewExperience() == UIViewExperience.Handheld);
   const title = createMemo(() => value().title);
@@ -101,6 +104,7 @@ const TutorialCallout = (props) => {
   const hasOptions = createMemo(() => options().some((option) => option != void 0));
   const audioTrigger = useAudio("TutorialPopup");
   const [focusSet, setFocusSet] = createSignal(false);
+  const [originalInputContext, setOriginalInputContext] = createSignal();
   const [isClosed, setIsClosed] = createSignal(false);
   const [selectedOptionNum, setSelectedOptionNum] = createSignal(0);
   const [nextID, setNextID] = createSignal("");
@@ -189,7 +193,7 @@ const TutorialCallout = (props) => {
   });
   const computeMaximizeCaption = () => {
     let caption = "LOC_TUTORIAL_REOPEN_KBM";
-    switch (ActionHandler.deviceType) {
+    switch (ActiveInputDevice()) {
       case InputDeviceType.Controller:
         caption = "LOC_TUTORIAL_REOPEN_GAMEPAD";
         break;
@@ -260,7 +264,7 @@ const TutorialCallout = (props) => {
     }
   };
   const onCalloutInspect = () => {
-    if (!hasTooltips() || isMinimized()) {
+    if (!hasTooltips() || isMinimized() || tooltipModel.tooltipsHidden() || isTooltipActive()) {
       return;
     }
     setIsInspecting(!isInspecting());
@@ -295,6 +299,11 @@ const TutorialCallout = (props) => {
       return;
     } else if (inputEvent.isCancelInput() && isInspecting()) {
       setIsInspecting(false);
+      inputEvent.preventDefault();
+      inputEvent.stopImmediatePropagation();
+    } else if (name == "accept" && isInspecting() && tooltipCount() <= 1) {
+      inputEvent.preventDefault();
+      inputEvent.stopImmediatePropagation();
     }
     if (!hasOptions()) {
       if (IsControllerActive()) {
@@ -358,10 +367,17 @@ const TutorialCallout = (props) => {
       setFocusSet(!focusManager.unlockFocus(focusManager.currentFocus(), "tutorial-callout"));
     }
   };
-  createEffect(on(tooltipModel.locked, (currentLocked) => {
+  createEffect(on(tooltipModel.locked, (currentLocked, _previousLocked) => {
     if (currentLocked != void 0) {
       setIsInspecting(true);
     } else {
+      setIsInspecting(false);
+    }
+  }, {
+    defer: true
+  }));
+  createEffect(on(tooltipModel.tooltipsHidden, (isHidden) => {
+    if (isHidden) {
       setIsInspecting(false);
     }
   }, {
@@ -378,13 +394,16 @@ const TutorialCallout = (props) => {
         currentFocus = "body";
       }
     } else {
+      tooltipModel.unlockAll();
       if (hasOptions()) {
-        Input.setActiveContext(ViewManager.current.getInputContext());
+        Input.setActiveContext(originalInputContext() ?? ViewManager.current.getInputContext());
         focusManager.setFocus(buttons);
         currentFocus = "buttons";
         lockFocus("buttons");
       } else {
-        tryRegainFocus();
+        delayByFrame(() => {
+          tryRegainFocus();
+        });
       }
       delayByFrame(() => {
         setIsTooltipInputChange(false);
@@ -402,6 +421,7 @@ const TutorialCallout = (props) => {
     engine.on(ContextManagerEvents.OnChanged, onContextChanged);
     engine.trigger("TutorialCallout");
     SetIsPlotTooltipVisible(false);
+    setOriginalInputContext(Input.getActiveContext());
     if (!isWatchOut()) {
       audioTrigger("popup-open");
     } else {
@@ -423,8 +443,12 @@ const TutorialCallout = (props) => {
     } else {
       useAudio("AdvisorWatchoutPopup")("popup-close");
     }
+    setOriginalInputContext();
   });
   const tryRegainFocus = () => {
+    if (DisplayQueueManager.isSuspended()) {
+      return;
+    }
     const currentTarget = ContextManager.getCurrentTarget();
     if (!currentTarget) {
       ViewManager.handleReceiveFocus();
@@ -521,7 +545,18 @@ const TutorialCallout = (props) => {
           }
         }));
         _el$17.style.setProperty("background-image", "url(blp:shell_small-filigree)");
-        createRenderEffect(() => _el$15.classList.toggle("mt-8", !!(advisorURL() != "")));
+        createRenderEffect((_p$) => {
+          var _v$ = !!(advisorURL() != ""), _v$2 = {
+            "font-title-xl mt-1\\.5": !isMobile || !isSmallScreen(),
+            "font-title-lg mt-3\\.5": isMobile() && isSmallScreen()
+          };
+          _v$ !== _p$.e && _el$15.classList.toggle("mt-8", _p$.e = _v$);
+          _p$.t = classList(_el$16, _v$2, _p$.t);
+          return _p$;
+        }, {
+          e: void 0,
+          t: void 0
+        });
         return _el$15;
       }
     }), _el$18);
@@ -552,7 +587,9 @@ const TutorialCallout = (props) => {
           get children() {
             var _el$22 = _tmpl$6();
             insert(_el$22, createComponent(InnerFrame, {
-              "class": "tutorial-callout-advisor-text relative ml-6 mr-4",
+              get ["class"]() {
+                return `tutorial-callout-advisor-text relative ${isMobile() && isSmallScreen() ? "ml-4 mr-3" : "ml-6 mr-4"}`;
+              },
               get children() {
                 var _el$23 = _tmpl$5();
                 insert(_el$23, createComponent(L10n.Stylize, {
@@ -563,6 +600,15 @@ const TutorialCallout = (props) => {
                 return _el$23;
               }
             }));
+            createRenderEffect((_p$) => {
+              var _v$12 = !!(!isMobile() || !isSmallScreen()), _v$13 = !!(isMobile() && isSmallScreen());
+              _v$12 !== _p$.e && _el$22.classList.toggle("my-4", _p$.e = _v$12);
+              _v$13 !== _p$.t && _el$22.classList.toggle("my-3", _p$.t = _v$13);
+              return _p$;
+            }, {
+              e: void 0,
+              t: void 0
+            });
             return _el$22;
           }
         }), createComponent(Show, {
@@ -614,7 +660,7 @@ const TutorialCallout = (props) => {
     }), _el$18);
     insert(_el$, createComponent(Show, {
       get when() {
-        return createMemo(() => !!hasTooltips())() && !isMinimized();
+        return createMemo(() => !!(hasTooltips() && !isMinimized()))() && !tooltipModel.tooltipsHidden();
       },
       get children() {
         var _el$19 = _tmpl$3();
@@ -644,14 +690,16 @@ const TutorialCallout = (props) => {
       }
     }), null);
     createRenderEffect((_p$) => {
-      var _v$ = !!handheld(), _v$2 = !!isWatchOut(), _v$3 = !!(advisorURL() != "" && UI.getViewExperience() == UIViewExperience.Mobile), _v$4 = !!isTooltipInputChange(), _v$5 = !!(advisorURL() == ""), _v$6 = !!(advisorURL() == ""), _v$7 = `url('${advisorURL()}')`;
-      _v$ !== _p$.e && _el$.classList.toggle("handheld", _p$.e = _v$);
-      _v$2 !== _p$.t && _el$.classList.toggle("type--notification", _p$.t = _v$2);
-      _v$3 !== _p$.a && _el$.classList.toggle("tutorial-callout_has-advisor", _p$.a = _v$3);
-      _v$4 !== _p$.o && _el$.classList.toggle("track-input-change", _p$.o = _v$4);
-      _v$5 !== _p$.i && _el$8.classList.toggle("hidden", _p$.i = _v$5);
-      _v$6 !== _p$.n && _el$14.classList.toggle("no-advisor", _p$.n = _v$6);
-      _v$7 !== _p$.s && ((_p$.s = _v$7) != null ? _el$14.style.setProperty("background-image", _v$7) : _el$14.style.removeProperty("background-image"));
+      var _v$3 = !!handheld(), _v$4 = !!isWatchOut(), _v$5 = !!(advisorURL() != "" && isMobile()), _v$6 = !!isTooltipInputChange(), _v$7 = !!(advisorURL() == ""), _v$8 = !!(!isMobile() || !isSmallScreen()), _v$9 = !!(isMobile() && isSmallScreen()), _v$10 = !!(advisorURL() == ""), _v$11 = `url('${advisorURL()}')`;
+      _v$3 !== _p$.e && _el$.classList.toggle("handheld", _p$.e = _v$3);
+      _v$4 !== _p$.t && _el$.classList.toggle("type--notification", _p$.t = _v$4);
+      _v$5 !== _p$.a && _el$.classList.toggle("tutorial-callout_has-advisor", _p$.a = _v$5);
+      _v$6 !== _p$.o && _el$.classList.toggle("track-input-change", _p$.o = _v$6);
+      _v$7 !== _p$.i && _el$8.classList.toggle("hidden", _p$.i = _v$7);
+      _v$8 !== _p$.n && _el$13.classList.toggle("size-38", _p$.n = _v$8);
+      _v$9 !== _p$.s && _el$13.classList.toggle("size-36", _p$.s = _v$9);
+      _v$10 !== _p$.h && _el$14.classList.toggle("no-advisor", _p$.h = _v$10);
+      _v$11 !== _p$.r && ((_p$.r = _v$11) != null ? _el$14.style.setProperty("background-image", _v$11) : _el$14.style.removeProperty("background-image"));
       return _p$;
     }, {
       e: void 0,
@@ -660,7 +708,9 @@ const TutorialCallout = (props) => {
       o: void 0,
       i: void 0,
       n: void 0,
-      s: void 0
+      s: void 0,
+      h: void 0,
+      r: void 0
     });
     return _el$;
   })()];

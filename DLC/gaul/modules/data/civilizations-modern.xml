@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Traits>
+	</Traits>
+	<TraitModifiers>
+		<Row TraitType="TRAIT_GAUL_ABILITY" ModifierId="TRAIT_MOD_GAUL_VP"/>
+	</TraitModifiers>
+	<VictoryScorings>
+		<Row VictoryType="VICTORY_ECONOMIC_MODERN" TrackerType="VICTORY_TRACKER_CITY_NEAR_OTHER_CIV" ScoringId="VICTORY_TRACKER_NEARBY_GAUL" Name="LOC_TRAIT_GAUL_ABILITY_NAME" Points="1" RequiresActivation="true"/>
+	</VictoryScorings>
+	<VictoryScoringArgs>
+		<Row ScoringId="VICTORY_TRACKER_NEARBY_GAUL" Key="RANGE" ValueAsInt="6"/>
+	</VictoryScoringArgs>
+	<VictoryDataUIs>
+		<Row Key="VICTORY_TRACKER_NEARBY_GAUL" Name="LOC_TRAIT_GAUL_ABILITY_NAME" IconOverride="blp:civ_sym_gaul" SortOrder="100" />
+	</VictoryDataUIs>
+</Database>

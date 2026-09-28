@@ -1,6 +1,7 @@
 import { Audio } from '../../../core/ui/audio-base/audio-support.js';
 import { CursorUpdatedEventName } from '../../../core/ui/input/cursor.js';
 import { Focus } from '../../../core/ui/input/focus-support.js';
+import { InputHandlerState } from '../../../core/ui/input/input-support.js';
 import { PlotCursor } from '../../../core/ui/input/plot-cursor.js';
 import { InterfaceMode } from '../../../core/ui/interface-modes/interface-modes.js';
 import LensManager from '../../../core/ui/lenses/lens-manager.js';
@@ -366,29 +367,29 @@ class AcquireTileInterfaceMode extends ChoosePlotInterfaceMode {
   }
   handleInput(inputEvent) {
     if (inputEvent.detail.status != InputActionStatuses.FINISH) {
-      return true;
+      return InputHandlerState.Active;
     }
     if (inputEvent.isCancelInput() || inputEvent.detail.name == "sys-menu") {
       InterfaceMode.switchToDefault();
       inputEvent.stopPropagation();
       inputEvent.preventDefault();
-      return false;
+      return InputHandlerState.Handled;
     }
     const eventToLookFor = this.mapFocused ? "next-action" : "shell-action-2";
     if (inputEvent.detail.name == eventToLookFor) {
       this.setMapFocused(!this.mapFocused);
       inputEvent.stopPropagation();
       inputEvent.preventDefault();
-      return false;
+      return InputHandlerState.Handled;
     }
     if (inputEvent.detail.name == "unit-skip-turn" || inputEvent.detail.name == "notification") {
       window.dispatchEvent(new ToggleGrowthMinMaxEvent());
       this.updateNavTray();
       inputEvent.stopPropagation();
       inputEvent.preventDefault();
-      return false;
+      return InputHandlerState.Handled;
     }
-    return true;
+    return InputHandlerState.Active;
   }
   updateNavTray() {
     NavTray.clear();

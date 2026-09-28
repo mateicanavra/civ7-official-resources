@@ -209,6 +209,82 @@ class TunerUtilities {
         return "UNKNOWN";
     }
   }
+  // Get a display entry for a city
+  getCityDisplayEntry(cityId) {
+    const pCity = Cities.get(cityId);
+    if (pCity != null) {
+      let cityName = Locale.compose(pCity.name);
+      cityName = cityName.replace("LOC_CITY_NAME_", "");
+      let cityStatus = "City";
+      if (pCity.isTown) {
+        cityStatus = "Town";
+      }
+      let ownerStr = "none";
+      const pOwner = Players.get(pCity.owner);
+      if (pOwner) {
+        ownerStr = Locale.compose(pOwner.civilizationFullName);
+        if (!ownerStr || ownerStr.length == 0) {
+          ownerStr = "Player " + ownerStr;
+        }
+      }
+      const origOwner = pCity.originalOwner;
+      let origOwnerStr = "none";
+      if (origOwner != -1) {
+        const pOriginalOwner = Players.get(origOwner);
+        if (pOriginalOwner) {
+          origOwnerStr = Locale.compose(pOriginalOwner.civilizationFullName);
+          if (!origOwnerStr || origOwnerStr.length == 0) {
+            origOwnerStr = "Player " + origOwner;
+          }
+        }
+      }
+      const cityLocation = pCity.location;
+      const str = cityId.owner + "," + cityId.id + ";" + cityLocation.x + ", " + cityLocation.y + ";" + cityName + ";" + cityStatus + ";" + ownerStr + ";" + origOwnerStr;
+      return str;
+    }
+    return null;
+  }
+  // Get a 'short' display entry for a city
+  getShortCityDisplayEntry(cityId) {
+    const pCity = Cities.get(cityId);
+    if (pCity != null) {
+      let cityName = Locale.compose(pCity.name);
+      cityName = cityName.replace("LOC_CITY_NAME_", "");
+      let ownerStr = "none";
+      const pOwner = Players.get(pCity.owner);
+      if (pOwner) {
+        ownerStr = Locale.compose(pOwner.civilizationFullName);
+        if (!ownerStr || ownerStr.length == 0) {
+          ownerStr = "Player " + ownerStr;
+        }
+      }
+      const cityLocation = pCity.location;
+      const str = cityId.owner + "," + cityId.id + ";" + cityLocation.x + ", " + cityLocation.y + ";" + cityName + ";" + ownerStr;
+      return str;
+    }
+    return null;
+  }
+  // A display list of all the cities
+  getCityDisplayList() {
+    const items = [];
+    for (const id of Players.getWasEverAliveIds()) {
+      const player = Players.get(id);
+      if (player == null) {
+        continue;
+      }
+      const pCities = player.Cities;
+      if (pCities == null) {
+        continue;
+      }
+      for (const cityId of pCities.getCityIds()) {
+        const str = this.getCityDisplayEntry(cityId);
+        if (str) {
+          items.push(str);
+        }
+      }
+    }
+    return items;
+  }
 }
 const tunerUtilities = new TunerUtilities();
 console.log("tunerUtilities active");

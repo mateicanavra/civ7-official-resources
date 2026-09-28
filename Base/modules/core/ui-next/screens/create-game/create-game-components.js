@@ -7,7 +7,7 @@ import { ComponentRegistry } from '../../services/component-registry.js';
 import style from './create-game-components.scss.js';
 import { createRenderEffect, createComponent } from '../../../vendor/solid-js/dist/solid.js';
 
-var _tmpl$ = /* @__PURE__ */ template(`<div></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div><div class="create-game-back-button size-11"></div></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="create-game-nav-button-inner border-2 h-11 w-40 relative flex items-center justify-center"><div class=" fxs-header uppercase text-lg font-title"></div></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div class="flex flex-col"><div class="create-game-tab-pips-hrule mb-1"></div><div class=create-game-tab-pips-bg></div><div class="create-game-tab-pips-hrule mt-1"></div></div>`);
+var _tmpl$ = /* @__PURE__ */ template(`<div></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div><div class="create-game-back-button size-11"></div></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="create-game-nav-button-inner border-2 h-11 w-40 relative flex items-center justify-center"><div class=" fxs-header uppercase text-lg font-title"></div></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div class="flex flex-col"><div class="create-game-tab-pips-hrule mb-1"></div><div class="create-game-tab-pips-bg"></div><div class="create-game-tab-pips-hrule mt-1"></div></div>`);
 const CreateGameHRule2 = (props) => {
   return (() => {
     var _el$ = _tmpl$();

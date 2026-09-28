@@ -1,4 +1,3 @@
-import ActionHandler from '../../../core/ui/input/action-handler.js';
 import { Shared_OnAutomationEvent, FailTest, ApplyCommonNewGameParametersToConfiguration, ReadUserConfigOptions, GetCurrentTestObserver } from './automation-test-support.js';
 
 console.log("loading automation-test-ui.ts");
@@ -130,7 +129,7 @@ class AutomationTestUI {
     }
   }
   makeInputs() {
-    ActionHandler.deviceType = InputDeviceType.Controller;
+    Input.setActiveDeviceType(InputDeviceType.Controller);
     window.setTimeout(() => {
       Automation.log("Starting inputs...");
       this.makeNextInput();

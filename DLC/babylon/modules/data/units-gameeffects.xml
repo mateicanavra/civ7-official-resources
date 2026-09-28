@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+	<!-- ==================================================	-->
+	<!--	Unique Abilities							-->
+	<!-- ==================================================	-->
+	<Modifier id="QASTI_MOD_COMBAT_ADJACENT_1" collection="COLLECTION_UNIT_COMBAT" effect="EFFECT_ADJUST_UNIT_STRENGTH_MODIFIER">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_NUMBER_DISTRICTS_IN_ADJACENT_PLOTS">
+				<Argument name="Exact">true</Argument>
+				<Argument name="Amount">1</Argument>
+				<Argument name="District">DISTRICT_CITY_CENTER, DISTRICT_URBAN, DISTRICT_WONDER</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Amount">1</Argument>
+		<String context="Preview">LOC_ABILITY_QASTI_PREVIEW</String>
+	</Modifier>
+	<Modifier id="QASTI_MOD_COMBAT_ADJACENT_2" collection="COLLECTION_UNIT_COMBAT" effect="EFFECT_ADJUST_UNIT_STRENGTH_MODIFIER">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_NUMBER_DISTRICTS_IN_ADJACENT_PLOTS">
+				<Argument name="Exact">true</Argument>
+				<Argument name="Amount">2</Argument>
+				<Argument name="District">DISTRICT_CITY_CENTER, DISTRICT_URBAN, DISTRICT_WONDER</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Amount">2</Argument>
+		<String context="Preview">LOC_ABILITY_QASTI_PREVIEW</String>
+	</Modifier>
+	<Modifier id="QASTI_MOD_COMBAT_ADJACENT_3" collection="COLLECTION_UNIT_COMBAT" effect="EFFECT_ADJUST_UNIT_STRENGTH_MODIFIER">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_NUMBER_DISTRICTS_IN_ADJACENT_PLOTS">
+				<Argument name="Exact">true</Argument>
+				<Argument name="Amount">3</Argument>
+				<Argument name="District">DISTRICT_CITY_CENTER, DISTRICT_URBAN, DISTRICT_WONDER</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Amount">3</Argument>
+		<String context="Preview">LOC_ABILITY_QASTI_PREVIEW</String>
+	</Modifier>
+	<Modifier id="QASTI_MOD_COMBAT_ADJACENT_4" collection="COLLECTION_UNIT_COMBAT" effect="EFFECT_ADJUST_UNIT_STRENGTH_MODIFIER">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_NUMBER_DISTRICTS_IN_ADJACENT_PLOTS">
+				<Argument name="Exact">true</Argument>
+				<Argument name="Amount">4</Argument>
+				<Argument name="District">DISTRICT_CITY_CENTER, DISTRICT_URBAN, DISTRICT_WONDER</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Amount">4</Argument>
+		<String context="Preview">LOC_ABILITY_QASTI_PREVIEW</String>
+	</Modifier>
+	<Modifier id="QASTI_MOD_COMBAT_ADJACENT_5" collection="COLLECTION_UNIT_COMBAT" effect="EFFECT_ADJUST_UNIT_STRENGTH_MODIFIER">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_NUMBER_DISTRICTS_IN_ADJACENT_PLOTS">
+				<Argument name="Exact">true</Argument>
+				<Argument name="Amount">5</Argument>
+				<Argument name="District">DISTRICT_CITY_CENTER, DISTRICT_URBAN, DISTRICT_WONDER</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Amount">5</Argument>
+		<String context="Preview">LOC_ABILITY_QASTI_PREVIEW</String>
+	</Modifier>
+	<Modifier id="QASTI_MOD_COMBAT_ADJACENT_6" collection="COLLECTION_UNIT_COMBAT" effect="EFFECT_ADJUST_UNIT_STRENGTH_MODIFIER">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_NUMBER_DISTRICTS_IN_ADJACENT_PLOTS">
+				<Argument name="Exact">true</Argument>
+				<Argument name="Amount">6</Argument>
+				<Argument name="District">DISTRICT_CITY_CENTER, DISTRICT_URBAN, DISTRICT_WONDER</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Amount">6</Argument>
+		<String context="Preview">LOC_ABILITY_QASTI_PREVIEW</String>
+	</Modifier>
+	<Modifier id="QASTI_MOD_COMBAT_ADJACENT_7" collection="COLLECTION_UNIT_COMBAT" effect="EFFECT_ADJUST_UNIT_STRENGTH_MODIFIER">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_NUMBER_DISTRICTS_IN_ADJACENT_PLOTS">
+				<Argument name="Exact">true</Argument>
+				<Argument name="Amount">7</Argument>
+				<Argument name="District">DISTRICT_CITY_CENTER, DISTRICT_URBAN, DISTRICT_WONDER</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="Amount">7</Argument>
+		<String context="Preview">LOC_ABILITY_QASTI_PREVIEW</String>
+	</Modifier>
+	<Modifier id="MOD_CIV_QATSI_PRODUCTION_BABYLON" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_UNIT_PRODUCTION">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_HAS_BUILDING">
+				<Argument name="BuildingType">BUILDING_ALTAR</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="UnitClass">UNIT_CLASS_QASTI</Argument>
+		<Argument name="Percent">50</Argument>
+		<Argument name="Tooltip">LOC_UNIT_QASTI_NAME</Argument>
+	</Modifier>
+	<Modifier id="TAMKARU_MOD_TRADE_CREATION_YIELD" collection="COLLECTION_OWNER" effect="EFFECT_UNIT_ADJUST_COMMAND_AWARD">
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount" type="ScaleByGameSpeed">10</Argument>
+		<Argument name="DistanceToCapital">true</Argument>
+		<Argument name="CommandType">UNITCOMMAND_MAKE_TRADE_ROUTE</Argument>
+	</Modifier>
+</GameEffects>

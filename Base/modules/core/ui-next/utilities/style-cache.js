@@ -1,3 +1,5 @@
+import { __vitePreload } from '../../vendor/vite/preload-helper.js';
+
 class StyleCache {
   cachedStylesheetLinks = /* @__PURE__ */ new Map();
   /**
@@ -24,28 +26,44 @@ class StyleCache {
           `style-cache - Attempted to loadStyle() before head was created. source: ${url}`
         );
         console.error(error);
-        reject(error);
+        return reject(error);
       }
-      if (document.querySelector(`link[href="${url}"]`)) {
+      if (document.querySelector(`link[href="${url}"], style[data-source="${url}"]`)) {
         const error = new Error(
-          `style-cache - Attempted to loadStyle() before head was created. source: ${url}`
+          `style-cache - Attempted to loadStyle() but it is already added to the DOM. source: ${url}`
         );
         console.error(error);
-        reject(error);
+        return reject(error);
       }
       try {
-        const stylesheetLink = document.createElement("link");
-        stylesheetLink.setAttribute("rel", "stylesheet");
-        stylesheetLink.setAttribute("type", "text/css");
-        stylesheetLink.setAttribute("href", url);
-        stylesheetLink.onload = () => {
-          resolve({ url, stylesheetLink });
-        };
-        stylesheetLink.onerror = (error) => {
-          console.error(`style-cache: Error loading style - ${url}. `, error);
-          reject(error);
-        };
-        document.head.appendChild(stylesheetLink);
+        if (false) {
+          __vitePreload(() => import(
+            /* @vite-ignore */
+            `${url}?inline`
+          ),true              ?[]:void 0).then((module) => {
+            const styleElement = document.createElement("style");
+            styleElement.textContent = module.default;
+            styleElement.setAttribute("data-source", url);
+            document.head.appendChild(styleElement);
+            resolve({ url, element: styleElement });
+          }).catch((e) => {
+            console.error(`Failed to hot-load stylesheet: ${url}`, e);
+            reject(e);
+          });
+        } else {
+          const stylesheetLink = document.createElement("link");
+          stylesheetLink.setAttribute("rel", "stylesheet");
+          stylesheetLink.setAttribute("type", "text/css");
+          stylesheetLink.setAttribute("href", url);
+          stylesheetLink.onload = () => {
+            resolve({ url, element: stylesheetLink });
+          };
+          stylesheetLink.onerror = (error) => {
+            console.error(`style-cache: Error loading style - ${url}. `, error);
+            reject(error);
+          };
+          document.head.appendChild(stylesheetLink);
+        }
       } catch (error) {
         console.error(`style-cache: Error loading style - ${url}. `, error);
         reject(error);

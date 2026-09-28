@@ -1,6 +1,7 @@
-import ContextManager from '../../../core/ui/context-manager/context-manager.js';
+import { ContextManager } from '../../../core/ui/context-manager/context-manager.js';
 import { DisplayHandlerBase } from '../../../core/ui/context-manager/display-handler.js';
 import { DisplayQueueManager } from '../../../core/ui/context-manager/display-queue-manager.js';
+import { InterfaceMode } from '../../../core/ui/interface-modes/interface-modes.js';
 
 const AgeProgressionMiniBannerShowEventName = "age-progression-mini-banner-show";
 class AgeProgressionMiniBannerShowEvent extends CustomEvent {
@@ -26,18 +27,20 @@ class AgeProgressionPopupManagerClass extends DisplayHandlerBase {
     engine.on("AgeProgressionChanged", this.onAgeProgressionListener);
   }
   /**
-   * @implements {IDisplayQueue}
+   * @implements {IDisplayHandler}
    */
   show(request) {
     this._currentAgeProgressionPopupData = request;
     if (this._ageCountdownTimerValue == request.turnsRemaining && this._ageCountdownTimerValue != 0) {
+      InterfaceMode.switchToDefault();
+      ContextManager.clear();
       ContextManager.push("panel-age-progression-warning-popup", { createMouseGuard: true, singleton: true });
     } else if (this._ageCountdownTimerValue > request.turnsRemaining) {
       window.dispatchEvent(new AgeProgressionMiniBannerShowEvent(request.turnsRemaining));
     }
   }
   /**
-   * @implements {IDisplayQueue}
+   * @implements {IDisplayHandler}
    */
   hide(_request, _options) {
     this._currentAgeProgressionPopupData = null;

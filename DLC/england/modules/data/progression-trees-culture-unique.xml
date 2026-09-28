@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Types>
+		<!--Civ Unique Mastery Trees-->
+		<Row Type="TREE_CIVICS_EX_ENGLAND" Kind="KIND_TREE"/>
+		<!--Civ Unique Mastery Tree Nodes-->
+		<!--ENGLAND-->
+		<Row Type="NODE_CIVIC_EX_ENGLAND_ANGEVIN_EMPIRE" Kind="KIND_TREE_NODE"/>
+		<Row Type="NODE_CIVIC_EX_ENGLAND_ENGLISH_REFORMATION" Kind="KIND_TREE_NODE"/>
+		<Row Type="NODE_CIVIC_EX_ENGLAND_BOARD_OF_TRADES" Kind="KIND_TREE_NODE"/>
+	</Types>
+	<TypeQuotes>
+		<Row Type="NODE_CIVIC_EX_ENGLAND_ANGEVIN_EMPIRE" Quote="LOC_CIVIC_ANGEVIN_EMPIRE_QUOTE" QuoteAuthor="LOC_CIVIC_ANGEVIN_EMPIRE_AUTHOR" QuoteAudio="VO_Quote_AngevinEmpire"/>
+		<Row Type="NODE_CIVIC_EX_ENGLAND_ENGLISH_REFORMATION" Quote="LOC_CIVIC_ENGLISH_REFORMATION_QUOTE" QuoteAuthor="LOC_CIVIC_ENGLISH_REFORMATION_AUTHOR" QuoteAudio="VO_Quote_EnglishReformation"/>
+		<Row Type="NODE_CIVIC_EX_ENGLAND_BOARD_OF_TRADES" Quote="LOC_CIVIC_BOARD_OF_TRADES_QUOTE" QuoteAuthor="LOC_CIVIC_BOARD_OF_TRADES_AUTHOR" QuoteAudio="VO_Quote_BoardOfTrade"/>
+	</TypeQuotes>
+	<ProgressionTrees>
+		<!--Civ Unique Mastery Trees-->
+		<Row ProgressionTreeType="TREE_CIVICS_EX_ENGLAND" AgeType="AGE_EXPLORATION" SystemType="SYSTEM_CULTURE" Name="LOC_TREE_CIVICS_EX_ENGLAND_NAME"/>
+	</ProgressionTrees>
+	<ProgressionTreeNodes>
+		<!--Civ Unique Mastery Tree Nodes-->
+		<!--ENGLAND-->
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_ENGLAND_ANGEVIN_EMPIRE" ProgressionTree="TREE_CIVICS_EX_ENGLAND" Cost="800" Name="LOC_CIVIC_ANGEVIN_EMPIRE_NAME" IconString="cult_england"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_ENGLAND_ENGLISH_REFORMATION" ProgressionTree="TREE_CIVICS_EX_ENGLAND" Cost="1200" Name="LOC_CIVIC_ENGLISH_REFORMATION_NAME" IconString="cult_england"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_ENGLAND_BOARD_OF_TRADES" ProgressionTree="TREE_CIVICS_EX_ENGLAND" Cost="2000" Name="LOC_CIVIC_BOARD_OF_TRADES_NAME" IconString="cult_england"/>
+	</ProgressionTreeNodes>
+	<ProgressionTreeNodeUnlocks>
+		<!--ENGLAND-->
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_ENGLAND_ANGEVIN_EMPIRE" TargetKind="KIND_CONSTRUCTIBLE" TargetType="BUILDING_CHAPEL" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_ENGLAND_ANGEVIN_EMPIRE" TargetKind="KIND_CONSTRUCTIBLE" TargetType="BUILDING_CHAPTER_HOUSE" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_ENGLAND_ANGEVIN_EMPIRE" TargetKind="KIND_TRADITION" TargetType="TRADITION_CHARTER_OF_THE_FOREST_II" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_ENGLAND_ENGLISH_REFORMATION" TargetKind="KIND_CONSTRUCTIBLE" TargetType="WONDER_GLOBE_THEATRE" UnlockDepth="1" AIIgnoreUnlockValue="true"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_ENGLAND_ENGLISH_REFORMATION" TargetKind="KIND_TRADITION" TargetType="TRADITION_ACT_OF_SUPREMACY" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_ENGLAND_ENGLISH_REFORMATION" TargetKind="KIND_MODIFIER" TargetType="MOD_EX_SETTLEMENT_CAP_INCREASE" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_ENGLAND_ENGLISH_REFORMATION" TargetKind="KIND_MODIFIER" TargetType="MOD_REFORMATION_BELIEF_ADD" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_ENGLAND_BOARD_OF_TRADES" TargetKind="KIND_TRADITION" TargetType="TRADITION_RIGHTS_OF_ENGLISHMEN_I" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_ENGLAND_BOARD_OF_TRADES" TargetKind="KIND_MODIFIER" TargetType="TRAIT_MOD_ENGLAND_GOLD_GDP" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_ENGLAND_BOARD_OF_TRADES" TargetKind="KIND_MODIFIER" TargetType="MOD_EX_SETTLEMENT_CAP_INCREASE" UnlockDepth="1"/>
+	</ProgressionTreeNodeUnlocks>
+	<ProgressionTreePrereqs>
+		<!--ENGLAND-->
+		<Row Node="NODE_CIVIC_EX_ENGLAND_ENGLISH_REFORMATION" PrereqNode="NODE_CIVIC_EX_ENGLAND_ANGEVIN_EMPIRE"/>
+		<Row Node="NODE_CIVIC_EX_ENGLAND_BOARD_OF_TRADES" PrereqNode="NODE_CIVIC_EX_ENGLAND_ENGLISH_REFORMATION"/>
+	</ProgressionTreePrereqs>
+	<ProgressionTree_Advisories>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_ENGLAND_ANGEVIN_EMPIRE" AdvisoryClassType="ADVISORY_CLASS_MILITARY"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_ENGLAND_ENGLISH_REFORMATION" AdvisoryClassType="ADVISORY_CLASS_ECONOMIC"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_ENGLAND_ENGLISH_REFORMATION" AdvisoryClassType="ADVISORY_CLASS_EMPIRE_EXPANSION"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_ENGLAND_BOARD_OF_TRADES" AdvisoryClassType="ADVISORY_CLASS_ECONOMIC"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_ENGLAND_BOARD_OF_TRADES" AdvisoryClassType="ADVISORY_CLASS_MILITARY"/>
+	</ProgressionTree_Advisories>
+</Database>

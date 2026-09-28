@@ -203,6 +203,9 @@
 		<Row File="{base-standard}maps/fractal-voronoi.js" Name="LOC_MAP_FRACTAL_VORONOI_NAME" Description="LOC_MAP_FRACTAL_VORONOI_DESCRIPTION" SortIndex="2"/>
 		<Row File="{base-standard}maps/archipelago-voronoi.js" Name="LOC_MAP_ARCHIPELAGO_VORONOI_NAME" Description="LOC_MAP_ARCHIPELAGO_VORONOI_DESCRIPTION" SortIndex="3"/>
 		<Row File="{base-standard}maps/shattered-seas-voronoi.js" Name="LOC_MAP_SHATTERED_SEAS_NAME" Description="LOC_MAP_SHATTERED_SEAS_DESCRIPTION" SortIndex="4"/>
+		<Row File="{base-standard}maps/shuffle-voronoi.js" Name="LOC_MAP_SHUFFLE_VORONOI_NAME" Description="LOC_MAP_SHUFFLE_VORONOI_DESCRIPTION" SortIndex="5"/>
+		<Row File="{base-standard}maps/terra-incognita-voronoi.js" Name="LOC_MAP_TERRA_INCOGNITA_VORONOI_NAME" Description="LOC_MAP_TERRA_INCOGNITA_VORONOI_DESCRIPTION" SortIndex="6"/>
+		<Row File="{base-standard}maps/EarthMaps/Earth_Huge.Civ7Map" Name="LOC_MAP_EARTH_NAME" Description="LOC_MAP_EARTH_DESCRIPTION" SortIndex="7"/>
 		<Row File="{base-standard}maps/continents-plus.js" Name="LOC_MAP_CONTINENTS_PLUS_NAME" Description="LOC_MAP_CONTINENTS_PLUS_DESCRIPTION" SortIndex="10"/>
 		<Row File="{base-standard}maps/continents.js" Name="LOC_MAP_CONTINENTS_NAME" Description="LOC_MAP_CONTINENTS_DESCRIPTION" SortIndex="20"/>
 		<Row File="{base-standard}maps/archipelago.js" Name="LOC_MAP_ARCHIPELAGO_NAME" Description="LOC_MAP_ARCHIPELAGO_DESCRIPTION" SortIndex="30"/>
@@ -211,12 +214,35 @@
 		<Row File="{base-standard}maps/terra-incognita.js" Name="LOC_MAP_TERRA_INCOGNITA_NAME" Description="LOC_MAP_TERRA_INCOGNITA_DESCRIPTION" SortIndex="60"/>
 		<Row File="{base-standard}maps/pangaea-plus.js" Name="LOC_MAP_PANGAEA_PLUS_NAME" Description="LOC_MAP_PANGAEA_PLUS_DESCRIPTION" SortIndex="70"/>
 	</Maps>
+	<UnsupportedValuesByAge>
+		<Row AgeType="AGE_EXPLORATION" Domain="StandardMaps" Value="{base-standard}maps/EarthMaps/Earth_Huge.Civ7Map"/>
+		<Row AgeType="AGE_MODERN" Domain="StandardMaps" Value="{base-standard}maps/EarthMaps/Earth_Huge.Civ7Map"/>
+	</UnsupportedValuesByAge>
 	<SupportedValuesByMap>
+		<Row Map="{base-standard}maps/EarthMaps/Earth_Huge.Civ7Map" Domain="StandardMapStartPositions" Value="START_POSITION_TSL_HUGE"/>
+		<Row Map="{base-standard}maps/EarthMaps/Earth_Huge.Civ7Map" Domain="StandardMapSizes" Value="MAPSIZE_HUGE"/>
+		<Row Map="{base-standard}maps/EarthMaps/Earth_Huge.Civ7Map" Domain="DistantLandsMapSizes" Value="MAPSIZE_HUGE"/>
 		<Row Map="{base-standard}maps/continents-voronoi.js" Domain="StandardMapStartPositions" Value="START_POSITION_STANDARD"/>
 		<Row Map="{base-standard}maps/pangaea-voronoi.js" Domain="StandardMapStartPositions" Value="START_POSITION_STANDARD"/>
 		<Row Map="{base-standard}maps/fractal-voronoi.js" Domain="StandardMapStartPositions" Value="START_POSITION_STANDARD"/>
 		<Row Map="{base-standard}maps/archipelago-voronoi.js" Domain="StandardMapStartPositions" Value="START_POSITION_STANDARD"/>
 		<Row Map="{base-standard}maps/shattered-seas-voronoi.js" Domain="StandardMapStartPositions" Value="START_POSITION_STANDARD"/>
+		<Row Map="{base-standard}maps/shuffle-voronoi.js" Domain="StandardMapStartPositions" Value="START_POSITION_STANDARD"/>
+		<Row Map="{base-standard}maps/terra-incognita-voronoi.js" Domain="StandardMapStartPositions" Value="START_POSITION_STANDARD"/>
+		<Row Map="{base-standard}maps/archipelago.js" Domain="StandardMapStartPositions" Value="START_POSITION_STANDARD"/>
+		<Row Map="{base-standard}maps/archipelago.js" Domain="StandardMapStartPositions" Value="START_POSITION_BALANCED"/>
+		<Row Map="{base-standard}maps/continents-plus.js" Domain="StandardMapStartPositions" Value="START_POSITION_STANDARD"/>
+		<Row Map="{base-standard}maps/continents-plus.js" Domain="StandardMapStartPositions" Value="START_POSITION_BALANCED"/>
+		<Row Map="{base-standard}maps/continents.js" Domain="StandardMapStartPositions" Value="START_POSITION_STANDARD"/>
+		<Row Map="{base-standard}maps/continents.js" Domain="StandardMapStartPositions" Value="START_POSITION_BALANCED"/>
+		<Row Map="{base-standard}maps/fractal.js" Domain="StandardMapStartPositions" Value="START_POSITION_STANDARD"/>
+		<Row Map="{base-standard}maps/fractal.js" Domain="StandardMapStartPositions" Value="START_POSITION_BALANCED"/>
+		<Row Map="{base-standard}maps/pangaea-plus.js" Domain="StandardMapStartPositions" Value="START_POSITION_STANDARD"/>
+		<Row Map="{base-standard}maps/pangaea-plus.js" Domain="StandardMapStartPositions" Value="START_POSITION_BALANCED"/>
+		<Row Map="{base-standard}maps/shuffle.js" Domain="StandardMapStartPositions" Value="START_POSITION_STANDARD"/>
+		<Row Map="{base-standard}maps/shuffle.js" Domain="StandardMapStartPositions" Value="START_POSITION_BALANCED"/>
+		<Row Map="{base-standard}maps/terra-incognita.js" Domain="StandardMapStartPositions" Value="START_POSITION_STANDARD"/>
+		<Row Map="{base-standard}maps/terra-incognita.js" Domain="StandardMapStartPositions" Value="START_POSITION_BALANCED"/>
 	</SupportedValuesByMap>
 	<MapSizes>
 		<!-- Standard MapSize Domain - For ages where civs on both landmasses can win victories. -->
@@ -239,6 +265,7 @@
 		<Row Domain="SeaLevels" SeaLevelType="SEA_LEVEL_HIGH" Name="LOC_SEA_LEVEL_HIGH_NAME" Description="LOC_SEA_LEVEL_HIGH_DESCRIPTION" SortIndex="40"/>
 	</SeaLevels>
 	<ParameterDependencies>
+		<Row ParameterID="MapSeaLevel" ConfigurationGroup="Map" ConfigurationKey="MapScript" Operator="NotEquals" ConfigurationValue="{base-standard}maps/EarthMaps/Earth_Huge.Civ7Map"/>
 		<Row ParameterID="MapSeaLevel" ConfigurationGroup="Map" ConfigurationKey="MapScript" Operator="NotEquals" ConfigurationValue="{base-standard}maps/continents-plus.js"/>
 		<Row ParameterID="MapSeaLevel" ConfigurationGroup="Map" ConfigurationKey="MapScript" Operator="NotEquals" ConfigurationValue="{base-standard}maps/continents.js"/>
 		<Row ParameterID="MapSeaLevel" ConfigurationGroup="Map" ConfigurationKey="MapScript" Operator="NotEquals" ConfigurationValue="{base-standard}maps/archipelago.js"/>

@@ -30,7 +30,16 @@ class AdviceManagerClass {
     this.advisorMinds.set(AdvisorTypes.ECONOMIC, this.createMind("economic"));
     this.advisorMinds.set(AdvisorTypes.SCIENCE, this.createMind("science"));
     this.catalog = new Catalog({ name: adviceCatalogName, version: VERSION, player: Players.get(playerId) });
-    if (!this.catalog.justCreated) {
+    let existingAdviceCatalog = !this.catalog.justCreated;
+    console.log("CatalogDebug: this.catalog.justCreated= ", this.catalog.justCreated);
+    if (this.catalog.justCreated) {
+      const obj = this.catalog.getObject("culture");
+      const followed = obj.read("followed");
+      console.log("CatalogDebug: followed= ", followed);
+      existingAdviceCatalog = !(followed == null || followed === void 0);
+      console.log("CatalogDebug: existingAdviceCatlog= ", existingAdviceCatalog);
+    }
+    if (existingAdviceCatalog) {
       this.readFromDisk(this.advisorMinds.get(AdvisorTypes.CULTURE), AdvisorTypes.CULTURE);
       this.readFromDisk(this.advisorMinds.get(AdvisorTypes.MILITARY), AdvisorTypes.MILITARY);
       this.readFromDisk(this.advisorMinds.get(AdvisorTypes.ECONOMIC), AdvisorTypes.ECONOMIC);
@@ -63,7 +72,13 @@ class AdviceManagerClass {
    * @param data Information about the player activating on this turn.
    */
   onPlayerTurnActivated(data) {
+    if (!data.firstTimeThisTurn) {
+      return;
+    }
     if (data.player != this.localPlayerID) {
+      return;
+    }
+    if (Configuration.getGame().isNetworkMultiplayer && this.localPlayerID != GameContext.localPlayerID) {
       return;
     }
     const tutorialOn = Configuration.getUser().tutorialLevel === TutorialLevel.TutorialOn;
@@ -82,8 +97,9 @@ class AdviceManagerClass {
         priority: PopupPriority.beforeCinematics
       };
       waitUntilValue(() => {
-        const curtain = document.getElementById("loading-curtain");
-        return curtain ? null : true;
+        const loadingCurtain = document.getElementById("loading-curtain");
+        const hotseatCurtain = document.getElementById("hotseat-screen-curtain");
+        return !loadingCurtain && !hotseatCurtain ? true : null;
       }).then(() => {
         PopupSequencer.addDisplayRequest(popupData);
         this.showPopupOnce = true;

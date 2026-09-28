@@ -89,7 +89,7 @@ class PediaSidebarQuote extends PediaSidebarPanel {
       const frag = document.createDocumentFragment();
       for (const q of quotes) {
         const div = document.createElement("div");
-        div.classList.add("pedia__sidebar-quote-container", "relative", "max-w-56");
+        div.classList.add("pedia__sidebar-quote-container", "relative", "max-w-64");
         const quoteText = document.createElement("div");
         quoteText.role = "paragraph";
         quoteText.classList.add(

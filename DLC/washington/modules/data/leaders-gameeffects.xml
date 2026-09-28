@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+	<!-- Migrant and Social Policy Slot on Celebration -->
+	<Modifier id="WASHINGTON_MOD_MIGRANT_ON_GOLDEN_AGE" collection="COLLECTION_OWNER" effect="TRIGGER_PLAYER_GRANT_UNIT_ON_GOLDEN_AGE">
+		<Argument name="UnitType">UNIT_MIGRANT</Argument>
+		<Argument name="Amount">1</Argument>
+	</Modifier>	
+	<Modifier id="WASHINGTON_MOD_FREE_POLICY_SLOT" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_TRADITION_SLOTS" permanent="true">
+		<Argument name="Amount">1</Argument>
+		<Argument name="SlotType">POLICY_CULTURE_SLOT</Argument>
+	</Modifier>
+	<!-- For each Policy, but not Tradition, slotted into your Government, get +1 Food per Age in Towns and +2 Happiness per Age in Cities. -->
+	<Modifier id="WASHINGTON_MOD_TOWN_FOOD_PER_POLICY" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_ACTIVE_TRADITION">
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_CITY_IS_TOWN">
+            </Requirement>
+        </SubjectRequirements>
+		<Argument name="YieldType">YIELD_FOOD</Argument>
+		<Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+		<Argument name="CivUnique">true</Argument>
+		<Argument name="Invert">true</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_LEADER_WASHINGTON_ABILITY_NAME</Argument>
+	</Modifier>
+	<Modifier id="WASHINGTON_MOD_CITY_HAPPINESS_PER_POLICY" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_ACTIVE_TRADITION">
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_CITY_IS_CITY">
+            </Requirement>
+        </SubjectRequirements>
+		<Argument name="YieldType">YIELD_HAPPINESS</Argument>
+		<Argument name="Amount" type="ScaleByGameAge" extra="100">2</Argument>
+		<Argument name="CivUnique">true</Argument>
+		<Argument name="Invert">true</Argument>
+		<Argument name="Tooltip">LOC_TRAIT_LEADER_WASHINGTON_ABILITY_NAME</Argument>
+	</Modifier>
+	<!-- George Washington Policies -->
+	<!-- Production towards Settlers -->
+	<Modifier id="WASHINGTON_MOD_STARTING_POLICY_CONTINENTAL_AMBITION" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
+		<Argument name="Tradition">TRADITION_CONTINENTAL_AMBITION</Argument>
+	</Modifier>
+	<Modifier id="CONTINENTAL_AMBITION_MOD_SETTLER_PRODUCTION" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_UNIT_PRODUCTION">
+		<Argument name="UnitClass">UNIT_CLASS_CREATE_TOWN</Argument>
+		<Argument name="Percent">25</Argument>
+		<String context="Description">LOC_TRADITION_CONTINENTAL_AMBITION_NAME</String>
+	</Modifier>
+	<!-- Culture and Production on Palace -->
+	<Modifier id="WASHINGTON_MOD_STARTING_POLICY_BILL_OF_RIGHTS" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_UNLOCK_TRADITION" run-once="false" permanent="true">
+		<Argument name="Tradition">TRADITION_BILL_OF_RIGHTS</Argument>
+	</Modifier>
+	<Modifier id="BILL_OF_RIGHTS_MOD_CULTURE_YIELD" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_CONSTRUCTIBLE_YIELD">
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount" type="ScaleByGameAge" extra="100">2</Argument>
+		<Argument name="ConstructibleType">BUILDING_PALACE</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_BILL_OF_RIGHTS_NAME</Argument>
+	</Modifier>
+	<Modifier id="BILL_OF_RIGHTS_MOD_PRODUCTION_YIELD" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_CONSTRUCTIBLE_YIELD">
+		<Argument name="YieldType">YIELD_PRODUCTION</Argument>
+		<Argument name="Amount" type="ScaleByGameAge" extra="100">2</Argument>
+		<Argument name="ConstructibleType">BUILDING_PALACE</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_BILL_OF_RIGHTS_NAME</Argument>
+	</Modifier>
+	<!--Hearts of his Countrymen: Likes Leaders with the most Happy or happier Towns. Dislikes Leaders with the most Unhappy or unhappier Towns.-->
+	<Modifier id="WASHINGTON_MOD_AGENDA_HEARTS_OF_HIS_COUNTRYMEN" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_AGENDA_TIMED_UPDATE">
+		<String context="Name">LOC_DIPLOMACY_AGENDA_HEARTS_OF_HIS_COUNTRYMEN_NAME</String>
+		<Argument name="ModName">LOC_DIPLOMACY_AGENDA_HEARTS_OF_HIS_COUNTRYMEN_NAME</Argument>
+		<Argument name="Tooltip">LOC_DIPLOMACY_AGENDA_HEARTS_OF_HIS_COUNTRYMEN_DESC</Argument>
+		<Argument name="WeightType">DIPLOMACY_AGENDA_COMPARE_NUM_HAPPY_OR_HAPPIER_TOWNS</Argument>
+		<Argument name="FirstMeetDelay">20</Argument>
+		<Argument name="UpdateFreq">10</Argument>
+		<Argument name="AwardTo1">DIPLOMACY_AGENDA_AWARD_HIGHEST</Argument>
+		<Argument name="AwardAmtType1">DIPLOMACY_AGENDA_AMT_SMALL</Argument>
+		<!-- Award 2 is evaluated against Arg2 (the UNHAPPY stage), so HIGHEST here means "most Unhappy or unhappier Towns". -->
+		<Argument name="AwardTo2">DIPLOMACY_AGENDA_AWARD_HIGHEST</Argument>
+		<Argument name="AwardAmtType2">DIPLOMACY_AGENDA_NEG_AMT_SMALL</Argument>
+		<Argument name="Arg1">HAPPINESS_STAGE_HAPPY</Argument>
+		<Argument name="Arg2">HAPPINESS_STAGE_UNHAPPY</Argument>
+		<Argument name="NotifyMessage">LOC_NOTIFICATION_DIPLOMATIC_AGENDA_DEFAULT_MESSAGE</Argument>
+		<Argument name="NotifySummary">LOC_NOTIFICATION_DIPLOMATIC_AGENDA_DEFAULT_SUMMARY</Argument>
+	</Modifier>
+</GameEffects>

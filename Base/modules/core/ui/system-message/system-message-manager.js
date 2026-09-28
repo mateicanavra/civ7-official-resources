@@ -1,4 +1,4 @@
-import ContextManager from '../context-manager/context-manager.js';
+import { ContextManager } from '../context-manager/context-manager.js';
 import { DisplayHandlerBase } from '../context-manager/display-handler.js';
 import { DisplayQueueManager } from '../context-manager/display-queue-manager.js';
 import { DialogBoxManager } from '../dialog-box/manager-dialog-box.js';

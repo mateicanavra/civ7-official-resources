@@ -1,5 +1,5 @@
 import { Audio } from '../../../core/ui/audio-base/audio-support.js';
-import ContextManager from '../../../core/ui/context-manager/context-manager.js';
+import { ContextManager } from '../../../core/ui/context-manager/context-manager.js';
 import { DisplayHandlerBase } from '../../../core/ui/context-manager/display-handler.js';
 import { DisplayHideReason, DisplayQueueManager } from '../../../core/ui/context-manager/display-queue-manager.js';
 import { DialogBoxManager } from '../../../core/ui/dialog-box/manager-dialog-box.js';
@@ -136,7 +136,7 @@ class DiplomacyManagerImpl {
     });
   }
   /**
-   * @implements {IDisplayQueue}
+   * @implements {IDisplayHandler}
    */
   hide(isSuspended) {
     this.selectedActionID = -1;

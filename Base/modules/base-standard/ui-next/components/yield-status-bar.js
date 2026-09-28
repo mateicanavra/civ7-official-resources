@@ -1,5 +1,5 @@
 import { template, insert, className } from '../../../core/vendor/solid-js/web/dist/web.js';
-import { createSignal, createEffect, createComponent, createRenderEffect, onMount, For, Show, mergeProps } from '../../../core/vendor/solid-js/dist/solid.js';
+import { createSignal, createEffect, createComponent, createRenderEffect, Show, onMount, For, mergeProps } from '../../../core/vendor/solid-js/dist/solid.js';
 import { createStore } from '../../../core/vendor/solid-js/store/dist/store.js';
 import { number } from '../../../core/ui/utilities/utilities-validation.js';
 import { Icon } from '../../../core/ui-next/components/icon.js';
@@ -7,7 +7,7 @@ import { Tooltip } from '../../../core/ui-next/components/tooltip.js';
 import { ComponentRegistry } from '../../../core/ui-next/services/component-registry.js';
 import { createEngineEvent } from '../../../core/ui-next/utilities/game-core-utilities.js';
 
-var _tmpl$ = /* @__PURE__ */ template(`<div data-audio-group-ref=audio-yield-panel><span class=whitespace-nowrap></span></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="absolute h-8 fullscreen-top-outside-safezone"><div class="relative flex flex-row"></div></div>`);
+var _tmpl$ = /* @__PURE__ */ template(`<div data-audio-group-ref="audio-yield-panel"><span class="whitespace-nowrap"></span></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="absolute h-8 fullscreen-top-outside-safezone"><div class="relative flex flex-row"></div></div>`);
 const yieldBarEntryClassMap = {
   YIELD_GOLD: "text-yield-gold",
   YIELD_CULTURE: "text-yield-culture",
@@ -17,7 +17,7 @@ const yieldBarEntryClassMap = {
   YIELD_CITIES: "text-secondary",
   YIELD_CITY_CAP: "fxs-header"
 };
-const YieldBarEntryComponent = (props) => {
+const YieldStatusBarEntryComponent = (props) => {
   const [isMobileViewExperience, setIsMobileViewExperience] = createSignal(false);
   const [valueText, setValueText] = createSignal("");
   const [iconUrl, setIconUrl] = createSignal("");
@@ -29,7 +29,7 @@ const YieldBarEntryComponent = (props) => {
       setValueText(`${props.yield}/${props.max}`);
       return;
     }
-    const prefix = props.yield >= 0 ? "+" : "";
+    const prefix = props.omitPrefix ? "" : props.yield >= 0 ? "+" : "";
     if (props.stored !== void 0) {
       setValueText(`${props.stored} (${prefix}${props.yield})`);
       return;
@@ -39,29 +39,45 @@ const YieldBarEntryComponent = (props) => {
   createEffect(() => {
     setIconUrl(`url("blp:${UI.getIconBLP(props.type)}")`);
   });
-  return createComponent(Tooltip.Text, {
-    get text() {
-      return props.tooltip;
+  const content = (() => {
+    var _el$ = _tmpl$(), _el$2 = _el$.firstChild;
+    insert(_el$, createComponent(Icon, {
+      "class": "mr-0\\.5",
+      get classList() {
+        return {
+          "size-8 font-title": !isMobileViewExperience(),
+          "size-10 font-body-lg": isMobileViewExperience()
+        };
+      },
+      get name() {
+        return iconUrl();
+      },
+      isUrl: true
+    }), _el$2);
+    insert(_el$2, valueText);
+    createRenderEffect(() => className(_el$, `flex items-center text-base font-title ${yieldBarEntryClassMap[props.type]} pointer-events-auto`));
+    return _el$;
+  })();
+  return createComponent(Show, {
+    get when() {
+      return props.useLegacyTooltips;
     },
-    showFiligrees: false,
+    get fallback() {
+      return createComponent(Tooltip.Text, {
+        get text() {
+          return props.tooltip;
+        },
+        showFiligrees: false,
+        children: content
+      });
+    },
     get children() {
-      var _el$ = _tmpl$(), _el$2 = _el$.firstChild;
-      insert(_el$, createComponent(Icon, {
-        "class": "mr-0\\.5",
-        get classList() {
-          return {
-            "size-8 font-title": !isMobileViewExperience(),
-            "size-10 font-body-lg": isMobileViewExperience()
-          };
+      return createComponent(Tooltip.LegacyText, {
+        get text() {
+          return props.tooltip;
         },
-        get name() {
-          return iconUrl();
-        },
-        isUrl: true
-      }), _el$2);
-      insert(_el$2, valueText);
-      createRenderEffect(() => className(_el$, `flex items-center text-base font-title ${yieldBarEntryClassMap[props.type]}`));
-      return _el$;
+        children: content
+      });
     }
   });
 };
@@ -191,8 +207,7 @@ const YieldStatusBarComponent = () => {
   };
   const updateAllYields = () => {
     Object.keys(yieldBarEntries).forEach((key) => {
-      const yieldType = key;
-      updateYield(yieldType);
+      updateYield(key);
     });
   };
   createEffect(() => {
@@ -230,7 +245,7 @@ const YieldStatusBarComponent = () => {
         }
         return createComponent(Show, {
           when: value,
-          children: (entry) => createComponent(YieldBarEntryComponent, mergeProps(entry))
+          children: (entry) => createComponent(YieldStatusBarEntryComponent, mergeProps(entry))
         });
       }
     }));
@@ -241,6 +256,10 @@ const YieldStatusBar = ComponentRegistry.register({
   name: "YieldStatusBar",
   createInstance: YieldStatusBarComponent
 });
+const YieldStatusBarEntry = ComponentRegistry.register({
+  name: "YieldStatusBarEntry",
+  createInstance: YieldStatusBarEntryComponent
+});
 
-export { YieldStatusBar };
+export { YieldStatusBar, YieldStatusBarEntry };
 //# sourceMappingURL=yield-status-bar.js.map

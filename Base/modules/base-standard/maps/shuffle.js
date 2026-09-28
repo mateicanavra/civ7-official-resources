@@ -177,7 +177,6 @@ function generateMap() {
     TerrainBuilder.modelRivers(5, 15, g_NavigableRiverTerrain);
   }
   TerrainBuilder.validateAndFixTerrain();
-  TerrainBuilder.defineNamedRivers();
   designateBiomes(iWidth, iHeight);
   addNaturalWonders(iWidth, iHeight, iNumNaturalWonders);
   TerrainBuilder.addFloodplains(4, 10);

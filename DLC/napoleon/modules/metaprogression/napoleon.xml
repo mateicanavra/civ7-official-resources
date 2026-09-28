@@ -37,8 +37,6 @@
 	<challengeEvents>
 		<event id="CHALLENGE_EVENT_LEADER_NAPOLEON_AGE_ENDED" />
 		<event id="CHALLENGE_EVENT_NAPOLEON_TRIUMPH_COMPLETED" />
-		<event id="CHALLENGE_EVENT_LEADER_NAPOLEON_UNLOCKED_STRATEGYCARDS_EXPLORATION" />
-		<event id="CHALLENGE_EVENT_LEADER_NAPOLEON_UNLOCKED_STRATEGYCARDS_MODERN" />
 	</challengeEvents>
 	<statistics>
 		<statistic id="CHALLENGE_STATISTIC_NAPOLEON_TRIUMPHS_COMPLETED" event="CHALLENGE_EVENT_NAPOLEON_TRIUMPH_COMPLETED"/>
@@ -57,8 +55,6 @@
 				<rule type="equals" var="age">AGE_MODERN</rule>
 			</rules>
 		</statistic>
-		<statistic id="CHALLENGE_STATISTIC_LEADER_NAPOLEON_UNLOCKED_STRATEGYCARDS_EXPLORATION_COMPLETED" event="CHALLENGE_EVENT_LEADER_NAPOLEON_UNLOCKED_STRATEGYCARDS_EXPLORATION"/>
-		<statistic id="CHALLENGE_STATISTIC_LEADER_NAPOLEON_UNLOCKED_STRATEGYCARDS_MODERN_COMPLETED" event="CHALLENGE_EVENT_LEADER_NAPOLEON_UNLOCKED_STRATEGYCARDS_MODERN"/>
 	</statistics>
 	<challengeCategoryData>
 		<challengeCategory id="CHALLENGE_CATEGORY_LEADER_NAPOLEON" locName="LOC_LEADER_NAPOLEON_NAME" sortIndex="1650"/>
@@ -490,7 +486,7 @@
 		<challenge id="CHALLENGE_LEADER_NAPOLEON_QUEST_A_ANTIQUITY" scope="Campaign" difficulty="2">
 			<l10n>
 				<name>Independence</name>
-				<description>As Napoleon, Emperor in Antiquity, complete a quest to abandon superstition.</description>
+				<description>As Napoleon, Emperor, in Antiquity, complete a quest to abandon superstition.</description>
 			</l10n>
 			<sortIndex>15100</sortIndex>
 			<reward type="XP" reward="50" />
@@ -498,23 +494,23 @@
 		<challenge id="CHALLENGE_LEADER_NAPOLEON_QUEST_B_ANTIQUITY" scope="Campaign" difficulty="2">
 			<l10n>
 				<name>Independents</name>
-				<description>As Napoleon, Emperor in Antiquity, complete a quest to set the world aflame.</description>
+				<description>As Napoleon, Emperor, in Antiquity, complete a quest to set the world aflame.</description>
 			</l10n>
 			<sortIndex>15200</sortIndex>
 			<reward type="XP" reward="50" />
 		</challenge>
 		<challenge id="CHALLENGE_LEADER_NAPOLEON_QUEST_A_EXPLORATION" scope="Campaign" difficulty="2">
 			<l10n>
-				<name>The Ends of the Earth</name>
-				<description>As Napoleon, Emperor in Exploration, complete a quest to gather riches from afar.</description>
+				<name>A Mass for the Masses</name>
+				<description>As Napoleon, Emperor, in Exploration, complete a quest to hear the songs of priests.</description>
 			</l10n>
 			<sortIndex>15300</sortIndex>
 			<reward type="XP" reward="50" />
 		</challenge>
 		<challenge id="CHALLENGE_LEADER_NAPOLEON_QUEST_B_EXPLORATION" scope="Campaign" difficulty="2">
 			<l10n>
-				<name>The Artilleryman</name>
-				<description>As Napoleon, Emperor in Exploration, complete a quest to negotiate with cannons.</description>
+				<name>Le Petit Caporal</name>
+				<description>As Napoleon, Emperor, in Exploration, complete a quest to negotiate with cannons.</description>
 			</l10n>
 			<sortIndex>15400</sortIndex>
 			<reward type="XP" reward="50" />
@@ -522,7 +518,7 @@
 		<challenge id="CHALLENGE_LEADER_NAPOLEON_QUEST_A_MODERN" scope="Campaign" difficulty="2">
 			<l10n>
 				<name>The 18th Brumaire</name>
-				<description>As Napoleon, Emperor in Modern, complete a quest to build a symbol of authority.</description>
+				<description>As Napoleon, Emperor, in Modern, complete a quest to build a symbol of authority.</description>
 			</l10n>
 			<sortIndex>15500</sortIndex>
 			<reward type="XP" reward="50" />
@@ -530,7 +526,7 @@
 		<challenge id="CHALLENGE_LEADER_NAPOLEON_QUEST_B_MODERN" scope="Campaign" difficulty="2">
 			<l10n>
 				<name>The 11th Frimaire</name>
-				<description>As Napoleon, Emperor in Modern, complete a quest to make the world listen.</description>
+				<description>As Napoleon, Emperor, in Modern, complete a quest to make the world listen.</description>
 			</l10n>
 			<sortIndex>15600</sortIndex>
 			<reward type="XP" reward="50" />
@@ -576,23 +572,21 @@
 			<reward type="XP" reward="50" />
 		</challenge>
 		<!-- Hidden Challenges -->
-		<challenge id="CHALLENGE_LEADER_NAPOLEON_UNLOCKED_STRATEGYCARDS_EXPLORATION_RECOVER" scope="Career" difficulty="1" hidden="true" allowRewardWhenHidden="true">
+		<challenge id="CHALLENGE_NAPOLEON_UNLOCKED_STRATEGYCARDS_EXPLORATION" scope="Campaign" difficulty="1" hidden="true" allowRewardWhenHidden="true">
 			<l10n>
 				<name>Age Transition Card Exploration</name>
 				<description>As Napoleon, Emperor unlock age transition legend strategycards for Exploration Age.</description>
 			</l10n>
 			<sortIndex>20000</sortIndex>
-			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_NAPOLEON_UNLOCKED_STRATEGYCARDS_EXPLORATION_COMPLETED" threshold="1" />
 			<reward type="UnlockableReward" reward="STRATEGYCARD_AS_NAPOLEON_EMPEROR_EXPLORATION_1" />
 			<reward type="UnlockableReward" reward="STRATEGYCARD_AS_NAPOLEON_EMPEROR_EXPLORATION_2" />
 		</challenge>
-		<challenge id="CHALLENGE_LEADER_NAPOLEON_UNLOCKED_STRATEGYCARDS_MODERN_RECOVER" scope="Career" difficulty="1" hidden="true" allowRewardWhenHidden="true">
+		<challenge id="CHALLENGE_NAPOLEON_UNLOCKED_STRATEGYCARDS_MODERN" scope="Campaign" difficulty="1" hidden="true" allowRewardWhenHidden="true">
 			<l10n>
 				<name>Age Transition Card Modern</name>
 				<description>As Napoleon, Emperor unlock age transition legend strategycards for Modern Age.</description>
 			</l10n>
 			<sortIndex>20100</sortIndex>
-			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_NAPOLEON_UNLOCKED_STRATEGYCARDS_MODERN_COMPLETED" threshold="1" />
 			<reward type="UnlockableReward" reward="STRATEGYCARD_AS_NAPOLEON_EMPEROR_MODERN_1" />
 			<reward type="UnlockableReward" reward="STRATEGYCARD_AS_NAPOLEON_EMPEROR_MODERN_2" />
 		</challenge>

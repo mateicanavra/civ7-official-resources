@@ -1,4 +1,4 @@
-import { InputEngineEventName } from '../../../core/ui/input/input-support.js';
+import { InputHandlerState, InputEngineEventName } from '../../../core/ui/input/input-support.js';
 import { InterfaceMode } from '../../../core/ui/interface-modes/interface-modes.js';
 import ViewManager, { UISystem } from '../../../core/ui/views/view-manager.js';
 
@@ -34,21 +34,21 @@ class CityView {
   /**
    * @returns true if still live, false if input should stop.
    */
-  readInputEvent(inputEvent) {
+  handleInputEvent(inputEvent) {
     if (inputEvent.detail.status != InputActionStatuses.FINISH) {
-      return true;
+      return InputHandlerState.Active;
     }
     if (inputEvent.type != InputEngineEventName) {
       console.warn(
         `VM: Attempt to handle engine input event failed since '${inputEvent.type}' is not '${InputEngineEventName}'.`
       );
-      return true;
+      return InputHandlerState.Active;
     }
     if (inputEvent.isCancelInput() || inputEvent.detail.name == "sys-menu") {
       InterfaceMode.switchToDefault();
-      return false;
+      return InputHandlerState.Handled;
     }
-    return true;
+    return InputHandlerState.Active;
   }
   getRules() {
     return [

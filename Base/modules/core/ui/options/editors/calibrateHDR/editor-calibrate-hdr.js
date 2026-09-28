@@ -1,4 +1,4 @@
-import ContextManager from '../../../context-manager/context-manager.js';
+import { ContextManager } from '../../../context-manager/context-manager.js';
 import { DialogBoxManager } from '../../../dialog-box/manager-dialog-box.js';
 import NavTray from '../../../navigation-tray/model-navigation-tray.js';
 import { Options } from '../../model-options.js';

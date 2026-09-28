@@ -283,18 +283,6 @@
 		<Argument name="WarehouseYieldChange">Prosveshchenie_DesertFloodplainFeatureProduction,Prosveshchenie_GrasslandFloodplainFeatureProduction,Prosveshchenie_PlainsFloodplainFeatureProduction,Prosveshchenie_TropicalFloodplainFeatureProduction,Prosveshchenie_TundraFloodplainFeatureProduction,Prosveshchenie_FlatTerrainProduction</Argument>
 		<Argument name="Tooltip">LOC_TRAIT_RUSSIA_ABILITY_NAME</Argument>
 	</Modifier>
-	<Modifier id="TRAIT_MOD_TUNDRA_OBSHCHINA_CULTURE" collection="COLLECTION_PLAYER_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
-		<SubjectRequirements>
-			<Requirement type="REQUIREMENT_PLOT_BIOME_TYPE_MATCHES">
-				<Argument name="BiomeType">BIOME_TUNDRA</Argument>
-			</Requirement>
-			<Requirement type="REQUIREMENT_PLOT_HAS_CONSTRUCTIBLE">
-				<Argument name="ConstructibleType">IMPROVEMENT_OBSHCHINA</Argument>
-			</Requirement>
-		</SubjectRequirements>
-		<Argument name="YieldType">YIELD_CULTURE</Argument>
-		<Argument name="Amount">2</Argument>
-	</Modifier>
 	<!-- SIAM -->
 	<Modifier id="TRAIT_MOD_ITSARAPHAB" collection="COLLECTION_OWNER" effect="EFFECT_DIPLOMACY_GRANT_DIPLOMATIC_ACTION">
 		<Argument name="ActionType">DIPLOMACY_ACTION_BECOME_SUZERAIN</Argument>

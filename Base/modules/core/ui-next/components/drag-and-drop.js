@@ -263,14 +263,18 @@ const DragAndDrop = (props) => {
       }
       debugTrace(0 /* Log */, "Ending Drag Operation.", statusText, draggable, dz?.dropzone);
     }
-    if (dz && dz.canDrop()) {
-      setIsDropping({
-        draggable,
-        dropzone: dz.dropzone,
-        position
-      });
-      if (props.onDragDrop) {
-        props.onDragDrop(draggable, dz.dropzone, position);
+    if (dz) {
+      if (dz.canDrop()) {
+        setIsDropping({
+          draggable,
+          dropzone: dz.dropzone,
+          position
+        });
+        if (props.onDragDrop) {
+          props.onDragDrop(draggable, dz.dropzone, position);
+        }
+      } else if (props.onDragDrop) {
+        props.onDragDrop(draggable, dz.dropzone, position, true);
       }
     }
     if (capturedEndCallback) {

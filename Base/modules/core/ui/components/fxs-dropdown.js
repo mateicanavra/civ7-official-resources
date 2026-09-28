@@ -1,9 +1,9 @@
 import { FxsActivatable } from './fxs-activatable.js';
-import ActionHandler from '../input/action-handler.js';
 import { Focus } from '../input/focus-support.js';
 import { ActiveDeviceTypeChangedEventName } from '../input/input-events.js';
 import { MustGetElement } from '../utilities/utilities-dom.js';
 import { FocusManager } from '../../ui-next/services/focus-manager.js';
+import { IsControllerActive } from '../../ui-next/services/input.js';
 
 const DropdownSelectionChangeEventName = "dropdown-selection-change";
 class DropdownSelectionChangeEvent extends CustomEvent {
@@ -283,7 +283,7 @@ class FxsDropdown extends FxsActivatable {
     this.openArrowElement.classList.toggle("img-arrow-disabled", this.disabled);
   }
   isArrowElementVisibile() {
-    return !ActionHandler.isGamepadActive || !this.Root.getAttribute("action-key");
+    return !IsControllerActive() || !this.Root.getAttribute("action-key");
   }
   onAttributeChanged(name, oldValue, newValue) {
     switch (name) {

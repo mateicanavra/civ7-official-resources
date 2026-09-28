@@ -1,15 +1,15 @@
-import ContextManager from '../../../core/ui/context-manager/context-manager.js';
-import ActionHandler from '../../../core/ui/input/action-handler.js';
+import { ContextManager } from '../../../core/ui/context-manager/context-manager.js';
 import { ActiveDeviceTypeChangedEventName } from '../../../core/ui/input/input-events.js';
 import { roundTo2 } from '../../../core/ui/utilities/utilities-core-textprovider.js';
 import UpdateGate from '../../../core/ui/utilities/utilities-update-gate.js';
+import { IsMouseActive, IsControllerActive } from '../../../core/ui-next/services/input.js';
 import { TreeGridSourceType, TreeGrid } from '../tree-grid/tree-grid.js';
 import { TreeGridDirection } from '../tree-grid/tree-support.js';
 
 class AttributeTreesModel {
   onUpdate;
   updateGate = new UpdateGate(this.update.bind(this));
-  wasMouseKeyboard = ActionHandler.isMouseKeyboardActive;
+  wasMouseKeyboard = IsMouseActive();
   _attributes = [];
   _activeTreeAttribute = null;
   _wildCardPoints = 0;
@@ -19,10 +19,10 @@ class AttributeTreesModel {
   constructor() {
     window.addEventListener("hotkey-open-attributes", this.attributesHotkeyListener);
     window.addEventListener(ActiveDeviceTypeChangedEventName, () => {
-      if (!this.wasMouseKeyboard || !ActionHandler.isMouseKeyboardActive) {
+      if (!this.wasMouseKeyboard || !IsMouseActive()) {
         this.updateGate.call("ModelAttributeTrees-ActiveDeviceTypeChanged");
       }
-      this.wasMouseKeyboard = ActionHandler.isMouseKeyboardActive;
+      this.wasMouseKeyboard = IsMouseActive();
     });
     this.updateGate.call("constructor");
   }
@@ -39,7 +39,7 @@ class AttributeTreesModel {
     return this._wildCardPoints;
   }
   get isGamepadActive() {
-    return ActionHandler.isGamepadActive;
+    return IsControllerActive();
   }
   get activeTreeAttribute() {
     return this._activeTreeAttribute;

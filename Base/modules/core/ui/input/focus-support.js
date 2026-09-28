@@ -1,5 +1,5 @@
 import { isSlot } from '../components/fxs-slot.js';
-import ContextManager from '../context-manager/context-manager.js';
+import { ContextManager } from '../context-manager/context-manager.js';
 import { Navigation } from './navigation-support.js';
 import { FocusManager } from '../../ui-next/services/focus-manager.js';
 

@@ -1,4 +1,5 @@
 import { ComponentID } from '../../../core/ui/utilities/utilities-component-id.js';
+import { ConstructibleHasTagType } from '../utilities/utilities-tags.js';
 
 const BuildingPlacementHoveredPlotChangedEventName = "building-placement-hovered-plot-changed";
 class BuildingPlacementHoveredPlotChangedEvent extends CustomEvent {
@@ -67,6 +68,11 @@ class BuildingPlacementManagerClass {
   _urbanPlots = [];
   get urbanPlots() {
     return this._urbanPlots;
+  }
+  //Plots that will become a quarter
+  _quarterPlots = [];
+  get quarterPlots() {
+    return this._quarterPlots;
   }
   //Plots that have already been developed/improved (i.e. improved through city growth)
   _developedPlots = [];
@@ -143,6 +149,9 @@ class BuildingPlacementManagerClass {
     this.isRepairing = operationResult.RepairDamaged;
     const uniqueQuarterPlotIndices = [];
     for (const uniqueDistrictDef of GameInfo.UniqueQuarters) {
+      if (constructible.ConstructibleType == uniqueDistrictDef.BuildingType1 || constructible.ConstructibleType == uniqueDistrictDef.BuildingType2) {
+        this._currentQuarter = uniqueDistrictDef;
+      }
       if (this.uniqueQuarters.includes(uniqueDistrictDef.UniqueQuarterType)) {
         const uniqueQuarterPlot = BuildingPlacementManager.findExistingUniqueBuilding(uniqueDistrictDef);
         if (uniqueQuarterPlot != -1) {
@@ -152,11 +161,11 @@ class BuildingPlacementManagerClass {
           });
           if (constructible.ConstructibleType == uniqueDistrictDef.BuildingType1 || constructible.ConstructibleType == uniqueDistrictDef.BuildingType2) {
             uniqueQuarterPlotIndices.push(uniqueQuarterPlot);
-            this._currentQuarter = uniqueDistrictDef;
           }
         }
       }
     }
+    this._quarterPlots = this.getWillBecomeQuarterPlots();
     operationResult.Plots?.forEach((plot) => {
       if (uniqueQuarterPlotIndices.includes(plot)) {
         this._uniqueQuarterPlots.push(plot);
@@ -513,6 +522,7 @@ class BuildingPlacementManagerClass {
     this._uniqueQuarterPlots = [];
     this._expandablePlots = [];
     this._urbanPlots = [];
+    this._quarterPlots = [];
     this._developedPlots = [];
     this.hoveredPlotIndex = null;
     this.selectedPlotIndex = null;
@@ -523,6 +533,81 @@ class BuildingPlacementManagerClass {
       return true;
     }
     return false;
+  }
+  willBecomeQuarter(otherConstructibleType) {
+    const constructibleDefinition = GameInfo.Constructibles.lookup(otherConstructibleType);
+    if (constructibleDefinition) {
+      const currentAge = GameInfo.Ages.lookup(Game.age);
+      if (!currentAge) {
+        console.error(`model-place-building-v2: Failed to get current age for hash ${Game.age}`);
+        return false;
+      }
+      if (constructibleDefinition.ConstructibleClass != "BUILDING") return false;
+      if (constructibleDefinition.ExistingDistrictOnly) return false;
+      if (constructibleDefinition.Age == currentAge.AgeType) {
+        return true;
+      }
+      if (ConstructibleHasTagType(otherConstructibleType, "AGELESS")) {
+        return true;
+      }
+    }
+    return false;
+  }
+  getWillBecomeQuarterPlots() {
+    const plots = [];
+    if (!this.cityID || ComponentID.isInvalid(this.cityID)) {
+      console.error("building-placement-manager - Invalid cityID passed into findExistingUniqueBuilding");
+      return plots;
+    }
+    const city = Cities.get(this.cityID);
+    if (!city) {
+      console.error(`building-placement-manager - Invalid city found for id ${this.cityID}`);
+      return plots;
+    }
+    const constructibles = city.Constructibles;
+    if (!constructibles) {
+      console.error(`building-placement-manager - Invalid construcibles found for id ${this.cityID}`);
+      return plots;
+    }
+    for (const constructibleID of constructibles.getIds()) {
+      const constructible = Constructibles.getByComponentID(constructibleID);
+      if (!constructible) {
+        console.error(
+          `building-placement-manager - Invalid construcible found for id ${constructibleID.toString()}`
+        );
+        continue;
+      }
+      const plotID = GameplayMap.getIndexFromLocation(constructible.location);
+      if (plots.includes(plotID)) continue;
+      const constructibleDef = GameInfo.Constructibles.lookup(constructible.type);
+      if (!constructibleDef) {
+        console.error(
+          `building-placement-manager - Invalid constructibleDef found for type ${constructible.type}`
+        );
+        continue;
+      }
+      if (this.willBecomeQuarter(constructibleDef.ConstructibleType)) {
+        plots.push(plotID);
+      }
+    }
+    const buildQueue = city.BuildQueue;
+    if (!buildQueue) return plots;
+    for (const item of buildQueue.getQueue()) {
+      if (item.kind != ProductionKind.CONSTRUCTIBLE) continue;
+      const plotID = GameplayMap.getIndexFromLocation(item.location);
+      if (plots.includes(plotID)) continue;
+      const constructibleDef = GameInfo.Constructibles.lookup(item.constructibleType);
+      if (!constructibleDef) {
+        console.error(
+          `building-placement-manager - Invalid constructibleDef found for type ${item.constructibleType}`
+        );
+        continue;
+      }
+      if (this.willBecomeQuarter(constructibleDef.ConstructibleType)) {
+        plots.push(plotID);
+      }
+    }
+    return plots;
   }
   findExistingUniqueBuilding(uniqueQuarterDef) {
     if (!this.cityID || ComponentID.isInvalid(this.cityID)) {

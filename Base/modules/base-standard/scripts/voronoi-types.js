@@ -24,6 +24,24 @@ var FeatureType = /* @__PURE__ */ ((FeatureType2) => {
   FeatureType2[FeatureType2["_Length"] = 2] = "_Length";
   return FeatureType2;
 })(FeatureType || {});
+var RiverSize = /* @__PURE__ */ ((RiverSize2) => {
+  RiverSize2[RiverSize2["None"] = 0] = "None";
+  RiverSize2[RiverSize2["Minor"] = 1] = "Minor";
+  RiverSize2[RiverSize2["Major"] = 2] = "Major";
+  RiverSize2[RiverSize2["_Length"] = 3] = "_Length";
+  return RiverSize2;
+})(RiverSize || {});
+var HexDirection = /* @__PURE__ */ ((HexDirection2) => {
+  HexDirection2[HexDirection2["No_Direction"] = -1] = "No_Direction";
+  HexDirection2[HexDirection2["NorthEast"] = 0] = "NorthEast";
+  HexDirection2[HexDirection2["East"] = 1] = "East";
+  HexDirection2[HexDirection2["SouthEast"] = 2] = "SouthEast";
+  HexDirection2[HexDirection2["SouthWest"] = 3] = "SouthWest";
+  HexDirection2[HexDirection2["West"] = 4] = "West";
+  HexDirection2[HexDirection2["NorthWest"] = 5] = "NorthWest";
+  HexDirection2[HexDirection2["_Length"] = 6] = "_Length";
+  return HexDirection2;
+})(HexDirection || {});
 function isLand(terrainType) {
   return terrainType === 3 /* Flat */ || terrainType === 4 /* Rough */ || terrainType === 5 /* Mountainous */;
 }
@@ -73,5 +91,5 @@ const MapDims = {
   [4 /* Huge */]: { x: 106, y: 66 }
 };
 
-export { BiomeType, DetailsType, FeatureType, MapDims, MapSize, RegionType, TerrainType, VariantOverrideType, isLand, isWater };
+export { BiomeType, DetailsType, FeatureType, HexDirection, MapDims, MapSize, RegionType, RiverSize, TerrainType, VariantOverrideType, isLand, isWater };
 //# sourceMappingURL=voronoi-types.js.map

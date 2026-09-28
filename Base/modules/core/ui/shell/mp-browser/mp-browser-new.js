@@ -1,7 +1,6 @@
-import ContextManager from '../../context-manager/context-manager.js';
+import { ContextManager } from '../../context-manager/context-manager.js';
 import { DialogBoxManager } from '../../dialog-box/manager-dialog-box.js';
 import { GameCreatorOpenedEvent, MainMenuReturnEvent } from '../../events/shell-events.js';
-import ActionHandler from '../../input/action-handler.js';
 import { ActiveDeviceTypeChangedEventName } from '../../input/input-events.js';
 import { InputEngineEvent } from '../../input/input-support.js';
 import NavTray from '../../navigation-tray/model-navigation-tray.js';
@@ -15,6 +14,8 @@ import { MustGetElements, MustGetElement } from '../../utilities/utilities-dom.j
 import { Layout } from '../../utilities/utilities-layout.js';
 import { serverTypeToGameModeType, gameListUpdateTypeToErrorBody } from '../../utilities/utilities-network-constants.js';
 import { FocusManager } from '../../../ui-next/services/focus-manager.js';
+import { IsControllerActive } from '../../../ui-next/services/input.js';
+import { isGameCenter } from '../../../ui-next/services/network.js';
 import styles from './mp-browser-new.scss.js';
 import { DialogBoxAction } from '../../dialog-box/model-dialog-box.js';
 
@@ -129,7 +130,6 @@ class PanelMPBrowser extends Panel {
   backButton;
   addOnsTitleText = "LOC_UI_TOOLTIP_MODS";
   disabledContentTitleText = "LOC_UI_TOOLTIP_DISABLED_CONTENT";
-  shouldShowReportButtons = Network.getLocalHostingPlatform() != HostingType.HOSTING_TYPE_GAMECENTER;
   constructor(root) {
     super(root);
     this.animateInType = this.animateOutType = AnchorType.RelativeToRight;
@@ -301,11 +301,13 @@ class PanelMPBrowser extends Panel {
             hostFriendID_T2GP
           })
         );
-        if (mods?.length) {
-          elem.setAttribute("enabled-content", JSON.stringify(mods));
-        }
-        if (disabledContent?.length) {
-          elem.setAttribute("disabled-content", JSON.stringify(disabledContent));
+        if (!isGameCenter()) {
+          if (mods?.length) {
+            elem.setAttribute("enabled-content", JSON.stringify(mods));
+          }
+          if (disabledContent?.length) {
+            elem.setAttribute("disabled-content", JSON.stringify(disabledContent));
+          }
         }
         return elem;
       }
@@ -368,7 +370,12 @@ class PanelMPBrowser extends Panel {
 								<div class="absolute img-prof-tab-end right-0 w-3\\.5 top-0 bottom-0"></div>
 							</div>
 							<div class="mx-2 flow-row flex-1">
-								${sortOptions.map(
+								${sortOptions.filter(function(sortOption) {
+      if (!isGameCenter()) {
+        return true;
+      }
+      return sortOption != SortOptions.CONTENT;
+    }).map(
       (sortOption, index) => `
 									<div class="flow-row items-center ${index < sortOptions.length - 1 ? "justify-start" : "justify-end"} ${mapSortOptionsToFlex[sortOption]}">
 										<fxs-activatable value="${sortOption}" class="px-3 py-3 relative" tabindex="-1" data-audio-group-ref="audio-mp-browser" data-audio-activate="mp-browser-sort-clicked">
@@ -705,7 +712,7 @@ class PanelMPBrowser extends Panel {
       ]
     });
     waitUntilValue(() => ContextManager.getTarget("screen-dialog-box") ?? null).then((elem) => {
-      if (!ActionHandler.isGamepadActive) {
+      if (!IsControllerActive()) {
         const textbox = elem.querySelector("fxs-textbox");
         const input = textbox?.querySelector("input");
         input?.focus();
@@ -762,7 +769,7 @@ class PanelMPBrowser extends Panel {
   }
   onGameCardActivate({ target }) {
     const isGrayed = target.getAttribute("grayed") == "true";
-    if (ActionHandler.isGamepadActive && !isGrayed) {
+    if (IsControllerActive() && !isGrayed) {
       this.onJoinButtonActivate();
     } else {
       this.handleGameCardFocus(target);
@@ -786,7 +793,7 @@ class PanelMPBrowser extends Panel {
     this.updateGameList();
   }
   onFilterButtonFocus({ target }) {
-    if (!ActionHandler.isGamepadActive) {
+    if (!IsControllerActive()) {
       return;
     }
     this.selectedGameIndex = -1;
@@ -897,7 +904,7 @@ class PanelMPBrowser extends Panel {
       }
       NavTray.clear();
       NavTray.addOrUpdateGenericBack();
-      if (!ActionHandler.isGamepadActive) {
+      if (!IsControllerActive()) {
         return;
       }
       const serverType = Number.parseInt(
@@ -1086,7 +1093,7 @@ class PanelMPBrowser extends Panel {
   }
   updateGameList() {
     this.gameCards = this.renderGameCards();
-    this.gameReportButtons = this.shouldShowReportButtons ? this.renderReportButtons() : [];
+    this.gameReportButtons = !isGameCenter() ? this.renderReportButtons() : [];
     this.updateGameCards();
     this.updateReportButtons();
     this.list.innerHTML = "";
@@ -1096,8 +1103,8 @@ class PanelMPBrowser extends Panel {
       row.classList.add("items-center");
       row.setAttribute("ignore-prior-focus", "true");
       row.appendChild(gameCard);
-      row.appendChild(this.renderAdditionalButtons(gameCard, index));
-      if (this.shouldShowReportButtons) {
+      if (!isGameCenter()) {
+        row.appendChild(this.renderAdditionalButtons(gameCard, index));
         row.appendChild(this.gameReportButtons[index]);
       }
       this.list.appendChild(row);
@@ -1120,7 +1127,7 @@ class PanelMPBrowser extends Panel {
     this.gameCards?.forEach((gameCard) => {
       gameCard.setAttribute(
         "selected",
-        (FocusManager.get().currentFocus() == gameCard || !ActionHandler.isGamepadActive) && this.selectedGameIndex == Number.parseInt(gameCard.getAttribute("index") ?? "") ? "true" : "false"
+        (FocusManager.get().currentFocus() == gameCard || !IsControllerActive()) && this.selectedGameIndex == Number.parseInt(gameCard.getAttribute("index") ?? "") ? "true" : "false"
       );
       gameCard.setAttribute(
         "show-report",
@@ -1159,7 +1166,7 @@ class PanelMPBrowser extends Panel {
     } else {
       FocusManager.get().setFocus(this.sortContainer);
     }
-    if (!ActionHandler.isGamepadActive && this.sortedGameList.length) {
+    if (!IsControllerActive() && this.sortedGameList.length) {
       this.selectedGameIndex = 0;
       this.updateCardSelection();
       this.updateReportButtons();

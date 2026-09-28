@@ -27,8 +27,37 @@ class ModdingRegistryManager {
   attachModElements(requestingPanelID) {
     this.modElements.forEach((element) => {
       if (element.parentID == requestingPanelID) {
-        const modSlot = MustGetElement(`#${element.modSlot}`, document);
-        modSlot.appendChild(document.createElement(element.componentTag));
+        if (!element.modSlot) {
+          console.error(
+            `ModdingRegistryManager: ModElementData for ${element.componentTag} is missing a modSlot - use attachModElementsTo() instead of attachModElements() to specify a modSlot directly`
+          );
+          return;
+        }
+        const modSlot = MustGetElement(`#${element.modSlot}`, document.body);
+        const modElement = document.createElement(element.componentTag);
+        if (element.attributes) {
+          for (const [key, value] of Object.entries(element.attributes)) {
+            modElement.setAttribute(key, value);
+          }
+        }
+        modSlot.appendChild(modElement);
+      }
+    });
+  }
+  /**
+   * Called by the panel that modding components attach to
+   * @param requestingPanelID Which panel/component is requesting mod elements
+   */
+  attachModElementsTo(requestingPanelID, modSlot) {
+    this.modElements.forEach((element) => {
+      if (element.parentID == requestingPanelID) {
+        const modElement = document.createElement(element.componentTag);
+        if (element.attributes) {
+          for (const [key, value] of Object.entries(element.attributes)) {
+            modElement.setAttribute(key, value);
+          }
+        }
+        modSlot.appendChild(modElement);
       }
     });
   }

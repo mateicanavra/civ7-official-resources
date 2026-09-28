@@ -1,4 +1,4 @@
-import ContextManager from '../../../core/ui/context-manager/context-manager.js';
+import { ContextManager } from '../../../core/ui/context-manager/context-manager.js';
 import { DialogBoxManager } from '../../../core/ui/dialog-box/manager-dialog-box.js';
 import { InterfaceMode } from '../../../core/ui/interface-modes/interface-modes.js';
 import { NetworkUtilities } from '../../../core/ui/utilities/utilities-network.js';
@@ -20,9 +20,6 @@ class MultiplayerIngameSingleton {
   loadingStartCurtainRemoveListener = (event) => {
     this.onLoadingStartCurtainRemove(event);
   };
-  multiplayerGamePauseStateChangedListener = (data) => {
-    this.onMultiplayerPauseStatus(data);
-  };
   /**
    * CTOR
    */
@@ -37,7 +34,6 @@ class MultiplayerIngameSingleton {
   onReady() {
     engine.on("MultiplayerGameAbandoned", this.multiplayerGameAbandonedListener, this);
     engine.on("MultiplayerGameLastPlayer", this.multiplayerGameLastPlayerListener, this);
-    engine.on("GamePauseStateChanged", this.multiplayerGamePauseStateChangedListener, this);
     engine.on("LocalPlayerChanged", this.localPlayerChangedListener, this);
     if (Configuration.getGame().isHotseat) {
       window.addEventListener(LoadingStartCurtainRemoveName, this.loadingStartCurtainRemoveListener);
@@ -76,41 +72,6 @@ class MultiplayerIngameSingleton {
       body: "TXT_KEY_MP_LAST_PLAYER",
       title: "TXT_KEY_MP_LAST_PLAYER_TITLE"
     });
-  }
-  onMultiplayerPauseStatus(data) {
-    if (ContextManager.getTarget("screen-endgame")) {
-      return;
-    }
-    if (!ContextManager.isGameActive()) {
-      return;
-    }
-    if (data.data == 1) {
-      if (this.mpPauseDialogID != void 0) {
-        DialogBoxManager.closeDialogBox(this.mpPauseDialogID);
-        this.mpPauseDialogID = void 0;
-      }
-      const pauseNumPlayers = Network.getNumWantPausePlayers();
-      const pausePlayerStr = Network.getWantPausePlayerName();
-      let bodyText = "";
-      if (pauseNumPlayers > 1) {
-        bodyText = Locale.stylize("LOC_MP_PAUSE_POPUP_BODY_MULTI_WANT_PAUSE", pauseNumPlayers, pausePlayerStr);
-      } else {
-        bodyText = Locale.stylize("LOC_MP_PAUSE_POPUP_BODY_SINGLE_WANT_PAUSE", pausePlayerStr);
-      }
-      const options = [];
-      this.mpPauseDialogID = DialogBoxManager.createDialog_MultiOption({
-        title: "LOC_MP_PAUSE_POPUP_TITLE",
-        body: bodyText,
-        options,
-        canClose: false,
-        displayHourGlass: true
-      });
-    } else {
-      if (this.mpPauseDialogID != void 0) {
-        DialogBoxManager.closeDialogBox(this.mpPauseDialogID);
-        this.mpPauseDialogID = void 0;
-      }
-    }
   }
   //===============================================================
   // Dialog Callbacks

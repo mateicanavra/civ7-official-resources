@@ -1,6 +1,6 @@
 import { template, use, spread, insert } from '../../vendor/solid-js/web/dist/web.js';
 import { createContext, useContext, createMemo, createSignal, onMount, onCleanup, createEffect, on, mergeProps, createComponent } from '../../vendor/solid-js/dist/solid.js';
-import ContextManager from '../../ui/context-manager/context-manager.js';
+import { ContextManager } from '../../ui/context-manager/context-manager.js';
 import { InputEngineEvent } from '../../ui/input/input-support.js';
 import { SolidAdapterContext } from './fxs-solid-component.js';
 import { TooltipModel } from './tooltip-model.js';

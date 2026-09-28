@@ -1,6 +1,6 @@
 import { createSignal, createContext, useContext } from '../../../../core/vendor/solid-js/dist/solid.js';
 import { createMutable } from '../../../../core/vendor/solid-js/store/dist/store.js';
-import ContextManager from '../../../../core/ui/context-manager/context-manager.js';
+import { ContextManager } from '../../../../core/ui/context-manager/context-manager.js';
 import { getQuestTracker } from '../../../ui/quest-tracker/quest-tracker.js';
 import { getLegacyCardStyling } from './legacies-support.js';
 

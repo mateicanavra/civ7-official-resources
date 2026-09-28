@@ -1,5 +1,5 @@
 import { template, insert, className } from '../../../core/vendor/solid-js/web/dist/web.js';
-import { onMount, createComponent, For, Show, createRenderEffect } from '../../../core/vendor/solid-js/dist/solid.js';
+import { onMount, createComponent, For, createRenderEffect, Show } from '../../../core/vendor/solid-js/dist/solid.js';
 import { Activatable } from '../../../core/ui-next/components/activatable.js';
 import { AudioContextProvider } from '../../../core/ui-next/components/audio-context-provider.js';
 import { Button } from '../../../core/ui-next/components/button.js';
@@ -11,17 +11,18 @@ import { L10n } from '../../../core/ui-next/components/l10n.js';
 import { Panel } from '../../../core/ui-next/components/panel.js';
 import { ScrollArea } from '../../../core/ui-next/components/scroll-area.js';
 import { SpatialSlot } from '../../../core/ui-next/components/slot.js';
-import { NestedTooltipContext } from '../../../core/ui-next/components/tooltip-compat.js';
+import { NestedTooltipContext } from '../../../core/ui-next/components/tooltip-nested.js';
 import { TicketBox } from '../../../core/ui-next/screens/create-game/ticket-box.js';
 import { useAudio } from '../../../core/ui-next/services/audio-support.js';
 import { ComponentRegistry } from '../../../core/ui-next/services/component-registry.js';
 import { IsControllerActive } from '../../../core/ui-next/services/input.js';
+import { isMobile } from '../../../core/ui-next/services/view-experience.js';
 import { LayoutModel, useIsSmallScreen } from '../../../core/ui-next/utilities/layout-utilities.js';
 import { createGovtChooserModel, GovtChooserModelContext } from './government-chooser-model.js';
 import { TicketSection } from '../../ui-next/tooltips/plot-tooltip/components/utility.js';
 import styles from './screen-government-chooser.scss.js';
 
-var _tmpl$ = /* @__PURE__ */ template(`<div class="bg-cover government-frame-bg bg-no-repeat relative max-h-full"><div class="size-64 absolute top-4 left-4 bg-contain bg-no-repeat"></div><div class="size-64 absolute top-4 right-4 bg-contain bg-no-repeat rotate-90"></div><div class="inset-0 absolute government-screen-bg bg-cover bg-no-repeat"></div><div class="relative flex items-center flex-col flex-auto"></div></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="absolute top-0 right-1\\.5 left-0 bottom-2\\.5 gov-chooser-hover"></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="absolute -top-1\\.5 -right-0 -left-1 bottom-1 gov-chooser-selected"></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div class="absolute top-0\\.5 right-2\\.5 left-1 bottom-3\\.5 gov-chooser-hover"></div>`), _tmpl$5 = /* @__PURE__ */ template(`<div class="bg-primary-4 border-primary-4 mr-1"></div>`), _tmpl$6 = /* @__PURE__ */ template(`<div class="flex flex-col justify-start mb-6"><div class="government-fade-divider w-full h-1"></div></div>`), _tmpl$7 = /* @__PURE__ */ template(`<div class="flex flex-auto flex-col"><div class=relative><div class="absolute bg-glow top-0 right-0 left-0 bottom-2"></div></div></div>`), _tmpl$8 = /* @__PURE__ */ template(`<div class="flex flex-col"><div class="flex flex-row p-1 items-center"></div></div>`), _tmpl$9 = /* @__PURE__ */ template(`<div class="flex flex-col pb-1"><div class="flex flex-row p-1 items-center"><div class="flex flex-col ml-1 flex-auto text-left"></div></div></div>`), _tmpl$10 = /* @__PURE__ */ template(`<div></div>`);
+var _tmpl$ = /* @__PURE__ */ template(`<div class="flex flex-auto relative max-h-full"><div></div><div></div><div></div><div></div><div class="relative flex items-center flex-col flex-auto"></div></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="absolute top-0 right-1\\.5 left-0 bottom-2\\.5 gov-chooser-hover"></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="absolute -top-1\\.5 -right-0 -left-1 bottom-1 gov-chooser-selected"></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div class="government-fade-divider w-full h-1"></div>`), _tmpl$5 = /* @__PURE__ */ template(`<div class="bg-primary-4 border-primary-4 mr-1"></div>`), _tmpl$6 = /* @__PURE__ */ template(`<div class="flex flex-col justify-start mb-6"></div>`), _tmpl$7 = /* @__PURE__ */ template(`<div class="flex flex-auto flex-col"><div class="relative"><div class="absolute bg-glow top-0 right-0 left-0 bottom-2"></div></div></div>`), _tmpl$8 = /* @__PURE__ */ template(`<div class="absolute top-0\\.5 right-2\\.5 left-1 bottom-3\\.5 gov-chooser-hover"></div>`), _tmpl$9 = /* @__PURE__ */ template(`<div class="flex flex-col"><div class="flex flex-row p-1 items-center"></div></div>`), _tmpl$10 = /* @__PURE__ */ template(`<div class="flex flex-col pb-1"><div class="flex flex-row p-1 items-center"><div class="flex flex-col ml-1 flex-auto text-left"></div></div></div>`), _tmpl$11 = /* @__PURE__ */ template(`<div></div>`);
 const GovernmentChooserComponent = (props) => {
   const model = createGovtChooserModel();
   const audio = useAudio("GovernmentScreen");
@@ -54,12 +55,12 @@ const GovernmentChooserComponent = (props) => {
                 id: "screen-government-chooser",
                 onCancelInput: () => handleOnCancelInput(),
                 get children() {
-                  var _el$ = _tmpl$(), _el$2 = _el$.firstChild, _el$3 = _el$2.nextSibling, _el$4 = _el$3.nextSibling, _el$5 = _el$4.nextSibling;
-                  _el$2.style.setProperty("background-image", "url(blp:base_frame-filigree)");
-                  _el$2.style.setProperty("opacity", "0.1");
+                  var _el$ = _tmpl$(), _el$2 = _el$.firstChild, _el$3 = _el$2.nextSibling, _el$4 = _el$3.nextSibling, _el$5 = _el$4.nextSibling, _el$6 = _el$5.nextSibling;
                   _el$3.style.setProperty("background-image", "url(blp:base_frame-filigree)");
                   _el$3.style.setProperty("opacity", "0.1");
-                  insert(_el$5, createComponent(Filigree.TitleAccent, {
+                  _el$4.style.setProperty("background-image", "url(blp:base_frame-filigree)");
+                  _el$4.style.setProperty("opacity", "0.1");
+                  insert(_el$6, createComponent(Filigree.TitleAccent, {
                     filigreeClass: "mt-5",
                     get children() {
                       return createComponent(L10n.Stylize, {
@@ -70,13 +71,15 @@ const GovernmentChooserComponent = (props) => {
                       });
                     }
                   }), null);
-                  insert(_el$5, createComponent(ScrollArea, {
-                    "class": "flex-auto p-4",
+                  insert(_el$6, createComponent(ScrollArea, {
+                    get ["class"]() {
+                      return `flex-auto ${isMobile() ? "max-w-full py-4 px-6" : "p-4"} ${isMobile() && IsControllerActive() ? "mb-12" : ""}`;
+                    },
                     get children() {
                       return createComponent(SpatialSlot, {
                         name: "government-scrollable",
                         get ["class"]() {
-                          return `flex w-full ${isSmallScreen() ? "flex-col" : "flex-row"} px-8 pt-2 flex-auto justify-center w-full items-center self-center`;
+                          return `flex w-full ${isSmallScreen() && !isMobile() ? "flex-col" : "flex-row"} ${isMobile() ? "px-2" : "px-8"} pt-2 flex-auto justify-center w-full items-center self-center`;
                         },
                         get children() {
                           return createComponent(For, {
@@ -108,9 +111,9 @@ const GovernmentChooserComponent = (props) => {
                       });
                     }
                   }), null);
-                  insert(_el$5, createComponent(CloseButton, {
+                  insert(_el$6, createComponent(CloseButton, {
                     get ["class"]() {
-                      return `${IsControllerActive() ? "hidden" : ""} absolute right-1 top-1`;
+                      return `${IsControllerActive() ? "hidden" : ""} absolute ${isMobile() ? "right-2 top-2" : "right-1 top-1"}`;
                     },
                     onActivate: () => {
                       handleOnCancelInput();
@@ -118,7 +121,7 @@ const GovernmentChooserComponent = (props) => {
                     hotkeyAction: "cancel",
                     navTrayText: "LOC_GENERIC_BACK"
                   }), null);
-                  insert(_el$5, createComponent(Button, {
+                  insert(_el$6, createComponent(Button, {
                     "class": `flex w-72 m-6`,
                     get onActivate() {
                       return model.onConfirmClicked;
@@ -142,6 +145,19 @@ const GovernmentChooserComponent = (props) => {
                       });
                     }
                   }), null);
+                  createRenderEffect((_p$) => {
+                    var _v$ = `absolute ${isMobile() ? "fullscreen-outside-safezone" : "size-full"} bg-cover government-frame-bg bg-no-repeat`, _v$2 = `size-64 absolute ${isMobile() ? "top-2 left-2" : "top-4 left-4"} bg-contain bg-no-repeat`, _v$3 = `size-64 absolute ${isMobile() ? "top-2 right-2" : "top-4 right-4"} bg-contain bg-no-repeat rotate-90`, _v$4 = `${isMobile() ? "fullscreen-outside-safezone" : "inset-0"} absolute government-screen-bg bg-cover bg-no-repeat`;
+                    _v$ !== _p$.e && className(_el$2, _p$.e = _v$);
+                    _v$2 !== _p$.t && className(_el$3, _p$.t = _v$2);
+                    _v$3 !== _p$.a && className(_el$4, _p$.a = _v$3);
+                    _v$4 !== _p$.o && className(_el$5, _p$.o = _v$4);
+                    return _p$;
+                  }, {
+                    e: void 0,
+                    t: void 0,
+                    a: void 0,
+                    o: void 0
+                  });
                   return _el$;
                 }
               });
@@ -157,7 +173,7 @@ const GovernmentChooserItem = (props) => {
   const isSmallScreen = useIsSmallScreen() || layout.screenWidth() / layout.screenHeight() < 1.34;
   return createComponent(Activatable, {
     get ["class"]() {
-      return `flex gov-chooser-item relative ${isSmallScreen() ? "flex-auto w-full" : "flex-1 h-full mx-2"}`;
+      return `flex gov-chooser-item relative ${isSmallScreen() && !isMobile() ? "flex-auto w-full" : "flex-1 h-full mx-2"}`;
     },
     onActivate: () => props.onClick,
     audio: {
@@ -166,27 +182,65 @@ const GovernmentChooserItem = (props) => {
     },
     get children() {
       return createComponent(TicketBox, {
-        "class": "relative flex flex-auto flex-col px-8 pb-8 pt-3 mb-4",
+        get ["class"]() {
+          return `relative flex flex-auto flex-col ${isMobile() ? "px-6" : "px-8"} pb-8 pt-3 mb-4`;
+        },
         get children() {
-          return [_tmpl$2(), createComponent(Show, {
+          return [createComponent(Show, {
             get when() {
-              return props.isSelected;
+              return isMobile();
+            },
+            get fallback() {
+              return [_tmpl$2(), createComponent(Show, {
+                get when() {
+                  return props.isSelected;
+                },
+                get children() {
+                  return [_tmpl$3(), _tmpl$8()];
+                }
+              })];
             },
             get children() {
-              return [_tmpl$3(), _tmpl$4()];
+              return [createComponent(Show, {
+                get when() {
+                  return !props.isSelected;
+                },
+                get children() {
+                  return _tmpl$2();
+                }
+              }), createComponent(Show, {
+                get when() {
+                  return props.isSelected;
+                },
+                get children() {
+                  return _tmpl$3();
+                }
+              })];
             }
           }), (() => {
-            var _el$9 = _tmpl$6(), _el$10 = _el$9.firstChild;
+            var _el$9 = _tmpl$6();
             insert(_el$9, createComponent(L10n.Stylize, {
-              "class": "font-title-xl py-2 tracking-100 uppercase text-accent-1 flex font-fit-shrink",
+              get ["class"]() {
+                return `font-title-xl py-2 tracking-100 uppercase text-accent-1 flex font-fit-shrink ${isMobile() ? "self-center whitespace-nowrap" : ""}`;
+              },
               get text() {
                 return props.itemName;
               }
-            }), _el$10);
+            }), null);
+            insert(_el$9, createComponent(Show, {
+              get when() {
+                return !isMobile();
+              },
+              get children() {
+                return _tmpl$4();
+              }
+            }), null);
             insert(_el$9, createComponent(GovtCardSubHeader, {
               text: "LOC_UI_GOVERNMENT_ABILITY",
               secondaryText: true,
-              "class": "mt-4 mb-1"
+              get ["class"]() {
+                return `${isMobile() ? "mt-2" : "mt-4"} mb-1`;
+              }
             }), null);
             insert(_el$9, createComponent(Show, {
               get when() {
@@ -217,24 +271,24 @@ const GovernmentChooserItem = (props) => {
                     return props.celebrationOptions;
                   },
                   children: (item) => (() => {
-                    var _el$15 = _tmpl$8(), _el$16 = _el$15.firstChild;
-                    insert(_el$16, createComponent(Icon, {
+                    var _el$18 = _tmpl$9(), _el$19 = _el$18.firstChild;
+                    insert(_el$19, createComponent(Icon, {
                       "class": "size-8",
                       get name() {
                         return item.image;
                       },
                       isUrl: true
                     }), null);
-                    insert(_el$16, createComponent(Divider, {
+                    insert(_el$19, createComponent(Divider, {
                       vertical: true
                     }), null);
-                    insert(_el$16, createComponent(L10n.Stylize, {
+                    insert(_el$19, createComponent(L10n.Stylize, {
                       "class": "flex flex-auto font-body-sm w-full",
                       get text() {
                         return item.description;
                       }
                     }), null);
-                    insert(_el$15, createComponent(Show, {
+                    insert(_el$18, createComponent(Show, {
                       get when() {
                         return item != props.celebrationOptions[props.celebrationOptions.length - 1];
                       },
@@ -242,7 +296,7 @@ const GovernmentChooserItem = (props) => {
                         return createComponent(Divider, {});
                       }
                     }), null);
-                    return _el$15;
+                    return _el$18;
                   })()
                 });
               }
@@ -260,34 +314,34 @@ const GovernmentChooserItem = (props) => {
                     return props.traditionsUnlocked;
                   },
                   children: (item) => (() => {
-                    var _el$17 = _tmpl$9(), _el$18 = _el$17.firstChild, _el$19 = _el$18.firstChild;
-                    insert(_el$18, createComponent(Icon, {
+                    var _el$20 = _tmpl$10(), _el$21 = _el$20.firstChild, _el$22 = _el$21.firstChild;
+                    insert(_el$21, createComponent(Icon, {
                       "class": "size-8",
                       name: `url(blp:unlock_tradition)`,
                       isUrl: true
-                    }), _el$19);
-                    insert(_el$18, createComponent(Divider, {
+                    }), _el$22);
+                    insert(_el$21, createComponent(Divider, {
                       vertical: true
-                    }), _el$19);
-                    insert(_el$19, createComponent(L10n.Stylize, {
+                    }), _el$22);
+                    insert(_el$22, createComponent(L10n.Stylize, {
                       "class": "text-secondary uppercase tracking-100 font-title-sm",
                       get text() {
                         return item.def.Name ?? "";
                       }
                     }), null);
-                    insert(_el$19, createComponent(L10n.Stylize, {
+                    insert(_el$22, createComponent(L10n.Stylize, {
                       "class": "font-body-sm flex flex-auto w-full text-accent-3",
                       get text() {
                         return item.unlock;
                       }
                     }), null);
-                    insert(_el$19, createComponent(L10n.Stylize, {
+                    insert(_el$22, createComponent(L10n.Stylize, {
                       "class": "font-body-sm flex flex-auto w-full",
                       get text() {
                         return item.def.Description ?? "";
                       }
                     }), null);
-                    insert(_el$17, createComponent(Show, {
+                    insert(_el$20, createComponent(Show, {
                       get when() {
                         return item != props.traditionsUnlocked[props.traditionsUnlocked.length - 1];
                       },
@@ -295,7 +349,7 @@ const GovernmentChooserItem = (props) => {
                         return createComponent(Divider, {});
                       }
                     }), null);
-                    return _el$17;
+                    return _el$20;
                   })()
                 });
               }
@@ -319,13 +373,13 @@ const GovtCardSubHeader = (props) => {
 };
 const Divider = (props) => {
   return (() => {
-    var _el$20 = _tmpl$10();
-    createRenderEffect(() => className(_el$20, `${props.vertical ? "h-full w-px mx-2" : "w-full h-px my-2"} flex bg-primary-3`));
-    return _el$20;
+    var _el$23 = _tmpl$11();
+    createRenderEffect(() => className(_el$23, `${props.vertical ? "h-full w-px mx-2" : "w-full h-px my-2"} flex bg-primary-3`));
+    return _el$23;
   })();
 };
 defineLegacyComponent("screen-government-chooser", {
-  classNames: ["fullscreen, screen-government-chooser, flex, justify-center, items-center"]
+  classNames: ["fullscreen", "flex", "justify-center", "items-center"]
 }, (_attrs, _element) => {
   Input.setActiveContext(InputContext.Shell);
   return createComponent(GovernmentChooserComponent, {});

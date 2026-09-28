@@ -1,5 +1,4 @@
 import ViewManager, { UISystem } from '../../../core/ui/views/view-manager.js';
-import { SetIsPlotTooltipVisible } from '../../ui-next/tooltips/plot-tooltip/plot-tooltip.js';
 
 class AdvancedStartView {
   getName() {
@@ -12,10 +11,8 @@ class AdvancedStartView {
     return "";
   }
   enterView() {
-    SetIsPlotTooltipVisible(false);
   }
   exitView() {
-    SetIsPlotTooltipVisible(true);
   }
   addEnterCallback(_func) {
   }
@@ -27,6 +24,7 @@ class AdvancedStartView {
       { name: "city-banners", type: UISystem.World, visible: "true" },
       { name: "district-health-bars", type: UISystem.World, visible: "true" },
       { name: "plot-icons", type: UISystem.World, visible: "true" },
+      { name: "plot-tooltips", type: UISystem.World, visible: "false" },
       { name: "plot-vfx", type: UISystem.World, visible: "false" },
       { name: "unit-flags", type: UISystem.World, visible: "true" },
       { name: "unit-info-panel", type: UISystem.World, visible: "false" },

@@ -1,4 +1,4 @@
-import ContextManager from '../../../core/ui/context-manager/context-manager.js';
+import { ContextManagerEvents, ContextManager } from '../../../core/ui/context-manager/context-manager.js';
 import { InputEngineEventName } from '../../../core/ui/input/input-support.js';
 import NavTray from '../../../core/ui/navigation-tray/model-navigation-tray.js';
 import Panel from '../../../core/ui/panel-support.js';
@@ -20,6 +20,19 @@ class ScreenNarrativeEvent extends Panel {
   };
   turnEndListener = () => {
     this.close(UIViewChangeMethod.Automatic), NarrativePopupManager.closePopup();
+  };
+  contextCloseListener = (event) => {
+    const deactivatedElementName = event.detail.deactivatedElement.typeName;
+    if (!deactivatedElementName) {
+      return;
+    }
+    if (deactivatedElementName === "screen-narrative-event") {
+      waitForLayout(() => {
+        this.close(UIViewChangeMethod.Automatic);
+        NarrativePopupManager.closePopup();
+        engine.off(ContextManagerEvents.OnClose, this.contextCloseListener);
+      });
+    }
   };
   panelOptions = null;
   targetStoryId = null;
@@ -58,6 +71,7 @@ class ScreenNarrativeEvent extends Panel {
     modalWindow.setAttribute("data-bg-image", `url("fs://game/${imagePath}")`);
     this.Root.addEventListener(InputEngineEventName, this.engineInputListener);
     engine.on("LocalPlayerTurnEnd", this.turnEndListener);
+    engine.on(ContextManagerEvents.OnClose, this.contextCloseListener);
     this.addElements();
   }
   onDetach() {
@@ -180,7 +194,7 @@ class ScreenNarrativeEvent extends Panel {
         }
         let links = 0;
         if (storyDef.VariableLinks) {
-          let storyLinks = playerStories.getOrderedLinks(targetStoryId);
+          const storyLinks = playerStories.getOrderedLinks(targetStoryId);
           if (storyLinks && storyLinks.length > 0) {
             storyLinks.forEach((link) => {
               if (this.populateLinkEntry(link, targetStoryId, entryContainer, playerStories)) {
@@ -194,7 +208,12 @@ class ScreenNarrativeEvent extends Panel {
           );
           if (storyLinks && storyLinks.length > 0) {
             storyLinks.forEach((link) => {
-              if (this.populateLinkEntry(link.ToNarrativeStoryType, targetStoryId, entryContainer, playerStories)) {
+              if (this.populateLinkEntry(
+                link.ToNarrativeStoryType,
+                targetStoryId,
+                entryContainer,
+                playerStories
+              )) {
                 links = links + 1;
               }
             });
@@ -207,6 +226,7 @@ class ScreenNarrativeEvent extends Panel {
             }
             return false;
           });
+          const canAfford = true;
           this.addEntry(
             entryContainer,
             Locale.stylize("LOC_NARRATIVE_STORY_END_STORY_NAME"),
@@ -216,7 +236,7 @@ class ScreenNarrativeEvent extends Panel {
             "",
             "CLOSE",
             icons,
-            true
+            canAfford
           );
         }
       }
@@ -225,12 +245,10 @@ class ScreenNarrativeEvent extends Panel {
   populateLinkEntry(link, targetStoryId, entryContainer, playerStories) {
     const linkDef = GameInfo.NarrativeStories.lookup(link);
     if (linkDef) {
-      if (linkDef?.Activation.toUpperCase() === "LINKED" || (linkDef?.Activation.toUpperCase() === "LINKED_REQUISITE" || linkDef?.Activation.toUpperCase() === "LINKED_SUBJECT_REQUISITE") && playerStories.determineRequisiteLink(linkDef.NarrativeStoryType, targetStoryId)) {
-        const icons = GameInfo.NarrativeRewardIcons.filter(
-          (item) => {
-            return item.NarrativeStoryType === linkDef.NarrativeStoryType;
-          }
-        );
+      if (linkDef?.Activation.toUpperCase() === "LINKED" || (linkDef?.Activation.toUpperCase() === "LINKED_REQUISITE" || linkDef?.Activation.toUpperCase() === "LINKED_COMMON" || linkDef?.Activation.toUpperCase() === "LINKED_SUBJECT_REQUISITE") && playerStories.determineRequisiteLink(linkDef.NarrativeStoryType, targetStoryId)) {
+        const icons = GameInfo.NarrativeRewardIcons.filter((item) => {
+          return item.NarrativeStoryType === linkDef.NarrativeStoryType;
+        });
         const toLinkDef = GameInfo.NarrativeStories.lookup(
           linkDef.NarrativeStoryType
         );
@@ -266,13 +284,14 @@ class ScreenNarrativeEvent extends Panel {
     return false;
   }
   addEntry(container, descriptiveText, reward, action, key, icons, canAfford) {
+    const isNegative = icons.some((narrativeIconDef) => narrativeIconDef.Negative);
+    const buttonText = `<div>${reward}</div><div class="mt-2 ${isNegative ? "text-negative" : ""}">${action}</div>`;
     const buttonFXS = document.createElement("fxs-reward-button");
     buttonFXS.addEventListener("action-activate", this.entryListener);
     buttonFXS.setAttribute("narrative-choice-key", key);
     buttonFXS.setAttribute("tabindex", "-1");
     buttonFXS.setAttribute("main-text", descriptiveText);
-    buttonFXS.setAttribute("reward", reward);
-    buttonFXS.setAttribute("action-text", action);
+    buttonFXS.setAttribute("action-text", buttonText);
     buttonFXS.setAttribute("leader-civ", this.leaderCiv);
     buttonFXS.setAttribute("icons", JSON.stringify(icons));
     buttonFXS.setAttribute("story-type", "DEFAULT");

@@ -5,7 +5,7 @@ import { expandCoastsPlus, addMountains, generateLakes, addHills, buildRainfallM
 import { designateBiomes, addFeatures } from './feature-biome-generator.js';
 import { dumpStartSectors, dumpContinents, dumpTerrain, dumpElevation, dumpRainfall, dumpBiomes, dumpFeatures, dumpResources, dumpNoisePredicate } from './map-debug-helpers.js';
 import { g_OceanWaterColumns, g_PolarWaterRows, g_AvoidSeamOffset, g_WaterPercent, g_Cutoff, g_NavigableRiverTerrain, g_LandmassFractal, g_FlatTerrain, g_OceanTerrain, g_FractalWeight, g_CenterWeight, g_StartSectorWeight } from './map-globals.js';
-import { needHumanNearEquator, createIslands, applyCoastalErosionAdjustingForStartSectors, createOrganicLandmasses, applyCoastalErosion, markLandmassRegionId, replaceIslandResources, getHeightAdjustingForStartSector, clearContinent } from './map-utilities.js';
+import { needHumanNearEquator, createIslands, applyCoastalErosionAdjustingForStartSectors, createOrganicLandmasses, applyCoastalErosion, markLandmassRegionId, getHeightAdjustingForStartSector, clearContinent } from './map-utilities.js';
 import { addNaturalWonders } from './natural-wonder-generator.js';
 import { generateResources } from './resource-generator.js';
 import { generateSnow, dumpPermanentSnow } from './snow-generator.js';
@@ -262,7 +262,6 @@ function generateMap() {
   buildRainfallMap(iWidth, iHeight);
   TerrainBuilder.modelRivers(5, 15, g_NavigableRiverTerrain);
   TerrainBuilder.validateAndFixTerrain();
-  TerrainBuilder.defineNamedRivers();
   designateBiomes(iWidth, iHeight);
   addTundraVolcanoes(iWidth, iHeight);
   addNaturalWonders(iWidth, iHeight, iNumNaturalWonders);
@@ -289,7 +288,6 @@ function generateMap() {
       iStartSectorCols,
       startSectors
     );
-    replaceIslandResources(iWidth, iHeight, "RESOURCECLASS_TREASURE");
   } else {
     generateResources(iWidth, iHeight);
     startPositions = assignSingleContinentStartPositions(
@@ -299,7 +297,6 @@ function generateMap() {
       iStartSectorCols,
       startSectors
     );
-    replaceIslandResources(iWidth, iHeight, "RESOURCECLASS_TREASURE");
   }
   generateDiscoveries(iWidth, iHeight, startPositions, g_PolarWaterRows);
   dumpResources(iWidth, iHeight);

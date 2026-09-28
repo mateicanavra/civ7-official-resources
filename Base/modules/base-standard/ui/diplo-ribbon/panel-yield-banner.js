@@ -1,12 +1,13 @@
 import { FxsActivatable } from '../../../core/ui/components/fxs-activatable.js';
-import ContextManager from '../../../core/ui/context-manager/context-manager.js';
-import ActionHandler from '../../../core/ui/input/action-handler.js';
+import { ContextManager } from '../../../core/ui/context-manager/context-manager.js';
 import { InputEngineEventName } from '../../../core/ui/input/input-support.js';
 import { InterfaceMode } from '../../../core/ui/interface-modes/interface-modes.js';
+import { ModdingRegistry } from '../../../core/ui/modding-registry-handler/modding-registry-handler.js';
 import Panel, { AnchorType } from '../../../core/ui/panel-support.js';
 import { number } from '../../../core/ui/utilities/utilities-validation.js';
 import ViewManager from '../../../core/ui/views/view-manager.js';
 import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
+import { IsControllerActive } from '../../../core/ui-next/services/input.js';
 
 const yieldBarEntryClassMap = {
   YIELD_GOLD: "text-yield-gold",
@@ -399,16 +400,21 @@ class PanelYieldBanner extends Panel {
       this.cityCapElement.dataset.icon = "YIELD_CITY_CAP";
       hSlot.appendChild(this.cityCapElement);
     }
+    const yieldBannerModSlot = document.createElement("div");
+    yieldBannerModSlot.id = "yield-banner-mod-slot";
+    yieldBannerModSlot.classList.add("flex", "flex-auto");
+    hSlot.appendChild(yieldBannerModSlot);
+    ModdingRegistry.attachModElements("panel-yield-banner");
   }
   onInputContextChanged(contextData) {
-    if (contextData.newContext == InputContext.World && ActionHandler.isGamepadActive) {
+    if (contextData.newContext == InputContext.World && IsControllerActive()) {
       this.navHelpContainer.classList.toggle("hidden", false);
     } else {
       this.navHelpContainer.classList.toggle("hidden", true);
     }
   }
   onInterfaceModeChanged() {
-    if (InterfaceMode.isInInterfaceMode("INTERFACEMODE_DEFAULT") && Input.getActiveContext() == InputContext.World && ActionHandler.isGamepadActive) {
+    if (InterfaceMode.isInInterfaceMode("INTERFACEMODE_DEFAULT") && Input.getActiveContext() == InputContext.World && IsControllerActive()) {
       this.navHelpContainer.classList.toggle("hidden", false);
     }
   }

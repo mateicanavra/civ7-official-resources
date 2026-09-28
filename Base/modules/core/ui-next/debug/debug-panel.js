@@ -8,7 +8,7 @@ import { ObjectHistory } from './object-history.js';
 import { SimpleButton } from './simple-button.js';
 import { createArraySignal } from '../utilities/solid-utilities.js';
 
-var _tmpl$ = /* @__PURE__ */ template(`<div class="flex flex-col inset-0 absolute"><div class="flex flex-row"><div class=flex-auto></div><div class=flex-auto></div></div><div class="flex flex-row flex-auto"><div>Models</div><div class="flex flex-col border border-accent-1 p-2"></div></div></div>`);
+var _tmpl$ = /* @__PURE__ */ template(`<div class="flex flex-col inset-0 absolute"><div class="flex flex-row"><div class="flex-auto"></div><div class="flex-auto"></div></div><div class="flex flex-row flex-auto"><div>Models</div><div class="flex flex-col border border-accent-1 p-2"></div></div></div>`);
 class MutableProxy {
   constructor(name, id, mutable) {
     this.name = name;

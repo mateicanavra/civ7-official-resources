@@ -1,10 +1,10 @@
 import { DisplayQueueManager } from '../../../core/ui/context-manager/display-queue-manager.js';
 import { DialogBoxManager } from '../../../core/ui/dialog-box/manager-dialog-box.js';
+import { InputHandlerState } from '../../../core/ui/input/input-support.js';
 import { InterfaceMode } from '../../../core/ui/interface-modes/interface-modes.js';
 import NavTray from '../../../core/ui/navigation-tray/model-navigation-tray.js';
 import ViewManager, { UISystem } from '../../../core/ui/views/view-manager.js';
 import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
-import { SetIsPlotTooltipVisible } from '../../ui-next/tooltips/plot-tooltip/plot-tooltip.js';
 
 class PauseMenuView {
   getName() {
@@ -19,13 +19,11 @@ class PauseMenuView {
   enterView() {
     WorldUI.pushGaussianBlurFilter(10);
     Input.setClipCursorPaused(true);
-    SetIsPlotTooltipVisible(false);
   }
   exitView() {
     WorldUI.popFilter();
     Input.setClipCursorPaused(false);
     DisplayQueueManager.resume();
-    SetIsPlotTooltipVisible(true);
   }
   addEnterCallback(_func) {
   }
@@ -39,9 +37,9 @@ class PauseMenuView {
     }
     NavTray.clear();
   }
-  readInputEvent(inputEvent) {
+  handleInputEvent(inputEvent) {
     if (inputEvent.detail.status != InputActionStatuses.FINISH) {
-      return true;
+      return InputHandlerState.Active;
     }
     switch (inputEvent.detail.name) {
       case "sys-menu":
@@ -51,11 +49,11 @@ class PauseMenuView {
         if (!DialogBoxManager.isDialogBoxOpen) {
           InterfaceMode.switchToDefault();
         } else {
-          return true;
+          return InputHandlerState.Active;
         }
         break;
     }
-    return false;
+    return InputHandlerState.Handled;
   }
   handleLoseFocus() {
     UI.toggleGameCenterAccessPoint(false, UIGameCenterAccessPointLocation.BottomLeading);
@@ -66,11 +64,13 @@ class PauseMenuView {
       { name: "city-banners", type: UISystem.World, visible: "false" },
       { name: "unit-info-panel", type: UISystem.World, visible: "false" },
       { name: "plot-icons", type: UISystem.World, visible: "false" },
+      { name: "plot-tooltips", type: UISystem.World, visible: "false" },
       { name: "plot-vfx", type: UISystem.World, visible: "false" },
       { name: "units", type: UISystem.Events, selectable: false },
       { name: "unit-flags", type: UISystem.World, visible: "false" },
       { name: "small-narratives", type: UISystem.World, visible: "false" },
       { name: "world", type: UISystem.Events, selectable: false },
+      { name: "plot-selection", type: UISystem.Events, selectable: false },
       { name: "world-input", type: UISystem.World, selectable: false },
       { name: "district-health-bars", type: UISystem.World, visible: "false" }
     ];

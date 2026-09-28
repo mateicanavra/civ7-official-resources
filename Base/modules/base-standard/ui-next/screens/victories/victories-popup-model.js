@@ -88,6 +88,11 @@ function createVictoriesPopupDataModel() {
             if (player.turnsToVictory() == -1 || numTurnsLeft < player.turnsToVictory()) {
               player.setTurnsToVictory(numTurnsLeft);
             }
+            if (player.turnsToVictory() <= 0) {
+              model.showBanner = false;
+            } else {
+              model.showBanner = true;
+            }
           }
         }
       }
@@ -205,10 +210,11 @@ function createVictoriesPopupDataModel() {
     const ptsEvt = playerTurnStart();
     if (ptsEvt) {
       const player = Players.get(GameContext.localPlayerID);
+      const dataModel2 = VictoriesPopupDataModel.get();
       if (player && player.isTurnActive) {
         const model = VictoriesPopupDataModel.get();
-        if (model.anyPlayerDominant() && !requestActive) {
-          dataModel.setExtraClass("victories-popup__enter");
+        if (model.anyPlayerDominant() && !requestActive && model.showBanner) {
+          dataModel2.setExtraClass("victories-popup__enter");
           const popupData = {
             category: PopupSequencer.getCategory(),
             screenId: "screen-victories-popup",

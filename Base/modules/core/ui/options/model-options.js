@@ -1,4 +1,4 @@
-import ContextManager from '../context-manager/context-manager.js';
+import { ContextManager } from '../context-manager/context-manager.js';
 
 var OptionType = /* @__PURE__ */ ((OptionType2) => {
   OptionType2[OptionType2["Editor"] = 0] = "Editor";

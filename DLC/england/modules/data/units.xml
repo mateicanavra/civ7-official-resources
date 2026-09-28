@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Types>
+		<!--Civ Unique Military-->
+		<Row Type="UNIT_LONGBOW" Kind="KIND_UNIT"/>
+		<Row Type="UNIT_LONGBOW_2" Kind="KIND_UNIT"/>
+		<Row Type="UNIT_LONGBOW_3" Kind="KIND_UNIT"/>
+		<!--Civ Unique Civilian-->
+		<Row Type="UNIT_MERCHANT_ADVENTURER" Kind="KIND_UNIT"/>
+		<!--Civ Unique Abilities-->
+		<Row Type="ABILITY_LONGBOW" Kind="KIND_ABILITY"/>
+		<Row Type="ABILITY_MERCHANT_ADVENTURER" Kind="KIND_ABILITY"/>
+	</Types>
+	<Units>
+		<!--Civ Unique Military-->
+		<Row UnitType="UNIT_LONGBOW" Name="LOC_UNIT_LONGBOW_NAME" Description="LOC_UNIT_LONGBOW_DESCRIPTION" Tier="1" Maintenance="2" BaseSightRange="2" BaseMoves="2" UnitMovementClass="UNIT_MOVEMENT_CLASS_FOOT" Domain="DOMAIN_LAND" CoreClass="CORE_CLASS_MILITARY" FormationClass="FORMATION_CLASS_LAND_COMBAT" ZoneOfControl="true" TraitType="TRAIT_ENGLAND"/>
+		<Row UnitType="UNIT_LONGBOW_2" Name="LOC_UNIT_LONGBOW_NAME" Description="LOC_UNIT_LONGBOW_2_DESCRIPTION" Tier="2" Maintenance="4" BaseSightRange="2" BaseMoves="2" UnitMovementClass="UNIT_MOVEMENT_CLASS_FOOT" Domain="DOMAIN_LAND" CoreClass="CORE_CLASS_MILITARY" FormationClass="FORMATION_CLASS_LAND_COMBAT" ZoneOfControl="true" TraitType="TRAIT_ENGLAND"/>
+		<Row UnitType="UNIT_LONGBOW_3" Name="LOC_UNIT_LONGBOW_NAME" Description="LOC_UNIT_LONGBOW_3_DESCRIPTION" Tier="3" Maintenance="6" BaseSightRange="2" BaseMoves="2" UnitMovementClass="UNIT_MOVEMENT_CLASS_FOOT" Domain="DOMAIN_LAND" CoreClass="CORE_CLASS_MILITARY" FormationClass="FORMATION_CLASS_LAND_COMBAT" ZoneOfControl="true" TraitType="TRAIT_ENGLAND"/>
+		<!--Civ Unique Civilian-->
+		<Row UnitType="UNIT_MERCHANT_ADVENTURER" Name="LOC_UNIT_MERCHANT_ADVENTURER_NAME" Description="LOC_UNIT_MERCHANT_ADVENTURER_DESCRIPTION" BaseSightRange="2" BaseMoves="4" UnitMovementClass="UNIT_MOVEMENT_CLASS_FOOT" Domain="DOMAIN_LAND" CoreClass="CORE_CLASS_CIVILIAN" FormationClass="FORMATION_CLASS_CIVILIAN" ZoneOfControl="false" MakeTradeRoute="true" CostProgressionModel="COST_PROGRESSION_PREVIOUS_COPIES" CostProgressionParam1="10" TraitType="TRAIT_ENGLAND"/>
+	</Units>
+	<Unit_Stats>
+		<!--Civ Unique Military-->
+		<Row UnitType="UNIT_LONGBOW" Combat="20" RangedCombat="30" Bombard="20" Range="3"/>
+		<Row UnitType="UNIT_LONGBOW_2" Combat="25" RangedCombat="35" Bombard="25" Range="3"/>
+		<Row UnitType="UNIT_LONGBOW_3" Combat="30" RangedCombat="40" Bombard="30" Range="3"/>
+	</Unit_Stats>
+	<Unit_Costs>
+		<!--Civ Unique Military-->
+		<Row UnitType="UNIT_LONGBOW" YieldType="YIELD_PRODUCTION" Cost="150"/>
+		<Row UnitType="UNIT_LONGBOW_2" YieldType="YIELD_PRODUCTION" Cost="200"/>
+		<Row UnitType="UNIT_LONGBOW_3" YieldType="YIELD_PRODUCTION" Cost="260"/>
+		<!--Civ Unique Civilian-->
+		<Row UnitType="UNIT_MERCHANT_ADVENTURER" YieldType="YIELD_PRODUCTION" Cost="30"/>
+	</Unit_Costs>
+	<UnitReplaces>
+		<!--Civ Unique Military-->
+		<Row CivUniqueUnitType="UNIT_LONGBOW" ReplacesUnitType="UNIT_HEAVY_ARCHER"/>
+		<Row CivUniqueUnitType="UNIT_LONGBOW_2" ReplacesUnitType="UNIT_CROSSBOWMAN"/>
+		<Row CivUniqueUnitType="UNIT_LONGBOW_3" ReplacesUnitType="UNIT_ARQUEBUSIER"/>
+		<!--Civ Unique Civilian-->
+		<Row CivUniqueUnitType="UNIT_MERCHANT_ADVENTURER" ReplacesUnitType="UNIT_MERCHANT"/>
+	</UnitReplaces>
+	<UnitUpgrades>
+		<Row Unit="UNIT_LONGBOW" UpgradeUnit="UNIT_LONGBOW_2"/>
+		<Row Unit="UNIT_LONGBOW_2" UpgradeUnit="UNIT_LONGBOW_3"/>
+	</UnitUpgrades>
+	<Tags>
+		<!--Civ Unique Military-->
+		<Row Tag="UNIT_CLASS_LONGBOW" Category="UNIT_CLASS"/>
+		<!--Civ Unique Civilian-->
+		<Row Tag="UNIT_CLASS_MERCHANT_ADVENTURER" Category="UNIT_CLASS"/>
+	</Tags>
+	<TypeTags>
+		<!--Civ Unique Military-->
+		<Row Type="UNIT_LONGBOW" Tag="UNIT_CLASS_COMBAT"/>
+		<Row Type="UNIT_LONGBOW" Tag="UNIT_CLASS_RANGED"/>
+		<Row Type="UNIT_LONGBOW" Tag="UNIT_CLASS_LONGBOW"/>
+		<Row Type="UNIT_LONGBOW" Tag="UNIT_CLASS_UNIQUE"/>
+		<Row Type="UNIT_LONGBOW_2" Tag="UNIT_CLASS_COMBAT"/>
+		<Row Type="UNIT_LONGBOW_2" Tag="UNIT_CLASS_RANGED"/>
+		<Row Type="UNIT_LONGBOW_2" Tag="UNIT_CLASS_LONGBOW"/>
+		<Row Type="UNIT_LONGBOW_2" Tag="UNIT_CLASS_UNIQUE"/>
+		<Row Type="UNIT_LONGBOW_3" Tag="UNIT_CLASS_COMBAT"/>
+		<Row Type="UNIT_LONGBOW_3" Tag="UNIT_CLASS_RANGED"/>
+		<Row Type="UNIT_LONGBOW_3" Tag="UNIT_CLASS_LONGBOW"/>
+		<Row Type="UNIT_LONGBOW_3" Tag="UNIT_CLASS_ELITE_RANGED"/>
+		<!--Civ Unique Civilian-->
+		<Row Type="UNIT_MERCHANT_ADVENTURER" Tag="UNIT_CLASS_MAKE_TRADE_ROUTE"/>
+		<Row Type="UNIT_MERCHANT_ADVENTURER" Tag="UNIT_CLASS_MERCHANT_ADVENTURER"/>
+	</TypeTags>
+	<UnitClass_Abilities>
+		<Row UnitAbilityType="ABILITY_LONGBOW" UnitClassType="UNIT_CLASS_LONGBOW"/>
+		<Row UnitAbilityType="ABILITY_MERCHANT_ADVENTURER" UnitClassType="UNIT_CLASS_MERCHANT_ADVENTURER"/>
+	</UnitClass_Abilities>
+	<UnitAbilities>
+		<Row UnitAbilityType="ABILITY_LONGBOW" Name="LOC_UNIT_LONGBOW_NAME" Description="LOC_ABILITY_LONGBOW_DESCRIPTION"/>
+		<Row UnitAbilityType="ABILITY_MERCHANT_ADVENTURER" Name="LOC_UNIT_MERCHANT_ADVENTURER_NAME" Description="LOC_ABILITY_MERCHANT_ADVENTURER_DESCRIPTION"/>
+	</UnitAbilities>
+	<UnitAbilityModifiers>
+		<Row UnitAbilityType="ABILITY_MERCHANT_ADVENTURER" ModifierId="MERCHANT_ADVENTURER_MOD_TRADE_CREATION_YIELD_GOLD"/>
+		<Row UnitAbilityType="ABILITY_MERCHANT_ADVENTURER" ModifierId="MERCHANT_ADVENTURER_MOD_TRADE_CREATION_INFLUENCE"/>
+	</UnitAbilityModifiers>
+	<Unit_Advisories>
+		<Row UnitType="UNIT_LONGBOW" AdvisoryClassType="ADVISORY_CLASS_MILITARY"/>
+		<Row UnitType="UNIT_LONGBOW_2" AdvisoryClassType="ADVISORY_CLASS_MILITARY"/>
+		<Row UnitType="UNIT_LONGBOW_3" AdvisoryClassType="ADVISORY_CLASS_MILITARY"/>
+		<Row UnitType="UNIT_MERCHANT_ADVENTURER" AdvisoryClassType="ADVISORY_CLASS_ECONOMIC"/>
+	</Unit_Advisories>
+</Database>

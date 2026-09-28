@@ -1,4 +1,3 @@
-import ActionHandler from '../../../core/ui/input/action-handler.js';
 import { ActiveDeviceTypeChangedEventName } from '../../../core/ui/input/input-events.js';
 import { InputEngineEventName } from '../../../core/ui/input/input-support.js';
 import NavTray from '../../../core/ui/navigation-tray/model-navigation-tray.js';
@@ -7,6 +6,7 @@ import { applyPlayerColorsToElement } from '../../../core/ui/utilities/utilities
 import { ComponentID } from '../../../core/ui/utilities/utilities-component-id.js';
 import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
 import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
+import { IsControllerActive } from '../../../core/ui-next/services/input.js';
 import { ViewExperience } from '../../../core/ui-next/services/view-experience.js';
 import GreatWorks from './model-great-works.js';
 import content from './screen-great-works.html.js';
@@ -70,7 +70,7 @@ class ScreenGreatWorks extends Panel {
     if (Players.isValid(player)) {
       applyPlayerColorsToElement(this.Root, player);
     }
-    this.setGamepadControlsVisible(ActionHandler.isGamepadActive);
+    this.setGamepadControlsVisible(IsControllerActive());
     this.buildSettlementTabBar();
   }
   onDetach() {
@@ -167,9 +167,7 @@ class ScreenGreatWorks extends Panel {
       ".settlement-tab-bar-container"
     );
     if (!settlementTypeBox) {
-      console.error(
-        "screen-resource-allocation: buildSettlementTabBar(): Failed to find settlement-tab-bar-container"
-      );
+      console.error("screen-great-works: buildSettlementTabBar(): Failed to find settlement-tab-bar-container");
       return;
     }
     this.settlementTabBar.classList.add("settlement_nav", "w-full", "font-title", "text-sm");
@@ -609,7 +607,7 @@ class ScreenGreatWorks extends Panel {
   filterSettlementByType(settlementTypeFilter) {
     const cityList = this.Root.querySelector(".city-slots-displayed-list");
     if (!cityList) {
-      console.error("screen-resource-allocation: onAttach(): Failed to find city-slots-displayed-list!");
+      console.error("screen-great-works: onAttach(): Failed to find city-slots-displayed-list!");
       return;
     }
     const settlements = cityList.children;

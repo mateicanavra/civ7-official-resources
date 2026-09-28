@@ -8,7 +8,7 @@ class UiVFXManager {
       );
     }
     UiVFXManager.instance = this;
-    engine.whenReady.then(() => {
+    Loading.whenLoaded.then(() => {
       this.onReady();
     });
   }

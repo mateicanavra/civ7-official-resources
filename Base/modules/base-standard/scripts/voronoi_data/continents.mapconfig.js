@@ -1,9 +1,9 @@
 const continentSettings = {
   "generatorKey": 0,
   "mapConfig": {
-    "totalPlayers": 4,
+    "totalPlayers": 8,
     "totalLandmassSize": 40,
-    "minLandmassSize": 16
+    "maxSizeVariance": 33.33
   },
   "generatorConfig": {
     "plate": {
@@ -14,7 +14,7 @@ const continentSettings = {
         "erosionPercent": 4,
         "erosionTime": 1,
         "erosionRandomness": 0.6,
-        "playerAreas": 2,
+        "playerAreas": 1,
         "coastalIslands": 10,
         "coastalIslandsSize": 0.85
       },
@@ -22,7 +22,7 @@ const continentSettings = {
         "erosionPercent": 4,
         "erosionTime": 1,
         "erosionRandomness": 0.6,
-        "playerAreas": 2,
+        "playerAreas": 1,
         "coastalIslands": 10,
         "coastalIslandsSize": 0.85
       }
@@ -79,7 +79,7 @@ const continentSettings = {
       "Near Map Center.isActive": false,
       "Avoid Other Regions.weight": 1,
       "Avoid Other Regions.isActive": true,
-      "Avoid Other Regions.minDistance": 8,
+      "Avoid Other Regions.minDistance": 7,
       "Avoid Other Regions.distanceFalloff": 10,
       "Avoid Other Regions.falloffCurve": 0.2,
       "Avoid Other Region Groups.weight": 1,
@@ -228,6 +228,7 @@ const continentSettings = {
       "Avoid Other Regions.falloffCurve": 0.15
     }
   },
+  "hexConfig": {},
   "variantSettings": {
     "Sea Level": {
       "settings": {
@@ -261,10 +262,6 @@ const continentSettings = {
           "mapSettings": {
             "totalLandmassSize": [
               0.8,
-              2
-            ],
-            "minLandmassSize": [
-              0.875,
               2
             ]
           },
@@ -313,10 +310,6 @@ const continentSettings = {
           "mapSettings": {
             "totalLandmassSize": [
               1.1,
-              2
-            ],
-            "minLandmassSize": [
-              1.125,
               2
             ]
           }

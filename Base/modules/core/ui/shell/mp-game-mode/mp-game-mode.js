@@ -1,4 +1,4 @@
-import ContextManager from '../../context-manager/context-manager.js';
+import { ContextManager } from '../../context-manager/context-manager.js';
 import { DialogBoxManager } from '../../dialog-box/manager-dialog-box.js';
 import { GameCreatorOpenedEvent, MainMenuReturnEvent } from '../../events/shell-events.js';
 import { InputEngineEventName } from '../../input/input-support.js';

@@ -149,17 +149,16 @@ const shatteredSeasSettings = {
       "Near Map Center.isActive": false,
       "Avoid Other Regions.weight": 1,
       "Avoid Other Regions.isActive": true,
-      "Avoid Other Regions.minDistance": 2.3000000000000003,
+      "Avoid Other Regions.minDistance": 1.8,
       "Avoid Other Regions.distanceFalloff": 8,
-      "Avoid Other Regions.falloffCurve": 0.5,
+      "Avoid Other Regions.falloffCurve": 0.4,
       "Avoid Other Region Groups.weight": 1,
       "Avoid Other Region Groups.isActive": true,
-      "Avoid Other Region Groups.minDistance": 4.5,
       "Avoid Other Region Groups.distanceFalloff": 6,
       "Avoid Other Region Groups.falloffCurve": 0.5,
       "Near Plate Boundary.weight": 0.75,
       "Near Plate Boundary.isActive": true,
-      "Near Plate Boundary.scaleFactor": 3,
+      "Near Plate Boundary.scaleFactor": 2,
       "Near Plate Boundary.directionInfluence": 0.7000000000000001,
       "Prefer Latitude.weight": 0.76,
       "Prefer Latitude.isActive": true,
@@ -180,8 +179,8 @@ const shatteredSeasSettings = {
       ],
       "Near Other Region.weight": 3,
       "Near Other Region.isActive": true,
-      "Near Other Region.disableDistance": 2,
-      "Near Other Region.scoreDistance": 15
+      "Near Other Region.disableDistance": 2.5,
+      "Near Other Region.scoreDistance": 30
     },
     "Coastal Islands": {
       "Avoid Edge.weight": 1,
@@ -300,6 +299,7 @@ const shatteredSeasSettings = {
       "Avoid Other Regions.falloffCurve": 0.15
     }
   },
+  "hexConfig": {},
   "variantSettings": {
     "Sea Level": {
       "settings": {

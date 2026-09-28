@@ -33,6 +33,8 @@ class PanelDLCViewer extends Panel {
     dlcText.innerHTML = Locale.stylize(contentDescription);
     const backButton = MustGetElement(".cancel", this.Root);
     backButton.addEventListener("action-activate", this.backButtonListener);
+    backButton.setAttribute("data-audio-focus-ref", "data-audio-hero-focus");
+    backButton.setAttribute("data-audio-activate-ref", "data-audio-window-overlay-close");
     this.scrollable = MustGetElement(".dlc-viewer-scrollable", this.Root);
     const owned = this.Root.getAttribute("owned");
     if (owned != "true") {
@@ -43,10 +45,10 @@ class PanelDLCViewer extends Panel {
       buyButton.addEventListener("action-activate", this.buyPromo.bind(this));
     }
   }
-  // PROMO_TODO: We will want to make this animated like the one in loading screen. Waiting on UI/UX design and implementation: https://2kfxs.atlassian.net/browse/IGP-103673
+  // PROMO_TODO: We will want to make this animated like the one in loading screen. Waiting on UI/UX design and implementation.
   showPromoLoadingSpinner() {
   }
-  // PROMO_TODO: We will want to make this animated like the one in loading screen. Waiting on UI/UX design and implementation: https://2kfxs.atlassian.net/browse/IGP-103673
+  // PROMO_TODO: We will want to make this animated like the one in loading screen. Waiting on UI/UX design and implementation.
   hidePromoLoadingSpinner() {
   }
   onAttach() {

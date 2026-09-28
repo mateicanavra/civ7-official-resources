@@ -1,11 +1,11 @@
 import { Audio } from '../../../core/ui/audio-base/audio-support.js';
 import { DialogBoxManager } from '../../../core/ui/dialog-box/manager-dialog-box.js';
-import ActionHandler from '../../../core/ui/input/action-handler.js';
 import { Focus } from '../../../core/ui/input/focus-support.js';
 import { ActiveDeviceTypeChangedEventName } from '../../../core/ui/input/input-events.js';
 import NavTray from '../../../core/ui/navigation-tray/model-navigation-tray.js';
 import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
 import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
+import { IsControllerActive } from '../../../core/ui-next/services/input.js';
 import { getQuestTracker } from '../quest-tracker/quest-tracker.js';
 import { LowerQuestPanelEvent } from './tutorial-events.js';
 import { TutorialAnchorPosition } from './tutorial-item.js';
@@ -22,7 +22,7 @@ class TutorialQuestPanel extends Component {
   // Is this in a closed stated?
   nextID;
   selectedAdvisorQuestPath = AdvisorTypes.NO_ADVISOR;
-  gamepadWasActive = ActionHandler.isGamepadActive;
+  gamepadWasActive = IsControllerActive();
   engineInputListener = this.onEngineInput.bind(this);
   activeDeviceTypeListener = this.onActiveDeviceTypeChanged.bind(this);
   constructor(root) {
@@ -95,7 +95,7 @@ class TutorialQuestPanel extends Component {
       const bodyTextDiv = MustGetElement(".tutorial-quest-panel-body", this.Root);
       bodyTextDiv.classList.remove("flex", "flex-col");
       bodyTextScrollable.appendChild(bodyTextDiv);
-      this.setGamepadControlsVisible(ActionHandler.isGamepadActive);
+      this.setGamepadControlsVisible(IsControllerActive());
     }
     this.setHTMLInDivClass(Locale.compose(this.getContentData() || ""), "tutorial-quest-panel-body-text");
     this.setAdvisors();

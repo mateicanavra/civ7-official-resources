@@ -1,6 +1,6 @@
 import { template, insert, className } from '../../../vendor/solid-js/web/dist/web.js';
 import { createMemo, onMount, createComponent, Show, createRenderEffect, createSignal, createEffect, on, For, onCleanup } from '../../../vendor/solid-js/dist/solid.js';
-import ContextManager from '../../../ui/context-manager/context-manager.js';
+import { ContextManager } from '../../../ui/context-manager/context-manager.js';
 import { Layout } from '../../../ui/utilities/utilities-layout.js';
 import { Activatable } from '../../components/activatable.js';
 import { AudioContextProvider } from '../../components/audio-context-provider.js';
@@ -17,22 +17,25 @@ import { useScreenFlowContext } from '../../components/screen-flow.js';
 import { ScrollArea } from '../../components/scroll-area.js';
 import { VSlot } from '../../components/slot.js';
 import { Tab } from '../../components/tab.js';
-import { Tooltip } from '../../components/tooltip.js';
+import { Tooltip, TooltipVerticalPosition, TooltipHorizontalPosition } from '../../components/tooltip.js';
 import { AgeIcon } from './age-icon.js';
 import { useAgeSelectModelContext } from './age-select-model.js';
 import { AttributeIcon } from './attribute-icon.js';
 import { useCivSelectModelContext, createAgeFilterModel, attrFilter } from './civ-select-model.js';
 import { CreateGameTabPips } from './create-game-components.js';
 import { CreateGameStage, CreateGameStageMode, CreateGameStageHeader } from './create-game-stage.js';
+import { SyncretismTooltip } from './syncretism-tooltip.js';
 import { TotIcon } from './tot-icon.js';
 import { getCivUnlockTrackingManager } from '../unlocks/civ-unlock-tracking-manager.js';
 import { useAudio } from '../../services/audio-support.js';
 import { ComponentRegistry } from '../../services/component-registry.js';
+import { IsControllerActive } from '../../services/input.js';
 import { ViewExperience } from '../../services/view-experience.js';
+import { useIsSmallScreen } from '../../utilities/layout-utilities.js';
 import { QuestTrackerRefreshRequestName } from '../../../../base-standard/ui/quest-tracker/quest-tracker.js';
 import style from './civ-select-screen.scss.js';
 
-var _tmpl$ = /* @__PURE__ */ template(`<div class="flex items-center justify-center"><span class="uppercase text-accent-2 ml-4 mt-1 mb-2"></span></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="civ-details-card-outer mt-4"><div class=civ-details-card-inner></div></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="civ-details-card-outer mt-4"><div class=civ-details-card-inner></div><div class="flex items-center justify-center"><span class="uppercase text-accent-2 ml-4 mt-1 mb-2"></span></div></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div class="flex flex-col relative"><div class="bg-center bg-no-repeat opacity-80 absolute -left-32 -top-5"></div><div class="flex flex-row items-center"><span class="uppercase text-sm text-accent-2"></span></div></div>`), _tmpl$5 = /* @__PURE__ */ template(`<div class="flex flex-row items-center justify-center mt-6 h-32"><div class="civ-select-age-border-divider self-stretch mr-4"></div><div class="flex flex-col items-center justify-center "><div class="flex flex-row items-center justify-center"></div></div><div class="civ-select-age-border-divider self-stretch ml-4"></div></div>`), _tmpl$6 = /* @__PURE__ */ template(`<div class="civ-select-age-divider my-1"></div>`), _tmpl$7 = /* @__PURE__ */ template(`<span class=size-16></span>`), _tmpl$8 = /* @__PURE__ */ template(`<div class="flex flex-col relative"></div>`), _tmpl$9 = /* @__PURE__ */ template(`<div class="text-base text-secondary uppercase font-title"></div>`), _tmpl$10 = /* @__PURE__ */ template(`<div class="text-sm text-accent-2 uppercase"></div>`), _tmpl$11 = /* @__PURE__ */ template(`<div class="flex flex-col"></div>`), _tmpl$12 = /* @__PURE__ */ template(`<div class="flex flex-col h-full"><div class="flex flex-row justify-between"><div class="h-0 overflow-visible"></div></div><div class="civ-select-divider my-2"></div><div class="flex flex-row uppercase items-center text-accent-2"></div><div class="civ-select-divider my-2"></div></div>`), _tmpl$13 = /* @__PURE__ */ template(`<div class="font-sm mr-7 flex flex-row items-center"></div>`), _tmpl$14 = /* @__PURE__ */ template(`<div class="flex flex-row mb-1"><div class="size-28 flex items-center justify-center"></div><div class="civ-details-card-divider-v ml-2"></div><div class="flex-auto ml-3"><div class="text-base font-title uppercase text-tertiary-1"></div></div></div>`), _tmpl$15 = /* @__PURE__ */ template(`<div class="flex flex-col h-full"><div class="flex flex-row justify-between"><div class="h-0 overflow-visible"></div></div><div class="civ-select-divider my-2"></div><div class="text-lg font-title uppercase font-bold text-secondary-2"></div></div>`), _tmpl$16 = /* @__PURE__ */ template(`<div class="civ-details-card-divider-h mb-2 -ml-2 -mr-4 relative"></div>`), _tmpl$17 = /* @__PURE__ */ template(`<div class=civ-details-card-shadow></div>`), _tmpl$18 = /* @__PURE__ */ template(`<div class="flex flex-row mb-1"><div class="size-28 flex items-center justify-center"></div><div class="civ-details-card-divider-v ml-2"></div><div class="flex-auto ml-3"><div class="text-base font-title uppercase text-tertiary-1"></div><div class="flex flex-row flex-wrap text-sm uppercase font-title text-accent-2"></div></div></div>`), _tmpl$19 = /* @__PURE__ */ template(`<div class="flex flex-col h-full text-accent-2"><div class="flex flex-row justify-between"><div class="h-0 overflow-visible"></div></div><div class="civ-select-divider my-2"></div><div class="text-lg font-title uppercase font-bold text-secondary-2"></div></div>`), _tmpl$20 = /* @__PURE__ */ template(`<div class="text-lg font-title uppercase font-bold text-secondary"></div>`), _tmpl$21 = /* @__PURE__ */ template(`<div class="text-sm mb-2"></div>`), _tmpl$22 = /* @__PURE__ */ template(`<div class="flex flex-row items-center w-full my-2"><div class="h-2 flex-auto bg-cover mr-2"></div><div class="uppercase ml-2 font-title text-secondary"></div><div class="h-2 flex-auto bg-cover ml-2"></div></div>`), _tmpl$23 = /* @__PURE__ */ template(`<div class="text-lg font-title uppercase font-bold text-secondary mt-3"></div>`), _tmpl$24 = /* @__PURE__ */ template(`<div class="flex flex-col h-full text-accent-2"><div class="flex flex-row justify-between"><div class="h-0 overflow-visible"></div></div><div class="civ-select-divider my-2"></div></div>`), _tmpl$25 = /* @__PURE__ */ template(`<div class="flex flex-row flex-wrap w-full"></div>`), _tmpl$26 = /* @__PURE__ */ template(`<div class="absolute inset-0 flex flex-col items-center justify-end group"><div class="absolute inset-0 img-unit-panelbox pointer-events-none"></div><div class="absolute inset-0"></div><div class="create-game-hub-bottom-gradient absolute left-0 bottom-0"></div><div class="absolute inset-0 w-full h-full border-2 border-secondary-3"></div><div class="img-rollover-highlight absolute inset-0 opacity-0 group-focus\\:opacity-100 group-hover\\:opacity-100 group-pressed\\:opacity-100 pointer-events-none"></div><div class="flex items-center justify-center size-36 relative mb-4"></div></div>`), _tmpl$27 = /* @__PURE__ */ template(`<div class="filigree-h4-left mt-3"></div>`), _tmpl$28 = /* @__PURE__ */ template(`<div class="filigree-h4-right mt-3"></div>`), _tmpl$29 = /* @__PURE__ */ template(`<div><div class="flex flex-row flex-auto items-start"><div class="flex flex-col items-center h-full civ-details-left-content"></div><div class="flex flex-col w-187 h-full relative"><div class="flex flex-row mb-8 mt-4 items-center justify-center"></div></div></div></div>`);
+var _tmpl$ = /* @__PURE__ */ template(`<div class="flex items-center justify-center"><span class="uppercase text-accent-2 ml-4 mt-1 mb-2"></span></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="civ-details-card-outer mt-4"><div class="civ-details-card-inner"></div></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="civ-details-card-outer mt-4"><div class="civ-details-card-inner"></div><div class="flex items-center justify-center"><span class="uppercase text-accent-2 ml-4 mt-1 mb-2"></span></div></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div class="flex flex-col relative"><div></div><div class="flex flex-row items-center"><span class="uppercase text-sm text-accent-2"></span></div></div>`), _tmpl$5 = /* @__PURE__ */ template(`<div class="flex flex-row items-center justify-center mt-6 h-32"><div class="civ-select-age-border-divider self-stretch mr-4"></div><div class="flex flex-col items-center justify-center "><div class="flex flex-row items-center justify-center"></div></div><div class="civ-select-age-border-divider self-stretch ml-4"></div></div>`), _tmpl$6 = /* @__PURE__ */ template(`<div class="civ-select-age-divider my-1"></div>`), _tmpl$7 = /* @__PURE__ */ template(`<span class="size-16"></span>`), _tmpl$8 = /* @__PURE__ */ template(`<div class="flex flex-col relative"></div>`), _tmpl$9 = /* @__PURE__ */ template(`<div class="text-base text-secondary uppercase font-title"></div>`), _tmpl$10 = /* @__PURE__ */ template(`<div class="text-sm text-accent-2 uppercase"></div>`), _tmpl$11 = /* @__PURE__ */ template(`<div class="flex flex-col"></div>`), _tmpl$12 = /* @__PURE__ */ template(`<div class="flex flex-col h-full"><div class="flex flex-row justify-between"><div class="h-0 overflow-visible"></div></div><div class="civ-select-divider my-2"></div><div class="flex flex-row uppercase items-center text-accent-2"></div><div class="civ-select-divider my-2"></div></div>`), _tmpl$13 = /* @__PURE__ */ template(`<div class="font-sm mr-7 flex flex-row items-center"></div>`), _tmpl$14 = /* @__PURE__ */ template(`<div class="flex flex-row mb-1"><div class="size-28 flex items-center justify-center"></div><div class="civ-details-card-divider-v ml-2"></div><div class="flex-auto ml-3"><div class="text-base font-title uppercase text-tertiary-1"></div></div></div>`), _tmpl$15 = /* @__PURE__ */ template(`<div class="flex flex-col h-full"><div class="flex flex-row justify-between"><div class="h-0 overflow-visible"></div></div><div class="civ-select-divider my-2"></div><div class="text-lg font-title uppercase font-bold text-secondary-2"></div></div>`), _tmpl$16 = /* @__PURE__ */ template(`<div class="civ-details-card-divider-h mb-2 -ml-2 -mr-4 relative"></div>`), _tmpl$17 = /* @__PURE__ */ template(`<div class="civ-details-card-shadow"></div>`), _tmpl$18 = /* @__PURE__ */ template(`<div class="flex flex-row mb-1"><div class="size-28 flex items-center justify-center"></div><div class="civ-details-card-divider-v ml-2"></div><div class="flex-auto ml-3"><div class="text-base font-title uppercase text-tertiary-1"></div><div class="flex flex-row flex-wrap text-sm uppercase font-title text-accent-2"></div></div></div>`), _tmpl$19 = /* @__PURE__ */ template(`<div class="flex flex-col h-full text-accent-2"><div class="flex flex-row justify-between"><div class="h-0 overflow-visible"></div></div><div class="civ-select-divider my-2"></div><div class="text-lg font-title uppercase font-bold text-secondary-2"></div></div>`), _tmpl$20 = /* @__PURE__ */ template(`<div class="text-lg font-title uppercase font-bold text-secondary"></div>`), _tmpl$21 = /* @__PURE__ */ template(`<div class="text-sm mb-2"></div>`), _tmpl$22 = /* @__PURE__ */ template(`<div class="flex flex-row items-center w-full my-2"><div class="h-2 flex-auto bg-cover mr-2"></div><div class="uppercase ml-2 font-title text-secondary"></div><div class="h-2 flex-auto bg-cover ml-2"></div></div>`), _tmpl$23 = /* @__PURE__ */ template(`<div class="text-lg font-title uppercase font-bold text-secondary mt-3"></div>`), _tmpl$24 = /* @__PURE__ */ template(`<div class="flex flex-col items-start"></div>`), _tmpl$25 = /* @__PURE__ */ template(`<div class="flex flex-col h-full text-accent-2"><div class="flex flex-row justify-between"><div class="h-0 overflow-visible"></div></div><div class="civ-select-divider my-2"></div></div>`), _tmpl$26 = /* @__PURE__ */ template(`<div class="flex flex-row flex-wrap w-full"></div>`), _tmpl$27 = /* @__PURE__ */ template(`<span>• </span>`), _tmpl$28 = /* @__PURE__ */ template(`<div class="flex flex-row flex-wrap w-full"><span>• </span></div>`), _tmpl$29 = /* @__PURE__ */ template(`<div class="absolute inset-0 flex flex-col items-center justify-end group"><div class="absolute inset-0 img-unit-panelbox pointer-events-none"></div><div class="absolute inset-0"></div><div class="create-game-hub-bottom-gradient absolute left-0 bottom-0"></div><div class="absolute inset-0 w-full h-full border-2 border-secondary-3"></div><div class="img-rollover-highlight absolute inset-0 opacity-0 group-focus\\:opacity-100 group-hover\\:opacity-100 group-pressed\\:opacity-100 pointer-events-none"></div><div class="flex items-center justify-center size-36 relative mb-4"></div></div>`), _tmpl$30 = /* @__PURE__ */ template(`<div class="filigree-h4-left mt-3"></div>`), _tmpl$31 = /* @__PURE__ */ template(`<div class="filigree-h4-right mt-3"></div>`), _tmpl$32 = /* @__PURE__ */ template(`<div><div class="flex flex-row flex-auto items-start"><div class="flex flex-col items-center h-full civ-details-left-content"></div><div><div></div></div></div></div>`);
 const CivSelectTicketItemComponent = (props) => {
   const model = useCivSelectModelContext();
   const civ = createMemo(() => model.viewCiv() ?? model.selectedCiv());
@@ -83,26 +86,19 @@ const CivSelectTicketItemComponent = (props) => {
 };
 const CivSelectTicketItem = ComponentRegistry.register("CivSelectTicketItem", CivSelectTicketItemComponent);
 const CivSelectBuildingsTicketItemComponent = (props) => {
-  const ages = {
-    AGE_ANTIQUITY: {
-      label: "AGE_ANTIQUITY",
-      value: 1
-    },
-    AGE_EXPLORATION: {
-      label: "AGE_EXPLORATION",
-      value: 2
-    },
-    AGE_MODERN: {
-      label: "AGE_MODERN",
-      value: 3
-    }
-  };
+  const ages = /* @__PURE__ */ new Map([]);
+  Database.query("config", "SELECT * FROM Ages")?.forEach((row) => {
+    ages.set(row.AgeType, {
+      label: row.AgeType,
+      value: row.ChronologyIndex
+    });
+  });
   const model = useCivSelectModelContext();
   const ageModel = useAgeSelectModelContext();
   const civ = createMemo(() => model.viewCiv() ?? model.selectedCiv());
   const isApexAgeSelected = createMemo(() => civ().apexAge == props.selectedAge);
-  const isBeforeApexAge = createMemo(() => ages[civ().apexAge].value > ages[props.selectedAge].value);
-  const isAfterApexAge = createMemo(() => ages[civ().apexAge].value < ages[props.selectedAge].value);
+  const isBeforeApexAge = createMemo(() => ages.get(civ().apexAge).value > ages.get(props.selectedAge).value);
+  const isAfterApexAge = createMemo(() => ages.get(civ().apexAge).value < ages.get(props.selectedAge).value);
   const avalaibilityLabel = createMemo(() => {
     if (isApexAgeSelected()) {
       return "LOC_UI_CREATE_GAME_AVAILABLE_APEX_AGE";
@@ -137,12 +133,15 @@ const CivSelectBuildingsTicketItem = ComponentRegistry.register("CivSelectBuildi
 const CivInfoHeaderComponent = () => {
   const model = useCivSelectModelContext();
   const civ = createMemo(() => model.viewCiv() ?? model.selectedCiv());
+  const isUnlocks = UI.isInGame() && !!ContextManager.getTarget("screen-legacies");
+  const isMobile = ViewExperience() == UIViewExperience.Mobile;
   return (() => {
     var _el$9 = _tmpl$4(), _el$10 = _el$9.firstChild, _el$11 = _el$10.nextSibling, _el$12 = _el$11.firstChild;
+    className(_el$10, `bg-center bg-no-repeat opacity-80 absolute ${isMobile ? "-left-56 -top-8" : "-left-32 -top-5"}`);
     _el$10.style.setProperty("background-image", "url(blp:popup_icon_glow.png)");
     _el$10.style.setProperty("background-size", "100% 100%");
     insert(_el$9, createComponent(Header, {
-      "class": "text-custom civ-details-info-header-text mt-8 font-bold max-w-128",
+      "class": `text-custom civ-details-info-header-text ${isMobile && isUnlocks ? "mt-4" : "mt-8"} font-bold max-w-128`,
       get children() {
         return civ().name;
       }
@@ -178,11 +177,9 @@ const AgePreviewComponent = () => {
   const ageModel = useAgeSelectModelContext();
   const civ = createMemo(() => model.viewCiv() ?? model.selectedCiv());
   createEffect(on(() => ageModel.selectedAge.type, (agePreview) => setSelectedAgePreview(agePreview)));
-  const ageApexText = {
-    AGE_ANTIQUITY: "LOC_UI_CREATE_GAME_ANTIQUITY_APEX",
-    AGE_EXPLORATION: "LOC_UI_CREATE_GAME_EXPLORATION_APEX",
-    AGE_MODERN: "LOC_UI_CREATE_GAME_MODERN_APEX"
-  };
+  function getApexAgeText(ageId) {
+    return `LOC_UI_CREATE_GAME_${ageId.replace("AGE_", "")}_APEX`;
+  }
   function updateAgePreviewIndex(amount) {
     const ages = ageModel.sortedAges;
     const curAge = ages.findIndex((age) => age.type == selectedAgePreview());
@@ -256,7 +253,7 @@ const AgePreviewComponent = () => {
               get children() {
                 return createComponent(Tooltip.Text, {
                   get text() {
-                    return ageApexText[age.type];
+                    return getApexAgeText(age.type);
                   },
                   get children() {
                     return createComponent(Icon, {
@@ -595,6 +592,7 @@ const CivUnlocksInfoComponent = (props) => {
   const civ = createMemo(() => model.viewCiv() ?? model.selectedCiv());
   const civUnlocks = createMemo(() => civ().unlocks);
   const civUnlockedBy = createMemo(() => civ().unlockedBy);
+  const syncretismUnlocks = createMemo(() => civ().syncretismUnlocks);
   const [isTracked, setIsTracked] = createSignal(false);
   const [civUnlockTrackingManager, setCivUnlockTrackingManager] = createSignal(UI.isInGame() ? getCivUnlockTrackingManager() : null);
   const refreshCivUnlockTrackingManager = () => {
@@ -614,11 +612,11 @@ const CivUnlocksInfoComponent = (props) => {
     setIsTracked(manager?.isTracked(civID) ?? false);
   }));
   return (() => {
-    var _el$62 = _tmpl$24(), _el$63 = _el$62.firstChild, _el$64 = _el$63.firstChild, _el$65 = _el$63.nextSibling;
+    var _el$62 = _tmpl$25(), _el$63 = _el$62.firstChild, _el$64 = _el$63.firstChild, _el$65 = _el$63.nextSibling;
     insert(_el$63, createComponent(CivInfoHeader, {}), _el$64);
     insert(_el$64, createComponent(AgePreview, {}));
     insert(_el$62, createComponent(ScrollArea, {
-      "class": "flex-auto -mr-8",
+      "class": "flex-auto -mr-8 mb-4",
       reserveSpace: true,
       useProxy: true,
       get children() {
@@ -671,15 +669,27 @@ const CivUnlocksInfoComponent = (props) => {
                 _el$71.style.setProperty("background-image", "url(blp:shell_line-divider)");
                 return _el$68;
               }
+            }), createComponent(Show, {
+              get when() {
+                return !UI.isInGame();
+              },
+              get children() {
+                return createComponent(L10n.Stylize, {
+                  text: "LOC_UI_CREATE_GAME_UNLOCKED_BY_SUBTITLE"
+                });
+              }
             }), createComponent(For, {
               get each() {
                 return civUnlockedBy();
               },
               children: (unlockedBy, _) => (() => {
-                var _el$73 = _tmpl$25();
-                insert(_el$73, createComponent(Show, {
+                var _el$77 = _tmpl$26();
+                insert(_el$77, createComponent(Show, {
                   get when() {
                     return props.isUnlocks;
+                  },
+                  get fallback() {
+                    return _tmpl$27();
                   },
                   get children() {
                     return createComponent(CheckBox, {
@@ -692,13 +702,13 @@ const CivUnlocksInfoComponent = (props) => {
                     });
                   }
                 }), null);
-                insert(_el$73, createComponent(L10n.Stylize, {
+                insert(_el$77, createComponent(L10n.Stylize, {
                   "class": "flex-auto create-game-markup tight",
                   get text() {
                     return unlockedBy.text;
                   }
                 }), null);
-                return _el$73;
+                return _el$77;
               })()
             })];
           }
@@ -713,14 +723,81 @@ const CivUnlocksInfoComponent = (props) => {
                 text: "LOC_CREATE_GAME_AGE_UNLOCK_TITLE"
               }));
               return _el$72;
+            })(), (() => {
+              var _el$73 = _tmpl$21();
+              insert(_el$73, createComponent(L10n.Compose, {
+                text: "LOC_CREATE_GAME_AGE_UNLOCK_SUBTITLE"
+              }));
+              return _el$73;
             })(), createComponent(For, {
               get each() {
                 return civUnlocks();
               },
-              children: (unlock) => createComponent(L10n.Stylize, {
-                text: unlock
-              })
+              children: (unlock) => (() => {
+                var _el$79 = _tmpl$28(), _el$80 = _el$79.firstChild;
+                insert(_el$79, createComponent(L10n.Stylize, {
+                  "class": "create-game-markup tight",
+                  text: unlock
+                }), null);
+                return _el$79;
+              })()
             })];
+          }
+        }), createComponent(Show, {
+          get when() {
+            return createMemo(() => !!syncretismUnlocks())() && syncretismUnlocks().length > 0;
+          },
+          get children() {
+            return [(() => {
+              var _el$74 = _tmpl$23();
+              insert(_el$74, createComponent(L10n.Compose, {
+                text: "LOC_CREATE_GAME_UNLOCK_ITEM_SYNCRETISM_TITLE"
+              }));
+              return _el$74;
+            })(), (() => {
+              var _el$75 = _tmpl$21();
+              insert(_el$75, createComponent(L10n.Stylize, {
+                text: "LOC_CREATE_GAME_UNLOCK_ITEM_SYNCRETISM_DESCRIPTION"
+              }));
+              return _el$75;
+            })(), (() => {
+              var _el$76 = _tmpl$24();
+              insert(_el$76, createComponent(For, {
+                get each() {
+                  return syncretismUnlocks();
+                },
+                children: (unlock) => (() => {
+                  var _el$81 = _tmpl$26();
+                  insert(_el$81, createComponent(SyncretismTooltip, {
+                    get initialHPosition() {
+                      return TooltipHorizontalPosition.RIGHT;
+                    },
+                    get initialVPosition() {
+                      return TooltipVerticalPosition.BOTTOM;
+                    },
+                    offset: 10,
+                    get civilizationType() {
+                      return unlock.civilization;
+                    },
+                    get children() {
+                      return createComponent(L10n.Stylize, {
+                        "class": "create-game-markup tight mb-1",
+                        get classList() {
+                          return {
+                            "faux-tooltip-controller": !IsControllerActive()
+                          };
+                        },
+                        get text() {
+                          return unlock.description;
+                        }
+                      });
+                    }
+                  }));
+                  return _el$81;
+                })()
+              }));
+              return _el$76;
+            })()];
           }
         })];
       }
@@ -764,38 +841,44 @@ const CivDetailsBase = () => {
   const [selectedAge, setSelectedAge] = createSignal(ageModel.selectedAge.type);
   const isInGame = UI.isInGame();
   const isUnlocks = isInGame && !!ContextManager.getTarget("screen-legacies");
+  const ageSuccessor = isInGame ? GameInfo.AgeSuccessors.lookup(Game.age) : null;
+  const hasNextAge = ageSuccessor != null && GameInfo.Ages.find((a) => a.AgeType == ageSuccessor.SuccessorAgeType);
+  const isMobile = ViewExperience() == UIViewExperience.Mobile;
+  const isSmallScreen = useIsSmallScreen();
   let flowContext = void 0;
   if (!isUnlocks) {
     flowContext = useScreenFlowContext();
   }
   createEffect(on(() => ageModel.selectedAge.type, (age) => setSelectedAge(age)));
   return (() => {
-    var _el$74 = _tmpl$29(), _el$75 = _el$74.firstChild, _el$76 = _el$75.firstChild, _el$84 = _el$76.nextSibling, _el$85 = _el$84.firstChild;
-    className(_el$74, `flex flex-row h-full relative ${isUnlocks ? "w-full" : ""}`);
-    insert(_el$76, createComponent(Hotkeys, {
+    var _el$82 = _tmpl$32(), _el$83 = _el$82.firstChild, _el$84 = _el$83.firstChild, _el$92 = _el$84.nextSibling, _el$93 = _el$92.firstChild;
+    className(_el$82, `flex flex-row h-full relative ${isUnlocks ? "w-full" : ""}`);
+    insert(_el$84, createComponent(Hotkeys, {
       hotkeys: [{
         hotkeyAction: "accept",
         navTrayText: "LOC_GENERIC_SELECT"
       }]
     }), null);
-    insert(_el$76, createComponent(Icon, {
+    insert(_el$84, createComponent(Icon, {
       get name() {
         return `url('${civ().icon ?? ""}')`;
       },
       isUrl: true,
-      "class": "size-40"
+      get ["class"]() {
+        return `${isMobile && isUnlocks && isSmallScreen() ? "size-36" : "size-40"}`;
+      }
     }), null);
-    insert(_el$76, createComponent(L10n.Stylize, {
-      text: isUnlocks ? "LOC_LEGACIES_CURRENT_AGE" : "LOC_UI_CREATE_GAME_STARTING_AGE",
-      "class": "font-title uppercase civ-select-age-text"
+    insert(_el$84, createComponent(L10n.Stylize, {
+      text: isUnlocks ? !hasNextAge ? "LOC_LEGACIES_CURRENT_AGE" : "LOC_LEGACIES_UPCOMING_AGE" : "LOC_UI_CREATE_GAME_STARTING_AGE",
+      "class": `font-title uppercase civ-select-age-text ${isMobile ? "whitespace-nowrap mb-4" : ""}`
     }), null);
-    insert(_el$76, createComponent(L10n.Stylize, {
+    insert(_el$84, createComponent(L10n.Stylize, {
       get text() {
         return ageModel.getAgeName(selectedAge()) || "";
       },
-      "class": "font-title uppercase font-black mb-2 civ-select-age-type-text font-fit-shrink"
+      "class": `font-title uppercase font-black civ-select-age-type-text ${isMobile ? "mb-4" : "font-fit-shrink mb-2"}`
     }), null);
-    insert(_el$76, createComponent(Popup.Trigger, {
+    insert(_el$84, createComponent(Popup.Trigger, {
       name: "age-select",
       get children() {
         return createComponent(AudioContextProvider, {
@@ -807,42 +890,43 @@ const CivDetailsBase = () => {
               disableFocus: true,
               hotkeyAction: "shell-action-3",
               get children() {
-                var _el$77 = _tmpl$26(), _el$78 = _el$77.firstChild, _el$79 = _el$78.nextSibling, _el$80 = _el$79.nextSibling, _el$81 = _el$80.nextSibling, _el$82 = _el$81.nextSibling, _el$83 = _el$82.nextSibling;
-                _el$79.style.setProperty("background-position", "center center");
-                _el$79.style.setProperty("background-size", "cover");
-                _el$83.style.setProperty("background-image", "url(blp:hud_sub_circle_dis_128x128)");
-                _el$83.style.setProperty("background-repeat", "no-repeat");
-                _el$83.style.setProperty("background-size", "cover");
-                insert(_el$83, createComponent(Icon, {
+                var _el$85 = _tmpl$29(), _el$86 = _el$85.firstChild, _el$87 = _el$86.nextSibling, _el$88 = _el$87.nextSibling, _el$89 = _el$88.nextSibling, _el$90 = _el$89.nextSibling, _el$91 = _el$90.nextSibling;
+                _el$87.style.setProperty("background-position", "center center");
+                _el$87.style.setProperty("background-size", "cover");
+                _el$91.style.setProperty("background-image", "url(blp:hud_sub_circle_dis_128x128)");
+                _el$91.style.setProperty("background-repeat", "no-repeat");
+                _el$91.style.setProperty("background-size", "cover");
+                insert(_el$91, createComponent(Icon, {
                   get name() {
                     return ageModel.selectedAge.icon;
                   },
                   "class": "size-24 -bottom-px relative"
                 }));
-                insert(_el$77, createComponent(NavHelp, {
+                insert(_el$85, createComponent(NavHelp, {
                   "class": "absolute bottom-2 right-2"
                 }), null);
                 createRenderEffect((_p$) => {
                   var _v$3 = `url(${UI.getIconBLP(selectedAge(), "BACKGROUND_VERT")})`, _v$4 = Layout.pixels(132), _v$5 = Layout.pixels(132);
-                  _v$3 !== _p$.e && ((_p$.e = _v$3) != null ? _el$79.style.setProperty("background-image", _v$3) : _el$79.style.removeProperty("background-image"));
-                  _v$4 !== _p$.t && ((_p$.t = _v$4) != null ? _el$83.style.setProperty("width", _v$4) : _el$83.style.removeProperty("width"));
-                  _v$5 !== _p$.a && ((_p$.a = _v$5) != null ? _el$83.style.setProperty("height", _v$5) : _el$83.style.removeProperty("height"));
+                  _v$3 !== _p$.e && ((_p$.e = _v$3) != null ? _el$87.style.setProperty("background-image", _v$3) : _el$87.style.removeProperty("background-image"));
+                  _v$4 !== _p$.t && ((_p$.t = _v$4) != null ? _el$91.style.setProperty("width", _v$4) : _el$91.style.removeProperty("width"));
+                  _v$5 !== _p$.a && ((_p$.a = _v$5) != null ? _el$91.style.setProperty("height", _v$5) : _el$91.style.removeProperty("height"));
                   return _p$;
                 }, {
                   e: void 0,
                   t: void 0,
                   a: void 0
                 });
-                return _el$77;
+                return _el$85;
               }
             });
           }
         });
       }
     }), null);
-    _el$84.style.setProperty("color", "#1B1B1B");
-    insert(_el$84, createComponent(Tab, {
-      "class": "flex flex-col flex-auto mt-8",
+    className(_el$92, `flex flex-col ${isMobile && isUnlocks ? "w-3\\/4 ml-4" : "w-187"} h-full relative`);
+    _el$92.style.setProperty("color", "#1B1B1B");
+    insert(_el$92, createComponent(Tab, {
+      "class": `flex flex-col flex-auto ${isMobile && isUnlocks ? "mt-6" : "mt-8"}`,
       get children() {
         return [createComponent(VSlot, {
           disableFocus: true,
@@ -881,11 +965,12 @@ const CivDetailsBase = () => {
           }
         })];
       }
-    }), _el$85);
-    insert(_el$85, createComponent(Show, {
+    }), _el$93);
+    className(_el$93, `flex flex-row ${isMobile && isUnlocks ? "my-3" : "mb-8 mt-4"} items-center justify-center`);
+    insert(_el$93, createComponent(Show, {
       when: !isUnlocks,
       get children() {
-        return [_tmpl$27(), createComponent(HeroButton2, {
+        return [_tmpl$30(), createComponent(HeroButton2, {
           "class": "civ-details-continue-button",
           get disabled() {
             return civ().isLocked;
@@ -904,18 +989,23 @@ const CivDetailsBase = () => {
               text: "LOC_GENERIC_SELECT"
             });
           }
-        }), createComponent(Activatable, {
-          "data-name": "focus-parking",
-          get disabled() {
-            return !civ().isLocked;
-          },
-          get autoFocus() {
-            return civ().isLocked;
+        }), createComponent(AudioContextProvider, {
+          segment: "CivilizationDetails/ControllerHack",
+          get children() {
+            return createComponent(Activatable, {
+              "data-name": "focus-parking",
+              get disabled() {
+                return !civ().isLocked;
+              },
+              get autoFocus() {
+                return civ().isLocked;
+              }
+            });
           }
-        }), _tmpl$28()];
+        }), _tmpl$31()];
       }
     }));
-    return _el$74;
+    return _el$82;
   })();
 };
 const CivDetails = ComponentRegistry.register({

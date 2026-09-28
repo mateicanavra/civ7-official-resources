@@ -1,4 +1,4 @@
-@media (max-height: 55.5555555556rem), (experience: mobile) {
+@media (max-height: 55.5555555556rem) {
   .screen-policies {
     top: 0;
     bottom: 0;
@@ -10,6 +10,14 @@
   .screen-policies {
     right: 0.2777777778rem;
     left: 0.2777777778rem;
+  }
+}
+@media (experience: mobile) {
+  .screen-policies {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
   }
 }
 @media (experience: mobile) {
@@ -27,13 +35,6 @@
   min-height: 6.1111111111rem;
   width: 20.6666666667rem;
 }
-@media (experience: mobile) {
-  .policy-base-card, .empty-base-card {
-    width: 90%;
-    height: 8.3333333333rem;
-    max-height: 8.3333333333rem;
-  }
-}
 @media (max-height: 55.5555555556rem), (max-aspect-ratio: 4/3) {
   .policy-base-card, .empty-base-card {
     width: 90%;
@@ -42,6 +43,18 @@
 @media (max-width: 94.4444444444rem) {
   .policy-base-card, .empty-base-card {
     width: 90%;
+  }
+}
+@media (experience: mobile) {
+  .policy-base-card, .empty-base-card {
+    width: 94%;
+    min-height: 8.3333333333rem;
+    max-height: 16.6666666667rem;
+  }
+}
+@media (experience: mobile) {
+  .policy-base-card.crisis-card, .crisis-card.empty-base-card {
+    width: 97%;
   }
 }
 
@@ -79,6 +92,11 @@
     width: 90%;
   }
 }
+@media (experience: mobile) {
+  .policies-2-col {
+    width: 100%;
+  }
+}
 
 .policy-card-icon {
   height: 2.1111111111rem;
@@ -106,26 +124,26 @@
 }
 
 .policy-base-bg {
-  border: solid 0.1111111111rem #5E7094;
-  background: linear-gradient(to right, #11283D, #09131D);
+  border: solid 0.1111111111rem #5e7094;
+  background: linear-gradient(to right, #11283d, #09131d);
 }
 .policy-base-bg:hover, .policy-base-bg:focus, .policy-base-bg.focused, .policy-base-bg.pressed {
-  border: solid 0.1111111111rem #B7C1D5;
-  background: linear-gradient(to right, #1D3C59, #0E1E2C);
+  border: solid 0.1111111111rem #b7c1d5;
+  background: linear-gradient(to right, #1d3c59, #0e1e2c);
   border-image-source: url("blp:rollover_highlight");
   border-image-slice: 30 fill;
   border-image-width: 1.6666666667rem;
 }
 .policy-base-bg:hover .policy-card-tint, .policy-base-bg:focus .policy-card-tint, .policy-base-bg.focused .policy-card-tint, .policy-base-bg.pressed .policy-card-tint {
-  filter: fxs-color-mask(#B7C1D5);
+  filter: fxs-color-mask(#b7c1d5);
 }
 
 .tradition-base-bg {
   border: solid 0.1111111111rem #918365;
-  background: linear-gradient(to right, #5C3F13, #1d1809);
+  background: linear-gradient(to right, #5c3f13, #1d1809);
 }
 .tradition-base-bg:hover, .tradition-base-bg:focus, .tradition-base-bg.focused, .tradition-base-bg.pressed {
-  border: solid 0.1111111111rem #F0E5CE;
+  border: solid 0.1111111111rem #f0e5ce;
   border-image-source: url("blp:rollover_highlight");
   border-image-slice: 30 fill;
   border-image-width: 1.6666666667rem;
@@ -134,7 +152,7 @@
   opacity: 0.85;
 }
 .tradition-base-bg:hover .tradition-card-tint, .tradition-base-bg:focus .tradition-card-tint, .tradition-base-bg.focused .tradition-card-tint, .tradition-base-bg.pressed .tradition-card-tint {
-  filter: fxs-color-mask(#F0E5CE);
+  filter: fxs-color-mask(#f0e5ce);
 }
 
 .crisis-base-bg {
@@ -166,7 +184,7 @@
 }
 
 .policies-text-color {
-  color: #84A0DB;
+  color: #84a0db;
 }
 
 .crisis-text-color {
@@ -174,7 +192,7 @@
 }
 
 .policy-card-tint {
-  filter: fxs-color-mask(#5E7094);
+  filter: fxs-color-mask(#5e7094);
 }
 
 .tradition-card-tint {
@@ -186,7 +204,7 @@
 }
 
 .empty-card-tint {
-  filter: fxs-color-mask(#D9D9D9);
+  filter: fxs-color-mask(#d9d9d9);
 }
 
 .new-dot-tint {
@@ -198,43 +216,43 @@
 }
 
 .ecstatic-text {
-  color: #4CB8FB;
+  color: #4cb8fb;
 }
 
 .ecstatic-bg-color {
-  background-color: #4CB8FB;
+  background-color: #4cb8fb;
 }
 
 .joyous-text {
-  color: #AFE813;
+  color: #afe813;
 }
 
 .joyous-bg-color {
-  background-color: #AFE813;
+  background-color: #afe813;
 }
 
 .happy-text {
-  color: #FFF600;
+  color: #fff600;
 }
 
 .happy-bg-color {
-  background-color: #FFF600;
+  background-color: #fff600;
 }
 
 .unhappy-text {
-  color: #F4983C;
+  color: #f4983c;
 }
 
 .unhappy-bg-color {
-  background-color: #F4983C;
+  background-color: #f4983c;
 }
 
 .angry-text {
-  color: #DE0A0A;
+  color: #de0a0a;
 }
 
 .angry-bg-color {
-  background-color: #DE0A0A;
+  background-color: #de0a0a;
 }
 
 .policy-card-frame {
@@ -326,6 +344,8 @@
 @media (experience: mobile) {
   .policies__crisis-progress-bar {
     margin-bottom: 0.5555555556rem;
+    width: 75.5555555556rem;
+    max-width: 100%;
   }
 }
 
@@ -343,4 +363,12 @@
     height: 2.7777777778rem;
     margin-bottom: 0.6666666667rem;
   }
+}
+
+.policies__left {
+  width: 63%;
+}
+
+.policies__right {
+  width: 37%;
 }

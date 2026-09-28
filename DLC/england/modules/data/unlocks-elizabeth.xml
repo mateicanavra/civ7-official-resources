@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Types>
+		<InsertOrIgnore Type="UNLOCK_CIVILIZATION_ENGLAND" Kind="KIND_UNLOCK" />
+	</Types>
+	<Unlocks>
+		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_ENGLAND" />
+	</Unlocks>
+	<UnlockRewards>
+		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_ENGLAND" Name="LOC_CIVILIZATION_ENGLAND_NAME" Description="LOC_UNLOCK_EXPLORATION_CIV_DESCRIPTION" Icon="CIVILIZATION_ENGLAND" UnlockRewardType="CIVILIZATION_ENGLAND" UnlockRewardKind="KIND_CIVILIZATION" />
+	</UnlockRewards>
+	<UnlockRequirements>
+		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_ENGLAND" RequirementSetId="REQSET_LEADER_IS_ELIZABETH" Description="LOC_UNLOCK_PLAY_AS_ELIZABETH_DESCRIPTION" Tooltip="LOC_UNLOCK_PLAY_AS_ELIZABETH_ENGLAND_TOOLTIP"/>
+	</UnlockRequirements>
+	<UnlockConfigurationValues>
+		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_ENGLAND" ConfigurationValue="CIVILIZATION_ENGLAND"/>
+	</UnlockConfigurationValues>
+</Database>

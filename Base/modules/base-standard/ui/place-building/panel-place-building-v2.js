@@ -314,7 +314,7 @@ class PlaceBuildingPanelV2 extends Panel {
     this.footerContainer.appendChild(footerIcon);
     const footerIconTouch = document.createElement("div");
     footerIconTouch.className = "img-handpointer size-7 my-2";
-    footerIconTouch.setAttribute("data-bind-class-toggle", "hidden: !{{g_ActionHandler.isTouchActive}}");
+    footerIconTouch.setAttribute("data-bind-class-toggle", "hidden: !{{g_ActionHandler.IsTouchActive}}");
     this.footerContainer.appendChild(footerIconTouch);
     const footerIconHybrid = document.createElement("div");
     footerIconHybrid.className = "bg-center bg-no-repeat bg-contain size-7 my-2";
@@ -325,7 +325,7 @@ class PlaceBuildingPanelV2 extends Panel {
     this.hideShowText.className = "flex-auto uppercase text-sm ml-2";
     this.hideShowText.setAttribute("data-bind-class-toggle", "hidden: !{{g_ActionHandler.isMouseKeyboardActive}}");
     this.hideShowTouchText.className = "flex-auto uppercase text-sm ml-2 my-2";
-    this.hideShowTouchText.setAttribute("data-bind-class-toggle", "hidden: !{{g_ActionHandler.isTouchActive}}");
+    this.hideShowTouchText.setAttribute("data-bind-class-toggle", "hidden: !{{g_ActionHandler.IsTouchActive}}");
     this.hideShowHybridText.className = "flex-auto uppercase text-sm ml-2 my-2";
     this.hideShowHybridText.setAttribute("data-bind-class-toggle", "hidden: !{{g_ActionHandler.isHybridActive}}");
     if (PlaceBuildingV2.showExpandedView) {

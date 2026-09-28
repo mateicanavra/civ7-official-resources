@@ -4,6 +4,7 @@ import LiveEventManager from '../../../ui/shell/live-event-logic/live-event-logi
 import { DatabaseCache } from '../../../ui/utilities/utilities-data.js';
 import { AgeSelectModel } from './age-select-model.js';
 import { PlayerSetupParametersModel } from './game-parameters-model.js';
+import { LeaderSyncretismQuery } from './syncretism-model.js';
 import { ModelRegistry, ModelLifecycle } from '../../services/model-registry.js';
 import { FullTextSearch } from '../../utilities/search-utils.js';
 
@@ -35,6 +36,7 @@ function createLeaderSelectModel() {
         "select * from LeaderTags inner join Tags on LeaderTags.TagType = Tags.TagType inner join TagCategories on Tags.TagCategoryType = TagCategories.TagCategoryType"
       );
       const unlocks = leaderData_DatabaseCache.query("select * from LeaderUnlocks order by SortIndex");
+      const syncretismUnlocks = leaderData_DatabaseCache.query(LeaderSyncretismQuery);
       const ownershipConditions = leaderData_DatabaseCache.query("select * from OwnershipConditions");
       const quotes = leaderData_DatabaseCache.query("select * from LeaderQuotes");
       const legendsPaths = Online.Metaprogression.getLegendPathsData();
@@ -77,6 +79,7 @@ function createLeaderSelectModel() {
         const valueUnlocks = unlocks.filter(
           (unlock) => unlock.LeaderType == leaderID && unlock.LeaderDomain == domain && (!unlock.AgeDomain || unlock.AgeDomain == ageModel.sortedAges.find((age) => unlock.AgeType == age.type)?.domain)
         );
+        const valueSyncretismUnlocks = syncretismUnlocks.filter((unlock) => unlock.Key == leaderID);
         const rawAgeUnlocks = [];
         const rawUnlocks = [];
         for (const unlock of valueUnlocks) {
@@ -88,11 +91,22 @@ function createLeaderSelectModel() {
           }
         }
         const formattedAgeUnlocks = rawAgeUnlocks.map(
-          (unlock) => Locale.stylize("LOC_CREATE_GAME_UNLOCK_ITEM_IN_AGE", unlock.name, unlock.age)
+          (unlock) => Locale.stylize("LOC_CREATE_GAME_UNLOCKS_LIST_ITEM_IN_AGE", unlock.name, unlock.age)
         );
         const formattedUnlocks = rawUnlocks.map(
-          (unlock) => Locale.stylize("LOC_CREATE_GAME_UNLOCK_ITEM", unlock)
+          (unlock) => Locale.stylize("LOC_CREATE_GAME_UNLOCKS_LIST_ITEM", unlock)
         );
+        const formattedSyncretismUnlocks = valueSyncretismUnlocks.map((unlock) => {
+          return {
+            description: Locale.stylize(
+              "LOC_CREATE_GAME_UNLOCK_ITEM_SYNCRETISM",
+              unlock.CivilizationName,
+              unlock.AgeName
+            ),
+            age: unlock.AgeType,
+            civilization: unlock.CivilizationType
+          };
+        });
         const trait = valueBonusItems.find((item) => item.Kind == "KIND_TRAIT");
         const rawAbilityTitle = trait?.Name ?? "";
         const abilityTitle = Locale.stylize(rawAbilityTitle);
@@ -146,6 +160,7 @@ function createLeaderSelectModel() {
           abilityText,
           ageUnlocks: formattedAgeUnlocks,
           unlocks: formattedUnlocks,
+          syncretismUnlocks: formattedSyncretismUnlocks,
           nextReward,
           playCount,
           level: currentLevel,

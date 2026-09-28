@@ -9,27 +9,27 @@ import { L10n } from '../../../../core/ui-next/components/l10n.js';
 import { NavHelp } from '../../../../core/ui-next/components/nav-help.js';
 import { Panel } from '../../../../core/ui-next/components/panel.js';
 import { Tab } from '../../../../core/ui-next/components/tab.js';
-import { NestedTooltipContext } from '../../../../core/ui-next/components/tooltip-compat.js';
+import { NestedTooltipContext } from '../../../../core/ui-next/components/tooltip-nested.js';
 import { ComponentRegistry } from '../../../../core/ui-next/services/component-registry.js';
 import { getCivLoadingInfo } from '../load-screen/load-screen-model.js';
 import { useLoadScreenContext } from '../load-screen/load-screen.js';
 import style from './age-transition-load-screen.scss.js';
 
-var _tmpl$ = /* @__PURE__ */ template(`<div class="age-transition-stage-bg img-unit-panelbox relative flex-auto"><div class="absolute inset-1 bg-center bg-cover bg-no-repeat"></div><div class="absolute inset-1 bg-center bg-cover bg-no-repeat"></div><div class="absolute inset-1 bg-center bg-cover bg-no-repeat"></div><div class="absolute -top-5 left-0 right-0 flex items-center justify-center"><div class="filigree-divider-h2 -scale-y-100"></div></div><div class="absolute -bottom-5 left-0 right-0 flex items-center justify-center"><div class=filigree-divider-h2></div></div><div class="absolute inset-1 flex flex-row relative justify-start"><div class=" w-1\\/4 flex flex-col items-center justify-center"></div><div class="w-1\\/2 flex flex-col items-center justify-center"></div></div></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="age-transition-load-screen-bg absolute inset-0"></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="flex flex-row items-center justify-center"></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div class="flex flex-col items-start justify-center m-4 gap-4"></div>`);
+var _tmpl$ = /* @__PURE__ */ template(`<div class="age-transition-stage-bg relative flex-auto"><div class="age-transition-stage-bg fixed w-full left-1 img-unit-panelbox"></div><div class="absolute inset-1 bg-center bg-cover bg-no-repeat fullscreen-outside-safezone-x"></div><div class="absolute inset-1 bg-center bg-cover bg-no-repeat fullscreen-outside-safezone-x"></div><div class="absolute inset-1 bg-center bg-cover bg-no-repeat fullscreen-outside-safezone-x"></div><div class="absolute -top-5 left-0 right-0 flex items-center justify-center"><div class="filigree-divider-h2 -scale-y-100"></div></div><div class="absolute -bottom-5 left-0 right-0 flex items-center justify-center"><div class="filigree-divider-h2"></div></div><div class="absolute inset-1 flex flex-row relative justify-start"><div class=" w-1\\/4 flex flex-col items-center justify-center"></div><div class="w-1\\/2 flex flex-col items-center justify-center"></div></div></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="age-transition-load-screen-bg absolute inset-0"></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="flex flex-row items-center justify-center"></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div class="flex flex-col items-start justify-center m-4 gap-4"></div>`);
 const AgeTransitionStageComponent = (props) => {
   return (() => {
-    var _el$ = _tmpl$(), _el$2 = _el$.firstChild, _el$3 = _el$2.nextSibling, _el$4 = _el$3.nextSibling, _el$5 = _el$4.nextSibling, _el$6 = _el$5.nextSibling, _el$7 = _el$6.nextSibling, _el$8 = _el$7.firstChild, _el$9 = _el$8.nextSibling;
-    _el$3.style.setProperty("background", "rgba(7, 7, 7, 0.30)");
-    _el$4.style.setProperty("background-image", "url('blp:create_game_gradient1')");
-    insert(_el$8, createComponent(Icon, {
+    var _el$ = _tmpl$(), _el$2 = _el$.firstChild, _el$3 = _el$2.nextSibling, _el$4 = _el$3.nextSibling, _el$5 = _el$4.nextSibling, _el$6 = _el$5.nextSibling, _el$7 = _el$6.nextSibling, _el$8 = _el$7.nextSibling, _el$9 = _el$8.firstChild, _el$10 = _el$9.nextSibling;
+    _el$4.style.setProperty("background", "rgba(7, 7, 7, 0.30)");
+    _el$5.style.setProperty("background-image", "url('blp:create_game_gradient1')");
+    insert(_el$9, createComponent(Icon, {
       "class": "size-62",
       get name() {
         return `url('${props.icon ?? ""}')`;
       },
       isUrl: true
     }));
-    insert(_el$9, () => props.children);
-    createRenderEffect((_$p) => (_$p = `url('blp:${props.background}')`) != null ? _el$2.style.setProperty("background-image", _$p) : _el$2.style.removeProperty("background-image"));
+    insert(_el$10, () => props.children);
+    createRenderEffect((_$p) => (_$p = `url('blp:${props.background}')`) != null ? _el$3.style.setProperty("background-image", _$p) : _el$3.style.removeProperty("background-image"));
     return _el$;
   })();
 };
@@ -99,8 +99,8 @@ const AgeTransitionLoadScreenComponent = (props) => {
                   },
                   icon: curCivIcon,
                   get children() {
-                    var _el$12 = _tmpl$4();
-                    insert(_el$12, createComponent(Header, {
+                    var _el$13 = _tmpl$4();
+                    insert(_el$13, createComponent(Header, {
                       "class": "uppercase text-xl",
                       get children() {
                         return createComponent(L10n.Compose, {
@@ -108,11 +108,11 @@ const AgeTransitionLoadScreenComponent = (props) => {
                         });
                       }
                     }), null);
-                    insert(_el$12, createComponent(L10n.Stylize, {
+                    insert(_el$13, createComponent(L10n.Stylize, {
                       "class": "text-lg",
                       text: ageText
                     }), null);
-                    return _el$12;
+                    return _el$13;
                   }
                 })
               }), createComponent(Tab.Item, {
@@ -142,8 +142,8 @@ const AgeTransitionLoadScreenComponent = (props) => {
               })];
             }
           }), (() => {
-            var _el$11 = _tmpl$3();
-            insert(_el$11, createComponent(AudioContextProvider, {
+            var _el$12 = _tmpl$3();
+            insert(_el$12, createComponent(AudioContextProvider, {
               segment: "LoadScreen",
               get vars() {
                 return {
@@ -161,7 +161,10 @@ const AgeTransitionLoadScreenComponent = (props) => {
                   get disabled() {
                     return !model.canBeginGame;
                   },
-                  onActivate: () => startGame(),
+                  onActivate: () => {
+                    UI.requestReviewAppleArcade();
+                    startGame();
+                  },
                   get classList() {
                     return {
                       hidden: model.hideBeginButton
@@ -180,7 +183,7 @@ const AgeTransitionLoadScreenComponent = (props) => {
                 });
               }
             }));
-            return _el$11;
+            return _el$12;
           })(), createComponent(Show, {
             get when() {
               return !model.canBeginGame;

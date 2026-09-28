@@ -690,6 +690,13 @@ var VoronoiUtils;
     return Math.exp(-(offset * offset) / denom);
   }
   VoronoiUtils2.gaussian = gaussian;
+  function computeBoundedPartitionRange(count, totalSize, maxVariance) {
+    const maxVarianceComp = 1 - maxVariance;
+    const maxSize = totalSize / (1 + maxVarianceComp + Math.max(0, count - 2) * (1 - maxVariance / 2));
+    const minSize = maxSize * maxVarianceComp;
+    return [minSize, maxSize];
+  }
+  VoronoiUtils2.computeBoundedPartitionRange = computeBoundedPartitionRange;
   function distributeTotal(totalSize, minSize, maxSize, count) {
     const sizes = new Array(count);
     let remaining = totalSize;

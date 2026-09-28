@@ -217,14 +217,14 @@
 		<Argument name="Amount">1</Argument>
 	</Modifier>
 	<!-- Manhattan Project -->
-	<Modifier id="MOD_MANHATTAN_PROJECT_GRANT_NUCLEAR_DEVICE" collection="COLLECTION_OWNER" effect="EFFECT_ADJUST_PLAYER_WMD_COUNT" permanent="true">
+	<Modifier id="MOD_MANHATTAN_PROJECT_GRANT_NUCLEAR_DEVICE" collection="COLLECTION_OWNER" effect="EFFECT_ADJUST_PLAYER_INVENTORY_ITEM_COUNT" permanent="true">
 		<SubjectRequirements>
 			<Requirement type="REQUIREMENT_WONDER_IS_ACTIVE">
 				<Argument name="ConstructibleType">WONDER_MANHATTAN_PROJECT</Argument>
 			</Requirement>
 		</SubjectRequirements>
 		<Argument name="Amount">1</Argument>
-		<Argument name="Type">WMD_NUCLEAR_DEVICE</Argument>
+		<Argument name="Type">INVENTORY_ITEM_WMD</Argument>
 	</Modifier>
 	<Modifier id="MOD_MANHATTAN_PROJECT_SCIENCE_VP" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_VICTORY_TRACKER_POINTS" permanent="true">
 		<SubjectRequirements>
@@ -516,5 +516,29 @@
 		</SubjectRequirements>
 		<Argument name="Amount">3</Argument>
 		<String context="Preview">LOC_ABILITY_SHORE_BATTERY_RANGED_PREVIEW</String>
+	</Modifier>
+	<Modifier id="MOD_OBSHCHINA_TUNDRA_CULTURE" collection="COLLECTION_SINGLE_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_PLOT_BIOME_TYPE_MATCHES">
+				<Argument name="BiomeType">BIOME_TUNDRA</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_PLOT_HAS_CONSTRUCTIBLE">
+				<Argument name="ConstructibleType">IMPROVEMENT_OBSHCHINA</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_CULTURE</Argument>
+		<Argument name="Amount">2</Argument>
+	</Modifier>
+	<Modifier id="MOD_OBSHCHINA_FARM_FOOD" collection="COLLECTION_CITY_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_HAS_BUILDING">
+				<Argument name="BuildingType">IMPROVEMENT_OBSHCHINA</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_PLOT_HAS_CONSTRUCTIBLE">
+				<Argument name="ConstructibleType">IMPROVEMENT_FARM</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="YieldType">YIELD_FOOD</Argument>
+		<Argument name="Amount">1</Argument>
 	</Modifier>
 </GameEffects>

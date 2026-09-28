@@ -1,4 +1,4 @@
-import ActionHandler from '../input/action-handler.js';
+import { ActionHandler } from '../input/action-handler.js';
 import { ActiveDeviceTypeChangedEventName } from '../input/input-events.js';
 import { Icon } from '../utilities/utilities-image.js';
 
@@ -60,7 +60,7 @@ class FxsFontIcon extends HTMLElement {
           window.addEventListener(ActiveDeviceTypeChangedEventName, this.activeDeviceChangedListener);
           this.hasDeviceChangedListener = true;
         }
-        iconURL = Icon.getIconFromActionName(id, ActionHandler.deviceType) ?? "";
+        iconURL = Icon.getIconFromActionName(id, ActionHandler.deviceType, Input.getActiveContext()) ?? "";
       } else {
         iconURL = UI.getIconURL(id, "FontIcon");
         if (!iconURL) {

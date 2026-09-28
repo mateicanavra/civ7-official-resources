@@ -1,10 +1,14 @@
+import { render } from '../../../core/vendor/solid-js/web/dist/web.js';
 import { ActionActivateEvent } from '../../../core/ui/components/fxs-activatable.js';
 import { utils } from '../../../core/ui/graph-layout/utils.js';
 import { ComponentID } from '../../../core/ui/utilities/utilities-component-id.js';
 import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
 import { Icon } from '../../../core/ui/utilities/utilities-image.js';
 import { Layout } from '../../../core/ui/utilities/utilities-layout.js';
+import { TooltipHorizontalPosition, TooltipVerticalPosition } from '../../../core/ui-next/components/tooltip.js';
 import { UnitFlagManager, UnitFlagFactory } from './unit-flag-manager.js';
+import { buildUnitInfoProps } from '../../ui-next/tooltips/plot-tooltip/helpers.js';
+import { UnitFlagTooltip } from '../../ui-next/tooltips/unit-flag-tooltip.js';
 import styles from './unit-flags.scss.js';
 
 class IndependentPowersFlagMaker {
@@ -113,6 +117,10 @@ class IndependentPowersUnitFlag extends Component {
   isHidden = false;
   independentID = PlayerIds.NO_PLAYER;
   privateerContainer;
+  disposeTooltips = [];
+  SPACING = 32;
+  BASE_OFFSET = -24;
+  // Centered, w-12 maps to 48px
   /**
    * A vertical offset when the unit is 'stacked' with other units.
    * TODO - The unit world anchor should be able to incorporate this offset in C++ to avoid constantly recalculating this in Script.
@@ -139,7 +147,7 @@ class IndependentPowersUnitFlag extends Component {
       "h-12"
     );
     this.unitContainer = unitFlagContainer;
-    this.unitContainer.style.left = "0";
+    this.unitContainer.style.left = "-24";
     const unitFlagShadow = document.createElement("div");
     unitFlagShadow.classList.add("unit-flag__shadow", "pointer-events-none", "absolute", "inset-0", "bg-cover");
     unitFlagContainer.appendChild(unitFlagShadow);
@@ -292,6 +300,8 @@ class IndependentPowersUnitFlag extends Component {
     super.onDetach();
   }
   cleanup() {
+    this.disposeTooltips.forEach((dispose) => dispose());
+    this.disposeTooltips = [];
     const manager = UnitFlagManager.instance;
     IndependentPowersFlagMaker.removeChildFromTracking(this.independentID, this);
     manager.removeChildFromTracking(this);
@@ -427,21 +437,25 @@ class IndependentPowersUnitFlag extends Component {
     }
   }
   realizeTooltip() {
-    const playerId = this.componentID.owner;
-    const player = Players.get(playerId);
-    if (player) {
+    const localPlayer = Players.get(GameContext.localObserverID);
+    if (localPlayer) {
       const unit = this.unit;
-      const unitName = unit ? Locale.compose(unit.name) : "ERROR, unit: " + ComponentID.toLogString(this._componentID);
-      const playerName = Locale.compose("LOC_UNITFLAG_INDEPENDENT_POWER_NAME", this.getIndyName());
-      const affinityRelationship = Locale.compose(
-        Game.IndependentPowers.getIndependentHostility(this.independentID, GameContext.localObserverID)
-      );
+      const unitInfo = buildUnitInfoProps(unit, localPlayer);
       const tooltipDiv = this.Root.querySelector(".unit-flag__container");
-      if (tooltipDiv) {
-        tooltipDiv.setAttribute(
-          "data-tooltip-content",
-          `<div>${playerName}</div><div>${unitName}</div><div>${affinityRelationship}</div>`
+      if (tooltipDiv && unitInfo) {
+        this.disposeTooltips.forEach((dispose2) => dispose2());
+        this.disposeTooltips = [];
+        const dispose = render(
+          () => UnitFlagTooltip({
+            children: tooltipDiv,
+            initialVPosition: TooltipVerticalPosition.BOTTOM,
+            initialHPosition: TooltipHorizontalPosition.RIGHT,
+            allowFlip: true,
+            unitInfo
+          }),
+          this.Root
         );
+        this.disposeTooltips.push(dispose);
       }
     }
   }
@@ -503,7 +517,7 @@ class IndependentPowersUnitFlag extends Component {
   }
   makeWorldAnchor(componentID) {
     this.destroyWorldAnchor();
-    const height = 40;
+    const height = 18;
     const worldAnchor = WorldAnchors.RegisterUnitAnchor(componentID, height);
     if (worldAnchor) {
       this.Root.setAttribute(
@@ -541,11 +555,11 @@ class IndependentPowersUnitFlag extends Component {
     UnitFlagManager.instance.recalculateFlagOffsets(unit.location);
   }
   updateTop(position, total) {
-    const offset = position - (total - 1) / 2 - 0.5;
+    const offset = position - (total - 1) / 2;
     if (this.unitContainer) {
       if (this.flagOffset != offset) {
         this.flagOffset = offset;
-        this.unitContainer.style.left = Layout.pixels(offset * 32);
+        this.unitContainer.style.left = Layout.pixels(offset * this.SPACING - this.BASE_OFFSET);
       }
     }
   }

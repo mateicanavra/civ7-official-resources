@@ -1,5 +1,5 @@
 import { Audio } from '../../../core/ui/audio-base/audio-support.js';
-import ActionHandler from '../../../core/ui/input/action-handler.js';
+import { ActionHandler } from '../../../core/ui/input/action-handler.js';
 import { ActiveDeviceTypeChangedEventName } from '../../../core/ui/input/input-events.js';
 import { InputEngineEventName } from '../../../core/ui/input/input-support.js';
 import { Navigation } from '../../../core/ui/input/navigation-support.js';
@@ -9,6 +9,7 @@ import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
 import { Icon } from '../../../core/ui/utilities/utilities-image.js';
 import ViewManager from '../../../core/ui/views/view-manager.js';
 import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
+import { IsControllerActive, IsMouseActive } from '../../../core/ui-next/services/input.js';
 import { NotificationModel } from './model-notification-train.js';
 import styles from './panel-notification-train.scss.js';
 
@@ -53,7 +54,7 @@ class PanelNotificationTrain extends Panel {
     notificationTrainDecor.classList.add("notification-train__decor");
     this.navHelpContainer = document.createElement("div");
     this.navHelpContainer.classList.add("notification-train__nav-help-container", "flex");
-    this.navHelpContainer.classList.toggle("gamepad-active", ActionHandler.isGamepadActive);
+    this.navHelpContainer.classList.toggle("gamepad-active", IsControllerActive());
     notificationTrainDecor.appendChild(this.navHelpContainer);
     const navHelp = document.createElement("fxs-nav-help");
     navHelp.setAttribute("action-key", "inline-notification");
@@ -100,7 +101,7 @@ class PanelNotificationTrain extends Panel {
     super.onDetach();
   }
   onActiveDeviceChanged() {
-    this.navHelpContainer?.classList.toggle("gamepad-active", ActionHandler.isGamepadActive);
+    this.navHelpContainer?.classList.toggle("gamepad-active", IsControllerActive());
   }
   onNotificationHighlight(notificationID) {
     const viewItem = this.findViewItemByID(notificationID);
@@ -606,7 +607,7 @@ class PanelNotificationTrain extends Panel {
           }
         }
       }
-      if (ActionHandler.deviceType == InputDeviceType.Mouse) {
+      if (IsMouseActive()) {
         ActionHandler.forceCursorCheck();
       }
       Audio.playSound("data-audio-notif-close", "audio-panel-notification-train");

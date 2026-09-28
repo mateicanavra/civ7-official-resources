@@ -1,9 +1,13 @@
+import { Heap } from './heap.js';
 import { RandomImpl } from './random-pcg-32.js';
-import { VoronoiUtils } from './voronoi-utils.js';
 
 class IdScorePair {
   id = 0;
   score = 0;
+  cycle = 0;
+  // Tracks the cycle in which this score was generated, to know how stale it is.
+  pairId = -1;
+  // tracks the unique id of the score pair.
 }
 class VoronoiRegion {
   name;
@@ -14,11 +18,19 @@ class VoronoiRegion {
   playerAreas = 0;
   color = { x: 0, y: 0, z: 0 };
   seedLocation = { x: 0, y: 0 };
-  considerationList = [];
-  cellCount = 0;
   latestAddedCell = null;
+  ruleSetKey;
   minOrder = 0;
   // Used for offsetting the order of individual cells, for visualizing and debugging region growth over time.
+  cellCount = 0;
+  considerationHeap = new Heap((a, b) => b.score - a.score);
+  latestScorePairId = new Uint32Array(0);
+  nextScorePairId = 0;
+  cycle = 0;
+  // Tracks the number of growStep() calls
+  dynamicRules = [];
+  staticRules = [];
+  staticScores = new Float32Array(0);
   scoringContext;
   quadTree;
   constructor(name, id, groupId, type, maxArea, playerAreas) {
@@ -28,6 +40,11 @@ class VoronoiRegion {
     this.type = type;
     this.maxArea = maxArea;
     this.playerAreas = playerAreas;
+  }
+  pushConsideration(cellId, score) {
+    const pair = { id: cellId, score, pairId: this.nextScorePairId, cycle: this.cycle };
+    this.considerationHeap.push(pair);
+    this.latestScorePairId[cellId] = this.nextScorePairId++;
   }
   prepareGrowth(regionCells, regions, rules, worldDims, plateRegions, wrap) {
     this.scoringContext = {
@@ -41,35 +58,59 @@ class VoronoiRegion {
       rules,
       wrap
     };
+    this.staticRules = [];
+    this.dynamicRules = [];
     for (const rule of Object.values(rules)) {
       if (rule.isActive) {
         rule.prepare();
+        if (rule.isStatic) {
+          this.staticRules.push(rule);
+        } else {
+          this.dynamicRules.push(rule);
+        }
       }
     }
     regionCells.forEach((cell) => {
       cell.regionConsiderationBits = 0n;
     });
     this.quadTree = void 0;
+    this.considerationHeap.clear();
+    this.latestScorePairId = new Uint32Array(regionCells.length);
+    this.staticScores = new Float32Array(regionCells.length);
+    this.staticScores.fill(NaN);
+    this.nextScorePairId = 0;
+    this.cycle = 0;
   }
   growStep() {
-    let newCellIndex = 0;
+    let newCellPair = void 0;
     const regionCells = this.scoringContext.cells;
-    for (let i = 0; i < this.considerationList.length; ) {
-      const cell = regionCells[this.considerationList[i].id];
+    while (this.considerationHeap.size > 0) {
+      const pair = this.considerationHeap.pop();
+      const cell = regionCells[pair.id];
       if (this.isCellClaimed(cell)) {
-        VoronoiUtils.swapAndPop(this.considerationList, i);
         continue;
       }
-      if (this.considerationList[i].score > this.considerationList[newCellIndex].score) {
-        newCellIndex = i;
+      if (this.latestScorePairId[pair.id] != pair.pairId) {
+        continue;
       }
-      ++i;
+      if (pair.cycle < this.cycle - 1) {
+        pair.score = this.scoreCell(cell, this.scoringContext);
+      }
+      const nextHighestScore = this.considerationHeap.peek()?.score ?? -Infinity;
+      if (pair.score >= nextHighestScore) {
+        newCellPair = pair;
+        break;
+      } else {
+        pair.pairId = this.nextScorePairId++;
+        pair.cycle = this.cycle;
+        this.latestScorePairId[pair.id] = pair.pairId;
+        this.considerationHeap.push(pair);
+      }
     }
-    if (this.considerationList.length == 0 || this.considerationList[newCellIndex].score < 0) {
+    if (newCellPair === void 0 || newCellPair.score < 0) {
       return false;
     }
-    const newCellId = this.considerationList[newCellIndex].id;
-    VoronoiUtils.swapAndPop(this.considerationList, newCellIndex);
+    const newCellId = newCellPair.id;
     const newCell = regionCells[newCellId];
     newCell.regionConsiderationBits = 0n;
     this.setRegionIdForCell(newCell, this.id, this.scoringContext);
@@ -89,15 +130,12 @@ class VoronoiRegion {
         continue;
       }
       const score = this.scoreCell(neighbor, this.scoringContext);
-      if (neighbor.regionConsiderationBits & 1n << BigInt(this.id)) {
-        const pair = this.considerationList.find((value) => value.id === neighborId);
-        pair.score = score;
-      } else {
-        this.considerationList.push({ id: neighborId, score });
-        neighbor.regionConsiderationBits |= 1n << BigInt(this.id);
-      }
+      const pairId = this.nextScorePairId++;
+      this.latestScorePairId[neighborId] = pairId;
+      this.considerationHeap.push({ id: neighborId, score, cycle: this.cycle, pairId });
     }
-    return this.considerationList.length > 0 && this.scoringContext.totalArea < this.maxArea;
+    ++this.cycle;
+    return this.considerationHeap.size > 0 && this.scoringContext.totalArea < this.maxArea;
   }
   logStats() {
     console.log(
@@ -106,10 +144,17 @@ class VoronoiRegion {
   }
   scoreCell(regionCell, scoringContext) {
     let score = 0;
-    for (const rule of Object.values(scoringContext.rules)) {
-      if (rule.isActive) {
-        score += rule.score(regionCell, scoringContext) * rule.weight;
+    let staticScore = this.staticScores[regionCell.id];
+    if (Number.isNaN(staticScore)) {
+      staticScore = 0;
+      for (const rule of this.staticRules) {
+        staticScore += rule.score(regionCell, scoringContext) * rule.weight;
       }
+      this.staticScores[regionCell.id] = staticScore;
+    }
+    score += staticScore;
+    for (const rule of this.dynamicRules) {
+      score += rule.score(regionCell, scoringContext) * rule.weight;
     }
     return score;
   }

@@ -8,6 +8,12 @@
     height: 20rem;
   }
 }
+@media (experience: mobile) and (max-height: 55.5555555556rem) {
+  .create-game-hub-banner {
+    width: 9.3333333333rem;
+    height: 21.1111111111rem;
+  }
+}
 
 .create-game-hub-recap-panel {
   height: 25.7777777778rem;
@@ -17,6 +23,11 @@
   .create-game-hub-recap-panel {
     height: 20rem;
     margin-right: 0rem;
+  }
+}
+@media (experience: mobile) and (min-height: 55.5555555556rem) {
+  .create-game-hub-recap-panel {
+    margin-right: 2rem;
   }
 }
 
@@ -49,6 +60,12 @@
     height: 8.3333333333rem;
   }
 }
+@media (experience: mobile) and (max-height: 55.5555555556rem) {
+  .create-game-hub-setup-box {
+    width: 9.1111111111rem;
+    height: 9.1111111111rem;
+  }
+}
 
 .create-game-hub-save-load-box {
   width: 4.8888888889rem;
@@ -58,6 +75,12 @@
   .create-game-hub-save-load-box {
     width: 3.6666666667rem;
     height: 3.6666666667rem;
+  }
+}
+@media (experience: mobile) and (max-height: 55.5555555556rem) {
+  .create-game-hub-save-load-box {
+    width: 4rem;
+    height: 4rem;
   }
 }
 
@@ -71,6 +94,12 @@
     height: 5.8333333333rem;
   }
 }
+@media (experience: mobile) {
+  .create-game-hub-memento-box {
+    width: 7.8888888889rem;
+    height: 7.8888888889rem;
+  }
+}
 
 .create-game-hub-memento-base {
   width: 8.8888888889rem;
@@ -80,6 +109,12 @@
   .create-game-hub-memento-base {
     width: 7.2222222222rem;
     height: 7.2222222222rem;
+  }
+}
+@media (experience: mobile) {
+  .create-game-hub-memento-base {
+    width: 9.2222222222rem;
+    height: 9.2222222222rem;
   }
 }
 
@@ -98,6 +133,13 @@
     background-size: 2.7222222222rem 2.7222222222rem;
   }
 }
+@media (experience: mobile) {
+  .create-game-hub-memento-filigree {
+    width: 7.8888888889rem;
+    height: 7.8888888889rem;
+    background-size: 3.3333333333rem 3.3333333333rem;
+  }
+}
 
 .create-game-hub-divider-half-line {
   width: 100%;
@@ -113,22 +155,38 @@
     height: 2.7777777778rem;
   }
 }
+@media (experience: mobile) {
+  .create-game-hub-trait-icon-container {
+    height: auto;
+  }
+}
 
 .create-game-hub-trait-icon {
   margin: 0.8888888889rem;
 }
-@media (max-height: 55.5555555556rem) {
+@media (max-height: 55.5555555556rem), (experience: mobile) {
   .create-game-hub-trait-icon {
     margin: 0.4444444444rem;
   }
 }
 
 .create-game-hub-overview {
-  margin: 0.6666666667rem;
+  padding: 0.6666666667rem 6.2222222222rem;
+  margin: 0rem -4.8888888889rem;
+  background: linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%);
 }
 @media (max-height: 55.5555555556rem) {
   .create-game-hub-overview {
+    padding: 0rem;
     margin: 0rem;
+    background: none;
+  }
+}
+@media (experience: mobile) and (max-height: 55.5555555556rem) {
+  .create-game-hub-overview {
+    width: 100%;
+    padding-right: 1.1111111111rem;
+    padding-left: 3.3333333333rem;
   }
 }
 

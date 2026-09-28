@@ -78,7 +78,10 @@ const FactoryTypeDisplayComponent = (props) => {
                   resourceValue: -1,
                   cityID: void 0
                 }),
-                onActivate: () => model.clearFactoryResources(props.cityID)
+                onActivate: () => {
+                  model.clearFactoryResources(props.cityID);
+                  model.setSelectedSettlementId(void 0);
+                }
               }));
             },
             children: (tooltipText) => createComponent(Tooltip.Text, {
@@ -105,7 +108,10 @@ const FactoryTypeDisplayComponent = (props) => {
                   onBlur: () => {
                     hotkeyContext.unregisterNavtray("accept");
                   },
-                  onActivate: () => model.clearFactoryResources(props.cityID)
+                  onActivate: () => {
+                    model.clearFactoryResources(props.cityID);
+                    model.setSelectedSettlementId(void 0);
+                  }
                 }));
               }
             })

@@ -67,6 +67,7 @@
 		<Row ActionId="toggle-grid-layer" DeviceType="Keyboard" Name="LOC_UI_KBM_MAPPING_TOGGLE_GRID" Description="LOC_UI_KBM_MAPPING_TOGGLE_GRID_TT" SortIndex="34"/>
 		<Row ActionId="toggle-yields-layer" DeviceType="Keyboard" Name="LOC_UI_KBM_MAPPING_TOGGLE_YIELD_ICONS" Description="LOC_UI_KBM_MAPPING_TOGGLE_YIELD_ICONS_TT" SortIndex="35"/>
 		<Row ActionId="toggle-resources-layer" DeviceType="Keyboard" Name="LOC_UI_KBM_MAPPING_TOGGLE_RESOURCE_ICONS" Description="LOC_UI_KBM_MAPPING_TOGGLE_RESOURCE_ICONS_TT" SortIndex="36" />
+		<Row ActionId="toggle-radial-measure-layer" DeviceType="Keyboard" Name="LOC_UI_KBM_MAPPING_TOGGLE_RADIAL_RULER" Description="LOC_UI_KBM_MAPPING_TOGGLE_RADIAL_RULER_TT" SortIndex="37"/>
 		<Row ActionId="scroll-pan" DeviceType="Controller" Name="LOC_SCROLL_PAN" Description="LOC_SCROLL_PAN_HELP" EventType="All"/>
 		<Row ActionId="squeeze-move-left" DeviceType="XR" Name="LOC_A" Description="LOC_TARGET_HELP" />
 		<Row ActionId="squeeze-move-right" DeviceType="XR" Name="LOC_B" Description="LOC_TARGET_HELP" />
@@ -217,6 +218,8 @@
 		<Row ActionId="toggle-resources-layer" ContextId="World"/>
 		<Row ActionId="toggle-resources-layer" ContextId="Unit"/>
 
+		<Row ActionId="toggle-radial-measure-layer" ContextId="World"/>
+		<Row ActionId="toggle-radial-measure-layer" ContextId="Unit"/>
 	</InputContextConstraints>
 
 	<InputActionDefaultGestures>

@@ -1,4 +1,4 @@
-import ContextManager from '../../../core/ui/context-manager/context-manager.js';
+import { ContextManager } from '../../../core/ui/context-manager/context-manager.js';
 import { DisplayHandlerBase } from '../../../core/ui/context-manager/display-handler.js';
 import { DisplayHideReason, DisplayQueueManager } from '../../../core/ui/context-manager/display-queue-manager.js';
 import { PopupPriority } from './popup-priority.js';
@@ -21,7 +21,7 @@ class PopupSequencerClass extends DisplayHandlerBase {
     return false;
   }
   /**
-   * @implements {IDisplayQueue}
+   * @implements {IDisplayHandler}
    */
   show(request) {
     this.currentPopupData = request;
@@ -31,7 +31,7 @@ class PopupSequencerClass extends DisplayHandlerBase {
     ContextManager.push(request.screenId, request.properties);
   }
   /**
-   * @implements {IDisplayQueue}
+   * @implements {IDisplayHandler}
    */
   hide(_request, options) {
     if (options?.reason == DisplayHideReason.Suspend) {

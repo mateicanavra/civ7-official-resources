@@ -1,7 +1,7 @@
 import { onMount, on } from '../../../../core/vendor/solid-js/dist/solid.js';
 import { createMutable } from '../../../../core/vendor/solid-js/store/dist/store.js';
 import { Audio } from '../../../../core/ui/audio-base/audio-support.js';
-import ContextManager from '../../../../core/ui/context-manager/context-manager.js';
+import { ContextManager } from '../../../../core/ui/context-manager/context-manager.js';
 import { displayRequestUniqueId } from '../../../../core/ui/context-manager/display-handler.js';
 import { DisplayQueueManager } from '../../../../core/ui/context-manager/display-queue-manager.js';
 import { DialogBoxManager } from '../../../../core/ui/dialog-box/manager-dialog-box.js';

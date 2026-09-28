@@ -1,7 +1,8 @@
-import ContextManager from '../context-manager/context-manager.js';
-import ActionHandler from './action-handler.js';
+import { ContextManager } from '../context-manager/context-manager.js';
 import Cursor, { CursorUpdatedEventName } from './cursor.js';
+import { InputHandlerState } from './input-support.js';
 import ViewManager from '../views/view-manager.js';
+import { IsControllerActive } from '../../ui-next/services/input.js';
 
 const plotCursorModes = [
   {
@@ -224,7 +225,7 @@ class PlotCursorSingleton {
     if (!ContextManager.canUseInput("plot-cursor", CursorUpdatedEventName)) {
       return;
     }
-    if (ActionHandler.isGamepadActive && event.detail.x == 0 && event.detail.y == 0) {
+    if (IsControllerActive() && event.detail.x == 0 && event.detail.y == 0) {
       return;
     }
     this.plotCursorCoords = event.detail.plot;
@@ -435,45 +436,45 @@ class PlotCursorSingleton {
   }
   handleTouchTap(inputEvent) {
     if (this.isOnUI(inputEvent.detail.x, inputEvent.detail.y)) {
-      return false;
+      return InputHandlerState.Handled;
     }
     const newCoords = Camera.pickPlotFromPoint(inputEvent.detail.x, inputEvent.detail.y);
-    let live = true;
+    let state = InputHandlerState.Active;
     if (this.isUnitSelected && (newCoords?.x != this.unitLocation?.i || newCoords?.y != this.unitLocation?.j) && // not the unit location
     (newCoords?.x != this.plotCursorCoords?.x || newCoords?.y != this.plotCursorCoords?.y)) {
-      live = false;
+      state = InputHandlerState.Handled;
     }
     this.plotCursorCoords = newCoords;
-    return live;
+    return state;
   }
   handleTouchPress(inputEvent) {
     if (this.isOnUI(inputEvent.detail.x, inputEvent.detail.y)) {
-      return true;
+      return InputHandlerState.Active;
     }
     this.plotCursorCoords = Camera.pickPlotFromPoint(inputEvent.detail.x, inputEvent.detail.y);
-    return true;
+    return InputHandlerState.Active;
   }
   handleInput(inputEvent) {
-    let live = true;
+    let state = InputHandlerState.Active;
     switch (inputEvent.detail.name) {
       case "center-plot-cursor":
         this.onCenterPlotCursor(inputEvent.detail.status);
         break;
       case "touch-tap":
-        live = this.handleTouchTap(inputEvent);
+        state = this.handleTouchTap(inputEvent);
         break;
       case "touch-press":
-        live = this.handleTouchPress(inputEvent);
+        state = this.handleTouchPress(inputEvent);
         break;
       case "plot-move":
         this.onMovePlotCursor(inputEvent);
-        live = false;
+        state = InputHandlerState.Handled;
         break;
     }
-    return live;
+    return state;
   }
   handleNavigation(_navigationEvent) {
-    return false;
+    return InputHandlerState.Handled;
   }
 }
 const PlotCursor = PlotCursorSingleton.getInstance();

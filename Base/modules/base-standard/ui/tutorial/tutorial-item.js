@@ -73,7 +73,7 @@ class TutorialItem {
   category = "TutorialManager";
   priority;
   subpriority;
-  /** If defined will attempt to override the default IDisplayQueue category for this tutorial item  */
+  /** If defined will attempt to override the default IDisplayHandler category for this tutorial item  */
   queueToOverride;
   activationCustomEvents = [];
   activationEngineEvents = [];

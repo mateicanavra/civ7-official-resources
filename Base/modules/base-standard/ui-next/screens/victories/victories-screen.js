@@ -1,5 +1,6 @@
 import { template, insert, className } from '../../../../core/vendor/solid-js/web/dist/web.js';
 import { untrack, createMemo, onMount, onCleanup, createComponent, createRenderEffect, mergeProps, Show, splitProps, For } from '../../../../core/vendor/solid-js/dist/solid.js';
+import { ContextManager } from '../../../../core/ui/context-manager/context-manager.js';
 import { DisplayQueueManager } from '../../../../core/ui/context-manager/display-queue-manager.js';
 import { InputEngineEventName, NavigateInputEventName } from '../../../../core/ui/input/input-support.js';
 import { InterfaceMode } from '../../../../core/ui/interface-modes/interface-modes.js';
@@ -12,6 +13,8 @@ import { Tab } from '../../../../core/ui-next/components/tab.js';
 import { Tooltip, TooltipVerticalPosition, TooltipHorizontalPosition } from '../../../../core/ui-next/components/tooltip.js';
 import { useAudio } from '../../../../core/ui-next/services/audio-support.js';
 import { ComponentRegistry } from '../../../../core/ui-next/services/component-registry.js';
+import { IsControllerActive } from '../../../../core/ui-next/services/input.js';
+import { isMobile } from '../../../../core/ui-next/services/view-experience.js';
 import { useIsSmallScreen, LayoutModel } from '../../../../core/ui-next/utilities/layout-utilities.js';
 import TutorialManager from '../../../ui/tutorial/tutorial-manager.js';
 import { ScreenFrame } from '../../components/screen-frame.js';
@@ -24,7 +27,7 @@ import { VictoriesSummary } from './summary-victory-tab.js';
 import { createVictoriesScreenModel, VictoriesScreenContext } from './victories-screen-model.js';
 import style from './victories-screen.scss.js';
 
-var _tmpl$ = /* @__PURE__ */ template(`<div><div class="absolute inset-0 bottom-0 filigree-inner-frame-top"></div><div class="absolute inset-0 bottom-0 filigree-inner-frame-bottom"></div></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="absolute bottom-10 right-10 flex flow-row"></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="font-title-sm uppercase fxs-header"></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div class="ml-12 font-body text-sm text-white"></div>`), _tmpl$5 = /* @__PURE__ */ template(`<div class=items-center><div class="font-title-base fxs-header uppercase self-center mb-4"></div></div>`), _tmpl$6 = /* @__PURE__ */ template(`<div></div>`), _tmpl$7 = /* @__PURE__ */ template(`<div class=ml-8></div>`);
+var _tmpl$ = /* @__PURE__ */ template(`<div><div class="absolute inset-0 bottom-0 filigree-inner-frame-top"></div><div class="absolute inset-0 bottom-0 filigree-inner-frame-bottom"></div></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="absolute bottom-10 right-10 flex flow-row"></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="font-title-sm uppercase fxs-header"></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div class="ml-12 font-body text-sm text-white"></div>`), _tmpl$5 = /* @__PURE__ */ template(`<div class="items-center"><div class="font-title-base fxs-header uppercase self-center mb-4"></div></div>`), _tmpl$6 = /* @__PURE__ */ template(`<div></div>`), _tmpl$7 = /* @__PURE__ */ template(`<div class="ml-8"></div>`);
 const VictoriesScreenComponent = (props) => {
   const isSmallScreen = useIsSmallScreen();
   const endGameScreen = untrack(() => props.endGameScreen);
@@ -103,9 +106,14 @@ const VictoriesScreenComponent = (props) => {
           return props.endGameScreen;
         },
         addYieldBar: false,
+        get isFullscreen() {
+          return isMobile();
+        },
         get children() {
           return [createComponent(Tab, {
-            "class": "victories-tab-bar w-full flex flex-col flex-auto pointer-events-auto mx-5",
+            get ["class"]() {
+              return `victories-tab-bar w-full flex flex-col flex-auto pointer-events-auto mx-5 ${isMobile() ? `mt-4 self-center ${IsControllerActive() ? "mb-10" : ""}` : ""}`;
+            },
             get defaultTab() {
               return createMemo(() => !!defaultTab())() ? defaultTab() : model.data.defaultTab;
             },
@@ -129,7 +137,7 @@ const VictoriesScreenComponent = (props) => {
               }), (() => {
                 var _el$ = _tmpl$(), _el$2 = _el$.firstChild, _el$3 = _el$2.nextSibling;
                 insert(_el$, createComponent(Tab.Output, {}), null);
-                createRenderEffect(() => className(_el$, `${isSmallScreen() ? "mt-2" : "mt-8"} flex flex-col flex-auto bg-accent-6 items-center mb-5 pl-8 pr-8 pt-8 relative victories-panel-container`));
+                createRenderEffect(() => className(_el$, `${isSmallScreen() && !isMobile() ? "mt-2" : "mt-8"} ${isMobile() ? "self-center pb-2" : ""} flex flex-col flex-auto bg-accent-6 items-center mb-5 pl-8 pr-8 pt-8 relative victories-panel-container`));
                 return _el$;
               })(), createComponent(Tab.Item, {
                 name: "summary",
@@ -331,6 +339,13 @@ const MilitaryTooltip = (props) => {
     }
   });
 };
+window.addEventListener("hotkey-open-rankings", () => {
+  if (ContextManager.isCurrentClass("screen-victory-progress")) {
+    ContextManager.pop("screen-victory-progress");
+  } else {
+    ContextManager.push("screen-victory-progress");
+  }
+});
 const VictoriesScreen = ComponentRegistry.register({
   name: "VictoriesScreen",
   styles: [style],

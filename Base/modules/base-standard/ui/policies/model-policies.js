@@ -1,6 +1,6 @@
-import { createMemo, onCleanup, createSignal, createContext, useContext } from '../../../core/vendor/solid-js/dist/solid.js';
+import { createMemo, onCleanup, createContext, useContext } from '../../../core/vendor/solid-js/dist/solid.js';
 import { createMutable } from '../../../core/vendor/solid-js/store/dist/store.js';
-import ContextManager from '../../../core/ui/context-manager/context-manager.js';
+import { ContextManager } from '../../../core/ui/context-manager/context-manager.js';
 import { Layout } from '../../../core/ui/utilities/utilities-layout.js';
 import { IsControllerActive } from '../../../core/ui-next/services/input.js';
 import { ModelRegistry, ModelLifecycle } from '../../../core/ui-next/services/model-registry.js';
@@ -34,9 +34,6 @@ function createPoliciesModel() {
   let _policySlots = 0;
   let _tradSlots = 0;
   let _crisisSlots = 0;
-  const [availableTraditionFocus, setAvailableTraditionFocus] = createSignal(null);
-  const [availablePolicyFocus, setAvailablePolicyFocus] = createSignal(null);
-  const [activeFocus, setActiveFocus] = createSignal(null);
   const localPlayer = Players.get(GameContext.localPlayerID);
   const localPlayerCulture = localPlayer.Culture;
   const unlockedPolicies = localPlayerCulture.getUnlockedTraditions(
@@ -472,13 +469,7 @@ function createPoliciesModel() {
     onCloseClick: handleOnClose,
     clearArrays,
     canSlotCard: handleCanSlotCard,
-    setActiveFocus,
-    getActiveFocus: activeFocus,
-    setAvailablePolicyFocus,
-    getAvailablePolicyFocus: availablePolicyFocus,
-    setAvailableTraditionFocus,
-    getAvailableTraditionFocus: availableTraditionFocus,
-    autoFocusCard: -1
+    autoFocusCard: getAvailablePolicies()[0] != void 0 ? getAvailablePolicies()[0].$index : -1
   });
   return model;
 }

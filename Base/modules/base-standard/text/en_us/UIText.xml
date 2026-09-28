@@ -589,6 +589,9 @@
 		<Row Tag="LOC_UI_ADJACENCY_INFO_RIVERS">
 			<Text>+{1_Amount} {2_YieldName} for each adjacent River</Text>
 		</Row>
+		<Row Tag="LOC_UI_ADJACENCY_INFO_OTHER_OWNER">
+			<Text>+{1_Amount} {2_YieldName} for each adjacent tile owned by another Civilization</Text>
+		</Row>
 		<Row Tag="LOC_UI_ADJACENCY_INFO_LAKE">
 			<Text>+{1_Amount} {2_YieldName} for each adjacent Lake</Text>
 		</Row>
@@ -1776,17 +1779,32 @@
 		<Row Tag="LOC_UI_MINI_MAP_GENERAL_APPEAL">
 			<Text>Appeal</Text>
 		</Row>
+		<Row Tag="LOC_UI_AVERAGE_APPEAL_SHORT">
+			<Text>Average</Text>
+		</Row>
+		<Row Tag="LOC_UI_AVERAGE_APPEAL">
+			<Text>Average Appeal</Text>
+		</Row>
+		<Row Tag="LOC_UI_CHARMING_APPEAL_SHORT">
+			<Text>Charming</Text>
+		</Row>
 		<Row Tag="LOC_UI_CHARMING_APPEAL">
 			<Text>Charming Appeal</Text>
 		</Row>
 		<Row Tag="LOC_UI_ADJACENCY_CHARMING_TILE_YIELD">
 			<Text>+{1_Amount} {2_YieldName} Adjacency for Charming Tile</Text>
 		</Row>
+		<Row Tag="LOC_UI_BREATHTAKING_APPEAL_SHORT">
+			<Text>Breathtaking</Text>
+		</Row>
 		<Row Tag="LOC_UI_BREATHTAKING_APPEAL">
 			<Text>Breathtaking Appeal</Text>
 		</Row>
 		<Row Tag="LOC_UI_ADJACENCY_BREATHTAKING_TILE_YIELD">
 			<Text>+{1_Amount} {2_YieldName} Adjacency for Breathtaking Tile</Text>
+		</Row>
+		<Row Tag="LOC_UI_OTHER_OWNER">
+			<Text>Tile owned by another Civilization</Text>
 		</Row>
 		<Row Tag="LOC_UI_MINI_MAP_SETTLER">
 			<Text>Settler</Text>
@@ -1820,6 +1838,12 @@
 		</Row>
 		<Row Tag="LOC_UI_MINI_MAP_CONQUEST">
 			<Text>Conquest</Text>
+		</Row>
+		<Row Tag="LOC_UI_MINI_MAP_RADIAL_RULER">
+			<Text>Radial Ruler</Text>
+		</Row>
+		<Row Tag="LOC_UI_MINI_MAP_RADIAL_RULER_TOOLTIP">
+			<Text>Highlights all hexes within 3 and 6 tiles of a selected tile.</Text>
 		</Row>
 		<Row Tag="LOC_UI_MINI_MAP_CONQUEST_TOOLTIP">
 			<Text>Shows districts that must be captured to take control of a settlement.</Text>
@@ -1892,6 +1916,9 @@
 		</Row>
 		<Row Tag="LOC_TECH_CIVIC_TECH_UNLOCKED">
 			<Text>Tech Unlocked</Text>
+		</Row>		
+		<Row Tag="LOC_NEXT_TURN">
+			<Text>Next Turn</Text>
 		</Row>
 		<Row Tag="LOC_END_GAME_EXIT">
 			<Text>Exit to Main Menu</Text>
@@ -1901,7 +1928,7 @@
 		</Row>
 		<Row Tag="LOC_END_GAME_CONTINUE">
 			<Text>Just One More Turn</Text>
-		</Row>
+		</Row>		
 		<Row Tag="LOC_END_GAME_TRANSITION">
 			<Text>Transition to Next Age</Text>
 		</Row>
@@ -2278,16 +2305,22 @@
 			<Text>Appeal</Text>
 		</Row>
 		<Row Tag="LOC_UI_GENERAL_APPEAL_LEGEND_BREATHTAKING">
-			<Text>[STYLE:text-secondary]Breathtaking:[/STYLE] +2 [icon:YIELD_HAPPINESS]Happiness per tile</Text>
+			<Text>[STYLE:text-secondary]Breathtaking (5 Appeal or more):[/STYLE] +2 [icon:YIELD_HAPPINESS]Happiness per tile</Text>
 		</Row>
 		<Row Tag="LOC_UI_GENERAL_APPEAL_LEGEND_CHARMING">
-			<Text>[STYLE:text-secondary]Charming:[/STYLE] +1 [icon:YIELD_HAPPINESS]Happiness per tile</Text>
+			<Text>[STYLE:text-secondary]Charming (3-4 Appeal):[/STYLE] +1 [icon:YIELD_HAPPINESS]Happiness per tile</Text>
 		</Row>
 		<Row Tag="LOC_UI_GENERAL_APPEAL_LEGEND_AVERAGE">
-			<Text>[STYLE:text-secondary]Average:[/STYLE] No change</Text>
+			<Text>[STYLE:text-secondary]Average (2 Appeal or less):[/STYLE] No change</Text>
 		</Row>
 		<Row Tag="LOC_UI_GENERAL_APPEAL_LEGEND_NATURAL_WONDER">
 			<Text>[STYLE:text-secondary]Natural Wonder:[/STYLE] Yields as specified for that particular Wonder</Text>
+		</Row>
+		<Row Tag="LOC_UI_GENERAL_APPEAL_LEGEND_SHOW_NUMBERS">
+			<Text>Show Appeal Values</Text>
+		</Row>
+		<Row Tag="LOC_UI_GENERAL_APPEAL_LEGEND_HIDE_NUMBERS">
+			<Text>Hide Appeal Values</Text>
 		</Row>
 
 		<Row Tag="LOC_UI_SETTLER_LEGEND_HEADER">
@@ -2311,6 +2344,13 @@
 		<Row Tag="LOC_UI_SETTLER_LEGEND_RECOMMENDED">
 			<Text>[STYLE:text-secondary]Recommended Settlement Location[/STYLE]</Text>
 		</Row>
+		<Row Tag="LOC_UI_SETTLER_LEGEND_SHOW_RULER">
+			<Text>Show Radial Ruler</Text>
+		</Row>
+		<Row Tag="LOC_UI_SETTLER_LEGEND_HIDE_RULER">
+			<Text>Hide Radial Ruler</Text>
+		</Row>
+
 		<Row Tag="LOC_UI_CITY_DETAILS_INFECTED">
 			<Text>Infected</Text>
 		</Row>

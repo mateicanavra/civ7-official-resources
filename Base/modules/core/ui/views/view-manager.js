@@ -1,3 +1,4 @@
+import { InputHandlerState } from '../input/input-support.js';
 import { Navigation } from '../input/navigation-support.js';
 import { AnchorType } from '../panel-support.js';
 import { FocusManager } from '../../ui-next/services/focus-manager.js';
@@ -249,6 +250,17 @@ class ViewManagerSingleton {
     return rule.selectable != void 0 && rule.selectable;
   }
   /**
+   * Should plot selection via world input be listened to in this view?
+   * @returns true if should, false otherwise
+   */
+  get isPlotSelectionAllowed() {
+    const rule = this.getRule("plot-selection");
+    if (!rule) {
+      return this.isWorldInputAllowed;
+    }
+    return rule.selectable != void 0 && rule.selectable;
+  }
+  /**
    * Should other world input (zooming, panning, rotating) be listened to in this view or context?
    * @returns true if should, false otherwise
    */
@@ -329,16 +341,15 @@ class ViewManagerSingleton {
   handleInput(inputEvent) {
     if (inputEvent.type != "engine-input") {
       console.warn(`VM: Attempt to dispatch a non engine-input event '${inputEvent.type}' to the current view.`);
-      return true;
+      return InputHandlerState.Active;
     }
     if (!this.isViewInputAllowed) {
-      return true;
+      return InputHandlerState.Active;
     }
-    if (!this.current.readInputEvent) {
-      return true;
+    if (!this.current.handleInputEvent) {
+      return InputHandlerState.Active;
     }
-    const live = this.current.readInputEvent(inputEvent);
-    return live;
+    return this.current.handleInputEvent(inputEvent);
   }
   /**
    * Obtain the active view's harness DOM element.
@@ -358,33 +369,33 @@ class ViewManagerSingleton {
    */
   handleNavigation(navigationEvent) {
     if (navigationEvent.detail.status != InputActionStatuses.FINISH) {
-      return true;
+      return InputHandlerState.Active;
     }
     if (navigationEvent.type != "navigate-input") {
       console.warn(
         `VM: Attempt to handle navigation event failed since '${navigationEvent.type}' is not 'navigate-input'.`
       );
-      return true;
+      return InputHandlerState.Active;
     }
     if (!this.isViewInputAllowed) {
-      return true;
+      return InputHandlerState.Active;
     }
-    let live = true;
+    let inputState = InputHandlerState.Active;
     if (this.current.handleNavigation) {
-      live = this.current.handleNavigation(navigationEvent);
+      inputState = this.current.handleNavigation(navigationEvent);
     }
     const direction = navigationEvent.getDirection();
-    if (live && !FocusManager.get().isWorldFocused() && !(direction & (InputNavigationAction.NEXT | InputNavigationAction.PREVIOUS))) {
+    if (inputState == InputHandlerState.Active && !FocusManager.get().isWorldFocused() && !(direction & (InputNavigationAction.NEXT | InputNavigationAction.PREVIOUS))) {
       const harness = this.getHarness();
       if (harness == null) {
         console.error(
           "VM: View is unable to find the harness for navigation handling; this should never happen!"
         );
-        return true;
+        return InputHandlerState.Active;
       }
       const focusedSlot = FocusManager.get().getFocusChildOf(harness);
       if (focusedSlot == null) {
-        return true;
+        return InputHandlerState.Active;
       }
       let anchor = this.classesToAnchor(focusedSlot.classList);
       if (anchor == AnchorType.None) {
@@ -392,7 +403,7 @@ class ViewManagerSingleton {
           "VM: Unable to determine an anchor type from the focus element's classes: ",
           focusedSlot.classList.toString()
         );
-        return true;
+        return InputHandlerState.Active;
       }
       let nextAnchor = AnchorType.None;
       do {
@@ -423,13 +434,13 @@ class ViewManagerSingleton {
         };
         if (Navigation.isFocusable(newSlot, props)) {
           FocusManager.get().setFocus(newSlot);
-          live = false;
+          inputState = InputHandlerState.Handled;
           break;
         }
         anchor = nextAnchor;
       } while (true);
     }
-    return live;
+    return inputState;
   }
   // Let the current view know it received the focus
   handleReceiveFocus() {

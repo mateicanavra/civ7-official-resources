@@ -2709,10 +2709,10 @@
     </Modifier>
     <Modifier id="7067B_NARRATIVE_MODIFIER2" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_GRANT_UNIT_PROMOTION" run-once="true" permanent="true">
         <SubjectRequirements>
-			<Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
-				<Argument name="Tag">UNIT_CLASS_COMMAND</Argument>
-			</Requirement>
-		</SubjectRequirements>
+            <Requirement type="REQUIREMENT_UNIT_TAG_MATCHES">
+                <Argument name="Tag">UNIT_CLASS_COMMAND</Argument>
+            </Requirement>
+        </SubjectRequirements>
         <Argument name="Amount">1</Argument>
     </Modifier>
     <Modifier id="7067C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_UNITS" effect="EFFECT_UNIT_ADJUST_HEAL_PER_TURN" run-once="false" permanent="true">
@@ -2919,7 +2919,7 @@
     </Modifier>
     <Modifier id="9029C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_UNIT_PRODUCTION" run-once="false" permanent="true">
         <Argument name="Percent">15</Argument>
-		<Argument name="Domain">DOMAIN_SEA</Argument>
+        <Argument name="Domain">DOMAIN_SEA</Argument>
     </Modifier>
     <Modifier id="9029C_NARRATIVE_MODIFIER2" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_DEDUCT_TREASURY_NARRATIVE" run-once="false" permanent="true">
         <Argument name="MultiplierType">REWARD_TYPE_MEDIUM_EARLY</Argument>
@@ -2990,7 +2990,7 @@
             </Requirement>
         </SubjectRequirements>
         <Argument name="YieldType">YIELD_SCIENCE</Argument>
-		<Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
     </Modifier>
     <Modifier id="9022C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_PLOT_YIELDS" effect="EFFECT_PLOT_ADJUST_YIELD" run-once="false" permanent="true">
         <SubjectRequirements>
@@ -2999,7 +2999,7 @@
             </Requirement>
         </SubjectRequirements>
         <Argument name="YieldType">YIELD_FOOD</Argument>
-		<Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
     </Modifier>
     <Modifier id="9023B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_NARRATIVE" run-once="false" permanent="true">
         <Argument name="YieldType">YIELD_HAPPINESS</Argument>
@@ -3019,7 +3019,7 @@
             </Requirement>
         </SubjectRequirements>
         <Argument name="YieldType">YIELD_GOLD</Argument>
-		<Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
     </Modifier>
     <Modifier id="9024C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_NARRATIVE" run-once="false" permanent="true">
         <Argument name="YieldType">YIELD_CULTURE</Argument>
@@ -3035,7 +3035,7 @@
             </Requirement>
         </SubjectRequirements>
         <Argument name="YieldType">YIELD_CULTURE</Argument>
-		<Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
     </Modifier>
     <Modifier id="9025C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_UNIT_PRODUCTION" run-once="false" permanent="true">
         <Argument name="Percent">15</Argument>
@@ -3521,19 +3521,19 @@
         <Argument name="Amount">1</Argument>
         <Argument name="NarrativeTagType">NARRATIVE_TAG_LEADER_CHAIN_A</Argument>
     </Modifier>
-	<Modifier id="110B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_NARRATIVE" run-once="false" permanent="true">
-		<Argument name="YieldType">YIELD_CULTURE</Argument>
-		<Argument name="MultiplierType">REWARD_TYPE_MINOR_EARLY</Argument>
-	</Modifier>
-	<Modifier id="110C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_NARRATIVE" run-once="false" permanent="true">
-		<Argument name="YieldType">YIELD_GOLD</Argument>
-		<Argument name="MultiplierType">REWARD_TYPE_MINOR_EARLY</Argument>
-	</Modifier>
-	<Modifier id="110D_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
-		<Argument name="YieldType">YIELD_CULTURE</Argument>
-		<Argument name="Amount" type="ScaleByGameAge" extra="100">2</Argument>
-		<Argument name="ConstructibleType">BUILDING_PALACE</Argument>
-	</Modifier>
+    <Modifier id="110B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_NARRATIVE" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_CULTURE</Argument>
+        <Argument name="MultiplierType">REWARD_TYPE_MINOR_EARLY</Argument>
+    </Modifier>
+    <Modifier id="110C_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_NARRATIVE" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_GOLD</Argument>
+        <Argument name="MultiplierType">REWARD_TYPE_MINOR_EARLY</Argument>
+    </Modifier>
+    <Modifier id="110D_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_CULTURE</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">2</Argument>
+        <Argument name="ConstructibleType">BUILDING_PALACE</Argument>
+    </Modifier>
     <Modifier id="110D_NARRATIVE_MODIFIER2" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_DEDUCT_TREASURY_NARRATIVE" run-once="false" permanent="true">
         <Argument name="MultiplierType">REWARD_TYPE_MINOR_EARLY</Argument>
     </Modifier>
@@ -4963,7 +4963,7 @@
         </Requirement>
     </RequirementSet>
     <RequirementSet id="REQSET_3013A_NARRATIVE">
-            <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
             <Argument name="GossipTypes">GOSSIP_CONSTRUCT_BUILDING01,GOSSIP_GATHER_RESOURCE02</Argument>
             <Argument name="GOSSIP_CONSTRUCT_BUILDING01">Hash,ConstructibleType,BUILDING_TAVERN</Argument>
             <Argument name="GOSSIP_GATHER_RESOURCE02">Hash,ResourceType,RESOURCE_WHALES</Argument>
@@ -5880,7 +5880,7 @@
     </RequirementSet>
     <RequirementSet id="REQSET_3400A_NARRATIVE">
         <Requirement type="REQUIREMENT_PLAYER_HAS_ACTIVE_TRADITION">
-            <Argument name="TraditionType">TRADITION_COMPENDIOUS_BOOK_II</Argument>
+            <Argument name="TraditionType">TRADITION_COMPENDIOUS_BOOK_I</Argument>
             <Argument name="ActiveAtGoldenAge">True</Argument>
         </Requirement>
     </RequirementSet>
@@ -6468,20 +6468,20 @@
             <Argument name="PlayerMajority">True</Argument>
         </Requirement>
     </RequirementSet>
-	<RequirementSet id="REQSET_110A_NARRATIVE">
-		<Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_NARRATIVE_TAGS">
-			<Argument name="NarrativeTagType">NARRATIVE_TAG_CULTURAL</Argument>
-			<Argument name="Amount">2</Argument>
-		</Requirement>
-		<Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_NARRATIVE_TAGS">
-			<Argument name="NarrativeTagType">NARRATIVE_TAG_POLITICAL</Argument>
-			<Argument name="Amount">2</Argument>
-		</Requirement>
+    <RequirementSet id="REQSET_110A_NARRATIVE">
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_NARRATIVE_TAGS">
+            <Argument name="NarrativeTagType">NARRATIVE_TAG_CULTURAL</Argument>
+            <Argument name="Amount">2</Argument>
+        </Requirement>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_NARRATIVE_TAGS">
+            <Argument name="NarrativeTagType">NARRATIVE_TAG_POLITICAL</Argument>
+            <Argument name="Amount">2</Argument>
+        </Requirement>
         <Requirement type="REQUIREMENT_PLAYER_HAS_COMPLETED_PROGRESSION_TREE_NODE">
             <Argument name="ProgressionTreeNodeType">NODE_CIVIC_EX_MAIN_AUTHORITY</Argument>
             <Argument name="MinDepth">1</Argument>
         </Requirement>
-	</RequirementSet>
+    </RequirementSet>
     <RequirementSet id="REQSET_8068A_NARRATIVE">
         <Requirement xref="REQ_STORY_LEADER_HARRIET_TUBMAN"/>
         <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_BUILDINGS">
@@ -8279,7 +8279,7 @@
         <Requirement type="REQUIREMENT_PLAYER_HAS_COMMANDERS_WITH_X_LEVELS">
             <Argument name="LevelCount">3</Argument>
             <Argument name="OnlyCommendations">True</Argument>
-        </Requirement>        
+        </Requirement>
     </RequirementSet>
     <RequirementSet id="REQSET_8141A_NARRATIVE">
         <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">

@@ -8,9 +8,23 @@ var HighlightColors = /* @__PURE__ */ ((HighlightColors2) => {
   HighlightColors2[HighlightColors2["unitMovementZOC"] = 4278190335] = "unitMovementZOC";
   HighlightColors2[HighlightColors2["unitMovementZOCShadow"] = 0] = "unitMovementZOCShadow";
   HighlightColors2[HighlightColors2["unitCommanderRadius"] = 4294967295] = "unitCommanderRadius";
+  HighlightColors2[HighlightColors2["wmdTargetRange"] = 1711341312] = "wmdTargetRange";
+  HighlightColors2[HighlightColors2["wmdTargetRangeShadow"] = 65280] = "wmdTargetRangeShadow";
+  HighlightColors2[HighlightColors2["wmdDamageRadius"] = 285212927] = "wmdDamageRadius";
+  HighlightColors2[HighlightColors2["wmdDamageRadiusShadow"] = 4278190335] = "wmdDamageRadiusShadow";
   return HighlightColors2;
 })(HighlightColors || {});
+var CityHighlightColors = /* @__PURE__ */ ((CityHighlightColors2) => {
+  CityHighlightColors2[CityHighlightColors2["cityCenterHighlight"] = 4278242525] = "cityCenterHighlight";
+  CityHighlightColors2[CityHighlightColors2["urbanPlotHighlight"] = 4281545523] = "urbanPlotHighlight";
+  CityHighlightColors2[CityHighlightColors2["ruralPlotHighlight"] = 4280470528] = "ruralPlotHighlight";
+  CityHighlightColors2[CityHighlightColors2["ruralPlotShadow"] = 572705792] = "ruralPlotShadow";
+  return CityHighlightColors2;
+})(CityHighlightColors || {});
 const numberHexToStringRGB = (hex) => {
+  return `rgb(${hex >> 16 & 255},${hex >> 8 & 255},${hex >> 0 & 255})`;
+};
+const numberHexToStringBGR = (hex) => {
   return `rgb(${hex >> 0 & 255},${hex >> 8 & 255},${hex >> 16 & 255})`;
 };
 const applyPlayerColorsToElement = (element, playerId) => {
@@ -70,6 +84,9 @@ const ObjectToRgbaString = (object) => {
 const RGBAToString = (rgba) => {
   return ObjectToRgbaString({ r: rgba.r, g: rgba.g, b: rgba.b, a: rgba.a });
 };
+const RGBToNumber = (rgb) => {
+  return ((rgb.r & 255) << 16 | (rgb.g & 255) << 8 | rgb.b & 255) >>> 0;
+};
 
-export { HexToFloat4, HighlightColors, ObjectToRgbaString, RGBAToString, applyPlayerColorsToElement, getPlayerColorVariants, isPrimaryColorLighter, numberHexToStringRGB };
+export { CityHighlightColors, HexToFloat4, HighlightColors, ObjectToRgbaString, RGBAToString, RGBToNumber, applyPlayerColorsToElement, getPlayerColorVariants, isPrimaryColorLighter, numberHexToStringBGR, numberHexToStringRGB };
 //# sourceMappingURL=utilities-color.js.map

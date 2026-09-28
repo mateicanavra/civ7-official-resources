@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Types>
+		<!--Civ Unique Buildings-->
+		<Row Type="BUILDING_NEMETON" Kind="KIND_CONSTRUCTIBLE"/>
+		<Row Type="BUILDING_GOBEN" Kind="KIND_CONSTRUCTIBLE"/>
+		<Row Type="QUARTER_DUNON" Kind="KIND_QUARTER"/>
+		<!--Wonders-->
+		<Row Type="WONDER_VIX" Kind="KIND_CONSTRUCTIBLE"/>
+	</Types>
+    <TypeQuotes>
+		<Row Type="WONDER_VIX" Quote="LOC_QUOTE_WONDER_VIX" QuoteAuthor="LOC_QUOTE_AUTHOR_WONDER_VIX" QuoteAudio="VO_Quote_Vix"/>
+    </TypeQuotes>
+        <Constructibles>
+		<!--Civ Unique Buildings-->
+		<Row ConstructibleType="BUILDING_NEMETON" Name="LOC_BUILDING_NEMETON_NAME" Description="LOC_BUILDING_NEMETON_DESCRIPTION" Tooltip="LOC_BUILDING_NEMETON_TOOLTIP"  ConstructibleClass="BUILDING" Cost="135" Population="1" Age="AGE_ANTIQUITY" DistrictDefense="true" CostProgressionModel="COST_PROGRESSION_PREVIOUS_BUILDINGS_CITY"/>
+		<Row ConstructibleType="BUILDING_GOBEN" Name="LOC_BUILDING_GOBEN_NAME" Description="LOC_BUILDING_GOBEN_DESCRIPTION" Tooltip="LOC_BUILDING_GOBEN_TOOLTIP" ConstructibleClass="BUILDING" Cost="135" Population="1" Age="AGE_ANTIQUITY" DistrictDefense="true" CostProgressionModel="COST_PROGRESSION_PREVIOUS_BUILDINGS_CITY"/>
+		<!--Wonders-->
+		<Row ConstructibleType="WONDER_VIX" Name="LOC_WONDER_VIX_NAME" Description="LOC_WONDER_VIX_DESCRIPTION" Tooltip="LOC_WONDER_VIX_TOOLTIP" ConstructibleClass="WONDER" Cost="375" Population="0" RequiresUnlock="true" ImmuneDamage="true" Age="AGE_ANTIQUITY"/>
+	</Constructibles>
+	<Buildings>
+		<!--Civ Unique Buildings-->
+		<Row ConstructibleType="BUILDING_NEMETON" Movable="false" TraitType="TRAIT_GAUL"/>
+		<Row ConstructibleType="BUILDING_GOBEN" Movable="false" TraitType="TRAIT_GAUL"/>
+	</Buildings>
+	<Wonders>
+		<Row ConstructibleType="WONDER_VIX" MaxWorldInstances="1" BuildOnFrontier="true"/>
+	</Wonders>
+	<TypeTags>
+		<Row Type="BUILDING_NEMETON" Tag="HAPPINESS"/>
+		<Row Type="BUILDING_NEMETON" Tag="UNIQUE"/>
+		<Row Type="BUILDING_NEMETON" Tag="AGELESS"/>
+		<Row Type="BUILDING_NEMETON" Tag="FORTIFICATION"/>
+		<Row Type="BUILDING_GOBEN" Tag="CULTURE"/>
+		<Row Type="BUILDING_GOBEN" Tag="UNIQUE"/>
+		<Row Type="BUILDING_GOBEN" Tag="AGELESS"/>
+		<Row Type="BUILDING_GOBEN" Tag="FORTIFICATION"/>
+		<Row Type="WONDER_VIX" Tag="AGELESS"/>
+		<Row Type="WONDER_VIX" Tag="GREATWORK"/>
+	</TypeTags>
+	<Constructible_ValidDistricts>
+		<!--Civ Unique Buildings-->
+		<Row ConstructibleType="BUILDING_NEMETON" DistrictType="DISTRICT_CITY_CENTER"/>
+		<Row ConstructibleType="BUILDING_NEMETON" DistrictType="DISTRICT_URBAN"/>
+		<Row ConstructibleType="BUILDING_GOBEN" DistrictType="DISTRICT_CITY_CENTER"/>
+		<Row ConstructibleType="BUILDING_GOBEN" DistrictType="DISTRICT_URBAN"/>
+		<Row ConstructibleType="WONDER_VIX" DistrictType="DISTRICT_WONDER"/>
+	</Constructible_ValidDistricts>
+	<Constructible_YieldChanges>
+		<!--Civ Unique Buildings-->
+		<Row ConstructibleType="BUILDING_NEMETON" YieldType="YIELD_HAPPINESS" YieldChange="2"/>
+		<Row ConstructibleType="BUILDING_GOBEN" YieldType="YIELD_CULTURE" YieldChange="2"/>
+	</Constructible_YieldChanges>
+	<Constructible_Adjacencies>
+		<Row ConstructibleType="BUILDING_NEMETON" YieldChangeId="NemetonBreathtakingCulture"/>
+		<Row ConstructibleType="BUILDING_NEMETON" YieldChangeId="WonderCulture"/>
+		<Row ConstructibleType="BUILDING_GOBEN" YieldChangeId="GobenOtherCivProduction"/>
+		<Row ConstructibleType="BUILDING_GOBEN" YieldChangeId="WonderProduction"/>
+	</Constructible_Adjacencies>
+	<Constructible_Maintenances>
+		<Row ConstructibleType="BUILDING_GOBEN" YieldType="YIELD_GOLD" Amount="2"/>
+		<Row ConstructibleType="BUILDING_GOBEN" YieldType="YIELD_HAPPINESS" Amount="2"/>
+		<Row ConstructibleType="BUILDING_NEMETON" YieldType="YIELD_GOLD" Amount="2"/>
+	</Constructible_Maintenances>
+	<Adjacency_YieldChanges>
+		<Row ID="NemetonBreathtakingCulture" YieldType="YIELD_CULTURE" YieldChange="1" TilesRequired="1" ProjectMaxYield="true" AdjacentBreathtakingAppeal="true"/>
+		<Row ID="GobenOtherCivProduction" YieldType="YIELD_PRODUCTION" YieldChange="2" TilesRequired="1" ProjectMaxYield="true" AdjacentOtherOwner="true"/>
+	</Adjacency_YieldChanges>
+	<Constructible_Plunders>
+		<!--Civ Unique Buildings-->
+		<Row ConstructibleType="BUILDING_NEMETON" PlunderType="PLUNDER_HEAL" Amount="30"/>
+		<Row ConstructibleType="BUILDING_GOBEN" PlunderType="PLUNDER_HEAL" Amount="30"/>
+	</Constructible_Plunders>
+	<Constructible_BuildingCostProgressions>
+		 <Row ConstructibleType="BUILDING_NEMETON" Percent="5" />
+		 <Row ConstructibleType="BUILDING_GOBEN" Percent="5" />
+	</Constructible_BuildingCostProgressions>
+	<UniqueQuarters>
+		<Row UniqueQuarterType="QUARTER_DUNON" BuildingType1="BUILDING_NEMETON" BuildingType2="BUILDING_GOBEN" Name="LOC_QUARTER_DUNON_NAME" Description="LOC_QUARTER_DUNON_DESCRIPTION" Tooltip="LOC_QUARTER_DUNON_TOOLTIP" TraitType="TRAIT_GAUL"/>
+	</UniqueQuarters>
+	<GameModifiers>
+		<Row ModifierId="MOD_DUNON_DEFENSE"/>
+	</GameModifiers>
+	<UniqueQuarterModifiers>
+		<Row UniqueQuarterType="QUARTER_DUNON" ModifierId="MOD_DUNON_DEFENSE"/>
+	</UniqueQuarterModifiers>
+  <ConstructibleModifiers>
+	<Row ConstructibleType="BUILDING_GOBEN" ModifierId="MOD_GOBEN_ROUGH_PRODUCTION"/>
+	<Row ConstructibleType="BUILDING_GOBEN" ModifierId="MOD_GOBEN_ROUGH_PURCHASE"/>
+	<Row ConstructibleType="WONDER_VIX" ModifierId="MOD_VIX_AGELESS_YIELDS"/>
+  </ConstructibleModifiers>
+	<Constructible_Advisories>
+		<Row ConstructibleType="BUILDING_NEMETON" AdvisoryClassType="ADVISORY_CLASS_ECONOMIC"/>
+		<Row ConstructibleType="BUILDING_NEMETON" AdvisoryClassType="ADVISORY_CLASS_CULTURE"/>
+		<Row ConstructibleType="BUILDING_GOBEN" AdvisoryClassType="ADVISORY_CLASS_DIPLOMACY"/>
+		<Row ConstructibleType="BUILDING_GOBEN" AdvisoryClassType="ADVISORY_CLASS_HAPPINESS"/>
+		<Row ConstructibleType="WONDER_VIX" AdvisoryClassType="ADVISORY_CLASS_CULTURE"/>
+		<Row ConstructibleType="WONDER_VIX" AdvisoryClassType="ADVISORY_CLASS_ECONOMIC"/>
+	</Constructible_Advisories>
+	<Constructible_GreatWorks>
+		<Row ConstructibleType="WONDER_VIX" GreatWorkSlotType="GREATWORKSLOT_ANY" NumSlots="2"/>
+	</Constructible_GreatWorks>
+</Database>

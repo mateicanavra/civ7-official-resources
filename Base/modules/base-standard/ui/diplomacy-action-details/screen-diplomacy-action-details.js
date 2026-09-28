@@ -3,6 +3,7 @@ import NavTray from '../../../core/ui/navigation-tray/model-navigation-tray.js';
 import Panel, { AnchorType } from '../../../core/ui/panel-support.js';
 import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
 import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
+import { isMobile } from '../../../core/ui-next/services/view-experience.js';
 import DiplomacyManager from '../diplomacy/diplomacy-manager.js';
 import content from './screen-diplomacy-action-details.html.js';
 import styles from './screen-diplomacy-action-details.scss.js';
@@ -427,14 +428,13 @@ class DiplomacyActionDetailsScreen extends Panel {
       rightPledgeTotal.classList.add("grow");
       pledgeValuesContainer.appendChild(rightPledgeTotal);
     }
-    const uiViewExperience = UI.getViewExperience();
     const leadersContainer = document.createElement("fxs-hslot");
-    if (uiViewExperience != UIViewExperience.Mobile) {
+    if (!isMobile()) {
       leadersContainer.classList.add("leaders-container", "grow", "justify-between");
       this.mainPledgeContainer.appendChild(leadersContainer);
     }
     leftPledgeGroup.classList.add("left-pledge-group", "grow", "flex-wrap", "max-w-1\\/2");
-    if (uiViewExperience == UIViewExperience.Mobile) {
+    if (isMobile()) {
       leftPledgeGroup.classList.add("justify-center");
       if (pledgeBarContainer.children.length > 0) {
         pledgeBarContainer.insertBefore(leftPledgeGroup, pledgeBarContainer.children[0]);
@@ -472,8 +472,8 @@ class DiplomacyActionDetailsScreen extends Panel {
       });
     });
     rightPledgeGroup.classList.add("right-pledge-group", "grow", "flex-wrap", "max-w-1\\/2");
-    rightPledgeGroup.classList.toggle("justify-end", uiViewExperience != UIViewExperience.Mobile);
-    if (uiViewExperience == UIViewExperience.Mobile) {
+    rightPledgeGroup.classList.toggle("justify-end", !isMobile());
+    if (isMobile()) {
       rightPledgeGroup.classList.add("justify-center");
       pledgeBarContainer.appendChild(rightPledgeGroup);
     } else {
@@ -1282,6 +1282,10 @@ class DiplomacyActionDetailsScreen extends Panel {
     if (target?.leaderTypeName) {
       const targetIcon = document.createElement("leader-icon");
       targetIcon.classList.add("mr-2", "mt-1", "w-16", "h-16", "relative", "pointer-events-auto");
+      if (isMobile()) {
+        targetIcon.classList.remove("w-16", "h-16");
+        targetIcon.classList.add("w-20", "h-20");
+      }
       if (hasSupportWarButtonIconContainer) {
         targetIcon.classList.add("panel-diplomacy-project-support-leader-icon");
       }

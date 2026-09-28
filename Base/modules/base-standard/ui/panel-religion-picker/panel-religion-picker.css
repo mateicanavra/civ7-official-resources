@@ -6,10 +6,21 @@ Based on Robert Penner's easing equations
   line-height: normal;
   background-color: rgba(0, 0, 0, 0);
 }
+@media (max-height: 55.5555555556rem) {
+  .panel-religion-picker {
+    top: 1.4444444444rem;
+  }
+}
 @media (experience: mobile) {
   .panel-religion-picker {
     bottom: 0;
     top: 3.0555555556rem;
+  }
+}
+@media (experience: mobile) and (max-height: 55.5555555556rem) {
+  .panel-religion-picker {
+    width: 41.1111111111rem;
+    margin-bottom: 0.4444444444rem;
   }
 }
 
@@ -17,6 +28,33 @@ Based on Robert Penner's easing equations
   .religion-picker_confirm-container {
     margin-top: 0.6666666667rem;
     margin-bottom: 0.8888888889rem;
+  }
+}
+
+.religion-picker_religion-window {
+  height: 100%;
+}
+@media (experience: mobile) and (min-height: 55.5555555556rem) {
+  .religion-picker_religion-window {
+    height: 98%;
+    padding-bottom: 0.6666666667rem;
+  }
+}
+@media (experience: mobile) {
+  .religion-picker_religion-window .fxs-close-button {
+    right: 1rem;
+  }
+}
+@media (experience: mobile) {
+  .religion-picker_religion-window .fxs-scrollbar__track--vertical {
+    right: 1.7777777778rem;
+    margin-top: 0.4444444444rem;
+    margin-bottom: 0.4444444444rem;
+  }
+}
+@media (experience: mobile) and (max-height: 55.5555555556rem) {
+  .religion-picker_religion-window .fxs-scrollbar__track--vertical {
+    right: 2.7777777778rem;
   }
 }
 
@@ -30,6 +68,27 @@ Based on Robert Penner's easing equations
 
 .religion-picker_religion-choices {
   width: 37.7777777778rem;
+}
+@media (experience: mobile) {
+  .religion-picker_religion-choices {
+    margin-left: 0.7777777778rem;
+    margin-right: 0.7777777778rem;
+    width: 38.4444444444rem;
+    height: auto;
+  }
+}
+@media (experience: mobile) and (max-height: 55.5555555556rem) {
+  .religion-picker_religion-choices {
+    margin-left: 1.1111111111rem;
+    margin-right: 1.1111111111rem;
+    width: auto;
+  }
+}
+
+@media (experience: mobile) and (max-height: 55.5555555556rem) {
+  .religion-picker_religions {
+    padding-left: 0.6666666667rem;
+  }
 }
 
 .religion-entry:hover .religion-selected-glow, .religion-entry:focus .religion-selected-glow, .religion-entry.pressed .religion-selected-glow {

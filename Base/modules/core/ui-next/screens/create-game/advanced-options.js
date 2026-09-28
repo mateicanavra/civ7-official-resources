@@ -1,6 +1,6 @@
 import { template, insert, className } from '../../../vendor/solid-js/web/dist/web.js';
 import { createMemo, createComponent, Show, For, createRenderEffect, Index, Switch, Match } from '../../../vendor/solid-js/dist/solid.js';
-import ContextManager from '../../../ui/context-manager/context-manager.js';
+import { ContextManager } from '../../../ui/context-manager/context-manager.js';
 import { Layout } from '../../../ui/utilities/utilities-layout.js';
 import { Accordian } from '../../components/accordian.js';
 import { Activatable } from '../../components/activatable.js';
@@ -8,7 +8,7 @@ import { AlternatingRows } from '../../components/alternating-rows.js';
 import { AudioContextProvider } from '../../components/audio-context-provider.js';
 import { Button } from '../../components/button.js';
 import { Dropdown, DropdownItem } from '../../components/dropdown.js';
-import { Frame } from '../../components/frame.js';
+import { Frame, SafezoneMode } from '../../components/frame.js';
 import { Header } from '../../components/header.js';
 import { HeroButton2 } from '../../components/hero-button.js';
 import { Hotkeys } from '../../components/hotkeys.js';
@@ -30,9 +30,10 @@ import { PlayerSetupParametersModel, GameSetupParameterGroupsModel, SetupParamet
 import { LeaderSelectModel } from './leader-select-model.js';
 import { TicketBox } from './ticket-box.js';
 import { ComponentRegistry } from '../../services/component-registry.js';
+import { isMobile } from '../../services/view-experience.js';
 import style from './advanced-options.scss.js';
 
-var _tmpl$ = /* @__PURE__ */ template(`<div class="uppercase text-secondary-1 font-title mb-2 self-center"></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="flex flex-row items-center justify-start mb-4 self-center"></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="uppercase text-secondary-1 text-sm font-title"></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div class="uppercase text-secondary-1 text-sm font-title flex items-center justify-center py-4"></div>`), _tmpl$5 = /* @__PURE__ */ template(`<div class="create-game-civ-card-icon flex items-center justify-center"></div>`), _tmpl$6 = /* @__PURE__ */ template(`<div class="uppercase ml-2 mr-4"></div>`), _tmpl$7 = /* @__PURE__ */ template(`<div class="uppercase text-secondary-1 text-sm font-title mt-4"></div>`), _tmpl$8 = /* @__PURE__ */ template(`<div class="flex flex-row mt-1 items-center"></div>`), _tmpl$9 = /* @__PURE__ */ template(`<div class="my-1 h-12 flex relative"><div class="absolute size-full flex group-focus\\:opacity-0 group-hover\\:opacity-0 group-pressed\\:opacity-0"><div class="advanced-options__dropdown-bg flex-auto -ml-1"></div><div class="advanced-options__dropdown-bg flex-auto -mr-1 -scale-x-100"></div></div><div class="absolute size-full flex opacity-0 group-focus\\:opacity-100 group-hover\\:opacity-100 group-pressed\\:opacity-100"><div class="advanced-options__dropdown-bg-highlight flex-auto -ml-1"></div><div class="advanced-options__dropdown-bg-highlight flex-auto -mr-1 -scale-x-100"></div></div><div class="advanced-options__settings-header-content flex items-center justify-center size-full relative pointer-events-auto"><div class="advanced-options__header-decor w-5 h-7 rotate-90"></div><div class="font-title my-1 uppercase mx-4 tracking-150"></div><div class="advanced-options__header-decor w-5 h-7 -rotate-90"></div></div></div>`), _tmpl$10 = /* @__PURE__ */ template(`<div class="flex flex-row items-center"></div>`), _tmpl$11 = /* @__PURE__ */ template(`<div class="flex flex-row mt-4"><div class=w-12></div><div class="flex flex-row flex-auto"><div class="m-2 flex-1 items-center justify-center uppercase font-title tracking-150 pointer-events-auto"role=columnheader></div><div class="m-2 flex-1 items-center justify-center uppercase font-title tracking-150 pointer-events-auto"role=columnheader></div></div><div class=w-14></div></div>`), _tmpl$12 = /* @__PURE__ */ template(`<div class="flex-auto flex flex-row justify-start items-center"><div class="advanced-options_add-player-plus bg-no-repeat bg-contain size-12 m-3"></div></div>`), _tmpl$13 = /* @__PURE__ */ template(`<div class="close-button__bg absolute inset-0"></div>`), _tmpl$14 = /* @__PURE__ */ template(`<div class="close-button__bg-hover absolute inset-0 opacity-0 group-hover\\:opacity-100 group-focus\\:opacity-100 transition-opacity"></div>`), _tmpl$15 = /* @__PURE__ */ template(`<div class="close-button__bg-pressed absolute inset-0 opacity-0 group-active\\:opacity-100 group-pressed\\:opacity-100"></div>`), _tmpl$16 = /* @__PURE__ */ template(`<div class="flex flex-row"><div class="w-12 flex items-center justify-start text-base font-title"></div><div class="flex flex-row flex-auto px-6"></div><div class=w-14></div></div>`), _tmpl$17 = /* @__PURE__ */ template(`<div class="flex flex-row"><div class="flex-auto flex flex-row items-center pl-4"></div><div class=w-96></div></div>`), _tmpl$18 = /* @__PURE__ */ template(`<div></div>`), _tmpl$19 = /* @__PURE__ */ template(`<div class="flex flex-col"></div>`), _tmpl$20 = /* @__PURE__ */ template(`<div class="flex flex-row w-full pr-8 mt-2 items-end justify-between relative"><div class="flex flex-row"></div><div class="flex flex-row items-center relative -right-8"><div class="filigree-h4-left mt-3"></div><div class="filigree-h4-right mt-3"></div></div></div>`), _tmpl$21 = /* @__PURE__ */ template(`<div class="fullscreen flex flex-col"></div>`);
+var _tmpl$ = /* @__PURE__ */ template(`<div class="uppercase text-secondary-1 font-title mb-2 self-center"></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="flex flex-row items-center justify-start mb-4 self-center"></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="uppercase text-secondary-1 text-sm font-title"></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div class="uppercase text-secondary-1 text-sm font-title flex items-center justify-center py-4"></div>`), _tmpl$5 = /* @__PURE__ */ template(`<div class="create-game-civ-card-icon flex items-center justify-center"></div>`), _tmpl$6 = /* @__PURE__ */ template(`<div class="uppercase ml-2 mr-4"></div>`), _tmpl$7 = /* @__PURE__ */ template(`<div class="uppercase text-secondary-1 text-sm font-title mt-4"></div>`), _tmpl$8 = /* @__PURE__ */ template(`<div class="flex flex-row mt-1 items-center"></div>`), _tmpl$9 = /* @__PURE__ */ template(`<div class="my-1 h-12 flex relative"><div class="absolute size-full flex group-focus\\:opacity-0 group-hover\\:opacity-0 group-pressed\\:opacity-0"><div class="advanced-options__dropdown-bg flex-auto -ml-1"></div><div class="advanced-options__dropdown-bg flex-auto -mr-1 -scale-x-100"></div></div><div class="absolute size-full flex opacity-0 group-focus\\:opacity-100 group-hover\\:opacity-100 group-pressed\\:opacity-100"><div class="advanced-options__dropdown-bg-highlight flex-auto -ml-1"></div><div class="advanced-options__dropdown-bg-highlight flex-auto -mr-1 -scale-x-100"></div></div><div class="advanced-options__settings-header-content flex items-center justify-center size-full relative pointer-events-auto"><div class="advanced-options__header-decor w-5 h-7 rotate-90"></div><div class="font-title my-1 uppercase mx-4 tracking-150"></div><div class="advanced-options__header-decor w-5 h-7 -rotate-90"></div></div></div>`), _tmpl$10 = /* @__PURE__ */ template(`<div class="flex flex-row items-center"></div>`), _tmpl$11 = /* @__PURE__ */ template(`<div class="flex flex-row mt-4"><div class="w-12"></div><div class="flex flex-row flex-auto"><div class="m-2 flex-1 items-center justify-center uppercase font-title tracking-150 pointer-events-auto"role="columnheader"></div><div class="m-2 flex-1 items-center justify-center uppercase font-title tracking-150 pointer-events-auto"role="columnheader"></div></div><div class="w-14"></div></div>`), _tmpl$12 = /* @__PURE__ */ template(`<div class="flex-auto flex flex-row justify-start items-center"><div class="advanced-options_add-player-plus bg-no-repeat bg-contain size-12 m-3"></div></div>`), _tmpl$13 = /* @__PURE__ */ template(`<div class="close-button__bg absolute inset-0"></div>`), _tmpl$14 = /* @__PURE__ */ template(`<div class="close-button__bg-hover absolute inset-0 opacity-0 group-hover\\:opacity-100 group-focus\\:opacity-100 transition-opacity"></div>`), _tmpl$15 = /* @__PURE__ */ template(`<div class="close-button__bg-pressed absolute inset-0 opacity-0 group-active\\:opacity-100 group-pressed\\:opacity-100"></div>`), _tmpl$16 = /* @__PURE__ */ template(`<div class="flex flex-row"><div class="w-12 flex items-center justify-start text-base font-title"></div><div class="flex flex-row flex-auto px-6"></div><div class="w-14"></div></div>`), _tmpl$17 = /* @__PURE__ */ template(`<div class="flex flex-row"><div class="flex-auto flex flex-row items-center pl-4"></div><div class="w-96"></div></div>`), _tmpl$18 = /* @__PURE__ */ template(`<div></div>`), _tmpl$19 = /* @__PURE__ */ template(`<div class="flex flex-col"></div>`), _tmpl$20 = /* @__PURE__ */ template(`<div class="flex flex-row w-full pr-8 mt-2 items-end justify-between relative"><div class="flex flex-row"></div><div class="flex flex-row items-center relative -right-8"><div class="filigree-h4-left mt-3"></div><div class="filigree-h4-right mt-3"></div></div></div>`), _tmpl$21 = /* @__PURE__ */ template(`<div class="fullscreen flex flex-col"></div>`);
 const LeaderTooltip = (props) => {
   const leaderSelectModel = LeaderSelectModel.get();
   const leaderType = createMemo(() => props.data.value);
@@ -284,6 +285,7 @@ const AdvancedOptionPlayerOption = (props) => {
       }
     }), null);
     insert(_el$22, createComponent(L10n.Stylize, {
+      "class": "flex-auto",
       get text() {
         return GameSetup.resolveString(props.param.name) ?? "";
       }
@@ -295,13 +297,34 @@ const AdvancedOptionsPlayerSetup = () => {
   const playerOptions = PlayerSetupParametersModel.get().players;
   const slots = PlayerSetupParametersModel.get().configuration;
   const hasOpenSlots = createMemo(() => slots.openSlots().length > 0);
-  function closeSlot(slot) {
-    if (slots.activeSlots().length <= 2) return;
-    slot.setSlotStatus(SlotStatus.SS_CLOSED);
+  function closeSlot(slotToRemove) {
+    const activeSlots = slots.activeSlots();
+    if (activeSlots.length <= 2) return;
+    const removedIndex = activeSlots.findIndex((currentSlot) => currentSlot.playerId === slotToRemove.playerId);
+    if (removedIndex === -1) return;
+    const configurations = activeSlots.map((currentSlot) => ({
+      leader: getLeader(currentSlot).value.value,
+      civilization: getCiv(currentSlot).value.value
+    }));
+    for (let index = removedIndex; index < activeSlots.length - 1; index++) {
+      const currentSlot = activeSlots[index];
+      const nextConfiguration = configurations[index + 1];
+      if (!currentSlot || !nextConfiguration) continue;
+      getLeader(currentSlot).setValue(nextConfiguration.leader);
+      getCiv(currentSlot).setValue(nextConfiguration.civilization);
+    }
+    const lastSlot = activeSlots[activeSlots.length - 1];
+    if (!lastSlot) return;
+    getLeader(lastSlot).setValue("RANDOM");
+    getCiv(lastSlot).setValue("RANDOM");
+    lastSlot.setSlotStatus(SlotStatus.SS_CLOSED);
     slots.reload();
   }
   function openSlot() {
     if (hasOpenSlots()) {
+      const availableSlots = slots.openSlots();
+      const slot = availableSlots[availableSlots.length - 1];
+      if (!slot) return;
       slots.openSlots()[0].setSlotStatus(SlotStatus.SS_COMPUTER);
       slots.reload();
     }
@@ -543,11 +566,11 @@ const AdvancedOptionMultiselectField = (props) => {
   function getRowClass(index) {
     return index % 2 == 0 ? "bg-primary-4" : "bg-primary-5";
   }
-  return createComponent(AdvancedOptionsAccordian, {
-    get title() {
-      return stringCache.resolve(props.parameter.name);
+  return createComponent(Show, {
+    get when() {
+      return props.showHeader;
     },
-    get children() {
+    get fallback() {
       return createComponent(Index, {
         get each() {
           return props.parameter.domain.possibleValues ?? [];
@@ -574,6 +597,42 @@ const AdvancedOptionMultiselectField = (props) => {
           createRenderEffect(() => className(_el$40, getRowClass(index)));
           return _el$40;
         })()
+      });
+    },
+    get children() {
+      return createComponent(AdvancedOptionsAccordian, {
+        get title() {
+          return stringCache.resolve(props.parameter.name);
+        },
+        get children() {
+          return createComponent(Index, {
+            get each() {
+              return props.parameter.domain.possibleValues ?? [];
+            },
+            children: (domainValue, index) => (() => {
+              var _el$41 = _tmpl$18();
+              insert(_el$41, createComponent(AdvancedOptionsParameterRow, {
+                get rowName() {
+                  return stringCache.resolve(domainValue().name);
+                },
+                get children() {
+                  return createComponent(SelectorSmall, {
+                    "class": "m-1",
+                    get items() {
+                      return valueItems(domainValue());
+                    },
+                    setSelectedValue: (value) => setValue(domainValue(), value),
+                    selectedValue: () => hasValue(domainValue().value),
+                    previousActionKey: "nav-left",
+                    nextActionKey: "nav-right"
+                  });
+                }
+              }));
+              createRenderEffect(() => className(_el$41, getRowClass(index)));
+              return _el$41;
+            })()
+          });
+        }
       });
     }
   });
@@ -604,11 +663,14 @@ const AdvancedOptionBooleanField = (props) => {
 const AdvancedOptionSelectorField = (props) => {
   const stringCache = useGameSetupStringCacheContext();
   function extractSelectorValues(values) {
-    return values.map((v) => ({
-      name: stringCache.resolve(v.name),
-      value: v.value,
-      description: `{${stringCache.resolve(props.parameter.description)}}[N] [N]{${stringCache.resolve(v.description)}}`
-    }));
+    return values.map((v) => {
+      const description = stringCache.resolve(v.description);
+      return {
+        name: stringCache.resolve(v.name),
+        value: v.value,
+        description: `{${stringCache.resolve(props.parameter.description)}}${description ? `[N] [N]{${description}}` : ""}`
+      };
+    });
   }
   function isParameterValid(param) {
     return typeof param == "object" && !param.hidden && !param.destroyed && (param.domain.type != GameSetupDomainType.Select || (param.domain.possibleValues?.length ?? 0) > 1) && param.invalidReason == GameSetupParameterInvalidReason.Valid;
@@ -690,6 +752,9 @@ const AdvancedOptionField = (props) => {
           return createComponent(AdvancedOptionMultiselectField, {
             get parameter() {
               return props.parameter;
+            },
+            get showHeader() {
+              return props.showHeader;
             }
           });
         }
@@ -753,6 +818,41 @@ const AdvancedOptionField = (props) => {
 };
 const AdvancedOptionsGameSetup = () => {
   const model = GameSetupParameterGroupsModel.get();
+  function isCategoryRedundant(setupParam) {
+    const categoryParamMap = /* @__PURE__ */ new Map();
+    if (setupParam) {
+      for (const pv of setupParam.domain.possibleValues ?? []) {
+        const additionalPropsValue = pv.additionalProperties?.find((ap) => ap.name == GameSetup.makeString("Category"))?.value;
+        let category = typeof additionalPropsValue === "string" ? additionalPropsValue : null;
+        if (category == null) {
+          const q = Database.query("config", "SELECT Name from ParameterGroups where GroupID = ? LIMIT 1", GameSetup.resolveString(setupParam.group));
+          if (q && q.length > 0 && typeof q[0].Name == "string") {
+            category = q[0].Name;
+          }
+        }
+        if (category == null) {
+          category = "LOC_ADVANCED_OPTIONS";
+        }
+        if (!categoryParamMap.get(category)) {
+          categoryParamMap.set(category, [pv]);
+        } else {
+          categoryParamMap.get(category).push(pv);
+        }
+      }
+    }
+    const groupNameQuery = Database.query("config", "SELECT Name from ParameterGroups where GroupID = ? LIMIT 1", GameSetup.resolveString(setupParam.group));
+    let groupName = null;
+    if (groupNameQuery && groupNameQuery.length > 0 && typeof groupNameQuery[0].Name == "string") {
+      groupName = groupNameQuery[0].Name;
+    }
+    const isSingleCategory = categoryParamMap.size == 1;
+    const onlyCategoryKey = isSingleCategory ? [...categoryParamMap.keys()][0] : null;
+    let categoryIsRedundant = false;
+    if (isSingleCategory && (onlyCategoryKey == GameSetup.resolveString(setupParam.name) || onlyCategoryKey == groupName)) {
+      categoryIsRedundant = true;
+    }
+    return categoryIsRedundant;
+  }
   return createComponent(ScrollArea, {
     "class": "flex-auto",
     get children() {
@@ -767,8 +867,8 @@ const AdvancedOptionsGameSetup = () => {
             children: ([groupId, parameters]) => {
               const parameterList = Object.values(parameters).filter((param) => typeof param == "object" && !param.hidden && !param.destroyed && (param.domain.type != GameSetupDomainType.Select || (param.domain.possibleValues?.length ?? 0) > 0) && param.invalidReason == GameSetupParameterInvalidReason.Valid);
               return parameterList.length > 0 ? (() => {
-                var _el$41 = _tmpl$19();
-                insert(_el$41, createComponent(AdvancedOptionsAccordian, {
+                var _el$42 = _tmpl$19();
+                insert(_el$42, createComponent(AdvancedOptionsAccordian, {
                   get title() {
                     return model.groupNames.get(groupId) ?? groupId;
                   },
@@ -776,12 +876,15 @@ const AdvancedOptionsGameSetup = () => {
                     return createComponent(AlternatingRows, {
                       each: parameterList,
                       children: (parameter) => createComponent(AdvancedOptionField, {
-                        parameter
+                        parameter,
+                        get showHeader() {
+                          return !isCategoryRedundant(parameter);
+                        }
                       })
                     });
                   }
                 }));
-                return _el$41;
+                return _el$42;
               })() : void 0;
             }
           });
@@ -823,19 +926,22 @@ const AdvancedOptionsScreenComponent = () => {
     });
   }
   return (() => {
-    var _el$42 = _tmpl$21();
-    insert(_el$42, createComponent(Hotkeys, {
+    var _el$43 = _tmpl$21();
+    insert(_el$43, createComponent(Hotkeys, {
       hotkeys: [{
         hotkeyAction: "cancel",
         onActivate: () => popupContext.close("advanced-options")
       }]
     }), null);
-    insert(_el$42, createComponent(Frame.F1, {
+    insert(_el$43, createComponent(Frame.F1, {
       contentClass: "px-22 pointer-events-auto",
       get style() {
-        return {
+        return createMemo(() => !!isMobile())() ? {} : {
           "max-width": Layout.pixels(1280)
         };
+      },
+      get safezoneMode() {
+        return isMobile() ? SafezoneMode.Full : SafezoneMode.None;
       },
       get children() {
         return [createComponent(Header, {
@@ -869,8 +975,8 @@ const AdvancedOptionsScreenComponent = () => {
             });
           }
         }), (() => {
-          var _el$43 = _tmpl$20(), _el$44 = _el$43.firstChild, _el$45 = _el$44.nextSibling, _el$46 = _el$45.firstChild, _el$47 = _el$46.nextSibling;
-          insert(_el$44, createComponent(Button, {
+          var _el$44 = _tmpl$20(), _el$45 = _el$44.firstChild, _el$46 = _el$45.nextSibling, _el$47 = _el$46.firstChild, _el$48 = _el$47.nextSibling;
+          insert(_el$45, createComponent(Button, {
             "class": "uppercase mr-2 relative",
             disableFocus: true,
             hotkeyAction: "shell-action-3",
@@ -885,7 +991,7 @@ const AdvancedOptionsScreenComponent = () => {
               })];
             }
           }), null);
-          insert(_el$44, createComponent(Tooltip.Text, {
+          insert(_el$45, createComponent(Tooltip.Text, {
             get text() {
               return Locale.stylize("LOC_SAVE_LOAD_TITLE_SAVE_CONFIG");
             },
@@ -903,7 +1009,7 @@ const AdvancedOptionsScreenComponent = () => {
               });
             }
           }), null);
-          insert(_el$44, createComponent(Tooltip.Text, {
+          insert(_el$45, createComponent(Tooltip.Text, {
             get text() {
               return Locale.stylize("LOC_SAVE_LOAD_TITLE_LOAD_CONFIG");
             },
@@ -921,7 +1027,7 @@ const AdvancedOptionsScreenComponent = () => {
               });
             }
           }), null);
-          insert(_el$45, createComponent(HeroButton2, {
+          insert(_el$46, createComponent(HeroButton2, {
             "class": "px-4 py-4 relative",
             disableFocus: true,
             hotkeyAction: "shell-action-1",
@@ -933,12 +1039,12 @@ const AdvancedOptionsScreenComponent = () => {
                 "class": "ml-2"
               })];
             }
-          }), _el$47);
-          return _el$43;
+          }), _el$48);
+          return _el$44;
         })()];
       }
     }), null);
-    return _el$42;
+    return _el$43;
   })();
 };
 const AdvancedOptionsScreen = ComponentRegistry.register({

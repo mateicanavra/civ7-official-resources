@@ -60,7 +60,7 @@ const ActivatableComponent = (props) => {
   const [root, setRoot] = createPropsRefSignal(() => props.ref);
   const [isPressed, setIsPressed] = createSignal(false);
   const isHidden = createMemo(() => IsControllerActive() && !!props.navTrayText && props.navTrayText.length > 0);
-  const isDisabled = createMemo(() => props.disabled);
+  const isDisabled = createMemo(() => props.disabled || props.disableVisual);
   const hotkeyIconProvider = {
     disabled: isDisabled,
     actionName: hotkeyIcon
@@ -94,7 +94,7 @@ const ActivatableComponent = (props) => {
     }
     if (inputEvent.detail.name == "touch-touch") {
       setIsPressed(true);
-      if (props.disabled) {
+      if (isDisabled()) {
         triggerUiSFX("pressError", "data-audio-error-press");
         triggerUiVFX("pressError");
       } else {
@@ -106,7 +106,7 @@ const ActivatableComponent = (props) => {
       return;
     }
     if (inputEvent.detail.name == "mousebutton-left" || inputEvent.detail.name == actionButton() || inputEvent.detail.name == "touch-tap" || inputEvent.detail.name == "keyboard-enter") {
-      if (props.disabled) {
+      if (isDisabled()) {
         if (isStart) {
           triggerUiSFX("pressError", "data-audio-error-press");
           triggerUiVFX("pressError");
@@ -115,7 +115,11 @@ const ActivatableComponent = (props) => {
         }
       } else {
         if (isStart) {
-          triggerUiSFX("press", "data-audio-press");
+          if (props.disableAudio) {
+            triggerUiSFX("pressError", "data-audio-error-press");
+          } else {
+            triggerUiSFX("press", "data-audio-press");
+          }
           triggerUiVFX("press");
         } else {
           activate();
@@ -128,8 +132,13 @@ const ActivatableComponent = (props) => {
     }
   };
   function activate() {
+    const wasAudioDisabled = props.disableAudio;
     props.onActivate?.();
-    triggerUiSFX("activate", "data-audio-activate");
+    if (wasAudioDisabled) {
+      triggerUiSFX("activateError", "data-audio-error-activate");
+    } else {
+      triggerUiSFX("activate", "data-audio-activate");
+    }
     triggerUiVFX("activate");
     if (!props.disableTrigger) {
       triggerContext?.trigger(TriggerType.Activate, root());
@@ -139,7 +148,7 @@ const ActivatableComponent = (props) => {
     var _el$ = _tmpl$();
     use(registerNavTray, _el$, () => [props.hotkeyAction, () => props.disabled != true, props.navTrayText]);
     use(registerHotkey, _el$, () => [props.hotkeyAction, () => props.disabled != true, activate]);
-    use(isFocusable, _el$, () => [!props.disableFocus, props.autoFocus]);
+    use(isFocusable, _el$, () => [!props.disabled && !props.disableFocus, props.autoFocus]);
     use(setRoot, _el$);
     spread(_el$, mergeProps(props, {
       get role() {
@@ -151,9 +160,9 @@ const ActivatableComponent = (props) => {
       get classList() {
         return {
           ...props.classList,
-          disabled: props.disabled,
-          "cursor-not-allowed": props.disabled && !props.suppressPointerChanges,
-          "cursor-pointer": !props.disabled && !props.suppressPointerChanges,
+          disabled: isDisabled(),
+          "cursor-not-allowed": isDisabled() && !props.suppressPointerChanges,
+          "cursor-pointer": !isDisabled() && !props.suppressPointerChanges,
           pressed: isPressed(),
           hidden: isHidden()
         };

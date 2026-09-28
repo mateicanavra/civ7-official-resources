@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+	<!-- ==================================================	-->
+	<!--				Civ-Specific Trees					-->
+	<!-- ==================================================	-->
+	<Modifier id="TRAIT_INITIAL_SETTLEMENT_CAP_REDUX" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_SETTLEMENT_CAP" run-once="true" permanent="true">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_GAME_IS_STARTED"/>
+			<Requirement type="REQUIREMENT_PLAYER_HAS_CIVILIZATION_OR_LEADER_TRAIT" inverse="true">
+				<Argument name="TraitType">TRAIT_BABYLON</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">8</Argument>
+		<Argument name="Minimum">true</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_INITIAL_SETTLEMENT_CAP_BABYLON" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_SETTLEMENT_CAP" run-once="true" permanent="true">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_GAME_IS_STARTED"/>
+		</SubjectRequirements>
+		<Argument name="Amount">4</Argument>
+		<Argument name="Minimum">true</Argument>
+	</Modifier>
+</GameEffects>

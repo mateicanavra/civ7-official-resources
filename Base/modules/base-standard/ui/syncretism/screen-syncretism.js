@@ -1,5 +1,5 @@
 import { template, insert, className } from '../../../core/vendor/solid-js/web/dist/web.js';
-import { createSignal, useContext, onMount, onCleanup, createEffect, createComponent, For, createRenderEffect } from '../../../core/vendor/solid-js/dist/solid.js';
+import { createSignal, useContext, onMount, onCleanup, createEffect, createComponent, For, createMemo, createRenderEffect } from '../../../core/vendor/solid-js/dist/solid.js';
 import { AudioContextProvider } from '../../../core/ui-next/components/audio-context-provider.js';
 import { CloseButton } from '../../../core/ui-next/components/close-button.js';
 import { FiligreeTitle } from '../../../core/ui-next/components/filigree-title.js';
@@ -9,17 +9,18 @@ import { Panel } from '../../../core/ui-next/components/panel.js';
 import { ScrollArea } from '../../../core/ui-next/components/scroll-area.js';
 import { SpatialSlot } from '../../../core/ui-next/components/slot.js';
 import { Tab } from '../../../core/ui-next/components/tab.js';
-import { NestedTooltipContext } from '../../../core/ui-next/components/tooltip-compat.js';
+import { NestedTooltipContext } from '../../../core/ui-next/components/tooltip-nested.js';
 import { useAudio } from '../../../core/ui-next/services/audio-support.js';
 import { ComponentRegistry } from '../../../core/ui-next/services/component-registry.js';
 import { HotkeyContext } from '../../../core/ui-next/services/hotkey.js';
 import { IsControllerActive } from '../../../core/ui-next/services/input.js';
+import { isMobile } from '../../../core/ui-next/services/view-experience.js';
 import { SyncCard } from './syncretism-card.js';
 import { SyncretismConfirm } from './syncretism-confirm.js';
 import style from './screen-syncretism.scss.js';
 import { SyncretismScreenModel, SyncretismScreenModelContext } from './syncretism-screen-model.js';
 
-var _tmpl$ = /* @__PURE__ */ template(`<div class="size-full flex flex-col flex-auto px-3 py-5 relative"><div><div></div></div><div></div><div class="relative flex-auto"><div class="absolute w-full syncretism-body-bg-overlay -top-2 -bottom-2"></div></div></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="inset-1 absolute bg-cover bg-no-repeat syncretism-bg opacity-20"></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="inset-1 absolute bg-cover bg-no-repeat syncretism-bg-gradient"></div>`);
+var _tmpl$ = /* @__PURE__ */ template(`<div class="size-full flex flex-col flex-auto px-3 py-5 relative"><div><div></div></div><div></div><div class="relative flex-auto"><div class="absolute w-full syncretism-body-bg-overlay -top-2 -bottom-2"></div></div></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="absolute bg-cover bg-no-repeat syncretism-frame fullscreen-outside-safezone"></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div></div>`);
 const SyncretismStartScreen = (props) => {
   const model = SyncretismScreenModel.get();
   const [civName, setCivName] = createSignal("");
@@ -74,7 +75,7 @@ const SyncretismStartScreen = (props) => {
         return createComponent(SpatialSlot, {
           name: "syncretism-choices",
           get ["class"]() {
-            return `flex flex-auto flex-wrap size-full ${model.isSmallScreen() ? "justify-center" : ""}`;
+            return `flex flex-auto flex-wrap size-full ${model.isSmallScreen() && !isMobile() ? "justify-center" : ""}`;
           },
           get children() {
             return createComponent(For, {
@@ -89,7 +90,11 @@ const SyncretismStartScreen = (props) => {
                     get children() {
                       return createComponent(SyncCard, {
                         get style() {
-                          return model.isSmallScreen() ? {
+                          return createMemo(() => !!isMobile())() ? {
+                            width: "48%",
+                            "margin-left": "0.85%",
+                            "margin-right": "0.85%"
+                          } : model.isSmallScreen() ? {
                             width: "95%"
                           } : {
                             width: "31.5%",
@@ -104,7 +109,7 @@ const SyncretismStartScreen = (props) => {
                           return item.civIcon;
                         },
                         get ["class"]() {
-                          return `${model.isSmallScreen() ? "mb-10 mr-5" : "mb-5"} mt-3`;
+                          return `${model.isSmallScreen() && !isMobile() ? "mb-10 mr-5" : "mb-5"} mt-3`;
                         },
                         get itemsAvailable() {
                           return item.itemsAvailable;
@@ -178,13 +183,23 @@ const SyncretismScreenComponent = (props) => {
             },
             name: "Syncretism Screen",
             id: "screen-syncretism",
-            "class": "absolute syncretism-frame bg-cover bg-no-repeat relative top-8 bottom-2 right-4 left-4",
+            get ["class"]() {
+              return `bg-cover bg-no-repeat ${isMobile() ? "relative size-full" : "absolute top-8 bottom-2 right-4 left-4"}`;
+            },
             onCancelInput: handleCancelInput,
             get children() {
               return createComponent(AudioContextProvider, {
                 segment: "SyncretismScreen",
                 get children() {
-                  return [_tmpl$2(), _tmpl$3(), createComponent(Tab, {
+                  return [_tmpl$2(), (() => {
+                    var _el$8 = _tmpl$3();
+                    createRenderEffect(() => className(_el$8, `${isMobile() ? "" : "m-1"} absolute bg-cover bg-no-repeat syncretism-bg opacity-20 fullscreen-outside-safezone`));
+                    return _el$8;
+                  })(), (() => {
+                    var _el$9 = _tmpl$3();
+                    createRenderEffect(() => className(_el$9, `${isMobile() ? "" : "m-1"} absolute bg-cover bg-no-repeat syncretism-bg-gradient fullscreen-outside-safezone`));
+                    return _el$9;
+                  })(), createComponent(Tab, {
                     get activeTab() {
                       return model.activeTab;
                     },

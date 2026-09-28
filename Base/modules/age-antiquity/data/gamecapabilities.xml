@@ -6,4 +6,7 @@
 	<GameCapabilities>
 		<Row GameCapability="CAPABILITY_FOUND_PANTHEONS"/>
 	</GameCapabilities>
+	<GameCapabilityDependencies>
+		<Row GameCapability="CAPABILITY_FOUND_PANTHEONS" DependsOnCapability="CAPABILITY_RELIGION" />
+	</GameCapabilityDependencies>
 </Database>

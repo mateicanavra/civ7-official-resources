@@ -660,9 +660,9 @@
 		<Row ID="CaravansariRiverGold" YieldType="YIELD_GOLD" YieldChange="1" TilesRequired="1" ProjectMaxYield="true" AdjacentNavigableRiver="true"/>
 		<Row ID="CaravansariResourceGold" YieldType="YIELD_GOLD" YieldChange="1" TilesRequired="1" AdjacentResource="true"/>
 		<!-- Wildcard Adjacency Yields Changes -->
-		<Row ID="BrihadeeswararTempleWildcardNavigableHappiness" YieldType="YIELD_HAPPINESS" YieldChange="1" TilesRequired="1" ProjectMaxYield="true" AdjacentNavigableRiver="true"/>
-		<Row ID="MachuPikchuWildcardMountainCulture" YieldType="YIELD_CULTURE" YieldChange="1" TilesRequired="1" ProjectMaxYield="true" AdjacentTerrain="TERRAIN_MOUNTAIN"/>
-		<Row ID="MachuPikchuWildcardMountainGold" YieldType="YIELD_GOLD" YieldChange="1" TilesRequired="1" ProjectMaxYield="true" AdjacentTerrain="TERRAIN_MOUNTAIN"/>
+		<Row ID="BrihadeeswararTempleWildcardNavigableHappiness" YieldType="YIELD_HAPPINESS" YieldChange="1" TilesRequired="1" ProjectMaxYield="true" AdjacentNavigableRiver="true" PersistOnTransfer="true"/>
+		<Row ID="MachuPikchuWildcardMountainCulture" YieldType="YIELD_CULTURE" YieldChange="1" TilesRequired="1" ProjectMaxYield="true" AdjacentTerrain="TERRAIN_MOUNTAIN" PersistOnTransfer="true"/>
+		<Row ID="MachuPikchuWildcardMountainGold" YieldType="YIELD_GOLD" YieldChange="1" TilesRequired="1" ProjectMaxYield="true" AdjacentTerrain="TERRAIN_MOUNTAIN" PersistOnTransfer="true"/>
 		<Row ID="CityOfPeaceWildcardScienceCityCenter" Age="AGE_EXPLORATION" YieldType="YIELD_SCIENCE" YieldChange="1" TilesRequired="1" ProjectMaxYield="true" AdjacentDistrict="DISTRICT_CITY_CENTER"/>
 		<Row ID="TerraceFarmWildcardGoldBuildingsUrban" YieldType="YIELD_GOLD" YieldChange="1" TilesRequired="1" ProjectMaxYield="true" AdjacentConstructible="IMPROVEMENT_TERRACE_FARM"/>
 		<Row ID="TemplesWildcardHappinesBuildingsUrban" Age="AGE_EXPLORATION" YieldType="YIELD_HAPPINESS" YieldChange="1" TilesRequired="1" AdjacentConstructible="BUILDING_TEMPLE"/>

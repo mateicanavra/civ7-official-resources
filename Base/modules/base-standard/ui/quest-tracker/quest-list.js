@@ -1,6 +1,6 @@
 import { Audio } from '../../../core/ui/audio-base/audio-support.js';
 import { FxsActivatable } from '../../../core/ui/components/fxs-activatable.js';
-import ActionHandler from '../../../core/ui/input/action-handler.js';
+import { IsControllerActive } from '../../../core/ui-next/services/input.js';
 import { ActiveDeviceTypeChangedEventName } from '../../../core/ui/input/input-events.js';
 import { LensActivationEventName } from '../../../core/ui/lenses/lens-manager.js';
 import Panel from '../../../core/ui/panel-support.js';
@@ -55,7 +55,7 @@ class QuestList extends Panel {
     const questTracker = getQuestTracker();
     questTracker.AddEvent.on(this.updateListener);
     questTracker.RemoveEvent.on(this.updateListener);
-    if (ActionHandler.isGamepadActive) {
+    if (IsControllerActive()) {
       questTracker.isDrawerOut = false;
     }
   }
@@ -102,7 +102,7 @@ class QuestList extends Panel {
     questTracker.isDrawerOut = !questTracker.isDrawerOut;
     const audioId = questTracker.isDrawerOut ? "data-audio-journal-open" : "data-audio-journal-close";
     Audio.playSound(audioId, "journal");
-    if (ActionHandler.isGamepadActive) {
+    if (IsControllerActive()) {
       const focusManager = FocusManager.get();
       if (questTracker.isDrawerOut) {
         Input.setActiveContext(InputContext.Dual);

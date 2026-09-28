@@ -443,16 +443,16 @@
 		</challenge>
 		<challenge id="CHALLENGE_LEADER_MACHIAVELLI_QUEST_A_EXPLORATION" scope="Campaign" difficulty="2">
 			<l10n>
-				<name>A Delicate Balance</name>
-				<description>As Machiavelli in Exploration, complete a quest to use the sword over the pen.</description>
+				<name>Open Borders</name>
+				<description>As Machiavelli in Exploration, complete a quest to follow a scholar's wisdom.</description>
 			</l10n>
 			<sortIndex>15300</sortIndex>
 			<reward type="XP" reward="50" />
 		</challenge>
 		<challenge id="CHALLENGE_LEADER_MACHIAVELLI_QUEST_B_EXPLORATION" scope="Campaign" difficulty="2">
 			<l10n>
-				<name>Waves of Gold</name>
-				<description>As Machiavelli in Exploration, complete a quest to harness the wealth of the seas.</description>
+				<name>The Fires of Youth</name>
+				<description>As Machiavelli in Exploration, complete a quest to ignite the ambitions of youth.</description>
 			</l10n>
 			<sortIndex>15400</sortIndex>
 			<reward type="XP" reward="50" />
@@ -514,23 +514,21 @@
 			<reward type="XP" reward="50" />
 		</challenge>
 		<!-- Hidden Challenges -->
-		<challenge id="CHALLENGE_LEADER_MACHIAVELLI_UNLOCKED_STRATEGYCARDS_EXPLORATION_RECOVER" scope="Career" difficulty="1" hidden="true" allowRewardWhenHidden="true">
+		<challenge id="CHALLENGE_MACHIAVELLI_UNLOCKED_STRATEGYCARDS_EXPLORATION" scope="Campaign" difficulty="1" hidden="true" allowRewardWhenHidden="true">
 			<l10n>
 				<name>Age Transition Card Exploration</name>
 				<description>As Machiavelli unlock age transition legend strategycards for Exploration Age.</description>
 			</l10n>
 			<sortIndex>20000</sortIndex>
-			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_MACHIAVELLI_UNLOCKED_STRATEGYCARDS_EXPLORATION_COMPLETED" threshold="1" />
 			<reward type="UnlockableReward" reward="STRATEGYCARD_AS_MACHIAVELLI_EXPLORATION_1" />
 			<reward type="UnlockableReward" reward="STRATEGYCARD_AS_MACHIAVELLI_EXPLORATION_2" />
 		</challenge>
-		<challenge id="CHALLENGE_LEADER_MACHIAVELLI_UNLOCKED_STRATEGYCARDS_MODERN_RECOVER" scope="Career" difficulty="1" hidden="true" allowRewardWhenHidden="true">
+		<challenge id="CHALLENGE_MACHIAVELLI_UNLOCKED_STRATEGYCARDS_MODERN" scope="Campaign" difficulty="1" hidden="true" allowRewardWhenHidden="true">
 			<l10n>
 				<name>Age Transition Card Modern</name>
 				<description>As Machiavelli unlock age transition legend strategycards for Modern Age.</description>
 			</l10n>
 			<sortIndex>20100</sortIndex>
-			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_MACHIAVELLI_UNLOCKED_STRATEGYCARDS_MODERN_COMPLETED" threshold="1" />
 			<reward type="UnlockableReward" reward="STRATEGYCARD_AS_MACHIAVELLI_MODERN_1" />
 			<reward type="UnlockableReward" reward="STRATEGYCARD_AS_MACHIAVELLI_MODERN_2" />
 		</challenge>

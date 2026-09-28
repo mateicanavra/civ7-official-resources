@@ -1,5 +1,5 @@
 import { Audio } from '../../../core/ui/audio-base/audio-support.js';
-import ContextManager from '../../../core/ui/context-manager/context-manager.js';
+import { ContextManager } from '../../../core/ui/context-manager/context-manager.js';
 import { DialogBoxManager } from '../../../core/ui/dialog-box/manager-dialog-box.js';
 import { InterfaceMode } from '../../../core/ui/interface-modes/interface-modes.js';
 import NavTray from '../../../core/ui/navigation-tray/model-navigation-tray.js';
@@ -76,6 +76,7 @@ class DiplomacyPeaceDealPanel extends DiplomacyInputPanel {
   pendingDealRemovals = [];
   dealHasBeenModified = false;
   dealSessionID;
+  cityOrderIndex = /* @__PURE__ */ new Map();
   onAttach() {
     window.addEventListener("interface-mode-changed", this.interfaceModeChangedListener);
     window.addEventListener("diplomacy-dialog-request-close", this.diplomacyDialogRequestCloseListener);
@@ -704,8 +705,6 @@ class DiplomacyPeaceDealPanel extends DiplomacyInputPanel {
     dealItem.setAttribute("componentid", theCityID);
     dealItem.setAttribute("node-id", city.name);
     dealItem.setAttribute("data-audio-group-ref", "peace-deal-item");
-    const isCede = transferType == DiplomacyDealItemCityTransferTypes.CEDE_OCCUPIED;
-    dealItem.setAttribute("occupied", isCede ? "true" : "false");
     const owner = Players.get(city.owner);
     if (!owner) {
       console.error(
@@ -835,23 +834,30 @@ class DiplomacyPeaceDealPanel extends DiplomacyInputPanel {
     dealItem.appendChild(settlementInfoWrapper);
     settlementInfo.setAttribute("node-id", city.name);
     settlementInfo.setAttribute("componentid", theCityID);
-    if (transferType == DiplomacyDealItemCityTransferTypes.CEDE_OCCUPIED) {
-      settlementInfoWrapper.setAttribute("occupied", "true");
-    } else {
-      settlementInfoWrapper.setAttribute("occupied", "false");
-    }
+    const isCityOccupied = city.originalOwner != city.owner && city.mostRecentTranseferType != CityTransferTypes.BY_INCORPORATE_CITY_STATE;
     const settlementStatusWonders = document.createElement("div");
-    if (numberWondersCount > 0) {
-      settlementStatusWonders.classList.add("flex", "flex-row", "items-center", "p-1");
+    if (numberWondersCount > 0 || isCityOccupied) {
+      settlementStatusWonders.classList.add("flex", "flex-row", "justify-end", "items-center", "py-1", "px-2");
       if (numberWondersCount > 0) {
         const settlementWonders = document.createElement("div");
-        settlementWonders.classList.add("size-6", "bg-contain");
+        settlementWonders.classList.add("size-6", "bg-contain", isCityOccupied ? "mr-1" : "");
         settlementWonders.style.backgroundImage = `url(blp:city_wonders_hi)`;
         settlementStatusWonders.appendChild(settlementWonders);
+      }
+      if (isCityOccupied) {
+        settlementInfoWrapper.setAttribute("occupied", "true");
+        const settlementStatus = document.createElement("div");
+        settlementStatus.classList.add("size-6", "bg-contain");
+        settlementStatus.style.backgroundImage = `url(blp:dip_icon_conquered)`;
+        settlementStatusWonders.appendChild(settlementStatus);
       }
       settlementInfoWrapper.appendChild(settlementStatusWonders);
       settlementInfo.appendChild(settlementInfoWrapper);
     }
+    this.assignItemListOrder(theCityID, DiplomacyDealItemTypes.CITIES, "");
+    dealItem.dataset.sortIndex = String(
+      this.cityOrderIndex.get(this.getItemListOrderKey(theCityID, DiplomacyDealItemTypes.CITIES, "")) ?? Number.MAX_SAFE_INTEGER
+    );
     return dealItem;
   }
   populateGoldInfluenceItems(workingDealId, workingDeal, fromPlayer, container) {
@@ -1010,6 +1016,10 @@ class DiplomacyPeaceDealPanel extends DiplomacyInputPanel {
     nameText.innerHTML = Locale.stylize(subTypeName, amount);
     infoWrapper.appendChild(nameText);
     element.appendChild(infoWrapper);
+    this.assignItemListOrder("", dealItem.type, dealItem.subType.toString());
+    element.dataset.sortIndex = String(
+      this.cityOrderIndex.get(this.getItemListOrderKey("", dealItem.type, dealItem.subType.toString())) ?? Number.MAX_SAFE_INTEGER
+    );
     return element;
   }
   moveGoldInfluenceDealItem(dealItem, dealOwner, inDeal, target) {
@@ -1047,7 +1057,7 @@ class DiplomacyPeaceDealPanel extends DiplomacyInputPanel {
     } else {
       targetContainer = dealOwner == GameContext.localPlayerID ? this.ourYourDealItemsContainer : this.theirTheirDealItemsContainer;
       if (targetContainer?.hasChildNodes()) {
-        targetContainer?.insertBefore(newElement, targetContainer?.firstChild);
+        this.insertItemSorted(targetContainer, newElement);
       } else {
         targetContainer?.appendChild(newElement);
       }
@@ -1430,7 +1440,7 @@ class DiplomacyPeaceDealPanel extends DiplomacyInputPanel {
       this.moveDealItem(dealItem, newDealOwner, !inDeal, dealItemElement);
     });
     if (targetContainer?.hasChildNodes()) {
-      targetContainer?.insertBefore(dealItemElement, targetContainer?.firstChild);
+      this.insertItemSorted(targetContainer, dealItemElement);
     } else {
       targetContainer?.appendChild(dealItemElement);
     }
@@ -1613,6 +1623,28 @@ class DiplomacyPeaceDealPanel extends DiplomacyInputPanel {
     const children = Array.from(parent.children);
     const active = children.find((child) => child.getAttribute("disabled") != "true");
     return active ?? null;
+  }
+  getItemListOrderKey(cityID, type, subtype) {
+    return `${cityID};${type};${subtype};`;
+  }
+  assignItemListOrder(cityID, type, subtype) {
+    const key = this.getItemListOrderKey(cityID, type, subtype);
+    if (!this.cityOrderIndex.has(key)) {
+      this.cityOrderIndex.set(key, this.cityOrderIndex.size);
+    }
+    return this.cityOrderIndex.get(key);
+  }
+  insertItemSorted(container, element) {
+    if (!container) return;
+    const newIndex = Number(element.dataset.sortIndex ?? Number.MAX_SAFE_INTEGER);
+    const nextSibling = Array.from(container.children).find(
+      (child) => Number(child.dataset.sortIndex ?? Number.MAX_SAFE_INTEGER) > newIndex
+    );
+    if (nextSibling) {
+      container.insertBefore(element, nextSibling);
+    } else {
+      container.appendChild(element);
+    }
   }
   showLeaderModel(comingBackFromMap) {
     const otherPlayerID = DiplomacyManager.currentDiplomacyDealData ? DiplomacyManager.currentDiplomacyDealData.OtherPlayer : DiplomacyManager.selectedPlayerID;

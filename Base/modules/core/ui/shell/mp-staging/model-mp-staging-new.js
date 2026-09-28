@@ -1683,6 +1683,9 @@ class MPLobbyDataModel {
       return false;
     }
     if (Configuration.getGame().isHotseat) {
+      if (!MPLobbyDataModel.isNewGame && slotActionData.actionType == "SLOT_ACTION_TYPE_CLOSE" /* CLOSE */) {
+        return false;
+      }
       const isValueDifferent = targetPlayerConfig.slotStatus != newStatus;
       return isValueDifferent && newStatus != SlotStatus.SS_OPEN;
     }

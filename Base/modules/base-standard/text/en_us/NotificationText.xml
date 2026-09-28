@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by Ed Beach (Firaxis Games) -->
 <Database>
 	<EnglishText>
 		<!--Turn-Blocking Notifications -->
@@ -572,6 +571,12 @@
 		<Row Tag="LOC_NOTIFICATION_WONDER_FAILED_SUMMARY">
 			<Text>You were not able to complete the World Wonder {1_WonderName} in time. However {2_Production} [icon:YIELD_PRODUCTION] Production has been salvaged from the attempt and awarded to the City of {3_CityName}.</Text>
 		</Row>
+		<Row Tag="LOC_NOTIFICATION_PRODUCTION_INVALIDATED_MESSAGE">
+			<Text>{1_ItemName} Cancelled</Text>
+		</Row>
+		<Row Tag="LOC_NOTIFICATION_PRODUCTION_INVALIDATED_SUMMARY">
+			<Text>{1_ItemName} can no longer be built and has been removed from the production queue. {2_Production} [icon:YIELD_PRODUCTION] Production has been salvaged from the attempt and awarded to the City of {3_CityName}.</Text>
+		</Row>
 		<Row Tag="LOC_NOTIFICATION_CITY_STATE_BONUS_CHOSEN_MESSAGE">
 			<Text>New City-State</Text>
 		</Row>
@@ -791,8 +796,14 @@
 		<Row Tag="LOC_NOTIFICATION_UNIT_DISBANDED_MESSAGE">
 			<Text>Unit Disbanded!</Text>
 		</Row>
+		<Row Tag="LOC_NOTIFICATION_UNIT_PRODUCTION_PAUSED">
+			<Text>Unit Production Paused!</Text>
+		</Row>
 		<Row Tag="LOC_NOTIFICATION_UNIT_DISBANDED_SUMMARY">
 			<Text>Your[icon:YIELD_GOLD] Gold balance is negative and you cannot afford to pay your troops.[n]Your {1_UnitName} has disbanded.</Text>
+		</Row>
+		<Row Tag="LOC_NOTIFICATION_UNIT_PRODUCTION_PAUSED_SUMMARY">
+			<Text>Your {1_UnitName} was ready to complete this turn, but all spawn locations from {2_CityName} are blocked.  Production has been paused and can be resumed when a valid spawn location is available.</Text>
 		</Row>
 		<Row Tag="LOC_NOTIFICATION_ENTERED_ENEMY_ARMY_ZOC_MESSAGE">
 			<Text>Enemy Army Encountered!</Text>
@@ -945,7 +956,7 @@
 			<Text>Technology Boosts</Text>
 		</Row>
 		<Row Tag="LOC_NOTIFICATION_TECH_BOOST_AWARDED_SUMMARY">
-			<Text>Technologies have been unlocked: {1_TechNames}.</Text>
+			<Text>Technologies have been boosted: {1_TechNames}.</Text>
 		</Row>
 		<Row Tag="LOC_NOTIFICATION_REVOLT_MESSAGE">
 			<Text>Settlement Revolt</Text>

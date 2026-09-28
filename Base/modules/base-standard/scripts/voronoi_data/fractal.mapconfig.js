@@ -4,15 +4,14 @@ const fractalSettings = {
     "totalLandmassSize": 35,
     "maxSizeVariance": 50,
     "maxDistantSizeVariance": 50,
-    "minLandmassSeeds": 8,
-    "maxLandmassSeeds": 12,
+    "minLandmassSeeds": 6,
     "minDistantSeeds": 1,
     "maxDistantSeeds": 3,
     "forceAtLeastThree": 10
   },
   "generatorConfig": {
     "plate": {
-      "factor": 0.4,
+      "factor": 0.5,
       "curvePower": 2,
       "linearStrength": 0.9,
       "voronoiCellRatio": 0.33
@@ -26,7 +25,7 @@ const fractalSettings = {
         "coastalIslands": 6,
         "coastalIslandsMinDistance": 1.5,
         "coastalIslandsMaxDistance": 2.5,
-        "coastalIslandsSize": 0.5,
+        "coastalIslandsSize": 0.6,
         "coastalIslandsSizeVariance": 0.25
       },
       {
@@ -37,7 +36,7 @@ const fractalSettings = {
         "coastalIslands": 6,
         "coastalIslandsMinDistance": 1.5,
         "coastalIslandsMaxDistance": 2.5,
-        "coastalIslandsSize": 0.5,
+        "coastalIslandsSize": 0.6,
         "coastalIslandsSizeVariance": 0.25
       },
       {
@@ -48,7 +47,7 @@ const fractalSettings = {
         "coastalIslands": 6,
         "coastalIslandsMinDistance": 1.5,
         "coastalIslandsMaxDistance": 2.5,
-        "coastalIslandsSize": 0.5,
+        "coastalIslandsSize": 0.6,
         "coastalIslandsSizeVariance": 0.25
       },
       {
@@ -59,7 +58,18 @@ const fractalSettings = {
         "coastalIslands": 6,
         "coastalIslandsMinDistance": 1.5,
         "coastalIslandsMaxDistance": 2.5,
-        "coastalIslandsSize": 0.5,
+        "coastalIslandsSize": 0.6,
+        "coastalIslandsSizeVariance": 0.25
+      },
+      {
+        "erosionPercent": 6,
+        "erosionTime": 0.4,
+        "erosionRandomness": 0.34,
+        "playerAreas": 1,
+        "coastalIslands": 6,
+        "coastalIslandsMinDistance": 1.5,
+        "coastalIslandsMaxDistance": 2.5,
+        "coastalIslandsSize": 0.6,
         "coastalIslandsSizeVariance": 0.25
       },
       {
@@ -70,7 +80,7 @@ const fractalSettings = {
         "coastalIslands": 6,
         "coastalIslandsMinDistance": 1.5,
         "coastalIslandsMaxDistance": 2.5,
-        "coastalIslandsSize": 0.5,
+        "coastalIslandsSize": 0.6,
         "coastalIslandsSizeVariance": 0.25
       },
       {
@@ -81,7 +91,7 @@ const fractalSettings = {
         "coastalIslands": 6,
         "coastalIslandsMinDistance": 1.5,
         "coastalIslandsMaxDistance": 2.5,
-        "coastalIslandsSize": 0.5,
+        "coastalIslandsSize": 0.6,
         "coastalIslandsSizeVariance": 0.25
       },
       {
@@ -92,7 +102,7 @@ const fractalSettings = {
         "coastalIslands": 6,
         "coastalIslandsMinDistance": 1.5,
         "coastalIslandsMaxDistance": 2.5,
-        "coastalIslandsSize": 0.5,
+        "coastalIslandsSize": 0.6,
         "coastalIslandsSizeVariance": 0.25
       },
       {
@@ -103,7 +113,7 @@ const fractalSettings = {
         "coastalIslands": 6,
         "coastalIslandsMinDistance": 1.5,
         "coastalIslandsMaxDistance": 2.5,
-        "coastalIslandsSize": 0.5,
+        "coastalIslandsSize": 0.6,
         "coastalIslandsSizeVariance": 0.25
       },
       {
@@ -114,29 +124,7 @@ const fractalSettings = {
         "coastalIslands": 6,
         "coastalIslandsMinDistance": 1.5,
         "coastalIslandsMaxDistance": 2.5,
-        "coastalIslandsSize": 0.5,
-        "coastalIslandsSizeVariance": 0.25
-      },
-      {
-        "erosionPercent": 6,
-        "erosionTime": 0.4,
-        "erosionRandomness": 0.34,
-        "playerAreas": 1,
-        "coastalIslands": 6,
-        "coastalIslandsMinDistance": 1.5,
-        "coastalIslandsMaxDistance": 2.5,
-        "coastalIslandsSize": 0.5,
-        "coastalIslandsSizeVariance": 0.25
-      },
-      {
-        "erosionPercent": 6,
-        "erosionTime": 0.4,
-        "erosionRandomness": 0.34,
-        "playerAreas": 1,
-        "coastalIslands": 6,
-        "coastalIslandsMinDistance": 1.5,
-        "coastalIslandsMaxDistance": 2.5,
-        "coastalIslandsSize": 0.5,
+        "coastalIslandsSize": 0.6,
         "coastalIslandsSizeVariance": 0.25
       }
     ],
@@ -178,24 +166,26 @@ const fractalSettings = {
       "Neighbors In Region.deviation": 0.5,
       "Near Map Center.weight": 0.05,
       "Near Map Center.isActive": false,
-      "Avoid Other Regions.weight": 0.1,
+      "Avoid Other Regions.weight": 0.5,
       "Avoid Other Regions.isActive": true,
       "Avoid Other Regions.minDistance": 0,
       "Avoid Other Regions.falloffCurve": 0.5,
       "Avoid Other Region Groups.weight": 1,
       "Avoid Other Region Groups.isActive": true,
-      "Avoid Other Region Groups.minDistance": 8,
+      "Avoid Other Region Groups.minDistance": 6,
       "Avoid Other Region Groups.distanceFalloff": 8,
-      "Avoid Other Region Groups.falloffCurve": 1,
+      "Avoid Other Region Groups.falloffCurve": 0.5,
       "Near Plate Boundary.weight": 1,
       "Near Plate Boundary.isActive": true,
+      "Near Plate Boundary.scaleFactor": 3,
       "Near Plate Boundary.directionInfluence": 0.8,
       "Prefer Latitude.weight": 0.5,
       "Prefer Latitude.isActive": true,
       "Prefer Latitude.latitudes": [],
       "Near Other Region.weight": 2,
       "Near Other Region.isActive": true,
-      "Near Other Region.scoreDistance": 15
+      "Near Other Region.disabledOnTouch": 1,
+      "Near Other Region.scoreDistance": 30
     },
     "Coastal Islands": {
       "Avoid Edge.weight": 1,
@@ -208,6 +198,8 @@ const fractalSettings = {
       "Avoid Other Regions.isActive": false,
       "Avoid Other Region Groups.weight": 1,
       "Avoid Other Region Groups.isActive": true,
+      "Avoid Other Region Groups.minDistance": 6,
+      "Avoid Other Region Groups.distanceFalloff": 2,
       "Avoid Own Region.weight": 1,
       "Avoid Own Region.isActive": true,
       "Avoid Own Region.minDistance": 1.5,
@@ -215,6 +207,8 @@ const fractalSettings = {
       "Avoid Islands.isActive": true,
       "Near Plate Boundary.weight": 0.75,
       "Near Plate Boundary.isActive": true,
+      "Near Plate Boundary.scaleFactor": 2,
+      "Near Plate Boundary.directionInfluence": 0.25,
       "Near Region Seed.weight": 0.52,
       "Near Region Seed.isActive": true,
       "Near Region Seed.scaleFactor": 41.800000000000004,
@@ -277,6 +271,7 @@ const fractalSettings = {
       "Avoid Other Regions.isActive": true
     }
   },
+  "hexConfig": {},
   "variantSettings": {
     "Sea Level": {
       "settings": {

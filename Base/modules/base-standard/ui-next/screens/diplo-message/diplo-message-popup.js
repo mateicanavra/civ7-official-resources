@@ -1,6 +1,6 @@
 import { template, insert } from '../../../../core/vendor/solid-js/web/dist/web.js';
 import { createSignal, createEffect, createComponent, createRenderEffect, createMemo } from '../../../../core/vendor/solid-js/dist/solid.js';
-import ContextManager from '../../../../core/ui/context-manager/context-manager.js';
+import { ContextManager } from '../../../../core/ui/context-manager/context-manager.js';
 import { getPlayerColorVariants } from '../../../../core/ui/utilities/utilities-color.js';
 import { getModifierArgumentByContext, getModifierTextByContext } from '../../../../core/ui/utilities/utilities-core-textprovider.js';
 import { Activatable } from '../../../../core/ui-next/components/activatable.js';
@@ -35,7 +35,7 @@ const AgendaPopupComponent = (props) => {
   const [relationshipChange, setRelationshipChange] = createSignal(0);
   const [leaderId, setLeaderId] = createSignal(-1);
   const [leaderType, setLeaderType] = createSignal("UNKNOWN_LEADER");
-  const [leaderName, setLeaderName] = createSignal("UNKNOWN_LEADER");
+  const [_leaderName, setLeaderName] = createSignal("UNKNOWN_LEADER");
   const [leaderMessage, setLeaderMessage] = createSignal("LOC_DIPLO_RELATIONSHIP_INCREASED_GENERIC");
   const [portraitContext, setPortraitContext] = createSignal("");
   const [agendaName, setAgendaName] = createSignal("");

@@ -1,11 +1,11 @@
 import { Audio } from '../../audio-base/audio-support.js';
-import ActionHandler from '../../input/action-handler.js';
 import { ActiveDeviceTypeChangedEventName } from '../../input/input-events.js';
 import { InputEngineEventName } from '../../input/input-support.js';
 import NavTray from '../../navigation-tray/model-navigation-tray.js';
 import Panel from '../../panel-support.js';
 import { MustGetElement } from '../../utilities/utilities-dom.js';
 import { FocusManager } from '../../../ui-next/services/focus-manager.js';
+import { IsControllerActive } from '../../../ui-next/services/input.js';
 import content from './screen-credits.html.js';
 import styles from './screen-credits.scss.js';
 import creditsUrl from './credits-base.xml.js';
@@ -148,7 +148,7 @@ class ScreenCredits extends Panel {
     this.fastForwardButton.setAttribute("caption", Locale.compose("LOC_CREDITS_FAST_FORWARD"));
     this.fastForwardButton.addEventListener("action-activate", this.fastForwardListener);
     holder.appendChild(this.fastForwardButton);
-    this.realizeInputType(ActionHandler.isGamepadActive);
+    this.realizeInputType(IsControllerActive());
   }
   onAttach() {
     super.onAttach();

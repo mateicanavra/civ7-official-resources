@@ -3,8 +3,10 @@ import { createRenderEffect, createMemo, createComponent, Show, For } from '../.
 import { useDragAndDropContext, useDropzoneContext, useDraggableContext, Draggable, DragEndStatus, DragAndDrop, Dropzone } from '../../components/drag-and-drop.js';
 import { Header } from '../../components/header.js';
 import { useInventoryModel } from './inventory-model.js';
+/* empty css                                      */
+/* empty css               */
 
-var _tmpl$ = /* @__PURE__ */ template(`<div class=tile></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div><div class="absolute top-0 left-2 font-body text-xl"></div></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div>This will unequip any existing item in this slot.</div>`), _tmpl$5 = /* @__PURE__ */ template(`<div class="flex flex-col justify-center items-center"></div>`), _tmpl$6 = /* @__PURE__ */ template(`<div class="flex flex-col flex-auto"></div>`), _tmpl$7 = /* @__PURE__ */ template(`<div class="flex flex-col"></div>`), _tmpl$8 = /* @__PURE__ */ template(`<div class="absolute inset-0 flex flex-col"><div class="font-body text-lg ml-3 mt-2 mb-2 text-tertiary-1">Items can be placed in either bag. Only letters may be equipped in slots while Extras accepts up to 3 items of either type.</div><div class="flex flex-row flex-auto"></div></div>`);
+var _tmpl$ = /* @__PURE__ */ template(`<div class="tile"></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div><div class="absolute top-0 left-2 font-body text-xl"></div></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div>This will unequip any existing item in this slot.</div>`), _tmpl$5 = /* @__PURE__ */ template(`<div class="flex flex-col justify-center items-center"></div>`), _tmpl$6 = /* @__PURE__ */ template(`<div class="flex flex-col flex-auto"></div>`), _tmpl$7 = /* @__PURE__ */ template(`<div class="flex flex-col"></div>`), _tmpl$8 = /* @__PURE__ */ template(`<div class="absolute inset-0 flex flex-col"><div class="font-body text-lg ml-3 mt-2 mb-2 text-tertiary-1">Items can be placed in either bag. Only letters may be equipped in slots while Extras accepts up to 3 items of either type.</div><div class="flex flex-row flex-auto"></div></div>`);
 const Tile = (props) => {
   return (() => {
     var _el$ = _tmpl$();

@@ -1,3 +1,16 @@
+@media (experience: mobile) {
+  .graphic-narrative-event .fxs-close-button {
+    top: 15%;
+    right: 6%;
+  }
+}
+@media (experience: mobile) and (max-height: 55.5555555556rem) {
+  .graphic-narrative-event .fxs-close-button {
+    top: 10%;
+    right: 5.5%;
+  }
+}
+
 .narrative_model__container {
   margin: 9.5555555556rem 0rem;
   width: 72.2222222222rem;
@@ -14,10 +27,9 @@
     width: 55.5555555556rem;
   }
 }
-@media (experience: mobile) {
-  .narrative_model__container .fxs-close-button {
-    top: 0.5555555556rem;
-    right: 0.5555555556rem;
+@media (experience: mobile) and (max-height: 55.5555555556rem) {
+  .narrative_model__container {
+    width: 61.1111111111rem;
   }
 }
 
@@ -28,11 +40,28 @@
 }
 @media (experience: mobile) {
   .narrative_model__title-container {
-    padding-left: 3.8888888889rem;
-    padding-right: 3.8888888889rem;
+    padding-left: 2.2222222222rem;
+    padding-right: 2.2222222222rem;
+  }
+}
+
+@media (experience: mobile) {
+  .narrative_model__button-container .fxs-reward-button {
+    margin-bottom: 0.8888888889rem;
   }
 }
 
 .narrative_model__column {
   margin-left: 50%;
+}
+@media (experience: mobile) and (max-height: 55.5555555556rem) {
+  .narrative_model__column {
+    margin-left: 42%;
+  }
+}
+
+@media (experience: mobile) and (max-height: 55.5555555556rem) {
+  .narrative-model__frame {
+    margin-top: 2.2222222222rem;
+  }
 }

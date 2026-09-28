@@ -1,9 +1,9 @@
-import ActionHandler from '../input/action-handler.js';
 import { CursorUpdatedEventName } from '../input/cursor.js';
 import { ActiveDeviceTypeChangedEventName } from '../input/input-events.js';
 import { RecursiveGetAttribute } from '../utilities/utilities-dom.js';
 import { Layout } from '../utilities/utilities-layout.js';
 import { FocusManager } from '../../ui-next/services/focus-manager.js';
+import { IsControllerActive } from '../../ui-next/services/input.js';
 
 var Alignment = /* @__PURE__ */ ((Alignment2) => {
   Alignment2["TopLeft"] = "top-left";
@@ -127,7 +127,7 @@ class DefaultTooltipDriver {
   };
   onCurrentFocusChanged(event) {
     if (event.target instanceof HTMLElement) {
-      if (!ActionHandler.isGamepadActive || !FocusManager.get().isFocusActive()) {
+      if (!IsControllerActive() || !FocusManager.get().isFocusActive()) {
         this.hideTooltip();
         return;
       }
@@ -151,7 +151,7 @@ class DefaultTooltipDriver {
     }
   }
   onCameraChanged() {
-    if (!ActionHandler.isGamepadActive || !this.scratchElement || this.scratchContent == "") {
+    if (!IsControllerActive() || !this.scratchElement || this.scratchContent == "") {
       return;
     }
     this.controller.hideTooltip();
@@ -706,7 +706,7 @@ class TooltipController {
     }
   }
   verifyAlignment(alignment, x, y, width, height, containerRect) {
-    const cursorOffset = !ActionHandler.isGamepadActive ? { x: CURSOR_WIDTH, y: CURSOR_HEIGHT } : { x: 0, y: 0 };
+    const cursorOffset = !IsControllerActive() ? { x: CURSOR_WIDTH, y: CURSOR_HEIGHT } : { x: 0, y: 0 };
     const intersectRight = x + width + cursorOffset.x > containerRect.right;
     const intersectBottom = y + height + cursorOffset.y > containerRect.bottom;
     const intersectTop = y - height < containerRect.top;
@@ -859,7 +859,7 @@ class TooltipController {
       left: constrainRect.left + safeAreaMargins.left,
       right: constrainRect.right - safeAreaMargins.right
     };
-    const cursorOffset = !ActionHandler.isGamepadActive && this.tooltipAnchor == 0 /* None */ ? { x: CURSOR_WIDTH, y: CURSOR_HEIGHT } : { x: 0, y: 0 };
+    const cursorOffset = !IsControllerActive() && this.tooltipAnchor == 0 /* None */ ? { x: CURSOR_WIDTH, y: CURSOR_HEIGHT } : { x: 0, y: 0 };
     const tipRect = this.root.getBoundingClientRect();
     const offset = { x: this.tooltipX + cursorOffset.x, y: this.tooltipY + cursorOffset.y };
     if (this.tooltipY < safeAreaConstrainRect.top) {
@@ -884,7 +884,7 @@ class TooltipController {
       left: constrainRect.left + safeAreaMargins.left,
       right: constrainRect.right - safeAreaMargins.right
     };
-    const cursorOffset = !ActionHandler.isGamepadActive && this.tooltipAnchor == 0 /* None */ ? { x: CURSOR_WIDTH, y: CURSOR_HEIGHT } : { x: 0, y: 0 };
+    const cursorOffset = !IsControllerActive() && this.tooltipAnchor == 0 /* None */ ? { x: CURSOR_WIDTH, y: CURSOR_HEIGHT } : { x: 0, y: 0 };
     const tipRect = this.root.getBoundingClientRect();
     const offset = { x: this.tooltipX + cursorOffset.x, y: this.tooltipY + cursorOffset.y };
     const intersectRight = this.tooltipX + offset.x + tipRect.width > safeAreaConstrainRect.right;

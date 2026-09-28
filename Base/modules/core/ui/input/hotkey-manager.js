@@ -1,7 +1,8 @@
-import ContextManager from '../context-manager/context-manager.js';
-import ActionHandler from './action-handler.js';
+import { ContextManager } from '../context-manager/context-manager.js';
+import { InputHandlerState } from './input-support.js';
 import { InterfaceMode } from '../interface-modes/interface-modes.js';
 import SaveLoadData from '../save-load/model-save-load.js';
+import { IsControllerActive } from '../../ui-next/services/input.js';
 
 class UnitHotkeyEvent extends CustomEvent {
   constructor(eventName) {
@@ -37,7 +38,7 @@ class HotkeyManagerSingleton {
       switch (name) {
         case "toggle-frame-stats":
           Input.toggleFrameStats();
-          return false;
+          return InputHandlerState.Handled;
         case "open-techs":
         case "open-civics":
         case "open-traditions":
@@ -50,7 +51,7 @@ class HotkeyManagerSingleton {
         case "open-religion":
         case "open-trade":
           this.sendHotkeyEvent(name);
-          return false;
+          return InputHandlerState.Handled;
         case "unit-ranged-attack":
         case "unit-move":
         case "unit-skip-turn":
@@ -60,35 +61,36 @@ class HotkeyManagerSingleton {
         case "unit-alert":
         case "unit-auto-explore":
           this.sendUnitHotkeyEvent(name);
-          return false;
+          return InputHandlerState.Handled;
         case "quick-save":
           this.quickSave();
-          return false;
+          return InputHandlerState.Handled;
         case "quick-load":
           this.quickLoad();
-          return false;
+          return InputHandlerState.Handled;
         case "next-action":
         case "keyboard-enter":
           this.nextAction();
-          return false;
+          return InputHandlerState.Handled;
         case "toggle-grid-layer":
         case "toggle-yields-layer":
         case "toggle-resources-layer":
+        case "toggle-radial-measure-layer":
           this.sendLayerHotkeyEvent(name);
-          return false;
+          return InputHandlerState.Handled;
         case "cycle-next":
         case "cycle-prev":
           this.sendCycleHotkeyEvent(name);
-          return false;
+          return InputHandlerState.Handled;
       }
     }
-    return true;
+    return InputHandlerState.Active;
   }
   /**
    * Hotkey manager doesn't handle navigation input events
    */
   handleNavigation() {
-    return true;
+    return InputHandlerState.Active;
   }
   /**
    * Sends out an event to window in the style of 'hotkey-{input action name}'
@@ -115,7 +117,7 @@ class HotkeyManagerSingleton {
       this.sendUnitHotkeyEvent(inputActionName);
     } else if (InterfaceMode.getCurrent() == "INTERFACEMODE_CITY_PRODUCTION") {
       window.dispatchEvent(new CustomEvent(`hotkey-${inputActionName}-city`));
-    } else if (!ActionHandler.isGamepadActive && Input.getActiveContext() == InputContext.World) {
+    } else if (!IsControllerActive() && Input.getActiveContext() == InputContext.World) {
       this.sendUnitHotkeyEvent(inputActionName);
     }
   }

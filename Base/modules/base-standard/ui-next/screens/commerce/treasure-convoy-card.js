@@ -1,6 +1,7 @@
 import { template, insert } from '../../../../core/vendor/solid-js/web/dist/web.js';
 import { createMemo, createComponent, Show, For, mergeProps } from '../../../../core/vendor/solid-js/dist/solid.js';
 import { ComponentID } from '../../../../core/ui/utilities/utilities-component-id.js';
+import { Layout } from '../../../../core/ui/utilities/utilities-layout.js';
 import { Activatable } from '../../../../core/ui-next/components/activatable.js';
 import { CardFrame } from '../../../../core/ui-next/components/card-frame.js';
 import { Icon } from '../../../../core/ui-next/components/icon.js';
@@ -8,6 +9,8 @@ import { L10n } from '../../../../core/ui-next/components/l10n.js';
 import { Tooltip } from '../../../../core/ui-next/components/tooltip.js';
 import { ComponentRegistry } from '../../../../core/ui-next/services/component-registry.js';
 import { IsControllerActive } from '../../../../core/ui-next/services/input.js';
+import { isMobile } from '../../../../core/ui-next/services/view-experience.js';
+import { useIsSmallScreen } from '../../../../core/ui-next/utilities/layout-utilities.js';
 import { CommerceCriteriaDisplay } from './commerce-criteria-display.js';
 import { useCommerceScreenContext } from './commerce-screen-model.js';
 import { TreasureConvoyProgressBar } from './treasure-convoy-progress-bar.js';
@@ -59,9 +62,17 @@ const TreasureConvoyCardResource = (props) => {
 };
 const TreasureConvoyCardComponent = (props) => {
   const model = useCommerceScreenContext();
+  const isSmallScreen = useIsSmallScreen();
   const isSelected = createMemo(() => ComponentID.isMatch(props.fleet.cityID, model.selectedTreasureConvoyId() ?? null));
   const content = createComponent(CardFrame, {
-    "class": `w-128 min-h-64 px-6 pt-6 pb-3 flex flex-col mr-6 mb-6 relative focusable-card`,
+    get ["class"]() {
+      return `${isMobile() ? "" : "w-128"} min-h-64 px-6 pt-6 pb-3 flex flex-col mr-6 mb-6 relative focusable-card`;
+    },
+    get style() {
+      return createMemo(() => !!isMobile())() ? {
+        width: `${Layout.pixelsToScreenPixels(isSmallScreen() ? 612 : 680)}px`
+      } : {};
+    },
     get children() {
       return [createComponent(Activatable, {
         "class": "flex flex-row items-center mb-2",

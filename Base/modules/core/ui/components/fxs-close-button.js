@@ -1,6 +1,6 @@
 import { ActionActivateEvent } from './fxs-activatable.js';
-import ActionHandler from '../input/action-handler.js';
 import { ActiveDeviceTypeChangedEventName } from '../input/input-events.js';
+import { IsControllerActive } from '../../ui-next/services/input.js';
 
 class FxsCloseButton extends Component {
   activateCounter = 0;
@@ -13,7 +13,7 @@ class FxsCloseButton extends Component {
   onAttach() {
     super.onAttach();
     this.Root.addEventListener("mouseenter", this.playSound.bind(this, "data-audio-focus", "data-audio-focus-ref"));
-    this.setVisibility(!ActionHandler.isGamepadActive);
+    this.setVisibility(!IsControllerActive());
     this.Root.classList.toggle("touch-enabled", UI.isTouchEnabled());
     window.addEventListener(ActiveDeviceTypeChangedEventName, this.activeDeviceTypeListener, true);
     this.Root.addEventListener("engine-input", this.engineInputListener);

@@ -1,14 +1,15 @@
-import ContextManager from '../../../core/ui/context-manager/context-manager.js';
-import ActionHandler from '../../../core/ui/input/action-handler.js';
+import { ContextManager } from '../../../core/ui/context-manager/context-manager.js';
 import { ActiveDeviceTypeChangedEventName } from '../../../core/ui/input/input-events.js';
+import { InputHandlerState } from '../../../core/ui/input/input-support.js';
 import NavTray from '../../../core/ui/navigation-tray/model-navigation-tray.js';
 import ViewManager, { UISystem } from '../../../core/ui/views/view-manager.js';
 import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
+import { IsMouseActive, IsControllerActive } from '../../../core/ui-next/services/input.js';
 import { RibbonStatsToggleStatus, DiploRibbonData, UpdateDiploRibbonEvent } from '../diplo-ribbon/model-diplo-ribbon.js';
 
 class WorldView {
   deviceTypeChangedListener = this.onDeviceTypeChanged.bind(this);
-  wasMouseKeyboard = ActionHandler.isMouseKeyboardActive;
+  wasMouseKeyboard = IsMouseActive();
   getName() {
     return "World";
   }
@@ -45,12 +46,13 @@ class WorldView {
       { name: "units", type: UISystem.Events, selectable: true },
       { name: "cities", type: UISystem.Events, selectable: true },
       { name: "radial-selection", type: UISystem.Events, selectable: true },
+      { name: "plot-selection", type: UISystem.Events, selectable: true },
       { name: "world-input", type: UISystem.World, selectable: true }
     ];
   }
   handleLoseFocus() {
     ViewManager.getHarness()?.classList.remove("trigger-nav-help");
-    if (ActionHandler.isGamepadActive) {
+    if (IsControllerActive()) {
       window.dispatchEvent(new CustomEvent("ui-hide-plot-vfx", { bubbles: false }));
     }
   }
@@ -60,41 +62,41 @@ class WorldView {
     ViewManager.getHarness()?.classList.add("trigger-nav-help");
     window.dispatchEvent(new CustomEvent("ui-show-plot-vfx", { bubbles: false }));
   }
-  readInputEvent(inputEvent) {
+  handleInputEvent(inputEvent) {
     if (inputEvent.detail.status != InputActionStatuses.FINISH) {
-      return true;
+      return InputHandlerState.Active;
     }
     if (!ContextManager.isEmpty) {
-      return true;
+      return InputHandlerState.Active;
     }
     switch (inputEvent.detail.name) {
       case "toggle-diplo":
         DiploRibbonData.userDiploRibbonsToggled = DiploRibbonData.userDiploRibbonsToggled == RibbonStatsToggleStatus.RibbonStatsShowing ? RibbonStatsToggleStatus.RibbonStatsHidden : RibbonStatsToggleStatus.RibbonStatsShowing;
         window.dispatchEvent(new UpdateDiploRibbonEvent());
-        return false;
+        return InputHandlerState.Handled;
       case "toggle-quest":
         const questList = document.querySelector("quest-list");
         questList?.component.listVisibilityToggle();
-        return false;
+        return InputHandlerState.Handled;
       case "toggle-chat":
         const miniMap = document.querySelector(".mini-map");
         miniMap?.component.toggleChatPanel();
-        return false;
+        return InputHandlerState.Handled;
       case "open-lens-panel":
         const miniMapComponent = document.querySelector(".mini-map");
         miniMapComponent?.component.toggleLensPanel();
-        return false;
+        return InputHandlerState.Handled;
       case "navigate-yields":
         ContextManager.push("player-yields-report-screen", { singleton: true, createMouseGuard: true });
-        return false;
+        return InputHandlerState.Handled;
       case "notification":
         window.dispatchEvent(new Event("focus-notifications"));
-        return false;
+        return InputHandlerState.Handled;
     }
-    return true;
+    return InputHandlerState.Active;
   }
   onDeviceTypeChanged(event) {
-    if (!this.wasMouseKeyboard || !ActionHandler.isMouseKeyboardActive) {
+    if (!this.wasMouseKeyboard || !IsMouseActive()) {
       if (event.detail.gamepadActive && !ContextManager.isEmpty) {
         window.dispatchEvent(new CustomEvent("ui-hide-plot-vfx"));
       } else {
@@ -105,7 +107,7 @@ class WorldView {
         window.dispatchEvent(new UpdateDiploRibbonEvent());
       }
     }
-    this.wasMouseKeyboard = ActionHandler.isMouseKeyboardActive;
+    this.wasMouseKeyboard = IsMouseActive();
   }
 }
 ViewManager.addHandler(new WorldView());

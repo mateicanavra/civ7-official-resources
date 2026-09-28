@@ -5,7 +5,7 @@ import { Button } from '../components/button.js';
 import { HeroButton } from '../components/hero-button.js';
 import { ListItem } from './list-item.js';
 
-var _tmpl$ = /* @__PURE__ */ template(`<div class="img-dropdown-box flex flex-col m-2 my-1 w-174 pb-2"></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class=m-2>Please Add Items...</div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="flex flex-row"></div>`);
+var _tmpl$ = /* @__PURE__ */ template(`<div class="img-dropdown-box flex flex-col m-2 my-1 w-174 pb-2"></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="m-2">Please Add Items...</div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="flex flex-row"></div>`);
 const [items, setItems] = createSignal([], {
   equals: false
 });

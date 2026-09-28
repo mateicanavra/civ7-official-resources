@@ -1,11 +1,11 @@
-import ContextManager from '../../../core/ui/context-manager/context-manager.js';
-import ActionHandler from '../../../core/ui/input/action-handler.js';
+import { ContextManager } from '../../../core/ui/context-manager/context-manager.js';
 import { ActiveDeviceTypeChangedEventName } from '../../../core/ui/input/input-events.js';
 import { InterfaceMode } from '../../../core/ui/interface-modes/interface-modes.js';
 import NavTray from '../../../core/ui/navigation-tray/model-navigation-tray.js';
 import { AnchorType } from '../../../core/ui/panel-support.js';
 import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
 import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
+import { ActiveInputDevice } from '../../../core/ui-next/services/input.js';
 import DiplomacyManager, { DiplomacyInputPanel } from '../diplomacy/diplomacy-manager.js';
 import LeaderModelManager from '../diplomacy/leader-model-manager.js';
 import content from './panel-diplomacy-hub.html.js';
@@ -430,7 +430,7 @@ class DiplomacyHubPanel extends DiplomacyInputPanel {
   allowSkip() {
     this.isSkipAllowed = true;
     this.populateNavTray();
-    this.updateSkipLabelText(ActionHandler.deviceType);
+    this.updateSkipLabelText(ActiveInputDevice());
   }
   onDiplomacyEventResponse(eventData) {
     if (eventData.targetPlayer == GameContext.localPlayerID) {

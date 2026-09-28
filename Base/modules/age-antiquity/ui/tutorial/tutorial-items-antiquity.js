@@ -1,4 +1,4 @@
-import ContextManager from '../../../core/ui/context-manager/context-manager.js';
+import { ContextManager } from '../../../core/ui/context-manager/context-manager.js';
 import { PlotCursor } from '../../../core/ui/input/plot-cursor.js';
 import { InterfaceMode } from '../../../core/ui/interface-modes/interface-modes.js';
 import LensManager from '../../../core/ui/lenses/lens-manager.js';
@@ -337,6 +337,9 @@ TutorialManager.add({
   onActivate: (item) => {
     waitForLayout(() => {
       LensManager.enableLayer("fxs-yields-layer");
+      item.onCleanUp = () => {
+        LensManager.restorePreviousLens();
+      };
       waitUntilValue(() => {
         const highlightLeftover = document.querySelector(".tut-circle-highlight");
         if (highlightLeftover) {
@@ -408,9 +411,6 @@ TutorialManager.add({
       }
     }
     return false;
-  },
-  onCleanUp: (_item) => {
-    LensManager.disableLayer("fxs-yields-layer");
   },
   highlights: [".unit-action-UNITOPERATION_FOUND_CITY"],
   // need a better way to highlight specific buttons in the unit action UI

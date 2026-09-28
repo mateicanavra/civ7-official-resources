@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+	<Modifier id="MOD_VIX_AGELESS_YIELDS" collection="COLLECTION_OWNER" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_YIELD">
+		<Argument name="Tag">AGELESS</Argument>
+		<Argument name="ConstructibleClass">BUILDING</Argument>
+		<Argument name="ClassAndTag">true</Argument>
+		<Argument name="YieldType">YIELD_GOLD, YIELD_CULTURE</Argument>
+		<Argument name="Amount">2, 2</Argument>
+		<Argument name="Tooltip">LOC_WONDER_VIX_NAME</Argument>
+	</Modifier>
+	<Modifier id="MOD_GOBEN_ROUGH_PRODUCTION" collection="COLLECTION_OWNER" effect="EFFECT_CITY_ADJUST_UNIT_PRODUCTION">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_PLOT_TERRAIN_TYPE_MATCHES">
+				<Argument name="TerrainType">TERRAIN_HILL</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="UnitClass">UNIT_CLASS_COMBAT</Argument>
+		<Argument name="Percent">15</Argument>
+		<Argument name="Tooltip">LOC_BUILDING_GOBEN_NAME</Argument>
+	</Modifier>
+	<Modifier id="MOD_GOBEN_ROUGH_PURCHASE" collection="COLLECTION_OWNER_CITY" effect="EFFECT_ADJUST_PLAYER_OR_CITY_UNIT_PURCHASE_EFFICIENCY">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_PLOT_TERRAIN_TYPE_MATCHES">
+				<Argument name="TerrainType">TERRAIN_HILL</Argument>
+			</Requirement>
+		</OwnerRequirements>
+		<Argument name="UnitTag">UNIT_CLASS_COMBAT</Argument>
+		<Argument name="Percent">15</Argument>
+		<Argument name="Tooltip">LOC_BUILDING_GOBEN_NAME</Argument>
+	</Modifier>
+	<Modifier id="MOD_DUNON_DEFENSE" collection="COLLECTION_ALL_DISTRICTS" effect="EFFECT_DISTRICT_ADJUST_TOTAL_HEALTH">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_HAS_UNIQUE_QUARTER">
+				<Argument name="UniqueQuarterType">QUARTER_DUNON</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_PLOT_HAS_CONSTRUCTIBLE">
+				<Argument name="Tag">FORTIFICATION</Argument>
+				<Argument name="CurrentAgeOnly">false</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="Amount">25</Argument>
+	</Modifier>
+</GameEffects>

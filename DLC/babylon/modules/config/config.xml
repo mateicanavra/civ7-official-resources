@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<LeaderCivilizationBias>
+	</LeaderCivilizationBias>
+	<Civilizations>
+		<Row Domain="AntiquityAgeCivilizations" CivilizationType="CIVILIZATION_BABYLON" CivilizationName="LOC_CIVILIZATION_BABYLON_NAME" CivilizationFullName="LOC_CIVILIZATION_BABYLON_FULLNAME" CivilizationDescription="LOC_CIVILIZATION_BABYLON_DESCRIPTION" CivilizationIcon="BABYLON_icon.png" CivilizationIntroText="LOC_LOADING_CIV_INTRO_TEXT_BABYLON"/>
+	</Civilizations>
+	<CivilizationItems>
+		<Row CivilizationDomain="AntiquityAgeCivilizations" AgeType="AGE_ANTIQUITY" CivilizationType="CIVILIZATION_BABYLON" Type="TRAIT_BABYLON_ABILITY" Kind="KIND_TRAIT" Name="LOC_TRAIT_BABYLON_ABILITY_NAME" Description="LOC_TRAIT_BABYLON_ABILITY_AQ_DESCRIPTION"/>
+		<Row CivilizationDomain="ExplorationAgeCivilizations" AgeType="AGE_EXPLORATION" CivilizationType="CIVILIZATION_BABYLON" Type="TRAIT_BABYLON_ABILITY" Kind="KIND_TRAIT" Name="LOC_TRAIT_BABYLON_ABILITY_NAME" Description="LOC_TRAIT_BABYLON_ABILITY_EX_DESCRIPTION"/>
+		<Row CivilizationDomain="ModernAgeCivilizations" AgeType="AGE_MODERN" CivilizationType="CIVILIZATION_BABYLON" Type="TRAIT_BABYLON_ABILITY" Kind="KIND_TRAIT" Name="LOC_TRAIT_BABYLON_ABILITY_NAME" Description="LOC_TRAIT_BABYLON_ABILITY_MO_DESCRIPTION"/>
+		<Row CivilizationDomain="AntiquityAgeCivilizations" CivilizationType="CIVILIZATION_BABYLON" Type="UNIT_QASTI" Kind="KIND_UNIT" Name="LOC_UNIT_QASTI_NAME" Description="LOC_UNIT_QASTI_BASE_DESCRIPTION" Icon="unitflag_leiomano.png"/>
+		<Row CivilizationDomain="AntiquityAgeCivilizations" CivilizationType="CIVILIZATION_BABYLON" Type="UNIT_TAMKARU" Kind="KIND_UNIT" Name="LOC_UNIT_TAMKARU_NAME" Description="LOC_UNIT_TAMKARU_DESCRIPTION" Icon="unitflag_TAMKARU.png" CanSyncretize="0"/>
+		<Row CivilizationDomain="AntiquityAgeCivilizations" CivilizationType="CIVILIZATION_BABYLON" Type="IMPROVEMENT_KIRIMAHU" Kind="KIND_IMPROVEMENT" Name="LOC_IMPROVEMENT_KIRIMAHU_NAME" Description="LOC_IMPROVEMENT_KIRIMAHU_DESCRIPTION" Icon="impicon_loikalo.png"/>
+	</CivilizationItems>
+	<CivilizationTags>
+		<Row CivilizationDomain="AntiquityAgeCivilizations" CivilizationType="CIVILIZATION_BABYLON" TagType="TAG_TRAIT_CULTURAL"/>
+		<Row CivilizationDomain="AntiquityAgeCivilizations" CivilizationType="CIVILIZATION_BABYLON" TagType="TAG_TRAIT_EXPANSIONIST"/>
+		<Row CivilizationDomain="AntiquityAgeCivilizations" CivilizationType="CIVILIZATION_BABYLON" TagType="TAG_APEX_AGE_ANTIQUITY"/>
+	</CivilizationTags>
+	<LeaderCivilizationBias>
+		<InsertOrIgnore CivilizationDomain="AntiquityAgeCivilizations" CivilizationType="CIVILIZATION_BABYLON" LeaderDomain="StandardLeaders" LeaderType="LEADER_HATSHEPSUT" Bias="2" ReasonType="LOC_UNLOCK_PLAY_AS_HATSHEPSUT_BABYLON_TOOLTIP" ChoiceType="LOC_CREATE_GAME_STRATEGIC_CHOICE" />
+	</LeaderCivilizationBias>
+	<CivilizationUnlocks>
+		<Row CivilizationDomain="AntiquityAgeCivilizations" CivilizationType="CIVILIZATION_BABYLON" AgeDomain="StandardAges" AgeType="AGE_EXPLORATION" Type="CIVILIZATION_ABBASID" Kind="KIND_CIVILIZATION" Name="LOC_CIVILIZATION_ABBASID_NAME" Description="LOC_CIVILIZATION_ABBASID_NAME" Icon="CIVILIZATION_ABBASID"/>
+		<Row CivilizationDomain="AntiquityAgeCivilizations" CivilizationType="CIVILIZATION_BABYLON" AgeDomain="StandardAges" AgeType="AGE_EXPLORATION" Type="CIVILIZATION_INCA" Kind="KIND_CIVILIZATION" Name="LOC_CIVILIZATION_INCA_NAME" Description="LOC_CIVILIZATION_INCA_NAME" Icon="CIVILIZATION_INCA"/>
+		<Row CivilizationDomain="AntiquityAgeCivilizations" CivilizationType="CIVILIZATION_BABYLON" AgeDomain="StandardAges" AgeType="AGE_MODERN" Type="CIVILIZATION_BUGANDA" Kind="KIND_CIVILIZATION" Name="LOC_CIVILIZATION_BUGANDA_NAME" Description="LOC_CIVILIZATION_BUGANDA_NAME" Icon="CIVILIZATION_BUGANDA"/>
+	</CivilizationUnlocks>
+	<OwnershipConditions>
+		<Row ItemType="CIVILIZATION_BABYLON" Action="LOC_LOCKED_INCLUDED_WITH_CONTENT" />
+	</OwnershipConditions>
+</Database>

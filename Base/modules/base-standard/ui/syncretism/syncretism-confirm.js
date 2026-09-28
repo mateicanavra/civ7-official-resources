@@ -9,10 +9,11 @@ import { L10n } from '../../../core/ui-next/components/l10n.js';
 import { ScrollArea } from '../../../core/ui-next/components/scroll-area.js';
 import { ComponentRegistry } from '../../../core/ui-next/services/component-registry.js';
 import { IsControllerActive } from '../../../core/ui-next/services/input.js';
+import { isMobile } from '../../../core/ui-next/services/view-experience.js';
 import { SyncItemUpgrade, SyncItemRequires } from './syncretism-card.js';
 import { SyncretismScreenModel, getOpFlagString, getCivNameString, getAge, getChoiceTypeShort } from './syncretism-screen-model.js';
 
-var _tmpl$ = /* @__PURE__ */ template(`<div class="flex flex-row mt-5 syncretism-confirm-subtitle-holder pl-4 mr-2 items-center mb-7"><div class="text-accent-1 text-lg flex items-end"></div><div class="p-1 flex flex-row items-end mr-2 font-body-xs uppercase text-accent-2"><div class=px-1\\.5></div><div class=px-1\\.5></div></div></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class=flex></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="size-full flex flex-col grow relative"data-name=layout-bg><div class="absolute inset-1 bg-cover bg-no-repeat"></div><div class="size-full absolute opacity-30"data-name=layout-bg></div><div data-name=confirm-screen-info><div></div><div data-name=selected-sync-civ-items></div></div><div class="flex w-full flex-auto justify-center items-end mt-4 mb-6"></div></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div class="syncretism-ticket-shadow absolute inset-0"></div>`), _tmpl$5 = /* @__PURE__ */ template(`<div class=px-2><div class="w-full p-1 font-bold font-sm text-negative"></div></div>`), _tmpl$6 = /* @__PURE__ */ template(`<div data-name=confirm-item><div class="relative flex flex-col flex-auto"><div class="flex flex-row flex-auto"><div class="flex flex-auto justify-center flex-col"><div class="font-title fxs-header uppercase tracking-100 text-lg pb-3"></div><div></div></div></div></div></div>`);
+var _tmpl$ = /* @__PURE__ */ template(`<div class="flex flex-row mt-5 syncretism-confirm-subtitle-holder pl-4 mr-2 items-center mb-7"><div class="text-accent-1 text-lg flex items-end"></div><div class="p-1 flex flex-row items-end mr-2 font-body-xs uppercase text-accent-2"><div class="px-1\\.5"></div><div class="px-1\\.5"></div></div></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="flex"></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="size-full flex flex-col grow relative"data-name="layout-bg"><div></div><div class="absolute opacity-30 fullscreen-outside-safezone"data-name="layout-bg"></div><div data-name="confirm-screen-info"><div></div><div data-name="selected-sync-civ-items"></div></div><div class="flex w-full flex-auto justify-center items-end mt-4 mb-6"></div></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div class="syncretism-ticket-shadow absolute inset-0"></div>`), _tmpl$5 = /* @__PURE__ */ template(`<div class="px-2"><div class="w-full p-1 font-bold font-sm text-negative"></div></div>`), _tmpl$6 = /* @__PURE__ */ template(`<div data-name="confirm-item"><div class="relative flex flex-col flex-auto"><div class="flex flex-row flex-auto"><div class="flex flex-auto justify-center flex-col"><div class="font-title fxs-header uppercase tracking-100 text-lg pb-3"></div><div></div></div></div></div></div>`);
 const SyncretismConfirmComponent = (props) => {
   const model = SyncretismScreenModel.get();
   return (() => {
@@ -33,7 +34,7 @@ const SyncretismConfirmComponent = (props) => {
       get children() {
         return [createComponent(Show, {
           get when() {
-            return !props.isSmallScreen;
+            return !props.isSmallScreen || isMobile();
           },
           get children() {
             var _el$7 = _tmpl$(), _el$8 = _el$7.firstChild, _el$9 = _el$8.nextSibling, _el$10 = _el$9.firstChild, _el$11 = _el$10.nextSibling;
@@ -131,17 +132,19 @@ const SyncretismConfirmComponent = (props) => {
       }
     }), null);
     createRenderEffect((_p$) => {
-      var _v$ = `url('blp:${model.selectedCivBg}')`, _v$2 = `relative flex-auto pb-2 ${props.isSmallScreen ? "pt-4 px-12 w-full" : "w-3\\/4 pr-4 pt-12 pl-24"}`, _v$3 = `flex flex-row p-1 items-end ${props.isSmallScreen ? "mt-5 mb-10" : "mt-10"}`, _v$4 = `flex flex-col flex-auto ${props.isSmallScreen ? "" : "pr-12"} mx-2 mb-2 pt-1 justify-center`;
-      _v$ !== _p$.e && ((_p$.e = _v$) != null ? _el$2.style.setProperty("background-image", _v$) : _el$2.style.removeProperty("background-image"));
-      _v$2 !== _p$.t && className(_el$4, _p$.t = _v$2);
-      _v$3 !== _p$.a && className(_el$5, _p$.a = _v$3);
-      _v$4 !== _p$.o && className(_el$6, _p$.o = _v$4);
+      var _v$ = `absolute ${isMobile() ? "" : "m-1"} bg-cover bg-no-repeat fullscreen-outside-safezone`, _v$2 = `url('blp:${model.selectedCivBg}')`, _v$3 = `relative flex-auto pb-2 ${props.isSmallScreen ? "pt-4 px-12 w-full" : "w-3\\/4 pr-4 pt-12 pl-24"}`, _v$4 = `flex flex-row p-1 items-end ${props.isSmallScreen ? "mt-5 mb-10" : "mt-10"}`, _v$5 = `flex flex-col flex-auto ${props.isSmallScreen ? "" : "pr-12"} mx-2 mb-2 pt-1 justify-center`;
+      _v$ !== _p$.e && className(_el$2, _p$.e = _v$);
+      _v$2 !== _p$.t && ((_p$.t = _v$2) != null ? _el$2.style.setProperty("background-image", _v$2) : _el$2.style.removeProperty("background-image"));
+      _v$3 !== _p$.a && className(_el$4, _p$.a = _v$3);
+      _v$4 !== _p$.o && className(_el$5, _p$.o = _v$4);
+      _v$5 !== _p$.i && className(_el$6, _p$.i = _v$5);
       return _p$;
     }, {
       e: void 0,
       t: void 0,
       a: void 0,
-      o: void 0
+      o: void 0,
+      i: void 0
     });
     return _el$;
   })();

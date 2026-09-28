@@ -1,5 +1,6 @@
 import { createEffect, onMount, onCleanup, createContext, useContext } from '../../../vendor/solid-js/dist/solid.js';
 import { createMutable } from '../../../vendor/solid-js/store/dist/store.js';
+import { ContextManager } from '../../context-manager/context-manager.js';
 import { ModelRegistry, ModelLifecycle } from '../../../ui-next/services/model-registry.js';
 
 var CarouselActionTypes = /* @__PURE__ */ ((CarouselActionTypes2) => {
@@ -46,6 +47,12 @@ function createPromoCarouselModel() {
     }
     updateNetworkFlags();
   }
+  function showExpandedCarousel() {
+    ContextManager.push("promo-carousel-expanded", {
+      singleton: true,
+      createMouseGuard: true
+    });
+  }
   function createCarousel(data) {
     if (!Network.supportsSSO()) {
       return;
@@ -68,6 +75,7 @@ function createPromoCarouselModel() {
     if (data.fullRefresh && !model.bootLoaded && bootItemIndex >= 0) {
       setCarouselIndex(bootItemIndex);
       model.bootLoaded = true;
+      showExpandedCarousel();
     } else if (data.fullRefresh) {
       setCarouselIndex(0);
     }
@@ -228,7 +236,8 @@ function createPromoCarouselModel() {
     onSetItem: handleSetItem,
     onCarouselInteract: handleCarouselInteract,
     onCarouselUpdate: updateCarousel,
-    onTelemetryPromoAction: handleTelemetryPromoAction
+    onTelemetryPromoAction: handleTelemetryPromoAction,
+    onShowExpandedCarousel: showExpandedCarousel
   });
   return model;
 }

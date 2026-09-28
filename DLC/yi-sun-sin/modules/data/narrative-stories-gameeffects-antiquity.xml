@@ -165,13 +165,15 @@
     </RequirementSet>
     <RequirementSet id="REQSET_10136A_NARRATIVE">
         <Requirement xref="REQ_STORY_LEADER_YI_SUN_SIN"/>
-        <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_GOSSIPS">
-            <Argument name="GossipTypes">GOSSIP_PILLAGE01</Argument>
+        <Requirement type="REQUIREMENT_PLAYER_MET_IMMEDIATE_GOSSIP">
+            <Argument name="GossipTypes">GOSSIP_PILLAGE</Argument>
             <Argument name="GOSSIP_PILLAGE01">Hash,OtherPlayer,Other,Hash,InCommandRadius,True,Hash,IsCoastal,True,Hash,AtWar,True</Argument>
         </Requirement>
         <Requirement type="REQUIREMENT_PLAYER_HAS_AT_LEAST_NUM_MILITARY_UNITS" inverse="true">
             <Argument name="UnitTag">UNIT_CLASS_FLEET_COMMANDER</Argument>
             <Argument name="Amount">2</Argument>
+        </Requirement>
+        <Requirement type="REQUIREMENT_PLAYER_HAS_OCEAN_ACCESS_TILE">
         </Requirement>
     </RequirementSet>
 </GameEffects>

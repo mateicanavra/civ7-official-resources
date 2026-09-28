@@ -1,5 +1,4 @@
 import { Audio } from '../../../core/ui/audio-base/audio-support.js';
-import ActionHandler from '../../../core/ui/input/action-handler.js';
 import { ActiveDeviceTypeChangedEventName } from '../../../core/ui/input/input-events.js';
 import { PlotCursor } from '../../../core/ui/input/plot-cursor.js';
 import { InterfaceMode } from '../../../core/ui/interface-modes/interface-modes.js';
@@ -9,6 +8,7 @@ import { ComponentID } from '../../../core/ui/utilities/utilities-component-id.j
 import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
 import { Icon } from '../../../core/ui/utilities/utilities-image.js';
 import UpdateGate from '../../../core/ui/utilities/utilities-update-gate.js';
+import { IsControllerActive } from '../../../core/ui-next/services/input.js';
 import getAdviceManager from '../advice/advice-manager.js';
 import { NotificationModel } from '../notification-train/model-notification-train.js';
 import WatchOutManager from '../watch-out/watch-out-manager.js';
@@ -102,7 +102,7 @@ class PanelAction extends Panel {
     actionButtonTextPlate.appendChild(actionButtonTxtPlateBk);
     this.navHelpContainer = document.createElement("div");
     this.navHelpContainer.classList.add("action-panel__nav-help-container");
-    this.navHelpContainer.classList.toggle("gamepad-active", ActionHandler.isGamepadActive);
+    this.navHelpContainer.classList.toggle("gamepad-active", IsControllerActive());
     actionButtonTextPlate.appendChild(this.navHelpContainer);
     const navHelp = document.createElement("fxs-nav-help");
     navHelp.setAttribute("action-key", "inline-next-action");
@@ -142,9 +142,12 @@ class PanelAction extends Panel {
       actionButtonNotification.setAttribute("data-audio-activate-ref", "none");
       actionButtonNotification.setAttribute("data-audio-focus-ref", "none");
       actionButtonNotificationContainer.appendChild(actionButtonNotification);
+      const actionButtonNotificationContent = document.createElement("div");
+      actionButtonNotificationContent.classList.add("action-panel__button-notification__content");
+      actionButtonNotification.appendChild(actionButtonNotificationContent);
       const actionButtonBk2 = document.createElement("div");
       actionButtonBk2.classList.add("action-panel__button-notification__bk");
-      actionButtonNotification.appendChild(actionButtonBk2);
+      actionButtonNotificationContent.appendChild(actionButtonBk2);
       const actionButtonNotificationIcon = document.createElement("div");
       actionButtonNotificationIcon.classList.add("action-panel__button-notification__icon");
       actionButtonBk2.appendChild(actionButtonNotificationIcon);
@@ -214,13 +217,14 @@ class PanelAction extends Panel {
     engine.on("UnitAddedToMap", this.onUnitNumModified, this);
     engine.on("UnitRemovedFromMap", this.onUnitNumModified, this);
     engine.on("TurnTimerUpdated", this.onTurnTimerUpdated, this);
+    engine.on("GamePauseStateChanged", this.onGamePauseStateChanged, this);
     engine.on("InputContextChanged", this.inputContextChangedListener);
     window.addEventListener(ActiveDeviceTypeChangedEventName, this.activeDeviceChangedEventListener);
     window.addEventListener("engine-input", this.engineInputListener);
     window.addEventListener("hotkey-next-action", this.nextActionHotKeyListener);
   }
   onActiveDeviceChanged() {
-    this.navHelpContainer?.classList.toggle("gamepad-active", ActionHandler.isGamepadActive);
+    this.navHelpContainer?.classList.toggle("gamepad-active", IsControllerActive());
   }
   onDetach() {
     engine.off("AutoplayEnded", this.onAutoplayEnd, this);
@@ -443,6 +447,10 @@ class PanelAction extends Panel {
         );
         return;
       }
+      if (Configuration.getGame().isPaused) {
+        this.setMultiplayerPaused();
+        return;
+      }
       const endTurnBlockingType = Game.Notifications.getEndTurnBlockingType(playerID);
       const endTurnBlockingNotificationId = Game.Notifications.findEndTurnBlocking(playerID, endTurnBlockingType);
       const notificationIds = Game.Notifications.getIdsForPlayer(playerID) ?? [];
@@ -650,6 +658,36 @@ class PanelAction extends Panel {
     this.actionText.textContent = buttonText;
     this.pleaseWaitAnimation.start();
   }
+  // Set the End Turn button to the Multiplayer Pausedd state.
+  setMultiplayerPaused() {
+    if (!this.actionButton) {
+      console.error("panel-action: unable to find the action button element during setMultiplayerPaused!");
+      return;
+    }
+    if (!this.actionText) {
+      console.error("panel-action: unable to find the action text element during setMultiplayerPaused!");
+      return;
+    }
+    if (!this.notificationIcon) {
+      console.error("panel-action: unable to find the notification icon element during setMultiplayerPaused!");
+      return;
+    }
+    let activePlayersList = "";
+    const buttonText = Locale.compose("LOC_ACTION_PANEL_MULTIPLAYER_PAUSE");
+    let tooltip = Locale.compose("LOC_ACTION_PANEL_MULTIPLAYER_PAUSE_TT");
+    const playerList = Players.getAlive();
+    for (const player of playerList) {
+      const playerConfig = Configuration.getPlayer(player.id);
+      if (playerConfig.isHuman && playerConfig.wantsPause) {
+        const playerName = player.name.replace(new RegExp(" ", "g"), "&nbsp;");
+        activePlayersList += `[N]${playerName}`;
+      }
+    }
+    tooltip += activePlayersList;
+    this.actionButton.setAttribute("data-tooltip-content", tooltip);
+    this.actionText.textContent = buttonText;
+    this.pleaseWaitAnimation.start();
+  }
   canEndTurn() {
     const endTurnBlockingType = Game.Notifications.getEndTurnBlockingType(
       GameContext.localPlayerID
@@ -797,6 +835,11 @@ class PanelAction extends Panel {
       this.sendEndTurn();
     }
     if (inputEvent.detail.name == "multiplayer-pause" && Configuration.getGame().isAnyMultiplayer) {
+      if (Configuration.getGame().isPaused) {
+        Audio.playSound("data-audio-resume", "multiplayer-pause");
+      } else {
+        Audio.playSound("data-audio-pause", "multiplayer-pause");
+      }
       Network.toggleMultiplayerPause();
       inputEvent.stopPropagation();
     }
@@ -994,6 +1037,9 @@ class PanelAction extends Panel {
         element.style.animationDelay = `${jumpStart}s`;
       });
     }
+  }
+  onGamePauseStateChanged() {
+    this.refreshActionButton(GameContext.localPlayerID);
   }
 }
 Controls.define("panel-action", {

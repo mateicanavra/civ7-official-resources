@@ -1,7 +1,7 @@
 import { utils } from '../graph-layout/utils.js';
-import ActionHandler from '../input/action-handler.js';
-import { InputEngineEventName } from '../input/input-support.js';
+import { InputEngineEventName, InputHandlerState } from '../input/input-support.js';
 import ViewManager from '../views/view-manager.js';
+import { IsControllerActive, IsTouchActive } from '../../ui-next/services/input.js';
 
 var DragType = /* @__PURE__ */ ((DragType2) => {
   DragType2[DragType2["None"] = 0] = "None";
@@ -151,7 +151,7 @@ class CameraControllerSingleton {
       this.updateFrameEventHandle = null;
       return;
     }
-    if ((ActionHandler.isGamepadActive || ActionHandler.isTouchActive) && this.edgePanDirection != 0 /* None */) {
+    if ((IsControllerActive() || IsTouchActive()) && this.edgePanDirection != 0 /* None */) {
       this.edgePanDirection = 0 /* None */;
     }
     const discretePanDirection = this.keyboardPanDirection | this.edgePanDirection;
@@ -342,39 +342,49 @@ class CameraControllerSingleton {
     switch (inputEvent.detail.name) {
       case "mousebutton-middle":
         this.panToMouse(inputEvent);
-        return false;
+        return InputHandlerState.Handled;
       case "keyboard-nav-up":
         this.setKeyboardPan(inputEvent, 1 /* Up */);
-        return false;
+        return InputHandlerState.Handled;
       case "keyboard-nav-down":
         this.setKeyboardPan(inputEvent, 2 /* Down */);
-        return false;
+        return InputHandlerState.Handled;
       case "keyboard-nav-right":
         this.setKeyboardPan(inputEvent, 8 /* Right */);
-        return false;
+        return InputHandlerState.Handled;
       case "keyboard-nav-left":
         this.setKeyboardPan(inputEvent, 4 /* Left */);
-        return false;
+        return InputHandlerState.Handled;
       case "camera-pan":
         this.onGamepadCameraPan(inputEvent.detail.status, { x: inputEvent.detail.x, y: inputEvent.detail.y });
-        return false;
+        return InputHandlerState.Handled;
       case "camera-rotate":
         this.cameraRotate(inputEvent.detail.status, inputEvent.detail.x);
-        return false;
+        return InputHandlerState.Handled;
+      case "mousewheel-up":
+        if (inputEvent.detail.status == InputActionStatuses.FINISH) {
+          this.cameraZoomIn(inputEvent.detail.status, zoomRate);
+        }
+        return InputHandlerState.Handled;
       case "camera-zoom-in":
       case "touch-pinch-in":
         this.cameraZoomIn(inputEvent.detail.status, inputEvent.detail.x);
-        return false;
+        return InputHandlerState.Handled;
+      case "mousewheel-down":
+        if (inputEvent.detail.status == InputActionStatuses.FINISH) {
+          this.cameraZoomOut(inputEvent.detail.status, zoomRate);
+        }
+        return InputHandlerState.Handled;
       case "camera-zoom-out":
       case "touch-pinch-out":
         this.cameraZoomOut(inputEvent.detail.status, inputEvent.detail.x);
-        return false;
+        return InputHandlerState.Handled;
       case "touch-begin":
         this.startingCameraZoom = Camera.getState().zoomLevel;
-        return true;
+        return InputHandlerState.Active;
       case "touch-pinch-direct":
         if (!ViewManager.isWorldInputAllowed) {
-          return false;
+          return InputHandlerState.Handled;
         }
         {
           let newZoom = 1 - inputEvent.detail.x;
@@ -384,24 +394,24 @@ class CameraControllerSingleton {
           newZoom = utils.clamp(newZoom, 0, 1);
           Camera.zoom(newZoom);
         }
-        return false;
+        return InputHandlerState.Handled;
       case "touch-pan":
         this.handleTouchPan(inputEvent);
-        return false;
+        return InputHandlerState.Handled;
       case "touch-swipe":
         this.dragMouseSwipe(inputEvent);
-        return false;
+        return InputHandlerState.Handled;
       case "touch-touch":
         this.dragMouseEnd();
-        return true;
+        return InputHandlerState.Handled;
     }
-    return true;
+    return InputHandlerState.Active;
   }
   /**
    * @returns true if still live, false if input should stop.
    */
   handleNavigation(_navigationEvent) {
-    return true;
+    return InputHandlerState.Active;
   }
 }
 const CameraController = CameraControllerSingleton.getInstance();

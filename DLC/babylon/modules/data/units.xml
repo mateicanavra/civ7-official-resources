@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Types>
+		<!--Civ Unique Military-->
+		<Row Type="UNIT_QASTI" Kind="KIND_UNIT"/>
+		<Row Type="UNIT_QASTI_2" Kind="KIND_UNIT"/>
+		<!--Civ Unique Civilian-->
+		<Row Type="UNIT_TAMKARU" Kind="KIND_UNIT"/>
+		<!--Civ Unique Abilities-->
+		<Row Type="ABILITY_QASTI" Kind="KIND_ABILITY"/>
+		<Row Type="ABILITY_TAMKARU" Kind="KIND_ABILITY"/>
+	</Types>
+	<Units>
+		<!--Civ Unique Military-->
+		<Row UnitType="UNIT_QASTI" Name="LOC_UNIT_QASTI_NAME" Description="LOC_UNIT_QASTI_DESCRIPTION" Tier="1" BaseSightRange="2" BaseMoves="2" UnitMovementClass="UNIT_MOVEMENT_CLASS_MOUNTED" Domain="DOMAIN_LAND" CoreClass="CORE_CLASS_MILITARY" FormationClass="FORMATION_CLASS_LAND_COMBAT" ZoneOfControl="true" TraitType="TRAIT_BABYLON"/>
+		<Row UnitType="UNIT_QASTI_2" Name="LOC_UNIT_QASTI_NAME" Description="LOC_UNIT_QASTI_2_DESCRIPTION" Tier="2" Maintenance="1" BaseSightRange="2" BaseMoves="2" UnitMovementClass="UNIT_MOVEMENT_CLASS_MOUNTED" Domain="DOMAIN_LAND" CoreClass="CORE_CLASS_MILITARY" FormationClass="FORMATION_CLASS_LAND_COMBAT" ZoneOfControl="true" TraitType="TRAIT_BABYLON"/>
+		<!--Civ Unique Civilian-->
+		<Row UnitType="UNIT_TAMKARU" Name="LOC_UNIT_TAMKARU_NAME" Description="LOC_UNIT_TAMKARU_DESCRIPTION"  BaseSightRange="2" BaseMoves="4" UnitMovementClass="UNIT_MOVEMENT_CLASS_FOOT" Domain="DOMAIN_LAND" CoreClass="CORE_CLASS_CIVILIAN" FormationClass="FORMATION_CLASS_CIVILIAN" ZoneOfControl="false" MakeTradeRoute="true" CostProgressionModel="COST_PROGRESSION_PREVIOUS_COPIES" CostProgressionParam1="20" TraitType="TRAIT_BABYLON"/>
+	</Units>
+	<Unit_Stats>
+		<!--Civ Unique Military-->
+		<Row UnitType="UNIT_QASTI" Combat="10" RangedCombat="15" Bombard="5" Range="2"/>
+		<Row UnitType="UNIT_QASTI_2" Combat="20" RangedCombat="25" Bombard="15" Range="2"/>
+	</Unit_Stats>
+	<Unit_Costs>
+		<!--Civ Unique Military-->
+		<Row UnitType="UNIT_QASTI" YieldType="YIELD_PRODUCTION" Cost="30"/>
+		<Row UnitType="UNIT_QASTI_2" YieldType="YIELD_PRODUCTION" Cost="50"/>
+		<!--Civ Unique Civilian-->
+		<Row UnitType="UNIT_TAMKARU" YieldType="YIELD_PRODUCTION" Cost="40"/>
+	</Unit_Costs>
+	<UnitUpgrades>
+		<!--Civ Unique Military-->
+		<Row Unit="UNIT_QASTI" UpgradeUnit="UNIT_QASTI_2"/>
+	</UnitUpgrades>
+	<UnitReplaces>
+		<!--Civ Unique Military-->
+		<Row CivUniqueUnitType="UNIT_QASTI" ReplacesUnitType="UNIT_SLINGER"/>
+		<Row CivUniqueUnitType="UNIT_QASTI_2" ReplacesUnitType="UNIT_ARCHER"/>
+		<Row CivUniqueUnitType="UNIT_TAMKARU" ReplacesUnitType="UNIT_MERCHANT"/>
+	</UnitReplaces>
+	<Tags>
+		<!--Civ Unique Military-->
+		<Row Tag="UNIT_CLASS_QASTI" Category="UNIT_CLASS"/>
+		<!--Civ Unique Civilian-->
+		<Row Tag="UNIT_CLASS_TAMKARU" Category="UNIT_CLASS"/>
+	</Tags>
+	<TypeTags>
+		<!--Civ Unique Military-->
+		<Row Type="UNIT_QASTI" Tag="UNIT_CLASS_COMBAT"/>
+		<Row Type="UNIT_QASTI" Tag="UNIT_CLASS_RANGED"/>
+		<Row Type="UNIT_QASTI" Tag="UNIT_CLASS_QASTI"/>
+		<Row Type="UNIT_QASTI" Tag="UNIT_CLASS_UNIQUE"/>
+		<Row Type="UNIT_QASTI_2" Tag="UNIT_CLASS_COMBAT"/>
+		<Row Type="UNIT_QASTI_2" Tag="UNIT_CLASS_RANGED"/>
+		<Row Type="UNIT_QASTI_2" Tag="UNIT_CLASS_QASTI"/>
+		<Row Type="UNIT_QASTI_2" Tag="UNIT_CLASS_UNIQUE"/>
+		<!--Civ Unique Civilian-->
+		<Row Type="UNIT_TAMKARU" Tag="UNIT_CLASS_MAKE_TRADE_ROUTE"/>
+		<Row Type="UNIT_TAMKARU" Tag="UNIT_CLASS_TAMKARU"/>
+	</TypeTags>
+	<UnitClass_Abilities>
+		<Row UnitAbilityType="ABILITY_QASTI" UnitClassType="UNIT_CLASS_QASTI"/>
+		<Row UnitAbilityType="ABILITY_TAMKARU" UnitClassType="UNIT_CLASS_TAMKARU"/>
+	</UnitClass_Abilities>
+	<UnitAbilities>
+		<!--Unique-->
+		<Row UnitAbilityType="ABILITY_QASTI" Name="LOC_UNIT_QASTI_NAME" Description="LOC_ABILITY_QASTI_DESCRIPTION"/>
+		<Row UnitAbilityType="ABILITY_TAMKARU" Name="LOC_UNIT_TAMKARU_NAME" Description="LOC_ABILITY_TAMKARU_DESCRIPTION"/>
+	</UnitAbilities>
+	<UnitAbilityModifiers>
+		<Row UnitAbilityType="ABILITY_QASTI" ModifierId="QASTI_MOD_COMBAT_ADJACENT_1"/>
+		<Row UnitAbilityType="ABILITY_QASTI" ModifierId="QASTI_MOD_COMBAT_ADJACENT_2"/>
+		<Row UnitAbilityType="ABILITY_QASTI" ModifierId="QASTI_MOD_COMBAT_ADJACENT_3"/>
+		<Row UnitAbilityType="ABILITY_QASTI" ModifierId="QASTI_MOD_COMBAT_ADJACENT_4"/>
+		<Row UnitAbilityType="ABILITY_QASTI" ModifierId="QASTI_MOD_COMBAT_ADJACENT_5"/>
+		<Row UnitAbilityType="ABILITY_QASTI" ModifierId="QASTI_MOD_COMBAT_ADJACENT_6"/>
+		<Row UnitAbilityType="ABILITY_QASTI" ModifierId="QASTI_MOD_COMBAT_ADJACENT_7"/>
+		<Row UnitAbilityType="ABILITY_TAMKARU" ModifierId="TAMKARU_MOD_TRADE_CREATION_YIELD"/>
+	</UnitAbilityModifiers>
+	<Unit_Advisories>
+		<Row UnitType="UNIT_QASTI" AdvisoryClassType="ADVISORY_CLASS_MILITARY"/>
+		<Row UnitType="UNIT_QASTI_2" AdvisoryClassType="ADVISORY_CLASS_MILITARY"/>
+		<Row UnitType="UNIT_TAMKARU" AdvisoryClassType="ADVISORY_CLASS_ECONOMIC"/>
+		<Row UnitType="UNIT_TAMKARU" AdvisoryClassType="ADVISORY_CLASS_TRADE"/>
+	</Unit_Advisories>
+</Database>

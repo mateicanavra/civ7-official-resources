@@ -2,7 +2,7 @@ import { TtsManager } from '../../accessibility/tts-manager.js';
 import { Audio } from '../../audio-base/audio-support.js';
 import { ActionActivateEventName } from '../../components/fxs-activatable.js';
 import { FxsButton } from '../../components/fxs-button.js';
-import ContextManager from '../../context-manager/context-manager.js';
+import { ContextManager } from '../../context-manager/context-manager.js';
 import { DialogBoxManager } from '../../dialog-box/manager-dialog-box.js';
 import NavTray from '../../navigation-tray/model-navigation-tray.js';
 import Panel from '../../panel-support.js';
@@ -37,6 +37,7 @@ const KEYS_TO_ADD = [
   "toggle-grid-layer",
   "toggle-yields-layer",
   "toggle-resources-layer",
+  "toggle-radial-measure-layer",
   "unit-move",
   "unit-ranged-attack",
   "unit-skip-turn",

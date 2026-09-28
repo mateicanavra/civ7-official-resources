@@ -165,6 +165,13 @@
   .tree-card {
     width: 6.6666666667rem;
   }
+}
+@media (experience: mobile) and (max-height: 55.5555555556rem) {
+  .tree-card {
+    margin-bottom: -0.4444444444rem;
+  }
+}
+@media (experience: mobile) {
   .tree-card .tree-card-background {
     width: 7.6666666667em;
     height: 7.6666666667em;
@@ -435,6 +442,7 @@
 }
 .tree-detail .detail-ring {
   background-image: url("fs://game/cPromo_level_circle.png");
+  background-repeat: no-repeat;
 }
 .tree-detail .detail-ring .fxs-ring-meter__ring-left,
 .tree-detail .detail-ring .fxs-ring-meter__ring-right {

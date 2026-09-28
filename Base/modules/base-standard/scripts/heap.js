@@ -25,6 +25,15 @@ class Heap {
   clear() {
     this.items = [];
   }
+  // Note this requires a linear scan of the heap, so use sparingly.
+  rescore(itemFinder, updateScore) {
+    const index = this.items.findIndex(itemFinder);
+    if (index !== -1) {
+      updateScore(this.items[index]);
+      this.bubbleUp(index);
+      this.bubbleDown(index);
+    }
+  }
   bubbleUp(index) {
     while (index > 0) {
       const parent = index - 1 >> 1;

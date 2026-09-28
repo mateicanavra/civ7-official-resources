@@ -5,6 +5,7 @@ const enableDebugMessages = false;
 class CityBannerManager extends Component {
   citiesNotFullyCreated = /* @__PURE__ */ new Map();
   banners = /* @__PURE__ */ new Map();
+  modCallback = null;
   cityIntegratedListener = this.onCityIntegrated.bind(this);
   cityAddedToMapListener = this.onCityAddedToMap.bind(this);
   cityInitializedListener = this.onCityInitialized.bind(this);
@@ -120,6 +121,19 @@ class CityBannerManager extends Component {
     window.removeEventListener("ui-hide-city-banners", this.globalHideListener);
     window.removeEventListener("ui-show-city-banners", this.globalShowListener);
     super.onDetach();
+  }
+  setModCallback(callback) {
+    this.modCallback = callback;
+    console.log(`modCallback set, ${this.banners.size} banners exist`);
+    this.banners.forEach((banner, _key) => {
+      banner.queueNameUpdate();
+    });
+  }
+  callModCallback(city, player) {
+    if (this.modCallback) {
+      return this.modCallback.addModContent(city, player);
+    }
+    return document.createDocumentFragment();
   }
   /**
    * Determine if a city/town already has a banner associated with it.

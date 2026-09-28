@@ -1,8 +1,8 @@
-import ActionHandler from '../input/action-handler.js';
 import { ActiveDeviceTypeChangedEventName } from '../input/input-events.js';
 import { Icon } from '../utilities/utilities-image.js';
 import { Layout } from '../utilities/utilities-layout.js';
 import UpdateGate from '../utilities/utilities-update-gate.js';
+import { IsControllerActive } from '../../ui-next/services/input.js';
 
 const actionButtonMap = /* @__PURE__ */ new Map([
   ["inline-confirm", "accept"],
@@ -108,7 +108,7 @@ class FxsNavHelp extends Component {
   caption = "";
   // possibly add more properties here to avoid setting styles to the same values in update
   prevState = {
-    isGamepadActive: ActionHandler.isGamepadActive
+    isGamepadActive: IsControllerActive()
   };
   updateGate = new UpdateGate(this.onUpdate.bind(this));
   /**
@@ -172,7 +172,7 @@ class FxsNavHelp extends Component {
     }
     this.iconElement = void 0;
     this.textHelp = void 0;
-    if (ActionHandler.isGamepadActive) {
+    if (IsControllerActive()) {
       this.iconElement = document.createElement("div");
       this.iconElement.classList.add("relative");
       this.label.classList.add("mx-1");
@@ -218,22 +218,28 @@ class FxsNavHelp extends Component {
     } else {
       this.Root.style.display = "";
     }
-    if (prevState.isGamepadActive != ActionHandler.isGamepadActive) {
-      prevState.isGamepadActive = ActionHandler.isGamepadActive;
+    if (prevState.isGamepadActive != IsControllerActive()) {
+      prevState.isGamepadActive = IsControllerActive();
       this.refreshContainers();
     }
     let imagePath = "";
     let textHelp = "";
     if (this.actionKey != "") {
-      if (ActionHandler.isGamepadActive) {
-        imagePath = Icon.getIconFromActionName(FxsNavHelp.getGamepadActionName(this.actionKey)) ?? "";
+      if (IsControllerActive()) {
+        const actionName2 = FxsNavHelp.getGamepadActionName(this.actionKey);
+        const activeInputDeviceType = Input.getActiveDeviceType();
+        const activeInputContext = Input.getActiveContext();
+        imagePath = Icon.getIconFromActionName(actionName2, activeInputDeviceType, activeInputContext) ?? "";
       } else {
         textHelp = getTextHelpForAction(this.actionKey);
       }
     }
     if ((imagePath == "" || imagePath.includes("icon_mapping_unknown")) && this.altActionKey != "") {
-      if (ActionHandler.isGamepadActive) {
-        imagePath = Icon.getIconFromActionName(FxsNavHelp.getGamepadActionName(this.altActionKey)) ?? "";
+      if (IsControllerActive()) {
+        const actionName2 = FxsNavHelp.getGamepadActionName(this.altActionKey);
+        const activeInputDeviceType = Input.getActiveDeviceType();
+        const activeInputContext = Input.getActiveContext();
+        imagePath = Icon.getIconFromActionName(actionName2, activeInputDeviceType, activeInputContext) ?? "";
       }
     }
     if (this.iconElement) {

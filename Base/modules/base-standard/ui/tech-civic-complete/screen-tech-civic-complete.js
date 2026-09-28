@@ -1,5 +1,5 @@
 import { Audio } from '../../../core/ui/audio-base/audio-support.js';
-import ContextManager from '../../../core/ui/context-manager/context-manager.js';
+import { ContextManager } from '../../../core/ui/context-manager/context-manager.js';
 import NavTray from '../../../core/ui/navigation-tray/model-navigation-tray.js';
 import Panel from '../../../core/ui/panel-support.js';
 import Databind from '../../../core/ui/utilities/utilities-core-databinding.js';
@@ -7,6 +7,7 @@ import { formatStringArrayAsNewLineText } from '../../../core/ui/utilities/utili
 import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
 import { Icon } from '../../../core/ui/utilities/utilities-image.js';
 import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
+import { isMobile } from '../../../core/ui-next/services/view-experience.js';
 import { setActivePolicyTab } from '../policies/model-government.js';
 import TechCivicPopupManager, { ProgressionTreeTypes } from './tech-civic-popup-manager.js';
 import { TreeNodesSupport } from '../tree-grid/tree-support.js';
@@ -88,7 +89,6 @@ class ScreenTechCivicComplete extends Panel {
   }
   onAttach() {
     super.onAttach();
-    const isMobileViewExperience = UI.getViewExperience() == UIViewExperience.Mobile;
     if (this.treeType == ProgressionTreeTypes.CULTURE) {
       UI.sendAudioEvent(Audio.getSoundTag("data-audio-showing-civic", "audio-tech-civic-complete"));
       if (TechCivicPopupManager.isFirstCivic) {
@@ -104,7 +104,7 @@ class ScreenTechCivicComplete extends Panel {
     if (quote && quote.QuoteAudio) {
       UI.sendAudioEvent(quote.QuoteAudio);
     }
-    this.Root.classList.toggle("pt-8", isMobileViewExperience);
+    this.Root.classList.toggle("pt-8", isMobile());
     this.Root.addEventListener("engine-input", this.engineInputListener);
   }
   onDetach() {
@@ -338,7 +338,6 @@ class ScreenTechCivicComplete extends Panel {
     return unlockedItemsSlot;
   }
   render() {
-    const isMobileViewExperience = UI.getViewExperience() == UIViewExperience.Mobile;
     const popupData = {
       [ProgressionTreeTypes.TECH]: {
         title: "LOC_TECH_CIVIC_TECH_UNLOCKED",
@@ -376,7 +375,7 @@ class ScreenTechCivicComplete extends Panel {
 				<div data-l10n-id="${nodeName}" class="text-accent-2 text-base text-center uppercase font-title font-bold tracking-100 px-1 pt-4 pb-3"></div>
 			</div>
 		`;
-    if (isMobileViewExperience) {
+    if (isMobile()) {
       const closeButton = document.createElement("fxs-close-button");
       closeButton.addEventListener("action-activate", TechCivicPopupManager.closePopup);
       closeButton.classList.add("top-2", "right-0\\.5");
@@ -396,9 +395,9 @@ class ScreenTechCivicComplete extends Panel {
       this.buttonSlot.appendChild(okButton);
     }
     this.buttonSlot.classList.add("flex", "mx-4");
-    this.buttonSlot.classList.toggle("mt-6", !isMobileViewExperience);
-    this.buttonSlot.classList.toggle("mb-4", !isMobileViewExperience);
-    this.buttonSlot.classList.toggle("my-3", isMobileViewExperience);
+    this.buttonSlot.classList.toggle("mt-6", !isMobile());
+    this.buttonSlot.classList.toggle("mb-4", !isMobile());
+    this.buttonSlot.classList.toggle("my-3", isMobile());
     if (this.treeType === ProgressionTreeTypes.CULTURE) {
       const changePoliciesButton = document.createElement("fxs-button");
       Databind.if(changePoliciesButton, `!{{g_NavTray.isTrayRequired}}`);
@@ -438,8 +437,13 @@ class ScreenTechCivicComplete extends Panel {
     }
     this.unlockItemsParentWrapper.setAttribute("attached-scrollbar", "true");
     this.unlockItemsParentWrapper.classList.add("shrink");
-    this.unlockItemsParentWrapper.appendChild(this.buttonSlot);
+    if (!isMobile()) {
+      this.unlockItemsParentWrapper.appendChild(this.buttonSlot);
+    }
     this.modalFrame.appendChild(this.unlockItemsParentWrapper);
+    if (isMobile()) {
+      this.modalFrame.appendChild(this.buttonSlot);
+    }
     this.Root.appendChild(this.modalFrame);
   }
 }

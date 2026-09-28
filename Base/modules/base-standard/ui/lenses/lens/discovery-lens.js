@@ -10,7 +10,8 @@ class DiscoveryLens {
     "fxs-hexgrid-layer",
     "fxs-resource-layer",
     "fxs-yields-layer",
-    "fxs-conquest-layer"
+    "fxs-conquest-layer",
+    "fxs-radial-measure-layer"
   ]);
   skipCachingEnabledLayers = true;
 }

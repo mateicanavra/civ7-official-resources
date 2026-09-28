@@ -52,6 +52,11 @@ var AnalogInput;
 ((AnalogInput2) => {
   AnalogInput2.deadzoneThreshold = 0.2;
 })(AnalogInput || (AnalogInput = {}));
+var InputHandlerState = /* @__PURE__ */ ((InputHandlerState2) => {
+  InputHandlerState2[InputHandlerState2["Active"] = 0] = "Active";
+  InputHandlerState2[InputHandlerState2["Handled"] = 1] = "Handled";
+  return InputHandlerState2;
+})(InputHandlerState || {});
 
-export { AnalogInput, InputEngineEvent, InputEngineEventName, NavigateInputEvent, NavigateInputEventName };
+export { AnalogInput, InputEngineEvent, InputEngineEventName, InputHandlerState, NavigateInputEvent, NavigateInputEventName };
 //# sourceMappingURL=input-support.js.map

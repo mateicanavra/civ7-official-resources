@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Types>
+		<!-- Major Civs -->
+		<Row Type="TRAIT_GAUL" Kind="KIND_TRAIT"/>
+		<Row Type="CIVILIZATION_GAUL" Kind="KIND_CIVILIZATION"/>
+	</Types>
+	<LegacyCivilizations>
+		<!-- Full Civs -->
+		<Row CivilizationType="CIVILIZATION_GAUL" Name="LOC_CIVILIZATION_GAUL_NAME" FullName="LOC_CIVILIZATION_GAUL_FULLNAME" Adjective="LOC_CIVILIZATION_GAUL_ADJECTIVE" Age="AGE_ANTIQUITY"/>
+	</LegacyCivilizations>
+	<LegacyCivilizationTraits>
+		<Row CivilizationType="CIVILIZATION_GAUL" TraitType="TRAIT_GAUL"/>
+	</LegacyCivilizationTraits>
+	<Traits>
+		<Row TraitType="TRAIT_GAUL" InternalOnly="true"/>
+	</Traits>
+	<LegacyIndependents>
+		<Update>
+			<Where IndependentType="INDEPENDENT_ANTIQUITY_23"/>
+			<Set Name="LOC_INDEPENDENT_ANTIQUITY_23_MAJOR_GAUL_NAME"/>
+		</Update>
+	</LegacyIndependents>
+</Database>

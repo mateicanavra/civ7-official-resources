@@ -1,6 +1,6 @@
 import { template, insert } from '../../vendor/solid-js/web/dist/web.js';
-import { createMemo, createComponent } from '../../vendor/solid-js/dist/solid.js';
-import ContextManager from '../../ui/context-manager/context-manager.js';
+import { createMemo, createComponent, createRenderEffect } from '../../vendor/solid-js/dist/solid.js';
+import { ContextManager } from '../../ui/context-manager/context-manager.js';
 import { Button } from './button.js';
 import { defineLegacyComponent } from './fxs-solid-component.js';
 import { L10n } from './l10n.js';
@@ -10,8 +10,9 @@ import { Panel } from './panel.js';
 import { ComponentRegistry } from '../services/component-registry.js';
 import { HotkeyIconContext } from '../services/hotkey.js';
 import { IsKeyboardActive, IsMouseActive } from '../services/input.js';
+import { useIsSmallScreen } from '../utilities/layout-utilities.js';
 
-var _tmpl$ = /* @__PURE__ */ template(`<div class="font-title text-base text-center uppercase"></div>`), _tmpl$2 = /* @__PURE__ */ template(`<span class="flex flex-row items-center justify-center gap-1"></span>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="font-body text-sm text-center"></div>`);
+var _tmpl$ = /* @__PURE__ */ template(`<div class="font-title text-base text-center uppercase"></div>`), _tmpl$2 = /* @__PURE__ */ template(`<span class="flex flex-row items-center justify-center gap-1"><span class="flex flex-row items-center justify-center gap-1"></span></span>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="font-body text-sm text-center"></div>`);
 const TOOLTIP_HIDDEN_HINT_SCREEN_ID = "tooltip-hidden-hint";
 const TooltipHiddenHintComponent = () => {
   const close = () => ContextManager.pop(TOOLTIP_HIDDEN_HINT_SCREEN_ID);
@@ -20,6 +21,7 @@ const TooltipHiddenHintComponent = () => {
     disabled: () => false,
     actionName: () => "toggle-tooltip"
   };
+  const isSmallScreen = useIsSmallScreen();
   const navHelp = () => {
     if (isKBM()) {
       return createComponent(KBMNavHelp, {
@@ -38,7 +40,9 @@ const TooltipHiddenHintComponent = () => {
     "class": "fixed inset-0 flex items-center justify-center",
     get children() {
       return createComponent(ModalFrame, {
-        "class": "flex flex-col items-center gap-4 max-w-sm",
+        get ["class"]() {
+          return `flex flex-col items-center gap-4 ${isSmallScreen() ? "mx-24" : ""}`;
+        },
         get children() {
           return [(() => {
             var _el$ = _tmpl$();
@@ -51,14 +55,18 @@ const TooltipHiddenHintComponent = () => {
             insert(_el$2, createComponent(HotkeyIconContext.Provider, {
               value: hotkeyIconProvider,
               get children() {
-                var _el$3 = _tmpl$2();
-                insert(_el$3, createComponent(L10n.Compose, {
+                var _el$3 = _tmpl$2(), _el$4 = _el$3.firstChild;
+                insert(_el$4, createComponent(L10n.Compose, {
                   text: "LOC_UI_TOOLTIP_HIDDEN_HINT_BODY_PRE"
                 }), null);
-                insert(_el$3, navHelp, null);
-                insert(_el$3, createComponent(L10n.Compose, {
+                insert(_el$4, navHelp, null);
+                insert(_el$4, createComponent(L10n.Compose, {
                   text: "LOC_UI_TOOLTIP_HIDDEN_HINT_BODY_POST"
                 }), null);
+                insert(_el$3, createComponent(L10n.Compose, {
+                  text: "LOC_UI_TOOLTIP_HIDDEN_HINT_BODY_LAST"
+                }), null);
+                createRenderEffect(() => _el$3.classList.toggle("flex-wrap", !!isSmallScreen()));
                 return _el$3;
               }
             }));

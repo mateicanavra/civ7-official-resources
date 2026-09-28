@@ -1,5 +1,5 @@
 import { Audio } from '../../audio-base/audio-support.js';
-import ContextManager from '../../context-manager/context-manager.js';
+import { ContextManager } from '../../context-manager/context-manager.js';
 import { DialogBoxManager } from '../../dialog-box/manager-dialog-box.js';
 import NavTray from '../../navigation-tray/model-navigation-tray.js';
 import Panel, { AnchorType } from '../../panel-support.js';
@@ -52,6 +52,7 @@ class PanelMPPlayerOptions extends Panel {
   searchingStatusListener = this.onSearchingStatusUpdate.bind(this);
   updateLobbyTabListener = this.updateLobbyTab.bind(this);
   userInfoUpdatedListener = this.onUserInfoUpdated.bind(this);
+  sendGameInviteFailedListener = this.onSendGameInviteFailed.bind(this);
   searchingCancelDialogBoxId = null;
   tabInitialized = false;
   defaultTab = 2 /* FriendsListTab */;
@@ -79,6 +80,7 @@ class PanelMPPlayerOptions extends Panel {
     window.dispatchEvent(new SocialPanelOpenEvent());
     engine.on("PlayerInfoChanged", this.updateLobbyTabListener);
     engine.on("UserInfoUpdated", this.userInfoUpdatedListener);
+    engine.on("SendGameInviteFailed", this.sendGameInviteFailedListener);
     this.frame = MustGetElement(".mp-friends-frame", this.Root);
     const closeButton = MustGetElement("fxs-close-button", this.frame);
     const mainContainer = MustGetElement(".main-container", this.frame);
@@ -91,6 +93,11 @@ class PanelMPPlayerOptions extends Panel {
     const platformIcon = MustGetElement(".mp-friends-platform-icon", this.Root);
     const iconStr = NetworkUtilities.getHostingTypeURL(Network.getLocalHostingPlatform());
     platformIcon.style.backgroundImage = `url('${iconStr}')`;
+    if (Network.getLocalHostingPlatform() == HostingType.HOSTING_TYPE_NX) {
+      platformIcon.parentElement?.classList.remove("mt-4", "h-24");
+      platformIcon.parentElement?.classList.add("flex", "flex-auto", "justify-center");
+      platformIcon.classList.add("hidden");
+    }
     const twoKIcon = MustGetElement(".mp-friends-2k-icon", this.Root);
     const twoKName = MustGetElement(".mp-friends-2k-name", this.Root);
     twoKName.setAttribute("data-l10n-id", Online.UserProfile.getMyDisplayName());
@@ -119,6 +126,7 @@ class PanelMPPlayerOptions extends Panel {
   onDetach() {
     engine.off("UserInfoUpdated", this.userInfoUpdatedListener);
     engine.off("PlayerInfoChanged", this.updateLobbyTab);
+    engine.off("SendGameInviteFailed", this.sendGameInviteFailedListener);
     this.Root.removeEventListener("engine-input", this.engineInputListener);
     UI.screenTypeAction(UIScreenAction.CLOSE, UIOnlineScreenType.SOCIAL);
     MPFriendsModel.eventNotificationUpdate.off(this.dataUpdateListener);
@@ -263,6 +271,13 @@ class PanelMPPlayerOptions extends Panel {
     const twoKName = MustGetElement(".mp-friends-2k-name", this.Root);
     twoKName.setAttribute("data-l10n-id", Online.UserProfile.getMyDisplayName());
   }
+  // We sent a game invite but the friends platform says it failed.  Throw an error dialog so the user knows the invite died.
+  onSendGameInviteFailed() {
+    DialogBoxManager.createDialog_Confirm({
+      title: Locale.compose("LOC_UI_MP_FRIENDS_SEND_INVITE_FAILED_TITLE"),
+      body: Locale.compose("LOC_UI_MP_FRIENDS_SEND_INVITE_FAILED_BODY")
+    });
+  }
   // fxs-tab-item is not created until postAttach so this is a delayed call
   postAttachTabNotification() {
     MPFriendsModel.postAttachTabNotification(3 /* NotificationsTab */);
@@ -308,8 +323,11 @@ class PanelMPPlayerOptions extends Panel {
     const gameConfig = Configuration.getGame();
     const screenCheck = !ContextManager.hasInstanceOf("main-menu");
     const lobbyCheck = ContextManager.hasInstanceOf("screen-mp-lobby");
-    if (!((screenCheck || lobbyCheck) && gameConfig.isInternetMultiplayer)) {
-      const displayText = "LOC_UI_MP_FRIENDS_LOBBY_MULTIPLYER_REMINDER";
+    if (!((screenCheck || lobbyCheck) && gameConfig.isNetworkMultiplayer)) {
+      let displayText = "LOC_UI_MP_FRIENDS_LOBBY_MULTIPLYER_REMINDER";
+      if (gameConfig.isHotseat) {
+        displayText = "LOC_UI_MP_FRIENDS_LOBBY_MULTIPLYER_REMINDER_HOTSEAT";
+      }
       appendRow.innerHTML = `
 				<fxs-vslot class="w-full h-full justify-center align-center">
 					<div class="font-body font-normal text-base self-center">${Locale.stylize(displayText, listName)}</div>

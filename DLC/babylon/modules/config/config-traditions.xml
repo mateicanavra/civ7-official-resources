@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- NOTE: These are copies - the real implementation should use a shared database -->
+<Database>
+	<Traditions>
+		<Row TraditionType="TRADITION_MUBALLITUM_I" Name="LOC_TRADITION_MUBALLITUM_I_NAME" Description="LOC_TRADITION_MUBALLITUM_I_DESCRIPTION" TraitType="TRAIT_BABYLON" AgeType="AGE_ANTIQUITY" CultureSlotType="TRADITION_CULTURE_SLOT"/>
+		<Row TraditionType="TRADITION_HARRANU_I" Name="LOC_TRADITION_HARRANU_I_NAME" Description="LOC_TRADITION_HARRANU_I_DESCRIPTION" TraitType="TRAIT_BABYLON" AgeType="AGE_ANTIQUITY" CultureSlotType="TRADITION_CULTURE_SLOT"/>
+		<Row TraditionType="TRADITION_AMMI_DITANAS_HYMN" Name="LOC_TRADITION_AMMI_DITANAS_HYMN_NAME" Description="LOC_TRADITION_AMMI_DITANAS_HYMN_DESCRIPTION" TraitType="TRAIT_BABYLON" AgeType="AGE_ANTIQUITY" CultureSlotType="TRADITION_CULTURE_SLOT"/>
+		<Row TraditionType="TRADITION_MAR_BANE" Name="LOC_TRADITION_MAR_BANE_NAME" Description="LOC_TRADITION_MAR_BANE_DESCRIPTION" TraitType="TRAIT_BABYLON" AgeType="AGE_ANTIQUITY" CultureSlotType="TRADITION_CULTURE_SLOT"/>
+	
+		<Row TraditionType="TRADITION_MUBALLITUM_II" Name="LOC_TRADITION_MUBALLITUM_II_NAME" Description="LOC_TRADITION_MUBALLITUM_II_DESCRIPTION" TraitType="TRAIT_BABYLON" AgeType="AGE_EXPLORATION" CultureSlotType="TRADITION_CULTURE_SLOT" ObsoletesTraditionType="TRADITION_MUBALLITUM_I"/>
+		<Row TraditionType="TRADITION_HARRANU_II" Name="LOC_TRADITION_HARRANU_II_NAME" Description="LOC_TRADITION_HARRANU_II_DESCRIPTION" TraitType="TRAIT_BABYLON" AgeType="AGE_MODERN" CultureSlotType="TRADITION_CULTURE_SLOT" ObsoletesTraditionType="TRADITION_HARRANU_I"/>
+			
+		<Row TraditionType="TRADITION_BABYLON_SYNCRETISM_EXPLORATION" Name="LOC_TRADITION_BABYLON_SYNCRETISM_EXPLORATION_NAME" Description="LOC_TRADITION_BABYLON_SYNCRETISM_EXPLORATION_DESCRIPTION" AgeType="AGE_EXPLORATION" CultureSlotType="TRADITION_CULTURE_SLOT" TraitType="TRAIT_BABYLON" IgnoreInitializeUnlock="true"  AllowInitializeAdvancedStart="true"/>
+		<Row TraditionType="TRADITION_BABYLON_SYNCRETISM_MODERN" Name="LOC_TRADITION_BABYLON_SYNCRETISM_MODERN_NAME" Description="LOC_TRADITION_BABYLON_SYNCRETISM_MODERN_DESCRIPTION" AgeType="AGE_MODERN" CultureSlotType="TRADITION_CULTURE_SLOT" TraitType="TRAIT_BABYLON" IgnoreInitializeUnlock="true" ObsoletesTraditionType="TRADITION_BABYLON_SYNCRETISM_EXPLORATION"  AllowInitializeAdvancedStart="true"/>
+	</Traditions>
+	<ProgressionTreeNodes>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_BABYLON_PURATTU" ProgressionTree="TREE_CIVICS_AQ_BABYLON" Cost="150" Name="LOC_CIVIC_PURATTU_NAME" IconString="cult_babylon"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_BABYLON_AKITU" ProgressionTree="TREE_CIVICS_AQ_BABYLON" Cost="250" Name="LOC_CIVIC_AKITU_NAME" IconString="cult_babylon"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_BABYLON_ENUMA_ELISH" ProgressionTree="TREE_CIVICS_AQ_BABYLON" Cost="250" Name="LOC_CIVIC_ENUMA_ELISH_NAME" IconString="cult_babylon"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_BABYLON_GOLDEN_INTERVAL" ProgressionTree="TREE_CIVICS_AQ_BABYLON" Cost="400" Name="LOC_CIVIC_GOLDEN_INTERVAL_NAME" IconString="cult_babylon"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_BABYLON_RENAISSANCE" ProgressionTree="TREE_CIVICS_EX_TEST_OF_TIME" Cost="800" Name="LOC_NODE_CIVIC_EX_BABYLON_RENAISSANCE_NAME" IconString="cult_babylon" CanSteal="false"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_BABYLON_MODERNIZATION" ProgressionTree="TREE_CIVICS_MO_TEST_OF_TIME" Cost="2000" Name="LOC_NODE_CIVIC_MO_BABYLON_MODERNIZATION_NAME" IconString="cult_babylon" CanSteal="false"/>
+	</ProgressionTreeNodes>
+	<ProgressionTreeNodeUnlocks>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_MAIN_CHIEFDOM" TargetKind="KIND_MODIFIER" TargetType="MOD_REVEAL_CIV_CULTURE_TREE_BABYLON" UnlockDepth="1" Hidden="true"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_BABYLON_PURATTU" TargetKind="KIND_CONSTRUCTIBLE" TargetType="IMPROVEMENT_KIRIMAHU" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_BABYLON_PURATTU" TargetKind="KIND_CONSTRUCTIBLE" TargetType="WONDER_HANGING_GARDENS" UnlockDepth="1" AIIgnoreUnlockValue="true"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_BABYLON_PURATTU" TargetKind="KIND_TRADITION" TargetType="TRADITION_MUBALLITUM_I" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_BABYLON_AKITU" TargetKind="KIND_TRADITION" TargetType="TRADITION_HARRANU_I" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_BABYLON_AKITU" TargetKind="KIND_UNIT" TargetType="UNIT_TAMKARU" UnlockDepth="1" AIIgnoreUnlockValue="true"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_BABYLON_ENUMA_ELISH" TargetKind="KIND_TRADITION" TargetType="TRADITION_AMMI_DITANAS_HYMN" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_BABYLON_ENUMA_ELISH" TargetKind="KIND_MODIFIER" TargetType="MOD_TOT_TRADITION_SLOT" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_BABYLON_GOLDEN_INTERVAL" TargetKind="KIND_TRADITION" TargetType="TRADITION_MAR_BANE" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_BABYLON_RENAISSANCE" TargetKind="KIND_TRADITION" TargetType="TRADITION_MUBALLITUM_II" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_EX_BABYLON_RENAISSANCE" TargetKind="KIND_MODIFIER" TargetType="MOD_TOT_TRADITION_SLOT" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_BABYLON_MODERNIZATION" TargetKind="KIND_TRADITION" TargetType="TRADITION_HARRANU_II" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_MO_BABYLON_MODERNIZATION" TargetKind="KIND_MODIFIER" TargetType="MOD_TOT_TRADITION_SLOT" UnlockDepth="1"/>
+	</ProgressionTreeNodeUnlocks>
+</Database>

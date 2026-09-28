@@ -1,6 +1,6 @@
-import ActionHandler from '../../../core/ui/input/action-handler.js';
 import LensManager from '../../../core/ui/lenses/lens-manager.js';
 import TooltipManager from '../../../core/ui/tooltips/tooltip-manager.js';
+import { IsControllerActive } from '../../../core/ui-next/services/input.js';
 
 class ArcheologyTooltipType {
   hoveredX = -1;
@@ -90,7 +90,7 @@ class ArcheologyTooltipType {
     }
   }
   isBlank() {
-    return !this.constructibleInfo && !this.isNaturalWonder || this.shownByPlot && !ActionHandler.isGamepadActive || LensManager.getActiveLens() !== "fxs-continent-lens";
+    return !this.constructibleInfo && !this.isNaturalWonder || this.shownByPlot && !IsControllerActive() || LensManager.getActiveLens() !== "fxs-continent-lens";
   }
   setTipText() {
     const research = Players.get(GameContext.localPlayerID)?.Culture?.getContinentResearchStatus(

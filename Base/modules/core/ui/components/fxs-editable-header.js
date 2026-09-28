@@ -1,7 +1,7 @@
 import { FxsHeader } from './fxs-header.js';
-import ActionHandler from '../input/action-handler.js';
 import { ActiveDeviceTypeChangedEventName } from '../input/input-events.js';
 import { InputEngineEventName } from '../input/input-support.js';
+import { IsControllerActive } from '../../ui-next/services/input.js';
 
 const EditableHeaderTextChangedEventName = "editable-header-text-changed";
 class EditableHeaderTextChangedEvent extends CustomEvent {
@@ -57,7 +57,7 @@ class FxsEditableHeader extends FxsHeader {
     this.editableTextBox.classList.add("max-w-84", "relative");
     this.textEditToggleButton.classList.add("size-8", "bg-contain", "bg-no-repeat", "absolute", "right-0");
     this.textEditToggleButton.addEventListener("action-activate", this.onEditToggleActivatedListener);
-    this.textEditToggleButton.classList.toggle("hidden", ActionHandler.isGamepadActive);
+    this.textEditToggleButton.classList.toggle("hidden", IsControllerActive());
     window.addEventListener(ActiveDeviceTypeChangedEventName, this.activeDeviceChangedListener);
     super.onAttach();
   }

@@ -1,6 +1,6 @@
 import { template, insert, className, use } from '../../../../core/vendor/solid-js/web/dist/web.js';
 import { createSignal, createMemo, createComponent, mergeProps, createRenderEffect, useContext, onMount, onCleanup, Show, For } from '../../../../core/vendor/solid-js/dist/solid.js';
-import ContextManager from '../../../../core/ui/context-manager/context-manager.js';
+import { ContextManager } from '../../../../core/ui/context-manager/context-manager.js';
 import { DialogBoxManager } from '../../../../core/ui/dialog-box/manager-dialog-box.js';
 import { Layout } from '../../../../core/ui/utilities/utilities-layout.js';
 import { Activatable } from '../../../../core/ui-next/components/activatable.js';
@@ -28,7 +28,7 @@ import { DedicationCardContents } from './dedication-card-contents.js';
 import { DedicationsModel } from './dedications-model.js';
 import { DialogBoxAction } from '../../../../core/ui/dialog-box/model-dialog-box.js';
 
-var _tmpl$ = /* @__PURE__ */ template(`<div></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="absolute inset-0 metal-card-frame-bg-hover"></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="absolute inset-0 py-2 px-3 flex flex-col items-center justify-center uppercase"></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div class="absolute z-1"></div>`), _tmpl$5 = /* @__PURE__ */ template(`<div class="max-w-full relative mt-4 mb-2"></div>`), _tmpl$6 = /* @__PURE__ */ template(`<div role=heading><div class="flex items-center font-body text-accent-2 text-sm mt-1"></div></div>`), _tmpl$7 = /* @__PURE__ */ template(`<span class="m-1 truncate"></span>`);
+var _tmpl$ = /* @__PURE__ */ template(`<div></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="absolute inset-0 metal-card-frame-bg-hover"></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="absolute inset-0 py-2 px-3 flex flex-col items-center justify-center uppercase"></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div class="absolute z-1"></div>`), _tmpl$5 = /* @__PURE__ */ template(`<div class="max-w-full relative mt-4 mb-2"></div>`), _tmpl$6 = /* @__PURE__ */ template(`<div role="heading"><div class="flex items-center font-body text-accent-2 text-sm mt-1"></div></div>`), _tmpl$7 = /* @__PURE__ */ template(`<span class="m-1 truncate"></span>`);
 const DedicationCard = (props) => {
   const [isHover, setIsHover] = createSignal(false);
   const onHover = () => {
@@ -107,6 +107,9 @@ const DedicationCard = (props) => {
           },
           get autoFocus() {
             return props.tabIndex == 0;
+          },
+          get disableAudio() {
+            return props.disableAudio;
           },
           get children() {
             return createComponent(DedicationCardContents, mergeProps(props, {
@@ -249,6 +252,7 @@ const DedicationSelectionComponent = () => {
     engine.on("AdvancedStartEffectUsed", onEffectUsed);
   });
   onCleanup(() => {
+    audio("popup-close");
     engine.off("AdvancedStartCardAdded", onCardUpdated);
     engine.off("AdvancedStartCardRemoved", onCardUpdated);
     engine.off("AdvancedStartEffectUsed", onEffectUsed);
@@ -545,6 +549,9 @@ const DedicationSelectionComponent = () => {
                                                 },
                                                 get disabled() {
                                                   return card.isDisabled;
+                                                },
+                                                get disableAudio() {
+                                                  return !model.canAutoSlotItem(card.id);
                                                 },
                                                 onDragEnd: handleEquipmentDragEnd,
                                                 onDedicationActivate: () => handleActivateDedication(card),

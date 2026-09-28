@@ -1,6 +1,5 @@
 import { template, use, insert, className } from '../../../../core/vendor/solid-js/web/dist/web.js';
 import { createEffect, createComponent, createRenderEffect, Show, For, createSignal, onMount, onCleanup, untrack, useContext, createMemo } from '../../../../core/vendor/solid-js/dist/solid.js';
-import ActionHandler from '../../../../core/ui/input/action-handler.js';
 import { Activatable } from '../../../../core/ui-next/components/activatable.js';
 import { CardFrame } from '../../../../core/ui-next/components/card-frame.js';
 import { Divider } from '../../../../core/ui-next/components/divider.js';
@@ -10,12 +9,14 @@ import { VSlot } from '../../../../core/ui-next/components/slot.js';
 import { Tooltip, TooltipHorizontalPosition, TooltipVerticalPosition } from '../../../../core/ui-next/components/tooltip.js';
 import { ComponentRegistry } from '../../../../core/ui-next/services/component-registry.js';
 import { HotkeyContext } from '../../../../core/ui-next/services/hotkey.js';
+import { IsTouchActive } from '../../../../core/ui-next/services/input.js';
+import { isMobile } from '../../../../core/ui-next/services/view-experience.js';
 import { drawDashedQuadraticBezier } from '../../../../core/ui-next/utilities/canvas-utilities.js';
 import { createPropsRefSignal, createLayoutComplete } from '../../../../core/ui-next/utilities/solid-utilities.js';
 import { useVictoriesScreenContext, VictoryTabType } from './victories-screen-model.js';
 import { VictoryTabBase, VictoryRow, VictoryHeader } from './victory-tab-base.js';
 
-var _tmpl$ = /* @__PURE__ */ template(`<div></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="text-title uppercase text-secondary mb-1"></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class=mb-3></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div class="flex flex-col absolute items-center justify-center h-full pointer-events-auto"><div id=culture-pip-dot class="size-3 mb-1"></div></div>`), _tmpl$5 = /* @__PURE__ */ template(`<div class="flex flex-row items-center victories-culture-tooltip-body p-1 my-1 w-96 relative"><div class="size-9 bg-contain bg-no-repeat bg-center ml-2"></div><div class="flex flex-col justify-center min-h-11 w-64"><div class="uppercase text-title"></div></div><div class="absolute right-2"></div></div>`), _tmpl$6 = /* @__PURE__ */ template(`<div class="absolute inset-0 pointer-events-none"><canvas class=size-full></canvas></div>`), _tmpl$7 = /* @__PURE__ */ template(`<div class="absolute text-xs hidden translate-x-1\\/2"></div>`), _tmpl$8 = /* @__PURE__ */ template(`<div class=w-full></div>`), _tmpl$9 = /* @__PURE__ */ template(`<div class="relative ml-2 mt-2\\.5 uppercase fxs-header self-end"></div>`), _tmpl$10 = /* @__PURE__ */ template(`<div class="relative flex flex-col self-start items-center w-full"></div>`), _tmpl$11 = /* @__PURE__ */ template(`<div class="flex-auto flex flex-row h-32"><div class="flex flex-col justify-center"></div><div class="absolute top-0 bottom-0"></div></div>`), _tmpl$12 = /* @__PURE__ */ template(`<div class="size-14 bg-center bg-contain bg-no-repeat -mb-2"></div>`), _tmpl$13 = /* @__PURE__ */ template(`<div class="text-xl text-title"></div>`), _tmpl$14 = /* @__PURE__ */ template(`<div class="flex flex-row items-center w-full p-1 my-1 relative"><div class="size-9 bg-contain bg-no-repeat bg-center ml-2"></div><div class="flex flex-col justify-center h-11"><div class="uppercase text-title"></div></div><div class="absolute right-2"></div></div>`);
+var _tmpl$ = /* @__PURE__ */ template(`<div></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="text-title uppercase text-secondary mb-1"></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="mb-3"></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div class="flex flex-col absolute items-center justify-center h-full pointer-events-auto"><div id="culture-pip-dot"class="size-3 mb-1"></div></div>`), _tmpl$5 = /* @__PURE__ */ template(`<div class="flex flex-row items-center victories-culture-tooltip-body p-1 my-1 w-96 relative"><div class="size-9 bg-contain bg-no-repeat bg-center ml-2"></div><div class="flex flex-col justify-center min-h-11 w-64"><div class="uppercase text-title"></div></div><div class="absolute right-2"></div></div>`), _tmpl$6 = /* @__PURE__ */ template(`<div class="absolute inset-0 pointer-events-none"><canvas class="size-full"></canvas></div>`), _tmpl$7 = /* @__PURE__ */ template(`<div class="absolute text-xs hidden translate-x-1\\/2"></div>`), _tmpl$8 = /* @__PURE__ */ template(`<div class="w-full"></div>`), _tmpl$9 = /* @__PURE__ */ template(`<div class="relative ml-2 mt-2\\.5 uppercase fxs-header self-end"></div>`), _tmpl$10 = /* @__PURE__ */ template(`<div class="relative flex flex-col self-start items-center w-full"></div>`), _tmpl$11 = /* @__PURE__ */ template(`<div><div class="flex flex-col justify-center"></div><div></div></div>`), _tmpl$12 = /* @__PURE__ */ template(`<div class="size-14 bg-center bg-contain bg-no-repeat -mb-2"></div>`), _tmpl$13 = /* @__PURE__ */ template(`<div class="text-xl text-title"></div>`), _tmpl$14 = /* @__PURE__ */ template(`<div class="flex flex-row items-center w-full p-1 my-1 relative"><div class="size-9 bg-contain bg-no-repeat bg-center ml-2"></div><div class="flex flex-col justify-center h-11"><div class="uppercase text-title"></div></div><div class="absolute right-2"></div></div>`);
 const MIN_ARC_HEIGHT = 1;
 const LINEAR_SCALE = 0.38;
 const NONLINEAR_SCALE = 0.06;
@@ -501,7 +502,7 @@ const CultureVictoryTabComponent = (props) => {
                       },
                       showTooltip: false,
                       activateInfo: (playerId) => {
-                        if (ActionHandler.isTouchActive) {
+                        if (IsTouchActive()) {
                           model.focusPlayer(playerId, VictoryTabType.Cultural);
                           model.onGamepadInspectButton();
                         }
@@ -560,6 +561,15 @@ const CultureVictoryTabComponent = (props) => {
                               });
                             }
                           }));
+                          createRenderEffect((_p$) => {
+                            var _v$6 = `flex-auto flex flex-row h-32 ${isMobile() && playerIndex() === 0 ? "mt-3" : ""}`, _v$7 = `absolute ${isMobile() && playerIndex() === 0 ? "top-3 -bottom-3" : "top-0 bottom-0"}`;
+                            _v$6 !== _p$.e && className(_el$18, _p$.e = _v$6);
+                            _v$7 !== _p$.t && className(_el$20, _p$.t = _v$7);
+                            return _p$;
+                          }, {
+                            e: void 0,
+                            t: void 0
+                          });
                           return _el$18;
                         })(), createComponent(Tooltip, {
                           get initialVPosition() {
@@ -572,7 +582,9 @@ const CultureVictoryTabComponent = (props) => {
                             return [createComponent(Tooltip.Trigger, {
                               get children() {
                                 return createComponent(Activatable, {
-                                  "class": "victories-focusable-ticket w-22 mt-4 mr-2",
+                                  get ["class"]() {
+                                    return `victories-focusable-ticket w-22 mr-2 ${isMobile() && playerIndex() === 0 ? "mt-7" : "mt-4"}`;
+                                  },
                                   onFocus: () => onFocus(player.playerInfo.playerId),
                                   onBlur: () => onBlur(player.playerInfo.playerId),
                                   get children() {

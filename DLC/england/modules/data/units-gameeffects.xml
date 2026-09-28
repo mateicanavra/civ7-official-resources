@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+	<!-- ==================================================	-->
+	<!--	Unique Abilities							-->
+	<!-- ==================================================	-->
+	<Modifier id="MERCHANT_ADVENTURER_MOD_TRADE_CREATION_YIELD_GOLD" collection="COLLECTION_OWNER" effect="EFFECT_UNIT_ADJUST_COMMAND_AWARD">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_PLOT_UNIT_HOMELANDS" inverse="true"/>
+		</OwnerRequirements>
+		<Argument name="YieldType">YIELD_GOLD</Argument>
+		<Argument name="PerResource">true</Argument>
+		<Argument name="Amount" type="ScaleByGameSpeed">50</Argument>
+		<Argument name="CommandType">UNITCOMMAND_MAKE_TRADE_ROUTE</Argument>
+	</Modifier>
+	<Modifier id="MERCHANT_ADVENTURER_MOD_TRADE_CREATION_INFLUENCE" collection="COLLECTION_OWNER" effect="EFFECT_UNIT_ADJUST_COMMAND_AWARD">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_PLOT_UNIT_HOMELANDS"/>
+		</OwnerRequirements>
+		<Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+		<Argument name="Amount" type="ScaleByGameSpeed">50</Argument>
+		<Argument name="CommandType">UNITCOMMAND_MAKE_TRADE_ROUTE</Argument>
+	</Modifier>
+</GameEffects>

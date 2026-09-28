@@ -1,15 +1,15 @@
 import { Audio } from '../../audio-base/audio-support.js';
-import ContextManager from '../../context-manager/context-manager.js';
+import { ContextManager } from '../../context-manager/context-manager.js';
 import { DialogBoxManager } from '../../dialog-box/manager-dialog-box.js';
-import ActionHandler from '../../input/action-handler.js';
 import NavTray from '../../navigation-tray/model-navigation-tray.js';
 import { CreateGameModel } from './create-game-model.js';
-import { SettingsGroupData, AdvancedOptionsParameter } from './game-creation-options.js';
+import { SettingsGroupData, isSetupCategoryRedundant, AdvancedOptionsParameter } from './game-creation-options.js';
 import { GameCreationPanelBase } from './game-creation-panel-base.js';
 import LiveEventManager from '../live-event-logic/live-event-logic.js';
 import { MustGetElement } from '../../utilities/utilities-dom.js';
 import { Layout } from '../../utilities/utilities-layout.js';
 import { FocusManager } from '../../../ui-next/services/focus-manager.js';
+import { IsControllerActive } from '../../../ui-next/services/input.js';
 import { DialogBoxAction } from '../../dialog-box/model-dialog-box.js';
 
 class AdvancedOptionsBase extends GameCreationPanelBase {
@@ -101,7 +101,7 @@ class AdvancedOptionsBase extends GameCreationPanelBase {
     footerContainer.classList.add("h-20", "mx-8", "advanced-options__bottom-nav");
     const footerContent = document.createElement("fxs-hslot");
     footerContent.classList.add("advanced-options__footer", "justify-center");
-    footerContent.classList.toggle("hidden", ActionHandler.isGamepadActive);
+    footerContent.classList.toggle("hidden", IsControllerActive());
     footerContainer.appendChild(footerContent);
     if (!UI.isInGame()) {
       const backButton = document.createElement("fxs-activatable");
@@ -202,10 +202,7 @@ class AdvancedOptionsBase extends GameCreationPanelBase {
     }
   }
   onActiveDeviceTypeChanged() {
-    MustGetElement(".advanced-options__footer", this.Root).classList.toggle(
-      "hidden",
-      ActionHandler.isGamepadActive
-    );
+    MustGetElement(".advanced-options__footer", this.Root).classList.toggle("hidden", IsControllerActive());
   }
   createGameSetupPanel(panelId) {
     this.gameSetupPanel.classList.add("game-setup", "flex", "flex-col");
@@ -261,7 +258,7 @@ class AdvancedOptionsBase extends GameCreationPanelBase {
       label.setAttribute("data-l10n-id", paramName ?? "");
       label.setAttribute("role", "option");
       container.appendChild(label);
-    } else {
+    } else if (!isSetupCategoryRedundant(setupParam)) {
       container.classList.add("mx-4");
     }
     container.appendChild(paramEle);

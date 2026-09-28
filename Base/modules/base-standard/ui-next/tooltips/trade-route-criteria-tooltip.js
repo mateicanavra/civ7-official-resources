@@ -6,7 +6,7 @@ import { Tooltip } from '../../../core/ui-next/components/tooltip.js';
 import { ComponentRegistry } from '../../../core/ui-next/services/component-registry.js';
 import style from '../components/styles/line-through.scss.js';
 
-var _tmpl$ = /* @__PURE__ */ template(`<div class="w-full flex items-center mb-1"><div class=relativetracking-100></div></div>`);
+var _tmpl$ = /* @__PURE__ */ template(`<div class="w-full flex items-center mb-1"><div class="relativetracking-100"></div></div>`);
 const TradeRouteCriteriaTooltipComponent = (props) => {
   const [local, other] = splitProps(props, ["text", "args", "children", "header", "isNegative", "appliesToCurrentCiv"]);
   const isNegativeOrDoesNotApply = createMemo(() => local.isNegative || !local.appliesToCurrentCiv);

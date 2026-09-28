@@ -443,16 +443,16 @@
 		</challenge>
 		<challenge id="CHALLENGE_LEADER_BENJAMIN_FRANKLIN_QUEST_A_EXPLORATION" scope="Campaign" difficulty="2">
 			<l10n>
-				<name>Burning the Midnight Oil</name>
-				<description>As Benjamin Franklin in Exploration, complete a quest to work alongside the academics.</description>
+				<name>Fierce Competition</name>
+				<description>As Benjamin Franklin in Exploration, complete a quest to host scientific lectures.</description>
 			</l10n>
 			<sortIndex>15300</sortIndex>
 			<reward type="XP" reward="50" />
 		</challenge>
 		<challenge id="CHALLENGE_LEADER_BENJAMIN_FRANKLIN_QUEST_B_EXPLORATION" scope="Campaign" difficulty="2">
 			<l10n>
-				<name>Drinking Buddies</name>
-				<description>As Benjamin Franklin in Exploration, complete a quest to converse with diplomats.</description>
+				<name>International Diplomat</name>
+				<description>As Benjamin Franklin in Exploration, complete a quest to conduct diplomacy overseas.</description>
 			</l10n>
 			<sortIndex>15400</sortIndex>
 			<reward type="XP" reward="50" />
@@ -514,23 +514,21 @@
 			<reward type="XP" reward="50" />
 		</challenge>
 		<!-- Hidden Challenges -->
-		<challenge id="CHALLENGE_LEADER_BENJAMIN_FRANKLIN_UNLOCKED_STRATEGYCARDS_EXPLORATION_RECOVER" scope="Career" difficulty="1" hidden="true" allowRewardWhenHidden="true">
+		<challenge id="CHALLENGE_BENJAMIN_FRANKLIN_UNLOCKED_STRATEGYCARDS_EXPLORATION" scope="Campaign" difficulty="1" hidden="true" allowRewardWhenHidden="true">
 			<l10n>
 				<name>Age Transition Card Exploration</name>
 				<description>As Benjamin Franklin unlock age transition legend strategycards for Exploration Age.</description>
 			</l10n>
 			<sortIndex>20000</sortIndex>
-			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_BENJAMIN_FRANKLIN_UNLOCKED_STRATEGYCARDS_EXPLORATION_COMPLETED" threshold="1" />
 			<reward type="UnlockableReward" reward="STRATEGYCARD_AS_FRANKLIN_EXPLORATION_1" />
 			<reward type="UnlockableReward" reward="STRATEGYCARD_AS_FRANKLIN_EXPLORATION_2" />
 		</challenge>
-		<challenge id="CHALLENGE_LEADER_BENJAMIN_FRANKLIN_UNLOCKED_STRATEGYCARDS_MODERN_RECOVER" scope="Career" difficulty="1" hidden="true" allowRewardWhenHidden="true">
+		<challenge id="CHALLENGE_BENJAMIN_FRANKLIN_UNLOCKED_STRATEGYCARDS_MODERN" scope="Campaign" difficulty="1" hidden="true" allowRewardWhenHidden="true">
 			<l10n>
 				<name>Age Transition Card Modern</name>
 				<description>As Benjamin Franklin unlock age transition legend strategycards for Modern Age.</description>
 			</l10n>
 			<sortIndex>20100</sortIndex>
-			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_BENJAMIN_FRANKLIN_UNLOCKED_STRATEGYCARDS_MODERN_COMPLETED" threshold="1" />
 			<reward type="UnlockableReward" reward="STRATEGYCARD_AS_FRANKLIN_MODERN_1" />
 			<reward type="UnlockableReward" reward="STRATEGYCARD_AS_FRANKLIN_MODERN_2" />
 		</challenge>

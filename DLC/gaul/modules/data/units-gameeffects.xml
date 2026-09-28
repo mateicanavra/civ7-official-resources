@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+	<!-- ==================================================	-->
+	<!--	Unique Abilities							-->
+	<!-- ==================================================	-->
+	<Modifier id="GAISATAI_MOD_NEIGHBOR_COMBAT" collection="COLLECTION_OWNER" effect="EFFECT_ADJUST_UNIT_NEIGHBOR_COMBAT_MODIFIER">
+		<Argument name="Amount">1</Argument>
+		<String context="Preview">LOC_ABILITY_GAISATA_PREVIEW</String>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_DRUID_PURCHASE_CHARGE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_ATTACH_MODIFIERS">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_FOUNDED_BY_UNIT_TYPE">
+				<Argument name="UnitType">UNIT_DRUID</Argument>
+			</Requirement>
+			<Requirement type="REQUIREMENT_PLOT_HAS_APPEAL">
+				<Argument name="UseAppealDoubleHappinessThreshold">true</Argument>
+			</Requirement>
+		</SubjectRequirements>
+		<Argument name="ModifierId">ATTACH_TRAIT_MOD_DRUID_PURCHASE_CHARGE</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_TRAIT_MOD_DRUID_PURCHASE_CHARGE" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_FREE_PURCHASE_CHARGE" permanent="true">
+		<Argument name="Amount">1</Argument>
+		<Argument name="BuildingType">BUILDING_NEMETON</Argument>
+	</Modifier>
+</GameEffects>

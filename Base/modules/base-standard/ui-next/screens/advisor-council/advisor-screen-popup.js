@@ -1,34 +1,44 @@
 import { template, className, insert } from '../../../../core/vendor/solid-js/web/dist/web.js';
-import { onMount, createComponent, Show, createRenderEffect } from '../../../../core/vendor/solid-js/dist/solid.js';
-import { ActiveDeviceTypeChangedEventName } from '../../../../core/ui/input/input-events.js';
+import { onMount, createEffect, on, createComponent, Show, createRenderEffect } from '../../../../core/vendor/solid-js/dist/solid.js';
+import { ContextManagerEvents } from '../../../../core/ui/context-manager/context-manager.js';
 import { AudioContextProvider } from '../../../../core/ui-next/components/audio-context-provider.js';
 import { Button } from '../../../../core/ui-next/components/button.js';
 import { defineLegacyComponent } from '../../../../core/ui-next/components/fxs-solid-component.js';
 import { L10n } from '../../../../core/ui-next/components/l10n.js';
 import { useAudio } from '../../../../core/ui-next/services/audio-support.js';
 import { ComponentRegistry } from '../../../../core/ui-next/services/component-registry.js';
+import { FocusManager } from '../../../../core/ui-next/services/focus-manager.js';
 import { IsControllerActive } from '../../../../core/ui-next/services/input.js';
 import { ViewExperience } from '../../../../core/ui-next/services/view-experience.js';
+import { createEngineEvent } from '../../../../core/ui-next/utilities/game-core-utilities.js';
 import { useWindowSize, useIsSmallScreen, useAspectRatio } from '../../../../core/ui-next/utilities/layout-utilities.js';
-import { useWindowListener } from '../../../../core/ui-next/utilities/solid-utilities.js';
 import { ScreenFrame, ScreenFrameCloseHandler } from '../../components/screen-frame.js';
 import { CouncilRoom } from './advisor-screen-council-tab.js';
 import { createAdvisorCouncilScreenModel, AdvisorCouncilScreenContext } from './advisor-screen-model.js';
 
-var _tmpl$ = /* @__PURE__ */ template(`<div class="w-full flex flex-col flex-auto"><div></div><div role=note></div></div>`);
+var _tmpl$ = /* @__PURE__ */ template(`<div class="w-full flex flex-col flex-auto"><div></div><div role="note"></div></div>`);
 const AdvisorCouncilPopupComponent = () => {
   const model = createAdvisorCouncilScreenModel();
   const audio = useAudio();
-  const onActiveDeviceChanged = () => {
-    Input.setActiveContext(InputContext.Shell);
-  };
+  let rootRef;
   onMount(() => {
-    useWindowListener(ActiveDeviceTypeChangedEventName, onActiveDeviceChanged, true);
     if (IsControllerActive()) {
       Input.setActiveContext(InputContext.Shell);
     }
     audio("AdvisorScreen", "popup-open");
   });
+  const ContextChangeEvent = createEngineEvent(ContextManagerEvents.OnChanged);
+  createEffect(on(ContextChangeEvent, (event) => {
+    if (rootRef && event && event.detail) {
+      const activatedElement = event.detail.activatedElement;
+      if (activatedElement && activatedElement.typeName === "advisor-council-popup") {
+        waitForLayout(() => {
+          FocusManager.get().setFocus(rootRef);
+          Input.setActiveContext(InputContext.Shell);
+        });
+      }
+    }
+  }));
   const handleOnClosing = () => {
     audio("AdvisorScreen", "popup-close");
   };
@@ -52,6 +62,10 @@ const AdvisorCouncilPopupComponent = () => {
           return ScreenFrameCloseHandler.PopupSequencer;
         },
         isFullscreen: isMobile,
+        ref(r$) {
+          var _ref$ = rootRef;
+          typeof _ref$ === "function" ? _ref$(r$) : rootRef = r$;
+        },
         get children() {
           var _el$ = _tmpl$(), _el$2 = _el$.firstChild, _el$3 = _el$2.nextSibling;
           className(_el$2, `flex-1 ${isMobile ? "mt-5" : "mt-10"} mb-8`);

@@ -5,11 +5,11 @@ import { Icon } from '../../../core/ui-next/components/icon.js';
 import { L10n } from '../../../core/ui-next/components/l10n.js';
 import { Tooltip } from '../../../core/ui-next/components/tooltip.js';
 import { ComponentRegistry } from '../../../core/ui-next/services/component-registry.js';
-import { ProductionPanelCategory, GetTownFocusBlp } from '../../ui/production-chooser/production-chooser-helpers.js';
+import { ProductionPanelCategory, GetUnitStatsFromDefinition, GetTownFocusBlp } from '../../ui/production-chooser/production-chooser-helpers.js';
 import { ConstructibleDetails } from '../components/constructible-details.js';
 import { AdvisorRecommendationPill, PillText } from '../components/pills.js';
 
-var _tmpl$ = /* @__PURE__ */ template(`<div class="flex flex-row flex-wrap items-center justify-center mt-2 -mb-1"></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="flex items-center"><div class=text-negative-light></div></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div><div class=img-base-ticket-bg-container><div class="img-shell-line-divider h-1 w-1/2 self-center mb-2"></div><div class="img-shell-line-divider h-1 w-1/2 self-center mb-2"></div></div></div>`), _tmpl$5 = /* @__PURE__ */ template(`<div class="flex flex-row flex-wrap items-center justify-center mt-4 -mb-1"></div>`), _tmpl$6 = /* @__PURE__ */ template(`<div><div class="flex flex-row items-center self-center"><div class=filigree-shell-small-left></div><div class=filigree-shell-small-right></div></div></div>`), _tmpl$7 = /* @__PURE__ */ template(`<div class=img-base-ticket-bg-container></div>`);
+var _tmpl$ = /* @__PURE__ */ template(`<div class="flex flex-row flex-wrap items-center justify-center mt-2 -mb-1"></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="flex items-center gap-2 -ml-1\\.5"></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div class="flex items-center"><div class="text-negative-light"></div></div>`), _tmpl$5 = /* @__PURE__ */ template(`<div><div class="img-base-ticket-bg-container mt-10"><div class="size-22 flex items-center justify-center -mt-16 mb-2\\.5 self-center bg-primary-4"></div><div class="img-shell-line-divider h-1 w-1/2 self-center mb-2"></div><div class="img-shell-line-divider h-1 w-1/2 self-center mb-2"></div></div></div>`), _tmpl$6 = /* @__PURE__ */ template(`<div class="flex items-center font-body-xs tracking-25"></div>`), _tmpl$7 = /* @__PURE__ */ template(`<div class="flex flex-row flex-wrap items-center justify-center mt-4 -mb-1"></div>`), _tmpl$8 = /* @__PURE__ */ template(`<div><div class="flex flex-row items-center self-center"><div class="filigree-shell-small-left"></div><div class="filigree-shell-small-right"></div></div></div>`), _tmpl$9 = /* @__PURE__ */ template(`<div class="img-base-ticket-bg-container"></div>`);
 const BULLET_CHAR = String.fromCodePoint(8226);
 const normalizeCategory = (value) => {
   if (!value) {
@@ -119,6 +119,7 @@ const ProductionUnitTooltipContent = (props) => {
   const [local, other] = splitProps(props, ["unitType", "name", "description", "recommendations", "isPurchase", "cost", "class"]);
   const definition = createMemo(() => local.unitType ? GameInfo.Units.lookup(local.unitType) : null);
   const title = createMemo(() => definition()?.Name ?? local.name ?? "");
+  const icon = createMemo(() => definition()?.UnitType ?? "");
   const descriptionKey = createMemo(() => local.description ?? definition()?.Description ?? "");
   const maintenanceValue = createMemo(() => definition()?.Maintenance ?? 0);
   const maintenanceVisible = () => maintenanceValue() > 0;
@@ -136,10 +137,14 @@ const ProductionUnitTooltipContent = (props) => {
     const city = Cities.get(cityID);
     return city?.Production?.getUnitProductionCost(definition().UnitType);
   });
+  const secondaryDetails = createMemo(() => {
+    const unitDef = definition();
+    return unitDef ? GetUnitStatsFromDefinition(unitDef) : [];
+  });
   const showCostPill = () => productionCost() !== void 0;
   const showBottomRow = () => local.recommendations.length > 0 || showCostPill();
   return (() => {
-    var _el$3 = _tmpl$4(), _el$4 = _el$3.firstChild, _el$5 = _el$4.firstChild, _el$6 = _el$5.nextSibling;
+    var _el$3 = _tmpl$5(), _el$4 = _el$3.firstChild, _el$5 = _el$4.firstChild, _el$6 = _el$5.nextSibling, _el$7 = _el$6.nextSibling;
     spread(_el$3, mergeProps({
       get ["class"]() {
         return `flex flex-col font-body text-sm text-accent-2 ${local.class ?? ""}`;
@@ -152,6 +157,26 @@ const ProductionUnitTooltipContent = (props) => {
       },
       bgGlow: true
     }), _el$4);
+    insert(_el$5, createComponent(Icon, {
+      name: "url('blp:hud_unit-panel_empty-slot')",
+      "class": "size-22 flex items-center justify-center",
+      isUrl: true,
+      get children() {
+        return createComponent(Icon, {
+          name: "url('blp:prof_btn_bk')",
+          "class": "size-16 flex items-center justify-center",
+          isUrl: true,
+          get children() {
+            return createComponent(Icon, {
+              "class": "size-16",
+              get name() {
+                return icon();
+              }
+            });
+          }
+        });
+      }
+    }));
     insert(_el$4, createComponent(Show, {
       get when() {
         return descriptionKey();
@@ -164,26 +189,59 @@ const ProductionUnitTooltipContent = (props) => {
           }
         });
       }
-    }), _el$6);
+    }), _el$7);
+    insert(_el$4, createComponent(Show, {
+      get when() {
+        return secondaryDetails().length > 0;
+      },
+      get children() {
+        var _el$8 = _tmpl$3();
+        insert(_el$8, createComponent(For, {
+          get each() {
+            return secondaryDetails();
+          },
+          children: (item) => (() => {
+            var _el$12 = _tmpl$6();
+            insert(_el$12, createComponent(Icon, {
+              "class": "size-8",
+              get name() {
+                return `url('blp:${item.icon}')`;
+              },
+              isUrl: true,
+              get ["aria-label"]() {
+                return Locale.compose(item.name);
+              }
+            }), null);
+            insert(_el$12, createComponent(L10n.Stylize, {
+              get text() {
+                return item.value;
+              }
+            }), null);
+            return _el$12;
+          })()
+        }));
+        return _el$8;
+      }
+    }), null);
     insert(_el$4, createComponent(Show, {
       get when() {
         return maintenanceVisible();
       },
       get children() {
-        var _el$7 = _tmpl$3(), _el$8 = _el$7.firstChild;
-        insert(_el$7, createComponent(L10n.Stylize, {
+        var _el$9 = _tmpl$4(), _el$10 = _el$9.firstChild;
+        insert(_el$9, createComponent(L10n.Stylize, {
           "class": "mr-2",
           text: "LOC_UI_PRODUCTION_MAINTENANCE"
-        }), _el$8);
-        insert(_el$7, createComponent(Icon, {
+        }), _el$10);
+        insert(_el$9, createComponent(Icon, {
           "class": "size-5 mr-1",
           name: "YIELD_GOLD",
           get ["aria-label"]() {
             return Locale.compose("LOC_YIELD_GOLD");
           }
-        }), _el$8);
-        insert(_el$8, () => `-${maintenanceValue()}`);
-        return _el$7;
+        }), _el$10);
+        insert(_el$10, () => `-${maintenanceValue()}`);
+        return _el$9;
       }
     }), null);
     insert(_el$3, createComponent(Show, {
@@ -191,8 +249,8 @@ const ProductionUnitTooltipContent = (props) => {
         return showBottomRow();
       },
       get children() {
-        var _el$9 = _tmpl$();
-        insert(_el$9, createComponent(For, {
+        var _el$11 = _tmpl$();
+        insert(_el$11, createComponent(For, {
           get each() {
             return local.recommendations;
           },
@@ -209,7 +267,7 @@ const ProductionUnitTooltipContent = (props) => {
             recommendation: rec
           })
         }), null);
-        insert(_el$9, createComponent(Show, {
+        insert(_el$11, createComponent(Show, {
           get when() {
             return showCostPill();
           },
@@ -225,7 +283,7 @@ const ProductionUnitTooltipContent = (props) => {
             });
           }
         }), null);
-        return _el$9;
+        return _el$11;
       }
     }), null);
     return _el$3;
@@ -306,42 +364,42 @@ const ProductionProjectTooltipContent = (props) => {
   const showCostPill = () => productionCost() !== void 0;
   const showBottomRow = () => local.recommendations.length > 0 || showCostPill();
   return (() => {
-    var _el$10 = _tmpl$6(), _el$11 = _el$10.firstChild, _el$12 = _el$11.firstChild, _el$13 = _el$12.nextSibling;
-    spread(_el$10, mergeProps({
+    var _el$13 = _tmpl$8(), _el$14 = _el$13.firstChild, _el$15 = _el$14.firstChild, _el$16 = _el$15.nextSibling;
+    spread(_el$13, mergeProps({
       get ["class"]() {
         return `flex flex-col text-accent-2 font-body text-sm relative ${local.class ?? ""}`;
       }
     }, other), false, true);
-    insert(_el$10, createComponent(FiligreeTitle.None, {
+    insert(_el$13, createComponent(FiligreeTitle.None, {
       get text() {
         return local.name ?? "";
       },
       bgGlow: true
-    }), _el$11);
-    insert(_el$11, createComponent(Icon, {
+    }), _el$14);
+    insert(_el$14, createComponent(Icon, {
       "class": "size-12",
       get name() {
         return iconBackground() ?? "";
       },
       isUrl: true
-    }), _el$13);
-    insert(_el$10, createComponent(Show, {
+    }), _el$16);
+    insert(_el$13, createComponent(Show, {
       get when() {
         return local.description || definition()?.Description;
       },
       children: (text) => (() => {
-        var _el$15 = _tmpl$7();
-        insert(_el$15, createComponent(L10n.Stylize, {
+        var _el$18 = _tmpl$9();
+        insert(_el$18, createComponent(L10n.Stylize, {
           "class": "mt-2",
           get text() {
             return text() ?? "";
           },
           ref: applyDescriptionFormatting
         }));
-        return _el$15;
+        return _el$18;
       })()
     }), null);
-    insert(_el$10, createComponent(Show, {
+    insert(_el$13, createComponent(Show, {
       get when() {
         return requirementsText();
       },
@@ -358,13 +416,13 @@ const ProductionProjectTooltipContent = (props) => {
         }
       })
     }), null);
-    insert(_el$10, createComponent(Show, {
+    insert(_el$13, createComponent(Show, {
       get when() {
         return showBottomRow();
       },
       get children() {
-        var _el$14 = _tmpl$5();
-        insert(_el$14, createComponent(For, {
+        var _el$17 = _tmpl$7();
+        insert(_el$17, createComponent(For, {
           get each() {
             return local.recommendations;
           },
@@ -376,7 +434,7 @@ const ProductionProjectTooltipContent = (props) => {
             recommendation: rec
           })
         }), null);
-        insert(_el$14, createComponent(Show, {
+        insert(_el$17, createComponent(Show, {
           get when() {
             return showCostPill();
           },
@@ -392,10 +450,10 @@ const ProductionProjectTooltipContent = (props) => {
             });
           }
         }), null);
-        return _el$14;
+        return _el$17;
       }
     }), null);
-    return _el$10;
+    return _el$13;
   })();
 };
 const ProductionTooltipComponent = (props) => {

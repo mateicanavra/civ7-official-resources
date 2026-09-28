@@ -1,4 +1,4 @@
-import { template, insert } from '../../../vendor/solid-js/web/dist/web.js';
+import { template, insert, classList } from '../../../vendor/solid-js/web/dist/web.js';
 import { createSignal, createMemo, onMount, createComponent, Show, For, createRenderEffect, mergeProps } from '../../../vendor/solid-js/dist/solid.js';
 import { Layout } from '../../../ui/utilities/utilities-layout.js';
 import { Activatable } from '../../components/activatable.js';
@@ -17,21 +17,20 @@ import { Tab } from '../../components/tab.js';
 import { Tooltip } from '../../components/tooltip.js';
 import { useAgeSelectModelContext } from './age-select-model.js';
 import { CivCard } from './civ-card.js';
-import { useCivSelectModelContext, createAgeFilterModel, attrFilter } from './civ-select-model.js';
+import { useCivSelectModelContext, createAgeFilterModel, attrFilter, CivSelectModel } from './civ-select-model.js';
 import { CreateGameHRule } from './create-game-components.js';
 import { CreateGameStage, CreateGameStageMode, CreateGameStageHeader } from './create-game-stage.js';
 import { LeaderSelectButtonBase } from './leader-select-button.js';
 import { useLeaderSelectModelContext } from './leader-select-model.js';
 import { useRecommendedChoiceModelContext } from './recommended-choice-model.js';
-import { CivUnlocksModel } from '../unlocks/civ-unlocks-model.js';
 import { useAudio } from '../../services/audio-support.js';
 import { ComponentRegistry } from '../../services/component-registry.js';
 import { IsControllerActive } from '../../services/input.js';
-import { ViewExperience } from '../../services/view-experience.js';
+import { ViewExperience, isMobile } from '../../services/view-experience.js';
 import { useIsSmallScreen } from '../../utilities/layout-utilities.js';
 import style from './civ-select-screen.scss.js';
 
-var _tmpl$ = /* @__PURE__ */ template(`<div class="absolute inset-0 flex flex-col items-center justify-end group"><div class="absolute inset-0 img-unit-panelbox pointer-events-none"></div><div class="absolute inset-0"></div><div class="create-game-hub-bottom-gradient absolute left-0 bottom-0"></div><div class="absolute inset-0 w-full h-full border-2 border-secondary-3"></div><div class="img-rollover-highlight absolute inset-0 opacity-0 group-focus\\:opacity-100 group-hover\\:opacity-100 group-pressed\\:opacity-100 pointer-events-none"></div><div class="flex items-center justify-center size-36 relative mb-4"></div></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="flex flex-row ml-6 mr-1\\.25 mt-1 mb-2 uppercase accent-2 font-bold"></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="flex flex-row flex-wrap"></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div class="flex flex-col size-full civ-age-select-body flex-auto"><div class="flex flex-col ml-10 mr-8"><div class="flex flex-row mt-4 mb-2 items-center"><div class=flex-auto></div><span class="mr-3 text-accent-2 uppercase"></span></div></div><div class="flex flex-row flex-auto"><div class="flex flex-col items-center h-full w-52"></div></div></div>`), _tmpl$5 = /* @__PURE__ */ template(`<div class="mx-2 w-full font-fit-shrink"></div>`);
+var _tmpl$ = /* @__PURE__ */ template(`<div class="absolute inset-0 flex flex-col items-center justify-end group"><div class="absolute inset-0 img-unit-panelbox pointer-events-none"></div><div class="absolute inset-0"></div><div class="create-game-hub-bottom-gradient absolute left-0 bottom-0"></div><div class="absolute inset-0 w-full h-full border-2 border-secondary-3"></div><div class="img-rollover-highlight absolute inset-0 opacity-0 group-focus\\:opacity-100 group-hover\\:opacity-100 group-pressed\\:opacity-100 pointer-events-none"></div><div class="flex items-center justify-center size-36 relative mb-4"></div></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="flex flex-row ml-6 mr-1\\.25 mt-1 mb-2 uppercase accent-2 font-bold"></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="flex flex-row flex-wrap"></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div class="flex flex-col size-full civ-age-select-body flex-auto"><div class="flex flex-col"><div class="flex flex-row mt-4 mb-2 items-center"><div class="flex-auto"></div><span class="mr-3 text-accent-2 uppercase"></span></div></div><div class="flex flex-row flex-auto"><div class="flex flex-col items-center h-full"></div></div></div>`), _tmpl$5 = /* @__PURE__ */ template(`<div class="mx-2 w-full font-fit-shrink"></div>`);
 const CivSelectScreenComponent = () => {
   const model = useCivSelectModelContext();
   const ageModel = useAgeSelectModelContext();
@@ -90,23 +89,17 @@ const CivSelectScreenComponent = () => {
   const filteredRecommendedCivs = createMemo(() => recModel.recommendedCivs().filter(shouldShowCiv).sort(sortCivWithBias));
   const filteredUnrecommendedCivs = createMemo(() => recModel.unrecommendedCivs().filter(shouldShowCiv).sort(sortCiv));
   const groupedCivs = createMemo(() => {
-    const ages = {
-      AGE_ANTIQUITY: [],
-      AGE_EXPLORATION: [],
-      AGE_MODERN: []
-    };
-    filteredUnrecommendedCivs().forEach((civ) => {
-      if (ages[civ.apexAge]) {
-        ages[civ.apexAge].push(civ);
-      }
+    const ages = ageModel.sortedAges.map((age) => {
+      const age_name = age.type.split("_").reverse().join("_");
+      return {
+        headerString: `LOC_UI_CREATE_GAME_${age_name}_CIVILIZATIONS`,
+        civs: filteredUnrecommendedCivs().filter((civ) => civ.apexAge == age.type)
+      };
     });
     return ages;
   });
-  const antiquityCivs = createMemo(() => groupedCivs().AGE_ANTIQUITY);
-  const explorationCivs = createMemo(() => groupedCivs().AGE_EXPLORATION);
-  const modernCivs = createMemo(() => groupedCivs().AGE_MODERN);
   const numCivs = createMemo(() => {
-    return Locale.toNumber(filteredRecommendedCivs().length + filteredUnrecommendedCivs().length);
+    return Locale.toNumber(filteredRecommendedCivs().length + filteredUnrecommendedCivs().length + filteredHistoricalCivs().length);
   });
   function selectCiv(civ) {
     if (!civ.isLocked) {
@@ -120,9 +113,9 @@ const CivSelectScreenComponent = () => {
     civName = civName.replace("civilization-", "");
     return civName;
   }
-  const inGameUnlocksModel = isAgeTransition() ? CivUnlocksModel.get() : void 0;
+  const civSelectModel = CivSelectModel.get();
   function getCivInfo(civInfo) {
-    return inGameUnlocksModel?.civInfo.find((c) => c.civID == civInfo.civID) ?? civInfo;
+    return civSelectModel.civs.find((c) => c.civID == civInfo.civID) ?? civInfo;
   }
   function toggleFiltersFocused() {
     setFiltersFocused((focused) => !focused);
@@ -151,8 +144,6 @@ const CivSelectScreenComponent = () => {
         },
         onBack: () => {
           screenFlow.activatePrev();
-          ageFilter.reset();
-          attrFilter.reset();
         }
       });
     },
@@ -170,8 +161,6 @@ const CivSelectScreenComponent = () => {
           onActivate: () => {
             screenFlow.activatePrev();
             useAudio("CreateGameBackButton")("activate");
-            ageFilter.reset();
-            attrFilter.reset();
           }
         }, {
           hotkeyAction: "shell-action-2",
@@ -216,14 +205,14 @@ const CivSelectScreenComponent = () => {
                       return ageFilter.selected();
                     },
                     selectedItemTemplate: (item) => (() => {
-                      var _el$25 = _tmpl$5();
-                      insert(_el$25, createComponent(L10n.Compose, {
+                      var _el$19 = _tmpl$5();
+                      insert(_el$19, createComponent(L10n.Compose, {
                         text: "LOC_UI_CREATE_GAME_FILTER_ITEM",
                         get args() {
                           return [item.name];
                         }
                       }));
-                      return _el$25;
+                      return _el$19;
                     })(),
                     onItemSelected: (item) => updateAgeFilter(item),
                     "class": "mr-2 min-w-76",
@@ -245,14 +234,14 @@ const CivSelectScreenComponent = () => {
                       return attrFilter.getFilter();
                     },
                     selectedItemTemplate: (item) => (() => {
-                      var _el$26 = _tmpl$5();
-                      insert(_el$26, createComponent(L10n.Compose, {
+                      var _el$20 = _tmpl$5();
+                      insert(_el$20, createComponent(L10n.Compose, {
                         text: "LOC_UI_CREATE_GAME_FILTER_ITEM",
                         get args() {
                           return [Locale.toUpper(Locale.compose(item))];
                         }
                       }));
-                      return _el$26;
+                      return _el$20;
                     })(),
                     onItemSelected: (item) => updateAttrFilter(item),
                     "class": "min-w-76",
@@ -308,13 +297,17 @@ const CivSelectScreenComponent = () => {
           }), null);
           insert(_el$7, createComponent(L10n.Stylize, {
             text: "LOC_UI_CREATE_GAME_STARTING_AGE",
-            "class": "font-title uppercase civ-select-age-text"
+            get ["class"]() {
+              return `font-title uppercase civ-select-age-text ${isMobile() ? "mb-4" : ""}`;
+            }
           }), null);
           insert(_el$7, createComponent(L10n.Stylize, {
             get text() {
               return ageModel.getAgeName(ageModel.selectedAge.type) || "";
             },
-            "class": "font-title uppercase font-black mb-2 civ-select-age-type-text font-fit-shrink"
+            get ["class"]() {
+              return `font-title uppercase font-black ${isMobile() ? "mb-4" : "mb-2"} civ-select-age-type-text font-fit-shrink`;
+            }
           }), null);
           insert(_el$7, createComponent(Popup.Trigger, {
             name: "age-select",
@@ -494,183 +487,93 @@ const CivSelectScreenComponent = () => {
                         "class": "my-2"
                       })];
                     }
-                  }), createComponent(Show, {
-                    get when() {
-                      return antiquityCivs().length > 0;
+                  }), createComponent(For, {
+                    get each() {
+                      return groupedCivs();
                     },
-                    get children() {
-                      return [(() => {
-                        var _el$19 = _tmpl$2();
-                        insert(_el$19, createComponent(L10n.Compose, {
-                          text: "LOC_UI_CREATE_GAME_ANTIQUITY_AGE_CIVILIZATIONS",
-                          get args() {
-                            return [leaderModel.selectedLeader().rawName];
-                          }
-                        }));
-                        return _el$19;
-                      })(), (() => {
-                        var _el$20 = _tmpl$3();
-                        insert(_el$20, createComponent(For, {
-                          get each() {
-                            return antiquityCivs();
-                          },
-                          children: (civ) => createComponent(Tab.Trigger, {
-                            name: "civ-details",
-                            get children() {
-                              return createComponent(AudioContextProvider, {
-                                segment: "CivSelectCard",
-                                get vars() {
-                                  return {
-                                    civType: civNameShort(civ)
-                                  };
-                                },
-                                get children() {
-                                  return createComponent(CivCard, mergeProps(() => getCivInfo(civ), {
-                                    get isSelected() {
-                                      return civ.civID == model.selectedCiv().civID;
-                                    },
-                                    get isApexAgeSelected() {
-                                      return ageModel.selectedAge.type == civ.apexAge;
-                                    },
-                                    get leaderIcon() {
-                                      return leaderModel.selectedLeader().icon;
-                                    },
-                                    isRecommended: false,
-                                    isCivSelect: true,
-                                    get isUnlocks() {
-                                      return isAgeTransition() && civ.isLocked;
-                                    },
-                                    onSelect: () => selectCiv(civ)
-                                  }));
-                                }
-                              });
+                    children: (civAgeGroup) => createComponent(Show, {
+                      get when() {
+                        return civAgeGroup.civs.length > 0;
+                      },
+                      get children() {
+                        return [(() => {
+                          var _el$21 = _tmpl$2();
+                          insert(_el$21, createComponent(L10n.Compose, {
+                            get text() {
+                              return civAgeGroup.headerString;
+                            },
+                            get args() {
+                              return [leaderModel.selectedLeader().rawName];
                             }
-                          })
-                        }));
-                        return _el$20;
-                      })(), createComponent(CreateGameHRule, {
-                        "class": "my-2"
-                      })];
-                    }
-                  }), createComponent(Show, {
-                    get when() {
-                      return explorationCivs().length > 0;
-                    },
-                    get children() {
-                      return [(() => {
-                        var _el$21 = _tmpl$2();
-                        insert(_el$21, createComponent(L10n.Compose, {
-                          text: "LOC_UI_CREATE_GAME_EXPLORATION_AGE_CIVILIZATIONS",
-                          get args() {
-                            return [leaderModel.selectedLeader().rawName];
-                          }
-                        }));
-                        return _el$21;
-                      })(), (() => {
-                        var _el$22 = _tmpl$3();
-                        insert(_el$22, createComponent(For, {
-                          get each() {
-                            return explorationCivs();
-                          },
-                          children: (civ) => createComponent(Tab.Trigger, {
-                            name: "civ-details",
-                            get children() {
-                              return createComponent(AudioContextProvider, {
-                                segment: "CivSelectCard",
-                                get vars() {
-                                  return {
-                                    civType: civNameShort(civ)
-                                  };
-                                },
-                                get children() {
-                                  return createComponent(CivCard, mergeProps(() => getCivInfo(civ), {
-                                    get isSelected() {
-                                      return civ.civID == model.selectedCiv().civID;
-                                    },
-                                    get isApexAgeSelected() {
-                                      return ageModel.selectedAge.type == civ.apexAge;
-                                    },
-                                    get leaderIcon() {
-                                      return leaderModel.selectedLeader().icon;
-                                    },
-                                    isRecommended: false,
-                                    isCivSelect: true,
-                                    get isUnlocks() {
-                                      return isAgeTransition() && civ.isLocked;
-                                    },
-                                    onSelect: () => selectCiv(civ)
-                                  }));
-                                }
-                              });
-                            }
-                          })
-                        }));
-                        return _el$22;
-                      })(), createComponent(CreateGameHRule, {
-                        "class": "my-2"
-                      })];
-                    }
-                  }), createComponent(Show, {
-                    get when() {
-                      return modernCivs().length > 0;
-                    },
-                    get children() {
-                      return [(() => {
-                        var _el$23 = _tmpl$2();
-                        insert(_el$23, createComponent(L10n.Compose, {
-                          text: "LOC_UI_CREATE_GAME_MODERN_AGE_CIVILIZATIONS",
-                          get args() {
-                            return [leaderModel.selectedLeader().rawName];
-                          }
-                        }));
-                        return _el$23;
-                      })(), (() => {
-                        var _el$24 = _tmpl$3();
-                        insert(_el$24, createComponent(For, {
-                          get each() {
-                            return modernCivs();
-                          },
-                          children: (civ) => createComponent(Tab.Trigger, {
-                            name: "civ-details",
-                            get children() {
-                              return createComponent(AudioContextProvider, {
-                                segment: "CivSelectCard",
-                                get vars() {
-                                  return {
-                                    civType: civNameShort(civ)
-                                  };
-                                },
-                                get children() {
-                                  return createComponent(CivCard, mergeProps(() => getCivInfo(civ), {
-                                    get isSelected() {
-                                      return civ.civID == model.selectedCiv().civID;
-                                    },
-                                    get isApexAgeSelected() {
-                                      return ageModel.selectedAge.type == civ.apexAge;
-                                    },
-                                    get leaderIcon() {
-                                      return leaderModel.selectedLeader().icon;
-                                    },
-                                    isRecommended: false,
-                                    isCivSelect: true,
-                                    get isUnlocks() {
-                                      return isAgeTransition() && civ.isLocked;
-                                    },
-                                    onSelect: () => selectCiv(civ)
-                                  }));
-                                }
-                              });
-                            }
-                          })
-                        }));
-                        return _el$24;
-                      })()];
-                    }
+                          }));
+                          return _el$21;
+                        })(), (() => {
+                          var _el$22 = _tmpl$3();
+                          insert(_el$22, createComponent(For, {
+                            get each() {
+                              return civAgeGroup.civs;
+                            },
+                            children: (civ) => createComponent(Tab.Trigger, {
+                              name: "civ-details",
+                              get children() {
+                                return createComponent(AudioContextProvider, {
+                                  segment: "CivSelectCard",
+                                  get vars() {
+                                    return {
+                                      civType: civNameShort(civ)
+                                    };
+                                  },
+                                  get children() {
+                                    return createComponent(CivCard, mergeProps(() => getCivInfo(civ), {
+                                      get isSelected() {
+                                        return civ.civID == model.selectedCiv().civID;
+                                      },
+                                      get isApexAgeSelected() {
+                                        return ageModel.selectedAge.type == civ.apexAge;
+                                      },
+                                      get leaderIcon() {
+                                        return leaderModel.selectedLeader().icon;
+                                      },
+                                      isRecommended: false,
+                                      isCivSelect: true,
+                                      get isUnlocks() {
+                                        return isAgeTransition() && civ.isLocked;
+                                      },
+                                      onSelect: () => selectCiv(civ)
+                                    }));
+                                  }
+                                });
+                              }
+                            })
+                          }));
+                          return _el$22;
+                        })(), createComponent(CreateGameHRule, {
+                          "class": "my-2"
+                        })];
+                      }
+                    })
                   })];
                 }
               });
             }
           }), null);
+          createRenderEffect((_p$) => {
+            var _v$4 = {
+              "ml-10 mr-8": !isMobile(),
+              "mx-3": isMobile()
+            }, _v$5 = !!isMobile(), _v$6 = {
+              "w-52": !isMobile(),
+              "w-56 mr-12": isMobile()
+            };
+            _p$.e = classList(_el$2, _v$4, _p$.e);
+            _v$5 !== _p$.t && _el$3.classList.toggle("mx-4", _p$.t = _v$5);
+            _p$.a = classList(_el$7, _v$6, _p$.a);
+            return _p$;
+          }, {
+            e: void 0,
+            t: void 0,
+            a: void 0
+          });
           return _el$;
         }
       })];

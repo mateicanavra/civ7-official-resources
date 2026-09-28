@@ -2,9 +2,10 @@ import { template, insert, classList } from '../../../core/vendor/solid-js/web/d
 import { Icon } from '../../../core/ui-next/components/icon.js';
 import { useImageCache } from '../../../core/ui-next/components/image-cache.js';
 import { ComponentRegistry } from '../../../core/ui-next/services/component-registry.js';
+import { isMobile } from '../../../core/ui-next/services/view-experience.js';
 import { createComponent, createRenderEffect } from '../../../core/vendor/solid-js/dist/solid.js';
 
-var _tmpl$ = /* @__PURE__ */ template(`<div class="flex flex-col"data-name=Yield-Delta><div class="w-11 flex flex-row justify-center mb-1 font-fit-shrink"></div><div class="w-11 h-24"><div class="flex flex-col justify-center items-center size-full font-fit-shrink"></div></div></div>`);
+var _tmpl$ = /* @__PURE__ */ template(`<div class="flex flex-col"data-name="Yield-Delta"><div class="w-11 flex flex-row justify-center mb-1 font-fit-shrink"></div><div class="w-11 h-24"><div class="flex flex-col justify-center items-center size-full font-fit-shrink"></div></div></div>`);
 const YieldDeltaSymbol = Symbol();
 const YieldDeltaComponent = (props) => {
   const images = {
@@ -21,7 +22,9 @@ const YieldDeltaComponent = (props) => {
     _el$3.style.setProperty("border-image-slice", "17 21 fill");
     _el$3.style.setProperty("border-image-width", "17px 21px");
     insert(_el$4, createComponent(Icon, {
-      "class": "size-8 mt-1 mb-1",
+      get ["class"]() {
+        return `${isMobile() ? "size-10" : "size-8"} mt-1 mb-1`;
+      },
       get name() {
         return props.yieldIconSrc;
       },

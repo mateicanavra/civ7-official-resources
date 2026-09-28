@@ -1,4 +1,5 @@
 import { Audio } from '../../../core/ui/audio-base/audio-support.js';
+import { ContextManagerEvents } from '../../../core/ui/context-manager/context-manager.js';
 import { InputEngineEventName } from '../../../core/ui/input/input-support.js';
 import { InterfaceMode } from '../../../core/ui/interface-modes/interface-modes.js';
 import NavTray from '../../../core/ui/navigation-tray/model-navigation-tray.js';
@@ -6,6 +7,8 @@ import Panel from '../../../core/ui/panel-support.js';
 import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
 import { Layout } from '../../../core/ui/utilities/utilities-layout.js';
 import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
+import { isMobile } from '../../../core/ui-next/services/view-experience.js';
+import { useIsSmallScreen } from '../../../core/ui-next/utilities/layout-utilities.js';
 import { NarrativePopupManager } from './narrative-popup-manager.js';
 import content from './graphic-narrative-event.html.js';
 import styles from './graphic-narrative-event.scss.js';
@@ -19,6 +22,19 @@ class GraphicNarrativeEvent extends Panel {
     this.onEngineInput(inputEvent);
   };
   turnEndListener = () => (this.close(UIViewChangeMethod.Automatic), NarrativePopupManager.closePopup());
+  contextCloseListener = (event) => {
+    const deactivatedElementName = event.detail.deactivatedElement.typeName;
+    if (!deactivatedElementName) {
+      return;
+    }
+    if (deactivatedElementName === "graphic-narrative-event") {
+      waitForLayout(() => {
+        this.close(UIViewChangeMethod.Automatic);
+        NarrativePopupManager.closePopup();
+        engine.off(ContextManagerEvents.OnClose, this.contextCloseListener);
+      });
+    }
+  };
   frame;
   panelOptions = null;
   targetStoryId = null;
@@ -34,6 +50,7 @@ class GraphicNarrativeEvent extends Panel {
   playerLeaderAssetName = "";
   playerPrimaryColor = 0;
   playerSecondaryColor = 0;
+  isSmallScreen = useIsSmallScreen();
   constructor(root) {
     super(root);
     this.enableOpenSound = true;
@@ -54,18 +71,22 @@ class GraphicNarrativeEvent extends Panel {
   }
   onAttach() {
     super.onAttach();
-    const mobileViewExperience = UI.getViewExperience() == UIViewExperience.Mobile;
-    this.frame = MustGetElement(".fxs-inner-frame-darker", this.Root);
-    const closebutton = document.createElement("fxs-close-button");
-    closebutton.addEventListener("action-activate", this.closeButtonListener);
-    if (mobileViewExperience) {
-      this.frame.appendChild(closebutton);
-    } else {
-      this.Root.appendChild(closebutton);
-    }
+    this.frame = MustGetElement(".narrative_model__frame", this.Root);
+    const closeButton = document.createElement("fxs-close-button");
+    closeButton.addEventListener("action-activate", this.closeButtonListener);
+    this.Root.appendChild(closeButton);
     this.Root.classList.add("w-full", "h-full", "flex", "justify-center", "pointer-events-auto");
+    if (isMobile()) {
+      this.frame.classList.remove("fxs-inner-frame-darker");
+      const frameFiligrees = MustGetElement(".narrative_model__frame-filigrees", this.Root);
+      frameFiligrees.className = "absolute top-0\\.5 -bottom-1\\.5 left-11 -right-11 pointer-events-none";
+      const narrativeText = MustGetElement(".narrative_model__text-container", this.Root);
+      narrativeText.className = "narrative_model__text-container mb-5 mt-1 mx-11 p-6 text-center font-body-m fxs-inner-frame-darker";
+      narrativeText.appendChild(frameFiligrees);
+    }
     this.Root.addEventListener(InputEngineEventName, this.engineInputListener);
     engine.on("LocalPlayerTurnEnd", this.turnEndListener);
+    engine.on(ContextManagerEvents.OnClose, this.contextCloseListener);
     this.addElements();
     this.previousMode = InterfaceMode.getCurrent();
     this.previousModeContext = InterfaceMode.getParameters();
@@ -227,16 +248,18 @@ class GraphicNarrativeEvent extends Panel {
         ".narrative_model__text-container"
       );
       if (bodyContainer) {
+        let bodyText = "";
         if (storyDef.Completion) {
-          bodyContainer.innerHTML = Locale.stylize(
+          bodyText = Locale.stylize(
             playerStories.determineNarrativeInjectionComponentId(targetStoryId, StoryTextTypes.BODY)
           );
         } else {
+          bodyText = "ERROR: Missing storyDef completion";
           console.error(
             `Narrative event does not have a storyDef.Completion.  bodyContainer: '${bodyContainer.innerHTML}'`
           );
-          bodyContainer.innerHTML = "ERROR: Missing storyDef completion";
         }
+        bodyContainer.innerHTML = isMobile() ? bodyContainer.innerHTML + bodyText : bodyText;
       }
       const entryContainer = this.Root.querySelector(
         ".narrative_model__button-container"
@@ -297,7 +320,7 @@ class GraphicNarrativeEvent extends Panel {
   populateLinkEntry(link, targetStoryId, entryContainer, playerStories) {
     const linkDef = GameInfo.NarrativeStories.lookup(link);
     if (linkDef) {
-      if (linkDef?.Activation.toUpperCase() === "LINKED" || (linkDef?.Activation.toUpperCase() === "LINKED_REQUISITE" || linkDef?.Activation.toUpperCase() === "LINKED_SUBJECT_REQUISITE") && playerStories.determineRequisiteLink(linkDef.NarrativeStoryType, targetStoryId)) {
+      if (linkDef?.Activation.toUpperCase() === "LINKED" || (linkDef?.Activation.toUpperCase() === "LINKED_REQUISITE" || linkDef?.Activation.toUpperCase() === "LINKED_COMMON" || linkDef?.Activation.toUpperCase() === "LINKED_SUBJECT_REQUISITE") && playerStories.determineRequisiteLink(linkDef.NarrativeStoryType, targetStoryId)) {
         const icons = GameInfo.NarrativeRewardIcons.filter((item) => {
           return item.NarrativeStoryType === linkDef.NarrativeStoryType;
         });
@@ -336,13 +359,14 @@ class GraphicNarrativeEvent extends Panel {
     return false;
   }
   addEntry(container, descriptiveText, reward, action, key, icons, canAfford) {
+    const isNegative = icons.some((narrativeIconDef) => narrativeIconDef.Negative);
+    const buttonText = `<div>${reward}</div><div class="mt-2 ${isNegative ? "text-negative" : ""}">${action}</div>`;
     const buttonFXS = document.createElement("fxs-reward-button");
     buttonFXS.addEventListener("action-activate", this.entryListener);
     buttonFXS.setAttribute("narrative-choice-key", key);
     buttonFXS.setAttribute("tabindex", "-1");
     buttonFXS.setAttribute("main-text", descriptiveText);
-    buttonFXS.setAttribute("reward", reward);
-    buttonFXS.setAttribute("action-text", action);
+    buttonFXS.setAttribute("action-text", buttonText);
     buttonFXS.setAttribute("leader-civ", this.leaderCiv);
     buttonFXS.setAttribute("icons", JSON.stringify(icons));
     buttonFXS.setAttribute("story-type", "3DPANEL");

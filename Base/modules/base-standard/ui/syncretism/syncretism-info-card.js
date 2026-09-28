@@ -1,5 +1,5 @@
-import { template, insert } from '../../../core/vendor/solid-js/web/dist/web.js';
-import { createComponent, For, mergeProps, onMount, Show, createRenderEffect } from '../../../core/vendor/solid-js/dist/solid.js';
+import { template, insert, className } from '../../../core/vendor/solid-js/web/dist/web.js';
+import { createComponent, For, mergeProps, createMemo, onMount, createRenderEffect, Show } from '../../../core/vendor/solid-js/dist/solid.js';
 import { CloseButton } from '../../../core/ui-next/components/close-button.js';
 import { FiligreeTitle } from '../../../core/ui-next/components/filigree-title.js';
 import { defineLegacyComponent } from '../../../core/ui-next/components/fxs-solid-component.js';
@@ -10,15 +10,16 @@ import { Panel } from '../../../core/ui-next/components/panel.js';
 import { ScrollArea } from '../../../core/ui-next/components/scroll-area.js';
 import { SpatialSlot } from '../../../core/ui-next/components/slot.js';
 import { Tab } from '../../../core/ui-next/components/tab.js';
-import { NestedTooltipContext } from '../../../core/ui-next/components/tooltip-compat.js';
+import { NestedTooltipContext } from '../../../core/ui-next/components/tooltip-nested.js';
 import { useAudio } from '../../../core/ui-next/services/audio-support.js';
 import { ComponentRegistry } from '../../../core/ui-next/services/component-registry.js';
 import { IsControllerActive } from '../../../core/ui-next/services/input.js';
+import { isMobile } from '../../../core/ui-next/services/view-experience.js';
 import { SyncretismPreviewCard } from './syncretism-card.js';
 import style from './screen-syncretism.scss.js';
 import { SyncretismScreenModel, SyncretismScreenModelContext } from './syncretism-screen-model.js';
 
-var _tmpl$ = /* @__PURE__ */ template(`<div class="size-full flex flex-col flex-auto px-3 py-3"><div class="flex flex-row w-full mt-2 pb-4 pt-2 px-2"></div></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="inset-1 absolute bg-cover bg-no-repeat syncretism-bg-gradient"></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="relative flex flex-auto"></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div class=text-accent-2></div>`), _tmpl$5 = /* @__PURE__ */ template(`<div class="uppercase mr-2 text-secondary font-title"></div>`), _tmpl$6 = /* @__PURE__ */ template(`<div class="flex flex-auto mx-12 p-4 my-2 relative"><div class="bg-center bg-no-repeat absolute inset-0 bg-cover opacity-20"></div><div class="absolute top-1 left-1 rotate-180 size-4 bg-contain opacity-30"></div><div class="absolute top-1 right-1 -rotate-90 size-4 bg-contain opacity-30"></div><div class="absolute bottom-1 left-1 rotate-90 size-4 bg-contain opacity-30"></div><div class="absolute bottom-1 right-1 size-4 bg-center opacity-30"></div><div class="flex flex-row flex-auto"><div class="flex flex-col flex-auto relative items-start justify-center ml-3"></div></div></div>`);
+var _tmpl$ = /* @__PURE__ */ template(`<div class="size-full flex flex-col flex-auto px-3 py-3"><div class="flex flex-row w-full mt-2 pb-4 pt-2 px-2"></div></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="absolute bg-cover bg-no-repeat syncretism-frame fullscreen-outside-safezone"></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div class="relative flex flex-auto"></div>`), _tmpl$5 = /* @__PURE__ */ template(`<div class="text-accent-2"></div>`), _tmpl$6 = /* @__PURE__ */ template(`<div class="uppercase mr-2 text-secondary font-title"></div>`), _tmpl$7 = /* @__PURE__ */ template(`<div class="flex flex-auto mx-12 p-4 my-2 relative"><div class="bg-center bg-no-repeat absolute inset-0 bg-cover opacity-20"></div><div class="absolute top-1 left-1 rotate-180 size-4 bg-contain opacity-30"></div><div class="absolute top-1 right-1 -rotate-90 size-4 bg-contain opacity-30"></div><div class="absolute bottom-1 left-1 rotate-90 size-4 bg-contain opacity-30"></div><div class="absolute bottom-1 right-1 size-4 bg-center opacity-30"></div><div class="flex flex-row flex-auto"><div class="flex flex-col flex-auto relative items-start justify-center ml-3"></div></div></div>`);
 const SyncretismInfoScreen = (props) => {
   const model = SyncretismScreenModel.get();
   return createComponent(NestedTooltipContext.Provider, {
@@ -40,13 +41,15 @@ const SyncretismInfoScreen = (props) => {
         }
       }));
       insert(_el$, createComponent(ScrollArea, {
-        "class": "relative flex-auto",
+        get ["class"]() {
+          return `relative flex-auto ${isMobile() ? "pl-8" : ""}`;
+        },
         useProxy: true,
         get children() {
           return createComponent(SpatialSlot, {
             name: "syncretism-choices",
             get ["class"]() {
-              return `flex flex-auto flex-wrap size-full ${model.isSmallScreen() ? "justify-center" : ""}`;
+              return `flex flex-auto flex-wrap size-full ${model.isSmallScreen() && !isMobile() ? "justify-center" : ""}`;
             },
             get children() {
               return createComponent(For, {
@@ -55,7 +58,11 @@ const SyncretismInfoScreen = (props) => {
                 },
                 children: (item) => createComponent(SyncretismPreviewCard, mergeProps(item, {
                   get style() {
-                    return model.isSmallScreen() ? {
+                    return createMemo(() => !!isMobile())() ? {
+                      width: "48%",
+                      "margin-left": "0.75%",
+                      "margin-right": "0.75%"
+                    } : model.isSmallScreen() ? {
                       width: "95%"
                     } : {
                       width: "31.5%",
@@ -64,7 +71,7 @@ const SyncretismInfoScreen = (props) => {
                     };
                   },
                   get ["class"]() {
-                    return `${model.isSmallScreen() ? "mb-10 mr-5" : "mb-5"} mt-3`;
+                    return `${model.isSmallScreen() && !isMobile() ? "mb-10 mr-5" : "mb-5"} mt-3`;
                   }
                 }))
               });
@@ -89,7 +96,7 @@ const SyncretismInfoComponent = (props) => {
     },
     name: "Syncretism Preview Screen",
     id: "syncretism-preview",
-    "class": "syncretism-frame",
+    "class": "",
     onCancelInput: () => {
       model.clickCloseInfoButton();
       audio("popup-back");
@@ -100,7 +107,11 @@ const SyncretismInfoComponent = (props) => {
         get children() {
           return [_tmpl$2(), (() => {
             var _el$4 = _tmpl$3();
-            insert(_el$4, createComponent(Tab, {
+            createRenderEffect(() => className(_el$4, `${isMobile() ? "" : "m-1"} absolute bg-cover bg-no-repeat syncretism-bg-gradient fullscreen-outside-safezone`));
+            return _el$4;
+          })(), (() => {
+            var _el$5 = _tmpl$4();
+            insert(_el$5, createComponent(Tab, {
               "class": "w-full relative flex flex-col flex-auto pointer-events-auto",
               get children() {
                 return [createComponent(CloseButton, {
@@ -125,7 +136,7 @@ const SyncretismInfoComponent = (props) => {
                 })];
               }
             }));
-            return _el$4;
+            return _el$5;
           })()];
         }
       });
@@ -145,17 +156,17 @@ const AttentionBanner = (props) => {
   const cache = useImageCache();
   cache.registerImages(AttentionBannerSymbol, Object.values(images));
   return (() => {
-    var _el$5 = _tmpl$6(), _el$6 = _el$5.firstChild, _el$7 = _el$6.nextSibling, _el$8 = _el$7.nextSibling, _el$9 = _el$8.nextSibling, _el$10 = _el$9.nextSibling, _el$11 = _el$10.nextSibling, _el$12 = _el$11.firstChild;
-    _el$5.style.setProperty("border-image-slice", "22 180 fill");
-    _el$5.style.setProperty("border-image-width", "22px 180px");
-    insert(_el$11, createComponent(Icon, {
+    var _el$6 = _tmpl$7(), _el$7 = _el$6.firstChild, _el$8 = _el$7.nextSibling, _el$9 = _el$8.nextSibling, _el$10 = _el$9.nextSibling, _el$11 = _el$10.nextSibling, _el$12 = _el$11.nextSibling, _el$13 = _el$12.firstChild;
+    _el$6.style.setProperty("border-image-slice", "22 180 fill");
+    _el$6.style.setProperty("border-image-width", "22px 180px");
+    insert(_el$12, createComponent(Icon, {
       "class": "size-12",
       get name() {
         return `${props.syncreticChoiceMade ? images.iconPositiveCSS : images.iconWarningCSS}`;
       },
       isUrl: true
-    }), _el$12);
-    insert(_el$12, createComponent(Show, {
+    }), _el$13);
+    insert(_el$13, createComponent(Show, {
       get when() {
         return !props.syncreticChoiceMade;
       },
@@ -166,28 +177,28 @@ const AttentionBanner = (props) => {
       },
       get children() {
         return [(() => {
-          var _el$13 = _tmpl$4();
-          insert(_el$13, createComponent(L10n.Stylize, {
-            text: "LOC_UI_SYNCRETISM_PREVIEW"
-          }));
-          return _el$13;
-        })(), (() => {
           var _el$14 = _tmpl$5();
           insert(_el$14, createComponent(L10n.Stylize, {
-            text: "LOC_UI_SYNCRETISM_PREVIEW_ONLY"
+            text: "LOC_UI_SYNCRETISM_PREVIEW"
           }));
           return _el$14;
+        })(), (() => {
+          var _el$15 = _tmpl$6();
+          insert(_el$15, createComponent(L10n.Stylize, {
+            text: "LOC_UI_SYNCRETISM_PREVIEW_ONLY"
+          }));
+          return _el$15;
         })()];
       }
     }));
     createRenderEffect((_p$) => {
       var _v$ = `${props.syncreticChoiceMade ? images.positiveBannerBaseCSS : images.warningBannerBaseCSS}`, _v$2 = images.warningBannerImageCSS, _v$3 = images.playerDetailCSS, _v$4 = images.playerDetailCSS, _v$5 = images.playerDetailCSS, _v$6 = images.playerDetailCSS;
-      _v$ !== _p$.e && ((_p$.e = _v$) != null ? _el$5.style.setProperty("border-image-source", _v$) : _el$5.style.removeProperty("border-image-source"));
-      _v$2 !== _p$.t && ((_p$.t = _v$2) != null ? _el$6.style.setProperty("background-image", _v$2) : _el$6.style.removeProperty("background-image"));
-      _v$3 !== _p$.a && ((_p$.a = _v$3) != null ? _el$7.style.setProperty("background-image", _v$3) : _el$7.style.removeProperty("background-image"));
-      _v$4 !== _p$.o && ((_p$.o = _v$4) != null ? _el$8.style.setProperty("background-image", _v$4) : _el$8.style.removeProperty("background-image"));
-      _v$5 !== _p$.i && ((_p$.i = _v$5) != null ? _el$9.style.setProperty("background-image", _v$5) : _el$9.style.removeProperty("background-image"));
-      _v$6 !== _p$.n && ((_p$.n = _v$6) != null ? _el$10.style.setProperty("background-image", _v$6) : _el$10.style.removeProperty("background-image"));
+      _v$ !== _p$.e && ((_p$.e = _v$) != null ? _el$6.style.setProperty("border-image-source", _v$) : _el$6.style.removeProperty("border-image-source"));
+      _v$2 !== _p$.t && ((_p$.t = _v$2) != null ? _el$7.style.setProperty("background-image", _v$2) : _el$7.style.removeProperty("background-image"));
+      _v$3 !== _p$.a && ((_p$.a = _v$3) != null ? _el$8.style.setProperty("background-image", _v$3) : _el$8.style.removeProperty("background-image"));
+      _v$4 !== _p$.o && ((_p$.o = _v$4) != null ? _el$9.style.setProperty("background-image", _v$4) : _el$9.style.removeProperty("background-image"));
+      _v$5 !== _p$.i && ((_p$.i = _v$5) != null ? _el$10.style.setProperty("background-image", _v$5) : _el$10.style.removeProperty("background-image"));
+      _v$6 !== _p$.n && ((_p$.n = _v$6) != null ? _el$11.style.setProperty("background-image", _v$6) : _el$11.style.removeProperty("background-image"));
       return _p$;
     }, {
       e: void 0,
@@ -197,7 +208,7 @@ const AttentionBanner = (props) => {
       i: void 0,
       n: void 0
     });
-    return _el$5;
+    return _el$6;
   })();
 };
 defineLegacyComponent("syncretism-info-card", {

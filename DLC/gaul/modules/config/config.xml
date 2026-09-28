@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<LeaderCivilizationBias>
+	</LeaderCivilizationBias>
+	<Civilizations>
+		<Row Domain="AntiquityAgeCivilizations" CivilizationType="CIVILIZATION_GAUL" CivilizationName="LOC_CIVILIZATION_GAUL_NAME" CivilizationFullName="LOC_CIVILIZATION_GAUL_FULLNAME" CivilizationDescription="LOC_CIVILIZATION_GAUL_DESCRIPTION" CivilizationIcon="gaul_icon.png" CivilizationIntroText="LOC_LOADING_CIV_INTRO_TEXT_GAUL"/>
+	</Civilizations>
+	<CivilizationItems>
+		<Row CivilizationDomain="AntiquityAgeCivilizations" AgeType="AGE_ANTIQUITY" CivilizationType="CIVILIZATION_GAUL" Type="TRAIT_GAUL_ABILITY" Kind="KIND_TRAIT" Name="LOC_TRAIT_GAUL_ABILITY_NAME" Description="LOC_TRAIT_GAUL_ABILITY_AQ_DESCRIPTION"/>
+		<Row CivilizationDomain="ExplorationAgeCivilizations" AgeType="AGE_EXPLORATION" CivilizationType="CIVILIZATION_GAUL" Type="TRAIT_GAUL_ABILITY" Kind="KIND_TRAIT" Name="LOC_TRAIT_GAUL_ABILITY_NAME" Description="LOC_TRAIT_GAUL_ABILITY_EX_DESCRIPTION"/>
+		<Row CivilizationDomain="ModernAgeCivilizations" AgeType="AGE_MODERN" CivilizationType="CIVILIZATION_GAUL" Type="TRAIT_GAUL_ABILITY" Kind="KIND_TRAIT" Name="LOC_TRAIT_GAUL_ABILITY_NAME" Description="LOC_TRAIT_GAUL_ABILITY_MO_DESCRIPTION"/>
+		<!-- Unique Units -->		
+		<Row CivilizationDomain="AntiquityAgeCivilizations" CivilizationType="CIVILIZATION_GAUL" Type="UNIT_GAISATAI" Kind="KIND_UNIT" Name="LOC_UNIT_GAISATAI_NAME" Description="LOC_UNIT_GAISATAI_BASE_DESCRIPTION" Icon="unitflag_leiomano.png"/>
+		<Row CivilizationDomain="AntiquityAgeCivilizations" CivilizationType="CIVILIZATION_GAUL" Type="UNIT_DRUID" Kind="KIND_UNIT" Name="LOC_UNIT_DRUID_NAME" Description="LOC_UNIT_DRUID_DESCRIPTION" Icon="unitflag_DRUID.png" CanSyncretize="0"/>
+		<Row CivilizationDomain="AntiquityAgeCivilizations" CivilizationType="CIVILIZATION_GAUL" Type="QUARTER_DUNON" Kind="KIND_QUARTER" Name="LOC_QUARTER_DUNON_NAME" Description="LOC_QUARTER_DUNON_DESCRIPTION" Icon="city_uniquequarter"/>
+		<Row CivilizationDomain="AntiquityAgeCivilizations" CivilizationType="CIVILIZATION_GAUL" Type="BUILDING_NEMETON" Kind="KIND_BUILDING" Name="LOC_BUILDING_NEMETON_NAME" Description="LOC_BUILDING_NEMETON_DESCRIPTION" Icon="impicon_loikalo.png"/>
+		<Row CivilizationDomain="AntiquityAgeCivilizations" CivilizationType="CIVILIZATION_GAUL" Type="BUILDING_GOBEN" Kind="KIND_BUILDING" Name="LOC_BUILDING_GOBEN_NAME" Description="LOC_BUILDING_GOBEN_DESCRIPTION" Icon="impicon_loikalo.png"/>
+	</CivilizationItems>
+	<CivilizationTags>
+		<Row CivilizationDomain="AntiquityAgeCivilizations" CivilizationType="CIVILIZATION_GAUL" TagType="TAG_TRAIT_ECONOMIC"/>
+		<Row CivilizationDomain="AntiquityAgeCivilizations" CivilizationType="CIVILIZATION_GAUL" TagType="TAG_TRAIT_EXPANSIONIST"/>
+		<Row CivilizationDomain="AntiquityAgeCivilizations" CivilizationType="CIVILIZATION_GAUL" TagType="TAG_APEX_AGE_ANTIQUITY"/>
+	</CivilizationTags>
+	<LeaderCivilizationBias>
+		<Row CivilizationDomain="AntiquityAgeCivilizations" CivilizationType="CIVILIZATION_GAUL" LeaderDomain="StandardLeaders" LeaderType="LEADER_CHARLEMAGNE" Bias="3" ReasonType="LOC_UNLOCK_PLAY_AS_CHARLEMAGNE_GAUL_TOOLTIP" ChoiceType="LOC_CREATE_GAME_GEOGRAPHIC_CHOICE"/>
+		<Row CivilizationDomain="AntiquityAgeCivilizations" CivilizationType="CIVILIZATION_GAUL" LeaderDomain="StandardLeaders" LeaderType="LEADER_LAFAYETTE" Bias="3" ReasonType="LOC_UNLOCK_PLAY_AS_LAFAYETTE_GAUL_TOOLTIP" ChoiceType="LOC_CREATE_GAME_GEOGRAPHIC_CHOICE"/>
+		<Row CivilizationDomain="AntiquityAgeCivilizations" CivilizationType="CIVILIZATION_GAUL" LeaderDomain="StandardLeaders" LeaderType="LEADER_AUGUSTUS" Bias="3" ReasonType="LOC_UNLOCK_PLAY_AS_AUGUSTUS_GAUL_TOOLTIP" ChoiceType="LOC_CREATE_GAME_GEOGRAPHIC_CHOICE"/>
+		<Row CivilizationDomain="AntiquityAgeCivilizations" CivilizationType="CIVILIZATION_GAUL" LeaderDomain="StandardLeaders" LeaderType="LEADER_HARRIET_TUBMAN" Bias="1" ReasonType="LOC_UNLOCK_PLAY_AS_HARRIET_TUBMAN_GAUL_TOOLTIP" ChoiceType="LOC_CREATE_GAME_STRATEGIC_CHOICE"/>
+	</LeaderCivilizationBias>
+	<CivilizationUnlocks>
+		<Row CivilizationDomain="AntiquityAgeCivilizations" CivilizationType="CIVILIZATION_GAUL" AgeDomain="StandardAges" AgeType="AGE_EXPLORATION" Type="CIVILIZATION_NORMAN" Kind="KIND_CIVILIZATION" Name="LOC_CIVILIZATION_NORMAN_NAME" Description="LOC_CIVILIZATION_NEPAL_DESCRIPTION" Icon="CIVILIZATION_NORMAN"/>
+		<Row CivilizationDomain="AntiquityAgeCivilizations" CivilizationType="CIVILIZATION_GAUL" AgeDomain="StandardAges" AgeType="AGE_MODERN" Type="CIVILIZATION_FRENCH_EMPIRE" Kind="KIND_CIVILIZATION" Name="LOC_CIVILIZATION_FRENCH_EMPIRE_NAME" Description="LOC_CIVILIZATION_FRENCH_EMPIRE_DESCRIPTION" Icon="CIVILIZATION_FRENCH_EMPIRE"/>
+	</CivilizationUnlocks>
+	<OwnershipConditions>
+		<Row ItemType="CIVILIZATION_GAUL" Action="LOC_LOCKED_INCLUDED_WITH_CONTENT" />
+	</OwnershipConditions>
+</Database>

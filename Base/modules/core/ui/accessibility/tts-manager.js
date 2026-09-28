@@ -1,4 +1,5 @@
-import ContextManager from '../context-manager/context-manager.js';
+import { ContextManager } from '../context-manager/context-manager.js';
+import { InputHandlerState } from '../input/input-support.js';
 
 var TextToSpeechSearchType = /* @__PURE__ */ ((TextToSpeechSearchType2) => {
   TextToSpeechSearchType2[TextToSpeechSearchType2["Hover"] = 0] = "Hover";
@@ -70,10 +71,10 @@ class TtsManagerImpl {
         this.handleSpeakRequest(1 /* Focus */);
       }
     }
-    return true;
+    return InputHandlerState.Active;
   }
   handleNavigation(_navigationEvent) {
-    return true;
+    return InputHandlerState.Active;
   }
   trySpeakElement(element) {
     const validElement = this.findNearestValidElement(this.reverseScanFromBody(element));

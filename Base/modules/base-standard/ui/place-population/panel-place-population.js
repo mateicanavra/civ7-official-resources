@@ -171,7 +171,7 @@ class PlacePopulationPanel extends Panel {
     footerContainer.appendChild(footerIcon);
     const footerIconTouch = document.createElement("div");
     footerIconTouch.className = "img-handpointer size-7 my-2";
-    footerIconTouch.setAttribute("data-bind-class-toggle", "hidden: !{{g_ActionHandler.isTouchActive}}");
+    footerIconTouch.setAttribute("data-bind-class-toggle", "hidden: !{{g_ActionHandler.IsTouchActive}}");
     footerContainer.appendChild(footerIconTouch);
     this.specialistExpandText.className = "uppercase text-sm ml-2";
     this.specialistExpandText.setAttribute(
@@ -181,7 +181,7 @@ class PlacePopulationPanel extends Panel {
     this.specialistTouchExpandText.className = "uppercase text-sm ml-2 my-2";
     this.specialistTouchExpandText.setAttribute(
       "data-bind-class-toggle",
-      "hidden: !{{g_ActionHandler.isTouchActive}}"
+      "hidden: !{{g_ActionHandler.IsTouchActive}}"
     );
     if (PlacePopulation.showExpandedView) {
       this.specialistExpandText.setAttribute("data-l10n-id", "LOC_BUILDING_PLACEMENT_PRESS_SPACE_HIDE_DETAILS");
@@ -251,7 +251,7 @@ class PlacePopulationPanel extends Panel {
 					<div class="constructible-details__divider-line-right"></div>
 				</div>
 				<div class="my-2 text-sm self-center text-info uppercase" data-bind-if="!{{g_PlacePopulation.alreadyHasSpecialists}}" data-l10n-id="LOC_TERM_NONE"></div>
-				<div class="flex flex-auto justify-between mx-2" data-bind-if={{g_PlacePopulation.showBeforeSpecialistBonus}}>
+				<div class="flex flex-auto flex-wrap justify-between mx-2" data-bind-if={{g_PlacePopulation.showBeforeSpecialistBonus}}>
 					<div class="text-sm" data-l10n-id="LOC_BUILDING_PLACEMENT_SPECIALIST_BONUS"></div>
 					<div class="flex">
 						<div class="ml-1" data-bind-for="entry:{{g_PlacePopulation.beforeSpecialistBonus}}">
@@ -294,7 +294,7 @@ class PlacePopulationPanel extends Panel {
 					<p data-l10n-id="LOC_BUILDING_PLACEMENT_BREAKDOWN" class="mx-2 font-title text-secondary text-sm uppercase"></p>
 					<div class="constructible-details__divider-line-right"></div>
 				</div>
-				<div class="flex flex-auto justify-between mx-2 flex-wrap" data-bind-if={{g_PlacePopulation.showAfterSpecialistBonus}}>
+				<div class="flex flex-auto flex-wrap justify-between mx-2" data-bind-if={{g_PlacePopulation.showAfterSpecialistBonus}}>
 					<div class="text-sm" data-l10n-id="LOC_BUILDING_PLACEMENT_SPECIALIST_BONUS"></div>
 					<div class="flex">
 						<div class="ml-1" data-bind-for="entry:{{g_PlacePopulation.afterSpecialistBonus}}">
@@ -336,7 +336,7 @@ class PlacePopulationPanel extends Panel {
     footerContainer.appendChild(footerIcon);
     const footerIconTouch = document.createElement("div");
     footerIconTouch.className = "img-handpointer size-7 my-2";
-    footerIconTouch.setAttribute("data-bind-class-toggle", "hidden: !{{g_ActionHandler.isTouchActive}}");
+    footerIconTouch.setAttribute("data-bind-class-toggle", "hidden: !{{g_ActionHandler.IsTouchActive}}");
     footerContainer.appendChild(footerIconTouch);
     this.improvementExpandText.className = "uppercase text-sm ml-2";
     this.improvementExpandText.setAttribute(
@@ -346,7 +346,7 @@ class PlacePopulationPanel extends Panel {
     this.improvementTouchExpandText.className = "uppercase text-sm ml-2 my-2";
     this.improvementTouchExpandText.setAttribute(
       "data-bind-class-toggle",
-      "hidden: !{{g_ActionHandler.isTouchActive}}"
+      "hidden: !{{g_ActionHandler.IsTouchActive}}"
     );
     if (PlacePopulation.showExpandedView) {
       this.improvementExpandText.setAttribute("data-l10n-id", "LOC_BUILDING_PLACEMENT_PRESS_SPACE_HIDE_DETAILS");

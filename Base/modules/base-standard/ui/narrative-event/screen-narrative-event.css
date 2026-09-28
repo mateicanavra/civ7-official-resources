@@ -7,9 +7,20 @@
     margin-top: 4.4444444444rem;
   }
 }
+@media (experience: mobile) {
+  .screen-narrative-event .fxs-scrollbar__track--vertical {
+    right: 2.6666666667rem;
+    top: 1.7777777778rem;
+  }
+}
 
 .narrative-reg__title-text {
   text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.87), 0px 0px 0px rgba(0, 0, 0, 0.9), 2px 2px 0px rgba(0, 0, 0, 0.5);
+}
+@media (experience: mobile) {
+  .narrative-reg__title-text {
+    margin-top: 1.3333333333rem;
+  }
 }
 
 .nar-inner-frame {
@@ -28,5 +39,23 @@
 @media (max-height: 42.6666666667rem) {
   .narrative-reg__content {
     padding: 0rem 1.3333333333rem;
+  }
+}
+@media (experience: mobile) {
+  .narrative-reg__content {
+    padding-top: 0.6666666667rem;
+    padding-bottom: 0.6666666667rem;
+  }
+}
+@media (experience: mobile) {
+  .narrative-reg__content .fxs-reward-button {
+    margin-bottom: 0.8888888889rem;
+  }
+}
+
+@media (experience: mobile) {
+  .narrative-reg__button-container {
+    margin-top: 0.4444444444rem;
+    padding-bottom: 0.8888888889rem;
   }
 }

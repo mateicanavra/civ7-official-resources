@@ -5,7 +5,7 @@ import { Panel } from '../../../../core/ui-next/components/panel.js';
 import { Popup } from '../../../../core/ui-next/components/popup.js';
 import { ScreenFlowTab } from '../../../../core/ui-next/components/screen-flow.js';
 import { Tab } from '../../../../core/ui-next/components/tab.js';
-import { NestedTooltipContext } from '../../../../core/ui-next/components/tooltip-compat.js';
+import { NestedTooltipContext } from '../../../../core/ui-next/components/tooltip-nested.js';
 import { AgeSelectModel, AgeSelectModelContext } from '../../../../core/ui-next/screens/create-game/age-select-model.js';
 import { CivDetails } from '../../../../core/ui-next/screens/create-game/civ-details.js';
 import { CivSelectModel, CivSelectModelContext } from '../../../../core/ui-next/screens/create-game/civ-select-model.js';
@@ -73,9 +73,10 @@ const AgeTransitionScreenComponent = (props) => {
   return createComponent(Panel, {
     id: "age-transition-screen",
     name: "age-transition-screen",
-    "class": "fullscreen",
+    "class": "size-full",
     onCancelInput: () => {
       handleCancelInput();
+      useAudio("CreateGameBackButton")("activate");
     },
     get children() {
       return createComponent(GameSetupModelContext.Provider, {
@@ -108,7 +109,7 @@ const AgeTransitionScreenComponent = (props) => {
                                         setPopupContext,
                                         get children() {
                                           return [createComponent(ScreenFlowTab, {
-                                            "class": "fullscreen",
+                                            "class": "size-full",
                                             get defaultTab() {
                                               return ageTransitionStatic.lastScreen ?? props.screens[0].name;
                                             },
@@ -140,7 +141,7 @@ const AgeTransitionScreenComponent = (props) => {
                                               })];
                                             }
                                           }), createComponent(Popup.Output, {
-                                            "class": "fullscreen child-fullscreen"
+                                            "class": "absolute size-full"
                                           })];
                                         }
                                       });

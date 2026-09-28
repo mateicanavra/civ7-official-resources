@@ -1,5 +1,5 @@
 import { TtsManager } from '../accessibility/tts-manager.js';
-import ContextManager from '../context-manager/context-manager.js';
+import { ContextManager } from '../context-manager/context-manager.js';
 import './editors/index.js';
 import { Options, OptionType, CategoryType } from './model-options.js';
 import { FontScale } from '../utilities/utilities-dom.js';
@@ -659,6 +659,13 @@ const onGfxAdvancedCheckboxInit = (optionInfo) => {
       addGraphicsOptionSetter(optionInfo, bloomSetter);
       bloomSetter();
       break;
+    case "option-gfx-water-sun-specular":
+      const waterSunSetter = () => {
+        optionInfo.currentValue = Options.graphicsOptions.enableWaterSunSpecular;
+      };
+      addGraphicsOptionSetter(optionInfo, waterSunSetter);
+      waterSunSetter();
+      break;
   }
 };
 const onGfxAdvancedCheckboxUpdate = (optionInfo, value) => {
@@ -674,6 +681,9 @@ const onGfxAdvancedCheckboxUpdate = (optionInfo, value) => {
       break;
     case "option-gfx-bloom":
       Options.graphicsOptions.enableBloom = value;
+      break;
+    case "option-gfx-water-sun-specular":
+      Options.graphicsOptions.enableWaterSunSpecular = value;
       break;
   }
   onAdvancedOptionChanged();
@@ -2191,6 +2201,18 @@ Options.addInitCallback(() => {
         label: "LOC_OPTIONS_GFX_WATER_QUALITY",
         description: "LOC_OPTIONS_GFX_WATER_QUALITY_DESCRIPTION",
         dropdownItems: waterQualityItemList
+      });
+    }
+    if (supportedOptions.canChangeWaterSunSpecular) {
+      Options.addOption({
+        category: CategoryType.Graphics,
+        group: "advanced",
+        type: OptionType.Checkbox,
+        id: "option-gfx-water-sun-specular",
+        initListener: onGfxAdvancedCheckboxInit,
+        updateListener: onGfxAdvancedCheckboxUpdate,
+        label: "LOC_OPTIONS_GFX_WATER_SUN_SPECULAR",
+        description: "LOC_OPTIONS_GFX_WATER_SUN_SPECULAR_DESCRIPTION"
       });
     }
     if (supportedOptions.canChangeImageSharpness) {

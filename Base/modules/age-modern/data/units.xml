@@ -195,6 +195,10 @@
 		<Row UnitType="UNIT_HEAVY_BOMBER" Name="LOC_UNIT_HEAVY_BOMBER_NAME" Description="LOC_UNIT_HEAVY_BOMBER_DESCRIPTION" Tier="3" Maintenance="18" BaseMoves="12" BaseSightRange="4" ZoneOfControl="false" Domain="DOMAIN_AIR" UnitMovementClass="UNIT_MOVEMENT_CLASS_AIR" CoreClass="CORE_CLASS_MILITARY" FormationClass="FORMATION_CLASS_AIR" IgnoreMoves="true" CanTargetAir="TRUE" WMDCapable="TRUE"/>
 		<!-- Special -->
 		<Row UnitType="UNIT_EXPLORER" Name="LOC_UNIT_EXPLORER_NAME" Description="LOC_UNIT_EXPLORER_DESCRIPTION" BaseSightRange="2" BaseMoves="2" UnitMovementClass="UNIT_MOVEMENT_CLASS_FOOT" Domain="DOMAIN_LAND" CoreClass="CORE_CLASS_CIVILIAN" FormationClass="FORMATION_CLASS_CIVILIAN" ZoneOfControl="false" ExtractsArtifacts="true" CostProgressionModel="COST_PROGRESSION_PREVIOUS_COPIES" CostProgressionParam1="400"/>
+		<Update>
+			<Where UnitType="UNIT_MIGRANT"/>
+			<Set BaseMoves="6"/>
+		</Update>
 		<!-- Civ Unique Military -->
 		<Row UnitType="UNIT_ABAMBOWA" Name="LOC_UNIT_ABAMBOWA_NAME" Description="LOC_UNIT_ABAMBOWA_DESCRIPTION" Tier="1" Maintenance="3" BaseMoves="2" BaseSightRange="2" ZoneOfControl="true" Domain="DOMAIN_LAND" UnitMovementClass="UNIT_MOVEMENT_CLASS_FOOT" CoreClass="CORE_CLASS_MILITARY" FormationClass="FORMATION_CLASS_LAND_COMBAT" TraitType="TRAIT_BUGANDA"/>
 		<Row UnitType="UNIT_ABAMBOWA_2" Name="LOC_UNIT_ABAMBOWA_NAME" Description="LOC_UNIT_ABAMBOWA_2_DESCRIPTION" Tier="2" Maintenance="6" BaseMoves="2" BaseSightRange="2" ZoneOfControl="true" Domain="DOMAIN_LAND" UnitMovementClass="UNIT_MOVEMENT_CLASS_FOOT" CoreClass="CORE_CLASS_MILITARY" FormationClass="FORMATION_CLASS_LAND_COMBAT" TraitType="TRAIT_BUGANDA"/>
@@ -351,7 +355,7 @@
 		<Row UnitType="UNIT_KATYUSHA_2" Combat="45" RangedCombat="45" Bombard="55" Range="3"/>
 		<!-- Naval -->
 		<Row UnitType="UNIT_MIKASA" Combat="50" RangedCombat="55" Bombard="50" Range="2"/>
-		<Row UnitType="UNIT_MIKASA_2" Combat="55" RangedCombat="60" Bombard="55" Range="2"/>
+		<Row UnitType="UNIT_MIKASA_2" Combat="55" RangedCombat="60" Bombard="55" Range="3"/>
 		<!-- Air -->
 		<Row UnitType="UNIT_STUKA" Combat="35" RangedCombat="55" Bombard="35" Range="8"/>
 		<Row UnitType="UNIT_STUKA_2" Combat="40" RangedCombat="60" Bombard="40" Range="10"/>

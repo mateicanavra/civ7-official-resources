@@ -1,16 +1,18 @@
-import { template, insert } from '../../../../core/vendor/solid-js/web/dist/web.js';
-import { createMemo, onMount, createComponent, Show } from '../../../../core/vendor/solid-js/dist/solid.js';
+import { template, insert, classList } from '../../../../core/vendor/solid-js/web/dist/web.js';
+import { createMemo, onMount, createComponent, Show, createRenderEffect } from '../../../../core/vendor/solid-js/dist/solid.js';
 import { FiligreeTitle } from '../../../../core/ui-next/components/filigree-title.js';
 import { defineLegacyComponent } from '../../../../core/ui-next/components/fxs-solid-component.js';
 import { L10n } from '../../../../core/ui-next/components/l10n.js';
 import { Panel } from '../../../../core/ui-next/components/panel.js';
+import { ScrollArea } from '../../../../core/ui-next/components/scroll-area.js';
 import { ComponentRegistry } from '../../../../core/ui-next/services/component-registry.js';
+import { isMobile } from '../../../../core/ui-next/services/view-experience.js';
 import { OrnatePopupFrame } from '../../components/ornate-popup.js';
 import { createLegaciesScreenModel } from './legacies-model.js';
 import { TriumphCard } from './triumph-card.js';
 import { TriumphCompleteQueueManager } from './triumph-complete-queue-manager.js';
 
-var _tmpl$ = /* @__PURE__ */ template(`<div class="absolute top-0 bottom-0 left-3 right-3 bg-black"></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="font-body w-96 text-center mb-3 -mt-3 text-sm"> </div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="flex flex-col items-center"></div>`);
+var _tmpl$ = /* @__PURE__ */ template(`<div class="absolute top-0 bottom-0 left-3 right-3 bg-black"></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="font-body text-center mb-3 -mt-3"> </div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="flex flex-col items-center"></div>`);
 const TriumphCompletePopupComponent = () => {
   const model = createLegaciesScreenModel();
   const buttonProps = {
@@ -35,10 +37,12 @@ const TriumphCompletePopupComponent = () => {
     onCancelInput: () => {
       TriumphCompleteQueueManager.closePopup();
     },
-    "class": "relative",
+    get ["class"]() {
+      return `relative ${isMobile() ? "mt-19 mb-3" : ""}`;
+    },
     get children() {
       return [_tmpl$(), createComponent(OrnatePopupFrame, {
-        "class": "pb-3",
+        "class": "pb-3 triumph-complete-frame",
         buttons: [buttonProps],
         topIconSrc: "url('blp:sub_legacy_color')",
         topIconClass: "size-10 -mt-1",
@@ -59,7 +63,9 @@ const TriumphCompletePopupComponent = () => {
                   get text() {
                     return Locale.compose("LOC_LEGACIES_COMPLETE_TITLE");
                   },
-                  "class": "mt-2 mb-3"
+                  get ["class"]() {
+                    return `mb-3 ${isMobile() ? "mt-4" : "mt-2"}`;
+                  }
                 }), null);
                 insert(_el$2, createComponent(Show, {
                   get when() {
@@ -70,13 +76,36 @@ const TriumphCompletePopupComponent = () => {
                     insert(_el$3, createComponent(L10n.Compose, {
                       text: "LOC_LEGACIES_MAJOR_TRIUMPHS_DESC"
                     }), _el$4);
+                    createRenderEffect((_$p) => classList(_el$3, {
+                      "w-96 text-sm": !isMobile(),
+                      "w-full px-5 text-base": isMobile()
+                    }, _$p));
                     return _el$3;
                   }
                 }), null);
                 return _el$2;
-              })(), createComponent(TriumphCard, {
-                get triumph() {
-                  return triumphData.triumphData;
+              })(), createComponent(Show, {
+                get when() {
+                  return isMobile();
+                },
+                get fallback() {
+                  return createComponent(TriumphCard, {
+                    get triumph() {
+                      return triumphData.triumphData;
+                    }
+                  });
+                },
+                get children() {
+                  return createComponent(ScrollArea, {
+                    "class": "flex-auto px-8",
+                    get children() {
+                      return createComponent(TriumphCard, {
+                        get triumph() {
+                          return triumphData.triumphData;
+                        }
+                      });
+                    }
+                  });
                 }
               })];
             }

@@ -1,10 +1,9 @@
 import { Audio } from '../../../core/ui/audio-base/audio-support.js';
-import { InputEngineEventName } from '../../../core/ui/input/input-support.js';
+import { InputHandlerState, InputEngineEventName } from '../../../core/ui/input/input-support.js';
 import { InterfaceMode } from '../../../core/ui/interface-modes/interface-modes.js';
 import NavTray from '../../../core/ui/navigation-tray/model-navigation-tray.js';
 import ViewManager, { UISystem } from '../../../core/ui/views/view-manager.js';
 import DiplomacyManager, { DiplomacyInputPanel } from '../diplomacy/diplomacy-manager.js';
-import { SetIsPlotTooltipVisible } from '../../ui-next/tooltips/plot-tooltip/plot-tooltip.js';
 
 class DiplomacyView {
   canPlayExitSound = true;
@@ -20,10 +19,8 @@ class DiplomacyView {
   enterView() {
     this.canPlayExitSound = true;
     Audio.playSound("data-audio-showing", "leader-panel");
-    SetIsPlotTooltipVisible(false);
   }
   exitView() {
-    SetIsPlotTooltipVisible(true);
   }
   addEnterCallback(_func) {
   }
@@ -32,9 +29,9 @@ class DiplomacyView {
   /**
    * @returns true if still live, false if input should stop.
    */
-  readInputEvent(inputEvent) {
+  handleInputEvent(inputEvent) {
     if (inputEvent.detail.status != InputActionStatuses.FINISH) {
-      return true;
+      return InputHandlerState.Active;
     }
     if (inputEvent.detail.name == "cancel" || inputEvent.detail.name == "keyboard-escape" || inputEvent.detail.name == "mousebutton-right") {
       if (this.canPlayExitSound) {
@@ -46,7 +43,7 @@ class DiplomacyView {
       console.warn(
         `VM: Attempt to handle engine input event failed since '${inputEvent.type}' is not '${InputEngineEventName}'.`
       );
-      return true;
+      return InputHandlerState.Active;
     }
     let isLive = true;
     const screens = this.getCurrentScreens();
@@ -56,7 +53,7 @@ class DiplomacyView {
           isLive = screen.component.handleInput(inputEvent);
         }
         if (!isLive) {
-          return false;
+          return InputHandlerState.Handled;
         }
       }
     }
@@ -67,11 +64,11 @@ class DiplomacyView {
           isLive = panel.component.handleInput(inputEvent);
         }
         if (!isLive) {
-          return false;
+          return InputHandlerState.Handled;
         }
       }
     }
-    return true;
+    return InputHandlerState.Active;
   }
   handleNavigation(navigationEvent) {
     let isLive = true;
@@ -82,7 +79,7 @@ class DiplomacyView {
           isLive = screen.component.handleNavigation(navigationEvent);
         }
         if (!isLive) {
-          return false;
+          return InputHandlerState.Handled;
         }
       }
     }
@@ -93,11 +90,11 @@ class DiplomacyView {
           isLive = panel.component.handleNavigation(navigationEvent);
         }
         if (!isLive) {
-          return false;
+          return InputHandlerState.Handled;
         }
       }
     }
-    return true;
+    return InputHandlerState.Active;
   }
   getRules() {
     return [
@@ -105,11 +102,13 @@ class DiplomacyView {
       { name: "city-banners", type: UISystem.World, visible: "false" },
       { name: "unit-info-panel", type: UISystem.World, visible: "false" },
       { name: "plot-icons", type: UISystem.World, visible: "false" },
+      { name: "plot-tooltips", type: UISystem.World, visible: "false" },
       { name: "plot-vfx", type: UISystem.World, visible: "false" },
       { name: "units", type: UISystem.Events, selectable: false },
       { name: "unit-flags", type: UISystem.World, visible: "false" },
       { name: "small-narratives", type: UISystem.World, visible: "false" },
       { name: "world", type: UISystem.Events, selectable: false },
+      { name: "plot-selection", type: UISystem.Events, selectable: false },
       { name: "world-input", type: UISystem.World, selectable: false },
       { name: "district-health-bars", type: UISystem.World, visible: "false" }
     ];

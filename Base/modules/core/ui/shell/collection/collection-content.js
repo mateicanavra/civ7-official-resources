@@ -1,4 +1,4 @@
-import ContextManager from '../../context-manager/context-manager.js';
+import { ContextManager } from '../../context-manager/context-manager.js';
 import NavTray from '../../navigation-tray/model-navigation-tray.js';
 import Panel from '../../panel-support.js';
 import { MustGetElement } from '../../utilities/utilities-dom.js';
@@ -87,10 +87,10 @@ class CollectionContent extends Panel {
       });
     }
   }
-  // PROMO_TODO: We will want to make this animated like the one in loading screen. Waiting on UI/UX design and implementation: https://2kfxs.atlassian.net/browse/IGP-103673
+  // PROMO_TODO: We will want to make this animated like the one in loading screen. Waiting on UI/UX design and implementation.
   showPromoLoadingSpinner() {
   }
-  // PROMO_TODO: We will want to make this animated like the one in loading screen. Waiting on UI/UX design and implementation: https://2kfxs.atlassian.net/browse/IGP-103673
+  // PROMO_TODO: We will want to make this animated like the one in loading screen. Waiting on UI/UX design and implementation.
   hidePromoLoadingSpinner() {
   }
   createItemCard(item, targetElement) {

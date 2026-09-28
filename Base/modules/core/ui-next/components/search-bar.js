@@ -13,6 +13,7 @@ const SearchBarComponent = (props) => {
     get disableFocus() {
       return props.disableFocus ?? true;
     },
+    enableVirtualKeyboard: true,
     get children() {
       return createComponent(Show, {
         get when() {

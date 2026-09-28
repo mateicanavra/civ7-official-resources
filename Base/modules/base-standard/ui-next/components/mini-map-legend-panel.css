@@ -1,0 +1,28 @@
+.mini-map-legend-container {
+  min-width: 21.4444444444rem;
+}
+@media (experience: mobile) {
+  .mini-map-legend-container {
+    position: relative;
+    min-width: 0;
+    padding-right: 0;
+    padding-bottom: 0.8888888889rem;
+    padding-left: 0;
+  }
+}
+@media (experience: mobile) {
+  .mini-map-legend-container .mini-map-legend-panel {
+    position: absolute;
+    top: 0rem;
+    left: 0rem;
+    width: 21.1111111111rem;
+    height: 100vh;
+    padding-bottom: calc(13.8888888889rem + var(--safezone-bottom));
+    pointer-events: auto;
+  }
+}
+@media (experience: mobile) {
+  .mini-map-legend-container .mini-map-legend-panel .legend-description {
+    width: 12.7777777778rem;
+  }
+}

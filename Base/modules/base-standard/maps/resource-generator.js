@@ -1,215 +1,115 @@
-import { getMinimumResourcePlacementModifier, replaceIslandResources, shuffle } from './map-utilities.js';
+import { replaceIslandResources } from './map-utilities.js';
+import { prepareResourceSet, buildPlacementContext, VERBOSE_LOGGING, tileClassFromId, tileClassLabel, buildBlueNoiseWindows, MAX_DENSITY, DENSITY_TARGET, placeResourcesWithBlueNoise } from './resource-placement-common.js';
+export { getTileClass, isCoastalAdjacentToLand, tileClassIdFromValidBiome } from './resource-placement-common.js';
+import { profileScope } from '../scripts/profiling.js';
 
 function generateResources(iWidth, iHeight, minMarineResourceTypesOverride = 3) {
-  const resourceWeight = new Array(GameInfo.Resources.length);
-  const resourceRunningWeight = new Array(GameInfo.Resources.length);
-  const importantResourceRegionalCount = /* @__PURE__ */ new Map();
-  const getImportantResourceCounts = (landmassId) => {
-    if (!importantResourceRegionalCount.has(landmassId)) {
-      importantResourceRegionalCount.set(landmassId, new Array(GameInfo.Resources.length).fill(0));
+  const gatherResourceDataScope = new profileScope("generateResources Resource Data");
+  const resourcesHashes = ResourceBuilder.getGeneratedMapResources(minMarineResourceTypesOverride);
+  console.log("Resources considered for generation in the current age:");
+  for (const resourceHash of resourcesHashes) {
+    const resourceInfo = GameInfo.Resources.lookup(resourceHash);
+    console.log(`  ${resourceInfo?.Name}, class: ${resourceInfo?.ResourceClassType}, hash: ${resourceHash}`);
+  }
+  const resourceSet = prepareResourceSet(resourcesHashes);
+  gatherResourceDataScope.end();
+  const gatherMapDataScope = new profileScope("generateResources Map Data");
+  const ctx = buildPlacementContext(iWidth, iHeight);
+  const { maxPlayerRegion, nonOceanTileCount } = ctx;
+  if (VERBOSE_LOGGING) {
+    console.log("Tile counts by classification:");
+    const logStrings = [];
+    for (let key = 0; key < ctx.groupCount.length; key++) {
+      const count = ctx.groupCount[key];
+      const adjacentToLandCount = ctx.groupAdjCount[key];
+      if (count === 0) continue;
+      const adjSuffix = adjacentToLandCount > 0 ? ` (${adjacentToLandCount} adj-to-land)` : "";
+      const tileClass = tileClassFromId(ctx.groupRawId[key]);
+      logStrings.push(`  ${tileClassLabel(tileClass)}: ${count}${adjSuffix}`);
     }
-    return importantResourceRegionalCount.get(landmassId);
-  };
-  const resourcesPlacedCount = new Array(GameInfo.Resources.length);
-  let minimumResourcePlacementModifier = getMinimumResourcePlacementModifier();
-  if (minimumResourcePlacementModifier == void 0) {
-    minimumResourcePlacementModifier = 0;
+    logStrings.sort();
+    logStrings.forEach((s) => console.log(s));
   }
-  for (let resourceIdx = 0; resourceIdx < GameInfo.Resources.length; resourceIdx++) {
-    resourceWeight[resourceIdx] = 0;
-    resourceRunningWeight[resourceIdx] = 0;
-    resourcesPlacedCount[resourceIdx] = 0;
-  }
-  class ResourceLandmass {
-    typeIdx = 0;
-    landmassId = 0;
-  }
-  const aResourceTypes = [];
-  const resources = ResourceBuilder.getGeneratedMapResources(minMarineResourceTypesOverride);
-  for (let ridx = 0; ridx < resources.length; ++ridx) {
-    const resourceInfo = GameInfo.Resources.lookup(resources[ridx]);
-    if (resourceInfo && resourceInfo.Tradeable) {
-      resourceWeight[resourceInfo.$index] = resourceInfo.Weight;
-      const landmassId = ResourceBuilder.getResourceLandmass(resourceInfo.$index);
-      aResourceTypes.push({ typeIdx: resourceInfo.$index, landmassId });
+  console.log(`Landmass regions: player 1..${maxPlayerRegion}, (${maxPlayerRegion} player landmasses)`);
+  gatherMapDataScope.end();
+  const calculateDensityScope = new profileScope("generateResources Density Calculation");
+  const blueNoisePlan = buildBlueNoiseWindows(ctx, resourceSet, {
+    densityTarget: DENSITY_TARGET,
+    maxDensity: MAX_DENSITY
+  });
+  if (VERBOSE_LOGGING) {
+    console.log("Eligible tile counts per active resource:");
+    for (const typeIdx of resourceSet.activeResourceIndices) {
+      const eligible = blueNoisePlan.metrics.resourceEligibleTileCounts[typeIdx];
+      if (eligible <= 0) continue;
+      const resName = GameInfo.Resources[typeIdx]?.ResourceType ?? `Unknown(${typeIdx})`;
+      console.log(`  ${resName}: ${eligible} eligible tiles`);
+    }
+    console.log(
+      `Resource density calculation (${nonOceanTileCount} non-ocean tiles, densityTarget=${DENSITY_TARGET}):`
+    );
+    for (const typeIdx of resourceSet.activeResourceIndices) {
+      const def = GameInfo.Resources[typeIdx];
+      if (!def) continue;
+      const desired = blueNoisePlan.metrics.resourceDesiredCount[typeIdx];
+      const weight = resourceSet.resourceWeight[typeIdx];
+      const eligible = blueNoisePlan.metrics.resourceEligibleTileCounts[typeIdx];
+      const minimum = def.MinimumPerLandmass > 0 ? def.MinimumPerLandmass : 0;
+      console.log(
+        `  ${def.ResourceType}: desired=${desired.toFixed(2)}, weight=${weight.toFixed(2)}, min=${minimum}, eligible=${eligible}`
+      );
     }
   }
+  calculateDensityScope.end();
+  const placementScope = new profileScope("generateResources Placement");
   const seed = GameplayMap.getRandomSeed();
-  const avgDistanceBetweenPoints = 3;
-  const normalizedRangeSmoothing = 2;
-  const poisson = TerrainBuilder.generatePoissonMap(seed, avgDistanceBetweenPoints, normalizedRangeSmoothing);
-  const hexDistance2X = [
-    { x: -1, y: -2 },
-    // NW
-    { x: 1, y: -2 },
-    // NE
-    { x: -1, y: 2 },
-    // SW
-    { x: 1, y: 2 }
-    // SE
-  ];
-  const checkPoissonRegion = (iX, iY) => {
-    const index = iY * iWidth + iX;
-    const coord = { x: iX, y: iY };
-    if (poisson[index] >= 1) return true;
-    let score = 0;
-    for (const offset of hexDistance2X) {
-      const adjLoc = { x: coord.x + offset.x, y: coord.y + offset.y };
-      if (adjLoc.x >= 0 && adjLoc.x < iWidth && adjLoc.y >= 0 && adjLoc.y < iHeight) {
-        const adjIndex = adjLoc.y * iWidth + adjLoc.x;
-        if (poisson[adjIndex] >= 1) ++score;
-      }
-    }
-    return score >= 2;
-  };
-  for (let iY = iHeight - 1; iY >= 0; iY--) {
-    for (let iX = 0; iX < iWidth; iX++) {
-      if (checkPoissonRegion(iX, iY)) {
-        const resources2 = [];
-        const landmassRegionId = GameplayMap.getLandmassRegionId(iX, iY);
-        aResourceTypes.forEach((resourceLandmass) => {
-          const assignedLandmass = resourceLandmass.landmassId;
-          const allowedOnLandmass = assignedLandmass == LandmassRegion.LANDMASS_REGION_ANY || assignedLandmass != LandmassRegion.LANDMASS_REGION_NONE && landmassRegionId != LandmassRegion.LANDMASS_REGION_DEFAULT && assignedLandmass % landmassRegionId == 0;
-          if (allowedOnLandmass && canHaveResource(iX, iY, resourceLandmass.typeIdx)) {
-            resources2.push(resourceLandmass.typeIdx);
-          }
-        });
-        if (resources2.length > 0) {
-          let resourceChosen = resources2[0];
-          for (let iI = 1; iI < resources2.length; iI++) {
-            if (GameplayMap.isNavigableRiver(iX, iY)) {
-              if (ResourceBuilder.isResourceIgnoringWeightForRiverPlacement(resources2[iI])) {
-                resourceChosen = resources2[iI];
-                break;
-              }
-            } else {
-              if (resourceRunningWeight[resources2[iI]] > resourceRunningWeight[resourceChosen]) {
-                resourceChosen = resources2[iI];
-              } else if (resourceRunningWeight[resources2[iI]] == resourceRunningWeight[resourceChosen]) {
-                const iRoll = TerrainBuilder.getRandomNumber(2, "Resource Scatter");
-                if (iRoll >= 1) {
-                  resourceChosen = resources2[iI];
-                }
-              }
-            }
-          }
-          const iResourcePlotIndex = getFlowerPlot(iX, iY, resourceChosen);
-          if (iResourcePlotIndex != -1) {
-            const iLocation = GameplayMap.getLocationFromIndex(iResourcePlotIndex);
-            const iResourceX = iLocation.x;
-            const iResourceY = iLocation.y;
-            ResourceBuilder.setResourceType(iResourceX, iResourceY, resourceChosen);
-            resourceRunningWeight[resourceChosen] -= resourceWeight[resourceChosen];
-            resourcesPlacedCount[resourceChosen]++;
-            getImportantResourceCounts(landmassRegionId)[resourceChosen]++;
-          } else {
-            console.log("Resource Index Failure");
-          }
-        }
-      }
-    }
-  }
-  for (let iY = 0; iY < iHeight; iY++) {
-    for (let iX = 0; iX < iWidth; iX++) {
-      const landmassRegionId = GameplayMap.getLandmassRegionId(iX, iY);
-      const resourceAtLocation = GameplayMap.getResourceType(iX, iY);
-      if (resourceAtLocation == ResourceTypes.NO_RESOURCE) {
-        const resourcesEligible = [];
-        for (let i = 0; i < resourcesPlacedCount.length; ++i) {
-          const resourceToPlace = GameInfo.Resources.lookup(i);
-          if (resourceToPlace) {
-            const assignedLandmass = ResourceBuilder.getResourceLandmass(i);
-            const allowedOnLandmass = landmassRegionId != LandmassRegion.LANDMASS_REGION_DEFAULT && (assignedLandmass == LandmassRegion.LANDMASS_REGION_ANY || assignedLandmass != LandmassRegion.LANDMASS_REGION_NONE && assignedLandmass % landmassRegionId == 0);
-            if (allowedOnLandmass) {
-              const minimumPerLandMass = resourceToPlace.MinimumPerHemisphere > 0 ? resourceToPlace.MinimumPerHemisphere + minimumResourcePlacementModifier : 0;
-              if (getImportantResourceCounts(landmassRegionId)[i] < minimumPerLandMass && ResourceBuilder.isResourceRequiredForAge(i, Game.age) && ResourceBuilder.canHaveResource(iX, iY, i, false) && !wouldCreateCluster(iX, iY)) {
-                resourcesEligible.push(i);
-              }
-            }
-          }
-        }
-        let resourceChosenIndex = -1;
-        if (resourcesEligible.length > 0) {
-          let resourceChosen = ResourceTypes.NO_RESOURCE;
-          for (let iI = 0; iI < resourcesEligible.length; iI++) {
-            if (resourceChosen == ResourceTypes.NO_RESOURCE) {
-              resourceChosen = resourcesEligible[iI];
-              resourceChosenIndex = resourcesEligible[iI];
-            } else {
-              if (resourceRunningWeight[resourcesEligible[iI]] > resourceRunningWeight[resourceChosenIndex]) {
-                resourceChosen = resourcesEligible[iI];
-                resourceChosenIndex = resourcesEligible[iI];
-              } else if (resourceRunningWeight[resourcesEligible[iI]] == resourceRunningWeight[resourceChosenIndex]) {
-                const iRoll = TerrainBuilder.getRandomNumber(2, "Resource Scatter");
-                if (iRoll >= 1) {
-                  resourceChosen = resourcesEligible[iI];
-                  resourceChosenIndex = resourcesEligible[iI];
-                }
-              }
-            }
-          }
-        }
-        if (resourceChosenIndex > -1) {
-          ResourceBuilder.setResourceType(iX, iY, resourceChosenIndex);
-          resourceRunningWeight[resourceChosenIndex] -= resourceWeight[resourceChosenIndex];
-          const name = GameInfo.Resources.lookup(resourceChosenIndex)?.Name;
-          console.log("Force Placed " + Locale.compose(name) + " at (" + iX + ", " + iY + ")");
-          getImportantResourceCounts(landmassRegionId)[resourceChosenIndex]++;
-        }
-      }
-    }
-  }
+  const offsetX = seed & 127;
+  const offsetY = seed >>> 7 & 127;
+  placeResourcesWithBlueNoise(ctx, resourceSet, blueNoisePlan, { offsetX, offsetY });
+  placementScope.end();
+  const replacementScope = new profileScope("generateResources Replacement");
   const definition = GameInfo.Ages.lookup(Game.age);
   if (definition) {
     const mapType = Configuration.getMapValue("Name");
     for (const option of GameInfo.MapIslandBehavior) {
-      if (option.MapType === mapType) {
-        replaceIslandResources(iWidth, iHeight, option.ResourceClassType);
+      if (option.MapType != mapType || option.AgeType != definition.AgeType) continue;
+      const resourceClassCounts = /* @__PURE__ */ new Map();
+      for (let iY = iHeight - 1; iY >= 0; iY--) {
+        for (let iX = 0; iX < iWidth; iX++) {
+          if (!GameplayMap.hasPlotTag(iX, iY, PlotTags.PLOT_TAG_ISLAND)) continue;
+          const resourceAtLocation = GameplayMap.getResourceType(iX, iY);
+          if (resourceAtLocation != ResourceTypes.NO_RESOURCE) {
+            const resourceDef = GameInfo.Resources.lookup(resourceAtLocation);
+            const classType = resourceDef?.ResourceClassType ?? "Unknown";
+            resourceClassCounts.set(classType, (resourceClassCounts.get(classType) ?? 0) + 1);
+          }
+        }
+      }
+      console.log(`Island resource counts before replacement:`);
+      for (const [classType, count] of resourceClassCounts) {
+        console.log(`  ${classType}: ${count}`);
+      }
+      resourceClassCounts.clear();
+      replaceIslandResources(iWidth, iHeight, option.ResourceClassType);
+      for (let iY = iHeight - 1; iY >= 0; iY--) {
+        for (let iX = 0; iX < iWidth; iX++) {
+          if (!GameplayMap.hasPlotTag(iX, iY, PlotTags.PLOT_TAG_ISLAND)) continue;
+          const resourceAtLocation = GameplayMap.getResourceType(iX, iY);
+          if (resourceAtLocation != ResourceTypes.NO_RESOURCE) {
+            const resourceDef = GameInfo.Resources.lookup(resourceAtLocation);
+            const classType = resourceDef?.ResourceClassType ?? "Unknown";
+            resourceClassCounts.set(classType, (resourceClassCounts.get(classType) ?? 0) + 1);
+          }
+        }
+      }
+      console.log(`Island resource counts after replacement:`);
+      for (const [classType, count] of resourceClassCounts) {
+        console.log(`  ${classType}: ${count}`);
       }
     }
   }
-}
-function wouldCreateCluster(x, y, resourceType, maxAdjacent = 1) {
-  let count = 0;
-  const pos = { x, y };
-  for (let dir = 0; dir < DirectionTypes.NUM_DIRECTION_TYPES; dir++) {
-    const adjLoc = GameplayMap.getAdjacentPlotLocation(pos, dir);
-    const adjResource = GameplayMap.getResourceType(adjLoc.x, adjLoc.y);
-    const matches = resourceType == void 0 ? adjResource != ResourceTypes.NO_RESOURCE : adjResource === resourceType;
-    if (matches) {
-      count++;
-      if (count >= maxAdjacent) return true;
-    }
-  }
-  return false;
-}
-function canHaveResource(iX, iY, resourceType) {
-  if (ResourceBuilder.canHaveResource(iX, iY, resourceType, false) && !wouldCreateCluster(iX, iY, resourceType)) {
-    return true;
-  }
-  return false;
-}
-function getFlowerPlot(iX, iY, resourceType) {
-  if (ResourceBuilder.canHaveResource(iX, iY, resourceType, false) && !wouldCreateCluster(iX, iY, resourceType)) {
-    return GameplayMap.getIndexFromXY(iX, iY);
-  }
-  const resourcePlotIndexes = [];
-  for (let iDirection = 0; iDirection < DirectionTypes.NUM_DIRECTION_TYPES; iDirection++) {
-    const iIndex = GameplayMap.getIndexFromXY(iX, iY);
-    const iLocation = GameplayMap.getLocationFromIndex(iIndex);
-    const iAdjacentX = GameplayMap.getAdjacentPlotLocation(iLocation, iDirection).x;
-    const iAdjacentY = GameplayMap.getAdjacentPlotLocation(iLocation, iDirection).y;
-    const iAdjacentIndex = GameplayMap.getIndexFromXY(iAdjacentX, iAdjacentY);
-    if (ResourceBuilder.canHaveResource(iAdjacentX, iAdjacentY, resourceType, false) && !wouldCreateCluster(iAdjacentX, iAdjacentY, resourceType)) {
-      resourcePlotIndexes.push(iAdjacentIndex);
-    }
-  }
-  if (resourcePlotIndexes.length > 0) {
-    return shuffle(resourcePlotIndexes)[0];
-  } else {
-    return -1;
-  }
+  replacementScope.end();
 }
 
-export { canHaveResource, generateResources, getFlowerPlot, wouldCreateCluster };
+export { generateResources, tileClassLabel };
 //# sourceMappingURL=resource-generator.js.map

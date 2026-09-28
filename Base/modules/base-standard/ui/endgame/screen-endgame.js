@@ -1,5 +1,5 @@
 import { Audio } from '../../../core/ui/audio-base/audio-support.js';
-import ContextManager from '../../../core/ui/context-manager/context-manager.js';
+import { ContextManager } from '../../../core/ui/context-manager/context-manager.js';
 import { DisplayHandlerBase } from '../../../core/ui/context-manager/display-handler.js';
 import { DisplayQueueManager } from '../../../core/ui/context-manager/display-queue-manager.js';
 import { ActiveDeviceTypeChangedEventName } from '../../../core/ui/input/input-events.js';
@@ -10,6 +10,7 @@ import { applyPlayerColorsToElement } from '../../../core/ui/utilities/utilities
 import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
 import { Icon } from '../../../core/ui/utilities/utilities-image.js';
 import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
+import { EndGameScreenCategory, CinematicManager } from '../cinematic/cinematic-manager.js';
 import { EndResultsFinishedEventName } from '../end-results/end-results.js';
 import { SetIsPlotTooltipVisible } from '../../ui-next/tooltips/plot-tooltip/plot-tooltip.js';
 import styles from './screen-endgame.scss.js';
@@ -601,7 +602,6 @@ class EndGameScreen extends Panel {
     this.navContainer?.classList.toggle("hidden", event.detail.gamepadActive);
   }
 }
-const EndGameScreenCategory = "EndgameScreen";
 class EndGameScreenManager extends DisplayHandlerBase {
   endGameScreenElement = null;
   /** Track if we've already shown the end game screen to prevent redundant calls from edge cases
@@ -610,6 +610,9 @@ class EndGameScreenManager extends DisplayHandlerBase {
   hasShownEndGameScreen = false;
   constructor() {
     super(EndGameScreenCategory, 4e3);
+    engine.on("GameAgeEnded", this.onAgeEnded, this);
+    engine.on("TeamVictory", this.onTeamVictory, this);
+    engine.on("PlayerDefeat", this.onPlayerDefeated, this);
   }
   show(_request) {
     if (this.hasShownEndGameScreen == true) {
@@ -630,6 +633,49 @@ class EndGameScreenManager extends DisplayHandlerBase {
     ContextManager.pop("endgame-screen");
     this.endGameScreenElement = null;
     this.hasShownEndGameScreen = false;
+  }
+  onTeamVictory(event) {
+    if (!Game.AgeProgressManager.isExtendedGame) {
+      if (Configuration.getGame().isHotseat) {
+        const player = Players.get(GameContext.localPlayerID);
+        if (player) {
+          if (player.team != event.team) {
+            return;
+          }
+          if (!player.isTurnActive && Players.getNumAliveHumans() > 0) {
+            return;
+          }
+        } else return;
+      }
+      const cinematicDef = GameInfo.VictoryCinematics.lookup(event.victory);
+      if (cinematicDef && cinematicDef.VictoryCinematicType != VictoryCinematicTypes.NO_VICTORY_CINEMATIC_TYPE && GameplayMap.isValidLocation(event.location)) {
+        CinematicManager.startEndOfGameCinematic(
+          cinematicDef.VictoryCinematicType,
+          cinematicDef.VictoryType,
+          event.location
+        );
+      } else {
+        this.addDisplayRequest({}, true);
+      }
+    }
+  }
+  onAgeEnded(event) {
+    if (event.victoryType != VictoryTypes.NO_VICTORY) {
+      this.addDisplayRequest({}, true);
+    }
+  }
+  onPlayerDefeated(event) {
+    if (event.player == GameContext.localPlayerID) {
+      if (Configuration.getGame().isHotseat) {
+        const player = Players.get(event.player);
+        if (player) {
+          if (!player.isTurnActive && Players.getNumAliveHumans() > 0) {
+            return;
+          }
+        }
+      }
+      this.addDisplayRequest({}, true);
+    }
   }
 }
 Controls.define("screen-endgame", {

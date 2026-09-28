@@ -40,6 +40,7 @@ class RuleCellArea extends Rule {
   configValues = Rule.createDefaultsFromSpecs(ruleSchema);
   name = RuleCellArea.getName();
   description = "This is a simple rule that scores larger cells higher than smaller cells. This is primary used to add some random variation to the score.";
+  isStatic = true;
   m_diff = 1;
   m_invBias = 1;
   static getName() {

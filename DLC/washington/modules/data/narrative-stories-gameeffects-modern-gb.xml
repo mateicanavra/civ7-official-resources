@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+    <Modifier id="10210B_NARRATIVE_MODIFIER" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_YIELD_NARRATIVE" run-once="false" permanent="true">
+        <Argument name="YieldType">YIELD_DIPLOMACY</Argument>
+        <Argument name="MultiplierType">REWARD_TYPE_MINOR_EARLY</Argument>
+    </Modifier>
+    <Modifier id="10210C_NARRATIVE_MODIFIER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD" run-once="false" permanent="false">
+        <SubjectRequirements>
+            <Requirement type="REQUIREMENT_CITY_IS_CITY">
+            </Requirement>
+        </SubjectRequirements>
+        <Argument name="YieldType">YIELD_HAPPINESS</Argument>
+        <Argument name="Amount" type="ScaleByGameAge" extra="100">1</Argument>
+    </Modifier>
+    <Modifier id="10210C_NARRATIVE_MODIFIER2" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_GRANT_FAVORS_GRIEVANCES" run-once="false" permanent="true">
+        <Argument name="Amount">-10</Argument>
+        <Argument name="TargetCivilization">CIVILIZATION_GREAT_BRITAIN</Argument>
+    </Modifier>
+    <RequirementSet id="REQSET_10210A_NARRATIVE_REQUISITE">
+        <Requirement xref="REQ_STORY_LEADER_WASHINGTON"/>
+    </RequirementSet>
+    <RequirementSet id="REQSET_10210A_NARRATIVE">
+        <Requirement xref="REQ_STORY_LEADER_WASHINGTON"/>
+        <Requirement type="REQUIREMENT_PLAYER_MET_IMMEDIATE_GOSSIP">
+            <Argument name="GossipTypes">GOSSIP_DIPLOMACY_ACTION_STARTED</Argument>
+            <Argument name="GOSSIP_DIPLOMACY_ACTION_STARTED">Hash,OtherPlayer,Self,Hash,DiplomacyActionGroup,DIPLOMACY_ACTION_GROUP_SANCTION,Hash,OriginalCivilization,CIVILIZATION_GREAT_BRITAIN</Argument>
+        </Requirement>
+    </RequirementSet>
+</GameEffects>

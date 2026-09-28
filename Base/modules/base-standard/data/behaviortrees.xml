@@ -291,6 +291,7 @@
     <Row DataName="Base Position" DefnId="1" DataType="Map Point" NodeType="Air Assault" />
     <Row DataName="Location" DefnId="0" DataType="Map Point" NodeType="Check Artifact Research Available At Location" />
     <Row DataName="Relationship" DefnId="0" DataType="string" NodeType="Operation Check Relationship" UserData="True" />
+    <Row DataName="War Type" DefnId="1" DataType="string" NodeType="Operation Check Relationship" Required="False" UserData="True" />
     <Row DataName="GreatPerson" DefnId="0" DataType="ID List" NodeType="Get Best Great Person Position" />
     <Row DataName="Location" DefnId="1" DataType="Map Point" NodeType="Get Best Great Person Position" Output="True" />
     <Row DataName="GreatPerson" DefnId="0" DataType="ID List" NodeType="Activate Great Person" />
@@ -821,6 +822,7 @@
     <Row DefnId="1" NodeId="13" TreeName="Simple City Assault" DefaultData="false" />
     <Row DefnId="2" NodeId="13" TreeName="Simple City Assault" DefaultData="true" />
     <Row DefnId="0" NodeId="15" TreeName="Simple City Assault" DefaultData="PLAYER_RELATIONSHIP_HOSTILE" />
+    <Row DefnId="1" NodeId="15" TreeName="Simple City Assault" DefaultData="FORMAL_WAR" />
     <Row DefnId="0" NodeId="16" TreeName="Simple City Assault" DefaultData="COOPERATIVE_YIELDS_DIPLOMATIC_ACTION" />
     <Row DefnId="1" NodeId="16" TreeName="Simple City Assault" Tag="Unused" />
     <Row DefnId="2" NodeId="16" TreeName="Simple City Assault" DefaultData="DIPLOMACY_ACTION_DENOUNCE" />

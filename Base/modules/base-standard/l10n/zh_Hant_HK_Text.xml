@@ -806,10 +806,10 @@
       <Text>這是文明最強盛的時代。在巔峰時代中，文明可使用[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_UNITS_TOOLTIP]特色單位[/TIP]、[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_BUILDING_TOOLTIP]特色建築[/TIP]與[TIP:LOC_PEDIA_CONCEPTS_UNIQUE_IMPROVEMENT_TOOLTIP]特色改良設施[/TIP]。並且還擁有一棵特殊的[TIP:LOC_PEDIA_CONCEPTS_CIVIC_TOOLTIP]市政樹[/TIP]，可解鎖額外的加成。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_APPEAL_TOOLTIP" Language="zh_Hant_HK">
-      <Text>鄰近山脈、水岸、[TIP:LOC_PEDIA_CONCEPTS_NAVIGABLE_RIVER_TOOLTIP]可航行河流[/TIP]與[TIP:LOC_PEDIA_CONCEPTS_NATURAL_WONDER_TOOLTIP]自然奇觀[/TIP]的陸地格位具有魅力。魅力等級由平均至壯麗，數值越高，越能提升已改良鄉村格位的幸福感。</Text>
+      <Text>鄰近山脈、水岸、[TIP:LOC_PEDIA_CONCEPTS_VEGETATED_TERRAIN_TOOLTIP]植被[/TIP]、[TIP:LOC_PEDIA_CONCEPTS_NAVIGABLE_RIVER_TOOLTIP]可航行河流[/TIP]與[TIP:LOC_PEDIA_CONCEPTS_NATURAL_WONDER_TOOLTIP]自然奇觀[/TIP]的鄉村陸地格位具有魅力值。若魅力值足夠高，格位便會達到「迷人」或「壯麗」，並提升該格位的幸福感。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_ARTIFACT_TOOLTIP" Language="zh_Hant_HK">
-      <Text>文物是一類[TIP:LOC_PEDIA_CONCEPTS_GREAT_WORKS_TOOLTIP]巨作[/TIP]，放入[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]的槽位後，將提高該聚落的[icon:YIELD_CULTURE][b]文化值[/b]產量。</Text>
+      <Text>文物是一類[TIP:LOC_PEDIA_CONCEPTS_GREAT_WORKS_TOOLTIP]巨作[/TIP]，放入[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]的槽位或展示後，將提高該聚落的[icon:YIELD_CULTURE][b]文化值[/b]產量。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP" Language="zh_Hant_HK">
       <Text>領袖可在六種屬性樹中取得屬性點數：文化、外交、經濟、擴張、軍事與科技。[NN]每投入一點屬性點數，都能獲得一項加成，使你的領袖更加強大。</Text>
@@ -827,7 +827,7 @@
       <Text>標準建築分為1階與2階，這會決定其花費、基礎產出，以及解鎖時間的早晚。1階建築通常是每個時代中各產出類型最先解鎖的標準建築。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP" Language="zh_Hant_HK">
-      <Text>建築必須放置在現有的[TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]區域[/TIP]上，或與區域相鄰。建築可提升[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]的各項產出與都會[TIP:LOC_PEDIA_CONCEPTS_POPULATION_TOOLTIP]人口[/TIP]。[NN]除[TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]不分時代[/TIP]的建築外，其餘建築在下個[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]時代[/TIP]中皆變為[TIP:LOC_PEDIA_CONCEPTS_OVERBUILDABLE_TOOLTIP]可翻新增建[/TIP]。[NN]每新增一個建築，都會提高後續所有建築的[icon:YIELD_PRODUCTION][b]生產力[/b]花費。</Text>
+      <Text>建築必須放置在現有的[TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]區域[/TIP]上，或與區域相鄰。除[TIP:LOC_PEDIA_CONCEPTS_WALL_TOOLTIP]城牆[/TIP]外，每座建築都會增加[TIP:LOC_PEDIA_CONCEPTS_POPULATION_TOOLTIP]都會人口[/TIP]，並提高之後所有建築的[icon:YIELD_PRODUCTION][b]生產力[/b]花費。[NN]建築具有文化值或食物等類型，會提高[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]相符類型的產量。[NN]防禦工事建築會為所在區域增加生命值與防禦力。[NN]除非建築具有[TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]不分時代[/TIP]特性，否則在下一個[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]時代[/TIP]將變為[TIP:LOC_PEDIA_CONCEPTS_OVERBUILDABLE_TOOLTIP]可翻新增建[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_BURNING_TOOLTIP" Language="zh_Hant_HK">
       <Text>在燃燒格位上開始回合的單位會受到傷害。</Text>
@@ -857,7 +857,7 @@
       <Text>平民單位無法進行攻擊，也不會成為攻擊目標。[NN]他們可以自由進入其他文明的領土，並能與任何單位共處於同一格位。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_CODEX_TOOLTIP" Language="zh_Hant_HK">
-      <Text>抄本是一類[TIP:LOC_PEDIA_CONCEPTS_GREAT_WORKS_TOOLTIP]巨作[/TIP]，放置在[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]中即可提高該聚落的[icon:YIELD_SCIENCE][b]科技值[/b]產出。</Text>
+      <Text>抄本是一類[TIP:LOC_PEDIA_CONCEPTS_GREAT_WORKS_TOOLTIP]巨作[/TIP]，放入[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]的槽位或展示後，將提高該聚落的[icon:YIELD_SCIENCE][b]科技值[/b]產量。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP" Language="zh_Hant_HK">
       <Text>戰鬥力較高的單位對較弱的單位能造成更多傷害，同時在交戰中承受的[TIP:LOC_PEDIA_CONCEPTS_RECIPROCAL_DAMAGE_TOOLTIP]反擊傷害[/TIP]也更低。</Text>
@@ -890,7 +890,7 @@
       <Text>在每個[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]時代[/TIP]開始時，你可以從已解鎖的項目中選擇最多3個奉獻，為你的帝國在整個時代中提供強大的加成。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_DEFENSIVE_FORTIFICATION_TOOLTIP" Language="zh_Hant_HK">
-      <Text>要佔領一座[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]，必須先摧毀其所有防禦工事，並派遣一個[TIP:LOC_PEDIA_CONCEPTS_MILITARY_UNIT_TOOLTIP]軍事單位[/TIP]佔據這些格位。防禦工事會受到[TIP:LOC_PEDIA_CONCEPTS_SIEGE_UNITS_TOOLTIP]攻城單位[/TIP]的額外傷害。</Text>
+      <Text>防禦工事可以是[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建築[/TIP]或[TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]改良設施[/TIP]。[NN]防禦工事建築會將其所在的[TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]區域[/TIP]轉變為[TIP:LOC_PEDIA_CONCEPTS_FORTIFIED_DISTRICTS_TOOLTIP]有防禦工事的區域[/TIP]。[NN]防禦工事改良設施會為在該格位防守的單位提供戰鬥加成。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_DIPLOMATIC_PROJECTS_TOOLTIP" Language="zh_Hant_HK">
       <Text>外交專案是可對[TIP:LOC_PEDIA_CONCEPTS_INDEPENDENT_POWER_TOOLTIP]獨立軍勢力[/TIP]或有[TIP:LOC_PEDIA_CONCEPTS_SUZERAIN_TOOLTIP]宗主國[/TIP]的[TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP]執行的外交行動。</Text>
@@ -934,6 +934,9 @@
     <Replace Tag="LOC_PEDIA_CONCEPTS_FALLOUT_TOOLTIP" Language="zh_Hant_HK">
       <Text>輻射落塵是一類[TIP:LOC_PEDIA_CONCEPTS_NATURAL_DISASTERS_TOOLTIP]自然災難[/TIP]，源自核武器。</Text>
     </Replace>
+    <Replace Tag="LOC_PEDIA_CONCEPTS_FEAR_TOOLTIP" Language="zh_Hant_HK">
+      <Text>具有「恐懼」能力的單位會使相鄰的敵方單位-2戰鬥力。此效果可堆疊。</Text>
+    </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_FLANKING_TOOLTIP" Language="zh_Hant_HK">
       <Text>側翼包抄會提升額外近戰攻擊的[TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]戰鬥力[/TIP]，前提是目標單位在同一回合中，已被來自不同格位的另一個近戰單位攻擊過。</Text>
     </Replace>
@@ -950,7 +953,7 @@
       <Text>正式戰爭是指一位領袖對敵對領袖宣戰時所發生的戰爭。正式戰爭不會產生[TIP:LOC_PEDIA_CONCEPTS_WAR_SUPPORT_TOOLTIP]戰爭支援[/TIP]的減益。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_FORTIFIED_DISTRICTS_TOOLTIP" Language="zh_Hant_HK">
-      <Text>有防禦工事的區域擁有生命值，必須先將其摧毀，才能攻佔該[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]。</Text>
+      <Text>有防禦工事的區域擁有生命值與防禦力。敵方[TIP:LOC_PEDIA_CONCEPTS_MILITARY_UNIT_TOOLTIP]軍事單位[/TIP]發動攻擊將削減其生命值，而其會對近戰單位造成[TIP:LOC_PEDIA_CONCEPTS_RECIPROCAL_DAMAGE_TOOLTIP]反擊傷害[/TIP]。[NN]當生命值降至0時，有防禦工事的區域即可由敵方單位佔據並佔領。若要佔領一座[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]，必須先佔領該聚落內所有有防禦工事的區域。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_GARRISONED_TOOLTIP" Language="zh_Hant_HK">
       <Text>當單位位於[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]中任一[TIP:LOC_PEDIA_CONCEPTS_FORTIFIED_DISTRICTS_TOOLTIP]有防禦工事的區域[/TIP]內時，便視為駐軍單位。</Text>
@@ -962,7 +965,7 @@
       <Text>你的政體決定了帝國在[TIP:LOC_PEDIA_CONCEPTS_CELEBRATIONS_TOOLTIP]慶典[/TIP]期間可選擇的加成，以及你將獲得的被動能力與政體[TIP:LOC_PEDIA_CONCEPTS_TRADITION_TOOLTIP]傳統[/TIP]。每個[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]時代[/TIP]初期，你都需要選擇自己的政體。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_GREAT_WORKS_TOOLTIP" Language="zh_Hant_HK">
-      <Text>巨作是於各個[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]時代[/TIP]中透過不同途徑取得的珍貴物品。[NN]請前往巨作畫面，將巨作放置到[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]中擁有可用巨作槽位的[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建築[/TIP]內。</Text>
+      <Text>巨作是於各個[TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]時代[/TIP]中透過不同途徑取得的珍貴物品。[NN]請前往巨作畫面，在擁有可用巨作槽位[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建築[/TIP]的[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]中，將巨作放入槽位或展示。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_GROWTH_RATE_TOOLTIP" Language="zh_Hant_HK">
       <Text>成長速率會降低人口[TIP:LOC_PEDIA_CONCEPTS_POPULATION_TOOLTIP]增長[/TIP]所需的[icon:YIELD_FOOD][b]食物[/b]量。</Text>
@@ -991,8 +994,11 @@
     <Replace Tag="LOC_PEDIA_CONCEPTS_INNOVATION_TOOLTIP" Language="zh_Hant_HK">
       <Text>創新值代表你在[TIP:LOC_PEDIA_CONCEPTS_SCIENTIFIC_VICTORY_TOOLTIP]科技勝利[/TIP]上的進度。你可以透過多種方式獲得創新值，包括指派[TIP:LOC_PEDIA_CONCEPTS_CODEX_TOOLTIP]抄本[/TIP]、研究[TIP:LOC_PEDIA_CONCEPTS_MASTERY_TOOLTIP]科技精通[/TIP]，以及完成[TIP:LOC_PEDIA_CONCEPTS_SCIENCE_PROJECT_TOOLTIP]科技專案[/TIP]。當你達到100創新值並擁有發射台時，將會觸發科技勝利倒數。</Text>
     </Replace>
+    <Replace Tag="LOC_PEDIA_CONCEPTS_ISLAND_TOOLTIP" Language="zh_Hant_HK">
+      <Text>島嶼是世界上連續相接的陸塊，最多由30個格位組成。</Text>
+    </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_LAND_UNITS_TOOLTIP" Language="zh_Hant_HK">
-      <Text>陸地單位在[TIP:LOC_PEDIA_CONCEPTS_WATER_TERRAIN_TOOLTIP]水路地形[/TIP]上時會[TIP:LOC_PEDIA_CONCEPTS_EMBARK_TOOLTIP]上船[/TIP]。</Text>
+      <Text>陸地單位大多在陸地地形上移動，並受陸地地形的移動與戰鬥規則影響。它們可以[TIP:LOC_PEDIA_CONCEPTS_EMBARK_TOOLTIP]上船[/TIP]以進入[TIP:LOC_PEDIA_CONCEPTS_WATER_TERRAIN_TOOLTIP]水路地形[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_MAINTENANCE_TOOLTIP" Language="zh_Hant_HK">
       <Text>維護費用是一項持續性的產出消耗，每回合用於維持單位、[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建築[/TIP]與[icon:SPECIALIST][TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_TOOLTIP]專家[/TIP]。</Text>
@@ -1539,6 +1545,9 @@
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_COMBAT_10_CHAPTER_CONTENT_PARA_14" Language="zh_Hant_HK">
       <Text>迅捷：擁有「迅捷」能力的單位如風般迅捷，可忽視敵方單位施加的控制區。這代表即使戰場上有敵人存在，他們仍能自由移動，且進入控制區時不會中斷移動。小訣竅：擁有「迅捷」能力的單位能輕鬆脫離致命的戰鬥局面。這不是撤退——而是向後推進！</Text>
+    </Replace>
+    <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_COMBAT_10_CHAPTER_CONTENT_PARA_15" Language="zh_Hant_HK">
+      <Text>恐懼：擁有「恐懼」能力的單位會使相鄰敵方單位的戰鬥力-2。此效果可堆疊，因此可使用具備恐懼能力的單位包圍敵人。記住，我們唯一需要恐懼的，就是恐懼本身。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PAGE_COMBAT_10_CHAPTER_CONTENT_PARA_2" Language="zh_Hant_HK">
       <Text>敏捷：對戰士而言，敏捷往往決定了是凱旋而歸，還是命喪沙場。「敏捷」能力為單位提供+1移動力，賦予他們制勝所需的速度。小訣竅：雖然植被與水域仍會阻斷多數單位的移動，但擁有「敏捷」能力的單位，仍能繞過這些行進障礙。</Text>
@@ -2804,7 +2813,7 @@
       <Text>擁有「海盜」能力的單位能跨越其他文明的邊境，能掠奪非結盟文明之間的[TIP:LOC_PEDIA_CONCEPTS_TRADE_ROUTE_TOOLTIP]貿易路線[/TIP]，能攻擊非結盟文明的單位而不進入戰爭狀態。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_POPULATION_TOOLTIP" Language="zh_Hant_HK">
-      <Text>每個[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]都有一個人口數，會依據該聚落所生產的[icon:YIELD_FOOD][b]食物[/b]量而增長。當獲得新的人口時，你可以將該人口指派至尚未改良的格位以建造[TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]改良設施[/TIP]，或指派至都會格位以放置[icon:SPECIALIST][TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_TOOLTIP]專家[/TIP]（需要解鎖）。</Text>
+      <Text>每個[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]的人口由三種類型組成：都會人口、鄉村人口與專家。[NN]都會人口取決於聚落擁有的[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建築[/TIP]數量。[NN]鄉村人口與專家則取決於聚落所產出的[icon:YIELD_FOOD][b]食物[/b]數量。累積足夠的食物後，聚落便會成長。你可以將新增的人口指派至尚未改良的格位，以放置[TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]改良設施[/TIP]，增加鄉村人口；或在解鎖專家後將人口指派至[TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]區域[/TIP]，以放置[icon:SPECIALIST][TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_TOOLTIP]專家[/TIP]。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_PROJECTS_TOOLTIP" Language="zh_Hant_HK">
       <Text>專案是[TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]中的一類特殊[icon:YIELD_PRODUCTION][b]生產[/b]選項，完成後會立即套用其效果。</Text>
@@ -2825,7 +2834,7 @@
       <Text>每位領袖與所有其他領袖之間，都存在一種關係等級：敵對、不友好、中立、友好或有幫助。這些關係會影響其他領袖接受或支持你所提出的[TIP:LOC_PEDIA_CONCEPTS_ENDEAVOR_TOOLTIP]外交手段[/TIP]的可能性、你發動[TIP:LOC_PEDIA_CONCEPTS_SURPRISE_WAR_TOOLTIP]突襲戰爭[/TIP]時所承受的減益，以及他們對你宣戰的可能性。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_RELIC_TOOLTIP" Language="zh_Hant_HK">
-      <Text>遺物是一類[TIP:LOC_PEDIA_CONCEPTS_GREAT_WORKS_TOOLTIP]巨作[/TIP]，放置在[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]的槽位中後，會提升該聚落的[icon:YIELD_CULTURE][b]文化值[/b]與[icon:YIELD_HAPPINESS][b]幸福感[/b]。</Text>
+      <Text>遺物是一類[TIP:LOC_PEDIA_CONCEPTS_GREAT_WORKS_TOOLTIP]巨作[/TIP]，放入[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]的槽位或展示後，將提高該聚落的[icon:YIELD_CULTURE][b]文化值[/b]與[icon:YIELD_HAPPINESS][b]幸福感[/b]。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_RELIGION_TOOLTIP" Language="zh_Hant_HK">
       <Text>宗教於[TIP:LOC_PEDIA_CONCEPTS_EXPLORATION_AGE_TOOLTIP]探索時代[/TIP]中建立。[NN]傳教士可在[TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]區域[/TIP]與[TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]改良設施[/TIP]上傳播宗教，使[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]皈依信仰；當聚落中同時有一個區域與一項改良設施皈依同一宗教時，便視為信奉該宗教。[NN]宗教信仰將決定聚落皈依信仰後可獲得的加成。</Text>
@@ -2843,7 +2852,7 @@
       <Text>崎嶇地形會結束單位的移動。單位在崎嶇地形上防守時，會獲得[TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]戰鬥力[/TIP]加成。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_RURAL_TOOLTIP" Language="zh_Hant_HK">
-      <Text>鄉村格位是指擁有[TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]改良設施[/TIP]的格位。它們會提供鄉村[TIP:LOC_PEDIA_CONCEPTS_POPULATION_TOOLTIP]人口[/TIP]，並會信仰你的鄉村[TIP:LOC_PEDIA_CONCEPTS_RELIGION_TOOLTIP]宗教[/TIP]。若在鄉村格位上建造[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建築[/TIP]，該格位將轉變為都會格位。</Text>
+      <Text>鄉村格位是指擁有[TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]改良設施[/TIP]的格位。它們會提供[TIP:LOC_PEDIA_CONCEPTS_POPULATION_TOOLTIP]鄉村人口[/TIP]，並信仰你的[TIP:LOC_PEDIA_CONCEPTS_RELIGION_TOOLTIP]宗教[/TIP]。若在鄉村格位上建造[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建築[/TIP]，該格位將變為[TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]區域[/TIP]，且該處的人口可以移動。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_SANCTION_TOOLTIP" Language="zh_Hant_HK">
       <Text>制裁是負面的外交行動，會對目標文明施加減益，並降低與之的[TIP:LOC_PEDIA_CONCEPTS_RELATIONSHIP_TOOLTIP]關係[/TIP]。</Text>
@@ -2981,7 +2990,7 @@
       <Text>火山爆發是一類[TIP:LOC_PEDIA_CONCEPTS_NATURAL_DISASTERS_TOOLTIP]自然災難[/TIP]，會影響火山周圍的格位。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_WALL_TOOLTIP" Language="zh_Hant_HK">
-      <Text>城牆可為區域提供[TIP:LOC_PEDIA_CONCEPTS_FORTIFIED_DISTRICTS_TOOLTIP]防禦工事效果[/TIP]。[NN]城牆必須建於[TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]中心，或與其他已有城牆的[TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]區域[/TIP]相鄰。[NN]城牆只能在城市中心購買。</Text>
+      <Text>城牆能為所在區域增加生命值與防禦力，使其成為[TIP:LOC_PEDIA_CONCEPTS_FORTIFIED_DISTRICTS_TOOLTIP]有防禦工事的區域[/TIP]。[NN]城牆必須建於[TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]中心，或與另一個已有城牆的[TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]區域[/TIP]相鄰。城牆只能在城市中心購買。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_CONCEPTS_WAR_SUPPORT_TOOLTIP" Language="zh_Hant_HK">
       <Text>當一個文明的戰爭支援高於對手時，每多出1點，便會削弱對方單位的[TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]戰鬥力[/TIP]和其[TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]聚落[/TIP]的[icon:YIELD_HAPPINESS][b]幸福感[/b]。[NN]可透過花費[icon:YIELD_DIPLOMACY][b]影響力[/b]來獲得更多戰爭支援。</Text>
@@ -3359,7 +3368,7 @@
       <Text>卑彌呼本人既是宗教領袖，也是政治領袖。她的根據地叫「邪馬臺」（可能位於九州北部，或者在當代的京都附近），她的存在被主要記載在中國的文獻中。卑彌呼曾給中國北方的曹魏王朝送過禮物：那時正是西元3世紀，中國處於三國時代。在文獻記錄中，魏明帝曹叡封卑彌呼為「親魏倭王」。至於卑彌呼實際上的地位其實沒有明確答案——因為此時正處於日本歷史的最開端，資料來源不只分散也不算可靠。 </Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_HIMIKO_CHAPTER_HISTORY_PARA_6" Language="zh_Hant_HK">
-      <Text>卑彌呼的故事趣味之處在於指稱其事鬼道一事。漢文紀載中她以鬼道惑眾，讓倭國人民皆聽命之，以及她居住深宮，僕役與侍衛均為女性（除一男子給送飲食）。卑彌呼這一神秘作風在日文紀錄中更為錯綜，並使其身分和若干神靈存在糾結：如日本太陽女神「天照大神」的巫女，或是一隻神蛇的巫妻。在後者的敘事中，卑彌呼（被認為是倭迹迹日百襲姫命）滿懷欣喜嫁給了一位只在夜晚歸來的至高神靈，她懇求神靈留到天明，她才能在陽光下見其容顏，但神靈對此猶疑不決。最終神靈被說服了，他向卑彌呼說她將於其梳妝箱中看到他，但她得保證不可因其樣貌而受驚嚇。翌日早晨，當卑彌呼打開箱子，只見一條美麗的白蛇蜷曲其中，她發出警戒性的喘息，蛇神隨即轉換回人形。憤怒的神靈告知她，已有言她不可有此反應在先，而今神靈必須離她而去，卑彌呼則因悲痛而自刎。</Text>
+      <Text>卑彌呼的故事趣味之處在於指稱其事鬼道一事。漢文紀載中她以鬼道惑眾，讓倭國人民皆聽命之，以及她居住深宮，僕役與侍衛均為女性（除一男子給送飲食）。卑彌呼這一神秘作風在日文紀錄中更為錯綜，並使其身分和若干神靈存在糾結：如日本太陽女神「天照大神」的巫女，或是一隻神蛇的巫妻。在後者的敘事中，卑彌呼（被認為是倭迹迹日百襲姬命）滿懷欣喜嫁給了一位只在夜晚歸來的至高神靈，她懇求神靈留到天明，她才能在陽光下見其容顏，但神靈對此猶疑不決。最終神靈被說服了，他向卑彌呼說她將於其梳妝箱中看到他，但她得保證不可因其樣貌而受驚嚇。翌日早晨，當卑彌呼打開箱子，只見一條美麗的白蛇蜷曲其中，她發出警戒性的喘息，蛇神隨即轉換回人形。憤怒的神靈告知她，已有言她不可有此反應在先，而今神靈必須離她而去，卑彌呼則因悲痛而自刎。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_HIMIKO_CHAPTER_HISTORY_PARA_7" Language="zh_Hant_HK">
       <Text>在她死後，邪馬臺人就立起了一個墳堆。根據傳說，後來的統治者本來是個男王，但仍在悼念逝世女王的百姓們拒絕了他的統治，直到卑彌呼的親戚、13歲的少女壹與被奉為新統治者後，秩序才得以恢復。 </Text>
@@ -4439,7 +4448,7 @@
       <Text>隨著時間推進，漁業產生了問題。人們會引進看似有商業利潤的魚種到脆弱的生態系統中，例如將尼羅尖吻鱸放進維多利亞湖，結果造成生態浩劫；同時大規模過度捕撈也對遠洋產業帶來傷害，尤其是鮪魚，這種魚類雖然極受歡迎，卻也是瀕危物種；另外如塑膠製品、河流系統的水力發電，以及氣候變遷等，都加劇了全世界的漁業危機。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_PAGE_RESOURCE_FLAX_CHAPTER_HISTORY_PARA_1" Language="zh_Hant_HK">
-      <Text>自舊石器時代開始，亞麻植物中長而柔軟且強韌的纖維就被用來製作服裝。在古代，這種作物從地中海到印度都有種植記錄，並被精煉成一種輕盈、堅固的布料——亞麻布，其種子被壓碎以生產亞麻籽油。也因此它（在美索不達米亞地區）是最早被密集馴化的作物之一，埃及木乃伊就是用亞麻植物的纖維包裹的，並用其油脂塗抹製成。羅馬士兵將亞麻籽油混入他們的食物中，查理曼大帝則下令臣民要為了健康而食用亞麻籽油。亞麻貿易曾存在於古希臘，並在近代早期越趨密集，尤其是在西歐。至今它仍然是一種流行的材料，在夏季尤其如此。</Text>
+      <Text>自舊石器時代開始，亞麻植物中長而柔軟且強韌的纖維就被用來製作服裝。在古代，這種作物從地中海到印度都有種植記錄，並被精煉成一種輕盈、堅固的布料——亞麻布，其種子被壓碎以生產亞麻籽油。也因此它（在美索不達米亞地區）是最早被密集馴化的作物之一，埃及木乃伊就是用亞麻植物的纖維包裹的，並用其油脂塗抹製成。羅馬士兵將亞麻籽油混入他們的食物中，查理曼則下令臣民要為了健康而食用亞麻籽油。亞麻貿易曾存在於古希臘，並在近代早期越趨密集，尤其是在西歐。至今它仍然是一種流行的材料，在夏季尤其如此。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_PAGE_RESOURCE_FURS_CHAPTER_HISTORY_PARA_1" Language="zh_Hant_HK">
       <Text>其實人類在大部分動物面前都討不了好，因為我們既沒有爪子，牙齒也脆弱又不鋒利，甚至在四肢著地更加安穩又健步如飛的時候，選擇用兩隻腳蹣跚前行。更別說，其實我們的皮膚都無法抵擋大多數外界元素。因此，原始人類尋求耐寒動物的皮衣是再自然不過了——尤其是在極寒環境下生存的動物，或是擁有厚實防水毛皮的動物（水獺、河狸等相似動物），毛皮可提供厚實保護層和柔軟層來適應氣候。另一方面，有些人也會純粹了自然之美而設法獵取虎皮或豹皮。</Text>
@@ -4484,7 +4493,7 @@
       <Text>高嶺土是指精緻白色陶土，現今有各式各樣的使用方式，能拿來當作紙上釉料，化妝品裡的增白劑，或用在油漆中。雖然這個名詞很多人都相當陌生，但它在歷史上的主要形式肯定人盡皆知：陶瓷，也就是一種堅硬且有時會呈現半透明的陶藝品，並且會經過極高溫度燒製而成。陶瓷是其中一項最早從亞洲（特別是中國）傳到歐洲的貿易商品，而其亮度、硬度、精緻度和顏色，對那些有錢購買的人來說就是一種尊爵不凡的標誌。為了複製中國（後期還包括韓國及日本）瓷器，許多次嘗試都涉及到相當程度的間諜和潛入行動，並直到1710年才在德國開始生產。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_PAGE_RESOURCE_LIMESTONE_CHAPTER_HISTORY_PARA_1" Language="zh_Hant_HK">
-      <Text>在史前海洋的海床上，無數軟體動物和珊瑚的碳酸鈣殼落下來慢慢磨成粉末，然後經過數百萬年的壓縮。這個過程形成了石灰岩，這是一種自古典時代以來就對建築發展而言極為重要的沉積岩。由於石灰岩易於切割，並且具有令人印象深刻的白色光澤，因此它被廣泛用於古代建築上，例如埃及大金字塔，或者在燃燒並製成灰泥後，用於建造瑪雅世界的奇觀。在經受高溫和高壓後，石灰岩最終會產生另一種重要而奇妙的石頭——大理石。 </Text>
+      <Text>在史前海洋的海床上，無數軟體動物和珊瑚的碳酸鈣殼落下來慢慢磨成粉末，然後經過數百萬年的壓縮。這個過程形成了石灰岩，這是一種自古典時代以來就對建築發展而言極為重要的沉積岩。由於石灰岩易於切割，並且具有令人印象深刻的白色光澤，因此它被廣泛用於古代建築上，例如埃及大金字塔，或者在燃燒並製成灰泥後，用於建造馬雅世界的奇觀。在經受高溫和高壓後，石灰岩最終會產生另一種重要而奇妙的石頭——大理石。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_PAGE_RESOURCE_LLAMAS_CHAPTER_HISTORY_PARA_1" Language="zh_Hant_HK">
       <Text>新大陸與舊大陸最大的不同可能在於，這裡幾乎沒有馱獸——沒有馬、駱駝或大象等動物能在城市之間運輸貨物。但在安地斯山脈上，有許多駱馬，這些動物非常適合在高原小徑上穿梭。早在印加帝國崛起之前，安地斯山脈的人們就透過駱馬（及其近親羊駝，alpacas）來獲取羊毛、肥料、肉，當然還有運輸。這些動物對於該地區帝國的鞏固和發展似乎極其重要，但同時也帶來侷限性——在駱馬不適應的地方（例如，在叢林低地），帝國也會無法擴張。 </Text>
@@ -4601,10 +4610,10 @@
       <Text>水往低處流。當高海拔地區的積雪融化，雨水浸透的土地緩慢釋放水分時，水流匯聚成細小的支流，順著山坡向下流淌，切割出河道，開闢通往大海的道路。在某個地方，溪流則匯聚成河流。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_PAGE_TERRAIN_RIVERS_CHAPTER_HISTORY_PARA_2" Language="zh_Hant_HK">
-      <Text>河流是大多數古代文明的核心——我們無法將埃及與尼羅河分離，也無法將美索不達米亞與底格里斯河和幼發拉底河分離（儘管瑪雅文明依靠的是含水層，而不是特定的河流）。河流提供了飲用水、灌溉水源和運輸手段。而後者往往會在河流的某處遇到阻礙，因為下降的水流會遇到堅硬的岩石峭壁——瀑布線，讓水流變得無法通航。我們可以在大多數主要河流中看到這樣的瀑布線——萊茵河的萊茵瀑布、湄公河的孔恩瀑布等等。這些地方也讓費城或翠登等工業城市得以興盛發展——瀑布的能量可以被磨坊利用，同時也可以收集來自河流上游的貿易貨物。</Text>
+      <Text>河流是大多數古代文明的核心——我們無法將埃及與尼羅河分離，也無法將美索不達米亞與底格里斯河和幼發拉底河分離（儘管馬雅文明依靠的是含水層，而不是特定的河流）。河流提供了飲用水、灌溉水源和運輸手段。而後者往往會在河流的某處遇到阻礙，因為下降的水流會遇到堅硬的岩石峭壁——瀑布線，讓水流變得無法通航。我們可以在大多數主要河流中看到這樣的瀑布線——萊茵河的萊茵瀑布、湄公河的孔恩瀑布等等。這些地方也讓費城或翠登等工業城市得以興盛發展——瀑布的能量可以被磨坊利用，同時也可以收集來自河流上游的貿易貨物。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_PAGE_UNIT_ARMY_COMMANDER_CHAPTER_HISTORY_PARA_1" Language="zh_Hant_HK">
-      <Text>士兵們在冒著死亡風險的情況下服役；這需要組織和激勵。隨著戰爭成為戰略的遊戲，不再是單靠個人武勇就能追求榮耀的地方，而軍隊編隊（例如希臘方陣或古印度烏余闞）也在勝利中扮演越來越重要的角色，指揮官也開始需要接受專業化的訓練。有時，這些指揮官可能是政治領袖，也可能是專業軍事階級的成員。但是，正如尤里烏斯‧凱撒所充分證明過的那樣，這兩者之間的界限其實很容易被跨越。</Text>
+      <Text>士兵們在冒著死亡風險的情況下服役；這需要組織和激勵。隨著戰爭成為戰略的遊戲，不再是單靠個人武勇就能追求榮耀的地方，而軍隊編隊（例如希臘方陣或古印度烏余闞）也在勝利中扮演越來越重要的角色，指揮官也開始需要接受專業化的訓練。有時，這些指揮官可能是政治領袖，也可能是專業軍事階級的成員。但是，正如尤利烏斯‧凱撒所充分證明過的那樣，這兩者之間的界限其實很容易被跨越。</Text>
     </Replace>
     <Replace Tag="LOC_PEDIA_PAGE_UNIT_FLEET_COMMANDER_CHAPTER_HISTORY_PARA_1" Language="zh_Hant_HK">
       <Text>海軍作戰極為依賴當時現有的技術。帆船或蒸汽船、火砲或衝角、登艦突擊或舷側齊射——這些作戰方式都需要截然不同的技能組。古斯巴達會選出海軍都統（navarch），負責在戰場上指揮船隻以及處理斯巴達艦隊所有事務。後來的艦隊指揮官也具備多樣化的技能組——鄭和是外交家，也是艦隊指揮官；加查‧馬達是首相，其統治和征服既基於其雄辯之才，也基於航海技術。 </Text>
@@ -4891,6 +4900,9 @@
     <Replace Tag="LOC_PEDIA_TERM_DISPIRITED" Language="zh_Hant_HK">
       <Text>頹喪</Text>
     </Replace>
+    <Replace Tag="LOC_PEDIA_TERM_FEAR" Language="zh_Hant_HK">
+      <Text>恐懼</Text>
+    </Replace>
     <Replace Tag="LOC_PEDIA_TERM_FOUNDATION_CHALLENGES" Language="zh_Hant_HK">
       <Text>基石挑戰</Text>
     </Replace>
@@ -4941,6 +4953,9 @@
     </Replace>
     <Replace Tag="LOC_DISTRICT_CITY_CENTER_NAME" Language="zh_Hant_HK">
       <Text>市中心</Text>
+    </Replace>
+    <Replace Tag="LOC_DISTRICT_GENERAL_NAME" Language="zh_Hant_HK">
+      <Text>區域</Text>
     </Replace>
     <Replace Tag="LOC_DISTRICT_RURAL_NAME" Language="zh_Hant_HK">
       <Text>鄉村</Text>
@@ -6056,16 +6071,16 @@
       <Text>張家界</Text>
     </Replace>
     <Replace Tag="LOC_MAP_ARCHIPELAGO_NAME" Language="zh_Hant_HK">
-      <Text>群島半球</Text>
+      <Text>群島半球（舊版）</Text>
     </Replace>
     <Replace Tag="LOC_MAP_ARCHIPELAGO_VORONOI_NAME" Language="zh_Hant_HK">
       <Text>群島</Text>
     </Replace>
     <Replace Tag="LOC_MAP_CONTINENTS_NAME" Language="zh_Hant_HK">
-      <Text>大陸</Text>
+      <Text>大陸（舊版）</Text>
     </Replace>
     <Replace Tag="LOC_MAP_CONTINENTS_PLUS_NAME" Language="zh_Hant_HK">
-      <Text>廣袤大陸</Text>
+      <Text>廣袤大陸（舊版）</Text>
     </Replace>
     <Replace Tag="LOC_MAP_CONTINENTS_VORONOI_NAME" Language="zh_Hant_HK">
       <Text>大陸與島嶼</Text>
@@ -6074,13 +6089,13 @@
       <Text>地球</Text>
     </Replace>
     <Replace Tag="LOC_MAP_FRACTAL_NAME" Language="zh_Hant_HK">
-      <Text>破碎地形</Text>
+      <Text>分形地圖（舊版）</Text>
     </Replace>
     <Replace Tag="LOC_MAP_FRACTAL_VORONOI_NAME" Language="zh_Hant_HK">
       <Text>分形大陸</Text>
     </Replace>
     <Replace Tag="LOC_MAP_PANGAEA_PLUS_NAME" Language="zh_Hant_HK">
-      <Text>廣袤盤古大陸</Text>
+      <Text>廣袤盤古大陸（舊版）</Text>
     </Replace>
     <Replace Tag="LOC_MAP_PANGAEA_VORONOI_NAME" Language="zh_Hant_HK">
       <Text>盤古大陸與島嶼</Text>
@@ -6092,6 +6107,9 @@
       <Text>破碎之海</Text>
     </Replace>
     <Replace Tag="LOC_MAP_SHUFFLE_NAME" Language="zh_Hant_HK">
+      <Text>隨機（舊版）</Text>
+    </Replace>
+    <Replace Tag="LOC_MAP_SHUFFLE_VORONOI_NAME" Language="zh_Hant_HK">
       <Text>隨機</Text>
     </Replace>
     <Replace Tag="LOC_MAP_START_POSITION_BALANCED_NAME" Language="zh_Hant_HK">
@@ -6103,7 +6121,13 @@
     <Replace Tag="LOC_MAP_START_POSITION_STANDARD_NAME" Language="zh_Hant_HK">
       <Text>標準</Text>
     </Replace>
+    <Replace Tag="LOC_MAP_START_POSITION_TSL_HUGE_NAME" Language="zh_Hant_HK">
+      <Text>真實開場位置</Text>
+    </Replace>
     <Replace Tag="LOC_MAP_TERRA_INCOGNITA_NAME" Language="zh_Hant_HK">
+      <Text>未知大陸（舊版）</Text>
+    </Replace>
+    <Replace Tag="LOC_MAP_TERRA_INCOGNITA_VORONOI_NAME" Language="zh_Hant_HK">
       <Text>未知大陸</Text>
     </Replace>
     <Replace Tag="LOC_RESOURCE_CAMELS_NAME" Language="zh_Hant_HK">
@@ -6478,6 +6502,9 @@
     <Replace Tag="LOC_RIVER_HONDO_NAME" Language="zh_Hant_HK">
       <Text>翁多河</Text>
     </Replace>
+    <Replace Tag="LOC_RIVER_HVITA_NAME" Language="zh_Hant_HK">
+      <Text>惠滔河</Text>
+    </Replace>
     <Replace Tag="LOC_RIVER_INDUS_NAME" Language="zh_Hant_HK">
       <Text>印度河</Text>
     </Replace>
@@ -6600,6 +6627,9 @@
     </Replace>
     <Replace Tag="LOC_RIVER_MUSI_NAME" Language="zh_Hant_HK">
       <Text>穆西河</Text>
+    </Replace>
+    <Replace Tag="LOC_RIVER_NACHI_NAME" Language="zh_Hant_HK">
+      <Text>那智河</Text>
     </Replace>
     <Replace Tag="LOC_RIVER_NAKDONG_NAME" Language="zh_Hant_HK">
       <Text>洛東江</Text>
@@ -6771,6 +6801,9 @@
     </Replace>
     <Replace Tag="LOC_RIVER_THA_CHIN_NAME" Language="zh_Hant_HK">
       <Text>他欽河</Text>
+    </Replace>
+    <Replace Tag="LOC_RIVER_THAMES_NAME" Language="zh_Hant_HK">
+      <Text>泰晤士河</Text>
     </Replace>
     <Replace Tag="LOC_RIVER_TIBER_NAME" Language="zh_Hant_HK">
       <Text>臺伯河</Text>
@@ -7063,6 +7096,9 @@
     <Replace Tag="LOC_VOLCANO_MOUNT_FUJI_NAME" Language="zh_Hant_HK">
       <Text>富士山</Text>
     </Replace>
+    <Replace Tag="LOC_VOLCANO_MOUNT_GILUWE_NAME" Language="zh_Hant_HK">
+      <Text>吉盧韋山</Text>
+    </Replace>
     <Replace Tag="LOC_VOLCANO_MOUNT_HASAN_NAME" Language="zh_Hant_HK">
       <Text>哈桑山</Text>
     </Replace>
@@ -7197,6 +7233,9 @@
     </Replace>
     <Replace Tag="LOC_VOLCANO_SHIVELUCH_NAME" Language="zh_Hant_HK">
       <Text>舍維留奇火山</Text>
+    </Replace>
+    <Replace Tag="LOC_VOLCANO_SINABUNG_NAME" Language="zh_Hant_HK">
+      <Text>錫納朋火山</Text>
     </Replace>
     <Replace Tag="LOC_VOLCANO_SOLLIPULLI_NAME" Language="zh_Hant_HK">
       <Text>索利普利火山</Text>
@@ -7799,7 +7838,7 @@
       <Text>通往嶄新開始</Text>
     </Replace>
     <Replace Tag="LOC_8089B_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>所有聚落{1_reward}。</Text>
+      <Text>{1_reward}。</Text>
     </Replace>
     <Replace Tag="LOC_8089B_NAME" Language="zh_Hant_HK">
       <Text>通往嶄新開始。</Text>
@@ -8482,6 +8521,9 @@
     <Replace Tag="LOC_RANDOM_EVENT_VOLCANO_MEGACOLOSSAL_NAME" Language="zh_Hant_HK">
       <Text>天崩地裂的爆發</Text>
     </Replace>
+    <Replace Tag="LOC_RANDOM_EVENT_VOLCANO_NATURAL_WONDER_NAME" Language="zh_Hant_HK">
+      <Text>火山爆發</Text>
+    </Replace>
     <Replace Tag="_ACTIVE_TRADITIONS" Language="zh_Hant_HK">
       <Text>放入槽位的政策與傳統數量</Text>
     </Replace>
@@ -8883,6 +8925,12 @@
     </Replace>
     <Replace Tag="LOC_ACTION_PANEL_LAST_PLAYER_MESSAGE" Language="zh_Hant_HK">
       <Text>其他人正在等你。</Text>
+    </Replace>
+    <Replace Tag="LOC_ACTION_PANEL_MULTIPLAYER_PAUSE" Language="zh_Hant_HK">
+      <Text>遊戲已暫停</Text>
+    </Replace>
+    <Replace Tag="LOC_ACTION_PANEL_MULTIPLAYER_PAUSE_TT" Language="zh_Hant_HK">
+      <Text>以下玩家已暫停遊戲……</Text>
     </Replace>
     <Replace Tag="LOC_ACTION_PANEL_NEXT_TURN" Language="zh_Hant_HK">
       <Text>下一回合</Text>
@@ -9475,10 +9523,9 @@
 				我們整個帝國所賺取的所有[icon:YIELD_GOLD][b]金幣[/b]都會匯入[TIP:LOC_PEDIA_CONCEPTS_TREASURY_TOOLTIP]國庫[/TIP]。一旦獲得，就能立刻將這些[b]金幣[/b]用於各種實用用途。
 				[nn][icon:YIELD_GOLD][b]金幣[/b]最常見的用途是[b]購買[/b][TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建築[/TIP]與[b]單位[/b]。事實上，這也是[TIP:LOC_PEDIA_CONCEPTS_TOWN_TOOLTIP]城鎮[/TIP]建造建築與訓練單位的唯一方式，因為只有[TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]城市[/TIP]才能使用[icon:YIELD_PRODUCTION][b]生產力[/b]。
 				[nn]購買建築後，你會立即獲得該建築及其所有效果；購買單位後，單位會立刻完成訓練，但需等到下一回合才能行動。即便如此，在緊急情況下直接購買單位仍是迅速補強防禦的好方法。
-				[nn]你也可以購買已部分生產完成的建築或單位，此時所需金幣會依已完成的進度而減少。不過請注意，[TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]奇觀[/TIP]無法購買，仍必須投入[icon:YIELD_PRODUCTION][b]生產力[/b]來建造。
+				[nn]當你購買已部分建造完成的建築時，所需金幣會依已完成的進度而減少。不過請注意，[TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]奇觀[/TIP]無法購買，仍必須投入[icon:YIELD_PRODUCTION][b]生產力[/b]來建造。
 				[nn][b]升級[/b][TIP:LOC_PEDIA_CONCEPTS_MILITARY_UNIT_TOOLTIP]軍事單位[/TIP]也是[icon:YIELD_GOLD][b]金幣[/b]的常見用途之一。當你透過[TIP:LOC_PEDIA_CONCEPTS_TECH_TOOLTIP]科技[/TIP]解鎖新一階的單位時，只要現有的單位位於你的領土內，就能花費[b]金幣[/b]將其升級為新階級。
-				[nn][icon:YIELD_GOLD][b]金幣[/b]在帝國中還有更多用途，例如快速修復受損格位，或[b]將城鎮升級為城市[/b]，因此維持健全的經濟至關重要。
-			</Text>
+				[nn][icon:YIELD_GOLD][b]金幣[/b]在帝國中還有更多用途，例如快速修復受損格位，或[b]將城鎮升級為城市[/b]，因此維持健全的經濟至關重要。</Text>
     </Replace>
     <Replace Tag="LOC_ADVICE_AGELESS_ECONOMIC_SPENDING_GOLD_NOTE_DESC" Language="zh_Hant_HK">
       <Text>
@@ -9643,7 +9690,7 @@
       <Text>
 				[TIP:LOC_PEDIA_CONCEPTS_ENDEAVOR_TOOLTIP]外交手段[/TIP]是兩位領袖之間的外交舉措，能為雙方提供加成。當一位領袖花費[icon:YIELD_DIPLOMACY][b]影響力[/b]向另一位領袖提出特定外交手段時，該行動便會啟動。對方隨後可選擇接受、支持或拒絕。
 				[nn]接受外交手段不需花費影響力，會為提議者提供中等加成，並為接受者提供小幅加成。支持外交手段則需花費[icon:YIELD_DIPLOMACY][b]影響力[/b]，但能為雙方帶來最強的加成，並提升彼此[TIP:LOC_PEDIA_CONCEPTS_RELATIONSHIP_TOOLTIP]關係[/TIP]。拒絕外交手段同樣需要花費[icon:YIELD_DIPLOMACY][b]影響力[/b]，會取消該行動、降低雙方關係，並在數回合內阻止進一步的外交手段。
-				[nn]遊戲中存在多種不同的外交手段。有些會隨著領袖的[TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]屬性[/TIP]類型解鎖，另一些則需透過研究[TIP:LOC_PEDIA_CONCEPTS_CIVIC_TOOLTIP]市政[/TIP]、[TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]建造[/TIP][TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]奇觀[/TIP]、與[TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP]交好等方式解鎖。
+				[nn]遊戲中存在多種不同的外交手段。有些會隨著領袖的[TIP:LOC_PEDIA_CONCEPTS_ATTRIBUTE_TOOLTIP]屬性[/TIP]類型解鎖，另一些則需透過研究[TIP:LOC_PEDIA_CONCEPTS_CIVIC_TOOLTIP]市政[/TIP]、建造[TIP:LOC_PEDIA_CONCEPTS_WONDERS_TOOLTIP]奇觀[/TIP]、與[TIP:LOC_PEDIA_CONCEPTS_CITY_STATE_TOOLTIP]城邦[/TIP]交好等方式解鎖。
 				[nn]外交手段是維持友好外交關係、同時獲得實用加成的強大手段。這是花費[icon:YIELD_DIPLOMACY][b]影響力[/b]的好方法，也能大幅提升你的帝國實力。
 			</Text>
     </Replace>
@@ -10816,12 +10863,10 @@
       <Text>經濟勝利對策</Text>
     </Replace>
     <Replace Tag="LOC_ADVICE_EXPLORATION_MILITARY_DISTANT_LANDS_MESSAGE" Language="zh_Hant_HK">
-      <Text>
-				隨著[TIP:LOC_PEDIA_CONCEPTS_EXPLORATION_AGE_TOOLTIP]探索時代[/TIP]的開始，你現在可以前往[TIP:LOC_PEDIA_CONCEPTS_DISTANT_LANDS_TOOLTIP]遙遠土地[/TIP]了。
-				[nn]遙遠土地指的是任何需要跨越海洋才能抵達的區域。這些地方可能是散布在海洋中的小島，也可能是尚未接觸過、充滿其他帝國的整片[TIP:LOC_PEDIA_CONCEPTS_CONTINENT_TOOLTIP]大陸[/TIP]。遙遠土地為你提供了新的機會，可以擴張帝國、取得[TIP:LOC_PEDIA_CONCEPTS_TREASURE_RESOURCES_TOOLTIP]寶藏資源[/TIP]，並結識新的盟友與敵人。
+      <Text>隨著[TIP:LOC_PEDIA_CONCEPTS_EXPLORATION_AGE_TOOLTIP]探索時代[/TIP]的開始，你現在可以前往[TIP:LOC_PEDIA_CONCEPTS_DISTANT_LANDS_TOOLTIP]遙遠土地[/TIP]了。
+				[nn]遙遠土地指的是任何需要跨越海洋才能抵達的區域。這些地方可能是散佈在海洋中的小島，也可能是尚未接觸過、充滿其他帝國的整片[TIP:LOC_PEDIA_CONCEPTS_CONTINENT_TOOLTIP]大陸[/TIP]。遙遠土地為你提供了新的機會，可以擴張帝國、取得[TIP:LOC_PEDIA_CONCEPTS_TREASURE_RESOURCES_TOOLTIP]寶藏資源[/TIP]，並結識新的盟友與敵人。
 				[nn]在初期，只有[TIP:LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP]海上單位[/TIP]能進入海洋，而且它們會受到惡劣海況的威脅。這意味著它們在海洋格位上每次只能移動一格，而且每次回合開始時都會受到傷害，因此長距離航行既緩慢又艱難。
-				[nn]隨著你研究新的[TIP:LOC_PEDIA_CONCEPTS_TECH_TOOLTIP]科技[/TIP]，其他單位也能進入海洋；而當你研究「造船術」後，便最終能夠克服惡劣海況帶來的傷害與移動減益。
-			</Text>
+				[nn]隨著你研究新的[TIP:LOC_PEDIA_CONCEPTS_TECH_TOOLTIP]科技[/TIP]，其他單位也能進入海洋；而當你研究「造船術」後，便最終能夠克服惡劣海況帶來的傷害與移動減益。</Text>
     </Replace>
     <Replace Tag="LOC_ADVICE_EXPLORATION_MILITARY_DISTANT_LANDS_NOTE_DESC" Language="zh_Hant_HK">
       <Text>
@@ -11923,6 +11968,9 @@
     <Replace Tag="LOC_ATTR_CITY_UNIT_PURCHASE_DISCOUNT" Language="zh_Hant_HK">
       <Text>城市單位購買折扣</Text>
     </Replace>
+    <Replace Tag="LOC_ATTR_CITY_UNIT_TAG_PURCHASE_DISCOUNT" Language="zh_Hant_HK">
+      <Text>聚落單位標籤購買折扣</Text>
+    </Replace>
     <Replace Tag="LOC_ATTR_CITY_YIELD" Language="zh_Hant_HK">
       <Text>城市收益</Text>
     </Replace>
@@ -12421,6 +12469,9 @@
     <Replace Tag="LOC_ATTR_YIELDS_FROM_NUM_MASTERED_TECHS" Language="zh_Hant_HK">
       <Text>來自已精通的科技的收益</Text>
     </Replace>
+    <Replace Tag="LOC_ATTR_YIELDS_FROM_NUM_SETTLED_CONTINENTS" Language="zh_Hant_HK">
+      <Text>已建立聚落之大陸的數量</Text>
+    </Replace>
     <Replace Tag="LOC_ATTR_YIELDS_FROM_NUM_TOWNS" Language="zh_Hant_HK">
       <Text>城鎮數量</Text>
     </Replace>
@@ -12760,6 +12811,9 @@
     <Replace Tag="LOC_BADGE_DLC_SEASONPASS_4_NAME" Language="zh_Hant_HK">
       <Text>筆墨與刀鋒的徽章</Text>
     </Replace>
+    <Replace Tag="LOC_BADGE_DLC_SEASONPASS_5_NAME" Language="zh_Hant_HK">
+      <Text>歷史殿堂的徽章</Text>
+    </Replace>
     <Replace Tag="LOC_BADGE_EVENT_PARTICIPATION_LEADERMIXNMATCH_NAME" Language="zh_Hant_HK">
       <Text>首次活動參與徽章</Text>
     </Replace>
@@ -12994,6 +13048,9 @@
     <Replace Tag="LOC_BANNER_DLC_SEASONPASS_4_NAME" Language="zh_Hant_HK">
       <Text>筆墨與刀鋒的旗幟</Text>
     </Replace>
+    <Replace Tag="LOC_BANNER_DLC_SEASONPASS_5_NAME" Language="zh_Hant_HK">
+      <Text>歷史殿堂的旗幟</Text>
+    </Replace>
     <Replace Tag="LOC_BANNER_FOUNDATION_1_NAME" Language="zh_Hant_HK">
       <Text>天啟</Text>
     </Replace>
@@ -13119,6 +13176,9 @@
     </Replace>
     <Replace Tag="LOC_BORDER_DLC_SEASONPASS_4_NAME" Language="zh_Hant_HK">
       <Text>筆墨與刀鋒的邊框</Text>
+    </Replace>
+    <Replace Tag="LOC_BORDER_DLC_SEASONPASS_5_NAME" Language="zh_Hant_HK">
+      <Text>歷史殿堂的邊框</Text>
     </Replace>
     <Replace Tag="LOC_BORDER_INTERMEDIATE_NAME" Language="zh_Hant_HK">
       <Text>邊框2</Text>
@@ -13561,6 +13621,12 @@
     <Replace Tag="LOC_COMMERCE_AVAILABLE_TRADE_ROUTES_TITLE" Language="zh_Hant_HK">
       <Text>可用的貿易路線</Text>
     </Replace>
+    <Replace Tag="LOC_COMMERCE_CANNOT_REPLACE_RESOURCE_LABEL" Language="zh_Hant_HK">
+      <Text>目前的資源無法替換</Text>
+    </Replace>
+    <Replace Tag="LOC_COMMERCE_CITY_RESOURCES_CANNOT_BE_ASSIGNED_TO_A_TOWN" Language="zh_Hant_HK">
+      <Text>[icon:YIELD_CITIES]城市資源無法分配給城鎮。</Text>
+    </Replace>
     <Replace Tag="LOC_COMMERCE_CONNECTED_TITLE" Language="zh_Hant_HK">
       <Text>已相連</Text>
     </Replace>
@@ -13633,11 +13699,20 @@
     <Replace Tag="LOC_COMMERCE_NOT_GENERATING_TITLE" Language="zh_Hant_HK">
       <Text>未生成</Text>
     </Replace>
+    <Replace Tag="LOC_COMMERCE_PLOT_DAMAGED" Language="zh_Hant_HK">
+      <Text>該格位已受損，需先修復後，此資源方能提供收益。</Text>
+    </Replace>
     <Replace Tag="LOC_COMMERCE_REPLACE_RESOURCE_LABEL" Language="zh_Hant_HK">
       <Text>替換</Text>
     </Replace>
     <Replace Tag="LOC_COMMERCE_RESOURCE_ALLOCATION_DESCRIPTION" Language="zh_Hant_HK">
       <Text>將資源指派至你的聚落，以最大化其收益！</Text>
+    </Replace>
+    <Replace Tag="LOC_COMMERCE_RESOURCE_CAMELS_REPLACE_FAIL" Language="zh_Hant_HK">
+      <Text>移動駱駝資源前，請先騰出一些資源槽位，因為它會使所分配至的[icon:YIELD_CITIES]城市+2[icon:RADIAL_RESOURCES]資源容量。</Text>
+    </Replace>
+    <Replace Tag="LOC_COMMERCE_RESOURCE_REPLACEMENT_FAILED_LABEL" Language="zh_Hant_HK">
+      <Text>資源替換失敗</Text>
     </Replace>
     <Replace Tag="LOC_COMMERCE_RESOURCE_SETTLEMENT_SORT_CULTURE_YIELD" Language="zh_Hant_HK">
       <Text>文化值產量</Text>
@@ -13908,6 +13983,9 @@
     </Replace>
     <Replace Tag="LOC_DEDICATIONS_CHOOSE_DEDICATIONS_DESC" Language="zh_Hant_HK">
       <Text>點選或拖曳奉獻，將其指派至空白槽位。</Text>
+    </Replace>
+    <Replace Tag="LOC_DEDICATIONS_CHOOSE_DEDICATIONS_DESC_AA" Language="zh_Hant_HK">
+      <Text>選擇一項奉獻，將其指派至空白槽位。</Text>
     </Replace>
     <Replace Tag="LOC_DEDICATIONS_CONFIRM_DEDICATIONS_EMPTY" Language="zh_Hant_HK">
       <Text>你仍有空白的奉獻槽位。[N]奉獻卡牌僅能在時代轉場期間變更。[N]確定要繼續嗎？</Text>
@@ -14770,6 +14848,9 @@
     <Replace Tag="LOC_DIPLOMACY_CALL_TO_ARMS_STAY_NEUTRAL_TITLE" Language="zh_Hant_HK">
       <Text>保持中立</Text>
     </Replace>
+    <Replace Tag="LOC_DIPLOMACY_CANNOT_AVOID_WAR_BETWEEN_ALLIES" Language="zh_Hant_HK">
+      <Text>你無法花費影響力來避免盟友之間的這場戰爭。</Text>
+    </Replace>
     <Replace Tag="LOC_DIPLOMACY_CHOSEN_BONUS_TITLE" Language="zh_Hant_HK">
       <Text>城邦加成</Text>
     </Replace>
@@ -14994,6 +15075,9 @@
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_NO_SUZERAIN" Language="zh_Hant_HK">
       <Text>無宗主國</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_NOT_ENOUGH_INFLUENCE" Language="zh_Hant_HK">
+      <Text>你沒有足夠的[icon:YIELD_DIPLOMACY]影響力。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_ONGOING_ACTIONS" Language="zh_Hant_HK">
       <Text>進行中的專案</Text>
@@ -15269,7 +15353,7 @@
       <Text>在此外交行動完成時獲得一個傳統槽位。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_GRANT_POLICY_SLOT_SUPPORT" Language="zh_Hant_HK">
-      <Text>雙方在此外交行動完成時都能獲得一個傳統槽位。</Text>
+      <Text>此外交行動完成時，雙方玩家各獲得一個[icon:NAR_REW_TRADITION_SLOT]傳統槽位。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_IMPROVE_TRADE_RELATIONS_INITIAL" Language="zh_Hant_HK">
       <Text>若接受行動，將你能和對方文明建立的[icon:TRADE_ROUTE]貿易路線數量永久提升1。[n]對方接受：目標獲得[icon:YIELD_GOLD]金幣。</Text>
@@ -15718,6 +15802,9 @@
     <Replace Tag="LOC_DLC_SEASONPASS_4_UNLOCK_CONDITION" Language="zh_Hant_HK">
       <Text>解鎖條件：購買筆墨與刀鋒。</Text>
     </Replace>
+    <Replace Tag="LOC_DLC_SEASONPASS_5_UNLOCK_CONDITION" Language="zh_Hant_HK">
+      <Text>解鎖條件：購買歷史殿堂。</Text>
+    </Replace>
     <Replace Tag="LOC_DOMINION_POINTS_NEEDED_TO_WIN" Language="zh_Hant_HK">
       <Text>獲勝所需的霸權值</Text>
     </Replace>
@@ -15917,10 +16004,10 @@
       <Text>火山地形。</Text>
     </Replace>
     <Replace Tag="LOC_FEATURE_MOUNT_EVEREST_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>+2[icon:YIELD_HAPPINESS]幸福感、+2[icon:YIELD_CULTURE]文化值、+2[icon:YIELD_DIPLOMACY]影響力，依照時代疊加。一經探索，揭露你大陸上的所有山脈地形。</Text>
+      <Text>+2[icon:YIELD_HAPPINESS]幸福感、+2[icon:YIELD_CULTURE]文化值、+2[icon:YIELD_DIPLOMACY]影響力，依照時代疊加。發現時，揭露與聖母峰位於同一大陸上的所有山脈地形。</Text>
     </Replace>
     <Replace Tag="LOC_FEATURE_MOUNT_EVEREST_TOOLTIP" Language="zh_Hant_HK">
-      <Text>一經探索，揭露你大陸上的所有山脈地形。</Text>
+      <Text>發現時，揭露與聖母峰位於同一大陸上的所有山脈地形。</Text>
     </Replace>
     <Replace Tag="LOC_FEATURE_REDWOOD_FOREST_DESCRIPTION" Language="zh_Hant_HK">
       <Text>+2[icon:YIELD_FOOD]食物、[icon:YIELD_HAPPINESS]幸福感，以及[icon:YIELD_PRODUCTION]生產力，依照時代疊加。此聚落中有植被的地形上的[icon:CITY_RURAL]改良設施+1[icon:YIELD_CULTURE]文化值和[icon:YIELD_SCIENCE]科技值。</Text>
@@ -16262,10 +16349,10 @@
       <Text>對方佔領了你的聚落</Text>
     </Replace>
     <Replace Tag="LOC_GRIEVANCE_FROM_CLOSE_LAND_CLAIM" Language="zh_Hant_HK">
-      <Text>你建立聚落的位置離對方的[icon:NOTIFICATION_SELECT_CAPITAL]首都太近</Text>
+      <Text>你建立聚落的位置離對方的首都太近</Text>
     </Replace>
     <Replace Tag="LOC_GRIEVANCE_FROM_CLOSE_LAND_CLAIM_ALT" Language="zh_Hant_HK">
-      <Text>對方建立聚落的位置離你的[icon:NOTIFICATION_SELECT_CAPITAL]首都太近</Text>
+      <Text>對方建立聚落的位置離你的首都太近</Text>
     </Replace>
     <Replace Tag="LOC_GRIEVANCE_FROM_CLOSE_MILITARY" Language="zh_Hant_HK">
       <Text>你讓軍事單位停留在對方的文明附近</Text>
@@ -16287,6 +16374,12 @@
     </Replace>
     <Replace Tag="LOC_GRIEVANCE_FROM_ESPIONAGE_DISCOVERY" Language="zh_Hant_HK">
       <Text>來自諜報發現</Text>
+    </Replace>
+    <Replace Tag="LOC_GRIEVANCE_FROM_NUCLEAR_ATTACK" Language="zh_Hant_HK">
+      <Text>你向對方發動了核子打擊</Text>
+    </Replace>
+    <Replace Tag="LOC_GRIEVANCE_FROM_NUCLEAR_ATTACK_ALT" Language="zh_Hant_HK">
+      <Text>對方向你發動了核子打擊</Text>
     </Replace>
     <Replace Tag="LOC_GRIEVANCE_FROM_OPPOSE" Language="zh_Hant_HK">
       <Text>你拒絕了對方的外交行動</Text>
@@ -17012,10 +17105,7 @@
       <Text>恐懼</Text>
     </Replace>
     <Replace Tag="LOC_KEYWORD_ABILITY_FEAR_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>相鄰的敵方單位-4[icon:NAR_REW_COMBAT][TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]戰鬥力[/TIP]，加成無法疊加。</Text>
-    </Replace>
-    <Replace Tag="LOC_KEYWORD_ABILITY_FEAR_PREVIEW" Language="zh_Hant_HK">
-      <Text>-4恐懼</Text>
+      <Text>相鄰的敵方單位-2[icon:NAR_REW_COMBAT][TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]戰鬥力[/TIP]，此加成可疊加。</Text>
     </Replace>
     <Replace Tag="LOC_KEYWORD_ABILITY_FIRST_STRIKE" Language="zh_Hant_HK">
       <Text>先發制人</Text>
@@ -17834,7 +17924,7 @@
       <Text>每有1指派的[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]資源[/TIP]，便[B]+2[icon:YIELD_GOLD][/B]。</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_ECONOMIC_1_NAME" Language="zh_Hant_HK">
-      <Text>汗·哈利利市集</Text>
+      <Text>汗‧哈利利市集</Text>
     </Replace>
     <Replace Tag="LOC_LEGACY_EX_ECONOMIC_1_RACE_TRIGGER_DESCRIPTION" Language="zh_Hant_HK">
       <Text>最先指派[B]45[icon:RADIAL_RESOURCES][/B][TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]資源[/TIP]。</Text>
@@ -18953,7 +19043,7 @@
       <Text>偉大的法老哈特謝普蘇特，你的名字一次又一次被刻印在不朽的石頭上。伸出你的手，在沙漠中再次帶來奇跡吧。確保你的人民能像河流一般有起有落，卻永不消逝。</Text>
     </Replace>
     <Replace Tag="LOC_LOADING_LEADER_INTRO_TEXT_HIMIKO" Language="zh_Hant_HK">
-      <Text>邪馬台國的巫女王卑彌呼啊，你立於陰陽兩界之間。引導土地的力量，你將森林化為神社、瀑布化為音樂，就連高山本身也成了你的盟友。神風即將吹起；偉大的女王，指引它的方向吧。</Text>
+      <Text>邪馬臺國的巫女王卑彌呼啊，你立於陰陽兩界之間。引導土地的力量，你將森林化為神社、瀑布化為音樂，就連高山本身也成了你的盟友。神風即將吹起；偉大的女王，指引它的方向吧。</Text>
     </Replace>
     <Replace Tag="LOC_LOADING_LEADER_INTRO_TEXT_IBN_BATTUTA" Language="zh_Hant_HK">
       <Text>流浪者的道路無比漫長，但世間罕有行者能與穆罕默德‧伊本‧巴圖塔比肩。這位卡迪四處收集故事、解決爭端，並為那些尋求他智慧的人編纂判例。拿起你的朝聖手杖，邁出旅程的第一步吧。</Text>
@@ -19112,7 +19202,7 @@
       <Text>經典群島布局，東西兩側設有固定群島，提供更具結構性的遊戲體驗。</Text>
     </Replace>
     <Replace Tag="LOC_MAP_ARCHIPELAGO_VORONOI_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>由兩大主要群島構成的地圖，群島形狀與規模各異，海洋間散布著諸多的小島與島鏈。</Text>
+      <Text>由兩大主要群島構成的地圖，群島形狀與規模各異，海洋間散佈著諸多的小島與島鏈。</Text>
     </Replace>
     <Replace Tag="LOC_MAP_CONTINENTS_DESCRIPTION" Language="zh_Hant_HK">
       <Text>大塊且連續的土地面積，提供較為平衡的遊戲表現。</Text>
@@ -19127,7 +19217,7 @@
       <Text>選擇此遊戲的地圖類型</Text>
     </Replace>
     <Replace Tag="LOC_MAP_EARTH_DESCRIPTION" Language="zh_Hant_HK">
-      <Text>Taymoor的地球 WIP</Text>
+      <Text>一張超大型地球地圖，盡可能貼近現實世界，包含地形、河流、資源與自然奇觀的位置。</Text>
     </Replace>
     <Replace Tag="LOC_MAP_FRACTAL_DESCRIPTION" Language="zh_Hant_HK">
       <Text>難以預料的地圖，可能會導致產生許多陸地。</Text>
@@ -19153,6 +19243,9 @@
     <Replace Tag="LOC_MAP_SHUFFLE_DESCRIPTION" Language="zh_Hant_HK">
       <Text>這張地圖會揭露什麼秘密呢？</Text>
     </Replace>
+    <Replace Tag="LOC_MAP_SHUFFLE_VORONOI_DESCRIPTION" Language="zh_Hant_HK">
+      <Text>一張會在不同區域採用多種不同地圖生成風格的地圖。</Text>
+    </Replace>
     <Replace Tag="LOC_MAP_SIZE" Language="zh_Hant_HK">
       <Text>地圖大小</Text>
     </Replace>
@@ -19165,8 +19258,14 @@
     <Replace Tag="LOC_MAP_START_POSITION_STANDARD_DESCRIPTION" Language="zh_Hant_HK">
       <Text>更為自然的地圖形狀；每名玩家的開場區域可能會沒那麼平衡。</Text>
     </Replace>
+    <Replace Tag="LOC_MAP_START_POSITION_TSL_HUGE_DESCRIPTION" Language="zh_Hant_HK">
+      <Text>開場位置將由你所選文明的歷史發源地決定。</Text>
+    </Replace>
     <Replace Tag="LOC_MAP_TERRA_INCOGNITA_DESCRIPTION" Language="zh_Hant_HK">
       <Text>經典的家鄉土地地圖，有著許多難以預料的遙遠土地。</Text>
+    </Replace>
+    <Replace Tag="LOC_MAP_TERRA_INCOGNITA_VORONOI_DESCRIPTION" Language="zh_Hant_HK">
+      <Text>隨機地圖類型的變體，起始區域必定位於大陸之上。</Text>
     </Replace>
     <Replace Tag="LOC_MAPSEED_NAME" Language="zh_Hant_HK">
       <Text>地圖隨機種子</Text>
@@ -21338,19 +21437,19 @@
       <Text>奇境</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BENJAMIN_FRANKLIN_CULTURE_TRIUMPH_ANTIQUITY_DESC" Language="zh_Hant_HK">
-      <Text>扮演班傑明·富蘭克林，完成「遠古世界的奇觀」凱旋挑戰。</Text>
+      <Text>扮演班傑明‧富蘭克林，完成「遠古世界的奇觀」凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BENJAMIN_FRANKLIN_CULTURE_TRIUMPH_ANTIQUITY_NAME" Language="zh_Hant_HK">
       <Text>遠古世界的奇觀</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BENJAMIN_FRANKLIN_CULTURE_TRIUMPH_EXPLORATION_DESC" Language="zh_Hant_HK">
-      <Text>扮演班傑明·富蘭克林，完成「藏寶庫」凱旋挑戰。</Text>
+      <Text>扮演班傑明‧富蘭克林，完成「藏寶庫」凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BENJAMIN_FRANKLIN_CULTURE_TRIUMPH_EXPLORATION_NAME" Language="zh_Hant_HK">
       <Text>藏寶庫</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BENJAMIN_FRANKLIN_CULTURE_TRIUMPH_MODERN_DESC" Language="zh_Hant_HK">
-      <Text>扮演班傑明·富蘭克林，完成「地理學會」凱旋挑戰。</Text>
+      <Text>扮演班傑明‧富蘭克林，完成「地理學會」凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BENJAMIN_FRANKLIN_CULTURE_TRIUMPH_MODERN_NAME" Language="zh_Hant_HK">
       <Text>地理學會</Text>
@@ -21386,19 +21485,19 @@
       <Text>恩尼格瑪密碼</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BENJAMIN_FRANKLIN_DIPLOMATIC_TRIUMPH_ANTIQUITY_DESC" Language="zh_Hant_HK">
-      <Text>扮演班傑明·富蘭克林，完成「幕後操縱」凱旋挑戰。</Text>
+      <Text>扮演班傑明‧富蘭克林，完成「幕後操縱」凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BENJAMIN_FRANKLIN_DIPLOMATIC_TRIUMPH_ANTIQUITY_NAME" Language="zh_Hant_HK">
       <Text>幕後操縱</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BENJAMIN_FRANKLIN_DIPLOMATIC_TRIUMPH_EXPLORATION_DESC" Language="zh_Hant_HK">
-      <Text>扮演班傑明·富蘭克林，完成「阿薩辛派」凱旋挑戰。</Text>
+      <Text>扮演班傑明‧富蘭克林，完成「阿薩辛派」凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BENJAMIN_FRANKLIN_DIPLOMATIC_TRIUMPH_EXPLORATION_NAME" Language="zh_Hant_HK">
       <Text>阿薩辛派</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BENJAMIN_FRANKLIN_DIPLOMATIC_TRIUMPH_MODERN_DESC" Language="zh_Hant_HK">
-      <Text>扮演班傑明·富蘭克林，完成「萬國聯盟」凱旋挑戰。</Text>
+      <Text>扮演班傑明‧富蘭克林，完成「萬國聯盟」凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BENJAMIN_FRANKLIN_DIPLOMATIC_TRIUMPH_MODERN_NAME" Language="zh_Hant_HK">
       <Text>萬國聯盟</Text>
@@ -21422,19 +21521,19 @@
       <Text>世界的工坊</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BENJAMIN_FRANKLIN_ECONOMIC_TRIUMPH_ANTIQUITY_DESC" Language="zh_Hant_HK">
-      <Text>扮演班傑明·富蘭克林，完成「絲路」凱旋挑戰。</Text>
+      <Text>扮演班傑明‧富蘭克林，完成「絲路」凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BENJAMIN_FRANKLIN_ECONOMIC_TRIUMPH_ANTIQUITY_NAME" Language="zh_Hant_HK">
       <Text>絲路</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BENJAMIN_FRANKLIN_ECONOMIC_TRIUMPH_EXPLORATION_DESC" Language="zh_Hant_HK">
-      <Text>扮演班傑明·富蘭克林，完成「寶藏艦隊」凱旋挑戰。</Text>
+      <Text>扮演班傑明‧富蘭克林，完成「寶藏艦隊」凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BENJAMIN_FRANKLIN_ECONOMIC_TRIUMPH_EXPLORATION_NAME" Language="zh_Hant_HK">
       <Text>寶藏艦隊</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BENJAMIN_FRANKLIN_ECONOMIC_TRIUMPH_MODERN_DESC" Language="zh_Hant_HK">
-      <Text>扮演班傑明·富蘭克林，完成「鐵路大亨」凱旋挑戰。</Text>
+      <Text>扮演班傑明‧富蘭克林，完成「鐵路大亨」凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BENJAMIN_FRANKLIN_ECONOMIC_TRIUMPH_MODERN_NAME" Language="zh_Hant_HK">
       <Text>鐵路大亨</Text>
@@ -21464,31 +21563,31 @@
       <Text>巨型都會</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BENJAMIN_FRANKLIN_EXPANSIONIST_TRIUMPH_ANTIQUITY_DESC" Language="zh_Hant_HK">
-      <Text>扮演班傑明·富蘭克林，完成「世界四極」凱旋挑戰。</Text>
+      <Text>扮演班傑明‧富蘭克林，完成「世界四極」凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BENJAMIN_FRANKLIN_EXPANSIONIST_TRIUMPH_ANTIQUITY_NAME" Language="zh_Hant_HK">
       <Text>世界四極</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BENJAMIN_FRANKLIN_EXPANSIONIST_TRIUMPH_EXPLORATION_DESC" Language="zh_Hant_HK">
-      <Text>扮演班傑明·富蘭克林，完成「未知危險之地」凱旋挑戰。</Text>
+      <Text>扮演班傑明‧富蘭克林，完成「未知危險之地」凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BENJAMIN_FRANKLIN_EXPANSIONIST_TRIUMPH_EXPLORATION_NAME" Language="zh_Hant_HK">
       <Text>未知危險之地</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BENJAMIN_FRANKLIN_EXPANSIONIST_TRIUMPH_MODERN_DESC" Language="zh_Hant_HK">
-      <Text>扮演班傑明·富蘭克林，完成「日不落」凱旋挑戰。</Text>
+      <Text>扮演班傑明‧富蘭克林，完成「日不落」凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BENJAMIN_FRANKLIN_EXPANSIONIST_TRIUMPH_MODERN_NAME" Language="zh_Hant_HK">
       <Text>日不落</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BENJAMIN_FRANKLIN_FOUR_MAJOR_TRIUMPHS_ANTIQUITY_DESC" Language="zh_Hant_HK">
-      <Text>扮演班傑明·富蘭克林，在一次古典時代中完成4項大型凱旋挑戰。</Text>
+      <Text>扮演班傑明‧富蘭克林，在一次古典時代中完成4項大型凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BENJAMIN_FRANKLIN_FOUR_MAJOR_TRIUMPHS_ANTIQUITY_NAME" Language="zh_Hant_HK">
       <Text>凱旋高歌，古典時代</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BENJAMIN_FRANKLIN_FOUR_MAJOR_TRIUMPHS_EXPLORATION_DESC" Language="zh_Hant_HK">
-      <Text>扮演班傑明·富蘭克林，在一次探索時代中完成4項大型凱旋挑戰。</Text>
+      <Text>扮演班傑明‧富蘭克林，在一次探索時代中完成4項大型凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BENJAMIN_FRANKLIN_FOUR_MAJOR_TRIUMPHS_EXPLORATION_NAME" Language="zh_Hant_HK">
       <Text>凱旋高歌，探索時代</Text>
@@ -21518,13 +21617,13 @@
       <Text>和平帝國</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BENJAMIN_FRANKLIN_MILITARY_TRIUMPH_EXPLORATION_DESC" Language="zh_Hant_HK">
-      <Text>扮演班傑明·富蘭克林，完成「世界不夠大」凱旋挑戰。</Text>
+      <Text>扮演班傑明‧富蘭克林，完成「世界不夠大」凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BENJAMIN_FRANKLIN_MILITARY_TRIUMPH_EXPLORATION_NAME" Language="zh_Hant_HK">
       <Text>世界不夠大</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BENJAMIN_FRANKLIN_MILITARY_TRIUMPH_MODERN_DESC" Language="zh_Hant_HK">
-      <Text>扮演班傑明·富蘭克林，完成「道德責任」凱旋挑戰。</Text>
+      <Text>扮演班傑明‧富蘭克林，完成「道德責任」凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BENJAMIN_FRANKLIN_MILITARY_TRIUMPH_MODERN_NAME" Language="zh_Hant_HK">
       <Text>道德責任</Text>
@@ -21536,19 +21635,19 @@
       <Text>軍事勝利</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BENJAMIN_FRANKLIN_PLAY_GAMES_1_DESC" Language="zh_Hant_HK">
-      <Text>扮演班傑明·富蘭克林，完成1項大型凱旋挑戰。</Text>
+      <Text>扮演班傑明‧富蘭克林，完成1項大型凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BENJAMIN_FRANKLIN_PLAY_GAMES_1_NAME" Language="zh_Hant_HK">
       <Text>開始遊戲1</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BENJAMIN_FRANKLIN_PLAY_GAMES_2_DESC" Language="zh_Hant_HK">
-      <Text>扮演班傑明·富蘭克林，在任何數量的時代間完成5項大型凱旋挑戰。</Text>
+      <Text>扮演班傑明‧富蘭克林，在任何數量的時代間完成5項大型凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BENJAMIN_FRANKLIN_PLAY_GAMES_2_NAME" Language="zh_Hant_HK">
       <Text>開始遊戲2</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BENJAMIN_FRANKLIN_PLAY_GAMES_3_DESC" Language="zh_Hant_HK">
-      <Text>扮演班傑明·富蘭克林，在任何數量的時代間完成25項大型凱旋挑戰。</Text>
+      <Text>扮演班傑明‧富蘭克林，在任何數量的時代間完成25項大型凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BENJAMIN_FRANKLIN_PLAY_GAMES_3_NAME" Language="zh_Hant_HK">
       <Text>開始遊戲3</Text>
@@ -21572,19 +21671,19 @@
       <Text>超越刀劍</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BENJAMIN_FRANKLIN_SCIENCE_TRIUMPH_ANTIQUITY_DESC" Language="zh_Hant_HK">
-      <Text>扮演班傑明·富蘭克林，完成「亞述巴尼拔的藏書館」凱旋挑戰。</Text>
+      <Text>扮演班傑明‧富蘭克林，完成「亞述巴尼拔的藏書館」凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BENJAMIN_FRANKLIN_SCIENCE_TRIUMPH_ANTIQUITY_NAME" Language="zh_Hant_HK">
       <Text>亞述巴尼拔的藏書館</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BENJAMIN_FRANKLIN_SCIENCE_TRIUMPH_EXPLORATION_DESC" Language="zh_Hant_HK">
-      <Text>扮演班傑明·富蘭克林，完成「啟蒙」凱旋挑戰。</Text>
+      <Text>扮演班傑明‧富蘭克林，完成「啟蒙」凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BENJAMIN_FRANKLIN_SCIENCE_TRIUMPH_EXPLORATION_NAME" Language="zh_Hant_HK">
       <Text>啟蒙</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BENJAMIN_FRANKLIN_SCIENCE_TRIUMPH_MODERN_DESC" Language="zh_Hant_HK">
-      <Text>扮演班傑明·富蘭克林，完成「太空競賽的黎明」凱旋挑戰。</Text>
+      <Text>扮演班傑明‧富蘭克林，完成「太空競賽的黎明」凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_BENJAMIN_FRANKLIN_SCIENCE_TRIUMPH_MODERN_NAME" Language="zh_Hant_HK">
       <Text>太空競賽的黎明</Text>
@@ -23510,19 +23609,19 @@
       <Text>奇境</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_HARRIET_TUBMAN_CULTURE_TRIUMPH_ANTIQUITY_DESC" Language="zh_Hant_HK">
-      <Text>扮演哈莉特·塔布曼，完成「遠古世界的奇觀」凱旋挑戰。</Text>
+      <Text>扮演哈莉特‧塔布曼，完成「遠古世界的奇觀」凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_HARRIET_TUBMAN_CULTURE_TRIUMPH_ANTIQUITY_NAME" Language="zh_Hant_HK">
       <Text>遠古世界的奇觀</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_HARRIET_TUBMAN_CULTURE_TRIUMPH_EXPLORATION_DESC" Language="zh_Hant_HK">
-      <Text>扮演哈莉特·塔布曼，完成「藏寶庫」凱旋挑戰。</Text>
+      <Text>扮演哈莉特‧塔布曼，完成「藏寶庫」凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_HARRIET_TUBMAN_CULTURE_TRIUMPH_EXPLORATION_NAME" Language="zh_Hant_HK">
       <Text>藏寶庫</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_HARRIET_TUBMAN_CULTURE_TRIUMPH_MODERN_DESC" Language="zh_Hant_HK">
-      <Text>扮演哈莉特·塔布曼，完成「地理學會」凱旋挑戰。</Text>
+      <Text>扮演哈莉特‧塔布曼，完成「地理學會」凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_HARRIET_TUBMAN_CULTURE_TRIUMPH_MODERN_NAME" Language="zh_Hant_HK">
       <Text>地理學會</Text>
@@ -23558,19 +23657,19 @@
       <Text>恩尼格瑪密碼</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_HARRIET_TUBMAN_DIPLOMATIC_TRIUMPH_ANTIQUITY_DESC" Language="zh_Hant_HK">
-      <Text>扮演哈莉特·塔布曼，完成「幕後操縱」凱旋挑戰。</Text>
+      <Text>扮演哈莉特‧塔布曼，完成「幕後操縱」凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_HARRIET_TUBMAN_DIPLOMATIC_TRIUMPH_ANTIQUITY_NAME" Language="zh_Hant_HK">
       <Text>幕後操縱</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_HARRIET_TUBMAN_DIPLOMATIC_TRIUMPH_EXPLORATION_DESC" Language="zh_Hant_HK">
-      <Text>扮演哈莉特·塔布曼，完成「阿薩辛派」凱旋挑戰。</Text>
+      <Text>扮演哈莉特‧塔布曼，完成「阿薩辛派」凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_HARRIET_TUBMAN_DIPLOMATIC_TRIUMPH_EXPLORATION_NAME" Language="zh_Hant_HK">
       <Text>阿薩辛派</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_HARRIET_TUBMAN_DIPLOMATIC_TRIUMPH_MODERN_DESC" Language="zh_Hant_HK">
-      <Text>扮演哈莉特·塔布曼，完成「萬國聯盟」凱旋挑戰。</Text>
+      <Text>扮演哈莉特‧塔布曼，完成「萬國聯盟」凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_HARRIET_TUBMAN_DIPLOMATIC_TRIUMPH_MODERN_NAME" Language="zh_Hant_HK">
       <Text>萬國聯盟</Text>
@@ -23594,19 +23693,19 @@
       <Text>世界的工坊</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_HARRIET_TUBMAN_ECONOMIC_TRIUMPH_ANTIQUITY_DESC" Language="zh_Hant_HK">
-      <Text>扮演哈莉特·塔布曼，完成「絲路」凱旋挑戰。</Text>
+      <Text>扮演哈莉特‧塔布曼，完成「絲路」凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_HARRIET_TUBMAN_ECONOMIC_TRIUMPH_ANTIQUITY_NAME" Language="zh_Hant_HK">
       <Text>絲路</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_HARRIET_TUBMAN_ECONOMIC_TRIUMPH_EXPLORATION_DESC" Language="zh_Hant_HK">
-      <Text>扮演哈莉特·塔布曼，完成「寶藏艦隊」凱旋挑戰。</Text>
+      <Text>扮演哈莉特‧塔布曼，完成「寶藏艦隊」凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_HARRIET_TUBMAN_ECONOMIC_TRIUMPH_EXPLORATION_NAME" Language="zh_Hant_HK">
       <Text>寶藏艦隊</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_HARRIET_TUBMAN_ECONOMIC_TRIUMPH_MODERN_DESC" Language="zh_Hant_HK">
-      <Text>扮演哈莉特·塔布曼，完成「鐵路大亨」凱旋挑戰。</Text>
+      <Text>扮演哈莉特‧塔布曼，完成「鐵路大亨」凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_HARRIET_TUBMAN_ECONOMIC_TRIUMPH_MODERN_NAME" Language="zh_Hant_HK">
       <Text>鐵路大亨</Text>
@@ -23636,31 +23735,31 @@
       <Text>巨型都會</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_HARRIET_TUBMAN_EXPANSIONIST_TRIUMPH_ANTIQUITY_DESC" Language="zh_Hant_HK">
-      <Text>扮演哈莉特·塔布曼，完成「世界四極」凱旋挑戰。</Text>
+      <Text>扮演哈莉特‧塔布曼，完成「世界四極」凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_HARRIET_TUBMAN_EXPANSIONIST_TRIUMPH_ANTIQUITY_NAME" Language="zh_Hant_HK">
       <Text>世界四極</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_HARRIET_TUBMAN_EXPANSIONIST_TRIUMPH_EXPLORATION_DESC" Language="zh_Hant_HK">
-      <Text>扮演哈莉特·塔布曼，完成「未知危險之地」凱旋挑戰。</Text>
+      <Text>扮演哈莉特‧塔布曼，完成「未知危險之地」凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_HARRIET_TUBMAN_EXPANSIONIST_TRIUMPH_EXPLORATION_NAME" Language="zh_Hant_HK">
       <Text>未知危險之地</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_HARRIET_TUBMAN_EXPANSIONIST_TRIUMPH_MODERN_DESC" Language="zh_Hant_HK">
-      <Text>扮演哈莉特·塔布曼，完成「日不落」凱旋挑戰。</Text>
+      <Text>扮演哈莉特‧塔布曼，完成「日不落」凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_HARRIET_TUBMAN_EXPANSIONIST_TRIUMPH_MODERN_NAME" Language="zh_Hant_HK">
       <Text>日不落</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_HARRIET_TUBMAN_FOUR_MAJOR_TRIUMPHS_ANTIQUITY_DESC" Language="zh_Hant_HK">
-      <Text>扮演哈莉特·塔布曼，在一次古典時代中完成4項大型凱旋挑戰。</Text>
+      <Text>扮演哈莉特‧塔布曼，在一次古典時代中完成4項大型凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_HARRIET_TUBMAN_FOUR_MAJOR_TRIUMPHS_ANTIQUITY_NAME" Language="zh_Hant_HK">
       <Text>凱旋高歌，古典時代</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_HARRIET_TUBMAN_FOUR_MAJOR_TRIUMPHS_EXPLORATION_DESC" Language="zh_Hant_HK">
-      <Text>扮演哈莉特·塔布曼，在一次探索時代中完成4項大型凱旋挑戰。</Text>
+      <Text>扮演哈莉特‧塔布曼，在一次探索時代中完成4項大型凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_HARRIET_TUBMAN_FOUR_MAJOR_TRIUMPHS_EXPLORATION_NAME" Language="zh_Hant_HK">
       <Text>凱旋高歌，探索時代</Text>
@@ -23690,13 +23789,13 @@
       <Text>和平帝國</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_HARRIET_TUBMAN_MILITARY_TRIUMPH_EXPLORATION_DESC" Language="zh_Hant_HK">
-      <Text>扮演哈莉特·塔布曼，完成「世界不夠大」凱旋挑戰。</Text>
+      <Text>扮演哈莉特‧塔布曼，完成「世界不夠大」凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_HARRIET_TUBMAN_MILITARY_TRIUMPH_EXPLORATION_NAME" Language="zh_Hant_HK">
       <Text>世界不夠大</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_HARRIET_TUBMAN_MILITARY_TRIUMPH_MODERN_DESC" Language="zh_Hant_HK">
-      <Text>扮演哈莉特·塔布曼，完成「道德責任」凱旋挑戰。</Text>
+      <Text>扮演哈莉特‧塔布曼，完成「道德責任」凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_HARRIET_TUBMAN_MILITARY_TRIUMPH_MODERN_NAME" Language="zh_Hant_HK">
       <Text>道德責任</Text>
@@ -23708,19 +23807,19 @@
       <Text>軍事勝利</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_HARRIET_TUBMAN_PLAY_GAMES_1_DESC" Language="zh_Hant_HK">
-      <Text>扮演哈莉特·塔布曼，完成1項大型凱旋挑戰。</Text>
+      <Text>扮演哈莉特‧塔布曼，完成1項大型凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_HARRIET_TUBMAN_PLAY_GAMES_1_NAME" Language="zh_Hant_HK">
       <Text>開始遊戲1</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_HARRIET_TUBMAN_PLAY_GAMES_2_DESC" Language="zh_Hant_HK">
-      <Text>扮演哈莉特·塔布曼，在任何數量的時代間完成5項大型凱旋挑戰。</Text>
+      <Text>扮演哈莉特‧塔布曼，在任何數量的時代間完成5項大型凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_HARRIET_TUBMAN_PLAY_GAMES_2_NAME" Language="zh_Hant_HK">
       <Text>開始遊戲2</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_HARRIET_TUBMAN_PLAY_GAMES_3_DESC" Language="zh_Hant_HK">
-      <Text>扮演哈莉特·塔布曼，在任何數量的時代間完成25項大型凱旋挑戰。</Text>
+      <Text>扮演哈莉特‧塔布曼，在任何數量的時代間完成25項大型凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_HARRIET_TUBMAN_PLAY_GAMES_3_NAME" Language="zh_Hant_HK">
       <Text>開始遊戲3</Text>
@@ -23744,19 +23843,19 @@
       <Text>超越刀劍</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_HARRIET_TUBMAN_SCIENCE_TRIUMPH_ANTIQUITY_DESC" Language="zh_Hant_HK">
-      <Text>扮演哈莉特·塔布曼，完成「亞述巴尼拔的藏書館」凱旋挑戰。</Text>
+      <Text>扮演哈莉特‧塔布曼，完成「亞述巴尼拔的藏書館」凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_HARRIET_TUBMAN_SCIENCE_TRIUMPH_ANTIQUITY_NAME" Language="zh_Hant_HK">
       <Text>亞述巴尼拔的藏書館</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_HARRIET_TUBMAN_SCIENCE_TRIUMPH_EXPLORATION_DESC" Language="zh_Hant_HK">
-      <Text>扮演哈莉特·塔布曼，完成「啟蒙」凱旋挑戰。</Text>
+      <Text>扮演哈莉特‧塔布曼，完成「啟蒙」凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_HARRIET_TUBMAN_SCIENCE_TRIUMPH_EXPLORATION_NAME" Language="zh_Hant_HK">
       <Text>啟蒙</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_HARRIET_TUBMAN_SCIENCE_TRIUMPH_MODERN_DESC" Language="zh_Hant_HK">
-      <Text>扮演哈莉特·塔布曼，完成「太空競賽的黎明」凱旋挑戰。</Text>
+      <Text>扮演哈莉特‧塔布曼，完成「太空競賽的黎明」凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_HARRIET_TUBMAN_SCIENCE_TRIUMPH_MODERN_NAME" Language="zh_Hant_HK">
       <Text>太空競賽的黎明</Text>
@@ -24512,19 +24611,19 @@
       <Text>奇境</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_IBN_BATTUTA_CULTURE_TRIUMPH_ANTIQUITY_DESC" Language="zh_Hant_HK">
-      <Text>扮演伊本·巴圖塔，完成「遠古世界的奇觀」凱旋挑戰。</Text>
+      <Text>扮演伊本‧巴圖塔，完成「遠古世界的奇觀」凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_IBN_BATTUTA_CULTURE_TRIUMPH_ANTIQUITY_NAME" Language="zh_Hant_HK">
       <Text>遠古世界的奇觀</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_IBN_BATTUTA_CULTURE_TRIUMPH_EXPLORATION_DESC" Language="zh_Hant_HK">
-      <Text>扮演伊本·巴圖塔，完成「藏寶庫」凱旋挑戰。</Text>
+      <Text>扮演伊本‧巴圖塔，完成「藏寶庫」凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_IBN_BATTUTA_CULTURE_TRIUMPH_EXPLORATION_NAME" Language="zh_Hant_HK">
       <Text>藏寶庫</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_IBN_BATTUTA_CULTURE_TRIUMPH_MODERN_DESC" Language="zh_Hant_HK">
-      <Text>扮演伊本·巴圖塔，完成「地理學會」凱旋挑戰。</Text>
+      <Text>扮演伊本‧巴圖塔，完成「地理學會」凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_IBN_BATTUTA_CULTURE_TRIUMPH_MODERN_NAME" Language="zh_Hant_HK">
       <Text>地理學會</Text>
@@ -24560,19 +24659,19 @@
       <Text>恩尼格瑪密碼</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_IBN_BATTUTA_DIPLOMATIC_TRIUMPH_ANTIQUITY_DESC" Language="zh_Hant_HK">
-      <Text>扮演伊本·巴圖塔，完成「幕後操縱」凱旋挑戰。</Text>
+      <Text>扮演伊本‧巴圖塔，完成「幕後操縱」凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_IBN_BATTUTA_DIPLOMATIC_TRIUMPH_ANTIQUITY_NAME" Language="zh_Hant_HK">
       <Text>幕後操縱</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_IBN_BATTUTA_DIPLOMATIC_TRIUMPH_EXPLORATION_DESC" Language="zh_Hant_HK">
-      <Text>扮演伊本·巴圖塔，完成「阿薩辛派」凱旋挑戰。</Text>
+      <Text>扮演伊本‧巴圖塔，完成「阿薩辛派」凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_IBN_BATTUTA_DIPLOMATIC_TRIUMPH_EXPLORATION_NAME" Language="zh_Hant_HK">
       <Text>阿薩辛派</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_IBN_BATTUTA_DIPLOMATIC_TRIUMPH_MODERN_DESC" Language="zh_Hant_HK">
-      <Text>扮演伊本·巴圖塔，完成「萬國聯盟」凱旋挑戰。</Text>
+      <Text>扮演伊本‧巴圖塔，完成「萬國聯盟」凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_IBN_BATTUTA_DIPLOMATIC_TRIUMPH_MODERN_NAME" Language="zh_Hant_HK">
       <Text>萬國聯盟</Text>
@@ -24596,19 +24695,19 @@
       <Text>世界的工坊</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_IBN_BATTUTA_ECONOMIC_TRIUMPH_ANTIQUITY_DESC" Language="zh_Hant_HK">
-      <Text>扮演伊本·巴圖塔，完成「絲路」凱旋挑戰。</Text>
+      <Text>扮演伊本‧巴圖塔，完成「絲路」凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_IBN_BATTUTA_ECONOMIC_TRIUMPH_ANTIQUITY_NAME" Language="zh_Hant_HK">
       <Text>絲路</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_IBN_BATTUTA_ECONOMIC_TRIUMPH_EXPLORATION_DESC" Language="zh_Hant_HK">
-      <Text>扮演伊本·巴圖塔，完成「寶藏艦隊」凱旋挑戰。</Text>
+      <Text>扮演伊本‧巴圖塔，完成「寶藏艦隊」凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_IBN_BATTUTA_ECONOMIC_TRIUMPH_EXPLORATION_NAME" Language="zh_Hant_HK">
       <Text>寶藏艦隊</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_IBN_BATTUTA_ECONOMIC_TRIUMPH_MODERN_DESC" Language="zh_Hant_HK">
-      <Text>扮演伊本·巴圖塔，完成「鐵路大亨」凱旋挑戰。</Text>
+      <Text>扮演伊本‧巴圖塔，完成「鐵路大亨」凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_IBN_BATTUTA_ECONOMIC_TRIUMPH_MODERN_NAME" Language="zh_Hant_HK">
       <Text>鐵路大亨</Text>
@@ -24638,31 +24737,31 @@
       <Text>巨型都會</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_IBN_BATTUTA_EXPANSIONIST_TRIUMPH_ANTIQUITY_DESC" Language="zh_Hant_HK">
-      <Text>扮演伊本·巴圖塔，完成「世界四極」凱旋挑戰。</Text>
+      <Text>扮演伊本‧巴圖塔，完成「世界四極」凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_IBN_BATTUTA_EXPANSIONIST_TRIUMPH_ANTIQUITY_NAME" Language="zh_Hant_HK">
       <Text>世界四極</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_IBN_BATTUTA_EXPANSIONIST_TRIUMPH_EXPLORATION_DESC" Language="zh_Hant_HK">
-      <Text>扮演伊本·巴圖塔，完成「未知危險之地」凱旋挑戰。</Text>
+      <Text>扮演伊本‧巴圖塔，完成「未知危險之地」凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_IBN_BATTUTA_EXPANSIONIST_TRIUMPH_EXPLORATION_NAME" Language="zh_Hant_HK">
       <Text>未知危險之地</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_IBN_BATTUTA_EXPANSIONIST_TRIUMPH_MODERN_DESC" Language="zh_Hant_HK">
-      <Text>扮演伊本·巴圖塔，完成「日不落」凱旋挑戰。</Text>
+      <Text>扮演伊本‧巴圖塔，完成「日不落」凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_IBN_BATTUTA_EXPANSIONIST_TRIUMPH_MODERN_NAME" Language="zh_Hant_HK">
       <Text>日不落</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_IBN_BATTUTA_FOUR_MAJOR_TRIUMPHS_ANTIQUITY_DESC" Language="zh_Hant_HK">
-      <Text>扮演伊本·巴圖塔，在一次古典時代中完成4項大型凱旋挑戰。</Text>
+      <Text>扮演伊本‧巴圖塔，在一次古典時代中完成4項大型凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_IBN_BATTUTA_FOUR_MAJOR_TRIUMPHS_ANTIQUITY_NAME" Language="zh_Hant_HK">
       <Text>凱旋高歌，古典時代</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_IBN_BATTUTA_FOUR_MAJOR_TRIUMPHS_EXPLORATION_DESC" Language="zh_Hant_HK">
-      <Text>扮演伊本·巴圖塔，在一次探索時代中完成4項大型凱旋挑戰。</Text>
+      <Text>扮演伊本‧巴圖塔，在一次探索時代中完成4項大型凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_IBN_BATTUTA_FOUR_MAJOR_TRIUMPHS_EXPLORATION_NAME" Language="zh_Hant_HK">
       <Text>凱旋高歌，探索時代</Text>
@@ -24692,13 +24791,13 @@
       <Text>和平帝國</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_IBN_BATTUTA_MILITARY_TRIUMPH_EXPLORATION_DESC" Language="zh_Hant_HK">
-      <Text>扮演伊本·巴圖塔，完成「世界不夠大」凱旋挑戰。</Text>
+      <Text>扮演伊本‧巴圖塔，完成「世界不夠大」凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_IBN_BATTUTA_MILITARY_TRIUMPH_EXPLORATION_NAME" Language="zh_Hant_HK">
       <Text>世界不夠大</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_IBN_BATTUTA_MILITARY_TRIUMPH_MODERN_DESC" Language="zh_Hant_HK">
-      <Text>扮演伊本·巴圖塔，完成「道德責任」凱旋挑戰。</Text>
+      <Text>扮演伊本‧巴圖塔，完成「道德責任」凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_IBN_BATTUTA_MILITARY_TRIUMPH_MODERN_NAME" Language="zh_Hant_HK">
       <Text>道德責任</Text>
@@ -24710,19 +24809,19 @@
       <Text>軍事勝利</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_IBN_BATTUTA_PLAY_GAMES_1_DESC" Language="zh_Hant_HK">
-      <Text>扮演伊本·巴圖塔，完成1項大型凱旋挑戰。</Text>
+      <Text>扮演伊本‧巴圖塔，完成1項大型凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_IBN_BATTUTA_PLAY_GAMES_1_NAME" Language="zh_Hant_HK">
       <Text>開始遊戲1</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_IBN_BATTUTA_PLAY_GAMES_2_DESC" Language="zh_Hant_HK">
-      <Text>扮演伊本·巴圖塔，在任何數量的時代間完成5項大型凱旋挑戰。</Text>
+      <Text>扮演伊本‧巴圖塔，在任何數量的時代間完成5項大型凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_IBN_BATTUTA_PLAY_GAMES_2_NAME" Language="zh_Hant_HK">
       <Text>開始遊戲2</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_IBN_BATTUTA_PLAY_GAMES_3_DESC" Language="zh_Hant_HK">
-      <Text>扮演伊本·巴圖塔，在任何數量的時代間完成25項大型凱旋挑戰。</Text>
+      <Text>扮演伊本‧巴圖塔，在任何數量的時代間完成25項大型凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_IBN_BATTUTA_PLAY_GAMES_3_NAME" Language="zh_Hant_HK">
       <Text>開始遊戲3</Text>
@@ -24746,19 +24845,19 @@
       <Text>超越刀劍</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_IBN_BATTUTA_SCIENCE_TRIUMPH_ANTIQUITY_DESC" Language="zh_Hant_HK">
-      <Text>扮演伊本·巴圖塔，完成「亞述巴尼拔的藏書館」凱旋挑戰。</Text>
+      <Text>扮演伊本‧巴圖塔，完成「亞述巴尼拔的藏書館」凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_IBN_BATTUTA_SCIENCE_TRIUMPH_ANTIQUITY_NAME" Language="zh_Hant_HK">
       <Text>亞述巴尼拔的藏書館</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_IBN_BATTUTA_SCIENCE_TRIUMPH_EXPLORATION_DESC" Language="zh_Hant_HK">
-      <Text>扮演伊本·巴圖塔，完成「啟蒙」凱旋挑戰。</Text>
+      <Text>扮演伊本‧巴圖塔，完成「啟蒙」凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_IBN_BATTUTA_SCIENCE_TRIUMPH_EXPLORATION_NAME" Language="zh_Hant_HK">
       <Text>啟蒙</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_IBN_BATTUTA_SCIENCE_TRIUMPH_MODERN_DESC" Language="zh_Hant_HK">
-      <Text>扮演伊本·巴圖塔，完成「太空競賽的黎明」凱旋挑戰。</Text>
+      <Text>扮演伊本‧巴圖塔，完成「太空競賽的黎明」凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_IBN_BATTUTA_SCIENCE_TRIUMPH_MODERN_NAME" Language="zh_Hant_HK">
       <Text>太空競賽的黎明</Text>
@@ -25646,19 +25745,19 @@
       <Text>奇境</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_JOSE_RIZAL_CULTURE_TRIUMPH_ANTIQUITY_DESC" Language="zh_Hant_HK">
-      <Text>扮演荷西·黎剎，完成「遠古世界的奇觀」凱旋挑戰。</Text>
+      <Text>扮演荷西‧黎剎，完成「遠古世界的奇觀」凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_JOSE_RIZAL_CULTURE_TRIUMPH_ANTIQUITY_NAME" Language="zh_Hant_HK">
       <Text>遠古世界的奇觀</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_JOSE_RIZAL_CULTURE_TRIUMPH_EXPLORATION_DESC" Language="zh_Hant_HK">
-      <Text>扮演荷西·黎剎，完成「藏寶庫」凱旋挑戰。</Text>
+      <Text>扮演荷西‧黎剎，完成「藏寶庫」凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_JOSE_RIZAL_CULTURE_TRIUMPH_EXPLORATION_NAME" Language="zh_Hant_HK">
       <Text>藏寶庫</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_JOSE_RIZAL_CULTURE_TRIUMPH_MODERN_DESC" Language="zh_Hant_HK">
-      <Text>扮演荷西·黎剎，完成「地理學會」凱旋挑戰。</Text>
+      <Text>扮演荷西‧黎剎，完成「地理學會」凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_JOSE_RIZAL_CULTURE_TRIUMPH_MODERN_NAME" Language="zh_Hant_HK">
       <Text>地理學會</Text>
@@ -25694,19 +25793,19 @@
       <Text>恩尼格瑪密碼</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_JOSE_RIZAL_DIPLOMATIC_TRIUMPH_ANTIQUITY_DESC" Language="zh_Hant_HK">
-      <Text>扮演荷西·黎剎，完成「幕後操縱」凱旋挑戰。</Text>
+      <Text>扮演荷西‧黎剎，完成「幕後操縱」凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_JOSE_RIZAL_DIPLOMATIC_TRIUMPH_ANTIQUITY_NAME" Language="zh_Hant_HK">
       <Text>幕後操縱</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_JOSE_RIZAL_DIPLOMATIC_TRIUMPH_EXPLORATION_DESC" Language="zh_Hant_HK">
-      <Text>扮演荷西·黎剎，完成「阿薩辛派」凱旋挑戰。</Text>
+      <Text>扮演荷西‧黎剎，完成「阿薩辛派」凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_JOSE_RIZAL_DIPLOMATIC_TRIUMPH_EXPLORATION_NAME" Language="zh_Hant_HK">
       <Text>阿薩辛派</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_JOSE_RIZAL_DIPLOMATIC_TRIUMPH_MODERN_DESC" Language="zh_Hant_HK">
-      <Text>扮演荷西·黎剎，完成「萬國聯盟」凱旋挑戰。</Text>
+      <Text>扮演荷西‧黎剎，完成「萬國聯盟」凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_JOSE_RIZAL_DIPLOMATIC_TRIUMPH_MODERN_NAME" Language="zh_Hant_HK">
       <Text>萬國聯盟</Text>
@@ -25730,19 +25829,19 @@
       <Text>世界的工坊</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_JOSE_RIZAL_ECONOMIC_TRIUMPH_ANTIQUITY_DESC" Language="zh_Hant_HK">
-      <Text>扮演荷西·黎剎，完成「絲路」凱旋挑戰。</Text>
+      <Text>扮演荷西‧黎剎，完成「絲路」凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_JOSE_RIZAL_ECONOMIC_TRIUMPH_ANTIQUITY_NAME" Language="zh_Hant_HK">
       <Text>絲路</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_JOSE_RIZAL_ECONOMIC_TRIUMPH_EXPLORATION_DESC" Language="zh_Hant_HK">
-      <Text>扮演荷西·黎剎，完成「寶藏艦隊」凱旋挑戰。</Text>
+      <Text>扮演荷西‧黎剎，完成「寶藏艦隊」凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_JOSE_RIZAL_ECONOMIC_TRIUMPH_EXPLORATION_NAME" Language="zh_Hant_HK">
       <Text>寶藏艦隊</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_JOSE_RIZAL_ECONOMIC_TRIUMPH_MODERN_DESC" Language="zh_Hant_HK">
-      <Text>扮演荷西·黎剎，完成「鐵路大亨」凱旋挑戰。</Text>
+      <Text>扮演荷西‧黎剎，完成「鐵路大亨」凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_JOSE_RIZAL_ECONOMIC_TRIUMPH_MODERN_NAME" Language="zh_Hant_HK">
       <Text>鐵路大亨</Text>
@@ -25772,31 +25871,31 @@
       <Text>巨型都會</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_JOSE_RIZAL_EXPANSIONIST_TRIUMPH_ANTIQUITY_DESC" Language="zh_Hant_HK">
-      <Text>扮演荷西·黎剎，完成「世界四極」凱旋挑戰。</Text>
+      <Text>扮演荷西‧黎剎，完成「世界四極」凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_JOSE_RIZAL_EXPANSIONIST_TRIUMPH_ANTIQUITY_NAME" Language="zh_Hant_HK">
       <Text>世界四極</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_JOSE_RIZAL_EXPANSIONIST_TRIUMPH_EXPLORATION_DESC" Language="zh_Hant_HK">
-      <Text>扮演荷西·黎剎，完成「未知危險之地」凱旋挑戰。</Text>
+      <Text>扮演荷西‧黎剎，完成「未知危險之地」凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_JOSE_RIZAL_EXPANSIONIST_TRIUMPH_EXPLORATION_NAME" Language="zh_Hant_HK">
       <Text>未知危險之地</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_JOSE_RIZAL_EXPANSIONIST_TRIUMPH_MODERN_DESC" Language="zh_Hant_HK">
-      <Text>扮演荷西·黎剎，完成「日不落」凱旋挑戰。</Text>
+      <Text>扮演荷西‧黎剎，完成「日不落」凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_JOSE_RIZAL_EXPANSIONIST_TRIUMPH_MODERN_NAME" Language="zh_Hant_HK">
       <Text>日不落</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_JOSE_RIZAL_FOUR_MAJOR_TRIUMPHS_ANTIQUITY_DESC" Language="zh_Hant_HK">
-      <Text>扮演荷西·黎剎，在一次古典時代中完成4項大型凱旋挑戰。</Text>
+      <Text>扮演荷西‧黎剎，在一次古典時代中完成4項大型凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_JOSE_RIZAL_FOUR_MAJOR_TRIUMPHS_ANTIQUITY_NAME" Language="zh_Hant_HK">
       <Text>凱旋高歌，古典時代</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_JOSE_RIZAL_FOUR_MAJOR_TRIUMPHS_EXPLORATION_DESC" Language="zh_Hant_HK">
-      <Text>扮演荷西·黎剎，在一次探索時代中完成4項大型凱旋挑戰。</Text>
+      <Text>扮演荷西‧黎剎，在一次探索時代中完成4項大型凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_JOSE_RIZAL_FOUR_MAJOR_TRIUMPHS_EXPLORATION_NAME" Language="zh_Hant_HK">
       <Text>凱旋高歌，探索時代</Text>
@@ -25826,13 +25925,13 @@
       <Text>和平帝國</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_JOSE_RIZAL_MILITARY_TRIUMPH_EXPLORATION_DESC" Language="zh_Hant_HK">
-      <Text>扮演荷西·黎剎，完成「世界不夠大」凱旋挑戰。</Text>
+      <Text>扮演荷西‧黎剎，完成「世界不夠大」凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_JOSE_RIZAL_MILITARY_TRIUMPH_EXPLORATION_NAME" Language="zh_Hant_HK">
       <Text>世界不夠大</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_JOSE_RIZAL_MILITARY_TRIUMPH_MODERN_DESC" Language="zh_Hant_HK">
-      <Text>扮演荷西·黎剎，完成「道德責任」凱旋挑戰。</Text>
+      <Text>扮演荷西‧黎剎，完成「道德責任」凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_JOSE_RIZAL_MILITARY_TRIUMPH_MODERN_NAME" Language="zh_Hant_HK">
       <Text>道德責任</Text>
@@ -25844,19 +25943,19 @@
       <Text>軍事勝利</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_JOSE_RIZAL_PLAY_GAMES_1_DESC" Language="zh_Hant_HK">
-      <Text>扮演荷西·黎剎，完成1項大型凱旋挑戰。</Text>
+      <Text>扮演荷西‧黎剎，完成1項大型凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_JOSE_RIZAL_PLAY_GAMES_1_NAME" Language="zh_Hant_HK">
       <Text>開始遊戲1</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_JOSE_RIZAL_PLAY_GAMES_2_DESC" Language="zh_Hant_HK">
-      <Text>扮演荷西·黎剎，在任何數量的時代間完成5項大型凱旋挑戰。</Text>
+      <Text>扮演荷西‧黎剎，在任何數量的時代間完成5項大型凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_JOSE_RIZAL_PLAY_GAMES_2_NAME" Language="zh_Hant_HK">
       <Text>開始遊戲2</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_JOSE_RIZAL_PLAY_GAMES_3_DESC" Language="zh_Hant_HK">
-      <Text>扮演荷西·黎剎，在任何數量的時代間完成25項大型凱旋挑戰。</Text>
+      <Text>扮演荷西‧黎剎，在任何數量的時代間完成25項大型凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_JOSE_RIZAL_PLAY_GAMES_3_NAME" Language="zh_Hant_HK">
       <Text>開始遊戲3</Text>
@@ -25880,19 +25979,19 @@
       <Text>超越刀劍</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_JOSE_RIZAL_SCIENCE_TRIUMPH_ANTIQUITY_DESC" Language="zh_Hant_HK">
-      <Text>扮演荷西·黎剎，完成「亞述巴尼拔的藏書館」凱旋挑戰。</Text>
+      <Text>扮演荷西‧黎剎，完成「亞述巴尼拔的藏書館」凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_JOSE_RIZAL_SCIENCE_TRIUMPH_ANTIQUITY_NAME" Language="zh_Hant_HK">
       <Text>亞述巴尼拔的藏書館</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_JOSE_RIZAL_SCIENCE_TRIUMPH_EXPLORATION_DESC" Language="zh_Hant_HK">
-      <Text>扮演荷西·黎剎，完成「啟蒙」凱旋挑戰。</Text>
+      <Text>扮演荷西‧黎剎，完成「啟蒙」凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_JOSE_RIZAL_SCIENCE_TRIUMPH_EXPLORATION_NAME" Language="zh_Hant_HK">
       <Text>啟蒙</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_JOSE_RIZAL_SCIENCE_TRIUMPH_MODERN_DESC" Language="zh_Hant_HK">
-      <Text>扮演荷西·黎剎，完成「太空競賽的黎明」凱旋挑戰。</Text>
+      <Text>扮演荷西‧黎剎，完成「太空競賽的黎明」凱旋挑戰。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_JOSE_RIZAL_SCIENCE_TRIUMPH_MODERN_NAME" Language="zh_Hant_HK">
       <Text>太空競賽的黎明</Text>
@@ -26288,10 +26387,10 @@
       <Text>神王</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_ASHOKA_QUEST_A_EXPLORATION_DESC" Language="zh_Hant_HK">
-      <Text>在探索時代扮演阿育王（潛心向佛者），完成收集世界財富的任務。</Text>
+      <Text>在探索時代扮演阿育王（潛心向佛者），完成發展聖地的任務。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_ASHOKA_QUEST_A_EXPLORATION_NAME" Language="zh_Hant_HK">
-      <Text>神聖榮光</Text>
+      <Text>那羅延</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_ASHOKA_QUEST_A_MODERN_DESC" Language="zh_Hant_HK">
       <Text>在近代扮演阿育王（潛心向佛者），完成緊握長劍的任務。</Text>
@@ -26306,10 +26405,10 @@
       <Text> 法王</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_ASHOKA_QUEST_B_EXPLORATION_DESC" Language="zh_Hant_HK">
-      <Text>在探索時代扮演阿育王（潛心向佛者），完成吸入神聖香氣的任務。</Text>
+      <Text>在探索時代扮演阿育王（潛心向佛者），完成建立研習之所的任務。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_ASHOKA_QUEST_B_EXPLORATION_NAME" Language="zh_Hant_HK">
-      <Text>寺廟鐘聲的呼喚</Text>
+      <Text>菩提薩埵</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_ASHOKA_QUEST_B_MODERN_DESC" Language="zh_Hant_HK">
       <Text>在近代扮演阿育王（潛心向佛者），完成放下長劍的任務。</Text>
@@ -26360,10 +26459,10 @@
       <Text>發明家富蘭克林</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_BENJAMIN_FRANKLIN_QUEST_A_EXPLORATION_DESC" Language="zh_Hant_HK">
-      <Text>在探索時代扮演班傑明·富蘭克林，完成與學術機構合作的任務。</Text>
+      <Text>在探索時代扮演班傑明‧富蘭克林，完成舉辦科學講座的任務。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_BENJAMIN_FRANKLIN_QUEST_A_EXPLORATION_NAME" Language="zh_Hant_HK">
-      <Text>焚膏繼晷</Text>
+      <Text>激烈競爭</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_BENJAMIN_FRANKLIN_QUEST_A_MODERN_DESC" Language="zh_Hant_HK">
       <Text>在近代扮演班傑明‧富蘭克林，完成優先獎學制度的任務。</Text>
@@ -26378,10 +26477,10 @@
       <Text>演說家富蘭克林</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_BENJAMIN_FRANKLIN_QUEST_B_EXPLORATION_DESC" Language="zh_Hant_HK">
-      <Text>在探索時代扮演班傑明·富蘭克林，完成與外交官談話的任務。</Text>
+      <Text>在探索時代扮演班傑明‧富蘭克林，完成進行海外外交的任務。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_BENJAMIN_FRANKLIN_QUEST_B_EXPLORATION_NAME" Language="zh_Hant_HK">
-      <Text>酒友</Text>
+      <Text>國際外交官</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_BENJAMIN_FRANKLIN_QUEST_B_MODERN_DESC" Language="zh_Hant_HK">
       <Text>在近代扮演班傑明‧富蘭克林，完成利用演說魅力征服群眾的任務。</Text>
@@ -26396,10 +26495,10 @@
       <Text>精益求精</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_CATHERINE_QUEST_A_EXPLORATION_DESC" Language="zh_Hant_HK">
-      <Text>在探索時代扮演凱薩琳大帝，完成軍隊穿戴皮草的任務。</Text>
+      <Text>在探索時代扮演凱薩琳大帝，完成組織教育的任務。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_CATHERINE_QUEST_A_EXPLORATION_NAME" Language="zh_Hant_HK">
-      <Text>白鼬與貂</Text>
+      <Text>啟蒙教育</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_CATHERINE_QUEST_A_MODERN_DESC" Language="zh_Hant_HK">
       <Text>在近代扮演凱薩琳大帝，完成建立以貿易為主的社會。</Text>
@@ -26414,10 +26513,10 @@
       <Text>尋常百姓</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_CATHERINE_QUEST_B_EXPLORATION_DESC" Language="zh_Hant_HK">
-      <Text>在探索時代扮演凱薩琳大帝，完成透過追逐名利以獲得永生的任務。</Text>
+      <Text>在探索時代扮演凱薩琳大帝，完成派遣傳教士前往海外的任務。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_CATHERINE_QUEST_B_EXPLORATION_NAME" Language="zh_Hant_HK">
-      <Text>黃金與琥珀</Text>
+      <Text>正教信仰</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_CATHERINE_QUEST_B_MODERN_DESC" Language="zh_Hant_HK">
       <Text>在近代扮演凱薩琳大帝，完成建立以美感為主的社會。</Text>
@@ -26468,10 +26567,10 @@
       <Text>義利</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_CONFUCIUS_QUEST_A_EXPLORATION_DESC" Language="zh_Hant_HK">
-      <Text>在探索時代扮演孔子，完成立下道德典範的任務。</Text>
+      <Text>在探索時代扮演孔子，完成帶領人民渡海的任務。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_CONFUCIUS_QUEST_A_EXPLORATION_NAME" Language="zh_Hant_HK">
-      <Text>決策之根本</Text>
+      <Text>周遊天下</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_CONFUCIUS_QUEST_A_MODERN_DESC" Language="zh_Hant_HK">
       <Text>在近代扮演孔子，完成宣揚新儒家思想的任務。</Text>
@@ -26486,10 +26585,10 @@
       <Text>教育之美德</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_CONFUCIUS_QUEST_B_EXPLORATION_DESC" Language="zh_Hant_HK">
-      <Text>在探索時代扮演孔子，完成激發建築天才的任務。</Text>
+      <Text>在探索時代扮演孔子，完成參悟神聖秩序的任務。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_CONFUCIUS_QUEST_B_EXPLORATION_NAME" Language="zh_Hant_HK">
-      <Text>燈火城市</Text>
+      <Text>世界秩序</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_CONFUCIUS_QUEST_B_MODERN_DESC" Language="zh_Hant_HK">
       <Text>在近代扮演孔子，完成確立過往教訓的任務。</Text>
@@ -26504,10 +26603,10 @@
       <Text>戰歌</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_FRIEDRICH_QUEST_A_EXPLORATION_DESC" Language="zh_Hant_HK">
-      <Text>在探索時代扮演腓特烈（戰術家），完成追求極致品味的任務。</Text>
+      <Text>在探索時代扮演腓特烈（戰術家），完成進行一場戰術戰爭的任務。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_FRIEDRICH_QUEST_A_EXPLORATION_NAME" Language="zh_Hant_HK">
-      <Text>起床了</Text>
+      <Text>作戰之道</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_FRIEDRICH_QUEST_A_MODERN_DESC" Language="zh_Hant_HK">
       <Text>在近代扮演腓特烈（戰術家），完成熱烈演奏的任務。</Text>
@@ -26522,10 +26621,10 @@
       <Text>老腓特烈</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_FRIEDRICH_QUEST_B_EXPLORATION_DESC" Language="zh_Hant_HK">
-      <Text>在探索時代扮演腓特烈（戰術家），完成把酒結盟友的任務。</Text>
+      <Text>在探索時代扮演腓特烈（戰術家），完成從智慧中汲取力量的任務。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_FRIEDRICH_QUEST_B_EXPLORATION_NAME" Language="zh_Hant_HK">
-      <Text>液體外交</Text>
+      <Text>詩人國王</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_FRIEDRICH_QUEST_B_MODERN_DESC" Language="zh_Hant_HK">
       <Text>在近代扮演腓特烈（戰術家），完成以音樂激勵人心的任務。</Text>
@@ -26540,10 +26639,10 @@
       <Text>心許之地</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_HARRIET_TUBMAN_QUEST_A_EXPLORATION_DESC" Language="zh_Hant_HK">
-      <Text>在探索時代扮演哈莉特·塔布曼，完成補給使者的任務。</Text>
+      <Text>在探索時代扮演哈莉特‧塔布曼，完成保護信徒安全的任務。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_HARRIET_TUBMAN_QUEST_A_EXPLORATION_NAME" Language="zh_Hant_HK">
-      <Text>前路迢迢</Text>
+      <Text>預言與計畫</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_HARRIET_TUBMAN_QUEST_A_MODERN_DESC" Language="zh_Hant_HK">
       <Text>在近代扮演哈莉特‧塔布曼，完成創立號召呼應的任務。</Text>
@@ -26558,10 +26657,10 @@
       <Text>石廟</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_HARRIET_TUBMAN_QUEST_B_EXPLORATION_DESC" Language="zh_Hant_HK">
-      <Text>在探索時代扮演哈莉特·塔布曼，完成駐防彈藥的任務。</Text>
+      <Text>在探索時代扮演哈莉特‧塔布曼，完成駕馭士兵怒火的任務。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_HARRIET_TUBMAN_QUEST_B_EXPLORATION_NAME" Language="zh_Hant_HK">
-      <Text>庫存飽滿</Text>
+      <Text>血脈之火</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_HARRIET_TUBMAN_QUEST_B_MODERN_DESC" Language="zh_Hant_HK">
       <Text>在近代扮演哈莉特‧塔布曼，完成搶占先機的任務。</Text>
@@ -26576,10 +26675,10 @@
       <Text>邦特之地</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_HATSHEPSUT_QUEST_A_EXPLORATION_DESC" Language="zh_Hant_HK">
-      <Text>在探索時代扮演哈特謝普蘇特，完成集世界貨品於市場的任務。</Text>
+      <Text>在探索時代扮演哈特謝普蘇特，完成搜遍世界尋找財富的任務。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_HATSHEPSUT_QUEST_A_EXPLORATION_NAME" Language="zh_Hant_HK">
-      <Text>荷魯斯的贈禮</Text>
+      <Text>飛越夜色之海</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_HATSHEPSUT_QUEST_A_MODERN_DESC" Language="zh_Hant_HK">
       <Text>在近代扮演哈特謝普蘇特，完成宮廷滿佈奢侈品的任務。</Text>
@@ -26594,10 +26693,10 @@
       <Text>穆特區</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_HATSHEPSUT_QUEST_B_EXPLORATION_DESC" Language="zh_Hant_HK">
-      <Text>在探索時代扮演哈特謝普蘇特，完成支援紀念碑工匠的任務。</Text>
+      <Text>在探索時代扮演哈特謝普蘇特，完成傳播大祭司教誨的任務。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_HATSHEPSUT_QUEST_B_EXPLORATION_NAME" Language="zh_Hant_HK">
-      <Text>貝斯之石</Text>
+      <Text>不朽之業</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_HATSHEPSUT_QUEST_B_MODERN_DESC" Language="zh_Hant_HK">
       <Text>在近代扮演哈特謝普蘇特，完成避免權力衰弱的任務。</Text>
@@ -26612,10 +26711,10 @@
       <Text>山的女兒</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_HIMIKO_QUEST_A_EXPLORATION_DESC" Language="zh_Hant_HK">
-      <Text>在探索時代扮演卑彌呼（親魏倭王），完成崇敬自然的任務。</Text>
+      <Text>在探索時代扮演卑彌呼（親魏倭王），完成與鄉村民眾建立聯繫的任務。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_HIMIKO_QUEST_A_EXPLORATION_NAME" Language="zh_Hant_HK">
-      <Text>毛皮</Text>
+      <Text>日本之神</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_HIMIKO_QUEST_A_MODERN_DESC" Language="zh_Hant_HK">
       <Text>在近代扮演卑彌呼（親魏倭王），完成鼓勵集體努力的任務。</Text>
@@ -26630,10 +26729,10 @@
       <Text>太陽的女兒</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_HIMIKO_QUEST_B_EXPLORATION_DESC" Language="zh_Hant_HK">
-      <Text>在探索時代扮演卑彌呼（親魏倭王），完成超越寶石般耀眼的任務。</Text>
+      <Text>在探索時代扮演卑彌呼（親魏倭王），完成裝飾神聖空間的任務。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_HIMIKO_QUEST_B_EXPLORATION_NAME" Language="zh_Hant_HK">
-      <Text>翡翠</Text>
+      <Text>神聖繁榮</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_HIMIKO_QUEST_B_MODERN_DESC" Language="zh_Hant_HK">
       <Text>在近代扮演卑彌呼（親魏倭王），完成提升神明地位的任務。</Text>
@@ -26648,10 +26747,10 @@
       <Text>世上的餐食</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_IBN_BATTUTA_QUEST_A_EXPLORATION_DESC" Language="zh_Hant_HK">
-      <Text>在探索時代扮演伊本·巴圖塔，完成讚美神靈的任務。</Text>
+      <Text>在探索時代扮演伊本‧巴圖塔，完成跨越地圖邊界的任務。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_IBN_BATTUTA_QUEST_A_EXPLORATION_NAME" Language="zh_Hant_HK">
-      <Text>靈性旅程</Text>
+      <Text>十字路口</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_IBN_BATTUTA_QUEST_A_MODERN_DESC" Language="zh_Hant_HK">
       <Text>在近代扮演伊本‧巴圖塔，完成在黑暗之心照亮一絲曙光的任務。</Text>
@@ -26666,10 +26765,10 @@
       <Text>機器化的驚奇</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_IBN_BATTUTA_QUEST_B_EXPLORATION_DESC" Language="zh_Hant_HK">
-      <Text>在探索時代扮演伊本·巴圖塔，完成團結信徒和懷疑者的任務。</Text>
+      <Text>在探索時代扮演伊本‧巴圖塔，完成吸引商人與遊客的任務。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_IBN_BATTUTA_QUEST_B_EXPLORATION_NAME" Language="zh_Hant_HK">
-      <Text>晚間對話</Text>
+      <Text>不同的目的地</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_IBN_BATTUTA_QUEST_B_MODERN_DESC" Language="zh_Hant_HK">
       <Text>在近代扮演伊本‧巴圖塔，完成遭遇陌生習俗的任務。</Text>
@@ -26684,10 +26783,10 @@
       <Text>海洋之冠</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_ISABELLA_QUEST_A_EXPLORATION_DESC" Language="zh_Hant_HK">
-      <Text>在探索時代扮演伊莎貝拉，完成收集海洋富饒資源的任務。</Text>
+      <Text>在探索時代扮演伊莎貝拉，完成尋覓遙遠海岸的任務。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_ISABELLA_QUEST_A_EXPLORATION_NAME" Language="zh_Hant_HK">
-      <Text>海中富饒</Text>
+      <Text>首個立足點</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_ISABELLA_QUEST_A_MODERN_DESC" Language="zh_Hant_HK">
       <Text>在近代扮演伊莎貝拉，完成振興商業活動的任務。</Text>
@@ -26702,10 +26801,10 @@
       <Text>天國之冠</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_ISABELLA_QUEST_B_EXPLORATION_DESC" Language="zh_Hant_HK">
-      <Text>在探索時代扮演伊莎貝拉，完成從勝利中獲利的任務。</Text>
+      <Text>在探索時代扮演伊莎貝拉，完成支持新祭司團體的任務。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_ISABELLA_QUEST_B_EXPLORATION_NAME" Language="zh_Hant_HK">
-      <Text>戰爭的代價</Text>
+      <Text>信徒</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_ISABELLA_QUEST_B_MODERN_DESC" Language="zh_Hant_HK">
       <Text>在近代扮演伊莎貝拉，完成榮耀王權的任務。</Text>
@@ -26720,10 +26819,10 @@
       <Text>巨著</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_JOSE_RIZAL_QUEST_A_EXPLORATION_DESC" Language="zh_Hant_HK">
-      <Text>在探索時代扮演荷西·黎剎，完成靈感汲取自人民的任務。</Text>
+      <Text>在探索時代扮演荷西‧黎剎，完成滿足學術好奇心的任務。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_JOSE_RIZAL_QUEST_A_EXPLORATION_NAME" Language="zh_Hant_HK">
-      <Text>人民的想像力</Text>
+      <Text>愛書之人</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_JOSE_RIZAL_QUEST_A_MODERN_DESC" Language="zh_Hant_HK">
       <Text>在近代扮演荷西‧黎剎，完成放眼海洋的任務。</Text>
@@ -26738,10 +26837,10 @@
       <Text>政治上的兩難</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_JOSE_RIZAL_QUEST_B_EXPLORATION_DESC" Language="zh_Hant_HK">
-      <Text>在探索時代扮演荷西·黎剎，完成靈感汲取自碼頭的任務。</Text>
+      <Text>在探索時代扮演荷西‧黎剎，完成追隨星辰前往新土地的任務。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_JOSE_RIZAL_QUEST_B_EXPLORATION_NAME" Language="zh_Hant_HK">
-      <Text>香料之島</Text>
+      <Text>不移之星</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_JOSE_RIZAL_QUEST_B_MODERN_DESC" Language="zh_Hant_HK">
       <Text>在近代扮演荷西‧黎剎，完成瞭解多元族群的任務。</Text>
@@ -26756,10 +26855,10 @@
       <Text>嶄新的明天</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_LAFAYETTE_QUEST_A_EXPLORATION_DESC" Language="zh_Hant_HK">
-      <Text>在探索時代扮演拉法葉，完成省思動亂的任務。</Text>
+      <Text>在探索時代扮演拉法葉，完成聽取工匠意見的任務。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_LAFAYETTE_QUEST_A_EXPLORATION_NAME" Language="zh_Hant_HK">
-      <Text>自由的門廊</Text>
+      <Text>人生即是藝術</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_LAFAYETTE_QUEST_A_MODERN_DESC" Language="zh_Hant_HK">
       <Text>在近代扮演拉法葉，完成展現人性堅忍精神的任務。</Text>
@@ -26774,10 +26873,10 @@
       <Text>統治的本質</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_LAFAYETTE_QUEST_B_EXPLORATION_DESC" Language="zh_Hant_HK">
-      <Text>在探索時代扮演拉法葉，完成提供軍隊家鄉風情的任務。</Text>
+      <Text>在探索時代扮演拉法葉，完成促成知識交流的任務。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_LAFAYETTE_QUEST_B_EXPLORATION_NAME" Language="zh_Hant_HK">
-      <Text>士兵的煙斗</Text>
+      <Text>神聖與理性</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_LAFAYETTE_QUEST_B_MODERN_DESC" Language="zh_Hant_HK">
       <Text>在近代扮演拉法葉，完成朝集體自由努力的任務。</Text>
@@ -26792,10 +26891,10 @@
       <Text>外交官</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_MACHIAVELLI_QUEST_A_EXPLORATION_DESC" Language="zh_Hant_HK">
-      <Text>在探索時代扮演馬基維利，完成以劍代筆的任務。</Text>
+      <Text>在探索時代扮演馬基維利，完成遵循學者智慧的任務。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_MACHIAVELLI_QUEST_A_EXPLORATION_NAME" Language="zh_Hant_HK">
-      <Text>巧妙的平衡</Text>
+      <Text>開放邊境</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_MACHIAVELLI_QUEST_A_MODERN_DESC" Language="zh_Hant_HK">
       <Text>在近代扮演馬基維利，完成推行神聖人性自利的任務。</Text>
@@ -26810,10 +26909,10 @@
       <Text>學者</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_MACHIAVELLI_QUEST_B_EXPLORATION_DESC" Language="zh_Hant_HK">
-      <Text>在探索時代扮演馬基維利，完成掌握海洋財富的任務。</Text>
+      <Text>在探索時代扮演馬基維利，完成點燃青年雄心的任務。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_MACHIAVELLI_QUEST_B_EXPLORATION_NAME" Language="zh_Hant_HK">
-      <Text>黃金浪潮</Text>
+      <Text>青春之火</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_MACHIAVELLI_QUEST_B_MODERN_DESC" Language="zh_Hant_HK">
       <Text>在近代扮演馬基維利，完成強化實用主義地位的任務。</Text>
@@ -26828,10 +26927,10 @@
       <Text>石山住民</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_PACHACUTI_QUEST_A_EXPLORATION_DESC" Language="zh_Hant_HK">
-      <Text>在探索時代扮演帕查庫特克，完成以黃金裝飾宮殿的任務。</Text>
+      <Text>在探索時代扮演帕查庫特克，完成派遣華麗商隊的任務。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_PACHACUTI_QUEST_A_EXPLORATION_NAME" Language="zh_Hant_HK">
-      <Text>太陽之汗</Text>
+      <Text>財富的傳言</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_PACHACUTI_QUEST_A_MODERN_DESC" Language="zh_Hant_HK">
       <Text>在近代扮演帕查庫特克，完成榮耀群山的任務。</Text>
@@ -26846,10 +26945,10 @@
       <Text>來自天上的訊息</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_PACHACUTI_QUEST_B_EXPLORATION_DESC" Language="zh_Hant_HK">
-      <Text>在探索時代扮演帕查庫特克，完成鼓舞民心的任務。</Text>
+      <Text>在探索時代扮演帕查庫特克，完成克服信仰猶疑的任務。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_PACHACUTI_QUEST_B_EXPLORATION_NAME" Language="zh_Hant_HK">
-      <Text>無盡的帝國</Text>
+      <Text>聖詠</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_PACHACUTI_QUEST_B_MODERN_DESC" Language="zh_Hant_HK">
       <Text>在近代扮演帕查庫特克，完成維持強盛國力的任務。</Text>
@@ -26864,10 +26963,10 @@
       <Text>決不卑躬屈膝</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_TRUNG_TRAC_QUEST_A_EXPLORATION_DESC" Language="zh_Hant_HK">
-      <Text>在探索時代扮演徵側，完成照料戰象坐騎的任務。</Text>
+      <Text>在探索時代扮演徵側，完成復仇的任務。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_TRUNG_TRAC_QUEST_A_EXPLORATION_NAME" Language="zh_Hant_HK">
-      <Text>皇家座駕</Text>
+      <Text>敵人逼近</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_TRUNG_TRAC_QUEST_A_MODERN_DESC" Language="zh_Hant_HK">
       <Text>在近代扮演徵側，完成主權在軍的任務。</Text>
@@ -26882,10 +26981,10 @@
       <Text>石頭的教誨</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_TRUNG_TRAC_QUEST_B_EXPLORATION_DESC" Language="zh_Hant_HK">
-      <Text>在探索時代扮演徵側，完成與學者合作的任務。</Text>
+      <Text>在探索時代扮演徵側，完成發展城市的任務。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_TRUNG_TRAC_QUEST_B_EXPLORATION_NAME" Language="zh_Hant_HK">
-      <Text>知識之河</Text>
+      <Text>萬眾一心</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_TRUNG_TRAC_QUEST_B_MODERN_DESC" Language="zh_Hant_HK">
       <Text>在近代扮演徵側，完成主權在民的任務。</Text>
@@ -26900,10 +26999,10 @@
       <Text>世界之軸</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_XERXES_QUEST_A_EXPLORATION_DESC" Language="zh_Hant_HK">
-      <Text>在探索時代扮演薛西斯（眾王之王），完成重塑宮殿風貌的任務。</Text>
+      <Text>在探索時代扮演薛西斯（眾王之王），完成派遣無畏青年出國的任務。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_XERXES_QUEST_A_EXPLORATION_NAME" Language="zh_Hant_HK">
-      <Text>積極的建築師</Text>
+      <Text>宮廷禮儀</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_XERXES_QUEST_A_MODERN_DESC" Language="zh_Hant_HK">
       <Text>在近代扮演薛西斯（眾王之王），完成瞭解天體運行軌道的任務。</Text>
@@ -26918,10 +27017,10 @@
       <Text>阿胡拉‧馬茲達</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_XERXES_QUEST_B_EXPLORATION_DESC" Language="zh_Hant_HK">
-      <Text>在探索時代扮演薛西斯（眾王之王），完成守護王室聖火的任務。</Text>
+      <Text>在探索時代扮演薛西斯（眾王之王），完成用火焰淨化大地的任務。</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_XERXES_QUEST_B_EXPLORATION_NAME" Language="zh_Hant_HK">
-      <Text>野火蔓延</Text>
+      <Text>戰火</Text>
     </Replace>
     <Replace Tag="LOC_METAPROGRESSION_CHALLENGE_LEADER_XERXES_QUEST_B_MODERN_DESC" Language="zh_Hant_HK">
       <Text>在近代扮演薛西斯（眾王之王），完成以戰爭重塑世界的任務。</Text>
@@ -29236,9 +29335,6 @@
     <Replace Tag="LOC_MOD_TOT_TRADITION_SLOT_TWO_DESCRIPTION" Language="zh_Hant_HK">
       <Text>+2傳統槽位。</Text>
     </Replace>
-    <Replace Tag="LOC_MP_PAUSE_POPUP_TITLE" Language="zh_Hant_HK">
-      <Text>遊戲已暫停</Text>
-    </Replace>
     <Replace Tag="LOC_NAME_EDIT" Language="zh_Hant_HK">
       <Text>編輯名稱</Text>
     </Replace>
@@ -29250,6 +29346,9 @@
     </Replace>
     <Replace Tag="LOC_NEED_MORE_CITY_LIMIT" Language="zh_Hant_HK">
       <Text>獲得更多城市限制才能轉變為城市</Text>
+    </Replace>
+    <Replace Tag="LOC_NEXT_TURN" Language="zh_Hant_HK">
+      <Text>下一回合</Text>
     </Replace>
     <Replace Tag="LOC_NO_REWARDS_AVAILABLE" Language="zh_Hant_HK">
       <Text>沒有新的獎勵</Text>
@@ -29758,6 +29857,9 @@
     <Replace Tag="LOC_NOTIFICATION_UNIT_OCEAN_DAMAGE_MESSAGE" Language="zh_Hant_HK">
       <Text>惡劣海況！</Text>
     </Replace>
+    <Replace Tag="LOC_NOTIFICATION_UNIT_PRODUCTION_PAUSED" Language="zh_Hant_HK">
+      <Text>單位生產已暫停！</Text>
+    </Replace>
     <Replace Tag="LOC_NOTIFICATION_UNIT_PROMOTION_AVAILABLE_MESSAGE" Language="zh_Hant_HK">
       <Text>指揮官有可用的強化點數</Text>
     </Replace>
@@ -29997,6 +30099,9 @@
     </Replace>
     <Replace Tag="LOC_PLOT_TOOLTIP_INSPECT" Language="zh_Hant_HK">
       <Text>檢視</Text>
+    </Replace>
+    <Replace Tag="LOC_PLOT_TOOLTIP_ISLAND" Language="zh_Hant_HK">
+      <Text>島嶼</Text>
     </Replace>
     <Replace Tag="LOC_PLOT_TOOLTIP_LAKE" Language="zh_Hant_HK">
       <Text>湖泊</Text>
@@ -30869,7 +30974,7 @@
       <Text>僅能用於起始時代。</Text>
     </Replace>
     <Replace Tag="LOC_RESTART_DISABLED_REASON_WORLDBUILDER_MAP" Language="zh_Hant_HK">
-      <Text>僅能搭配地圖指令碼使用。</Text>
+      <Text>僅能搭配隨機生成的地圖指令碼使用。</Text>
     </Replace>
     <Replace Tag="LOC_REWARD_RECEIVED" Language="zh_Hant_HK">
       <Text>獎勵</Text>
@@ -31835,6 +31940,9 @@
     <Replace Tag="LOC_TITLE_DLC_SEASONPASS_4_NAME" Language="zh_Hant_HK">
       <Text>筆墨與刀鋒的標題</Text>
     </Replace>
+    <Replace Tag="LOC_TITLE_DLC_SEASONPASS_5_NAME" Language="zh_Hant_HK">
+      <Text>歷史殿堂的稱號</Text>
+    </Replace>
     <Replace Tag="LOC_TITLE_FOUNDATION_1_NAME" Language="zh_Hant_HK">
       <Text>記錄官</Text>
     </Replace>
@@ -32297,6 +32405,12 @@
     <Replace Tag="LOC_UI_ATTRIBUTE_TREES_TITLE" Language="zh_Hant_HK">
       <Text>領袖屬性</Text>
     </Replace>
+    <Replace Tag="LOC_UI_AVERAGE_APPEAL" Language="zh_Hant_HK">
+      <Text>平均魅力</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_AVERAGE_APPEAL_SHORT" Language="zh_Hant_HK">
+      <Text>平均</Text>
+    </Replace>
     <Replace Tag="LOC_UI_BEGIN_CIVIC" Language="zh_Hant_HK">
       <Text>開始文明研究</Text>
     </Replace>
@@ -32336,6 +32450,9 @@
     <Replace Tag="LOC_UI_BREATHTAKING_APPEAL" Language="zh_Hant_HK">
       <Text>壯麗魅力</Text>
     </Replace>
+    <Replace Tag="LOC_UI_BREATHTAKING_APPEAL_SHORT" Language="zh_Hant_HK">
+      <Text>壯麗</Text>
+    </Replace>
     <Replace Tag="LOC_UI_BUILD_SLOT_EMPTY_TIP" Language="zh_Hant_HK">
       <Text>空置的可用建造地點</Text>
     </Replace>
@@ -32350,6 +32467,9 @@
     </Replace>
     <Replace Tag="LOC_UI_CHARMING_APPEAL" Language="zh_Hant_HK">
       <Text>迷人魅力</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_CHARMING_APPEAL_SHORT" Language="zh_Hant_HK">
+      <Text>迷人</Text>
     </Replace>
     <Replace Tag="LOC_UI_CHAT_PANEL" Language="zh_Hant_HK">
       <Text>聊天</Text>
@@ -33072,19 +33192,25 @@
       <Text>後此時代結束</Text>
     </Replace>
     <Replace Tag="LOC_UI_GENERAL_APPEAL_LEGEND_AVERAGE" Language="zh_Hant_HK">
-      <Text>[STYLE:text-secondary]平均：[/STYLE]無變化</Text>
+      <Text>[STYLE:text-secondary]平均（2魅力或以下）：[/STYLE]無變化</Text>
     </Replace>
     <Replace Tag="LOC_UI_GENERAL_APPEAL_LEGEND_BREATHTAKING" Language="zh_Hant_HK">
-      <Text>[STYLE:text-secondary]壯麗：[/STYLE]每個格位+2[icon:YIELD_HAPPINESS]幸福感</Text>
+      <Text>[STYLE:text-secondary]壯麗（5魅力或以上）：[/STYLE]每有一個格位，+2[icon:YIELD_HAPPINESS]幸福感</Text>
     </Replace>
     <Replace Tag="LOC_UI_GENERAL_APPEAL_LEGEND_CHARMING" Language="zh_Hant_HK">
-      <Text>[STYLE:text-secondary]迷人：[/STYLE]每個格位+1[icon:YIELD_HAPPINESS]幸福感</Text>
+      <Text>[STYLE:text-secondary]迷人（3-4魅力）：[/STYLE]每有一個格位，+1[icon:YIELD_HAPPINESS]幸福感</Text>
     </Replace>
     <Replace Tag="LOC_UI_GENERAL_APPEAL_LEGEND_HEADER" Language="zh_Hant_HK">
       <Text>魅力</Text>
     </Replace>
+    <Replace Tag="LOC_UI_GENERAL_APPEAL_LEGEND_HIDE_NUMBERS" Language="zh_Hant_HK">
+      <Text>隱藏魅力值</Text>
+    </Replace>
     <Replace Tag="LOC_UI_GENERAL_APPEAL_LEGEND_NATURAL_WONDER" Language="zh_Hant_HK">
       <Text>[STYLE:text-secondary]自然奇觀：[/STYLE]該特定奇觀專有的產出</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_GENERAL_APPEAL_LEGEND_SHOW_NUMBERS" Language="zh_Hant_HK">
+      <Text>顯示魅力值</Text>
     </Replace>
     <Replace Tag="LOC_UI_GENERIC_HIDE" Language="zh_Hant_HK">
       <Text>隱藏</Text>
@@ -33213,6 +33339,9 @@
     </Replace>
     <Replace Tag="LOC_UI_HIGH_END_DOWNLOAD_TITLE" Language="zh_Hant_HK">
       <Text>下載高品質資產</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_IN_CELEBRATION" Language="zh_Hant_HK">
+      <Text>目前正處於慶典中</Text>
     </Replace>
     <Replace Tag="LOC_UI_INSPECTOR" Language="zh_Hant_HK">
       <Text>檢查工具</Text>
@@ -33381,6 +33510,12 @@
     </Replace>
     <Replace Tag="LOC_UI_MINI_MAP_POLITICAL" Language="zh_Hant_HK">
       <Text>政治</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_MINI_MAP_RADIAL_RULER" Language="zh_Hant_HK">
+      <Text>弧形標尺</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_MINI_MAP_RADIAL_RULER_TOOLTIP" Language="zh_Hant_HK">
+      <Text>標示所選格位3格與6格範圍內的所有格位。</Text>
     </Replace>
     <Replace Tag="LOC_UI_MINI_MAP_RELIGION" Language="zh_Hant_HK">
       <Text>宗教</Text>
@@ -33615,6 +33750,9 @@
     </Replace>
     <Replace Tag="LOC_UI_ORDINAL_9" Language="zh_Hant_HK">
       <Text>第9</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_OTHER_OWNER" Language="zh_Hant_HK">
+      <Text>由另一個文明擁有的格位</Text>
     </Replace>
     <Replace Tag="LOC_UI_PANTHEON_ALREADY_TAKEN" Language="zh_Hant_HK">
       <Text>另一個文明已經崇拜此萬神殿。</Text>
@@ -34183,11 +34321,17 @@
     <Replace Tag="LOC_UI_SETTLER_LEGEND_HEADER" Language="zh_Hant_HK">
       <Text>開拓者</Text>
     </Replace>
+    <Replace Tag="LOC_UI_SETTLER_LEGEND_HIDE_RULER" Language="zh_Hant_HK">
+      <Text>隱藏弧形標尺</Text>
+    </Replace>
     <Replace Tag="LOC_UI_SETTLER_LEGEND_OKAY" Language="zh_Hant_HK">
       <Text>[STYLE:text-secondary]可以開拓：[/STYLE]因沒有淡水而-5[icon:YIELD_HAPPINESS]幸福感</Text>
     </Replace>
     <Replace Tag="LOC_UI_SETTLER_LEGEND_RECOMMENDED" Language="zh_Hant_HK">
       <Text>[STYLE:text-secondary]建議的聚落地點[/STYLE]</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_SETTLER_LEGEND_SHOW_RULER" Language="zh_Hant_HK">
+      <Text>顯示弧形標尺</Text>
     </Replace>
     <Replace Tag="LOC_UI_SETUP_BACK" Language="zh_Hant_HK">
       <Text>返回</Text>
@@ -35413,6 +35557,9 @@
     <Replace Tag="LOC_UNITOPERATION_WMD_STRIKE_NAME" Language="zh_Hant_HK">
       <Text>大規模殺傷性武器攻擊</Text>
     </Replace>
+    <Replace Tag="LOC_UNITOPERATION_WMDSTRIKE_ACT_OF_WAR_SUMMARY" Language="zh_Hant_HK">
+      <Text>打擊此區域將與多名玩家爆發[icon:WAR]戰爭。</Text>
+    </Replace>
     <Replace Tag="LOC_UNITOPERATION_WMDSTRIKE_NO_AVAILABLE_WARHEAD" Language="zh_Hant_HK">
       <Text>無可用彈頭。</Text>
     </Replace>
@@ -35735,7 +35882,7 @@
       <Text>每有1指派的[icon:RADIAL_RESOURCES][TIP:LOC_PEDIA_CONCEPTS_RESOURCES_TOOLTIP]資源[/TIP]，便[B]+2[icon:YIELD_GOLD][/B]。</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_EX_ECONOMIC_1_NAME" Language="zh_Hant_HK">
-      <Text>汗·哈利利市集</Text>
+      <Text>汗‧哈利利市集</Text>
     </Replace>
     <Replace Tag="LOC_UNLOCK_EX_ECONOMIC_2_DESCRIPTION" Language="zh_Hant_HK">
       <Text>購買火車站時[B]+25%[icon:YIELD_GOLD]效益[/B]。由[TIP:LOC_PEDIA_CONCEPTS_CONNECTED_TOOLTIP]鐵路相連的聚落[/TIP][B]+1[icon:RADIAL_RESOURCES][/B][TIP:LOC_PEDIA_CONCEPTS_RESOURCE_CAPACITY_TOOLTIP]資源容量[/TIP]。</Text>
@@ -37304,6 +37451,9 @@
     <Replace Tag="LOC_VICTORY_TRACKER_GOLD_PER_TURN_NAME" Language="zh_Hant_HK">
       <Text>每回合金幣收入領先者</Text>
     </Replace>
+    <Replace Tag="LOC_VICTORY_TRACKER_GREAT_WORKS_NAME" Language="zh_Hant_HK">
+      <Text>巨作</Text>
+    </Replace>
     <Replace Tag="LOC_VICTORY_TRACKER_IMPORTED_RESOURCES_NAME" Language="zh_Hant_HK">
       <Text>指派至城市的進口資源</Text>
     </Replace>
@@ -38403,16 +38553,16 @@
       <Text>取消指派{1_cityName}的所有資源</Text>
     </Replace>
     <Replace Tag="LOC_DEAL_ITEM_GOLD_LARGE_LUMP_NAME" Language="zh_Hant_HK">
-      <Text>{1_amount}[icon:YIELD_GOLD]金幣</Text>
+      <Text>{1_amount}金幣</Text>
     </Replace>
     <Replace Tag="LOC_DEAL_ITEM_GOLD_SMALL_LUMP_NAME" Language="zh_Hant_HK">
-      <Text>{1_amount}[icon:YIELD_GOLD]金幣</Text>
+      <Text>{1_amount}金幣</Text>
     </Replace>
     <Replace Tag="LOC_DEAL_ITEM_INFLUENCE_LARGE_LUMP_NAME" Language="zh_Hant_HK">
-      <Text>{1_amount}[icon:YIELD_DIPLOMACY]影響力</Text>
+      <Text>{1_amount}影響力</Text>
     </Replace>
     <Replace Tag="LOC_DEAL_ITEM_INFLUENCE_SMALL_LUMP_NAME" Language="zh_Hant_HK">
-      <Text>{1_amount}[icon:YIELD_DIPLOMACY]影響力</Text>
+      <Text>{1_amount}影響力</Text>
     </Replace>
     <Replace Tag="LOC_DEDICATIONS_AVAILABLE_DESC" Language="zh_Hant_HK">
       <Text>已為下個{1_ageName}時代獲得奉獻。</Text>
@@ -38597,6 +38747,12 @@
     <Replace Tag="LOC_DIPLOMACY_CALL_TO_ARMS_JOIN_WAR" Language="zh_Hant_HK">
       <Text>你會尊重你與{1_allyName}之間的[icon:PLAYER_RELATIONSHIP_ALLIANCE]同盟關係，向{2_targetName}[icon:WAR]宣戰。</Text>
     </Replace>
+    <Replace Tag="LOC_DIPLOMACY_CALL_TO_ARMS_PAY_INFLUENCE_DESCRIPTION" Language="zh_Hant_HK">
+      <Text>支付{2_amount}[icon:YIELD_DIPLOMACY]影響力，以維持你與{1_allyName}的[icon:PLAYER_RELATIONSHIP_ALLIANCE]同盟關係，且無須加入[icon:WAR]戰爭。</Text>
+    </Replace>
+    <Replace Tag="LOC_DIPLOMACY_CALL_TO_ARMS_PAY_INFLUENCE_TITLE" Language="zh_Hant_HK">
+      <Text>支付{1_amount}[icon:YIELD_DIPLOMACY]影響力</Text>
+    </Replace>
     <Replace Tag="LOC_DIPLOMACY_CALL_TO_ARMS_STAY_NEUTRAL_ONE_ALLY" Language="zh_Hant_HK">
       <Text>你將會結束和{1_leaderName}之間的[icon:PLAYER_RELATIONSHIP_ALLIANCE]同盟關係，並且不加入這場[icon:WAR]戰爭。</Text>
     </Replace>
@@ -38745,10 +38901,10 @@
       <Text>{1_leaderName}正嘗試與你貿易[icon:YIELD_FOOD]食物。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_GRANT_POLICY_SLOT_ACCEPT" Language="zh_Hant_HK">
-      <Text>{1_initialName}在此外交行動完成時獲得一個傳統槽位。[n]在此外交行動完成時你獲得一個社會政策槽位。</Text>
+      <Text>該外交行動完成時，{1_initialName}獲得一個[icon:NAR_REW_TRADITION_SLOT]傳統槽位。[n]該外交行動完成時，你獲得一個社會政策槽位。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_GRANT_POLICY_SLOT_REJECT" Language="zh_Hant_HK">
-      <Text>取消該外交行動。[n]{1_initialName}的[icon:YIELD_DIPLOMACY]影響力已退還。[n]雙方領袖接下來{2_cooldown}回合不得進行新外交手段。[n][icon:RELATIONSHIP]關係惡化。</Text>
+      <Text>取消該[icon:DIPLOMATIC_ACTION]外交行動。[n]{1_initialName}的[icon:YIELD_DIPLOMACY]影響力已退還。[n]雙方領袖接下來{2_cooldown}回合不得進行新[icon:ENDEAVOR]外交手段。[n][icon:RELATIONSHIP]關係惡化。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_GRANT_POLICY_SLOT_REQUEST" Language="zh_Hant_HK">
       <Text>{1_leaderName}正邀請你參與改革外交手段。</Text>
@@ -38799,7 +38955,7 @@
       <Text>其他文明希望你能開放邊境{1_numberTurns}個回合。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_REJECT" Language="zh_Hant_HK">
-      <Text>封鎖未來的所有專案，持續{2_cooldown}個回合。[n]關係惡化。</Text>
+      <Text>封鎖未來的所有專案，持續{2_cooldown}回合。[n][icon:RELATIONSHIP]關係惡化。</Text>
     </Replace>
     <Replace Tag="LOC_DIPLOMACY_PROJECT_RESEARCH_COLLABORATION" Language="zh_Hant_HK">
       <Text>從你和{5_OtherLeaderName}之間的研究合作，你正在獲得每回合的[icon:YIELD_SCIENCE]科技值收入+{2_Amount}。</Text>
@@ -39094,6 +39250,9 @@
     </Replace>
     <Replace Tag="LOC_HOF_VICTORYPROGRESS_LEADER" Language="zh_Hant_HK">
       <Text>最近扮演{1_LeaderName}勝利。</Text>
+    </Replace>
+    <Replace Tag="LOC_KEYWORD_ABILITY_FEAR_PREVIEW" Language="zh_Hant_HK">
+      <Text>{1_Value}來自恐懼</Text>
     </Replace>
     <Replace Tag="LOC_KEYWORD_ABILITY_FIRST_STRIKE_DESCRIPTION" Language="zh_Hant_HK">
       <Text>對抗生命值全滿的單位時+{1_Value}[icon:NAR_REW_COMBAT][TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]戰鬥力[/TIP]。</Text>
@@ -39469,12 +39628,6 @@
     </Replace>
     <Replace Tag="LOC_MOD_ATTRIBUTE_SCIENTIFIC_LEGEND_TRUNG_TRAC_L2_DESCRIPTION" Language="zh_Hant_HK">
       <Text>{LOC_MOD_ATTRIBUTE_LEGEND_UNLOCK} {LOC_MOD_ATTRIBUTE_SCIENTIFIC_LEGEND_TRUNG_TRAC_L2_DESCRIPTION_BASE}</Text>
-    </Replace>
-    <Replace Tag="LOC_MP_PAUSE_POPUP_BODY_MULTI_WANT_PAUSE" Language="zh_Hant_HK">
-      <Text>{1_Number}個玩家暫停了遊戲，其中包括{2_PlayerName}</Text>
-    </Replace>
-    <Replace Tag="LOC_MP_PAUSE_POPUP_BODY_SINGLE_WANT_PAUSE" Language="zh_Hant_HK">
-      <Text>{1_PlayerName}暫停了遊戲。</Text>
     </Replace>
     <Replace Tag="LOC_NARRATIVE_ABILITY_AGGRESSIVE_BONUS" Language="zh_Hant_HK">
       <Text>+{1_Amount}魯莽</Text>
@@ -39899,6 +40052,12 @@
     <Replace Tag="LOC_NOTIFICATION_PLAYER_VICTORIOUS_SUMMARY" Language="zh_Hant_HK">
       <Text>{1_Leader}拿下了「{2_VictoryName}」勝利！</Text>
     </Replace>
+    <Replace Tag="LOC_NOTIFICATION_PRODUCTION_INVALIDATED_MESSAGE" Language="zh_Hant_HK">
+      <Text>{1_ItemName}已取消</Text>
+    </Replace>
+    <Replace Tag="LOC_NOTIFICATION_PRODUCTION_INVALIDATED_SUMMARY" Language="zh_Hant_HK">
+      <Text>{1_ItemName}已無法建造，並已從生產佇列中移除。此次建造所投入的{2_Production}[icon:YIELD_PRODUCTION]生產力已回收，並轉給城市{3_CityName}。</Text>
+    </Replace>
     <Replace Tag="LOC_NOTIFICATION_RELIGION_CREATED_SUMMARY" Language="zh_Hant_HK">
       <Text>{1_ReligionName}已創立。</Text>
     </Replace>
@@ -39945,7 +40104,7 @@
       <Text>{1_Team}拿下了「{2_VictoryName}」勝利！</Text>
     </Replace>
     <Replace Tag="LOC_NOTIFICATION_TECH_BOOST_AWARDED_SUMMARY" Language="zh_Hant_HK">
-      <Text>已解鎖科技：{1_TechNames}。</Text>
+      <Text>已提升科技：{1_TechNames}。</Text>
     </Replace>
     <Replace Tag="LOC_NOTIFICATION_TECH_DISCOVERED_MESSAGE" Language="zh_Hant_HK">
       <Text>已發現{1_Name}</Text>
@@ -39988,6 +40147,9 @@
     </Replace>
     <Replace Tag="LOC_NOTIFICATION_UNIT_OCEAN_DAMAGE_SUMMARY" Language="zh_Hant_HK">
       <Text>你的{1_UnitName}在公海移動時受到了損傷！</Text>
+    </Replace>
+    <Replace Tag="LOC_NOTIFICATION_UNIT_PRODUCTION_PAUSED_SUMMARY" Language="zh_Hant_HK">
+      <Text>你的{1_UnitName}原本可於本回合訓練完成，但{2_CityName}的所有生成位置都遭阻擋。生產已暫停，待有有效生成位置可用後方可恢復。</Text>
     </Replace>
     <Replace Tag="LOC_NOTIFICATION_UNIT_PROMOTION_AVAILABLE_SUMMARY" Language="zh_Hant_HK">
       <Text>{1_UnitName}有可用的強化點數。</Text>
@@ -40267,6 +40429,9 @@
     </Replace>
     <Replace Tag="LOC_UI_ADJACENCY_INFO_OBJECT" Language="zh_Hant_HK">
       <Text>每有一個相鄰的{3_ObjectName}，便+{1_Amount}{2_YieldName}</Text>
+    </Replace>
+    <Replace Tag="LOC_UI_ADJACENCY_INFO_OTHER_OWNER" Language="zh_Hant_HK">
+      <Text>每有一個由其他文明擁有的相鄰格位，便+{1_Amount}{2_YieldName}</Text>
     </Replace>
     <Replace Tag="LOC_UI_ADJACENCY_INFO_QUARTERS" Language="zh_Hant_HK">
       <Text>有一個相鄰的城區，便+{1_Amount}{2_YieldName}</Text>

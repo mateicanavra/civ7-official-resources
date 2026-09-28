@@ -1,5 +1,5 @@
 import { DropdownSelectionChangeEventName } from '../../components/fxs-dropdown.js';
-import ContextManager from '../../context-manager/context-manager.js';
+import { ContextManager } from '../../context-manager/context-manager.js';
 import { DialogBoxManager } from '../../dialog-box/manager-dialog-box.js';
 import { Focus } from '../../input/focus-support.js';
 import NavTray from '../../navigation-tray/model-navigation-tray.js';
@@ -277,6 +277,7 @@ class PanelMPFriendOptions extends Panel {
     this.Root.addEventListener("engine-input", this.engineInputListener);
     cancelButton.addEventListener("action-activate", this.closeButtonListener);
     playerIcon.style.backgroundImage = `url(${NetworkUtilities.getHostingTypeURL(this.platform) ?? ""})`;
+    playerIcon.classList.add(Network.getLocalHostingPlatform() == HostingType.HOSTING_TYPE_NX ? "hidden" : "");
     playerName.innerHTML = this.getGamerTag();
   }
   addFriendInviteButtons(friendId) {

@@ -1,7 +1,7 @@
-import ActionHandler from '../../../core/ui/input/action-handler.js';
 import { quickFormatProgressionTreeNodeUnlocks } from '../../../core/ui/utilities/utilities-core-textprovider.js';
 import { Layout } from '../../../core/ui/utilities/utilities-layout.js';
 import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
+import { IsTouchActive } from '../../../core/ui-next/services/input.js';
 import AttributeTrees from './model-attribute-trees.js';
 import { TreeCardHoveredEvent } from '../tree-grid/tree-card.js';
 import { TreeCardBase, TreeSupport } from '../tree-grid/tree-support.js';
@@ -105,7 +105,7 @@ class AttributeCard extends TreeCardBase {
       console.warn("tree-card: onCardActivate(): Failed to find matching card for hover");
       return;
     }
-    if (ActionHandler.isTouchActive && TreeSupport.isSmallScreen()) {
+    if (IsTouchActive() && TreeSupport.isSmallScreen()) {
       this.Root.dispatchEvent(new TreeCardHoveredEvent({ type: `${this.type}`, level: "0" }));
     } else if (!this.locked) {
       AttributeTrees.buyAttributeTreeNode(type);

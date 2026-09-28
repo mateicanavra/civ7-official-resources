@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Types>
+		<InsertOrIgnore Type="UNLOCK_CIVILIZATION_ENGLAND" Kind="KIND_UNLOCK"/>
+	</Types>
+	<Unlocks>
+		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_ENGLAND"/>
+	</Unlocks>
+	<UnlockRewards>
+		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_ENGLAND" Name="LOC_CIVILIZATION_ENGLAND_NAME" Description="LOC_UNLOCK_EXPLORATION_CIV_DESCRIPTION" Icon="CIVILIZATION_ENGLAND" UnlockRewardType="CIVILIZATION_ENGLAND" UnlockRewardKind="KIND_CIVILIZATION"/>
+	</UnlockRewards>
+	<RequirementSets>
+		<Row RequirementSetId="REQSET_CIV_IS_ENGLAND" RequirementSetType="REQUIREMENTSET_TEST_ALL"/>
+		<Row RequirementSetId="REQSET_PLAYER_HAS_1_ISLAND_CITY" RequirementSetType="REQUIREMENTSET_TEST_ALL"/>
+	</RequirementSets>
+	<Requirements>
+		<Row RequirementId="REQ_CIV_IS_ENGLAND" RequirementType="REQUIREMENT_PLAYER_CIVILIZATION_TYPE_MATCHES"/>
+		<Row RequirementId="REQ_PLAYER_HAS_1_ISLAND_CITY" RequirementType="REQUIREMENT_PLAYER_HAS_X_SETTLEMENTS_AT"/>
+	</Requirements>
+	<RequirementArguments>
+		<Row RequirementId="REQ_CIV_IS_ENGLAND" Name="CivilizationType" Value="CIVILIZATION_ENGLAND"/>
+		<Row RequirementId="REQ_PLAYER_HAS_1_ISLAND_CITY" Name="OnlyCities" Value="true"/>
+		<Row RequirementId="REQ_PLAYER_HAS_1_ISLAND_CITY" Name="Amount" Value="1"/>
+		<Row RequirementId="REQ_PLAYER_HAS_1_ISLAND_CITY" Name="Tiles" Value="30"/>
+		<Row RequirementId="REQ_PLAYER_HAS_1_ISLAND_CITY" Name="SettlementLocationType" Value="SETTLEMENT_LOCATION_ISLAND"/>
+	</RequirementArguments>
+	<RequirementSetRequirements>
+		<Row RequirementSetId="REQSET_CIV_IS_ENGLAND" RequirementId="REQ_CIV_IS_ENGLAND"/>
+		<Row RequirementSetId="REQSET_PLAYER_HAS_1_ISLAND_CITY" RequirementId="REQ_PLAYER_HAS_1_ISLAND_CITY"/>
+		<Row RequirementSetId="REQSET_PLAYER_HAS_1_ISLAND_CITY" RequirementId="REQ_AGE_IS_ANTIQUITY"/>
+	</RequirementSetRequirements>
+	<UnlockRequirements>
+		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_ENGLAND" RequirementSetId="REQSET_CIV_IS_ENGLAND" Description="LOC_UNLOCK_PLAY_AS_ENGLAND_DESCRIPTION" Tooltip="LOC_UNLOCK_PLAY_AS_ENGLAND_ENGLAND_TOOLTIP"/>
+		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_ENGLAND" RequirementSetId="REQSET_PLAYER_HAS_1_ISLAND_CITY" Description="LOC_UNLOCK_ISLAND_CITY_DESCRIPTION" Tooltip="LOC_UNLOCK_ISLAND_CITY_ENGLAND_TOOLTIP" GameplayUnlock="True" NarrativeText="LOC_UNLOCK_ISLAND_CITY_ENGLAND_NARRATIVE"/>
+	</UnlockRequirements>
+	<UnlockConfigurationValues>
+		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_ENGLAND" ConfigurationValue="CIVILIZATION_ENGLAND"/>
+	</UnlockConfigurationValues>
+	<UnlockRequirements>
+		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_ENGLAND" RequirementSetId="REQSET_CIV_IS_ROME" Description="LOC_UNLOCK_PLAY_AS_ROME_DESCRIPTION" Tooltip="LOC_UNLOCK_PLAY_AS_ROME_ENGLAND_TOOLTIP"/>
+		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_AMERICA" RequirementSetId="REQSET_CIV_IS_ENGLAND" Description="LOC_UNLOCK_PLAY_AS_ENGLAND_DESCRIPTION" Tooltip="LOC_UNLOCK_PLAY_AS_ENGLAND_AMERICA_TOOLTIP"/>
+		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_ENGLAND" RequirementSetId="REQSET_LEADER_IS_ALEXANDER" Description="LOC_UNLOCK_PLAY_AS_ALEXANDER_DESCRIPTION" Tooltip="LOC_UNLOCK_PLAY_AS_ALEXANDER_ENGLAND_TOOLTIP"/>
+	</UnlockRequirements>
+</Database>

@@ -1,6 +1,6 @@
 import { template, insert, setAttribute } from '../../../vendor/solid-js/web/dist/web.js';
 import { onMount, onCleanup, createComponent, Show, createRenderEffect, For, createMemo } from '../../../vendor/solid-js/dist/solid.js';
-import ContextManager from '../../context-manager/context-manager.js';
+import { ContextManager } from '../../context-manager/context-manager.js';
 import { PromoCarouselModel } from './main-menu-carousel-model.js';
 import { Activatable } from '../../../ui-next/components/activatable.js';
 import { AudioContextProvider } from '../../../ui-next/components/audio-context-provider.js';
@@ -18,7 +18,7 @@ import { ComponentRegistry } from '../../../ui-next/services/component-registry.
 import { IsControllerActive } from '../../../ui-next/services/input.js';
 import style from './main-menu-carousel.scss.js';
 
-var _tmpl$ = /* @__PURE__ */ template(`<div class="carousel-image relative w-full bg-contain bg-center bg-no-repeat pointer-events-auto self-center"></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class=w-full></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="carousel-radio-divider w-full bg-primary-4 mb-1"></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div class="w-full bg-primary-4"><div class="flex justify-center"><div class="w-8 h-10 -mt-2 ml-4"></div></div></div>`), _tmpl$5 = /* @__PURE__ */ template(`<div class="carousel-radio-divider w-full bg-primary-4 mt-1"></div>`), _tmpl$6 = /* @__PURE__ */ template(`<div class="carousel-small-outer-container carousel-outer bg-primary-4 p-4"><div class="carousel-small-container flex flex-col text-accent-2"></div></div>`), _tmpl$7 = /* @__PURE__ */ template(`<div class="flex carousel-top-filigree decoration w-full justify-center items-center absolute -top-9"><div class="img-top-filigree-left grow"></div><div class=img-top-filigree-center></div><div class="img-top-filigree-right grow"></div></div>`), _tmpl$8 = /* @__PURE__ */ template(`<div class="flex justify-center mb-6 mt-8"></div>`), _tmpl$9 = /* @__PURE__ */ template(`<div class="flex min-h-full items-center"></div>`), _tmpl$10 = /* @__PURE__ */ template(`<div class="flex flex-row w-full mt-2 mb-6"></div>`), _tmpl$11 = /* @__PURE__ */ template(`<div class="flex flex-auto carousel-expanded-inner"><div class=self-center><img class=carousel-image-expanded></div><div class="flex flex-col flex-auto pl-2"></div></div>`), _tmpl$12 = /* @__PURE__ */ template(`<div class="carousel-radio-divider w-full bg-primary-4 mb-1 mt-4"></div>`), _tmpl$13 = /* @__PURE__ */ template(`<div class="w-full bg-primary-4"><div class="flex justify-center"><div class="w-8 h-10 -mt-1 mb-1 ml-4"></div></div></div>`), _tmpl$14 = /* @__PURE__ */ template(`<div class="carousel-radio-divider w-full bg-primary-4 mt-1 mb-2"></div>`);
+var _tmpl$ = /* @__PURE__ */ template(`<div class="carousel-image relative w-full bg-contain bg-center bg-no-repeat pointer-events-auto self-center"></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="w-full"></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="carousel-radio-divider w-full bg-primary-4 mb-1"></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div class="w-full bg-primary-4"><div class="flex justify-center"><div class="w-8 h-10 -mt-2 ml-4"></div></div></div>`), _tmpl$5 = /* @__PURE__ */ template(`<div class="carousel-radio-divider w-full bg-primary-4 mt-1"></div>`), _tmpl$6 = /* @__PURE__ */ template(`<div class="carousel-small-outer-container carousel-outer bg-primary-4 p-4"><div class="carousel-small-container flex flex-col text-accent-2"></div></div>`), _tmpl$7 = /* @__PURE__ */ template(`<div class="flex carousel-top-filigree decoration w-full justify-center items-center absolute -top-9"><div class="img-top-filigree-left grow"></div><div class="img-top-filigree-center"></div><div class="img-top-filigree-right grow"></div></div>`), _tmpl$8 = /* @__PURE__ */ template(`<div class="flex justify-center mb-6 mt-8"></div>`), _tmpl$9 = /* @__PURE__ */ template(`<div class="flex min-h-full items-center"></div>`), _tmpl$10 = /* @__PURE__ */ template(`<div class="flex flex-row w-full mt-2 mb-6"></div>`), _tmpl$11 = /* @__PURE__ */ template(`<div class="flex flex-auto carousel-expanded-inner"><div class="self-center"><img class="carousel-image-expanded"></div><div class="flex flex-col flex-auto pl-2"></div></div>`), _tmpl$12 = /* @__PURE__ */ template(`<div class="carousel-radio-divider w-full bg-primary-4 mb-1 mt-4"></div>`), _tmpl$13 = /* @__PURE__ */ template(`<div class="w-full bg-primary-4"><div class="flex justify-center"><div class="w-8 h-10 -mt-1 mb-1 ml-4"></div></div></div>`), _tmpl$14 = /* @__PURE__ */ template(`<div class="carousel-radio-divider w-full bg-primary-4 mt-1 mb-2"></div>`);
 const PromoCarouselSmallComponent = (props) => {
   const model = PromoCarouselModel.get();
   onMount(() => {
@@ -60,10 +60,7 @@ const PromoCarouselSmallComponent = (props) => {
             "class": "w-full relative carousel-outer",
             onActivate: () => {
               if (model.carouselItems.length > 0) {
-                ContextManager.push("promo-carousel-expanded", {
-                  singleton: true,
-                  createMouseGuard: true
-                });
+                model.onShowExpandedCarousel();
               }
             },
             disableFocus: true,

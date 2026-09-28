@@ -658,13 +658,13 @@
 			<Text>Start the Reform Endeavor.[n]Accepted: You receive a [icon:NAR_REW_TRADITION_SLOT] Tradition slot when the Diplomatic Action completes. Other player receives a Social Policy slot when the Diplomatic Action completes. Reform is usable once with each other Leader.[n]Supported: Both players receive a [icon:NAR_REW_TRADITION_SLOT] Tradition slot when the Diplomatic Action completes.[n]Rejected: [icon:RELATIONSHIP] Relationships worsen.</Text>
 		</Row>
 		<Row Tag="LOC_DIPLOMACY_PROJECT_GRANT_POLICY_SLOT_ACCEPT">
-			<Text>{1_initialName} gains a Tradition slot when the Diplomatic Action completes.[n] You gain a Social Policy slot when the Diplomatic Action completes.</Text>
+			<Text>{1_initialName} gains a [icon:NAR_REW_TRADITION_SLOT] Tradition slot when the Diplomatic Action completes.[n] You gain a Social Policy slot when the Diplomatic Action completes.</Text>
 		</Row>
 		<Row Tag="LOC_DIPLOMACY_PROJECT_GRANT_POLICY_SLOT_SUPPORT">
-			<Text>Both players gain a Tradition slot when the Diplomatic Action completes.</Text>
+			<Text>Both players gain a [icon:NAR_REW_TRADITION_SLOT] Tradition slot when the Diplomatic Action completes.</Text>
 		</Row>
 		<Row Tag="LOC_DIPLOMACY_PROJECT_GRANT_POLICY_SLOT_REJECT">
-			<Text>Cancels the Diplomatic Action.[n]{1_initialName}'s[icon:YIELD_DIPLOMACY] Influence is refunded.[n]No new Endeavors between Leaders for {2_cooldown} turns.[n][icon:RELATIONSHIP] Relationships worsen.</Text>
+			<Text>Cancels the [icon:DIPLOMATIC_ACTION] Diplomatic Action.[n]{1_initialName}'s[icon:YIELD_DIPLOMACY] Influence is refunded.[n]No new [icon:ENDEAVOR] Endeavors between Leaders for {2_cooldown} turns.[n][icon:RELATIONSHIP] Relationships worsen.</Text>
 		</Row>
 		<Row Tag="LOC_DIPLOMACY_PROJECT_GINSING_AGREEMENT_REQUEST">
 			<Text>{1_leaderName} is attempting to trade[icon:YIELD_FOOD] Food with you.</Text>
@@ -691,7 +691,7 @@
 			<Text>Cancels the Diplomatic Action.[n]{1_initialName}'s[icon:YIELD_DIPLOMACY] Influence is refunded.[n]No new Endeavors between Leaders for {2_cooldown} turns.[n][icon:RELATIONSHIP] Relationships worsen.</Text>
 		</Row>
 		<Row Tag="LOC_DIPLOMACY_PROJECT_REJECT">
-			<Text>Blocked from future projects for {2_cooldown} turns.[n]Relationships worsen.</Text>
+			<Text>Blocked from future projects for {2_cooldown} turns.[n][icon:RELATIONSHIP] Relationships worsen.</Text>
 		</Row>
 
 
@@ -786,10 +786,10 @@
 			<Text>They Sanctioned you</Text>
 		</Row>
 		<Row Tag="LOC_GRIEVANCE_FROM_CLOSE_LAND_CLAIM">
-			<Text>You Settled too close to their [icon:NOTIFICATION_SELECT_CAPITAL] Capital</Text>
+			<Text>You Settled too close to their Capital</Text>
 		</Row>
 		<Row Tag="LOC_GRIEVANCE_FROM_CLOSE_LAND_CLAIM_ALT">
-			<Text>They Settled too close to your [icon:NOTIFICATION_SELECT_CAPITAL] Capital</Text>
+			<Text>They Settled too close to your Capital</Text>
 		</Row>
 		<Row Tag="LOC_GRIEVANCE_FROM_RAZING_SETTLEMENT">
 			<Text>You Razed their Settlement</Text>
@@ -838,6 +838,12 @@
 		</Row>
 		<Row Tag="LOC_GRIEVANCE_FROM_BREAK_ALLIANCE_ALT">
 			<Text>They Broke an Alliance by declaring war on you</Text>
+		</Row>
+		<Row Tag="LOC_GRIEVANCE_FROM_NUCLEAR_ATTACK">
+			<Text>You launched a Nuclear Strike on them</Text>
+		</Row>
+		<Row Tag="LOC_GRIEVANCE_FROM_NUCLEAR_ATTACK_ALT">
+			<Text>They launched a Nuclear Strike on you</Text>
 		</Row>
 		<Row Tag="LOC_GRIEVANCE_FROM_OPPOSE">
 			<Text>You Rejected their Diplomatic Action</Text>
@@ -2625,6 +2631,15 @@
 		<Row Tag="LOC_DIPLOMACY_CALL_TO_ARMS_STAY_NEUTRAL_TITLE">
 			<Text>Stay Neutral</Text>
 		</Row>
+		<Row Tag="LOC_DIPLOMACY_CALL_TO_ARMS_PAY_INFLUENCE_TITLE">
+			<Text>Pay {1_amount} [icon:YIELD_DIPLOMACY] Influence</Text>
+		</Row>
+		<Row Tag="LOC_DIPLOMACY_CALL_TO_ARMS_PAY_INFLUENCE_DESCRIPTION">
+			<Text>Pay {2_amount} [icon:YIELD_DIPLOMACY] Influence to maintain your [icon:PLAYER_RELATIONSHIP_ALLIANCE] Alliance with {1_allyName} without joining the [icon:WAR] War.</Text>
+		</Row>
+		<Row Tag="LOC_DIPLOMACY_NOT_ENOUGH_INFLUENCE">
+			<Text>You do not have enough [icon:YIELD_DIPLOMACY] Influence.</Text>
+		</Row>
 		<Row Tag="LOC_DIPLOMACY_SUPPORT_INDEPENDENT">
 			<Text>Add support to befriend action.</Text>
 		</Row>
@@ -2644,25 +2659,25 @@
 			<Text>{1_leaderName} will reject this deal</Text>
 		</Row>
 		<Row Tag="LOC_DEAL_ITEM_GOLD_SMALL_LUMP_NAME">
-			<Text>{1_amount} [icon:YIELD_GOLD] Gold</Text>
+			<Text>{1_amount} Gold</Text>
 		</Row>
 		<Row Tag="LOC_DEAL_ITEM_GOLD_SMALL_LUMP_DESCRIPTION">
 			<Text>A small lump sum of [icon:YIELD_GOLD] Gold.</Text>
 		</Row>
 		<Row Tag="LOC_DEAL_ITEM_GOLD_LARGE_LUMP_NAME">
-			<Text>{1_amount} [icon:YIELD_GOLD] Gold</Text>
+			<Text>{1_amount} Gold</Text>
 		</Row>
 		<Row Tag="LOC_DEAL_ITEM_GOLD_LARGE_LUMP_DESCRIPTION">
 			<Text>A large lump sum of [icon:YIELD_GOLD] Gold.</Text>
 		</Row>
 		<Row Tag="LOC_DEAL_ITEM_INFLUENCE_SMALL_LUMP_NAME">
-			<Text>{1_amount} [icon:YIELD_DIPLOMACY] Influence</Text>
+			<Text>{1_amount} Influence</Text>
 		</Row>
 		<Row Tag="LOC_DEAL_ITEM_INFLUENCE_SMALL_LUMP_DESCRIPTION">
 			<Text>A small lump sum of [icon:YIELD_DIPLOMACY] Influence.</Text>
 		</Row>
 		<Row Tag="LOC_DEAL_ITEM_INFLUENCE_LARGE_LUMP_NAME">
-			<Text>{1_amount} [icon:YIELD_DIPLOMACY] Influence</Text>
+			<Text>{1_amount} Influence</Text>
 		</Row>
 		<Row Tag="LOC_DEAL_ITEM_INFLUENCE_LARGE_LUMP_DESCRIPTION">
 			<Text>A large lump sum of [icon:YIELD_DIPLOMACY] Influence.</Text>
@@ -2702,6 +2717,9 @@
 		</Row>
 		<Row Tag="LOC_DIPLOMACY_BACK_TO_DEAL">
 			<Text>Back To Peace Deal</Text>
+		</Row>
+		<Row Tag="LOC_DIPLOMACY_CANNOT_AVOID_WAR_BETWEEN_ALLIES">
+			<Text>You cannot spend Influence to avoid this war between allies.</Text>
 		</Row>
 	</EnglishText>
 </Database>

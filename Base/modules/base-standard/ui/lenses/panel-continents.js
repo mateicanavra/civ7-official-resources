@@ -1,7 +1,9 @@
 import LensManager, { LensActivationEventName } from '../../../core/ui/lenses/lens-manager.js';
 import Panel from '../../../core/ui/panel-support.js';
-import { numberHexToStringRGB } from '../../../core/ui/utilities/utilities-color.js';
+import { numberHexToStringBGR } from '../../../core/ui/utilities/utilities-color.js';
 import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
+import { ViewExperience } from '../../../core/ui-next/services/view-experience.js';
+import { useIsSmallScreen } from '../../../core/ui-next/utilities/layout-utilities.js';
 import { ContinentLensLayer } from './layer/continent-layer.js';
 import content from './panel-continents.html.js';
 import styles from './panel-continents.scss.js';
@@ -47,12 +49,18 @@ class ContinentLensInfo extends Panel {
     this.Root.classList.toggle("hidden", !areWeVisible);
   }
   initPanel() {
+    const isMobile = ViewExperience() == UIViewExperience.Mobile;
+    const isSmallScreen = useIsSmallScreen()();
+    const headerElement = MustGetElement(".continents__header", this.Root);
+    headerElement.classList.add(isMobile && isSmallScreen ? "text-sm" : "text-base");
+    headerElement.classList.add(isMobile && isSmallScreen ? "mb-1" : "mb-2");
     if (this.isExplorationAge || this.isModernAge) {
       const subHeaderElement = MustGetElement(".continents__subheader", this.Root);
       subHeaderElement.setAttribute(
         "data-l10n-id",
         this.isExplorationAge ? Locale.compose("LOC_UI_CONTINENTS_EXPLORATION_SUBTITLE") : Locale.compose("LOC_UI_CONTINENTS_MODERN_SUBTITLE")
       );
+      subHeaderElement.classList.add(isMobile && isSmallScreen ? "text-xs" : "text-sm");
     }
     this.continentListContainer = MustGetElement(".continents__info-container", this.Root);
     while (this.continentListContainer.firstChild) {
@@ -71,45 +79,58 @@ class ContinentLensInfo extends Panel {
     }
   }
   addContinentInfoRow(contintentPlotList) {
+    const isMobile = ViewExperience() == UIViewExperience.Mobile;
+    const isSmallScreen = useIsSmallScreen()();
     const rowContainer = document.createElement("div");
-    rowContainer.classList.value = "continents__row-container flex my-2";
+    rowContainer.classList.value = "continents__row-container flex";
+    rowContainer.classList.add(isMobile && isSmallScreen ? "my-1" : "my-2");
     const rowContent = document.createElement("div");
     rowContent.classList.value = "continents__row-container flex flex-row flex-auto";
     rowContainer.appendChild(rowContent);
     const colorBoxContainer = document.createElement("div");
-    colorBoxContainer.classList.value = "continents__color-box-container flex size-10";
+    colorBoxContainer.classList.value = "continents__color-box-container flex";
+    colorBoxContainer.classList.add(isMobile && isSmallScreen ? "size-5" : "size-10");
     colorBoxContainer.style.backgroundColor = "grey";
     rowContent.appendChild(colorBoxContainer);
     const colorBox = document.createElement("div");
     colorBox.classList.value = "continents__color-box flex m-px size-full";
-    colorBox.style.backgroundColor = numberHexToStringRGB(contintentPlotList.color);
+    colorBox.style.backgroundColor = numberHexToStringBGR(contintentPlotList.color);
     colorBoxContainer.appendChild(colorBox);
     const continentsTextColumn = document.createElement("div");
     continentsTextColumn.classList.value = "continents__text-column flex flex-col font-fit-shrink whitespace-nowrap ml-4 w-62";
     rowContent.appendChild(continentsTextColumn);
     const continentsTextTitle = document.createElement("div");
-    continentsTextTitle.classList.value = "continents__continent-title flex font-title text-base uppercase font-fit-shrink whitespace-nowrap";
+    continentsTextTitle.classList.value = "continents__continent-title flex font-title uppercase font-fit-shrink whitespace-nowrap";
+    continentsTextTitle.classList.add(isMobile && isSmallScreen ? "text-xs" : "text-base");
     continentsTextTitle.innerHTML = Locale.compose(
       `${GameInfo.Continents.lookup(contintentPlotList.continent)?.Description}`
     );
     continentsTextColumn.appendChild(continentsTextTitle);
-    const researchText = this.getContinentResearchState(contintentPlotList.continent, contintentPlotList.isDistant, contintentPlotList.availableResources);
-    const continentsTextStatus = document.createElement("div");
-    continentsTextStatus.classList.value = "continents__continent-status flex font-body text-base text-primary-1 font-fit-shrink";
-    continentsTextColumn.appendChild(continentsTextStatus);
     if (this.isModernAge) {
+      const researchText = this.getContinentResearchState(
+        contintentPlotList.continent,
+        contintentPlotList.isDistant,
+        contintentPlotList.availableResources
+      );
+      const continentsTextStatus = document.createElement("div");
+      continentsTextStatus.classList.value = "continents__continent-status flex font-body text-base text-primary-1 font-fit-shrink whitespace-normal";
+      continentsTextColumn.appendChild(continentsTextStatus);
       continentsTextStatus.innerHTML = `${researchText}`;
     }
     this.continentListContainer?.appendChild(rowContainer);
   }
   addIconKeyRow(iconURL, locTitle) {
+    const isMobile = ViewExperience() == UIViewExperience.Mobile;
+    const isSmallScreen = useIsSmallScreen()();
     const rowContainer = document.createElement("div");
-    rowContainer.classList.value = "continents__row-container flex my-2";
+    rowContainer.classList.value = "continents__row-container flex";
+    rowContainer.classList.add(isMobile && isSmallScreen ? "my-1" : "my-2");
     const rowContent = document.createElement("div");
     rowContent.classList.value = "continents__row-container flex flex-row flex-auto";
     rowContainer.appendChild(rowContent);
     const iconContainer = document.createElement("div");
-    iconContainer.classList.value = "continents__key-icon-container flex size-10";
+    iconContainer.classList.value = "continents__key-icon-container flex";
+    iconContainer.classList.add(isMobile && isSmallScreen ? "size-6" : "size-10");
     rowContent.appendChild(iconContainer);
     const keyIcon = document.createElement("fxs-icon");
     keyIcon.classList.value = "continents__key-icon flex m-px size-full";
@@ -119,7 +140,8 @@ class ContinentLensInfo extends Panel {
     continentsTextColumn.classList.value = "continents__text-column flex flex-col ml-4 w-64";
     rowContent.appendChild(continentsTextColumn);
     const continentsTextTitle = document.createElement("div");
-    continentsTextTitle.classList.value = "continents__continent-title flex font-title text-base font-fit-shrink";
+    continentsTextTitle.classList.value = "continents__continent-title flex font-title font-fit-shrink";
+    continentsTextTitle.classList.add(isMobile && isSmallScreen ? "text-sm" : "text-base");
     continentsTextTitle.innerHTML = Locale.compose(locTitle);
     continentsTextColumn.appendChild(continentsTextTitle);
     this.continentListContainer?.appendChild(rowContainer);

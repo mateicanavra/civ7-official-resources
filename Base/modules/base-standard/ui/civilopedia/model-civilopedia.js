@@ -1,4 +1,4 @@
-import ContextManager from '../../../core/ui/context-manager/context-manager.js';
+import { ContextManager } from '../../../core/ui/context-manager/context-manager.js';
 
 var DetailsType = /* @__PURE__ */ ((DetailsType2) => {
   DetailsType2[DetailsType2["Section"] = 0] = "Section";
@@ -804,7 +804,7 @@ class Civilopedia {
   onCivilopediaHotkey() {
     if (ContextManager.isCurrentClass("screen-civilopedia")) {
       ContextManager.pop("screen-civilopedia");
-    } else if (!ContextManager.hasInstanceOf("screen-pause-menu") && !ContextManager.hasInstanceOf("age-transition-banner") && !ContextManager.hasInstanceOf("age-ending__container") && !ContextManager.hasInstanceOf("screen-legends-report")) {
+    } else if (!ContextManager.hasInstanceOf("age-transition-banner") && !ContextManager.hasInstanceOf("age-ending__container") && !ContextManager.hasInstanceOf("screen-legends-report")) {
       ContextManager.push("screen-civilopedia", { singleton: true, createMouseGuard: true });
     }
   }

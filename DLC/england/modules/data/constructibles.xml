@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Types>
+		<Row Type="BUILDING_CHAPTER_HOUSE" Kind="KIND_CONSTRUCTIBLE"/>
+		<Row Type="BUILDING_CHAPEL" Kind="KIND_CONSTRUCTIBLE"/>
+		<Row Type="WONDER_GLOBE_THEATRE" Kind="KIND_CONSTRUCTIBLE"/>
+	</Types>
+	<TypeQuotes>
+		<Row Type="WONDER_GLOBE_THEATRE" Quote="LOC_QUOTE_WONDER_GLOBE_THEATRE" QuoteAuthor="LOC_QUOTE_AUTHOR_WONDER_GLOBE_THEATRE" QuoteAudio="VO_Quote_GlobeTheatre"/>
+	</TypeQuotes>
+	<Constructibles>
+		<!--Civ Unique Improvements-->
+		<Row ConstructibleType="BUILDING_CHAPTER_HOUSE" Name="LOC_BUILDING_CHAPTER_HOUSE_NAME" Description="LOC_BUILDING_CHAPTER_HOUSE_DESCRIPTION" Tooltip="LOC_BUILDING_CHAPTER_HOUSE_TOOLTIP" ConstructibleClass="BUILDING" Cost="240" Population="1" Age="AGE_EXPLORATION" CostProgressionModel="COST_PROGRESSION_PREVIOUS_BUILDINGS_CITY"/>
+		<Row ConstructibleType="BUILDING_CHAPEL" Name="LOC_BUILDING_CHAPEL_NAME" Description="LOC_BUILDING_CHAPEL_DESCRIPTION" Tooltip="LOC_BUILDING_CHAPEL_TOOLTIP" ConstructibleClass="BUILDING" Cost="280" Population="1" Age="AGE_EXPLORATION" CostProgressionModel="COST_PROGRESSION_PREVIOUS_BUILDINGS_CITY"/>
+		<Row ConstructibleType="WONDER_GLOBE_THEATRE" Name="LOC_WONDER_GLOBE_THEATRE_NAME" Description="LOC_WONDER_GLOBE_THEATRE_DESCRIPTION" Tooltip="LOC_WONDER_GLOBE_THEATRE_TOOLTIP" AdjacentRiver="true" ConstructibleClass="WONDER" Cost="525" Population="0" ImmuneDamage="true" RequiresUnlock="true" Age="AGE_EXPLORATION"/>
+	</Constructibles>
+	<Buildings>
+		<!--Civ Unique Improvements-->
+		<Row ConstructibleType="BUILDING_CHAPTER_HOUSE" Movable="false" TraitType="TRAIT_ENGLAND"/>
+		<Row ConstructibleType="BUILDING_CHAPEL" Movable="false" TraitType="TRAIT_ENGLAND"/>
+	</Buildings>
+	<Wonders>
+		<Row ConstructibleType="WONDER_GLOBE_THEATRE" MaxWorldInstances="1"/>
+	</Wonders>
+	<TypeTags>
+		<Row Type="BUILDING_CHAPTER_HOUSE" Tag="CULTURE"/>
+		<Row Type="BUILDING_CHAPTER_HOUSE" Tag="UNIQUE"/>
+		<Row Type="BUILDING_CHAPTER_HOUSE" Tag="AGELESS"/>
+		<Row Type="BUILDING_CHAPEL" Tag="GOLD"/>
+		<Row Type="BUILDING_CHAPEL" Tag="UNIQUE"/>
+		<Row Type="BUILDING_CHAPEL" Tag="AGELESS"/>
+		<Row Type="BUILDING_CHAPEL" Tag="GREATWORK"/>
+		<Row Type="WONDER_GLOBE_THEATRE" Tag="AGELESS"/>
+		<Row Type="WONDER_GLOBE_THEATRE" Tag="GREATWORK"/>
+	</TypeTags>
+	<Constructible_ValidDistricts>
+		<!--Civ Unique Improvements-->
+		<Row ConstructibleType="BUILDING_CHAPTER_HOUSE" DistrictType="DISTRICT_CITY_CENTER"/>
+		<Row ConstructibleType="BUILDING_CHAPTER_HOUSE" DistrictType="DISTRICT_URBAN"/>
+		<Row ConstructibleType="BUILDING_CHAPEL" DistrictType="DISTRICT_CITY_CENTER"/>
+		<Row ConstructibleType="BUILDING_CHAPEL" DistrictType="DISTRICT_URBAN"/>
+		<!--Wonders-->
+		<Row ConstructibleType="WONDER_GLOBE_THEATRE" DistrictType="DISTRICT_WONDER"/>
+	</Constructible_ValidDistricts>
+	<Constructible_YieldChanges>
+		<Row ConstructibleType="BUILDING_CHAPTER_HOUSE" YieldType="YIELD_CULTURE" YieldChange="3"/>
+		<Row ConstructibleType="BUILDING_CHAPEL" YieldType="YIELD_GOLD" YieldChange="3"/>
+		<Row ConstructibleType="WONDER_GLOBE_THEATRE" YieldType="YIELD_CULTURE" YieldChange="4"/>
+	</Constructible_YieldChanges>
+	<Constructible_Maintenances>
+		<Row ConstructibleType="BUILDING_CHAPTER_HOUSE" YieldType="YIELD_HAPPINESS" Amount="3"/>
+		<Row ConstructibleType="BUILDING_CHAPTER_HOUSE" YieldType="YIELD_GOLD" Amount="3"/>
+	</Constructible_Maintenances>
+	<Constructible_Adjacencies>
+		<Row ConstructibleType="BUILDING_CHAPTER_HOUSE" YieldChangeId="ChapterHouseHappinessCulture"/>
+		<Row ConstructibleType="BUILDING_CHAPTER_HOUSE" YieldChangeId="WonderCulture"/>
+		<Row ConstructibleType="BUILDING_CHAPEL" YieldChangeId="ChapelCultureHappiness"/>
+		<Row ConstructibleType="BUILDING_CHAPEL" YieldChangeId="WonderHappiness"/>
+	</Constructible_Adjacencies>
+	<Adjacency_YieldChanges>
+		<Row ID="ChapterHouseHappinessCulture" YieldType="YIELD_CULTURE" YieldChange="1" TilesRequired="1" ProjectMaxYield="true" AdjacentConstructibleTag="HAPPINESS"/>
+		<Row ID="ChapelCultureHappiness" YieldType="YIELD_HAPPINESS" YieldChange="1" TilesRequired="1" ProjectMaxYield="true" AdjacentConstructibleTag="CULTURE"/>
+	</Adjacency_YieldChanges>
+	<Constructible_Plunders>
+		<!--Civ Unique Improvements-->
+		<Row ConstructibleType="BUILDING_CHAPTER_HOUSE" PlunderType="PLUNDER_CULTURE" Amount="80"/>
+		<Row ConstructibleType="BUILDING_CHAPEL" PlunderType="PLUNDER_CULTURE" Amount="80"/>
+	</Constructible_Plunders>
+	<Constructible_BuildingCostProgressions>
+		<Row ConstructibleType="BUILDING_CHAPTER_HOUSE" Percent="5" />
+		<Row ConstructibleType="BUILDING_CHAPEL" Percent="5" />
+	</Constructible_BuildingCostProgressions>
+	<UniqueQuarters>
+		<Row UniqueQuarterType="QUARTER_ABBEY" BuildingType1="BUILDING_CHAPTER_HOUSE" BuildingType2="BUILDING_CHAPEL" Name="LOC_QUARTER_ABBEY_NAME" Description="LOC_QUARTER_ABBEY_DESCRIPTION" Tooltip="LOC_QUARTER_ABBEY_TOOLTIP" TraitType="TRAIT_ENGLAND"/>
+	</UniqueQuarters>
+	<GameModifiers>
+		<!-- Unique Quarter modifiers are game-wide -->
+		<Row ModifierId="MOD_CULTURE_ABBEY"/>
+	</GameModifiers>
+	<!-- These are listed here so the AI can evalutate Unique Quarters. They do not have any effects on the game for human players. -->
+	<UniqueQuarterModifiers>
+		<Row UniqueQuarterType="QUARTER_ABBEY" ModifierId="MOD_CULTURE_ABBEY"/>
+	</UniqueQuarterModifiers>
+	<ConstructibleModifiers>
+		<!--Wonders-->
+		<Row ConstructibleType="WONDER_GLOBE_THEATRE" ModifierId="MOD_GLOBE_THEATRE_VP"/>
+	</ConstructibleModifiers>
+	<Constructible_Advisories>
+		<Row ConstructibleType="BUILDING_CHAPTER_HOUSE" AdvisoryClassType="ADVISORY_CLASS_ECONOMIC"/>
+		<Row ConstructibleType="BUILDING_CHAPEL" AdvisoryClassType="ADVISORY_CLASS_MILITARY"/>
+		<Row ConstructibleType="WONDER_GLOBE_THEATRE" AdvisoryClassType="ADVISORY_CLASS_ECONOMIC"/>
+	</Constructible_Advisories>
+	<Constructible_GreatWorks>
+		<Row ConstructibleType="BUILDING_CHAPEL" GreatWorkSlotType="GREATWORKSLOT_ANY" NumSlots="2"/>
+		<Row ConstructibleType="WONDER_GLOBE_THEATRE" GreatWorkSlotType="GREATWORKSLOT_ANY" NumSlots="3"/>
+	</Constructible_GreatWorks>
+	<VictoryScorings>
+		<Row VictoryType="VICTORY_ECONOMIC_MODERN" TrackerType="VICTORY_TRACKER_GREAT_WORK_PER_TURN" ScoringId="VICTORY_TRACKER_GLOBE_THEATRE_PER_TURN" Name="LOC_VICTORY_TRACKER_GREAT_WORKS_NAME" Points="1" StaticCarryover="true" RequiresActivation="true"/>
+	</VictoryScorings>
+	<VictoryDataUIs>
+		<Row Key="VICTORY_TRACKER_GLOBE_THEATRE_PER_TURN" Name="LOC_WONDER_GLOBE_THEATRE_NAME" IconOverride="blp:wondericon_globe_theatre" SortOrder="100" />
+	</VictoryDataUIs>
+</Database>

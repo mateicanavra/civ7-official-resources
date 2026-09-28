@@ -15,23 +15,25 @@ import { ScrollArea } from '../../components/scroll-area.js';
 import { SearchBar } from '../../components/search-bar.js';
 import { SpatialSlot } from '../../components/slot.js';
 import { Tab } from '../../components/tab.js';
-import { Tooltip } from '../../components/tooltip.js';
+import { Tooltip, TooltipVerticalPosition, TooltipHorizontalPosition } from '../../components/tooltip.js';
 import { AttributeIcon } from './attribute-icon.js';
+import { createAgeFilterModel, attrFilter } from './civ-select-model.js';
 import { CreateGameTabPips } from './create-game-components.js';
 import { CreateGameStage, CreateGameStageHeader } from './create-game-stage.js';
 import { LeaderSelectButton } from './leader-select-button.js';
 import { LeaderSelectModel } from './leader-select-model.js';
+import { SyncretismTooltip } from './syncretism-tooltip.js';
 import { TicketBox } from './ticket-box.js';
 import { useAudio } from '../../services/audio-support.js';
 import { ComponentRegistry } from '../../services/component-registry.js';
 import { FocusManager } from '../../services/focus-manager.js';
 import { IsControllerActive } from '../../services/input.js';
-import { ViewExperience } from '../../services/view-experience.js';
+import { ViewExperience, isMobile } from '../../services/view-experience.js';
 import { useIsSmallScreen } from '../../utilities/layout-utilities.js';
 import { createDebouncedSignal } from '../../utilities/solid-utilities.js';
 import style from './leader-select-screen.scss.js';
 
-var _tmpl$ = /* @__PURE__ */ template(`<div class="filigree-h4-left mt-3"></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="filigree-h4-right mt-3"></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class=leader-select-decoration-bar><div class="img-unit-panelbox mt-3 mb-4 mx-4 pt-3 pb-4 relative flex flex-row justify-center items-center"><div class="leader-select-corner-filigree top-left"></div><div class="leader-select-corner-filigree top-right"></div><div class="leader-select-corner-filigree bottom-left"></div><div class="leader-select-corner-filigree bottom-right"></div></div></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div class="leader-select-leaders-panel img-unit-panelbox flex flex-col relative justify-center"><div class="leader-select-corner-filigree inner-top-left"></div><div class="leader-select-corner-filigree inner-top-right"></div><div class="absolute right-0 -top-32 pointer-events-none opacity-50"></div><div class="mx-5 mb-1 mt-4 flex leader-select-filters-container"></div><div class="leader-select-line-divider my-2"></div><div class="absolute top-0 w-full flex items-center justify-center"><div class=leader-select-leaders-panel-filigree></div></div><div class="absolute bottom-0 w-full flex items-center justify-center"><div class="leader-select-leaders-panel-filigree -scale-y-100"></div></div></div>`), _tmpl$5 = /* @__PURE__ */ template(`<span class=m-2></span>`), _tmpl$6 = /* @__PURE__ */ template(`<div class="leader-select-divider my-2"></div>`), _tmpl$7 = /* @__PURE__ */ template(`<div class="flex uppercase leader-select-details-page1"></div>`), _tmpl$8 = /* @__PURE__ */ template(`<div class="leader-select-divider my-3"></div>`), _tmpl$9 = /* @__PURE__ */ template(`<div class="flex flex-col uppercase text-tertiary-1 font-title font-bold"></div>`), _tmpl$10 = /* @__PURE__ */ template(`<div class="text-sm mb-2 uppercase"></div>`), _tmpl$11 = /* @__PURE__ */ template(`<div class="font-sm mr-5 flex flex-row items-center "><div class="font-fit-shrink max-w-48"></div></div>`), _tmpl$12 = /* @__PURE__ */ template(`<div class="font-title text-tertiary-1 uppercase"></div>`), _tmpl$13 = /* @__PURE__ */ template(`<div class="flex flex-row flex-wrap"><div class="font-title text-tertiary-1 uppercase flex flex-row">:</div><div class="text-accent-2 ml-1 flex flex-row uppercase"></div></div>`), _tmpl$14 = /* @__PURE__ */ template(`<div class="img-tag-locked absolute left-0 top-5 flex flex-row items-start justify-start"><div class="img-lock2 size-8 mt-0\\.5 ml-0\\.5"></div></div>`), _tmpl$15 = /* @__PURE__ */ template(`<div class="flex flex-col items-center justify-center"></div>`), _tmpl$16 = /* @__PURE__ */ template(`<div class="bg-primary-2 w-full -mr-2 h-0\\.5"></div>`), _tmpl$17 = /* @__PURE__ */ template(`<div class="flex flex-col flex-auto ml-2"><div class="text-accent-5 font-title text-base"></div></div>`), _tmpl$18 = /* @__PURE__ */ template(`<div class="flex flex-row create-game-markup"><span class=indent-1></span></div>`), _tmpl$19 = /* @__PURE__ */ template(`<div class="leader-select-leader-details flex flex-col mt-8 flex-auto w-full text-primary-1"><div class=h-fit></div></div>`), _tmpl$20 = /* @__PURE__ */ template(`<div data-name=subtitles class="create-game-subtitles absolute bottom-2 text-xl text-accent-2 font-title font-black p-2"></div>`), _tmpl$21 = /* @__PURE__ */ template(`<div class="size-full relative"></div>`);
+var _tmpl$ = /* @__PURE__ */ template(`<div class="filigree-h4-left mt-3"></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="font-fit-shrink"></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="filigree-h4-right mt-3"></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div class="leader-select-decoration-bar"><div class="img-unit-panelbox mt-3 mb-4 mx-4 pt-3 pb-4 relative flex flex-row justify-center items-center"><div class="leader-select-corner-filigree top-left"></div><div class="leader-select-corner-filigree top-right"></div><div class="leader-select-corner-filigree bottom-left"></div><div class="leader-select-corner-filigree bottom-right"></div></div></div>`), _tmpl$5 = /* @__PURE__ */ template(`<div class="leader-select-leaders-panel img-unit-panelbox flex flex-col relative justify-center"><div class="leader-select-corner-filigree inner-top-left"></div><div class="leader-select-corner-filigree inner-top-right"></div><div class="absolute right-0 -top-32 pointer-events-none opacity-50"></div><div class="mx-5 mb-1 mt-4 flex leader-select-filters-container"></div><div class="leader-select-line-divider my-2"></div><div class="absolute top-0 w-full flex items-center justify-center"><div class="leader-select-leaders-panel-filigree"></div></div><div class="absolute bottom-0 w-full flex items-center justify-center"><div class="leader-select-leaders-panel-filigree -scale-y-100"></div></div></div>`), _tmpl$6 = /* @__PURE__ */ template(`<span class="m-2"></span>`), _tmpl$7 = /* @__PURE__ */ template(`<div class="leader-select-divider my-2"></div>`), _tmpl$8 = /* @__PURE__ */ template(`<div class="flex uppercase leader-select-details-page1"></div>`), _tmpl$9 = /* @__PURE__ */ template(`<div class="leader-select-divider my-3"></div>`), _tmpl$10 = /* @__PURE__ */ template(`<div class="flex flex-col uppercase text-tertiary-1 font-title font-bold"></div>`), _tmpl$11 = /* @__PURE__ */ template(`<div class="text-sm mb-2 uppercase"></div>`), _tmpl$12 = /* @__PURE__ */ template(`<div class="font-sm mr-5 flex flex-row items-center "><div class="font-fit-shrink max-w-48"></div></div>`), _tmpl$13 = /* @__PURE__ */ template(`<div class="font-title text-tertiary-1 uppercase"></div>`), _tmpl$14 = /* @__PURE__ */ template(`<div class="text-sm"></div>`), _tmpl$15 = /* @__PURE__ */ template(`<div class="mt-2"></div>`), _tmpl$16 = /* @__PURE__ */ template(`<div class="font-title text-tertiary-1 uppercase mt-3"></div>`), _tmpl$17 = /* @__PURE__ */ template(`<div class="mt-2 flex flex-col items-start"></div>`), _tmpl$18 = /* @__PURE__ */ template(`<div class="flex flex-row flex-wrap"><div class="font-title text-tertiary-1 uppercase flex flex-row">:</div><div class="text-accent-2 ml-1 flex flex-row uppercase"></div></div>`), _tmpl$19 = /* @__PURE__ */ template(`<div class="img-tag-locked absolute left-0 top-5 flex flex-row items-start justify-start"><div class="img-lock2 size-8 mt-0\\.5 ml-0\\.5"></div></div>`), _tmpl$20 = /* @__PURE__ */ template(`<div class="flex flex-col items-center justify-center"></div>`), _tmpl$21 = /* @__PURE__ */ template(`<div class="bg-primary-2 w-full -mr-2 h-0\\.5"></div>`), _tmpl$22 = /* @__PURE__ */ template(`<div class="flex flex-col flex-auto ml-2"><div class="text-accent-5 font-title text-base"></div></div>`), _tmpl$23 = /* @__PURE__ */ template(`<div class="flex flex-row flex-wrap w-full"><span>• </span></div>`), _tmpl$24 = /* @__PURE__ */ template(`<div class="flex flex-row flex-wrap w-full"></div>`), _tmpl$25 = /* @__PURE__ */ template(`<div class="leader-select-leader-details flex flex-col mt-8 flex-auto w-full text-primary-1"><div class="h-fit"></div></div>`), _tmpl$26 = /* @__PURE__ */ template(`<div data-name="subtitles"class="create-game-subtitles absolute bottom-2 text-xl text-accent-2 font-title font-black p-2"></div>`), _tmpl$27 = /* @__PURE__ */ template(`<div class="size-full relative"></div>`);
 const LeaderSelectLeadersPanel = () => {
   const leaderModel = LeaderSelectModel.get();
   const flowContext = useScreenFlowContext();
@@ -71,7 +73,7 @@ const LeaderSelectLeadersPanel = () => {
     audio("popup-open");
   });
   return (() => {
-    var _el$ = _tmpl$4(), _el$2 = _el$.firstChild, _el$3 = _el$2.nextSibling, _el$4 = _el$3.nextSibling, _el$5 = _el$4.nextSibling, _el$6 = _el$5.nextSibling, _el$12 = _el$6.nextSibling, _el$13 = _el$12.nextSibling;
+    var _el$ = _tmpl$5(), _el$2 = _el$.firstChild, _el$3 = _el$2.nextSibling, _el$4 = _el$3.nextSibling, _el$5 = _el$4.nextSibling, _el$6 = _el$5.nextSibling, _el$13 = _el$6.nextSibling, _el$14 = _el$13.nextSibling;
     insert(_el$, createComponent(Hotkeys, {
       hotkeys: [{
         hotkeyAction: "accept",
@@ -83,6 +85,7 @@ const LeaderSelectLeadersPanel = () => {
         onActivate: () => {
           flowContext.activatePrev();
           useAudio("CreateGameBackButton")("activate");
+          resetCivsFilters();
         }
       }, {
         hotkeyAction: "shell-action-2",
@@ -114,14 +117,14 @@ const LeaderSelectLeadersPanel = () => {
       get children() {
         return createComponent(Dropdown, {
           selectedItemTemplate: (item) => (() => {
-            var _el$14 = _tmpl$5();
-            insert(_el$14, createComponent(L10n.Compose, {
+            var _el$15 = _tmpl$6();
+            insert(_el$15, createComponent(L10n.Compose, {
               text: "LOC_UI_CREATE_GAME_FILTER_ITEM",
               get args() {
                 return [Locale.toUpper(Locale.compose(item))];
               }
             }));
-            return _el$14;
+            return _el$15;
           })(),
           hotkey: "shell-action-2",
           get defaultValue() {
@@ -149,12 +152,16 @@ const LeaderSelectLeadersPanel = () => {
       }
     }), null);
     insert(_el$, createComponent(ScrollArea, {
-      "class": "flex-auto m-2",
+      get ["class"]() {
+        return `flex-auto ${isMobile() ? "my-2 ml-2" : "m-2"}`;
+      },
       allowGamepadPan: false,
       get children() {
         return createComponent(SpatialSlot, {
           name: "leader-list",
-          "class": "flex-auto flex flex-row flex-wrap pl-4 -mr-2",
+          get ["class"]() {
+            return `flex-auto flex flex-row flex-wrap ${isMobile() ? "pl-2" : "pl-4"} -mr-2`;
+          },
           get children() {
             return createComponent(For, {
               get each() {
@@ -183,13 +190,13 @@ const LeaderSelectLeadersPanel = () => {
           }
         });
       }
-    }), _el$12);
+    }), _el$13);
     insert(_el$, createComponent(Show, {
       get when() {
         return !IsControllerActive();
       },
       get children() {
-        var _el$7 = _tmpl$3(), _el$8 = _el$7.firstChild, _el$11 = _el$8.firstChild;
+        var _el$7 = _tmpl$4(), _el$8 = _el$7.firstChild, _el$12 = _el$8.firstChild;
         insert(_el$8, createComponent(Show, {
           get when() {
             return !isSmallScreen();
@@ -197,7 +204,7 @@ const LeaderSelectLeadersPanel = () => {
           get children() {
             return _tmpl$();
           }
-        }), _el$11);
+        }), _el$12);
         insert(_el$8, createComponent(AudioContextProvider, {
           segment: "LeaderSelectContinue",
           get children() {
@@ -207,24 +214,26 @@ const LeaderSelectLeadersPanel = () => {
               },
               onActivate: () => flowContext.activateNext(),
               get children() {
-                return createComponent(L10n.Compose, {
+                var _el$10 = _tmpl$2();
+                insert(_el$10, createComponent(L10n.Compose, {
                   text: "LOC_GENERIC_SELECT"
-                });
+                }));
+                return _el$10;
               }
             });
           }
-        }), _el$11);
+        }), _el$12);
         insert(_el$8, createComponent(Show, {
           get when() {
             return !isSmallScreen();
           },
           get children() {
-            return _tmpl$2();
+            return _tmpl$3();
           }
-        }), _el$11);
+        }), _el$12);
         return _el$7;
       }
-    }), _el$12);
+    }), _el$13);
     insert(_el$, createComponent(Scene3d, {
       name: "leaderLighting",
       get children() {
@@ -253,26 +262,26 @@ const LeaderSelectLeadersPanel = () => {
 const LeaderSelectDetailsPage1 = () => {
   const leaderModel = LeaderSelectModel.get();
   const leader = createMemo(() => leaderModel.selectedLeader());
-  return [_tmpl$6(), (() => {
-    var _el$16 = _tmpl$7();
-    insert(_el$16, createComponent(For, {
+  return [_tmpl$7(), (() => {
+    var _el$17 = _tmpl$8();
+    insert(_el$17, createComponent(For, {
       get each() {
         return leader().tags;
       },
       children: (attribute) => (() => {
-        var _el$21 = _tmpl$11(), _el$22 = _el$21.firstChild;
-        insert(_el$21, createComponent(AttributeIcon, {
+        var _el$22 = _tmpl$12(), _el$23 = _el$22.firstChild;
+        insert(_el$22, createComponent(AttributeIcon, {
           "class": "size-8 mr-2",
           attribute
-        }), _el$22);
-        insert(_el$22, createComponent(L10n.Compose, {
+        }), _el$23);
+        insert(_el$23, createComponent(L10n.Compose, {
           text: attribute
         }));
-        return _el$21;
+        return _el$22;
       })()
     }));
-    return _el$16;
-  })(), _tmpl$6(), createComponent(Show, {
+    return _el$17;
+  })(), _tmpl$7(), createComponent(Show, {
     get when() {
       return leader().introText;
     },
@@ -283,20 +292,20 @@ const LeaderSelectDetailsPage1 = () => {
         }
       });
     }
-  }), _tmpl$8(), (() => {
-    var _el$19 = _tmpl$9();
-    insert(_el$19, createComponent(L10n.Compose, {
+  }), _tmpl$9(), (() => {
+    var _el$20 = _tmpl$10();
+    insert(_el$20, createComponent(L10n.Compose, {
       get text() {
         return leader().abilityTitle;
       }
     }));
-    return _el$19;
+    return _el$20;
   })(), (() => {
-    var _el$20 = _tmpl$10();
-    insert(_el$20, createComponent(L10n.Compose, {
+    var _el$21 = _tmpl$11();
+    insert(_el$21, createComponent(L10n.Compose, {
       text: "LOC_UI_CREATE_GAME_LEADER_ABILITY"
     }));
-    return _el$20;
+    return _el$21;
   })(), createComponent(L10n.Stylize, {
     "class": "w-full create-game-markup mb-2",
     get text() {
@@ -307,6 +316,7 @@ const LeaderSelectDetailsPage1 = () => {
 const LeaderSelectDetailsPage2 = () => {
   const leaderModel = LeaderSelectModel.get();
   const leader = createMemo(() => leaderModel.selectedLeader());
+  const isOfflineMemento = !Network.supportsSSO() && Online.Metaprogression.supportsMemento();
   const rewardDesc = createMemo(() => {
     const reward = leader().nextReward;
     if (!reward) {
@@ -315,72 +325,139 @@ const LeaderSelectDetailsPage2 = () => {
     const rewardType = getRewardType(reward.gameItemID);
     return rewardType == UnlockableRewardType.Memento ? `LOC_${reward.gameItemID}_FUNCTIONAL_DESCRIPTION` : void 0;
   });
-  return [_tmpl$6(), (() => {
-    var _el$24 = _tmpl$12();
-    insert(_el$24, createComponent(L10n.Compose, {
+  return [_tmpl$7(), (() => {
+    var _el$25 = _tmpl$13();
+    insert(_el$25, createComponent(L10n.Compose, {
       text: "LOC_CREATE_GAME_AGE_UNLOCK_TITLE"
     }));
-    return _el$24;
-  })(), createComponent(For, {
-    get each() {
-      return leader().ageUnlocks;
-    },
-    children: (unlock) => (() => {
-      var _el$35 = _tmpl$18(), _el$36 = _el$35.firstChild;
-      insert(_el$35, createComponent(L10n.Stylize, {
-        text: unlock
-      }), null);
-      return _el$35;
-    })()
-  }), createComponent(Show, {
+    return _el$25;
+  })(), (() => {
+    var _el$26 = _tmpl$14();
+    insert(_el$26, createComponent(L10n.Stylize, {
+      text: "LOC_CREATE_GAME_AGE_UNLOCK_SUBTITLE"
+    }));
+    return _el$26;
+  })(), (() => {
+    var _el$27 = _tmpl$15();
+    insert(_el$27, createComponent(For, {
+      get each() {
+        return leader().ageUnlocks;
+      },
+      children: (unlock) => (() => {
+        var _el$41 = _tmpl$23(), _el$42 = _el$41.firstChild;
+        insert(_el$41, createComponent(L10n.Stylize, {
+          "class": "create-game-markup tight mb-1",
+          text: unlock
+        }), null);
+        return _el$41;
+      })()
+    }));
+    return _el$27;
+  })(), createComponent(Show, {
     get when() {
-      return leader().nextReward;
+      return leader().syncretismUnlocks.length > 0;
     },
     get children() {
-      return [_tmpl$8(), (() => {
-        var _el$26 = _tmpl$13(), _el$27 = _el$26.firstChild, _el$28 = _el$27.firstChild, _el$29 = _el$27.nextSibling;
-        insert(_el$27, createComponent(L10n.Compose, {
+      return [(() => {
+        var _el$28 = _tmpl$16();
+        insert(_el$28, createComponent(L10n.Compose, {
+          text: "LOC_CREATE_GAME_UNLOCK_ITEM_SYNCRETISM_TITLE"
+        }));
+        return _el$28;
+      })(), (() => {
+        var _el$29 = _tmpl$14();
+        insert(_el$29, createComponent(L10n.Stylize, {
+          text: "LOC_CREATE_GAME_UNLOCK_ITEM_SYNCRETISM_DESCRIPTION"
+        }));
+        return _el$29;
+      })(), (() => {
+        var _el$30 = _tmpl$17();
+        insert(_el$30, createComponent(For, {
+          get each() {
+            return leader().syncretismUnlocks;
+          },
+          children: (unlock) => (() => {
+            var _el$43 = _tmpl$24();
+            insert(_el$43, createComponent(SyncretismTooltip, {
+              get initialHPosition() {
+                return TooltipHorizontalPosition.RIGHT;
+              },
+              get initialVPosition() {
+                return TooltipVerticalPosition.BOTTOM;
+              },
+              offset: 10,
+              get civilizationType() {
+                return unlock.civilization;
+              },
+              get children() {
+                return createComponent(L10n.Stylize, {
+                  "class": "create-game-markup tight mb-1",
+                  get classList() {
+                    return {
+                      "faux-tooltip-controller": !IsControllerActive()
+                    };
+                  },
+                  get text() {
+                    return unlock.description;
+                  }
+                });
+              }
+            }));
+            return _el$43;
+          })()
+        }));
+        return _el$30;
+      })()];
+    }
+  }), createComponent(Show, {
+    get when() {
+      return leader().nextReward && !isOfflineMemento;
+    },
+    get children() {
+      return [_tmpl$9(), (() => {
+        var _el$32 = _tmpl$18(), _el$33 = _el$32.firstChild, _el$34 = _el$33.firstChild, _el$35 = _el$33.nextSibling;
+        insert(_el$33, createComponent(L10n.Compose, {
           text: "LOC_UI_RADIAL_MENU_DETAILS_UNLOCK_NEXT"
-        }), _el$28);
-        insert(_el$29, createComponent(L10n.Compose, {
+        }), _el$34);
+        insert(_el$35, createComponent(L10n.Compose, {
           text: "LOC_END_GAME_ADD_LEVEL",
           get args() {
             return [leader().nextReward?.level ?? ""];
           }
         }));
-        return _el$26;
+        return _el$32;
       })(), createComponent(TicketBox, {
         "class": "flex-auto flex flex-row relative mt-1 overflow-hidden",
         get children() {
-          return [_tmpl$14(), (() => {
-            var _el$31 = _tmpl$15();
-            insert(_el$31, createComponent(Icon, {
+          return [_tmpl$19(), (() => {
+            var _el$37 = _tmpl$20();
+            insert(_el$37, createComponent(Icon, {
               "class": "size-19 m-4",
               get name() {
                 return `url('${leader().nextReward?.reward}')`;
               },
               isUrl: true
             }));
-            return _el$31;
+            return _el$37;
           })(), (() => {
-            var _el$32 = _tmpl$17(), _el$33 = _el$32.firstChild;
-            insert(_el$33, createComponent(L10n.Compose, {
+            var _el$38 = _tmpl$22(), _el$39 = _el$38.firstChild;
+            insert(_el$39, createComponent(L10n.Compose, {
               get text() {
                 return leader().nextReward?.title ?? "";
               }
             }));
-            insert(_el$32, createComponent(L10n.Stylize, {
+            insert(_el$38, createComponent(L10n.Stylize, {
               "class": "flex-auto create-game-markup",
               get text() {
                 return rewardDesc() ?? leader().nextReward?.desc ?? "";
               }
             }), null);
-            insert(_el$32, createComponent(Show, {
+            insert(_el$38, createComponent(Show, {
               get when() {
                 return rewardDesc();
               },
               get children() {
-                return [_tmpl$16(), createComponent(L10n.Stylize, {
+                return [_tmpl$21(), createComponent(L10n.Stylize, {
                   "class": "text-accent-5 text-sm my-1",
                   get text() {
                     return leader().nextReward?.desc ?? "";
@@ -388,7 +465,7 @@ const LeaderSelectDetailsPage2 = () => {
                 })];
               }
             }), null);
-            return _el$32;
+            return _el$38;
           })()];
         }
       })];
@@ -399,8 +476,8 @@ const LeaderSelectDetails = () => {
   const leaderModel = LeaderSelectModel.get();
   const leader = createMemo(() => leaderModel.selectedLeader());
   return (() => {
-    var _el$37 = _tmpl$19(), _el$38 = _el$37.firstChild;
-    insert(_el$38, createComponent(Header, {
+    var _el$44 = _tmpl$25(), _el$45 = _el$44.firstChild;
+    insert(_el$45, createComponent(Header, {
       "class": "leader-select-leader-name text-custom font-bold uppercase leading-none",
       get children() {
         return createComponent(L10n.Compose, {
@@ -410,7 +487,7 @@ const LeaderSelectDetails = () => {
         });
       }
     }));
-    insert(_el$37, createComponent(Show, {
+    insert(_el$44, createComponent(Show, {
       get when() {
         return leader().leaderID != "RANDOM";
       },
@@ -437,7 +514,7 @@ const LeaderSelectDetails = () => {
         });
       }
     }), null);
-    return _el$37;
+    return _el$44;
   })();
 };
 const TRIGGER_ANIMATION_END = WorldUI.hash("AnimationStateChange");
@@ -452,6 +529,7 @@ const LeaderSelectScreenComponent = () => {
   const leaderState = createMemo(() => voPlaying() ? LeaderStates.VO : LeaderStates.Idle);
   let voJustStarted = false;
   const subtitlesVisible = createMemo(() => Sound.getSubtitles() && voPlaying() && leaderModel.selectedLeader().quote != "");
+  const context = useScreenFlowContext();
   createEffect(on(() => leaderModel.selectedLeader(), (leader) => {
     setLeader(leader);
     setVoPlaying(false);
@@ -478,28 +556,32 @@ const LeaderSelectScreenComponent = () => {
         get showSteps() {
           return !(ViewExperience() == UIViewExperience.Handheld);
         },
-        title: "LOC_UI_CREATE_GAME_LEADER_SELECT"
+        title: "LOC_UI_CREATE_GAME_LEADER_SELECT",
+        onBack: () => {
+          context.activatePrev();
+          resetCivsFilters();
+        }
       });
     },
     get children() {
-      var _el$39 = _tmpl$21();
-      insert(_el$39, createComponent(LeaderSelectLeadersPanel, {}), null);
-      insert(_el$39, createComponent(LeaderSelectDetails, {}), null);
-      insert(_el$39, createComponent(Show, {
+      var _el$46 = _tmpl$27();
+      insert(_el$46, createComponent(LeaderSelectLeadersPanel, {}), null);
+      insert(_el$46, createComponent(LeaderSelectDetails, {}), null);
+      insert(_el$46, createComponent(Show, {
         get when() {
           return subtitlesVisible();
         },
         get children() {
-          var _el$40 = _tmpl$20();
-          insert(_el$40, createComponent(L10n.Compose, {
+          var _el$47 = _tmpl$26();
+          insert(_el$47, createComponent(L10n.Compose, {
             get text() {
               return leaderModel.selectedLeader().quote;
             }
           }));
-          return _el$40;
+          return _el$47;
         }
       }), null);
-      insert(_el$39, createComponent(Scene3d, {
+      insert(_el$46, createComponent(Scene3d, {
         name: "leader",
         get children() {
           return [createComponent(Camera3d, {
@@ -538,7 +620,7 @@ const LeaderSelectScreenComponent = () => {
           })];
         }
       }), null);
-      return _el$39;
+      return _el$46;
     }
   });
 };
@@ -547,6 +629,11 @@ const LeaderSelectScreen = ComponentRegistry.register({
   createInstance: LeaderSelectScreenComponent,
   styles: [style]
 });
+function resetCivsFilters() {
+  const ageFilter = createAgeFilterModel();
+  ageFilter.reset();
+  attrFilter.reset();
+}
 
 export { LeaderSelectScreen };
 //# sourceMappingURL=leader-select-screen.js.map

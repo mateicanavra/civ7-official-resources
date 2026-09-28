@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+	<!-- ==================================================	-->
+	<!--				Civ-Specific Traits					-->
+	<!-- ==================================================	-->
+	<Modifier id="TRAIT_LESS_SETTLEMENT_CAP" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ADJUST_SETTLEMENT_CAP">
+		<Argument name="Amount" type="ScaleByGameAge" extra="100">-2</Argument>
+		<Argument name="Ageless">true</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_GROWTH_EVENT_CULTURE_BUILDINGS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_ADDS_GROWTH_EVENT">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_CITY"/>
+		</SubjectRequirements>
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_CARD_EFFECTS_COMPLETE"/>
+		</OwnerRequirements>
+		<Argument name="Tag">CULTURE</Argument>
+		<Argument name="Amount">1</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_GROWTH_EVENT_FOOD_BUILDINGS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_ADDS_GROWTH_EVENT">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_CITY"/>
+		</SubjectRequirements>
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_CARD_EFFECTS_COMPLETE"/>
+		</OwnerRequirements>
+		<Argument name="Tag">FOOD</Argument>
+		<Argument name="Amount">1</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_GROWTH_EVENT_WONDERS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_CONSTRUCTIBLE_ADDS_GROWTH_EVENT">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_CITY_IS_CITY"/>
+		</SubjectRequirements>
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_PLAYER_CARD_EFFECTS_COMPLETE"/>
+		</OwnerRequirements>
+		<Argument name="ConstructibleClass">WONDER</Argument>
+		<Argument name="Amount">1</Argument>
+	</Modifier>
+	<Modifier id="TRAIT_MOD_BABYLON_QUARTER_TOURISM" collection="COLLECTION_OWNER" effect="EFFECT_PLAYER_ACTIVATE_VICTORY_POINT_TRACKER">
+		<Argument name="TrackerName">VICTORY_TRACKER_BABYLON_QUARTER</Argument>
+	</Modifier>
+</GameEffects>

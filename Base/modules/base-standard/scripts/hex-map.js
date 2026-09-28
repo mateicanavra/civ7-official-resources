@@ -74,9 +74,12 @@ class HexMapStats {
     console.log(`Total coast tiles: ${this.totalCoastCount}`);
     console.log(`Total land tiles: ${this.totalLandCount}`);
     console.log(`Non-player lands: ${this.nonPlayerLand.land} land tiles, ${this.nonPlayerLand.coast} coast tiles`);
+    console.log(`Found ${this.playerLandmasses.length} player landmasses:`);
     for (let i = 0; i < this.playerLandmasses.length; ++i) {
       const landmass = this.playerLandmasses[i];
-      console.log(`Player landmass ${i}: ${landmass.land} land tiles, ${landmass.coast} coast tiles`);
+      if (landmass) {
+        console.log(`Player landmass ${i}: ${landmass.land} land tiles, ${landmass.coast} coast tiles`);
+      }
     }
   }
 }
@@ -171,7 +174,7 @@ class HexMap {
   getSettingsSchema() {
     return hexMapSchema;
   }
-  initFromRegionCells(width, height, tree, landmassRegions, playerRegionCallback, voronoiValidationSettings, dominantCells) {
+  initFromRegionCells(width, height, tree, landmassRegions, playerRegionCallback, voronoiValidationSettings, dominantCells, ruleSetToPlayerLandmassIdMap) {
     this.buildWrappedIndices(width);
     const offsetPoint = { x: 0.736 * 0.5, y: 0 };
     const offsetPoints = [{ x: 0, y: 0 }];
@@ -232,6 +235,19 @@ class HexMap {
           if (dominantCells) {
             (dominantCells[x] ??= [])[y] = dominantCell;
           }
+          if (ruleSetToPlayerLandmassIdMap) {
+            const ruleSetKey = landmassRegions[dominantCell.landmassId].ruleSetKey;
+            if (ruleSetKey !== void 0 && ruleSetToPlayerLandmassIdMap.get(ruleSetKey) === void 0) {
+              console.log(
+                `Mapping rule set key ${ruleSetKey} to player landmass ID ${voronoiTile.playerLandmassId}.`
+              );
+              ruleSetToPlayerLandmassIdMap.set(ruleSetKey, voronoiTile.playerLandmassId);
+            } else if (ruleSetKey !== void 0 && ruleSetToPlayerLandmassIdMap.get(ruleSetKey) !== voronoiTile.playerLandmassId) {
+              console.log(
+                `Rule set key ${ruleSetKey} is mapped to ${ruleSetToPlayerLandmassIdMap.get(ruleSetKey)} but encountered a different player landmass ID ${voronoiTile.playerLandmassId}.`
+              );
+            }
+          }
         } else {
           console.error("No region cell found for hex at " + x + "," + y);
         }
@@ -258,6 +274,7 @@ class HexMap {
             (neighbor) => neighbor !== void 0 && shouldProcessTile(neighbor.terrainType) && shouldSeparateByFilter(tile, neighbor, filter)
           )) {
             tile.terrainType = targetTerrain;
+            tile.featureType = FeatureType.None;
           }
         }
       }
@@ -337,7 +354,7 @@ class HexMap {
         case g_VolcanoFeature:
           return FeatureType.Volcano;
       }
-      return FeatureType.None;
+      return featureType;
     };
     this.initFromTiles(iWidth, iHeight, (x, y, _pos) => {
       const hexTileDesc = new HexTileDesc();
@@ -347,6 +364,8 @@ class HexMap {
       hexTileDesc.featureType = convertFeatureType(GameplayMap.getFeatureType(x, y));
       return hexTileDesc;
     });
+    console.log("HexMap initialized from TerrainBuilder.");
+    this.getMapStats().log();
   }
   writeToTerrainBuilder() {
     for (let y = 0; y < this.m_tiles.length; ++y) {
@@ -356,7 +375,7 @@ class HexMap {
           TerrainBuilder.addPlotTag(x, y, PlotTags.PLOT_TAG_ISLAND);
           TerrainBuilder.setLandmassRegionId(x, y, 0);
         } else {
-          TerrainBuilder.setLandmassRegionId(x, y, tile.playerLandmassId);
+          TerrainBuilder.setLandmassRegionId(x, y, Math.max(0, tile.playerLandmassId));
         }
         const terrainType = (() => {
           switch (tile.terrainType) {
@@ -464,7 +483,7 @@ class HexMap {
   // #######################
   // Validation
   // #######################
-  validate() {
+  validate(tracking) {
     if (this.m_validationSettings.polarMargin > 0) {
       this.validatePoles(this.m_validationSettings.polarMargin);
     }
@@ -484,7 +503,7 @@ class HexMap {
       this.removeAdjacentVolcanoes();
     }
     if (this.m_validationSettings.rebuildPlayerLandmasses) {
-      this.rebuildPlayerLandmasses();
+      this.rebuildPlayerLandmasses(tracking);
     }
   }
   getMapStats() {
@@ -734,18 +753,28 @@ class HexMap {
       }
     });
   }
-  rebuildPlayerLandmasses() {
+  rebuildPlayerLandmasses(tracking) {
     let nextPlayerLandmassId = 1;
     this.forAllTiles((tile) => {
       if (tile.terrainType !== TerrainType.Ocean && tile.playerLandmassId > 0 && !tile.visited) {
+        const oldPlayerLandmassIds = /* @__PURE__ */ new Map();
         this.floodFill(tile, (tile2) => {
           if (tile2.terrainType === TerrainType.Ocean) {
             return 1 /* Exclude */;
           } else {
+            if (tracking?.playerLandmassRemapStats) {
+              oldPlayerLandmassIds.set(
+                tile2.playerLandmassId,
+                (oldPlayerLandmassIds.get(tile2.playerLandmassId) || 0) + 1
+              );
+            }
             tile2.playerLandmassId = nextPlayerLandmassId;
             return 0 /* Include */;
           }
         });
+        if (tracking?.playerLandmassRemapStats) {
+          tracking.playerLandmassRemapStats.set(nextPlayerLandmassId, oldPlayerLandmassIds);
+        }
         nextPlayerLandmassId++;
       }
     });

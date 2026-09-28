@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Types>
+		<!--Civ Unique Improvements-->
+		<Row Type="IMPROVEMENT_KIRIMAHU" Kind="KIND_CONSTRUCTIBLE"/>
+	</Types>
+	<Constructibles>
+		<!--Civ Unique Improvements-->
+		<Row ConstructibleType="IMPROVEMENT_KIRIMAHU" Name="LOC_IMPROVEMENT_KIRIMAHU_NAME" Description="LOC_IMPROVEMENT_KIRIMAHU_DESCRIPTION" Tooltip="LOC_IMPROVEMENT_KIRIMAHU_TOOLTIP" ConstructibleClass="IMPROVEMENT" AdjacentRiver="ture" Cost="40" Population="1" Age="AGE_ANTIQUITY" CostProgressionModel="COST_PROGRESSION_PREVIOUS_COPIES_CITY" CostProgressionParam1="20"/>
+	</Constructibles>
+	<Improvements>
+		<!--Civ Unique Improvements-->
+		<Row ConstructibleType="IMPROVEMENT_KIRIMAHU" OnePerSettlement="true" CityBuildable="true" TraitType="TRAIT_BABYLON"/>
+	</Improvements>
+	<Constructible_ValidTerrains>
+		<Row ConstructibleType="IMPROVEMENT_KIRIMAHU" TerrainType="TERRAIN_FLAT"/>
+		<Row ConstructibleType="IMPROVEMENT_KIRIMAHU" TerrainType="TERRAIN_HILL"/>
+	</Constructible_ValidTerrains>
+	<TypeTags>
+		<Row Type="IMPROVEMENT_KIRIMAHU" Tag="UNIQUE_IMPROVEMENT"/>
+		<Row Type="IMPROVEMENT_KIRIMAHU" Tag="AGELESS"/>
+	</TypeTags>
+	<Constructible_ValidDistricts>
+		<!--Civ Unique Improvements-->
+		<Row ConstructibleType="IMPROVEMENT_KIRIMAHU" DistrictType="DISTRICT_RURAL"/>
+	</Constructible_ValidDistricts>
+	<Constructible_YieldChanges>
+		<!--Civ Unique Improvements-->
+		<Row ConstructibleType="IMPROVEMENT_KIRIMAHU" YieldType="YIELD_FOOD" YieldChange="2"/>
+	</Constructible_YieldChanges>
+	<Constructible_Adjacencies>
+		<Row ConstructibleType="IMPROVEMENT_KIRIMAHU" YieldChangeId="KirimahuDistrictFood"/>
+	</Constructible_Adjacencies>
+	<Adjacency_YieldChanges>
+		<Row ID="KirimahuDistrictFood" YieldType="YIELD_FOOD" YieldChange="2" TilesRequired="1" ProjectMaxYield="true" AdjacentDistrict="DISTRICT_URBAN"/>
+	</Adjacency_YieldChanges>
+	<Constructible_Plunders>
+		<!--Civ Unique Improvements-->
+		<Row ConstructibleType="IMPROVEMENT_KIRIMAHU" PlunderType="PLUNDER_HEAL" Amount="30"/>
+	</Constructible_Plunders>
+	<Constructible_Advisories>
+		<Row ConstructibleType="IMPROVEMENT_KIRIMAHU" AdvisoryClassType="ADVISORY_CLASS_FOOD"/>
+	</Constructible_Advisories>
+</Database>

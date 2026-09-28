@@ -1,10 +1,11 @@
-import { template, insert, className, setAttribute } from '../../../vendor/solid-js/web/dist/web.js';
+import { template, insert, classList, setAttribute } from '../../../vendor/solid-js/web/dist/web.js';
 import { createMemo, createComponent, Show, createRenderEffect } from '../../../vendor/solid-js/dist/solid.js';
-import ContextManager from '../../../ui/context-manager/context-manager.js';
+import { ContextManager } from '../../../ui/context-manager/context-manager.js';
 import { ScreenProfilePageExternalStatus } from '../../../ui/profile-page/screen-profile-page.js';
 import { Layout } from '../../../ui/utilities/utilities-layout.js';
 import { getPlayerCardInfo } from '../../../ui/utilities/utilities-liveops.js';
 import { Activatable } from '../../components/activatable.js';
+import { AudioContextProvider } from '../../components/audio-context-provider.js';
 import { Button } from '../../components/button.js';
 import { ConfirmationDialog } from '../../components/confirmation-dialog.js';
 import { L10n } from '../../components/l10n.js';
@@ -15,10 +16,11 @@ import { useScreenFlowContext } from '../../components/screen-flow.js';
 import { AgeSelectModel } from './age-select-model.js';
 import { CreateGameBackButtton, CreateGameNavButton } from './create-game-components.js';
 import { ComponentRegistry } from '../../services/component-registry.js';
+import { isMobile } from '../../services/view-experience.js';
 import { LayoutModel, useIsSmallScreen } from '../../utilities/layout-utilities.js';
 import style from './create-game-stage.scss.js';
 
-var _tmpl$ = /* @__PURE__ */ template(`<div class=filigree-divider-h2></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class=fullscreen><div class=create-game-stage-header></div><div class="create-game-stage-body relative flex-auto"><div><div class="absolute inset-y-px -left-1 pointer-events-none"></div></div><div class="absolute left-0 right-0 -top-5 flex flex-row items-center justify-center -scale-y-100"></div><div class="absolute inset-y-1 inset-x-0"></div></div></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="text-tertiary-1 flex flex-row uppercase"></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div class="create-game-badge-container img-prof-btn-bg pointer-events-auto relative group group-pressed\\:scale-110 group-hover\\:scale-110 group-focus\\:scale-110"><div class="absolute inset-0 opacity-30 group-pressed\\:scale-110 group-hover\\:scale-110 group-focus\\:scale-110"></div></div>`), _tmpl$5 = /* @__PURE__ */ template(`<div class="create-game-stage-header-container pb-6 h-full flex flex-col items-center justify-center relative"><div class=h-5></div><div class=grow></div><div class="flex flex-row items-center justify-center -my-1\\.5"><div class="create-games-stage-header-filigree mt-1"></div><div class="create-game-header-title font-title text-tertiary-1 font-black mx-7 uppercase"></div><div class="create-games-stage-header-filigree mt-1 -scale-x-100"></div></div><div class=grow></div><div class="create-game-header-left-button-area flex flex-row items-center justify-center absolute"></div><div class="create-game-header-right-button-area flex flex-row items-center justify-center absolute"></div></div>`);
+var _tmpl$ = /* @__PURE__ */ template(`<div class="filigree-divider-h2"></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="size-full"><div class="create-game-stage-header"></div><div class="create-game-stage-body relative flex-auto"><div class="absolute top-0 my-0\\.5 overflow-hidden"><div class="absolute inset-y-px -left-1 pointer-events-none"></div></div><div class="absolute left-0 right-0 -top-5 flex flex-row items-center justify-center -scale-y-100"></div><div class="absolute inset-y-1 inset-x-0"></div></div></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="text-tertiary-1 flex flex-row uppercase"></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div class="create-game-badge-container-inner img-prof-btn-bg pointer-events-auto relative group group-pressed\\:scale-110 group-hover\\:scale-110 group-focus\\:scale-110"><div class="absolute inset-0 opacity-30 group-pressed\\:scale-110 group-hover\\:scale-110 group-focus\\:scale-110"></div></div>`), _tmpl$5 = /* @__PURE__ */ template(`<div class="create-game-stage-header-container pb-6 h-full flex flex-col items-center justify-center relative"><div class="h-5"></div><div class="grow"></div><div class="flex flex-row items-center justify-center -my-1\\.5"><div class="create-games-stage-header-filigree mt-1"></div><div class="create-game-header-title font-title text-tertiary-1 font-black mx-7 uppercase"></div><div class="create-games-stage-header-filigree mt-1 -scale-x-100"></div></div><div class="grow"></div><div class="create-game-header-left-button-area flex flex-row items-center justify-center absolute"></div><div class="create-game-header-right-button-area flex flex-row items-center justify-center absolute"></div></div>`);
 var CreateGameStageMode = /* @__PURE__ */ ((CreateGameStageMode2) => {
   CreateGameStageMode2[CreateGameStageMode2["Full"] = 0] = "Full";
   CreateGameStageMode2[CreateGameStageMode2["StageOnly"] = 1] = "StageOnly";
@@ -33,7 +35,7 @@ const CreateGameStageComponent = (props) => {
   const horizScaleFactor = createMemo(() => layout.screenWidth() / 1920);
   const headerHeight = layout.toScaledPixels(130);
   const headerHeightSmall = layout.toScaledPixels(84);
-  const footerHeight = layout.toScaledPixels(isSmallScreen() ? 0 : 60);
+  const footerHeight = layout.toScaledPixels(isSmallScreen() || isMobile() ? 0 : 60);
   const getHeaderHeight = createMemo(() => {
     return isSmallScreen() ? headerHeightSmall() : headerHeight();
   });
@@ -147,7 +149,7 @@ const CreateGameStageComponent = (props) => {
                 alpha: 0.15
               }), createComponent(Show, {
                 get when() {
-                  return !isSmallScreen();
+                  return createMemo(() => !!!isSmallScreen())() && !isMobile();
                 },
                 get children() {
                   return [createComponent(BackgroundLayer3d, {
@@ -304,7 +306,7 @@ const CreateGameStageComponent = (props) => {
                 alpha: 0.5
               }), createComponent(Show, {
                 get when() {
-                  return !isSmallScreen();
+                  return createMemo(() => !!!isSmallScreen())() && !isMobile();
                 },
                 get children() {
                   return createComponent(BackgroundLayer3d, {
@@ -396,10 +398,13 @@ const CreateGameStageComponent = (props) => {
     }));
     insert(_el$8, () => props.children);
     createRenderEffect((_p$) => {
-      var _v$ = `${getBodyHeight()}px`, _v$2 = `${getBodyHeight()}px`, _v$3 = `absolute top-0 my-0\\.5 overflow-hidden ${isSmallScreen() ? `fullscreen-outside-safezone-x-bot` : `fullscreen-outside-safezone-x bottom-0`}`, _v$4 = !!props.addTextBgGradient;
+      var _v$ = `${getBodyHeight()}px`, _v$2 = `${getBodyHeight()}px`, _v$3 = {
+        "fullscreen-outside-safezone-x bottom-0": !isSmallScreen() && !isMobile(),
+        "fullscreen-outside-safezone-x-bot": isSmallScreen() || isMobile()
+      }, _v$4 = !!props.addTextBgGradient;
       _v$ !== _p$.e && ((_p$.e = _v$) != null ? _el$3.style.setProperty("height", _v$) : _el$3.style.removeProperty("height"));
       _v$2 !== _p$.t && ((_p$.t = _v$2) != null ? _el$3.style.setProperty("max-height", _v$2) : _el$3.style.removeProperty("max-height"));
-      _v$3 !== _p$.a && className(_el$4, _p$.a = _v$3);
+      _p$.a = classList(_el$4, _v$3, _p$.a);
       _v$4 !== _p$.o && _el$5.classList.toggle("create-game-text-gradient", _p$.o = _v$4);
       return _p$;
     }, {
@@ -424,9 +429,8 @@ var ExitButtonPosition = /* @__PURE__ */ ((ExitButtonPosition2) => {
 })(ExitButtonPosition || {});
 const CreateGameStageHeaderComponent = (props) => {
   const context = useScreenFlowContext();
-  const isMobile = UI.getViewExperience() == UIViewExperience.Mobile;
   const isSmallScreen = useIsSmallScreen();
-  const badgeSize = createMemo(() => isSmallScreen() ? isMobile ? BadgeSize.SMALL : BadgeSize.MICRO : BadgeSize.MINI);
+  const badgeSize = createMemo(() => isSmallScreen() ? isMobile() ? BadgeSize.SMALL : BadgeSize.MICRO : BadgeSize.MINI);
   const playerCardInfo = createMemo(() => getPlayerCardInfo());
   function onProgressionBadge() {
     if (Network.isMetagamingAvailable()) {
@@ -476,29 +480,34 @@ const CreateGameStageHeaderComponent = (props) => {
         return !!props.exitText;
       },
       get children() {
-        return createComponent(ConfirmationDialog, {
-          name: "exit-to-menu",
-          onAccept: () => context.close(),
-          get title() {
-            return createComponent(L10n.Compose, {
-              text: "LOC_UI_CREATE_GAME_EXIT_TO_MENU"
-            });
-          },
+        return createComponent(AudioContextProvider, {
+          segment: "CreateGameStage/ExitConfirm",
           get children() {
-            return createComponent(CreateGameNavButton, {
-              "class": "ml-4",
-              get hotkeyAction() {
-                return exitHotkey();
+            return createComponent(ConfirmationDialog, {
+              name: "exit-to-menu",
+              onAccept: () => context.close(),
+              get title() {
+                return createComponent(L10n.Compose, {
+                  text: "LOC_UI_CREATE_GAME_EXIT_TO_MENU"
+                });
               },
-              get navTrayText() {
-                return props.exitText;
-              },
-              disableFocus: true,
               get children() {
-                return createComponent(L10n.Stylize, {
-                  "class": "font-fit-shrink",
-                  get text() {
+                return createComponent(CreateGameNavButton, {
+                  "class": "ml-4",
+                  get hotkeyAction() {
+                    return exitHotkey();
+                  },
+                  get navTrayText() {
                     return props.exitText;
+                  },
+                  disableFocus: true,
+                  get children() {
+                    return createComponent(L10n.Stylize, {
+                      "class": "font-fit-shrink",
+                      get text() {
+                        return props.exitText;
+                      }
+                    });
                   }
                 });
               }
@@ -533,7 +542,7 @@ const CreateGameStageHeaderComponent = (props) => {
       },
       get children() {
         return createComponent(Activatable, {
-          "class": "absolute right-6 top-6 create-game-badge-container relative group",
+          "class": "absolute right-6 top-6 create-game-badge-container-outer relative group",
           onActivate: onProgressionBadge,
           disableFocus: true,
           hotkeyAction: "sys-menu",

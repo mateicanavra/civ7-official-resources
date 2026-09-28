@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<TraitModifiers>
+		<Row TraitType="TRAIT_GAUL_ABILITY" ModifierId="MOD_CIV_WONDER_PRODUCTION_GAUL" />
+		<Row TraitType="TRAIT_GAUL_ABILITY" ModifierId="TRAIT_MOD_NEARBY_GOLD" />
+	</TraitModifiers>
+	<RequirementSets>
+		<Row RequirementSetId="REQSET_PLAYER_IS_GAUL" RequirementSetType="REQUIREMENTSET_TEST_ALL" />
+	</RequirementSets>
+	<RequirementSetRequirements>
+		<Row RequirementSetId="REQSET_PLAYER_IS_GAUL" RequirementId="REQ_PLAYER_HAS_TRAIT_GAUL" />
+	</RequirementSetRequirements>
+	<Requirements>
+		<Row RequirementId="REQ_PLAYER_HAS_TRAIT_GAUL" RequirementType="REQUIREMENT_PLAYER_HAS_CIVILIZATION_OR_LEADER_TRAIT" />
+	</Requirements>
+	<RequirementArguments>
+		<Row RequirementId="REQ_PLAYER_HAS_TRAIT_GAUL" Name="TraitType" Value="TRAIT_GAUL" />
+	</RequirementArguments>
+	<Independents>
+		<Update>
+			<Where IndependentType="INDEPENDENT_ANTIQUITY_23"/>
+			<Set Name="LOC_INDEPENDENT_ANTIQUITY_23_MINOR_GAUL_NAME" CityStateName="LOC_INDEPENDENT_ANTIQUITY_23_MAJOR_GAUL_NAME"/>
+		</Update>
+	</Independents>
+</Database>

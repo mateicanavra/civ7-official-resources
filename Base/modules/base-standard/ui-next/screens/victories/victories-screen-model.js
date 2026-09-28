@@ -1,14 +1,15 @@
 import { createSignal, onMount, createEffect, untrack, createContext, useContext } from '../../../../core/vendor/solid-js/dist/solid.js';
 import { createMutable } from '../../../../core/vendor/solid-js/store/dist/store.js';
-import ContextManager from '../../../../core/ui/context-manager/context-manager.js';
+import { ContextManager } from '../../../../core/ui/context-manager/context-manager.js';
 import { utils } from '../../../../core/ui/graph-layout/utils.js';
-import ActionHandler from '../../../../core/ui/input/action-handler.js';
 import NavTray from '../../../../core/ui/navigation-tray/model-navigation-tray.js';
 import { ObjectToRgbaString } from '../../../../core/ui/utilities/utilities-color.js';
 import { ComponentID } from '../../../../core/ui/utilities/utilities-component-id.js';
 import { Layout } from '../../../../core/ui/utilities/utilities-layout.js';
 import { getPlayerCardInfo } from '../../../../core/ui/utilities/utilities-liveops.js';
+import { IsTouchActive } from '../../../../core/ui-next/services/input.js';
 import { ModelRegistry, ModelLifecycle } from '../../../../core/ui-next/services/model-registry.js';
+import { isMobile } from '../../../../core/ui-next/services/view-experience.js';
 import { createEngineEvent } from '../../../../core/ui-next/utilities/game-core-utilities.js';
 
 var VictoryTabType = /* @__PURE__ */ ((VictoryTabType2) => {
@@ -423,7 +424,7 @@ function createVictoriesScreenModel(isEndGame, allowOneMoreTurn, showNextTurnBut
           }
           break;
         case "cultural":
-          if (ActionHandler.isTouchActive) {
+          if (IsTouchActive()) {
             if (!model.data.isInspecting) {
               handleHighlightPlayer(model.data.lastFocusedPlayer, 1 /* Cultural */);
             } else {
@@ -433,7 +434,7 @@ function createVictoriesScreenModel(isEndGame, allowOneMoreTurn, showNextTurnBut
           }
           break;
         case "scientific":
-          if (ActionHandler.isTouchActive) {
+          if (IsTouchActive()) {
             if (!model.data.isInspecting) {
               handleHighlightPlayer(model.data.lastFocusedPlayer, 3 /* Scientific */);
             } else {
@@ -443,7 +444,7 @@ function createVictoriesScreenModel(isEndGame, allowOneMoreTurn, showNextTurnBut
           }
           break;
         case "score":
-          if (ActionHandler.isTouchActive) {
+          if (IsTouchActive()) {
             if (!model.data.isInspecting) {
               handleHighlightPlayer(model.data.lastFocusedPlayer, 4 /* Score */);
             } else {
@@ -491,12 +492,23 @@ function createVictoriesScreenModel(isEndGame, allowOneMoreTurn, showNextTurnBut
     setLastFocusedPlayer(PlayerIds.NO_PLAYER);
     applyUnFocusPlayer(playerId, tabType);
   }
+  function getPlayerList() {
+    const PlayerList = Players.getAlive();
+    if (!PlayerList.find((player) => player.id == GameContext.localPlayerID)) {
+      const localPlayer = Players.get(GameContext.localPlayerID);
+      if (localPlayer) {
+        PlayerList.push(localPlayer);
+      }
+    }
+    return PlayerList;
+  }
   function populateData() {
     const ornatePanelData = {
       topIconSrc: Game.AgeProgressManager.isExtendedGame || Game.AgeProgressManager.getMaxAgeProgressionPoints() <= 0 ? "url(blp:hud_omt_infinity)" : "url(blp:sub_agetimer)",
       backgroundImageSrc: "",
       name: "Victories-Screen",
-      id: "victories-screen"
+      id: "victories-screen",
+      isFullscreen: isMobile()
     };
     const localPlayer = Players.get(GameContext.localPlayerID);
     if (localPlayer != null) {
@@ -729,7 +741,7 @@ function createVictoriesScreenModel(isEndGame, allowOneMoreTurn, showNextTurnBut
   }
   function calcSpreadsheetsForVictory(victoryType, victoryTypeString, includeUnmetPlayers) {
     const victorySheets = [];
-    const PlayerList = Players.getAlive();
+    const PlayerList = getPlayerList();
     PlayerList.forEach((player) => {
       if (player && player.Victories && player.isMajor) {
         const tempSheet = {
@@ -815,7 +827,7 @@ function createVictoriesScreenModel(isEndGame, allowOneMoreTurn, showNextTurnBut
     return victorySheets;
   }
   function calcVictoryLeaderboard(victoryHash, countdownDuration) {
-    const PlayerList = Players.getAlive();
+    const PlayerList = getPlayerList();
     const leaderboard = [];
     const localPlayer = Players.get(GameContext.localPlayerID);
     if (!localPlayer) {
@@ -981,7 +993,7 @@ function createVictoriesScreenModel(isEndGame, allowOneMoreTurn, showNextTurnBut
       targetScore: Game.VictoryManager.getCountdownVictoryDominanceScore(scoreVictoryHash),
       playerDetails: []
     };
-    const PlayerList = Players.getAlive();
+    const PlayerList = getPlayerList();
     PlayerList.forEach((player) => {
       if (player && player.Victories && player.isMajor) {
         const playerScoreDetail = {};
@@ -1033,7 +1045,7 @@ function createVictoriesScreenModel(isEndGame, allowOneMoreTurn, showNextTurnBut
       infoToggle,
       setInfoToggle
     };
-    const PlayerList = Players.getAlive();
+    const PlayerList = getPlayerList();
     PlayerList.forEach((player) => {
       if (player && player.Victories && player.isMajor) {
         const playerMilDetail = {};
@@ -1171,7 +1183,7 @@ function createVictoriesScreenModel(isEndGame, allowOneMoreTurn, showNextTurnBut
     };
     const ageDefinition = GameInfo.Ages.lookup(age);
     if (ageDefinition) {
-      const PlayerList = Players.getAlive();
+      const PlayerList = getPlayerList();
       PlayerList.forEach((player) => {
         if (player && player.Victories && player.isMajor) {
           const playerGraphLine = {};
@@ -1260,7 +1272,7 @@ function createVictoriesScreenModel(isEndGame, allowOneMoreTurn, showNextTurnBut
     economicDetail.ageOptions.setSelectedValue = setSelectedAge;
     economicDetail.ageOptions.items = /* @__PURE__ */ new Map();
     const currentAgeData = [];
-    const PlayerList = Players.getAlive();
+    const PlayerList = getPlayerList();
     let highestPlayerScore = 0;
     PlayerList.forEach((player) => {
       if (player && player.Victories && player.isMajor) {
@@ -1384,7 +1396,7 @@ function createVictoriesScreenModel(isEndGame, allowOneMoreTurn, showNextTurnBut
       scienceDetail.pointsSectionHeaders.push(scienceDetail.targetScore / numPointSections * i);
     }
     const ageName = GameInfo.Ages.lookup(Game.age)?.AgeType;
-    const PlayerList = Players.getAlive();
+    const PlayerList = getPlayerList();
     PlayerList.forEach((player) => {
       if (player && player.Victories && player.isMajor) {
         const playerSpreadsheetDetails = spreadsheet.find((spreadsheet2) => spreadsheet2.playerId === player.id);
@@ -1557,7 +1569,7 @@ function createVictoriesScreenModel(isEndGame, allowOneMoreTurn, showNextTurnBut
         });
       }
     });
-    const PlayerList = Players.getAlive();
+    const PlayerList = getPlayerList();
     const highestAgeScoreMap = /* @__PURE__ */ new Map();
     PlayerList.forEach((player) => {
       const thisColor = playerColors.get(player.id);

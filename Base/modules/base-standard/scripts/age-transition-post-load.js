@@ -1,8 +1,10 @@
 import { generateDiscoveries } from '../maps/discovery-generator.js';
-import { wouldCreateCluster } from '../maps/resource-generator.js';
 import { dumpResources } from '../maps/map-debug-helpers.js';
 import { g_PolarWaterRows } from '../maps/map-globals.js';
-import { removeRuralDistrict, placeRuralDistrict, getMinimumResourcePlacementModifier, shuffle, replaceIslandResources } from '../maps/map-utilities.js';
+import { removeRuralDistrict, placeRuralDistrict, replaceIslandResources } from '../maps/map-utilities.js';
+import { tileClassIdFromValidBiome, prepareResourceSet, VERBOSE_LOGGING, getTileId, getDenseTileGroupId, isResourceAllowedOnLandmass, NUM_LANDMASS_GROUPS, NUM_TILE_GROUPS, buildPlacementContext, DENSITY_TARGET, tileClassFromId, buildBlueNoiseWindows, MAX_DENSITY, placeResourcesWithBlueNoise } from '../maps/resource-placement-common.js';
+import { profileScope } from './profiling.js';
+import { RandomImpl } from './random-pcg-32.js';
 
 console.log("Loading age-transition-post-load.ts");
 console.log("Legacies and Victories overriden version!");
@@ -30,10 +32,16 @@ function generateTransition() {
     g_continuityMode = true;
   }
   doMapUpdates();
-  const iRemovedResourcePlots = [];
-  const aGeneratedResources = ResourceBuilder.getGeneratedMapResources();
-  removeObsoleteResources(iRemovedResourcePlots, aGeneratedResources);
-  addNewResources(iRemovedResourcePlots, aGeneratedResources);
+  const mapName = Configuration.getMapValue("Name");
+  console.log(mapName);
+  if (mapName == "LOC_MAP_EARTH_NAME") {
+    addNewResourcesEarthHuge();
+    console.log("yeehaw I remembered Earth");
+  } else {
+    const aGeneratedResourceHashes = ResourceBuilder.getGeneratedMapResources();
+    const removedResourcePlots = removeObsoleteResources(aGeneratedResourceHashes);
+    addNewResources(removedResourcePlots, aGeneratedResourceHashes);
+  }
   const iWidth = GameplayMap.getGridWidth();
   const iHeight = GameplayMap.getGridHeight();
   generateDiscoveries(iWidth, iHeight, [], g_PolarWaterRows);
@@ -56,247 +64,952 @@ function generateTransition() {
     Players.AdvancedStart.get(iPlayer)?.dynamicCardsAddedComplete();
   }
 }
-function removeObsoleteResources(iRemovedResourcePlots, aGeneratedResources) {
-  console.log("Removing old resources");
-  const aTypesRemoved = [];
-  const aCutResources = [];
-  const resourcesAvailable = ResourceBuilder.getResourceCounts(-1);
-  let countOnMap = 0;
-  let countRemoved = 0;
+function removeObsoleteResources(aGeneratedResourceHashes) {
+  const scope = new profileScope("Removing old resources");
+  const resourcesAvailable = ResourceBuilder.getResourceCounts(PlotTags.PLOT_TAG_ALL).map((x, idx) => ({
+    idx,
+    resourceDef: GameInfo.Resources.find((res) => res.$index === idx),
+    count: x,
+    validForAge: true,
+    removalWeight: 0,
+    overlappedResources: /* @__PURE__ */ new Set()
+  }));
+  let typesOnMap = 0;
+  let typesAllowedToKeep = 0;
+  const resourcesToRemove = [];
   for (const r of resourcesAvailable) {
-    if (r > 0) {
-      countOnMap++;
+    if (r.count > 0) {
+      typesOnMap++;
+      r.validForAge = ResourceBuilder.isResourceValidForAge(r.resourceDef.$hash, g_incomingAge);
+      if (!r.validForAge) {
+        resourcesToRemove.push(r.resourceDef);
+      } else {
+        typesAllowedToKeep++;
+      }
     }
   }
-  const countToAdd = aGeneratedResources.length;
-  console.log("Adding new resources: " + countToAdd);
-  console.log("Resources already on map: " + countOnMap);
-  let totalResourceToCut = countOnMap + countToAdd - countOnMap;
-  if (totalResourceToCut < 0) {
-    totalResourceToCut = 0;
+  console.log(
+    `Adding ${aGeneratedResourceHashes.length} new resources: ${aGeneratedResourceHashes.map((r) => Locale.compose(GameInfo.Resources.lookup(r)?.Name ?? "unknown")).join(", ")}`
+  );
+  console.log(`Types of resources already on map: ${typesOnMap}`);
+  console.log(`Resources we can keep on map: ${typesAllowedToKeep}`);
+  console.log(`Calculating placement weights for new resources to be added:`);
+  class TileGroupInfo {
+    weight = 0;
+    resourcesInGroup = /* @__PURE__ */ new Set();
   }
-  console.log("Number of resources to cut: " + totalResourceToCut);
-  const resourceToCut = ResourceBuilder.getBestMapResourceCuts(aGeneratedResources, totalResourceToCut);
-  for (const r of resourceToCut) {
-    const resourceInfo = GameInfo.Resources.lookup(r);
-    if (resourceInfo) {
-      aCutResources.push(resourceInfo.$index);
+  const newResourcesUseWeights = /* @__PURE__ */ new Map();
+  for (const r of aGeneratedResourceHashes) {
+    const resourceDef = GameInfo.Resources.find((res) => res.$hash === r);
+    if (!resourceDef) continue;
+    for (const validBiome of GameInfo.Resource_ValidBiomes) {
+      if (validBiome.ResourceType != resourceDef.ResourceType) continue;
+      const tileGroupId = tileClassIdFromValidBiome(validBiome);
+      if (tileGroupId === void 0) continue;
+      const tileGroupInfo = newResourcesUseWeights.get(tileGroupId) ?? new TileGroupInfo();
+      tileGroupInfo.weight += resourceDef.Weight;
+      tileGroupInfo.resourcesInGroup.add(resourceDef);
+      newResourcesUseWeights.set(tileGroupId, tileGroupInfo);
+      console.log(`  ${Locale.compose(resourceDef.Name)} in group ${tileGroupId}`);
     }
   }
-  console.log("Cutting " + aCutResources.length + " resources");
+  console.log(`Calculating weights for existing resources to be removed based on their placement:`);
+  for (const r of resourcesAvailable) {
+    if (r.count == 0 || !r.validForAge || !r.resourceDef) continue;
+    if (r.resourceDef.Staple || r.resourceDef.LandmassUnique) continue;
+    if (ResourceBuilder.isResourceRequiredForAge(r.resourceDef.$hash, g_incomingAge)) continue;
+    for (const validBiome of GameInfo.Resource_ValidBiomes) {
+      if (validBiome.ResourceType != r.resourceDef.ResourceType) continue;
+      const tileGroupId = tileClassIdFromValidBiome(validBiome);
+      if (tileGroupId === void 0) continue;
+      console.log(`  Existing resource ${Locale.compose(r.resourceDef.Name)} is in tile group ${tileGroupId}`);
+      const tileGroupInfo = newResourcesUseWeights.get(tileGroupId);
+      if (tileGroupInfo) {
+        r.removalWeight += tileGroupInfo.weight;
+        r.overlappedResources = /* @__PURE__ */ new Set([...r.overlappedResources, ...tileGroupInfo.resourcesInGroup]);
+      }
+    }
+  }
+  for (const r of resourcesAvailable) {
+    if (r.removalWeight > 0) {
+      console.log(`Resource ${Locale.compose(r.resourceDef.Name)} has removal weight ${r.removalWeight}`);
+    }
+  }
+  console.log(
+    `Removing resources no longer valid for age: ${resourcesToRemove.map((r) => Locale.compose(r.Name)).join(", ")}`
+  );
+  const removalBudget = Math.max(0, aGeneratedResourceHashes.length - resourcesToRemove.length);
+  const weightedCandidates = resourcesAvailable.filter((a) => a.removalWeight > 0).sort((a, b) => b.removalWeight - a.removalWeight);
+  const removeByWeight = weightedCandidates.slice(0, removalBudget).map((r) => r);
+  console.log(`Removing resources due to overlap with new resources:`);
+  for (const r of removeByWeight) {
+    if (r.removalWeight > 0) {
+      console.log(
+        `  ${Locale.compose(r.resourceDef.Name)} overlaps with ${r.overlappedResources.size} new resources: ${[...r.overlappedResources].map((res) => Locale.compose(res.Name)).join(", ")}`
+      );
+    } else {
+      console.log(
+        `  Warning: ${Locale.compose(r.resourceDef.Name)} has no calculated removal weight but is being removed to make room for new resources.`
+      );
+    }
+  }
+  resourcesToRemove.push(...removeByWeight.map((r) => r.resourceDef));
+  const removeResourceLookup = new Uint8Array(GameInfo.Resources.length);
+  removeResourceLookup.fill(255);
+  for (let i = 0; i < resourcesToRemove.length; i++) {
+    removeResourceLookup[resourcesToRemove[i].$index] = i;
+  }
+  let countRemoved = 0;
+  const removedResourcePlots = [];
   const iWidth = GameplayMap.getGridWidth();
   const iHeight = GameplayMap.getGridHeight();
   for (let iY = 0; iY < iHeight; iY++) {
     for (let iX = 0; iX < iWidth; iX++) {
       const iIndex = iY * iWidth + iX;
-      const resource = GameplayMap.getResourceType(iX, iY);
-      if (resource != ResourceTypes.NO_RESOURCE) {
-        let removeResource = false;
-        if (aCutResources.find((x) => x == resource)) {
-          removeResource = true;
-        }
-        if (!removeResource && !ResourceBuilder.isResourceValidForAge(resource, g_incomingAge)) {
-          removeResource = true;
-        }
-        if (removeResource) {
-          const resourceInfo = GameInfo.Resources.lookup(resource);
-          if (resourceInfo) {
-            countRemoved++;
-            removeRuralDistrict(iX, iY);
-            ResourceBuilder.setResourceType(iX, iY, ResourceTypes.NO_RESOURCE);
-            console.log(
-              "Removed resource: " + Locale.compose(resourceInfo.Name) + " at (" + iX + ", " + iY + ")"
-            );
-            iRemovedResourcePlots.push(iIndex);
-            placeRuralDistrict(iX, iY);
-            const resourceType = resourceInfo.$index;
-            if (!aTypesRemoved.find((x) => x == resourceType)) {
-              aTypesRemoved.push(resourceType);
-            }
-          }
-        }
+      const resourceIdx = GameplayMap.getResourceType(iX, iY);
+      if (resourceIdx === ResourceTypes.NO_RESOURCE) continue;
+      const removeResourceIdx = removeResourceLookup[resourceIdx];
+      if (removeResourceIdx != 255) {
+        const resourceDef = resourcesToRemove[removeResourceIdx];
+        countRemoved++;
+        removeRuralDistrict(iX, iY);
+        ResourceBuilder.setResourceType(iX, iY, ResourceTypes.NO_RESOURCE);
+        console.log(`Removed resource: ${Locale.compose(resourceDef.Name)}(${resourceIdx}) at (${iX}, ${iY})`);
+        removedResourcePlots.push(iIndex);
+        placeRuralDistrict(iX, iY);
       }
     }
   }
   console.log("Removed total resource locations: " + countRemoved);
-  return aTypesRemoved.length;
+  scope.end();
+  return removedResourcePlots;
 }
-function addNewResources(iRemovedResourcePlots, aGeneratedResources) {
+function addNewResources(iRemovedResourcePlots, aGeneratedResourceHashes) {
+  const scope = new profileScope("addNewResources");
   console.log("Adding new resources");
-  const iResourceCounts = ResourceBuilder.getResourceCounts(-1);
-  const aResourceTypes = [];
-  for (const gr of aGeneratedResources) {
-    const resourceInfo = GameInfo.Resources.lookup(gr);
-    if (resourceInfo && resourceInfo.Tradeable) {
-      if (iResourceCounts[resourceInfo.$index] == 0) {
-        aResourceTypes.push(resourceInfo.$index);
-      }
-    }
-  }
-  let iMapMinimumModifer = getMinimumResourcePlacementModifier();
-  if (iMapMinimumModifer == void 0) {
-    iMapMinimumModifer = 0;
-  }
-  const aPlacementPlots = [];
-  const seed = GameplayMap.getRandomSeed() * (1 + g_incomingAge);
-  const avgDistanceBetweenPoints = 3;
-  const normalizedRangeSmoothing = 2;
-  const poisson = TerrainBuilder.generatePoissonMap(seed, avgDistanceBetweenPoints, normalizedRangeSmoothing);
   const iWidth = GameplayMap.getGridWidth();
   const iHeight = GameplayMap.getGridHeight();
-  for (let iY = 0; iY < iHeight; iY++) {
-    for (let iX = 0; iX < iWidth; iX++) {
-      const index = iY * iWidth + iX;
-      if (poisson[index] >= 1) {
-        const districtID = MapCities.getDistrict(iX, iY);
-        if (districtID == null) {
-          aPlacementPlots.push(index);
+  const iResourceCounts = ResourceBuilder.getResourceCounts(-1);
+  const resourceSet = prepareResourceSet(aGeneratedResourceHashes, (info) => iResourceCounts[info.$index] === 0);
+  if (VERBOSE_LOGGING) {
+    console.log(`New resources to place (${resourceSet.activeResourceIndices.length} types):`);
+    for (const typeIdx of resourceSet.activeResourceIndices) {
+      const def = GameInfo.Resources[typeIdx];
+      const landmass = resourceSet.resourceAssignedLandmass[typeIdx];
+      console.log(`  ${def?.ResourceType}: weight=${def?.Weight}, landmass=${landmass}`);
+    }
+  }
+  const placedPerResource = new Uint16Array(GameInfo.Resources.length);
+  const placedPerResourcePerTileGroup = /* @__PURE__ */ new Map();
+  const tileGroupToResources = /* @__PURE__ */ new Map();
+  for (const vb of resourceSet.resolvedValidBiomes) {
+    const list = tileGroupToResources.get(vb.tileGroupId);
+    if (list) {
+      list.push(vb.resourceIdx);
+    } else {
+      tileGroupToResources.set(vb.tileGroupId, [vb.resourceIdx]);
+    }
+  }
+  for (let i = iRemovedResourcePlots.length - 1; i > 0; i--) {
+    const j = TerrainBuilder.getRandomNumber(i + 1, "Removed Plot Shuffle");
+    [iRemovedResourcePlots[i], iRemovedResourcePlots[j]] = [iRemovedResourcePlots[j], iRemovedResourcePlots[i]];
+  }
+  let removedPlotsFilled = 0;
+  const eligibleIndices = new Int32Array(GameInfo.Resources.length);
+  const eligibleWeights = new Float32Array(GameInfo.Resources.length);
+  for (const plotIdx of iRemovedResourcePlots) {
+    const x = plotIdx % iWidth;
+    const y = (plotIdx - x) / iWidth;
+    if (MapCities.getDistrict(x, y) != null) continue;
+    if (GameplayMap.getResourceType(x, y) !== ResourceTypes.NO_RESOURCE) continue;
+    const regionId = GameplayMap.getLandmassRegionId(x, y);
+    const rawId = getTileId(x, y);
+    const tileId = getDenseTileGroupId(rawId);
+    const candidates = tileGroupToResources.get(tileId);
+    if (!candidates || candidates.length === 0) continue;
+    let eligibleCount = 0;
+    let totalWeight = 0;
+    for (const resourceIdx of candidates) {
+      if (!isResourceAllowedOnLandmass(
+        resourceSet.resourceAssignedLandmass[resourceIdx],
+        regionId,
+        NUM_LANDMASS_GROUPS
+      ))
+        continue;
+      if (!ResourceBuilder.canHaveResource(x, y, resourceIdx, true)) continue;
+      const def = GameInfo.Resources[resourceIdx];
+      const minimum = def?.MinimumPerLandmass > 0 ? def.MinimumPerLandmass : 0;
+      const placed = placedPerResource[resourceIdx];
+      const weight = resourceSet.resourceWeight[resourceIdx] * (1 + Math.max(0, minimum - placed));
+      if (weight <= 0) continue;
+      eligibleIndices[eligibleCount] = resourceIdx;
+      eligibleWeights[eligibleCount] = weight;
+      eligibleCount++;
+      totalWeight += weight;
+    }
+    let bestIdx = -1;
+    if (eligibleCount > 0) {
+      let r = RandomImpl.fRand("Removed Plot Weighted Pick") * totalWeight;
+      for (let i = 0; i < eligibleCount; i++) {
+        r -= eligibleWeights[i];
+        if (r <= 0) {
+          bestIdx = eligibleIndices[i];
+          break;
         }
+      }
+    }
+    if (bestIdx >= 0) {
+      ResourceBuilder.setResourceType(x, y, bestIdx);
+      placedPerResource[bestIdx]++;
+      const key = bestIdx * NUM_TILE_GROUPS + tileId;
+      placedPerResourcePerTileGroup.set(key, (placedPerResourcePerTileGroup.get(key) ?? 0) + 1);
+      removedPlotsFilled++;
+      removeRuralDistrict(x, y);
+      placeRuralDistrict(x, y);
+      if (VERBOSE_LOGGING) {
+        const name = GameInfo.Resources[bestIdx]?.ResourceType ?? `Unknown(${bestIdx})`;
+        console.log(`  Filled removed plot (${x}, ${y}) with ${name}`);
       }
     }
   }
-  iRemovedResourcePlots.forEach((index) => {
-    if (index) {
-      if (!aPlacementPlots.find((x) => x == index)) {
-        aPlacementPlots.push(index);
-      }
-    }
-  });
-  shuffle(aPlacementPlots);
-  const resourceWeight = new Array(GameInfo.Resources.length);
-  const resourceRunningWeight = new Array(GameInfo.Resources.length);
-  const resourcesPlacedCount = new Array(GameInfo.Resources.length);
-  const importantResourceRegionalCount = /* @__PURE__ */ new Map();
-  const getImportantResourceCounts = (landmassId) => {
-    if (!importantResourceRegionalCount.has(landmassId)) {
-      importantResourceRegionalCount.set(landmassId, new Array(GameInfo.Resources.length).fill(0));
-    }
-    return importantResourceRegionalCount.get(landmassId);
-  };
-  for (let resourceIdx = 0; resourceIdx < GameInfo.Resources.length; resourceIdx++) {
-    resourceWeight[resourceIdx] = 0;
-    resourceRunningWeight[resourceIdx] = 0;
-    resourcesPlacedCount[resourceIdx] = 0;
+  console.log(`Phase 2: Filled ${removedPlotsFilled} of ${iRemovedResourcePlots.length} removed plots.`);
+  const effectiveMinimums = new Uint16Array(GameInfo.Resources.length);
+  let totalRemaining = 0;
+  for (const typeIdx of resourceSet.activeResourceIndices) {
+    const def = GameInfo.Resources[typeIdx];
+    if (!def) continue;
+    const minimum = def.MinimumPerLandmass > 0 ? def.MinimumPerLandmass : 0;
+    const remaining = Math.max(0, minimum - placedPerResource[typeIdx]);
+    effectiveMinimums[typeIdx] = remaining;
+    totalRemaining += remaining;
   }
-  let maxPerHemisphere = 0;
-  const resourceDistribution = GameInfo.Resource_Distribution.lookup(g_incomingAge);
-  if (resourceDistribution) {
-    maxPerHemisphere = resourceDistribution.ResourceTypeMaxPerHemisphere;
+  if (VERBOSE_LOGGING) {
+    console.log(`Phase 3: ${totalRemaining} resources still needed after filling removed plots.`);
+    for (const typeIdx of resourceSet.activeResourceIndices) {
+      const remaining = effectiveMinimums[typeIdx];
+      if (remaining > 0) {
+        const name = GameInfo.Resources[typeIdx]?.ResourceType ?? `Unknown(${typeIdx})`;
+        console.log(`  ${name}: ${remaining} more needed`);
+      }
+    }
   }
-  aResourceTypes.forEach((resourceType) => {
-    if (resourceType) {
-      const resourceInfo = GameInfo.Resources[resourceType];
-      if (resourceInfo) {
-        resourceWeight[resourceInfo.$index] = resourceInfo.Weight;
+  if (totalRemaining > 0) {
+    const ctx = buildPlacementContext(iWidth, iHeight);
+    const numResources = GameInfo.Resources.length;
+    const isNewResource = new Uint8Array(numResources);
+    for (const r of aGeneratedResourceHashes) {
+      const resourceDef = GameInfo.Resources.lookup(r);
+      if (resourceDef) {
+        isNewResource[resourceDef.$index] = 1;
       }
     }
-  });
-  let _iNumPlaced = 0;
-  aPlacementPlots.forEach((index) => {
-    if (index) {
-      const kLocation = GameplayMap.getLocationFromIndex(index);
-      const landmassRegionId = GameplayMap.getLandmassRegionId(kLocation.x, kLocation.y);
-      const resources = [];
-      aResourceTypes.forEach((resourceIdx) => {
-        const assignedLandmass = ResourceBuilder.getResourceLandmass(resourceIdx);
-        const allowedOnLandmass = assignedLandmass == LandmassRegion.LANDMASS_REGION_ANY || assignedLandmass != LandmassRegion.LANDMASS_REGION_NONE && landmassRegionId != LandmassRegion.LANDMASS_REGION_DEFAULT && assignedLandmass % landmassRegionId == 0;
-        if (allowedOnLandmass) {
-          const existingResource = GameplayMap.getResourceType(kLocation.x, kLocation.y);
-          if (existingResource != ResourceTypes.NO_RESOURCE && !ResourceBuilder.isResourceClassRequiredForLegacyPath(existingResource)) {
-            if (ResourceBuilder.canHaveResource(kLocation.x, kLocation.y, resourceIdx, true) && !wouldCreateCluster(kLocation.x, kLocation.y, resourceIdx)) {
-              resources.push(resourceIdx);
-            }
-          } else {
-            if (ResourceBuilder.canHaveResource(kLocation.x, kLocation.y, resourceIdx, true) && !wouldCreateCluster(kLocation.x, kLocation.y, resourceIdx)) {
-              resources.push(resourceIdx);
-            }
-          }
-        }
-      });
-      if (resources.length > 0) {
-        let resourceChosen = ResourceTypes.NO_RESOURCE;
-        let resourceChosenIndex = 0;
-        for (const r of resources) {
-          if (resourceChosen == ResourceTypes.NO_RESOURCE) {
-            resourceChosen = r;
-            resourceChosenIndex = r;
-          } else {
-            if (resourceRunningWeight[r] > resourceRunningWeight[resourceChosenIndex]) {
-              resourceChosen = r;
-              resourceChosenIndex = r;
-            } else if (resourceRunningWeight[r] == resourceRunningWeight[resourceChosenIndex]) {
-              const iRoll = TerrainBuilder.getRandomNumber(2, "Resource Scatter");
-              if (iRoll >= 1) {
-                resourceChosen = r;
-                resourceChosenIndex = r;
-              }
+    const totalTiles = iWidth * iHeight;
+    const skipMask = new Uint8Array(totalTiles);
+    const oldExistingByTileGroup = new Uint16Array(NUM_TILE_GROUPS);
+    const oldTypesCountByTileGroup = new Uint8Array(NUM_TILE_GROUPS);
+    const oldTypeSeenByTileGroup = new Uint8Array(NUM_TILE_GROUPS * numResources);
+    for (let y = 0; y < iHeight; y++) {
+      for (let x = 0; x < iWidth; x++) {
+        const idx = y * iWidth + x;
+        const resourceIdx = GameplayMap.getResourceType(x, y);
+        if (resourceIdx !== ResourceTypes.NO_RESOURCE) {
+          skipMask[idx] = 1;
+          if (!isNewResource[resourceIdx]) {
+            const tid = ctx.tileIdCache[idx];
+            oldExistingByTileGroup[tid]++;
+            const flagIdx = tid * numResources + resourceIdx;
+            if (oldTypeSeenByTileGroup[flagIdx] === 0) {
+              oldTypesCountByTileGroup[tid]++;
+              oldTypeSeenByTileGroup[flagIdx] = 1;
             }
           }
-        }
-        if (getImportantResourceCounts(landmassRegionId)[resourceChosenIndex] < maxPerHemisphere) {
-          if (resourceChosen != ResourceTypes.NO_RESOURCE && !wouldCreateCluster(kLocation.x, kLocation.y, resourceChosenIndex)) {
-            ResourceBuilder.setResourceType(kLocation.x, kLocation.y, resourceChosen);
-            resourceRunningWeight[resourceChosenIndex] -= resourceWeight[resourceChosenIndex];
-            const name = GameInfo.Resources[resourceChosenIndex].Name;
-            console.log(
-              "Placed " + Locale.compose(name) + " at (" + kLocation.x + ", " + kLocation.y + ")"
-            );
-            _iNumPlaced++;
-            getImportantResourceCounts(landmassRegionId)[resourceChosenIndex]++;
-            resourcesPlacedCount[resourceChosenIndex]++;
-            removeRuralDistrict(kLocation.x, kLocation.y);
-            placeRuralDistrict(kLocation.x, kLocation.y);
-          } else {
-            console.log("Resource Type Failure");
-          }
+        } else if (MapCities.getDistrict(x, y) != null) {
+          skipMask[idx] = 1;
         }
       }
     }
-  });
-  for (let iY = 0; iY < iHeight; iY++) {
-    for (let iX = 0; iX < iWidth; iX++) {
-      const districtID = MapCities.getDistrict(iX, iY);
-      if (districtID == null) {
-        const landmassRegionId = GameplayMap.getLandmassRegionId(iX, iY);
-        for (let i = 0; i < resourcesPlacedCount.length; ++i) {
-          const resourceToPlace = GameInfo.Resources.lookup(i);
-          if (resourceToPlace) {
-            const assignedLandmass = ResourceBuilder.getResourceLandmass(i);
-            const allowedOnLandmass = landmassRegionId != LandmassRegion.LANDMASS_REGION_DEFAULT && (assignedLandmass == LandmassRegion.LANDMASS_REGION_ANY || assignedLandmass != LandmassRegion.LANDMASS_REGION_NONE && assignedLandmass % landmassRegionId == 0);
-            if (!allowedOnLandmass) {
-              continue;
-            }
-            const minimumPerLandMass = resourceToPlace.MinimumPerHemisphere > 0 ? resourceToPlace.MinimumPerHemisphere + iMapMinimumModifer : 0;
-            if (getImportantResourceCounts(landmassRegionId)[i] < minimumPerLandMass) {
-              if (resourcesPlacedCount[i] > 0 && ResourceBuilder.isResourceRequiredForAge(i, Game.age)) {
-                if (ResourceBuilder.canHaveResource(iX, iY, i, false) && !wouldCreateCluster(iX, iY, i)) {
-                  ResourceBuilder.setResourceType(iX, iY, i);
-                  const name = GameInfo.Resources.lookup(i)?.Name;
-                  console.log(
-                    "Force Placed " + Locale.compose(name ?? "unknown") + " at (" + iX + ", " + iY + ")"
-                  );
-                  getImportantResourceCounts(landmassRegionId)[i]++;
-                  removeRuralDistrict(iX, iY);
-                  placeRuralDistrict(iX, iY);
-                  break;
-                }
-              }
-            }
-          }
-        }
+    const MAX_COMBINED_DENSITY_FACTOR = 1.5;
+    const maxCombinedDensity = DENSITY_TARGET * MAX_COMBINED_DENSITY_FACTOR;
+    const newTypesCountByTileGroup = new Uint8Array(NUM_TILE_GROUPS);
+    for (const [tid, list] of tileGroupToResources) {
+      newTypesCountByTileGroup[tid] = list.length;
+    }
+    const densityByResourceAndGroup = new Float32Array(numResources * NUM_TILE_GROUPS);
+    for (const vb of resourceSet.resolvedValidBiomes) {
+      const tid = vb.tileGroupId;
+      const groupCount = ctx.groupCount[tid];
+      if (groupCount === 0) continue;
+      const nOld = oldTypesCountByTileGroup[tid];
+      const nNew = newTypesCountByTileGroup[tid];
+      if (nNew === 0) continue;
+      const totalResources = nOld + nNew;
+      const oldDensity = oldExistingByTileGroup[tid] / groupCount;
+      let perTypeShare = DENSITY_TARGET / totalResources;
+      const headroom = (DENSITY_TARGET - oldDensity) / nNew;
+      if (headroom > perTypeShare) {
+        perTypeShare = headroom;
+      } else if (perTypeShare > headroom * MAX_COMBINED_DENSITY_FACTOR) {
+        perTypeShare = headroom * MAX_COMBINED_DENSITY_FACTOR;
+      }
+      const fairShareDensity = perTypeShare * vb.weight;
+      const intendedTiles = fairShareDensity * groupCount;
+      const key = vb.resourceIdx * NUM_TILE_GROUPS + tid;
+      const alreadyPlaced = placedPerResourcePerTileGroup.get(key) ?? 0;
+      const remainingTiles = Math.max(0, intendedTiles - alreadyPlaced);
+      const finalDensity = remainingTiles / groupCount;
+      densityByResourceAndGroup[key] = Math.max(0, finalDensity);
+      if (VERBOSE_LOGGING) {
+        const tc = tileClassFromId(ctx.groupRawId[tid]);
+        const resName = GameInfo.Resources.lookup(vb.resourceIdx)?.ResourceType ?? `Unknown(${vb.resourceIdx})`;
+        const terrainName = GameInfo.Terrains.lookup(tc.terrain)?.TerrainType ?? `Unknown(${tc.terrain})`;
+        const biomeName = GameInfo.Biomes.lookup(tc.biome)?.BiomeType ?? `Unknown(${tc.biome})`;
+        const featureName = GameInfo.Features.lookup(tc.feature)?.FeatureType ?? "";
+        console.log(
+          `  ${resName} on ${terrainName}/${biomeName}/${featureName}: nOld=${nOld} nNew=${nNew} oldDensity=${oldDensity.toFixed(3)} perTypeShare=${perTypeShare.toFixed(3)} weight=${vb.weight.toFixed(2)} intendedTiles=${intendedTiles.toFixed(1)} alreadyPlaced=${alreadyPlaced} final=${finalDensity.toFixed(3)}`
+        );
       }
     }
+    const blueNoisePlan = buildBlueNoiseWindows(ctx, resourceSet, {
+      densityTarget: DENSITY_TARGET,
+      maxDensity: MAX_DENSITY,
+      effectiveMinimums,
+      densityByResourceAndGroup
+    });
+    const offsetX = TerrainBuilder.getRandomNumber(128, "Age Transition Blue Noise Offset X");
+    const offsetY = TerrainBuilder.getRandomNumber(128, "Age Transition Blue Noise Offset Y");
+    placeResourcesWithBlueNoise(ctx, resourceSet, blueNoisePlan, {
+      skipMask,
+      offsetX,
+      offsetY,
+      shouldPlaceResource: void 0,
+      onResourcePlaced: (x, y) => {
+        removeRuralDistrict(x, y);
+        placeRuralDistrict(x, y);
+      }
+    });
   }
   const ageDefinition = GameInfo.Ages.lookup(g_incomingAge);
   if (ageDefinition) {
     const mapType = Configuration.getMapValue("Name");
     for (const option of GameInfo.MapIslandBehavior) {
-      if (option.MapType === mapType && option.AgeType == ageDefinition.AgeType) {
+      if (option.MapType === mapType && option.AgeType === ageDefinition.AgeType) {
         replaceIslandResources(iWidth, iHeight, option.ResourceClassType);
       }
     }
   }
   dumpResources(iWidth, iHeight);
+  scope.end();
+}
+function addNewResourcesEarthHuge() {
+  let xCoord = 0;
+  let yCoord = 0;
+  let resourceToBePlaced = "";
+  if (Game.age == Database.makeHash("AGE_EXPLORATION")) {
+    console.log("Found Explo");
+    stampResourceEarthHuge(69, 53, "RESOURCE_NITER");
+    stampResourceEarthHuge(55, 59, "RESOURCE_FURS");
+    stampResourceEarthHuge(61, 60, "RESOURCE_FURS");
+    stampResourceEarthHuge(64, 62, "RESOURCE_FURS");
+    stampResourceEarthHuge(72, 62, "RESOURCE_FURS");
+    stampResourceEarthHuge(81, 61, "RESOURCE_FURS");
+    stampResourceEarthHuge(86, 60, "RESOURCE_FURS");
+    stampResourceEarthHuge(94, 57, "RESOURCE_FURS");
+    stampResourceEarthHuge(90, 54, "RESOURCE_NITER");
+    stampResourceEarthHuge(81, 54, "RESOURCE_NITER");
+    stampResourceEarthHuge(74, 53, "RESOURCE_NITER");
+    stampResourceEarthHuge(54, 53, "RESOURCE_NITER");
+    stampResourceEarthHuge(53, 27, "RESOURCE_NITER");
+    stampResourceEarthHuge(49, 12, "RESOURCE_NITER");
+    stampResourceEarthHuge(16, 49, "RESOURCE_NITER");
+    stampResourceEarthHuge(20, 49, "RESOURCE_FURS");
+    stampResourceEarthHuge(49, 27, "RESOURCE_NITER");
+    stampResourceEarthHuge(45, 25, "RESOURCE_NITER");
+    stampResourceEarthHuge(22, 62, "RESOURCE_FURS");
+    stampResourceEarthHuge(12, 63, "RESOURCE_FURS");
+    stampResourceEarthHuge(18, 61, "RESOURCE_FURS");
+    stampResourceEarthHuge(23, 51, "RESOURCE_FURS");
+    stampResourceEarthHuge(69, 44, "RESOURCE_TEA");
+    stampResourceEarthHuge(57, 49, "RESOURCE_TEA");
+    stampResourceEarthHuge(26, 13, "RESOURCE_NITER");
+    stampResourceEarthHuge(57, 56, "RESOURCE_FURS");
+    stampResourceEarthHuge(60, 25, "RESOURCE_TEA");
+    stampResourceEarthHuge(59, 21, "RESOURCE_TEA");
+    stampResourceEarthHuge(24, 20, "RESOURCE_NITER");
+    stampResourceEarthHuge(26, 29, "RESOURCE_NITER");
+    stampResourceEarthHuge(13, 54, "RESOURCE_FURS");
+    stampResourceEarthHuge(41, 31, "RESOURCE_NITER");
+    stampResourceEarthHuge(54, 31, "RESOURCE_NITER");
+    stampResourceEarthHuge(64, 35, "RESOURCE_NITER");
+    removeRuralDistrict(39, 60);
+    ResourceBuilder.setResourceType(39, 60, ResourceTypes.NO_RESOURCE);
+    placeRuralDistrict(39, 60);
+    stampResourceEarthHuge(86, 10, "RESOURCE_TEA");
+    stampResourceEarthHuge(62, 59, "RESOURCE_SILVER");
+    stampResourceEarthHuge(78, 59, "RESOURCE_SILVER");
+    removeRuralDistrict(16, 60);
+    ResourceBuilder.setResourceType(16, 60, ResourceTypes.NO_RESOURCE);
+    placeRuralDistrict(16, 60);
+    stampResourceEarthHuge(105, 7, "RESOURCE_SILVER");
+    stampResourceEarthHuge(20, 54, "RESOURCE_SILVER");
+    stampResourceEarthHuge(62, 11, "RESOURCE_GOLD");
+    stampResourceEarthHuge(92, 11, "RESOURCE_LIMESTONE");
+    stampResourceEarthHuge(90, 17, "RESOURCE_LIMESTONE");
+    stampResourceEarthHuge(99, 16, "RESOURCE_TIN");
+    stampResourceEarthHuge(14, 33, "RESOURCE_COCOA");
+    stampResourceEarthHuge(19, 31, "RESOURCE_COCOA");
+    stampResourceEarthHuge(22, 34, "RESOURCE_COCOA");
+    stampResourceEarthHuge(27, 25, "RESOURCE_COCOA");
+    stampResourceEarthHuge(29, 21, "RESOURCE_COCOA");
+    stampResourceEarthHuge(32, 20, "RESOURCE_COCOA");
+    stampResourceEarthHuge(36, 21, "RESOURCE_COCOA");
+    stampResourceEarthHuge(23, 37, "RESOURCE_COCOA");
+    stampResourceEarthHuge(15, 35, "RESOURCE_COCOA");
+    stampResourceEarthHuge(25, 28, "RESOURCE_COCOA");
+    stampResourceEarthHuge(44, 22, "RESOURCE_COCOA");
+    stampResourceEarthHuge(47, 22, "RESOURCE_COCOA");
+    stampResourceEarthHuge(35, 18, "RESOURCE_COCOA");
+    stampResourceEarthHuge(68, 13, "RESOURCE_COCOA");
+    stampResourceEarthHuge(91, 25, "RESOURCE_COCOA");
+    stampResourceEarthHuge(88, 26, "RESOURCE_COCOA");
+    stampResourceEarthHuge(28, 36, "RESOURCE_COCOA");
+    stampResourceEarthHuge(58, 13, "RESOURCE_COCOA");
+    stampResourceEarthHuge(56, 54, "RESOURCE_PITCH");
+    stampResourceEarthHuge(58, 59, "RESOURCE_PITCH");
+    stampResourceEarthHuge(61, 55, "RESOURCE_PITCH");
+    stampResourceEarthHuge(49, 47, "RESOURCE_PITCH");
+    stampResourceEarthHuge(53, 48, "RESOURCE_PITCH");
+    stampResourceEarthHuge(62, 48, "RESOURCE_PITCH");
+    stampResourceEarthHuge(66, 52, "RESOURCE_PITCH");
+    stampResourceEarthHuge(13, 58, "RESOURCE_PITCH");
+    stampResourceEarthHuge(10, 53, "RESOURCE_PITCH");
+    stampResourceEarthHuge(31, 10, "RESOURCE_PITCH");
+    stampResourceEarthHuge(56, 7, "RESOURCE_PITCH");
+    stampResourceEarthHuge(50, 11, "RESOURCE_PITCH");
+    stampResourceEarthHuge(75, 32, "RESOURCE_SPICES");
+    stampResourceEarthHuge(72, 30, "RESOURCE_SPICES");
+    stampResourceEarthHuge(73, 26, "RESOURCE_SPICES");
+    stampResourceEarthHuge(84, 33, "RESOURCE_SPICES");
+    stampResourceEarthHuge(44, 37, "RESOURCE_SPICES");
+    stampResourceEarthHuge(45, 28, "RESOURCE_SPICES");
+    stampResourceEarthHuge(52, 26, "RESOURCE_SPICES");
+    stampResourceEarthHuge(90, 37, "RESOURCE_SPICES");
+    stampResourceEarthHuge(88, 41, "RESOURCE_SPICES");
+    stampResourceEarthHuge(96, 50, "RESOURCE_SPICES");
+    stampResourceEarthHuge(103, 48, "RESOURCE_SPICES");
+    stampResourceEarthHuge(101, 53, "RESOURCE_SPICES");
+    stampResourceEarthHuge(61, 45, "RESOURCE_SPICES");
+    stampResourceEarthHuge(57, 54, "RESOURCE_SPICES");
+    stampResourceEarthHuge(49, 16, "RESOURCE_SPICES");
+    stampResourceEarthHuge(53, 13, "RESOURCE_SPICES");
+    stampResourceEarthHuge(30, 17, "RESOURCE_SUGAR");
+    stampResourceEarthHuge(32, 18, "RESOURCE_SUGAR");
+    stampResourceEarthHuge(32, 12, "RESOURCE_SUGAR");
+    stampResourceEarthHuge(25, 26, "RESOURCE_SUGAR");
+    stampResourceEarthHuge(29, 35, "RESOURCE_SUGAR");
+    stampResourceEarthHuge(26, 36, "RESOURCE_SUGAR");
+    stampResourceEarthHuge(73, 32, "RESOURCE_SUGAR");
+    stampResourceEarthHuge(82, 32, "RESOURCE_SUGAR");
+    stampResourceEarthHuge(84, 30, "RESOURCE_SUGAR");
+    stampResourceEarthHuge(101, 16, "RESOURCE_SUGAR");
+    stampResourceEarthHuge(96, 18, "RESOURCE_SUGAR");
+    stampResourceEarthHuge(94, 20, "RESOURCE_SUGAR");
+    stampResourceEarthHuge(17, 40, "RESOURCE_SUGAR");
+    stampResourceEarthHuge(17, 43, "RESOURCE_SUGAR");
+    stampResourceEarthHuge(78, 36, "RESOURCE_SUGAR");
+    stampResourceEarthHuge(87, 33, "RESOURCE_SUGAR");
+    stampResourceEarthHuge(69, 44, "RESOURCE_TEA");
+    stampResourceEarthHuge(57, 49, "RESOURCE_TEA");
+    stampResourceEarthHuge(60, 25, "RESOURCE_TEA");
+    stampResourceEarthHuge(59, 21, "RESOURCE_TEA");
+    stampResourceEarthHuge(86, 10, "RESOURCE_TEA");
+    stampResourceEarthHuge(68, 42, "RESOURCE_TEA");
+    stampResourceEarthHuge(84, 36, "RESOURCE_TEA");
+    stampResourceEarthHuge(80, 36, "RESOURCE_TEA");
+    stampResourceEarthHuge(102, 49, "RESOURCE_TEA");
+    stampResourceEarthHuge(81, 41, "RESOURCE_TEA");
+    stampResourceEarthHuge(82, 44, "RESOURCE_TEA");
+    stampResourceEarthHuge(83, 41, "RESOURCE_TEA");
+    stampResourceEarthHuge(91, 40, "RESOURCE_TEA");
+    stampResourceEarthHuge(83, 45, "RESOURCE_TEA");
+    stampResourceEarthHuge(91, 45, "RESOURCE_TEA");
+    stampResourceEarthHuge(96, 47, "RESOURCE_TEA");
+    stampResourceEarthHuge(74, 25, "RESOURCE_TEA");
+    stampResourceEarthHuge(55, 52, "RESOURCE_TRUFFLES");
+    stampResourceEarthHuge(56, 50, "RESOURCE_TRUFFLES");
+    stampResourceEarthHuge(53, 59, "RESOURCE_TRUFFLES");
+    stampResourceEarthHuge(48, 55, "RESOURCE_TRUFFLES");
+    stampResourceEarthHuge(5, 49, "RESOURCE_TRUFFLES");
+    stampResourceEarthHuge(45, 46, "RESOURCE_TRUFFLES");
+    stampResourceEarthHuge(50, 47, "RESOURCE_TRUFFLES");
+    stampResourceEarthHuge(84, 37, "RESOURCE_TRUFFLES");
+    stampResourceEarthHuge(101, 11, "RESOURCE_TRUFFLES");
+    stampResourceEarthHuge(1, 7, "RESOURCE_TRUFFLES");
+    stampResourceEarthHuge(102, 13, "RESOURCE_TRUFFLES");
+    stampResourceEarthHuge(37, 59, "RESOURCE_WHALES");
+    stampResourceEarthHuge(35, 62, "RESOURCE_WHALES");
+    stampResourceEarthHuge(38, 63, "RESOURCE_WHALES");
+    stampResourceEarthHuge(47, 62, "RESOURCE_WHALES");
+    stampResourceEarthHuge(52, 56, "RESOURCE_WHALES");
+    stampResourceEarthHuge(5, 44, "RESOURCE_WHALES");
+    stampResourceEarthHuge(7, 42, "RESOURCE_WHALES");
+    stampResourceEarthHuge(12, 34, "RESOURCE_WHALES");
+    stampResourceEarthHuge(28, 48, "RESOURCE_WHALES");
+    stampResourceEarthHuge(20, 39, "RESOURCE_WHALES");
+    stampResourceEarthHuge(18, 35, "RESOURCE_WHALES");
+    stampResourceEarthHuge(32, 30, "RESOURCE_WHALES");
+    stampResourceEarthHuge(36, 37, "RESOURCE_WHALES");
+    stampResourceEarthHuge(49, 40, "RESOURCE_WHALES");
+    stampResourceEarthHuge(46, 44, "RESOURCE_WHALES");
+    stampResourceEarthHuge(39, 39, "RESOURCE_WHALES");
+    stampResourceEarthHuge(36, 17, "RESOURCE_WHALES");
+    stampResourceEarthHuge(35, 14, "RESOURCE_WHALES");
+    stampResourceEarthHuge(29, 6, "RESOURCE_WHALES");
+    stampResourceEarthHuge(30, 3, "RESOURCE_WHALES");
+    stampResourceEarthHuge(24, 5, "RESOURCE_WHALES");
+    stampResourceEarthHuge(25, 11, "RESOURCE_WHALES");
+    stampResourceEarthHuge(22, 21, "RESOURCE_WHALES");
+    stampResourceEarthHuge(19, 23, "RESOURCE_WHALES");
+    stampResourceEarthHuge(11, 37, "RESOURCE_WHALES");
+    stampResourceEarthHuge(5, 54, "RESOURCE_WHALES");
+    stampResourceEarthHuge(3, 60, "RESOURCE_WHALES");
+    stampResourceEarthHuge(1, 35, "RESOURCE_WHALES");
+    stampResourceEarthHuge(103, 35, "RESOURCE_WHALES");
+    stampResourceEarthHuge(104, 38, "RESOURCE_WHALES");
+    stampResourceEarthHuge(1, 37, "RESOURCE_WHALES");
+    stampResourceEarthHuge(47, 16, "RESOURCE_WHALES");
+    stampResourceEarthHuge(49, 3, "RESOURCE_WHALES");
+    stampResourceEarthHuge(56, 4, "RESOURCE_WHALES");
+    stampResourceEarthHuge(61, 8, "RESOURCE_WHALES");
+    stampResourceEarthHuge(65, 11, "RESOURCE_WHALES");
+    stampResourceEarthHuge(66, 32, "RESOURCE_WHALES");
+    stampResourceEarthHuge(64, 30, "RESOURCE_WHALES");
+    stampResourceEarthHuge(71, 27, "RESOURCE_WHALES");
+    stampResourceEarthHuge(104, 51, "RESOURCE_WHALES");
+    stampResourceEarthHuge(103, 46, "RESOURCE_WHALES");
+    stampResourceEarthHuge(102, 43, "RESOURCE_WHALES");
+    stampResourceEarthHuge(105, 54, "RESOURCE_WHALES");
+    stampResourceEarthHuge(98, 39, "RESOURCE_WHALES");
+    stampResourceEarthHuge(95, 34, "RESOURCE_WHALES");
+    stampResourceEarthHuge(85, 23, "RESOURCE_WHALES");
+    stampResourceEarthHuge(82, 22, "RESOURCE_WHALES");
+    stampResourceEarthHuge(90, 21, "RESOURCE_WHALES");
+    stampResourceEarthHuge(87, 17, "RESOURCE_WHALES");
+    stampResourceEarthHuge(84, 15, "RESOURCE_WHALES");
+    stampResourceEarthHuge(84, 10, "RESOURCE_WHALES");
+    stampResourceEarthHuge(85, 6, "RESOURCE_WHALES");
+    stampResourceEarthHuge(96, 5, "RESOURCE_WHALES");
+    stampResourceEarthHuge(100, 3, "RESOURCE_WHALES");
+    stampResourceEarthHuge(102, 7, "RESOURCE_WHALES");
+    stampResourceEarthHuge(0, 10, "RESOURCE_WHALES");
+    stampResourceEarthHuge(103, 6, "RESOURCE_WHALES");
+  } else if (Game.age == Database.makeHash("AGE_MODERN")) {
+    console.log("Found Modern");
+    stampResourceEarthHuge(69, 47, "RESOURCE_CITRUS");
+    stampResourceEarthHuge(70, 39, "RESOURCE_CITRUS");
+    stampResourceEarthHuge(75, 34, "RESOURCE_CITRUS");
+    stampResourceEarthHuge(30, 8, "RESOURCE_CITRUS");
+    stampResourceEarthHuge(41, 42, "RESOURCE_CITRUS");
+    stampResourceEarthHuge(13, 43, "RESOURCE_CITRUS");
+    stampResourceEarthHuge(40, 29, "RESOURCE_CITRUS");
+    stampResourceEarthHuge(102, 47, "RESOURCE_CITRUS");
+    stampResourceEarthHuge(90, 47, "RESOURCE_CITRUS");
+    stampResourceEarthHuge(90, 53, "RESOURCE_CITRUS");
+    stampResourceEarthHuge(82, 47, "RESOURCE_CITRUS");
+    stampResourceEarthHuge(92, 16, "RESOURCE_COAL");
+    stampResourceEarthHuge(94, 11, "RESOURCE_COAL");
+    stampResourceEarthHuge(40, 57, "RESOURCE_COAL");
+    stampResourceEarthHuge(62, 55, "RESOURCE_COAL");
+    stampResourceEarthHuge(63, 49, "RESOURCE_COAL");
+    stampResourceEarthHuge(44, 43, "RESOURCE_COAL");
+    stampResourceEarthHuge(74, 45, "RESOURCE_COAL");
+    stampResourceEarthHuge(55, 19, "RESOURCE_COAL");
+    stampResourceEarthHuge(56, 27, "RESOURCE_COAL");
+    stampResourceEarthHuge(85, 38, "RESOURCE_COAL");
+    stampResourceEarthHuge(60, 50, "RESOURCE_COAL");
+    stampResourceEarthHuge(80, 34, "RESOURCE_COAL");
+    stampResourceEarthHuge(101, 49, "RESOURCE_COAL");
+    stampResourceEarthHuge(26, 49, "RESOURCE_COAL");
+    stampResourceEarthHuge(23, 46, "RESOURCE_COAL");
+    stampResourceEarthHuge(46, 37, "RESOURCE_COAL");
+    stampResourceEarthHuge(41, 44, "RESOURCE_COAL");
+    stampResourceEarthHuge(43, 49, "RESOURCE_COAL");
+    stampResourceEarthHuge(52, 47, "RESOURCE_COAL");
+    stampResourceEarthHuge(84, 47, "RESOURCE_COAL");
+    stampResourceEarthHuge(55, 7, "RESOURCE_COAL");
+    stampResourceEarthHuge(90, 13, "RESOURCE_COAL");
+    stampResourceEarthHuge(62, 24, "RESOURCE_COFFEE");
+    stampResourceEarthHuge(14, 45, "RESOURCE_COFFEE");
+    stampResourceEarthHuge(28, 17, "RESOURCE_COFFEE");
+    stampResourceEarthHuge(72, 28, "RESOURCE_COFFEE");
+    stampResourceEarthHuge(98, 18, "RESOURCE_COFFEE");
+    stampResourceEarthHuge(79, 33, "RESOURCE_COFFEE");
+    stampResourceEarthHuge(21, 31, "RESOURCE_COFFEE");
+    stampResourceEarthHuge(73, 36, "RESOURCE_COFFEE");
+    stampResourceEarthHuge(71, 33, "RESOURCE_COFFEE");
+    stampResourceEarthHuge(71, 38, "RESOURCE_COFFEE");
+    stampResourceEarthHuge(59, 16, "RESOURCE_COFFEE");
+    stampResourceEarthHuge(92, 26, "RESOURCE_COFFEE");
+    stampResourceEarthHuge(82, 34, "RESOURCE_COFFEE");
+    stampResourceEarthHuge(70, 41, "RESOURCE_COFFEE");
+    stampResourceEarthHuge(53, 17, "RESOURCE_COFFEE");
+    stampResourceEarthHuge(56, 14, "RESOURCE_COFFEE");
+    stampResourceEarthHuge(58, 10, "RESOURCE_COFFEE");
+    stampResourceEarthHuge(79, 50, "RESOURCE_OIL");
+    stampResourceEarthHuge(42, 33, "RESOURCE_OIL");
+    stampResourceEarthHuge(49, 32, "RESOURCE_OIL");
+    stampResourceEarthHuge(56, 32, "RESOURCE_OIL");
+    stampResourceEarthHuge(62, 34, "RESOURCE_OIL");
+    stampResourceEarthHuge(64, 33, "RESOURCE_OIL");
+    stampResourceEarthHuge(53, 35, "RESOURCE_OIL");
+    stampResourceEarthHuge(19, 48, "RESOURCE_OIL");
+    stampResourceEarthHuge(54, 60, "RESOURCE_OIL");
+    stampResourceEarthHuge(27, 55, "RESOURCE_OIL");
+    stampResourceEarthHuge(14, 54, "RESOURCE_OIL");
+    stampResourceEarthHuge(26, 52, "RESOURCE_OIL");
+    stampResourceEarthHuge(18, 52, "RESOURCE_OIL");
+    stampResourceEarthHuge(4, 60, "RESOURCE_OIL");
+    stampResourceEarthHuge(64, 28, "RESOURCE_OIL");
+    stampResourceEarthHuge(60, 29, "RESOURCE_OIL");
+    stampResourceEarthHuge(62, 32, "RESOURCE_OIL");
+    stampResourceEarthHuge(67, 36, "RESOURCE_OIL");
+    stampResourceEarthHuge(62, 41, "RESOURCE_OIL");
+    stampResourceEarthHuge(57, 34, "RESOURCE_OIL");
+    stampResourceEarthHuge(51, 30, "RESOURCE_OIL");
+    stampResourceEarthHuge(43, 30, "RESOURCE_OIL");
+    stampResourceEarthHuge(45, 36, "RESOURCE_OIL");
+    stampResourceEarthHuge(39, 31, "RESOURCE_OIL");
+    stampResourceEarthHuge(61, 38, "RESOURCE_OIL");
+    stampResourceEarthHuge(69, 63, "RESOURCE_OIL");
+    stampResourceEarthHuge(11, 54, "RESOURCE_OIL");
+    stampResourceEarthHuge(4, 62, "RESOURCE_OIL");
+    stampResourceEarthHuge(91, 59, "RESOURCE_OIL");
+    stampResourceEarthHuge(85, 57, "RESOURCE_OIL");
+    stampResourceEarthHuge(81, 57, "RESOURCE_OIL");
+    stampResourceEarthHuge(76, 46, "RESOURCE_OIL");
+    stampResourceEarthHuge(36, 20, "RESOURCE_QUININE");
+    stampResourceEarthHuge(31, 10, "RESOURCE_QUININE");
+    stampResourceEarthHuge(30, 25, "RESOURCE_QUININE");
+    stampResourceEarthHuge(25, 36, "RESOURCE_QUININE");
+    stampResourceEarthHuge(21, 33, "RESOURCE_QUININE");
+    stampResourceEarthHuge(31, 22, "RESOURCE_QUININE");
+    stampResourceEarthHuge(47, 20, "RESOURCE_RUBBER");
+    stampResourceEarthHuge(35, 18, "RESOURCE_RUBBER");
+    stampResourceEarthHuge(29, 17, "RESOURCE_RUBBER");
+    stampResourceEarthHuge(32, 20, "RESOURCE_RUBBER");
+    stampResourceEarthHuge(48, 21, "RESOURCE_RUBBER");
+    stampResourceEarthHuge(52, 20, "RESOURCE_RUBBER");
+    stampResourceEarthHuge(51, 23, "RESOURCE_RUBBER");
+    stampResourceEarthHuge(14, 33, "RESOURCE_RUBBER");
+    stampResourceEarthHuge(96, 25, "RESOURCE_RUBBER");
+    stampResourceEarthHuge(87, 27, "RESOURCE_RUBBER");
+    stampResourceEarthHuge(86, 25, "RESOURCE_RUBBER");
+    stampResourceEarthHuge(42, 23, "RESOURCE_RUBBER");
+    stampResourceEarthHuge(46, 28, "RESOURCE_TOBACCO");
+    stampResourceEarthHuge(63, 26, "RESOURCE_TOBACCO");
+    stampResourceEarthHuge(71, 52, "RESOURCE_TOBACCO");
+    stampResourceEarthHuge(45, 50, "RESOURCE_TOBACCO");
+    stampResourceEarthHuge(49, 53, "RESOURCE_TOBACCO");
+    stampResourceEarthHuge(16, 45, "RESOURCE_TOBACCO");
+    stampResourceEarthHuge(15, 51, "RESOURCE_TOBACCO");
+    stampResourceEarthHuge(13, 50, "RESOURCE_TOBACCO");
+    stampResourceEarthHuge(65, 43, "RESOURCE_TOBACCO");
+    stampResourceEarthHuge(72, 33, "RESOURCE_TOBACCO");
+    stampResourceEarthHuge(73, 35, "RESOURCE_TOBACCO");
+    stampResourceEarthHuge(82, 40, "RESOURCE_TOBACCO");
+    stampResourceEarthHuge(14, 43, "RESOURCE_TOBACCO");
+    stampResourceEarthHuge(67, 54, "RESOURCE_KAOLIN");
+    stampResourceEarthHuge(79, 42, "RESOURCE_KAOLIN");
+    stampResourceEarthHuge(56, 24, "RESOURCE_KAOLIN");
+    stampResourceEarthHuge(48, 52, "RESOURCE_TRUFFLES");
+    stampResourceEarthHuge(48, 29, "RESOURCE_NITER");
+    stampResourceEarthHuge(54, 55, "RESOURCE_WINE");
+    stampResourceEarthHuge(56, 51, "RESOURCE_WINE");
+    stampResourceEarthHuge(59, 53, "RESOURCE_TEA");
+    stampResourceEarthHuge(62, 35, "RESOURCE_LIMESTONE");
+    stampResourceEarthHuge(58, 31, "RESOURCE_LIMESTONE");
+    stampResourceEarthHuge(42, 34, "RESOURCE_LIMESTONE");
+    stampResourceEarthHuge(26, 2, "RESOURCE_SILVER");
+    stampResourceEarthHuge(64, 41, "RESOURCE_SILVER");
+    stampResourceEarthHuge(49, 8, "RESOURCE_SILVER");
+    stampResourceEarthHuge(100, 14, "RESOURCE_SILVER");
+    stampResourceEarthHuge(47, 60, "RESOURCE_SILVER");
+    stampResourceEarthHuge(86, 15, "RESOURCE_SILVER");
+    stampResourceEarthHuge(42, 42, "RESOURCE_GOLD");
+    stampResourceEarthHuge(96, 27, "RESOURCE_TIN");
+    stampResourceEarthHuge(73, 52, "RESOURCE_TIN");
+    stampResourceEarthHuge(85, 39, "RESOURCE_TIN");
+    stampResourceEarthHuge(81, 45, "RESOURCE_TIN");
+    stampResourceEarthHuge(66, 57, "RESOURCE_HARDWOOD");
+    stampResourceEarthHuge(30, 56, "RESOURCE_HARDWOOD");
+    stampResourceEarthHuge(74, 61, "RESOURCE_HARDWOOD");
+    stampResourceEarthHuge(81, 62, "RESOURCE_HARDWOOD");
+    stampResourceEarthHuge(85, 59, "RESOURCE_HARDWOOD");
+    stampResourceEarthHuge(88, 62, "RESOURCE_HARDWOOD");
+    stampResourceEarthHuge(93, 59, "RESOURCE_HARDWOOD");
+    stampResourceEarthHuge(78, 62, "RESOURCE_HARDWOOD");
+    stampResourceEarthHuge(98, 9, "RESOURCE_SILK");
+    stampResourceEarthHuge(76, 42, "RESOURCE_SILK");
+    stampResourceEarthHuge(31, 32, "RESOURCE_FISH");
+    stampResourceEarthHuge(105, 35, "RESOURCE_FISH");
+    stampResourceEarthHuge(14, 31, "RESOURCE_FISH");
+    stampResourceEarthHuge(0, 18, "RESOURCE_FISH");
+    stampResourceEarthHuge(96, 30, "RESOURCE_FISH");
+    stampResourceEarthHuge(82, 29, "RESOURCE_FISH");
+    stampResourceEarthHuge(102, 44, "RESOURCE_FISH");
+    stampResourceEarthHuge(64, 13, "RESOURCE_FISH");
+    stampResourceEarthHuge(12, 9, "RESOURCE_FISH");
+    stampResourceEarthHuge(60, 41, "RESOURCE_FISH");
+    stampResourceEarthHuge(59, 38, "RESOURCE_FISH");
+    stampResourceEarthHuge(55, 39, "RESOURCE_FISH");
+    stampResourceEarthHuge(56, 45, "RESOURCE_FISH");
+    stampResourceEarthHuge(53, 40, "RESOURCE_FISH");
+    stampResourceEarthHuge(52, 36, "RESOURCE_FISH");
+    stampResourceEarthHuge(49, 38, "RESOURCE_FISH");
+    stampResourceEarthHuge(46, 42, "RESOURCE_FISH");
+    stampResourceEarthHuge(50, 39, "RESOURCE_FISH");
+    stampResourceEarthHuge(41, 37, "RESOURCE_FISH");
+    stampResourceEarthHuge(46, 18, "RESOURCE_FISH");
+    stampResourceEarthHuge(47, 12, "RESOURCE_FISH");
+    stampResourceEarthHuge(54, 3, "RESOURCE_FISH");
+    stampResourceEarthHuge(62, 21, "RESOURCE_FISH");
+    stampResourceEarthHuge(66, 33, "RESOURCE_FISH");
+    stampResourceEarthHuge(62, 9, "RESOURCE_FISH");
+    stampResourceEarthHuge(78, 32, "RESOURCE_FISH");
+    stampResourceEarthHuge(84, 29, "RESOURCE_FISH");
+    stampResourceEarthHuge(88, 30, "RESOURCE_FISH");
+    stampResourceEarthHuge(85, 33, "RESOURCE_FISH");
+    stampResourceEarthHuge(93, 33, "RESOURCE_FISH");
+    stampResourceEarthHuge(93, 27, "RESOURCE_FISH");
+    stampResourceEarthHuge(98, 26, "RESOURCE_FISH");
+    stampResourceEarthHuge(105, 38, "RESOURCE_FISH");
+    stampResourceEarthHuge(8, 13, "RESOURCE_FISH");
+    stampResourceEarthHuge(24, 38, "RESOURCE_PEARLS");
+    stampResourceEarthHuge(1, 29, "RESOURCE_PEARLS");
+    stampResourceEarthHuge(102, 37, "RESOURCE_PEARLS");
+    stampResourceEarthHuge(103, 24, "RESOURCE_PEARLS");
+    stampResourceEarthHuge(92, 28, "RESOURCE_PEARLS");
+    stampResourceEarthHuge(80, 24, "RESOURCE_PEARLS");
+    stampResourceEarthHuge(76, 24, "RESOURCE_PEARLS");
+    stampResourceEarthHuge(58, 8, "RESOURCE_PEARLS");
+    xCoord = 87;
+    yCoord = 15;
+    removeRuralDistrict(xCoord, yCoord);
+    ResourceBuilder.setResourceType(xCoord, yCoord, ResourceTypes.NO_RESOURCE);
+    placeRuralDistrict(xCoord, yCoord);
+    xCoord = 79;
+    yCoord = 35;
+    removeRuralDistrict(xCoord, yCoord);
+    ResourceBuilder.setResourceType(xCoord, yCoord, ResourceTypes.NO_RESOURCE);
+    placeRuralDistrict(xCoord, yCoord);
+    xCoord = 96;
+    yCoord = 62;
+    removeRuralDistrict(xCoord, yCoord);
+    ResourceBuilder.setResourceType(xCoord, yCoord, ResourceTypes.NO_RESOURCE);
+    placeRuralDistrict(xCoord, yCoord);
+    xCoord = 20;
+    yCoord = 35;
+    removeRuralDistrict(xCoord, yCoord);
+    ResourceBuilder.setResourceType(xCoord, yCoord, ResourceTypes.NO_RESOURCE);
+    placeRuralDistrict(xCoord, yCoord);
+    xCoord = 2;
+    yCoord = 31;
+    removeRuralDistrict(xCoord, yCoord);
+    ResourceBuilder.setResourceType(xCoord, yCoord, ResourceTypes.NO_RESOURCE);
+    placeRuralDistrict(xCoord, yCoord);
+    xCoord = 6;
+    yCoord = 14;
+    removeRuralDistrict(xCoord, yCoord);
+    ResourceBuilder.setResourceType(xCoord, yCoord, ResourceTypes.NO_RESOURCE);
+    placeRuralDistrict(xCoord, yCoord);
+    xCoord = 99;
+    yCoord = 21;
+    removeRuralDistrict(xCoord, yCoord);
+    ResourceBuilder.setResourceType(xCoord, yCoord, ResourceTypes.NO_RESOURCE);
+    placeRuralDistrict(xCoord, yCoord);
+    xCoord = 91;
+    yCoord = 23;
+    removeRuralDistrict(xCoord, yCoord);
+    ResourceBuilder.setResourceType(xCoord, yCoord, ResourceTypes.NO_RESOURCE);
+    placeRuralDistrict(xCoord, yCoord);
+    xCoord = 98;
+    yCoord = 40;
+    removeRuralDistrict(xCoord, yCoord);
+    ResourceBuilder.setResourceType(xCoord, yCoord, ResourceTypes.NO_RESOURCE);
+    placeRuralDistrict(xCoord, yCoord);
+    xCoord = 62;
+    yCoord = 14;
+    removeRuralDistrict(xCoord, yCoord);
+    ResourceBuilder.setResourceType(xCoord, yCoord, ResourceTypes.NO_RESOURCE);
+    placeRuralDistrict(xCoord, yCoord);
+    xCoord = 59;
+    yCoord = 43;
+    removeRuralDistrict(xCoord, yCoord);
+    ResourceBuilder.setResourceType(xCoord, yCoord, ResourceTypes.NO_RESOURCE);
+    placeRuralDistrict(xCoord, yCoord);
+    xCoord = 9;
+    yCoord = 41;
+    removeRuralDistrict(xCoord, yCoord);
+    ResourceBuilder.setResourceType(xCoord, yCoord, ResourceTypes.NO_RESOURCE);
+    placeRuralDistrict(xCoord, yCoord);
+    xCoord = 51;
+    yCoord = 63;
+    removeRuralDistrict(xCoord, yCoord);
+    ResourceBuilder.setResourceType(xCoord, yCoord, ResourceTypes.NO_RESOURCE);
+    placeRuralDistrict(xCoord, yCoord);
+    xCoord = 89;
+    yCoord = 13;
+    removeRuralDistrict(xCoord, yCoord);
+    ResourceBuilder.setResourceType(xCoord, yCoord, ResourceTypes.NO_RESOURCE);
+    placeRuralDistrict(xCoord, yCoord);
+    xCoord = 75;
+    yCoord = 46;
+    removeRuralDistrict(xCoord, yCoord);
+    ResourceBuilder.setResourceType(xCoord, yCoord, ResourceTypes.NO_RESOURCE);
+    placeRuralDistrict(xCoord, yCoord);
+    xCoord = 91;
+    yCoord = 52;
+    removeRuralDistrict(xCoord, yCoord);
+    ResourceBuilder.setResourceType(xCoord, yCoord, ResourceTypes.NO_RESOURCE);
+    placeRuralDistrict(xCoord, yCoord);
+    xCoord = 83;
+    yCoord = 47;
+    removeRuralDistrict(xCoord, yCoord);
+    ResourceBuilder.setResourceType(xCoord, yCoord, ResourceTypes.NO_RESOURCE);
+    placeRuralDistrict(xCoord, yCoord);
+    xCoord = 92;
+    yCoord = 51;
+    removeRuralDistrict(xCoord, yCoord);
+    ResourceBuilder.setResourceType(xCoord, yCoord, ResourceTypes.NO_RESOURCE);
+    placeRuralDistrict(xCoord, yCoord);
+    xCoord = 8;
+    yCoord = 57;
+    removeRuralDistrict(xCoord, yCoord);
+    ResourceBuilder.setResourceType(xCoord, yCoord, ResourceTypes.NO_RESOURCE);
+    placeRuralDistrict(xCoord, yCoord);
+    xCoord = 89;
+    yCoord = 8;
+    removeRuralDistrict(xCoord, yCoord);
+    ResourceBuilder.setResourceType(xCoord, yCoord, ResourceTypes.NO_RESOURCE);
+    placeRuralDistrict(xCoord, yCoord);
+    xCoord = 96;
+    yCoord = 8;
+    removeRuralDistrict(xCoord, yCoord);
+    ResourceBuilder.setResourceType(xCoord, yCoord, ResourceTypes.NO_RESOURCE);
+    placeRuralDistrict(xCoord, yCoord);
+    xCoord = 101;
+    yCoord = 13;
+    removeRuralDistrict(xCoord, yCoord);
+    ResourceBuilder.setResourceType(xCoord, yCoord, ResourceTypes.NO_RESOURCE);
+    placeRuralDistrict(xCoord, yCoord);
+    xCoord = 88;
+    yCoord = 39;
+    removeRuralDistrict(xCoord, yCoord);
+    ResourceBuilder.setResourceType(xCoord, yCoord, ResourceTypes.NO_RESOURCE);
+    placeRuralDistrict(xCoord, yCoord);
+    xCoord = 98;
+    yCoord = 44;
+    removeRuralDistrict(xCoord, yCoord);
+    ResourceBuilder.setResourceType(xCoord, yCoord, ResourceTypes.NO_RESOURCE);
+    placeRuralDistrict(xCoord, yCoord);
+    xCoord = 91;
+    yCoord = 60;
+    removeRuralDistrict(xCoord, yCoord);
+    ResourceBuilder.setResourceType(xCoord, yCoord, ResourceTypes.NO_RESOURCE);
+    placeRuralDistrict(xCoord, yCoord);
+    xCoord = 87;
+    yCoord = 59;
+    removeRuralDistrict(xCoord, yCoord);
+    ResourceBuilder.setResourceType(xCoord, yCoord, ResourceTypes.NO_RESOURCE);
+    placeRuralDistrict(xCoord, yCoord);
+    xCoord = 84;
+    yCoord = 63;
+    removeRuralDistrict(xCoord, yCoord);
+    ResourceBuilder.setResourceType(xCoord, yCoord, ResourceTypes.NO_RESOURCE);
+    placeRuralDistrict(xCoord, yCoord);
+    xCoord = 81;
+    yCoord = 59;
+    removeRuralDistrict(xCoord, yCoord);
+    ResourceBuilder.setResourceType(xCoord, yCoord, ResourceTypes.NO_RESOURCE);
+    placeRuralDistrict(xCoord, yCoord);
+    xCoord = 75;
+    yCoord = 63;
+    removeRuralDistrict(xCoord, yCoord);
+    ResourceBuilder.setResourceType(xCoord, yCoord, ResourceTypes.NO_RESOURCE);
+    placeRuralDistrict(xCoord, yCoord);
+    xCoord = 77;
+    yCoord = 58;
+    removeRuralDistrict(xCoord, yCoord);
+    ResourceBuilder.setResourceType(xCoord, yCoord, ResourceTypes.NO_RESOURCE);
+    placeRuralDistrict(xCoord, yCoord);
+    xCoord = 69;
+    yCoord = 60;
+    removeRuralDistrict(xCoord, yCoord);
+    ResourceBuilder.setResourceType(xCoord, yCoord, ResourceTypes.NO_RESOURCE);
+    placeRuralDistrict(xCoord, yCoord);
+    xCoord = 59;
+    yCoord = 63;
+    removeRuralDistrict(xCoord, yCoord);
+    ResourceBuilder.setResourceType(xCoord, yCoord, ResourceTypes.NO_RESOURCE);
+    placeRuralDistrict(xCoord, yCoord);
+    xCoord = 53;
+    yCoord = 62;
+    removeRuralDistrict(xCoord, yCoord);
+    ResourceBuilder.setResourceType(xCoord, yCoord, ResourceTypes.NO_RESOURCE);
+    placeRuralDistrict(xCoord, yCoord);
+    xCoord = 44;
+    yCoord = 56;
+    removeRuralDistrict(xCoord, yCoord);
+    ResourceBuilder.setResourceType(xCoord, yCoord, ResourceTypes.NO_RESOURCE);
+    placeRuralDistrict(xCoord, yCoord);
+    xCoord = 29;
+    yCoord = 52;
+    removeRuralDistrict(xCoord, yCoord);
+    ResourceBuilder.setResourceType(xCoord, yCoord, ResourceTypes.NO_RESOURCE);
+    placeRuralDistrict(xCoord, yCoord);
+    xCoord = 22;
+    yCoord = 53;
+    removeRuralDistrict(xCoord, yCoord);
+    ResourceBuilder.setResourceType(xCoord, yCoord, ResourceTypes.NO_RESOURCE);
+    placeRuralDistrict(xCoord, yCoord);
+    xCoord = 16;
+    yCoord = 56;
+    removeRuralDistrict(xCoord, yCoord);
+    ResourceBuilder.setResourceType(xCoord, yCoord, ResourceTypes.NO_RESOURCE);
+    placeRuralDistrict(xCoord, yCoord);
+    xCoord = 13;
+    yCoord = 60;
+    removeRuralDistrict(xCoord, yCoord);
+    ResourceBuilder.setResourceType(xCoord, yCoord, ResourceTypes.NO_RESOURCE);
+    placeRuralDistrict(xCoord, yCoord);
+    xCoord = 25;
+    yCoord = 28;
+    removeRuralDistrict(xCoord, yCoord);
+    ResourceBuilder.setResourceType(xCoord, yCoord, ResourceTypes.NO_RESOURCE);
+    placeRuralDistrict(xCoord, yCoord);
+  }
+}
+function stampResourceEarthHuge(xCoord, yCoord, resourceToBePlaced) {
+  let evaluatedTile = MapCities.getDistrict(xCoord, yCoord);
+  if (evaluatedTile != null) {
+    const district = Districts.get(evaluatedTile);
+    if (district?.typeHash == DistrictTypes.RURAL) {
+      removeRuralDistrict(xCoord, yCoord);
+      ResourceBuilder.setResourceType(xCoord, yCoord, ResourceTypes.NO_RESOURCE);
+      ResourceBuilder.setResourceType(xCoord, yCoord, resourceToBePlaced);
+      placeRuralDistrict(xCoord, yCoord);
+      console.log("1Placed " + resourceToBePlaced + " at " + xCoord + ", " + yCoord + " (REPLACEMENT)");
+    } else if (district?.typeHash == DistrictTypes.WILDERNESS) {
+      ResourceBuilder.setResourceType(xCoord, yCoord, ResourceTypes.NO_RESOURCE);
+      ResourceBuilder.setResourceType(xCoord, yCoord, resourceToBePlaced);
+      console.log("Placed " + resourceToBePlaced + " at " + xCoord + ", " + yCoord);
+    } else {
+      console.log("Failed to place " + resourceToBePlaced + "at" + xCoord + " " + yCoord + " due to DISTRICT: " + district?.typeName);
+    }
+  } else {
+    ResourceBuilder.setResourceType(xCoord, yCoord, ResourceTypes.NO_RESOURCE);
+    ResourceBuilder.setResourceType(xCoord, yCoord, resourceToBePlaced);
+    console.log("Placed " + resourceToBePlaced + " at " + xCoord + ", " + yCoord);
+  }
 }
 var DynamicCardTypes = /* @__PURE__ */ ((DynamicCardTypes2) => {
   DynamicCardTypes2[DynamicCardTypes2["None"] = 0] = "None";

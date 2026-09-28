@@ -1,5 +1,5 @@
 import { Audio } from '../../audio-base/audio-support.js';
-import ContextManager from '../../context-manager/context-manager.js';
+import { ContextManager } from '../../context-manager/context-manager.js';
 import { DialogBoxManager } from '../../dialog-box/manager-dialog-box.js';
 import { MainMenuReturnEvent } from '../../events/shell-events.js';
 import NavTray from '../../navigation-tray/model-navigation-tray.js';

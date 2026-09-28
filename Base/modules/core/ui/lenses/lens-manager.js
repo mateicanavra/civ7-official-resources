@@ -35,6 +35,7 @@ class LensManagerSingleton {
   showDebugInfo = false;
   lenses = /* @__PURE__ */ new Map();
   layers = /* @__PURE__ */ new Map();
+  previousLens = void 0;
   activeLensGetter;
   activeLensSetter;
   get activeLens() {
@@ -99,6 +100,9 @@ class LensManagerSingleton {
     return this.activeLens;
   }
   setActiveLens(type) {
+    if (this.activeLens) {
+      this.previousLens = this.activeLens;
+    }
     if (type === this.activeLens) {
       return true;
     }
@@ -126,6 +130,15 @@ class LensManagerSingleton {
     }
     const nextLensLayers = (lens.lastEnabledLayers && lens.lastEnabledLayersPlayerID == this.playerID ? lens.lastEnabledLayers : void 0) ?? this.getActiveLayers(lens);
     const nextAllowedLayers = lens.allowedLayers;
+    for (const layerType of lens.activeLayers) {
+      const layer = this.layers.get(layerType);
+      if (layer != void 0 && typeof layer.getOptionName === "undefined") {
+        if (!nextLensLayers.has(layerType)) {
+          console.error(`lens-manager: Missing active layer '${layerType}' for lens '${this.activeLens}'`);
+          nextLensLayers.add(layerType);
+        }
+      }
+    }
     const canBlend = lens.blendEnabledLayersOnTransition !== false || lens.lastEnabledLayers == null;
     for (const layerType of this.enabledLayers) {
       const layer = this.layers.get(layerType);
@@ -142,8 +155,16 @@ class LensManagerSingleton {
     window.dispatchEvent(new LensActivationEvent(prevLensString, this.activeLens, hasLegend));
     return true;
   }
+  restorePreviousLens() {
+    if (this.previousLens) {
+      this.setActiveLens(this.previousLens);
+      this.previousLens = void 0;
+    } else {
+      console.error(`lens-manager: No previous lens has been set`);
+    }
+  }
   getActiveLayers(lens) {
-    const activeLayers = lens.activeLayers;
+    const activeLayers = new Set(lens.activeLayers);
     if (lens.useUserConfig) {
       for (const layer of this.layers) {
         const layerName = layer[0];
@@ -161,6 +182,9 @@ class LensManagerSingleton {
     return activeLayers;
   }
   enableLayers(layerTypes) {
+    if (this.activeLens) {
+      this.previousLens = this.activeLens;
+    }
     for (const layerType of layerTypes) {
       this.enableLayer(layerType);
     }

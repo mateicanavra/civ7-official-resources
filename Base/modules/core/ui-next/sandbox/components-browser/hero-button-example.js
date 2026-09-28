@@ -6,7 +6,7 @@ import { ScrollArea } from '../../components/scroll-area.js';
 import { BoundString, BoundBoolean } from './components/bound-property.js';
 import { createArraySignal } from '../../utilities/solid-utilities.js';
 
-var _tmpl$ = /* @__PURE__ */ template(`<div class="flex flex-row flex-auto mx-4"><div class="w-1\\/3 m-2 p-2 border border-secondary-3 flex flex-col justify-center items-center"><div>HeroButton</div><div class=mt-8>HeroButton2</div></div><div class="w-1\\/3 m-2 p-2 bg-accent-6 border border-secondary-3"><div class="w-64 h-16 border"><nav-tray></nav-tray></div></div></div>`, true, false, false), _tmpl$2 = /* @__PURE__ */ template(`<div></div>`);
+var _tmpl$ = /* @__PURE__ */ template(`<div class="flex flex-row flex-auto mx-4"><div class="w-1\\/3 m-2 p-2 border border-secondary-3 flex flex-col justify-center items-center"><div>HeroButton</div><div class="mt-8">HeroButton2</div></div><div class="w-1\\/3 m-2 p-2 bg-accent-6 border border-secondary-3"><div class="w-64 h-16 border"><nav-tray></nav-tray></div></div></div>`, true, false, false), _tmpl$2 = /* @__PURE__ */ template(`<div></div>`);
 const HeroButtonExample = () => {
   const [audioGroup, setAudioGroup] = createSignal();
   const [audioActivate, setAudioActivate] = createSignal();

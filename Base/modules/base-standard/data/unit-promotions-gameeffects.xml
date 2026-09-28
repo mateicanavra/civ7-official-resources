@@ -346,7 +346,14 @@
 				<Argument name="Tag">UNIT_CLASS_INFANTRY, UNIT_CLASS_CAVALRY</Argument>
 			</Requirement>
 		</SubjectRequirements>
-		<Argument name="AbilityType">ABILITY_FIRST_STRIKE</Argument>
+		<Argument name="AbilityType">ABILITY_ARMY_FIRST_STRIKE</Argument>
+	</Modifier>
+	<Modifier id="MOD_ABILITY_ARMY_FIRST_STRIKE" collection="COLLECTION_UNIT_COMBAT" effect="EFFECT_ADJUST_UNIT_STRENGTH_MODIFIER">
+		<SubjectRequirements>
+			<Requirement type="REQUIREMENT_UNIT_IS_WOUNDED" inverse="true"/>
+		</SubjectRequirements>
+		<Argument name="Amount">5</Argument>
+		<String context="Preview">LOC_KEYWORD_ABILITY_FIRST_STRIKE_PREVIEW</String>
 	</Modifier>
 	<!-- ____________________________________________________________________________________________________ -->
 

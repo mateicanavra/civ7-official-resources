@@ -205,6 +205,10 @@
 		<Row UnitType="UNIT_PEDANDA" Name="LOC_UNIT_PEDANDA_NAME" Description="LOC_UNIT_PEDANDA_DESCRIPTION" BaseSightRange="1" BaseMoves="4" UnitMovementClass="UNIT_MOVEMENT_CLASS_FOOT" Domain="DOMAIN_LAND" CoreClass="CORE_CLASS_CIVILIAN" FormationClass="FORMATION_CLASS_CIVILIAN" SpreadCharges="3" ZoneOfControl="false" TraitType="TRAIT_MAJAPAHIT"/>
 		<Row UnitType="UNIT_SOKEMAN" Name="LOC_UNIT_SOKEMAN_NAME" Description="LOC_UNIT_SOKEMAN_DESCRIPTION" BaseSightRange="1" BaseMoves="3" PrereqPopulation="5" UnitMovementClass="UNIT_MOVEMENT_CLASS_FOOT" Domain="DOMAIN_LAND" CoreClass="CORE_CLASS_SUPPORT" FormationClass="FORMATION_CLASS_CIVILIAN" ZoneOfControl="false" FoundCity="true" CostProgressionModel="COST_PROGRESSION_NUM_SETTLEMENTS" CostProgressionParam1="20" TraitType="TRAIT_NORMAN"/>
 		<Row UnitType="UNIT_TAJIRO" Name="LOC_UNIT_TAJIRO_NAME" Description="LOC_UNIT_TAJIRO_DESCRIPTION" BaseSightRange="2" BaseMoves="4" UnitMovementClass="UNIT_MOVEMENT_CLASS_FOOT" Domain="DOMAIN_LAND" CoreClass="CORE_CLASS_CIVILIAN" FormationClass="FORMATION_CLASS_CIVILIAN" ZoneOfControl="false" MakeTradeRoute="true" CostProgressionModel="COST_PROGRESSION_PREVIOUS_COPIES" CostProgressionParam1="10" TraitType="TRAIT_SONGHAI"/>
+		<Update>
+			<Where UnitType="UNIT_MIGRANT"/>
+			<Set BaseMoves="4"/>
+		</Update>
 		<!-- Crisis Units -->
 		<Row UnitType="UNIT_PHYSICIAN" Name="LOC_UNIT_PHYSICIAN_NAME" Description="LOC_UNIT_PHYSICIAN_DESCRIPTION" BaseSightRange="2" BaseMoves="4" UnitMovementClass="UNIT_MOVEMENT_CLASS_FOOT" Domain="DOMAIN_LAND" CoreClass="CORE_CLASS_CIVILIAN" FormationClass="FORMATION_CLASS_CIVILIAN" ZoneOfControl="false" CostProgressionModel="COST_PROGRESSION_PREVIOUS_COPIES" CostProgressionParam1="20" TraitType="TRAIT_LEADER_MINOR_CIV"/>
 		<!-- Great People.  There is a 'base' definition, and definitions for indivduals. The individual's unit definition must also be specified in the GreatPersonIndivdual definition. -->

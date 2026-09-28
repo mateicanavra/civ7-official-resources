@@ -1,4 +1,4 @@
-import ContextManager from '../../../../core/ui/context-manager/context-manager.js';
+import { ContextManager } from '../../../../core/ui/context-manager/context-manager.js';
 import LensManager from '../../../../core/ui/lenses/lens-manager.js';
 import { TradeRoutesModel } from '../../trade-route-chooser/trade-routes-model.js';
 import { OVERLAY_PRIORITY } from '../../utilities/utilities-overlay.js';

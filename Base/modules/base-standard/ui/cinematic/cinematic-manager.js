@@ -1,9 +1,9 @@
-import ContextManager from '../../../core/ui/context-manager/context-manager.js';
+import { ContextManager } from '../../../core/ui/context-manager/context-manager.js';
 import { DisplayHandlerBase } from '../../../core/ui/context-manager/display-handler.js';
 import { DisplayQueueManager } from '../../../core/ui/context-manager/display-queue-manager.js';
 import { InterfaceMode } from '../../../core/ui/interface-modes/interface-modes.js';
-import { EndGameScreenCategory } from '../endgame/screen-endgame.js';
 
+const EndGameScreenCategory = "EndgameScreen";
 var CinematicTypes = /* @__PURE__ */ ((CinematicTypes2) => {
   CinematicTypes2[CinematicTypes2["WONDER_COMPLETE"] = 0] = "WONDER_COMPLETE";
   CinematicTypes2[CinematicTypes2["NATURAL_WONDER_DISCOVERED"] = 1] = "NATURAL_WONDER_DISCOVERED";
@@ -245,7 +245,7 @@ class CinematicManagerImpl extends DisplayHandlerBase {
     }
   }
   /**
-   * @implements {IDisplayQueue}
+   * @implements {IDisplayHandler}
    */
   show(request) {
     this.currentCinematicData = request;
@@ -361,7 +361,7 @@ class CinematicManagerImpl extends DisplayHandlerBase {
     }
   }
   /**
-   * @implements {IDisplayQueue}
+   * @implements {IDisplayHandler}
    */
   hide(request, _options) {
     this.releaseCinematic();
@@ -518,5 +518,5 @@ class CinematicManagerImpl extends DisplayHandlerBase {
 const CinematicManager = new CinematicManagerImpl();
 DisplayQueueManager.registerHandler(CinematicManager);
 
-export { CinematicManager, CinematicManager as default };
+export { CinematicManager, EndGameScreenCategory, CinematicManager as default };
 //# sourceMappingURL=cinematic-manager.js.map

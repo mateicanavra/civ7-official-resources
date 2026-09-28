@@ -6,6 +6,7 @@ import { Icon } from './icon.js';
 import { L10n } from './l10n.js';
 import { ComponentRegistry } from '../services/component-registry.js';
 import { IsControllerActive } from '../services/input.js';
+import { isMobile } from '../services/view-experience.js';
 
 var _tmpl$ = /* @__PURE__ */ template(`<div class="img-rollover-highlight absolute inset-0 opacity-0 group-focus\\:opacity-100 group-hover\\:opacity-100 group-pressed\\:opacity-100 pointer-events-none"></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="h-9 w-1\\.5 absolute bg-cover bg-center left-0 -top-1"></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div class="h-9 w-1\\.5 absolute right-0 -top-1 bg-cover bg-center"></div>`);
 const CollapsibleHeader = (props) => {
@@ -34,7 +35,9 @@ const CollapsibleHeader = (props) => {
         },
         get children() {
           return createComponent(Icon, {
-            "class": "size-6 ml-2 -mr-1 bg-cover bg-center",
+            get ["class"]() {
+              return `${isMobile() ? "size-8" : "size-6"} ml-2 -mr-1 bg-cover bg-center`;
+            },
             get name() {
               return props.titleIcon;
             }

@@ -1,5 +1,4 @@
 import { Audio } from '../../../core/ui/audio-base/audio-support.js';
-import ActionHandler from '../../../core/ui/input/action-handler.js';
 import { Focus } from '../../../core/ui/input/focus-support.js';
 import { ActiveDeviceTypeChangedEventName } from '../../../core/ui/input/input-events.js';
 import NavTray from '../../../core/ui/navigation-tray/model-navigation-tray.js';
@@ -7,6 +6,9 @@ import Panel, { AnchorType } from '../../../core/ui/panel-support.js';
 import Databind from '../../../core/ui/utilities/utilities-core-databinding.js';
 import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
 import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
+import { IsTouchActive, IsControllerActive } from '../../../core/ui-next/services/input.js';
+import { isMobile } from '../../../core/ui-next/services/view-experience.js';
+import { useIsSmallScreen } from '../../../core/ui-next/utilities/layout-utilities.js';
 import CultureTree from './model-culture-tree.js';
 import PopupSequencer from '../popup-sequencer/popup-sequencer.js';
 import { TreeCardHoveredEventName, TreeCardDehoveredEventName, TreeCardActivatedEventName } from '../tree-grid/tree-card.js';
@@ -15,7 +17,6 @@ import content from './screen-culture-tree.html.js';
 import styles from '../tree-grid/tree-components.scss.js';
 
 class ScreenCultureTree extends Panel {
-  isMobileViewExperience = UI.getViewExperience() == UIViewExperience.Mobile;
   viewCultureProgressionTreeListener = this.onViewProgressionTree.bind(this);
   engineInputListener = this.onEngineInput.bind(this);
   closeListener = this.close.bind(this);
@@ -49,12 +50,21 @@ class ScreenCultureTree extends Panel {
     window.addEventListener("view-culture-progression-tree", this.viewCultureProgressionTreeListener);
     window.addEventListener(ActiveDeviceTypeChangedEventName, this.activeDeviceTypeListener);
     this.frame = MustGetElement("fxs-subsystem-frame", this.Root);
-    if (this.isMobileViewExperience) {
+    this.tabContainer = MustGetElement("#culture-tree-tab-container", this.Root);
+    const isSmallScreen = useIsSmallScreen()();
+    if (isMobile()) {
+      const header = MustGetElement("fxs-header", this.frame);
+      header.setAttribute("filigree-style", "h4");
       this.frame.setAttribute("box-style", "fullscreen");
       this.frame.setAttribute("outside-safezone-mode", "full");
       waitForLayout(() => this.frame.classList.remove("pb-10"));
+      if (isSmallScreen) {
+        waitForLayout(() => {
+          this.frame.classList.remove("pt-14");
+          this.frame.classList.add("pt-10");
+        });
+      }
     }
-    this.tabContainer = MustGetElement("#culture-tree-tab-container", this.Root);
     const player = Players.get(GameContext.localPlayerID);
     if (player) {
       const availableCultureTree = player.Culture?.getAvailableTrees();
@@ -231,8 +241,8 @@ class ScreenCultureTree extends Panel {
       "max-h-full"
     );
     cardDetailContainer.setAttribute("panel-id", id);
-    cardDetailContainer.classList.toggle("max-w-128", this.isMobileViewExperience);
-    cardDetailContainer.classList.toggle("w-96", !this.isMobileViewExperience);
+    cardDetailContainer.classList.toggle("max-w-128", isMobile());
+    cardDetailContainer.classList.toggle("w-96", !isMobile());
     root.append(scrollable, cardDetailContainer);
     refs = { root, scrollable, cardDetailContainer, cardScaling };
     this.panelContentElements.set(index, refs);
@@ -358,7 +368,7 @@ class ScreenCultureTree extends Panel {
     const { isCompleted, isCurrent } = node.unlocksByDepth?.[+level] ?? {};
     this.startResearchButton?.classList.toggle(
       "hidden",
-      isCompleted || isCurrent || !ActionHandler.isTouchActive || ActionHandler.isGamepadActive
+      isCompleted || isCurrent || !IsTouchActive() || IsControllerActive()
     );
     this.startResearchButton?.setAttribute("type", nodeId);
     this.startResearchButton?.setAttribute("level", level);
@@ -475,7 +485,7 @@ class ScreenCultureTree extends Panel {
   }
   onCardActivate(event) {
     const { type, level } = event.detail;
-    if (ActionHandler.isTouchActive && TreeSupport.isSmallScreen()) {
+    if (IsTouchActive() && TreeSupport.isSmallScreen()) {
       this.handleCardHover(type, level);
       this.refreshDetailsPanel(type, level);
       return;

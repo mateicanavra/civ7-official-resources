@@ -13,6 +13,17 @@ screen-advanced-start {
   max-width: 140rem;
 }
 
+@media (experience: mobile) {
+  .adv-start__top-container {
+    width: 33.3333333333rem;
+  }
+}
+@media (experience: mobile) and (max-height: 55.5555555556rem) {
+  .adv-start__top-container {
+    width: 30rem;
+  }
+}
+
 .adv-start__subheader-container {
   min-width: 24rem;
   max-width: 28rem;
@@ -119,21 +130,37 @@ screen-advanced-start {
   right: 1.2222222222rem;
   left: initial;
 }
-@media (experience: mobile) {
-  .adv-start__scrollable .fxs-scrollbar__track--vertical {
-    left: -1.4444444444rem;
-  }
-}
 
-@media (experience: mobile) and (max-height: 55.5555555556rem) {
+.adv-start__button-container {
+  align-items: flex-end;
+}
+@media (experience: mobile) {
   .adv-start__button-container {
     right: 0;
+    padding-left: 1.7777777778rem;
+    padding-right: 6.7777777778rem;
+  }
+}
+@media (experience: mobile) and (max-height: 55.5555555556rem) {
+  .adv-start__button-container {
+    padding-left: 0;
+    padding-right: 4.6666666667rem;
   }
 }
 @media (experience: mobile) {
   .adv-start__button-container fxs-button {
-    margin-left: 0.6666666667rem;
-    margin-right: 0.6666666667rem;
+    min-width: 17.6666666667rem;
+    margin-left: 0;
+    margin-right: 3.5555555556rem;
+    padding-left: 2.6666666667rem;
+    padding-right: 2.6666666667rem;
+  }
+}
+@media (experience: mobile) and (max-height: 55.5555555556rem) {
+  .adv-start__button-container fxs-button {
+    min-width: 15.4444444444rem;
+    padding-left: 1.5555555556rem;
+    padding-right: 1.5555555556rem;
   }
 }
 
@@ -156,6 +183,16 @@ screen-advanced-start {
   animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
   animation-fill-mode: both;
   animation-delay: 0.0625s;
+}
+@media (experience: mobile) {
+  .adv-start__card {
+    width: 34.4444444444rem;
+  }
+}
+@media (experience: mobile) and (max-height: 55.5555555556rem) {
+  .adv-start__card {
+    width: 30.1111111111rem;
+  }
 }
 .adv-start__card:hover .adv-start__card-highlight, .adv-start__card:focus .adv-start__card-highlight, .adv-start__card.pressed .adv-start__card-highlight {
   opacity: 1;
@@ -295,6 +332,11 @@ screen-advanced-start {
   border-image-width: 7.1111111111rem 3.5555555556rem 3.5555555556rem 3.5555555556rem;
   border-image-outset: 0.7222222222rem 1.5555555556rem 1.3333333333rem 1.5555555556rem;
 }
+@media (experience: mobile) {
+  .adv-start__available-legacy-container {
+    padding-left: 0.4444444444rem;
+  }
+}
 
 @media (experience: mobile) {
   .adv-start__available-cards-content {
@@ -314,6 +356,25 @@ screen-advanced-start {
   transition-property: opacity, transform;
   transition-duration: 0.25s;
   transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+@media (experience: mobile) {
+  .adv-start__selected-cards-content {
+    margin-right: -2.8888888889rem;
+  }
+}
+
+@media (experience: mobile) {
+  .adv-start__selected-cards-container {
+    left: auto;
+    right: 4.4444444444rem;
+    width: 33.3333333333rem;
+  }
+}
+@media (experience: mobile) and (max-height: 55.5555555556rem) {
+  .adv-start__selected-cards-container {
+    right: 3.2222222222rem;
+    width: 30rem;
+  }
 }
 
 .adv-start__filter-text {
@@ -356,6 +417,16 @@ screen-advanced-start {
   min-height: 2.7777777778rem;
   width: 28.4444444444rem;
 }
+@media (experience: mobile) {
+  .adv-start__card--selected .adv-start__card-content {
+    width: 33.3333333333rem;
+  }
+}
+@media (experience: mobile) and (max-height: 55.5555555556rem) {
+  .adv-start__card--selected .adv-start__card-content {
+    width: 30rem;
+  }
+}
 .adv-start__card--selected .adv-start__card-type-icon {
   background-size: 2.1111111111rem 2.1111111111rem;
   width: 2.1111111111rem;
@@ -389,6 +460,11 @@ screen-advanced-start {
 .adv-start__preset-container {
   background: linear-gradient(90deg, #12151f 0%, #23252b 50%, #12151f 100%);
 }
+@media (experience: mobile) {
+  .adv-start__preset-container {
+    width: 100%;
+  }
+}
 
 .adv-start__card-limit {
   display: none;
@@ -404,4 +480,25 @@ screen-advanced-start {
 
 .advanced-start-scrollable {
   width: 31.3888888889rem;
+}
+@media (experience: mobile) {
+  .advanced-start-scrollable {
+    width: 35.5555555556rem;
+  }
+}
+@media (experience: mobile) and (max-height: 55.5555555556rem) {
+  .advanced-start-scrollable {
+    width: 32.2222222222rem;
+  }
+}
+
+@media (experience: mobile) {
+  .card-effects-container {
+    right: 4.4444444444rem;
+  }
+}
+@media (experience: mobile) {
+  .card-effects-container .adv-start__card-limit {
+    right: 2.2222222222rem;
+  }
 }

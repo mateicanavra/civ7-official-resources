@@ -7,7 +7,7 @@ import { Icon } from '../../../core/ui-next/components/icon.js';
 import { L10n } from '../../../core/ui-next/components/l10n.js';
 import { ComponentRegistry } from '../../../core/ui-next/services/component-registry.js';
 
-var _tmpl$ = /* @__PURE__ */ template(`<div class="relationship-breakdown__relationship-items-container flex flex-col px-2"></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class=relationship-breakdown-container data-name=Relationship-Breakdown><div class="relationship-breakdown__Header flex flex-col items-center justify-center w-full"><div class="relationship-breakdown__info flex items-center"><div class=mx-2></div><div class=mr-2></div></div></div></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="event-line flex justify-between p-1"><div class="event-text flex-1 pr-4"></div><div class="event-amount font-bold"></div></div>`);
+var _tmpl$ = /* @__PURE__ */ template(`<div class="relationship-breakdown__relationship-items-container flex flex-col px-2"></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="relationship-breakdown-container"data-name="Relationship-Breakdown"><div class="relationship-breakdown__Header flex flex-col items-center justify-center w-full"><div class="relationship-breakdown__info flex items-center"><div class="mx-2"></div><div class="mr-2"></div></div></div></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="event-line flex justify-between p-1"><div class="event-text flex-1 pr-4"></div><div class="event-amount font-bold"></div></div>`);
 const RelationshipBreakdownComponent = (props) => {
   const [relationship, setRelationship] = createSignal({
     type: DiplomacyPlayerRelationships.PLAYER_RELATIONSHIP_UNKNOWN,

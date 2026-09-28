@@ -16,6 +16,7 @@ class RuleNearMapCenter extends Rule {
   configValues = Rule.createDefaultsFromSpecs(ruleSchema);
   name = RuleNearMapCenter.getName();
   description = "This is a simple rule that scores cells closer to the map center higher than cells further away.";
+  isStatic = true;
   static getName() {
     return "Near Map Center";
   }

@@ -1,5 +1,5 @@
 import { Audio } from '../../../core/ui/audio-base/audio-support.js';
-import ContextManager from '../../../core/ui/context-manager/context-manager.js';
+import { ContextManager } from '../../../core/ui/context-manager/context-manager.js';
 import { DialogBoxManager } from '../../../core/ui/dialog-box/manager-dialog-box.js';
 import { InputEngineEventName } from '../../../core/ui/input/input-support.js';
 import NavTray from '../../../core/ui/navigation-tray/model-navigation-tray.js';
@@ -8,6 +8,7 @@ import Databind from '../../../core/ui/utilities/utilities-core-databinding.js';
 import { formatStringArrayAsNewLineText } from '../../../core/ui/utilities/utilities-core-textprovider.js';
 import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
 import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
+import { isMobile } from '../../../core/ui-next/services/view-experience.js';
 import { HideMiniMapEvent } from '../mini-map/panel-mini-map.js';
 import content from './panel-belief-picker.html.js';
 import styles from './panel-belief-picker.scss.js';
@@ -89,9 +90,15 @@ class PanelBeliefPicker extends Panel {
     }
     window.dispatchEvent(new HideMiniMapEvent(true));
     waitForLayout(() => {
-      const focusElement = MustGetElement(".belief-picker-_belief-choices", this.Root);
+      const focusElement = MustGetElement(".belief-picker_belief-choices", this.Root);
       FocusManager.get().setFocus(focusElement);
     });
+    if (isMobile()) {
+      const religionIcon = MustGetElement(".belief-picker-main-icon", this.Root);
+      religionIcon.classList.remove("justify-center");
+      religionIcon.classList.add("justify-start");
+      religionIcon.classList.add("ml-18");
+    }
   }
   onDetach() {
     this.beliefConfirmButton.removeEventListener("action-activate", this.beliefConfirmButtonListener);

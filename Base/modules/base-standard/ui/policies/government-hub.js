@@ -1,10 +1,11 @@
 import '../../../core/vendor/solid-js/web/dist/web.js';
-import { onMount, onCleanup, createMemo, createComponent, Show } from '../../../core/vendor/solid-js/dist/solid.js';
-import ContextManager from '../../../core/ui/context-manager/context-manager.js';
+import { onMount, onCleanup, createComponent, Show } from '../../../core/vendor/solid-js/dist/solid.js';
+import { ContextManager } from '../../../core/ui/context-manager/context-manager.js';
 import { defineLegacyComponent } from '../../../core/ui-next/components/fxs-solid-component.js';
 import { Tab } from '../../../core/ui-next/components/tab.js';
 import { useAudio } from '../../../core/ui-next/services/audio-support.js';
 import { ComponentRegistry } from '../../../core/ui-next/services/component-registry.js';
+import { isMobile } from '../../../core/ui-next/services/view-experience.js';
 import { CrisisPolicies } from './crisis-policies.js';
 import { GovernmentOverview } from './government-overview.js';
 import { GovtScreenModel, setActivePolicyTab, GovtScreenModelContext, activePolicyTab } from './model-government.js';
@@ -16,7 +17,7 @@ import style from './screen-policies.scss.js';
 const GovermentScreenComponent = (_props) => {
   const policiesModel = PoliciesModel.get();
   const model = GovtScreenModel.get();
-  const audio = useAudio("GovernmentOverview");
+  const audio = useAudio("GovernmentOverview1");
   onMount(() => {
     audio("popup-open");
   });
@@ -26,12 +27,6 @@ const GovermentScreenComponent = (_props) => {
   const handleOnClosing = () => {
     audio("popup-close");
   };
-  const ornatePanelData = createMemo(() => {
-    return {
-      ...model.data.ornatePanelData,
-      topIconSrc: "url(blp:fi_celebration_128)"
-    };
-  });
   return createComponent(GovtScreenModelContext.Provider, {
     value: model,
     get children() {
@@ -44,10 +39,13 @@ const GovermentScreenComponent = (_props) => {
             audioContext: "GovernmentScreen",
             title: "LOC_UI_MINI_MAP_GOVERNMENT",
             get ornatePanelData() {
-              return ornatePanelData();
+              return model.data.ornatePanelData;
             },
             onClosing: handleOnClosing,
             doNotStretch: true,
+            get isFullscreen() {
+              return isMobile();
+            },
             get children() {
               return createComponent(Tab, {
                 activeTab: activePolicyTab,
@@ -109,6 +107,7 @@ window.addEventListener("hotkey-open-traditions", () => {
   }
 });
 defineLegacyComponent("screen-policies", {
+  tabIndex: -1,
   classNames: ["screen-policies", "fullscreen"]
 }, (_attrs, _element) => {
   Input.setActiveContext(InputContext.Shell);

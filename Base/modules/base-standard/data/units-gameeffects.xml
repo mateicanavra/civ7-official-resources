@@ -56,12 +56,14 @@
 		<Argument name="Amount">5</Argument>
 		<String context="Preview">LOC_KEYWORD_ABILITY_FIRST_STRIKE_PREVIEW</String>
 	</Modifier>
-	<Modifier id="FEAR_MOD_ADJUST_ENEMY_UNIT_COMBAT_STRENGTH_MODIFIER" collection="COLLECTION_UNIT_COMBAT" effect="EFFECT_ADJUST_UNIT_STRENGTH_MODIFIER">
+	<Modifier id="FEAR_MOD_ADJUST_ENEMY_UNIT_COMBAT_STRENGTH_MODIFIER" collection="COLLECTION_ALL_UNITS" effect="EFFECT_ATTACH_MODIFIERS">
 		<SubjectRequirements>
 			<Requirement type="REQUIREMENT_PLOT_ADJACENT_TO_OWNER_AT_WAR"/>
 		</SubjectRequirements>
-		<Argument name="Amount">-4</Argument>
-		<Argument name="StackPercent">100</Argument>
+		<Argument name="ModifierId">ATTACH_FEAR_MOD_COMBAT</Argument>
+	</Modifier>
+	<Modifier id="ATTACH_FEAR_MOD_COMBAT" collection="COLLECTION_UNIT_COMBAT" effect="EFFECT_ADJUST_UNIT_STRENGTH_MODIFIER">
+		<Argument name="Amount">-2</Argument>
 		<String context="Preview">LOC_KEYWORD_ABILITY_FEAR_PREVIEW</String>
 	</Modifier>
 	<Modifier id="FLEET_COMMANDER_MOD_ADJUST_PACKED_MOVEMENT" collection="COLLECTION_OWNER" effect="EFFECT_ARMY_ADJUST_MOVEMENT_RATE">

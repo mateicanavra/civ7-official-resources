@@ -78,7 +78,7 @@ const L10nGameSetup = {
    * Commonly Used Properties:
    * @param {GameSetupStringHandle} props.handle The game setup string handle to compose.
    */
-  Compose: ComponentRegistry.register("Compose", Compose),
+  Compose: ComponentRegistry.register("GameSetupCompose", Compose),
   /**
    * Compose text using the Locale.Stylize.
    * Convert a string or localized text containing stylized markup into HTML formatted text.
@@ -91,7 +91,7 @@ const L10nGameSetup = {
    * Commonly Used Properties:
    * @param {GameSetupStringHandle} props.handle The  game setup string handle to stylize.
    */
-  Stylize: ComponentRegistry.register("Stylize", Stylize)
+  Stylize: ComponentRegistry.register("GameSetupStylize", Stylize)
 };
 
 export { GameSetupStringCache, GameSetupStringCacheContext, L10nGameSetup, useGameSetupStringCacheContext };

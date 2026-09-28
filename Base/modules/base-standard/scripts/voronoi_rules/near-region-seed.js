@@ -24,6 +24,7 @@ class RuleNearRegionSeed extends Rule {
   configValues = Rule.createDefaultsFromSpecs(ruleSchema);
   name = RuleNearRegionSeed.getName();
   description = "This rule scores cells nearer to the region seed higher than cells farther away.";
+  isStatic = true;
   static getName() {
     return "Near Region Seed";
   }

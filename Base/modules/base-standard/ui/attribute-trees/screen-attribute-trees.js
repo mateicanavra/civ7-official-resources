@@ -1,4 +1,3 @@
-import ActionHandler from '../../../core/ui/input/action-handler.js';
 import { ActiveDeviceTypeChangedEventName } from '../../../core/ui/input/input-events.js';
 import { InputEngineEventName } from '../../../core/ui/input/input-support.js';
 import NavTray from '../../../core/ui/navigation-tray/model-navigation-tray.js';
@@ -7,6 +6,7 @@ import Databind from '../../../core/ui/utilities/utilities-core-databinding.js';
 import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
 import { Layout } from '../../../core/ui/utilities/utilities-layout.js';
 import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
+import { IsTouchActive, IsControllerActive } from '../../../core/ui-next/services/input.js';
 import AttributeTrees from './model-attribute-trees.js';
 import { TreeCardHoveredEventName } from '../tree-grid/tree-card.js';
 import { TreeSupport, UpdateLinesEvent, TreeGridDirection } from '../tree-grid/tree-support.js';
@@ -265,7 +265,7 @@ class ScreenIdentity extends Panel {
     Databind.classToggle(cardElement, "available", "card.isAvailable");
     cardElement.setAttribute(
       "data-audio-group-ref",
-      ActionHandler.isTouchActive && this.useIconOnlyCards() ? "audio-base" : this.getAudioGroupForCard()
+      IsTouchActive() && this.useIconOnlyCards() ? "audio-base" : this.getAudioGroupForCard()
     );
     cardElement.addEventListener(TreeCardHoveredEventName, this.onCardHoverListener);
     container.appendChild(cardElement);
@@ -307,7 +307,7 @@ class ScreenIdentity extends Panel {
     );
     selectedElement?.classList.add("selected");
     const canActivateItem = this.selectedNode ? AttributeTrees.canBuyAttributeTreeNode(this.selectedNode) : false;
-    if (!ActionHandler.isTouchActive || !TreeSupport.isSmallScreen()) {
+    if (!IsTouchActive() || !TreeSupport.isSmallScreen()) {
       selectedElement?.setAttribute("play-error-sound", (!canActivateItem).toString());
     }
     this.refreshNavTray(canActivateItem);
@@ -351,7 +351,7 @@ class ScreenIdentity extends Panel {
     const { isCompleted, isCurrent, isLocked } = node.unlocksByDepth?.[+level] ?? {};
     this.confirmButton?.classList.toggle(
       "hidden",
-      !availablePoints && !wildcardPoints || isCompleted || isCurrent || isLocked || !ActionHandler.isTouchActive || ActionHandler.isGamepadActive
+      !availablePoints && !wildcardPoints || isCompleted || isCurrent || isLocked || !IsTouchActive() || IsControllerActive()
     );
     this.confirmButton?.setAttribute("type", nodeId);
     this.confirmButton?.setAttribute("level", level);

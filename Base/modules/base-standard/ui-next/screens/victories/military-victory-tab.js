@@ -1,17 +1,17 @@
 import { template, insert, className } from '../../../../core/vendor/solid-js/web/dist/web.js';
 import { createComponent, For, Show, useContext, onMount, onCleanup, mergeProps, createRenderEffect } from '../../../../core/vendor/solid-js/dist/solid.js';
-import ActionHandler from '../../../../core/ui/input/action-handler.js';
 import { Activatable } from '../../../../core/ui-next/components/activatable.js';
 import { CardFrame } from '../../../../core/ui-next/components/card-frame.js';
 import { L10n } from '../../../../core/ui-next/components/l10n.js';
 import { HSlot, VSlot } from '../../../../core/ui-next/components/slot.js';
 import { Tooltip, TooltipVerticalPosition, TooltipHorizontalPosition } from '../../../../core/ui-next/components/tooltip.js';
 import { HotkeyContext } from '../../../../core/ui-next/services/hotkey.js';
+import { IsTouchActive } from '../../../../core/ui-next/services/input.js';
 import { LayoutModel } from '../../../../core/ui-next/utilities/layout-utilities.js';
 import { useVictoriesScreenContext, VictoryTabType } from './victories-screen-model.js';
 import { VictoryTabBase, VictoryRow, VictoryHeader } from './victory-tab-base.js';
 
-var _tmpl$ = /* @__PURE__ */ template(`<div class="font-title-sm uppercase fxs-header"></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="ml-12 font-body text-sm text-white"></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class=items-center><div class="font-title-base fxs-header uppercase self-center mb-4"></div></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div></div>`), _tmpl$5 = /* @__PURE__ */ template(`<div class=ml-8></div>`), _tmpl$6 = /* @__PURE__ */ template(`<div class="size-full flex flex-row"><div class="w-full self-center"><div class="ml-2 uppercase fxs-header"></div></div></div>`), _tmpl$7 = /* @__PURE__ */ template(`<div class="self-center flex flex-row flex-wrap"></div>`), _tmpl$8 = /* @__PURE__ */ template(`<div class="victories-military-item-icon font-body text-lg text-body self-center"></div>`);
+var _tmpl$ = /* @__PURE__ */ template(`<div class="font-title-sm uppercase fxs-header"></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="ml-12 font-body text-sm text-white"></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="items-center"><div class="font-title-base fxs-header uppercase self-center mb-4"></div></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div></div>`), _tmpl$5 = /* @__PURE__ */ template(`<div class="ml-8"></div>`), _tmpl$6 = /* @__PURE__ */ template(`<div class="size-full flex flex-row"><div class="w-full self-center"><div class="ml-2 uppercase fxs-header"></div></div></div>`), _tmpl$7 = /* @__PURE__ */ template(`<div class="self-center flex flex-row flex-wrap"></div>`), _tmpl$8 = /* @__PURE__ */ template(`<div class="victories-military-item-icon font-body text-lg text-body self-center"></div>`);
 const SAME_IDEOLOGY_TINT = "#FFFFFF";
 const RIVAL_IDEOLOGY_TINT = "#FF9047";
 const MilitaryTooltip = (props) => {
@@ -172,7 +172,7 @@ const MilitaryVictoryTab = () => {
               },
               showTooltip: false,
               activateInfo: (playerId) => {
-                if (ActionHandler.isTouchActive) {
+                if (IsTouchActive()) {
                   model.focusPlayer(playerId, VictoryTabType.Military);
                   model.onGamepadInspectButton();
                 }

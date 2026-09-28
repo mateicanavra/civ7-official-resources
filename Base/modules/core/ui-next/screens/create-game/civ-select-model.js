@@ -4,6 +4,7 @@ import LiveEventManager from '../../../ui/shell/live-event-logic/live-event-logi
 import { DatabaseCache } from '../../../ui/utilities/utilities-data.js';
 import { AgeSelectModel, useAgeSelectModelContext } from './age-select-model.js';
 import { SetupParametersModel, PlayerSetupParametersModel } from './game-parameters-model.js';
+import { CivSyncretismQuery } from './syncretism-model.js';
 import { ModelRegistry, ModelLifecycle } from '../../services/model-registry.js';
 import { FullTextSearch } from '../../utilities/search-utils.js';
 
@@ -38,6 +39,7 @@ function createCivSelectModel() {
       const leaderUnlocks = cachedCivDatabase.query(
         "select * from LeaderUnlocks order by SortIndex"
       );
+      const syncretismUnlocks = cachedCivDatabase.query(CivSyncretismQuery);
       const civLeaderPairingData = cachedCivDatabase.query(
         "select * from LeaderCivParings"
       );
@@ -230,12 +232,26 @@ function createCivSelectModel() {
         const valueUnlocks = (civUnlocksByCivDomain.get(getTypeDomainKey(civID, domain)) ?? []).filter(
           (unlock) => unlock.AgeDomain == null || ages.sortedAges.find((age2) => age2.type == unlock.AgeType)?.domain == unlock.AgeDomain
         );
+        const valueSyncretismUnlocks = syncretismUnlocks.filter(
+          (unlock) => unlock.Key == civID || unlock.CivilizationType == civID
+        );
         valueUnlocks.sort(
           (a, b) => a.AgeType == b.AgeType ? Locale.compare(a.Type, b.Type) : Locale.compare(a.AgeType, b.AgeType)
         );
         const unlocks = valueUnlocks.map((unlock) => {
           const ageName2 = unlock.AgeDomain ? ages.getAgeName(unlock.AgeType) : null;
-          return ageName2 ? Locale.stylize("LOC_CREATE_GAME_UNLOCK_ITEM_IN_AGE", unlock.Name, ageName2) : Locale.stylize("LOC_CREATE_GAME_UNLOCK_ITEM", unlock.Name);
+          return ageName2 ? Locale.stylize("LOC_CREATE_GAME_UNLOCKS_LIST_ITEM_IN_AGE", unlock.Name, ageName2) : Locale.stylize("LOC_CREATE_GAME_UNLOCKS_LIST_ITEM", unlock.Name);
+        });
+        const formattedSyncretismUnlocks = valueSyncretismUnlocks.map((unlock) => {
+          const civName = civID == unlock.Key ? unlock.CivilizationName : unlock.KeyName;
+          const unlockType = civID == unlock.Key ? unlock.CivilizationType : unlock.Key;
+          const ageType = civID == unlock.Key ? unlock.AgeType : unlock.KeyAgeType;
+          const ageName2 = civID == unlock.Key ? unlock.AgeName : unlock.KeyAgeName;
+          return {
+            description: Locale.stylize("LOC_CREATE_GAME_UNLOCK_ITEM_SYNCRETISM", civName, ageName2),
+            age: ageType,
+            civilization: unlockType
+          };
         });
         const civItems = civItemsByType.get(civID) ?? [];
         const abilityData = civItems.filter((item) => item.Kind == "KIND_TRAIT");
@@ -278,10 +294,7 @@ function createCivSelectModel() {
         ).map((civ) => {
           const civId = Database.makeHash(civ.CivilizationType ?? "");
           return {
-            text: Locale.compose(
-              "LOC_AGE_TRANSITION_PLAY_AS",
-              civNameByType.get(civ.CivilizationType ?? "") ?? ""
-            ),
+            text: Locale.compose(civNameByType.get(civ.CivilizationType ?? "") ?? ""),
             isUnlocked: previousCivs.has(civId)
           };
         });
@@ -289,10 +302,7 @@ function createCivSelectModel() {
           (unlock) => unlock.AgeDomain == null || ages.sortedAges.find((a) => a.type == unlock.AgeType)?.domain == unlock.AgeDomain
         ).map((unlock) => {
           return {
-            text: Locale.compose(
-              "LOC_AGE_TRANSITION_PLAY_AS",
-              leaderNameByType.get(unlock.LeaderType ?? "") ?? ""
-            ),
+            text: Locale.compose(leaderNameByType.get(unlock.LeaderType ?? "") ?? ""),
             isUnlocked: leaderType == unlock.LeaderType
           };
         });
@@ -328,7 +338,8 @@ function createCivSelectModel() {
           colors,
           introText,
           unlocks,
-          unlockedBy
+          unlockedBy,
+          syncretismUnlocks: formattedSyncretismUnlocks
         };
         if (prevCivilization.value.value == civID) {
           prevCivInfo = civInfo;

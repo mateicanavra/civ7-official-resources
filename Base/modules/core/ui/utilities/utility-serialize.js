@@ -93,7 +93,7 @@ class SerialObject {
   }
   /**
    * Request a write of a single value.
-   * If the global store, the write happens immediate.
+   * If the game store, the write happens immediate.
    * If a player store, the write is queued to be committed by the cache.
    * The commited value is signaled from the App side by an event.
    */
@@ -143,6 +143,9 @@ class Catalog {
     this.realizeInfoBlock(this._runningVersion);
     if (this._player != null) {
       engine.on("PlayerDynamicPropertyChanged", this.onPlayerDynamicPropertyChanged, this);
+      if (this._justCreated) {
+        this.registerWithCatalogIndex();
+      }
     }
   }
   /**
@@ -157,7 +160,28 @@ class Catalog {
   getObjectIds() {
     return this.objectIDs;
   }
+  /**
+   * Register this catalog with the index, so that it can be enumerated.
+   * This may be used in the future; such as if we prevent catalogs from
+   * being copied across an age transition boundary, etc.
+   */
+  registerWithCatalogIndex() {
+    const catalogsIndexHash = Database.makeHash("_catalogs_index");
+    const catalogs = this._player.Tutorial.getProperty(catalogsIndexHash);
+    let catalogNames = [];
+    if (catalogs != void 0 && catalogs.length > 0) {
+      catalogNames = catalogs.split(",");
+      if (!catalogNames.includes(this.name)) {
+        catalogNames.push(this.name);
+      }
+    } else {
+      catalogNames = [this.name];
+    }
+    this._player.Tutorial.setProperty(catalogsIndexHash, catalogNames.join(","));
+  }
+  /** Listener for player property changes having been committed. */
   onPlayerDynamicPropertyChanged(data) {
+    if (data.player !== this._player?.id) return;
     const trackingResult = removeTrackingEntry(data.player, data.keyHash);
     if (trackingResult.amount === 0) {
       window.dispatchEvent(
@@ -172,17 +196,21 @@ class Catalog {
     }
     if (DEBUG_LOG_COMMITS) {
       console.log(
-        `Catalog: (COMMIT) '${this.name}' cache for player ${data.player} commited ${data.keyHash} = "${trackingResult.key}".`
+        `Catalog: (COMMIT) '${this.name}' cache for player ${data.player} ${trackingResult.amount == -1 ? "ignored" : "watching"} ${data.keyHash} = "${trackingResult.catalogId}:${trackingResult.objectId}:${trackingResult.key}".`
       );
     }
   }
+  /**
+   * Read/Write the meta information for this catalog.
+   * @param version (0) The version of system-specific information.
+   */
   realizeInfoBlock(version) {
     if (DEBUG_LOG_META_INFO) {
       console.log(`Catalog: '${this.name}' realizing info block. version: ${version}`);
     }
     const info = new SerialObject("INFO", this.name, this.name, this._player);
     const diskVersion = info.read("version");
-    this._justCreated = diskVersion === void 0;
+    this._justCreated = diskVersion == null || diskVersion === void 0;
     this._fileVersion = this._justCreated ? version : diskVersion;
     if (DEBUG_LOG_META_INFO) {
       console.log(`Catalog: '${this.name}' diskVersion: ${diskVersion}`);
@@ -232,65 +260,6 @@ class Catalog {
    * Flags values with "(PENDING #)" if they have outstanding cache commits.
    */
   dumpToLog() {
-    const lines = [];
-    lines.push(this.name);
-    const getPendingCount = (hash) => {
-      if (!this._player) return 0;
-      const entries = pendingCommits.get(this._player.id);
-      if (!entries) return 0;
-      const entry = entries.find((e) => e.hash === hash);
-      return entry ? entry.outstanding : 0;
-    };
-    const formatVal = (key, val, hash) => {
-      const pendingCount = getPendingCount(hash);
-      const pendingPrefix = pendingCount > 0 ? `(PENDING ${pendingCount}) ` : "";
-      if (val === void 0 || val === null) return `${pendingPrefix}undefined`;
-      if (key === "created") {
-        const dateNum = Number(val);
-        if (!isNaN(dateNum)) {
-          return `${pendingPrefix}${new Date(dateNum).toLocaleString()}`;
-        }
-      }
-      if (typeof val === "number") return `${pendingPrefix}#${val}`;
-      if (typeof val === "string") return `${pendingPrefix}$${val}`;
-      return `${pendingPrefix}${String(val)}`;
-    };
-    const info = new SerialObject("INFO", this.name, this.name, this._player);
-    const infoPreamble = "_" + this.name + "_INFO_";
-    const explicitInfoKeys = ["version", "first_version", "catalog_format", "created", "hosting"];
-    const infoKeysToDump = Array.from(/* @__PURE__ */ new Set([...explicitInfoKeys, ...info.getKeys()]));
-    const objIds = Array.from(this.objectIDs);
-    const hasInfo = infoKeysToDump.length > 0;
-    const hasObj = objIds.length > 0;
-    if (hasInfo) {
-      const infoPrefix = hasObj ? "|-- " : "\\-- ";
-      lines.push(`${infoPrefix}INFO`);
-      const childIndent = hasObj ? "|   " : "    ";
-      infoKeysToDump.forEach((key, index) => {
-        const isLast = index === infoKeysToDump.length - 1;
-        const branch = isLast ? "\\-- " : "|-- ";
-        const hash = makeHash(infoPreamble, key);
-        lines.push(`${childIndent}${branch}${key}: ${formatVal(key, info.read(key), hash)}`);
-      });
-    }
-    if (hasObj) {
-      objIds.forEach((id, index) => {
-        const isLastObj = index === objIds.length - 1;
-        const objBranch = isLastObj ? "\\-- " : "|-- ";
-        lines.push(`${objBranch}${id}`);
-        const obj = this.getObject(id);
-        const objPreamble = "_" + this.name + "_OBJ_" + id + "_";
-        const keys = Array.from(obj.getKeys());
-        const keyIndent = isLastObj ? "    " : "|   ";
-        keys.forEach((key, keyIndex) => {
-          const isLastKey = keyIndex === keys.length - 1;
-          const keyBranch = isLastKey ? "\\-- " : "|-- ";
-          const hash = makeHash(objPreamble, key);
-          lines.push(`${keyIndent}${keyBranch}${key}: ${formatVal(key, obj.read(key), hash)}`);
-        });
-      });
-    }
-    console.log(lines.join("\n"));
   }
 }
 const CatalogItemCommittedEventName = "catalog-item-committed";

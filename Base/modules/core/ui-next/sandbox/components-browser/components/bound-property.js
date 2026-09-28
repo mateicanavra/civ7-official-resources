@@ -3,7 +3,7 @@ import { RadioButton } from '../../../components/radio-button.js';
 import { TextInput } from './text-input.js';
 import { createComponent } from '../../../../vendor/solid-js/dist/solid.js';
 
-var _tmpl$ = /* @__PURE__ */ template(`<div class="my-2 flex flex-col"><div class=text-center></div><div class="relative h-10"></div></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="my-2 flex flex-row items-center"></div>`);
+var _tmpl$ = /* @__PURE__ */ template(`<div class="my-2 flex flex-col"><div class="text-center"></div><div class="relative h-10"></div></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="my-2 flex flex-row items-center"></div>`);
 const BoundString = (props) => {
   const [getter, setter] = props.signal;
   return (() => {

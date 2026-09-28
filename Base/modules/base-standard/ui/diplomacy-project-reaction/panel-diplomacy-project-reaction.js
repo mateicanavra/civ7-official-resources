@@ -24,6 +24,7 @@ class DiplomacyProjectReactionPanel extends DiplomacyInputPanel {
   influenceContainer = null;
   influenceDiplomacyBalanceContainer = null;
   influenceContainerImg = null;
+  callToArmsSubtext = null;
   diploEventResponseTimeoutCallback = 0;
   isMobile = UI.getViewExperience() == UIViewExperience.Mobile;
   constructor(root) {
@@ -55,17 +56,17 @@ class DiplomacyProjectReactionPanel extends DiplomacyInputPanel {
     projectDetailsContainer.classList.add(
       "panel-diplomacy-project-reaction__project-details-container",
       "w-full",
-      "pt-1",
+      "pt-4",
+      "pb-6",
       "flex",
       "self-center",
-      "text-center"
+      "text-center",
+      "flex",
+      "flex-auto"
     );
     projectDetailsContainer.classList.toggle("flex-col", !this.isMobile);
     projectDetailsContainer.classList.toggle("flex-row", this.isMobile);
     projectDetailsContainer.classList.toggle("justify-center", this.isMobile);
-    projectDetailsContainer.classList.toggle("h-20", !this.isMobile);
-    projectDetailsContainer.classList.toggle("pb-24", !this.isMobile);
-    projectDetailsContainer.classList.toggle("pb-4", this.isMobile);
     panelDiplomacyMainContainer.appendChild(projectDetailsContainer);
     const projectName = document.createElement("fxs-header");
     projectName.classList.add(
@@ -73,13 +74,15 @@ class DiplomacyProjectReactionPanel extends DiplomacyInputPanel {
       "font-title",
       "uppercase",
       "text-lg",
-      "mt-2",
-      "mb-0\\.5",
-      "text-center"
+      "text-center",
+      "flex",
+      "flex-auto"
     );
     projectName.classList.toggle("px-10", !this.isMobile);
     projectName.setAttribute("filigree-style", "h4");
     projectDetailsContainer.appendChild(projectName);
+    this.callToArmsSubtext = document.createElement("div");
+    projectDetailsContainer.appendChild(this.callToArmsSubtext);
     if (this.isMobile && InterfaceMode.isInInterfaceMode("INTERFACEMODE_DIPLOMACY_PROJECT_REACTION")) {
       projectDetailsContainer.appendChild(this.createInfluenceContainer());
     }
@@ -93,6 +96,9 @@ class DiplomacyProjectReactionPanel extends DiplomacyInputPanel {
       "pb-5"
     );
     panelDiplomacyMainContainer.appendChild(responseContainer);
+    const spacerContainer = document.createElement("div");
+    spacerContainer.classList.value = `flex flex-auto`;
+    panelDiplomacyMainContainer.appendChild(spacerContainer);
     this.dialogHide = MustGetElement(".panel-diplomacy-project-reaction__project-dialog-container", this.Root);
     this.containerHide = MustGetElement(".panel-diplomacy-project-reaction__main-container", this.Root);
     this.dialogHide.classList.toggle("p-5", !this.isMobile);
@@ -762,6 +768,7 @@ class DiplomacyProjectReactionPanel extends DiplomacyInputPanel {
     if (InterfaceMode.isInInterfaceMode("INTERFACEMODE_DIPLOMACY_PROJECT_REACTION") || InterfaceMode.isInInterfaceMode("INTERFACEMODE_CALL_TO_ARMS")) {
       const closeToDiploHub = false;
       DiplomacyManager.closeCurrentDiplomacyProject(closeToDiploHub);
+      DiplomacyManager.currentAllyWarData = null;
       LeaderModelManager.exitLeaderScene();
       InterfaceMode.switchToDefault();
     }
@@ -1221,6 +1228,10 @@ class DiplomacyProjectReactionPanel extends DiplomacyInputPanel {
       DiplomacyManager.currentAllyWarData.initialPlayer
     );
     if (localPlayerDiplomacy.hasAllied(DiplomacyManager.currentAllyWarData.targetPlayer) && localPlayerDiplomacy.hasAllied(DiplomacyManager.currentAllyWarData.initialPlayer)) {
+      if (this.callToArmsSubtext) {
+        this.callToArmsSubtext.classList.value = `text-sm font-body pt-2 pb-1 text-accent-3`;
+        this.callToArmsSubtext.innerHTML = Locale.stylize("LOC_DIPLOMACY_CANNOT_AVOID_WAR_BETWEEN_ALLIES");
+      }
       const supportTargetButton = this.createCallToArmsOption(
         Locale.compose("LOC_DIPLOMACY_ALLY_WAR_SUPPORT_ALLY", targetName),
         Locale.compose("LOC_DIPLOMACY_CALL_TO_ARMS_SUPPORT_ALLY_DESCRIPTION", initiatorName),
@@ -1256,6 +1267,11 @@ class DiplomacyProjectReactionPanel extends DiplomacyInputPanel {
           true
         );
         responseContainer.appendChild(declineButton);
+        const payInfluenceButton = this.createPayInfluenceOption(
+          DiplomacyManager.currentAllyWarData.initialPlayer,
+          DiplomacyManager.currentAllyWarData.targetPlayer
+        );
+        responseContainer.appendChild(payInfluenceButton);
       } else {
         const supportInitiatorButton = this.createCallToArmsOption(
           Locale.compose("LOC_DIPLOMACY_ALLY_WAR_SUPPORT_ALLY", initiatorName),
@@ -1270,6 +1286,11 @@ class DiplomacyProjectReactionPanel extends DiplomacyInputPanel {
           true
         );
         responseContainer.appendChild(declineButton);
+        const payInfluenceButton = this.createPayInfluenceOption(
+          DiplomacyManager.currentAllyWarData.initialPlayer,
+          DiplomacyManager.currentAllyWarData.targetPlayer
+        );
+        responseContainer.appendChild(payInfluenceButton);
       }
     }
     const mainContainer = MustGetElement(".panel-diplomacy-project-reaction__main-container", this.Root);
@@ -1420,7 +1441,7 @@ class DiplomacyProjectReactionPanel extends DiplomacyInputPanel {
       hoveredResponseButtonBg.addEventListener("action-activate", () => {
         this.acceptCallToArms(playerID);
       });
-    } else {
+    } else if (playerID === void 0) {
       optionButton.addEventListener("action-activate", () => {
         this.declineCallToArms();
       });
@@ -1471,6 +1492,48 @@ class DiplomacyProjectReactionPanel extends DiplomacyInputPanel {
   }
   acceptCallToArms(warTarget) {
     DiplomacyManager.confirmDeclareWar(warTarget, DiplomacyActionTypes.DIPLOMACY_ACTION_DECLARE_WAR);
+    this.close();
+  }
+  createPayInfluenceOption(initiatorPlayer, targetPlayer) {
+    const localPlayerDiplomacy = Players.get(GameContext.localPlayerID)?.Diplomacy;
+    const allyPlayer = localPlayerDiplomacy?.hasAllied(initiatorPlayer) ? initiatorPlayer : targetPlayer;
+    const opponentPlayer = allyPlayer === initiatorPlayer ? targetPlayer : initiatorPlayer;
+    const allyName = Players.get(allyPlayer)?.leaderName ?? "";
+    const influenceCost = Game.Diplomacy.getPayToAvoidCallToArmsCost(
+      GameContext.localPlayerID,
+      allyPlayer,
+      opponentPlayer
+    );
+    const canPay = Game.Diplomacy.canPayToAvoidCallToArms(GameContext.localPlayerID, allyPlayer, opponentPlayer);
+    const payInfluenceButton = this.createCallToArmsOption(
+      Locale.compose("LOC_DIPLOMACY_CALL_TO_ARMS_PAY_INFLUENCE_TITLE", influenceCost.toString()),
+      Locale.compose("LOC_DIPLOMACY_CALL_TO_ARMS_PAY_INFLUENCE_DESCRIPTION", allyName, influenceCost.toString()),
+      true,
+      null
+      // null = no default event listeners, we wire up our own below
+    );
+    const activatable = payInfluenceButton.querySelector("fxs-activatable");
+    if (!canPay) {
+      activatable?.setAttribute("disabled", "true");
+      activatable?.setAttribute("data-tooltip-content", Locale.compose("LOC_DIPLOMACY_NOT_ENOUGH_INFLUENCE"));
+    } else {
+      activatable?.addEventListener("action-activate", () => {
+        this.payInfluenceToAvoidWar(allyPlayer, opponentPlayer);
+      });
+    }
+    return payInfluenceButton;
+  }
+  payInfluenceToAvoidWar(allyPlayer, opponentPlayer) {
+    const args = {
+      Player1: GameContext.localPlayerID,
+      Player2: allyPlayer,
+      Player3: opponentPlayer
+    };
+    Game.PlayerOperations.sendRequest(
+      GameContext.localPlayerID,
+      PlayerOperationTypes.PAY_TO_AVOID_CALL_TO_ARMS,
+      args
+    );
     this.close();
   }
   onLocalPlayerTurnEnd() {

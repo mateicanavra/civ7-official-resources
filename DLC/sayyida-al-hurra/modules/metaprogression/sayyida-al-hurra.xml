@@ -37,8 +37,6 @@
 	<challengeEvents>
 		<event id="CHALLENGE_EVENT_LEADER_SAYYIDA_AL_HURRA_AGE_ENDED" />
 		<event id="CHALLENGE_EVENT_SAYYIDA_AL_HURRA_TRIUMPH_COMPLETED" />
-		<event id="CHALLENGE_EVENT_LEADER_SAYYIDA_AL_HURRA_UNLOCKED_STRATEGYCARDS_EXPLORATION" />
-		<event id="CHALLENGE_EVENT_LEADER_SAYYIDA_AL_HURRA_UNLOCKED_STRATEGYCARDS_MODERN" />
 	</challengeEvents>
 	<statistics>
 		<statistic id="CHALLENGE_STATISTIC_SAYYIDA_AL_HURRA_TRIUMPHS_COMPLETED" event="CHALLENGE_EVENT_SAYYIDA_AL_HURRA_TRIUMPH_COMPLETED"/>
@@ -57,8 +55,6 @@
 				<rule type="equals" var="age">AGE_MODERN</rule>
 			</rules>
 		</statistic>
-		<statistic id="CHALLENGE_STATISTIC_LEADER_SAYYIDA_AL_HURRA_UNLOCKED_STRATEGYCARDS_EXPLORATION_COMPLETED" event="CHALLENGE_EVENT_LEADER_SAYYIDA_AL_HURRA_UNLOCKED_STRATEGYCARDS_EXPLORATION"/>
-		<statistic id="CHALLENGE_STATISTIC_LEADER_SAYYIDA_AL_HURRA_UNLOCKED_STRATEGYCARDS_MODERN_COMPLETED" event="CHALLENGE_EVENT_LEADER_SAYYIDA_AL_HURRA_UNLOCKED_STRATEGYCARDS_MODERN"/>
 	</statistics>
 	<challengeCategoryData>
 		<challengeCategory id="CHALLENGE_CATEGORY_LEADER_SAYYIDA_AL_HURRA" locName="LOC_LEADER_SAYYIDA_AL_HURRA_NAME" sortIndex="1712"/>
@@ -576,23 +572,21 @@
 			<reward type="XP" reward="50" />
 		</challenge>
 		<!-- Hidden Challenges -->
-		<challenge id="CHALLENGE_LEADER_SAYYIDA_AL_HURRA_UNLOCKED_STRATEGYCARDS_EXPLORATION_RECOVER" scope="Career" difficulty="1" hidden="true" allowRewardWhenHidden="true">
+		<challenge id="CHALLENGE_SAYYIDA_AL_HURRA_UNLOCKED_STRATEGYCARDS_EXPLORATION" scope="Campaign" difficulty="1" hidden="true" allowRewardWhenHidden="true">
 			<l10n>
 				<name>Age Transition Card Exploration</name>
 				<description>As Sayyida al Hurra unlock age transition legend strategycards for Exploration Age.</description>
 			</l10n>
 			<sortIndex>20000</sortIndex>
-			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_SAYYIDA_AL_HURRA_UNLOCKED_STRATEGYCARDS_EXPLORATION_COMPLETED" threshold="1" />
 			<reward type="UnlockableReward" reward="STRATEGYCARD_AS_SAYYIDA_AL_HURRA_EXPLORATION_1" />
 			<reward type="UnlockableReward" reward="STRATEGYCARD_AS_SAYYIDA_AL_HURRA_EXPLORATION_2" />
 		</challenge>
-		<challenge id="CHALLENGE_LEADER_SAYYIDA_AL_HURRA_UNLOCKED_STRATEGYCARDS_MODERN_RECOVER" scope="Career" difficulty="1" hidden="true" allowRewardWhenHidden="true">
+		<challenge id="CHALLENGE_SAYYIDA_AL_HURRA_UNLOCKED_STRATEGYCARDS_MODERN" scope="Campaign" difficulty="1" hidden="true" allowRewardWhenHidden="true">
 			<l10n>
 				<name>Age Transition Card Modern</name>
 				<description>As Sayyida al Hurra unlock age transition legend strategycards for Modern Age.</description>
 			</l10n>
 			<sortIndex>20100</sortIndex>
-			<careerConfig statistic="CHALLENGE_STATISTIC_LEADER_SAYYIDA_AL_HURRA_UNLOCKED_STRATEGYCARDS_MODERN_COMPLETED" threshold="1" />
 			<reward type="UnlockableReward" reward="STRATEGYCARD_AS_SAYYIDA_AL_HURRA_MODERN_1" />
 			<reward type="UnlockableReward" reward="STRATEGYCARD_AS_SAYYIDA_AL_HURRA_MODERN_2" />
 		</challenge>

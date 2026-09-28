@@ -19,6 +19,7 @@ class PanelMPPlayerOptions extends Panel {
     super(root);
     this.enableOpenSound = true;
     this.enableCloseSound = true;
+    this.Root.setAttribute("data-audio-group-ref", "multiplayer-rules");
   }
   onAttach() {
     super.onAttach();

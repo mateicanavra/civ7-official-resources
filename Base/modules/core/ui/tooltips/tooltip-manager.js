@@ -1,11 +1,12 @@
-import ActionHandler from '../input/action-handler.js';
 import Cursor from '../input/cursor.js';
 import { ActiveDeviceTypeChangedEventName } from '../input/input-events.js';
+import { InputHandlerState } from '../input/input-support.js';
 import { TooltipController } from './tooltip-controller.js';
 import { SetTransformTranslateScale } from '../utilities/utilities-css.js';
 import { RecursiveGetAttribute } from '../utilities/utilities-dom.js';
 import { Layout } from '../utilities/utilities-layout.js';
 import { FocusManager } from '../../ui-next/services/focus-manager.js';
+import { IsTouchActive, IsMouseActive, IsKeyboardActive, IsControllerActive } from '../../ui-next/services/input.js';
 import styles from './tooltip-manager.scss.js';
 
 var Anchor = /* @__PURE__ */ ((Anchor2) => {
@@ -37,7 +38,7 @@ class TooltipManagerSingleton {
   timeShowStart;
   isShownByTimeout = true;
   // Will the tooltip auto-show based on timeout?
-  isToggledOn = ActionHandler.deviceType != InputDeviceType.Touch;
+  isToggledOn = !IsTouchActive();
   // Is the tooltip forced into an on position? (via key/button press)
   currentIsToggleOn = false;
   // isToggledOn after onUpdate
@@ -87,7 +88,7 @@ class TooltipManagerSingleton {
   constructor() {
     this.timeShowStart = performance.now();
     this.root = document.createElement("div");
-    this.isShownByTimeout = ActionHandler.deviceType == InputDeviceType.Mouse || ActionHandler.deviceType == InputDeviceType.Keyboard;
+    this.isShownByTimeout = IsMouseActive() || IsKeyboardActive();
     engine.whenReady.then(() => {
       this.onReady();
     });
@@ -181,20 +182,20 @@ class TooltipManagerSingleton {
     }
   }
   handleInput(inputEvent) {
-    let live = true;
+    let inputState = InputHandlerState.Active;
     switch (inputEvent.detail.name) {
       case "touch-press":
         this.isToggledOn = true;
         this.touchPosition = { x: inputEvent.detail.x, y: inputEvent.detail.y };
         const target = document.elementFromPoint(this.touchPosition.x, this.touchPosition.y);
         this.touchTarget = target instanceof HTMLElement && !(target instanceof HTMLHtmlElement) ? target : document.body;
-        live = false;
+        inputState = InputHandlerState.Handled;
         break;
     }
-    return live;
+    return inputState;
   }
   handleNavigation(_navigationEvent) {
-    return true;
+    return InputHandlerState.Active;
   }
   onEngineInput = (name) => {
     const keyboardActions = ["keyboard-nav-up", "keyboard-nav-down", "keyboard-nav-left", "keyboard-nav-right"];
@@ -293,11 +294,10 @@ class TooltipManagerSingleton {
    */
   cursorTooltipCheck() {
     let targetElement;
-    const focusManager = FocusManager.get();
     if (this.touchPosition) {
       targetElement = this.touchTarget;
-    } else if (ActionHandler.isGamepadActive && !this.closeOnNextMove) {
-      targetElement = focusManager.currentFocus();
+    } else if (IsControllerActive() && !this.closeOnNextMove) {
+      targetElement = FocusManager.get().currentFocus();
     } else {
       targetElement = Cursor.target instanceof HTMLElement ? Cursor.target : void 0;
       if (!targetElement) {
@@ -329,9 +329,9 @@ class TooltipManagerSingleton {
       return;
     }
     let position = Cursor.position;
-    if (ActionHandler.isGamepadActive) {
+    if (IsControllerActive()) {
       position = ttTypeName == "plot" ? Cursor.gamepad : this.getAnchorPos(targetElement);
-    } else if (ActionHandler.deviceType == InputDeviceType.Touch && this.touchPosition) {
+    } else if (IsTouchActive() && this.touchPosition) {
       position = ttTypeName == "plot" ? this.touchPosition : this.getAnchorPos(targetElement);
     }
     const isPositionChanged = position.x != this.x || position.y != this.y;

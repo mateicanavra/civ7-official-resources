@@ -65,7 +65,6 @@
 	</Types>
 	<TraitModifiers>
 		<Row TraitType="TRAIT_LEADER_MAJOR_CIV" ModifierId="MOD_SHORE_BATTERY_ABILITY"/>
-		<Row TraitType="TRAIT_LEADER_MAJOR_CIV" ModifierId="TRAIT_MOD_TUNDRA_OBSHCHINA_CULTURE"/>
 	</TraitModifiers>
 	<UnitAbilityModifiers>
 		<Row UnitAbilityType="ABILITY_SHORE_BATTERY" ModifierId="SHORE_BATTERY_MOD_RANGE"/>
@@ -658,8 +657,8 @@
 		<Row ID="InterlacustrineLakeAdjacencyProductionKabakas" YieldType="YIELD_PRODUCTION" YieldChange="1" TilesRequired="1" ProjectMaxYield="true" AdjacentConstructible="IMPROVEMENT_KABAKAS_LAKE"/>
 		<Row ID="InterlacustrineLakeAdjacencyScienceKabakas" YieldType="YIELD_SCIENCE" YieldChange="1" TilesRequired="1" ProjectMaxYield="true" AdjacentConstructible="IMPROVEMENT_KABAKAS_LAKE"/>
 		<Row ID="InterlacustrineLakeAdjacencyDiplomacyKabakas" YieldType="YIELD_DIPLOMACY" YieldChange="1" TilesRequired="1" ProjectMaxYield="true" AdjacentConstructible="IMPROVEMENT_KABAKAS_LAKE"/>
-		<Row ID="ZaibatsuWildcardZaibatsuGold" Age="AGE_MODERN" YieldType="YIELD_GOLD" YieldChange="1" TilesRequired="1" ProjectMaxYield="true" AdjacentUniqueQuarterType="QUARTER_ZAIBATSU"/>
-		<Row ID="ZaibatsuWildcardZaibatsuProduction" Age="AGE_MODERN" YieldType="YIELD_PRODUCTION" YieldChange="1" TilesRequired="1" ProjectMaxYield="true" AdjacentUniqueQuarterType="QUARTER_ZAIBATSU"/>
+		<Row ID="ZaibatsuWildcardZaibatsuGold" Age="AGE_MODERN" YieldType="YIELD_GOLD" YieldChange="1" TilesRequired="1" ProjectMaxYield="true" AdjacentUniqueQuarterType="QUARTER_ZAIBATSU" PersistOnTransfer="true"/>
+		<Row ID="ZaibatsuWildcardZaibatsuProduction" Age="AGE_MODERN" YieldType="YIELD_PRODUCTION" YieldChange="1" TilesRequired="1" ProjectMaxYield="true" AdjacentUniqueQuarterType="QUARTER_ZAIBATSU" PersistOnTransfer="true"/>
 		<Row ID="ShuseiKokuboWildcardShuseiKokuboProduction" Age="AGE_MODERN" YieldType="YIELD_PRODUCTION" YieldChange="1" TilesRequired="1" ProjectMaxYield="true" AdjacentTerrain="TERRAIN_COAST"/>
 		<Row ID="ShuseiKokuboWildcardShuseiKokuboScience" Age="AGE_MODERN" YieldType="YIELD_SCIENCE" YieldChange="1" TilesRequired="1" ProjectMaxYield="true" AdjacentTerrain="TERRAIN_COAST"/>
 		<Row ID="RuhrWildcardNavigableRiverAdjacencyProduction" Age="AGE_MODERN" YieldType="YIELD_PRODUCTION" YieldChange="1" TilesRequired="1" ProjectMaxYield="true" AdjacentTerrain="TERRAIN_NAVIGABLE_RIVER"/>
@@ -827,11 +826,9 @@
 	<ConstructibleModifiers>
 		<!-- Modifiers for generic buildings do NOT carry into next Age.  Place them in constructible-modifiers.xml -->
 		<!-- Buildings -->
-		<Row ConstructibleType="BUILDING_CANNERY" ModifierId="MOD_CANNERY_GROWTH_RATE"/>
-		<Row ConstructibleType="BUILDING_CITY_PARK" ModifierId="MOD_CITY_PARK_VEGETATION_HAPPINESS"/>
-		<Row ConstructibleType="BUILDING_LABORATORY" ModifierId="MOD_LABORATORY_SCIENCE_ON_QUARTERS"/>
-		<Row ConstructibleType="BUILDING_STOCK_EXCHANGE" ModifierId="MOD_STOCK_EXCHANGE_GOLD_ON_QUARTERS"/>
-		<Row ConstructibleType="BUILDING_TENEMENT" ModifierId="MOD_TENEMENT_HAPPINESS_ON_QUARTERS"/>
+		<!-- Improvements -->
+		<Row ConstructibleType="IMPROVEMENT_OBSHCHINA" ModifierId="MOD_OBSHCHINA_TUNDRA_CULTURE"/>
+		<Row ConstructibleType="IMPROVEMENT_OBSHCHINA" ModifierId="MOD_OBSHCHINA_FARM_FOOD"/>
 		<!-- Wonders -->
 		<Row ConstructibleType="WONDER_BRANDENBURG_GATE" ModifierId="MOD_BRANDENBURG_GATE_WAR_SUPPORT"/>
 		<Row ConstructibleType="WONDER_BRANDENBURG_GATE" ModifierId="MODBRANDENBURG_GATE_SETTLEMENT_CAP"/>

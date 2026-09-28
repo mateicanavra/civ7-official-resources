@@ -179,22 +179,29 @@ Based on Robert Penner's easing equations
   position: absolute;
   width: 3.5555555556rem;
   height: 3.5555555556rem;
-  transition: transform 0.1s cubic-bezier(0.215, 0.61, 0.355, 1), opacity 0.25s cubic-bezier(0.215, 0.61, 0.355, 1);
-  transition: transform 0.1s cubic-bezier(0.215, 0.61, 0.355, 1), opacity 0.25s cubic-bezier(0.215, 0.61, 0.355, 1);
-  transition: transform 0.1s cubic-bezier(0.215, 0.61, 0.355, 1), opacity 0.25s cubic-bezier(0.215, 0.61, 0.355, 1);
-  transition: transform 0.1s cubic-bezier(0.215, 0.61, 0.355, 1), opacity 0.25s cubic-bezier(0.215, 0.61, 0.355, 1);
-  transition: transform 0.1s cubic-bezier(0.215, 0.61, 0.355, 1), opacity 0.25s cubic-bezier(0.215, 0.61, 0.355, 1);
-  transition: transform 0.1s cubic-bezier(0.215, 0.61, 0.355, 1), opacity 0.25s cubic-bezier(0.215, 0.61, 0.355, 1);
-  transition: transform 0.1s cubic-bezier(0.215, 0.61, 0.355, 1), opacity 0.25s cubic-bezier(0.215, 0.61, 0.355, 1);
-  transition: transform 0.1s cubic-bezier(0.215, 0.61, 0.355, 1), opacity 0.25s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: opacity 0.25s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: opacity 0.25s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: opacity 0.25s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: opacity 0.25s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: opacity 0.25s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: opacity 0.25s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: opacity 0.25s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: opacity 0.25s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 .action-panel__button-notification:nth-child(1) {
   top: 2.0555555556rem;
   right: 2.0555555556rem;
   transform: rotate(45deg);
 }
-.action-panel__button-notification:nth-child(1):hover, .action-panel__button-notification:nth-child(1).pressed {
-  transform: rotate(45deg) translateY(-0.6666666667rem);
+.action-panel__button-notification:nth-child(1) .action-panel__button-notification__content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  transition: transform 0.1s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.action-panel__button-notification:nth-child(1):hover .action-panel__button-notification__content, .action-panel__button-notification:nth-child(1).pressed .action-panel__button-notification__content {
+  transform: translateY(-0.6666666667rem);
 }
 .action-panel__button-notification:nth-child(1) .action-panel__button-notification__bk {
   width: 7.1111111111rem;
@@ -240,8 +247,15 @@ Based on Robert Penner's easing equations
   right: 0.6666666667rem;
   transform: rotate(90deg);
 }
-.action-panel__button-notification:nth-child(2):hover, .action-panel__button-notification:nth-child(2).pressed {
-  transform: rotate(90deg) translateY(-0.6666666667rem);
+.action-panel__button-notification:nth-child(2) .action-panel__button-notification__content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  transition: transform 0.1s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.action-panel__button-notification:nth-child(2):hover .action-panel__button-notification__content, .action-panel__button-notification:nth-child(2).pressed .action-panel__button-notification__content {
+  transform: translateY(-0.6666666667rem);
 }
 .action-panel__button-notification:nth-child(2) .action-panel__button-notification__bk {
   width: 7.1111111111rem;
@@ -287,8 +301,15 @@ Based on Robert Penner's easing equations
   right: 2.0555555556rem;
   transform: rotate(135deg);
 }
-.action-panel__button-notification:nth-child(3):hover, .action-panel__button-notification:nth-child(3).pressed {
-  transform: rotate(135deg) translateY(-0.6666666667rem);
+.action-panel__button-notification:nth-child(3) .action-panel__button-notification__content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  transition: transform 0.1s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.action-panel__button-notification:nth-child(3):hover .action-panel__button-notification__content, .action-panel__button-notification:nth-child(3).pressed .action-panel__button-notification__content {
+  transform: translateY(-0.6666666667rem);
 }
 .action-panel__button-notification:nth-child(3) .action-panel__button-notification__bk {
   width: 7.1111111111rem;
@@ -334,8 +355,15 @@ Based on Robert Penner's easing equations
   right: 5.3333333333rem;
   transform: rotate(180deg);
 }
-.action-panel__button-notification:nth-child(4):hover, .action-panel__button-notification:nth-child(4).pressed {
-  transform: rotate(180deg) translateY(-0.6666666667rem);
+.action-panel__button-notification:nth-child(4) .action-panel__button-notification__content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  transition: transform 0.1s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.action-panel__button-notification:nth-child(4):hover .action-panel__button-notification__content, .action-panel__button-notification:nth-child(4).pressed .action-panel__button-notification__content {
+  transform: translateY(-0.6666666667rem);
 }
 .action-panel__button-notification:nth-child(4) .action-panel__button-notification__bk {
   width: 7.1111111111rem;
@@ -381,8 +409,15 @@ Based on Robert Penner's easing equations
   right: 8.6111111111rem;
   transform: rotate(225deg);
 }
-.action-panel__button-notification:nth-child(5):hover, .action-panel__button-notification:nth-child(5).pressed {
-  transform: rotate(225deg) translateY(-0.6666666667rem);
+.action-panel__button-notification:nth-child(5) .action-panel__button-notification__content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  transition: transform 0.1s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.action-panel__button-notification:nth-child(5):hover .action-panel__button-notification__content, .action-panel__button-notification:nth-child(5).pressed .action-panel__button-notification__content {
+  transform: translateY(-0.6666666667rem);
 }
 .action-panel__button-notification:nth-child(5) .action-panel__button-notification__bk {
   width: 7.1111111111rem;
@@ -428,8 +463,15 @@ Based on Robert Penner's easing equations
   right: 10rem;
   transform: rotate(270deg);
 }
-.action-panel__button-notification:nth-child(6):hover, .action-panel__button-notification:nth-child(6).pressed {
-  transform: rotate(270deg) translateY(-0.6666666667rem);
+.action-panel__button-notification:nth-child(6) .action-panel__button-notification__content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  transition: transform 0.1s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.action-panel__button-notification:nth-child(6):hover .action-panel__button-notification__content, .action-panel__button-notification:nth-child(6).pressed .action-panel__button-notification__content {
+  transform: translateY(-0.6666666667rem);
 }
 .action-panel__button-notification:nth-child(6) .action-panel__button-notification__bk {
   width: 7.1111111111rem;
@@ -475,8 +517,15 @@ Based on Robert Penner's easing equations
   right: 8.6111111111rem;
   transform: rotate(315deg);
 }
-.action-panel__button-notification:nth-child(7):hover, .action-panel__button-notification:nth-child(7).pressed {
-  transform: rotate(315deg) translateY(-0.6666666667rem);
+.action-panel__button-notification:nth-child(7) .action-panel__button-notification__content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  transition: transform 0.1s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.action-panel__button-notification:nth-child(7):hover .action-panel__button-notification__content, .action-panel__button-notification:nth-child(7).pressed .action-panel__button-notification__content {
+  transform: translateY(-0.6666666667rem);
 }
 .action-panel__button-notification:nth-child(7) .action-panel__button-notification__bk {
   width: 7.1111111111rem;
@@ -522,8 +571,15 @@ Based on Robert Penner's easing equations
   right: 5.3333333333rem;
   transform: rotate(360deg);
 }
-.action-panel__button-notification:nth-child(8):hover, .action-panel__button-notification:nth-child(8).pressed {
-  transform: rotate(360deg) translateY(-0.6666666667rem);
+.action-panel__button-notification:nth-child(8) .action-panel__button-notification__content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  transition: transform 0.1s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.action-panel__button-notification:nth-child(8):hover .action-panel__button-notification__content, .action-panel__button-notification:nth-child(8).pressed .action-panel__button-notification__content {
+  transform: translateY(-0.6666666667rem);
 }
 .action-panel__button-notification:nth-child(8) .action-panel__button-notification__bk {
   width: 7.1111111111rem;

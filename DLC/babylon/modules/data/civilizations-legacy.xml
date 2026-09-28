@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Types>
+		<!-- Major Civs -->
+		<Row Type="TRAIT_BABYLON" Kind="KIND_TRAIT"/>
+		<Row Type="CIVILIZATION_BABYLON" Kind="KIND_CIVILIZATION"/>
+	</Types>
+	<LegacyCivilizations>
+		<!-- Full Civs -->
+		<Row CivilizationType="CIVILIZATION_BABYLON" Name="LOC_CIVILIZATION_BABYLON_NAME" FullName="LOC_CIVILIZATION_BABYLON_FULLNAME" Adjective="LOC_CIVILIZATION_BABYLON_ADJECTIVE" Age="AGE_ANTIQUITY"/>
+	</LegacyCivilizations>
+	<LegacyCivilizationTraits>
+		<Row CivilizationType="CIVILIZATION_BABYLON" TraitType="TRAIT_BABYLON"/>
+	</LegacyCivilizationTraits>
+	<Traits>
+		<Row TraitType="TRAIT_BABYLON" InternalOnly="true"/>
+	</Traits>
+	<LegacyIndependents>
+		<Update>
+			<Where IndependentType="INDEPENDENT_ANTIQUITY_36"/>
+			<Set Name="LOC_INDEPENDENT_ANTIQUITY_36_MAJOR_BABYLON_NAME"/>
+		</Update>
+		<Update>
+			<Where IndependentType="INDEPENDENT_ANTIQUITY_45"/>
+			<Set Name="LOC_INDEPENDENT_ANTIQUITY_45_MAJOR_BABYLON_NAME"/>
+		</Update>
+	</LegacyIndependents>
+</Database>

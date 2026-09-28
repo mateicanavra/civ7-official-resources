@@ -1,3 +1,5 @@
+import { InputHandlerState } from './input-support.js';
+
 const DEBUG_LOG_FILTER = false;
 class InputFilterSingleton {
   static Instance;
@@ -33,25 +35,25 @@ class InputFilterSingleton {
     const status = inputEvent.detail.status;
     const name = inputEvent.detail.name;
     if (status != InputActionStatuses.FINISH) {
-      return true;
+      return InputHandlerState.Active;
     }
     if (this.activeFilters.length <= 0 || !this.allowFilters) {
-      return true;
+      return InputHandlerState.Active;
     }
     const filter = this.activeFilters.find((filter2) => filter2.inputName == name);
     if (filter) {
       if (DEBUG_LOG_FILTER) {
         console.log(`InputFilter: '${filter.inputName}' filtered by ${filter.filterSource})`);
       }
-      return false;
+      return InputHandlerState.Handled;
     }
-    return true;
+    return InputHandlerState.Active;
   }
   /**
    * Input filter doesn't handle navigation input events
    */
   handleNavigation() {
-    return true;
+    return InputHandlerState.Active;
   }
   /**
    * Adds a filter

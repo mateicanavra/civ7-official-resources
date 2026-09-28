@@ -6,12 +6,13 @@ import { defineLegacyComponent } from '../../../core/ui-next/components/fxs-soli
 import { Icon } from '../../../core/ui-next/components/icon.js';
 import { L10n } from '../../../core/ui-next/components/l10n.js';
 import { TooltipVerticalPosition, TooltipHorizontalPosition } from '../../../core/ui-next/components/tooltip.js';
+import { ComponentRegistry } from '../../../core/ui-next/services/component-registry.js';
 import { ProductionPanelCategory } from '../../ui/production-chooser/production-chooser-helpers.js';
 import { AdvisorRecommendationsList } from './advisor-recommendation.js';
 import { PillText } from './pills.js';
 import { ProductionTooltip } from '../tooltips/production-tooltip.js';
 
-var _tmpl$ = /* @__PURE__ */ template(`<span class="font-body text-negative-light z-1 pointer-events-none"></span>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="flex text-sm"></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="flex items-center"></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div class="flex items-center"><div class=mx-2>|</div><div class=mx-1></div></div>`), _tmpl$5 = /* @__PURE__ */ template(`<div class="flex items-center text-sm production-chooser__font-icon-positioning"></div>`), _tmpl$6 = /* @__PURE__ */ template(`<div class="flex flex-row items-center self-end"><span></span><span class="size-8 bg-contain bg-center bg-no-repeat mr-1"></span></div>`), _tmpl$7 = /* @__PURE__ */ template(`<div class="flex flex-row flex-auto items-stretch"><div class="relative flex flex-col flex-auto justify-between pt-2 pb-1.5"><span class="font-title text-accent-2 uppercase"></span></div><div class="flex flex-col justify-end"><div class=self-end></div><div class="flex flex-auto self-end"></div></div></div>`);
+var _tmpl$ = /* @__PURE__ */ template(`<span class="font-body text-negative-light z-1 pointer-events-none"></span>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="flex text-sm"></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="flex items-center"></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div class="flex items-center"><div class="mx-2">|</div><div class="mx-1"></div></div>`), _tmpl$5 = /* @__PURE__ */ template(`<div class="flex items-center text-sm production-chooser__font-icon-positioning"></div>`), _tmpl$6 = /* @__PURE__ */ template(`<div class="flex flex-row items-center self-end"><span></span><span class="size-8 bg-contain bg-center bg-no-repeat mr-1"></span></div>`), _tmpl$7 = /* @__PURE__ */ template(`<div class="flex flex-row flex-auto items-stretch"><div class="relative flex flex-col flex-auto justify-between pt-2 pb-1.5"><span class="font-title text-accent-2 uppercase"></span><div class="flex flex-row"></div></div><div class="flex flex-col justify-end"><div class="self-end"></div><div class="flex flex-auto self-end"></div></div></div>`);
 const parseJSON = (value, fallback) => {
   if (!value) {
     return fallback;
@@ -160,7 +161,7 @@ const ProductionChooserItemContent = (props) => {
             contentClass: "p-2 tracking-100 flex flex-row",
             name: "ProductionChooserItem",
             selectOnActivate: true,
-            get disabled() {
+            get disableVisual() {
               return isDisabled();
             },
             get audio() {
@@ -179,7 +180,7 @@ const ProductionChooserItemContent = (props) => {
               return isRepairAll() ? "true" : void 0;
             },
             get children() {
-              var _el$ = _tmpl$7(), _el$2 = _el$.firstChild, _el$3 = _el$2.firstChild, _el$14 = _el$2.nextSibling, _el$15 = _el$14.firstChild, _el$16 = _el$15.nextSibling;
+              var _el$ = _tmpl$7(), _el$2 = _el$.firstChild, _el$3 = _el$2.firstChild, _el$14 = _el$3.nextSibling, _el$15 = _el$2.nextSibling, _el$16 = _el$15.firstChild, _el$17 = _el$16.nextSibling;
               insert(_el$, createComponent(Icon, {
                 "class": "size-16 bg-contain bg-center bg-no-repeat mr-2 flex-shrink-0 pointer-events-none",
                 get name() {
@@ -204,7 +205,7 @@ const ProductionChooserItemContent = (props) => {
                   }));
                   return _el$4;
                 }
-              }), null);
+              }), _el$14);
               insert(_el$2, createComponent(Show, {
                 get when() {
                   return showSecondaryDetails();
@@ -222,7 +223,7 @@ const ProductionChooserItemContent = (props) => {
                   });
                   return _el$5;
                 }
-              }), null);
+              }), _el$14);
               insert(_el$2, createComponent(Show, {
                 get when() {
                   return showAlternateYields();
@@ -282,8 +283,13 @@ const ProductionChooserItemContent = (props) => {
                   }), null);
                   return _el$6;
                 }
-              }), null);
-              insert(_el$15, createComponent(Show, {
+              }), _el$14);
+              insert(_el$14, createComponent(ProductionModInfo, {
+                get constructibleType() {
+                  return itemType();
+                }
+              }));
+              insert(_el$16, createComponent(Show, {
                 get when() {
                   return isAgeless();
                 },
@@ -293,13 +299,13 @@ const ProductionChooserItemContent = (props) => {
                   });
                 }
               }));
-              insert(_el$16, createComponent(Show, {
+              insert(_el$17, createComponent(Show, {
                 get when() {
                   return !hideCost();
                 },
                 get children() {
-                  var _el$17 = _tmpl$6(), _el$18 = _el$17.firstChild, _el$19 = _el$18.nextSibling;
-                  insert(_el$17, createComponent(Show, {
+                  var _el$18 = _tmpl$6(), _el$19 = _el$18.firstChild, _el$20 = _el$19.nextSibling;
+                  insert(_el$18, createComponent(Show, {
                     get when() {
                       return showRecommendations();
                     },
@@ -314,18 +320,18 @@ const ProductionChooserItemContent = (props) => {
                         noWrap: true
                       });
                     }
-                  }), _el$18);
-                  insert(_el$18, costValue);
+                  }), _el$19);
+                  insert(_el$19, costValue);
                   createRenderEffect((_p$) => {
                     var _v$3 = `url(${costIcon()})`, _v$4 = costIconLabel();
-                    _v$3 !== _p$.e && ((_p$.e = _v$3) != null ? _el$19.style.setProperty("background-image", _v$3) : _el$19.style.removeProperty("background-image"));
-                    _v$4 !== _p$.t && setAttribute(_el$19, "aria-label", _p$.t = _v$4);
+                    _v$3 !== _p$.e && ((_p$.e = _v$3) != null ? _el$20.style.setProperty("background-image", _v$3) : _el$20.style.removeProperty("background-image"));
+                    _v$4 !== _p$.t && setAttribute(_el$20, "aria-label", _p$.t = _v$4);
                     return _p$;
                   }, {
                     e: void 0,
                     t: void 0
                   });
-                  return _el$17;
+                  return _el$18;
                 }
               }));
               return _el$;
@@ -369,4 +375,13 @@ defineLegacyComponent("production-chooser-item", {
   attrs,
   host: element
 }));
+const ProductionModInfoComponent = (_props) => {
+  return [];
+};
+const ProductionModInfo = ComponentRegistry.register({
+  name: "ProductionModInfo",
+  createInstance: ProductionModInfoComponent
+});
+
+export { ProductionModInfo };
 //# sourceMappingURL=production-chooser-item.js.map

@@ -1,3 +1,4 @@
+import { InputHandlerState } from '../../../core/ui/input/input-support.js';
 import { PlotCursorUpdatedEventName } from '../../../core/ui/input/plot-cursor.js';
 import { InterfaceMode } from '../../../core/ui/interface-modes/interface-modes.js';
 import { ComponentID } from '../../../core/ui/utilities/utilities-component-id.js';
@@ -74,7 +75,7 @@ class ChoosePlotInterfaceMode {
   }
   handleInput(inputEvent) {
     if (inputEvent.detail.status != InputActionStatuses.FINISH || !ViewManager.isWorldInputAllowed) {
-      return true;
+      return InputHandlerState.Active;
     }
     if (inputEvent.isCancelInput() || inputEvent.detail.name == "sys-menu") {
       const unitID = UI.Player.getHeadSelectedUnit();
@@ -83,9 +84,9 @@ class ChoosePlotInterfaceMode {
       } else {
         InterfaceMode.switchToDefault();
       }
-      return false;
+      return InputHandlerState.Handled;
     }
-    return true;
+    return InputHandlerState.Active;
   }
   onPlotCursorCoordsUpdated(event) {
     if (event.detail.plotCoords) {

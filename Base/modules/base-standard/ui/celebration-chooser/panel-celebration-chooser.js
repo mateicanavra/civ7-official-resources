@@ -1,5 +1,5 @@
 import { Audio } from '../../../core/ui/audio-base/audio-support.js';
-import ContextManager from '../../../core/ui/context-manager/context-manager.js';
+import { ContextManager } from '../../../core/ui/context-manager/context-manager.js';
 import { Focus } from '../../../core/ui/input/focus-support.js';
 import NavTray from '../../../core/ui/navigation-tray/model-navigation-tray.js';
 import Databind from '../../../core/ui/utilities/utilities-core-databinding.js';
@@ -11,7 +11,7 @@ import { HideMiniMapEvent } from '../mini-map/panel-mini-map.js';
 import { setActivePolicyTab } from '../policies/model-government.js';
 import content from './panel-celebration-chooser.html.js';
 import panelCelebrationChooserStyles from './panel-celebration-chooser.scss.js';
-import styles from '../chooser-item/chooser-item.scss.js';
+import chooserItemStyles from '../chooser-item/chooser-item.scss.js';
 
 class CelebrationChooser extends ScreenGeneralChooser {
   confirmButtonListener = this.onConfirm.bind(this);
@@ -293,7 +293,7 @@ Controls.define("celebration-chooser-item", {
   createInstance: CelebrationChooserItem,
   description: "A chooser item to be used with the celebration chooser",
   classNames: ["celebration-chooser-item", "relative", "group"],
-  styles: [styles],
+  styles: [chooserItemStyles],
   images: [
     "fs://game/hud_sidepanel_list-bg.png",
     "fs://game/hud_list-focus_frame.png",

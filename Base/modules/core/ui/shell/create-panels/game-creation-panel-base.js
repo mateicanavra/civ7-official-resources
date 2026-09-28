@@ -1,10 +1,10 @@
-import ContextManager from '../../context-manager/context-manager.js';
-import ActionHandler from '../../input/action-handler.js';
+import { ContextManager } from '../../context-manager/context-manager.js';
 import { ActiveDeviceTypeChangedEventName } from '../../input/input-events.js';
 import NavTray from '../../navigation-tray/model-navigation-tray.js';
 import Panel from '../../panel-support.js';
 import { CreateGameModel } from './create-game-model.js';
 import { getPlayerCardInfo } from '../../utilities/utilities-liveops.js';
+import { IsControllerActive } from '../../../ui-next/services/input.js';
 
 class GameCreationPanelBase extends Panel {
   navControls = null;
@@ -81,7 +81,7 @@ class GameCreationPanelBase extends Panel {
   }
   onActiveDeviceTypeChanged() {
     if (this.bottomBarEle) {
-      this.bottomBarEle.classList.toggle("hidden", ActionHandler.isGamepadActive);
+      this.bottomBarEle.classList.toggle("hidden", IsControllerActive());
     }
   }
   createFiligreeFragment() {

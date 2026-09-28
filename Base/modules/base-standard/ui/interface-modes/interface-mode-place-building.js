@@ -2,6 +2,7 @@ import { Audio } from '../../../core/ui/audio-base/audio-support.js';
 import { DialogBoxManager } from '../../../core/ui/dialog-box/manager-dialog-box.js';
 import { CursorUpdatedEventName } from '../../../core/ui/input/cursor.js';
 import { Focus } from '../../../core/ui/input/focus-support.js';
+import { InputHandlerState } from '../../../core/ui/input/input-support.js';
 import { PlotCursor, PlotCursorUpdatedEventName } from '../../../core/ui/input/plot-cursor.js';
 import { InterfaceMode } from '../../../core/ui/interface-modes/interface-modes.js';
 import LensManager from '../../../core/ui/lenses/lens-manager.js';
@@ -76,6 +77,7 @@ class PlaceBuildingInterfaceMode extends ChoosePlotInterfaceMode {
     }
     BuildingPlacementManager.initializePlacementData(context.CityID);
     BuildingPlacementManager.selectPlacementData(context.CityID, result, constructible);
+    LensManager.setActiveLens("fxs-default-lens");
     LensManager.setActiveLens("fxs-building-placement-lens");
     return true;
   }
@@ -228,7 +230,12 @@ class PlaceBuildingInterfaceMode extends ChoosePlotInterfaceMode {
   }
   proposePlot(plot, accept, reject) {
     const plotIndex = GameplayMap.getIndexFromLocation(plot);
-    if (!BuildingPlacementManager.currentConstructible?.ExistingDistrictOnly && (BuildingPlacementManager.uniqueQuarterPlots.length > 0 && !BuildingPlacementManager.uniqueQuarterPlots.includes(plotIndex) || BuildingPlacementManager.uniqueQuarterPlots.length <= 0 && BuildingPlacementManager.potentialUniqueQuarterPlots.map((a) => a.plotID).includes(plotIndex))) {
+    if (
+      // We try and place a unique quarter building on a plot with a non-ageless building
+      BuildingPlacementManager.currentQuarter && !BuildingPlacementManager.uniqueQuarterPlots.includes(plotIndex) && BuildingPlacementManager.quarterPlots.includes(plotIndex) || // We try and place a unique quarter building on a non-suggested plot
+      !BuildingPlacementManager.currentConstructible?.ExistingDistrictOnly && BuildingPlacementManager.uniqueQuarterPlots.length > 0 && !BuildingPlacementManager.uniqueQuarterPlots.includes(plotIndex) || // We try and place a regular building on a unique quarter plot
+      !BuildingPlacementManager.currentConstructible?.ExistingDistrictOnly && BuildingPlacementManager.uniqueQuarterPlots.length <= 0 && BuildingPlacementManager.potentialUniqueQuarterPlots.map((a) => a.plotID).includes(plotIndex)
+    ) {
       const acceptCallback = () => {
         accept();
       };
@@ -433,7 +440,7 @@ class PlaceBuildingInterfaceMode extends ChoosePlotInterfaceMode {
   }
   handleInput(inputEvent) {
     if (inputEvent.detail.status != InputActionStatuses.FINISH) {
-      return true;
+      return InputHandlerState.Active;
     }
     if (inputEvent.isCancelInput() || inputEvent.detail.name == "sys-menu") {
       const selectedCityID = UI.Player.getHeadSelectedCity();
@@ -441,7 +448,7 @@ class PlaceBuildingInterfaceMode extends ChoosePlotInterfaceMode {
         InterfaceMode.switchTo("INTERFACEMODE_CITY_PRODUCTION", { CityID: selectedCityID });
         inputEvent.stopPropagation();
         inputEvent.preventDefault();
-        return false;
+        return InputHandlerState.Handled;
       }
     }
     const eventToLookFor = this.mapFocused ? "next-action" : "shell-action-2";
@@ -449,16 +456,16 @@ class PlaceBuildingInterfaceMode extends ChoosePlotInterfaceMode {
       this.setMapFocused(!this.mapFocused);
       inputEvent.stopPropagation();
       inputEvent.preventDefault();
-      return false;
+      return InputHandlerState.Handled;
     }
     if (inputEvent.detail.name == "unit-skip-turn" || inputEvent.detail.name == "notification") {
       window.dispatchEvent(new TogglePlacementMinMaxEvent());
       this.updateNavTray();
       inputEvent.stopPropagation();
       inputEvent.preventDefault();
-      return false;
+      return InputHandlerState.Handled;
     }
-    return true;
+    return InputHandlerState.Active;
   }
 }
 InterfaceMode.addHandler("INTERFACEMODE_PLACE_BUILDING", new PlaceBuildingInterfaceMode());

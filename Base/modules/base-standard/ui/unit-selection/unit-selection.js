@@ -1,8 +1,8 @@
-import ActionHandler from '../../../core/ui/input/action-handler.js';
 import { InterfaceMode } from '../../../core/ui/interface-modes/interface-modes.js';
 import { ComponentID } from '../../../core/ui/utilities/utilities-component-id.js';
 import UpdateGate from '../../../core/ui/utilities/utilities-update-gate.js';
 import ViewManager from '../../../core/ui/views/view-manager.js';
+import { IsControllerActive } from '../../../core/ui-next/services/input.js';
 
 class RaiseUnitSelectionEvent extends CustomEvent {
   constructor(cid) {
@@ -179,7 +179,7 @@ class UnitSelectionSingleton {
    * @param hotkey, the hotkey based event.
    */
   onUnitHotkey(hotkey) {
-    if (!InterfaceMode.isInDefaultMode || ActionHandler.isGamepadActive) {
+    if (!InterfaceMode.isInDefaultMode || IsControllerActive()) {
       return;
     }
     switch (hotkey.detail.name) {

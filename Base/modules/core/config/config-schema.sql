@@ -9,6 +9,7 @@ CREATE TABLE CivilizationItems (
 	"Description" TEXT NOT NULL,
 	"Icon" TEXT,
 	"SortIndex" INTEGER NOT NULL DEFAULT 0,
+	"CanSyncretize" BOOLEAN NOT NULL DEFAULT 1,
 	PRIMARY KEY("CivilizationDomain", "CivilizationType", "AgeType", "Type")
 );
 INSERT INTO CivilizationItems("CivilizationDomain", "CivilizationType", "Type", "Kind", "Name", "Description", "Icon", "SortIndex") 

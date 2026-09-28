@@ -2,6 +2,7 @@ class Rule {
   description;
   isActive = false;
   weight = 1;
+  isStatic = false;
   notifySelectedCell(_cell, _ctx) {
   }
   initialize(config) {

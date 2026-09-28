@@ -220,7 +220,6 @@ function generateMap() {
   buildRainfallMap(iWidth, iHeight);
   TerrainBuilder.modelRivers(5, 15, g_NavigableRiverTerrain);
   TerrainBuilder.validateAndFixTerrain();
-  TerrainBuilder.defineNamedRivers();
   designateBiomes(iWidth, iHeight);
   addTundraVolcanoes(iWidth, iHeight);
   addNaturalWonders(iWidth, iHeight, iNumNaturalWonders, naturalWonderEvent, requestedNaturalWonders);

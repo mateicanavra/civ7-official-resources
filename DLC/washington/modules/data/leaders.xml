@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Kinds>
+		<InsertOrIgnore Kind="KIND_TRAIT"/>
+	</Kinds>
+	<Types>
+		<Row Type="LEADER_WASHINGTON" Kind="KIND_LEADER"/>
+		<Row Type="TRAIT_LEADER_WASHINGTON_ABILITY" Kind="KIND_TRAIT"/>
+		<!-- George Washington Policies -->
+		<Row Type="TRADITION_CONTINENTAL_AMBITION" Kind="KIND_TRADITION"/>
+		<Row Type="TRADITION_BILL_OF_RIGHTS" Kind="KIND_TRADITION"/>
+		<Row Type="VICTORY_LEADER_WASHINGTON" Kind="KIND_VICTORY"/>
+	</Types>
+	<Leaders>
+		<Row LeaderType="LEADER_WASHINGTON" Name="LOC_LEADER_WASHINGTON_NAME" IsMajorLeader="true" InheritFrom="LEADER_DEFAULT" />
+	</Leaders>
+	<TypeQuotes>
+		<Row Type="LEADER_WASHINGTON" Quote="LOC_MAIN_CHAR_SELECT_LEADER_WASHINGTON_ANY"/>
+		 <Row Type="VICTORY_LEADER_WASHINGTON" Quote="LOC_VICTORY_LEADER_WASHINGTON" QuoteAudio="play_victory_washington"/>
+	</TypeQuotes>
+	<AiFavoredItems>
+	</AiFavoredItems>
+	<Traits>
+		<Row TraitType="TRAIT_LEADER_WASHINGTON_ABILITY" InternalOnly="true" Name="LOC_TRAIT_LEADER_WASHINGTON_ABILITY_NAME" Description="LOC_TRAIT_LEADER_WASHINGTON_ABILITY_DESCRIPTION"/>
+	</Traits>
+	<LeaderTraits>
+		<Row LeaderType="LEADER_WASHINGTON" TraitType="TRAIT_LEADER_WASHINGTON_ABILITY"/>
+		<Row LeaderType="LEADER_WASHINGTON" TraitType="TRAIT_LEADER_ATTRIBUTE_POLITICAL"/>
+		<Row LeaderType="LEADER_WASHINGTON" TraitType="TRAIT_LEADER_ATTRIBUTE_EXPANSIONIST"/>
+		<Row LeaderType="LEADER_WASHINGTON" TraitType="TRAIT_AQ_CULTURE_VICTORY"/>
+		<Row LeaderType="LEADER_WASHINGTON" TraitType="TRAIT_EX_CULTURE_VICTORY"/>
+		<Row LeaderType="LEADER_WASHINGTON" TraitType="TRAIT_MO_CULTURE_VICTORY"/>
+	</LeaderTraits>
+	<TraitModifiers>
+		<Row TraitType="TRAIT_LEADER_WASHINGTON_ABILITY" ModifierId="WASHINGTON_MOD_MIGRANT_ON_GOLDEN_AGE"/>
+		<Row TraitType="TRAIT_LEADER_WASHINGTON_ABILITY" ModifierId="WASHINGTON_MOD_FREE_POLICY_SLOT"/>
+		<Row TraitType="TRAIT_LEADER_WASHINGTON_ABILITY" ModifierId="WASHINGTON_MOD_TOWN_FOOD_PER_POLICY"/>
+		<Row TraitType="TRAIT_LEADER_WASHINGTON_ABILITY" ModifierId="WASHINGTON_MOD_CITY_HAPPINESS_PER_POLICY"/>
+		<Row TraitType="TRAIT_LEADER_WASHINGTON_ABILITY" ModifierId="WASHINGTON_MOD_STARTING_POLICY_CONTINENTAL_AMBITION"/>
+		<Row TraitType="TRAIT_LEADER_WASHINGTON_ABILITY" ModifierId="WASHINGTON_MOD_STARTING_POLICY_BILL_OF_RIGHTS"/>
+		<Row TraitType="TRAIT_LEADER_WASHINGTON_ABILITY" ModifierId="WASHINGTON_MOD_AGENDA_HEARTS_OF_HIS_COUNTRYMEN"/>
+	</TraitModifiers>
+	<AiListTypes>
+		<Row ListType="Washington Yield Biases"/>
+		<Row ListType="Washington Pseudoyield Biases"/>
+		<Row ListType="Washington Diplomacy Biases"/>
+	</AiListTypes>
+	<AiLists>
+		<Row ListType="Washington Yield Biases" LeaderType="TRAIT_LEADER_WASHINGTON_ABILITY" System="YieldBiases"/>
+		<Row ListType="Washington Pseudoyield Biases" LeaderType="TRAIT_LEADER_WASHINGTON_ABILITY" System="PseudoYieldBiases"/>
+		<Row ListType="Washington Diplomacy Biases" LeaderType="TRAIT_LEADER_WASHINGTON_ABILITY" System="DiplomaticGroupBiases"/>
+	</AiLists>
+	<AiFavoredItems>
+		<Row ListType="Washington Yield Biases" Item="YIELD_HAPPINESS" Value="50"/>
+		<Row ListType="Washington Yield Biases" Item="YIELD_FOOD" Value="50"/>
+		<Row ListType="Washington Yield Biases" Item="YIELD_CULTURE" Value="25"/>
+		<Row ListType="Washington Diplomacy Biases" Item="DIPLOMACY_ACTION_BECOME_SUZERAIN" Value="50"/>
+	</AiFavoredItems>
+	<!-- George Washington Policies -->
+	<Traditions>
+		<Row TraditionType="TRADITION_CONTINENTAL_AMBITION" Name="LOC_TRADITION_CONTINENTAL_AMBITION_NAME" Description="LOC_TRADITION_CONTINENTAL_AMBITION_DESCRIPTION" CultureSlotType="POLICY_CULTURE_SLOT"/>
+		<Row TraditionType="TRADITION_BILL_OF_RIGHTS" Name="LOC_TRADITION_BILL_OF_RIGHTS_NAME" Description="LOC_TRADITION_BILL_OF_RIGHTS_DESCRIPTION" CultureSlotType="POLICY_CULTURE_SLOT"/>
+	</Traditions>
+	<TraditionModifiers>
+		<Row TraditionType="TRADITION_CONTINENTAL_AMBITION" ModifierId="CONTINENTAL_AMBITION_MOD_SETTLER_PRODUCTION"/>
+		<Row TraditionType="TRADITION_BILL_OF_RIGHTS" ModifierId="BILL_OF_RIGHTS_MOD_CULTURE_YIELD"/>
+		<Row TraditionType="TRADITION_BILL_OF_RIGHTS" ModifierId="BILL_OF_RIGHTS_MOD_PRODUCTION_YIELD"/>
+	</TraditionModifiers>
+</Database>

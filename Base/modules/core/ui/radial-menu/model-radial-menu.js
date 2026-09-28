@@ -1,4 +1,4 @@
-import ContextManager from '../context-manager/context-manager.js';
+import { ContextManager } from '../context-manager/context-manager.js';
 import { InputEngineEventName } from '../input/input-support.js';
 import UpdateGate from '../utilities/utilities-update-gate.js';
 import ViewManager from '../views/view-manager.js';

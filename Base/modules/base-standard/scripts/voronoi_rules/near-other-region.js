@@ -11,6 +11,14 @@ const ruleSchema = {
     max: 5,
     step: 0.1
   },
+  disabledOnTouch: {
+    label: "Disabled On Touch",
+    description: "If true, once a region touches another region, it will be disabled.",
+    default: 0,
+    min: 0,
+    max: 1,
+    step: 1
+  },
   scoreDistance: {
     label: "Score Distance",
     description: "The distance from another continent at which to start scoring it. Distances greater than this will score 0. Higher values are more expensive.",
@@ -18,6 +26,14 @@ const ruleSchema = {
     min: 0,
     max: 30,
     step: 0.1
+  },
+  sameGroupOnly: {
+    label: "Same Group Only",
+    description: "If true, only regions in the same group will be considered.",
+    default: 1,
+    min: 0,
+    max: 1,
+    step: 1
   }
 };
 class RuleNearOtherRegion extends Rule {
@@ -55,7 +71,16 @@ class RuleNearOtherRegion extends Rule {
       );
       if (!nearestNeighbor.cell) continue;
       const dist = Math.sqrt(nearestNeighbor.distSq);
-      if (dist < this.configValues.disableDistance) {
+      let touchesNeighbor = false;
+      if (this.configValues.disabledOnTouch) {
+        for (const neighborId of regionCell.cell.getNeighborIds()) {
+          if (neighborId === nearestNeighbor.cell.id) {
+            touchesNeighbor = true;
+            break;
+          }
+        }
+      }
+      if (dist < this.configValues.disableDistance || touchesNeighbor) {
         arr.splice(i, 1);
         if (arr.length == 0) {
           this.regionConnectionLive.delete(ctx.region.id);
@@ -70,19 +95,24 @@ class RuleNearOtherRegion extends Rule {
   buildFromDelaunayTriangulation(regions, bounds, wrap = WrapType.None) {
     this.regionConnection.clear();
     class RegionSite extends Site {
-      regionIdPos = { regionId: 0, pos: { x: 0, y: 0 } };
+      regionIdPos = { regionId: 0, regionGroupId: 0, pos: { x: 0, y: 0 } };
     }
     const sites = regions.map((value) => {
       return { x: value.pos.x, y: value.pos.y, id: 0, regionIdPos: value };
     });
     const diagram = VoronoiUtils.computeVoronoi(sites, bounds, 0, wrap);
     for (const cell of diagram.cells) {
+      const thisRegionGroupId = cell.site.regionIdPos.regionGroupId;
+      if (thisRegionGroupId === 0) continue;
       for (const neighborId of cell.getNeighborIds()) {
         const neighbor = diagram.cells[neighborId];
-        this.addRegionConnection(
-          cell.site.regionIdPos.regionId,
-          neighbor.site.regionIdPos
-        );
+        const neighborRegionGroupId = neighbor.site.regionIdPos.regionGroupId;
+        if (!this.configValues.sameGroupOnly && neighborRegionGroupId != 0 || thisRegionGroupId == neighborRegionGroupId) {
+          this.addRegionConnection(
+            cell.site.regionIdPos.regionId,
+            neighbor.site.regionIdPos
+          );
+        }
       }
     }
   }

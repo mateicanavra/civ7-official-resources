@@ -1,4 +1,4 @@
-import { g_DesiredBufferBetweenMajorStarts, g_RequiredBufferBetweenMajorStarts } from './map-globals.js';
+import { g_MinLandmassSizeForIslandBias, g_DesiredBufferBetweenMajorStarts, g_RequiredBufferBetweenMajorStarts } from './map-globals.js';
 import { getSectorRegion, shuffle, isOceanAccess } from './map-utilities.js';
 import { profileScope } from '../scripts/profiling.js';
 
@@ -429,7 +429,7 @@ function assignStartPositions(iNumWest, iNumEast, west, east, iStartSectorRows, 
   }
   return startPositions;
 }
-function assignStartPositionsFromHexMap(hexMap) {
+function assignStartPositionsFromHexMap(hexMap, humanLandmassId) {
   const perfScope = new profileScope("Building PlayerRegions from hex map");
   const playerRegions = [];
   for (const row of hexMap.getTiles()) {
@@ -446,9 +446,9 @@ function assignStartPositionsFromHexMap(hexMap) {
     `Creating player regions.. initializing indices: ${playerRegions.map((pr) => [pr.regionId, pr.landmassId])}`
   );
   perfScope.end();
-  return assignStartPositionsFromTiles(playerRegions);
+  return assignStartPositionsFromTiles(playerRegions, humanLandmassId);
 }
-function assignStartPositionsFromTiles(playerRegions) {
+function assignStartPositionsFromTiles(playerRegions, humanLandmassId) {
   const scope = new profileScope("Assigning Starting Positions");
   if (playerRegions.length === 0) {
     console.error("empty array passed to assignStartPositionsFromTiles()");
@@ -479,17 +479,40 @@ function assignStartPositionsFromTiles(playerRegions) {
   if (totalPlayers !== aliveMajorIds.length) {
     console.log(`The input player total ${totalPlayers} is not equal to the alive majors: ${aliveMajorIds.length}`);
   }
+  class RegionBounds {
+    minX = Infinity;
+    maxX = -Infinity;
+    minY = Infinity;
+    maxY = -Infinity;
+  }
+  const regionBounds = new Array(playerRegions.length);
+  for (let i = 0; i < playerRegions.length; i++) {
+    const bounds = new RegionBounds();
+    for (const tile of playerRegions[i].tiles) {
+      bounds.minX = Math.min(bounds.minX, tile.x);
+      bounds.maxX = Math.max(bounds.maxX, tile.x);
+      bounds.minY = Math.min(bounds.minY, tile.y);
+      bounds.maxY = Math.max(bounds.maxY, tile.y);
+    }
+    regionBounds[i] = bounds;
+  }
   const regionGetter = {
     count: playerRegions.length,
     getTileCoords: function* (regionId) {
-      for (const tile of playerRegions[regionId].tiles) yield [tile.x, tile.y];
+      for (const tile of playerRegions[regionId].tiles) {
+        yield [tile.x, tile.y];
+      }
     }
   };
   const playerRegionScores = getRegionScoresPerPlayer(aliveMajorIndices, regionGetter);
   console.log("Player region scores:");
   playerRegionScores.forEach((prs) => console.log(prs));
   const humanPlayerIndices = aliveMajorIndices.filter((index) => Players.isHuman(aliveMajorIds[index]));
-  let bHumansTogether = humanPlayerIndices.length > 1 && GameInfo.Ages.lookup(Game.age).HumanPlayersPrimaryHemisphere && humanPlayerIndices.length <= landmassRegions.get(largestLandmassId).length;
+  const primaryLandmassId = humanLandmassId ?? largestLandmassId;
+  let bHumansOnSpecificLandmass = humanPlayerIndices.length > 1 && GameInfo.Ages.lookup(Game.age).HumanPlayersPrimaryHemisphere && humanPlayerIndices.length <= landmassRegions.get(primaryLandmassId).length;
+  if (humanLandmassId !== void 0 && humanPlayerIndices.length > 0) {
+    bHumansOnSpecificLandmass = true;
+  }
   let regionPlayerBias = new Array(playerRegions.length).fill(-1);
   const assignPlayerBiases = (playerIndices, regions) => {
     for (const playerIndex of playerIndices) {
@@ -505,12 +528,12 @@ function assignStartPositionsFromTiles(playerRegions) {
       regionPlayerBias[bestId] = playerIndex;
     }
   };
-  if (bHumansTogether) {
-    console.log("Placing humans on same landmass.");
+  if (bHumansOnSpecificLandmass) {
+    console.log(`Placing humans on landmass ${primaryLandmassId}`);
     aliveMajorIndices = aliveMajorIndices.filter((index) => !Players.isHuman(aliveMajorIds[index]));
-    const regionsOnLargestLandmass = landmassRegions.get(largestLandmassId);
+    const regionsOnPrimaryLandmass = landmassRegions.get(primaryLandmassId);
     humanPlayerIndices.sort((a, b) => playerRegionScores[b].totalBias - playerRegionScores[a].totalBias);
-    assignPlayerBiases(humanPlayerIndices, regionsOnLargestLandmass);
+    assignPlayerBiases(humanPlayerIndices, regionsOnPrimaryLandmass);
   }
   aliveMajorIndices.sort((a, b) => playerRegionScores[b].totalBias - playerRegionScores[a].totalBias);
   console.log(`Sorted indices: ${aliveMajorIndices}`);
@@ -523,7 +546,7 @@ function assignStartPositionsFromTiles(playerRegions) {
     const bestScore = playerRegionScores[playerIndex].scores.reduce((best, cur) => Math.max(best, cur), -1);
     const playerId = playerRegionScores[playerIndex].playerId;
     console.log(
-      `  Player Id ${playerId} assigned to region ${regionId} with score ${playerRegionScores[playerIndex].scores[regionId]} (best score possible is ${bestScore})`
+      `  Player Id ${playerId} assigned to region ${regionId}: (${regionBounds[regionId].minX}, ${regionBounds[regionId].minY}) - (${regionBounds[regionId].maxX}, ${regionBounds[regionId].maxY}) with score ${playerRegionScores[playerIndex].scores[regionId]} (best score possible is ${bestScore})`
     );
   }
   let found = 0;
@@ -704,99 +727,77 @@ function getRegionScoresPerPlayer(majorGroup, startRegions) {
   );
   const navRiverBias = new Array(majorGroup.length).fill(0);
   const NWBias = new Array(majorGroup.length).fill(0);
+  const IslandBias = new Array(majorGroup.length).fill(0);
   const aliveMajorIds = Players.getAliveMajorIds();
+  const updateBiasForPlayer = (iMajorGroup, startBiasDef, updateCb, defFilter) => {
+    const playerId = aliveMajorIds[majorGroup[iMajorGroup]];
+    const player = Players.get(playerId);
+    if (player == null) {
+      return;
+    }
+    const uiCivType = player.civilizationType;
+    const uiLeaderType = player.leaderType;
+    for (let startIdx = 0; startIdx < startBiasDef.length; startIdx++) {
+      const startDef = startBiasDef[startIdx];
+      if (startDef && (defFilter == null || defFilter(startDef))) {
+        const civString = startDef.CivilizationType;
+        const ldrString = startDef.LeaderType;
+        let civHash = 0;
+        let ldrHash = 0;
+        if (civString != null) {
+          const civObj = GameInfo.Civilizations.lookup(civString);
+          if (civObj) {
+            civHash = civObj.$hash;
+          }
+        }
+        if (ldrString != null) {
+          const ldrObj = GameInfo.Leaders.lookup(ldrString);
+          if (ldrObj) {
+            ldrHash = ldrObj.$hash;
+          }
+        }
+        if (civHash == uiCivType || ldrHash == uiLeaderType) {
+          updateCb(iMajorGroup, startDef);
+        }
+      }
+    }
+  };
   for (let iMajorGroup = 0; iMajorGroup < majorGroup.length; iMajorGroup++) {
     const playerId = aliveMajorIds[majorGroup[iMajorGroup]];
     const player = Players.get(playerId);
     if (player == null) {
       continue;
     }
-    const uiCivType = player.civilizationType;
-    const uiLeaderType = player.leaderType;
-    console.log("Player Id:" + playerId + ", " + player.civilizationName + ", " + player.leaderName);
-    for (let startBiomeIdx = 0; startBiomeIdx < GameInfo.StartBiasBiomes.length; startBiomeIdx++) {
-      const startBiomeDef = GameInfo.StartBiasBiomes[startBiomeIdx];
-      if (startBiomeDef) {
-        const civString = startBiomeDef.CivilizationType;
-        const ldrString = startBiomeDef.LeaderType;
-        let civHash = 0;
-        let ldrHash = 0;
-        if (civString != null) {
-          const civObj = GameInfo.Civilizations.lookup(civString);
-          if (civObj) {
-            civHash = civObj.$hash;
-          }
-        }
-        if (ldrString != null) {
-          const ldrObj = GameInfo.Leaders.lookup(ldrString);
-          if (ldrObj) {
-            ldrHash = ldrObj.$hash;
-          }
-        }
-        if (civHash == uiCivType || ldrHash == uiLeaderType) {
-          const biomeDef = GameInfo.Biomes.lookup(startBiomeDef.BiomeType);
-          if (biomeDef) {
-            const biomeIndex = biomeDef.$index;
-            console.log("biomeIndex: " + biomeIndex + ", Score: " + startBiomeDef.Score);
-            biomeBiases[iMajorGroup][biomeIndex] += startBiomeDef.Score;
-          }
-        }
+    console.log(
+      "Resolving start biases for player Id:" + playerId + ", " + player.civilizationName + ", " + player.leaderName
+    );
+    updateBiasForPlayer(iMajorGroup, GameInfo.StartBiasBiomes, (iMajorGroup2, startDef) => {
+      const biomeDef = GameInfo.Biomes.lookup(startDef.BiomeType);
+      if (biomeDef) {
+        const biomeIndex = biomeDef.$index;
+        console.log("biomeIndex: " + biomeIndex + ", Score: " + startDef.Score);
+        biomeBiases[iMajorGroup2][biomeIndex] += startDef.Score;
       }
-    }
-    for (let startRiverIdx = 0; startRiverIdx < GameInfo.StartBiasTerrains.length; startRiverIdx++) {
-      const startBiasTerrainDef = GameInfo.StartBiasTerrains[startRiverIdx];
-      if (startBiasTerrainDef) {
-        if (startBiasTerrainDef.TerrainType == "TERRAIN_NAVIGABLE_RIVER") {
-          const civString = startBiasTerrainDef.CivilizationType;
-          const ldrString = startBiasTerrainDef.LeaderType;
-          let civHash = 0;
-          let ldrHash = 0;
-          if (civString != null) {
-            const civObj = GameInfo.Civilizations.lookup(civString);
-            if (civObj) {
-              civHash = civObj.$hash;
-            }
-          }
-          if (ldrString != null) {
-            const ldrObj = GameInfo.Leaders.lookup(ldrString);
-            if (ldrObj) {
-              ldrHash = ldrObj.$hash;
-            }
-          }
-          if (civHash == uiCivType || ldrHash == uiLeaderType) {
-            navRiverBias[iMajorGroup] += startBiasTerrainDef.Score;
-          }
-        }
-      }
-    }
-    for (let startNWIdx = 0; startNWIdx < GameInfo.StartBiasNaturalWonders.length; startNWIdx++) {
-      const startBiasNWDef = GameInfo.StartBiasNaturalWonders[startNWIdx];
-      if (startBiasNWDef) {
-        const civString = startBiasNWDef.CivilizationType;
-        const ldrString = startBiasNWDef.LeaderType;
-        let civHash = 0;
-        let ldrHash = 0;
-        if (civString != null) {
-          const civObj = GameInfo.Civilizations.lookup(civString);
-          if (civObj) {
-            civHash = civObj.$hash;
-          }
-        }
-        if (ldrString != null) {
-          const ldrObj = GameInfo.Leaders.lookup(ldrString);
-          if (ldrObj) {
-            ldrHash = ldrObj.$hash;
-          }
-        }
-        if (civHash == uiCivType || ldrHash == uiLeaderType) {
-          NWBias[iMajorGroup] += startBiasNWDef.Score;
-        }
-      }
-    }
+    });
+    updateBiasForPlayer(
+      iMajorGroup,
+      GameInfo.StartBiasTerrains,
+      (iMajorGroup2, startDef) => {
+        navRiverBias[iMajorGroup2] += startDef.Score;
+      },
+      (startDef) => startDef.TerrainType === "TERRAIN_NAVIGABLE_RIVER"
+    );
+    updateBiasForPlayer(iMajorGroup, GameInfo.StartBiasNaturalWonders, (iMajorGroup2, startDef) => {
+      NWBias[iMajorGroup2] += startDef.Score;
+    });
+    updateBiasForPlayer(iMajorGroup, GameInfo.StartBiasIslands, (iMajorGroup2, startDef) => {
+      IslandBias[iMajorGroup2] += startDef.Score;
+    });
   }
   console.log("biomeBiases " + biomeBiases);
   console.log("navRiverBias " + navRiverBias);
   console.log("NWBias " + NWBias);
+  console.log("IslandBias " + IslandBias);
   const startRegionCount = Array.isArray(startRegions) ? startRegions.length : startRegions.count;
   const biomeCounts = new Array(startRegionCount);
   for (let i = 0; i < startRegionCount; i++) {
@@ -804,12 +805,14 @@ function getRegionScoresPerPlayer(majorGroup, startRegions) {
   }
   const navRiverCounts = [];
   const NWCounts = [];
+  const IslandCounts = [];
   for (let iRegion = 0; iRegion < startRegionCount; iRegion++) {
     for (let iBiome = 0; iBiome < GameInfo.Biomes.length; iBiome++) {
       biomeCounts[iRegion][iBiome] = 0;
     }
     navRiverCounts[iRegion] = 0;
     NWCounts[iRegion] = 0;
+    IslandCounts[iRegion] = 0;
   }
   for (let iRegion = 0; iRegion < startRegionCount; iRegion++) {
     let tileCount = 0;
@@ -821,6 +824,9 @@ function getRegionScoresPerPlayer(majorGroup, startRegions) {
       }
       if (GameplayMap.isNaturalWonder(xCoord, yCoord)) {
         NWCounts[iRegion]++;
+      }
+      if (GameplayMap.isIsland(xCoord, yCoord)) {
+        IslandCounts[iRegion]++;
       }
       ++tileCount;
     };
@@ -841,6 +847,7 @@ function getRegionScoresPerPlayer(majorGroup, startRegions) {
   console.log("biomeCounts " + biomeCounts);
   console.log("navRiverCounts " + navRiverCounts);
   console.log("NWCounts " + NWCounts);
+  console.log("IslandCounts " + IslandCounts);
   let regionScores = [];
   for (let iMajorGroup = 0; iMajorGroup < majorGroup.length; iMajorGroup++) {
     const regionScore = new PlayerRegionScores();
@@ -851,6 +858,7 @@ function getRegionScoresPerPlayer(majorGroup, startRegions) {
     }
     regionScore.totalBias += navRiverBias[iMajorGroup];
     regionScore.totalBias += NWBias[iMajorGroup];
+    regionScore.totalBias += IslandBias[iMajorGroup];
     regionScores.push(regionScore);
   }
   for (let iMajorGroup = 0; iMajorGroup < majorGroup.length; iMajorGroup++) {
@@ -862,6 +870,7 @@ function getRegionScoresPerPlayer(majorGroup, startRegions) {
       }
       regionScoreForMajor += navRiverBias[iMajorGroup] * navRiverCounts[iRegion];
       regionScoreForMajor += NWBias[iMajorGroup] * NWCounts[iRegion];
+      regionScoreForMajor += IslandBias[iMajorGroup] * IslandCounts[iRegion];
       console.log(`majorIndex ${iMajorGroup}, regionScore: ${regionScoreForMajor}`);
       regionScore.scores.push(regionScoreForMajor);
     }
@@ -899,12 +908,16 @@ function pickStartPlotByTile(tiles, continentId, numFoundEarlier, playerId, igno
   let chosenPlotIndex = -1;
   let highestScore = 0;
   let passedFilter = 0;
+  let minArea = HasStartBiasForPlayer(playerId, GameInfo.StartBiasIslands) ? g_MinLandmassSizeForIslandBias : void 0;
+  if (minArea) {
+    console.log(`Player ${playerId} has island start bias, setting minArea to ${minArea}`);
+  }
   for (const tile of tiles) {
     const satisfiesPlotTagFilter = !plotTagFilter || plotTagFilter == PlotTags.PLOT_TAG_NONE || GameplayMap.hasPlotTag(tile.x, tile.y, plotTagFilter);
     const satisfiesLandmassRegionIdFilter = satisfiesPlotTagFilter && !landmassRegionIdFilter || landmassRegionIdFilter === LandmassRegion.LANDMASS_REGION_ANY || GameplayMap.getLandmassRegionId(tile.x, tile.y) === landmassRegionIdFilter;
     if (satisfiesPlotTagFilter && satisfiesLandmassRegionIdFilter) {
       passedFilter++;
-      let score = scorePlot(tile.x, tile.y, continentId);
+      let score = scorePlot(tile.x, tile.y, continentId, minArea);
       if (score > 0) {
         if (!ignoreBias) {
           score += adjustScoreByStartBias(tile.x, tile.y, playerId);
@@ -940,11 +953,11 @@ function pickStartPlot(region, numFoundEarlier, playerId, ignoreBias, startPosit
     landmassRegionIdFilter
   );
 }
-function scorePlot(iX, iY, iContinent) {
+function scorePlot(iX, iY, iContinent, minArea) {
   let score = -1;
   if (!GameplayMap.isWater(iX, iY) && !GameplayMap.isMountain(iX, iY)) {
     if (iContinent == -1 || GameplayMap.getContinentType(iX, iY) == iContinent) {
-      score = StartPositioner.getStartPositionScore(iX, iY);
+      score = StartPositioner.getStartPositionScore(iX, iY, minArea);
     }
   }
   return score;
@@ -974,6 +987,33 @@ function getDistanceToClosestStart(iX, iY, startPositions) {
     }
   }
   return minDistance;
+}
+function HasStartBiasForPlayer(playerId, startBiasDef) {
+  const player = Players.get(playerId);
+  if (player == null || player.isAlive == false) {
+    return false;
+  }
+  const eCivType = player.civilizationType;
+  const eLeaderType = player.leaderType;
+  for (let idx = 0; idx < startBiasDef.length; idx++) {
+    const startBiasCivilization = startBiasDef[idx]?.CivilizationType;
+    const startBiasLeader = startBiasDef[idx]?.LeaderType;
+    if (startBiasCivilization) {
+      const startBiasCivilizationTypeIndex = GameInfo.Civilizations.lookup(startBiasCivilization)?.$index;
+      const civInfoTypeIndex = GameInfo.Civilizations.lookup(eCivType)?.$index;
+      if (startBiasCivilizationTypeIndex == civInfoTypeIndex) {
+        return true;
+      }
+    }
+    if (startBiasLeader) {
+      const startBiasLeaderTypeIndex = GameInfo.Leaders.lookup(startBiasLeader)?.$index;
+      const leaderInfoTypeIndex = GameInfo.Leaders.lookup(eLeaderType)?.$index;
+      if (startBiasLeaderTypeIndex == leaderInfoTypeIndex) {
+        return true;
+      }
+    }
+  }
+  return false;
 }
 function adjustScoreByStartBias(iX, iY, playerId) {
   let score = 0;
@@ -1169,6 +1209,24 @@ function adjustScoreByStartBias(iX, iY, playerId) {
       }
     }
   }
+  for (let iIdx = 0; iIdx < GameInfo.StartBiasIslands.length; iIdx++) {
+    const startBiasCivilization = GameInfo.StartBiasIslands[iIdx]?.CivilizationType;
+    const startBiasLeader = GameInfo.StartBiasIslands[iIdx]?.LeaderType;
+    if (startBiasCivilization) {
+      const startBiasCivilizationTypeIndex = GameInfo.Civilizations.lookup(startBiasCivilization)?.$index;
+      const civInfoTypeIndex = GameInfo.Civilizations.lookup(eCivType)?.$index;
+      if (startBiasCivilizationTypeIndex == civInfoTypeIndex) {
+        score += getIslandStartBiasScore(GameInfo.StartBiasIslands[iIdx].Score, iX, iY);
+      }
+    }
+    if (startBiasLeader) {
+      const startBiasLeaderTypeIndex = GameInfo.Leaders.lookup(startBiasLeader)?.$index;
+      const leaderInfoTypeIndex = GameInfo.Leaders.lookup(eLeaderType)?.$index;
+      if (startBiasLeaderTypeIndex == leaderInfoTypeIndex) {
+        score += getIslandStartBiasScore(GameInfo.StartBiasIslands[iIdx].Score, iX, iY);
+      }
+    }
+  }
   return score;
 }
 function getBiomeStartBiasScore(biome, score, iX, iY) {
@@ -1288,6 +1346,16 @@ function getNaturalWonderStartBiasScore(score, iX, iY) {
     if (GameplayMap.isNaturalWonder(iLocation.x, iLocation.y)) {
       outputScore += score;
     }
+  }
+  if (outputScore > 0) {
+    console.log("Start Bias Score: " + outputScore);
+  }
+  return outputScore;
+}
+function getIslandStartBiasScore(score, iX, iY) {
+  let outputScore = 0;
+  if (GameplayMap.isIsland(iX, iY)) {
+    outputScore += score;
   }
   if (outputScore > 0) {
     console.log("Start Bias Score: " + outputScore);

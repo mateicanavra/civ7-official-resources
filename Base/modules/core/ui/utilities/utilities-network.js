@@ -75,7 +75,14 @@ var NetworkUtilities;
       const remoteVersion = Network.lastMismatchVersion;
       errorBodyLoc = Locale.compose(errorBodyLoc, myVersion, remoteVersion);
     } else if (errorBodyLoc == "LOC_GAME_ABANDONED_MOD_MISSING") {
-      const lastError = Modding.getLastErrorString();
+      let lastError = Modding.getLastErrorString();
+      if (lastError == "LOC_GAME_ABANDONED_MOD_MISSING") {
+        lastError = Locale.compose(lastError);
+        const ownershipErrorStr = getOwnershipErrorContentsString();
+        if (ownershipErrorStr) {
+          lastError += ownershipErrorStr;
+        }
+      }
       if (lastError) {
         errorBodyLoc = lastError;
       }
@@ -114,6 +121,45 @@ var NetworkUtilities;
     }
   }
   NetworkUtilities2.openSocialPanel = openSocialPanel;
+  function getOwnershipErrorContentsString() {
+    let errorString = "";
+    const ownershipErrors = Modding.getLastOwnershipCheck();
+    const packageIds = [];
+    if (ownershipErrors.length > 0) {
+      errorString += "[N][BLIST]";
+      for (const entry of ownershipErrors) {
+        if (entry.allowance == ModAllowance.None) {
+          const packages = Modding.getOwnershipItemPackages(entry.type, entry.key);
+          if (packages.length > 0) {
+            for (const packageId of packages) {
+              if (packageIds.includes(packageId) == false) {
+                packageIds.push(packageId);
+              }
+            }
+          } else {
+            const displayName = Modding.getOwnershipItemDisplayName(entry.type, entry.key);
+            if (displayName && Locale.keyExists(displayName)) {
+              errorString += "[LI]";
+              errorString += Locale.compose(displayName);
+            }
+          }
+        }
+      }
+      const packageNames = [];
+      for (const packageId of packageIds) {
+        const packageName = Modding.getOwnershipPackageDisplayName(packageId);
+        if (packageName) {
+          if (packageNames.includes(packageName) == false) {
+            packageNames.push(packageName);
+            errorString += "[LI]";
+            errorString += Locale.compose(packageName);
+          }
+        }
+      }
+    }
+    return errorString;
+  }
+  NetworkUtilities2.getOwnershipErrorContentsString = getOwnershipErrorContentsString;
 })(NetworkUtilities || (NetworkUtilities = {}));
 
 export { NetworkUtilities };

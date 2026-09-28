@@ -57,7 +57,7 @@ function dumpElevation(iWidth, iHeight) {
       if (GameplayMap.isWater(iX, iY) == false) {
         const elevation = GameplayMap.getElevation(iX, iY);
         let elevationToDisplay = " ";
-        const iNumToDisplay = Math.floor(elevation / 100);
+        const iNumToDisplay = Math.floor(elevation);
         elevationToDisplay = iNumToDisplay.toString();
         str += elevationToDisplay + " ";
       } else {

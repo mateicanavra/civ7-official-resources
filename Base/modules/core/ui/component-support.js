@@ -1017,19 +1017,49 @@ class ComponentManager {
         upResolve = resolve;
         upReject = reject;
       }).catch(handlePromiseRejection);
-      const s = document.createElement("script");
-      s.src = url;
-      if (module) {
-        s.type = "module";
+      const isDevServer = module && url.endsWith(".js") && window.location.href.startsWith("http");
+      if (isDevServer) {
+        const appendScript = (src, onError) => {
+          const s = document.createElement("script");
+          s.src = src;
+          s.type = "module";
+          s.onload = () => {
+            upResolve();
+          };
+          s.onerror = onError;
+          document.head.appendChild(s);
+          return s;
+        };
+        const tsxUrl = url.slice(0, -3) + ".tsx";
+        appendScript(tsxUrl, () => {
+          const tsUrl = url.slice(0, -3) + ".ts";
+          const tsxScript = document.head.querySelector(`script[src="${tsxUrl}"]`);
+          tsxScript?.remove();
+          appendScript(tsUrl, () => {
+            console.warn(`SOURCE WARNING - .tsx or .ts not found, falling back to .js: ${tsUrl}`);
+            const tsScript = document.head.querySelector(`script[src="${tsUrl}"]`);
+            tsScript?.remove();
+            appendScript(url, () => {
+              console.error(`SOURCE ERROR - ${url}`);
+              upReject();
+            });
+          });
+        });
+      } else {
+        const s = document.createElement("script");
+        s.src = url;
+        if (module) {
+          s.type = "module";
+        }
+        s.onload = () => {
+          upResolve();
+        };
+        s.onerror = () => {
+          console.error(`SOURCE ERROR - ${url}`);
+          upReject();
+        };
+        document.head.appendChild(s);
       }
-      s.onload = () => {
-        upResolve();
-      };
-      s.onerror = () => {
-        console.error(`SOURCE ERROR - ${url}`);
-        upReject();
-      };
-      document.head.appendChild(s);
       return p;
     } else {
       return true;
@@ -1040,7 +1070,8 @@ class ComponentManager {
       console.error("Component support attempted to loadStyle() before head was created. source: ", url);
       return false;
     }
-    const el = document.querySelector(`link[href="${url}"]`);
+    const targetUrl = `${url}?direct&t=${Date.now()}`;
+    const el = document.querySelector(`link[data-base-url="${url}"], link[href="${url}"]`);
     if (!el) {
       let upResolve, upReject;
       const p = new Promise((resolve, reject) => {
@@ -1050,7 +1081,8 @@ class ComponentManager {
       const style = document.createElement("link");
       style.setAttribute("rel", "stylesheet");
       style.setAttribute("type", "text/css");
-      style.setAttribute("href", url);
+      style.setAttribute("href", targetUrl);
+      style.setAttribute("data-base-url", url);
       style.onload = () => {
         if (Configuration.getUser().debugUILowLevelLogging > 0) {
           console.log(`STYLE LOADED - ${url}`);
@@ -1274,8 +1306,11 @@ if (!USE_OLD_FOCUS_LISTENERS) {
 }
 class Loading {
   static processInitialScriptsRAF = 0;
+  /**
+   * The 'Initialized' state happens after GameCore has been initialized and loaded its data but before visualization/graphics has finished loading.
+   * In this state, only a subset of script APIs are available.  This state is typically only used by the loading screen or systems used by the loading screen.
+   */
   static isInitialized = false;
-  // Replaces "export const whenInitialized..."
   static whenInitialized = new Promise((resolve, _reject) => {
     engine.whenReady.then(() => {
       console.log("Loading - Script engine ready. Beginning Loading process.");
@@ -1328,7 +1363,6 @@ class Loading {
       }).catch(handlePromiseRejection);
     });
   });
-  // Replaces "export function runWhenInitialized..."
   static runWhenInitialized(f) {
     if (Loading.isInitialized) {
       f();
@@ -1336,9 +1370,11 @@ class Loading {
       Loading.whenInitialized.finally(f);
     }
   }
-  // Replaces "export let isLoaded..."
+  /**
+   * The 'Loaded' state happens after visualization has finished loading and all script APIs are now available.
+   * Web Components and their dependencies have also been loaded.
+   */
   static isLoaded = false;
-  // Replaces "export const whenLoaded..."
   static whenLoaded = new Promise((resolve, _reject) => {
     Loading.runWhenInitialized(() => {
       console.log("Loading - Script engine ready. Beginning Loading process.");
@@ -1419,7 +1455,6 @@ class Loading {
       }).catch(handlePromiseRejection);
     });
   });
-  // Replaces "export function runWhenLoaded..."
   static runWhenLoaded(f) {
     if (Loading.isLoaded) {
       f();
@@ -1427,9 +1462,10 @@ class Loading {
       Loading.whenLoaded.finally(f);
     }
   }
-  // Replaces "export let isFinished..."
+  /**
+   * The 'Finished' state is the final state which means the game is started, all users clicked "ready" and the curtain has been lifted.
+   */
   static isFinished = false;
-  // Replaces "export const whenFinished..."
   static whenFinished = new Promise((resolve) => {
     Loading.runWhenLoaded(() => {
       console.log("Loading - Finishing setting up the UI.");
@@ -1497,4 +1533,122 @@ engine.whenReady.then(() => {
   engine.on("update-safe-area", setComponentSupportSafeMargins);
   setComponentSupportSafeMargins();
 });
+const DEBUG_TRACK_LISTENERS = false;
+if (DEBUG_TRACK_LISTENERS) {
+  let getTrackerRegistry2 = function() {
+    return _trackerRegistry;
+  };
+  var getTrackerRegistry = getTrackerRegistry2;
+  const _trackerRegistry = {
+    engineListeners: [],
+    eventListeners: [],
+    timeouts: /* @__PURE__ */ new Map(),
+    intervals: /* @__PURE__ */ new Map(),
+    animationFrames: /* @__PURE__ */ new Map()
+  };
+  (() => {
+    const originalAdd = engine.on;
+    const originalRemove = engine.off;
+    engine.on = function(name, callback, context) {
+      const stack = new Error().stack;
+      const registry = getTrackerRegistry2();
+      registry.engineListeners.push({
+        target: this,
+        name,
+        callback,
+        context,
+        stack
+      });
+      return originalAdd.call(this, name, callback, context);
+    };
+    engine.off = function(name, callback, context) {
+      const registry = getTrackerRegistry2();
+      registry.engineListeners = registry.engineListeners.filter((item) => {
+        const isMatch = item.target === this && item.name === name && item.callback === callback && item.context === context;
+        return !isMatch;
+      });
+      return originalRemove.call(this, name, callback, context);
+    };
+  })();
+  (() => {
+    const originalAdd = window.addEventListener.bind(window);
+    const originalRemove = window.removeEventListener.bind(window);
+    window.addEventListener = function(type, listener, options) {
+      const stack = new Error().stack;
+      const registry = getTrackerRegistry2();
+      if (listener !== null) {
+        registry.eventListeners.push({
+          target: this,
+          type,
+          listener,
+          options,
+          stack
+        });
+      }
+      return originalAdd.call(this, type, listener, options);
+    };
+    window.removeEventListener = function(type, listener, options) {
+      const registry = getTrackerRegistry2();
+      registry.eventListeners = registry.eventListeners.filter((item) => {
+        const isMatch = item.target === this && item.type === type && item.listener === listener;
+        return !isMatch;
+      });
+      return originalRemove.call(this, type, listener, options);
+    };
+  })();
+  (() => {
+    const originalSetTimeout = window.setTimeout.bind(window);
+    const originalClearTimeout = window.clearTimeout.bind(window);
+    const originalSetInterval = window.setInterval.bind(window);
+    const originalClearInterval = window.clearInterval.bind(window);
+    window.setTimeout = function(handler, timeout, ...args) {
+      const stack = new Error().stack;
+      const registry = getTrackerRegistry2();
+      const id = originalSetTimeout(handler, timeout, ...args);
+      registry.timeouts.set(id, { handler, timeout, stack });
+      return id;
+    };
+    window.clearTimeout = function(id) {
+      if (id !== void 0) {
+        const registry = getTrackerRegistry2();
+        registry.timeouts.delete(id);
+      }
+      return originalClearTimeout(id);
+    };
+    window.setInterval = function(handler, timeout, ...args) {
+      const stack = new Error().stack;
+      const registry = getTrackerRegistry2();
+      const id = originalSetInterval(handler, timeout, ...args);
+      registry.intervals.set(id, { handler, timeout, stack });
+      return id;
+    };
+    window.clearInterval = function(id) {
+      if (id !== void 0) {
+        const registry = getTrackerRegistry2();
+        registry.intervals.delete(id);
+      }
+      return originalClearInterval(id);
+    };
+  })();
+  (() => {
+    const originalRequest = window.requestAnimationFrame.bind(window);
+    const originalCancel = window.cancelAnimationFrame.bind(window);
+    window.requestAnimationFrame = function(callback) {
+      const stack = new Error().stack;
+      const registry = getTrackerRegistry2();
+      const wrappedCallback = (timestamp) => {
+        registry.animationFrames.delete(id);
+        return callback(timestamp);
+      };
+      const id = originalRequest(wrappedCallback);
+      registry.animationFrames.set(id, { callback, stack });
+      return id;
+    };
+    window.cancelAnimationFrame = function(id) {
+      const registry = getTrackerRegistry2();
+      registry.animationFrames.delete(id);
+      return originalCancel(id);
+    };
+  })();
+}
 //# sourceMappingURL=component-support.js.map

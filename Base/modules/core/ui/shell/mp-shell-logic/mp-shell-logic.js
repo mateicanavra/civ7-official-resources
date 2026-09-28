@@ -1,6 +1,7 @@
-import ContextManager from '../../context-manager/context-manager.js';
+import { ContextManager } from '../../context-manager/context-manager.js';
 import { DialogBoxManager } from '../../dialog-box/manager-dialog-box.js';
 import { SuspendCloseListenerEvent, MainMenuReturnEvent, ResumeCloseListenerEvent, GameCreatorOpenedEvent } from '../../events/shell-events.js';
+import { InputHandlerState } from '../../input/input-support.js';
 import { ScreenProfilePageExternalStatus } from '../../profile-page/screen-profile-page.js';
 import { joinGameErrorTypeToErrorBody, lobbyErrorTypeToErrorBody } from '../../utilities/utilities-network-constants.js';
 import { NetworkUtilities } from '../../utilities/utilities-network.js';
@@ -63,6 +64,10 @@ class MultiplayerShellManagerSingleton {
   canMPDialogShow = true;
   savedErrorTitle = "";
   savedErrorBody = "";
+  abandoningGame = false;
+  //[IGP-133825] flag to indicate that the shell scripting is in the process of handling a game abandonment inside of mp-shell-logic.  
+  //Flag gets flipped off as soon as exitMPGame has been executed for the abandonment.
+  //mp-create-game.ts uses this to suppress the game configuration reset during game abandonment to avoid stomping on possible important data in the LastOwnershipCheck.
   hostCreatingGameDialogBoxID;
   clientJoiningGameDialogBoxID;
   clientMatchmakingGameDialogBoxId;
@@ -571,11 +576,13 @@ class MultiplayerShellManagerSingleton {
    * Show a pop up when an MP game was abandoned
    */
   onMultiplayerGameAbandoned(data) {
+    this.abandoningGame = true;
     const abandonPopup = NetworkUtilities.multiplayerAbandonReasonToPopup(
       data.reason
     );
     window.dispatchEvent(new MultiplayerGameAbandonedEvent(abandonPopup));
     this.exitMPGame(abandonPopup.title, abandonPopup.body);
+    this.abandoningGame = false;
   }
   exitToMainMenu() {
     Network.onExitPremium();
@@ -701,7 +708,7 @@ class MultiplayerShellManagerSingleton {
   }
   handleInput(inputEvent) {
     if (inputEvent.detail.status != InputActionStatuses.FINISH) {
-      return true;
+      return InputHandlerState.Active;
     }
     if ((inputEvent.detail.name == "center-plot-cursor" || //TODO: Right stick press placeholder until gamepad can support input combinations
     inputEvent.detail.name == "open-techs") && //TODO: Requires new action for 'R' key on KBM
@@ -709,17 +716,20 @@ class MultiplayerShellManagerSingleton {
       ContextManager.push("screen-mp-friends", { singleton: true, createMouseGuard: true });
       inputEvent.preventDefault();
       inputEvent.stopImmediatePropagation();
-      return false;
+      return InputHandlerState.Handled;
     }
-    return true;
+    return InputHandlerState.Active;
   }
   handleNavigation(navigationEvent) {
     if (navigationEvent) {
     }
-    return true;
+    return InputHandlerState.Active;
   }
   get unitTestMP() {
     return Network.unitTestModeEnabled;
+  }
+  get isShellAbandoningGame() {
+    return this.abandoningGame;
   }
   /**
    * Delay executing a function for the given number of frames.

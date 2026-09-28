@@ -2,13 +2,13 @@ import { template, insert, classList, use, Portal, className } from '../../vendo
 import { createSignal, createContext, useContext, createMemo, createComponent, Show, createRenderEffect, createEffect, on, onMount, onCleanup } from '../../vendor/solid-js/dist/solid.js';
 import { Activatable } from './activatable.js';
 import { Panel } from './panel.js';
-import { ScrollArea } from './scroll-area.js';
+import { ScrollAreaContext, ScrollArea } from './scroll-area.js';
 import { Slot } from './slot.js';
 import { useAudio } from '../services/audio-support.js';
 import { FocusManager } from '../services/focus-manager.js';
 import { LayoutModel } from '../utilities/layout-utilities.js';
 
-var _tmpl$ = /* @__PURE__ */ template(`<div class="mr-0\\.5 rotate-180 img-selection-arrow"></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="absolute inset-0\\.5 img-dropdown-focus opacity-0 group-focus\\:opacity-70 group-hover\\:opacity-70 group-pressed\\:opacity-70 flex flex-row items-center justify-start"></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="ml-3 relative"></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div class="dropdown__bg absolute inset-px transition-opacity bg-primary-3"></div>`), _tmpl$5 = /* @__PURE__ */ template(`<div class="dropdown__highlight absolute -inset-0\\.5 fxs-dropdown-gradient img-dropdown-box-focus opacity-0 transition-opacity group-hover\\:opacity-100 group-focus\\:opacity-100 group-pressed\\:opacity-100"></div>`), _tmpl$6 = /* @__PURE__ */ template(`<div class="dropdown__label relative flex-auto"></div>`), _tmpl$7 = /* @__PURE__ */ template(`<div class="dropdown__open-arrow min-w-8 min-h-12 -my-2 mr-1\\.5 img-arrow transition-transform relative"></div>`), _tmpl$8 = /* @__PURE__ */ template(`<div data-name=Dropdown></div>`);
+var _tmpl$ = /* @__PURE__ */ template(`<div class="mr-0\\.5 rotate-180 img-selection-arrow"></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="absolute inset-0\\.5 img-dropdown-focus opacity-0 group-focus\\:opacity-70 group-hover\\:opacity-70 group-pressed\\:opacity-70 flex flex-row items-center justify-start"></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="ml-3 relative"></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div class="dropdown__bg absolute inset-px transition-opacity bg-primary-3"></div>`), _tmpl$5 = /* @__PURE__ */ template(`<div class="dropdown__highlight absolute -inset-0\\.5 fxs-dropdown-gradient img-dropdown-box-focus opacity-0 transition-opacity group-hover\\:opacity-100 group-focus\\:opacity-100 group-pressed\\:opacity-100"></div>`), _tmpl$6 = /* @__PURE__ */ template(`<div class="dropdown__label relative flex-auto"></div>`), _tmpl$7 = /* @__PURE__ */ template(`<div class="dropdown__open-arrow min-w-8 min-h-12 -my-2 mr-1\\.5 img-arrow transition-transform relative"></div>`), _tmpl$8 = /* @__PURE__ */ template(`<div data-name="Dropdown"></div>`);
 const DropdownListNavRules = /* @__PURE__ */ new Map([[InputNavigationAction.UP, (context) => {
   context.focusPrevious();
   return true;
@@ -101,6 +101,7 @@ function Dropdown(props) {
   const [dropdownTop, setDropdownTop] = createSignal(void 0);
   const [dropdownLeft, setDropdownLeft] = createSignal(void 0);
   const [openUp, setOpenUp] = createSignal(false);
+  const scrollAreaContext = useContext(ScrollAreaContext);
   const selectionTemplate = createMemo(() => {
     const selectedItem = context.selectedValue();
     const fallback = props.fallback ?? "Select An Item";
@@ -113,6 +114,16 @@ function Dropdown(props) {
       context.setSelectedValue(value);
     }
   }));
+  createEffect(() => {
+    if (!scrollAreaContext) {
+      return;
+    }
+    if (scrollAreaContext.hasScrolledFromStart() && context.isEditing()) {
+      closeDropdown();
+    }
+  }, {
+    defer: true
+  });
   onMount(() => {
     window.addEventListener("click", handleClickOutside, true);
     window.addEventListener("touchstart", handleTouchOutside, true);
@@ -142,6 +153,7 @@ function Dropdown(props) {
   createEffect(on(() => context.isEditing(), (isEditing) => {
     if (isEditing) {
       prevFocus = FocusManager.get().currentFocus();
+      scrollAreaContext?.setPositionStart(scrollAreaContext.position());
     } else if (prevFocus) {
       FocusManager.get().setFocus(prevFocus);
       prevFocus = void 0;

@@ -1,18 +1,37 @@
+import { createComponent } from '../../../core/vendor/solid-js/dist/solid.js';
 import { Audio } from '../../../core/ui/audio-base/audio-support.js';
-import ContextManager, { ContextManagerEvents } from '../../../core/ui/context-manager/context-manager.js';
-import ActionHandler from '../../../core/ui/input/action-handler.js';
+import { ContextManagerEvents, ContextManager } from '../../../core/ui/context-manager/context-manager.js';
 import { CursorUpdatedEventName } from '../../../core/ui/input/cursor.js';
 import { Focus } from '../../../core/ui/input/focus-support.js';
 import { ActiveDeviceTypeChangedEventName } from '../../../core/ui/input/input-events.js';
 import { InputEngineEventName } from '../../../core/ui/input/input-support.js';
 import LensManager, { LensActivationEventName, LensLayerEnabledEventName, LensLayerDisabledEventName } from '../../../core/ui/lenses/lens-manager.js';
+import { ModdingRegistry } from '../../../core/ui/modding-registry-handler/modding-registry-handler.js';
 import Panel, { AnchorType } from '../../../core/ui/panel-support.js';
 import { SocialPanelOpenEventName } from '../../../core/ui/shell/mp-staging/mp-friends.js';
 import Databind from '../../../core/ui/utilities/utilities-core-databinding.js';
 import { Layout } from '../../../core/ui/utilities/utilities-layout.js';
-import MiniMapData from './model-mini-map.js';
+import { defineLegacyComponent } from '../../../core/ui-next/components/fxs-solid-component.js';
+import { MiniMapRadioButton } from '../../../core/ui-next/components/mini-map-lens-button.js';
+import { IsControllerActive } from '../../../core/ui-next/services/input.js';
 import styles from './panel-mini-map.scss.js';
 
+defineLegacyComponent(
+  "fxs-mini-map-lens-button",
+  {
+    classNames: ["w-1\\/2", "flex", "flex-row", "items-center"],
+    attrs: {
+      caption: "",
+      lens: ""
+    }
+  },
+  (attrs, _element) => {
+    return createComponent(MiniMapRadioButton, {
+      caption: attrs.caption,
+      lens: attrs.lens
+    });
+  }
+);
 class MinimapSubpanel extends Panel {
   constructor(root) {
     super(root);
@@ -161,7 +180,7 @@ class PanelMiniMap extends Panel {
   }
   onAttach() {
     super.onAttach();
-    engine.on(ContextManagerEvents.OnChanged, this.onContextChange, this);
+    engine.on(ContextManagerEvents.OnClose, this.onContextClose, this);
     this.Root.addEventListener(InputEngineEventName, this.engineInputListener);
     this.Root.addEventListener(ToggleMiniMapEventName, this.toggleMiniMapListener);
     window.addEventListener(HideMiniMapEventName, this.hideMiniMapListener);
@@ -177,7 +196,7 @@ class PanelMiniMap extends Panel {
     engine.whenReady.then(() => this.createChatPanel());
   }
   onDetach() {
-    engine.off(ContextManagerEvents.OnChanged, this.onContextChange, this);
+    engine.off(ContextManagerEvents.OnClose, this.onContextClose, this);
     if (this.multiplayerChatHandle != null) {
       this.multiplayerChatHandle.clear();
       this.multiplayerChatHandle = null;
@@ -204,13 +223,12 @@ class PanelMiniMap extends Panel {
     this.subpanelContainer.appendChild(subpanel.container);
     this.subpanels.push(subpanel);
   }
-  onContextChange(_event) {
+  onContextClose(_event) {
     const deactivatedElement = _event.detail.deactivatedElement;
-    if (deactivatedElement && (deactivatedElement.typeName === "lens-panel" || deactivatedElement.typeName === "screen-mp-chat")) {
+    if (deactivatedElement?.typeName === "lens-panel" && this.lensPanelState || deactivatedElement?.typeName === "screen-mp-chat" && this.chatPanelState) {
       this.closeSubpanels();
-    } else {
-      this.updateChatNavHelp();
     }
+    this.updateChatNavHelp();
   }
   onActiveLensChanged(event) {
     const hasLegend = event.detail.hasLegend;
@@ -314,7 +332,7 @@ class PanelMiniMap extends Panel {
     }
   }
   isOpenRadialButtonVisible() {
-    return (this.isScreenSmallMode() || UI.getViewExperience() == UIViewExperience.Mobile) && ActionHandler.isGamepadActive;
+    return (this.isScreenSmallMode() || UI.getViewExperience() == UIViewExperience.Mobile) && IsControllerActive();
   }
   updateRadialButton() {
     this.miniMapRadialButton.classList.toggle("hidden", !this.isOpenRadialButtonVisible());
@@ -633,11 +651,7 @@ class LensPanel extends MinimapSubpanel {
   lensPanel = document.createElement("fxs-vslot");
   lensRadioButtonContainer = document.createElement("fxs-spatial-slot");
   layerCheckboxContainer = document.createElement("fxs-spatial-slot");
-  miniMapLensDisplayOptionName = "minimap_set_lens";
-  lensRadioButtons = [];
-  lensElementMap = {};
   layerElementMap = {};
-  onActiveLensChangedListener = this.onActiveLensChanged.bind(this);
   constructor(root) {
     super(root);
     this.animateInType = this.animateOutType = AnchorType.Fade;
@@ -662,6 +676,7 @@ class LensPanel extends MinimapSubpanel {
     lensPanelHeader.setAttribute("title", "LOC_UI_MINI_MAP_LENSES");
     lensPanelHeader.setAttribute("filigree-style", "h4");
     lensPanelContent.appendChild(lensPanelHeader);
+    this.lensRadioButtonContainer.id = "lens-radio-button-container";
     this.lensRadioButtonContainer.className = "relative flex flex-wrap row items-start justify-start";
     lensPanelContent.appendChild(this.lensRadioButtonContainer);
     const decorPanelContent = document.createElement("div");
@@ -681,26 +696,30 @@ class LensPanel extends MinimapSubpanel {
     visibilityDivider.classList.add("filigree-divider-inner-frame");
     visibilityPanelContent.appendChild(visibilityDivider);
     visibilityPanelContent.appendChild(this.createShowMinimapCheckbox());
-    this.createLensButton("LOC_UI_MINI_MAP_NONE", "fxs-default-lens", "lens-group");
-    this.createLensButton("LOC_UI_MINI_MAP_SETTLER", "fxs-settler-lens", "lens-group");
-    this.createLensButton("LOC_UI_MINI_MAP_CONTINENT", "fxs-continent-lens", "lens-group");
-    this.createLensButton("LOC_UI_MINI_MAP_TRADE", "fxs-trade-lens", "lens-group");
-    this.createLensButton("LOC_UI_MINI_MAP_GENERAL_APPEAL", "fxs-general-appeal-lens", "lens-group");
+    this.createLensButton("LOC_UI_MINI_MAP_NONE", "fxs-default-lens");
+    this.createLensButton("LOC_UI_MINI_MAP_SETTLER", "fxs-settler-lens");
+    this.createLensButton("LOC_UI_MINI_MAP_CONTINENT", "fxs-continent-lens");
+    this.createLensButton("LOC_UI_MINI_MAP_TRADE", "fxs-trade-lens");
+    this.createLensButton("LOC_UI_MINI_MAP_GENERAL_APPEAL", "fxs-general-appeal-lens");
     this.createLayerCheckbox("LOC_UI_MINI_MAP_HEX_GRID", "fxs-hexgrid-layer");
     this.createLayerCheckbox("LOC_UI_MINI_MAP_RESOURCE", "fxs-resource-layer");
     this.createLayerCheckbox("LOC_UI_MINI_MAP_YIELDS", "fxs-yields-layer");
     this.createLayerCheckbox("LOC_UI_MINI_MAP_CONQUEST", "fxs-conquest-layer", "LOC_UI_MINI_MAP_CONQUEST_TOOLTIP");
+    this.createLayerCheckbox(
+      "LOC_UI_MINI_MAP_RADIAL_RULER",
+      "fxs-radial-measure-layer",
+      "LOC_UI_MINI_MAP_RADIAL_RULER_TOOLTIP"
+    );
     this.Root.appendChild(this.lensPanel);
+    ModdingRegistry.attachModElements("mini-map__lens-panel");
   }
   onAttach() {
     super.onAttach();
-    window.addEventListener(LensActivationEventName, this.onActiveLensChangedListener);
     window.addEventListener(LensLayerEnabledEventName, this.onLensLayerEnabled);
     window.addEventListener(LensLayerDisabledEventName, this.onLensLayerDisabled);
   }
   onDetach() {
     super.onDetach();
-    window.removeEventListener(LensActivationEventName, this.onActiveLensChangedListener);
     window.removeEventListener(LensLayerEnabledEventName, this.onLensLayerEnabled);
     window.removeEventListener(LensLayerDisabledEventName, this.onLensLayerDisabled);
   }
@@ -754,44 +773,11 @@ class LensPanel extends MinimapSubpanel {
       }
     });
   }
-  createLensButton(caption, lens, group) {
-    const isLensEnabled = LensManager.getActiveLens() === lens;
-    const radioButtonLabelContainer = document.createElement("div");
-    radioButtonLabelContainer.className = "w-1\\/2 flex flex-row items-center";
-    const radioButton = document.createElement("fxs-radio-button");
-    this.lensElementMap[lens] = radioButton;
-    radioButton.classList.add("mr-2");
-    radioButton.setAttribute("group-tag", group);
-    radioButton.setAttribute("value", lens);
-    radioButton.setAttribute("caption", caption);
-    radioButton.setAttribute("selected", isLensEnabled.toString());
-    radioButton.setAttribute("tabindex", "-1");
-    radioButton.setAttribute("data-audio-group-ref", "minimap-radio-button");
-    radioButtonLabelContainer.appendChild(radioButton);
-    this.lensRadioButtons.push(radioButton);
-    const label = document.createElement("div");
-    label.role = "paragraph";
-    label.className = "text-accent-2 text-base font-body pointer-events-auto";
-    label.dataset.l10nId = caption;
-    radioButtonLabelContainer.appendChild(label);
-    this.lensRadioButtonContainer.appendChild(radioButtonLabelContainer);
-    radioButton.addEventListener(ComponentValueChangeEventName, this.onLensChange);
-  }
-  close() {
-    super.close();
-  }
-  onLensChange = (event) => {
-    const { isChecked, value: lens } = event.detail;
-    if (isChecked) {
-      LensManager.setActiveLens(lens);
-      MiniMapData.setLensDisplayOption(this.miniMapLensDisplayOptionName, lens);
-    }
-  };
-  onActiveLensChanged() {
-    for (const lensButton of this.lensRadioButtons) {
-      const isLensEnabled = LensManager.getActiveLens() === lensButton.getAttribute("value");
-      lensButton.setAttribute("selected", isLensEnabled.toString());
-    }
+  createLensButton(caption, lens) {
+    const lensButton = document.createElement("fxs-mini-map-lens-button");
+    lensButton.setAttribute("caption", caption);
+    lensButton.setAttribute("lens", lens);
+    this.lensRadioButtonContainer.appendChild(lensButton);
   }
   onLensLayerEnabled = (event) => {
     const checkbox = this.layerElementMap[event.detail.layer];

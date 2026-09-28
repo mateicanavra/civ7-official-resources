@@ -1,5 +1,4 @@
 import { Audio } from '../audio-base/audio-support.js';
-import ActionHandler from '../input/action-handler.js';
 import { Focus } from '../input/focus-support.js';
 import NavTray from '../navigation-tray/model-navigation-tray.js';
 import Panel, { AnchorType } from '../panel-support.js';
@@ -11,6 +10,8 @@ import { Layout } from '../utilities/utilities-layout.js';
 import { getPlayerCardInfo, UnlockableRewardItems, getRewardType, UnlockableRewardType, updatePlayerProfile } from '../utilities/utilities-liveops.js';
 import { ChallengeClass, ChallengeCategorySortIndex } from '../utilities/utilities-metaprogression.js';
 import { FocusManager } from '../../ui-next/services/focus-manager.js';
+import { IsControllerActive } from '../../ui-next/services/input.js';
+import { ViewExperience } from '../../ui-next/services/view-experience.js';
 import content from './screen-profile-page.html.js';
 import styles from './screen-profile-page.scss.js';
 
@@ -86,7 +87,7 @@ class ScreenProfilePage extends Panel {
   cancelRewardsUpdate = false;
   rewardsUpdateBusy = false;
   isOfflineMemento = !Network.supportsSSO() && Online.Metaprogression.supportsMemento();
-  isMobileViewExperience = UI.getViewExperience() == UIViewExperience.Mobile;
+  isMobile = ViewExperience() == UIViewExperience.Mobile;
   panelOptions = null;
   selectedLeaderEle;
   /*
@@ -167,9 +168,10 @@ class ScreenProfilePage extends Panel {
     const titleFrame = MustGetElement(".profile-main-frame", this.Root);
     titleFrame.setAttribute("frame-style", "none");
     titleFrame.setAttribute("title", Locale.compose("LOC_METAPROGRESSION_PANEL_TITLE"));
-    if (this.isMobileViewExperience) {
+    if (this.isMobile) {
       titleFrame.setAttribute("outside-safezone-mode", "full");
       titleFrame.setAttribute("frame-style", "f1");
+      titleFrame.classList.add("relative");
     }
     this.createContents();
     const closeButton = document.createElement("fxs-close-button");
@@ -332,8 +334,8 @@ class ScreenProfilePage extends Panel {
       "flex-auto",
       "mr-8"
     );
-    progressRightColumn.classList.toggle("ml-4", !this.isMobileViewExperience);
-    progressRightColumn.classList.toggle("ml-3", this.isMobileViewExperience);
+    progressRightColumn.classList.toggle("ml-4", !this.isMobile);
+    progressRightColumn.classList.toggle("ml-3", this.isMobile);
     if (this.isOfflineMemento) {
       const progHeader = document.createElement("progression-header");
       progHeader.classList.add("profile-customize-progression-header", "mt-10", "mb-2", "w-full");
@@ -379,7 +381,7 @@ class ScreenProfilePage extends Panel {
     frag.appendChild(outerSlot);
   }
   focusLeaderHandler(evt) {
-    if (ActionHandler.isGamepadActive) {
+    if (IsControllerActive()) {
       this.selectLeader(evt.target);
     }
   }
@@ -480,6 +482,7 @@ class ScreenProfilePage extends Panel {
         const rewardType = getRewardType(reward.gameItemID);
         if (rewardType != void 0) {
           const itemContainer = document.createElement("fxs-activatable");
+          itemContainer.setAttribute("data-audio-group-ref", "profile-screen");
           itemContainer.classList.add("profile-progress-list-item", "ml-2", "mr-4", "mb-2", "flex-auto");
           let rewardURL = reward.reward;
           if (rewardType == rewardTypeBanner || Online.UserProfile.getUnlockableRewardTypeIDString(rewardType) == "UNLOCKABLEREWARD_TYPE_BANNER") {
@@ -554,7 +557,7 @@ class ScreenProfilePage extends Panel {
       outerHslot.appendChild(leftVslot2);
       const titleText = document.createElement("fxs-header");
       titleText.classList.add("mt-8");
-      if (this.isMobileViewExperience) {
+      if (this.isMobile) {
         titleText.setAttribute("filigree-style", "h4");
       } else {
         titleText.setAttribute("filigree-style", "none");
@@ -581,13 +584,13 @@ class ScreenProfilePage extends Panel {
       leftScrollable.appendChild(spatialSlot);
       const rightVslot = document.createElement("fxs-vslot");
       rightVslot.classList.add("ml-8", "flex-auto");
-      rightVslot.classList.toggle("ml-8", !this.isMobileViewExperience);
-      rightVslot.classList.toggle("ml-5", this.isMobileViewExperience);
+      rightVslot.classList.toggle("ml-8", !this.isMobile);
+      rightVslot.classList.toggle("ml-5", this.isMobile);
       outerHslot.appendChild(rightVslot);
       const progHeader = document.createElement("progression-header");
       progHeader.classList.add("profile-customize-progression-header", "mt-16");
-      progHeader.classList.toggle("mb-8", !this.isMobileViewExperience);
-      progHeader.classList.toggle("mb-2", this.isMobileViewExperience);
+      progHeader.classList.toggle("mb-8", !this.isMobile);
+      progHeader.classList.toggle("mb-2", this.isMobile);
       progHeader.whenComponentCreated((c) => c.Root.removeAttribute("tabindex"));
       progHeader.setAttribute("player-card-style", "large");
       progHeader.setAttribute("data-player-info", stringifyJSON(this.cardInfo));
@@ -600,7 +603,8 @@ class ScreenProfilePage extends Panel {
         "p-2",
         "flow-column",
         "border-primary-1",
-        "border-2"
+        "border-2",
+        "justify-center"
       );
       rightVslot.appendChild(customizeRight);
       const rightScrollable = document.createElement("fxs-scrollable");
@@ -793,10 +797,10 @@ class ScreenProfilePage extends Panel {
               "w-52",
               "pointer-events-auto"
             );
-            activatable.classList.toggle("h-52", !this.isMobileViewExperience);
-            activatable.classList.toggle("w-52", !this.isMobileViewExperience);
-            activatable.classList.toggle("h-28", this.isMobileViewExperience);
-            activatable.classList.toggle("w-28", this.isMobileViewExperience);
+            activatable.classList.toggle("h-52", !this.isMobile);
+            activatable.classList.toggle("w-52", !this.isMobile);
+            activatable.classList.toggle("h-28", this.isMobile);
+            activatable.classList.toggle("w-28", this.isMobile);
             if (thisBorder.isLocked) {
               activatable.classList.add("profile-customize-locked");
             }
@@ -806,9 +810,9 @@ class ScreenProfilePage extends Panel {
 								<div class="absolute inset-0 bg-cover bg-no-repeat pointer-events-none" style="background-image: url('fs://game/prof_btn_bk.png')"></div>
 								<div class="profile-customize-highlight absolute inset-0 bg-cover bg-no-repeat pointer-events-none"></div>
 								<div class="profile-customize-select absolute inset-0 bg-cover bg-no-repeat pointer-events-none"></div>
-								<div class="absolute inset-0 bg-cover bg-no-repeat ${this.isMobileViewExperience ? "h-28 w-28" : "h-52 w-52"} pointer-events-none" style="background-image: url('${thisBorder.url}.png')"></div>
-								<div class="profile-customize-new-icon absolute ${this.isMobileViewExperience ? "inset-x-20 h-8 w-8" : "inset-x-38 h-14 w-14"} inset-y-0 bg-cover bg-no-repeat pointer-events-none" style="background-image: url('prof_new.png')"></div>
-								<div class="profile-customize-locked-icon absolute ${this.isMobileViewExperience ? "inset-x-9 inset-y-18 h-10 w-10" : "inset-x-20 inset-y-40 h-12 w-12"} bg-cover bg-no-repeat pointer-events-none" style="background-image: url('prof_locked.png')"></div>					
+								<div class="absolute inset-0 bg-cover bg-no-repeat ${this.isMobile ? "h-28 w-28" : "h-52 w-52"} pointer-events-none" style="background-image: url('${thisBorder.url}.png')"></div>
+								<div class="profile-customize-new-icon absolute ${this.isMobile ? "inset-x-20 h-8 w-8" : "inset-x-38 h-14 w-14"} inset-y-0 bg-cover bg-no-repeat pointer-events-none" style="background-image: url('prof_new.png')"></div>
+								<div class="profile-customize-locked-icon absolute ${this.isMobile ? "inset-x-9 inset-y-18 h-10 w-10" : "inset-x-20 inset-y-40 h-12 w-12"} bg-cover bg-no-repeat pointer-events-none" style="background-image: url('prof_locked.png')"></div>					
 							`;
             if (thisBorder.url == this.cardInfo.BorderURL) {
               activatable.classList.add(
@@ -1930,6 +1934,8 @@ class ScreenProfilePage extends Panel {
     }
     legendPathItems = [];
     Online.Metaprogression.getLegendPathsData().forEach((item) => {
+      const leaderEntry = Database.query("config", "SELECT LeaderName FROM Leaders WHERE LeaderType = ?1", item.leaderTypeName) ?? [];
+      const leaderName = leaderEntry[0] ? leaderEntry[0].LeaderName ?? "" : "";
       const progressItem = {
         progressItemType: item.legendPathType,
         mainTitleLoc: item.legendPathLoc,
@@ -1939,12 +1945,16 @@ class ScreenProfilePage extends Panel {
         prevLevelXP: Number(item.prevLevelXp),
         maxLevel: item.maxLevel,
         rewards: [],
-        leaderId: item.leaderTypeName
+        leaderId: item.leaderTypeName,
+        leaderName: Locale.compose(leaderName)
       };
       if (item.rewards && item.rewards.length > 0) {
         progressItem.rewards = item.rewards;
       }
       legendPathItems.push(progressItem);
+    });
+    legendPathItems.sort((a, b) => {
+      return Locale.compare(a.leaderName, b.leaderName);
     });
     if (Network.supportsSSO()) {
       this.challengeGroups = [];
@@ -1989,7 +1999,6 @@ class ScreenProfilePage extends Panel {
     this.Root.addEventListener("navigate-input", this.navigationInputListener);
     const tabContainer = MustGetElement(".profile-tab-container", this.Root);
     const tabControlWrapper = document.createElement("div");
-    tabControlWrapper.classList.add("h-16");
     const tabControl = document.createElement("fxs-tab-bar");
     tabControl.classList.add("profile-main-tab", "self-center");
     tabControl.classList.toggle("profile-main-tab-left-shift", !this.isOfflineMemento);
@@ -2029,6 +2038,7 @@ class ScreenProfilePage extends Panel {
       this.slotGroup.appendChild(container);
     }
     tabControl.setAttribute("tab-items", JSON.stringify(profileItems));
+    tabControlWrapper.classList.add(this.isOfflineMemento && profileItems.length == 1 ? "h-2" : "h-16");
     const setupTabItem = (selector, setupFunc) => {
       const element = this.Root.querySelector(selector);
       if (element?.childElementCount == 0) {
@@ -2110,6 +2120,28 @@ class ScreenProfilePage extends Panel {
     tabContainer.appendChild(tabControlWrapper);
     tabContainer.appendChild(this.slotGroup);
     FocusManager.get().setFocus(this.slotGroup);
+    if (this.isOfflineMemento) {
+      tabControl.classList.toggle("hidden", profileItems.length <= 1);
+      if (profileItems.length == 1) {
+        const titleContainer = document.createElement("div");
+        titleContainer.classList.add("flex", "flex-row", "items-center", "justify-center");
+        const filigreeLeft = document.createElement("div");
+        filigreeLeft.classList.add("filigree-title-accent-left");
+        titleContainer.appendChild(filigreeLeft);
+        const titleText = document.createElement("fxs-header");
+        titleText.classList.add("font-title", "text-xl", "text-center", "uppercase", "tracking-100", "mx-14");
+        titleText.setAttribute("filigree-style", "none");
+        titleText.setAttribute("title", profileItems[0].label ?? "");
+        titleContainer.appendChild(titleText);
+        const filigreeRight = document.createElement("div");
+        filigreeRight.classList.add("filigree-title-accent-right");
+        titleContainer.appendChild(filigreeRight);
+        tabContainer.insertBefore(titleContainer, tabContainer.firstChild);
+        const titleFrame = MustGetElement(".profile-main-frame", this.Root);
+        titleFrame.classList.remove("pb-6");
+        titleFrame.classList.add("pb-3");
+      }
+    }
   }
   getLastSaveLeaderID() {
     const saves = SaveLoadData.saves;
@@ -2290,6 +2322,7 @@ class ScreenProfilePage extends Panel {
       const checkURL = (isRepeatable ? challengeItem.numOfCompletions >= challengeItem.maxCompletions : challengeItem.completed) ? "fs://game/chal_check.png" : "fs://game/chal_available.png";
       const difficultyURL = "fs://game/chal_difficulty_" + challengeItem.difficulty.toString();
       const challengeDiv = document.createElement("fxs-activatable");
+      challengeDiv.setAttribute("data-audio-group-ref", "profile-screen");
       challengeDiv.className = "profile-challenges-rcitem-outer profile-challenges-item-card profile-customize-title-bg mb-2 mr-2 bg-contain bg-no-repeat pointer-events-auto ";
       challengeDiv.tabIndex = -1;
       const challengeHslot = document.createElement("fxs-hslot");

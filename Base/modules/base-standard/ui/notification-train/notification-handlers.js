@@ -1,12 +1,12 @@
-import ContextManager from '../../../core/ui/context-manager/context-manager.js';
+import { ContextManager } from '../../../core/ui/context-manager/context-manager.js';
 import { DisplayQueueManager } from '../../../core/ui/context-manager/display-queue-manager.js';
 import { DialogBoxManager } from '../../../core/ui/dialog-box/manager-dialog-box.js';
-import ActionHandler from '../../../core/ui/input/action-handler.js';
 import { PlotCursor } from '../../../core/ui/input/plot-cursor.js';
 import { InterfaceMode } from '../../../core/ui/interface-modes/interface-modes.js';
 import { ComponentID } from '../../../core/ui/utilities/utilities-component-id.js';
 import { NetworkUtilities } from '../../../core/ui/utilities/utilities-network.js';
 import { PlotCoord } from '../../../core/ui/utilities/utilities-plotcoord.js';
+import { IsControllerActive } from '../../../core/ui-next/services/input.js';
 import getAdviceManager from '../advice/advice-manager.js';
 import { AGE_TRANSITION_BANNER_FADE_OUT_DURATION } from '../age-transition-banner/age-transition-banner.js';
 import { RaiseDiplomacyEvent } from '../diplomacy/diplomacy-events.js';
@@ -17,7 +17,6 @@ import { setActivePolicyTab } from '../policies/model-government.js';
 import PopupSequencer from '../popup-sequencer/popup-sequencer.js';
 import TechTree from '../tech-tree/model-tech-tree.js';
 import { TutorialAdvisorType } from '../tutorial/tutorial-item.js';
-import { VictoryProgressOpenTab } from '../victory-progress/screen-victory-progress.js';
 import WatchOutManager from '../watch-out/watch-out-manager.js';
 import { DialogBoxAction } from '../../../core/ui/dialog-box/model-dialog-box.js';
 
@@ -28,7 +27,7 @@ var NotificationHandlers;
       const notification = Game.Notifications.find(notificationId);
       if (notification) {
         if (notification.Location && PlotCoord.isValid(notification.Location)) {
-          if (ActionHandler.isGamepadActive) {
+          if (IsControllerActive()) {
             PlotCursor.plotCursorCoords = notification.Location;
           }
           Camera.lookAtPlot(notification.Location);
@@ -463,7 +462,8 @@ var NotificationHandlers;
   class AllyAtWar extends DefaultHandler {
     activate(notificationId, _activatedBy) {
       super.activate(notificationId, _activatedBy);
-      const actionID = Game.Diplomacy.getNextCallToArms(GameContext.localPlayerID);
+      const notification = Game.Notifications.find(notificationId);
+      const actionID = notification?.Target?.id ?? Game.Diplomacy.getNextCallToArms(GameContext.localPlayerID);
       if (actionID != -1) {
         const warData = Game.Diplomacy.getDiplomaticEventData(actionID);
         DiplomacyManager.currentAllyWarData = warData;
@@ -655,7 +655,7 @@ var NotificationHandlers;
         ContextManager.push("screen-victory-progress", {
           singleton: true,
           createMouseGuard: true,
-          panelOptions: { openTab: VictoryProgressOpenTab.RankingsOverView }
+          panelOptions: {}
         });
       }
       return true;

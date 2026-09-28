@@ -347,5 +347,5 @@ engine.whenReady.then(() => {
   engine.synchronizeModels();
 });
 
-export { ActionHandler as default };
+export { ActionHandler, ActionHandler as default };
 //# sourceMappingURL=action-handler.js.map

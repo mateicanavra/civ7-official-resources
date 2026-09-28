@@ -1,0 +1,115 @@
+<head>
+	<meta charset="UTF-8" />
+	<meta
+		name="viewport"
+		content="width=device-width, initial-scale=1.0"
+	/>
+	<title>Asian Font Test</title>
+
+	<!-- Ideally, these scripts will be nested inside of the body tag.-->
+	<style>
+		/* Uncomment if testing against local player */
+		/*
+		@font-face {
+			font-family: BodyFont-SC;
+			src: url("../../fonts/NotoSansSC-Regular.ttf");
+			coh-font-sdf: on;
+		}
+		*/
+
+		:root {
+			font-size: 16pt;
+			font-family: "BodyFont-SC"; /* "NotoSansSC-Regular", Google's Noto Sans Simplified Chinese, regular */
+
+			--color-accent: #ff8a65;
+			--color-primary: #ff5722;
+			--color-background: #242634;
+			--color-surface: #fbe9e7;
+
+			--text-color: #8087a3;
+			--text-color-low-contrast: #1f1f1f;
+		}
+
+		body {
+			color: var(--text-color);
+			display: flex;
+			flex-direction: column;
+			align-items: stretch;
+			margin: 0;
+			width: 100vw;
+			height: 100vh;
+			background-color: var(--color-background);
+		}
+	</style>
+  <script async type="module" crossorigin src="fs://game/core/ui/debug/asian-font.html2.js"></script>
+</head>
+<body>
+	<div style="display: flex; max-width: 400px; margin-top: 20px; color: white; background-color: red">
+		Noto Sans SC Font Test
+	</div>
+	<div>as-is:</div>
+	<div>欢迎来到《席德·梅尔的文明VII》的文明百科。这里有当前及过去时代中游戏各方面内容的详细说明。</div>
+	<div>14 medium text-2xs</div>
+	<div style="font-size: 14px">
+		欢迎来到《席德·梅尔的文明VII》的文明百科。这里有当前及过去时代中游戏各方面内容的详细说明。
+	</div>
+	<div>16 medium text-xs</div>
+	<div style="font-size: 16px">
+		欢迎来到《席德·梅尔的文明VII》的文明百科。这里有当前及过去时代中游戏各方面内容的详细说明。
+	</div>
+	<div>18 medium text-sm</div>
+	<div style="font-size: 18px">
+		欢迎来到《席德·梅尔的文明VII》的文明百科。这里有当前及过去时代中游戏各方面内容的详细说明。
+	</div>
+	<div>20 medium text-base</div>
+	<div style="font-size: 20px">
+		欢迎来到《席德·梅尔的文明VII》的文明百科。这里有当前及过去时代中游戏各方面内容的详细说明。
+	</div>
+	<div>24 medium text-lg</div>
+	<div style="font-size: 24px">
+		欢迎来到《席德·梅尔的文明VII》的文明百科。这里有当前及过去时代中游戏各方面内容的详细说明。
+	</div>
+	<div>28 medium text-xl</div>
+	<div style="font-size: 28px">
+		欢迎来到《席德·梅尔的文明VII》的文明百科。这里有当前及过去时代中游戏各方面内容的详细说明。
+	</div>
+	<div>34 medium text-xxl</div>
+	<div style="font-size: 34px">
+		欢迎来到《席德·梅尔的文明VII》的文明百科。这里有当前及过去时代中游戏各方面内容的详细说明。
+	</div>
+
+	<hr />
+
+	<div>as-is:</div>
+	<div>
+		與所有密西西比人的詞彙相同，「瓦希赫（waahih）」是卡多語中的「戰爭部落」。儘管卡多人的祖先可能並非密西西比語的衍生者，但他們確實採用了密西西比人部分的文化特徵，因為密西西比人不會如此使用這個詞語。
+	</div>
+	<div>14 medium text-2xs</div>
+	<div style="font-size: 14px">
+		與所有密西西比人的詞彙相同，「瓦希赫（waahih）」是卡多語中的「戰爭部落」。儘管卡多人的祖先可能並非密西西比語的衍生者，但他們確實採用了密西西比人部分的文化特徵，因為密西西比人不會如此使用這個詞語。
+	</div>
+	<div>16 medium text-xs</div>
+	<div style="font-size: 16px">
+		與所有密西西比人的詞彙相同，「瓦希赫（waahih）」是卡多語中的「戰爭部落」。儘管卡多人的祖先可能並非密西西比語的衍生者，但他們確實採用了密西西比人部分的文化特徵，因為密西西比人不會如此使用這個詞語。
+	</div>
+	<div>18 medium text-sm</div>
+	<div style="font-size: 18px">
+		與所有密西西比人的詞彙相同，「瓦希赫（waahih）」是卡多語中的「戰爭部落」。儘管卡多人的祖先可能並非密西西比語的衍生者，但他們確實採用了密西西比人部分的文化特徵，因為密西西比人不會如此使用這個詞語。
+	</div>
+	<div>20 medium text-base</div>
+	<div style="font-size: 20px">
+		與所有密西西比人的詞彙相同，「瓦希赫（waahih）」是卡多語中的「戰爭部落」。儘管卡多人的祖先可能並非密西西比語的衍生者，但他們確實採用了密西西比人部分的文化特徵，因為密西西比人不會如此使用這個詞語。
+	</div>
+	<div>24 medium text-lg</div>
+	<div style="font-size: 24px">
+		與所有密西西比人的詞彙相同，「瓦希赫（waahih）」是卡多語中的「戰爭部落」。儘管卡多人的祖先可能並非密西西比語的衍生者，但他們確實採用了密西西比人部分的文化特徵，因為密西西比人不會如此使用這個詞語。
+	</div>
+	<div>28 medium text-xl</div>
+	<div style="font-size: 28px">
+		與所有密西西比人的詞彙相同，「瓦希赫（waahih）」是卡多語中的「戰爭部落」。儘管卡多人的祖先可能並非密西西比語的衍生者，但他們確實採用了密西西比人部分的文化特徵，因為密西西比人不會如此使用這個詞語。
+	</div>
+	<div>34 medium text-xxl</div>
+	<div style="font-size: 34px">
+		與所有密西西比人的詞彙相同，「瓦希赫（waahih）」是卡多語中的「戰爭部落」。儘管卡多人的祖先可能並非密西西比語的衍生者，但他們確實採用了密西西比人部分的文化特徵，因為密西西比人不會如此使用這個詞語。
+	</div>
+</body>

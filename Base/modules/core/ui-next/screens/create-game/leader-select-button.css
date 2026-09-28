@@ -14,6 +14,12 @@
     height: 5.5555555556rem;
   }
 }
+@media (experience: mobile) and (max-height: 55.5555555556rem) {
+  .leader-button-box {
+    width: 6.1111111111rem;
+    height: 6.1111111111rem;
+  }
+}
 
 .leader-button-focus {
   width: 7.1111111111rem;
@@ -25,6 +31,12 @@
   .leader-button-focus {
     width: 5.1111111111rem;
     height: 5.1111111111rem;
+  }
+}
+@media (experience: mobile) {
+  .leader-button-focus {
+    width: 100%;
+    height: 100%;
   }
 }
 .leader-button-focus.locked {
@@ -50,6 +62,12 @@
   .leader-button-selection {
     width: 5.5555555556rem;
     height: 5.5555555556rem;
+  }
+}
+@media (experience: mobile) {
+  .leader-button-selection {
+    width: 100%;
+    height: 100%;
   }
 }
 
@@ -97,5 +115,11 @@
     width: 5.1111111111rem;
     height: 5.1111111111rem;
     mask-size: cover !important;
+  }
+}
+@media (experience: mobile) {
+  .leader-button-portrait {
+    width: 95%;
+    height: 95%;
   }
 }

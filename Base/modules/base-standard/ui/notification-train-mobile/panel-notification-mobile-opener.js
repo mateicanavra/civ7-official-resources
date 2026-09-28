@@ -1,7 +1,8 @@
-import ContextManager from '../../../core/ui/context-manager/context-manager.js';
-import ActionHandler from '../../../core/ui/input/action-handler.js';
+import { Audio } from '../../../core/ui/audio-base/audio-support.js';
+import { ContextManager } from '../../../core/ui/context-manager/context-manager.js';
 import { ActiveDeviceTypeChangedEventName } from '../../../core/ui/input/input-events.js';
 import Panel from '../../../core/ui/panel-support.js';
+import { IsControllerActive } from '../../../core/ui-next/services/input.js';
 import { NotificationModel } from '../notification-train/model-notification-train.js';
 import styles from './panel-notification-mobile-opener.scss.js';
 
@@ -23,7 +24,7 @@ class NotificationPanelOpener extends Panel {
     const notificationTrainDecor = document.createElement("div");
     notificationTrainDecor.classList.add("notification-train__decor");
     this.navHelpContainer.classList.add("notification-train__nav-help-container");
-    this.navHelpContainer.classList.toggle("gamepad-active", ActionHandler.isGamepadActive);
+    this.navHelpContainer.classList.toggle("gamepad-active", IsControllerActive());
     notificationTrainDecor.appendChild(this.navHelpContainer);
     const navHelp = document.createElement("fxs-nav-help");
     navHelp.setAttribute("action-key", "inline-notification");
@@ -54,7 +55,7 @@ class NotificationPanelOpener extends Panel {
     super.onDetach();
   }
   onActiveDeviceChanged() {
-    this.navHelpContainer?.classList.toggle("gamepad-active", ActionHandler.isGamepadActive);
+    this.navHelpContainer?.classList.toggle("gamepad-active", IsControllerActive());
   }
   createButton() {
     this.button.classList.add("nmo__button");
@@ -105,7 +106,11 @@ class NotificationPanelOpener extends Panel {
       while (this.buttonNtfAmt.lastChild) {
         this.buttonNtfAmt.removeChild(this.buttonNtfAmt.lastChild);
       }
+      const oldCount = this.notificationCount;
       this.notificationCount = NotificationModel.manager.getNotificationCount(GameContext.localObserverID);
+      if (oldCount < this.notificationCount) {
+        Audio.playSound("data-audio-notif-opener-showing", "notification-train-mobile");
+      }
       if (this.notificationCount > 0) {
         const text = document.createElement("div");
         text.classList.add(

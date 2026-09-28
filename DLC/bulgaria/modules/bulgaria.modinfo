@@ -35,7 +35,7 @@
 			<ModInUse>genghis-khan</ModInUse>
 		</Criteria>
 		<Criteria id="genghis-khan-current-shell">
-			<ModIsEnabled>genghis-khan</ModIsEnabled>
+			<ModInUse>genghis-khan</ModInUse>
 		</Criteria>
 		<Criteria id="exploration-age-genghis-khan">
 			<ModInUse>genghis-khan</ModInUse>
@@ -264,6 +264,13 @@
 			</Actions>
 		</ActionGroup>
 		<ActionGroup id="base-game-main-bulgaria-assyria" scope="game" criteria="assyria-current">
+			<Actions>
+				<UpdateDatabase>
+					<Item>data/unlocks-syncretism-assyria.xml</Item>
+				</UpdateDatabase>
+			</Actions>
+		</ActionGroup>
+		<ActionGroup id="shell-bulgaria-assyria" scope="shell" criteria="assyria-current">
 			<Actions>
 				<UpdateDatabase>
 					<Item>data/unlocks-syncretism-assyria.xml</Item>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Types>
+		<InsertOrIgnore Type="UNLOCK_CIVILIZATION_BABYLON" Kind="KIND_UNLOCK"/>
+	</Types>
+	<Unlocks>
+		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_BABYLON"/>
+	</Unlocks>
+	<UnlockRequirements>
+		<Row UnlockType="UNLOCK_CIVILIZATION_INCA" RequirementSetId="REQSET_CIV_IS_BABYLON" Description="LOC_UNLOCK_PLAY_AS_BABYLON_DESCRIPTION" Tooltip="LOC_UNLOCK_PLAY_AS_BABYLON_DESCRIPTION"/>
+		<Row UnlockType="UNLOCK_CIVILIZATION_ABBASID" RequirementSetId="REQSET_CIV_IS_BABYLON" Description="LOC_UNLOCK_PLAY_AS_BABYLON_DESCRIPTION" Tooltip="LOC_UNLOCK_PLAY_AS_BABYLON_DESCRIPTION"/>
+		<Row UnlockType="UNLOCK_CIVILIZATION_BUGANDA" RequirementSetId="REQSET_CIV_IS_BABYLON" Description="LOC_UNLOCK_PLAY_AS_BABYLON_DESCRIPTION" Tooltip="LOC_UNLOCK_PLAY_AS_BABYLON_DESCRIPTION"/>
+	</UnlockRequirements>
+	<UnlockRewards>
+		<InsertOrIgnore UnlockType="UNLOCK_CIVILIZATION_BABYLON" Name="LOC_CIVILIZATION_BABYLON_NAME" Description="LOC_UNLOCK_ANTIQUITY_CIV_DESCRIPTION" Icon="CIVILIZATION_BABYLON" UnlockRewardType="CIVILIZATION_BABYLON" UnlockRewardKind="KIND_CIVILIZATION"/>
+	</UnlockRewards>
+</Database>

@@ -17,7 +17,7 @@ import { useIsSmallScreen } from '../../../../core/ui-next/utilities/layout-util
 import { AdvisorPortrait, AdvisorQuoteContainer } from './advisor-card.js';
 import { useAdvisorScreenContext, AdvicePanelTypes } from './advisor-screen-model.js';
 
-var _tmpl$ = /* @__PURE__ */ template(`<div class="w-full flex items-center justify-center pointer-events-none"></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="advice-section-focusable absolute"tabindex=-1></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div><div><div></div><div role=columnheader></div><div><div class=flex-1></div></div></div></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div><div class="mb-5 ml-2 text-center"role=columnheader><div class="advisor-card-title font-title-lg font-black tracking-100 uppercase"></div></div><div role=textbox></div></div>`), _tmpl$5 = /* @__PURE__ */ template(`<div><div class="advice-section-container relative text-accent-2"></div></div>`), _tmpl$6 = /* @__PURE__ */ template(`<div><div class="mb-6 text-center"><div class="font-title font-black tracking-100 uppercase text-center my-0 text-accent-2"role=columnheader></div><div class="w-full filigree-divider-inner-frame white-filigree-divider my-4"></div></div><div role=textbox></div></div>`), _tmpl$7 = /* @__PURE__ */ template(`<div><div class="advice-section-container relative "></div></div>`), _tmpl$8 = /* @__PURE__ */ template(`<div class=mx-10></div>`), _tmpl$9 = /* @__PURE__ */ template(`<div class=size-full></div>`);
+var _tmpl$ = /* @__PURE__ */ template(`<div class="w-full flex items-center justify-center pointer-events-none"></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="advice-section-focusable absolute"tabindex="-1"></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div><div><div></div><div role="columnheader"></div><div><div class="flex-1"></div></div></div></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div><div class="mb-5 ml-2 text-center"role="columnheader"><div class="advisor-card-title font-title-lg font-black tracking-100 uppercase"></div></div><div role="textbox"></div></div>`), _tmpl$5 = /* @__PURE__ */ template(`<div><div class="advice-section-container relative text-accent-2"></div></div>`), _tmpl$6 = /* @__PURE__ */ template(`<div><div class="mb-6 text-center"><div class="font-title font-black tracking-100 uppercase text-center my-0 text-accent-2"role="columnheader"></div><div class="w-full filigree-divider-inner-frame white-filigree-divider my-4"></div></div><div role="textbox"></div></div>`), _tmpl$7 = /* @__PURE__ */ template(`<div><div class="advice-section-container relative "></div></div>`), _tmpl$8 = /* @__PURE__ */ template(`<div class="mx-10"></div>`), _tmpl$9 = /* @__PURE__ */ template(`<div class="size-full"></div>`);
 const PortraitTab = (props) => {
   const model = useAdvisorScreenContext();
   const isFollowing = () => model.isFollowing(props.type);
@@ -72,7 +72,7 @@ const PortraitTab = (props) => {
           get vars() {
             return {
               advisorType: props.title.toLowerCase(),
-              following: (!isFollowing()).toString()
+              following: isFollowing().toString()
             };
           },
           get children() {
@@ -464,11 +464,11 @@ const AdvisorTab = (props) => {
         return createComponent(Button, {
           "class": "w-full h-10",
           onActivate: () => {
+            if (!isFollowing()) model.follow(props.type);
+            else model.unfollow(props.type);
             if (IsControllerActive()) {
               model.playFollowAudio(props.type);
             }
-            if (!isFollowing()) model.follow(props.type);
-            else model.unfollow(props.type);
           },
           hotkeyAction: "shell-action-2",
           get navTrayText() {

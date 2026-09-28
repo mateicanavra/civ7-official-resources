@@ -1,6 +1,6 @@
 import { FxsChooserItem } from '../../../core/ui/components/fxs-chooser-item.js';
 import { AdvisorUtilities } from '../tutorial/advisor-utilities.js';
-import styles from '../chooser-item/chooser-item.scss.js';
+import chooserItemStyles from '../chooser-item/chooser-item.scss.js';
 import treeChooserItemStyles from './tree-chooser-item.scss.js';
 
 class TreeChooserItem extends FxsChooserItem {
@@ -148,7 +148,7 @@ Controls.define("tree-chooser-item", {
   createInstance: TreeChooserItem,
   description: "A chooser item to be used with the tech or civic choosers",
   classNames: ["tree-chooser-item", "relative", "group"],
-  styles: [treeChooserItemStyles, styles],
+  styles: [treeChooserItemStyles, chooserItemStyles],
   images: [
     "fs://game/hud_sidepanel_list-bg.png",
     "fs://game/hud_list-focus_frame.png",

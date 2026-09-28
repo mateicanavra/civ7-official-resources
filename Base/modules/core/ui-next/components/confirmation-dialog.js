@@ -5,11 +5,13 @@ import { Filigree } from './filigree.js';
 import { ModalFrame } from './modal-frame.js';
 import { usePopupContext, Popup } from './popup.js';
 import { HSlot } from './slot.js';
+import { useAudio } from '../services/audio-support.js';
 import { ComponentRegistry } from '../services/component-registry.js';
 
 var _tmpl$ = /* @__PURE__ */ template(`<div class="font-title text-secondary text-xl m-1 uppercase"></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="m-2 font-body text-accent-2 text-base"></div>`);
 const ConfirmationDialogComponent = (props) => {
   const context = usePopupContext();
+  const audioTrigger = useAudio();
   let accepted = false;
   const name = createMemo(() => `confirmation-dialog-${props.name}`);
   const acceptText = createMemo(() => props.acceptText ?? "LOC_GENERIC_OK");
@@ -26,6 +28,7 @@ const ConfirmationDialogComponent = (props) => {
     if (props.autoAccept) {
       handleAccept();
     }
+    audioTrigger("popup-open");
   }
   function handleClose() {
     if (!accepted) {
@@ -33,6 +36,7 @@ const ConfirmationDialogComponent = (props) => {
     } else {
       props.onAccept?.();
     }
+    audioTrigger("popup-close");
   }
   return [createComponent(Popup.Trigger, {
     get name() {

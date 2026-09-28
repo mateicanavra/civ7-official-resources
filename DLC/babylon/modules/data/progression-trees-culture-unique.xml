@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Kinds>
+		<InsertOrIgnore Kind="KIND_TREE"/>
+		<InsertOrIgnore Kind="KIND_TREE_NODE"/>
+	</Kinds>
+	<Types>
+		<!--Civ Unique Mastery Trees-->
+		<Row Type="TREE_CIVICS_AQ_BABYLON" Kind="KIND_TREE"/>
+		<!--Civ Unique Mastery Tree Nodes-->
+		<Row Type="NODE_CIVIC_AQ_BABYLON_PURATTU" Kind="KIND_TREE_NODE"/>
+		<Row Type="NODE_CIVIC_AQ_BABYLON_AKITU" Kind="KIND_TREE_NODE"/>
+		<Row Type="NODE_CIVIC_AQ_BABYLON_ENUMA_ELISH" Kind="KIND_TREE_NODE"/>
+		<Row Type="NODE_CIVIC_AQ_BABYLON_GOLDEN_INTERVAL" Kind="KIND_TREE_NODE"/>
+	</Types>
+	<TypeQuotes>
+		<Row Type="NODE_CIVIC_AQ_BABYLON_PURATTU" Quote="LOC_CIVIC_PURATTU_QUOTE" QuoteAuthor="LOC_CIVIC_PURATTU_AUTHOR" QuoteAudio="VO_Quote_Purattu"/>
+		<Row Type="NODE_CIVIC_AQ_BABYLON_AKITU" Quote="LOC_CIVIC_AKITU_QUOTE" QuoteAuthor="LOC_CIVIC_AKITU_AUTHOR" QuoteAudio="VO_Quote_Akitu"/>
+		<Row Type="NODE_CIVIC_AQ_BABYLON_ENUMA_ELISH" Quote="LOC_CIVIC_ENUMA_ELISH_QUOTE" QuoteAuthor="LOC_CIVIC_ENUMA_ELISH_AUTHOR" QuoteAudio="VO_Quote_EnumaElish"/>
+		<Row Type="NODE_CIVIC_AQ_BABYLON_GOLDEN_INTERVAL" Quote="LOC_CIVIC_GOLDEN_INTERVAL_QUOTE" QuoteAuthor="LOC_CIVIC_GOLDEN_INTERVAL_AUTHOR" QuoteAudio="VO_Quote_GoldenInterval"/>
+	</TypeQuotes>
+	<ProgressionTrees>
+		<!--Civ Unique Mastery Trees-->
+		<Row ProgressionTreeType="TREE_CIVICS_AQ_BABYLON" AgeType="AGE_ANTIQUITY" SystemType="SYSTEM_CULTURE" Name="LOC_TREE_CIVICS_AQ_BABYLON_NAME"/>
+	</ProgressionTrees>
+	<ProgressionTreeNodes>
+		<!--Civ Unique Mastery Tree Nodes-->
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_BABYLON_PURATTU" ProgressionTree="TREE_CIVICS_AQ_BABYLON" Cost="150" Name="LOC_CIVIC_PURATTU_NAME" IconString="cult_babylon"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_BABYLON_AKITU" ProgressionTree="TREE_CIVICS_AQ_BABYLON" Cost="250" Name="LOC_CIVIC_AKITU_NAME" IconString="cult_babylon"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_BABYLON_ENUMA_ELISH" ProgressionTree="TREE_CIVICS_AQ_BABYLON" Cost="250" Name="LOC_CIVIC_ENUMA_ELISH_NAME" IconString="cult_babylon"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_BABYLON_GOLDEN_INTERVAL" ProgressionTree="TREE_CIVICS_AQ_BABYLON" Cost="400" Name="LOC_CIVIC_GOLDEN_INTERVAL_NAME" IconString="cult_babylon"/>
+	</ProgressionTreeNodes>
+	<ProgressionTreeNodeUnlocks>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_MAIN_CHIEFDOM" TargetKind="KIND_MODIFIER" TargetType="MOD_REVEAL_CIV_CULTURE_TREE_BABYLON" UnlockDepth="1" Hidden="true"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_BABYLON_PURATTU" TargetKind="KIND_CONSTRUCTIBLE" TargetType="IMPROVEMENT_KIRIMAHU" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_BABYLON_PURATTU" TargetKind="KIND_CONSTRUCTIBLE" TargetType="WONDER_HANGING_GARDENS" UnlockDepth="1" AIIgnoreUnlockValue="true"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_BABYLON_PURATTU" TargetKind="KIND_TRADITION" TargetType="TRADITION_MUBALLITUM_I" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_BABYLON_AKITU" TargetKind="KIND_TRADITION" TargetType="TRADITION_HARRANU_I" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_BABYLON_AKITU" TargetKind="KIND_UNIT" TargetType="UNIT_TAMKARU" UnlockDepth="1" AIIgnoreUnlockValue="true"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_BABYLON_ENUMA_ELISH" TargetKind="KIND_TRADITION" TargetType="TRADITION_AMMI_DITANAS_HYMN" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_BABYLON_ENUMA_ELISH" TargetKind="KIND_MODIFIER" TargetType="MOD_TOT_TRADITION_SLOT" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_BABYLON_GOLDEN_INTERVAL" TargetKind="KIND_TRADITION" TargetType="TRADITION_MAR_BANE" UnlockDepth="1"/>
+	</ProgressionTreeNodeUnlocks>
+	<ProgressionTreePrereqs>
+		<Row Node="NODE_CIVIC_AQ_BABYLON_AKITU" PrereqNode="NODE_CIVIC_AQ_BABYLON_PURATTU"/>
+		<Row Node="NODE_CIVIC_AQ_BABYLON_ENUMA_ELISH" PrereqNode="NODE_CIVIC_AQ_BABYLON_PURATTU"/>
+		<Row Node="NODE_CIVIC_AQ_BABYLON_GOLDEN_INTERVAL" PrereqNode="NODE_CIVIC_AQ_BABYLON_AKITU"/>
+		<Row Node="NODE_CIVIC_AQ_BABYLON_GOLDEN_INTERVAL" PrereqNode="NODE_CIVIC_AQ_BABYLON_ENUMA_ELISH"/>
+	</ProgressionTreePrereqs>
+	<ProgressionTree_Advisories>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_BABYLON_PURATTU" AdvisoryClassType="ADVISORY_CLASS_CULTURE"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_BABYLON_AKITU" AdvisoryClassType="ADVISORY_CLASS_CULTURE"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_BABYLON_ENUMA_ELISH" AdvisoryClassType="ADVISORY_CLASS_CULTURE"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_BABYLON_GOLDEN_INTERVAL" AdvisoryClassType="ADVISORY_CLASS_FOOD"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_BABYLON_GOLDEN_INTERVAL" AdvisoryClassType="ADVISORY_CLASS_CULTURE"/>
+	</ProgressionTree_Advisories>
+</Database>

@@ -1359,6 +1359,9 @@
 		<Row Tag="LOC_PEDIA_CONCEPTS_PAGE_COMBAT_10_CHAPTER_CONTENT_PARA_14">
 			<Text>Swift: Fast as the wind, units with the Swift ability ignore the Zone of Control exerted by enemy units. This means they can move freely in spite of the presence of enemies on the battlefield, and their movement is not stopped by entering a Zone of Control. Tip: A unit with the Swift ability can escape from deadly combat scenarios with ease. It's not a retreat – it's a backwards advance!</Text>
 		</Row>
+		<Row Tag="LOC_PEDIA_CONCEPTS_PAGE_COMBAT_10_CHAPTER_CONTENT_PARA_15">
+			<Text>Fear: Units with the Fear Ability cause adjacent enemy units to receive -2 Combat Strength. This can stack so surround your enemies with units with the Fear Ability. Remember the only thing we have to fear is fear itself.</Text>
+		</Row>
 
 		<Row Tag="LOC_PEDIA_CONCEPTS_PAGE_COMBAT_11_TITLE">
 			<Text>Naval Combat</Text>
@@ -1443,7 +1446,7 @@
 			<Text>Appeal</Text>
 		</Row>
 		<Row Tag="LOC_PEDIA_CONCEPTS_APPEAL_TOOLTIP">
-			<Text>Land tiles near mountains, coasts, [TIP:LOC_PEDIA_CONCEPTS_NAVIGABLE_RIVER_TOOLTIP]Navigable Rivers[/TIP], and [TIP:LOC_PEDIA_CONCEPTS_NATURAL_WONDER_TOOLTIP]Natural Wonders[/TIP] have Appeal. Higher Appeal, from Average to Breathtaking, increases the Happiness of improved rural tiles.</Text>
+			<Text>Rural land tiles near mountains, coasts, [TIP:LOC_PEDIA_CONCEPTS_VEGETATED_TERRAIN_TOOLTIP]vegetation[/TIP], [TIP:LOC_PEDIA_CONCEPTS_NAVIGABLE_RIVER_TOOLTIP]Navigable Rivers[/TIP], and [TIP:LOC_PEDIA_CONCEPTS_NATURAL_WONDER_TOOLTIP]Natural Wonders[/TIP] have Appeal. Higher Appeal makes the tile either Charming or Breathtaking, increasing the Happiness of the tile.</Text>
 		</Row>
 		<Row Tag="LOC_PEDIA_CONCEPTS_PAGE_TOWN_4_CHAPTER_CONTENT_PARA_1">
 			<Text>Land tiles adjacent to items of natural beauty (forests, savannah woodlands, sagebrush steppe, mangrove swamp, taiga, mountains, coasts, navigable rivers, and natural wonders) have an "appealing" quality that influences the Happiness yield available from that tile. A tile's Appeal score can be Average, Charming, or Breathtaking based on the number of items of natural beauty around it. Each adjacent item of natural beauty grants +1 Appeal, with 3 being the threshold for Charming, and 5 for Breathtaking. Charming rural tiles with an improvement receive +1 Happiness, while an improved Breathtaking rural tile receives +2 Happiness. Natural Wonders are also tiles of great natural beauty, but their yields are unique to each wonder and therefore do not always include Happiness.</Text>
@@ -1900,16 +1903,16 @@
 
 		<!-- Tooltip Concepts-->
 		<Row Tag="LOC_PEDIA_CONCEPTS_CODEX_TOOLTIP">
-			<Text>Codices are [TIP:LOC_PEDIA_CONCEPTS_GREAT_WORKS_TOOLTIP]Great Works[/TIP] that increase [icon:YIELD_SCIENCE][b]Science[/b] in the [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]Settlements[/TIP] where they are slotted.</Text>
+			<Text>Codices are [TIP:LOC_PEDIA_CONCEPTS_GREAT_WORKS_TOOLTIP]Great Works[/TIP] that increase [icon:YIELD_SCIENCE][b]Science[/b] in the [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]Settlements[/TIP] where they are displayed or slotted.</Text>
 		</Row>
 		<Row Tag="LOC_PEDIA_CONCEPTS_GREAT_WORKS_TOOLTIP">
-			<Text>Great Works are valuable objects earned in different ways each [TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]Age[/TIP]. [NN]Use the Great Works screen to slot your Great Works in [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]Settlements[/TIP] that have [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]Buildings[/TIP] with available Great Works Slots.</Text>
+			<Text>Great Works are valuable objects earned in different ways each [TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]Age[/TIP].[NN]Use the Great Works screen to slot, or display, your Great Works in [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]Settlements[/TIP] that have [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]Buildings[/TIP] with available Great Works Slots.</Text>
 		</Row>
 		<Row Tag="LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP">
 			<Text>A unit with higher Combat Strength deals more damage to weaker units and takes less [TIP:LOC_PEDIA_CONCEPTS_RECIPROCAL_DAMAGE_TOOLTIP]Reciprocal Damage[/TIP] in return.</Text>
 		</Row>
 		<Row Tag="LOC_PEDIA_CONCEPTS_FORTIFIED_DISTRICTS_TOOLTIP">
-			<Text>Fortified Districts have health that must first be destroyed to capture a [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]Settlement[/TIP].</Text>
+			<Text>Fortified Districts have health and defenses. They must be attacked by hostile [TIP:LOC_PEDIA_CONCEPTS_MILITARY_UNIT_TOOLTIP]Military Units[/TIP] to reduce their health, and deal [TIP:LOC_PEDIA_CONCEPTS_RECIPROCAL_DAMAGE_TOOLTIP]Reciprocal Damage[/TIP] to melee units.[NN]If their health reaches 0, Fortified Districts can be occupied by a hostile unit and captured. All Fortified Districts in a [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]Settlement[/TIP] must be captured to capture the Settlement itself.</Text>
 		</Row>
 		<Row Tag="LOC_PEDIA_CONCEPTS_RECIPROCAL_DAMAGE_TOOLTIP">
 			<Text>When a unit uses a melee attack against another unit or [TIP:LOC_PEDIA_CONCEPTS_FORTIFIED_DISTRICTS_TOOLTIP]Fortified District[/TIP], it will take some Reciprocal Damage in return.[NN][TIP:LOC_PEDIA_CONCEPTS_RANGED_ATTACK_TOOLTIP]Ranged Attacks[/TIP] avoid Reciprocal Damage.</Text>
@@ -1918,7 +1921,7 @@
 			<Text>Ranged Attacks strike targets one or more tiles away and avoid [TIP:LOC_PEDIA_CONCEPTS_RECIPROCAL_DAMAGE_TOOLTIP]Reciprocal Damage[/TIP] but require [TIP:LOC_PEDIA_CONCEPTS_SIGHT_TOOLTIP]Sight[/TIP]. [NN]Ranged Attacks will use a unit's Ranged Strength against unfortified units and a unit's Bombard Strength against fortified units and [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]Districts[/TIP].</Text>
 		</Row>
 		<Row Tag="LOC_PEDIA_CONCEPTS_LAND_UNITS_TOOLTIP">
-			<Text>Land Units [TIP:LOC_PEDIA_CONCEPTS_EMBARK_TOOLTIP]Embark[/TIP] when on [TIP:LOC_PEDIA_CONCEPTS_WATER_TERRAIN_TOOLTIP]Water Terrain[/TIP].</Text>
+			<Text>Land Units mostly move on Land Terrain, and are subject to Land Terrain movement and combat rules. They can [TIP:LOC_PEDIA_CONCEPTS_EMBARK_TOOLTIP]Embark[/TIP] to enter [TIP:LOC_PEDIA_CONCEPTS_WATER_TERRAIN_TOOLTIP]Water Terrain[/TIP].</Text>
 		</Row>
 		<Row Tag="LOC_PEDIA_CONCEPTS_NAVAL_UNITS_TOOLTIP">
 			<Text>Naval Units can only move on [TIP:LOC_PEDIA_CONCEPTS_WATER_TERRAIN_TOOLTIP]Water Terrain[/TIP] and [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]City[/TIP] Centers adjacent to the coast, but they can use [TIP:LOC_PEDIA_CONCEPTS_RANGED_ATTACK_TOOLTIP]Ranged Attacks[/TIP] against [TIP:LOC_PEDIA_CONCEPTS_LAND_UNITS_TOOLTIP]Land Units[/TIP] and [TIP:LOC_PEDIA_CONCEPTS_FORTIFIED_DISTRICTS_TOOLTIP]Fortified Districts[/TIP].</Text>
@@ -1966,7 +1969,7 @@
 			<Text>City-States emerge when a Minor Independent is promoted through the Befriend Independent diplomatic action. They gain an Urban hex, City Hall, and stronger defenses, grant a unique bonus to the Civilization that promoted them, and follow that Civilization's war and peace status until the end of the Age.</Text>
 		</Row>
 		<Row Tag="LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP">
-			<Text>Buildings must be placed on or adjacent to an existing [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]District[/TIP]. Buildings increase a [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]Settlement's[/TIP] yields and urban [TIP:LOC_PEDIA_CONCEPTS_POPULATION_TOOLTIP]Population[/TIP].[NN]Buildings become [TIP:LOC_PEDIA_CONCEPTS_OVERBUILDABLE_TOOLTIP]Overbuildable[/TIP] in the next [TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]Age[/TIP] unless they are [TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]Ageless[/TIP].[NN]Each Building increases the [icon:YIELD_PRODUCTION][b]Production[/b] cost of all future Buildings.</Text>
+			<Text>Buildings must be placed on or adjacent to an existing [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]District[/TIP]. Each Building, except [TIP:LOC_PEDIA_CONCEPTS_WALL_TOOLTIP]Walls[/TIP], adds [TIP:LOC_PEDIA_CONCEPTS_POPULATION_TOOLTIP]Urban Population[/TIP] and increases the [icon:YIELD_PRODUCTION][b]Production[/b] cost of all future Buildings.[NN]Buildings have types such as Culture or Food, increasing a [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]Settlement's[/TIP] yields of the matching type.[NN]Fortification Buildings add health and defenses to their district.[NN]Buildings become [TIP:LOC_PEDIA_CONCEPTS_OVERBUILDABLE_TOOLTIP]Overbuildable[/TIP] in the next [TIP:LOC_PEDIA_CONCEPTS_AGE_TOOLTIP]Age[/TIP] unless they are [TIP:LOC_PEDIA_CONCEPTS_AGELESS_TOOLTIP]Ageless[/TIP].</Text>
 		</Row>
 		<Row Tag="LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP">
 			<Text>Districts are tiles that contain at least one [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]Building[/TIP]. Each District can normally hold up to two Buildings.[NN]When a District is filled with Buildings that are not [TIP:LOC_PEDIA_CONCEPTS_OVERBUILDABLE_TOOLTIP]Overbuildable[/TIP], it becomes a Quarter.</Text>
@@ -2145,11 +2148,14 @@
 		<Row Tag="LOC_PEDIA_CONCEPTS_CONTINENT_TOOLTIP">
 			<Text>Continents are contiguous areas of the world that can include islands.[NN]Use the Continents Lens to see continental boundaries.</Text>
 		</Row>
+		<Row Tag="LOC_PEDIA_CONCEPTS_ISLAND_TOOLTIP">
+			<Text>Islands are contiguous landmasses of the world that are maximum 30 tiles.</Text>
+		</Row>
 		<Row Tag="LOC_PEDIA_CONCEPTS_BRIDGE_TOOLTIP">
 			<Text>A Bridge allows [TIP:LOC_PEDIA_CONCEPTS_LAND_UNITS_TOOLTIP]Land Units[/TIP] to move over a [TIP:LOC_PEDIA_CONCEPTS_NAVIGABLE_RIVER_TOOLTIP]Navigable River[/TIP] without having to [TIP:LOC_PEDIA_CONCEPTS_EMBARK_TOOLTIP]Embark[/TIP].[NN]They are cheaper to build where a Road has already formed a Ferry across the River.</Text>
 		</Row>
 		<Row Tag="LOC_PEDIA_CONCEPTS_WALL_TOOLTIP">
-			<Text>Walls [TIP:LOC_PEDIA_CONCEPTS_FORTIFIED_DISTRICTS_TOOLTIP]Fortify Districts[/TIP].[NN]Walls must be built on the [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]City[/TIP] Center or adjacent to another [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]District[/TIP] with Walls.[NN]They can only be purchased on the City Center.</Text>
+			<Text>Walls add health and defenses to their districts, turning them into [TIP:LOC_PEDIA_CONCEPTS_FORTIFIED_DISTRICTS_TOOLTIP]Fortified Districts[/TIP].[NN]Walls must be built on the [TIP:LOC_PEDIA_CONCEPTS_CITIES_TOOLTIP]City[/TIP] Center or adjacent to another [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]District[/TIP] with Walls. They can only be purchased on the City Center.</Text>
 		</Row>
 		<Row Tag="LOC_PEDIA_CONCEPTS_ZONE_OF_CONTROL_TOOLTIP">
 			<Text>Zone of Control applies to tiles adjacent to a unit that exerts a Zone of Control.[NN]Entering a unit's Zone of Control ends movement, but attacks can still be made.[NN]Ranged, Support and [TIP:LOC_PEDIA_CONCEPTS_SIEGE_UNITS_TOOLTIP]Siege Units[/TIP] do not exert a Zone of Control.</Text>
@@ -2172,6 +2178,9 @@
 		<Row Tag="LOC_PEDIA_CONCEPTS_STEALTH_TOOLTIP">
 			<Text>Units with Stealth are not visible to enemies greater than 1 tile away.</Text>
 		</Row>
+		<Row Tag="LOC_PEDIA_CONCEPTS_FEAR_TOOLTIP">
+			<Text>Units with the Fear Ability cause adjacent enemy units to receive -2 Combat Strength. This can stack.</Text>
+		</Row>
 		<Row Tag="LOC_PEDIA_CONCEPTS_INFECTED_TOOLTIP">
 			<Text>Infected [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]Settlements[/TIP] suffer from [TIP:LOC_PEDIA_CONCEPTS_UNREST_TOOLTIP]Unrest[/TIP], stop [TIP:LOC_PEDIA_CONCEPTS_GROWTH_RATE_TOOLTIP]growth[/TIP] and spread Infection to [TIP:LOC_PEDIA_CONCEPTS_CONNECTED_TOOLTIP]Connected[/TIP] Settlements.[NN]Units that start their turn on Infected tiles take damage.</Text>
 		</Row>
@@ -2191,7 +2200,7 @@
 			<Text>Leaders with a Helpful [TIP:LOC_PEDIA_CONCEPTS_RELATIONSHIP_TOOLTIP]Relationship[/TIP] can form an Alliance and must keep a positive Relationship to maintain it.[NN]Allies will be called to join each other's Wars.</Text>
 		</Row>
 		<Row Tag="LOC_PEDIA_CONCEPTS_RELIC_TOOLTIP">
-			<Text>Relics are [TIP:LOC_PEDIA_CONCEPTS_GREAT_WORKS_TOOLTIP]Great Works[/TIP] that increase [icon:YIELD_CULTURE][b]Culture[/b] and [icon:YIELD_HAPPINESS][b]Happiness[/b] in the [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]Settlements[/TIP] where they are slotted.</Text>
+			<Text>Relics are [TIP:LOC_PEDIA_CONCEPTS_GREAT_WORKS_TOOLTIP]Great Works[/TIP] that increase [icon:YIELD_CULTURE][b]Culture[/b] and [icon:YIELD_HAPPINESS][b]Happiness[/b] in the [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]Settlements[/TIP] where they are displayed or slotted.</Text>
 		</Row>
 		<Row Tag="LOC_PEDIA_CONCEPTS_RELIGION_TOOLTIP">
 			<Text>Religions are established in the [TIP:LOC_PEDIA_CONCEPTS_EXPLORATION_AGE_TOOLTIP]Exploration Age[/TIP].[NN]Missionaries convert [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]Settlements[/TIP] by spreading Religion on [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]Districts[/TIP] and [TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]Improvements[/TIP]. Settlements that have both a District and an Improvement converted to the same Religion are considered to be following that Religion.[NN]Religious Beliefs determine what benefits are gained from converting Settlements to follow a Religion.</Text>
@@ -2206,7 +2215,7 @@
 			<Text>Units with the Amphibious ability do not suffer a [TIP:LOC_PEDIA_CONCEPTS_COMBAT_STRENGTH_TOOLTIP]Combat Strength[/TIP] penalty when [TIP:LOC_PEDIA_CONCEPTS_EMBARK_TOOLTIP]Embarked[/TIP] and do not end their movement when [TIP:LOC_PEDIA_CONCEPTS_EMBARKED_TOOLTIP]Embarking[/TIP] or Disembarking.</Text>
 		</Row>
 		<Row Tag="LOC_PEDIA_CONCEPTS_ARTIFACT_TOOLTIP">
-			<Text>Artifacts are [TIP:LOC_PEDIA_CONCEPTS_GREAT_WORKS_TOOLTIP]Great Works[/TIP] that increase [icon:YIELD_CULTURE] [b]Culture[/b] in the [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]Settlements[/TIP] where they are slotted.</Text>
+			<Text>Artifacts are [TIP:LOC_PEDIA_CONCEPTS_GREAT_WORKS_TOOLTIP]Great Works[/TIP] that increase [icon:YIELD_CULTURE] [b]Culture[/b] in the [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]Settlements[/TIP] where they are displayed or slotted.</Text>
 		</Row>
 
 		<Row Tag="LOC_PEDIA_CONCEPTS_NATURAL_WONDER_TOOLTIP">
@@ -2274,7 +2283,7 @@
 		</Row>
 
 		<Row Tag="LOC_PEDIA_CONCEPTS_RURAL_TOOLTIP">
-			<Text>Rural tiles are tiles with [TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]Improvements[/TIP]. They provide Rural [TIP:LOC_PEDIA_CONCEPTS_POPULATION_TOOLTIP]Population[/TIP] and will follow your Rural [TIP:LOC_PEDIA_CONCEPTS_RELIGION_TOOLTIP]Religion[/TIP]. If a [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]Building[/TIP] is constructed on top of a Rural Tile, it becomes an Urban tile.</Text>
+			<Text>Rural tiles are tiles with [TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]Improvements[/TIP]. They provide [TIP:LOC_PEDIA_CONCEPTS_POPULATION_TOOLTIP]Rural Population[/TIP] and will follow your [TIP:LOC_PEDIA_CONCEPTS_RELIGION_TOOLTIP]Religion[/TIP]. If a [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]Building[/TIP] is constructed on top of a Rural Tile, it becomes a [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]District[/TIP] and the Population there can be moved.</Text>
 		</Row>
 
 		<Row Tag="LOC_PEDIA_CONCEPTS_GOVERNMENT_TOOLTIP">
@@ -2298,7 +2307,7 @@
 		</Row>
 
 		<Row Tag="LOC_PEDIA_CONCEPTS_POPULATION_TOOLTIP">
-			<Text>Each [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]Settlement[/TIP] has a Population count that Grows based on the amount of [icon:YIELD_FOOD][b]Food[/b] the Settlement produces. When a new Population is gained, you can assign that Population to an unimproved tile to place an [TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]Improvement[/TIP] or on an Urban tile to place a [icon:SPECIALIST][TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_TOOLTIP]Specialist[/TIP], once unlocked.</Text>
+			<Text>Each [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]Settlement[/TIP] has a Population count made up of three types: Urban, Rural, and Specialists.[NN]Urban Population comes from the number of [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]Buildings[/TIP] the Settlement has.[NN]Rural Population and Specialists are based on the amount of [icon:YIELD_FOOD][b]Food[/b] the Settlement produces. When enough Food is accumulated, the Settlement grows. You can assign that Population to an unimproved tile to place an [TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]Improvement[/TIP], adding Rural Population, or on a [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]District[/TIP] to place a [icon:SPECIALIST][TIP:LOC_PEDIA_CONCEPTS_SPECIALIST_TOOLTIP]Specialist[/TIP], once unlocked.</Text>
 		</Row>
 
 		<Row Tag="LOC_PEDIA_CONCEPTS_RELATIONSHIP_TOOLTIP">
@@ -2322,7 +2331,7 @@
 		</Row>
 
 		<Row Tag="LOC_PEDIA_CONCEPTS_DEFENSIVE_FORTIFICATION_TOOLTIP">
-			<Text>In order to capture a [TIP:LOC_PEDIA_CONCEPTS_SETTLEMENT_TOOLTIP]Settlement[/TIP], you must destroy any Defensive Fortifications of the Settlement and have a [TIP:LOC_PEDIA_CONCEPTS_MILITARY_UNIT_TOOLTIP]Military Unit[/TIP] occupy those tiles. Defensive Fortifications take extra damage from [TIP:LOC_PEDIA_CONCEPTS_SIEGE_UNITS_TOOLTIP]Siege Units[/TIP].</Text>
+			<Text>Fortifications are either [TIP:LOC_PEDIA_CONCEPTS_BUILDINGS_TOOLTIP]Buildings[/TIP] or [TIP:LOC_PEDIA_CONCEPTS_IMPROVEMENT_TOOLTIP]Improvements[/TIP].[NN]Fortification Buildings turn their [TIP:LOC_PEDIA_CONCEPTS_DISTRICT_TOOLTIP]District[/TIP] into a [TIP:LOC_PEDIA_CONCEPTS_FORTIFIED_DISTRICTS_TOOLTIP]Fortified District[/TIP].[NN]Fortification Improvements provide a combat bonus to Units defending in that tile.</Text>
 		</Row>
 
 		<Row Tag="LOC_PEDIA_CONCEPTS_MASTERY_TOOLTIP">
@@ -2455,6 +2464,9 @@
 		</Row>
 		<Row Tag="LOC_PEDIA_TERM_SWIFT">
 			<Text>Swift</Text>
+		</Row>
+		<Row Tag="LOC_PEDIA_TERM_FEAR">
+			<Text>Fear</Text>
 		</Row>
 		<Row Tag="LOC_PEDIA_TERM_FOUNDATION_CHALLENGES">
 			<Text>Foundation Challenges</Text>

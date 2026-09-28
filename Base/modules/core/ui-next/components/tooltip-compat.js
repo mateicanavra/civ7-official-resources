@@ -1,20 +1,13 @@
 import { template } from '../../vendor/solid-js/web/dist/web.js';
-import { createContext, createMemo, runWithOwner, createRenderEffect, useContext, createComponent, Show } from '../../vendor/solid-js/dist/solid.js';
+import { createMemo, runWithOwner, createRenderEffect, useContext, createComponent, Show } from '../../vendor/solid-js/dist/solid.js';
 import { defineLegacyComponent } from './fxs-solid-component.js';
 import { TooltipKeyword } from './tooltip-keyword.js';
 import { TooltipContext, TooltipVerticalPosition, TooltipHorizontalPosition, Tooltip } from './tooltip.js';
 import { isFocusable } from '../services/focus.js';
+import { NestedTooltipContext, isNestedTooltipContextDisabled } from './tooltip-nested.js';
 
-var _tmpl$ = /* @__PURE__ */ template(`<span class=text-accent-1></span>`);
+var _tmpl$ = /* @__PURE__ */ template(`<span class="text-accent-1"></span>`);
 const _PROTECTED_IMPORTS = [isFocusable];
-const NestedTooltipContext = createContext();
-const isNestedTooltipContextDisabled = (ctx) => {
-  const disabled = ctx?.disabled;
-  if (!disabled) {
-    return false;
-  }
-  return typeof disabled === "function" ? disabled() : disabled;
-};
 const findOwnerFromElement = (element) => {
   if (!element) return null;
   let current = element;
@@ -95,6 +88,4 @@ defineLegacyComponent("fxs-tip", {
     });
   });
 });
-
-export { NestedTooltipContext, isNestedTooltipContextDisabled };
 //# sourceMappingURL=tooltip-compat.js.map

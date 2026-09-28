@@ -97,6 +97,7 @@ class RuleAvoidEdge extends Rule {
   configValues = Rule.createDefaultsFromSpecs(ruleSchema);
   name = RuleAvoidEdge.getName();
   description = "This rule is used to avoid edges of the map (poles and meridian) and also contains some useful parameters to help break up the edges. It will forcibly disqualify cells that get too close, and allows for a tapering of the score as cells get closer to the edge.";
+  isStatic = true;
   randomOffsetTop = 0;
   randomOffsetBottom = 0;
   static getName() {

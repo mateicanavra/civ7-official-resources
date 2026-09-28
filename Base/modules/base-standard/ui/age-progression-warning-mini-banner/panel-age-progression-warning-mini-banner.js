@@ -48,6 +48,9 @@ class PanelAgeProgressionWarningMiniBanner extends Panel {
         clearTimeout(this.waitTimerHandle);
         this.waitTimerHandle = 0;
       }
+      if (turnsRemaining < 0) {
+        return;
+      }
       this.Root.addEventListener("animationend", this.onAnimationEndListener);
       this.Root.classList.add("progress-banner__enter");
       this.Root.classList.remove("hidden", "progress-banner__exit");

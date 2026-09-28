@@ -139,6 +139,7 @@ class FxsTabBar extends Component {
     this.navHandler.addEventListener("navigate-input", this.navigateInputEventListener);
     this.Root.addEventListener("resize", this.handleResizeEventListener);
     this.Root.setAttribute("data-audio-activate-ref", "data-audio-tab-selected");
+    this.Root.setAttribute("data-audio-focus-ref", "none");
   }
   onDetach() {
     this.navHandler.removeEventListener("navigate-input", this.navigateInputEventListener);

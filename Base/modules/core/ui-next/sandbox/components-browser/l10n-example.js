@@ -7,7 +7,7 @@ import { BoundString } from './components/bound-property.js';
 import { TextInput } from './components/text-input.js';
 import { createArraySignal } from '../../utilities/solid-utilities.js';
 
-var _tmpl$ = /* @__PURE__ */ template(`<span>Add args[<!>]</span>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="flex flex-row flex-auto mx-4"><div class="w-2\\/3 m-2 p-2 border border-secondary-3 flex flex-col justify-center items-center"><div class="flex flex-col my-4 items-center"><div>L10n.Compose</div><div class=mt-8>L10n.Stylize</div></div></div></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="flex flex-row items-center justify-center">args[<!>]</div>`), _tmpl$4 = /* @__PURE__ */ template(`<div class="relative h-10"></div>`), _tmpl$5 = /* @__PURE__ */ template(`<span>Remove args[<!>]</span>`);
+var _tmpl$ = /* @__PURE__ */ template(`<span>Add args[<!>]</span>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="flex flex-row flex-auto mx-4"><div class="w-2\\/3 m-2 p-2 border border-secondary-3 flex flex-col justify-center items-center"><div class="flex flex-col my-4 items-center"><div>L10n.Compose</div><div class="mt-8">L10n.Stylize</div></div></div></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="flex flex-row items-center justify-center">args[<!>]</div>`), _tmpl$4 = /* @__PURE__ */ template(`<div class="relative h-10"></div>`), _tmpl$5 = /* @__PURE__ */ template(`<span>Remove args[<!>]</span>`);
 const L10nExample = () => {
   const [text, setText] = createSignal("LOC_TRAIT_AKSUM_ABILITY_DESCRIPTION");
   const [args, useArgs] = createArraySignal();

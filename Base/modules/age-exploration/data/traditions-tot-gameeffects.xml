@@ -139,11 +139,11 @@
 		<Argument name="ConstructibleAdjacency">CityOfPeaceWildcardScienceCityCenter</Argument>
 		<String context="Description">LOC_TRADITION_CITY_OF_PEACE_DESCRIPTION</String>
 	</Modifier>
-	<Modifier id="COMPENDIOUS_BOOK_I_MOD_TOWN_YIELDS" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_ACTIVATE_CONSTRUCTIBLE_ADJACENCY">
+	<Modifier id="CITY_OF_PEACE_I_MOD_ADJACENT_PALACE" collection="COLLECTION_PLAYER_CAPITAL_CITY" effect="EFFECT_CITY_ACTIVATE_CONSTRUCTIBLE_ADJACENCY">
 		<Argument name="ConstructibleAdjacency">CityOfPeaceIWildcardScienceCityCenter</Argument>
-		<String context="Description">LOC_TRADITION_COMPENDIOUS_BOOK_I_DESCRIPTION</String>
+		<String context="Description">LOC_TRADITION_CITY_OF_PEACE_I_DESCRIPTION</String>
 	</Modifier>
-	<Modifier id="COMPENDIOUS_BOOK_II_MOD_TOWN_YIELDS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
+	<Modifier id="COMPENDIOUS_BOOK_I_MOD_TOWN_YIELDS" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD">
 		<SubjectRequirements>
 			<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
 				<Argument name="RequirementSetId">REQSET_ONLY_TOWNS</Argument>
@@ -151,7 +151,7 @@
 		</SubjectRequirements>
 		<Argument name="Amount">2</Argument>
 		<Argument name="YieldType">YIELD_HAPPINESS, YIELD_SCIENCE</Argument>
-		<Argument name="Tooltip">LOC_TRADITION_COMPENDIOUS_BOOK_II_NAME</Argument>
+		<Argument name="Tooltip">LOC_TRADITION_COMPENDIOUS_BOOK_I_NAME</Argument>
 	</Modifier>
 	<Modifier id="SALES_AND_TRADE_MOD_RESOURCE_SCIENCE" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_ADJUST_YIELD_PER_RESOURCE">
 		<SubjectRequirements>

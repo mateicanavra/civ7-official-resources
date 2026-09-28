@@ -4,11 +4,13 @@ import { DialogBoxManager } from '../../../core/ui/dialog-box/manager-dialog-box
 import Cursor from '../../../core/ui/input/cursor.js';
 import { PlotCursor } from '../../../core/ui/input/plot-cursor.js';
 import { InterfaceMode } from '../../../core/ui/interface-modes/interface-modes.js';
+import LensManager from '../../../core/ui/lenses/lens-manager.js';
 import NavTray from '../../../core/ui/navigation-tray/model-navigation-tray.js';
 import Panel from '../../../core/ui/panel-support.js';
 import Databind from '../../../core/ui/utilities/utilities-core-databinding.js';
 import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
 import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
+import { ViewExperience } from '../../../core/ui-next/services/view-experience.js';
 import AdvancedStart from './model-advanced-start.js';
 import TutorialManager from '../tutorial/tutorial-manager.js';
 import WorldInput from '../world-input/world-input.js';
@@ -39,6 +41,7 @@ class ScreenAdvancedStart extends Panel {
   isAdvancedStart = false;
   filterButtons = [];
   filterButtonIndex = -1;
+  isMobile = ViewExperience() == UIViewExperience.Mobile;
   plotSelectionHandler = (plot, previousPlot) => {
     return this.selectPlot(plot, previousPlot);
   };
@@ -57,6 +60,9 @@ class ScreenAdvancedStart extends Panel {
     engine.on("AdvancedStartCardRemoved", this.cardRemovedListener);
     engine.on("AdvancedStartEffectUsed", this.effectUsedListener);
     window.addEventListener("interface-mode-changed", this.interfaceModeChangedListener);
+    const advStartContainer = MustGetElement(".adv-start__available-legacy-container", this.Root);
+    advStartContainer.classList.toggle("mb-19", !this.isMobile);
+    advStartContainer.classList.toggle("mb-32", this.isMobile);
     const advStartChooser = MustGetElement(".adv-start__available-legacy-wrapper", this.Root);
     if (advStartChooser && AdvancedStart.deckConfirmed) {
       advStartChooser.classList.add("hidden");
@@ -124,7 +130,8 @@ class ScreenAdvancedStart extends Panel {
         cardEffectEntry.setAttribute("data-audio-activate-ref", "data-audio-effect-card-activate");
         cardEffectEntry.setAttribute("data-bind-attr-data-type-id", "{{entry.effectID}}");
         cardEffectEntry.setAttribute("data-bind-class-toggle", "hide: !{{entry.display}}");
-        cardEffectEntry.classList.add("advanced-start-effect", "mr-13");
+        cardEffectEntry.classList.add("advanced-start-effect");
+        cardEffectEntry.classList.toggle("mr-13", !this.isMobile);
         cardEffectEntry.addEventListener("action-activate", this.effectActivateListener);
         cardEffectDiv.appendChild(cardEffectEntry);
       }
@@ -150,6 +157,7 @@ class ScreenAdvancedStart extends Panel {
     engine.synchronizeModels();
     AdvancedStart.advancedStartClosed = false;
     InterfaceMode.switchTo("INTERFACEMODE_ADVANCED_START");
+    LensManager.disableLayer("fxs-radial-measure-layer");
   }
   onReceiveFocus() {
     super.onReceiveFocus();
@@ -524,9 +532,11 @@ class ScreenAdvancedStart extends Panel {
     viewMapButton.setAttribute("caption", "LOC_ADVANCED_START_VIEW_MAP");
     viewMapButton.setAttribute("data-bind-if", `{{g_NavTray.isTrayRequired}} == false`);
     viewMapButton.addEventListener("action-activate", this.closeButtonListener);
-    buttonContainer.appendChild(viewMapButton);
-    if (isAdvancedStart) {
-      this.addAutoFillButton(buttonContainer);
+    if (!this.isMobile) {
+      buttonContainer.appendChild(viewMapButton);
+      if (isAdvancedStart) {
+        this.addAutoFillButton(buttonContainer);
+      }
     }
     const forceComplete = document.createElement("fxs-button");
     forceComplete.classList.add("force-complete-button", "mx-6");
@@ -539,7 +549,19 @@ class ScreenAdvancedStart extends Panel {
     );
     forceComplete.setAttribute("caption", "LOC_ADVANCED_FORCE_COMPLETE_DECK");
     forceComplete.addEventListener("action-activate", this.forceCompleteButtonListener);
-    buttonContainer.appendChild(forceComplete);
+    if (this.isMobile) {
+      const btnContainerDiv = document.createElement("div");
+      btnContainerDiv.classList.add("flex", "flex-row", "self-start");
+      btnContainerDiv.appendChild(viewMapButton);
+      if (isAdvancedStart) {
+        this.addAutoFillButton(btnContainerDiv);
+      }
+      btnContainerDiv.appendChild(forceComplete);
+      buttonContainer.classList.add("w-full");
+      buttonContainer.appendChild(btnContainerDiv);
+    } else {
+      buttonContainer.appendChild(forceComplete);
+    }
     const confirmButton = document.createElement("fxs-button");
     confirmButton.classList.add("confirm-deck-button", "mx-6");
     confirmButton.setAttribute("data-audio-group-ref", "audio-advanced-start");

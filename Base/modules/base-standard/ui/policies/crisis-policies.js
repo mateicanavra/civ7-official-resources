@@ -7,15 +7,16 @@ import { InnerFrame } from '../../../core/ui-next/components/inner-frame.js';
 import { L10n } from '../../../core/ui-next/components/l10n.js';
 import { ScrollArea } from '../../../core/ui-next/components/scroll-area.js';
 import { SpatialSlot } from '../../../core/ui-next/components/slot.js';
-import { NestedTooltipContext } from '../../../core/ui-next/components/tooltip-compat.js';
+import { NestedTooltipContext } from '../../../core/ui-next/components/tooltip-nested.js';
 import { IsControllerActive } from '../../../core/ui-next/services/input.js';
+import { isMobile } from '../../../core/ui-next/services/view-experience.js';
 import { LayoutModel } from '../../../core/ui-next/utilities/layout-utilities.js';
 import { GovtScreenModel } from './model-government.js';
 import { PoliciesModel } from './model-policies.js';
 import { setActiveCrisisCards, setAvailableCrisisCards, calculateGovtCardHeights, maxGovtCardHeight, availableCrisisCards, activeCrisisCards } from './policies-support.js';
 import { PolicyCard, CardSlot } from './policy-card.js';
 
-var _tmpl$ = /* @__PURE__ */ template(`<div class="flex flex-auto policies-2-col self-center"><div class="relative flex top-0 relative flex-wrap items-center w-full justify-start"></div></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="flex flex-auto policies-2-col self-center"><div class="flex top-0 relative flex-wrap items-center w-full justify-start"><div class="absolute top-0 flex pointer-events-none flex-wrap w-full items-center justify-start"></div></div></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="flex-auto flex text-center w-full flex-col px-2 pb-4"><div></div></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div class="flex flex-col items-center font-title tracking-100 w-full uppercase justify-center crisis-text-color py-4"><div class="flex flex-row"><div class="text-accent-1 font-bold mr-2"></div></div></div>`), _tmpl$5 = /* @__PURE__ */ template(`<div class="policies__crisis-progress-bar self-center flex flex-col items-center mt-8 mb-4"><div class=w-full><div class="policies__crisis-progress-bar-outer relative h-4 flex w-full border border-primary"><div class="crisis-bar-pulse absolute h-full"></div><div class="policies__crisis-progress-bar-inner h-full border-primary"></div></div></div><div class="policies__crisis-progress-text self-start mt-2"></div></div>`), _tmpl$6 = /* @__PURE__ */ template(`<div class="policies__crisis-marker-container mt-14 w-full relative"><div class="w-0\\.5 h-4 bg-primary text-center absolute bottom-0 left-0"></div></div>`), _tmpl$7 = /* @__PURE__ */ template(`<div class="w-0\\.5 h-4 bg-primary text-center absolute bottom-0"><div class="absolute min-w-20 max-w-25 bottom-4 font-title-2xs font-fit-shrink"></div></div>`);
+var _tmpl$ = /* @__PURE__ */ template(`<div class="flex flex-auto policies-2-col self-center max-w-full"><div class="relative flex top-0 relative flex-wrap items-center w-full justify-start"></div></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="flex flex-auto policies-2-col self-center max-w-full"><div class="flex top-0 relative flex-wrap items-center w-full justify-start"><div class="absolute top-0 flex pointer-events-none flex-wrap w-full items-center justify-start"></div></div></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div><div></div></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div class="flex flex-col items-center font-title tracking-100 w-full uppercase justify-center crisis-text-color py-4"><div class="flex flex-row"><div class="text-accent-1 font-bold mr-2"></div></div></div>`), _tmpl$5 = /* @__PURE__ */ template(`<div><div class="w-full"><div class="policies__crisis-progress-bar-outer relative h-4 flex w-full border border-primary"><div class="crisis-bar-pulse absolute h-full"></div><div class="policies__crisis-progress-bar-inner h-full border-primary"></div></div></div><div class="policies__crisis-progress-text self-start mt-2"></div></div>`), _tmpl$6 = /* @__PURE__ */ template(`<div class="policies__crisis-marker-container mt-14 w-full relative"><div class="w-0\\.5 h-4 bg-primary text-center absolute bottom-0 left-0"></div></div>`), _tmpl$7 = /* @__PURE__ */ template(`<div class="w-0\\.5 h-4 bg-primary text-center absolute bottom-0"><div></div></div>`);
 const CrisisPolicies = () => {
   let root;
   const model = PoliciesModel.get();
@@ -58,7 +59,7 @@ const CrisisPolicies = () => {
                 text: "LOC_UI_POLICIES_AVAILABLE",
                 isPolicy: true
               }), createComponent(ScrollArea, {
-                "class": "flex-auto",
+                "class": "flex-auto max-w-full",
                 reserveSpace: true,
                 get children() {
                   var _el$2 = _tmpl$(), _el$3 = _el$2.firstChild;
@@ -97,7 +98,7 @@ const CrisisPolicies = () => {
               return [createComponent(PoliciesCountSubHeader, {
                 text: "LOC_UI_POLICIES_YOUR_CRISIS_POLICIES"
               }), createComponent(ScrollArea, {
-                "class": "flex-auto",
+                "class": "flex-auto max-w-full",
                 reserveSpace: true,
                 get children() {
                   var _el$4 = _tmpl$2(), _el$5 = _el$4.firstChild, _el$6 = _el$5.firstChild;
@@ -206,7 +207,15 @@ const CrisisPolicies = () => {
           });
         }
       }), null);
-      createRenderEffect(() => className(_el$7, `${model.canSwapCrisis ? "" : "hidden"} my-4 flex flex-row justify-center`));
+      createRenderEffect((_p$) => {
+        var _v$ = `flex-auto flex text-center w-full flex-col px-2 ${IsControllerActive() && isMobile() ? "pb-10" : "pb-4"}`, _v$2 = `${model.canSwapCrisis ? "" : "hidden"} my-4 flex flex-row justify-center`;
+        _v$ !== _p$.e && className(_el$, _p$.e = _v$);
+        _v$2 !== _p$.t && className(_el$7, _p$.t = _v$2);
+        return _p$;
+      }, {
+        e: void 0,
+        t: void 0
+      });
       return _el$;
     }
   });
@@ -234,13 +243,15 @@ const CrisisProgressBar = () => {
       }
     }), _el$13);
     createRenderEffect((_p$) => {
-      var _v$ = model.data.crisisBarWdith, _v$2 = model.data.crisisBarWdith;
-      _v$ !== _p$.e && ((_p$.e = _v$) != null ? _el$14.style.setProperty("width", _v$) : _el$14.style.removeProperty("width"));
-      _v$2 !== _p$.t && ((_p$.t = _v$2) != null ? _el$15.style.setProperty("width", _v$2) : _el$15.style.removeProperty("width"));
+      var _v$3 = `policies__crisis-progress-bar self-center flex flex-col items-center mt-8 mb-4 ${isMobile() ? "px-8" : ""}`, _v$4 = model.data.crisisBarWdith, _v$5 = model.data.crisisBarWdith;
+      _v$3 !== _p$.e && className(_el$11, _p$.e = _v$3);
+      _v$4 !== _p$.t && ((_p$.t = _v$4) != null ? _el$14.style.setProperty("width", _v$4) : _el$14.style.removeProperty("width"));
+      _v$5 !== _p$.a && ((_p$.a = _v$5) != null ? _el$15.style.setProperty("width", _v$5) : _el$15.style.removeProperty("width"));
       return _p$;
     }, {
       e: void 0,
-      t: void 0
+      t: void 0,
+      a: void 0
     });
     return _el$11;
   })();
@@ -271,6 +282,7 @@ const CrisisMarker = (props) => {
         return props.eventName;
       }
     }));
+    createRenderEffect(() => className(_el$19, `absolute ${isMobile() ? "min-w-22" : "min-w-20"} max-w-25 bottom-4 font-title-2xs font-fit-shrink`));
     return _el$18;
   })();
 };

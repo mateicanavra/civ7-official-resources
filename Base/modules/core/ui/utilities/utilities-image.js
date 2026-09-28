@@ -77,9 +77,9 @@ var Icon;
       _techDefinition.ProgressionTreeNodeType
     );
     if (nodeInfo) {
-      return `fs://game/base-standard/ui/icons/tech_icons/${nodeInfo.IconString}.png`;
+      return `blp:${nodeInfo.IconString}`;
     } else {
-      return `fs://game/base-standard/ui/icons/culture_icons/unknown_complete.png`;
+      return "blp:unknown_complete";
     }
   }
   Icon2.getTechIconFromProgressionTreeNodeDefinition = getTechIconFromProgressionTreeNodeDefinition;
@@ -99,18 +99,18 @@ var Icon;
         }
       }
       if (nodeInfo.IconString) {
-        return `fs://game/base-standard/ui/icons/culture_icons/${nodeInfo.IconString}.png`;
+        return `blp:${nodeInfo.IconString}`;
       }
     }
-    return `fs://game/base-standard/ui/icons/culture_icons/unknown_complete.png`;
+    return "blp:unknown_complete";
   }
   Icon2.getCultureIconFromProgressionTreeNodeDefinition = getCultureIconFromProgressionTreeNodeDefinition;
   function getCultureIconFromProgressionTreeDefinition(_cultureDefinition) {
     const icon = _cultureDefinition.IconString;
     if (icon) {
-      return `fs://game/base-standard/ui/icons/culture_icons/${icon}.png`;
+      return `blp:${icon}`;
     } else {
-      return `fs://game/base-standard/ui/icons/culture_icons/unknown_complete.png`;
+      return "blp:unknown_complete";
     }
   }
   Icon2.getCultureIconFromProgressionTreeDefinition = getCultureIconFromProgressionTreeDefinition;
@@ -127,7 +127,7 @@ var Icon;
     if (icon) {
       return icon;
     } else {
-      return `fs://game/base-standard/ui/icons/culture_icons/unknown_complete.png`;
+      return "blp:unknown_complete";
     }
   }
   Icon2.getYieldIcon = getYieldIcon;
@@ -156,7 +156,7 @@ var Icon;
   }
   Icon2.getProductionIconFromHash = getProductionIconFromHash;
   function getLeaderPortraitIcon(leaderType, size, relationship) {
-    const missingIcon = "blp:leader_portrait_unknown.png";
+    const missingIcon = "blp:leader_portrait_unknown";
     const leader = GameInfo.Leaders.lookup(leaderType);
     if (!leader) {
       console.error("Failed attempt to get a leader icon for leaderType: ", leaderType.toString());
@@ -193,12 +193,12 @@ var Icon;
           const firstchar = slice1.slice(0, 1);
           let slice2 = slice1.slice(1);
           slice2 = slice2.toLowerCase();
-          const filename = `fs://game/base-standard/ui/images/backgrounds/${firstchar}${slice2}_HeaderImage.png`;
+          const filename = `blp:${firstchar}${slice2}_HeaderImage`;
           return filename;
         }
       }
     }
-    return "fs://game/base-standard/ui/images/backgrounds/Default_HeaderImage.png";
+    return "blp:Default_HeaderImage";
   }
   Icon2.getPlayerBackgroundImage = getPlayerBackgroundImage;
   function getPlayerLeaderIcon(playerID, size) {
@@ -207,7 +207,7 @@ var Icon;
     if (player) {
       return getLeaderPortraitIcon(player.leaderType, size);
     }
-    return "fs://game/base-standard/ui/diplo-ribbon/img/TEMP_leader_portrait_confucius.png";
+    return "blp:TEMP_leader_portrait_confucius";
   }
   Icon2.getPlayerLeaderIcon = getPlayerLeaderIcon;
   function getNotificationIconFromID(notificationID, context = "NOTIFICATION") {
@@ -268,7 +268,7 @@ var Icon;
   function getCivLineFromCivilizationType(civilization) {
     const civDef = GameInfo.Civilizations.lookup(civilization);
     if (civDef) {
-      return "fs://game/core/ui/civ_line_" + civDef.CivilizationType.slice(13).toLowerCase();
+      return "blp:civ_line_" + civDef.CivilizationType.slice(13).toLowerCase();
     }
     console.error(`Couldn't look up civ line for civilization ${civilization}`);
     return "";
@@ -322,9 +322,9 @@ var Icon;
     if (techName) {
       let newTechName = techName.split("NODE_TECH_").pop()?.substring(3).toLowerCase();
       newTechName = newTechName?.replace("_", "");
-      return `url('fs://game/tech_${newTechName}')`;
+      return `url('blp:tech_${newTechName}')`;
     } else {
-      return `fs://game/base-standard/ui/icons/culture_icons/unknown_complete.png`;
+      return "url('blp:unknown_complete')";
     }
   }
   Icon2.getTechIconForCivilopedia = getTechIconForCivilopedia;
@@ -342,7 +342,7 @@ var Icon;
       newCivicName = newCivicName?.replace("_", "");
       return `url('blp:cult_${newCivicName}')`;
     } else {
-      return "blp:unknown_complete";
+      return "url('blp:unknown_complete')";
     }
   }
   Icon2.getCivicsIconForCivilopedia = getCivicsIconForCivilopedia;
@@ -351,7 +351,7 @@ var Icon;
       const newCivName = civName.split("CIVILIZATION_").pop()?.toLowerCase();
       return `url('blp:civ_sym_${newCivName}')`;
     } else {
-      return "blp:unknown_complete";
+      return "url('blp:unknown_complete')";
     }
   }
   Icon2.getCivIconForCivilopedia = getCivIconForCivilopedia;

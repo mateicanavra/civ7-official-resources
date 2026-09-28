@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Civilizations>
+		<Row Domain="ExplorationAgeCivilizations" CivilizationType="CIVILIZATION_ENGLAND" CivilizationName="LOC_CIVILIZATION_ENGLAND_NAME" CivilizationFullName="LOC_CIVILIZATION_ENGLAND_FULLNAME" CivilizationDescription="LOC_CIVILIZATION_ENGLAND_DESCRIPTION" CivilizationIcon="shawnee_icon.png" CivilizationIntroText="LOC_LOADING_CIV_INTRO_TEXT_ENGLAND"/>
+	</Civilizations>
+	<CivilizationItems>
+		<!-- Unique Ability -->
+		<Row CivilizationDomain="AntiquityAgeCivilizations" AgeType="AGE_ANTIQUITY" CivilizationType="CIVILIZATION_ENGLAND" Type="TRAIT_ENGLAND_ABILITY" Kind="KIND_TRAIT" Name="LOC_TRAIT_ENGLAND_ABILITY_NAME" Description="LOC_TRAIT_ENGLAND_ABILITY_AQ_DESCRIPTION"/>
+		<Row CivilizationDomain="ExplorationAgeCivilizations" AgeType="AGE_EXPLORATION" CivilizationType="CIVILIZATION_ENGLAND" Type="TRAIT_ENGLAND_ABILITY" Kind="KIND_TRAIT" Name="LOC_TRAIT_ENGLAND_ABILITY_NAME" Description="LOC_TRAIT_ENGLAND_ABILITY_EX_DESCRIPTION"/>
+		<Row CivilizationDomain="ModernAgeCivilizations" AgeType="AGE_MODERN" CivilizationType="CIVILIZATION_ENGLAND" Type="TRAIT_ENGLAND_ABILITY" Kind="KIND_TRAIT" Name="LOC_TRAIT_ENGLAND_ABILITY_NAME" Description="LOC_TRAIT_ENGLAND_ABILITY_MO_DESCRIPTION"/>
+		<!-- Unique Units -->		
+		<Row CivilizationDomain="ExplorationAgeCivilizations" CivilizationType="CIVILIZATION_ENGLAND" Type="UNIT_LONGBOW" Kind="KIND_UNIT" Name="LOC_UNIT_LONGBOW_NAME" Description="LOC_UNIT_LONGBOW_BASE_DESCRIPTION" Icon="unitflag_longbow.png"/>
+		<Row CivilizationDomain="ExplorationAgeCivilizations" CivilizationType="CIVILIZATION_ENGLAND" Type="UNIT_MERCHANT_ADVENTURER" Kind="KIND_UNIT" Name="LOC_UNIT_MERCHANT_ADVENTURER_NAME" Description="LOC_UNIT_MERCHANT_ADVENTURER_DESCRIPTION" Icon="unitflag_merchant_adventurer.png" CanSyncretize="0"/>
+		<Row CivilizationDomain="ExplorationAgeCivilizations" CivilizationType="CIVILIZATION_ENGLAND" Type="QUARTER_ABBEY" Kind="KIND_QUARTER" Name="LOC_QUARTER_ABBEY_NAME" Description="LOC_QUARTER_ABBEY_DESCRIPTION" Icon="city_uniquequarter"/>
+		<Row CivilizationDomain="ExplorationAgeCivilizations" CivilizationType="CIVILIZATION_ENGLAND" Type="BUILDING_CHAPTER_HOUSE" Kind="KIND_BUILDING" Name="LOC_BUILDING_CHAPTER_HOUSE_NAME" Description="LOC_BUILDING_CHAPTER_HOUSE_DESCRIPTION" Icon="impicon_loikalo.png"/>
+		<Row CivilizationDomain="ExplorationAgeCivilizations" CivilizationType="CIVILIZATION_ENGLAND" Type="BUILDING_CHAPEL" Kind="KIND_BUILDING" Name="LOC_BUILDING_CHAPEL_NAME" Description="LOC_BUILDING_CHAPEL_DESCRIPTION" Icon="impicon_loikalo.png"/>
+	</CivilizationItems>
+	<CivilizationTags>
+		<Row CivilizationDomain="ExplorationAgeCivilizations" CivilizationType="CIVILIZATION_ENGLAND" TagType="TAG_TRAIT_CULTURAL"/>
+		<Row CivilizationDomain="ExplorationAgeCivilizations" CivilizationType="CIVILIZATION_ENGLAND" TagType="TAG_TRAIT_ECONOMIC"/>
+		<Row CivilizationDomain="ExplorationAgeCivilizations" CivilizationType="CIVILIZATION_ENGLAND" TagType="TAG_APEX_AGE_EXPLORATION"/>
+	</CivilizationTags>
+	<CivilizationUnlocks>
+		<Row CivilizationDomain="AntiquityAgeCivilizations" CivilizationType="CIVILIZATION_ROME" AgeDomain="StandardAges" AgeType="AGE_EXPLORATION" Type="CIVILIZATION_ENGLAND" Kind="KIND_CIVILIZATION" Name="LOC_CIVILIZATION_ENGLAND_NAME" Description="LOC_CIVILIZATION_ENGLAND_DESCRIPTION" Icon="CIVILIZATION_ENGLAND"/>
+		<Row CivilizationDomain="ExplorationAgeCivilizations" CivilizationType="CIVILIZATION_ENGLAND" AgeDomain="StandardAges" AgeType="AGE_MODERN" Type="CIVILIZATION_AMERICA" Kind="KIND_CIVILIZATION" Name="LOC_CIVILIZATION_AMERICA_NAME" Description="LOC_CIVILIZATION_AMERICA_DESCRIPTION" Icon="CIVILIZATION_AMERICA"/>
+	</CivilizationUnlocks>
+	<LeaderUnlocks>
+		<Row LeaderDomain="StandardLeaders" LeaderType="LEADER_ALEXANDER" AgeDomain="StandardAges" AgeType="AGE_EXPLORATION" Type="CIVILIZATION_ENGLAND" Kind="KIND_CIVILIZATION" Name="LOC_CIVILIZATION_ENGLAND_NAME" Description="LOC_CIVILIZATION_ENGLAND_DESCRIPTION" Icon="CIVILIZATION_ENGLAND" />
+	</LeaderUnlocks>
+	<LeaderCivilizationBias>
+		<Row CivilizationDomain="ExplorationAgeCivilizations" CivilizationType="CIVILIZATION_ENGLAND" LeaderDomain="StandardLeaders" LeaderType="LEADER_ALEXANDER" Bias="1" ReasonType="LOC_UNLOCK_PLAY_AS_ALEXANDER_ENGLAND_TOOLTIP" ChoiceType="LOC_CREATE_GAME_STRATEGIC_CHOICE" />
+	</LeaderCivilizationBias>
+	<OwnershipConditions>
+		<Row ItemType="CIVILIZATION_ENGLAND" Action="LOC_LOCKED_INCLUDED_WITH_CONTENT" />
+	</OwnershipConditions>
+</Database>

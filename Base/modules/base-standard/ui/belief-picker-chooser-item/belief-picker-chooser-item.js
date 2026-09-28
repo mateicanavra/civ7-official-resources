@@ -1,6 +1,6 @@
 import { ChooserItem } from '../chooser-item/chooser-item.js';
 import beliefPickerChooserItemStyles from './belief-picker-chooser-item.scss.js';
-import styles from '../chooser-item/chooser-item.scss.js';
+import chooserItemStyles from '../chooser-item/chooser-item.scss.js';
 
 class BeliefPickerChooserItem extends ChooserItem {
   get beliefPickerChooserNode() {
@@ -82,7 +82,7 @@ Controls.define("belief-picker-chooser-item", {
   createInstance: BeliefPickerChooserItem,
   description: "A chooser item to be used with the belief picker",
   classNames: ["belief-picker-chooser-item", "relative", "group"],
-  styles: [styles, beliefPickerChooserItemStyles],
+  styles: [chooserItemStyles, beliefPickerChooserItemStyles],
   images: [
     "fs://game/hud_sidepanel_list-bg.png",
     "fs://game/hud_list-focus_frame.png",

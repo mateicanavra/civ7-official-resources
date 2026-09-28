@@ -52,7 +52,7 @@ class MpStagingPlayerInfoCard extends Panel {
   badgeContainer = MustGetElement(".mspic-badge-container", this.Root);
   hostIcon = MustGetElement(".mspic-host-icon", this.Root);
   localPlayerFilligree = MustGetElement(".mspic-local-player-filligree", this.Root);
-  displayPlatformIcon = Network.supportsSSO();
+  displayPlatformIcon = Network.supportsSSO() && Network.getLocalHostingPlatform() != HostingType.HOSTING_TYPE_NX;
   constructor(root) {
     super(root);
     if (!this.displayPlatformIcon) {

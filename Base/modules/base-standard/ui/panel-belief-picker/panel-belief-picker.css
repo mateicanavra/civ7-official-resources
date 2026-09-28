@@ -11,7 +11,36 @@
 }
 @media (experience: mobile) {
   .belief-choice-menu {
-    max-width: 100%;
+    width: 40%;
+  }
+}
+
+@media (experience: mobile) {
+  .belief-choice-menu_content-container {
+    padding-bottom: 0.5555555556rem;
+  }
+}
+
+@media (experience: mobile) {
+  .belief-choice-menu_list .pantheon-chooser-item_text-container {
+    width: 100%;
+  }
+}
+@media (experience: mobile) {
+  .belief-choice-menu_list .pantheon-chooser-item_desc {
+    width: 98%;
+  }
+}
+
+@media (experience: mobile) {
+  .belief-choice-menu_title {
+    max-width: 90%;
+  }
+}
+
+@media (experience: mobile) {
+  .belief-choice-menu_subtitle {
+    margin: 0.6666666667rem 0.5555555556rem 0.5555555556rem;
   }
 }
 
@@ -31,10 +60,21 @@
     margin-top: 3.0555555556rem;
   }
 }
-
 @media (experience: mobile) {
+  .panel-belief-picker-content .fxs-scrollbar__track--vertical {
+    margin-top: 0.1111111111rem;
+    margin-bottom: 0.1111111111rem;
+  }
+}
+
+@media (experience: mobile) and (max-height: 55.5555555556rem) {
   .belief-picker_subsystem-frame {
     width: 38.8888888889rem;
+  }
+}
+@media (experience: mobile) {
+  .belief-picker_subsystem-frame .fxs-close-button {
+    right: 1rem;
   }
 }
 

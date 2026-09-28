@@ -1,4 +1,5 @@
-import { createSignal } from '../../vendor/solid-js/dist/solid.js';
+import { Dynamic } from '../../vendor/solid-js/web/dist/web.js';
+import { createSignal, createComponent, mergeProps } from '../../vendor/solid-js/dist/solid.js';
 import { ComponentUtilities } from '../utilities/component-utilities.js';
 
 const [componentRegistered, setComponentRegistered] = createSignal();
@@ -23,18 +24,12 @@ class ComponentRegistryImpl {
     let wrappedComponentFactory = this.componentFactories.get(name);
     overridePriority ??= 0;
     if (wrappedComponentFactory) {
-      if (wrappedComponentFactory.overridePriority < overridePriority) {
+      if (wrappedComponentFactory.overridePriority <= overridePriority) {
         wrappedComponentFactory.overridePriority = overridePriority;
-        wrappedComponentFactory.factory = factory;
+        wrappedComponentFactory.setFactory(() => factory);
       }
     } else {
-      wrappedComponentFactory = this.wrapComponentFactory(
-        name,
-        factory,
-        overridePriority,
-        cachedImages,
-        cachedStyles
-      );
+      wrappedComponentFactory = this.wrapComponentFactory(name, factory, overridePriority, cachedImages, cachedStyles);
     }
     setComponentRegistered(() => wrappedComponentFactory);
     return wrappedComponentFactory;
@@ -54,17 +49,20 @@ class ComponentRegistryImpl {
    * @returns A promise that resolves when all associated styles and images are loaded
    */
   preloadComponents(...components) {
-    return Promise.all([
-      ...components.map((c) => c.cachedImages ?? []),
-      ...components.map((c) => c.cachedStyles ?? [])
-    ]);
+    return Promise.all([...components.map((c) => c.cachedImages ?? []), ...components.map((c) => c.cachedStyles ?? [])]);
   }
   wrapComponentFactory(name, factory, overridePriority, cachedImages, cachedStyles) {
+    const [getFactory, setFactory] = createSignal(factory);
     const wrappedFactory = (props) => {
-      return wrappedFactory.factory(props);
+      return createComponent(Dynamic, mergeProps({
+        get component() {
+          return getFactory();
+        }
+      }, props));
     };
     wrappedFactory.factoryName = name;
-    wrappedFactory.factory = factory;
+    wrappedFactory.factory = getFactory;
+    wrappedFactory.setFactory = setFactory;
     wrappedFactory.overridePriority = overridePriority;
     wrappedFactory.cachedImages = cachedImages;
     wrappedFactory.cachedStyles = cachedStyles;

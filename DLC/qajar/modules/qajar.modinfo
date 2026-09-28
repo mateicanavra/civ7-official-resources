@@ -37,7 +37,7 @@
 			<ModInUse>friedrich-xerxes-alt</ModInUse>
 		</Criteria>
 		<Criteria id="xerxes-alt-current-shell">
-			<ModIsEnabled>friedrich-xerxes-alt</ModIsEnabled>
+			<ModInUse>friedrich-xerxes-alt</ModInUse>
 		</Criteria>
 		<Criteria id="modern-age-gilgamesh">
 			<ModInUse>gilgamesh</ModInUse>
@@ -47,14 +47,13 @@
 			<ModInUse>gilgamesh</ModInUse>
 		</Criteria>
 		<Criteria id="gilgamesh-current-shell">
-			<ModIsEnabled>gilgamesh</ModIsEnabled>
+			<ModInUse>gilgamesh</ModInUse>
 		</Criteria>
-		<Criteria id="antiquity-age-assyria">
+		<Criteria id="assyria-current">
 			<ModInUse>assyria</ModInUse>
-			<AgeInUse>AGE_ANTIQUITY</AgeInUse>
 		</Criteria>
 		<Criteria id="assyria-current-shell">
-			<ModIsEnabled>assyria</ModIsEnabled>
+			<ModInUse>assyria</ModInUse>
 		</Criteria>
 		<Criteria id="always">
 			<AlwaysMet></AlwaysMet>
@@ -222,6 +221,8 @@
 					<Item>data/traditions-gameeffects.xml</Item>
 					<Item>data/unlocks-base-standard.xml</Item>
 					<Item>data/unlocks-syncretism.xml</Item>
+					<Item>data/unlocks-antiquity.xml</Item>
+					<Item>data/unlocks-exploration.xml</Item>
 					<Item>data/citizen-names.xml</Item>
 					<Item>data/civilizations-shared.xml</Item>
 					<Item>data/civilizations-shared-gameeffects.xml</Item>
@@ -283,24 +284,10 @@
 				</UpdateDatabase>
 			</Actions>
 		</ActionGroup>
-		<ActionGroup id="age-antiquity-main-qajar" scope="game" criteria="antiquity-age-current">
-			<Actions>
-				<UpdateDatabase>
-					<Item>data/unlocks-antiquity.xml</Item>
-				</UpdateDatabase>
-			</Actions>
-		</ActionGroup>
-		<ActionGroup id="age-antiquity-assyria-qajar" scope="game" criteria="antiquity-age-assyria">
+		<ActionGroup id="assyria-qajar" scope="game" criteria="assyria-current">
 			<Actions>
 				<UpdateDatabase>
 					<Item>data/unlocks-antiquity-assyria.xml</Item>
-				</UpdateDatabase>
-			</Actions>
-		</ActionGroup>
-		<ActionGroup id="age-exploration-main-qajar" scope="game" criteria="exploration-age-current">
-			<Actions>
-				<UpdateDatabase>
-					<Item>data/unlocks-exploration.xml</Item>
 				</UpdateDatabase>
 			</Actions>
 		</ActionGroup>

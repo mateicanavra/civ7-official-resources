@@ -10,7 +10,7 @@ import { registerHotkey } from '../services/hotkey.js';
 import { IsControllerActive } from '../services/input.js';
 import { createPropsRefSignal } from '../utilities/solid-utilities.js';
 
-var _tmpl$ = /* @__PURE__ */ template(`<div><input type=text class="fxs-textbox py-1 px-1\\.5 flex-auto border-1 border-primary-1 hover\\:border-secondary focus\\:border-secondary transition-border-color bg-accent-6"data-name=text-input data-isinput=true></div>`);
+var _tmpl$ = /* @__PURE__ */ template(`<div><input type="text"class="fxs-textbox py-1 px-1\\.5 flex-auto border-1 border-primary-1 hover\\:border-secondary focus\\:border-secondary transition-border-color bg-accent-6"data-name="text-input"data-isinput="true"></div>`);
 const TextInputComponent = (props) => {
   const audioContext = useContext(AudioGroupContext);
   const [root, setRoot] = createPropsRefSignal(() => props.ref);

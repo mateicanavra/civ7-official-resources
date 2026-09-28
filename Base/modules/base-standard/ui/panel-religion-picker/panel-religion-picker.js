@@ -1,11 +1,11 @@
 import { TextBoxTextEditStopEventName } from '../../../core/ui/components/fxs-textbox.js';
-import ContextManager from '../../../core/ui/context-manager/context-manager.js';
+import { ContextManager } from '../../../core/ui/context-manager/context-manager.js';
 import { DialogBoxManager } from '../../../core/ui/dialog-box/manager-dialog-box.js';
-import ActionHandler from '../../../core/ui/input/action-handler.js';
 import NavTray from '../../../core/ui/navigation-tray/model-navigation-tray.js';
 import Databind from '../../../core/ui/utilities/utilities-core-databinding.js';
 import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
 import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
+import { IsControllerActive } from '../../../core/ui-next/services/input.js';
 import { ScreenGeneralChooser } from '../general-chooser/screen-general-chooser.js';
 import { HideMiniMapEvent } from '../mini-map/panel-mini-map.js';
 import content from './panel-religion-picker.html.js';
@@ -104,12 +104,12 @@ class ScreenReligionPicker extends ScreenGeneralChooser {
   toggleEditReligionName() {
     const inputEnabled = this.religionInfoNameTextBox.getAttribute("enabled") == "true";
     this.religionInfoNameEditButton.setAttribute("is-confirm", (!inputEnabled).toString());
-    if (ActionHandler.isGamepadActive) {
+    if (IsControllerActive()) {
       if (UI.canDisplayKeyboard()) {
         this.religionInfoNameTextBox.setAttribute("activated", (!inputEnabled).toString());
       } else {
         this.religionInfoNameTextBox.setAttribute("enabled", (!inputEnabled).toString());
-        if (inputEnabled && ActionHandler.isGamepadActive) {
+        if (inputEnabled && IsControllerActive()) {
           this.onConfirm();
         }
       }
@@ -218,7 +218,7 @@ class ScreenReligionPicker extends ScreenGeneralChooser {
       this.religionInfoNameEditButton.classList.remove("hidden");
       this.religionConfirmButton.setAttribute("disabled", "true");
       this.hasSelectedCustomReligion = true;
-      if (ActionHandler.isGamepadActive) {
+      if (IsControllerActive()) {
         this.toggleEditReligionName();
       }
     } else if (religionIsCustom == "false") {
@@ -230,7 +230,7 @@ class ScreenReligionPicker extends ScreenGeneralChooser {
       }
       this.hasSelectedCustomReligion = false;
       this.religionConfirmButton.setAttribute("disabled", "false");
-      if (ActionHandler.isGamepadActive) {
+      if (IsControllerActive()) {
         this.goToBeliefChooser();
       }
     }
@@ -305,7 +305,7 @@ class ScreenReligionPicker extends ScreenGeneralChooser {
   }
   onReligionNameTextEntryStopped(event) {
     if (event.detail.confirmed) {
-      if (ActionHandler.isGamepadActive) {
+      if (IsControllerActive()) {
         this.onConfirm();
       } else {
         this.religionConfirmButton.setAttribute("disabled", "false");
@@ -313,7 +313,7 @@ class ScreenReligionPicker extends ScreenGeneralChooser {
         this.religionInfoNameEditButton.setAttribute("is-confirm", "false");
       }
     } else {
-      if (ActionHandler.isGamepadActive) {
+      if (IsControllerActive()) {
         this.religionInfoNameTextBox.setAttribute("enabled", "false");
         this.selectedReligionEntry?.classList.remove("entry-selected");
         const focusElement = MustGetElement(".religion-picker_religions", this.Root);
@@ -325,7 +325,7 @@ class ScreenReligionPicker extends ScreenGeneralChooser {
 Controls.define("panel-religion-picker", {
   createInstance: ScreenReligionPicker,
   description: "Religion picker",
-  classNames: ["panel-religion-picker", "absolute", "bottom-0", "top-44", "pointer-events-auto", "left-0", "w-200"],
+  classNames: ["panel-religion-picker", "absolute", "bottom-0", "top-40", "pointer-events-auto", "left-0", "w-200"],
   styles: [styles],
   innerHTML: [content],
   attributes: []

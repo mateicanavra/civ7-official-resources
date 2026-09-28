@@ -1,5 +1,6 @@
 import { quickFormatProgressionTreeNodeUnlocks } from '../../../core/ui/utilities/utilities-core-textprovider.js';
 import UpdateGate from '../../../core/ui/utilities/utilities-update-gate.js';
+import { isMobile } from '../../../core/ui-next/services/view-experience.js';
 import { TreeNodesSupport } from './tree-support.js';
 import styles from './tree-components.scss.js';
 
@@ -102,12 +103,17 @@ class TreeDetail extends Component {
     this.scrollable.classList.add("flex-auto");
     this.scrollable.setAttribute("attached-scrollbar", "true");
     const contentContainer = document.createElement("div");
-    contentContainer.classList.add("flex", "items-start");
+    contentContainer.classList.add("flex");
+    contentContainer.classList.toggle("items-start", !isMobile());
+    contentContainer.classList.toggle("items-center", isMobile());
+    contentContainer.classList.toggle("flex-col", isMobile());
     this.progressContainer.classList.add("flex", "flex-col", "items-center");
     this.turnContainer.classList.add("font-body", "text-base");
     this.nameContainer.setAttribute("title", this.name);
     this.nameContainer.setAttribute("font-fit-mode", "shrink");
-    this.nameContainer.classList.add("my-5", "flex-auto", "flex");
+    this.nameContainer.classList.add("flex-auto", "flex");
+    this.nameContainer.classList.toggle("my-5", !isMobile());
+    this.nameContainer.classList.toggle("my-1", isMobile());
     this.stateText.classList.add(
       "mb-1",
       "text-secondary",
@@ -131,9 +137,13 @@ class TreeDetail extends Component {
     this.scrollable.appendChild(this.scrollableContent);
     this.scrollableContent.appendChild(this.unlocksContainer);
     this.scrollableContent.appendChild(this.costContainer);
-    this.progressContainer.appendChild(this.turnContainer);
     contentContainer.appendChild(this.progressContainer);
     contentContainer.appendChild(this.nameContainer);
+    if (isMobile()) {
+      contentContainer.appendChild(this.turnContainer);
+    } else {
+      this.progressContainer.appendChild(this.turnContainer);
+    }
     detailContainer.appendChild(contentContainer);
     detailContainer.appendChild(this.stateText);
     detailContainer.appendChild(this.scrollable);
@@ -209,6 +219,7 @@ class TreeDetail extends Component {
         "justify-center",
         "bg-contain",
         "bg-center",
+        "bg-no-repeat",
         "flex-auto",
         "relative",
         "flex",
@@ -230,24 +241,30 @@ class TreeDetail extends Component {
       this.nameContainer.setAttribute("filigree-style", "none");
       this.ringMeter.classList.add(
         "detail-ring",
-        "size-16",
         "justify-center",
         "bg-contain",
         "bg-center",
+        "bg-no-repeat",
         "flex-auto",
         "relative",
         "flex",
         "items-center",
         "justify-center"
       );
+      this.ringMeter.classList.toggle("size-16", !isMobile());
+      this.ringMeter.classList.toggle("size-24", isMobile());
       this.ringMeter.setAttribute("max-value", "100");
       this.ringMeter.setAttribute("value", this.progress);
-      this.nodeIcon.classList.value = "bg-cover bg-center self-center absolute";
+      this.nodeIcon.classList.value = "bg-cover bg-center bg-no-repeat self-center absolute";
       this.nodeIcon.style.backgroundImage = this.icon;
       this.ringMeter.appendChild(this.nodeIcon);
       this.ringMeter.appendChild(this.ringContent);
       if (!this.progressContainer.contains(this.ringMeter)) {
-        this.progressContainer.insertBefore(this.ringMeter, this.turnContainer);
+        if (isMobile()) {
+          this.progressContainer.appendChild(this.ringMeter);
+        } else {
+          this.progressContainer.insertBefore(this.ringMeter, this.turnContainer);
+        }
       }
     }
   }
@@ -342,12 +359,12 @@ class TreeDetail extends Component {
   updateDetailImageUpdateGate = new UpdateGate(this.updateDetailImage.bind(this));
   updateDetailImage() {
     if (this.level > 0) {
-      this.nodeIcon.classList.remove("size-8");
-      this.nodeIcon.classList.add("size-5");
+      this.nodeIcon.classList.remove(isMobile() ? "size-14" : "size-8");
+      this.nodeIcon.classList.add(isMobile() ? "size-9" : "size-5");
       this.nodeIcon.style.backgroundImage = `url("fs://game/techtree_icon-II.png")`;
     } else {
-      this.nodeIcon.classList.remove("size-5");
-      this.nodeIcon.classList.add("size-8");
+      this.nodeIcon.classList.remove(isMobile() ? "size-9" : "size-5");
+      this.nodeIcon.classList.add(isMobile() ? "size-14" : "size-8");
       this.nodeIcon.style.backgroundImage = `url(${this.icon})`;
     }
   }

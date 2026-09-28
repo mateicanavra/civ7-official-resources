@@ -7,7 +7,7 @@ import { ComponentRegistry } from '../../../core/ui-next/services/component-regi
 import { useIsSmallScreen } from '../../../core/ui-next/utilities/layout-utilities.js';
 import { TicketSection, EntryDivider } from './plot-tooltip/components/utility.js';
 
-var _tmpl$ = /* @__PURE__ */ template(`<div class="flex flex-col items-stretch"><div class="flex flex-col gap-2 items-center"></div></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="h-px flex-auto my-0\\.5 bg-accent-2 opacity-20"></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="flex flex-row items-center"><div class="flex flex-col grow"><div class="flex flex-row items-center"><div class=grow></div></div></div></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div class="flex flex-row items-center grow text-xs text-accent-3"><div class=mr-2>•</div><div class="flex flex-row items-center grow"><div class=grow></div></div></div>`);
+var _tmpl$ = /* @__PURE__ */ template(`<div class="flex flex-col items-stretch"><div class="flex flex-col gap-2 items-center"></div></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="h-px flex-auto my-0\\.5 bg-accent-2 opacity-20"></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="flex flex-row items-center"><div class="flex flex-col grow"><div class="flex flex-row items-center"><div class="grow"></div></div></div></div>`), _tmpl$4 = /* @__PURE__ */ template(`<div class="flex flex-row items-center grow text-xs text-accent-3"><div class="mr-2">•</div><div class="flex flex-row items-center grow"><div class="grow"></div></div></div>`);
 const WarehouseBreakdownTooltipComponent = (props) => {
   const isSmallScreen = useIsSmallScreen();
   const [local, other] = splitProps(props, ["children", "class", "warehouseCounts"]);

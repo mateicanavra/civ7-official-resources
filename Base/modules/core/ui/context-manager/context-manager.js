@@ -2,6 +2,7 @@ import { DisplayQueueManager } from './display-queue-manager.js';
 import { DialogBoxManager } from '../dialog-box/manager-dialog-box.js';
 import { setContextManager } from '../framework.js';
 import Cursor from '../input/cursor.js';
+import { InputHandlerState } from '../input/input-support.js';
 import ViewManager from '../views/view-manager.js';
 import { FocusManager } from '../../ui-next/services/focus-manager.js';
 
@@ -598,7 +599,7 @@ class ContextManagerSingleton {
       this.setLastActivatedComponent(null);
     }
     return !this.engineInputEventHandlers.some((handler) => {
-      return !handler.handleInput(inputEvent);
+      return handler.handleInput(inputEvent) == InputHandlerState.Handled;
     });
   }
   /**
@@ -620,7 +621,7 @@ class ContextManagerSingleton {
     let cancelled = navigationEvent.defaultPrevented;
     if (!cancelled) {
       cancelled = this.engineInputEventHandlers.some((handler) => {
-        return !handler.handleNavigation(navigationEvent);
+        return handler.handleNavigation(navigationEvent) == InputHandlerState.Handled;
       });
     }
     return !cancelled;
@@ -682,5 +683,5 @@ class ContextManagerSingleton {
 const ContextManager = ContextManagerSingleton.getInstance();
 setContextManager(ContextManager);
 
-export { ContextManagerEvents, ContextManager as default };
+export { ContextManager, ContextManagerEvents, ContextManager as default };
 //# sourceMappingURL=context-manager.js.map

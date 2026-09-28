@@ -1,4 +1,4 @@
-import ContextManager from '../../../core/ui/context-manager/context-manager.js';
+import { ContextManager } from '../../../core/ui/context-manager/context-manager.js';
 import { InterfaceMode } from '../../../core/ui/interface-modes/interface-modes.js';
 import Panel from '../../../core/ui/panel-support.js';
 import { Layout } from '../../../core/ui/utilities/utilities-layout.js';

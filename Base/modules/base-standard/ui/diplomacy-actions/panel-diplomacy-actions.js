@@ -1,5 +1,5 @@
 import { Audio } from '../../../core/ui/audio-base/audio-support.js';
-import ContextManager from '../../../core/ui/context-manager/context-manager.js';
+import { ContextManager } from '../../../core/ui/context-manager/context-manager.js';
 import { Navigation } from '../../../core/ui/input/navigation-support.js';
 import { InterfaceModeChangedEventName, InterfaceMode } from '../../../core/ui/interface-modes/interface-modes.js';
 import NavTray from '../../../core/ui/navigation-tray/model-navigation-tray.js';
@@ -8,6 +8,7 @@ import { getModifierTextByContext } from '../../../core/ui/utilities/utilities-c
 import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
 import { Icon } from '../../../core/ui/utilities/utilities-image.js';
 import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
+import { isMobile } from '../../../core/ui-next/services/view-experience.js';
 import { DiploRibbonData, RibbonStatsToggleStatus } from '../diplo-ribbon/model-diplo-ribbon.js';
 import DiplomacyManager, { DiplomacyInputPanel } from '../diplomacy/diplomacy-manager.js';
 import LeaderModelManager from '../diplomacy/leader-model-manager.js';
@@ -59,9 +60,9 @@ class DiplomacyActionPanel extends DiplomacyInputPanel {
 		<fxs-hslot id="panel-diplomacy-actions__horizontal-container" data-navrule-left="wrap" class="-top-1 -bottom-8 absolute actions-horizontal-container">
 			<fxs-vslot>
 				<fxs-subsystem-frame box-style="b3" class="flex-auto">
-					<fxs-header id="panel-diplomacy-actions__leader-name-header" filigree-style="none" data-slot="header" class="panel-diplomacy__leader-name-header leading-none flex uppercase self-center items-end font-bold text-center min-h-18 mt-6 pb-3 justify-center font-title text-2xl px-2 w-full" title="LOC_DIPLOMACY_SELECT_TARGET"></fxs-header>
-					<fxs-header id="panel-diplomacy-actions__civ-name-header" font-fit-mode="shrink" wrap="nowrap" filigree-style="none" data-slot="header" class="panel-diplomacy__civ-name-header flex min-h-11 items-top self-center font-title text-sm text-secondary max-w-full" title="LOC_DIPLOMACY_SELECT_TARGET"></fxs-header>
-					<div id="panel-diplomacy-actions__civ-symbol" data-slot="header" class="panel-diplomacy-actions__civ-icon absolute bg-center bg-contain self-center size-24"></div>
+					<fxs-header id="panel-diplomacy-actions__leader-name-header" filigree-style="none" data-slot="header" class="panel-diplomacy__leader-name-header leading-none flex uppercase self-center font-bold text-center min-h-18 mt-6 justify-center font-title text-2xl w-full ${isMobile() ? "items-center px-13 pb-1" : "items-end px-2 pb-3"}" title="LOC_DIPLOMACY_SELECT_TARGET"></fxs-header>
+					<fxs-header id="panel-diplomacy-actions__civ-name-header" font-fit-mode="shrink" wrap="nowrap" filigree-style="none" data-slot="header" class="panel-diplomacy__civ-name-header flex min-h-11 items-top self-center font-title text-sm text-secondary max-w-full ${isMobile() ? "px-3" : ""}" title="LOC_DIPLOMACY_SELECT_TARGET"></fxs-header>
+					<div id="panel-diplomacy-actions__civ-symbol" data-slot="header" class="panel-diplomacy-actions__civ-icon absolute bg-center bg-contain bg-no-repeat self-center ${isMobile() ? "size-18" : "size-24"}"></div>
 					<fxs-tab-bar alt-controls="false" rect-render="true" data-slot="header" class="mx-5 mt-16 mb-3 pb-1 bg-primary-4 border-primary-2 border-t-2" data-audio-group-ref="audio-diplo-project-reaction" data-audio-tab-selected="leader-tab-activate" tab-for="fxs-subsystem-frame"></fxs-tab-bar>
 					<fxs-hslot data-slot="footer" id="panel-diplomacy-actions__major-action-buttons" class="relative justify-around self-center pb-3 w-145"></fxs-hslot>
 					<fxs-slot-group>
@@ -551,14 +552,12 @@ class DiplomacyActionPanel extends DiplomacyInputPanel {
         const stage1MinTurns = stage1MaxTurns - Game.Diplomacy.modifyByGameSpeed(projectDefinition.RandomInitialProgress);
         ongoingActionItem.setAttribute(
           "data-tooltip-content",
-          Locale.stylize(
-            Locale.compose(action.name) + "[N]" + Locale.compose(action.description) + "[N]" + Locale.stylize(
-              "LOC_DIPLOMACY_ACTION_ESPIONAGE_ONGOING",
-              stage1MinTurns,
-              stage1MaxTurns,
-              Game.turn - action.gameTurnStart
-            ) + "[N]" + Locale.compose("LOC_DIPLOMACY_SUCCESS_CHANCE", actionDef.SuccessChance) + "[N]" + Locale.compose("LOC_DIPLOMACY_REVEAL_CHANCE", actionDef.RevealChance)
-          )
+          Locale.compose(action.name) + "[N]" + Locale.compose(action.description) + "[N]" + Locale.compose(
+            "LOC_DIPLOMACY_ACTION_ESPIONAGE_ONGOING",
+            stage1MinTurns,
+            stage1MaxTurns,
+            Game.turn - action.gameTurnStart
+          ) + "[N]" + Locale.compose("LOC_DIPLOMACY_SUCCESS_CHANCE", actionDef.SuccessChance) + "[N]" + Locale.compose("LOC_DIPLOMACY_REVEAL_CHANCE", actionDef.RevealChance)
         );
         progressString = (Game.turn - action.gameTurnStart).toString() + "/" + stage1MaxTurns.toString();
         progressPercent = (Game.turn - action.gameTurnStart) / stage1MaxTurns * 100;
@@ -566,31 +565,25 @@ class DiplomacyActionPanel extends DiplomacyInputPanel {
         if (!action.hidden && DiplomacyManager.selectedPlayerID == GameContext.localPlayerID && action.targetPlayer == GameContext.localPlayerID) {
           ongoingActionItem.setAttribute(
             "data-tooltip-content",
-            Locale.stylize(
-              Locale.compose(action.name) + "[N]" + Locale.compose(action.description + "_TARGET", "LOC_DIPLOMACY_UNKNOWN_PLAYER") + "[N]" + Locale.compose(
-                "LOC_DIPLOMACY_ACTION_ACTIVE_FOR_TURNS",
-                Game.Diplomacy.getCompletionData(action.uniqueID).turnsToCompletion
-              )
+            Locale.compose(action.name) + "[N]" + Locale.compose(action.description + "_TARGET", "LOC_DIPLOMACY_UNKNOWN_PLAYER") + "[N]" + Locale.compose(
+              "LOC_DIPLOMACY_ACTION_ACTIVE_FOR_TURNS",
+              Game.Diplomacy.getCompletionData(action.uniqueID).turnsToCompletion
             )
           );
         } else if (action.revealed && action.targetPlayer == GameContext.localPlayerID) {
           ongoingActionItem.setAttribute(
             "data-tooltip-content",
-            Locale.stylize(
-              Locale.compose(action.name) + "[N]" + Locale.compose(action.description + "_TARGET", "LOC_DIPLOMACY_UNKNOWN_PLAYER") + "[N]" + Locale.compose(
-                "LOC_DIPLOMACY_ACTION_ACTIVE_FOR_TURNS",
-                Game.Diplomacy.getCompletionData(action.uniqueID).turnsToCompletion
-              )
+            Locale.compose(action.name) + "[N]" + Locale.compose(action.description + "_TARGET", "LOC_DIPLOMACY_UNKNOWN_PLAYER") + "[N]" + Locale.compose(
+              "LOC_DIPLOMACY_ACTION_ACTIVE_FOR_TURNS",
+              Game.Diplomacy.getCompletionData(action.uniqueID).turnsToCompletion
             )
           );
         } else {
           ongoingActionItem.setAttribute(
             "data-tooltip-content",
-            Locale.stylize(
-              Locale.compose(action.name) + "[N]" + Locale.compose(action.description) + "[N]" + Locale.compose(
-                "LOC_DIPLOMACY_ACTION_ACTIVE_FOR_TURNS",
-                Game.Diplomacy.getCompletionData(action.uniqueID).turnsToCompletion
-              )
+            Locale.compose(action.name) + "[N]" + Locale.compose(action.description) + "[N]" + Locale.compose(
+              "LOC_DIPLOMACY_ACTION_ACTIVE_FOR_TURNS",
+              Game.Diplomacy.getCompletionData(action.uniqueID).turnsToCompletion
             )
           );
         }
@@ -602,11 +595,9 @@ class DiplomacyActionPanel extends DiplomacyInputPanel {
       const currentProgress = (completionData.requiredProgress - completionData.turnsToCompletion * completionData.progressPerTurn) / completionData.requiredProgress;
       ongoingActionItem.setAttribute(
         "data-tooltip-content",
-        Locale.stylize(
-          Locale.compose(action.name) + "[N]" + Locale.compose(action.description) + "[N]" + Locale.compose(
-            "LOC_DIPLOMACY_ACTION_ACTIVE_FOR_TURNS",
-            Game.Diplomacy.getCompletionData(action.uniqueID).turnsToCompletion
-          )
+        Locale.compose(action.name) + "[N]" + Locale.compose(action.description) + "[N]" + Locale.compose(
+          "LOC_DIPLOMACY_ACTION_ACTIVE_FOR_TURNS",
+          Game.Diplomacy.getCompletionData(action.uniqueID).turnsToCompletion
         )
       );
       progressPercent = currentProgress * 100;
@@ -684,7 +675,7 @@ class DiplomacyActionPanel extends DiplomacyInputPanel {
         className: "",
         iconClass: "size-13",
         highlight: true,
-        tooltip: Locale.stylize("LOC_UI_DIPLOMACY_ALL_ACTIONS_TOOLTIP")
+        tooltip: "LOC_UI_DIPLOMACY_ALL_ACTIONS_TOOLTIP"
       });
       if (isLocal == 0 /* LocalPlayerDiplomacy */) {
         this.relationshipToolTip = "LOC_UI_DIPLOMACY_MINOR_POWERS_TOOLTIP";
@@ -705,7 +696,7 @@ class DiplomacyActionPanel extends DiplomacyInputPanel {
         className: "",
         iconClass: "size-13",
         highlight: true,
-        tooltip: Locale.stylize(this.relationshipToolTip)
+        tooltip: this.relationshipToolTip
       });
       this.tabItems.push({
         id: "diplomacy-tab-government",
@@ -719,7 +710,7 @@ class DiplomacyActionPanel extends DiplomacyInputPanel {
         className: "",
         iconClass: "size-13",
         highlight: true,
-        tooltip: Locale.stylize("LOC_UI_DIPLOMACY_GOVERNMENT_TOOLTIP")
+        tooltip: "LOC_UI_DIPLOMACY_GOVERNMENT_TOOLTIP"
       });
       this.tabItems.push({
         id: "diplomacy-tab-info",
@@ -733,7 +724,7 @@ class DiplomacyActionPanel extends DiplomacyInputPanel {
         className: "",
         iconClass: "size-13",
         highlight: true,
-        tooltip: Locale.stylize("LOC_UI_DIPLOMACY_ABILITIES_TOOLTIP")
+        tooltip: "LOC_UI_DIPLOMACY_ABILITIES_TOOLTIP"
       });
       this.tabBar.setAttribute("tab-items", JSON.stringify(this.tabItems));
       this.infoTabIndex = this.tabItems.findIndex((tab) => tab.id == "diplomacy-tab-info");
@@ -1959,7 +1950,6 @@ class DiplomacyActionPanel extends DiplomacyInputPanel {
     }
   }
   onSelectedPlayerChanged() {
-    Audio.playSound("data-audio-showing", "leader-panel");
     this.previousPlayerIsMajor = Players.get(this.previousPlayer)?.isMajor == true;
     if (this.checkShouldShowPanel()) {
       const playerObject = Players.get(DiplomacyManager.selectedPlayerID);
@@ -1970,6 +1960,7 @@ class DiplomacyActionPanel extends DiplomacyInputPanel {
       this.updateSelectedPlayerElements(DiplomacyManager.selectedPlayerID);
       if (playerObject.isMajor) {
         this.leaderNameElement?.setAttribute("title", Locale.compose(playerObject.leaderName));
+        Audio.playSound("data-audio-showing", "leader-panel");
         this.mementosHeaderElement?.setAttribute(
           "title",
           Locale.compose("LOC_DIPLOMACY_CIV_NAME", playerObject.civilizationAdjective)
@@ -2021,10 +2012,10 @@ class DiplomacyActionPanel extends DiplomacyInputPanel {
       }
     }
     const props = { isDisableFocusAllowed: false, direction: InputNavigationAction.NONE };
-    if (this.firstFocusSection && this.tabBar?.getAttribute("selected-tab-index")?.valueOf() != this.infoTabIndex.toString() && this.tabBar?.getAttribute("selected-tab-index")?.valueOf() != this.governmentTabIndex.toString() && this.tabBar?.getAttribute("selected-tab-index")?.valueOf() != this.relationshipTabIndex.toString() && this.previousPlayerIsMajor == true) {
+    if (this.firstFocusSection && this.tabBar?.getAttribute("selected-tab-index")?.valueOf() != this.infoTabIndex.toString() && this.tabBar?.getAttribute("selected-tab-index")?.valueOf() != this.governmentTabIndex.toString() && this.tabBar?.getAttribute("selected-tab-index")?.valueOf() != this.relationshipTabIndex.toString() && this.tabBar?.getAttribute("selected-tab-index")?.valueOf() != this.actionTabIndex.toString() && this.previousPlayerIsMajor == true) {
       FocusManager.get().setFocus(this.firstFocusSection);
     } else {
-      if (this.tabBar?.getAttribute("selected-tab-index")?.valueOf() == this.infoTabIndex.toString() || this.tabBar?.getAttribute("selected-tab-index")?.valueOf() == this.governmentTabIndex.toString() || this.tabBar?.getAttribute("selected-tab-index")?.valueOf() == this.relationshipTabIndex.toString()) {
+      if (this.tabBar?.getAttribute("selected-tab-index")?.valueOf() == this.infoTabIndex.toString() || this.tabBar?.getAttribute("selected-tab-index")?.valueOf() == this.governmentTabIndex.toString() || this.tabBar?.getAttribute("selected-tab-index")?.valueOf() == this.relationshipTabIndex.toString() || this.tabBar?.getAttribute("selected-tab-index")?.valueOf() == this.actionTabIndex.toString()) {
         if (this.tabBar?.getAttribute("selected-tab-index")?.valueOf() == this.infoTabIndex.toString()) {
           const currentSelectedTab = this.Root.querySelector("#diplomacy-tab-info");
           if (currentSelectedTab) {
@@ -2032,6 +2023,11 @@ class DiplomacyActionPanel extends DiplomacyInputPanel {
           }
         } else if (this.tabBar?.getAttribute("selected-tab-index")?.valueOf() == this.governmentTabIndex.toString()) {
           const currentSelectedTab = this.Root.querySelector("#diplomacy-tab-government");
+          if (currentSelectedTab) {
+            FocusManager.get().setFocus(currentSelectedTab);
+          }
+        } else if (this.tabBar?.getAttribute("selected-tab-index")?.valueOf() == this.actionTabIndex.toString()) {
+          const currentSelectedTab = this.Root.querySelector("#diplomacy-tab-actions");
           if (currentSelectedTab) {
             FocusManager.get().setFocus(currentSelectedTab);
           }
@@ -2238,50 +2234,42 @@ class DiplomacyActionPanel extends DiplomacyInputPanel {
       targetPlayer = this.getTargetPlayerFromTargetList(projectData);
     }
     if (targetPlayer && (targetPlayer.isIndependent || targetPlayer.isMinor)) {
-      const IPNameContainer = document.createElement("div");
-      IPNameContainer.classList.add(
-        "flex-auto",
+      const IPName = document.createElement("div");
+      IPName.classList.add(
+        "grow",
         "flex",
         "flex-col",
         "justify-between",
         "items-start",
         "self-center",
-        "relative"
-      );
-      const IPName = document.createElement("div");
-      IPName.classList.add(
+        "relative",
         "font-title",
         "text-sm",
-        "mb-1",
-        "mt-1",
-        "mr-12",
-        "pointer-events-none",
-        "font-fit-shrink"
+        "font-fit-shrink",
+        "mr-8",
+        "pointer-events-none"
       );
       IPName.innerHTML = Locale.stylize(targetPlayer.civilizationFullName);
-      IPNameContainer.appendChild(IPName);
-      startActionItem.appendChild(IPNameContainer);
+      startActionItem.appendChild(IPName);
     }
     const target = recentlyCompletedData ? targetPlayerId : DiplomacyManager.selectedPlayerID;
     const relationshipDeltas = Game.Diplomacy.getActionRelationshipDelta(target, projectData.actionType);
     if (projectData.projectStatus != DiplomacyProjectStatus.PROJECT_AVAILABLE) {
       const turnsToComplete = Game.Diplomacy.getBaseDiplomaticActionDuration(projectData.actionType);
-      let tooltip = Locale.stylize(
-        projectData.projectDescription + "[N]" + (turnsToComplete > 0 ? Locale.compose("LOC_DIPLOMACY_ACTION_LASTS_FOR_TURNS", turnsToComplete) : "")
-      );
+      let tooltip = projectData.projectDescription + "[N]" + (turnsToComplete > 0 ? Locale.compose("LOC_DIPLOMACY_ACTION_LASTS_FOR_TURNS", turnsToComplete) : "");
       if (relationshipDeltas[0] != 0) {
         const acceptedRelationshipTooltip = Locale.compose(
           "LOC_DIPLOMACY_RELATIONSHIP_CHANGE_ACCEPTED",
           relationshipDeltas[0]
         );
-        tooltip = tooltip + Locale.stylize("[N]" + acceptedRelationshipTooltip);
+        tooltip = tooltip + "[N]" + acceptedRelationshipTooltip;
       }
       if (relationshipDeltas[1] != 0) {
         const supportedRelationshipTooltip = Locale.compose(
           "LOC_DIPLOMACY_RELATIONSHIP_CHANGE_SUPPORTED",
           relationshipDeltas[1]
         );
-        tooltip = tooltip + Locale.stylize("[N]" + supportedRelationshipTooltip);
+        tooltip = tooltip + "[N]" + supportedRelationshipTooltip;
       }
       startActionItem.setAttribute("data-tooltip-content", tooltip);
       startActionItem.setAttribute("disabled", "true");
@@ -2298,22 +2286,20 @@ class DiplomacyActionPanel extends DiplomacyInputPanel {
       actionDetailsContainer.appendChild(disabledReason);
     } else {
       const turnsToComplete = Game.Diplomacy.getBaseDiplomaticActionDuration(projectData.actionType);
-      let tooltip = Locale.stylize(
-        projectData.projectDescription + "[N]" + (turnsToComplete > 0 ? Locale.compose("LOC_DIPLOMACY_ACTION_LASTS_FOR_TURNS", turnsToComplete) : "")
-      );
+      let tooltip = projectData.projectDescription + "[N]" + (turnsToComplete > 0 ? Locale.compose("LOC_DIPLOMACY_ACTION_LASTS_FOR_TURNS", turnsToComplete) : "");
       if (relationshipDeltas[0] != 0) {
-        const acceptedRelationshipTooltip = Locale.stylize(
+        const acceptedRelationshipTooltip = Locale.compose(
           "LOC_DIPLOMACY_RELATIONSHIP_CHANGE_ACCEPTED",
           relationshipDeltas[0]
         );
-        tooltip = tooltip + Locale.stylize("[N]" + acceptedRelationshipTooltip);
+        tooltip = tooltip + "[N]" + acceptedRelationshipTooltip;
       }
       if (relationshipDeltas[1] != 0) {
-        const supportedRelationshipTooltip = Locale.stylize(
+        const supportedRelationshipTooltip = Locale.compose(
           "LOC_DIPLOMACY_RELATIONSHIP_CHANGE_SUPPORTED",
           relationshipDeltas[1]
         );
-        tooltip = tooltip + Locale.stylize("[N]" + supportedRelationshipTooltip);
+        tooltip = tooltip + "[N]" + supportedRelationshipTooltip;
       }
       startActionItem.setAttribute("data-tooltip-content", tooltip);
     }
@@ -2374,7 +2360,7 @@ class DiplomacyActionPanel extends DiplomacyInputPanel {
       }
       startActionItem.setAttribute(
         "data-tooltip-content",
-        Locale.stylize(projectData.projectDescription + "[N]" + additionalDescriptionString)
+        projectData.projectDescription + "[N]" + additionalDescriptionString
       );
     }
     if (projectData.targetList2.length > 0 && !recentlyCompletedData) {

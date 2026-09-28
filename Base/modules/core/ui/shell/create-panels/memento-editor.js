@@ -1,6 +1,6 @@
 import { Audio } from '../../audio-base/audio-support.js';
 import { FxsActivatable } from '../../components/fxs-activatable.js';
-import ContextManager from '../../context-manager/context-manager.js';
+import { ContextManager } from '../../context-manager/context-manager.js';
 import NavTray from '../../navigation-tray/model-navigation-tray.js';
 import Panel from '../../panel-support.js';
 import { CreateGameModel } from './create-game-model.js';
@@ -200,7 +200,7 @@ class MementoEditor extends Panel {
     const closeButton = document.createElement("fxs-close-button");
     closeButton.classList.add("top-1", "right-1");
     closeButton.addEventListener("action-activate", () => {
-      this.playSound("data-audio-activate", "data-audio-activate-ref");
+      Audio.playSound("data-audio-activate", "data-audio-activate-ref");
       this.close();
     });
     waitForLayout(() => {
@@ -214,6 +214,7 @@ class MementoEditor extends Panel {
   onDetach() {
     this.Root.removeEventListener("navigate-input", this.navigateInputListener);
     this.Root.removeEventListener("engine-input", this.engineInputListener);
+    Audio.playSound("data-audio-hiding", "memento-editor");
     super.onDetach();
   }
   onReceiveFocus() {
@@ -275,6 +276,7 @@ class MementoEditor extends Panel {
   }
   handleMementoSelected(memento) {
     if (memento.component.selected) {
+      memento.setAttribute("data-audio-activate-ref", "data-audio-memento-selected");
       memento.component.selected = false;
       const mementoSlot = this.mementoSlotEles.find(
         (s) => s.component.slotData?.currentMemento.value == memento.component.mementoData?.mementoTypeId
@@ -294,6 +296,7 @@ class MementoEditor extends Panel {
         if (oldMemento) {
           oldMemento.component.selected = false;
         }
+        memento.setAttribute("data-audio-activate-ref", "data-audio-memento-unselected");
         memento.component.selected = true;
       }
     }
@@ -324,6 +327,7 @@ class MementoEditor extends Panel {
       const selectedMemento = slot.component.slotData.currentMemento;
       GameSetup.setPlayerParameterValue(GameContext.localPlayerID, gameParameter, selectedMemento.value);
     }
+    Audio.playSound("data-audio-memento-confirm", "memento-editor");
     ContextManager.pop(this.Root.tagName);
   }
   cancelSelections() {

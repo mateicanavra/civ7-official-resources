@@ -1,5 +1,5 @@
 import { Audio } from '../audio-base/audio-support.js';
-import ContextManager from '../context-manager/context-manager.js';
+import { ContextManager } from '../context-manager/context-manager.js';
 import { ActiveDeviceTypeChangedEventName } from '../input/input-events.js';
 import { NavigateInputEventName, InputEngineEventName } from '../input/input-support.js';
 import { InterfaceMode } from '../interface-modes/interface-modes.js';
@@ -8,447 +8,13 @@ import Panel from '../panel-support.js';
 import { MustGetElement } from '../utilities/utilities-dom.js';
 import { Layout } from '../utilities/utilities-layout.js';
 import { FocusManager } from '../../ui-next/services/focus-manager.js';
-import styles from './panel-radial-menu.scss.js';
-import AgeScores from '../../../base-standard/ui/age-scores/model-age-scores.js';
 import { RibbonYieldType, DiploRibbonData } from '../../../base-standard/ui/diplo-ribbon/model-diplo-ribbon.js';
 import { RaiseDiplomacyEvent } from '../../../base-standard/ui/diplomacy/diplomacy-events.js';
-import GreatWorks from '../../../base-standard/ui/great-works/model-great-works.js';
 import PopupSequencer from '../../../base-standard/ui/popup-sequencer/popup-sequencer.js';
-import ResourceAllocation from '../../../base-standard/ui/resource-allocation/model-resource-allocation.js';
 import TutorialManager from '../../../base-standard/ui/tutorial/tutorial-manager.js';
-import { getNodeName } from '../../../base-standard/ui/utilities/utilities-textprovider.js';
+import styles from './panel-radial-menu.scss.js';
+import { registerRadialMenu, getRadialMenus, NavigationType, clearRadialMenuItems, registerRadialMenuItem } from './radial-menu-item-store.js';
 
-var NavigationType = /* @__PURE__ */ ((NavigationType2) => {
-  NavigationType2["NONE"] = "";
-  NavigationType2["CONTEXT"] = "context";
-  NavigationType2["DIPLOMACY"] = "diplomacy";
-  NavigationType2["INTERFACE"] = "interface";
-  NavigationType2["FOCUS"] = "focus";
-  return NavigationType2;
-})(NavigationType || {});
-const DEFAULT_RADIAL_MENUS = [
-  {
-    title: "LOC_UI_RADIAL_MENU_MENU_TITLE",
-    items: [
-      {
-        title: "LOC_UI_VICTORY_PROGRESS",
-        subtitle: "",
-        icon1: "RADIAL_VICTORIES",
-        icon2: "",
-        fgColor: "",
-        bgColor: "",
-        ratio: 1,
-        navigation: {
-          type: "context" /* CONTEXT */,
-          value: () => {
-            return "screen-victory-progress";
-          }
-        },
-        tutHidderId: "",
-        description: () => {
-          return `
-						<div class="font-fit-shrink whitespace-nowrap text-accent-3 mt-6 mb-2 ${window.innerHeight > Layout.pixelsToScreenPixels(720) ? "font-title-xl" : "font-title-lg"}">
-							${Locale.compose(Game.maxTurns ? "LOC_UI_RADIAL_MENU_AGE_PROGRESS_TURN_RATIO" : "LOC_UI_RADIAL_MENU_AGE_PROGRESS_TURN", Game.turn, Game.maxTurns)}
-						</div>
-					`;
-        }
-      },
-      {
-        title: "LOC_UI_RADIAL_MENU_DETAILS_TECH_TITLE",
-        subtitle: "",
-        icon1: "RADIAL_TECH",
-        icon2: "",
-        fgColor: "",
-        bgColor: "",
-        ratio: 1,
-        navigation: {
-          type: "context" /* CONTEXT */,
-          value: () => {
-            return "screen-tech-tree-chooser";
-          }
-        },
-        tutHidderId: "hideTech",
-        description: () => {
-          const localPlayerId = GameContext.localPlayerID;
-          const localPlayer = Players.getEverAlive()[localPlayerId];
-          const techs = localPlayer.Techs;
-          const turn = techs?.getTurnsLeft().toString();
-          const techTreeType = techs?.getTreeType();
-          const treeObject = techTreeType ? Game.ProgressionTrees.getTree(localPlayerId, techTreeType) : null;
-          const activeNode = treeObject ? treeObject.nodes[treeObject.activeNodeIndex] : void 0;
-          const nodeData = activeNode ? Game.ProgressionTrees.getNode(localPlayerId, activeNode.nodeType) : null;
-          const nodeInfo = activeNode ? GameInfo.ProgressionTreeNodes.lookup(activeNode.nodeType) : null;
-          const techName = Locale.compose(nodeInfo?.Name ?? "") || void 0;
-          const depthNumeral = Locale.toRomanNumeral((nodeData?.depthUnlocked ?? 0) + 1);
-          const renderHeight = window.innerHeight;
-          if (!turn || !techName) {
-            return "";
-          }
-          return `
-						<div class="font-body text-accent-4 max-w-full truncate mt-4 ${renderHeight > 720 ? "text-sm" : "text-xs"}" data-l10n-id="LOC_UI_CURRENT_STUDY"></div>
-						<div class="font-fit-shrink whitespace-nowrap font-bold text-accent-2 uppercase ${renderHeight > 720 ? "text-base" : "text-sm"}">${techName}${depthNumeral ? ` ${depthNumeral}` : ""}</div>
-						<div class="flow-row">
-							<div class="radial-menu__name-filigree-left"></div>
-							<div class="radial-menu__name-filigree-right"></div>
-						</div>
-						<div class="flow-row items-center mt-2">
-							<div class="img-turn-icon w-8 h-8 mr-1"></div>
-							<div class="flex-auto">
-								<div class="font-body text-accent-4 max-w-full truncate ${renderHeight > 720 ? "text-base" : "text-sm"}">${turn}</div>
-							</div>
-						</div>
-					`;
-        }
-      },
-      {
-        title: "LOC_UI_RADIAL_MENU_DETAILS_CULTURE_TITLE",
-        subtitle: "",
-        icon1: "RADIAL_CIVICS",
-        icon2: "",
-        fgColor: "",
-        bgColor: "",
-        ratio: 1,
-        navigation: {
-          type: "context" /* CONTEXT */,
-          value: () => {
-            return "screen-culture-tree-chooser";
-          }
-        },
-        tutHidderId: "hideCulture",
-        description: () => {
-          const localPlayerId = GameContext.localPlayerID;
-          const localPlayer = Players.getEverAlive()[localPlayerId];
-          const culture = localPlayer.Culture;
-          const turn = culture?.getTurnsLeft().toString();
-          const cultureTreeType = culture?.getActiveTree();
-          const treeObject = cultureTreeType ? Game.ProgressionTrees.getTree(localPlayerId, cultureTreeType) : null;
-          const activeNode = treeObject ? treeObject.nodes[treeObject.activeNodeIndex] : void 0;
-          const nodeData = activeNode ? Game.ProgressionTrees.getNode(localPlayerId, activeNode.nodeType) : null;
-          const nodeName = nodeData ? getNodeName(nodeData, localPlayer) : "";
-          const cultureName = Locale.compose(nodeName) || void 0;
-          const depthNumeral = Locale.toRomanNumeral((nodeData?.depthUnlocked ?? 0) + 1);
-          const renderHeight = window.innerHeight;
-          if (!turn || !cultureName) {
-            return "";
-          }
-          return `
-						<div class="font-body text-accent-4 max-w-full truncate mt-4 ${renderHeight > 720 ? "text-sm" : "text-xs"}" data-l10n-id="LOC_UI_CURRENT_STUDY"></div>
-						<div class="font-fit-shrink whitespace-nowrap font-bold text-accent-2 uppercase ${renderHeight > 720 ? "text-base" : "text-sm"}">${cultureName}${depthNumeral ? ` ${depthNumeral}` : ""}</div>
-						<div class="flow-row">
-							<div class="radial-menu__name-filigree-left"></div>
-							<div class="radial-menu__name-filigree-right"></div>
-						</div>
-						<div class="flow-row items-center mt-2">
-							<div class="img-turn-icon w-8 h-8 mr-1"></div>
-							<div class="flex-auto">
-								<div class="font-body text-accent-4 max-w-full truncate ${renderHeight > 720 ? "text-base" : "text-sm"}">${turn}</div>
-							</div>
-						</div>
-					`;
-        }
-      },
-      {
-        title: "LOC_UI_RADIAL_MENU_DETAILS_GOVERNMENT_TITLE",
-        subtitle: "",
-        icon1: "RADIAL_GOVERNMENT",
-        icon2: "",
-        fgColor: "",
-        bgColor: "",
-        ratio: 1,
-        navigation: {
-          type: "context" /* CONTEXT */,
-          value: () => {
-            return "screen-policies";
-          },
-          createsMouseGuard: true
-        },
-        tutHidderId: "hideCulture",
-        description: () => {
-          const localPlayerId = GameContext.localPlayerID;
-          const localPlayer = Players.get(localPlayerId);
-          const localPlayerHappiness = localPlayer?.Happiness;
-          const localPlayerStats = localPlayer?.Stats;
-          const happinessPerTurn = localPlayerStats?.getNetYield(YieldTypes.YIELD_HAPPINESS) ?? -1;
-          const isInGoldenAge = localPlayerHappiness?.isInGoldenAge();
-          const goldenAgeTurnsLeft = localPlayerHappiness?.getGoldenAgeTurnsLeft() ?? 0;
-          const nextGoldenAgeThreshold = localPlayerHappiness?.nextGoldenAgeThreshold ?? -1;
-          const happinessTotal = Math.ceil(localPlayerStats?.getLifetimeYield(YieldTypes.YIELD_HAPPINESS) ?? -1) ?? -1;
-          const turnsToNextGoldenAge = happinessPerTurn !== 0 ? Math.ceil((nextGoldenAgeThreshold - happinessTotal) / happinessPerTurn) : 0;
-          const culture = localPlayer?.Culture;
-          const governmentType = culture?.getGovernmentType();
-          const playerGovernment = governmentType ? GameInfo.Governments.lookup(governmentType) : null;
-          const governmentName = Locale.compose(playerGovernment?.Name ?? "");
-          const renderHeight = window.innerHeight;
-          return `
-						<div class="font-body text-accent-4 max-w-full truncate mt-4 ${renderHeight > 720 ? "text-sm" : "text-xs"}" data-l10n-id="LOC_UI_RADIAL_MENU_DETAILS_GOVERNMENT_GOVERNMENT"></div>
-						<div class="font-fit-shrink whitespace-nowrap font-bold text-accent-2 uppercase ${renderHeight > 720 ? "text-base" : "text-sm"}">${governmentName || "LOC_UI_RADIAL_MENU_DETAILS_GOVERNMENT_GOVERNMENT_NONE"}</div>
-						<div class="flow-row">
-							<div class="radial-menu__name-filigree-left"></div>
-							<div class="radial-menu__name-filigree-right"></div>
-						</div>
-						${isInGoldenAge || turnsToNextGoldenAge > 0 ? `
-							<div class="mt-1 flow-column items-center">
-								<div class="font-body text-accent-4 max-w-full truncate ${renderHeight > 720 ? "text-sm" : "text-xs"}" data-l10n-id="${isInGoldenAge ? "LOC_UI_RADIAL_MENU_DETAILS_GOVERNMENT_CURRENT_CELEBRATION" : "LOC_UI_RADIAL_MENU_DETAILS_GOVERNMENT_NEXT_CELEBRATION"}"></div>
-								<div class="flow-row items-center">
-									<div class="img-turn-icon w-8 h-8 mr-1"></div>
-									<div class="flex-auto">
-										<div class="font-bold text-accent-2 max-w-full truncate uppercase ${renderHeight > 720 ? "text-base" : "text-sm"}">${isInGoldenAge ? goldenAgeTurnsLeft : turnsToNextGoldenAge}</div>
-									</div>
-								</div>
-							</div>
-						` : ""}
-					`;
-        }
-      },
-      {
-        title: "LOC_UI_RADIAL_MENU_DETAILS_RESOURCES_TITLE",
-        subtitle: "",
-        icon1: "RADIAL_RESOURCES",
-        icon2: "",
-        fgColor: "",
-        bgColor: "",
-        ratio: 1,
-        navigation: {
-          type: "context" /* CONTEXT */,
-          value: () => {
-            return "screen-resource-allocation";
-          },
-          createsMouseGuard: true
-        },
-        tutHidderId: "hideTrade",
-        description: () => {
-          const { name = "", type = "" } = ResourceAllocation.latestResource ?? {};
-          const renderHeight = window.innerHeight;
-          if (!name) {
-            return "";
-          }
-          return `
-						<div class="font-body text-accent-4 max-w-full truncate mt-4 ${renderHeight > 720 ? "text-sm" : "text-xs"}" data-l10n-id="LOC_UI_RADIAL_MENU_DETAILS_RESOURCES_LATEST"></div>
-						<div class="flow-row justify-center items-center max-w-full">
-							<fxs-icon class="w-8 h-8" data-icon-id="${type}"></fxs-icon>
-							<div class="flex-auto">
-								<div class="font-fit-shrink whitespace-nowrap font-bold text-accent-2 uppercase ${renderHeight > 720 ? "text-base" : "text-sm"}">${name}</div>
-							</div>
-						</div>
-						
-						<div class="flow-row">
-							<div class="radial-menu__name-filigree-left"></div>
-							<div class="radial-menu__name-filigree-right"></div>
-						</div>
-					`;
-        }
-      },
-      {
-        title: "LOC_UI_RADIAL_MENU_DETAILS_GREATWORKS_TITLE",
-        subtitle: "",
-        icon1: "RADIAL_GREATWORKS",
-        icon2: "",
-        fgColor: "",
-        bgColor: "",
-        ratio: 1,
-        navigation: {
-          type: "context" /* CONTEXT */,
-          value: () => {
-            return "screen-great-works";
-          },
-          createsMouseGuard: true
-        },
-        tutHidderId: "hideGreatWorks",
-        description: () => {
-          const { name = "" } = GreatWorks.latestGreatWorkDetails ?? {};
-          let greatWorkVictoryData = null;
-          for (let i = 0; i < AgeScores.victories.length; i++) {
-            if (AgeScores.victories[i].victoryType == "VICTORY_MODERN_CULTURE" || AgeScores.victories[i].victoryType == "VICTORY_EXPLORATION_CULTURE" || AgeScores.victories[i].victoryType == "VICTORY_ANTIQUITY_SCIENCE") {
-              greatWorkVictoryData = AgeScores.victories[i];
-              break;
-            }
-          }
-          const { score } = greatWorkVictoryData?.playerData.find(
-            ({ playerID }) => playerID == GreatWorks.localPlayer?.id
-          ) ?? {};
-          const { scoreNeeded } = greatWorkVictoryData ?? {};
-          const renderHeight = window.innerHeight;
-          return `
-						${name ? `
-							<div class="font-body text-accent-4 max-w-full truncate mt-4 ${renderHeight > 720 ? "text-sm" : "text-xs"}" data-l10n-id="LOC_UI_RADIAL_MENU_DETAILS_GREATWORKS_LATEST"></div>
-							<div class="font-fit-shrink whitespace-nowrap font-bold text-accent-2 uppercase ${renderHeight > 720 ? "text-base" : "text-sm"}">${name}</div>
-						` : score != void 0 && scoreNeeded ? `
-								<div class="flow-column items-center">
-									<div class="font-body text-accent-4 max-w-full truncate mt-4 ${renderHeight > 720 ? "text-sm" : "text-xs"}" data-l10n-id="LOC_UI_RADIAL_MENU_DETAILS_GREATWORKS_LIBRARY"></div>
-									<div class="font-bold text-accent-2 max-w-full truncate uppercase mt-1 ${renderHeight > 720 ? "text-base" : "text-sm"}">${Locale.compose("LOC_UI_RADIAL_MENU_DETAILS_GREATWORKS_LIBRARY_VICTORY_PROGRESS", score, scoreNeeded)}</div>
-								</div>
-							` : ""}
-						${!!name || score != void 0 && scoreNeeded ? `
-							<div class="flow-row">
-								<div class="radial-menu__name-filigree-left"></div>
-								<div class="radial-menu__name-filigree-right"></div>
-							</div>
-						` : ""}
-						${!!name && score != void 0 && scoreNeeded ? `
-							<div class="flow-column items-center mt-1">
-								<div class="font-body text-accent-4 max-w-full truncate ${renderHeight > 720 ? "text-sm" : "text-xs"}" data-l10n-id="LOC_UI_RADIAL_MENU_DETAILS_GREATWORKS_LIBRARY"></div>
-								<div class="font-bold text-accent-2 max-w-full truncate uppercase ${renderHeight > 720 ? "text-base" : "text-sm"}">${Locale.compose("LOC_UI_RADIAL_MENU_DETAILS_GREATWORKS_LIBRARY_VICTORY_PROGRESS", score, scoreNeeded)}</div>
-							</div>
-						` : ""}
-					`;
-        }
-      },
-      {
-        title: "LOC_UI_PLAYER_UNLOCKS_LEGACIES",
-        subtitle: "",
-        icon1: "RADIAL_LEGACIES",
-        icon2: "",
-        fgColor: "",
-        bgColor: "",
-        ratio: 1,
-        navigation: {
-          type: "context" /* CONTEXT */,
-          value: () => {
-            return "screen-legacies";
-          },
-          createsMouseGuard: true
-        },
-        tutHidderId: "hideTriumphs",
-        description: () => {
-          return "";
-        }
-      },
-      {
-        title: "LOC_UI_RADIAL_MENU_DETAILS_ADVISORS_TITLE",
-        subtitle: "",
-        icon1: "RADIAL_ADVISORS",
-        icon2: "",
-        fgColor: "",
-        bgColor: "",
-        ratio: 1,
-        navigation: {
-          type: "context" /* CONTEXT */,
-          value: () => {
-            return "screen-advisor-council";
-          },
-          createsMouseGuard: true
-        },
-        tutHidderId: "hideAdvisors",
-        description: () => {
-          return "";
-        }
-      },
-      {
-        title: "LOC_UI_RADIAL_MENU_DETAILS_RELIGION_TITLE",
-        subtitle: "",
-        icon1: "RADIAL_RELIGION",
-        icon2: "",
-        fgColor: "",
-        bgColor: "",
-        ratio: 1,
-        navigation: {
-          type: "context" /* CONTEXT */,
-          value: () => {
-            if (Game.age == Database.makeHash("AGE_ANTIQUITY")) {
-              const player = Players.get(GameContext.localPlayerID);
-              if (!player) {
-                console.error("panel-radial-menu: religion radial value() - no local player found!");
-                return "";
-              }
-              const playerCulture = player.Culture;
-              if (!playerCulture) {
-                console.error("panel-radial-menu: religion radial value() - no player culture found!");
-                return "";
-              }
-              const playerReligion = player.Religion;
-              if (!playerReligion) {
-                console.error("panel-radial-menu: religion radial value() - no player religion found!");
-                return "";
-              }
-              const numPantheonsToAdd = playerReligion.getNumPantheonsUnlocked();
-              const mustAddPantheons = numPantheonsToAdd > 0;
-              if (mustAddPantheons) {
-                return "screen-pantheon-chooser";
-              } else {
-                return "panel-pantheon-complete";
-              }
-            } else if (Game.age == Database.makeHash("AGE_EXPLORATION")) {
-              const localPlayerID = GameContext.localPlayerID;
-              if (Players.isValid(localPlayerID)) {
-                const localPlayer = Players.get(localPlayerID);
-                if (!localPlayer) {
-                  console.error(
-                    "panel-radial-menu: religion menu icon value() - localPlayer was null!"
-                  );
-                  return "";
-                }
-                if (localPlayer.Religion?.canCreateReligion()) {
-                  return "panel-religion-picker";
-                } else {
-                  return "panel-belief-picker";
-                }
-              }
-            }
-            return "";
-          }
-        },
-        tutHidderId: "hideReligion",
-        description: () => {
-          const playerReligion = Players.get(GameContext.localPlayerID)?.Religion;
-          if (!playerReligion) {
-            console.error(`Religion radial menu entry: no player religion library for local player!`);
-            return "";
-          }
-          const religionType = playerReligion.getReligionType();
-          const numPantheon = playerReligion.getNumPantheons();
-          const pantheons = playerReligion.getPantheons();
-          const { Name: PantheonName = "", BeliefType = "" } = numPantheon == 1 && pantheons?.[0] ? GameInfo.Beliefs.lookup(pantheons?.[0]) ?? {} : {};
-          const religionDef = GameInfo.Religions.lookup(religionType ?? 0);
-          let religionTypeString = void 0;
-          let religionName = void 0;
-          if (religionDef) {
-            religionTypeString = religionDef.ReligionType;
-            religionName = playerReligion.getReligionName();
-          }
-          const renderHeight = window.innerHeight;
-          if (!PantheonName && !religionName) {
-            return "";
-          }
-          return `
-						<div class="font-body text-accent-4 max-w-full truncate mt-4 ${renderHeight > 720 ? "text-sm" : "text-xs"}" data-l10n-id="${!BeliefType ? "LOC_UI_RADIAL_MENU_DETAILS_RELIGION_TITLE" : "LOC_UI_RADIAL_MENU_DETAILS_RELIGION_PANTHEON"}"></div>
-						<div class="font-fit-shrink whitespace-nowrap font-bold text-accent-2 uppercase truncate w-62 text-center ${renderHeight > 720 ? "text-base" : "text-sm"}">${PantheonName || religionName}</div>
-						<div class="flow-row">
-							<div class="radial-menu__name-filigree-left"></div>
-							<div class="radial-menu__name-filigree-right"></div>
-						</div>
-						<div class="img-civics-icon-frame bg-cover w-16 h-16 mt-2 flow-row justify-center items-center">
-							<fxs-icon class="w-10 h-10" data-icon-id="${BeliefType || religionTypeString}"></fxs-icon>
-						</div>
-					`;
-        },
-        excludedAge: Database.makeHash("AGE_MODERN")
-      },
-      {
-        title: "LOC_UI_RADIAL_MENU_DETAILS_CIVILOPEDIA_TITLE",
-        subtitle: "",
-        icon1: "RADIAL_CIVILOPEDIA",
-        icon2: "",
-        fgColor: "",
-        bgColor: "",
-        ratio: 1,
-        navigation: {
-          type: "context" /* CONTEXT */,
-          value: () => {
-            return "screen-civilopedia";
-          }
-        },
-        tutHidderId: "",
-        description: () => {
-          return "";
-        }
-      }
-    ]
-  },
-  {
-    title: "LOC_UI_RADIAL_MENU_LEADER_TITLE",
-    items: []
-  }
-];
 const RIBBON_YIELD_TYPE_TO_ICON_ID = {
   [RibbonYieldType.Default]: "YIELD_FOOD",
   [RibbonYieldType.Gold]: "YIELD_GOLD",
@@ -458,7 +24,6 @@ const RIBBON_YIELD_TYPE_TO_ICON_ID = {
   [RibbonYieldType.Diplomacy]: "YIELD_DIPLOMACY",
   [RibbonYieldType.Settlements]: "YIELD_CITIES",
   [RibbonYieldType.Property]: "YIELD_FOOD",
-  [RibbonYieldType.Victory]: "YIELD_FOOD",
   [RibbonYieldType.Trade]: "YIELD_TRADES"
 };
 const RIBBON_YIELD_TYPE_TO_COLOR_CLASS = {
@@ -470,9 +35,10 @@ const RIBBON_YIELD_TYPE_TO_COLOR_CLASS = {
   [RibbonYieldType.Diplomacy]: "text-yield-influence",
   [RibbonYieldType.Settlements]: "text-accent-3",
   [RibbonYieldType.Property]: "text-accent-2",
-  [RibbonYieldType.Victory]: "text-accent-2",
   [RibbonYieldType.Trade]: "text-accent-3"
 };
+const LeadersMenuSymbol = Symbol("Leaders");
+registerRadialMenu({ symbol: LeadersMenuSymbol, title: "LOC_UI_RADIAL_MENU_LEADER_TITLE", sortOrder: 20 });
 class PanelRadialMenu extends Panel {
   NAVIGATION_THRESHOLD = 0.5;
   // To limit the detection of radial selection to the amplitude of the joystick
@@ -500,13 +66,13 @@ class PanelRadialMenu extends Panel {
   }
   onInitialize() {
     super.onInitialize();
-    this.menus = DEFAULT_RADIAL_MENUS.map((menu) => ({
-      ...menu,
+    this.populateLeaderMenu();
+    this.menus = getRadialMenus().map((menu) => ({
+      title: menu.title,
       items: this.resolveItemsOnClickFunction(
         this.resolveItemsPositionDeg(this.resolveItemsIsHidden(this.filterMenuItems(menu.items) ?? []))
       )
     }));
-    this.populateLeaderMenu();
     this.Root.innerHTML = this.renderMenuStack(this.menus);
     const l10nParagraph = this.Root.querySelectorAll(".font-fit-shrink[data-l10n-id] p[cohinline]");
     l10nParagraph.forEach((element) => {
@@ -516,13 +82,9 @@ class PanelRadialMenu extends Panel {
     this.enableOpenSound = true;
     this.enableCloseSound = true;
     this.Root.setAttribute("data-audio-group-ref", "controller-radial");
-  }
-  onAttach() {
-    this.playAnimateInSound();
     this.tabBarElement = MustGetElement("fxs-tab-bar", this.Root);
     this.tabBarElement.addEventListener("tab-selected", this.tabBarSelectedEventListener);
     this.slotGroupElement = MustGetElement("fxs-slot-group", this.Root);
-    this.updateSelectedMenuState(this.currentMenuIndex.toString());
     const radialMenuItems = this.Root.querySelectorAll(".radial-menu-item");
     radialMenuItems?.forEach((elem) => {
       elem.addEventListener("action-activate", this.itemActionActivateListener);
@@ -532,7 +94,11 @@ class PanelRadialMenu extends Panel {
     });
     this.Root.addEventListener(NavigateInputEventName, this.navigateInputListener);
     this.Root.addEventListener(InputEngineEventName, this.engineInputListener);
-    window.addEventListener(ActiveDeviceTypeChangedEventName, this.activeDeviceChangedListener);
+    this.Root.listenForWindowEvent(ActiveDeviceTypeChangedEventName, this.activeDeviceChangedListener);
+  }
+  onAttach() {
+    this.playAnimateInSound();
+    this.updateSelectedMenuState(this.currentMenuIndex.toString());
   }
   getTotalRatioOfItems = (items) => {
     if (!items.length) {
@@ -542,7 +108,19 @@ class PanelRadialMenu extends Panel {
   };
   filterMenuItems(items) {
     if (items) {
-      return items.filter((item) => item.excludedAge != Game.age);
+      return items.filter((item) => {
+        if (item.excludedAge && item.excludedAge === Game.age) {
+          return false;
+        }
+        if (item.requiredCapabilities) {
+          for (const capability of item.requiredCapabilities) {
+            if (!Game.hasCapability(capability)) {
+              return false;
+            }
+          }
+        }
+        return true;
+      });
     }
     return void 0;
   }
@@ -563,7 +141,7 @@ class PanelRadialMenu extends Panel {
   };
   resolveItemsOnClickFunction = (items) => {
     return items.map((item) => {
-      const { navigation = { type: "" /* NONE */, value: "", createsMouseGuard: false } } = item;
+      const { navigation = { type: NavigationType.NONE, value: "", createsMouseGuard: false } } = item;
       const { type, value, createsMouseGuard } = navigation;
       const onClickFn = (fn) => () => {
         this.close();
@@ -572,7 +150,7 @@ class PanelRadialMenu extends Panel {
       let onClick = () => {
       };
       switch (type) {
-        case "context" /* CONTEXT */:
+        case NavigationType.CONTEXT:
           const radialItemValue = value();
           if (radialItemValue == "") {
             break;
@@ -593,17 +171,17 @@ class PanelRadialMenu extends Panel {
             }
           });
           break;
-        case "diplomacy" /* DIPLOMACY */:
+        case NavigationType.DIPLOMACY:
           const callback = () => {
             const playerId = Number.parseInt(value());
             window.dispatchEvent(new RaiseDiplomacyEvent(playerId));
           };
           onClick = onClickFn(callback);
           break;
-        case "interface" /* INTERFACE */:
+        case NavigationType.INTERFACE:
           onClick = onClickFn(() => InterfaceMode.switchTo(value()));
           break;
-        case "focus" /* FOCUS */:
+        case NavigationType.FOCUS:
           onClick = onClickFn(
             () => FocusManager.get().setFocus(
               document.querySelector(".harness")?.querySelector(value()) ?? this.Root
@@ -620,7 +198,7 @@ class PanelRadialMenu extends Panel {
   resolveItemsIsHidden = (items) => {
     return items.map((item) => ({
       ...item,
-      isHidden: item.tutHidderId && TutorialManager.isItemExistInAll(item.tutHidderId) ? !TutorialManager.isItemCompleted(item.tutHidderId) : false
+      isHidden: item.isHidden !== void 0 ? item.isHidden : item.tutHidderId && TutorialManager.isItemExistInAll(item.tutHidderId) ? !TutorialManager.isItemCompleted(item.tutHidderId) : false
     }));
   };
   onDetach() {
@@ -776,32 +354,31 @@ class PanelRadialMenu extends Panel {
     }
   }
   populateLeaderMenu = () => {
-    this.menus[1].items = this.resolveItemsOnClickFunction(
-      this.resolveItemsPositionDeg(
-        DiploRibbonData.playerData.map(
-          ({ civName, leaderType, civSymbol, canClick, primaryColor, secondaryColor, id, yields }) => ({
-            title: Players.get(id)?.name ?? "",
-            subtitle: civName,
-            icon1: `${leaderType}`,
-            icon2: civSymbol,
-            ratio: 1,
-            fgColor: secondaryColor,
-            bgColor: primaryColor,
-            navigation: {
-              type: "diplomacy" /* DIPLOMACY */,
-              value: () => id.toString()
-            },
-            isHidden: !canClick,
-            tutHidderId: "",
-            description: () => {
-              return `
-							<div class="flow-row">
-								<div class="radial-menu__name-filigree-left"></div>
-								<div class="radial-menu__name-filigree-right"></div>
-							</div>
-							<div class="flow-row-wrap items-center justify-center my-1">
-								${yields.map(
-                ({ value, type = RibbonYieldType.Default }) => `
+    clearRadialMenuItems(LeadersMenuSymbol);
+    DiploRibbonData.playerData.forEach(
+      ({ civName, leaderType, civSymbol, canClick, primaryColor, secondaryColor, id, yields }, index) => {
+        registerRadialMenuItem(LeadersMenuSymbol, {
+          title: Players.get(id)?.name ?? "",
+          subtitle: civName,
+          icon1: `${leaderType}`,
+          icon2: civSymbol,
+          fgColor: secondaryColor,
+          bgColor: primaryColor,
+          navigation: {
+            type: NavigationType.DIPLOMACY,
+            value: () => id.toString()
+          },
+          isHidden: !canClick,
+          sortOrder: (index + 1) * 10,
+          description: () => {
+            return `
+						<div class="flow-row">
+							<div class="radial-menu__name-filigree-left"></div>
+							<div class="radial-menu__name-filigree-right"></div>
+						</div>
+						<div class="flow-row-wrap items-center justify-center my-1">
+							${yields.map(
+              ({ value, type = RibbonYieldType.Default }) => `
 									<div class="flow-row justify-between w-18 -my-0\\.5 mx-1">
 										<fxs-icon class="size-7" data-icon-id="${RIBBON_YIELD_TYPE_TO_ICON_ID[type]}"></fxs-icon>
 										<div class="flex-auto flow-row justify-end items-center">
@@ -809,13 +386,12 @@ class PanelRadialMenu extends Panel {
 										</div>
 									</div>
 								`
-              ).join("")}
-							</div>
-						`;
-            }
-          })
-        )
-      )
+            ).join("")}
+						</div>
+					`;
+          }
+        });
+      }
     );
   };
   renderMenuStack = (menus) => {
@@ -936,21 +512,20 @@ Controls.define("panel-radial-menu", {
   classNames: ["panel-radial-menu", "fullscreen", "flow-column", "justify-center", "items-center"],
   styles: [styles],
   images: [
-    "fs://game/radial_donut",
-    "fs://game/radial_donut_sm",
-    "fs://game/radial_middle_circle",
-    "fs://game/radial_middle_circle_sm",
-    "fs://game/radial_line",
-    "fs://game/radial_line_sm",
-    "fs://game/radial_directional",
-    "fs://game/radial_directional_sm",
-    "fs://game/radial_highlight",
-    "fs://game/radial_highlight_sm",
-    "fs://game/radial_tabbar-bg"
-    //...DEFAULT_RADIAL_MENUS.map(menu => menu.items?.map(item => item.icon1 ?? "") ?? []).flat(),
+    "blp:radial_donut",
+    "blp:radial_donut_sm",
+    "blp:radial_middle_circle",
+    "blp:radial_middle_circle_sm",
+    "blp:radial_line",
+    "blp:radial_line_sm",
+    "blp:radial_directional",
+    "blp:radial_directional_sm",
+    "blp:radial_highlight",
+    "blp:radial_highlight_sm",
+    "blp:radial_tabbar-bg"
   ],
   tabIndex: -1
 });
 
-export { NavigationType };
+export { LeadersMenuSymbol };
 //# sourceMappingURL=panel-radial-menu.js.map

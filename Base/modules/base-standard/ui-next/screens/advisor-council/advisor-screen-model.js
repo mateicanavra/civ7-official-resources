@@ -1,6 +1,6 @@
 import { createSignal, createEffect, on, createContext, useContext } from '../../../../core/vendor/solid-js/dist/solid.js';
 import { createStore } from '../../../../core/vendor/solid-js/store/dist/store.js';
-import ContextManager from '../../../../core/ui/context-manager/context-manager.js';
+import { ContextManager } from '../../../../core/ui/context-manager/context-manager.js';
 import { useAudio } from '../../../../core/ui-next/services/audio-support.js';
 import { useLocalPlayerId } from '../../../../core/ui-next/utilities/game-core-utilities.js';
 import getAdviceManager from '../../../ui/advice/advice-manager.js';
@@ -67,25 +67,25 @@ function createAdvisorCouncilScreenModel() {
       case AdvisorTypes.CULTURE:
         audioTrigger("activate", {
           advisorType: "culture",
-          following: isFollowingAdvisor(advisor) ? "true" : "false"
+          following: isFollowingAdvisor(advisor).toString()
         });
         break;
       case AdvisorTypes.ECONOMIC:
         audioTrigger("activate", {
           advisorType: "economic",
-          following: isFollowingAdvisor(advisor) ? "true" : "false"
+          following: isFollowingAdvisor(advisor).toString()
         });
         break;
       case AdvisorTypes.MILITARY:
         audioTrigger("activate", {
           advisorType: "military",
-          following: isFollowingAdvisor(advisor) ? "true" : "false"
+          following: isFollowingAdvisor(advisor).toString()
         });
         break;
       case AdvisorTypes.SCIENCE:
         audioTrigger("activate", {
           advisorType: "science",
-          following: isFollowingAdvisor(advisor) ? "true" : "false"
+          following: isFollowingAdvisor(advisor).toString()
         });
         break;
     }

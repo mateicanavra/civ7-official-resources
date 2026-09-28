@@ -1,7 +1,7 @@
-import ActionHandler from '../input/action-handler.js';
 import { ActiveDeviceTypeChangedEventName } from '../input/input-events.js';
 import { Icon } from '../utilities/utilities-image.js';
 import UpdateGate from '../utilities/utilities-update-gate.js';
+import { IsControllerActive } from '../../ui-next/services/input.js';
 
 var NavigationTrayOrientation = /* @__PURE__ */ ((NavigationTrayOrientation2) => {
   NavigationTrayOrientation2[NavigationTrayOrientation2["Column"] = 0] = "Column";
@@ -75,7 +75,7 @@ class NavigationTrayModel {
   });
   constructor() {
     engine.whenReady.then(() => {
-      this.isGamepadActive = ActionHandler.isGamepadActive;
+      this.isGamepadActive = IsControllerActive();
       window.addEventListener(ActiveDeviceTypeChangedEventName, this.activeDeviceTypeListener);
       engine.on("InputContextChanged", this.onActiveContextChanged, this);
       engine.on("InputActionBinded", this.onInputActionBinded, this);

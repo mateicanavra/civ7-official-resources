@@ -1,10 +1,10 @@
 import { template, insert } from '../../../../core/vendor/solid-js/web/dist/web.js';
 import { useContext, onMount, onCleanup, createComponent, For } from '../../../../core/vendor/solid-js/dist/solid.js';
-import { useAudio } from '../../../../core/ui-next/services/audio-support.js';
-import ActionHandler from '../../../../core/ui/input/action-handler.js';
 import { L10n } from '../../../../core/ui-next/components/l10n.js';
 import { VSlot } from '../../../../core/ui-next/components/slot.js';
+import { useAudio } from '../../../../core/ui-next/services/audio-support.js';
 import { HotkeyContext } from '../../../../core/ui-next/services/hotkey.js';
+import { IsTouchActive } from '../../../../core/ui-next/services/input.js';
 import { LayoutModel } from '../../../../core/ui-next/utilities/layout-utilities.js';
 import { VictoriesAltBase } from './victories-alt-base.js';
 import { useVictoriesScreenContext, VictoryTabType } from './victories-screen-model.js';
@@ -99,7 +99,7 @@ const ScoreVictoryTab = () => {
               columnClassOverride: "econ",
               omitBottomLine: true,
               activateInfo: (playerId) => {
-                if (ActionHandler.isTouchActive) {
+                if (IsTouchActive()) {
                   model.focusPlayer(playerId, VictoryTabType.Score);
                   model.onGamepadInspectButton();
                 }

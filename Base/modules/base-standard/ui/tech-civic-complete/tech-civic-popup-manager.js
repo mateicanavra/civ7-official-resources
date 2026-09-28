@@ -1,4 +1,4 @@
-import ContextManager from '../../../core/ui/context-manager/context-manager.js';
+import { ContextManager } from '../../../core/ui/context-manager/context-manager.js';
 import { DisplayHandlerBase } from '../../../core/ui/context-manager/display-handler.js';
 import { DisplayQueueManager } from '../../../core/ui/context-manager/display-queue-manager.js';
 import { InterfaceMode } from '../../../core/ui/interface-modes/interface-modes.js';
@@ -41,7 +41,7 @@ class TechCivicPopupManagerClass extends DisplayHandlerBase {
     return ContextManager.hasInstanceOf("screen-tech-civic-complete");
   }
   /**
-   * @implements {IDisplayQueue}
+   * @implements {IDisplayHandler}
    */
   show(request) {
     const showPopup = () => {
@@ -62,7 +62,7 @@ class TechCivicPopupManagerClass extends DisplayHandlerBase {
     }
   }
   /**
-   * @implements {IDisplayQueue}
+   * @implements {IDisplayHandler}
    */
   hide(_request, _options) {
     this.currentTechCivicPopupData = null;
@@ -78,12 +78,6 @@ class TechCivicPopupManagerClass extends DisplayHandlerBase {
       DisplayQueueManager.close(this.currentTechCivicPopupData);
     }
   };
-  setRequestIdAndPriority(request) {
-    super.setRequestIdAndPriority(request);
-    if (request.treeType == "TECH" /* TECH */) {
-      request.subpriority += 1e3;
-    }
-  }
   onTechNodeCompleted(data) {
     if (ContextManager.shouldShowPopup(data.player)) {
       const node = GameInfo.ProgressionTreeNodes.lookup(data.activeNode);

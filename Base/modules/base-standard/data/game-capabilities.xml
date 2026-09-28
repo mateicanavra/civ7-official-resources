@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Types>
+		<Row Type="CAPABILITY_RELIGION" Kind="KIND_CAPABILITY"/>
+		<Row Type="CAPABILITY_RELIGION_UI" Kind="KIND_CAPABILITY"/>
+	</Types>
+	<GameCapabilities>
+		<Row GameCapability="CAPABILITY_RELIGION"/>
+		<Row GameCapability="CAPABILITY_RELIGION_UI" />
+	</GameCapabilities>
+	<GameCapabilityDependencies>
+		<Row GameCapability="CAPABILITY_RELIGION_UI" DependsOnCapability="CAPABILITY_RELIGION" />
+	</GameCapabilityDependencies>
+</Database>

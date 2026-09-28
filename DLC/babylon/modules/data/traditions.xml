@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Types>
+		<Row Type="TRADITION_MUBALLITUM_I" Kind="KIND_TRADITION"/>
+		<Row Type="TRADITION_HARRANU_I" Kind="KIND_TRADITION"/>
+		<Row Type="TRADITION_AMMI_DITANAS_HYMN" Kind="KIND_TRADITION"/>
+		<Row Type="TRADITION_MAR_BANE" Kind="KIND_TRADITION"/>
+		
+		<Row Type="TRADITION_HARRANU_II" Kind="KIND_TRADITION"/>
+		<Row Type="TRADITION_MUBALLITUM_II" Kind="KIND_TRADITION"/>
+		
+		<Row Type="TRADITION_BABYLON_SYNCRETISM_EXPLORATION" Kind="KIND_TRADITION" />
+		<Row Type="TRADITION_BABYLON_SYNCRETISM_MODERN" Kind="KIND_TRADITION" />
+	</Types>
+	<Traditions>
+		<Row TraditionType="TRADITION_MUBALLITUM_I" Name="LOC_TRADITION_MUBALLITUM_I_NAME" Description="LOC_TRADITION_MUBALLITUM_I_DESCRIPTION" TraitType="TRAIT_BABYLON" AgeType="AGE_ANTIQUITY" CultureSlotType="TRADITION_CULTURE_SLOT"/>
+		<Row TraditionType="TRADITION_HARRANU_I" Name="LOC_TRADITION_HARRANU_I_NAME" Description="LOC_TRADITION_HARRANU_I_DESCRIPTION" TraitType="TRAIT_BABYLON" AgeType="AGE_ANTIQUITY" CultureSlotType="TRADITION_CULTURE_SLOT"/>
+		<Row TraditionType="TRADITION_AMMI_DITANAS_HYMN" Name="LOC_TRADITION_AMMI_DITANAS_HYMN_NAME" Description="LOC_TRADITION_AMMI_DITANAS_HYMN_DESCRIPTION" TraitType="TRAIT_BABYLON" AgeType="AGE_ANTIQUITY" CultureSlotType="TRADITION_CULTURE_SLOT"/>
+		<Row TraditionType="TRADITION_MAR_BANE" Name="LOC_TRADITION_MAR_BANE_NAME" Description="LOC_TRADITION_MAR_BANE_DESCRIPTION" TraitType="TRAIT_BABYLON" AgeType="AGE_ANTIQUITY" CultureSlotType="TRADITION_CULTURE_SLOT"/>
+	
+		<Row TraditionType="TRADITION_MUBALLITUM_II" Name="LOC_TRADITION_MUBALLITUM_II_NAME" Description="LOC_TRADITION_MUBALLITUM_II_DESCRIPTION" TraitType="TRAIT_BABYLON" AgeType="AGE_EXPLORATION" CultureSlotType="TRADITION_CULTURE_SLOT" ObsoletesTraditionType="TRADITION_MUBALLITUM_I"/>
+		<Row TraditionType="TRADITION_HARRANU_II" Name="LOC_TRADITION_HARRANU_II_NAME" Description="LOC_TRADITION_HARRANU_II_DESCRIPTION" TraitType="TRAIT_BABYLON" AgeType="AGE_MODERN" CultureSlotType="TRADITION_CULTURE_SLOT" ObsoletesTraditionType="TRADITION_HARRANU_I"/>
+			
+		<Row TraditionType="TRADITION_BABYLON_SYNCRETISM_EXPLORATION" Name="LOC_TRADITION_BABYLON_SYNCRETISM_EXPLORATION_NAME" Description="LOC_TRADITION_BABYLON_SYNCRETISM_EXPLORATION_DESCRIPTION" AgeType="AGE_EXPLORATION" CultureSlotType="TRADITION_CULTURE_SLOT" TraitType="TRAIT_BABYLON" IgnoreInitializeUnlock="true"  AllowInitializeAdvancedStart="true"/>
+		<Row TraditionType="TRADITION_BABYLON_SYNCRETISM_MODERN" Name="LOC_TRADITION_BABYLON_SYNCRETISM_MODERN_NAME" Description="LOC_TRADITION_BABYLON_SYNCRETISM_MODERN_DESCRIPTION" AgeType="AGE_MODERN" CultureSlotType="TRADITION_CULTURE_SLOT" TraitType="TRAIT_BABYLON" IgnoreInitializeUnlock="true" ObsoletesTraditionType="TRADITION_BABYLON_SYNCRETISM_EXPLORATION"  AllowInitializeAdvancedStart="true"/>
+	</Traditions>
+	<TraditionModifiers>
+		<Row TraditionType="TRADITION_MUBALLITUM_I" ModifierId="MUBALLITUM_I_MOD_PRODUCTION_BUILDINGS_RURAL"/>
+		<Row TraditionType="TRADITION_MUBALLITUM_I" ModifierId="MUBALLITUM_I_MOD_PRODUCTION_BUILDINGS_URBAN"/>
+		<Row TraditionType="TRADITION_MUBALLITUM_I" ModifierId="MUBALLITUM_I_MOD_PRODUCTION_WONDERS_RURAL"/>
+		<Row TraditionType="TRADITION_MUBALLITUM_I" ModifierId="MUBALLITUM_I_MOD_PRODUCTION_WONDERS_URBAN"/>
+		<Row TraditionType="TRADITION_MUBALLITUM_II" ModifierId="MUBALLITUM_II_MOD_PRODUCTION_BUILDINGS_RURAL"/>
+		<Row TraditionType="TRADITION_MUBALLITUM_II" ModifierId="MUBALLITUM_II_MOD_PRODUCTION_BUILDINGS_URBAN"/>
+		<Row TraditionType="TRADITION_MUBALLITUM_II" ModifierId="MUBALLITUM_II_MOD_PRODUCTION_WONDERS_RURAL"/>
+		<Row TraditionType="TRADITION_MUBALLITUM_II" ModifierId="MUBALLITUM_II_MOD_PRODUCTION_WONDERS_URBAN"/>
+		<Row TraditionType="TRADITION_HARRANU_I" ModifierId="HARRANU_I_MOD_CULTURE_TRADE_ROUTES"/>
+		<Row TraditionType="TRADITION_HARRANU_II" ModifierId="HARRANU_II_MOD_CULTURE_TRADE_ROUTES"/>
+		<Row TraditionType="TRADITION_HARRANU_II" ModifierId="HARRANU_II_MOD_FOOD_TRADE_ROUTES"/>
+		<Row TraditionType="TRADITION_AMMI_DITANAS_HYMN" ModifierId="AMMI_DITANAS_HYMN_MOD_HAPPINESS_ADJACENCY"/>
+		<Row TraditionType="TRADITION_MAR_BANE" ModifierId="MAR_BANE_MOD_CULTURE_POP"/>
+		<Row TraditionType="TRADITION_MAR_BANE" ModifierId="MAR_BANE_MOD_WORKER_CAP"/>
+		<Row TraditionType="TRADITION_MAR_BANE" ModifierId="MAR_BANE_MOD_TOWN_YIELD"/>
+		<Row TraditionType="TRADITION_BABYLON_SYNCRETISM_EXPLORATION" ModifierId="BABYLON_SYNCRETISM_EXPLORATION_MOD_FOOD_ADJACENCY"/>
+		<Row TraditionType="TRADITION_BABYLON_SYNCRETISM_MODERN" ModifierId="BABYLON_SYNCRETISM_MODERN_MOD_FOOD_ADJACENCY"/>
+	</TraditionModifiers>
+	<Adjacency_YieldChanges>
+		<Row ID="AmmiDitanasHymnBuildingsHappinessAdjacencyHappiness" YieldType="YIELD_HAPPINESS" YieldChange="1" TilesRequired="1" ProjectMaxYield="true" AdjacentConstructibleTag="HAPPINESS"/>
+		<Row ID="BabylonSyncretismQuarterAdjacencyFood" YieldType="YIELD_FOOD" YieldChange="1" TilesRequired="1" ProjectMaxYield="true" AdjacentQuarter="true"/>
+	</Adjacency_YieldChanges>
+	<Constructible_WildcardAdjacencies>
+		<Row YieldChangeId="AmmiDitanasHymnBuildingsHappinessAdjacencyHappiness" RequiresActivation="true" CurrentAgeConstructiblesOnly="true" ConstructibleClass="BUILDING"/>
+		<Row YieldChangeId="BabylonSyncretismQuarterAdjacencyFood" RequiresActivation="true" CurrentAgeConstructiblesOnly="true" ConstructibleClass="BUILDING"/>
+	</Constructible_WildcardAdjacencies>
+</Database>

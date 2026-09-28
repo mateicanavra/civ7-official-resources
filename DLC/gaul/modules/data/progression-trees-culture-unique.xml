@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<Kinds>
+		<InsertOrIgnore Kind="KIND_TREE"/>
+		<InsertOrIgnore Kind="KIND_TREE_NODE"/>
+	</Kinds>
+	<Types>
+		<!--Civ Unique Mastery Trees-->
+		<Row Type="TREE_CIVICS_AQ_GAUL" Kind="KIND_TREE"/>
+		<!--Civ Unique Mastery Tree Nodes-->
+		<!--Gaul-->
+		<Row Type="NODE_CIVIC_AQ_GAUL_DOBNOREDUS_GOBANNUS" Kind="KIND_TREE_NODE"/>
+		<Row Type="NODE_CIVIC_AQ_GAUL_COLIGNY_QUINQUENNIUM" Kind="KIND_TREE_NODE"/>
+		<Row Type="NODE_CIVIC_AQ_GAUL_VAE_VICTIS" Kind="KIND_TREE_NODE"/>
+	</Types>
+	<TypeQuotes>
+		<Row Type="NODE_CIVIC_AQ_GAUL_DOBNOREDUS_GOBANNUS" Quote="LOC_CIVIC_DOBNOREDUS_GOBANNUS_QUOTE" QuoteAuthor="LOC_CIVIC_DOBNOREDUS_GOBANNUS_AUTHOR" QuoteAudio="VO_Quote_Dobnoredus_Gobannus"/>
+		<Row Type="NODE_CIVIC_AQ_GAUL_COLIGNY_QUINQUENNIUM" Quote="LOC_CIVIC_COLIGNY_QUINQUENNIUM_QUOTE" QuoteAuthor="LOC_CIVIC_COLIGNY_QUINQUENNIUM_AUTHOR" QuoteAudio="VO_Quote_Coligny_Quinquennium"/>
+		<Row Type="NODE_CIVIC_AQ_GAUL_VAE_VICTIS" Quote="LOC_CIVIC_VAE_VICTIS_QUOTE" QuoteAuthor="LOC_CIVIC_VAE_VICTIS_AUTHOR" QuoteAudio="VO_Quote_Vae_Victis"/>
+	</TypeQuotes>
+	<ProgressionTrees>
+		<!--Civ Unique Mastery Trees-->
+		<Row ProgressionTreeType="TREE_CIVICS_AQ_GAUL" AgeType="AGE_ANTIQUITY" SystemType="SYSTEM_CULTURE" Name="LOC_TREE_CIVICS_AQ_GAUL_NAME"/>
+	</ProgressionTrees>
+	<ProgressionTreeNodes>
+		<!--Civ Unique Mastery Tree Nodes-->
+		<!--GAUL-->
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_GAUL_DOBNOREDUS_GOBANNUS" ProgressionTree="TREE_CIVICS_AQ_GAUL" Cost="150" Name="LOC_CIVIC_DOBNOREDUS_GOBANNUS_NAME" IconString="cult_gaul"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_GAUL_COLIGNY_QUINQUENNIUM" ProgressionTree="TREE_CIVICS_AQ_GAUL" Cost="150" Name="LOC_CIVIC_COLIGNY_QUINQUENNIUM_NAME" IconString="cult_gaul"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_GAUL_VAE_VICTIS" ProgressionTree="TREE_CIVICS_AQ_GAUL" Cost="250" Name="LOC_CIVIC_VAE_VICTIS_NAME" IconString="cult_gaul"/>
+	</ProgressionTreeNodes>
+	<ProgressionTreeNodeUnlocks>
+		<!--Gaul-->
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_MAIN_CHIEFDOM" TargetKind="KIND_MODIFIER" TargetType="MOD_REVEAL_CIV_CULTURE_TREE_GAUL" UnlockDepth="1" Hidden="true"/>
+
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_GAUL_DOBNOREDUS_GOBANNUS" TargetKind="KIND_CONSTRUCTIBLE" TargetType="BUILDING_GOBEN" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_GAUL_DOBNOREDUS_GOBANNUS" TargetKind="KIND_MODIFIER" TargetType="MOD_AQ_SETTLEMENT_CAP_INCREASE" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_GAUL_DOBNOREDUS_GOBANNUS" TargetKind="KIND_TRADITION" TargetType="TRADITION_TERROR_CIMBRICUS" UnlockDepth="1"/>
+		
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_GAUL_COLIGNY_QUINQUENNIUM" TargetKind="KIND_CONSTRUCTIBLE" TargetType="BUILDING_NEMETON" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_GAUL_COLIGNY_QUINQUENNIUM" TargetKind="KIND_TRADITION" TargetType="TRADITION_GIAMILOS_I" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_GAUL_COLIGNY_QUINQUENNIUM" TargetKind="KIND_CONSTRUCTIBLE" TargetType="WONDER_VIX" UnlockDepth="1" AIIgnoreUnlockValue="true"/>
+		
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_GAUL_VAE_VICTIS" TargetKind="KIND_MODIFIER" TargetType="MOD_AQ_SETTLEMENT_CAP_INCREASE" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_GAUL_VAE_VICTIS" TargetKind="KIND_MODIFIER" TargetType="MOD_TOT_TRADITION_SLOT" UnlockDepth="1"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_GAUL_VAE_VICTIS" TargetKind="KIND_TRADITION" TargetType="TRADITION_BALKAN_EXPEDITION_I" UnlockDepth="1"/>
+	</ProgressionTreeNodeUnlocks>
+	<ProgressionTreePrereqs>
+		<!--Gaul-->
+		<Row Node="NODE_CIVIC_AQ_GAUL_VAE_VICTIS" PrereqNode="NODE_CIVIC_AQ_GAUL_DOBNOREDUS_GOBANNUS"/>
+		<Row Node="NODE_CIVIC_AQ_GAUL_VAE_VICTIS" PrereqNode="NODE_CIVIC_AQ_GAUL_COLIGNY_QUINQUENNIUM"/>
+	</ProgressionTreePrereqs>
+	<ProgressionTree_Advisories>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_GAUL_DOBNOREDUS_GOBANNUS" AdvisoryClassType="ADVISORY_CLASS_ECONOMIC"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_GAUL_DOBNOREDUS_GOBANNUS" AdvisoryClassType="ADVISORY_CLASS_CULTURE"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_GAUL_COLIGNY_QUINQUENNIUM" AdvisoryClassType="ADVISORY_CLASS_FOOD"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_GAUL_COLIGNY_QUINQUENNIUM" AdvisoryClassType="ADVISORY_CLASS_ECONOMIC"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_GAUL_VAE_VICTIS" AdvisoryClassType="ADVISORY_CLASS_ECONOMIC"/>
+		<Row ProgressionTreeNodeType="NODE_CIVIC_AQ_GAUL_VAE_VICTIS" AdvisoryClassType="ADVISORY_CLASS_SCIENCE"/>
+	</ProgressionTree_Advisories>
+</Database>

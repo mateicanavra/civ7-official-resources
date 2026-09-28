@@ -4,7 +4,7 @@ import { getMajorLeader, getPlayerDiplomacy } from '../../ui/utilities/diplomacy
 import { getPlayerColorVariants } from '../../ui/utilities/utilities-color.js';
 import { ComponentRegistry } from '../services/component-registry.js';
 
-var _tmpl$ = /* @__PURE__ */ template(`<div></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div data-name=Portrait-Icon><div></div></div>`);
+var _tmpl$ = /* @__PURE__ */ template(`<div></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div data-name="Portrait-Icon"><div></div></div>`);
 function desaturateOnCondition(condition, existingProps) {
   if (condition) {
     existingProps.filter = "saturate(0)";

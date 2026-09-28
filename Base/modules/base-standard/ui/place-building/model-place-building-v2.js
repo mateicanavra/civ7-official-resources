@@ -484,6 +484,13 @@ class PlaceBuildingModelV2 {
           "LOC_UI_CITY_VIEW_UNIQUE_QUARTER_CANT_COMPLETE",
           uniqueQuarterDefinition.Name
         );
+      } else if (uniqueQuarterDefinition != null && conversionType == 3 /* DISTRICT_TO_QUARTER */) {
+        this.shouldShowUniqueQuarterText = true;
+        this.uniqueQuarterText = "";
+        this.uniqueQuarterWarning = Locale.compose(
+          "LOC_UI_CITY_VIEW_UNIQUE_QUARTER_CANT_COMPLETE",
+          uniqueQuarterDefinition.Name
+        );
       } else {
         this.shouldShowUniqueQuarterText = false;
       }

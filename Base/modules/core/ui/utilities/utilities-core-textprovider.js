@@ -149,6 +149,15 @@ function parseConstructibleAdjacency(def) {
   } else if (def.AdjacentDistrict) {
     if (def.AdjacentDistrict == "DISTRICT_WONDER") {
       result = Locale.compose("LOC_UI_ADJACENCY_INFO_WONDERS", amount, yieldName);
+    } else if (def.AdjacentDistrict == "DISTRICT_URBAN") {
+      result = Locale.compose("LOC_UI_ADJACENCY_INFO_OBJECT", amount, yieldName, "LOC_DISTRICT_GENERAL_NAME");
+    } else if (def.AdjacentDistrict == "DISTRICT_RURAL") {
+      result = Locale.compose(
+        "LOC_UI_ADJACENCY_INFO_OBJECT",
+        amount,
+        yieldName,
+        "LOC_CONSTRUCTIBLE_CLASS_NAME_IMPROVEMENT"
+      );
     } else {
       const districtName = GameInfo.Districts.lookup(def.AdjacentDistrict)?.Name;
       if (districtName) {
@@ -205,6 +214,8 @@ function parseConstructibleAdjacency(def) {
     } else {
       result = Locale.compose("LOC_UI_BREATHTAKING_APPEAL");
     }
+  } else if (def.AdjacentOtherOwner) {
+    result = Locale.compose("LOC_UI_ADJACENCY_INFO_OTHER_OWNER", amount, yieldName);
   } else if (def.AdjacentSpecificResource) {
     const resourceName = GameInfo.Resources.lookup(def.AdjacentSpecificResource)?.Name;
     if (resourceName) {
@@ -246,6 +257,8 @@ function parseConstructibleAdjacencyNameOnly(def) {
   } else if (def.AdjacentDistrict) {
     if (def.AdjacentDistrict == "DISTRICT_WONDER") {
       result = "LOC_DISTRICT_WONDER_NAME";
+    } else if (def.AdjacentDistrict == "DISTRICT_URBAN") {
+      result = "LOC_DISTRICT_GENERAL_NAME";
     } else if (def.AdjacentDistrict == "DISTRICT_RURAL") {
       result = "LOC_CONSTRUCTIBLE_CLASS_NAME_IMPROVEMENT";
     } else {
@@ -294,6 +307,8 @@ function parseConstructibleAdjacencyNameOnly(def) {
     result = Locale.compose("LOC_UI_CHARMING_APPEAL");
   } else if (def.AdjacentBreathtakingAppeal) {
     result = Locale.compose("LOC_UI_BREATHTAKING_APPEAL");
+  } else if (def.AdjacentOtherOwner) {
+    result = Locale.compose("LOC_UI_OTHER_OWNER");
   } else if (def.AdjacentSpecificResource) {
     const resourceName = GameInfo.Resources.lookup(def.AdjacentSpecificResource)?.Name;
     if (resourceName) {

@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by Ed Beach (Firaxis Games) -->
 <Database>
 	<Kinds>
 		<Row Kind="KIND_NOTIFICATION"/>
@@ -125,6 +124,7 @@
 		<Row Type="NOTIFICATION_COMMANDER_RESPAWNED" Kind="KIND_NOTIFICATION"/>
 		<Row Type="NOTIFICATION_UNIT_PROMOTION_AVAILABLE" Kind="KIND_NOTIFICATION"/>
 		<Row Type="NOTIFICATION_UNIT_DEEP_OCEAN_DAMAGE" Kind="KIND_NOTIFICATION"/>
+    <Row Type="NOTIFICATION_UNIT_PRODUCTION_PAUSED" Kind="KIND_NOTIFICATION"/>
 		<Row Type="NOTIFICATION_VOLCANO_ACTIVE" Kind="KIND_NOTIFICATION"/>
 		<Row Type="NOTIFICATION_VOLCANO_INACTIVE" Kind="KIND_NOTIFICATION"/>
 		<Row Type="NOTIFICATION_VOLCANO_ERUPTS_SEV0" Kind="KIND_NOTIFICATION"/>
@@ -132,6 +132,7 @@
 		<Row Type="NOTIFICATION_VOLCANO_ERUPTS_SEV2" Kind="KIND_NOTIFICATION"/>
 		<Row Type="NOTIFICATION_WONDER_COMPLETED" Kind="KIND_NOTIFICATION"/>
 		<Row Type="NOTIFICATION_WONDER_FAILED" Kind="KIND_NOTIFICATION"/>
+		<Row Type="NOTIFICATION_PRODUCTION_INVALIDATED" Kind="KIND_NOTIFICATION"/>
 		<Row Type="NOTIFICATION_ENTERED_ENEMY_ARMY_ZOC" Kind="KIND_NOTIFICATION"/>
 		<Row Type="NOTIFICATION_CRISIS" Kind="KIND_NOTIFICATION"/>
 		<Row Type="NOTIFICATION_AGE_PROGRESSION_PROGRESS_CHANGED" Kind="KIND_NOTIFICATION"/>
@@ -240,6 +241,7 @@
 		<Row NotificationType="NOTIFICATION_REINFORCEMENTS_FAILED" SeverityType="MID" ExpiresEndOfTurn="True" AutoNotify="False" Priority="8"/>
 		<Row NotificationType="NOTIFICATION_UNIT_PROMOTION_AVAILABLE" SeverityType="HIGH" ExpiresEndOfTurn="True" AutoNotify="False" Message="LOC_NOTIFICATION_UNIT_PROMOTION_AVAILABLE_MESSAGE" Summary="LOC_NOTIFICATION_UNIT_PROMOTION_AVAILABLE_SUMMARY" Priority="10"/>
 		<Row NotificationType="NOTIFICATION_UNIT_OCEAN_DAMAGE" SeverityType="MID" ExpiresEndOfTurn="True" AutoNotify="False" Message="LOC_NOTIFICATION_UNIT_OCEAN_DAMAGE_MESSAGE" Summary="LOC_NOTIFICATION_UNIT_OCEAN_DAMAGE_SUMMARY" Priority="0"/>
+    <Row NotificationType="NOTIFICATION_UNIT_PRODUCTION_PAUSED" SeverityType="MID" ExpiresEndOfTurn="True" AutoNotify="False" Priority="8"/>
 		<Row NotificationType="NOTIFICATION_VOLCANO_ACTIVE" SeverityType="MID" ExpiresEndOfTurn="True" AutoNotify="False" Priority="0"/>
 		<Row NotificationType="NOTIFICATION_VOLCANO_INACTIVE" SeverityType="MID" ExpiresEndOfTurn="True" AutoNotify="False" Priority="0"/>
 		<Row NotificationType="NOTIFICATION_VOLCANO_ERUPTS_SEV0" SeverityType="MID" ExpiresEndOfTurn="True" AutoNotify="False" Message="LOC_NOTIFICATION_VOLCANO_ERUPTS_SEV0_MESSAGE" Summary="LOC_NOTIFICATION_VOLCANO_ERUPTS_SEV0_SUMMARY" Priority="0"/>
@@ -261,6 +263,7 @@
 		<Row NotificationType="NOTIFICATION_UNHAPPINESS_LOST_CONSTRUCTIBLE" SeverityType="HIGH" ExpiresEndOfTurn="True" AutoNotify="False" Priority="6"/>
 		<Row NotificationType="NOTIFICATION_WONDER_COMPLETED" SeverityType="MID" ExpiresEndOfTurn="True" AutoNotify="False" Message="LOC_NOTIFICATION_WONDER_COMPLETED_MESSAGE" Summary="LOC_NOTIFICATION_WONDER_COMPLETED_SUMMARY" Priority="0"/>
 		<Row NotificationType="NOTIFICATION_WONDER_FAILED" SeverityType="MID" ExpiresEndOfTurn="True" AutoNotify="False" Message="LOC_NOTIFICATION_WONDER_FAILED_MESSAGE" Summary="LOC_NOTIFICATION_WONDER_FAILED_SUMMARY" Priority="3"/>
+		<Row NotificationType="NOTIFICATION_PRODUCTION_INVALIDATED" SeverityType="MID" ExpiresEndOfTurn="True" AutoNotify="False" Message="LOC_NOTIFICATION_PRODUCTION_INVALIDATED_MESSAGE" Summary="LOC_NOTIFICATION_PRODUCTION_INVALIDATED_SUMMARY" Priority="3"/>
 		<Row NotificationType="NOTIFICATION_CAPITAL_LOST" SeverityType="MID" ExpiresEndOfTurn="True" AutoNotify="False" Message="LOC_NOTIFICATION_CAPITAL_LOST_MESSAGE" Summary="LOC_NOTIFICATION_CAPITAL_LOST_SUMMARY" Priority="10"/>
 		<Row NotificationType="NOTIFICATION_CAPITAL_CAPTURED" SeverityType="MID" ExpiresEndOfTurn="True" AutoNotify="False" Message="LOC_NOTIFICATION_CAPITAL_LOST_MESSAGE" Summary="LOC_NOTIFICATION_CAPITAL_LOST_SUMMARY" Priority="9"/>
 		<Row NotificationType="NOTIFICATION_CAPITAL_RECLAIMED" SeverityType="MID" ExpiresEndOfTurn="True" AutoNotify="False" Message="LOC_NOTIFICATION_CAPITAL_RECLAIMED_MESSAGE" Summary="LOC_NOTIFICATION_CAPITAL_RECLAIMED_SUMMARY" Priority="10"/>
@@ -348,6 +351,7 @@
 		<Row NotificationType="NOTIFICATION_UNIT_OCEAN_DAMAGE" Context="Add" Audio="notif-Unit_Ocean_Damage"/>
 		<Row NotificationType="NOTIFICATION_UNIT_DEEP_OCEAN_DAMAGE" Context="Add" Audio="notif-Unit_Ocean_Damage"/>
 		<Row NotificationType="NOTIFICATION_UNIT_PROMOTION_AVAILABLE" Context="Add" Audio="notif-Unit_Promotion_Available"/>
+    <Row NotificationType="NOTIFICATION_UNIT_PRODUCTION_PAUSED" Context="Add" Audio="notif-GenericNeutral"/>
 		<!-- Ideology -->
 		<Row NotificationType="NOTIFICATION_IDEOLOGY_CHOSEN" Context="Add" Audio="notif-Ideology_Chosen"/>
 		<Row NotificationType="NOTIFICATION_IDEOLOGY_CHOSEN_ENEMY" Context="Add" Audio="notif-Ideology_Chosen_Enemy"/>
@@ -402,6 +406,8 @@
 		<Row NotificationType="NOTIFICATION_VOLCANO_ERUPTS_SEV2" Context="Add" Audio="notif-NaturalDisaster_Volcano"/>
 		<!-- Wonders -->
 		<Row NotificationType="NOTIFICATION_WONDER_FAILED" Context="Add" Audio="notif-Wonder_Failed"/>
+		<!-- Production -->
+		<Row NotificationType="NOTIFICATION_PRODUCTION_INVALIDATED" Context="Add" Audio="notif-Wonder_Failed"/>
 		<!-- Religion -->
 		<Row NotificationType="NOTIFICATION_RELEGION_CREATED" Context="Add" Audio="notif-Religion_Created"/>
         <!-- Age Progression -->

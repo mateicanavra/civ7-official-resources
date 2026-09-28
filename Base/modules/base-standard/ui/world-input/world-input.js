@@ -1,13 +1,14 @@
 import { Audio } from '../../../core/ui/audio-base/audio-support.js';
-import ContextManager from '../../../core/ui/context-manager/context-manager.js';
-import ActionHandler from '../../../core/ui/input/action-handler.js';
+import { ContextManager } from '../../../core/ui/context-manager/context-manager.js';
 import Cursor from '../../../core/ui/input/cursor.js';
+import { InputHandlerState } from '../../../core/ui/input/input-support.js';
 import { PlotCursor } from '../../../core/ui/input/plot-cursor.js';
 import { InterfaceMode } from '../../../core/ui/interface-modes/interface-modes.js';
 import { ComponentID } from '../../../core/ui/utilities/utilities-component-id.js';
 import { NetworkUtilities } from '../../../core/ui/utilities/utilities-network.js';
 import ViewManager from '../../../core/ui/views/view-manager.js';
 import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
+import { IsControllerActive, IsTouchActive } from '../../../core/ui-next/services/input.js';
 import { RaiseDiplomacyEvent } from '../diplomacy/diplomacy-events.js';
 import { UnitMapDecorationSupport } from '../interface-modes/support-unit-map-decoration.js';
 
@@ -86,30 +87,33 @@ class WorldInputSingleton {
       case "shell-action-5":
         return this.onSocialPanel(inputEvent);
     }
-    return true;
+    return InputHandlerState.Active;
   }
   /**
    * @returns true if still live, false if input should stop.
    */
   handleNavigation(_navigationEvent) {
-    return true;
+    return InputHandlerState.Active;
   }
   trySelectPlot(isOnUI) {
+    if (!ViewManager.isPlotSelectionAllowed) {
+      return InputHandlerState.Active;
+    }
     const coord = PlotCursor.plotCursorCoords;
     if (isOnUI || coord == null || !FocusManager.get().isWorldFocused() && InterfaceMode.isInInterfaceMode("INTERFACEMODE_DEFAULT")) {
       console.log(`World Input: Fail because isOnUI (${isOnUI}), plot (${PlotCursor.plotCursorCoords == null}) `);
-      return true;
+      return InputHandlerState.Active;
     }
     console.log(`World Input: Selected plot '${coord.x},${coord.y}'`);
     this.selectPlot(coord);
-    return false;
+    return InputHandlerState.Handled;
   }
   /**
    * @returns true if still live, false if input should stop.
    */
   actionActivate(inputEvent) {
     if (inputEvent.detail.status != InputActionStatuses.FINISH) {
-      return true;
+      return InputHandlerState.Active;
     }
     return this.trySelectPlot(Cursor.isOnUI);
   }
@@ -119,40 +123,40 @@ class WorldInputSingleton {
   }
   handleTouchTap(inputEvent) {
     if (inputEvent.detail.status != InputActionStatuses.FINISH) {
-      return true;
+      return InputHandlerState.Active;
     }
     const isOnUI = this.isOnUI(inputEvent.detail.x, inputEvent.detail.y);
     return this.trySelectPlot(isOnUI);
   }
   actionCancel(inputEvent) {
     if (inputEvent.detail.status != InputActionStatuses.FINISH) {
-      return true;
+      return InputHandlerState.Active;
     }
     if (Cursor.isOnUI) {
-      return true;
+      return InputHandlerState.Active;
     }
     if (InterfaceMode.isInInterfaceMode("INTERFACEMODE_HOTSEAT")) {
-      return true;
+      return InputHandlerState.Active;
     }
     InterfaceMode.switchToDefault();
     this.unselectPlot();
-    return false;
+    return InputHandlerState.Handled;
   }
   /**
    * @returns true if still live, false if input should stop.
    */
   actionMouseRightButton(inputEvent) {
     if (UI.getViewExperience() == UIViewExperience.VR) {
-      if (ActionHandler.isGamepadActive) {
-        return true;
+      if (IsControllerActive()) {
+        return InputHandlerState.Active;
       }
     }
     if (PlotCursor.plotCursorCoords == null) {
-      return true;
+      return InputHandlerState.Active;
     }
     if (UI.getViewExperience() != UIViewExperience.VR) {
       if (!ContextManager.canUseInput("world-input", "action-target") || !ViewManager.isWorldInputAllowed) {
-        return true;
+        return InputHandlerState.Active;
       }
     }
     if (inputEvent.detail.status == InputActionStatuses.FINISH) {
@@ -166,17 +170,17 @@ class WorldInputSingleton {
         UnitMapDecorationSupport.manager.update(PlotCursor.plotCursorCoords);
       }
     }
-    return false;
+    return InputHandlerState.Handled;
   }
   onSocialPanel(inputEvent) {
     if (inputEvent.detail.status != InputActionStatuses.FINISH) {
-      return true;
+      return InputHandlerState.Active;
     }
     if (ContextManager.canOpenPauseMenu()) {
       NetworkUtilities.openSocialPanel();
-      return false;
+      return InputHandlerState.Handled;
     }
-    return true;
+    return InputHandlerState.Handled;
   }
   /**
    * Swap the selection between units and city in the same plot.
@@ -184,15 +188,15 @@ class WorldInputSingleton {
    */
   swapPlotSelection(inputEvent) {
     if (inputEvent.detail.status != InputActionStatuses.FINISH) {
-      return true;
+      return InputHandlerState.Active;
     }
     const selectedUnit = UI.Player.getHeadSelectedUnit();
     if (!selectedUnit || selectedUnit.owner != GameContext.localPlayerID) {
-      return true;
+      return InputHandlerState.Active;
     }
     const unit = Units.get(selectedUnit);
     if (!unit) {
-      return true;
+      return InputHandlerState.Active;
     }
     let unitsList = MapUnits.getUnits(unit.location.x, unit.location.y);
     const districtId = MapCities.getDistrict(unit.location.x, unit.location.y);
@@ -217,10 +221,10 @@ class WorldInputSingleton {
                 } else {
                   this.handleSelectedPlotCity({ x: unit.location.x, y: unit.location.y });
                 }
-                return false;
+                return InputHandlerState.Handled;
               } else {
                 this.handleSelectedPlotCity({ x: unit.location.x, y: unit.location.y });
-                return false;
+                return InputHandlerState.Handled;
               }
             }
           }
@@ -229,7 +233,7 @@ class WorldInputSingleton {
       }
       UI.Player.selectUnit(unitsList[targetIndex]);
     }
-    return false;
+    return InputHandlerState.Handled;
   }
   isDistrictSelectable(districtId) {
     if (districtId && ComponentID.isValid(districtId)) {
@@ -267,7 +271,7 @@ class WorldInputSingleton {
    */
   handleSelectedPlotUnit(location, previousPlot) {
     const localPlayerID = GameContext.localPlayerID;
-    if (ActionHandler.isGamepadActive) {
+    if (IsControllerActive()) {
       if (previousPlot == null || location.x != previousPlot.x || location.y != previousPlot.y) {
         const selectedUnit = UI.Player.getHeadSelectedUnit();
         if (selectedUnit && selectedUnit.owner == localPlayerID) {
@@ -381,7 +385,7 @@ class WorldInputSingleton {
       );
       return true;
     }
-    if (this.canUnitSelect && (ActionHandler.isGamepadActive || ActionHandler.deviceType == InputDeviceType.Touch)) {
+    if (this.canUnitSelect && (IsControllerActive() || IsTouchActive())) {
       if (previousPlot == null || location.x != previousPlot.x || location.y != previousPlot.y) {
         const selectedUnit = UI.Player.getHeadSelectedUnit();
         if (selectedUnit && selectedUnit.owner == GameContext.localPlayerID) {

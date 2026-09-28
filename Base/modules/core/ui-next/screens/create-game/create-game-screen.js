@@ -1,13 +1,13 @@
 import '../../../vendor/solid-js/web/dist/web.js';
 import { createMemo, createComponent, Show, createSignal } from '../../../vendor/solid-js/dist/solid.js';
-import ContextManager from '../../../ui/context-manager/context-manager.js';
+import { ContextManager } from '../../../ui/context-manager/context-manager.js';
 import { GameCreatorClosedEvent, StartCampaignEvent } from '../../../ui/events/shell-events.js';
 import { defineLegacyComponent } from '../../components/fxs-solid-component.js';
 import { Panel } from '../../components/panel.js';
 import { Popup } from '../../components/popup.js';
 import { useScreenFlowContext, ScreenFlowTab, ScreenFlowStepType } from '../../components/screen-flow.js';
 import { Tab } from '../../components/tab.js';
-import { NestedTooltipContext } from '../../components/tooltip-compat.js';
+import { NestedTooltipContext } from '../../components/tooltip-nested.js';
 import { AdvancedOptionsScreen } from './advanced-options.js';
 import { AgeSelectModel, AgeSelectModelContext } from './age-select-model.js';
 import { AgeSelectPopup } from './age-select-popup.js';
@@ -27,6 +27,7 @@ import { RecommendedChoiceModel, RecommendedChoiceModelContext } from './recomme
 import { TotModel, TotModelContext } from './tot-model.js';
 import { useAudio } from '../../services/audio-support.js';
 import { ComponentRegistry } from '../../services/component-registry.js';
+import { isMobile } from '../../services/view-experience.js';
 import { LayoutModel } from '../../utilities/layout-utilities.js';
 
 const PersistentPedestalBanner = () => {
@@ -35,7 +36,7 @@ const PersistentPedestalBanner = () => {
   const visible = createMemo(() => {
     const active = flow.active()?.name;
     if (active === "create-game-hub") return true;
-    if (active === "game-setup") return !(layout.screenHeight() <= 1e3 && layout.screenWidth() < 1600);
+    if (active === "game-setup") return !(layout.screenHeight() <= 1e3 && layout.screenWidth() < 1600) && !isMobile();
     return false;
   });
   return createComponent(Show, {

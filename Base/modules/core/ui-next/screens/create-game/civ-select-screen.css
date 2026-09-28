@@ -191,6 +191,11 @@
     height: 18.3333333333rem;
   }
 }
+@media (experience: mobile) and (max-height: 55.5555555556rem) {
+  .civ-details-age-banner {
+    height: 15.5555555556rem;
+  }
+}
 
 .civ-details-continue-button {
   min-width: 25.6666666667rem;
@@ -205,6 +210,11 @@
 .civ-details-info-header-text {
   font-size: 2.4444444444rem;
 }
+@media (experience: mobile) {
+  .civ-details-info-header-text {
+    max-width: 33.3333333333rem;
+  }
+}
 
 .civ-select-age-text {
   font-size: calc(1rem + -0.1111111111rem);
@@ -213,6 +223,11 @@
   letter-spacing: 0.0622222222rem;
   line-height: 1.0555555556rem;
 }
+@media (experience: mobile) {
+  .civ-select-age-text {
+    font-size: calc(1rem + 0.2222222222rem);
+  }
+}
 
 .civ-select-age-type-text {
   color: #fff;
@@ -220,6 +235,11 @@
   font-style: normal;
   letter-spacing: 0.0855555556rem;
   line-height: 1.2222222222rem;
+}
+@media (experience: mobile) {
+  .civ-select-age-type-text {
+    font-size: 1.6666666667rem;
+  }
 }
 
 .civ-details-left-content {
@@ -232,6 +252,11 @@
     width: 11.5555555556rem;
     padding-left: 0rem;
     margin-left: 2.2222222222rem;
+  }
+}
+@media (experience: mobile) and (max-height: 55.5555555556rem) {
+  .civ-details-left-content {
+    margin-right: 1.1111111111rem;
   }
 }
 

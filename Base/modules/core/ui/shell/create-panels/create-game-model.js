@@ -1,5 +1,5 @@
 import { Audio } from '../../audio-base/audio-support.js';
-import ContextManager from '../../context-manager/context-manager.js';
+import { ContextManager } from '../../context-manager/context-manager.js';
 import { GameCreatorClosedEvent, StartCampaignEvent } from '../../events/shell-events.js';
 import { ScreenProfilePageExternalStatus } from '../../profile-page/screen-profile-page.js';
 import { NextCreationAction } from './game-creator-types.js';

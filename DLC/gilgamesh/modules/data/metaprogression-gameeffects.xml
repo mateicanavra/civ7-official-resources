@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <GameEffects xmlns="GameEffects">
-	<!-- Lakshmibai  -->
+	<!-- Gilgamesh  -->
 	<!-- 4 Major Triumphs Antiquity -->
 	<Modifier id="CHALLENGE_GILGAMESH_MAJOR_TRIUMPHS_ANTIQUITY_COMPLETE" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
 		<OwnerRequirements>
@@ -63,512 +63,1034 @@
 	</Modifier>
 	<!-- Specific Triumphs -->
 	<!-- Antiquity -->
-	<Modifier id="CHALLENGE_GILGAMESH_CULTURE_TRIUMPH_ANTIQUITY_COMPLETE" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+	<!-- Gilgamesh Culture Triumphs Antiquity -->
+	<!-- Reqset -->
+	<RequirementSet id="REQSET_GILGAMESH_CULTURE_TRIUMPH_ANTIQUITY_COMPLETED">
+		<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
+			<Argument name="AgeType">AGE_ANTIQUITY</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
+			<Argument name="LeaderType">LEADER_GILGAMESH</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+			<Argument name="TriumphTypes">LEGACY_AQ_CULTURAL_1, LEGACY_AQ_CULTURAL_1_RACE</Argument>
+		</Requirement>
+	</RequirementSet>
+	<!-- Modifiers -->
+	<Modifier id="CHALLENGE_GILGAMESH_CULTURE_TRIUMPH_ANTIQUITY_COMPLETE" collection="COLLECTION_OWNER" effect="EFFECT_ATTACH_MODIFIERS" permanent="true">
 		<OwnerRequirements>
-			<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
-				<Argument name="AgeType">AGE_ANTIQUITY</Argument>
+			<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+				<Argument name="RequirementSetId">REQSET_GILGAMESH_CULTURE_TRIUMPH_ANTIQUITY_COMPLETED</Argument>
 			</Requirement>
-			<Requirement type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
-				<Argument name="LeaderType">LEADER_GILGAMESH</Argument>
-			</Requirement>
-			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
-				<Argument name="TriumphTypes">LEGACY_AQ_CULTURAL_1, LEGACY_AQ_CULTURAL_1_RACE</Argument>
-			</Requirement>
+		</OwnerRequirements>
+		<Argument name="ModifierId">CHALLENGE_GILGAMESH_CULTURE_TRIUMPH_ANTIQUITY_ATTACH_EFFECT</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_GILGAMESH_CULTURE_TRIUMPH_ANTIQUITY_ATTACH_EFFECT" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_GAME_IS_STARTED"/>
 		</OwnerRequirements>
 		<Argument name="Challenge">CHALLENGE_GILGAMESH_CULTURE_TRIUMPH_ANTIQUITY</Argument>
 	</Modifier>
-	<Modifier id="CHALLENGE_GILGAMESH_CULTURE_TRIUMPH_2_ANTIQUITY_COMPLETE" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+
+	<!-- Reqset -->
+	<RequirementSet id="REQSET_GILGAMESH_CULTURE_TRIUMPH_2_ANTIQUITY_COMPLETED">
+		<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
+			<Argument name="AgeType">AGE_ANTIQUITY</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
+			<Argument name="LeaderType">LEADER_GILGAMESH</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+			<Argument name="TriumphTypes">LEGACY_AQ_CULTURAL_2, LEGACY_AQ_CULTURAL_2_RACE</Argument>
+		</Requirement>
+	</RequirementSet>
+	<!-- Modifiers -->
+	<Modifier id="CHALLENGE_GILGAMESH_CULTURE_TRIUMPH_2_ANTIQUITY_COMPLETE" collection="COLLECTION_OWNER" effect="EFFECT_ATTACH_MODIFIERS" permanent="true">
 		<OwnerRequirements>
-			<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
-				<Argument name="AgeType">AGE_ANTIQUITY</Argument>
+			<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+				<Argument name="RequirementSetId">REQSET_GILGAMESH_CULTURE_TRIUMPH_2_ANTIQUITY_COMPLETED</Argument>
 			</Requirement>
-			<Requirement type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
-				<Argument name="LeaderType">LEADER_GILGAMESH</Argument>
-			</Requirement>
-			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
-				<Argument name="TriumphTypes">LEGACY_AQ_CULTURAL_2, LEGACY_AQ_CULTURAL_2_RACE</Argument>
-			</Requirement>
+		</OwnerRequirements>
+		<Argument name="ModifierId">CHALLENGE_GILGAMESH_CULTURE_TRIUMPH_2_ANTIQUITY_ATTACH_EFFECT</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_GILGAMESH_CULTURE_TRIUMPH_2_ANTIQUITY_ATTACH_EFFECT" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_GAME_IS_STARTED"/>
 		</OwnerRequirements>
 		<Argument name="Challenge">CHALLENGE_GILGAMESH_CULTURE_TRIUMPH_2_ANTIQUITY</Argument>
 	</Modifier>
-	<Modifier id="CHALLENGE_GILGAMESH_MILITARY_TRIUMPH_ANTIQUITY_COMPLETE" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+
+	<!-- Gilgamesh Militaristic Triumphs Antiquity -->
+	<!-- Reqset -->
+	<RequirementSet id="REQSET_GILGAMESH_MILITARY_TRIUMPH_ANTIQUITY_COMPLETED">
+		<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
+			<Argument name="AgeType">AGE_ANTIQUITY</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
+			<Argument name="LeaderType">LEADER_GILGAMESH</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+			<Argument name="TriumphTypes">LEGACY_AQ_MILITARISTIC_1, LEGACY_AQ_MILITARISTIC_1_RACE</Argument>
+		</Requirement>
+	</RequirementSet>
+	<!-- Modifiers -->
+	<Modifier id="CHALLENGE_GILGAMESH_MILITARY_TRIUMPH_ANTIQUITY_COMPLETE" collection="COLLECTION_OWNER" effect="EFFECT_ATTACH_MODIFIERS" permanent="true">
 		<OwnerRequirements>
-			<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
-				<Argument name="AgeType">AGE_ANTIQUITY</Argument>
+			<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+				<Argument name="RequirementSetId">REQSET_GILGAMESH_MILITARY_TRIUMPH_ANTIQUITY_COMPLETED</Argument>
 			</Requirement>
-			<Requirement type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
-				<Argument name="LeaderType">LEADER_GILGAMESH</Argument>
-			</Requirement>
-			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
-				<Argument name="TriumphTypes">LEGACY_AQ_MILITARISTIC_1, LEGACY_AQ_MILITARISTIC_1_RACE</Argument>
-			</Requirement>
+		</OwnerRequirements>
+		<Argument name="ModifierId">CHALLENGE_GILGAMESH_MILITARY_TRIUMPH_ANTIQUITY_ATTACH_EFFECT</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_GILGAMESH_MILITARY_TRIUMPH_ANTIQUITY_ATTACH_EFFECT" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_GAME_IS_STARTED"/>
 		</OwnerRequirements>
 		<Argument name="Challenge">CHALLENGE_GILGAMESH_MILITARY_TRIUMPH_ANTIQUITY</Argument>
 	</Modifier>
-	<Modifier id="CHALLENGE_GILGAMESH_MILITARY_TRIUMPH_2_ANTIQUITY_COMPLETE" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+
+	<!-- Reqset -->
+	<RequirementSet id="REQSET_GILGAMESH_MILITARY_TRIUMPH_2_ANTIQUITY_COMPLETED">
+		<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
+			<Argument name="AgeType">AGE_ANTIQUITY</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
+			<Argument name="LeaderType">LEADER_GILGAMESH</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+			<Argument name="TriumphTypes">LEGACY_AQ_MILITARISTIC_3, LEGACY_AQ_MILITARISTIC_3_RACE</Argument>
+		</Requirement>
+	</RequirementSet>
+	<!-- Modifiers -->
+	<Modifier id="CHALLENGE_GILGAMESH_MILITARY_TRIUMPH_2_ANTIQUITY_COMPLETE" collection="COLLECTION_OWNER" effect="EFFECT_ATTACH_MODIFIERS" permanent="true">
 		<OwnerRequirements>
-			<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
-				<Argument name="AgeType">AGE_ANTIQUITY</Argument>
+			<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+				<Argument name="RequirementSetId">REQSET_GILGAMESH_MILITARY_TRIUMPH_2_ANTIQUITY_COMPLETED</Argument>
 			</Requirement>
-			<Requirement type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
-				<Argument name="LeaderType">LEADER_GILGAMESH</Argument>
-			</Requirement>
-			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
-				<Argument name="TriumphTypes">LEGACY_AQ_MILITARISTIC_3, LEGACY_AQ_MILITARISTIC_3_RACE</Argument>
-			</Requirement>
+		</OwnerRequirements>
+		<Argument name="ModifierId">CHALLENGE_GILGAMESH_MILITARY_TRIUMPH_2_ANTIQUITY_ATTACH_EFFECT</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_GILGAMESH_MILITARY_TRIUMPH_2_ANTIQUITY_ATTACH_EFFECT" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_GAME_IS_STARTED"/>
 		</OwnerRequirements>
 		<Argument name="Challenge">CHALLENGE_GILGAMESH_MILITARY_TRIUMPH_2_ANTIQUITY</Argument>
 	</Modifier>
-	<Modifier id="CHALLENGE_GILGAMESH_ECONOMIC_TRIUMPH_ANTIQUITY_COMPLETE" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+
+	<!-- Gilgamesh Economic Triumphs Antiquity -->
+	<!-- Reqset -->
+	<RequirementSet id="REQSET_GILGAMESH_ECONOMIC_TRIUMPH_ANTIQUITY_COMPLETED">
+		<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
+			<Argument name="AgeType">AGE_ANTIQUITY</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
+			<Argument name="LeaderType">LEADER_GILGAMESH</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+			<Argument name="TriumphTypes">LEGACY_AQ_ECONOMIC_2, LEGACY_AQ_ECONOMIC_2_RACE</Argument>
+		</Requirement>
+	</RequirementSet>
+	<!-- Modifiers -->
+	<Modifier id="CHALLENGE_GILGAMESH_ECONOMIC_TRIUMPH_ANTIQUITY_COMPLETE" collection="COLLECTION_OWNER" effect="EFFECT_ATTACH_MODIFIERS" permanent="true">
 		<OwnerRequirements>
-			<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
-				<Argument name="AgeType">AGE_ANTIQUITY</Argument>
+			<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+				<Argument name="RequirementSetId">REQSET_GILGAMESH_ECONOMIC_TRIUMPH_ANTIQUITY_COMPLETED</Argument>
 			</Requirement>
-			<Requirement type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
-				<Argument name="LeaderType">LEADER_GILGAMESH</Argument>
-			</Requirement>
-			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
-				<Argument name="TriumphTypes">LEGACY_AQ_ECONOMIC_2, LEGACY_AQ_ECONOMIC_2_RACE</Argument>
-			</Requirement>
+		</OwnerRequirements>
+		<Argument name="ModifierId">CHALLENGE_GILGAMESH_ECONOMIC_TRIUMPH_ANTIQUITY_ATTACH_EFFECT</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_GILGAMESH_ECONOMIC_TRIUMPH_ANTIQUITY_ATTACH_EFFECT" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_GAME_IS_STARTED"/>
 		</OwnerRequirements>
 		<Argument name="Challenge">CHALLENGE_GILGAMESH_ECONOMIC_TRIUMPH_ANTIQUITY</Argument>
 	</Modifier>
-	<Modifier id="CHALLENGE_GILGAMESH_ECONOMIC_TRIUMPH_2_ANTIQUITY_COMPLETE" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+
+	<!-- Reqset -->
+	<RequirementSet id="REQSET_GILGAMESH_ECONOMIC_TRIUMPH_2_ANTIQUITY_COMPLETED">
+		<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
+			<Argument name="AgeType">AGE_ANTIQUITY</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
+			<Argument name="LeaderType">LEADER_GILGAMESH</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+			<Argument name="TriumphTypes">LEGACY_AQ_ECONOMIC_4, LEGACY_AQ_ECONOMIC_4_RACE</Argument>
+		</Requirement>
+	</RequirementSet>
+	<!-- Modifiers -->
+	<Modifier id="CHALLENGE_GILGAMESH_ECONOMIC_TRIUMPH_2_ANTIQUITY_COMPLETE" collection="COLLECTION_OWNER" effect="EFFECT_ATTACH_MODIFIERS" permanent="true">
 		<OwnerRequirements>
-			<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
-				<Argument name="AgeType">AGE_ANTIQUITY</Argument>
+			<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+				<Argument name="RequirementSetId">REQSET_GILGAMESH_ECONOMIC_TRIUMPH_2_ANTIQUITY_COMPLETED</Argument>
 			</Requirement>
-			<Requirement type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
-				<Argument name="LeaderType">LEADER_GILGAMESH</Argument>
-			</Requirement>
-			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
-				<Argument name="TriumphTypes">LEGACY_AQ_ECONOMIC_4, LEGACY_AQ_ECONOMIC_4_RACE</Argument>
-			</Requirement>
+		</OwnerRequirements>
+		<Argument name="ModifierId">CHALLENGE_GILGAMESH_ECONOMIC_TRIUMPH_2_ANTIQUITY_ATTACH_EFFECT</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_GILGAMESH_ECONOMIC_TRIUMPH_2_ANTIQUITY_ATTACH_EFFECT" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_GAME_IS_STARTED"/>
 		</OwnerRequirements>
 		<Argument name="Challenge">CHALLENGE_GILGAMESH_ECONOMIC_TRIUMPH_2_ANTIQUITY</Argument>
 	</Modifier>
-	<Modifier id="CHALLENGE_GILGAMESH_SCIENCE_TRIUMPH_ANTIQUITY_COMPLETE" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+
+	<!-- Gilgamesh Scientific Triumphs Antiquity -->
+	<!-- Reqset -->
+	<RequirementSet id="REQSET_GILGAMESH_SCIENCE_TRIUMPH_ANTIQUITY_COMPLETED">
+		<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
+			<Argument name="AgeType">AGE_ANTIQUITY</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
+			<Argument name="LeaderType">LEADER_GILGAMESH</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+			<Argument name="TriumphTypes">LEGACY_AQ_SCIENTIFIC_3, LEGACY_AQ_SCIENTIFIC_3_RACE</Argument>
+		</Requirement>
+	</RequirementSet>
+	<!-- Modifiers -->
+	<Modifier id="CHALLENGE_GILGAMESH_SCIENCE_TRIUMPH_ANTIQUITY_COMPLETE" collection="COLLECTION_OWNER" effect="EFFECT_ATTACH_MODIFIERS" permanent="true">
 		<OwnerRequirements>
-			<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
-				<Argument name="AgeType">AGE_ANTIQUITY</Argument>
+			<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+				<Argument name="RequirementSetId">REQSET_GILGAMESH_SCIENCE_TRIUMPH_ANTIQUITY_COMPLETED</Argument>
 			</Requirement>
-			<Requirement type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
-				<Argument name="LeaderType">LEADER_GILGAMESH</Argument>
-			</Requirement>
-			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
-				<Argument name="TriumphTypes">LEGACY_AQ_SCIENTIFIC_3, LEGACY_AQ_SCIENTIFIC_3_RACE</Argument>
-			</Requirement>
+		</OwnerRequirements>
+		<Argument name="ModifierId">CHALLENGE_GILGAMESH_SCIENCE_TRIUMPH_ANTIQUITY_ATTACH_EFFECT</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_GILGAMESH_SCIENCE_TRIUMPH_ANTIQUITY_ATTACH_EFFECT" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_GAME_IS_STARTED"/>
 		</OwnerRequirements>
 		<Argument name="Challenge">CHALLENGE_GILGAMESH_SCIENCE_TRIUMPH_ANTIQUITY</Argument>
 	</Modifier>
-	<Modifier id="CHALLENGE_GILGAMESH_SCIENCE_TRIUMPH_2_ANTIQUITY_COMPLETE" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+
+	<!-- Reqset -->
+	<RequirementSet id="REQSET_GILGAMESH_SCIENCE_TRIUMPH_2_ANTIQUITY_COMPLETED">
+		<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
+			<Argument name="AgeType">AGE_ANTIQUITY</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
+			<Argument name="LeaderType">LEADER_GILGAMESH</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+			<Argument name="TriumphTypes">LEGACY_AQ_SCIENTIFIC_1, LEGACY_AQ_SCIENTIFIC_1_RACE</Argument>
+		</Requirement>
+	</RequirementSet>
+	<!-- Modifiers -->
+	<Modifier id="CHALLENGE_GILGAMESH_SCIENCE_TRIUMPH_2_ANTIQUITY_COMPLETE" collection="COLLECTION_OWNER" effect="EFFECT_ATTACH_MODIFIERS" permanent="true">
 		<OwnerRequirements>
-			<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
-				<Argument name="AgeType">AGE_ANTIQUITY</Argument>
+			<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+				<Argument name="RequirementSetId">REQSET_GILGAMESH_SCIENCE_TRIUMPH_2_ANTIQUITY_COMPLETED</Argument>
 			</Requirement>
-			<Requirement type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
-				<Argument name="LeaderType">LEADER_GILGAMESH</Argument>
-			</Requirement>
-			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
-				<Argument name="TriumphTypes">LEGACY_AQ_SCIENTIFIC_1, LEGACY_AQ_SCIENTIFIC_1_RACE</Argument>
-			</Requirement>
+		</OwnerRequirements>
+		<Argument name="ModifierId">CHALLENGE_GILGAMESH_SCIENCE_TRIUMPH_2_ANTIQUITY_ATTACH_EFFECT</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_GILGAMESH_SCIENCE_TRIUMPH_2_ANTIQUITY_ATTACH_EFFECT" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_GAME_IS_STARTED"/>
 		</OwnerRequirements>
 		<Argument name="Challenge">CHALLENGE_GILGAMESH_SCIENCE_TRIUMPH_2_ANTIQUITY</Argument>
 	</Modifier>
-	<Modifier id="CHALLENGE_GILGAMESH_DIPLOMATIC_TRIUMPH_ANTIQUITY_COMPLETE" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+
+	<!-- Gilgamesh Diplomatic Triumphs Antiquity -->
+	<!-- Reqset -->
+	<RequirementSet id="REQSET_GILGAMESH_DIPLOMATIC_TRIUMPH_ANTIQUITY_COMPLETED">
+		<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
+			<Argument name="AgeType">AGE_ANTIQUITY</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
+			<Argument name="LeaderType">LEADER_GILGAMESH</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+			<Argument name="TriumphTypes">LEGACY_AQ_DIPLOMATIC_1, LEGACY_AQ_DIPLOMATIC_1_RACE</Argument>
+		</Requirement>
+	</RequirementSet>
+	<!-- Modifiers -->
+	<Modifier id="CHALLENGE_GILGAMESH_DIPLOMATIC_TRIUMPH_ANTIQUITY_COMPLETE" collection="COLLECTION_OWNER" effect="EFFECT_ATTACH_MODIFIERS" permanent="true">
 		<OwnerRequirements>
-			<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
-				<Argument name="AgeType">AGE_ANTIQUITY</Argument>
+			<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+				<Argument name="RequirementSetId">REQSET_GILGAMESH_DIPLOMATIC_TRIUMPH_ANTIQUITY_COMPLETED</Argument>
 			</Requirement>
-			<Requirement type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
-				<Argument name="LeaderType">LEADER_GILGAMESH</Argument>
-			</Requirement>
-			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
-				<Argument name="TriumphTypes">LEGACY_AQ_DIPLOMATIC_1, LEGACY_AQ_DIPLOMATIC_1_RACE</Argument>
-			</Requirement>
+		</OwnerRequirements>
+		<Argument name="ModifierId">CHALLENGE_GILGAMESH_DIPLOMATIC_TRIUMPH_ANTIQUITY_ATTACH_EFFECT</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_GILGAMESH_DIPLOMATIC_TRIUMPH_ANTIQUITY_ATTACH_EFFECT" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_GAME_IS_STARTED"/>
 		</OwnerRequirements>
 		<Argument name="Challenge">CHALLENGE_GILGAMESH_DIPLOMATIC_TRIUMPH_ANTIQUITY</Argument>
 	</Modifier>
-	<Modifier id="CHALLENGE_GILGAMESH_DIPLOMATIC_TRIUMPH_2_ANTIQUITY_COMPLETE" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+
+	<!-- Reqset -->
+	<RequirementSet id="REQSET_GILGAMESH_DIPLOMATIC_TRIUMPH_2_ANTIQUITY_COMPLETED">
+		<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
+			<Argument name="AgeType">AGE_ANTIQUITY</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
+			<Argument name="LeaderType">LEADER_GILGAMESH</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+			<Argument name="TriumphTypes">LEGACY_AQ_DIPLOMATIC_5, LEGACY_AQ_DIPLOMATIC_5_RACE</Argument>
+		</Requirement>
+	</RequirementSet>
+	<!-- Modifiers -->
+	<Modifier id="CHALLENGE_GILGAMESH_DIPLOMATIC_TRIUMPH_2_ANTIQUITY_COMPLETE" collection="COLLECTION_OWNER" effect="EFFECT_ATTACH_MODIFIERS" permanent="true">
 		<OwnerRequirements>
-			<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
-				<Argument name="AgeType">AGE_ANTIQUITY</Argument>
+			<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+				<Argument name="RequirementSetId">REQSET_GILGAMESH_DIPLOMATIC_TRIUMPH_2_ANTIQUITY_COMPLETED</Argument>
 			</Requirement>
-			<Requirement type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
-				<Argument name="LeaderType">LEADER_GILGAMESH</Argument>
-			</Requirement>
-			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
-				<Argument name="TriumphTypes">LEGACY_AQ_DIPLOMATIC_5, LEGACY_AQ_DIPLOMATIC_5_RACE</Argument>
-			</Requirement>
+		</OwnerRequirements>
+		<Argument name="ModifierId">CHALLENGE_GILGAMESH_DIPLOMATIC_TRIUMPH_2_ANTIQUITY_ATTACH_EFFECT</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_GILGAMESH_DIPLOMATIC_TRIUMPH_2_ANTIQUITY_ATTACH_EFFECT" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_GAME_IS_STARTED"/>
 		</OwnerRequirements>
 		<Argument name="Challenge">CHALLENGE_GILGAMESH_DIPLOMATIC_TRIUMPH_2_ANTIQUITY</Argument>
 	</Modifier>
-	<Modifier id="CHALLENGE_GILGAMESH_EXPANSIONIST_TRIUMPH_ANTIQUITY_COMPLETE" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+
+	<!-- Gilgamesh Expansionist Triumphs Antiquity -->
+	<!-- Reqset -->
+	<RequirementSet id="REQSET_GILGAMESH_EXPANSIONIST_TRIUMPH_ANTIQUITY_COMPLETED">
+		<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
+			<Argument name="AgeType">AGE_ANTIQUITY</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
+			<Argument name="LeaderType">LEADER_GILGAMESH</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+			<Argument name="TriumphTypes">LEGACY_AQ_EXPANSIONIST_1, LEGACY_AQ_EXPANSIONIST_1_RACE</Argument>
+		</Requirement>
+	</RequirementSet>
+	<!-- Modifiers -->
+	<Modifier id="CHALLENGE_GILGAMESH_EXPANSIONIST_TRIUMPH_ANTIQUITY_COMPLETE" collection="COLLECTION_OWNER" effect="EFFECT_ATTACH_MODIFIERS" permanent="true">
 		<OwnerRequirements>
-			<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
-				<Argument name="AgeType">AGE_ANTIQUITY</Argument>
+			<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+				<Argument name="RequirementSetId">REQSET_GILGAMESH_EXPANSIONIST_TRIUMPH_ANTIQUITY_COMPLETED</Argument>
 			</Requirement>
-			<Requirement type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
-				<Argument name="LeaderType">LEADER_GILGAMESH</Argument>
-			</Requirement>
-			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
-				<Argument name="TriumphTypes">LEGACY_AQ_EXPANSIONIST_1, LEGACY_AQ_EXPANSIONIST_1_RACE</Argument>
-			</Requirement>
+		</OwnerRequirements>
+		<Argument name="ModifierId">CHALLENGE_GILGAMESH_EXPANSIONIST_TRIUMPH_ANTIQUITY_ATTACH_EFFECT</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_GILGAMESH_EXPANSIONIST_TRIUMPH_ANTIQUITY_ATTACH_EFFECT" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_GAME_IS_STARTED"/>
 		</OwnerRequirements>
 		<Argument name="Challenge">CHALLENGE_GILGAMESH_EXPANSIONIST_TRIUMPH_ANTIQUITY</Argument>
 	</Modifier>
-	<Modifier id="CHALLENGE_GILGAMESH_EXPANSIONIST_TRIUMPH_2_ANTIQUITY_COMPLETE" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+
+	<!-- Reqset -->
+	<RequirementSet id="REQSET_GILGAMESH_EXPANSIONIST_TRIUMPH_2_ANTIQUITY_COMPLETED">
+		<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
+			<Argument name="AgeType">AGE_ANTIQUITY</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
+			<Argument name="LeaderType">LEADER_GILGAMESH</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+			<Argument name="TriumphTypes">LEGACY_AQ_EXPANSIONIST_3, LEGACY_AQ_EXPANSIONIST_3_RACE</Argument>
+		</Requirement>
+	</RequirementSet>
+	<!-- Modifiers -->
+	<Modifier id="CHALLENGE_GILGAMESH_EXPANSIONIST_TRIUMPH_2_ANTIQUITY_COMPLETE" collection="COLLECTION_OWNER" effect="EFFECT_ATTACH_MODIFIERS" permanent="true">
 		<OwnerRequirements>
-			<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
-				<Argument name="AgeType">AGE_ANTIQUITY</Argument>
+			<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+				<Argument name="RequirementSetId">REQSET_GILGAMESH_EXPANSIONIST_TRIUMPH_2_ANTIQUITY_COMPLETED</Argument>
 			</Requirement>
-			<Requirement type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
-				<Argument name="LeaderType">LEADER_GILGAMESH</Argument>
-			</Requirement>
-			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
-				<Argument name="TriumphTypes">LEGACY_AQ_EXPANSIONIST_3, LEGACY_AQ_EXPANSIONIST_3_RACE</Argument>
-			</Requirement>
+		</OwnerRequirements>
+		<Argument name="ModifierId">CHALLENGE_GILGAMESH_EXPANSIONIST_TRIUMPH_2_ANTIQUITY_ATTACH_EFFECT</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_GILGAMESH_EXPANSIONIST_TRIUMPH_2_ANTIQUITY_ATTACH_EFFECT" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_GAME_IS_STARTED"/>
 		</OwnerRequirements>
 		<Argument name="Challenge">CHALLENGE_GILGAMESH_EXPANSIONIST_TRIUMPH_2_ANTIQUITY</Argument>
 	</Modifier>
+
 	<!-- Exploration -->
-	<Modifier id="CHALLENGE_GILGAMESH_CULTURE_TRIUMPH_EXPLORATION_COMPLETE" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+	<!-- Gilgamesh Culture Triumphs Exploration -->
+	<!-- Reqset -->
+	<RequirementSet id="REQSET_GILGAMESH_CULTURE_TRIUMPH_EXPLORATION_COMPLETED">
+		<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
+			<Argument name="AgeType">AGE_EXPLORATION</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
+			<Argument name="LeaderType">LEADER_GILGAMESH</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+			<Argument name="TriumphTypes">LEGACY_EX_CULTURAL_1, LEGACY_EX_CULTURAL_1_RACE</Argument>
+		</Requirement>
+	</RequirementSet>
+	<!-- Modifiers -->
+	<Modifier id="CHALLENGE_GILGAMESH_CULTURE_TRIUMPH_EXPLORATION_COMPLETE" collection="COLLECTION_OWNER" effect="EFFECT_ATTACH_MODIFIERS" permanent="true">
 		<OwnerRequirements>
-			<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
-				<Argument name="AgeType">AGE_EXPLORATION</Argument>
+			<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+				<Argument name="RequirementSetId">REQSET_GILGAMESH_CULTURE_TRIUMPH_EXPLORATION_COMPLETED</Argument>
 			</Requirement>
-			<Requirement type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
-				<Argument name="LeaderType">LEADER_GILGAMESH</Argument>
-			</Requirement>
-			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
-				<Argument name="TriumphTypes">LEGACY_EX_CULTURAL_1, LEGACY_EX_CULTURAL_1_RACE</Argument>
-			</Requirement>
+		</OwnerRequirements>
+		<Argument name="ModifierId">CHALLENGE_GILGAMESH_CULTURE_TRIUMPH_EXPLORATION_ATTACH_EFFECT</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_GILGAMESH_CULTURE_TRIUMPH_EXPLORATION_ATTACH_EFFECT" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_GAME_IS_STARTED"/>
 		</OwnerRequirements>
 		<Argument name="Challenge">CHALLENGE_GILGAMESH_CULTURE_TRIUMPH_EXPLORATION</Argument>
 	</Modifier>
-	<Modifier id="CHALLENGE_GILGAMESH_CULTURE_TRIUMPH_2_EXPLORATION_COMPLETE" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+
+	<!-- Reqset -->
+	<RequirementSet id="REQSET_GILGAMESH_CULTURE_TRIUMPH_2_EXPLORATION_COMPLETED">
+		<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
+			<Argument name="AgeType">AGE_EXPLORATION</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
+			<Argument name="LeaderType">LEADER_GILGAMESH</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+			<Argument name="TriumphTypes">LEGACY_EX_CULTURAL_5, LEGACY_EX_CULTURAL_5_RACE</Argument>
+		</Requirement>
+	</RequirementSet>
+	<!-- Modifiers -->
+	<Modifier id="CHALLENGE_GILGAMESH_CULTURE_TRIUMPH_2_EXPLORATION_COMPLETE" collection="COLLECTION_OWNER" effect="EFFECT_ATTACH_MODIFIERS" permanent="true">
 		<OwnerRequirements>
-			<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
-				<Argument name="AgeType">AGE_EXPLORATION</Argument>
+			<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+				<Argument name="RequirementSetId">REQSET_GILGAMESH_CULTURE_TRIUMPH_2_EXPLORATION_COMPLETED</Argument>
 			</Requirement>
-			<Requirement type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
-				<Argument name="LeaderType">LEADER_GILGAMESH</Argument>
-			</Requirement>
-			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
-				<Argument name="TriumphTypes">LEGACY_EX_CULTURAL_5, LEGACY_EX_CULTURAL_5_RACE</Argument>
-			</Requirement>
+		</OwnerRequirements>
+		<Argument name="ModifierId">CHALLENGE_GILGAMESH_CULTURE_TRIUMPH_2_EXPLORATION_ATTACH_EFFECT</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_GILGAMESH_CULTURE_TRIUMPH_2_EXPLORATION_ATTACH_EFFECT" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_GAME_IS_STARTED"/>
 		</OwnerRequirements>
 		<Argument name="Challenge">CHALLENGE_GILGAMESH_CULTURE_TRIUMPH_2_EXPLORATION</Argument>
 	</Modifier>
-	<Modifier id="CHALLENGE_GILGAMESH_MILITARY_TRIUMPH_EXPLORATION_COMPLETE" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+
+	<!-- Gilgamesh Militaristic Triumphs Exploration -->
+	<!-- Reqset -->
+	<RequirementSet id="REQSET_GILGAMESH_MILITARY_TRIUMPH_EXPLORATION_COMPLETED">
+		<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
+			<Argument name="AgeType">AGE_EXPLORATION</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
+			<Argument name="LeaderType">LEADER_GILGAMESH</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+			<Argument name="TriumphTypes">LEGACY_EX_MILITARISTIC_1, LEGACY_EX_MILITARISTIC_1_RACE</Argument>
+		</Requirement>
+	</RequirementSet>
+	<!-- Modifiers -->
+	<Modifier id="CHALLENGE_GILGAMESH_MILITARY_TRIUMPH_EXPLORATION_COMPLETE" collection="COLLECTION_OWNER" effect="EFFECT_ATTACH_MODIFIERS" permanent="true">
 		<OwnerRequirements>
-			<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
-				<Argument name="AgeType">AGE_EXPLORATION</Argument>
+			<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+				<Argument name="RequirementSetId">REQSET_GILGAMESH_MILITARY_TRIUMPH_EXPLORATION_COMPLETED</Argument>
 			</Requirement>
-			<Requirement type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
-				<Argument name="LeaderType">LEADER_GILGAMESH</Argument>
-			</Requirement>
-			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
-				<Argument name="TriumphTypes">LEGACY_EX_MILITARISTIC_1, LEGACY_EX_MILITARISTIC_1_RACE</Argument>
-			</Requirement>
+		</OwnerRequirements>
+		<Argument name="ModifierId">CHALLENGE_GILGAMESH_MILITARY_TRIUMPH_EXPLORATION_ATTACH_EFFECT</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_GILGAMESH_MILITARY_TRIUMPH_EXPLORATION_ATTACH_EFFECT" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_GAME_IS_STARTED"/>
 		</OwnerRequirements>
 		<Argument name="Challenge">CHALLENGE_GILGAMESH_MILITARY_TRIUMPH_EXPLORATION</Argument>
 	</Modifier>
-	<Modifier id="CHALLENGE_GILGAMESH_MILITARY_TRIUMPH_2_EXPLORATION_COMPLETE" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+
+	<!-- Reqset -->
+	<RequirementSet id="REQSET_GILGAMESH_MILITARY_TRIUMPH_2_EXPLORATION_COMPLETED">
+		<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
+			<Argument name="AgeType">AGE_EXPLORATION</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
+			<Argument name="LeaderType">LEADER_GILGAMESH</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+			<Argument name="TriumphTypes">LEGACY_EX_MILITARISTIC_2, LEGACY_EX_MILITARISTIC_2_RACE</Argument>
+		</Requirement>
+	</RequirementSet>
+	<!-- Modifiers -->
+	<Modifier id="CHALLENGE_GILGAMESH_MILITARY_TRIUMPH_2_EXPLORATION_COMPLETE" collection="COLLECTION_OWNER" effect="EFFECT_ATTACH_MODIFIERS" permanent="true">
 		<OwnerRequirements>
-			<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
-				<Argument name="AgeType">AGE_EXPLORATION</Argument>
+			<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+				<Argument name="RequirementSetId">REQSET_GILGAMESH_MILITARY_TRIUMPH_2_EXPLORATION_COMPLETED</Argument>
 			</Requirement>
-			<Requirement type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
-				<Argument name="LeaderType">LEADER_GILGAMESH</Argument>
-			</Requirement>
-			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
-				<Argument name="TriumphTypes">LEGACY_EX_MILITARISTIC_2, LEGACY_EX_MILITARISTIC_2_RACE</Argument>
-			</Requirement>
+		</OwnerRequirements>
+		<Argument name="ModifierId">CHALLENGE_GILGAMESH_MILITARY_TRIUMPH_2_EXPLORATION_ATTACH_EFFECT</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_GILGAMESH_MILITARY_TRIUMPH_2_EXPLORATION_ATTACH_EFFECT" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_GAME_IS_STARTED"/>
 		</OwnerRequirements>
 		<Argument name="Challenge">CHALLENGE_GILGAMESH_MILITARY_TRIUMPH_2_EXPLORATION</Argument>
 	</Modifier>
-	<Modifier id="CHALLENGE_GILGAMESH_ECONOMIC_TRIUMPH_EXPLORATION_COMPLETE" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+
+	<!-- Gilgamesh Economic Triumphs Exploration -->
+	<!-- Reqset -->
+	<RequirementSet id="REQSET_GILGAMESH_ECONOMIC_TRIUMPH_EXPLORATION_COMPLETED">
+		<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
+			<Argument name="AgeType">AGE_EXPLORATION</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
+			<Argument name="LeaderType">LEADER_GILGAMESH</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+			<Argument name="TriumphTypes">LEGACY_EX_ECONOMIC_2, LEGACY_EX_ECONOMIC_2_RACE</Argument>
+		</Requirement>
+	</RequirementSet>
+	<!-- Modifiers -->
+	<Modifier id="CHALLENGE_GILGAMESH_ECONOMIC_TRIUMPH_EXPLORATION_COMPLETE" collection="COLLECTION_OWNER" effect="EFFECT_ATTACH_MODIFIERS" permanent="true">
 		<OwnerRequirements>
-			<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
-				<Argument name="AgeType">AGE_EXPLORATION</Argument>
+			<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+				<Argument name="RequirementSetId">REQSET_GILGAMESH_ECONOMIC_TRIUMPH_EXPLORATION_COMPLETED</Argument>
 			</Requirement>
-			<Requirement type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
-				<Argument name="LeaderType">LEADER_GILGAMESH</Argument>
-			</Requirement>
-			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
-				<Argument name="TriumphTypes">LEGACY_EX_ECONOMIC_2, LEGACY_EX_ECONOMIC_2_RACE</Argument>
-			</Requirement>
+		</OwnerRequirements>
+		<Argument name="ModifierId">CHALLENGE_GILGAMESH_ECONOMIC_TRIUMPH_EXPLORATION_ATTACH_EFFECT</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_GILGAMESH_ECONOMIC_TRIUMPH_EXPLORATION_ATTACH_EFFECT" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_GAME_IS_STARTED"/>
 		</OwnerRequirements>
 		<Argument name="Challenge">CHALLENGE_GILGAMESH_ECONOMIC_TRIUMPH_EXPLORATION</Argument>
 	</Modifier>
-	<Modifier id="CHALLENGE_GILGAMESH_ECONOMIC_TRIUMPH_2_EXPLORATION_COMPLETE" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+
+	<!-- Reqset -->
+	<RequirementSet id="REQSET_GILGAMESH_ECONOMIC_TRIUMPH_2_EXPLORATION_COMPLETED">
+		<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
+			<Argument name="AgeType">AGE_EXPLORATION</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
+			<Argument name="LeaderType">LEADER_GILGAMESH</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+			<Argument name="TriumphTypes">LEGACY_EX_ECONOMIC_3, LEGACY_EX_ECONOMIC_3_RACE</Argument>
+		</Requirement>
+	</RequirementSet>
+	<!-- Modifiers -->
+	<Modifier id="CHALLENGE_GILGAMESH_ECONOMIC_TRIUMPH_2_EXPLORATION_COMPLETE" collection="COLLECTION_OWNER" effect="EFFECT_ATTACH_MODIFIERS" permanent="true">
 		<OwnerRequirements>
-			<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
-				<Argument name="AgeType">AGE_EXPLORATION</Argument>
+			<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+				<Argument name="RequirementSetId">REQSET_GILGAMESH_ECONOMIC_TRIUMPH_2_EXPLORATION_COMPLETED</Argument>
 			</Requirement>
-			<Requirement type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
-				<Argument name="LeaderType">LEADER_GILGAMESH</Argument>
-			</Requirement>
-			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
-				<Argument name="TriumphTypes">LEGACY_EX_ECONOMIC_3, LEGACY_EX_ECONOMIC_3_RACE</Argument>
-			</Requirement>
+		</OwnerRequirements>
+		<Argument name="ModifierId">CHALLENGE_GILGAMESH_ECONOMIC_TRIUMPH_2_EXPLORATION_ATTACH_EFFECT</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_GILGAMESH_ECONOMIC_TRIUMPH_2_EXPLORATION_ATTACH_EFFECT" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_GAME_IS_STARTED"/>
 		</OwnerRequirements>
 		<Argument name="Challenge">CHALLENGE_GILGAMESH_ECONOMIC_TRIUMPH_2_EXPLORATION</Argument>
 	</Modifier>
-	<Modifier id="CHALLENGE_GILGAMESH_SCIENCE_TRIUMPH_EXPLORATION_COMPLETE" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+
+	<!-- Gilgamesh Scientific Triumphs Exploration -->
+	<!-- Reqset -->
+	<RequirementSet id="REQSET_GILGAMESH_SCIENCE_TRIUMPH_EXPLORATION_COMPLETED">
+		<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
+			<Argument name="AgeType">AGE_EXPLORATION</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
+			<Argument name="LeaderType">LEADER_GILGAMESH</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+			<Argument name="TriumphTypes">LEGACY_EX_SCIENTIFIC_1, LEGACY_EX_SCIENTIFIC_1_RACE</Argument>
+		</Requirement>
+	</RequirementSet>
+	<!-- Modifiers -->
+	<Modifier id="CHALLENGE_GILGAMESH_SCIENCE_TRIUMPH_EXPLORATION_COMPLETE" collection="COLLECTION_OWNER" effect="EFFECT_ATTACH_MODIFIERS" permanent="true">
 		<OwnerRequirements>
-			<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
-				<Argument name="AgeType">AGE_EXPLORATION</Argument>
+			<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+				<Argument name="RequirementSetId">REQSET_GILGAMESH_SCIENCE_TRIUMPH_EXPLORATION_COMPLETED</Argument>
 			</Requirement>
-			<Requirement type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
-				<Argument name="LeaderType">LEADER_GILGAMESH</Argument>
-			</Requirement>
-			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
-				<Argument name="TriumphTypes">LEGACY_EX_SCIENTIFIC_1, LEGACY_EX_SCIENTIFIC_1_RACE</Argument>
-			</Requirement>
+		</OwnerRequirements>
+		<Argument name="ModifierId">CHALLENGE_GILGAMESH_SCIENCE_TRIUMPH_EXPLORATION_ATTACH_EFFECT</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_GILGAMESH_SCIENCE_TRIUMPH_EXPLORATION_ATTACH_EFFECT" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_GAME_IS_STARTED"/>
 		</OwnerRequirements>
 		<Argument name="Challenge">CHALLENGE_GILGAMESH_SCIENCE_TRIUMPH_EXPLORATION</Argument>
 	</Modifier>
-	<Modifier id="CHALLENGE_GILGAMESH_SCIENCE_TRIUMPH_2_EXPLORATION_COMPLETE" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+
+	<!-- Reqset -->
+	<RequirementSet id="REQSET_GILGAMESH_SCIENCE_TRIUMPH_2_EXPLORATION_COMPLETED">
+		<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
+			<Argument name="AgeType">AGE_EXPLORATION</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
+			<Argument name="LeaderType">LEADER_GILGAMESH</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+			<Argument name="TriumphTypes">LEGACY_EX_SCIENTIFIC_2, LEGACY_EX_SCIENTIFIC_2_RACE</Argument>
+		</Requirement>
+	</RequirementSet>
+	<!-- Modifiers -->
+	<Modifier id="CHALLENGE_GILGAMESH_SCIENCE_TRIUMPH_2_EXPLORATION_COMPLETE" collection="COLLECTION_OWNER" effect="EFFECT_ATTACH_MODIFIERS" permanent="true">
 		<OwnerRequirements>
-			<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
-				<Argument name="AgeType">AGE_EXPLORATION</Argument>
+			<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+				<Argument name="RequirementSetId">REQSET_GILGAMESH_SCIENCE_TRIUMPH_2_EXPLORATION_COMPLETED</Argument>
 			</Requirement>
-			<Requirement type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
-				<Argument name="LeaderType">LEADER_GILGAMESH</Argument>
-			</Requirement>
-			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
-				<Argument name="TriumphTypes">LEGACY_EX_SCIENTIFIC_2, LEGACY_EX_SCIENTIFIC_2_RACE</Argument>
-			</Requirement>
+		</OwnerRequirements>
+		<Argument name="ModifierId">CHALLENGE_GILGAMESH_SCIENCE_TRIUMPH_2_EXPLORATION_ATTACH_EFFECT</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_GILGAMESH_SCIENCE_TRIUMPH_2_EXPLORATION_ATTACH_EFFECT" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_GAME_IS_STARTED"/>
 		</OwnerRequirements>
 		<Argument name="Challenge">CHALLENGE_GILGAMESH_SCIENCE_TRIUMPH_2_EXPLORATION</Argument>
 	</Modifier>
-	<Modifier id="CHALLENGE_GILGAMESH_DIPLOMATIC_TRIUMPH_EXPLORATION_COMPLETE" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+
+	<!-- Gilgamesh Diplomatic Triumphs Exploration -->
+	<!-- Reqset -->
+	<RequirementSet id="REQSET_GILGAMESH_DIPLOMATIC_TRIUMPH_EXPLORATION_COMPLETED">
+		<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
+			<Argument name="AgeType">AGE_EXPLORATION</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
+			<Argument name="LeaderType">LEADER_GILGAMESH</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+			<Argument name="TriumphTypes">LEGACY_EX_DIPLOMATIC_2, LEGACY_EX_DIPLOMATIC_2_RACE</Argument>
+		</Requirement>
+	</RequirementSet>
+	<!-- Modifiers -->
+	<Modifier id="CHALLENGE_GILGAMESH_DIPLOMATIC_TRIUMPH_EXPLORATION_COMPLETE" collection="COLLECTION_OWNER" effect="EFFECT_ATTACH_MODIFIERS" permanent="true">
 		<OwnerRequirements>
-			<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
-				<Argument name="AgeType">AGE_EXPLORATION</Argument>
+			<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+				<Argument name="RequirementSetId">REQSET_GILGAMESH_DIPLOMATIC_TRIUMPH_EXPLORATION_COMPLETED</Argument>
 			</Requirement>
-			<Requirement type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
-				<Argument name="LeaderType">LEADER_GILGAMESH</Argument>
-			</Requirement>
-			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
-				<Argument name="TriumphTypes">LEGACY_EX_DIPLOMATIC_2, LEGACY_EX_DIPLOMATIC_2_RACE</Argument>
-			</Requirement>
+		</OwnerRequirements>
+		<Argument name="ModifierId">CHALLENGE_GILGAMESH_DIPLOMATIC_TRIUMPH_EXPLORATION_ATTACH_EFFECT</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_GILGAMESH_DIPLOMATIC_TRIUMPH_EXPLORATION_ATTACH_EFFECT" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_GAME_IS_STARTED"/>
 		</OwnerRequirements>
 		<Argument name="Challenge">CHALLENGE_GILGAMESH_DIPLOMATIC_TRIUMPH_EXPLORATION</Argument>
 	</Modifier>
-	<Modifier id="CHALLENGE_GILGAMESH_DIPLOMATIC_TRIUMPH_2_EXPLORATION_COMPLETE" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+
+	<!-- Reqset -->
+	<RequirementSet id="REQSET_GILGAMESH_DIPLOMATIC_TRIUMPH_2_EXPLORATION_COMPLETED">
+		<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
+			<Argument name="AgeType">AGE_EXPLORATION</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
+			<Argument name="LeaderType">LEADER_GILGAMESH</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+			<Argument name="TriumphTypes">LEGACY_EX_DIPLOMATIC_3, LEGACY_EX_DIPLOMATIC_3_RACE</Argument>
+		</Requirement>
+	</RequirementSet>
+	<!-- Modifiers -->
+	<Modifier id="CHALLENGE_GILGAMESH_DIPLOMATIC_TRIUMPH_2_EXPLORATION_COMPLETE" collection="COLLECTION_OWNER" effect="EFFECT_ATTACH_MODIFIERS" permanent="true">
 		<OwnerRequirements>
-			<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
-				<Argument name="AgeType">AGE_EXPLORATION</Argument>
+			<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+				<Argument name="RequirementSetId">REQSET_GILGAMESH_DIPLOMATIC_TRIUMPH_2_EXPLORATION_COMPLETED</Argument>
 			</Requirement>
-			<Requirement type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
-				<Argument name="LeaderType">LEADER_GILGAMESH</Argument>
-			</Requirement>
-			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
-				<Argument name="TriumphTypes">LEGACY_EX_DIPLOMATIC_3, LEGACY_EX_DIPLOMATIC_3_RACE</Argument>
-			</Requirement>
+		</OwnerRequirements>
+		<Argument name="ModifierId">CHALLENGE_GILGAMESH_DIPLOMATIC_TRIUMPH_2_EXPLORATION_ATTACH_EFFECT</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_GILGAMESH_DIPLOMATIC_TRIUMPH_2_EXPLORATION_ATTACH_EFFECT" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_GAME_IS_STARTED"/>
 		</OwnerRequirements>
 		<Argument name="Challenge">CHALLENGE_GILGAMESH_DIPLOMATIC_TRIUMPH_2_EXPLORATION</Argument>
 	</Modifier>
-	<Modifier id="CHALLENGE_GILGAMESH_EXPANSIONIST_TRIUMPH_EXPLORATION_COMPLETE" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+
+	<!-- Gilgamesh Expansionist Triumphs Exploration -->
+	<!-- Reqset -->
+	<RequirementSet id="REQSET_GILGAMESH_EXPANSIONIST_TRIUMPH_EXPLORATION_COMPLETED">
+		<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
+			<Argument name="AgeType">AGE_EXPLORATION</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
+			<Argument name="LeaderType">LEADER_GILGAMESH</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+			<Argument name="TriumphTypes">LEGACY_EX_EXPANSIONIST_1, LEGACY_EX_EXPANSIONIST_1_RACE</Argument>
+		</Requirement>
+	</RequirementSet>
+	<!-- Modifiers -->
+	<Modifier id="CHALLENGE_GILGAMESH_EXPANSIONIST_TRIUMPH_EXPLORATION_COMPLETE" collection="COLLECTION_OWNER" effect="EFFECT_ATTACH_MODIFIERS" permanent="true">
 		<OwnerRequirements>
-			<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
-				<Argument name="AgeType">AGE_EXPLORATION</Argument>
+			<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+				<Argument name="RequirementSetId">REQSET_GILGAMESH_EXPANSIONIST_TRIUMPH_EXPLORATION_COMPLETED</Argument>
 			</Requirement>
-			<Requirement type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
-				<Argument name="LeaderType">LEADER_GILGAMESH</Argument>
-			</Requirement>
-			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
-				<Argument name="TriumphTypes">LEGACY_EX_EXPANSIONIST_1, LEGACY_EX_EXPANSIONIST_1_RACE</Argument>
-			</Requirement>
+		</OwnerRequirements>
+		<Argument name="ModifierId">CHALLENGE_GILGAMESH_EXPANSIONIST_TRIUMPH_EXPLORATION_ATTACH_EFFECT</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_GILGAMESH_EXPANSIONIST_TRIUMPH_EXPLORATION_ATTACH_EFFECT" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_GAME_IS_STARTED"/>
 		</OwnerRequirements>
 		<Argument name="Challenge">CHALLENGE_GILGAMESH_EXPANSIONIST_TRIUMPH_EXPLORATION</Argument>
 	</Modifier>
-	<Modifier id="CHALLENGE_GILGAMESH_EXPANSIONIST_TRIUMPH_2_EXPLORATION_COMPLETE" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+
+	<!-- Reqset -->
+	<RequirementSet id="REQSET_GILGAMESH_EXPANSIONIST_TRIUMPH_2_EXPLORATION_COMPLETED">
+		<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
+			<Argument name="AgeType">AGE_EXPLORATION</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
+			<Argument name="LeaderType">LEADER_GILGAMESH</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+			<Argument name="TriumphTypes">LEGACY_EX_EXPANSIONIST_2, LEGACY_EX_EXPANSIONIST_2_RACE</Argument>
+		</Requirement>
+	</RequirementSet>
+	<!-- Modifiers -->
+	<Modifier id="CHALLENGE_GILGAMESH_EXPANSIONIST_TRIUMPH_2_EXPLORATION_COMPLETE" collection="COLLECTION_OWNER" effect="EFFECT_ATTACH_MODIFIERS" permanent="true">
 		<OwnerRequirements>
-			<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
-				<Argument name="AgeType">AGE_EXPLORATION</Argument>
+			<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+				<Argument name="RequirementSetId">REQSET_GILGAMESH_EXPANSIONIST_TRIUMPH_2_EXPLORATION_COMPLETED</Argument>
 			</Requirement>
-			<Requirement type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
-				<Argument name="LeaderType">LEADER_GILGAMESH</Argument>
-			</Requirement>
-			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
-				<Argument name="TriumphTypes">LEGACY_EX_EXPANSIONIST_2, LEGACY_EX_EXPANSIONIST_2_RACE</Argument>
-			</Requirement>
+		</OwnerRequirements>
+		<Argument name="ModifierId">CHALLENGE_GILGAMESH_EXPANSIONIST_TRIUMPH_2_EXPLORATION_ATTACH_EFFECT</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_GILGAMESH_EXPANSIONIST_TRIUMPH_2_EXPLORATION_ATTACH_EFFECT" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_GAME_IS_STARTED"/>
 		</OwnerRequirements>
 		<Argument name="Challenge">CHALLENGE_GILGAMESH_EXPANSIONIST_TRIUMPH_2_EXPLORATION</Argument>
 	</Modifier>
+
 	<!-- Modern -->
-	<Modifier id="CHALLENGE_GILGAMESH_CULTURE_TRIUMPH_MODERN_COMPLETE" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+	<!-- Gilgamesh Culture Triumphs Modern -->
+	<!-- Reqset -->
+	<RequirementSet id="REQSET_GILGAMESH_CULTURE_TRIUMPH_MODERN_COMPLETED">
+		<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
+			<Argument name="AgeType">AGE_MODERN</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
+			<Argument name="LeaderType">LEADER_GILGAMESH</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+			<Argument name="TriumphTypes">LEGACY_MO_CULTURAL_1, LEGACY_MO_CULTURAL_1_RACE</Argument>
+		</Requirement>
+	</RequirementSet>
+	<!-- Modifiers -->
+	<Modifier id="CHALLENGE_GILGAMESH_CULTURE_TRIUMPH_MODERN_COMPLETE" collection="COLLECTION_OWNER" effect="EFFECT_ATTACH_MODIFIERS" permanent="true">
 		<OwnerRequirements>
-			<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
-				<Argument name="AgeType">AGE_MODERN</Argument>
+			<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+				<Argument name="RequirementSetId">REQSET_GILGAMESH_CULTURE_TRIUMPH_MODERN_COMPLETED</Argument>
 			</Requirement>
-			<Requirement type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
-				<Argument name="LeaderType">LEADER_GILGAMESH</Argument>
-			</Requirement>
-			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
-				<Argument name="TriumphTypes">LEGACY_MO_CULTURAL_1, LEGACY_MO_CULTURAL_1_RACE</Argument>
-			</Requirement>
+		</OwnerRequirements>
+		<Argument name="ModifierId">CHALLENGE_GILGAMESH_CULTURE_TRIUMPH_MODERN_ATTACH_EFFECT</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_GILGAMESH_CULTURE_TRIUMPH_MODERN_ATTACH_EFFECT" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_GAME_IS_STARTED"/>
 		</OwnerRequirements>
 		<Argument name="Challenge">CHALLENGE_GILGAMESH_CULTURE_TRIUMPH_MODERN</Argument>
 	</Modifier>
-	<Modifier id="CHALLENGE_GILGAMESH_CULTURE_TRIUMPH_2_MODERN_COMPLETE" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+
+	<!-- Reqset -->
+	<RequirementSet id="REQSET_GILGAMESH_CULTURE_TRIUMPH_2_MODERN_COMPLETED">
+		<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
+			<Argument name="AgeType">AGE_MODERN</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
+			<Argument name="LeaderType">LEADER_GILGAMESH</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+			<Argument name="TriumphTypes">LEGACY_MO_CULTURAL_4, LEGACY_MO_CULTURAL_4_RACE</Argument>
+		</Requirement>
+	</RequirementSet>
+	<!-- Modifiers -->
+	<Modifier id="CHALLENGE_GILGAMESH_CULTURE_TRIUMPH_2_MODERN_COMPLETE" collection="COLLECTION_OWNER" effect="EFFECT_ATTACH_MODIFIERS" permanent="true">
 		<OwnerRequirements>
-			<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
-				<Argument name="AgeType">AGE_MODERN</Argument>
+			<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+				<Argument name="RequirementSetId">REQSET_GILGAMESH_CULTURE_TRIUMPH_2_MODERN_COMPLETED</Argument>
 			</Requirement>
-			<Requirement type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
-				<Argument name="LeaderType">LEADER_GILGAMESH</Argument>
-			</Requirement>
-			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
-				<Argument name="TriumphTypes">LEGACY_MO_CULTURAL_4, LEGACY_MO_CULTURAL_4_RACE</Argument>
-			</Requirement>
+		</OwnerRequirements>
+		<Argument name="ModifierId">CHALLENGE_GILGAMESH_CULTURE_TRIUMPH_2_MODERN_ATTACH_EFFECT</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_GILGAMESH_CULTURE_TRIUMPH_2_MODERN_ATTACH_EFFECT" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_GAME_IS_STARTED"/>
 		</OwnerRequirements>
 		<Argument name="Challenge">CHALLENGE_GILGAMESH_CULTURE_TRIUMPH_2_MODERN</Argument>
 	</Modifier>
-	<Modifier id="CHALLENGE_GILGAMESH_MILITARY_TRIUMPH_MODERN_COMPLETE" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+
+	<!-- Gilgamesh Militaristic Triumphs Modern -->
+	<!-- Reqset -->
+	<RequirementSet id="REQSET_GILGAMESH_MILITARY_TRIUMPH_MODERN_COMPLETED">
+		<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
+			<Argument name="AgeType">AGE_MODERN</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
+			<Argument name="LeaderType">LEADER_GILGAMESH</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+			<Argument name="TriumphTypes">LEGACY_MO_MILITARISTIC_1, LEGACY_MO_MILITARISTIC_1_RACE</Argument>
+		</Requirement>
+	</RequirementSet>
+	<!-- Modifiers -->
+	<Modifier id="CHALLENGE_GILGAMESH_MILITARY_TRIUMPH_MODERN_COMPLETE" collection="COLLECTION_OWNER" effect="EFFECT_ATTACH_MODIFIERS" permanent="true">
 		<OwnerRequirements>
-			<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
-				<Argument name="AgeType">AGE_MODERN</Argument>
+			<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+				<Argument name="RequirementSetId">REQSET_GILGAMESH_MILITARY_TRIUMPH_MODERN_COMPLETED</Argument>
 			</Requirement>
-			<Requirement type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
-				<Argument name="LeaderType">LEADER_GILGAMESH</Argument>
-			</Requirement>
-			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
-				<Argument name="TriumphTypes">LEGACY_MO_MILITARISTIC_1, LEGACY_MO_MILITARISTIC_1_RACE</Argument>
-			</Requirement>
+		</OwnerRequirements>
+		<Argument name="ModifierId">CHALLENGE_GILGAMESH_MILITARY_TRIUMPH_MODERN_ATTACH_EFFECT</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_GILGAMESH_MILITARY_TRIUMPH_MODERN_ATTACH_EFFECT" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_GAME_IS_STARTED"/>
 		</OwnerRequirements>
 		<Argument name="Challenge">CHALLENGE_GILGAMESH_MILITARY_TRIUMPH_MODERN</Argument>
 	</Modifier>
-	<Modifier id="CHALLENGE_GILGAMESH_MILITARY_TRIUMPH_2_MODERN_COMPLETE" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+
+	<!-- Reqset -->
+	<RequirementSet id="REQSET_GILGAMESH_MILITARY_TRIUMPH_2_MODERN_COMPLETED">
+		<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
+			<Argument name="AgeType">AGE_MODERN</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
+			<Argument name="LeaderType">LEADER_GILGAMESH</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+			<Argument name="TriumphTypes">LEGACY_MO_MILITARISTIC_5, LEGACY_MO_MILITARISTIC_5_RACE</Argument>
+		</Requirement>
+	</RequirementSet>
+	<!-- Modifiers -->
+	<Modifier id="CHALLENGE_GILGAMESH_MILITARY_TRIUMPH_2_MODERN_COMPLETE" collection="COLLECTION_OWNER" effect="EFFECT_ATTACH_MODIFIERS" permanent="true">
 		<OwnerRequirements>
-			<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
-				<Argument name="AgeType">AGE_MODERN</Argument>
+			<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+				<Argument name="RequirementSetId">REQSET_GILGAMESH_MILITARY_TRIUMPH_2_MODERN_COMPLETED</Argument>
 			</Requirement>
-			<Requirement type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
-				<Argument name="LeaderType">LEADER_GILGAMESH</Argument>
-			</Requirement>
-			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
-				<Argument name="TriumphTypes">LEGACY_MO_MILITARISTIC_5, LEGACY_MO_MILITARISTIC_5_RACE</Argument>
-			</Requirement>
+		</OwnerRequirements>
+		<Argument name="ModifierId">CHALLENGE_GILGAMESH_MILITARY_TRIUMPH_2_MODERN_ATTACH_EFFECT</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_GILGAMESH_MILITARY_TRIUMPH_2_MODERN_ATTACH_EFFECT" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_GAME_IS_STARTED"/>
 		</OwnerRequirements>
 		<Argument name="Challenge">CHALLENGE_GILGAMESH_MILITARY_TRIUMPH_2_MODERN</Argument>
 	</Modifier>
-	<Modifier id="CHALLENGE_GILGAMESH_ECONOMIC_TRIUMPH_MODERN_COMPLETE" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+
+	<!-- Gilgamesh Economic Triumphs Modern -->
+	<!-- Reqset -->
+	<RequirementSet id="REQSET_GILGAMESH_ECONOMIC_TRIUMPH_MODERN_COMPLETED">
+		<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
+			<Argument name="AgeType">AGE_MODERN</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
+			<Argument name="LeaderType">LEADER_GILGAMESH</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+			<Argument name="TriumphTypes">LEGACY_MO_ECONOMIC_1, LEGACY_MO_ECONOMIC_1_RACE</Argument>
+		</Requirement>
+	</RequirementSet>
+	<!-- Modifiers -->
+	<Modifier id="CHALLENGE_GILGAMESH_ECONOMIC_TRIUMPH_MODERN_COMPLETE" collection="COLLECTION_OWNER" effect="EFFECT_ATTACH_MODIFIERS" permanent="true">
 		<OwnerRequirements>
-			<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
-				<Argument name="AgeType">AGE_MODERN</Argument>
+			<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+				<Argument name="RequirementSetId">REQSET_GILGAMESH_ECONOMIC_TRIUMPH_MODERN_COMPLETED</Argument>
 			</Requirement>
-			<Requirement type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
-				<Argument name="LeaderType">LEADER_GILGAMESH</Argument>
-			</Requirement>
-			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
-				<Argument name="TriumphTypes">LEGACY_MO_ECONOMIC_1, LEGACY_MO_ECONOMIC_1_RACE</Argument>
-			</Requirement>
+		</OwnerRequirements>
+		<Argument name="ModifierId">CHALLENGE_GILGAMESH_ECONOMIC_TRIUMPH_MODERN_ATTACH_EFFECT</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_GILGAMESH_ECONOMIC_TRIUMPH_MODERN_ATTACH_EFFECT" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_GAME_IS_STARTED"/>
 		</OwnerRequirements>
 		<Argument name="Challenge">CHALLENGE_GILGAMESH_ECONOMIC_TRIUMPH_MODERN</Argument>
 	</Modifier>
-	<Modifier id="CHALLENGE_GILGAMESH_ECONOMIC_TRIUMPH_2_MODERN_COMPLETE" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+
+	<!-- Reqset -->
+	<RequirementSet id="REQSET_GILGAMESH_ECONOMIC_TRIUMPH_2_MODERN_COMPLETED">
+		<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
+			<Argument name="AgeType">AGE_MODERN</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
+			<Argument name="LeaderType">LEADER_GILGAMESH</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+			<Argument name="TriumphTypes">LEGACY_MO_ECONOMIC_5, LEGACY_MO_ECONOMIC_5_RACE</Argument>
+		</Requirement>
+	</RequirementSet>
+	<!-- Modifiers -->
+	<Modifier id="CHALLENGE_GILGAMESH_ECONOMIC_TRIUMPH_2_MODERN_COMPLETE" collection="COLLECTION_OWNER" effect="EFFECT_ATTACH_MODIFIERS" permanent="true">
 		<OwnerRequirements>
-			<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
-				<Argument name="AgeType">AGE_MODERN</Argument>
+			<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+				<Argument name="RequirementSetId">REQSET_GILGAMESH_ECONOMIC_TRIUMPH_2_MODERN_COMPLETED</Argument>
 			</Requirement>
-			<Requirement type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
-				<Argument name="LeaderType">LEADER_GILGAMESH</Argument>
-			</Requirement>
-			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
-				<Argument name="TriumphTypes">LEGACY_MO_ECONOMIC_5, LEGACY_MO_ECONOMIC_5_RACE</Argument>
-			</Requirement>
+		</OwnerRequirements>
+		<Argument name="ModifierId">CHALLENGE_GILGAMESH_ECONOMIC_TRIUMPH_2_MODERN_ATTACH_EFFECT</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_GILGAMESH_ECONOMIC_TRIUMPH_2_MODERN_ATTACH_EFFECT" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_GAME_IS_STARTED"/>
 		</OwnerRequirements>
 		<Argument name="Challenge">CHALLENGE_GILGAMESH_ECONOMIC_TRIUMPH_2_MODERN</Argument>
 	</Modifier>
-	<Modifier id="CHALLENGE_GILGAMESH_SCIENCE_TRIUMPH_MODERN_COMPLETE" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+
+	<!-- Gilgamesh Scientific Triumphs Modern -->
+	<!-- Reqset -->
+	<RequirementSet id="REQSET_GILGAMESH_SCIENCE_TRIUMPH_MODERN_COMPLETED">
+		<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
+			<Argument name="AgeType">AGE_MODERN</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
+			<Argument name="LeaderType">LEADER_GILGAMESH</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+			<Argument name="TriumphTypes">LEGACY_MO_SCIENTIFIC_1, LEGACY_MO_SCIENTIFIC_1_RACE</Argument>
+		</Requirement>
+	</RequirementSet>
+	<!-- Modifiers -->
+	<Modifier id="CHALLENGE_GILGAMESH_SCIENCE_TRIUMPH_MODERN_COMPLETE" collection="COLLECTION_OWNER" effect="EFFECT_ATTACH_MODIFIERS" permanent="true">
 		<OwnerRequirements>
-			<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
-				<Argument name="AgeType">AGE_MODERN</Argument>
+			<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+				<Argument name="RequirementSetId">REQSET_GILGAMESH_SCIENCE_TRIUMPH_MODERN_COMPLETED</Argument>
 			</Requirement>
-			<Requirement type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
-				<Argument name="LeaderType">LEADER_GILGAMESH</Argument>
-			</Requirement>
-			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
-				<Argument name="TriumphTypes">LEGACY_MO_SCIENTIFIC_1, LEGACY_MO_SCIENTIFIC_1_RACE</Argument>
-			</Requirement>
+		</OwnerRequirements>
+		<Argument name="ModifierId">CHALLENGE_GILGAMESH_SCIENCE_TRIUMPH_MODERN_ATTACH_EFFECT</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_GILGAMESH_SCIENCE_TRIUMPH_MODERN_ATTACH_EFFECT" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_GAME_IS_STARTED"/>
 		</OwnerRequirements>
 		<Argument name="Challenge">CHALLENGE_GILGAMESH_SCIENCE_TRIUMPH_MODERN</Argument>
 	</Modifier>
-	<Modifier id="CHALLENGE_GILGAMESH_SCIENCE_TRIUMPH_2_MODERN_COMPLETE" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+
+	<!-- Reqset -->
+	<RequirementSet id="REQSET_GILGAMESH_SCIENCE_TRIUMPH_2_MODERN_COMPLETED">
+		<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
+			<Argument name="AgeType">AGE_MODERN</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
+			<Argument name="LeaderType">LEADER_GILGAMESH</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+			<Argument name="TriumphTypes">LEGACY_MO_SCIENTIFIC_3, LEGACY_MO_SCIENTIFIC_3_RACE</Argument>
+		</Requirement>
+	</RequirementSet>
+	<!-- Modifiers -->
+	<Modifier id="CHALLENGE_GILGAMESH_SCIENCE_TRIUMPH_2_MODERN_COMPLETE" collection="COLLECTION_OWNER" effect="EFFECT_ATTACH_MODIFIERS" permanent="true">
 		<OwnerRequirements>
-			<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
-				<Argument name="AgeType">AGE_MODERN</Argument>
+			<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+				<Argument name="RequirementSetId">REQSET_GILGAMESH_SCIENCE_TRIUMPH_2_MODERN_COMPLETED</Argument>
 			</Requirement>
-			<Requirement type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
-				<Argument name="LeaderType">LEADER_GILGAMESH</Argument>
-			</Requirement>
-			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
-				<Argument name="TriumphTypes">LEGACY_MO_SCIENTIFIC_3, LEGACY_MO_SCIENTIFIC_3_RACE</Argument>
-			</Requirement>
+		</OwnerRequirements>
+		<Argument name="ModifierId">CHALLENGE_GILGAMESH_SCIENCE_TRIUMPH_2_MODERN_ATTACH_EFFECT</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_GILGAMESH_SCIENCE_TRIUMPH_2_MODERN_ATTACH_EFFECT" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_GAME_IS_STARTED"/>
 		</OwnerRequirements>
 		<Argument name="Challenge">CHALLENGE_GILGAMESH_SCIENCE_TRIUMPH_2_MODERN</Argument>
 	</Modifier>
-	<Modifier id="CHALLENGE_GILGAMESH_DIPLOMATIC_TRIUMPH_MODERN_COMPLETE" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+
+	<!-- Gilgamesh Diplomatic Triumphs Modern -->
+	<!-- Reqset -->
+	<RequirementSet id="REQSET_GILGAMESH_DIPLOMATIC_TRIUMPH_MODERN_COMPLETED">
+		<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
+			<Argument name="AgeType">AGE_MODERN</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
+			<Argument name="LeaderType">LEADER_GILGAMESH</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+			<Argument name="TriumphTypes">LEGACY_MO_DIPLOMATIC_2, LEGACY_MO_DIPLOMATIC_2_RACE</Argument>
+		</Requirement>
+	</RequirementSet>
+	<!-- Modifiers -->
+	<Modifier id="CHALLENGE_GILGAMESH_DIPLOMATIC_TRIUMPH_MODERN_COMPLETE" collection="COLLECTION_OWNER" effect="EFFECT_ATTACH_MODIFIERS" permanent="true">
 		<OwnerRequirements>
-			<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
-				<Argument name="AgeType">AGE_MODERN</Argument>
+			<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+				<Argument name="RequirementSetId">REQSET_GILGAMESH_DIPLOMATIC_TRIUMPH_MODERN_COMPLETED</Argument>
 			</Requirement>
-			<Requirement type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
-				<Argument name="LeaderType">LEADER_GILGAMESH</Argument>
-			</Requirement>
-			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
-				<Argument name="TriumphTypes">LEGACY_MO_DIPLOMATIC_2, LEGACY_MO_DIPLOMATIC_2_RACE</Argument>
-			</Requirement>
+		</OwnerRequirements>
+		<Argument name="ModifierId">CHALLENGE_GILGAMESH_DIPLOMATIC_TRIUMPH_MODERN_ATTACH_EFFECT</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_GILGAMESH_DIPLOMATIC_TRIUMPH_MODERN_ATTACH_EFFECT" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_GAME_IS_STARTED"/>
 		</OwnerRequirements>
 		<Argument name="Challenge">CHALLENGE_GILGAMESH_DIPLOMATIC_TRIUMPH_MODERN</Argument>
 	</Modifier>
-	<Modifier id="CHALLENGE_GILGAMESH_DIPLOMATIC_TRIUMPH_2_MODERN_COMPLETE" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+
+	<!-- Reqset -->
+	<RequirementSet id="REQSET_GILGAMESH_DIPLOMATIC_TRIUMPH_2_MODERN_COMPLETED">
+		<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
+			<Argument name="AgeType">AGE_MODERN</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
+			<Argument name="LeaderType">LEADER_GILGAMESH</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+			<Argument name="TriumphTypes">LEGACY_MO_DIPLOMATIC_4, LEGACY_MO_DIPLOMATIC_4_RACE</Argument>
+		</Requirement>
+	</RequirementSet>
+	<!-- Modifiers -->
+	<Modifier id="CHALLENGE_GILGAMESH_DIPLOMATIC_TRIUMPH_2_MODERN_COMPLETE" collection="COLLECTION_OWNER" effect="EFFECT_ATTACH_MODIFIERS" permanent="true">
 		<OwnerRequirements>
-			<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
-				<Argument name="AgeType">AGE_MODERN</Argument>
+			<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+				<Argument name="RequirementSetId">REQSET_GILGAMESH_DIPLOMATIC_TRIUMPH_2_MODERN_COMPLETED</Argument>
 			</Requirement>
-			<Requirement type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
-				<Argument name="LeaderType">LEADER_GILGAMESH</Argument>
-			</Requirement>
-			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
-				<Argument name="TriumphTypes">LEGACY_MO_DIPLOMATIC_4, LEGACY_MO_DIPLOMATIC_4_RACE</Argument>
-			</Requirement>
+		</OwnerRequirements>
+		<Argument name="ModifierId">CHALLENGE_GILGAMESH_DIPLOMATIC_TRIUMPH_2_MODERN_ATTACH_EFFECT</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_GILGAMESH_DIPLOMATIC_TRIUMPH_2_MODERN_ATTACH_EFFECT" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_GAME_IS_STARTED"/>
 		</OwnerRequirements>
 		<Argument name="Challenge">CHALLENGE_GILGAMESH_DIPLOMATIC_TRIUMPH_2_MODERN</Argument>
 	</Modifier>
-	<Modifier id="CHALLENGE_GILGAMESH_EXPANSIONIST_TRIUMPH_MODERN_COMPLETE" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+
+	<!-- Gilgamesh Expansionist Triumphs Modern -->
+	<!-- Reqset -->
+	<RequirementSet id="REQSET_GILGAMESH_EXPANSIONIST_TRIUMPH_MODERN_COMPLETED">
+		<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
+			<Argument name="AgeType">AGE_MODERN</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
+			<Argument name="LeaderType">LEADER_GILGAMESH</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+			<Argument name="TriumphTypes">LEGACY_MO_EXPANSIONIST_2, LEGACY_MO_EXPANSIONIST_2_RACE</Argument>
+		</Requirement>
+	</RequirementSet>
+	<!-- Modifiers -->
+	<Modifier id="CHALLENGE_GILGAMESH_EXPANSIONIST_TRIUMPH_MODERN_COMPLETE" collection="COLLECTION_OWNER" effect="EFFECT_ATTACH_MODIFIERS" permanent="true">
 		<OwnerRequirements>
-			<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
-				<Argument name="AgeType">AGE_MODERN</Argument>
+			<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+				<Argument name="RequirementSetId">REQSET_GILGAMESH_EXPANSIONIST_TRIUMPH_MODERN_COMPLETED</Argument>
 			</Requirement>
-			<Requirement type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
-				<Argument name="LeaderType">LEADER_GILGAMESH</Argument>
-			</Requirement>
-			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
-				<Argument name="TriumphTypes">LEGACY_MO_EXPANSIONIST_2, LEGACY_MO_EXPANSIONIST_2_RACE</Argument>
-			</Requirement>
+		</OwnerRequirements>
+		<Argument name="ModifierId">CHALLENGE_GILGAMESH_EXPANSIONIST_TRIUMPH_MODERN_ATTACH_EFFECT</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_GILGAMESH_EXPANSIONIST_TRIUMPH_MODERN_ATTACH_EFFECT" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_GAME_IS_STARTED"/>
 		</OwnerRequirements>
 		<Argument name="Challenge">CHALLENGE_GILGAMESH_EXPANSIONIST_TRIUMPH_MODERN</Argument>
 	</Modifier>
-	<Modifier id="CHALLENGE_GILGAMESH_EXPANSIONIST_TRIUMPH_2_MODERN_COMPLETE" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+
+	<!-- Reqset -->
+	<RequirementSet id="REQSET_GILGAMESH_EXPANSIONIST_TRIUMPH_2_MODERN_COMPLETED">
+		<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
+			<Argument name="AgeType">AGE_MODERN</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
+			<Argument name="LeaderType">LEADER_GILGAMESH</Argument>
+		</Requirement>
+		<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
+			<Argument name="TriumphTypes">LEGACY_MO_EXPANSIONIST_5, LEGACY_MO_EXPANSIONIST_5_RACE</Argument>
+		</Requirement>
+	</RequirementSet>
+	<!-- Modifiers -->
+	<Modifier id="CHALLENGE_GILGAMESH_EXPANSIONIST_TRIUMPH_2_MODERN_COMPLETE" collection="COLLECTION_OWNER" effect="EFFECT_ATTACH_MODIFIERS" permanent="true">
 		<OwnerRequirements>
-			<Requirement type="REQUIREMENT_GAME_AGE_TYPE_MATCH">
-				<Argument name="AgeType">AGE_MODERN</Argument>
+			<Requirement type="REQUIREMENT_REQUIREMENTSET_IS_MET">
+				<Argument name="RequirementSetId">REQSET_GILGAMESH_EXPANSIONIST_TRIUMPH_2_MODERN_COMPLETED</Argument>
 			</Requirement>
-			<Requirement type="REQUIREMENT_PLAYER_LEADER_TYPE_MATCHES">
-				<Argument name="LeaderType">LEADER_GILGAMESH</Argument>
-			</Requirement>
-			<Requirement type="REQUIREMENT_TRIUMPHS_COMPLETED">
-				<Argument name="TriumphTypes">LEGACY_MO_EXPANSIONIST_5, LEGACY_MO_EXPANSIONIST_5_RACE</Argument>
-			</Requirement>
+		</OwnerRequirements>
+		<Argument name="ModifierId">CHALLENGE_GILGAMESH_EXPANSIONIST_TRIUMPH_2_MODERN_ATTACH_EFFECT</Argument>
+	</Modifier>
+	<Modifier id="CHALLENGE_GILGAMESH_EXPANSIONIST_TRIUMPH_2_MODERN_ATTACH_EFFECT" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
+		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_GAME_IS_STARTED"/>
 		</OwnerRequirements>
 		<Argument name="Challenge">CHALLENGE_GILGAMESH_EXPANSIONIST_TRIUMPH_2_MODERN</Argument>
 	</Modifier>
+
 	<!-- Victories -->
 	<Modifier id="CHALLENGE_GILGAMESH_CULTURE_VICTORY_COMPLETE" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
 		<OwnerRequirements>
@@ -643,7 +1165,7 @@
 	<Modifier id="METAPROGRESSION_CHALLENGE_LEADER_GILGAMESH_QUEST_A_ANTIQUITY_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
 		<OwnerRequirements>
 			<Requirement type="REQUIREMENT_PLAYER_HAS_COMPLETED_NARRATIVE_STORY">
-				<Argument name="StoryType">LEADER_CHAIN_1311B</Argument>
+				<Argument name="StoryType">LEADER_CHAIN_1301B</Argument>
 			</Requirement>
 		</OwnerRequirements>
 		<Argument name="Challenge">CHALLENGE_LEADER_GILGAMESH_QUEST_A_ANTIQUITY</Argument>
@@ -651,7 +1173,7 @@
 	<Modifier id="METAPROGRESSION_CHALLENGE_LEADER_GILGAMESH_QUEST_B_ANTIQUITY_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
 		<OwnerRequirements>
 			<Requirement type="REQUIREMENT_PLAYER_HAS_COMPLETED_NARRATIVE_STORY">
-				<Argument name="StoryType">LEADER_CHAIN_1312B</Argument>
+				<Argument name="StoryType">LEADER_CHAIN_1302B</Argument>
 			</Requirement>
 		</OwnerRequirements>
 		<Argument name="Challenge">CHALLENGE_LEADER_GILGAMESH_QUEST_B_ANTIQUITY</Argument>
@@ -659,7 +1181,7 @@
 	<Modifier id="METAPROGRESSION_CHALLENGE_LEADER_GILGAMESH_QUEST_A_EXPLORATION_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
 		<OwnerRequirements>
 			<Requirement type="REQUIREMENT_PLAYER_HAS_COMPLETED_NARRATIVE_STORY">
-				<Argument name="StoryType">LEADER_CHAIN_1314B</Argument>
+				<Argument name="StoryType">LEADER_CHAIN_1304B</Argument>
 			</Requirement>
 		</OwnerRequirements>
 		<Argument name="Challenge">CHALLENGE_LEADER_GILGAMESH_QUEST_A_EXPLORATION</Argument>
@@ -667,7 +1189,7 @@
 	<Modifier id="METAPROGRESSION_CHALLENGE_LEADER_GILGAMESH_QUEST_B_EXPLORATION_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
 		<OwnerRequirements>
 			<Requirement type="REQUIREMENT_PLAYER_HAS_COMPLETED_NARRATIVE_STORY">
-				<Argument name="StoryType">LEADER_CHAIN_1316B</Argument>
+				<Argument name="StoryType">LEADER_CHAIN_1307B</Argument>
 			</Requirement>
 		</OwnerRequirements>
 		<Argument name="Challenge">CHALLENGE_LEADER_GILGAMESH_QUEST_B_EXPLORATION</Argument>
@@ -675,7 +1197,7 @@
 	<Modifier id="METAPROGRESSION_CHALLENGE_LEADER_GILGAMESH_QUEST_A_MODERN_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
 		<OwnerRequirements>
 			<Requirement type="REQUIREMENT_PLAYER_HAS_COMPLETED_NARRATIVE_STORY">
-				<Argument name="StoryType">LEADER_CHAIN_1318B</Argument>
+				<Argument name="StoryType">LEADER_CHAIN_1308B</Argument>
 			</Requirement>
 		</OwnerRequirements>
 		<Argument name="Challenge">CHALLENGE_LEADER_GILGAMESH_QUEST_A_MODERN</Argument>
@@ -683,54 +1205,30 @@
 	<Modifier id="METAPROGRESSION_CHALLENGE_LEADER_GILGAMESH_QUEST_B_MODERN_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
 		<OwnerRequirements>
 			<Requirement type="REQUIREMENT_PLAYER_HAS_COMPLETED_NARRATIVE_STORY">
-				<Argument name="StoryType">LEADER_CHAIN_1319B</Argument>
+				<Argument name="StoryType">LEADER_CHAIN_1309B</Argument>
 			</Requirement>
 		</OwnerRequirements>
 		<Argument name="Challenge">CHALLENGE_LEADER_GILGAMESH_QUEST_B_MODERN</Argument>
 	</Modifier>
 	<!--Strategycards Unlocks-->
-	<Modifier id="CHALLENGE_LEADER_GILGAMESH_UNLOCKED_STRATEGYCARDS_EXPLORATION_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_SEND_EVENT" permanent="true">
+	<Modifier id="CHALLENGE_LEADER_GILGAMESH_UNLOCKED_STRATEGYCARDS_EXPLORATION_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
 		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_GAME_IS_STARTED"/>
 			<Requirement type="REQUIREMENT_METAPROGRESSION_LEGEND_PATH_LEVEL">
 				<Argument name="SpecificPath">LEGEND_PATH_GILGAMESH</Argument>
 				<Argument name="LevelThreshold">4</Argument>
 			</Requirement>
 		</OwnerRequirements>
-		<Argument name="Event">CHALLENGE_EVENT_LEADER_GILGAMESH_UNLOCKED_STRATEGYCARDS_EXPLORATION</Argument>
+		<Argument name="Challenge">CHALLENGE_GILGAMESH_UNLOCKED_STRATEGYCARDS_EXPLORATION</Argument>
 	</Modifier>
-	<Modifier id="CHALLENGE_LEADER_GILGAMESH_UNLOCKED_STRATEGYCARDS_EXPLORATION_RECOVER_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_SEND_EVENT" permanent="true">
-		<OwnerRequirements type="REQUIREMENTSET_TEST_ALL">
-			<Requirement type="REQUIREMENT_GAME_IS_STARTED"/>
-			<Requirement type="REQUIREMENT_PLAYER_HAS_UNLOCKED_SPECIFIC_REWARD">
-				<Argument name="RewardId">STRATEGYCARD_GILGAMESH_EXPLORATION_1</Argument>
-			</Requirement>
-			<Requirement type="REQUIREMENT_PLAYER_HAS_UNLOCKED_SPECIFIC_REWARD">
-				<Argument name="Reverse">True</Argument>
-				<Argument name="RewardId">STRATEGYCARD_AS_GILGAMESH_EXPLORATION_1</Argument>
-			</Requirement>
-		</OwnerRequirements>
-		<Argument name="Event">CHALLENGE_EVENT_LEADER_GILGAMESH_UNLOCKED_STRATEGYCARDS_EXPLORATION</Argument>
-	</Modifier>
-	<Modifier id="CHALLENGE_LEADER_GILGAMESH_UNLOCKED_STRATEGYCARDS_MODERN_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_SEND_EVENT" permanent="true">
+	<Modifier id="CHALLENGE_LEADER_GILGAMESH_UNLOCKED_STRATEGYCARDS_MODERN_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_COMPLETE_CHALLENGE" permanent="true">
 		<OwnerRequirements>
+			<Requirement type="REQUIREMENT_GAME_IS_STARTED"/>
 			<Requirement type="REQUIREMENT_METAPROGRESSION_LEGEND_PATH_LEVEL">
 				<Argument name="SpecificPath">LEGEND_PATH_GILGAMESH</Argument>
 				<Argument name="LevelThreshold">8</Argument>
 			</Requirement>
 		</OwnerRequirements>
-		<Argument name="Event">CHALLENGE_EVENT_LEADER_GILGAMESH_UNLOCKED_STRATEGYCARDS_MODERN</Argument>
-	</Modifier>
-	<Modifier id="CHALLENGE_LEADER_GILGAMESH_UNLOCKED_STRATEGYCARDS_MODERN_RECOVER_ACHIEVED" collection="COLLECTION_OWNER" effect="EFFECT_METAPROGRESSION_SEND_EVENT" permanent="true">
-		<OwnerRequirements type="REQUIREMENTSET_TEST_ALL">
-			<Requirement type="REQUIREMENT_GAME_IS_STARTED"/>
-			<Requirement type="REQUIREMENT_PLAYER_HAS_UNLOCKED_SPECIFIC_REWARD">
-				<Argument name="RewardId">STRATEGYCARD_GILGAMESH_MODERN_1</Argument>
-			</Requirement>
-			<Requirement type="REQUIREMENT_PLAYER_HAS_UNLOCKED_SPECIFIC_REWARD">
-				<Argument name="Reverse">True</Argument>
-				<Argument name="RewardId">STRATEGYCARD_AS_GILGAMESH_MODERN_1</Argument>
-			</Requirement>
-		</OwnerRequirements>
-		<Argument name="Event">CHALLENGE_EVENT_LEADER_GILGAMESH_UNLOCKED_STRATEGYCARDS_MODERN</Argument>
+		<Argument name="Challenge">CHALLENGE_GILGAMESH_UNLOCKED_STRATEGYCARDS_MODERN</Argument>
 	</Modifier>
 </GameEffects>

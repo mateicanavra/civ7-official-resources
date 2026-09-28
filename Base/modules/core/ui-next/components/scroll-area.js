@@ -1,11 +1,41 @@
-import { template, use, spread, addEventListener, insert } from '../../vendor/solid-js/web/dist/web.js';
-import { createMemo, children, createSignal, useContext, createEffect, on, onMount, onCleanup, mergeProps, createComponent, Show, createRenderEffect } from '../../vendor/solid-js/dist/solid.js';
+import { template, use, spread, insert, addEventListener } from '../../vendor/solid-js/web/dist/web.js';
+import { createSignal, createContext, children, createEffect, on, createMemo, useContext, onMount, onCleanup, mergeProps, createComponent, Show, createRenderEffect } from '../../vendor/solid-js/dist/solid.js';
 import { InputEngineEventName } from '../../ui/input/input-support.js';
 import { NavHelp } from './nav-help.js';
 import { ComponentRegistry } from '../services/component-registry.js';
 import { EngineInputProxyContext } from '../services/input.js';
 
-var _tmpl$ = /* @__PURE__ */ template(`<div><div class="flex flex-col flex-auto overflow-auto w-full"><div></div></div><div class="scroll-area_track mx-2 w-4 relative"><div class="scroll-area_thumb scroll-area_thumb-bg relative top-0 h-10 w-4"><div class="scroll-area_thumb-highlight absolute inset-0"></div><div class="scroll-area_thumb-active absolute inset-0"></div></div></div></div>`);
+var _tmpl$ = /* @__PURE__ */ template(`<div class="flex flex-col flex-auto overflow-auto w-full"><div></div></div>`), _tmpl$2 = /* @__PURE__ */ template(`<div class="scroll-area_track mx-2 w-4 relative"><div class="scroll-area_thumb scroll-area_thumb-bg relative top-0 h-10 w-4"><div class="scroll-area_thumb-highlight absolute inset-0"></div><div class="scroll-area_thumb-active absolute inset-0"></div></div></div>`), _tmpl$3 = /* @__PURE__ */ template(`<div></div>`);
+class ScrollAreaContextProvider {
+  _position;
+  _setPosition;
+  _positionStart;
+  _setPositionStart;
+  constructor() {
+    const [positionStart, setPositionStart] = createSignal(0);
+    const [position, setPosition] = createSignal(0);
+    this._positionStart = positionStart;
+    this._setPositionStart = setPositionStart;
+    this._position = position;
+    this._setPosition = setPosition;
+  }
+  hasScrolledFromStart() {
+    return this.position() !== this.positionStart();
+  }
+  get positionStart() {
+    return this._positionStart;
+  }
+  setPositionStart(value) {
+    return this._setPositionStart(value);
+  }
+  get position() {
+    return this._position;
+  }
+  setPosition(value) {
+    return this._setPosition(value);
+  }
+}
+const ScrollAreaContext = createContext();
 function getPercentageOffset(position, target) {
   const trackArea = target.getBoundingClientRect();
   return (position - trackArea.y) / trackArea.height * 100;
@@ -13,6 +43,11 @@ function getPercentageOffset(position, target) {
 function clampToRange(percentage) {
   return Math.max(0, Math.min(100, percentage));
 }
+const ChildTracker = (props) => {
+  const trackedChildren = children(() => props.children);
+  createEffect(on(() => trackedChildren, () => props.onChildrenMutate()));
+  return createMemo(trackedChildren);
+};
 const ScrollAreaComponent = (props) => {
   let scrollWrapper;
   let content;
@@ -25,7 +60,6 @@ const ScrollAreaComponent = (props) => {
   let gamepadPanAnimationId = -1;
   const minThumbHeight = createMemo(() => props.minThumbHeight ?? 20);
   const scrollEndWithEpsilon = 99.99999;
-  const trackedChildren = children(() => props.children);
   const [isDragging, setIsDragging] = createSignal(false);
   const [thumbHeight, setThumbHeight] = createSignal(minThumbHeight());
   const [thumbDelta, setThumbDelta] = createSignal(0);
@@ -34,6 +68,8 @@ const ScrollAreaComponent = (props) => {
   const panRate = createMemo(() => props.panRate ?? 0.75);
   const allowGamepadPan = createMemo(() => props.allowGamepadPan ?? true);
   const proxy = useContext(EngineInputProxyContext);
+  const scrollContext = new ScrollAreaContextProvider();
+  scrollContext.setPositionStart(props.initialScroll ?? 0);
   let pendingFocus = null;
   createEffect(() => {
     const position = scrollPosition();
@@ -56,6 +92,7 @@ const ScrollAreaComponent = (props) => {
     if (clampedPosition != scrollPosition()) {
     }
     setScrollPosition(clampedPosition);
+    scrollContext.setPosition(clampedPosition);
     props.setScroll?.(clampedPosition);
   };
   const scrollToTrackPosition = (positionInPixels, thumbOffsetPercent = 50) => {
@@ -159,7 +196,6 @@ const ScrollAreaComponent = (props) => {
       inputEvent.stopPropagation();
     }
   };
-  createEffect(on(() => trackedChildren, () => handleThumbResize()));
   const handleTouchOrMousePan = (inputEvent) => {
     const y = inputEvent.detail.y;
     let handled = false;
@@ -260,7 +296,7 @@ const ScrollAreaComponent = (props) => {
     window.removeEventListener(InputEngineEventName, handleWindowEngineInput);
   });
   return (() => {
-    var _el$ = _tmpl$(), _el$2 = _el$.firstChild, _el$3 = _el$2.firstChild, _el$4 = _el$2.nextSibling, _el$5 = _el$4.firstChild, _el$6 = _el$5.firstChild, _el$7 = _el$6.nextSibling;
+    var _el$ = _tmpl$3();
     var _ref$ = props.ref;
     typeof _ref$ === "function" ? use(_ref$, _el$) : props.ref = _el$;
     spread(_el$, mergeProps(props, {
@@ -270,45 +306,62 @@ const ScrollAreaComponent = (props) => {
       "on:engine-input": handleEngineInput,
       "data-name": "ScrollArea"
     }), false, true);
-    addEventListener(_el$2, "scroll", updateScrollThumbPosition);
-    use((ref) => {
-      scrollWrapper = ref;
-    }, _el$2);
-    use((ref) => {
-      content = ref;
-    }, _el$3);
-    insert(_el$3, trackedChildren);
-    addEventListener(_el$4, "mousedown", handleTrackClick);
-    use((ref) => {
-      track = ref;
-    }, _el$4);
-    addEventListener(_el$5, "engine-input", handleThumbEngineInput);
-    addEventListener(_el$5, "mousedown", handleThumbMouseDown);
-    _el$5.style.setProperty("top", "0px");
-    insert(_el$5, createComponent(Show, {
-      get when() {
-        return allowGamepadPan();
-      },
+    insert(_el$, createComponent(ScrollAreaContext.Provider, {
+      value: scrollContext,
       get children() {
-        return createComponent(NavHelp, {
-          actionName: "inline-scroll-pan",
-          "class": "absolute top-1\\/2 -right-2 -translate-y-1\\/2"
-        });
+        return [(() => {
+          var _el$2 = _tmpl$(), _el$3 = _el$2.firstChild;
+          addEventListener(_el$2, "scroll", updateScrollThumbPosition);
+          use((ref) => {
+            scrollWrapper = ref;
+          }, _el$2);
+          use((ref) => {
+            content = ref;
+          }, _el$3);
+          insert(_el$3, createComponent(ChildTracker, {
+            onChildrenMutate: handleThumbResize,
+            get children() {
+              return props.children;
+            }
+          }));
+          return _el$2;
+        })(), (() => {
+          var _el$4 = _tmpl$2(), _el$5 = _el$4.firstChild, _el$6 = _el$5.firstChild, _el$7 = _el$6.nextSibling;
+          addEventListener(_el$4, "mousedown", handleTrackClick);
+          use((ref) => {
+            track = ref;
+          }, _el$4);
+          addEventListener(_el$5, "engine-input", handleThumbEngineInput);
+          addEventListener(_el$5, "mousedown", handleThumbMouseDown);
+          _el$5.style.setProperty("top", "0px");
+          insert(_el$5, createComponent(Show, {
+            get when() {
+              return allowGamepadPan();
+            },
+            get children() {
+              return createComponent(NavHelp, {
+                actionName: "inline-scroll-pan",
+                "class": "absolute top-1\\/2 -right-2 -translate-y-1\\/2"
+              });
+            }
+          }), null);
+          createRenderEffect((_p$) => {
+            var _v$ = !!(!isTrackVisible() && !props.reserveSpace), _v$2 = !!(!isTrackVisible() && props.reserveSpace), _v$3 = `translateY(${thumbScrollPosition()}%)`, _v$4 = `${thumbHeight()}%`;
+            _v$ !== _p$.e && _el$4.classList.toggle("hidden", _p$.e = _v$);
+            _v$2 !== _p$.t && _el$4.classList.toggle("opacity-0", _p$.t = _v$2);
+            _v$3 !== _p$.a && ((_p$.a = _v$3) != null ? _el$5.style.setProperty("transform", _v$3) : _el$5.style.removeProperty("transform"));
+            _v$4 !== _p$.o && ((_p$.o = _v$4) != null ? _el$5.style.setProperty("height", _v$4) : _el$5.style.removeProperty("height"));
+            return _p$;
+          }, {
+            e: void 0,
+            t: void 0,
+            a: void 0,
+            o: void 0
+          });
+          return _el$4;
+        })()];
       }
-    }), null);
-    createRenderEffect((_p$) => {
-      var _v$ = !!(!isTrackVisible() && !props.reserveSpace), _v$2 = !!(!isTrackVisible() && props.reserveSpace), _v$3 = `translateY(${thumbScrollPosition()}%)`, _v$4 = `${thumbHeight()}%`;
-      _v$ !== _p$.e && _el$4.classList.toggle("hidden", _p$.e = _v$);
-      _v$2 !== _p$.t && _el$4.classList.toggle("opacity-0", _p$.t = _v$2);
-      _v$3 !== _p$.a && ((_p$.a = _v$3) != null ? _el$5.style.setProperty("transform", _v$3) : _el$5.style.removeProperty("transform"));
-      _v$4 !== _p$.o && ((_p$.o = _v$4) != null ? _el$5.style.setProperty("height", _v$4) : _el$5.style.removeProperty("height"));
-      return _p$;
-    }, {
-      e: void 0,
-      t: void 0,
-      a: void 0,
-      o: void 0
-    });
+    }));
     return _el$;
   })();
 };
@@ -318,5 +371,5 @@ const ScrollArea = ComponentRegistry.register({
   images: ["blp:base_scrollbar-track.png", "blp:base_scrollbar-handle.png", "blp:base_scrollbar-handle-focus.png", "blp:base_scrollbar-handle-focus.png"]
 });
 
-export { ScrollArea };
+export { ScrollArea, ScrollAreaContext };
 //# sourceMappingURL=scroll-area.js.map

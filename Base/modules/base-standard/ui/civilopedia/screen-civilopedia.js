@@ -1,6 +1,5 @@
 import { Audio } from '../../../core/ui/audio-base/audio-support.js';
 import { DisplayQueueManager } from '../../../core/ui/context-manager/display-queue-manager.js';
-import ActionHandler from '../../../core/ui/input/action-handler.js';
 import { ActiveDeviceTypeChangedEventName } from '../../../core/ui/input/input-events.js';
 import { InputEngineEventName } from '../../../core/ui/input/input-support.js';
 import { InterfaceMode } from '../../../core/ui/interface-modes/interface-modes.js';
@@ -9,6 +8,7 @@ import Panel from '../../../core/ui/panel-support.js';
 import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
 import { Layout } from '../../../core/ui/utilities/utilities-layout.js';
 import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
+import { IsControllerActive } from '../../../core/ui-next/services/input.js';
 import { ChooserItem } from '../chooser-item/chooser-item.js';
 import { instance, DetailsType } from './model-civilopedia.js';
 import content from './screen-civilopedia.html.js';
@@ -395,8 +395,8 @@ class PediaNavigation extends Component {
   toggleNavArrows() {
     this.backContainer.classList.toggle("opacity-0", !instance.canNavigateBackwards());
     this.forwardContainer.classList.toggle("opacity-0", !instance.canNavigateForward());
-    this.backArrow.classList.toggle("hidden", ActionHandler.isGamepadActive);
-    this.forwardArrow.classList.toggle("hidden", ActionHandler.isGamepadActive);
+    this.backArrow.classList.toggle("hidden", IsControllerActive());
+    this.forwardArrow.classList.toggle("hidden", IsControllerActive());
   }
   onNavigateHome() {
     instance.navigateHome();
@@ -1002,7 +1002,7 @@ class PediaChapter extends Component {
             bullet.classList.value = "mr-2 text-accent-2";
             bullet.textContent = "•";
             const requirementText = document.createElement("div");
-            requirementText.classList.value = "font-body text-initial";
+            requirementText.classList.value = "font-body text-base";
             requirementText.innerHTML = Locale.stylize(requirement.Description);
             requirementItem.appendChild(bullet);
             requirementItem.appendChild(requirementText);
@@ -1041,7 +1041,7 @@ class PediaChapter extends Component {
           const paragraphElement = document.createElement("div");
           paragraphElement.role = "paragraph";
           paragraphElement.setAttribute("data-l10n-id", paragraph);
-          paragraphElement.classList.value = `px-3 m-3 font-body text-initial pointer-events-auto`;
+          paragraphElement.classList.value = `px-3 m-3 font-body text-base pointer-events-auto`;
           this.Root.appendChild(paragraphElement);
         }
       }
