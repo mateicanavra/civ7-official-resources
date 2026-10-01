@@ -2,7 +2,6 @@ import { render } from '../../../core/vendor/solid-js/web/dist/web.js';
 import { ActionActivateEvent } from '../../../core/ui/components/fxs-activatable.js';
 import { utils } from '../../../core/ui/graph-layout/utils.js';
 import { ComponentID } from '../../../core/ui/utilities/utilities-component-id.js';
-import { MustGetElement } from '../../../core/ui/utilities/utilities-dom.js';
 import { Icon } from '../../../core/ui/utilities/utilities-image.js';
 import { Layout } from '../../../core/ui/utilities/utilities-layout.js';
 import { TooltipHorizontalPosition, TooltipVerticalPosition } from '../../../core/ui-next/components/tooltip.js';
@@ -47,13 +46,18 @@ class GenericUnitFlag extends Component {
   MEDIUM_HEALTH_THRESHHOLD = 0.75;
   LOW_HEALTH_THRESHHOLD = 0.5;
   unitContainer = null;
-  unitHealthBar = null;
-  unitHealthBarInner = null;
   unitFlagIcon = null;
   SPACING = 32;
   BASE_OFFSET = -24;
   // Centered, w-12 maps to 48px
-  disposeTooltips = [];
+  disposeTooltips = null;
+  unitArmyStatsRoot = null;
+  unitHealthRoot = null;
+  unitHealthBar = null;
+  unitHealthBarInner = null;
+  unitLevelRoot = null;
+  playerColorPrimary = "rgb(0, 0, 0)";
+  playerColorSecondary = "rgb(255, 255, 255)";
   /**
    * A vertical offset when the unit is 'stacked' with other units.
    * TODO - The unit world anchor should be able to incorporate this offset in C++ to avoid constantly recalculating this in Script.
@@ -77,12 +81,10 @@ class GenericUnitFlag extends Component {
       this.Root.classList.add("cursor-pointer");
     }
     this.updateAffinity();
-    let playerColorPri = "rgb(0, 0, 0)";
-    let playerColorSec = "rgb(255, 255, 255)";
     const unitOwner = Players.get(this.componentID.owner);
     if (Players.isValid(this.componentID.owner) && !unitOwner?.isIndependent) {
-      playerColorPri = UI.Player.getPrimaryColorValueAsString(this.componentID.owner);
-      playerColorSec = UI.Player.getSecondaryColorValueAsString(this.componentID.owner);
+      this.playerColorPrimary = UI.Player.getPrimaryColorValueAsString(this.componentID.owner);
+      this.playerColorSecondary = UI.Player.getSecondaryColorValueAsString(this.componentID.owner);
     }
     const unitFlagContainer = document.createElement("div");
     unitFlagContainer.classList.add(
@@ -123,7 +125,7 @@ class GenericUnitFlag extends Component {
       "inset-0",
       "bg-no-repeat"
     );
-    unitFlagInnerShape.style.fxsBackgroundImageTint = playerColorPri;
+    unitFlagInnerShape.style.fxsBackgroundImageTint = this.playerColorPrimary;
     unitFlagContainer.appendChild(unitFlagInnerShape);
     const unitFlagOuterShape = document.createElement("div");
     unitFlagOuterShape.classList.add(
@@ -134,44 +136,13 @@ class GenericUnitFlag extends Component {
       "inset-0",
       "bg-no-repeat"
     );
-    unitFlagOuterShape.style.fxsBackgroundImageTint = playerColorSec;
+    unitFlagOuterShape.style.fxsBackgroundImageTint = this.playerColorSecondary;
     unitFlagContainer.appendChild(unitFlagOuterShape);
-    const unitFlagHealthbarContainer = document.createElement("div");
-    unitFlagHealthbarContainer.classList.add(
-      "unit-flag__healthbar-container",
-      "absolute",
-      "h-full",
-      "self-center",
-      "pointer-events-none"
-    );
-    unitFlagContainer.appendChild(unitFlagHealthbarContainer);
-    const unitFlagHealthbar = document.createElement("div");
-    unitFlagHealthbar.classList.add("unit-flag__healthbar", "relative", "h-3", "w-full", "bg-black");
-    unitFlagHealthbarContainer.appendChild(unitFlagHealthbar);
-    this.unitHealthBar = unitFlagHealthbar;
-    const unitFlagHealthbarSizer = document.createElement("div");
-    unitFlagHealthbarSizer.classList.add("unit-flag__healthbar-sizer", "relative", "h-3", "w-full");
-    unitFlagHealthbar.appendChild(unitFlagHealthbarSizer);
-    const unitFlagHealthbarInner = document.createElement("div");
-    unitFlagHealthbarInner.classList.add("unit-flag__healthbar-inner", "absolute", "bg-no-repeat");
-    unitFlagHealthbarSizer.appendChild(unitFlagHealthbarInner);
-    this.unitHealthBarInner = unitFlagHealthbarInner;
     const unitFlagIcon = document.createElement("div");
     unitFlagIcon.classList.add("unit-flag__icon", "pointer-events-none", "absolute", "bg-contain", "bg-no-repeat");
-    unitFlagIcon.style.fxsBackgroundImageTint = playerColorSec;
+    unitFlagIcon.style.fxsBackgroundImageTint = this.playerColorSecondary;
     unitFlagContainer.appendChild(unitFlagIcon);
     this.unitFlagIcon = unitFlagIcon;
-    const unitFlagLevelNumber = document.createElement("div");
-    unitFlagLevelNumber.classList.add(
-      "unit-flag__level-number",
-      "font-body",
-      "text-2xs",
-      "absolute",
-      "text-center",
-      "h-5"
-    );
-    unitFlagLevelNumber.style.color = playerColorSec;
-    unitFlagContainer.appendChild(unitFlagLevelNumber);
     const unitFlagTierGraphic = document.createElement("div");
     unitFlagTierGraphic.classList.add(
       "unit-flag__tier-graphic",
@@ -192,17 +163,6 @@ class GenericUnitFlag extends Component {
       }
     }
     unitFlagContainer.appendChild(unitFlagTierGraphic);
-    const unitFlagArmyStats = document.createElement("div");
-    unitFlagArmyStats.classList.add(
-      'unit-flag__army-stats"',
-      "items-center",
-      "text-center",
-      "absolute",
-      "-left-3",
-      "-right-3",
-      "bg-transparent"
-    );
-    unitFlagContainer.appendChild(unitFlagArmyStats);
     this.Root.appendChild(unitFlagContainer);
     engine.on("BeforeUnload", this.beforeUnloadListener);
     if (this._isManagerTracked) {
@@ -248,9 +208,51 @@ class GenericUnitFlag extends Component {
     this.cleanup();
     super.onDetach();
   }
+  getArmyStatsRoot() {
+    if (this.unitContainer == null) {
+      throw new Error("Expected unitContainer to be set before creating army stats root.");
+    }
+    if (this.unitArmyStatsRoot == null) {
+      const unitFlagArmyStats = document.createElement("div");
+      unitFlagArmyStats.classList.add(
+        "unit-flag__army-stats",
+        "items-center",
+        "text-center",
+        "absolute",
+        "-left-3",
+        "-right-3",
+        "bg-transparent"
+      );
+      this.unitContainer.appendChild(unitFlagArmyStats);
+      this.unitArmyStatsRoot = unitFlagArmyStats;
+    }
+    return this.unitArmyStatsRoot;
+  }
+  getUnitLevelRoot() {
+    if (this.unitFlagIcon == null) {
+      throw new Error("Expected unitFlagIcon to be set.");
+    }
+    if (this.unitLevelRoot == null) {
+      const unitFlagLevelNumber = document.createElement("div");
+      unitFlagLevelNumber.classList.add(
+        "unit-flag__level-number",
+        "font-body",
+        "text-2xs",
+        "absolute",
+        "text-center",
+        "h-5"
+      );
+      unitFlagLevelNumber.style.color = this.playerColorSecondary;
+      this.unitFlagIcon.after(unitFlagLevelNumber);
+      this.unitLevelRoot = unitFlagLevelNumber;
+    }
+    return this.unitLevelRoot;
+  }
   cleanup() {
-    this.disposeTooltips.forEach((dispose) => dispose());
-    this.disposeTooltips = [];
+    if (this.disposeTooltips) {
+      this.disposeTooltips();
+      this.disposeTooltips = null;
+    }
     if (this._isManagerTracked) {
       const manager = UnitFlagManager.instance;
       manager.removeChildFromTracking(this);
@@ -304,30 +306,78 @@ class GenericUnitFlag extends Component {
   enable() {
     this.unitContainer?.classList.remove("disabled");
   }
-  realizeUnitHealth() {
-    if (!this.unitHealthBar) {
-      console.error(
-        "unit-flags: realizeUnitHealth(): Missing this.unitHealthBar with '.unit-flag__healthbar'. cid: " + ComponentID.toLogString(this.componentID)
+  ensureUnitHealthRoot() {
+    if (this.unitFlagIcon == null) {
+      throw new Error(`Expected this.unitFlagIcon to be non-null.`);
+    }
+    if (this.unitHealthRoot == null) {
+      const unitFlagHealthbarContainer = document.createElement("div");
+      unitFlagHealthbarContainer.classList.add(
+        "unit-flag__healthbar-container",
+        "absolute",
+        "h-full",
+        "self-center",
+        "pointer-events-none"
       );
-      return;
+      const unitFlagHealthbar = document.createElement("div");
+      unitFlagHealthbar.classList.add("unit-flag__healthbar", "relative", "h-3", "w-full", "bg-black");
+      unitFlagHealthbarContainer.appendChild(unitFlagHealthbar);
+      this.unitHealthBar = unitFlagHealthbar;
+      const unitFlagHealthbarSizer = document.createElement("div");
+      unitFlagHealthbarSizer.classList.add("unit-flag__healthbar-sizer", "relative", "h-3", "w-full");
+      unitFlagHealthbar.appendChild(unitFlagHealthbarSizer);
+      const unitFlagHealthbarInner = document.createElement("div");
+      unitFlagHealthbarInner.classList.add("unit-flag__healthbar-inner", "absolute", "bg-no-repeat");
+      unitFlagHealthbarSizer.appendChild(unitFlagHealthbarInner);
+      this.unitHealthBarInner = unitFlagHealthbarInner;
+      this.unitFlagIcon.before(unitFlagHealthbarContainer);
+      this.unitHealthRoot = unitFlagHealthbarContainer;
+    }
+    return this.unitHealthRoot;
+  }
+  destroyUnitHealthRoot() {
+    if (this.unitHealthRoot) {
+      this.unitHealthRoot.remove();
+      this.unitHealthRoot = null;
+      this.unitHealthBarInner = null;
+      this.unitHealthBar = null;
+    }
+  }
+  realizeUnitHealth() {
+    if (this.unit == null) {
+      throw new Error(`Expected this.unit to be non-null.`);
     }
     const unit = this.unit;
-    this.unitHealthBar.classList.toggle("unit-flag__healthbar-med-health", false);
-    this.unitHealthBar.classList.toggle("unit-flag__healthbar-low-health", false);
     let damage = 1;
     if (unit?.Health) {
       damage = (unit.Health.maxDamage - unit.Health.damage) / unit.Health.maxDamage;
-      this.unitContainer?.classList.toggle("unit-flag--with-healthbar", unit.Health.damage > 0);
-      if (damage <= this.MEDIUM_HEALTH_THRESHHOLD && damage >= this.LOW_HEALTH_THRESHHOLD) {
-        this.unitContainer?.classList.toggle("unit-flag__healthbar-med-health", true);
-        this.unitContainer?.classList.toggle("unit-flag__healthbar-low-health", false);
-      } else if (damage < this.LOW_HEALTH_THRESHHOLD) {
-        this.unitContainer?.classList.toggle("unit-flag__healthbar-med-health", false);
-        this.unitContainer?.classList.toggle("unit-flag__healthbar-low-health", true);
-      } else {
-        this.unitContainer?.classList.toggle("unit-flag__healthbar-med-health", false);
-        this.unitContainer?.classList.toggle("unit-flag__healthbar-low-health", false);
+    }
+    if (damage != 1) {
+      this.ensureUnitHealthRoot();
+      if (this.unitHealthBar == null) {
+        throw new Error(`Expected this.unitHealthBar to be non-null.`);
       }
+      if (this.unitContainer == null) {
+        throw new Error(`Expected this.unitContainer to be non-null.`);
+      }
+      let toggleMedHealth = false;
+      let toggleLowHealth = false;
+      if (damage <= this.MEDIUM_HEALTH_THRESHHOLD && damage >= this.LOW_HEALTH_THRESHHOLD) {
+        toggleMedHealth = true;
+        toggleLowHealth = false;
+      } else if (damage < this.LOW_HEALTH_THRESHHOLD) {
+        toggleMedHealth = false;
+        toggleLowHealth = true;
+      } else {
+        toggleMedHealth = false;
+        toggleLowHealth = false;
+      }
+      this.unitHealthBar.classList.toggle("unit-flag__healthbar-med-health", toggleMedHealth);
+      this.unitHealthBar.classList.toggle("unit-flag__healthbar-low-health", toggleLowHealth);
+      this.unitContainer.classList.toggle("unit-flag--with-healthbar", true);
+    } else {
+      this.destroyUnitHealthRoot();
+      this.unitContainer?.classList.toggle("unit-flag--with-healthbar", false);
     }
     if (this.unitHealthBarInner) {
       this.unitHealthBarInner.style.widthPERCENT = utils.clamp(damage, 0, 1) * 100;
@@ -372,19 +422,18 @@ class GenericUnitFlag extends Component {
       const unitInfo = buildUnitInfoProps(unit, localPlayer);
       const tooltipDiv = this.Root.querySelector(".unit-flag__container");
       if (tooltipDiv && unitInfo) {
-        this.disposeTooltips.forEach((dispose2) => dispose2());
-        this.disposeTooltips = [];
-        const dispose = render(
+        this.disposeTooltips?.();
+        this.disposeTooltips = render(
           () => UnitFlagTooltip({
-            children: tooltipDiv,
             initialVPosition: TooltipVerticalPosition.BOTTOM,
             initialHPosition: TooltipHorizontalPosition.RIGHT,
             allowFlip: true,
+            delegateEventsTo: UnitFlagManager.instance.Root,
+            delegateEventsFrom: tooltipDiv,
             unitInfo
           }),
           this.Root
         );
-        this.disposeTooltips.push(dispose);
       }
     }
   }
@@ -402,9 +451,9 @@ class GenericUnitFlag extends Component {
     if (!unitDefinition.CanEarnExperience) {
       return;
     }
-    const promotionContainer = MustGetElement(".unit-flag__level-number", this.Root);
     const numPromotions = this.unit.Experience?.getLevel;
     if (numPromotions && numPromotions > 0) {
+      const promotionContainer = this.getUnitLevelRoot();
       let promotionNumber = this.Root.querySelector(".promotion-number");
       if (!promotionNumber) {
         removeAllChildren(promotionContainer);
@@ -428,9 +477,9 @@ class GenericUnitFlag extends Component {
     if (!this.unit.getAssociatedDisbandCityId()) {
       return;
     }
-    const TFPointsContainer = MustGetElement(".unit-flag__level-number", this.Root);
     const TFPoints = this.unit.getDisbandBaseAmount();
     if (TFPoints && TFPoints > 0) {
+      const TFPointsContainer = this.getUnitLevelRoot();
       let TreasureFleetPoints = this.Root.querySelector(".tf-points");
       if (!TreasureFleetPoints) {
         removeAllChildren(TFPointsContainer);

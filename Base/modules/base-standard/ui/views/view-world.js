@@ -4,12 +4,12 @@ import { InputHandlerState } from '../../../core/ui/input/input-support.js';
 import NavTray from '../../../core/ui/navigation-tray/model-navigation-tray.js';
 import ViewManager, { UISystem } from '../../../core/ui/views/view-manager.js';
 import { FocusManager } from '../../../core/ui-next/services/focus-manager.js';
-import { IsMouseActive, IsControllerActive } from '../../../core/ui-next/services/input.js';
+import { IsMouseKeyboardActive, IsControllerActive } from '../../../core/ui-next/services/input.js';
 import { RibbonStatsToggleStatus, DiploRibbonData, UpdateDiploRibbonEvent } from '../diplo-ribbon/model-diplo-ribbon.js';
 
 class WorldView {
   deviceTypeChangedListener = this.onDeviceTypeChanged.bind(this);
-  wasMouseKeyboard = IsMouseActive();
+  wasMouseKeyboard = IsMouseKeyboardActive();
   getName() {
     return "World";
   }
@@ -96,7 +96,7 @@ class WorldView {
     return InputHandlerState.Active;
   }
   onDeviceTypeChanged(event) {
-    if (!this.wasMouseKeyboard || !IsMouseActive()) {
+    if (!this.wasMouseKeyboard || !IsMouseKeyboardActive()) {
       if (event.detail.gamepadActive && !ContextManager.isEmpty) {
         window.dispatchEvent(new CustomEvent("ui-hide-plot-vfx"));
       } else {
@@ -107,7 +107,7 @@ class WorldView {
         window.dispatchEvent(new UpdateDiploRibbonEvent());
       }
     }
-    this.wasMouseKeyboard = IsMouseActive();
+    this.wasMouseKeyboard = IsMouseKeyboardActive();
   }
 }
 ViewManager.addHandler(new WorldView());

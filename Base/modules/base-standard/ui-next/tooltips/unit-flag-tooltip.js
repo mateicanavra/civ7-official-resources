@@ -5,14 +5,16 @@ import { ComponentRegistry } from '../../../core/ui-next/services/component-regi
 import { UnitInfoSection } from './plot-tooltip/plot-tooltip.js';
 
 const UnitFlagTooltipComponent = (props) => {
-  const [local, other] = splitProps(props, ["children", "class", "unitInfo"]);
+  const [local, other] = splitProps(props, ["class", "unitInfo", "delegateEventsTo", "delegateEventsFrom"]);
   return createComponent(Tooltip, mergeProps(other, {
+    get delegatedTrigger() {
+      return local.delegateEventsTo && local.delegateEventsFrom instanceof HTMLElement ? {
+        root: local.delegateEventsTo,
+        element: local.delegateEventsFrom
+      } : void 0;
+    },
     get children() {
-      return [createComponent(Tooltip.Trigger, {
-        get children() {
-          return local.children;
-        }
-      }), createComponent(Tooltip.Content, {
+      return createComponent(Tooltip.Content, {
         get ["class"]() {
           return local.class;
         },
@@ -23,7 +25,7 @@ const UnitFlagTooltipComponent = (props) => {
             }
           });
         }
-      })];
+      });
     }
   }));
 };

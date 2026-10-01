@@ -1,11 +1,11 @@
 import { template, insert, className, Portal, setAttribute, spread, use } from '../../vendor/solid-js/web/dist/web.js';
-import { createContext, useContext, createSignal, createMemo, onMount, onCleanup, createComponent, createRenderEffect, createEffect, on, batch, Show, mergeProps, splitProps, children } from '../../vendor/solid-js/dist/solid.js';
+import { createContext, useContext, createSignal, createMemo, onMount, onCleanup, untrack, createComponent, createRenderEffect, createEffect, on, batch, Show, mergeProps, splitProps, children } from '../../vendor/solid-js/dist/solid.js';
 import { Activatable } from './activatable.js';
 import { L10n } from './l10n.js';
 import { KBMNavHelp, NavHelp } from './nav-help.js';
 import { Slot } from './slot.js';
 import { TooltipModel, HIDE_TOOLTIPS_HOLD_THRESHOLD_MS } from './tooltip-model.js';
-import { TriggerActivationContext, TriggerActivationContextProvider, TriggerType } from './trigger.js';
+import { TriggerType, TriggerActivationContext, TriggerActivationContextProvider } from './trigger.js';
 import { ComponentRegistry } from '../services/component-registry.js';
 import { FocusManager } from '../services/focus-manager.js';
 import { isFocusable, useFocusContext } from '../services/focus.js';
@@ -166,6 +166,152 @@ function computeTooltipPosition(targetRect, tooltip, desiredV, desiredH, offset)
   };
 }
 let curTooltip = 0;
+class DelegatedTooltipController {
+  constructor(root) {
+    this.root = root;
+  }
+  registrations = /* @__PURE__ */ new WeakMap();
+  registeredElements = /* @__PURE__ */ new Set();
+  delayHandles = /* @__PURE__ */ new Map();
+  listening = false;
+  connect() {
+    if (this.listening) {
+      return;
+    }
+    this.root.addEventListener("mouseover", this.onMouseOver);
+    this.root.addEventListener("mouseout", this.onMouseOut);
+    this.root.addEventListener("focusin", this.onFocusIn);
+    this.root.addEventListener("focusout", this.onFocusOut);
+    this.root.addEventListener("engine-input", this.onEngineInput);
+    this.listening = true;
+  }
+  disconnect() {
+    for (const element of this.registeredElements) {
+      this.registrations.delete(element);
+    }
+    for (const handle of this.delayHandles.values()) {
+      clearTimeout(handle);
+    }
+    this.registeredElements.clear();
+    this.delayHandles.clear();
+    if (!this.listening) {
+      return;
+    }
+    this.root.removeEventListener("mouseover", this.onMouseOver);
+    this.root.removeEventListener("mouseout", this.onMouseOut);
+    this.root.removeEventListener("focusin", this.onFocusIn);
+    this.root.removeEventListener("focusout", this.onFocusOut);
+    this.root.removeEventListener("engine-input", this.onEngineInput);
+    this.listening = false;
+  }
+  register(registration) {
+    this.registrations.set(registration.element, registration);
+    this.registeredElements.add(registration.element);
+    this.connect();
+    return () => {
+      this.clearDelay(registration.element);
+      if (this.registrations.get(registration.element) === registration) {
+        this.registrations.delete(registration.element);
+        this.registeredElements.delete(registration.element);
+        if (this.registeredElements.size === 0) {
+          this.disconnect();
+        }
+      }
+    };
+  }
+  findRegistration(target) {
+    let element = target instanceof HTMLElement ? target : target instanceof Node ? target.parentElement : null;
+    while (element && element !== this.root) {
+      const registration = this.registrations.get(element);
+      if (registration) {
+        return registration;
+      }
+      element = element.parentElement;
+    }
+    return void 0;
+  }
+  clearDelay(element) {
+    const handle = this.delayHandles.get(element);
+    if (handle !== void 0) {
+      clearTimeout(handle);
+      this.delayHandles.delete(element);
+    }
+  }
+  triggerWithDelay(registration) {
+    this.clearDelay(registration.element);
+    const delay = TooltipModel.get().active().length === 0 ? Configuration.getUser().tooltipDelay : 0;
+    if (delay <= 0) {
+      TooltipModel.get().triggerTooltip(registration.name, TriggerType.Focus, registration.element);
+      return;
+    }
+    const handle = window.setTimeout(() => {
+      this.delayHandles.delete(registration.element);
+      TooltipModel.get().triggerTooltip(registration.name, TriggerType.Focus, registration.element);
+    }, delay);
+    this.delayHandles.set(registration.element, handle);
+  }
+  show(registration, event) {
+    if (event instanceof MouseEvent && event.screenX === 0 && event.screenY === 0) {
+      return;
+    }
+    if (event.relatedTarget instanceof Node && (registration.element === event.relatedTarget || registration.element.contains(event.relatedTarget))) {
+      return;
+    }
+    event.stopPropagation();
+    this.triggerWithDelay(registration);
+  }
+  hide(registration, event) {
+    if (event.relatedTarget instanceof Node && (registration.element === event.relatedTarget || registration.element.contains(event.relatedTarget))) {
+      return;
+    }
+    event.stopPropagation();
+    this.clearDelay(registration.element);
+    TooltipModel.get().triggerTooltip(registration.name, TriggerType.Blur, registration.element);
+  }
+  onMouseOver = (event) => {
+    console.log("onMouseOver", event.target);
+    const registration = this.findRegistration(event.target);
+    if (registration) this.show(registration, event);
+  };
+  onMouseOut = (event) => {
+    console.log("onMouseOut", event.target);
+    const registration = this.findRegistration(event.target);
+    if (registration) this.hide(registration, event);
+  };
+  onFocusIn = (event) => {
+    const registration = this.findRegistration(event.target);
+    if (registration) this.show(registration, event);
+  };
+  onFocusOut = (event) => {
+    const registration = this.findRegistration(event.target);
+    if (registration) this.hide(registration, event);
+  };
+  onEngineInput = (event) => {
+    if (event.detail.status !== InputActionStatuses.FINISH || event.detail.name !== "touch-press") {
+      return;
+    }
+    const registration = this.findRegistration(event.target);
+    if (!registration) return;
+    const tooltipModel = TooltipModel.get();
+    const activeTooltips = tooltipModel.active();
+    if (activeTooltips[activeTooltips.length - 1] === registration.name) {
+      tooltipModel.pop();
+    } else {
+      this.triggerWithDelay(registration);
+    }
+    event.stopPropagation();
+    event.preventDefault();
+  };
+}
+const delegatedTooltipControllers = /* @__PURE__ */ new WeakMap();
+function getDelegatedTooltipController(root) {
+  let controller = delegatedTooltipControllers.get(root);
+  if (!controller) {
+    controller = new DelegatedTooltipController(root);
+    delegatedTooltipControllers.set(root, controller);
+  }
+  return controller;
+}
 const TooltipRootComponent = (props) => {
   const parentCtx = useContext(TooltipContext);
   const nestedCtx = useContext(NestedTooltipContext);
@@ -199,6 +345,15 @@ const TooltipRootComponent = (props) => {
       unregister();
     });
   });
+  const delegatedTrigger = untrack(() => props.delegatedTrigger);
+  if (delegatedTrigger) {
+    const controller = getDelegatedTooltipController(delegatedTrigger.root);
+    const unregister = controller.register({
+      name,
+      element: delegatedTrigger.element
+    });
+    onCleanup(unregister);
+  }
   return createComponent(TooltipContext.Provider, {
     get value() {
       return {

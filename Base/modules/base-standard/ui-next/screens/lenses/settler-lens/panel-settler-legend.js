@@ -83,7 +83,7 @@ const SettlerLegendPanel = () => {
     if (inputEvent.detail.status == InputActionStatuses.FINISH) {
       if (inputEvent.isCancelInput() || inputEvent.detail.name == "keyboard-escape") {
         LensManager.disableLayer("fxs-radial-measure-layer");
-        if (isUnit()) return;
+        if (isUnit() && !IsControllerActive()) return;
         LensManager.setActiveLens("fxs-default-lens");
         inputEvent.preventDefault();
         inputEvent.stopImmediatePropagation();

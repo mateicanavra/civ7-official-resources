@@ -1,23 +1,23 @@
 import { ActiveDeviceTypeChangedEventName } from '../../../core/ui/input/input-events.js';
 import UpdateGate from '../../../core/ui/utilities/utilities-update-gate.js';
-import { IsMouseActive, IsControllerActive } from '../../../core/ui-next/services/input.js';
+import { IsMouseKeyboardActive, IsControllerActive } from '../../../core/ui-next/services/input.js';
 import { TreeGridSourceType, TreeGrid } from '../tree-grid/tree-grid.js';
 import { TreeGridDirection } from '../tree-grid/tree-support.js';
 
 class TechTreeModel {
   onUpdate;
   updateGate = new UpdateGate(this.update.bind(this));
-  wasMouseKeyboard = IsMouseActive();
+  wasMouseKeyboard = IsMouseKeyboardActive();
   _tree = null;
   _activeTree = null;
   _sourceProgressionTrees = void 0;
   _iconCallback = () => "";
   constructor() {
     window.addEventListener(ActiveDeviceTypeChangedEventName, () => {
-      if (!this.wasMouseKeyboard || !IsMouseActive()) {
+      if (!this.wasMouseKeyboard || !IsMouseKeyboardActive()) {
         this.updateGate.call("ModelTechTree-ActiveDeviceTypeChanged");
       }
-      this.wasMouseKeyboard = IsMouseActive();
+      this.wasMouseKeyboard = IsMouseKeyboardActive();
     });
     this.updateGate.call("constructor");
   }

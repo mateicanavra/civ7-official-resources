@@ -115,28 +115,6 @@ class ArmyCommanderFlag extends GenericUnitFlag {
             }
           }
         }
-        let numCivilians = 0;
-        const armyUnits = army.getUnitIds();
-        for (let i = 1; i < armyUnits.length; i++) {
-          const armyUnit = Units.get(armyUnits[i]);
-          if (armyUnit) {
-            const unitDef = GameInfo.Units.lookup(armyUnit.type);
-            if (unitDef) {
-              if (unitDef.FormationClass == "FORMATION_CLASS_CIVILIAN") {
-                numCivilians++;
-              }
-            }
-          }
-        }
-        const armyStats = this.Root.querySelector(".unit-flag__army-stats");
-        if (armyStats) {
-          const unitCount = army.unitCount - 1;
-          if (numCivilians > 0) {
-            armyStats.textContent = `${unitCount - numCivilians}|${army.combatUnitCapacity} + ${numCivilians}`;
-          } else {
-            armyStats.textContent = `${unitCount}|${army.combatUnitCapacity}`;
-          }
-        }
       }
     }
   }

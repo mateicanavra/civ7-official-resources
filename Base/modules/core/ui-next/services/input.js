@@ -28,6 +28,10 @@ const IsTouchActive = createMemo(() => activeInputDevice() == InputDeviceType.To
 const IsHybridActive = createMemo(() => activeInputDevice() == InputDeviceType.Hybrid);
 const IsKeyboardActive = createMemo(() => activeInputDevice() == InputDeviceType.Keyboard);
 const IsMouseActive = createMemo(() => activeInputDevice() == InputDeviceType.Mouse);
+const IsMouseKeyboardActive = createMemo(() => {
+  const device = activeInputDevice();
+  return device == InputDeviceType.Mouse || device == InputDeviceType.Keyboard;
+});
 class EngineInputProxyProvider {
   handlers = [];
   unregisterHandler(handler) {
@@ -47,5 +51,5 @@ class EngineInputProxyProvider {
 }
 const EngineInputProxyContext = createContext();
 
-export { ActiveInputDevice, ActiveInputDeviceLayout, EngineInputProxyContext, EngineInputProxyProvider, IsControllerActive, IsHybridActive, IsKeyboardActive, IsMouseActive, IsTouchActive, useActiveInputContext };
+export { ActiveInputDevice, ActiveInputDeviceLayout, EngineInputProxyContext, EngineInputProxyProvider, IsControllerActive, IsHybridActive, IsKeyboardActive, IsMouseActive, IsMouseKeyboardActive, IsTouchActive, useActiveInputContext };
 //# sourceMappingURL=input.js.map

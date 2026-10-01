@@ -117,7 +117,8 @@ class IndependentPowersUnitFlag extends Component {
   isHidden = false;
   independentID = PlayerIds.NO_PLAYER;
   privateerContainer;
-  disposeTooltips = [];
+  disposeTooltips = null;
+  tooltipRoot = null;
   SPACING = 32;
   BASE_OFFSET = -24;
   // Centered, w-12 maps to 48px
@@ -247,7 +248,7 @@ class IndependentPowersUnitFlag extends Component {
     unitFlagContainer.appendChild(unitFlagTierGraphic);
     const unitFlagArmyStats = document.createElement("div");
     unitFlagArmyStats.classList.add(
-      'unit-flag__army-stats"',
+      "unit-flag__army-stats",
       "items-center",
       "text-center",
       "absolute",
@@ -257,6 +258,8 @@ class IndependentPowersUnitFlag extends Component {
     );
     unitFlagContainer.appendChild(unitFlagArmyStats);
     this.Root.appendChild(unitFlagContainer);
+    this.tooltipRoot = document.createElement("div");
+    this.Root.appendChild(this.tooltipRoot);
     engine.on("BeforeUnload", this.onUnload, this);
     const manager = UnitFlagManager.instance;
     manager.addChildForTracking(this);
@@ -300,8 +303,10 @@ class IndependentPowersUnitFlag extends Component {
     super.onDetach();
   }
   cleanup() {
-    this.disposeTooltips.forEach((dispose) => dispose());
-    this.disposeTooltips = [];
+    if (this.disposeTooltips) {
+      this.disposeTooltips();
+      this.disposeTooltips = null;
+    }
     const manager = UnitFlagManager.instance;
     IndependentPowersFlagMaker.removeChildFromTracking(this.independentID, this);
     manager.removeChildFromTracking(this);
@@ -438,32 +443,39 @@ class IndependentPowersUnitFlag extends Component {
   }
   realizeTooltip() {
     const localPlayer = Players.get(GameContext.localObserverID);
-    if (localPlayer) {
+    if (localPlayer && this.unit) {
       const unit = this.unit;
       const unitInfo = buildUnitInfoProps(unit, localPlayer);
-      const tooltipDiv = this.Root.querySelector(".unit-flag__container");
-      if (tooltipDiv && unitInfo) {
-        this.disposeTooltips.forEach((dispose2) => dispose2());
-        this.disposeTooltips = [];
-        const dispose = render(
+      const unitFlagContainer = this.Root.querySelector(".unit-flag__container");
+      if (unitFlagContainer && unitInfo && this.tooltipRoot) {
+        this.disposeTooltips?.();
+        this.disposeTooltips = render(
           () => UnitFlagTooltip({
-            children: tooltipDiv,
             initialVPosition: TooltipVerticalPosition.BOTTOM,
             initialHPosition: TooltipHorizontalPosition.RIGHT,
             allowFlip: true,
+            delegateEventsTo: UnitFlagManager.instance.Root,
+            delegateEventsFrom: unitFlagContainer,
             unitInfo
           }),
-          this.Root
+          this.tooltipRoot
         );
-        this.disposeTooltips.push(dispose);
       }
     }
   }
   realizePromotions() {
-    const unitDefinition = GameInfo.Units.lookup(this.unit.type);
+    const unit = this.unit;
+    if (!unit) {
+      console.warn(
+        "unit-flag-independent-powers: Cannot set IP promotions due to missing Unit. cid: ",
+        ComponentID.toLogString(this.componentID)
+      );
+      return;
+    }
+    const unitDefinition = GameInfo.Units.lookup(unit.type);
     if (!unitDefinition) {
       console.warn(
-        "unit-flag: Cannot set promotions due to missing Unit Definition. type: ",
+        "unit-flag-independent-powers: Cannot set promotions due to missing Unit Definition. type: ",
         this.unit.type,
         "  cid: ",
         ComponentID.toLogString(this.componentID)

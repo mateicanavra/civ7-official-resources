@@ -1,5 +1,5 @@
-import { Dynamic } from '../../vendor/solid-js/web/dist/web.js';
-import { createSignal, createComponent, mergeProps } from '../../vendor/solid-js/dist/solid.js';
+import '../../vendor/solid-js/web/dist/web.js';
+import { createSignal, createMemo, createComponent } from '../../vendor/solid-js/dist/solid.js';
 import { ComponentUtilities } from '../utilities/component-utilities.js';
 
 const [componentRegistered, setComponentRegistered] = createSignal();
@@ -53,13 +53,7 @@ class ComponentRegistryImpl {
   }
   wrapComponentFactory(name, factory, overridePriority, cachedImages, cachedStyles) {
     const [getFactory, setFactory] = createSignal(factory);
-    const wrappedFactory = (props) => {
-      return createComponent(Dynamic, mergeProps({
-        get component() {
-          return getFactory();
-        }
-      }, props));
-    };
+    const wrappedFactory = void 0 ? (props) => createMemo(() => createComponent(getFactory(), props)) : (props) => getFactory()(props);
     wrappedFactory.factoryName = name;
     wrappedFactory.factory = getFactory;
     wrappedFactory.setFactory = setFactory;

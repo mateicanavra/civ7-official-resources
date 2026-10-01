@@ -226,7 +226,8 @@ class PanelMiniMap extends Panel {
   onContextClose(_event) {
     const deactivatedElement = _event.detail.deactivatedElement;
     if (deactivatedElement?.typeName === "lens-panel" && this.lensPanelState || deactivatedElement?.typeName === "screen-mp-chat" && this.chatPanelState) {
-      this.closeSubpanels();
+      this.chatPanelState = false;
+      this.lensPanelState = false;
     }
     this.updateChatNavHelp();
   }
